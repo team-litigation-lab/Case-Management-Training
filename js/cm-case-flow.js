@@ -401,7 +401,7 @@ function selfSummary(b, day, mod, part){   // part: "qs" (the prompts) or "scale
       <div id="cfss_res_${mod.id}">${scoreHtml(mod.id)}</div></div>`;
 }
 
-/* ---------- the full text of a block (the curriculum as written), behind "📖 Full text" ---------- */
+/* ---------- the full text of a block (the curriculum as written), behind "📖 Additional Reference" ---------- */
 function fullText(l, d){
   const {block: b} = l.cf;
   if(b.kind === "lesson"){
@@ -426,7 +426,7 @@ function fullText(l, d){
 /* ---------- the slides: one idea per slide, big type, a picture, the key point highlighted ----------
    Every block is a short run of slides (its "views"), drawn from its concise copy (js/cm-case-flow-slides.js,
    window.CM_CF_SLIDES[blockId]; written to build/case-flow/slides/SLIDESPEC.md) and its picture
-   (js/cm-case-flow-art.js). The block's full curriculum text stays one tap away (📖 Full text) and in
+   (js/cm-case-flow-art.js). The block's full curriculum text stays one tap away (📖 Additional Reference) and in
    Presenter view. A block with no concise copy yet is condensed from its full text. */
 const SLIDES = window.CM_CF_SLIDES || {}, ART = window.CM_CF_ART || {};
 /* The simulation (js/cm-case-flow-sim.js): what lands on the file to start each Skill Activity, the live
@@ -494,7 +494,7 @@ function viewsIn(b){
   if(b.kind === "lesson" && b.brief) return ["why"].concat(docView(b), ["rules"]).concat((b.ops || []).length ? ["job"] : []);   // brief: a condensed overview (Day 5's litigation)
   if(b.kind === "lesson" && b.compact) return ["why"].concat(docView(b), mapView(b), theoryViews(b).slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);   // compact: a full topic on fewer slides (Days 2, 4 and 5 keep to their slide budget)
   if(b.kind === "lesson") return ["why"].concat(docView(b), mapView(b), theoryViews(b), ["rules"],b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // noGame: the CM introduction (Meet Your Case comes before the first game)
-  if(b.kind === "activity") return ["case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], ["task"], EX.audits[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);   // compact: no See It slide (the worked model stays in 📖 Full text)
+  if(b.kind === "activity") return ["case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], ["task"], EX.audits[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);   // compact: no See It slide (the worked model stays in 📖 Additional Reference)
   return (copyOf(b).questions.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
 }
 const SMALL = new Set(["a", "an", "the", "and", "or", "but", "nor", "of", "to", "in", "on", "for", "at", "by", "with", "from", "as", "per", "vs.", "v.", "via", "into"]);
@@ -563,9 +563,8 @@ const TOOLKIT = [
   {id: "netsheet", icon: "📊", short: "Net Sheet", name: "the LSH Net Sheet", re: /Net Sheet|Lien Tracker|Recovery Ledger|Specials ledger|Financial Ledger → Specials/},
   {id: "email", icon: "✉️", short: "Email", name: "the Email Workspace", re: /Email Workspace/},
   {id: "replies", icon: "📨", short: "Replies", name: "Email Replies", re: /Email Replies/},
-  {id: "docket", icon: "⚖️", short: "Docket", name: "the Docket System", re: /Docket System/},
   {id: "records", icon: "🩺", short: "ChartSwap", name: "ChartSwap (the Medical Records Requests platform)", re: /ChartSwap|Medical Records Requests?/},
-  {id: "efiling", icon: "🏛", short: "E-Filing", name: "Court E-Filing", re: /E-Filing/},
+  {id: "efiling", icon: "🏛", short: "E-Filing", name: "Court E-Filing", re: /E-Filing|Docket System/},
   {id: "calendar", icon: "◫", short: "Conflicts", name: "the Calendar Conflict Resolver", re: /Calendar Conflict Resolver/},
   {id: "calendaring", icon: "🗓", short: "Calendaring", name: "the Calendaring Simulators", re: /Calendaring Simulators?/},
   {id: "plan", icon: "📝", short: "Action Plan", name: "your Action Plan", re: /Action Plan Editor|action plan/i},
@@ -632,14 +631,14 @@ Object.keys(STORED).forEach(id => { const st = NET_MODS[STORED[id].mod.id]; if(s
 Object.assign(NET_STAGE, {"d3m2-bins": "bi", "d3m2-umns": "um"});   // the settlement-stage sheets, one per stream
 /* The records, docket and court-filing platforms, at the steps where that work happens on John Doe's file (on top of
    any the step's own text names): ChartSwap for the records and itemized bills behind treatment, specials, liens and
-   discovery; the Docket System for every court date the litigation track sets; Court E-Filing for the complaint,
+   discovery; Court E-Filing for every court date the litigation track sets and for the complaint,
    the First Amended Complaint and alternative service. */
 const WORKED_IN = {
   "d2m2-a1": ["records"], "d2m2-a2": ["records"], "d2m2-a3": ["records"], "d2m3-a2": ["records"], "d2m4-a1": ["records"], "d3m3-a2": ["records"],
-  "d4m1-a2": ["docket", "efiling"], "d4m2-a2": ["docket"], "d5m1-a1": ["efiling", "docket", "records"], "d5m1-a2": ["docket"],
-  "d5m3-a1": ["docket"], "d5m4-a2": ["efiling"],
+  "d4m1-a2": ["efiling"], "d4m2-a2": ["efiling"], "d5m1-a1": ["efiling", "records"], "d5m1-a2": ["efiling"],
+  "d5m3-a1": ["efiling"], "d5m4-a2": ["efiling"],
   "d3m1-pkg": ["packet"], "d3m1-a1": ["packet"], "d4m3-l1": ["packet"], "d4m3-a1": ["packet"], "d4m3-l2": ["packet"], "d4m3-a2": ["packet"],
-  "d2m2-l1": ["records"], "d2m2-l2": ["records"], "d2m4-l1": ["records"], "d4m1-l2": ["efiling", "docket"], "d4m2-l1": ["docket"], "d5m1-l1": ["efiling", "docket"], "d5m1-l2": ["docket"]};
+  "d2m2-l1": ["records"], "d2m2-l2": ["records"], "d2m4-l1": ["records"], "d4m1-l2": ["efiling"], "d4m2-l1": ["efiling"], "d5m1-l1": ["efiling"], "d5m1-l2": ["efiling"]};
 /* LOR Drafting (js/cm-lor.js, on John Doe's file with no assignment) is the claims phase's: Claim Set Up drafts the LORs */
 const LOR_BLOCKS = new Set();
 (CF.sequence || []).forEach(d => d.phases.forEach(ph => { if(/^Claim Set Up/.test(ph.title)) ph.blocks.forEach(id => LOR_BLOCKS.add(id)); }));
@@ -960,7 +959,7 @@ function card(l, i, d, part){
       <div class="cfx-ribbon"><span title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span></div>
       <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}</span>
         <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.n}.${k + 1} · ${E(KIND[b.kind])}</span>${timeChip(l, d)}
-        <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Full text</button></div>
+        <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Additional Reference</button></div>
       <div class="cfx-body${onNavy ? " cfx-body-navy" : ""}">${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}</div>
     </div>`);
 }
@@ -977,12 +976,12 @@ window.cmCaseFlow.full = function(dayId, i){
   if(w && w.document){
     const head = [...document.querySelectorAll('link[rel="stylesheet"], style')].map(n => n.outerHTML).join("");
     w.document.open();
-    w.document.write(`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${E(titleCase(l.cf.block.title))} — Full Text</title><base href="${location.origin}/">${head}<style>body{background:#F4F5FA;margin:0;padding:24px 16px}.cfx-full-page{max-width:980px;margin:0 auto;padding:18px 24px !important}</style></head><body><div class="card lesson-card cfx-full-page"><h2 style="margin:0 0 12px">📖 ${E(titleCase(l.cf.block.title))} — Full Text</h2>${strip()}${fullText(l, d)}</div></body></html>`);
+    w.document.write(`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${E(titleCase(l.cf.block.title))} — Additional Reference</title><base href="${location.origin}/">${head}<style>body{background:#F4F5FA;margin:0;padding:24px 16px}.cfx-full-page{max-width:980px;margin:0 auto;padding:18px 24px !important}</style></head><body><div class="card lesson-card cfx-full-page"><h2 style="margin:0 0 12px">📖 ${E(titleCase(l.cf.block.title))} — Additional Reference</h2>${strip()}${fullText(l, d)}</div></body></html>`);
     w.document.close();
     return;
   }
-  const o = document.createElement("div"); o.className = "cfx-modal"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Full text");
-  o.innerHTML = `<div class="cfx-modal-in card lesson-card"><div class="cfx-modal-h"><b>📖 ${E(titleCase(l.cf.block.title))} — Full Text</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>${strip()}${fullText(l, d)}</div>`;
+  const o = document.createElement("div"); o.className = "cfx-modal"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Additional Reference");
+  o.innerHTML = `<div class="cfx-modal-in card lesson-card"><div class="cfx-modal-h"><b>📖 ${E(titleCase(l.cf.block.title))} — Additional Reference</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>${strip()}${fullText(l, d)}</div>`;
   const close = () => { o.remove(); document.removeEventListener("keydown", esc, true); };
   const esc = e => { if(e.key === "Escape"){ e.stopPropagation(); close(); } };
   o.addEventListener("click", e => { if(e.target === o || e.target.closest(".cfx-modal-h button")) close(); });
@@ -1441,7 +1440,7 @@ function auditBench(blockId){
         <span>Call every item first. Once it is handed in you see what the file says about each one, and the completed package.</span></div>`}</div>`;
 }
 /* ---------- every pop-up moves: drag it by its title bar ----------
-   The Full text, the exhibit audits and the Service Confirmation open over the slide. Dragged aside, the dimming lifts
+   The Additional Reference, the exhibit audits and the Service Confirmation open over the slide. Dragged aside, the dimming lifts
    and the slide and the documents behind it can be used while the pop-up stays open. The offset lives on the outer
    layer (--cfx-dx / --cfx-dy), so a pop-up that repaints its panel stays where it was put. */
 document.addEventListener("pointerdown", e => {
@@ -2031,16 +2030,29 @@ window.cmCaseFlow.workFrom = function(el){
   box.classList.remove("cfx-flash"); void box.offsetWidth; box.classList.add("cfx-flash");
 };
 /* a theory card's ＋ More: the detail that doesn't fit on the card (theory-dN.json concepts[].more), in a pop-up card */
-window.cmCaseFlow.more = function(blockId, i){
+/* In a presentation the pop-up is the room's: opened in the slides window, its live copy in the presenter console or
+   from the console's own ＋ More buttons, it opens (and closes) in every window over the presentation channel. */
+const moreCh = (() => { try{ return "BroadcastChannel" in window ? new BroadcastChannel("lsh-present-v1") : null; }catch(e){ return null; } })();
+const moreAudience = () => document.body.classList.contains("audience-mode");
+if(moreCh) moreCh.addEventListener("message", e => {
+  const m = e.data || {}; if(!moreAudience()) return;
+  if(m.type === "more") window.cmCaseFlow.more(m.blockId, m.i, true);
+  if(m.type === "moreClose" || m.type === "show" || m.type === "end") document.querySelectorAll(".cfx-more").forEach(x => x.remove());
+});
+window.cmCaseFlow.moreShow = function(blockId, i){ if(moreCh) moreCh.postMessage({type: "more", blockId, i}); };
+window.cmCaseFlow.moreHide = function(){ if(moreCh) moreCh.postMessage({type: "moreClose"}); };
+window.cmCaseFlow.more = function(blockId, i, remote){
   const t = (SLIDES[blockId] || {}).theory, x = t && t.concepts[i]; if(!x || !(x.more || []).length) return;
+  document.querySelectorAll(".cfx-more").forEach(m => m.remove());
+  if(!remote && moreAudience() && moreCh) moreCh.postMessage({type: "more", blockId, i});
   const o = document.createElement("div"); o.className = "cfx-modal cfx-more"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", x.term);
   o.innerHTML = `<div class="cfx-modal-in card lesson-card"><div class="cfx-modal-h"><b>${E(x.term)}</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>
     <p class="cfx-more-lead">${hl(x.text)}</p><ul>${x.more.map(m => `<li>${hl(m)}</li>`).join("")}</ul></div>`;
-  const close = () => { o.remove(); document.removeEventListener("keydown", esc, true); };
+  const close = () => { o.remove(); document.removeEventListener("keydown", esc, true); if(moreAudience() && moreCh) moreCh.postMessage({type: "moreClose"}); };
   const esc = e => { if(e.key === "Escape"){ e.stopPropagation(); close(); } };
   o.addEventListener("click", e => { if(e.target === o || e.target.closest(".cfx-modal-h button")) close(); });
   document.addEventListener("keydown", esc, true);
-  document.body.appendChild(o); o.querySelector(".cfx-modal-h button").focus();
+  document.body.appendChild(o); if(!remote) o.querySelector(".cfx-modal-h button").focus();
 };
 window.cmCaseFlow.back = function(){
   const r = state.cfReturn; state.cfReturn = null;
@@ -2218,10 +2230,10 @@ if(typeof window.afterRender === "function"){
   const __after = window.afterRender;
   window.afterRender = function(){ const r = __after.apply(this, arguments); try{ syncReturn(); sidePresenter(); kcFit(); fitFileCols(); adminLanding(); yearInSide(); }catch(e){} return r; };
 }
-/* Check Your Work: the reference of what the trainee did in the tool (a CMS Case ID, a docket or request number),
+/* Check Your Work: the reference of what the trainee did in the tool (a CMS Case ID, an e-filing or request number),
    kept on their record and shown to their trainer with the module's Learning Check */
 /* A trainee has one CMS Case ID (the file they open in the CMS): it is logged once, on the first Skill Activity worked
-   in the CMS; the other tools' references (a docket or request number) are logged where that work happens. */
+   in the CMS; the other tools' references (an e-filing or request number) are logged where that work happens. */
 const workTool = b => blockTools(b).filter(id => id !== "call" && !PAGE[id])[0] || "cms";
 let FIRST_CMS = null;
 const firstCmsActivity = () => FIRST_CMS || (FIRST_CMS = (MODULES.flatMap(d => d.lessons.map(l => l.cf.block)).find(x => x.kind === "activity" && workTool(x) === "cms") || {}).id);
@@ -2239,7 +2251,7 @@ window.cmCaseFlow.logWork = function(blockId, tool){
   // nothing typed on a CMS step: the case open in the CMS (js/cm-cms-case.js)
   const ref = (((el && el.value || "").trim()) || (tool === "cms" && window.CMCase ? CMCase.id() : "")).slice(0, 120);
   if(el && ref && el.value.trim() !== ref) el.value = ref;
-  if(!ref){ if(typeof toast === "function") toast("Add the reference of your work first: the CMS Case ID, docket or request number."); return; }
+  if(!ref){ if(typeof toast === "function") toast("Add the reference of your work first: the CMS Case ID, e-filing or request number."); return; }
   REC.work = REC.work || {}; REC.work[blockId] = {ref, tool, at: new Date().toISOString()}; persist();
   const ok = document.getElementById("cflogok_" + blockId); if(ok) ok.textContent = "✓ Logged " + new Date().toLocaleDateString();
   if(typeof toast === "function") toast("Logged. Your trainer sees it with this module's Learning Check.");
@@ -2349,6 +2361,23 @@ if(typeof presenterCues === "function"){   // Presenter view: the trainer's note
     if(!(slide && slide.type === "practiceLab" && cfDay(d && d.id))) return __cues.apply(this, arguments);
     const n = d.lessons.filter(l => l.cf.block.kind === "activity").length;
     return `<h3>Practice Lab</h3><p>Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. Today's ${n} Skill Activities each come straight after the lessons they practise: each opens with Your Case, then Your Task and Check Your Work. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
+  };
+}
+if(typeof presenterCues === "function"){   // Presenter view: the slide's ＋ More pop-ups, opened in the room's window from the console
+  const __cuesMore = presenterCues;
+  presenterCues = function(d, slide){
+    const html = __cuesMore.apply(this, arguments);
+    if(!(slide && slide.type === "topic" && cfDay(d && d.id))) return html;
+    const l = d.lessons[slide.lessonIndex], b = l && l.cf && l.cf.block, view = b && viewsOf(b)[(slide.part || 1) - 1];
+    const t = b && (SLIDES[b.id] || {}).theory;
+    if(!t || (view !== "theory" && view !== "theory2")) return html;
+    const half = Math.ceil(t.concepts.length / 2), two = t.concepts.length > TH_PER;
+    const list = !two ? t.concepts : view === "theory" ? t.concepts.slice(0, half) : t.concepts.slice(half);
+    const more = list.filter(x => (x.more || []).length);
+    if(!more.length) return html;
+    return html + `<div class="pv-more"><b>＋ More on screen</b><span>Opens the pop-up in the slides window for the room; Close there or here.</span>
+      <div>${more.map(x => `<button type="button" class="btn btn-ghost btn-sm" onclick="cmCaseFlow.moreShow('${b.id}',${t.concepts.indexOf(x)})">＋ ${E(x.term)}</button>`).join("")}
+      <button type="button" class="btn btn-ghost btn-sm" onclick="cmCaseFlow.moreHide()">Close pop-up ✕</button></div></div>`;
   };
 }
 if(typeof renderDaySlideContent === "function"){
@@ -4165,6 +4194,9 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-th-more{position:absolute;top:6px;right:8px;border:1px solid #F0D2AE;background:#FBF1E6;color:#B5561A;border-radius:999px;padding:1px 9px;font:700 12px/1.6 var(--font-ui);cursor:pointer;}
 .cfx-th-more:hover,.cfx-th-more:focus-visible{background:var(--orange);border-color:var(--orange);color:#fff;outline:none;}
 .cfx-more{align-items:center;}
+.pv-more{margin:14px 0 0;padding:10px 12px;border:1px dashed #DB8437;border-radius:10px;background:#FFF6EC;}
+.pv-more b{display:block;font-size:13px;color:var(--navy);}.pv-more span{display:block;font-size:12px;color:var(--ink-soft);margin:2px 0 6px;}
+.pv-more div{display:flex;flex-wrap:wrap;gap:6px;}
 .cfx-more .cfx-modal-in{max-width:560px;border-top:5px solid #DB8437;background:#FFFDF8 !important;backdrop-filter:none !important;opacity:1;box-shadow:0 18px 50px rgba(20,26,44,.35);}
 .cfx-more .cfx-modal-h{display:flex;justify-content:space-between;align-items:center;gap:12px;}
 .cfx-more .cfx-modal-h b{font:800 19px/1.25 'Poppins','Inter',sans-serif;color:var(--navy);}

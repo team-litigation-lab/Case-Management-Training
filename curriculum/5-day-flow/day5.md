@@ -207,7 +207,7 @@ A before-and-after split. Left panel, muted gray, titled PRE-LIT FILE: a claim f
 |---|---|---|---|
 | Atty. Thorne authorizes suit | Change status and open the court fields | CMS → Case Summary · CMS → Litigation | Status change cites the dated authorization; case number “Pending” |
 | Status changed | Build the master directory and the five sub-folders | CMS → Documents → Litigation folders | All five sub-folders, named to the standard |
-| Folders built | Seed the Litigation Calendar with 48-hour audits | CMS → Calendar · Docket System | SOL, internal hard date, cutoff and audits all on the calendar |
+| Folders built | Seed the Litigation Calendar with 48-hour audits | CMS → Calendar · Court E-Filing | SOL, internal hard date, cutoff and audits all on the calendar |
 | A panel list or proposed neutral arrives | Pull resumes and prior-award history for Atty. Thorne; docket any strike deadline | CMS → Litigation → ADR · CMS → Calendar | Deadline docketed the day the list arrives; strikes approved by counsel |
 
 **Best practices & pitfalls**
@@ -424,7 +424,7 @@ A left-to-right relay of four cards on a thin navy rail, each with an orange num
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Tasks · Court E-Filing · CMS → Litigation → Pleadings Log · CMS → Documents · CMS → Financial Ledger · CMS → Calendar · Docket System |
+| **Tool / interface** | CMS → Tasks · Court E-Filing · CMS → Litigation → Pleadings Log · CMS → Documents · CMS → Financial Ledger · CMS → Calendar · Court E-Filing |
 | **Expected output** | A signed filing set e-filed and accepted as No. 26-CV-04417, recorded in the CMS, and a calendar that runs from the 09/24/2026 filing date. |
 
 **Verification checkpoints**
@@ -449,7 +449,7 @@ A left-to-right relay of four cards on a thin navy rail, each with an orange num
 | Atty. Thorne approves the Complaint, 09/22/2026 | Tag Nadia Brooks to draft the cover sheet and summons | CMS → Tasks | Documents, source, due date and signature route named |
 | Set signed, 09/23/2026 | Check every signature; submit the envelope | Court E-Filing | Only signed documents; $218.00 fee; filing attorney named |
 | Envelope accepted, 09/24/2026 | Record the number, the documents and the fee | CMS → Litigation → Pleadings Log · CMS → Documents · CMS → Financial Ledger | 26-CV-04417 entered; three PDFs in 01_PLEADINGS; costs $704.75 |
-| Summons and CMC notice issued | Calendar service, the hand-off and the conference | CMS → Calendar · Docket System | 01/22/2027 with alerts; 12/10/2026 with Atty. Thorne; answer set on service |
+| Summons and CMC notice issued | Calendar service, the hand-off and the conference | CMS → Calendar · Court E-Filing | 01/22/2027 with alerts; 12/10/2026 with Atty. Thorne; answer set on service |
 
 **Best practices & pitfalls**
 
@@ -854,7 +854,7 @@ A full-width horizontal court timeline on a navy rail runs from 09/24/2026 to 01
 | Atty. Thorne authorizes suit | Verify the filing date against the SOL and Robert Smith's exact legal name and address before signature | CMS → Litigation → Pleadings Log | Filed 09/24/2026, inside the 02/04/2028 internal hard date; Robert Smith's legal name confirmed from an independent record (for example, the Declaration Page or property or DMV records), not the Police Report alone |
 | Complaint filed | File the stamped complaint in 01_PLEADINGS and log the filing | CMS → Documents | Filed the same day; no pre-lit correspondence in the sub-folders |
 | A service attempt fails | Log it; still unserved at day 14 (here 10/08/2026, the third failed attempt), escalate to Atty. Thorne for Skip-Trace authority with the attempt log attached, run it on his approval (result 10/09/2026), and send him the status update; alternative service is his call | CMS → Tasks → Escalate | Each attempt logged with date and address; status update dated |
-| Discovery or RFAs land | Calendar the response date with its arithmetic; alert Atty. Thorne the hour RFAs arrive | CMS → Calendar · Docket System | Due date = trigger + 30 (+ 3 for mail), weekend rolled; RFA alert time-stamped |
+| Discovery or RFAs land | Calendar the response date with its arithmetic; alert Atty. Thorne the hour RFAs arrive | CMS → Calendar · Court E-Filing | Due date = trigger + 30 (+ 3 for mail), weekend rolled; RFA alert time-stamped |
 
 **Best practices & pitfalls**
 
@@ -934,7 +934,7 @@ Upper half: a horizontal trial-prep runway on a navy line from 01/20/2027 to 09/
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Scheduling Order entered 12/10/2026 | Pin it to the front of the file; calendar all six dates with three alerts each | CMS → Calendar · Docket System | Six dates exact; 18 alerts set; order filed in 01_PLEADINGS |
+| Scheduling Order entered 12/10/2026 | Pin it to the front of the file; calendar all six dates with three alerts each | CMS → Calendar · Court E-Filing | Six dates exact; 18 alerts set; order filed in 01_PLEADINGS |
 | An extension is agreed by phone | Confirm Atty. Thorne's approval, draft the written confirmation for his signature, recalendar | Email Workspace · CMS → Calendar | Confirmation sent the same day over Atty. Thorne's name; no scheduling-order date moved without a court order |
 | Deposition noticed | Book the reporter, the link and the technology check; send the attorney-approved packet a week out | CMS → Calendar · Communications Log | Packet sent by 02/11/2027; receipt confirmed with John Doe and logged |
 | Weekly docket audit | Take every KPI reading from the log and route each miss | CMS → Litigation → KPI tracker · Tasks → Escalate | Each KPI shows its formula, target and a dated reading |
@@ -1605,7 +1605,7 @@ A two-lane calendar runs left to right across the slide in six date columns, AUD
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Notice of deposition served 01/20/2027 | Calendar the deposition, both prep sessions, the 02/11/2027 prep packet and the day-before checklist; start the pre-deposition audit | Docket System · CMS → Calendar | 02/04, 02/11 (packet), 02/16, 02/17 and 02/18/2027 (10:00 a.m.) on the calendar for Atty. Thorne and John |
+| Notice of deposition served 01/20/2027 | Calendar the deposition, both prep sessions, the 02/11/2027 prep packet and the day-before checklist; start the pre-deposition audit | Court E-Filing · CMS → Calendar | 02/04, 02/11 (packet), 02/16, 02/17 and 02/18/2027 (10:00 a.m.) on the calendar for Atty. Thorne and John |
 | Audit complete | Route the landmine list and any discovery mismatch to Atty. Thorne | CMS → Tasks → Escalate | Routed before 02/04/2027; every landmine tied to its source record |
 | Test call, 02/16/2027 | Run the technology check on John's device, in the room he will use | CMS → Case Notes | Camera, audio, link, lighting, room and backup number each logged pass or fail |
 | Day before, 02/17/2027 | Confirm logistics with all three; finalize the exhibit set | Email Workspace · CMS → Documents | Three confirmations logged; exhibit set approved by Atty. Thorne |
@@ -1945,7 +1945,7 @@ Two zones. Left 60%: the four-row regime table on a cream card, regime names in 
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Answer filed 11/12/2026 pleading comparative fault, causation and failure to mitigate | Log each defense as its own line and confirm the filing on the docket | CMS → Litigation → Pleadings Log · Docket System | Three defenses logged separately, each dated 11/12/2026 |
+| Answer filed 11/12/2026 pleading comparative fault, causation and failure to mitigate | Log each defense as its own line and confirm the filing on the docket | CMS → Litigation → Pleadings Log · Court E-Filing | Three defenses logged separately, each dated 11/12/2026 |
 | Defenses logged | Map the file's evidence to each allegation with source, witness and custody | CMS → Litigation → Liability counter-package | No item without a source document and a named authenticating witness |
 | An item lacks foundation or a holder won't produce | Flag it for a Subpoena Duces Tecum and route to Atty. Thorne | CMS → Tasks → Escalate | Foundation gap named, with the record holder |
 | Deposition prep set for 02/04 and 02/16/2027 | Deliver the counter-package and the Gap Record to Atty. Thorne's prep set | CMS → Documents · CMS → Tasks | Both in the prep set before 02/04/2027 |
@@ -2028,7 +2028,7 @@ Two parallel swimlanes, left to right. Upper lane, navy, ROBERT SMITH — DEFEND
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | Third failed attempt, 10/08/2026; neighbor says Smith moved | Escalate for Skip-Trace authority; send the result to the process server | CMS → Tasks → Escalate · Email Workspace | Skip-Trace result logged 10/09/2026; server re-assigned to 4410 Quarry Ridge Ct |
-| Affidavit of service filed 10/16/2026 | Docket the answer date and set the weekly docket check | Docket System · CMS → Calendar | Answer due 11/13/2026 on the calendar; weekly check recurring |
+| Affidavit of service filed 10/16/2026 | Docket the answer date and set the weekly docket check | Court E-Filing · CMS → Calendar | Answer due 11/13/2026 on the calendar; weekly check recurring |
 | Subpoena Duces Tecum approved by Atty. Thorne | Notice opposing counsel, then serve the custodian by process server | Court E-Filing · CMS → Litigation → Subpoena log | Notice to Atty. Grant Mercer dated before service; compliance call 5 days before production |
 | Client unreachable with a deposition noticed (from 01/22/2027) | Run Steps 1–3; draft the Step 4 notice for Atty. Thorne's signature | CMS → Communications Log · Action Plan Editor | Response date before 02/04/2027; certified mail AND email both logged |
 
@@ -2153,7 +2153,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 #### 1 · Visual Layout Description
 
-Split slide. Left half, PART 1 — SERVICE: a vertical log card (date · time · result) with three failed attempts in red, the Skip-Trace request as an orange escalation chip, the service and affidavit rows in green, ending in a Docket System pill ANSWER DUE 11/13/2026. Right half, PART 2 — CERTIFIED NOTICE: a calendar strip counting backward from 02/18/2027 to 01/22/2027, with 02/04 and 02/16 marked orange as prep sessions and a response-date marker that turns red if it lands after 02/04. Beneath it, the notice draft with a CERTIFIED MAIL + EMAIL chip pair that must both tick, and a navy SKIP-TRACE GATE card with three criteria. The argument: work backward from the date that cannot move.
+Split slide. Left half, PART 1 — SERVICE: a vertical log card (date · time · result) with three failed attempts in red, the Skip-Trace request as an orange escalation chip, the service and affidavit rows in green, ending in a Court E-Filing pill ANSWER DUE 11/13/2026. Right half, PART 2 — CERTIFIED NOTICE: a calendar strip counting backward from 02/18/2027 to 01/22/2027, with 02/04 and 02/16 marked orange as prep sessions and a response-date marker that turns red if it lands after 02/04. Beneath it, the notice draft with a CERTIFIED MAIL + EMAIL chip pair that must both tick, and a navy SKIP-TRACE GATE card with three criteria. The argument: work backward from the date that cannot move.
 
 #### 2 · Slide Body — the scenario and the task
 
@@ -2163,7 +2163,7 @@ Split slide. Left half, PART 1 — SERVICE: a vertical log card (date · time ·
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Tasks → Escalate · Docket System · CMS → Communications Log · Action Plan Editor → Warning letter template · CMS → Documents → Outgoing |
+| **Tool / interface** | CMS → Tasks → Escalate · Court E-Filing · CMS → Communications Log · Action Plan Editor → Warning letter template · CMS → Documents → Outgoing |
 | **Expected output** | A service record from Skip-Trace to answer date, and a dispatched certified notice with both deliveries logged and John's Skip-Trace gate assessed. |
 
 **Verification checkpoints**
@@ -2185,7 +2185,7 @@ Split slide. Left half, PART 1 — SERVICE: a vertical log card (date · time ·
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | Third failed attempt, 10/08/2026 | Escalate for Skip-Trace authority; re-assign the server to the new address | CMS → Tasks → Escalate · Email Workspace | Skip-Trace result 10/09/2026 logged; varied windows instructed |
-| Affidavit of service filed 10/16/2026 | Docket the answer date | Docket System | 11/13/2026 on the calendar with a reminder |
+| Affidavit of service filed 10/16/2026 | Docket the answer date | Court E-Filing | 11/13/2026 on the calendar with a reminder |
 | John unreachable from 01/22/2027 | Run Steps 1–3, then dispatch the Step 4 notice | CMS → Communications Log · CMS → Documents → Outgoing | Both deliveries logged; response date before 02/04/2027 |
 
 **Best practices & pitfalls**

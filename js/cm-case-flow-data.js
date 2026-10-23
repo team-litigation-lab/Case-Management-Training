@@ -5035,9 +5035,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["MMI declared (06/12/2026)", "Docket MMI + 30 and open the Demand Package task", "Docket System · CMS → Tasks", "07/12/2026 falls on a Sunday. It is an internal target, so the firm works it early, on Fri 07/10; legal deadlines counted forward roll to the next business day (Day 4); a later service date recorded as Atty. Thorne's, with the reason"],
+          ["MMI declared (06/12/2026)", "Docket MMI + 30 and open the Demand Package task", "Court E-Filing · CMS → Tasks", "07/12/2026 falls on a Sunday. It is an internal target, so the firm works it early, on Fri 07/10; legal deadlines counted forward roll to the next business day (Day 4); a later service date recorded as Atty. Thorne's, with the reason"],
           ["Atty. Thorne approves the terms", "Record them exactly before drafting", "CMS → Case Notes", "$10,000; Limited Release of Smith and Keystone only, BI claim only (the PD claim excluded); Smith's affidavit; 30 days to accept, from the adjuster's written acknowledgement of receipt; payment due as he sets it"],
-          ["Dana Whitfield confirms receipt in writing (07/22/2026)", "Compute and docket the acceptance deadline with reminders", "Docket System", "08/21/2026 docketed from her written acknowledgement, not the send date; if none comes, follow up with her the same day and escalate to Atty. Thorne"],
+          ["Dana Whitfield confirms receipt in writing (07/22/2026)", "Compute and docket the acceptance deadline with reminders", "Court E-Filing", "08/21/2026 docketed from her written acknowledgement, not the send date; if none comes, follow up with her the same day and escalate to Atty. Thorne"],
           ["Keystone writes or calls before the deadline", "Log it word for word and route it to Atty. Thorne", "CMS → Communications Log · CMS → Tasks → Escalate", "Routed the same day; the CM changes nothing on terms or time, and restates the approved terms only where Atty. Thorne's written authority says so"]
         ],
         best: [
@@ -5078,7 +5078,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) and the Gap Explanation Record are on file; the pre-demand audit put the Specials at $16,401.40. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from Dana Whitfield's written acknowledgement of receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.",
           prompt: "Audit the draft against the Big Four and the Final Scrub, log each deficiency as an assigned CMS task, and assemble the package with the gap answered on page one of the timeline. Once Atty. Thorne has signed, email it to Dana Whitfield from the Email Workspace with the Demand Package attached, ask her to confirm receipt in writing, and log it. When her written acknowledgement arrives on 07/22/2026, docket the acceptance deadline from it, with reminders. Graded judgment: what starts the clock, and what you do if Keystone asks for more time.",
-          tool: "Action Plan Editor → Demand Package · CMS → Documents → Outgoing · Email Workspace · Docket System",
+          tool: "Action Plan Editor → Demand Package · CMS → Documents → Outgoing · Email Workspace · Court E-Filing",
           output: "An audited, served Time-Limited Demand with proof of delivery on file and 08/21/2026 docketed.",
           checkpoints: [
             "Amount $10,000, Keystone's BI limit per its Dec Page (03/20/2026); nothing demanded above limits",
@@ -5096,7 +5096,7 @@ window.CM_CASE_FLOW = {
         ops: [
           ["Draft package on file", "Audit against the Big Four and the Final Scrub; assign each fix", "CMS → Tasks", "Every deficiency is a dated, assigned task"],
           ["Atty. Thorne signs", "Email the demand to Dana Whitfield with the Demand Package attached; ask for written acknowledgement of receipt", "CMS → Documents → Outgoing · Email Workspace", "Sent and logged 07/20/2026"],
-          ["Dana Whitfield acknowledges receipt in writing (07/22/2026)", "Docket the acceptance deadline and reminders", "Docket System", "08/21/2026 on the docket, counted from her acknowledgement"],
+          ["Dana Whitfield acknowledges receipt in writing (07/22/2026)", "Docket the acceptance deadline and reminders", "Court E-Filing", "08/21/2026 on the docket, counted from her acknowledgement"],
           ["No written acknowledgement", "Follow up with Dana Whitfield the same day; escalate to Atty. Thorne", "Email Workspace · CMS → Tasks → Escalate", "Nothing docketed from the send date or a guess"]
         ],
         best: [
@@ -5166,7 +5166,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Keystone tenders the $10,000 (08/12/2026)", "Prepare the 30-Day Letters (consent-to-settle requests) to both UM carriers for Atty. Thorne's signature; docket each window", "Action Plan Editor → Consent-to-settle template · Docket System", "Both sent 08/13/2026 with the tender, Dec Page and affidavit; both 30-day windows docketed"],
+          ["Keystone tenders the $10,000 (08/12/2026)", "Prepare the 30-Day Letters (consent-to-settle requests) to both UM carriers for Atty. Thorne's signature; docket each window", "Action Plan Editor → Consent-to-settle template · Court E-Filing", "Both sent 08/13/2026 with the tender, Dec Page and affidavit; both 30-day windows docketed"],
           ["Keystone's draft release arrives (08/14/2026)", "Compare who and what it releases with the approved terms; flag overbreadth", "CMS → Documents · CMS → Tasks → Escalate", "“All other … insurers” flagged to Atty. Thorne; nothing sent to John Doe to sign"],
           ["Both consents in writing; Limited Release signed (08/28/2026)", "Open the Host UM and Relative UM demands as tracked tasks", "CMS → Tasks", "Two tasks, each with carrier, claim number and adjuster"]
         ],
@@ -5345,7 +5345,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Limited Release signed (08/28/2026)", "Draft both UM demands with exhaustion proof on page one", "Action Plan Editor → UM demand templates", "Tender, Dec Page, affidavit, consents and Limited Release present in each"],
-          ["Drafts complete", "Route both to Atty. Thorne for review, deadline and signature", "CMS → Tasks → Escalate · Docket System", "Nothing sent before his sign-off; then each emailed to its adjuster (Marcus Bell, Teresa Okafor), logged, written acknowledgement requested; the deadline he sets docketed from it"],
+          ["Drafts complete", "Route both to Atty. Thorne for review, deadline and signature", "CMS → Tasks → Escalate · Court E-Filing", "Nothing sent before his sign-off; then each emailed to its adjuster (Marcus Bell, Teresa Okafor), logged, written acknowledgement requested; the deadline he sets docketed from it"],
           ["Keystone's check received", "Send its copy to Marcus Bell and Teresa Okafor as a supplemental exhibit", "CMS → Documents → Outgoing", "Check copy logged in both UM files the day it reaches trust"]
         ],
         best: [
@@ -7084,7 +7084,7 @@ window.CM_CASE_FLOW = {
         ops: [
           ["Atty. Thorne authorizes suit", "Change status and open the court fields", "CMS → Case Summary · CMS → Litigation", "Status change cites the dated authorization; case number “Pending”"],
           ["Status changed", "Build the master directory and the five sub-folders", "CMS → Documents → Litigation folders", "All five sub-folders, named to the standard"],
-          ["Folders built", "Seed the Litigation Calendar with 48-hour audits", "CMS → Calendar · Docket System", "SOL, internal hard date, cutoff and audits all on the calendar"],
+          ["Folders built", "Seed the Litigation Calendar with 48-hour audits", "CMS → Calendar · Court E-Filing", "SOL, internal hard date, cutoff and audits all on the calendar"],
           ["A panel list or proposed neutral arrives", "Pull resumes and prior-award history for Atty. Thorne; docket any strike deadline", "CMS → Litigation → ADR · CMS → Calendar", "Deadline docketed the day the list arrives; strikes approved by counsel"]
         ],
         best: [
@@ -7186,7 +7186,7 @@ window.CM_CASE_FLOW = {
          act: {
            scenario: "File date 09/22/2026, Track B. The file went to Litigation status on 09/10/2026 on Atty. Thorne's 09/09 authorization; the filing target is 09/24/2026 and today is its 48-hour audit. This morning Atty. Thorne approved his Complaint for John Doe v. Robert Smith in the State Court of Riverton County: negligence and negligence per se; medical Specials, lost wages, future medical and pain and suffering; jury demanded; Smith at 118 Larkspur Ln, Riverton. The CMS also holds his 09/15/2026 draft, stamped NOT FOR FILING, unsigned, with no case number. The civil cover sheet and summons have not been drafted. The fee tier moves from 33⅓% to 40% on the filing date (per the retainer). Pre-suit costs on the ledger: $486.75. Atty. Thorne's 09/10 question on notifying the UM carriers of the filed Complaint is still open.",
            prompt: "Tag the Litigation Desk paralegal, Nadia Brooks, with a CMS task precise enough to need no follow-up question: which documents, from which approved Complaint, due when, routed to Atty. Thorne for signature. After he signs on 09/23, submit the e-filing envelope in Court E-Filing on 09/24 (caption, court, case type, filing attorney, document types, filing fee), and check every page is signed before it goes in. Record the accepted filing: the civil action number, the filing date, the stamped Complaint, the issued summons and the Notice of Case Management Conference in 01_PLEADINGS, the fee receipt to the costs ledger. Then calendar from the filing: the service deadline with warning alerts, the hand-off to Allied Process Services, the Case Management Conference with Atty. Thorne as attendee, and the answer deadline held until service. Graded judgment: which date can be calendared today and which cannot.",
-           tool: "CMS → Tasks · Court E-Filing · CMS → Litigation → Pleadings Log · CMS → Documents · CMS → Financial Ledger · CMS → Calendar · Docket System",
+           tool: "CMS → Tasks · Court E-Filing · CMS → Litigation → Pleadings Log · CMS → Documents · CMS → Financial Ledger · CMS → Calendar · Court E-Filing",
            output: "A signed filing set e-filed and accepted as No. 26-CV-04417, recorded in the CMS, and a calendar that runs from the 09/24/2026 filing date.",
            checkpoints: [
              "CMS task to Nadia Brooks dated 09/22/2026: civil cover sheet and summons, built from the Complaint Atty. Thorne approved that morning (not the 09/15/2026 draft), due end of day 09/22/2026, routed to Atty. Thorne for signature",
@@ -7225,7 +7225,7 @@ window.CM_CASE_FLOW = {
            [
              "Summons and CMC notice issued",
              "Calendar service, the hand-off and the conference",
-             "CMS → Calendar · Docket System",
+             "CMS → Calendar · Court E-Filing",
              "01/22/2027 with alerts; 12/10/2026 with Atty. Thorne; answer set on service"
            ]
          ],
@@ -7420,7 +7420,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Scheduling Order entered 12/10/2026", "Enter every date with its trigger, rule, owner and alerts; read each verb", "Docket System", "All six order dates entered that day; “completed by” entered as a deadline"],
+          ["Scheduling Order entered 12/10/2026", "Enter every date with its trigger, rule, owner and alerts; read each verb", "Court E-Filing", "All six order dates entered that day; “completed by” entered as a deadline"],
           ["Discovery served by mail 12/01/2026", "Count 30 + 3, move the Sunday forward, enter the RFAs separately", "Case Docket & Calendar Conflict Resolver", "Responses and RFAs both at 01/04/2027; deemed-admitted flag set"],
           ["SOL review", "Set the internal hard date and the internal filing cutoff", "CMS → Calendar", "02/04/2028 and 11/05/2027 docketed; nothing relies on 02/06/2028"],
           ["Arbitration invoked 04/05/2027", "Hard-code the hearing, exhibit-exchange and brief dates", "CMS → Calendar → Master calendar", "06/02, 06/11 and 06/22/2027 entered with alerts the same day"]
@@ -7462,7 +7462,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "It is 12/10/2026. The Scheduling Order in No. 26-CV-04417 was entered today. The defendant's Interrogatories (25), Requests for Production (30) and Requests for Admission (15), served on his counsel, Atty. Thorne, by U.S. mail on 12/01/2026, are in the file. The order reads: plaintiff's expert disclosure 03/15/2027; defense expert disclosure 04/15/2027; mediation to be completed by 03/31/2027; discovery closes 05/28/2027; pretrial conference 08/12/2027; trial calendar 09/13/2027. While you were out, a covering colleague re-keyed the calendar from the paper file instead of carrying over the 09/10/2026 transition entries: unverified; no alerts.",
           prompt: "Audit John Doe's calendar in the Case Docket & Calendar Conflict Resolver against the 12/10/2026 Scheduling Order, the discovery mailed 12/01/2026 and the 02/06/2028 SOL. Recompute every entry from its trigger document: trigger day out, 3 mail days in, forward counts to the next business day, backward to the earlier. Correct errors, add missing entries, leave correct ones alone. Give every entry its trigger, rule, arithmetic, owner and alerts. Mirror every corrected entry to John Doe's CMS Calendar. Rank errors by risk; log the corrections in CMS Case Notes and route them to Atty. Thorne.",
-          tool: "Case Docket & Calendar Conflict Resolver · Docket System · CMS → Calendar · Case Notes",
+          tool: "Case Docket & Calendar Conflict Resolver · Court E-Filing · CMS → Calendar · Case Notes",
           output: "A verified Litigation Calendar with every planted error corrected, the missing entries added, and a ranked correction log routed to Atty. Thorne.",
           checkpoints: [
             "Responses corrected to 01/04/2027 (Mon): 12/01/2026 + 30 = 12/31/2026, + 3 for mail = 01/03/2027, a Sunday → next business day",
@@ -7495,7 +7495,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Scheduling Order entered 12/10/2026", "Audit every entry against its trigger document", "Case Docket & Calendar Conflict Resolver", "Every planted error found; correct entries untouched"],
-          ["Errors corrected", "Give each entry its trigger, rule, owner and alerts", "Docket System", "No entry without a trigger document and alerts"],
+          ["Errors corrected", "Give each entry its trigger, rule, owner and alerts", "Court E-Filing", "No entry without a trigger document and alerts"],
           ["Audit complete", "Route the ranked correction log, rule questions flagged", "CMS → Tasks → Escalate", "Routed to Atty. Thorne the same day"]
         ],
         best: [
@@ -7534,7 +7534,7 @@ window.CM_CASE_FLOW = {
          act: {
            scenario: "File date 01/08/2027 (Fri), Track B. Today the Notice of Mediation was filed in No. 26-CV-04417: court-ordered mediation before Hon. Carla Benton (Ret.), selected by Atty. Thorne from the four windows collected 12/17/2026, on 03/18/2027 (Thu) at 9:30 a.m. at her office. The confidential statement and binder are due 7 days before; client attendance is required. The Order of Referral entered 12/10/2026 with the Scheduling Order requires mediation completed by 03/31/2027, a notice of the mediator and session date within 30 days, attendance by each party, lead counsel and an insurer's representative with full authority to settle, the mediator's report within 7 days after the session, and the mediator's fees divided equally between the sides; the plaintiff's half is $1,200.00. The 12/10/2026 calendar audit already entered “completed by 03/31/2027” and a task to collect the windows. Harbor Point's and Cardinal State's policies each require their written consent before any settlement with Keystone. On the master calendar: Robert Smith's responses to our discovery due 01/13/2027; plaintiff's expert disclosure 03/15/2027; discovery closes 05/28/2027.",
            prompt: "Calendar the mediation in the Calendaring Simulators and mirror every entry to John Doe's CMS → Calendar. Verify the trigger first: the notice against the order's 30-day selection rule, and the session date against the 03/31/2027 completion deadline, linking to the existing deadline and closing the windows task rather than re-entering either. Enter the session with its attendees and its location. Count the statement-and-binder deadline back from the session, then the internal dates back from that deadline, then the mediator's report forward from the session. Calendar the client's written confirmation, his prep meeting request and his reminders. Track the $1,200.00 fee as a case cost. Flag the UM carriers' consent-to-settle requirement for Atty. Thorne with the 30-day arithmetic. Conflict-check every new date against the master calendar and route the summary to Atty. Thorne the same day, ranking what needs his decision.",
-           tool: "Calendaring Simulators · CMS → Calendar · Docket System · CMS → Tasks · CMS → Case Notes",
+           tool: "Calendaring Simulators · CMS → Calendar · Court E-Filing · CMS → Tasks · CMS → Case Notes",
            output: "A mediation calendar of verified, trigger-counted entries mirrored to the CMS, a cost task for the fee, a client-confirmation task, and a same-day summary to Atty. Thorne with the UM consent flag and the one conflict.",
            checkpoints: [
              "Trigger verified: the Notice of Mediation filed 01/08/2027 (Fri) meets the order's 30-day rule (12/10/2026 + 30 = 01/09/2027, a Saturday); the 12/10/2026 windows task closed with the notice attached, not re-created",
@@ -7561,7 +7561,7 @@ window.CM_CASE_FLOW = {
            [
              "Session entered",
              "Count the statement, binder and internal dates back; the report forward",
-             "Docket System",
+             "Court E-Filing",
              "03/11, 03/09, 03/04, 03/02 and 03/25/2027, each with its arithmetic"
            ],
            [
@@ -7846,7 +7846,7 @@ window.CM_CASE_FLOW = {
          act: {
            scenario: "File date 04/26/2027 (Mon), Track B. Keystone tendered its $10,000 BI limits at the 03/18/2027 mediation and Robert Smith was dismissed. On 04/05/2027 Harbor Point invoked its UM arbitration clause and Cardinal State joined one consolidated binding arbitration before Laura Whitcomb, Esq.; Atty. Thorne has answered the route and consolidation questions, and the hearing, exhibit and brief entries drafted on 04/05/2027 wait for a trigger document. This morning her scheduling letter arrived: hearing 06/22/2027 (Tue), 9:00 a.m.; exhibits and witness lists exchanged 20 days before; briefs due 10 days before (as configured for this training file; confirm the forum's rules). The plaintiff's share of her fee is $900.00. The master calendar still carries the 12/10/2026 Scheduling Order's dates in No. 26-CV-04417 and the SOL entries.",
            prompt: "Calendar the arbitration from the letter. Enter the hearing and re-anchor the exchange and brief entries to it. Then compute every date that hangs off them, each from its trigger with the rule shown (backward counts move to the earlier business day): the Litigation Desk's draft exhibit index and the opening of binder QC, the certified-records requests and their chase, John Doe's attendance, witness availability, the prep session and the technology check. Route the $900.00 fee share to accounting as a case cost. Finally, check the result against the master calendar: keep the SOL entries, and for the court's dates in the dismissed suit ask Atty. Thorne in writing which stay live, rather than deleting anything.",
-           tool: "Calendaring Simulators · Docket System · CMS → Calendar · CMS → Tasks",
+           tool: "Calendaring Simulators · Court E-Filing · CMS → Calendar · CMS → Tasks",
            output: "A letter-anchored arbitration calendar with every dependent date, its trigger, rule, arithmetic, owner and alerts, the fee share routed as a cost, and one written question to Atty. Thorne on the court dates.",
            checkpoints: [
              "Trigger recorded: Laura Whitcomb, Esq.'s scheduling letter of 04/26/2027 (Mon); the hearing, exchange and brief entries drafted on 04/05/2027 re-anchored to it and verified, not entered twice",
@@ -7860,14 +7860,14 @@ window.CM_CASE_FLOW = {
              "Arbitrator's fee: the plaintiff's share, $900.00, routed to accounting on her invoice and logged as a case cost; written payment confirmation on file by 05/17/2027, when Tab 1 of the binder needs it",
              "SOL entries unchanged: internal hard date 02/04/2028 (Fri) and filing cutoff 11/05/2027 (Fri); 02/06/2028 (Sun) never relied on",
              "Court entries in No. 26-CV-04417 (discovery closes 05/28/2027, pretrial conference 08/12/2027, trial calendar 09/13/2027) kept and marked “Robert Smith dismissed: confirm vacated”, with one written question to Atty. Thorne; nothing deleted",
-             "No award date docketed; every entry carries its trigger, rule, arithmetic, owner and alerts at 14, 7 and 1 days, mirrored from the Docket System to CMS → Calendar"
+             "No award date docketed; every entry carries its trigger, rule, arithmetic, owner and alerts at 14, 7 and 1 days, mirrored from Court E-Filing to CMS → Calendar"
            ]
          },
          ops: [
            [
              "Scheduling letter arrives 04/26/2027",
              "Enter the hearing; re-anchor exchange and brief to the letter",
-             "Docket System · CMS → Calendar",
+             "Court E-Filing · CMS → Calendar",
              "06/22, 06/02 and 06/11/2027 verified; nothing on 06/14/2027"
            ],
            [
@@ -8237,7 +8237,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Arbitration invoked 04/05/2027", "Open the claimant exhibit index and calendar the exchange and the brief", "CMS → Litigation → Exhibit index · Docket System", "06/02/2027 exchange and 06/11/2027 brief on the calendar"],
+          ["Arbitration invoked 04/05/2027", "Open the claimant exhibit index and calendar the exchange and the brief", "CMS → Litigation → Exhibit index · Court E-Filing", "06/02/2027 exchange and 06/11/2027 brief on the calendar"],
           ["Provider records gathered", "Request each custodian's business-records certification", "Medical Records Requests", "One certification per provider covering every date exhibited"],
           ["Exchange set assembled", "Route the set and every flagged item to Atty. Thorne", "CMS → Tasks → Escalate", "Approved before 06/02/2027; no privileged item in the set"]
         ],
@@ -8926,7 +8926,7 @@ window.CM_CASE_FLOW = {
           ["Atty. Thorne authorizes suit", "Verify the filing date against the SOL and Robert Smith's exact legal name and address before signature", "CMS → Litigation → Pleadings Log", "Filed 09/24/2026, inside the 02/04/2028 internal hard date; Robert Smith's legal name confirmed from an independent record (for example, the Declaration Page or property or DMV records), not the Police Report alone"],
           ["Complaint filed", "File the stamped complaint in 01_PLEADINGS and log the filing", "CMS → Documents", "Filed the same day; no pre-lit correspondence in the sub-folders"],
           ["A service attempt fails", "Log it; still unserved at day 14 (here 10/08/2026, the third failed attempt), escalate to Atty. Thorne for Skip-Trace authority with the attempt log attached, run it on his approval (result 10/09/2026), and send him the status update; alternative service is his call", "CMS → Tasks → Escalate", "Each attempt logged with date and address; status update dated"],
-          ["Discovery or RFAs land", "Calendar the response date with its arithmetic; alert Atty. Thorne the hour RFAs arrive", "CMS → Calendar · Docket System", "Due date = trigger + 30 (+ 3 for mail), weekend rolled; RFA alert time-stamped"]
+          ["Discovery or RFAs land", "Calendar the response date with its arithmetic; alert Atty. Thorne the hour RFAs arrive", "CMS → Calendar · Court E-Filing", "Due date = trigger + 30 (+ 3 for mail), weekend rolled; RFA alert time-stamped"]
         ],
         best: [
           "Write the trigger, the method of service and the arithmetic into every calendar entry.",
@@ -9053,7 +9053,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Scheduling Order entered 12/10/2026", "Pin it to the front of the file; calendar all six dates with three alerts each", "CMS → Calendar · Docket System", "Six dates exact; 18 alerts set; order filed in 01_PLEADINGS"],
+          ["Scheduling Order entered 12/10/2026", "Pin it to the front of the file; calendar all six dates with three alerts each", "CMS → Calendar · Court E-Filing", "Six dates exact; 18 alerts set; order filed in 01_PLEADINGS"],
           ["An extension is agreed by phone", "Confirm Atty. Thorne's approval, draft the written confirmation for his signature, recalendar", "Email Workspace · CMS → Calendar", "Confirmation sent the same day over Atty. Thorne's name; no scheduling-order date moved without a court order"],
           ["Deposition noticed", "Book the reporter, the link and the technology check; send the attorney-approved packet a week out", "CMS → Calendar · Communications Log", "Packet sent by 02/11/2027; receipt confirmed with John Doe and logged"],
           ["Weekly docket audit", "Take every KPI reading from the log and route each miss", "CMS → Litigation → KPI tracker · Tasks → Escalate", "Each KPI shows its formula, target and a dated reading"]
@@ -9741,7 +9741,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Notice of deposition served 01/20/2027", "Calendar the deposition, both prep sessions, the 02/11/2027 prep packet and the day-before checklist; start the pre-deposition audit", "Docket System · CMS → Calendar", "02/04, 02/11 (packet), 02/16, 02/17 and 02/18/2027 (10:00 a.m.) on the calendar for Atty. Thorne and John"],
+          ["Notice of deposition served 01/20/2027", "Calendar the deposition, both prep sessions, the 02/11/2027 prep packet and the day-before checklist; start the pre-deposition audit", "Court E-Filing · CMS → Calendar", "02/04, 02/11 (packet), 02/16, 02/17 and 02/18/2027 (10:00 a.m.) on the calendar for Atty. Thorne and John"],
           ["Audit complete", "Route the landmine list and any discovery mismatch to Atty. Thorne", "CMS → Tasks → Escalate", "Routed before 02/04/2027; every landmine tied to its source record"],
           ["Test call, 02/16/2027", "Run the technology check on John's device, in the room he will use", "CMS → Case Notes", "Camera, audio, link, lighting, room and backup number each logged pass or fail"],
           ["Day before, 02/17/2027", "Confirm logistics with all three; finalize the exhibit set", "Email Workspace · CMS → Documents", "Three confirmations logged; exhibit set approved by Atty. Thorne"]
@@ -10089,7 +10089,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Answer filed 11/12/2026 pleading comparative fault, causation and failure to mitigate", "Log each defense as its own line and confirm the filing on the docket", "CMS → Litigation → Pleadings Log · Docket System", "Three defenses logged separately, each dated 11/12/2026"],
+          ["Answer filed 11/12/2026 pleading comparative fault, causation and failure to mitigate", "Log each defense as its own line and confirm the filing on the docket", "CMS → Litigation → Pleadings Log · Court E-Filing", "Three defenses logged separately, each dated 11/12/2026"],
           ["Defenses logged", "Map the file's evidence to each allegation with source, witness and custody", "CMS → Litigation → Liability counter-package", "No item without a source document and a named authenticating witness"],
           ["An item lacks foundation or a holder won't produce", "Flag it for a Subpoena Duces Tecum and route to Atty. Thorne", "CMS → Tasks → Escalate", "Foundation gap named, with the record holder"],
           ["Deposition prep set for 02/04 and 02/16/2027", "Deliver the counter-package and the Gap Record to Atty. Thorne's prep set", "CMS → Documents · CMS → Tasks", "Both in the prep set before 02/04/2027"]
@@ -10222,7 +10222,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Third failed attempt, 10/08/2026; neighbor says Smith moved", "Escalate for Skip-Trace authority; send the result to the process server", "CMS → Tasks → Escalate · Email Workspace", "Skip-Trace result logged 10/09/2026; server re-assigned to 4410 Quarry Ridge Ct"],
-          ["Affidavit of service filed 10/16/2026", "Docket the answer date and set the weekly docket check", "Docket System · CMS → Calendar", "Answer due 11/13/2026 on the calendar; weekly check recurring"],
+          ["Affidavit of service filed 10/16/2026", "Docket the answer date and set the weekly docket check", "Court E-Filing · CMS → Calendar", "Answer due 11/13/2026 on the calendar; weekly check recurring"],
           ["Subpoena Duces Tecum approved by Atty. Thorne", "Notice opposing counsel, then serve the custodian by process server", "Court E-Filing · CMS → Litigation → Subpoena log", "Notice to Atty. Grant Mercer dated before service; compliance call 5 days before production"],
           ["Client unreachable with a deposition noticed (from 01/22/2027)", "Run Steps 1–3; draft the Step 4 notice for Atty. Thorne's signature", "CMS → Communications Log · Action Plan Editor", "Response date before 02/04/2027; certified mail AND email both logged"]
         ],
@@ -10259,11 +10259,11 @@ window.CM_CASE_FLOW = {
         kind: "activity", id: "d5m4-a2",
         title: "Skip-Tracing Execution & Certified Notice Dispatch",
         topic: "Skill Activity 2 — find the defendant, reach the client, prove both",
-        visual: "Split slide. Left half, PART 1 — SERVICE: a vertical log card (date · time · result) with three failed attempts in red, the Skip-Trace request as an orange escalation chip, the service and affidavit rows in green, ending in a Docket System pill ANSWER DUE 11/13/2026. Right half, PART 2 — CERTIFIED NOTICE: a calendar strip counting backward from 02/18/2027 to 01/22/2027, with 02/04 and 02/16 marked orange as prep sessions and a response-date marker that turns red if it lands after 02/04. Beneath it, the notice draft with a CERTIFIED MAIL + EMAIL chip pair that must both tick, and a navy SKIP-TRACE GATE card with three criteria. The argument: work backward from the date that cannot move.",
+        visual: "Split slide. Left half, PART 1 — SERVICE: a vertical log card (date · time · result) with three failed attempts in red, the Skip-Trace request as an orange escalation chip, the service and affidavit rows in green, ending in a Court E-Filing pill ANSWER DUE 11/13/2026. Right half, PART 2 — CERTIFIED NOTICE: a calendar strip counting backward from 02/18/2027 to 01/22/2027, with 02/04 and 02/16 marked orange as prep sessions and a response-date marker that turns red if it lands after 02/04. Beneath it, the notice draft with a CERTIFIED MAIL + EMAIL chip pair that must both tick, and a navy SKIP-TRACE GATE card with three criteria. The argument: work backward from the date that cannot move.",
         act: {
           scenario: "Two episodes, one file. Part 1, file date 10/08/2026: Allied Process Services reports a third failed attempt at 118 Larkspur Ln (after 10/01 and 10/05), and a neighbor says Robert Smith moved in August. The 10/09 Skip-Trace return (module-local) lists 118 Larkspur Ln (utilities closed 08/2026), 4410 Quarry Ridge Ct, Millbrook (utility opened 08/2026; matches his vehicle registration) and a 2019 address. Part 2, file date 01/22/2027: calls to John Doe go unanswered two days after his deposition was noticed for 02/18/2027, 10:00 a.m., by videoconference. Atty. Thorne has set prep sessions for 02/04 and 02/16/2027.",
           prompt: "Part 1: escalate for Skip-Trace authority; evaluate the 10/09 return, choosing the address on recency and two corroborating sources, and record why; re-instruct Allied Process Services; log service 10/14 and the affidavit 10/16, and docket the answer date. Part 2: run Steps 1–3 of the No Contact Protocol with the litigation impact, then draft the Step 4 certified notice for Atty. Thorne's signature: attempts itemized, a 7–14 day response date before 02/04/2027, how to respond. Send it by certified mail AND email to a confirmed address. Graded call: assess John's Skip-Trace gate on Day 2's three criteria, and say why his case is unlike Smith's.",
-          tool: "CMS → Tasks → Escalate · Docket System · CMS → Communications Log · Action Plan Editor → Warning letter template · CMS → Documents → Outgoing",
+          tool: "CMS → Tasks → Escalate · Court E-Filing · CMS → Communications Log · Action Plan Editor → Warning letter template · CMS → Documents → Outgoing",
           output: "A service record from Skip-Trace to answer date, and a dispatched certified notice with both deliveries logged and John's Skip-Trace gate assessed.",
           checkpoints: [
             "Skip-Trace escalated for authority after the 10/08/2026 attempt, not a fourth knock at 118 Larkspur Ln",
@@ -10281,7 +10281,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Third failed attempt, 10/08/2026", "Escalate for Skip-Trace authority; re-assign the server to the new address", "CMS → Tasks → Escalate · Email Workspace", "Skip-Trace result 10/09/2026 logged; varied windows instructed"],
-          ["Affidavit of service filed 10/16/2026", "Docket the answer date", "Docket System", "11/13/2026 on the calendar with a reminder"],
+          ["Affidavit of service filed 10/16/2026", "Docket the answer date", "Court E-Filing", "11/13/2026 on the calendar with a reminder"],
           ["John unreachable from 01/22/2027", "Run Steps 1–3, then dispatch the Step 4 notice", "CMS → Communications Log · CMS → Documents → Outgoing", "Both deliveries logged; response date before 02/04/2027"]
         ],
         best: [
@@ -10419,7 +10419,7 @@ window.CM_CASE_FLOW = {
      A lesson's slides carry its rules; this carries the knowledge under them, as a discussion the trainer leads
      and the trainee can read: the theory of the stage, the facts on John Doe's file, the principles a Case Manager
      works by, what follows from doing it well or badly, and where the Case Manager's part ends and Atty. Thorne's
-     begins. Shown first in each lesson's 📖 Full text. One entry per lesson (curriculum.cjs --check), in paragraphs. */
+     begins. Shown first in each lesson's 📖 Additional Reference. One entry per lesson (curriculum.cjs --check), in paragraphs. */
   discuss: {
     "d1m1-role": [
       "A personal injury claim is not one conversation with one insurer. It is a dozen parties working on their own clocks: liability and first-party carriers, treating providers, a Health Plan, sometimes a court. Each wants something different, and none of them is watching the client's deadlines. **Case management** exists because somebody has to own the movement of the whole file, end to end, from intake to resolution. Law firms split the work deliberately: the licensed attorney carries the legal judgment, and the Case Manager carries the coordination, tracking and communication that turn that judgment into progress. Neither half works without the other.",

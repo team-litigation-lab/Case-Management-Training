@@ -67,7 +67,7 @@
     "job": [
       ["Atty. Thorne authorizes suit", "Change status; open court fields", "CMS → Litigation", "Cites dated authorization; number “Pending”"],
       ["Status changed", "Build master directory and five sub-folders", "CMS → Documents → Litigation folders", "Five sub-folders, named to standard"],
-      ["Folders built", "Seed calendar with 48-hour audits", "CMS → Calendar · Docket System", "SOL, hard date, cutoff, audits calendared"]
+      ["Folders built", "Seed calendar with 48-hour audits", "CMS → Calendar · Court E-Filing", "SOL, hard date, cutoff, audits calendared"]
     ],
     "dos": [
       "Change status, fields, folders and calendar **in one sitting**",
@@ -141,7 +141,7 @@
       ]
     },
     "job": [
-      ["Scheduling Order entered 12/10/2026", "Enter every date; read each verb", "Docket System", "“Completed by” entered as deadline"],
+      ["Scheduling Order entered 12/10/2026", "Enter every date; read each verb", "Court E-Filing", "“Completed by” entered as deadline"],
       ["Discovery mailed 12/01/2026", "Count 30 + 3; RFAs separately", "Case Docket & Calendar Conflict Resolver", "Responses and RFAs due 01/04/2027"],
       ["SOL review", "Set internal hard date and cutoff", "CMS → Calendar", "02/04/2028 and 11/05/2027 docketed"]
     ],
@@ -717,7 +717,7 @@
     "image": "clock-deadline",
     "situation": "04/26/2027: Laura Whitcomb's letter sets the hearing **06/22/2027 (Tue), 9:00 a.m.** Exhibits 20 days before, brief 10. Calendar **every date hanging off it**.",
     "steps": [
-      "Re-anchor hearing, exhibits and brief **to the letter** in the Docket System",
+      "Re-anchor hearing, exhibits and brief **to the letter** in Court E-Filing",
       "Count back binder QC and **records-request dates** in Calendaring Simulators",
       "Hold attendance, prep and **tech-check dates** on CMS → Calendar",
       "Route the **$900.00 fee share** to accounting as a cost",

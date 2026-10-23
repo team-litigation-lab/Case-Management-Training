@@ -5548,13 +5548,13 @@ window.CM_CF_SLIDES = {
    [
     "MMI declared (06/12/2026)",
     "Docket MMI + 30",
-    "Docket System · CMS → Tasks",
+    "Court E-Filing · CMS → Tasks",
     "07/12/2026 Sunday: work it Fri 07/10"
    ],
    [
     "Dana's written acknowledgement (07/22/2026)",
     "Docket the acceptance deadline",
-    "Docket System",
+    "Court E-Filing",
     "08/21/2026, from acknowledgement, not sending"
    ],
    [
@@ -5763,7 +5763,7 @@ window.CM_CF_SLIDES = {
    [
     "Keystone tenders $10,000 (08/12/2026)",
     "Prepare 30-Day Letters for signature",
-    "Consent-to-settle template · Docket System",
+    "Consent-to-settle template · Court E-Filing",
     "Both sent 08/13/2026; windows docketed"
    ],
    [
@@ -7768,7 +7768,7 @@ window.CM_CF_SLIDES = {
    [
     "Folders built",
     "Seed calendar with 48-hour audits",
-    "CMS → Calendar · Docket System",
+    "CMS → Calendar · Court E-Filing",
     "SOL, hard date, cutoff, audits calendared"
    ]
   ],
@@ -7985,7 +7985,7 @@ window.CM_CF_SLIDES = {
    [
     "Scheduling Order entered 12/10/2026",
     "Enter every date; read each verb",
-    "Docket System",
+    "Court E-Filing",
     "“Completed by” entered as deadline"
    ],
    [
@@ -8496,7 +8496,7 @@ window.CM_CF_SLIDES = {
   "image": "clock-deadline",
   "situation": "04/26/2027: Laura Whitcomb's letter sets the hearing **06/22/2027 (Tue), 9:00 a.m.** Exhibits 20 days before, brief 10. Calendar **every date hanging off it**.",
   "steps": [
-   "Re-anchor hearing, exhibits and brief **to the letter** in the Docket System",
+   "Re-anchor hearing, exhibits and brief **to the letter** in Court E-Filing",
    "Count back binder QC and **records-request dates** in Calendaring Simulators",
    "Hold attendance, prep and **tech-check dates** on CMS → Calendar",
    "Route the **$900.00 fee share** to accounting as a cost",
@@ -9490,7 +9490,7 @@ window.CM_CF_SLIDES = {
    [
     "Discovery or RFAs land",
     "Calendar; alert Atty. Thorne on RFAs",
-    "CMS → Calendar · Docket System",
+    "CMS → Calendar · Court E-Filing",
     "Weekend rolled; RFA alert time-stamped"
    ]
   ],
@@ -9656,7 +9656,7 @@ window.CM_CF_SLIDES = {
    [
     "Scheduling Order entered 12/10/2026",
     "Calendar six dates, three alerts each",
-    "CMS → Calendar · Docket System",
+    "CMS → Calendar · Court E-Filing",
     "18 alerts; order in 01_PLEADINGS"
    ],
    [
@@ -10307,7 +10307,7 @@ window.CM_CF_SLIDES = {
    [
     "Notice served 01/20/2027",
     "Calendar sessions, packet, day-before checklist",
-    "Docket System · CMS → Calendar",
+    "Court E-Filing · CMS → Calendar",
     "02/04, 02/11, 02/16, 02/17, 02/18/2027 calendared"
    ],
    [
@@ -10835,7 +10835,7 @@ window.CM_CF_SLIDES = {
    [
     "Affidavit filed 10/16/2026",
     "Docket answer date; weekly check",
-    "Docket System · CMS → Calendar",
+    "Court E-Filing · CMS → Calendar",
     "Answer due 11/13/2026 calendared"
    ],
    [

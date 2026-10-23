@@ -930,7 +930,7 @@ A horizontal master-calendar ribbon across the full slide width on a cream groun
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Scheduling Order entered 12/10/2026 | Enter every date with its trigger, rule, owner and alerts; read each verb | Docket System | All six order dates entered that day; “completed by” entered as a deadline |
+| Scheduling Order entered 12/10/2026 | Enter every date with its trigger, rule, owner and alerts; read each verb | Court E-Filing | All six order dates entered that day; “completed by” entered as a deadline |
 | Discovery served by mail 12/01/2026 | Count 30 + 3, move the Sunday forward, enter the RFAs separately | Case Docket & Calendar Conflict Resolver | Responses and RFAs both at 01/04/2027; deemed-admitted flag set |
 | SOL review | Set the internal hard date and the internal filing cutoff | CMS → Calendar | 02/04/2028 and 11/05/2027 docketed; nothing relies on 02/06/2028 |
 | Arbitration invoked 04/05/2027 | Hard-code the hearing, exhibit-exchange and brief dates | CMS → Calendar → Master calendar | 06/02, 06/11 and 06/22/2027 entered with alerts the same day |
@@ -1244,7 +1244,7 @@ The Case Docket & Calendar Conflict Resolver fills the slide: a white table card
 
 | | |
 |---|---|
-| **Tool / interface** | Case Docket & Calendar Conflict Resolver · Docket System · CMS → Calendar · Case Notes |
+| **Tool / interface** | Case Docket & Calendar Conflict Resolver · Court E-Filing · CMS → Calendar · Case Notes |
 | **Expected output** | A verified Litigation Calendar with every planted error corrected, the missing entries added, and a ranked correction log routed to Atty. Thorne. |
 
 **Show Them — reference model**
@@ -1281,7 +1281,7 @@ The Case Docket & Calendar Conflict Resolver fills the slide: a white table card
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | Scheduling Order entered 12/10/2026 | Audit every entry against its trigger document | Case Docket & Calendar Conflict Resolver | Every planted error found; correct entries untouched |
-| Errors corrected | Give each entry its trigger, rule, owner and alerts | Docket System | No entry without a trigger document and alerts |
+| Errors corrected | Give each entry its trigger, rule, owner and alerts | Court E-Filing | No entry without a trigger document and alerts |
 | Audit complete | Route the ranked correction log, rule questions flagged | CMS → Tasks → Escalate | Routed to Atty. Thorne the same day |
 
 **Best practices & pitfalls**
@@ -1336,7 +1336,7 @@ A horizontal date rail across the slide from 01/08/2027 to 03/31/2027, the Notic
 
 | | |
 |---|---|
-| **Tool / interface** | Calendaring Simulators · CMS → Calendar · Docket System · CMS → Tasks · CMS → Case Notes |
+| **Tool / interface** | Calendaring Simulators · CMS → Calendar · Court E-Filing · CMS → Tasks · CMS → Case Notes |
 | **Expected output** | A mediation calendar of verified, trigger-counted entries mirrored to the CMS, a cost task for the fee, a client-confirmation task, and a same-day summary to Atty. Thorne with the UM consent flag and the one conflict. |
 
 **Verification checkpoints**
@@ -1359,7 +1359,7 @@ A horizontal date rail across the slide from 01/08/2027 to 03/31/2027, the Notic
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | Notice of Mediation filed 01/08/2027 | Verify the trigger; enter the session; close the windows task | Calendaring Simulators · CMS → Calendar | Session 03/18/2027 entered once; 30-day rule and 03/31/2027 verified |
-| Session entered | Count the statement, binder and internal dates back; the report forward | Docket System | 03/11, 03/09, 03/04, 03/02 and 03/25/2027, each with its arithmetic |
+| Session entered | Count the statement, binder and internal dates back; the report forward | Court E-Filing | 03/11, 03/09, 03/04, 03/02 and 03/25/2027, each with its arithmetic |
 | Order divides the mediator's fees equally | Open the cost task for the plaintiff's $1,200.00 half | CMS → Tasks → Accounting | Posted to the Case Cost Ledger only on the receipted invoice |
 | Calendar built | Route the summary: the UM consent flag and the 03/15/2027 overlap | CMS → Tasks → Escalate | Routed to Atty. Thorne the same day |
 
@@ -1505,7 +1505,7 @@ A horizontal calendar ribbon from 04/26/2027 to 06/22/2027. At the right end a s
 
 | | |
 |---|---|
-| **Tool / interface** | Calendaring Simulators · Docket System · CMS → Calendar · CMS → Tasks |
+| **Tool / interface** | Calendaring Simulators · Court E-Filing · CMS → Calendar · CMS → Tasks |
 | **Expected output** | A letter-anchored arbitration calendar with every dependent date, its trigger, rule, arithmetic, owner and alerts, the fee share routed as a cost, and one written question to Atty. Thorne on the court dates. |
 
 **Verification checkpoints**
@@ -1521,13 +1521,13 @@ A horizontal calendar ribbon from 04/26/2027 to 06/22/2027. At the right end a s
 - [ ] Arbitrator's fee: the plaintiff's share, $900.00, routed to accounting on her invoice and logged as a case cost; written payment confirmation on file by 05/17/2027, when Tab 1 of the binder needs it
 - [ ] SOL entries unchanged: internal hard date 02/04/2028 (Fri) and filing cutoff 11/05/2027 (Fri); 02/06/2028 (Sun) never relied on
 - [ ] Court entries in No. 26-CV-04417 (discovery closes 05/28/2027, pretrial conference 08/12/2027, trial calendar 09/13/2027) kept and marked “Robert Smith dismissed: confirm vacated”, with one written question to Atty. Thorne; nothing deleted
-- [ ] No award date docketed; every entry carries its trigger, rule, arithmetic, owner and alerts at 14, 7 and 1 days, mirrored from the Docket System to CMS → Calendar
+- [ ] No award date docketed; every entry carries its trigger, rule, arithmetic, owner and alerts at 14, 7 and 1 days, mirrored from Court E-Filing to CMS → Calendar
 
 **Operational mapping**
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Scheduling letter arrives 04/26/2027 | Enter the hearing; re-anchor exchange and brief to the letter | Docket System · CMS → Calendar | 06/22, 06/02 and 06/11/2027 verified; nothing on 06/14/2027 |
+| Scheduling letter arrives 04/26/2027 | Enter the hearing; re-anchor exchange and brief to the letter | Court E-Filing · CMS → Calendar | 06/22, 06/02 and 06/11/2027 verified; nothing on 06/14/2027 |
 | Hearing date fixed | Count back binder QC, records requests and the prep holds | Calendaring Simulators | 05/03, 05/14, 05/17, 06/15 and 06/21/2027, each with its rule |
 | Arbitrator's invoice for the plaintiff's share | Route $900.00 to accounting as a case cost | CMS → Tasks → Accounting | Payment confirmation on file by 05/17/2027 |
 | Master calendar checked | Ask Atty. Thorne which court dates stay live | CMS → Tasks → Escalate | Court entries kept and marked until he answers |
@@ -1693,7 +1693,7 @@ Two panels joined by a heavy orange arrow labelled THE GAP DISPUTE CARRIES OVER.
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Arbitration invoked 04/05/2027 | Open the claimant exhibit index and calendar the exchange and the brief | CMS → Litigation → Exhibit index · Docket System | 06/02/2027 exchange and 06/11/2027 brief on the calendar |
+| Arbitration invoked 04/05/2027 | Open the claimant exhibit index and calendar the exchange and the brief | CMS → Litigation → Exhibit index · Court E-Filing | 06/02/2027 exchange and 06/11/2027 brief on the calendar |
 | Provider records gathered | Request each custodian's business-records certification | Medical Records Requests | One certification per provider covering every date exhibited |
 | Exchange set assembled | Route the set and every flagged item to Atty. Thorne | CMS → Tasks → Escalate | Approved before 06/02/2027; no privileged item in the set |
 

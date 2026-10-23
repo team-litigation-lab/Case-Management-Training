@@ -872,9 +872,9 @@ Left half: a Time-Limited Demand Letter on navy-banded letterhead, five orange n
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| MMI declared (06/12/2026) | Docket MMI + 30 and open the Demand Package task | Docket System · CMS → Tasks | 07/12/2026 falls on a Sunday. It is an internal target, so the firm works it early, on Fri 07/10; legal deadlines counted forward roll to the next business day (Day 4); a later service date recorded as Atty. Thorne's, with the reason |
+| MMI declared (06/12/2026) | Docket MMI + 30 and open the Demand Package task | Court E-Filing · CMS → Tasks | 07/12/2026 falls on a Sunday. It is an internal target, so the firm works it early, on Fri 07/10; legal deadlines counted forward roll to the next business day (Day 4); a later service date recorded as Atty. Thorne's, with the reason |
 | Atty. Thorne approves the terms | Record them exactly before drafting | CMS → Case Notes | $10,000; Limited Release of Smith and Keystone only, BI claim only (the PD claim excluded); Smith's affidavit; 30 days to accept, from the adjuster's written acknowledgement of receipt; payment due as he sets it |
-| Dana Whitfield confirms receipt in writing (07/22/2026) | Compute and docket the acceptance deadline with reminders | Docket System | 08/21/2026 docketed from her written acknowledgement, not the send date; if none comes, follow up with her the same day and escalate to Atty. Thorne |
+| Dana Whitfield confirms receipt in writing (07/22/2026) | Compute and docket the acceptance deadline with reminders | Court E-Filing | 08/21/2026 docketed from her written acknowledgement, not the send date; if none comes, follow up with her the same day and escalate to Atty. Thorne |
 | Keystone writes or calls before the deadline | Log it word for word and route it to Atty. Thorne | CMS → Communications Log · CMS → Tasks → Escalate | Routed the same day; the CM changes nothing on terms or time, and restates the approved terms only where Atty. Thorne's written authority says so |
 
 **Best practices & pitfalls**
@@ -955,7 +955,7 @@ A six-station horizontal timeline across the slide, stations numbered in orange 
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Keystone tenders the $10,000 (08/12/2026) | Prepare the 30-Day Letters (consent-to-settle requests) to both UM carriers for Atty. Thorne's signature; docket each window | Action Plan Editor → Consent-to-settle template · Docket System | Both sent 08/13/2026 with the tender, Dec Page and affidavit; both 30-day windows docketed |
+| Keystone tenders the $10,000 (08/12/2026) | Prepare the 30-Day Letters (consent-to-settle requests) to both UM carriers for Atty. Thorne's signature; docket each window | Action Plan Editor → Consent-to-settle template · Court E-Filing | Both sent 08/13/2026 with the tender, Dec Page and affidavit; both 30-day windows docketed |
 | Keystone's draft release arrives (08/14/2026) | Compare who and what it releases with the approved terms; flag overbreadth | CMS → Documents · CMS → Tasks → Escalate | “All other … insurers” flagged to Atty. Thorne; nothing sent to John Doe to sign |
 | Both consents in writing; Limited Release signed (08/28/2026) | Open the Host UM and Relative UM demands as tracked tasks | CMS → Tasks | Two tasks, each with carrier, claim number and adjuster |
 
@@ -1099,7 +1099,7 @@ A three-column assembly board. Left: the Demand Package as five tabbed cream fol
 
 | | |
 |---|---|
-| **Tool / interface** | Action Plan Editor → Demand Package · CMS → Documents → Outgoing · Email Workspace · Docket System |
+| **Tool / interface** | Action Plan Editor → Demand Package · CMS → Documents → Outgoing · Email Workspace · Court E-Filing |
 | **Expected output** | An audited, served Time-Limited Demand with proof of delivery on file and 08/21/2026 docketed. |
 
 **Verification checkpoints**
@@ -1121,7 +1121,7 @@ A three-column assembly board. Left: the Demand Package as five tabbed cream fol
 |---|---|---|---|
 | Draft package on file | Audit against the Big Four and the Final Scrub; assign each fix | CMS → Tasks | Every deficiency is a dated, assigned task |
 | Atty. Thorne signs | Email the demand to Dana Whitfield with the Demand Package attached; ask for written acknowledgement of receipt | CMS → Documents → Outgoing · Email Workspace | Sent and logged 07/20/2026 |
-| Dana Whitfield acknowledges receipt in writing (07/22/2026) | Docket the acceptance deadline and reminders | Docket System | 08/21/2026 on the docket, counted from her acknowledgement |
+| Dana Whitfield acknowledges receipt in writing (07/22/2026) | Docket the acceptance deadline and reminders | Court E-Filing | 08/21/2026 on the docket, counted from her acknowledgement |
 | No written acknowledgement | Follow up with Dana Whitfield the same day; escalate to Atty. Thorne | Email Workspace · CMS → Tasks → Escalate | Nothing docketed from the send date or a guess |
 
 **Best practices & pitfalls**
@@ -1201,7 +1201,7 @@ Two demand letters side by side on white letterhead: left HOST UM · HARBOR POIN
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
 | Limited Release signed (08/28/2026) | Draft both UM demands with exhaustion proof on page one | Action Plan Editor → UM demand templates | Tender, Dec Page, affidavit, consents and Limited Release present in each |
-| Drafts complete | Route both to Atty. Thorne for review, deadline and signature | CMS → Tasks → Escalate · Docket System | Nothing sent before his sign-off; then each emailed to its adjuster (Marcus Bell, Teresa Okafor), logged, written acknowledgement requested; the deadline he sets docketed from it |
+| Drafts complete | Route both to Atty. Thorne for review, deadline and signature | CMS → Tasks → Escalate · Court E-Filing | Nothing sent before his sign-off; then each emailed to its adjuster (Marcus Bell, Teresa Okafor), logged, written acknowledgement requested; the deadline he sets docketed from it |
 | Keystone's check received | Send its copy to Marcus Bell and Teresa Okafor as a supplemental exhibit | CMS → Documents → Outgoing | Check copy logged in both UM files the day it reaches trust |
 
 **Best practices & pitfalls**
