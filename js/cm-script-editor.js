@@ -2,7 +2,7 @@
    puts an ✏️ Edit script button under every slide's script; it opens a split screen, the slide on the left and its
    script on the right (read aloud, then the question for the room), so the trainer writes against what the room sees.
    Saved edits are shared by every trainer (the admin-only shared record scripts:edits) and read everywhere a script
-   is: Trainer Cues, Presenter view and the Speaker Notes PDF. Reset puts back the course's own script. */
+   is: Trainer Cues, Presenter view and the Speaker Notes PDF. */
 (function(){
 "use strict";
 const KEY = "scripts:edits";
@@ -69,7 +69,7 @@ function open(dayId, li, part){
         <label>❓ Ask the room<textarea id="se-ask" rows="3">${E(cur.ask)}</textarea></label>
         <small>Write <code>{name}</code> where you call on a trainee: it becomes a first name from the batch you teach. Saved for every trainer.</small>
         <div class="se-msg" id="se-msg" aria-live="polite"></div>
-        <div class="se-btns">${cur.edited ? `<button type="button" class="btn btn-ghost btn-sm" onclick="cmScriptEditor.reset(${JSON.stringify(d.id)},${li},${part})">↺ Reset to the original</button>` : ""}
+        <div class="se-btns">
           <button type="button" class="btn btn-ghost btn-sm" onclick="cmScriptEditor.close()">Cancel</button>
           <button type="button" class="btn btn-navy btn-sm" onclick="cmScriptEditor.save(${JSON.stringify(d.id)},${li},${part})">Save script</button></div>
       </div>
@@ -90,15 +90,14 @@ async function store(dayId, li, part, val){
   const ok = await sharedSet(KEY, all);
   if(!ok){ if(msg){ msg.className = "se-msg bad"; msg.textContent = "Not saved: check your connection and try again."; } return; }
   edits = all; apply(); close();
-  if(typeof toast === "function") toast(val ? "Script saved for every trainer." : "Script reset to the original.");
+  if(typeof toast === "function") toast("Script saved for every trainer.");
   if(typeof render === "function") render();
 }
 function save(dayId, li, part){
   const say = document.getElementById("se-say").value.trim(), ask = document.getElementById("se-ask").value.trim();
-  if(!say){ const m = document.getElementById("se-msg"); m.className = "se-msg bad"; m.textContent = "The script can't be empty: Reset puts back the original."; return; }
+  if(!say){ const m = document.getElementById("se-msg"); m.className = "se-msg bad"; m.textContent = "The script can't be empty."; return; }
   return store(dayId, li, part, {say, ask, by: (typeof state !== "undefined" && state.adminName) || "", at: new Date().toISOString()});
 }
-function reset(dayId, li, part){ if(confirm("Put back the course's original script for this slide, for every trainer?")) return store(dayId, li, part, null); }
 const css = document.createElement("style");
 css.textContent = `.se-row{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin:6px 0 2px;}
 .se-tag{font:700 11px 'Inter',sans-serif;color:#B5651F;background:#FFF3E3;border-radius:999px;padding:2px 8px;}
@@ -116,5 +115,5 @@ css.textContent = `.se-row{display:flex;justify-content:flex-end;align-items:cen
 .se-btns{display:flex;justify-content:flex-end;gap:8px;margin-top:auto;}
 @media(max-width:900px){.se-split{grid-template-columns:1fr;grid-template-rows:45% 55%;}.se-slide{border-right:0;border-bottom:1px solid #E2E6EF;}}`;
 document.head.appendChild(css);
-window.cmScriptEditor = {open, close, save, reset, load, edits: () => edits};
+window.cmScriptEditor = {open, close, save, load, edits: () => edits};
 })();
