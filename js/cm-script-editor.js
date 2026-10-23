@@ -8,12 +8,12 @@
 const KEY = "scripts:edits";
 const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
 let edits = {}, loaded = false, loading = false;
-const ORIG = {};   // the course's own script, for Reset: "<day>::<lesson title>::p<n>" → {why, talk, walk, ask, scenario}
+const ORIG = {};   // the course's own script, under each edit: "<day>::<lesson title>::p<n>" → {why, talk, walk, ask, scenario}
 const slotOf = id => { const m = /^(.*)::(p\d+)$/.exec(id); return m && {key: m[1], p: m[2]}; };
 const isAdmin = () => typeof state !== "undefined" && !!state.isAdmin;
 function apply(){
   const S = window.SLIDE_SCRIPTS = window.SLIDE_SCRIPTS || {};
-  // put back anything edited before (a reset, or another trainer's newer save), then lay the edits over
+  // put back anything edited before (another trainer's newer save), then lay the edits over
   Object.keys(ORIG).forEach(id => { const s = slotOf(id); (S[s.key] = S[s.key] || {})[s.p] = ORIG[id]; if(!edits[id]) delete ORIG[id]; });
   Object.keys(edits).forEach(id => {
     const s = slotOf(id), e = edits[id]; if(!s || !e) return;
