@@ -1,5 +1,5 @@
-/* ✏️ Script editor (trainers): the slides aren't edited, the trainer's script for each slide is. Admin → Trainer Cues
-   puts an ✏️ Edit script button under every slide's script; it opens a split screen, the slide on the left and its
+/* ✏️ Script editor (trainers): the slides aren't edited, the trainer's script for each slide is. Presenter view's
+   notes and Admin → Trainer Cues put an ✏️ Edit script button under every slide's script; it opens a split screen, the slide on the left and its
    script on the right (read aloud, then the question for the room), so the trainer writes against what the room sees.
    Saved edits are shared by every trainer (the admin-only shared record scripts:edits) and read everywhere a script
    is: Trainer Cues, Presenter view and the Speaker Notes PDF. */
@@ -42,7 +42,7 @@ if(typeof window.renderPresenterNote === "function"){
   const __note = window.renderPresenterNote;
   window.renderPresenterNote = function(d, l, part){
     const h = __note.apply(this, arguments);
-    if(!isAdmin() || (typeof state !== "undefined" && state.presenting) || !d || !l) return h;
+    if(!isAdmin() || !d || !l) return h;
     load();
     const i = (d.lessons || []).indexOf(l); if(i < 0) return h;
     const ed = !!edits[`${d.id}::${l.h}::p${part || 1}`];
@@ -91,7 +91,10 @@ async function store(dayId, li, part, val){
   if(!ok){ if(msg){ msg.className = "se-msg bad"; msg.textContent = "Not saved: check your connection and try again."; } return; }
   edits = all; apply(); close();
   if(typeof toast === "function") toast("Script saved for every trainer.");
+  // Presenter view keeps its notes until the slide changes: redraw them now
+  const cu = document.getElementById("pvCues"); if(cu) cu.dataset.slide = "";
   if(typeof render === "function") render();
+  if(typeof presenterRefresh === "function") try{ presenterRefresh(); }catch(e){}
 }
 function save(dayId, li, part){
   const say = document.getElementById("se-say").value.trim(), ask = document.getElementById("se-ask").value.trim();
@@ -101,7 +104,7 @@ function save(dayId, li, part){
 const css = document.createElement("style");
 css.textContent = `.se-row{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin:6px 0 2px;}
 .se-tag{font:700 11px 'Inter',sans-serif;color:#B5651F;background:#FFF3E3;border-radius:999px;padding:2px 8px;}
-#se-over{position:fixed;inset:0;z-index:10000;background:rgba(20,24,40,.55);display:flex;align-items:center;justify-content:center;padding:18px;}
+#se-over{position:fixed;inset:0;z-index:2147483000;background:rgba(20,24,40,.55);display:flex;align-items:center;justify-content:center;padding:18px;}
 .se-box{background:#fff;border-radius:14px;width:min(1400px,100%);height:min(860px,100%);display:flex;flex-direction:column;box-shadow:0 20px 50px rgba(0,0,0,.3);overflow:hidden;}
 .se-head{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #E2E6EF;font:600 14px 'Inter',sans-serif;color:#262B45;}
 .se-head span{color:#5B6579;font-weight:500;flex:1;} .se-x{border:0;background:none;font-size:18px;cursor:pointer;color:#5B6579;}
