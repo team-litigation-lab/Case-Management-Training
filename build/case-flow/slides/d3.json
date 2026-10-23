@@ -649,6 +649,19 @@
       "Rebuild each UM package **by function**, never the BI re-addressed"
     ],
     "upl": "Assemble and draft for review; **figure, terms and causation** are Atty. Thorne's",
+    "document": {
+      "name": "Time-Limited Demand",
+      "doc": "RS67",
+      "definition": "The firm's letter offering to settle John Doe's BI claim for Keystone's **$10,000 per-person limit**, open for a fixed time.",
+      "purpose": "Makes Keystone **decide on the record**: the limit, a Limited Release of Smith and Keystone only, Smith's affidavit of no other insurance.",
+      "evidence": "Proves what Keystone held: 81 pages, Exhibits A–J, emailed to Dana Whitfield 07/20/2026; acknowledged 07/22/2026, so **the window closes 08/21/2026**.",
+      "handling": [
+        "Atty. Thorne **sets every term**; you build and serve it",
+        "Serve it by email to Dana Whitfield, **no certified mail**",
+        "Docket 30 days **from her written acknowledgement**, never the send",
+        "No acknowledgement? **Follow up that day**; escalate to Atty. Thorne"
+      ]
+    },
     "job": [
       [
         "MMI declared (06/12/2026)",

@@ -645,7 +645,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 
 **Quick check:** {name}, why does Relative UM wait behind Host UM?
 
-## Explained in plain words: check my wording (480)
+## Explained in plain words: check my wording (505)
 
 ### Day 1 · CM Fundamentals & CMS Initialization
 
@@ -706,6 +706,10 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Liability | d1m3-a3 | Who's at fault. |
 | Claimant | d1m3-a3 | The person who gets to make the claim. |
 | Self-Summary / Skill Scale | d1m3-kc | Principles in your own words; a 1–5 self-rating compared with the score. |
+| Recorded Statement | d1m3-a1 | A taped account the other side can use against the claim later. |
+| PD liability acceptance | d1m3-l2 | Keystone agrees in writing that it owes for the car. |
+| Personal contents | d1m3-l2 | Things left in the car, listed with photos and receipts and claimed on the PD claim. |
+| Low-impact defense | d1m3-l2 | The adjuster's line that a small dent means a small injury. |
 
 ### Day 1 · The Case Plan & Treatment
 
@@ -855,6 +859,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | HIPAA authorization | d2m2-a1 | The form that lets them share his records |
 | Pre-morbid baseline | d2m2-a1 | How he was before the crash |
 | Recorded Statement | d2m2-kc | The insurance company taping his version of events |
+| Defer collection | d2m2-lop | The provider agrees not to bill him for now. |
 
 ### Day 2 · Handling MIA Clients
 
@@ -942,6 +947,15 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Degenerative read | d2m4-a2 | The argument that John's neck was just wearing out with age |
 | C5-C6 herniation | d2m4-a2 | A slipped disc in the neck |
 | Defense-eye audit | d2m4-l1 | Reading the file the way the adjuster will |
+| Negligence | d2m3-cause | Fault: duty and breach, the half a ticket can prove. |
+| Causation and damages | d2m3-cause | Proving this collision, and nothing else, caused the injury and what it cost. |
+| Independent medical expert | d2m3-cause | A doctor brought in to review the records, not one who treated the client. |
+| Reasonable medical probability | d2m3-cause | More likely than not; "possibly" generally falls short. |
+| Aggravation | d2m3-cause | The crash made an old problem in the same body region worse. |
+| Addendum | d2m3-cause | A dated note the record's author adds to correct it. |
+| Degenerative | d2m3-cause | The defense's word for wear and tear from age. |
+| Deposition | d2m3-cause | Sworn testimony taken outside court. |
+| UPL line | d2m3-cause | The line between sharing facts and giving legal advice. |
 
 ### Day 3 · BI & UM Demands & Negotiation
 
@@ -987,6 +1001,10 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | QC | d3m1-a2 | Quality control |
 | UPL | d3m1-kc | The unauthorized practice of law: giving legal advice when you're not a lawyer |
 | Non-subrogated | d3m2-kc | Used up with no right to be paid back |
+| Notarized | d3m1-l1 | Signed under oath in front of a notary. |
+| Umbrella policy | d3m1-l1 | An extra policy that sits on top of the car policy. |
+| Waive subrogation | d3m1-l2 | The UM carrier gives up its right to chase Smith for its money back. |
+| Written acknowledgement of receipt | d3m1-pkg | The adjuster's reply in writing saying she got the demand; the 30 days run from it. |
 
 ### Day 4 · Lien Negotiations, Net Sheet & Closing
 
@@ -1019,6 +1037,9 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | W-9 | d3m4-l2 | The tax form that lets accounting cut a check |
 | Retention policy | d3m4-close | How long we have to keep the file |
 | Duplication-of-benefits statement | d3m4-close | Proves nobody got paid twice for the same thing |
+| Full satisfaction | d3m3-l3 | This amount closes the bill for good. |
+| Balance billing | d3m3-l3 | Billing the client for the rest after a reduction. |
+| Exhaustion proof | d3m4-l2 | Proof that Keystone paid every dollar it had. |
 
 ### Day 4 · Mediation vs. Arbitration & Binders
 
@@ -1059,6 +1080,10 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Eggshell idea | d4m3-prior | The at-fault driver takes the injured person as he finds him; making an old problem worse still counts (rule to confirm) |
 | PIP | d4m3-a1 | John's own no-fault medical coverage |
 | Unbelted defense | d4m3-kc | The argument that John wasn't wearing his seatbelt |
+| Pleading | d4m2-l1 | A formal court paper. |
+| Prayer for relief | d4m2-l1 | The part of the Complaint that asks the court for what we want. |
+| Negligence per se | d4m2-l1 | Fault because Smith broke a traffic law. |
+| Operative pleadings | d4m3-l1 | The current pleadings the case actually runs on. |
 
 ### Day 5 · The Litigation Fork & Bottlenecks
 
