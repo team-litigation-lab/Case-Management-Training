@@ -447,6 +447,13 @@ function eventCard(e, extra, blockId, noAtt){   // noAtt: the slide shows the do
       ${att.length ? `<div class="cfx-ev-att">${att.map(x => `<a href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')">📎 ${E(x.title)}</a>`).join("")}</div>` : ""}
     </div>`;
 }
+/* a snapshot of a CMS log as it stands when the event lands (e.g. the Communications Log of the No Contact Protocol):
+   a slide shows it in place of the document thumbnails, its documents stay under Your Task's Work From */
+function logSnapshot(g){
+  return `<div class="cfx-log"><div class="cfx-log-h">🗂 ${E(g.title)}</div><div class="cfx-log-scroll"><table><thead><tr>${g.head.map(h => `<th>${E(h)}</th>`).join("")}</tr></thead>
+    <tbody>${g.rows.map(r => `<tr${r.mark ? ` class="cfx-log-${E(r.mark)}"` : ""}>${r.cells.map((x, j) => `<td${j < 2 ? ' class="cfx-log-mono"' : ""}>${E(x)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+    ${g.note ? `<p class="cfx-log-note">${hl(g.note)}</p>` : ""}</div>`;
+}
 const LANES = {claims: "Claims & Coverage", care: "Client & Treatment"};
 /* where a workstream stands for a trainee on Case Flow Day n: the first event it has on that day, else its last before */
 function laneAt(lane, n){
@@ -808,13 +815,13 @@ function slideBody(view, l, d){
     case "case": {
       const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(Boolean).slice(0, 4);
       const ev = SIM.events[b.id], fall = falloutFor(b.id), vm = ev && ev.channel === "voicemail" && ev.spoken;
-      const thumbs = docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
+      const thumbs = ev && ev.log ? logSnapshot(ev.log) : docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy" onerror="this.parentNode.classList.add('cfx-thumb-off');this.remove()"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
       return `<div class="cfx-sb">${timeBanner(l)}
         ${fall.map(x => { const e = x.f.then.event, [icon] = CHANNEL[e.channel] || ["⚠️"];
           return `<details class="cfx-fall"><summary><span class="cfx-fall-i">⚠️</span><b>${E(e.subject)}</b><span class="cfx-fall-from">${icon} ${E(e.from || "")}</span></summary>
             <p>${E(e.body)}</p>${isTrainer() ? `<small class="cfx-fall-why">${x.done ? "Not shown to this trainee: they confirmed" : "Shown because this wasn't confirmed"}: “${E(x.what)}” (${E(x.f.if.activity)})</small>` : ""}</details>`; }).join("")}
         <div class="cfx-sb-grid${vm ? " cfx-sb-vm" : ""}">
-          <div class="cfx-sb-main">${ev ? eventCard(ev, "", b.id, docs.length > 0) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}</div>
+          <div class="cfx-sb-main">${ev ? (ev.before || []).map(x => eventCard(x, "cfx-ev-before")).join("") + eventCard(ev, "", b.id, docs.length > 0 && !ev.log) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}</div>
           <div class="cfx-sb-docs">${thumbs}</div>
         </div></div>`;
     }
@@ -4068,6 +4075,20 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-ev-subj{margin:4px 0 4px;font:800 20px/1.3 'Poppins','Inter',sans-serif;color:#262B45;}
 .cfx-ev-body{margin:0;font:500 17px/1.5 'Inter',sans-serif;color:#2C3142;}
 .cfx-ev-att{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;}
+.cfx-ev.cfx-ev-before{border-color:#9AA3B5;padding:6px 12px;opacity:.96;}
+.cfx-ev-before .cfx-ev-subj{font-size:15px;margin:2px 0;}.cfx-sb-main .cfx-ev-before p.cfx-ev-body{font-size:13.5px !important;line-height:1.4;}
+.cfx-log{background:#fff;color:#1F2433;border-radius:12px;border:2px solid #DB8437;box-shadow:0 6px 18px rgba(0,0,0,.25);overflow:hidden;text-align:left;}
+.cfx-log-h{background:#262B45;color:#fff;font:700 13px 'Inter',sans-serif;padding:7px 12px;letter-spacing:.02em;}
+.cfx-log-scroll{overflow-x:auto;}
+.cfx-log table{width:100%;border-collapse:collapse;font:500 13px/1.35 'Inter',sans-serif;}
+.cfx-log th{background:#F1F3F8;color:#5B6579;font:800 10.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;text-align:left;padding:5px 8px;}
+.cfx-log td{padding:5px 8px;border-top:1px solid #E4E7EF;vertical-align:top;}
+.cfx-log-mono{font-family:'IBM Plex Mono',monospace;font-size:12px;white-space:nowrap;}
+.cfx-log tr.cfx-log-call td:first-child{box-shadow:inset 3px 0 #DB8437;}
+.cfx-log tr.cfx-log-email td:first-child{box-shadow:inset 3px 0 #2E6FD8;}
+.cfx-log tr.cfx-log-esc td{background:#FFF5F2;font-weight:700;}
+.cfx-log-note{margin:0;padding:6px 12px 8px;font:500 12.5px/1.4 'Inter',sans-serif;color:#5B6579;border-top:1px solid #E4E7EF;}
+.cfx-thumb-off::before{content:"📄";display:flex;align-items:center;justify-content:center;font-size:40px;aspect-ratio:300/388;background:#fff;border:3px solid #DB8437;border-radius:6px;}
 .cfx-ev-att a{font:600 12px 'Inter',sans-serif;color:#262B45;background:#F1F3F8;border-radius:999px;padding:3px 10px;text-decoration:none;}
 .cfx-fall{margin:0 0 8px;background:#FFF5F2;border:2px solid #E0533D;border-radius:12px;color:#3A1D17;}
 .cfx-fall summary{cursor:pointer;display:flex;align-items:center;gap:10px;padding:7px 12px;font:700 15.5px/1.3 'Inter',sans-serif;list-style:none;}

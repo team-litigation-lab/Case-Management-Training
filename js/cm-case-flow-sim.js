@@ -185,7 +185,89 @@ window.CM_CF_SIM = {
    "body": "Read your Step 3 note. Eleven days and no word from John, and no treatment that we know of. Draft the Final Warning Letter for my review Monday morning: every attempt with its date, a response date, how to reach us. Certified mail and email. Withdrawal is possible, not decided, and the letter says nothing about his claim.",
    "attachments": [
     "RS05"
-   ]
+   ],
+   "log": {
+    "title": "Communications Log — John Doe · No Contact Protocol",
+    "head": [
+     "Date",
+     "Time",
+     "Channel",
+     "Outcome"
+    ],
+    "rows": [
+     {
+      "mark": "call",
+      "cells": [
+       "02/11/2026",
+       "3:40 p.m.",
+       "Phone, mobile (555) 010-2288",
+       "Attempt 1: no answer; voicemail left"
+      ]
+     },
+     {
+      "mark": "call",
+      "cells": [
+       "02/13/2026",
+       "10:00 a.m.",
+       "Phone, mobile (scheduled check-in)",
+       "Attempt 2: no answer; voicemail left"
+      ]
+     },
+     {
+      "mark": "call",
+      "cells": [
+       "02/16/2026",
+       "9:10 a.m.",
+       "Phone, mobile",
+       "Attempt 3: no answer; voicemail left"
+      ]
+     },
+     {
+      "mark": "email",
+      "cells": [
+       "02/16/2026",
+       "9:30 a.m.",
+       "Email, john.doe@example.com",
+       "Warning 1: call us by 02/18/2026; no reply"
+      ]
+     },
+     {
+      "cells": [
+       "02/16/2026",
+       "9:35 a.m.",
+       "Text, (555) 010-2288",
+       "Delivered; no reply"
+      ]
+     },
+     {
+      "cells": [
+       "02/16/2026",
+       "11:05 a.m.",
+       "Phone, Margaret Doe (emergency contact)",
+       "Reached; message passed; no case details shared"
+      ]
+     },
+     {
+      "mark": "email",
+      "cells": [
+       "02/18/2026",
+       "9:00 a.m.",
+       "Email, john.doe@example.com",
+       "Warning 2: call us by 02/20/2026; no reply"
+      ]
+     },
+     {
+      "mark": "esc",
+      "cells": [
+       "02/20/2026",
+       "4:30 p.m.",
+       "Internal note, Atty. Thorne",
+       "Step 3 team notification"
+      ]
+     }
+    ],
+    "note": "Three calls on three days, then **the email warnings**, then the emergency contact: the ladder is exhausted before Step 3."
+   }
   },
   "d2m2-a1": {
    "date": "02/23/2026",
@@ -194,7 +276,18 @@ window.CM_CF_SIM = {
    "from": "Tammy Greer, Riverton Spine & Rehab (tgreer@rivertonspine.example)",
    "to": "Case Manager",
    "subject": "New patient John Doe, evaluation 02/24 — LOP needed",
-   "body": "John Doe is booked for his chiropractic and PT evaluation tomorrow, 02/24. We're out of network with Peach State, so before we see him we'll need a signed Letter of Protection and your HIPAA authorization. Can you get them to me today? Tammy Greer, Office Manager"
+   "body": "John Doe is booked for his chiropractic and PT evaluation tomorrow, 02/24. We're out of network with Peach State, so before we see him we'll need a signed Letter of Protection and your HIPAA authorization. Can you get them to me today? Tammy Greer, Office Manager",
+   "before": [
+    {
+     "date": "02/23/2026",
+     "time": "8:31 a.m.",
+     "channel": "call",
+     "from": "John Doe (555) 010-2288",
+     "to": "Case Manager",
+     "subject": "John Doe calls back after the Final Warning Letter",
+     "body": "The approved Final Warning Letter went out at 8:10 a.m. by email and certified mail. John called at 8:31: he read the email. He saw Riverton Urgent Care on 02/20 and is booked at Riverton Spine & Rehab tomorrow, 02/24. Contact details confirmed; the No Contact Protocol closes; Atty. Thorne told."
+    }
+   ]
   },
   "d2m3-a1": {
    "date": "03/04/2026",
@@ -1070,8 +1163,8 @@ window.CM_CF_SIM = {
     "event": {
      "channel": "alert",
      "from": "CMS",
-     "subject": "Treatment risk missed: rental end never calendared",
-     "body": "The rental's 03/19/2026 end date was recorded in John Doe's assessment but never calendared as a treatment risk. He lost his transport three weeks ago with no plan in place, and the firm is learning of it from the clinic's missed-visit alert."
+     "subject": "Rental end never calendared: rides now out of pocket",
+     "body": "Keystone's rental ended 03/19/2026 (its 30-day cap), as the assessment recorded, but nothing was calendared. Every ride or rental since is out of pocket, with no receipts asked for, and John's transport to care is gone: the clinic's alert is how the firm learns."
     }
    }
   },

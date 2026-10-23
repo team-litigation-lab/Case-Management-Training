@@ -3434,7 +3434,7 @@ window.CM_CF_SLIDES = {
   "checks": [
    "Signed by John Doe and Atty. Thorne **before 02/24/2026**",
    "Baseline: 2021 visits **low back, resolved**; no prior neck",
-   "Rental ends 03/19/2026: **calendared as a treatment risk**",
+   "Rental end 03/19/2026 calendared: after it, **out of pocket**",
    "Decline proved: **$3,675.00 left**, enough for the $2,395.00 MRI",
    "**No payment promised** to either provider"
   ],

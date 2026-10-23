@@ -3103,7 +3103,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "activity", id: "d2m2-a1",
-        transition: "Treatment has begun. We send the Letters of Protection, then follow his care, its bills and its liens as they arrive.",
+        transition: "John Doe answered the Final Warning Letter: he called back this morning and is treating. We send the Letters of Protection, then follow his care, its bills and its liens as they arrive.",
         title: "Transmitting LOPs to Medical Providers",
         topic: "Skill Activity 1 — one LOP issued, one declined",
         visual: "Two dated envelopes side by side, each a white card with a navy header. Left, 02/23/2026 → RIVERTON SPINE & REHAB: an outgoing LOP with three orange numbered badges, ① payer check: out of network ② Atty. Thorne's approval and signature ③ receipt confirmed, and a green ✓ transmit stamp. Right, 03/11/2026 → SUMMIT IMAGING CENTER: a decline letter carrying a mono pill PIP LEFT $3,675.00 ≥ MRI $2,395.00 and an orange arrow routing the bill to Harbor Point. Beneath both, a slim cream baseline card: 2021 · LOW BACK · RESOLVED beside 2026 · NECK, two separate outlined zones. A red callout bottom-right: “No amount promised.”",
