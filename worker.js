@@ -628,6 +628,7 @@ async function driveBuild(env, id, rec) {
     (had ? restored : made).push(path);
   }
   rec.builtAt = new Date().toISOString();
+  if (restored.length) rec.restoredCount = (Number(rec.restoredCount) || 0) + restored.length;
   await driveWrite(env, id, rec);
   return { made, restored };
 }
@@ -690,6 +691,35 @@ function driveStatus(env, rec) {
     lastMissing: (rec && rec.lastMissing) || [],
     setup: (rec && rec.setup) || null,
     saved: (rec && rec.saved) || [],
+  };
+}
+
+/* What a trainer reads to gauge a trainee's systematized backup: connected, the graded setup and how it
+   was reached, the last check, and the filed documents copied per folder. Never a token, sealed or not. */
+function driveReport(id, rec) {
+  const saved = (rec && rec.saved) || [];
+  const perFolder = {};
+  let lastCopyAt = null;
+  saved.forEach((s) => { perFolder[s.folder] = (perFolder[s.folder] || 0) + 1; if (!lastCopyAt || s.at > lastCopyAt) lastCopyAt = s.at; });
+  const setup = (rec && rec.setup) || null;
+  const tries = (rec && rec.tries) || (setup ? [{ at: setup.at, ok: !!setup.ok, n: (setup.problems || []).length }] : []);
+  return {
+    traineeId: id,
+    connected: !!(rec && rec.refresh),
+    email: (rec && rec.refresh && rec.email) || "",
+    connectedAt: (rec && rec.connectedAt) || null,
+    attempts: (setup && setup.attempts) || 0,
+    passed: !!(setup && setup.ok),
+    tries,
+    problems: (setup && setup.problems) || [],
+    builtAt: (rec && rec.builtAt) || null,
+    checkedAt: (rec && rec.checkedAt) || null,
+    missing: (rec && rec.lastMissing) || [],
+    restored: Number(rec && rec.restoredCount) || 0,
+    copies: saved.length,
+    perFolder,
+    lastCopyAt,
+    standard: FOLDER_STANDARD.length,
   };
 }
 
@@ -910,11 +940,25 @@ export default {
         const b = await request.json().catch(() => ({}));
         const action = String(b.action || "status");
         const mine = tok.role === "t" ? tok.id : "";
+        const adminOnly = ["report", "reportAll", "checkFor"].includes(action);
+        if (adminOnly && tok.role !== "a") return json({ error: "Only a trainer can read the Backup Drive report." }, 403);
+        if (action === "reportAll") {
+          // The audit list: the ids it shows, or every drive record when none are given.
+          let ids = Array.isArray(b.traineeIds) ? b.traineeIds.filter((x) => typeof x === "string").map((x) => x.slice(0, 120)).slice(0, 500) : null;
+          if (!ids) {
+            ids = []; let cursor;
+            do { const r = await env.LSH_KV.list({ prefix: "drive:", cursor }); r.keys.forEach((k) => ids.push(k.name.slice(6))); cursor = r.list_complete ? null : r.cursor; } while (cursor && ids.length < 2000);
+          }
+          const reports = {};
+          await Promise.all(ids.map(async (id) => { reports[id] = driveReport(id, await driveRead(env, id)); }));
+          return json({ reports });
+        }
         const who = mine || (tok.role === "a" && typeof b.traineeId === "string" ? b.traineeId.slice(0, 120) : "");
         // An open-mode Worker (no admin password) has no trainee tokens at all, so everyone reads as an
         // admin here and nobody has a drive. The page reads the code and simply shows nothing.
         if (!who) return json({ error: "Sign in as a trainee to use the Backup Drive.", code: "DRIVE_NOT_A_TRAINEE" }, 403);
-        if (!mine && action !== "status") return json({ error: "A trainer can read a trainee's Backup Drive, not change it." }, 403);
+        if (action === "report") return json({ report: driveReport(who, await driveRead(env, who)) });
+        if (!mine && action !== "status" && action !== "checkFor") return json({ error: "A trainer can read a trainee's Backup Drive, not change it." }, 403);
         if (!driveConfigured(env)) return json({ drive: driveStatus(env, null) });
         let rec = await driveRead(env, who);
         try {
@@ -948,7 +992,8 @@ export default {
               try { await fetch("https://oauth2.googleapis.com/revoke", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ token: await unseal(env, rec.refresh) }).toString() }); } catch (e) { /* best effort */ }
             }
             // The Day 1 setup and its grade are the trainee's record and are kept: only the Google link goes.
-            const kept = rec ? { setup: rec.setup, saved: rec.saved } : {};
+            const kept = {};
+            if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
             rec = Object.keys(kept).length ? kept : null;
             if (rec) await driveWrite(env, who, rec); else await env.LSH_KV.delete(driveKey(who));
             return json({ drive: driveStatus(env, rec) });
@@ -960,10 +1005,18 @@ export default {
             const grade = gradeLayout(b.layout);
             const before = (rec.setup && rec.setup.attempts) || 0;
             rec.setup = { attempts: before + 1, at: new Date().toISOString(), score: grade.score, ok: grade.ok, problems: grade.problems };
+            // every submission, kept small (when, pass/fail, how many problems) so a trainer sees the path to the pass
+            rec.tries = (rec.tries || []).concat([{ at: rec.setup.at, ok: grade.ok, n: grade.problems.length }]).slice(-20);
             await driveWrite(env, who, rec);
             if (!grade.ok) return json({ graded: grade, drive: driveStatus(env, rec) });
             const built = await driveBuild(env, who, rec);
             return json({ graded: grade, built, drive: driveStatus(env, rec) });
+          }
+          if (action === "checkFor") {
+            // A trainer refreshes the last check with the trainee's own (sealed) access: read-only, nothing is made again.
+            if (!rec.builtAt) return json({ error: "This trainee hasn't built the structure yet.", report: driveReport(who, rec) }, 400);
+            const out = await driveVerify(env, who, rec);
+            return json({ verified: out, report: driveReport(who, rec) });
           }
           if (action === "check") {
             const out = await driveVerify(env, who, rec);

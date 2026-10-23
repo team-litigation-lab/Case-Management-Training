@@ -82,6 +82,7 @@ function card(){
   if(!D.built) return `<div class="drv-card drv-todo">
     <div class="drv-c-h">📂 Day 1 · Set up your Backup Drive</div>
     <p>Every document you file in the CMS is also kept on the firm's backup drive, in the same case file you work from here — intake, records, bills, liens, litigation. Before Day 1's first block, connect your own Google Drive and lay the firm's ${n}-folder structure out in it yourself. It is graded, and it is where your work goes for the rest of the programme.</p>
+    ${steps()}
     <button type="button" class="btn btn-navy btn-sm" onclick="CMDrive.show()">📂 Set up my Backup Drive</button>
   </div>`;
   const missing = (D.lastMissing || []).length;
@@ -89,8 +90,19 @@ function card(){
     <div class="drv-c-h">📂 Backup Drive ${missing ? `· ${missing} folder${missing === 1 ? "" : "s"} missing` : "· in order"}</div>
     <p>${missing ? `${missing} of the firm's folders ${missing === 1 ? "is" : "are"} no longer in your Drive. A document filed into a folder that isn't there is a document the firm has lost.`
       : `The firm's ${n} folders are in your Drive${D.email ? ` (${esc(D.email)})` : ""}${(D.saved || []).length ? `, holding ${(D.saved || []).length} filed document${(D.saved || []).length === 1 ? "" : "s"}` : ""}.`}</p>
+    ${steps()}
     <button type="button" class="btn ${missing ? "btn-navy" : "btn-ghost"} btn-sm" onclick="CMDrive.show()">📂 Open my Backup Drive</button>
   </div>`;
+}
+/* The job in three steps, each ticked when done. Your trainer sees the same three in the Trainee Audit. */
+function steps(){
+  const saved = (D.saved || []).length, missing = (D.lastMissing || []).length;
+  const li = (done, text)=>`<li style="${done ? "color:var(--success);" : ""}">${done ? "✓" : "○"} ${text}</li>`;
+  return `<ol class="drv-steps" style="list-style:none;margin:6px 0 10px;padding:0;font-size:12.5px;line-height:1.7;">
+    ${li(!!D.connected, "Connect your Google Drive")}
+    ${li(!!D.built && !missing, "Build the firm's folders" + (missing ? ` — ${missing} missing, put them back` : ""))}
+    ${li(saved > 0, "Keep every document you file backed up in its folder" + (saved ? ` (${saved} so far)` : ""))}
+  </ol>`;
 }
 /* The dashboard asks for the card through its own slot, so it can be redrawn on its own later without
    redrawing (and re-routing) the whole page. */

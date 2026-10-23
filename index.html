@@ -11833,6 +11833,7 @@ function renderAdminRankings(onlyBatch){
 }
 function renderAdminRows(){
   if(state.adminData && state.adminData.length && state.adminData.some(r=>!state.auditExtra[r.id] || Date.now()-state.auditExtra[r.id].at>60000)) setTimeout(()=>loadAuditExtras(), 0);
+  if(state.adminData && state.adminData.length && !state.driveReportsLoading && (!state.driveReportsAt || Date.now()-state.driveReportsAt>60000)) setTimeout(()=>loadDriveReports(), 0);
   const search = (state.adminSearch||"").toLowerCase();
   const sort = state.adminSort || "completion_desc";
   let rows = state.adminData.filter(r=>!search || (r.name||"").toLowerCase().includes(search));
@@ -11935,7 +11936,7 @@ function renderAdminRow(rec, day, practice){
     <div class="audit-row ${expanded?"expanded":""}">
       <div class="admin-row-grid" style="display:grid;grid-template-columns:minmax(0,1fr) 110px 110px 110px 140px auto;gap:12px;align-items:center;padding:14px 18px;">
         <div style="min-width:0;overflow:hidden;">
-          <b class="admin-name" title="${esc(String(rec.name||"Unnamed").slice(0,200))}" style="color:var(--navy);font-size:13.5px;">${esc(String(rec.name||"Unnamed").slice(0,60))}${String(rec.name||"").length>60?"…":""}</b>${rec.archived?' <span style="font-size:10px;color:var(--ink-soft);">(archived)</span>':''}${rec.flaggedInvalidInput?' <span style="font-size:10px;color:var(--danger);font-weight:700;">⚠ invalid input removed</span>':''}
+          <b class="admin-name" title="${esc(String(rec.name||"Unnamed").slice(0,200))}" style="color:var(--navy);font-size:13.5px;">${esc(String(rec.name||"Unnamed").slice(0,60))}${String(rec.name||"").length>60?"…":""}</b>${rec.archived?' <span style="font-size:10px;color:var(--ink-soft);">(archived)</span>':''}${rec.flaggedInvalidInput?' <span style="font-size:10px;color:var(--danger);font-weight:700;">⚠ invalid input removed</span>':''}${renderDriveChip(rec)}
           <div class="admin-id" style="font-size:10.5px;color:var(--ink-soft);font-family:'IBM Plex Mono';">${esc(String(rec.id).slice(0,48))}${rec.batch?` · ${esc(cleanBatch(rec.batch))}`:''}</div>
         </div>
         <div style="font-size:13px;">${day.done} / ${day.total} days</div>
@@ -12483,6 +12484,7 @@ function renderAdminDetail(rec){
           </div>`).join("")}
       </div>` : ""}
       ${renderAdminFilingPanel(rec)}
+      ${renderAdminDrivePanel(rec)}
       <div style="margin-top:16px;">
         <div class="sidebar-section-lbl" style="padding-left:0;">AI-Generated Ranking &amp; Review</div>
         <div id="aiReviewWrap-${esc(rec.id)}">${renderAiReviewBlock(rec)}</div>
@@ -12529,6 +12531,88 @@ function renderAdminFilingPanel(rec){
           : `not filed${r.attempts ? ` · ${r.attempts} refused` : ""}`}</span>
       </div>`;
     }).join("")}
+  </div>`;
+}
+/* 📂 The Backup Drive, as a trainer gauges it: a systematized backup of case files is a competency a CM
+   should have. The Worker keeps the record (drive:<id>) and sends it only to an admin (/api/drive
+   report / reportAll / checkFor) — never a token. Read once per Trainee Audit load, a row at a time on refresh. */
+state.driveReports = state.driveReports || {};
+async function driveAdminApi(body){
+  const r = await fetch("/api/drive", {method:"POST", headers:Object.assign({"Content-Type":"application/json"}, typeof authHeaders === "function" ? authHeaders() : {}), body:JSON.stringify(body)});
+  let j = {}; try{ j = await r.json(); }catch(e){}
+  if(!r.ok) throw new Error(j.error || `The Backup Drive report failed (${r.status}).`);
+  return j;
+}
+async function loadDriveReports(force){
+  const recs = state.adminData || []; if(!recs.length || !state.isAdmin) return;
+  if(state.driveReportsLoading) return;
+  if(!force && state.driveReportsAt && Date.now()-state.driveReportsAt < 60000) return;
+  state.driveReportsLoading = true;
+  try{ const j = await driveAdminApi({action:"reportAll", traineeIds: recs.map(r=>r.id)}); Object.assign(state.driveReports, j.reports || {}); state.driveReportsAt = Date.now(); }
+  catch(e){ state.driveReportsAt = Date.now(); }
+  finally{ state.driveReportsLoading = false; }
+  const wrap = document.getElementById("adminRowsWrap"); if(wrap && state.view==="admin" && !isTyping()) wrap.innerHTML = renderAdminRows();
+}
+/* Proficient = the graded structure is built, nothing missing on the last check, and every document filed
+   in the CMS is backed up in its folder. Developing = connected or set up, but short of that. Not started =
+   never connected. */
+function driveCompetency(rep, filedCount){
+  if(!rep || (!rep.connected && !rep.attempts && !rep.copies)) return {level:"Not started", color:"var(--ink-soft)", why:"No Google Drive connected yet."};
+  const why = [];
+  if(!rep.connected) why.push("Google Drive disconnected");
+  if(!rep.builtAt) why.push(rep.attempts ? `structure not passed yet (${rep.attempts} attempt${rep.attempts===1?"":"s"})` : "structure not submitted yet");
+  if((rep.missing||[]).length) why.push(`${rep.missing.length} folder${rep.missing.length===1?"":"s"} missing on the last check`);
+  if(!rep.copies) why.push("no filed documents backed up yet");
+  else if(filedCount > rep.copies) why.push(`${filedCount - rep.copies} filed document${filedCount - rep.copies===1?"":"s"} not backed up`);
+  return why.length ? {level:"Developing", color:"var(--warn, #B7791F)", why: why.join(" · ")}
+    : {level:"Proficient", color:"var(--success)", why:"Structure built to standard, every folder in place, filed documents backed up in their folders."};
+}
+function renderDriveChip(rec){
+  const rep = state.driveReports[rec.id];
+  if(!rep) return "";
+  let label, color;
+  if(!rep.connected){ label = "Not connected"; color = "var(--ink-soft)"; }
+  else if(!rep.builtAt){ label = "Connected"; color = "var(--navy)"; }
+  else if((rep.missing||[]).length){ label = `${rep.missing.length} folder${rep.missing.length===1?"":"s"} missing`; color = "var(--danger)"; }
+  else { label = "Structure ✓"; color = "var(--success)"; }
+  return ` <span class="pill drv-chip" style="font-size:10px;font-weight:700;color:${color};border:1px solid currentColor;background:transparent;" title="Backup Drive">📂 Drive: ${label}</span>`;
+}
+async function driveCheckFor(id){
+  const rep = state.driveReports[id] || {};
+  state.driveReports[id] = Object.assign({}, rep, {checking:true, checkErr:""});
+  const rerender = ()=>{ const w = document.getElementById("adminRowsWrap"); if(w) w.innerHTML = renderAdminRows(); };
+  rerender();
+  try{ const j = await driveAdminApi({action:"checkFor", traineeId:id}); state.driveReports[id] = j.report || Object.assign({}, rep, {checkErr: j.error || "Backup Drive isn't switched on for this site."}); }
+  catch(e){ state.driveReports[id] = Object.assign({}, rep, {checkErr:e.message}); }
+  rerender();
+}
+function renderAdminDrivePanel(rec){
+  const rep = state.driveReports[rec.id];
+  const head = `<div class="sidebar-section-lbl" style="padding-left:0;">📂 Backup Drive</div>`;
+  if(!rep) return `<div style="margin-top:16px;">${head}<div style="font-size:12.5px;color:var(--ink-soft);">${state.driveReportsLoading ? "Loading…" : "No Backup Drive report available."}</div></div>`;
+  const x = state.auditExtra[rec.id], log = ((x && x.data) || {})["doc-filing"] || {};
+  const filed = Object.keys(log).filter(id=>log[id] && log[id].filed).length;
+  const comp = driveCompetency(rep, filed);
+  const tries = rep.tries || [];
+  const firstOk = tries.length && tries[0].ok;
+  const line = (k, v)=>`<div style="display:flex;justify-content:space-between;gap:12px;font-size:12.5px;padding:4px 0;border-bottom:1px dashed var(--line);"><span>${k}</span><span style="text-align:right;">${v}</span></div>`;
+  const folders = Object.keys(rep.perFolder || {}).sort();
+  return `<div style="margin-top:16px;">${head}
+    <div style="font-size:13px;padding:2px 0 8px;"><b>Systematized backup: <span style="color:${comp.color};">${comp.level}</span></b> <span style="color:var(--ink-soft);font-size:12px;">— ${esc(comp.why)}</span></div>
+    ${line("Connected account", rep.connected ? `${esc(rep.email || "Google account")}${rep.connectedAt ? ` · since ${fmtDate(rep.connectedAt)}` : ""}` : `<span style="color:var(--ink-soft);">Not connected</span>`)}
+    ${line("Folder setup", !rep.attempts ? `<span style="color:var(--ink-soft);">Not submitted</span>`
+      : rep.passed ? (firstOk && rep.attempts === 1 ? `<span style="color:var(--success);">✓ Passed first try</span>` : `✓ Passed on attempt ${rep.attempts}`)
+      : `<span style="color:var(--danger);">Not passed · ${rep.attempts} attempt${rep.attempts===1?"":"s"}</span>`)}
+    ${tries.length > 1 ? line("Attempts", tries.map((t,i)=>`#${i+1} ${t.ok ? "✓" : `✗ ${t.n} problem${t.n===1?"":"s"}`}`).join(" · ")) : ""}
+    ${(rep.problems||[]).length ? `<div style="font-size:12px;padding:4px 0 6px;border-bottom:1px dashed var(--line);"><span>Latest problems:</span><ul style="margin:4px 0 0 18px;padding:0;">${rep.problems.slice(0,8).map(p=>`<li>${esc(p)}</li>`).join("")}</ul></div>` : ""}
+    ${line("Structure built", rep.builtAt ? fmtDate(rep.builtAt) : `<span style="color:var(--ink-soft);">Not yet</span>`)}
+    ${line("Last check", rep.checkedAt ? `${fmtDate(rep.checkedAt)} · ${(rep.missing||[]).length ? `<span style="color:var(--danger);">${rep.missing.length} missing</span>` : `<span style="color:var(--success);">all ${rep.standard} folders in place</span>`}` : `<span style="color:var(--ink-soft);">Never checked</span>`)}
+    ${(rep.missing||[]).length ? `<div style="font-size:12px;color:var(--danger);padding:4px 0;border-bottom:1px dashed var(--line);">Missing: ${rep.missing.map(esc).join(", ")}</div>` : ""}
+    ${rep.restored ? line("Folders put back", rep.restored) : ""}
+    ${line("Documents backed up", `${rep.copies} of ${filed} filed in the CMS${rep.lastCopyAt ? ` · last ${fmtDate(rep.lastCopyAt)}` : ""}`)}
+    ${folders.map(f=>line(`<span style="padding-left:12px;color:var(--ink-soft);">${esc(f)}</span>`, rep.perFolder[f])).join("")}
+    ${rep.checkErr ? `<div style="font-size:12px;color:var(--danger);padding-top:6px;">${esc(rep.checkErr)}</div>` : ""}
+    ${rep.connected && rep.builtAt ? `<div style="padding-top:8px;"><button class="btn btn-sm btn-ghost" ${rep.checking ? "disabled" : ""} onclick="driveCheckFor('${esc(rec.id)}')" title="Check the trainee's Drive for missing folders now (read-only)">${rep.checking ? "Checking…" : "🔄 Check now"}</button></div>` : ""}
   </div>`;
 }
 function renderAdminRoleplayPanel(rec){
@@ -15896,7 +15980,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-doc-filing.js?v=cm-2026.10.22-viewer"></script>
 <script src="/js/cm-cms-upload.js?v=cm-2026.10.22-cms-upload"></script>
 <!-- 📂 the trainee's own Backup Drive: the firm's folder structure, built and graded on Day 1 -->
-<script src="/js/cm-drive.js?v=cm-2026.10.22-drive"></script>
+<script src="/js/cm-drive.js?v=cm-2026.10.23-drive-report"></script>
 <script src="/js/lsh-topbar.js?v=2"></script>
 <script src="/js/lsh-one-screen.js?v=1"></script>
 </body>

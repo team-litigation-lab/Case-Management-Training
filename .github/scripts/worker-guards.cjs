@@ -6,6 +6,8 @@
 //      issued, only by an approved trainee; a progress record is capped at 2 MB.
 //   4. A trainee's /api/ranking reads only their own record (not one read per trainee).
 //   5. A body that isn't JSON is a 400, and an unhandled error never sends its stack trace to the browser.
+//   6. The Backup Drive report (/api/drive report / reportAll / checkFor) is a trainer's: a trainee gets 403,
+//      and an admin gets the summary with no token in it (Google is stubbed).
 // Usage: node .github/scripts/worker-guards.cjs   (no server, no browser needed)
 const path = require('path');
 const { pathToFileURL } = require('url');
@@ -81,6 +83,43 @@ async function ticketFor(payloadObj, secret) {
         const rk = await call('/api/ranking', {}, a.token);
         if (rk.status !== 200 || !rk.body || rk.body.trainees.length !== 1 || !rk.body.trainees[0].me) fail(`a trainee's ranking should be their own row: ${JSON.stringify(rk.body)}`);
         if (reads > 3) fail(`a trainee's ranking read ${reads} records (should read only their own)`);
+
+        // 6. the Backup Drive report is a trainer's, and never carries a token
+        env.GOOGLE_CLIENT_ID = 'ci-client'; env.GOOGLE_CLIENT_SECRET = 'ci-google-secret';
+        const realFetch = globalThis.fetch; let nextId = 0;
+        const idTok = 'x.' + b64url(JSON.stringify({ email: 'trainee@example.com' })) + '.y';
+        globalThis.fetch = async (u, o = {}) => {
+            const url = String(u), resp = (j) => new Response(JSON.stringify(j), { status: 200, headers: { 'Content-Type': 'application/json' } });
+            if (url.includes('oauth2.googleapis.com/token')) return resp({ access_token: 'ACCESS-SECRET', refresh_token: 'REFRESH-SECRET', expires_in: 3600, id_token: idTok });
+            if (url.includes('googleapis.com') && (o.method || 'GET') === 'POST') return resp({ id: 'f' + (++nextId), webViewLink: 'https://drive/x' });
+            if (url.includes('googleapis.com')) return resp({ id: 'f', trashed: false });
+            return realFetch(u, o);
+        };
+        try {
+            const admin = (await call('/api/auth/admin', { passphrase: 'ci-pass' })).body;
+            const st = await call('/api/drive', { action: 'connect', code: 'c' }, a.token);
+            if (st.status !== 200 || !st.body.drive.connected) fail(`a trainee should connect a stubbed Google Drive: ${JSON.stringify(st)}`);
+            const standard = st.body.drive.standard || [];
+            await call('/api/drive', { action: 'setup', layout: standard.slice(1) }, a.token);
+            const built = await call('/api/drive', { action: 'setup', layout: standard }, a.token);
+            if (!built.body || !built.body.built) fail(`the right layout should be built: ${JSON.stringify(built.body)}`);
+            for (const action of ['report', 'reportAll', 'checkFor']) {
+                const r = await call('/api/drive', { action, traineeId: a.id, traineeIds: [a.id] }, a.token);
+                if (r.status !== 403) fail(`a trainee's /api/drive ${action} should be 403, got ${r.status}`);
+            }
+            const rep = await call('/api/drive', { action: 'report', traineeId: a.id }, admin.token);
+            const all = await call('/api/drive', { action: 'reportAll', traineeIds: [a.id, b.id] }, admin.token);
+            const chk = await call('/api/drive', { action: 'checkFor', traineeId: a.id }, admin.token);
+            const r1 = rep.body && rep.body.report;
+            if (rep.status !== 200 || !r1 || !r1.connected || r1.email !== 'trainee@example.com' || r1.attempts !== 2 || !r1.passed || !r1.builtAt || r1.tries.length !== 2 || r1.tries[0].ok)
+                fail(`an admin's report should summarise the drive: ${JSON.stringify(rep.body)}`);
+            if (all.status !== 200 || !all.body.reports[a.id] || !all.body.reports[b.id] || all.body.reports[b.id].connected) fail(`reportAll should cover each id asked for: ${JSON.stringify(all.body)}`);
+            if (chk.status !== 200 || !chk.body.report || !chk.body.report.checkedAt || chk.body.report.missing.length) fail(`checkFor should refresh the check: ${JSON.stringify(chk.body)}`);
+            for (const [what, r] of [['report', rep], ['reportAll', all], ['checkFor', chk]]) {
+                const text = JSON.stringify(r.body);
+                if (/SECRET|"refresh"|"access"|"exp"|token/i.test(text)) fail(`${what} sent a token field: ${text}`);
+            }
+        } finally { globalThis.fetch = realFetch; }
     }
 
     // 5. a body that isn't JSON
@@ -92,5 +131,5 @@ async function ticketFor(payloadObj, secret) {
     }
 
     if (failures.length) { console.log(`${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-    console.log('Worker guards: a renewal stays on the trainee\'s own record, a trainee\'s review is the auto-review, certificates are their own, the ranking reads one record, and a bad body is a 400.');
+    console.log('Worker guards: a renewal stays on the trainee\'s own record, a trainee\'s review is the auto-review, certificates are their own, the ranking reads one record, the Backup Drive report is a trainer\'s and token-free, and a bad body is a 400.');
 })().catch(e => { console.error(e); process.exit(1); });
