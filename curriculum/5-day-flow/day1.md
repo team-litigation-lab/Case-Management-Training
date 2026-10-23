@@ -33,8 +33,8 @@ The day is one module, on John Doe's one file: Lesson → Skill Building → Les
 
 **Module 1 — Intake, Claims & Property Damage**
 
-1. *Lesson* — The Case Manager's Role
-2. *Lesson* — Meet Your Case: John Doe v. Robert Smith
+1. *Lesson* — Meet Your Case: John Doe v. Robert Smith
+2. *Lesson* — The Case Manager's Role
 3. *Lesson* — Fact Sharing vs. Legal Advice: the UPL Line
 4. *Lesson* — Ingesting the Raw File
 5. *Lesson* — The Acceptance Decision & the Three-Pillar Case Plan
@@ -61,86 +61,7 @@ The day is one module, on John Doe's one file: Lesson → Skill Building → Les
 
 **Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
-### 1.1.1 The Case Manager's Role
-
-> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
-> **Topic:** Owning the file from intake to resolution  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D1#1` Training Agenda & What Case Management Is · `D1#2` The General Case Management Process · `D1#3` Key Duties of a Case Manager · `D1#4` Understanding Case Phases
-
-#### 1 · Visual Layout Description
-
-A single horizontal case-lifecycle track across the slide: eight rounded stations left to right — Intake, Claim Set-Up, Treatment, Pre-Demand, Demand, Settlement & Liens, Disbursement, Litigation (the last drawn dashed, as the fork). Above the track a navy band, THE CASE MANAGER OWNS THE MOVEMENT, runs the full width; below it a thinner orange band, ATTY. THORNE OWNS EVERY LEGAL JUDGMENT. A small CMS monitor icon sits under the first station, captioned: if it isn't in the CMS, it didn't happen.
-
-#### 2 · Slide Body — Tell Them
-
-*Why:* Every phase of this course runs through one person: you, the Case Manager. Knowing exactly what the role owns, and where it stops, is what lets you move John Doe's file fast without crossing into legal advice.
-
-1. Case Management is the end-to-end coordination, tracking and handling of a case from intake to resolution: timely progression, proper documentation and compliance, and effective communication between all parties.
-2. You own the file's movement: deadlines, documents, carriers, providers and the client's updates. Atty. Thorne owns every legal judgment: value, merits, strategy and settlement authority.
-3. A case moves through phases (intake, claim set-up, treatment, pre-demand, demand, settlement and liens, disbursement, and litigation if it forks), and each phase has its own goals and deliverables.
-4. Your key duties: client communication, case progress monitoring, task compliance, case updates and summaries, document drafting and filing, case health analysis, and planning recommendations to counsel.
-5. The CMS is the single source of truth. Every contact, document, deadline and decision is logged there the same day; if it isn't in the CMS, it didn't happen.
-6. Flag risk early. A missed deadline, a silent client or a gap in treatment goes to Atty. Thorne the day you see it, with the facts and a recommended next step.
-
-> ⚠️ **UPL boundary.** You may explain the process and confirm facts. You may not tell a client what the case is worth, whether to settle, or what the law means for them. Those are Atty. Thorne's calls.
-
-#### 2 · Slide Body — Show Them
-
-*Who owns what on John Doe's file*
-
-| The Case Manager owns | Atty. Thorne owns |
-|---|---|
-| Opening and structuring the file in the CMS | Accepting the case |
-| Every deadline, docketed with reminders | Case value and merits |
-| Carrier, provider and client communication, logged | Demand strategy and amounts |
-| Documents requested, named and filed | Settlement authority |
-| The Case Plan draft and its risk flags | Lien compromises |
-| Recommendations to counsel | Every filing and court decision |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A new matter is assigned | Read the raw file end to end before contacting anyone | CMS → Case File | Every party, date and carrier noted before the first call |
-| The client asks a legal question | Log it and route it to Atty. Thorne the same day | CMS → Communications Log · Tasks | Question routed with the facts; no opinion given |
-| A deadline or risk appears | Docket it, flag it and recommend a next step | CMS → Calendar · Case File → Risk Flags | Nothing lives only in an email or in memory |
-
-**Best practices & pitfalls**
-
-- Own the next step: no file sits without a dated task.
-- Log every client contact in the CMS the same day.
-- Answer process questions yourself; route legal questions to the attorney.
-- ⚠️ Pitfall: answering “what's my case worth?”, even as a guess.
-- ⚠️ Pitfall: keeping the file's real status in your inbox instead of the CMS.
-- ⚠️ Pitfall: waiting to flag a risk until you have fixed it yourself.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Role definition | Defines Case Management as end-to-end ownership of the file's movement, not data entry |
-| 🤖 AI | **25%** | Ownership split | Separates the Case Manager's work from Atty. Thorne's legal judgments correctly |
-| 🤖 AI | **15%** | System discipline | Treats the CMS as the single source of truth for every contact and deadline |
-| 🧑‍🏫 Trainer | **25%** | Professional judgment | Knows when to act and when to route to counsel |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | No value, merits or strategy opinion offered, even informally |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Open with: “Whose file is it?” Let the room argue, then land it: the client's case, the attorney's judgment, your movement.
-- Walk the lifecycle track once, left to right. Every day of this course sits on one or two of these stations.
-- Name the UPL line now and keep naming it. The fastest way to hurt a case is a well-meant guess about its value.
-- Point at the CMS icon: from today, everything the trainees do on John Doe's file happens in the CMS.
-
----
-
-### 1.1.2 Meet Your Case: John Doe v. Robert Smith
+### 1.1.1 Meet Your Case: John Doe v. Robert Smith
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** The one file you will work for five days  
@@ -217,6 +138,85 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 - Say the stack out loud in order, twice: BI, Host UM, Relative UM. It is the spine of Days 1 to 3.
 - Land the critical fact without blame: a 14-day gap is ordinary life (work, waiting it out), and the Case Manager's job is to document it, not judge it.
 - Close: “From the next slide on, every fact you use comes from a document in the file, not from this card.”
+
+---
+
+### 1.1.2 The Case Manager's Role
+
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Topic:** Owning the file from intake to resolution  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#1` Training Agenda & What Case Management Is · `D1#2` The General Case Management Process · `D1#3` Key Duties of a Case Manager · `D1#4` Understanding Case Phases
+
+#### 1 · Visual Layout Description
+
+A single horizontal case-lifecycle track across the slide: eight rounded stations left to right — Intake, Claim Set-Up, Treatment, Pre-Demand, Demand, Settlement & Liens, Disbursement, Litigation (the last drawn dashed, as the fork). Above the track a navy band, THE CASE MANAGER OWNS THE MOVEMENT, runs the full width; below it a thinner orange band, ATTY. THORNE OWNS EVERY LEGAL JUDGMENT. A small CMS monitor icon sits under the first station, captioned: if it isn't in the CMS, it didn't happen.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Every phase of this course runs through one person: you, the Case Manager. Knowing exactly what the role owns, and where it stops, is what lets you move John Doe's file fast without crossing into legal advice.
+
+1. Case Management is the end-to-end coordination, tracking and handling of a case from intake to resolution: timely progression, proper documentation and compliance, and effective communication between all parties.
+2. You own the file's movement: deadlines, documents, carriers, providers and the client's updates. Atty. Thorne owns every legal judgment: value, merits, strategy and settlement authority.
+3. A case moves through phases (intake, claim set-up, treatment, pre-demand, demand, settlement and liens, disbursement, and litigation if it forks), and each phase has its own goals and deliverables.
+4. Your key duties: client communication, case progress monitoring, task compliance, case updates and summaries, document drafting and filing, case health analysis, and planning recommendations to counsel.
+5. The CMS is the single source of truth. Every contact, document, deadline and decision is logged there the same day; if it isn't in the CMS, it didn't happen.
+6. Flag risk early. A missed deadline, a silent client or a gap in treatment goes to Atty. Thorne the day you see it, with the facts and a recommended next step.
+
+> ⚠️ **UPL boundary.** You may explain the process and confirm facts. You may not tell a client what the case is worth, whether to settle, or what the law means for them. Those are Atty. Thorne's calls.
+
+#### 2 · Slide Body — Show Them
+
+*Who owns what on John Doe's file*
+
+| The Case Manager owns | Atty. Thorne owns |
+|---|---|
+| Opening and structuring the file in the CMS | Accepting the case |
+| Every deadline, docketed with reminders | Case value and merits |
+| Carrier, provider and client communication, logged | Demand strategy and amounts |
+| Documents requested, named and filed | Settlement authority |
+| The Case Plan draft and its risk flags | Lien compromises |
+| Recommendations to counsel | Every filing and court decision |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| A new matter is assigned | Read the raw file end to end before contacting anyone | CMS → Case File | Every party, date and carrier noted before the first call |
+| The client asks a legal question | Log it and route it to Atty. Thorne the same day | CMS → Communications Log · Tasks | Question routed with the facts; no opinion given |
+| A deadline or risk appears | Docket it, flag it and recommend a next step | CMS → Calendar · Case File → Risk Flags | Nothing lives only in an email or in memory |
+
+**Best practices & pitfalls**
+
+- Own the next step: no file sits without a dated task.
+- Log every client contact in the CMS the same day.
+- Answer process questions yourself; route legal questions to the attorney.
+- ⚠️ Pitfall: answering “what's my case worth?”, even as a guess.
+- ⚠️ Pitfall: keeping the file's real status in your inbox instead of the CMS.
+- ⚠️ Pitfall: waiting to flag a risk until you have fixed it yourself.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Role definition | Defines Case Management as end-to-end ownership of the file's movement, not data entry |
+| 🤖 AI | **25%** | Ownership split | Separates the Case Manager's work from Atty. Thorne's legal judgments correctly |
+| 🤖 AI | **15%** | System discipline | Treats the CMS as the single source of truth for every contact and deadline |
+| 🧑‍🏫 Trainer | **25%** | Professional judgment | Knows when to act and when to route to counsel |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | No value, merits or strategy opinion offered, even informally |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open with: “Whose file is it?” Let the room argue, then land it: the client's case, the attorney's judgment, your movement.
+- Walk the lifecycle track once, left to right. Every day of this course sits on one or two of these stations.
+- Name the UPL line now and keep naming it. The fastest way to hurt a case is a well-meant guess about its value.
+- Point at the CMS icon: from today, everything the trainees do on John Doe's file happens in the CMS.
 
 ---
 

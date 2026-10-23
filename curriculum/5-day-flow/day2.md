@@ -47,20 +47,21 @@ The day is one module, on John Doe's one file: Lesson → Skill Building → Les
 12. *Skill Activity* — Identifying & Flagging the 14-Day Gap
 13. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
 14. *Lesson* — Coverages & the Payer-First Principle
-15. *Lesson* — LOP Issuance Guidelines, Provider Coordination & PIP Limits
+15. *Lesson* — LOP Issuance Guidelines, Provider Coordination & PIP Limits (condensed)
 16. *Lesson* — Explanation of Benefits (EOB) & PIP
 17. *Lesson* — PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement (condensed)
-18. *Lesson* — Letters of Protection & the Case Manager's Part in Provider Referrals (condensed)
-19. *Lesson* — Rental & Reimbursement of Costs (condensed)
-20. *Skill Activity* — Transmitting LOPs to Medical Providers
-21. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
-22. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check
-23. *Skill Activity* — Subrogation Lien Flagging in the CMS
-24. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
-25. *Skill Activity* — Executing the A-C-T Crisis Protocol for Disrupted Care
-26. *Knowledge Check* — Coverage Setup Verification Check
-27. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
-28. *Knowledge Check* — Treatment Monitoring Review
+18. *Lesson* — The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000 (condensed)
+19. *Lesson* — Letters of Protection & the Case Manager's Part in Provider Referrals (condensed)
+20. *Lesson* — Rental & Reimbursement of Costs (condensed)
+21. *Skill Activity* — Transmitting LOPs to Medical Providers
+22. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+23. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check
+24. *Skill Activity* — Subrogation Lien Flagging in the CMS
+25. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
+26. *Skill Activity* — Executing the A-C-T Crisis Protocol for Disrupted Care
+27. *Knowledge Check* — Coverage Setup Verification Check
+28. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
+29. *Knowledge Check* — Treatment Monitoring Review
 
 **End-of-day discussion (trainer):** It is 04/08/2026. Keystone confirmed its limit in writing on 03/20, Riverton Spine & Rehab reports John Doe has missed two visits, and Dana Whitfield has asked John for a Recorded Statement. What do you do first, second and third, and what does each protect?
 
@@ -68,7 +69,7 @@ The day is one module, on John Doe's one file: Lesson → Skill Building → Les
 
 ## Module 2 — Claim Set Up & Treatment
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 2.1.1 Coverage Verification Tracking & Follow-Up Deadlines
 
@@ -1230,7 +1231,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 2.1.15 LOP Issuance Guidelines, Provider Coordination & PIP Limits
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays which bill, and what only counsel may promise  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · `D1#26` The Treatment Phase — Core Objectives · `D1#30` Handling the Treatment Phase: Proactive Resource Coordination · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · `D1#39` Communication Loops: The “Stakeholder Triad” · LSH Claims Specialist: MedPay vs. PIP (Medical Bills regardless of fault, no lost wages) · Newly authored: LOP issuance guidelines and the PIP exhaustion ledger
@@ -1486,7 +1487,94 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.18 Letters of Protection & the Case Manager's Part in Provider Referrals
+### 2.1.18 The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Topic:** A state-specific PIP rule: what Florida requires, who can make the finding, and why Riverton's file has no such rule  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D2#22` The Valuation Baseline: The EMC and the Benefit Ceiling · `D1#36` The Standard Treatment Map · `D1#37` Treatment Road Map Mastery & the Clinical Pathway Flowchart · `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · Newly authored: Florida's EMC rule stated explicitly (Fla. Stat. § 627.736(1)(a): 14-day initial care, EMC by MD, DO, dentist, PA or APRN, $2,500 vs $10,000, 80% medical and 60% lost income, chiropractor cannot determine EMC, no massage or acupuncture) and contrasted with Riverton's add-on PIP, which has no EMC rule
+
+#### 1 · Visual Layout Description
+
+A two-lane comparison under a thin header strip reading STATE-SPECIFIC: CONFIRM THE STATUTE. Top lane, navy, labelled FLORIDA · FLA. STAT. § 627.736(1)(a): a horizontal timeline starting at a node DOL, a solid band fourteen day-ticks wide labelled INITIAL CARE WITHIN 14 DAYS, ending at a gate. Past the gate the lane forks into two buckets: a small grey bucket labelled $2,500 · NO EMC DETERMINATION and a large orange bucket labelled $10,000 · EMC DETERMINED BY MD · DO · DENTIST · PA · APRN. A small chip on the gate reads CHIROPRACTOR: INITIAL CARE YES · EMC FINDING NO. Under the buckets, a thin rule: PIP PAYS 80% OF MEDICAL · 60% OF LOST INCOME. Bottom lane, muted, labelled RIVERTON · JOHN DOE'S FILE: one plain bar, HARBOR POINT PIP $5,000 · 100% MEDICAL · 80% LOST INCOME, stamped NO EMC RULE · NO 14-DAY CONDITION. Between the lanes, a dashed callout pinned to 02/20/2026 reads HAD THIS FILE BEEN IN FLORIDA: DAY 14, THE LAST DAY INSIDE THE WINDOW (HYPOTHETICAL). The argument: the rule lives in the state's statute, so the Case Manager reads the file's state before working the clock.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* PIP rules are set state by state, and the Emergency Medical Condition rule is Florida's. On a Florida file it decides, within days of the accident, whether PIP pays any medical benefits at all and whether the client has $2,500 or $10,000 to draw on. A missed 14-day window or a missing EMC finding cannot be fixed later by a better demand. John Doe's file is in Riverton, an add-on PIP state with no EMC rule, so his $5,000 of Harbor Point PIP is not capped by one. You still need to know the rule cold, because the day you open a Florida file the clock starts at the date of loss, and you are the one who calendars it.
+
+1. Know which state's PIP rule governs before you work a PIP file. The EMC rule is Florida's (Fla. Stat. § 627.736(1)(a), from the 2012 PIP reform, HB 119). Riverton, John Doe's state, has no EMC rule and no 14-day condition; never apply Florida's rule to his file.
+2. Florida PIP is $10,000 per person. It pays 80% of reasonable medical expenses and 60% of lost gross income, regardless of fault.
+3. The 14-day rule: initial services and care must be received within 14 days after the motor vehicle accident. If they are not, Florida PIP pays nothing for medical benefits. Calendar the 14th day from the date of loss at intake.
+4. The EMC rule: the full $10,000 medical benefit is available only if a physician (MD or DO), a dentist, a physician assistant or an advanced practice registered nurse determines the injured person had an Emergency Medical Condition. Without that determination, medical benefits stop at $2,500.
+5. A chiropractor may provide the initial care inside the 14 days, but a chiropractor cannot make the EMC determination. A file treating only with a chiropractor stays in the $2,500 bucket until a qualifying provider makes the finding.
+6. Massage and acupuncture are not reimbursable under Florida PIP, whoever provides them.
+7. What an EMC is: a medical condition manifesting itself by acute symptoms of sufficient severity, which may include severe pain, such that the absence of immediate medical attention could reasonably be expected to result in serious jeopardy to patient health, serious impairment to bodily functions, or serious dysfunction of a bodily organ or part. Deciding whether that is true is the provider's clinical judgment, never yours.
+8. Request the EMC determination in the records from a qualifying provider, and log which bucket the file is in ($2,500 or $10,000) in the PIP Log as each bill is paid.
+9. Flag a missing EMC determination, or a first visit on or after the 14th day, to Atty. Thorne the day you see it. What it means for the claim is his call.
+10. Confirm the current statute on every Florida file. Florida's legislature has repeatedly considered repealing PIP, so the numbers here are the rule as written since 2013, not a promise that it is still in force.
+
+> ⚠️ **UPL boundary.** The provider decides whether an Emergency Medical Condition exists; Atty. Thorne decides what a missing EMC or a late first visit means for the claim. You calendar, request, log and flag.
+
+> ⚠️ **UPL boundary.** Tell a client the deadline and where and when care is available: facts and logistics only. Never tell him he needs care, what care to get, or that skipping it will hurt his case.
+
+#### 2 · Slide Body — Show Them
+
+*Florida's rule beside Riverton's, with John Doe's dates as a hypothetical contrast (his file is in Riverton: no EMC rule applies to it)*
+
+| Rule point | Florida (Fla. Stat. § 627.736(1)(a)) | Riverton (John Doe's file) | Had this file been in Florida (hypothetical) |
+|---|---|---|---|
+| PIP limit and what it pays | $10,000; 80% of reasonable medical expenses, 60% of lost income | Harbor Point PIP $5,000; 100% of reasonable medical expenses, 80% of lost income | Each bill paid at 80%, not 100% |
+| Initial care deadline | Within 14 days after the accident, or no PIP medical benefits | None | DOL 02/06/2026; first treatment 02/20/2026 is day 14, the last day inside the window |
+| Who can make the EMC determination | MD, DO, dentist, physician assistant, APRN | No EMC rule | Riverton Urgent Care's Nina Patel, PA-C, is a type of provider who could; whether one was made is in her record |
+| Chiropractic care | May give initial care; cannot make the EMC determination | No EMC rule | Riverton Spine & Rehab (Dr. Mark Ellison, DC, chiropractic + PT) could not make the finding |
+| Without an EMC determination | Medical benefits capped at $2,500 | No cap below the $5,000 limit | $2,500 of the $10,000 until a qualifying provider documents an EMC |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| A Florida PIP file is opened at intake | Calendar the 14-day initial-care deadline from the date of loss; tell the client the deadline and where and when care is available (facts and logistics only) | CMS → Calendar · CMS → Communications Log | Deadline docketed the same day; the call logged with no medical recommendation |
+| The first treatment record arrives | Check the visit date against day 14, who saw the client (MD, DO, dentist, PA, APRN or chiropractor), and whether an EMC determination is documented | Medical Records Requests · CMS → Case File → Risk Flags | Date, provider type and EMC status logged with the source record |
+| No EMC determination in a qualifying provider's record | Ask the provider's office whether an EMC was assessed and documented, and request the determination in the records | Medical Records Requests · Email Workspace | Request dated; the provider's answer on file |
+| A PIP payment posts, or a gap is found | Update the $2,500 or $10,000 bucket in the PIP Log; flag a missing EMC or a late first visit to Atty. Thorne | CMS → Insurance tab → PIP Log · CMS → Tasks → Escalate | Bucket current; the flag routed the same day |
+
+**Best practices & pitfalls**
+
+- Read the file's state before you read its PIP: the EMC rule is Florida's, not every state's.
+- Count the 14 days from the date of loss and docket the 14th day at intake, not when the first bill arrives.
+- Write the provider's credential (MD, DO, PA-C, APRN, DC) next to every visit in the treatment log, so an EMC gap shows at a glance.
+- Confirm the current Florida statute before relying on any number in this lesson.
+- ⚠️ Pitfall: telling a Riverton client his PIP is capped at $2,500 without an EMC. Riverton has no EMC rule.
+- ⚠️ Pitfall: treating a chiropractor's note as an EMC determination.
+- ⚠️ Pitfall: telling a client he needs to see a doctor to “get the full $10,000”. Share the deadline and the logistics; the care decision is his and his provider's.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **10%** | State identified | Names Florida as the EMC state and Riverton as having no EMC rule; never applies the cap to John Doe's file |
+| 🤖 AI | **20%** | Florida numbers | States $10,000, 80% medical, 60% lost income, 14 days, $2,500 without an EMC, accurately |
+| 🤖 AI | **15%** | Qualifying providers | Names MD, DO, dentist, PA and APRN; says a chiropractor can give initial care but not the EMC determination |
+| 🤖 AI | **15%** | Hypothetical worked | Places 02/20/2026 as day 14 from 02/06/2026 and labels the Florida contrast as hypothetical |
+| 🧑‍🏫 Trainer | **20%** | Clinical line | Leaves the EMC finding to the provider and gives the client facts and logistics only, no care recommendation |
+| 🧑‍🏫 Trainer | **20%** | Legal line | Flags a missing EMC or late first visit to Atty. Thorne without saying what it does to the claim |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Say it plainly at the start: John Doe's file is in Riverton, which has no EMC rule. This lesson teaches the Florida rule because a Case Manager will meet it, and every John Doe example on the slide is labelled hypothetical.
+- Ask: “On a Florida file with a 02/06/2026 date of loss, what is the last day for initial care?” 02/20/2026, day 14. John's first visit fell on exactly that day; in Florida that is cutting it as close as it gets.
+- Ask: “Can Dr. Mark Ellison make the EMC determination?” No: a chiropractor can give initial care but not the EMC finding. Then: “Who decides whether John had an EMC?” Only the provider.
+- Remind the room that PIP is set state by state and Florida has debated repealing it more than once: confirm the current statute before relying on any number.
+
+---
+
+### 2.1.19 Letters of Protection & the Case Manager's Part in Provider Referrals
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** What an LOP is, when it is used, and how you help John Doe reach care without steering it  
@@ -1563,7 +1651,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.19 Rental & Reimbursement of Costs
+### 2.1.20 Rental & Reimbursement of Costs
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** What treatment costs the client out of pocket, and how each dollar is documented for the demand  
@@ -1637,7 +1725,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.20 Transmitting LOPs to Medical Providers
+### 2.1.21 Transmitting LOPs to Medical Providers
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 1 — one LOP issued, one declined  
@@ -1715,7 +1803,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.21 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+### 2.1.22 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 3 — the Millbrook booking, 04/22/2026  
@@ -1817,7 +1905,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.22 Health Subrogation, Payer Order & the Regulatory Triple-Check
+### 2.1.23 Health Subrogation, Payer Order & the Regulatory Triple-Check
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays the bills now, and who gets paid back later  
@@ -1896,7 +1984,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.23 Subrogation Lien Flagging in the CMS
+### 2.1.24 Subrogation Lien Flagging in the CMS
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — register the claim before it can hurt you  
@@ -1968,7 +2056,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.24 A-C-T Crisis Protocol & Treatment Monitoring Principles
+### 2.1.25 A-C-T Crisis Protocol & Treatment Monitoring Principles
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Is the plan working, and what you do the day it isn't  
@@ -2051,7 +2139,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.25 Executing the A-C-T Crisis Protocol for Disrupted Care
+### 2.1.26 Executing the A-C-T Crisis Protocol for Disrupted Care
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — the Transportation Wall, 04/08/2026  
@@ -2139,7 +2227,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.26 Coverage Setup Verification Check
+### 2.1.27 Coverage Setup Verification Check
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2256,7 +2344,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 ---
 
-### 2.1.27 Case Plan Audit & the Claim Set Up Gate
+### 2.1.28 Case Plan Audit & the Claim Set Up Gate
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2299,7 +2387,7 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (14 questions):
+**Auto-graded share of the day's Knowledge Check** (16 questions):
 
 1. Once the claim is set up, the Case Plan is typically filed within:  
    7 days · **✓ 30–60 days, depending on the state** · 6 months · After Maximum Medical Improvement  
@@ -2343,6 +2431,12 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 14. On a check-in, a client says the clinic is a waste of his time and he is thinking of quitting. Which response is motivational interviewing?  
    “If you quit, it will hurt your case.” · **✓ “It sounds like that clinic isn't a good fit for you. Let's look at why.”** · “You have to go; the doctor ordered it.” · “Fine, I'll cancel your appointments.”  
    *Rolling with resistance: don't argue, pivot to his reason and take it to the provider. What quitting means for the claim is Atty. Thorne's to explain.*
+15. On a Florida PIP file, who can make the Emergency Medical Condition (EMC) determination that opens the full $10,000 medical benefit?  
+   Any treating provider, including a chiropractor · **✓ An MD or DO, a dentist, a physician assistant or an advanced practice registered nurse** · The Case Manager, from the intake call · The PIP adjuster  
+   *Under Fla. Stat. § 627.736(1)(a), only an MD, DO, dentist, PA or APRN can determine an EMC. A chiropractor may give initial care but cannot make the finding; without it, medical benefits stop at $2,500.*
+16. John Doe's PIP claim is under Harbor Point's $5,000 PIP in Riverton. How does the EMC rule apply to it?  
+   His PIP is capped at $2,500 until a physician finds an EMC · He lost PIP medical benefits because he first treated on day 14 · **✓ It does not apply: Riverton is an add-on PIP state with no EMC rule** · Only his chiropractic bills are capped  
+   *The EMC rule is Florida's. Riverton has no EMC rule and no 14-day condition; John's 02/20/2026 visit falling on day 14 matters only as a Florida hypothetical.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -2369,7 +2463,7 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 ---
 
-### 2.1.28 Treatment Monitoring Review
+### 2.1.29 Treatment Monitoring Review
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

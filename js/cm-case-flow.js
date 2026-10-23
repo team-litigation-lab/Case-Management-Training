@@ -447,6 +447,13 @@ function eventCard(e, extra, blockId, noAtt){   // noAtt: the slide shows the do
       ${att.length ? `<div class="cfx-ev-att">${att.map(x => `<a href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')">📎 ${E(x.title)}</a>`).join("")}</div>` : ""}
     </div>`;
 }
+/* a snapshot of a CMS log as it stands when the event lands (e.g. the Communications Log of the No Contact Protocol):
+   a slide shows it in place of the document thumbnails, its documents stay under Your Task's Work From */
+function logSnapshot(g){
+  return `<div class="cfx-log"><div class="cfx-log-h">🗂 ${E(g.title)}</div><div class="cfx-log-scroll"><table><thead><tr>${g.head.map(h => `<th>${E(h)}</th>`).join("")}</tr></thead>
+    <tbody>${g.rows.map(r => `<tr${r.mark ? ` class="cfx-log-${E(r.mark)}"` : ""}>${r.cells.map((x, j) => `<td${j < 2 ? ' class="cfx-log-mono"' : ""}>${E(x)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+    ${g.note ? `<p class="cfx-log-note">${hl(g.note)}</p>` : ""}</div>`;
+}
 const LANES = {claims: "Claims & Coverage", care: "Client & Treatment"};
 /* where a workstream stands for a trainee on Case Flow Day n: the first event it has on that day, else its last before */
 function laneAt(lane, n){
@@ -557,6 +564,7 @@ const TOOLKIT = [
   {id: "plan", icon: "📝", short: "Action Plan", name: "your Action Plan", re: /Action Plan Editor|action plan/i},
   {id: "docs", icon: "📁", short: "Documents", name: "the Case Documents", re: /Case Documents/},
   {id: "lor", icon: "📄", short: "LOR Drafting", name: "LOR Drafting (John Doe v. Robert Smith)", re: /\bLORs?\b|Letters? of Representation/},
+  {id: "packet", icon: "📚", short: "Packet Builder", name: "the Packet Builder (Demand Packets & Binders)", re: /Packet Builder/},
 ];
 const TOOL = Object.fromEntries(TOOLKIT.map(t => [t.id, t]));
 /* The LSH Net Sheet is where the money is worked, and only there: Day 4's Settlement Negotiations, Lien Negotiations and
@@ -598,13 +606,23 @@ const EMAIL_NEED = {
   "d3m2-a2": "cm_client_net",                 // closing the gross recovery: "where is my money"
   "d3m4-a2": "all_wire_phish"                 // release and disbursement: fraudulent wire instructions
 };
+/* The Training Portal's Packet Builder (simulators/demand-packet.html) assembles the packet these steps put together, as
+   one PDF (cover letter, index, demand, PIP log, bills, records; or the binders' numbered tabs), and files it into the
+   case in the CMS beside the slide through this course's relay (js/cm-doc-filing.js). Each step opens the packet it
+   builds, with the trainee's open case. */
+const PACKET_TYPE = {"d3m1-pkg": "demand", "d3m1-a1": "demand", "d4m3-l1": "mediation", "d4m3-a1": "mediation", "d4m3-l2": "arbitration", "d4m3-a2": "arbitration"};
 function emailTarget(id, blockId){
+  if(id === "packet"){
+    const c = window.CMCase && CMCase.id && CMCase.id();
+    return "type=" + (PACKET_TYPE[blockId] || "demand") + (c ? "&case=" + encodeURIComponent(c) : "");
+  }
   if(id === "email") return "inbox=1";
   if(id === "replies") return EMAIL_NEED[blockId] ? "email=" + EMAIL_NEED[blockId] : "";
   return "";
 }
 const NET_STAGE = {};
 Object.keys(STORED).forEach(id => { const st = NET_MODS[STORED[id].mod.id]; if(st) NET_STAGE[id] = st; });
+Object.assign(NET_STAGE, {"d3m2-bins": "bi", "d3m2-umns": "um"});   // the settlement-stage sheets, one per stream
 /* The records, docket and court-filing platforms, at the steps where that work happens on John Doe's file (on top of
    any the step's own text names): ChartSwap for the records and itemized bills behind treatment, specials, liens and
    discovery; the Docket System for every court date the litigation track sets; Court E-Filing for the complaint,
@@ -613,6 +631,7 @@ const WORKED_IN = {
   "d2m2-a1": ["records"], "d2m2-a2": ["records"], "d2m2-a3": ["records"], "d2m3-a2": ["records"], "d2m4-a1": ["records"], "d3m3-a2": ["records"],
   "d4m1-a2": ["docket", "efiling"], "d4m2-a2": ["docket"], "d5m1-a1": ["efiling", "docket", "records"], "d5m1-a2": ["docket"],
   "d5m3-a1": ["docket"], "d5m4-a2": ["efiling"],
+  "d3m1-pkg": ["packet"], "d3m1-a1": ["packet"], "d4m3-l1": ["packet"], "d4m3-a1": ["packet"], "d4m3-l2": ["packet"], "d4m3-a2": ["packet"],
   "d2m2-l1": ["records"], "d2m2-l2": ["records"], "d2m4-l1": ["records"], "d4m1-l2": ["efiling", "docket"], "d4m2-l1": ["docket"], "d5m1-l1": ["efiling", "docket"], "d5m1-l2": ["docket"]};
 /* LOR Drafting (js/cm-lor.js, on John Doe's file with no assignment) is the claims phase's: Claim Set Up drafts the LORs */
 const LOR_BLOCKS = new Set();
@@ -831,13 +850,13 @@ function slideBody(view, l, d){
     case "case": {
       const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(docAvail).filter(Boolean).slice(0, 4);
       const ev = SIM.events[b.id], fall = falloutFor(b.id), vm = ev && ev.channel === "voicemail" && ev.spoken;
-      const thumbs = docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
+      const thumbs = ev && ev.log ? logSnapshot(ev.log) : docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy" onerror="this.parentNode.classList.add('cfx-thumb-off');this.remove()"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
       return `<div class="cfx-sb">${timeBanner(l)}
         ${fall.map(x => { const e = x.f.then.event, [icon] = CHANNEL[e.channel] || ["⚠️"];
           return `<details class="cfx-fall"><summary><span class="cfx-fall-i">⚠️</span><b>${E(e.subject)}</b><span class="cfx-fall-from">${icon} ${E(e.from || "")}</span></summary>
             <p>${E(e.body)}</p>${isTrainer() ? `<small class="cfx-fall-why">${x.done ? "Not shown to this trainee: they confirmed" : "Shown because this wasn't confirmed"}: “${E(x.what)}” (${E(x.f.if.activity)})</small>` : ""}</details>`; }).join("")}
         <div class="cfx-sb-grid${vm ? " cfx-sb-vm" : ""}">
-          <div class="cfx-sb-main">${ev ? eventCard(ev, "", b.id, docs.length > 0) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}${docs.length ? art(c.image, "cfx-sb-art") : ""}</div>
+          <div class="cfx-sb-main">${ev ? (ev.before || []).map(x => eventCard(x, "cfx-ev-before")).join("") + eventCard(ev, "", b.id, docs.length > 0 && !ev.log) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}${docs.length && !(ev && (ev.log || (ev.before || []).length)) ? art(c.image, "cfx-sb-art") : ""}</div>
           <div class="cfx-sb-docs">${thumbs}</div>
         </div></div>`;
     }
@@ -1061,6 +1080,36 @@ function agendaSlide(d){
         <div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div></div></div>
     </div>`;
 }
+/* ---------- the Training Agenda's speaker notes ----------
+   What the trainer says over each day's agenda slide, in the voice of the slide scripts (build/case-flow/scripts/
+   SCRIPTSPEC.md: first person to the room, John Doe's file, no lists). The welcome and the question are written for
+   each day; the run of the day is read from the slide itself (its parts, minutes, activities and questions), so the
+   notes and the slide can never disagree. Shown in Presenter view, on Admin → Trainer Cues and in the Speaker Notes PDF. */
+const AGENDA_NOTES = {
+  1: {open: "Welcome, everyone, and thanks for being here on time. For the next five days you're the Case Manager on one file, John Doe v. Robert Smith, Atty. Elijah Thorne's case, and everything we do this week happens on that file. Right now it's a raw file: nothing is in the CMS yet, John Doe hasn't started treatment, and there's a damaged car on it that nobody has sorted out.",
+      ask: "Before we start, who has worked on a personal injury file before, and which part of it did you handle?"},
+  2: {open: "Morning, everyone. Yesterday we opened John Doe's matter in the CMS, ran the Conflict Check and got the Property Damage side moving. Today the three claims are reported by phone, but nothing is confirmed in writing yet, and John Doe is about to start treatment. So today is about setting the claims up properly and then carrying him through treatment without losing him.",
+      ask: "Think about the file as we left it yesterday: what's the one thing on it you'd want confirmed in writing before anything else today?"},
+  3: {open: "Welcome back. John Doe has finished treatment and reached MMI, the Specials stand at $16,401.40, and there's a 14-day gap on the file that we still have to explain from his own documented facts. Today we audit the file, brief Atty. Thorne, serve a demand that holds up and negotiate it.",
+      ask: "Before the demand goes out, what on John Doe's file would an adjuster use against us first?"},
+  4: {open: "Morning, everyone. On Track A the file settles at $40,000 gross. Today we finish that settlement properly: the release, the liens, the provider balances and a net to John Doe that reconciles to the cent. Then we go back and follow the same file down Track B, where it doesn't settle, into mediation and arbitration and the binders that go with them.",
+      ask: "Once the $40,000 comes in, whose money is it, and who has to be paid before John Doe sees a dollar?"},
+  5: {open: "Welcome to our last day. On Track B the carrier let the demand lapse, so today John Doe's file goes into litigation: the impasse, the complaint, discovery, his deposition and, at the end, the award and the Litigation Net Sheet. We'll also close out a separate matter that's being dropped, and do it the right way.",
+      ask: "When a file goes into suit, what changes in your day as the Case Manager, and what stays exactly the same?"}
+};
+function agendaNotes(d){
+  const n = d.cf.n, w = AGENDA_NOTES[n] || {}, sc = daySchedule(d), segs = daySegments(d), parts = segs.filter(x => x.kind === "lesson");
+  const acts = d.lessons.filter(l => l.cf.block.kind === "activity").length, q = (d.quiz || []).length, next = cfDayByN(n + 1);
+  const topics = parts.map(p => p.title);
+  const say = [w.open || `Welcome, everyone. Let's pick John Doe's file up where we left it.`,
+    `Here's how today runs, and it's all on the slide. Each topic is a short lesson and then straight into Skill Building on it: ${andList(topics)}.`
+      + (segs.length > 2 && sc.buffer >= 10 ? " We'll take a ten-minute break about halfway through." : ""),
+    `That's ${acts} Skill Activit${acts === 1 ? "y" : "ies"} on John Doe's file in all, about ${sc.practice} minutes, worked in the CMS and the tools, not on paper, each one right after the lesson it practises.`,
+    `We finish with the Knowledge Check, ${q} question${q === 1 ? "" : "s"} in about ${sc.kc} minutes, and you need 70% ${next || n < 5 ? `to open Day ${n + 1}` : "to finish the Case Flow"}.`,
+    `By the end of today you'll ${firstAim(d)}.`].join(" ");
+  return {say, ask: w.ask || ""};
+}
+
 /* ---------- the live call: the course's own roleplay engine, on John Doe v. Robert Smith ---------- */
 function caseDossier(){
   const c = CF.case;
@@ -2149,10 +2198,14 @@ window.cmCaseFlow.labGo = function(dayId, li){
   const idx = slides.findIndex(sl => sl.type === "topic" && sl.lessonIndex === li && sl.part === 1);
   if(idx >= 0 && typeof goToSlide === "function") goToSlide(idx);
 };
-if(typeof presenterCues === "function"){   // Presenter view: the trainer's note for the Practice Lab slide
+if(typeof presenterCues === "function"){   // Presenter view: the trainer's notes for the Training Agenda and the Practice Lab slides
   const __cues = presenterCues;
   presenterCues = function(d, slide){
     if(slide && slide.type === "readyCheck" && cfDay(d && d.id)) return `<h3>Ready for the Knowledge Check?</h3><p>The day's Skill Activities are done. Give the room a couple of minutes on these ${labQuestions(d).length} key concepts, one from each of today's first modules: a wrong answer shows the reason and can be tried again. Then open the Knowledge Check.</p>`;
+    if(slide && slide.type === "taskOverview" && cfDay(d && d.id)){
+      const a = agendaNotes(d);
+      return `<h3>Training Agenda</h3><div class="pn-part">🎙 Script — read aloud</div><p>${E(a.say)}</p>${a.ask ? `<p><b>Ask:</b> ${E(a.ask)}</p>` : ""}`;
+    }
     if(!(slide && slide.type === "practiceLab" && cfDay(d && d.id))) return __cues.apply(this, arguments);
     const n = d.lessons.filter(l => l.cf.block.kind === "activity").length;
     return `<h3>Practice Lab</h3><p>Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. Today's ${n} Skill Activities each come straight after the lessons they practise: each opens with Your Case, then Your Task and Check Your Work. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
@@ -2181,8 +2234,27 @@ if(typeof slideScript === "function"){   // Presenter view: each slide has its o
   slideScript = function(d, l, part){
     const n = l && l.cf && (window.SLIDE_SCRIPTS || {})[`${d.id}::${l.h}`];
     const h = n && n["p" + (part || 1)];
-    return h ? {why: h.why || "", talk: h.talk || "", walk: h.walk || [], ask: h.ask || "", scenario: h.scenario || "", hand: true} : __script.apply(this, arguments);
+    if(!h) return __script.apply(this, arguments);
+    const k = `${d.id}::${l.h}::${part || 1}`;
+    return {why: h.why || "", talk: named(h.talk || "", k), walk: h.walk || [], ask: named(h.ask || "", k + "?"), scenario: h.scenario || "", hand: true};
   };
+}
+/* The scripts call on trainees by name: each {name} becomes a first name from the batch being taught (Trainee
+   Audit's batch filter, else the newest batch), and [Trainee] until the roster has loaded. The same slide always
+   calls the same people, so a re-drawn console doesn't change who was called; the next {name} moves on. */
+let rosterAsked = false;
+function roster(){
+  const rs = (state.adminData || []).filter(r => r && r.approved === true && !r.archived && r.name);
+  if(!rs.length && state.isAdmin && !rosterAsked && typeof loadAdminLedgerQuiet === "function"){ rosterAsked = true; loadAdminLedgerQuiet().catch(() => {}); }
+  const day = b => { const m = /^B(\d\d)(\d\d)(\d\d)$/.exec(String(b || "").trim().toUpperCase()); return m ? +(m[3] + m[1] + m[2]) : -1; };
+  const key = r => String(r.batch || "").trim().toUpperCase();
+  const pick = state.adminBatchFilter ? String(state.adminBatchFilter).trim().toUpperCase() : rs.map(key).sort((a, b) => day(b) - day(a))[0];
+  return [...new Set(rs.filter(r => key(r) === pick).map(r => String(r.name).trim().split(/\s+/)[0]))].sort();
+}
+function named(s, k){
+  if(!/\{name\}/.test(s)) return s;
+  const rs = roster(); let h = 0; for(const c of k) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  let i = 0; return s.replace(/\{name\}/g, () => rs.length ? rs[(h + i++) % rs.length] : "[Trainee]");
 }
 
 /* ---------- Presenter view: the speaker notes, as this course's slide scripts ---------- */
@@ -2227,7 +2299,8 @@ MODULES.forEach(d => d.lessons.forEach(l => {
    with what the trainer says at each step in their own words. The engine's run of show described the old course
    (dividers, Quick Checks, Skill Builders); the rest of the SOP page is unchanged. */
 const lc1 = t => String(t || "").replace(/\.$/, "").replace(/^[A-Z](?=[a-z])/, c => c.toLowerCase());
-const firstAim = d => lc1(String(d.objective || d.title).replace(/\s*\([^)]*\)/g, "").split(/,\s|;\s/)[0]);   // the objective's opening clause, said aloud
+// the objective's opening clause, said aloud; a setting clause first ("With Track A settled …", "On Track B") is skipped for the aim itself
+const firstAim = d => lc1(String(d.objective || d.title).replace(/\s*\([^)]*\)/g, "").split(/,\s|;\s/).find(c => !/^(with|on|where)\b/i.test(c.trim())) || d.title);
 const andList = xs => xs.length < 2 ? (xs[0] || "") : xs.slice(0, -1).join(", ") + " and " + xs[xs.length - 1];
 if(typeof window.sopRunOfShow === "function"){
   const __ros = window.sopRunOfShow;
@@ -2395,6 +2468,7 @@ if(typeof window.renderAdminTrainerCues === "function"){
         <h2 style="color:var(--navy);font-size:19px;margin:0;">${E(d.title)}</h2>
         <button class="btn btn-navy btn-sm" onclick="downloadDayScriptsPdf(${d.id})">⬇ Download the Speaker Notes (PDF)</button>
       </div>
+      ${(a => `<div class="card" style="padding:14px 18px;margin-bottom:12px;"><div class="pn-part">📅 Training Agenda — read aloud</div><p style="margin:6px 0;">${E(a.say)}</p>${a.ask ? `<p style="margin:6px 0 0;"><b>Ask:</b> ${E(a.ask)}</p>` : ""}</div>`)(agendaNotes(d))}
       ${d.cf.n === 1 && typeof renderMeetClientTrainerGuide === "function" ? `<div class="card" style="padding:14px 18px;margin-bottom:12px;">${renderMeetClientTrainerGuide()}</div>` : ""}
       ${d.discussionQuestion ? `<div class="card discussion-card" style="margin-bottom:12px;">
         <div class="discussion-tag">💬 End-of-Day Discussion</div>
@@ -2416,6 +2490,10 @@ if(typeof window.buildDayScriptLines === "function"){
   window.buildDayScriptLines = function(d){
     if(!d || !d.cf) return __lines.apply(this, arguments);
     const lines = [`## ${d.title}: Trainer Speaker Notes`];
+    const ag = agendaNotes(d);
+    lines.push("## Training Agenda", "SLIDE: TRAINING AGENDA", ag.say);
+    if(ag.ask) lines.push(`ASK: ${ag.ask}`);
+    lines.push("---");
     d.cf.phases.forEach(ph => {
       const ls = d.lessons.map((l, i) => [l, i]).filter(([l]) => l.cf.phase === ph); if(!ls.length) return;
       lines.push(`## ${ph.lead === "Case Phase" ? `Case Phase ${ph.n}` : ph.lead}: ${ph.title}`);
@@ -4360,6 +4438,20 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-ev-subj{margin:4px 0 4px;font:800 20px/1.3 'Poppins','Inter',sans-serif;color:#262B45;}
 .cfx-ev-body{margin:0;font:500 17px/1.5 'Inter',sans-serif;color:#2C3142;}
 .cfx-ev-att{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;}
+.cfx-ev.cfx-ev-before{border-color:#9AA3B5;padding:6px 12px;opacity:.96;}
+.cfx-ev-before .cfx-ev-subj{font-size:15px;margin:2px 0;}.cfx-sb-main .cfx-ev-before p.cfx-ev-body{font-size:13.5px !important;line-height:1.4;}
+.cfx-log{background:#fff;color:#1F2433;border-radius:12px;border:2px solid #DB8437;box-shadow:0 6px 18px rgba(0,0,0,.25);overflow:hidden;text-align:left;}
+.cfx-log-h{background:#262B45;color:#fff;font:700 13px 'Inter',sans-serif;padding:7px 12px;letter-spacing:.02em;}
+.cfx-log-scroll{overflow-x:auto;}
+.cfx-log table{width:100%;border-collapse:collapse;font:500 13px/1.35 'Inter',sans-serif;}
+.cfx-log th{background:#F1F3F8;color:#5B6579;font:800 10.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;text-align:left;padding:5px 8px;}
+.cfx-log td{padding:5px 8px;border-top:1px solid #E4E7EF;vertical-align:top;}
+.cfx-log-mono{font-family:'IBM Plex Mono',monospace;font-size:12px;white-space:nowrap;}
+.cfx-log tr.cfx-log-call td:first-child{box-shadow:inset 3px 0 #DB8437;}
+.cfx-log tr.cfx-log-email td:first-child{box-shadow:inset 3px 0 #2E6FD8;}
+.cfx-log tr.cfx-log-esc td{background:#FFF5F2;font-weight:700;}
+.cfx-log-note{margin:0;padding:6px 12px 8px;font:500 12.5px/1.4 'Inter',sans-serif;color:#5B6579;border-top:1px solid #E4E7EF;}
+.cfx-thumb-off::before{content:"📄";display:flex;align-items:center;justify-content:center;font-size:40px;aspect-ratio:300/388;background:#fff;border:3px solid #DB8437;border-radius:6px;}
 .cfx-ev-att a{font:600 12px 'Inter',sans-serif;color:#262B45;background:#F1F3F8;border-radius:999px;padding:3px 10px;text-decoration:none;}
 .cfx-fall{margin:0 0 8px;background:#FFF5F2;border:2px solid #E0533D;border-radius:12px;color:#3A1D17;}
 .cfx-fall summary{cursor:pointer;display:flex;align-items:center;gap:10px;padding:7px 12px;font:700 15.5px/1.3 'Inter',sans-serif;list-style:none;}

@@ -774,5 +774,46 @@
       "Reporting a yellow flag **with no plan**",
       "Treating late head-injury symptoms **as proof** before validation"
     ]
+  },
+  "d1m4-emc": {
+    "image": "clock-deadline",
+    "hook": "On a Florida file, **the EMC rule** decides PIP within days of the accident.",
+    "points": [
+      "Florida PIP: **$10,000**, paying 80% medical, 60% lost income",
+      "Initial care **within 14 days** of the accident, or no medical benefits",
+      "Only MD, DO, dentist, PA or APRN finds **an EMC**",
+      "No EMC: **capped at $2,500**; Riverton has no EMC rule"
+    ],
+    "upl": "The provider decides the EMC; Atty. Thorne decides what it means",
+    "job": [
+      [
+        "Florida file opened",
+        "Calendar the 14-day deadline",
+        "CMS → Calendar",
+        "Docketed the same day"
+      ],
+      [
+        "First record arrives",
+        "Check date, provider, EMC",
+        "Medical Records Requests",
+        "EMC status logged"
+      ],
+      [
+        "EMC missing or late",
+        "Log bucket; flag Atty. Thorne",
+        "CMS → Insurance tab → PIP Log",
+        "Flag routed same day"
+      ]
+    ],
+    "dos": [
+      "Read **the file's state** before its PIP",
+      "Docket **the 14th day** at intake",
+      "Log **each provider's credential** beside every visit"
+    ],
+    "donts": [
+      "Applying **a $2,500 cap** to Riverton's PIP",
+      "Treating a chiropractor's note as **an EMC determination**",
+      "Telling a client to see a doctor **for the $10,000**"
+    ]
   }
 }

@@ -158,9 +158,9 @@ else {
     if(x.slides > SLIDE_CAP) errors.push(`Day ${x.n}: ${x.slides} slides, over the ${SLIDE_CAP}-slide day (condense its blocks: compact or brief)`);
     if(x.slides > med * 1.5 || x.slides < med * 0.5) errors.push(`Day ${x.n}: ${x.slides} slides against a median of ${med}; the days must stay balanced (half to one and a half times the median)`);
   });
-  // Day 1 opens with the Case Manager's introduction, then the client (Meet Your Case), then the lessons, and no game before Meet Your Case
+  // Day 1 opens with the client (Meet Your Case), then the Case Manager's introduction, then the lessons
   const d1 = ((CF.sequence.find(d => d.n === 1) || {}).phases || []).flatMap(p => p.blocks);
-  if(d1[0] !== "d1m1-role" || d1[1] !== "d1m1-case") errors.push(`sequence Day 1: must open with d1m1-role, then d1m1-case (it opens ${d1.slice(0, 2).join(", ")})`);
+  if(d1[0] !== "d1m1-case" || d1[1] !== "d1m1-role") errors.push(`sequence Day 1: must open with d1m1-case, then d1m1-role (it opens ${d1.slice(0, 2).join(", ")})`);
   if(STORED["d1m1-role"] && !STORED["d1m1-role"].b.noGame) errors.push("d1m1-role: needs noGame (no 3 Clues before Meet Your Case)");
   const before = (a, b) => a[0] - b[0] || a[1] - b[1] || a[2] - b[2];
   CF.days.forEach(day => day.modules.forEach(mod => {

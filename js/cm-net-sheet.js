@@ -10,7 +10,8 @@
    progress and their trainer sees it), and "Check my sheet" tests it against the file at the stage the step is at.
    It is used where the money is worked, and nowhere else: Track A (settled before suit, Day 3) at Settlement
    Negotiations (?stage=recovery), Lien Negotiations (?stage=liens) and Disbursement (?stage=final, $20,359.92); Track B
-   (case won at arbitration, Day 5) at its own close-out (?stage=litigation, $14,713.75). Each track is its own sheet.
+   (case won at arbitration, Day 5) at its own close-out (?stage=litigation, $14,713.75). Each track is its own sheet,
+   and so is each settlement stream's (?stage=bi, ?stage=um: the BI and UM settlement Net Sheets).
    "Download" gives the sheet as an .xlsx, formulas and all, to open in Excel or upload to Google Sheets. */
 (function(){
 "use strict";
@@ -39,6 +40,16 @@ const STAGES = {
   recovery: {file: "A", label: "Track A · Settlement: the gross and the fee", checks: [
     {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (PIP and PD are not recovery)."},
     {cell: "L11", want: 13333.33, why: "The fee is 33⅓% pre-suit (no suit filed): one-third of $40,000.00 = $13,333.33. Typing 33.33% gives $13,332.00."},
+  ]},
+  /* the settlement-stage sheets, one per stream, each its own sheet so the full Track A sheet is never overwritten
+     (d3m2-bins: the BI tender, 08/12/2026; d3m2-umns: both UM layers resolved, 10/06/2026) */
+  bi: {file: "BI", label: "Track A · Stream 1: the BI settlement Net Sheet", checks: [
+    {cell: "L7", want: 10000, why: "Stream 1 is Keystone's BI tender alone: $10,000.00. The UM layers are not recovery yet."},
+    {cell: "L11", want: 3333.33, why: "The fee is 33⅓% pre-suit: one-third of $10,000.00 = $3,333.33. Typing 33.33% gives $3,333.00."},
+  ]},
+  um: {file: "UM", label: "Track A · Stream 2: the UM settlement Net Sheet", checks: [
+    {cell: "L7", want: 30000, why: "Stream 2 is the two UM layers: Harbor Point $20,000.00 + Cardinal State $10,000.00 = $30,000.00. Keystone's BI is Stream 1."},
+    {cell: "L11", want: 10000, why: "The fee is 33⅓% pre-suit: one-third of $30,000.00 = $10,000.00."},
   ]},
   liens: {file: "A", label: "Track A · Lien negotiations", checks: [
     {cell: "I26", want: 6105, why: "Riverton Spine & Rehab: 34 lines billed, 33 visits in the notes. The 05/04/2026 duplicate ($185.00) goes in Adjustments: $6,290.00 → $6,105.00 audited."},
@@ -199,7 +210,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   SHEET.cells = SHEET.cells || {}; SHEET.checks = SHEET.checks || {};
   // the stages of this track's sheet
   $("#ns-stage").innerHTML = Object.entries(STAGES).filter(([, x]) => x.file === FILE).map(([k, x]) => `<option value="${k}">${E(x.label)}</option>`).join("");
-  $("#ns-track").textContent = FILE === "B" ? "Track B · case won at arbitration" : "Track A · settled before suit";
+  $("#ns-track").textContent = FILE === "B" ? "Track B · case won at arbitration" : FILE === "BI" ? "Track A · Stream 1, the BI settlement" : FILE === "UM" ? "Track A · Stream 2, the UM settlement" : "Track A · settled before suit";
   $("#ns-stage").addEventListener("change", () => showCheck());
   $("#ns-check-btn").addEventListener("click", check);
   $("#ns-dl").addEventListener("click", download);

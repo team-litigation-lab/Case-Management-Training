@@ -630,5 +630,32 @@
       "An Exhibit A asking for **“all records of any kind”**",
       "A trial subpoena for **an unnamed witness**"
     ]
+  },
+  "d4m1-efile": {
+    "image": "legal-filing",
+    "situation": "09/22/2026, Track B. Atty. Thorne approved **his Complaint** this morning. Filing target **09/24/2026**. A 09/15 draft, unsigned, sits in the CMS.",
+    "steps": [
+      "Tag Nadia Brooks in **CMS → Tasks**: cover sheet, summons",
+      "Check **every signature** before you upload",
+      "Submit the envelope in **Court E-Filing**: $218.00",
+      "Record **26-CV-04417** in the Pleadings Log and Documents",
+      "Calendar service, the conference and **answer: set on service**"
+    ],
+    "deliver": "A signed set filed as **26-CV-04417**, recorded and calendared",
+    "purpose": "An unsigned page or an uncalendared date can **sink the suit**",
+    "principle": "Nothing is filed **until Atty. Thorne signs**",
+    "checks": [
+      "Task names documents, source, **due date** and signer",
+      "The **09/15/2026 draft** never uploaded",
+      "Costs **$486.75 + $218.00 = $704.75**",
+      "Service deadline **01/22/2027 (Fri)** with alerts",
+      "CMC **12/10/2026, 9:00 a.m.**, Atty. Thorne attending"
+    ],
+    "dos": [
+      "Calendar from **the accepted filing**, not the target"
+    ],
+    "donts": [
+      "Docketing an answer date **before service**"
+    ]
   }
 }
