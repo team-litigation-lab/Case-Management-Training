@@ -921,18 +921,18 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 #### 1 · Visual Layout Description
 
-A white CMS record card with a navy header, GAP EXPLANATION RECORD · JOHN DOE, split into two horizontal bands of equal weight: 14-DAY GAP · 02/06–02/20/2026 and 19-DAY DISRUPTION · 04/02–04/21/2026. Each band has three columns, REASON · CORROBORATING DOCUMENT · DATE, with orange numbered badges on the reasons and mono date pills. A grey ACCOUNT ONLY tag marks any row without an independent document. Bottom-right, a ROUTE TO ATTY. THORNE control. The argument: every reason sits beside its proof, and the second interruption gets the same room as the first.
+A white CMS record card with a navy header, GAP EXPLANATION RECORD · JOHN DOE, split into two horizontal bands of equal weight: 14-DAY GAP · 02/06–02/20/2026 and 19-DAY DISRUPTION · 04/02–04/21/2026 (ANXIETY AFTER THE CRASH). Each band has three columns, REASON · CORROBORATING DOCUMENT · DATE, with orange numbered badges on the reasons and mono date pills. A grey ACCOUNT ONLY tag marks any row without an independent document. Bottom-right, a ROUTE TO ATTY. THORNE control. The argument: every reason sits beside its proof, and the second interruption gets the same room as the first.
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** 06/22/2026. John Doe reached MMI on 06/12/2026. Dr. Alana Reyes's Causation Letter of 06/19/2026 is in: delayed presentation is clinically consistent with a disc injury whose radicular symptoms evolve over days to weeks, and the injury was more likely than not caused by the collision. The 03/04 call note, the 04/08 A-C-T log and every record are in the CMS. Atty. Thorne wants the record before the pre-demand strategy session.
+**Scenario.** 06/22/2026. John Doe reached MMI on 06/12/2026. Dr. Alana Reyes's Causation Letter of 06/19/2026 is in: delayed presentation is clinically consistent with a disc injury whose radicular symptoms evolve over days to weeks, and the injury was more likely than not caused by the collision. The 03/04 call note, the near-drop record of 04/08–04/21 (the outreach log, the Final Warning Letter, the 04/17 interview note), Dr. Reyes's 04/20 telephone note, the counselor's 06/10 summary and John Doe's 06/15 Personal Impact Statement are in. Atty. Thorne wants the record before the pre-demand strategy session.
 
-**Execution prompt.** Build John Doe's Gap Explanation Record in the CMS. Cover both interruptions, the 14-day gap (02/06–02/20/2026) and the 19-day disruption (04/02–04/21/2026), with exact dates. Pair every reason with the dated document that corroborates it; mark a reason with no independent document “account only”. Cite the complaints before and after each interruption, and the firm's follow-up during the disruption. Write facts and citations only: no argument, no valuation, nothing quoted from the privileged call. Run a defense-eye pass, then route it to Atty. Thorne.
+**Execution prompt.** Build John Doe's Gap Explanation Record in the CMS. Cover both interruptions, the 14-day gap (02/06–02/20/2026) and the 19-day disruption (04/02–04/21/2026), with exact dates. Pair every reason with the dated document that corroborates it; mark a reason with no independent document “account only”. Cite the complaints before and after each interruption, and the firm's follow-up during the disruption. Write facts and citations only: no argument, no valuation, nothing quoted from the privileged calls. Run a defense-eye pass, then route it to Atty. Thorne. Then file the non-economic damages records (the referral, the counseling summary, his statement) in the CMS and the Drive folder, logged for his demand decision.
 
 | | |
 |---|---|
 | **Tool / interface** | CMS → Case File → Gap Explanation Record · Tasks |
-| **Expected output** | A routed record covering both interruptions, every reason beside a dated document, ready for Atty. Thorne to decide how it is used in the demand. |
+| **Expected output** | A routed record covering both interruptions, every reason beside a dated document, and the non-economic damages records filed and logged for Atty. Thorne's demand decision. |
 
 **Show Them — reference model**
 
@@ -941,7 +941,7 @@ A white CMS record card with a navy header, GAP EXPLANATION RECORD · JOHN DOE, 
 | Interruption | Reason (his account) | Corroborating document |
 |---|---|---|
 | 14 days · 02/06–02/20/2026 | Thought it would pass; self-treated | Riverton Drug receipt, 02/07/2026 |
-| 19 days · 04/02–04/21/2026 | No car: rental over, Civic awaiting parts | Keystone rental record, 02/18–03/19/2026; extension refused 04/10/2026 |
+| 19 days · 04/02–04/21/2026 | Panic at the collision corner on 04/02; avoided riding in cars | Dr. Reyes's telephone note and referral, 04/20/2026; counseling summary, 06/10/2026 |
 
 **Verification checkpoints**
 
@@ -951,8 +951,10 @@ A white CMS record card with a navy header, GAP EXPLANATION RECORD · JOHN DOE, 
 - [ ] Cost worry → Peach State eligibility, effective 02/01/2026 (five days before the collision: 02/01 → 02/06), through a Northgate job begun 01/12/2026; the worry itself marked “account only”
 - [ ] Escalation → urgent-care note 02/20/2026, quoted exactly: “onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18”; Northgate's Attendance Record (worked 02/18–02/19; 02/20 his first day off)
 - [ ] Continuity across the 14 days → EMS report 02/06/2026; Northgate call-outs 02/09–02/13 citing neck pain; Dr. Reyes's Causation Letter 06/19/2026
-- [ ] Disruption → Keystone's rental record (30-day cap, 02/18–03/19/2026, Civic waiting on parts); its refusal of an extension, 04/10/2026; repair completed 04/24/2026; the carpool ending 04/01/2026 marked “account only”, a statement from Kevin Alvarez flagged for Atty. Thorne's decision
-- [ ] Follow-up dated: missed-visit alert and A-C-T call 04/08/2026, extension refused 04/10, evening slots with Margaret driving from 04/21, attendance confirmed 04/21 and 04/23
+- [ ] Disruption → crash-related anxiety and avoidance of car travel after the 04/02/2026 panic at the collision corner: Dr. Reyes's telephone note and referral 04/20/2026; the counseling summary 06/10/2026 (six sessions 04/24–06/05, no charge); his own report in the clinic's 04/21 note; his Personal Impact Statement 06/15/2026 marked “account only”; a statement from Margaret Doe, who was in the car, flagged for Atty. Thorne's decision
+- [ ] Background kept apart from the cause: the rental's end 03/19/2026 and the carpool's 04/01/2026 are on the file but are not the reason he stopped
+- [ ] Follow-up dated: missed-visit alert 04/08/2026, notices 04/08–04/13, Final Warning Letter 04/10, his call 04/17, file restored 04/20, evening slots with Margaret driving from 04/21, attendance confirmed 04/21 and 04/23
+- [ ] Non-economic records filed in the CMS and the Drive folder under the firm's naming: the 04/20 note and referral, the 06/10 counseling summary, the 06/15 statement; obtained on the 05/06 authorization; logged for Atty. Thorne's demand decision; no new bill, Specials still $16,401.40
 - [ ] Complaints before and after each interruption cited from the EMS report and the provider notes, quoted, never strengthened
 - [ ] Facts and citations only; defense-eye pass logged: John Doe's public social media for both windows checked, nothing deleted or advised deleted; record routed to Atty. Thorne with a timestamp
 - [ ] Two layers: the internal record (account-only tags, the Kevin Alvarez flag, the defense-eye and social-media pass) is labelled attorney work product and stays in the CMS. If Atty. Thorne decides the gap goes to Keystone, an outward-facing gap timeline (dates, reasons, documents only) is drafted from it for his approval.
@@ -964,6 +966,7 @@ A white CMS record card with a navy header, GAP EXPLANATION RECORD · JOHN DOE, 
 | Causation Letter received | Log it; cite it beside the expected-to-pass and escalation reasons | CMS → Documents · Case File → Gap Explanation Record | Letter dated 06/19/2026 cited on the 14-day band |
 | Record drafted | Pair every reason with a dated document; mark account-only reasons | CMS → Case File → Gap Explanation Record | No reason without a document or an “account only” tag |
 | Record complete | Run the defense-eye pass and route to Atty. Thorne | CMS → Tasks | Routed with a timestamp before the pre-demand strategy session |
+| Mental-anguish records received | File and log the referral, the counseling summary and his statement for the demand | CMS → Documents · Drive → Medical Records | Each filed under the naming convention and flagged for Atty. Thorne |
 
 **Best practices & pitfalls**
 
@@ -972,6 +975,7 @@ A white CMS record card with a navy header, GAP EXPLANATION RECORD · JOHN DOE, 
 - Show the firm's follow-up, not only the client's reasons: the A-C-T steps show the disruption was managed, not ignored.
 - Record each explanation exactly as John Doe gave it and as the document shows it; what it means for the claim is Atty. Thorne's to judge.
 - Keep one story across claims: the no-car days 02/06–02/17 are the same 12 days claimed as Loss of Use on the Civic's property-damage claim.
+- Keep background apart from cause: the rental and the carpool ended before April, but the documented reason for the 19 days is the anxiety.
 - ⚠️ Pitfall: documenting the 14-day gap and forgetting the 19-day disruption.
 - ⚠️ Pitfall: presenting a reason that rests on the client's word as if it were documented.
 
@@ -984,7 +988,8 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **15%** | Both interruptions | 14 days (02/06–02/20/2026) and 19 days (04/02–04/21/2026), exact dates and the four missed visits |
-| 🤖 AI | **25%** | Reason–document pairing | Every reason beside its dated corroborating document; account-only reasons tagged |
+| 🤖 AI | **20%** | Reason–document pairing | Every reason beside its dated corroborating document (the disruption: the 04/20 note and the 06/10 counseling summary); account-only reasons tagged |
+| 🤖 AI | **5%** | Non-economic records | Referral, counseling summary and statement filed in the CMS and Drive and logged for the demand |
 | 🤖 AI | **10%** | Continuity and follow-up | Complaints before and after each interruption cited; A-C-T steps dated |
 | 🤖 AI | **10%** | Defense-eye and routing | Social-media pass logged; routed to Atty. Thorne with a timestamp |
 | 🧑‍🏫 Trainer | **25%** | Evidentiary judgment | Separates proof from assertion; nothing stated beyond what each record says |
@@ -995,8 +1000,8 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 #### 5 · Speaker Notes
 
 - Put the adjuster's four arguments on the board first: not serious, recovered early, treatment unnecessary, another cause. Tell the room the record answers each with a document, not a sentence.
-- Ask the room: “Which reason on this file has the weakest document, and what do you do about it?” The cost worry and the carpool's end rest mostly on John Doe's account. Tag them and flag them to Atty. Thorne; never shore them up with a note made to order.
-- Watch for trainees who stop at the 14-day gap. The 19-day disruption is the one the defense will call a failure to keep up with care; it needs its own rows and the firm's follow-up beside them.
+- Ask the room: “Which reason on this file has the weakest document, and what do you do about it?” The cost worry rests mostly on John Doe's account, and so does his Personal Impact Statement. Tag them and flag them to Atty. Thorne; never shore them up with a note made to order.
+- Watch for trainees who stop at the 14-day gap. The 19-day disruption is the one the defense will call a failure to keep up with care; it needs its own rows, its clinical documents and the firm's follow-up beside them.
 - Disclosure nuance: Atty. Thorne may send a version of this record with the demand or rebuttal. Keep the work-product layer out of anything that leaves the firm, and the privileged call out of all of it.
 
 ---
@@ -1367,7 +1372,7 @@ A call-simulator screen across two-thirds of the slide: a navy header bar readin
 - [ ] Offer logged: 08/05/2026, $3,500, reasons in Dana Whitfield's exact words
 - [ ] Reported to Atty. Thorne on 08/05/2026; he, not the CM, conveys the offer to John Doe
 - [ ] Written rebuttal drafted for Atty. Thorne's approval, ready to send 08/06/2026
-- [ ] If Dana Whitfield raises the April break, the 19-day disruption (04/02–04/21/2026) is answered from the Gap Explanation Record's A-C-T entry (rental ended 03/19, carpool ended 04/01, evening slots from 04/21, attendance confirmed 04/21 and 04/23), not conceded as non-compliance
+- [ ] If Dana Whitfield raises the April break, the 19-day disruption (04/02–04/21/2026) is answered from the Gap Explanation Record (crash-related anxiety after the 04/02 panic at the collision corner: Dr. Reyes's 04/20/2026 note, the 06/10/2026 counseling summary; the firm's follow-up 04/08–04/21, attendance confirmed 04/21 and 04/23), not conceded as non-compliance; what goes to Keystone is Atty. Thorne's call
 
 **Operational mapping**
 
@@ -1532,7 +1537,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (5 questions):
+**Auto-graded share of the day's Knowledge Check** (6 questions):
 
 1. John Doe first treated on 02/20/2026, 14 days after the collision. Which question should open the investigation on the recorded call?  
    “Was it because you had no car?” · “You were feeling fine at first, weren't you?” · **✓ “Take me through the days after the crash, from that morning up to 02/20.”** · “The adjuster will use this gap against you, so I need the reason.”  
@@ -1546,7 +1551,10 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 4. John Doe's Gap Explanation Record must cover:  
    Only the 14-day initial gap, because that is the one the adjuster will raise · **✓ The 14-day gap (02/06–02/20/2026) and the 19-day disruption (04/02–04/21/2026), every reason paired with its document** · Only the reasons that can be proved from Medical Records · The 14-day gap, with the firm's argument for why it doesn't matter  
    *Both interruptions, each reason beside its dated document. Facts and citations only; the argument is Atty. Thorne's.*
-5. A provider's note looks wrong about when John Doe's neck pain began. What do you do?  
+5. In John Doe's Gap Explanation Record, what corroborates the reason for the 19-day disruption (04/02–04/21/2026)?  
+   Keystone's rental record and its 04/10/2026 refusal · **✓ Dr. Reyes's 04/20/2026 telephone note and counseling referral, and the counselor's 06/10/2026 summary** · John Doe's Personal Impact Statement, as documented proof · The privileged 04/17/2026 interview note, quoted  
+   *The cause is crash-related anxiety and avoidance after the 04/02 panic at the collision corner, documented by Dr. Reyes and the EAP counselor. The rental's end is background; his statement is his account (“account only”); the interview note is privileged and never cited outward.*
+6. A provider's note looks wrong about when John Doe's neck pain began. What do you do?  
    Ask the provider to correct it to match the file · **✓ Flag it to Atty. Thorne: a provider corrects its own record only by a dated addendum, and the original stays** · Fix it in the CMS copy · Leave it: records don't matter until the demand  
    *Never ask a provider to change, back-date or add to a record. Altering a record can be evidence tampering or insurance fraud.*
 

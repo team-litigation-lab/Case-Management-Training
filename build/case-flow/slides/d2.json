@@ -360,10 +360,10 @@
   "upl": "You coordinate care, never direct it, and never tie missed visits to claim value.",
   "job": [
    [
-    "Missed-visit alert arrives",
-    "A-C-T same day: call John Doe",
-    "Call Simulator → AI John Doe",
-    "Call and note same day"
+    "Missed-visit alert, client silent",
+    "Reach him: the **No Contact Protocol**",
+    "Communications Log · Call Simulator",
+    "**First attempt** logged same day"
    ],
    [
     "Week 6 of care (04/07/2026)",
@@ -390,32 +390,32 @@
   ]
  },
  "d2m2-a2": {
-  "image": "car-transport",
-  "situation": "04/08/2026: John Doe missed 04/03 and 04/07; **no visit since 04/02/2026**. Keystone ended Margaret's rental 03/19/2026, his carpool ended 04/01/2026, and **the Civic awaits parts**.",
+  "image": "phone-call",
+  "situation": "04/08/2026: John Doe missed 04/03 and 04/07 and **answers no one**; last visit 04/02/2026. Notices go unanswered until he calls on **04/17, three days before** the letter's date.",
   "steps": [
-   "Assess: call John Doe **on 04/08/2026**; classify the variance",
-   "Coordinate: request **a rental extension** from Keystone PD in writing",
-   "Build the transport plan from one **Transportation Wall option**, saying why",
-   "Track: write **the GIRP note**; report to Atty. Thorne",
-   "Confirm **attendance once care resumes**"
+   "Step 1 review, then notices by **escalating channel** in the Communications Log",
+   "Escalate; send the **10-day Final Warning Letter** by certified mail and email",
+   "On 04/17, interview him: **safety, choice, his words**, in the Call Simulator",
+   "With his consent, **book Dr. Reyes and evening slots** on the Calendar",
+   "Restore the file in **CMS → Case Status**; confirm 04/21 and 04/23"
   ],
-  "deliver": "A complete A-C-T record, with **attendance confirmed 04/21 and 04/23/2026**",
-  "purpose": "**A transport barrier** left unsolved becomes a documented break in his care",
-  "principle": "**Solve the barrier**, not the client: coordinate care, never direct it",
+  "deliver": "A near-drop record: notices, the letter, **his words**, the file restored",
+  "purpose": "**Silence is a symptom**: find the cause before anyone calls it non-compliance",
+  "principle": "Record his words; **never diagnose, advise or value**",
   "checks": [
-   "Missed visits: **04/03, 04/07, 04/09 and 04/14/2026**",
-   "04/02/2026 → 04/21/2026 = **19 days**",
-   "Keystone PD request: **property facts only**; 04/10/2026 refusal logged",
-   "**Evening slots booked** with John Doe on the line",
-   "**No treatment advice**, no talk of claim value"
+   "Notices by channel: **04/08, 04/09, 04/10**, each logged",
+   "Letter by **certified mail AND email**, respond by 04/20/2026",
+   "His words quoted; **no label, no counseling advice**",
+   "**Drop Warning cleared** 04/20; 14-day trigger reset",
+   "04/02 → 04/21/2026 = **19 days**; attended 04/21 and 04/23"
   ],
   "dos": [
-   "**Act the day** the alert lands",
-   "Calendar **known transport risks**, like a rental's end date"
+   "Lead with **“I'm glad you called”**, not the deadline",
+   "Escalate **by channel, not volume**"
   ],
   "donts": [
-   "Telling John Doe missed therapy **“will hurt your case”**",
-   "Accepting **“I'll just wait”** without a plan"
+   "Telling him **“that sounds like PTSD”**",
+   "Passing **what he told you** to his providers"
   ]
  },
  "d2m2-a3": {
@@ -597,13 +597,13 @@
  },
  "d2m3-a2": {
   "image": "calendar-gap",
-  "situation": "06/22/2026. MMI reached 06/12/2026; Dr. Reyes's **06/19/2026 Causation Letter** is in. Atty. Thorne wants **the Gap Explanation Record** before the pre-demand strategy session.",
+  "situation": "06/22/2026. MMI 06/12/2026; Dr. Reyes's **06/19/2026 Causation Letter**, her 04/20 note and the counseling summary are in. Atty. Thorne wants **the Gap Explanation Record** before the pre-demand session.",
   "steps": [
    "Cover both: 14-day gap and **19-day disruption**, exact dates",
    "Pair every reason with **a dated document**",
    "Tag reasons with no document **“account only”**",
-   "Write **facts and citations only**; nothing from the privileged call",
-   "Run **a defense-eye pass**, then route to Atty. Thorne"
+   "Run **a defense-eye pass**, then route to Atty. Thorne",
+   "File **the non-economic records** in the CMS and Drive"
   ],
   "deliver": "A routed record of **both interruptions**, every reason beside a dated document",
   "purpose": "The defense will test every reason: **an undocumented one** must say so",
@@ -612,7 +612,7 @@
    "14 days, 02/06/2026 → 02/20/2026; **19 days**, 04/02/2026 → 04/21/2026",
    "Escalation quoted exactly: **“onset at MVA 02/06/2026”**",
    "Continuity: EMS report, call-outs, **06/19/2026 Causation Letter**",
-   "Carpool ending and Escape in shop: **“account only”**",
+   "Disruption: **Dr. Reyes's 04/20 note**, 06/10 counseling summary",
    "Social media checked; **nothing deleted or advised deleted**"
   ],
   "dos": [

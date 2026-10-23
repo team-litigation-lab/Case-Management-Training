@@ -39,7 +39,7 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#27` | Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention | ✅ BUILT | d2m2-l2, d2m2-a2 |
 | `D1#28` | Treatment Phase: Essential Client Communication Strategies | ✅ BUILT | d1m3-l1, d1m3-a1, d1m3-a3, d1m4-tcare, d2m2-l2, d2m3-l1, d2m3-a1, d2m3-kc |
 | `D1#29` | Handling the Treatment Phase: Clinical Documentation (GIRP) | ✅ BUILT | d1m4-tcare, d2m2-l2, d2m2-a2, d2m2-a3, d2m3-a1, d2m3-kc |
-| `D1#30` | Handling the Treatment Phase: Proactive Resource Coordination | ✅ BUILT | d2m2-l1, d2m2-a2, d2m2-a3 |
+| `D1#30` | Handling the Treatment Phase: Proactive Resource Coordination | ✅ BUILT | d2m2-l1, d2m2-a3 |
 | `D1#31` | Treatment Red Flags: PT & Conservative Care, Surgical Protocols | ✅ BUILT | d1m4-tcare, d2m2-l2 |
 | `D1#32` | Treatment Red Flags: Pain Management, Medication & Behavioral Health / TBI | ✅ BUILT | d1m4-tcare, d2m2-kc |
 | `D1#33` | Case Planning — Treatment: The Assessment Phase | ✅ BUILT | d1m4-tplan, d2m2-a1, d2m2-kc, d4m3-prior |
@@ -264,6 +264,8 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - Case file: Keystone Mutual's rental cutoff (RS32) and John Doe's transport to treatment
 - IRS IR-2025-128: the standard mileage rates when this course was written, 20.5 cents medical and 72.5 cents business
 - Newly authored: reimbursement of out-of-pocket treatment costs and the trip log
+- LSH Claims Specialist: No Contact Protocol, Steps 1–4; Final Warning Letter
+- Newly authored: the near-drop (the No Contact Protocol inside A-C-T's Assess), the trauma-informed client interview within the UPL line, and restoring a file from Drop Warning
 - Newly authored: redirecting a referral to the client's choice of facility, and the downstream task list (each task done or delegated with an owner and a due date)
 - LSH Claims Specialist: communication skills and professionalism — clarity without jargon, empathy, active listening, paraphrasing, calm reassurance
 - LSH Claims Specialist: LOR — all carrier communication through the firm

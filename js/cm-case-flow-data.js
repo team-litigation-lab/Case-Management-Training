@@ -3549,12 +3549,13 @@ window.CM_CASE_FLOW = {
           "Escalate by channel, not volume, and log every attempt when you make it.",
           "When he resurfaces, lead with relief, not the deadline: “I'm glad you called.”",
           "Offer choices he can say no to; a client who feels in control keeps talking.",
+          "Transport is still part of the fix when it isn't the cause: the Transportation Wall's Empowerer option, found with him (Margaret driving after her shift, by a route that avoids the corner), outlasts a ride you arrange for him.",
           "Keep the Final Warning Letter's response date apart from any withdrawal: the retainer needs 30 days of documented attempts, and the decision is Atty. Thorne's.",
           "Pitfall: diagnosing (“that's PTSD”) or prescribing (“you need a therapist”); both are outside your lane.",
           "Pitfall: telling him the anxiety “adds to his case.” It is a value statement, and he may repeat it in a deposition.",
           "Pitfall: passing what he told you to the clinic or Dr. Reyes. He tells his providers himself; you schedule."
         ],
-        sources: ["D1#26", "D1#27", "D1#29", "D1#38", "D1#41", "D1#45", "LSH Claims Specialist: No Contact Protocol, Steps 1–4; Final Warning Letter", "Newly authored: the near-drop (the No Contact Protocol inside A-C-T's Assess), the trauma-informed client interview within the UPL line, and restoring a file from Drop Warning"],
+        sources: ["D1#26", "D1#27", "D1#29", "D1#38", "D1#41", "D1#45", "D1#47", "LSH Claims Specialist: No Contact Protocol, Steps 1–4; Final Warning Letter", "Newly authored: the near-drop (the No Contact Protocol inside A-C-T's Assess), the trauma-informed client interview within the UPL line, and restoring a file from Drop Warning"],
         rubric: {
           ai: [
             ["Protocol record", 20, "Step 1 before outreach; notices by escalating channel 04/08, 04/09, 04/10; escalation; Final Warning Letter by certified mail and email with 04/20/2026; Drop Warning set"],
@@ -8854,7 +8855,7 @@ window.CM_CASE_FLOW = {
         tell: {
           why: "John testifies on 02/18/2027 by video, from a room the firm does not control. Atty. Thorne prepares the substance; you prepare the person and the setting.",
           rules: [
-            "Before 02/04/2027, audit for landmines and route them to Atty. Thorne: the 14-Day Gap (02/06→02/20/2026), the 19-day disruption (04/02→04/21/2026), the three 2021 low-back chiropractic visits, the seatbelt, the “degenerative” MRI.",
+            "Before 02/04/2027, audit for landmines and route them to Atty. Thorne: the 14-Day Gap (02/06→02/20/2026), the 19-day disruption (04/02→04/21/2026) with its documented cause, crash-related anxiety (Dr. Reyes's 04/20/2026 note, the 06/10/2026 counseling summary, both records the defense will have), the three 2021 low-back chiropractic visits, the seatbelt, the “degenerative” MRI.",
             "Audit John's signed interrogatory answers and public social media; route any inconsistency with the records to Atty. Thorne the same day. He decides whether an answer is corrected or supplemented; John testifies to the truth, never to match a document. Never tell John to delete or hide a post.",
             "Injury narrative alignment: John's truthful account matches his records because he has reviewed them with Atty. Thorne, never because he learned a script. Atty. Thorne chooses the review set: a document used to refresh memory may have to be produced (confirm the governing rule).",
             "Pillar 1, de-escalate: no judge, no jury, no shouting: questions and answers on a video call, under oath, before a court reporter. Calm him with the process, never a prediction.",

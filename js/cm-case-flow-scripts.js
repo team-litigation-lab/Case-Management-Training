@@ -213,7 +213,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "Which of the three purposes do you think is the easiest one to forget?"
   },
   "summary": {
-   "say": "Now your Self-Summary, where you put the principles in your own words. Here's the scenario. It's 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits. Keystone ended Margaret's rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked John for a Recorded Statement. Tell me what you do first, second and third, and what each step protects. This one pulls it all together: the running SOL, a Treatment Gap that's hardening, and the claims work that has to keep moving anyway. Keep in mind, too, that the gap you're watching build here is the same 14 days defense counsel will ask John Doe about at his deposition on Day 5.",
+   "say": "Now your Self-Summary, where you put the principles in your own words. Here's the scenario. It's 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits, he isn't answering anyone, and Dana Whitfield has asked John for a Recorded Statement. Tell me what you do first, second and third, and what each step protects. This one pulls it all together: the running SOL, a Treatment Gap that's hardening, and the claims work that has to keep moving anyway. Keep in mind, too, that the gap you're watching build here is the same 14 days defense counsel will ask John Doe about at his deposition on Day 5.",
    "ask": "Of those three problems, which one protects the most if you deal with it first?"
   },
   "scale": {
@@ -781,7 +781,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "Why does writing \"this will help the case\" in a GIRP note put the file at risk?"
   },
   "job": {
-   "say": "Let's walk through a few weeks of this file. A provider's missed-visit alert comes in. That same day, you call AI John Doe, classify the variance and write the GIRP note in Case Notes, dated the day the alert arrived. At week 6, 04/07/2026, you ask the provider for the re-evaluation measures: range of motion, pain score and disability index. Whether a PHQ-9 or GAD-7 screen is indicated is the provider's call, and anything putting his mental health in the record gets flagged to Atty. Thorne. If the barrier isn't fixed at the clinical rung, you climb one rung with a written notice to the carrier causing it, copied to Atty. Thorne, and only property facts to Keystone PD, with each rung dated. Red flags that can cost the claim go to Atty. Thorne with the fix you attempted.",
+   "say": "Let's walk through a few weeks of this file. A provider's missed-visit alert comes in. That same day, you reach for John Doe, and if he's gone silent you start the No Contact Protocol, logging the first attempt in the Communications Log the day the alert arrived. At week 6, 04/07/2026, you ask the provider for the re-evaluation measures: range of motion, pain score and disability index. Whether a PHQ-9 or GAD-7 screen is indicated is the provider's call, and anything putting his mental health in the record gets flagged to Atty. Thorne. If the barrier isn't fixed at the clinical rung, you climb one rung with a written notice to the carrier causing it, copied to Atty. Thorne, and only property facts to Keystone PD, with each rung dated. Red flags that can cost the claim go to Atty. Thorne with the fix you attempted.",
    "ask": "Why does the GIRP note need to be dated the day the alert arrives, not the day you finish?"
   }
  },
@@ -800,16 +800,16 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m2-a2": {
   "case": {
-   "say": "The clock starts at 04/08/2026, with this alert from Riverton Spine & Rehab on LOP account RSR-26-0412. Under the LOP dated 02/23/2026, John Doe missed 04/03 with no call, and he missed 04/07. His last visit was 04/02/2026. He told their front desk his mother's rental ended and his ride's no longer available. He's booked 04/09 and 04/14 at 4:15 PM, but their 6:00 PM evening schedule is full until the week of 04/20, and he's on the wait list. They're asking you to contact your client. As you work, the file will keep moving, and I'll give you each update when you've earned it, not before.",
-   "ask": "What's the very first thing you'll do today, on 04/08/2026, with this alert in hand?"
+   "say": "The clock starts at 04/08/2026, with this alert from Riverton Spine & Rehab on LOP account RSR-26-0412. John Doe missed 04/03 and 04/07 with no call, his last visit was 04/02/2026, and he isn't answering the clinic's calls or texts. Your own last contact with him was a check-in on 03/31. As you work, the file keeps moving: he misses 04/09 and 04/14, his mother Margaret tells you on 04/10 that he's safe but keeping to himself, and on 04/16 the CMS fires its 14-day no-visit trigger. I'll release each update when you've earned it, including the call that comes in on 04/17.",
+   "ask": "What's the first thing you do today, before you dial John's number?"
   },
   "task": {
-   "say": "You're going to run A-C-T on the Transportation Wall. To assess, call AI John Doe on 04/08/2026, find the barrier, ask about his current symptoms, classify the variance and decide whether it's a medical or a legal danger. To coordinate, clarify with the clinic, request a rental extension from Keystone PD in writing through the Email Workspace, and build a transport plan from one of the three Transportation Wall options, saying why, and book evening slots with the clinic while John's on the line. To track, write the GIRP note in Case Notes, report to Atty. Thorne, and confirm attendance on 04/21 and 04/23/2026. You're graded on exact dates and the 19-day count, with no treatment advice and nothing on what missed visits do to his claim.",
-   "ask": "Which option did the file actually use, and why did Option B outlast Option A?"
+   "say": "Here's the job. Start with the Step 1 review, then send your notices by escalating channel and log each one: a call and a text on 04/08, a call and an email on 04/09, then Margaret on 04/10. Escalate to Atty. Thorne and send the 10-day Final Warning Letter by certified mail and email, with a response date of 04/20/2026, and set the Drop Warning status. When John calls on 04/17, you run a trauma-informed interview: safety first, his pace, his choices, his words. You don't diagnose, you don't send him to a counselor, and you say nothing about his claim. With his consent you set up a call with Dr. Reyes and evening visits under the LOP, then you restore the file and confirm 04/21 and 04/23.",
+   "ask": "Why does the letter's 04/20 date not mean the file closes on 04/20?"
   },
   "check": {
-   "say": "Before you log your work, check it. Is Assess dated 04/08/2026, with the barrier recorded? That's Keystone ending the rental on 03/19/2026 at its 30-day cap, the carpool ending with Kevin Alvarez's shift change on 04/01/2026, and the Civic still waiting on parts. Did you ask about symptoms? Is it classified as a transport barrier, a psychosocial variance and a legal danger? Your request to Leah Moran at Keystone PD should be property facts only, because Keystone also holds the BI claim, and the 04/10/2026 refusal should be logged in full. You need the four missed visits exactly, 19 days from 04/02 to 04/21, a factual GIRP note, and attendance confirmed. And listen back for value talk. \"If you miss more therapy your case is worth less\" fails, however well meant.",
-   "ask": "What could you have calendared back on 02/18/2026 that would have warned you about this?"
+   "say": "Before you log your work, check it. Was your Step 1 review dated 04/08/2026, before any outreach? Did your notices climb by channel, 04/08, 04/09 and Margaret on 04/10, each with its date, time, channel and outcome? Did the Final Warning Letter go by certified mail and email, with 04/20/2026 as the response date, withdrawal possible and not decided, and nothing about the claim? In the interview, did you quote John's own words about the panic at the corner on 04/02, his sleep and his mood, and keep every label out of it? Then the restoration on 04/20: Drop Warning cleared, the 14-day trigger reset, the Action Plan updated. Four missed visits, 19 days, attendance on 04/21 and 04/23.",
+   "ask": "Which word in a note would do the defense's work for it on these 19 days?"
   }
  },
  "d2m2-a3": {
@@ -863,7 +863,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "What may you tell Summit Imaging when you decline its LOP request, and what may you not?"
   },
   "summary": {
-   "say": "Now write your Self-Summary. It's 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits, Keystone ended Margaret's rental on 03/19, his carpool ended 04/01, and Dana Whitfield has asked John for a Recorded Statement. Tell me what you do first, second and third, and what each step protects. A couple of things I'll be looking for. On the 2021 visits, documenting low back versus neck, resolved, no prior neck complaints, is proof; saying they \"don't matter\" is arguing. On medication red flags, the provider hears the safety issue, Atty. Thorne hears the legal one, and you document the conversation.",
+   "say": "Now write your Self-Summary. It's 04/08/2026. Riverton Spine & Rehab reports John Doe has missed two visits, he isn't answering anyone, and Dana Whitfield has asked John for a Recorded Statement. Tell me what you do first, second and third, and what each step protects. A couple of things I'll be looking for. On the 2021 visits, documenting low back versus neck, resolved, no prior neck complaints, is proof; saying they \"don't matter\" is arguing. On medication red flags, the provider hears the safety issue, Atty. Thorne hears the legal one, and you document the conversation.",
    "ask": "Which of these three problems would you hand to Atty. Thorne before anything else today?"
   },
   "scale": {
@@ -963,11 +963,11 @@ window.CM_CF_SCRIPTS = {
    "ask": "Which reason on this file has the weakest document, and what do you do about it?"
   },
   "model": {
-   "say": "Here's the shape the record takes. It's one CMS card, Gap Explanation Record, John Doe, split into two bands of equal weight. The top band is the 14-day gap, 02/06 to 02/20/2026. The bottom band is the 19-day disruption, 04/02 to 04/21/2026. Each band has three columns: the reason, the corroborating document and the date. Any row that rests only on John's word gets a grey \"account only\" tag, and down in the corner is the control to route it to Atty. Thorne. Notice that the second interruption gets exactly the same room as the first. Every reason sits beside its proof, in both bands.",
+   "say": "Here's the shape the record takes. It's one CMS card, Gap Explanation Record, John Doe, split into two bands of equal weight. The top band is the 14-day gap, 02/06 to 02/20/2026. The bottom band is the 19-day disruption, 04/02 to 04/21/2026, and its reason is the anxiety that followed the crash. Each band has three columns: the reason, the corroborating document and the date. Any row that rests only on John's word gets a grey account only tag, and down in the corner is the control to route it to Atty. Thorne. Notice that the second interruption gets exactly the same room as the first. Every reason sits beside its proof, in both bands.",
    "ask": "Why do you think the 19-day band is drawn exactly as big as the 14-day one?"
   },
   "check": {
-   "say": "Now check your record. The 14-day gap runs 02/06 to 02/20/2026, and the 19-day disruption runs 04/02 to 04/21/2026, with missed visits on 04/03, 04/07, 04/09 and 04/14. For no transportation, you've got the tow record and Keystone's rental from 02/18/2026, with Kevin Alvarez's Escape in the shop marked account only. For expecting it to pass, there's the 02/07/2026 Riverton Drug receipt and the texts to Margaret Doe. The cost worry gets Peach State's 02/01/2026 eligibility, with the worry itself account only. The urgent-care note is quoted exactly. Did you show the firm's follow-up from 04/08? And don't stop at the 14-day gap. The 19-day disruption needs the same record: his reasons, each beside its document. Keep the work-product layer in the CMS, and keep the privileged call out of everything.",
+   "say": "Now check your record. The 14-day gap runs 02/06 to 02/20/2026, and the 19-day disruption runs 04/02 to 04/21/2026, with missed visits on 04/03, 04/07, 04/09 and 04/14. For no transportation in February, you've got the tow record and Keystone's rental from 02/18/2026. For expecting it to pass, there's the 02/07/2026 Riverton Drug receipt. For April, the reason is crash-related anxiety after the panic at the corner on 04/02, and its documents are Dr. Reyes's 04/20 note and the counselor's 06/10 summary, with his own statement marked account only. The rental and the carpool are background, not the cause. And did you file the referral, the summary and his statement in the CMS and Drive for Atty. Thorne's demand decision? Keep the privileged calls out of all of it.",
    "ask": "What's the difference between this internal record and a gap timeline that goes to Keystone?"
   }
  },
@@ -977,7 +977,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "Who wants to be the Case Manager first while I play John Doe?"
   },
   "summary": {
-   "say": "Time for your Self-Summary. Same date, 04/08/2026. Riverton Spine & Rehab says John Doe has missed two visits, Keystone ended Margaret's rental on 03/19, his carpool ended 04/01, and Dana Whitfield wants a Recorded Statement from him. What do you do first, second and third, and what does each step protect? While you're thinking about records, here's something to chew on. Why is a provider's offer to add a line to a chart more dangerous than a missing note? A missing note is a weakness. An altered one is a credibility collapse, and possibly a fraud question.",
+   "say": "Time for your Self-Summary. Same date, 04/08/2026. Riverton Spine & Rehab says John Doe has missed two visits, he isn't answering anyone, and Dana Whitfield wants a Recorded Statement from him. What do you do first, second and third, and what does each step protect? While you're thinking about records, here's something to chew on. Why is a provider's offer to add a line to a chart more dangerous than a missing note? A missing note is a weakness. An altered one is a credibility collapse, and possibly a fraud question.",
    "ask": "Why is a provider's offer to change a record more dangerous than a note that's simply missing?"
   },
   "scale": {
@@ -2178,7 +2178,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "Which single document answers two defenses?"
   },
   "check": {
-   "say": "Check your package against this before you log it. Three separate rows: out of turn, unbelted, failure to mitigate. Out of turn answered by RPD-26-018842, Ruth Calloway of 2209 Maple Hollow Rd, the video and the point of impact, with the EDR's 11 mph as corroboration only, because speed alone doesn't prove right-of-way. Unbelted answered by the EDR and the EMS report. Mitigation answered by the A-C-T record, with the disruption stated exactly: 19 days, 04/02 to 04/21/2026, four missed visits. The video's chain runs from Margaret Doe's camera through 02/17 and 02/19/2026, native file unaltered. Every item has a witness. Your Exhibit A covers only John Doe's 02/06/2026 Riverton Fire EMS run and named record types, never all records. And the stack still reads $40,000.",
+   "say": "Check your package against this before you log it. Three separate rows: out of turn, unbelted, failure to mitigate. Out of turn answered by RPD-26-018842, Ruth Calloway of 2209 Maple Hollow Rd, the video and the point of impact, with the EDR's 11 mph as corroboration only, because speed alone doesn't prove right-of-way. Unbelted answered by the EDR and the EMS report. Mitigation answered by the A-C-T record and its clinical cause, with the disruption stated exactly: 19 days, 04/02 to 04/21/2026, four missed visits, crash-related anxiety documented by Dr. Reyes and the counselor. The video's chain runs from Margaret Doe's camera through 02/17 and 02/19/2026, native file unaltered. Every item has a witness. Your Exhibit A covers only John Doe's 02/06/2026 Riverton Fire EMS run and named record types, never all records. And the stack still reads $40,000.",
    "ask": "Does your Exhibit A name one patient, one date and specific record types?"
   }
  },

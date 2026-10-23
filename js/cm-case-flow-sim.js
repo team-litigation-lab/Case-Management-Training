@@ -216,7 +216,7 @@ window.CM_CF_SIM = {
    "from": "Tammy Greer, Riverton Spine & Rehab (tgreer@rivertonspine.example)",
    "to": "Case Manager",
    "subject": "Missed-visit alert: John Doe, LOP account RSR-26-0412",
-   "body": "Per your LOP dated 02/23/2026: John Doe missed 04/03 (no call) and 04/07. He told our front desk his mother's rental ended and his ride is no longer available. He's booked 04/09 and 04/14 at 4:15 PM. Our 6:00 PM evening schedule is full until the week of 04/20; he's on the wait list. Please contact your client.",
+   "body": "Per your LOP dated 02/23/2026: John Doe missed 04/03 and 04/07, no call either time, and he isn't answering our calls or texts. He's still booked 04/09 and 04/14 at 4:15 PM. If evenings would suit him, our 6:00 PM schedule opens Tue/Thu from 04/21. Please contact your client.",
    "attachments": [
     "RS14"
    ]
@@ -734,16 +734,16 @@ window.CM_CF_SIM = {
   "d2m2-a2": {
    "who": "John Doe",
    "role": "client",
-   "persona": "Embarrassed and frustrated; short answers at first. In pain and defensive about the missed visits. Will ask if this ruins his case. Opens up when not judged.",
-   "context": "04/08/2026. Riverton Spine & Rehab reports John missed 04/03 and 04/07; last visit 04/02. Keystone ended Margaret's rental on 03/19 at its 30-day cap; Margaret's Civic is still waiting on parts; Kevin Alvarez's shift changed 04/01, ending the carpool. He has no ride to his 4:15 PM appointments. His neck and right arm still bother him. His mother Margaret works a day shift and could drive him in the evenings, but he only says so if asked who could help.",
-   "opening": "Yeah, I know, I missed a couple. I'm not blowing it off, I swear. I just don't have a way to get there anymore. Is this going to mess up my case?",
+   "persona": "Ashamed and on edge after two weeks of silence; speaks in short bursts, goes quiet when pushed. Opens up to warmth and choices; shuts down at blame or a deadline.",
+   "context": "04/17/2026, 4:48 p.m.; he calls in, three days before the Final Warning Letter's 04/20 date. Last PT 04/02. That day, driven home by his mother, the car stopped at their own corner, Maple Hollow Rd & Birch Ave, where the crash happened, as a pickup came up Birch: he panicked and got out. Since then he avoids cars, sleeps 4–5 hours, feels low, quit basketball, still works (bus). Neck and right hand still bad. Safe. Declines recording. Asks if this ruins his case.",
+   "opening": "Hey... it's John Doe. I got your letter. My mom signed for it. I'm sorry I didn't call back. I just... I didn't know how to say it. Am I getting dropped?",
    "goals": [
-    "Find the barrier and ask about his current symptoms",
-    "Build a transport plan from the options, saying why",
-    "Book evening slots with the clinic while John is on the line",
-    "No treatment advice and nothing on what missed visits mean"
+    "Lead with relief and safety; offer choices, including recording",
+    "Draw out what happened in his words, without labels or blame",
+    "With consent: Dr. Reyes appointment and evening slots under the LOP",
+    "Read back; route claim questions to Atty. Thorne"
    ],
-   "line": "No advice to add, skip or stop care; questions about his claim go to Atty. Thorne."
+   "line": "No diagnosis, no counseling advice, no value talk, no promise about withdrawal; claim questions go to Atty. Thorne."
   },
   "d2m3-a1": {
    "who": "John Doe",
@@ -1071,7 +1071,7 @@ window.CM_CF_SIM = {
      "channel": "alert",
      "from": "CMS",
      "subject": "Treatment risk missed: rental end never calendared",
-     "body": "The rental's 03/19/2026 end date was recorded in John Doe's assessment but never calendared as a treatment risk. He lost his transport three weeks ago with no plan in place, and the firm is learning of it from the clinic's missed-visit alert."
+     "body": "The rental's 03/19/2026 end date was recorded in John Doe's assessment but never calendared as a treatment risk. His rides to care changed twice in two weeks with no check-in set, and the firm learns he has stopped attending, and answering, from the clinic's alert."
     }
    }
   },
@@ -1289,7 +1289,7 @@ window.CM_CF_SIM = {
   },
   {
    "date": "04/02/2026",
-   "label": "Care disrupted · 19 days",
+   "label": "Near-drop · 19 days, no visits",
    "track": "",
    "lane": "care"
   },
