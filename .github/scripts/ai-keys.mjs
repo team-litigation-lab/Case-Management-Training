@@ -27,7 +27,8 @@ globalThis.fetch = async (url, init) => {
     const u = String(url);
     const model = decodeURIComponent(u.match(/models\/([^:]+):/)[1]);
     const key = init.headers['x-goog-api-key'];
-    calls.push({ key, model });
+    let thinking = null; try { const g = JSON.parse(init.body).generationConfig || {}; thinking = g.thinkingConfig ? (g.thinkingConfig.thinkingLevel || 'budget') : null; } catch (e) {}
+    calls.push({ key, model, thinking });
     const r = behavior(key, model);
     return new Response(JSON.stringify(r.json), { status: r.status, headers: { 'Content-Type': 'application/json' } });
 };
@@ -123,7 +124,33 @@ const textOf = async (res) => { const b = await res.json(); return b && b.conten
     check(res.status === 502, `every key refused should answer 502 (an AI key problem), not ${res.status}: a 401 reads as "your session has expired"`);
 }
 
-/* 6. no keys at all: the configuration message */
+/* 6. a live call's next line ("chat") is the quick path: Flash-Lite first with minimal thinking, and a model that refuses
+      the thinking setting is asked without it from then on (not twice every turn) */
+{
+    const worker = await freshWorker();
+    calls = [];
+    behavior = (key, model) => ({ status: 200, json: ok('line') });
+    const askChat = () => worker.default.fetch(new Request('https://cm.test/api/ai', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ feature: 'chat', messages: [{ role: 'user', content: 'hi' }], max_tokens: 200 }) }), keysEnv(), { waitUntil() {}, passThroughOnException() {} });
+    await askChat();
+    check(calls[0].model === 'gemini-3.5-flash-lite', `a call's line should go to Flash-Lite first, not ${calls[0].model}`);
+    check(calls[0].thinking === 'minimal', `a call's line should ask for minimal thinking, not ${calls[0].thinking}`);
+    calls = [];
+    behavior = (key, model) => ({ status: 200, json: ok('review') });
+    await ask(worker, keysEnv());
+    check(calls[0].model !== 'gemini-3.5-flash-lite' && calls[0].thinking === 'low', `anything else keeps the fuller model and low thinking: ${JSON.stringify(calls[0])}`);
+    const w2 = await freshWorker();
+    calls = [];
+    behavior = (key, model) => ({ status: 200, json: ok('ok') });
+    let refused = 0;
+    behavior = (key, model) => { const c = calls[calls.length - 1]; if (c.thinking) { refused++; return { status: 400, json: { error: { message: 'thinking_level is not supported for this model' } } }; } return { status: 200, json: ok('ok') }; };
+    const askChat2 = () => w2.default.fetch(new Request('https://cm.test/api/ai', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ feature: 'chat', messages: [{ role: 'user', content: 'hi' }], max_tokens: 200 }) }), keysEnv(), { waitUntil() {}, passThroughOnException() {} });
+    for (let i = 0; i < 3; i++) { const r = await askChat2(); check(r.status === 200, `a model refusing the thinking setting should still answer, got ${r.status}`); }
+    check(refused === 1, `a model that refused the thinking setting was sent it ${refused} times in 3 turns (once, then never again)`);
+}
+
+/* 7. no keys at all: the configuration message */
 {
     const worker = await freshWorker();
     const res = await ask(worker, {});
