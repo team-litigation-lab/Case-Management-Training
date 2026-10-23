@@ -2,13 +2,13 @@
 
 **Phase:** Claim set up & treatment · **Focus case:** John Doe v. Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
 
-**Objective.** Build John Doe's three-layer Policy Stack in the CMS; draft, transmit and log the LORs and notices; receive the carriers' claim correspondence and verify the $40,000 stack in writing; flag the 14-Day Gap and route the Case Plan; then carry the file through treatment: keep John Doe reachable (the No Contact Protocol), route every bill in Payer Order, flag the Health Plan's reimbursement right and clear the Regulatory Triple-Check, and keep care moving through the disruption, to MMI.
+**Objective.** Build John Doe's three-layer Policy Stack in the CMS; draft, transmit and log the LORs and notices; receive the carriers' claim correspondence and verify the $40,000 stack in writing; investigate liability and lead every note to Atty. Thorne with the decision needed; plan John Doe's treatment, flag the 14-Day Gap and route the Case Plan; then carry the file through treatment: route every bill in Payer Order, flag the Health Plan's reimbursement right and clear the Regulatory Triple-Check, and keep care moving through the disruption, to MMI.
 
 **Gate to the next day.** Policy Stack built in the CMS · LORs and notices out and logged · carrier correspondence received and the Coverage Matrix audited · 14-Day Gap flagged · Case Plan routed to Atty. Thorne · bills routed in Payer Order, LOPs out · Peach State's reimbursement right flagged and the Regulatory Triple-Check cleared · treatment documented to MMI
 
 **The file as this day opens.**
 
-- Matter open in the CMS with the Conflict Check documented; Property Damage onboarding under way.
+- Matter open in the CMS with the Conflict Check documented; Property Damage onboarding under way; outreach to John Doe logged under the No Contact Protocol.
 - Claims opened by phone 02/16–02/17/2026: $10,000 BI (Keystone Mutual), $20,000 Host UM (Harbor Point), $10,000 Relative UM (Cardinal State Mutual), limits reported but nothing confirmed in writing; nothing in the CMS Insurance tab yet.
 - Peach State Health Plan and Bluewater Auto still to be put on notice.
 - Treatment ahead: urgent care 02/20/2026, then Riverton Spine & Rehab under an LOP, Lakeside Orthopedics, an MRI, an injection and MMI; the bills, the liens and the gap arrive as you go.
@@ -40,29 +40,27 @@ The day is one module, on John Doe's one file: Lesson → Skill Building → Les
 5. *Skill Activity* — Policy Stack & Coverage Verification
 6. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
 7. *Skill Activity* — CMS Coverage Matrix Audit
-8. *Lesson* — The Action Plan Editor & Attorney Review Routing (condensed)
-9. *Skill Activity* — Identifying & Flagging the 14-Day Gap
-10. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
-11. *Lesson* — Coverages & the Payer-First Principle
-12. *Lesson* — LOP Issuance Guidelines, Provider Coordination & PIP Limits
-13. *Lesson* — Explanation of Benefits (EOB) & PIP
-14. *Lesson* — PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement (condensed)
-15. *Lesson* — Letters of Protection & the Case Manager's Part in Provider Referrals
-16. *Lesson* — Rental & Reimbursement of Costs (condensed)
-17. *Skill Activity* — Transmitting LOPs to Medical Providers
-18. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
-19. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check
-20. *Skill Activity* — Subrogation Lien Flagging in the CMS
-21. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
-22. *Skill Activity* — Executing the A-C-T Crisis Protocol for Disrupted Care
-23. *Lesson* — The No Contact Protocol — Steps 1 to 3
-24. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
-25. *Skill Activity* — Multi-Channel Outreach Logging
-26. *Skill Activity* — Final Warning Letter Drafting
-27. *Knowledge Check* — Coverage Setup Verification Check
-28. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
-29. *Knowledge Check* — Treatment Monitoring Review
-30. *Knowledge Check* — MIA Escalation Knowledge Check
+8. *Lesson* — The Treatment Assessment, SMART Goals & the Care Coordination Plan
+9. *Lesson* — The Standard Treatment Map: Phases, Timelines & Course Correction
+10. *Lesson* — Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
+11. *Lesson* — The Action Plan Editor & Attorney Review Routing (condensed)
+12. *Skill Activity* — Identifying & Flagging the 14-Day Gap
+13. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
+14. *Lesson* — Coverages & the Payer-First Principle
+15. *Lesson* — LOP Issuance Guidelines, Provider Coordination & PIP Limits
+16. *Lesson* — Explanation of Benefits (EOB) & PIP
+17. *Lesson* — PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement (condensed)
+18. *Lesson* — Letters of Protection & the Case Manager's Part in Provider Referrals (condensed)
+19. *Lesson* — Rental & Reimbursement of Costs (condensed)
+20. *Skill Activity* — Transmitting LOPs to Medical Providers
+21. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+22. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check
+23. *Skill Activity* — Subrogation Lien Flagging in the CMS
+24. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
+25. *Skill Activity* — Executing the A-C-T Crisis Protocol for Disrupted Care
+26. *Knowledge Check* — Coverage Setup Verification Check
+27. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
+28. *Knowledge Check* — Treatment Monitoring Review
 
 **End-of-day discussion (trainer):** It is 04/08/2026. Keystone confirmed its limit in writing on 03/20, Riverton Spine & Rehab reports John Doe has missed two visits, and Dana Whitfield has asked John for a Recorded Statement. What do you do first, second and third, and what does each protect?
 
@@ -70,7 +68,7 @@ The day is one module, on John Doe's one file: Lesson → Skill Building → Les
 
 ## Module 2 — Claim Set Up & Treatment
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 2.1.1 Coverage Verification Tracking & Follow-Up Deadlines
 
@@ -652,7 +650,267 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.8 The Action Plan Editor & Attorney Review Routing
+### 2.1.8 The Treatment Assessment, SMART Goals & the Care Coordination Plan
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Topic:** Know the whole person before you plan the care  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#33` Case Planning — Treatment: The Assessment Phase · `D1#34` Case Planning — Treatment: SMART Goal Setting · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · Newly authored: John Doe's intake assessment and the draft SMART goal
+
+#### 1 · Visual Layout Description
+
+Three panels left to right, joined by orange arrows. ① WHOLE-PERSON ASSESSMENT: a navy card split into four equal quadrants, CLINICAL · SOCIAL · PRE-MORBID · VOCATIONAL, each holding one cream fact chip from John Doe's file (NECK STIFFNESS · RUN REPORT 02/06/2026; OWNS NO CAR; NOT YET ON FILE, in amber with a question mark; NORTHGATE SHIFT LEAD · 8-HOUR SHIFTS). ② SMART GOAL: a white card with five stacked orange letter tabs S · M · A · R · T, and a draft goal line under them stamped DRAFT, with a dotted routing line to a small card PROVIDER CONFIRMS MEASURE & DATE. ③ CARE COORDINATION: four outlined boxes, ACUTE/RESTORATIVE · PSYCHOLOGICAL SUPPORT · DME · REHAB MILESTONES; the middle two read NONE ORDERED in grey text rather than standing empty, and the fourth shows a three-step chevron INPATIENT → OUTPATIENT → HOME with a calendar pin on each step. The amber PRE-MORBID chip is the design argument: an open question shown as open, never left blank. A thin rail along the bottom ends in a card: ATTY. ELIJAH THORNE · REVIEW.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* The Case Plan's Clinical and Functional pillars are only as good as the assessment under them. A plan built from the chart treats a diagnosis; a plan built from the whole person also sees the ride that isn't there, the baseline the carrier will ask about and the job the client needs back. At intake John Doe had no medical records yet, so the assessment was the plan's only foundation.
+
+1. Assess the whole person before you plan: it is more than reviewing medical records. At intake John Doe had not started treatment, so the assessment started from the intake call, the EMS Run Report and what he told you.
+2. Clinical Evaluation: record the physical, cognitive and psychological impairments as the client reports them and as the records document them, in their words and dated, never as your diagnosis. Here, at intake: “neck stiffness” on the Run Report of 02/06/2026, transport declined, no treatment yet.
+3. Social Determinants: housing, family support, financial stability and transport. These are the barriers that turn a plan into a Treatment Gap, so record who he lives with, how he will reach care and whether cost is holding him back.
+4. Pre-Morbid Status: establish the baseline that separates a pre-existing condition from an accident injury. Ask about every prior injury, treatment and claim to the same body region, with dates and providers, and request those records. Never leave them for the defense to find.
+5. Vocational/Educational Outlook: what the job demands and whether he can return to it or will need retraining. Record his role, start date, hours, pay and the job's physical demands in his words.
+6. Turn the assessment into SMART goals: Specific (name the function), Measurable (an objective measure an adjuster can verify: range of motion, a pain or disability score, sessions attended), Achievable (realistic for the prognosis), Relevant (tied to the injuries claimed, daily living and return to work), Time-bound (a dated review).
+7. Goals must be defensible to clinicians and adjusters alike. The provider sets the clinical target and the measure; you draft the goal in plain terms, ask the provider to confirm it, and write it into the Clinical or Functional pillar with an owner and a review date.
+8. Build the Care Coordination Strategy in four groups: Acute/Restorative Care (surgery, physiotherapy, occupational therapy), Psychological Support (counseling or CBT), Durable Medical Equipment (DME), and Rehabilitation Milestones (inpatient → outpatient → home-based). Record an empty group as “none ordered” with the date, never as a blank.
+9. Calendar every transition and every social risk as a treatment risk before it becomes a gap: a provider handoff, a ride that may end, a coverage question.
+10. The plan coordinates; it never prescribes. A specialist, equipment or psychological care is the provider's decision, and anything that puts the client's mental health in the record is flagged to Atty. Thorne first.
+
+> ⚠️ **UPL boundary.** You record what the client and the records say, draft goals for the provider to confirm and coordinate access to care. Diagnosing, choosing treatment, deciding whether psychological care is indicated, and saying whether a prior condition was aggravated belong to the provider and Atty. Thorne.
+
+#### 2 · Slide Body — Show Them
+
+*John Doe's whole-person assessment after the intake call on 02/09/2026, and what it feeds*
+
+| Domain | What the file showed at intake | What you still need | Feeds the plan |
+|---|---|---|---|
+| Clinical Evaluation | EMS Run Report, 02/06/2026: “restrained front-seat passenger, complains of neck stiffness, declined transport.” No treatment yet. | His symptoms in his own words, dated; the first treating provider's evaluation | Clinical pillar: first visit arranged; a Treatment Gap watch running from 02/06/2026 |
+| Social Determinants | Lives with his mother, Margaret Doe, at 2214 Maple Hollow Rd. Owns no car; Margaret's Civic was damaged in the crash; carpools with Kevin Alvarez on alternate weeks. | How he will reach care, who can drive him, and whether cost is holding him back | Care coordination: a transport plan; the Payer Order explained so cost is not a barrier |
+| Pre-Morbid Status | Nothing on file yet: an open question, not a blank | Every prior injury, treatment or claim to the neck or back, with dates and providers; prior records requested | A baseline note in facts only, routed to Atty. Thorne |
+| Vocational Outlook | Northgate Distribution warehouse shift lead since 01/12/2026; $22.00/hour, 8-hour shifts; Peach State coverage through Northgate, effective 02/01/2026 | The job's physical demands, in his words | Functional pillar: return to full duty, written as a SMART goal |
+| SMART goal (draft) | “John Doe works full 8-hour shifts as a warehouse shift lead at Northgate by the [review date], measured by [the provider's measure].” | The provider's measure, target and review date | Functional pillar once the provider confirms it; owner and review date set |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Intake call complete (02/09/2026) | Record the four-domain assessment: symptoms in his words, home and transport, prior injuries, the job's demands | CMS → Case Notes | All four domains dated; anything unknown listed as an open question |
+| A prior injury or prior care disclosed | Request the prior records and record the baseline as facts: body region, dates, provider, outcome | Medical Records Requests · CMS → Case Notes | Request sent; baseline note in facts only, copied to Atty. Thorne |
+| Assessment recorded | Draft the SMART goals and the four care groups into the Clinical and Functional pillars; ask the first treating provider to confirm each measure and date | Action Plan Editor | Each goal has a measure, a date and an owner; empty groups read “none ordered” |
+| A social risk found (no ride, a cost worry, a handoff) | Calendar it as a treatment risk and flag it | CMS → Calendar · Case File → Risk Flags | Dated task on the calendar before it becomes a gap |
+
+**Best practices & pitfalls**
+
+- Write the assessment in the client's words and the record's words, with dates. Your summary is not evidence.
+- Ask about prior injuries plainly and early. A baseline the firm documents is a defense; one the defense finds first is an attack.
+- Draft goals in terms the client cares about, such as getting back to full shifts at Northgate, so he can see why the plan matters to him.
+- Record an empty care group as “none ordered” with the date, so the plan shows it was considered.
+- ⚠️ Pitfall: building the plan from the medical records only.
+- ⚠️ Pitfall: a goal like “reduce pain” with no measure or date.
+- ⚠️ Pitfall: never raising psychological support with the provider until the demand phase.
+- ⚠️ Pitfall: calling a prior condition “unrelated” or “aggravated” in the file. That is the provider's opinion and Atty. Thorne's argument.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Four domains | Clinical, Social Determinants, Pre-Morbid Status and Vocational Outlook each recorded with John Doe's intake facts, dated, with open questions named |
+| 🤖 AI | **20%** | SMART goal | Specific function, objective measure, realistic, tied to the claimed injury and his work, with a review date; marked for the provider to confirm |
+| 🤖 AI | **20%** | Care coordination | All four groups addressed, empty ones recorded as “none ordered”; transitions and social risks calendared |
+| 🧑‍🏫 Trainer | **20%** | Baseline handling | Prior injuries asked about and records requested; no “unrelated” or “aggravated” labels |
+| 🧑‍🏫 Trainer | **20%** | Clinical boundary | No diagnosis, treatment direction or psychological judgment; goals routed to the provider, mental-health items flagged to Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- The deck's own line carries the lesson: assessment is more than reviewing medical records. At intake John Doe had none, which makes the point for you.
+- Run the deck's discussion case live: turn “help John get back to work” into a SMART goal. Push until it has a measure the provider chooses and a review date.
+- Trainees find the prior-injury question awkward. Reframe it: a baseline the firm documents is a defense; one the defense finds first is an attack.
+- Hold the clinical line: the CM drafts and asks; the provider sets targets, orders equipment and decides on psychological care.
+
+---
+
+### 2.1.9 The Standard Treatment Map: Phases, Timelines & Course Correction
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Topic:** Where he should be on the map, and what you do when he isn't  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#36` The Standard Treatment Map · `D1#37` Treatment Road Map Mastery & the Clinical Pathway Flowchart · `D1#38` Variance Analysis: Why the Map Fails · `D1#39` Communication Loops: The “Stakeholder Triad” · `D1#40` The “Golden Standard”: Reasonable and Necessary · `D1#42` Illustration & Course Correction: The 6-Week Rule and Objective Metrics · `D1#43` The “Yellow Flag” Warning System
+
+#### 1 · Visual Layout Description
+
+A horizontal treatment map across the slide: five phase pills on a navy track, ACUTE · DAYS 1–14, SUB-ACUTE · WEEKS 2–8, RESTORATIVE · WEEKS 9–24, MAINTENANCE · 6 MONTHS+, MMI / DISCHARGE, each with a small orange caption of its Case Management focus beneath: CAUSATION & PIP · FUNCTIONAL GAINS · RTW BARRIERS · DETERMINING MMI · LIENS & SETTLEMENT SUPPORT. A pin sits in the ACUTE pill: JOHN DOE · EMS 02/06/2026 · NO CARE YET. Above SUB-ACUTE a diamond, IS HE IMPROVING?, branches: a green arrow on along the track, a red arrow down into a loop of three chips, CLINICAL · PSYCHOSOCIAL · SYSTEMIC, which rejoins the track through one card, THE PROVIDER DECIDES. Along the bottom, three thin lines leave the track for three end cards, CLINIC · ATTY. THORNE · PAYER: the Stakeholder Triad. The argument: the map is a yardstick; the Case Manager reads it, the provider steers.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Every adjuster, IME doctor and defense lawyer who reads John Doe's records will hold them against a standard map of how recovery should run, and deviations from that map are the main reason carriers deny care and order IMEs. A Case Manager who knows the map sees the drift first, asks the provider why, and has the answer on file before anyone turns it into an argument. That is the difference between observing a recovery and driving it: you drive by anticipating and asking, never by choosing the care.
+
+1. Know the phases and their windows, counted from the date of loss: Acute (days 1–14), Sub-acute (weeks 2–8), Restorative (weeks 9–24, months 2–6), Maintenance (6 months+), then MMI / discharge. Once care starts, also count weeks of care from the first visit.
+2. Locate the client at every check-in: phase and week, written at the top of the note. You can't tell “off the map” from “on schedule” without it.
+3. Each phase has its Case Management focus: Acute, establishing causation (the mechanism of injury on record) and PIP coverage; Sub-acute, functional gains (range of motion, weight-bearing); Restorative, barriers to return to work; Maintenance, whether he is approaching MMI.
+4. The map is a sequence of stops: EMS, the emergency room, MRI and radiology, chiropractic care and physical therapy, orthopedics, pain management, surgery, post-operative care, long-term pain management. Not every client reaches every stop, but a stop skipped or taken out of order (surgery before conservative care) needs a documented clinical reason from the provider.
+5. Ask “Is he improving?” at every check-in. Yes: care continues on the map. No: the variance loop, where medication or injections, a specialist referral (ortho or neuro) or a psychological screen for yellow flags is the provider's decision. You raise the question and record question, answer and date.
+6. Name the variance before anyone acts on it: clinical (a secondary complication, such as radiating nerve pain that wasn't in the first report), psychosocial (yellow flags such as fear-avoidance, depression, no transport to therapy), systemic (an authorization or referral delay). The response depends on the type, and a systemic delay is never client non-compliance.
+7. Every item on the map must pass the utilization-review test, Reasonable and Necessary: reasonable, usual for this mechanism of injury; necessary, objective evidence that function is improving, not subjective pain alone. Necessity is the provider's opinion, argued by Atty. Thorne; your part is getting the measures on file.
+8. Track objective metrics, not impressions: Oswestry (low back) or DASH (arm, shoulder, hand) every 30 days; gait analysis for lower-extremity injuries; PHQ-9 / GAD-7 when physical progress stalls; an FCE before return to work or at MMI. You request the measures; the provider chooses and orders them, and a screen that puts mental health in the record is flagged to Atty. Thorne.
+9. Course-correct on the map's triggers, not on a denial. The 6-Week Rule: expect 20–30% more range of motion or a lower VAS pain score by week 6 of care; still 10/10 after 12 PT sessions means raise it with the provider now. The Red Flag Rule: no disability-index change after 12 weeks of PT is a plateau, so ask the provider about a specialist or second opinion. A variance that becomes a red flag goes into A-C-T and the escalation ladder (Monitoring the Care, later today).
+10. Keep the Stakeholder Triad closed, and end at MMI. Clinical loop: therapy notes match the physician's orders, and a conflict goes back to both providers and to Atty. Thorne. Legal loop: status reports to Atty. Thorne in functional terms. Financial loop: the payer updated before a referral or authorization lapses. MMI, declared by the provider with any impairment rating, closes the treatment phase and opens lien resolution.
+
+> ⚠️ **UPL boundary.** You track the map and ask; you don't direct the care. Never tell John Doe to add, skip or stop treatment, never pick a test or a specialist, and never tell him what a deviation does to his claim. Clinical questions go to the provider; what a variance means for the case is Atty. Thorne's.
+
+#### 2 · Slide Body — Show Them
+
+*John Doe on the map at intake: where he should be, and what you will watch*
+
+| Phase | On a typical file | On John Doe's file: what you watch | Who decides |
+|---|---|---|---|
+| Acute · days 1–14 from the DOL, 02/06/2026 | A first evaluation (ER or urgent care); imaging, bracing or initial PT if the provider orders them | EMS Run Report 02/06/2026: neck stiffness, declined transport, so no ER stop. No care yet: each day without an evaluation is a fact on the timeline. Causation facts on file; Harbor Point's $5,000 PIP verified in writing | The provider decides the care; you record facts and tell Atty. Thorne of any gap |
+| Sub-acute · weeks 2–8 | Active PT 2–3 times a week; specialist follow-up | Attendance; “Is he improving?” at every contact; range of motion and pain score at week 6 of care | The provider orders the measures; you request and file them |
+| Restorative · weeks 9–24 | Work hardening, injections or psychological support, if ordered | Barriers to return to work; a disability index unchanged after 12 weeks of PT | The provider decides any referral; you ask and record the answer |
+| Maintenance · 6 months+ | Home exercise program; as-needed visits | Whether the provider is approaching MMI | The provider |
+| MMI / discharge | The provider's MMI note and any impairment rating; an FCE if ordered | The treatment phase closes; records and balances go to lien resolution | The provider declares MMI; Atty. Thorne leads what follows |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Every check-in with John Doe or a provider | Locate him on the map (phase, week from the DOL, week of care) and ask “Is he improving?” | CMS → Case File → Treatment timeline | Phase, week, answer and date recorded |
+| The answer is no, or a stop is skipped | Classify the variance and ask the provider's office what is planned | Medical Records Requests · CMS → Case Notes | Variance type named; the provider's answer on file with its date |
+| Week 6 of care, then every 30 days | Request the objective measures: range of motion, pain score, disability index | Medical Records Requests | Measures on file, or the missing re-evaluation flagged |
+| A variance that can cost the claim | Report the facts to Atty. Thorne in the map's language: phase, variance type, the provider's plan | CMS → Case File → Risk Flags | Flag routed the same day, facts only |
+
+**Best practices & pitfalls**
+
+- Write phase and week at the top of every treatment note, so anyone can place the client on the map.
+- Report function, not diagnoses: what he can't do at work and at home is what Atty. Thorne needs.
+- Request the objective measures before the six-week mark of care, not after a denial.
+- Report variances in the map's language: “Phase 2 (sub-acute). Clinical variance: therapy has not reduced the radiating pain. Raised with the treating provider, who is considering a specialist referral.”
+- ⚠️ Pitfall: letting a client drift off the map with no reason on file.
+- ⚠️ Pitfall: treating a systemic delay (an authorization or referral stuck with a payer) as client non-compliance.
+- ⚠️ Pitfall: waiting for the adjuster to deny the next six sessions before course-correcting.
+- ⚠️ Pitfall: a skipped stop (surgery before conservative care) with no documented clinical reason.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Phase table | Acute days 1–14, Sub-acute weeks 2–8, Restorative weeks 9–24, Maintenance 6 months+, then MMI; the Case Management focus of each |
+| 🤖 AI | **15%** | Pathway and variance | “Is he improving?” at every check-in; the variance loop; clinical, psychosocial and systemic named and matched |
+| 🤖 AI | **15%** | Metrics and the standard | Oswestry/DASH, gait analysis, PHQ-9/GAD-7 and FCE matched to when; Reasonable and Necessary defined; 6-Week and Red Flag Rules |
+| 🤖 AI | **10%** | John Doe placed | Acute phase at intake; EMS Run Report 02/06/2026, declined transport, no care yet; causation and PIP as the focus |
+| 🧑‍🏫 Trainer | **20%** | Clinical boundary | Raises questions with the provider; never chooses care, tests or specialists, or tells John Doe to add, skip or stop treatment |
+| 🧑‍🏫 Trainer | **20%** | Triad reporting | Reports to Atty. Thorne in functional terms and the map's language; routes provider conflicts instead of resolving them |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Draw five boxes on the board, ACUTE to MMI, before the slides. Put a pin in ACUTE and ask the room what John Doe's file shows so far: one EMS Run Report and no care.
+- The deck says a good Case Manager “drives” recovery. Pin the word down: drive means anticipate and ask early. Every intervention on the map is a provider's order.
+- Trainees treat the map as a rulebook. It is a yardstick: a client off the map isn't wrong, he is unexplained until the provider explains him, and an unexplained deviation is what a carrier argues with.
+- Hold the timeline. Put him on the map as he stood at intake, before care began; don't let the room guess how his care will go. The treatment lessons later today lay his actual course on this map.
+
+---
+
+### 2.1.10 Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Topic:** What you watch for in the records, what you listen for on the phone, and how you keep him in his plan  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#31` Treatment Red Flags: PT & Conservative Care, Surgical Protocols · `D1#32` Treatment Red Flags: Pain Management, Medication & Behavioral Health / TBI · `D1#43` The “Yellow Flag” Warning System
+
+#### 1 · Visual Layout Description
+
+A split stage. Left half, headed IN THE RECORDS: a navy column of four stacked specialty cards, PT & CONSERVATIVE CARE · SURGICAL PROTOCOLS · PAIN MANAGEMENT & MEDICATION · BEHAVIORAL HEALTH / TBI, each with a small red flag chip at its right edge. Right half, headed ON THE PHONE: a speech-bubble column holding four amber yellow-flag chips, FEAR-AVOIDANCE · CATASTROPHIZING · LITIGATION STRESS · PASSIVE-CARE RELIANCE, and under it an orange four-segment ring lettered O · A · R · S. Both halves feed arrows into one full-width routing bar at the bottom: MEDICAL DANGER → THE PROVIDER, TODAY · LEGAL DANGER → ATTY. THORNE · THEN A-C-T. Top-right, a thin progress line that rises, flattens at its midpoint (labelled PLATEAU) and is lifted again by an orange arrow marked RE-ENGAGE ON HIS GOAL. The argument: the Case Manager sees and hears; the provider and counsel decide.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* At intake John Doe had not started treatment. Once he does, you are the one person on the file who reads every record as it arrives and hears from him between visits. A red flag missed in a record, a yellow flag missed on a call, or a mid-treatment plateau nobody talks about can pull him off the plan his providers set and leave Atty. Thorne without the facts he needs. Your job is to recognise, report and keep him engaged; every clinical judgment stays with the provider.
+
+1. Learn the standard US treatment protocols so you can see a deviation. A red flag is a deviation that signals medical danger, a stagnating case or over-treatment for billing. You recognise it and report it; the provider judges it. Once you spot one, A-C-T runs.
+2. PT & Conservative Care, the baseline of treatment: more than 12 sessions with no change in range of motion or pain and no specialist or imaging suggested; passive-only care (heat packs, TENS, massage) with no active exercise; two or more missed visits, which the defense reads as an injury not serious enough to treat.
+3. Surgical Protocols, where the flags concern safety and the Standard of Care: surgery (such as a spinal fusion) recommended before PT or injections, outside an emergency, is a Reasonable Necessity flag; a left/right switch in the records damages credibility; “just wait until the follow-up” for fever or redness, or sharp or mechanical pain after surgery, is medical danger that reaches the provider the same day.
+4. Pain Management & Medication, the most scrutinised area (opioid regulations, Medical Necessity audits): an opioid, a muscle relaxant and a sedative together (the “Holy Trinity”), a safety risk and a legal exposure if the client has an accident while medicated; doses rising with no change in diagnosis; a Urine Drug Screen that does not show the prescribed drug, or shows an illicit one.
+5. Raise a medication or drug-screen fact with the prescriber as facts, dates and a question, never as an accusation, and report it to Atty. Thorne. Never discuss it with the client as a suspicion, and never comment on his medications.
+6. Behavioral Health / TBI, high-value and handled with utmost discretion: counseling notes about “general life stress” rather than the accident's trauma (rarely covered, and the costs called unreasonable); no memory loss noted at the ER, then significant head-injury symptoms months later. Record the date each was first reported; validation is the provider's, and Atty. Thorne hears it before anyone treats it as proof.
+7. Yellow flags are psychosocial barriers that derail the map: fear-avoidance (avoiding movement or therapy for fear of pain), catastrophizing (“I'll never walk again” despite minor findings), litigation stress, and iatrogenic factors (reliance on opioids, or on passive care such as ice and heat over active exercise). Record them in his words and report them with a plan; whether a PHQ-9/GAD-7 screen is indicated is the provider's call.
+8. Run every contact on OARS: Open-ended questions, Affirmations, Reflective listening, Summaries. Ask specific questions, not “How are you?”: visits kept, pain, what he can and can't do at work and at home.
+9. Two MI moves for ambivalence. Developing discrepancy: help him see the gap between what he is doing now and his own long-term goal, in his words. Rolling with resistance: if he refuses a service, don't argue, pivot (“It sounds like that specific clinic isn't a good fit for you. Let's look at why.”), and take his reason to the provider.
+10. Expect the mid-treatment plateau: when the newness wears off and the hard work begins, adherence drops. Re-engage him on his own goal, then run the course-correction cycle (Assess Response, Evaluate Efficacy, Adjust Intervention). If he isn't reaching his goals it is usually the plan, not the person: raise it with the provider, whose change it is. That is proactive management, not an admission.
+
+> ⚠️ **UPL boundary.** You recognise and report flags; every clinical judgment is the provider's: a screen, a medication, a referral, a change of plan. Never tell John Doe to add, skip, stop or change a treatment or medication, and never second-guess a provider.
+
+> ⚠️ **UPL boundary.** MI keeps him engaged in the plan his providers set. It is never a channel for medical or legal advice: never “missing visits will hurt your case”. What his conduct means for the claim is Atty. Thorne's to explain.
+
+#### 2 · Slide Body — Show Them
+
+*OARS and the two MI moves on John Doe's check-ins once care begins (illustrative lines, written for his first weeks of care)*
+
+| Technique | What it does | An illustrative line for John Doe | What you record |
+|---|---|---|---|
+| Open-ended question | Invites his account instead of a yes or no | “Walk me through how your neck has been since the collision on 02/06/2026.” | His words, verbatim, with the date |
+| Affirmation | Recognises effort, not outcome | “Getting that first appointment booked took effort. Thank you for telling me.” | The step he took, as a fact |
+| Reflective listening | Mirrors what he said, so he feels heard and can correct you | “It sounds like the stiffness makes a full shift feel a long way off.” | His concern in his words; a yellow flag if it is one |
+| Summary | Gathers the call so he can correct it | “So: visits kept, stiffness about the same, lifting still hard. What did I miss?” | The summary he confirmed, as the GIRP Response |
+| Developing discrepancy | Sets what he is doing beside the goal he named | If he names full shifts at Northgate as his goal and therapy starts to feel pointless: “You said getting back to full shifts matters most. How does stepping back from therapy fit with that?” | His goal and his answer; no pressure |
+| Rolling with resistance | Pivots to his reason instead of arguing | If he pushes back on a clinic: “It sounds like that clinic isn't a good fit for you. Let's look at why.” | His reason, routed to the provider |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| A treatment record, prescription record or bill arrives | Read it against the red flags by specialty; log any flag with its source record and the date first seen | Medical Records Requests · CMS → Case File → Risk Flags | Every flag logged with its record, specialty and date |
+| A medical-danger flag (fever or sharp pain after surgery, a medication concern) | Report the fact to the provider's office the same day, then run A-C-T and tell Atty. Thorne | Phone · CMS → Case Notes | Provider told the same day; the call note dated |
+| Each client check-in, once care starts | Run OARS: specific questions on visits, pain and function; note any yellow flag in his words | Call Simulator → AI John Doe · CMS → Case Notes | GIRP note the same day: his words, no labels, no advice |
+| A yellow flag or a plateau heard | Report it to the provider with a plan and a question (is a screen or a plan change indicated?); flag anything putting his mental health in the record to Atty. Thorne | Email Workspace · CMS → Case File → Risk Flags | The provider's answer and its date on file |
+
+**Best practices & pitfalls**
+
+- Ask specific questions, never just “How are you?”: visits kept, the pain score, what he can't do at work or at home.
+- Write a yellow flag in his own words (“I'll never lift again”), with the date, not as a label.
+- Raise a medication or drug-screen fact with the provider as facts, dates and a question; never as an accusation, and never with the client.
+- Keep boundaries: Empower (coach him through it rather than doing it for him; the goal is to make you unnecessary) and Prioritize (does this need solving to reach his primary goal, or is it a distraction?).
+- End each treatment-phase contact with: “What is the one thing that might get in the way of you reaching your goal this week?”
+- ⚠️ Pitfall: arguing with resistance, or telling him missed visits will hurt his case.
+- ⚠️ Pitfall: reporting a yellow flag with no plan.
+- ⚠️ Pitfall: treating late-onset head-injury symptoms as proof before the provider validates them.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Red flags by specialty | PT, surgical, medication and behavioral-health/TBI flags each named with what they signal |
+| 🤖 AI | **15%** | Routing | Medical danger to the provider the same day; legal danger to Atty. Thorne; then A-C-T |
+| 🤖 AI | **15%** | Yellow flags and OARS | Yellow flags recorded in the client's words; open questions, affirmations, reflections and summaries applied |
+| 🤖 AI | **10%** | The plateau | Developing discrepancy and rolling with resistance used; the course-correction cycle named |
+| 🧑‍🏫 Trainer | **20%** | Clinical line | Recognises and reports; decides no screen, medication or referral and gives the client no treatment direction |
+| 🧑‍🏫 Trainer | **20%** | MI without pressure | Keeps John Doe engaged in his providers' plan without arguing, pressure or claim-value talk |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- At intake John Doe had not started care. Frame the lesson as the watch-list and the toolkit the file will need from his first visit on; the lines in the model are illustrative, not his.
+- Ask: “Who decides whether a PHQ-9 is indicated?” The provider. The Case Manager hears the flag, records it and asks the question.
+- Role-play rolling with resistance: one trainee plays a client who calls the clinic a waste of time; the Case Manager pivots to his reason, never argues, and takes it to the provider.
+- Listen for “missing visits will hurt your case” in the role-plays. That is a claim-value statement, and it belongs to Atty. Thorne.
+
+---
+
+### 2.1.11 The Action Plan Editor & Attorney Review Routing
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Drafting, routing, and the review loop  
@@ -730,7 +988,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.9 Identifying & Flagging the 14-Day Gap
+### 2.1.12 Identifying & Flagging the 14-Day Gap
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 1 — find the fact that will decide this case  
@@ -803,7 +1061,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.10 Live Case Plan Draft — John Doe v. Robert Smith
+### 2.1.13 Live Case Plan Draft — John Doe v. Robert Smith
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 2 — the full plan, routed for review  
@@ -879,7 +1137,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.11 Coverages & the Payer-First Principle
+### 2.1.14 Coverages & the Payer-First Principle
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Every policy on John Doe's file, what it pays, and who pays first  
@@ -968,7 +1226,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.12 LOP Issuance Guidelines, Provider Coordination & PIP Limits
+### 2.1.15 LOP Issuance Guidelines, Provider Coordination & PIP Limits
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays which bill, and what only counsel may promise  
@@ -1053,7 +1311,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.13 Explanation of Benefits (EOB) & PIP
+### 2.1.16 Explanation of Benefits (EOB) & PIP
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Reading what each payer paid, and what is still owed  
@@ -1140,7 +1398,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.14 PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement
+### 2.1.17 PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Where PIP's $5,000 lands, and what that means for the settlement later  
@@ -1226,9 +1484,9 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.15 Letters of Protection & the Case Manager's Part in Provider Referrals
+### 2.1.18 Letters of Protection & the Case Manager's Part in Provider Referrals
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** What an LOP is, when it is used, and how you help John Doe reach care without steering it  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** Case file: Riverton Spine & Rehab, chiro and PT under an LOP signed 02/23/2026 (RS23, the itemized LOP ledger) · Newly authored: Letters of Protection, and the Case Manager's part in client-provider referrals within the UPL line
@@ -1303,7 +1561,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.16 Rental & Reimbursement of Costs
+### 2.1.19 Rental & Reimbursement of Costs
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** What treatment costs the client out of pocket, and how each dollar is documented for the demand  
@@ -1377,7 +1635,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.17 Transmitting LOPs to Medical Providers
+### 2.1.20 Transmitting LOPs to Medical Providers
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 1 — one LOP issued, one declined  
@@ -1454,7 +1712,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.18 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+### 2.1.21 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 3 — the Millbrook booking, 04/22/2026  
@@ -1554,7 +1812,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.19 Health Subrogation, Payer Order & the Regulatory Triple-Check
+### 2.1.22 Health Subrogation, Payer Order & the Regulatory Triple-Check
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays the bills now, and who gets paid back later  
@@ -1633,7 +1891,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.20 Subrogation Lien Flagging in the CMS
+### 2.1.23 Subrogation Lien Flagging in the CMS
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — register the claim before it can hurt you  
@@ -1705,7 +1963,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.21 A-C-T Crisis Protocol & Treatment Monitoring Principles
+### 2.1.24 A-C-T Crisis Protocol & Treatment Monitoring Principles
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Is the plan working, and what you do the day it isn't  
@@ -1788,7 +2046,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.22 Executing the A-C-T Crisis Protocol for Disrupted Care
+### 2.1.25 Executing the A-C-T Crisis Protocol for Disrupted Care
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — the Transportation Wall, 04/08/2026  
@@ -1876,306 +2134,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.23 The No Contact Protocol — Steps 1 to 3
-
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
-> **Topic:** Internal review, escalating contact attempts, team notification  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** LSH Claims Specialist: No Contact Protocol, Steps 1–3 · `D1#11` Bottleneck: Delayed Client Follow-Up · `D1#9` Common Intake Bottlenecks — Overview · D5 agenda: MIA Clients
-
-#### 1 · Visual Layout Description
-
-A six-station vertical protocol spine down the left third, stations numbered 1–6 in orange circles on a navy rail. Stations 1–3 are in full colour (INTERNAL REVIEW · CONTACT ATTEMPTS · TEAM NOTIFICATION); stations 4–6 are greyed back with a small “next lesson” tag, so the whole protocol is visible but this lesson's scope is clear. The right two-thirds expands station 2 as an escalating channel ladder: PHONE (2+ attempts) → EMAIL + SMS → EMERGENCY CONTACT → CERTIFIED MAIL / FORMAL LETTER, each rung a widening bar. Bottom-right, a red-bordered card: “SOL and hearing dates keep running.”
-
-#### 2 · Slide Body — Tell Them
-
-*Why:* The No Contact Protocol does three jobs at once: it tracks unresponsiveness formally, it establishes due diligence before any withdrawal, and it protects the firm from liability. A client who can't be reached is a file that still has deadlines, and the protocol is the proof the firm did its part.
-
-1. Step 1, Internal Review: before you call anyone, check the case status, the live deadlines and the date of last contact, and confirm every earlier attempt used an approved channel.
-2. Step 2, Contact Attempts, escalating: at least two phone attempts, then email and text, then the emergency contact, then certified mail or a formal letter.
-3. Escalate by channel, not by volume. Two voicemails on one number clears the phone rung and nothing more.
-4. Set a follow-up reminder the moment a request goes out, and give the client an easy way to answer: a call window, a text, an upload link.
-5. Log every attempt in the CMS when you make it: date, time, channel, outcome. An unlogged attempt did not happen.
-6. Step 3, Team Notification: escalate to the attorney or supervisor, document it in the CMS, and assess the case impact, including the statute of limitations and any hearing dates.
-7. Deadlines do not pause for silence. Never let an outreach cycle consume a statutory or court date.
-
-> ⚠️ **UPL boundary.** You may tell the client what the firm needs and by when. You may not advise them on what silence does to their legal rights, and you may not say representation will end. Withdrawal is the attorney's decision at Step 5.
-
-#### 2 · Slide Body — Show Them
-
-*The No Contact Protocol: all six steps; this lesson covers 1–3*
-
-1. **Internal Review** — Case status, live deadlines, date of last contact; approved channels confirmed.
-2. **Contact Attempts** — 2+ phone attempts → email and text → emergency contact → certified mail or letter.
-3. **Team Notification** — Escalate to attorney/supervisor, document in the CMS, assess SOL and hearing dates.
-4. **Final Warning Letter** — Certified mail AND email; 7–14 day deadline. (Next lesson.)
-5. **Decision Point** — The attorney may file a Notice of Withdrawal or a Motion to Withdraw. (Next lesson.)
-6. **File Closure** — “No response – withdrew per protocol”; all proof of attempts retained. (Next lesson.)
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Client misses a scheduled contact or appointment | Step 1: review case status, deadlines and the last contact date | CMS → Case Summary | Live deadlines identified before outreach begins |
-| Internal review complete | Step 2: work the channel ladder; log each attempt | CMS → Communications Log | 2+ phone attempts, then email and text, each with date, time, channel, outcome |
-| Channel ladder exhausted | Step 3: notify Atty. Thorne and assess deadline impact on John Doe's file | CMS → Tasks → Escalate | Escalation documented; SOL (02/06/2028) and any hearing dates assessed |
-
-**Best practices & pitfalls**
-
-- Set follow-up reminders the moment a request goes out.
-- Offer the client an easy way to respond: a call window, text, an upload link.
-- ⚠️ Pitfall: letting a file sit because “we're waiting on the client” without logging attempts.
-- ⚠️ Pitfall: blaming the client for delays that are really process gaps.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Step sequence | Steps 1–3 in order; internal review before outreach |
-| 🤖 AI | **20%** | Channel ladder | 2+ phone attempts, then email and text, not repeats on one channel |
-| 🤖 AI | **20%** | Log completeness | Every attempt carries date, time, channel and outcome |
-| 🧑‍🏫 Trainer | **20%** | Deadline awareness | The Step 3 impact check names the running SOL, not just “escalated to attorney” |
-| 🧑‍🏫 Trainer | **20%** | Boundary discipline | No withdrawal threat; no statement that the case will be closed |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Lead with purpose, not procedure: the protocol protects the client's file and the firm. Trainees who see it as chasing a client miss why the record matters.
-- Step 1 is the step everyone skips; they start dialling. Ask: “What deadline is running on this file right now?” If they can't answer, they aren't ready to make the call.
-- Channel versus volume is the most often failed point. Two voicemails on the same number clears the phone rung and nothing more. Say it twice.
-- The emergency contact was collected at intake for exactly this moment. Intake decisions pay off here.
-
----
-
-### 2.1.24 Final Warning Letter & the Skip-Trace Trigger
-
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
-> **Topic:** No Contact Protocol Steps 4 to 6, and when the search begins  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** LSH Claims Specialist: No Contact Protocol, Steps 4–6; Withdrawal Letters · D5 agenda: MIA Clients
-
-#### 1 · Visual Layout Description
-
-Two panels. Left: the Final Warning Letter on white letterhead with a navy band, four required elements called out by orange numbered badges — ① the earlier attempts, itemized ② a response deadline of 7–14 days ③ notice of potential withdrawal ④ how to respond. Above the letter, a chip pair reads CERTIFIED MAIL + EMAIL, joined by a bold AND, because both are required. Right: the Step 5 decision fork on a pale ground. Root, navy: “Response within the deadline?” Yes (green) → RESUME FILE. No (orange) → a three-chip AND gate (ladder exhausted · letter sent · deadline expired) ending in two outcomes: TRIGGER SKIP-TRACE and ATTORNEY DECISION POINT. Draw the gate as a gate, never as a bullet list.
-
-#### 2 · Slide Body — Tell Them
-
-*Why:* The Final Warning Letter is the last low-cost step before the firm either spends money to find someone or moves to withdraw. It has to be specific enough to get an answer, and documented enough to justify whichever comes next.
-
-1. Step 4, the Final Warning Letter, goes by certified mail AND email. Both, not either.
-2. It states the earlier attempts, a response deadline of 7 to 14 days, and notice of potential withdrawal.
-3. Send it to the client's current and correct address. Confirm the address first; a letter to a stale address proves nothing.
-4. Step 5, Decision Point: if the client is still unresponsive, the attorney may file a Notice of Withdrawal or a Motion to Withdraw, under firm and court rules. That is counsel's decision.
-5. Step 6, File Closure: mark the file “No response – withdrew per protocol” and keep the communications and the proof of every attempt.
-6. Skip-tracing starts only when all three are true: the contact ladder is exhausted, the letter has been sent, and its deadline has passed.
-7. Skip-tracing is authorized by counsel. Escalate with the complete log attached.
-8. Keep the file moving in parallel. Records requests, coverage verification and deadline tracking do not pause while outreach runs.
-
-> ⚠️ **UPL boundary.** The letter may state the firm's requirements, its deadline and that withdrawal is possible. It may not characterise the strength of the claim or advise the client on what silence does to their legal rights. Only the attorney decides, and tells the client, that representation is ending.
-
-#### 2 · Slide Body — Show Them
-
-*The three-criteria gate: all must be true before the search begins*
-
-1. **Contact ladder exhausted** — 2+ phone attempts, email, text and the emergency contact, all attempted and logged.
-2. **Final Warning Letter sent** — Certified mail AND email, to a confirmed address, stating the 7–14 day deadline.
-3. **Deadline expired** — The response window has passed with no contact from the client.
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Step 3 escalation made, still no response | Draft the Final Warning Letter with a 7–14 day deadline | Action Plan Editor → Warning letter template | Earlier attempts itemized; deadline and withdrawal notice present |
-| Letter ready | Confirm the current address; send by certified mail AND email | CMS → Documents → Outgoing | Both channels used and logged; certified receipt kept |
-| Response deadline expires | Verify all three criteria; escalate to Atty. Thorne for Skip-Trace authority and the Step 5 decision | CMS → Tasks → Escalate | All three criteria evidenced in the log first |
-
-**Best practices & pitfalls**
-
-- Itemize the attempts with dates; “we have tried several times” is not evidence.
-- Ask your in-house help to confirm an address you can't verify.
-- ⚠️ Pitfall: triggering a Skip-Trace on the first criterion alone.
-- ⚠️ Pitfall: writing “we are withdrawing” in a letter the attorney has not approved.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **25%** | Letter elements | Attempts itemized, 7–14 day deadline, withdrawal notice, response method |
-| 🤖 AI | **15%** | Dual delivery | Certified mail and email both used and logged |
-| 🤖 AI | **20%** | Criteria evidence | All three Skip-Trace criteria shown in the log |
-| 🧑‍🏫 Trainer | **20%** | Letter tone | Firm, clear and not threatening; a worried client would respond to it |
-| 🧑‍🏫 Trainer | **20%** | Authority discipline | Withdrawal and Skip-Trace both escalated for counsel's decision |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Hold the room on the AND gate. Trainees reliably trigger the search on the first criterion alone, which spends the firm's money early and weakens the record.
-- Both delivery channels are required. Ask why: certified mail proves delivery, email gets a response.
-- Draw the Step 5 line hard: the CM assembles the record, the attorney decides to withdraw.
-- Day 5 returns to this with advanced skip-tracing, process servers and certified notice. Today is the trigger; Day 5 is the execution.
-
----
-
-### 2.1.25 Multi-Channel Outreach Logging
-
-> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
-> **Topic:** Skill Activity 1 — build a defensible record  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** LSH Claims Specialist: No Contact Protocol, Step 2 · `D1#11` Bottleneck: Delayed Client Follow-Up
-
-#### 1 · Visual Layout Description
-
-A CMS Communications Log as a table across the full slide width, four rows pre-filled as worked examples and four blank rows outlined in orange for the trainee. Columns: Date · Time · Channel · Outcome · Next action. In the right margin, a vertical coverage tracker of four chips (Phone ×2, Email, SMS, Emergency contact), each grey until its rung is cleared, then orange. Bottom strip, in danger red: a BAD entry, “called client, no answer”, with no date, time or channel, annotated with what is missing.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** John Doe has not responded for six days. He missed a scheduled check-in call and his treatment has not begun. Two voicemails have been left on his mobile. Nothing has been logged. An emergency contact was collected at intake.
-
-**Execution prompt.** Run the No Contact Protocol on John Doe's file. Start with the Step 1 internal review: name the deadlines that are live right now. Reconstruct the attempts already made, then carry the Step 2 channel ladder forward. Log every attempt with date, time, channel and outcome, and record the next action with its due date. Finally, state whether Step 3 team notification is warranted and what case impact you would report.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Case Summary · CMS → Communications Log |
-| **Expected output** | A completed Step 1 review and an unbroken, contemporaneous Step 2 outreach log. |
-
-**Verification checkpoints**
-
-- [ ] Step 1 done: case status, live deadlines and the date of last contact reviewed before any outreach
-- [ ] Earlier voicemails logged with date, time and channel
-- [ ] Phone rung cleared with at least two attempts
-- [ ] Email and SMS both attempted, not repeats on the phone
-- [ ] Emergency contact used as an approved channel
-- [ ] Every entry carries date, time, channel and outcome
-- [ ] Next action recorded with a due date
-- [ ] Step 3 impact names the running SOL (02/06/2028) and the treatment that has not started
-- [ ] No entry threatens withdrawal or case closure
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Six days without contact | Step 1 internal review | CMS → Case Summary | Live deadlines listed |
-| Review complete | Reconstruct and continue the log | CMS → Communications Log | Unbroken log, distinct channels |
-| Ladder cleared, no answer | Step 3 escalation with case impact | CMS → Tasks → Escalate | Atty. Thorne notified; impact recorded |
-
-**Best practices & pitfalls**
-
-- Write each entry as if a supervisor will audit it six months from now.
-- ⚠️ Pitfall: “called client, no answer” with no date, time or channel.
-- ⚠️ Pitfall: three calls to one mobile reported as three channels.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Field completeness | No entry missing date, time, channel or outcome |
-| 🤖 AI | **20%** | Ladder progression | 2+ phone attempts, then email and SMS: genuinely different rungs |
-| 🤖 AI | **10%** | Step 1 evidence | Internal review documented before outreach |
-| 🤖 AI | **10%** | Impact assessment | SOL correctly identified as 02/06/2028 |
-| 🧑‍🏫 Trainer | **25%** | Record defensibility | Would this log hold up if the file were reviewed six months from now? |
-| 🧑‍🏫 Trainer | **15%** | Professional tone | Entries are factual and neutral; no editorialising about the client |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Start by having them read the red BAD entry aloud. “Called client, no answer” is what most of them would have written.
-- Watch for trainees who skip Step 1 and start dialling. Ask what deadline is running before you let them log anything.
-- The emergency contact is the rung most trainees forget. It was collected at intake for this.
-- John Doe's treatment still hasn't begun. This silence is also what becomes the 14-Day Gap; tie it back to the 14-Day Gap flag set in Claim Set Up.
-
----
-
-### 2.1.26 Final Warning Letter Drafting
-
-> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
-> **Topic:** Skill Activity 2 — write the letter that gets answered  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** LSH Claims Specialist: Final Warning Letter; sample unresponsive-client letters
-
-#### 1 · Visual Layout Description
-
-A split drafting view. Left two-thirds: the live letter draft on white letterhead, the four required elements highlighting in pale orange as they are completed, with a completeness meter above the page from 0/4 to 4/4. A chip pair in the header (CERTIFIED MAIL + EMAIL) must both be ticked before the draft can be sent. Right third: a UPL guard-rail panel on a danger-bordered card listing banned phrases in red strikethrough — “you will lose your case,” “we are withdrawing,” “your claim will be worth less” — each with a compliant navy rewrite directly beneath it.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** John Doe has been unreachable for eleven days. The phone rung is cleared, emails and texts have been sent and the emergency contact has been tried, all logged. Step 3 escalation has been made to Atty. Thorne. Treatment still has not begun.
-
-**Execution prompt.** Draft the Step 4 Final Warning Letter to John Doe. Itemize the earlier attempts, set a response deadline inside the 7–14 day window, give notice of potential withdrawal, and state how he should respond. Keep every sentence inside the UPL boundary: nothing on the strength of his claim or the legal consequences of silence, and nothing that announces withdrawal as decided. Then record what must be true before skip-tracing can start, and whose authority the Step 5 decision needs.
-
-| | |
-|---|---|
-| **Tool / interface** | Action Plan Editor → Warning letter template |
-| **Expected output** | A send-ready Final Warning Letter with both deliveries logged, and a recorded escalation. |
-
-**Verification checkpoints**
-
-- [ ] Firm identification and the file reference present
-- [ ] Date of loss stated as 02/06/2026
-- [ ] Earlier attempts itemized with dates
-- [ ] Response deadline inside the 7–14 day window, stated as a date
-- [ ] Notice of potential withdrawal, as possible, not decided
-- [ ] How to respond, with at least two channels
-- [ ] Certified mail AND email both recorded
-- [ ] Current address confirmed before sending
-- [ ] No statement about claim value, legal consequences or settled representation status
-- [ ] Skip-Trace criteria recorded; Step 5 authority noted as Atty. Thorne's
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Eleven days, Step 3 made | Draft the letter | Action Plan Editor | Four elements present |
-| Draft complete | Send by certified mail and email | CMS → Documents → Outgoing | Both logged |
-| Letter sent | Calendar the response deadline | CMS → Calendar | Deadline date on the calendar |
-
-**Best practices & pitfalls**
-
-- Urgent without threatening: say what is needed and by when.
-- ⚠️ Pitfall: a deadline of “as soon as possible.”
-- ⚠️ Pitfall: crossing into legal consequence (“you will lose your case”).
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Element completeness | All four elements; the deadline is a date inside 7–14 days |
-| 🤖 AI | **10%** | Case accuracy | File reference and DOL correct |
-| 🤖 AI | **15%** | Dual delivery | Certified mail and email both recorded |
-| 🤖 AI | **15%** | Banned-phrase scan | No prohibited phrase in the draft |
-| 🧑‍🏫 Trainer | **25%** | Tone and clarity | Would a worried client read this and call back? Firm without being cold. |
-| 🧑‍🏫 Trainer | **15%** | UPL judgment | Withdrawal framed as possible, not announced; no legal-consequence advice |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- The hard part is a letter that is urgent but not threatening. Most first drafts fail one way or the other.
-- “Itemize” means list the attempts with dates.
-- Read the banned and compliant pairs aloud before they draft. It saves a full rewrite.
-- Have two trainees swap drafts and mark each other's against the four elements and the dual delivery before submitting.
-
----
-
-### 2.1.27 Coverage Setup Verification Check
+### 2.1.26 Coverage Setup Verification Check
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2292,7 +2251,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 ---
 
-### 2.1.28 Case Plan Audit & the Claim Set Up Gate
+### 2.1.27 Case Plan Audit & the Claim Set Up Gate
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2405,7 +2364,7 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 ---
 
-### 2.1.29 Treatment Monitoring Review
+### 2.1.28 Treatment Monitoring Review
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2525,87 +2484,5 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 - Question 5 tests the eggshell skill. A trainee who says the 2021 visits “don't matter” has argued; one who documents low back vs. neck, resolved, no prior neck complaints, has proved.
 - Question 7: an opioid with a muscle relaxant and a sedative, a drug screen that doesn't match the prescriptions, doses rising with no change in diagnosis, behavioral notes about general stress rather than the crash, head-injury symptoms first reported months later. The provider hears the safety issue; Atty. Thorne hears the legal one; the conversation is documented.
 - Compare each self-rating with the score. UPL is a gate: a strong score does not survive a payment promise to a provider.
-
----
-
-### 2.1.30 MIA Escalation Knowledge Check
-
-> **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
-> **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** LSH Claims Specialist: No Contact Protocol · `D1#11` Bottleneck: Delayed Client Follow-Up
-
-#### 1 · Visual Layout Description
-
-The standard knowledge-check split: cream question panel above, navy CM Self-Summary card below-left with the 1–5 skill ladder below-right, and the 60/40 strip with the separate red UPL gate on the far right. Unique to this module: between the question panel and the summary card, a horizontal NO CONTACT PROTOCOL CHECKLIST strip of all six steps as checkboxes with their required actions beneath, so the trainee self-audits the protocol before answering.
-
-#### 2 · Slide Body — Knowledge verification
-
-1. Set out all six steps of the No Contact Protocol in order, with the required action at each step.
-2. State the three purposes the protocol serves, and explain which of them protects the firm rather than the client.
-3. A colleague logs three voicemails to the client's mobile on three days and reports the contact ladder exhausted. Explain what is wrong and what the log should show instead.
-
-**Best practices & pitfalls**
-
-- Use the six-step checklist before you answer.
-- ⚠️ Pitfall: an answer that warns the client about their case.
-
-#### 3 · Knowledge Check & CM Summary
-
-**Case Manager Self-Summary**
-
-- Summarize what you learned about the firm's duty to a client who has gone silent, and what the record has to show.
-- Articulate your strategy: John Doe is on day eleven and still not treating. What do you do next, in what order, and why that order?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
-
-**Skill Scale — self-rate 1–5**
-
-| Competency | 1 | 2 | 3 | 4 | 5 |
-|---|---|---|---|---|---|
-| Running the No Contact Protocol's channel ladder | ○ | ○ | ○ | ○ | ○ |
-| Keeping a contemporaneous, defensible Communications Log | ○ | ○ | ○ | ○ | ○ |
-| Drafting a Final Warning Letter that gets a response | ○ | ○ | ○ | ○ | ○ |
-| Applying the three-criteria Skip-Trace gate | ○ | ○ | ○ | ○ | ○ |
-| Keeping the file moving while outreach runs | ○ | ○ | ○ | ○ | ○ |
-| Holding the line between my role and the attorney's decision to withdraw | ○ | ○ | ○ | ○ | ○ |
-
-**1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
-
-**Auto-graded share of the day's Knowledge Check** (4 questions):
-
-1. Under the No Contact Protocol, what comes before any outreach call?  
-   The Final Warning Letter · **✓ An internal review of case status, live deadlines and the date of last contact** · A Skip-Trace · A Motion to Withdraw  
-   *Step 1 is the internal review: you check what is running on the file before you dial.*
-2. Two voicemails on John Doe's mobile, on two days, show that:  
-   The contact ladder is exhausted · **✓ The phone rung is cleared; email, text and the emergency contact still follow** · Skip-tracing can begin · The client has abandoned the case  
-   *Escalate by channel, not by volume.*
-3. The Final Warning Letter is sent by:  
-   Email only · Certified mail only · **✓ Certified mail AND email** · Text message  
-   *Both: certified mail proves delivery and email gets a response. It states the prior attempts, a 7–14 day deadline and notice of potential withdrawal.*
-4. At Step 5 the client is still unresponsive. Who decides whether the firm withdraws?  
-   The Case Manager · **✓ The attorney** · The intake team · The adjuster  
-   *The Case Manager builds the record; the attorney decides on a Notice of Withdrawal or a Motion to Withdraw.*
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Protocol accuracy | All six steps in order with the right actions |
-| 🤖 AI | **15%** | Criteria accuracy | All three Skip-Trace criteria stated as an AND gate |
-| 🤖 AI | **15%** | Letter requirements | Certified mail and email; 7–14 day window |
-| 🤖 AI | **10%** | Completeness | Every question answered substantively |
-| 🧑‍🏫 Trainer | **15%** | Risk identification | Names the running SOL, the hardening Treatment Gap and the stalled claims work |
-| 🧑‍🏫 Trainer | **10%** | Role boundary | Reserves the withdrawal decision to counsel |
-| 🧑‍🏫 Trainer | **5%** | UPL rewrite quality | The rewrite is compliant and still useful |
-| 🧑‍🏫 Trainer | **10%** | Self-Summary & calibration | Specific, honest, and defensible against the score |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Question 2 is easy to answer shallowly. Protection from liability is the purpose trainees omit, and it is why the record is built the way it is.
-- Question 5 is the integration question: the running SOL, the hardening Treatment Gap, and the claims work that must go on anyway.
-- Question 7 is the UPL gate in miniature. A trainee who can't rewrite it compliantly isn't ready for client contact.
-- The gap they are watching build here is the same 14 days defense counsel will ask John Doe about in deposition on Day 5.
 
 ---

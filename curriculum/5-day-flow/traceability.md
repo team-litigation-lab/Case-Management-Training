@@ -243,7 +243,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - Case file: Keystone Mutual's claim correspondence, the rental authorization and the rental cutoff (RS32)
 - LSH Claims Specialist: rental coverage hierarchy, the rental reimbursement endorsement, rate cap and duration
 - LSH Claims Specialist: LOR Property Damage carve-out, rental coverage hierarchy, documents to support the claim
-- Newly authored: John Doe's Day 1 assessment and the draft SMART goal
+- Newly authored: John Doe's intake assessment and the draft SMART goal
 - LSH Claims Specialist: LOR purpose, recipients, drafting components and delivery
 - LSH Claims Specialist: claim set-up call, information protection on third-party claims, LOR acknowledgement and limits disclosure
 - Newly authored: UM notice at set-up (notice, not demand)

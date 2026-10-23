@@ -1671,7 +1671,7 @@ window.CM_CF_SLIDES = {
      "term": "Clinical Evaluation",
      "text": "Physical, **cognitive and psychological** impairments, recorded as reported and documented, never diagnosed by you",
      "more": [
-      "John Doe today: “neck stiffness” on the EMS Run Report, and he **declined transport**",
+      "John Doe at intake: “neck stiffness” on the EMS Run Report, and he **declined transport**",
       "No treatment yet, so record his symptoms in his own words, with the date"
      ]
     },

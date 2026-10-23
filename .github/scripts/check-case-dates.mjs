@@ -69,10 +69,10 @@ for (const [where, s] of strings) {
 }
 for (const [c, where] of left) fails.push(`a date wasn't moved (${where}): "…${c}…"`);
 
-// the year switch: once the case's Day 1 events (through 02/11) are past
+// the year switch: once the case's Day 1 events (through 02/21) are past
 const day1 = new Set((W.CM_CASE_FLOW.sequence.find(d => d.n === 1) || {phases: []}).phases.flatMap(p => p.blocks));
 const last = Object.entries(W.CM_CF_SIM.events).filter(([id]) => day1.has(id)).map(([, e]) => parse(e.date)).sort((a, b) => Date.UTC(...a) - Date.UTC(...b)).pop();
-if (!last || last.join("-") !== "2026-2-11") fails.push(`Day 1's last case event is ${last && last.join("-")}; js/cm-case-dates.js switches years after 02/11/2026: update BASE_DAY1_END`);
+if (!last || last.join("-") !== "2026-2-21") fails.push(`Day 1's last case event is ${last && last.join("-")}; js/cm-case-dates.js switches years after 02/21/2026: update BASE_DAY1_END`);
 if (D.freshYear(new Date(Date.UTC(2029, 2, 12))) !== 2029 || D.freshYear(new Date(Date.UTC(2029, 0, 15))) !== 2026 || D.freshYear(new Date(Date.UTC(2031, 5, 1))) !== 2030)
   fails.push("freshYear picks the wrong case year");
 
