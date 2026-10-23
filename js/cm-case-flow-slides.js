@@ -4305,7 +4305,7 @@ window.CM_CF_SLIDES = {
     [
      "A reimbursement claim discovered late comes out of the net",
      "By then there is no time to negotiate from strength",
-     "Disbursement is the worst moment to meet a health plan"
+     "Disbursement is the worst moment to meet a Health Plan"
     ],
     [
      "The risks band holds dates, a count and a pending note",

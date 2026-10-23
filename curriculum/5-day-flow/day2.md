@@ -37,30 +37,31 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 2. *Lesson* — Coverage Verification Tracking & Follow-Up Deadlines
 3. *Lesson* — The Action Plan Editor & Attorney Review Routing (condensed)
 4. *Lesson* — Coverages & the Payer-First Principle
-5. *Lesson* — LOP Issuance Guidelines, Provider Coordination & PIP Limits
+5. *Lesson* — LOP Issuance Guidelines, Provider Coordination & PIP Limits (condensed)
 6. *Lesson* — Explanation of Benefits (EOB) & PIP
 7. *Lesson* — PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement (condensed)
 8. *Lesson* — Letters of Protection & the Case Manager's Part in Provider Referrals
 9. *Lesson* — Rental & Reimbursement of Costs
-10. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check
-11. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
-12. *Lesson* — The No Contact Protocol — Steps 1 to 3
-13. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
-14. *Skill Activity* — Policy Stack & Coverage Verification
-15. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
-16. *Skill Activity* — CMS Coverage Matrix Audit
-17. *Skill Activity* — Identifying & Flagging the 14-Day Gap
-18. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
-19. *Skill Activity* — Multi-Channel Outreach Logging
-20. *Skill Activity* — Final Warning Letter Drafting
-21. *Skill Activity* — Transmitting LOPs to Medical Providers
-22. *Skill Activity* — Subrogation Lien Flagging in the CMS
-23. *Skill Activity* — Executing the A-C-T Crisis Protocol for Disrupted Care
-24. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
-25. *Knowledge Check* — Coverage Setup Verification Check
-26. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
-27. *Knowledge Check* — Treatment Monitoring Review
-28. *Knowledge Check* — MIA Escalation Knowledge Check
+10. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check (condensed)
+11. *Lesson* — Coverage & Subrogation: the Treatment Phase Summary
+12. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
+13. *Lesson* — The No Contact Protocol — Steps 1 to 3
+14. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
+15. *Skill Activity* — Policy Stack & Coverage Verification
+16. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+17. *Skill Activity* — CMS Coverage Matrix Audit
+18. *Skill Activity* — Identifying & Flagging the 14-Day Gap
+19. *Skill Activity* — Live Case Plan Draft — John Doe v. Robert Smith
+20. *Skill Activity* — Multi-Channel Outreach Logging
+21. *Skill Activity* — Final Warning Letter Drafting
+22. *Skill Activity* — Transmitting LOPs to Medical Providers
+23. *Skill Activity* — Health Plan Subrogation: Flag, Request & Audit the Lien
+24. *Skill Activity* — Executing the A-C-T Crisis Protocol for Disrupted Care
+25. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+26. *Knowledge Check* — Coverage Setup Verification Check
+27. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
+28. *Knowledge Check* — Treatment Monitoring Review
+29. *Knowledge Check* — MIA Escalation Knowledge Check
 
 **End-of-day discussion (trainer):** It is 04/08/2026. Keystone confirmed its limit in writing on 03/20, Riverton Spine & Rehab reports John Doe has missed two visits, and Dana Whitfield has asked John for a Recorded Statement. What do you do first, second and third, and what does each protect?
 
@@ -68,7 +69,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 2 — Claim Set Up & Treatment
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 2.1.1 LOR Drafting Mechanics & Three-Carrier Notification
 
@@ -409,7 +410,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 2.1.5 LOP Issuance Guidelines, Provider Coordination & PIP Limits
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays which bill, and what only counsel may promise  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · `D1#26` The Treatment Phase — Core Objectives · `D1#30` Handling the Treatment Phase: Proactive Resource Coordination · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · `D1#39` Communication Loops: The “Stakeholder Triad” · LSH Claims Specialist: MedPay vs. PIP (Medical Bills regardless of fault, no lost wages) · Newly authored: LOP issuance guidelines and the PIP exhaustion ledger
@@ -818,7 +819,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 2.1.10 Health Subrogation, Payer Order & the Regulatory Triple-Check
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays the bills now, and who gets paid back later  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#23` Case Planning Framework: The Three-Pillar Case Plan · D1 Task Overview: Billing, Resolution & Closing
@@ -895,7 +896,86 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.11 A-C-T Crisis Protocol & Treatment Monitoring Principles
+### 2.1.11 Coverage & Subrogation: the Treatment Phase Summary
+
+> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Topic:** Every coverage, the Payer-First Principle, health subrogation, and exactly when the CMS flags go up  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#23` Case Planning Framework: The Three-Pillar Case Plan · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#44` Handling Treatment Gaps During the Treatment Phase · Newly authored: the Treatment Phase's coverage and subrogation summary, with the exact CMS flag rules for subrogation liens and Treatment Gaps
+
+#### 1 · Visual Layout Description
+
+A one-page summary board in four quadrants on a cream card, each a context card with a ＋ More tab. Top-left, EVERY COVERAGE, SORTED: a mini coverage map with only BI, HOST UM and RELATIVE UM bracketed as RECOVERY STACK $40,000. Top-right, PAYER-FIRST: a three-step staircase PIP → PEACH STATE → LOP. Bottom-left, HEALTH SUBROGATION: a curved return arrow from the Health Plan to a settlement node, a mono pill $3,618.00 ASSERTED struck through beside $1,860.00 CONFIRMED 06/24/2026, and three ticked chips HIPAA · BCRC · PAYER ORDER. Bottom-right, THE TWO CMS FLAGS: two orange flag icons on a date rail, LIEN · 02/27/2026 · BEFORE ANY DEMAND and GAP · 02/06 → 02/20/2026 · 14 DAYS, with a dashed WATCH strip running on to 04/02 → 04/21 · 19 DAYS. The flags are the brightest marks on the slide.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* The Treatment Phase puts three money questions on the file at once: who pays each bill now, who will want paying back from the recovery, and which facts must be flagged in the CMS before anyone argues about them. A Case Manager who can say all three on one page catches the lien and the gap while there is still time to work them, instead of meeting them at the demand or at disbursement.
+
+1. Sort every coverage twice: whose it is (third-party, first-party, health) and what it pays (the claim, the bills, the car). Only BI, Host UM and Relative UM make the $40,000 Recovery Stack; PIP, PD and collision sit outside it.
+2. Route every bill by the Payer-First Principle: Harbor Point PIP first (no reimbursement right, confirmed 03/02/2026), Peach State next at the contract rate, a Letter of Protection last and only for care the earlier payers can't carry.
+3. Clear the Regulatory Triple-Check before clinical planning: the claim-specific HIPAA authorization, the BCRC answer (John Doe is 34: his SSDI status verified and recorded) and the Payer Order.
+4. A Health Plan claims back only what it paid, for the collision's care. Peach State's interim itemization (06/10/2026) asserted $3,618.00; audited line by line, its claim is $1,860.00, confirmed in writing on 06/24/2026.
+5. Lien flag, the exact rule: flag the subrogation lien in CMS → Liens → Flag the day a reimbursement right is first known (Peach State's notice, 02/27/2026), or the day a plan's first accident-related payment posts if no notice came first, and always before the first demand is drafted. Record carrier, member ID, group number, Payer Order position, the basis asserted and the date of the flag.
+6. Re-verify the lien when its itemization arrives: audit each line against the treatment record and the payers' ledgers, dispute unrelated, pre-existing and pre-loss lines and any amount above what was paid, and change the register only to a figure the plan confirms in writing.
+7. Gap flag, the exact rule: flag the initial Treatment Gap the day the records show it (date of loss 02/06/2026, first treatment 02/20/2026: 14 days, counted exactly) in CMS → Case File → Risk Flags and the Case Plan's risks band, in facts only (the dates, the count, explanation pending), route it to Atty. Thorne, and set a watch for any later break in care.
+8. Flag every later break in care the day you learn of it, from the provider's missed-visit alert: its exact dates and count (04/02 → 04/21/2026, 19 days), then run A-C-T the same day.
+9. Neither flag is a judgment. You record and route the facts; what a lien or a gap means for the claim is Atty. Thorne's.
+
+> ⚠️ **UPL boundary.** You may flag, record, audit and request in writing, and report what a payer asserts. Whether a lien is enforceable or reducible, what to agree with a lienholder, and what a gap does to the claim's value are Atty. Thorne's.
+
+#### 2 · Slide Body — Show Them
+
+*The two CMS flags: when each one goes up*
+
+| Flag | When it goes up | Where in the CMS | What it records |
+|---|---|---|---|
+| Subrogation lien | The day a reimbursement right is first known (02/27/2026), or a plan's first accident payment posts; always before the first demand | CMS → Liens → Flag | Carrier, member ID, group, Payer Order position, basis, flag date |
+| Lien re-verified | The day the plan's itemization arrives (06/10/2026) | CMS → Liens | Each line audited; only the figure confirmed in writing ($1,860.00, 06/24/2026) |
+| 14-Day Gap | The day the records show first care 14 days after the loss (02/06 → 02/20/2026) | CMS → Case File → Risk Flags · Action Plan Editor → Risks | Dates, count, explanation pending; routed to Atty. Thorne; watch set |
+| Later break in care | The day a missed-visit alert arrives (04/08/2026) | CMS → Case File → Treatment timeline | 04/02 → 04/21/2026, 19 days; A-C-T the same day |
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| A reimbursement right is first noticed | Flag the lien and record its identifiers | CMS → Liens → Flag | Flag dated before any demand is drafted |
+| The plan's itemized ledger arrives | Audit each line; dispute in writing | CMS → Liens · Email Workspace | Register changed only to the figure confirmed in writing |
+| Records show first care 02/20/2026 | Flag the 14-Day Gap in facts only; route it; set the watch | CMS → Case File → Risk Flags · Action Plan Editor → Risks | Dates and count recorded; routed to Atty. Thorne |
+
+**Best practices & pitfalls**
+
+- Flag a reimbursement right the day it is known, and before the first demand.
+- Audit every itemized lien ledger line by line against the records.
+- Keep the Payer Order and the Recovery Stack on separate lines of the file.
+- ⚠️ Pitfall: waiting for the demand, or the disbursement, to flag a lien.
+- ⚠️ Pitfall: recording what the gap does to the claim's value, instead of its facts.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Coverages and Payer Order | Each coverage sorted by whose and what it pays; PIP → Peach State → LOP with the reason for each step |
+| 🤖 AI | **20%** | Lien flag rule | Flagged on first notice and before any demand, with its identifiers; re-verified line by line to the figure confirmed in writing |
+| 🤖 AI | **20%** | Gap flag rule | 14 days counted exactly, facts only, routed, watch set; the 19-day break flagged the day the alert arrives |
+| 🧑‍🏫 Trainer | **25%** | Grasps the consequence | Explains what a late lien flag or an unflagged gap costs the client's net and the file |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | Enforceability, compromise and value left to Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- This is the one-page recap of the Treatment Phase's money lessons: open each ＋ More card in turn and let the room say the rule before you show it.
+- Ask for the two flag rules word for word. A trainee who says “when I get to it” for the lien, or “about two weeks” for the gap, hasn't got them yet.
+- Peach State's interim itemization is the bridge to the next activity: $3,618.00 asserted, $1,860.00 confirmed. The difference is the audit.
+- Close on the line: you flag, record and request; Atty. Thorne decides what any of it means.
+
+---
+
+### 2.1.12 A-C-T Crisis Protocol & Treatment Monitoring Principles
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Is the plan working, and what you do the day it isn't  
@@ -978,7 +1058,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.12 The No Contact Protocol — Steps 1 to 3
+### 2.1.13 The No Contact Protocol — Steps 1 to 3
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Internal review, escalating contact attempts, team notification  
@@ -1054,7 +1134,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.13 Final Warning Letter & the Skip-Trace Trigger
+### 2.1.14 Final Warning Letter & the Skip-Trace Trigger
 
 > **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** No Contact Protocol Steps 4 to 6, and when the search begins  
@@ -1128,7 +1208,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.14 Policy Stack & Coverage Verification
+### 2.1.15 Policy Stack & Coverage Verification
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — build the ladder to $40,000  
@@ -1216,7 +1296,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.15 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+### 2.1.16 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — five letters, each one right  
@@ -1293,7 +1373,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.16 CMS Coverage Matrix Audit
+### 2.1.17 CMS Coverage Matrix Audit
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 2 — find what the matrix gets wrong  
@@ -1384,7 +1464,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.17 Identifying & Flagging the 14-Day Gap
+### 2.1.18 Identifying & Flagging the 14-Day Gap
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 1 — find the fact that will decide this case  
@@ -1457,7 +1537,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.18 Live Case Plan Draft — John Doe v. Robert Smith
+### 2.1.19 Live Case Plan Draft — John Doe v. Robert Smith
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 2 — the full plan, routed for review  
@@ -1533,7 +1613,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.19 Multi-Channel Outreach Logging
+### 2.1.20 Multi-Channel Outreach Logging
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 1 — build a defensible record  
@@ -1607,7 +1687,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.20 Final Warning Letter Drafting
+### 2.1.21 Final Warning Letter Drafting
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 2 — write the letter that gets answered  
@@ -1682,7 +1762,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 2) and that 
 
 ---
 
-### 2.1.21 Transmitting LOPs to Medical Providers
+### 2.1.22 Transmitting LOPs to Medical Providers
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 1 — one LOP issued, one declined  
@@ -1697,12 +1777,12 @@ Two dated envelopes side by side, each a white card with a navy header. Left, 02
 
 **Scenario.** 02/23/2026: John Doe's first treatment was at Riverton Urgent Care on 02/20/2026 ($685.00, to Harbor Point PIP). Chiropractic and PT at Riverton Spine & Rehab begin 02/24/2026; it is out of network for Peach State. Atty. Thorne has approved the firm's LOP template. John Doe had three chiropractic visits in 2021, for low-back stiffness. 03/11/2026: Summit Imaging Center, booked for the cervical MRI Dr. Reyes ordered on 03/05/2026, asks for an LOP.
 
-**Execution prompt.** Work both dates. First run the Payer Order for each provider and record the result. On 02/23/2026, prepare Riverton Spine & Rehab's LOP on the approved template, route it to Atty. Thorne for approval and signature, transmit it with the claim-specific HIPAA authorization, and ask for itemized statements and a missed-visit alert; confirm receipt and open the LOP register entry. Record John Doe's assessment, including his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing, naming Harbor Point PIP as the payer, with the ledger to prove it. Graded: no payment promised to either provider.
+**Execution prompt.** Work both dates. First run the Payer Order for each provider and record the result. On 02/23/2026, prepare Riverton Spine & Rehab's LOP on the approved template, route it to Atty. Thorne for approval and signature, transmit it with the claim-specific HIPAA authorization, and ask for itemized statements and a missed-visit alert; confirm receipt and open the LOP register entry. Then take the live call with Tammy Greer, the office manager, before the 02/24/2026 evaluation: introduce John Doe's case, confirm the clinic accepts the LOP, secure the endorsed appointment, and answer her questions on insurance status, treatment cadence and medical records and billing inside your lane. After the call, convert it into a dated case note, open the follow-up tasks (the 30-day itemized statement, the missed-visit alert, the records request on the HIPAA authorization), and file the LOP and the call note in the CMS so a copy is kept on the Backup Drive. Record John Doe's assessment, including his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing, naming Harbor Point PIP as the payer, with the ledger to prove it. Graded: no payment promised to either provider.
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Liens → LOP register · CMS → Documents → Outgoing · Email Workspace · CMS → Insurance tab → PIP Log |
-| **Expected output** | One counsel-approved LOP transmitted and confirmed, one LOP request declined with the payer named, a current PIP Log, and a documented pre-morbid baseline. |
+| **Tool / interface** | CMS → Liens → LOP register · CMS → Documents → Outgoing · Email Workspace · Call Simulator · CMS → Case Notes · CMS → Tasks · CMS → Insurance tab → PIP Log |
+| **Expected output** | One counsel-approved LOP transmitted, confirmed and endorsed by call with the appointment secured, one LOP request declined with the payer named, a current PIP Log, and a documented pre-morbid baseline. |
 
 **Verification checkpoints**
 
@@ -1711,6 +1791,8 @@ Two dated envelopes side by side, each a white card with a navy header. Left, 02
 - [ ] LOP explained to John Doe by Atty. Thorne and signed by John Doe and by Atty. Thorne on 02/23/2026, before the first visit on 02/24/2026, so the handoff from urgent care opens no new gap; nothing signed by the CM on his behalf
 - [ ] Transmittal carries the claim-specific HIPAA authorization and asks for itemized statements and a missed-visit alert; receipt confirmed and logged
 - [ ] LOP register entry: provider, date signed, out-of-network status, a running balance field
+- [ ] Endorsement call with Tammy Greer: John Doe's case introduced (LSH-2026-MVA-770412, DOL 02/06/2026), LOP acceptance confirmed and the 02/24/2026 evaluation secured; insurance status answered with facts (Harbor Point PIP HP-26-7741 open; out of network for Peach State); cadence left to the provider's plan of care; itemized statements every 30 days, a missed-visit alert and records on the HIPAA authorization agreed
+- [ ] Call converted into a dated case note; follow-up tasks opened with an owner and a date (30-day itemized statement, missed-visit alert, records request); the LOP and the call note filed in the CMS and kept on the Backup Drive (Medical Records)
 - [ ] Assessment recorded: clinical (neck pain; right-hand numbness since 02/18; the urgent-care note puts onset at the 02/06/2026 MVA), social (rental authorized 02/18/2026, capped at 30 days, so it ends 03/19/2026: calendared as a treatment risk), vocational (Northgate Distribution shift lead)
 - [ ] Pre-morbid baseline: three 2021 chiropractic visits for low-back stiffness, resolved; no prior neck complaints; body region distinguished, records requested
 - [ ] Summit Imaging's 03/11/2026 request declined in writing with the reason stated (PIP applies first) and Harbor Point PIP named as the payer
@@ -1723,6 +1805,7 @@ Two dated envelopes side by side, each a white card with a navy header. Left, 02
 |---|---|---|---|
 | 02/23/2026: Riverton Spine & Rehab needs an LOP before the 02/24/2026 visit | Run the Payer Order, prepare the LOP on the approved template, route it for approval | CMS → Documents → Outgoing → Route for approval | Approved and signed before the first visit |
 | LOP signed | Transmit it with the HIPAA authorization; confirm receipt; open the register entry | Email Workspace · CMS → Liens → LOP register | Receipt confirmed and dated in the Communications Log |
+| LOP received by the clinic | Call the office manager: confirm acceptance, secure the evaluation, set the billing protocol; then note, task and file it | Call Simulator · CMS → Case Notes · CMS → Tasks | Appointment confirmed; note dated; tasks owned and dated; nothing promised |
 | 03/11/2026: Summit Imaging asks for an LOP | Decline in writing, naming Harbor Point PIP as the payer; post the ledger | Email Workspace · CMS → Insurance tab → PIP Log | Reason stated; ledger shows $3,675.00 left before the MRI |
 
 **Best practices & pitfalls**
@@ -1743,7 +1826,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 |---|---|---|---|
 | 🤖 AI | **20%** | Payer-order decisions | LOP to Riverton Spine & Rehab (out of network for Peach State); Summit declined because PIP applies first |
 | 🤖 AI | **15%** | Ledger arithmetic | $3,675.00 left on 03/11/2026; $1,280.00 after the $2,395.00 MRI |
-| 🤖 AI | **15%** | LOP file completeness | Signed 02/23/2026, transmitted with the HIPAA authorization, receipt confirmed, register entry opened |
+| 🤖 AI | **15%** | LOP file completeness | Signed 02/23/2026, transmitted with the HIPAA authorization, receipt confirmed, register entry opened; the endorsement call noted, tasked and filed |
 | 🤖 AI | **10%** | Assessment and baseline | Clinical, social, vocational and pre-morbid fields recorded; 03/19/2026 rental end calendared; 2021 low back distinguished from the neck |
 | 🧑‍🏫 Trainer | **15%** | Provider communication | A clear, courteous, firm decline that names the payer and invites no dispute |
 | 🧑‍🏫 Trainer | **25%** | UPL boundary | No payment amount, reduction or date promised; terms and signature left to Atty. Thorne |
@@ -1754,57 +1837,65 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 - Run it in two passes, one per date. On 02/23/2026 the trainee must say why Riverton gets an LOP before opening the template.
 - Put to the room: “Summit says it won't do the MRI without an LOP. What do you say, and who do you tell?” Give the PIP details; if Summit still refuses, Atty. Thorne hears before the 03/13/2026 appointment, so the MRI doesn't slip.
+- The call with Tammy Greer is the provider endorsement: she will ask why not Peach State, how often he will come, and whether the firm guarantees payment. Facts and logistics pass; cadence is the provider's, payment terms are Atty. Thorne's. Then check the note, the tasks and the filing: a call nobody can find is a call that never happened.
 - Grade the language. “Your bill is protected on the LOP's terms; for anything beyond them I'll put you in touch with Atty. Thorne” passes. “Don't worry, you'll be paid in full” fails, however friendly.
 - The baseline checkpoint is the eggshell skill in miniature: the trainee records the prior and the difference in body region. Whether aggravation law matters at all is Atty. Thorne's call.
 
 ---
 
-### 2.1.22 Subrogation Lien Flagging in the CMS
+### 2.1.23 Health Plan Subrogation: Flag, Request & Audit the Lien
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
-> **Topic:** Skill Activity 2 — register the claim before it can hurt you  
+> **Topic:** Skill Activity 2 — register the claim before it can hurt you, then audit what the plan asserts  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking
+> **Theory extracted from:** `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · Newly authored: the Health Plan's itemized lien audited line by line (unrelated, pre-existing and pre-loss lines; amounts claimed above what was paid) and confirmed in writing before the demand
 
 #### 1 · Visual Layout Description
 
-A single annotated CMS Liens screen filling two-thirds of the slide, a white card with a navy header bar. Five fields are called out with orange numbered badges and leader lines to short labels in the right margin: ① Plan carrier ② Member ID ③ Group number ④ Payer Order position ⑤ Reimbursement flag. Below the screen, a slim two-state timeline: a green node, FLAGGED NOW · before demand, and a red node, FOUND AT DISBURSEMENT · client's net is hit, crossed out. Keep the red state on the slide: trainees need to see the failure they are avoiding.
+Left half: a CMS Liens screen on a white card with a navy header bar, five fields called out with orange numbered badges — ① Plan carrier ② Member ID ③ Group number ④ Payer Order position ⑤ Reimbursement flag, dated 03/12/2026. Right half: Peach State's interim itemization as a five-row ledger strip, each row stamped with the trainee's call — three rows struck through in red (02/03 · 03/18 · 05/06), the Crescent row's $3,400.00 crossed out and replaced by $1,860.00, the Summit row ticked at $0.00. Beneath the strip, a mono pill: $3,618.00 ASSERTED → $1,860.00 CONFIRMED IN WRITING 06/24/2026. Bottom, a slim two-state timeline: a green node, FLAGGED AND AUDITED · before demand, and a red node, FOUND AT DISBURSEMENT · client's net is hit, crossed out.
 
 #### 2 · Slide Body — Let Them
 
-**Scenario.** Peach State Health Plan has begun paying John Doe's accident-related treatment. No lien record exists on the matter yet, and the pre-demand audit is still ahead.
+**Scenario.** 03/12/2026: Dion Carver at Peach State Health Plan (recovery file SRU-26-03318) writes that accident-related claims are in process; the plan asserted its reimbursement right on 02/27/2026. No lien record exists on the matter yet. 06/10/2026: Peach State's interim itemization arrives, asserting $3,618.00 across five claim lines. The pre-demand audit is still ahead.
 
-**Execution prompt.** Register Peach State Health Plan's reimbursement claim in John Doe's lien register and flag it against the matter. Record the carrier, member ID and group number, its position in the Payer Order, the basis on which reimbursement is asserted, and the date of the flag. Record the Regulatory Triple-Check results alongside it. Then state in one line what must happen before this lien can be compromised.
+**Execution prompt.** Work both dates. On 03/12/2026, register Peach State Health Plan's reimbursement claim in John Doe's lien register and flag it against the matter: the carrier, member ID and group number, its position in the Payer Order, the basis on which reimbursement is asserted, and the date of the flag, with the Regulatory Triple-Check results beside it. Answer Dion Carver in the Email Workspace: the claim is noted, and the firm asks for an itemized ledger of accident-related claims once any are paid. On 06/10/2026, audit the interim itemization line by line in the audit workbench against the treatment record and the PIP Log: what is the collision's care, what is unrelated, pre-existing or before the loss, and what is claimed above what the plan paid. Then send the dispute, get the corrected balance confirmed in writing, convert the exchange into a memorandum, file it in the CMS and on the Backup Drive, and change the lien register only to the confirmed figure. State in one line what must happen before this lien can be compromised.
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Liens |
-| **Expected output** | A dated, flagged lien record complete enough to negotiate from on Day 4. |
+| **Tool / interface** | CMS → Liens · Email Workspace · CMS → Case Notes · CMS → Insurance tab → PIP Log |
+| **Expected output** | A dated, flagged lien record; an audited itemization; $1,860.00 confirmed in writing and filed. |
 
 **Verification checkpoints**
 
-- [ ] Lien record created against the John Doe matter
-- [ ] Carrier recorded as Peach State Health Plan
+- [ ] Lien record created against the John Doe matter, carrier recorded as Peach State Health Plan
 - [ ] Member ID PSH-55017742 and group GRP-41208 both entered
 - [ ] Payer-order position recorded: after PIP/MedPay, before LOP/provider liens
-- [ ] Reimbursement basis noted
+- [ ] Reimbursement basis noted: a fully insured group plan, notice of 02/27/2026
 - [ ] Flag dated before any demand is drafted
 - [ ] Triple-Check recorded: HIPAA authorization, BCRC answer, Payer Order
-- [ ] Escalation noted: compromise requires Atty. Thorne's authority
+- [ ] 03/12/2026 reply to Dion Carver: the claim noted, an itemized ledger of accident-related claims requested once any are paid
+- [ ] Interim itemization audited: 02/03/2026 Riverton Vision Center ($95.00, before the loss), 03/18/2026 Peach State Virtual Care ($49.00) and 05/06/2026 Riverton Allergy & Asthma Clinic ($74.00, pre-existing) disputed as unrelated
+- [ ] Crescent Pain & Spine (PS-2605-449021) corrected from the billed $3,400.00 to the $1,860.00 the plan paid; Summit Imaging confirmed at $0.00 (denied, PIP primary)
+- [ ] Dispute emailed 06/12/2026; Peach State's corrected itemization of 06/24/2026 confirms $1,860.00 in writing; the register shows $3,618.00 asserted → $1,860.00 confirmed
+- [ ] Exchange converted into a memorandum, filed in the CMS under the naming convention and kept on the Backup Drive (Liens & Reimbursement)
+- [ ] Escalation noted: any compromise, the plan's “without reduction” demand and any disclosure of limits need Atty. Thorne's authority
 
 **Operational mapping**
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Plan's first payment posts | Create and flag the lien record | CMS → Liens | Record dated; flag set |
-| Lien record created | Attach the Triple-Check results | CMS → Case Notes | HIPAA, BCRC and Payer Order all recorded |
-| Any request to compromise | Route to Atty. Thorne | CMS → Tasks → Escalate | No compromise discussed without counsel's authority |
+| Plan's notice or first payment | Create and flag the lien record | CMS → Liens | Record dated; flag set |
+| Lien record created | Attach the Triple-Check results; request the itemized ledger | CMS → Case Notes · Email Workspace | HIPAA, BCRC and Payer Order recorded; request logged |
+| Interim itemization arrives | Audit each line; dispute in writing; get the corrected figure confirmed | CMS → Liens · Email Workspace | Register shows only the figure confirmed in writing |
+| Any request to compromise or to commit to repayment | Route to Atty. Thorne | CMS → Tasks → Escalate | Nothing agreed without counsel's authority |
 
 **Best practices & pitfalls**
 
-- Registering a lien is not conceding it; Day 4 is where it gets reduced.
+- Registering a lien is not conceding it; the lien stage is where it gets reduced.
+- Audit an itemized lien line by line: a plan claims only what it paid, for the collision's care.
 - Keep the LOP provider list current with balances, so no bill surprises the policy limits.
 - ⚠️ Pitfall: finding the lien at disbursement, when there is no time to negotiate from strength.
+- ⚠️ Pitfall: entering the plan's asserted figure as the lien without auditing it.
 
 #### 3 · Knowledge Check & CM Summary
 
@@ -1814,24 +1905,27 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **15%** | Record created | Lien exists against the correct matter |
-| 🤖 AI | **25%** | Identifier accuracy | Member ID and group number entered exactly |
-| 🤖 AI | **20%** | Flag timing | Dated and placed pre-demand |
-| 🧑‍🏫 Trainer | **25%** | Documentation quality | A lien negotiator could work from the record cold |
-| 🧑‍🏫 Trainer | **15%** | Authority boundary | Recognised that compromise needs counsel's authority |
+| 🤖 AI | **10%** | Record created | Lien exists against the correct matter |
+| 🤖 AI | **15%** | Identifier accuracy | Member ID and group number entered exactly |
+| 🤖 AI | **15%** | Flag timing | Dated and placed pre-demand |
+| 🤖 AI | **20%** | Ledger audit | Three unrelated lines disputed, Crescent at the $1,860.00 paid, Summit at $0.00; register changed only to the written confirmation |
+| 🧑‍🏫 Trainer | **15%** | Documentation quality | A lien negotiator could work from the record and the filed memorandum cold |
+| 🧑‍🏫 Trainer | **10%** | Lienholder communication | A clear, line-by-line dispute that asks for the corrected figure in writing |
+| 🧑‍🏫 Trainer | **15%** | Authority boundary | No repayment, reduction or limits disclosure agreed; routed to Atty. Thorne |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
 #### 5 · Speaker Notes
 
-- Have trainees say the date aloud as they set the flag. Timing is the graded element, and it is the one they will be tempted to defer.
-- Point at the crossed-out red node: a lien found at disbursement is found too late to negotiate from strength.
-- Read one trainee's record to the room as if you were the lien negotiator receiving it on Day 4. Gaps show at once.
-- Remind them that registering a lien is not conceding it.
+- Run it in two passes, one per date. On 03/12/2026 have trainees say the flag date aloud: timing is the graded element, and the one they will be tempted to defer.
+- On 06/10/2026 the audit is the lesson: a plan's recovery vendor pulls every claim from the coverage date, and the Case Manager's job is to send back everything that isn't the collision's care, in writing.
+- The Crescent line is the subtle one: the ledger's own paid column says $1,860.00, but the claim column says $3,400.00. Ask the room which number a plan may claim.
+- Dion Carver's follow-up asks for full repayment and the limits. Grade the answer: acknowledge, honor the notice, route the rest to Atty. Thorne.
+- The results arrive in minutes for training; on a real file a corrected itemization takes weeks. Say so, so nobody expects a plan to answer in a day.
 
 ---
 
-### 2.1.23 Executing the A-C-T Crisis Protocol for Disrupted Care
+### 2.1.24 Executing the A-C-T Crisis Protocol for Disrupted Care
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — the Transportation Wall, 04/08/2026  
@@ -1919,7 +2013,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.24 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+### 2.1.25 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
 
 > **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 3 — the Millbrook booking, 04/22/2026  
@@ -2019,7 +2113,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.25 Coverage Setup Verification Check
+### 2.1.26 Coverage Setup Verification Check
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2127,7 +2221,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 ---
 
-### 2.1.26 Case Plan Audit & the Claim Set Up Gate
+### 2.1.27 Case Plan Audit & the Claim Set Up Gate
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2240,7 +2334,7 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 ---
 
-### 2.1.27 Treatment Monitoring Review
+### 2.1.28 Treatment Monitoring Review
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2285,7 +2379,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (17 questions):
+**Auto-graded share of the day's Knowledge Check** (20 questions):
 
 1. On 03/11/2026 Summit Imaging asks for an LOP for John Doe's $2,395.00 MRI. Harbor Point PIP has $3,675.00 left. What do you do?  
    Prepare the LOP for Atty. Thorne's approval, since the provider asked for one · **✓ Decline the LOP and route the bill to PIP, which applies first** · Send the bill to Peach State first, to save PIP for later · Tell Summit it will be paid in full at settlement  
@@ -2338,6 +2432,15 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 17. Harbor Point PIP paid Summit Imaging's $2,395.00 MRI, while John Doe's chiropractic and PT ran under Riverton Spine & Rehab's LOP. Why does that pattern protect a client's net on a typical file?  
    **✓ Imaging and hospital bills are fixed and rarely reduced at the end, while an LOP balance can still be negotiated, so less of the recovery goes to bills** · PIP pays imaging at a higher rate than chiropractic care · LOP bills are left out of the Specials · Harbor Point repays the LOP provider at settlement  
    *Strategic exhaustion: PIP spent on non-negotiable hard costs leaves the negotiable LOP balance behind, which preserves more of the BI money for the client. The LOP bills stay in the Specials at their billed amounts; any reduction is Atty. Thorne's to negotiate, and you never promise a provider one.*
+18. Peach State's notice of reimbursement rights arrives on 02/27/2026, before the plan has paid any accident-related bill. When is the lien flagged in the CMS?  
+   Once the plan's first payment posts · **✓ That day: the right is known, so it is flagged in CMS → Liens, dated, before any demand** · At the pre-demand audit, when every lien is listed · At disbursement, when the final amount is known  
+   *The exact rule: flag the day a reimbursement right is first known (or the day a plan's first accident payment posts, if no notice came first), and always before the first demand. Registering a lien is not conceding it.*
+19. Peach State's 06/10/2026 interim itemization asserts $3,618.00, including a 02/03/2026 eye exam and the Crescent injection claimed at the billed $3,400.00. What does the lien register show after your audit?  
+   $3,618.00, the plan's figure, until the demand · $1,860.00 as soon as you finish the audit · **✓ $3,618.00 asserted and under dispute until Peach State confirms the corrected figure in writing; then $1,860.00 confirmed (06/24/2026)** · Nothing: a disputed lien is removed from the register  
+   *A plan claims only what it paid, for the collision's care: the three unrelated lines come off and Crescent is $1,860.00. The register changes only to a figure the plan confirms in writing; any reduction is Atty. Thorne's, at the lien stage.*
+20. On the endorsement call, Riverton Spine & Rehab's office manager asks whether the firm guarantees her bill in full and when it will be paid. What do you say?  
+   “Yes, the LOP guarantees full payment at settlement.” · **✓ “The LOP's terms are what protect the bill; payment amounts and timing are Atty. Thorne's, and I'll put you in touch with him”** · “Bill Peach State instead and we'll sort it out later.” · “Probably within six months, once the case settles.”  
+   *You confirm acceptance, secure the appointment and set the billing protocol. Payment amounts, reductions and dates are never promised by the Case Manager: they are Atty. Thorne's.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -2363,7 +2466,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 
 ---
 
-### 2.1.28 MIA Escalation Knowledge Check
+### 2.1.29 MIA Escalation Knowledge Check
 
 > **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

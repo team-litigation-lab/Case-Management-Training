@@ -863,7 +863,7 @@ window.CM_CF_SCRIPTS = {
   },
   "audit": {
    "say": "Here is Peach State's interim itemization, and I want a call on every line. A plan's recovery vendor pulls every claim from the coverage date, so you'll find a 02/03/2026 eye exam from before the collision, a sinus infection on 03/18/2026, and an allergy visit on 05/06/2026 for a condition he already had. The Crescent injection is the subtle one: the paid column says $1,860.00, but the plan is claiming the billed $3,400.00. Summit's MRI is fine at $0.00, because PIP paid it. And the cover letter wants full repayment with no reduction, which is not yours to answer. These results come back in minutes here; on a real file a corrected itemization takes weeks.",
-   "ask": "Which number on the Crescent line may a health plan claim, and why?"
+   "ask": "Which number on the Crescent line may a Health Plan claim, and why?"
   },
   "check": {
    "say": "Run your record against this before you log it. Peach State is the carrier, with PSH-55017742 and GRP-41208 both entered. Its position sits after PIP and before the LOP providers. The three unrelated lines are disputed and Crescent is at the $1,860.00 the plan paid. The flag is dated before any demand is drafted. And the $1,860.00 is confirmed in writing on 06/24/2026, with any compromise left to Atty. Thorne. When Dion Carver asked whether John would repay in full and what the limits were, the right answer acknowledged the figure, honored the notice and routed the rest. Registering a lien isn't conceding it; the lien stage is where it gets reduced.",
