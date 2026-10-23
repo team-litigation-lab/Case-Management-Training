@@ -3423,12 +3423,12 @@ window.CM_CF_SLIDES = {
   "situation": "02/23/2026. Urgent care's $685.00 went to PIP. Riverton Spine & Rehab, **out of network** for Peach State, starts care 02/24/2026. On 03/11/2026 Summit Imaging asks for **an LOP for the MRI**.",
   "steps": [
    "Run and record **the Payer Order** for each provider",
-   "Prepare Riverton Spine & Rehab's LOP; **route it for signature**",
-   "Transmit with the HIPAA authorization; ask for **a missed-visit alert**",
-   "Record the assessment and **the 2021 pre-morbid baseline**",
+   "Route Riverton's LOP for signature; **transmit with the HIPAA authorization**",
+   "Call Tammy Greer: **confirm LOP acceptance**, secure 02/24/2026",
+   "Write the call up; **open tasks**; file it in the CMS",
    "Decline Summit in writing, **naming Harbor Point PIP**"
   ],
-  "deliver": "One **counsel-approved LOP** sent, one declined with payer named, ledger and baseline recorded",
+  "deliver": "One **counsel-approved LOP** sent and endorsed by call, one declined, all logged",
   "purpose": "A needless LOP makes **a bill PIP would pay** a lien on his recovery",
   "principle": "**An LOP comes last**, after PIP and Peach State",
   "checks": [
@@ -3436,7 +3436,7 @@ window.CM_CF_SLIDES = {
    "Baseline: 2021 visits **low back, resolved**; no prior neck",
    "Rental ends 03/19/2026: **calendared as a treatment risk**",
    "Decline proved: **$3,675.00 left**, enough for the $2,395.00 MRI",
-   "**No payment promised** to either provider"
+   "Call logged and tasked; **no payment promised** to any provider"
   ],
   "dos": [
    "Run the Payer Order **before the LOP template**, every time",
@@ -4197,25 +4197,143 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
+ "d2m2-sum": {
+  "image": "checklist-qa",
+  "hook": "Know who pays, who wants paying back, and **when each flag goes up**",
+  "points": [
+   "Only BI and UM stack: **$40,000**; PIP and PD sit outside",
+   "Bills go **PIP, then Peach State, then an LOP**",
+   "Flag the lien **on first notice**, before any demand",
+   "Flag the gap **the day records show it**: 14 days, routed"
+  ],
+  "upl": "Flag and report facts; **enforceability, compromise and value** are Atty. Thorne's",
+  "job": [
+   [
+    "Reimbursement right first noticed",
+    "Flag the lien, record identifiers",
+    "CMS → Liens → Flag",
+    "Flag dated before any demand"
+   ],
+   [
+    "Plan's itemized ledger arrives",
+    "Audit each line; dispute in writing",
+    "CMS → Liens",
+    "Plan confirms $1,860.00 in writing"
+   ],
+   [
+    "Records show first care 02/20/2026",
+    "Flag the 14-Day Gap; route",
+    "Action Plan Editor → Risks",
+    "Facts only; watch for breaks"
+   ]
+  ],
+  "dos": [
+   "Flag the lien **the day it is known**",
+   "Audit the plan's ledger **line by line**"
+  ],
+  "donts": [
+   "Waiting for **the demand** to flag a lien",
+   "Recording **what the gap means** for value"
+  ],
+  "theory": {
+   "lead": "One page for the Treatment Phase's money: **who pays which bill**, who wants paying back, and the two flags that must go up on time.",
+   "concepts": [
+    {
+     "term": "Every Coverage, Sorted",
+     "text": "Each policy sorted by **whose it is** and what it pays: the claim, the bills or the car",
+     "more": [
+      "Third-party: Robert Smith's Keystone BI $10,000 and PD $25,000",
+      "First-party: Host UM $20,000, Relative UM $10,000, Harbor Point PIP $5,000, Bluewater collision",
+      "Health: Peach State Health Plan, through Northgate, effective 02/01/2026",
+      "Only **BI, Host UM and Relative UM** make the $40,000 Recovery Stack",
+      "Margaret Doe rejected UM on her Bluewater policy in writing on 03/14/2024: it adds nothing"
+     ]
+    },
+    {
+     "term": "The Payer-First Principle",
+     "text": "Each bill goes first to the payer that must pay it: **PIP, then Peach State, then an LOP**",
+     "more": [
+      "PIP pays regardless of fault, and Harbor Point has **no reimbursement right** (03/02/2026)",
+      "Peach State pays at the contract rate: Crescent billed $3,400.00, the plan paid $1,860.00",
+      "An LOP last, for care earlier payers can't carry: Riverton Spine & Rehab, out of network",
+      "Summit Imaging's 03/11/2026 LOP request declined: PIP had $3,675.00 left",
+      "Providers bill whom they bill: track every ledger, never re-route a paid claim"
+     ]
+    },
+    {
+     "term": "Health Subrogation and Triple-Check",
+     "text": "A plan that pays accident bills claims them back from the recovery: **only what it paid**",
+     "more": [
+      "Triple-Check first: HIPAA authorization, BCRC (John Doe is 34: SSDI verified), **the Payer Order**",
+      "The Payer Order pays the bills now; the $40,000 stack pays the claim later",
+      "Peach State's interim ledger asserted $3,618.00; audited, it confirmed **$1,860.00** on 06/24/2026",
+      "Unrelated, pre-existing or pre-loss lines, and billed-not-paid amounts, come off in writing",
+      "A fully insured plan: any reduction turns on state law, Atty. Thorne's call at the lien stage"
+     ]
+    },
+    {
+     "term": "The Two CMS Flags",
+     "text": "A lien and a gap are flagged **the day you know**, in facts only, and routed",
+     "more": [
+      "Lien: CMS → Liens → Flag on first notice (02/27/2026), and **before any demand**",
+      "Record carrier, member ID PSH-55017742, group GRP-41208, Payer Order position, basis and flag date",
+      "Gap: flag the day records show first care 02/20/2026, **14 days** after the 02/06/2026 loss",
+      "Risks band holds facts only: dates, count, explanation pending; routed to Atty. Thorne",
+      "Watch for any later break: the 04/08/2026 alert flagged 04/02 → 04/21/2026, 19 days"
+     ]
+    }
+   ],
+   "pages": [
+    "D2#25",
+    "D1#22"
+   ]
+  },
+  "clues": {
+   "dos": [
+    [
+     "Timing counts for more than polish in the lien register",
+     "Peach State's letter of 02/27/2026 started the clock",
+     "Same-day entry, dated, with member ID and group"
+    ],
+    [
+     "An interim itemization arrived on 06/10/2026 asserting $3,618.00",
+     "Three entries had no connection with the collision",
+     "Compare each claim with dates, codes and what was paid"
+    ]
+   ],
+   "donts": [
+    [
+     "A reimbursement claim discovered late comes out of the net",
+     "By then there is no time to negotiate from strength",
+     "Disbursement is the worst moment to meet a health plan"
+    ],
+    [
+     "The risks band holds dates, a count and a pending note",
+     "Valuation belongs to Atty. Thorne, not the record keeper",
+     "Defense counsel may read every note in the file"
+    ]
+   ]
+  }
+ },
  "d1m1-a2": {
   "image": "lien-scale",
-  "situation": "Peach State Health Plan has begun paying John Doe's accident-related treatment. **No lien record exists** yet, and **the pre-demand audit** is still ahead.",
+  "situation": "03/12/2026: Peach State says claims are in process; **no lien record exists**. 06/10/2026: its interim itemization asserts **$3,618.00** across five lines.",
   "steps": [
-   "Register Peach State's claim and **flag it against the matter**",
-   "Enter carrier, **member ID and group number**",
-   "Record its **payer-order position** and the reimbursement basis",
-   "Date the flag and attach **the Triple-Check results**",
-   "State what must happen **before any compromise**"
+   "Register and **flag Peach State's claim** in CMS → Liens",
+   "Reply to Dion Carver: **request the itemized ledger**",
+   "Audit the 06/10/2026 itemization **line by line**",
+   "Dispute it in the Email Workspace; **get $1,860.00 in writing**",
+   "File the exchange; **route any compromise** to Atty. Thorne"
   ],
-  "deliver": "A **dated, flagged lien record** you could negotiate from on Day 4",
+  "deliver": "A **flagged lien record**, an audited ledger and $1,860.00 confirmed in writing",
   "purpose": "An unflagged lien surfaces at disbursement, **too late to negotiate** from strength",
-  "principle": "Register it early; **only Atty. Thorne** can authorize a compromise",
+  "principle": "Register early, audit what is asserted; **only Atty. Thorne** compromises",
   "checks": [
-   "Carrier: **Peach State Health Plan**",
-   "**PSH-55017742 and GRP-41208** both entered",
+   "**PSH-55017742 and GRP-41208** entered for Peach State",
    "Position: **after PIP/MedPay, before LOP/provider liens**",
+   "**Three unrelated lines** disputed; Crescent at $1,860.00 paid",
    "Flag dated **before any demand** is drafted",
-   "Compromise needs **Atty. Thorne's authority**"
+   "**$1,860.00 confirmed in writing** 06/24/2026; compromise is Atty. Thorne's"
   ],
   "dos": [
    "Registering a lien **is not conceding it**"
@@ -4829,6 +4947,33 @@ window.CM_CF_SLIDES = {
     ]
    ]
   }
+ },
+ "d2m4-wage": {
+  "image": "documents-audit",
+  "situation": "06/22/2026, after MMI. John Doe signed Northgate's authorization. A **draft worksheet claims $1,760.00** from his memory; **nothing is verified** yet.",
+  "steps": [
+   "Email Angela Ruiz: **request the employer's verification** and payroll",
+   "Match each missed shift **to a provider record**",
+   "Flag 02/09–02/13 to Atty. Thorne: **never drop them**",
+   "Audit the draft worksheet **to the verified total**",
+   "Enter **$1,584.00 in the Specials**; file the correspondence"
+  ],
+  "deliver": "Northgate's verification filed and **$1,584.00 verified**, every shift matched",
+  "purpose": "An unexcused absence is **the line an adjuster attacks** first",
+  "principle": "**The employer's records**, not memory, fix the wage claim",
+  "checks": [
+   "Rate, hours, overtime and job demands **confirmed by Northgate**",
+   "03/05, 03/13, 05/15, 05/18 **matched to provider records**",
+   "**02/09–02/13 flagged**, kept, with Northgate's call-out record",
+   "Draft corrected: **$1,760.00 → $1,584.00**",
+   "**No medical records** sent to the employer"
+  ],
+  "dos": [
+   "Ask the employer for **records, not recollection**"
+  ],
+  "donts": [
+   "Dropping shifts **with no doctor's note**"
+  ]
  },
  "d2m4-a1": {
   "image": "money-ledger",

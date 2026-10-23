@@ -299,12 +299,12 @@
   "situation": "02/23/2026. Urgent care's $685.00 went to PIP. Riverton Spine & Rehab, **out of network** for Peach State, starts care 02/24/2026. On 03/11/2026 Summit Imaging asks for **an LOP for the MRI**.",
   "steps": [
    "Run and record **the Payer Order** for each provider",
-   "Prepare Riverton Spine & Rehab's LOP; **route it for signature**",
-   "Transmit with the HIPAA authorization; ask for **a missed-visit alert**",
-   "Record the assessment and **the 2021 pre-morbid baseline**",
+   "Route Riverton's LOP for signature; **transmit with the HIPAA authorization**",
+   "Call Tammy Greer: **confirm LOP acceptance**, secure 02/24/2026",
+   "Write the call up; **open tasks**; file it in the CMS",
    "Decline Summit in writing, **naming Harbor Point PIP**"
   ],
-  "deliver": "One **counsel-approved LOP** sent, one declined with payer named, ledger and baseline recorded",
+  "deliver": "One **counsel-approved LOP** sent and endorsed by call, one declined, all logged",
   "purpose": "A needless LOP makes **a bill PIP would pay** a lien on his recovery",
   "principle": "**An LOP comes last**, after PIP and Peach State",
   "checks": [
@@ -312,7 +312,7 @@
    "Baseline: 2021 visits **low back, resolved**; no prior neck",
    "Rental ends 03/19/2026: **calendared as a treatment risk**",
    "Decline proved: **$3,675.00 left**, enough for the $2,395.00 MRI",
-   "**No payment promised** to either provider"
+   "Call logged and tasked; **no payment promised** to any provider"
   ],
   "dos": [
    "Run the Payer Order **before the LOP template**, every time",
@@ -899,5 +899,71 @@
       "Quoting the Specials **without the PIP Log**",
       "Asking a provider **to make an EMC finding**"
     ]
-  }
+  },
+ "d2m2-sum": {
+  "image": "checklist-qa",
+  "hook": "Know who pays, who wants paying back, and **when each flag goes up**",
+  "points": [
+   "Only BI and UM stack: **$40,000**; PIP and PD sit outside",
+   "Bills go **PIP, then Peach State, then an LOP**",
+   "Flag the lien **on first notice**, before any demand",
+   "Flag the gap **the day records show it**: 14 days, routed"
+  ],
+  "upl": "Flag and report facts; **enforceability, compromise and value** are Atty. Thorne's",
+  "job": [
+   [
+    "Reimbursement right first noticed",
+    "Flag the lien, record identifiers",
+    "CMS → Liens → Flag",
+    "Flag dated before any demand"
+   ],
+   [
+    "Plan's itemized ledger arrives",
+    "Audit each line; dispute in writing",
+    "CMS → Liens",
+    "Plan confirms $1,860.00 in writing"
+   ],
+   [
+    "Records show first care 02/20/2026",
+    "Flag the 14-Day Gap; route",
+    "Action Plan Editor → Risks",
+    "Facts only; watch for breaks"
+   ]
+  ],
+  "dos": [
+   "Flag the lien **the day it is known**",
+   "Audit the plan's ledger **line by line**"
+  ],
+  "donts": [
+   "Waiting for **the demand** to flag a lien",
+   "Recording **what the gap means** for value"
+  ]
+ },
+ "d2m4-wage": {
+  "image": "documents-audit",
+  "situation": "06/22/2026, after MMI. John Doe signed Northgate's authorization. A **draft worksheet claims $1,760.00** from his memory; **nothing is verified** yet.",
+  "steps": [
+   "Email Angela Ruiz: **request the employer's verification** and payroll",
+   "Match each missed shift **to a provider record**",
+   "Flag 02/09–02/13 to Atty. Thorne: **never drop them**",
+   "Audit the draft worksheet **to the verified total**",
+   "Enter **$1,584.00 in the Specials**; file the correspondence"
+  ],
+  "deliver": "Northgate's verification filed and **$1,584.00 verified**, every shift matched",
+  "purpose": "An unexcused absence is **the line an adjuster attacks** first",
+  "principle": "**The employer's records**, not memory, fix the wage claim",
+  "checks": [
+   "Rate, hours, overtime and job demands **confirmed by Northgate**",
+   "03/05, 03/13, 05/15, 05/18 **matched to provider records**",
+   "**02/09–02/13 flagged**, kept, with Northgate's call-out record",
+   "Draft corrected: **$1,760.00 → $1,584.00**",
+   "**No medical records** sent to the employer"
+  ],
+  "dos": [
+   "Ask the employer for **records, not recollection**"
+  ],
+  "donts": [
+   "Dropping shifts **with no doctor's note**"
+  ]
+ }
 }

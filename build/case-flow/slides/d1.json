@@ -171,23 +171,23 @@
   },
   "d1m1-a2": {
     "image": "lien-scale",
-    "situation": "Peach State Health Plan has begun paying John Doe's accident-related treatment. **No lien record exists** yet, and **the pre-demand audit** is still ahead.",
+    "situation": "03/12/2026: Peach State says claims are in process; **no lien record exists**. 06/10/2026: its interim itemization asserts **$3,618.00** across five lines.",
     "steps": [
-      "Register Peach State's claim and **flag it against the matter**",
-      "Enter carrier, **member ID and group number**",
-      "Record its **payer-order position** and the reimbursement basis",
-      "Date the flag and attach **the Triple-Check results**",
-      "State what must happen **before any compromise**"
+      "Register and **flag Peach State's claim** in CMS → Liens",
+      "Reply to Dion Carver: **request the itemized ledger**",
+      "Audit the 06/10/2026 itemization **line by line**",
+      "Dispute it in the Email Workspace; **get $1,860.00 in writing**",
+      "File the exchange; **route any compromise** to Atty. Thorne"
     ],
-    "deliver": "A **dated, flagged lien record** you could negotiate from on Day 4",
+    "deliver": "A **flagged lien record**, an audited ledger and $1,860.00 confirmed in writing",
     "purpose": "An unflagged lien surfaces at disbursement, **too late to negotiate** from strength",
-    "principle": "Register it early; **only Atty. Thorne** can authorize a compromise",
+    "principle": "Register early, audit what is asserted; **only Atty. Thorne** compromises",
     "checks": [
-      "Carrier: **Peach State Health Plan**",
-      "**PSH-55017742 and GRP-41208** both entered",
+      "**PSH-55017742 and GRP-41208** entered for Peach State",
       "Position: **after PIP/MedPay, before LOP/provider liens**",
+      "**Three unrelated lines** disputed; Crescent at $1,860.00 paid",
       "Flag dated **before any demand** is drafted",
-      "Compromise needs **Atty. Thorne's authority**"
+      "**$1,860.00 confirmed in writing** 06/24/2026; compromise is Atty. Thorne's"
     ],
     "dos": ["Registering a lien **is not conceding it**"],
     "donts": ["Finding the lien **at disbursement**"]
