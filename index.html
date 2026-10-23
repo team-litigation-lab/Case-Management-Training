@@ -7138,12 +7138,14 @@ function renderDaySlideshow(d){
         ${state.isAdmin && idx>0 ? `<button class="btn btn-ghost btn-sm" onclick="goToSlide(0)" title="Admin: go back to the first slide of Day ${d.id}">⏮ Slide 1</button>` : ""}
       </span>
       <span class="slide-counter">Step ${idx+1} of ${total}</span>
-      ${isLast
+      ${isLast && slide.type==="closing"
+        ? `<button class="btn btn-primary" onclick="goto('dashboard')">🏠 Back to Dashboard</button>`
+        : isLast
         ? `<button class="btn btn-primary" onclick="goToKnowledgeCheckWithInterstitial()">Continue to Knowledge Check &rarr;</button>`
         : `<span class="np-wrap">${peekTrainer() ? `<button type="button" class="btn btn-ghost btn-sm np-pin${state.peekPinned?" on":""}" onclick="togglePeekPin()" aria-pressed="${!!state.peekPinned}" title="Trainer: keep a preview of the next slide open">👁 Up next</button>` : ""}<button class="btn btn-primary" onclick="nextSlide()"${peekTrainer() ? ` onmouseenter="showSlidePeek(this)" onmouseleave="hideSlidePeek()" onfocus="showSlidePeek(this)" onblur="hideSlidePeek()"` : ""}>Next &rarr;</button></span>`}
     </div>
 
-    ${isLast ? `<div class="slide-done-banner">🎉 That's everything for Day ${d.id} — the Knowledge Check is the last step to mark this day complete.</div>` : ""}
+    ${isLast && slide.type==="closing" ? `<div class="slide-done-banner">🎓 Training complete. Congratulations!</div>` : isLast ? `<div class="slide-done-banner">🎉 That's everything for Day ${d.id} — the Knowledge Check is the last step to mark this day complete.</div>` : ""}
   `;
   if(state.stageInnerOnly){ state.stageInnerOnly = false; return inner; }
   if(state.dayViewMode==="intro") return renderDayIntro(d);
@@ -15938,7 +15940,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-data.js?v=57"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=1"></script>
-<script src="/js/cm-case-flow.js?v=103"></script>
+<script src="/js/cm-case-flow.js?v=105"></script>
 <script src="/js/cm-script-editor.js?v=2"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=4"></script>
