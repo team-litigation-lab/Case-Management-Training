@@ -3700,9 +3700,10 @@ async function callAIText(prompt, maxTokens, timeoutMs, feature){
     try{ return await callAITextOnce(prompt, maxTokens, timeoutMs, feature); }
     catch(e){
       // an expired session: sign the trainee in again and send once more, as authFetch does for everything else
-      if(e && e.status===401 && !reauthed && !state.isAdmin && !state.adminPreview){ reauthed = true; if(await reauthTrainee()){ attempt--; continue; } }
-      if(e && e.status===401 && (state.isAdmin || state.adminPreview)) toast("Your admin session expired — click 🛡 Admin and sign in again.");
-      const retryable = e && (e.status===429 || e.status===529 || e.status===503 || e.status===502 || (e.status===500 && !/not configured|api key|x-api-key/i.test(e.message||"")));
+      const signIn = e && e.status===401 && /sign-in required/i.test(e.message||"");
+      if(signIn && !reauthed && !state.isAdmin && !state.adminPreview){ reauthed = true; if(await reauthTrainee()){ attempt--; continue; } }
+      if(signIn && (state.isAdmin || state.adminPreview)) toast("Your admin session expired — click 🛡 Admin and sign in again.");
+      const retryable = e && ((e.status===401 && !signIn) || e.status===429 || e.status===529 || e.status===503 || e.status===502 || (e.status===500 && !/not configured|api key|x-api-key/i.test(e.message||"")));
       if(!retryable || attempt>=waits.length) throw e;
       await new Promise(r=>setTimeout(r, waits[attempt] + Math.random()*800));
     }
@@ -3737,7 +3738,10 @@ async function callAITextOnce(prompt, maxTokens, timeoutMs, feature){
 // The line a call shows when the AI couldn't answer, with the reason, so the trainee (and their trainer) knows what to do.
 function aiTroubleLine(e, what){
   const st = e && e.status, m = String((e && e.message) || "");
-  const why = st===401 ? (state.isAdmin && state.adminToken && !tokenLive(state.adminToken) ? "your admin sign-in has run out (it lasts 12 hours): sign in to Admin again, then try the call again" : "your session has expired: reload the page, or open the program again from the Portal")
+  // a 401 is a session problem only when it is this site's own "Sign-in required": anything else is the AI service's
+  const signIn = st===401 && /sign-in required/i.test(m);
+  const why = signIn ? (state.isAdmin && state.adminToken && !tokenLive(state.adminToken) ? "your admin sign-in has run out (it lasts 12 hours): sign in to Admin again, then try the call again" : "your session has expired: reload the page, or open the program again from the Portal")
+    : (st===401 || st===403 || /key was refused|invalid x-api-key/i.test(m)) ? "the AI service refused this request: try again, and if it keeps happening tell your trainer (the site's AI key needs checking)"
     : (st===429 || /rate limit/i.test(m)) ? "the AI is busy right now: wait a minute, then try again"
     : /timed out/i.test(m) ? "the AI took too long to answer: try again"
     : /No AI key|not configured/i.test(m) ? "the AI isn't set up on this site: tell your trainer"
@@ -15814,7 +15818,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow.js?v=96"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=4"></script>
-<script src="/js/lsh-tool-links.js?v=cm-2026.10.08-portal"></script>
+<script src="/js/lsh-tool-links.js?v=cm-2026.10.23-trainer-sso"></script>
 <script src="/js/cm-cms-case.js?v=cm-2026.10.22-heard"></script>
 <script src="/js/cm-doc-filing.js?v=cm-2026.10.22-viewer"></script>
 <script src="/js/cm-cms-upload.js?v=cm-2026.10.22-cms-upload"></script>

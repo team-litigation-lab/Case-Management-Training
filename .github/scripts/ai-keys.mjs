@@ -4,7 +4,7 @@
 //   - keys take turns, so one key isn't spent first;
 //   - a key that answers 429 (credits or rate limit used up) rests and the request moves to the
 //     next key; later requests skip the resting key;
-//   - a key Google rejects rests; a busy (503) key hands over; a missing model falls through;
+//   - a key Google rejects rests (a 401 included, and never passed on as a 401); a busy (503) key hands over; a missing model falls through;
 //   - with every key out of credits the answer says so (429), not "no key configured" — and the Worker
 //     tries the resting keys anyway rather than refusing, since the soonest may be back (geminiKeyOrder).
 // Usage: node .github/scripts/ai-keys.mjs   (from the repository root)
@@ -104,7 +104,26 @@ const textOf = async (res) => { const b = await res.json(); return b && b.conten
     check(again.status === 429, `the retry should still answer 429, got ${again.status}`);
 }
 
-/* 5. no keys at all: the configuration message */
+/* 5. Google refusing a key with 401 (UNAUTHENTICATED) is a key problem, never the trainee's session: the key rests,
+      the next one answers, and if every key is refused the Worker answers 502 — a 401 from this Worker always means
+      "Sign-in required", and the page would tell a signed-in trainee their session had expired */
+{
+    const worker = await freshWorker();
+    calls = [];
+    behavior = (key) => key === 'k0'
+        ? { status: 401, json: { error: { message: 'Request had invalid authentication credentials.', status: 'UNAUTHENTICATED' } } }
+        : { status: 200, json: ok('from ' + key) };
+    const env = keysEnv(), got = [];
+    for (let i = 0; i < 6; i++) { const r = await ask(worker, env); check(r.status === 200, `a key refused with 401 should hand over to the next, got ${r.status}`); got.push(await textOf(r)); }
+    check(got.every(t => t === 'from k1' || t === 'from k14'), `the refused key answered: ${got.join(' | ')}`);
+    check(calls.filter(c => c.key === 'k0').length <= 1, 'a key refused with 401 should rest after the first try');
+    const all = await freshWorker();
+    behavior = () => ({ status: 401, json: { error: { message: 'Request had invalid authentication credentials.' } } });
+    const res = await ask(all, keysEnv());
+    check(res.status === 502, `every key refused should answer 502 (an AI key problem), not ${res.status}: a 401 reads as "your session has expired"`);
+}
+
+/* 6. no keys at all: the configuration message */
 {
     const worker = await freshWorker();
     const res = await ask(worker, {});

@@ -335,7 +335,7 @@ async function viaGateway(env, req, user) {
     data = await r.json().catch(() => null);
   } catch (e) { return json({ error: { message: "The shared AI gateway is unreachable: " + (e && e.message || e) } }, 502); }
   if (data && data.success) return json({ content: [{ type: "text", text: data.text }], model: data.model, stop_reason: "end_turn", provider: "gemini-gateway" });
-  const status = r.status === 429 ? 429 : (r.status === 401 || r.status === 501) ? 502 : (r.status || 502);
+  const status = r.status === 429 ? 429 : (r.status === 401 || r.status === 403 || r.status === 501) ? 502 : (r.status || 502);
   return json({ error: { message: (status === 429 ? "rate limit (shared AI budget): " : "") + ((data && data.error) || "AI gateway error " + r.status) } }, status);
 }
 
@@ -361,6 +361,7 @@ function restGeminiKey(name, status, msg) {
   if (status === 429) ms = /per.?day|daily|PerDay/i.test(m) ? 3600e3 : 60e3;
   if (/credit|billing|quota exceeded for quota metric.*day|prepay/i.test(m)) ms = 3600e3;
   if ((status === 400 || status === 403) && /API key|permission|denied/i.test(m)) ms = 600e3;
+  if (status === 401) ms = 600e3;   // Google refused the key itself (UNAUTHENTICATED: revoked, wrong kind of key): rest it, the next key takes over
   if (ms) geminiRest.set(name, Date.now() + ms);
   return !!ms;
 }
@@ -411,8 +412,11 @@ async function callGemini(env, rawBody, user) {
   }
   if (!nextKey) break;   // not a key problem: another key would get the same answer
   }
-  const status = last.status === 400 && /API key/i.test(last.msg) ? 502 : last.status;   // 502, not 401: a bad AI key is not a portal sign-in problem
-  return json({ error: { message: (status === 502 && /API key/i.test(last.msg) ? "invalid x-api-key (Gemini): " : status === 429 ? "rate limit (Gemini free tier): " : "") + last.msg } }, status);
+  // 502, never 401 or 403: Google refusing an AI key is not the trainee's sign-in. A 401 from this Worker always means
+  // "Sign-in required" (readToken), so the page only ever tells someone their session ran out when it really did.
+  const keyProblem = last.status === 401 || last.status === 403 || (last.status === 400 && /API key/i.test(last.msg));
+  const status = keyProblem ? 502 : last.status;
+  return json({ error: { message: (keyProblem ? "the AI key was refused (Gemini): " : status === 429 ? "rate limit (Gemini free tier): " : "") + last.msg } }, status);
 }
 
 async function listAll(env, prefix) {
@@ -860,18 +864,23 @@ export default {
 
       /* ---------- training tools open signed in (js/lsh-tool-links.js) ----------
          A fresh Portal-style ticket for the trainee signed in here, so the CMS (which takes the Portal's
-         ticket, signed with the same PORTAL_SSO_SECRET) opens without its log-in page. Trainees only:
-         an admin's ticket never signs anyone in. Good for 5 minutes. */
+         ticket, signed with the same PORTAL_SSO_SECRET) opens without its log-in page: a trainee as themselves, a
+         trainer as a trainer. Good for 5 minutes. */
       if (path === "/api/auth/tool-ticket") {
-        if (tok.role !== "t" || !portalSecret(env)) return json({ error: "not-available" }, tok.role !== "t" ? 403 : 501);
+        if (!portalSecret(env)) return json({ error: "not-available" }, 501);
+        const sign = async (t) => { const payload = btoa(String.fromCharCode(...enc.encode(JSON.stringify(t)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+          return `${payload}.${await hmac("portal-sso:" + portalSecret(env), payload)}`; };
+        // A trainer signed in here (the admin password, or the Portal's admin sign-in) opens the CMS as a trainer, the
+        // same {r: "a"} ticket the Portal gives its administrators: the CMS takes it once (its useTicketOnce), so a
+        // fresh one is made for every tool opened. Single sign-on on every platform, for trainers as for trainees.
+        if (tok.role === "a") return json({ ticket: await sign({ r: "a", n: "", exp: Date.now() + 5 * 60 * 1000 }), admin: true });
+        if (tok.role !== "t") return json({ error: "not-available" }, 403);
         const rec = JSON.parse((await kv.get(`trainee:${tok.id}`)) || "null");
         if (!rec || rec.approved !== true || rec.archived) return json({ error: "not-approved" }, 403);
         const words = String(rec.name || "").trim().split(/\s+/).filter(Boolean);
         const first = String(rec.firstName || words[0] || "").trim(), last = String(rec.lastName || words.slice(1).join(" ") || "").trim();
         if (!first || !last) return json({ error: "no-name" }, 400);
-        const payload = btoa(String.fromCharCode(...enc.encode(JSON.stringify({ first, last, b: String(rec.batch || ""), exp: Date.now() + 5 * 60 * 1000 }))))
-          .replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-        return json({ ticket: `${payload}.${await hmac("portal-sso:" + portalSecret(env), payload)}` });
+        return json({ ticket: await sign({ first, last, b: String(rec.batch || ""), exp: Date.now() + 5 * 60 * 1000 }) });
       }
 
       /* ---------- 🕘 automatic Time In: a trainee's first visit today (see checkIn) ---------- */
