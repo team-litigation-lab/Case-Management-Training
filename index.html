@@ -3249,7 +3249,7 @@ const mem = {}; // in-memory fallback if window.storage is unavailable
    this browser. Any change is saved within ~1.5s; logging in on
    any device restores it; logging out flushes it first.
    ============================================================ */
-const PERSONAL_KEYS = ["day-progress","practice-progress","lab-attempts-global","lab-attempts-by-day","admin-unlocked-days","notes","completed-lab-actions",
+const PERSONAL_KEYS = ["day-progress","practice-progress","lab-attempts-global","lab-attempts-by-day","admin-unlocked-days","admin-unlocked-copies","notes","completed-lab-actions",
   "day10-window","submissions","roleplayHistory","slide-progress","last-slide","attn-detail-findings",
   "calendar-custom","calendar-edits","call-log","inbox-filing","inbox-interactions","inbox-labels","trainee-batch",
   "quick-check-answers","day-order-migrated","dividers-migrated","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log","lab-subs","case-flow","net-sheet","doc-filing","drive-setup"];
@@ -3565,6 +3565,16 @@ async function applyLabAttemptReset(rec){
 // changing it). Apply it as soon as this device sees a change, and redraw so the day opens.
 async function applyAdminUnlocks(rec){
   if(!rec) return;
+  // Corrected copies of case documents open only when the trainer unlocks them (rec.unlockedCopies).
+  const copies = (Array.isArray(rec.unlockedCopies) ? rec.unlockedCopies : []).map(String).sort();
+  const prevCopies = state.adminUnlockedCopies || [];
+  if(JSON.stringify(copies)!==JSON.stringify([...prevCopies].sort())){
+    state.adminUnlockedCopies = copies;
+    await storeSet("admin-unlocked-copies", copies);
+    if(copies.some(id=>!prevCopies.includes(id))) toast("🔓 Your trainer unlocked a corrected copy for you. It is in your case documents.");
+    state.labResetRenderPending = true;
+    await renderLabResetIfSafe();
+  }
   const next = (Array.isArray(rec.unlockedDays) ? rec.unlockedDays : []).map(Number).filter(n=>n>1).sort((a,b)=>a-b);
   const prev = state.adminUnlockedDays || [];
   if(JSON.stringify(next)===JSON.stringify(prev)) return;
@@ -3666,6 +3676,8 @@ async function loadAll(){
   state.labAttemptsGlobal = labAttemptsTotal(state.labAttemptsByDay);
   const aud = await storeGet("admin-unlocked-days");
   state.adminUnlockedDays = Array.isArray(aud) ? aud : [];
+  const auc = await storeGet("admin-unlocked-copies");
+  state.adminUnlockedCopies = Array.isArray(auc) ? auc : [];
   const lrs = await storeGet("lab-attempts-reset-seen");
   state.labAttemptsResetSeen = lrs || undefined;
   const nt = await storeGet("notes");
@@ -6105,7 +6117,7 @@ window.addEventListener("hashchange", ()=>{
   if(!(state.traineeId || state.isAdmin) || ["login","pendingApproval","registrationDenied"].includes(state.view)) return;
   if(location.hash && location.hash!==routeHash()) openRouteFromHash();
 });
-const TAB_SYNC_KEYS = {"day-progress":"progress","practice-progress":"practiceProgress","lab-attempts-global":"labAttemptsGlobal","lab-attempts-by-day":"labAttemptsByDay","admin-unlocked-days":"adminUnlockedDays",
+const TAB_SYNC_KEYS = {"day-progress":"progress","practice-progress":"practiceProgress","lab-attempts-global":"labAttemptsGlobal","lab-attempts-by-day":"labAttemptsByDay","admin-unlocked-days":"adminUnlockedDays","admin-unlocked-copies":"adminUnlockedCopies",
   "notes":"notes","completed-lab-actions":"completedLabActions","submissions":"submissions","roleplayHistory":"roleplayHistory",
   "slide-progress":"slideProgress","last-slide":"lastSlide","quick-check-answers":"qcAnswers","intro-seen":"introSeen",
   "work-log":"workLog","lab-drafts":"labDrafts","task-log":"taskLog","task-day-since":"taskDaySince","day10-window":"day10Window"};
@@ -6337,6 +6349,8 @@ async function submitLoginInner(){
       state.labAttemptsByDay = (existing.labAttemptsByDay && typeof existing.labAttemptsByDay === "object") ? existing.labAttemptsByDay : {};
       state.adminUnlockedDays = Array.isArray(existing.unlockedDays) ? existing.unlockedDays.map(Number).filter(n=>n>1) : [];
       await storeSet("admin-unlocked-days", state.adminUnlockedDays);
+      state.adminUnlockedCopies = Array.isArray(existing.unlockedCopies) ? existing.unlockedCopies.map(String) : [];
+      await storeSet("admin-unlocked-copies", state.adminUnlockedCopies);
       state.labAttemptsGlobal = labAttemptsTotal(state.labAttemptsByDay);
       await storeSet("lab-attempts-by-day", state.labAttemptsByDay);
       state.completedLabActions = (existing.completedLabActions && typeof existing.completedLabActions === "object") ? existing.completedLabActions : {};
@@ -6423,6 +6437,8 @@ async function resetTraineeSessionData(){
   await storeSet("lab-attempts-by-day", {});
   state.adminUnlockedDays = [];
   await storeSet("admin-unlocked-days", []);
+  state.adminUnlockedCopies = [];
+  await storeSet("admin-unlocked-copies", []);
   state.completedLabActions = {};
   state.submissions = [];
   state.roleplayHistory = [];
@@ -11988,6 +12004,41 @@ async function adminUnlockDays(traineeId, value){
 }
 window.adminUnlockDays = adminUnlockDays;
 
+/* Admin: corrected copies of case documents (the provider's answer to a trainee's Amendment Request)
+   open to a trainee only when the trainer unlocks them here. Kept on the trainee record as
+   unlockedCopies, which the server keeps trainees from changing. */
+function renderCorrectedCopiesControl(rec){
+  const docs = (window.CM_CF_DOCS || []).filter(d=>d && d.unlock);
+  if(!docs.length) return "";
+  const open = (Array.isArray(rec.unlockedCopies) ? rec.unlockedCopies : []).map(String);
+  return `<div style="margin:6px 0 14px;">
+      <div class="sidebar-section-lbl" style="padding-left:0;">Corrected Copies</div>
+      ${docs.map(d=>{
+        const on = open.includes(d.id);
+        return `<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12.5px;padding:4px 0;border-bottom:1px dashed var(--line);">
+          <span>${esc(d.title)} <span style="color:var(--ink-soft);">(corrects ${esc(d.amends||"")}; opens to the trainee only when you unlock it)</span></span>
+          <button class="btn btn-sm ${on ? "btn-ghost" : "btn-primary"}" onclick="adminUnlockCopy('${rec.id}','${esc(d.id)}',${on ? "false" : "true"})">${on ? "🔒 Lock again" : "🔓 Unlock corrected copy"}</button>
+        </div>`;
+      }).join("")}
+    </div>`;
+}
+async function adminUnlockCopy(traineeId, docId, on){
+  const rec = await sharedGet("trainee:"+traineeId);
+  if(!rec){ toast("Couldn't load that trainee — refresh and try again."); return; }
+  const who = cleanName(rec.name) || "this trainee";
+  const cur = (Array.isArray(rec.unlockedCopies) ? rec.unlockedCopies : []).map(String).filter(id=>id!==docId);
+  rec.unlockedCopies = on ? cur.concat(docId) : cur;
+  rec.unlockedCopiesAt = new Date().toISOString();
+  await sharedSet("trainee:"+traineeId, rec);
+  if(state.adminData){
+    const idx = state.adminData.findIndex(x=>x.id===traineeId);
+    if(idx!==-1) state.adminData[idx] = rec;
+    const wrap = document.getElementById("adminRowsWrap"); if(wrap) wrap.innerHTML = renderAdminRows();
+  }
+  toast(on ? `Corrected copy ${docId} unlocked for ${who}. Their open page updates within about 10 seconds.` : `Corrected copy ${docId} locked again for ${who}.`);
+}
+window.adminUnlockCopy = adminUnlockCopy;
+
 async function resetTraineeLabAttempts(traineeId){
   const rec = await sharedGet("trainee:"+traineeId);
   if(!rec) return;
@@ -12452,6 +12503,7 @@ function renderAdminDetail(rec){
   const subs = rec.submissions||[];
   return `
     <div style="padding:6px 18px 20px;background:#F8F9FC;">
+      ${renderCorrectedCopiesControl(rec)}
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
         <div>
           <div class="sidebar-section-lbl" style="padding-left:0;">Day-by-Day</div>
@@ -15971,7 +16023,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-data.js?v=58"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=1"></script>
-<script src="/js/cm-case-flow.js?v=110"></script>
+<script src="/js/cm-case-flow.js?v=111"></script>
 <script src="/js/cm-script-editor.js?v=12"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=4"></script>
