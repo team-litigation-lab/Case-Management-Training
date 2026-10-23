@@ -5,7 +5,7 @@
 window.CM_CF_SCRIPTS = {
  "d1m1-role": {
   "why": {
-   "say": "I want to start with a question, and I want you to argue about it a little: whose file is it? Is it the client's? The attorney's? Yours? Go ahead, make your case. Here's where I land. It's the client's case, it's the attorney's judgment, and it's your movement. Every phase of this course runs through one person, and that person is you, the Case Manager. Once you know exactly what the role owns, and exactly where it stops, you can move John Doe's file fast without ever drifting into legal advice. That balance is what we'll practise all week.",
+   "say": "You've met John Doe and his file. Now a question, and I want you to argue about it a little: whose file is it? Is it the client's? The attorney's? Yours? Go ahead, make your case. Here's where I land. It's the client's case, it's the attorney's judgment, and it's your movement. Every phase of this course runs through one person, and that person is you, the Case Manager. Once you know exactly what the role owns, and exactly where it stops, you can move John Doe's file fast without ever drifting into legal advice. That balance is what we'll practise all week.",
    "ask": "So, whose file is it: the client's, Atty. Thorne's, or yours?"
   },
   "theory": {

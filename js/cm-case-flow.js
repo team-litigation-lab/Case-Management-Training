@@ -1036,6 +1036,15 @@ function lectureParts(d){
   parts.forEach(p => { p.mins = p.full * sc.per + p.briefs * sc.brief; });
   return parts;
 }
+/* beside the agenda: the one file the day works, and the stretch of it today covers (its activities' file dates) */
+function agendaFile(d){
+  const c = CF.case, dates = d.lessons.filter(l => l.cf.block.kind === "activity" && !l.cf.block.otherMatter && SIM.events[l.cf.block.id]).map(l => SIM.events[l.cf.block.id].date).sort((a, b) => dayMs(a) - dayMs(b));
+  const tracks = [...new Set(d.lessons.filter(l => l.cf.block.kind === "activity").map(l => trackOf(l.cf.mod.id)).filter(Boolean))].sort();
+  const rows = [["👤 Client", `${c.client.name} · ${c.client.position.toLowerCase()}`], ["⚖️ Lead counsel", c.counsel], ["📆 Date of loss · SOL", `${c.dol} · ${c.sol}`],
+    ["🧱 Recovery stack", `${stackLayers().map(x => `${x.tag} ${money(x.limit)}`).join(" → ")} = ${money(c.total)}`],
+    dates.length ? ["🗓 Today on the file", `${dates[0]} → ${dates[dates.length - 1]}${tracks.length ? ` · Track ${tracks.join(" & ")}` : ""}`] : null].filter(Boolean);
+  return `<div class="cfx-ag-file"><p class="cfx-ag-file-h">📂 ${E(c.style)} <small>${E(c.no)}</small></p><dl>${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${E(v)}</dd></div>`).join("")}</dl></div>`;
+}
 function agendaSlide(d){
   const logo = "";
   const src = CF.days.find(x => x.n === d.cf.n) || {};
@@ -1050,8 +1059,8 @@ function agendaSlide(d){
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">Case Management Training</h2></div>
       <div class="cfx-ribbon"><span>Day ${d.cf.n} · Training Agenda</span></div>
       <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">📅</span>Training Agenda</span></div>
-      <div class="cfx-body cfx-body-navy"><div class="cfx-ag"><ol class="cfx-ag-list">${rows}</ol>
-        <div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div></div></div>
+      <div class="cfx-body cfx-body-navy"><div class="cfx-ag"><div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div>
+        <ol class="cfx-ag-list" style="--ag-rows:${Math.ceil((parts.length + 2) / 3)}">${rows}</ol>${agendaFile(d)}</div></div>
     </div>`;
 }
 /* ---------- the live call: the course's own roleplay engine, on John Doe v. Robert Smith ---------- */
@@ -4267,14 +4276,20 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 .cfx-ag-min{margin-left:auto;font:800 14px 'IBM Plex Mono',monospace;color:#F4B77A;white-space:nowrap;}
 .cfx-time{font:700 12px 'IBM Plex Mono',monospace;letter-spacing:.02em;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#F4B77A;cursor:pointer;white-space:nowrap;}
 .cfx-time.on{background:#DB8437;color:#fff;border-color:#DB8437;}.cfx-time.over{background:#B54A3F;border-color:#B54A3F;}
-.cfx-ag{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:22px;align-items:start;}
-.cfx-ag-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
-.cfx-ag-list li{text-align:left;display:flex;gap:16px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 16px;}
+.cfx-ag{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"goal" "list" "file";gap:12px;align-items:stretch;}
+.cfx-ag > .cfx-ag-side{grid-area:goal;}.cfx-ag > .cfx-ag-list{grid-area:list;}.cfx-ag > .cfx-ag-file{grid-area:file;}
+.cfx-ag-file{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;color:#fff;text-align:left;}
+.cfx-ag-file-h{margin:0;padding:6px 12px;border-radius:12px;background:#262B45;border:1px solid rgba(255,255,255,.18);font:800 15px/1.25 'Poppins','Inter',sans-serif;display:flex;flex-direction:column;justify-content:center;}.cfx-ag-file-h small{font:600 11.5px 'IBM Plex Mono',monospace;color:#C9CFDD;}
+.cfx-ag-file dl{display:contents;}
+.cfx-ag-file dl > div{flex:1 1 auto;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:6px 12px;}
+.cfx-ag-file dt{font:700 11.5px 'Inter',sans-serif;color:#F4B77A;letter-spacing:.02em;}.cfx-ag-file dd{margin:1px 0 0;font:600 14px/1.3 'Inter',sans-serif;color:#E8EBF3;white-space:nowrap;}
+.cfx-ag-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(var(--ag-rows,3),auto);grid-auto-flow:column;gap:10px 12px;}
+.cfx-ag-list li{text-align:left;display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:10px 14px;}
 .cfx-ag-list li::before{display:none !important;content:none !important;}
-.cfx-ag-n{flex:0 0 auto;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:#DB8437;color:#fff;font:800 18px 'Poppins','Inter',sans-serif;}
-.cfx-ag-list b{display:block;font:700 21px/1.25 'Poppins','Inter',sans-serif;color:#fff;}
-.cfx-ag-list small{display:block;margin-top:3px;font:500 14px/1.35 'Inter',sans-serif;color:#C9CFDD;}
-.cfx-ag-side{background:#FFFDF8;color:var(--ink);border:3px solid #DB8437;border-radius:20px;padding:16px 20px;font:500 16px/1.5 'Inter',sans-serif;}
+.cfx-ag-n{flex:0 0 auto;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#DB8437;color:#fff;font:800 18px 'Poppins','Inter',sans-serif;}
+.cfx-ag-list b{display:block;font:700 18.5px/1.25 'Poppins','Inter',sans-serif;color:#fff;}
+.cfx-ag-list small{display:block;margin-top:2px;font:500 13px/1.3 'Inter',sans-serif;color:#C9CFDD;}
+.cfx-ag-side{background:#FFFDF8;color:var(--ink);border:3px solid #DB8437;border-radius:20px;padding:12px 20px;font:500 17px/1.5 'Inter',sans-serif;text-align:left;}
 .cfx-ag-side .cfx-ag-day{margin:0 0 8px;font:800 22px/1.25 'Poppins','Inter',sans-serif;color:#262B45;}
 .cfx-ag-side p{margin:0;}
 @media(max-width:760px){
@@ -4284,7 +4299,7 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
   .cfx-deck .cfx-top{flex-wrap:wrap;gap:8px 10px;}.cfx-deck .cfx-title.cfx-pill{white-space:nowrap;font-size:15px !important;padding:5px 12px;}
   .cfx-deck .cfx-kicker{display:none;}.cfx-thumb:nth-child(n+3){display:none;}
   .cfx-docs-row{flex-wrap:wrap;}.cfx-thumb{flex-basis:44%;}
-  .cfx-ag{grid-template-columns:minmax(0,1fr);}
+  .cfx-ag-file dd{white-space:normal;}.cfx-ag-list{grid-template-columns:minmax(0,1fr);grid-auto-flow:row;grid-template-rows:none;}
 }
 /* ---------- the simulation: what landed on the file, the case timeline, fallout, the live call ---------- */
 .cfx-tl{list-style:none;margin:0 0 10px;padding:0;display:flex;gap:0;align-items:flex-start;position:relative;}
