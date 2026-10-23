@@ -773,7 +773,7 @@ window.cmCaseFlow = window.cmCaseFlow || {};
 window.cmCaseFlow.finish = function(){
   // the course closes on its Congratulations & Thank You slide (the certificate stays on the dashboard)
   const d = DAYS.find(x => isLastCfDay(x)); if(!d || typeof goto !== "function") return;
-  goto("day", d.id); state.dayViewMode = "slides";
+  goto("day", d.id); state.dayViewMode = "slides"; state.cfClosing = d.id;
   const k = buildDaySlides(d).findIndex(x => x.type === "closing");
   state.lessonSlide = k >= 0 ? k : 0; if(typeof render === "function") render(); window.scrollTo(0, 0);
 };
@@ -1074,8 +1074,9 @@ if(typeof buildDaySlides === "function"){
     });
     // the module's three key concepts, after its last Skill Activity, right before the Knowledge Check
     if(lastAct >= 0 && labQuestions(d).length) out.splice(lastAct, 0, {type: "readyCheck"});
-    // the last day closes the case: a congratulations and a thank-you card, right before its Knowledge Check
-    if(isLastCfDay(d)) out.push({type: "closing"});
+    // the last day closes the case: a congratulations and a thank-you card, not in the deck: it opens only from
+    // 🎓 Finish Training, once the Knowledge Check is passed
+    if(isLastCfDay(d) && state.cfClosing === d.id) out.push({type: "closing"});
     return out;
   };
 }
@@ -2452,7 +2453,7 @@ const dayScriptLines = (x, label) => [`SLIDE: ${label.toUpperCase()}`, x.say].co
 if(typeof presenterCues === "function"){   // Presenter view: the trainer's note for the Training Agenda and Practice Lab slides
   const __cues = presenterCues;
   presenterCues = function(d, slide){
-    if(slide && slide.type === "closing" && cfDay(d && d.id)) return `<h3>Congratulations & Thank You</h3><p>The case is closed. Read the six things the room carried John Doe's file through, thank them for the week, then open the Knowledge Check.</p>`;
+    if(slide && slide.type === "closing" && cfDay(d && d.id)) return `<h3>Congratulations & Thank You</h3><p>The case is closed. The Knowledge Check is done: celebrate with the room and read them the thank-you letter.</p>`;
     if(slide && slide.type === "readyCheck" && cfDay(d && d.id)) return `<h3>Ready for the Knowledge Check?</h3><p>The day's Skill Activities are done. Give the room a couple of minutes on these ${labQuestions(d).length} key concepts, one from each of today's first modules: a wrong answer shows the reason and can be tried again. Then open the Knowledge Check.</p>`;
     if(!(slide && (slide.type === "practiceLab" || slide.type === "taskOverview") && cfDay(d && d.id))) return __cues.apply(this, arguments);
     if(slide.type === "taskOverview"){ const x = dayScript(d, "agenda"), a = agendaNotes(d);
