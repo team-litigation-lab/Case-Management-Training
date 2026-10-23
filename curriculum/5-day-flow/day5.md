@@ -49,26 +49,27 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 15. *Lesson* — Dropped Cases: the Case Manager's Close-Out (condensed)
 16. *Skill Activity* — Triggering the Litigation Fork
 17. *Skill Activity* — Transition the File to Litigation Status
-18. *Skill Activity* — Automated Countermeasure Triggering in CMS
-19. *Skill Activity* — Bottleneck Resolution Simulation
-20. *Skill Activity* — Pleadings & Discovery Log Maintenance
-21. *Skill Activity* — Trial Prep Checklist Audit & KPI Update
-22. *Skill Activity* — Evaluating Repair Estimates vs. ACV & Loss-of-Use
-23. *Skill Activity* — Diminished Value Calculation & Negotiation Lab
-24. *Skill Activity* — Virtual Deposition Prep Roleplay
-25. *Skill Activity* — Mock Deposition Cross-Examination Handling
-26. *Skill Activity* — Building the Comparative Liability Counter-Package
-27. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch
-28. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award
-29. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
-30. *Knowledge Check* — Litigation Fork Transition Check
-31. *Knowledge Check* — Countermeasure Operational Audit
-32. *Knowledge Check* — Litigation Support Assessment
-33. *Knowledge Check* — PD Dispute Evaluation
-34. *Knowledge Check* — Deposition Readiness Audit
-35. *Knowledge Check* — Final Comprehensive Knowledge Check
-36. *Knowledge Check* — Track B Close-Out Check
-37. *Knowledge Check* — Dropped Case Close-Out Check
+18. *Skill Activity* — E-Filing the Complaint & Calendaring Service
+19. *Skill Activity* — Automated Countermeasure Triggering in CMS
+20. *Skill Activity* — Bottleneck Resolution Simulation
+21. *Skill Activity* — Pleadings & Discovery Log Maintenance
+22. *Skill Activity* — Trial Prep Checklist Audit & KPI Update
+23. *Skill Activity* — Evaluating Repair Estimates vs. ACV & Loss-of-Use
+24. *Skill Activity* — Diminished Value Calculation & Negotiation Lab
+25. *Skill Activity* — Virtual Deposition Prep Roleplay
+26. *Skill Activity* — Mock Deposition Cross-Examination Handling
+27. *Skill Activity* — Building the Comparative Liability Counter-Package
+28. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch
+29. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award
+30. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
+31. *Knowledge Check* — Litigation Fork Transition Check
+32. *Knowledge Check* — Countermeasure Operational Audit
+33. *Knowledge Check* — Litigation Support Assessment
+34. *Knowledge Check* — PD Dispute Evaluation
+35. *Knowledge Check* — Deposition Readiness Audit
+36. *Knowledge Check* — Final Comprehensive Knowledge Check
+37. *Knowledge Check* — Track B Close-Out Check
+38. *Knowledge Check* — Dropped Case Close-Out Check
 
 **End-of-day discussion (trainer):** It is 01/05/2027. Opposing counsel's paralegal says your client's discovery responses are late, John Doe has changed his phone number, and the deposition is set for 02/18/2027. What do you do today, in what order, and what is Atty. Thorne's call, not yours?
 
@@ -76,7 +77,7 @@ The day is one module, on John Doe's one file: Lectures (its lessons, one uninte
 
 ## Module 5 — Litigation & Dropped Cases
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 5.1.1 Impasse Triggers & Filing Criteria
 
@@ -1324,7 +1325,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 A single memo page on white letterhead, a navy header band reading IMPASSE MEMO · TO ATTY. ELIJAH THORNE · 09/08/2026. Four orange-numbered sections run down the page: ① CHRONOLOGY, a dated ledger from 07/20 to 09/04 with a proof chip (receipt, email, log) at the right of each row ② KEYSTONE'S GROUNDS AND OUR REBUTTAL ③ THE FROZEN STACK, three rows with the two UM rows hatched gray behind a padlock ④ DECISION REQUESTED, a cream box holding questions, not answers. In the right margin, a red-bordered guard rail lists what the memo never contains: a recommendation to sue, a value, an excess-exposure opinion.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date 09/08/2026, Track B. Keystone Mutual (Dana Whitfield, KM-26-440871) offered $3,500 on 08/05, citing the 14-Day Gap and a “degenerative” MRI. The 08/06 rebuttal changed nothing: on 08/12 Keystone called $3,500 “final”. The 07/20 Time-Limited Demand (acknowledged in writing 07/22) lapsed on 08/21. Follow-ups on 08/24 and 08/31 asked for a response and the evidence Keystone relies on; neither was answered. The 48-Hour Mandate escalation to Keystone's claims supervisor on 09/02 drew nothing by 09/04. Harbor Point and Cardinal State are waiting on BI. The 08/06 rebuttal sent Dr. Helen Park's MRI read (“no significant degenerative change at the adjacent levels”), Dr. Reyes's 06/19/2026 Causation Letter, the EMS report and the Gap Explanation Record. Documented specials: $14,817.40 medical + $1,584.00 lost wages. SOL 02/06/2028 (a Sunday); firm internal hard date 02/04/2028; internal filing cutoff 11/05/2027.
 
@@ -1401,7 +1402,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 A full-slide CMS screen, white with a navy header showing LSH-2026-MVA-770412 and a status pill switching from PRE-LIT (gray) to LITIGATION (orange). Down the left, a seven-item transition checklist, each with an orange numbered badge and an empty tick box: STATUS · COURT FIELDS · FEE TIER · FOLDERS · UM NOTICES · PRESERVATION · CALENDAR. UM NOTICES carries a lock icon labeled ATTY. THORNE APPROVES. To the right, the court-fields card shows STATE COURT OF RIVERTON COUNTY filled and CIVIL ACTION NO. as a dashed PENDING pill. A red callout, bottom right: “A notice is not a demand — no UM figure.”
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date 09/10/2026, Track B. On 09/09 Atty. Thorne authorized suit against Robert Smith in the State Court of Riverton County, set a filing target of 09/24/2026, and discussed the fee tier with John Doe (33⅓% pre-suit, 40% once suit is filed, per the retainer). He directs notice of the impasse and the intended suit to Harbor Point (Marcus Bell, HP-26-7741) and Cardinal State (Teresa Okafor, CS-26-20355). Harbor Point's UM policy has an arbitration clause. The doorbell video copy was secured 02/19/2026; the 2020 Ford Escape is Kevin Alvarez's. SOL 02/06/2028; internal dates 02/04/2028 and 11/05/2027.
 
@@ -1470,7 +1471,89 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.18 Automated Countermeasure Triggering in CMS
+### 5.1.18 E-Filing the Complaint & Calendaring Service
+
+> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
+> **Topic:** Skill Activity — from approved Complaint to accepted filing and a calendar that runs from it  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D5#3` Phase 1: The Pleadings & Service Stage · `D5#22` Critical Litigation Processes: Service of Process & E-Filing/Docketing · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#31` Litigation File Architecture · Newly authored: the filing set tasked to the Litigation Desk, signed by counsel, e-filed and calendared from the accepted filing (09/22–09/24/2026)
+
+#### 1 · Visual Layout Description
+
+A left-to-right relay of four cards on a thin navy rail, each with an orange numbered badge. ① CMS TASK · NADIA BROOKS · LITIGATION DESK: a task card listing CIVIL COVER SHEET · SUMMONS, a due chip 09/22/2026 and a routing arrow to ② ATTY. THORNE · SIGNS 09/23: a signature line with a padlock chip, NOTHING FILES UNSIGNED. ③ COURT E-FILING: an envelope card reading STATE COURT OF RIVERTON COUNTY · COMPLAINT · CIVIL COVER SHEET · SUMMONS · $218.00, and a green ACCEPTED stamp over 26-CV-04417 · 09/24/2026. ④ CALENDAR: three mono date pills, CMC 12/10/2026 9:00 A.M. · SERVICE DEADLINE 01/22/2027 · ANSWER: SET ON SERVICE, the last one dashed and empty. Off the rail, under card ①, a grey draft sheet stamped NOT FOR FILING with a red strike through it: the 09/15/2026 draft that never reaches the envelope.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** File date 09/22/2026, Track B. The file went to Litigation status on 09/10/2026 on Atty. Thorne's 09/09 authorization; the filing target is 09/24/2026 and today is its 48-hour audit. This morning Atty. Thorne approved his Complaint for John Doe v. Robert Smith in the State Court of Riverton County: negligence and negligence per se; medical Specials, lost wages, future medical and pain and suffering; jury demanded; Smith at 118 Larkspur Ln, Riverton. The CMS also holds his 09/15/2026 draft, stamped NOT FOR FILING, unsigned, with no case number. The civil cover sheet and summons have not been drafted. The fee tier moves from 33⅓% to 40% on the filing date (per the retainer). Pre-suit costs on the ledger: $486.75. Atty. Thorne's 09/10 question on notifying the UM carriers of the filed Complaint is still open.
+
+**Execution prompt.** Tag the Litigation Desk paralegal, Nadia Brooks, with a CMS task precise enough to need no follow-up question: which documents, from which approved Complaint, due when, routed to Atty. Thorne for signature. After he signs on 09/23, submit the e-filing envelope in Court E-Filing on 09/24 (caption, court, case type, filing attorney, document types, filing fee), and check every page is signed before it goes in. Record the accepted filing: the civil action number, the filing date, the stamped Complaint, the issued summons and the Notice of Case Management Conference in 01_PLEADINGS, the fee receipt to the costs ledger. Then calendar from the filing: the service deadline with warning alerts, the hand-off to Allied Process Services, the Case Management Conference with Atty. Thorne as attendee, and the answer deadline held until service. Graded judgment: which date can be calendared today and which cannot.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → Tasks · Court E-Filing · CMS → Litigation → Pleadings Log · CMS → Documents · CMS → Financial Ledger · CMS → Calendar · Docket System |
+| **Expected output** | A signed filing set e-filed and accepted as No. 26-CV-04417, recorded in the CMS, and a calendar that runs from the 09/24/2026 filing date. |
+
+**Verification checkpoints**
+
+- [ ] CMS task to Nadia Brooks dated 09/22/2026: civil cover sheet and summons, built from the Complaint Atty. Thorne approved that morning (not the 09/15/2026 draft), due end of day 09/22/2026, routed to Atty. Thorne for signature
+- [ ] The summons in the task: directed to Robert Smith at 118 Larkspur Ln, Riverton, the address pleaded in the Complaint; the cover sheet: motor vehicle personal injury, jury demanded
+- [ ] Signature check before upload: Complaint, cover sheet and summons signed by Atty. Thorne on 09/23/2026; the 09/15/2026 draft never uploaded
+- [ ] Envelope in Court E-Filing: John Doe v. Robert Smith, State Court of Riverton County, new civil case; Complaint (lead), civil cover sheet, summons for issuance; filing attorney Atty. Elijah Thorne, State Bar No. 418207; filing fee and summons $218.00
+- [ ] Envelope accepted 09/24/2026; court fields updated: Civil Action No. 26-CV-04417 replaces “Pending”, filing date 09/24/2026, service status “Summons issued, not served”
+- [ ] Pleadings Log row: Complaint filed 09/24/2026, e-file stamp 10:42 a.m., source document linked
+- [ ] 01_PLEADINGS holds Complaint_Filed_Stamped.pdf, Summons_Issued.pdf and Notice_of_Case_Management_Conference.pdf; no scan names
+- [ ] Fee receipt $218.00 posted to the costs ledger with its receipt: $486.75 + $218.00 = $704.75 in case costs
+- [ ] Fee tier: 40% shown effective 09/24/2026, the filing date, per the retainer; no fee explanation by the Case Manager
+- [ ] Service deadline 01/22/2027 (Fri): 09/24/2026 + 120 days, rule set configured for this training file; alerts 11/23/2026 (60 days), 12/23/2026 (30), 01/08/2027 (14) and a 48-hour audit 01/20/2027
+- [ ] Hand-off of the stamped Complaint and issued summons to Allied Process Services tasked for 09/24/2026, with Smith's pleaded address and a follow-up every 5 days (first 09/29/2026)
+- [ ] Case Management Conference 12/10/2026 (Thu), 9:00 a.m., by videoconference: Atty. Thorne as attendee, 48-hour audit 12/08/2026 (Tue); answer deadline entered as “set on service: 30 days from service (training rule set)”, no date; the open UM-carrier question re-sent to Atty. Thorne with the filing date
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Atty. Thorne approves the Complaint, 09/22/2026 | Tag Nadia Brooks to draft the cover sheet and summons | CMS → Tasks | Documents, source, due date and signature route named |
+| Set signed, 09/23/2026 | Check every signature; submit the envelope | Court E-Filing | Only signed documents; $218.00 fee; filing attorney named |
+| Envelope accepted, 09/24/2026 | Record the number, the documents and the fee | CMS → Litigation → Pleadings Log · CMS → Documents · CMS → Financial Ledger | 26-CV-04417 entered; three PDFs in 01_PLEADINGS; costs $704.75 |
+| Summons and CMC notice issued | Calendar service, the hand-off and the conference | CMS → Calendar · Docket System | 01/22/2027 with alerts; 12/10/2026 with Atty. Thorne; answer set on service |
+
+**Best practices & pitfalls**
+
+- Write the task so the paralegal never has to ask: the documents, the source, the due date and who signs.
+- Open every page of the envelope before you submit it; the signature check is yours even when the drafting is not.
+- Calendar every date from the accepted filing, never from the filing target.
+- ⚠️ Pitfall: uploading the 09/15/2026 draft because it was the Complaint saved first in the CMS.
+- ⚠️ Pitfall: docketing an answer date before Robert Smith has been served.
+- ⚠️ Pitfall: entering the Case Management Conference without Atty. Thorne as attendee.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **10%** | Paralegal task | Nadia Brooks tasked 09/22/2026 with the cover sheet and summons, the approved Complaint as source, a due date and the signature route |
+| 🤖 AI | **15%** | Envelope | Caption, court, case type, document types, filing attorney and $218.00 correct; only signed documents; the 09/15 draft kept out |
+| 🤖 AI | **15%** | Filing record | 26-CV-04417 and 09/24/2026 entered; three PDFs named and in 01_PLEADINGS; costs $704.75; 40% from 09/24/2026 |
+| 🤖 AI | **20%** | Calendar | 01/22/2027 with arithmetic and alerts; Allied hand-off 09/24/2026; CMC 12/10/2026 9:00 a.m. with Atty. Thorne; answer held for service |
+| 🧑‍🏫 Trainer | **15%** | Signature discipline | Nothing submitted that Atty. Thorne had not signed; the draft caught and left out |
+| 🧑‍🏫 Trainer | **15%** | Date judgment | Explains why the service deadline is set today and the answer deadline is not |
+| 🧑‍🏫 Trainer | **10%** | Authority boundary | Drafting delegated to the paralegal, signing and the UM-carrier question left with Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Read the trainee's CMS task to Nadia Brooks aloud as if you were her. If she would have to ask which Complaint, by when or who signs, the task fails.
+- Ask: “Two Complaints are in the CMS. Which one goes in the envelope, and how do you know?” The signed one dated 09/23/2026; the 09/15 draft says NOT FOR FILING and has no signature.
+- Put to the room: “Why is 01/22/2027 on the calendar today, but no answer date?” The service deadline runs from filing, which has happened; the answer runs from service, which has not.
+- The service and Skip-Trace work belongs to a later activity. Here the job ends when the hand-off to Allied Process Services and its follow-ups are tasked.
+
+---
+
+### 5.1.19 Automated Countermeasure Triggering in CMS
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Skill Activity 1 — rules that fire before the deadline does  
@@ -1481,7 +1564,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 A CMS rules panel fills the left two-thirds: four rule rows on cream cards, each with an orange numbered badge and a mono threshold pill — ① SILENCE · 48 H ② RECORDS · 14 D ③ RED FLAG · 10 D ④ AUDIT · 48 H — and an IF → THEN → OWNER line in navy type. Right third: a vertical firing log for the mediation calendar, one dated row per firing, the 03/11/2027 and 03/18/2027 hard dates as red pills at the foot. Across the top, a slim grey CALIBRATION strip shows the Keystone record with Rule ① firing on 09/02/2026 and 09/04/2026, ticked green. The argument: a rule is trusted on live dates only after it reproduces a known record.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date 02/22/2027 (Track B, in suit). Mediation with Hon. Carla Benton (Ret.) is 03/18/2027; the confidential statement and binder are due to her 03/11/2027. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027 for the binder, has not arrived. Keystone's representative and authority for the session are unconfirmed. Calibration record: Keystone follow-ups 08/24 and 08/31/2026 unanswered; supervisor escalation 09/02; silence on 09/04. The demand-stage audit holds Riverton at $6,105.00 (33 visits × $185.00); Peach State's EOB shows $1,860.00 paid on Crescent Pain & Spine's $3,400.00 bill.
 
@@ -1548,7 +1631,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.19 Bottleneck Resolution Simulation
+### 5.1.20 Bottleneck Resolution Simulation
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Skill Activity 2 — five problems, nine days, one order  
@@ -1559,7 +1642,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 A triage board fills the slide: five problem cards in a column on the left, each a cream card with an orange numbered badge and a mono pill for the hard date it threatens. The centre is a three-lane sequencing track — SEND TO ATTY. THORNE · FIX TODAY · VERIFY AT 48-HOUR AUDIT — that the trainee drags cards into, with slot numbers 1–5 along the top. Above the track, a red countdown chip: EXHIBIT EXCHANGE 06/02/2027 · 9 DAYS. Right edge, a slim white memo card titled BOTTLENECK REPORT fills field by field as escalated cards land. The argument: the easiest fix is rarely the first move.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date 05/24/2027 (Mon). Consolidated UM arbitration, Laura Whitcomb, Esq.: exhibit exchange 06/02/2027, brief 06/11/2027, hearing 06/22/2027. (1) Crescent Pain & Spine's certified records and bill for the 05/15/2026 injection: requested 05/05/2027; second request and subpoena flag 05/19; nothing received. (2) Dr. Reyes's declaration shielding the 2021 low-back visits: Lakeside says she is away until 06/01/2027. (3) Cardinal State (Teresa Okafor) has not confirmed the hearing format or exhibit-exchange method; Harbor Point confirmed 05/20; the Case Manager escalated to Okafor's supervisor in writing 05/21; no answer. CMS → Parties shows neither carrier has appeared through counsel in the arbitration. (4) Riverton Spine & Rehab's refreshed ledger (05/21) restores the 05/04/2026 duplicate: $6,290.00 against the audited $6,105.00. (5) The copy vendor's draft set prints the doorbell-video stills in grayscale; the PDFs are not OCR-searchable.
 
@@ -1626,7 +1709,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.20 Pleadings & Discovery Log Maintenance
+### 5.1.21 Pleadings & Discovery Log Maintenance
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Skill Activity 1 — repair the log before it costs the case  
@@ -1637,7 +1720,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 A CMS Pleadings Log screen fills the left two-thirds: a white card with a navy header bar and eight rows in mono type (Event · Trigger · Method · Due · Filed · Source). Three rows carry orange numbered badges in the left margin: ① a dashed empty slot where the affidavit-of-service row should be; ② a due date, 12/31/2026, struck through in red with 01/04/2027 in a mono pill beside it and the arithmetic under it; ③ an empty RFA slot carrying a red flag. Right third: the file tree DOE, JOHN - CASE FILE with its five numbered sub-folders, and a scan_1210.pdf chip being renamed and dropped into 01_PLEADINGS. Bottom: a red callout, “Passed and unproven = escalate today.” The argument: the row nobody added is the deadline nobody kept.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** 01/05/2027 · Track B. Civil Action No. 26-CV-04417 is three months old, and the docket calendar was audited and corrected on 12/10/2026, but the CMS Pleadings Log was never reconciled to it. As found: complaint 09/24/2026; service 10/14/2026, but no affidavit row (the executed affidavit, filed 10/16/2026, sits in an Allied Process Services email); Answer due 11/13/2026, filed 11/12/2026; Defendant's First Interrogatories (25) and RFPs (30), mailed 12/01/2026, logged as one row still carrying the pre-audit “due 12/31/2026”; no separate row for the 15 RFAs served with them; the 12/10/2026 Scheduling Order still saved as scan_1210.pdf with no log rows; our set e-served on Smith 12/14/2026, due 01/13/2027. CMS → Documents holds a Certificate of Service dated 01/04/2027 for John Doe's verified responses to the Interrogatories, RFPs and RFAs, served by mail on Atty. Mercer; no log row was ever made for it.
 
@@ -1705,7 +1788,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.21 Trial Prep Checklist Audit & KPI Update
+### 5.1.22 Trial Prep Checklist Audit & KPI Update
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Skill Activity 2 — audit against the order, measure against the target  
@@ -1716,7 +1799,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 Split slide. Left 55%: the trial-prep checklist as a cream clipboard card with orange numbered badges ① to ⑤ against its faulty lines: our experts 04/15/2027 struck through to 03/15/2027; “mediation 03/31” corrected to “completed by 03/31”; records subpoenas dragged from June back across a red 05/28/2027 cutoff line; the final records run re-sourced; a blank deposition block filling in. Right 45%: a KPI tracker table in navy with five mono columns (KPI · Formula · Target · Reading · Status) and green, red and amber status chips. A thin orange connector runs from each corrected checklist line to the KPI it moves. Bottom-right, a red callout: “No record = not done.” The argument: a checklist is audited against the order, never against memory.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** 01/20/2027 · Track B. John Doe's deposition notice just arrived: 02/18/2027, 10:00 a.m., by videoconference, Riverton Court Reporting. The trial-prep checklist was drafted from the calendar as first keyed, before the 12/10/2026 audit, and never reconciled. It shows our expert disclosure on 04/15/2027, “mediation 03/31/2027” as the session date, records subpoenas planned for June 2027, the final records run sourced from the pre-lit Demand Package, no alerts and no deposition tasks. Smith's responses arrived 01/13/2027, never docketed. There is no KPI tracker.
 
@@ -1795,7 +1878,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.22 Evaluating Repair Estimates vs. ACV & Loss-of-Use
+### 5.1.23 Evaluating Repair Estimates vs. ACV & Loss-of-Use
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Skill Activity 1 — audit the Civic's numbers before discovery does  
@@ -1806,7 +1889,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 An annotated CMS Property Damage worksheet fills the left two-thirds: a white card with a navy header bar and two staged entries struck through in red, the 39.4% total-loss check on the $6,940.00 estimate and the 78-day, $3,276.00 loss-of-use line, each with an orange numbered badge pointing to its corrected value in the margin (52.6% on $9,255.00; 48 days, $2,016.00). The right third is an evidence column of three cream cards, one per period (12 · 30 · 36 days), each listing its proof as mono pills. A red-bordered strip along the bottom reads PRODUCED WRONG = IMPEACHED. The argument: fix the record before the defense reads it.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date 12/2026: the requests mailed 12/01/2026 have arrived. Leah Moran (Keystone PD) asks Margaret Doe's PD file for every document supporting her Property Damage claim (reply due 01/04/2027). The total-loss and loss-of-use entries on the CMS Property Damage screen, untouched since April, show a total-loss check run on the $6,940.00 estimate (39.4% of ACV) and a loss-of-use line of 78 days × $42.00 = $3,276.00. Keystone still offers $0 for Loss of Use.
 
@@ -1873,7 +1956,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 ---
 
-### 5.1.23 Diminished Value Calculation & Negotiation Lab
+### 5.1.24 Diminished Value Calculation & Negotiation Lab
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Skill Activity 2 — from $792.00 to a recommended range for Atty. Thorne  
@@ -1884,7 +1967,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 A negotiation board across the slide. Left: a vertical number line from $0 to $5,616.00, Keystone's $792.00 low in navy and the claimed $5,616.00 at the top in orange; between them an empty orange bracket labelled RECOMMENDED RANGE — FOR ATTY. THORNE'S AUTHORITY, which the trainee fills. Right: the 17c rebuilt as three stacked mono pills ($1,760.00 → × 0.75 → × 0.60 = $792.00), each with a red critique tag. Bottom-right, a red-bordered callout over a release thumbnail: “ALL CLAIMS” — HOLD, ROUTE TO COUNSEL. The argument: the CM builds the range; only counsel can use it.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date 12/10/2026. The Scheduling Order requires mediation by 03/31/2027. Leah Moran (Keystone PD) emails that $792.00 for Diminished Value and $0 for Loss of Use are final, attaching a release of “all claims arising from the 02/06/2026 accident” for Margaret Doe's signature, then calls to ask whether Margaret Doe will take it. Atty. Thorne wants your recommendation.
 
@@ -1963,7 +2046,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 ---
 
-### 5.1.24 Virtual Deposition Prep Roleplay
+### 5.1.25 Virtual Deposition Prep Roleplay
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 1 — client injury & 14-Day Gap defense: your segment, his substance  
@@ -1974,7 +2057,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 A video-call frame fills the left two-thirds: AI John Doe's tile large, the trainee's tile beside it, and Atty. Thorne's tile small in the corner with a LISTENING tag. Under the frame, a segment agenda bar of five orange-numbered chips: ① LOGISTICS ② CALM ③ GUIDELINES ④ DRESS & DEMEANOR ⑤ IN-ROOM RULES. Right third: a cream card headed ROUTED TO ATTY. THORNE with five empty lines and mono tags GAP · DISRUPTION · SEATBELT · 2021 VISITS · MRI, which fill as John asks. A red-bordered callout across the bottom: “Answer the process. Route the substance.” The argument: the routing card fills up, and the trainee's answers to it stay empty.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date 02/04/2027, Track B. John Doe was reached through Margaret yesterday after going dark on 01/22/2027; he has a new phone number. His deposition is noticed for 02/18/2027, 10:00 a.m., by videoconference with Riverton Court Reporting. He is anxious and expects a TV cross-examination. Atty. Thorne opens the prep session, hands you the first segment while he listens, and takes the substance after you.
 
@@ -2052,7 +2135,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.25 Mock Deposition Cross-Examination Handling
+### 5.1.26 Mock Deposition Cross-Examination Handling
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 2 — observe, log and route; never coach  
@@ -2063,7 +2146,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 Split screen. Left 60%: a mock video deposition — AI ATTY. GRANT MERCER questioning, AI JOHN DOE answering, ATTY. THORNE's tile carrying an orange OBJECTION flag, a running timer top-right in mono. Right 40%: the TRAP LOG as a table — Time · Question as asked · Category, trap and record · Rules — with six trap-type chips above it plus one dashed optional SILENT STARE chip that turn from grey to orange as each is logged. The trainee's own tile sits small at the bottom with its microphone icon struck through. Across the foot of the slide, a red band: OBSERVE · LOG · ROUTE — NEVER COACH. The argument: the trainee's only output is the log.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date 02/16/2027, Track B, the second prep session. Atty. Thorne runs a mock cross-examination: AI defense counsel, playing Atty. Grant Mercer, questions AI John Doe while Atty. Thorne defends and objects. Your microphone is muted. Atty. Thorne debriefs John from your log when the mock ends.
 
@@ -2138,7 +2221,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.26 Building the Comparative Liability Counter-Package
+### 5.1.27 Building the Comparative Liability Counter-Package
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 1 — answer each allegation from the file  
@@ -2149,7 +2232,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 A three-row counter-package matrix across the full slide width on a white card with a navy header bar. Columns: Allegation · Answering evidence · Source · Authenticating witness · Chain of custody. Each row opens with an orange numbered badge and a red allegation chip; evidence cells hold mono pills (EDR, EMS, RPD-26-018842, VIDEO). Cells with an open foundation gap are outlined in orange dashes until filled. Beneath, a slim custody timeline for the doorbell video: 02/06/2026 recorded → 02/17/2026 preservation request → 02/19/2026 copy secured → counter-package. Bottom-right, a navy card headed FOR ATTY. THORNE lists the open legal questions. The argument: a row is finished only when its evidence can come in.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date 11/12/2026, Track B. Atty. Grant Mercer of Mercer & Hale LLP has filed Robert Smith's Answer in Civil Action No. 26-CV-04417. It denies liability and pleads comparative negligence (the Escape entered the all-way stop out of turn; John was unbelted), causation (the gap; a “degenerative” MRI) and failure to mitigate. In the file: report RPD-26-018842, Ruth Calloway's details, the doorbell video, the 10/2026 EDR download, the EMS Run Report and the A-C-T record.
 
@@ -2215,7 +2298,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.27 Skip-Tracing Execution & Certified Notice Dispatch
+### 5.1.28 Skip-Tracing Execution & Certified Notice Dispatch
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 2 — find the defendant, reach the client, prove both  
@@ -2226,7 +2309,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 Split slide. Left half, PART 1 — SERVICE: a vertical log card (date · time · result) with three failed attempts in red, the Skip-Trace request as an orange escalation chip, the service and affidavit rows in green, ending in a Docket System pill ANSWER DUE 11/13/2026. Right half, PART 2 — CERTIFIED NOTICE: a calendar strip counting backward from 02/18/2027 to 01/22/2027, with 02/04 and 02/16 marked orange as prep sessions and a response-date marker that turns red if it lands after 02/04. Beneath it, the notice draft with a CERTIFIED MAIL + EMAIL chip pair that must both tick, and a navy SKIP-TRACE GATE card with three criteria. The argument: work backward from the date that cannot move.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** Two episodes, one file. Part 1, file date 10/08/2026: Allied Process Services reports a third failed attempt at 118 Larkspur Ln (after 10/01 and 10/05), and a neighbor says Robert Smith moved in August. The 10/09 Skip-Trace return (module-local) lists 118 Larkspur Ln (utilities closed 08/2026), 4410 Quarry Ridge Ct, Millbrook (utility opened 08/2026; matches his vehicle registration) and a 2019 address. Part 2, file date 01/22/2027: calls to John Doe go unanswered two days after his deposition was noticed for 02/18/2027, 10:00 a.m., by videoconference. Atty. Thorne has set prep sessions for 02/04 and 02/16/2027.
 
@@ -2294,7 +2377,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.28 The Litigation Net Sheet: Disbursing the Award
+### 5.1.29 The Litigation Net Sheet: Disbursing the Award
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Skill Activity — take the award to $14,713.75 on the LSH Net Sheet  
@@ -2305,7 +2388,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 The LSH Net Sheet fills the slide in its four navy-headed sections. Section 1 reads Gross $40,000.00 with three carrier chips (Keystone, Harbor Point, Cardinal State); Section 2 shows Attorney Fees at 40% = $16,000.00 with an orange SUIT FILED tag and seven receipt rows totalling $3,895.25; Section 3 lists the providers with Peach State reduced to $1,116.00 and Riverton Spine & Rehab to $4,275.00, the zero-balance rows greyed with NOT PAYABLE chips; Section 4 ends on a large orange NET CLIENT DISBURSEMENT $14,713.75.
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date 07/22/2027. Laura Whitcomb's 07/06/2027 award gave Harbor Point's $20,000.00 and Cardinal State's $10,000.00; their checks arrived 07/20 and today, joining Keystone's $10,000.00 held in trust since 03/29/2027: $40,000.00. Peach State accepted $1,116.00 (07/14) and Riverton Spine & Rehab $4,275.00 (07/16), both in writing. Every litigation cost is receipted.
 
@@ -2366,7 +2449,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 ---
 
-### 5.1.29 Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
+### 5.1.30 Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Skill Activity — a practice matter: three Withdrawal Letters, their dispatch and the Dropped status  
@@ -2377,7 +2460,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 A PRACTICE MATTER banner in orange across the top: DENISE HARLOW · LSH-2026-MVA-781205 · NOT JOHN DOE'S FILE. Left half, three stacked letter cards, each with a navy header (CLIENT · GRANITE SHIELD · BROOKSIDE PT) and a method chip (TEXT + EMAIL + CERTIFIED MAIL · EMAIL · FAX); only the client card carries an orange REASON line. Right half, the close-out log as a checklist: gate ✓ 12/08/2026, letters saved WORD + PDF, dispatch 12/09/2026, follow-up 12/16/2026, and a status pill turning from PENDING DROP to DROPPED. Bottom-right, a red chip: “Worthless? Not yours to say.”
 
-#### 2 · Slide Body — Let Them
+#### 2 · Slide Body — the scenario and the task
 
 **Scenario.** A practice matter, not John Doe's file: do not open or create it in the CMS. File date 12/09/2026. Denise Harlow (LSH-2026-MVA-781205) was rear-ended at a red light on 09/19/2026. Granite Shield Insurance holds the BI claim, GS-26-48213 (adjuster Paul Ostrander; CRM note: email only). She treated at Brookside Physical Therapy (CRM note: fax only) from 09/24 to 10/29/2026, then stopped: she has no Health Plan to pay for care, and Brookside declined a Letter of Protection. Atty. Thorne has decided to drop the case. Status: Pending Drop. His note, 12/08/2026, 2:10 p.m.: called Denise, told her the firm will close its representation; she understood; address 87 Alder Creek Dr, Riverton confirmed; she prefers text and email (denise.harlow@mail.example). RS05 shows the firm's standard retainer, with the withdrawal terms every client signs.
 
@@ -2440,7 +2523,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 ---
 
-### 5.1.30 Litigation Fork Transition Check
+### 5.1.31 Litigation Fork Transition Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2483,7 +2566,7 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 
 **1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
 
-**Auto-graded share of the day's Knowledge Check** (5 questions):
+**Auto-graded share of the day's Knowledge Check** (7 questions):
 
 1. On Track B, why can't the file demand the $20,000 Host UM while Keystone stalls?  
    Harbor Point has already denied the claim · **✓ Host UM opens only once BI is exhausted — paid or tendered at limits — so a UM demand now risks the stack (as configured for this training file; confirm the governing rule)** · UM claims can only be made after a lawsuit is filed · The lapsed Time-Limited Demand bars every other claim  
@@ -2500,6 +2583,12 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 5. Atty. Thorne authorized suit on 09/09/2026, the Case Manager changed the status to Litigation on 09/10, and the Complaint was filed 09/24/2026. From which date does the retainer's 40% fee tier apply?  
    09/09/2026, the authorization · 09/10/2026, the status change · **✓ 09/24/2026, the filing date** · 08/21/2026, the date the demand lapsed  
    *Per the retainer, 33⅓% pre-suit and 40% once suit is filed: the tier follows the filing, not the status. Recording 40% from 09/10 changes John Doe's fee two weeks early. Atty. Thorne discussed the tier with John Doe on 09/09; the CM records that, never explains the fee.*
+6. On 09/24/2026 the e-filing envelope for John Doe's Complaint is accepted. Which entry belongs on the calendar that day?  
+   The answer deadline, 30 days from the filing date · **✓ The service deadline, 01/22/2027 (09/24/2026 + 120 days on this file's rule set), with warning alerts; the answer date is set only once Robert Smith is served** · Only the Case Management Conference, since service dates belong to the process server · The service deadline counted from the date Atty. Thorne signed, 09/23/2026  
+   *Each clock runs from its own trigger. Filing starts the service clock, so 01/22/2027 goes on with alerts the day the envelope is accepted. The answer runs from service, which has not happened yet.*
+7. Two Complaints sit in John Doe's CMS on 09/24/2026: the 09/15/2026 draft stamped NOT FOR FILING, and the set Atty. Thorne signed on 09/23. What does the Case Manager upload?  
+   Whichever was saved first, since the content is the same · The 09/15 draft, signed with Atty. Thorne's e-signature to save time · **✓ Only the set Atty. Thorne signed on 09/23, after checking every page's signature** · Both, so the clerk can choose the operative version  
+   *Nothing is filed that Atty. Thorne has not signed, and the Case Manager never signs for him. The signature check is the Case Manager's job even when the paralegal drafted the set.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -2526,7 +2615,7 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 
 ---
 
-### 5.1.31 Countermeasure Operational Audit
+### 5.1.32 Countermeasure Operational Audit
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2611,7 +2700,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 5.1.32 Litigation Support Assessment
+### 5.1.33 Litigation Support Assessment
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2700,7 +2789,7 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 
 ---
 
-### 5.1.33 PD Dispute Evaluation
+### 5.1.34 PD Dispute Evaluation
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2782,7 +2871,7 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 
 ---
 
-### 5.1.34 Deposition Readiness Audit
+### 5.1.35 Deposition Readiness Audit
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2864,7 +2953,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 5.1.35 Final Comprehensive Knowledge Check
+### 5.1.36 Final Comprehensive Knowledge Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Knowledge Check (all five days) + CM Learning Summary & Self-Scale  
@@ -2944,7 +3033,7 @@ The standard knowledge-check split, extended for the final check. Above the crea
 
 ---
 
-### 5.1.36 Track B Close-Out Check
+### 5.1.37 Track B Close-Out Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -3012,7 +3101,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 5.1.37 Dropped Case Close-Out Check
+### 5.1.38 Dropped Case Close-Out Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

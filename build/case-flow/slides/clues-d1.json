@@ -443,5 +443,41 @@
         "The file already treats the new complaint as settled evidence."
       ]
     ]
+  },
+  "d1m4-emc": {
+    "dos": [
+      [
+        "A new PIP file lands on your desk from intake.",
+        "Florida and Riverton write very different PIP rules.",
+        "You check where the crash happened before reading any limit."
+      ],
+      [
+        "A Florida client calls the firm the week of the crash.",
+        "The date of loss starts a short clock.",
+        "Before hanging up, the deadline goes on the calendar."
+      ],
+      [
+        "Treatment records start arriving from several offices.",
+        "MD, PA-C and DC look alike in a busy log.",
+        "Each visit line shows the letters after the treater's name."
+      ]
+    ],
+    "donts": [
+      [
+        "John Doe asks how much PIP he has left.",
+        "His claim sits under Harbor Point's $5,000 PIP in Riverton.",
+        "The answer quotes a Florida limit for a Riverton file."
+      ],
+      [
+        "A Florida client's first visit was at a chiropractic office.",
+        "The note reads severe neck pain, treated with an adjustment.",
+        "The PIP Log moves to the $10,000 bucket on that note."
+      ],
+      [
+        "A Florida client asks about his PIP benefits by phone.",
+        "The full medical benefit hangs on a provider's finding.",
+        "The call ends with advice to book a physician for the money."
+      ]
+    ]
   }
 }

@@ -295,7 +295,7 @@ function blockMd(b, day, phase, k, mod){
     L.push("#### 2 · Slide Body — Show Them", "", showMd(b.show), "");
   }
   if(b.kind === "activity"){
-    L.push("#### 2 · Slide Body — Let Them", "", `**Scenario.** ${b.act.scenario}`, "", `**Execution prompt.** ${b.act.prompt}`, "",
+    L.push("#### 2 · Slide Body — the scenario and the task", "", `**Scenario.** ${b.act.scenario}`, "", `**Execution prompt.** ${b.act.prompt}`, "",
       "| | |", "|---|---|", `| **Tool / interface** | ${md(b.act.tool)} |`, `| **Expected output** | ${md(b.act.output)} |`, "");
     if(b.show) L.push("**Show Them — reference model**", "", showMd(b.show), "");
     L.push("**Verification checkpoints**", "", ...b.act.checkpoints.map(c => `- [ ] ${c}`), "");
