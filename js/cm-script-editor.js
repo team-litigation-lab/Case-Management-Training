@@ -137,20 +137,30 @@ function openSplit(slot){
   o.querySelector("#se-say").focus();
 }
 // the site's top bar: ✏️ Edit Speaker Notes and the status of the slide on screen, for trainers on a day's slides
+// from any page: back to the slides the trainer was on (else the first Case Flow day), then the editor
+function go(){
+  if(state.view === "day" && state.dayViewMode === "slides") return open();
+  const days = typeof DAYS !== "undefined" ? DAYS : [], d = days.find(x => x.id === state.dayId && x.cf) || days.find(x => x.cf); if(!d) return;
+  goto("day", d.id); state.dayViewMode = "slides";
+  if(typeof render === "function") render();
+  setTimeout(() => { if(here()) open(); }, 60);
+}
 function paintNav(){
   const nav = document.querySelector(".topbar .nav"); if(!nav) return;
   let b = nav.querySelector(".nav-sn");
-  const on = isAdmin() && !state.adminPreview && state.view === "day" && state.dayViewMode === "slides";
-  if(!on){ if(b) b.remove(); return; }
+  // every page, for trainers (never in Trainee view); off the slides it takes the trainer back to them
+  if(!isAdmin() || state.adminPreview){ if(b) b.remove(); return; }
   load();
-  const slot = here(), status = !slot ? "no script" : edits[slot.id] ? "edited" : "original";
-  if(!b){ b = document.createElement("button"); b.type = "button"; b.className = "nav-sn"; b.onclick = () => open(); nav.insertBefore(b, nav.firstChild); }
+  const onSlides = state.view === "day" && state.dayViewMode === "slides";
+  const slot = onSlides ? here() : null, status = !onSlides ? "off" : !slot ? "no script" : edits[slot.id] ? "edited" : "original";
+  if(!b){ b = document.createElement("button"); b.type = "button"; b.className = "nav-sn"; b.onclick = () => go(); nav.insertBefore(b, nav.firstChild); }
   // beside 📚 Guides: js/lsh-topbar.js gathers that menu just after the page draws, so the button follows it then too
   const place = () => { const g = document.querySelector('.topbar .lsh-grp[data-grp="guides"]'); if(g && b.isConnected && g.nextElementSibling !== b) g.insertAdjacentElement("afterend", b); };
   place(); setTimeout(place, 0); setTimeout(place, 120);
-  b.disabled = !slot;
-  b.title = slot ? "Edit this slide's speaker notes: saved for every trainer" : "This slide has no speaker notes to edit";
-  b.innerHTML = `✏️ Edit Speaker Notes <span class="nav-sn-st${status === "edited" ? " on" : ""}">${status === "no script" ? "No script on this slide" : status === "edited" ? "Edited" : "Original"}</span>`;
+  b.disabled = onSlides && !slot;
+  b.title = !onSlides ? "Open the slides you were on and edit their speaker notes" : slot ? "Edit this slide's speaker notes: saved for every trainer" : "This slide has no speaker notes to edit";
+  const label = {off: "Open slides", "no script": "No script on this slide", edited: "Edited", original: "Original"}[status];
+  b.innerHTML = `✏️ Edit Speaker Notes <span class="nav-sn-st${status === "edited" ? " on" : ""}">${label}</span>`;
 }
 if(!/[?&]audience=/.test(location.search) && typeof window.render === "function"){
   const __render = window.render;
