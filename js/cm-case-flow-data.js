@@ -5412,7 +5412,8 @@ window.CM_CASE_FLOW = {
             "Each deficiency logged as a dated, assigned CMS task, not fixed silently",
             "Signed by Atty. Thorne; emailed to Dana Whitfield 07/20/2026 from the Email Workspace, the 81-page Demand Package (Exhibits A–J) attached; logged",
             "Her written acknowledgement (07/22/2026, 9:06 a.m.) filed with the sent email as proof of delivery; deadline docketed 08/21/2026 (07/22 + 30 days) with reminders",
-            "Any extension request or response from Keystone routed to Atty. Thorne the same day, never answered by the CM"
+            "Any extension request or response from Keystone routed to Atty. Thorne the same day, never answered by the CM",
+            "The BI settlement set the demand sets in motion tracked as one CMS task from the day it is served: Smith's affidavit of no other insurance (the demand's condition), both UM carriers' consents and notarized Waivers of Subrogation, the executed Limited Release and the W-9; Keystone pays only once it is complete"
           ]
         },
         ops: [
@@ -6162,7 +6163,8 @@ window.CM_CASE_FLOW = {
             "Every question about what the release means routed to Atty. Thorne, who goes through it with John Doe before he signs",
             "Execution confirmed: notarized wet-ink original, notary's commission current, ID matches, every page initialed; the release is not e-signed",
             "Executed release scanned to the CMS and John Doe's portal copy the same day",
-            "Transmittal emailed to Dana Whitfield 08/28/2026: executed release, both waivers, the W-9; original by courier; written acknowledgement and check date requested",
+            "The BI settlement set complete and filed in the CMS under Others, each named the firm's way: Smith's affidavit of no other insurance (RS36), both UM consents (RS38), both notarized UM Subrogation Waivers (RS83), the executed Limited Release and the W-9",
+            "Transmittal emailed to Dana Whitfield 08/28/2026 enclosing that set: executed release, both waivers, Smith's affidavit and the W-9; original by courier; written acknowledgement and check date requested",
             "Her 08/31/2026 acknowledgement filed; check no. 0048213 issues 09/01, inside the 14 days",
             "Her question about adding Peach State as a payee routed to Atty. Thorne; no lien assurance given",
             "Check of $10,000.00 received and deposited to IOLTA 09/04/2026; copies to Marcus Bell and Teresa Okafor",
