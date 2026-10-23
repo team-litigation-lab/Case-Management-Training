@@ -88,14 +88,16 @@ if(typeof window.presenterRefresh === "function"){
 function onKey(e){ if(e.key === "Escape") close(); }
 function close(){
   document.removeEventListener("keydown", onKey);
-  const f = document.getElementById("se-inline"); if(!f) return;
-  f.remove();
+  const o = document.getElementById("se-over"); if(o) o.remove();
+  const f = document.getElementById("se-inline"); if(!f) return paintNav();
+  f.remove(); paintNav();
   const cu = document.getElementById("pvCues"); if(cu){ [...cu.children].forEach(x => { x.style.display = ""; }); cu.dataset.slide = ""; }
   if(typeof presenterRefresh === "function") try{ presenterRefresh(); }catch(e){}
 }
 // the notes become the editor, in place: the slide on the console stays in view
 function open(){
-  const slot = here(), cu = document.getElementById("pvCues"); if(!slot || !cu || document.getElementById("se-inline")) return;
+  const slot = here(), cu = document.getElementById("pvCues"); if(!slot || document.getElementById("se-inline")) return;
+  if(!cu) return openSplit(slot);
   const cur = current(slot);
   const f = document.createElement("div");
   f.id = "se-inline"; f.className = "se-form se-inline"; f.dataset.slot = slot.id;
@@ -107,9 +109,52 @@ function open(){
       <button type="button" class="btn btn-navy btn-sm" onclick="cmScriptEditor.save()">Save speaker notes</button></div>`;
   [...cu.children].forEach(x => { x.style.display = "none"; });
   cu.insertBefore(f, cu.firstChild); cu.parentElement.scrollTop = 0;
+  // bring the editor into view: on a small screen the notes sit below the slide, or behind the slides window
+  f.scrollIntoView({behavior: "smooth", block: "start"});
   document.addEventListener("keydown", onKey);
   paintBar();
   f.querySelector("#se-say").focus();
+}
+const formHtml = cur => `<label>🎙 Read aloud<textarea id="se-say" rows="12">${E(cur.say)}</textarea></label>
+    <label>❓ Ask the room<textarea id="se-ask" rows="3">${E(cur.ask)}</textarea></label>
+    <small>Write <code>{name}</code> where you call on a trainee: it becomes a first name from the batch you teach. Saved for every trainer.</small>
+    <div class="se-msg" id="se-msg" aria-live="polite"></div>
+    <div class="se-btns"><button type="button" class="btn btn-ghost btn-sm" onclick="cmScriptEditor.close()">Cancel</button>
+      <button type="button" class="btn btn-navy btn-sm" onclick="cmScriptEditor.save()">Save speaker notes</button></div>`;
+// outside Presenter view: a split screen, the slide on the left (as the room sees it, not editable), the notes on the right
+function openSplit(slot){
+  const d = slot.d, slides = buildDaySlides(d), idx = state.lessonSlide || 0;
+  let slide = ""; try{ slide = renderDaySlideContent(d, slides[idx], idx); }catch(e){}
+  const o = document.createElement("div");
+  o.id = "se-over"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "Edit Speaker Notes");
+  o.innerHTML = `<div class="se-box"><div class="se-head"><b>✏️ Edit Speaker Notes</b><span>Step ${idx + 1} of ${slides.length} · ${E(typeof daySlideTitle === "function" ? daySlideTitle(d, slides[idx]) : "")}</span>
+      <button type="button" class="se-x" aria-label="Close" onclick="cmScriptEditor.close()">✕</button></div>
+    <div class="se-split"><div class="se-slide"><div class="se-slide-in">${slide}</div></div>
+      <div class="se-form" id="se-inline" data-slot="${E(slot.id)}">${formHtml(current(slot))}</div></div></div>`;
+  o.addEventListener("click", e => { if(e.target === o) close(); });
+  document.body.appendChild(o); document.addEventListener("keydown", onKey);
+  o.querySelectorAll(".se-slide input, .se-slide textarea, .se-slide select, .se-slide button").forEach(x => { x.disabled = true; x.tabIndex = -1; });
+  o.querySelector("#se-say").focus();
+}
+// the site's top bar: ✏️ Edit Speaker Notes and the status of the slide on screen, for trainers on a day's slides
+function paintNav(){
+  const nav = document.querySelector(".topbar .nav"); if(!nav) return;
+  let b = nav.querySelector(".nav-sn");
+  const on = isAdmin() && !state.adminPreview && state.view === "day" && state.dayViewMode === "slides";
+  if(!on){ if(b) b.remove(); return; }
+  load();
+  const slot = here(), status = !slot ? "no script" : edits[slot.id] ? "edited" : "original";
+  if(!b){ b = document.createElement("button"); b.type = "button"; b.className = "nav-sn"; b.onclick = () => open(); nav.insertBefore(b, nav.firstChild); }
+  // beside 📚 Guides: js/lsh-topbar.js gathers that menu just after the page draws, so the button follows it then too
+  const place = () => { const g = document.querySelector('.topbar .lsh-grp[data-grp="guides"]'); if(g && b.isConnected && g.nextElementSibling !== b) g.insertAdjacentElement("afterend", b); };
+  place(); setTimeout(place, 0); setTimeout(place, 120);
+  b.disabled = !slot;
+  b.title = slot ? "Edit this slide's speaker notes: saved for every trainer" : "This slide has no speaker notes to edit";
+  b.innerHTML = `✏️ Edit Speaker Notes <span class="nav-sn-st${status === "edited" ? " on" : ""}">${status === "no script" ? "No script on this slide" : status === "edited" ? "Edited" : "Original"}</span>`;
+}
+if(!/[?&]audience=/.test(location.search) && typeof window.render === "function"){
+  const __render = window.render;
+  window.render = function(){ const r = __render.apply(this, arguments); try{ paintNav(); }catch(e){} return r; };
 }
 async function save(){
   const f = document.getElementById("se-inline"); if(!f) return;
@@ -131,7 +176,19 @@ css.textContent = `.se-bar{display:inline-flex;align-items:center;gap:8px;margin
 .se-form textarea{font:500 15px/1.55 'Inter',sans-serif;border:1px solid #CBD2E0;border-radius:10px;padding:10px 12px;resize:vertical;}
 .se-form small{color:#5B6579;font-size:12px;} .se-msg.bad{color:#B42318;font-weight:600;font-size:13px;}
 .se-btns{display:flex;justify-content:flex-end;gap:8px;}
-.se-inline{padding:4px 0 8px;}`;
+.se-inline{padding:4px 0 8px;}
+.topbar .nav .nav-sn{background:#F0C08A;color:#1F2433;font-weight:800;border-radius:10px;}
+.topbar .nav .nav-sn:disabled{opacity:.55;cursor:default;} .nav-sn-st{font-size:11px;font-weight:700;margin-left:4px;padding:1px 7px;border-radius:999px;background:rgba(255,255,255,.55);}
+.nav-sn-st.on{background:#262B45;color:#F0C08A;}
+#se-over{position:fixed;inset:0;z-index:2147483000;background:rgba(20,24,40,.55);display:flex;align-items:center;justify-content:center;padding:18px;}
+.se-box{background:#fff;border-radius:14px;width:min(1400px,100%);height:min(860px,100%);display:flex;flex-direction:column;box-shadow:0 20px 50px rgba(0,0,0,.3);overflow:hidden;}
+.se-head{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #E2E6EF;font:600 14px 'Inter',sans-serif;color:#262B45;}
+.se-head span{color:#5B6579;font-weight:500;flex:1;} .se-x{border:0;background:none;font-size:18px;cursor:pointer;color:#5B6579;}
+.se-split{flex:1;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);min-height:0;}
+.se-slide{overflow:auto;background:#F2F4F8;border-right:1px solid #E2E6EF;padding:14px;}
+.se-slide-in{pointer-events:none;user-select:none;zoom:.8;}
+#se-over .se-form{padding:16px;overflow:auto;}
+@media(max-width:900px){.se-split{grid-template-columns:1fr;grid-template-rows:45% 55%;}}`;
 document.head.appendChild(css);
 window.cmScriptEditor = {open, close, save, load, edits: () => edits};
 })();
