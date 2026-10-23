@@ -1074,9 +1074,9 @@ if(typeof buildDaySlides === "function"){
     });
     // the module's three key concepts, after its last Skill Activity, right before the Knowledge Check
     if(lastAct >= 0 && labQuestions(d).length) out.splice(lastAct, 0, {type: "readyCheck"});
-    // the last day closes the case: a congratulations and a thank-you card, shown only after its Knowledge Check
-    // (once passed, or when 🎓 Finish Training opens it)
-    if(isLastCfDay(d) && (((state.progress || {})[d.id] || {}).done || state.cfClosing === d.id)) out.push({type: "closing"});
+    // the last day closes the case: a congratulations and a thank-you card, not in the deck: it opens only from
+    // 🎓 Finish Training, once the Knowledge Check is passed
+    if(isLastCfDay(d) && state.cfClosing === d.id) out.push({type: "closing"});
     return out;
   };
 }
