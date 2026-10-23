@@ -327,12 +327,16 @@ release; check to follow.
 *Key:* Track A only. BI exhausted by tender — the UM consents (RS38) must come before any release is signed.
 
 **RS37 · Keystone Mutual — Draft Release (08/14/2026)** · Day 3 · Case Files · `RS_37_Keystone_Draft_Release.pdf`
-"Release of All Claims" for $10,000: releases Robert Smith, Keystone Mutual "**and all other persons, firms,
-corporations and insurers**" from all claims arising from the 02/06/2026 collision; confidentiality; hold-harmless
-and lien indemnity by the claimant; signature lines.
-*Plant:* the release language reaches "all other ... insurers" (Harbor Point and Cardinal State).
-*Key:* Signing this releases the UM claims. Redline to a limited release of Robert Smith and Keystone only, preserving
-all UM/UIM claims, and route to Atty. Thorne before the client sees it. Revised limited release signed 08/28/2026.
+Dana Whitfield's cover letter (08/14/2026: sign before a notary, wet-ink original; **before payment issues, each UM carrier's written
+consent and waiver of subrogation against Robert Smith**, and the firm's W-9) and Keystone's "Release of All Claims" (Form KM-REL-100)
+for $10,000: releases Robert Smith, Keystone Mutual "**and all other persons, firms, corporations and insurers**"; claims released include
+bodily injury, property damage and loss of use; §1 non-admission; §2 unknown injuries; §3 confidentiality; §4 lien warranty with
+indemnify, defend and hold harmless including attorney's fees; §5 Medicare representation; §6 entire agreement, governed by "the laws of
+the state in which it is signed"; signature, witness and notary block.
+*Plant:* the release language reaches "all other ... insurers" (Harbor Point and Cardinal State); the clause audit (d3m2-rel) also finds
+the property-damage reach, the missing UM reservation, the confidentiality term, the unlimited indemnity and the missing payment date.
+*Key:* Signing this releases the UM claims. Clause-audit it, propose amendments, route to Atty. Thorne before the client sees it. As
+approved: RS80. Limited Release signed 08/28/2026 (RS81).
 
 **RS38 · UM Consents to Settle** · Day 3 · Others · `RS_38_UM_Consents_to_Settle.pdf`
 Harbor Point 08/24/2026 (Marcus Bell) and Cardinal State 08/26/2026 (Teresa Okafor): consent to the $10,000 BI
@@ -343,6 +347,27 @@ settlement with Robert Smith/Keystone, waiver of subrogation against Smith, no s
 Harbor Point: 09/14/2026 offer $8,000 ("the gap"; "BI already compensated him"); 09/29/2026 payment of the $20,000
 limits. Cardinal State: 10/01/2026 offer $6,000; 10/06/2026 tender of the $10,000 limits.
 *Key:* "BI already compensated him" is wrong on an add-on UM (RS28). Gross recovery $40,000.00.
+
+**RS80 · Keystone Limited Release — as approved (08/19/2026)** · Day 3 · Case Files · `RS_80_Keystone_Limited_Release_AS_APPROVED.pdf`
+LSH file cover sheet (what changed from RS37 and who decided it), Keystone's 08/19/2026 letter accepting Atty. Thorne's 08/17 redline, and
+the Limited Release (Form KM-REL-100-L), unsigned: Smith and Keystone only, "and no other person, firm, corporation or insurer"; the BI
+claim only; §1 UM/UIM claims (HP-26-7741, CS-26-20355) and the Civic's claim (KM-26-440871-PD) reserved; §2 non-admission; §3 unknown
+injuries; §4 liens on the file paid from trust, hold harmless to the extent of the proceeds, no defense or fees; §5 Medicare; §6 payment
+within 14 days of receipt of the executed release and W-9; §7 State of Riverton law. No confidentiality.
+*Key:* No plants. The reveal of the clause audit (d3m2-rel); what John Doe signs on 08/28/2026.
+
+**RS81 · BI Settlement Packet — Executed, Transmitted & Funded (as filed 09/04/2026)** · Day 3 · Others · `RS_81_BI_Settlement_Packet_EXECUTED_AND_FUNDED.pdf`
+Memorandum to file: the packet table, the 08/28/2026 4:21 p.m. transmittal email, Dana Whitfield's 08/31/2026 9:12 a.m. acknowledgment
+(check to issue 09/01), her 09/01 payee question and how it was routed, what the exchange establishes, where it is filed; the executed
+Limited Release (John Doe, 08/28/2026, notary Renee Castillo, NP-0522190, expires 03/31/2030; Atty. Thorne approved as to form); the
+signing session record; Keystone check no. 0048213, $10,000.00, issued 09/01, received and deposited to IOLTA 09/04/2026.
+*Key:* No plants. The model for the transmittal email (d3m2-exec) and the fully executed settlement packet every later activity works from.
+
+**RS82 · Release Clause Review & Attorney Approval — Memorandum (as filed)** · Day 3 · Others · `RS_82_Release_Clause_Review_and_Approval_Memo.pdf`
+Memorandum dated 08/17/2026: the clause-by-clause review of RS37 with proposed amendments, the Case Manager's email to Atty. Thorne
+(08/14/2026, 4:21 p.m.), his written approval (08/17/2026, 9:40 a.m.), what the approval establishes, where it is filed, and the adjuster's
+08/18 side-letter request and how it was routed.
+*Key:* No plants. The model for the release review email (d3m2-rel).
 
 ### Liens (folder `liens`) — RS40 is listed under Day 1 above
 
@@ -356,6 +381,26 @@ satisfaction (a one-third procurement-cost reduction), payment instructions.
 Tammy Greer, 10/12/2026: accepts **$4,580.00** in full satisfaction of the LOP account (audited balance $6,105.00);
 release of lien on payment; payment instructions.
 *Key:* $6,290.00 billed → $6,105.00 audited (duplicate removed) → $4,580.00 accepted.
+
+**RS84 · Vance & Kettering — Notice of Charging Lien & Fee-Division Demand (10/13/2026)** · Day 4 · Others · `RS_84_Vance_Kettering_Notice_of_Charging_Lien.pdf`
+Atty. Corbin Vance's letter (dated 10/13, received by email 10/14/2026): retained 07/27/2026; "substantial services"; carriers "placed on
+notice"; charging lien; one-half of the fee on $40,000.00 = $6,666.67; hold the entire settlement; asks the case manager to confirm the fee
+division by 10/16. Enclosures: the Contingency Fee Agreement (client "John Doe (by Margaret Doe, mother)", signed only by Margaret Doe and
+Paige Lusk for the firm; John Doe's line blank; no authority attached) and the time record (0.4 h 07/27, 0.2 h 07/29, both with Margaret).
+*Plants:* the representation and work claims the record contradicts (no client signature or authority; 0.6 hours with Margaret, nothing on
+the claim; no carrier notice; dated after LSH's 02/09/2026 engagement and the 07/20/2026 demand).
+*Key:* The Case Manager logs receipt, answers nothing to the firm, investigates facts and builds RS85; validity, any response and the hold
+are Atty. Thorne's.
+
+**RS85 · Asserted Prior-Attorney Lien — Evidentiary Packet to Atty. Thorne (10/15/2026)** · Day 4 · Others · `RS_85_Prior_Attorney_Lien_Evidentiary_Packet.pdf`
+Factual summary, representation timeline, signature comparison (RS05, RS06 against RS84), work-product audit, John Doe's statement on the
+10/15 call, the $6,666.67 hold and Action Plan update, and the questions for Atty. Thorne's decision.
+*Key:* No plants. The reveal of the lien audit (d3m4-pal).
+
+**RS86 · Prior-Attorney Lien — Atty. Thorne's Repudiation (10/16) & Withdrawal (10/19/2026)** · Day 4 · Others · `RS_86_Lien_Repudiation_and_Withdrawal.pdf`
+Atty. Thorne's letter rejecting the lien and asking for withdrawal by 10/20; Vance & Kettering's written withdrawal of 10/19/2026 claiming
+no fee; the file note: hold released 10/19, everything filed in the CMS and on the Backup Drive.
+*Key:* No plants. A condition precedent of the 10/22/2026 disbursement.
 
 ### Settlement & wages (folder `settlement`)
 
