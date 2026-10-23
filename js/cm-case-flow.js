@@ -2173,8 +2173,27 @@ if(typeof slideScript === "function"){   // Presenter view: each slide has its o
   slideScript = function(d, l, part){
     const n = l && l.cf && (window.SLIDE_SCRIPTS || {})[`${d.id}::${l.h}`];
     const h = n && n["p" + (part || 1)];
-    return h ? {why: h.why || "", talk: h.talk || "", walk: h.walk || [], ask: h.ask || "", scenario: h.scenario || "", hand: true} : __script.apply(this, arguments);
+    if(!h) return __script.apply(this, arguments);
+    const k = `${d.id}::${l.h}::${part || 1}`;
+    return {why: h.why || "", talk: named(h.talk || "", k), walk: h.walk || [], ask: named(h.ask || "", k + "?"), scenario: h.scenario || "", hand: true};
   };
+}
+/* The scripts call on trainees by name: each {name} becomes a first name from the batch being taught (Trainee
+   Audit's batch filter, else the newest batch), and [Trainee] until the roster has loaded. The same slide always
+   calls the same people, so a re-drawn console doesn't change who was called; the next {name} moves on. */
+let rosterAsked = false;
+function roster(){
+  const rs = (state.adminData || []).filter(r => r && r.approved === true && !r.archived && r.name);
+  if(!rs.length && state.isAdmin && !rosterAsked && typeof loadAdminLedgerQuiet === "function"){ rosterAsked = true; loadAdminLedgerQuiet().catch(() => {}); }
+  const day = b => { const m = /^B(\d\d)(\d\d)(\d\d)$/.exec(String(b || "").trim().toUpperCase()); return m ? +(m[3] + m[1] + m[2]) : -1; };
+  const key = r => String(r.batch || "").trim().toUpperCase();
+  const pick = state.adminBatchFilter ? String(state.adminBatchFilter).trim().toUpperCase() : rs.map(key).sort((a, b) => day(b) - day(a))[0];
+  return [...new Set(rs.filter(r => key(r) === pick).map(r => String(r.name).trim().split(/\s+/)[0]))].sort();
+}
+function named(s, k){
+  if(!/\{name\}/.test(s)) return s;
+  const rs = roster(); let h = 0; for(const c of k) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  let i = 0; return s.replace(/\{name\}/g, () => rs.length ? rs[(h + i++) % rs.length] : "[Trainee]");
 }
 
 /* ---------- Presenter view: the speaker notes, as this course's slide scripts ---------- */
