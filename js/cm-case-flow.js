@@ -777,6 +777,13 @@ window.cmCaseFlow.finish = function(){
   const k = buildDaySlides(d).findIndex(x => x.type === "closing");
   state.lessonSlide = k >= 0 ? k : 0; if(typeof render === "function") render(); window.scrollTo(0, 0);
 };
+// the Congratulations slide is a stop of its own, never part of the deck: leaving it (Previous, Slide Map, another
+// page) closes it, so the deck ends on Continue to Knowledge Check again
+["goto", "prevSlide", "goToSlide"].forEach(f => {
+  if(typeof window[f] !== "function") return;
+  const __f = window[f];
+  window[f] = function(){ if(state.cfClosing){ state.cfClosing = null; if(f === "goToSlide" || f === "prevSlide") state.lessonSlide = Math.min(state.lessonSlide, buildDaySlides(DAYS.find(x => isLastCfDay(x))).length); } return __f.apply(this, arguments); };
+});
 window.cmCaseFlow = window.cmCaseFlow || {};
 window.cmCaseFlow.cg = function(id, act, arg){
   const g = CG[id], b = blockById(id); if(!g || !b) return;
