@@ -28,7 +28,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file: Lesson → Skill Building → Lesson → Skill Building → … → Knowledge Check: each topic's lessons are followed straight away by the Skill Activities that practise them on the file in the CMS, and the Knowledge Checks close the day. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, run topic by topic: a topic's lessons, then its Skill Building (its Skill Activities on the file in the CMS, Your Task first, then Your Case), then a short brainstorm, then the next topic; the Knowledge Check closes the day. A lesson marked (condensed) is a short overview.
 
 **Module 4 — Reductions, Lien Negotiation & ADR**
 

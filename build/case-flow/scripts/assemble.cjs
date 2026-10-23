@@ -24,11 +24,11 @@ function viewsOf(b){
 function viewsIn(b){
   const t = (SLIDES[b.id] || {}).theory;
   const theory = !t ? [] : (t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]).concat(t.framework ? ["frame"] : []);
-  const doc = (SLIDES[b.id] || {}).document ? ["doc"] : [];
+  const doc = (SLIDES[b.id] || {}).document ? ["doc"] : [], map = (SLIDES[b.id] || {}).roadmap && !(SLIDES[b.id] || {}).roadmap.merge ? ["map"] : [];
   if(b.kind === "lesson" && b.brief) return ["why"].concat(doc, ["rules"]).concat((b.ops || []).length ? ["job"] : []);
-  if(b.kind === "lesson" && b.compact) return ["why"].concat(doc, ((SLIDES[b.id] || {}).roadmap && !(SLIDES[b.id] || {}).roadmap.merge ? ["map"] : []), theory.slice(0, 1), ["rules"], (b.ops || []).length ? ["job"] : []);
-  if(b.kind === "lesson") return ["why"].concat(doc, ((SLIDES[b.id] || {}).roadmap && !(SLIDES[b.id] || {}).roadmap.merge ? ["map"] : []), theory, ["rules"], b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);
-  if(b.kind === "activity") return ["case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], ["task"], AUDITS[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);
+  if(b.kind === "lesson" && b.compact) return map.concat(theory.slice(0, 1), ["why"], doc, ["rules"], (b.ops || []).length ? ["job"] : []);
+  if(b.kind === "lesson") return map.concat(theory, ["why"], doc, ["rules"], b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);
+  if(b.kind === "activity") return ["task", "case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], AUDITS[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);
   const qs = (SLIDES[b.id] || {}).questions || b.check.questions;
   return (qs.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
 }

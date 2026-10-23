@@ -205,7 +205,7 @@ window.CM_CF_DOCS = [
   {id:"RS48", folder:"property", file:"case-flow/property/RS_48_Keystone_PD_Final_Offer_and_Release.pdf", title:"Keystone PD — Final Offer & Release (12/10/2026)", cms:"PD", day:5,
    desc:"Keystone PD's \"final\" Diminished Value and loss-of-use position, with a release for Margaret Doe to sign (the Civic is hers).",
    key:"PLANTED: the PD release, for Margaret Doe's signature, reaches all claims from the accident, not only the Civic. Never let her sign a PD release that isn't limited to Property Damage; John Doe has no PD claim and signs nothing. 17c caps at 10% and multiplies it down; the appraisal is $3,600.00. Route to Atty. Thorne with a recommendation."},
-  {id:"RS49", folder:"litigation", file:"case-flow/litigation/RS_49_Keystone_Impasse_Correspondence.pdf", title:"Keystone — Impasse Correspondence (Aug–Sep 2026)", cms:"Litigation", day:5,
+  {id:"RS49", folder:"litigation", file:"case-flow/litigation/RS_49_Keystone_Impasse_Correspondence.pdf", title:"Keystone — Impasse Correspondence (Aug–Sep 2026)", cms:"Litigation", day:4,
    desc:"Track B: the rebuttal, Keystone's \"final\" $3,500, the unanswered follow-ups and the escalation.",
    key:"The impasse record: every attempt dated, every silence documented. The demand lapsed 08/21/2026."},
   {id:"RS50", folder:"litigation", file:"case-flow/litigation/RS_50_Complaint_PRE-FILING_DRAFT.pdf", title:"Complaint — Pre-Filing Draft (superseded)", cms:"Litigation", day:4,
