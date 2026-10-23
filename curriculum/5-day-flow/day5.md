@@ -37,39 +37,34 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 3. *Skill Activity* — Triggering the Litigation Fork
 4. *Skill Activity* — Transition the File to Litigation Status
 5. *Skill Activity* — E-Filing the Complaint & Calendaring Service
-6. *Lesson* — Identifying Non-Responsive Adjusters, Delayed Records & Scheduling Bottlenecks (condensed)
-7. *Lesson* — Escalation Workflows & Supervisory Reporting Guidelines (condensed)
-8. *Skill Activity* — Automated Countermeasure Triggering in CMS
-9. *Skill Activity* — Bottleneck Resolution Simulation
-10. *Lesson* — Litigation Tracking: the Pleadings Log & the Discovery Calendar (condensed)
-11. *Lesson* — Trial Preparation Checklists & Litigation KPIs (condensed)
-12. *Lesson* — Subpoena Management: Records Subpoenas (Duces Tecum) & Trial Subpoenas
-13. *Skill Activity* — Pleadings & Discovery Log Maintenance
-14. *Skill Activity* — Trial Prep Checklist Audit & KPI Update
-15. *Lesson* — Repair Estimates vs. ACV & Loss-of-Use Allocations (condensed)
-16. *Lesson* — Diminished Value & PD Dispute Resolution (condensed)
-17. *Skill Activity* — Evaluating Repair Estimates vs. ACV & Loss-of-Use
-18. *Skill Activity* — Diminished Value Calculation & Negotiation Lab
-19. *Lesson* — Client Prep for a Virtual Deposition & Injury Narrative Alignment
-20. *Lesson* — Opposing Counsel's Traps & Defending Key Testimony
-21. *Skill Activity* — Virtual Deposition Prep Roleplay
-22. *Skill Activity* — Mock Deposition Cross-Examination Handling
-23. *Lesson* — Comparative Negligence & the Liability Counter-Package (condensed)
-24. *Lesson* — Skip-Tracing, Process Servers & Certified Notice (condensed)
-25. *Skill Activity* — Building the Comparative Liability Counter-Package
-26. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch
-27. *Lesson* — Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund (condensed)
-28. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award
-29. *Lesson* — Dropped Cases: the Case Manager's Close-Out (condensed)
-30. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
-31. *Knowledge Check* — Litigation Fork Transition Check
-32. *Knowledge Check* — Countermeasure Operational Audit
-33. *Knowledge Check* — Litigation Support Assessment
-34. *Knowledge Check* — PD Dispute Evaluation
-35. *Knowledge Check* — Deposition Readiness Audit
-36. *Knowledge Check* — Final Comprehensive Knowledge Check
-37. *Knowledge Check* — Track B Close-Out Check
-38. *Knowledge Check* — Dropped Case Close-Out Check
+6. *Lesson* — Litigation Tracking: the Pleadings Log & the Discovery Calendar (condensed)
+7. *Lesson* — Trial Preparation Checklists & Litigation KPIs (condensed)
+8. *Lesson* — Subpoena Management: Records Subpoenas (Duces Tecum) & Trial Subpoenas
+9. *Skill Activity* — Pleadings & Discovery Log Maintenance
+10. *Skill Activity* — Trial Prep Checklist Audit & KPI Update
+11. *Lesson* — Repair Estimates vs. ACV & Loss-of-Use Allocations (condensed)
+12. *Lesson* — Diminished Value & PD Dispute Resolution (condensed)
+13. *Skill Activity* — Evaluating Repair Estimates vs. ACV & Loss-of-Use
+14. *Skill Activity* — Diminished Value Calculation & Negotiation Lab
+15. *Lesson* — Client Prep for a Virtual Deposition & Injury Narrative Alignment
+16. *Lesson* — Opposing Counsel's Traps & Defending Key Testimony
+17. *Skill Activity* — Virtual Deposition Prep Roleplay
+18. *Skill Activity* — Mock Deposition Cross-Examination Handling
+19. *Lesson* — Comparative Negligence & the Liability Counter-Package (condensed)
+20. *Lesson* — Skip-Tracing, Process Servers & Certified Notice (condensed)
+21. *Skill Activity* — Building the Comparative Liability Counter-Package
+22. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch
+23. *Lesson* — Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund (condensed)
+24. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award
+25. *Lesson* — Dropped Cases: the Case Manager's Close-Out (condensed)
+26. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
+27. *Knowledge Check* — Litigation Fork Transition Check
+28. *Knowledge Check* — Litigation Support Assessment
+29. *Knowledge Check* — PD Dispute Evaluation
+30. *Knowledge Check* — Deposition Readiness Audit
+31. *Knowledge Check* — Final Comprehensive Knowledge Check
+32. *Knowledge Check* — Track B Close-Out Check
+33. *Knowledge Check* — Dropped Case Close-Out Check
 
 **End-of-day discussion (trainer):** It is 01/05/2027. Opposing counsel's paralegal says your client's discovery responses are late, John Doe has changed his phone number, and the deposition is set for 02/18/2027. What do you do today, in what order, and what is Atty. Thorne's call, not yours?
 
@@ -77,7 +72,7 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 
 ## Module 5 — Litigation & Dropped Cases
 
-**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 5.1.1 Impasse Triggers & Filing Criteria
 
@@ -486,327 +481,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.6 Identifying Non-Responsive Adjusters, Delayed Records & Scheduling Bottlenecks
-
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Countermeasure Operational Audit (`d4m4`)  
-> **Topic:** Name the bottleneck by the date it threatens  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · `D4#30` Common Bottlenecks: Arbitration (The Trial-Ready Landmines) · LSH Claims Specialist: BI liability follow-ups (every 5 business days) and the escalation protocol
-
-#### 1 · Visual Layout Description
-
-A Track B timeline runs across the full slide on a navy rail, hard dates as mono pills: 08/21/2026 · 03/11/2027 · 03/18/2027 · 03/31/2027 · 06/02/2027 · 06/22/2027. Above it, three cream cards with orange numbered badges: ① NON-RESPONSIVE PARTY ② DELAYED RECORD ③ SCHEDULING, each dropping an orange leader line to the date it threatens. Card ① is the largest, with a red danger callout beneath it: “$10,000 carrier · $40,000 frozen.” Right edge, behind a thin vertical rule, two stacked chips: MEDIATION — a gap costs leverage (navy) and ARBITRATION — a gap costs evidence (red). The argument: a bottleneck is measured by the hard date it threatens, not by how irritating it is.
-
-#### 2 · Slide Body — Tell Them
-
-*Why:* On Track B, Keystone held at $3,500 on the 14-Day Gap, then went silent: a $10,000 carrier froze the whole $40,000 stack and forked the file into suit. Bottlenecks look like a quiet inbox, a record “on its way”, an unconfirmed date. Anticipate them, and clear them before they cost a deadline or an exhibit.
-
-1. A bottleneck is any dependency that can stop the file reaching a hard date. Log it the day it starts, with the hard date it threatens; age it daily.
-2. Non-responsive adjuster: follow up every 5 business days and log date, time, method and outcome. Keystone left 08/24 and 08/31/2026 unanswered, then the 09/02 escalation.
-3. Silence is a position. Record it as dated facts (“no response to 08/24, 08/31 or 09/02”), never as “adjuster busy”. With BI unexhausted, Host UM and Relative UM cannot open.
-4. Delayed records: a request unanswered after 14 days is a bottleneck, not a wait. The biggest mediation bottleneck is an unverified ledger: Specials $16,401.40, Riverton Spine & Rehab audited to $6,105.00, Peach State asserting $1,860.00.
-5. Missing decision-maker: a representative without authority to pay sinks a mediation. Verified ledgers reach Keystone via defense counsel, as Atty. Thorne directs, in time for an authority raise.
-6. Brief alignment: the confidential statement and binder reach Hon. Carla Benton (Ret.) by 03/11/2027 with every critical exhibit (MRI, Causation Letter, Police Report, doorbell video). A late brief stalls her.
-7. Arbitration is binding: no second hearing. An exhibit not exchanged by 06/02/2027 can be excluded; one that is illegible or not a fair and accurate copy can be excluded or given little weight. Print stills in color from the native file so nothing turns on quality.
-8. Shield the prior: the 2021 low-back chiropractic visits will be used to discount the neck injury. Package them with an expert declaration, as Atty. Thorne directs.
-9. Scheduling: sync the neutral's, the parties' and Atty. Thorne's windows before a date is offered. Mediation is completed by 03/31/2027; the arbitration brief is docketed 06/11/2027. A date outside the order is no date.
-
-> ⚠️ **UPL boundary.** You may chase, document, flag and report a bottleneck. You may not choose a legal remedy (a subpoena, a motion, an extension), discuss value with a carrier, or tell John Doe what Keystone's silence means for his claim. Those are Atty. Thorne's.
-
-#### 2 · Slide Body — Show Them
-
-*Five bottlenecks on the Track B file, their early signals and the dates they threaten*
-
-| Bottleneck | On this file | Early signal | Hard date threatened |
-|---|---|---|---|
-| Non-responsive adjuster | Keystone (Dana Whitfield) after its “final” $3,500 | Second follow-up unanswered | UM can't open; SOL cutoff 11/05/2027 |
-| Delayed record | Riverton Spine & Rehab's Final Ledger | No answer 14 days after the request | Binder to the mediator 03/11/2027 |
-| Missing decision-maker | Keystone's mediation attendee | Authority unconfirmed 10 days out | Mediation 03/18/2027 |
-| Scheduling | A proposed mediation date | Falls after the order's deadline | Mediation completed by 03/31/2027 |
-| Evidentiary exclusion | Arbitration exhibits, prior-medical shield | An exhibit incomplete 10 days out | Exhibit exchange 06/02/2027 |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A follow-up goes unanswered | Log it and date the next follow-up on the 5-business-day cadence | CMS → Communications Log | Date, time, method and outcome logged; next follow-up dated |
-| The second follow-up goes unanswered | Open a bottleneck entry: blocker, start date, hard date threatened | CMS → Case File → Bottleneck Log | Start date is the first unanswered request (Keystone: 08/24/2026) |
-| A proposed ADR date arrives | Check it against every party's window and the hard-date calendar before anyone accepts it | Case Docket & Calendar Conflict Resolver | No mediation date after 03/31/2027 reaches Atty. Thorne as available |
-| A binder or exhibit dependency is open 10 days out | Red-flag it and tell Atty. Thorne | CMS → Case File → Risk Flags | Flag dated 03/01/2027 for the 03/11/2027 binder |
-
-**Best practices & pitfalls**
-
-- Anticipate and eliminate: a bottleneck found at the deadline was found too late.
-- The single biggest mediation bottleneck is an unverified medical ledger.
-- Follow up in writing as well as by phone; a call alone leaves nothing to prove the silence with.
-- ⚠️ Pitfall: a confidential statement that reaches the mediator ten minutes before the session.
-- ⚠️ Pitfall: damage photos or video stills printed in grayscale for a binding hearing.
-- ⚠️ Pitfall: logging silence as “adjuster busy” instead of the dates that prove it.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Bottleneck classification | Each problem placed in its family (party, record, scheduling) with this file's example |
-| 🤖 AI | **20%** | Dates and hard dates | 08/24, 08/31, 09/02, 09/04/2026 and 03/11, 03/18, 03/31, 06/02, 06/11/2027 matched to the right bottleneck |
-| 🤖 AI | **20%** | Mediation and arbitration traps | Unverified ledger, missing decision-maker, late brief; exclusion, unshielded prior, missed cutoff |
-| 🧑‍🏫 Trainer | **25%** | Anticipation | Names each bottleneck from its early signal, before the hard date makes it obvious |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | Chases and reports; never chooses a legal remedy, discusses value or explains Keystone's silence to John Doe |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Open on the frozen stack: put $10,000 beside $40,000 and ask, “How much of John Doe's coverage did Keystone's silence lock?” All of it. That is what one unmanaged bottleneck costs.
-- Ask the room: “When did the Keystone bottleneck start: 08/21, 08/24 or 09/04?” The lapse on 08/21 was a negotiating outcome; the silence began with the first unanswered request, 08/24. The log has to show it from that day, not from the day it hurt.
-- Watch for trainees treating mediation and arbitration bottlenecks alike. A thin Mediation Binder costs leverage; a missing arbitration exhibit can be excluded from a binding hearing. Evidentiary exclusion is the hardest landmine to recover from.
-- The decision-maker trap: an adjuster who arrives with authority well below the limits means the package and verified ledgers reached the carrier too late for an authority raise. Keystone tendered the $10,000 limits at mediation on 03/18/2027; someone in the room had to be able to pay them.
-
----
-
-### 5.1.7 Escalation Workflows & Supervisory Reporting Guidelines
-
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Countermeasure Operational Audit (`d4m4`)  
-> **Topic:** The ladder decides who hears; the report decides whether they can act  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D5#32` Advanced KPIs for Litigation Case Managers · LSH Claims Specialist: escalation protocol (supervisor review, internal flag, certified request for a written position)
-
-#### 1 · Visual Layout Description
-
-Left third: a three-rung ladder drawn bottom-up, navy rungs with orange numbered badges — ① SOURCE ② SUPERVISOR · NOTICE OF DELAY ③ ATTY. THORNE — a 48 H mono pill on the rail between each pair. Under the ladder, a red danger strip: “Don't skip. Don't sit.” Right two-thirds: the bottleneck report as a white memo card with a navy header bar, five fields called out by orange badges — ① Blocker ② Started ③ Threatens ④ Tried ⑤ The ask — each filled in with Keystone's dates in mono type. The ask is boxed in orange and is the only field in bold. The argument: escalation is a sequence, and the report is what lets counsel act in one read.
-
-#### 2 · Slide Body — Tell Them
-
-*Why:* An escalation without the dates, the threatened deadline and a clear ask makes Atty. Thorne do your research before he can decide. The ladder decides who hears about a bottleneck and when; the report decides whether they can act on it in one read.
-
-1. Climb one rung at a time and log each attempt. Rung 1: the source, on the follow-up cadence. Rung 2: its supervisor or office manager, with a written Notice of Delay. Rung 3: Atty. Thorne.
-2. The Notice of Delay states facts: what is outstanding, since when, the hard date it threatens, and a request to review the delay. It never argues bad faith or the insured's exposure; that analysis is Atty. Thorne's.
-3. The 48-Hour Mandate times the climb: after the second unanswered follow-up, each step gets 48 hours before silence moves the file up. Keystone: second follow-up 08/31 → supervisor 09/02 → silence 09/04 → Atty. Thorne; impasse memo 09/08/2026.
-4. It also audits: 48 hours before every hard date, check ledgers against EOBs, the binder for completeness, the set for OCR. What it finds is escalated that day.
-5. Rung 3 is where legal tools live: a certified request for a written position, a subpoena, a motion to compel, an extension. You may name it in the ask as a question (“Do you want a records subpoena?”); Atty. Thorne decides, signs and sends.
-6. Don't skip, don't sit. Skipping Rungs 1 and 2 spends his time on a supervisor's problem. With a hard date 10 days out, red-flag and tell him in parallel while the rungs continue.
-7. Every report carries five fields: the blocker; the date it started; the hard date it threatens; what was tried (each rung, date, method, result); the ask: the decision needed and by when. One ask per blocker, nearest hard date first.
-8. Zero defaults: by the hard date, the filing is ready with what you have, marked “Pending Final Verification”, or Atty. Thorne holds the extension in the form the rule requires (a stipulation where court rules allow, a court order, or the arbitrator's written order). Until it is docketed, the date stands.
-9. Report up, not out: Atty. Thorne gets the Bottleneck Log weekly, each open item with its age and days to its hard date. A party with counsel is reached only through counsel, as he directs.
-
-> ⚠️ **UPL boundary.** You may escalate, report and ask Atty. Thorne whether to use a legal tool. You may not choose it, sign or send it, contact a represented party, or tell John Doe what a delay means for his claim; you tell him what the firm is doing and route the rest to Atty. Thorne.
-
-#### 2 · Slide Body — Show Them
-
-*The five-field report, filled in for Keystone as it reached Atty. Thorne on 09/08/2026*
-
-| Field | Keystone Mutual · KM-26-440871 | Why it is there |
-|---|---|---|
-| Blocker | Dana Whitfield holds at $3,500 (“final”, 08/12) and has stopped responding | Names who owes what |
-| Started | 08/24/2026, the first unanswered follow-up | Ages the problem honestly |
-| Threatens | BI exhaustion: the $20,000 Host UM and $10,000 Relative UM stay closed; SOL filing cutoff 11/05/2027 | Sets the urgency by date, not tone |
-| Tried | Follow-ups 08/24 and 08/31; supervisor escalation 09/02; no response 09/04 | Proves the rungs were climbed |
-| The ask | Your decision on how the firm proceeds, needed this week; full record attached. No recommendation on filing. | One decision, ready to make |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Rung 1 unanswered on its cadence | Send a written Notice of Delay to the supervisor or office manager | Email Workspace · CMS → Communications Log | Notice names the item, start date and hard date; date, time and method logged |
-| Rung 2 unanswered for 48 hours | Escalate to Atty. Thorne with the five-field report | CMS → Tasks → Escalate | All five fields complete; one ask per blocker |
-| Weekly reporting day | Send the Bottleneck Log with each item's age and days to its hard date | CMS → Case File → Bottleneck Log | No open item without an owner, an age and a hard date |
-| A hard date arrives with the blocker open | Prepare the filing or exchange with what you have, marked “Pending Final Verification”, for Atty. Thorne's sign-off, or confirm his extension, in the form the rule requires, is docketed | CMS → Calendar · CMS → Documents → Outgoing | Zero defaults: every hard date met or covered by an extension in the form the rule requires |
-
-**Best practices & pitfalls**
-
-- Climb one rung at a time and document each attempt.
-- Lead the report with the nearest hard date.
-- Write the ask as one decision and the date it is needed by.
-- ⚠️ Pitfall: going straight to Atty. Thorne before the source and its supervisor have been tried.
-- ⚠️ Pitfall: “Keystone still isn't responding, please advise”, with no dates.
-- ⚠️ Pitfall: letting a deadline pass because a record was late.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Ladder sequence | Source → supervisor with a Notice of Delay → Atty. Thorne, 48 hours per rung, each attempt logged |
-| 🤖 AI | **25%** | Report fields | All five fields, with Keystone's dates 08/24, 08/31, 09/02 and 09/04/2026 correct |
-| 🤖 AI | **15%** | Mandate and zero defaults | 48-hour audit before every hard date; every hard date met with what is in hand, marked pending, or covered by an extension in the form the rule requires |
-| 🧑‍🏫 Trainer | **20%** | Report clarity | Atty. Thorne can act in one read; facts, not adjectives |
-| 🧑‍🏫 Trainer | **20%** | UPL boundary | Asks, as a question, without choosing a legal tool; no contact with a represented party; nothing on value to John Doe |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Open with a bad escalation on screen: “Keystone still not responding, please advise.” Ask what Atty. Thorne has to look up before he can act. Every answer is a field the report should have carried.
-- Ask: “Who should have heard about the Keystone silence first: Dana Whitfield's supervisor or Atty. Thorne?” The supervisor, on 09/02. Skipping the rung spends counsel's time on a problem a claims supervisor might have solved.
-- Watch the zero-default rule. Under pressure, trainees hold an exchange to wait for one record. The rule is: send what you have, marked pending, or have Atty. Thorne's extension in the form the rule requires (stipulation, court order or arbitrator's order), docketed. Never neither.
-- Legal nuance: a certified request for a written position, a subpoena and a motion to compel are counsel's tools, and the rules for each (who may issue it, notice, time to comply) vary by court and forum. The Case Manager may name them in the ask; Atty. Thorne decides, signs and sends.
-
----
-
-### 5.1.8 Automated Countermeasure Triggering in CMS
-
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
-> **Topic:** Skill Activity 1 — rules that fire before the deadline does  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · LSH Claims Specialist: BI liability follow-ups and the escalation protocol
-
-#### 1 · Visual Layout Description
-
-A CMS rules panel fills the left two-thirds: four rule rows on cream cards, each with an orange numbered badge and a mono threshold pill — ① SILENCE · 48 H ② RECORDS · 14 D ③ RED FLAG · 10 D ④ AUDIT · 48 H — and an IF → THEN → OWNER line in navy type. Right third: a vertical firing log for the mediation calendar, one dated row per firing, the 03/11/2027 and 03/18/2027 hard dates as red pills at the foot. Across the top, a slim grey CALIBRATION strip shows the Keystone record with Rule ① firing on 09/02/2026 and 09/04/2026, ticked green. The argument: a rule is trusted on live dates only after it reproduces a known record.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** File date 02/22/2027 (Track B, in suit). Mediation with Hon. Carla Benton (Ret.) is 03/18/2027; the confidential statement and binder are due to her 03/11/2027. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027 for the binder, has not arrived. Keystone's representative and authority for the session are unconfirmed. Calibration record: Keystone follow-ups 08/24 and 08/31/2026 unanswered; supervisor escalation 09/02; silence on 09/04. The demand-stage audit holds Riverton at $6,105.00 (33 visits × $185.00); Peach State's EOB shows $1,860.00 paid on Crescent Pain & Spine's $3,400.00 bill.
-
-**Execution prompt.** Configure four countermeasure rules in the CMS: (1) silence: follow-ups every 5 business days; 48 h after the second unanswered → supervisor; 48 h more → Atty. Thorne; (2) a record not received 14 days after request → second request and a subpoena flag for Atty. Thorne; (3) a hard date 10 days out with an open dependency → red flag; (4) the 48-Hour Mandate audit before every hard date, with its contents (ledger against EOBs, binder, OCR) and the fallback if a record is still missing. Calibrate Rule 1 on the Keystone record, then fire all four on the mediation calendar: date, action, owner. Graded: the dates, and what you own versus what is his.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Tasks → Countermeasure rules · CMS → Calendar · CMS → Case File → Risk Flags |
-| **Expected output** | Four configured rules, calibrated on the Keystone record, with every firing on the mediation calendar dated, actioned and owned. |
-
-**Verification checkpoints**
-
-- [ ] Rule 1 set: follow-ups every 5 business days; supervisor escalation 48 hours after the second unanswered follow-up; Atty. Thorne 48 hours after an unanswered escalation
-- [ ] Calibration reproduces the file: Rule 1 fires 09/02/2026 (supervisor escalation) and 09/04/2026 (escalation task opened to Atty. Thorne that day; the full impasse memo followed on 09/08/2026, the first business day after the Labor Day weekend)
-- [ ] Rule 2 fires 02/22/2027 (02/08/2027 + 14 days): the Case Manager sends the second request to Riverton Spine & Rehab's office manager that day as a Notice of Delay
-- [ ] Subpoena flagged to Atty. Thorne as a decision for him; any draft is for his review and signature, never served by the Case Manager
-- [ ] Rule 3 red flags dated 03/01/2027 (10 days before 03/11/2027) for the ledger and 03/08/2027 (10 days before 03/18/2027) for Keystone's attendee with settlement authority, for Atty. Thorne to raise with defense counsel
-- [ ] Rule 4 audits set for 03/09/2027 (binder) and 03/16/2027 (session), both weekdays: ledgers verified, binder complete, digital set OCR-searchable
-- [ ] EOB reconciliation run now and re-checked at each audit: Peach State's $1,860.00 is its whole claim on Crescent's $3,400.00 bill; the $1,540.00 written off ($3,400.00 minus $1,860.00) is never carried as a lien
-- [ ] Fallback recorded if the ledger is still missing at the 03/09/2027 audit: escalate, mark the treatment “Pending Final Verification”, include the audited interim ledger ($6,105.00: 33 visits × $185.00), Atty. Thorne sets expectations
-- [ ] Every firing carries a date, an action and an owner
-- [ ] No rule sends an external message on its own; every firing opens a task or a flag for review
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A request needs an answer | Stamp it with its rule and response-due date | CMS → Tasks → Countermeasure rules | No open request without a rule and a due date |
-| A rule fires | Execute its action the same day and log it | CMS → Tasks → Escalate · CMS → Communications Log | Firing logged and its task opened the same day |
-| A hard date is docketed | Attach the 10-day red-flag check and the 48-hour audit to it | CMS → Calendar | Both tasks present for 03/11/2027 and 03/18/2027 |
-| Atty. Thorne issues a records subpoena | Put it on a recurring 10-day compliance review | CMS → Calendar | Review recurs every 10 days until compliance is logged |
-
-**Best practices & pitfalls**
-
-- Calibrate on a known record before you trust a rule on live dates.
-- When a 48-hour audit lands on a weekend or holiday, move it earlier, never later.
-- Inbound runs faster: anything from the court or opposing counsel is docketed, and Atty. Thorne alerted, the day it arrives (an RFA the hour it arrives). Filing and naming it to the convention can follow within 48 hours.
-- ⚠️ Pitfall: waiting for the perfect ledger instead of escalating.
-- ⚠️ Pitfall: a trigger that fires into an inbox nobody owns.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **15%** | Rule configuration | Four rules with the right thresholds: 5 business days and 48 hours, 14 days, 10 days, 48-hour audit |
-| 🤖 AI | **10%** | Calibration | Rule 1 fires on 09/02/2026 and 09/04/2026 |
-| 🤖 AI | **25%** | Firing dates | 02/22, 03/01, 03/08, 03/09 and 03/16/2027, each with an action and an owner |
-| 🤖 AI | **10%** | Audit and fallback fields | EOB reconciliation run early and re-checked at the audit; “Pending Final Verification”, interim ledger $6,105.00, escalation to Atty. Thorne |
-| 🧑‍🏫 Trainer | **25%** | Ownership judgment | Separates what the CM fixes from what needs Atty. Thorne's decision |
-| 🧑‍🏫 Trainer | **15%** | Authority boundary | Subpoena flagged for decision; no rule contacts defense counsel, the mediator or John Doe unreviewed |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Run the calibration live first: enter the Keystone dates and let the room watch Rule 1 fire on 09/02 and 09/04. A rule that can't reproduce a known record can't be trusted on a live one.
-- Ask: “The ledger is still missing at the 03/09/2027 audit. Do you hold the binder?” No. Escalate, mark the treatment “Pending Final Verification”, send the interim ledger, and let Atty. Thorne set expectations.
-- Watch for subpoena flags written as if the subpoena were decided. The flag asks a question; Atty. Thorne answers it. Rules on records subpoenas to non-parties (notice to the other side, time to comply) vary: confirm the court's rules.
-- Grade the dates hard: every firing date is arithmetic from the file. The authority red flag on 03/08/2027 is the one trainees forget, and it is the missing-decision-maker trap. The EOB line tests whether they know a contract-rate payment closes the bill.
-
----
-
-### 5.1.9 Bottleneck Resolution Simulation
-
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
-> **Topic:** Skill Activity 2 — five problems, nine days, one order  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D4#30` Common Bottlenecks: Arbitration (The Trial-Ready Landmines) · `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder
-
-#### 1 · Visual Layout Description
-
-A triage board fills the slide: five problem cards in a column on the left, each a cream card with an orange numbered badge and a mono pill for the hard date it threatens. The centre is a three-lane sequencing track — SEND TO ATTY. THORNE · FIX TODAY · VERIFY AT 48-HOUR AUDIT — that the trainee drags cards into, with slot numbers 1–5 along the top. Above the track, a red countdown chip: EXHIBIT EXCHANGE 06/02/2027 · 9 DAYS. Right edge, a slim white memo card titled BOTTLENECK REPORT fills field by field as escalated cards land. The argument: the easiest fix is rarely the first move.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** File date 05/24/2027 (Mon). Consolidated UM arbitration, Laura Whitcomb, Esq.: exhibit exchange 06/02/2027, brief 06/11/2027, hearing 06/22/2027. (1) Crescent Pain & Spine's certified records and bill for the 05/15/2026 injection: requested 05/05/2027; second request and subpoena flag 05/19; nothing received. (2) Dr. Reyes's declaration shielding the 2021 low-back visits: Lakeside says she is away until 06/01/2027. (3) Cardinal State (Teresa Okafor) has not confirmed the hearing format or exhibit-exchange method; Harbor Point confirmed 05/20; the Case Manager escalated to Okafor's supervisor in writing 05/21; no answer. CMS → Parties shows neither carrier has appeared through counsel in the arbitration. (4) Riverton Spine & Rehab's refreshed ledger (05/21) restores the 05/04/2026 duplicate: $6,290.00 against the audited $6,105.00. (5) The copy vendor's draft set prints the doorbell-video stills in grayscale; the PDFs are not OCR-searchable.
-
-**Execution prompt.** Triage all five problems in the CMS. For each, name the hard date it threatens, the rung it has reached and the countermeasure that applies. Sequence them: what goes to Atty. Thorne first, what you fix yourself today, what the 48-hour audit verifies and on which date. Then write one bottleneck report carrying every item that needs his decision, five fields and one ask each. Graded: the order and its reasons, the rung for each item, and keeping every legal choice with Atty. Thorne.
-
-| | |
-|---|---|
-| **Tool / interface** | Case Docket & Calendar Conflict Resolver · CMS → Case File → Bottleneck Log · CMS → Tasks → Escalate |
-| **Expected output** | A sequenced triage of all five problems and one five-field bottleneck report to Atty. Thorne, sent 05/24/2027. |
-
-**Verification checkpoints**
-
-- [ ] Every item mapped to the 06/02/2027 exchange (05/24 + 9 days, inside the 10-day red-flag window); item 3 also to the 06/22/2027 hearing
-- [ ] Items 1, 2 and 3 escalated first, in one report sent 05/24/2027, nearest hard date first: each needs Atty. Thorne's decision
-- [ ] Item 1's ask leaves the route to him: with the bodily-injury claims against Robert Smith dismissed, a records subpoena for the arbitration would issue under the arbitration's rules, if they allow it; confirm with Atty. Thorne what, if anything, remains pending in No. 26-CV-04417. Item 1 also asks, as a question for his decision, whether to exchange the uncertified copies already on file marked “Pending Final Verification”
-- [ ] Item 2 reported as a gap in the prior-medical shield (Dr. Reyes back 06/01/2027, one day before the 06/02/2027 exchange), with the options framed as questions
-- [ ] Before any rung on item 3, CMS → Parties checked: had either carrier appeared through counsel, logistics would go to that counsel as Atty. Thorne directs, and the ladder would run opposing counsel → Atty. Thorne
-- [ ] Item 3: the 48 hours after the 05/21/2027 (Fri) escalation ran out 05/23/2027, a Sunday, so it reaches Atty. Thorne today at Rung 3; no direct contact with the arbitrator
-- [ ] Item 4 fixed at Rung 1 the same day: audit returned to Riverton's billing office; the exhibit set keeps $6,105.00 with the 05/04/2026 duplicate documented; medical Specials stay $14,817.40
-- [ ] Item 5 fixed without escalation: stills reprinted in color, the digital set OCR-scanned, the index re-checked
-- [ ] 48-Hour Mandate audit set for Fri 05/28/2027: 48 hours before 06/02/2027 is 05/31/2027, Memorial Day, so the audit moves earlier, never later
-- [ ] Root cause of item 1 named: Crescent's first request went out 05/05/2027, a month after the 04/05/2027 invocation; the binder rule is to request every certification that week. The bottleneck began with our own delay
-- [ ] Nothing decided that is Atty. Thorne's: no exhibit withheld or substituted, no extension requested, no lien compromised
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Several bottlenecks open at once | Triage each by hard date, reversibility and owner | Case Docket & Calendar Conflict Resolver | Every item has a hard date, a rung and an owner |
-| Items need counsel's decision | Send one five-field report, nearest hard date first | CMS → Tasks → Escalate | Report sent 05/24/2027, the day the cluster is triaged |
-| Items the Case Manager owns | Fix and log them the same day; set the pre-exchange audit | CMS → Documents · CMS → Calendar | Ledger and exhibit-set fixes logged 05/24/2027; audit on the calendar for 05/28/2027 |
-
-**Best practices & pitfalls**
-
-- Longest lead first: send what needs someone else's decision before you fix what you own.
-- Protect the exhibit exchange first; exclusion is the landmine you can't walk back.
-- An unverified ledger in an exhibit set invites the carriers to doubt every other number.
-- ⚠️ Pitfall: escalating the grayscale reprint while sitting on the missing certification.
-- ⚠️ Pitfall: holding the whole exhibit exchange for one late record.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **15%** | Hard-date mapping | All five items tied to 06/02/2027; item 3 also to 06/22/2027 |
-| 🤖 AI | **15%** | Sequence | Items needing Atty. Thorne reported first; items 4 and 5 fixed the same day; audit set for 05/28/2027 |
-| 🤖 AI | **15%** | Rung accuracy | Item 3 at Rung 3 on 05/24/2027; items 4 and 5 at Rung 1; item 1 past Rung 2 |
-| 🤖 AI | **15%** | Report fields | Five fields and one ask for every escalated item |
-| 🧑‍🏫 Trainer | **20%** | Triage judgment | The order is justified by reversibility and lead time, not by ease |
-| 🧑‍🏫 Trainer | **20%** | Authority boundary | Every legal route, exhibit choice and extension left to Atty. Thorne; no contact with the arbitrator |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Read the five problems aloud and take a show of hands: which one first? Most pick the grayscale reprint because it is easy. Easy is not first.
-- Ask: “Which of these can still hurt John Doe after 06/22/2027?” A missing certification or an unshielded prior can cost evidence at a binding hearing; a grayscale print fixed today cannot.
-- Watch for trainees who email the arbitrator about Cardinal State's silence. Communications with the neutral go through Atty. Thorne under the forum's rules. The carriers dispute damages on the 14-Day Gap, which is why every medical exhibit matters here.
-- Item 4 is the unverified-ledger trap in arbitration dress: $6,290.00 in an exhibit invites the carriers to question every other number, and Riverton's ledger is also the record of the 19-day disruption (04/02 → 04/21/2026). Grade the reasons for the order, not just the order.
-
----
-
-### 5.1.10 Litigation Tracking: the Pleadings Log & the Discovery Calendar
+### 5.1.6 Litigation Tracking: the Pleadings Log & the Discovery Calendar
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Managing litigation tracking systems, pleadings logs & discovery calendars  
@@ -893,7 +568,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.11 Trial Preparation Checklists & Litigation KPIs
+### 5.1.7 Trial Preparation Checklists & Litigation KPIs
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Trial preparation checklists & tracking litigation KPIs  
@@ -975,7 +650,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.12 Subpoena Management: Records Subpoenas (Duces Tecum) & Trial Subpoenas
+### 5.1.8 Subpoena Management: Records Subpoenas (Duces Tecum) & Trial Subpoenas
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Commanding evidence from outside the suit: in order, narrow and on time  
@@ -1060,7 +735,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.13 Pleadings & Discovery Log Maintenance
+### 5.1.9 Pleadings & Discovery Log Maintenance
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Skill Activity 1 — repair the log before it costs the case  
@@ -1139,7 +814,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.14 Trial Prep Checklist Audit & KPI Update
+### 5.1.10 Trial Prep Checklist Audit & KPI Update
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Skill Activity 2 — audit against the order, measure against the target  
@@ -1229,7 +904,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.15 Repair Estimates vs. ACV & Loss-of-Use Allocations
+### 5.1.11 Repair Estimates vs. ACV & Loss-of-Use Allocations
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Repairable or total, and what each day without the Civic is worth  
@@ -1311,7 +986,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 ---
 
-### 5.1.16 Diminished Value & PD Dispute Resolution
+### 5.1.12 Diminished Value & PD Dispute Resolution
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** What a repaired car still loses, and how the dispute gets resolved  
@@ -1390,7 +1065,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 ---
 
-### 5.1.17 Evaluating Repair Estimates vs. ACV & Loss-of-Use
+### 5.1.13 Evaluating Repair Estimates vs. ACV & Loss-of-Use
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Skill Activity 1 — audit the Civic's numbers before discovery does  
@@ -1468,7 +1143,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 ---
 
-### 5.1.18 Diminished Value Calculation & Negotiation Lab
+### 5.1.14 Diminished Value Calculation & Negotiation Lab
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Skill Activity 2 — from $792.00 to a recommended range for Atty. Thorne  
@@ -1558,7 +1233,7 @@ Verified in PD Dispute Evaluation (taught on Case Flow Day 5) and that day's aut
 
 ---
 
-### 5.1.19 Client Prep for a Virtual Deposition & Injury Narrative Alignment
+### 5.1.15 Client Prep for a Virtual Deposition & Injury Narrative Alignment
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The audit, the three pillars, and the room John testifies from  
@@ -1642,7 +1317,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.20 Opposing Counsel's Traps & Defending Key Testimony
+### 5.1.16 Opposing Counsel's Traps & Defending Key Testimony
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The four categories, the seven Golden Rules, and what an objection means  
@@ -1725,7 +1400,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.21 Virtual Deposition Prep Roleplay
+### 5.1.17 Virtual Deposition Prep Roleplay
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 1 — client injury & 14-Day Gap defense: your segment, his substance  
@@ -1814,7 +1489,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.22 Mock Deposition Cross-Examination Handling
+### 5.1.18 Mock Deposition Cross-Examination Handling
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 2 — observe, log and route; never coach  
@@ -1900,7 +1575,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.23 Comparative Negligence & the Liability Counter-Package
+### 5.1.19 Comparative Negligence & the Liability Counter-Package
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Three allegations in the 11/12/2026 Answer, and the evidence that answers each  
@@ -1981,7 +1656,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.24 Skip-Tracing, Process Servers & Certified Notice
+### 5.1.20 Skip-Tracing, Process Servers & Certified Notice
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Finding the defendant who moved and the client who went quiet  
@@ -2064,7 +1739,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.25 Building the Comparative Liability Counter-Package
+### 5.1.21 Building the Comparative Liability Counter-Package
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 1 — answer each allegation from the file  
@@ -2141,7 +1816,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.26 Skip-Tracing Execution & Certified Notice Dispatch
+### 5.1.22 Skip-Tracing Execution & Certified Notice Dispatch
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 2 — find the defendant, reach the client, prove both  
@@ -2220,7 +1895,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.27 Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund
+### 5.1.23 Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Same $40,000.00, a different net: what suit cost the client, line by line  
@@ -2297,7 +1972,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 ---
 
-### 5.1.28 The Litigation Net Sheet: Disbursing the Award
+### 5.1.24 The Litigation Net Sheet: Disbursing the Award
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Skill Activity — take the award to $14,713.75 on the LSH Net Sheet  
@@ -2369,7 +2044,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 ---
 
-### 5.1.29 Dropped Cases: the Case Manager's Close-Out
+### 5.1.25 Dropped Cases: the Case Manager's Close-Out
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** From “Pending Drop” to “Dropped”: the gate, three Withdrawal Letters, their dispatch and the proof  
@@ -2449,7 +2124,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 ---
 
-### 5.1.30 Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
+### 5.1.26 Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Skill Activity — a practice matter: three Withdrawal Letters, their dispatch and the Dropped status  
@@ -2523,7 +2198,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 ---
 
-### 5.1.31 Litigation Fork Transition Check
+### 5.1.27 Litigation Fork Transition Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2615,92 +2290,7 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 
 ---
 
-### 5.1.32 Countermeasure Operational Audit
-
-> **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
-> **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · `D4#30` Common Bottlenecks: Arbitration (The Trial-Ready Landmines) · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder
-
-#### 1 · Visual Layout Description
-
-The standard knowledge-check split: cream question panel above, navy CM Self-Summary card below-left with the 1–5 skill ladder below-right, and the 60/40 strip with the separate red UPL gate on the far right. Unique to this module: between the question panel and the summary card, a horizontal COUNTERMEASURE AUDIT strip of four rule chips — SILENCE 48 H · RECORDS 14 D · RED FLAG 10 D · AUDIT 48 H — each with a tick box, and a fifth chip in orange, REPORT · 5 FIELDS, so the trainee audits the whole system before answering.
-
-#### 2 · Slide Body — Knowledge verification
-
-1. Name the three bottleneck families and give this file's example of each, with the hard date it threatened.
-2. Walk Rule 1 on the Keystone record: each follow-up, the 48-Hour Mandate escalation and the hand-off to Atty. Thorne, with every date.
-3. Keystone's representative must be able to pay the $10,000 limits at the 03/18/2027 mediation. If they arrive without that authority, what failed earlier, and what was your countermeasure?
-
-**Best practices & pitfalls**
-
-- Answer with the file's dates; a bottleneck without dates is an opinion.
-- ⚠️ Pitfall: a self-rating that doesn't match your answers; your trainer will ask about the gap.
-
-#### 3 · Knowledge Check & CM Summary
-
-**Case Manager Self-Summary**
-
-- Summarize, in your own words, what you learned about seeing a bottleneck before it bites: the principles, not the clicks.
-- Articulate your strategy: on 05/24/2027, with five problems open, what is your first action, and why that one rather than the easiest?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
-
-**Skill Scale — self-rate 1–5**
-
-| Competency | 1 | 2 | 3 | 4 | 5 |
-|---|---|---|---|---|---|
-| Spotting non-responsive parties, delayed records and scheduling conflicts from their early signals | ○ | ○ | ○ | ○ | ○ |
-| Configuring and calibrating CMS countermeasure triggers | ○ | ○ | ○ | ○ | ○ |
-| Running the 48-Hour Mandate audit before a hard date | ○ | ○ | ○ | ○ | ○ |
-| Climbing the escalation ladder one rung at a time | ○ | ○ | ○ | ○ | ○ |
-| Writing a five-field bottleneck report Atty. Thorne can act on in one read | ○ | ○ | ○ | ○ | ○ |
-| Keeping legal remedies, value and client advice with Atty. Thorne | ○ | ○ | ○ | ○ | ○ |
-
-**1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
-
-**Auto-graded share of the day's Knowledge Check** (5 questions):
-
-1. Keystone left the follow-ups of 08/24 and 08/31/2026 unanswered. Under the 48-Hour Mandate, when did the written escalation to Keystone's claims supervisor go out?  
-   08/26/2026 · **✓ 09/02/2026** · 09/04/2026 · 09/08/2026  
-   *48 hours after the second unanswered follow-up (08/31): 09/02. The supervisor's silence through 09/04 moved the file to Atty. Thorne, and the impasse memo reached him 09/08.*
-2. Keystone's attendee with settlement authority for the 03/18/2027 mediation is still unconfirmed. On what date does Rule 3, the 10-day red flag, fire for the session?  
-   03/01/2027 · **✓ 03/08/2027** · 03/11/2027 · 03/16/2027  
-   *Ten days before 03/18/2027 is 03/08/2027. 03/01 is the red flag for the 03/11 binder, and 03/16 is the 48-hour audit. The flag goes to Atty. Thorne so he can raise it with defense counsel.*
-3. John Doe's UM arbitration is binding. Which bottleneck is hardest to recover from?  
-   **✓ An exhibit excluded because it was missing or unreadable** · Cardinal State confirming the exchange method a week late · A binder tab out of order, caught at the 48-hour audit · A hearing-room change made by the arbitrator's office  
-   *There is no second hearing. An excluded exhibit is gone for good; the other three can be fixed before 06/22/2027.*
-4. Which of these does NOT belong in a bottleneck report to Atty. Thorne?  
-   The date the blocker started · The hard date it threatens · What was tried, rung by rung, with dates · **✓ Your view of what the claim is worth if it isn't fixed**  
-   *The five fields are the blocker, the date it started, the hard date it threatens, what was tried, and the ask. Value is Atty. Thorne's call and never goes in a Case Manager's report.*
-5. On 05/24/2027, Riverton Spine & Rehab's refreshed ledger (05/21) restores the 05/04/2026 duplicate: $6,290.00 against the audited $6,105.00. With exhibits exchanged 06/02/2027, the Case Manager:  
-   Escalates it to Atty. Thorne at Rung 3 before anything else · Exchanges $6,290.00, since it is the provider's latest figure · Holds the whole exhibit exchange until Riverton issues a corrected ledger · **✓ Fixes it at Rung 1 the same day: returns the audit to Riverton's billing office and keeps $6,105.00 in the set with the duplicate documented, so medical Specials stay $14,817.40**  
-   *Rung 1 problems are solved at Rung 1; the items needing Atty. Thorne's decision (Crescent's certification, Dr. Reyes's declaration, Cardinal State's silence) go to him first. An unverified $6,290.00 invites the carriers to doubt every other number, and holding the exchange for one record is the pitfall.*
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Date accuracy | 08/24, 08/31, 09/02, 09/04/2026; 03/09, 03/11, 03/18/2027; 06/02/2027 |
-| 🤖 AI | **15%** | Doctrine recall | Unverified ledger, missing decision-maker, late brief; exclusion, unshielded prior, missed cutoff; the missing-ledger protocol |
-| 🤖 AI | **15%** | Escalation ladder | Lakeside: Rung 2 Notice of Delay 05/19/2027 (facts only, no bad-faith argument), Rung 3 to Atty. Thorne 05/21/2027 if unanswered |
-| 🤖 AI | **10%** | Completeness | Every question answered substantively |
-| 🧑‍🏫 Trainer | **15%** | Strategic articulation | The first action on 05/24/2027 is the right one and the reasoning holds |
-| 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slide |
-| 🧑‍🏫 Trainer | **10%** | UPL boundary | No value talk or offer response to Teresa Okafor; Atty. Thorne's authority named |
-| 🧑‍🏫 Trainer | **5%** | Self-rating calibration | Self-score is defensible against demonstrated performance |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Question 5 is the pressure scenario and the module in one question: escalate, mark “Pending Final Verification”, include the interim ledger, let Atty. Thorne set expectations. A trainee who holds the binder has failed the 48-Hour Mandate.
-- Put Question 7 to the room before they write: what do you say to Teresa Okafor? The compliant answer takes the message, says Atty. Thorne will respond, and logs it. It never answers the gap argument or the offer.
-- Question 6 tests the ladder: 14 days unanswered on 05/19/2027 sends a written Notice of Delay to Lakeside's office manager that day; 48 hours of silence moves it to Atty. Thorne on 05/21/2027. The notice states facts and never argues motive.
-- Compare each self-rating with the score. UPL is a gate: a strong score does not survive a value conversation with a carrier.
-
----
-
-### 5.1.33 Litigation Support Assessment
+### 5.1.28 Litigation Support Assessment
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2789,7 +2379,7 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 
 ---
 
-### 5.1.34 PD Dispute Evaluation
+### 5.1.29 PD Dispute Evaluation
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Dispute Evaluation (`d5m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2871,7 +2461,7 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 
 ---
 
-### 5.1.35 Deposition Readiness Audit
+### 5.1.30 Deposition Readiness Audit
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2953,7 +2543,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 5.1.36 Final Comprehensive Knowledge Check
+### 5.1.31 Final Comprehensive Knowledge Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Knowledge Check (all five days) + CM Learning Summary & Self-Scale  
@@ -3033,7 +2623,7 @@ The standard knowledge-check split, extended for the final check. Above the crea
 
 ---
 
-### 5.1.37 Track B Close-Out Check
+### 5.1.32 Track B Close-Out Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -3101,7 +2691,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 5.1.38 Dropped Case Close-Out Check
+### 5.1.33 Dropped Case Close-Out Check
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

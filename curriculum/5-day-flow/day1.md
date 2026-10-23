@@ -49,8 +49,13 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 14. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet
 15. *Skill Activity* — Onboarding Direction Assignment in System
 16. *Skill Activity* — Whose Rental Is It? The Civic Investigation
-17. *Knowledge Check* — CM Fundamentals Knowledge Check
-18. *Knowledge Check* — PD & Onboarding Knowledge Audit
+17. *Lesson* — The No Contact Protocol — Steps 1 to 3
+18. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
+19. *Skill Activity* — Multi-Channel Outreach Logging
+20. *Skill Activity* — Final Warning Letter Drafting
+21. *Knowledge Check* — CM Fundamentals Knowledge Check
+22. *Knowledge Check* — PD & Onboarding Knowledge Audit
+23. *Knowledge Check* — MIA Escalation Knowledge Check
 
 **End-of-day discussion (trainer):** Robert Smith's carrier has already called John Doe, and he needs a car to get to work. What do you tell him today, in what order, and what has to be on the file before tomorrow's claim set-up?
 
@@ -58,7 +63,7 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 
 ## Module 1 — Intake, Claims & Property Damage
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 1.1.1 Meet Your Case: John Doe v. Robert Smith
 
@@ -1346,7 +1351,306 @@ Verified in PD & Onboarding Knowledge Audit (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.17 CM Fundamentals Knowledge Check
+### 1.1.17 The No Contact Protocol — Steps 1 to 3
+
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
+> **Topic:** Internal review, escalating contact attempts, team notification  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** LSH Claims Specialist: No Contact Protocol, Steps 1–3 · `D1#11` Bottleneck: Delayed Client Follow-Up · `D1#9` Common Intake Bottlenecks — Overview · D5 agenda: MIA Clients
+
+#### 1 · Visual Layout Description
+
+A six-station vertical protocol spine down the left third, stations numbered 1–6 in orange circles on a navy rail. Stations 1–3 are in full colour (INTERNAL REVIEW · CONTACT ATTEMPTS · TEAM NOTIFICATION); stations 4–6 are greyed back with a small “next lesson” tag, so the whole protocol is visible but this lesson's scope is clear. The right two-thirds expands station 2 as an escalating channel ladder: PHONE (2+ attempts) → EMAIL + SMS → EMERGENCY CONTACT → CERTIFIED MAIL / FORMAL LETTER, each rung a widening bar. Bottom-right, a red-bordered card: “SOL and hearing dates keep running.”
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* The No Contact Protocol does three jobs at once: it tracks unresponsiveness formally, it establishes due diligence before any withdrawal, and it protects the firm from liability. A client who can't be reached is a file that still has deadlines, and the protocol is the proof the firm did its part.
+
+1. Step 1, Internal Review: before you call anyone, check the case status, the live deadlines and the date of last contact, and confirm every earlier attempt used an approved channel.
+2. Step 2, Contact Attempts, escalating: at least two phone attempts, then email and text, then the emergency contact, then certified mail or a formal letter.
+3. Escalate by channel, not by volume. Two voicemails on one number clears the phone rung and nothing more.
+4. Set a follow-up reminder the moment a request goes out, and give the client an easy way to answer: a call window, a text, an upload link.
+5. Log every attempt in the CMS when you make it: date, time, channel, outcome. An unlogged attempt did not happen.
+6. Step 3, Team Notification: escalate to the attorney or supervisor, document it in the CMS, and assess the case impact, including the statute of limitations and any hearing dates.
+7. Deadlines do not pause for silence. Never let an outreach cycle consume a statutory or court date.
+
+> ⚠️ **UPL boundary.** You may tell the client what the firm needs and by when. You may not advise them on what silence does to their legal rights, and you may not say representation will end. Withdrawal is the attorney's decision at Step 5.
+
+#### 2 · Slide Body — Show Them
+
+*The No Contact Protocol: all six steps; this lesson covers 1–3*
+
+1. **Internal Review** — Case status, live deadlines, date of last contact; approved channels confirmed.
+2. **Contact Attempts** — 2+ phone attempts → email and text → emergency contact → certified mail or letter.
+3. **Team Notification** — Escalate to attorney/supervisor, document in the CMS, assess SOL and hearing dates.
+4. **Final Warning Letter** — Certified mail AND email; 7–14 day deadline. (Next lesson.)
+5. **Decision Point** — The attorney may file a Notice of Withdrawal or a Motion to Withdraw. (Next lesson.)
+6. **File Closure** — “No response – withdrew per protocol”; all proof of attempts retained. (Next lesson.)
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Client misses a scheduled contact or appointment | Step 1: review case status, deadlines and the last contact date | CMS → Case Summary | Live deadlines identified before outreach begins |
+| Internal review complete | Step 2: work the channel ladder; log each attempt | CMS → Communications Log | 2+ phone attempts, then email and text, each with date, time, channel, outcome |
+| Channel ladder exhausted | Step 3: notify Atty. Thorne and assess deadline impact on John Doe's file | CMS → Tasks → Escalate | Escalation documented; SOL (02/06/2028) and any hearing dates assessed |
+
+**Best practices & pitfalls**
+
+- Set follow-up reminders the moment a request goes out.
+- Offer the client an easy way to respond: a call window, text, an upload link.
+- ⚠️ Pitfall: letting a file sit because “we're waiting on the client” without logging attempts.
+- ⚠️ Pitfall: blaming the client for delays that are really process gaps.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Step sequence | Steps 1–3 in order; internal review before outreach |
+| 🤖 AI | **20%** | Channel ladder | 2+ phone attempts, then email and text, not repeats on one channel |
+| 🤖 AI | **20%** | Log completeness | Every attempt carries date, time, channel and outcome |
+| 🧑‍🏫 Trainer | **20%** | Deadline awareness | The Step 3 impact check names the running SOL, not just “escalated to attorney” |
+| 🧑‍🏫 Trainer | **20%** | Boundary discipline | No withdrawal threat; no statement that the case will be closed |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Lead with purpose, not procedure: the protocol protects the client's file and the firm. Trainees who see it as chasing a client miss why the record matters.
+- Step 1 is the step everyone skips; they start dialling. Ask: “What deadline is running on this file right now?” If they can't answer, they aren't ready to make the call.
+- Channel versus volume is the most often failed point. Two voicemails on the same number clears the phone rung and nothing more. Say it twice.
+- The emergency contact was collected at intake for exactly this moment. Intake decisions pay off here.
+
+---
+
+### 1.1.18 Final Warning Letter & the Skip-Trace Trigger
+
+> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
+> **Topic:** No Contact Protocol Steps 4 to 6, and when the search begins  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** LSH Claims Specialist: No Contact Protocol, Steps 4–6; Withdrawal Letters · D5 agenda: MIA Clients
+
+#### 1 · Visual Layout Description
+
+Two panels. Left: the Final Warning Letter on white letterhead with a navy band, four required elements called out by orange numbered badges — ① the earlier attempts, itemized ② a response deadline of 7–14 days ③ notice of potential withdrawal ④ how to respond. Above the letter, a chip pair reads CERTIFIED MAIL + EMAIL, joined by a bold AND, because both are required. Right: the Step 5 decision fork on a pale ground. Root, navy: “Response within the deadline?” Yes (green) → RESUME FILE. No (orange) → a three-chip AND gate (ladder exhausted · letter sent · deadline expired) ending in two outcomes: TRIGGER SKIP-TRACE and ATTORNEY DECISION POINT. Draw the gate as a gate, never as a bullet list.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* The Final Warning Letter is the last low-cost step before the firm either spends money to find someone or moves to withdraw. It has to be specific enough to get an answer, and documented enough to justify whichever comes next.
+
+1. Step 4, the Final Warning Letter, goes by certified mail AND email. Both, not either.
+2. It states the earlier attempts, a response deadline of 7 to 14 days, and notice of potential withdrawal.
+3. Send it to the client's current and correct address. Confirm the address first; a letter to a stale address proves nothing.
+4. Step 5, Decision Point: if the client is still unresponsive, the attorney may file a Notice of Withdrawal or a Motion to Withdraw, under firm and court rules. That is counsel's decision.
+5. Step 6, File Closure: mark the file “No response – withdrew per protocol” and keep the communications and the proof of every attempt.
+6. Skip-tracing starts only when all three are true: the contact ladder is exhausted, the letter has been sent, and its deadline has passed.
+7. Skip-tracing is authorized by counsel. Escalate with the complete log attached.
+8. Keep the file moving in parallel. Records requests, coverage verification and deadline tracking do not pause while outreach runs.
+
+> ⚠️ **UPL boundary.** The letter may state the firm's requirements, its deadline and that withdrawal is possible. It may not characterise the strength of the claim or advise the client on what silence does to their legal rights. Only the attorney decides, and tells the client, that representation is ending.
+
+#### 2 · Slide Body — Show Them
+
+*The three-criteria gate: all must be true before the search begins*
+
+1. **Contact ladder exhausted** — 2+ phone attempts, email, text and the emergency contact, all attempted and logged.
+2. **Final Warning Letter sent** — Certified mail AND email, to a confirmed address, stating the 7–14 day deadline.
+3. **Deadline expired** — The response window has passed with no contact from the client.
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Step 3 escalation made, still no response | Draft the Final Warning Letter with a 7–14 day deadline | Action Plan Editor → Warning letter template | Earlier attempts itemized; deadline and withdrawal notice present |
+| Letter ready | Confirm the current address; send by certified mail AND email | CMS → Documents → Outgoing | Both channels used and logged; certified receipt kept |
+| Response deadline expires | Verify all three criteria; escalate to Atty. Thorne for Skip-Trace authority and the Step 5 decision | CMS → Tasks → Escalate | All three criteria evidenced in the log first |
+
+**Best practices & pitfalls**
+
+- Itemize the attempts with dates; “we have tried several times” is not evidence.
+- Ask your in-house help to confirm an address you can't verify.
+- ⚠️ Pitfall: triggering a Skip-Trace on the first criterion alone.
+- ⚠️ Pitfall: writing “we are withdrawing” in a letter the attorney has not approved.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **25%** | Letter elements | Attempts itemized, 7–14 day deadline, withdrawal notice, response method |
+| 🤖 AI | **15%** | Dual delivery | Certified mail and email both used and logged |
+| 🤖 AI | **20%** | Criteria evidence | All three Skip-Trace criteria shown in the log |
+| 🧑‍🏫 Trainer | **20%** | Letter tone | Firm, clear and not threatening; a worried client would respond to it |
+| 🧑‍🏫 Trainer | **20%** | Authority discipline | Withdrawal and Skip-Trace both escalated for counsel's decision |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Hold the room on the AND gate. Trainees reliably trigger the search on the first criterion alone, which spends the firm's money early and weakens the record.
+- Both delivery channels are required. Ask why: certified mail proves delivery, email gets a response.
+- Draw the Step 5 line hard: the CM assembles the record, the attorney decides to withdraw.
+- Day 5 returns to this with advanced skip-tracing, process servers and certified notice. Today is the trigger; Day 5 is the execution.
+
+---
+
+### 1.1.19 Multi-Channel Outreach Logging
+
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
+> **Topic:** Skill Activity 1 — build a defensible record  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** LSH Claims Specialist: No Contact Protocol, Step 2 · `D1#11` Bottleneck: Delayed Client Follow-Up
+
+#### 1 · Visual Layout Description
+
+A CMS Communications Log as a table across the full slide width, four rows pre-filled as worked examples and four blank rows outlined in orange for the trainee. Columns: Date · Time · Channel · Outcome · Next action. In the right margin, a vertical coverage tracker of four chips (Phone ×2, Email, SMS, Emergency contact), each grey until its rung is cleared, then orange. Bottom strip, in danger red: a BAD entry, “called client, no answer”, with no date, time or channel, annotated with what is missing.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** John Doe has not responded for six days. He missed a scheduled check-in call and his treatment has not begun. Two voicemails have been left on his mobile. Nothing has been logged. An emergency contact was collected at intake.
+
+**Execution prompt.** Run the No Contact Protocol on John Doe's file. Start with the Step 1 internal review: name the deadlines that are live right now. Reconstruct the attempts already made, then carry the Step 2 channel ladder forward. Log every attempt with date, time, channel and outcome, and record the next action with its due date. Finally, state whether Step 3 team notification is warranted and what case impact you would report.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → Case Summary · CMS → Communications Log |
+| **Expected output** | A completed Step 1 review and an unbroken, contemporaneous Step 2 outreach log. |
+
+**Verification checkpoints**
+
+- [ ] Step 1 done: case status, live deadlines and the date of last contact reviewed before any outreach
+- [ ] Earlier voicemails logged with date, time and channel
+- [ ] Phone rung cleared with at least two attempts
+- [ ] Email and SMS both attempted, not repeats on the phone
+- [ ] Emergency contact used as an approved channel
+- [ ] Every entry carries date, time, channel and outcome
+- [ ] Next action recorded with a due date
+- [ ] Step 3 impact names the running SOL (02/06/2028) and the treatment that has not started
+- [ ] No entry threatens withdrawal or case closure
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Six days without contact | Step 1 internal review | CMS → Case Summary | Live deadlines listed |
+| Review complete | Reconstruct and continue the log | CMS → Communications Log | Unbroken log, distinct channels |
+| Ladder cleared, no answer | Step 3 escalation with case impact | CMS → Tasks → Escalate | Atty. Thorne notified; impact recorded |
+
+**Best practices & pitfalls**
+
+- Write each entry as if a supervisor will audit it six months from now.
+- ⚠️ Pitfall: “called client, no answer” with no date, time or channel.
+- ⚠️ Pitfall: three calls to one mobile reported as three channels.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Field completeness | No entry missing date, time, channel or outcome |
+| 🤖 AI | **20%** | Ladder progression | 2+ phone attempts, then email and SMS: genuinely different rungs |
+| 🤖 AI | **10%** | Step 1 evidence | Internal review documented before outreach |
+| 🤖 AI | **10%** | Impact assessment | SOL correctly identified as 02/06/2028 |
+| 🧑‍🏫 Trainer | **25%** | Record defensibility | Would this log hold up if the file were reviewed six months from now? |
+| 🧑‍🏫 Trainer | **15%** | Professional tone | Entries are factual and neutral; no editorialising about the client |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Start by having them read the red BAD entry aloud. “Called client, no answer” is what most of them would have written.
+- Watch for trainees who skip Step 1 and start dialling. Ask what deadline is running before you let them log anything.
+- The emergency contact is the rung most trainees forget. It was collected at intake for this.
+- John Doe's treatment still hasn't begun. This silence is also what becomes the 14-Day Gap; tie it back to the 14-Day Gap flag set in Claim Set Up.
+
+---
+
+### 1.1.20 Final Warning Letter Drafting
+
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
+> **Topic:** Skill Activity 2 — write the letter that gets answered  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** LSH Claims Specialist: Final Warning Letter; sample unresponsive-client letters
+
+#### 1 · Visual Layout Description
+
+A split drafting view. Left two-thirds: the live letter draft on white letterhead, the four required elements highlighting in pale orange as they are completed, with a completeness meter above the page from 0/4 to 4/4. A chip pair in the header (CERTIFIED MAIL + EMAIL) must both be ticked before the draft can be sent. Right third: a UPL guard-rail panel on a danger-bordered card listing banned phrases in red strikethrough — “you will lose your case,” “we are withdrawing,” “your claim will be worth less” — each with a compliant navy rewrite directly beneath it.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** John Doe has been unreachable for eleven days. The phone rung is cleared, emails and texts have been sent and the emergency contact has been tried, all logged. Step 3 escalation has been made to Atty. Thorne. Treatment still has not begun.
+
+**Execution prompt.** Draft the Step 4 Final Warning Letter to John Doe. Itemize the earlier attempts, set a response deadline inside the 7–14 day window, give notice of potential withdrawal, and state how he should respond. Keep every sentence inside the UPL boundary: nothing on the strength of his claim or the legal consequences of silence, and nothing that announces withdrawal as decided. Then record what must be true before skip-tracing can start, and whose authority the Step 5 decision needs.
+
+| | |
+|---|---|
+| **Tool / interface** | Action Plan Editor → Warning letter template |
+| **Expected output** | A send-ready Final Warning Letter with both deliveries logged, and a recorded escalation. |
+
+**Verification checkpoints**
+
+- [ ] Firm identification and the file reference present
+- [ ] Date of loss stated as 02/06/2026
+- [ ] Earlier attempts itemized with dates
+- [ ] Response deadline inside the 7–14 day window, stated as a date
+- [ ] Notice of potential withdrawal, as possible, not decided
+- [ ] How to respond, with at least two channels
+- [ ] Certified mail AND email both recorded
+- [ ] Current address confirmed before sending
+- [ ] No statement about claim value, legal consequences or settled representation status
+- [ ] Skip-Trace criteria recorded; Step 5 authority noted as Atty. Thorne's
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| Eleven days, Step 3 made | Draft the letter | Action Plan Editor | Four elements present |
+| Draft complete | Send by certified mail and email | CMS → Documents → Outgoing | Both logged |
+| Letter sent | Calendar the response deadline | CMS → Calendar | Deadline date on the calendar |
+
+**Best practices & pitfalls**
+
+- Urgent without threatening: say what is needed and by when.
+- ⚠️ Pitfall: a deadline of “as soon as possible.”
+- ⚠️ Pitfall: crossing into legal consequence (“you will lose your case”).
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Element completeness | All four elements; the deadline is a date inside 7–14 days |
+| 🤖 AI | **10%** | Case accuracy | File reference and DOL correct |
+| 🤖 AI | **15%** | Dual delivery | Certified mail and email both recorded |
+| 🤖 AI | **15%** | Banned-phrase scan | No prohibited phrase in the draft |
+| 🧑‍🏫 Trainer | **25%** | Tone and clarity | Would a worried client read this and call back? Firm without being cold. |
+| 🧑‍🏫 Trainer | **15%** | UPL judgment | Withdrawal framed as possible, not announced; no legal-consequence advice |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- The hard part is a letter that is urgent but not threatening. Most first drafts fail one way or the other.
+- “Itemize” means list the attempts with dates.
+- Read the banned and compliant pairs aloud before they draft. It saves a full rewrite.
+- Have two trainees swap drafts and mark each other's against the four elements and the dual delivery before submitting.
+
+---
+
+### 1.1.21 CM Fundamentals Knowledge Check
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1455,7 +1759,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 1.1.18 PD & Onboarding Knowledge Audit
+### 1.1.22 PD & Onboarding Knowledge Audit
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with PD & Onboarding Knowledge Audit (`d1m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1569,5 +1873,87 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 - Question 3 separates trainees who memorised the term from those who understand it. Expect the loan-balance error.
 - Question 6 should surface the treatment direction: an untracked treatment instruction is exactly how a 14-day gap happens.
 - The strategy prompt has one right priority, treatment. Anyone who leads with the rental has mis-ranked the risks.
+
+---
+
+### 1.1.23 MIA Escalation Knowledge Check
+
+> **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
+> **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** LSH Claims Specialist: No Contact Protocol · `D1#11` Bottleneck: Delayed Client Follow-Up
+
+#### 1 · Visual Layout Description
+
+The standard knowledge-check split: cream question panel above, navy CM Self-Summary card below-left with the 1–5 skill ladder below-right, and the 60/40 strip with the separate red UPL gate on the far right. Unique to this module: between the question panel and the summary card, a horizontal NO CONTACT PROTOCOL CHECKLIST strip of all six steps as checkboxes with their required actions beneath, so the trainee self-audits the protocol before answering.
+
+#### 2 · Slide Body — Knowledge verification
+
+1. Set out all six steps of the No Contact Protocol in order, with the required action at each step.
+2. State the three purposes the protocol serves, and explain which of them protects the firm rather than the client.
+3. A colleague logs three voicemails to the client's mobile on three days and reports the contact ladder exhausted. Explain what is wrong and what the log should show instead.
+
+**Best practices & pitfalls**
+
+- Use the six-step checklist before you answer.
+- ⚠️ Pitfall: an answer that warns the client about their case.
+
+#### 3 · Knowledge Check & CM Summary
+
+**Case Manager Self-Summary**
+
+- Summarize what you learned about the firm's duty to a client who has gone silent, and what the record has to show.
+- Articulate your strategy: John Doe is on day eleven and still not treating. What do you do next, in what order, and why that order?
+- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+
+**Skill Scale — self-rate 1–5**
+
+| Competency | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| Running the No Contact Protocol's channel ladder | ○ | ○ | ○ | ○ | ○ |
+| Keeping a contemporaneous, defensible Communications Log | ○ | ○ | ○ | ○ | ○ |
+| Drafting a Final Warning Letter that gets a response | ○ | ○ | ○ | ○ | ○ |
+| Applying the three-criteria Skip-Trace gate | ○ | ○ | ○ | ○ | ○ |
+| Keeping the file moving while outreach runs | ○ | ○ | ○ | ○ | ○ |
+| Holding the line between my role and the attorney's decision to withdraw | ○ | ○ | ○ | ○ | ○ |
+
+**1** Not yet — I need this re-taught · **2** I can follow it with step-by-step help · **3** I can do it with a checklist · **4** I can do it unaided · **5** I can do it unaided and explain it to a peer
+
+**Auto-graded share of the day's Knowledge Check** (4 questions):
+
+1. Under the No Contact Protocol, what comes before any outreach call?  
+   The Final Warning Letter · **✓ An internal review of case status, live deadlines and the date of last contact** · A Skip-Trace · A Motion to Withdraw  
+   *Step 1 is the internal review: you check what is running on the file before you dial.*
+2. Two voicemails on John Doe's mobile, on two days, show that:  
+   The contact ladder is exhausted · **✓ The phone rung is cleared; email, text and the emergency contact still follow** · Skip-tracing can begin · The client has abandoned the case  
+   *Escalate by channel, not by volume.*
+3. The Final Warning Letter is sent by:  
+   Email only · Certified mail only · **✓ Certified mail AND email** · Text message  
+   *Both: certified mail proves delivery and email gets a response. It states the prior attempts, a 7–14 day deadline and notice of potential withdrawal.*
+4. At Step 5 the client is still unresponsive. Who decides whether the firm withdraws?  
+   The Case Manager · **✓ The attorney** · The intake team · The adjuster  
+   *The Case Manager builds the record; the attorney decides on a Notice of Withdrawal or a Motion to Withdraw.*
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Protocol accuracy | All six steps in order with the right actions |
+| 🤖 AI | **15%** | Criteria accuracy | All three Skip-Trace criteria stated as an AND gate |
+| 🤖 AI | **15%** | Letter requirements | Certified mail and email; 7–14 day window |
+| 🤖 AI | **10%** | Completeness | Every question answered substantively |
+| 🧑‍🏫 Trainer | **15%** | Risk identification | Names the running SOL, the hardening Treatment Gap and the stalled claims work |
+| 🧑‍🏫 Trainer | **10%** | Role boundary | Reserves the withdrawal decision to counsel |
+| 🧑‍🏫 Trainer | **5%** | UPL rewrite quality | The rewrite is compliant and still useful |
+| 🧑‍🏫 Trainer | **10%** | Self-Summary & calibration | Specific, honest, and defensible against the score |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Question 2 is easy to answer shallowly. Protection from liability is the purpose trainees omit, and it is why the record is built the way it is.
+- Question 5 is the integration question: the running SOL, the hardening Treatment Gap, and the claims work that must go on anyway.
+- Question 7 is the UPL gate in miniature. A trainee who can't rewrite it compliantly isn't ready for client contact.
+- The gap they are watching build here is the same 14 days defense counsel will ask John Doe about in deposition on Day 5.
 
 ---

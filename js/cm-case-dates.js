@@ -19,7 +19,7 @@
 (function(){
   const BASE = 2026, DAY = 864e5;
   const utc = (y, m, d) => Date.UTC(y, m - 1, d);
-  const BASE_DOL = utc(2026, 2, 6), BASE_DAY1_END = utc(2026, 2, 11);
+  const BASE_DOL = utc(2026, 2, 6), BASE_DAY1_END = utc(2026, 2, 21);   // Day 1's last case event: the Final Warning Letter request (Client Communications)
   const leap = y => (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;
 
   /* the shift (days, a multiple of 7) that puts the case in year Y, or null when the SOL would not stay exact */
