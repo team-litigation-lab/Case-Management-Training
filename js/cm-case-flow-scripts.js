@@ -669,10 +669,6 @@ window.CM_CF_SCRIPTS = {
    "say": "I've got John Doe's PIP Log up, with the right-hand column covered. Harbor Point has paid $685.00, $640.00, $2,395.00 and then $640.00 for the 03/27/2026 visit. How much PIP is left? Take a second. It's $640.00. If you can't keep that column straight, you can't decide an LOP request. Treatment is the file's engine room, and somebody has to pay for it while the claim is open. On this file three payers stand in a default order: Harbor Point PIP, then Peach State, then a Letter of Protection. An LOP issued out of order turns a bill an earlier payer would have paid into a lien against John Doe's net.",
    "ask": "How much PIP does John Doe have left after the 03/27/2026 visit?"
   },
-  "theory": {
-   "say": "Once the claim's set up, the Case Plan runs on three pillars: clinical care, functional status and subrogation management, and that last one decides who pays. The Payer Order is the default sequence. MedPay or PIP pays first, then health insurance, and an LOP comes last. Keeping that order keeps the liens down. PIP is first-party coverage for Medical Bills regardless of fault, up to its limit, and unlike PIP it never pays wages. Health insurance pays covered care at its contract rate, but it may hold a reimbursement right against the recovery. A Letter of Protection is the client's signed agreement that a provider gets paid from any recovery, which makes it a consensual lien on his net.",
-   "ask": "Which of these payers have you dealt with before, and which one is first in line on John Doe's file?"
-  },
   "rules": {
    "say": "In treatment, the question becomes \"Is the plan working?\" and you're facilitating, coordinating and advocating. Run the Payer Order: Harbor Point PIP, then Peach State, then an LOP. John claims the $5,000 PIP as a passenger in Kevin Alvarez's 2020 Ford Escape, because no policy in his household carries PIP. PIP pays in date order, never wages. When Crescent Pain & Spine billed Peach State on 05/15/2026 with $640.00 of PIP left, you tracked both ledgers and never re-routed a paid claim. Riverton Spine & Rehab got an LOP because it's out of network. Summit Imaging's 03/11/2026 MRI went to PIP, since every needless LOP is a lien on his net. LOP terms are Atty. Thorne's, so you prepare, route, transmit once he approves and confirm receipt. Never promise a provider an amount, a reduction or a date, and never explain John's liability to him.",
    "ask": "Riverton and Summit Imaging both asked for an LOP. Why did only one of them get it?"
@@ -722,11 +718,11 @@ window.CM_CF_SCRIPTS = {
    "ask": "Before you open the template, why does Riverton get an LOP?"
   },
   "task": {
-   "say": "Work both dates, and start each one by running the Payer Order and recording the result. On 02/23/2026, you prepare Riverton's LOP on the approved template, route it to Atty. Thorne for approval and signature, and transmit it with the claim-specific HIPAA authorization, asking for itemized statements and a missed-visit alert. Confirm receipt and open the entry in the CMS LOP register. Record John's assessment too, with his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing in the Email Workspace, naming Harbor Point PIP and proving it from the PIP Log. If Summit still refuses, Atty. Thorne hears before the 03/13/2026 appointment, so the MRI doesn't slip. And you're graded on this: no payment promised to either provider.",
+   "say": "Work both dates, and start each by running the Payer Order. On 02/23/2026 you prepare Riverton's LOP on the approved template, route it to Atty. Thorne for signature, and transmit it with the HIPAA authorization. Then you take the live call with Tammy Greer, the office manager: introduce John's case, confirm the clinic accepts the LOP, secure tomorrow's evaluation, and answer her questions on insurance, visit cadence and billing with facts. Afterwards you write the call up as a case note, open the follow-up tasks and file it in the CMS so the Backup Drive keeps a copy. On 03/11/2026 you decline Summit's request in writing, naming Harbor Point PIP and proving it from the PIP Log. No payment is promised to either provider.",
    "ask": "Summit says it won't do the MRI without an LOP. What do you say, and who do you tell?"
   },
   "check": {
-   "say": "Check your work before you log it. Did you run the Payer Order for each provider? Is Riverton's LOP justified, out of network and more care than PIP's balance can carry? Was it explained by Atty. Thorne and signed by John Doe and Atty. Thorne on 02/23/2026, before the 02/24 visit, with nothing signed by you? Does your transmittal carry the HIPAA authorization, ask for statements and the missed-visit alert, and is receipt logged? Your assessment should note the rental ending 03/19/2026 as a treatment risk, and the baseline should show the 2021 visits were low back, resolved, a different region. Summit's decline names PIP, proved from the ledger with $3,675.00 left, enough for the $2,395.00 MRI with $1,280.00 left over. And listen to the language. \"Don't worry, you'll be paid in full\" fails, however friendly.",
+   "say": "Check your work before you log it. Was the LOP signed by John Doe and Atty. Thorne on 02/23/2026, before the 02/24 visit, with nothing signed by you? Does your baseline show the 2021 visits were low back, resolved, a different region? Is the rental's 03/19/2026 end calendared as a treatment risk? Summit's decline names PIP, proved from the ledger with $3,675.00 left, enough for the $2,395.00 MRI. And your call with Tammy Greer is written up, tasked and filed, with nothing promised. If she asked whether the firm guarantees full payment, the only right answer is the LOP's own terms and a referral to Atty. Thorne. \"Don't worry, you'll be paid in full\" fails, however friendly.",
    "ask": "When a provider asks whether they'll be paid in full, how do you answer them?"
   }
  },
@@ -831,10 +827,6 @@ window.CM_CF_SCRIPTS = {
    "say": "I've drawn two lanes on the board, and here's why. Two different questions get confused on every new file: who pays John Doe's Medical Bills while the claim is open, and who pays the claim itself at the end. Most of the confusion on this topic is just those two questions being treated as one. The Health Plan answers the first question, and then it asks to be repaid out of the second. So if a reimbursement claim gets found after the demand goes out, guess where the money comes from? Straight out of the client's net.",
    "ask": "Who pays John Doe's Medical Bills while his claim is open, and who pays the claim itself?"
   },
-  "theory": {
-   "say": "Here's the road first. Three checks come before any clinical planning: a claim-specific HIPAA authorization, the Medicare and Medicaid check, and the Payer Order, PIP first, then health insurance, then an LOP or liens. Then the Health Plan's reimbursement right is flagged on first notice and logged in the CMS lien register the same day. Now the terms. Subrogation is a payer's right to recover what it paid for accident care. Primary payer determination decides which payer is billed first, so nothing is paid twice. A Letter of Protection promises a provider payment from the settlement, and it comes last in the Payer Order. And the client's net is what the client keeps once fees, costs and liens are paid; a lien flagged late comes straight out of it.",
-   "ask": "Why do you think a Letter of Protection sits last in the Payer Order?"
-  },
   "rules": {
    "say": "Clear the triple-check before clinical planning, so the claim's properly established and you're authorized to act. HIPAA first: a claim-specific Authorization to Release Medical Information that names the incident date and permits contact with legal and insurance parties. Then Medicare and Medicaid: if the client's 65 or older or on SSDI, report to the Benefits Coordination and Recovery Center under MMSEA, 2007. John Doe is 34, so you verify his SSDI status and record the answer. Then the Payer Order, and verify whether MedPay or PIP applies; don't assume it. The Payer Order isn't the Recovery Stack. When a Health Plan pays accident bills, flag its reimbursement right on first notice, and record the carrier, member ID and group number in the lien register that day. Never promise a provider or plan an amount, and leave enforceability and compromise to Atty. Thorne.",
    "ask": "Why flag the Health Plan's reimbursement right on first notice instead of waiting for the demand?"
@@ -843,18 +835,39 @@ window.CM_CF_SCRIPTS = {
    "say": "Here's the sequence on a live file. The retainer's signed, so you obtain the claim-specific HIPAA authorization and file it in Documents; it names 02/06/2026 and permits legal and insurance contact. Once you know the client's age and benefits, you verify SSDI status and report to the BCRC if he's 65 or older or on SSDI, logging the answer and its date in Case Notes. When the Health Plan's identified, you record the carrier, member ID and group, and the Payer Order, in Liens, so a dated lien record exists. And the moment the plan pays an accident-related bill, you flag the reimbursement right against the matter, before any demand is drafted."
   }
  },
+ "d2m2-sum": {
+  "why": {
+   "say": "By now John Doe's treatment is under way, and three money questions sit on his file at once. Who pays each bill while the claim is open? Who's going to want paying back out of the recovery? And what has to be flagged in the CMS right now, before anyone argues about it? This lesson puts all three on one page. Every card has more behind it, and I want you to be able to say the two flag rules word for word by the end, because a lien found at disbursement or a gap nobody recorded is how a good file loses money.",
+   "ask": "Which of those three questions do you think gets missed most often, and why?"
+  },
+  "theory": {
+   "say": "Four cards, and each one opens. Every coverage gets sorted twice, whose it is and what it pays, and only BI, Host UM and Relative UM make the $40,000 stack. The Payer-First Principle sends each bill to Harbor Point PIP first, then Peach State, then an LOP last. Health subrogation means the plan claims back only what it paid, for the collision's care: Peach State asserted $3,618.00 on 06/10/2026 and confirmed $1,860.00 in writing on 06/24/2026. And the two CMS flags go up the day you know, in facts only, and get routed to Atty. Thorne.",
+   "ask": "Before I open the last card, what's the exact day the lien flag goes up?"
+  },
+  "rules": {
+   "say": "Here are the rules in the course's own words. Only BI and UM stack, and that's $40,000; PIP and PD sit outside it. Bills go PIP, then Peach State, then an LOP. The lien is flagged in CMS Liens on first notice, which on this file was Peach State's letter of 02/27/2026, and always before any demand is drafted. The gap is flagged the day the records show it: 02/06/2026 to 02/20/2026 is 14 days, counted exactly, recorded as facts, routed, with a watch for any later break. Neither flag is a judgment. Whether a lien is enforceable or what a gap does to value belongs to Atty. Thorne."
+  },
+  "job": {
+   "say": "On the job it comes down to three triggers. A reimbursement right is first noticed, so you flag the lien in CMS Liens with its identifiers, dated before any demand. The plan's itemized ledger arrives, so you audit each line, dispute what isn't the collision's care in writing, and change the register only when the plan confirms the figure, here $1,860.00. And the records show first care on 02/20/2026, so you flag the 14-Day Gap in the Action Plan Editor's risks band in facts only, route it, and keep watching, which is how the 19-day break in April was caught the day the alert came in.",
+   "ask": "What would you write in the risks band, word for word?"
+  }
+ },
  "d1m1-a2": {
   "case": {
-   "say": "A letter just landed on the file, dated 03/12/2026, from Peach State Health Plan about member PSH-55017742, group GRP-41208. Following its 02/27/2026 notice of reimbursement rights, Peach State says it's processing John Doe's accident-related claims and will assert reimbursement from any recovery. It asks us to confirm the claim's noted on the file, return the accident questionnaire, and notify it before any settlement. The recovery file is SRU-26-03318. Right now, no lien record exists on the matter, and the pre-demand audit is still ahead. Timing is everything on this one.",
-   "ask": "If you waited to register this until the demand went out, what would it cost John Doe?"
+   "say": "This one runs on two dates. On 03/12/2026 Dion Carver at Peach State Health Plan writes about member PSH-55017742, recovery file SRU-26-03318: following the plan's 02/27/2026 notice, it's processing John Doe's accident-related claims and will assert reimbursement from any recovery. No lien record exists on the matter yet. Then on 06/10/2026 the plan's interim itemization arrives, and it asserts $3,618.00 across five claim lines. The pre-demand audit is still ahead of us, so whatever figure we accept now is the figure the demand and the Net Sheet will carry.",
+   "ask": "If you typed $3,618.00 into the lien register today, who would that cost?"
   },
   "task": {
-   "say": "Register Peach State Health Plan's reimbursement claim in John Doe's lien register in CMS Liens, and flag it against the matter. Record the carrier, member ID and group number, its position in the Payer Order, the basis on which reimbursement is asserted, and the date of the flag. Record the Regulatory Triple-Check results right alongside it. Then, in one line, say what has to happen before this lien can be compromised. When you set the flag, say the date out loud; I want to hear it. What you hand in is a dated, flagged lien record complete enough to negotiate from on Day 4. A lien found at disbursement is found too late to negotiate from strength.",
-   "ask": "What's the date you're setting on that flag, and why today?"
+   "say": "On 03/12/2026 you register Peach State's claim in CMS Liens and flag it against the matter: carrier, member ID and group number, its place in the Payer Order, the basis it asserts, and the date of the flag, with the Triple-Check results beside it. Say that date out loud when you set it. Then you answer Dion Carver in the Email Workspace, noting the claim and asking for an itemized ledger once anything is paid. On 06/10/2026 you audit that ledger line by line, send the dispute, get the corrected balance confirmed in writing, and file the exchange in the CMS and on the Backup Drive. And in one line, tell me what has to happen before this lien can be compromised.",
+   "ask": "What's the date you're setting on that flag, and why that day?"
+  },
+  "audit": {
+   "say": "Here is Peach State's interim itemization, and I want a call on every line. A plan's recovery vendor pulls every claim from the coverage date, so you'll find a 02/03/2026 eye exam from before the collision, a sinus infection on 03/18/2026, and an allergy visit on 05/06/2026 for a condition he already had. The Crescent injection is the subtle one: the paid column says $1,860.00, but the plan is claiming the billed $3,400.00. Summit's MRI is fine at $0.00, because PIP paid it. And the cover letter wants full repayment with no reduction, which is not yours to answer. These results come back in minutes here; on a real file a corrected itemization takes weeks.",
+   "ask": "Which number on the Crescent line may a health plan claim, and why?"
   },
   "check": {
-   "say": "Before you log it, run your record against this. A lien record created against John Doe's matter, with the carrier as Peach State Health Plan, and both member ID PSH-55017742 and group GRP-41208 entered. The Payer Order position recorded: after PIP or MedPay, before LOPs and provider liens. The reimbursement basis noted. The flag dated before any demand's drafted. The triple-check recorded, HIPAA authorization, BCRC answer, Payer Order. And an escalation note saying compromise needs Atty. Thorne's authority. Remember, registering a lien isn't conceding it. Day 4 is where it gets reduced. I'm going to read one of your records aloud as if I were the lien negotiator receiving it on Day 4.",
-   "ask": "Reading your record cold on Day 4, what would a lien negotiator still have to go looking for?"
+   "say": "Run your record against this before you log it. Peach State is the carrier, with PSH-55017742 and GRP-41208 both entered. Its position sits after PIP and before the LOP providers. The three unrelated lines are disputed and Crescent is at the $1,860.00 the plan paid. The flag is dated before any demand is drafted. And the $1,860.00 is confirmed in writing on 06/24/2026, with any compromise left to Atty. Thorne. When Dion Carver asked whether John would repay in full and what the limits were, the right answer acknowledged the figure, honored the notice and routed the rest. Registering a lien isn't conceding it; the lien stage is where it gets reduced.",
+   "ask": "Reading your record cold at the lien stage, what would a negotiator still have to go looking for?"
   }
  },
  "d2m2-kc": {
@@ -1017,6 +1030,24 @@ window.CM_CF_SCRIPTS = {
   "dodont": {
    "say": "Let's play 3 Clues, 1 Rule. I'll reveal the clues one at a time; call Do or Don't and name the rule as soon as you see it. The good habits are stress-testing the file before the defense does, locking in total damages and then protecting them by finding every lien before the demand, and recording the source of every figure so Atty. Thorne can check any line in seconds. The traps are sending the demand and hoping nobody checks the math, padding the Specials with future care, and finding a lien after the release is signed. Watch billed versus paid, too. Picking a column yourself or hiding the paid one are both wrong, so show both and route the choice.",
    "ask": "Why doesn't the Civic's repair ever count toward the $40,000 or the BI Specials?"
+  }
+ },
+ "d2m4-wage": {
+  "case": {
+   "say": "It's 06/22/2026, ten days after Lakeside declared MMI. John Doe signed Northgate Distribution's employee authorization this morning. What we have on his wages is a draft worksheet somebody built from his own account over the phone, and it claims $1,760.00. Nothing in it comes from a record yet. Angela Ruiz runs HR at Northgate, and the Special Damages Audit is due on 07/01/2026. Every missed shift that reaches the demand has to stand up to an adjuster who will check it against payroll and the medical chart.",
+   "ask": "Looking at that worksheet, what in it came from a record?"
+  },
+  "task": {
+   "say": "First you write the Employer Verification email to Angela Ruiz in the Email Workspace, with the authorization: the Wage Loss Verification Form, payroll records and his W-2, and the employer's confirmation of his rate, his shift hours, each missed date, any overtime and the physical demands of the job. When she replies, she'll ask for his MRI and whether the settlement repays him, and your answer sends no records and says nothing about the claim. Then you match every missed shift to a provider record, flag the five February shifts to Atty. Thorne, audit the draft to the verified total, and enter it in the Specials and the Net Sheet.",
+   "ask": "Why does the authorization not let you send Northgate his MRI?"
+  },
+  "audit": {
+   "say": "Now call every row of the draft against Northgate's records and the doctors' notes. You'll find 02/18 and 02/19 claimed, and he worked both. The MRI is written as 03/12, and it was 03/13. The 05/18 shift rests on his memory, when Crescent's work note covers 05/15 through 05/18. Light duty and overtime appear that Northgate says never happened. And the five call-outs from 02/09 to 02/13 were simply left out because there's no doctor's note. Those stay in, flagged, never dropped. Northgate answered in minutes here; a real employer can take weeks, which is why the request goes out the day MMI is declared.",
+   "ask": "Why is dropping the February shifts worse than claiming them with a flag?"
+  },
+  "check": {
+   "say": "Check your work before you hand it in. Northgate confirmed the rate, the hours, no overtime and the job's demands: lifting to 50 pounds, forklift, on his feet all shift. The 03/05, 03/13, 05/15 and 05/18 shifts are each matched to a provider record. The 02/09 to 02/13 shifts are kept and flagged with the call-out record, the EMS report and the 02/07 receipt. The draft went from $1,760.00 to $1,584.00, nine shifts at eight hours and $22.00. And not one page of his medical records went to his employer.",
+   "ask": "If Keystone asked how you know he missed 03/13, what would you show them?"
   }
  },
  "d2m4-a1": {

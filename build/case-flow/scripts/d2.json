@@ -276,11 +276,11 @@
    "ask": "Before you open the template, why does Riverton get an LOP?"
   },
   "task": {
-   "say": "Work both dates, and start each one by running the Payer Order and recording the result. On 02/23/2026, you prepare Riverton's LOP on the approved template, route it to Atty. Thorne for approval and signature, and transmit it with the claim-specific HIPAA authorization, asking for itemized statements and a missed-visit alert. Confirm receipt and open the entry in the CMS LOP register. Record John's assessment too, with his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing in the Email Workspace, naming Harbor Point PIP and proving it from the PIP Log. If Summit still refuses, Atty. Thorne hears before the 03/13/2026 appointment, so the MRI doesn't slip. And you're graded on this: no payment promised to either provider.",
+   "say": "Work both dates, and start each by running the Payer Order. On 02/23/2026 you prepare Riverton's LOP on the approved template, route it to Atty. Thorne for signature, and transmit it with the HIPAA authorization. Then you take the live call with Tammy Greer, the office manager: introduce John's case, confirm the clinic accepts the LOP, secure tomorrow's evaluation, and answer her questions on insurance, visit cadence and billing with facts. Afterwards you write the call up as a case note, open the follow-up tasks and file it in the CMS so the Backup Drive keeps a copy. On 03/11/2026 you decline Summit's request in writing, naming Harbor Point PIP and proving it from the PIP Log. No payment is promised to either provider.",
    "ask": "Summit says it won't do the MRI without an LOP. What do you say, and who do you tell?"
   },
   "check": {
-   "say": "Check your work before you log it. Did you run the Payer Order for each provider? Is Riverton's LOP justified, out of network and more care than PIP's balance can carry? Was it explained by Atty. Thorne and signed by John Doe and Atty. Thorne on 02/23/2026, before the 02/24 visit, with nothing signed by you? Does your transmittal carry the HIPAA authorization, ask for statements and the missed-visit alert, and is receipt logged? Your assessment should note the rental ending 03/19/2026 as a treatment risk, and the baseline should show the 2021 visits were low back, resolved, a different region. Summit's decline names PIP, proved from the ledger with $3,675.00 left, enough for the $2,395.00 MRI with $1,280.00 left over. And listen to the language. \"Don't worry, you'll be paid in full\" fails, however friendly.",
+   "say": "Check your work before you log it. Was the LOP signed by John Doe and Atty. Thorne on 02/23/2026, before the 02/24 visit, with nothing signed by you? Does your baseline show the 2021 visits were low back, resolved, a different region? Is the rental's 03/19/2026 end calendared as a treatment risk? Summit's decline names PIP, proved from the ledger with $3,675.00 left, enough for the $2,395.00 MRI. And your call with Tammy Greer is written up, tasked and filed, with nothing promised. If she asked whether the firm guarantees full payment, the only right answer is the LOP's own terms and a referral to Atty. Thorne. \"Don't worry, you'll be paid in full\" fails, however friendly.",
    "ask": "When a provider asks whether they'll be paid in full, how do you answer them?"
   }
  },
@@ -536,5 +536,40 @@
     "job": {
       "say": "Three moments on the job. When a PIP check clears, you post it in the PIP Log and record what's left, what's still coming and the wage claim, so you can see the exhaustion date before it arrives. When a bill could go to PIP or to an LOP, you lay out both routes with the figures in an email to Atty. Thorne, and you log his decision; you never re-route a claim another payer has already paid. And on a file in an EMC state, when the first treating records arrive, you check the rule and look for the finding. If it's missing, Atty. Thorne hears about it that day."
     }
-  }
+  },
+ "d2m2-sum": {
+   "why": {
+     "say": "By now John Doe's treatment is under way, and three money questions sit on his file at once. Who pays each bill while the claim is open? Who's going to want paying back out of the recovery? And what has to be flagged in the CMS right now, before anyone argues about it? This lesson puts all three on one page. Every card has more behind it, and I want you to be able to say the two flag rules word for word by the end, because a lien found at disbursement or a gap nobody recorded is how a good file loses money.",
+     "ask": "Which of those three questions do you think gets missed most often, and why?"
+   },
+   "theory": {
+     "say": "Four cards, and each one opens. Every coverage gets sorted twice, whose it is and what it pays, and only BI, Host UM and Relative UM make the $40,000 stack. The Payer-First Principle sends each bill to Harbor Point PIP first, then Peach State, then an LOP last. Health subrogation means the plan claims back only what it paid, for the collision's care: Peach State asserted $3,618.00 on 06/10/2026 and confirmed $1,860.00 in writing on 06/24/2026. And the two CMS flags go up the day you know, in facts only, and get routed to Atty. Thorne.",
+     "ask": "Before I open the last card, what's the exact day the lien flag goes up?"
+   },
+   "rules": {
+     "say": "Here are the rules in the course's own words. Only BI and UM stack, and that's $40,000; PIP and PD sit outside it. Bills go PIP, then Peach State, then an LOP. The lien is flagged in CMS Liens on first notice, which on this file was Peach State's letter of 02/27/2026, and always before any demand is drafted. The gap is flagged the day the records show it: 02/06/2026 to 02/20/2026 is 14 days, counted exactly, recorded as facts, routed, with a watch for any later break. Neither flag is a judgment. Whether a lien is enforceable or what a gap does to value belongs to Atty. Thorne."
+   },
+   "job": {
+     "say": "On the job it comes down to three triggers. A reimbursement right is first noticed, so you flag the lien in CMS Liens with its identifiers, dated before any demand. The plan's itemized ledger arrives, so you audit each line, dispute what isn't the collision's care in writing, and change the register only when the plan confirms the figure, here $1,860.00. And the records show first care on 02/20/2026, so you flag the 14-Day Gap in the Action Plan Editor's risks band in facts only, route it, and keep watching, which is how the 19-day break in April was caught the day the alert came in.",
+     "ask": "What would you write in the risks band, word for word?"
+   }
+ },
+ "d2m4-wage": {
+   "case": {
+     "say": "It's 06/22/2026, ten days after Lakeside declared MMI. John Doe signed Northgate Distribution's employee authorization this morning. What we have on his wages is a draft worksheet somebody built from his own account over the phone, and it claims $1,760.00. Nothing in it comes from a record yet. Angela Ruiz runs HR at Northgate, and the Special Damages Audit is due on 07/01/2026. Every missed shift that reaches the demand has to stand up to an adjuster who will check it against payroll and the medical chart.",
+     "ask": "Looking at that worksheet, what in it came from a record?"
+   },
+   "task": {
+     "say": "First you write the Employer Verification email to Angela Ruiz in the Email Workspace, with the authorization: the Wage Loss Verification Form, payroll records and his W-2, and the employer's confirmation of his rate, his shift hours, each missed date, any overtime and the physical demands of the job. When she replies, she'll ask for his MRI and whether the settlement repays him, and your answer sends no records and says nothing about the claim. Then you match every missed shift to a provider record, flag the five February shifts to Atty. Thorne, audit the draft to the verified total, and enter it in the Specials and the Net Sheet.",
+     "ask": "Why does the authorization not let you send Northgate his MRI?"
+   },
+   "audit": {
+     "say": "Now call every row of the draft against Northgate's records and the doctors' notes. You'll find 02/18 and 02/19 claimed, and he worked both. The MRI is written as 03/12, and it was 03/13. The 05/18 shift rests on his memory, when Crescent's work note covers 05/15 through 05/18. Light duty and overtime appear that Northgate says never happened. And the five call-outs from 02/09 to 02/13 were simply left out because there's no doctor's note. Those stay in, flagged, never dropped. Northgate answered in minutes here; a real employer can take weeks, which is why the request goes out the day MMI is declared.",
+     "ask": "Why is dropping the February shifts worse than claiming them with a flag?"
+   },
+   "check": {
+     "say": "Check your work before you hand it in. Northgate confirmed the rate, the hours, no overtime and the job's demands: lifting to 50 pounds, forklift, on his feet all shift. The 03/05, 03/13, 05/15 and 05/18 shifts are each matched to a provider record. The 02/09 to 02/13 shifts are kept and flagged with the call-out record, the EMS report and the 02/07 receipt. The draft went from $1,760.00 to $1,584.00, nine shifts at eight hours and $22.00. And not one page of his medical records went to his employer.",
+     "ask": "If Keystone asked how you know he missed 03/13, what would you show them?"
+   }
+ }
 }
