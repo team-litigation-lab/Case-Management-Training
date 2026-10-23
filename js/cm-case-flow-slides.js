@@ -5347,6 +5347,19 @@ window.CM_CF_SLIDES = {
    "Answer the 14-day gap and lead causation with the **03/13/2026 MRI**"
   ],
   "upl": "Serve and prove the demand; never set terms, extend deadlines or value the claim.",
+  "document": {
+   "name": "Affidavit of No Other Insurance",
+   "doc": "RS36",
+   "definition": "Robert Smith's sworn, notarized statement that Keystone's policy KMI-PA-7731045 is **the only liability coverage** for the 02/06/2026 collision.",
+   "purpose": "A demand condition: before settling at the $10,000 limit, the file needs **sworn proof nothing else** covers Smith: no umbrella, business or employer's policy.",
+   "evidence": "With Keystone's Dec Page, it **proves Keystone is all there is**: Harbor Point and Cardinal State reviewed it before consenting.",
+   "handling": [
+    "Record it as **a demand condition** in the approved terms",
+    "Check it is **sworn and notarized** (08/10/2026) and the policy matches",
+    "File with the tender; **cite it on page one** of UM demands",
+    "What it means for coverage is **Atty. Thorne's to explain**"
+   ]
+  },
   "job": [
    [
     "MMI declared (06/12/2026)",
@@ -5549,6 +5562,19 @@ window.CM_CF_SLIDES = {
    "Confirm **add-on, not offset**, in writing from each carrier; $40,000 needs both"
   ],
   "upl": "Never interpret a policy or release for John Doe or tell him to sign.",
+  "document": {
+   "name": "UM Consent to Settle",
+   "doc": "RS38",
+   "definition": "A UM carrier's written answer to the 30-Day Letter: it **consents to the BI settlement**, waives subrogation against Smith and won't substitute its check.",
+   "purpose": "Protects the UM carrier's subrogation right: settling and **releasing Smith without it** can cost John Doe the UM coverage.",
+   "evidence": "Harbor Point (08/24) and Cardinal State (08/26/2026) consent to a release of **Smith and Keystone only**: both UM claims stay open.",
+   "handling": [
+    "Prepare both requests for **Atty. Thorne's signature**; sent 08/13/2026",
+    "Docket **each 30-day window**; a carrier may substitute its own check",
+    "**Nothing goes to John Doe** to sign until both consents are in",
+    "File each consent; what it means for the stack is **Atty. Thorne's**"
+   ]
+  },
   "job": [
    [
     "Keystone tenders $10,000 (08/12/2026)",
@@ -6658,6 +6684,19 @@ window.CM_CF_SLIDES = {
    "**No Payoff Letter**, no payment"
   ],
   "upl": "The authorized ask only; never accept a figure outside it",
+  "document": {
+   "name": "Payoff Letter",
+   "doc": "RS42",
+   "definition": "A lienholder's signed letter stating the **agreed payoff in full satisfaction**: no balance billing, no collections, and a release of its lien.",
+   "purpose": "Puts the agreed reduction **in writing**: once paid, the account closes at $0.00, and John Doe is never billed for it.",
+   "evidence": "Riverton Spine & Rehab's 10/12/2026 letter: $6,105.00 audited, **$4,580.00 accepted** if paid within 30 days; it backs the disbursement command.",
+   "handling": [
+    "**No Payoff Letter, no payment**: full and final, no balance billing",
+    "Check every figure against **the audited balance** and the agreed reduction",
+    "Docket **the 30-day payment condition** from the letter's date",
+    "Update the Lien Tracker and Net Sheet **the same day**"
+   ]
+  },
   "job": [
    [
     "Audited balance confirmed",
@@ -7002,6 +7041,19 @@ window.CM_CF_SLIDES = {
    "Verify, document, authorize, then **reconcile to $0.00**"
   ],
   "upl": "Audit, flag, prepare, verify; never explain release clauses or sign trust checks.",
+  "document": {
+   "name": "Limited Release",
+   "doc": "RS37",
+   "definition": "The document John Doe signs to end his BI claim: it releases **Robert Smith and Keystone only**, for the $10,000, and nobody else.",
+   "purpose": "Ends the claim against Smith in exchange for payment, while **preserving the UM claims** against Harbor Point and Cardinal State.",
+   "evidence": "Signed 08/28/2026, it is exhaustion proof in each UM demand; Keystone's 08/14 draft reached “all other … insurers”: **$30,000 of UM coverage**.",
+   "handling": [
+    "Audit **every line**: who is released, which claims, what John promises",
+    "Quote over-broad words in **a redline memo** to Atty. Thorne",
+    "No signature until **both UM consents** are in writing",
+    "What a clause means for John is **Atty. Thorne's to explain**"
+   ]
+  },
   "job": [
    [
     "Settlement agreed or tendered",
@@ -7732,6 +7784,19 @@ window.CM_CF_SLIDES = {
    "Docket the SOL to **internal dates**: 02/04/2028 and 11/05/2027"
   ],
   "upl": "You compute, docket and flag; which rule governs, and extensions, are Atty. Thorne's.",
+  "document": {
+   "name": "The Complaint",
+   "doc": "RS51",
+   "definition": "The pleading that **starts the lawsuit**: caption, jurisdiction, facts, causes of action and prayer for relief, drafted and signed by Atty. Thorne.",
+   "purpose": "Filed before the SOL, it **preserves the claim** and puts negligence and negligence per se against Robert Smith before the court.",
+   "evidence": "Filed 09/24/2026 as No. 26-CV-04417, it fixes what is pleaded: **bodily-injury damages only**, $14,817.40 medical and $1,584.00 wages; no Property Damage.",
+   "handling": [
+    "Before signature, **verify the filing date** against the SOL",
+    "Confirm Robert Smith's **exact legal name** from an independent record",
+    "File **the stamped copy** in 01_PLEADINGS as Complaint_Filed_Stamped.pdf",
+    "Use the filed Complaint, **never the pre-filing draft**"
+   ]
+  },
   "job": [
    [
     "Scheduling Order entered 12/10/2026",
@@ -8315,6 +8380,19 @@ window.CM_CF_SLIDES = {
    "Section 5's ledger ties **line by line** to certified invoices"
   ],
   "upl": "Build and audit; never discuss value with the mediator, Atty. Mercer or John Doe.",
+  "document": {
+   "name": "Answer & Affirmative Defenses",
+   "doc": "RS53",
+   "definition": "The defendant's response to the Complaint: it **admits or denies each allegation**, then pleads the defenses Robert Smith will rely on.",
+   "purpose": "Tells the court and Atty. Thorne **what Robert Smith disputes**, and on which defenses he will fight the claim.",
+   "evidence": "Filed 11/12/2026 by Atty. Grant Mercer, it is **the defense roadmap**: comparative negligence, causation (the gap, a “degenerative” MRI), failure to mitigate.",
+   "handling": [
+    "Log it in the **Pleadings Log**; file it in 01_PLEADINGS",
+    "Binder Section 3: the **operative pleadings only**, no drafts",
+    "Map **each pleaded defense** to an answering exhibit, or flag it",
+    "What each defense means for the claim is **Atty. Thorne's to judge**"
+   ]
+  },
   "job": [
    [
     "Mediation set for 03/18/2027",

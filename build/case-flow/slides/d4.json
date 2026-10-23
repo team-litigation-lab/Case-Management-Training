@@ -127,6 +127,19 @@
       "Docket the SOL to **internal dates**: 02/04/2028 and 11/05/2027"
     ],
     "upl": "You compute, docket and flag; which rule governs, and extensions, are Atty. Thorne's.",
+    "document": {
+      "name": "The Complaint",
+      "doc": "RS51",
+      "definition": "The pleading that **starts the lawsuit**: caption, jurisdiction, facts, causes of action and prayer for relief, drafted and signed by Atty. Thorne.",
+      "purpose": "Filed before the SOL, it **preserves the claim** and puts negligence and negligence per se against Robert Smith before the court.",
+      "evidence": "Filed 09/24/2026 as No. 26-CV-04417, it fixes what is pleaded: **bodily-injury damages only**, $14,817.40 medical and $1,584.00 wages; no Property Damage.",
+      "handling": [
+        "Before signature, **verify the filing date** against the SOL",
+        "Confirm Robert Smith's **exact legal name** from an independent record",
+        "File **the stamped copy** in 01_PLEADINGS as Complaint_Filed_Stamped.pdf",
+        "Use the filed Complaint, **never the pre-filing draft**"
+      ]
+    },
     "job": [
       ["Scheduling Order entered 12/10/2026", "Enter every date; read each verb", "Docket System", "“Completed by” entered as deadline"],
       ["Discovery mailed 12/01/2026", "Count 30 + 3; RFAs separately", "Case Docket & Calendar Conflict Resolver", "Responses and RFAs due 01/04/2027"],
@@ -303,6 +316,19 @@
       "Section 5's ledger ties **line by line** to certified invoices"
     ],
     "upl": "Build and audit; never discuss value with the mediator, Atty. Mercer or John Doe.",
+    "document": {
+      "name": "Answer & Affirmative Defenses",
+      "doc": "RS53",
+      "definition": "The defendant's response to the Complaint: it **admits or denies each allegation**, then pleads the defenses Robert Smith will rely on.",
+      "purpose": "Tells the court and Atty. Thorne **what Robert Smith disputes**, and on which defenses he will fight the claim.",
+      "evidence": "Filed 11/12/2026 by Atty. Grant Mercer, it is **the defense roadmap**: comparative negligence, causation (the gap, a “degenerative” MRI), failure to mitigate.",
+      "handling": [
+        "Log it in the **Pleadings Log**; file it in 01_PLEADINGS",
+        "Binder Section 3: the **operative pleadings only**, no drafts",
+        "Map **each pleaded defense** to an answering exhibit, or flag it",
+        "What each defense means for the claim is **Atty. Thorne's to judge**"
+      ]
+    },
     "job": [
       ["Mediation set for 03/18/2027", "Seat each document in one section", "CMS → Documents → Master index", "Section, exhibit number, Bates, source"],
       ["Pleadings and evidence indexed", "Check each pleaded defense against exhibits", "CMS → Litigation → Pleadings Log", "Each defense answered or flagged"],
