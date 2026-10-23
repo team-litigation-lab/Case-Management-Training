@@ -2997,6 +2997,143 @@ window.CM_CF_SLIDES = {
    ]
   }
  },
+ "d2m1-afd": {
+  "image": "coverage-check",
+  "roadmap": {
+   "title": "Affidavits: the Roadmap",
+   "merge": true,
+   "steps": [
+    {
+     "label": "Know the fact",
+     "text": "What the file must **prove**"
+    },
+    {
+     "label": "Find the affiant",
+     "text": "The person with **personal knowledge**"
+    },
+    {
+     "label": "Request and docket",
+     "text": "Ask early, **in writing**, with a date"
+    },
+    {
+     "label": "Check it",
+     "text": "Affiant, numbers, dates, **jurat and seal**"
+    },
+    {
+     "label": "File it",
+     "text": "Where it will be **relied on**"
+    }
+   ]
+  },
+  "hook": "A fact the file relies on is proven by **the person who knows it**, under oath.",
+  "points": [
+   "Smith swears **no other insurance**: the condition for the limit",
+   "John's **residency** keeps Relative UM; sworn if a carrier asks",
+   "Custodian affidavits put **the bills into evidence**",
+   "The **affidavit of service** starts Smith's answer clock"
+  ],
+  "upl": "Request, track and check; **never swear, sign or notarize** for anyone",
+  "job": [
+   [
+    "Demand at the limit approved",
+    "Request Smith's affidavit",
+    "CMS → Tasks",
+    "Sworn **08/10/2026**"
+   ],
+   [
+    "Records request goes out",
+    "Ask for the custodian affidavit",
+    "ChartSwap",
+    "Set comes back **sworn**"
+   ],
+   [
+    "Affidavit arrives",
+    "Check it; route defects",
+    "CMS → Documents",
+    "Filed **where it's used**"
+   ]
+  ],
+  "dos": [
+   "Ask for the **custodian affidavit** with every records request",
+   "Check every **jurat and seal** before filing"
+  ],
+  "donts": [
+   "Accepting an **unsworn statement** as proof",
+   "Writing **an affiant's words** for them"
+  ],
+  "theory": {
+   "lead": "An affidavit turns a fact into **proof**: sworn, on personal knowledge, by the person who knows it.",
+   "concepts": [
+    {
+     "term": "The Affidavit",
+     "text": "Facts sworn under oath before a notary, ending in a **jurat**; a false one is perjury.",
+     "more": [
+      "Made on the signer's **own personal knowledge**",
+      "Jurat: “sworn to and subscribed before me”",
+      "An acknowledgment only confirms **who signed**",
+      "Check the notary's name, commission and seal"
+     ]
+    },
+    {
+     "term": "Coverage Affidavits",
+     "text": "Smith's **no other insurance**; John's residency and no owned vehicle, if asked.",
+     "more": [
+      "Smith sworn **08/10/2026**: Keystone is all there is",
+      "Harbor Point and Cardinal State read it before consenting",
+      "Relative UM: John lives with Margaret, owns **no car**",
+      "Cardinal State confirmed in writing 03/09/2026"
+     ]
+    },
+    {
+     "term": "Damages Affidavits",
+     "text": "Records and billing **custodian** affidavits; Northgate's wage verification.",
+     "more": [
+      "Custodian: true copies, kept in the **regular course**",
+      "Lets bills into evidence without calling each provider",
+      "Ask for it **with every** certified records request",
+      "Northgate's letter proves $1,584.00 in wages"
+     ]
+    },
+    {
+     "term": "Court Affidavits",
+     "text": "The **affidavit of service** proves Smith was served and starts his answer clock.",
+     "more": [
+      "Sworn by **the process server**",
+      "Filed with the court 10/16/2026",
+      "The UM waivers' acknowledgments make them **court-ready**",
+      "Every one checked before it is filed"
+     ]
+    }
+   ],
+   "pages": []
+  },
+  "clues": {
+   "dos": [
+    [
+     "The bills go into evidence with no provider on the stand.",
+     "Each provider keeps its own records in the ordinary course.",
+     "One request can bring the records and the sworn paper together."
+    ],
+    [
+     "A notary's commission number and expiry date matter.",
+     "The signer swore the facts before an officer.",
+     "Look at the bottom of the page before you file it."
+    ]
+   ],
+   "donts": [
+    [
+     "A typed letter says Smith has no umbrella policy.",
+     "Nobody signed it under oath before a notary.",
+     "The UM carriers will not consent on its strength."
+    ],
+    [
+     "The process server's draft shows 3:15 p.m., not 3:51.",
+     "The docket entry says otherwise, to the minute.",
+     "The fix belongs to the person who swore it."
+    ]
+   ]
+  }
+ },
  "d2m1-liab": {
   "image": "documents-audit",
   "hook": "**Coverage says there is money**; liability says someone has to pay it.",
@@ -6470,6 +6607,19 @@ window.CM_CF_SLIDES = {
  },
  "d3m2-umw": {
   "image": "coverage-check",
+  "document": {
+   "name": "UM Waiver of Subrogation",
+   "doc": "RS83",
+   "definition": "Each UM carrier's signed, **notarized** instrument giving up its right to recover from Robert Smith and Keystone.",
+   "purpose": "It lets John release Smith **without losing the UM claims**; Keystone pays only once both are in.",
+   "evidence": "Sworn and acknowledged, it **can be filed or offered** in court or arbitration without the adjuster.",
+   "handling": [
+    "Get the **waiver itself**, not only the consent letter",
+    "Check carrier, policy, claim and **Smith and Keystone only**",
+    "Confirm it is **signed and notarized**, UM claim kept open",
+    "What it waives is **Atty. Thorne's to explain**"
+   ]
+  },
   "hook": "Keystone's $10,000 can't close until **both UM carriers** consent and waive subrogation.",
   "points": [
    "Release Smith without consent and **the UM claims** can be lost",

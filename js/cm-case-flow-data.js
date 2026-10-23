@@ -2574,6 +2574,8 @@ window.CM_CASE_FLOW = {
       title: "Claims Setup & Coverage Verification",
       about: "Setting the claims up in order: the Policy Stack built in the CMS, the LOR set to all three stack carriers and the notices outside the stack, transmitted and logged, then the carriers' correspondence received and every coverage tracked from “reported” to “confirmed in writing” in the CMS Coverage Matrix.",
       quiz: [
+          {"q": "Who swears the affidavit of no other insurance on John Doe's file, and why does the file need it?", "opts": ["Robert Smith, to prove Keystone's $10,000 is his only liability coverage before settling at the limit", "John Doe, to prove he owns no car for Relative UM", "Dana Whitfield at Keystone, to confirm the BI limit", "Atty. Thorne, to certify the Demand Package"], "a": 0, "r": "The at-fault driver swears it: Robert Smith, 08/10/2026. Settling at the $10,000 limit, and the UM carriers' consents, rely on sworn proof that nothing else covers him."},
+          {"q": "A provider's certified records arrive with no custodian's affidavit. What do you do?", "opts": ["Ask the provider for its records and billing custodian's affidavit, and log the request", "Sign a statement yourself that the copies are true", "Use the records as they are: certified copies don't need it", "Ask John Doe to swear the bills are correct"], "a": 0, "r": "The custodian's affidavit is what lets the bills and records into evidence without calling the provider. Only the provider's custodian can swear it; you request it, log it and check it."},
         {q: "Which coverages make up John Doe's $40,000 Recovery Stack?",
          opts: ["Keystone BI, Harbor Point Host UM and Cardinal State Relative UM", "Keystone BI, Host UM, Relative UM and Harbor Point PIP", "Keystone BI, Keystone PD and Host UM", "Host UM, Relative UM and Margaret Doe's Bluewater UM"],
          a: 0, r: "Only the coverages that pay the claim stack: $10,000 BI + $20,000 Host UM + $10,000 Relative UM. PIP pays bills now (Payer Order), PD pays for the car, and Margaret Doe rejected UM on her Bluewater policy in writing on 03/14/2024."},
@@ -2876,6 +2878,139 @@ window.CM_CASE_FLOW = {
         ]
       },
 
+      {
+        "kind": "lesson",
+        "id": "d2m1-afd",
+        "compact": true,
+        "title": "Affidavits on the File: No Other Insurance, Residency, Records & Service",
+        "topic": "Which sworn statements John Doe's file relies on, who swears each one, and where each is used",
+        "visual": "A row of five document cards on a navy rail, each with a notary seal in its corner and a mono tag naming who swears it: NO OTHER INSURANCE · ROBERT SMITH; RESIDENCY & NO OWNED VEHICLE · JOHN DOE; RECORDS & BILLING · PROVIDER CUSTODIAN; WAGES · NORTHGATE HR; SERVICE · PROCESS SERVER. Under each card, an orange pill names where it is used: DEMAND CONDITION, RELATIVE UM, EVIDENCE, LOST WAGES, ANSWER CLOCK. Along the bottom, a magnifier over a jurat block with five ticks: affiant, numbers, dates, signature, seal. The argument: a fact the file relies on is proven by the person who knows it, under oath.",
+        "tell": {
+          "why": "A fact the file depends on is only as strong as its proof. Coverage, residency, the bills and service on Robert Smith are each proven by a sworn statement from the person who knows them: Smith swears he has no other insurance, a records custodian swears the bills are the provider's own, a process server swears Smith was served. Without the affidavit, the fact is an assertion a carrier, an arbitrator or a court can refuse.",
+          "rules": [
+            "What an affidavit is: a written statement of facts, made on the signer's own personal knowledge and sworn under oath before a notary or other officer, ending in a jurat (\"sworn to and subscribed before me\"). A false affidavit is perjury. An acknowledgment, like the one on a UM Waiver of Subrogation, only confirms who signed.",
+            "Coverage, the Affidavit of No Other Insurance: Robert Smith swears Keystone's policy is the only liability coverage for the collision, with no umbrella, business, employer's or household policy. It is a condition of settling at the $10,000 limit, and what Harbor Point and Cardinal State review before consenting (sworn 08/10/2026).",
+            "Coverage, Residency and No Owned Vehicle: Relative UM depends on John living with Margaret Doe and owning no car. If a carrier asks for sworn proof, John signs an affidavit drafted for Atty. Thorne's review; on this file Cardinal State confirmed coverage in writing on 03/09/2026.",
+            "Damages, the Records and Billing Custodian Affidavit: each provider's custodian swears the records and bills are true copies kept in the regular course of business. Ask for it with every certified records request: it is how bills and records get into evidence without calling each provider.",
+            "Damages, Wage Verification: Northgate's signed wage-and-attendance letter proves the $1,584.00 in lost wages; once suit is filed, Atty. Thorne may ask for it in sworn form.",
+            "Court, the Affidavit of Service: the process server swears when, where and how Robert Smith was served. It is filed with the court and starts the defendant's answer clock (filed 10/16/2026).",
+            "Check every affidavit before it is filed or relied on: the affiant's name, the case and claim numbers, dates and figures against the file, the signature, and the jurat with the notary's name, commission and seal. A defect goes back to the sender, logged. You never sign, notarize or change an affiant's words."
+          ],
+          "upl": [
+            "You request, track and check affidavits, and prepare drafts for Atty. Thorne's review. You never tell an affiant what to swear, never sign or notarize for anyone, and never tell John Doe what an affidavit means for his claim."
+          ]
+        },
+        "show": {
+          "caption": "The affidavits on John Doe's file",
+          "type": "table",
+          "head": [
+            "Affidavit",
+            "Who swears it",
+            "Used for",
+            "On this file"
+          ],
+          "rows": [
+            [
+              "No Other Insurance",
+              "Robert Smith",
+              "Settling at the BI limit; the UM consents",
+              "Sworn 08/10/2026"
+            ],
+            [
+              "Residency & no owned vehicle",
+              "John Doe",
+              "Relative UM eligibility, if a carrier asks",
+              "Cardinal State confirmed in writing 03/09/2026"
+            ],
+            [
+              "Records & billing custodian",
+              "Each provider's records custodian",
+              "Bills and records into evidence",
+              "Requested with each certified records set"
+            ],
+            [
+              "Wage verification",
+              "Northgate Distribution HR",
+              "Lost wages, $1,584.00",
+              "Signed letter 06/30/2026; sworn form if suit"
+            ],
+            [
+              "Affidavit of Service",
+              "The process server",
+              "Proof Smith was served; the answer clock",
+              "Filed 10/16/2026"
+            ]
+          ]
+        },
+        "ops": [
+          [
+            "Atty. Thorne approves a demand at the limit",
+            "Request Smith's affidavit of no other insurance through Keystone; docket it",
+            "CMS → Tasks · Docket System",
+            "Sworn 08/10/2026, a condition met before the tender"
+          ],
+          [
+            "A certified records request goes out",
+            "Ask for the custodian's records and billing affidavit in the same request",
+            "ChartSwap (Medical Records Requests)",
+            "Each set comes back sworn, ready for evidence"
+          ],
+          [
+            "An affidavit arrives",
+            "Check affiant, numbers, dates, signature, jurat and seal; route any defect",
+            "CMS → Documents · CMS → Tasks → Escalate",
+            "Filed where it will be used; defects logged and returned"
+          ]
+        ],
+        "best": [
+          "Ask for the custodian's affidavit in the same request as the records; a second request costs weeks.",
+          "Check every jurat: the affiant, the date, the notary's name, commission and seal.",
+          "File each affidavit where it will be relied on: the demand conditions, the UM packages, the trial binder.",
+          "Pitfall: accepting an unsigned or un-notarized “affidavit” as proof.",
+          "Pitfall: writing an affiant's words for them, or correcting a sworn statement yourself.",
+          "Pitfall: telling John Doe what his affidavit means for his claim."
+        ],
+        "sources": [
+          "Newly authored: the affidavits a personal injury file relies on (no other insurance, residency and no owned vehicle, records and billing custodian, wage verification, service) and the Case Manager's request-and-check role"
+        ],
+        "rubric": {
+          "ai": [
+            [
+              "Right affidavit, right affiant",
+              20,
+              "Names who swears each affidavit and what it proves on John Doe's file"
+            ],
+            [
+              "Defect check",
+              20,
+              "Checks affiant, numbers, dates, signature, jurat and seal against the file"
+            ],
+            [
+              "Where it is used",
+              20,
+              "Files each where it will be relied on: the demand, the UM packages, the court"
+            ]
+          ],
+          "trainer": [
+            [
+              "Evidence judgment",
+              20,
+              "Explains why a sworn statement proves what a letter only asserts"
+            ],
+            [
+              "UPL boundary",
+              20,
+              "Never writes an affiant's words as theirs, signs, notarizes or interprets"
+            ]
+          ]
+        },
+        "notes": [
+          "Start with the question the lesson answers: “How do we prove it?” Take three facts from the file (Smith has no other insurance, John lives with Margaret, Smith was served) and ask who would have to say so under oath.",
+          "Draw the line between a jurat and an acknowledgment. The affidavit's jurat says the signer swore the facts are true; the acknowledgment on the UM Waiver of Subrogation only says who signed.",
+          "Spend a minute on the custodian's affidavit. Asking for it with the records request is what lets the bills go into evidence without subpoenaing each provider.",
+          "Keep it practical: the Case Manager requests, tracks and checks. Drafts go to Atty. Thorne, and nobody at the firm swears, signs or notarizes for an affiant."
+        ]
+      },
       {
         kind: "lesson", id: "d2m1-liab",
         brief: true,
@@ -5904,7 +6039,8 @@ window.CM_CASE_FLOW = {
             "The BI adjuster asks for the same paper. Keystone's 08/14/2026 cover letter makes payment conditional on each UM carrier's written consent and waiver: it does not want its insured exposed to a later subrogation claim. Send the waivers with the executed release.",
             "Read each consent for what it covers: Harbor Point (08/24) and Cardinal State (08/26) consent to a release of Robert Smith and Keystone only, waive subrogation against Smith, will not substitute a check, and keep the UM claims open. A consent that reaches further, or a substitution, goes to Atty. Thorne.",
             "No signature before both. John Doe signs the Limited Release (08/28/2026) only after both consents are in writing and Atty. Thorne has approved the release and gone through it with him.",
-            "File the consents where the UM claims will need them: the front of each UM Demand Package, beside the tender, Keystone's Dec Page, Smith's affidavit and the signed Limited Release."
+            "File the consents where the UM claims will need them: the front of each UM Demand Package, beside the tender, Keystone's Dec Page, Smith's affidavit and the signed Limited Release.",
+          "Get the waiver itself, not just the consent letter. Each UM carrier signs a separate Waiver of Subrogation, notarized: it waives subrogation against Robert Smith and Keystone only, keeps the UM claim open and refuses substitution. Being sworn and acknowledged, it can be filed or offered in court or arbitration without calling the adjuster. Check each one names the right carrier, policy and claim, then file both (Harbor Point 08/24, Cardinal State 08/26/2026) with the transmittal, at the front of each UM package and in the arbitration exhibits."
           ],
           upl: [
             "You identify the UM carriers, prepare the consent requests for Atty. Thorne's signature, docket the windows, chase the replies and match each consent to the release. You never tell John Doe or a carrier what the consent clause means, whether a substitution is good or bad for him, or whether he may sign."
@@ -10925,6 +11061,12 @@ window.CM_CASE_FLOW = {
      works by, what follows from doing it well or badly, and where the Case Manager's part ends and Atty. Thorne's
      begins. Shown first in each lesson's 📖 Additional Reference. One entry per lesson (curriculum.cjs --check), in paragraphs. */
   discuss: {
+    "d2m1-afd": [
+      "An affidavit is a written statement of facts that its signer swears is true, under oath, before a notary or another officer authorized to administer oaths. It must rest on the signer's own personal knowledge, and it ends in a jurat: “sworn to and subscribed before me,” with the notary's signature, commission and seal. Because a false affidavit is perjury, the law treats it as proof, where an ordinary letter is only an assertion. That is the whole reason a file asks for one.",
+      "On John Doe's file the affidavits line up with the facts the claim stands on. Robert Smith's affidavit of no other insurance (sworn 08/10/2026) proves Keystone's $10,000 is all there is on the liability side, which is why settling at the limit is safe and why Harbor Point and Cardinal State read it before consenting. John's Relative UM depends on him living with Margaret Doe and owning no car; Cardinal State confirmed that in writing on 03/09/2026, and a carrier that wants it sworn gets an affidavit drafted for Atty. Thorne's review.",
+      "Damages are proven the same way. Each provider's records custodian can swear that the records and bills are true copies kept in the regular course of business, which is how they come into evidence without a subpoena and a witness for every provider. Northgate's signed wage-and-attendance letter proves the $1,584.00 in lost wages, and in litigation Atty. Thorne may ask for it in sworn form. When suit is filed, the process server's affidavit of service proves when and how Robert Smith was served and starts his answer clock.",
+      "The Case Manager's part is to request the right affidavit from the right person at the right time, to track it, and to check it before anyone relies on it: the affiant's name, the case and claim numbers, dates and figures against the file, the signature, the jurat and the seal. A defect goes back to the sender, logged. The Case Manager never writes an affiant's words as theirs, never signs or notarizes for anyone, and never tells John Doe what an affidavit means for his claim: those are Atty. Thorne's."
+    ],
     "d1m1-role": [
       "A personal injury claim is not one conversation with one insurer. It is a dozen parties working on their own clocks: liability and first-party carriers, treating providers, a Health Plan, sometimes a court. Each wants something different, and none of them is watching the client's deadlines. **Case management** exists because somebody has to own the movement of the whole file, end to end, from intake to resolution. Law firms split the work deliberately: the licensed attorney carries the legal judgment, and the Case Manager carries the coordination, tracking and communication that turn that judgment into progress. Neither half works without the other.",
       "On John Doe's file that split is concrete. You track three insurance carriers, a Health Plan that has already asserted a reimbursement right, every treating provider, and a statute of limitations docketed for 02/06/2028. The file will pass through intake, claim set-up, treatment, pre-demand, demand, settlement and liens, disbursement, and litigation if it forks. Each phase has its own deliverables, and each one depends on the last being finished properly. Atty. Elijah Thorne owns value, merits, strategy and settlement authority. You own deadlines, documents, carriers, providers and John Doe's updates.",
@@ -11401,8 +11543,8 @@ window.CM_CASE_FLOW = {
        headings: {"d1m1-case": "Meet Your Client: John Doe", "d1m1-role": "Introduction to Case Management", "d1m1-upl": "The UPL Line: Fact Sharing vs. Legal Advice", "d1m1-l1": "Intake", "d1m4-l1": "Intake", "d1m3-l1": "Property Damage", "d1m3-l2": "Property Damage", "d1m3-rent": "Property Damage", "d1m1-open": "Skill Building: Opening the File in the CMS", "d1m3-a1": "Skill Building: Property Damage", "d1m3-a2": "Skill Building: Property Damage", "d1m3-a3": "Skill Building: Property Damage", "d1m2-l1": "Client Communications", "d1m2-l2": "Client Communications", "d1m2-a1": "Skill Building: Client Communications", "d1m2-a2": "Skill Building: Client Communications"}}
     ]},
     {n: 2, phases: [
-      {title: "Claim Set Up & Treatment", lead: "Module 2", lanes: {"d2m1-l1": "claims", "d2m1-l2": "claims", "d2m1-liab": "claims", "d2m1-first": "claims", "d1m4-l2": "claims", "d1m1-a1": "claims", "d2m1-a1": "claims", "d2m1-a2": "claims", "d1m4-a1": "claims", "d1m4-a2": "claims", "d2m1-kc": "claims", "d1m4-kc": "claims", "d2m1-cov": "care", "d2m2-l1": "care", "d2m2-eob": "care", "d2m2-pip": "care", "d2m2-lop": "care", "d2m2-cost": "care", "d1m1-l2": "care", "d2m2-l2": "care", "d2m2-a1": "care", "d1m1-a2": "care", "d2m2-sum": "care", "d2m2-a2": "care", "d2m2-a3": "care", "d2m2-kc": "care", "d1m4-tplan": "claims", "d1m4-tmap": "claims", "d1m4-tcare": "claims", "d1m4-emc": "care"}, blocks: ["d2m1-l2", "d2m1-liab", "d2m1-first", "d2m1-l1", "d1m1-a1", "d2m1-a1", "d2m1-a2", "d1m4-tplan", "d1m4-tmap", "d1m4-tcare", "d1m4-l2", "d1m4-a1", "d1m4-a2", "d2m1-cov", "d2m2-l1", "d2m2-eob", "d2m2-pip", "d1m4-emc", "d2m2-lop", "d2m2-cost", "d2m2-a1", "d2m2-a3", "d1m1-l2", "d1m1-a2", "d2m2-sum", "d2m2-l2", "d2m2-a2", "d2m1-kc", "d1m4-kc", "d2m2-kc"],
-       headings: {"d2m1-l1": "Claim Set Up", "d2m1-l2": "Claim Set Up", "d2m1-liab": "Claim Set Up", "d2m1-first": "Claim Set Up", "d1m4-tplan": "Case Planning & Strategy", "d1m4-tmap": "Case Planning & Strategy", "d1m4-tcare": "Case Planning & Strategy", "d1m4-l2": "Case Planning & Strategy", "d2m1-cov": "Treatment: Who Pays the Bills", "d2m2-l1": "Treatment: Who Pays the Bills", "d2m2-eob": "Treatment: Who Pays the Bills", "d2m2-pip": "Treatment: Who Pays the Bills", "d1m4-emc": "Treatment: Who Pays the Bills", "d2m2-lop": "Treatment: Who Pays the Bills", "d2m2-cost": "Treatment: Who Pays the Bills", "d1m1-l2": "Treatment: Liens & the Regulatory Triple-Check", "d2m2-sum": "Treatment: Coverage & Subrogation Summary", "d2m2-l2": "Treatment: Monitoring the Care", "d1m1-a1": "Skill Building: CMS Case File Setup", "d2m1-a1": "Skill Building: Draft, Transmit & Log the LORs", "d2m1-a2": "Skill Building: Receive Carrier Claim Correspondence", "d1m4-a1": "Skill Building: Case Planning & Strategy", "d1m4-a2": "Skill Building: Case Planning & Strategy", "d2m2-a1": "Skill Building: Who Pays the Bills", "d1m1-a2": "Skill Building: Liens", "d2m2-a2": "Skill Building: Monitoring the Care", "d2m2-a3": "Skill Building: Who Pays the Bills"}}
+      {title: "Claim Set Up & Treatment", lead: "Module 2", lanes: {"d2m1-l1": "claims", "d2m1-l2": "claims", "d2m1-afd": "claims", "d2m1-liab": "claims", "d2m1-first": "claims", "d1m4-l2": "claims", "d1m1-a1": "claims", "d2m1-a1": "claims", "d2m1-a2": "claims", "d1m4-a1": "claims", "d1m4-a2": "claims", "d2m1-kc": "claims", "d1m4-kc": "claims", "d2m1-cov": "care", "d2m2-l1": "care", "d2m2-eob": "care", "d2m2-pip": "care", "d2m2-lop": "care", "d2m2-cost": "care", "d1m1-l2": "care", "d2m2-l2": "care", "d2m2-a1": "care", "d1m1-a2": "care", "d2m2-sum": "care", "d2m2-a2": "care", "d2m2-a3": "care", "d2m2-kc": "care", "d1m4-tplan": "claims", "d1m4-tmap": "claims", "d1m4-tcare": "claims", "d1m4-emc": "care"}, blocks: ["d2m1-l2", "d2m1-afd", "d2m1-liab", "d2m1-first", "d2m1-l1", "d1m1-a1", "d2m1-a1", "d2m1-a2", "d1m4-tplan", "d1m4-tmap", "d1m4-tcare", "d1m4-l2", "d1m4-a1", "d1m4-a2", "d2m1-cov", "d2m2-l1", "d2m2-eob", "d2m2-pip", "d1m4-emc", "d2m2-lop", "d2m2-cost", "d2m2-a1", "d2m2-a3", "d1m1-l2", "d1m1-a2", "d2m2-sum", "d2m2-l2", "d2m2-a2", "d2m1-kc", "d1m4-kc", "d2m2-kc"],
+       headings: {"d2m1-l1": "Claim Set Up", "d2m1-l2": "Claim Set Up", "d2m1-afd": "Claim Set Up", "d2m1-liab": "Claim Set Up", "d2m1-first": "Claim Set Up", "d1m4-tplan": "Case Planning & Strategy", "d1m4-tmap": "Case Planning & Strategy", "d1m4-tcare": "Case Planning & Strategy", "d1m4-l2": "Case Planning & Strategy", "d2m1-cov": "Treatment: Who Pays the Bills", "d2m2-l1": "Treatment: Who Pays the Bills", "d2m2-eob": "Treatment: Who Pays the Bills", "d2m2-pip": "Treatment: Who Pays the Bills", "d1m4-emc": "Treatment: Who Pays the Bills", "d2m2-lop": "Treatment: Who Pays the Bills", "d2m2-cost": "Treatment: Who Pays the Bills", "d1m1-l2": "Treatment: Liens & the Regulatory Triple-Check", "d2m2-sum": "Treatment: Coverage & Subrogation Summary", "d2m2-l2": "Treatment: Monitoring the Care", "d1m1-a1": "Skill Building: CMS Case File Setup", "d2m1-a1": "Skill Building: Draft, Transmit & Log the LORs", "d2m1-a2": "Skill Building: Receive Carrier Claim Correspondence", "d1m4-a1": "Skill Building: Case Planning & Strategy", "d1m4-a2": "Skill Building: Case Planning & Strategy", "d2m2-a1": "Skill Building: Who Pays the Bills", "d1m1-a2": "Skill Building: Liens", "d2m2-a2": "Skill Building: Monitoring the Care", "d2m2-a3": "Skill Building: Who Pays the Bills"}}
     ]},
     {n: 3, phases: [
       {title: "Pre-Demand Audit, the Demand & Settlement Negotiation", lead: "Module 3", lanes: {"d2m3-l1": "care", "d2m3-l2": "care", "d2m3-cause": "care", "d2m3-a1": "care", "d2m3-a2": "care", "d2m3-kc": "care"}, blocks: ["d2m3-l1", "d2m3-l2", "d2m3-a1", "d2m3-a2", "d2m3-cause", "d2m4-l1", "d2m4-l2", "d2m4-wage", "d2m4-a1", "d2m4-a2", "d3m1-l1", "d3m1-l2", "d3m1-pkg", "d3m1-a1", "d3m1-a2", "d3m2-l1", "d3m2-umw", "d3m2-l2", "d3m2-a1", "d3m2-rel", "d3m2-exec", "d3m2-bins", "d3m2-a2", "d3m2-umns", "d2m3-kc", "d2m4-kc", "d3m1-kc", "d3m2-kc"],

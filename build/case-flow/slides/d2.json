@@ -1095,5 +1095,70 @@
       "A subject line of **“Update”**",
       "Leaving out **the option you dislike**"
     ]
+  },
+  "d2m1-afd": {
+    "image": "coverage-check",
+    "roadmap": {
+      "title": "Affidavits: the Roadmap",
+      "merge": true,
+      "steps": [
+        {
+          "label": "Know the fact",
+          "text": "What the file must **prove**"
+        },
+        {
+          "label": "Find the affiant",
+          "text": "The person with **personal knowledge**"
+        },
+        {
+          "label": "Request and docket",
+          "text": "Ask early, **in writing**, with a date"
+        },
+        {
+          "label": "Check it",
+          "text": "Affiant, numbers, dates, **jurat and seal**"
+        },
+        {
+          "label": "File it",
+          "text": "Where it will be **relied on**"
+        }
+      ]
+    },
+    "hook": "A fact the file relies on is proven by **the person who knows it**, under oath.",
+    "points": [
+      "Smith swears **no other insurance**: the condition for the limit",
+      "John's **residency** keeps Relative UM; sworn if a carrier asks",
+      "Custodian affidavits put **the bills into evidence**",
+      "The **affidavit of service** starts Smith's answer clock"
+    ],
+    "upl": "Request, track and check; **never swear, sign or notarize** for anyone",
+    "job": [
+      [
+        "Demand at the limit approved",
+        "Request Smith's affidavit",
+        "CMS → Tasks",
+        "Sworn **08/10/2026**"
+      ],
+      [
+        "Records request goes out",
+        "Ask for the custodian affidavit",
+        "ChartSwap",
+        "Set comes back **sworn**"
+      ],
+      [
+        "Affidavit arrives",
+        "Check it; route defects",
+        "CMS → Documents",
+        "Filed **where it's used**"
+      ]
+    ],
+    "dos": [
+      "Ask for the **custodian affidavit** with every records request",
+      "Check every **jurat and seal** before filing"
+    ],
+    "donts": [
+      "Accepting an **unsworn statement** as proof",
+      "Writing **an affiant's words** for them"
+    ]
   }
 }

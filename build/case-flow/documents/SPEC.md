@@ -347,6 +347,18 @@ Harbor Point 08/24/2026 (Marcus Bell) and Cardinal State 08/26/2026 (Teresa Okaf
 settlement with Robert Smith/Keystone, waiver of subrogation against Smith, no substitution of their own check.
 *Key:* The green light for the limited BI release.
 
+**RS83 · UM Subrogation Waivers — Harbor Point & Cardinal State (executed)** · Day 3 · Others · `RS_83_UM_Subrogation_Waivers.pdf`
+Two stand-alone instruments, one per UM carrier, each on the carrier's own form: Harbor Point (Form HP-UM-14, policy
+HPA-4402917, claim HP-26-7741), signed by Marcus Bell 08/24/2026; Cardinal State (Form CSM-SW-3, policy CSM-AU-5580213,
+claim CS-26-20355), signed by Teresa Okafor 08/26/2026. Recitals (Keystone's 08/12 tender, Smith's 08/10 affidavit, the
+firm's 08/13 request); waiver of subrogation, reimbursement and recovery against Robert Smith and Keystone only; consent
+to the $10,000 settlement and the limited release; no substitution; the UM claim stays open; reliance, including filing
+in court or arbitration; authority. Each signed and acknowledged before a notary with seal (Denise Farrow, Riverton County;
+Samuel Kirkland, Millbrook County).
+*Key:* No plants. The consent letters (RS38) are correspondence; these waivers are the sworn, acknowledged instruments the
+release, the UM claims and any court or arbitration rely on. File them at the front of each UM Demand Package, with the
+transmittal to Keystone and in the arbitration exhibit set.
+
 **RS39 · UM Correspondence — Offers & Tenders** · Day 3 · Others · `RS_39_UM_Offers_and_Tenders.pdf`
 Harbor Point: 09/14/2026 offer $8,000 ("the gap"; "BI already compensated him"); 09/29/2026 payment of the $20,000
 limits. Cardinal State: 10/01/2026 offer $6,000; 10/06/2026 tender of the $10,000 limits.

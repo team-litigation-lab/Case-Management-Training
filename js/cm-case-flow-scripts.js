@@ -621,6 +621,21 @@ window.CM_CF_SCRIPTS = {
    "ask": "{name}, Teresa Okafor's name lands on 03/03/2026. Which places on the file have to change?"
   }
  },
+ "d2m1-afd": {
+  "theory": {
+   "say": "Four ideas, and the first one carries the rest. An affidavit is a written statement of facts, sworn under oath before a notary, by someone who knows them first-hand. It ends in a jurat, “sworn to and subscribed before me,” and a false one is perjury. That's why it's proof and a letter isn't. Then three families on our file. Coverage: Robert Smith swears he has no other insurance, and John, if a carrier asks, swears he lives with Margaret and owns no car. Damages: each provider's records custodian swears the bills and records are true copies, and Northgate verifies the wages. And court: the process server swears Smith was served, which starts his answer clock."
+  },
+  "why": {
+   "say": "{name}, here's a test. Keystone's adjuster writes to say Robert Smith has no other insurance. Would you settle at the $10,000 limit on that letter? I wouldn't, and neither will Harbor Point or Cardinal State. A letter is somebody's word. An affidavit is somebody's word under oath, from the person who actually knows: Smith himself, sworn on 08/10/2026. Every fact this file leans on, the coverage, John's residency, the bills, service on Smith, is only as strong as the paper that proves it. Get the sworn version and nobody can wave it away.",
+   "ask": "Which fact on John Doe's file would hurt most if we could only assert it, not prove it?"
+  },
+  "rules": {
+   "say": "The rules are about who and what. Smith swears the affidavit of no other insurance; it's a condition of settling at the limit. John swears residency and no owned vehicle only if a carrier asks, and only from a draft Atty. Thorne has reviewed. Every certified records request asks for the custodian's affidavit in the same letter, because that's how the bills get into evidence without calling each provider. Northgate's wage letter proves the $1,584.00, sworn later if we sue. The process server's affidavit of service gets filed, 10/16/2026 on our file. And every affidavit gets checked before anyone relies on it: the affiant, the numbers, the dates, the signature, the jurat and the seal. A defect goes back to the sender. You never sign, notarize or fix someone else's sworn words."
+  },
+  "job": {
+   "say": "On the job it comes down to three moments. When Atty. Thorne approves a demand at the limit, you request Smith's affidavit through Keystone and docket it; ours came back sworn on 08/10/2026. When a records request goes out, the custodian's affidavit is in the same request, so the set comes back ready for evidence. And when any affidavit arrives, you check it against the file, route a defect with a task, and file it where it'll be used: the demand conditions, the UM packages, the trial binder."
+  }
+ },
  "d2m1-liab": {
   "why": {
    "say": "Here's the thing about coverage: it only tells you there's money. Whether anyone has to pay it is a different question, and that's liability. John Doe's file has three coverage layers, but none of them pays a cent unless Robert Smith is legally responsible. And the evidence that proves it is freshest right now. Ruth Calloway's memory fades, Margaret Doe's doorbell camera records over itself, and the Escape's data recorder goes wherever the car goes. So we investigate liability at claim set-up, right beside coverage, not at the demand.",
@@ -1356,6 +1371,10 @@ window.CM_CF_SCRIPTS = {
   "why": {
    "say": "Here's the problem with Keystone's $10,000. The moment Harbor Point or Cardinal State pays John Doe, it steps into his shoes against Robert Smith. That right is called subrogation. If John releases Smith before those carriers agree, their right against Smith is gone, and the policy may let them refuse to pay. That's $30,000 of a $40,000 stack riding on two letters. So Keystone won't cut its check, and John won't sign anything, until both UM carriers consent in writing and waive subrogation. Bluewater, by the way, is not on that list. Margaret rejected UM on the Civic back on 03/14/2024, so there's nothing there to waive.",
    "ask": "Why would Keystone, the BI carrier, care whether the UM carriers waive subrogation?"
+  },
+  "doc": {
+   "say": "Now the paper itself, because a letter isn't enough here. {name}, quick question: if Harbor Point's adjuster leaves the company next year and this claim ends up in front of an arbitrator, how do we prove Harbor Point gave up its rights against Smith? We hand over the Waiver of Subrogation. It's a separate instrument from the consent letter, on the carrier's own form, signed by the adjuster and notarized. It waives Harbor Point's right to recover from Robert Smith and Keystone, and only them. It says the UM claim stays open, and that Harbor Point won't substitute its own check. Because it's sworn and acknowledged before a notary, it can be filed or offered as an exhibit without anyone having to come in and testify that the letter is real. Cardinal State signed its own on 08/26/2026, Harbor Point on 08/24. Your job: get the waiver itself, check it names the right carrier, policy and claim, check it covers Smith and Keystone only, and check the signature and the notary block are complete. What it waives, and what that means for John, is Atty. Thorne's to explain.",
+   "ask": "What can a notarized waiver do in court that a consent letter can't?"
   },
   "rules": {
    "say": "The rules are short. Ask the right carriers, which on this file means Harbor Point and Cardinal State, never Bluewater. The 30-Day Letter goes out the day after the tender, 08/13/2026, for Atty. Thorne's signature, with the tender letter and Smith's affidavit, and you docket each window. When a consent comes back, read what it covers: Smith and Keystone only, subrogation waived, no substitution. Anything wider, or a substitution offer, goes straight to Atty. Thorne. And John Doe signs nothing until both are in writing and Atty. Thorne has approved the release and gone through it with him. You request, docket, chase and match. You never explain the consent clause to anyone."

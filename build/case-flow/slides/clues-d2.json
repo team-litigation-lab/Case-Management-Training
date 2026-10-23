@@ -585,5 +585,31 @@
         "He approves it without knowing a choice existed."
       ]
     ]
+  },
+  "d2m1-afd": {
+    "dos": [
+      [
+        "The bills go into evidence with no provider on the stand.",
+        "Each provider keeps its own records in the ordinary course.",
+        "One request can bring the records and the sworn paper together."
+      ],
+      [
+        "A notary's commission number and expiry date matter.",
+        "The signer swore the facts before an officer.",
+        "Look at the bottom of the page before you file it."
+      ]
+    ],
+    "donts": [
+      [
+        "A typed letter says Smith has no umbrella policy.",
+        "Nobody signed it under oath before a notary.",
+        "The UM carriers will not consent on its strength."
+      ],
+      [
+        "The process server's draft shows 3:15 p.m., not 3:51.",
+        "The docket entry says otherwise, to the minute.",
+        "The fix belongs to the person who swore it."
+      ]
+    ]
   }
 }

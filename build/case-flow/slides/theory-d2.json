@@ -1183,5 +1183,51 @@
       "D1#42",
       "D2#10"
     ]
+  },
+  "d2m1-afd": {
+    "lead": "An affidavit turns a fact into **proof**: sworn, on personal knowledge, by the person who knows it.",
+    "concepts": [
+      {
+        "term": "The Affidavit",
+        "text": "Facts sworn under oath before a notary, ending in a **jurat**; a false one is perjury.",
+        "more": [
+          "Made on the signer's **own personal knowledge**",
+          "Jurat: “sworn to and subscribed before me”",
+          "An acknowledgment only confirms **who signed**",
+          "Check the notary's name, commission and seal"
+        ]
+      },
+      {
+        "term": "Coverage Affidavits",
+        "text": "Smith's **no other insurance**; John's residency and no owned vehicle, if asked.",
+        "more": [
+          "Smith sworn **08/10/2026**: Keystone is all there is",
+          "Harbor Point and Cardinal State read it before consenting",
+          "Relative UM: John lives with Margaret, owns **no car**",
+          "Cardinal State confirmed in writing 03/09/2026"
+        ]
+      },
+      {
+        "term": "Damages Affidavits",
+        "text": "Records and billing **custodian** affidavits; Northgate's wage verification.",
+        "more": [
+          "Custodian: true copies, kept in the **regular course**",
+          "Lets bills into evidence without calling each provider",
+          "Ask for it **with every** certified records request",
+          "Northgate's letter proves $1,584.00 in wages"
+        ]
+      },
+      {
+        "term": "Court Affidavits",
+        "text": "The **affidavit of service** proves Smith was served and starts his answer clock.",
+        "more": [
+          "Sworn by **the process server**",
+          "Filed with the court 10/16/2026",
+          "The UM waivers' acknowledgments make them **court-ready**",
+          "Every one checked before it is filed"
+        ]
+      }
+    ],
+    "pages": []
   }
 }

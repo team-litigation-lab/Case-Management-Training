@@ -632,5 +632,20 @@
       "say": "The first line is the decision and its deadline, and the subject line carries it too. Something like: decision needed by 03/12/2026, approve declining Summit Imaging's LOP request, because the MRI goes to Harbor Point PIP, which applies first and still has $3,675.00 left. Then the facts with their sources, then the options: if yes, you send the decline and route the bill today; if no, you draft the LOP for his signature. One decision per note. And once he answers, you log the note and his answer in the CMS that same day and carry it out.",
       "ask": "Your note holds two decisions with different deadlines. How do you send it so neither one is missed?"
     }
+  },
+  "d2m1-afd": {
+    "theory": {
+      "say": "Four ideas, and the first one carries the rest. An affidavit is a written statement of facts, sworn under oath before a notary, by someone who knows them first-hand. It ends in a jurat, “sworn to and subscribed before me,” and a false one is perjury. That's why it's proof and a letter isn't. Then three families on our file. Coverage: Robert Smith swears he has no other insurance, and John, if a carrier asks, swears he lives with Margaret and owns no car. Damages: each provider's records custodian swears the bills and records are true copies, and Northgate verifies the wages. And court: the process server swears Smith was served, which starts his answer clock."
+    },
+    "why": {
+      "say": "{name}, here's a test. Keystone's adjuster writes to say Robert Smith has no other insurance. Would you settle at the $10,000 limit on that letter? I wouldn't, and neither will Harbor Point or Cardinal State. A letter is somebody's word. An affidavit is somebody's word under oath, from the person who actually knows: Smith himself, sworn on 08/10/2026. Every fact this file leans on, the coverage, John's residency, the bills, service on Smith, is only as strong as the paper that proves it. Get the sworn version and nobody can wave it away.",
+      "ask": "Which fact on John Doe's file would hurt most if we could only assert it, not prove it?"
+    },
+    "rules": {
+      "say": "The rules are about who and what. Smith swears the affidavit of no other insurance; it's a condition of settling at the limit. John swears residency and no owned vehicle only if a carrier asks, and only from a draft Atty. Thorne has reviewed. Every certified records request asks for the custodian's affidavit in the same letter, because that's how the bills get into evidence without calling each provider. Northgate's wage letter proves the $1,584.00, sworn later if we sue. The process server's affidavit of service gets filed, 10/16/2026 on our file. And every affidavit gets checked before anyone relies on it: the affiant, the numbers, the dates, the signature, the jurat and the seal. A defect goes back to the sender. You never sign, notarize or fix someone else's sworn words."
+    },
+    "job": {
+      "say": "On the job it comes down to three moments. When Atty. Thorne approves a demand at the limit, you request Smith's affidavit through Keystone and docket it; ours came back sworn on 08/10/2026. When a records request goes out, the custodian's affidavit is in the same request, so the set comes back ready for evidence. And when any affidavit arrives, you check it against the file, route a defect with a task, and file it where it'll be used: the demand conditions, the UM packages, the trial binder."
+    }
   }
 }
