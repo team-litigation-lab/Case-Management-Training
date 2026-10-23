@@ -115,7 +115,7 @@ window.LSH_BLUEPRINT = {
       { icon: '🔑', title: 'Signing in as a trainer', points: [
           'Admin sign-in with the admin password. The server checks it, and every request after it needs your signed session.',
           'Your top bar adds 🧭 Orientation, the Facilitator Guide, 👁 Trainee view and 🏠 Main Portal (back to the Training Portal\'s Training Directory).',
-          'Admin is your trainer dashboard: Trainee Audit, 📁 Batch Folders, Rankings, SOP Reference, Trainer Cues, Content Studio, Trainee Feedback, 📋 Activities and 🗣 Feedback Style. Attendance is on the Main Portal.',
+          'Admin is your trainer dashboard: Trainee Audit, 📁 Batch Folders, Rankings, SOP Reference, Content Studio, Trainee Feedback, 📋 Activities and 🗣 Feedback Style. Attendance is on the Main Portal.',
           'Every day is open to you, so you can preview it before you teach it.'],
         where: 'Admin sign-in · Admin in the top bar.',
         tip: 'Trainees open the course from the Training Portal; you approve them here.' },
