@@ -15,7 +15,7 @@ const LOCAL = /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/;                   //
 const cmsOrigin = (origin)=>{ try{ const u = new URL(origin); return CMS_HOSTS.some(re=>re.test(u.hostname)) || LOCAL.test(origin); }catch(e){ return false; } };
 const KEY = "cm-cms-case";
 const listeners = [];
-let open = null;
+let open = null, heard = 0;
 
 function remembered(){
   try{ const o = JSON.parse(localStorage.getItem(KEY) || "null"); return o && o.caseId ? o : null; }catch(e){ return null; }
@@ -51,6 +51,7 @@ window.addEventListener("message", (e)=>{
              phase: String(e.data.phase || "").trim(), dol: String(e.data.dol || "").trim(),   // the case's Date of Loss (MM/DD/YYYY)
              at: e.data.at || new Date().toISOString()};
   if(!c.caseId) return;                                     // a draft with no ID yet: keep what we had
+  heard = Date.now();                                       // a CMS that answered with a case: ready to file into
   if(open && open.caseId === c.caseId && open.client === c.client && (open.dol || "") === c.dol) return;
   open = c;
   try{ localStorage.setItem(KEY, JSON.stringify(c)); }catch(err){}
@@ -80,6 +81,7 @@ function apply(){ fill(); ask(); }
 window.CMCase = {
   get: ()=> open && open.caseId ? Object.assign({}, open) : null,
   id: ()=> (open && open.caseId) || "",
+  heardAt: ()=> heard,   // when a CMS window last answered with its open case (ms)
   ask, apply, fill,
   onChange: (fn)=>{ if(typeof fn === "function") listeners.push(fn); }
 };

@@ -46,7 +46,7 @@
       "date": "02/11/2026",
       "time": "9:40 a.m.",
       "channel": "email",
-      "from": "Leah Moran, Keystone Mutual PD (lmoran@keystonemutual.example)",
+      "from": "Leah Moran, Keystone Mutual PD (leah.moran@keystonemutual.example)",
       "to": "LSH Law Group",
       "subject": "KM-26-440871-PD: claimant and rental contact, 2019 Honda Civic LX",
       "body": "We are opening the property-damage claim for the 2019 Honda Civic LX struck on 02/06/2026. Please confirm the vehicle owner and claimant, and a contact number for the rental, so that a rental can be set up with Rivergate Rentals once our liability decision is made."
@@ -154,7 +154,7 @@
       "date": "02/23/2026",
       "time": "8:52 a.m.",
       "channel": "email",
-      "from": "Tammy Greer, Riverton Spine & Rehab (tgreer@rivertonspine.example)",
+      "from": "Tammy Greer, Riverton Spine & Rehab (tgreer@rivertonspinerehab.example)",
       "to": "Case Manager",
       "subject": "New patient John Doe, evaluation 02/24 — LOP needed",
       "body": "John Doe is booked for his chiropractic and PT evaluation tomorrow, 02/24. We're out of network with Peach State, so before we see him we'll need a signed Letter of Protection and your HIPAA authorization. Can you get them to me today? Tammy Greer, Office Manager"
@@ -176,7 +176,7 @@
       "date": "04/08/2026",
       "time": "10:52 a.m.",
       "channel": "email",
-      "from": "Tammy Greer, Riverton Spine & Rehab (tgreer@rivertonspine.example)",
+      "from": "Tammy Greer, Riverton Spine & Rehab (tgreer@rivertonspinerehab.example)",
       "to": "Case Manager",
       "subject": "Missed-visit alert: John Doe, LOP account RSR-26-0412",
       "body": "Per your LOP dated 02/23/2026: John Doe missed 04/03 (no call) and 04/07. He told our front desk his mother's rental ended and his ride is no longer available. He's booked 04/09 and 04/14 at 4:15 PM. Our 6:00 PM evening schedule is full until the week of 04/20; he's on the wait list. Please contact your client.",

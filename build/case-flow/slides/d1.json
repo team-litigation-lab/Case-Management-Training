@@ -416,7 +416,7 @@
     "hook": "A rental collected **on a promise** becomes the client's bill.",
     "points": [
       "Rental is on **the owner's PD claim**: Margaret Doe's, not John's",
-      "The adverse carrier's **PD coverage** pays the rental",
+      "**3P PD** first; then 1P Collision/Rental; else out of pocket",
       "Confirm authorizer, rate cap and **duration in writing** first",
       "Coverage is **usually 30 days** unless the Dec Page differs"
     ],

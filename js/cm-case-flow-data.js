@@ -1193,7 +1193,10 @@ window.CM_CASE_FLOW = {
          a: 1, r: "Only the resolution of the Property Damage claim. Anything else routes to the firm."},
         {q: "On a rental vehicle, whose coverage provides it?",
          opts: ["The rental company's self-insurance", "The adverse carrier's Property Damage coverage", "The client's own personal auto policy", "The client's Health Plan"],
-         a: 1, r: "The 3P rental comes from the adverse carrier's Property Damage coverage. The client's own policy is used only where there is no 3P coverage."},
+         a: 1, r: "The 3P rental comes from the adverse carrier's Property Damage coverage first. The owner's own policy is the fallback, only where 3P coverage is unavailable."},
+        {q: "The adverse carrier denies liability, so its Property Damage coverage won't pay the rental. What do you check next?",
+         opts: ["Nothing: the owner pays and the rental is lost for good", "The owner's own policy: Collision or Comprehensive for the vehicle, and Rental Reimbursement coverage", "The passenger's injury claim", "The client's Health Plan"],
+         a: 1, r: "The owner's 1P coverage is next: Collision or Comprehensive for the vehicle, and Rental Reimbursement on the Dec Page. If there is none, the owner pays out of pocket and keeps every receipt, claimed for reimbursement in the Property Damage claim."},
         {q: "Actual cash value (ACV) is:",
          opts: ["What is still owed on the loan", "The vehicle's pre-loss market value", "The cost of a new replacement", "The Repair Estimate plus storage"],
          a: 1, r: "Pre-loss market value, not the loan balance and not replacement with new."},
@@ -1426,7 +1429,9 @@ window.CM_CASE_FLOW = {
           why: "A rental is the first money question a client asks, and the easiest place for them to get hurt: a car collected on a promise, at a rate or for days nobody authorized, becomes a bill that lands on the client. Rental belongs to the Property Damage claim, so it is the vehicle owner's to make. On this file that is Margaret Doe, the Civic's owner, not John Doe, who was her passenger.",
           rules: [
             "Rental is part of the Property Damage claim, and it belongs to the vehicle's owner. John Doe was a passenger; the Civic is Margaret Doe's, so the rental is hers to claim.",
-            "Find whose coverage pays. The third-party rental comes from the adverse carrier's Property Damage coverage, here Keystone's. The owner's own policy, or the rental company's self-insurance, is used only where there is no 3P coverage, such as a liability denial or an unresolved dispute over fault.",
+            "Find whose coverage pays, in order. First the adverse carrier's Property Damage coverage (3P), here Keystone's, on accepted liability.",
+            "If 3P coverage is unavailable (liability denied or still disputed, no PD coverage on the at-fault driver, or its limit used up), check the owner's own policy (1P): Collision or Comprehensive for the vehicle, and Rental Reimbursement coverage for the rental, on the Dec Page. The 1P carrier pays and then pursues the at-fault party; the owner's deductible is claimed back the same way.",
+            "If no coverage applies at all, the rental and the repair are the owner's out-of-pocket cost. Tell the owner before they collect a car, keep every receipt and invoice in CMS → Documents, and log each amount for reimbursement in the Property Damage claim.",
             "Confirm who authorizes the rental (the adverse carrier on accepted liability, or the owner's own carrier) and check the Dec Page for a rental reimbursement endorsement.",
             "Record the authorized daily rate cap before the client collects a vehicle. Anything above the cap is the client's cost.",
             "Record the duration limit: coverage usually runs 30 days at most, unless the Dec Page says otherwise. Calendar the last covered day and tell the client before it arrives.",
@@ -1463,7 +1468,9 @@ window.CM_CASE_FLOW = {
           "Confirm every rental parameter in writing before the client collects a car.",
           "Calendar the last covered day and warn the client before it.",
           "Pitfall: sending a client to pick up a car before the authorization is confirmed.",
-          "Pitfall: treating the rental as the passenger's claim instead of the owner's."
+          "Pitfall: treating the rental as the passenger's claim instead of the owner's.",
+          "Keep every out-of-pocket rental and repair receipt: it is the proof for reimbursement.",
+          "Pitfall: telling the owner there is no rental before checking their own policy for Rental Reimbursement."
         ],
         sources: [
           "Case file: Keystone Mutual's claim correspondence, the rental authorization and the rental cutoff (RS32)",
@@ -1471,7 +1478,7 @@ window.CM_CASE_FLOW = {
         ],
         rubric: {
           ai: [
-            ["Whose coverage pays", 25, "The adverse carrier's Property Damage coverage for the 3P rental; the owner's policy or the rental company's only without 3P coverage"],
+            ["Whose coverage pays", 25, "In order: the adverse carrier's Property Damage coverage; if unavailable, the owner's Collision or Comprehensive and Rental Reimbursement; if none, out of pocket with every receipt kept for reimbursement"],
             ["Rental parameters", 20, "Authorizer, endorsement, rate cap and duration recorded before collection"],
             ["Whose claim", 15, "The rental placed on the owner's Property Damage claim, not the passenger's"]
           ],
@@ -4319,7 +4326,7 @@ window.CM_CASE_FLOW = {
           tool: "CMS → Financial Ledger → Specials · CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Insurance tab",
           output: "An audited Specials ledger at $16,401.40 with billed and paid side by side, a lien list, the targets in order, and a flag list routed to Atty. Thorne.",
           checkpoints: [
-            "First-party ledger audited (Harbor Point's PIP ledger): five payments matched to five bills ($685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00), the limit exhausted with the 06/12/2026 payment, nothing billed to PIP after exhaustion, and the 80% wage benefit unpaid because the limit ran out before Northgate's 06/30/2026 letter, so the full $1,584.00 stays in the Specials",
+            "First-party ledger audited (Harbor Point's PIP ledger): five payments matched to five bills ($685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00), the limit exhausted by the payment for the 06/12/2026 visit (paid 06/26/2026), nothing billed to PIP after exhaustion, and the 80% wage benefit unpaid because the limit ran out before Northgate's 06/30/2026 letter, so the full $1,584.00 stays in the Specials",
             "Riverton Spine & Rehab reconciled: 33 visits in the notes (16 from 02/24 to 04/02/2026, 17 from 04/21 to 06/05/2026) against 34 lines; the 05/04/2026 duplicate ($185.00) removed: $6,290.00 → $6,105.00. A corrected itemized statement requested from Riverton Spine & Rehab (a billing correction, not a reduction). Until it arrives, the Lien Tracker shows $6,290.00 claimed and $6,105.00 audited; any reduction is Atty. Thorne's to negotiate.",
             "Medical: $685.00 + $6,105.00 + $640.00 + $2,395.00 + $640.00 + $3,400.00 + $640.00 + $312.40 = $14,817.40 (down from $15,002.40)",
             "Wages: 9 shifts × 8 h × $22.00 = $1,584.00, Northgate HR letter attached; total Specials $14,817.40 + $1,584.00 = $16,401.40",
@@ -4330,7 +4337,8 @@ window.CM_CASE_FLOW = {
             "Liens listed: Peach State $1,860.00 (plan funding type recorded) and Riverton Spine & Rehab $6,105.00 after audit, in the CMS → Liens register, mirrored to the Lien Tracker; PIP recorded as carrying no reimbursement right against John Doe's recovery (Harbor Point, in writing, 03/02/2026); Harbor Point's position on PIP subrogation against Robert Smith and Keystone requested in writing and routed to Atty. Thorne, since it would compete for the same $10,000 BI limit",
             "Targets in order: $10,000 BI → $20,000 Host UM → $10,000 Relative UM = $40,000; each target re-checked against its written source: BI per person (03/20/2026 Dec Page), Host UM add-on (03/02/2026 letter), Relative UM coverage (03/09/2026) plus its form and excess clause; PIP and Keystone PD marked as not in the stack",
             "Liability proof confirmed and listed in the audit: the final Riverton PD report RPD-26-018842 (not the exchange-of-information form), Robert Smith cited for failure to stop, no contributory-negligence note on John Doe; Ruth Calloway's contact re-confirmed and her account checked against her first statement for drift; the 2214 Maple Hollow Rd doorbell-camera video preserved and matched to the Escape being pushed into the parked Civic",
-            "Reasonable and necessary: each charge tied to the collision in the provider's own records and to a clinical basis (MRI ordered 03/05/2026; injection after the 03/27/2026 referral); Riverton Drug receipts attached, from 02/07/2026"
+            "Reasonable and necessary: each charge tied to the collision in the provider's own records and to a clinical basis (MRI ordered 03/05/2026; injection after the 03/27/2026 referral); Riverton Drug receipts attached, from 02/07/2026",
+            "Amendment Requests: the three records wrong at their source found (the MRI history's 02/16/2026, the 05/04/2026 duplicate, Crescent's $1,540.00 statement); each provider asked in writing on 07/06/2026 with Atty. Thorne's approval; Crescent's $0.00 statement (07/10/2026) and Summit's addendum (07/15/2026) filed in the CMS; Riverton Spine & Rehab won't reissue before the account closes, so $6,105.00 goes out with the attendance log"
           ]
         },
         ops: [
@@ -4737,13 +4745,13 @@ window.CM_CASE_FLOW = {
             ["Deadline", 10, "08/21/2026 docketed from the 07/22/2026 written acknowledgement"]
           ],
           trainer: [
-            ["Audit judgment", 20, "Found the faults that matter (the gap's placement, the duplicate, stale balances) and assigned each"],
+            ["Audit judgment", 20, "Found the faults that matter (the deadline, the release, the Specials total, the missing affidavit, and the packet's exhibits) and assigned each"],
             ["Gap presentation", 10, "Gap acknowledged plainly with its corroboration; not hidden, not over-argued"],
             ["UPL / authority boundary", 10, "Terms, extensions and replies left to Atty. Thorne; nothing signed for him"]
           ]
         },
         notes: [
-          "Hand out the draft with three planted faults: the 05/04/2026 duplicate still in the draft's billing exhibit (the CMS ledger was corrected in the pre-demand audit), the gap in an appendix, and a deadline of “30 days from the date of this letter.” Nobody sends anything until the audit is logged.",
+          "Hand out the draft demand with its four planted faults: the deadline “30 days from the date of this letter” (it runs from receipt), a release of “all claims” instead of a Limited Release, Specials of $16,410.40 where the lines add to $16,401.40, and Smith's affidavit missing from the conditions. Its exhibit packet carries ten more, worked in the audit. Nobody mails anything until the audit is logged.",
           "Ask the room: “Suppose Dana Whitfield emails on day 25 asking for two more weeks. Who answers?” Atty. Thorne. The CM logs it word for word and routes it the same hour.",
           "Grade the deadline from the written acknowledgement. A trainee who docketed from the send date has the right idea and the wrong day.",
           "Watch the narrative's prior: three 2021 chiropractic visits for the low back, resolved, and no neck history. Disclosed and distinguished, never hidden."
