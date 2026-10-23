@@ -961,16 +961,24 @@ function noteReached(b, p){
 }
 const BLOCK = {};
 CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { BLOCK[b.id] = b; })));
-/* Backup File Maintenance is graded by the Worker (/api/drive), not on the slide: done once the hierarchy was
-   graded as built and a drive check since then found every folder in place. */
-const DRIVE_ACT = "d1m1-drive";
+/* Backup File Maintenance is graded by the Worker (/api/drive), not on the slide: Day 1's is done once the hierarchy
+   was graded as built and a drive check since then found every folder in place. Days 2–5 carry the same activity on:
+   each is also done by the drive, once it is in that state and holds a copy of every document filed in the CMS so
+   far (the trainer report's "backed up" against "filed"), at least one. Either way the normal completion still counts. */
+const DRIVE_ACT = "d1m1-drive", DRIVE_LATER = new Set(["d2-drive", "d3-drive", "d4-drive", "d5-drive"]);
 function driveDone(){
   const D = window.CMDrive && CMDrive.status && CMDrive.status();
   return !!(D && D.built && D.checkedAt && (!D.builtAt || D.checkedAt >= D.builtAt) && !(D.lastMissing || []).length);
 }
+function driveBackedUp(){
+  const D = window.CMDrive && CMDrive.status && CMDrive.status(), saved = ((D && D.saved) || []).length;
+  let filed = 0; try{ filed = (window.cmDocFiling && cmDocFiling.health) ? cmDocFiling.health().filed : 0; }catch(e){}
+  return saved > 0 && saved >= filed;
+}
 function actDone(id){
   const b = BLOCK[id]; if(!b) return false;
   if(id === DRIVE_ACT && driveDone()) return true;
+  if(DRIVE_LATER.has(id) && driveDone() && driveBackedUp()) return true;
   return ((REC.reached || {})[id] || 0) >= viewsOf(b).length || ((REC.ticks || {})[id] || []).some(Boolean) || !!(REC.work || {})[id] || !!((REC.listen || {})[id] || {}).at || !!((REC.notes || {})[id] || {}).txAt || !!(REC.calls || {})[id];
 }
 const actOpened = id => !!(REC.reached || {})[id] || actDone(id);

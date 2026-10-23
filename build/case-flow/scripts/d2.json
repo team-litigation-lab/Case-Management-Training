@@ -231,10 +231,6 @@
     "job": {
       "say": "Let's run it as it happens on the file. An EOB arrives, and you post billed, allowed, adjustment, paid and member share against the visit in CMS Liens and Documents, so the $1,860.00 plan payment is logged and claim PS-2605-449021 is linked to the visit. A PIP check clears, and you post it on the PIP Log with the date of service and the limit remaining, until it ties to Harbor Point's history with $0.00 left after 06/26/2026. Then a patient statement shows a balance. You compare it with the EOB's member responsibility, flag the $1,540.00, tell Atty. Thorne the same day and draft the correction request. When Peach State's itemized lien arrives, you match each line to an EOB and to the collision, so only those lines stand. Here's the payoff. At settlement, Peach State will want its money back. If you've matched every line, we pay back what's really owed. If you haven't, they'll happily take more, and it comes straight out of John's check. {name}, think like a lien auditor for a second.",
       "ask": "{name}, what would you do with a line on Peach State's lien that no EOB supports?"
-    },
-    "dodont": {
-      "say": "3 Clues, 1 Rule, EOB edition. Three clues, one at a time. Call Do or Don't and name the rule. {name}, you're on the first buzz, and {name}, you're keeping score. The good habits are reading every EOB down to member responsibility before you answer a balance question, asking each provider for an itemized statement showing every payer's credit, keeping billed and paid on the same CMS line, and telling John what you're doing and when he'll hear back. The traps are logging a lien at the billed amount instead of what the plan paid, treating a write-off as something he owes, and sending a bill to PIP after it ran out on 06/26/2026. One number to hold onto: Peach State can claim back $1,860.00, never $3,400.00. Now the mystery for the next lesson. John Doe's PIP was supposed to cover some lost wages too, $1,267.20 of them. He never got a cent. Nobody stole it, and nobody forgot to file it. {name}, figure out where it went.",
-      "ask": "{name}, after Harbor Point's $0.00 line on 06/26/2026, where does John Doe's next bill go?"
     }
   },
   "d2m3-l2": {
@@ -265,10 +261,6 @@
     "job": {
       "say": "Here's the rhythm on the job. A provider record arrives, and you compare how, when and where against the other histories on the treatment timeline. Either it's logged consistent, or it's flagged with the conflicting line quoted. If one history conflicts with another, you flag it to Atty. Thorne through Tasks that same day, and you don't call the provider about the wording. When Atty. Thorne decides to seek a causation opinion, you assemble the records for his letter and put the follow-up on the calendar. And when a work or excuse note arrives, you check the signer, the date and the covered days against the visit record. I once watched a Case Manager print the entire file, four hundred pages, “just in case,” to find one date. The date was on page two of the CMS timeline. Search first, print never. {name}, you'd have found it in ten seconds, right?",
       "ask": "{name}, why shouldn't you call the provider yourself to sort out a conflicting history?"
-    },
-    "dodont": {
-      "say": "Let's play 3 Clues, 1 Rule. One clue at a time; the moment you know, call Do or Don't and name the rule. {name}, you're on the first buzz. The good habits: collecting what already exists before asking for anything new, quoting records exactly, flagging conflicting statements rather than fixing them, and keeping every interruption visible on the timeline with its dates. The traps: asking a provider to “clarify” a note in a way that tells them what to write, and leaving the gap off the timeline and hoping nobody notices. And here's the twist. A stronger note isn't always better. A note that shows up after the firm asked for it, saying exactly what the firm needed, is the weakest document in the file. Now your mystery: every number in John Doe's case is about to get added up for the demand. Somewhere in those bills, one charge appears that shouldn't. {name}, you'll hunt for it next.",
-      "ask": "{name}, why would your fingerprints on Dr. Reyes's wording make her letter worthless?"
     }
   },
   "d2m3-cause": {
@@ -295,10 +287,6 @@
     "job": {
       "say": "On the job it runs in four beats. When Atty. Thorne decides to request a causation opinion, you assemble the record set, prior records included, for his letter, and put the follow-up on the calendar. When the letter arrives on 06/19/2026, you check the date of loss, the injury level and side, the visit dates and the records listed against the file, and you log each one as matching, or quote the mismatch and flag it. Once it's checked, you file it and cite it on the Gap Explanation Record's 14-day band and in the audit's risks. And when the Demand Package comes together, the letter goes in beside the MRI report and the EMS report, served on 07/20/2026. Why does this matter? Because the adjuster reads the Causation Letter first and the bills second. I once saw a Causation Letter that described the wrong arm. The doctor fixed it in a day, but only because the Case Manager caught it before it went out. {name}, that's the job: be the person who catches it.",
       "ask": "{name}, what would you do if the letter listed the wrong date of loss?"
-    },
-    "dodont": {
-      "say": "Time for 3 Clues, 1 Rule. One clue at a time, and as soon as you know, call Do or Don't and name the rule. {name}, you're keeping score. {name}, you get first buzz. The good habits here are treating causation as half the case, sending the doctor the complete record set with the prior records in it, and reading the letter against the file the day it arrives. The traps are the ones that feel helpful. Suggesting the doctor's wording, or asking her to make it stronger. Leaving the 2021 records out so she never has to deal with them. And telling John Doe the letter means his case is worth more. Each of those either weakens the letter or crosses the UPL line, the line between sharing facts and giving legal advice. Now your mystery for the next lesson: Dr. Reyes's letter mentions an MMI note and future injections. When we total John Doe's Specials next, does a future injection count, and who decides?",
-      "ask": "{name}, which of those traps would feel most tempting on a busy day, and why?"
     }
   },
   "d2m2-a1": {
@@ -443,10 +431,6 @@
     "job": {
       "say": "The story starts on 06/12/2026, when the MMI note arrives. You record MMI and the future-care plan on the treatment timeline and open the pre-demand audit as a task with an owner and a date. As the final bills and records come in, you build the Specials ledger and match it against the dates until every billed date matches a visit and the medical total is $14,817.40. Then you register every lien and record billed beside paid in the Liens tab and the Net Sheet's Lien Tracker, with the billed-versus-paid question routed to Atty. Thorne. Finally, before the ask, you re-verify each limit in the Coverage Matrix: $10,000, then $20,000, then $10,000, $40,000 in all, each with its written source. I once saw a demand go out citing a limit that had changed three weeks earlier. The adjuster's reply was one line long, and it was not a compliment. {name}, you're up.",
       "ask": "{name}, why re-verify the limits now, when the Coverage Matrix was confirmed weeks ago?"
-    },
-    "dodont": {
-      "say": "Let's play 3 Clues, 1 Rule. Clues one at a time; call Do or Don't and name the rule. {name}, you're keeping score. The good habits: stress-testing the file before the defense does, locking in total damages and protecting them by finding every lien before the demand, and recording the source of every figure so Atty. Thorne can check any line in seconds. The traps: sending the demand and hoping nobody checks the math, padding the Specials with future care, and finding a lien after the release is signed. That last one is like finding the receipt after you've returned the gift. Watch billed versus paid, too: show both and route the choice. Now your mystery for the next lesson. You've got all these numbers. Atty. Thorne has about ten seconds to read your first line. {name}, what's the one sentence you'd put at the top?",
-      "ask": "{name}, why doesn't the Civic's repair ever count toward the $40,000 or the BI Specials?"
     }
   },
   "d2m4-l2": {
@@ -646,6 +630,20 @@
     },
     "job": {
       "say": "On the job it comes down to three moments. When Atty. Thorne approves a demand at the limit, you request Smith's affidavit through Keystone and docket it; ours came back sworn on 08/10/2026. When a records request goes out, the custodian's affidavit is in the same request, so the set comes back ready for evidence. And when any affidavit arrives, you check it against the file, route a defect with a task, and file it where it'll be used: the demand conditions, the UM packages, the trial binder."
+    }
+  },
+  "d2-drive": {
+    "case": {
+      "say": "It's 04/24/2026, half past three. John's back in care, and the last two months of treatment paper are filed in the CMS: the Urgent Care note from his first visit, the Spine and Rehab evaluation with the Letter of Protection, the Lakeside consult, and the Summit Imaging invoice for the MRI. A colleague helped with the backup last week, and the Summit invoice landed in the medical records folder. Sounds harmless. Now picture the pre-demand audit in July. Someone totals John's bills from the bills folder, and twenty-three ninety-five isn't there. {name}, what happens to a bill nobody can find when the Specials get added up?",
+      "ask": "{name}, a bill and a record from the same visit: which one proves what happened to John, and which one proves what it cost?"
+    },
+    "task": {
+      "say": "Here's your job. File the four documents in the CMS from Work From, if they aren't filed yet, so each copy lands on your backup drive in its folder. Notes, evaluations and consults go to Medical Records. Invoices go to Bills and Invoices. Then open your Google Drive, find the Summit invoice sitting in Medical Records, and move it, don't copy it, into Bills and Invoices. Open My Backup Drive and run Check my drive. Last, two sentences in Case Notes: the records versus bills rule, in your own words. Lazy: the invoice copied into both folders. High value: one copy, in the one place the audit will look.",
+      "ask": "{name}, the Letter of Protection is about money. Why does it still travel with the provider's evaluation?"
+    },
+    "check": {
+      "say": "Check yourself, and I'm calling on a few of you. Are the Urgent Care note, the evaluation and the Lakeside consult in Medical Records? Is the Summit invoice in Bills and Invoices, and only there? Look at your dashboard: does the number backed up match what you filed today? Did Check my drive come back with nothing missing? And your Case Note, read me the rule. {name}, go. Records say what was done to John. Bills say what it cost. Keep them apart and the Specials add up to the cent.",
+      "ask": "{name}, if you found a bill in the records folder in July, the week before the demand, what else would you check?"
     }
   }
 }

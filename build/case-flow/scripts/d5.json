@@ -506,5 +506,19 @@
       "say": "Check your work against this, and {name}, you're grading the person next to you. Your task to Nadia names the documents, the approved Complaint, the due date and Atty. Thorne as signer. Nothing went in unsigned, and the September fifteenth draft never left the CMS. The envelope was accepted on the twenty-fourth as twenty-six CV zero four four one seven, and that number replaced Pending in the court fields. Three named PDFs sit in zero one pleadings, and costs read seven hundred four dollars seventy-five. The service deadline, the last day to formally deliver the lawsuit to Robert Smith, is January twenty-second, twenty twenty-seven, a Friday, a hundred and twenty days out, with alerts. Allied Process Services has its hand-off. The conference is December tenth at nine, with Atty. Thorne attending. And the answer date says set on service. The lazy file has a case number. The excellent one has every clock that number started. Your mystery for the next block: Allied hasn't served him yet. What happens to our calendar if they can't find Robert Smith?",
       "ask": "{name}, if the answer date had been calendared today, what would it have been counted from, and why is that wrong?"
     }
+  },
+  "d5-drive": {
+    "case": {
+      "say": "It's 07/30/2027, three in the afternoon, and John Doe's case is won. The award went out today, every lien paid on its Payoff Letter. The litigation file is in the CMS: the Complaint, the service papers, the Answer, the Scheduling Order, the mediation term sheet and both binders. One job is left before the file closes, and it's the one people skip. Picture someone opening this file five years from now, looking for the Answer. {name}, what do they need to find it in seconds?",
+      "ask": "{name}, the money's out. Is the file closed? Who decides?"
+    },
+    "task": {
+      "say": "Here's your last backup job. File the litigation and ADR documents from Work From so each lands in Litigation and ADR on your drive. Then the final audit: open My Backup Drive, run Check my drive, and confirm the count backed up equals what's filed in the CMS, across all nine folders, with every superseded version labeled and every draft marked. Then the closing checklist in Case Notes for Atty. Thorne: every folder complete, every Payoff Letter and the Settlement Statement on the drive, the closing letter backed up, the last check clean, and the step after sign-off, the whole folder moving under Closed Files with the closing date logged. Don't move it in your training drive; the course checks it where it is. Lazy: the money's out, done. High value: the file closes on sign-off.",
+      "ask": "{name}, why does the folder move only after Atty. Thorne signs off?"
+    },
+    "check": {
+      "say": "Last check of the course, so let's make it count. Are the Complaint, the service papers, the Answer, the Scheduling Order and the term sheet in Litigation and ADR? Does backed up equal filed? Is every draft marked and every old version labeled? Did Check my drive come back clean? And your closing checklist, does it end with sign-off and the move to Closed Files? Now the real test. {name}, the HIPAA authorization from Day 1. Go. {name}, the Answer from November. Go. Time it. Any document, intake to award, in seconds. That's a systematized backup.",
+      "ask": "{name}, a lien refund check arrives a month after the close. Where does its paper go, and what does that tell you about the timing of the move?"
+    }
   }
 }

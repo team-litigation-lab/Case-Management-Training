@@ -4653,6 +4653,33 @@ window.CM_CF_SLIDES = {
    "Finding the lien **at disbursement**"
   ]
  },
+ "d2-drive": {
+  "image": "medical-visit",
+  "situation": "04/24/2026, 3:30 p.m. Four **treatment documents** are filed in the CMS, and a **bill sits in the records folder**.",
+  "steps": [
+   "File the four documents so each **reaches its folder**",
+   "Find the **Summit Imaging invoice** in 03 Medical Records",
+   "Move it to **04 Bills & Invoices**, one copy only",
+   "Run **✓ Check my drive** from 📂 My Backup Drive",
+   "Write the **records-vs-bills rule** in Case Notes"
+  ],
+  "deliver": "Records and bills **each in their own folder**, checked",
+  "purpose": "The Specials audit reads **the bills folder only**",
+  "principle": "Records say what was done; **bills say what it cost**",
+  "checks": [
+   "Visit notes, evaluation, consult in **03 Medical Records**",
+   "Summit invoice in **04 Bills & Invoices**, not twice",
+   "**Backed up equals filed** on the dashboard",
+   "**✓ Check my drive**: no folder missing",
+   "The **rule in two sentences** in Case Notes"
+  ],
+  "dos": [
+   "Back up **the day you file**"
+  ],
+  "donts": [
+   "A bill left **among the records**"
+  ]
+ },
  "d2m2-kc": {
   "image": "knowledge-check",
   "questions": [
@@ -6245,6 +6272,33 @@ window.CM_CF_SLIDES = {
   "donts": [
    "**Re-sending the BI demand** with new addressees",
    "A UM demand with **no deadline** or check copy"
+  ]
+ },
+ "d3-drive": {
+  "image": "documents-audit",
+  "situation": "07/17/2026, 3:00 p.m. The demand is served **on 07/20/2026**, and **three corrected versions** have arrived.",
+  "steps": [
+   "Compare **📂 Backup Drive with the CMS**: X of Y",
+   "Back up **every filed document** still missing",
+   "Current version in its folder, old one **SUPERSEDED**",
+   "Draft demand and packet into **05 Insurance**",
+   "Run **✓ Check my drive**; record the audit"
+  ],
+  "deliver": "A backup that **matches the CMS** before the demand goes out",
+  "purpose": "What the adjuster gets must be **on our drive first**",
+  "principle": "**Supersede, never delete**: label the old version",
+  "checks": [
+   "**X of Y backed up**, X equal to Y",
+   "**Current versions** in 03, 04 and 07",
+   "Old versions **labeled SUPERSEDED** with a date",
+   "Demand drafts in **05**, labeled DRAFT",
+   "**✓ Check my drive** clean; audit in Case Notes"
+  ],
+  "dos": [
+   "Audit the backup **before every package**"
+  ],
+  "donts": [
+   "Two files, **one name**, no way to tell"
   ]
  },
  "d3m1-kc": {
@@ -7910,6 +7964,33 @@ window.CM_CF_SLIDES = {
   "donts": [
    "Queuing a command **before the funds clear**",
    "Paying out while **a hold still stands**"
+  ]
+ },
+ "d4-drive": {
+  "image": "escalation-alert",
+  "situation": "10/23/2026, 2:00 p.m. Track A has disbursed, the liens are closed, and **a lien folder has been deleted**.",
+  "steps": [
+   "Delete **06 Liens & Reimbursement** (the drill)",
+   "Run **✓ Check my drive**; read what is missing",
+   "**🔁 Put the missing folders back**, check again",
+   "Lien papers into **06**; costs and closing letter into 07",
+   "Record **what was lost and restored** in Case Notes"
+  ],
+  "deliver": "A restored folder and **every lien paper backed up**",
+  "purpose": "A copy filed into a **deleted folder is lost**",
+  "principle": "**Check before you file**, not after",
+  "checks": [
+   "First check **names the missing folder**",
+   "Folder **put back**; second check clean",
+   "**Five lien documents** in 06",
+   "Cost ledger and closing letter in **07**",
+   "Recovery **recorded** in Case Notes"
+  ],
+  "dos": [
+   "Run **✓ Check my drive** before filing"
+  ],
+  "donts": [
+   "A folder **rebuilt by hand**, misspelled"
   ]
  },
  "d3m4-kc": {
@@ -11411,6 +11492,33 @@ window.CM_CF_SLIDES = {
   ],
   "donts": [
    "Paying a lien **from a phone call**"
+  ]
+ },
+ "d5-drive": {
+  "image": "checklist-qa",
+  "situation": "07/30/2027, 3:00 p.m. The award is **disbursed**, and the file waits on **Atty. Thorne's sign-off**.",
+  "steps": [
+   "Litigation and ADR papers into **09 Litigation & ADR**",
+   "Final audit: **backed up equals filed**, all nine folders",
+   "Run **✓ Check my drive** from 📂 My Backup Drive",
+   "Write the **closing checklist** in Case Notes",
+   "After sign-off: **move to 04 Closed Files** (described)"
+  ],
+  "deliver": "A complete, checked backup **ready to close**",
+  "purpose": "Years later, **anyone can find any page**",
+  "principle": "A file closes on **sign-off, not on payment**",
+  "checks": [
+   "Litigation papers in **09 Litigation & ADR**",
+   "**Every filed document** backed up",
+   "Drafts and superseded versions **labeled**",
+   "**✓ Check my drive**: no folder missing",
+   "Closing checklist ends in **sign-off and the move**"
+  ],
+  "dos": [
+   "Close the backup **by the standard**"
+  ],
+  "donts": [
+   "Moving the folder **before sign-off**"
   ]
  },
  "d5m5-kc": {

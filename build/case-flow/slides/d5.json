@@ -602,5 +602,32 @@
     "donts": [
       "Docketing an answer date **before service**"
     ]
+  },
+  "d5-drive": {
+    "image": "checklist-qa",
+    "situation": "07/30/2027, 3:00 p.m. The award is **disbursed**, and the file waits on **Atty. Thorne's sign-off**.",
+    "steps": [
+      "Litigation and ADR papers into **09 Litigation & ADR**",
+      "Final audit: **backed up equals filed**, all nine folders",
+      "Run **✓ Check my drive** from 📂 My Backup Drive",
+      "Write the **closing checklist** in Case Notes",
+      "After sign-off: **move to 04 Closed Files** (described)"
+    ],
+    "deliver": "A complete, checked backup **ready to close**",
+    "purpose": "Years later, **anyone can find any page**",
+    "principle": "A file closes on **sign-off, not on payment**",
+    "checks": [
+      "Litigation papers in **09 Litigation & ADR**",
+      "**Every filed document** backed up",
+      "Drafts and superseded versions **labeled**",
+      "**✓ Check my drive**: no folder missing",
+      "Closing checklist ends in **sign-off and the move**"
+    ],
+    "dos": [
+      "Close the backup **by the standard**"
+    ],
+    "donts": [
+      "Moving the folder **before sign-off**"
+    ]
   }
 }

@@ -780,5 +780,32 @@
       "Putting future care **in the Specials**",
       "Finding the gaps **in the offer letter**"
     ]
+  },
+  "d4-drive": {
+    "image": "escalation-alert",
+    "situation": "10/23/2026, 2:00 p.m. Track A has disbursed, the liens are closed, and **a lien folder has been deleted**.",
+    "steps": [
+      "Delete **06 Liens & Reimbursement** (the drill)",
+      "Run **✓ Check my drive**; read what is missing",
+      "**🔁 Put the missing folders back**, check again",
+      "Lien papers into **06**; costs and closing letter into 07",
+      "Record **what was lost and restored** in Case Notes"
+    ],
+    "deliver": "A restored folder and **every lien paper backed up**",
+    "purpose": "A copy filed into a **deleted folder is lost**",
+    "principle": "**Check before you file**, not after",
+    "checks": [
+      "First check **names the missing folder**",
+      "Folder **put back**; second check clean",
+      "**Five lien documents** in 06",
+      "Cost ledger and closing letter in **07**",
+      "Recovery **recorded** in Case Notes"
+    ],
+    "dos": [
+      "Run **✓ Check my drive** before filing"
+    ],
+    "donts": [
+      "A folder **rebuilt by hand**, misspelled"
+    ]
   }
 }

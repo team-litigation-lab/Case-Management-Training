@@ -1160,5 +1160,32 @@
       "Accepting an **unsworn statement** as proof",
       "Writing **an affiant's words** for them"
     ]
+  },
+  "d2-drive": {
+    "image": "medical-visit",
+    "situation": "04/24/2026, 3:30 p.m. Four **treatment documents** are filed in the CMS, and a **bill sits in the records folder**.",
+    "steps": [
+      "File the four documents so each **reaches its folder**",
+      "Find the **Summit Imaging invoice** in 03 Medical Records",
+      "Move it to **04 Bills & Invoices**, one copy only",
+      "Run **✓ Check my drive** from 📂 My Backup Drive",
+      "Write the **records-vs-bills rule** in Case Notes"
+    ],
+    "deliver": "Records and bills **each in their own folder**, checked",
+    "purpose": "The Specials audit reads **the bills folder only**",
+    "principle": "Records say what was done; **bills say what it cost**",
+    "checks": [
+      "Visit notes, evaluation, consult in **03 Medical Records**",
+      "Summit invoice in **04 Bills & Invoices**, not twice",
+      "**Backed up equals filed** on the dashboard",
+      "**✓ Check my drive**: no folder missing",
+      "The **rule in two sentences** in Case Notes"
+    ],
+    "dos": [
+      "Back up **the day you file**"
+    ],
+    "donts": [
+      "A bill left **among the records**"
+    ]
   }
 }

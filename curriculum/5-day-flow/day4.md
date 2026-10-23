@@ -43,24 +43,25 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 9. *Skill Activity* — Completing the Final Dual-Tab Net Sheet
 10. *Skill Activity* — Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold
 11. *Skill Activity* — Disbursement Command Triggering: Releases, Hold Cleared, Money Out
-12. *Lesson* — Court Hard Rules, SOL Cutoffs & the Master Calendar
-13. *Lesson* — UM/UIM Disputes & Resolution Routes
-14. *Lesson* — Mediation vs. Binding Arbitration & the UPL Line at Hearings
-15. *Skill Activity* — Routing the UM Impasse: Arbitration or Court
-16. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs
-17. *Skill Activity* — Calendaring the Mediation: the Session and Every Date That Hangs Off It
-18. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping
-19. *Skill Activity* — Calendaring the Arbitration from the Scheduling Letter
-20. *Lesson* — The Mediation Binder & Exhibit Indexing
-21. *Lesson* — Arbitration Exhibits & Evidentiary Rules
-22. *Lesson* — The Prior Medical Shield: Answering the Pre-Existing-Condition Defense from the Record
-23. *Lesson* — From Treatment to Demand: How the Treatment Record Becomes the Claim (condensed)
-24. *Skill Activity* — Assembling the 6-Section Mediation Binder
-25. *Skill Activity* — Assembling the 6-Tab Arbitration Binder
-26. *Knowledge Check* — Lien Reduction Verification
-27. *Knowledge Check* — Final Accounting Check
-28. *Knowledge Check* — ADR & Calendar Compliance Check
-29. *Knowledge Check* — Binder Assembly Verification
+12. *Skill Activity* — Backup File Maintenance: Liens, Costs and a Missing Folder
+13. *Lesson* — Court Hard Rules, SOL Cutoffs & the Master Calendar
+14. *Lesson* — UM/UIM Disputes & Resolution Routes
+15. *Lesson* — Mediation vs. Binding Arbitration & the UPL Line at Hearings
+16. *Skill Activity* — Routing the UM Impasse: Arbitration or Court
+17. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs
+18. *Skill Activity* — Calendaring the Mediation: the Session and Every Date That Hangs Off It
+19. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping
+20. *Skill Activity* — Calendaring the Arbitration from the Scheduling Letter
+21. *Lesson* — The Mediation Binder & Exhibit Indexing
+22. *Lesson* — Arbitration Exhibits & Evidentiary Rules
+23. *Lesson* — The Prior Medical Shield: Answering the Pre-Existing-Condition Defense from the Record
+24. *Lesson* — From Treatment to Demand: How the Treatment Record Becomes the Claim (condensed)
+25. *Skill Activity* — Assembling the 6-Section Mediation Binder
+26. *Skill Activity* — Assembling the 6-Tab Arbitration Binder
+27. *Knowledge Check* — Lien Reduction Verification
+28. *Knowledge Check* — Final Accounting Check
+29. *Knowledge Check* — ADR & Calendar Compliance Check
+30. *Knowledge Check* — Binder Assembly Verification
 
 **End-of-day discussion (trainer):** Keystone's draft release arrives on 08/14/2026 releasing “all other persons, firms, corporations and insurers.” Harbor Point hasn't answered the consent request, and Atty. Thorne is out of the office until Monday. What do you do, and what must not happen before he is back?
 
@@ -68,7 +69,7 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 
 ## Module 4 — Reductions, Lien Negotiation & ADR
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
 ### 4.1.1 Statutory Liens, Health Subrogation & Provider Balances
 
@@ -961,7 +962,78 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.12 Court Hard Rules, SOL Cutoffs & the Master Calendar
+### 4.1.12 Backup File Maintenance: Liens, Costs and a Missing Folder
+
+> **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
+> **Topic:** Skill Activity — back up the lien and cost papers, and find and restore a deleted folder  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · `D3#21` Increasing the Client's Net · LSH firm standard: backup drive folder hierarchy
+
+#### 1 · Visual Layout Description
+
+The Doe-John folder tree with a dashed, empty gap where 06 Liens & Reimbursement should be, a red ✕ beside it and a red banner: 1 FOLDER MISSING. An orange 🔁 PUT THE MISSING FOLDERS BACK button restores it, and lien chips drop into it: PEACH STATE $1,240.00 ACCEPTED, RIVERTON LOP PAYOFF $4,580.00, PRIOR-ATTORNEY LIEN WITHDRAWN. Below, the cost ledger and the closing letter drop into 07 Wages & Costs.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** 10/23/2026, 2:00 p.m. Track A disbursed on 10/22/2026, and the closing letter to John Doe goes out today. The lien file is complete: Peach State's written acceptance of $1,240.00 (10/09/2026), Riverton Spine & Rehab's LOP Payoff Letter at $4,580.00 (10/12/2026), and the Vance & Kettering charging lien with the firm's evidentiary packet, Atty. Thorne's repudiation and its withdrawal (10/13–10/19/2026). The firm's Case Cost Ledger stands at $486.75. A colleague tidying shared folders this week deleted a lien folder from a case backup; for this drill, delete 06 Liens & Reimbursement from your own Doe-John folder in Google Drive before you start.
+
+**Execution prompt.** In Google Drive, delete 06 Liens & Reimbursement from Doe-John (the drill). Open 📂 My Backup Drive and run ✓ Check my drive: read what it reports missing and why that folder matters. Use 🔁 Put the missing folders back, then run ✓ Check my drive again until nothing is missing. Then back up the day's papers from 📁 Work From by filing them in the CMS: Peach State's reduction acceptance, Riverton Spine & Rehab's Payoff Letter and the three prior-attorney lien documents into 06 Liens & Reimbursement; the Case Cost Ledger and the closing letter into 07 Wages & Costs. Record in Case Notes which folder was missing, how you found it, what you restored, and what is now on the drive.
+
+| | |
+|---|---|
+| **Tool / interface** | Backup Drive · CMS → Documents · CMS → Case Notes |
+| **Expected output** | A drive check that found the missing folder, the folder put back, the lien and cost papers backed up in 06 and 07, and a clean final check recorded in Case Notes. |
+
+**Verification checkpoints**
+
+- [ ] ✓ Check my drive run after the deletion, reporting 06 Liens & Reimbursement missing
+- [ ] 🔁 Put the missing folders back used, and a second ✓ Check my drive with no folder missing
+- [ ] Peach State's acceptance, Riverton Spine & Rehab's Payoff Letter and the three prior-attorney lien documents in 06 Liens & Reimbursement
+- [ ] The Case Cost Ledger and the closing letter in 07 Wages & Costs
+- [ ] Every document filed in the CMS is on the drive
+- [ ] Case Notes: the missing folder, how it was found, what was restored, what is now backed up
+
+**Operational mapping**
+
+| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
+|---|---|---|---|
+| A folder deleted from the backup | Run ✓ Check my drive | Backup Drive | The missing folder named |
+| Folder reported missing | 🔁 Put the missing folders back, then check again | Backup Drive | No folder missing |
+| Liens resolved in writing | File the acceptances, payoff and lien papers | CMS → Documents | In 06 Liens & Reimbursement |
+| Costs and closing letter final | File the cost ledger and closing letter | CMS → Documents | In 07 Wages & Costs |
+
+**Best practices & pitfalls**
+
+- Run ✓ Check my drive before you file into a folder, not after; a copy sent to a deleted folder is lost.
+- A lien is only closed when its written acceptance or withdrawal is on the file and on the backup.
+- ⚠️ Pitfall: rebuilding a deleted folder by hand with a slightly different name, which the check will never match.
+- ⚠️ Pitfall: filing the prior-attorney lien papers with the fee documents in 01 Intake & Retainer.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Missing folder found | A drive check after the deletion names 06 Liens & Reimbursement |
+| 🤖 AI | **20%** | Folder restored | Put back with 🔁, confirmed by a clean second check |
+| 🤖 AI | **25%** | Papers backed up | Five lien documents in 06; cost ledger and closing letter in 07; backed up equals filed |
+| 🧑‍🏫 Trainer | **25%** | Recovery explained | Case Note says what was missing, how it was found and what was restored |
+| 🧑‍🏫 Trainer | **15%** | Lien-file completeness | Can show each lien's written resolution on the drive |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Delete a folder in your own demo drive first and show the room the red banner; then let them do the drill on theirs.
+- If a trainee recreates the folder by hand, have them run the check: a name one character off is still missing.
+- Ask: “Which document proves Vance & Kettering has no claim on the fee?” The withdrawal, in 06, on the backup.
+
+---
+
+### 4.1.13 Court Hard Rules, SOL Cutoffs & the Master Calendar
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** The dates the law sets, and the earlier dates the firm dockets  
@@ -1045,7 +1117,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.13 UM/UIM Disputes & Resolution Routes
+### 4.1.14 UM/UIM Disputes & Resolution Routes
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** A claim against your own client's carrier, and the two roads out of an impasse  
@@ -1131,7 +1203,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.14 Mediation vs. Binding Arbitration & the UPL Line at Hearings
+### 4.1.15 Mediation vs. Binding Arbitration & the UPL Line at Hearings
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Two neutrals, two standards, one boundary  
@@ -1221,7 +1293,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.15 Routing the UM Impasse: Arbitration or Court
+### 4.1.16 Routing the UM Impasse: Arbitration or Court
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 3 — read the clause, route the dispute, track it in the CMS  
@@ -1302,7 +1374,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.16 Auditing Court Hard Rules & Setting Calendar Cutoffs
+### 4.1.17 Auditing Court Hard Rules & Setting Calendar Cutoffs
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 1 — find the dates that would cost the file  
@@ -1394,7 +1466,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.17 Calendaring the Mediation: the Session and Every Date That Hangs Off It
+### 4.1.18 Calendaring the Mediation: the Session and Every Date That Hangs Off It
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity — calendar the 03/18/2027 mediation from its triggers  
@@ -1477,7 +1549,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.18 ADR Rules Matrix & UPL Boundary Mapping
+### 4.1.19 ADR Rules Matrix & UPL Boundary Mapping
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 2 — what changes from compromise to decision  
@@ -1563,7 +1635,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.19 Calendaring the Arbitration from the Scheduling Letter
+### 4.1.20 Calendaring the Arbitration from the Scheduling Letter
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity — every date that hangs off the hearing  
@@ -1645,7 +1717,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.20 The Mediation Binder & Exhibit Indexing
+### 4.1.21 The Mediation Binder & Exhibit Indexing
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Six sections, one master index, and the five-second rule  
@@ -1726,7 +1798,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.21 Arbitration Exhibits & Evidentiary Rules
+### 4.1.22 Arbitration Exhibits & Evidentiary Rules
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** From a binder that persuades to the record a binding award rests on  
@@ -1808,7 +1880,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.22 The Prior Medical Shield: Answering the Pre-Existing-Condition Defense from the Record
+### 4.1.23 The Prior Medical Shield: Answering the Pre-Existing-Condition Defense from the Record
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Tab 5: the 2021 baseline, laid beside the injury, before the carriers raise it  
@@ -1896,7 +1968,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.23 From Treatment to Demand: How the Treatment Record Becomes the Claim
+### 4.1.24 From Treatment to Demand: How the Treatment Record Becomes the Claim
 
 > **Lesson** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR (condensed) · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Every stop on the treatment map, and what it becomes in the demand and the binders  
@@ -1978,7 +2050,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.24 Assembling the 6-Section Mediation Binder
+### 4.1.25 Assembling the 6-Section Mediation Binder
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Skill Activity 1 — build it, audit it, route it before 03/11/2027  
@@ -2058,7 +2130,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.25 Assembling the 6-Tab Arbitration Binder
+### 4.1.26 Assembling the 6-Tab Arbitration Binder
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Skill Activity 2 — sort, QC and defuse two landmines before 06/02/2027  
@@ -2135,7 +2207,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.26 Lien Reduction Verification
+### 4.1.27 Lien Reduction Verification
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2220,7 +2292,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 4.1.27 Final Accounting Check
+### 4.1.28 Final Accounting Check
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2332,7 +2404,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 4.1.28 ADR & Calendar Compliance Check
+### 4.1.29 ADR & Calendar Compliance Check
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2448,7 +2520,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 4.1.29 Binder Assembly Verification
+### 4.1.30 Binder Assembly Verification
 
 > **Knowledge Check** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
