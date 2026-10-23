@@ -7952,6 +7952,9 @@ function assessSubmissionQuality(text){
 /* Plain-English reason for an AI failure (shown instead of a generic "check your connection"). */
 function friendlyAiError(e){
   const m = String((e && e.message) || e || "");
+  // the shared AI gateway on the Training Portal answered for this Worker: its keys, not this Worker's, are the ones to fix
+  if(/Portal AI gateway/.test(m) && /x-api-key|API key|GEMINI_API_KEY|rejected|unauthenticated/i.test(m)) return "The Gemini keys on the Training Portal (the shared AI gateway this course uses) were rejected — replace GEMINI_API_KEY on the Portal's Cloudflare Pages project (Settings → Variables and Secrets).";
+  if(/Portal AI gateway: Not allowed/.test(m)) return "The Training Portal refused this course's AI requests — AI_GATEWAY_SECRET must be the same on this Worker and on the Portal.";
   if(/x-api-key|authentication_error|invalid api key|API key not valid/i.test(m)) return /gemini/i.test(m) ? "The Gemini API key on the server is invalid — replace GEMINI_API_KEY in Cloudflare (Workers & Pages → case-management-training → Settings → Variables and Secrets)." : "The AI key on the server is invalid — replace it in Cloudflare (Settings → Variables and Secrets).";
   if(/quota|RESOURCE_EXHAUSTED|free tier/i.test(m)) return "AI generation limit reached. Try again in a minute.";
   if(/401|sign-in required|unauthor/i.test(m)) return (state.isAdmin || state.view==="admin") ? "Your admin sign-in has expired or was made before secure mode was switched on. Click 🛡 Admin → Sign out, then sign in again with the admin password and retry." : "Your session needs refreshing — sign out and back in, then try again.";

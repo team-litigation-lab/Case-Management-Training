@@ -336,7 +336,7 @@ async function viaGateway(env, req, user) {
   } catch (e) { return json({ error: { message: "The shared AI gateway is unreachable: " + (e && e.message || e) } }, 502); }
   if (data && data.success) return json({ content: [{ type: "text", text: data.text }], model: data.model, stop_reason: "end_turn", provider: "gemini-gateway" });
   const status = r.status === 429 ? 429 : (r.status === 401 || r.status === 403 || r.status === 501) ? 502 : (r.status || 502);
-  return json({ error: { message: (status === 429 ? "rate limit (shared AI budget): " : "") + ((data && data.error) || "AI gateway error " + r.status) } }, status);
+  return json({ error: { message: (status === 429 ? "rate limit (shared AI budget): " : "Portal AI gateway: ") + ((data && data.error) || "AI gateway error " + r.status) } }, status);   // named, so the page can say where the keys live
 }
 
 /* The key pool: every GEMINI_API_KEY secret on this Worker is used, GEMINI_API_KEY and any numbered one (GEMINI_API_KEY1 …
