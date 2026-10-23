@@ -6097,7 +6097,7 @@ function navBackTarget(){
 // Filled in after the page's history entry is recorded (afterRender), so it names the right page.
 function fillNavBack(){
   const slot = document.getElementById("navBackSlot"); if(!slot) return;
-  const prev = ["login","pendingApproval","registrationDenied","dashboard"].includes(state.view) ? "" : navBackTarget();
+  const prev = ["login","pendingApproval","registrationDenied","dashboard","day"].includes(state.view) ? "" : navBackTarget();   // the slides have the top bar and the Slide Map: no Back button over them
   const label = prev && routeLabel(prev);
   const btn = label ? `<button type="button" class="nav-back" onclick="navBack()" title="Go back to the page you were on">← Back to ${esc(label)}</button>` : "";
   // the Case File fills the screen to the last line: its Back sits at the start of its own tab row instead of a row of its own
@@ -6857,7 +6857,6 @@ function renderDay(id){
   }
   const prog = state.progress[id];
   const compactHead = `
-    <a class="back-link" onclick="goto('dashboard')">&larr; Back to roadmap</a>
     <div class="day-head-compact">
       <span class="dhc-eyebrow">Day ${d.id} of ${DAYS.length}</span>
       <span class="dhc-title">${esc(d.title)}</span>
@@ -15892,14 +15891,14 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/graded-calls.js?v=1"></script>
 <script src="/js/cm-case-flow-docs.js?v=25"></script>
 <script src="/js/cm-case-flow-art.js?v=3"></script>
-<script src="/js/cm-case-flow-slides.js?v=53"></script>
+<script src="/js/cm-case-flow-slides.js?v=54"></script>
 <script src="/js/cm-case-flow-scripts.js?v=41"></script>
 <script src="/js/cm-case-flow-sim.js?v=23"></script>
 <script src="/js/cm-case-flow-exhibits.js?v=7"></script>
 <script src="/js/cm-case-flow-data.js?v=56"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=1"></script>
-<script src="/js/cm-case-flow.js?v=98"></script>
+<script src="/js/cm-case-flow.js?v=99"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=4"></script>
 <script src="/js/lsh-tool-links.js?v=cm-2026.10.23-trainer-sso"></script>
