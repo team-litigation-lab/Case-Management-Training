@@ -1776,16 +1776,18 @@ window.cmCaseFlow.svFile = async function(blockId){
    find what is wrong at the source, and — with Atty. Thorne's approval — write each provider a request to correct
    its own record or statement (build/case-flow/exhibits: "amendments"). A request that leaves out what the provider
    needs, or asks for something it must not, is refused with the reason and nothing is sent. A complete one brings
-   the provider's answer and, with it, the corrected copy (RS72, RS73), which opens to the trainee from then on —
+   the provider's answer and, with it, the corrected copy (RS72, RS73). The copy opens to the trainee only once their
+   trainer unlocks it (Admin → Trainee Audit → View Detail; kept on the trainee record as unlockedCopies) — then
    on the Documents page and in every later activity that works from it — and which they file in the CMS the
    firm's way. Every request ends in written feedback on their work, and their trainer sees all of it. */
 const amendOf = id => (EX.amendments || {})[id] || null;
 function amRec(blockId){ REC.amend = REC.amend || {}; return (REC.amend[blockId] = REC.amend[blockId] || {marks: {}, screened: null, req: {}}); }
 function amReq(blockId, docId){ const r = amRec(blockId); return (r.req[docId] = r.req[docId] || {body: "", tries: 0, log: [], sent: null, choice: null}); }
-/* A corrected copy opens once the trainee's request for it is answered; every other document is as it was. */
+/* A corrected copy opens only once the trainer unlocks it for this trainee; every other document is as it was. */
 function docAvail(d){
   if(!d || !d.unlock || isTrainer()) return true;
-  return !!((((REC.amend || {})[d.unlock] || {}).req || {})[d.amends] || {}).sent;
+  const open = (typeof state !== "undefined" && Array.isArray(state.adminUnlockedCopies)) ? state.adminUnlockedCopies : [];
+  return open.includes(d.id);
 }
 window.cmDocAvailable = docAvail;
 const AM_FIT = "fit", AM_FIX = "fix";
@@ -1844,7 +1846,7 @@ function amWorkspace(blockId){
 function amCard(blockId, a, r, q, i){
   const x = amReq(blockId, q.doc), sent = !!x.sent, src = exDoc(q.doc), missed = r.marks[q.doc] !== AM_FIX;
   const chose = x.choice != null, nextOk = chose && !!(q.next.choices[x.choice] || {}).ok;
-  const copy = q.corrected ? exDoc(q.corrected) : null, filedRec = copy ? amFiled(copy.id) : {};
+  const copy = q.corrected ? exDoc(q.corrected) : null, filedRec = copy ? amFiled(copy.id) : {}, copyOpen = !!copy && docAvail(copy);
   const finished = sent && (q.next ? chose : !!filedRec.filed);
   const head = `<p class="am-wrong">${missed ? "<b>You missed this one in the screening.</b> " : ""}${hl(q.wrong)}</p>`;
   const compose = sent
@@ -1856,9 +1858,9 @@ function amCard(blockId, a, r, q, i){
       <div class="sv-row"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.amSend('${blockId}','${q.doc}')">Send the request</button>
         <span class="sv-msg" id="amm_${E(blockId)}_${E(q.doc)}" aria-live="polite">${x.tries ? `Not sent yet — ${x.tries} attempt${x.tries === 1 ? "" : "s"} refused.` : ""}</span></div>`;
   const reply = sent ? `<div class="sv-eh"><b>From</b> ${E(q.reply.from)}<br><b>Sent</b> ${E(q.reply.date)}, ${E(q.reply.time)}<br><b>Subject</b> ${E(q.reply.subject)}${copy ? `<br><b>Attachment</b> ${E(copy.title)}` : ""}</div><pre class="sv-body">${E(q.reply.body)}</pre>
-      ${copy ? `<p class="sv-ok">📄 The corrected copy is now in your case documents: ${exDocLink(copy.id)}. It opens beside the original in every activity that works from it.</p>` : ""}` : "";
+      ${copy ? (copyOpen ? `<p class="sv-ok">📄 Your trainer unlocked the corrected copy. It is in your case documents: ${exDocLink(copy.id)}. It opens beside the original in every activity that works from it.</p>` : `<p class="sv-note">🔒 The corrected copy opens once your trainer unlocks it for you. Ask your trainer when you are ready.</p>`) : ""}` : "";
   const after = !sent ? "" : copy
-    ? `<p class="sv-note">A corrected copy in your inbox is not on the case file. File it in the CMS beside the original, named the firm's way; the filing keeps it on your Backup Drive too.</p>
+    ? !copyOpen ? `<p class="sv-note">You file the corrected copy in the CMS once your trainer unlocks it.</p>` : `<p class="sv-note">A corrected copy in your inbox is not on the case file. File it in the CMS beside the original, named the firm's way; the filing keeps it on your Backup Drive too.</p>
        ${window.cmDocFiling && cmDocFiling.row ? `<div class="dfl">${cmDocFiling.row(blockId, copy)}</div>` : ""}`
     : `<p class="sv-brief"><b>${E(q.next.q)}</b></p>
        <div class="sv-choices">${q.next.choices.map((c, k) => `<label class="sv-ch${chose ? (c.ok ? " ok" : (x.choice === k ? " no" : "")) : ""}">
@@ -1930,7 +1932,7 @@ window.cmCaseFlow.amSend = function(blockId, docId){
     return;
   }
   x.sent = new Date().toISOString(); persist();
-  if(typeof toast === "function") toast(q.corrected ? `Sent. ${who} answered, and the corrected copy is in your case documents.` : `Sent. ${who} answered: read it, then decide what you do next.`);
+  if(typeof toast === "function") toast(q.corrected ? `Sent. ${who} answered. The corrected copy opens once your trainer unlocks it.` : `Sent. ${who} answered: read it, then decide what you do next.`);
   amRepaint(blockId);
 };
 window.cmCaseFlow.amChoose = function(blockId, docId, k){
@@ -3878,7 +3880,7 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {backup: backupDoc});
 function docLine(blockId){
   const all = (CF_PACKETS[blockId] || []).map(id => CF_DOCS.find(d => d.id === id)).filter(Boolean), docs = all.filter(docAvail), held = all.length - docs.length;
   if(!docs.length) return "";
-  return `<div class="cf-docline"><b>📁 Work from</b>${docs.map(d => `<a href="${E(docUrl(d))}" target="_blank" rel="noopener" title="${E(d.desc)}" onclick="return cmCaseFlow.doc(event,'${d.id}')">${E(d.title)}</a>`).join("")}${held ? `<span class="cf-note">🔒 ${held} corrected cop${held === 1 ? "y opens" : "ies open"} once your Amendment Requests (Pre-Demand Case Auditing) are answered.</span>` : ""}</div>`;
+  return `<div class="cf-docline"><b>📁 Work from</b>${docs.map(d => `<a href="${E(docUrl(d))}" target="_blank" rel="noopener" title="${E(d.desc)}" onclick="return cmCaseFlow.doc(event,'${d.id}')">${E(d.title)}</a>`).join("")}${held ? `<span class="cf-note">🔒 ${held} corrected cop${held === 1 ? "y opens" : "ies open"} once your trainer unlocks ${held === 1 ? "it" : "them"} (after your Amendment Requests in Pre-Demand Case Auditing are answered).</span>` : ""}</div>`;
 }
 const docOpen = d => !!(state.isAdmin || state.adminPreview) || (dayUnlocked(cfIdOf(d.day)) && docAvail(d));
 function caseFlowDocuments(){
@@ -3886,7 +3888,7 @@ function caseFlowDocuments(){
   const tpl = (window.CM_DOCS || []).filter(d => d.folder === "templates");
   const row = d => `<div class="cm-doc-row"><div><span class="t">${E(d.title)}</span> <span style="font-size:11px;color:var(--ink-soft)">· ${d.folder === "templates" ? "Any day" : "Case Flow Day " + d.day}</span><div class="d">${E(d.desc)}</div>${state.isAdmin && d.key ? `<div class="cm-key">🔑 ${E(d.key)}</div>` : ""}</div>
       <div style="display:flex;gap:6px;align-items:center"><span class="cms">CMS: ${E(d.cms)}</span><a class="btn btn-ghost btn-sm" href="${E(openUrl(d))}" target="_blank" rel="noopener"${/^RS\d\d$/.test(d.id) ? ` onclick="return cmCaseFlow.doc(event,'${d.id}')"` : ""}>Open</a><button type="button" class="btn btn-ghost btn-sm" title="Back up this file to your Google Drive, in its case folder" onclick="cmCaseFlow.backup(this,'${E(d.id)}')">☁️ Add to GDrive</button></div></div>`;
-  const heldBy = d => dayUnlocked(cfIdOf(d.day)) && !docAvail(d);   // open by its day, waiting on the trainee's Amendment Request
+  const heldBy = d => dayUnlocked(cfIdOf(d.day)) && !docAvail(d);   // open by its day, waiting for the trainer to unlock it
   const folders = CF_FOLDERS.map(fo => ({fo, items: shown.filter(d => d.folder === fo.id), later: locked.filter(d => d.folder === fo.id && !heldBy(d)).length, held: locked.filter(d => d.folder === fo.id && heldBy(d)).length})).filter(x => x.items.length || x.later || x.held);
   return `<p class="eyebrow">Case Documents</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">📁 Case Documents: ${E(CF.case.style)}</h1>
@@ -3894,7 +3896,7 @@ function caseFlowDocuments(){
     <div class="cf-docs-switch-row"><div class="lsh-subtabs cf-docs-switch" role="tablist"><button type="button" role="tab" onclick="goto('clientprofile')">Case File</button><button type="button" role="tab" class="on" aria-selected="true">📁 Documents</button></div></div>
     ${state.isAdmin ? `<div class="card" style="padding:12px 16px;margin-bottom:16px;border-left:4px solid var(--danger);font-size:12.8px">🔑 <b>Trainer view:</b> the red notes under each document are the audit key: planted discrepancies and what a strong trainee should catch. Trainees don't see them. Every document's plants are listed in build/case-flow/documents/SPEC.md.</div>` : ""}
     ${folders.map(({fo, items, later, held}) => `<div class="card cm-lib-folder" style="padding:14px 18px"><h3>${fo.icon} ${E(fo.label)} <span style="font-weight:500;color:var(--ink-soft);font-size:12px">(${items.length})</span></h3>
-      ${items.map(row).join("")}${later ? `<div class="cf-note">🔒 ${later} more open with later Case Flow days.</div>` : ""}${held ? `<div class="cf-note">🔒 ${held} corrected cop${held === 1 ? "y opens" : "ies open"} once your Amendment Request to the provider is answered (Pre-Demand Case Auditing → 📝 Amendment Requests).</div>` : ""}</div>`).join("")}
+      ${items.map(row).join("")}${later ? `<div class="cf-note">🔒 ${later} more open with later Case Flow days.</div>` : ""}${held ? `<div class="cf-note">🔒 ${held} corrected cop${held === 1 ? "y opens" : "ies open"} once your trainer unlocks ${held === 1 ? "it" : "them"} (send your Amendment Request first: Pre-Demand Case Auditing → 📝 Amendment Requests).</div>` : ""}</div>`).join("")}
     ${tpl.length ? `<div class="card cm-lib-folder" style="padding:14px 18px"><h3>📝 Templates &amp; Blank Forms <span style="font-weight:500;color:var(--ink-soft);font-size:12px">(${tpl.length})</span></h3>${tpl.map(row).join("")}</div>` : ""}
 `;
 }
