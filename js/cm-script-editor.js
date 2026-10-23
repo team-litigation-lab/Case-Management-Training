@@ -45,7 +45,8 @@ if(typeof window.renderPresenterNote === "function"){
     load();
     const i = (d.lessons || []).indexOf(l); if(i < 0) return h;
     const ed = !!edits[`${d.id}::${l.h}::p${part || 1}`];
-    return h + `<div class="se-row">${ed ? `<span class="se-tag">✏️ Edited</span>` : ""}<button type="button" class="btn btn-ghost btn-sm" onclick="cmScriptEditor.open(${JSON.stringify(d.id)},${i},${part || 1},this)">✏️ Edit script</button></div>`;
+    // at the top of the notes, where the trainer looks first (under a long script it scrolled out of sight)
+    return `<div class="se-row">${ed ? `<span class="se-tag">✏️ Edited</span>` : ""}<button type="button" class="btn btn-navy btn-sm se-edit" onclick="cmScriptEditor.open(${JSON.stringify(d.id)},${i},${part || 1},this)">✏️ Edit script</button></div>` + h;
   };
 }
 function close(){
@@ -56,7 +57,7 @@ function close(){
 function onKey(e){ if(e.key === "Escape") close(); }
 // Presenter view: the script is edited in place in the notes, so the slide on the console stays in view
 function openInline(d, l, li, part, btn){
-  const cur = current(d, l, part), row = btn.closest(".se-row"), note = row && row.previousElementSibling;
+  const cur = current(d, l, part), row = btn.closest(".se-row"), note = row && row.nextElementSibling;
   if(!row) return false;
   const f = document.createElement("div");
   f.id = "se-inline"; f.className = "se-form se-inline";
@@ -124,7 +125,7 @@ function save(dayId, li, part){
   return store(dayId, li, part, {say, ask, by: (typeof state !== "undefined" && state.adminName) || "", at: new Date().toISOString()});
 }
 const css = document.createElement("style");
-css.textContent = `.se-row{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin:6px 0 2px;}
+css.textContent = `.se-row{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin:2px 0 8px;}
 .se-tag{font:700 11px 'Inter',sans-serif;color:#B5651F;background:#FFF3E3;border-radius:999px;padding:2px 8px;}
 #se-over{position:fixed;inset:0;z-index:2147483000;background:rgba(20,24,40,.55);display:flex;align-items:center;justify-content:center;padding:18px;}
 .se-box{background:#fff;border-radius:14px;width:min(1400px,100%);height:min(860px,100%);display:flex;flex-direction:column;box-shadow:0 20px 50px rgba(0,0,0,.3);overflow:hidden;}
