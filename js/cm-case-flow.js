@@ -959,10 +959,38 @@ function card(l, i, d, part){
       <div class="cfx-ribbon"><span title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span></div>
       <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}</span>
         <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.n}.${k + 1} · ${E(KIND[b.kind])}</span>${timeChip(l, d)}
+        ${view === "task" && isTrainer() && !inAudience() && injectsOf(b).length ? `<button type="button" class="cfx-inject" onclick="cmCaseFlow.inject(${d.id},${i})" title="Trainer only: a real-time task to inject while the room works this one">⚡ Inject: ${E(injectsOf(b).map(x => x.short).join(" · "))}</button>` : ""}
         <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Additional Reference</button></div>
       <div class="cfx-body${onNavy ? " cfx-body-navy" : ""}">${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}</div>
     </div>`);
 }
+/* ⚡ Inject: where the trainer drops a real-time task into the room while the trainees are mid-task (trainer-only,
+   never on the shared slides). Two kinds: the activity's live call (the trainer or a co-trainer plays the caller,
+   taken from Your Task), and the simulation's fallout (build/case-flow/sim: a step an earlier activity skipped comes
+   back here as an email, a call or a CMS alert, delivered to whoever missed it). Shown on the activity's Your Task
+   slide, in Presenter view's notes and in the SOP's run of show. */
+function injectsOf(b){
+  if(!b || b.kind !== "activity") return [];
+  const out = [], c = SIM.calls[b.id];
+  if(c) out.push({kind: "call", short: `📞 ${c.who}`, html: `<b>📞 Live call: ${E(c.who)}</b> Once the room is working the task, play ${E(c.who)} (you or a co-trainer), from Your Task → <i>Take the call</i>. One trainee answers on the shared screen while the room listens; the rest keep working. Goals: ${E((c.goals || []).join("; "))}.`});
+  (SIM.fallout || []).filter(f => f.then && f.then.activity === b.id).forEach(f => {
+    const ev = f.then.event || {}, sb = (STORED[f.if.activity] || {}).block, ck = sb && sb.act && (sb.act.checkpoints || [])[f.if.check - 1];
+    out.push({kind: "fallout", short: `⚡ ${ev.channel || "event"} from ${String(ev.from || "").replace(/\s*\(.*$/, "")}`,
+      html: `<b>⚡ Fallout, for anyone who missed it:</b> who skipped <i>${E(ck || "check " + f.if.check)}</i> on ${E(titleCase(sb ? sb.title : f.if.activity))}, deliver this ${E(ev.channel || "event")} mid-task: <b>${E(ev.from || "")}</b>, “${E(ev.subject || "")}”. ${E(ev.body || "")}`});
+  });
+  return out;
+}
+window.cmCaseFlow.inject = function(dayId, i){
+  const d = cfDay(dayId), l = d && d.lessons[i], xs = injectsOf(l && l.cf.block); if(!xs.length) return;
+  const o = document.createElement("div"); o.className = "cfx-modal cfx-more cfx-inject-m"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Inject a real-time task");
+  o.innerHTML = `<div class="cfx-modal-in card lesson-card"><div class="cfx-modal-h"><b>⚡ Inject a real-time task: trainer only</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>
+    <p class="cfx-more-lead">Inject it once the trainees are working this task, not before: the point is handling it mid-task, the way it lands on a real desk.</p><ul>${xs.map(x => `<li>${x.html}</li>`).join("")}</ul></div>`;
+  const close = () => { o.remove(); document.removeEventListener("keydown", esc, true); };
+  const esc = e => { if(e.key === "Escape"){ e.stopPropagation(); close(); } };
+  o.addEventListener("click", e => { if(e.target === o || e.target.closest(".cfx-modal-h button")) close(); });
+  document.addEventListener("keydown", esc, true);
+  document.body.appendChild(o);
+};
 if(!document.getElementById("cfx-deck-font")){
   const f = document.createElement("link"); f.id = "cfx-deck-font"; f.rel = "stylesheet";
   f.href = "https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap";
@@ -2366,6 +2394,17 @@ if(typeof presenterCues === "function"){   // Presenter view: the trainer's note
     return `<h3>Practice Lab</h3><p>Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. Today's ${n} Skill Activities each come straight after the lessons they practise: each opens with Your Case, then Your Task and Check Your Work. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
   };
 }
+if(typeof presenterCues === "function"){   // Presenter view: ⚡ Inject, at the top of the notes on an activity's Your Task slide
+  const __cuesInject = presenterCues;
+  presenterCues = function(d, slide){
+    const html = __cuesInject.apply(this, arguments);
+    if(!(slide && slide.type === "topic" && cfDay(d && d.id))) return html;
+    const l = d.lessons[slide.lessonIndex], b = l && l.cf && l.cf.block;
+    if(!b || viewsOf(b)[(slide.part || 1) - 1] !== "task") return html;
+    const xs = injectsOf(b); if(!xs.length) return html;
+    return `<div class="pv-inject"><b>⚡ Inject now: a real-time task</b><span>Once the room is working this task, not before.</span><ul>${xs.map(x => `<li>${x.html}</li>`).join("")}</ul></div>` + html;
+  };
+}
 if(typeof presenterCues === "function"){   // Presenter view: the slide's ＋ More pop-ups, opened in the room's window from the console
   const __cuesMore = presenterCues;
   presenterCues = function(d, slide){
@@ -2514,7 +2553,8 @@ if(typeof window.sopRunOfShow === "function"){
       pacts.map(l => `<b>${E(l.cf.block.title)}</b> <span style="color:var(--ink-soft)">(${E(String(l.cf.block.act.tool || "").split("·")[0].trim())})</span>`).join(" · "),
       `Trainees work them on John Doe's file in the CMS or the tool each step names, beside the slide (⧉ Side by side), straight after the lesson they practise, then tick Check Your Work and log the reference.`,
       calls.length ? `📞 Live call${calls.length > 1 ? "s" : ""}: ${andList(calls.map(c => E(c.who)))}. Each starts from “Take the call” on the Your Task slide; let one trainee take it while the room listens, or everyone takes it at their desk.` : "",
-      pacts.some(l => PLAN_TOOL.test(l.cf.block.act.tool || "")) ? `The Action Plan drafts: Next on the activity's last slide opens the editor, and “Next” there carries on.` : ""].filter(Boolean),
+      pacts.some(l => PLAN_TOOL.test(l.cf.block.act.tool || "")) ? `The Action Plan drafts: Next on the activity's last slide opens the editor, and “Next” there carries on.` : "",
+      ...pacts.flatMap(l => injectsOf(l.cf.block).filter(x => x.kind === "fallout").map(x => `⚡ <b>Inject mid-task</b> on ${E(titleCase(l.cf.block.title))} (the ⚡ pill on its Your Task slide): ${x.html.replace(/^<b>[^<]*<\/b>\s*/, "")}`))].filter(Boolean),
       say: pacts.length === 1 ? `“Your turn. Open John Doe's file and do this the way you would at your desk. I'm around, so shout if you get stuck, and log what you did before you move on.”`
         : `“Your turn. There are ${pacts.length} of these, in the order the work happens on the file, so pace yourselves. Work them the way you would at your desk, and shout if you get stuck.”`,
       watch: "Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands."});
@@ -4196,6 +4236,14 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-th-more{position:absolute;top:6px;right:8px;border:1px solid #F0D2AE;background:#FBF1E6;color:#B5561A;border-radius:999px;padding:1px 9px;font:700 12px/1.6 var(--font-ui);cursor:pointer;}
 .cfx-th-more:hover,.cfx-th-more:focus-visible{background:var(--orange);border-color:var(--orange);color:#fff;outline:none;}
 .cfx-more{align-items:center;}
+.cfx-inject{margin-left:auto;margin-right:8px;padding:5px 12px;border-radius:999px;border:0;background:linear-gradient(135deg,#C0392B,#DB8437);color:#fff;font:800 12.5px var(--font-ui);cursor:pointer;max-width:42%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-shadow:0 0 0 0 rgba(219,132,55,.7);animation:cfxInject 1.8s ease-out infinite;}
+.cfx-inject + .cfx-full{margin-left:0;}
+@keyframes cfxInject{0%{box-shadow:0 0 0 0 rgba(219,132,55,.7);}70%{box-shadow:0 0 0 10px rgba(219,132,55,0);}100%{box-shadow:0 0 0 0 rgba(219,132,55,0);}}
+@media(prefers-reduced-motion:reduce){.cfx-inject{animation:none;}}
+.cfx-inject-m ul li{margin-bottom:6px;}
+.pv-inject{margin:0 0 12px;padding:10px 12px;border-radius:10px;background:#FDF0E6;border:2px solid #DB8437;}
+.pv-inject > b{display:block;color:#8E2A2A;font-size:14px;}.pv-inject > span{display:block;font-size:12px;color:var(--ink-soft);margin:2px 0 4px;}
+.pv-inject ul{margin:0;padding-left:18px;}.pv-inject li{font-size:13.5px;margin:4px 0;}
 .pv-more{margin:14px 0 0;padding:10px 12px;border:1px dashed #DB8437;border-radius:10px;background:#FFF6EC;}
 .pv-more b{display:block;font-size:13px;color:var(--navy);}.pv-more span{display:block;font-size:12px;color:var(--ink-soft);margin:2px 0 6px;}
 .pv-more div{display:flex;flex-wrap:wrap;gap:6px;}
