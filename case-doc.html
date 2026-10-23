@@ -33,6 +33,22 @@
   .cdv-fmsg.bad { color: #ffc9b8; } .cdv-fmsg.ok { color: #b9f0c8; }
   .cdv-fmsg ul { margin: 4px 0 0; padding-left: 18px; }
   .cdv-msg { max-width: 60ch; margin: 60px auto; padding: 0 16px; font: 15px/1.5 Arial, Helvetica, sans-serif; color: #333; }
+  /* 📎 Choose the exhibits (js/cm-exhibit-pick.js) */
+  .xp { max-width: 8.5in; margin: 14px auto 0; background: #fff; border: 2px solid var(--orange); border-radius: 12px; padding: 14px 18px; font: 14px/1.4 Arial, Helvetica, sans-serif; color: #262B45; box-shadow: 0 2px 12px rgba(0,0,0,.12); }
+  .xp[hidden] { display: none; }
+  .xp h2 { margin: 0 0 4px; font-size: 17px; }
+  .xp > p { margin: 0 0 10px; color: #475569; }
+  .xp ol { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .xp li { display: grid; grid-template-columns: 1fr 190px; gap: 4px 12px; align-items: center; padding: 7px 10px; border: 1px solid #E2E6EF; border-radius: 9px; }
+  .xp li b { font-weight: 700; } .xp li code { font-size: 11.5px; color: #64748b; }
+  .xp select { font: 13px Arial, Helvetica, sans-serif; padding: 6px 8px; border-radius: 7px; border: 1px solid #c9cfe0; }
+  .xp li .why { grid-column: 1 / -1; font-size: 12.5px; color: #334155; }
+  .xp li.ok { border-color: #86d5a3; background: #f0fbf4; } .xp li.no { border-color: #f3a58f; background: #fff4f0; }
+  .xp .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
+  .xp .row button { font: 700 13px Arial, Helvetica, sans-serif; padding: 8px 14px; border: 0; border-radius: 8px; background: var(--navy); color: #fff; cursor: pointer; }
+  .xp .row button.ghost { background: transparent; color: var(--navy); border: 1px solid #c9cfe0; }
+  .xp .msg { font-weight: 700; } .xp .msg.bad { color: #b42318; } .xp .msg.ok { color: #157a3c; }
+  @media (max-width: 760px) { .xp li { grid-template-columns: 1fr; } }
   @media (max-width: 760px) { .cdv-sheet { margin: 0; padding: 20px 16px; box-shadow: none; } }
   @media print {
     .cdv-bar { display: none; }
@@ -44,6 +60,7 @@
 <script>window.CM_CASE_YEAR = new URLSearchParams(location.search).get("year"); window.CM_CASE_DOL = new URLSearchParams(location.search).get("dol");   // the CMS Date of Loss offset, days</script>
 <script src="/js/cm-case-flow-docs.js?v=24"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
+<script src="/js/cm-exhibit-pick.js?v=1"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
@@ -52,6 +69,7 @@
   <div class="t" id="title"></div>
   <button id="pdf" type="button">⬇ Download PDF</button>
   <button id="cms" type="button" hidden>📤 File in the CMS</button>
+  <button id="xpick" type="button" hidden>📎 Choose the exhibits</button>
   <button id="edit" type="button" class="ghost" hidden>Download editable copy (.doc)</button>
   <div class="cdv-file" id="filebox" hidden>
     <select id="fcat" aria-label="CMS category"><option value="">CMS category…</option></select>
@@ -61,6 +79,7 @@
     <div class="cdv-fmsg" id="fmsg" aria-live="polite"></div>
   </div>
 </div>
+<section class="xp" id="xp" hidden aria-label="Choose the exhibits"></section>
 <main id="out"><p class="cdv-msg">Loading the document…</p></main>
 <script>
 (async function(){
@@ -172,6 +191,35 @@
       else say(`<b>Not filed.</b><ul>${out.problems.map(p => `<li>${esc(p)}</li>`).join("")}</ul>`, "bad");
     }finally{ fgo.disabled = false; }
   };
+  /* 📎 Choose the exhibits: which of the file's documents go into the demand as exhibits (js/cm-exhibit-pick.js) */
+  const XP = window.CM_EXHIBIT_PICK;
+  if(XP && XP.docs.includes(id)){
+    const xbtn = document.getElementById("xpick"), xp = document.getElementById("xp"), KEY = "lsh_exhibit_pick";
+    let picks = {}; try{ picks = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; }catch(e){}
+    const keep = () => { try{ localStorage.setItem(KEY, JSON.stringify(picks)); }catch(e){} };
+    let checked = false;
+    const draw = () => {
+      const right = XP.items.filter((x, i) => picks[i] === x.want).length;
+      xp.innerHTML = `<h2>${XP.title}</h2><p>${esc(XP.intro)}</p><ol>${XP.items.map((x, i) => {
+        const p = picks[i] || "", mark = checked && p ? (p === x.want ? "ok" : "no") : "";
+        return `<li class="${mark}"><span><b>${esc(D.all(x.what))}</b>${x.doc ? ` <code>${esc(x.doc)}</code>` : ""}</span>
+          <select data-i="${i}" aria-label="Include or leave out: ${esc(x.what)}"><option value="">Choose…</option>
+            <option value="${XP.IN}"${p === XP.IN ? " selected" : ""}>Include as an exhibit</option>
+            <option value="${XP.OUT}"${p === XP.OUT ? " selected" : ""}>Leave it out</option></select>
+          ${checked && p ? `<span class="why">${p === x.want ? "✓ " : "✗ "}${x.want === XP.IN ? `<b>Exhibit ${esc(x.ex)}.</b> ` : "<b>Leave it out.</b> "}${esc(D.all(x.why))}</span>` : ""}</li>`; }).join("")}</ol>
+        <div class="row"><button type="button" id="xpgo">Check my exhibit set</button><button type="button" class="ghost" id="xpreset">Start again</button>
+        <span class="msg" id="xpmsg" aria-live="polite">${checked ? (right === XP.items.length ? `<span class="ok">✓ ${right} of ${XP.items.length}: the set as Atty. Thorne served it, Exhibits A–J.</span>` : `<span class="bad">${right} of ${XP.items.length} right. Read why under each one marked ✗, then change your choice.</span>`) : ""}</span></div>`;
+      xp.querySelectorAll("select").forEach(sel => sel.onchange = () => { picks[sel.dataset.i] = sel.value; keep(); if(checked) draw(); });
+      xp.querySelector("#xpgo").onclick = () => {
+        const left = XP.items.filter((x, i) => !picks[i]).length;
+        if(left){ const m = xp.querySelector("#xpmsg"); m.innerHTML = `<span class="bad">Choose for every document first: ${left} left.</span>`; return; }
+        checked = true; draw();
+      };
+      xp.querySelector("#xpreset").onclick = () => { picks = {}; checked = false; keep(); draw(); };
+    };
+    xbtn.hidden = false;
+    xbtn.onclick = () => { xp.hidden = !xp.hidden; if(!xp.hidden){ draw(); xp.scrollIntoView({block: "start", behavior: "smooth"}); } };
+  }
   if(/\.docx$/i.test(doc.file)){   // the editable CMS record: a Word-readable copy with these dates
     const btn = document.getElementById("edit");
     btn.hidden = false;
