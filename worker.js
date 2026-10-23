@@ -213,7 +213,7 @@ async function traineeWrite(env, tok, key, value) {
   const id = tok.id;
   let incoming; try { incoming = JSON.parse(value); } catch (e) { return "Invalid JSON"; }
   const existingRaw = await kv.get(key);
-  const existing = existingRaw ? JSON.parse(existingRaw) : null;
+  let existing = null; try { existing = existingRaw ? JSON.parse(existingRaw) : null; } catch (e) { /* a damaged record is replaced */ }
   if (key === `trainee:${id}`) {
     // Trainees keep their own record current, but can never change approval, attempts resets, etc.
     const merged = Object.assign({}, incoming);
@@ -233,6 +233,7 @@ async function traineeWrite(env, tok, key, value) {
       if (trainerOwned) { if (v && v.readAt && !cur.readAt) cur.readAt = v.readAt; continue; }
       if (v && typeof v === "object") {
         delete v.editedByTrainer;
+        v.auto = true;   // what a trainee writes is the auto-review, so it can never pass for a trainer's sent review
         if (cur && cur.trainerNote) v.trainerNote = cur.trainerNote;   // the trainee never sees it (forTrainee), so never drops or rewrites it
         out.days[d] = v;
       }
@@ -276,6 +277,7 @@ async function traineeWrite(env, tok, key, value) {
   }
   if (/^tfeedback:[a-z0-9]+$/.test(key) || /^cert:LSH-CM-\d{4}-[A-Z0-9]{6}$/.test(key)) {
     if (existing && /^tfeedback:/.test(key)) return "Already submitted";
+    if (/^cert:/.test(key) && ((incoming && incoming.traineeId) !== id || (existing && existing.traineeId !== id))) return "Not allowed";
     await kv.put(key, value); return null;
   }
   return "Not allowed";
@@ -765,7 +767,7 @@ export default {
       if (path === "/api/auth/status") return json({ secure, portalOnly: portalOnly(env), portalSecret: !!portalSecret(env) });
       if (path === "/api/auth/admin") {
         if (!secure) return json({ error: "not-configured" }, 501);
-        const { passphrase } = await request.json();
+        const { passphrase } = await request.json().catch(() => ({}));
         await new Promise((r) => setTimeout(r, 400)); // slow down guessing
         const given = normPass(passphrase), want = normPass(adminPass(env));
         if (!given || !want || !safeEqual(given, want)) return json({ error: "Incorrect password" }, 401);
@@ -786,18 +788,19 @@ export default {
           if (lrec && (!lrec.batch || batchKey(lrec.batch) === batchKey(batch))) { chosen = legacyId; existing = legacy; }
         }
         if (id && id !== chosen && id !== newId && id !== rawId && id !== legacyId) return json({ error: "Name/batch don't match this session" }, 403);
-        if (id && (id === newId || id === rawId || id === legacyId)) chosen = id;
+        if (id && id !== chosen && (id === newId || id === rawId || id === legacyId)) { chosen = id; existing = await kv.get(`trainee:${id}`); }
         return json({ id: chosen, token: await makeToken(env, "t", chosen, 24 * 30), existing: existing ? JSON.parse(existing) : null, batch: canonicalBatch(batch) || String(batch || "").trim() });
       };
       if (path === "/api/auth/trainee") {
         if (!secure) return json({ error: "not-configured" }, 501);
-        const { name, batch, id } = await request.json();
+        const { name, batch, id } = await request.json().catch(() => ({}));
         if (!name || !batch) return json({ error: "Name and batch are required" }, 400);
         const { newId, rawId, legacyId } = candidateIds(name, batch);
+        let own = null;
         if (portalOnly(env)) {
           // Trainees come in through the LSH Training Portal (/api/auth/portal). A name + batch typed here is
           // accepted only to renew the session of a trainee who is already signed in on this device.
-          const own = await readTraineeTokenGrace(env, request);
+          own = await readTraineeTokenGrace(env, request);
           if (!own || (own.id !== newId && own.id !== rawId && own.id !== legacyId)) return json({ error: "portal-required" }, 403);
         }
         // A new registration has to give the Batch ID in its one form: B + the date the batch started (MMDDYY).
@@ -806,7 +809,9 @@ export default {
           const known = (await Promise.all([newId, rawId, legacyId].map(k => kv.get(`trainee:${k}`)))).some(Boolean);
           if (!known) return json({ error: "batch-format" }, 400);
         }
-        return traineeSession(name, batch, id);
+        // Under single sign-on the renewal is for the record the trainee is already signed in to, never a
+        // same-named trainee's: the id in the body is ignored.
+        return traineeSession(name, batch, portalOnly(env) ? own.id : id);
       }
       if (path === "/api/auth/portal") {
         // The Main Portal's sign-in: a signed ticket carries who the trainee is (their name and batch as registered there).
@@ -990,7 +995,8 @@ export default {
         const me = tok.role === "t" ? JSON.parse((await kv.get(`trainee:${tok.id}`)) || "null") : null;
         const batch = me ? slugPart(me.batch) : "";
         const out = [];
-        for (const k of await listAll(env, "trainee:")) {
+        // A trainee only ever gets their own row, so only their record is read (not one read per trainee).
+        for (const k of tok.role === "t" ? [`trainee:${tok.id}`] : await listAll(env, "trainee:")) {
           const r = JSON.parse((await kv.get(k)) || "null");
           if (!r || r.approved !== true || r.archived) continue;
           if (batch && slugPart(r.batch) !== batch) continue;
@@ -1039,7 +1045,8 @@ export default {
       }
       return json({ error: "Unknown endpoint" }, 404);
     } catch (e) {
-      return json({ error: "Unhandled Worker exception.", detail: String((e && e.stack) || e) }, 500);
+      console.error(e);   // the stack goes to the Worker's logs, not to the browser
+      return json({ error: "Unhandled Worker exception.", detail: String((e && e.message) || e) }, 500);
     }
   }
 };
