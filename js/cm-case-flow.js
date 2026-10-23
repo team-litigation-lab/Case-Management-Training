@@ -640,7 +640,13 @@ const LOR_BLOCKS = new Set();
 (CF.sequence || []).forEach(d => d.phases.forEach(ph => { if(/^Claim Set Up/.test(ph.title)) ph.blocks.forEach(id => LOR_BLOCKS.add(id)); }));
 // the in-course pages a tool opens (anything else is a training platform in the tool frame)
 const PAGE = {plan: ["notes"], docs: ["casedocs"], calendar: ["tool", "calendar"], lor: ["lor"]};
+// the day a block is taught on (the sequence), which can differ from the day its data sits under
+const TAUGHT_ON = {};
+(CF.sequence || []).forEach(sd => (sd.phases || []).forEach(ph => (ph.blocks || []).forEach(id => { TAUGHT_ON[id] = sd.n; })));
+const taughtOn = id => TAUGHT_ON[id];
 function toolLive(id, blockId){
+  // Day 5: the case is finished, so there is no Action Plan to work (the Practice Lab and its activities don't offer it)
+  if(id === "plan" && blockId && taughtOn(blockId) === 5) return false;
   // a step with a call on John Doe's file takes that call; any other opens the Call Simulator (☎ LSH Ring Channel)
   if(id === "call") return !!(blockId && SIM.calls[blockId]) || (typeof cmTool === "function" && !!cmTool("calls"));
   if(id === "netsheet") return !!(blockId && NET_STAGE[blockId]);
@@ -762,6 +768,15 @@ if(typeof nextSlide === "function"){
     return __next.apply(this, arguments);
   };
 }
+/* 🎓 Finish Training (the last day's Knowledge Check, once passed): the certificate when every day is passed, else the
+   dashboard with the days still open */
+window.cmCaseFlow = window.cmCaseFlow || {};
+window.cmCaseFlow.finish = function(){
+  const open = DAYS.filter(x => !((state.progress || {})[x.id] || {}).done);
+  if(!open.length && typeof openCertificate === "function") return openCertificate();
+  if(typeof goto === "function") goto("dashboard");
+  if(typeof toast === "function") toast(`🎓 Almost there: pass the Knowledge Check for ${open.map(x => "Day " + (x.cf ? x.cf.n : x.id)).join(", ")} to finish the training and get your certificate.`);
+};
 window.cmCaseFlow = window.cmCaseFlow || {};
 window.cmCaseFlow.cg = function(id, act, arg){
   const g = CG[id], b = blockById(id); if(!g || !b) return;
@@ -1059,6 +1074,8 @@ if(typeof buildDaySlides === "function"){
     });
     // the module's three key concepts, after its last Skill Activity, right before the Knowledge Check
     if(lastAct >= 0 && labQuestions(d).length) out.splice(lastAct, 0, {type: "readyCheck"});
+    // the last day closes the case: a congratulations and a thank-you card, right before its Knowledge Check
+    if(isLastCfDay(d)) out.push({type: "closing"});
     return out;
   };
 }
@@ -2368,6 +2385,31 @@ function labQuestions(d){
     const m = CF.days.flatMap(x => x.modules).find(x => x.blocks.some(b => b.id === id)); if(m && !mods.includes(m)) mods.push(m); });
   return mods.filter(m => (m.quiz || []).length).slice(0, 3).map(m => m.quiz[0]);
 }
+/* The course's last slide (Day 5, before its Knowledge Check): the case is finished, so no Action Plan, a congratulations
+   on what the trainee carried John Doe's file through, and a thank-you card */
+const isLastCfDay = d => !!(d && d.cf) && d.cf.n === Math.max(...CF.days.map(x => x.n));
+function closingSlide(d){
+  const c = CF.case;
+  const did = [["📂", "Opened", `${c.style}, from the first call`], ["🧱", "Built and verified", `the ${money(c.total)} Recovery Stack`],
+    ["🩺", "Kept care moving", "through the 14-day gap and the April disruption"], ["📤", "Served", "the BI Time-Limited Demand and its exhibits"],
+    ["⚖️", "Carried it", "through negotiation, liens, arbitration and the courtroom"], ["✅", "Closed it", "with every lien satisfied in writing"]];
+  return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; THE CASE IS CLOSED</div>
+    <div class="card lesson-card cf-card cfx cfx-deck cfx-closing">
+      <div class="cfx-deck-head"><h2 class="cfx-deck-title">🎉 Congratulations</h2></div>
+      <div class="cfx-body"><div class="cfx-sheet cfx-close">
+        <div class="cfx-close-hero"><span class="cfx-close-badge" aria-hidden="true">🎓</span>
+          <div><b>You worked John Doe's file from intake to the close.</b><span>Five days, one file, every step a Case Manager owns.</span></div></div>
+        <ul class="cfx-close-did">${did.map(([i, a, b]) => `<li><span aria-hidden="true">${i}</span><b>${E(a)}</b> ${E(b)}</li>`).join("")}</ul>
+        <div class="cfx-thanks" role="note" aria-label="Thank you card">
+          <p class="cfx-thanks-h">Thank you</p>
+          <p>Thank you for the care you put into John Doe's file this week: every document checked, every deadline docketed, every
+          call made with the client in mind. That is what a Case Manager brings to a firm, and to the people it represents.</p>
+          <p class="cfx-thanks-sig">With gratitude,<br><span>${E(c.counsel)}</span> and the LSH Training team</p>
+        </div>
+        <p class="cfx-close-next">One last step: today's Knowledge Check.</p>
+      </div></div>
+    </div>`;
+}
 function readyCheck(d){
   const qs = labQuestions(d), ph = d.cf.phases[0] || {title: ""};
   return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; ${E(String(ph.lead || "").toUpperCase())} &middot; READY FOR THE KNOWLEDGE CHECK?</div>
@@ -2412,6 +2454,7 @@ const dayScriptLines = (x, label) => [`SLIDE: ${label.toUpperCase()}`, x.say].co
 if(typeof presenterCues === "function"){   // Presenter view: the trainer's note for the Training Agenda and Practice Lab slides
   const __cues = presenterCues;
   presenterCues = function(d, slide){
+    if(slide && slide.type === "closing" && cfDay(d && d.id)) return `<h3>Congratulations & Thank You</h3><p>The case is closed. Read the six things the room carried John Doe's file through, thank them for the week, then open the Knowledge Check.</p>`;
     if(slide && slide.type === "readyCheck" && cfDay(d && d.id)) return `<h3>Ready for the Knowledge Check?</h3><p>The day's Skill Activities are done. Give the room a couple of minutes on these ${labQuestions(d).length} key concepts, one from each of today's first modules: a wrong answer shows the reason and can be tried again. Then open the Knowledge Check.</p>`;
     if(!(slide && (slide.type === "practiceLab" || slide.type === "taskOverview") && cfDay(d && d.id))) return __cues.apply(this, arguments);
     if(slide.type === "taskOverview"){ const x = dayScript(d, "agenda"), a = agendaNotes(d);
@@ -2455,6 +2498,7 @@ if(typeof renderDaySlideContent === "function"){
   renderDaySlideContent = function(d, slide){
     if(slide && slide.type === "practiceLab" && cfDay(d && d.id)) return practiceLab(d);
     if(slide && slide.type === "readyCheck" && cfDay(d && d.id)) return readyCheck(d);
+    if(slide && slide.type === "closing" && cfDay(d && d.id)) return closingSlide(d);
     return (slide && slide.type === "taskOverview" && cfDay(d && d.id)) ? agendaSlide(d) : __content.apply(this, arguments);
   };
 }
@@ -2464,6 +2508,7 @@ if(typeof daySlideTitle === "function"){
     if(cfDay(d && d.id) && slide && slide.type === "taskOverview") return "Training Agenda";
     if(cfDay(d && d.id) && slide && slide.type === "practiceLab") return "Practice Lab";
     if(cfDay(d && d.id) && slide && slide.type === "readyCheck") return "Ready for the Knowledge Check?";
+    if(cfDay(d && d.id) && slide && slide.type === "closing") return "Congratulations & Thank You";
     if(cfDay(d && d.id) && slide && slide.type === "topic"){ const l = d.lessons[slide.lessonIndex]; const v = viewsOf(l.cf.block)[(slide.part || 1) - 1]; return `${l.h} — ${VIEW_LABEL[v] || ""}`; }
     return __title.apply(this, arguments);
   };
@@ -3253,7 +3298,8 @@ if(typeof renderQuiz === "function"){
     const prog = (state.progress || {})[d.id];
     const head = `<div class="cf-kc-head"><button type="button" class="cf-kc-back" onclick="cmCaseFlow.kcBack(${d.id})" title="Back to the slide you were on">← Lessons</button>
       <b>Case Flow Day ${d.cf.n} · ${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</b><span class="tag">Knowledge Check · ${d.quiz.length} questions</span>
-      ${prog && prog.done ? `<span class="cf-kc-passed" title="Your best score is kept; you can retake it any time">✓ Passed · best ${E(prog.score)}%</span>` : ""}</div>`;
+      ${prog && prog.done ? `<span class="cf-kc-passed" title="Your best score is kept; you can retake it any time">✓ Passed · best ${E(prog.score)}%</span>` : ""}
+      ${prog && prog.done && isLastCfDay(d) ? `<button type="button" class="btn cf-kc-finish" onclick="cmCaseFlow.finish()">🎓 Finish Training</button>` : ""}</div>`;
     if(part === "written") return head + steps + writtenPart(d);
     return head + steps + gameQuiz(d);
   };
@@ -4244,6 +4290,22 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .np-key li.ok{color:#1d5c3a;} .np-key li.miss{color:#A2410F;}
 /* 3 Clues, 1 Rule */
 .cfx-cg{display:flex;flex-direction:column;gap:12px;text-align:left;}
+.cf-kc-finish{margin-left:auto;background:#1F7A4A;color:#fff;border:0;border-radius:999px;padding:8px 18px;font:800 14px 'Inter',sans-serif;box-shadow:0 4px 12px rgba(31,122,74,.35);}
+.cf-kc-finish:hover{background:#17603A;}
+.cfx-close{display:flex;flex-direction:column;gap:14px;text-align:left;}
+.cfx-close-hero{display:flex;gap:14px;align-items:center;}
+.cfx-close-badge{font-size:46px;line-height:1;}
+.cfx-close-hero b{display:block;font:800 22px/1.25 'Poppins','Inter',sans-serif;color:#262B45;}
+.cfx-close-hero span{font:600 14.5px 'Inter',sans-serif;color:#5B6579;}
+.cfx-close-did{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+.cfx-close-did li{background:#F6F7FB;border:1px solid #E2E6EF;border-radius:10px;padding:9px 11px;font:500 13.5px/1.35 'Inter',sans-serif;color:#2C3142;}
+.cfx-close-did li span{margin-right:6px;} .cfx-close-did li b{color:#262B45;}
+.cfx-thanks{background:#FFFDF8;border:2px solid #DB8437;border-radius:16px;padding:16px 22px;box-shadow:0 8px 20px rgba(219,132,55,.18);}
+.cfx-thanks p{margin:0 0 8px;font:500 15px/1.5 'Inter',sans-serif;color:#2C3142;}
+.cfx-thanks .cfx-thanks-h{font:700 30px/1.1 'Fraunces',Georgia,serif;color:#B5651F;margin-bottom:8px;}
+.cfx-thanks .cfx-thanks-sig{margin:0;font-weight:600;} .cfx-thanks .cfx-thanks-sig span{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:17px;color:#262B45;}
+.cfx-close-next{margin:0;text-align:center;font:700 14px 'Inter',sans-serif;color:#262B45;}
+@media(max-width:900px){.cfx-close-did{grid-template-columns:1fr 1fr;}}
 .cfx-cg-nudge{animation:cfgShake .45s ease;}
 .cfx-cg-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 .cfx-cg-marq{display:flex;flex-direction:column;background:linear-gradient(135deg,#1B2A4A,#2B3F6B);border:2px solid var(--orange);border-radius:14px;padding:6px 16px;box-shadow:0 0 0 3px rgba(232,119,34,.18);}
