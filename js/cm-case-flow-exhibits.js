@@ -764,8 +764,8 @@ window.CM_CF_EXHIBITS = {
    "press": {
     "from": "Dana Whitfield <dana.whitfield@keystonemutual.example>",
     "date": "02/11/2026",
-    "subject": "RE: John Doe — recorded statement",
-    "body": "Thanks. To move this along, could Mr. Doe give me a short recorded statement this week? It takes ten minutes and it helps us look at liability sooner. If you send me his cell number and a good time, I will set it up with him directly.",
+    "subject": "RE: John Doe — Recorded Statement",
+    "body": "Thanks. To move this along, could Mr. Doe give me a short Recorded Statement this week? It takes ten minutes and it helps us look at liability sooner. If you send me his cell number and a good time, I will set it up with him directly.",
     "choices": [
      {
       "label": "Send her John's cell number and a time this week.",
@@ -808,7 +808,7 @@ window.CM_CF_EXHIBITS = {
      {
       "h": "4 · The follow-up, and how it was handled",
       "lines": [
-       "Recorded statement request of 02/11/2026 answered: any request goes in writing to Atty. Thorne; contact stays with the firm.",
+       "Recorded Statement request of 02/11/2026 answered: any request goes in writing to Atty. Thorne; contact stays with the firm.",
        "Forwarded to Atty. Thorne the same day, flagged \"statement request — your call\". No number given."
       ]
      },
