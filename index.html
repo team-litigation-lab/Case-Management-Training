@@ -1720,7 +1720,7 @@ body.tap-moving [ondrop]{outline:2px dashed rgba(219,132,55,.55);outline-offset:
 .script-head{display:flex;justify-content:space-between;align-items:center;font-weight:800;color:var(--navy);font-size:13px;margin-bottom:6px;}
 .script-time{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--orange-deep);background:#FFF1E2;border-radius:20px;padding:2px 8px;}
 .script-row{margin-top:8px;}
-.script-say{margin:6px 0 0;font-size:14px;line-height:1.6;} .script-say.script-ask{margin-top:10px;font-weight:600;color:var(--navy);} .script-next{margin:10px 0 0;font-size:12px;color:var(--orange-deep);font-weight:700;} .pn-cue{margin-top:10px;} .pn-cue p{font-size:12.5px;}
+.script-say{margin:8px 0 0;font-size:14px;line-height:1.6;} .script-say.script-ask{margin-top:10px;font-weight:600;color:var(--navy);} .script-next{margin:10px 0 0;font-size:12px;color:var(--orange-deep);font-weight:700;} .pn-cue{margin-top:10px;} .pn-cue p{font-size:12.5px;}
 .script-row b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--orange-deep);margin-bottom:2px;}
 .script-row p{margin:0;font-size:13px;line-height:1.5;white-space:pre-line;}   /* numbered step scripts keep their lines */
 .script-row ul{margin:2px 0 0;padding-left:18px;} .script-row li{font-size:13px;margin-bottom:3px;}
@@ -2365,17 +2365,15 @@ em.warn{font-style:normal;color:var(--danger);}
 .sm-n{font:700 11.5px 'IBM Plex Mono',monospace;min-width:26px;color:#8A90A6;}
 .sm-t{flex:1;min-width:0;}
 .sm-here{font-size:11px;font-weight:800;color:#DB8437;white-space:nowrap;}
-/* the dashboard hero's 🗺 Roadmap button (top right) and its pop-up */
+/* 🗺 Roadmap: the button beside Next → on the slides, and its pop-up */
 .dash-hero{position:relative;}
-/* top right of the hero: ▶ Continue where you left off (the day and slide named), then 🗺 Roadmap */
+/* under the hero's title: ▶ Continue where you left off (the day and slide named) */
 .dash-hero-row{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 0 4px;margin-top:8px;border-top:1px solid rgba(255,255,255,.12);}
 .dash-hero-row .dash-resume-btn{max-width:min(720px,100%);}
 .dash-resume-btn{display:flex;align-items:baseline;gap:8px;min-width:0;max-width:100%;border:0;border-radius:999px;background:#DB8437;color:#fff;padding:7px 16px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(219,132,55,.45);white-space:nowrap;}
 .dash-resume-btn span{font-size:12px;font-weight:600;opacity:.92;overflow:hidden;text-overflow:ellipsis;min-width:0;}
 .dash-resume-btn span::before{content:"· ";}
 .dash-resume-btn:hover{background:#B5651F;}
-.dash-roadmap-btn{flex:0 0 auto;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff;border-radius:999px;padding:6px 14px;font:inherit;font-size:12.5px;font-weight:800;cursor:pointer;}
-.dash-roadmap-btn:hover{background:#E8833A;border-color:#E8833A;}
 .rm-modal{position:fixed;inset:0;z-index:1000;background:rgba(15,20,40,.55);display:flex;align-items:center;justify-content:center;padding:16px;}
 .rm-box{position:relative;background:#fff;border-radius:16px;padding:22px 24px;max-width:1100px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 20px 50px rgba(0,0,0,.3);}
 .rm-box h2{margin:0 0 14px;color:var(--navy);}
@@ -5373,8 +5371,8 @@ function renderDashboard(){
         </div>
       </div>
 
-      <!-- where the day circles were: ▶ Continue where you left off and 🗺 Roadmap, centred under the title -->
-      <div class="dash-hero-row">${resumeLabel() ? `<button type="button" class="dash-resume-btn" onclick="resumeWhereLeftOff()" title="Back to ${esc(resumeLabel())}">▶ Continue where you left off<span>${esc(String(resumeLabel()).replace(/^Case Flow /, ""))}</span></button>` : ""}<button type="button" class="dash-roadmap-btn" onclick="openRoadmap()" title="See all ${DAYS.length} days at a glance">🗺 Roadmap</button></div>
+      <!-- where the day circles were: ▶ Continue where you left off, centred under the title (🗺 Roadmap sits beside Next → on the slides) -->
+      ${resumeLabel() ? `<div class="dash-hero-row"><button type="button" class="dash-resume-btn" onclick="resumeWhereLeftOff()" title="Back to ${esc(resumeLabel())}">▶ Continue where you left off<span>${esc(String(resumeLabel()).replace(/^Case Flow /, ""))}</span></button></div>` : ""}
 
   </div>
   <div class="dash-layout">
@@ -7142,7 +7140,7 @@ function renderDaySlideshow(d){
         ? `<button class="btn btn-primary" onclick="goto('dashboard')">🏠 Back to Dashboard</button>`
         : isLast
         ? `<button class="btn btn-primary" onclick="goToKnowledgeCheckWithInterstitial()">Continue to Knowledge Check &rarr;</button>`
-        : `<span class="np-wrap">${peekTrainer() ? `<button type="button" class="btn btn-ghost btn-sm np-pin${state.peekPinned?" on":""}" onclick="togglePeekPin()" aria-pressed="${!!state.peekPinned}" title="Trainer: keep a preview of the next slide open">👁 Up next</button>` : ""}<button class="btn btn-primary" onclick="nextSlide()"${peekTrainer() ? ` onmouseenter="showSlidePeek(this)" onmouseleave="hideSlidePeek()" onfocus="showSlidePeek(this)" onblur="hideSlidePeek()"` : ""}>Next &rarr;</button></span>`}
+        : `<span class="np-wrap"><button type="button" class="btn btn-ghost btn-sm rm-next" onclick="openRoadmap()" title="See all ${DAYS.length} days at a glance">🗺 Roadmap</button>${peekTrainer() ? `<button type="button" class="btn btn-ghost btn-sm np-pin${state.peekPinned?" on":""}" onclick="togglePeekPin()" aria-pressed="${!!state.peekPinned}" title="Trainer: keep a preview of the next slide open">👁 Up next</button>` : ""}<button class="btn btn-primary" onclick="nextSlide()"${peekTrainer() ? ` onmouseenter="showSlidePeek(this)" onmouseleave="hideSlidePeek()" onfocus="showSlidePeek(this)" onblur="hideSlidePeek()"` : ""}>Next &rarr;</button></span>`}
     </div>
 
     ${isLast && slide.type==="closing" ? `<div class="slide-done-banner">🎓 Training complete. Congratulations!</div>` : isLast ? `<div class="slide-done-banner">🎉 That's everything for Day ${d.id} — the Knowledge Check is the last step to mark this day complete.</div>` : ""}
@@ -13152,13 +13150,16 @@ function cueInScript(cue, s){
   const cw = words(cue), said = new Set(words(s.why + " " + s.talk));
   return cw.length > 0 && cw.filter(w=>said.has(w)).length / cw.length >= 0.7;
 }
-/* The script reads like speaker notes: one flowing paragraph the trainer can say out loud (the
-   why, the explanation and the points in order), then the question on its own line, then a short
-   scenario to work through with the room. */
+/* The script reads like speaker notes: short paragraphs the trainer can say out loud, each kept on
+   its own as written (a line break in the script starts a new paragraph), then the question on its
+   own line, then a short scenario to work through with the room. */
+const scriptParas = t => String(t||"").split(/\s*\n\s*/).map(x=>x.trim()).filter(Boolean);
 function scriptProse(s){
-  const body = [s.why, String(s.talk||"").replace(/\s*\n+\s*/g, " "), (s.walk||[]).join(" ")].filter(Boolean).join(" ");
-  return [body, s.ask].filter(Boolean);
+  const body = [s.why, ...scriptParas(s.talk), (s.walk||[]).join(" ")].filter(Boolean);
+  return body.concat(s.ask ? [s.ask] : []);
 }
+// the read-aloud paragraphs and the question, apart (Speaker Notes PDF)
+function scriptBody(s){ const p = scriptProse(s); return {say: s.ask ? p.slice(0, -1) : p, ask: s.ask || ""}; }
 function renderPresenterNote(d, l, part, secs, allSecs, pg){
   const n = presenterNote(d, l, part);
   const full = slideScript(d, l, part);
@@ -13184,9 +13185,9 @@ function buildDayScriptLines(d){
       const n = presenterNote(d, l, p), s = slideScript(d, l, p);
       if(parts.length > 1) lines.push(`SLIDE ${p} OF 2`);
       if(n.cue && p===1 && !cueInScript(n.cue, s)) lines.push(`TRAINER NOTE: ${n.cue}`);
-      const paras = scriptProse(s);
-      if(paras[0]) lines.push(paras[0]);
-      if(paras[1]) lines.push(`ASK: ${paras[1]}`);
+      const sb = scriptBody(s);
+      lines.push(...sb.say);
+      if(sb.ask) lines.push(`ASK: ${sb.ask}`);
       if(s.scenario) lines.push(`SCENARIO: ${s.scenario}`);
     });
     lines.push("---");
@@ -15995,7 +15996,7 @@ window.addEventListener("unhandledrejection", (ev)=>{ const e = ev.reason; if(e 
 window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message && !/ResizeObserver|Script error/.test(ev.message)) showActionError(new Error(ev.message), ""); });
 
 </script>
-<script src="/js/cm-updates.js?v=33"></script>
+<script src="/js/cm-updates.js?v=34"></script>
 <script src="/js/cm-documents.js?v=3"></script>
 <script src="/js/cm-skillbuilders.js?v=cm-2026.10.23-efiling"></script>
 <script src="/js/cm-lor-data.js?v=1"></script>
@@ -16012,19 +16013,19 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/blueprint-content.js?v=7"></script>
 <script src="/js/lsh-blueprint-course.js?v=2"></script>
 <script src="/js/lsh-blueprint.js?v=2"></script>
-<script src="/js/lsh-dashboard.js?v=6"></script>
+<script src="/js/lsh-dashboard.js?v=7"></script>
 <script src="/js/graded-calls.js?v=1"></script>
 <script src="/js/cm-case-flow-docs.js?v=28"></script>
 <script src="/js/cm-case-flow-art.js?v=3"></script>
 <script src="/js/cm-case-flow-slides.js?v=58"></script>
-<script src="/js/cm-case-flow-scripts.js?v=45"></script>
+<script src="/js/cm-case-flow-scripts.js?v=46"></script>
 <script src="/js/cm-case-flow-sim.js?v=26"></script>
 <script src="/js/cm-case-flow-exhibits.js?v=7"></script>
 <script src="/js/cm-case-flow-data.js?v=60"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=1"></script>
-<script src="/js/cm-case-flow.js?v=113"></script>
-<script src="/js/cm-script-editor.js?v=12"></script>
+<script src="/js/cm-case-flow.js?v=114"></script>
+<script src="/js/cm-script-editor.js?v=13"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=4"></script>
 <script src="/js/lsh-tool-links.js?v=cm-2026.10.23-trainer-sso"></script>

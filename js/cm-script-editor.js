@@ -49,7 +49,8 @@ function slotFor(d, slide){
   const k = DAY_KEYS[slide.type];
   return k && d.cf && dayScripts(d)[k] ? {id: `${d.id}::_${k}`, d, k} : null;
 }
-const flat = x => [x.why, String(x.talk || "").replace(/\s*\n+\s*/g, " "), (x.walk || []).join(" ")].filter(Boolean).join(" ");
+// the script as one text, its paragraphs kept apart by a blank line, so the editor shows them as they are read
+const flat = x => [x.why, String(x.talk || "").split(/\s*\n\s*/).filter(Boolean).join("\n\n"), (x.walk || []).join(" ")].filter(Boolean).join("\n\n");
 // the script as written (with its {name} calls still in it), for the editor
 function current(slot){
   if(edits[slot.id]) return {say: edits[slot.id].say || "", ask: edits[slot.id].ask || ""};
@@ -101,12 +102,7 @@ function open(){
   const cur = current(slot);
   const f = document.createElement("div");
   f.id = "se-inline"; f.className = "se-form se-inline"; f.dataset.slot = slot.id;
-  f.innerHTML = `<label>🎙 Read aloud<textarea id="se-say" rows="12">${E(cur.say)}</textarea></label>
-    <label>❓ Ask the room<textarea id="se-ask" rows="3">${E(cur.ask)}</textarea></label>
-    <small>Write <code>{name}</code> where you call on a trainee: it becomes a first name from the batch you teach. Saved for every trainer.</small>
-    <div class="se-msg" id="se-msg" aria-live="polite"></div>
-    <div class="se-btns"><button type="button" class="btn btn-ghost btn-sm" onclick="cmScriptEditor.close()">Cancel</button>
-      <button type="button" class="btn btn-navy btn-sm" onclick="cmScriptEditor.save()">Save speaker notes</button></div>`;
+  f.innerHTML = formHtml(cur, slot);
   [...cu.children].forEach(x => { x.style.display = "none"; });
   cu.insertBefore(f, cu.firstChild); cu.parentElement.scrollTop = 0;
   // bring the editor into view: on a small screen the notes sit below the slide, or behind the slides window
@@ -115,11 +111,12 @@ function open(){
   paintBar();
   f.querySelector("#se-say").focus();
 }
-const formHtml = cur => `<label>🎙 Read aloud<textarea id="se-say" rows="12">${E(cur.say)}</textarea></label>
+// the editor's fields; a slide with a saved edit also offers ↺ Restore original (the course's own script, for every trainer)
+const formHtml = (cur, slot) => `<label>🎙 Read aloud<textarea id="se-say" rows="12">${E(cur.say)}</textarea></label>
     <label>❓ Ask the room<textarea id="se-ask" rows="3">${E(cur.ask)}</textarea></label>
-    <small>Write <code>{name}</code> where you call on a trainee: it becomes a first name from the batch you teach. Saved for every trainer.</small>
+    <small>Write <code>{name}</code> where you call on a trainee: it becomes a first name from the batch you teach. A blank line starts a new paragraph. Saved for every trainer.</small>
     <div class="se-msg" id="se-msg" aria-live="polite"></div>
-    <div class="se-btns"><button type="button" class="btn btn-ghost btn-sm" onclick="cmScriptEditor.close()">Cancel</button>
+    <div class="se-btns">${slot && edits[slot.id] ? `<button type="button" class="btn btn-ghost btn-sm se-restore" onclick="cmScriptEditor.restore()" title="Drop the saved edit: every trainer gets the course's own script for this slide again">↺ Restore original</button>` : ""}<button type="button" class="btn btn-ghost btn-sm" onclick="cmScriptEditor.close()">Cancel</button>
       <button type="button" class="btn btn-navy btn-sm" onclick="cmScriptEditor.save()">Save speaker notes</button></div>`;
 // outside Presenter view: a split screen, the slide on the left (as the room sees it, not editable), the notes on the right
 function openSplit(slot){
@@ -130,7 +127,7 @@ function openSplit(slot){
   o.innerHTML = `<div class="se-box"><div class="se-head"><b>✏️ Edit Speaker Notes</b><span>Step ${idx + 1} of ${slides.length} · ${E(typeof daySlideTitle === "function" ? daySlideTitle(d, slides[idx]) : "")}</span>
       <button type="button" class="se-x" aria-label="Close" onclick="cmScriptEditor.close()">✕</button></div>
     <div class="se-split"><div class="se-slide"><div class="se-slide-in">${slide}</div></div>
-      <div class="se-form" id="se-inline" data-slot="${E(slot.id)}">${formHtml(current(slot))}</div></div></div>`;
+      <div class="se-form" id="se-inline" data-slot="${E(slot.id)}">${formHtml(current(slot), slot)}</div></div></div>`;
   o.addEventListener("click", e => { if(e.target === o) close(); });
   document.body.appendChild(o); document.addEventListener("keydown", onKey);
   o.querySelectorAll(".se-slide input, .se-slide textarea, .se-slide select, .se-slide button").forEach(x => { x.disabled = true; x.tabIndex = -1; });
@@ -178,6 +175,17 @@ async function save(){
   edits = all; apply(); close();
   if(typeof toast === "function") toast("Speaker notes saved for every trainer.");
 }
+// ↺ Restore original: the saved edit goes, and the slide reads the course's own script again for every trainer
+async function restore(){
+  const f = document.getElementById("se-inline"); if(!f) return;
+  const id = f.dataset.slot, msg = document.getElementById("se-msg");
+  if(!confirm("Restore the original speaker notes for this slide? Your edit is removed for every trainer.")) return;
+  let all = edits; try{ const v = await sharedGet(KEY); if(v && typeof v === "object") all = v; }catch(e){}
+  all = Object.assign({}, all); delete all[id];
+  if(!(await sharedSet(KEY, all))){ msg.className = "se-msg bad"; msg.textContent = "Not restored: check your connection and try again."; return; }
+  edits = all; apply(); close();
+  if(typeof toast === "function") toast("Original speaker notes restored for every trainer.");
+}
 const css = document.createElement("style");
 css.textContent = `.se-bar{display:inline-flex;align-items:center;gap:8px;margin-right:4px;}
 .se-status{font:700 11.5px 'Inter',sans-serif;color:#C9D0E0;} .se-status.on{color:#FFC98F;}
@@ -185,7 +193,7 @@ css.textContent = `.se-bar{display:inline-flex;align-items:center;gap:8px;margin
 .se-form label{display:flex;flex-direction:column;gap:6px;font:700 13px 'Inter',sans-serif;color:#262B45;}
 .se-form textarea{font:500 15px/1.55 'Inter',sans-serif;border:1px solid #CBD2E0;border-radius:10px;padding:10px 12px;resize:vertical;}
 .se-form small{color:#5B6579;font-size:12px;} .se-msg.bad{color:#B42318;font-weight:600;font-size:13px;}
-.se-btns{display:flex;justify-content:flex-end;gap:8px;}
+.se-btns{display:flex;justify-content:flex-end;gap:8px;} .se-restore{margin-right:auto;}
 .se-inline{padding:4px 0 8px;}
 .topbar .nav .nav-sn{background:#F0C08A;color:#1F2433;font-weight:800;border-radius:10px;}
 .topbar .nav .nav-sn:disabled{opacity:.55;cursor:default;} .nav-sn-st{font-size:11px;font-weight:700;margin-left:4px;padding:1px 7px;border-radius:999px;background:rgba(255,255,255,.55);}
@@ -200,5 +208,5 @@ css.textContent = `.se-bar{display:inline-flex;align-items:center;gap:8px;margin
 #se-over .se-form{padding:16px;overflow:auto;}
 @media(max-width:900px){.se-split{grid-template-columns:1fr;grid-template-rows:45% 55%;}}`;
 document.head.appendChild(css);
-window.cmScriptEditor = {open, close, save, load, edits: () => edits};
+window.cmScriptEditor = {open, close, save, restore, load, edits: () => edits};
 })();
