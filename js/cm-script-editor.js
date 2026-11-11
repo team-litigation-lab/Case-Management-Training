@@ -49,7 +49,8 @@ function slotFor(d, slide){
   const k = DAY_KEYS[slide.type];
   return k && d.cf && dayScripts(d)[k] ? {id: `${d.id}::_${k}`, d, k} : null;
 }
-const flat = x => [x.why, String(x.talk || "").replace(/\s*\n+\s*/g, " "), (x.walk || []).join(" ")].filter(Boolean).join(" ");
+// the script as one text, its paragraphs kept apart by a blank line, so the editor shows them as they are read
+const flat = x => [x.why, String(x.talk || "").split(/\s*\n\s*/).filter(Boolean).join("\n\n"), (x.walk || []).join(" ")].filter(Boolean).join("\n\n");
 // the script as written (with its {name} calls still in it), for the editor
 function current(slot){
   if(edits[slot.id]) return {say: edits[slot.id].say || "", ask: edits[slot.id].ask || ""};

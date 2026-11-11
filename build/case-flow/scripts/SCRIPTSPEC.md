@@ -42,6 +42,17 @@ A person talking to the room, not notes about it, built on the trainer's trainin
   (names, dates, amounts exactly as on the file). Never a list, a label ("Tool:", "Output:",
   "Watch for this:"), an arrow (➔, →), `**`, or a stage direction ("Open with", "Point at",
   "Walk the", "Let the room", "Land it"): turn a direction into the words the trainer would say.
+- **Short paragraphs, one beat each.** The say is broken into short paragraphs of one to three
+  sentences, a blank line between them (`\n\n` in the JSON), so the trainer never loses their place
+  reading aloud: the game, the answer, the run of it, the teaser, the joke each get their own. No
+  paragraph runs past 60 words. Presenter view, Admin → Trainer Cues and the Speaker Notes PDF keep
+  each paragraph apart, and ✏️ Edit Speaker Notes keeps them as the trainer typed them. Day 1's
+  Training Agenda is the model.
+- **Sounds like a person.** Warm, natural and a little informal, the way a good trainer actually
+  talks: contractions, mixed sentence lengths, the odd "okay", "honestly" or "here's the thing",
+  a real reaction to the room ("I see you, {name}"). Never a template read off a card: say the
+  lazy-vs-high-value contrast, the teaser and the war story in fresh words each time, not the same
+  stock phrases slide after slide.
 - **ask** (optional): one question to the room, ending in "?", at most 35 words. Usually put to one
   trainee by name: "{name}, …?"
 - **{name}**: where the trainer calls on a trainee. Presenter view and the Speaker Notes PDF fill in

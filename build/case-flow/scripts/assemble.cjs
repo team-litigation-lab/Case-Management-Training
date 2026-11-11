@@ -39,6 +39,11 @@ const say = (id, f, s) => {
   if(typeof s !== "string" || !s.trim()) return errors.push(`${id}.${f}: missing`);
   const n = wc(s); if(n < 45 || n > 230) errors.push(`${id}.${f}: ${n} words (want 45–230)`);
   const hit = BANNED.find(r => r.test(s)); if(hit) errors.push(`${id}.${f}: reads like notes, not speech (${String(s.match(hit)[0]).trim()})`);
+  // short paragraphs, one beat each, a blank line between them (SCRIPTSPEC.md: Short paragraphs)
+  if(/\n(?!\n)|\n\n\n|[ \t]\n|\n[ \t]/.test(s.trim().replace(/\n\n(?=\S)/g, "\u0000"))) errors.push(`${id}.${f}: paragraphs want exactly one blank line between them`);
+  const paras = s.trim().split(/\n\n/), long = paras.find(p => wc(p) > 60);
+  if(long) errors.push(`${id}.${f}: a paragraph of ${wc(long)} words (max 60): break it up`);
+  else if(n > 60 && paras.length < 2) errors.push(`${id}.${f}: one block of ${n} words: break it into short paragraphs`);
 };
 const ask = (id, f, s) => {
   if(s === undefined || s === "") return;
@@ -78,7 +83,7 @@ if(fs.existsSync(DAYF)){
       return [v, c[v].ask ? {say: c[v].say.trim(), ask: c[v].ask.trim()} : {say: c[v].say.trim()}]; }));
   }
 }
-if(errors.length){ console.log(`${errors.length} problem(s):`); errors.slice(0, 60).forEach((e, i) => console.log(`${i + 1}. ${e}`)); }
+if(errors.length){ console.log(`${errors.length} problem(s):`); errors.slice(0, process.env.ALL ? Infinity : 60).forEach((e, i) => console.log(`${i + 1}. ${e}`)); }
 const OUT = path.join(ROOT, "js/cm-case-flow-scripts.js"), text = `/* The trainer's scripts: what the trainer says on each Case Flow slide (Presenter view's "Script — read aloud",
    and the day's Trainer Speaker Notes), assembled from build/case-flow/scripts/dN.json by
    build/case-flow/scripts/assemble.cjs. Written to build/case-flow/scripts/SCRIPTSPEC.md.
