@@ -345,6 +345,27 @@ A firm keeps a backup drive of every case document in one folder structure every
 - **Setting it up (an admin, once):** `GOOGLE_CLIENT_ID` (a plain variable) and `GOOGLE_CLIENT_SECRET` (a secret) on this Worker. In that Google Cloud project: turn the **Google Drive API** on, add the `…/auth/drive.file` scope to the OAuth consent screen, and put this site's address among the OAuth client's **Authorized JavaScript origins**. Until both are set, `/api/drive` says the Backup Drive isn't switched on, the dashboard card stays away and nothing else is blocked. It is the same Google set-up the CMS's Doc Hub backup uses; a separate OAuth client is fine.
 - **Test:** `.github/scripts/cm-drive.cjs` (no browser needed) checks the structure is a tree with a rule for every folder, that every one of the case file's folders has a home on the drive, that the scopes stay at `drive.file`, that the Day 1 grading passes the firm's own structure while refusing a missing, misspelled, invented or misordered folder, and that both grades reach the trainee's account.
 
+## 📁 Companion cases and the Attorney–CM brainstorm
+
+Ten short personal-injury files beside John Doe v. Robert Smith, each built around one problem a Case Manager has to
+handle without crossing the UPL line: a conflict of interest, an undisclosed prior injury, a lien dispute, a client who
+wants to settle now, a missed-deadline risk, a hostile adjuster, a client who goes silent, pressure to give legal advice,
+a family member interfering, and a coverage denial. The course still teaches on John Doe's file; a companion case is the
+trainee's second file.
+
+- **Assigning:** Admin → Trainee Audit → **📁** on each trainee's row. It's saved on their record as `assignedCase`,
+  which only a trainer can change (`PROTECTED_TRAINEE_FIELDS` in `worker.js`).
+- **The trainee** sees their case on the Case File page. **Open case file** shows the file at intake and, for each Case Flow
+  day, what happens on the file, their task and the questions Atty. Thorne will ask. It opens on the day they're on.
+  The answer key never reaches their screen.
+- **The trainer** runs the end-of-day **Attorney–CM brainstorm**, playing Atty. Thorne: Presenter view's **🧠
+  Brainstorm** lists every assigned trainee with the day's situation, the questions, the answer key, the attorney's
+  call and the mistake to watch for. The same guide ends the day's Speaker Notes PDF (all ten cases when no one is
+  assigned yet).
+- **Content:** `build/case-flow/cases/cases.json`, written to `build/case-flow/cases/CASESPEC.md` and assembled into
+  `js/cm-companion-cases.js` by `node build/case-flow/cases/assemble.cjs` (`--check` in CI: ten cases, five days each,
+  every field within its limits, no calendar years, none of John Doe's names). Screens: `js/cm-companion.js`.
+
 ## 📞 Graded calls (the Call Simulator on ☎ LSH Ring Channel)
 
 The Call Simulator is **☎ LSH Ring Channel's** — the training phone itself (the lshringchannel repo). Every Call Simulator link here opens it through the Main Portal, signed in and in its own tab: `https://cm-training-activity.pages.dev/simulators/call.html?program=CM&line=<line>` (`&mode=graded` for the line's graded call) → `/api/launch?tool=ringchannel&to=calls` → the phone's 🎧 Practice. The phone rings, the trainee answers with a headset and works the call with the phone's own keys (mute, hold, transfer) and 🔎 Case lookup; a trainer can ring the same phone for a live mock call. A **graded** call (a caller unknown until the debrief) counts here: the Training Portal (its `/api/call-results`) keeps the trainee's graded calls in this program's store as `callsim:<trainee id>`, by line, and the Worker lets the trainee read it but never write it. The dashboard band's **Graded calls** card (`js/graded-calls.js`) shows the best graded call on each line, averaged, with the lines and calls taken; each line's best is in its tooltip. **Note on the call packs:** Ring Channel's scenario library is the Foundational pack on three lines (Reception and Calendar Management on the Main Line, Intake on the Intake Line), so a CM step that names a line Ring Channel doesn't have (Nguyen Case Calls, Client Communication, Attorney Reporting, Adjusters & Carriers, Providers & Records) lands the trainee on the phone's line picker. Those calls are added on Ring Channel itself — a trainer writes them in its **📚 Scenarios**, or they are ported into its `src/scenarios.js`. It's read once a page load and again when the trainee comes back to the tab (at most every two minutes).

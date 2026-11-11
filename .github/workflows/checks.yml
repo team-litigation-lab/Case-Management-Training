@@ -48,6 +48,8 @@ jobs:
         run: node build/case-flow/slides/assemble.cjs --check
       - name: Trainer scripts (every slide, said out loud; js/cm-case-flow-scripts.js in step)
         run: node build/case-flow/scripts/assemble.cjs --check
+      - name: "Companion cases (ten cases, five days each; js/cm-companion-cases.js in step)"
+        run: node build/case-flow/cases/assemble.cjs --check
       - name: Case Flow simulation (an event for every activity, a call in every Case Phase, fallout, the timeline; the assembled file in step)
         run: node build/case-flow/sim/assemble.cjs --check
       - name: Case Flow exhibit audits (the draft set, the completed package, the service confirmation, the amendment requests; the assembled file in step)
