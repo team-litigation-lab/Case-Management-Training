@@ -94,18 +94,54 @@ const HOW = "Each grading system's score is the average of its graded items; the
 // a trainee's records as one context (the trainer's table and the trainee's own page read the same)
 const ctxOf = (rec, prog, callsim, sim) => ({rec: rec || {}, cf: (rec && rec.caseFlow) || {days: {}}, data: (prog && prog.data) || {}, callsim, sim});
 
-/* ---------- the table: a row per grading system with its average, its graded items under it ---------- */
-function detail(sc){
-  return `<div class="scx-scroll"><table class="scx-tbl scx-sheet"><thead><tr><th>Grading system · item</th><th>Detail</th><th class="scx-n">Score</th></tr></thead><tbody>
-    ${sc.rows.map(r => `<tr class="scx-sys"><td colspan="2"><i class="scx-ic">${r.s.icon}</i> <b>${E(r.s.label)}</b> <small>${E(r.s.about)}</small></td><td class="scx-n t-${tier(r.avg)}" title="${r.items.length ? `Average of ${r.items.length} item${r.items.length === 1 ? "" : "s"}` : "Nothing graded yet"}">${pctTxt(r.avg)}</td></tr>
-      ${r.items.length ? r.items.map(x => `<tr><td class="scx-item">${E(x.name)}</td><td class="scx-det">${E(x.note || "")}</td><td class="scx-n t-${tier(x.pct)}">${pctTxt(x.pct)}${x.auto ? ` <small title="Automated only">⚙</small>` : ""}</td></tr>`).join("")
-        : `<tr><td colspan="3" class="scx-empty scx-item">Nothing graded here yet.</td></tr>`}`).join("")}
-    <tr class="scx-total"><td colspan="2"><b>Overall</b> <small>${E(overallWhy(sc))}</small></td><td class="scx-n t-${tier(sc.overall)}">${pctTxt(sc.overall)}</td></tr>
-  </tbody></table></div>`;
+/* ---------- the sheets, in Foundational's Batch Sheet format (its js/ft-batch-sheet.js and js/ft-overall.js): Google
+   Sheets' look — column letters, row numbers, the first column frozen, each cell's working in its hover — so a scorecard
+   reads the same in every LSH course ---------- */
+const letter = i => { let t = ""; i++; while(i > 0){ const m = (i - 1) % 26; t = String.fromCharCode(65 + m) + t; i = Math.floor((i - 1) / 26); } return t; };
+const tone = p => p == null ? "" : p >= 85 ? "gs-hi" : p >= 70 ? "gs-mid" : "gs-lo";
+const pcell = (p, f, extra) => ({v: pctTxt(p) === "—" ? "" : pctTxt(p), f, cls: "gs-num " + tone(p) + (extra ? " " + extra : "")});
+function sheetHtml(T){
+  const n = T.head.length;
+  return `<section class="bs-sec" id="scx-${T.id}"><h3 class="bs-h">${E(T.title)} <span>${T.rows.length} row${T.rows.length === 1 ? "" : "s"}</span></h3>${T.note ? `<p class="bs-note">${E(T.note)}</p>` : ""}
+    <div class="gs-wrap"><table class="gs" role="grid"><thead>
+      <tr class="gs-letters"><th class="gs-corner"></th>${T.head.map((h, i) => `<th class="${i === 0 ? "gs-frz" : ""}">${letter(i)}</th>`).join("")}</tr>
+      <tr class="gs-head"><th class="gs-rn">1</th>${T.head.map((h, i) => `<th class="${i === 0 ? "gs-frz" : ""}">${E(h)}</th>`).join("")}</tr></thead>
+      <tbody>${T.rows.map((r, ri) => `<tr${T.rowCls && T.rowCls[ri] ? ` class="${T.rowCls[ri]}"` : ""}${T.onRow && T.onRow[ri] ? ` onclick="${T.onRow[ri]}"` : ""}><th class="gs-rn">${ri + 2}</th>${r.map((c, ci) => `<td tabindex="0" class="${c.cls || ""}${ci === 0 ? " gs-frz" : ""}"${c.f ? ` title="${E(c.f)}"` : ""}>${E(c.v)}</td>`).join("")}</tr>`).join("")}
+      ${T.rows.length ? "" : `<tr class="gs-empty"><th class="gs-rn">2</th><td colspan="${n}" class="bs-none">${E(T.empty || "Nothing yet.")}</td></tr>`}</tbody></table></div></section>`;
 }
-const ring = (p, why) => `<div class="scx-ring t-${tier(p)}" style="--p:${p == null ? 0 : p}" title="${E(why || "")}"><span>${pctTxt(p)}</span><small>overall</small></div>`;
+// 🏅 Scores: a row per trainee, a column per grading system (blank: nothing graded yet), the Overall % and the rank
+function scoresSheet(rows, me){
+  const order = rows.filter(r => r.sc.overall != null).slice().sort((a, b) => b.sc.overall - a.sc.overall);
+  order.forEach((r, i) => { r.rank = i && order[i - 1].sc.overall === r.sc.overall ? order[i - 1].rank : i + 1; });
+  return {id: "scores", title: "🏅 Scores",
+    note: me ? "Every grade the course gives you, averaged per grading system (blank: nothing graded yet), and your Overall %. Your grades in detail are under the table."
+      : "Every grade, averaged per grading system (blank: nothing graded yet), then the Overall % (the average of the grading systems with a score), ranked. Click a trainee for their grades in detail under the table.",
+    head: ["Trainee"].concat(me ? [] : ["Batch"], ["Days passed"], SOURCES.map(s => `${s.icon} ${s.label}`), ["Overall %"], me ? [] : ["Rank"]),
+    rows: rows.map(r => [{v: r.name, f: r.name, cls: "gs-name"}].concat(me ? [] : [{v: batchOf(r.batch), f: r.batch, cls: "gs-batch"}],
+      [{v: `${r.sc.done} / ${r.sc.total}`, f: `${r.sc.done} of the ${r.sc.total} Case Flow days passed (70% passes a day)`, cls: "gs-num"}],
+      r.sc.rows.map(x => pcell(x.avg, x.avg == null ? `${x.s.label}: nothing graded yet` : `${x.s.label}: average of ${x.items.length} grade${x.items.length === 1 ? "" : "s"} = ${x.avg}%`)),
+      [pcell(r.sc.overall, r.sc.overall == null ? "Nothing graded yet" : `Overall % = ${overallWhy(r.sc)}`, "gs-calc gs-bold")],
+      me ? [] : [{v: r.rank == null ? "" : String(r.rank), f: r.rank == null ? "Not ranked: nothing graded yet" : `Rank ${r.rank} of ${order.length} by Overall %`, cls: "gs-rank"}])),
+    rowCls: rows.map(r => !me && ALL.pick === r.id ? "gs-picked" : ""),
+    onRow: me ? null : rows.map(r => `cmScorecard.pick('${E(r.id)}')`),
+    empty: me ? "Collecting your grades…" : "No approved trainee in this batch yet."};
+}
+// 🔎 Grades in detail: every graded item, by grading system (the system's own row carries its average)
+function detailSheet(sc, who){
+  const rows = [], cls = [];
+  sc.rows.forEach(r => {
+    rows.push([{v: `${r.s.icon} ${r.s.label}`, f: r.s.about, cls: "gs-name"}, {v: r.s.about, f: r.s.about, cls: "gs-txt"}, {v: "", f: `${r.items.length} graded item${r.items.length === 1 ? "" : "s"}`}, pcell(r.avg, r.avg == null ? "Nothing graded yet" : `The average of ${r.items.length} = ${r.avg}%`, "gs-calc gs-bold")]); cls.push("gs-sys");
+    r.items.forEach(x => { rows.push([{v: "", f: r.s.label}, {v: x.name, f: x.name, cls: "gs-txt"}, {v: x.note || "", f: x.note || "", cls: "gs-txt gs-det"}, pcell(x.pct, `${x.name}: ${pctTxt(x.pct)}${x.auto ? " (automated only)" : ""}`)]); cls.push(""); });
+  });
+  rows.push([{v: "Overall", f: overallWhy(sc), cls: "gs-name"}, {v: overallWhy(sc), f: overallWhy(sc), cls: "gs-txt"}, {v: `${sc.graded} graded item${sc.graded === 1 ? "" : "s"}`, f: `${sc.graded} graded items`, cls: "gs-det"}, pcell(sc.overall, overallWhy(sc), "gs-calc gs-bold")]); cls.push("gs-total");
+  return {id: "detail", title: `🔎 Grades in detail${who ? ": " + who : ""}`, note: "Each grading system's row has its average; its graded items are under it.",
+    head: ["Grading system", "Item", "Detail", "Score"], rows, rowCls: cls};
+}
+function sheetTop(title, sub, controls){
+  return `<div class="gs-top"><span class="gs-logo" aria-hidden="true">🏅</span><div class="gs-file"><b>${E(title)}</b><span class="gs-menu">${controls}</span></div>${sub || ""}</div>`;
+}
 
-/* ---------- 🏅 My Performance: the trainee's own ---------- */
+/* ---------- 🏅 My Performance: the trainee's own row, then their grades in detail ---------- */
 const MINE = {id: null, at: 0, loading: null, recs: null};
 function loadMine(force){
   if(!isTrainee() || MINE.loading) return;
@@ -128,19 +164,16 @@ function myCtx(){
 }
 function renderMine(){
   loadMine(MINE.id !== state.traineeId);
-  const loaded = MINE.id === state.traineeId, sc = compute(myCtx());
-  return `<div class="scx-page"><div class="scx-hero">
-      ${ring(loaded ? sc.overall : null, loaded ? overallWhy(sc) : "")}
-      <div class="scx-hero-t"><p class="eyebrow">My Performance</p><h1>🏅 My Performance</h1>
-        <p>Every grade the course gives you, collected from all of its grading systems.</p>
-        <div class="scx-facts"><span><b>${sc.done} / ${sc.total}</b> days passed</span><span><b>${sc.graded}</b> graded item${sc.graded === 1 ? "" : "s"}</span><span><b>${sc.systems} / ${SOURCES.length}</b> grading systems with a score</span></div></div>
-      <button type="button" class="btn btn-ghost btn-sm scx-print" onclick="window.print()">🖨 Print</button></div>
-    ${loaded ? detail(sc) : `<div class="scx-wait">Collecting your grades…</div>`}
-    <p class="scx-how">${HOW}</p></div>`;
+  const loaded = MINE.id === state.traineeId, sc = compute(myCtx()), name = state.traineeName || "Me";
+  const me = [{id: state.traineeId, name, batch: state.traineeBatch || "", sc}];
+  return `<div class="scx-page scx-wide"><div class="card gs-card scx-card">
+    ${sheetTop("My Performance", `<span class="gs-batch">${E(name)}</span>`, `<button onclick="window.print()">🖨 Print</button>`)}
+    ${loaded ? sheetHtml(scoresSheet(me, true)) + sheetHtml(detailSheet(sc)) : `<p class="bs-none scx-pad">Collecting your grades…</p>`}
+    <p class="sc-how">${HOW}</p></div></div>`;
 }
 
 /* ---------- 🏅 Scorecards: every approved trainee, for the trainer ---------- */
-const ALL = {rows: null, loading: false, batch: "", open: {}};
+const ALL = {rows: null, loading: false, batch: "", pick: ""};
 async function loadAll(){
   ALL.loading = true;
   try{
@@ -156,27 +189,22 @@ async function loadAll(){
   if(state.view === "scorecard" && typeof render === "function") render();
 }
 const batchOf = b => typeof cleanBatch === "function" ? (cleanBatch(b) || b) : b;
+const shownRows = () => (ALL.rows || []).filter(r => !ALL.batch || batchOf(r.batch) === ALL.batch);
 function renderAll(){
-  if(!ALL.rows){ if(!ALL.loading) loadAll(); return `<div class="scx-page"><div class="scx-wait">Collecting every trainee's grades…</div></div>`; }
+  if(!ALL.rows){ if(!ALL.loading) loadAll(); return `<div class="scx-page scx-wide"><div class="card gs-card scx-card"><p class="bs-none scx-pad">Collecting every trainee's grades…</p></div></div>`; }
   const batches = [...new Set(ALL.rows.map(r => batchOf(r.batch)).filter(Boolean))].sort();
-  const rows = ALL.rows.filter(r => !ALL.batch || batchOf(r.batch) === ALL.batch);
-  const cell = (p, why) => `<td class="scx-n t-${tier(p)}"${why ? ` title="${E(why)}"` : ""}>${pctTxt(p)}</td>`;
-  return `<div class="scx-page scx-wide"><div class="scx-admin">
-    <div class="scx-admin-bar"><div><p class="eyebrow">Admin</p><h1>🏅 Scorecards</h1><p class="scx-about">Each trainee's grades, collected from all of the course's grading systems. Click a trainee for the details.</p></div>
-      <span><select onchange="cmScorecard.batch(this.value)" aria-label="Batch"><option value="">All batches</option>${batches.map(b => `<option ${b === ALL.batch ? "selected" : ""}>${E(b)}</option>`).join("")}</select>
-      <button type="button" class="btn btn-ghost btn-sm" onclick="cmScorecard.refresh()">↻ Refresh</button>
-      <button type="button" class="btn btn-ghost btn-sm" onclick="cmScorecard.csv()">⬇ CSV</button></span></div>
-    ${rows.length ? `<div class="scx-scroll"><table class="scx-tbl scx-admin-tbl"><thead><tr><th>Trainee</th><th>Batch</th><th>Days</th>${SOURCES.map(s => `<th>${s.icon} ${E(s.label)}</th>`).join("")}<th>Overall</th></tr></thead><tbody>
-      ${rows.map(r => `<tr class="scx-row" tabindex="0" onclick="cmScorecard.toggle('${E(r.id)}')" onkeydown="if(event.key==='Enter')cmScorecard.toggle('${E(r.id)}')"><td><b>${E(r.name)}</b></td><td class="scx-batch">${E(batchOf(r.batch))}</td><td>${r.sc.done} / ${r.sc.total}</td>${r.sc.rows.map(x => cell(x.avg)).join("")}${cell(r.sc.overall, overallWhy(r.sc))}</tr>
-        ${ALL.open[r.id] ? `<tr class="scx-open"><td colspan="${SOURCES.length + 4}">${detail(r.sc)}</td></tr>` : ""}`).join("")}
-    </tbody></table></div>` : `<p class="scx-empty">No approved trainees${ALL.batch ? " in this batch" : ""} yet.</p>`}
-    <p class="scx-how">${HOW}</p></div></div>`;
+  const rows = shownRows(), picked = rows.find(r => r.id === ALL.pick);
+  return `<div class="scx-page scx-wide"><div class="card gs-card scx-card">
+    ${sheetTop("Scorecards", `<span class="gs-batch"><label>Batch <select onchange="cmScorecard.batch(this.value)"><option value="">All batches</option>${batches.map(b => `<option ${b === ALL.batch ? "selected" : ""}>${E(b)}</option>`).join("")}</select></label></span>`,
+      `<button onclick="cmScorecard.csv()">⬇ Download</button><button onclick="window.print()">🖨 Print</button><button onclick="cmScorecard.refresh()">↻ Refresh</button>`)}
+    ${sheetHtml(scoresSheet(rows, false))}
+    ${picked ? sheetHtml(detailSheet(picked.sc, picked.name)) : rows.length ? `<p class="bs-note scx-pad">Click a trainee in 🏅 Scores for their grades in detail.</p>` : ""}
+    <p class="sc-how">${HOW}</p></div></div>`;
 }
 function csv(){
-  const rows = (ALL.rows || []).filter(r => !ALL.batch || batchOf(r.batch) === ALL.batch);
-  const q = v => `"${String(v == null ? "" : v).replace(/"/g, '""')}"`;
-  const lines = [["Trainee", "Batch", "Days passed"].concat(SOURCES.map(s => s.label), ["Overall"]).map(q).join(",")]
-    .concat(rows.map(r => [r.name, batchOf(r.batch), `${r.sc.done}/${r.sc.total}`].concat(r.sc.rows.map(x => x.avg == null ? "" : x.avg), [r.sc.overall == null ? "" : r.sc.overall]).map(q).join(",")));
+  const rows = shownRows(), T = scoresSheet(rows, false);
+  const q = v => { const t = String(v == null ? "" : v); return `"${(/^[=+\-@\t\r]/.test(t) ? "'" + t : t).replace(/"/g, '""')}"`; };
+  const lines = [T.head.map(q).join(",")].concat(T.rows.map(r => r.map(c => q(c.v)).join(",")));
   const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([lines.join("\n")], {type: "text/csv"}));
   a.download = `Scorecards${ALL.batch ? " - " + ALL.batch : ""}.csv`; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
 }
@@ -185,47 +213,44 @@ function csv(){
 window.renderScorecardPage = () => isAdmin() ? renderAll() : isTrainee() ? renderMine() : (typeof renderDashboard === "function" ? renderDashboard() : "");
 window.addEventListener("focus", () => { if(isTrainee() && state.view === "scorecard") loadMine(); });
 window.cmScorecard = {
-  batch(b){ ALL.batch = b || ""; render(); },
+  batch(b){ ALL.batch = b || ""; ALL.pick = ""; render(); },
   refresh(){ ALL.rows = null; state.adminData = null; render(); },
-  toggle(id){ ALL.open[id] = !ALL.open[id]; render(); },
+  pick(id){ ALL.pick = ALL.pick === id ? "" : id; render(); setTimeout(() => { const d = document.getElementById("scx-detail"); if(d && ALL.pick) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
   csv, compute, sources: SOURCES
 };
 
 const css = document.createElement("style"); css.id = "cm-scorecard";
 css.textContent = `
-.scx-page{max-width:1180px;margin:0 auto;padding:4px 0 24px;color:var(--navy,#262B45);} .scx-wide{max-width:none;}
-.scx-hero,.scx-admin,.scx-src,.scx-wait{background:var(--surface-glass,rgba(255,255,255,.78));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid #E3E6EE;border-radius:16px;}
-.scx-hero{display:flex;align-items:center;gap:22px;padding:20px 24px;margin-bottom:14px;position:relative;}
-.scx-hero h1,.scx-admin h1{margin:2px 0 4px;font-family:'Fraunces',Georgia,serif;font-size:28px;color:var(--navy,#262B45);}
-.scx-hero p{margin:0;color:var(--ink-soft,#5B6579);font-size:14px;} .scx-hero-t{flex:1;min-width:0;}
-.scx-facts{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:10px;font-size:13px;color:var(--ink-soft,#5B6579);} .scx-facts b{color:var(--navy,#262B45);}
-.scx-print{position:absolute;top:14px;right:16px;}
-.scx-ring{--c:#9CA3B8;flex:0 0 auto;width:112px;height:112px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:conic-gradient(var(--c) calc(var(--p)*1%),#E9EBF2 0);position:relative;}
-.scx-ring::before{content:"";position:absolute;inset:10px;border-radius:50%;background:#fff;}
-.scx-ring span,.scx-ring small{position:relative;} .scx-ring span{font:800 26px 'Inter',sans-serif;color:var(--navy,#262B45);} .scx-ring small{font-size:11px;color:#5B6579;text-transform:uppercase;letter-spacing:.08em;}
-.scx-ring.t-hi{--c:#1F8A5B;} .scx-ring.t-ok{--c:#DB8437;} .scx-ring.t-lo{--c:#C0392B;}
-.scx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;}
-.scx-src{padding:14px 16px;} .scx-src-h{display:flex;align-items:center;gap:8px;font-size:16px;} .scx-src-h b{flex:1;}
-.scx-about{margin:4px 0 10px;font-size:12.5px;color:var(--ink-soft,#5B6579);line-height:1.45;}
-.scx-pill{font:800 13px 'Inter',sans-serif;padding:3px 10px;border-radius:999px;background:#EEF0F5;}
-.scx-pill.t-hi,.scx-n.t-hi{color:#1F7A50;} .scx-pill.t-ok,.scx-n.t-ok{color:#A85A16;} .scx-pill.t-lo,.scx-n.t-lo{color:#B42318;} .scx-n.t-none{color:#9CA3B8;}
-.scx-pill.t-hi{background:#E3F4EC;} .scx-pill.t-ok{background:#FDF0E2;} .scx-pill.t-lo{background:#FBE7E5;}
-.scx-tbl{width:100%;border-collapse:collapse;font-size:13.5px;} .scx-tbl td,.scx-tbl th{padding:7px 8px;border-top:1px solid #ECEEF4;text-align:left;vertical-align:top;}
-.scx-tbl td span{display:block;font-size:11.5px;color:#5B6579;margin-top:1px;} .scx-n{text-align:right !important;font-weight:800;white-space:nowrap;}
-.scx-empty{margin:4px 0 0;font-size:13px;color:#8A90A6;} .scx-how{margin:14px 2px 0;font-size:12.5px;color:var(--ink-soft,#5B6579);}
-.scx-wait{padding:28px;text-align:center;color:var(--ink-soft,#5B6579);}
-.scx-admin{padding:18px 20px;} .scx-admin-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:12px;}
-.scx-admin-bar > span{display:flex;gap:8px;flex-wrap:wrap;align-items:center;} .scx-admin-bar select{padding:6px 10px;border-radius:8px;border:1px solid #CBD2E0;font:inherit;font-size:13px;}
-.scx-scroll{overflow-x:auto;} .scx-admin-tbl th{font-size:12px;color:#5B6579;white-space:nowrap;border-top:0;} .scx-admin-tbl td{white-space:nowrap;}
-.scx-admin-tbl .scx-n{text-align:center !important;} .scx-row{cursor:pointer;} .scx-row:hover td{background:rgba(240,192,138,.15);}
-.scx-sheet{background:#fff;border:1px solid #E3E6EE;border-radius:14px;overflow:hidden;}
-.scx-sheet thead th{background:#262B45;color:#fff;font-size:12px;letter-spacing:.04em;text-transform:uppercase;border:0;padding:9px 10px;}
-.scx-sheet td{border-top:1px solid #E6E9F0;} .scx-sheet td + td{border-left:1px solid #EEF0F5;}
-.scx-sys td{background:#F3F4F8;font-size:14.5px;padding-top:9px;padding-bottom:9px;} .scx-ic{font-style:normal;margin-right:2px;} .scx-sys small{display:block;font-size:11.5px;color:#5B6579;font-weight:500;margin-top:2px;}
-.scx-det{font-size:12.5px;color:#5B6579;} .scx-total td{background:#FDF0E2;font-size:15px;} .scx-total small{font-size:12px;color:#5B6579;margin-left:6px;}
-.scx-sheet .scx-n{width:90px;} .scx-sheet tbody td{padding:6px 10px;} .scx-item{padding-left:34px !important;}
-.scx-batch{font-family:'IBM Plex Mono',monospace;font-size:12px;} .scx-open > td{background:#F7F8FB;white-space:normal;padding:14px;}
-@media(max-width:640px){ .scx-hero{flex-direction:column;text-align:center;padding-top:44px;} .scx-facts{justify-content:center;} .scx-grid{grid-template-columns:1fr;} }
-@media print{ .topbar,.scx-print,.tfb-fab,footer{display:none !important;} .scx-hero,.scx-src{break-inside:avoid;} }`;
+/* Google Sheets' look, as Foundational Training's Batch Sheet (js/ft-overall.js, js/ft-batch-sheet.js) */
+.scx-page{max-width:none;margin:0 auto;padding:4px 0 24px;}
+.gs-card.scx-card{padding:0;overflow:hidden;font-family:Arial,'Roboto',sans-serif;background:#fff;border:1px solid #E1E3E1;border-radius:12px;}
+.gs-top{display:flex;align-items:center;gap:12px;padding:10px 14px 6px;background:#F9FBFD;border-bottom:1px solid #E1E3E1;}
+.gs-logo{font-size:26px;} .gs-file{display:flex;flex-direction:column;gap:2px;} .gs-file b{font:400 18px Arial,sans-serif;color:#1F1F1F;}
+.gs-menu{display:flex;gap:2px;flex-wrap:wrap;} .gs-menu button{border:0;background:none;font:14px Arial,sans-serif;color:#1F1F1F;padding:3px 7px;border-radius:4px;cursor:pointer;} .gs-menu button:hover{background:#E8EAED;}
+.gs-batch{margin-left:auto;font:13px Arial,sans-serif;color:#444746;display:flex;align-items:center;gap:6px;}
+.gs-batch select{font:700 15px Arial,sans-serif;padding:5px 8px;border:1px solid #C4C7C5;border-radius:4px;background:#fff;}
+.scx-card .bs-sec{padding:12px 14px 4px;} .scx-card .bs-h{margin:0 0 2px;font:800 17px Arial,sans-serif;color:#1E2340;} .scx-card .bs-h span{font:400 12px Arial,sans-serif;color:#5F6368;margin-left:6px;}
+.scx-card .bs-note{margin:0 0 8px;font:13px Arial,sans-serif;color:#444746;} .scx-pad{padding:14px;} .bs-none{color:#5F6368;}
+.scx-card .gs-wrap{overflow:auto;max-height:62vh;background:#fff;border:1px solid #E2E3E3;}
+.scx-card .gs{border-collapse:separate;border-spacing:0;font:13px Arial,sans-serif;color:#1F1F1F;}
+.scx-card .gs th,.scx-card .gs td{border-right:1px solid #E2E3E3;border-bottom:1px solid #E2E3E3;padding:4px 8px;white-space:nowrap;height:21px;}
+.scx-card .gs thead{position:sticky;top:0;z-index:3;} .scx-card .gs-letters th{background:#F8F9FA;color:#5F6368;font-weight:400;font-size:12px;text-align:center;min-width:90px;}
+.scx-card .gs-head th{background:#F8F9FA;font-weight:700;text-align:center;white-space:normal;min-width:90px;max-width:160px;line-height:1.25;}
+.scx-card .gs-corner,.scx-card .gs-rn{position:sticky;left:0;z-index:4;background:#F8F9FA !important;color:#5F6368;font-weight:400 !important;font-size:12px;text-align:center;width:40px;min-width:40px !important;}
+.scx-card thead .gs-corner,.scx-card thead .gs-rn{z-index:5;}
+.scx-card .gs .gs-frz{position:sticky;left:41px;z-index:2;background:#fff;box-shadow:2px 0 0 #C4C7C5;}
+.scx-card .gs-letters .gs-frz,.scx-card .gs-head .gs-frz{z-index:4;background:#F8F9FA;}
+.scx-card .gs-name{font-weight:700;min-width:190px;} .scx-card .gs-batch{font-family:'IBM Plex Mono',monospace;font-size:12px;margin:0;}
+.scx-card .gs-num{text-align:right;} .scx-card .gs-rank{text-align:center;font-weight:700;color:#B5651F;}
+.scx-card .gs-calc{background:#F1F3F4;} .scx-card .gs-bold{font-weight:700;}
+.scx-card .gs-hi{color:#137333;} .scx-card .gs-mid{color:#B06000;} .scx-card .gs-lo{color:#C5221F;}
+.scx-card .gs-txt{white-space:normal !important;min-width:240px;max-width:420px;} .scx-card .gs-det{color:#5F6368;}
+.scx-card .gs td{cursor:cell;outline:none;} .scx-card .gs td:focus{box-shadow:inset 0 0 0 2px #1A73E8;}
+.scx-card tr[onclick] td{cursor:pointer;} .scx-card tr[onclick]:hover td{background:#F1F6FE;}
+.scx-card tr.gs-picked td{background:#E8F0FE;} .scx-card tr.gs-sys td{background:#F8F9FA;font-weight:700;} .scx-card tr.gs-total td{background:#FEF7E0;font-weight:700;}
+.scx-card .sc-how{margin:10px 14px 14px;font:12.5px Arial,sans-serif;color:#5F6368;}
+@media(max-width:640px){ .gs-top{flex-wrap:wrap;} .gs-batch{margin-left:0;} }
+@media print{ .topbar,.tfb-fab,footer,.gs-menu{display:none !important;} .scx-card .gs-wrap{max-height:none;overflow:visible;} }
+`;
 document.head.appendChild(css);
 })();

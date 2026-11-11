@@ -357,10 +357,15 @@ into the trainee's case in the CMS, checked automatically for the firm's categor
 the share of its checks passed; `net-sheet`), 🛠 Skill Builders (each tool's best),
 🎯 Graded Calls (`callsim:<id>`), 🧰 Portal Simulators (`simresults:<id>`) and 🎲 Random Tasks (each resolved task's grade).
 
-- **Trainees:** 🏅 My Performance in the top bar (`#/scorecard`): the overall ring, then one table: a row per grading
-  system with its average and its graded items under it (each with its detail and score), the overall last; 🖨 Print.
-- **Trainers:** 🏅 Scorecards at the same address: every approved trainee in one table, filtered by batch, a row opening
-  that trainee's table, ⬇ CSV for the batch.
+- **The format is Foundational's Batch Sheet** (its `js/ft-batch-sheet.js` and `js/ft-overall.js`), the standard for
+  scorecards: Google Sheets' look, with column letters, row numbers, the first column frozen and each cell's working in
+  its hover.
+- **Trainers:** 🏅 Scorecards in the top bar (`#/scorecard`): **🏅 Scores**, a row per approved trainee (Trainee, Batch,
+  Days passed, a column per grading system, the Overall % and the Rank), filtered by batch, with ⬇ Download (.csv),
+  🖨 Print and ↻ Refresh. Clicking a trainee opens **🔎 Grades in detail** under it: each grading system's row with its
+  average, its graded items under it, the overall last.
+- **Trainees:** 🏅 My Performance at the same address: the same 🏅 Scores sheet with only their own row (no batch, no
+  rank), then their 🔎 Grades in detail.
 - It only reads: `trainee:<id>` (its `caseFlow` summary, `dayProgress` and `practiceProgress`), `progress:<id>` (`work-log`,
   `task-log`, `doc-filing`, `net-sheet`), `callsim:<id>` and `simresults:<id>`, in one get-many.
 
