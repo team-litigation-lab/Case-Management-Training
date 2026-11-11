@@ -225,8 +225,11 @@ img[alt="Legal Support Help"]{border-radius:8px;}
 .dash-main .module-card.mc-clean .mc-row .module-finish-btn:hover{background:#E9EBF2;border-color:#E9EBF2;color:var(--navy);}
 .dash-main .module-card.mc-clean > :last-child{margin-bottom:12px;}
 .dash-main .module-card.mc-clean .module-theme{color:#6B7088;}
-/* the day's theme under its icon: a highlighter pill in the course's orange, the hero's serif in navy */
-.dash-main .module-card.mc-clean .module-theme{font-family:'Fraunces',Georgia,serif !important;font-weight:700 !important;color:var(--navy) !important;background:rgba(240,192,138,.45);border:1px solid rgba(219,132,55,.45);border-radius:10px;padding:5px 12px;}
+/* the day's title under its icon: the hero's serif in navy, large, with a short orange rule under it (no pill) */
+.dash-main .module-card.mc-clean .module-theme{font-family:'Fraunces',Georgia,serif !important;font-size:19px !important;font-weight:600 !important;line-height:1.28 !important;letter-spacing:-.005em !important;color:var(--navy) !important;background:none;border:0;border-radius:0;padding:0 6px 12px;position:relative;-webkit-line-clamp:4;text-wrap:balance;}
+.dash-main .module-card.mc-clean .module-theme::after{content:"";position:absolute;left:50%;bottom:0;width:36px;height:3px;border-radius:2px;background:var(--orange,#DB8437);transform:translateX(-50%);}
+@media(max-width:1340px){ .dash-main .module-card.mc-clean .module-theme{font-size:17px !important;} }
+@container (max-height:150px){ .dash-main .module-card.mc-clean .module-theme{font-size:15px !important;padding-bottom:9px;} }
 /* the scores band: light, so it doesn't compete with the lessons */
 .dash-main > .dash-side{background:var(--surface-glass,rgba(255,255,255,.60)) !important;backdrop-filter:var(--surface-blur,saturate(118%) blur(10px));-webkit-backdrop-filter:var(--surface-blur,saturate(118%) blur(10px));border:1px solid #E3E6EE !important;box-shadow:none !important;}
 .dash-main > .dash-side .card{background:rgba(255,255,255,.30) !important;border:1px solid #EDEFF5 !important;box-shadow:none !important;color:var(--navy) !important;}
