@@ -345,6 +345,31 @@ A firm keeps a backup drive of every case document in one folder structure every
 - **Setting it up (an admin, once):** `GOOGLE_CLIENT_ID` (a plain variable) and `GOOGLE_CLIENT_SECRET` (a secret) on this Worker. In that Google Cloud project: turn the **Google Drive API** on, add the `…/auth/drive.file` scope to the OAuth consent screen, and put this site's address among the OAuth client's **Authorized JavaScript origins**. Until both are set, `/api/drive` says the Backup Drive isn't switched on, the dashboard card stays away and nothing else is blocked. It is the same Google set-up the CMS's Doc Hub backup uses; a separate OAuth client is fine.
 - **Test:** `.github/scripts/cm-drive.cjs` (no browser needed) checks the structure is a tree with a rule for every folder, that every one of the case file's folders has a home on the drive, that the scopes stay at `drive.file`, that the Day 1 grading passes the firm's own structure while refusing a missing, misspelled, invented or misordered folder, and that both grades reach the trainee's account.
 
+## 🏅 The Scorecard (as in Foundational Training)
+
+Set up like Foundational Training's Scorecard, without its task trackers and monitoring sheets (`js/cm-scorecard.js`).
+Every grading system lists its graded items; a system's score is the average of its items, and the overall is the average
+of the systems that have a score, so each counts the same. The systems: ✍️ Knowledge Checks (each Case Flow day), 🧩
+Learning Checks (each module's composite, AI × 0.60 + trainer × 0.40, the automated half until the trainer scores it), 📝
+Takeaways, 🧪 Skill Activities (the work log's graded activities, the latest of each), 🗂 CMS Case Checks (each document filed
+into the trainee's case in the CMS, checked automatically for the firm's category and file name: 100% first time right, then
+100% ÷ the attempts it took, 0% while it's still refused; `doc-filing`), 📊 Net Sheet Checks (each stage's Check my sheet:
+the share of its checks passed; `net-sheet`), 🛠 Skill Builders (each tool's best),
+🎯 Graded Calls (`callsim:<id>`), 🧰 Portal Simulators (`simresults:<id>`) and 🎲 Random Tasks (each resolved task's grade).
+
+- **The format is Foundational's Batch Sheet** (its `js/ft-batch-sheet.js` and `js/ft-overall.js`), the standard for
+  scorecards: its navy banner (the kicker, the title, the batch, the sheet's buttons in it) and Google Sheets' grid, with
+  column letters, row numbers, the first column frozen and each cell's working in its hover, at its contrast: bold dark
+  text, bigger type, visible gridlines, scores tinted green / amber / red, each grading system a band across the table and
+  the overall a navy band.
+- **Trainers:** 🏅 Scorecards in the top bar (`#/scorecard`): **🏅 Scores**, a row per approved trainee (Trainee, Batch,
+  Days passed, a column per grading system, the Overall % and the Rank), filtered by batch, with ⬇ Download (.csv),
+  🖨 Print and ↻ Refresh. Clicking a trainee opens **🔎 Grades in detail** under it: each grading system's row with its
+  average, its graded items under it, the overall last.
+- **Trainees:** 🏅 My Performance at the same address: the same 🏅 Scores sheet with only their own row (no batch, no
+  rank), then their 🔎 Grades in detail.
+- It only reads: `trainee:<id>` (its `caseFlow` summary, `dayProgress` and `practiceProgress`), `progress:<id>` (`work-log`,
+  `task-log`, `doc-filing`, `net-sheet`), `callsim:<id>` and `simresults:<id>`, in one get-many.
 ## 📁 Companion cases and the Attorney–CM brainstorm
 
 Ten short personal-injury files beside John Doe v. Robert Smith, each built around one problem a Case Manager has to
