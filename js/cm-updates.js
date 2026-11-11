@@ -857,7 +857,7 @@ function renderPresenterConsole(d){
       <div class="pv-head">
         <div class="pv-title"><b>🖥 Presenter view</b> · Day ${d.id} — ${esc(d.title)}</div>
         <div class="pv-meta"><span id="pvCount">${presenterCountText(d)}</span><span class="pv-timer" id="pvTimer">00:00</span><span class="pv-aud on" id="pvAud">● Slides window open</span></div>
-        <div class="pv-actions"><button class="btn btn-ghost btn-sm" onclick="downloadDayScriptsPdf(${d.id})" title="Every slide's script for this day, as a PDF">⬇ Speaker Notes (PDF)</button><button class="btn btn-ghost btn-sm" onclick="presenterReopen()">↗ Re-open slides window</button><button class="btn btn-primary btn-sm" onclick="presenterEnd()">■ End</button></div>
+        <div class="pv-actions">${window.cmCompanion ? `<button class="btn btn-ghost btn-sm" onclick="cmCompanion.brainstorm(${d.id})" title="Today's Attorney–CM brainstorm: each trainee's companion case, what to ask and the answer key">🧠 Brainstorm</button>` : ""}<button class="btn btn-ghost btn-sm" onclick="downloadDayScriptsPdf(${d.id})" title="Every slide's script for this day, as a PDF">⬇ Speaker Notes (PDF)</button><button class="btn btn-ghost btn-sm" onclick="presenterReopen()">↗ Re-open slides window</button><button class="btn btn-primary btn-sm" onclick="presenterEnd()">■ End</button></div>
       </div>
       <div class="pv-grid">
         <section>

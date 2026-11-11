@@ -6366,6 +6366,7 @@ async function submitLoginInner(){
       if(existing.batch){ state.traineeBatch = existing.batch; await storeSet("trainee-batch", existing.batch); }
       if(!state.regName && existing.lastName){ state.regName = {first:existing.firstName||"", last:existing.lastName}; await storeSet("reg-name", state.regName); }
       state.assignedRoleplay = existing.assignedRoleplay || null;
+      state.assignedCase = existing.assignedCase || null;
     }
   }
   if(isNewSession && await cloudRestore(state.traineeId)){ const keepName = state.traineeName; await loadAll(); state.traineeName = keepName; }
@@ -6444,7 +6445,7 @@ async function resetTraineeSessionData(){
   state.cmsLog = {};
   state.labSubs = {};
   state.labReviews = null;
-  state.assignedRoleplay = null;
+  state.assignedRoleplay = null; state.assignedCase = null;
   state.day10Window = null;
   state.traineeBatch = "";
   await storeSet("lab-attempts-global", 0);
@@ -6783,7 +6784,7 @@ function bootShown(){ requestAnimationFrame(()=>document.documentElement.classLi
       if(parseRouteHash()){ state.resumePending = true; setTimeout(()=>{ state.resumePending = false; openRouteFromHash(); state.routeReady = true; syncRouteHash(); fillNavBack(); }, 0); }
       try{
         const rec = await sharedGet("trainee:"+state.traineeId);
-        if(rec) state.assignedRoleplay = rec.assignedRoleplay || null;
+        if(rec){ state.assignedRoleplay = rec.assignedRoleplay || null; state.assignedCase = rec.assignedCase || null; }
       }catch(e){ /* best-effort — don't block app load on this */ }
       startApprovalPolling(state.traineeId);
     }else if(status==="rejected"){
@@ -16029,6 +16030,9 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-script-editor.js?v=13"></script>
 <!-- 🏅 the Scorecard (as in Foundational Training): My Performance for trainees, Scorecards for trainers -->
 <script src="/js/cm-scorecard.js?v=4"></script>
+<!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
+<script src="/js/cm-companion-cases.js?v=1"></script>
+<script src="/js/cm-companion.js?v=1"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=4"></script>
 <script src="/js/lsh-tool-links.js?v=cm-2026.10.23-trainer-sso"></script>

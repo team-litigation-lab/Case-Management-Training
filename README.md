@@ -370,6 +370,26 @@ the share of its checks passed; `net-sheet`), 🛠 Skill Builders (each tool's b
   rank), then their 🔎 Grades in detail.
 - It only reads: `trainee:<id>` (its `caseFlow` summary, `dayProgress` and `practiceProgress`), `progress:<id>` (`work-log`,
   `task-log`, `doc-filing`, `net-sheet`), `callsim:<id>` and `simresults:<id>`, in one get-many.
+## 📁 Companion cases and the Attorney–CM brainstorm
+
+Ten short personal-injury files beside John Doe v. Robert Smith, each built around one problem a Case Manager has to
+handle without crossing the UPL line: a conflict of interest, an undisclosed prior injury, a lien dispute, a client who
+wants to settle now, a missed-deadline risk, a hostile adjuster, a client who goes silent, pressure to give legal advice,
+a family member interfering, and a coverage denial. The course still teaches on John Doe's file; a companion case is the
+trainee's second file.
+
+- **Assigning:** Admin → Trainee Audit → **📁** on each trainee's row. It's saved on their record as `assignedCase`,
+  which only a trainer can change (`PROTECTED_TRAINEE_FIELDS` in `worker.js`).
+- **The trainee** sees their case on the Case File page. **Open case file** shows the file at intake and, for each Case Flow
+  day, what happens on the file, their task and the questions Atty. Thorne will ask. It opens on the day they're on.
+  The answer key never reaches their screen.
+- **The trainer** runs the end-of-day **Attorney–CM brainstorm**, playing Atty. Thorne: Presenter view's **🧠
+  Brainstorm** lists every assigned trainee with the day's situation, the questions, the answer key, the attorney's
+  call and the mistake to watch for. The same guide ends the day's Speaker Notes PDF (all ten cases when no one is
+  assigned yet).
+- **Content:** `build/case-flow/cases/cases.json`, written to `build/case-flow/cases/CASESPEC.md` and assembled into
+  `js/cm-companion-cases.js` by `node build/case-flow/cases/assemble.cjs` (`--check` in CI: ten cases, five days each,
+  every field within its limits, no calendar years, none of John Doe's names). Screens: `js/cm-companion.js`.
 
 ## 📞 Graded calls (the Call Simulator on ☎ LSH Ring Channel)
 
