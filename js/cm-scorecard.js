@@ -137,8 +137,10 @@ function detailSheet(sc, who){
   return {id: "detail", title: `🔎 Grades in detail${who ? ": " + who : ""}`, note: "Each grading system's row has its average; its graded items are under it.",
     head: ["Grading system", "Item", "Detail", "Score"], rows, rowCls: cls};
 }
-function sheetTop(title, sub, controls){
-  return `<div class="gs-top"><span class="gs-logo" aria-hidden="true">🏅</span><div class="gs-file"><b>${E(title)}</b><span class="gs-menu">${controls}</span></div>${sub || ""}</div>`;
+// the page's header, as Foundational's (ftBanner): a navy band, the kicker, the title, the batch, the sheet's buttons in it
+function sheetTop(title, sub, controls, right){
+  return `<div class="ft-banner scx-banner"><div><p class="ft-banner-k">Legal Support Help · Case Management Training</p><h2>🏅 ${E(title)}</h2>${sub ? `<p class="ft-banner-sub">${sub}</p>` : ""}</div>
+    ${right ? `<div class="ft-banner-right">${right}</div>` : ""}<div class="ft-banner-ctl"><span class="gs-menu">${controls}</span></div></div>`;
 }
 
 /* ---------- 🏅 My Performance: the trainee's own row, then their grades in detail ---------- */
@@ -166,8 +168,8 @@ function renderMine(){
   loadMine(MINE.id !== state.traineeId);
   const loaded = MINE.id === state.traineeId, sc = compute(myCtx()), name = state.traineeName || "Me";
   const me = [{id: state.traineeId, name, batch: state.traineeBatch || "", sc}];
-  return `<div class="scx-page scx-wide"><div class="card gs-card scx-card">
-    ${sheetTop("My Performance", `<span class="gs-batch">${E(name)}</span>`, `<button onclick="window.print()">🖨 Print</button>`)}
+  return `<div class="scx-page scx-wide">${sheetTop("My Performance", `${E(name)}${state.traineeBatch ? ` · Batch <b>${E(batchOf(state.traineeBatch))}</b>` : ""}`, `<button onclick="window.print()">🖨 Print</button>`, loaded ? `<span>Overall ${pctTxt(sc.overall)}</span><span>${sc.done} / ${sc.total} days passed</span>` : "")}
+    <div class="card gs-card scx-card">
     ${loaded ? sheetHtml(scoresSheet(me, true)) + sheetHtml(detailSheet(sc)) : `<p class="bs-none scx-pad">Collecting your grades…</p>`}
     <p class="sc-how">${HOW}</p></div></div>`;
 }
@@ -194,9 +196,8 @@ function renderAll(){
   if(!ALL.rows){ if(!ALL.loading) loadAll(); return `<div class="scx-page scx-wide"><div class="card gs-card scx-card"><p class="bs-none scx-pad">Collecting every trainee's grades…</p></div></div>`; }
   const batches = [...new Set(ALL.rows.map(r => batchOf(r.batch)).filter(Boolean))].sort();
   const rows = shownRows(), picked = rows.find(r => r.id === ALL.pick);
-  return `<div class="scx-page scx-wide"><div class="card gs-card scx-card">
-    ${sheetTop("Scorecards", `<span class="gs-batch"><label>Batch <select onchange="cmScorecard.batch(this.value)"><option value="">All batches</option>${batches.map(b => `<option ${b === ALL.batch ? "selected" : ""}>${E(b)}</option>`).join("")}</select></label></span>`,
-      `<button onclick="cmScorecard.csv()">⬇ Download</button><button onclick="window.print()">🖨 Print</button><button onclick="cmScorecard.refresh()">↻ Refresh</button>`)}
+  return `<div class="scx-page scx-wide">${sheetTop("Scorecards", ALL.batch ? `Batch <b>${E(ALL.batch)}</b>` : "All batches", `<label class="scx-bpick">Batch <select onchange="cmScorecard.batch(this.value)"><option value="">All batches</option>${batches.map(b => `<option ${b === ALL.batch ? "selected" : ""}>${E(b)}</option>`).join("")}</select></label><button onclick="cmScorecard.csv()">⬇ Download</button><button onclick="window.print()">🖨 Print</button><button onclick="cmScorecard.refresh()">↻ Refresh</button>`, `<span>${rows.length} trainee${rows.length === 1 ? "" : "s"}</span>`)}
+    <div class="card gs-card scx-card">
     ${sheetHtml(scoresSheet(rows, false))}
     ${picked ? sheetHtml(detailSheet(picked.sc, picked.name)) : rows.length ? `<p class="bs-note scx-pad">Click a trainee in 🏅 Scores for their grades in detail.</p>` : ""}
     <p class="sc-how">${HOW}</p></div></div>`;
@@ -221,36 +222,52 @@ window.cmScorecard = {
 
 const css = document.createElement("style"); css.id = "cm-scorecard";
 css.textContent = `
-/* Google Sheets' look, as Foundational Training's Batch Sheet (js/ft-overall.js, js/ft-batch-sheet.js) */
+/* Foundational Training's Batch Sheet, the standard for scorecards (its js/ft-overall.js and js/ft-batch-sheet.js): the navy
+   banner, Google Sheets' grid, and its contrast — bold dark text, bigger type, visible gridlines, tinted scores */
 .scx-page{max-width:none;margin:0 auto;padding:4px 0 24px;}
+.ft-banner{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap;padding:16px 18px;border-radius:12px;background:linear-gradient(135deg,#1E2340,#33406B);color:#fff;margin:0 0 12px;}
+.ft-banner h2{margin:2px 0 !important;font:800 26px 'Fraunces',Georgia,serif !important;color:#fff !important;}
+.ft-banner .ft-banner-k{margin:0 !important;font:800 12px Arial,sans-serif !important;letter-spacing:.08em;text-transform:uppercase;color:#F6C08F !important;}
+.ft-banner .ft-banner-sub{margin:2px 0 0 !important;color:#E8ECF7 !important;font:600 15px Arial,sans-serif !important;} .ft-banner .ft-banner-sub b{color:#fff !important;}
+.ft-banner-right{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.ft-banner-right span{font:800 13px Arial,sans-serif;padding:4px 11px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);color:#fff;}
+.ft-banner-ctl{flex-basis:100%;margin-top:6px;}
+.scx-banner .gs-menu{display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+.scx-banner .gs-menu button{border:2px solid #fff;background:#fff;color:#1E2340;font:800 13px Arial,sans-serif;padding:5px 10px;border-radius:7px;cursor:pointer;white-space:nowrap;box-shadow:0 1px 0 rgba(0,0,0,.06);}
+.scx-banner .gs-menu button:hover{background:#EEF1F8;}
+.scx-bpick{display:inline-flex;align-items:center;gap:6px;font:800 15px Arial,sans-serif;color:#fff;margin-right:6px;}
+.scx-bpick select{font:800 15px Arial,sans-serif;padding:5px 9px;border:2px solid #fff;border-radius:7px;background:#E8EDFB;color:#1E2340;}
 .gs-card.scx-card{padding:0;overflow:hidden;font-family:Arial,'Roboto',sans-serif;background:#fff;border:1px solid #E1E3E1;border-radius:12px;}
-.gs-top{display:flex;align-items:center;gap:12px;padding:10px 14px 6px;background:#F9FBFD;border-bottom:1px solid #E1E3E1;}
-.gs-logo{font-size:26px;} .gs-file{display:flex;flex-direction:column;gap:2px;} .gs-file b{font:400 18px Arial,sans-serif;color:#1F1F1F;}
-.gs-menu{display:flex;gap:2px;flex-wrap:wrap;} .gs-menu button{border:0;background:none;font:14px Arial,sans-serif;color:#1F1F1F;padding:3px 7px;border-radius:4px;cursor:pointer;} .gs-menu button:hover{background:#E8EAED;}
-.gs-batch{margin-left:auto;font:13px Arial,sans-serif;color:#444746;display:flex;align-items:center;gap:6px;}
-.gs-batch select{font:700 15px Arial,sans-serif;padding:5px 8px;border:1px solid #C4C7C5;border-radius:4px;background:#fff;}
-.scx-card .bs-sec{padding:12px 14px 4px;} .scx-card .bs-h{margin:0 0 2px;font:800 17px Arial,sans-serif;color:#1E2340;} .scx-card .bs-h span{font:400 12px Arial,sans-serif;color:#5F6368;margin-left:6px;}
-.scx-card .bs-note{margin:0 0 8px;font:13px Arial,sans-serif;color:#444746;} .scx-pad{padding:14px;} .bs-none{color:#5F6368;}
-.scx-card .gs-wrap{overflow:auto;max-height:62vh;background:#fff;border:1px solid #E2E3E3;}
-.scx-card .gs{border-collapse:separate;border-spacing:0;font:13px Arial,sans-serif;color:#1F1F1F;}
-.scx-card .gs th,.scx-card .gs td{border-right:1px solid #E2E3E3;border-bottom:1px solid #E2E3E3;padding:4px 8px;white-space:nowrap;height:21px;}
-.scx-card .gs thead{position:sticky;top:0;z-index:3;} .scx-card .gs-letters th{background:#F8F9FA;color:#5F6368;font-weight:400;font-size:12px;text-align:center;min-width:90px;}
-.scx-card .gs-head th{background:#F8F9FA;font-weight:700;text-align:center;white-space:normal;min-width:90px;max-width:160px;line-height:1.25;}
+.scx-card .bs-sec{padding:14px 14px 6px;border-top:1px solid #E1E3E1;} .scx-card .bs-sec:first-child{border-top:0;}
+.scx-card .bs-h{margin:0 0 2px;font:800 21px Arial,sans-serif;color:#141A2E;} .scx-card .bs-h span{font:400 13px Arial,sans-serif;color:#5F6368;margin-left:6px;}
+.scx-card .bs-note{margin:0 0 8px;font:600 14.5px Arial,sans-serif;color:#2E3450;} .scx-pad{padding:14px;} .bs-none{color:#5F6368;font-style:italic;}
+.scx-card .gs-wrap{overflow:auto;max-height:70vh;background:#fff;border:1px solid #9AA3B5;border-radius:4px;}
+.scx-card .gs{border-collapse:separate;border-spacing:0;font:16px Arial,sans-serif;color:#141A2E;}
+.scx-card .gs th,.scx-card .gs td{border-right:1px solid #AEB6C6;border-bottom:1px solid #AEB6C6;padding:7px 11px;white-space:nowrap;height:30px;}
+.scx-card .gs thead{position:sticky;top:0;z-index:3;}
+.scx-card .gs-letters th{background:#F8F9FA;color:#5F6368;font-weight:400;font-size:12px;text-align:center;min-width:90px;height:22px;padding:2px 8px;}
+.scx-card .gs-head th{background:#F8F9FA;font:800 15.5px Arial,sans-serif;color:#141A2E;text-align:center;white-space:normal;min-width:110px;max-width:220px;line-height:1.25;}
 .scx-card .gs-corner,.scx-card .gs-rn{position:sticky;left:0;z-index:4;background:#F8F9FA !important;color:#5F6368;font-weight:400 !important;font-size:12px;text-align:center;width:40px;min-width:40px !important;}
 .scx-card thead .gs-corner,.scx-card thead .gs-rn{z-index:5;}
-.scx-card .gs .gs-frz{position:sticky;left:41px;z-index:2;background:#fff;box-shadow:2px 0 0 #C4C7C5;}
+.scx-card .gs .gs-frz{position:sticky;left:41px;z-index:2;background:#fff;box-shadow:2px 0 0 #9AA3B5;}
 .scx-card .gs-letters .gs-frz,.scx-card .gs-head .gs-frz{z-index:4;background:#F8F9FA;}
-.scx-card .gs-name{font-weight:700;min-width:190px;} .scx-card .gs-batch{font-family:'IBM Plex Mono',monospace;font-size:12px;margin:0;}
-.scx-card .gs-num{text-align:right;} .scx-card .gs-rank{text-align:center;font-weight:700;color:#B5651F;}
-.scx-card .gs-calc{background:#F1F3F4;} .scx-card .gs-bold{font-weight:700;}
-.scx-card .gs-hi{color:#137333;} .scx-card .gs-mid{color:#B06000;} .scx-card .gs-lo{color:#C5221F;}
-.scx-card .gs-txt{white-space:normal !important;min-width:240px;max-width:420px;} .scx-card .gs-det{color:#5F6368;}
+.scx-card .gs td{font-weight:700;color:#141A2E;} .scx-card .gs td.gs-name{font-weight:800;min-width:200px;}
+.scx-card td.gs-batch{font:700 13px 'IBM Plex Mono',monospace;color:#2E3450;}
+.scx-card .gs-num{text-align:right;} .scx-card .gs-rank{text-align:center;font-weight:800;color:#B5651F;}
+.scx-card .gs-calc{background:#F1F3F4;} .scx-card .gs-bold{font-weight:800;}
+.scx-card td.gs-hi{color:#0B5D1E;background:#E6F4EA;} .scx-card td.gs-mid{color:#7A4B00;background:#FFF4E0;} .scx-card td.gs-lo{color:#A50E0E;background:#FDE8E8;}
+.scx-card .gs-txt{white-space:normal !important;min-width:260px;max-width:520px;} .scx-card td.gs-det{color:#3C4043;font-weight:600;}
 .scx-card .gs td{cursor:cell;outline:none;} .scx-card .gs td:focus{box-shadow:inset 0 0 0 2px #1A73E8;}
-.scx-card tr[onclick] td{cursor:pointer;} .scx-card tr[onclick]:hover td{background:#F1F6FE;}
-.scx-card tr.gs-picked td{background:#E8F0FE;} .scx-card tr.gs-sys td{background:#F8F9FA;font-weight:700;} .scx-card tr.gs-total td{background:#FEF7E0;font-weight:700;}
-.scx-card .sc-how{margin:10px 14px 14px;font:12.5px Arial,sans-serif;color:#5F6368;}
-@media(max-width:640px){ .gs-top{flex-wrap:wrap;} .gs-batch{margin-left:0;} }
-@media print{ .topbar,.tfb-fab,footer,.gs-menu{display:none !important;} .scx-card .gs-wrap{max-height:none;overflow:visible;} }
+.scx-card tr[onclick] td{cursor:pointer;} .scx-card tr[onclick]:hover td:not(.gs-hi):not(.gs-mid):not(.gs-lo){background:#F1F6FE;}
+.scx-card tr.gs-picked td.gs-name{background:#E8F0FE;box-shadow:inset 4px 0 0 #1A73E8,2px 0 0 #9AA3B5;}
+/* (a grading system's row: a band across the table, its items indented under it; the overall a navy band, as Foundational's) */
+.scx-card tr.gs-sys td{background:#E8ECF6;color:#1E2340;font-weight:800;border-top:2px solid #AEB6C6;} .scx-card tr.gs-sys td.gs-hi,.scx-card tr.gs-sys td.gs-mid,.scx-card tr.gs-sys td.gs-lo{border-top:2px solid #AEB6C6;}
+.scx-card tr:not(.gs-sys):not(.gs-total) td.gs-frz{background:#F8FAFD;}
+.scx-card tr.gs-sys td.gs-hi{color:#0B5D1E;background:#CFEBD8;} .scx-card tr.gs-sys td.gs-mid{color:#7A4B00;background:#FFE7BF;} .scx-card tr.gs-sys td.gs-lo{color:#A50E0E;background:#F9D0D0;}
+.scx-card tr.gs-total td{background:#1E2340 !important;color:#fff !important;font-weight:800;} .scx-card tr.gs-total td:last-child{color:#FDE68A !important;}
+.scx-card .sc-how{margin:10px 14px 14px;font:600 13.5px Arial,sans-serif;color:#2E3450;}
+@media(max-width:640px){ .ft-banner h2{font-size:22px !important;} }
+@media print{ .topbar,.tfb-fab,footer,.ft-banner-ctl{display:none !important;} .scx-card .gs-wrap{max-height:none;overflow:visible;} .ft-banner{-webkit-print-color-adjust:exact;print-color-adjust:exact;} }
 `;
 document.head.appendChild(css);
 })();

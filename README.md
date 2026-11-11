@@ -358,8 +358,10 @@ the share of its checks passed; `net-sheet`), 🛠 Skill Builders (each tool's b
 🎯 Graded Calls (`callsim:<id>`), 🧰 Portal Simulators (`simresults:<id>`) and 🎲 Random Tasks (each resolved task's grade).
 
 - **The format is Foundational's Batch Sheet** (its `js/ft-batch-sheet.js` and `js/ft-overall.js`), the standard for
-  scorecards: Google Sheets' look, with column letters, row numbers, the first column frozen and each cell's working in
-  its hover.
+  scorecards: its navy banner (the kicker, the title, the batch, the sheet's buttons in it) and Google Sheets' grid, with
+  column letters, row numbers, the first column frozen and each cell's working in its hover, at its contrast: bold dark
+  text, bigger type, visible gridlines, scores tinted green / amber / red, each grading system a band across the table and
+  the overall a navy band.
 - **Trainers:** 🏅 Scorecards in the top bar (`#/scorecard`): **🏅 Scores**, a row per approved trainee (Trainee, Batch,
   Days passed, a column per grading system, the Overall % and the Rank), filtered by batch, with ⬇ Download (.csv),
   🖨 Print and ↻ Refresh. Clicking a trainee opens **🔎 Grades in detail** under it: each grading system's row with its
