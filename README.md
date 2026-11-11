@@ -345,6 +345,21 @@ A firm keeps a backup drive of every case document in one folder structure every
 - **Setting it up (an admin, once):** `GOOGLE_CLIENT_ID` (a plain variable) and `GOOGLE_CLIENT_SECRET` (a secret) on this Worker. In that Google Cloud project: turn the **Google Drive API** on, add the `…/auth/drive.file` scope to the OAuth consent screen, and put this site's address among the OAuth client's **Authorized JavaScript origins**. Until both are set, `/api/drive` says the Backup Drive isn't switched on, the dashboard card stays away and nothing else is blocked. It is the same Google set-up the CMS's Doc Hub backup uses; a separate OAuth client is fine.
 - **Test:** `.github/scripts/cm-drive.cjs` (no browser needed) checks the structure is a tree with a rule for every folder, that every one of the case file's folders has a home on the drive, that the scopes stay at `drive.file`, that the Day 1 grading passes the firm's own structure while refusing a missing, misspelled, invented or misordered folder, and that both grades reach the trainee's account.
 
+## 🏅 The Scorecard (as in Foundational Training)
+
+Set up like Foundational Training's Scorecard, without its task trackers and monitoring sheets (`js/cm-scorecard.js`).
+Every grading system lists its graded items; a system's score is the average of its items, and the overall is the average
+of the systems that have a score, so each counts the same. The systems: ✍️ Knowledge Checks (each Case Flow day), 🧩
+Learning Checks (each module's composite, AI × 0.60 + trainer × 0.40, the automated half until the trainer scores it), 📝
+Takeaways, 🧪 Skill Activities (the work log's graded activities, the latest of each), 🛠 Skill Builders (each tool's best),
+🎯 Graded Calls (`callsim:<id>`), 🧰 Portal Simulators (`simresults:<id>`) and 🎲 Random Tasks (each resolved task's grade).
+
+- **Trainees:** 🏅 My Performance in the top bar (`#/scorecard`): the overall ring and a card per grading system, 🖨 Print.
+- **Trainers:** 🏅 Scorecards at the same address: every approved trainee in one table, filtered by batch, a row opening
+  that trainee's cards, ⬇ CSV for the batch.
+- It only reads: `trainee:<id>` (its `caseFlow` summary, `dayProgress` and `practiceProgress`), `progress:<id>` (`work-log`,
+  `task-log`), `callsim:<id>` and `simresults:<id>`, in one get-many.
+
 ## 📞 Graded calls (the Call Simulator on ☎ LSH Ring Channel)
 
 The Call Simulator is **☎ LSH Ring Channel's** — the training phone itself (the lshringchannel repo). Every Call Simulator link here opens it through the Main Portal, signed in and in its own tab: `https://cm-training-activity.pages.dev/simulators/call.html?program=CM&line=<line>` (`&mode=graded` for the line's graded call) → `/api/launch?tool=ringchannel&to=calls` → the phone's 🎧 Practice. The phone rings, the trainee answers with a headset and works the call with the phone's own keys (mute, hold, transfer) and 🔎 Case lookup; a trainer can ring the same phone for a live mock call. A **graded** call (a caller unknown until the debrief) counts here: the Training Portal (its `/api/call-results`) keeps the trainee's graded calls in this program's store as `callsim:<trainee id>`, by line, and the Worker lets the trainee read it but never write it. The dashboard band's **Graded calls** card (`js/graded-calls.js`) shows the best graded call on each line, averaged, with the lines and calls taken; each line's best is in its tooltip. **Note on the call packs:** Ring Channel's scenario library is the Foundational pack on three lines (Reception and Calendar Management on the Main Line, Intake on the Intake Line), so a CM step that names a line Ring Channel doesn't have (Nguyen Case Calls, Client Communication, Attorney Reporting, Adjusters & Carriers, Providers & Records) lands the trainee on the phone's line picker. Those calls are added on Ring Channel itself — a trainer writes them in its **📚 Scenarios**, or they are ported into its `src/scenarios.js`. It's read once a page load and again when the trainee comes back to the tab (at most every two minutes).

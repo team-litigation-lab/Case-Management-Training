@@ -232,10 +232,10 @@ const PRACTICE_SUBVIEWS = ["tool","calls","tools","crisisroleplay"];
 // The three Drafting Tools (js/cm-lor.js, js/cm-hipaa.js, js/cm-medprov.js) each get their own address;
 // "drafting" is the hub page that links to all three (js/cm-drafting.js).
 const DRAFTING_SUBVIEWS = ["lor","hipaa","medprov"];
-window.EXTRA_ROUTE_VIEWS = ["casedocs", "drafting"].concat(DRAFTING_SUBVIEWS);
+window.EXTRA_ROUTE_VIEWS = ["casedocs", "drafting", "scorecard"].concat(DRAFTING_SUBVIEWS);
 // Page names for the "← Back to …" button, matching this top bar.
 window.EXTRA_ROUTE_LABELS = {clientprofile:"Case File", casedocs:"Documents", practice:"Practice", notes:"Notes",
-  drafting:"Drafting Tools", handouts:"Knowledge Base", lor:"Drafting Tools", hipaa:"Drafting Tools", medprov:"Drafting Tools"};
+  drafting:"Drafting Tools", handouts:"Knowledge Base", scorecard:"My Performance", lor:"Drafting Tools", hipaa:"Drafting Tools", medprov:"Drafting Tools"};
 function renderTopbar(){   // trainees never see an admin sign-in (🛡 Admin is for admins only): admins come in from the Portal (?admin=1)
   let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","Notes"],["handouts","📚 Knowledge Base"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
   if(state.isAdmin){
@@ -245,6 +245,8 @@ function renderTopbar(){   // trainees never see an admin sign-in (🛡 Admin is
     views.push(["orientation","🧭 Orientation"]);
     views.push(["facilitatorguide","Facilitator Guide"]);
   }
+  // 🏅 the Scorecard (js/cm-scorecard.js): a trainee's own grades, or every trainee's for a trainer
+  if(typeof renderScorecardPage === "function" && (state.isAdmin || state.traineeId)) views.push(["scorecard", state.isAdmin && !state.adminPreview ? "🏅 Scorecards" : "🏅 My Performance"]);
   return `
   ${state.adminPreview ? `<div class="view-mode-strip">👁 <b>Trainee view</b> — you're seeing the portal as a trainee sees it (every day unlocked for preview). <button type="button" onclick="setAdminViewMode('admin')">Switch back to Admin view</button></div>` : ""}
   <div class="topbar ${state.mobileNavOpen?'nav-open':''}">
