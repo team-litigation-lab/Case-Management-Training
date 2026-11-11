@@ -865,6 +865,7 @@ function renderPresenterConsole(d){
             <button class="btn btn-ghost" onclick="presenterStep(-1)">← Previous</button>
             <button class="btn btn-ghost btn-sm" onclick="presenterJump(0)" title="Go back to the first slide">⏮ Slide 1</button>
             <select id="pvJump" onchange="presenterJump(this.value)" title="Jump to a slide">${slides.map((s,i)=>`<option value="${i}" ${i===idx?"selected":""}>${i+1}. ${esc(daySlideTitle(d,s))}</option>`).join("")}</select>
+            <button class="btn btn-ghost btn-sm" onclick="openRoadmap()" title="See all ${DAYS.length} days at a glance">🗺 Roadmap</button>
             <button class="btn btn-primary" onclick="presenterStep(1)">Next →</button>
           </div>
           <div class="pv-next"><b>Up next:</b> <span id="pvNext">${presenterNextText(d)}</span></div>

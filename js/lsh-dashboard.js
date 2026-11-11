@@ -36,6 +36,9 @@
       if(!body){ const head = card.querySelector(".module-head"); if(!head) return html; head.insertAdjacentHTML("afterend", `<div class="module-body"></div>`); body = card.querySelector(".module-body"); }
       if(!body.querySelector(".module-icon") && typeof DAY_ICONS !== "undefined" && DAY_ICONS[d.id]) body.insertAdjacentHTML("afterbegin", `<div class="module-icon">${DAY_ICONS[d.id]}</div>`);
       body.insertAdjacentHTML("beforeend", `<div class="module-theme">${esc(d.theme)}</div>`);
+      // the theme now names the day on the card, so the title above it keeps only the day ("Case Flow Day 1"), not the theme twice
+      const ti = card.querySelector(".mh-title"), sep = String(d.title || "").lastIndexOf(" · ");
+      if(ti && sep > 0 && String(d.title).slice(sep + 3).trim() === String(d.theme).trim()) ti.textContent = String(d.title).slice(0, sep);
       return card.outerHTML;
     };
     moduleCard.__clean = true; moduleCard.__theme = true;
