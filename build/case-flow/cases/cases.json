@@ -1,0 +1,1120 @@
+{
+  "c01": {
+    "title": "Tessa Marlowe v. Glen Oberly",
+    "theme": "Conflict of interest",
+    "hook": "The Conflict Check finds that the firm signed up the client's own driver five days ago, from the same crash, against the same thin policy.",
+    "type": "Motor vehicle: intersection crash, rear-seat passenger, three people injured",
+    "client": "Tessa Marlowe, 27, a dental hygienist, was the rear-seat passenger in her friend Colby Haines's sedan. Her sister found the firm online and set the intake call six days after the crash.",
+    "facts": [
+      "Glen Oberly's pickup turned left across the sedan's lane at Larch Street and Fifth Avenue on a green light.",
+      "The police report cites Oberly for failure to yield, but one witness says Colby was going about 12 mph over the limit.",
+      "A second passenger, Colby's roommate Ines Vardaman, was also hurt and is not a firm client.",
+      "The Conflict Check on every full legal name returns an active firm matter: Colby Haines, opened five days earlier for his own injuries.",
+      "Tessa wants the firm because 'Colby said you were great.'"
+    ],
+    "coverage": "Oberly carries BI of $25,000 per person and $50,000 per accident with Copperfield Casualty. Colby's sedan is insured by Tallgrass Mutual with BI $50,000 per person, UM $25,000 and MedPay $5,000; Tessa owns no car.",
+    "injuries": "Seat-belt bruising, a left wrist sprain and a concussion with headaches and light sensitivity. She was seen at Fernway Regional ER the night of the crash and has a neurology referral.",
+    "days": {
+      "1": {
+        "title": "The Conflict Check hits",
+        "situation": "Six days after the crash, the intake call is set and the Conflict Check runs on Tessa, Glen Oberly, Colby Haines and Ines Vardaman. It returns an open firm matter: Colby Haines, signed five days earlier from the same crash. Tessa's sister is on hold asking when the firm will 'call the insurance.' Tessa's sedan ride means she may have a claim against Colby's own policy, and Oberly's adjuster is already blaming Colby's speed.",
+        "task": "Stop the intake before any facts or documents are taken, log the hit, and route it to Atty. Thorne with what the check found and what it did not.",
+        "attorneyAsks": [
+          "Why can't we just open Tessa's file today, since Colby and Tessa are on the same side against Oberly?",
+          "What exactly did you tell Tessa's sister while she was on hold?",
+          "What do you need from me before anything else moves on this file?"
+        ],
+        "strongAnswer": [
+          "The Conflict Check is logged with its date, the names searched and the hit: Colby Haines, open matter, same crash, opened five days earlier.",
+          "No matter is opened, no retainer, HIPAA or facts are taken, and nothing from Colby's file is read for Tessa's call.",
+          "Tessa and Colby may be adverse: she could claim on his Tallgrass BI, and they compete for Oberly's $50,000 per-accident limit with Ines.",
+          "The sister heard only a neutral line: the firm is completing a routine check and an attorney will call back within one business day.",
+          "Routed to Atty. Thorne in writing the same hour, with the callback promise and Tessa's contact details on a pending-intake note."
+        ],
+        "attorneysCall": "Whether the firm can take Tessa at all, whether informed written consent from both clients is possible, and whether to decline and refer her out are Atty. Thorne's decisions alone.",
+        "watchFor": "Opening the file and starting the PD and rental calls 'to save time' before the conflict is cleared."
+      },
+      "2": {
+        "title": "Consent with limits, and who we call",
+        "situation": "Two days later Atty. Thorne takes Tessa on signed informed consent from her and Colby. The firm will pursue Oberly and Copperfield only, will make no claim on Colby's Tallgrass BI, and Thorne may have to withdraw if fault shifts to Colby. Now the letters of representation go out, Tallgrass calls about Tessa's MedPay, and Colby phones the CM asking how Tessa's concussion is doing.",
+        "task": "Send the letters of representation the waiver allows, set up MedPay correctly, and build a Case Plan with the conflict limits written into it.",
+        "attorneyAsks": [
+          "Which carriers get a letter of representation from us on Tessa's file, and for what claims?",
+          "Colby is our client too. Why can't you tell him how Tessa is doing?",
+          "Where does the conflict show up in the Case Plan?"
+        ],
+        "strongAnswer": [
+          "An LOR to Copperfield on Oberly's BI, and an LOR to Tallgrass for MedPay only, worded so it asserts no BI claim against Colby.",
+          "Each client's medical facts, statements and settlement talk stay in their own file; Colby is told politely that the firm cannot discuss another client.",
+          "Tallgrass's call is logged and answered for MedPay only; any question about Colby's driving is routed to Atty. Thorne.",
+          "The Case Plan's risk band lists the signed waivers, the BI claim we cannot make, the shared $50,000 limit and the trigger to escalate.",
+          "Both files carry an ethical-wall note in the CMS, and the waivers are filed under the correspondence category."
+        ],
+        "attorneysCall": "What the waivers cover, whether a separate attorney should advise Tessa on a claim against Colby, and how the limits are explained to each client belong to Atty. Thorne.",
+        "watchFor": "Treating the two clients as one family and sharing updates, records or offers between their files."
+      },
+      "3": {
+        "title": "Two clients, one thin policy",
+        "situation": "Tessa's Specials audit at $14,880 (ER $4,120, neurology $3,960, PT $5,300, wages $1,500). Copperfield's adjuster, Wendell Ashby, writes that Oberly's $50,000 per-accident limit must cover Tessa, Colby and Ines. He offers $18,000 for Tessa and adds, 'Your other client was speeding, so your firm knows liability is split.' He asks the CM which client the firm wants paid first.",
+        "task": "Audit Tessa's Specials, draft her Net Sheet on the $18,000 offer, and prepare a note on the adjuster's letter for Atty. Thorne without answering the allocation question.",
+        "attorneyAsks": [
+          "Ashby wants us to pick which client gets paid first. What did you say to him?",
+          "What does Tessa's Net Sheet look like at $18,000, and what is missing from it?",
+          "Does this letter change anything about the conflict?"
+        ],
+        "strongAnswer": [
+          "Nothing to Ashby on allocation or liability; his letter is acknowledged in writing and routed to Atty. Thorne the same day.",
+          "Net Sheet at $18,000: fee 33⅓% $6,000, costs $410, MedPay paid $5,000 with no reimbursement right confirmed in writing, so net before liens about $11,590.",
+          "Missing: the neurology bill's final balance and Tallgrass's written answer on MedPay reimbursement, both flagged as open.",
+          "The split-limit fight and Colby's speed put the two clients in direct competition, which is the escalation trigger in the Case Plan.",
+          "Every Ashby contact is logged on Tessa's file only, with nothing from Colby's file used or quoted."
+        ],
+        "attorneysCall": "How a shared limit is divided, whether the offer is answered, and whether the conflict can still be waived after this letter are Atty. Thorne's calls, with each client deciding on their own settlement.",
+        "watchFor": "Telling the adjuster the firm wants both clients paid 'fairly' or confirming anything about Colby's driving."
+      },
+      "4": {
+        "title": "Mediation with both clients in the room",
+        "situation": "Copperfield proposes a global mediation for all three claimants on Oberly's $50,000. Atty. Thorne decides Tessa will be advised on allocation by outside counsel, Atty. Priscilla Nwosu, while the firm keeps her case. The CM must build the mediation binder, resolve Tessa's $2,940 PT balance under an LOP, and draft release language for review. Ines's attorney asks the CM for Tessa's ER records 'to compare injuries.'",
+        "task": "Build Tessa's mediation binder separately from Colby's, send the PT lien reduction request Thorne approves, and calendar the mediation and the binder deadline.",
+        "attorneyAsks": [
+          "Ines's lawyer wants Tessa's ER records. What happens to that request?",
+          "How do you keep two mediation binders for the same crash from crossing?",
+          "What does the release need to say about Colby?"
+        ],
+        "strongAnswer": [
+          "No records to Ines's attorney; the request is logged and routed to Atty. Thorne, since sharing needs Tessa's written authorization and his approval.",
+          "Two binders, built and stored in separate CMS folders, with an index check that no page from Colby's file is in Tessa's.",
+          "The PT balance reduction request goes out only after Thorne sets the number, and the provider's written answer is filed.",
+          "The release draft is flagged for Thorne: it must release Oberly and Copperfield only, not Colby or Tallgrass, unless he decides otherwise.",
+          "Mediation date, binder due date and Atty. Nwosu's contact are on the calendar with reminders."
+        ],
+        "attorneysCall": "Bringing in outside counsel, the allocation among claimants, the lien compromise and the release terms are Atty. Thorne's decisions; the settlement number is Tessa's, on advice.",
+        "watchFor": "Using one binder template for both clients and leaving the other client's records in the copy."
+      },
+      "5": {
+        "title": "Our two clients become opponents",
+        "situation": "Mediation fails at $15,000 for Tessa. Atty. Thorne files suit against Oberly. Thirty-four days after service, Oberly's defense counsel files a third-party complaint against Colby Haines, alleging his speed caused the crash. The firm's two clients are now adverse parties in the same lawsuit. Tessa's deposition is noticed for six weeks out, and Colby texts the CM, 'Are you guys suing me now?'",
+        "task": "Calendar every new deadline from the third-party complaint, prepare a conflict memo for Atty. Thorne, and handle Colby's text without discussing the case.",
+        "attorneyAsks": [
+          "What do you write back to Colby tonight?",
+          "If I decide we must withdraw from one or both clients, what does your file transfer look like?",
+          "Which deadlines are you watching right now?"
+        ],
+        "strongAnswer": [
+          "Colby gets a short reply: Atty. Thorne will call him, the CM cannot discuss the lawsuit; the text and reply are logged on his file.",
+          "Conflict memo to Thorne: the third-party complaint, its service date, the waivers' withdrawal clause, and each client's open deadlines.",
+          "Answer deadline on the third-party complaint, Tessa's deposition date and discovery due dates calendared with two reminders each.",
+          "A transfer packet ready: a complete file index, the medical and lien ledgers, the calendar, and the client's signed consent to release the file.",
+          "No deposition prep or strategy notes are shared across the two files while the decision is pending."
+        ],
+        "attorneysCall": "Whether the firm withdraws from Colby, from Tessa or from both, the court filings to do it, and what each client is told about why are Atty. Thorne's calls.",
+        "watchFor": "Reassuring Colby that 'nobody is really suing you' and so giving legal advice to a client on the other side."
+      }
+    }
+  },
+  "c02": {
+    "title": "Andre Whitlock v. Simone Pratt",
+    "theme": "Undisclosed prior injury",
+    "hook": "The client swears he never hurt his back before; his own doctor's chart says otherwise, and the adjuster already knows.",
+    "type": "Motor vehicle: rear-end collision on a highway off-ramp",
+    "client": "Andre Whitlock, 44, a forklift operator and father of two, was rear-ended while stopped on an off-ramp. A coworker referred him; he called the firm four days after the crash.",
+    "facts": [
+      "Simone Pratt's SUV hit Andre's pickup at about 30 mph while she was looking at her phone.",
+      "She admitted at the scene she 'never saw him stop,' and the police report cites her for following too closely.",
+      "On the intake form Andre checked 'No' to every prior-injury question and said, 'My back was perfect.'",
+      "His pickup has a crushed tailgate and bent frame rail; the body shop estimate is $9,850."
+    ],
+    "coverage": "Pratt carries BI $50,000 per person with Lantern Auto Insurance. Andre's own Wrenfield Insurance policy carries UIM $25,000 and PIP $10,000; his health plan is Sunvale Health Plan through his employer.",
+    "injuries": "Low back pain radiating down the left leg; an MRI at Hollis Imaging shows an L4-L5 disc herniation. He is in PT at Fernbrook Physical Therapy and has a spine consult booked.",
+    "days": {
+      "1": {
+        "title": "The 'No' on the intake form",
+        "situation": "Four days after the crash Andre signs up. The Conflict Check is clear. On the prior-injury questions he answers 'No' fast, but when asked about his primary care doctor he says, 'I don't go much, maybe for my back once.' He also wants the firm to get his pickup fixed this week, and Lantern has offered a rental for only ten days.",
+        "task": "Open the matter, record exactly what Andre said about his medical history in his own words, and set up the Property Damage claim and the rental.",
+        "attorneyAsks": [
+          "He said 'maybe for my back once.' What did you do with that?",
+          "Why does it matter on day one whether he had a prior back problem?",
+          "What did you tell him about the do's and don'ts?"
+        ],
+        "strongAnswer": [
+          "The CMS intake note quotes him word for word, with the date, and lists the primary care doctor's name for the records request.",
+          "A HIPAA authorization covers prior records, so the file can request five years of primary care history, not just post-crash care.",
+          "The do's and don'ts are given: tell every provider the full history, no social media posts, no talking to Lantern, keep receipts.",
+          "PD claim opened with Lantern, the $9,850 estimate filed, rental end date calendared and the client told the date in writing.",
+          "A flag to Atty. Thorne: the history question is unresolved and needs records before anything is said to a carrier."
+        ],
+        "attorneysCall": "How to talk with Andre about his history, and what a prior condition means for the claim's value, belong to Atty. Thorne.",
+        "watchFor": "Writing 'no prior injuries' into the CMS as a confirmed fact when the client's own words left a doubt."
+      },
+      "2": {
+        "title": "The records tell a different story",
+        "situation": "Twenty-three days after the crash, Andre's primary care records from Dr. Celia Brandt arrive. Twenty-six months before the crash she charted 'chronic low back pain after a lifting injury at work, left leg tingling,' with six chiropractic visits and a workers' compensation claim. Sunvale's notice of its reimbursement right arrives the same week. Andre has missed two PT sessions, saying his back 'is just old stuff now.'",
+        "task": "Log the prior records against the intake answers, prepare a neutral summary for Atty. Thorne, and address the missed PT visits with the client.",
+        "attorneyAsks": [
+          "Do you call Andre and tell him he lied on the intake form?",
+          "What does 'it's just old stuff' in a PT gap do to this file?",
+          "What do you do with Sunvale's notice?"
+        ],
+        "strongAnswer": [
+          "No accusation and no legal opinion to Andre; the conflict between his answers and the records goes to Atty. Thorne in a one-page summary.",
+          "The summary lists the date, provider, body part, symptoms and the workers' comp claim, and asks Thorne how he wants the client conversation handled.",
+          "The two missed visits are logged as a gap; the CM calls Andre to ask why and encourages him to follow his provider's plan.",
+          "His 'old stuff' remark is recorded in his words, since the adjuster will argue the pain is the prior injury.",
+          "Sunvale's notice is logged in the Lien Tracker, acknowledged in writing, and an itemized ledger is requested."
+        ],
+        "attorneysCall": "Whether to request the workers' comp file, how to address the intake answers with Andre, and what to ask the treating doctor about aggravation are Atty. Thorne's calls.",
+        "watchFor": "Leaving the prior records out of the file summary because they 'hurt the case.'"
+      },
+      "3": {
+        "title": "The adjuster pulls the claim history",
+        "situation": "Andre's Specials audit at $31,640, and Atty. Thorne sends a demand for the $50,000 BI limit. Lantern's adjuster, Roland Dekker, answers with a claims-history report showing the old workers' comp claim and an MRI from back then reading 'L4-L5 disc bulge.' He offers $12,000, calling the herniation 'pre-existing degeneration.' Andre calls, angry, saying the firm 'should have hidden that.'",
+        "task": "Pull the prior MRI, line it up against the new one in a records table for Atty. Thorne, and check the Specials for any pre-crash charges.",
+        "attorneyAsks": [
+          "Andre says we should have hidden the old claim. How do you answer him?",
+          "What is in your records table, and what question does it raise for the doctor?",
+          "Is anything in the Specials that shouldn't be there?"
+        ],
+        "strongAnswer": [
+          "Andre is told calmly that the firm never hides records, and that Atty. Thorne will call him to talk about the offer.",
+          "The table puts the old MRI (bulge, no nerve contact) beside the new one (herniation touching the left L5 nerve root), dated and sourced.",
+          "It flags the question for Thorne: whether the treating doctor will address aggravation of a prior condition.",
+          "The Specials audit removes a $185 chiropractic visit dated a week before the crash and confirms every other line is post-crash.",
+          "Dekker's letter and offer are logged and routed; nothing about value or the prior injury is said to him."
+        ],
+        "attorneysCall": "Whether to request an aggravation opinion from the doctor, how to answer the $12,000 offer and the theory of aggravation are Atty. Thorne's decisions.",
+        "watchFor": "Telling the client that a prior injury 'doesn't matter legally' or that it 'kills the case.'"
+      },
+      "4": {
+        "title": "Sunvale bills for the old back",
+        "situation": "The case settles at mediation for $42,000 after the spine surgeon's letter says the crash aggravated a prior bulge into a herniation. Sunvale's lien ledger asserts $8,920, but $2,310 of it is pain-management visits from ten months before the crash. The release Lantern sends asks Andre to swear he 'disclosed all prior injuries' to Lantern. PIP has paid $10,000 and Wrenfield's UIM consent to settle is still pending.",
+        "task": "Audit Sunvale's ledger line by line, flag the release language and the pending UIM consent, and update the Net Sheet.",
+        "attorneyAsks": [
+          "Which Sunvale lines are wrong, and how do you dispute them?",
+          "What is the problem with the release's sworn statement?",
+          "Can we disburse before Wrenfield answers on consent?"
+        ],
+        "strongAnswer": [
+          "The $2,310 of pre-crash visits are disputed in writing with dates and codes, asking for a corrected itemization; the lien would drop to $6,610.",
+          "The release's disclosure clause is flagged to Atty. Thorne word for word; the CM does not edit it or explain it to Andre.",
+          "Disbursement waits until Wrenfield's written consent to settle is filed and every lien has a final written amount.",
+          "Net Sheet updated: $42,000 gross, 33⅓% fee $14,000, costs, the corrected Sunvale lien and the PIP note, marked 'draft for Thorne.'",
+          "Mediation outcome, release deadline and consent request date are calendared."
+        ],
+        "attorneysCall": "Any Sunvale reduction beyond correcting errors, changes to the release language and when to disburse are Atty. Thorne's calls.",
+        "watchFor": "Paying the lien as billed because 'it's the health plan's number.'"
+      },
+      "5": {
+        "title": "The interrogatories say 'none'",
+        "situation": "Suppose instead the case went to suit against Pratt when Lantern stayed at $12,000. A trainee CM drafted Andre's interrogatory answers from the intake form, and question 14 says he had 'no prior injuries to the back.' They are due in eight days. His deposition is set for five weeks out, and defense counsel has subpoenaed the workers' comp file. Andre says, 'Just say what I said before.'",
+        "task": "Catch the answer that conflicts with the records, mark it for Atty. Thorne before anything is signed, and prepare the deposition prep packet.",
+        "attorneyAsks": [
+          "What is wrong with the draft answer to question 14, and how did you catch it?",
+          "Andre wants to repeat his intake answer. What do you tell him?",
+          "What goes in his deposition prep packet?"
+        ],
+        "strongAnswer": [
+          "The draft is checked against the records table: question 14 conflicts with Dr. Brandt's chart and the workers' comp claim, flagged with page cites.",
+          "Andre is told the CM cannot tell him what to say; Atty. Thorne will meet him before he signs anything under oath.",
+          "The due date is calendared with a reminder three days before, and nothing is served until Thorne approves the final answers.",
+          "The prep packet has both MRIs, the prior records, the surgeon's aggravation letter, the intake note in his words and a timeline.",
+          "The subpoena for the workers' comp file is logged and the response date calendared."
+        ],
+        "attorneysCall": "The final wording of sworn answers, how Andre testifies about his history and any comparative or credibility strategy are Atty. Thorne's alone.",
+        "watchFor": "Serving discovery answers copied from the intake form without checking them against the medical records."
+      }
+    }
+  },
+  "c03": {
+    "title": "Lucia Ferraro v. Wade Kessling",
+    "theme": "Lien dispute",
+    "hook": "A hospital refused to bill her health plan, filed a lien for full price, and three lienholders now claim more than the settlement can carry.",
+    "type": "Motor vehicle: T-bone collision, red-light runner",
+    "client": "Lucia Ferraro, 52, a school bus dispatcher and widow, was driving home when her car was struck on the driver's side. Her son called the firm eleven days after the crash.",
+    "facts": [
+      "Wade Kessling ran a red light at Orchard Road and Mill Pond Way; two witnesses and a traffic camera back her.",
+      "She was taken by ambulance to St. Aldric Medical Center and had wrist surgery the next morning.",
+      "She handed the ER her Kestrel Care Health Plan card, but St. Aldric sent a hospital lien notice instead of billing the plan.",
+      "Her sedan is a total loss; she owes $3,200 more on the loan than its value.",
+      "A surgeon at Pemberton Hand & Upper Limb is treating her under an LOP."
+    ],
+    "coverage": "Kessling carries BI $100,000 per person with Quillmark Mutual. Lucia's own Saltmeadow Insurance policy has UIM $50,000, MedPay $5,000 and collision with a $500 deductible; Kestrel Care is her employer's health plan.",
+    "injuries": "A displaced left wrist fracture fixed with a plate, a rib fracture and a shoulder strain. She is in hand therapy three times a week and off work for at least eight weeks.",
+    "days": {
+      "1": {
+        "title": "A lien notice before the retainer",
+        "situation": "Eleven days after the crash Lucia signs with the firm. The Conflict Check is clear. Her son hands over a St. Aldric letter: a hospital lien for $38,400 'against any recovery,' with no bill sent to Kestrel Care. The car is a total loss, the loan gap is $3,200, and Quillmark's rental ends in five days. Lucia asks, 'Do I have to pay the hospital this?'",
+        "task": "Open the matter, log the lien notice and every lienholder you can see so far, and set up the total-loss and rental steps.",
+        "attorneyAsks": [
+          "Lucia asked if she has to pay the hospital. What did you say?",
+          "What did you put in the Lien Tracker on day one?",
+          "What happens with the car and the rental this week?"
+        ],
+        "strongAnswer": [
+          "No answer on her legal duty; she is told Atty. Thorne will review the lien and not to sign or pay anything from St. Aldric meanwhile.",
+          "Lien Tracker entries: St. Aldric $38,400 (date received, notice date, hospital account number), Kestrel Care (expected) and the Pemberton LOP.",
+          "The hospital is asked in writing for an itemized bill and the date it recorded the lien, and to bill Kestrel Care.",
+          "Total-loss steps: Quillmark's valuation requested, the lender's payoff letter ordered, the gap coverage checked, the rental end date calendared and given to Lucia.",
+          "Do's and don'ts delivered: forward every bill to the firm, no talking to Quillmark about injuries."
+        ],
+        "attorneysCall": "Whether the hospital lien is valid and enforceable, and what Lucia owes, are legal questions for Atty. Thorne.",
+        "watchFor": "Telling the client 'hospital liens always get reduced' to calm her down."
+      },
+      "2": {
+        "title": "Three claims on one recovery",
+        "situation": "Twenty-eight days after the crash, the letters of representation are out and the coverage stack is verified at $150,000 (BI $100,000, UIM $50,000). Kestrel Care's recovery vendor, Arbor Subrogation, writes that the plan is self-funded and will 'not accept any reduction, common fund or made-whole argument.' St. Aldric still refuses to bill the plan. Lucia skips hand therapy for nine days because Pemberton's front desk told her the LOP 'might not cover therapy.'",
+        "task": "Request the plan's documents, confirm the LOP's scope with Pemberton, and get Lucia back into hand therapy.",
+        "attorneyAsks": [
+          "Why does it matter whether Kestrel Care is self-funded, and how do you find out?",
+          "What do you do about the nine-day therapy gap?",
+          "Should we tell St. Aldric to bill the plan or let the lien stand?"
+        ],
+        "strongAnswer": [
+          "A written request to Arbor for the full plan document and the Summary Plan Description, not just its letter; self-funded status shapes which rules apply.",
+          "The plan's claim is logged separately from the hospital lien, with the date of Arbor's notice and its no-reduction language quoted.",
+          "Pemberton's office manager is called: the LOP's written scope is confirmed and sent; any coverage question goes to the firm, not the client.",
+          "Lucia is called the same day, the gap and its reason logged, therapy rescheduled, and she is encouraged to follow her provider's plan.",
+          "The St. Aldric billing question is routed to Atty. Thorne with the hospital's letter and the plan card."
+        ],
+        "attorneysCall": "Whether the plan's no-reduction language holds, whether to push the hospital to bill the plan, and any lien strategy are Atty. Thorne's decisions.",
+        "watchFor": "Accepting the recovery vendor's letter as the plan's full terms without asking for the plan document."
+      },
+      "3": {
+        "title": "The Net Sheet doesn't add up",
+        "situation": "Lucia's Specials audit at $68,950 billed: St. Aldric $38,400, Pemberton $11,800, hand therapy $9,600, ambulance $1,950 and lost wages $7,200. Atty. Thorne sends a Time-Limited Demand and Quillmark tenders its $100,000 BI limit on day 26 of 30. On a draft Net Sheet, the fee, costs and the three liens as asserted leave Lucia $9,140. She cries on the phone: 'I'm the one who got hurt.'",
+        "task": "Build the Net Sheet with every lien as asserted, show where each number comes from, and log what Lucia said for Atty. Thorne.",
+        "attorneyAsks": [
+          "Walk me through the Net Sheet line by line. Where does $9,140 come from?",
+          "Which lien numbers do you trust, and which do you not?",
+          "What did you tell Lucia when she cried?"
+        ],
+        "strongAnswer": [
+          "Gross $100,000; fee 33⅓% $33,333.33; costs $1,126.67; St. Aldric $38,400; Arbor (Kestrel Care) $6,200; Pemberton $11,800; net $9,140.",
+          "St. Aldric's $38,400 is chargemaster price; the $6,200 is Arbor's own estimate with no itemization; Pemberton's bill is audited.",
+          "Each lien is marked 'as asserted, under review', and the UIM claim is flagged as not yet in the number.",
+          "Lucia hears empathy and facts only: the numbers are a draft, Atty. Thorne will go over them; no promise of a reduction.",
+          "Her words are logged, and a call with Thorne is set within two business days."
+        ],
+        "attorneysCall": "Accepting the tender, pursuing the $50,000 UIM, and the plan for reducing each lien are Atty. Thorne's calls; accepting the settlement is Lucia's, on his advice.",
+        "watchFor": "Showing the client a Net Sheet with guessed reductions already taken."
+      },
+      "4": {
+        "title": "Lienholders who won't move",
+        "situation": "Atty. Thorne approves reduction requests. St. Aldric refuses any cut, citing its lien statute. Arbor finally itemizes at $6,840 but includes $1,120 for Lucia's diabetes visits. Pemberton offers 20% off. Saltmeadow pays the $50,000 UIM after written consent, so the gross is $150,000. The release from Quillmark asks Lucia to 'indemnify and hold harmless' Kessling against every lien.",
+        "task": "Prepare each reduction package, dispute Arbor's unrelated lines, update the Net Sheet, and set up the trust hold for any disputed amount.",
+        "attorneyAsks": [
+          "What goes in a reduction request package to St. Aldric?",
+          "If St. Aldric still won't move, can we disburse to Lucia?",
+          "What is your concern about the hold-harmless clause?"
+        ],
+        "strongAnswer": [
+          "St. Aldric's package: the itemized bill, the plan card showing coverage it refused to bill, the Net Sheet and Lucia's hardship letter, sent only on Thorne's approval.",
+          "Arbor's $1,120 of diabetes visits are disputed with dates and codes; the plan lien would drop to $5,720.",
+          "Undisputed funds may go out on Thorne's approval; the full disputed St. Aldric amount stays in the trust account until resolved in writing.",
+          "The hold-harmless clause is flagged to Thorne: Lucia would carry any lien we miss, so every lienholder's final written amount must be on file.",
+          "The trust ledger shows each held amount, its lienholder and the date it was held."
+        ],
+        "attorneysCall": "Every lien compromise number, whether to challenge the hospital lien, what is held in trust and the release terms are Atty. Thorne's decisions.",
+        "watchFor": "Paying the undisputed liens and Lucia's share while leaving too little in trust to cover the hospital's full claim."
+      },
+      "5": {
+        "title": "The hospital goes around us",
+        "situation": "Five weeks after the settlement funds clear, St. Aldric sends Lucia's account to a collection agency, which calls her at work. Atty. Thorne files a motion asking the court to decide the lien amount, and St. Aldric's billing director, Harmon Pike, is set for deposition. Lucia stops returning calls after the collection call, and her son says she is 'scared to pick up the phone.'",
+        "task": "Calendar the motion's hearing and Pike's deposition, prepare a billing exhibit set, and re-engage Lucia through the No Contact Protocol.",
+        "attorneyAsks": [
+          "What exhibits do I need for Harmon Pike's deposition?",
+          "What do you tell the collection agency when it calls?",
+          "How do you get Lucia back on the phone?"
+        ],
+        "strongAnswer": [
+          "Exhibits: the lien notice, the itemized bill, the plan card from the ER, the refusals to bill the plan, the reduction request and its denial.",
+          "The collection agency gets the firm's letter of representation and is told the account is disputed; the call is logged and routed to Thorne.",
+          "Hearing date, deposition date and notice deadlines calendared with reminders; the court reporter booked.",
+          "Lucia is reached by call, text and email on different days, then her son as emergency contact, with no case details shared.",
+          "Her share already paid and the held amount are confirmed on the trust ledger so the closing memo can be drafted after the ruling."
+        ],
+        "attorneysCall": "The motion, deposition questioning, any settlement with the hospital and whether to act against the collection agency are Atty. Thorne's calls.",
+        "watchFor": "Telling the collection agency the lien is 'invalid' or giving it Lucia's settlement details."
+      }
+    }
+  },
+  "c04": {
+    "title": "Kenji Moreland v. Patrice Dunleavy",
+    "theme": "Client wants to settle now",
+    "hook": "Rent is two months late, his car is his paycheck, and he wants the first offer even though his shoulder MRI is still a week away.",
+    "type": "Motor vehicle: side-swipe while merging, gig delivery driver",
+    "client": "Kenji Moreland, 31, a single father who delivers groceries through two apps, was side-swiped on his way to a pickup. He found the firm on a bus-stop ad and called three days after the crash.",
+    "facts": [
+      "Patrice Dunleavy merged into Kenji's lane on Route 9 and admits she 'didn't check the blind spot.'",
+      "Kenji earns about $1,100 a week from deliveries and cannot work without his car.",
+      "His landlord has served a late-rent notice; he owes $2,600.",
+      "At intake he asks, 'How fast can I get a check? I'll take whatever they give.'"
+    ],
+    "coverage": "Dunleavy carries BI $30,000 per person with Bayridge Insurance. Kenji's Oakmont Assurance policy has PIP $10,000 and no UIM; his children are on Medicaid and he is on a marketplace plan, Brightfield Health.",
+    "injuries": "Right shoulder pain with limited lifting and neck strain. Urgent care referred him to Linden Sports Medicine; a shoulder MRI is ordered to rule out a rotator cuff tear.",
+    "days": {
+      "1": {
+        "title": "'How fast can I get a check?'",
+        "situation": "Three days after the crash Kenji signs. The Conflict Check is clear. His car needs $6,300 of repairs, Bayridge accepted liability on the PD, and the rental agency only has a compact that won't fit his delivery bags. He asks the CM three times how much his case is worth and says he'll 'call Bayridge himself' if the firm is slow.",
+        "task": "Open the matter, set up the PD repair and rental, and deliver the do's and don'ts, logging his questions about value and speed.",
+        "attorneyAsks": [
+          "He asked what his case is worth. What exactly did you say?",
+          "How do you handle the rental that doesn't fit his work?",
+          "What did you put in the file about his money pressure?"
+        ],
+        "strongAnswer": [
+          "No number and no timeline promise; value is Atty. Thorne's to discuss, and a call with Thorne is set this week.",
+          "Do's and don'ts given in writing: no talking to Bayridge, no signing anything, keep treating, forward every letter.",
+          "PD: repair estimate filed, Bayridge asked in writing for a comparable vehicle given his delivery work, rental end date calendared.",
+          "Loss-of-use for delivery income is documented with app earnings screenshots for the last 12 weeks.",
+          "His financial pressure, the late-rent notice and his 'I'll call them myself' remark are logged word for word and flagged to Thorne."
+        ],
+        "attorneysCall": "What the case may be worth, how long it may take and any advice about settling are Atty. Thorne's to give.",
+        "watchFor": "Giving the client a 'ballpark' number to calm him down."
+      },
+      "2": {
+        "title": "The adjuster's quick-check offer",
+        "situation": "Sixteen days after the crash, despite the letter of representation, Bayridge adjuster Celeste Fairbanks calls Kenji directly and offers $3,500 'today, if you sign a release.' Kenji calls the CM excited. He has missed four PT visits to work extra shifts, his MRI is in six days, and Brightfield has sent notice that it wants to be paid back from any settlement.",
+        "task": "Document the direct contact, alert Atty. Thorne, handle Kenji's call without advising him, and address his treatment gap.",
+        "attorneyAsks": [
+          "Kenji wants to sign for $3,500. What do you say to him?",
+          "What do you do about Fairbanks calling a represented client?",
+          "How do you talk to him about the missed PT visits without lecturing him?"
+        ],
+        "strongAnswer": [
+          "Kenji is told the decision is his, made with Atty. Thorne's advice, and that Thorne will call him today before he signs anything.",
+          "The call is logged with time, his words and the offer; Fairbanks gets a written reminder that the firm represents him and all contact goes through it.",
+          "Thorne is alerted the same hour, in writing, with the MRI date and the treatment still open.",
+          "The four missed visits are logged as a gap; the CM asks about evening PT slots and encourages him to follow his provider's plan.",
+          "Brightfield's notice is logged in the Lien Tracker and an itemized ledger requested."
+        ],
+        "attorneysCall": "Advising Kenji on the $3,500 offer and whether to settle before the MRI is Atty. Thorne's role; the final decision is Kenji's.",
+        "watchFor": "Telling Kenji 'don't take it, it's too low,' which is legal advice."
+      },
+      "3": {
+        "title": "He orders us to take $9,000",
+        "situation": "The MRI shows a partial rotator cuff tear, and the surgeon recommends an injection first, surgery possible. Specials so far are $14,260. Atty. Thorne demands the $30,000 BI limit; Bayridge offers $9,000. Kenji emails: 'Take the $9,000. I need it now. Stop wasting time.' Thorne is in trial until Thursday.",
+        "task": "Prepare the Net Sheet at $9,000, acknowledge Kenji's email, and give Atty. Thorne a summary so he can advise Kenji.",
+        "attorneyAsks": [
+          "What does Kenji net at $9,000?",
+          "I'm in trial until Thursday. What did you tell Kenji, and what did you tell Bayridge?",
+          "How do you document a client's instruction like this?"
+        ],
+        "strongAnswer": [
+          "Net Sheet at $9,000: fee 33⅓% $3,000, costs $240, Brightfield lien $1,980 as asserted, PIP no reimbursement confirmed; about $3,780 before any reduction.",
+          "The sheet notes the open treatment and the possible surgery cost not yet in the Specials.",
+          "Kenji gets a written reply the same day: his instruction is received, Atty. Thorne will call him Thursday, nothing is accepted or rejected before then.",
+          "Bayridge hears nothing about his instruction or his finances; the offer is acknowledged as under review.",
+          "His email is filed, and the instruction and the call date are logged for Thorne."
+        ],
+        "attorneysCall": "Advising Kenji about the offer and communicating acceptance or rejection to Bayridge belong to Atty. Thorne; whether to settle is Kenji's decision.",
+        "watchFor": "Accepting the offer for the client because 'he told us to in writing' without the attorney."
+      },
+      "4": {
+        "title": "The funding company lien",
+        "situation": "After talking with Atty. Thorne, Kenji waits. Without telling the firm, he signs a pre-settlement funding contract with Swiftline Advance for $2,000; it now claims $3,450 and sends a lien notice. At mediation Bayridge offers $22,000; Kenji wants to accept before lunch. He asks the CM to 'just lend him $500 from the settlement' until it pays.",
+        "task": "Log the funding lien, get its written payoff, update the Net Sheet for the mediation offer, and answer his loan request within the rules.",
+        "attorneyAsks": [
+          "Can the firm advance Kenji $500 until the settlement pays?",
+          "What does the Swiftline lien do to his Net Sheet at $22,000?",
+          "What goes in the mediation binder about his finances?"
+        ],
+        "strongAnswer": [
+          "No loan from the CM or the firm; his request is logged and routed to Atty. Thorne, who decides what the rules allow.",
+          "Swiftline's contract and lien notice filed, a written payoff with its daily growth requested, and its calendar date set.",
+          "Net Sheet at $22,000: fee $7,333.33, costs $1,180, Brightfield $1,980, Swiftline $3,450 as asserted; net about $8,057 before reductions.",
+          "The binder has the medical summary, Specials, MRI and the surgeon's plan, and nothing about rent or funding.",
+          "Kenji's wish to accept is passed to Thorne at mediation in a written note, not decided by the CM."
+        ],
+        "attorneysCall": "Whether the firm can help with costs, any reduction of the Brightfield or Swiftline liens, and advice on the $22,000 are Atty. Thorne's; acceptance is Kenji's.",
+        "watchFor": "Telling the client the funding company 'can't legally charge that much.'"
+      },
+      "5": {
+        "title": "He wants to fire us and settle",
+        "situation": "Suppose Kenji rejected $22,000 and the case went to suit. Two weeks before his deposition, he texts the CM: 'I'm firing you. I'll call Bayridge and take $12,000 myself.' His interrogatory answers are due in nine days, Swiftline's lien grows daily, and defense counsel asks whether he 'still wants to talk directly.'",
+        "task": "Log his message, route it to Atty. Thorne at once, protect the open deadlines, and prepare a file status summary.",
+        "attorneyAsks": [
+          "Is a text from Kenji enough to end our representation?",
+          "Defense counsel wants to talk to Kenji directly. What do you say?",
+          "Which deadlines can't slip while this plays out?"
+        ],
+        "strongAnswer": [
+          "The text is logged and routed to Atty. Thorne within the hour; the CM confirms receipt to Kenji and says Thorne will call him today.",
+          "Defense counsel is told in writing that the firm still represents Kenji and all contact goes through Atty. Thorne.",
+          "Interrogatory due date and deposition date stay calendared with reminders; work on both continues until Thorne says otherwise.",
+          "A file status summary is ready: offers, liens with payoff growth, Specials, deadlines and what a new attorney or Kenji would need.",
+          "No pressure, no argument with Kenji about his choice; every contact is logged."
+        ],
+        "attorneysCall": "Confirming the discharge, any withdrawal filing, the charging lien for fees and costs, and advising Kenji on going without counsel are Atty. Thorne's calls.",
+        "watchFor": "Arguing with the client to change his mind, or stopping work on deadlines the moment he says 'you're fired.'"
+      }
+    }
+  },
+  "c05": {
+    "title": "Danielle Osei v. Harlow Regional Transit",
+    "theme": "Missed deadline risk",
+    "hook": "A city bus hit her, and the short government notice clock started the day of the crash, long before anyone at the firm looked at it.",
+    "type": "Motor vehicle: public transit bus ran a red light",
+    "client": "Danielle Osei, 38, a pharmacy technician and mother of three, was driving to work when a bus struck her car's rear quarter. She called the firm nineteen days after the crash.",
+    "facts": [
+      "The Harlow Regional Transit bus entered Bramwell Avenue on a red light, per the bus's own camera and two passengers.",
+      "The transit authority is a separate government body, not the city, and is self-insured through a claims administrator, Corvane Risk Services.",
+      "For training, the file assumes a written notice of claim to the authority within 180 days, and a one-year suit deadline against it; confirm the governing statutes.",
+      "For training, her PIP application is due within 30 days of the crash.",
+      "The intake template has no field for a government defendant."
+    ],
+    "coverage": "The transit authority is self-insured, with damages capped at $100,000 per person for training. Danielle's Pinecrest General policy carries PIP $10,000 and UIM $50,000.",
+    "injuries": "Neck and mid-back strain, a lumbar disc protrusion on MRI and post-traumatic headaches. She is in chiropractic care at Ashgrove Spine & Wellness and sees a neurologist.",
+    "days": {
+      "1": {
+        "title": "The clocks already running",
+        "situation": "Nineteen days after the crash Danielle signs up. The Conflict Check on her, the bus driver Lyle Brantford and the transit authority is clear. The CMS's intake template only creates the standard two-year SOL. Her PIP application is unsigned in her purse, and her car is at a tow yard charging $45 a day.",
+        "task": "Open the matter and calendar every deadline the file assumes, not only the default SOL, then get the PIP application out and the car out of storage.",
+        "attorneyAsks": [
+          "Which deadlines did you put on the calendar today, and from what date did you count each?",
+          "What happens if the PIP application goes out on day 31?",
+          "What do you do about the tow yard?"
+        ],
+        "strongAnswer": [
+          "Calendared: PIP application, day 30, 11 days left; notice of claim, day 180; one-year suit deadline; the standard SOL, each counted from the crash date with reminders.",
+          "Each is marked 'training assumption, Atty. Thorne to confirm the statute,' and a note goes to Thorne the same day.",
+          "The PIP application is signed today and sent to Pinecrest with the letter of representation, with proof of delivery filed.",
+          "The tow yard charges are logged, and Pinecrest is asked about moving the car to a shop to stop storage costs.",
+          "The missing government field is reported to the CMS lead so the next file gets it."
+        ],
+        "attorneysCall": "Which notice and limitation rules apply, and what the notice must contain, are legal questions only Atty. Thorne can answer.",
+        "watchFor": "Trusting the CMS's default two-year SOL on a government defendant."
+      },
+      "2": {
+        "title": "The notice went to the wrong office",
+        "situation": "Sixty-two days after the crash, the city clerk writes back: the notice of claim the firm mailed the city is 'not ours; the transit authority is a separate entity.' A temp CM had addressed it from a city website. Danielle has missed eleven days of chiropractic care because Pinecrest hasn't paid and Ashgrove is pressing her. Ashgrove offers to treat on an LOP.",
+        "task": "Escalate the misdirected notice at once, document how it happened, and get Danielle back into care.",
+        "attorneyAsks": [
+          "How many days are left on the notice, and what is your plan?",
+          "Do you just mail a new notice to the transit authority yourself?",
+          "What do you do about the eleven-day gap and the LOP offer?"
+        ],
+        "strongAnswer": [
+          "118 days remain on the 180-day notice; the clerk's letter is routed to Atty. Thorne within the hour, in writing.",
+          "An incident note records who sent what, to whom, on what date, and how it was caught, with no blame and nothing deleted.",
+          "The CM finds the transit authority's correct notice address from its own published claims page and gives it to Thorne for his approval.",
+          "Pinecrest's PIP status is checked and the unpaid bills resubmitted; the LOP from Ashgrove is routed to Thorne for approval.",
+          "Danielle is called, the gap logged with her reason, and care rescheduled."
+        ],
+        "attorneysCall": "The content and sending of the corrected notice, and whether the first notice protects anything, are Atty. Thorne's decisions.",
+        "watchFor": "Quietly fixing the error and leaving no record, so nobody knows the deadline was at risk."
+      },
+      "3": {
+        "title": "Counting from the wrong day",
+        "situation": "Specials audit at $27,480. Atty. Thorne sends Corvane a Time-Limited Demand for the $100,000 cap with a 30-day response window. The CMS counted the 30 days from the mailing date, but Corvane's adjuster, Mireille Tasker, writes that it 'received' the demand five days later. She also asks for six months of extra records 'before we can evaluate,' which would push her past the window.",
+        "task": "Recompute the deadline from the carrier's written receipt date, flag the records request to Atty. Thorne, and check the demand's proof of delivery.",
+        "attorneyAsks": [
+          "When does our Time-Limited Demand expire, and how do you know?",
+          "Tasker wants more records and more time. What do you send her?",
+          "What did the Specials audit change?"
+        ],
+        "strongAnswer": [
+          "The deadline is recounted from the receipt date in Tasker's own letter and the delivery confirmation, and the calendar is corrected with a note why.",
+          "Both dates, mailing and receipt, sit side by side in the file so Thorne can decide which controls.",
+          "The records request and the extension question go to Atty. Thorne; the CM sends Tasker only an acknowledgement.",
+          "The Specials audit removed a $340 duplicate chiropractic visit and confirmed PIP paid $10,000.",
+          "Every Corvane contact is logged with its date."
+        ],
+        "attorneysCall": "Whether to extend the demand's deadline, what records to give Corvane, and how to answer a counter-offer are Atty. Thorne's decisions.",
+        "watchFor": "Agreeing to the adjuster's extension on the phone to 'be cooperative.'"
+      },
+      "4": {
+        "title": "The one-year suit deadline",
+        "situation": "Corvane offers $28,000 and won't move, so the file reaches the litigation fork. During the hard-rule calendar audit, the CM finds that the one-year suit deadline against the transit authority is set only as a 'reminder' with no owner, while the two-year SOL is the hard deadline. The suit deadline is ten weeks away. Mediation is set for five weeks out and Pinecrest's UIM needs notice of any settlement.",
+        "task": "Fix the calendar, escalate the finding, and lay out every date from now to the suit deadline for Atty. Thorne.",
+        "attorneyAsks": [
+          "What exactly was wrong on the calendar, and who knows now?",
+          "If mediation fails, how much time is left to file?",
+          "What does Pinecrest's UIM need from us before mediation?"
+        ],
+        "strongAnswer": [
+          "The one-year deadline is set as a hard deadline with an owner, Atty. Thorne, and reminders at 60, 30, 14 and 7 days; the change is logged.",
+          "A written note to Thorne the same day: the error, when it was entered, how it was caught and the ten weeks left.",
+          "The date list shows mediation at week five, leaving five weeks to file if it fails, with the complaint drafting time marked.",
+          "The mediation binder deadline is calendared; Pinecrest gets written notice of the mediation, and its consent is requested before any settlement.",
+          "The CM recommends a calendar check on every open file with a government defendant, routed to the CMS lead."
+        ],
+        "attorneysCall": "When to file suit, whether to file before mediation and any report of the near-miss to the firm's insurer are Atty. Thorne's calls.",
+        "watchFor": "Fixing the date in the CMS without telling the attorney that it was ever wrong."
+      },
+      "5": {
+        "title": "An answer date that slipped",
+        "situation": "Suit was filed with four weeks to spare. Corvane's defense counsel served interrogatories, but the CM logged the email's service date as the date it was opened, three days late. Answers were due yesterday. Defense counsel's letter gives ten days before a motion to compel. Danielle has also moved and her phone is disconnected, so her signed answers can't be obtained.",
+        "task": "Escalate the missed deadline at once, document the timeline, and start skip-tracing Danielle so the answers can be completed.",
+        "attorneyAsks": [
+          "How exactly did we miss the answer date?",
+          "What do you say to defense counsel's paralegal when she calls?",
+          "How do you find Danielle, and what do you do if you can't?"
+        ],
+        "strongAnswer": [
+          "The timeline is written: service date, the logged date, the due date, the error and when it was caught; the note goes to Thorne within the hour.",
+          "The paralegal is told Atty. Thorne will respond; the CM agrees to nothing about extensions and logs the call.",
+          "Draft answers are prepared from the file so only Danielle's review and signature remain, with the ten-day date calendared.",
+          "Skip-tracing: calls and texts on different days, email, her emergency contact, mail to the old address with forwarding, and a search ordered.",
+          "If she can't be found, the CM documents every step for Thorne's withdrawal or dismissal decision."
+        ],
+        "attorneysCall": "Asking for an extension, answering the motion to compel, and any withdrawal if Danielle never resurfaces are Atty. Thorne's decisions.",
+        "watchFor": "Waiting to tell the attorney until the client is found, so the missed deadline sits unreported."
+      }
+    }
+  },
+  "c06": {
+    "title": "Lorraine Batiste v. Hollis Freight Lines",
+    "theme": "Hostile adjuster",
+    "hook": "The trucking company's adjuster keeps calling Lorraine directly, pushes for a recorded statement, rewrites her file in his letters, and dares the Case Manager to argue with him.",
+    "type": "Commercial truck: box truck sideswipe during a highway lane change",
+    "client": "Lorraine Batiste, 44, a dental hygienist and single mother of two teenagers. A coworker referred her to the firm four days after the crash, the same afternoon the trucking company's adjuster first called her at work.",
+    "facts": [
+      "A Hollis Freight Lines box truck merged into Lorraine's sedan on the interstate at about 55 mph.",
+      "The truck driver, Curtis Lomax, told the trooper he \"never saw her\" in his mirror.",
+      "The crash report cites Lomax for an unsafe lane change; a dashcam in the truck may exist.",
+      "Lorraine's sedan was towed to a body shop the trucking company's carrier chose for her.",
+      "Adjuster Glen Marrow of Ironbridge Commercial Insurance called Lorraine three times before she hired the firm."
+    ],
+    "coverage": "Hollis Freight Lines carries a commercial auto policy with Ironbridge Commercial Insurance, $1,000,000 combined single limit. Lorraine's own Sandpiper Auto policy has $50,000 UIM, $5,000 MedPay and collision with a $1,000 deductible.",
+    "injuries": "A partial-thickness tear of the right rotator cuff and a cervical strain. Emergency room the night of the crash, then an orthopedic referral, an MRI and physical therapy twice a week.",
+    "days": {
+      "1": {
+        "title": "The adjuster calls first",
+        "situation": "Four days after the crash, Glen Marrow calls Lorraine at her dental office for the third time. He tells her she \"doesn't need a lawyer for a simple claim,\" asks to record her statement \"so we can release your car,\" and says Ironbridge won't approve a rental until liability is decided. Lorraine signs with the firm that evening and asks the Case Manager what to do if he calls again.",
+        "task": "Run the Conflict Check on Hollis Freight Lines, Curtis Lomax and Ironbridge, open the matter in the CMS, and get the letter of representation to Marrow the same day.",
+        "attorneyAsks": [
+          "What did you tell Lorraine to do the next time Glen Marrow calls her?",
+          "How do we get Lorraine a car this week if Ironbridge won't pay for a rental yet?",
+          "What did you put in the CMS about his three calls before she hired us?"
+        ],
+        "strongAnswer": [
+          "Logs all three pre-retention calls in the CMS with date, time, what Marrow said and what Lorraine said, from her own account.",
+          "Sends the letter of representation by email and certified mail: all contact through the firm, no recorded statement.",
+          "Gives Lorraine the do's and don'ts: be polite, give the firm's number, hang up, call the CM, post nothing online.",
+          "Opens the Property Damage claim and lists the rental options (Ironbridge, her own Sandpiper collision and rental) for Thorne.",
+          "Asks the body shop to hold the car and photos so evidence is not lost before inspection."
+        ],
+        "attorneysCall": "Whether Lorraine opens her own collision and rental coverage now, and anything said to Ironbridge about liability, are Atty. Thorne's calls. The CM lays out the facts and options; he advises.",
+        "watchFor": "Calling Marrow to argue that his contact is illegal or that liability is obvious, instead of sending the letter and logging the calls."
+      },
+      "2": {
+        "title": "The letter that rewrites the file",
+        "situation": "Twenty-two days after the crash, Ironbridge's acknowledgment letter says the claim is \"soft tissue only,\" lists a \"prior right shoulder complaint\" Lorraine never had, and claims the firm's letter of representation never arrived. Lorraine also admits she skipped two weeks of therapy because Marrow told her that \"MedPay won't cover therapy with a lawyer involved.\" Her health plan, Crestline Health, has just sent a reimbursement notice.",
+        "task": "Correct the record in writing with proof of delivery, verify Ironbridge's limits and Sandpiper's coverage in writing, and document the reason for the therapy gap.",
+        "attorneyAsks": [
+          "How do you answer a letter that gets our client's medical history wrong?",
+          "What does Marrow's statement about MedPay do to our treatment gap, and how do we show it?",
+          "Who pays Lorraine's therapy bills now, and in what order?"
+        ],
+        "strongAnswer": [
+          "Sends a short factual correction to Marrow with the certified-mail green card and email receipt attached, and no legal argument.",
+          "Requests the Ironbridge declarations page and Sandpiper's coverage in writing and records both in the Case Plan.",
+          "Writes up the two-week gap with dates, Lorraine's reason in her words, and gets her back on the therapy schedule this week.",
+          "Confirms with Sandpiper in writing that MedPay pays therapy, then submits the held bills.",
+          "Logs Crestline's reimbursement notice, asks for an itemized ledger, and flags it for Thorne."
+        ],
+        "attorneysCall": "Whether Marrow's misstatement about MedPay is a bad-faith issue or goes in the demand is Atty. Thorne's call. The CM gathers the proof and never tells Lorraine what Ironbridge \"can't\" do.",
+        "watchFor": "Letting the false \"prior shoulder complaint\" sit in Ironbridge's file because it seems too obvious to answer."
+      },
+      "3": {
+        "title": "The lowball with a deadline",
+        "situation": "After surgery and therapy, the demand goes out with Specials of $43,140: $36,840 in medical bills and $6,300 in lost wages. On day 28 Marrow offers $9,500, calls the tear \"degenerative\" based on a nurse review, and says the offer \"dies Friday.\" The same week he emails Lorraine directly, asking her to \"consider the offer before your lawyer takes a third.\"",
+        "task": "Confirm the offer in writing, log the second direct contact, and bring Thorne an offer memo with a Net Sheet at $9,500.",
+        "attorneyAsks": [
+          "What exactly did Ironbridge offer, and what did they say it was based on?",
+          "What does Lorraine actually walk away with at $9,500?",
+          "What do we do about his email to our client?"
+        ],
+        "strongAnswer": [
+          "Confirms the $9,500 and the Friday deadline back to Marrow in writing, without countering or commenting on value.",
+          "Pulls the MRI and surgeon's note on acute tear findings so Thorne can answer the \"degenerative\" claim.",
+          "Builds the Net Sheet at $9,500 showing the 33⅓% fee, costs, MedPay and Crestline repayment, and Lorraine's net.",
+          "Saves Marrow's email to Lorraine, logs it as the fourth direct contact, and drafts a second no-contact letter for Thorne's signature.",
+          "Tells Lorraine the offer came in and that Atty. Thorne will call her to discuss it."
+        ],
+        "attorneysCall": "The counteroffer, the answer to the degenerative argument, and whether Lorraine accepts are Atty. Thorne's and Lorraine's decisions. The CM never says the offer is low or fair.",
+        "watchFor": "Telling Marrow the offer is \"insulting\" or quoting a number back to him, which is negotiating without authority."
+      },
+      "4": {
+        "title": "The stall before mediation",
+        "situation": "Thorne countered at $135,000. Ironbridge goes silent for 45 days, then Marrow claims the medical records \"never came\" and needs everything again. Thorne authorizes suit, and the parties agree to mediate in 60 days. Crestline Health now asserts a $14,200 lien, and the surgery center's LOP balance is $8,600.",
+        "task": "Rebuild the delivery proof, calendar every mediation deadline, and assemble the mediation binder with a lien summary for Thorne.",
+        "attorneyAsks": [
+          "Can you prove, document by document, what Ironbridge received and when?",
+          "What is in the mediation binder, and what is still missing?",
+          "Where do the liens stand, and what reductions are we asking for?"
+        ],
+        "strongAnswer": [
+          "Produces a delivery log for every record sent to Ironbridge: date, method, page count and receipt, and resends one indexed set.",
+          "Calendars the mediation statement deadline, the binder exchange date and the mediation itself, with reminders.",
+          "Assembles the binder: crash report, photos, MRI, operative report, Specials, wage proof and the correspondence chronology.",
+          "Requests Crestline's final itemization and the surgery center's balance, and drafts reduction requests for Thorne's approval.",
+          "Keeps notes of Marrow's stall dates for Thorne, stated as facts."
+        ],
+        "attorneysCall": "Filing suit, the mediation position, settlement authority and any lien compromise are Atty. Thorne's calls, with Lorraine's consent on any settlement. The CM prepares and tracks.",
+        "watchFor": "Resending records without a log, so the \"we never got it\" stall can happen again."
+      },
+      "5": {
+        "title": "The statement that wasn't",
+        "situation": "Mediation fails and the suit moves into discovery. Defense counsel produces a three-minute recording from Marrow's first call, in which Lorraine says, \"I didn't see him coming.\" They now argue comparative fault: she sat in the truck's blind spot. Lorraine's deposition is set in five weeks, and she tells the CM she never agreed to be recorded.",
+        "task": "Build a chronology of every Ironbridge contact from the CMS log, calendar discovery deadlines, and handle the deposition logistics.",
+        "attorneyAsks": [
+          "What does our own log say about that first call, and when was it written?",
+          "What deadlines are running in discovery right now?",
+          "How are you getting Lorraine ready for her deposition without coaching her?"
+        ],
+        "strongAnswer": [
+          "Pulls the CMS entries from Day 1 that show the call's date, time and Lorraine's account, with their timestamps.",
+          "Calendars the interrogatory and document-request answers 30 days out and the deposition date, with Thorne's review dates.",
+          "Gathers documents Lorraine may be asked about and schedules her prep session with Thorne.",
+          "Tells Lorraine that Thorne will prepare her, and logs her statement that she never consented to recording."
+        ],
+        "attorneysCall": "Whether the recording is admissible, how to answer comparative fault, and how Lorraine is prepared to testify are Atty. Thorne's calls. The CM never tells her what to say.",
+        "watchFor": "Telling Lorraine how to explain \"I didn't see him coming\" at her deposition, which is coaching testimony."
+      }
+    }
+  },
+  "c07": {
+    "title": "Tobias Mendel v. Carla Voss",
+    "theme": "Client goes silent",
+    "hook": "Tobias signs up from a hospital bed, then his prepaid phone dies, he moves in with a cousin, and a policy-limits offer sits on the desk with no client to answer it.",
+    "type": "Pedestrian: struck in a crosswalk by a driver turning right on red",
+    "client": "Tobias Mendel, 38, a line cook paid hourly, who lives alone in a rented room. His sister called the firm, and he signed the retainer at the hospital three days after the crash.",
+    "facts": [
+      "Tobias was walking home from a late shift, in the crosswalk with the walk signal, at dusk.",
+      "Carla Voss turned right on red and hit him; she told police the low sun blinded her.",
+      "A bus-stop camera across the street may have recorded the crash.",
+      "Tobias uses a prepaid phone and gave an email address he says he \"barely checks.\"",
+      "His sister, Renata Mendel, is the emergency contact; he also named his manager at the restaurant."
+    ],
+    "coverage": "Carla Voss is insured by Lantern Mutual with $50,000 per person in bodily injury coverage. Tobias owns an old car insured with Fairhaven Auto: $25,000 UIM and $5,000 MedPay. He is on a Medicaid managed-care plan, Bayline Community Care.",
+    "injuries": "A left tibial plateau fracture repaired with plates and screws, a concussion and road abrasions. Four days in the hospital, then outpatient physical therapy three times a week, ordered for twelve weeks.",
+    "days": {
+      "1": {
+        "title": "Signed up from a hospital bed",
+        "situation": "Three days after the crash, the Case Manager meets Tobias at St. Brendan Regional with the retainer. He is groggy, worried about rent, and his prepaid phone is almost out of minutes. His shoes, phone screen and work backpack were ruined. He wants to know when \"the money\" comes.",
+        "task": "Run the Conflict Check, open the matter, and record every way to reach Tobias, with his written OK on who may be contacted.",
+        "attorneyAsks": [
+          "How many ways do we have to reach Tobias, and which ones did he approve in writing?",
+          "What did you tell him about talking to Lantern Mutual or posting online?",
+          "Is there any Property Damage on a pedestrian file?"
+        ],
+        "strongAnswer": [
+          "Records cell, email, mailing address, Renata as emergency contact and the restaurant manager, each marked approved or not by Tobias.",
+          "Gets consent to text and notes the prepaid-phone risk in the CMS as a contact flag.",
+          "Gives the do's and don'ts: no statements to Lantern, no posts, keep every appointment, call the firm if the number changes.",
+          "Lists the damaged personal property with estimates and receipts for a property claim with Lantern.",
+          "Tells him that timing and value are Atty. Thorne's to discuss, and books that call."
+        ],
+        "attorneysCall": "What the case may be worth and when it might resolve are Atty. Thorne's to discuss with Tobias. The CM never promises money or a date.",
+        "watchFor": "Taking only one phone number from a client with a prepaid phone and no stable address."
+      },
+      "2": {
+        "title": "The number is not in service",
+        "situation": "Five weeks after the crash, Northlake Physical Therapy reports three no-shows and discharges Tobias. His phone plays a \"not in service\" message, and his email bounces once. Bayline Community Care has sent a notice of its statutory Medicaid lien. The gap in treatment is now nine days and growing.",
+        "task": "Start the No Contact Protocol on every approved channel, log every attempt, and draft the first warning letter for Thorne.",
+        "attorneyAsks": [
+          "Can you walk me through every attempt you made to reach Tobias, and when?",
+          "What may you tell Renata when you reach her, and what may you not?",
+          "What does a growing gap do to this case, and what are you doing about it?"
+        ],
+        "strongAnswer": [
+          "Logs calls on three different days, a text, an email and a letter to the mailing address, each with time and result.",
+          "Calls Renata as emergency contact: asks only that Tobias call the firm, and shares no case details.",
+          "Asks Northlake for the discharge note and missed-visit dates for the gap record.",
+          "Logs Bayline's lien notice, asks for an itemized ledger, and adds it to the Case Plan.",
+          "Notifies Thorne in writing with the log attached and a draft warning letter."
+        ],
+        "attorneysCall": "Sending a warning letter and what it says are Atty. Thorne's calls. The CM drafts it and runs the protocol.",
+        "watchFor": "Telling Renata about the discharge, the lien or the case, when she is only an emergency contact."
+      },
+      "3": {
+        "title": "Limits on the table, no client",
+        "situation": "Thorne demanded the $50,000 limits with Specials of $71,480. Lantern's adjuster, Priscilla Yarrow, tenders the full $50,000 in writing, open 30 days, conditioned on a signed release. Tobias has now been out of contact for eleven weeks. Renata says he moved in with a cousin in another state and \"is just overwhelmed.\"",
+        "task": "Prepare a Net Sheet at the tender, update the contact log, and draft the final warning letter and a tender-deadline calendar entry for Thorne.",
+        "attorneyAsks": [
+          "Can anyone accept Lantern's tender without Tobias?",
+          "What would Tobias net at $50,000, and what has to happen before the UIM claim with Fairhaven?",
+          "What is our plan to reach him before the 30 days run out?"
+        ],
+        "strongAnswer": [
+          "Calendars the tender's 30-day deadline with reminders at day 10, 20 and 25.",
+          "Builds the Net Sheet: $50,000 less the 33⅓% fee, costs, MedPay and the Bayline lien, marked as an estimate.",
+          "Notes for Thorne that Fairhaven's written consent is needed before any BI release so the UIM claim is kept.",
+          "Asks Renata for the cousin's address or a new number, and sends the final warning letter by mail, email and text once Thorne approves.",
+          "Never tells Renata or Yarrow the terms or that Tobias is missing."
+        ],
+        "attorneysCall": "Accepting the tender belongs to Tobias, on Atty. Thorne's advice. Asking Lantern for more time is Thorne's call. The CM never accepts or signs for the client.",
+        "watchFor": "Telling the adjuster the client has vanished, which hands the carrier leverage on the file."
+      },
+      "4": {
+        "title": "Found, but overwhelmed",
+        "situation": "On day 27 of the tender, Tobias calls from a new number. He is behind on rent, embarrassed, and says, \"Just take whatever and send me the check.\" Bayline asserts an $18,950 lien. St. Brendan has a $6,200 hospital lien, and Fairhaven has not yet sent its consent to settle.",
+        "task": "Update every contact field, set Thorne's call with Tobias today, and gather final lien figures, Fairhaven's consent and the release for signing.",
+        "attorneyAsks": [
+          "What did you update in the CMS the moment he called?",
+          "What has to be in hand before Tobias signs Lantern's release?",
+          "What did you say when he told you to just take whatever?"
+        ],
+        "strongAnswer": [
+          "Records the new number, the cousin's address and a backup contact, confirmed with Tobias, and closes the No Contact Protocol.",
+          "Books Thorne's call with Tobias the same day and adds the tender deadline to the call notes.",
+          "Gets Fairhaven's written consent to settle and checks the release releases only Voss and Lantern.",
+          "Requests Bayline's and St. Brendan's final itemizations, and drafts reduction requests for Thorne to approve.",
+          "Sets an e-signature session with identity check, so distance is no barrier."
+        ],
+        "attorneysCall": "The advice on accepting, the release terms, and any lien reduction are Atty. Thorne's. Tobias makes the final decision. The CM does not agree to \"take whatever.\"",
+        "watchFor": "Treating the client's \"just take it\" as authority to accept, without Thorne's advice call."
+      },
+      "5": {
+        "title": "Gone again before arbitration",
+        "situation": "The Lantern settlement closed, and the $25,000 UIM claim against Fairhaven went to arbitration. The hearing is in six weeks, and Fairhaven wants an examination under oath. Tobias has stopped answering again. His new number rings out, and the cousin says he left a month ago.",
+        "task": "Run the No Contact Protocol again, run an approved skip-trace, calendar the hearing deadlines, and send Thorne a status memo.",
+        "attorneyAsks": [
+          "What did the skip-trace show, and what sources did you use?",
+          "What hearing deadlines are we going to miss if he doesn't turn up?",
+          "Do we withdraw, ask for a delay, or keep going?"
+        ],
+        "strongAnswer": [
+          "Runs the firm's approved skip-trace database, public court records and the employer check, and logs each source and result.",
+          "Sends letters to every address found, by mail and email, plus texts and calls on new numbers, all logged.",
+          "Calendars the exam under oath, the exhibit exchange and the hearing, flagging each one he cannot be prepared for.",
+          "Sends Thorne a memo with the full contact history, ready for any withdrawal or continuance decision."
+        ],
+        "attorneysCall": "Whether to seek a continuance, withdraw, or close the file is Atty. Thorne's call, and may need the arbitrator's or court's approval. The CM documents the effort.",
+        "watchFor": "Telling Tobias's cousin the firm will \"drop him,\" which only the attorney can decide."
+      }
+    }
+  },
+  "c08": {
+    "title": "Gloria Pettaway v. Brightfield Market",
+    "theme": "Pressure to give legal advice (UPL)",
+    "hook": "Gloria trusts the Case Manager more than anyone, so she keeps asking: what is it worth, should I sign, should we sue? Her provider and the adjuster push too.",
+    "type": "Premises liability: slip-and-fall on spilled detergent in a grocery store",
+    "client": "Gloria Pettaway, 61, a retired school bus driver and widow who lives with her grandson. She called the firm after a church friend said, \"Ask for the nice case manager there.\"",
+    "facts": [
+      "Gloria slipped on blue liquid detergent in aisle 7 of a Brightfield Market at mid-morning.",
+      "The spill came from a cracked jug; a stock clerk said it had been there \"a little while.\"",
+      "The store manager offered Gloria a $500 gift card if she signed an incident form on the spot.",
+      "She did not sign. Her grandson photographed the spill and the missing wet-floor sign.",
+      "Ceiling cameras cover aisle 7, and the store keeps footage for only 30 days."
+    ],
+    "coverage": "Brightfield Market carries commercial general liability with Granite Shield Casualty, $1,000,000 per occurrence, plus $5,000 of premises medical payments. Gloria has Medicare through a Medicare Advantage plan with Sunridge Health.",
+    "injuries": "A left distal radius fracture set in a cast, a left knee contusion, and a flare of arthritis in the same knee. Emergency room, an orthopedic follow-up, then hand therapy twice a week.",
+    "days": {
+      "1": {
+        "title": "What is my case worth?",
+        "situation": "Six days after the fall, at intake, Gloria asks three times what her case is worth. Her neighbor \"got $200,000 for a fall.\" She also asks whether she should have taken the $500 gift card. Her eyeglasses broke in the fall; the replacement costs $640.",
+        "task": "Run the Conflict Check on Brightfield and Granite Shield, open the matter, and send a preservation letter for the aisle 7 footage today.",
+        "attorneyAsks": [
+          "How did you answer Gloria when she asked what her case is worth?",
+          "Why is the preservation letter going out today and not next week?",
+          "What happens with her broken glasses?"
+        ],
+        "strongAnswer": [
+          "Answers warmly: only Atty. Thorne can talk about value, it depends on things not yet known, and books her call with him.",
+          "Logs each value question in the CMS for Thorne, in Gloria's own words.",
+          "Sends the preservation letter for the footage, incident report, cleaning logs and the clerk's name, given the 30-day deletion.",
+          "Opens a property claim for the $640 glasses with the receipt and the broken frames.",
+          "Gives the do's and don'ts: no forms, no talks with the store, no posts."
+        ],
+        "attorneysCall": "Case value, and whether the gift card offer matters, are Atty. Thorne's to discuss. The CM never names a number, even \"a ballpark.\"",
+        "watchFor": "Saying \"cases like this usually get...\" to comfort the client, which is giving a value opinion."
+      },
+      "2": {
+        "title": "The therapist's opinion",
+        "situation": "Five weeks in, Gloria skips three weeks of hand therapy because of her $40 copays. Her hand therapist, at Linden Hand & Motion, tells her a fracture case is \"six figures, don't take less,\" and asks the CM to promise the LOP gets paid \"from the big settlement.\" Sunridge Health sends a notice of its right to be paid back.",
+        "task": "Get Gloria back in therapy, coordinate the LOP within its written terms, and log Sunridge's reimbursement right.",
+        "attorneyAsks": [
+          "What did you say when the therapist asked you to promise payment?",
+          "Gloria asked you whether to drop Sunridge and go all LOP. What did you tell her?",
+          "How do we explain the three-week gap?"
+        ],
+        "strongAnswer": [
+          "Tells the therapist the LOP's written terms, promises no amount or date, and routes payment questions to Thorne.",
+          "Routes Gloria's Medicare Advantage versus LOP question to Thorne the same day without giving an opinion.",
+          "Writes up the gap with dates and her reason (copays), and gets her rebooked this week.",
+          "Logs Sunridge's notice, asks for an itemized ledger, and notes that Granite Shield's $5,000 med-pay may cover copays.",
+          "Logs the therapist's value comment for Thorne."
+        ],
+        "attorneysCall": "Whether Gloria uses an LOP instead of her Medicare Advantage plan, and how med-pay is used, are Atty. Thorne's calls. The CM never repeats or rebuts the therapist's number.",
+        "watchFor": "Agreeing with the therapist that it's \"definitely a big case\" to keep the provider happy."
+      },
+      "3": {
+        "title": "Would you take it?",
+        "situation": "The demand goes to Granite Shield with Specials of $19,870. Adjuster Wendell Ashby offers $22,000, and tells the CM, \"Between us, she'll never do better at trial.\" Gloria calls that afternoon: \"Would you take it, honey? You know these things.\"",
+        "task": "Confirm the offer in writing, build a Net Sheet at $22,000, and send Thorne an offer memo with Gloria's question.",
+        "attorneyAsks": [
+          "What did you tell Gloria when she asked if you would take it?",
+          "What did you say back to Ashby's \"between us\"?",
+          "What would Gloria actually take home at $22,000?"
+        ],
+        "strongAnswer": [
+          "Says kindly that the decision is hers, made with Atty. Thorne, and books his call within a day.",
+          "Answers Ashby only with a written confirmation of the offer, and no comment on trial or value.",
+          "Builds the Net Sheet: the 33⅓% fee, costs, med-pay and Sunridge's repayment, marked as an estimate.",
+          "Sends Thorne a memo with the offer, Ashby's remarks and Gloria's question, word for word."
+        ],
+        "attorneysCall": "Whether to accept, counter or reject is Gloria's decision on Atty. Thorne's advice. The CM shares no personal opinion, even when asked as a friend.",
+        "watchFor": "Saying \"I'd take it, but it's your call,\" which is still advice."
+      },
+      "4": {
+        "title": "Should we sue?",
+        "situation": "Negotiation stalls at $41,000 against Thorne's $85,000 counter. Granite Shield proposes mediation. Gloria asks the CM, \"Should we sue or mediate? What would you do?\" Sunridge asserts $6,840. Granite Shield's draft release has a confidentiality clause that Gloria asks the CM to explain.",
+        "task": "Calendar the mediation dates, start the mediation binder, request Sunridge's final lien figure, and route the release questions to Thorne.",
+        "attorneyAsks": [
+          "What did you tell Gloria about suing versus mediating?",
+          "What did you tell her the confidentiality clause means?",
+          "What is in the binder so far?"
+        ],
+        "strongAnswer": [
+          "Explains only the process (what a mediation day looks like) and routes the choice to Thorne.",
+          "Does not interpret the release; logs her question and puts it on Thorne's call agenda.",
+          "Requests Sunridge's final itemization and drafts a reduction request for Thorne's approval.",
+          "Starts the binder: incident photos, footage, ER and ortho records, therapy notes, Specials, glasses receipt.",
+          "Calendars the mediation statement deadline and the session."
+        ],
+        "attorneysCall": "Suit versus mediation, what the release clauses mean, and any lien compromise are Atty. Thorne's calls. Gloria makes the final decision.",
+        "watchFor": "Explaining what the confidentiality clause \"basically means\" because the client asked nicely."
+      },
+      "5": {
+        "title": "What should I say about the phone?",
+        "situation": "Mediation failed and suit was filed. The defense now claims comparative fault: the store footage shows Gloria holding her phone as she walks into aisle 7. Her deposition is in three weeks. Gloria asks, \"What should I say about the phone? Should I say I wasn't looking at it?\"",
+        "task": "Calendar discovery answers and the deposition, gather the footage and photos, and set her prep session with Thorne.",
+        "attorneyAsks": [
+          "What did you say when Gloria asked what to say about the phone?",
+          "What discovery deadlines are open?",
+          "What do you send me before her prep session?"
+        ],
+        "strongAnswer": [
+          "Tells her to always tell the truth and that Atty. Thorne will prepare her; gives no wording.",
+          "Logs her question for Thorne before prep.",
+          "Calendars interrogatory and document answers, the deposition and the prep session, with review dates.",
+          "Sends Thorne the footage clip with timestamps, her grandson's photos and the incident report."
+        ],
+        "attorneysCall": "How Gloria answers about the phone, and how comparative fault is defended, are Atty. Thorne's to prepare. The CM never suggests testimony.",
+        "watchFor": "Telling Gloria \"just say you were looking at the shelf,\" which is coaching testimony."
+      }
+    }
+  },
+  "c09": {
+    "title": "Darnell Whitcomb v. Keith Ambrose",
+    "theme": "Family member interfering",
+    "hook": "Darnell's mother calls before he does, books his appointments, gives the firm instructions, and wants the check in her name. Darnell is the client.",
+    "type": "Motorcycle: SUV turns left across the rider's lane at an intersection",
+    "client": "Darnell Whitcomb, 29, an electrician's apprentice who lives alone. His mother, Bernadette Whitcomb, called the firm the morning after the crash; Darnell signed his own retainer two days later.",
+    "facts": [
+      "Keith Ambrose turned left in his SUV across Darnell's lane on a green light, and Darnell laid the bike down.",
+      "Darnell wore a helmet; it cracked, and he was diagnosed with a concussion.",
+      "Two riders behind him stopped and gave statements to police; Ambrose was cited for failure to yield.",
+      "The motorcycle is financed through Corridor Credit Union; Bernadette co-signed the loan.",
+      "Bernadette has a key to Darnell's apartment and is collecting his mail."
+    ],
+    "coverage": "Keith Ambrose is insured by Silverline Insurance with $100,000 in bodily injury. Darnell's Northwind Cycle Insurance policy has $50,000 UIM, $5,000 MedPay and collision. His health plan is the Tri-County Health Trust, a self-funded employer plan.",
+    "injuries": "A right clavicle fracture fixed with a plate, road rash on his left arm and leg, and a concussion with memory and focus problems. Two nights in the hospital, then orthopedics, physical therapy and a concussion clinic.",
+    "days": {
+      "1": {
+        "title": "Mom calls first",
+        "situation": "The morning after the crash, Bernadette calls the firm. She wants to \"sign up for my son,\" tells the CM to \"sue the man,\" and asks for the bike check to come to her because she co-signed the loan. Darnell is in the hospital, awake and talking. Northwind says the motorcycle is likely a total loss.",
+        "task": "Run the Conflict Check, arrange for Darnell to sign his own retainer, and get his written direction on what Bernadette may know.",
+        "attorneyAsks": [
+          "Who is our client, and how did you make that clear to Bernadette?",
+          "Who gets the motorcycle check, and how do you find out?",
+          "What did Darnell put in writing about his mother?"
+        ],
+        "strongAnswer": [
+          "Opens the matter only when Darnell signs his own retainer, and explains this kindly to Bernadette.",
+          "Has Darnell sign an authorization saying exactly what Bernadette may receive, and logs it in the CMS.",
+          "Opens the total-loss claim and confirms the payoff with Corridor Credit Union; the lienholder is paid first by the carrier.",
+          "Logs Bernadette's calls and instructions as information, not direction."
+        ],
+        "attorneysCall": "Who the firm represents, and whether a parent may take any role, are Atty. Thorne's calls with Darnell. The CM takes direction from the client only.",
+        "watchFor": "Opening the file on the mother's say-so because the client is in the hospital."
+      },
+      "2": {
+        "title": "The privacy wall",
+        "situation": "Darnell's authorization lets Bernadette receive appointment times only. Three weeks in, she calls the clinic and the firm for his MRI results. She cancels a therapy visit and takes him to her house out of town, causing a 12-day gap. She says, \"He can't remember anything, so I'm handling it.\" Tri-County sends a reimbursement notice.",
+        "task": "Confirm the scope of the authorization with Darnell directly, document the gap, and flag the memory issue to Thorne.",
+        "attorneyAsks": [
+          "What did you share with Bernadette, and how do you know it was allowed?",
+          "Did Darnell himself ask to cancel that visit?",
+          "What does his memory problem mean for who we take direction from?"
+        ],
+        "strongAnswer": [
+          "Gives Bernadette only appointment times, per the signed form, and says politely that anything more must come from Darnell.",
+          "Calls Darnell directly, confirms his wishes, and logs his own words on the gap and the cancellation.",
+          "Rebooks therapy with Darnell, and tells the clinic the authorization's limits in writing.",
+          "Logs Tri-County's notice and asks for the plan document and an itemized ledger.",
+          "Flags the concussion and memory concerns to Thorne in writing, with the clinic notes."
+        ],
+        "attorneysCall": "Whether Darnell's memory problem affects his capacity to direct the case is Atty. Thorne's call. The CM never decides that a family member is in charge.",
+        "watchFor": "Giving the mother medical details because she sounds worried and is \"family.\""
+      },
+      "3": {
+        "title": "Instructions from the wrong person",
+        "situation": "With Specials of $48,300, Thorne demands the $100,000 limits. Silverline offers $62,000. Bernadette learns of it from mail at Darnell's apartment and emails, \"Accept it today. He needs the money and I'm his mother.\" Darnell, reached separately, says he wants to hear Thorne first.",
+        "task": "Confirm the offer, build a Net Sheet at $62,000, and set Thorne's call with Darnell alone.",
+        "attorneyAsks": [
+          "What did you do with Bernadette's email telling us to accept?",
+          "What does Darnell net at $62,000?",
+          "How do we make sure Darnell hears the offer from us, not his mother?"
+        ],
+        "strongAnswer": [
+          "Logs Bernadette's email, does not act on it, and replies that the firm takes direction only from Darnell.",
+          "Builds the Net Sheet: the 33⅓% fee, costs, MedPay and the Tri-County reimbursement, marked as an estimate.",
+          "Books Thorne's call with Darnell alone at a time he chooses.",
+          "Asks Darnell whether he wants case mail sent somewhere other than his apartment, and records his answer.",
+          "Confirms the offer in writing to Silverline without comment."
+        ],
+        "attorneysCall": "Accepting or countering is Darnell's decision on Atty. Thorne's advice. The CM never treats a parent's instruction as client direction.",
+        "watchFor": "Telling Bernadette the offer amount or the counter, when Darnell never authorized her to know."
+      },
+      "4": {
+        "title": "Who gets the check?",
+        "situation": "Silverline tenders the $100,000 limits. Bernadette says the check must be made out to her because she paid three months of his rent. Tri-County asserts $21,400 and claims full repayment under its plan. Northwind must consent before the BI release is signed.",
+        "task": "Gather Northwind's consent, the Tri-County plan terms and lien figures, and the disbursement plan for Thorne, in Darnell's direction only.",
+        "attorneyAsks": [
+          "How is the settlement check made out, and where does it go?",
+          "What did you tell Bernadette about paying her back?",
+          "What must be done before Darnell signs the release?"
+        ],
+        "strongAnswer": [
+          "Explains that the check goes into the firm's trust account and is paid out per the settlement statement Darnell signs.",
+          "Logs Bernadette's request; notes any payment to her only happens if Darnell directs it in writing and Thorne approves.",
+          "Gets Northwind's written consent to settle and checks the release names only Ambrose and Silverline.",
+          "Requests Tri-County's plan document and final itemization, and drafts a reduction request for Thorne's approval."
+        ],
+        "attorneysCall": "Disbursement, how the plan's repayment is negotiated, and any payment to a family member are Atty. Thorne's calls on Darnell's written direction.",
+        "watchFor": "Promising Bernadette she'll be reimbursed from the settlement to calm her down."
+      },
+      "5": {
+        "title": "The deposition chair",
+        "situation": "The $50,000 UIM claim against Northwind goes to suit when Northwind offers $8,000. Northwind's counsel argues Darnell was speeding, based on a witness's estimate. His deposition is in four weeks. Bernadette wants to sit in on the prep and the deposition, and says she will \"answer the hard ones for him.\"",
+        "task": "Calendar discovery and the deposition, gather speed evidence and medical records, and route who may attend to Thorne.",
+        "attorneyAsks": [
+          "Can Bernadette attend the prep or the deposition?",
+          "What evidence do we have on the speeding claim?",
+          "What deadlines are open on the UIM suit?"
+        ],
+        "strongAnswer": [
+          "Tells Bernadette that who attends is Atty. Thorne's call, and that Darnell answers his own questions.",
+          "Gathers the police report, both rider statements, the bike's damage photos and any helmet-cam footage for Thorne.",
+          "Calendars interrogatory and document answers, the deposition, and Thorne's prep session with Darnell.",
+          "Sends Thorne the concussion clinic notes on memory, for deposition planning."
+        ],
+        "attorneysCall": "Whether a family member may attend prep, how the speeding claim is answered, and how memory problems are handled at deposition are Atty. Thorne's calls.",
+        "watchFor": "Inviting the mother to the prep session because she says it will calm her son."
+      }
+    }
+  },
+  "c10": {
+    "title": "Priya Nandakumar v. Austin Kell",
+    "theme": "Coverage denial",
+    "hook": "The driver who hit Priya's rideshare was excluded by name from the only policy on his truck, so the file must find its money elsewhere, in writing.",
+    "type": "Rideshare: passenger injured when a pickup runs a red light",
+    "client": "Priya Nandakumar, 34, an ICU nurse who uses rideshare to get to night shifts. A coworker sent her to the firm a week after the crash.",
+    "facts": [
+      "Priya was in the back seat of a RideLoop car driven by Hector Salinas, on an active trip.",
+      "Austin Kell ran a red light in his stepfather's pickup and struck the car's rear passenger side.",
+      "Police found Kell's license suspended; he was cited for running the light and driving while suspended.",
+      "Hector Salinas also called the firm asking for help with his own injuries.",
+      "Priya's laptop and phone were destroyed in the crash."
+    ],
+    "coverage": "The pickup is insured by Meridian Crest Insurance with $30,000 BI, but Kell may be an excluded driver. RideLoop's trip policy, with Transit Guard Specialty, has $250,000 UM. Priya's own Cobalt Auto policy has $30,000 UM and $5,000 MedPay.",
+    "injuries": "An L4-L5 disc herniation with leg pain and a facial cut closed with eight stitches. Emergency room, then physical therapy, a lumbar epidural injection and a spine surgeon consult.",
+    "days": {
+      "1": {
+        "title": "Who covers whom?",
+        "situation": "Seven days after the crash, Priya signs up. She can't drive and has lost her laptop and phone. The same day, Hector Salinas, the RideLoop driver, calls asking the firm to take his case too. The police report notes a suspended license for Kell and lists the pickup's owner as Roland Kell.",
+        "task": "Run the Conflict Check, flagging Salinas, open the matter, and list every possible policy with how to confirm each.",
+        "attorneyAsks": [
+          "Can we represent Hector Salinas as well as Priya?",
+          "What policies could pay here, and how will you confirm each one?",
+          "What happens with her laptop and phone?"
+        ],
+        "strongAnswer": [
+          "Runs the Conflict Check on Kell, Roland Kell, Salinas, RideLoop and the carriers, and routes Salinas's call to Thorne.",
+          "Tells Salinas only that the firm will be in touch, and gives him no advice.",
+          "Lists Meridian Crest, Transit Guard and Cobalt, and requests the trip record from RideLoop to prove an active trip.",
+          "Opens a property claim for the laptop and phone with receipts and photos.",
+          "Gives Priya the do's and don'ts: no statements, no posts, keep every appointment."
+        ],
+        "attorneysCall": "Whether the firm can represent Salinas too, given a possible conflict, is Atty. Thorne's call. The CM flags it and does not promise Salinas anything.",
+        "watchFor": "Signing up the driver on the spot because \"they were in the same crash.\""
+      },
+      "2": {
+        "title": "The denial letter",
+        "situation": "Nineteen days after the crash, Meridian Crest sends a reservation of rights. Ten days later it denies the claim: Austin Kell was excluded by name from his stepfather's policy after a prior suspension. Priya has missed a week of therapy waiting to hear \"who pays.\" Her health plan, the Lakemont Nurses' Health Plan, sends a reimbursement notice.",
+        "task": "Get the denial and the signed exclusion in writing, put Transit Guard and Cobalt on notice now, and keep Priya in care.",
+        "attorneyAsks": [
+          "What exactly did you ask Meridian Crest to send us?",
+          "When did each UM carrier get notice, and can you prove it?",
+          "Who pays Priya's bills while coverage is sorted out?"
+        ],
+        "strongAnswer": [
+          "Requests the denial letter, the declarations page and the signed named-driver exclusion form in writing.",
+          "Sends letters of representation and UM claim notices to Transit Guard and Cobalt the same day, by email and certified mail, and logs the receipts.",
+          "Asks for Kell's own insurance in writing, and records the answer.",
+          "Submits bills to Cobalt MedPay, logs Lakemont's notice, and gets Priya back in therapy this week with the gap documented.",
+          "Updates the Case Plan's coverage section and notifies Thorne."
+        ],
+        "attorneysCall": "Whether the exclusion is valid, and whether to challenge the denial, are Atty. Thorne's calls. The CM never tells Priya there is \"no insurance.\"",
+        "watchFor": "Accepting a phone call as the denial, without the signed exclusion in writing."
+      },
+      "3": {
+        "title": "Demand to the UM carrier",
+        "situation": "The UM demand goes to Transit Guard with Specials of $41,280. Adjuster Simone Achterberg says UM \"isn't triggered\" until the firm proves Kell has no other coverage. She asks for Priya's recorded statement under the policy's cooperation clause, then offers $35,000.",
+        "task": "Send Transit Guard the coverage proof, route the statement request to Thorne, and build a Net Sheet at $35,000.",
+        "attorneyAsks": [
+          "What proof that Kell is uninsured do we have, and is it all in writing?",
+          "What do we do about her request for a recorded statement?",
+          "What does Priya net at $35,000?"
+        ],
+        "strongAnswer": [
+          "Sends Meridian Crest's denial, the exclusion form and Kell's written no-other-insurance statement, with an index.",
+          "Routes the recorded statement request to Thorne and tells Achterberg the firm will respond in writing.",
+          "Confirms the $35,000 offer in writing, and builds the Net Sheet with the fee, costs, MedPay and Lakemont's repayment.",
+          "Sends Thorne an offer memo noting Cobalt's UM may stack behind Transit Guard."
+        ],
+        "attorneysCall": "Whether Priya gives a statement, whether UM is triggered, and any counteroffer are Atty. Thorne's calls. Priya decides on settlement.",
+        "watchFor": "Agreeing to a recorded statement because it's Priya's \"own\" coverage."
+      },
+      "4": {
+        "title": "The late-notice letter",
+        "situation": "Five months in, Cobalt reserves its rights on its $30,000 UM, claiming late notice. Transit Guard agrees to mediate. Lakemont asserts $9,760. Transit Guard's UM policy has an arbitration clause if mediation fails.",
+        "task": "Prove Cobalt's notice date, calendar the mediation and arbitration deadlines, and assemble the mediation binder with the lien summary.",
+        "attorneyAsks": [
+          "When did Cobalt first hear from us, and what is the proof?",
+          "What happens if mediation fails, and what is on the calendar?",
+          "What is in the binder?"
+        ],
+        "strongAnswer": [
+          "Pulls the Day 2 notice letter, the email receipt and the certified-mail green card, and sends copies to Cobalt with a factual cover letter.",
+          "Calendars the mediation statement, the session, and the arbitration demand deadline in Transit Guard's policy.",
+          "Builds the binder: crash report, RideLoop trip record, denial and exclusion, MRI, injection record, Specials, coverage chronology.",
+          "Requests Lakemont's plan terms and final itemization, and drafts a reduction request for Thorne."
+        ],
+        "attorneysCall": "Answering Cobalt's late-notice position, the mediation position and any lien compromise are Atty. Thorne's calls. The CM proves dates; he argues the law.",
+        "watchFor": "Arguing with Cobalt's adjuster that notice was \"obviously fine,\" instead of sending proof."
+      },
+      "5": {
+        "title": "Serving the uninsured driver",
+        "situation": "Mediation with Transit Guard fails, so the file heads to UM arbitration. Thorne also sues Austin Kell. The process server tries Kell's listed address three times; he has moved. Transit Guard now argues Priya was not wearing her back-seat belt.",
+        "task": "Run an approved skip-trace on Kell, keep the service log, calendar the arbitration and service deadlines, and gather seatbelt evidence.",
+        "attorneyAsks": [
+          "What did the skip-trace and the process server find?",
+          "What deadline for service is running, and when is it?",
+          "What do we have on the seatbelt claim?"
+        ],
+        "strongAnswer": [
+          "Runs the firm's approved skip-trace, court and DMV records, and logs each result and new address for the server.",
+          "Keeps the server's attempt log ready for a diligent-search affidavit, if Thorne decides on alternate service.",
+          "Calendars the service deadline, the arbitration exchange dates and the hearing.",
+          "Gathers the EMS run report, ER notes on injury pattern and the car's photos for Thorne on the seatbelt issue."
+        ],
+        "attorneysCall": "Alternate service, the seatbelt defense and how to present the UM arbitration are Atty. Thorne's calls. The CM never contacts Kell about the case.",
+        "watchFor": "Calling Austin Kell's relatives and talking about the case to find him."
+      }
+    }
+  }
+}
