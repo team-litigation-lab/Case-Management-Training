@@ -351,14 +351,18 @@ Set up like Foundational Training's Scorecard, without its task trackers and mon
 Every grading system lists its graded items; a system's score is the average of its items, and the overall is the average
 of the systems that have a score, so each counts the same. The systems: ✍️ Knowledge Checks (each Case Flow day), 🧩
 Learning Checks (each module's composite, AI × 0.60 + trainer × 0.40, the automated half until the trainer scores it), 📝
-Takeaways, 🧪 Skill Activities (the work log's graded activities, the latest of each), 🛠 Skill Builders (each tool's best),
+Takeaways, 🧪 Skill Activities (the work log's graded activities, the latest of each), 🗂 CMS Case Checks (each document filed
+into the trainee's case in the CMS, checked automatically for the firm's category and file name: 100% first time right, then
+100% ÷ the attempts it took, 0% while it's still refused; `doc-filing`), 📊 Net Sheet Checks (each stage's Check my sheet:
+the share of its checks passed; `net-sheet`), 🛠 Skill Builders (each tool's best),
 🎯 Graded Calls (`callsim:<id>`), 🧰 Portal Simulators (`simresults:<id>`) and 🎲 Random Tasks (each resolved task's grade).
 
-- **Trainees:** 🏅 My Performance in the top bar (`#/scorecard`): the overall ring and a card per grading system, 🖨 Print.
+- **Trainees:** 🏅 My Performance in the top bar (`#/scorecard`): the overall ring, then one table: a row per grading
+  system with its average and its graded items under it (each with its detail and score), the overall last; 🖨 Print.
 - **Trainers:** 🏅 Scorecards at the same address: every approved trainee in one table, filtered by batch, a row opening
-  that trainee's cards, ⬇ CSV for the batch.
+  that trainee's table, ⬇ CSV for the batch.
 - It only reads: `trainee:<id>` (its `caseFlow` summary, `dayProgress` and `practiceProgress`), `progress:<id>` (`work-log`,
-  `task-log`), `callsim:<id>` and `simresults:<id>`, in one get-many.
+  `task-log`, `doc-filing`, `net-sheet`), `callsim:<id>` and `simresults:<id>`, in one get-many.
 
 ## 📞 Graded calls (the Call Simulator on ☎ LSH Ring Channel)
 

@@ -5,12 +5,14 @@
      🧩 Learning Checks       each module's composite (AI × 0.60 + trainer × 0.40), the automated half until the trainer scores it
      📝 Takeaways             each day's Knowledge Check answers, AI-graded
      🧪 Skill Activities      each graded Skill Activity on John Doe's file (the work log)
+     🗂 CMS Case Checks       each document filed into the trainee's CMS case, checked for its category and file name (doc-filing)
+     📊 Net Sheet Checks      each stage's Check my sheet on the LSH Net Sheet (net-sheet)
      🛠 Skill Builders        each practice tool's best score
      🎯 Graded Calls          the best graded call on each Call Simulator line (callsim:<id>, written by the Portal)
      🧰 Portal Simulators     the best result on each Training Portal simulator (simresults:<id>, written by the Portal)
      🎲 Random Tasks          each resolved random task's grade
-   • Trainee: 🏅 My Performance (#/scorecard), their own grades, card by card.
-   • Trainer: 🏅 Scorecards (the same address), every approved trainee in one table by batch; a row opens the trainee's cards.
+   • Trainee: 🏅 My Performance (#/scorecard), their own grades in one table: each grading system's row and its items.
+   • Trainer: 🏅 Scorecards (the same address), every approved trainee in one table by batch; a row opens the trainee's table.
    It only reads: trainee:<id> (its caseFlow summary, dayProgress and practiceProgress), progress:<id> (work-log, task-log),
    callsim:<id> and simresults:<id>, in one get-many. */
 (function(){
@@ -30,6 +32,8 @@ function moduleNames(){
   return out;
 }
 
+const NS_STAGES = {recovery: "Track A · Settlement: the gross and the fee", bi: "Track A · BI settlement Net Sheet", um: "Track A · UM settlement Net Sheet",
+  liens: "Track A · Lien negotiations", final: "Track A · Disbursement: the final Net Sheet", litigation: "Track B · Case won: the litigated Net Sheet"};
 /* ---------- the grading systems: each returns its items, {name, pct, note, auto} ---------- */
 const SOURCES = [
   {id: "kc", icon: "✍️", label: "Knowledge Checks", about: "Each Case Flow day's Knowledge Check. 70% passes the day.",
@@ -50,6 +54,17 @@ const SOURCES = [
     items: c => { const seen = {}; (c.data["work-log"] || []).filter(e => e && e.kind === "lab" && typeof e.score === "number")
       .forEach(e => { const k = e.label || e.toolId || "Skill Activity"; if(!seen[k] || String(e.at || "") > String(seen[k].at || "")) seen[k] = e; });
       return Object.entries(seen).map(([k, e]) => ({name: k, pct: num(e.score), note: [e.tier, fmt(e.at)].filter(Boolean).join(" · ")})); }},
+  {id: "cms", icon: "🗂", label: "CMS Case Checks", about: "Each document filed into your case in the CMS, checked automatically for the firm's category and file name: 100% first time right, then 100% ÷ the attempts it took.",
+    items: c => Object.entries(c.data["doc-filing"] || {}).filter(([, r]) => r && r.attempts > 0).map(([id, r]) => {
+      const d = typeof cmDoc === "function" ? cmDoc(id) : null;
+      return {name: (d && (d.title || d.name)) || r.name || id, pct: r.filed ? Math.round(100 / r.attempts) : 0,
+        note: r.filed ? `Filed as ${r.name || "named"}${r.category ? " under " + r.category : ""} · ${r.attempts === 1 ? "first time right" : r.attempts + " attempts"}` : `Not filed yet · ${r.attempts} attempt${r.attempts === 1 ? "" : "s"} refused`}; })},
+  {id: "ns", icon: "📊", label: "Net Sheet Checks", about: "Each stage of the LSH Net Sheet, checked automatically with Check my sheet: the share of its checks that passed.",
+    items: c => { const out = [], files = (c.data["net-sheet"] && c.data["net-sheet"].files) || {};
+      Object.values(files).forEach(f => Object.entries((f && f.checks) || {}).forEach(([stage, k]) => {
+        if(!k || !k.total) return;
+        out.push({name: NS_STAGES[stage] || stage, pct: Math.round(100 * k.passed / k.total), note: `${k.passed} of ${k.total} checks · ${fmt(k.at)}`}); }));
+      return out; }},
   {id: "sb", icon: "🛠", label: "Skill Builders", about: "Each practice tool's best score.",
     items: c => Object.entries(c.rec.practiceProgress || {}).filter(([, v]) => v && typeof v.bestScore === "number" && v.bestScore > 0).map(([id, v]) => {
       const t = (typeof PRACTICE_TOOLS !== "undefined" ? PRACTICE_TOOLS : []).find(x => x.id === id);
@@ -79,13 +94,14 @@ const HOW = "Each grading system's score is the average of its graded items; the
 // a trainee's records as one context (the trainer's table and the trainee's own page read the same)
 const ctxOf = (rec, prog, callsim, sim) => ({rec: rec || {}, cf: (rec && rec.caseFlow) || {days: {}}, data: (prog && prog.data) || {}, callsim, sim});
 
-/* ---------- the cards ---------- */
+/* ---------- the table: a row per grading system with its average, its graded items under it ---------- */
 function detail(sc){
-  return `<div class="scx-grid">${sc.rows.map(r => `<div class="scx-src">
-      <div class="scx-src-h"><span>${r.s.icon}</span><b>${E(r.s.label)}</b><span class="scx-pill t-${tier(r.avg)}">${pctTxt(r.avg)}</span></div>
-      <p class="scx-about">${E(r.s.about)}</p>
-      ${r.items.length ? `<table class="scx-tbl"><tbody>${r.items.map(x => `<tr><td>${E(x.name)}${x.note ? `<span>${E(x.note)}</span>` : ""}</td><td class="scx-n t-${tier(x.pct)}">${pctTxt(x.pct)}${x.auto ? ` <small title="Automated only">⚙</small>` : ""}</td></tr>`).join("")}</tbody></table>`
-        : `<p class="scx-empty">Nothing graded here yet.</p>`}</div>`).join("")}</div>`;
+  return `<div class="scx-scroll"><table class="scx-tbl scx-sheet"><thead><tr><th>Grading system · item</th><th>Detail</th><th class="scx-n">Score</th></tr></thead><tbody>
+    ${sc.rows.map(r => `<tr class="scx-sys"><td colspan="2"><i class="scx-ic">${r.s.icon}</i> <b>${E(r.s.label)}</b> <small>${E(r.s.about)}</small></td><td class="scx-n t-${tier(r.avg)}" title="${r.items.length ? `Average of ${r.items.length} item${r.items.length === 1 ? "" : "s"}` : "Nothing graded yet"}">${pctTxt(r.avg)}</td></tr>
+      ${r.items.length ? r.items.map(x => `<tr><td class="scx-item">${E(x.name)}</td><td class="scx-det">${E(x.note || "")}</td><td class="scx-n t-${tier(x.pct)}">${pctTxt(x.pct)}${x.auto ? ` <small title="Automated only">⚙</small>` : ""}</td></tr>`).join("")
+        : `<tr><td colspan="3" class="scx-empty scx-item">Nothing graded here yet.</td></tr>`}`).join("")}
+    <tr class="scx-total"><td colspan="2"><b>Overall</b> <small>${E(overallWhy(sc))}</small></td><td class="scx-n t-${tier(sc.overall)}">${pctTxt(sc.overall)}</td></tr>
+  </tbody></table></div>`;
 }
 const ring = (p, why) => `<div class="scx-ring t-${tier(p)}" style="--p:${p == null ? 0 : p}" title="${E(why || "")}"><span>${pctTxt(p)}</span><small>overall</small></div>`;
 
@@ -107,6 +123,7 @@ function myCtx(){
   c.rec = Object.assign({}, c.rec, {dayProgress: state.progress || c.rec.dayProgress || {}, practiceProgress: state.practiceProgress || c.rec.practiceProgress || {}});
   if(Array.isArray(state.taskLog)) c.data = Object.assign({}, c.data, {"task-log": state.taskLog});
   if(Array.isArray(state.workLog)) c.data = Object.assign({}, c.data, {"work-log": state.workLog});
+  if(state.docFiling && typeof state.docFiling === "object") c.data = Object.assign({}, c.data, {"doc-filing": state.docFiling});
   return c;
 }
 function renderMine(){
@@ -201,6 +218,12 @@ css.textContent = `
 .scx-admin-bar > span{display:flex;gap:8px;flex-wrap:wrap;align-items:center;} .scx-admin-bar select{padding:6px 10px;border-radius:8px;border:1px solid #CBD2E0;font:inherit;font-size:13px;}
 .scx-scroll{overflow-x:auto;} .scx-admin-tbl th{font-size:12px;color:#5B6579;white-space:nowrap;border-top:0;} .scx-admin-tbl td{white-space:nowrap;}
 .scx-admin-tbl .scx-n{text-align:center !important;} .scx-row{cursor:pointer;} .scx-row:hover td{background:rgba(240,192,138,.15);}
+.scx-sheet{background:#fff;border:1px solid #E3E6EE;border-radius:14px;overflow:hidden;}
+.scx-sheet thead th{background:#262B45;color:#fff;font-size:12px;letter-spacing:.04em;text-transform:uppercase;border:0;padding:9px 10px;}
+.scx-sheet td{border-top:1px solid #E6E9F0;} .scx-sheet td + td{border-left:1px solid #EEF0F5;}
+.scx-sys td{background:#F3F4F8;font-size:14.5px;padding-top:9px;padding-bottom:9px;} .scx-ic{font-style:normal;margin-right:2px;} .scx-sys small{display:block;font-size:11.5px;color:#5B6579;font-weight:500;margin-top:2px;}
+.scx-det{font-size:12.5px;color:#5B6579;} .scx-total td{background:#FDF0E2;font-size:15px;} .scx-total small{font-size:12px;color:#5B6579;margin-left:6px;}
+.scx-sheet .scx-n{width:90px;} .scx-sheet tbody td{padding:6px 10px;} .scx-item{padding-left:34px !important;}
 .scx-batch{font-family:'IBM Plex Mono',monospace;font-size:12px;} .scx-open > td{background:#F7F8FB;white-space:normal;padding:14px;}
 @media(max-width:640px){ .scx-hero{flex-direction:column;text-align:center;padding-top:44px;} .scx-facts{justify-content:center;} .scx-grid{grid-template-columns:1fr;} }
 @media print{ .topbar,.scx-print,.tfb-fab,footer{display:none !important;} .scx-hero,.scx-src{break-inside:avoid;} }`;
