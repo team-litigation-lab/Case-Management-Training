@@ -278,24 +278,31 @@ async function submit(){
     graded = out.graded; D = out.drive;
     // The grade also goes into the trainee's own progress, so a trainer reads it in the Trainee Audit
     // beside everything else rather than having to ask the Worker about each trainee's Google account.
-    try{ if(typeof storeSet === "function") await storeSet("drive-setup", {score:graded.score, ok:graded.ok, attempts:(D.setup && D.setup.attempts) || 1, at:new Date().toISOString(), left:graded.problems.length}); }catch(e){}
+    // firstAt: when the first attempt was made, so a structure still not built a day later is a trainer's alert (js/cm-progress-log.js)
+    try{ if(typeof storeSet === "function"){ const prev = (typeof storeGet === "function" && await storeGet("drive-setup")) || {};
+      await storeSet("drive-setup", {score:graded.score, ok:graded.ok, attempts:(D.setup && D.setup.attempts) || 1, at:new Date().toISOString(), firstAt:prev.firstAt || prev.at || new Date().toISOString(), left:graded.problems.length}); } }catch(e){}
     if(graded.ok) say("Your Backup Drive is built — the structure is in your Drive.");
     else say(`${graded.problems.length} thing${graded.problems.length === 1 ? "" : "s"} to fix before it is built.`);
     fillSlot();
   }catch(e){ err = e.message; }
   busy = false; paint();
 }
+/* The latest ✓ Check my drive, on the trainee's own progress ("drive-check"): how many of the firm's folders were missing,
+   which, and when. Their 📒 Progress Log shows it, and a folder still missing is a trainer's case-file alert. */
+function keepCheck(missing, putBack){
+  try{ if(typeof storeSet === "function") storeSet("drive-check", {missing: missing.length, list: missing.slice(0, 12), at: new Date().toISOString(), putBack: !!putBack}); }catch(e){}
+}
 async function check(){
   if(busy) return;
   busy = true; err = ""; paint();
-  try{ const out = await api({action:"check"}); verified = out.verified; D = out.drive; }
+  try{ const out = await api({action:"check"}); verified = out.verified; D = out.drive; keepCheck((verified && verified.missing) || []); }
   catch(e){ err = e.message; }
   busy = false; paint(); fillSlot(); grade();
 }
 async function rebuild(){
   if(busy) return;
   busy = true; err = ""; paint();
-  try{ const out = await api({action:"rebuild"}); D = out.drive; verified = {missing:[]}; say("The missing folders are back in your Drive."); }
+  try{ const out = await api({action:"rebuild"}); D = out.drive; verified = {missing:[]}; keepCheck([], true); say("The missing folders are back in your Drive."); }
   catch(e){ err = e.message; }
   busy = false; paint(); fillSlot(); grade();
 }

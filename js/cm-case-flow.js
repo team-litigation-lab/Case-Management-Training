@@ -3556,7 +3556,7 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
   draft(modId){ readForm(modId); clearTimeout(draftTimer); draftTimer = setTimeout(() => { persist(); status(modId, "Draft saved"); }, 900); },
   rate(modId, j, n){ rec(modId).scale[j] = n; persist(); },
   reveal(blockId){ (REC.revealed = REC.revealed || {})[blockId] = new Date().toISOString(); persist(); justRevealed = blockId; if(typeof render === "function") render(); justRevealed = null; },   // the answers clear from blurred on this one render
-  tick(blockId, j, on){ REC.ticks = REC.ticks || {}; (REC.ticks[blockId] = REC.ticks[blockId] || [])[j] = !!on; persist(); },
+  tick(blockId, j, on){ REC.ticks = REC.ticks || {}; (REC.ticks[blockId] = REC.ticks[blockId] || [])[j] = !!on; (REC.tickAt = REC.tickAt || {})[blockId] = new Date().toISOString(); persist(); },   // tickAt: when, for the 📒 Progress Log
   kcDraft(modId, j, v){ rec(modId).kc[j] = v; clearTimeout(draftTimer); draftTimer = setTimeout(() => { persist(); status(modId, "Draft saved"); }, 900); },
   async save(modId){ const m = readForm(modId); m.savedAt = new Date().toISOString(); await persist(); status(modId, "Saved " + new Date(m.savedAt).toLocaleString()); },
   kcMod(modId){ const cur = document.querySelector(".cf-kc-mod"); if(cur) readForm(cur.dataset.mod); persist(); state.cfKcMod = modId; gamePaint(DAYS.find(x => x.id === state.dayId)); },

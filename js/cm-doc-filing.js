@@ -125,8 +125,15 @@ async function fileDoc(docId, category, name){
   if(!caseOpen()) return {ok:false, problems:["No case is open in the CMS. Press 🗂 Open CMS, then open your own case (or save it, so it is given its Case ID)."]};
   if(!category) return {ok:false, problems:["Choose the CMS category you would file this document under."]};
   r.attempts++;
+  // when: the first and the latest attempt, so the trainee's 📒 Progress Log is dated and a trainer is told when a
+  // document has been stuck unfiled for a day (js/cm-progress-log.js)
+  const now = new Date().toISOString(); r.firstAt = r.firstAt || now; r.lastAt = now;
   // the category: the repository only stays healthy if each document is where the firm keeps it
-  if(category !== expectedCategory(d)) return fail([`The firm files this document under ${expectedCategory(d)}, not ${category}. A document in the wrong category is a document nobody finds.`]);
+  if(category !== expectedCategory(d)){
+    // a wrong category is kept on the record (how often, and the last one tried): a trainer's case-file alert
+    r.wrongCat = (r.wrongCat || 0) + 1; r.lastWrongCat = category; r.expectedCat = expectedCategory(d);
+    return fail([`The firm files this document under ${expectedCategory(d)}, not ${category}. A document in the wrong category is a document nobody finds.`]);
+  }
   let bytes = null;
   try{
     const res = await fetch(urlOf(d));

@@ -1396,26 +1396,29 @@ window.renderMeetClientTrainerGuide = function(){
     const card = t.content.firstElementChild; if(!card) return html;
     card.querySelectorAll(".module-icon, .module-topic-list, .module-more").forEach(n=>n.remove());
     const n = (d.lessons||[]).length, start = card.querySelector(".module-start-btn");
-    // A day that's started but not passed says so: "Continue", how far the slides got, and the recorded Knowledge Check
-    // score with the 70% pass mark (a score under 70% is kept, it just doesn't complete the day).
+    // A day that's started but not passed says so: "Continue", and the recorded Knowledge Check score with the 70% pass
+    // mark (a score under 70% is kept, it just doesn't complete the day). How much of the deck was clicked through is NOT
+    // shown: the client asked that the dashboard track what the trainee did (📒 My Progress Log, js/cm-progress-log.js),
+    // not deck utilization. The slides reached only decide the button: Continue, or Review once the whole deck is seen.
     const prog = (state.progress||{})[d.id] || {};
     // a passed day keeps its way back in: Review opens its slides where they were left (Review Score and Retake stay below)
     if(start && prog.done){ start.textContent = "Review"; start.title = "Back into this day's slides, where you left them"; }
     if(start && !prog.done && !start.disabled){
       let total = 0; try{ total = buildDaySlides(d).length; }catch(e){}
-      const far = (state.slideProgress||{})[d.id] || 0, seen = total ? Math.min(100, Math.round((far + 1) / total * 100)) : 0;
+      const far = (state.slideProgress||{})[d.id] || 0;
       const scored = typeof prog.score === "number";
       if(far > 0 || scored){
         // the whole deck seen: Review (back through it); otherwise Continue where they left off
         start.textContent = total && far + 1 >= total ? "Review" : "Continue";
-        start.insertAdjacentHTML("beforebegin", `<div class="mc-progress"><span>Slides <b>${far > 0 ? seen : 0}%</b></span>${scored ? `<span>Knowledge Check <b>${prog.score}%</b> · 70% to pass</span>` : ""}</div>`);
+        if(scored) start.insertAdjacentHTML("beforebegin", `<div class="mc-progress"><span>Knowledge Check <b>${prog.score}%</b> · 70% to pass</span></div>`);
       }
     }
     // every card keeps the same progress line above its buttons, so the Review rows line up across the five days:
-    // a passed day shows its slides and its score; a day not started yet keeps an empty line of the same height
+    // a passed day shows its Knowledge Check score; any other day keeps an empty line of the same height
     if(start && !card.querySelector(".mc-progress")){
-      const line = prog.done ? `<span>Slides <b>100%</b></span>${typeof prog.score === "number" ? `<span>Knowledge Check <b>${prog.score}%</b> ✓</span>` : ""}` : "<span>&nbsp;</span>";
-      start.insertAdjacentHTML("beforebegin", `<div class="mc-progress${prog.done ? "" : " mc-progress-empty"}" aria-hidden="${prog.done ? "false" : "true"}">${line}</div>`);
+      const line = prog.done && typeof prog.score === "number" ? `<span>Knowledge Check <b>${prog.score}%</b> ✓ passed</span>` : "<span>&nbsp;</span>";
+      const filled = line !== "<span>&nbsp;</span>";
+      start.insertAdjacentHTML("beforebegin", `<div class="mc-progress${filled ? "" : " mc-progress-empty"}" aria-hidden="${filled ? "false" : "true"}">${line}</div>`);
     }
     // (no ☰ Topics button: 🗺 Roadmap lists every day's topics)
     card.classList.add("mc-clean");
