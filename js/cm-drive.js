@@ -67,6 +67,7 @@ async function load(force){
     else err = e.message;
   }
   paint(); fillSlot();
+  document.querySelectorAll("[data-drv-slide]").forEach(el=>{ el.outerHTML = slide(); });   // Day 1's slide ticks the trainee's own steps
 }
 function fillSlot(){
   const slot = document.getElementById("drvCardSlot");
@@ -231,7 +232,13 @@ function connect(){
       if(!resp || resp.error || !resp.code){ say(resp && resp.error === "access_denied" ? "Google access wasn't allowed." : "Google sign-in didn't finish."); return; }
       connecting = true; err = ""; paint();
       try{ D = (await api({action:"connect", code:resp.code})).drive; tree = [{name:"", children:[]}]; say(`Google Drive connected${D.email ? ` (${D.email})` : ""}.`); }
-      catch(e){ err = e.message; say(e.message); }
+      catch(e){
+        // DRIVE_SCOPE_MISSING (the Drive box was unticked) and DRIVE_CONSENT_AGAIN (Google remembered an old
+        // yes and sent no lasting access): the Worker has already cleared that grant, so Connect again works.
+        // Read the status afresh, since a link held before may have gone with it.
+        err = e.message; say(e.code === "DRIVE_CONSENT_AGAIN" ? "One more step: press Connect again and approve." : e.message);
+        if(e.code === "DRIVE_SCOPE_MISSING" || e.code === "DRIVE_CONSENT_AGAIN"){ try{ D = (await api()).drive; }catch(x){} fillSlot(); }
+      }
       connecting = false; paint();
     },
     error_callback: (e)=>{
@@ -303,7 +310,44 @@ async function saveFiled(docFolder, name, bytes){
   }catch(e){ return {ok:false, why:e.message}; }
 }
 
-window.CMDrive = {card, slot, show, close, connect, disconnect, submit, check, rebuild, saveFiled,
+/* ---------- Day 1's Backup File Maintenance slide: the task in four steps, and the firm's standard ----------
+   The structure comes from the Worker (action "standard"), never from a copy here, and a presenter (an admin)
+   sees it too. A trainee's steps tick as their own drive gets there. */
+let STD = null, stdAsked = false;
+async function loadStandard(){
+  if(stdAsked) return; stdAsked = true;
+  try{ STD = (await api({action:"standard"})).standard; }catch(e){ STD = {failed:true}; }
+  document.querySelectorAll("[data-drv-slide]").forEach(el=>{ el.outerHTML = slide(); });
+}
+function slide(){
+  if(!STD) loadStandard();
+  if(signedTrainee() && !D) load();
+  const me = signedTrainee() && D && D.configured ? D : null, missing = me ? (me.lastMissing || []).length : 0;
+  const steps = [
+    ["Connect your Google Drive", "From 📂 My Backup Drive. The platform asks for <b>drive.file</b> only: it sees the folders and files it makes, nothing else.", !!(me && me.connected)],
+    ["Build the firm's folders by hand", "Every folder named, numbered, nested and in order, exactly to the standard. Submit it: it is graded folder by folder.", !!(me && me.built)],
+    ["✓ Check my drive", "Confirm every folder is still there. Put back anything missing.", !!(me && me.built && me.checkedAt && (!me.builtAt || me.checkedAt >= me.builtAt) && !missing)],
+    ["File in the CMS, every day", "Each document you file lands in its folder on the drive too: the backup keeps up with the case.", !!(me && (me.saved || []).length)]
+  ];
+  const off = STD && STD.configured === false;
+  const list = (STD && STD.standard) || [];
+  const tree = list.length
+    ? `<div class="drv-s-root">📁 <b>${esc(STD.root)}</b></div><ul class="drv-s-tree">${list.map(p=>{
+        const depth = p.split("/").length - 1;
+        return `<li style="padding-left:${depth * 22}px" title="${esc((STD.why || {})[p] || "")}">📁 <b>${esc(p.split("/").pop())}</b></li>`;
+      }).join("")}</ul>`
+    : `<p class="drv-s-note">${STD && STD.failed ? "The firm's structure couldn't be loaded. Open 📂 My Backup Drive to see it." : "Loading the firm's structure…"}</p>`;
+  return `<div class="drv-slide" data-drv-slide>
+    <div class="drv-s-col"><h3>📋 Your task: the case backup</h3>
+      <ol class="drv-s-steps">${steps.map(([h, t, done], i)=>`<li class="${done ? "is-done" : ""}"><span class="drv-s-n">${done ? "✓" : i + 1}</span><div><b>${h}</b><span>${t}</span></div></li>`).join("")}</ol>
+      ${off ? `<p class="drv-s-note">Google linking isn't switched on for this site yet: a trainer adds it once (README → 📂 The trainee's Backup Drive).</p>`
+        : signedTrainee() ? `<button type="button" class="btn btn-navy btn-sm" onclick="CMDrive.show()">📂 Open My Backup Drive</button>` : ""}
+    </div>
+    <div class="drv-s-col"><h3>🗂 The firm's standard</h3>${tree}</div>
+  </div>`;
+}
+
+window.CMDrive = {card, slot, show, close, connect, disconnect, submit, check, rebuild, saveFiled, slide,
   name:setName, addSub, addTop, remove, move, status:()=>D, reload:()=>load(true)};
 
 /* ---------- the panel's own look ---------- */
@@ -345,6 +389,24 @@ css.textContent = `
 .drv-btn:hover:not(:disabled){border-color:var(--orange,#DB8437);}
 .drv-btn:disabled{opacity:.6;cursor:default;}
 .drv-btn.drv-go{background:var(--navy,#1B2240);border-color:var(--navy,#1B2240);color:#fff;}
+.drv-slide{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;}
+.drv-slide,.drv-slide *{text-align:left!important;}
+.drv-slide li::before,.drv-slide li::marker{content:none!important;display:none!important;}
+.drv-s-col{background:#fff;border:1px solid #DDE1EA;border-radius:14px;padding:14px 18px;color:#141A2E;}
+.drv-s-col h3{margin:0 0 10px;font:800 20px 'Poppins','Inter',sans-serif;color:#1E2340;}
+.drv-s-steps{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-direction:column;gap:10px;}
+.drv-s-steps li{display:flex;gap:12px;align-items:flex-start;margin:0;padding:0;}
+.drv-s-n{flex:0 0 32px;height:32px;border-radius:50%;background:#1E2340;color:#F6C08F;display:flex;align-items:center;justify-content:center;font:800 16px 'Inter',sans-serif;}
+.drv-s-steps li.is-done .drv-s-n{background:#1E8E4F;color:#fff;}
+.drv-s-steps li > div > b{display:block;font:800 18px 'Inter',sans-serif;color:#1E2340;}
+.drv-s-steps span b{font-weight:800;color:#1E2340;}
+.drv-s-steps li > div > span{display:block;font:600 16px/1.45 'Inter',sans-serif;}
+.drv-s-root{padding:6px 10px;border-radius:10px;background:#1E2340;color:#fff;font:700 15.5px 'Inter',sans-serif;}
+.drv-slide .drv-s-tree{list-style:none;margin:6px 0 0 10px!important;width:auto!important;max-width:none!important;padding:0 0 0 12px;border-left:3px solid #DB8437;font:600 14px/1.25 'Inter',sans-serif;}
+.drv-s-tree li{margin:0!important;padding-top:1px;padding-bottom:1px;display:block;}
+.drv-s-tree b{color:#1E2340;}
+.drv-s-note{margin:10px 0 0;padding:8px 12px;border-left:4px solid #DB8437;background:#FFF8F0;font:600 14px/1.45 'Inter',sans-serif;}
+@media (max-width:860px){ .drv-slide{grid-template-columns:1fr;} }
 @media (max-width:760px){ .drv-wrap{padding:0;} .drv-cardw{width:100%;height:100%;border-radius:0;} }`;
 document.head.appendChild(css);
 

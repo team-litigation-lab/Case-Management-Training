@@ -3,7 +3,7 @@
 // 2. the trainer: Admin → 📂 Drive Links sends a trainee their folder link;
 // 3. the trainee: 📂 My Case Folder shows it, names the folder [Full Name] - Doe v. Smith, connects their Main Case Folder,
 //    marks a day uploaded, and the trainer's table shows both;
-// 4. the deck: Day 1's Backup File Maintenance "Your Case" slide is the SOP and the folder structure sample.
+// 4. the deck: Day 1's Backup File Maintenance "Your Case" slide is the Backup Drive task and the firm's standard (js/cm-drive.js).
 // Usage: node .github/scripts/drive-sop.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -76,12 +76,15 @@ async function workerChecks() {
     await page.waitForTimeout(800);
     if (!slide) fail('Day 1 has no Your Case slide for Backup File Maintenance');
     else {
-        const t = await page.locator('.dsop-slide').innerText().catch(() => '');
-        if (!/Create the Main Case Folder/.test(t) || !/Set Up Firm Subfolders/.test(t) || !/Connect to the Platform/.test(t) || !/Maintain & Upload Case Documents/.test(t)) fail(`the slide should carry the SOP's four steps: "${t.slice(0, 200)}"`);
-        if (!/09 Litigation & ADR/.test(t) || !/Main Case Folder/.test(t)) fail('the slide should show the folder structure sample');
+        // the case backup: the Backup Drive task in four steps, and the firm's standard as the Worker keeps it
+        await page.waitForFunction(() => /09 Litigation & ADR/.test((document.querySelector('.drv-slide') || {}).innerText || ''), null, { timeout: 10000 }).catch(() => {});
+        const t = await page.locator('.drv-slide').innerText().catch(() => '');
+        if (!/Connect your Google Drive/.test(t) || !/Build the firm's folders/.test(t) || !/Check my drive/.test(t) || !/File in the CMS/.test(t)) fail(`the slide should carry the Backup Drive task's four steps: "${t.slice(0, 200)}"`);
+        if (!/LSH Case Backups/.test(t) || !/Doe-John/.test(t) || !/09 Litigation & ADR/.test(t) || !/04 Closed Files/.test(t)) fail(`the slide should show the firm's standard, from the Worker: "${t.slice(0, 300)}"`);
+        if (/\[Your Full Name\]|Your trainer sends your folder link/.test(t)) fail('the slide still teaches the link-based case folder instead of the Backup Drive');
     }
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-    console.log('Case folders follow the firm\'s SOP: the trainer sends each trainee their Drive link (only a trainer can), the trainee names the folder [Full Name] - Doe v. Smith, connects it and marks each day uploaded, the trainer\'s Drive Links table shows both, and Day 1\'s deck carries the SOP and the folder structure sample.');
+    console.log('Case folders follow the firm\'s SOP: the trainer sends each trainee their Drive link (only a trainer can), the trainee names the folder [Full Name] - Doe v. Smith, connects it and marks each day uploaded, the trainer\'s Drive Links table shows both, and Day 1\'s deck carries the Backup Drive task and the folder structure sample.');
     console.log('All good.');
 })().catch(e => { console.error(e); process.exit(1); });

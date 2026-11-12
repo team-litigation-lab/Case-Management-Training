@@ -472,7 +472,7 @@ async function listAll(env, prefix) {
    the Backup Drive isn't switched on yet. Nothing else is blocked either way.
    ============================================================ */
 const DRIVE_ROOT = "LSH Case Backups";
-const DRIVE_SCOPES = "openid email https://www.googleapis.com/auth/drive.file";
+const DRIVE_SCOPES = "openid email https://www.googleapis.com/auth/drive.file";  // = openid email + DRIVE_FILE_SCOPE
 const FOLDER_MIME = "application/vnd.google-apps.folder";
 const DRIVE_API = "https://www.googleapis.com/drive/v3";
 const DRIVE_UPLOAD = "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id,name,webViewLink";
@@ -557,9 +557,28 @@ async function unseal(env, sealed) {
 }
 
 const driveConfigured = (env) => !!(env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET);
+/* For /version: whether trainees can link their Drive, and if not which half is missing. Names only, never a value. */
+const driveConfigNote = (env) => driveConfigured(env) ? "ON (GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET are set)"
+  : `OFF (missing ${["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET"].filter((k) => !env[k]).join(" and ")})`;
+const DRIVE_FILE_SCOPE = "https://www.googleapis.com/auth/drive.file";
+/* Give a grant back to Google (best effort). Revoking any token of a grant ends the whole grant, so the next
+   Connect is a first consent again: every box shown, and a refresh token sent. */
+async function googleRevoke(token) {
+  if (!token) return;
+  try { await fetch("https://oauth2.googleapis.com/revoke", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ token }).toString() }); } catch (e) { /* best effort */ }
+}
 const driveKey = (id) => `drive:${id}`;
 async function driveRead(env, id) { return JSON.parse((await env.LSH_KV.get(driveKey(id))) || "null"); }
 async function driveWrite(env, id, rec) { await env.LSH_KV.put(driveKey(id), JSON.stringify(rec)); return rec; }
+/* The Google link goes; the Day 1 setup, its grade and the record of what was backed up are the trainee's and
+   stay. Used by Disconnect and when Google says the link has expired or was taken back, so neither loses a grade. */
+async function driveUnlink(env, id, rec) {
+  const kept = {};
+  if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
+  if (Object.keys(kept).length) return driveWrite(env, id, kept);
+  await env.LSH_KV.delete(driveKey(id));
+  return null;
+}
 
 async function googleToken(params) {
   const r = await fetch("https://oauth2.googleapis.com/token", {
@@ -576,7 +595,7 @@ async function driveAccess(env, id, rec, force = false) {
     refresh_token: await unseal(env, rec.refresh), grant_type: "refresh_token",
   });
   if (!ok) {
-    if (data.error === "invalid_grant") { await env.LSH_KV.delete(driveKey(id)); const e = new Error("The Google Drive connection has expired or was taken back. Connect the Backup Drive again."); e.code = "DRIVE_RECONNECT"; throw e; }
+    if (data.error === "invalid_grant") { await driveUnlink(env, id, rec); const e = new Error("The Google Drive connection has expired or was taken back. Connect the Backup Drive again."); e.code = "DRIVE_RECONNECT"; throw e; }
     throw new Error(`Google refused to refresh access: ${data.error_description || data.error || "unknown error"}`);
   }
   rec.access = await seal(env, data.access_token);
@@ -801,7 +820,7 @@ export default {
         const m = html.match(/APP_BUILD = "([^"]+)"/);
         // Changes on every Cloudflare deploy; open pages use it to pick up a new version.
         const deployment = (env.CF_VERSION_METADATA && env.CF_VERSION_METADATA.id) || "unknown";
-        return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nDeployment: ${deployment}\nWorker: secure-mode worker.js\nSecure mode: ${adminPass(env) ? "ON" : "OFF"}\nAdmin password: ${adminPassStatus(env)}\nAI provider: ${geminiKeyNames(env).length ? "Google Gemini" : (gatewayOn(env) ? "Google Gemini via the Portal's AI gateway" : "none — add GEMINI_API_KEY")}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
+        return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nDeployment: ${deployment}\nWorker: secure-mode worker.js\nSecure mode: ${adminPass(env) ? "ON" : "OFF"}\nAdmin password: ${adminPassStatus(env)}\nBackup Drive (Google): ${driveConfigNote(env)}\nAI provider: ${geminiKeyNames(env).length ? "Google Gemini" : (gatewayOn(env) ? "Google Gemini via the Portal's AI gateway" : "none — add GEMINI_API_KEY")}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
       }
       if (!path.startsWith("/api/")) {
         const res = (await docFromR2(env, request, path)) || (await env.ASSETS.fetch(request));
@@ -953,6 +972,12 @@ export default {
           await Promise.all(ids.map(async (id) => { reports[id] = driveReport(id, await driveRead(env, id)); }));
           return json({ reports });
         }
+        if (action === "standard") {
+          // The firm's structure and whether linking is switched on, for Day 1's slide. A presenter is an admin, so
+          // this is open to anyone signed in; it reads no one's drive.
+          const st = driveStatus(env, null);
+          return json({ standard: { configured: st.configured, root: st.root, standard: st.standard, why: st.why } });
+        }
         const who = mine || (tok.role === "a" && typeof b.traineeId === "string" ? b.traineeId.slice(0, 120) : "");
         // An open-mode Worker (no admin password) has no trainee tokens at all, so everyone reads as an
         // admin here and nobody has a drive. The page reads the code and simply shows nothing.
@@ -973,11 +998,27 @@ export default {
               redirect_uri: "postmessage", grant_type: "authorization_code",
             });
             if (!ok) return json({ error: `Google sign-in failed: ${data.error_description || data.error || "unknown error"}` }, 400);
+            // Google's consent screen lets each permission be unticked. Without drive.file every folder call would
+            // fail later with a 403 the trainee can't read, so the sign-in is turned away now, and the half grant
+            // is given back so the next Connect shows the Drive box again.
+            // (Google lists what was granted in `scope`; a reply without the list is taken at its word.)
+            const granted = String(data.scope || "").split(/\s+/).filter(Boolean);
+            if (granted.length && !granted.includes(DRIVE_FILE_SCOPE)) {
+              await googleRevoke(data.refresh_token || data.access_token);
+              if (rec && rec.refresh) await driveUnlink(env, who, rec);   // that grant was this one: the held token is dead too
+              return json({ error: "Google Drive access wasn't ticked on Google's screen. Press Connect again and tick the box that lets this site see and change the files it makes.", code: "DRIVE_SCOPE_MISSING" }, 400);
+            }
             let email = "";
             try { email = JSON.parse(new TextDecoder().decode(unb64url(String(data.id_token || "").split(".")[1] || ""))).email || ""; } catch (e) { /* no id token */ }
             // Google sends a refresh token only the first time an account says yes; keep the one we hold otherwise.
             const refresh = data.refresh_token ? await seal(env, data.refresh_token) : (rec && rec.refresh);
-            if (!refresh) return json({ error: "Google didn't send long-term access. Remove this site under your Google account's third-party access and connect again." }, 400);
+            if (!refresh) {
+              // This Google account said yes before (an earlier connection, or one this platform no longer holds), so
+              // Google sent no refresh token. Give that old grant back: the next Connect is a first consent again and
+              // brings one. The trainee only presses Connect once more; nothing in their Google account to clean up.
+              await googleRevoke(data.access_token);
+              return json({ error: "Google remembered an earlier connection and didn't send lasting access. That old connection has been cleared: press Connect my Google Drive once more and approve.", code: "DRIVE_CONSENT_AGAIN" }, 400);
+            }
             rec = Object.assign({}, rec, {
               email, refresh, access: data.access_token ? await seal(env, data.access_token) : null,
               exp: Date.now() + (Number(data.expires_in) || 3600) * 1000,
@@ -989,13 +1030,9 @@ export default {
           if (action === "disconnect") {
             if (rec && rec.refresh) {
               // best effort: give the access back. The copies already in their Drive stay there.
-              try { await fetch("https://oauth2.googleapis.com/revoke", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ token: await unseal(env, rec.refresh) }).toString() }); } catch (e) { /* best effort */ }
+              try { await googleRevoke(await unseal(env, rec.refresh)); } catch (e) { /* best effort */ }
             }
-            // The Day 1 setup and its grade are the trainee's record and are kept: only the Google link goes.
-            const kept = {};
-            if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
-            rec = Object.keys(kept).length ? kept : null;
-            if (rec) await driveWrite(env, who, rec); else await env.LSH_KV.delete(driveKey(who));
+            rec = await driveUnlink(env, who, rec);
             return json({ drive: driveStatus(env, rec) });
           }
           if (!rec || !rec.refresh) return json({ error: "No Backup Drive is connected yet.", code: "DRIVE_NOT_CONNECTED" }, 400);

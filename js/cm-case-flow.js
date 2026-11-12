@@ -905,7 +905,7 @@ function slideBody(view, l, d){
     case "job": return `<div class="cfx-job">${c.job.map((r, ri) => `<div class="cfx-flow">${r.map((x, j) => `<div class="cfx-step"><small>${["Trigger", "Task", "Tool", "Checkpoint"][j]}</small><span>${hl(x)}</span></div>`).join('<span class="cfx-arrow">➔</span>')}</div>`).join("")}</div>`;
     case "dodont": return ddList(c);   // the Do's and Don'ts themselves (3 Clues, 1 Rule is retired)
     case "case": {
-      if(b.id === "d1m1-drive" && window.cmDriveSop) return cmDriveSop.slide();   // Day 1's case folder: the SOP and the folder structure sample
+      if(b.id === "d1m1-drive" && window.CMDrive && CMDrive.slide) return CMDrive.slide();   // Day 1's case backup: the task in four steps and the firm's standard, from the Worker (js/cm-drive.js)
       const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(docAvail).filter(Boolean).slice(0, 4);
       const ev = SIM.events[b.id], fall = falloutFor(b.id), vm = ev && ev.channel === "voicemail" && ev.spoken;
       const thumbs = notesOf(b.id) ? npCard(b.id) : ev && ev.log ? logSnapshot(ev.log) : docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy" onerror="this.parentNode.classList.add('cfx-thumb-off');this.remove()"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
