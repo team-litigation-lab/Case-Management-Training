@@ -32,8 +32,8 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 
 **Module 5 — Litigation & Dropped Cases**
 
-1. *Lesson* — Impasse Triggers & Filing Criteria
-2. *Lesson* — From Pre-Lit to Litigation & ADR
+1. *Lesson* — Impasse Triggers & Filing Criteria (condensed)
+2. *Lesson* — From Pre-Lit to Litigation & ADR (condensed)
 3. *Skill Activity* — Triggering the Litigation Fork
 4. *Skill Activity* — Transition the File to Litigation Status
 5. *Skill Activity* — E-Filing the Complaint & Calendaring Service
@@ -43,13 +43,13 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 9. *Skill Activity* — Bottleneck Resolution Simulation
 10. *Lesson* — Litigation Tracking: the Pleadings Log & the Discovery Calendar (condensed)
 11. *Lesson* — Trial Preparation Checklists & Litigation KPIs (condensed)
-12. *Lesson* — Subpoena Management: Records Subpoenas (Duces Tecum) & Trial Subpoenas
+12. *Lesson* — Subpoena Management: Records Subpoenas (Duces Tecum) & Trial Subpoenas (condensed)
 13. *Skill Activity* — Pleadings & Discovery Log Maintenance
 14. *Skill Activity* — Trial Prep Checklist Audit & KPI Update
 15. *Lesson* — Property Damage at Settlement: Does It Touch Our Case? (condensed)
 16. *Skill Activity* — Does It Touch Our Settlement? Keystone's Final PD Position
-17. *Lesson* — Client Prep for a Virtual Deposition & Injury Narrative Alignment
-18. *Lesson* — Opposing Counsel's Traps & Defending Key Testimony
+17. *Lesson* — Client Prep for a Virtual Deposition & Injury Narrative Alignment (condensed)
+18. *Lesson* — Opposing Counsel's Traps & Defending Key Testimony (condensed)
 19. *Skill Activity* — Virtual Deposition Prep Roleplay
 20. *Skill Activity* — Mock Deposition Cross-Examination Handling
 21. *Lesson* — Comparative Negligence & the Liability Counter-Package (condensed)
@@ -80,7 +80,7 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 
 ### 5.1.1 Impasse Triggers & Filing Criteria
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
+> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Where Track B leaves Track A, and when a stall becomes an impasse  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#1` Welcome to Day 4: When Pre-Suit Negotiations Stall · `D2#29` Settlement Negotiations: The “Never” Rule · LSH Claims Specialist: liability denial and disputes — the dispute path to litigation; duty, breach, causation and damages; ask for the denial's reasons and evidence in writing · Newly authored: the five impasse triggers, each proved from the file
@@ -164,7 +164,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 ### 5.1.2 From Pre-Lit to Litigation & ADR
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
+> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Status, court fields, litigation folders, the Litigation Calendar and the neutral  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#31` Litigation File Architecture · `D4#1` Welcome to Day 4: When Pre-Suit Negotiations Stall · `D4#2` Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background · `D4#3` Introducing the Neutral: Assignment & Selection Workflows · `D4#4` Introducing the Neutral: Extent of Decision-Making Power · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · LSH Claims Specialist: Letter for Preservation of Evidence · Newly authored: a UM notice is not a demand; status, fields, folders and calendar changed together
@@ -977,7 +977,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ### 5.1.12 Subpoena Management: Records Subpoenas (Duces Tecum) & Trial Subpoenas
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
+> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Commanding evidence from outside the suit: in order, narrow and on time  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#6` Phase 3: The Trial & Mediation Preparation Stage · `D5#23` Critical Litigation Process 3: Third-Party Evidence Subpoenas · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#30` Subpoena Duces Tecum: Execution Strategy · `D5#31` Litigation File Architecture · Newly authored: trial subpoenas tasked against the pretrial and trial-calendar dates; service rules and witness fees confirmed with the court's rules · Newly authored: a subpoena noticed by the defense is docketed and routed to Atty. Thorne
@@ -1382,7 +1382,7 @@ Verified in PD Transition Check (taught on Case Flow Day 5) and that day's auto-
 
 ### 5.1.17 Client Prep for a Virtual Deposition & Injury Narrative Alignment
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
+> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The audit, the three pillars, and the room John testifies from  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#8` Preparing Your Client for a Deposition: The Pre-Deposition Audit · `D5#9` Discovery Intake Meeting — Pillar 1: De-escalating Anxiety · `D5#10` Discovery Intake Meeting — Pillar 2: The Essential Testimony Guidelines · `D5#11` Discovery Intake Meeting — Pillar 3: Dress Code & Professional Demeanor · `D5#14` Case Manager Checklist: The Day Before the Deposition · `D5#19` Professional Presentation: Dress Code & Demeanor · Newly authored: remote-deposition room protocol; refreshed-memory documents; social-media preservation
@@ -1466,7 +1466,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ### 5.1.18 Opposing Counsel's Traps & Defending Key Testimony
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
+> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The four categories, the seven Golden Rules, and what an objection means  
 > **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#10` Discovery Intake Meeting — Pillar 2: The Essential Testimony Guidelines · `D5#12` Navigating the Silent Traps — Drill A: The “Is That All?” Trap · `D5#13` Navigating the Silent Traps — Drill B: The Thoughtful Silence · `D5#15` What Will the Defense Attorney Ask Me? The Four Categories · `D5#16` The 7 Golden Rules for Testifying (Rules 1–3) · `D5#17` The 7 Golden Rules for Testifying (Rules 4–5) · `D5#18` The 7 Golden Rules for Testifying (Rules 6–7) · `D5#20` What Happens When Your Lawyer Objects? · Newly authored: compound and loaded-question traps

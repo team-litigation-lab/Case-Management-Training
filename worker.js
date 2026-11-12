@@ -296,8 +296,9 @@ function candidateIds(name, batch) {
 
 /* ---------- what a trainee may touch ---------- */
 // Daily Activities: activities:dayN and their attachments (actfile:*) are published by admins for everyone;
-// settings:feedback-style is the facilitator voice the portal's AI feedback is written in.
-const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|feedback-style)$/, /^activities:day\d+$/, /^actfile:[a-z0-9]{1,40}$/, /^surprise-task-day\d+$/, /^call-inject-day\d+$/, /^extralessons:day\d+$/, /^lessonx:day\d+$/, /^extraquiz:day\d+$/, /^handouts:links$/];
+// settings:feedback-style is the facilitator voice the portal's AI feedback is written in;
+// settings:opendays is which Case Flow days trainers have opened (Admin → 🔓 Open Lessons, js/cm-open-lessons.js).
+const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|feedback-style|opendays)$/, /^activities:day\d+$/, /^actfile:[a-z0-9]{1,40}$/, /^surprise-task-day\d+$/, /^call-inject-day\d+$/, /^extralessons:day\d+$/, /^lessonx:day\d+$/, /^extraquiz:day\d+$/, /^handouts:links$/];
 const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`, `actsub:${id}`];
 const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt"];
 const IDENTITY_TRAINEE_FIELDS = ["name", "firstName", "lastName", "batch"];
@@ -325,6 +326,8 @@ function forTrainee(tok, key, raw) {
 async function traineeWrite(env, tok, key, value) {
   const kv = kvOf(env);
   const id = tok.id;
+  // (a page still open on an account a trainer merged into another can't bring it back by saving: it is signed in again)
+  if ((await kv.get(`merged:${id}`)) != null) return "This account was merged into your current one. Open the program again from the LSH Training Portal.";
   let incoming; try { incoming = JSON.parse(value); } catch (e) { return "Invalid JSON"; }
   const existingRaw = await kv.get(key);
   let existing = null; try { existing = existingRaw ? JSON.parse(existingRaw) : null; } catch (e) { /* a damaged record is replaced */ }
@@ -1215,6 +1218,13 @@ export default {
         }
         if (id && id !== chosen && id !== newId && id !== rawId && id !== legacyId) return json({ error: "Name/batch don't match this session" }, 403);
         if (id && id !== chosen && (id === newId || id === rawId || id === legacyId)) { chosen = id; existing = await kv.get(`trainee:${id}`); }
+        // 👥 a duplicate account a trainer merged (📋 Batch Sheet → 👥 Duplicate accounts): its records are gone and merged:<id>
+        // = {into} is left, so the sign-in opens the account it was merged into instead of starting a new, empty one
+        if (!existing) {
+          let m = null; try { m = JSON.parse((await kv.get(`merged:${chosen}`)) || "null"); } catch (e) { m = null; }
+          const into = m && m.into ? await kv.get(`trainee:${m.into}`) : null;
+          if (into) { chosen = m.into; existing = into; }
+        }
         return json({ id: chosen, token: await makeToken(env, "t", chosen, 24 * 30), existing: existing ? JSON.parse(existing) : null, batch: canonicalBatch(batch) || String(batch || "").trim() });
       };
       if (path === "/api/auth/trainee") {

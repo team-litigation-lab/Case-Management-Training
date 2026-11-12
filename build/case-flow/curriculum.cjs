@@ -118,28 +118,11 @@ else {
     if(!(ph.blocks || []).some(id => STORED[id] && STORED[id].b.kind === "check")) errors.push(`${at}: ends without a Learning Check`);
   }));
   Object.keys(STORED).forEach(id => { if(!TAUGHT[id]) errors.push(`sequence: ${id} is never taught`); });
-  /* One module a day, on John Doe's one file, in four hours, with a 20-question Knowledge Check: topic by topic (a
-     topic's lessons, its Skill Building, a brainstorm), then the Knowledge Check. The minutes are js/cm-case-flow-schedule.js,
-     the same arithmetic the slides' timers, the Training Agenda and the trainer's run of show use. */
-  const SCHED = require(path.join(ROOT, "js/cm-case-flow-schedule.js"));
-  CF.sequence.forEach(sd => {
-    const ids = (sd.phases || []).flatMap(ph => ph.blocks || []).filter(id => STORED[id]), bs = ids.map(id => STORED[id].b);
-    const heads = Object.assign({}, ...(sd.phases || []).map(ph => ph.headings || {}));
-    const sc = SCHED.schedule(ids.filter(id => STORED[id].b.kind !== "check").map(id => ({kind: STORED[id].b.kind, brief: !!STORED[id].b.brief, heading: heads[id] || "", mod: STORED[id].mod.id, modTitle: STORED[id].mod.title})));
-    if(!sc.fits) errors.push(`Day ${sd.n}: ${sc.total} minutes (${sc.full} topics at ${sc.per}, ${sc.briefs} overviews, ${sc.acts} Skill Activities at ${sc.act}, ${sc.skillParts} brainstorms, the Knowledge Check and 20 minutes for the welcome, a break and the close) is over the 4-hour day: make lessons brief or compact, or move them`);
-    if((sd.phases || []).length !== 1) errors.push(`Day ${sd.n}: ${(sd.phases || []).length} phases; each day is one module`);
-    const qs = new Set(bs.filter(b => b.kind === "check").map(b => STORED[b.id].mod.id));
-    const nq = [...qs].reduce((a, id) => a + (CF.days.flatMap(d => d.modules).find(x => x.id === id).quiz || []).length, 0);
-    if(nq < 20) errors.push(`Day ${sd.n}: its Knowledge Checks hold ${nq} quiz questions; the day's Knowledge Check asks 20`);
-  });
-  /* A balanced deck: every day's slides (each lesson and Skill Activity is one slide per view, the same as viewsOf() in
-     js/cm-case-flow.js and build/case-flow/scripts/assemble.cjs; plus the Training Agenda and the module's one Practice
-     Lab slide) stay within SLIDE_CAP, and no day runs far from the others (half to one and a half times the median).
-     A heavy day condenses its blocks (`compact`, `brief`) instead of carrying more slides. */
+  // the slides of a block (its views): the same as viewsOf() in js/cm-case-flow.js and build/case-flow/scripts/assemble.cjs
   const SLIDES = (() => { require(path.join(ROOT, "js/cm-case-flow-slides.js")); return global.window.CM_CF_SLIDES || {}; })();
   // an activity that audits a document set draws one more slide (build/case-flow/exhibits), so it counts here too
   const AUDITS = (() => { require(path.join(ROOT, "js/cm-case-flow-exhibits.js")); return (global.window.CM_CF_EXHIBITS || {}).audits || {}; })();
-  const SLIDE_CAP = 110, TH_PER = 4;   // 110: raised from 100 when Day 3 took the Causation Letter lesson
+  const SLIDE_CAP = 125, TH_PER = 4;   // 110: raised from 100 when Day 3 took the Causation Letter lesson; 125 when Day 4 took its mediation and arbitration lessons in full
   const viewsOf = b => {
     const t = (SLIDES[b.id] || {}).theory, map = (SLIDES[b.id] || {}).roadmap && !(SLIDES[b.id] || {}).roadmap.merge ? ["map"] : [];
     const theory = !t ? [] : (t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]).concat(t.framework ? ["frame"] : []);
@@ -150,6 +133,28 @@ else {
     if(b.kind === "activity") return ["task", "case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], AUDITS[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);
     return [];   // a Knowledge Check is its own page, not slides
   };
+  /* One module a day, on John Doe's one file, in four hours, with a 20-question Knowledge Check: topic by topic (a
+     topic's lessons, its Skill Building, a brainstorm), then the Knowledge Check. The minutes are js/cm-case-flow-schedule.js,
+     the same arithmetic the slides' timers, the Training Agenda and the trainer's run of show use. */
+  const SCHED = require(path.join(ROOT, "js/cm-case-flow-schedule.js"));
+  CF.sequence.forEach(sd => {
+    const ids = (sd.phases || []).flatMap(ph => ph.blocks || []).filter(id => STORED[id]), bs = ids.map(id => STORED[id].b);
+    const heads = Object.assign({}, ...(sd.phases || []).map(ph => ph.headings || {}));
+    const sc = SCHED.schedule(ids.filter(id => STORED[id].b.kind !== "check").map(id => ({kind: STORED[id].b.kind, brief: !!STORED[id].b.brief, thorough: !!STORED[id].b.thorough,
+      slides: STORED[id].b.kind === "lesson" ? viewsOf(STORED[id].b).length : 1, heading: heads[id] || "", mod: STORED[id].mod.id, modTitle: STORED[id].mod.title})), {build: sd.build, lessonMax: sd.lessonMax});
+    if(!sc.fits) errors.push(`Day ${sd.n}: ${sc.total} minutes (${sc.lessonMin} of lessons, ${sc.acts} Skill Activities at ${sc.act}, ${sc.skillParts} brainstorms, ${sc.build ? sc.build + " of companion-case build, " : ""}the Knowledge Check and 20 minutes for the welcome, a break and the close) is over the 4-hour day`);
+    // a refresher: lessons are at most 30% of the 220 teaching minutes, the practical the rest
+    if(sc.lessonMin > SCHED.LESSON_MIN) errors.push(`Day ${sd.n}: ${sc.lessonMin} minutes of lessons, over the 30% (${SCHED.LESSON_MIN} minutes)`);
+    if(sc.acts && sc.act < SCHED.ACT.min) errors.push(`Day ${sd.n}: ${sc.act} minutes a Skill Activity, under ${SCHED.ACT.min}`);
+    if((sd.phases || []).length !== 1) errors.push(`Day ${sd.n}: ${(sd.phases || []).length} phases; each day is one module`);
+    const qs = new Set(bs.filter(b => b.kind === "check").map(b => STORED[b.id].mod.id));
+    const nq = [...qs].reduce((a, id) => a + (CF.days.flatMap(d => d.modules).find(x => x.id === id).quiz || []).length, 0);
+    if(nq < 20) errors.push(`Day ${sd.n}: its Knowledge Checks hold ${nq} quiz questions; the day's Knowledge Check asks 20`);
+  });
+  /* A balanced deck: every day's slides (each lesson and Skill Activity is one slide per view, the same as viewsOf() in
+     js/cm-case-flow.js and build/case-flow/scripts/assemble.cjs; plus the Training Agenda and the module's one Practice
+     Lab slide) stay within SLIDE_CAP, and no day runs far from the others (half to one and a half times the median).
+     A heavy day condenses its blocks (`compact`, `brief`) instead of carrying more slides. */
   DECK = CF.sequence.map(sd => { const bs = (sd.phases || []).flatMap(ph => ph.blocks || []).filter(id => STORED[id]).map(id => STORED[id].b);
     return {n: sd.n, slides: 1 + (bs.some(b => b.kind === "activity") ? 1 : 0) + bs.reduce((a, b) => a + viewsOf(b).length, 0)}; });
   const med = DECK.map(x => x.slides).sort((a, b) => a - b)[Math.floor(DECK.length / 2)];
