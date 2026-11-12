@@ -229,7 +229,8 @@ function modNames(){
   if(CF && CF.days) CF.days.forEach(d => (d.modules || []).forEach(m => { out[m.id] = m.title; }));
   return (B.mods = out);
 }
-const fbOf = (r, d) => { const f = (((extraOf(r) || {}).fb) || {})[d.id]; return f && f.status === "sent" ? f : null; };
+// a trainer's sent review only: what a trainee's page writes is stored auto (the auto-review), and never reads as the trainer's remark
+const fbOf = (r, d) => { const f = (((extraOf(r) || {}).fb) || {})[d.id]; return f && f.status === "sent" && (!f.auto || f.editedByTrainer) ? f : null; };
 const ratingTone = s => /strong|excellent|exceed/i.test(s || "") ? "gs-hi" : /need|below|not yet|concern/i.test(s || "") ? "gs-lo" : s ? "gs-mid" : "";
 // the day's deliverables: {grp, name, pct, status, why, best[], improve[]}
 function dayParts(r, d){

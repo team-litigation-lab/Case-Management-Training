@@ -11220,8 +11220,9 @@ function adminDayStats(rec){
 }
 function adminPracticeStats(rec){
   const pp = rec.practiceProgress || {};
-  const runs = Object.values(pp).reduce((a,v)=>a+(v.runs||0),0);
-  const scores = Object.values(pp).filter(v=>typeof v.bestScore==="number").map(v=>v.bestScore);
+  // numbers only: a trainee writes this record, and a string here used to be added up as text and drawn as HTML
+  const runs = Object.values(pp).reduce((a,v)=>a+(Number(v && v.runs)||0),0);
+  const scores = Object.values(pp).filter(v=>v && typeof v.bestScore==="number").map(v=>v.bestScore);
   const avg = scores.length ? Math.round(scores.reduce((a,b)=>a+b,0)/scores.length) : 0;
   return {runs, avg};
 }
@@ -11793,7 +11794,7 @@ function renderBatchFolderBody(){
         <div>${a.loaded?esc(a.where):"…"}</div>
         <div>${day.done}/${day.total}</div>
         <div>${day.avg}% avg</div>
-        <div>${practice.runs} run${practice.runs===1?"":"s"} · ${practice.avg}%</div>
+        <div>${esc(practice.runs)} run${practice.runs===1?"":"s"} · ${esc(practice.avg)}%</div>
         <div>${a.loaded&&a.tasksTotal?`${a.tasksDone}/${a.tasksTotal} resolved${a.tasksMissed?` · ${a.tasksMissed} missed`:""}`:a.loaded?"—":"…"}</div>
       </div>`).join("")}
     </div>`;
@@ -12594,7 +12595,7 @@ function renderAdminDetail(rec){
             const p = dp[d.id];
             return `<div style="display:flex;justify-content:space-between;font-size:12.5px;padding:4px 0;border-bottom:1px dashed var(--line);">
               <span>Day ${d.id} — ${esc(d.title)}</span>
-              <span style="color:${p&&p.done?'var(--success)':'var(--ink-soft)'};">${p?(p.done?`${p.score}% ✓`:`${p.score}% (retry needed)`):"Not started"}</span>
+              <span style="color:${p&&p.done?'var(--success)':'var(--ink-soft)'};">${p?(p.done?`${esc(p.score)}% ✓`:`${esc(p.score)}% (retry needed)`):"Not started"}</span>
             </div>`;
           }).join("")}
         </div>
@@ -12604,7 +12605,7 @@ function renderAdminDetail(rec){
             const p = pp[t.id];
             return `<div style="display:flex;justify-content:space-between;font-size:12.5px;padding:4px 0;border-bottom:1px dashed var(--line);">
               <span>${t.icon} ${esc(t.title)}</span>
-              <span style="color:${p?'var(--ink)':'var(--ink-soft)'};">${p?`${p.runs} run(s), best ${p.bestScore||0}%`:"Not attempted"}</span>
+              <span style="color:${p?'var(--ink)':'var(--ink-soft)'};">${p?`${esc(p.runs)} run(s), best ${esc(p.bestScore||0)}%`:"Not attempted"}</span>
             </div>`;
           }).join("")}
         </div>
@@ -12655,14 +12656,14 @@ function renderAdminFilingPanel(rec){
     <div style="font-size:12.5px;color:var(--ink-soft);padding:2px 0 8px;">
       ${filed.length} document${filed.length === 1 ? "" : "s"} filed in the CMS · <b style="color:var(--navy);">${first.length} first time right</b>
       ${onDrive.length ? ` · ${onDrive.length} kept on the Backup Drive` : ""}
-      ${drv ? ` · Drive set up at ${drv.score}% on ${drv.attempts} attempt${drv.attempts === 1 ? "" : "s"}` : " · Backup Drive not set up yet"}
+      ${drv ? ` · Drive set up at ${esc(drv.score)}% on ${esc(drv.attempts)} attempt${drv.attempts === 1 ? "" : "s"}` : " · Backup Drive not set up yet"}
     </div>
     ${ids.map(id=>{
       const r = log[id] || {};
       return `<div style="display:flex;justify-content:space-between;gap:12px;font-size:12.5px;padding:4px 0;border-bottom:1px dashed var(--line);">
         <span>${esc(id)}${r.category ? ` <span style="color:var(--ink-soft);">→ ${esc(r.category)}</span>` : ""}</span>
         <span style="color:${r.filed ? "var(--success)" : "var(--ink-soft)"};white-space:nowrap;">${
-          r.filed ? `${esc(r.name || "filed")} ${r.attempts === 1 ? "✓ first time" : `· ${r.attempts} attempts`}${r.drive ? " · on drive" : ""}`
+          r.filed ? `${esc(r.name || "filed")} ${r.attempts === 1 ? "✓ first time" : `· ${esc(r.attempts)} attempts`}${r.drive ? " · on drive" : ""}`
           : `not filed${r.attempts ? ` · ${r.attempts} refused` : ""}`}</span>
       </div>`;
     }).join("")}
