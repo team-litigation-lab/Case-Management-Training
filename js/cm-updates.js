@@ -1390,6 +1390,8 @@ window.renderMeetClientTrainerGuide = function(){
     // A day that's started but not passed says so: "Continue", how far the slides got, and the recorded Knowledge Check
     // score with the 70% pass mark (a score under 70% is kept, it just doesn't complete the day).
     const prog = (state.progress||{})[d.id] || {};
+    // a passed day keeps its way back in: Continue opens its slides where they were left (Review Score and Retake stay below)
+    if(start && prog.done){ start.textContent = "Continue"; start.title = "Back into this day's slides, where you left them"; }
     if(start && !prog.done && !start.disabled){
       let total = 0; try{ total = buildDaySlides(d).length; }catch(e){}
       const far = (state.slideProgress||{})[d.id] || 0, seen = total ? Math.min(100, Math.round((far + 1) / total * 100)) : 0;
