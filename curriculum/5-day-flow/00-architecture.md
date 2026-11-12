@@ -114,7 +114,7 @@ Each block is one topic in this course's own lesson shape, drawn as a short run 
 
 | Block | Its slides |
 |---|---|
-| Lesson | **Why It Matters** (the hook, from Tell Them's why) · **The Rules** (3–4 rules, the UPL boundary boxed) · **See It** (Show Them's visual) · **On the Job** (Trigger ➔ Task ➔ Tool ➔ Checkpoint) · **Do & Don't** (Best Practices & Pitfalls) |
+| Lesson | **Why It Matters** (the hook, from Tell Them's why) · **The Rules** (3–4 rules, the UPL boundary boxed) · **See It** (Show Them's visual) · **Milestone Steps** (the case's own dated steps, on a slide of their own where the lesson's other slides have no room for them) · **Do & Don't** (Best Practices & Pitfalls) |
 | Skill Activity | **Your Case** (Let Them's scenario) · **Your Task** (the steps, the tool to open, the documents, what to deliver) · **Audit & the Finished Set** (where the activity works a document set) · **See It** (the reference model, if any) · **Check Your Work** (the verification checkpoints, as a tick list) |
 | Knowledge Check | **Knowledge Check** (the questions, four to a slide, each with an answer box) · **Self-Summary** (saved, AI-reviewed with the answers) · **Skill Scale** (and Submit for review) |
 

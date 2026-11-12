@@ -265,8 +265,11 @@ function dayParts(r, d){
       status: t.status === "resolved" ? (t.tier || "Resolved") : missed ? "Missed" : "Open", why: t.status === "resolved" ? `Resolved ${dTime(t.submittedAt || t.resolvedAt)}${t.tier ? " · " + t.tier : ""}` : missed ? "Not resolved before the timer ended: counts 0" : "Still open", best: [], improve: []}); });
   // 📂 Backup Drive
   const bd = n === 1 ? data["drive-setup"] : (data["drive-grades"] || {})[n];
+  // 🏷 the day's File names row (names: {got, max, wrong}, kept with the grade by js/cm-drive.js) leads the list when it cost points, so the cause is named
+  const bdNames = bd && bd.names && typeof bd.names.got === "number" && typeof bd.names.max === "number" && (bd.names.got < bd.names.max || bd.names.wrong > 0)
+    ? [`🏷 File names ${bd.names.got}/${bd.names.max}${bd.names.wrong > 0 ? ` · ${bd.names.wrong} name${bd.names.wrong === 1 ? "" : "s"} wrong` : ""}`] : [];
   if(bd && typeof bd.score === "number") out.push({grp: "bd", name: n === 1 ? "📂 Backup Drive: the firm's folders" : "📂 Backup File Maintenance", pct: num(bd.score),
-    status: (n === 1 ? bd.ok : bd.passed) ? "Passed" : "Below 70%", why: `Read from the trainee's Drive${bd.attempts ? ` · attempt ${bd.attempts}` : ""}${bd.at ? " · " + dTime(bd.at) : ""}`, best: [], improve: (bd.issues || bd.problems || []).slice ? (bd.issues || bd.problems || []).slice(0, 4).map(x => clip(typeof x === "string" ? x : JSON.stringify(x), 200)) : []});
+    status: (n === 1 ? bd.ok : bd.passed) ? "Passed" : "Below 70%", why: `Read from the trainee's Drive${bd.attempts ? ` · attempt ${bd.attempts}` : ""}${bd.at ? " · " + dTime(bd.at) : ""}`, best: [], improve: bdNames.concat((bd.issues || bd.problems || []).slice ? (bd.issues || bd.problems || []).slice(0, 4).map(x => clip(typeof x === "string" ? x : JSON.stringify(x), 200)) : [])});
   // 🗂 the CMS case file (js/cm-cms-file.js): the day's file, graded against what a correct CMS file holds by then
   try{ if(window.cmCmsFile){ const x = cmCmsFile.compute({rec: r, cf: r.caseFlow || {days: {}}, data}).days.find(y => y.n === n);
     if(x && x.pct != null){ const miss = []; x.areas.forEach(a => a.items.filter(i => i.pending || i.pct === 0).forEach(i => miss.push(`${a.a.label}: ${clip(i.name || String(i.text || "").replace(/\*\*/g, ""), 120)}`)));

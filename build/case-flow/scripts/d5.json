@@ -15,9 +15,6 @@
     "model": {
       "say": "• Master timeline, 09/24/2026 to 01/13/2027; each badge is a trigger with a line to its due date\n• Triggers: Complaint filed, Smith served 10/14, Answer 11/12, discovery mailed 12/01, Scheduling Order 12/10, the firm's set e-served 12/14\n• The 12/01 count: plus 30 days, plus 3 for mail, Sunday rolls to Monday: 01/04/2027\n• Right side: 15 RFAs, unanswered means deemed admitted; bottom: the five numbered litigation sub-folders\n• Every date is a calculation anyone can re-check"
     },
-    "job": {
-      "say": "• Suit authorized: confirm Robert Smith's exact legal name from an independent record, like the Declaration Page, not the Police Report alone\n• Filed 09/24/2026, inside the 02/04/2028 internal hard date; Pleadings Log row and stamped Complaint in 01_PLEADINGS that day\n• Failed service attempt: log it; at day 14, 10/08/2026, escalate with the attempt log; Skip-Trace once approved\n• RFAs land: calendar each response with the math written in; alert Atty. Thorne within the hour, time-stamped"
-    },
     "dodont": {
       "say": "• Do: write trigger, service method and arithmetic in every entry: mailed 12/01/2026, plus 30, plus 3, rolled to 01/04/2027\n• Do: ask the three baseline questions in every interrogatory set; record John Doe's answers in his own words\n• Don't: file a perfect Complaint one day after the SOL\n• Don't: let a court deadline slide like an adjuster's; don't count the trigger day as day one",
       "ask": "Why does every calendar entry carry its arithmetic, not just the date?"
@@ -38,9 +35,6 @@
     },
     "model": {
       "say": "• Runway 01/20/2027 to 09/13/2027, seven milestones: deposition 02/18, experts 03/15, mediation by 03/31, defense experts 04/15\n• Then discovery closes 05/28, pretrial 08/12, trial calendar 09/13; three ticks before each for 30-, 14- and 7-day alerts\n• Red band from 05/28: nothing needing an answer is scheduled past it\n• Nine KPIs in three families, each with a measurable target: 48 hours, 1 hour, 7 days or 10 days\n• \"Every RFA calendared within one hour of receipt\" is a KPI; \"stay on top of RFAs\" is not"
-    },
-    "job": {
-      "say": "• Scheduling Order 12/10/2026: calendar six dates, three alerts each, 18 alerts; file the order in 01_PLEADINGS\n• Extension agreed by phone with Atty. Mercer's office: confirm Atty. Thorne approved, send written confirmation same day in his name, recalendar\n• No Scheduling Order date moves without a court order\n• Deposition noticed: book reporter, link and tech check; attorney-approved packet by 02/11/2027, receipt confirmed with John Doe\n• Weekly docket audit: every KPI with formula, target and dated reading; route every miss"
     },
     "dodont": {
       "say": "• Do: call every litigation client at least every 30 days, news or not\n• Do: subpoena only the witnesses Atty. Thorne names; put the subpoena audit on a recurring 10-day reminder\n• Don't: rely on a phone-only extension; don't build trial binders from the pre-lit records\n• Don't: send John Doe's prep packet the day before\n• Every checklist line needs a date, an owner, alerts and proof",
@@ -92,10 +86,6 @@
     },
     "rules": {
       "say": "• Read the release before the numbers: Keystone's 12/10/2026 release covers all claims from the 02/06/2026 accident, for Mr. Doe to sign\n• A Property Damage release must never release the injury claim\n• Check the claim number: KM-26-440871-PD for the car, KM-26-440871 for John; hold it, route to Atty. Thorne same day\n• John signs nothing; photos, estimate, $2,315.00 supplement and rental dates stay identical on both files\n• Never accept, reject, counter or value a car figure"
-    },
-    "job": {
-      "say": "• Keystone sends a release: check scope and claim number, hold it, escalate to Atty. Thorne in Tasks; nobody is asked to sign\n• Keystone restates its figure: log it on Margaret's Property Damage file; John's Net Sheet doesn't change\n• Defense counsel requests car documents in discovery: confirm the severity set and rental dates match the Property Damage file, page by page",
-      "ask": "Keystone raises its offer. What changes on John Doe's Net Sheet, and why?"
     }
   },
   "d5m2-a1": {
@@ -138,9 +128,6 @@
     "model": {
       "say": "• Two lanes toward 02/18/2027, 10:00 a.m.; dates across the top: the audit, 02/04, 02/11, 02/16, 02/17\n• Upper lane, Atty. Thorne: substance; lower lane, Case Manager: the person and the setting; a solid red line between\n• Arrows only go upward: each is a question routed to him; no content comes back down\n• Corner: John's laptop setup: camera at eye level, light in front, private room, no notes, no messaging"
     },
-    "job": {
-      "say": "• Notice of deposition, the paper setting when and where John testifies, served 01/20/2027\n• Calendar 02/04, 02/11 packet, 02/16, 02/17 and 02/18 at 10:00 a.m. for Atty. Thorne and John\n• Route the landmine list and any discovery mismatch to Atty. Thorne before 02/04/2027, each tied to its record\n• 02/16/2027 test call on John's device and room: camera, audio, link, lighting, room, backup number, pass or fail\n• 02/17/2027: confirm with all three; exhibit set approved by Atty. Thorne"
-    },
     "dodont": {
       "say": "• Do: keep records, signed answers and 02/18/2027 testimony consistent; consistency is credibility\n• Do: give every client the dress-code talk; keep John calm, since calm clients give shorter, accurate answers\n• Don't: calm him with a prediction; don't let the three 2021 low-back visits surprise him\n• Don't: over-coach; testimony prep is Atty. Thorne's\n• Real comfort: what happens, who's there, how long it runs, and that he can ask for a break",
       "ask": "What's the difference between calming John with the process and with a prediction?"
@@ -161,9 +148,6 @@
     },
     "model": {
       "say": "• Trap map, seven traps: Is that all, compound question, degenerative, gap mischaracterised, seatbelt, 2021 prior, silent stare\n• Centre: the seven rules; each trap connects to the rule that meets it\n• Right: one shield, Atty. Thorne, who prepares and objects\n• No scripted answer anywhere, on purpose; along the bottom: on an objection, stop talking"
-    },
-    "job": {
-      "say": "• Atty. Mercer's Answer, the defense's formal reply, served 11/12/2026\n• Map each pleaded defense, comparative fault, causation, failure to mitigate, to predicted questions in the deposition prep log\n• Confirm each trap's record is in Atty. Thorne's set: EMS report, 03/13/2026 MRI report, 06/19/2026 Causation Letter, EDR download, Northgate Attendance Record\n• John asks how to answer a trap: log his question in his words, route it same day, offer no wording"
     },
     "dodont": {
       "say": "• Do: remind John silence is safe and rambling isn't; answer the question, then stop\n• Do: explain objections ahead of time so he doesn't freeze or try to help\n• Don't: let him agree to a list from memory, or argue with defense counsel\n• Don't: prep the crash mechanics but skip medical history, the gap and the 2021 low-back visits",
@@ -228,9 +212,6 @@
     "model": {
       "say": "• System table: John at 20% and at 50%; red cells mark Barred\n• Contributory: barred either way; modified 50% rule: barred at 50%, the cliff\n• Right: each allegation's answer on file: RPD-26-018842, Calloway and video; EDR and EMS; the A-C-T record\n• Along the bottom: the stack stays $40,000"
     },
-    "job": {
-      "say": "• Answer filed 11/12/2026, pleading comparative fault, causation, failure to mitigate\n• Log each defense as its own Pleadings Log line dated 11/12/2026; confirm the filing on the docket\n• Map evidence to each allegation with source, witness and custody; nothing without a source document and named witness\n• Missing foundation or a holder refusing: flag for a Subpoena Duces Tecum, route to Atty. Thorne naming gap and holder\n• Counter-package and Gap Record into his prep set before 02/04/2027"
-    },
     "dodont": {
       "say": "• Do: answer each allegation with a document, like the doorbell-camera video and Police Report for out of turn\n• Do: read the damage pattern together with the video and the witness\n• Don't: tell John he \"can't be blamed\" as a passenger; liability opinions are Atty. Thorne's\n• Don't: add Kevin Alvarez's policy to the stack because the defense blames him\n• One allegation, one document, one page cite",
       "ask": "John asks if he can be blamed as a passenger. Who answers, and what is said?"
@@ -251,9 +232,6 @@
     },
     "model": {
       "say": "• Top lane, Smith: failed attempts at 118 Larkspur Ln 10/01, 10/05, 10/08; Skip-Trace 10/09 bends to 4410 Quarry Ridge Ct\n• Served 10/14, affidavit 10/16, answer due 11/13/2026\n• Bottom lane, John: silent from 01/22/2027, four protocol steps, certified mail plus email; reached through Margaret 02/03; deposition 02/18/2027\n• Between lanes: withdrawal, the firm stepping away from the case, is never the Case Manager's to raise"
-    },
-    "job": {
-      "say": "• 10/08/2026: third attempt fails, neighbor says Smith moved; escalate for Skip-Trace authority\n• Log the 10/09 result, re-assign the server to 4410 Quarry Ridge Ct; affidavit 10/16: docket answer 11/13/2026, weekly check\n• Subpoena approved: notice to Atty. Grant Mercer first, then serve the custodian; compliance call five days before production\n• John unreachable from 01/22/2027: Steps 1 to 3, then draft Step 4 for Atty. Thorne's signature, response before 02/04/2027"
     },
     "dodont": {
       "say": "• Do: get each attempt's date and time; Allied's tries on 10/01, 10/05, 10/08 justified the 10/09 Skip-Trace\n• Do: pay a custodian's invoice the day it arrives; confirm the address before certified mail\n• Don't: make a fourth attempt at a stale address; a neighbor said Smith moved in August\n• Don't: serve the non-party before opposing counsel has notice; don't tell Margaret Doe why the firm needs John",
@@ -312,9 +290,6 @@
     "model": {
       "say": "• One rail, six steps; the gate's two ticks: Pending Drop and client told\n• Three letters, client, carrier, provider, each in Word and PDF; sent by preferred method plus Certified Mail, or email or fax\n• Annotate and save; follow up on the return receipt, acknowledgement and fax confirmation\n• Status flips from Pending Drop to Dropped, proof kept; the follow-up is the step most often skipped"
     },
-    "job": {
-      "say": "• Trigger: status Pending Drop with Atty. Thorne's note that the client was told\n• In CMS, Documents, prepare each party's letter from the template for his signature; save Word and PDF\n• Once signed, send each by its method; log party, method and date in the Communications Log\n• Receipts followed up: status to Dropped; file receipts, logs and the attorney's note in Documents\n• A dropped file can return years later as a complaint; the proof protects the firm"
-    },
     "dodont": {
       "say": "• Do: check the gate before opening the template; Atty. Thorne decides in writing first\n• Do: send the client's letter two ways, one with proof of arrival\n• Don't: put the reason in a carrier's letter; don't switch to Dropped before every letter is out and logged\n• Don't: tell the client the case is worthless; value is Atty. Thorne's conversation",
       "ask": "The client asks what her claim was worth. Whose conversation is that, and what is said?"
@@ -360,9 +335,6 @@
     "model": {
       "say": "• Two ledger cards, Track A and Track B: gross, fee, costs, liens, net; both gross $40,000.00\n• Track B highlights fee, costs and liens: the three rows the lawsuit moved\n• Fee rose to the 40% tier; costs grew with each filing and hearing; reductions follow the fee actually charged\n• Nets: $20,359.92 Track A, $14,713.75 Track B; reason: suit filed 09/24/2026; no Payoff Letter, no payment"
     },
-    "job": {
-      "say": "• Award 07/06/2027: log it under Litigation; diary Harbor Point's $20,000.00 and Cardinal State's $10,000.00\n• Prepare Reduction Requests, letters asking lienholders to take less, in the LSH Net Sheet, for Atty. Thorne's approval\n• Accepted: Peach State $1,116.00, Riverton Spine & Rehab $4,275.00\n• After the last UM check clears: complete the Net Sheet; route the Settlement Statement, net $14,713.75, through Tasks, Escalate"
-    },
     "dodont": {
       "say": "• Do: show John the 40% tier in his own retainer: $16,000 on the $40,000\n• Do: attach a receipt to every cost, all $3,895.25\n• Don't: carry Track A's 33⅓% into this file; don't disburse before the liens resolve\n• Keystone's $10,000 has sat in trust since 03/29/2027; it stays until both liens settle in writing\n• Whether the lawsuit was worth it is Atty. Thorne's conversation",
       "ask": "If 33⅓% appears on this Settlement Statement, what should that signal?"
@@ -401,10 +373,6 @@
     },
     "rules": {
       "say": "• Trigger: a refused request, or a record Atty. Thorne needs from its custodian; he decides, signs and issues\n• Court-approved form: Civil Action No. 26-CV-04417, named custodian, narrow Exhibit A, the list of records sought\n• Copy to Atty. Grant Mercer first; after the notice period, Allied Process Services serves the custodian\n• Compliance call five days before production; pay the copy invoice promptly; records back before 05/28/2027\n• Trial subpoenas only for witnesses Atty. Thorne names, tasked against 08/12/2027 and 09/13/2027"
-    },
-    "job": {
-      "say": "• Atty. Thorne needs the Riverton Fire Run Report: route the question through Tasks; draft nothing until he decides\n• Once approved: the template, with a narrow Exhibit A: run RF-26-0206-114, Medic 7, John Doe, 02/06/2026 only\n• Notice to Atty. Mercer dated before service, every time\n• While open: review its subpoena log row every 10 days, call the custodian five days before production; misses to Atty. Thorne",
-      "ask": "Which two dates on a subpoena log row show that notice came first?"
     }
   },
   "d4m1-efile": {

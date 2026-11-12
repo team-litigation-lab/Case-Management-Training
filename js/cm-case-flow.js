@@ -471,9 +471,9 @@ function falloutFor(blockId){
     return {f, done, what: String(what).replace(/\*\*/g, "")};
   }).filter(x => isTrainer() || !x.done);
 }
-const VIEW_LABEL = {grade: "The Grade-A Standard", audit: "Audit & the Finished Set", why: "Why It Matters", doc: "The Document", theory: "The Theory", theory2: "The Theory, Continued", frame: "The Framework", rules: "The Rules", map: "The Roadmap", model: "See It", job: "On the Job", dodont: "Do & Don't",
+const VIEW_LABEL = {grade: "The Grade-A Standard", audit: "Audit & the Finished Set", why: "Why It Matters", doc: "The Document", theory: "The Theory", theory2: "The Theory, Continued", frame: "The Framework", rules: "The Rules", map: "The Roadmap", model: "See It", steps: "Milestone Steps", dodont: "Do & Don't",
   case: "Your Case", task: "Your Task", check: "Check Your Work", questions: "Knowledge Check", questions2: "Knowledge Check, Continued", summary: "Self-Summary", scale: "Skill Scale"};
-const VIEW_ICON = {grade: "🏅", audit: "🔍", why: "💡", doc: "📄", theory: "📚", theory2: "📚", frame: "🧭", rules: "📏", map: "🗺", model: "🔍", job: "🛠", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
+const VIEW_ICON = {grade: "🏅", audit: "🔍", why: "💡", doc: "📄", theory: "📚", theory2: "📚", frame: "🧭", rules: "📏", map: "🗺", model: "🔍", steps: "📍", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
 const KC_PER = 4;   // Knowledge Check questions on one slide
 /* The Theory: the lesson's concepts from the original Canva decks (build/case-flow/slides/theory-dN.json), four to a
    slide (a deep topic, 6–8 concepts, takes two); then The Framework, the deck page's own table, flowchart or checklist
@@ -490,8 +490,11 @@ const theoryViews = b => { const t = theoryOf(b); return !t ? [] : (t.concepts.l
 const docView = b => (SLIDES[b.id] || {}).document ? ["doc"] : [];
 /* The three micro-frameworks (build/case-flow/slides/SLIDESPEC.md), drawn on a lesson's existing slides so no slide
    is added: the CM Red Flag on Why It Matters (the risk, what it costs, what you do, whose call), Rule vs. Exception on
-   The Rules, and Milestone Steps (the case's own dates) on On the Job, or The Framework, See It or The Rules where a
-   lesson has no On the Job. At most one Red Flag on a slide. */
+   The Rules, and Milestone Steps (the case's own dates) on The Framework, or See It, The Theory or The Rules where a
+   lesson has no Framework (msView: the first of them the lesson has). Where that slide has no room for the rail on a
+   laptop without shrinking its type, the copy says `"slide": true` and Milestone Steps is the one framework with a
+   slide of its own, after The Rules or See It (the rail alone, in large type). At most one Red Flag on a slide.
+   (The lessons had an On the Job slide here, rows of Trigger ➔ Task ➔ Tool ➔ Checkpoint cards: it is gone.) */
 const mfOf = b => { const c = SLIDES[b.id] || {}; return {redFlag: c.redFlag || null, ruleEx: c.ruleEx || null, milestones: c.milestones || null}; };
 const FLAG_SVG = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M5 21V4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M6 4h11l-2.6 4L17 12H6z" fill="currentColor"/></svg>`;
 function redFlagBox(b){
@@ -506,17 +509,18 @@ function ruleExBox(b){
     <div class="cfx-rx-exc"><p><b>${x.contrast ? "Contrast" : "Exception"}</b> ${hl(x.exception)}</p></div></div>
     ${x.onFile ? `<p class="cfx-rx-file"><b>On this file:</b> ${hl(x.onFile)}</p>` : ""}<p class="cfx-rx-conf"><b>Confirm:</b> ${hl(x.confirm)}</p></section>`;
 }
-const msView = b => { const vs = viewsOf(b); return ["job", "frame", "model", "theory", "rules"].find(v => vs.includes(v)) || null; };
+const stepsView = b => ((SLIDES[b.id] || {}).milestones || {}).slide ? ["steps"] : [];   // Milestone Steps on a slide of its own
+const msView = b => { const vs = viewsOf(b); return ["steps", "frame", "model", "theory", "rules"].find(v => vs.includes(v)) || null; };
 function milestoneRail(b, view){
   const m = mfOf(b).milestones; if(!m || msView(b) !== view) return "";
   const n0 = m.start || 1;
-  return `<section class="cfx-ms" aria-label="Milestone Steps: ${E(m.title)}"><h3 class="cfx-ms-t">${E(m.title)}</h3><ol class="cfx-ms-rail" style="--n:${m.steps.length}" start="${n0}">${m.steps.map((s, i) => `<li><span class="cfx-ms-n">${n0 + i}</span><span class="cfx-ms-h"><b>${E(s.label)}</b>${s.chip ? `<code class="cfx-ms-chip">${E(s.chip)}</code>` : ""}</span><span class="cfx-ms-done"><i>Done when:</i> ${hl(s.done)}</span></li>`).join("")}</ol>
+  return `<section class="cfx-ms" aria-label="Milestone Steps: ${E(m.title)}"><h3 class="cfx-ms-t">${E(m.title)}</h3><ol class="cfx-ms-rail" style="--n:${m.steps.length};--c:${m.steps.length > 4 ? Math.ceil(m.steps.length / 2) : m.steps.length}" start="${n0}">${m.steps.map((s, i) => `<li><span class="cfx-ms-n">${n0 + i}</span><span class="cfx-ms-h"><b>${E(s.label)}</b>${s.chip ? `<code class="cfx-ms-chip">${E(s.chip)}</code>` : ""}</span><span class="cfx-ms-done"><i>Done when:</i> ${hl(s.done)}</span></li>`).join("")}</ol>
     ${m.note ? `<p class="cfx-ms-note">${hl(m.note)}</p>` : ""}</section>`;
 }
 function viewsOf(b){
-  if(b.kind === "lesson" && b.brief) return ["why"].concat(docView(b), ["rules"]).concat((b.ops || []).length ? ["job"] : []);   // brief: a condensed overview (Day 5's litigation)
-  if(b.kind === "lesson" && b.compact) return mapView(b).concat(theoryViews(b).slice(0, 1), ["why"], docView(b), ["rules"], (b.ops || []).length ? ["job"] : []);   // compact: a full topic on fewer slides
-  if(b.kind === "lesson") return mapView(b).concat(theoryViews(b), ["why"], docView(b), ["rules"], b.show ? ["model"] : [], (b.ops || []).length ? ["job"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // the theory first, then why it matters; noGame: the CM introduction
+  if(b.kind === "lesson" && b.brief) return ["why"].concat(docView(b), ["rules"], stepsView(b));   // brief: a condensed overview (Day 5's litigation)
+  if(b.kind === "lesson" && b.compact) return mapView(b).concat(theoryViews(b).slice(0, 1), ["why"], docView(b), ["rules"], stepsView(b));   // compact: a full topic on fewer slides
+  if(b.kind === "lesson") return mapView(b).concat(theoryViews(b), ["why"], docView(b), ["rules"], b.show ? ["model"] : [], stepsView(b), (b.best || []).length && !b.noGame ? ["dodont"] : []);   // the theory first, then why it matters; noGame: the CM introduction
   if(b.kind === "activity") return ["task", "case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], EX.audits[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);   // Your Task first: what to do, then the file it's done on   // compact: no See It slide (the worked model stays in 📖 Full text)
   return (copyOf(b).questions.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
 }
@@ -540,7 +544,7 @@ function copyOf(b){   // the block's concise copy, or a condensed fallback from 
   const c = SLIDES[b.id] || {};
   const best = b.best || [], dos = best.filter(x => !/^pitfall/i.test(x)), donts = best.filter(x => /^pitfall/i.test(x)).map(x => x.replace(/^pitfall:\s*/i, ""));
   if(b.kind === "lesson") return {image: c.image, hook: c.hook || words(firstSentence(b.tell.why), 22), points: c.points || b.tell.rules.slice(0, 4).map(r => words(r, 16)),
-    upl: c.upl !== undefined ? c.upl : ((b.tell.upl || [])[0] ? words(b.tell.upl[0], 18) : ""), job: c.job || (b.ops || []).slice(0, 3).map(r => r.map(x => words(x, 7))),
+    upl: c.upl !== undefined ? c.upl : ((b.tell.upl || [])[0] ? words(b.tell.upl[0], 18) : ""),
     dos: c.dos || dos.slice(0, 3).map(x => words(x, 12)), donts: c.donts || donts.slice(0, 3).map(x => words(x, 12)), theory: c.theory || null, document: c.document || null};
   if(b.kind === "activity") return {image: c.image, situation: c.situation || words(b.act.scenario, 36), steps: c.steps || [words(b.act.prompt, 30)],
     purpose: c.purpose || "", principle: c.principle || (c.dos || dos.map(x => words(x, 12)))[0] || "",
@@ -573,8 +577,8 @@ function artSvg(key){
 const art = (key, cls) => ART[key] ? `<div class="cfx-art ${cls || ""}" data-motion="${ART_MOTION[key] || "float"}" aria-hidden="true" title="Click to replay" onclick="cmCaseFlow.artReplay(this)">${artSvg(key)}</div>` : "";
 window.cmCaseFlow.artReplay = (el) => { el.classList.remove("cfa-on"); void el.offsetWidth; el.classList.add("cfa-on"); };
 /* ---------- the tools and simulators, connected at every step ----------
-   Every Case Flow slide carries the tools its step is worked in (🛠 in the slide's top row), each On the Job row
-   and each Your Task step opens the tool it names, and Check Your Work logs the reference of what the trainee did
+   Every Case Flow slide carries the tools its step is worked in (🛠 in the slide's top row), each Your Task
+   step opens the tool it names, and Check Your Work logs the reference of what the trainee did
    there. The training platforms open in the course's own tool frame (js/cm-skillbuilders.js openTool: the
    session is kept while the trainee moves between slides); the course's own pages (the Action Plan, the Case
    Documents, the Calendar Conflict Resolver) open with a way back to the slide; a call on John Doe's file is the
@@ -763,7 +767,8 @@ function plainFirst(){
   CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { all[b.id] = b; })));
   SEQUENCE.forEach(sd => (sd.phases || []).forEach(ph => (ph.blocks || []).forEach(id => {
     const b = all[id]; if(!b) return;
-    const text = JSON.stringify([SLIDES[id] || {}, b.title, b.topic, b.tell || {}, b.act ? [b.act.scenario, b.act.prompt] : [], b.check ? b.check.questions : []]).replace(/\*\*/g, "");
+    // (a lesson's ops, its Trigger ➔ Task ➔ Tool ➔ Checkpoint steps, count: they are in its 📖 Additional Reference and the trainer walks them, though no slide draws them now)
+    const text = JSON.stringify([SLIDES[id] || {}, b.title, b.topic, b.tell || {}, b.kind === "lesson" ? b.ops || [] : [], b.act ? [b.act.scenario, b.act.prompt] : [], b.check ? b.check.questions : []]).replace(/\*\*/g, "");
     const fresh = terms.filter(t => !seen.has(t) && plainRe(t).test(text));
     fresh.forEach(t => seen.add(t));
     if(fresh.length) PLAIN_FIRST[id] = fresh;
@@ -855,29 +860,33 @@ function slideBody(view, l, d){
         <p class="cfx-fw-note">Build your own version from the downloaded case documents, then upload it to your training Drive and the CMS: the platform audits it against this standard.</p></div>`;
     }
     case "model": return `<div class="cfx-model">${b.show && b.show.caption ? `<p class="cfx-caption">${E(b.show.caption)}</p>` : ""}${visual(l, b)}</div>${milestoneRail(b, "model")}`;
-    case "job": return `${milestoneRail(b, "job")}<div class="cfx-job${mfOf(b).milestones ? " cfx-job-ms" : ""}">${c.job.map((r, ri) => `<div class="cfx-flow">${r.map((x, j) => `<div class="cfx-step"><small>${["Trigger", "Task", "Tool", "Checkpoint"][j]}</small><span>${hl(x)}</span></div>`).join('<span class="cfx-arrow">➔</span>')}</div>`).join("")}</div>`;
+    case "steps": return `<div class="cfx-ms-own${mfOf(b).milestones.steps.length > 4 ? "" : " cfx-ms-row"}">${milestoneRail(b, "steps")}</div>`;   // Milestone Steps, alone on the slide
     case "dodont": return ddList(c);   // the Do's and Don'ts themselves (3 Clues, 1 Rule is retired)
     case "case": {
       if(b.id === "d1m1-drive" && window.CMDrive && CMDrive.slide) return CMDrive.slide();   // Day 1's case backup: the task in four steps and the firm's standard, from the Worker (js/cm-drive.js)
       const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(docAvail).filter(Boolean).slice(0, 4);
       const ev = SIM.events[b.id], fall = falloutFor(b.id), vm = ev && ev.channel === "voicemail" && ev.spoken;
       const thumbs = notesOf(b.id) ? npCard(b.id) : ev && ev.log ? logSnapshot(ev.log) : docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy" onerror="this.parentNode.classList.add('cfx-thumb-off');this.remove()"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
-      return `<div class="cfx-sb">${timeBanner(l)}
+      return `<div class="cfx-sb${vm ? " cfx-sb-vmw" : ""}">${timeBanner(l)}
         ${fall.map(x => { const e = x.f.then.event, [icon] = CHANNEL[e.channel] || ["⚠️"];
           return `<details class="cfx-fall"><summary><span class="cfx-fall-i">⚠️</span><b>${E(e.subject)}</b><span class="cfx-fall-from">${icon} ${E(e.from || "")}</span></summary>
             <p>${E(e.body)}</p>${isTrainer() ? `<small class="cfx-fall-why">${x.done ? "Not shown to this trainee: they confirmed" : "Shown because this wasn't confirmed"}: “${E(x.what)}” (${E(x.f.if.activity)})</small>` : ""}</details>`; }).join("")}
-        <div class="cfx-sb-grid${vm ? " cfx-sb-vm" : ""}">
-          <div class="cfx-sb-main">${ev ? (ev.before || []).map(x => eventCard(x, "cfx-ev-before")).join("") + eventCard(ev, "", b.id, (docs.length > 0 && !ev.log) || !!notesOf(b.id)) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}${docs.length && !notesOf(b.id) && !(ev && (ev.log || (ev.before || []).length)) ? art(c.image, "cfx-sb-art") : ""}</div>
+        <div class="cfx-sb-grid${vm ? " cfx-sb-vm" + (notesOf(b.id) ? "" : " cfx-sb-vmd") : ""}">
+          <div class="cfx-sb-main">${ev ? (ev.before || []).map(x => eventCard(x, "cfx-ev-before")).join("") + eventCard(ev, "", b.id, (docs.length > 0 && !ev.log) || !!notesOf(b.id)) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}${docs.length && !vm && !notesOf(b.id) && !(ev && (ev.log || (ev.before || []).length)) ? art(c.image, "cfx-sb-art") : ""}</div>
           <div class="cfx-sb-docs">${thumbs}</div>
         </div></div>`;
     }
     case "task": { const main = blockTools(b).filter(id => id !== "call")[0] || "cms";
+      // 🏷 a Backup File Maintenance task carries the firm's naming convention (js/cm-drive.js): one row under the task, and
+      // from Day 3 the labels at the end of the Practice Lab line, so neither costs the slide any size
+      // (Days 2–5. Day 1's task has no room for the row at full size: it stays as it is, and its Your Case slide, the next one, carries the convention)
+      const drv = DRIVE_LATER.has(b.id) && !!window.CMDrive && !!CMDrive.namingBox;
       const where = TOOLKIT.find(t => t.id === main), whereName = where ? where.name.replace(/^the /, "the ") : "the CMS";
       /* the busiest slides were shrunk to fit: the Practice Lab note is one line, and the things to do (the live call,
          the service confirmation) sit under the steps, so the two columns are about the same height; with both, the
          service confirmation goes to the right column */
-      return `${plainBox(b)}<div class="cfx-do-now"><b>🧪 Practice Lab</b><span>Work the steps in ${E(whereName)}${SIM.calls[b.id] ? ", take the live call" : ""}, then <em>Deliver</em>.</span></div>
-      <div class="cfx-task"><div class="cfx-task-main"><ol class="cfx-points">${c.steps.map(x => `<li><span>${hl(x)}${stepLink(x, b)}</span></li>`).join("")}</ol>
+      return `${plainBox(b)}<div class="cfx-do-now${drv ? " cfx-drv" : ""}"><b>🧪 Practice Lab</b><span>Work the steps in ${E(whereName)}${SIM.calls[b.id] ? ", take the live call" : ""}, then <em>Deliver</em>.</span>${drv ? CMDrive.namingBox({day: Number(b.id.charAt(1)), labels: true}) : ""}</div>
+      <div class="cfx-task${drv ? " cfx-drv" : ""}"><div class="cfx-task-main"><ol class="cfx-points">${c.steps.map(x => `<li><span>${hl(x)}${stepLink(x, b)}</span></li>`).join("")}</ol>
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}<small class="cfx-simnote-s">⏱ Simulated in real time for accelerated training</small></span>
           <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
         ${serviceOf(b.id) && !SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ ${E(svWords(serviceOf(b.id)).label)}</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
@@ -890,7 +899,7 @@ function slideBody(view, l, d){
           <button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.notes('${b.id}')">📝 Open</button></div>` : ""}
         ${serviceOf(b.id) && SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ ${E(svWords(serviceOf(b.id)).label)}</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
           <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the ${E(svWords(serviceOf(b.id)).label)}</button></div>` : ""}
-        <button type="button" class="cfx-deliver" onclick="cmCaseFlow.toView('${b.id}','check')" title="Hand it in, then check your work"><b>📤 Deliver</b><span>${hl(c.deliver)}</span><em>Hand in &amp; check your work ➔</em></button></aside></div>${(b.id === DRIVE_ACT || DRIVE_LATER.has(b.id)) && window.CMDrive && CMDrive.namingBox ? CMDrive.namingBox({day: Number(b.id.charAt(1)), slide: true}) : "" /* 🏷 the firm's naming convention, on every Backup File Maintenance task (js/cm-drive.js) */}`; }
+        <button type="button" class="cfx-deliver" onclick="cmCaseFlow.toView('${b.id}','check')" title="Hand it in, then check your work"><b>📤 Deliver</b><span>${hl(c.deliver)}</span><em>Hand in &amp; check your work ➔</em></button></aside></div>${drv ? CMDrive.namingBox({day: Number(b.id.charAt(1)), slide: true}) : ""}`; }
     case "check": { const open = answersOpen(b.id);
       return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${open ? (justRevealed === b.id ? hl(x).replace(/class="cfx-hl"/g, 'class="cfx-hl cfx-unblur"') : hl(x)) : masked(x)}</span></label>`).join("")}</div>
       ${open ? (isTrainer() && !inAudience() ? `<p class="cfx-key-note">🔑 Trainer view: the answers. Trainees see them blurred until they finish the activity.</p>` : "")
@@ -937,8 +946,8 @@ function actDone(id){
   return ((REC.reached || {})[id] || 0) >= viewsOf(b).length || ((REC.ticks || {})[id] || []).some(Boolean) || !!(REC.work || {})[id] || !!((REC.listen || {})[id] || {}).at || !!((REC.notes || {})[id] || {}).txAt || !!(REC.calls || {})[id];
 }
 const actOpened = id => !!(REC.reached || {})[id] || actDone(id);
-/* each tool once per slide: a slide names its tools in the top row, in the Your Task "Where" box, beside a step or
-   an On the Job row, and the live call in its own box. Only the first of each stays, looked for in that order of
+/* each tool once per slide: a slide names its tools in the top row, in the Your Task "Where" box, beside a step,
+   and the live call in its own box. Only the first of each stays, looked for in that order of
    weight: the live-call box, the Where box, the slide's own content, then the top row (which goes if it ends up empty). */
 function oneOfEachTool(html){
   if(typeof document === "undefined") return html;
@@ -1244,9 +1253,20 @@ window.cmCaseFlow.callBack = function(){
    against what was said, and only then sees the transcript. Plays and the check are kept on their record
    (REC.listen) and shown to their trainer. A browser that can't speak (no speech engine, or no English voice
    installed) gets the steps to turn it on for that device, and the transcript stays closed until they've listened. */
-const VM = {playing: null, ctx: null, hiss: null};
+/* The player. speechSynthesis can't seek inside an utterance, so the message is spoken chunk by chunk (vmChunks: a
+   sentence, a long one cut at its commas) on a timeline (vmPlan) whose total is the length the card has always shown
+   (vmTotal). A place on the bar is a time; playing from it starts at the chunk that holds it, so ⏪ / ⏩ and a drag of
+   the bar land on the start of a phrase. One state (VM) drives every player on the page (the Your Case card, the
+   Listening Check, the Notes & Action Plan): each is a [data-vm] and vmPaint repaints them together.
+   A play is counted when playback starts from a stopped state (never played, played to the end, or ↺ Start over);
+   a pause and resume, a seek and ⏪ / ⏩ are the same play. Nothing runs while nothing plays: the frame loop, the
+   hiss and every timer end with the playback, and a hidden tab pauses it. */
+const VM = {ctx: null, hiss: null, osc: null, id: null, pos: 0, on: false, open: false, token: null, base: 0, cap: 0, at: 0, raf: 0, say: null, wait: null, seekT: 0, busy: false, plans: {}};
 const vmWords = t => String(t || "").split(/\s+/).filter(Boolean).length;
-const vmLength = e => { const s = Math.round(vmWords(e.spoken) / 2.3 + 6); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
+const VM_SYS = 6;   // seconds for the system voice and the tone, around the caller
+const vmTotal = e => Math.round(vmWords(e.spoken) / 2.3 + VM_SYS);
+const vmClock = s => { s = Math.max(0, Math.floor(s + 1e-6)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
+const vmLength = e => vmClock(vmTotal(e));
 const vmRec = id => { REC.listen = REC.listen || {}; return (REC.listen[id] = REC.listen[id] || {plays: 0, answers: []}); };
 const canSpeak = () => typeof speechSynthesis !== "undefined" && typeof SpeechSynthesisUtterance !== "undefined";
 function vmVoice(kind){
@@ -1264,70 +1284,204 @@ function vmWhen(e){
   return `${f({weekday: "long"})}, ${f({month: "long"})} ${d}${sfx}${e.time ? ", at " + e.time : ""}`;
 }
 const vmDigits = t => (String(t).match(/\(?\d{3}\)?[\s-]*\d{3}-\d{4}/) || [""])[0].replace(/\D/g, "").split("").map(n => n === "0" ? "oh" : n).join(" ").replace(/^(\S+ \S+ \S+) (\S+ \S+ \S+) /, "$1, $2, ");
-function vmTone(ctx, at, f, dur, gain){ const o = ctx.createOscillator(), g = ctx.createGain(); o.frequency.value = f; g.gain.value = gain; o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + at); o.stop(ctx.currentTime + at + dur); }
+// the caller's words in the pieces they are spoken in: each sentence, a long one (over 10 words) cut at its commas
+function vmChunks(spoken){
+  const out = [];
+  String(spoken || "").split(/(?<=[.?!])(?<!\b(?:Mr|Mrs|Ms|Dr|Atty|St|Jr|Sr|No|vs)\.)\s+/).filter(Boolean).forEach(sent => {   // (a title's full stop ends no sentence)
+    if(vmWords(sent) <= 10){ out.push(sent); return; }
+    const parts = []; let cur = "";
+    sent.split(/(?<=,)\s+/).forEach(piece => {
+      if(cur && vmWords(cur) >= 4 && vmWords(cur) + vmWords(piece) > 10){ parts.push(cur); cur = piece; }
+      else cur = cur ? cur + " " + piece : piece;
+    });
+    if(cur){ if(parts.length && vmWords(cur) < 3) parts[parts.length - 1] += " " + cur; else parts.push(cur); }
+    parts.forEach(x => out.push(x));
+  });
+  return out;
+}
+// the timeline: the system voice, the tone, the caller chunk by chunk, "End of message"; every piece has its start (t) and length (d), in seconds
+function vmPlan(blockId){
+  if(VM.plans[blockId]) return VM.plans[blockId];
+  const e = SIM.events[blockId]; if(!e || !e.spoken) return null;
+  const total = vmTotal(e), when = vmWhen(e);
+  const segs = [{kind: "system", text: `You have one new message. Received ${when}${/\.$/.test(when) ? "" : "."} From ${vmDigits(e.from)}.`, d: 4, gap: 0}, {kind: "tone", d: 1.2}];
+  const chunks = vmChunks(e.spoken), w = chunks.map(c => vmWords(c) + (/\.\.\.$/.test(c) ? 1.2 : /,$/.test(c) ? 0.3 : 0.6));
+  const sum = w.reduce((x, y) => x + y, 0) || 1, body = Math.max(1, total - VM_SYS);
+  chunks.forEach((c, i) => segs.push({kind: "caller", text: c.replace(/\.\.\./g, ","), d: body * w[i] / sum, gap: /\.\.\.$/.test(c) ? 500 : /,$/.test(c) ? 140 : 260}));
+  segs.push({kind: "system", text: "End of message.", d: 0.8, gap: 0});
+  let t = 0; segs.forEach(s => { s.t = t; t += s.d; });
+  return (VM.plans[blockId] = {segs, total});
+}
+const vmSegAt = (p, t) => { let i = 0; while(i + 1 < p.segs.length && p.segs[i + 1].t <= t + 1e-6) i++; return i; };
+// where the message is: live while it plays (never past the end of the chunk being spoken), else the place kept
+const vmNow = () => VM.on ? Math.min(VM.cap, VM.base + (performance.now() - VM.at) / 1000) : VM.pos;
+const vmAt = blockId => VM.id === blockId ? vmNow() : 0;
+function vmSync(t, cap){ VM.base = VM.pos = t; VM.cap = cap; VM.at = performance.now(); }
+function vmTone(ctx, at, f, dur, gain){ const o = ctx.createOscillator(), g = ctx.createGain(); o.frequency.value = f; g.gain.value = gain; o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + at); o.stop(ctx.currentTime + at + dur); return o; }
 function vmHiss(on){
   try{
     if(on){
+      if(VM.hiss) return;   // one hiss, however often a seek asks for it
       const Ctx = window.AudioContext || window.webkitAudioContext; if(!Ctx) return;
       const ctx = VM.ctx || (VM.ctx = new Ctx()), buf = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate), ch = buf.getChannelData(0);
       for(let i = 0; i < ch.length; i++) ch[i] = Math.random() * 2 - 1;
       const src = ctx.createBufferSource(), bp = ctx.createBiquadFilter(), g = ctx.createGain();
       src.buffer = buf; src.loop = true; bp.type = "bandpass"; bp.frequency.value = 1800; bp.Q.value = 0.6; g.gain.value = 0.018;
       src.connect(bp); bp.connect(g); g.connect(ctx.destination); src.start(); VM.hiss = src;
-    }else if(VM.hiss){ VM.hiss.stop(); VM.hiss = null; }
+    }else if(VM.hiss){ const h = VM.hiss; VM.hiss = null; h.stop(); }
   }catch(e){}
 }
-function vmSay(text, kind, token){
+function vmSay(seg, token){
   return new Promise(res => {
-    if(VM.playing !== token) return res();
-    const u = new SpeechSynthesisUtterance(text), v = vmVoice(kind);
+    if(VM.token !== token) return res();
+    const u = new SpeechSynthesisUtterance(seg.text), v = vmVoice(seg.kind);
     if(v) u.voice = v;
-    u.rate = kind === "caller" ? 0.92 : 1; u.pitch = kind === "caller" ? 0.85 : 1.08; u.volume = 1;
-    let done = false; const end = () => { if(!done){ done = true; res(); } };
+    u.rate = seg.kind === "caller" ? 0.92 : 1; u.pitch = seg.kind === "caller" ? 0.85 : 1.08; u.volume = 1;
+    let done = false, guard = 0;
+    const end = () => { if(done) return; done = true; clearTimeout(guard); if(VM.say === end){ VM.say = null; VM.u = null; } res(); };
+    // the clock is set to the chunk's start when the engine starts it, and moved on at each word the engine reports
+    u.onstart = () => { if(VM.token === token) vmSync(seg.t, seg.t + seg.d); };
+    u.onboundary = ev => { if(VM.token !== token || !ev || !(ev.charIndex > 0)) return;
+      const at = seg.t + seg.d * Math.min(1, ev.charIndex / Math.max(1, seg.text.length)); if(at > vmNow()){ VM.base = at; VM.at = performance.now(); } };
     u.onend = end; u.onerror = end;
-    setTimeout(end, Math.max(4000, vmWords(text) * 650));   // never hang if a browser drops the event
+    guard = setTimeout(end, Math.max(4000, vmWords(seg.text) * 650));   // never hang if a browser drops the event
+    VM.say = end; VM.u = u;   // (held, so the engine's events still arrive)
     speechSynthesis.speak(u);
   });
 }
-const vmPause = ms => new Promise(r => setTimeout(r, ms));
-function vmPaint(blockId){
+const vmPause = ms => new Promise(res => { const w = VM.wait = {res, t: setTimeout(() => { if(VM.wait === w) VM.wait = null; res(); }, ms)}; });
+// silence: what is being said, the tone and every pending timer
+function vmQuiet(){
+  if(VM.seekT){ clearTimeout(VM.seekT); VM.seekT = 0; }
+  if(VM.wait){ const w = VM.wait; VM.wait = null; clearTimeout(w.t); w.res(); }
+  if(VM.say){ const f = VM.say; VM.say = null; VM.u = null; f(); }
+  if(VM.osc){ try{ VM.osc.stop(); }catch(e){} VM.osc = null; }
+  try{ if(canSpeak()) speechSynthesis.cancel(); }catch(e){}
+}
+// stop speaking: keep = ⏸ (the place is kept, the play goes on), else back to the start (the next ▶ is a new play)
+function vmHalt(keep){
+  const id = VM.id, at = vmNow();
+  VM.on = false; VM.token = null; vmQuiet(); vmHiss(false);
+  if(VM.raf){ cancelAnimationFrame(VM.raf); VM.raf = 0; }
+  VM.pos = keep ? at : 0; if(!keep) VM.open = false;
+  if(id) vmPaint(id);
+}
+// speak from the chunk that holds the place, chunk after chunk, to the end of the message
+async function vmRun(token){
+  const p = vmPlan(VM.id); if(!p) return;
+  for(let i = vmSegAt(p, VM.pos); i < p.segs.length && VM.token === token; i++){
+    const s = p.segs[i];
+    vmSync(s.t, s.t + s.d); vmHiss(s.kind === "caller"); vmTime(VM.id);
+    if(s.kind === "tone"){ try{ if(VM.ctx) VM.osc = vmTone(VM.ctx, 0.15, 1000, 0.45, 0.08); }catch(er){} await vmPause(900); VM.osc = null; }
+    else{ await vmSay(s, token); if(VM.token === token && s.gap) await vmPause(s.gap); }
+  }
+  if(VM.token === token) vmHalt(false);   // the end of the message
+}
+// playing: go quiet, move to t, and speak from there after a beat (so a drag of the bar doesn't stutter)
+function vmGo(t){
+  const token = VM.token = {id: VM.id};
+  vmQuiet(); vmSync(t, t); vmPaint(VM.id);
+  VM.seekT = setTimeout(() => { VM.seekT = 0; if(VM.token === token) vmRun(token); }, 160);
+}
+function vmFrame(){ VM.raf = 0; if(!VM.on) return; vmTime(VM.id); VM.raf = requestAnimationFrame(vmFrame); }
+// the bar and the elapsed time of every player of this voicemail
+function vmTime(blockId){
+  const p = vmPlan(blockId); if(!p) return;
+  const at = vmAt(blockId), label = vmClock(at), f = (Math.min(1, at / p.total)).toFixed(4);
   document.querySelectorAll(`[data-vm="${blockId}"]`).forEach(el => {
-    const r = vmRec(blockId), on = VM.playing && VM.playing.id === blockId;
-    el.querySelectorAll(".cfx-vm-play").forEach(b => { b.textContent = on ? "⏹ Stop" : r.plays ? "↻ Play again" : "▶ Play"; b.setAttribute("aria-pressed", on ? "true" : "false"); });
-    el.querySelectorAll(".cfx-vm-st").forEach(x => { x.textContent = on ? "🔊 Playing…" : vmStatus(blockId); });
+    el.querySelectorAll(".vmp-el").forEach(x => { if(x.textContent !== label) x.textContent = label; });
+    el.querySelectorAll(".vmp-seek").forEach(x => { x.value = at.toFixed(1); x.style.setProperty("--f", f); if(x.dataset.at !== label){ x.dataset.at = label; x.setAttribute("aria-valuetext", `${label} of ${vmClock(p.total)}`); } });
+  });
+}
+function vmPaint(blockId){
+  const on = VM.on && VM.id === blockId, st = vmStatusNow(blockId);
+  document.querySelectorAll(`[data-vm="${blockId}"]`).forEach(el => {
+    el.querySelectorAll(".cfx-vm-play").forEach(b => { b.textContent = on ? "⏸️ Pause" : "▶ Play"; b.setAttribute("aria-pressed", on ? "true" : "false"); });
+    el.querySelectorAll(".cfx-vm-st").forEach(x => { x.textContent = st; });
     el.classList.toggle("on", !!on);
   });
+  vmTime(blockId);
 }
 function vmStatus(blockId){
   const r = vmRec(blockId), e = SIM.events[blockId];
   if(r.at) return `Listening Check ${r.score}/${(e.listen || []).length} · played ${r.plays}×`;
   return r.plays ? `Played ${r.plays}× · now check your notes` : "Not played yet";
 }
+// the line beside the player: playing, paused at a place, or where the trainee stands (vmStatus)
+function vmStatusNow(blockId){
+  if(VM.id !== blockId || !(VM.on || VM.open)) return vmStatus(blockId);
+  const n = vmRec(blockId).plays || 0;
+  return VM.on ? `🔊 Playing · played ${n}×` : `⏸️ Paused at ${vmClock(VM.pos)} · played ${n}×`;
+}
+/* the player itself: ▶ / ⏸, ⏪ 5s, ⏩ 5s, the bar (click, drag or arrow keys; a tick at each phrase), elapsed / total, ↺ Start over.
+   It never shows a word of the message. */
+function vmPlayer(blockId, cls){
+  const p = vmPlan(blockId); if(!p) return "";
+  const on = VM.on && VM.id === blockId, at = vmAt(blockId), tot = vmClock(p.total);
+  return `<div class="vmp${cls ? " " + cls : ""}" role="group" aria-label="Voicemail player">
+      <button type="button" class="vmp-play cfx-vm-play" onclick="cmCaseFlow.vmPlay('${blockId}')" aria-pressed="${on ? "true" : "false"}">${on ? "⏸️ Pause" : "▶ Play"}</button>
+      <button type="button" class="vmp-b vmp-back" onclick="cmCaseFlow.vmSkip('${blockId}',-5)" title="Back 5 seconds" aria-label="Back 5 seconds">⏪ 5s</button>
+      <button type="button" class="vmp-b vmp-fwd" onclick="cmCaseFlow.vmSkip('${blockId}',5)" title="Forward 5 seconds" aria-label="Forward 5 seconds">5s ⏩</button>
+      <span class="vmp-track"><span class="vmp-ticks" aria-hidden="true">${p.segs.filter(s => s.kind === "caller").map(s => `<i style="left:${(100 * s.t / p.total).toFixed(2)}%"></i>`).join("")}</span>
+        <input type="range" class="vmp-seek" min="0" max="${p.total}" step="0.1" value="${at.toFixed(1)}" style="--f:${(Math.min(1, at / p.total)).toFixed(4)}" aria-label="Place in the voicemail" aria-valuetext="${vmClock(at)} of ${tot}"
+          oninput="cmCaseFlow.vmSeek('${blockId}',this.value)" onkeydown="cmCaseFlow.vmKey(event,'${blockId}')"></span>
+      <span class="vmp-time"><b class="vmp-el">${vmClock(at)}</b> / <span class="vmp-tot">${tot}</span></span>
+      <button type="button" class="vmp-b vmp-over" onclick="cmCaseFlow.vmOver('${blockId}')" title="Back to the beginning">↺ Start over</button>
+    </div>`;
+}
+// ▶ Play / ⏸ Pause. From a stopped state it is a new play (counted on the record); from a pause it goes on from the place.
 window.cmCaseFlow.vmPlay = async function(blockId){
   const e = SIM.events[blockId];
   if(!e || !e.spoken) return;
-  if(VM.playing){ const was = VM.playing.id; VM.playing = null; try{ speechSynthesis.cancel(); }catch(er){} vmHiss(false); vmPaint(was); if(was === blockId) return; }
-  if(!(await vmVoicesReady())){ vmSetup(blockId); return; }
-  const token = {id: blockId}; VM.playing = token;
-  const r = vmRec(blockId); r.plays = (r.plays || 0) + 1; persist();
+  if(VM.on && VM.id === blockId){ vmHalt(true); return; }
+  if(VM.busy) return;
+  if(VM.id && VM.id !== blockId) vmHalt(false);
+  VM.busy = true; let ok = false; try{ ok = await vmVoicesReady(); }finally{ VM.busy = false; }
+  if(!ok){ vmSetup(blockId); return; }
+  if(document.hidden) return;
+  if(VM.id !== blockId){ VM.id = blockId; VM.pos = 0; VM.open = false; }
+  if(!VM.open){ VM.open = true; const r = vmRec(blockId); r.plays = (r.plays || 0) + 1; persist(); }
+  const token = VM.token = {id: blockId}; VM.on = true; vmSync(VM.pos, VM.pos);
   vmPaint(blockId);
+  if(!VM.raf) VM.raf = requestAnimationFrame(vmFrame);
   try{ speechSynthesis.cancel(); }catch(er){}
   const Ctx = window.AudioContext || window.webkitAudioContext;
-  try{ if(Ctx){ VM.ctx = VM.ctx || new Ctx(); if(VM.ctx.state === "suspended") await VM.ctx.resume(); } }catch(er){}
-  const when = vmWhen(e);
-  await vmSay(`You have one new message. Received ${when}${/\.$/.test(when) ? "" : "."} From ${vmDigits(e.from)}.`, "system", token);
-  if(VM.playing === token){ try{ VM.ctx && vmTone(VM.ctx, 0.15, 1000, 0.45, 0.08); }catch(er){} await vmPause(900); }
-  if(VM.playing === token) vmHiss(true);
-  // the caller, sentence by sentence, with the small gaps people leave
-  for(const part of String(e.spoken).split(/(?<=[.?!])\s+/)){
-    if(VM.playing !== token) break;
-    await vmSay(part.replace(/\.\.\./g, ","), "caller", token);
-    await vmPause(/\.\.\.$|,$/.test(part) ? 500 : 260);
-  }
-  vmHiss(false);
-  if(VM.playing === token) await vmSay("End of message.", "system", token);
-  if(VM.playing === token){ VM.playing = null; vmPaint(blockId); }
+  // (a browser that won't start the sound without a fresh tap leaves resume() waiting: the voice doesn't wait for it)
+  try{ if(Ctx){ VM.ctx = VM.ctx || new Ctx(); if(VM.ctx.state === "suspended") await Promise.race([VM.ctx.resume(), vmPause(400)]); } }catch(er){}
+  if(VM.token === token) vmRun(token);
 };
+// a place on the bar, in seconds: playing, it jumps there and keeps playing; paused or stopped, the place moves and it stays quiet
+window.cmCaseFlow.vmSeek = function(blockId, t){
+  const p = vmPlan(blockId); if(!p) return;
+  t = Math.max(0, Math.min(p.total - 0.05, Number(t) || 0));
+  if(VM.id !== blockId){ if(VM.id) vmHalt(false); VM.id = blockId; VM.pos = 0; VM.open = false; }
+  if(VM.on) vmGo(t); else{ VM.pos = t; vmPaint(blockId); }
+};
+// ⏪ / ⏩: playing, to the phrase that many seconds away (always a different one); paused, the place moves by that much
+window.cmCaseFlow.vmSkip = function(blockId, d){
+  const p = vmPlan(blockId); if(!p) return;
+  if(!(VM.on && VM.id === blockId)) return cmCaseFlow.vmSeek(blockId, vmAt(blockId) + d);
+  const now = vmNow(), cur = vmSegAt(p, now); let i = vmSegAt(p, Math.max(0, Math.min(p.total - 0.05, now + d)));
+  if(d > 0 && i <= cur) i = Math.min(p.segs.length - 1, cur + 1);
+  if(d < 0 && i >= cur) i = Math.max(0, cur - 1);
+  vmGo(p.segs[i].t);
+};
+// ↺ Start over: back to 0:00 and stopped; if it was playing it plays again from the top, a new play
+window.cmCaseFlow.vmOver = function(blockId){
+  const was = VM.on && VM.id === blockId;
+  if(VM.id === blockId) vmHalt(false);
+  if(was) cmCaseFlow.vmPlay(blockId);
+};
+// the bar from the keyboard: ← / → are ⏪ / ⏩, Home is the start (and the deck doesn't turn the slide)
+window.cmCaseFlow.vmKey = function(ev, blockId){
+  const d = {ArrowLeft: -5, ArrowDown: -5, ArrowRight: 5, ArrowUp: 5}[ev.key];
+  if(!d && ev.key !== "Home") return;
+  ev.preventDefault(); ev.stopPropagation();
+  if(d) cmCaseFlow.vmSkip(blockId, d); else cmCaseFlow.vmSeek(blockId, 0);
+};
+// a tab nobody is looking at doesn't talk: it pauses, and the place is kept
+document.addEventListener("visibilitychange", () => { if(document.hidden && VM.on) vmHalt(true); });
+window.addEventListener("pagehide", () => { if(VM.on) vmHalt(true); });
 /* speech in this browser: an engine and at least one English voice (Chrome loads its voices a moment after the page) */
 function vmVoicesReady(){
   if(!canSpeak()) return Promise.resolve(false);
@@ -1378,15 +1532,18 @@ window.cmCaseFlow.vmRetry = async function(blockId){
   if(await vmVoicesReady()){ cmCaseFlow.listenClose(); cmCaseFlow.vmPlay(blockId); return; }
   if(st) st.textContent = "Still no voice on this device. Finish the steps above (a restart of the browser is usually needed).";
 };
+/* the voicemail on the activity's Your Case slide: who it is from and when, the player, the play count, and the way
+   to the work on it (the Notes & Action Plan, or the Listening Check). Only what a phone shows: never the words. */
 function voicemailCard(e, blockId, extra){
-  return `<div class="cfx-ev cfx-ev-voicemail cfx-vm${extra ? " " + extra : ""}" data-vm="${blockId}">
-      <div class="cfx-ev-h"><span class="cfx-ev-i">📳</span><span class="cfx-ev-ch">Voicemail</span><span class="cfx-ev-from">${E(e.from || "")}</span>
-        <span class="cfx-ev-when">${E(e.date || "")}${e.time ? " · " + E(e.time) : ""}</span></div>
-      <div class="cfx-vm-body"><span class="cfx-vm-wave" aria-hidden="true">${"<i></i>".repeat(18)}</span>
-        <div><b>1 new message</b> · ${vmLength(e)}<br><small>${notesOf(blockId) ? "Listen, then transcribe it in your Notes &amp; Action Plan." : "Listen first: the transcript opens after your Listening Check."}</small></div></div>
-      <div class="cfx-vm-row"><button type="button" class="btn btn-orange btn-sm cfx-vm-play" onclick="cmCaseFlow.vmPlay('${blockId}')">${vmRec(blockId).plays ? "↻ Play again" : "▶ Play"}</button>
-        ${notesOf(blockId) ? `<button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.notes('${blockId}')">📝 Transcribe</button>` : `<button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.listen('${blockId}')">🎧 Listening Check</button>`}
-        <span class="cfx-vm-st">${E(vmStatus(blockId))}</span></div>
+  const np = notesOf(blockId), on = VM.on && VM.id === blockId;
+  return `<div class="cfx-ev cfx-ev-voicemail cfx-vm${extra ? " " + extra : ""}${on ? " on" : ""}" data-vm="${blockId}">
+      <div class="vmc-h"><span class="vmc-ch">📳 Voicemail</span><b class="vmc-from">${E(e.from || "")}</b>
+        <span class="vmc-when">${E(e.date || "")}${e.time ? " · " + E(e.time) : ""}</span></div>
+      <span class="cfx-vm-wave" aria-hidden="true">${"<i></i>".repeat(56)}</span>
+      ${vmPlayer(blockId)}
+      <div class="vmc-f"><span class="cfx-vm-st">${E(vmStatusNow(blockId))}</span>
+        <span class="vmc-hint">${np ? "Listen, then take it down word for word in your Notes &amp; Action Plan." : "Listen first: the transcript opens after your Listening Check."}</span>
+        ${np ? `<button type="button" class="btn btn-navy vmc-go" onclick="cmCaseFlow.notes('${blockId}')">📝 Transcribe</button>` : `<button type="button" class="btn btn-navy vmc-go" onclick="cmCaseFlow.listen('${blockId}')">🎧 Listening Check</button>`}</div>
     </div>`;
 }
 /* the Listening Check: notes from the message, checked against what was said, then the transcript */
@@ -1396,10 +1553,11 @@ window.cmCaseFlow.listen = function(blockId, reveal){
   let box = document.getElementById("cf-vm");
   if(!box){ box = document.createElement("div"); box.id = "cf-vm"; box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true"); box.setAttribute("aria-label", "Listening Check"); document.body.appendChild(box);
     document.addEventListener("keydown", ev => { if(ev.key === "Escape" && !box.hidden) cmCaseFlow.listenClose(); }); }
-  box.innerHTML = `<div class="cf-vm-card" data-vm="${blockId}">
+  box.innerHTML = `<div class="cf-vm-card${VM.on && VM.id === blockId ? " on" : ""}" data-vm="${blockId}">
       <div class="cf-vm-h"><div><b>🎧 Listening Check</b><span>Voicemail from ${E(e.from)} · ${E(e.date)}${e.time ? " · " + E(e.time) : ""}</span></div>
         <button type="button" class="cf-vm-x" onclick="cmCaseFlow.listenClose()" aria-label="Close">✕</button></div>
-      <div class="cfx-vm-row"><button type="button" class="btn btn-orange btn-sm cfx-vm-play" onclick="cmCaseFlow.vmPlay('${blockId}')">${r.plays ? "↻ Play again" : "▶ Play"}</button><span class="cfx-vm-st">${E(vmStatus(blockId))}</span></div>
+      ${vmPlayer(blockId, "vmp-2")}
+      <div class="cfx-vm-row"><span class="cfx-vm-st">${E(vmStatusNow(blockId))}</span></div>
       <p class="cf-vm-lead">Take the message down the way you would at your desk: from what you heard, not the caller ID.</p>
       <ol class="cf-vm-qs">${e.listen.map((x, j) => `<li><label for="cfvm_${blockId}_${j}">${E(x.q)}</label>
         <textarea id="cfvm_${blockId}_${j}" rows="2" oninput="cmCaseFlow.listenDraft('${blockId}',${j},this.value)" ${checked ? "readonly" : ""}>${E((r.answers || [])[j] || "")}</textarea>
@@ -2019,7 +2177,7 @@ function npEmail(blockId, e, open){
       <span class="sv-msg" id="npmm_${E(blockId)}_${E(e.id)}" aria-live="polite">${m.tries ? `Not sent yet — ${m.tries} attempt${m.tries === 1 ? "" : "s"}.` : ""}</span></div>`;
 }
 function npWorkspace(blockId){
-  const n = notesOf(blockId), r = npRec(blockId), ev = SIM.events[blockId] || {}, vm = vmRec(blockId);
+  const n = notesOf(blockId), r = npRec(blockId), ev = SIM.events[blockId] || {};
   const txDone = !!r.txAt, planDone = !!r.planAt, t = n.transcribe, p = n.plan;
   const tries = r.txTries || [], last = tries[tries.length - 1];
   const triesHtml = tries.length ? `<ol class="np-tries">${tries.map((a, i) => `<li><b>Attempt ${i + 1}: ${E(a.score)}%</b> · ${E(a.facts)} of ${E(a.of)} facts · ${E(a.acc)}% word accuracy${a.final ? " · <em>handed in</em>" : ""}</li>`).join("")}</ol>` : "";
@@ -2031,7 +2189,9 @@ function npWorkspace(blockId){
     : `<p class="sv-brief">${hl(t.brief)}</p>
       ${last ? `<div class="np-grade"><b>🎙 Attempt ${tries.length} of ${TX_TRIES}: ${E(last.score)}%</b><span>${E(last.facts)} of ${E(last.of)} facts caught · ${E(last.acc)}% word accuracy against the message. Play it again and improve it, or hand it in: the answer key opens when you do${tries.length >= TX_TRIES - 1 ? " (your next check is handed in)" : ""}.</span>${triesHtml}
         <div class="sv-row"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.npTxHand('${blockId}')">📤 Hand in attempt ${tries.length} (${E(last.score)}%)</button></div></div>` : ""}
-      <div class="sv-row"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.vmPlay('${blockId}')">${vm.plays ? "↻ Play again" : "▶ Play the voicemail"}</button><span class="sv-note">${E(ev.from || "")} · ${E(ev.date || "")}${ev.time ? " · " + E(ev.time) : ""}</span></div>
+      <div class="np-vm${VM.on && VM.id === blockId ? " on" : ""}" data-vm="${blockId}"><div class="np-vm-h"><b>📳 ${E(ev.from || "")}</b><span>${E(ev.date || "")}${ev.time ? " · " + E(ev.time) : ""}</span><span class="cfx-vm-st">${E(vmStatusNow(blockId))}</span></div>
+        ${vmPlayer(blockId, "vmp-2")}
+        <p class="np-vm-tip">⏪ 5s takes you back a phrase; drag the bar or click it to hear one part again.</p></div>
       <textarea class="sv-write" id="npt_${E(blockId)}" rows="6" placeholder="Type the message as you hear it." aria-label="Your transcript of the voicemail" oninput="cmCaseFlow.npDraft('${blockId}','tx',this.value)">${E(r.tx || "")}</textarea>
       <div class="sv-row"><button type="button" class="btn btn-navy" onclick="cmCaseFlow.npTx('${blockId}')">Check my transcript</button><span class="sv-msg" id="nptm_${E(blockId)}" aria-live="polite"></span></div>`;
   const plan = planDone
@@ -2720,7 +2880,7 @@ MODULES.forEach(d => d.lessons.forEach(l => {
     map: roadmapOf(b) ? {why: roadmapOf(b).title, walk: roadmapOf(b).steps.map(x => `${x.label}: ${String(x.text).replace(/\*\*/g, "")}`)} : {},
     rules: {why: "The rules, and where the Case Manager's role ends.", walk: ((b.tell && b.tell.rules) || []).concat((b.tell && b.tell.upl) || []), ask: n[1] || ""},
     model: {why: (b.show && b.show.caption) || "The model to follow.", talk: b.visual || ""},
-    job: {why: "Trigger ➔ Task ➔ Tool ➔ Checkpoint: how it runs on the job.", walk: (b.ops || []).map(r => r.join(" ➔ "))},
+    steps: mfOf(b).milestones ? {why: `Milestone Steps: ${mfOf(b).milestones.title}`, walk: mfOf(b).milestones.steps.map(x => `${x.label}${x.chip ? ` (${x.chip})` : ""}. Done when: ${String(x.done).replace(/\*\*/g, "")}`), ask: "Where is John Doe's file on these steps today?"} : {},
     grade: (SLIDES[b.id] || {}).grade ? {why: SLIDES[b.id].grade.title, walk: ["Guidelines: " + SLIDES[b.id].grade.guide.join("; "), "Standard inclusions: " + SLIDES[b.id].grade.include.join("; "), "Steps: " + SLIDES[b.id].grade.steps.join("; ")].map(x => x.replace(/\*\*/g, ""))} : {},
     dodont: {why: "How this block is graded, and what to watch for.", talk: n.slice(2).join(" "), walk: best},
     case: {why: b.act && b.act.scenario, talk: [SIM.events[b.id] ? (SIM.events[b.id].channel === "voicemail" && SIM.events[b.id].spoken ? `A voicemail just landed on the file (${SIM.events[b.id].date}). ${notesOf(b.id) ? "Play it, transcribe it and write the action plan in the Notes & Action Plan (each graded, with its answer key), then work the plan: the emails and the call." : "Play it, take notes as you would at your desk, and check them before you act."}` : `What just landed on the file (${SIM.events[b.id].date}): ${SIM.events[b.id].subject}. ${SIM.events[b.id].body}`) : "", n[0] || ""].filter(Boolean).join(" ")},
@@ -2777,7 +2937,7 @@ if(typeof window.sopRunOfShow === "function"){
       const full = p.topics.filter(l => !l.cf.block.brief);
       if(p.topics.length) add(p.lecture, {title: `Topic ${i + 1}: ${E(p.title)}`, do: [
         `${p.topics.length} topic${p.topics.length > 1 ? "s" : ""}, ${p.lecture} minutes in all (${p.topics.map(l => `${(sc.minsOf && sc.minsOf.get(l)) || sc.per} min`).join(", ")}): ${p.topics.map(l => `<b>${E(titleCase(l.cf.block.title))}</b>`).join(" · ")}.`,
-        `A refresher: the room has met every one of these, so recap the rule, check it with one question about John Doe's file, and move on; each topic keeps all its slides (The Theory, Why It Matters, The Rules, See It, On the Job, Do &amp; Don't), at a quicker pace. ${p.topics.some(l => l.cf.block.thorough) ? "<b>The mediation and arbitration lessons are the exception: teach them in full</b>, they get the most minutes." : ""}`,
+        `A refresher: the room has met every one of these, so recap the rule, check it with one question about John Doe's file, and move on; each topic keeps all its slides (The Theory, Why It Matters, The Rules, See It, Milestone Steps, Do &amp; Don't), at a quicker pace. ${p.topics.some(l => l.cf.block.thorough) ? "<b>The mediation and arbitration lessons are the exception: teach them in full</b>, they get the most minutes." : ""}`,
         `Read the script in Presenter view as written or in your own words; take one or two answers per question, not a round of the room.`],
         say: `“Now we're into ${p.title}. Keep John Doe's file in your head the whole way through: in a few minutes you'll do this on it.”`,
         watch: "Silence usually means it's too abstract: bring it back to John Doe's file and ask what they'd do next on it."});
@@ -4008,7 +4168,13 @@ async function backupDoc(btn, id){
     // the convention filled in (the Worker's pattern, js/cm-drive.js) with the Case ID, its CMS category as the Type and today.
     const filed = cmDocFiling.record && cmDocFiling.record(d.id), ext = (/\.([A-Za-z0-9]{1,8})$/.exec(d.file) || [])[1] || "pdf";
     const name = (filed && filed.filed && filed.name) || (window.CMDrive && CMDrive.nameFor ? CMDrive.nameFor({category: cmDocFiling.expectedCategory(d), ext}) : "");
-    if(!name){ toast("Open your case in the CMS first (🗂 Open CMS): the backup copy is named with its Case ID, the firm's way."); return; }
+    if(!name){
+      // why no name could be made: the drive isn't there, the firm's naming rule hasn't loaded, or (the rule here) no Case ID yet
+      const st = window.CMDrive && CMDrive.status ? CMDrive.status() : null, ruled = !!(window.CMDrive && CMDrive.naming && CMDrive.naming());
+      toast(!st || !st.configured || !st.connected || !st.built ? "Your Backup Drive isn't set up yet. Connect it, then try again."
+        : !ruled ? "The firm's naming convention hasn't loaded yet. Open 📂 My Backup Drive, then try again."
+        : "Open your case in the CMS first (🗂 Open CMS): the backup copy is named with its Case ID, the firm's way.");
+      return; }
     const out = await cmDocFiling.keepOnDrive(d.folder, name, await r.arrayBuffer(), d.id);
     if(out && out.ok){ btn.textContent = "✓ In GDrive"; toast(`Backed up to your Drive under ${String(out.folder).split("/").pop()} as ${name}.`); return; }
     toast(out && out.why === "no-drive" ? "Your Backup Drive isn't set up yet. Connect it, then try again." : "The backup didn't reach your Drive. Try again.");
@@ -4359,7 +4525,7 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx-points li{counter-increment:cfx;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;font:500 24px/1.4 var(--font-ui);color:var(--ink);animation:cfxIn .3s ease-out both;}
 .cfx-points li:nth-child(2){animation-delay:.05s}.cfx-points li:nth-child(3){animation-delay:.1s}.cfx-points li:nth-child(4){animation-delay:.15s}.cfx-points li:nth-child(5){animation-delay:.2s}
 .cfx-points li > span{grid-column:2;grid-row:1;text-align:left;}
-.cfx-hero-text,.cfx-dd,.cfx-check,.cfx-side,.cfx-job,.cfx-upl,.cfx-watch{text-align:left;}
+.cfx-hero-text,.cfx-dd,.cfx-check,.cfx-side,.cfx-upl,.cfx-watch{text-align:left;}
 .cfx .cfx-points li::before{content:counter(cfx) !important;grid-column:1;grid-row:1;position:static !important;display:grid !important;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--orange);color:#fff;font:700 19px 'Fraunces',Georgia,serif;box-shadow:0 3px 8px rgba(224,122,31,.3);}
 .cfx-qs li{font-size:23px;}
 .cfx-upl{margin-top:20px;display:flex;gap:14px;align-items:center;background:#FFF4F2;border:1.5px solid #F2C4BC;border-radius:14px;padding:12px 18px;font:500 20px/1.4 var(--font-ui);}
@@ -4408,14 +4574,6 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx-model .lesson-compare .cbody{padding:16px 20px;}
 .cfx-model .lesson-compare .citem{font:500 20px/1.4 var(--font-ui);padding-left:26px;margin-bottom:12px;}
 .cfx-model .lesson-compare .citem::before{top:9px;width:11px;height:11px;}
-.cfx-job{display:flex;flex-direction:column;gap:16px;}
-.cfx-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:10px;align-items:stretch;animation:cfxIn .3s ease-out both;}
-.cfx-flow:nth-child(2){animation-delay:.1s}.cfx-flow:nth-child(3){animation-delay:.2s}
-.cfx-step{background:#F6F7FB;border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;}
-.cfx-step:nth-child(3){border-top-color:var(--navy-soft);}.cfx-step:nth-child(5){border-top-color:var(--orange);}.cfx-step:nth-child(7){border-top-color:#2F8F5B;}
-.cfx-step small{font:700 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
-.cfx-step span{font:600 18px/1.35 var(--font-ui);color:var(--ink);}
-.cfx-arrow{align-self:center;font-size:22px;color:var(--orange);}
 .cfx-dd{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
 .cfx-grade{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;text-align:left;}
 .cfx-grade-c{border-radius:14px;padding:10px 14px;animation:cfxIn .3s ease-out both;}
@@ -4638,7 +4796,6 @@ main > .cf-side-presenter{display:none;}
 .cfx-sheet .cfx-tool{border-color:#DB8437;background:#FFF3E6;color:#9A4E12;}
 .cfx-sheet .cfx-tool:hover,.cfx-sheet .cfx-tool:focus-visible{background:#DB8437;color:#fff;}
 .cfx-tools-in{display:inline-flex;flex-wrap:wrap;gap:4px;margin-left:6px;vertical-align:middle;}
-.cfx-step .cfx-tools-in{display:inline-flex;margin:0 0 0 6px;}
 .cfx-log{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin-top:6px;padding:4px 10px;border:1px dashed #DB8437;border-radius:10px;background:#FFF8EF;font-size:12.5px;}
 .cfx-log .btn{padding:4px 12px;}
 .cfx-log b{color:#262B45;}
@@ -4720,43 +4877,101 @@ main > .cf-side-presenter{display:none;}
 /* the Case ID the CMS gave, not typed (js/cm-cms-case.js) */
 .cfx-log-from:not(:empty){font-size:11px;font-weight:700;color:#1F4E79;background:rgba(214,231,248,.75);border-radius:999px;padding:2px 8px;}
 .cf-tr-work{font-size:12.8px;margin:6px 0;padding:6px 10px;background:#F4F6FB;border-radius:8px;}
-.cfx-vm .cfx-vm-body{display:flex;align-items:center;gap:14px;margin:8px 0 10px;font-size:14px;}
-.cfx-vm .cfx-vm-body small{color:#5B6178;}
-.cfx-vm-wave{display:inline-flex;align-items:center;gap:3px;height:34px;}
-.cfx-vm-wave i{display:block;width:4px;border-radius:2px;background:#DB8437;height:30%;}
-.cfx-vm-wave i:nth-child(3n){height:75%}.cfx-vm-wave i:nth-child(4n+1){height:50%}.cfx-vm-wave i:nth-child(5n+2){height:95%}
+.cfx-vm-wave{display:flex;align-items:center;justify-content:space-between;gap:3px;height:34px;}
+.cfx-vm-wave i{display:block;flex:0 0 4px;width:4px;border-radius:2px;background:#DB8437;height:30%;}
+.cfx-vm-wave i:nth-child(3n){height:75%}.cfx-vm-wave i:nth-child(4n+1){height:50%}.cfx-vm-wave i:nth-child(5n+2){height:95%}.cfx-vm-wave i:nth-child(7n+3){height:62%}
 .cfx-vm.on .cfx-vm-wave i,.cf-vm-card.on .cfx-vm-wave i{animation:cfvm .9s ease-in-out infinite alternate;}
 .cfx-vm-wave i:nth-child(odd){animation-delay:.3s!important}
 @keyframes cfvm{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+@media (prefers-reduced-motion:reduce){.cfx-vm.on .cfx-vm-wave i{animation:none;}}
 .cfx-vm-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;}
-.cfx-vm-st{font:600 12.5px 'Inter',sans-serif;color:#5B6178;}
-/* a voicemail is a short card, so the documents get the room: one row of large pages under it */
-.cfx-sb-grid.cfx-sb-vm{grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:18px;align-items:start;}
-.cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-docs-row{gap:12px 18px;}
-.cfx-sb-grid.cfx-sb-vm .cfx-thumb span{font-size:13px;}
-/* the voicemail card itself: phone-sized */
-.cfx-sb-vm .cfx-vm .cfx-ev-h{flex-wrap:wrap;gap:2px 8px;}
-.cfx-sb-vm .cfx-vm .cfx-ev-from{flex-basis:100%;order:3;}
-.cfx-sb-vm .cfx-vm .cfx-ev-when{margin-left:auto;}
-.cfx-sb-vm .cfx-vm .cfx-vm-body{flex-direction:column;align-items:stretch;gap:6px;margin:8px 0;font-size:13px;}
-.cfx-sb-vm .cfx-vm .cfx-vm-wave{height:28px;justify-content:space-between;}
-.cfx-sb-vm .cfx-vm .cfx-vm-row{flex-wrap:wrap;gap:6px;}
-.cfx-sb-vm .cfx-vm .cfx-vm-row .btn{flex:1 1 auto;padding:6px 10px;font-size:12.5px;white-space:nowrap;}
-.cfx-sb-vm .cfx-vm .cfx-vm-st{flex-basis:100%;}
-@media(max-width:760px){.cfx-sb-grid.cfx-sb-vm{grid-template-columns:minmax(0,1fr);}}
+.cfx-vm-st{font:800 16px/1.3 'Inter',sans-serif;color:#1E2340;}
+/* the voicemail player (vmPlayer): one transport, the same on the slide, in the Listening Check and in the Notes & Action Plan.
+   Bold, never under 16px; on the slide it grows with the window (--vf). */
+.vmp{display:flex;flex-wrap:wrap;align-items:center;gap:.5em .6em;font:800 var(--vf,16px)/1.2 'Inter',sans-serif;color:#1E2340;}
+.vmp button{font:inherit;font-weight:800;line-height:1.2;white-space:nowrap;cursor:pointer;border-radius:999px;margin:0;}
+.vmp .vmp-play{min-width:7.3em;padding:.5em 1.1em;font-size:1.12em;background:#DB8437;color:#1E2340;border:2px solid #DB8437;box-shadow:0 3px 10px rgba(219,132,55,.45);}
+.vmp .vmp-play:hover,.vmp .vmp-play:focus-visible{background:#1E2340;border-color:#1E2340;color:#fff;outline:none;}
+.vmp .vmp-play[aria-pressed=true]{background:#1E2340;border-color:#1E2340;color:#fff;}
+.vmp .vmp-b{padding:.42em .8em;background:#fff;color:#1E2340;border:2px solid #1E2340;}
+.vmp .vmp-b:hover,.vmp .vmp-b:focus-visible{background:#1E2340;color:#fff;outline:none;}
+.vmp-track{position:relative;flex:1 1 200px;min-width:150px;display:flex;align-items:center;height:2.4em;}
+.vmp-ticks{position:absolute;left:11px;right:11px;top:50%;height:0;pointer-events:none;}
+.vmp-ticks i{position:absolute;top:10px;width:2px;height:7px;margin-left:-1px;border-radius:1px;background:#8A91A8;}
+.vmp-seek{-webkit-appearance:none;appearance:none;display:block;width:100%;height:12px;margin:0;padding:0;border:0;border-radius:999px;cursor:pointer;
+  background:linear-gradient(to right,#DB8437 calc(11px + (100% - 22px) * var(--f,0)),#CCD1E0 0);}
+.vmp-seek:focus-visible{outline:3px solid #DB8437;outline-offset:5px;}
+.vmp-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:#1E2340;border:3px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45);cursor:grab;}
+.vmp-seek::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#1E2340;border:3px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45);cursor:grab;}
+.vmp-seek::-moz-range-track{background:transparent;}
+.vmp-time{font:800 1.12em/1 'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;white-space:nowrap;color:#1E2340;}
+.vmp-time b{font-weight:800;color:#A4561A;}
+.vmp-2 .vmp-track{order:-2;flex:1 1 calc(100% - 9em);}
+.vmp-2 .vmp-time{order:-1;}
+.vmp-2 .vmp-over{margin-left:auto;}
+/* Your Case of a voicemail activity: the voicemail first, across the slide, and what is worked from it under it
+   (the Notes & Action Plan checklist, or the documents), the two sharing the slide's height */
+.cfx-sb.cfx-sb-vmw{flex:1 0 auto;min-height:0;display:flex;flex-direction:column;padding-bottom:4px;}
+.cfx-sb.cfx-sb-vmw .cfx-when{flex:0 0 auto;}
+.cfx .cfx-sb-vmw .cfx-when-date,.cfx .cfx-sb-vmw .cfx-when-sol,.cfx .cfx-sb-vmw .cfx-when-jump,.cfx .cfx-sb-vmw .cfx-when-date b,.cfx .cfx-sb-vmw .cfx-when-sol b{font-size:16px !important;font-weight:800 !important;}
+.cfx .cfx-sb-vmw .cfx-when p{font-weight:700 !important;}
+.cfx-sb-grid.cfx-sb-vm{--vf:clamp(16px,min(2.15vh,1.2vw),24px);flex:1 1 auto;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;align-content:stretch;gap:calc(var(--vf) * .8);align-items:stretch;}
+.cfx-sb-grid.cfx-sb-vm.cfx-sb-vmd{grid-template-rows:minmax(min-content,1fr) auto;}
+.cfx-sb-vm .cfx-sb-main>:first-child{margin-top:0;}
+.cfx-sb-vm .cfx-sb-main>.cfx-vm{flex:1 1 auto;display:flex;flex-direction:column;justify-content:space-between;gap:calc(var(--vf) * .5);padding:calc(var(--vf) * .7) calc(var(--vf) * 1.2);font:800 var(--vf)/1.25 'Inter',sans-serif;color:#1E2340;border-width:3px;}
+.vmc-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:.2em .9em;}
+.vmc-ch{font:800 1em 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#A4561A;}
+.vmc-from{font:800 1.3em/1.15 'Poppins','Inter',sans-serif;color:#1E2340;}
+.vmc-when{margin-left:auto;font:800 1em 'IBM Plex Mono',monospace;color:#1E2340;}
+.cfx-sb-vm .cfx-vm .cfx-vm-wave{flex:1 1 0;min-height:0;height:auto;max-height:calc(var(--vf) * 4);overflow:hidden;}
+.vmc-f{display:flex;flex-wrap:wrap;align-items:center;gap:.3em 1em;}
+.cfx-sb-vm .cfx-vm .cfx-vm-st{font:800 1em/1.25 'Inter',sans-serif;color:#1E2340;background:#FBEBDD;border-radius:999px;padding:.25em .8em;}
+.vmc-hint{flex:1 1 12em;font:700 1em/1.25 'Inter',sans-serif;color:#3A4256;}
+.cfx .cfx-sb-vm .cfx-vm .vmc-go{margin-left:auto;font:800 calc(var(--vf) * 1.05)/1.2 'Inter',sans-serif !important;padding:.5em 1.1em;white-space:nowrap;border-radius:999px;}
+/* under it, the Notes & Action Plan: its name and score at the left, the checklist in columns beside */
+.cfx-sb-vm .cfx-sb-docs{padding-top:0;display:flex;flex-direction:column;justify-content:center;min-height:0;}
+.cfx-sb-vm .cfx-np{flex:1 1 auto;display:grid;grid-template-columns:minmax(0,auto) minmax(0,1.6fr);grid-template-rows:auto auto auto;align-content:center;gap:calc(var(--vf) * .3) calc(var(--vf) * 2.4);padding:calc(var(--vf) * .7) calc(var(--vf) * 1.2);border-width:3px;border-left-width:8px;font:800 var(--vf)/1.3 var(--font-ui);}
+.cfx-sb-vm .cfx-np>b{grid-column:1;grid-row:1;font:800 1.3em/1.15 'Poppins',var(--font-ui);color:#1E2340;}
+.cfx-sb-vm .cfx-np .cfx-np-k{grid-column:1;grid-row:2;font:700 1em/1.3 var(--font-ui);color:#3A4256;max-width:24em;}
+.cfx-sb-vm .cfx-np .cfx-np-r{grid-column:1;grid-row:3;align-self:start;margin-top:.2em;}
+.cfx-sb-vm .cfx-np .cfx-np-r small{font:800 1em/1.3 var(--font-ui);color:#A4561A;}
+.cfx-sb-vm .cfx-np ol{grid-column:2;grid-row:1 / 4;align-self:center;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45em 1.6em;font:800 1em/1.25 var(--font-ui);color:#1E2340;}
+.cfx .cfx-sb-vm .cfx-np li{font-size:var(--vf) !important;font-weight:800 !important;line-height:1.25;text-align:left !important;}
+/* or the documents it is worked from, in one row of pages with their names */
+.cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-docs-row{gap:calc(var(--vf) * 1.2);align-items:stretch;}
+.cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-thumb{flex:1 1 0;max-width:none;flex-direction:row;align-items:center;gap:calc(var(--vf) * .7);}
+.cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-thumb img{flex:0 0 auto;width:auto;height:clamp(120px,calc(42vh - 150px),340px);}
+.cfx .cfx-sb-grid.cfx-sb-vm .cfx-thumb span{display:block;overflow:visible;min-width:0;font:800 clamp(16px,min(1.9vh,1.05vw),20px)/1.25 'Inter',sans-serif !important;color:#fff;text-align:left;}
+.cfx-sb-grid.cfx-sb-vm .cfx-thumb-off::before{flex:0 0 auto;height:clamp(120px,calc(42vh - 150px),340px);}
+@media(max-width:760px){
+  .cfx-sb-vm .cfx-np{grid-template-columns:minmax(0,1fr);grid-template-rows:none;}
+  .cfx-sb-vm .cfx-np>b,.cfx-sb-vm .cfx-np .cfx-np-k,.cfx-sb-vm .cfx-np .cfx-np-r,.cfx-sb-vm .cfx-np ol{grid-column:1;grid-row:auto;}
+  .cfx-sb-vm .cfx-np ol{grid-template-columns:minmax(0,1fr);}
+  .cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-docs-row{flex-wrap:wrap;}
+  .cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-thumb{flex:1 1 100%;}
+  .cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-thumb img{height:110px;}
+  .vmp-track{flex-basis:100%;order:5;}
+}
+/* the player in the Listening Check and in the Notes & Action Plan */
+.cf-vm-card>.vmp{margin:4px 0 8px;}
+.np-vm{margin-top:10px;border:3px solid #DB8437;border-radius:12px;background:#FFFDF8;padding:10px 14px;}
+.np-vm-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin-bottom:8px;font:800 16px/1.3 var(--font-ui);color:#1E2340;}
+.np-vm-h b{font-size:17px;}
+.np-vm-h .cfx-vm-st{margin-left:auto;color:#A4561A;}
+.np-vm-tip{margin:8px 0 0;font:700 16px/1.35 var(--font-ui);color:#3A4256;}
 #cf-vm{position:fixed;left:0;right:0;bottom:0;top:var(--cf-topbar,0px);z-index:80;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(20,24,40,.55);}
 .cf-vm-card{max-height:calc(100vh - var(--cf-topbar,0px) - 32px)!important;}
 #cf-vm[hidden]{display:none;}
 .cf-vm-card{width:min(720px,100%);max-height:calc(100vh - 32px);overflow:auto;background:#FFFDF8;border:3px solid #DB8437;border-radius:18px;padding:16px 20px;box-shadow:0 18px 40px rgba(0,0,0,.35);}
 .cf-vm-h{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px;}
 .cf-vm-h b{display:block;font:800 19px 'Poppins','Inter',sans-serif;color:#262B45;}
-.cf-vm-h span{font-size:13px;color:#5B6178;}
+.cf-vm-h span{font:700 16px/1.35 'Inter',sans-serif;color:#3A4256;}
 .cf-vm-x{border:0;background:none;font-size:20px;cursor:pointer;color:#262B45;}
-.cf-vm-lead{font-size:13.5px;color:#37394A;margin:10px 0;}
+.cf-vm-lead{font:700 16px/1.4 'Inter',sans-serif;color:#37394A;margin:10px 0;}
 .cf-vm-qs{margin:0 0 12px;padding-left:20px;}
-.cf-vm-qs li{margin:0 0 10px;font-size:14px;}
-.cf-vm-qs label{display:block;font-weight:600;color:#262B45;margin-bottom:4px;}
-.cf-vm-qs textarea{width:100%;box-sizing:border-box;border:1px solid #C9CEDB;border-radius:8px;padding:6px 10px;font:14px 'Inter',sans-serif;resize:vertical;}
+.cf-vm-qs li{margin:0 0 10px;font-size:16px;font-weight:700;}
+.cf-vm-qs label{display:block;font-weight:700;color:#262B45;margin-bottom:4px;}
+.cf-vm-qs textarea{width:100%;box-sizing:border-box;border:1px solid #C9CEDB;border-radius:8px;padding:6px 10px;font:600 16px 'Inter',sans-serif;resize:vertical;}
 .cf-vm-res{font-size:13px;margin-top:4px;}.cf-vm-res.ok{color:#2E7D4F;}.cf-vm-res.miss{color:#B54A3F;}.cf-vm-res span{color:#37394A;}
 .cf-vm-steps{margin:6px 0 10px;padding-left:22px;font-size:14px;line-height:1.5;}
 .cf-vm-steps li{margin:0 0 6px;}
@@ -5224,7 +5439,6 @@ main.cm-admin-main, main:has(.cm-admin-screen){max-width:min(2200px,97vw);paddin
   .cfx-fw-flow li:not(:last-child)::after{content:"⬇";right:50%;top:auto;bottom:-15px;transform:translateX(50%);}
   .cfx-hook{font-size:24px;}.cfx-situation{font-size:19px;}
   .cfx-points li{font-size:19px;grid-template-columns:36px 1fr;}.cfx-points li::before{width:32px;height:32px;font-size:16px;}
-  .cfx-flow{grid-template-columns:minmax(0,1fr);}.cfx-arrow{transform:rotate(90deg);justify-self:center;}
   .cfx-art.small{display:none;}
   .cfx-dd li,.cfx-tick{font-size:18px;}
 }
@@ -5374,9 +5588,6 @@ document.head.appendChild(st);
 .cfx .cfx-th-c span, .cfx-th-solo .cfx-th-c span{font-size:18.5px;line-height:1.45;color:#141A2E;}
 /* rules, steps, Do & Don't */
 .cfx .cfx-points li{color:#141A2E;}
-.cfx .cfx-step{background:#EEF1F8;border:1.5px solid #AEB6C6;border-top:5px solid #1E2340;}
-.cfx .cfx-step small{color:#7A3A0E;font-weight:800;}
-.cfx .cfx-step span{color:#141A2E;font-size:17.5px;}
 .cfx .cfx-dd > div{border-width:2px;border-radius:14px;padding:14px 18px;}
 .cfx .cfx-do{background:#E6F4EC;border-color:#1E7A47;} .cfx .cfx-dont{background:#FDEDEB;border-color:#B42318;}
 .cfx .cfx-do h3{color:#0B5D1E;} .cfx .cfx-dont h3{color:#8F1A12;}
@@ -5405,7 +5616,6 @@ document.head.appendChild(st);
 .cfx .cfx-th-c span, .cfx-th-solo .cfx-th-c span{font-size:20px;font-weight:600;}
 .cfx .cfx-th-lead{font-size:24px;font-weight:700;}
 .cfx .cfx-points li{font-weight:600;}
-.cfx .cfx-step span{font-size:19px;font-weight:600;}
 .cfx .cfx-dd li{font-size:21px;font-weight:600;}
 .cfx .cfx-dd h3{font-size:24px;}
 .cfx .cfx-fw-list span, .cfx .cfx-fw-tbl td{font-size:18px;font-weight:600;color:#141A2E;}
@@ -5536,8 +5746,6 @@ body:not(.ft-fit) #lessonStage > .slide-nav{margin-top:8px !important;margin-bot
 .cfx .cfx-th-c span,.cfx .cfx-points li,.cfx .cfx-points li span{font-weight:700 !important;}
 .cfx .cfx-th-c b{font-weight:800 !important;}
 .cfx .cfx-points li,.cfx .cfx-points li span{font-size:clamp(20px,2.6vh,25px) !important;}
-.cfx .cfx-job .cfx-step span{font-size:clamp(17px,2.2vh,20px) !important;font-weight:700 !important;}
-.cfx .cfx-job .cfx-step small{font-size:13.5px !important;font-weight:800 !important;}
 .cfx .cfx-fw-list span{font-size:clamp(17px,2.2vh,20px) !important;font-weight:600 !important;}
 .cfx .cfx-fw-list b{font-size:clamp(18px,2.3vh,21px) !important;font-weight:800 !important;}
 /* the flow keeps its own measured sizes (above, "the flow ..."): 23px titles (19.5px at six steps or more), 20px bold text */
@@ -5588,7 +5796,7 @@ body:not(.ft-fit) #lessonStage > .slide-nav{margin-top:8px !important;margin-bot
   document.head.appendChild(st);
 })();
 
-/* The three micro-frameworks: CM Red Flag (Why It Matters), Rule vs. Exception (The Rules), Milestone Steps (On the Job).
+/* The three micro-frameworks: CM Red Flag (Why It Matters), Rule vs. Exception (The Rules), Milestone Steps (The Framework, See It, The Theory or The Rules, or a slide of its own).
    LSH navy #1E2340 and orange #DB8437; the Red Flag in a red-bordered box with its flag icon and label, so its meaning
    never rests on colour alone; body type on them never under 16px, bold. */
 (function(){
@@ -5639,14 +5847,27 @@ body:not(.ft-fit) #lessonStage > .slide-nav{margin-top:8px !important;margin-bot
 .cfx-ms-done{font:700 17px/1.28 var(--font-ui);color:#141A2E;}
 .cfx-ms-done i{font-style:normal;font-weight:800;color:#9A4E12;}
 .cfx-ms-note{margin:6px 0 0;font:700 17px/1.35 var(--font-ui);color:#1E2340;}
-.cfx-job-ms{gap:10px !important;}
-.cfx .cfx-job-ms .cfx-step{padding:5px 10px;gap:2px;}
-.cfx .cfx-job-ms .cfx-flow + .cfx-flow .cfx-step small{display:none;}
+/* Milestone Steps on a slide of its own (the copy's "slide": true): the rail alone, each step a card, five or six steps
+   on two rows, the type as large as the slide allows */
+.cfx .cfx-ms-own{display:flex;flex-direction:column;justify-content:center;flex:1 1 auto;min-height:0;}
+.cfx-ms-own .cfx-ms{margin:0;}
+.cfx-ms-own .cfx-ms-t{margin:0 0 clamp(8px,1.6vh,20px);font-size:clamp(22px,3.2vh,30px);}
+.cfx-ms-own .cfx-ms-rail{grid-template-columns:repeat(var(--c),minmax(0,1fr));gap:clamp(10px,1.8vh,24px) 18px;align-items:stretch;}
+.cfx-ms-own .cfx-ms-rail::before{display:none;}
+.cfx .cfx-ms-own .cfx-ms-rail > li{grid-template-columns:48px minmax(0,1fr);column-gap:12px;row-gap:clamp(4px,1vh,10px);margin:0 !important;padding:clamp(8px,1.4vh,18px) 16px clamp(10px,1.6vh,20px) 16px !important;background:#F4F6FC;border:2px solid #C3CADC;border-top:6px solid #1E2340;border-radius:14px;}
+.cfx-ms-own .cfx-ms-n{width:48px;height:48px;font-size:23px;box-shadow:none;}
+.cfx-ms-own .cfx-ms-rail b{font-size:clamp(20px,2.9vh,26px);}
+.cfx-ms-own .cfx-ms-chip{font-size:clamp(17px,2.4vh,21px);padding:3px 10px;}
+.cfx-ms-own .cfx-ms-done{font-size:clamp(19px,2.8vh,25px);line-height:1.32;}
+.cfx-ms-own .cfx-ms-note{margin:clamp(8px,1.6vh,20px) 0 0;font-size:clamp(19px,2.7vh,24px);}
+.cfx-ms-row .cfx-ms-rail b{font-size:clamp(22px,3.3vh,30px);}
+.cfx-ms-row .cfx-ms-done{font-size:clamp(21px,3.1vh,28px);}
+.cfx-ms-row .cfx-ms-chip{font-size:clamp(18px,2.6vh,23px);}
 .cfx-lesson .cfx-split-ms{grid-template-columns:minmax(0,1fr) !important;justify-content:stretch !important;}
 .cfx .cfx-split-ms .cfx-points li,.cfx .cfx-split-ms .cfx-points li span{font-size:clamp(18px,2.4vh,22px) !important;}
 .cfx .cfx-split-ms .cfx-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px;}
 @media(max-width:600px){
-  .cfx-ms-rail{grid-template-columns:minmax(0,1fr);}
+  .cfx-ms-rail,.cfx-ms-own .cfx-ms-rail{grid-template-columns:minmax(0,1fr);}
   .cfx-ms-rail::before{left:0;right:auto;top:0;bottom:0;width:4px;height:auto;}
   .cfx-ms-rail > li{padding:0 0 0 12px;}
   .cfx .cfx-split-ms .cfx-points{grid-template-columns:minmax(0,1fr);}

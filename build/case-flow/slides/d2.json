@@ -9,26 +9,6 @@
       "Verify PIP and UM in writing; **never assume either**"
     ],
     "upl": "Route bills in the default order; primacy and lien enforceability are Atty. Thorne's",
-    "job": [
-      [
-        "Coverage confirmed in writing",
-        "Place it: stack, Payer Order, outside",
-        "CMS → Coverage Matrix",
-        "Stack $40,000; PIP outside it"
-      ],
-      [
-        "A provider asks whom to bill",
-        "Route it by Payer-First order",
-        "CMS → PIP Log",
-        "PIP, Peach State, then LOP"
-      ],
-      [
-        "A provider asks for an LOP",
-        "Check PIP and network first",
-        "CMS → Liens → LOP register",
-        "Atty. Thorne approves any LOP"
-      ]
-    ],
     "dos": [
       "Verify every coverage in writing: **a dated Declaration Page**",
       "Confirm the Health Plan was **active on the loss date**",
@@ -40,6 +20,7 @@
       "Assuming PIP, or **UM on the client's own policy**"
     ],
     "milestones": {
+      "slide": true,
       "title": "The Recovery Stack, in order",
       "steps": [
         {"label": "BI · Keystone", "chip": "KM-26-440871", "done": "$10,000 per person on Robert Smith's policy; **exhausted first**"},
@@ -96,26 +77,6 @@
       "Keystone gets **John Doe's name only**: no phone, address, birth date, employer"
     ],
     "upl": "You draft and send; Atty. Thorne signs. Never value the claim or argue fault.",
-    "job": [
-      [
-        "Claims opened 02/16–02/17/2026",
-        "Log number, adjuster, delivery method",
-        "CMS → Insurance tab",
-        "Number, adjuster or “none yet”, method"
-      ],
-      [
-        "LOR set drafted",
-        "Route all five for signature",
-        "CMS → Documents → Outgoing",
-        "Signed by counsel, never the CM"
-      ],
-      [
-        "Letters served 02/17/2026",
-        "Log delivery; calendar acknowledgement check",
-        "CMS → Communications Log",
-        "Follow-up 02/20/2026 if carrier silent"
-      ]
-    ],
     "dos": [
       "Confirm **claim number and adjuster** on every claim call",
       "Keep claim-opening facts **general and verifiable**",
@@ -172,26 +133,6 @@
       "Every open item carries **a dated next follow-up**"
     ],
     "upl": "You record and chase; applying terms or alleging bad faith is Atty. Thorne's call.",
-    "job": [
-      [
-        "Written coverage confirmation arrives",
-        "Enter limit, form, source, date",
-        "CMS → Insurance tab",
-        "Confirmed only with document attached"
-      ],
-      [
-        "Adjuster assigned: Teresa Okafor, 03/03/2026",
-        "Replace “not yet assigned” with contact",
-        "CMS → Insurance tab · Parties",
-        "No stale “not yet assigned” entry"
-      ],
-      [
-        "Follow-up date arrives, item open",
-        "Follow up, log, set next date",
-        "CMS → Calendar · Communications Log",
-        "No open item with past date"
-      ]
-    ],
     "dos": [
       "Log a verbal limit at once, **marked verbal**",
       "Keep **a paper trail** on every Keystone request",
@@ -203,6 +144,7 @@
       "An open request with **no next date**"
     ],
     "milestones": {
+      "slide": true,
       "title": "Verification Status Hierarchy",
       "steps": [
         {"label": "Reported", "chip": "02/16–02/17/2026", "done": "Claim number and adjuster, or **'none yet'**, logged"},
@@ -265,26 +207,6 @@
       "Be the hub: **warm handoffs**, not phone numbers"
     ],
     "upl": "You prepare and route LOPs; never set terms, sign, promise payment or explain liability.",
-    "job": [
-      [
-        "Provider asks for an LOP",
-        "Run Payer Order; prepare if needed",
-        "CMS → Documents → Outgoing",
-        "Nothing sent without Atty. Thorne's approval"
-      ],
-      [
-        "PIP pays a bill",
-        "Post payment, running total, balance",
-        "CMS → PIP Log",
-        "$5,000.00 reached 06/12/2026; $0.00 left"
-      ],
-      [
-        "LOP statement arrives",
-        "Update balance; check lines against visits",
-        "CMS → Liens → LOP register",
-        "Every billed date an attended visit"
-      ]
-    ],
     "dos": [
       "Ask **“Is the plan working?”** at every contact",
       "Tell John Doe **which payer handles which bill**",
@@ -312,26 +234,6 @@
       "PIP paid **$5,000.00 in five checks**; exhausted 06/26/2026"
     ],
     "upl": "Read and report what payers paid; whether a balance is owed is Atty. Thorne's",
-    "job": [
-      [
-        "An EOB arrives",
-        "Post billed, allowed, paid, member share",
-        "CMS → Liens",
-        "Plan paid $1,860.00 logged"
-      ],
-      [
-        "A PIP check clears",
-        "Post check and limit remaining",
-        "CMS → PIP Log",
-        "Ties to Harbor Point's history"
-      ],
-      [
-        "A patient statement shows a balance",
-        "Compare with member responsibility",
-        "CMS → Liens · Email Workspace",
-        "Balance bill routed to Atty. Thorne"
-      ]
-    ],
     "dos": [
       "Read every EOB to **the member-responsibility line**",
       "Keep billed and paid **on the same CMS line**",
@@ -419,26 +321,6 @@
       "Adjust the plan first; **climb one documented rung** at a time"
     ],
     "upl": "You coordinate care, never direct it, and never tie missed visits to claim value.",
-    "job": [
-      [
-        "Missed-visit alert, client silent",
-        "Reach him: the **No Contact Protocol**",
-        "Communications Log · Call Simulator",
-        "**First attempt** logged same day"
-      ],
-      [
-        "Week 6 of care (04/07/2026)",
-        "Request re-evaluation measures from provider",
-        "Medical Records Requests",
-        "Measures on file, or flagged"
-      ],
-      [
-        "Barrier survives the clinical rung",
-        "Notice the carrier; copy Atty. Thorne",
-        "CMS → Tasks → Escalate",
-        "Each rung dated in log"
-      ]
-    ],
     "dos": [
       "Raise **two or more missed visits** with the provider",
       "**Proofread laterality**: everything on this file is right-sided",
@@ -450,6 +332,7 @@
       "Jumping to Atty. Thorne **before the first two rungs**"
     ],
     "milestones": {
+      "slide": true,
       "title": "A-C-T: Assess → Coordinate → Track",
       "steps": [
         {"label": "Monitor", "chip": "04/07/2026", "done": "**Week-6 measures** due and checked"},
@@ -578,26 +461,6 @@
       "Record **only with his spoken consent**; protect privilege"
     ],
     "upl": "Never say what the gap does to his case; route that to Atty. Thorne.",
-    "job": [
-      [
-        "Records show the 14-day gap",
-        "Write a questions-only plan",
-        "CMS → Case Notes",
-        "Plan saved; no reason named"
-      ],
-      [
-        "Call connects",
-        "Consent and privacy on record",
-        "Call Simulator → AI John Doe",
-        "Consent before first substantive question"
-      ],
-      [
-        "Carrier asks for Recorded Statement",
-        "Refer to firm; tell Atty. Thorne",
-        "CMS → Communications Log",
-        "No statement without Atty. Thorne"
-      ]
-    ],
     "dos": [
       "**Ask open**, follow his words, close last",
       "Paraphrase back and **let him correct you**",
@@ -609,6 +472,7 @@
       "**Blaming the client** for the gap"
     ],
     "milestones": {
+      "slide": true,
       "title": "The client interview",
       "steps": [
         {"label": "Consent on record", "done": "Date, who's on the call, **'not a lawyer'**, his spoken yes"},
@@ -671,26 +535,6 @@
       "Never hide an interruption: **show its dates**, same complaints before and after"
     ],
     "upl": "You collect, compare and flag; never tell a provider what to write.",
-    "job": [
-      [
-        "A provider record arrives",
-        "Compare mechanism, onset, body region",
-        "CMS → Treatment timeline",
-        "Consistent, or conflict quoted and flagged"
-      ],
-      [
-        "Histories conflict",
-        "Flag to Atty. Thorne; change nothing",
-        "CMS → Tasks → Escalate",
-        "Same day; no wording requests"
-      ],
-      [
-        "Work or excuse note arrives",
-        "Check signer, date, covered days",
-        "CMS → Documents",
-        "Every covered day matches a visit"
-      ]
-    ],
     "dos": [
       "Collect **what already exists** before asking for anything new",
       "**Quote records exactly**; never strengthen a history",
@@ -736,26 +580,6 @@
         "**Never draft or coach** the opinion; what it means stays Atty. Thorne's"
       ]
     },
-    "job": [
-      [
-        "Atty. Thorne seeks an opinion",
-        "Assemble records; docket follow-up",
-        "Records Requests · Calendar",
-        "Request under his signature"
-      ],
-      [
-        "Letter arrives 06/19/2026",
-        "Check it against the file",
-        "CMS → Documents → Medical",
-        "Mismatches flagged to Atty. Thorne"
-      ],
-      [
-        "Letter checked",
-        "File it; cite it; route it",
-        "Gap Explanation Record · Tasks",
-        "Cited on the 14-day band"
-      ]
-    ],
     "dos": [
       "Send the doctor **the complete record set**, priors included",
       "Read the letter **against the file** the day it arrives",
@@ -767,6 +591,7 @@
       "Telling John Doe the letter **raises his claim's value**"
     ],
     "milestones": {
+      "slide": true,
       "title": "The Causation Letter, request to file",
       "steps": [
         {"label": "Atty. Thorne requests", "done": "With **John's written authorization**"},
@@ -831,26 +656,6 @@
       "Future care ($3,400–$6,800) stays **out of the audited total**"
     ],
     "upl": "You audit and flag; valuing, billed-or-paid and the demand figure are Atty. Thorne's.",
-    "job": [
-      [
-        "MMI note received 06/12/2026",
-        "Record MMI; open the audit",
-        "CMS → Treatment timeline",
-        "MMI dated from provider's note"
-      ],
-      [
-        "Final bills and records in",
-        "Build and reconcile Specials ledger",
-        "CMS → Financial Ledger → Specials",
-        "Medical total $14,817.40"
-      ],
-      [
-        "Before the ask",
-        "Re-verify each limit, in order",
-        "CMS → Coverage Matrix",
-        "$40,000, each with written source"
-      ]
-    ],
     "dos": [
       "**Stress-test the file** before the defense does",
       "Identify **every lien before the demand**",
@@ -862,6 +667,7 @@
       "Discovering a lien **after the release** is signed"
     ],
     "milestones": {
+      "slide": true,
       "title": "Zero missing dates of service",
       "steps": [
         {"label": "Chronology pass", "done": "Every gap has **its documented reason**: 14 days; 19 days"},
@@ -922,26 +728,6 @@
       "Frame decisions as **questions only he can answer**"
     ],
     "upl": "Recommend on operations only; the demand, billed-or-paid and the UM timing are Atty. Thorne's.",
-    "job": [
-      [
-        "Audit complete",
-        "Draft one-page memo and exhibit index",
-        "Action Plan Editor → Pre-demand brief",
-        "Exhibit labels match their pages"
-      ],
-      [
-        "Brief ready",
-        "Book session; send memo ahead",
-        "CMS → Calendar · Email Workspace",
-        "Held before any demand drafted"
-      ],
-      [
-        "Session held",
-        "Record decisions in counsel's words",
-        "CMS → Case Notes",
-        "Each decision dated, attributed, tasked"
-      ]
-    ],
     "dos": [
       "Bring **the bad facts** yourself",
       "Find **discrepancies before the defense** does",
@@ -953,6 +739,7 @@
       "Briefing **the initial PD estimate**, not the final figure"
     ],
     "milestones": {
+      "slide": true,
       "title": "Briefing Atty. Thorne, bottom line first",
       "steps": [
         {"label": "Bottom line", "chip": "06/12/2026", "done": "MMI; **$16,401.40 Specials** against a $10,000 BI limit"},
@@ -1029,26 +816,6 @@
         "What it means for his recovery is **Atty. Thorne's to explain**"
       ]
     },
-    "job": [
-      [
-        "No payer covers the care",
-        "Check payers; route to counsel",
-        "CMS → Insurance · Case Notes",
-        "Payer check on file"
-      ],
-      [
-        "The LOP is signed",
-        "File it; set ledger task",
-        "CMS → Liens · Tasks",
-        "Balance tracked monthly"
-      ],
-      [
-        "“Where should I go?”",
-        "Give options; book his choice",
-        "CMS → Parties · Calendar",
-        "His choice logged, no advice"
-      ]
-    ],
     "dos": [
       "Check **every payer** before an LOP",
       "Give **options with facts**; he chooses",
@@ -1082,26 +849,6 @@
       "Rental past the cutoff is **the owner's out-of-pocket** cost"
     ],
     "upl": "Log the costs; **never promise repayment**: the claim is Atty. Thorne's",
-    "job": [
-      [
-        "Treatment starts",
-        "Open the trip log",
-        "CMS → Case Notes · Tasks",
-        "Client told what to keep"
-      ],
-      [
-        "A receipt arrives",
-        "Enter cost; file receipt",
-        "CMS → Financial Ledger → Specials",
-        "Entered with its receipt"
-      ],
-      [
-        "MMI; demand next",
-        "Total the log; route it",
-        "CMS → Tasks",
-        "Rate confirmed by counsel"
-      ]
-    ],
     "dos": [
       "Start the trip log **at the first visit**",
       "File each receipt **the day it arrives**"
@@ -1133,26 +880,6 @@
       "Riverton's add-on PIP **doesn't reduce BI or UM**"
     ],
     "upl": "Forecast and report PIP; routing, set-off and severity arguments are Atty. Thorne's",
-    "job": [
-      [
-        "A PIP check clears",
-        "Record limit left, bills coming",
-        "CMS → PIP Log",
-        "Exhaustion date forecast"
-      ],
-      [
-        "Bill could go PIP or LOP",
-        "Lay out both routes' figures",
-        "Email Workspace",
-        "Atty. Thorne's decision logged"
-      ],
-      [
-        "First treating records arrive",
-        "Check EMC rule and finding",
-        "Medical Records Requests",
-        "Finding or absence flagged"
-      ]
-    ],
     "dos": [
       "Get set-off and reimbursement positions **in writing**",
       "Keep billed and **PIP-paid on one line**",
@@ -1164,6 +891,7 @@
       "Asking a provider **to make an EMC finding**"
     ],
     "milestones": {
+      "slide": true,
       "title": "PIP's $5,000, spent once",
       "steps": [
         {"label": "Riverton Urgent Care", "chip": "02/20/2026", "done": "$685.00 paid; **$4,315.00 left**"},
@@ -1197,26 +925,6 @@
       "Flag the gap **the day records show it**: 14 days, routed"
     ],
     "upl": "Flag and report facts; **enforceability, compromise and value** are Atty. Thorne's",
-    "job": [
-      [
-        "Reimbursement right first noticed",
-        "Flag the lien, record identifiers",
-        "CMS → Liens → Flag",
-        "Flag dated before any demand"
-      ],
-      [
-        "Plan's itemized ledger arrives",
-        "Audit each line; dispute in writing",
-        "CMS → Liens",
-        "Plan confirms $1,860.00 in writing"
-      ],
-      [
-        "Records show first care 02/20/2026",
-        "Flag the 14-Day Gap; route",
-        "Action Plan Editor → Risks",
-        "Facts only; watch for breaks"
-      ]
-    ],
     "dos": [
       "Flag the lien **the day it is known**",
       "Audit the plan's ledger **line by line**"
@@ -1269,26 +977,6 @@
       "PD acceptance is **not BI acceptance**: record each position"
     ],
     "upl": "Gather and preserve the evidence; **fault is Atty. Thorne's call**",
-    "job": [
-      [
-        "Claim set-up opens",
-        "Request and read the report",
-        "CMS → Police tab",
-        "Citation and witness recorded"
-      ],
-      [
-        "Video or vehicle data exists",
-        "Draft the preservation requests",
-        "Email Workspace",
-        "Signed, sent, custody logged"
-      ],
-      [
-        "A carrier states its position",
-        "Record it with its date",
-        "CMS → Insurance tab",
-        "Each position on file"
-      ]
-    ],
     "dos": [
       "Read the Police Report **line by line**",
       "**Preserve first**: video, photos and vehicle data",
@@ -1385,26 +1073,6 @@
       "The **affidavit of service** starts Smith's answer clock"
     ],
     "upl": "Request, track and check; **never swear, sign or notarize** for anyone",
-    "job": [
-      [
-        "Demand at the limit approved",
-        "Request Smith's affidavit",
-        "CMS → Tasks",
-        "Sworn **08/10/2026**"
-      ],
-      [
-        "Records request goes out",
-        "Ask for the custodian affidavit",
-        "ChartSwap",
-        "Set comes back **sworn**"
-      ],
-      [
-        "Affidavit arrives",
-        "Check it; route defects",
-        "CMS → Documents",
-        "Filed **where it's used**"
-      ]
-    ],
     "dos": [
       "Ask for the **custodian affidavit** with every records request",
       "Check every **jurat and seal** before filing"
@@ -1414,6 +1082,7 @@
       "Writing **an affiant's words** for them"
     ],
     "milestones": {
+      "slide": true,
       "title": "The jurat check",
       "steps": [
         {"label": "Affiant", "done": "The person swearing is **the one named**"},

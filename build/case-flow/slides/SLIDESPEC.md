@@ -15,7 +15,6 @@ per block of the day (20 per day), in this shape:
     "hook": "Find every layer of coverage before you promise anyone a number.",
     "points": ["…", "…", "…"],
     "upl": "Explain the process; never predict the value of the claim.",
-    "job": [["Trigger", "Task", "Tool", "Checkpoint"], ["…", "…", "…", "…"]],
     "dos": ["…", "…", "…"],
     "donts": ["…", "…", "…"]
   },
@@ -37,12 +36,13 @@ per block of the day (20 per day), in this shape:
 ## Fields by block kind
 
 **Lesson** (`kind: "lesson"`): drawn as Why it matters · The theory · The rules · See it (the block's existing `show` visual) ·
-On the job · Do & Don't.
+Milestone Steps (where its copy says `"slide": true`, below) · Do & Don't. (There is no On the job slide: the lesson's
+`ops`, Trigger ➔ Task ➔ Tool ➔ Checkpoint, stay in 📖 Additional Reference and the trainer's blueprint, and a `job`
+field here is refused.)
 - `hook` — one sentence, **≤ 16 words**: the strategic why (from `tell.why`), as a confident headline.
 - `points` — **3 or 4** rules, **≤ 12 words each**, from `tell.rules` (the most important ones; merge where
   natural). Imperative or declarative, no sub-clauses piled up.
 - `upl` — the UPL boundary in **≤ 14 words**, if the block has `tell.upl` (else omit).
-- `job` — from `ops`: **up to 3 rows**, each `[trigger, task, tool, checkpoint]`, **≤ 6 words per cell**.
 - `dos` / `donts` — from `best` (practices → dos; "Pitfall: …" → donts): **2–3 each, ≤ 10 words each**.
 
 **The Document** (`document`, in the lesson's copy): **the New Document Instructional Standard.** Whenever a legal or
@@ -106,12 +106,16 @@ lesson's existing slides, so no slide is added and no timing changes. Take every
   "onFile": "…", "confirm": "…"}` — `rule` and `exception` **≤ 25 words** (the exception a real carve-out or a
   jurisdictional contrast; `"contrast": true` labels it CONTRAST), `onFile` (optional) **≤ 20 words**, `confirm` **≤ 8
   words** naming Atty. Thorne or the governing statute.
-- `milestones` — **Milestone Steps**, a numbered rail drawn on On the Job (or, without one, The Framework, See It, The
-  Theory or The Rules): `{"title": "…", "steps": [{"label": "…", "chip": "02/06/2028", "done": "…"}], "note": "…", "start": 4}` —
+- `milestones` — **Milestone Steps**, a numbered rail drawn on The Framework (or, without one, See It, The Theory or
+  The Rules, the first of them the lesson has), or on a slide of its own (`"slide": true`): `{"title": "…", "steps": [{"label": "…", "chip": "02/06/2028", "done": "…"}], "note": "…", "start": 4}` —
   `title` **≤ 8 words**, **3–6** steps in case order: `label` **≤ 4 words**, `chip` (optional) a date on the case file
   (MM/DD/YYYY) or a case document or claim id, `done` (the step's "Done when:") **≤ 12 words**; `note` (optional) **≤ 16
-  words**; `start` numbers a rail that continues another (Steps 4–6).
-- `.github/scripts/micro-frameworks.cjs` checks that every lesson the revamp gives a framework draws it, with type ≥ 16px.
+  words**; `start` numbers a rail that continues another (Steps 4–6). `"slide": true` gives the rail a slide of its
+  own, **Milestone Steps**, after The Rules or See It: the rail alone, each step a card, in large type. Set it where the
+  slide the rail would sit on has no room for it on a laptop (1366x768) without scaling the slide down; the slide takes a
+  trainer script, `steps` (SCRIPTSPEC.md).
+- `.github/scripts/micro-frameworks.cjs` checks that every lesson the revamp gives a framework draws it, with type ≥ 16px,
+  that a Milestone Steps slide is never scaled down on a laptop, and that no slide draws Trigger ➔ Task ➔ Tool ➔ Checkpoint cards.
 
 **Activity** (`kind: "activity"`): drawn as Your case · Your task · The model (if `show`) · Check your work.
 - `situation` — the scenario in **≤ 32 words**: file date, what just happened, what is at stake. Keep the key
