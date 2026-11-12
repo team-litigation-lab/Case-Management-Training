@@ -13498,8 +13498,9 @@ let studioListTimer = null;
 function studioRefreshList(){ clearTimeout(studioListTimer); studioListTimer = setTimeout(()=>{ if(state.view==="admin" && state.adminTab==="studio"){ const keep = state.studioMsg; render(); state.studioMsg = keep; } }, 400); }
 Object.assign(window, {studioDraftExpansions, studioPublishAllExpansions, studioToggleExpansion, studioRegenerateExpansion, studioProposeTopics, studioDraftSelectedTopics, studioSetExtraStatus, setStudioDay});
 function renderAdminStudio(){
-  const dayId = state.studioDay || 1;
-  const d = DAYS.find(x=>x.id===dayId);
+  // the course's days are 11–15 (Case Flow Days 1–5): a day it doesn't have (none chosen yet, or an older build's Day 1) opens the first
+  const d = DAYS.find(x=>x.id===state.studioDay) || DAYS[0];
+  const dayId = d.id;
   const bundle = state.lessonExp[dayId] || {};
   const extras = state.extraLessons[dayId] || [];
   const pubTopics = d.lessons.length;
@@ -16074,7 +16075,7 @@ window.addEventListener("unhandledrejection", (ev)=>{ const e = ev.reason; if(e 
 window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message && !/ResizeObserver|Script error/.test(ev.message)) showActionError(new Error(ev.message), ""); });
 
 </script>
-<script src="/js/cm-updates.js?v=44"></script>
+<script src="/js/cm-updates.js?v=45"></script>
 <script src="/js/cm-documents.js?v=3"></script>
 <script src="/js/cm-skillbuilders.js?v=cm-2026.10.23-efiling"></script>
 <script src="/js/cm-lor-data.js?v=1"></script>
@@ -16121,8 +16122,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <!-- 📂 the trainee's own Backup Drive: the firm's folder structure, built and graded on Day 1 -->
 <script src="/js/cm-drive.js?v=cm-2026.11.12-drive-grades"></script>
 <!-- 🛡 the Admin screen in sections, as Foundational Training: the section pills, their tabs, a navy banner (wraps renderAdmin last) -->
-<script src="/js/cm-admin-shell.js?v=4"></script>
-<script src="/js/cm-audit-table.js?v=2"></script>
+<script src="/js/cm-admin-shell.js?v=5"></script>
+<script src="/js/cm-audit-table.js?v=3"></script>
 <script src="/js/lsh-topbar.js?v=2"></script>
 <script src="/js/lsh-one-screen.js?v=1"></script>
 </body>

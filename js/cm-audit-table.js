@@ -395,7 +395,8 @@ const st = document.createElement("style"); st.id = "cm-audit-table"; st.textCon
 .at-drv{font-weight:700;} .at-drv.ok{color:#24563A;} .at-drv.bad,.at-drv.off{color:#9B3A30;}
 .at-c-sb{min-width:150px;}
 .at-c-act{position:sticky;right:0;z-index:2;box-shadow:-2px 0 0 #DCE0EA;}
-.at-acts{display:flex;gap:6px;justify-content:flex-end;white-space:nowrap;}
+/* the Actions stack (Approve · Reject · Revoke): a narrow sticky column, so it never covers the Days column and its 🔓 chip at 1366px */
+.at-acts{display:flex;flex-direction:column;align-items:stretch;gap:6px;white-space:nowrap;}
 .at-wrap .btn,.at-head .btn,.at-ask{font-size:14px;}
 .at-head .eyebrow{font-size:14px;}
 .at-danger{color:#9B3A30;}

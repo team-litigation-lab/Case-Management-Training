@@ -134,8 +134,6 @@
     if(typeof inner !== "function" || inner.__cmShell) return;
     const me = function(){
       const id = state.isAdmin ? tabOf() : "";
-      // ✏️ Content Studio starts on Day 1, which this course's days (11–15) don't have: start it on the first day
-      if(id === "studio" && typeof DAYS !== "undefined" && DAYS.length && !DAYS.some(d => d.id === (state.studioDay || 1))) state.studioDay = DAYS[0].id;
       let out;
       if(OWN[id]){
         // borrow a light tab for the strip, then draw this tab's page under it
