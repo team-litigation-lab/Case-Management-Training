@@ -10,8 +10,9 @@
    The sections, in Foundational's order (🏅 Scorecard · 📊 Weekly Reports · 🔗 Drive Links · 🧑‍🏫 Graders · 📦 Intake
    Packets · 📄 Assign LORs · 📢 Announcements · 📧 EOD Inbox · 🛡 Admin Master Control · 🔓 Open Lessons), for the admin
    content Case Management has:
-     🏅 Scorecard            scores only: audit (📋 Batch Sheet, js/cm-batch-sheet.js, the lead and the default) and
+     🏅 Scorecard            scores only: audit (📋 Batch Sheet, js/cm-batch-sheet.js, the lead and the default),
                              scorecards (🏅 Scorecards, the #/scorecard page: every trainee's card, the 100-point model)
+                             and rubric (📐 Feedback Rubric, js/cm-rubric.js: the one rubric every grade is read in)
      🛡 Admin Master Control what a trainer does: traineeaudit (👥 Trainee Audit: approvals, ↺ resets, revoking, each trainee's
                              detail with ✍ feedback and 🎓 the certificate), companion (📁 Companion Cases), tfeedback
                              (💬 Trainee Feedback), rtasks (🎲 Random Tasks), settings (⚙ certificate signatories, feedback
@@ -30,7 +31,7 @@
   const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
 
   const SECTIONS = [
-    {id: "scorecard", label: "🏅 Scorecard", tabs: ["audit", "scorecards"]},
+    {id: "scorecard", label: "🏅 Scorecard", tabs: ["audit", "scorecards", "rubric"]},
     {id: "admin", label: "🛡 Admin Master Control", tabs: ["traineeaudit", "companion", "tfeedback", "rtasks", "settings", "sop", "studio"]},
     {id: "open", label: "🔓 Open Lessons", tabs: ["openlessons", "activities", "fbstyle"]}
   ];
@@ -38,6 +39,7 @@
   // the tabs this file adds (their buttons, and their pages when no other script draws them)
   const OWN = {
     scorecards: {label: "🏅 Scorecards"},
+    rubric: {label: "📐 Feedback Rubric"},
     openlessons: {label: "🔓 Open Lessons"}
   };
   // the base strip's plain labels, given the icons Foundational's tabs have (only when the text is still the plain one)
@@ -117,6 +119,10 @@
       if(/Collecting every trainee/.test(html) && scWait < 60){ scWait++; setTimeout(() => { if(state.view === "admin" && tabOf() === "scorecards") render(); }, 700); }
       else scWait = 0;
       return html;
+    }
+    if(id === "rubric"){
+      if(window.cmRubric) return window.cmRubric.pageHtml({});
+      return placeholder("📐 Feedback Rubric", "The rubric is still loading. Refresh the page if this stays.");
     }
     if(id === "openlessons"){
       if(typeof window.renderAdminOpenLessons === "function") return window.renderAdminOpenLessons();

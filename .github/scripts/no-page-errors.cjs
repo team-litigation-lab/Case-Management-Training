@@ -10,7 +10,7 @@ const IGNORE = /Failed to load resource|ERR_|net::|favicon/;
 const PAGES = ['dashboard', 'tasks', 'clientprofile', 'casedocs', 'practice', 'notes', 'handouts', 'activities', 'tools', 'cms', 'calls',
     'crisisroleplay', 'drafting', 'hipaa', 'scorecard', 'knowtools'];   // (#/lor and #/medprov open the Portal's drafting tool: they leave the page)
 const TRAINER_PAGES = ['orientation', 'facilitatorguide', 'admin'];
-const ADMIN_TABS = ['audit', 'scorecards', 'traineeaudit', 'companion', 'tfeedback', 'rtasks', 'settings', 'sop', 'studio', 'openlessons', 'activities', 'fbstyle'];
+const ADMIN_TABS = ['audit', 'scorecards', 'rubric', 'traineeaudit', 'companion', 'tfeedback', 'rtasks', 'settings', 'sop', 'studio', 'openlessons', 'activities', 'fbstyle'];
 
 (async () => {
     const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});

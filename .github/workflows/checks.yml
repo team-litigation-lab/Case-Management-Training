@@ -34,6 +34,8 @@ jobs:
         run: node .github/scripts/sso.cjs
       - name: Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400)
         run: node .github/scripts/worker-guards.cjs
+      - name: 📐 Rubric guards (a rubric score is the trainer's; a trainee's own auto-scored results go on their own progress record only)
+        run: node .github/scripts/rubric-guards.cjs
       - name: Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's)
         run: node .github/scripts/tool-links.cjs
       - name: Gemini key pool (every numbered key is used, keys take turns, a key out of credits rests; Google answered by the test)
@@ -141,7 +143,7 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/doc-viewer-file.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: Notes & Action Plan (the voicemail transcribed and the plan graded with their answer keys; the plan worked in the Email Simulator)
+      - name: Notes & Action Plan (the voicemail transcribed and graded, every attempt, and the plan graded with their answer keys; the plan worked in the Email Simulator)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/notes-plan.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
@@ -189,6 +191,10 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/scorecard-card.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: 📐 The Feedback Rubric, the CMS Case File grade, graded transcription and every simulator on the scorecard (the composer's rubric counts once sent; the Batch Sheet and its CSV carry every system)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/scoring-rubric.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: 🗺 Roadmap lists every day and its topics (in place of the day cards' ☰ Topics), and opens a reached topic
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules

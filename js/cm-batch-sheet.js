@@ -51,6 +51,8 @@ const statusOf = r => r.archived ? "Archived" : r.approved === true ? "Approved"
 const nameOf = r => (typeof cleanName === "function" ? cleanName(r.name) : "") || String(r.name || "Unnamed").slice(0, 60);
 const extraOf = r => (state.auditExtra || {})[r.id];
 const dataOf = r => (extraOf(r) || {}).data || {};
+// the trainee's whole feedback:<id> (the trainer's Learning Check scores and each day's review with its 📐 rubric score)
+const fbRecOf = r => { const x = extraOf(r) || {}; return x.fbRec || {days: x.fb || {}}; };
 
 /* ---------- loading: the rows' cache (progress, feedback, focus) and, for the Scores, callsim / simresults ---------- */
 async function loadScores(ppl){
@@ -86,7 +88,7 @@ function ready(ppl){
 }
 function scoreOf(r){
   const x = B.extra[r.id] || {};
-  const c = {rec: r, cf: r.caseFlow || {days: {}}, data: dataOf(r), callsim: x.callsim, sim: x.sim};
+  const c = {rec: r, cf: r.caseFlow || {days: {}}, data: dataOf(r), callsim: x.callsim, sim: x.sim, fb: fbRecOf(r)};
   try{ return window.cmScorecard.compute(c); }catch(e){ return null; }
 }
 const summaryOf = r => { try{ return typeof auditSummary === "function" ? auditSummary(r) : null; }catch(e){ return null; } };
@@ -264,15 +266,19 @@ function dayParts(r, d){
   const bd = n === 1 ? data["drive-setup"] : (data["drive-grades"] || {})[n];
   if(bd && typeof bd.score === "number") out.push({grp: "bd", name: n === 1 ? "📂 Backup Drive: the firm's folders" : "📂 Backup File Maintenance", pct: num(bd.score),
     status: (n === 1 ? bd.ok : bd.passed) ? "Passed" : "Below 70%", why: `Read from the trainee's Drive${bd.attempts ? ` · attempt ${bd.attempts}` : ""}${bd.at ? " · " + dTime(bd.at) : ""}`, best: [], improve: (bd.issues || bd.problems || []).slice ? (bd.issues || bd.problems || []).slice(0, 4).map(x => clip(typeof x === "string" ? x : JSON.stringify(x), 200)) : []});
-  // 💬 the trainer's feedback (sent only)
-  const f = fbOf(r, d);
-  if(f) out.push({grp: "fb", name: "💬 Trainer feedback", pct: null, status: f.rating || "Sent", why: clip(f.summary || "", 420), best: (f.strengths || []).map(x => clip(x, 200)), improve: (f.areasToBuild || []).map(x => clip(x, 200))});
+  // 🗂 the CMS case file (js/cm-cms-file.js): the day's file, graded against what a correct CMS file holds by then
+  try{ if(window.cmCmsFile){ const x = cmCmsFile.compute({rec: r, cf: r.caseFlow || {days: {}}, data}).days.find(y => y.n === n);
+    if(x && x.pct != null){ const miss = []; x.areas.forEach(a => a.items.filter(i => i.pending || i.pct === 0).forEach(i => miss.push(`${a.a.label}: ${clip(i.name || String(i.text || "").replace(/\*\*/g, ""), 120)}`)));
+      out.push({grp: "cmsf", name: "🗂 CMS case file", pct: x.pct, status: x.missing ? `${x.missing} missing` : "Complete", why: x.areas.filter(a => a.pct != null).map(a => `${a.a.label} ${a.pct}%`).join(" · "), best: [], improve: miss.slice(0, 5)}); } } }catch(e){}
+  // 💬 the trainer's feedback (sent only), with its 📐 rubric score when the trainer gave one
+  const f = fbOf(r, d), rb = f && window.cmRubric && cmRubric.counts(f) ? cmRubric.total(f.rubric) : null;
+  if(f) out.push({grp: "fb", name: rb != null ? "📐 Trainer rubric & feedback" : "💬 Trainer feedback", pct: rb, status: f.rating || "Sent", why: clip(f.summary || "", 420), best: (f.strengths || []).map(x => clip(x, 200)), improve: (f.areasToBuild || []).map(x => clip(x, 200))});
   return out;
 }
 const dayAvg = xs => avgOf(xs.map(x => x.pct));
 
 // 🏅 Score Card: a group of columns per day
-const SC_COLS = [["kc", "✍️ Knowledge Check"], ["lc", "🧩 Learning Checks"], ["tk", "📝 Takeaways"], ["sa,call", "🧪 Activities & calls"], ["rt", "🎲 Random tasks"], ["bd", "📂 Backup Drive"]];
+const SC_COLS = [["kc", "✍️ Knowledge Check"], ["lc", "🧩 Learning Checks"], ["tk", "📝 Takeaways"], ["sa,call", "🧪 Activities & calls"], ["rt", "🎲 Random tasks"], ["bd", "📂 Backup Drive"], ["cmsf", "🗂 CMS file"], ["fb", "📐 Trainer rubric"]];
 function scoreCardTable(ppl){
   const L = cfDaysL(), P = SC_COLS.map(c => c[1]).concat(["Average", "💬 Remarks"]);
   return {id: "scorecard", title: "🏅 Score Card", note: "Each trainee's scores, day by day: the Knowledge Check, the Learning Checks, the Takeaways, the graded Skill Activities and calls, the random tasks and the Backup Drive, the day's Average, and the trainer's remarks. Hover a cell for how it was worked out. Blank: nothing scored yet.",
@@ -315,7 +321,7 @@ function dayDetailHtml(ppl){
    🧮 GRADING SYSTEMS: a sheet per grading system (the Scorecard's own, js/cm-scorecard.js), each with its own metrics
    beside its items: a row per trainee, the system's Average and Graded, the system's own counts, then a column per item.
    ============================================================ */
-function ctxFor(r){ const x = B.extra[r.id] || {}; return {rec: r, cf: r.caseFlow || {days: {}}, data: dataOf(r), callsim: x.callsim, sim: x.sim}; }
+function ctxFor(r){ const x = B.extra[r.id] || {}; return {rec: r, cf: r.caseFlow || {days: {}}, data: dataOf(r), callsim: x.callsim, sim: x.sim, fb: fbRecOf(r)}; }
 const cnt = (v, f, cls) => ({v: v == null ? "" : String(v), f: f || "", cls: "gs-num " + (cls || "")});
 const EXTRA = {
   kc: {head: ["Passed", "Attempts"], cells: (r, c, items) => { const dp = c.rec.dayProgress || {}, n = cfDaysL().length, p = items.filter(i => i.pct >= 70).length;
