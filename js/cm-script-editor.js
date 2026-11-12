@@ -23,6 +23,20 @@ function slotOf(id){   // where an edit lives in the course's scripts
   const S = window.SLIDE_SCRIPTS = window.SLIDE_SCRIPTS || {};
   return {get: () => (S[m[1]] || {})[m[2]], set: v => { (S[m[1]] = S[m[1]] || {})[m[2]] = v; }, day: false};
 }
+/* Topics were numbered 1.1, 1.2 … on every day; they are numbered by day now (Day 2's are 2.1, 2.2 …). An edit saved
+   under the old number is moved to the new one (same day, same place, same title), so no trainer's edit comes loose. */
+function migrate(all){
+  const out = Object.assign({}, all);
+  Object.keys(all).forEach(id => {
+    const m = /^(.+?)::(\d+)\.(\d+) (.+)::(p\d+)$/.exec(id); if(!m) return;
+    const d = dayOf(m[1]), l = d && d.lessons && d.lessons[Number(m[3]) - 1];
+    if(!l || l.h === `${m[2]}.${m[3]} ${m[4]}` || String(l.h).replace(/^\d+\.\d+ /, "") !== m[4]) return;
+    const to = `${m[1]}::${l.h}::${m[5]}`;
+    if(!(to in out)) out[to] = all[id];
+    delete out[id];
+  });
+  return out;
+}
 function apply(){
   // put back anything edited before (another trainer's newer save), then lay the edits over
   Object.keys(ORIG).forEach(id => { const s = slotOf(id); if(s) s.set(ORIG[id]); if(!edits[id]) delete ORIG[id]; });
@@ -37,7 +51,7 @@ function apply(){
 async function load(){
   if(loaded || loading || !isAdmin() || typeof sharedGet !== "function") return;
   loading = true;
-  try{ const v = await sharedGet(KEY); edits = (v && typeof v === "object") ? v : {}; }catch(e){ edits = {}; }
+  try{ const v = await sharedGet(KEY); edits = (v && typeof v === "object") ? migrate(v) : {}; }catch(e){ edits = {}; }
   loading = false; loaded = true; apply();
   const cu = document.getElementById("pvCues"); if(cu) cu.dataset.slide = "";
   if(typeof presenterRefresh === "function") try{ presenterRefresh(); }catch(e){}
@@ -169,7 +183,7 @@ async function save(){
   const say = document.getElementById("se-say").value.trim(), ask = document.getElementById("se-ask").value.trim();
   if(!say){ msg.className = "se-msg bad"; msg.textContent = "The speaker notes can't be empty."; return; }
   // the newest shared copy first, so two trainers editing different slides don't undo each other
-  let all = edits; try{ const v = await sharedGet(KEY); if(v && typeof v === "object") all = v; }catch(e){}
+  let all = edits; try{ const v = await sharedGet(KEY); if(v && typeof v === "object") all = migrate(v); }catch(e){}
   all = Object.assign({}, all, {[id]: {say, ask, by: state.adminName || "", at: new Date().toISOString()}});
   if(!(await sharedSet(KEY, all))){ msg.className = "se-msg bad"; msg.textContent = "Not saved: check your connection and try again."; return; }
   edits = all; apply(); close();
@@ -180,7 +194,7 @@ async function restore(){
   const f = document.getElementById("se-inline"); if(!f) return;
   const id = f.dataset.slot, msg = document.getElementById("se-msg");
   if(!confirm("Restore the original speaker notes for this slide? Your edit is removed for every trainer.")) return;
-  let all = edits; try{ const v = await sharedGet(KEY); if(v && typeof v === "object") all = v; }catch(e){}
+  let all = edits; try{ const v = await sharedGet(KEY); if(v && typeof v === "object") all = migrate(v); }catch(e){}
   all = Object.assign({}, all); delete all[id];
   if(!(await sharedSet(KEY, all))){ msg.className = "se-msg bad"; msg.textContent = "Not restored: check your connection and try again."; return; }
   edits = all; apply(); close();
