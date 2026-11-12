@@ -82,7 +82,7 @@ jobs:
   smoke:
     name: Smoke test in a browser
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -99,6 +99,10 @@ jobs:
           node .github/scripts/server.mjs 8787 > "$RUNNER_TEMP/server.log" 2>&1 &
           sleep 2
           node .github/scripts/smoke.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: No page errors (every page and Admin tab, every slide and Knowledge Check, Presenter view; as a trainee and as a trainer, at 1366x768)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/no-page-errors.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: Log Your Work takes the CMS Case ID from the CMS (the CMS answered by the test)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules

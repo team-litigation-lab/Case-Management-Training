@@ -730,70 +730,9 @@ function toolChip(id, blockId, big){
   const live = id === "call" && blockId && SIM.calls[blockId], name = live ? `the live call with ${SIM.calls[blockId].who}` : t.name;
   return `<button type="button" class="${big ? "btn btn-navy btn-sm" : "cfx-tool"}" data-tool="${id}" onclick="cmCaseFlow.tool('${id}','${blockId || ""}')" title="Open ${E(name)}">${t.icon} ${E(live ? "Live Call" : big ? t.name.replace(/^(the|your) /, "").replace(/^./, c => c.toUpperCase()) : t.short)}</button>`;
 }
-const toolChips = (ids, blockId, big) => ids.map(id => toolChip(id, blockId, big)).join("");
-/* ---------- 3 Clues, 1 Rule: the Do & Don't slide as a game ----------
-   Adapted from Foundational's "3 Clues, 1 Claim". Each round hides one of the lesson's Dos or Don'ts behind three
-   clues (build/case-flow/slides/clues-dN.json), shown one at a time. The class calls it (✅ Do or ⚠️ Don't) and
-   names the rule; the rule is then revealed. The score is the number of right calls, whichever clue each was made
-   on. The rounds are mixed so the order gives nothing away, and the full list closes the game. */
+/* ---------- the Do & Don't slide: the lesson's Dos and Don'ts, side by side ---------- */
 const ddList = c => `<div class="cfx-dd"><div class="cfx-do"><h3>✅ Do</h3><ul>${c.dos.map(x => `<li>${hl(x)}</li>`).join("")}</ul></div>
       <div class="cfx-dont"><h3>⚠️ Don't</h3><ul>${c.donts.map(x => `<li>${hl(x)}</li>`).join("")}</ul></div></div>`;
-const blockById = id => { for(const d of CF.days) for(const m of d.modules){ const b = m.blocks.find(x => x.id === id); if(b) return b; } return null; };
-const CG_ROUNDS = 4;   // a short game: four rounds, two Dos and two Don'ts, the rest of the rules in the full list (📋)
-const CG = {};   // the game on each lesson's slide, for this visit: {round, shown, calls: {i: {pick, ok}}, list}
-function cgRounds(b){
-  const c = copyOf(b), k = SLIDES[b.id].clues;
-  let h = 0; for(const ch of b.id) h = (h * 31 + ch.charCodeAt(0)) >>> 0;   // a fixed mix per lesson: the same for the whole class
-  const mix = a => { for(let i = a.length - 1; i > 0; i--){ h = (h * 1103515245 + 12345) >>> 0; const j = h % (i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-  // balanced: half the rounds Dos, half Don'ts (as many as the lesson has), then mixed so the order gives nothing away
-  const dos = mix(c.dos.map((x, i) => ({side: "do", rule: x, clues: k.dos[i]}))), donts = mix(c.donts.map((x, i) => ({side: "dont", rule: x, clues: k.donts[i]})));
-  const nd = Math.min(dos.length, Math.ceil(CG_ROUNDS / 2)), nn = Math.min(donts.length, CG_ROUNDS - nd);
-  return mix(dos.slice(0, nd).concat(donts.slice(0, nn), dos.slice(nd, nd + CG_ROUNDS - nd - nn)));
-}
-function clueGame(b){
-  const g = CG[b.id] = CG[b.id] || {round: 0, shown: 1, calls: {}, list: false}, rounds = cgRounds(b);
-  const done = Object.keys(g.calls).length, right = Object.values(g.calls).filter(x => x.ok).length, over = done === rounds.length;
-  const head = `<div class="cfx-cg-head"><div class="cfx-cg-marq"><b>3 Clues, 1 Rule</b><span>Spot the clues. Make the call. Name the rule.</span></div>
-      <div class="cfx-cg-tabs">${rounds.map((x, i) => { const k = g.calls[i]; return `<button type="button" class="cfx-cg-tab${i === g.round && !g.list ? " on" : ""}${k ? (k.ok ? " ok" : " miss") : ""}" onclick="cmCaseFlow.cg('${b.id}','round',${i})" aria-label="Round ${i + 1}">${k ? (x.side === "do" ? "✅" : "⚠️") : i + 1}</button>`; }).join("")}
-        <button type="button" class="cfx-cg-tab list${g.list ? " on" : ""}" onclick="cmCaseFlow.cg('${b.id}','list')" title="The full Do & Don't list">📋</button></div>
-      <span class="cfx-cg-score">⭐ ${right} of ${done} right · ${done}/${rounds.length} called</span></div>`;
-  if(g.list || g.ended) return `<div class="cfx-cg" id="cfxCg-${b.id}">${head}${g.ended && !g.list ? `<p class="cfx-cg-final">🏁 Game over: <b>${right} of ${rounds.length}</b> right. Here is the full list. <button type="button" class="btn btn-ghost btn-sm" onclick="cmCaseFlow.cg('${b.id}','again')">↻ Play again</button></p>` : ""}${ddList(copyOf(b))}</div>`;
-  const x = rounds[g.round], call = g.calls[g.round], shown = call ? 3 : g.shown;
-  const cards = x.clues.map((t, j) => j < shown
-    ? `<div class="cfx-cg-clue" style="animation-delay:${call ? 0 : .05}s"><small>Clue ${j + 1}</small><span>${E(t)}</span></div>`
-    : `<div class="cfx-cg-clue hid"><small>Clue ${j + 1}</small><span>?</span></div>`).join("");
-  const act = call
-    ? `<div class="cfx-cg-reveal ${x.side}"><b>${x.side === "do" ? "✅ Do" : "⚠️ Don't"}</b><span>${hl(x.side === "dont" ? x.rule.replace(/^./, ch => ch.toUpperCase()) : x.rule)}</span>
-        <em>${call.ok ? "✓ Right call" : `✗ It's a ${x.side === "do" ? "Do" : "Don't"}`}</em>
-        <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.cg('${b.id}','${over ? "end" : "next"}')">${over ? "See the results 🏁" : "Next round →"}</button></div>`
-    : `<div class="cfx-cg-act">${g.shown < 3 ? `<button type="button" class="btn btn-ghost btn-sm" onclick="cmCaseFlow.cg('${b.id}','clue')">🔎 Next clue (${3 - g.shown} left)</button>` : ""}
-        <span>Name the rule, then call it:</span>
-        <button type="button" class="btn btn-sm cfx-cg-do" onclick="cmCaseFlow.cg('${b.id}','call','do')">✅ It's a Do</button>
-        <button type="button" class="btn btn-sm cfx-cg-dont" onclick="cmCaseFlow.cg('${b.id}','call','dont')">⚠️ It's a Don't</button></div>`;
-  return `<div class="cfx-cg" id="cfxCg-${b.id}">${head}<div class="cfx-cg-stage">${cards}</div>${act}</div>`;
-}
-/* The game locks the slide: a trainee calls every round before Next moves on (a trainer, presenting, isn't held) */
-function cgUnfinished(){
-  return null;   // (the game is retired: nothing holds Next on the Do & Don't slide)
-  if(typeof state === "undefined" || state.isAdmin) return null;
-  if((state.lessonSlide || 0) < (state.maxSlideReached || 0)) return null;   // a slide already passed: going back over it isn't held
-  const el = document.querySelector("#lessonSlideWrap .cfx-cg"); if(!el) return null;
-  const id = el.id.replace(/^cfxCg-/, ""), b = blockById(id), g = CG[id]; if(!b) return null;
-  const left = cgRounds(b).length - Object.keys((g && g.calls) || {}).length;
-  return left > 0 ? {id, left} : null;
-}
-if(typeof nextSlide === "function"){
-  const __next = nextSlide;
-  nextSlide = function(){
-    const u = cgUnfinished();
-    if(u){
-      if(typeof toast === "function") toast(`🔒 Finish 3 Clues, 1 Rule first: ${u.left} round${u.left === 1 ? "" : "s"} left to call.`);
-      const el = document.getElementById("cfxCg-" + u.id); if(el){ el.classList.remove("cfx-cg-nudge"); void el.offsetWidth; el.classList.add("cfx-cg-nudge"); }
-      return;
-    }
-    return __next.apply(this, arguments);
-  };
-}
 /* 🎓 Finish Training (the last day's Knowledge Check, once passed): the Congratulations & Thank You slide */
 window.cmCaseFlow = window.cmCaseFlow || {};
 window.cmCaseFlow.finish = function(){
@@ -810,21 +749,6 @@ window.cmCaseFlow.finish = function(){
   const __f = window[f];
   window[f] = function(){ if(state.cfClosing){ state.cfClosing = null; if(f === "goToSlide" || f === "prevSlide") state.lessonSlide = Math.min(state.lessonSlide, buildDaySlides(DAYS.find(x => isLastCfDay(x))).length); } return __f.apply(this, arguments); };
 });
-window.cmCaseFlow = window.cmCaseFlow || {};
-window.cmCaseFlow.cg = function(id, act, arg){
-  const g = CG[id], b = blockById(id); if(!g || !b) return;
-  const rounds = cgRounds(b), next = () => { for(let k = 1; k <= rounds.length; k++){ const i = (g.round + k) % rounds.length; if(!g.calls[i]) return i; } return g.round; };
-  if(act === "round"){ g.round = arg; g.shown = 1; g.list = false; g.ended = false; }
-  else if(act === "list"){ g.list = !g.list; if(!g.list) g.ended = false; }
-  else if(act === "clue") g.shown = Math.min(3, g.shown + 1);
-  else if(act === "call" && !g.calls[g.round]){ const ok = arg === rounds[g.round].side; g.calls[g.round] = {pick: arg, ok}; }
-  else if(act === "next"){ g.round = next(); g.shown = 1; }
-  else if(act === "end"){ g.ended = true; g.list = false; }
-  else if(act === "again"){ CG[id] = {round: 0, shown: 1, calls: {}, list: false}; }
-  const el = document.getElementById("cfxCg-" + id); if(!el) return;
-  el.outerHTML = clueGame(b);
-  if(typeof fitSlideZoom === "function") fitSlideZoom(document.getElementById("lessonSlideWrap"));   // the game grows as it plays: scale the slide to fit again
-};
 /* Plain English: every legal term and abbreviation in CF.plain is explained, in plain words, on the first block that
    uses it (in the order the course teaches), before any task asks the trainee to work with it: on a lesson's Rules
    slide, or on an activity's Your Task slide */
@@ -1041,7 +965,7 @@ function card(l, i, d, part){
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title" title="${E(l.cf.heading)}">${E(l.cf.heading)}</h2></div>
       <div class="cfx-ribbon"><span title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span></div>
       <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}</span>
-        <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.num || phase.n}.${k + 1} · ${E(KIND[b.kind])}</span><span class="cfx-top-rib" title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span>${timeChip(l, d, view)}
+        <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.num || phase.n}.${k + 1} · ${E(KIND[b.kind])}</span><span class="cfx-top-rib" title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span>
         ${view === "task" && isTrainer() && !inAudience() && injectsOf(b).length ? `<button type="button" class="cfx-inject" onclick="cmCaseFlow.inject(${d.id},${i})" title="Trainer only: a real-time task to inject while the room works this one">⚡ Inject: ${E(injectsOf(b).map(x => x.short).join(" · "))}</button>` : ""}
         <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Additional Reference</button></div>
       <div class="cfx-body${onNavy ? " cfx-body-navy" : ""}">${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}</div>
@@ -1212,37 +1136,6 @@ function daySchedule(d){
   sc.parts.forEach(p => { p.topics = p.topics.map(x => x.ref); p.acts = p.acts.map(x => x.ref); p.extra = p.extra.map(x => x.ref); });
   return sc;
 }
-/* a trainer's countdown for a topic's discussion (or a phase's practice): tap the chip to start, tap again to stop */
-const TIMERS = {};
-window.cmCaseFlow = window.cmCaseFlow || {};
-window.cmCaseFlow.timer = function(key, min){
-  const t = TIMERS[key];
-  if(t && t.iv){ clearInterval(t.iv); delete TIMERS[key]; return paintTimers(); }
-  TIMERS[key] = {end: Date.now() + min * 60000, min, iv: setInterval(paintTimers, 1000)}; paintTimers();
-};
-function paintTimers(){
-  document.querySelectorAll(".cfx-time[data-k]").forEach(el => {
-    const t = TIMERS[el.dataset.k], base = el.dataset.label;
-    if(!t){ el.textContent = base; el.classList.remove("on", "over"); return; }
-    const ms = t.end - Date.now(), over = ms < 0, a = Math.abs(Math.round(ms / 1000));
-    el.textContent = `${over ? "+" : ""}${Math.floor(a / 60)}:${String(a % 60).padStart(2, "0")} ${over ? "over" : "left"}`;
-    el.classList.add("on"); el.classList.toggle("over", over);
-  });
-}
-function timeChip(l, d, view){
-  return "";   // no minute chips on the slides: the day's timing lives in the trainer's notes and the Speaker Notes PDF
-  if(!d || !d.cf) return "";
-  const sc = daySchedule(d), b = l.cf.block;
-  const chip = (k, label, min, title) => `<button type="button" class="cfx-time" data-k="${k}" data-label="${label}" title="${title} Tap to start a countdown." onclick="cmCaseFlow.timer('${k}',${min})">${label}</button>`;
-  if(b.kind === "lesson"){ const min = b.brief ? sc.brief : sc.per; return chip(`t_${b.id}`, b.brief ? `💬 ${min} min overview` : `💬 ${min} min discussion`, min, `This topic's ${b.brief ? "condensed overview" : "discussion"}: ${min} minutes.`); }
-  if(b.kind === "activity"){
-    const p = sc.parts.find(x => x.acts.includes(l)), last = p && p.acts[p.acts.length - 1] === l;
-    // the brainstorm comes straight after the topic's Skill Building: on its last activity's Check Your Work
-    return chip(`a_${b.id}`, `🧪 Skill Building · ${sc.act} min`, sc.act, `This Skill Activity: about ${sc.act} minutes on John Doe's file.`)
-      + (last && view === "check" && sc.brainstorm ? chip(`s_${b.id}`, `🧠 Brainstorm · ${sc.brainstorm} min`, sc.brainstorm, `Right after this Skill Building: the room brainstorms what John Doe's file just showed.`) : "");
-  }
-  return "";
-}
 function lectureParts(d){ return daySchedule(d).parts; }   // the day's parts: a topic's lessons, then its Skill Building
 /* beside the agenda: the one file the day works, and the stretch of it today covers (its activities' file dates) */
 function agendaFile(d){
@@ -1257,7 +1150,6 @@ function daySegments(d){
   return daySchedule(d).parts.flatMap(p => [{kind: "lesson", title: p.title, topics: p.topics, full: p.full, briefs: p.briefs, mins: p.lecture},
     p.acts.length ? {kind: "practice", title: p.title, items: p.acts, mins: p.skill + p.brainstorm} : null].filter(Boolean));
 }
-const segmentOf = (d, l) => daySegments(d).find(x => (x.items || x.topics).includes(l));
 function agendaSlide(d){
   const logo = "";
   const src = CF.days.find(x => x.n === d.cf.n) || {};
@@ -1280,7 +1172,7 @@ function agendaSlide(d){
    What the trainer says over each day's agenda slide, in the voice of the slide scripts (build/case-flow/scripts/
    SCRIPTSPEC.md: first person to the room, John Doe's file, no lists). The welcome and the question are written for
    each day; the run of the day is read from the slide itself (its parts, minutes, activities and questions), so the
-   notes and the slide can never disagree. Shown in Presenter view, on Admin → Trainer Cues and in the Speaker Notes PDF. */
+   notes and the slide can never disagree. Shown in Presenter view and in the Speaker Notes PDF. */
 const AGENDA_NOTES = {
   1: {open: "Welcome, everyone, and thanks for being here on time. For the next five days you're the Case Manager on one file, John Doe v. Robert Smith, Atty. Elijah Thorne's case, and everything we do this week happens on that file. Right now it's a raw file: nothing is in the CMS yet, John Doe hasn't started treatment, and there's a damaged car on it that nobody has sorted out.",
       ask: "Before we start, who has worked on a personal injury file before, and which part of it did you handle?"},
@@ -2315,32 +2207,8 @@ window.cmCaseFlow.back = function(){
   goto("day", r.dayId);
   setTimeout(() => { state.dayViewMode = "slides"; if(typeof goToSlide === "function" && r.slide != null) goToSlide(r.slide); }, 0);
 };
-/* ---------- Admin: the tabs grouped in sections ----------
-   An admin lands on the dashboard like everyone else (🛡 Admin is in the top bar). The Admin screen's nine tabs are
-   grouped as in Foundational Training: a row of sections, then the open section's tabs. A tab not listed goes under
-   Admin Master Control. */
-const ADMIN_GROUPS = [
-  {id: "admin", label: "🛡 Admin Master Control", tabs: ["audit", "rankings", "tfeedback"]},
-  {id: "modules", label: "📚 Training Modules", tabs: ["sop", "studio"]},
-  {id: "activities", label: "📋 Activities", tabs: ["activities", "rtasks", "fbstyle"]}
-];
-const adminGroupOf = tab => (ADMIN_GROUPS.find(g => g.tabs.includes(tab)) || ADMIN_GROUPS[0]).id;
 /* the Admin screen as Foundational's: one solid panel, the page as wide as the screen (main.cm-admin-main) */
 const adminPanel = out => state.isAdmin ? `<div class="cm-admin-screen">${out}</div>` : out;
-function groupAdminTabs(out){
-  if(window.cmAdminShell) return out;   // js/cm-admin-shell.js groups them (Foundational's sections), as the outermost wrapper
-  const a = out.indexOf('<div class="admin-tabs"'); if(a < 0) return out;
-  const b = out.indexOf("</div>", a) + 6;
-  const t = document.createElement("template"); t.innerHTML = out.slice(a, b);
-  const tabs = [...t.content.querySelectorAll(".admin-tab-btn")].map(x => ({id: ((x.getAttribute("onclick") || "").match(/setAdminTab\('([^']+)'\)/) || [])[1], html: x.outerHTML})).filter(x => x.id);
-  if(!tabs.length) return out;
-  const cur = adminGroupOf(state.adminTab || "audit");
-  const secs = ADMIN_GROUPS.map(g => ({g, tabs: tabs.filter(x => adminGroupOf(x.id) === g.id)})).filter(x => x.tabs.length);
-  const open = secs.find(x => x.g.id === cur) || secs[0];
-  const bar = `<div class="admin-tabs cf-admin-tabs"><div class="cf-admin-secs">${secs.map(x => `<button type="button" class="cf-admin-sec${x === open ? " active" : ""}" onclick="setAdminTab('${x.tabs[0].id}')">${x.g.label}<span>${x.tabs.length}</span></button>`).join("")}</div>
-    <div class="cf-admin-row">${open.tabs.map(x => x.html).join("")}</div></div>`;
-  return out.slice(0, a) + bar + out.slice(b);
-}
 /* the way back: a pill on the course page a step opened, until the trainee goes back or elsewhere in the Case Flow;
    after an activity worked in the Action Plan Editor, a second one carries on to the next step */
 function syncReturn(){
@@ -2999,17 +2867,17 @@ if(typeof window.renderPresenterNote === "function"){
     return h.replace(/ · slide \d+ of 2/, k > 1 ? ` · slide ${part || 1} of ${k}` : "");
   };
 }
-/* ---------- Admin → Trainer Cues, and the day's Speaker Notes PDF: every slide's script ----------
+/* ---------- the day's Speaker Notes PDF: every slide's script ----------
    The engine's pages listed each topic's two parts (and the old course's answer keys); a Case Flow block has up to
-   eight slides, so these list them all, by Case Phase, each under its slide's name, in the trainer's own words. */
-const slideName = v => `${VIEW_ICON[v] || ""} ${VIEW_LABEL[v] || v}`.trim();
-/* the picker in the lesson's side column (trainers), and the year on Presenter view's console */
+   eight slides, so it lists them all, by Case Phase, each under its slide's name, in the trainer's own words. */
+/* the case year picker: in the lesson's side column (trainers, when it shows) and on Presenter view's console */
 function yearInSide(){
   if(!DATES || !state.isAdmin || state.view !== "day") return;
   const top = document.querySelector(".ls-top");
   if(top && !state.presenting && !top.querySelector(".cf-yr")) top.insertAdjacentHTML("beforeend", `<div class="cf-yr-side">${caseYearPicker(true)}</div>`);
   const meta = document.querySelector(".pv-meta");
-  if(meta && !meta.querySelector(".cf-yr-pv")) meta.insertAdjacentHTML("beforeend", `<span class="cf-yr-pv" title="The case year these notes and the slides are in (set on Admin → Trainer Cues or beside the slides)">📅 ${E(DATES.year)}</span>`);
+  // the trainer picks it here, on the console they teach from (the side column's picker has no room on a laptop)
+  if(meta && !meta.querySelector(".cf-yr-pv")) meta.insertAdjacentHTML("beforeend", `<span class="cf-yr-pv">${caseYearPicker(true)}</span>`);
 }
 /* ---------- the case year a trainer's notes are in ----------
    Each trainee keeps the case year they started on (js/cm-case-dates.js), and a batch starts together: its ID is its
@@ -3038,41 +2906,6 @@ window.cmCaseFlow.teachYear = function(y){
   const u = new URL(location.href); u.searchParams.set("caseYear", +y === (DATES.pinnedYear || DATES.fresh) ? "off" : String(+y));   // back to this browser's own year: no preview location.assign(u.href);
 };
 
-if(typeof window.renderAdminTrainerCues === "function"){
-  const __cues = window.renderAdminTrainerCues;
-  window.renderAdminTrainerCues = function(){
-    const d = cfDay(state.cuesDay) || DAYS[0]; if(!d || !d.cf) return __cues.apply(this, arguments);
-    let k = -1;
-    const lab = dayScript(d, "lab"), firstAct = d.lessons.findIndex(l => l.cf.block.kind === "activity");
-    const phases = d.cf.phases.map(ph => {
-      const items = d.lessons.map((l, i) => [l, i]).filter(([l]) => l.cf.phase === ph).map(([l, i]) => { k++; const vs = viewsOf(l.cf.block);
-        return (lab && i === firstAct ? `<details class="cue-item"><summary><span class="cue-num">🧪</span>Practice Lab<span class="cue-steps">before the Skill Activities</span></summary>
-          <div class="cue-body">${dayScriptHtml(lab)}</div></details>` : "") + `<details class="cue-item" ${k === 0 ? "open" : ""}>
-          <summary><span class="cue-num">${String(i + 1).padStart(2, "0")}</span>${E(titleCase(l.cf.block.title))}<span class="cue-steps">${slideLabel(d, i)}</span></summary>
-          <div class="cue-body">${vs.map((v, j) => `<div class="pn-part">${slideName(v)}</div>${renderPresenterNote(d, l, j + 1)}`).join("")}</div>
-        </details>`; }).join("");
-      return items ? `<h3 style="font:700 15px var(--font-ui);color:var(--navy);margin:14px 18px 6px;">${E(ph.lead === "Case Phase" ? `Case Phase ${ph.n}` : ph.lead)}: ${E(ph.title)}</h3>${items}` : "";
-    }).join("");
-    return `
-      <p class="eyebrow">Admin Only</p>
-      <h1 style="color:var(--navy);font-size:26px;margin:6px 0 4px;">Trainer Cues &amp; Scripts</h1>
-      <p style="color:var(--ink-soft);font-size:13px;max-width:75ch;margin:0 0 18px;">What you say on every slide, in your own voice, plus the questions to put to the room. Trainees (and your screen-share) never see this. Keep it open in a second window, or use 🖥 Presenter view, which shows the same script beside each slide.</p>
-      <div class="cf-yr-row">${caseYearPicker()}</div>
-      <div class="cues-day-tabs">${DAYS.map(x => `<button class="${x.id === d.id ? "active" : ""}" onclick="setCuesDay(${x.id})">Case Flow Day ${x.cf.n}</button>`).join("")}</div>
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:16px 0 10px;">
-        <h2 style="color:var(--navy);font-size:19px;margin:0;">${E(d.title)}</h2>
-        <button class="btn btn-navy btn-sm" onclick="downloadDayScriptsPdf(${d.id})">⬇ Download the Speaker Notes (PDF)</button>
-      </div>
-      ${(x => x ? `<div class="card" style="padding:14px 18px;margin-bottom:12px;"><div class="discussion-tag">📅 Opening: Training Agenda</div>${dayScriptHtml(x)}<p class="discussion-note"><b>The run of the day, from the slide:</b> ${E(agendaNotes(d).run)}</p></div>`
-        : (a => `<div class="card" style="padding:14px 18px;margin-bottom:12px;"><div class="pn-part">📅 Training Agenda — read aloud</div>${sayHtml(a.say, "script-say")}${a.ask ? `<p style="margin:6px 0 0;"><b>Ask:</b> ${E(a.ask)}</p>` : ""}</div>`)(agendaNotes(d)))(dayScript(d, "agenda"))}
-      ${d.discussionQuestion ? `<div class="card discussion-card" style="margin-bottom:12px;">
-        <div class="discussion-tag">💬 End-of-Day Discussion</div>
-        <p class="discussion-q">${E(d.discussionQuestion)}</p>
-        ${dayScript(d, "wrap") ? dayScriptHtml(dayScript(d, "wrap")) : `<p class="discussion-note"><b>Say:</b> “Before the Knowledge Check, let's step back and talk about this together.” Then ask the question above, take two or three answers, and tie each one to a moment on John Doe's file from today.</p>`}
-      </div>` : ""}
-      <div class="card" style="padding:6px 0;margin-bottom:18px;">${phases || `<p style="padding:14px 18px;color:var(--ink-soft);">No scripts for this day.</p>`}</div>`;
-  };
-}
 if(typeof window.downloadDayScriptsPdf === "function"){
   const __pdf = window.downloadDayScriptsPdf;
   window.downloadDayScriptsPdf = function(dayId){
@@ -3171,7 +3004,6 @@ if(typeof submitQuiz === "function"){
    The Learning Checks aren't slides any more: the day's Knowledge Check is the quiz, then each module's written
    questions, Self-Summary and Skill Scale. One Submit scores the quiz and sends every module to the AI reviewer
    against its rubric, automatically (no separate "Submit for review"); the results fit one screen. */
-const words3 = (x, n) => String(x || "").trim().split(/\s+/).filter(Boolean).length >= n;
 // The bonus round is ONE takeaway for the whole day (saves time): a short summary of the day, written against and
 // graded with the day's last Knowledge Check block, which stands for the day.
 const kcMods = d => { const all = d.lessons.filter(l => l.cf.block.kind === "check").map(l => ({b: l.cf.block, mod: l.cf.mod, ph: l.cf.phase}));
@@ -3787,7 +3619,7 @@ if(typeof renderAuditStrip === "function"){
   };
 }
 
-/* Every Admin tab (the Trainee Audit, Trainer Cues, the SOP, Activities) names the days as on screen: Case Flow Day 1–5, never their ids */
+/* Every Admin tab (the Trainee Audit, the SOP, Activities) names the days as on screen: Case Flow Day 1–5, never their ids */
 if(typeof window.renderAdmin === "function"){
   const __admin = window.renderAdmin;
   /* An admin opening the course from the Portal can reach the Admin screen a moment before their sign-in has settled
@@ -3806,7 +3638,7 @@ if(typeof window.renderAdmin === "function"){
       return `<div class="card" style="padding:40px;text-align:center;"><div style="font-size:30px;margin-bottom:10px;">🛡</div><h2 style="color:var(--navy);margin:0;">Opening the admin screen…</h2></div>`;
     }
     if(state.isAdmin) adminWaits = 0;
-    if(state.adminTab === "attendance") state.adminTab = "audit"; return adminPanel(groupAdminTabs(relabelAll(__admin.apply(this, arguments)).replace("Knowledge Checks, Skill Builders and your day-by-day", "Knowledge Checks, Skill Activities and your day-by-day"))); };   // (attendance is on the Main Portal now)
+    if(state.adminTab === "attendance") state.adminTab = "audit"; return adminPanel(relabelAll(__admin.apply(this, arguments)).replace("Knowledge Checks, Skill Builders and your day-by-day", "Knowledge Checks, Skill Activities and your day-by-day")); };   // (attendance is on the Main Portal now)
 }
 
 /* ---------- the trainer's 40%: entered in each trainee's Admin panel ---------- */
@@ -4619,8 +4451,6 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .np-key p{margin:4px 0;font-style:italic;}
 .np-key ul,.np-key ol{margin:4px 0 0;padding-left:20px;display:grid;gap:4px;}
 .np-key li.ok{color:#1d5c3a;} .np-key li.miss{color:#A2410F;}
-/* 3 Clues, 1 Rule */
-.cfx-cg{display:flex;flex-direction:column;gap:12px;text-align:left;}
 .cf-kc-finish{margin-left:auto;background:#1F7A4A;color:#fff;border:0;border-radius:999px;padding:8px 18px;font:800 14px 'Inter',sans-serif;box-shadow:0 4px 12px rgba(31,122,74,.35);}
 .cf-kc-finish:hover{background:#17603A;}
 .cfx-close{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;}
@@ -4635,35 +4465,6 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx-thanks .cfx-thanks-h{font:800 44px/1.1 'Fraunces',Georgia,serif;color:#B5651F;margin-bottom:12px;}
 .cfx-thanks .cfx-thanks-sig{margin:0;font-weight:700;} .cfx-thanks .cfx-thanks-sig span{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:21px;color:#262B45;}
 .cfx-close-next{margin:0;text-align:center;font:700 14px 'Inter',sans-serif;color:#262B45;}
-.cfx-cg-nudge{animation:cfgShake .45s ease;}
-.cfx-cg-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
-.cfx-cg-marq{display:flex;flex-direction:column;background:linear-gradient(135deg,#1B2A4A,#2B3F6B);border:2px solid var(--orange);border-radius:14px;padding:6px 16px;box-shadow:0 0 0 3px rgba(232,119,34,.18);}
-.cfx-cg-marq b{font:800 22px/1.1 'Poppins',var(--font-ui);color:#fff;letter-spacing:.01em;}
-.cfx-cg-marq span{font:600 11.5px var(--font-ui);color:#FDBA74;}
-.cfx-cg-tabs{display:flex;gap:6px;flex-wrap:wrap;}
-.cfx-cg-tab{min-width:38px;height:38px;border-radius:999px;border:1.5px solid #CBD5E1;background:#fff;font:800 15px var(--font-ui);color:var(--navy);cursor:pointer;}
-.cfx-cg-tab.on{background:var(--navy);color:#fff;border-color:var(--navy);}
-.cfx-cg-tab.ok{background:#EEF8F2;border-color:#7CC59A;} .cfx-cg-tab.miss{background:#FFF1F1;border-color:#E9A3A3;}
-.cfx-cg-tab.on.ok,.cfx-cg-tab.on.miss{box-shadow:0 0 0 3px rgba(27,42,74,.25);}
-.cfx-cg-score{margin-left:auto;font:800 15px var(--font-ui);color:var(--navy);background:#FFF7ED;border:1.5px solid #FBD5B0;border-radius:999px;padding:6px 14px;}
-.cfx-cg-stage{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-.cfx-cg-clue{background:#fff;border:2px solid #E2E8F0;border-radius:16px;padding:14px 18px;min-height:118px;display:flex;flex-direction:column;gap:6px;animation:cfxIn .3s ease-out both;box-shadow:0 4px 14px rgba(15,33,72,.06);}
-.cfx-cg-clue small{font:700 11px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);}
-.cfx-cg-clue span{font:600 19px/1.4 var(--font-ui);color:var(--ink);}
-.cfx-cg-clue.hid{background:repeating-linear-gradient(135deg,#F1F5F9 0 10px,#E9EEF5 10px 20px);border-style:dashed;align-items:center;justify-content:center;}
-.cfx-cg-clue.hid span{font:800 40px 'Poppins',var(--font-ui);color:#94A3B8;}
-.cfx-cg-act{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
-.cfx-cg-act > span{font:600 14px var(--font-ui);color:var(--ink-soft);}
-.cfx-cg-act small{font:600 12.5px var(--font-ui);color:var(--ink-soft);}
-.cfx-cg-do{background:#EEF8F2;border:1.5px solid #7CC59A;color:#14532D;font-weight:800;}
-.cfx-cg-dont{background:#FFF6EC;border:1.5px solid #F0B27A;color:#7C2D12;font-weight:800;}
-.cfx-cg-reveal{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-radius:16px;padding:12px 18px;animation:cfxIn .3s ease-out both;}
-.cfx-cg-reveal.do{background:#EEF8F2;border:1.5px solid #BFE3CE;} .cfx-cg-reveal.dont{background:#FFF6EC;border:1.5px solid #F3D2B3;}
-.cfx-cg-reveal > b{font:700 20px 'Fraunces',Georgia,serif;color:var(--navy);white-space:nowrap;}
-.cfx-cg-reveal > span{flex:1 1 300px;font:600 20px/1.35 var(--font-ui);color:var(--ink);}
-.cfx-cg-reveal em{font:800 13px var(--font-ui);font-style:normal;color:var(--navy);}
-.cfx-cg-final{margin:0;font:600 15px var(--font-ui);color:var(--ink);display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
-@media (max-width:760px){.cfx-cg-stage{grid-template-columns:1fr;}.cfx-cg-clue{min-height:0;}.cfx-cg-score{margin-left:0;}}
 .cfx-dd > div{border-radius:16px;padding:16px 20px;animation:cfxIn .3s ease-out both;}
 .cfx-do{background:#EEF8F2;border:1.5px solid #BFE3CE;}
 .cfx-dont{background:#FFF6EC;border:1.5px solid #F3D2B3;animation-delay:.1s !important;}
@@ -4974,8 +4775,8 @@ body.audience-mode.cm-tf-split.cm-tf-open #audienceRoot{right:var(--cm-tf-w,50vw
 .cf-yr-note{font-size:12px;color:var(--ink-soft);}
 .cf-yr-side .cf-yr{width:100%;justify-content:space-between;font-size:12px;}.cf-yr-side select{flex:1;min-width:0;font-size:12px;}
 .cf-yr-side .cf-yr-note{display:block;margin-top:4px;}
-@media (max-height:780px){.cf-yr-side{display:none;}}   /* a short screen: no room beside the slide; the picker is on Admin → Trainer Cues */
-.cf-yr-pv{font-family:'IBM Plex Mono',monospace;}
+@media (max-height:780px){.cf-yr-side{display:none;}}   /* a short screen: no room beside the slide; the picker is on Presenter view's console */
+.cf-yr-pv{display:inline-flex;align-items:center;gap:6px;} .cf-yr-pv .cf-yr{font-size:12px;color:#F6C08F;} .cf-yr-pv select{font-size:12px;padding:3px 6px;}
 /* the day's intro on one screen (renderDayIntro above) */
 .cf-intro .lesson-card{padding:18px 24px !important;}
 .cf-intro-obj{margin-bottom:12px;}
@@ -5048,7 +4849,6 @@ main.cm-admin-main, main:has(.cm-admin-screen){max-width:min(2200px,97vw);paddin
 .cm-admin-screen h1{font-size:max(30px, 1em) !important;font-weight:800 !important;} .cm-admin-screen h2{font-size:max(24px, 1em) !important;font-weight:800 !important;} .cm-admin-screen h3{font-size:max(20px, 1em) !important;font-weight:800 !important;}
 .cm-admin-screen summary{font-size:16.5px !important;font-weight:800 !important;}
 .cm-admin-screen .admin-tab-btn{font-size:16.5px !important;font-weight:800 !important;}
-.cm-admin-screen .cf-admin-sec{font-size:15px !important;font-weight:800 !important;}
 .cm-admin-screen .btn{font-size:max(15px, 1em) !important;font-weight:800 !important;}
 .cm-admin-screen input, .cm-admin-screen select, .cm-admin-screen textarea{font-size:16px !important;font-weight:700 !important;}
 .cm-admin-screen .admin-name{font-size:17px !important;font-weight:800 !important;}
@@ -5066,20 +4866,6 @@ main.cm-admin-main, main:has(.cm-admin-screen){max-width:min(2200px,97vw);paddin
 .cm-admin-screen .bs-ds-h, .cm-admin-screen .bs-ds-day > summary{font-size:16.5px !important;} .cm-admin-screen .bs-ctx{font-size:15.5px !important;}
 .cm-admin-screen .bs-view button{font-size:15px !important;font-weight:800 !important;}
 .cm-admin-screen .ft-banner .ft-banner-sub{font-size:16.5px !important;} .cm-admin-screen .scx-banner .gs-menu button{font-size:14.5px !important;}
-/* the Admin screen's tabs, grouped: the sections, then the open section's tabs */
-.admin-tabs.cf-admin-tabs{display:block !important;border-bottom:1px solid var(--line);margin-bottom:20px;white-space:normal;overflow:visible;}
-.cf-admin-secs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
-.cf-admin-sec{font:inherit;font-size:13.5px;font-weight:700;border:1px solid #DDE1EC;background:#fff;color:var(--navy);border-radius:999px;padding:6px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;}
-.cf-admin-sec span{font-size:11px;font-weight:800;background:#ECEEF5;color:#4A5070;border-radius:999px;padding:1px 7px;}
-.cf-admin-sec:hover{border-color:#353B57;} .cf-admin-sec.active{background:var(--navy);border-color:var(--navy);color:#fff;} .cf-admin-sec.active span{background:rgba(255,255,255,.2);color:#fff;}
-.cf-admin-row{display:flex;gap:8px;flex-wrap:wrap;}
-@media(max-width:760px){
-  .cf-admin-secs{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
-  .cf-admin-sec{font-size:12.5px;padding:7px 8px;justify-content:center;white-space:normal;text-align:center;line-height:1.2;}
-  .cf-admin-row{gap:6px;padding:4px 0 10px;}
-  .cf-admin-row .admin-tab-btn{font-size:13px;padding:6px 11px;border:1px solid #DDE1EC !important;border-radius:999px;background:#fff;}
-  .cf-admin-row .admin-tab-btn.active{background:#FFF3E6;border-color:var(--orange) !important;color:var(--navy);}
-}
 #cf-return-next{position:fixed;right:16px;bottom:16px;z-index:60;font:800 14px 'Inter',sans-serif;padding:11px 20px;border:0;border-radius:999px;background:var(--orange,#E87722);color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer;}
 /* the sub-header: a full-width bar, the topic centred in capitals and quotes, on a lighter navy with an orange rule */
 .cfx-ribbon span{display:block;text-align:center;background:linear-gradient(90deg,#343C66 0%,#46508A 50%,#343C66 100%);border-bottom:3px solid #DB8437;border-radius:6px;color:#fff;font:800 20px/1.25 'Poppins','Inter',sans-serif;letter-spacing:.04em;text-transform:uppercase;padding:8px 24px;}
@@ -5126,8 +4912,6 @@ main.cm-admin-main, main:has(.cm-admin-screen){max-width:min(2200px,97vw);paddin
 /* the day's Training Agenda */
 .cfx-ag-list li > div{flex:1;min-width:0;text-align:left;}.cfx-ag-list li > div b, .cfx-ag-list li > div small{text-align:left;}
 .cfx-ag-min{margin-left:auto;font:800 14px 'IBM Plex Mono',monospace;color:#F4B77A;white-space:nowrap;}
-.cfx-time{font:700 12px 'IBM Plex Mono',monospace;letter-spacing:.02em;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#F4B77A;cursor:pointer;white-space:nowrap;}
-.cfx-time.on{background:#DB8437;color:#fff;border-color:#DB8437;}.cfx-time.over{background:#B54A3F;border-color:#B54A3F;}
 .cfx-ag{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"goal" "list" "file";gap:12px;align-items:stretch;}
 .cfx-ag > .cfx-ag-side{grid-area:goal;}.cfx-ag > .cfx-ag-list{grid-area:list;}.cfx-ag > .cfx-ag-file{grid-area:file;}
 .cfx-ag-file{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;color:#fff;text-align:left;}
@@ -5262,7 +5046,7 @@ main.cm-admin-main, main:has(.cm-admin-screen){max-width:min(2200px,97vw);paddin
 .cf-timeline .cfx-tl-full li.here .cf-tl-b{background:#DB8437;border-color:#fff;}
 .cf-timeline .cfx-tl-full li.here small{color:#fff;}
 .cf-timeline .cfx-tl-full li.next .cf-tl-b{opacity:.62;}
-/* the time banner on a Skill Activity's Your Case (timeBanner); cfx-time is the countdown button, not this */
+/* the time banner on a Skill Activity's Your Case (timeBanner) */
 /* the time on the file: where the case has moved since the last task, and how long the SOL leaves; made to be noticed */
 .cfx-when{margin:0 0 10px;padding:8px 12px;border:2px solid #DB8437;border-left-width:6px;border-radius:12px;background:linear-gradient(90deg,rgba(219,132,55,.30),rgba(255,255,255,.07) 70%);color:#fff;font:600 15px/1.4 'Inter',sans-serif;animation:cfxWhen 1.4s ease-out 1;}
 .cfx-when-top{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;}

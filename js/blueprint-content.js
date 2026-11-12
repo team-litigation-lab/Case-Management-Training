@@ -115,7 +115,7 @@ window.LSH_BLUEPRINT = {
       { icon: '🔑', title: 'Signing in as a trainer', points: [
           'Admin sign-in with the admin password. The server checks it, and every request after it needs your signed session.',
           'Your top bar adds 🧭 Orientation, the Facilitator Guide, 👁 Trainee view and 🏠 Main Portal (back to the Training Portal\'s Training Directory).',
-          'Admin is your trainer dashboard: Trainee Audit, 📁 Batch Folders, Rankings, SOP Reference, Content Studio, Trainee Feedback, 📋 Activities and 🗣 Feedback Style. Attendance is on the Main Portal.',
+          'Admin is your trainer dashboard, in three sections: 🏅 Scorecard (📋 Batch Sheet, 🏅 Scorecards), 🛡 Admin Master Control (👥 Trainee Audit, 📁 Companion Cases, 💬 Trainee Feedback, 🎲 Random Tasks, ⚙ Settings, 📋 SOP Reference, ✏️ Content Studio) and 🔓 Open Lessons (with 📋 Activities and 🗣 Feedback Style). Attendance is on the Main Portal.',
           'Every day is open to you, so you can preview it before you teach it.'],
         where: 'Admin sign-in · Admin in the top bar.',
         tip: 'Trainees open the course from the Training Portal; you approve them here.' },
@@ -166,11 +166,11 @@ window.LSH_BLUEPRINT = {
           'The shared window never flickers or reloads mid-class.'],
         where: 'A day\'s lesson slides → 🖥 Presenter view.',
         tip: 'Open it 15 minutes early, and share the slides window, not your screen.' },
-      { icon: '🗂', title: 'Batch Folders, Rankings and Content Studio', points: [
-          '📁 Batch Folders: each class in its own folder. Archive a finished batch to clear the list.',
-          'Rankings: the class side by side, by progress and scores.',
+      { icon: '🗂', title: 'The Batch Sheet, the Trainee Audit and Content Studio', points: [
+          '📋 Batch Sheet: each batch\'s scores, the class side by side; archive a finished batch to clear the list.',
+          '👥 Trainee Audit: approvals, resets and each trainee\'s detail, with ✍ feedback and 🎓 the certificate.',
           'Content Studio: each day\'s lessons, what\'s published and what\'s a draft; add or expand topics and publish them.'],
-        where: 'Admin → 📁 Batch Folders · Rankings · Content Studio.',
+        where: 'Admin → 🏅 Scorecard → 📋 Batch Sheet · 🛡 Admin Master Control → 👥 Trainee Audit · ✏️ Content Studio.',
         tip: 'Preview a change in 👁 Trainee view before the class sees it.' },
       { icon: '📝', title: 'Activities and the feedback style', points: [
           '📋 Activities: publish each day\'s activities and review the submissions.',

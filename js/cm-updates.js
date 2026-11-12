@@ -18,6 +18,8 @@
     10. SOP: Program flow page + a timed run of show for every day.
    ============================================================ */
 window.EAPA_UPDATE_PACK = "z-cm";
+// a day as the trainer says it: Case Flow Day 1–5 (the course's days are 11–15)
+function cmDayN(id){ const d = DAYS.find(x=>x.id===id); return d && d.cf ? d.cf.n : id; }
 (function(){ const s = document.createElement("style"); s.id = "eapa-update-p"; s.textContent = `
 .nav .nav-viewswitch{background:rgba(240,192,138,.16) !important;color:#F0C08A !important;border:1px solid rgba(240,192,138,.45) !important;font-weight:700;}
 .nav .nav-viewswitch:hover{background:rgba(240,192,138,.28) !important;}
@@ -224,11 +226,10 @@ function prevSlide(){
     refreshLessonSlide();
   }
 }
+// after a slide draws: its callouts decorated and the slide split into pages if it doesn't fit (the name is the old narrator's hook)
 function narratorAfterRender(pageOnly){
-  if(state.view!=="day"){ if(Narrator.playing) Narrator.stop(true); __lastNarrKey = ""; return; }
+  if(state.view!=="day") return;
   if(!pageOnly){ decorateCallouts(); paginateLessonSlide(); }
-  const key = state.dayId+":"+(state.lessonSlide||0)+":"+(state.slidePage||0)+":"+state.dayViewMode;
-  if(key!==__lastNarrKey){ __lastNarrKey = key; Narrator.afterSlideChange(); } else Narrator.paint();
 }
 // Skill Builders, Simulators, Tools and Roleplay all live under 🧪 Practice (js/cm-practice.js).
 const PRACTICE_SUBVIEWS = ["tool","calls","tools","crisisroleplay"];
@@ -290,12 +291,6 @@ async function authFetch(url, payload){
   if(res.status===401 && sentAdmin && sentAdmin === state.adminToken && (state.isAdmin || state.adminPreview)){ setAdminToken(""); state.isAdmin = false; state.adminPreview = false; try{ sessionStorage.removeItem("lsh_admin_preview"); }catch(e){} toast("Your admin session expired — click 🛡 Admin and sign in again."); }
   return res;
 }
-Narrator.slideText = function(){
-    const card = document.querySelector("#lessonSlideWrap"); if(!card) return "";
-    const clone = card.cloneNode(true);
-    clone.querySelectorAll(".pg-hide, .pg-badge, svg, .svg-diagram-card, .vis-flow, .vis-chips, .vis-label, .topic-separator, .fp-num, .lnum, .vis-badge, .vis-card-i, .qc-actions, .quiz-rationale:not(.show), button, .lx-panel:not([open])").forEach(n=>n.remove());
-    return clone.innerText.replace(/\s*\n+\s*/g, ". ").replace(/(\.\s*){2,}/g, ". ").replace(/[→➜]/g, ", then ").replace(/\s+/g," ").trim();
-  };
 /* ---------- Standard-size slides: content that doesn't fit continues on the next page ----------
    The slide box has a fixed size. After each render we measure the content blocks
    and, if they overflow, split them into the fewest pages possible and then
@@ -568,8 +563,7 @@ window.sopLiveSections = function(d){
      sections split into balanced parts, ← → keys and full screen. */
 function renderAdminSOP(){
   const day = state.sopDay==null ? 0 : state.sopDay;
-  const d = day ? sopForDay(day) : null;
-  const availableDays = DAYS.map(x=>x.id);
+  const d = day && DAYS.some(x=>x.id===day) ? sopForDay(day) : null;
   const mode = state.sopMode || "read";
   return `
     <p class="eyebrow">Admin — Reference</p>
@@ -578,10 +572,7 @@ function renderAdminSOP(){
     <div class="sopx-bar">
       <div class="sopx-days">
         <button class="btn btn-sm ${day===0?'btn-navy':'btn-ghost'}" onclick="setSopDay(0)">🧭 Program flow</button>
-        ${Array.from({length:10},(_,i)=>i+1).map(n=>{
-          const has = availableDays.includes(n);
-          return `<button class="btn btn-sm ${n===day?'btn-navy':'btn-ghost'}" ${has?'':'disabled title="Not yet added"'} onclick="setSopDay(${n})">Day ${n}${has?'':' (soon)'}</button>`;
-        }).join("")}
+        ${DAYS.map(x=>`<button class="btn btn-sm ${x.id===day?'btn-navy':'btn-ghost'}" onclick="setSopDay(${x.id})">Day ${x.cf ? x.cf.n : x.id}</button>`).join("")}
       </div>
       <div class="sopx-mode" role="tablist" style="${day===0?"display:none":""}">
         <button class="${mode==="read"?"on":""}" onclick="setSopMode('read')">📖 Reference</button>
@@ -603,7 +594,7 @@ function renderSopDayContent(d){
   const meta = [["⏱","Duration",info.duration],["🖥","PPT",info.ppt],["🎨","Canva",info.canvaLabel],["🎬","Video",info.video]].filter(x=>x[2]);
   return `
     <div class="card sopx-hero">
-      <div class="sopx-kicker">Day ${d.id} · Trainer SOP</div>
+      <div class="sopx-kicker">Day ${cmDayN(d.id)} · Trainer SOP</div>
       <h2>${esc(d.title)}</h2>
       ${d.introduction ? `<blockquote class="sopx-quote">“${esc(d.introduction)}”</blockquote>` : ""}
       ${meta.length ? `<div class="sopx-meta">${meta.map(([i,k,v])=>`<span>${i} <b>${k}</b> ${esc(v)}</span>`).join("")}</div>` : ""}
@@ -674,10 +665,10 @@ function sopPresentSlides(d){
 }
 function renderSopSlide(sl, d){
   const head = (k)=>`<div class="sopx-s-kicker">${k}</div><h2 class="sopx-s-title">${esc(sl.h)}${sl.parts>1?` <span class="sopx-s-part">${sl.part} / ${sl.parts}</span>`:""}</h2>`;
-  const kick = sl.num && sl.of > 1 ? `Day ${d.id} · Section ${sl.num} of ${sl.of}` : `Day ${d.id}`;
+  const kick = sl.num && sl.of > 1 ? `Day ${cmDayN(d.id)} · Section ${sl.num} of ${sl.of}` : `Day ${cmDayN(d.id)}`;
   if(sl.kind==="title"){
     const i = sl.info;
-    return `<div class="sopx-s-kicker">Day ${d.id} · Upskill Training</div>
+    return `<div class="sopx-s-kicker">Day ${cmDayN(d.id)} · Upskill Training</div>
       <h1 class="sopx-s-big">${esc(d.title)}</h1>
       ${d.introduction ? `<p class="sopx-s-quote">“${esc(d.introduction)}”</p>` : ""}
       <div class="sopx-meta center">${[["⏱",i.duration],["🖥",i.ppt],["🎬",i.video]].filter(x=>x[1]).map(([e,v])=>`<span>${e} ${esc(v)}</span>`).join("")}</div>`;
@@ -775,7 +766,6 @@ function presenterStart(){
   if(!pvOpenSlidesWindow()){ toast("Your browser blocked the slides window — allow pop-ups for this site, then click Presenter view again."); return; }
   state.presenting = true; state.dayViewMode = "slides"; state.maxSlideReached = 9999;
   state.presentPage = 0; state.presentPages = 1; PV.startedAt = Date.now();
-  if(typeof Narrator!=="undefined" && Narrator.playing) Narrator.stop(true);
   clearInterval(PV.tick); PV.tick = setInterval(presenterTick, 1000);
   render(); presenterSend();
 }
@@ -836,7 +826,7 @@ function presenterCues(d, slide){
   }else if(slide.type==="meetClient"){
     out.push(`<h3>Meet the Case — John Doe v. Robert Smith</h3>` + renderMeetClientTrainerGuide());
   }else if(slide.type==="discussion"){
-    out.push(`<h3>Trainer Checkpoint</h3><p><b>Say:</b> "Before we close Day ${d.id}, let's step back and talk about this together."</p><p><b>Ask:</b> ${esc(d.discussionQuestion||"")}</p><p>Take 2–3 answers, connect each one to a lesson from today, then move on to the Knowledge Check.</p>`);
+    out.push(`<h3>Trainer Checkpoint</h3><p><b>Say:</b> "Before we close Day ${cmDayN(d.id)}, let's step back and talk about this together."</p><p><b>Ask:</b> ${esc(d.discussionQuestion||"")}</p><p>Take 2–3 answers, connect each one to a lesson from today, then move on to the Knowledge Check.</p>`);
   }else if(slide.type==="practiceLab"){
     out.push(`<h3>Skill Builders</h3><p>Trainees complete the exercise now. Once it's finished, pause for a live debrief — have them walk through what they did, why, and where their judgment differed from the model answer.</p>`);
   }else if(slide.type==="video"){
@@ -861,7 +851,7 @@ function renderPresenterConsole(d){
   return `
     <div class="pv">
       <div class="pv-head">
-        <div class="pv-title"><b>🖥 Presenter view</b> · Day ${d.id} — ${esc(d.title)}</div>
+        <div class="pv-title"><b>🖥 Presenter view</b> · ${d.cf ? "" : `Day ${d.id} — `}${esc(d.title)}</div>
         <div class="pv-meta"><span id="pvCount">${presenterCountText(d)}</span><span class="pv-timer" id="pvTimer">00:00</span><span class="pv-aud on" id="pvAud">● Slides window open</span></div>
       </div>
       <div class="pv-grid">
@@ -1230,9 +1220,9 @@ function sopRunOfShow(dRaw){
   const steps = []; let t = 0;
   const add = (mins, s)=>{ steps.push(Object.assign({from:t, to:t+mins}, s)); t += mins; };
   add(15, {pre:true, title:"Before trainees join", do:[
-    `Admin → <b>Trainee Audit</b>: approve anyone new; check everyone has Day ${d.id} unlocked (the previous day's work submitted).`,
+    `Admin → <b>Trainee Audit</b>: approve anyone new; check everyone has Day ${cmDayN(d.id)} unlocked (the previous day's work submitted).`,
     `Use Presenter view (below): it shows your notes for each slide, and ✏️ Edit script changes them there.`,
-    `Open Day ${d.id} → slides → <b>🖥 Presenter view</b>. Allow pop-ups. In Google Meet: <b>Present now → A window</b> → “LSH Slides — share this window”.`,
+    `Open Day ${cmDayN(d.id)} → slides → <b>🖥 Presenter view</b>. Allow pop-ups. In Google Meet: <b>Present now → A window</b> → “LSH Slides — share this window”.`,
     `Pick your random-task moment (step marked below) and how long trainees get (15–30 min).`]});
   add(5, {title:"Welcome, recap & today's objectives", do:[
     `Show the <b>📋 Objectives</b> page (button above the slides) — it lists what trainees will be able to do by the end of today.`,
@@ -1244,7 +1234,7 @@ function sopRunOfShow(dRaw){
   const perTopic = 2.5, blockTopics = Math.max(8, Math.round(45/perTopic));
   let i = 0, block = 1; const blocks = Math.ceil(n/blockTopics);
   const midBlock = Math.max(1, Math.ceil(blocks/2));
-  const taskStep = {opt:true, title:"Send today's random task", do:[`Admin → <b>📋 Activities → 🎲 Random Tasks</b>: choose <b>Day ${d.id}</b>, set 15–30 minutes, <b>Generate &amp; Broadcast</b>. Keep teaching — trainees handle it in 🎲 Tasks alongside the session.`, `Anyone who doesn't submit before the timer ends gets it logged as Missed (0).`]};
+  const taskStep = {opt:true, title:"Send today's random task", do:[`Admin → <b>📋 Activities → 🎲 Random Tasks</b>: choose <b>Day ${cmDayN(d.id)}</b>, set 15–30 minutes, <b>Generate &amp; Broadcast</b>. Keep teaching — trainees handle it in 🎲 Tasks alongside the session.`, `Anyone who doesn't submit before the timer ends gets it logged as Missed (0).`]};
   while(i < n){
     const j = Math.min(n, i+blockTopics);
     if(block===midBlock+1) add(0, taskStep);   // right after the break, as teaching resumes
@@ -1273,11 +1263,11 @@ function sopRunOfShow(dRaw){
       watch:"Anyone stuck on the same part for more than 10 minutes — nudge them to submit and move on; the debrief is where the learning lands."});
   });
   if(tools.length) add(10, {title:"Skill Builders debrief", do:[`Ask 2–3 trainees to walk through what they did and why, and where their judgment differed from the answer key or model answer.`, `Point to the Evaluation Report's “Not this way — what to change” section: it's the next step, not a verdict.`]});
-  if(d.discussionQuestion) add(8, {title:"End-of-day discussion", say:`“Before we close Day ${d.id}, let's step back and talk about this together: ${esc(d.discussionQuestion)}”`, do:[`Take 2–3 answers, connect each one to a lesson from today, then move on.`]});
+  if(d.discussionQuestion) add(8, {title:"End-of-day discussion", say:`“Before we close Day ${cmDayN(d.id)}, let's step back and talk about this together: ${esc(d.discussionQuestion)}”`, do:[`Take 2–3 answers, connect each one to a lesson from today, then move on.`]});
   add(10, {title:`Knowledge Check (${kc} questions)`, do:[`Trainees click <b>Continue to Knowledge Check</b> on the last slide. 70% marks the day complete ✓.`, `Below 70% is a “not yet”: they can still move on and retake it any time; their best score counts.`], watch:"Stop presenting while they answer, so no one reads answers off the shared screen."});
   add(5, {title:"Close", do:[`Ask everyone to send quick feedback with the 💬 Feedback button.`, `Preview tomorrow: Day ${d.id+1<=DAYS.length ? `${d.id+1} — ${esc((DAYS.find(x=>x.id===d.id+1)||{}).title||"")}` : "certificates and wrap-up"}.`, `Click <b>■ End</b> in Presenter view.`]});
   add(20, {pre:true, title:"After the session", do:[
-    `<b>Trainee Audit → View Detail → Day-by-Day Feedback</b>: review each trainee's Day ${d.id} feedback, edit and <b>Send</b>.`,
+    `<b>Trainee Audit → View Detail → Day-by-Day Feedback</b>: review each trainee's Day ${cmDayN(d.id)} feedback, edit and <b>Send</b>.`,
     `Add a <b>🎯 Focus</b> item for anyone who needs one specific next step.`,
     `Check <b>Rankings</b> and the Knowledge Check column; schedule retakes for anyone under 70%.`,
     `Read <b>Trainee Feedback</b> for today and note one thing to change tomorrow.`]});
@@ -1295,7 +1285,7 @@ function sopRunOfShow(dRaw){
   }).join("");
   const endClock = sopClock(start, liveMins);
   return `<section class="card sopf">
-    <div class="sopf-head"><div><div class="sopx-kicker">Day ${d.id} · How to run this session</div><h2>Run of show</h2></div>
+    <div class="sopf-head"><div><div class="sopx-kicker">Day ${cmDayN(d.id)} · How to run this session</div><h2>Run of show</h2></div>
       <label class="sopf-start">Session starts at <input type="time" value="${esc(state.sopStart||"09:00")}" onchange="setSopStart(this.value)"> <button class="btn btn-ghost btn-sm" onclick="window.print()">🖨 Print</button></label></div>
     <div class="sopf-meta"><span>⏱ About ${Math.round(liveMins/60*10)/10} hours live · ends ≈ ${endClock}</span><span>📚 ${n} topics</span><span>✔ ${qcs.length} Quick Checks</span>${tools.length?`<span>🧪 ${tools.length} Skill Builder${tools.length>1?"s":""}</span>`:""}<span>📝 ${kc}-question Knowledge Check</span></div>
     <ol class="sopf-steps">${rows}</ol>
@@ -1303,7 +1293,7 @@ function sopRunOfShow(dRaw){
   </section>`;
 }
 function sopProgramFlow(){
-  const days = DAYS.map(d=>{ const tl = relatedTools(d.id); return `<tr><td><b>Day ${d.id}</b></td><td>${esc(d.title)}</td><td>${d.lessons.length}</td><td>${tl.length?tl.map(t=>esc(t.title)).join("<br>"):"—"}</td><td><button class="btn btn-ghost btn-sm" onclick="setSopDay(${d.id})">Run of show →</button></td></tr>`; }).join("");
+  const days = DAYS.map(d=>{ const tl = relatedTools(d.id); return `<tr><td><b>Day ${cmDayN(d.id)}</b></td><td>${esc(d.title)}</td><td>${d.lessons.length}</td><td>${tl.length?tl.map(t=>esc(t.title)).join("<br>"):"—"}</td><td><button class="btn btn-ghost btn-sm" onclick="setSopDay(${d.id})">Run of show →</button></td></tr>`; }).join("");
   return `
     <section class="card sopf"><div class="sopx-kicker">Trainer reference · The whole program</div><h2 style="font-family:'Fraunces',Georgia,serif;color:var(--navy);font-size:26px;margin:4px 0 8px;">How to facilitate the LSH Case Management Training</h2>
       <p style="font-size:14.5px;line-height:1.6;margin:0;max-width:85ch;">Five live sessions, one realistic case file (John Doe v. Robert Smith), one rhythm every day: <b>teach → check → practise → debrief → assess → follow up</b>. This page is the big picture; open any day for its minute-by-minute run of show.</p></section>
