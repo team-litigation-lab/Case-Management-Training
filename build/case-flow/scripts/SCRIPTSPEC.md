@@ -46,7 +46,7 @@ A person talking to the room, not notes about it, built on the trainer's trainin
   sentences, a blank line between them (`\n\n` in the JSON), so the trainer never loses their place
   reading aloud: the game, the answer, the run of it, the teaser, the joke each get their own. No
   paragraph runs past 60 words. Presenter view, Admin → Trainer Cues and the Speaker Notes PDF keep
-  each paragraph apart, and ✏️ Edit Speaker Notes keeps them as the trainer typed them. Day 1's
+  each paragraph apart. Day 1's
   Training Agenda is the model.
 - **Sounds like a person.** Warm, natural and a little informal, the way a good trainer actually
   talks: contractions, mixed sentence lengths, the odd "okay", "honestly" or "here's the thing",
