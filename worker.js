@@ -21,11 +21,97 @@
  */
 /* ---------- KV with the "cm:" namespace prefix ---------- */
 const KV_PREFIX = "cm:";
+/* ---------- what the trainer owns in a trainee's records ----------
+   A trainee's page saves whole records it read a moment before, and a KV read elsewhere can be up to a minute stale,
+   so a save could land on top of a trainer's change made in between: an approval undone, a review or a focus item
+   lost. So the trainer's part of each record below is also kept in its own key, <type>-admin:<id>, which only an
+   admin's save or the Worker writes (ownerPut) and the trainee never can, and every read lays it back over the record.
+   A record no admin has saved since reads exactly as it is.
+     trainee:<id>   approval, rejection, archive, unlocks, assignments, and who they are (name and batch)
+     feedback:<id>  a trainer's review of a day (and its read mark stays the trainee's), a trainer's note on an auto-review
+     focus:<id>     the focus items themselves (seen and done stay the trainee's)
+     actsub:<id>    a trainer's feedback on an activity, for the submission it was written for: a new submission
+                    retires it to prevFeedback, as the trainee's own save does */
+const isTrainerReview = (v) => !!(v && typeof v === "object" && (v.editedByTrainer || (v.status === "sent" && !v.auto)));
+const OWNED = {
+  trainee: {
+    split: (rec) => { const own = {}; ADMIN_OWNED_TRAINEE_FIELDS.forEach((f) => { if (f in rec) own[f] = rec[f]; }); return own; },
+    overlay: (rec, own) => { ADMIN_OWNED_TRAINEE_FIELDS.forEach((f) => { if (f in own) rec[f] = own[f]; else delete rec[f]; }); }
+  },
+  feedback: {
+    split: (rec) => {
+      const days = {};
+      Object.entries((rec && rec.days) || {}).forEach(([d, v]) => {
+        if (isTrainerReview(v)) days[d] = { review: v };
+        else if (v && v.trainerNote) days[d] = { note: v.trainerNote };
+      });
+      return { days };
+    },
+    overlay: (rec, own) => {
+      if (!rec.days || typeof rec.days !== "object") rec.days = {};
+      Object.entries(own.days || {}).forEach(([d, o]) => {
+        const cur = rec.days[d];
+        if (o.review) { const readAt = cur && cur.readAt; rec.days[d] = Object.assign({}, o.review); if (readAt && !rec.days[d].readAt) rec.days[d].readAt = readAt; }
+        else if (o.note && cur && typeof cur === "object") cur.trainerNote = o.note;
+      });
+    }
+  },
+  focus: {
+    split: (rec) => ({ items: (Array.isArray(rec.items) ? rec.items : []).filter((x) => x && typeof x === "object").map((x) => { const y = Object.assign({}, x); delete y.seenAt; delete y.doneAt; return y; }) }),
+    overlay: (rec, own) => {
+      const mine = Object.fromEntries((Array.isArray(rec.items) ? rec.items : []).filter((x) => x && typeof x === "object").map((x) => [x.id, x]));
+      rec.items = (own.items || []).map((x) => { const m = mine[x.id] || {}; return Object.assign({}, x, { seenAt: m.seenAt || null, doneAt: m.doneAt || null }); });
+    }
+  },
+  actsub: {
+    split: (rec) => {
+      const items = {};
+      Object.entries((rec && rec.items) || {}).forEach(([aid, v]) => {
+        if (v && typeof v === "object" && (v.feedback || v.prevFeedback)) items[aid] = { feedback: v.feedback || null, prevFeedback: v.prevFeedback || null, forSubmittedAt: v.submittedAt || null };
+      });
+      return { items };
+    },
+    overlay: (rec, own) => {
+      if (!rec.items || typeof rec.items !== "object") rec.items = {};
+      Object.entries(own.items || {}).forEach(([aid, o]) => {
+        const cur = rec.items[aid];
+        if (!cur || typeof cur !== "object") return;
+        if ((cur.submittedAt || null) === o.forSubmittedAt) {
+          if (o.feedback) cur.feedback = o.feedback; else delete cur.feedback;
+          if (o.prevFeedback && !cur.prevFeedback) cur.prevFeedback = o.prevFeedback;
+        } else if (o.feedback && o.feedback.status === "sent" && !cur.prevFeedback) cur.prevFeedback = o.feedback;   // resubmitted since: retired
+      });
+    }
+  }
+};
+const OWNED_KEY = /^(trainee|feedback|focus|actsub):([^:]+)$/;
+const ownedType = (k) => { const m = OWNED_KEY.exec(k); return m ? m[1] : null; };
+const ownerKey = (k) => k.replace(/^([a-z]+):/, "$1-admin:");
+// An admin's (or the Worker's) save of one of these records: the record, and the trainer's part in its own key.
+async function ownerPut(kv, key, value) {
+  await kv.put(key, value);
+  const t = ownedType(key);
+  if (!t) return;
+  let rec = null; try { rec = JSON.parse(value); } catch (e) { /* not a record: stored as given */ }
+  if (!rec || typeof rec !== "object") return;
+  await kv.put(ownerKey(key), JSON.stringify(OWNED[t].split(rec)));
+}
 function kvOf(env) {
   const raw = env.LSH_KV;
   if (!raw) return null;
   return {
-    get: (k) => raw.get(KV_PREFIX + k),
+    get: async (k) => {
+      const t = ownedType(k);
+      if (!t) return raw.get(KV_PREFIX + k);
+      const [base, owner] = await Promise.all([raw.get(KV_PREFIX + k), raw.get(KV_PREFIX + ownerKey(k))]);
+      if (base == null || owner == null) return base;
+      try {
+        const rec = JSON.parse(base), own = JSON.parse(owner);
+        if (!rec || typeof rec !== "object" || !own || typeof own !== "object") return base;
+        OWNED[t].overlay(rec, own);
+        return JSON.stringify(rec);
+      } catch (e) { return base; }
+    },
     put: (k, v, o) => raw.put(KV_PREFIX + k, v, o),
     delete: (k) => raw.delete(KV_PREFIX + k),
     list: async (opts = {}) => {
@@ -114,14 +200,40 @@ function portalSecret(env) { return String(env.PORTAL_SSO_SECRET || "").trim(); 
    PORTAL_ONLY=off is the way back to the old name + batch sign-in; leave it unset in production. */
 function portalOnly(env) { return !!(adminPass(env) && String(env.PORTAL_ONLY || "").trim().toLowerCase() !== "off"); }
 // why (optional) gets why a ticket was refused: "format", "signature" (the Portal and this program don't share the same secret) or "expired".
-// An administrator's Portal ticket signs in once: its signature is remembered for 10 minutes (longer than the ticket
-// lives), and a second use is refused.
-async function useTicketOnce(kv, ticket) {
+// An administrator's Portal ticket signs in once. KV can't answer "first use?" atomically (a read, then a write, and
+// a write takes up to a minute to be seen elsewhere), so two uses of a copied link close together could both get in.
+// TicketLedger, a Durable Object per ticket, answers it: one instance in the world per ticket, which checks and marks
+// it in one step. Without the binding (a local stand-in, the tests) the KV check is the fallback, as it was before.
+async function useTicketOnce(env, kv, ticket) {
+  const sig = String(ticket || "").split(".").pop().slice(0, 43);
+  if (env && env.TICKET_LEDGER) {
+    try {
+      const ns = env.TICKET_LEDGER;
+      const r = await ns.get(ns.idFromName("sso:" + sig)).fetch("https://ledger/use", { method: "POST" });
+      if (r.status === 200) return true;
+      if (r.status === 409) return false;
+    } catch (e) { /* the ledger couldn't be reached: the KV check below */ }
+  }
   if (!kv) return true;
-  const key = "sso-used:" + String(ticket || "").split(".").pop().slice(0, 43);
+  const key = "sso-used:" + sig;
   if (await kv.get(key)) return false;
   await kv.put(key, "1", { expirationTtl: 600 });
   return true;
+}
+// One instance per ticket. A Durable Object handles one request's storage step at a time (its input gate), so a
+// second request for the same ticket always sees the first one's mark. The mark is cleared after 15 minutes, when
+// the ticket (good for at most 10) can no longer be used anyway.
+export class TicketLedger {
+  constructor(state) { this.state = state; }
+  async fetch() {
+    return this.state.blockConcurrencyWhile(async () => {
+      if (await this.state.storage.get("used")) return new Response("used", { status: 409 });
+      await this.state.storage.put("used", Date.now());
+      await this.state.storage.setAlarm(Date.now() + 15 * 60 * 1000);
+      return new Response("ok", { status: 200 });
+    });
+  }
+  async alarm() { await this.state.storage.deleteAll(); }
 }
 async function readPortalTicket(env, ticket, why = {}) {
   if (!portalSecret(env)) { why.r = "format"; return null; }
@@ -185,9 +297,11 @@ function candidateIds(name, batch) {
 /* ---------- what a trainee may touch ---------- */
 // Daily Activities: activities:dayN and their attachments (actfile:*) are published by admins for everyone;
 // settings:feedback-style is the facilitator voice the portal's AI feedback is written in.
-const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|feedback-style|drive)$/, /^activities:day\d+$/, /^actfile:[a-z0-9]{1,40}$/, /^surprise-task-day\d+$/, /^call-inject-day\d+$/, /^extralessons:day\d+$/, /^lessonx:day\d+$/, /^extraquiz:day\d+$/, /^handouts:links$/];
+const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|feedback-style)$/, /^activities:day\d+$/, /^actfile:[a-z0-9]{1,40}$/, /^surprise-task-day\d+$/, /^call-inject-day\d+$/, /^extralessons:day\d+$/, /^lessonx:day\d+$/, /^extraquiz:day\d+$/, /^handouts:links$/];
 const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`, `actsub:${id}`];
-const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt", "driveLink", "driveLinkAt"];
+const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt"];
+const IDENTITY_TRAINEE_FIELDS = ["name", "firstName", "lastName", "batch"];
+const ADMIN_OWNED_TRAINEE_FIELDS = PROTECTED_TRAINEE_FIELDS.concat(IDENTITY_TRAINEE_FIELDS);
 
 // callsim:<id>: the trainee's graded calls from the Call Simulator (☎ LSH Ring Channel), kept by the Training Portal (its /api/call-results).
 // labreview:<id>: the trainer's reviews of the trainee's Practice Lab (score, rating, comment per activity; js/cm-lab.js),
@@ -218,6 +332,10 @@ async function traineeWrite(env, tok, key, value) {
     // Trainees keep their own record current, but can never change approval, attempts resets, etc.
     const merged = Object.assign({}, incoming);
     PROTECTED_TRAINEE_FIELDS.forEach((f) => { if (existing && f in existing) merged[f] = existing[f]; else delete merged[f]; });
+    // Who the trainee is (their name and batch) is set once, at registration or by the Portal's sign-in; after that
+    // only an admin changes it. A Training Tools ticket is signed from these fields, so a trainee who renamed
+    // themselves could otherwise sign in elsewhere as someone else.
+    if (existing) IDENTITY_TRAINEE_FIELDS.forEach((f) => { if (f in existing) merged[f] = existing[f]; else delete merged[f]; });
     if (!existing) { merged.approved = false; merged.registeredAt = new Date().toISOString(); }
     merged.id = id;
     await kv.put(key, JSON.stringify(merged)); return null;
@@ -246,7 +364,7 @@ async function traineeWrite(env, tok, key, value) {
   if (key === `focus:${id}`) {
     // Trainees may only mark trainer focus items as seen/done.
     const out = existing && Array.isArray(existing.items) ? existing : { items: [] };
-    const byId = Object.fromEntries(((incoming && incoming.items) || []).map((x) => [x.id, x]));
+    const byId = Object.fromEntries((Array.isArray(incoming && incoming.items) ? incoming.items : []).filter((x) => x && typeof x === "object").map((x) => [x.id, x]));
     out.items.forEach((x) => { const u = byId[x.id]; if (u) { x.seenAt = u.seenAt || x.seenAt || null; x.doneAt = u.doneAt || null; } });
     await kv.put(key, JSON.stringify(out)); return null;
   }
@@ -337,7 +455,7 @@ export class GeminiRelay {
 const gatewayOn = (env) => !!String((env && env.AI_GATEWAY_SECRET) || "").trim();
 async function viaGateway(env, req, user) {
   const toText = (c) => typeof c === "string" ? c : (Array.isArray(c) ? c.map((p) => p && p.text ? p.text : "").join("\n") : "");
-  const messages = (req.messages || []).map((m) => ({ role: m.role === "assistant" ? "model" : "user", text: toText(m.content) }));
+  const messages = (req.messages || []).filter((m) => m && typeof m === "object").map((m) => ({ role: m.role === "assistant" ? "model" : "user", text: toText(m.content) }));
   let r, data = null;
   try {
     r = await fetch(String(env.PORTAL_URL || "https://cm-training-activity.pages.dev").replace(/\/+$/, "") + "/api/ai-gateway", {
@@ -384,9 +502,10 @@ const noThinking = new Set();   // models that refused a thinking setting: not s
 const isChat = (req) => /^(chat|call)$/i.test(String((req && req.feature) || ""));
 async function callGemini(env, rawBody, user) {
   let req; try { req = JSON.parse(rawBody); } catch (e) { return json({ error: "Invalid request" }, 400); }
+  if (!req || typeof req !== "object" || (req.messages !== undefined && !Array.isArray(req.messages))) return json({ error: "Invalid request" }, 400);
   if (gatewayOn(env)) return await viaGateway(env, req, user);
   const toText = (c) => typeof c === "string" ? c : (Array.isArray(c) ? c.map((p) => p && p.text ? p.text : "").join("\n") : "");
-  const contents = (req.messages || []).map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: toText(m.content) }] }));
+  const contents = (req.messages || []).filter((m) => m && typeof m === "object").map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: toText(m.content) }] }));
   const payload = {
     contents,
     // extra headroom: newer Gemini models may spend part of the budget "thinking" before answering
@@ -466,13 +585,13 @@ async function listAll(env, prefix) {
 
    Google: only drive.file, so this can see and change the folders and files it made and nothing else in
    the trainee's Drive. Tokens are sealed with a key derived from SESSION_SECRET and kept in
-   drive:<trainee id>. Needs GOOGLE_CLIENT_ID (a plain variable) and GOOGLE_CLIENT_SECRET (a secret) on
+   cm:drive:<trainee id>. Needs GOOGLE_CLIENT_ID (a plain variable) and GOOGLE_CLIENT_SECRET (a secret) on
    this Worker, with the Google Drive API turned on in that Google Cloud project and this site among the
    OAuth client's authorized JavaScript origins; until both are set, /api/drive says so and the page says
    the Backup Drive isn't switched on yet. Nothing else is blocked either way.
    ============================================================ */
 const DRIVE_ROOT = "LSH Case Backups";
-const DRIVE_SCOPES = "openid email https://www.googleapis.com/auth/drive.file";
+const DRIVE_SCOPES = "openid email https://www.googleapis.com/auth/drive.file";  // = openid email + DRIVE_FILE_SCOPE
 const FOLDER_MIME = "application/vnd.google-apps.folder";
 const DRIVE_API = "https://www.googleapis.com/drive/v3";
 const DRIVE_UPLOAD = "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id,name,webViewLink";
@@ -557,9 +676,41 @@ async function unseal(env, sealed) {
 }
 
 const driveConfigured = (env) => !!(env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET);
+/* For /version: whether trainees can link their Drive, and if not which half is missing. Names only, never a value. */
+const driveConfigNote = (env) => driveConfigured(env) ? "ON (GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET are set)"
+  : `OFF (missing ${["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET"].filter((k) => !env[k]).join(" and ")})`;
+const DRIVE_FILE_SCOPE = "https://www.googleapis.com/auth/drive.file";
+/* Give a grant back to Google (best effort). Revoking any token of a grant ends the whole grant, so the next
+   Connect is a first consent again: every box shown, and a refresh token sent. */
+async function googleRevoke(token) {
+  if (!token) return;
+  try { await fetch("https://oauth2.googleapis.com/revoke", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ token }).toString() }); } catch (e) { /* best effort */ }
+}
+/* A trainee's drive record is cm:drive:<id>, under this program's "cm:" prefix like every other record. It was once
+   drive:<id> with no prefix, a key the Foundations training's own Backup Drive also uses for the same trainee ids,
+   so the two programs overwrote each other's link, tokens and grades. That old key is read once, as a fallback, for
+   a CM trainee with no record here yet, and is never written or deleted from here again: it stays Foundations'.
+   A record taken away is kept as "null" (not deleted), so the old key isn't read back in its place. */
 const driveKey = (id) => `drive:${id}`;
-async function driveRead(env, id) { return JSON.parse((await env.LSH_KV.get(driveKey(id))) || "null"); }
-async function driveWrite(env, id, rec) { await env.LSH_KV.put(driveKey(id), JSON.stringify(rec)); return rec; }
+const LEGACY_DRIVE_PREFIX = "drive:";
+async function driveRead(env, id) {
+  const kv = kvOf(env);
+  const raw = await kv.get(driveKey(id));
+  if (raw != null) return JSON.parse(raw);
+  if (!(await kv.get(`trainee:${id}`))) return null;   // not one of this program's trainees: never Foundations' record
+  const legacy = await env.LSH_KV.get(LEGACY_DRIVE_PREFIX + id);
+  return legacy ? JSON.parse(legacy) : null;
+}
+async function driveWrite(env, id, rec) { await kvOf(env).put(driveKey(id), JSON.stringify(rec)); return rec; }
+/* The Google link goes; the Day 1 setup, its grade and the record of what was backed up are the trainee's and
+   stay. Used by Disconnect and when Google says the link has expired or was taken back, so neither loses a grade. */
+async function driveUnlink(env, id, rec) {
+  const kept = {};
+  if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt", "grades", "gradedAt", "checkLog", "restoreLog", "drills"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
+  if (Object.keys(kept).length) return driveWrite(env, id, kept);
+  await kvOf(env).put(driveKey(id), "null");
+  return null;
+}
 
 async function googleToken(params) {
   const r = await fetch("https://oauth2.googleapis.com/token", {
@@ -576,7 +727,7 @@ async function driveAccess(env, id, rec, force = false) {
     refresh_token: await unseal(env, rec.refresh), grant_type: "refresh_token",
   });
   if (!ok) {
-    if (data.error === "invalid_grant") { await env.LSH_KV.delete(driveKey(id)); const e = new Error("The Google Drive connection has expired or was taken back. Connect the Backup Drive again."); e.code = "DRIVE_RECONNECT"; throw e; }
+    if (data.error === "invalid_grant") { await driveUnlink(env, id, rec); const e = new Error("The Google Drive connection has expired or was taken back. Connect the Backup Drive again."); e.code = "DRIVE_RECONNECT"; throw e; }
     throw new Error(`Google refused to refresh access: ${data.error_description || data.error || "unknown error"}`);
   }
   rec.access = await seal(env, data.access_token);
@@ -628,7 +779,10 @@ async function driveBuild(env, id, rec) {
     (had ? restored : made).push(path);
   }
   rec.builtAt = new Date().toISOString();
-  if (restored.length) rec.restoredCount = (Number(rec.restoredCount) || 0) + restored.length;
+  if (restored.length) {
+    rec.restoredCount = (Number(rec.restoredCount) || 0) + restored.length;
+    rec.restoreLog = (rec.restoreLog || []).concat([{ at: rec.builtAt, restored }]).slice(-20);
+  }
   await driveWrite(env, id, rec);
   return { made, restored };
 }
@@ -641,12 +795,14 @@ async function driveVerify(env, id, rec) {
     // any other check: without this the dashboard card would read "in order" for a drive that isn't there.
     rec.checkedAt = new Date().toISOString();
     rec.lastMissing = FOLDER_STANDARD.slice();
+    rec.checkLog = (rec.checkLog || []).concat([{ at: rec.checkedAt, missing: rec.lastMissing }]).slice(-40);
     await driveWrite(env, id, rec);
     return { missing: [DRIVE_ROOT].concat(FOLDER_STANDARD), rootGone: true };
   }
   for (const path of FOLDER_STANDARD) if (!(await folderLives(env, id, rec, rec.folders && rec.folders[path]))) missing.push(path);
   rec.checkedAt = new Date().toISOString();
   rec.lastMissing = missing;
+  rec.checkLog = (rec.checkLog || []).concat([{ at: rec.checkedAt, missing }]).slice(-40);   // Day 4's drill is graded from it
   await driveWrite(env, id, rec);
   return { missing, rootGone: false };
 }
@@ -691,6 +847,9 @@ function driveStatus(env, rec) {
     lastMissing: (rec && rec.lastMissing) || [],
     setup: (rec && rec.setup) || null,
     saved: (rec && rec.saved) || [],
+    grades: (rec && rec.grades) || {},
+    gradedAt: (rec && rec.gradedAt) || null,
+    drills: Object.keys((rec && rec.drills) || {}),
   };
 }
 
@@ -720,8 +879,216 @@ function driveReport(id, rec) {
     perFolder,
     lastCopyAt,
     standard: FOLDER_STANDARD.length,
+    grades: (rec && rec.grades) || {},
   };
 }
+
+/* ============================================================
+   🏅 The Backup Drive, auto-graded as the trainee goes (Days 2–5)
+
+   Day 1's structure is graded when it is submitted (gradeLayout). Each later day has a Backup File Maintenance
+   activity (d2-drive … d5-drive in js/cm-case-flow-data.js) whose rubric has automated rows; these grade those
+   rows from the trainee's Drive itself, not from what the page says: where each of the day's documents actually
+   is now, what it is called, whether the colleague's misfile was moved, whether a deleted folder was found and
+   put back. The trainee's own written work (Case Notes) is the rubric's other rows, graded where it always was.
+
+   One read of the Drive per grade: every file and folder this platform made (drive.file sees only those), each
+   with its name and folder, in two list calls. A copy knows which course document it is because the page sends
+   the document's id with it (`docId` on "put"); a copy the trainee moved or renamed in Drive is still found.
+   ============================================================ */
+/* Each day's documents (CF_PACKETS["dN-drive"] in js/cm-case-flow-docs.js) and the course folder each belongs
+   in (its `folder` there, DRIVE_HOMES above); .github/scripts/drive-grades.cjs keeps the two the same. */
+const DRIVE_DAY_DOCS = {
+  2: ["RS12", "RS13", "RS15", "RS25"],
+  3: ["RS72", "RS16", "RS73", "RS26", "RS95", "RS94", "RS33", "RS66"],
+  4: ["RS41", "RS42", "RS84", "RS85", "RS86", "RS44", "RS74"],
+  5: ["RS51", "RS52", "RS53", "RS55", "RS59", "RS69", "RS70"],
+};
+const DRIVE_DOC = {
+  RS12: ["medical", "Riverton Urgent Care's visit note"], RS13: ["medical", "Riverton Spine & Rehab's evaluation and LOP"],
+  RS15: ["medical", "Lakeside Orthopedics' consult"], RS25: ["bills", "Summit Imaging's invoice"],
+  RS72: ["medical", "the MRI addendum"], RS16: ["medical", "the cervical MRI report"],
+  RS73: ["bills", "Crescent's corrected $0.00 statement"], RS26: ["bills", "Crescent's 07/01 statement"],
+  RS95: ["settlement", "the final lost wage record"], RS94: ["settlement", "the 06/23 lost wage worksheet"],
+  RS33: ["insurance", "the draft BI demand"], RS66: ["insurance", "the demand's exhibit packet"],
+  RS41: ["liens", "Peach State's reduction acceptance"], RS42: ["liens", "Riverton Spine & Rehab's Payoff Letter"],
+  RS84: ["liens", "Vance & Kettering's charging lien"], RS85: ["liens", "the prior-attorney lien packet"],
+  RS86: ["liens", "Atty. Thorne's repudiation of the prior-attorney lien"], RS44: ["settlement", "the Case Cost Ledger"],
+  RS74: ["settlement", "the closing letter"], RS51: ["litigation", "the Complaint"], RS52: ["litigation", "the service papers"],
+  RS53: ["litigation", "the Answer"], RS55: ["litigation", "the Scheduling Order"], RS59: ["litigation", "the mediation term sheet"],
+  RS69: ["litigation", "the mediation binder"], RS70: ["litigation", "the arbitration binder"],
+};
+const DRIVE_PASS = 70;
+const DRILL_NAME = "Summit-Imaging_Invoice_filed-here-by-a-colleague.pdf";
+const LIENS_FOLDER = DRIVE_HOMES.liens;
+const shortPath = (p) => String(p || "").split("/").pop();
+const SUPERSEDED_OK = (name) => /superseded/i.test(name) && /\d{4}-\d{2}-\d{2}|\d{1,2}[-._]\d{1,2}[-._]\d{2,4}|\d{8}/.test(name);
+
+/* A one-page PDF with a few lines of text: the colleague's misfiled invoice for Day 2's drill. */
+function tinyPdf(lines) {
+  const esc = (t) => String(t).replace(/[^\x20-\x7e]/g, "-").replace(/([\\()])/g, "\\$1");
+  const text = lines.map((t, i) => `BT /F1 ${i ? 12 : 16} Tf 60 ${740 - i * 26} Td (${esc(t)}) Tj ET`).join("\n");
+  const objs = [
+    "<< /Type /Catalog /Pages 2 0 R >>",
+    "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+    "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>",
+    "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
+    `<< /Length ${text.length} >>\nstream\n${text}\nendstream`,
+  ];
+  let out = "%PDF-1.4\n";
+  const at = objs.map((o, i) => { const off = out.length; out += `${i + 1} 0 obj\n${o}\nendobj\n`; return off; });
+  const xref = out.length;
+  out += `xref\n0 ${objs.length + 1}\n0000000000 65535 f \n${at.map((o) => String(o).padStart(10, "0") + " 00000 n \n").join("")}`;
+  out += `trailer\n<< /Size ${objs.length + 1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF\n`;
+  return enc.encode(out);
+}
+
+/* One file into one of the trainee's folders (multipart upload). */
+async function driveUpload(env, id, rec, parentId, name, mime, bytes, description) {
+  const boundary = "lsh" + crypto.randomUUID().replace(/-/g, "");
+  const meta = JSON.stringify({ name, parents: [parentId], description });
+  const head = enc.encode(`--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${meta}\r\n--${boundary}\r\nContent-Type: ${mime}\r\n\r\n`);
+  const tail = enc.encode(`\r\n--${boundary}--`);
+  const raw = new Uint8Array(head.length + bytes.length + tail.length);
+  raw.set(head, 0); raw.set(bytes, head.length); raw.set(tail, head.length + bytes.length);
+  return drive(env, id, rec, "POST", DRIVE_UPLOAD, { raw, type: `multipart/related; boundary=${boundary}` });
+}
+
+/* Everything this platform made in the trainee's Drive and not trashed: {id: {name, parent}} for files and folders. */
+async function driveList(env, id, rec, folders) {
+  const out = {};
+  let token = "";
+  for (let page = 0; page < 5; page++) {
+    const q = encodeURIComponent(`mimeType ${folders ? "=" : "!="} '${FOLDER_MIME}' and trashed = false`);
+    const res = await drive(env, id, rec, "GET", `/files?q=${q}&pageSize=1000&fields=nextPageToken,files(id,name,parents)${token ? "&pageToken=" + encodeURIComponent(token) : ""}`);
+    if (!res.ok) throw new Error(driveMessage(res));
+    (res.data.files || []).forEach((f) => { out[f.id] = { name: f.name, parent: (f.parents || [])[0] || "" }; });
+    if (!res.data.nextPageToken) break;
+    token = res.data.nextPageToken;
+  }
+  return out;
+}
+
+/* The Drive as it is now: where each course document's copy sits, and the folders. */
+async function driveSnapshot(env, id, rec) {
+  const [files, folders] = [await driveList(env, id, rec, false), await driveList(env, id, rec, true)];
+  const pathOf = {};
+  Object.entries(rec.folders || {}).forEach(([p, fid]) => { if (folders[fid]) pathOf[fid] = p; });
+  const where = (fid) => (files[fid] ? { name: files[fid].name, path: pathOf[files[fid].parent] || (files[fid].parent === rec.rootId ? "" : null) } : null);
+  // a course document's copies, newest first; the first one still in the Drive is the one that counts
+  const copyOf = (docId) => {
+    const all = (rec.saved || []).filter((s) => s.docId === docId && s.id).sort((a, b) => String(b.at).localeCompare(String(a.at)));
+    for (const s of all) { const w = where(s.id); if (w) return w; }
+    return null;
+  };
+  const clientParent = folders[(rec.folders || {})[CLIENT_FOLDER]] ? folders[rec.folders[CLIENT_FOLDER]].parent : "";
+  return { files, folders, pathOf, where, copyOf, clientInPlace: !!clientParent && clientParent === (rec.folders || {})["01 Clients"] };
+}
+
+/* One rubric row: {label, max, got, notes:[what is wrong, in words]} */
+function gradeRow(label, max, items) {
+  const done = items.filter((x) => x.ok).length;
+  return { label, max, got: items.length ? Math.floor((max * done) / items.length) : 0, notes: items.filter((x) => !x.ok).map((x) => x.why) };
+}
+/* A row made of parts that weigh the same however many items each holds (the final audit: a missing client folder
+   must cost as much as a missing document, not one sixtieth of the row). An empty part counts as done. */
+function gradeParts(label, max, parts) {
+  const ratio = parts.reduce((t, items) => t + (items.length ? items.filter((x) => x.ok).length / items.length : 1), 0) / parts.length;
+  return { label, max, got: Math.floor(max * ratio + 1e-9), notes: [].concat(...parts.map((items) => items.filter((x) => !x.ok).map((x) => x.why))) };
+}
+/* Each of these documents in its folder: one item per document. */
+function placed(S, docIds, extra) {
+  return docIds.map((d) => {
+    const [kind, label] = DRIVE_DOC[d], home = DRIVE_HOMES[kind], c = S.copyOf(d);
+    if (!c) return { ok: false, why: `${label} isn't on the drive: file it in the CMS so its copy lands in ${shortPath(home)}.` };
+    if (c.path !== home) return { ok: false, why: `${label} is in ${c.path == null ? "a folder outside the firm's structure" : shortPath(c.path) || "the drive's top folder"}; it belongs in ${shortPath(home)}.` };
+    const more = extra && extra(d, c);
+    return more || { ok: true };
+  });
+}
+/* Every filed document has a copy on the drive: backed up of filed. */
+function backedUp(S, filed) {
+  const list = filed.filter((d) => DRIVE_DOC[d]);
+  return list.map((d) => S.copyOf(d) ? { ok: true } : { ok: false, why: `${DRIVE_DOC[d][1]} is filed in the CMS but not on the drive.` });
+}
+const lastCheck = (rec) => (rec.checkLog || [])[(rec.checkLog || []).length - 1] || null;
+function cleanCheck(rec, since) {
+  const c = lastCheck(rec);
+  if (!c) return { ok: false, why: "✓ Check my drive hasn't been run yet." };
+  if (since && c.at < since) return { ok: false, why: "Run ✓ Check my drive again: the last check was before today's work." };
+  if ((c.missing || []).length) return { ok: false, why: `The last ✓ Check my drive found ${c.missing.length} folder${c.missing.length === 1 ? "" : "s"} missing.` };
+  return { ok: true };
+}
+
+/* The automated rows of each day's rubric, from the Drive. `filed` is every course document filed in the CMS. */
+function gradeDay(n, rec, S, filed) {
+  const rows = [], drills = rec.drills || {};
+  const lastPut = (ids) => (rec.saved || []).filter((s) => ids.includes(s.docId)).reduce((m, s) => (s.at > m ? s.at : m), "");
+  if (n === 2) {
+    rows.push(gradeRow("Documents backed up", 25, placed(S, DRIVE_DAY_DOCS[2])));
+    const d = drills[2], w = d && S.where(d.id);
+    rows.push(gradeRow("Misfile corrected", 20, [!d ? { ok: false, why: "The colleague's misfiled Summit invoice arrives in 03 Medical Records when Day 2's backup activity opens." }
+      : !w ? { ok: false, why: "The colleague's Summit invoice is gone from the drive: move a misfiled document, never delete it." }
+      : w.path === DRIVE_HOMES.bills ? { ok: true } : { ok: false, why: `The colleague's Summit invoice is still in ${w.path == null ? "a folder outside the structure" : shortPath(w.path)}; move it into 04 Bills & Invoices.` }]));
+    rows.push(gradeRow("Drive confirmed", 15, [cleanCheck(rec, lastPut(DRIVE_DAY_DOCS[2]))]));
+  } else if (n === 3) {
+    rows.push(gradeRow("Backup matches the CMS", 25, backedUp(S, filed).concat(filed.length ? [] : [{ ok: false, why: "Nothing is filed in the CMS yet." }])));
+    const sup = { RS26: "RS73", RS94: "RS95" };
+    rows.push(gradeRow("Superseded versions", 20, placed(S, ["RS72", "RS73", "RS95", "RS26", "RS94"], (d, c) => sup[d] && !SUPERSEDED_OK(c.name)
+      ? { ok: false, why: `${DRIVE_DOC[d][1]} is still called "${c.name}": keep it beside ${DRIVE_DOC[sup[d]][1]}, renamed with SUPERSEDED and that version's date.` } : null)));
+    rows.push(gradeRow("Demand Package placed", 15, placed(S, ["RS33", "RS66"], (d, c) => /draft/i.test(c.name) ? null
+      : { ok: false, why: `${DRIVE_DOC[d][1]} is called "${c.name}": label it DRAFT.` }).concat([cleanCheck(rec, lastPut(DRIVE_DAY_DOCS[3]))])));
+  } else if (n === 4) {
+    const found = (rec.checkLog || []).find((c) => (c.missing || []).includes(LIENS_FOLDER));
+    rows.push(gradeRow("Missing folder found", 15, [found ? { ok: true } : { ok: false, why: "No ✓ Check my drive has reported 06 Liens & Reimbursement missing: delete it in Google Drive (the drill), then run the check." }]));
+    const back = (rec.restoreLog || []).find((r) => found && r.at >= found.at && (r.restored || []).includes(LIENS_FOLDER));
+    const after = back && (rec.checkLog || []).find((c) => c.at >= back.at && !(c.missing || []).length);
+    rows.push(gradeRow("Folder restored", 20, [back ? { ok: true } : { ok: false, why: "06 Liens & Reimbursement hasn't been put back with 🔁 Put the missing folders back." },
+      after ? { ok: true } : { ok: false, why: "Run ✓ Check my drive again after putting it back, until nothing is missing." }]));
+    rows.push(gradeRow("Papers backed up", 25, placed(S, DRIVE_DAY_DOCS[4]).concat(backedUp(S, filed))));
+  } else if (n === 5) {
+    rows.push(gradeRow("Litigation file backed up", 20, placed(S, DRIVE_DAY_DOCS[5])));
+    const homes = (rec.saved || []).filter((s) => s.docId && DRIVE_DOC[s.docId]).map((s) => s.docId).filter((d, i, a) => a.indexOf(d) === i);
+    const labeled = [["RS33", /draft/i, "DRAFT"], ["RS66", /draft/i, "DRAFT"], ["RS26", /superseded/i, "SUPERSEDED"], ["RS94", /superseded/i, "SUPERSEDED"]]
+      .filter(([d]) => S.copyOf(d)).map(([d, re, word]) => re.test(S.copyOf(d).name) ? { ok: true } : { ok: false, why: `${DRIVE_DOC[d][1]} isn't labeled ${word}.` });
+    rows.push(gradeParts("Final audit", 25, [
+      backedUp(S, filed),
+      homes.map((d) => { const c = S.copyOf(d); return !c || c.path === DRIVE_HOMES[DRIVE_DOC[d][0]] ? { ok: true } : { ok: false, why: `${DRIVE_DOC[d][1]} is out of its folder.` }; }),
+      labeled,
+      [S.clientInPlace ? { ok: true } : { ok: false, why: "Doe-John isn't under 01 Clients: leave the client folder where it is in the training drive." }, cleanCheck(rec, lastPut(DRIVE_DAY_DOCS[5]))],
+    ]));
+  }
+  const max = rows.reduce((t, r) => t + r.max, 0), got = rows.reduce((t, r) => t + r.got, 0);
+  const score = max ? Math.round((100 * got) / max) : 0;
+  return { score, passed: score >= DRIVE_PASS, rows, at: new Date().toISOString() };
+}
+/* A day is graded once the trainee has started it: one of its documents on the drive, or its drill begun. */
+function dayStarted(n, rec) {
+  if ((rec.saved || []).some((s) => DRIVE_DAY_DOCS[n].includes(s.docId))) return true;
+  if (n === 2 && rec.drills && rec.drills[2]) return true;
+  if (n === 4 && (rec.checkLog || []).some((c) => (c.missing || []).includes(LIENS_FOLDER))) return true;
+  return false;
+}
+async function driveGrade(env, id, rec, filed) {
+  rec.grades = rec.grades || {};
+  const days = [2, 3, 4, 5].filter((n) => dayStarted(n, rec));
+  if (days.length) {
+    const S = await driveSnapshot(env, id, rec);
+    days.forEach((n) => { rec.grades[n] = gradeDay(n, rec, S, filed); });
+  }
+  rec.gradedAt = new Date().toISOString();
+  await driveWrite(env, id, rec);
+  return rec.grades;
+}
+/* The course documents a trainee has filed in the CMS, from their saved progress (doc-filing). */
+async function filedFromProgress(env, id) {
+  try {
+    const p = JSON.parse((await kvOf(env).get(`progress:${id}`)) || "null");
+    const log = (p && p.data && p.data["doc-filing"]) || {};
+    return Object.keys(log).filter((k) => log[k] && log[k].filed);
+  } catch (e) { return []; }
+}
+const cleanFiled = (list) => (Array.isArray(list) ? list : []).filter((x) => typeof x === "string" && /^[A-Za-z0-9_-]{1,40}$/.test(x)).slice(0, 400);
 
 /* ---------- 🕘 automatic Time In (js/checkin.js; read by the Training Portal /attendance.html) ----------
    A trainee's course calls /api/checkin on their first visit each day (Eastern time). The first call records
@@ -763,7 +1130,14 @@ async function docFromR2(env, request, path) {
     h.set("Accept-Ranges", "bytes");
     // The browser may keep a copy but re-checks it (a cheap 304), so an updated document shows at once.
     h.set("Cache-Control", "no-cache");
-    if (!("body" in obj)) return new Response(null, { status: 304, headers: h });
+    if (!("body" in obj)) {
+      // A failed precondition: If-None-Match / If-Modified-Since mean "you already have it" (304); a failed
+      // If-Match / If-Unmodified-Since means the copy the client holds is stale (412), never a 304.
+      const q = request.headers, ifMatch = q.get("If-Match");
+      const matchFailed = ifMatch && ifMatch.trim() !== "*" && !ifMatch.split(",").map((t) => t.trim().replace(/^W\//, "")).includes(obj.httpEtag.replace(/^W\//, ""));
+      const freshness = q.has("If-None-Match") || q.has("If-Modified-Since");
+      return new Response(null, { status: matchFailed || !freshness ? 412 : 304, headers: h });
+    }
     let status = 200;
     if (obj.range && request.headers.has("Range")) {
       const r = obj.range;
@@ -801,7 +1175,7 @@ export default {
         const m = html.match(/APP_BUILD = "([^"]+)"/);
         // Changes on every Cloudflare deploy; open pages use it to pick up a new version.
         const deployment = (env.CF_VERSION_METADATA && env.CF_VERSION_METADATA.id) || "unknown";
-        return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nDeployment: ${deployment}\nWorker: secure-mode worker.js\nSecure mode: ${adminPass(env) ? "ON" : "OFF"}\nAdmin password: ${adminPassStatus(env)}\nAI provider: ${geminiKeyNames(env).length ? "Google Gemini" : (gatewayOn(env) ? "Google Gemini via the Portal's AI gateway" : "none — add GEMINI_API_KEY")}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
+        return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nDeployment: ${deployment}\nWorker: secure-mode worker.js\nSecure mode: ${adminPass(env) ? "ON" : "OFF"}\nAdmin password: ${adminPassStatus(env)}\nBackup Drive (Google): ${driveConfigNote(env)}\nAI provider: ${geminiKeyNames(env).length ? "Google Gemini" : (gatewayOn(env) ? "Google Gemini via the Portal's AI gateway" : "none — add GEMINI_API_KEY")}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
       }
       if (!path.startsWith("/api/")) {
         const res = (await docFromR2(env, request, path)) || (await env.ASSETS.fetch(request));
@@ -882,7 +1256,7 @@ export default {
           // Single sign-on for trainers too: an administrator signed in on the Main Portal opens every program as a
           // trainer, with no second password here. Their ticket works once, so a copy of the link (browser history,
           // a forwarded URL) can't sign anyone in again inside its 5 minutes.
-          if (!(await useTicketOnce(kv, ticket))) return json({ error: "This sign-in link was already used. Open the program again from the LSH Training Portal.", code: "used" }, 401);
+          if (!(await useTicketOnce(env, kv, ticket))) return json({ error: "This sign-in link was already used. Open the program again from the LSH Training Portal.", code: "used" }, 401);
           return json({ admin: true, name: who.name, token: await makeToken(env, "a", "admin", 12) });
         }
         const res = await traineeSession(who.name, who.batch, "");
@@ -892,7 +1266,7 @@ export default {
         const cur = out.existing;
         if (!cur || (cur.approved !== true && !cur.rejected)) {
           const rec = Object.assign({}, cur || { id: out.id, name: who.name, firstName: who.first, lastName: who.last, batch: who.batch, registeredAt: new Date().toISOString() }, { approved: true });
-          await kv.put(`trainee:${out.id}`, JSON.stringify(rec));
+          await ownerPut(kv, `trainee:${out.id}`, JSON.stringify(rec));
           out.existing = rec;
         }
         return json(Object.assign(out, { name: who.name, first: who.first, last: who.last, batch: who.batch }));
@@ -928,6 +1302,9 @@ export default {
         const words = String(rec.name || "").trim().split(/\s+/).filter(Boolean);
         const first = String(rec.firstName || words[0] || "").trim(), last = String(rec.lastName || words.slice(1).join(" ") || "").trim();
         if (!first || !last) return json({ error: "no-name" }, 400);
+        // The ticket names only the trainee this session belongs to: the name and batch must lead back to the token's own id.
+        const ids = candidateIds(`${first} ${last}`, rec.batch);
+        if (![ids.newId, ids.rawId, ids.legacyId].includes(tok.id)) return json({ error: "identity-mismatch" }, 403);
         return json({ ticket: await sign({ first, last, b: String(rec.batch || ""), exp: Date.now() + 5 * 60 * 1000 }) });
       }
 
@@ -937,28 +1314,39 @@ export default {
          every document they file in the CMS. A trainee only ever reaches their own drive; an admin reads
          a trainee's status to grade it, and can read nothing else of their Google account. */
       if (path === "/api/drive") {
+        if (!env.LSH_KV) return json({ error: "Storage (LSH_KV) isn't bound to this Worker, so the Backup Drive can't keep its link.", code: "NO_STORAGE" }, 503);
         const b = await request.json().catch(() => ({}));
         const action = String(b.action || "status");
         const mine = tok.role === "t" ? tok.id : "";
-        const adminOnly = ["report", "reportAll", "checkFor"].includes(action);
+        const adminOnly = ["report", "reportAll", "checkFor", "gradeFor"].includes(action);
         if (adminOnly && tok.role !== "a") return json({ error: "Only a trainer can read the Backup Drive report." }, 403);
         if (action === "reportAll") {
           // The audit list: the ids it shows, or every drive record when none are given.
           let ids = Array.isArray(b.traineeIds) ? b.traineeIds.filter((x) => typeof x === "string").map((x) => x.slice(0, 120)).slice(0, 500) : null;
           if (!ids) {
-            ids = []; let cursor;
-            do { const r = await env.LSH_KV.list({ prefix: "drive:", cursor }); r.keys.forEach((k) => ids.push(k.name.slice(6))); cursor = r.list_complete ? null : r.cursor; } while (cursor && ids.length < 2000);
+            // this program's drive records, and the old shared ones only for this program's own trainees
+            const own = new Set((await listAll(env, "drive:")).map((k) => k.slice(6)));
+            const trainees = new Set((await listAll(env, "trainee:")).map((k) => k.slice(8)));
+            let cursor;
+            do { const r = await env.LSH_KV.list({ prefix: LEGACY_DRIVE_PREFIX, cursor }); r.keys.forEach((k) => { const t = k.name.slice(LEGACY_DRIVE_PREFIX.length); if (trainees.has(t)) own.add(t); }); cursor = r.list_complete ? null : r.cursor; } while (cursor && own.size < 2000);
+            ids = [...own].slice(0, 2000);
           }
           const reports = {};
           await Promise.all(ids.map(async (id) => { reports[id] = driveReport(id, await driveRead(env, id)); }));
           return json({ reports });
+        }
+        if (action === "standard") {
+          // The firm's structure and whether linking is switched on, for Day 1's slide. A presenter is an admin, so
+          // this is open to anyone signed in; it reads no one's drive.
+          const st = driveStatus(env, null);
+          return json({ standard: { configured: st.configured, root: st.root, standard: st.standard, why: st.why } });
         }
         const who = mine || (tok.role === "a" && typeof b.traineeId === "string" ? b.traineeId.slice(0, 120) : "");
         // An open-mode Worker (no admin password) has no trainee tokens at all, so everyone reads as an
         // admin here and nobody has a drive. The page reads the code and simply shows nothing.
         if (!who) return json({ error: "Sign in as a trainee to use the Backup Drive.", code: "DRIVE_NOT_A_TRAINEE" }, 403);
         if (action === "report") return json({ report: driveReport(who, await driveRead(env, who)) });
-        if (!mine && action !== "status" && action !== "checkFor") return json({ error: "A trainer can read a trainee's Backup Drive, not change it." }, 403);
+        if (!mine && action !== "status" && action !== "checkFor" && action !== "gradeFor") return json({ error: "A trainer can read a trainee's Backup Drive, not change it." }, 403);
         if (!driveConfigured(env)) return json({ drive: driveStatus(env, null) });
         let rec = await driveRead(env, who);
         try {
@@ -973,11 +1361,27 @@ export default {
               redirect_uri: "postmessage", grant_type: "authorization_code",
             });
             if (!ok) return json({ error: `Google sign-in failed: ${data.error_description || data.error || "unknown error"}` }, 400);
+            // Google's consent screen lets each permission be unticked. Without drive.file every folder call would
+            // fail later with a 403 the trainee can't read, so the sign-in is turned away now, and the half grant
+            // is given back so the next Connect shows the Drive box again.
+            // (Google lists what was granted in `scope`; a reply without the list is taken at its word.)
+            const granted = String(data.scope || "").split(/\s+/).filter(Boolean);
+            if (granted.length && !granted.includes(DRIVE_FILE_SCOPE)) {
+              await googleRevoke(data.refresh_token || data.access_token);
+              if (rec && rec.refresh) await driveUnlink(env, who, rec);   // that grant was this one: the held token is dead too
+              return json({ error: "Google Drive access wasn't ticked on Google's screen. Press Connect again and tick the box that lets this site see and change the files it makes.", code: "DRIVE_SCOPE_MISSING" }, 400);
+            }
             let email = "";
             try { email = JSON.parse(new TextDecoder().decode(unb64url(String(data.id_token || "").split(".")[1] || ""))).email || ""; } catch (e) { /* no id token */ }
             // Google sends a refresh token only the first time an account says yes; keep the one we hold otherwise.
             const refresh = data.refresh_token ? await seal(env, data.refresh_token) : (rec && rec.refresh);
-            if (!refresh) return json({ error: "Google didn't send long-term access. Remove this site under your Google account's third-party access and connect again." }, 400);
+            if (!refresh) {
+              // This Google account said yes before (an earlier connection, or one this platform no longer holds), so
+              // Google sent no refresh token. Give that old grant back: the next Connect is a first consent again and
+              // brings one. The trainee only presses Connect once more; nothing in their Google account to clean up.
+              await googleRevoke(data.access_token);
+              return json({ error: "Google remembered an earlier connection and didn't send lasting access. That old connection has been cleared: press Connect my Google Drive once more and approve.", code: "DRIVE_CONSENT_AGAIN" }, 400);
+            }
             rec = Object.assign({}, rec, {
               email, refresh, access: data.access_token ? await seal(env, data.access_token) : null,
               exp: Date.now() + (Number(data.expires_in) || 3600) * 1000,
@@ -989,13 +1393,9 @@ export default {
           if (action === "disconnect") {
             if (rec && rec.refresh) {
               // best effort: give the access back. The copies already in their Drive stay there.
-              try { await fetch("https://oauth2.googleapis.com/revoke", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ token: await unseal(env, rec.refresh) }).toString() }); } catch (e) { /* best effort */ }
+              try { await googleRevoke(await unseal(env, rec.refresh)); } catch (e) { /* best effort */ }
             }
-            // The Day 1 setup and its grade are the trainee's record and are kept: only the Google link goes.
-            const kept = {};
-            if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
-            rec = Object.keys(kept).length ? kept : null;
-            if (rec) await driveWrite(env, who, rec); else await env.LSH_KV.delete(driveKey(who));
+            rec = await driveUnlink(env, who, rec);
             return json({ drive: driveStatus(env, rec) });
           }
           if (!rec || !rec.refresh) return json({ error: "No Backup Drive is connected yet.", code: "DRIVE_NOT_CONNECTED" }, 400);
@@ -1022,6 +1422,28 @@ export default {
             const out = await driveVerify(env, who, rec);
             return json({ verified: out, drive: driveStatus(env, rec) });
           }
+          if (action === "drill") {
+            // Day 2's drill: a colleague filed Summit Imaging's invoice in 03 Medical Records. Once, and only into a built drive.
+            if (Number(b.day) !== 2) return json({ error: "There is no drill for that day." }, 400);
+            if (!rec.builtAt || !rec.folders || !rec.folders[DRIVE_HOMES.medical]) return json({ error: "Build the firm's folders first (Day 1).", code: "DRIVE_NOT_BUILT" }, 400);
+            rec.drills = rec.drills || {};
+            if (!rec.drills[2]) {
+              const pdf = tinyPdf(["Summit Imaging Center - Invoice", "Patient: John Doe", "Cervical MRI, 03/13/2026: $2,395.00",
+                "Filed in 03 Medical Records by a colleague covering the desk.", "A bill belongs in 04 Bills & Invoices: move it there."]);
+              const res = await driveUpload(env, who, rec, rec.folders[DRIVE_HOMES.medical], DRILL_NAME, "application/pdf", pdf, "Day 2 drill: a misfiled bill. Move it to 04 Bills & Invoices.");
+              if (!res.ok || !res.data.id) return json({ error: driveMessage(res) }, 502);
+              rec.drills[2] = { id: res.data.id, at: new Date().toISOString() };
+              await driveWrite(env, who, rec);
+            }
+            return json({ drill: { day: 2, at: rec.drills[2].at }, drive: driveStatus(env, rec) });
+          }
+          if (action === "grade" || action === "gradeFor") {
+            // The automated rows of each started day's rubric, read from the Drive as it is now.
+            if (!rec.builtAt) return json({ error: "The firm's folders aren't built yet (Day 1).", code: "DRIVE_NOT_BUILT", drive: driveStatus(env, rec) }, 400);
+            const filed = action === "grade" ? cleanFiled(b.filed).concat(await filedFromProgress(env, who)).filter((x, i, a) => a.indexOf(x) === i) : await filedFromProgress(env, who);
+            await driveGrade(env, who, rec, filed);
+            return action === "grade" ? json({ grades: rec.grades, drive: driveStatus(env, rec) }) : json({ grades: rec.grades, report: driveReport(who, rec) });
+          }
           if (action === "rebuild") {
             const built = await driveBuild(env, who, rec);
             return json({ built, drive: driveStatus(env, rec) });
@@ -1038,15 +1460,10 @@ export default {
             try { bytes = unb64url(b.b64); } catch (e) { return json({ error: "The document didn't arrive. Try again." }, 400); }
             if (!bytes.length || bytes.length > DRIVE_MAX_BYTES) return json({ error: "The document is empty or larger than 4 MB." }, 400);
             if (!(await folderLives(env, who, rec, rec.folders[folder]))) await driveBuild(env, who, rec);
-            const boundary = "lsh" + crypto.randomUUID().replace(/-/g, "");
-            const meta = JSON.stringify({ name, parents: [rec.folders[folder]], description: "Filed from the LSH Case Management training platform." });
-            const head = enc.encode(`--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${meta}\r\n--${boundary}\r\nContent-Type: ${String(b.mime || "application/pdf").slice(0, 100)}\r\n\r\n`);
-            const tail = enc.encode(`\r\n--${boundary}--`);
-            const raw = new Uint8Array(head.length + bytes.length + tail.length);
-            raw.set(head, 0); raw.set(bytes, head.length); raw.set(tail, head.length + bytes.length);
-            const res = await drive(env, who, rec, "POST", DRIVE_UPLOAD, { raw, type: `multipart/related; boundary=${boundary}` });
+            const res = await driveUpload(env, who, rec, rec.folders[folder], name, String(b.mime || "application/pdf").slice(0, 100), bytes, "Filed from the LSH Case Management training platform.");
             if (!res.ok || !res.data.id) return json({ error: driveMessage(res) }, 502);
-            rec.saved = (rec.saved || []).filter((s) => s.name !== name).concat([{ name, folder, at: new Date().toISOString(), id: res.data.id }]).slice(-200);
+            const docId = /^[A-Za-z0-9_-]{1,40}$/.test(String(b.docId || "")) ? String(b.docId) : "";
+            rec.saved = (rec.saved || []).filter((s) => s.name !== name).concat([Object.assign({ name, folder, at: new Date().toISOString(), id: res.data.id }, docId ? { docId } : {})]).slice(-200);
             await driveWrite(env, who, rec);
             return json({ saved: { name, folder, url: res.data.webViewLink || "" }, drive: driveStatus(env, rec) });
           }
@@ -1077,7 +1494,7 @@ export default {
         const out = [];
         // A trainee only ever gets their own row, so only their record is read (not one read per trainee).
         for (const k of tok.role === "t" ? [`trainee:${tok.id}`] : await listAll(env, "trainee:")) {
-          const r = JSON.parse((await kv.get(k)) || "null");
+          const r = tok.role === "t" ? me : JSON.parse((await kv.get(k)) || "null");   // a trainee's own record is already read
           if (!r || r.approved !== true || r.archived) continue;
           if (batch && slugPart(r.batch) !== batch) continue;
           if (tok.role === "t" && r.id !== tok.id) continue;   // never another trainee's name or scores
@@ -1111,7 +1528,11 @@ export default {
       }
       if (path === "/api/storage/set") {
         if (!key) return json({ error: "Missing key" }, 400);
-        if (tok.role === "a") { await kv.put(key, body.value); return json({ ok: true }); }
+        if (tok.role === "a") {
+          if (typeof body.value !== "string") return json({ error: "value must be a string" }, 400);
+          await ownerPut(kv, key, body.value);
+          return json({ ok: true });
+        }
         const err = await traineeWrite(env, tok, key, body.value);
         return err ? json({ error: err }, 403) : json({ ok: true });
       }
@@ -1121,7 +1542,9 @@ export default {
       }
       if (path === "/api/storage/delete") {
         if (tok.role !== "a") return json({ error: "Not allowed" }, 403);
-        await kv.delete(key); return json({ ok: true });
+        await kv.delete(key);
+        if (ownedType(key)) await kv.delete(ownerKey(key));
+        return json({ ok: true });
       }
       return json({ error: "Unknown endpoint" }, 404);
     } catch (e) {

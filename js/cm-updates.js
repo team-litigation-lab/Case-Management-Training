@@ -48,7 +48,7 @@ window.EAPA_UPDATE_PACK = "z-cm";
   main:has(.lesson-stage){max-width:1880px;padding-left:24px;padding-right:24px;}
   .lesson-stage{padding:14px 16px;}
   .lesson-stage #lessonSlideWrap{padding-left:24px;padding-right:24px;}
-  .lesson-stage #lessonSlideWrap > *, .lesson-stage:fullscreen #lessonSlideWrap > *{max-width:1600px;}
+  .lesson-stage #lessonSlideWrap > *, .lesson-stage:fullscreen #lessonSlideWrap > *{max-width:none;}   /* the card takes the whole slide width */
 }
 /* Lesson page: the slide and its Previous / Next bar fit on one screen, and the slide takes the page's width (as on
    Foundational's decks): no column beside it. ⛶ Full screen sits in the Previous / Next bar; the presenter floats
@@ -58,8 +58,8 @@ window.EAPA_UPDATE_PACK = "z-cm";
   body:not(.ft-fit) main:has(> #lessonStage){display:block;padding-top:12px;}
   body:not(.ft-fit) main:has(> #lessonStage) > .day-head-compact, body:not(.ft-fit) main:has(> #lessonStage) > #navBackSlot:empty, body:not(.ft-fit) main:has(> #lessonStage) > .ls-top{display:none !important;}
   body:not(.ft-fit) main:has(> #lessonStage) > #lessonStage{margin:0;}
-  body:not(.ft-fit) main:has(> #lessonStage .cf-stage-card) > .cf-side-presenter{position:fixed !important;right:8px;bottom:0;width:clamp(120px, 8.5vw, 170px) !important;margin:0 !important;z-index:4;}
-  body:not(.ft-fit) #lessonStage:not(:fullscreen) > .slide-nav{margin-right:calc(clamp(120px, 8.5vw, 170px) - 24px) !important;}
+  body:not(.ft-fit) main:has(> #lessonStage .cf-stage-card) > .cf-side-presenter{position:fixed !important;right:8px;bottom:0;width:clamp(100px, 6.8vw, 135px) !important;margin:0 !important;z-index:4;}
+  body:not(.ft-fit) #lessonStage:not(:fullscreen) > .slide-nav{margin-right:calc(clamp(100px, 6.8vw, 135px) - 24px) !important;}
 }
 @media(max-width:999px){ #lessonStage > .slide-nav .nav-fs, #lessonStage > .slide-nav .nav-nextup{display:none !important;} }
 /* the Previous / Next bar, as Foundational's: ← Previous and ⛶ Full screen, the step (it opens the slide map), then
@@ -68,7 +68,7 @@ window.EAPA_UPDATE_PACK = "z-cm";
 #lessonStage > .slide-nav .nav-nextup{display:flex;flex-direction:column;justify-content:center;min-width:0;max-width:min(440px, 34vw);background:#1E2340;color:#fff;border-radius:10px;padding:5px 14px;line-height:1.2;}
 #lessonStage > .slide-nav .nav-nextup b{font:800 10.5px 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#F6C08F;}
 #lessonStage > .slide-nav .nav-nextup span{font:700 13.5px 'Inter',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-#audienceRoot .nav-fs, #audienceRoot .nav-nextup{display:none !important;}
+#audienceRoot .nav-fs, #audienceRoot .nav-pv, #audienceRoot .nav-nextup{display:none !important;}
 /* ================= SOP Reference: readable reference + live Present mode ================= */
 .sopx-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px;}
 .sopx-days{display:flex;gap:6px;flex-wrap:wrap;}
@@ -249,7 +249,8 @@ function renderTopbar(){   // trainees never see an admin sign-in (🛡 Admin is
     views.push(["facilitatorguide","Facilitator Guide"]);
   }
   // 🏅 the Scorecard (js/cm-scorecard.js): a trainee's own grades, or every trainee's for a trainer
-  if(typeof renderScorecardPage === "function" && (state.isAdmin || state.traineeId)) views.push(["scorecard", state.isAdmin && !state.adminPreview ? "🏅 Scorecards" : "🏅 My Performance"]);
+  // (a trainer's 🏅 Scorecards are the 📋 Batch Sheet's 🏅 Scores now: Admin → 📋 Batch Sheet, js/cm-batch-sheet.js)
+  if(typeof renderScorecardPage === "function" && (state.traineeId || state.adminPreview) && (!state.isAdmin || state.adminPreview)) views.push(["scorecard", "🏅 My Performance"]);
   return `
   ${state.adminPreview ? `<div class="view-mode-strip">👁 <b>Trainee view</b> — you're seeing the portal as a trainee sees it (every day unlocked for preview). <button type="button" onclick="setAdminViewMode('admin')">Switch back to Admin view</button></div>` : ""}
   <div class="topbar ${state.mobileNavOpen?'nav-open':''}">
@@ -1243,7 +1244,7 @@ function sopRunOfShow(dRaw){
   const perTopic = 2.5, blockTopics = Math.max(8, Math.round(45/perTopic));
   let i = 0, block = 1; const blocks = Math.ceil(n/blockTopics);
   const midBlock = Math.max(1, Math.ceil(blocks/2));
-  const taskStep = {opt:true, title:"Send today's random task", do:[`Admin → <b>Trainee Audit → 🎲 Random Task Injection</b>: choose <b>Day ${d.id}</b>, set 15–30 minutes, <b>Generate &amp; Broadcast</b>. Keep teaching — trainees handle it in 🎲 Tasks alongside the session.`, `Anyone who doesn't submit before the timer ends gets it logged as Missed (0).`]};
+  const taskStep = {opt:true, title:"Send today's random task", do:[`Admin → <b>📋 Activities → 🎲 Random Tasks</b>: choose <b>Day ${d.id}</b>, set 15–30 minutes, <b>Generate &amp; Broadcast</b>. Keep teaching — trainees handle it in 🎲 Tasks alongside the session.`, `Anyone who doesn't submit before the timer ends gets it logged as Missed (0).`]};
   while(i < n){
     const j = Math.min(n, i+blockTopics);
     if(block===midBlock+1) add(0, taskStep);   // right after the break, as teaching resumes
@@ -1342,7 +1343,7 @@ function sopProgramFlow(){
         <tr><td>Share only the slides while I see my notes</td><td>Day → slides → <b>🖥 Presenter view</b></td></tr>
         <tr><td>See cues, discussion cases and scripts for a day</td><td><b>Presenter view</b> (⬇ Speaker Notes PDF for the whole day)</td></tr>
         <tr><td>Show the day's plan to the room</td><td>Admin → SOP Reference → <b>🎤 Present</b></td></tr>
-        <tr><td>Drop an unannounced task on trainees</td><td>Admin → Trainee Audit → <b>🎲 Random Task Injection</b></td></tr>
+        <tr><td>Drop an unannounced task on trainees</td><td>Admin → 📋 Activities → <b>🎲 Random Tasks</b></td></tr>
         <tr><td>Approve, reset attempts, write feedback, set focus</td><td>Admin → <b>Trainee Audit</b> → View Detail</td></tr>
         <tr><td>See who is ahead or behind</td><td>Admin → <b>Rankings</b></td></tr>
         <tr><td>Add or improve lesson content</td><td>Admin → <b>Content Studio</b></td></tr>
@@ -1416,7 +1417,7 @@ window.renderMeetClientTrainerGuide = function(){
       const line = prog.done ? `<span>Slides <b>100%</b></span>${typeof prog.score === "number" ? `<span>Knowledge Check <b>${prog.score}%</b> ✓</span>` : ""}` : "<span>&nbsp;</span>";
       start.insertAdjacentHTML("beforebegin", `<div class="mc-progress${prog.done ? "" : " mc-progress-empty"}" aria-hidden="${prog.done ? "false" : "true"}">${line}</div>`);
     }
-    if(n && start) start.insertAdjacentHTML("afterend", `<button type="button" class="btn btn-ghost btn-sm module-finish-btn module-topics-btn" onclick="event.stopPropagation(); showDayTopics(${d.id})">☰ Topics <span>· ${n}</span></button>`);
+    // (no ☰ Topics button: 🗺 Roadmap lists every day's topics)
     card.classList.add("mc-clean");
     return card.outerHTML;
   };

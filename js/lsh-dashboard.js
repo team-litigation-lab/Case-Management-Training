@@ -19,7 +19,7 @@
       const card = t.content.firstElementChild; if(!card) return html;
       card.querySelectorAll(".module-topic-list, .module-more").forEach(n=>n.remove());
       const n = (d.lessons||[]).length, start = card.querySelector(".module-start-btn");
-      if(n && start && typeof showDayTopics === "function") start.insertAdjacentHTML("afterend", `<button type="button" class="btn btn-ghost btn-sm module-finish-btn module-topics-btn" onclick="event.stopPropagation(); showDayTopics(${d.id})">☰ Topics <span>· ${n}</span></button>`);
+      // (no ☰ Topics button: 🗺 Roadmap lists every day's topics)
       card.classList.add("mc-clean");
       return card.outerHTML;
     };

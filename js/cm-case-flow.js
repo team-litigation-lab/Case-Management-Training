@@ -83,7 +83,8 @@ SEQUENCE.forEach(seq => {
     // What this run of blocks is. Most are stages of the case (a lesson's title is just "Demand"), but some are
     // cross-phase work the Case Manager does throughout (bottlenecks, binders, deposition prep): calling
     // those a Case Phase is simply wrong, so a phase may name its own lead in CF.sequence.
-    const phase = {n: pi + 1, of: seq.phases.length, title: ph.title, lead: ph.lead || "Case Phase", count: ph.blocks.length, lane: ph.workstream || ""};
+    const phase = {n: pi + 1, of: seq.phases.length, title: ph.title, lead: ph.lead || "Case Phase", count: ph.blocks.length, lane: ph.workstream || "",
+      num: seq.phases.length > 1 ? pi + 1 : day.n};   // a topic's number: Day 2's topics are 2.1, 2.2 … (the phase's number when a day has several)
     phases.push(phase);
     ph.blocks.forEach((id, k) => {
       const at = STORED[id];
@@ -95,7 +96,7 @@ SEQUENCE.forEach(seq => {
         ? {corePrinciples: [b.act.scenario, b.act.prompt], howTo: b.act.checkpoints}
         : {corePrinciples: b.check.questions, howTo: b.check.summary};
       lessons.push(Object.assign({
-        h: `${phase.n}.${k + 1} ${b.title}`,
+        h: `${phase.num}.${k + 1} ${b.title}`,
         fourPart: Object.assign(fp, {bestPractices: b.best || [], discussionCase: ""}),
         trainerCue: (b.notes || [])[0] || "",
         cf: {day, mod, block: b, k, phase, lane: (ph.lanes || {})[id] || phase.lane,   // day: where it is taught; mod: its unit of scoring; lane: its workstream
@@ -861,6 +862,7 @@ function timeBanner(l){
 }
 function slideBody(view, l, d){
   const {block: b, day, mod} = l.cf, c = copyOf(b);
+  if(DRIVE_LATER.has(b.id) && window.CMDrive && CMDrive.dayOpened) CMDrive.dayOpened(Number(b.id.charAt(1)));   // a day's Backup File Maintenance: Day 2 lays its drill, and the day is graded
   switch(view){
     case "why": { const ls = leadSplit(c.hook);
       return `<div class="cfx-hero"><div class="cfx-hero-text"><span class="cfx-chip">${E(titleCase(b.topic))}</span>${ls ? `<p class="cfx-lead-1">${hl("**" + ls[0] + "**")}</p><p class="cfx-hook">${hl(ls[1])}</p>` : `<p class="cfx-hook">${hl(c.hook)}</p>`}</div>${art(c.image)}</div>${strip()}`; }
@@ -905,7 +907,7 @@ function slideBody(view, l, d){
     case "job": return `<div class="cfx-job">${c.job.map((r, ri) => `<div class="cfx-flow">${r.map((x, j) => `<div class="cfx-step"><small>${["Trigger", "Task", "Tool", "Checkpoint"][j]}</small><span>${hl(x)}</span></div>`).join('<span class="cfx-arrow">➔</span>')}</div>`).join("")}</div>`;
     case "dodont": return ddList(c);   // the Do's and Don'ts themselves (3 Clues, 1 Rule is retired)
     case "case": {
-      if(b.id === "d1m1-drive" && window.cmDriveSop) return cmDriveSop.slide();   // Day 1's case folder: the SOP and the folder structure sample
+      if(b.id === "d1m1-drive" && window.CMDrive && CMDrive.slide) return CMDrive.slide();   // Day 1's case backup: the task in four steps and the firm's standard, from the Worker (js/cm-drive.js)
       const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(docAvail).filter(Boolean).slice(0, 4);
       const ev = SIM.events[b.id], fall = falloutFor(b.id), vm = ev && ev.channel === "voicemail" && ev.spoken;
       const thumbs = notesOf(b.id) ? npCard(b.id) : ev && ev.log ? logSnapshot(ev.log) : docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy" onerror="this.parentNode.classList.add('cfx-thumb-off');this.remove()"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
@@ -965,23 +967,22 @@ function noteReached(b, p){
 const BLOCK = {};
 CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { BLOCK[b.id] = b; })));
 /* Backup File Maintenance is graded by the Worker (/api/drive), not on the slide: Day 1's is done once the hierarchy
-   was graded as built and a drive check since then found every folder in place. Days 2–5 carry the same activity on:
-   each is also done by the drive, once it is in that state and holds a copy of every document filed in the CMS so
-   far (the trainer report's "backed up" against "filed"), at least one. Either way the normal completion still counts. */
+   was graded as built and a drive check since then found every folder in place. Days 2–5 are each done once that
+   day's auto-grade from the drive passes (driveDayPassed). Either way the normal completion still counts. */
 const DRIVE_ACT = "d1m1-drive", DRIVE_LATER = new Set(["d2-drive", "d3-drive", "d4-drive", "d5-drive"]);
 function driveDone(){
   const D = window.CMDrive && CMDrive.status && CMDrive.status();
   return !!(D && D.built && D.checkedAt && (!D.builtAt || D.checkedAt >= D.builtAt) && !(D.lastMissing || []).length);
 }
-function driveBackedUp(){
-  const D = window.CMDrive && CMDrive.status && CMDrive.status(), saved = ((D && D.saved) || []).length;
-  let filed = 0; try{ filed = (window.cmDocFiling && cmDocFiling.health) ? cmDocFiling.health().filed : 0; }catch(e){}
-  return saved > 0 && saved >= filed;
+/* Days 2–5 are auto-graded from the drive (driveGrade in worker.js): the day's grade passing finishes the activity. */
+function driveDayPassed(id){
+  const D = window.CMDrive && CMDrive.status && CMDrive.status(), g = D && D.grades && D.grades[String(id).charAt(1)];
+  return !!(g && g.passed);
 }
 function actDone(id){
   const b = BLOCK[id]; if(!b) return false;
   if(id === DRIVE_ACT && driveDone()) return true;
-  if(DRIVE_LATER.has(id) && driveDone() && driveBackedUp()) return true;
+  if(DRIVE_LATER.has(id) && driveDayPassed(id)) return true;
   return ((REC.reached || {})[id] || 0) >= viewsOf(b).length || ((REC.ticks || {})[id] || []).some(Boolean) || !!(REC.work || {})[id] || !!((REC.listen || {})[id] || {}).at || !!((REC.notes || {})[id] || {}).txAt || !!(REC.calls || {})[id];
 }
 const actOpened = id => !!(REC.reached || {})[id] || actDone(id);
@@ -1015,7 +1016,7 @@ function card(l, i, d, part){
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title" title="${E(l.cf.heading)}">${E(l.cf.heading)}</h2></div>
       <div class="cfx-ribbon"><span title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span></div>
       <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}</span>
-        <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.n}.${k + 1} · ${E(KIND[b.kind])}</span>${timeChip(l, d, view)}
+        <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.num || phase.n}.${k + 1} · ${E(KIND[b.kind])}</span>${timeChip(l, d, view)}
         ${view === "task" && isTrainer() && !inAudience() && injectsOf(b).length ? `<button type="button" class="cfx-inject" onclick="cmCaseFlow.inject(${d.id},${i})" title="Trainer only: a real-time task to inject while the room works this one">⚡ Inject: ${E(injectsOf(b).map(x => x.short).join(" · "))}</button>` : ""}
         <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Additional Reference</button></div>
       <div class="cfx-body${onNavy ? " cfx-body-navy" : ""}">${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}</div>
@@ -2225,9 +2226,11 @@ window.cmCaseFlow.back = function(){
 const ADMIN_GROUPS = [
   {id: "admin", label: "🛡 Admin Master Control", tabs: ["audit", "rankings", "tfeedback"]},
   {id: "modules", label: "📚 Training Modules", tabs: ["sop", "studio"]},
-  {id: "activities", label: "📋 Activities", tabs: ["activities", "fbstyle"]}
+  {id: "activities", label: "📋 Activities", tabs: ["activities", "rtasks", "fbstyle"]}
 ];
 const adminGroupOf = tab => (ADMIN_GROUPS.find(g => g.tabs.includes(tab)) || ADMIN_GROUPS[0]).id;
+/* the Admin screen as Foundational's: one solid panel, the page as wide as the screen (main.cm-admin-main) */
+const adminPanel = out => state.isAdmin ? `<div class="cm-admin-screen">${out}</div>` : out;
 function groupAdminTabs(out){
   const a = out.indexOf('<div class="admin-tabs"'); if(a < 0) return out;
   const b = out.indexOf("</div>", a) + 6;
@@ -2378,7 +2381,7 @@ if(typeof window.renderDaySlideshow === "function"){
 }
 if(typeof window.afterRender === "function"){
   const __after = window.afterRender;
-  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ syncReturn(); sidePresenter(); kcFit(); fitFileCols(); yearInSide(); }catch(e){} return r; };
+  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ const mn = document.querySelector("#app > main, main"); if(mn) mn.classList.toggle("cm-admin-main", !!mn.querySelector(".cm-admin-screen")); syncReturn(); sidePresenter(); kcFit(); fitFileCols(); yearInSide(); }catch(e){} return r; };
 }
 /* Check Your Work: the reference of what the trainee did in the tool (a CMS Case ID, an e-filing or request number),
    kept on their record and shown to their trainer with the module's Learning Check */
@@ -3588,7 +3591,7 @@ if(typeof window.renderAdmin === "function"){
       return `<div class="card" style="padding:40px;text-align:center;"><div style="font-size:30px;margin-bottom:10px;">🛡</div><h2 style="color:var(--navy);margin:0;">Opening the admin screen…</h2></div>`;
     }
     if(state.isAdmin) adminWaits = 0;
-    if(state.adminTab === "attendance") state.adminTab = "audit"; return groupAdminTabs(relabelAll(__admin.apply(this, arguments)).replace("Knowledge Checks, Skill Builders and your day-by-day", "Knowledge Checks, Skill Activities and your day-by-day")); };   // (attendance is on the Main Portal now)
+    if(state.adminTab === "attendance") state.adminTab = "audit"; return adminPanel(groupAdminTabs(relabelAll(__admin.apply(this, arguments)).replace("Knowledge Checks, Skill Builders and your day-by-day", "Knowledge Checks, Skill Activities and your day-by-day"))); };   // (attendance is on the Main Portal now)
 }
 
 /* ---------- the trainer's 40%: entered in each trainee's Admin panel ---------- */
@@ -3951,7 +3954,7 @@ async function backupDoc(btn, id){
   try{
     const r = await fetch("documents/" + d.file.split("/").map(encodeURIComponent).join("/"));
     if(!r.ok) throw new Error(r.status);
-    const out = await cmDocFiling.keepOnDrive(d.folder, d.file.split("/").pop(), await r.arrayBuffer());
+    const out = await cmDocFiling.keepOnDrive(d.folder, d.file.split("/").pop(), await r.arrayBuffer(), d.id);
     if(out && out.ok){ btn.textContent = "✓ In GDrive"; toast(`Backed up to your Drive under ${String(out.folder).split("/").pop()}.`); return; }
     toast(out && out.why === "no-drive" ? "Your Backup Drive isn't set up yet. Connect it, then try again." : "The backup didn't reach your Drive. Try again.");
   }catch(e){ toast("The backup didn't reach your Drive. Check your connection and try again."); }
@@ -4809,6 +4812,14 @@ main:has(.cf-kc-result) #answerFeedback{max-width:none;}
 /* Case Documents: the Case File / Documents switch sits under the page's intro (no Open CMS: the slides send trainees to
    the CMS), so the copy js/lsh-topbar.js puts at the top of the page is hidden there */
 main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is wrapped, so js/lsh-topbar.js leaves it alone) */
+/* the Admin screen: a solid, full-width panel over the photo (as Foundational's js/ft-admin-tidy.js) */
+main.cm-admin-main, main:has(.cm-admin-screen){max-width:min(2200px,97vw);padding-left:16px;padding-right:16px;}
+.cm-admin-screen{background:#fff;border-radius:16px;padding:20px 24px 26px;box-shadow:0 10px 30px rgba(14,18,40,.28);color:#141A2E;}
+.cm-admin-screen .card{border:1px solid #C9CEDD;}
+.cm-admin-screen .admin-portal-link{display:none !important;}   /* (🎓 Training Directory is in the top bar) */
+.adm-settings{padding:10px 16px;margin:0 0 14px;} .adm-settings > summary{cursor:pointer;font-weight:800;color:var(--navy);font-size:14px;}
+.adm-settings[open] > summary{margin-bottom:8px;} .adm-settings .card{box-shadow:none;margin:8px 0 0;background:#fff;}
+@media(max-width:760px){ .cm-admin-screen{padding:14px 12px 18px;border-radius:12px;} }
 /* the Admin screen's tabs, grouped: the sections, then the open section's tabs */
 .admin-tabs.cf-admin-tabs{display:block !important;border-bottom:1px solid var(--line);margin-bottom:20px;white-space:normal;overflow:visible;}
 .cf-admin-secs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
@@ -5346,6 +5357,13 @@ document.head.appendChild(st);
 .cfx-agenda .cfx-ag-side p:not(.cfx-ag-day){font-size:18px;}
 /* bigger and bold: every slide's body text, as on Foundational's decks */
 .cfx .cfx-th-c b{font-size:19px;font-weight:800;}
+/* The Theory fills its card: the lead at the top, the concept cards sharing the rest of the height (no empty bands) */
+.cfx-sheet > .cfx-theory.cfx-th-solo{margin:0 !important;flex:1 1 auto;min-height:0;display:flex;flex-direction:column;}
+.cfx-th-solo > .cfx-th-main{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;gap:12px;}
+.cfx-th-solo .cfx-th-grid{flex:1 1 auto;min-height:0;grid-auto-rows:minmax(0,1fr);gap:14px;}
+.cfx .cfx-th-solo .cfx-th-c{justify-content:center;padding:clamp(12px,2vh,22px) clamp(16px,1.6vw,28px);gap:8px;}
+.cfx .cfx-th-solo .cfx-th-c b{font-size:clamp(19px,2.6vh,24px);}
+.cfx .cfx-th-solo .cfx-th-c span{font-size:clamp(19px,2.5vh,23px);line-height:1.45;}
 .cfx .cfx-th-c span, .cfx-th-solo .cfx-th-c span{font-size:20px;font-weight:600;}
 .cfx .cfx-th-lead{font-size:24px;font-weight:700;}
 .cfx .cfx-points li{font-weight:600;}

@@ -35,6 +35,13 @@ async function ticketFor(payloadObj, secret) {
     };
     const raw = (p, body, token) => worker.fetch(new Request('http://x' + p, { method: 'POST', headers: Object.assign({ 'Content-Type': 'application/json' }, token ? { Authorization: 'Bearer ' + token } : {}), body }), env, { waitUntil() { } });
     const call = async (p, body, token) => { const res = await raw(p, JSON.stringify(body || {}), token); return { status: res.status, body: await res.json().catch(() => null) }; };
+    // a trainer's change to a trainee record goes through the admin API (it also keeps the admin-owned fields' own key)
+    let adminTok = null;
+    const asAdmin = async (key, rec) => {
+        if (!adminTok) adminTok = (await call('/api/auth/admin', { passphrase: 'ci-pass' })).body.token;
+        const r = await call('/api/storage/set', { key, value: JSON.stringify(rec) }, adminTok);
+        if (r.status !== 200) fail(`an admin's save of ${key} failed: ${JSON.stringify(r)}`);
+    };
     const kvGet = (k) => [...store.keys()].find(x => x.endsWith(k)) ? JSON.parse(store.get([...store.keys()].find(x => x.endsWith(k)))) : null;
 
     // two trainees with the same name in different batches, both signed in from the Portal
@@ -70,21 +77,77 @@ async function ticketFor(payloadObj, secret) {
         const certA = kvGet('cert:LSH-CM-2026-AAAAAA');
         if (!certA || certA.issuedBy !== 'self' || certA.traineeId !== a.id) fail(`a self-issued certificate should be marked self: ${JSON.stringify(certA)}`);
         // ... and only an approved trainee records one
-        const recB = kvGet(`trainee:${b.id}`) || {}; store.set(`cm:trainee:${b.id}`, JSON.stringify(Object.assign({}, recB, { approved: false })));
+        const recB = kvGet(`trainee:${b.id}`) || {}; await asAdmin(`trainee:${b.id}`, Object.assign({}, recB, { approved: false }));
         const unapproved = await call('/api/storage/set', { key: 'cert:LSH-CM-2026-CCCCCC', value: JSON.stringify({ certId: 'LSH-CM-2026-CCCCCC', traineeId: b.id }) }, b.token);
         if (unapproved.status === 200) fail('a trainee who isn\'t approved should not record a certificate');
-        store.set(`cm:trainee:${b.id}`, JSON.stringify(recB));
+        await asAdmin(`trainee:${b.id}`, recB);
         // 3b. a progress record has a size cap
         const huge = await call('/api/storage/set', { key: `progress:${a.id}`, value: JSON.stringify({ data: 'x'.repeat(2100000) }) }, a.token);
         if (huge.status === 200) fail('a progress record over 2 MB should be refused');
 
         // 3c. a trainee can't unlock a corrected copy for themselves: only the trainer's save sets unlockedCopies
         const recA0 = kvGet(`trainee:${a.id}`) || {};
-        store.set(`cm:trainee:${a.id}`, JSON.stringify(Object.assign({}, recA0, { unlockedCopies: ['RS73'] })));
+        await asAdmin(`trainee:${a.id}`, Object.assign({}, recA0, { unlockedCopies: ['RS73'] }));
         await call('/api/storage/set', { key: `trainee:${a.id}`, value: JSON.stringify(Object.assign({}, recA0, { unlockedCopies: ['RS72', 'RS73'], unlockedCopiesAt: 'forged' })) }, a.token);
         const recA1 = kvGet(`trainee:${a.id}`) || {};
         if (JSON.stringify(recA1.unlockedCopies) !== JSON.stringify(['RS73']) || recA1.unlockedCopiesAt === 'forged') fail(`a trainee should not change unlockedCopies on their own record: ${JSON.stringify(recA1.unlockedCopies)}`);
-        store.set(`cm:trainee:${a.id}`, JSON.stringify(recA0));
+        await asAdmin(`trainee:${a.id}`, recA0);
+
+        // 3d. an approval can't be undone by the trainee's page saving a copy it read just before (KV can serve a
+        //     minute-old copy elsewhere): whatever lands in trainee:<id>, the admin's fields come from their own key
+        await asAdmin(`trainee:${b.id}`, Object.assign({}, recB, { approved: false }));
+        const staleB = kvGet(`trainee:${b.id}`);
+        await asAdmin(`trainee:${b.id}`, Object.assign({}, recB, { approved: true, unlockedDays: [2] }));
+        store.set(`cm:trainee:${b.id}`, JSON.stringify(Object.assign({}, staleB, { approved: false, unlockedDays: [] })));   // the stale save landing
+        const seenB = (await call('/api/storage/get', { key: `trainee:${b.id}` }, b.token)).body;
+        const recB2 = seenB && seenB.value ? JSON.parse(seenB.value) : {};
+        if (recB2.approved !== true || JSON.stringify(recB2.unlockedDays) !== '[2]') fail(`a stale save by the trainee's page undid the trainer's approval: ${JSON.stringify({ approved: recB2.approved, unlockedDays: recB2.unlockedDays })}`);
+        const tix = await call('/api/auth/refresh', {}, b.token);
+        if (tix.status !== 200) fail(`the approved trainee should still be signed in: ${JSON.stringify(tix)}`);
+        await asAdmin(`trainee:${b.id}`, recB);
+
+        // 3e. ...and the same for a trainer's review, focus items and activity feedback: a stale save by the trainee's
+        //     page (the record as it was before the trainer's change) lands, and the trainer's part still reads back.
+        const readOwn = async (key) => { const r = (await call('/api/storage/get', { key }, a.token)).body; return r && r.value ? JSON.parse(r.value) : {}; };
+        {
+            // a day's review sent by the trainer; the trainee's read mark on it stays theirs
+            const before = { days: { day1: { status: 'draft', auto: true, summary: 'auto' } } };
+            await asAdmin(`feedback:${a.id}`, before);
+            await asAdmin(`feedback:${a.id}`, { days: { day1: { status: 'sent', summary: 'from the trainer', editedByTrainer: true } } });
+            store.set(`cm:feedback:${a.id}`, JSON.stringify({ days: { day1: { status: 'draft', auto: true, summary: 'auto', readAt: 'r1' } } }));   // the stale save landing
+            const fb = await readOwn(`feedback:${a.id}`);
+            if (!fb.days || !fb.days.day1 || fb.days.day1.summary !== 'from the trainer' || fb.days.day1.status !== 'sent') fail(`a stale save by the trainee's page lost the trainer's sent review: ${JSON.stringify(fb)}`);
+            else if (fb.days.day1.readAt !== 'r1') fail(`the trainee's read mark on a trainer's review should stay theirs: ${JSON.stringify(fb.days.day1)}`);
+            // and their own save of it still can't rewrite it
+            await call('/api/storage/set', { key: `feedback:${a.id}`, value: JSON.stringify({ days: { day1: { status: 'sent', summary: 'forged' } } }) }, a.token);
+            if ((await readOwn(`feedback:${a.id}`)).days.day1.summary !== 'from the trainer') fail('a trainee rewrote a trainer\'s review');
+        }
+        {
+            // a focus item the trainer added; seen and done stay the trainee's
+            await asAdmin(`focus:${a.id}`, { items: [{ id: 'f1', text: 'old item' }] });
+            await call('/api/storage/set', { key: `focus:${a.id}`, value: JSON.stringify({ items: [{ id: 'f1', seenAt: 's1' }] }) }, a.token);
+            const staleF = store.get(`cm:focus:${a.id}`);
+            await asAdmin(`focus:${a.id}`, { items: [{ id: 'f1', text: 'old item', seenAt: 's1' }, { id: 'f2', text: 'new item' }] });
+            store.set(`cm:focus:${a.id}`, staleF);   // the stale save landing
+            const fo = await readOwn(`focus:${a.id}`);
+            const ids = (fo.items || []).map((x) => x.id).join(',');
+            if (ids !== 'f1,f2') fail(`a stale save by the trainee's page lost a focus item the trainer added: ${JSON.stringify(fo)}`);
+            else if (fo.items[0].seenAt !== 's1' || fo.items[1].seenAt) fail(`seen marks on focus items should stay the trainee's: ${JSON.stringify(fo.items)}`);
+        }
+        {
+            // feedback on an activity, for the submission it was written for; a new submission retires it
+            await call('/api/storage/set', { key: `actsub:${a.id}`, value: JSON.stringify({ items: { act1: { answer: 'mine', submittedAt: 'S1' } } }) }, a.token);
+            const staleA = store.get(`cm:actsub:${a.id}`);
+            const withFb = JSON.parse(staleA); withFb.items.act1.feedback = { status: 'sent', text: 'good work' };
+            await asAdmin(`actsub:${a.id}`, withFb);
+            store.set(`cm:actsub:${a.id}`, staleA);   // the stale save landing
+            const ac = await readOwn(`actsub:${a.id}`);
+            if (!ac.items || !ac.items.act1 || !ac.items.act1.feedback || ac.items.act1.feedback.text !== 'good work') fail(`a stale save by the trainee's page lost the trainer's activity feedback: ${JSON.stringify(ac)}`);
+            await call('/api/storage/set', { key: `actsub:${a.id}`, value: JSON.stringify({ items: { act1: { answer: 'again', submittedAt: 'S2' } } }) }, a.token);
+            const ac2 = (await readOwn(`actsub:${a.id}`)).items.act1;
+            if (ac2.feedback) fail(`a new submission should retire the trainer's feedback, not keep it on the new answer: ${JSON.stringify(ac2)}`);
+            if (!ac2.prevFeedback || ac2.prevFeedback.text !== 'good work') fail(`the retired feedback should stay as prevFeedback: ${JSON.stringify(ac2)}`);
+        }
 
         // 4. ranking: a trainee's request reads their own record only
         for (let i = 0; i < 30; i++) store.set(`cm:trainee:t${i}--b100926`, JSON.stringify({ id: `t${i}--b100926`, name: `T ${i}`, batch: 'B100926', approved: true }));
@@ -128,6 +191,19 @@ async function ticketFor(payloadObj, secret) {
                 const text = JSON.stringify(r.body);
                 if (/SECRET|"refresh"|"access"|"exp"|token/i.test(text)) fail(`${what} sent a token field: ${text}`);
             }
+            // 4b. this program's drive records are its own (cm:drive:), apart from the Foundations training's drive:<id>
+            if ([...store.keys()].some((k) => k.startsWith('drive:'))) fail(`the Backup Drive wrote an unprefixed drive: key, which the Foundations training also uses: ${[...store.keys()].filter((k) => k.startsWith('drive:'))}`);
+            const foundations = { [`drive:${a.id}`]: JSON.stringify({ email: 'foundations@example.com', setup: { ok: false } }), 'drive:foundations-only--b100926': JSON.stringify({ email: 'f@example.com' }), [`drive:${b.id}`]: JSON.stringify({ email: 'legacy-cm@example.com', builtAt: '2026-10-30T00:00:00Z' }) };
+            Object.entries(foundations).forEach(([k, v]) => store.set(k, v));
+            const mineNow = await call('/api/drive', { action: 'report', traineeId: a.id }, admin.token);
+            if (!mineNow.body || !mineNow.body.report || mineNow.body.report.email !== 'trainee@example.com') fail(`a Foundations drive record under the same trainee id must not stand in for this program's: ${JSON.stringify(mineNow.body)}`);
+            const every = await call('/api/drive', { action: 'reportAll' }, admin.token);
+            const ids = Object.keys((every.body && every.body.reports) || {});
+            if (!ids.includes(a.id)) fail(`reportAll should list this program's drives: ${ids}`);
+            if (ids.includes('foundations-only--b100926')) fail(`reportAll listed a Foundations-only trainee's drive: ${ids}`);
+            if (!ids.includes(b.id) || every.body.reports[b.id].builtAt !== '2026-10-30T00:00:00Z') fail(`a CM trainee's drive record from before the cm: prefix should still be read: ${JSON.stringify(every.body.reports[b.id])}`);
+            await call('/api/drive', { action: 'disconnect' }, a.token);
+            Object.entries(foundations).forEach(([k, v]) => { if (store.get(k) !== v) fail(`this program changed the Foundations training's ${k}`); });
         } finally { globalThis.fetch = realFetch; }
     }
 
@@ -137,6 +213,27 @@ async function ticketFor(payloadObj, secret) {
         const j = await res.json().catch(() => null);
         if (res.status >= 500) fail(`${p} with a body that isn't JSON should not be a server error: ${res.status} ${JSON.stringify(j)}`);
         if (j && /\n\s+at /.test(String(j.detail || ''))) fail(`${p} sent a stack trace to the browser`);
+    }
+    // ...and JSON of the wrong shape is a 4xx too, never a crash
+    if (a && a.token) {
+        const adm = (await call('/api/auth/admin', { passphrase: 'ci-pass' })).body;
+        const shapes = [
+            ['focus items as an object', '/api/storage/set', { key: `focus:${a.id}`, value: JSON.stringify({ items: {} }) }, a.token],
+            ['focus items with a null', '/api/storage/set', { key: `focus:${a.id}`, value: JSON.stringify({ items: [null] }) }, a.token],
+            ['AI request of null', '/api/ai', null, a.token],
+            ['AI messages as an object', '/api/ai', { messages: {} }, a.token],
+            ['admin set with no value', '/api/storage/set', { key: 'settings:tools' }, adm && adm.token]
+        ];
+        // a key is configured (or /api/ai answers "no key" before reading the body), and nothing may reach Google
+        const realFetch = globalThis.fetch;
+        env.GEMINI_API_KEY = 'test-key';
+        globalThis.fetch = async () => { throw new Error('a malformed request should be refused before calling Google'); };
+        try {
+            for (const [what, p, body, token] of shapes) {
+                const res = await raw(p, JSON.stringify(body), token);
+                if (res.status >= 500) fail(`${what} (${p}) should not be a server error: ${res.status} ${await res.text()}`);
+            }
+        } finally { globalThis.fetch = realFetch; delete env.GEMINI_API_KEY; }
     }
 
     if (failures.length) { console.log(`${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
