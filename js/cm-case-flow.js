@@ -716,6 +716,8 @@ function stepLink(text, b){
   const t = String(text || "").replace(/\*\*/g, ""), hit = STEP_AT.find(([re]) => re.test(t));
   // a step worked in the Notes & Action Plan (the transcript, the plan, its emails) opens it
   if(notesOf(b.id) && /transcribe|action plan|^email|coordinate/i.test(t)) return ` <button type="button" class="cfx-at" onclick="cmCaseFlow.notes('${b.id}')" title="Open the Notes &amp; Action Plan">📝 ${/^email|coordinate/i.test(t) ? "Email Simulator" : "Notes"} ↗</button>`;
+  // 🔗 the drive is linked on the block's own Your Case slide (step 1 of Day 1's Backup File Maintenance, js/cm-drive.js): the step leads there
+  if(/Link my Google Drive/.test(t) && viewsOf(b).includes("case")) return ` <button type="button" class="cfx-at" onclick="cmCaseFlow.toView('${b.id}','case')" title="Go to the Backup File Maintenance slide: the drive is linked in its step 1">🔗 Go to the slide ↗</button>`;
   let id = hit && hit[1], label = hit && hit[2];
   if(id === "docs" && !(CF_PACKETS[b.id] || []).length){ id = toolLive("docs", b.id) ? "docs" : null; label = "Documents"; }
   if(id === "cms" && !toolLive("cms", b.id)) id = null;

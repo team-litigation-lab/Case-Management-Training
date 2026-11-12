@@ -13,8 +13,9 @@
    the copy kept here needs no second decision from the trainee.
 
    What the trainee does:
-     1. Connects their own Google account once. drive.file only: the platform can see and change the
-        folders and files it makes and nothing else in their Drive.
+     1. Links their own Google account once, with 🔗 Link my Google Drive in step 1 of Day 1's Backup File
+        Maintenance slide (or Connect in this panel: the same sign-in). drive.file only: the platform can see
+        and change the folders and files it makes and nothing else in their Drive.
      2. Lays the firm's structure out themselves — adds each folder, names it, nests it, puts it in order.
         Nothing is prefilled: the structure is the thing being learned, so it is typed, not accepted.
      3. Submits it, and the Worker grades it against the firm's standard (FOLDER_STANDARD in worker.js,
@@ -41,11 +42,16 @@ const GLOGO = '<svg width="13" height="13" viewBox="0 0 87.3 78" aria-hidden="tr
 
 let D = null;                  // the drive, as the Worker reports it
 let asked = false, busy = false, connecting = false, err = "", open = false;
+let waiting = false, linkErr = "";   // Google's sign-in window is open; and why the last try to link didn't finish (shown in step 1 of the slide)
+let linkHeld = false;                // the keyboard was on the slide's link button when it was last drawn
 let graded = null, verified = null;
 let tree = null;               // the layout the trainee is building: [{name, children:[…]}]
 let gisLoading = false, gisFailed = false;
 
 const signedTrainee = ()=> typeof state === "object" && !!state.traineeId && !state.isAdmin && !state.adminPreview;
+/* A trainee on their own screen: the only place a drive is linked from. Never a trainer, an admin's preview, or the
+   slides window a presenter shares (js/cm-updates.js), where the slide's button is a sample to point at. */
+const ownScreen = ()=> signedTrainee() && !(typeof PV_IS_AUDIENCE !== "undefined" && PV_IS_AUDIENCE);
 
 /* ---------- the server ---------- */
 async function api(body){
@@ -73,7 +79,7 @@ async function load(force){
     else err = e.message;
   }
   paint(); fillSlot();
-  document.querySelectorAll("[data-drv-slide]").forEach(el=>{ el.outerHTML = slide(); });   // Day 1's slide ticks the trainee's own steps
+  redrawSlides();                            // Day 1's slide ticks the trainee's own steps
   refreshBoxes();                            // 🏷 and every naming box on the page
   if(D && D.connected && D.built) grade();   // and the drive is graded as it stands today
 }
@@ -186,7 +192,7 @@ function paint(){
   else if(!D.connected){
     preloadGis();
     body = `<p class="drv-p">Connect the Google account you want to practise on — a personal Gmail address is fine. The platform asks Google for <b>drive.file</b> only: it can see and change the folders and files it makes here, and nothing else in your Drive. Everything it makes stays yours, and you can disconnect at any time.</p>
-      <button type="button" class="drv-btn drv-go" onclick="CMDrive.connect()" ${connecting ? "disabled" : ""}>${GLOGO}${connecting ? "Connecting…" : "Connect my Google Drive"}</button>`;
+      <button type="button" class="drv-btn drv-go" onclick="CMDrive.connect()" ${connecting || waiting ? "disabled" : ""}>${GLOGO}${connecting || waiting ? "Connecting…" : "Connect my Google Drive"}</button>`;
   } else if(!D.built){
     body = `<p class="drv-p">Lay the firm's structure out as you would build it in a real practice: ${n} folders, named and nested and in order. It is the case file you already work from here — intake and retainer, the police report, records apart from bills, liens, wages and costs, property damage, litigation — plus the firm's own folders. Nothing is filled in for you. Press <b>Check and build it in my Drive</b> when it is how you would hand it to a colleague.</p>
       <div class="drv-tree">${rowsHTML(tree, "", 0)}</div>
@@ -240,44 +246,91 @@ function preloadGis(){
   gisLoading = true;
   const sc = document.createElement("script");
   sc.src = "https://accounts.google.com/gsi/client"; sc.async = true;
-  sc.onload = ()=>{ gisLoading = false; };
-  sc.onerror = ()=>{ gisLoading = false; gisFailed = true; err = "Google sign-in couldn't load. Check that accounts.google.com isn't blocked, then try again."; paint(); };
+  sc.onload = ()=>{ gisLoading = false; if(linkErr === GIS_WAIT || linkErr === GIS_GONE){ linkErr = ""; redrawSlides(); } };
+  sc.onerror = ()=>{ gisLoading = false; gisFailed = true; err = "Google sign-in couldn't load. Check that accounts.google.com isn't blocked, then try again."; if(linkErr === GIS_WAIT) linkErr = GIS_GONE; paint(); redrawSlides(); };
   document.head.appendChild(sc);
 }
+const GIS_WAIT = "Google sign-in is still loading. Press the button again in a moment.";
+const GIS_GONE = "Google sign-in couldn't load. Check that accounts.google.com isn't blocked, then press the button again.";
+/* A try to link that didn't finish: said once as a toast, and kept as a line in step 1 of the slide until the next try. */
+function linkFail(m){ linkErr = m; say(m); paint(); redrawSlides(); }
 function connect(){
   const oauth = window.google && google.accounts && google.accounts.oauth2;
-  if(!D || !D.configured) return;
-  if(!oauth){ preloadGis(); say(gisFailed ? "Google sign-in couldn't load." : "Google sign-in is still loading — press Connect again in a moment."); return; }
-  oauth.initCodeClient({
-    client_id: D.clientId, scope: D.scopes, ux_mode: "popup", select_account: true,
-    callback: async (resp)=>{
-      if(!resp || resp.error || !resp.code){ say(resp && resp.error === "access_denied" ? "Google access wasn't allowed." : "Google sign-in didn't finish."); return; }
-      connecting = true; err = ""; paint();
-      try{ D = (await api({action:"connect", code:resp.code})).drive; tree = [{name:"", children:[]}]; say(`Google Drive connected${D.email ? ` (${D.email})` : ""}.`); }
-      catch(e){
-        // DRIVE_SCOPE_MISSING (the Drive box was unticked) and DRIVE_CONSENT_AGAIN (Google remembered an old
-        // yes and sent no lasting access): the Worker has already cleared that grant, so Connect again works.
-        // Read the status afresh, since a link held before may have gone with it.
-        err = e.message; say(e.code === "DRIVE_CONSENT_AGAIN" ? "One more step: press Connect again and approve." : e.message);
-        if(e.code === "DRIVE_SCOPE_MISSING" || e.code === "DRIVE_CONSENT_AGAIN"){ try{ D = (await api()).drive; }catch(x){} fillSlot(); }
+  if(!D || !D.configured || waiting || connecting) return;
+  linkErr = "";
+  if(!oauth){
+    // not here yet, or it failed to load: fetch it (again), so the next press works
+    const failed = gisFailed; gisFailed = false; preloadGis();
+    linkFail(failed ? GIS_GONE : GIS_WAIT); return;
+  }
+  let client = null;
+  try{
+    client = oauth.initCodeClient({
+      client_id: D.clientId, scope: D.scopes, ux_mode: "popup", select_account: true,
+      callback: async (resp)=>{
+        waiting = false;
+        if(!resp || resp.error || !resp.code){ linkFail(resp && resp.error === "access_denied" ? "Google access wasn't allowed. Press the button again and choose Allow." : "Google sign-in didn't finish. Press the button again."); return; }
+        connecting = true; err = ""; paint(); redrawSlides();
+        let failed = "";
+        try{ D = (await api({action:"connect", code:resp.code})).drive; tree = [{name:"", children:[]}]; say(`Google Drive linked${D.email ? ` (${D.email})` : ""}.`); }
+        catch(e){
+          // DRIVE_SCOPE_MISSING (the Drive box was unticked) and DRIVE_CONSENT_AGAIN (Google remembered an old
+          // yes and sent no lasting access): the Worker has already cleared that grant, so pressing again works.
+          // Read the status afresh, since a link held before may have gone with it.
+          err = e.message;
+          failed = e.code === "DRIVE_CONSENT_AGAIN" ? "One more step: press the button again and approve."
+            : e.code === "DRIVE_SCOPE_MISSING" ? "Google Drive access wasn't ticked. Press the button again and tick the Drive box on Google's screen."
+            : e.message;
+          if(e.code === "DRIVE_SCOPE_MISSING" || e.code === "DRIVE_CONSENT_AGAIN"){ try{ D = (await api()).drive; }catch(x){} }
+        }
+        connecting = false; fillSlot();
+        if(failed) linkFail(failed); else { paint(); redrawSlides(); }
+      },
+      error_callback: (e)=>{
+        const t = e && e.type;
+        waiting = false;
+        linkFail(t === "popup_closed" ? "Google sign-in was closed before it finished. Press the button again."
+          : t === "popup_failed_to_open" ? "The browser blocked the Google sign-in window. Allow pop-ups for this site, then press the button again."
+          : "Google sign-in failed. Press the button again.");
       }
-      connecting = false; paint();
-    },
-    error_callback: (e)=>{
-      const t = e && e.type;
-      say(t === "popup_closed" ? "Google sign-in was closed before it finished."
-        : t === "popup_failed_to_open" ? "The browser blocked the Google sign-in window. Allow pop-ups for this site and try again."
-        : "Google sign-in failed.");
-    }
-  }).requestCode();
+    });
+    waiting = true; paint(); redrawSlides();   // the button reads Linking… while Google's window is open
+    client.requestCode();
+  }catch(e){ waiting = false; linkFail("Google sign-in failed. Press the button again."); }
+}
+/* Said to whoever pressed the sample. The slides window a presenter shares shows nothing but the slide (js/cm-updates.js
+   keeps the toast out of it), so there the line is shown the way that window shows its own hint, and fades by itself
+   (the animation's end takes it away: no timer); a click dismisses it sooner. */
+function saySample(m){
+  say(m);
+  if(!(typeof PV_IS_AUDIENCE !== "undefined" && PV_IS_AUDIENCE)) return;
+  document.querySelectorAll(".drv-aud-say").forEach(el=>el.remove());
+  const el = document.createElement("div");
+  el.className = "aud-hint drv-aud-say"; el.setAttribute("role", "status"); el.textContent = m;
+  el.addEventListener("animationend", ()=>el.remove());
+  el.addEventListener("click", ()=>el.remove());
+  document.body.appendChild(el);
+}
+/* 🔗 Link my Google Drive, in step 1 of Day 1's slide. A trainee on their own screen starts Google's sign-in from the
+   slide itself; for anyone else the button is a sample (a trainer points at it), and pressing it asks nothing of
+   Google or of the Worker. */
+async function link(){
+  if(!ownScreen()){ saySample("Trainees link their own Google Drive with this button, on their own screen."); return; }
+  if(waiting || connecting) return;
+  if(!D){
+    linkErr = ""; await load(true);
+    if(!D){ linkErr = err || "Your Backup Drive couldn't be reached. Press the button again."; redrawSlides(); return; }
+  }
+  if(!D.configured || D.connected){ redrawSlides(); return; }
+  connect();
 }
 async function disconnect(){
   if(!D || !D.connected || busy) return;
   if(!confirm("Disconnect Google Drive? The folders and files already in your Drive stay there, and your Day 1 grade is kept.")) return;
   busy = true; paint();
-  try{ D = (await api({action:"disconnect"})).drive; verified = null; graded = null; err = ""; say("Google Drive disconnected."); }
+  try{ D = (await api({action:"disconnect"})).drive; verified = null; graded = null; err = ""; linkErr = ""; say("Google Drive disconnected."); }
   catch(e){ err = e.message; }
-  busy = false; paint();
+  busy = false; paint(); fillSlot(); redrawSlides();
 }
 
 /* ---------- the graded Day 1 setup ---------- */
@@ -298,7 +351,7 @@ async function submit(){
     else say(`${graded.problems.length} thing${graded.problems.length === 1 ? "" : "s"} to fix before it is built.`);
     fillSlot();
   }catch(e){ err = e.message; }
-  busy = false; paint();
+  busy = false; paint(); redrawSlides();
 }
 /* The latest ✓ Check my drive, on the trainee's own progress ("drive-check"): how many of the firm's folders were missing,
    which, and when. Their 📒 Progress Log shows it, and a folder still missing is a trainer's case-file alert. */
@@ -310,14 +363,14 @@ async function check(){
   busy = true; err = ""; paint();
   try{ const out = await api({action:"check"}); verified = out.verified; D = out.drive; keepCheck((verified && verified.missing) || []); }
   catch(e){ err = e.message; }
-  busy = false; paint(); fillSlot(); grade(true);   // and every name on the drive is read with it
+  busy = false; paint(); fillSlot(); redrawSlides(); grade(true);   // and every name on the drive is read with it
 }
 async function rebuild(){
   if(busy) return;
   busy = true; err = ""; paint();
   try{ const out = await api({action:"rebuild"}); D = out.drive; verified = {missing:[]}; keepCheck([], true); say("The missing folders are back in your Drive."); }
   catch(e){ err = e.message; }
-  busy = false; paint(); fillSlot(); grade();
+  busy = false; paint(); fillSlot(); redrawSlides(); grade();
 }
 
 /* ---------- 🏅 graded as you go: Days 2–5 (the Worker reads the Drive and grades; see driveGrade in worker.js) ----------
@@ -336,7 +389,7 @@ async function grade(force){
     try{ if(typeof storeSet === "function") await storeSet("drive-grades", Object.fromEntries(Object.entries(out.grades || {}).map(([n, g])=>[n, {score:g.score, passed:g.passed, at:g.at, issues:[].concat(...(g.rows || []).map(r=>r.notes || [])).slice(0, 4)}]))); }catch(e){}
   }catch(e){ /* the grade waits for the next check; nothing else is blocked */ }
   grading = false; paint(); fillSlot();
-  document.querySelectorAll("[data-drv-slide]").forEach(el=>{ el.outerHTML = slide(); });
+  redrawSlides();
   refreshBoxes();
   try{ window.dispatchEvent(new CustomEvent("cm-drive-graded")); }catch(e){}
 }
@@ -389,25 +442,53 @@ async function saveFiled(docFolder, name, bytes, docId){
 
 /* ---------- Day 1's Backup File Maintenance slide: the task in four steps, and the firm's standard ----------
    The structure comes from the Worker (action "standard"), never from a copy here, and a presenter (an admin)
-   sees it too. A trainee's steps tick as their own drive gets there. */
+   sees it too. A trainee's steps tick as their own drive gets there, and step 1 is where the drive is linked:
+   🔗 Link my Google Drive starts Google's sign-in from the slide (connect), then shows who is linked. */
 let STD = null, stdAsked = false;
 async function loadStandard(){
   if(stdAsked) return; stdAsked = true;
   try{ STD = (await api({action:"standard"})).standard; }catch(e){ STD = {failed:true}; }
-  document.querySelectorAll("[data-drv-slide]").forEach(el=>{ el.outerHTML = slide(); });
+  redrawSlides();
   refreshBoxes();
+}
+/* The slide draws itself again, in place, whenever the drive's status changes (linked, built, checked, unlinked):
+   every copy on the page, in the deck or the slides window, without the page being rendered again or the deck moving.
+   A slide in the lesson frame is then fitted to it again, since its height may have changed. */
+function redrawSlides(){
+  const all = document.querySelectorAll("[data-drv-slide]");
+  if(!all.length) return;
+  const act = document.activeElement;
+  if(act && act.matches && act.matches("[data-drv-link]")) linkHeld = true; else if(act && act !== document.body) linkHeld = false;
+  const onSlide = !!document.querySelector("#lessonSlideWrap [data-drv-slide]");
+  all.forEach(el=>{ el.outerHTML = slide(); });
+  if(onSlide) fitSlide();
+  // the keyboard stays in the slide: on the button once it works again, or on what follows it once the drive is linked
+  if(linkHeld && (!document.activeElement || document.activeElement === document.body)){
+    const b = ["[data-drv-link]:not(:disabled)", "[data-drv-build]", ".drv-s-open"].map(q=>document.querySelector("[data-drv-slide] " + q)).find(Boolean);
+    if(b){ linkHeld = false; try{ b.focus({preventScroll:true}); }catch(e){} }
+  }
 }
 function slide(){
   if(!STD) loadStandard();
-  if(signedTrainee() && !D) load();
-  const me = signedTrainee() && D && D.configured ? D : null, missing = me ? (me.lastMissing || []).length : 0;
+  const mine = ownScreen();
+  if(mine && !D) load();
+  const me = mine && D && D.configured ? D : null, missing = me ? (me.lastMissing || []).length : 0;
+  // not switched on for this site: the Worker says so to everybody ("standard"), and to a trainee in their own status
+  const off = !!(STD && STD.configured === false) || (mine && !!D && !D.configured);
+  const linked = !!(me && me.connected), linking = mine && (waiting || connecting);
+  if(me && !linked) preloadGis();   // so Google's sign-in is already there at the first press
+  // Step 1 is where the drive is linked: the button (a sample for anyone but a trainee on their own screen), then who is linked
+  const linkBox = off ? "" : linked
+    ? `<div class="drv-s-act"><span class="drv-s-ok">Linked${me.email ? `: <b>${esc(me.email)}</b>` : ""}</span>${/^https:\/\//.test(me.rootUrl || "") ? `<a class="drv-s-open" href="${esc(me.rootUrl)}" target="_blank" rel="noopener noreferrer">Open my Drive ↗</a>` : ""}</div>`
+    : `<div class="drv-s-act"><button type="button" class="drv-s-link" data-drv-link onclick="CMDrive.link()" ${linking ? "disabled" : ""}><span class="drv-s-g">${GLOGO}</span>${linking ? "Linking…" : "🔗 Link my Google Drive"}</button></div>${mine && linkErr && !linking ? `<div class="drv-s-err" role="alert">⚠ ${esc(linkErr)}</div>` : ""}`;
+  const build = linked && !me.built ? `<div class="drv-s-act"><button type="button" class="drv-s-link drv-s-build" data-drv-build onclick="CMDrive.show()">📂 Build my folders</button></div>` : "";
+  const scope = "The platform asks for <b>drive.file</b> only: it sees the folders and files it makes, nothing else.";
   const steps = [
-    ["Connect your Google Drive", "From 📂 My Backup Drive. The platform asks for <b>drive.file</b> only: it sees the folders and files it makes, nothing else.", !!(me && me.connected)],
-    ["Build the firm's folders by hand", "Every folder named, numbered, nested and in order, exactly to the standard. Submit it: it is graded folder by folder.", !!(me && me.built)],
-    ["✓ Check my drive", "Confirm every folder is still there. Put back anything missing.", !!(me && me.built && me.checkedAt && (!me.builtAt || me.checkedAt >= me.builtAt) && !missing)],
-    ["File in the CMS, every day", "Each document you file lands in its folder on the drive too, under the name you filed it with.", !!(me && (me.saved || []).length)]
+    ["Link your Google Drive", (off || linked ? "" : "Press the button here. ") + scope, linked, linkBox],
+    ["Build the firm's folders by hand", "Every folder named, numbered, nested and in order, exactly to the standard. Submit it: it is graded folder by folder.", !!(me && me.built), build],
+    ["✓ Check my drive", "Confirm every folder is still there. Put back anything missing.", !!(me && me.built && me.checkedAt && (!me.builtAt || me.checkedAt >= me.builtAt) && !missing), ""],
+    ["File in the CMS, every day", "Each document you file lands in its folder on the drive too, under the name you filed it with.", !!(me && (me.saved || []).length), ""]
   ];
-  const off = STD && STD.configured === false;
   const list = (STD && STD.standard) || [];
   const tree = list.length
     ? `<div class="drv-s-root">📁 <b>${esc(STD.root)}</b></div><ul class="drv-s-tree">${list.map(p=>{
@@ -416,8 +497,8 @@ function slide(){
       }).join("")}</ul>`
     : `<p class="drv-s-note">${STD && STD.failed ? "The firm's structure couldn't be loaded. Open 📂 My Backup Drive to see it." : "Loading the firm's structure…"}</p>`;
   return `<div class="drv-slide" data-drv-slide>
-    <div class="drv-s-col"><div class="drv-s-top"><h3>📋 Your Task: The Case Backup</h3>${!off && signedTrainee() ? `<button type="button" class="btn btn-navy btn-sm" onclick="CMDrive.show()">📂 Open My Backup Drive</button>` : ""}</div>
-      <ol class="drv-s-steps">${steps.map(([h, t, done], i)=>`<li class="${done ? "is-done" : ""}"><span class="drv-s-n">${done ? "✓" : i + 1}</span><div><b>${h}</b><span>${t}</span></div></li>`).join("")}</ol>
+    <div class="drv-s-col"><div class="drv-s-top"><h3>📋 Your Task: The Case Backup</h3>${!off && mine ? `<button type="button" class="btn btn-navy btn-sm" onclick="CMDrive.show()">📂 Open My Backup Drive</button>` : ""}</div>
+      <ol class="drv-s-steps">${steps.map(([h, t, done, extra], i)=>`<li class="${done ? "is-done" : ""}"><span class="drv-s-n">${done ? "✓" : i + 1}</span><div><b>${h}</b><span>${t}</span>${extra}</div></li>`).join("")}</ol>
       ${off ? `<p class="drv-s-note">Google linking isn't switched on for this site yet: a trainer adds it once (README → 📂 The trainee's Backup Drive).</p>` : ""}
       ${namingBox({day:1, slide:true})}
     </div>
@@ -485,7 +566,20 @@ function refreshBoxes(){
   const onSlide = !!document.querySelector("#lessonSlideWrap [data-drv-naming]");
   document.querySelectorAll("[data-drv-naming]").forEach(el=>{ el.outerHTML = namingBox({day:Number(el.dataset.drvNaming) || 0, compact:el.dataset.c === "1", slide:el.dataset.s === "1"}); });
   // a box on a lesson slide has changed height: the slide is fitted to its frame again
-  if(onSlide && typeof window.paginateLessonSlide === "function"){ try{ window.paginateLessonSlide(); }catch(e){} }
+  if(onSlide) fitSlide();
+}
+/* The lesson slide is fitted to its frame again. A typeface this slide is the first to use is still on its way when
+   it is measured, and changes the heights when it lands: the slide is fitted once more then (no timer: the browser says when). */
+let fontWait = false;
+function fitSlide(){
+  if(typeof window.paginateLessonSlide !== "function") return;
+  try{ window.paginateLessonSlide(); }catch(e){}
+  if(fontWait || !document.fonts || document.fonts.status !== "loading" || !document.fonts.ready) return;
+  fontWait = true;
+  document.fonts.ready.then(()=>{
+    fontWait = false;
+    if(document.querySelector("#lessonSlideWrap [data-drv-slide], #lessonSlideWrap [data-drv-naming]")){ try{ window.paginateLessonSlide(); }catch(e){} }
+  }).catch(()=>{ fontWait = false; });
 }
 async function copy(btn){
   const text = (btn && btn.dataset && btn.dataset.copy) || "";
@@ -526,7 +620,7 @@ function namingReport(){
   </div>`;
 }
 
-window.CMDrive = {card, slot, show, close, connect, disconnect, submit, check, rebuild, saveFiled, slide, grade, dayOpened,
+window.CMDrive = {card, slot, show, close, connect, link, disconnect, submit, check, rebuild, saveFiled, slide, grade, dayOpened,
   namingBox, namingReport, nameFor, copy, naming:rule,
   name:setName, addSub, addTop, remove, move, status:()=>D, reload:()=>load(true)};
 
@@ -580,20 +674,35 @@ css.textContent = `
 .drv-slide{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;}
 .drv-slide,.drv-slide *{text-align:left!important;}
 .drv-slide li::before,.drv-slide li::marker{content:none!important;display:none!important;}
-.drv-s-col{background:#fff;border:1px solid #DDE1EA;border-radius:14px;padding:14px 18px;color:#141A2E;}
-.drv-s-col h3{margin:0 0 10px;font:800 20px 'Poppins','Inter',sans-serif;color:#1E2340;}
-.drv-s-steps{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-direction:column;gap:10px;}
+.drv-s-col{background:#fff;border:1px solid #DDE1EA;border-radius:14px;padding:12px 18px 10px;color:#141A2E;}
+.drv-s-col h3{margin:0 0 6px;font:800 20px 'Poppins','Inter',sans-serif;color:#1E2340;}
+.drv-s-steps{list-style:none;margin:0 0 6px;padding:0;display:flex;flex-direction:column;gap:6px;}
 .drv-s-steps li{display:flex;gap:12px;align-items:flex-start;margin:0;padding:0;}
 .drv-s-n{flex:0 0 32px;height:32px;border-radius:50%;background:#1E2340;color:#F6C08F;display:flex;align-items:center;justify-content:center;font:800 16px 'Inter',sans-serif;}
 .drv-s-steps li.is-done .drv-s-n{background:#1E8E4F;color:#fff;}
 .drv-s-steps li > div > b{display:block;font:800 18px 'Inter',sans-serif;color:#1E2340;}
 .drv-s-steps span b{font-weight:800;color:#1E2340;}
-.drv-s-steps li > div > span{display:block;font:600 16px/1.45 'Inter',sans-serif;}
-.drv-s-root{padding:6px 10px;border-radius:10px;background:#1E2340;color:#fff;font:700 15.5px 'Inter',sans-serif;}
-.drv-slide .drv-s-tree{list-style:none;margin:6px 0 0 10px!important;width:auto!important;max-width:none!important;padding:0 0 0 12px;border-left:3px solid #DB8437;font:600 14px/1.25 'Inter',sans-serif;}
+.drv-s-steps li > div > span{display:block;font:600 16px/1.4 'Inter',sans-serif;}
+.drv-s-act{display:flex;align-items:center;gap:4px 14px;flex-wrap:wrap;margin-top:5px;}
+.drv-s-link{display:inline-flex;align-items:center;gap:8px;border:2px solid #1E2340;background:#1E2340;color:#fff;border-radius:10px;padding:4px 16px 4px 7px;font:800 17px/1.3 'Inter',sans-serif;cursor:pointer;box-shadow:0 3px 0 #DB8437;margin-bottom:3px;}
+.drv-s-link:hover:not(:disabled){background:#DB8437;border-color:#DB8437;color:#1E2340;box-shadow:0 3px 0 #1E2340;}
+.drv-s-link:focus-visible,.drv-s-open:focus-visible{outline:3px solid #DB8437;outline-offset:3px;}
+.drv-s-link:disabled{opacity:.7;cursor:default;}
+.drv-s-g{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:6px;background:#fff;}
+.drv-s-g svg{width:16px;height:16px;margin:0!important;vertical-align:0!important;display:block;}
+.drv-s-link.drv-s-build{background:#fff;color:#1E2340;padding:4px 16px;}
+.drv-s-ok{font:800 16px/1.4 'Inter',sans-serif;color:#1E8E4F;overflow-wrap:anywhere;}
+.drv-s-open{font:800 16px/1.4 'Inter',sans-serif;color:#1E2340;text-decoration:underline;text-decoration-color:#DB8437;text-decoration-thickness:2px;text-underline-offset:3px;white-space:nowrap;}
+.drv-s-open:hover{color:#B9610F;}
+.drv-s-err{margin-top:8px;padding:5px 12px;border-left:4px solid #DB8437;border-radius:6px;background:#FFF8F0;color:#1E2340;font:700 16px/1.4 'Inter',sans-serif;}
+.aud-hint.drv-aud-say{top:18px;bottom:auto;max-width:calc(100vw - 40px);background:#1E2340;border:2px solid #DB8437;color:#fff;border-radius:12px;padding:8px 18px;font:700 16px/1.4 'Inter',sans-serif;text-align:center;z-index:30;cursor:pointer;animation:drvAudSay 4.5s ease forwards;animation-duration:4.5s!important;}   /* a fade, kept where motion is reduced: the line has to stay long enough to be read */
+@keyframes drvAudSay{0%{opacity:0;}6%{opacity:1;}85%{opacity:1;}100%{opacity:0;}}
+.drv-s-root{padding:6px 10px;border-radius:10px;background:#1E2340;color:#fff;font:700 16px 'Inter',sans-serif;}
+.drv-slide .drv-s-tree{list-style:none;margin:6px 0 0 10px!important;width:auto!important;max-width:none!important;padding:0 0 0 12px;border-left:3px solid #DB8437;font:700 16px/1.25 'Inter',sans-serif;}
 .drv-s-tree li{margin:0!important;padding-top:1px;padding-bottom:1px;display:block;}
+.drv-slide .drv-s-tree li{font-size:16px;line-height:1.3;color:#1E2340;}
 .drv-s-tree b{color:#1E2340;}
-.drv-s-note{margin:10px 0 0;padding:8px 12px;border-left:4px solid #DB8437;background:#FFF8F0;font:600 14px/1.45 'Inter',sans-serif;}
+.drv-s-note{margin:10px 0 0;padding:8px 12px;border-left:4px solid #DB8437;background:#FFF8F0;font:700 16px/1.45 'Inter',sans-serif;}
 .drv-nc{margin:12px 0;border:2px solid #1E2340;border-left:8px solid #DB8437;border-radius:12px;padding:10px 14px;background:#FFF8F0;color:#1E2340;font:700 14px/1.45 'Inter',sans-serif;text-align:left;}
 .drv-nc-h{font:800 16px 'Poppins','Inter',sans-serif;color:#1E2340;margin-bottom:6px;}
 .drv-nc-h span{font:700 14px 'Inter',sans-serif;color:#B9610F;margin-left:6px;}
@@ -615,6 +724,7 @@ css.textContent = `
 .drv-nc.drv-nc-c{padding:8px 12px;}
 .drv-nc.drv-nc-c .drv-nc-ex > span{flex:0 1 auto;}
 .drv-nc.drv-nc-s{margin:10px 0 0;padding:8px 14px;font:700 16px/1.4 'Inter',sans-serif;}
+.drv-slide .drv-nc.drv-nc-s{margin-top:8px;padding:6px 14px;}
 .drv-nc-s .drv-nc-r{display:flex;align-items:center;gap:6px 12px;flex-wrap:wrap;}
 .drv-nc-s .drv-nc-r + .drv-nc-r{margin-top:6px;}
 .drv-nc-s .drv-nc-r > span{font:700 16px/1.4 'Inter',sans-serif;color:#1E2340;}
@@ -625,7 +735,7 @@ css.textContent = `
 .drv-nc-s .drv-nc-copy{font-size:16px;padding:3px 10px;}
 .drv-nc-s .drv-nc-r > span code{color:#B9610F;}
 .drv-nc-pts{margin-left:auto;background:#1E2340;color:#F6C08F!important;border-radius:999px;padding:3px 12px;font:800 16px 'Inter',sans-serif!important;white-space:nowrap;}
-.drv-s-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}
+.drv-s-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;}
 .drv-s-top h3{margin:0;}
 .drv-c-nm{font:700 14px/1.45 'Inter',sans-serif!important;color:#8A2B2B!important;margin:0 0 8px!important;}
 .drv-nr{margin-top:14px;border:2px solid #1E2340;border-radius:12px;padding:10px 14px;background:#fff;color:#1E2340;font:700 14px/1.45 'Inter',sans-serif;}
@@ -649,5 +759,8 @@ css.textContent = `
 document.head.appendChild(css);
 
 document.addEventListener("keydown", (e)=>{ if(e.key === "Escape" && open) close(); });
+// The trainee is back on this window and Google's has said nothing (a browser that hides the window's closing from
+// Google's script): the button works again rather than reading Linking… for good. An answer that follows is still taken.
+window.addEventListener("focus", ()=>{ if(waiting){ waiting = false; paint(); redrawSlides(); } });
 window.addEventListener("load", ()=>{ setTimeout(()=>load(), 500); });
 })();
