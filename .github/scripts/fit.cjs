@@ -21,8 +21,9 @@ const SIZES = [[1366, 768], [1920, 1080]];
         await signIn(page, 'Fit', 'Screen', 'B100926');
         const r = await page.evaluate(async (only) => {
             const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-            const out = [], counts = { slides: 0, pages: 0, shrunk: 0 };
+            const out = [], counts = { slides: 0, pages: 0, shrunk: 0, pv: 0 };
             state.isAdmin = true;   // every day open, as the trainer sees it
+            { const kt = document.getElementById('ktLogin'); if (kt) kt.remove(); }   // a trainee's 🔔 open-your-tools prompt (signed in as one first)
             const loaded = async () => {   // pictures in the slide have loaded, and the slide was laid out again
                 const imgs = [...document.querySelectorAll('#lessonSlideWrap img')].filter(i => !i.complete);
                 if (imgs.length) { await Promise.all(imgs.map(i => new Promise(res => { i.addEventListener('load', res, { once: true }); i.addEventListener('error', res, { once: true }); setTimeout(res, 3000); }))); await sleep(260); }
@@ -47,6 +48,15 @@ const SIZES = [[1366, 768], [1920, 1080]];
                         const over = wrap.scrollHeight - wrap.clientHeight;
                         if (over > 2) out.push(`${where}: ${over}px of the slide is cut off (it scrolls inside the frame)`);
                         if ([...wrap.children].some(c => c.style.zoom && Number(c.style.zoom) < 1)) counts.shrunk++;
+                        // the trainer's 🖥 Presenter view (the speaker notes beside the slide) is in the footer card of every slide: shown, on screen, not covered
+                        if (!p) {
+                            const pv = stage.querySelector('.slide-nav .nav-pv'), rb = pv && pv.getBoundingClientRect();
+                            const top = rb && document.elementFromPoint(rb.left + rb.width / 2, rb.top + rb.height / 2);
+                            if (!pv) out.push(`${where}: no 🖥 Presenter view in the footer card`);
+                            else if (!rb.width || rb.bottom > innerHeight + 1 || rb.right > innerWidth + 1) out.push(`${where}: 🖥 Presenter view isn't on the screen`);
+                            else if (top !== pv && !pv.contains(top)) out.push(`${where}: 🖥 Presenter view is covered by ${top ? top.className || top.tagName : 'nothing'}`);
+                            else counts.pv++;
+                        }
                     }
                 }
                 // a desktop: the slide takes the page's width (no column beside it), ⛶ Full screen in its Previous / Next bar
@@ -60,7 +70,7 @@ const SIZES = [[1366, 768], [1920, 1080]];
             return { out, counts };
         }, ONLY);
         r.out.forEach(m => fail(`${W}x${H} ${m}`));
-        summary.push(`${W}x${H}: ${r.counts.slides} slides, ${r.counts.pages} pages, ${r.counts.shrunk} scaled down`);
+        summary.push(`${W}x${H}: ${r.counts.slides} slides, ${r.counts.pages} pages, ${r.counts.shrunk} scaled down, 🖥 Presenter view on ${r.counts.pv}`);
         await page.close();
     }
     // a narrower window keeps the controls above the slide, and nothing in the slide is cut off
