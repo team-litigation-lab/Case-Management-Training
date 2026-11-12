@@ -40,6 +40,11 @@ function syntax(file, label) {
 
 function checkHtml(file) {
     pages++;
+    // No "?v=" on a local script or stylesheet: every pull request used to bump the same version lines and so conflicted with
+    // every other. The site's files are served "max-age=0, must-revalidate" with an ETag, so a browser always gets the
+    // newest copy without one. (CLAUDE.md: "No conflicts".)
+    for (const m of fs.readFileSync(file, 'utf8').matchAll(/(?:src|href)="(\/(?:js|css)\/[^"?]+)\?v=[^"]*"/g))
+        problems.push(`${rel(file)}: ${m[1]} carries a "?v=" version. Leave it off: versions made every pull request conflict (see CLAUDE.md).`);
     const html = fs.readFileSync(file, 'utf8');
     const lineOf = (i) => html.slice(0, i).split('\n').length;
     // 1. inline scripts

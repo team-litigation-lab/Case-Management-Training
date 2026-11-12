@@ -2568,7 +2568,7 @@ body::before{opacity:.40;}
   .topbar,.btn-primary,.btn-navy{background-image:none;box-shadow:none;}
 }
 </style>
-<script src="/js/portal-gate.js?v=2026.10.23-dashboard"></script>
+<script src="/js/portal-gate.js"></script>
 <!-- The page stays hidden until startup has drawn the page you land on, so it appears once, complete: no blank shell, top bar
      alone or half-drawn dashboard first (the background photo shows meanwhile). bootShown() lifts it; 4 seconds at most. -->
 <style>html.lsh-booting #app{visibility:hidden;}</style>
@@ -3280,6 +3280,10 @@ const PERSONAL_KEYS = ["day-progress","practice-progress","lab-attempts-global",
   "calendar-custom","calendar-edits","call-log","inbox-filing","inbox-interactions","inbox-labels","trainee-batch",
   "quick-check-answers","day-order-migrated","dividers-migrated","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log","lab-subs","case-flow","net-sheet","doc-filing","drive-setup","drive-grades","cms-upload","cms-file"];
 const PERSONAL_KEY_SET = new Set(PERSONAL_KEYS);
+// A feature in its own js file registers the progress keys it saves, from that file (no edit to the list above, so
+// two pull requests adding keys never touch the same line): registerPersonalKeys(["my-key"]).
+function registerPersonalKeys(keys){ (keys || []).forEach(k => { if(k && !PERSONAL_KEY_SET.has(k)){ PERSONAL_KEYS.push(k); PERSONAL_KEY_SET.add(k); } }); }
+window.registerPersonalKeys = registerPersonalKeys;
 let cloudSaveTimer = null;
 function scheduleCloudSave(){
   if(!state.traineeId || state.cloudRestoring || state.isAdmin && !state.traineeId) return;
@@ -16089,59 +16093,59 @@ window.addEventListener("unhandledrejection", (ev)=>{ const e = ev.reason; if(e 
 window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message && !/ResizeObserver|Script error/.test(ev.message)) showActionError(new Error(ev.message), ""); });
 
 </script>
-<script src="/js/cm-updates.js?v=44"></script>
-<script src="/js/cm-documents.js?v=3"></script>
-<script src="/js/cm-skillbuilders.js?v=cm-2026.10.23-efiling"></script>
-<script src="/js/cm-lor-data.js?v=1"></script>
-<script src="/js/cm-hipaa-data.js?v=1"></script>
-<script src="/js/cm-medprov-data.js?v=1"></script>
-<script src="/js/cm-lor.js?v=3"></script>
-<script src="/js/cm-hipaa.js?v=cm-2026.10.22-cms-upload"></script>
-<script src="/js/cm-medprov.js?v=2"></script>
-<script src="/js/cm-drafting.js?v=cm-2026.10.22-cms-upload"></script>
-<script src="/js/daily-activities.js?v=3"></script>
-<script src="/js/checkin.js?v=1"></script>
-<script src="/js/portal-link.js?v=4"></script>
+<script src="/js/cm-updates.js"></script>
+<script src="/js/cm-documents.js"></script>
+<script src="/js/cm-skillbuilders.js"></script>
+<script src="/js/cm-lor-data.js"></script>
+<script src="/js/cm-hipaa-data.js"></script>
+<script src="/js/cm-medprov-data.js"></script>
+<script src="/js/cm-lor.js"></script>
+<script src="/js/cm-hipaa.js"></script>
+<script src="/js/cm-medprov.js"></script>
+<script src="/js/cm-drafting.js"></script>
+<script src="/js/daily-activities.js"></script>
+<script src="/js/checkin.js"></script>
+<script src="/js/portal-link.js"></script>
 <!-- 🧭 Blueprints: the Trainer blueprint (blueprint-content.js) and the Trainee blueprint (Orientation, /blueprint.pdf) rebuilt after every deploy -->
-<script src="/js/blueprint-content.js?v=7"></script>
-<script src="/js/lsh-blueprint-course.js?v=2"></script>
-<script src="/js/lsh-blueprint.js?v=2"></script>
-<script src="/js/lsh-dashboard.js?v=9"></script>
-<script src="/js/graded-calls.js?v=1"></script>
-<script src="/js/cm-case-flow-docs.js?v=28"></script>
-<script src="/js/cm-case-flow-art.js?v=3"></script>
-<script src="/js/cm-case-flow-slides.js?v=58"></script>
-<script src="/js/cm-case-flow-scripts.js?v=51"></script>
-<script src="/js/cm-case-flow-sim.js?v=26"></script>
-<script src="/js/cm-case-flow-exhibits.js?v=7"></script>
-<script src="/js/cm-case-flow-data.js?v=62"></script>
-<script src="/js/cm-case-dates.js?v=8"></script>
-<script src="/js/cm-case-flow-schedule.js?v=3"></script>
-<script src="/js/cm-case-flow.js?v=132"></script>
+<script src="/js/blueprint-content.js"></script>
+<script src="/js/lsh-blueprint-course.js"></script>
+<script src="/js/lsh-blueprint.js"></script>
+<script src="/js/lsh-dashboard.js"></script>
+<script src="/js/graded-calls.js"></script>
+<script src="/js/cm-case-flow-docs.js"></script>
+<script src="/js/cm-case-flow-art.js"></script>
+<script src="/js/cm-case-flow-slides.js"></script>
+<script src="/js/cm-case-flow-scripts.js"></script>
+<script src="/js/cm-case-flow-sim.js"></script>
+<script src="/js/cm-case-flow-exhibits.js"></script>
+<script src="/js/cm-case-flow-data.js"></script>
+<script src="/js/cm-case-dates.js"></script>
+<script src="/js/cm-case-flow-schedule.js"></script>
+<script src="/js/cm-case-flow.js"></script>
 <!-- 🏅 the Scorecard (as in Foundational Training): My Performance for trainees, Scorecards for trainers -->
 <!-- 📐 the Feedback Rubric: one rubric (four dimensions, four tiers, the safety gate) for every graded piece of work -->
-<script src="/js/cm-rubric.js?v=1"></script>
-<script src="/js/cm-scorecard.js?v=10"></script>
-<script src="/js/cm-batch-sheet.js?v=8"></script>
-<script src="/js/cm-know-tools.js?v=8"></script>
+<script src="/js/cm-rubric.js"></script>
+<script src="/js/cm-scorecard.js"></script>
+<script src="/js/cm-batch-sheet.js"></script>
+<script src="/js/cm-know-tools.js"></script>
 <!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
-<script src="/js/cm-companion-cases.js?v=1"></script>
-<script src="/js/cm-companion.js?v=3"></script>
-<script src="/js/cm-open-lessons.js?v=2"></script>
-<script src="/js/show-password.js?v=1"></script>
-<script src="/js/lsh-card-frame.js?v=5"></script>
-<script src="/js/lsh-tool-links.js?v=cm-2026.10.23-trainer-sso"></script>
-<script src="/js/cm-cms-case.js?v=cm-2026.10.22-heard"></script>
-<script src="/js/cm-doc-filing.js?v=cm-2026.11.12-drive-grades"></script>
-<script src="/js/cm-cms-upload.js?v=cm-2026.10.22-cms-upload"></script>
+<script src="/js/cm-companion-cases.js"></script>
+<script src="/js/cm-companion.js"></script>
+<script src="/js/cm-open-lessons.js"></script>
+<script src="/js/show-password.js"></script>
+<script src="/js/lsh-card-frame.js"></script>
+<script src="/js/lsh-tool-links.js"></script>
+<script src="/js/cm-cms-case.js"></script>
+<script src="/js/cm-doc-filing.js"></script>
+<script src="/js/cm-cms-upload.js"></script>
 <!-- 🗂 the CMS Case File grade: John Doe's file in the CMS, graded day by day against what a correct file holds -->
-<script src="/js/cm-cms-file.js?v=2"></script>
+<script src="/js/cm-cms-file.js"></script>
 <!-- 📂 the trainee's own Backup Drive: the firm's folder structure, built and graded on Day 1 -->
-<script src="/js/cm-drive.js?v=cm-2026.11.12-drive-grades"></script>
+<script src="/js/cm-drive.js"></script>
 <!-- 🛡 the Admin screen in sections, as Foundational Training: the section pills, their tabs, a navy banner (wraps renderAdmin last) -->
-<script src="/js/cm-admin-shell.js?v=5"></script>
-<script src="/js/cm-audit-table.js?v=2"></script>
-<script src="/js/lsh-topbar.js?v=2"></script>
-<script src="/js/lsh-one-screen.js?v=1"></script>
+<script src="/js/cm-admin-shell.js"></script>
+<script src="/js/cm-audit-table.js"></script>
+<script src="/js/lsh-topbar.js"></script>
+<script src="/js/lsh-one-screen.js"></script>
 </body>
 </html>

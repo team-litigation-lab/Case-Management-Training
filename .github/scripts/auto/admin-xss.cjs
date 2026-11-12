@@ -6,9 +6,9 @@
 //     onclick and the stars ("★".repeat of a rating outside 1 to 5 used to throw and blank the page);
 //   - the trainee's detail (Trainee Audit): a submitted file whose data URL tries to break out of its download link.
 // The Worker's own clean-up of new feedback is checked in worker-guards.cjs.
-// Usage: node .github/scripts/admin-xss.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
+// Usage: node .github/scripts/auto/admin-xss.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
-const signIn = require('./sign-in.cjs');
+const signIn = require('../sign-in.cjs');
 const BASE = process.argv[2] || 'http://localhost:8787/';
 const failures = []; const fail = (m) => failures.push(m);
 (async () => {
