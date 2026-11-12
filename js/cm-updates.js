@@ -48,7 +48,7 @@ window.EAPA_UPDATE_PACK = "z-cm";
   main:has(.lesson-stage){max-width:1880px;padding-left:24px;padding-right:24px;}
   .lesson-stage{padding:14px 16px;}
   .lesson-stage #lessonSlideWrap{padding-left:24px;padding-right:24px;}
-  .lesson-stage #lessonSlideWrap > *, .lesson-stage:fullscreen #lessonSlideWrap > *{max-width:1600px;}
+  .lesson-stage #lessonSlideWrap > *, .lesson-stage:fullscreen #lessonSlideWrap > *{max-width:none;}   /* the card takes the whole slide width */
 }
 /* Lesson page: the slide and its Previous / Next bar fit on one screen, and the slide takes the page's width (as on
    Foundational's decks): no column beside it. ⛶ Full screen sits in the Previous / Next bar; the presenter floats
@@ -58,8 +58,8 @@ window.EAPA_UPDATE_PACK = "z-cm";
   body:not(.ft-fit) main:has(> #lessonStage){display:block;padding-top:12px;}
   body:not(.ft-fit) main:has(> #lessonStage) > .day-head-compact, body:not(.ft-fit) main:has(> #lessonStage) > #navBackSlot:empty, body:not(.ft-fit) main:has(> #lessonStage) > .ls-top{display:none !important;}
   body:not(.ft-fit) main:has(> #lessonStage) > #lessonStage{margin:0;}
-  body:not(.ft-fit) main:has(> #lessonStage .cf-stage-card) > .cf-side-presenter{position:fixed !important;right:8px;bottom:0;width:clamp(120px, 8.5vw, 170px) !important;margin:0 !important;z-index:4;}
-  body:not(.ft-fit) #lessonStage:not(:fullscreen) > .slide-nav{margin-right:calc(clamp(120px, 8.5vw, 170px) - 24px) !important;}
+  body:not(.ft-fit) main:has(> #lessonStage .cf-stage-card) > .cf-side-presenter{position:fixed !important;right:8px;bottom:0;width:clamp(100px, 6.8vw, 135px) !important;margin:0 !important;z-index:4;}
+  body:not(.ft-fit) #lessonStage:not(:fullscreen) > .slide-nav{margin-right:calc(clamp(100px, 6.8vw, 135px) - 24px) !important;}
 }
 @media(max-width:999px){ #lessonStage > .slide-nav .nav-fs, #lessonStage > .slide-nav .nav-nextup{display:none !important;} }
 /* the Previous / Next bar, as Foundational's: ← Previous and ⛶ Full screen, the step (it opens the slide map), then
@@ -68,7 +68,7 @@ window.EAPA_UPDATE_PACK = "z-cm";
 #lessonStage > .slide-nav .nav-nextup{display:flex;flex-direction:column;justify-content:center;min-width:0;max-width:min(440px, 34vw);background:#1E2340;color:#fff;border-radius:10px;padding:5px 14px;line-height:1.2;}
 #lessonStage > .slide-nav .nav-nextup b{font:800 10.5px 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#F6C08F;}
 #lessonStage > .slide-nav .nav-nextup span{font:700 13.5px 'Inter',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-#audienceRoot .nav-fs, #audienceRoot .nav-nextup{display:none !important;}
+#audienceRoot .nav-fs, #audienceRoot .nav-pv, #audienceRoot .nav-nextup{display:none !important;}
 /* ================= SOP Reference: readable reference + live Present mode ================= */
 .sopx-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px;}
 .sopx-days{display:flex;gap:6px;flex-wrap:wrap;}
