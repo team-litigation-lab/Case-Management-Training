@@ -5619,7 +5619,10 @@ document.head.appendChild(st);
 .cfx-ready .cfx-lab-q > span{font-size:18px !important;} .cfx-ready .cfx-lab-q .o button{font-size:16.5px !important;}
 .cfx-agenda .cfx-ag-list li{justify-content:center !important;} .cfx-agenda .cfx-ag-list li > div{flex:0 1 auto !important;} .cfx-agenda .cfx-ag-list li > div,.cfx-agenda .cfx-ag-list li > div b{text-align:left !important;}   /* the agenda's topics, number and title together, centred in their boxes */
 .cfx-agenda .cfx-ag-side p{font-size:16.5px !important;} .cfx-agenda .cfx-ag-list li small{font-size:14px !important;}
-.cfx .cfx-model td,.cfx .cfx-model th,.cfx-model tbody td{font-size:16px !important;}
+.cfx .cfx-model td,.cfx .cfx-model th,.cfx-model tbody td{font-size:18px !important;font-weight:700 !important;color:#141A2E;line-height:1.45;}
+/* a model table's text bold, as the trainer asked: its header row and first column extra-bold, the caption bold and dark */
+.cfx .cfx-model th,.cfx-model thead th{font-weight:800 !important;color:#fff;} .cfx .cfx-model tbody td:first-child{font-weight:800 !important;}
+.cfx-model .cfx-caption{font-weight:800 !important;color:#1E2340 !important;font-size:21px !important;}
 .cfx .cfx-grade-c li{font-size:17px !important;}
 .cfx-agenda .cfx-ag-side p:not(.cfx-ag-day){font-size:17px !important;line-height:1.5 !important;}
 .cfx-agenda .cfx-ag-list li small{font-size:15px !important;} .cfx-agenda .cfx-ag-list li b{font-size:19px !important;}
@@ -5651,7 +5654,7 @@ body:not(.ft-fit) #lessonStage > .slide-nav{margin-top:8px !important;margin-bot
 .cfx .cfx-hero-text p,.cfx .cfx-hero-text h3{font-weight:800 !important;}
 .cfx .cfx-ev-body,.cfx .cfx-side .cfx-why span,.cfx .cfx-deliver span,.cfx .cfx-when p{font-weight:600 !important;}
 .cfx .cfx-dd li,.cfx .cfx-dd li span{font-weight:700 !important;}
-.cfx .cfx-model td,.cfx .cfx-model th{font-weight:600 !important;}`;
+.cfx .cfx-model td,.cfx .cfx-model th{font-weight:700 !important;} .cfx .cfx-model th,.cfx .cfx-model tbody td:first-child{font-weight:800 !important;}`;
   document.head.appendChild(st);
 })();
 
