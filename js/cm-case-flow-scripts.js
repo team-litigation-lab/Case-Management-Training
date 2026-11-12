@@ -58,7 +58,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• UPL: unauthorized practice of law, giving legal advice without a law license\n• It usually happens by accident, when a Case Manager tries to help a worried client\n• Facts are fine, like appointment times or when a letter was sent\n• Kind-sounding reassurance, like saying the gap won't matter, is still an opinion"
   },
   "rules": {
-   "say": "• Legal advice is any opinion on what John Doe's facts mean\n• Share facts and explain the process freely\n• Never give opinions on value, strategy, settling, or what a treatment gap does to the money\n• Test before speaking: am I telling him what is, or what it means\n• A guessed number anchors the client and makes fair offers feel like insults",
+   "say": "• Legal advice is any opinion on what John Doe's facts mean\n• Share facts and explain the process freely\n• Never give opinions on value, strategy, settling, or what a Treatment Gap does to the money\n• Test before speaking: am I telling him what is, or what it means\n• A guessed number anchors the client and makes fair offers feel like insults",
    "ask": "John Doe asks if his case is any good. What is your answer?"
   },
   "model": {
@@ -306,7 +306,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Date: 02/11/2026, CMS notice on file LSH-2026-MVA-770412\n• John Doe's Direction Packet was delivered and logged on 02/10/2026\n• Its directions are now draft task cards to review before they go live\n• Task card: a to-do that needs an owner, a due date and a way to verify it\n• Gaps: no treatment start recorded, no follow-up on the calendar; one card has the wrong owner"
   },
   "check": {
-   "say": "• Every direction has an owner, every task a due date and a verification method\n• Mis-assigned card reassigned to the firm, with the reason recorded\n• Treatment-start follow-up scheduled; nothing left undated\n• This follow-up is what catches a treatment gap early, which Day 2 picks up",
+   "say": "• Every direction has an owner, every task a due date and a verification method\n• Mis-assigned card reassigned to the firm, with the reason recorded\n• Treatment-start follow-up scheduled; nothing left undated\n• This follow-up is what catches a Treatment Gap early, which Day 2 picks up",
    "ask": "If his first appointment slipped, which task would tell you, and when?"
   }
  },
@@ -342,7 +342,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Coverage: is there money? Valid policies, coverage type, limits, exclusions, gaps\n• Liability: who is responsible and how much? Includes comparative negligence: the client sharing some blame\n• Projection: how will the case move? Draws on coverage, liability, injury, expected treatment, paperwork quality\n• Projection comes last because it depends on the other two"
   },
   "why": {
-   "say": "• The Case Plan is the file's instruction manual; Atty. Thorne sets strategy from it\n• Every later day of the course works from this plan\n• A plan that hides a risk builds the strategy on a false picture\n• Example: John Doe's 14-day treatment gap belongs in the plan; opinions about him or case value do not"
+   "say": "• The Case Plan is the file's instruction manual; Atty. Thorne sets strategy from it\n• Every later day of the course works from this plan\n• A plan that hides a risk builds the strategy on a false picture\n• Example: John Doe's 14-day Treatment Gap belongs in the plan; opinions about him or case value do not"
   },
   "rules": {
    "say": "• Decide acceptance: Accepted, Escalated or Declined, with a reason others can follow; no file left in limbo\n• Projection stays preliminary until coverage is confirmed; liability needs the Police Report, statements, any video\n• Hold a place for the Regulatory Triple-Check, cleared in the Treatment Phase\n• File the plan within the state's window, often 30 to 60 days, and calendar it\n• Every goal gets a measure, owner, date; flag bad facts loudly; value is Atty. Thorne's"
@@ -405,7 +405,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m4-emc": {
   "why": {
-   "say": "• PIP: the client's own insurance paying medical bills regardless of fault, written state by state\n• Florida's Emergency Medical Condition (EMC) rule decides early whether PIP pays $2,500, $10,000, or no medical\n• John Doe's file is in Riverton: add-on PIP, no EMC rule, so Harbor Point's $5,000 PIP isn't capped\n• On a Florida file, the clock starts at the date of loss; the Case Manager calendars it"
+   "say": "• PIP: the client's own insurance paying Medical Bills regardless of fault, written state by state\n• Florida's Emergency Medical Condition (EMC) rule decides early whether PIP pays $2,500, $10,000, or no medical\n• John Doe's file is in Riverton: add-on PIP, no EMC rule, so Harbor Point's $5,000 PIP isn't capped\n• On a Florida file, the clock starts at the date of loss; the Case Manager calendars it"
   },
   "rules": {
    "say": "• Florida PIP, Fla. Stat. 627.736: $10,000, paying 80% of reasonable medical and 60% of lost income\n• Initial care within 14 days of the accident, or PIP pays no medical\n• Full $10,000 only if an MD, DO, dentist, PA or APRN finds an EMC; otherwise capped at $2,500\n• EMC: injury serious enough that going without care could seriously harm health; chiropractors can't find one\n• Example: a 02/06/2026 Florida loss makes 02/20/2026 day 14; always confirm the current statute",
@@ -460,7 +460,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Self-Summary in own words, plus one scenario\n• 03/11/2026: Keystone hasn't confirmed its limit in writing; John Doe started treatment 14 days after the crash\n• Cover: three actions for today, in order, and what goes in the risks band\n• Every bill and lien check in the Treatment Phase reads from the stack verified now"
   },
   "scale": {
-   "say": "• Skill Scale: rate each skill 1 to 5 and submit; ratings compared with scores across Intake and Claim Set Up\n• Gate before the Treatment Phase: LORs sent and logged\n• Three-layer stack of BI, Host UM and Relative UM verified at $40,000\n• Treatment gap flagged; Case Plan routed to Atty. Thorne",
+   "say": "• Skill Scale: rate each skill 1 to 5 and submit; ratings compared with scores across Intake and Claim Set Up\n• Gate before the Treatment Phase: LORs sent and logged\n• Three-layer stack of BI, Host UM and Relative UM verified at $40,000\n• Treatment Gap flagged; Case Plan routed to Atty. Thorne",
    "ask": "Which of the four gate items are you least confident you've cleared?"
   }
  },
@@ -590,7 +590,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Set-off and non-duplication: some policies subtract what PIP or MedPay paid; verify in writing\n• Subrogation: a payer's right to be repaid from the settlement\n• Contract rate and write-off: in-network providers accept the Health Plan's price, so the lien is smaller\n• Medicare Secondary Payer: Medicare pays last, is repaid by law, case reported to the BCRC\n• Bill first the payer with no right to be repaid"
   },
   "frame": {
-   "say": "• BI liability: at-fault driver's, third-party, pays the injury claim\n• UM/UIM: client's side, through vehicle or household, pays when BI is too small; consent rules apply\n• PIP: from the vehicle the client rode in, pays medical bills without proving fault; verify repayment terms in writing\n• Health insurance: client's plan, contract rate, right to be repaid\n• Medicare and Medicaid: last, repaid by law, BCRC report"
+   "say": "• BI liability: at-fault driver's, third-party, pays the injury claim\n• UM/UIM: client's side, through vehicle or household, pays when BI is too small; consent rules apply\n• PIP: from the vehicle the client rode in, pays Medical Bills without proving fault; verify repayment terms in writing\n• Health insurance: client's plan, contract rate, right to be repaid\n• Medicare and Medicaid: last, repaid by law, BCRC report"
   },
   "why": {
    "say": "• There is no such thing as full coverage; every policy pays a different thing\n• Keep two questions separate: who pays the bills now, and who pays the claim later\n• Payer-First Principle: each bill goes to the payer that must pay it first\n• Right order: a bill is paid once; wrong order: it returns as a lien, paid from John Doe's settlement"

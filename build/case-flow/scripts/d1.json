@@ -78,7 +78,7 @@
   },
   "d1m4-l1": {
     "why": {
-      "say": "• The Case Plan is the file's instruction manual; Atty. Thorne sets strategy from it\n• Every later day of the course works from this plan\n• A plan that hides a risk builds the strategy on a false picture\n• Example: John Doe's 14-day treatment gap belongs in the plan; opinions about him or case value do not"
+      "say": "• The Case Plan is the file's instruction manual; Atty. Thorne sets strategy from it\n• Every later day of the course works from this plan\n• A plan that hides a risk builds the strategy on a false picture\n• Example: John Doe's 14-day Treatment Gap belongs in the plan; opinions about him or case value do not"
     },
     "theory": {
       "say": "• Early evaluation answers three questions: is there money, who is responsible, how will the case move\n• Coverage determination: which policies apply, their benefits, limits and exclusions\n• Liability assessment: who caused the crash; clear, shared or disputed; on what evidence\n• Case projection: early read on risk and direction; case value always stays with the attorney\n• Strict compliance: every plan deadline goes on the calendar"
@@ -190,7 +190,7 @@
       "say": "• Turn each onboarding direction into a tracked task in CMS Tasks\n• Set owner, due date and verification method for every task\n• Find the card wrongly assigned to the client, reassign it to the firm, and record why\n• Schedule the follow-up that confirms treatment has started\n• Strong example: confirm first therapy visit, owner Case Manager, due in three days, verify by calling the clinic"
     },
     "check": {
-      "say": "• Every direction has an owner, every task a due date and a verification method\n• Mis-assigned card reassigned to the firm, with the reason recorded\n• Treatment-start follow-up scheduled; nothing left undated\n• This follow-up is what catches a treatment gap early, which Day 2 picks up",
+      "say": "• Every direction has an owner, every task a due date and a verification method\n• Mis-assigned card reassigned to the firm, with the reason recorded\n• Treatment-start follow-up scheduled; nothing left undated\n• This follow-up is what catches a Treatment Gap early, which Day 2 picks up",
       "ask": "If his first appointment slipped, which task would tell you, and when?"
     }
   },
@@ -229,7 +229,7 @@
       "say": "• Set-off and non-duplication: some policies subtract what PIP or MedPay paid; verify in writing\n• Subrogation: a payer's right to be repaid from the settlement\n• Contract rate and write-off: in-network providers accept the Health Plan's price, so the lien is smaller\n• Medicare Secondary Payer: Medicare pays last, is repaid by law, case reported to the BCRC\n• Bill first the payer with no right to be repaid"
     },
     "frame": {
-      "say": "• BI liability: at-fault driver's, third-party, pays the injury claim\n• UM/UIM: client's side, through vehicle or household, pays when BI is too small; consent rules apply\n• PIP: from the vehicle the client rode in, pays medical bills without proving fault; verify repayment terms in writing\n• Health insurance: client's plan, contract rate, right to be repaid\n• Medicare and Medicaid: last, repaid by law, BCRC report"
+      "say": "• BI liability: at-fault driver's, third-party, pays the injury claim\n• UM/UIM: client's side, through vehicle or household, pays when BI is too small; consent rules apply\n• PIP: from the vehicle the client rode in, pays Medical Bills without proving fault; verify repayment terms in writing\n• Health insurance: client's plan, contract rate, right to be repaid\n• Medicare and Medicaid: last, repaid by law, BCRC report"
     },
     "rules": {
       "say": "• By whose: Keystone BI and PD are Robert Smith's; Host UM, Relative UM, PIP are John's side; Peach State: his Health Plan\n• Sort by what it pays: only BI and UM make the $40,000 stack; Harbor Point PIP $5,000 pays bills\n• Host UM: occupant of Kevin Alvarez's Escape; Relative UM: Margaret Doe's resident relative\n• Bill order: PIP (no repayment right, confirmed 03/02/2026), Health Plan, then Letter of Protection"
@@ -465,7 +465,7 @@
       "say": "• Self-Summary in own words, plus one scenario\n• 03/11/2026: Keystone hasn't confirmed its limit in writing; John Doe started treatment 14 days after the crash\n• Cover: three actions for today, in order, and what goes in the risks band\n• Every bill and lien check in the Treatment Phase reads from the stack verified now"
     },
     "scale": {
-      "say": "• Skill Scale: rate each skill 1 to 5 and submit; ratings compared with scores across Intake and Claim Set Up\n• Gate before the Treatment Phase: LORs sent and logged\n• Three-layer stack of BI, Host UM and Relative UM verified at $40,000\n• Treatment gap flagged; Case Plan routed to Atty. Thorne",
+      "say": "• Skill Scale: rate each skill 1 to 5 and submit; ratings compared with scores across Intake and Claim Set Up\n• Gate before the Treatment Phase: LORs sent and logged\n• Three-layer stack of BI, Host UM and Relative UM verified at $40,000\n• Treatment Gap flagged; Case Plan routed to Atty. Thorne",
       "ask": "Which of the four gate items are you least confident you've cleared?"
     }
   },
@@ -477,7 +477,7 @@
       "say": "• Fact sharing: telling John Doe what a record says, like a date, an amount, what was sent\n• Process explanation: what happens next, what a form is for, who decides, never how it ends\n• Legal advice: any opinion on what his facts mean for rights, money or choices; Atty. Thorne only\n• Hear, log, route: write his question word for word, send to Atty. Thorne same day, give a time frame"
     },
     "rules": {
-      "say": "• Legal advice is any opinion on what John Doe's facts mean\n• Share facts and explain the process freely\n• Never give opinions on value, strategy, settling, or what a treatment gap does to the money\n• Test before speaking: am I telling him what is, or what it means\n• A guessed number anchors the client and makes fair offers feel like insults",
+      "say": "• Legal advice is any opinion on what John Doe's facts mean\n• Share facts and explain the process freely\n• Never give opinions on value, strategy, settling, or what a Treatment Gap does to the money\n• Test before speaking: am I telling him what is, or what it means\n• A guessed number anchors the client and makes fair offers feel like insults",
       "ask": "John Doe asks if his case is any good. What is your answer?"
     },
     "model": {
@@ -577,7 +577,7 @@
   },
   "d1m4-emc": {
     "why": {
-      "say": "• PIP: the client's own insurance paying medical bills regardless of fault, written state by state\n• Florida's Emergency Medical Condition (EMC) rule decides early whether PIP pays $2,500, $10,000, or no medical\n• John Doe's file is in Riverton: add-on PIP, no EMC rule, so Harbor Point's $5,000 PIP isn't capped\n• On a Florida file, the clock starts at the date of loss; the Case Manager calendars it"
+      "say": "• PIP: the client's own insurance paying Medical Bills regardless of fault, written state by state\n• Florida's Emergency Medical Condition (EMC) rule decides early whether PIP pays $2,500, $10,000, or no medical\n• John Doe's file is in Riverton: add-on PIP, no EMC rule, so Harbor Point's $5,000 PIP isn't capped\n• On a Florida file, the clock starts at the date of loss; the Case Manager calendars it"
     },
     "rules": {
       "say": "• Florida PIP, Fla. Stat. 627.736: $10,000, paying 80% of reasonable medical and 60% of lost income\n• Initial care within 14 days of the accident, or PIP pays no medical\n• Full $10,000 only if an MD, DO, dentist, PA or APRN finds an EMC; otherwise capped at $2,500\n• EMC: injury serious enough that going without care could seriously harm health; chiropractors can't find one\n• Example: a 02/06/2026 Florida loss makes 02/20/2026 day 14; always confirm the current statute",
