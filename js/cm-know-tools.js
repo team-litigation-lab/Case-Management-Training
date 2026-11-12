@@ -157,6 +157,14 @@ html body .dash-main > .dash-side .stat .lbl,html body .dash-main > .dash-side .
   html body .dash-side .stat .lbl span{font-size:10.5px;font-weight:500 !important;}
   html body .dash-side .tfb-dash .sub,html body .dash-side .rank-card .sub,html body .dash-side .comp-card .sub,html body .dash-side .cert-dash .sub{font-size:11.5px;}
 }
+/* Blue: the Know Your Tools card and the scores band, in the course's navy with white text */
+html body .kt-card{background:linear-gradient(135deg,#1E2340 0%,#343C66 100%) !important;border-color:#2C335A !important;border-left-color:#DB8437 !important;}
+html body .kt-card b{color:#fff !important;} html body .kt-card small{color:#D9DCEA !important;}
+html body .dash-main > .dash-side{background:linear-gradient(135deg,#1E2340 0%,#343C66 100%) !important;border-color:#2C335A !important;}
+html body .dash-main > .dash-side .card{background:rgba(255,255,255,.08) !important;border-color:rgba(255,255,255,.18) !important;color:#fff !important;}
+html body .dash-main > .dash-side .stat .num, html body .dash-main > .dash-side .card .num{color:#fff !important;}
+html body .dash-main > .dash-side .stat .lbl, html body .dash-main > .dash-side .card .sub, html body .dash-main > .dash-side .stat .lbl span, html body .dash-main > .dash-side .card .lbl{color:#C9CCDD !important;}
+html body .dash-main > .dash-side .tfb-dash{background:rgba(219,132,55,.22) !important;border-color:rgba(240,192,138,.55) !important;}
 .kt-modal{position:fixed;inset:0;z-index:2147482500;background:rgba(15,20,40,.6);display:flex;align-items:center;justify-content:center;padding:16px;}
 .kt-box{background:#fff;color:#141A2E;border-radius:18px;padding:24px 26px;max-width:720px;width:100%;border-top:6px solid #DB8437;}
 .kt-box h3{margin:0 0 6px;font:800 24px 'Poppins','Inter',sans-serif;color:#1E2340;} .kt-box p{margin:0 0 14px;font:600 16px/1.5 'Inter',sans-serif;}
