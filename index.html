@@ -11582,7 +11582,7 @@ function renderAdmin(){
   // 🛡 Admin Master Control: what a trainer DOES (approvals, resets, revoking, assigning, the settings); the 📋 Batch Sheet only shows scores
   if(tab==="traineeaudit") return tabBar + renderAdminSecurityNote() + (typeof renderAdminTraineeAudit==="function" ? renderAdminTraineeAudit() : renderAuditBatchView());
   if(tab==="companion") return tabBar + (window.cmCompanion && typeof cmCompanion.adminPage==="function" ? cmCompanion.adminPage() : "");
-  if(tab==="settings") return tabBar + `<p class="eyebrow">Admin</p><h1 style="color:var(--navy);font-size:26px;margin:6px 0 14px;">⚙ Settings</h1>` + renderTraineesAndBatches();
+  if(tab==="settings") return tabBar + `<p class="eyebrow">Admin</p><h1 style="color:var(--navy);font-size:26px;margin:6px 0 14px;">Settings</h1>` + renderTraineesAndBatches();
   return tabBar + renderAdminSecurityNote() + (typeof renderAdminBatchSheet==="function" ? renderAdminBatchSheet() : "");
 }
 /* 👥 Trainees & Batches, at the foot of the 📋 Batch Sheet (as in Foundational Training): what a trainer DOES — approvals,
