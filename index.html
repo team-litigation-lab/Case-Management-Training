@@ -3760,6 +3760,8 @@ async function loadAll(){
 
 /* ---------- helpers ---------- */
 function esc(s){ return (s+"").replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+// A stored file's download link: only a real base64 data: URL, never markup or a javascript: link.
+const safeDataUrl = (u)=> /^data:[a-z0-9.+\/-]+(;[a-z0-9=.+-]+)*;base64,[a-z0-9+\/=\s]+$/i.test(String(u||"")) ? String(u) : "";
 
 async function callAIText(prompt, maxTokens, timeoutMs, feature){
   // Retry rate-limit / overload / transient server errors with backoff.
@@ -11440,13 +11442,20 @@ function tfbExportCsv(){
   saveBlob(blob, "LSH_trainee_feedback.csv");
 }
 Object.assign(window, {tfbSetStatus, tfbExportCsv, loadTraineeFeedbackAdmin});
+// A feedback record is the trainee's own writing: every field is escaped or narrowed to what it can be (the Worker
+// rebuilds new ones the same way; this also covers records saved before it did).
+const TFB_STATUSES = ["new","acknowledged","actioned"];
+const tfbStarCount = (v)=> Math.max(0, Math.min(5, Math.round(Number(v)) || 0));
 function tfbItemCard(x){
-  return `<div class="card tfb-item ${x.status||"new"}">
-      <div class="tfb-item-head"><b>${esc(x.name||"Trainee")}</b>${x.batch?` · Batch ${esc(batchShow(x.batch))}`:""} · ${x.dayId?`Day ${x.dayId}`:"Program overall"} · <span>${new Date(x.at).toLocaleString()}</span>
-        <span class="studio-badge ${x.status==="actioned"?"published":""}">${esc(x.status||"new")}</span></div>
-      <div class="tfb-item-ratings">${TFB_AREAS.filter(a=>x.ratings&&x.ratings[a.id]).map(a=>`<span>${a.icon} ${esc(a.label)}: <b>${"★".repeat(x.ratings[a.id])}${"☆".repeat(5-x.ratings[a.id])}</b></span>`).join("")}</div>
+  const status = TFB_STATUSES.includes(x.status) ? x.status : "new";
+  const day = parseInt(x.dayId, 10) || 0;
+  const when = isNaN(new Date(x.at)) ? "" : new Date(x.at).toLocaleString();
+  return `<div class="card tfb-item ${status}">
+      <div class="tfb-item-head"><b>${esc(x.name||"Trainee")}</b>${x.batch?` · Batch ${esc(batchShow(x.batch))}`:""} · ${day?`Day ${day}`:"Program overall"} · <span>${esc(when)}</span>
+        <span class="studio-badge ${status==="actioned"?"published":""}">${status}</span></div>
+      <div class="tfb-item-ratings">${TFB_AREAS.filter(a=>x.ratings&&tfbStarCount(x.ratings[a.id])).map(a=>`<span>${a.icon} ${esc(a.label)}: <b>${"★".repeat(tfbStarCount(x.ratings[a.id]))}${"☆".repeat(5-tfbStarCount(x.ratings[a.id]))}</b></span>`).join("")}</div>
       ${x.good?`<p><b>Worked well:</b> ${esc(x.good)}</p>`:""}${x.improve?`<p><b>Improve:</b> ${esc(x.improve)}</p>`:""}${x.facilitator?`<p><b>For facilitator:</b> ${esc(x.facilitator)}</p>`:""}
-      <div class="studio-actions">${["acknowledged","actioned"].filter(s=>s!==x.status).map(s=>`<button class="btn btn-ghost btn-sm" onclick="tfbSetStatus('${x.id}','${s}')">Mark ${s}</button>`).join("")}</div>
+      <div class="studio-actions">${["acknowledged","actioned"].filter(s=>s!==status).map(s=>`<button class="btn btn-ghost btn-sm" onclick="tfbSetStatus(${esc(JSON.stringify(String(x.id||"")))},'${s}')">Mark ${s}</button>`).join("")}</div>
     </div>`;
 }
 function renderAdminTraineeFeedback(){
@@ -12595,7 +12604,7 @@ function renderAdminDetail(rec){
         ${subs.map(s=>`
           <div style="display:flex;justify-content:space-between;align-items:center;font-size:12.5px;padding:6px 0;border-bottom:1px dashed var(--line);">
             <span>📎 ${esc(s.fileName)} <span style="color:var(--ink-soft);">— ${esc(s.toolTitle)} · ${(s.fileSize/1024).toFixed(0)}KB · ${fmtDate(s.submittedAt)}</span></span>
-            ${s.stored && s.dataUrl ? `<a href="${s.dataUrl}" download="${esc(s.fileName)}" class="btn btn-sm btn-ghost">Download</a>` : `<span style="color:var(--ink-soft);font-size:11px;">Too large to store — filename on record only</span>`}
+            ${s.stored && safeDataUrl(s.dataUrl) ? `<a href="${esc(safeDataUrl(s.dataUrl))}" download="${esc(s.fileName)}" class="btn btn-sm btn-ghost">Download</a>` : `<span style="color:var(--ink-soft);font-size:11px;">Too large to store — filename on record only</span>`}
           </div>`).join("")}
       </div>` : ""}
       ${renderAdminFilingPanel(rec)}
@@ -16101,7 +16110,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-data.js?v=62"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=3"></script>
-<script src="/js/cm-case-flow.js?v=129"></script>
+<script src="/js/cm-case-flow.js?v=130"></script>
 <!-- 🏅 the Scorecard (as in Foundational Training): My Performance for trainees, Scorecards for trainers -->
 <script src="/js/cm-scorecard.js?v=9"></script>
 <script src="/js/cm-batch-sheet.js?v=8"></script>

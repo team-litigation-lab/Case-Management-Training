@@ -5488,8 +5488,17 @@ document.head.appendChild(st);
 .cfx .cfx-step span{font-size:19px;font-weight:600;}
 .cfx .cfx-dd li{font-size:21px;font-weight:600;}
 .cfx .cfx-dd h3{font-size:24px;}
-.cfx .cfx-fw-flow li span, .cfx .cfx-fw-list span, .cfx .cfx-fw-tbl td{font-size:18px;font-weight:600;color:#141A2E;}
-.cfx .cfx-fw-flow li b, .cfx .cfx-fw-list b{font-size:18.5px;font-weight:800;color:#1E2340;}
+.cfx .cfx-fw-list span, .cfx .cfx-fw-tbl td{font-size:18px;font-weight:600;color:#141A2E;}
+.cfx .cfx-fw-list b{font-size:18.5px;font-weight:800;color:#1E2340;}
+/* the flow (The General Process and every step-by-step track): big, bold type, and the step number white on its navy
+   badge (it is a span too, so it used to take the description's near-black and vanish into the badge) */
+.cfx .cfx-fw-flow li{padding:16px 14px 16px;gap:8px;}
+.cfx .cfx-fw-flow li b{font-size:23px;font-weight:800;line-height:1.2;color:#1E2340;}
+/* six steps or more: the longest single words ("Documentation", "Communication") still fit their card at 1280×720 */
+.cfx .cfx-fw-flow[style*="--n:6"] li b, .cfx .cfx-fw-flow[style*="--n:7"] li b, .cfx .cfx-fw-flow[style*="--n:8"] li b{font-size:19.5px;}
+.cfx .cfx-fw-flow li span:last-child{font-size:20px;font-weight:700;line-height:1.35;color:#141A2E;}
+.cfx .cfx-fw-flow li .cfx-fw-n{width:36px;height:36px;font-size:17px;font-weight:800;color:#fff;background:#262B45;}
+@media(min-width:761px){.cfx .cfx-fw-flow li:not(:last-child)::after{font-size:20px;right:-17px;}}
 .cfx .cfx-doc-c p, .cfx .cfx-doc-c li, .cfx .cfx-grade-c li{font-size:18px;font-weight:600;color:#141A2E;}
 .cfx .cfx-upl span{font-weight:700;}
 .cfx .cfx-situation{font-weight:600;color:#141A2E;}
