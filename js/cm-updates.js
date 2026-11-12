@@ -1410,7 +1410,7 @@ window.renderMeetClientTrainerGuide = function(){
         start.insertAdjacentHTML("beforebegin", `<div class="mc-progress"><span>Slides <b>${far > 0 ? seen : 0}%</b></span>${scored ? `<span>Knowledge Check <b>${prog.score}%</b> · 70% to pass</span>` : ""}</div>`);
       }
     }
-    if(n && start) start.insertAdjacentHTML("afterend", `<button type="button" class="btn btn-ghost btn-sm module-finish-btn module-topics-btn" onclick="event.stopPropagation(); showDayTopics(${d.id})">☰ Topics <span>· ${n}</span></button>`);
+    // (no ☰ Topics button: 🗺 Roadmap lists every day's topics)
     card.classList.add("mc-clean");
     return card.outerHTML;
   };

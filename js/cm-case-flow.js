@@ -83,7 +83,8 @@ SEQUENCE.forEach(seq => {
     // What this run of blocks is. Most are stages of the case (a lesson's title is just "Demand"), but some are
     // cross-phase work the Case Manager does throughout (bottlenecks, binders, deposition prep): calling
     // those a Case Phase is simply wrong, so a phase may name its own lead in CF.sequence.
-    const phase = {n: pi + 1, of: seq.phases.length, title: ph.title, lead: ph.lead || "Case Phase", count: ph.blocks.length, lane: ph.workstream || ""};
+    const phase = {n: pi + 1, of: seq.phases.length, title: ph.title, lead: ph.lead || "Case Phase", count: ph.blocks.length, lane: ph.workstream || "",
+      num: seq.phases.length > 1 ? pi + 1 : day.n};   // a topic's number: Day 2's topics are 2.1, 2.2 … (the phase's number when a day has several)
     phases.push(phase);
     ph.blocks.forEach((id, k) => {
       const at = STORED[id];
@@ -95,7 +96,7 @@ SEQUENCE.forEach(seq => {
         ? {corePrinciples: [b.act.scenario, b.act.prompt], howTo: b.act.checkpoints}
         : {corePrinciples: b.check.questions, howTo: b.check.summary};
       lessons.push(Object.assign({
-        h: `${phase.n}.${k + 1} ${b.title}`,
+        h: `${phase.num}.${k + 1} ${b.title}`,
         fourPart: Object.assign(fp, {bestPractices: b.best || [], discussionCase: ""}),
         trainerCue: (b.notes || [])[0] || "",
         cf: {day, mod, block: b, k, phase, lane: (ph.lanes || {})[id] || phase.lane,   // day: where it is taught; mod: its unit of scoring; lane: its workstream
@@ -1015,7 +1016,7 @@ function card(l, i, d, part){
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title" title="${E(l.cf.heading)}">${E(l.cf.heading)}</h2></div>
       <div class="cfx-ribbon"><span title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span></div>
       <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}</span>
-        <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.n}.${k + 1} · ${E(KIND[b.kind])}</span>${timeChip(l, d, view)}
+        <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.num || phase.n}.${k + 1} · ${E(KIND[b.kind])}</span>${timeChip(l, d, view)}
         ${view === "task" && isTrainer() && !inAudience() && injectsOf(b).length ? `<button type="button" class="cfx-inject" onclick="cmCaseFlow.inject(${d.id},${i})" title="Trainer only: a real-time task to inject while the room works this one">⚡ Inject: ${E(injectsOf(b).map(x => x.short).join(" · "))}</button>` : ""}
         <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Additional Reference</button></div>
       <div class="cfx-body${onNavy ? " cfx-body-navy" : ""}">${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}</div>
