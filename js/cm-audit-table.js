@@ -65,7 +65,7 @@ const NEEDS = [
   ["towrite", "💬 Feedback to write", x => x.a.loaded && x.a.toWrite.length > 0],
   ["below", "📉 Below 70%", x => x.a.loaded && x.a.kcBelow.length > 0],
   ["missed", "🎲 Missed a task", x => x.a.loaded && x.a.tasksMissed > 0],
-  ["drive", "📂 Drive issue", x => x.drive.issue],
+  ["drive", "📂 Drive issue", x => x.status === "active" && x.drive.issue],
   ["nocase", "📁 No companion case", x => x.status === "active" && !x.caseTitle]
 ];
 const STATUS_OPTS = [["current", "Current (active + pending)"], ["active", "Active"], ["pending", "⏳ Pending"], ["rejected", "Rejected"], ["archived", "Archived"], ["all", "All"]];
@@ -200,6 +200,8 @@ renderAdminRows = window.renderAdminRows = function(){
   if(state.adminData.length && state.adminData.some(r => !state.auditExtra[r.id] || Date.now() - state.auditExtra[r.id].at > 60000)) setTimeout(() => loadAuditExtras(), 0);
   if(state.adminData.length && !state.driveReportsLoading && (!state.driveReportsAt || Date.now() - state.driveReportsAt > 60000)) setTimeout(() => loadDriveReports(), 0);
   setTimeout(sizeScroller, 0);
+  // the "Needs attention" counts follow the rows: a partial redraw (the progress loads a moment later) updates them too
+  setTimeout(() => { const n = document.getElementById("atNeeds"); if(n) n.innerHTML = needsHtml(); }, 0);
   return tableHtml();
 };
 
@@ -212,9 +214,6 @@ function toolbarHtml(){
   if(state.adminBatchFilter && !keys.includes(state.adminBatchFilter)) state.adminBatchFilter = "";
   const cur = state.adminBatchFilter || "", st = statusFilter(), all = state.adminData || [];
   const inBatch = k => all.filter(r => batchKey(r) === k);
-  const base = baseRows();
-  const chips = NEEDS.map(([key, label, f]) => { const n = base.filter(f).length; const on = state.auditNeed === key;
-    return n || on ? `<button type="button" class="at-chip${on ? " on" : ""}" aria-pressed="${on}" onclick="cmAudit.need('${key}')">${label} <b>${n}</b></button>` : ""; }).join("");
   const batchTools = cur ? (() => {
     const live = inBatch(cur).filter(r => !r.archived).length, arch = inBatch(cur).filter(r => r.archived).length;
     const fbN = typeof batchFeedback === "function" && state.tfbAdmin && !state.tfbAdmin.loading ? batchFeedback(cur).length : null;
@@ -231,7 +230,13 @@ function toolbarHtml(){
       ${state.adminSearch || state.auditNeed || state.auditDay || cur || st !== "current" ? `<button class="btn btn-sm btn-ghost at-clear" onclick="cmAudit.clear()">✕ Clear filters</button>` : ""}
       ${batchTools ? `<div class="at-batch-tools">${batchTools}</div>` : ""}
     </div>
-    ${chips ? `<div class="at-needs"><span class="at-needs-l">Needs attention:</span>${chips}</div>` : ""}`;
+    <div id="atNeeds">${needsHtml()}</div>`;
+}
+function needsHtml(){
+  const base = baseRows();
+  const chips = NEEDS.map(([key, label, f]) => { const n = base.filter(f).length; const on = state.auditNeed === key;
+    return n || on ? `<button type="button" class="at-chip${on ? " on" : ""}" aria-pressed="${on}" onclick="cmAudit.need('${key}')">${label} <b>${n}</b></button>` : ""; }).join("");
+  return chips ? `<div class="at-needs"><span class="at-needs-l">Needs attention:</span>${chips}</div>` : "";
 }
 function cohortChips(){
   const rs = (state.adminData || []).filter(r => !r.archived), n = rs.length;
@@ -250,7 +255,7 @@ renderAuditBatchView = window.renderAuditBatchView = function(){
   let fbPanel = "";
   if(state.adminBatchFilter && state.auditBatchFb && typeof renderBatchFolderBody === "function"){
     const keep = state.batchSub; state.batchFolder = state.adminBatchFilter; state.batchSub = "feedback"; state.batchShowArchived = statusFilter() === "all" || statusFilter() === "archived";
-    try{ fbPanel = `<div class="card at-fb"><div class="at-fb-h"><b>💬 ${E(folderLabel(state.adminBatchFilter))}: what the trainees said about the training</b><button class="btn btn-sm btn-ghost" onclick="cmAudit.batchFb()">✕ Close</button></div><div id="batchFolderBody">${renderBatchFolderBody()}</div></div>`; }
+    try{ fbPanel = `<div class="card at-fb"><div class="at-fb-h"><b>💬 ${E(folderLabel(state.adminBatchFilter))}: what the trainees said about the training</b><button class="btn btn-sm btn-ghost" onclick="cmAudit.batchFb()">✕ Close</button></div><div id="atBatchFbBody">${renderBatchFolderBody()}</div></div>`; }
     finally{ state.batchSub = keep; }
   }
   return `<div class="at-wrap" id="cmAuditTable">${toolbarHtml()}${fbPanel}<div class="at-scroll" id="atScroll"><div id="adminRowsWrap">${renderAdminRows()}</div></div></div>`;
@@ -368,7 +373,7 @@ document.addEventListener("scroll", e => { if(MENU.id && Date.now() - (MENU.at |
 async function archive(id, on){
   const rec = await sharedGet("trainee:" + id); if(!rec){ toast("Couldn't load that trainee: refresh and try again."); return; }
   const who = nameOf(rec);
-  if(on && !confirm(`Archive ${who}? They're hidden from the current list, Rankings and the batch, but every record is kept. Pick Status: Archived to see them again.`)) return;
+  if(on && !confirm(`Archive ${who}? Every record is kept, but they're hidden from the current list, Rankings and the batch, and they can't check in, open the training from the Portal or record a certificate until you restore them (Status: Archived, then ⋯ → ↩ Restore trainee).`)) return;
   rec.archived = !!on;
   if(!(await sharedSet("trainee:" + id, rec))){ toast("Not saved: check your connection and try again."); return; }
   const i = (state.adminData || []).findIndex(r => r.id === id); if(i !== -1) state.adminData[i] = rec;

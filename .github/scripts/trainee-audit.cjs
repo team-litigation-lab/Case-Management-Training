@@ -5,8 +5,8 @@
 // 2. the old scattered pieces are gone: the stat tiles, the Pending Approvals panel, the batch folder cards and
 //    sub-tabs, the old filter bar and the row's loose buttons (View Detail, ✍ Feedback, 🎓 Certificate, ↺ Reset, Revoke);
 //    the settings (signatories, feedback auto-draft, 🎲 Random Task Injection) are folded into one ⚙ section, still there;
-// 3. one filter bar: search by name or ID, Batch, Status (Archived / Rejected / All), Needs attention chips; a column's
-//    header sorts it;
+// 3. one filter bar: search by name or ID, Batch, Status (Archived / Rejected / All), Needs attention chips (their counts
+//    follow the progress as it loads); 💬 Batch feedback stays put when the progress reloads; a column's header sorts it;
 // 4. ⋯ holds every action and each one works: assign a companion case (js/cm-companion.js's picker), reset Skill Builder
 //    attempts, archive and restore the trainee, reject, approve, revoke; 👁 Detail opens the full record under the row;
 //    ⬇ Download CSV gives the table;
@@ -71,6 +71,15 @@ const T = {
     if (page1.stat || page1.pendPanel || page1.cards || page1.sub || page1.oldSearch || page1.strips) fail(`old pieces still on the page: ${JSON.stringify(page1)}`);
     if (page1.sets.length) fail(`settings missing from the ⚙ fold: ${page1.sets.join(', ')}`);
     if (page1.wraps !== 1 || !page1.table) fail(`renderAdminRows should draw the table into the one #adminRowsWrap: ${JSON.stringify(page1)}`);
+
+    // the "Needs attention" counts follow the progress that loads after the page is drawn (a partial redraw)
+    await page.evaluate(() => { state.auditExtra = {}; render(); }); await page.waitForTimeout(1800);
+    if (!(await page.locator('.at-chip:has-text("Below 70%")').count())) fail('the "📉 Below 70%" chip should appear once the progress loads, without a full redraw');
+    // 💬 Batch feedback stays the batch's feedback when the progress reloads (it isn't swapped for the old registry rows)
+    await page.click('button:has-text("Batch feedback")'); await page.waitForSelector('.at-fb');
+    await page.evaluate(() => loadAuditExtras(true)); await page.waitForTimeout(1200);
+    if (await page.locator('.at-fb .audit-row').count()) fail('the 💬 Batch feedback panel turned into the old registry rows after the progress reloaded');
+    await page.click('.at-fb button:has-text("Close")'); await page.waitForTimeout(200);
 
     // 3. filters and sorting
     await page.fill('#atSearch', T.zed.id); await page.waitForTimeout(200);
