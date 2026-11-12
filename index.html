@@ -11463,11 +11463,12 @@ function renderAdmin(){
   if(state.adminTab==="cues") state.adminTab = "audit";   // the trainer's scripts are read and edited in Presenter view
   // Batch Folders live inside the Trainee Audit now: an old link to the tab opens the audit on that batch
   if(state.adminTab==="batches"){ state.adminTab = "audit"; if(state.batchFolder) state.adminBatchFilter = state.batchFolder; }
+  // 📋 the Batch Sheet (js/cm-batch-sheet.js) is the 'audit' tab: its 🏅 Scores rank every trainee, so Rankings opens it
+  if(state.adminTab==="rankings" || state.adminTab==="batchsheet") state.adminTab = "audit";
   const tab = state.adminTab || "audit";
   const tabBar = `
     <div class="admin-tabs" style="display:flex;gap:8px;margin-bottom:20px;border-bottom:1px solid var(--line);">
-      <button class="admin-tab-btn ${tab==='audit'?'active':''}" onclick="setAdminTab('audit')">Trainee Audit</button>
-      <button class="admin-tab-btn ${tab==='rankings'?'active':''}" onclick="setAdminTab('rankings')">Rankings</button>
+      <button class="admin-tab-btn ${tab==='audit'?'active':''}" onclick="setAdminTab('audit')">📋 Batch Sheet</button>
       <button class="admin-tab-btn ${tab==='sop'?'active':''}" onclick="setAdminTab('sop')">SOP Reference</button>
       <button class="admin-tab-btn ${tab==='studio'?'active':''}" onclick="setAdminTab('studio')">Content Studio</button>
       <button class="admin-tab-btn ${tab==='tfeedback'?'active':''}" onclick="setAdminTab('tfeedback')">Trainee Feedback</button>
@@ -11483,34 +11484,26 @@ function renderAdmin(){
   if(tab==="sop") return tabBar + renderAdminSOP();
   if(tab==="studio") return tabBar + renderAdminStudio();
   if(tab==="tfeedback") return tabBar + renderAdminTraineeFeedback();
-  if(tab==="rankings") return tabBar + renderAdminRankings();
 
   if(state.adminLoading || !state.adminData){
     return tabBar + `<div class="card" style="padding:40px;text-align:center;color:var(--ink-soft);">Loading trainee ledger…</div>`;
   }
 
+  return tabBar + (typeof renderAdminBatchSheet==="function" ? renderAdminBatchSheet() : "") + renderTraineesAndBatches();
+}
+/* 👥 Trainees & Batches, at the foot of the 📋 Batch Sheet (as in Foundational Training): what a trainer DOES — approvals,
+   each trainee's actions, archiving, the folded settings. Their progress and scores are the sheet's tables above. */
+function renderTraineesAndBatches(){
   const sort = state.adminSort || "completion_desc";
-
-  const totalTrainees = state.adminData.length;
-  const avgCompletion = totalTrainees ? Math.round(state.adminData.reduce((a,r)=>a+adminDayStats(r).done,0)/totalTrainees/DAYS.length*100) : 0;
-  const avgScoreAll = (()=>{
-    const all = state.adminData.flatMap(r=>Object.values(r.dayProgress||{}).filter(p=>p&&typeof p.score==="number").map(p=>p.score));
-    return all.length ? Math.round(all.reduce((a,b)=>a+b,0)/all.length) : 0;
-  })();
-  const fullyDone = state.adminData.filter(r=>adminDayStats(r).done===DAYS.length).length;
-
-  return tabBar + `
+  return `
+    <section class="bs-people" id="bs-people">
     <div class="audit-page-head" style="display:flex;gap:12px 16px;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;">
-      <div>
-        <p class="eyebrow">Admin Dashboard</p>
-        <h1 style="color:var(--navy);font-size:26px;margin:6px 0 4px;">Trainee Audit</h1>
-      </div>
+      <h2>👥 Trainees &amp; Batches</h2>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
         <button class="btn btn-ghost btn-sm" onclick="adminLogout()">Log out</button>
       </div>
     </div>
-    <p style="color:var(--ink-soft);font-size:13px;max-width:70ch;margin:0 0 20px;">Every trainee's registration, exact progress, Knowledge Checks, Skill Builders and your day-by-day feedback — refreshed automatically every 30 seconds.</p>
-
+    <p class="bs-people-sub">Approve new trainees, act on each one (detail, feedback, certificate, attempts) and archive a batch when it finishes. The batch picked in the sheet above filters this list.</p>
     ${state.secureMode===false ? `<div class="card" style="padding:14px 18px;margin-bottom:14px;border-left:4px solid var(--danger);background:var(--danger-bg);"><b style="color:var(--danger);">⚠ Security not enabled.</b> <span style="font-size:13px;">Storage and AI are open to anyone who finds the API. Run <code>wrangler secret put MASTER_ADMIN_PASSWORD</code> (and redeploy the updated worker.js) to require sign-in.</span></div>` : ""}
     <details class="card adm-settings"><summary>⚙ Certificate signatories &amp; feedback drafts</summary>
     <div class="card cert-settings">
@@ -11535,13 +11528,6 @@ function renderAdmin(){
     </div>
     </details>
 
-    <div class="stat-row">
-      <div class="card stat"><div class="num">${totalTrainees}</div><div class="lbl">Trainees tracked</div></div>
-      <div class="card stat"><div class="num">${avgCompletion}%</div><div class="lbl">Avg. completion</div></div>
-      <div class="card stat"><div class="num">${avgScoreAll}%</div><div class="lbl">Avg. quiz score</div></div>
-      <div class="card stat"><div class="num">${fullyDone}</div><div class="lbl">Finished all ${DAYS.length} days</div></div>
-    </div>
-
     ${renderPendingApprovalsPanel()}
 
     <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:14px;">
@@ -11549,10 +11535,9 @@ function renderAdmin(){
         <input type="text" id="adminSearchInput" placeholder="Search by name…" value="${esc(state.adminSearch||"")}" oninput="setAdminSearch(this.value)"
                style="padding:8px 12px;border-radius:8px;border:1px solid var(--line);font-size:13px;min-width:200px;">
         <select onchange="setAdminSort(this.value)" style="padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:13px;">
+          <option value="name_asc" ${sort==="name_asc"?"selected":""}>Sort: Name (A–Z)</option>
           <option value="completion_desc" ${sort==="completion_desc"?"selected":""}>Sort: Most days completed</option>
           <option value="completion_asc" ${sort==="completion_asc"?"selected":""}>Sort: Fewest days completed</option>
-          <option value="score_desc" ${sort==="score_desc"?"selected":""}>Sort: Highest avg. score</option>
-          <option value="name_asc" ${sort==="name_asc"?"selected":""}>Sort: Name (A–Z)</option>
           <option value="recent" ${sort==="recent"?"selected":""}>Sort: Most recently active</option>
         </select>
         <label style="display:flex;align-items:center;gap:5px;font-size:12.5px;color:var(--ink-soft);cursor:pointer;">
@@ -11564,7 +11549,8 @@ function renderAdmin(){
       </div>
     </div>
 
-    ${renderAuditBatchView()}
+    <div id="adminRowsWrap">${renderAdminRows()}</div>
+    </section>
   `;
 }
 /* The batch folders, inside the Trainee Audit: a card per batch picks the batch (the same filter the rows use, so
@@ -11947,11 +11933,7 @@ function renderAuditStrip(rec){
     return `<span class="ad-cell ${cls}" title="${esc(tip)}">${d.id}${d.labDone?`<i></i>`:""}</span>`;
   };
   return `<div class="audit-strip">
-    <div class="as-block as-now"><b>📍 Now</b><span>${esc(a.where)}</span></div>
-    <div class="as-block"><b>Lessons</b><span>${a.seen} / ${a.total} slides · ${a.pct}%</span><div class="as-bar"><div style="width:${a.pct}%"></div></div></div>
-    <div class="as-block as-days"><b>Days</b><div class="ad-cells">${a.days.map(cell).join("")}</div></div>
-    <div class="as-block"><b>Knowledge Checks</b><span>${a.kcPassed} passed${a.kcBelow.length?` · <em class="warn">below 70%: Day ${a.kcBelow.join(", ")}</em>`:""}</span></div>
-    <div class="as-block"><b>Skill Builders</b><span>${a.labsDone} / ${DAYS.length} done${a.labAvg!==null?` · avg ${a.labAvg}%`:""}</span></div>
+    <!-- (where they are, slides, days, Knowledge Checks and Skill Builders: the 📋 Batch Sheet's tables) -->
     <div class="as-block"><b>Random tasks</b><span>${a.tasksTotal ? `${a.tasksDone}/${a.tasksTotal} resolved${a.tasksAvg!==null?` · avg ${a.tasksAvg}%`:""}${a.tasksMissed?` · <em class="warn">${a.tasksMissed} missed</em>`:""}${a.tasksOpen?` · ${a.tasksOpen} open`:""}` : "none yet"}</span></div>
     <div class="as-block as-review"><b>Review</b><span>
       <em class="rv sent">${a.sent} sent${a.sent?` (${a.read} read)`:""}</em>
@@ -11964,15 +11946,11 @@ function renderAdminRow(rec, day, practice){
   const expanded = state.adminExpandedId===rec.id;
   return `
     <div class="audit-row ${expanded?"expanded":""}">
-      <div class="admin-row-grid" style="display:grid;grid-template-columns:minmax(0,1fr) 110px 110px 110px 140px auto;gap:12px;align-items:center;padding:14px 18px;">
+      <div class="admin-row-grid" style="display:grid;grid-template-columns:minmax(180px,1fr) auto;gap:12px;align-items:center;padding:14px 18px;">
         <div style="min-width:0;overflow:hidden;">
           <b class="admin-name" title="${esc(String(rec.name||"Unnamed").slice(0,200))}" style="color:var(--navy);font-size:13.5px;">${esc(String(rec.name||"Unnamed").slice(0,60))}${String(rec.name||"").length>60?"…":""}</b>${rec.archived?' <span style="font-size:10px;color:var(--ink-soft);">(archived)</span>':''}${rec.flaggedInvalidInput?' <span style="font-size:10px;color:var(--danger);font-weight:700;">⚠ invalid input removed</span>':''}${renderDriveChip(rec)}
           <div class="admin-id" style="font-size:10.5px;color:var(--ink-soft);font-family:'IBM Plex Mono';">${esc(String(rec.id).slice(0,48))}${rec.batch?` · ${esc(cleanBatch(rec.batch))}`:''}</div>
         </div>
-        <div style="font-size:13px;">${day.done} / ${day.total} days</div>
-        <div style="font-size:13px;">${day.avg}% avg</div>
-        <div style="font-size:13px;">${practice.runs} runs</div>
-        <div style="font-size:11.5px;color:var(--ink-soft);">${rec.lastActive?fmtDate(rec.lastActive):"—"}</div>
         <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:520px;">
           <button class="btn btn-sm btn-ghost" onclick="toggleAdminDetail('${rec.id}')">${expanded?"Hide":"View"} Detail</button>
           <button class="btn btn-sm btn-primary" onclick="openFeedbackFor('${rec.id}')" title="Write and send feedback to this trainee">✍ Feedback</button>
@@ -16012,7 +15990,7 @@ window.addEventListener("unhandledrejection", (ev)=>{ const e = ev.reason; if(e 
 window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message && !/ResizeObserver|Script error/.test(ev.message)) showActionError(new Error(ev.message), ""); });
 
 </script>
-<script src="/js/cm-updates.js?v=40"></script>
+<script src="/js/cm-updates.js?v=41"></script>
 <script src="/js/cm-documents.js?v=3"></script>
 <script src="/js/cm-skillbuilders.js?v=cm-2026.10.23-efiling"></script>
 <script src="/js/cm-lor-data.js?v=1"></script>
@@ -16040,11 +16018,12 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-data.js?v=60"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=1"></script>
-<script src="/js/cm-case-flow.js?v=121"></script>
+<script src="/js/cm-case-flow.js?v=122"></script>
 <script src="/js/cm-script-editor.js?v=13"></script>
 <!-- 🏅 the Scorecard (as in Foundational Training): My Performance for trainees, Scorecards for trainers -->
 <script src="/js/cm-scorecard.js?v=5"></script>
-<script src="/js/cm-know-tools.js?v=2"></script>
+<script src="/js/cm-batch-sheet.js?v=1"></script>
+<script src="/js/cm-know-tools.js?v=3"></script>
 <script src="/js/cm-drive-sop.js?v=1"></script>
 <!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
 <script src="/js/cm-companion-cases.js?v=1"></script>

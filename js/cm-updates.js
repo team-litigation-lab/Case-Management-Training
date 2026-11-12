@@ -249,7 +249,8 @@ function renderTopbar(){   // trainees never see an admin sign-in (🛡 Admin is
     views.push(["facilitatorguide","Facilitator Guide"]);
   }
   // 🏅 the Scorecard (js/cm-scorecard.js): a trainee's own grades, or every trainee's for a trainer
-  if(typeof renderScorecardPage === "function" && (state.isAdmin || state.traineeId)) views.push(["scorecard", state.isAdmin && !state.adminPreview ? "🏅 Scorecards" : "🏅 My Performance"]);
+  // (a trainer's 🏅 Scorecards are the 📋 Batch Sheet's 🏅 Scores now: Admin → 📋 Batch Sheet, js/cm-batch-sheet.js)
+  if(typeof renderScorecardPage === "function" && (state.traineeId || state.adminPreview) && (!state.isAdmin || state.adminPreview)) views.push(["scorecard", "🏅 My Performance"]);
   return `
   ${state.adminPreview ? `<div class="view-mode-strip">👁 <b>Trainee view</b> — you're seeing the portal as a trainee sees it (every day unlocked for preview). <button type="button" onclick="setAdminViewMode('admin')">Switch back to Admin view</button></div>` : ""}
   <div class="topbar ${state.mobileNavOpen?'nav-open':''}">
