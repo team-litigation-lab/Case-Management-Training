@@ -150,6 +150,13 @@ html body .dash-main > .dash-side .card{background:#fff !important;border-color:
 html body .dash-main > .dash-side .tfb-dash{background:#FFF4E6 !important;border-color:#F0C9A3 !important;}
 html body .dash-main > .dash-side .stat .num{color:#141A2E !important;}
 html body .dash-main > .dash-side .stat .lbl,html body .dash-main > .dash-side .card .sub,html body .dash-main > .dash-side .stat .lbl span{color:#2A3048 !important;}
+/* one footer on every day card: a passed day's three small buttons (Topics, Review Score, Retake) share one row,
+   like the two (Topics, Finish Training) on the others, so the Review rows line up */
+html body .dash-main .module-card.mc-clean .mc-grid.mc-n3{grid-template-columns:repeat(3,minmax(0,1fr));}
+html body .dash-main .module-card.mc-clean .mc-grid.mc-n3 > .module-start-btn{grid-column:1 / -1;}
+html body .dash-main .module-card.mc-clean .mc-grid.mc-n3 > button:not(.module-start-btn){grid-column:span 1 !important;}
+html body .dash-main .module-card.mc-clean .mc-grid.mc-n3 > button:not(.module-start-btn):not(:last-child){border-right:1px solid #9CA3B8 !important;}
+html body .dash-main .module-card.mc-clean .mc-progress-empty{visibility:hidden;}
 @media(min-width:761px){
   html body .dash-side-inner > .card.stat{padding:8px 12px;}
   html body .dash-side .stat .num{font-size:19px;}

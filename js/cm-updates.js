@@ -1410,6 +1410,12 @@ window.renderMeetClientTrainerGuide = function(){
         start.insertAdjacentHTML("beforebegin", `<div class="mc-progress"><span>Slides <b>${far > 0 ? seen : 0}%</b></span>${scored ? `<span>Knowledge Check <b>${prog.score}%</b> · 70% to pass</span>` : ""}</div>`);
       }
     }
+    // every card keeps the same progress line above its buttons, so the Review rows line up across the five days:
+    // a passed day shows its slides and its score; a day not started yet keeps an empty line of the same height
+    if(start && !card.querySelector(".mc-progress")){
+      const line = prog.done ? `<span>Slides <b>100%</b></span>${typeof prog.score === "number" ? `<span>Knowledge Check <b>${prog.score}%</b> ✓</span>` : ""}` : "<span>&nbsp;</span>";
+      start.insertAdjacentHTML("beforebegin", `<div class="mc-progress${prog.done ? "" : " mc-progress-empty"}" aria-hidden="${prog.done ? "false" : "true"}">${line}</div>`);
+    }
     if(n && start) start.insertAdjacentHTML("afterend", `<button type="button" class="btn btn-ghost btn-sm module-finish-btn module-topics-btn" onclick="event.stopPropagation(); showDayTopics(${d.id})">☰ Topics <span>· ${n}</span></button>`);
     card.classList.add("mc-clean");
     return card.outerHTML;
