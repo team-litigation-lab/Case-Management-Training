@@ -106,6 +106,49 @@ async function ticketFor(payloadObj, secret) {
         if (tix.status !== 200) fail(`the approved trainee should still be signed in: ${JSON.stringify(tix)}`);
         await asAdmin(`trainee:${b.id}`, recB);
 
+        // 3e. ...and the same for a trainer's review, focus items and activity feedback: a stale save by the trainee's
+        //     page (the record as it was before the trainer's change) lands, and the trainer's part still reads back.
+        const readOwn = async (key) => { const r = (await call('/api/storage/get', { key }, a.token)).body; return r && r.value ? JSON.parse(r.value) : {}; };
+        {
+            // a day's review sent by the trainer; the trainee's read mark on it stays theirs
+            const before = { days: { day1: { status: 'draft', auto: true, summary: 'auto' } } };
+            await asAdmin(`feedback:${a.id}`, before);
+            await asAdmin(`feedback:${a.id}`, { days: { day1: { status: 'sent', summary: 'from the trainer', editedByTrainer: true } } });
+            store.set(`cm:feedback:${a.id}`, JSON.stringify({ days: { day1: { status: 'draft', auto: true, summary: 'auto', readAt: 'r1' } } }));   // the stale save landing
+            const fb = await readOwn(`feedback:${a.id}`);
+            if (!fb.days || !fb.days.day1 || fb.days.day1.summary !== 'from the trainer' || fb.days.day1.status !== 'sent') fail(`a stale save by the trainee's page lost the trainer's sent review: ${JSON.stringify(fb)}`);
+            else if (fb.days.day1.readAt !== 'r1') fail(`the trainee's read mark on a trainer's review should stay theirs: ${JSON.stringify(fb.days.day1)}`);
+            // and their own save of it still can't rewrite it
+            await call('/api/storage/set', { key: `feedback:${a.id}`, value: JSON.stringify({ days: { day1: { status: 'sent', summary: 'forged' } } }) }, a.token);
+            if ((await readOwn(`feedback:${a.id}`)).days.day1.summary !== 'from the trainer') fail('a trainee rewrote a trainer\'s review');
+        }
+        {
+            // a focus item the trainer added; seen and done stay the trainee's
+            await asAdmin(`focus:${a.id}`, { items: [{ id: 'f1', text: 'old item' }] });
+            await call('/api/storage/set', { key: `focus:${a.id}`, value: JSON.stringify({ items: [{ id: 'f1', seenAt: 's1' }] }) }, a.token);
+            const staleF = store.get(`cm:focus:${a.id}`);
+            await asAdmin(`focus:${a.id}`, { items: [{ id: 'f1', text: 'old item', seenAt: 's1' }, { id: 'f2', text: 'new item' }] });
+            store.set(`cm:focus:${a.id}`, staleF);   // the stale save landing
+            const fo = await readOwn(`focus:${a.id}`);
+            const ids = (fo.items || []).map((x) => x.id).join(',');
+            if (ids !== 'f1,f2') fail(`a stale save by the trainee's page lost a focus item the trainer added: ${JSON.stringify(fo)}`);
+            else if (fo.items[0].seenAt !== 's1' || fo.items[1].seenAt) fail(`seen marks on focus items should stay the trainee's: ${JSON.stringify(fo.items)}`);
+        }
+        {
+            // feedback on an activity, for the submission it was written for; a new submission retires it
+            await call('/api/storage/set', { key: `actsub:${a.id}`, value: JSON.stringify({ items: { act1: { answer: 'mine', submittedAt: 'S1' } } }) }, a.token);
+            const staleA = store.get(`cm:actsub:${a.id}`);
+            const withFb = JSON.parse(staleA); withFb.items.act1.feedback = { status: 'sent', text: 'good work' };
+            await asAdmin(`actsub:${a.id}`, withFb);
+            store.set(`cm:actsub:${a.id}`, staleA);   // the stale save landing
+            const ac = await readOwn(`actsub:${a.id}`);
+            if (!ac.items || !ac.items.act1 || !ac.items.act1.feedback || ac.items.act1.feedback.text !== 'good work') fail(`a stale save by the trainee's page lost the trainer's activity feedback: ${JSON.stringify(ac)}`);
+            await call('/api/storage/set', { key: `actsub:${a.id}`, value: JSON.stringify({ items: { act1: { answer: 'again', submittedAt: 'S2' } } }) }, a.token);
+            const ac2 = (await readOwn(`actsub:${a.id}`)).items.act1;
+            if (ac2.feedback) fail(`a new submission should retire the trainer's feedback, not keep it on the new answer: ${JSON.stringify(ac2)}`);
+            if (!ac2.prevFeedback || ac2.prevFeedback.text !== 'good work') fail(`the retired feedback should stay as prevFeedback: ${JSON.stringify(ac2)}`);
+        }
+
         // 4. ranking: a trainee's request reads their own record only
         for (let i = 0; i < 30; i++) store.set(`cm:trainee:t${i}--b100926`, JSON.stringify({ id: `t${i}--b100926`, name: `T ${i}`, batch: 'B100926', approved: true }));
         reads = 0;

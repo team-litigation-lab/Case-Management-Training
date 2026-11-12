@@ -21,24 +21,94 @@
  */
 /* ---------- KV with the "cm:" namespace prefix ---------- */
 const KV_PREFIX = "cm:";
-// A trainee record's admin-owned fields (approval, unlocks, assignments, who they are) are also kept in
-// trainee-admin:<id>, which only an admin or the server writes (ownerPutTrainee). Every read of trainee:<id> lays
-// those fields over the record, so a trainee's page saving a copy it read a moment before an approval (KV reads
-// can be up to a minute stale elsewhere) can never undo it. A record no admin has written yet reads as it is.
-const TRAINEE_KEY = /^trainee:[^:]+$/;
-const ownerKey = (k) => "trainee-admin:" + k.slice("trainee:".length);
+/* ---------- what the trainer owns in a trainee's records ----------
+   A trainee's page saves whole records it read a moment before, and a KV read elsewhere can be up to a minute stale,
+   so a save could land on top of a trainer's change made in between: an approval undone, a review or a focus item
+   lost. So the trainer's part of each record below is also kept in its own key, <type>-admin:<id>, which only an
+   admin's save or the Worker writes (ownerPut) and the trainee never can, and every read lays it back over the record.
+   A record no admin has saved since reads exactly as it is.
+     trainee:<id>   approval, rejection, archive, unlocks, assignments, and who they are (name and batch)
+     feedback:<id>  a trainer's review of a day (and its read mark stays the trainee's), a trainer's note on an auto-review
+     focus:<id>     the focus items themselves (seen and done stay the trainee's)
+     actsub:<id>    a trainer's feedback on an activity, for the submission it was written for: a new submission
+                    retires it to prevFeedback, as the trainee's own save does */
+const isTrainerReview = (v) => !!(v && typeof v === "object" && (v.editedByTrainer || (v.status === "sent" && !v.auto)));
+const OWNED = {
+  trainee: {
+    split: (rec) => { const own = {}; ADMIN_OWNED_TRAINEE_FIELDS.forEach((f) => { if (f in rec) own[f] = rec[f]; }); return own; },
+    overlay: (rec, own) => { ADMIN_OWNED_TRAINEE_FIELDS.forEach((f) => { if (f in own) rec[f] = own[f]; else delete rec[f]; }); }
+  },
+  feedback: {
+    split: (rec) => {
+      const days = {};
+      Object.entries((rec && rec.days) || {}).forEach(([d, v]) => {
+        if (isTrainerReview(v)) days[d] = { review: v };
+        else if (v && v.trainerNote) days[d] = { note: v.trainerNote };
+      });
+      return { days };
+    },
+    overlay: (rec, own) => {
+      if (!rec.days || typeof rec.days !== "object") rec.days = {};
+      Object.entries(own.days || {}).forEach(([d, o]) => {
+        const cur = rec.days[d];
+        if (o.review) { const readAt = cur && cur.readAt; rec.days[d] = Object.assign({}, o.review); if (readAt && !rec.days[d].readAt) rec.days[d].readAt = readAt; }
+        else if (o.note && cur && typeof cur === "object") cur.trainerNote = o.note;
+      });
+    }
+  },
+  focus: {
+    split: (rec) => ({ items: (Array.isArray(rec.items) ? rec.items : []).filter((x) => x && typeof x === "object").map((x) => { const y = Object.assign({}, x); delete y.seenAt; delete y.doneAt; return y; }) }),
+    overlay: (rec, own) => {
+      const mine = Object.fromEntries((Array.isArray(rec.items) ? rec.items : []).filter((x) => x && typeof x === "object").map((x) => [x.id, x]));
+      rec.items = (own.items || []).map((x) => { const m = mine[x.id] || {}; return Object.assign({}, x, { seenAt: m.seenAt || null, doneAt: m.doneAt || null }); });
+    }
+  },
+  actsub: {
+    split: (rec) => {
+      const items = {};
+      Object.entries((rec && rec.items) || {}).forEach(([aid, v]) => {
+        if (v && typeof v === "object" && (v.feedback || v.prevFeedback)) items[aid] = { feedback: v.feedback || null, prevFeedback: v.prevFeedback || null, forSubmittedAt: v.submittedAt || null };
+      });
+      return { items };
+    },
+    overlay: (rec, own) => {
+      if (!rec.items || typeof rec.items !== "object") rec.items = {};
+      Object.entries(own.items || {}).forEach(([aid, o]) => {
+        const cur = rec.items[aid];
+        if (!cur || typeof cur !== "object") return;
+        if ((cur.submittedAt || null) === o.forSubmittedAt) {
+          if (o.feedback) cur.feedback = o.feedback; else delete cur.feedback;
+          if (o.prevFeedback && !cur.prevFeedback) cur.prevFeedback = o.prevFeedback;
+        } else if (o.feedback && o.feedback.status === "sent" && !cur.prevFeedback) cur.prevFeedback = o.feedback;   // resubmitted since: retired
+      });
+    }
+  }
+};
+const OWNED_KEY = /^(trainee|feedback|focus|actsub):([^:]+)$/;
+const ownedType = (k) => { const m = OWNED_KEY.exec(k); return m ? m[1] : null; };
+const ownerKey = (k) => k.replace(/^([a-z]+):/, "$1-admin:");
+// An admin's (or the Worker's) save of one of these records: the record, and the trainer's part in its own key.
+async function ownerPut(kv, key, value) {
+  await kv.put(key, value);
+  const t = ownedType(key);
+  if (!t) return;
+  let rec = null; try { rec = JSON.parse(value); } catch (e) { /* not a record: stored as given */ }
+  if (!rec || typeof rec !== "object") return;
+  await kv.put(ownerKey(key), JSON.stringify(OWNED[t].split(rec)));
+}
 function kvOf(env) {
   const raw = env.LSH_KV;
   if (!raw) return null;
   return {
     get: async (k) => {
-      if (!TRAINEE_KEY.test(k)) return raw.get(KV_PREFIX + k);
+      const t = ownedType(k);
+      if (!t) return raw.get(KV_PREFIX + k);
       const [base, owner] = await Promise.all([raw.get(KV_PREFIX + k), raw.get(KV_PREFIX + ownerKey(k))]);
       if (base == null || owner == null) return base;
       try {
         const rec = JSON.parse(base), own = JSON.parse(owner);
         if (!rec || typeof rec !== "object" || !own || typeof own !== "object") return base;
-        ADMIN_OWNED_TRAINEE_FIELDS.forEach((f) => { if (f in own) rec[f] = own[f]; else delete rec[f]; });
+        OWNED[t].overlay(rec, own);
         return JSON.stringify(rec);
       } catch (e) { return base; }
     },
@@ -232,14 +302,6 @@ const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus
 const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt"];
 const IDENTITY_TRAINEE_FIELDS = ["name", "firstName", "lastName", "batch"];
 const ADMIN_OWNED_TRAINEE_FIELDS = PROTECTED_TRAINEE_FIELDS.concat(IDENTITY_TRAINEE_FIELDS);
-// An admin's (or the server's) write of a trainee record: the record itself, and its admin-owned fields in their own key.
-async function ownerPutTrainee(kv, key, value) {
-  await kv.put(key, value);
-  let rec = null; try { rec = JSON.parse(value); } catch (e) { /* not a record: stored as given */ }
-  if (!rec || typeof rec !== "object") return;
-  const own = {}; ADMIN_OWNED_TRAINEE_FIELDS.forEach((f) => { if (f in rec) own[f] = rec[f]; });
-  await kv.put(ownerKey(key), JSON.stringify(own));
-}
 
 // callsim:<id>: the trainee's graded calls from the Call Simulator (☎ LSH Ring Channel), kept by the Training Portal (its /api/call-results).
 // labreview:<id>: the trainer's reviews of the trainee's Practice Lab (score, rating, comment per activity; js/cm-lab.js),
@@ -1204,7 +1266,7 @@ export default {
         const cur = out.existing;
         if (!cur || (cur.approved !== true && !cur.rejected)) {
           const rec = Object.assign({}, cur || { id: out.id, name: who.name, firstName: who.first, lastName: who.last, batch: who.batch, registeredAt: new Date().toISOString() }, { approved: true });
-          await ownerPutTrainee(kv, `trainee:${out.id}`, JSON.stringify(rec));
+          await ownerPut(kv, `trainee:${out.id}`, JSON.stringify(rec));
           out.existing = rec;
         }
         return json(Object.assign(out, { name: who.name, first: who.first, last: who.last, batch: who.batch }));
@@ -1468,7 +1530,7 @@ export default {
         if (!key) return json({ error: "Missing key" }, 400);
         if (tok.role === "a") {
           if (typeof body.value !== "string") return json({ error: "value must be a string" }, 400);
-          if (TRAINEE_KEY.test(key)) await ownerPutTrainee(kv, key, body.value); else await kv.put(key, body.value);
+          await ownerPut(kv, key, body.value);
           return json({ ok: true });
         }
         const err = await traineeWrite(env, tok, key, body.value);
@@ -1481,7 +1543,7 @@ export default {
       if (path === "/api/storage/delete") {
         if (tok.role !== "a") return json({ error: "Not allowed" }, 403);
         await kv.delete(key);
-        if (TRAINEE_KEY.test(key)) await kv.delete(ownerKey(key));
+        if (ownedType(key)) await kv.delete(ownerKey(key));
         return json({ ok: true });
       }
       return json({ error: "Unknown endpoint" }, 404);
