@@ -2395,7 +2395,6 @@ function practiceLab(d){
     <div class="card lesson-card cf-card cfx cfx-deck cfx-lab">
       <div class="cfx-deck-head"><h2 class="cfx-deck-title">🧪 Practice Lab</h2></div>
       <div class="cfx-ribbon"><span>${E(titleCase(ph.title))}</span></div>
-      <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">🧪</span>Open Your Tools</span></div>
       <div class="cfx-body"><div class="cfx-sheet">
         <p class="cfx-lab-lead">Open your tools here, once: they stay open beside the slides. Today's <b>${acts.length} Skill Activities</b> come straight after the lessons they practise, on John Doe's file, in the order the work happens. Each opens with <em>Your Case</em>, then <em>Your Task</em> and <em>Check Your Work</em>; 📞 marks a live call.</p>
         <div class="cfx-lab-tools" id="cfxLabTools${d.id}">${labTools(d).map(([id, bid]) => toolChip(id, bid, true)).join("")}</div>
@@ -2440,7 +2439,6 @@ function readyCheck(d){
     <div class="card lesson-card cf-card cfx cfx-deck cfx-lab cfx-ready">
       <div class="cfx-deck-head"><h2 class="cfx-deck-title">🎯 Ready for the Knowledge Check?</h2></div>
       <div class="cfx-ribbon"><span>${E(titleCase(ph.title))}</span></div>
-      <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">🎯</span>${qs.length} Key Concepts</span></div>
       <div class="cfx-body"><div class="cfx-sheet">
         <div class="cfx-lab-gate" id="cfxLabGate${d.id}"><b>You've worked today's Skill Activities.</b> Before you check your work, answer these ${qs.length} key concepts from today's lessons.
         ${qs.map((q, qi) => `<div class="cfx-lab-q" data-q="${qi}"><span>${qi + 1}. ${E(q.q)}</span><div class="o">${q.opts.map((o, oi) =>
@@ -3104,7 +3102,7 @@ function gameQuiz(d){
       <div class="cfg-tally"><span><b>${right}</b> of ${n} right</span>${g.mode === "millionaire" ? "" : `<span><b class="cfg-count" data-to="${g.pts}">${g.pts.toLocaleString()}</b> points</span>`}<span>best streak <b>${g.best}</b></span></div>
       ${earned ? `<div class="cfg-earn">🤝 <b>+${earned} Ask a Friend token${earned === 1 ? "" : "s"}</b> for your next round: a hint from your AI colleague on a question you're stuck on</div>` : ""}
       ${gameBadges(d, g).length ? `<div class="cfg-badges">${gameBadges(d, g).map(([i, t, x]) => `<span class="cfg-badge"><i>${i}</i><b>${t}</b><small>${x}</small></span>`).join("")}</div>` : ""}
-      <button class="btn btn-primary" style="padding:13px 28px;" type="button" onclick="cmCaseFlow.kcPart('written')" title="Next: the bonus round (your key takeaway), then the End of Module">Continue →</button></div>`;
+      <button class="btn btn-primary" style="padding:13px 28px;" type="button" onclick="cmCaseFlow.kcContinue(${d.id})" title="Next: your key takeaway (if it isn't written yet), then the End of Module">Continue →</button></div>`;
   // the board / the wheel / the doors come before a question
   if(g.mode === "jeopardy" && (state.cfJq == null || g.log[state.cfJq] && state.cfGameShow !== state.cfJq && state.cfJAns !== state.cfJq)){
     return `<div class="cfg">${hud}${titleRow}${finished ? clear : `<p class="cfg-hint">Pick a category and a value. One square hides a <b>Daily Double</b>.</p>`}${jeopardyBoard(d, g)}</div>`;
@@ -3148,6 +3146,7 @@ function kcFit(){
   const on = state.view === "day" && state.dayViewMode === "knowledgeCheck" && !!cfDay(state.dayId);
   document.body.classList.toggle("cf-kc-page", on);
   const w = document.getElementById("quizWrap"); if(!on || !w) return;
+  if(state.quizSubmitted){ w.style.zoom = ""; return; }   // the End of Module reads at full size: the page scrolls instead
   const box = w.closest("main") || document.scrollingElement;
   let z = 1; w.style.zoom = "";
   while(box.scrollHeight > box.clientHeight + 1 && z > 0.6){ z = Math.round((z - 0.05) * 100) / 100; w.style.zoom = String(z); }
@@ -3367,6 +3366,10 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
   kcMod(modId){ const cur = document.querySelector(".cf-kc-mod"); if(cur) readForm(cur.dataset.mod); persist(); state.cfKcMod = modId; gamePaint(DAYS.find(x => x.id === state.dayId)); },
   kcBack(dayId){ const d = cfDay(dayId) || cfDay(state.dayId); state.dayViewMode = "slides"; state.lessonSlide = typeof resumeSlideFor === "function" ? resumeSlideFor(d.id) : 0; state.slidePage = 0; render(); },
   kcPart(part){ state.cfKcPart = part; state.cfKcDay = state.dayId; gamePaint(DAYS.find(x => x.id === state.dayId)); window.scrollTo({top: 0, behavior: "smooth"}); },
+  // Continue after the quiz game: the key takeaway if it isn't written yet, else straight on to the End of Module
+  kcContinue(dayId){ const d = cfDay(dayId); if(!d) return;
+    if(kcMods(d).some(x => modMissing(x.b, x.mod.id))){ if(typeof toast === "function") toast("One last step: your key takeaway, then the End of Module."); return cmCaseFlow.kcPart("written"); }
+    return cmCaseFlow.kcSubmit(dayId); },
   scoreSummary(){ return scoreSummary(); },
   async kcSubmit(dayId){
     const d = cfDay(dayId); if(!d) return;
@@ -5296,6 +5299,7 @@ document.head.appendChild(st);
 .cfx-agenda .cfx-ag-list b{font-size:20px;font-weight:800;}
 .cfx-agenda .cfx-ag-list small{font-size:15.5px;font-weight:600;}
 .cfx-agenda .cfx-ag-side p:not(.cfx-ag-day){font-size:19px;font-weight:700;}
+.cfx-ready .cfx-lab-gate{font-size:20px;} .cfx-ready .cfx-lab-q > span{font-size:20px;font-weight:700;} .cfx-ready .cfx-lab-q .o button{font-size:18px;padding:10px 16px;} .cfx-ready .cfx-lab-q .r{font-size:16.5px;}
 .cfx .cfx-plain{font-size:17px;border:2px solid #9DB0CC;background:#EEF3FA;} .cfx .cfx-plain summary{font-size:16px;font-weight:700;color:#141A2E;}
 .cfx .cfx-plain dt{font-weight:800;color:#141A2E;} .cfx .cfx-plain dd{color:#141A2E;font-weight:600;}
 `;
