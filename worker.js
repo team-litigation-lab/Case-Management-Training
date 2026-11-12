@@ -403,10 +403,29 @@ async function traineeWrite(env, tok, key, value) {
     if (String(value).length > 6000000) return "File too large";
     await kv.put(key, value); return null;
   }
-  if (/^tfeedback:[a-z0-9]+$/.test(key)) {
+  if (/^tfeedback:[a-z0-9]{6,40}$/.test(key)) {
+    // A trainee's feedback on the program, read by trainers (Admin → Trainee Feedback). It is rebuilt here from what a
+    // trainee may say, never stored as sent: who sent it comes from their own record (or "Anonymous"), the time is
+    // the server's, ratings are 1 to 5 in the known areas, and it always starts "new" (only a trainer moves it on).
     if (existing) return "Already submitted";
     if (String(value).length > 20000) return "Too large";
-    await kv.put(key, value); return null;
+    if (!incoming || typeof incoming !== "object") return "Invalid feedback";
+    let me = null; try { me = JSON.parse((await kv.get(`trainee:${id}`)) || "null"); } catch (e) { /* no record */ }
+    const anon = incoming.anonymous === true;
+    const ratings = {};
+    ["platform", "lessons", "facilitator", "practice", "assessment"].forEach((a) => {
+      const v = Math.round(Number(incoming.ratings && incoming.ratings[a]));
+      if (v >= 1 && v <= 5) ratings[a] = v;
+    });
+    const text = (v) => String(typeof v === "string" ? v : "").slice(0, 1500);
+    const day = parseInt(incoming.dayId, 10);
+    const rec = {
+      id: key.slice("tfeedback:".length), at: new Date().toISOString(), dayId: day >= 1 && day <= 99 ? day : null, ratings,
+      good: text(incoming.good), improve: text(incoming.improve), facilitator: text(incoming.facilitator), anonymous: anon,
+      traineeId: anon ? null : id, name: anon ? "Anonymous" : String((me && me.name) || "Trainee").slice(0, 80),
+      batch: anon ? "" : String((me && me.batch) || "").slice(0, 24), status: "new"
+    };
+    await kv.put(key, JSON.stringify(rec)); return null;
   }
   if (/^cert:LSH-CM-\d{4}-[A-Z0-9]{6}$/.test(key)) {
     // A trainee records their own certificate once, and only as an approved trainee: the name, batch and issuer

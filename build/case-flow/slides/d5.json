@@ -23,7 +23,13 @@
       "A perfect Complaint filed **one day after the SOL**",
       "Letting a **court deadline** slide like an adjuster's",
       "**Counting the trigger day** as day one"
-    ]
+    ],
+    "redFlag": {
+      "see": "**15 RFAs** served by mail with no calendar row of their own",
+      "costs": "An unanswered RFA may be deemed admitted",
+      "do": "Give the RFAs **their own row**; alert Atty. Thorne within the hour",
+      "owner": "Atty. Thorne"
+    }
   },
   "d5m1-a1": {
     "image": "data-entry",
@@ -139,7 +145,13 @@
     "donts": [
       "Forwarding a PD release **to John Doe**",
       "Moving John's figures because **Margaret's PD claim moved**"
-    ]
+    ],
+    "redFlag": {
+      "see": "Keystone's PD release covering **'all claims arising from'** the 02/06/2026 accident",
+      "costs": "An 'all claims' PD release can reach John's BI suit, 26-CV-04417",
+      "do": "Accept, reject or counter nothing; **route the release** to Atty. Thorne",
+      "owner": "Atty. Thorne"
+    }
   },
   "d5m2-a1": {
     "image": "phone-call",
@@ -253,7 +265,13 @@
       "A “yes” to **a list from memory**",
       "A client who **argues with defense counsel**",
       "Preparing only the crash mechanics, **missing the medical history**"
-    ]
+    ],
+    "redFlag": {
+      "see": "Atty. Grant Mercer springs **a trap question** in the mock cross",
+      "costs": "Any signal or message to John coaches the witness",
+      "do": "Log the trap, the time, **Mercer's exact words** and the record fact",
+      "owner": "Case Manager"
+    }
   },
   "d5m3-a2": {
     "image": "checklist-qa",
@@ -368,7 +386,13 @@
       "**A fourth attempt** at a stale address",
       "Serving the non-party **before opposing counsel has notice**",
       "Telling Margaret Doe **why the firm needs John**"
-    ]
+    ],
+    "redFlag": {
+      "see": "Robert Smith **still unserved** 14 days after filing (10/08/2026)",
+      "costs": "A fourth knock burns time toward the 01/22/2027 service deadline",
+      "do": "Escalate to Atty. Thorne for **skip-trace authority**",
+      "owner": "Atty. Thorne"
+    }
   },
   "d5m4-a2": {
     "image": "email-outreach",
@@ -444,7 +468,13 @@
       "Putting **the reason** in a carrier's letter",
       "Switching to Dropped **before every letter is logged**",
       "Telling the client **the case is worthless**"
-    ]
+    ],
+    "redFlag": {
+      "see": "A carrier's disengagement letter saying **she stopped treating**",
+      "costs": "Only the client's letter carries the reason, in Atty. Thorne's words: this one is a defect",
+      "do": "Strip the reason from carrier and provider letters; **send the client's as approved**",
+      "owner": "Atty. Thorne"
+    }
   },
   "d5m6-a1": {
     "image": "email-outreach",
@@ -574,7 +604,13 @@
       "Serving the custodian **before Atty. Mercer has notice**",
       "An Exhibit A asking for **“all records of any kind”**",
       "A trial subpoena for **an unnamed witness**"
-    ]
+    ],
+    "redFlag": {
+      "see": "A subpoena's Exhibit A asking for **'all records of any kind'**",
+      "costs": "It invites a Motion to Quash",
+      "do": "One subject, an exact date range, named record types; **Atty. Thorne signs**",
+      "owner": "Atty. Thorne"
+    }
   },
   "d4m1-efile": {
     "image": "legal-filing",
