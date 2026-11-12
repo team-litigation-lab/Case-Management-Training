@@ -2404,6 +2404,7 @@ em.warn{font-style:normal;color:var(--danger);}
 .rmx-topic:disabled{cursor:not-allowed;color:#9AA0B4;}
 .rmx-tn{font:700 11px/1.65 'IBM Plex Mono',monospace;color:#8A90A6;flex:0 0 32px;} .rmx-topic.on .rmx-tn{color:#C4621A;}
 .rmx-tt{flex:1 1 auto;min-width:0;} .rmx-tt em{font-style:normal;margin-left:5px;font-size:12px;}
+.rmx-opt{font-style:normal;margin-left:5px;font:700 10.5px 'Inter',sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#6B7088;background:#ECEEF3;border-radius:999px;padding:1px 7px;}
 .rmx-here{font:700 10.5px/1.6 'IBM Plex Mono',monospace;color:#C4621A;white-space:nowrap;} .rmx-lock{font-size:11px;opacity:.7;}
 .rmx-foot{margin:0;padding:8px 22px 14px;font-size:13.5px;color:var(--ink-soft);border-top:1px solid #EEF0F5;}
 @media(max-width:1250px){ .rmx-body{grid-template-columns:repeat(2,minmax(0,1fr));} }
@@ -5392,7 +5393,7 @@ function openRoadmap(){
       // a Learning Check has no slide of its own: it's asked in the day's Knowledge Check, open once the deck is seen
       const kc = k => k == null && l.cf && l.cf.block && l.cf.block.kind === "check";
       const k = first[li], toKC = kc(k), ok = open && (toKC ? deckSeen : k != null && k <= reached), on = curLesson === li, kind = l.cf && l.cf.block && KIND_TAG[l.cf.block.kind];
-      return `<li><button type="button" class="rmx-topic${on ? " on" : ""}" ${ok ? `onclick="roadmapGo(${d.id}, ${toKC ? "'kc'" : k})"` : "disabled"} title="${esc(topicName(l))}${ok ? (toKC ? " (in the day's Knowledge Check)" : "") : open ? (toKC ? " (in the Knowledge Check, once the slides are done)" : " (reach it in the slides first)") : " (opens when this day does)"}"><span class="rmx-tn">${n}.${li + 1}</span><span class="rmx-tt">${esc(topicName(l))}${kind ? `<em title="${kind[1]}" aria-label="${kind[1]}">${kind[0]}</em>` : ""}</span>${on ? `<span class="rmx-here">● here</span>` : ok ? "" : `<span class="rmx-lock">🔒</span>`}</button></li>`;
+      return `<li><button type="button" class="rmx-topic${on ? " on" : ""}" ${ok ? `onclick="roadmapGo(${d.id}, ${toKC ? "'kc'" : k})"` : "disabled"} title="${esc(topicName(l))}${ok ? (toKC ? " (in the day's Knowledge Check)" : "") : open ? (toKC ? " (in the Knowledge Check, once the slides are done)" : " (reach it in the slides first)") : " (opens when this day does)"}"><span class="rmx-tn">${n}.${li + 1}</span><span class="rmx-tt">${esc(topicName(l))}${kind ? `<em title="${kind[1]}" aria-label="${kind[1]}">${kind[0]}</em>` : ""}${d.cf && d.cf.build && l.cf && l.cf.block.kind === "activity" ? `<i class="rmx-opt">optional</i>` : ""}</span>${on ? `<span class="rmx-here">● here</span>` : ok ? "" : `<span class="rmx-lock">🔒</span>`}</button></li>`;
     }).join("");
     const label = p.done ? "✓ Completed" : d.id === here ? "▶ You're here" : open ? "Open" : "🔒 Locked";
     return `<section class="rmx-day${st ? " " + st : ""}${open ? "" : " locked"}">
@@ -16103,14 +16104,14 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-docs.js?v=28"></script>
 <script src="/js/cm-case-flow-art.js?v=3"></script>
 <script src="/js/cm-case-flow-slides.js?v=58"></script>
-<script src="/js/cm-case-flow-scripts.js?v=48"></script>
+<script src="/js/cm-case-flow-scripts.js?v=49"></script>
 <script src="/js/cm-case-flow-sim.js?v=26"></script>
 <script src="/js/cm-case-flow-exhibits.js?v=7"></script>
-<script src="/js/cm-case-flow-data.js?v=60"></script>
+<script src="/js/cm-case-flow-data.js?v=61"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
-<script src="/js/cm-case-flow-schedule.js?v=1"></script>
-<script src="/js/cm-case-flow.js?v=122"></script>
-<script src="/js/cm-script-editor.js?v=14"></script>
+<script src="/js/cm-case-flow-schedule.js?v=2"></script>
+<script src="/js/cm-case-flow.js?v=123"></script>
+<script src="/js/cm-script-editor.js?v=15"></script>
 <!-- 🏅 the Scorecard (as in Foundational Training): My Performance for trainees, Scorecards for trainers -->
 <script src="/js/cm-scorecard.js?v=5"></script>
 <script src="/js/cm-know-tools.js?v=1"></script>
