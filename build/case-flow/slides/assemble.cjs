@@ -101,6 +101,47 @@ const clues = (b, c) => {
   }
   return k;
 };
+/* The three micro-frameworks (SLIDESPEC.md, "Micro-frameworks"): Milestone Steps (`milestones`), Rule vs. Exception
+   (`ruleEx`) and the CM Red Flag (`redFlag`), drawn on the lesson's existing slides, so no slide is added. Every date
+   on a Milestone chip is one the case file carries, every document id is a case document, and a Red Flag names its owner. */
+const CASE_FILE = fs.readFileSync(path.join(ROOT, "curriculum/5-day-flow/case-file.md"), "utf8");
+const DATA_TEXT = fs.readFileSync(path.join(ROOT, "js/cm-case-flow-data.js"), "utf8");
+const OWNERS = /^(Atty\. Thorne|Case Manager)$/;
+const onFileDate = d => { const [m, dd] = d.split("/"); return CASE_FILE.includes(d) || DATA_TEXT.includes(d) || CASE_FILE.includes(`${m}/${dd}`) || DATA_TEXT.includes(`${m}/${dd}`); };
+const microFrameworks = (b, c) => {
+  const id = b.id, opt = (f, s, max) => line(id, f, s, max, [0, 1]);
+  if(c.redFlag !== undefined){
+    const r = c.redFlag || {};
+    opt("redFlag.see", r.see, 18); opt("redFlag.costs", r.costs, 18); opt("redFlag.do", r.do, 15);
+    if(typeof r.owner !== "string" || !OWNERS.test(r.owner)) errors.push(`${id}.redFlag.owner: name the owner (Atty. Thorne or Case Manager), got ${JSON.stringify(r.owner)}`);
+  }
+  if(c.ruleEx !== undefined){
+    const x = c.ruleEx || {};
+    opt("ruleEx.rule", x.rule, 25); opt("ruleEx.exception", x.exception, 25);
+    if(x.onFile !== undefined) opt("ruleEx.onFile", x.onFile, 20);
+    opt("ruleEx.confirm", x.confirm, 8);
+    if(typeof x.confirm === "string" && !/Atty\. Thorne|statute|Stat\./.test(x.confirm)) errors.push(`${id}.ruleEx.confirm: name Atty. Thorne or the governing statute`);
+    if(x.contrast !== undefined && x.contrast !== true) errors.push(`${id}.ruleEx.contrast: true or omit`);
+  }
+  if(c.milestones !== undefined){
+    const m = c.milestones || {};
+    if(typeof m.title !== "string" || !m.title.trim() || wc(m.title) > 8 || marks(m.title)) errors.push(`${id}.milestones.title: want ≤ 8 words, no highlight`);
+    if(m.start !== undefined && !(Number.isInteger(m.start) && m.start > 1)) errors.push(`${id}.milestones.start: a whole number above 1`);
+    if(m.note !== undefined) opt("milestones.note", m.note, 16);
+    if(!Array.isArray(m.steps) || m.steps.length < 3 || m.steps.length > 6) errors.push(`${id}.milestones.steps: want 3–6`);
+    else m.steps.forEach((s, i) => {
+      const f = `milestones.steps[${i}]`;
+      if(!s || typeof s.label !== "string" || !s.label.trim() || wc(s.label) > 4 || marks(s.label)) errors.push(`${id}.${f}.label: want ≤ 4 words, no highlight`);
+      opt(`${f}.done`, s && s.done, 12);
+      if(s && s.chip !== undefined){   // a date (MM/DD/YYYY, or a range ending in one) or a document / claim id
+        const dates = String(s.chip).match(/\d{2}\/\d{2}\/\d{4}/g) || [], rs = /^RS\d+$/.test(s.chip);
+        if(rs){ if(!DOC_IDS.has(s.chip)) errors.push(`${id}.${f}.chip: "${s.chip}" isn't a case document`); }
+        else if(dates.length) dates.forEach(d => { if(!onFileDate(d)) errors.push(`${id}.${f}.chip: ${d} isn't a date on the case file`); });
+        else if(!/^[A-Z]{2,}-[A-Z0-9-]+$/.test(s.chip) || !CASE_FILE.includes(s.chip)) errors.push(`${id}.${f}.chip: want a date (MM/DD/YYYY) or a document or claim id on the case file`);
+      }
+    });
+  }
+};
 // the copy files, merged (a block's copy stays in its file when the block moves to another module or day)
 const j = {};
 for (const day of CF.days) {
@@ -132,6 +173,7 @@ for (const day of CF.days) {
         for (const f of ["definition", "purpose", "evidence"]) line(b.id, `document.${f}`, d[f], 24);
         list(b.id, "document.handling", d.handling, 2, 4, 12);
       }
+      microFrameworks(b, c);
       let k = null;
       if((b.best || []).length){ list(b.id, "dos", c.dos, 2, 3, 10); list(b.id, "donts", c.donts, 2, 3, 10); k = clues(b, c); }
       const t = theory(b); if(t) out[b.id] = Object.assign({}, c, {theory: t}, k ? {clues: k} : {});

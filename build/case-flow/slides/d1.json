@@ -22,7 +22,19 @@
     "donts": [
       "Guessing **what the case is worth**",
       "Keeping the status **in your inbox**, not the CMS"
-    ]
+    ],
+    "ruleEx": {
+      "rule": "The first line of every note to Atty. Thorne is **the decision and its deadline**; the subject line says it too",
+      "exception": "Nothing to decide? Say so first: **'FYI, no action needed'**, then the facts",
+      "onFile": "Day 1's note: approve acceptance; Conflict Check logged; SOL docketed 02/06/2028",
+      "confirm": "Atty. Thorne makes the decision"
+    },
+    "redFlag": {
+      "see": "A note to Atty. Thorne with **'Update'** as its subject line",
+      "costs": "The buried ask waits in his inbox, and the SOL (02/06/2028) does not",
+      "do": "Rewrite the subject and first line as **the decision and its deadline**",
+      "owner": "Case Manager"
+    }
   },
   "d1m1-case": {
     "image": "property-damage",
@@ -46,7 +58,13 @@
     "donts": [
       "Repeating facts **from memory** alone",
       "Treating the gap as **the client's fault**"
-    ]
+    ],
+    "redFlag": {
+      "see": "A Case Snapshot field with no named source document, even **the client's seat**",
+      "costs": "An unverified field becomes the file's fact, and a wrong seat reaches the wrong policies",
+      "do": "Name each field's document (RS01, RS07); mark the rest **not yet verified**",
+      "owner": "Case Manager"
+    }
   },
   "d1m1-open": {
     "image": "data-entry",
@@ -137,7 +155,29 @@
       "Creating the file **before the Conflict Check**",
       "Running the Conflict Check on **a nickname or partial name**",
       "Accepting a case because intake **“mostly” looks fine**"
-    ]
+    ],
+    "milestones": {
+      "title": "The SOL docket, calculated",
+      "steps": [
+        {"label": "DOL confirmed", "chip": "02/06/2026", "done": "The date matches RS07, **the Police Report**"},
+        {"label": "SOL calculated", "chip": "02/06/2028", "done": "The **two-year limitation** configured for this training file applied"},
+        {"label": "Hard date set", "chip": "02/04/2028", "done": "SOL is a Sunday: **no weekend roll-forward**, so Friday"},
+        {"label": "Filing cutoff set", "chip": "11/05/2027", "done": "90 days earlier; Saturday 11/06/2027 **moves back to Friday**"}
+      ],
+      "note": "Done when all four dates are on **CMS → Calendar** with reminders"
+    },
+    "ruleEx": {
+      "rule": "Count from **the date of loss**, confirmed on the Police Report, never from intake",
+      "exception": "**The governing statute decides** tolling, a minor or a government defendant; you never shorten or extend a limitation",
+      "onFile": "DOL 02/06/2026 → SOL 02/06/2028, a Sunday → hard date 02/04/2028",
+      "confirm": "Atty. Thorne confirms the governing statute"
+    },
+    "redFlag": {
+      "see": "The SOL counted from **the intake date, 02/09/2026**",
+      "costs": "It dockets 02/09/2028: three days past the limit",
+      "do": "Recount from the DOL on RS07; **docket all three dates** in CMS → Calendar",
+      "owner": "Case Manager"
+    }
   },
   "d1m1-a1": {
     "image": "insurance-stack",
@@ -195,7 +235,21 @@
     "donts": [
       "Using a generic release **without the incident date**",
       "Reassuring the client **“insurance will cover it”**"
-    ]
+    ],
+    "milestones": {
+      "title": "The Regulatory Triple-Check",
+      "steps": [
+        {"label": "HIPAA", "chip": "02/09/2026", "done": "Authorization signed; **expiry 02/06/2027** docketed for renewal"},
+        {"label": "BCRC", "done": "John is 34; **SSDI status** verified and recorded"},
+        {"label": "Payer Order", "chip": "03/02/2026", "done": "**PIP verified in writing** by Harbor Point, 02/24 and 03/02"}
+      ]
+    },
+    "redFlag": {
+      "see": "Peach State's reimbursement notice of **02/27/2026** not flagged that day",
+      "costs": "Flagged late means paid twice: the lien surfaces after the money moves",
+      "do": "Raise the subrogation flag in **CMS → Liens** the day notice arrives",
+      "owner": "Case Manager"
+    }
   },
   "d1m1-a2": {
     "image": "lien-scale",
@@ -260,7 +314,30 @@
     "donts": [
       "Letting a file sit **without logging attempts**",
       "Blaming the client for **process gaps**"
-    ]
+    ],
+    "milestones": {
+      "title": "No Contact Protocol, Steps 1–3",
+      "steps": [
+        {"label": "Internal review", "chip": "02/13/2026", "done": "Last contact 02/10; check-in missed; **no treatment start** on file"},
+        {"label": "Phone attempts", "chip": "02/11–02/16/2026", "done": "Calls 02/11, 02/13 and 02/16, **each logged** with its time"},
+        {"label": "Email and text", "chip": "02/16/2026", "done": "Email asks him to **call by 02/18**; text sent 9:35 a.m."},
+        {"label": "Emergency contact", "chip": "02/16/2026", "done": "Margaret Doe gets **a message, never the case**, 11:05 a.m."},
+        {"label": "Second email", "chip": "02/18/2026", "done": "Asks him to **call by 02/20/2026**"},
+        {"label": "Team notification", "chip": "02/20/2026", "done": "Atty. Thorne told at 4:30 p.m., **with the case impact**"}
+      ]
+    },
+    "ruleEx": {
+      "rule": "Escalate **by channel, not by volume**: every attempt logged with date, time, channel and outcome",
+      "exception": "The emergency contact gets **a message, never the case**: 'Please have John call us by 02/18/2026.'",
+      "onFile": "Margaret Doe reached 02/16/2026, 11:05 a.m.; no case details shared",
+      "confirm": "Atty. Thorne decides what follows Step 3"
+    },
+    "redFlag": {
+      "see": "Voicemails left **02/11 and 02/13** that never reached the Communications Log",
+      "costs": "An unlogged attempt did not happen: the ladder can't show the attempts were made",
+      "do": "Log each attempt now **with date, time, channel and outcome**",
+      "owner": "Case Manager"
+    }
   },
   "d1m2-a1": {
     "image": "data-entry",
@@ -310,7 +387,27 @@
     "donts": [
       "Skip-tracing on **the first criterion alone**",
       "Writing **“we are withdrawing”** without attorney approval"
-    ]
+    ],
+    "milestones": {
+      "title": "No Contact Protocol, Steps 4–6",
+      "steps": [
+        {"label": "Final Warning Letter", "chip": "RS76", "done": "Attempts itemized; **a response date** as a date; certified mail and email"},
+        {"label": "Atty. Thorne decides", "done": "His decision logged; **only he tells John**"},
+        {"label": "File closure", "done": "Closed with **the proof of every step** retained"}
+      ],
+      "start": 4
+    },
+    "ruleEx": {
+      "rule": "**Withdrawal is possible, never announced**: the letter says it may happen, not that it will",
+      "exception": "None: **only Atty. Thorne decides**, and tells John, that representation is ending",
+      "confirm": "Atty. Thorne decides and tells John"
+    },
+    "redFlag": {
+      "see": "A draft letter saying **'we are withdrawing'** or 'you will lose your case'",
+      "costs": "It announces a decision only Atty. Thorne can make, and predicts the claim",
+      "do": "Strike it; **send the draft to Atty. Thorne** for review before it goes",
+      "owner": "Atty. Thorne"
+    }
   },
   "d1m2-a2": {
     "image": "email-outreach",
@@ -378,7 +475,19 @@
     "donts": [
       "Explaining why a Recorded Statement hurts: **that's legal advice**",
       "Letting a carrier's Property Damage call **drift into injuries**"
-    ]
+    ],
+    "ruleEx": {
+      "rule": "After notice, **the adverse carrier talks to the firm**, not to John: no Recorded Statement",
+      "exception": "**Property Damage only**, with the vehicle's owner: Keystone PD (Leah Moran) deals with Margaret Doe about the Civic",
+      "onFile": "Notice to Dana Whitfield 02/10/2026, after Keystone called John on 02/09",
+      "confirm": "Injury questions route to Atty. Thorne"
+    },
+    "redFlag": {
+      "see": "Dana Whitfield (Keystone) asked John Doe **to record his account** (his voicemail, 02/10/2026, 8:47 a.m.)",
+      "costs": "A represented client's recorded account becomes Keystone's evidence on the 14-Day Gap",
+      "do": "Send written notice today: no direct contact; **statements go through the firm**. Log it.",
+      "owner": "Atty. Thorne"
+    }
   },
   "d1m3-a1": {
     "image": "client-call",
@@ -425,7 +534,19 @@
     "donts": [
       "Opening **a rental claim in John's name**",
       "Treating Property Damage as **“just the car”**"
-    ]
+    ],
+    "ruleEx": {
+      "rule": "**PD follows the vehicle**: the Civic (Bluewater BWA-209-66184) is Margaret Doe's; John owns no car",
+      "exception": "A PD date that reaches his care goes on John's calendar: **the rental's last covered day**",
+      "onFile": "The rental ends 03/19/2026; his rides are planned before it",
+      "confirm": "Margaret's PD claim is referred to Atty. Thorne"
+    },
+    "redFlag": {
+      "see": "A rental, PD or Loss of Use claim **opened in John Doe's name**",
+      "costs": "John has no PD claim: Margaret Doe's Civic claim (KM-26-440871-PD) tangles with his BI file",
+      "do": "Keep PD under Margaret Doe; **refer her claim** to Atty. Thorne",
+      "owner": "Atty. Thorne"
+    }
   },
   "d1m3-a2": {
     "image": "checklist-qa",
@@ -508,7 +629,19 @@
       "A plan that **only covers clinical care**",
       "Gathering more information **at the acceptance stage**",
       "Letting an uncertain file **sit in limbo**"
-    ]
+    ],
+    "ruleEx": {
+      "rule": "The projection stays **preliminary until coverage is confirmed** in writing",
+      "exception": "None for value: **no figure ever appears** in a Case Manager's plan",
+      "onFile": "Three layers named; every limit preliminary until each Dec Page arrives",
+      "confirm": "Atty. Thorne owns value and acceptance"
+    },
+    "redFlag": {
+      "see": "A Risks band reading **'none'** for a client nobody has examined",
+      "costs": "A buried risk: no treatment yet, and the days without care keep counting",
+      "do": "List each open risk **with its source and date** in the Risks band",
+      "owner": "Case Manager"
+    }
   },
   "d1m4-a1": {
     "image": "calendar-gap",
@@ -560,7 +693,28 @@
     "donts": [
       "Edits that **break the audit trail**",
       "Writing **“this will help the case”** in a treatment note"
-    ]
+    ],
+    "milestones": {
+      "title": "The plan's review loop",
+      "steps": [
+        {"label": "Draft", "done": "Every band written; **risks named** with source and date"},
+        {"label": "Routed", "done": "Sent to Atty. Thorne through **the Action Plan Editor**"},
+        {"label": "Returned with comment", "done": "Each comment addressed, then **routed again**"},
+        {"label": "Approved", "done": "Atty. Thorne's approval **recorded with its date**"},
+        {"label": "Execute", "done": "The file runs against **the approved version** only"}
+      ]
+    },
+    "ruleEx": {
+      "rule": "**The file runs against the approved version** of the plan",
+      "exception": "When a material fact changes, **the plan is superseded** and routed again",
+      "confirm": "Atty. Thorne approves each version"
+    },
+    "redFlag": {
+      "see": "**'This will help the case'** in a treatment note, or a partly addressed plan run",
+      "costs": "Every note is discoverable, and an unapproved plan runs the file off course",
+      "do": "Write facts only; **execute nothing** until Atty. Thorne approves the version",
+      "owner": "Atty. Thorne"
+    }
   },
   "d1m4-a2": {
     "image": "cms-screen",
@@ -617,7 +771,28 @@
       "Reassuring him **about the outcome**",
       "Guessing a value **“off the record”**",
       "Coaching him on **what to tell an adjuster**"
-    ]
+    ],
+    "milestones": {
+      "title": "When a question crosses the line",
+      "steps": [
+        {"label": "Hear it out", "done": "John finishes the question **in his own words**"},
+        {"label": "Log it verbatim", "done": "His exact words are in **CMS → Case Notes**"},
+        {"label": "Route it, decision first", "done": "The note reaches Atty. Thorne **the same day**"},
+        {"label": "Set his expectation", "done": "John knows **when to expect** Atty. Thorne's answer"}
+      ]
+    },
+    "ruleEx": {
+      "rule": "Tell John **what is, and what happens next**: facts and process are yours to give",
+      "exception": "**'What does it mean for me?'** is Atty. Thorne's: 'That's his call; I'll get it to him today.'",
+      "onFile": "Yours: 'The Police Report lists the date of loss as 02/06/2026.'",
+      "confirm": "Atty. Thorne answers value and strategy"
+    },
+    "redFlag": {
+      "see": "You hear yourself tell John **'Don't worry, you'll be fine'**",
+      "costs": "That is advice: it predicts his outcome, and only Atty. Thorne may",
+      "do": "Stop, log his question word for word, and **route it the same day**",
+      "owner": "Atty. Thorne"
+    }
   },
   "d1m4-tplan": {
     "image": "medical-visit",
@@ -658,7 +833,21 @@
       "Building the plan **from medical records only**",
       "A goal like “reduce pain” with **no measure or date**",
       "Calling a prior condition **“unrelated” or “aggravated”**"
-    ]
+    ],
+    "milestones": {
+      "title": "Assess → SMART Goal → Coordinate",
+      "steps": [
+        {"label": "Assess", "chip": "02/06/2026", "done": "Clinical, social, pre-morbid, vocational: **each filled or dated**"},
+        {"label": "SMART goal (draft)", "done": "Full 8-hour shifts at Northgate; **the provider confirms** the measure"},
+        {"label": "Coordinate", "done": "Each care line filled: **'none ordered'** with a date if empty"}
+      ]
+    },
+    "redFlag": {
+      "see": "A blank field, or a goal like **'reduce pain'** with no measure",
+      "costs": "Blank reads as never asked, and a goal without a measure can't show progress",
+      "do": "Write 'none ordered' or 'not yet on file', dated; **the provider sets the measure**",
+      "owner": "Case Manager"
+    }
   },
   "d1m4-tmap": {
     "image": "medical-visit",
@@ -699,7 +888,29 @@
       "Letting care drift **with no reason on file**",
       "Calling a systemic delay **client non-compliance**",
       "**Waiting for a denial** before you course-correct"
-    ]
+    ],
+    "milestones": {
+      "title": "John's route on the map",
+      "steps": [
+        {"label": "Conservative care", "chip": "02/20/2026", "done": "Riverton Urgent Care, then **Riverton Spine & Rehab** from 02/24/2026"},
+        {"label": "Specialist", "chip": "03/05/2026", "done": "Dr. Alana Reyes, Lakeside Orthopedics, **orders the MRI**"},
+        {"label": "Imaging", "chip": "03/13/2026", "done": "Summit Imaging: **C5-C6 right paracentral herniation**"},
+        {"label": "Interventional", "chip": "05/15/2026", "done": "**ESI** by Dr. Omar Haddad, Crescent Pain & Spine"},
+        {"label": "MMI", "chip": "06/12/2026", "done": "Dr. Reyes: **residual intermittent right-arm paresthesia**"}
+      ]
+    },
+    "ruleEx": {
+      "rule": "The 6-Week Rule: **20–30% more range of motion or a lower VAS** by week 6 of care",
+      "exception": "A stop skipped or out of order needs **the provider's documented clinical reason**; you ask and record it",
+      "onFile": "Week 6: 02/24/2026 + 42 days = 04/07/2026",
+      "confirm": "Provider documents; Atty. Thorne gets the note"
+    },
+    "redFlag": {
+      "see": "**No visit from 04/02 to 04/21/2026** (19 days), with no reason on file",
+      "costs": "A break off the map with no record of why it happened",
+      "do": "Run **A-C-T the same day**; record his reason and route it to Atty. Thorne",
+      "owner": "Case Manager"
+    }
   },
   "d1m4-tcare": {
     "image": "client-call",
@@ -765,7 +976,28 @@
       "**Arguing with resistance**, or warning him about his case",
       "Reporting a yellow flag **with no plan**",
       "Treating late head-injury symptoms **as proof** before validation"
-    ]
+    ],
+    "milestones": {
+      "title": "Bridging the gap",
+      "steps": [
+        {"label": "Calendar the risk", "chip": "03/19/2026", "done": "The rental's last covered day **calendared as a treatment risk**"},
+        {"label": "Warm handoff", "chip": "02/23/2026", "done": "Booked with him on the line; **LOP signed before 02/24**"},
+        {"label": "Answer cost worry", "done": "He hears **which payer handles which bill**, PIP first"},
+        {"label": "Ask the one question", "done": "'What might **get in the way** this week?' asked and logged"}
+      ]
+    },
+    "ruleEx": {
+      "rule": "**OARS on every contact**: open questions, affirmations, reflections, summaries",
+      "exception": "**Roll with resistance**: 'That clinic isn't a good fit for you. Let's look at why.'",
+      "onFile": "His reason went to the provider (Millbrook, 04/22/2026)",
+      "confirm": "Legal danger goes to Atty. Thorne"
+    },
+    "redFlag": {
+      "see": "You tell John **'Missing visits will hurt your case'**",
+      "costs": "That is advice about his claim, and it can push him away from care",
+      "do": "Talk logistics and his reasons; **route what it means** to Atty. Thorne",
+      "owner": "Atty. Thorne"
+    }
   },
   "d1m4-emc": {
     "image": "clock-deadline",
@@ -806,6 +1038,29 @@
       "Applying **a $2,500 cap** to Riverton's PIP",
       "Treating a chiropractor's note as **an EMC determination**",
       "Telling a client to see a doctor **for the $10,000**"
-    ]
+    ],
+    "milestones": {
+      "title": "Preventing forfeiture on a Florida file",
+      "steps": [
+        {"label": "Docket the 14th day", "done": "The 14th day after the accident **calendared at intake**"},
+        {"label": "Give logistics", "done": "Where and when care is available, **as Atty. Thorne directs**"},
+        {"label": "Log credentials", "done": "Each provider's **credential recorded**"},
+        {"label": "Request the EMC", "done": "The **EMC determination** requested from the records"},
+        {"label": "Flag the same day", "done": "A missing EMC or late first visit **goes to Atty. Thorne**"}
+      ],
+      "note": "Had this file been in Florida: the 14th day was **02/20/2026**, his first treatment"
+    },
+    "ruleEx": {
+      "rule": "Florida (Fla. Stat. § 627.736(1)(a)): **initial care within 14 days**; without an EMC finding, PIP stops at $2,500 of $10,000",
+      "exception": "Riverton, add-on PIP: **no 14-day condition and no EMC cap**",
+      "onFile": "First treatment 02/20/2026; Harbor Point PIP (HP-26-7741) paid its $5,000.00 limit",
+      "confirm": "The governing statute, and Atty. Thorne"
+    },
+    "redFlag": {
+      "see": "Telling a Riverton client his PIP is **capped or forfeited** over the 14 days",
+      "costs": "Riverton has no EMC rule: it's wrong, and it is advice about his benefits",
+      "do": "Confirm the governing statute on every file; **route the question** to Atty. Thorne",
+      "owner": "Atty. Thorne"
+    }
   }
 }

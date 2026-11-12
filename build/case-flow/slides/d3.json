@@ -47,7 +47,29 @@
       "A demand with **no stated deadline** or clock trigger",
       "Leaving **the gap out of the timeline**",
       "Demanding **before MMI** or a future-care plan"
-    ]
+    ],
+    "milestones": {
+      "title": "The five elements of a Time-Limited Demand",
+      "steps": [
+        {"label": "Within limits", "chip": "03/20/2026", "done": "**$10,000**, Keystone's BI limit, from the Dec Page"},
+        {"label": "Clear", "done": "**Limited Release** of Robert Smith and Keystone, BI only"},
+        {"label": "Reasonable", "done": "Smith's affidavit of no other insurance; **30 days**"},
+        {"label": "Documented", "done": "**The Big Four**, 81 pages, Exhibits A–J"},
+        {"label": "Timed", "chip": "08/21/2026", "done": "The clock runs from **the 07/22/2026 written acknowledgement**"}
+      ]
+    },
+    "ruleEx": {
+      "rule": "Email it from the Email Workspace, log it, and **docket from the adjuster's written acknowledgement**",
+      "exception": "**A state statute may require a delivery method**; with no acknowledgement, follow up the same day and escalate",
+      "onFile": "Served 07/20/2026; acknowledged in writing 07/22/2026",
+      "confirm": "Atty. Thorne confirms the delivery rule"
+    },
+    "redFlag": {
+      "see": "The draft reads **'30 days from the date of this letter'** (08/19/2026)",
+      "costs": "The send date never starts the clock: the window closes 08/21/2026",
+      "do": "Correct it to run **from the written acknowledgement**; flag it to Atty. Thorne",
+      "owner": "Atty. Thorne"
+    }
   },
   "d3m1-a1": {
     "image": "checklist-qa",
@@ -140,7 +162,23 @@
       "Letting an **“all other … insurers” release** reach the client",
       "Promising **full UM limits** before coverage and offset are confirmed",
       "Celebrating the $40,000 gross: **success is John Doe's net**"
-    ]
+    ],
+    "milestones": {
+      "title": "Opening the UM layers, in order",
+      "steps": [
+        {"label": "Keystone tender", "chip": "08/12/2026", "done": "BI limit **tendered in writing**"},
+        {"label": "30-Day Letter", "chip": "08/13/2026", "done": "Sent to **both UM carriers**"},
+        {"label": "Consents received", "chip": "08/26/2026", "done": "Harbor Point 08/24, Cardinal State 08/26, **both written**"},
+        {"label": "Limited Release signed", "chip": "08/28/2026", "done": "John signs **after both consents** are in"},
+        {"label": "UM demands emailed", "chip": "08/31/2026", "done": "Each shows **damages above the layers** before it"}
+      ]
+    },
+    "redFlag": {
+      "see": "A UM demand **before the documented BI tender**, or Smith released without both consents",
+      "costs": "Releasing Smith without both written consents can forfeit $30,000 of the stack",
+      "do": "Hold every UM step until **the tender and both consents** are filed",
+      "owner": "Atty. Thorne"
+    }
   },
   "d3m1-a2": {
     "image": "binder-exhibits",
@@ -227,7 +265,19 @@
       "**Softening the demand** to seem reasonable",
       "Negotiating without knowing **the client's net floor**",
       "Accepting **an open-ended callback**"
-    ]
+    ],
+    "ruleEx": {
+      "rule": "**The demand stands as Atty. Thorne approved it**; the Case Manager makes no move",
+      "exception": "A counteroffer **can operate as a rejection** of a Time-Limited Demand; whether it did is Atty. Thorne's call",
+      "onFile": "Keystone's $3,500 on 08/05/2026 logged; the window closes 08/21/2026",
+      "confirm": "Atty. Thorne decides how it operated"
+    },
+    "redFlag": {
+      "see": "Dana Whitfield **presses for a number** on the phone",
+      "costs": "Any accept, reject, counter or value from you can change the demand's terms",
+      "do": "Log her exact words; **report to Atty. Thorne** the same day",
+      "owner": "Atty. Thorne"
+    }
   },
   "d3m2-a1": {
     "image": "phone-call",
@@ -287,7 +337,29 @@
     "donts": [
       "Asking **Bluewater Auto** for a waiver",
       "Scheduling the signing **before the second consent**"
-    ]
+    ],
+    "milestones": {
+      "title": "Consent to settle and the waivers",
+      "steps": [
+        {"label": "Tender", "chip": "08/12/2026", "done": "Keystone tenders **its $10,000 BI limit**"},
+        {"label": "30-Day Letter", "chip": "08/13/2026", "done": "Atty. Thorne signs; **both UM carriers** notified"},
+        {"label": "Conditional cover letter", "chip": "08/14/2026", "done": "Payment needs **both consents, waivers** and the W-9"},
+        {"label": "Consents read", "chip": "08/26/2026", "done": "08/24 and 08/26, **each read for scope**"},
+        {"label": "Waivers filed", "done": "Notarized waivers **at the front** of each UM package"},
+        {"label": "John signs", "chip": "08/28/2026", "done": "Limited Release signed **after both consents**"}
+      ]
+    },
+    "ruleEx": {
+      "rule": "The UM carrier **consents and waives subrogation** against Robert Smith and Keystone only",
+      "exception": "It may **substitute its own check** to keep its claim; a substitution or wider consent goes to Atty. Thorne",
+      "confirm": "Atty. Thorne reads any wider consent"
+    },
+    "redFlag": {
+      "see": "A consent request **sent to Bluewater Auto**",
+      "costs": "Bluewater is not a UM layer: UM was rejected in writing 03/14/2024",
+      "do": "Ask only **Harbor Point and Cardinal State**; log Bluewater as not a layer",
+      "owner": "Case Manager"
+    }
   },
   "d3m2-rel": {
     "image": "release-signature",
@@ -369,7 +441,28 @@
       "Accepting the first offer because **“it's his own coverage”**",
       "A verbal settlement **with no confirming email**",
       "Finding a benefit-carrier lien **after disbursement**"
-    ]
+    ],
+    "milestones": {
+      "title": "From limits to net",
+      "steps": [
+        {"label": "Release", "done": "Signed release **matches the agreed scope**"},
+        {"label": "Check", "done": "Payable to John Doe and LSH Law Group; **he endorses**"},
+        {"label": "IOLTA deposit", "done": "Deposited **the same day**"},
+        {"label": "Liens, fee, costs", "done": "Each paid from trust **against its Payoff Letter**"},
+        {"label": "Net to John", "done": "His net disbursed; **the ledger ties out**"}
+      ]
+    },
+    "ruleEx": {
+      "rule": "Ranges, brackets, increments and tender strategy **are Atty. Thorne's**; relay a bracket only on his written instruction",
+      "exception": "When a carrier offers limits, **confirm its terms without accepting**: coverage, release scope, liens, payee, check date",
+      "confirm": "Atty. Thorne accepts; you report the same day"
+    },
+    "redFlag": {
+      "see": "Harbor Point's stated reason: **'BI already compensated him'**",
+      "costs": "Wrong on an add-on UM, and answering with an opinion argues the claim",
+      "do": "Answer with **Harbor Point's 03/02/2026 letter**; log it for Atty. Thorne",
+      "owner": "Atty. Thorne"
+    }
   },
   "d3m2-a2": {
     "image": "settlement-check",
@@ -430,7 +523,27 @@
     "donts": [
       "Treating an ERISA plan **like a provider LOP**",
       "Asking for **a “courtesy discount”** with no legal basis"
-    ]
+    ],
+    "milestones": {
+      "title": "Regulatory Triple-Check: lien edition",
+      "steps": [
+        {"label": "Timeliness", "chip": "02/27/2026", "done": "When asserted, against what: **Peach State's notice**, RS40"},
+        {"label": "Perfection / recording", "done": "Riverton: **LOP only**, no recorded or served lien notice"},
+        {"label": "Scope", "done": "Every line **belongs to the collision**; strike the rest"}
+      ]
+    },
+    "ruleEx": {
+      "rule": "**Fully insured plan**: state insurance law reaches the insurer, through ERISA's savings clause",
+      "exception": "**Self-funded ERISA plan**: state insurance law is preempted, and the plan's written terms govern",
+      "onFile": "Peach State, GRP-41208: fully insured, per the plan documents",
+      "confirm": "Atty. Thorne confirms the governing law"
+    },
+    "redFlag": {
+      "see": "A lien on the tracker **not yet classified** statutory or contractual",
+      "costs": "An unclassified lien gets paid at the wrong number, or freezes the money",
+      "do": "Classify every claimant, **with its source**, before any number is discussed",
+      "owner": "Case Manager"
+    }
   },
   "d3m3-a1": {
     "image": "documents-audit",
@@ -496,7 +609,30 @@
       "Negotiating a percentage **off an inflated bill**",
       "Agreeing to a reduction verbally with **no written confirmation**",
       "Paying **from a statement**, not the payoff figure"
-    ]
+    ],
+    "milestones": {
+      "title": "Audit first, then ask",
+      "steps": [
+        {"label": "Audit", "done": "**34 lines vs 33 visits** in the attendance log"},
+        {"label": "Correct", "chip": "05/04/2026", "done": "Duplicate removed: **$6,290.00 − $185.00 = $6,105.00**"},
+        {"label": "Calculate", "done": "Math **the lienholder can check**"},
+        {"label": "Ask with authority", "done": "**Atty. Thorne's written target** only"},
+        {"label": "Confirm in writing", "done": "**Signed Payoff Letter** on file"}
+      ],
+      "note": "Liens: **$7,965.00 audited** → $5,820.00 paid"
+    },
+    "ruleEx": {
+      "rule": "**Compute from the fraction**, not the rounded percentage",
+      "exception": "The pro-rata split is **a teaching number**: on Track A the fund covers every lien",
+      "onFile": "Peach State: $1,860.00 × ⅓ = $620.00 → $1,240.00",
+      "confirm": "Atty. Thorne sets the written target"
+    },
+    "redFlag": {
+      "see": "A percentage off **an inflated bill**",
+      "costs": "You negotiate from $6,290.00 and give away the $185.00 the audit removes",
+      "do": "**Corrections first, reductions second**, inside Atty. Thorne's written target",
+      "owner": "Atty. Thorne"
+    }
   },
   "d3m3-l3": {
     "image": "checklist-qa",
@@ -548,7 +684,21 @@
     "donts": [
       "A reduction **agreed only by phone**",
       "An ask **outside his authority**"
-    ]
+    ],
+    "milestones": {
+      "title": "The lien call",
+      "steps": [
+        {"label": "Reduction Request", "done": "**Approved by Atty. Thorne** and sent"},
+        {"label": "The Call", "done": "Audited balance, the authorized ask; **name, date, figures logged**"},
+        {"label": "Payoff Letter", "done": "**'Full and final satisfaction'**, no balance billing, signed"}
+      ]
+    },
+    "redFlag": {
+      "see": "A lienholder says **yes on the phone**",
+      "costs": "A spoken yes is not a reduction until it's in a signed Payoff Letter",
+      "do": "Say: 'I'll take that to Atty. Thorne and **we'll confirm in writing**.'",
+      "owner": "Atty. Thorne"
+    }
   },
   "d3m3-a2": {
     "image": "negotiation",
@@ -611,7 +761,13 @@
       "**Mixing BI and UM money** on one line",
       "Charging **the same cost** to both streams",
       "A lien figure **with no Payoff Letter**"
-    ]
+    ],
+    "ruleEx": {
+      "rule": "**PIP's $5,000.00 is a payment source** on the Lien Tracker, never recovery",
+      "exception": "None. Future care ($3,400–$6,800 repeat ESIs) is **flagged to Atty. Thorne, never netted**",
+      "onFile": "$40,000.00 − $13,820.08 − $5,820.00 = $20,359.92: it ties out",
+      "confirm": "Atty. Thorne approves the Net Sheet"
+    }
   },
   "d3m4-a1": {
     "image": "money-ledger",
@@ -689,7 +845,22 @@
       "A General Release that **wipes out the UM claims**",
       "Cutting checks **against uncleared funds**",
       "Paying from emailed instructions **without verifying by phone**"
-    ]
+    ],
+    "milestones": {
+      "title": "Four gates before money moves",
+      "steps": [
+        {"label": "Verification", "chip": "10/20/2026", "done": "Consents before the 08/28 release; **funds cleared**"},
+        {"label": "Documentation", "done": "**Payoff Letters, W-9s** and receipts in Documents"},
+        {"label": "Authorization", "done": "**Atty. Thorne signs** the disbursement"},
+        {"label": "Reconciliation", "chip": "10/22/2026", "done": "Trust Ledger at **$0.00**"}
+      ]
+    },
+    "redFlag": {
+      "see": "A disbursement **against uncleared funds** or an open lien notice",
+      "costs": "Trust money moves before it's safe, and a disputed share leaves trust",
+      "do": "Hold it: **a disputed share stays in trust** until Atty. Thorne clears it",
+      "owner": "Atty. Thorne"
+    }
   },
   "d3m4-pal": {
     "image": "escalation-alert",
@@ -807,7 +978,13 @@
       "A **300-page record dump** with no summary",
       "A narrative that **says more than the records**",
       "**Hiding the 2021 low-back visits** from the adjuster"
-    ]
+    ],
+    "redFlag": {
+      "see": "The RS66 draft packet: **Exhibit A cites RPD-26-018824**, transposed",
+      "costs": "One of ten faults: Margaret's Civic, the HIPAA authorization and no Dec Page also slip in",
+      "do": "Run **the final scrub**: fix all ten before Atty. Thorne signs",
+      "owner": "Atty. Thorne"
+    }
   },
   "d3m2-bins": {
     "image": "money-ledger",

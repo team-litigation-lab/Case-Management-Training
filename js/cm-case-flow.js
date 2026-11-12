@@ -488,6 +488,31 @@ const theoryViews = b => { const t = theoryOf(b); return !t ? [] : (t.concepts.l
 /* a lesson that introduces a legal or medical document opens with The Document (what it is, its legal purpose, its
    evidentiary role, how the Case Manager handles it) before anything asks the trainee to work with it */
 const docView = b => (SLIDES[b.id] || {}).document ? ["doc"] : [];
+/* The three micro-frameworks (build/case-flow/slides/SLIDESPEC.md), drawn on a lesson's existing slides so no slide
+   is added: the CM Red Flag on Why It Matters (the risk, what it costs, what you do, whose call), Rule vs. Exception on
+   The Rules, and Milestone Steps (the case's own dates) on On the Job, or The Framework, See It or The Rules where a
+   lesson has no On the Job. At most one Red Flag on a slide. */
+const mfOf = b => { const c = SLIDES[b.id] || {}; return {redFlag: c.redFlag || null, ruleEx: c.ruleEx || null, milestones: c.milestones || null}; };
+const FLAG_SVG = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M5 21V4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M6 4h11l-2.6 4L17 12H6z" fill="currentColor"/></svg>`;
+function redFlagBox(b){
+  const r = mfOf(b).redFlag; if(!r) return "";
+  const row = (k, x) => `<div class="cfx-rf-r"><dt>${k}</dt><dd>${hl(x)}</dd></div>`;
+  return `<aside class="cfx-rf" role="note" aria-label="CM Red Flag"><div class="cfx-rf-h"><span class="cfx-rf-i">${FLAG_SVG}</span><b>CM Red Flag</b><span class="cfx-rf-own">Owner: ${E(r.owner)}</span></div>
+    <dl>${row("You see", r.see)}${row("It costs", r.costs)}${row("You do", r.do)}</dl></aside>`;
+}
+function ruleExBox(b){
+  const x = mfOf(b).ruleEx; if(!x) return "";
+  return `<section class="cfx-rx" aria-label="Rule vs. Exception"><div class="cfx-rx-p"><div class="cfx-rx-rule"><p><b>Rule</b> ${hl(x.rule)}</p></div>
+    <div class="cfx-rx-exc"><p><b>${x.contrast ? "Contrast" : "Exception"}</b> ${hl(x.exception)}</p></div></div>
+    ${x.onFile ? `<p class="cfx-rx-file"><b>On this file:</b> ${hl(x.onFile)}</p>` : ""}<p class="cfx-rx-conf"><b>Confirm:</b> ${hl(x.confirm)}</p></section>`;
+}
+const msView = b => { const vs = viewsOf(b); return ["job", "frame", "model", "theory", "rules"].find(v => vs.includes(v)) || null; };
+function milestoneRail(b, view){
+  const m = mfOf(b).milestones; if(!m || msView(b) !== view) return "";
+  const n0 = m.start || 1;
+  return `<section class="cfx-ms" aria-label="Milestone Steps: ${E(m.title)}"><h3 class="cfx-ms-t">${E(m.title)}</h3><ol class="cfx-ms-rail" style="--n:${m.steps.length}" start="${n0}">${m.steps.map((s, i) => `<li><span class="cfx-ms-n">${n0 + i}</span><span class="cfx-ms-h"><b>${E(s.label)}</b>${s.chip ? `<code class="cfx-ms-chip">${E(s.chip)}</code>` : ""}</span><span class="cfx-ms-done"><i>Done when:</i> ${hl(s.done)}</span></li>`).join("")}</ol>
+    ${m.note ? `<p class="cfx-ms-note">${hl(m.note)}</p>` : ""}</section>`;
+}
 function viewsOf(b){
   if(b.kind === "lesson" && b.brief) return ["why"].concat(docView(b), ["rules"]).concat((b.ops || []).length ? ["job"] : []);   // brief: a condensed overview (Day 5's litigation)
   if(b.kind === "lesson" && b.compact) return mapView(b).concat(theoryViews(b).slice(0, 1), ["why"], docView(b), ["rules"], (b.ops || []).length ? ["job"] : []);   // compact: a full topic on fewer slides
@@ -865,13 +890,13 @@ function slideBody(view, l, d){
   if(DRIVE_LATER.has(b.id) && window.CMDrive && CMDrive.dayOpened) CMDrive.dayOpened(Number(b.id.charAt(1)));   // a day's Backup File Maintenance: Day 2 lays its drill, and the day is graded
   switch(view){
     case "why": { const ls = leadSplit(c.hook);
-      return `<div class="cfx-hero"><div class="cfx-hero-text"><span class="cfx-chip">${E(titleCase(b.topic))}</span>${ls ? `<p class="cfx-lead-1">${hl("**" + ls[0] + "**")}</p><p class="cfx-hook">${hl(ls[1])}</p>` : `<p class="cfx-hook">${hl(c.hook)}</p>`}</div>${art(c.image)}</div>${strip()}`; }
+      return `<div class="cfx-hero${mfOf(b).redFlag ? " cfx-hero-rf" : ""}"><div class="cfx-hero-text"><span class="cfx-chip">${E(titleCase(b.topic))}</span>${ls ? `<p class="cfx-lead-1">${hl("**" + ls[0] + "**")}</p><p class="cfx-hook">${hl(ls[1])}</p>` : `<p class="cfx-hook">${hl(c.hook)}</p>`}</div>${art(c.image)}</div>${redFlagBox(b)}${strip()}`; }
     case "theory": case "theory2": {
       const t = c.theory, half = Math.ceil(t.concepts.length / 2), two = t.concepts.length > TH_PER;
       const list = !two ? t.concepts : view === "theory" ? t.concepts.slice(0, half) : t.concepts.slice(half);
       return `<div class="cfx-theory cfx-th-solo"><div class="cfx-th-main">${view === "theory" ? mapStrip(b) : ""}
           ${view === "theory" ? (leadSplit(t.lead) ? `<p class="cfx-lead-1">${hl("**" + leadSplit(t.lead)[0] + "**")}</p><p class="cfx-th-lead">${hl(leadSplit(t.lead)[1])}</p>` : `<p class="cfx-th-lead">${hl(t.lead)}</p>`) : `<p class="cfx-th-cont">${E(titleCase(b.topic))}: continued</p>`}
-          <div class="cfx-th-grid">${list.map((x, j) => `<div class="cfx-th-c" style="animation-delay:${j * .05}s"><b>${E(x.term)}</b><span>${hl(x.text)}</span>${(x.more || []).length ? `<button type="button" class="cfx-th-more" onclick="cmCaseFlow.more('${b.id}',${t.concepts.indexOf(x)})" title="More on ${E(x.term)}">＋ More</button>` : ""}</div>`).join("")}</div></div>
+          <div class="cfx-th-grid">${list.map((x, j) => `<div class="cfx-th-c" style="animation-delay:${j * .05}s"><b>${E(x.term)}</b><span>${hl(x.text)}</span>${(x.more || []).length ? `<button type="button" class="cfx-th-more" onclick="cmCaseFlow.more('${b.id}',${t.concepts.indexOf(x)})" title="More on ${E(x.term)}">＋ More</button>` : ""}</div>`).join("")}</div>${view === "theory" ? milestoneRail(b, "theory") : ""}</div>
       </div>`;
     }
     case "frame": {   // the deck page's structure, drawn in the course's own design
@@ -881,7 +906,7 @@ function slideBody(view, l, d){
         : f.kind === "flow"
           ? `<ol class="cfx-fw-flow" style="--n:${steps.length}">${steps.map((x, i) => `<li style="animation-delay:${i * .07}s"><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span>${stepMore(b, x, i)}</li>`).join("")}</ol>`
           : `<div class="cfx-fw-list">${steps.map((x, i) => `<div style="animation-delay:${i * .05}s"><b>${E(x.label)}</b><span>${hl(x.text)}</span>${stepMore(b, x, i)}</div>`).join("")}</div>`;
-      return `<div class="cfx-fw"><h3 class="cfx-fw-t">${E(String(f.title).replace(/,?\s*\(?Steps?\s+\d+\s*[–-]\s*\d+\)?\s*$/i, ""))}</h3>${body}${f.note ? `<p class="cfx-fw-note">${hl(f.note)}</p>` : ""}</div>`;
+      return `<div class="cfx-fw"><h3 class="cfx-fw-t">${E(String(f.title).replace(/,?\s*\(?Steps?\s+\d+\s*[–-]\s*\d+\)?\s*$/i, ""))}</h3>${body}${f.note ? `<p class="cfx-fw-note">${hl(f.note)}</p>` : ""}</div>${milestoneRail(b, "frame")}`;
     }
     case "doc": {   // The Document: what it is, why the law cares, what it proves, and the Case Manager's handling
       const d = c.document, f = d.doc && CF_DOCS.find(x => x.id === d.doc);
@@ -895,7 +920,7 @@ function slideBody(view, l, d){
     case "map": { const r = roadmapOf(b), steps = r.steps;
       return `<div class="cfx-fw cfx-map"><h3 class="cfx-fw-t">🗺 ${E(r.title)}</h3><ol class="cfx-fw-flow" style="--n:${steps.length}">${steps.map((x, i) => `<li style="animation-delay:${i * .07}s"><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span></li>`).join("")}</ol><p class="cfx-fw-note">Where this lesson is going: each step is taught next, before anything asks you to do it.</p></div>`;
     }
-    case "rules": return `<div class="cfx-split"><ol class="cfx-points">${c.points.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>${art(c.image, "small")}</div>${plainBox(b)}
+    case "rules": return `<div class="cfx-split${mfOf(b).ruleEx ? " cfx-split-rx" : msView(b) === "rules" && mfOf(b).milestones ? " cfx-split-ms" : ""}"><ol class="cfx-points">${c.points.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>${mfOf(b).ruleEx ? ruleExBox(b) : msView(b) === "rules" && mfOf(b).milestones ? "" : art(c.image, "small")}</div>${milestoneRail(b, "rules")}${plainBox(b)}
       ${c.upl ? `<div class="cfx-upl"><b>⚖ UPL Line</b><span>${hl(c.upl)}</span></div>` : ""}`;
     case "audit": return auditSlide(b);
     case "grade": {   // what a Grade-A packet or binder holds and how it is built, shown before Your Task
@@ -903,8 +928,8 @@ function slideBody(view, l, d){
       return `<div class="cfx-fw cfx-grade-w"><h3 class="cfx-fw-t">🏅 ${E(g.title)}</h3><div class="cfx-grade">${col("cfx-grade-g", "📐 Guidelines", g.guide)}${col("cfx-grade-i", "📦 Standard Inclusions", g.include)}${col("cfx-grade-s", "🪜 Steps to Grade A", g.steps, true)}</div>
         <p class="cfx-fw-note">Build your own version from the downloaded case documents, then upload it to your training Drive and the CMS: the platform audits it against this standard.</p></div>`;
     }
-    case "model": return `<div class="cfx-model">${b.show && b.show.caption ? `<p class="cfx-caption">${E(b.show.caption)}</p>` : ""}${visual(l, b)}</div>`;
-    case "job": return `<div class="cfx-job">${c.job.map((r, ri) => `<div class="cfx-flow">${r.map((x, j) => `<div class="cfx-step"><small>${["Trigger", "Task", "Tool", "Checkpoint"][j]}</small><span>${hl(x)}</span></div>`).join('<span class="cfx-arrow">➔</span>')}</div>`).join("")}</div>`;
+    case "model": return `<div class="cfx-model">${b.show && b.show.caption ? `<p class="cfx-caption">${E(b.show.caption)}</p>` : ""}${visual(l, b)}</div>${milestoneRail(b, "model")}`;
+    case "job": return `${milestoneRail(b, "job")}<div class="cfx-job${mfOf(b).milestones ? " cfx-job-ms" : ""}">${c.job.map((r, ri) => `<div class="cfx-flow">${r.map((x, j) => `<div class="cfx-step"><small>${["Trigger", "Task", "Tool", "Checkpoint"][j]}</small><span>${hl(x)}</span></div>`).join('<span class="cfx-arrow">➔</span>')}</div>`).join("")}</div>`;
     case "dodont": return ddList(c);   // the Do's and Don'ts themselves (3 Clues, 1 Rule is retired)
     case "case": {
       if(b.id === "d1m1-drive" && window.CMDrive && CMDrive.slide) return CMDrive.slide();   // Day 1's case backup: the task in four steps and the firm's standard, from the Worker (js/cm-drive.js)
@@ -2081,7 +2106,7 @@ function npParts(blockId){
 }
 function npCard(blockId){
   const n = notesOf(blockId), parts = npParts(blockId), r = npRec(blockId);
-  const sc = r.txAt ? ` · transcript ${r.txGot.filter(Boolean).length}/${n.transcribe.facts.length}` : "", pl = r.planAt ? ` · plan ${r.planGot.filter(Boolean).length}/${n.plan.required.length}` : "";
+  const sc = r.txAt ? ` · transcript ${npTxScore(n, r)}% (${r.txGot.filter(Boolean).length}/${n.transcribe.facts.length} facts)` : (r.txTries || []).length ? ` · transcript attempt ${r.txTries.length}: ${r.txTries[r.txTries.length - 1].score}%` : "", pl = r.planAt ? ` · plan ${r.planGot.filter(Boolean).length}/${n.plan.required.length}` : "";
   // the card itself opens the workspace (Your Task's steps open it too): no separate "Open Notes & Action Plan" button
   return `<div class="cfx-np" role="button" tabindex="0" title="Open the Notes &amp; Action Plan" onclick="cmCaseFlow.notes('${blockId}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();cmCaseFlow.notes('${blockId}')}"><b>📝 Notes &amp; Action Plan</b><span class="cfx-np-k">${E(n.kicker)}</span>
     <ol>${parts.map(p => `<li class="${p.done ? "ok" : ""}">${p.done ? "✓" : "○"} ${E(p.label)}</li>`).join("")}</ol>
@@ -2102,11 +2127,16 @@ function npEmail(blockId, e, open){
 function npWorkspace(blockId){
   const n = notesOf(blockId), r = npRec(blockId), ev = SIM.events[blockId] || {}, vm = vmRec(blockId);
   const txDone = !!r.txAt, planDone = !!r.planAt, t = n.transcribe, p = n.plan;
+  const tries = r.txTries || [], last = tries[tries.length - 1];
+  const triesHtml = tries.length ? `<ol class="np-tries">${tries.map((a, i) => `<li><b>Attempt ${i + 1}: ${E(a.score)}%</b> · ${E(a.facts)} of ${E(a.of)} facts · ${E(a.acc)}% word accuracy${a.final ? " · <em>handed in</em>" : ""}</li>`).join("")}</ol>` : "";
   const tx = txDone
     ? `<pre class="sv-body">${E(r.tx)}</pre>
+      <div class="np-grade"><b>🎙 Transcript grade: ${E(npTxScore(n, r))}%</b><span>${E(TX_HOW)}</span>${triesHtml}</div>
       <div class="np-key"><b>Answer key: what was said</b><p>${E(ev.spoken || "")}</p>
         <ul>${t.facts.map((f, i) => `<li class="${r.txGot[i] ? "ok" : "miss"}">${r.txGot[i] ? "✓ Caught" : "✗ Missed"} · ${E(f.label)}</li>`).join("")}</ul></div>`
     : `<p class="sv-brief">${hl(t.brief)}</p>
+      ${last ? `<div class="np-grade"><b>🎙 Attempt ${tries.length} of ${TX_TRIES}: ${E(last.score)}%</b><span>${E(last.facts)} of ${E(last.of)} facts caught · ${E(last.acc)}% word accuracy against the message. Play it again and improve it, or hand it in: the answer key opens when you do${tries.length >= TX_TRIES - 1 ? " (your next check is handed in)" : ""}.</span>${triesHtml}
+        <div class="sv-row"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.npTxHand('${blockId}')">📤 Hand in attempt ${tries.length} (${E(last.score)}%)</button></div></div>` : ""}
       <div class="sv-row"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.vmPlay('${blockId}')">${vm.plays ? "↻ Play again" : "▶ Play the voicemail"}</button><span class="sv-note">${E(ev.from || "")} · ${E(ev.date || "")}${ev.time ? " · " + E(ev.time) : ""}</span></div>
       <textarea class="sv-write" id="npt_${E(blockId)}" rows="6" placeholder="Type the message as you hear it." aria-label="Your transcript of the voicemail" oninput="cmCaseFlow.npDraft('${blockId}','tx',this.value)">${E(r.tx || "")}</textarea>
       <div class="sv-row"><button type="button" class="btn btn-navy" onclick="cmCaseFlow.npTx('${blockId}')">Check my transcript</button><span class="sv-msg" id="nptm_${E(blockId)}" aria-live="polite"></span></div>`;
@@ -2146,15 +2176,60 @@ window.cmCaseFlow.npDraft = function(blockId, k, v){
   clearTimeout(npT); npT = setTimeout(persist, 600);
 };
 const npWords = t => String(t || "").split(/\s+/).filter(Boolean).length;
+/* 🎙 The transcript is graded, every attempt: the facts it had to catch (the answer key, 60%) and its word accuracy
+   against what was said (the voicemail's own words, 40%: the words in common, in order, over the two lengths, so a
+   word left out and a word made up both cost). Up to TX_TRIES checks; a check at 90% or more, the last one, or
+   📤 Hand in hands it in, and only then the answer key opens. Each attempt is kept (r.txTries); the one handed in
+   is the transcript's grade (r.txScore), the scorecard's 🎙 Transcription and the 100-point model's Documentation. */
+const TX_TRIES = 3, TX_PASS = 90;
+const TX_HOW = "Graded on the facts it had to catch (60%) and its word accuracy against what was said (40%).";
+const TX_FILL = new Set(["uh", "um", "er", "ah", "hmm", "erm", "like"]);
+const TX_NUM = {zero: "0", oh: "0", o: "0", one: "1", two: "2", three: "3", four: "4", five: "5", six: "6", seven: "7", eight: "8", nine: "9"};
+function txWords(t){
+  const out = [];
+  String(t || "").toLowerCase().replace(/[’']/g, "").split(/[^a-z0-9]+/).filter(Boolean).forEach(w => {
+    if(TX_FILL.has(w)) return;
+    if(/^\d+$/.test(w)) w.split("").forEach(d => out.push(d)); else out.push(TX_NUM[w] || w);
+  });
+  return out;
+}
+function txAccuracy(said, typed){
+  const a = txWords(said), b = txWords(typed); if(!a.length || !b.length) return 0;
+  let prev = new Array(b.length + 1).fill(0);
+  for(let i = 1; i <= a.length; i++){ const cur = [0]; for(let j = 1; j <= b.length; j++) cur[j] = a[i - 1] === b[j - 1] ? prev[j - 1] + 1 : Math.max(prev[j], cur[j - 1]); prev = cur; }
+  return Math.round(100 * 2 * prev[b.length] / (a.length + b.length));
+}
+function npTxGrade(blockId, text){
+  const n = notesOf(blockId), got = n.transcribe.facts.map(f => npHit(f.match, text)), facts = got.filter(Boolean).length, of = got.length;
+  const acc = txAccuracy((SIM.events[blockId] || {}).spoken || "", text);
+  return {got, facts, of, acc, score: Math.round(0.6 * (of ? 100 * facts / of : 0) + 0.4 * acc)};
+}
+// the transcript's grade: the attempt handed in (a transcript from before the grading had only its facts)
+const npTxScore = (n, r) => typeof r.txScore === "number" ? r.txScore : Math.round(100 * (r.txGot || []).filter(Boolean).length / Math.max(1, n.transcribe.facts.length));
+function npTxHandIn(blockId, a){
+  const r = npRec(blockId); a.final = true; if(a.text) r.tx = a.text;
+  r.txGot = a.got; r.txScore = a.score; r.txAt = new Date().toISOString(); persist();
+  if(typeof toast === "function") toast(`Transcript handed in: ${a.score}% (${a.facts} of ${a.of} facts, ${a.acc}% word accuracy). The answer key is open.`);
+  npRepaint(blockId);
+}
 window.cmCaseFlow.npTx = function(blockId){
   const n = notesOf(blockId), r = npRec(blockId), el = document.getElementById("npt_" + blockId), msg = document.getElementById("nptm_" + blockId);
   if(!n || r.txAt) return;
   r.tx = ((el && el.value) || r.tx || "").trim().slice(0, 4000);
   if(!vmRec(blockId).plays && !isTrainer()){ if(msg) msg.textContent = "Play the voicemail first: the transcript is of what you hear."; return; }
   if(npWords(r.tx) < 25){ if(msg) msg.textContent = "Take more of it down: type the message as he says it, start to finish."; return; }
-  r.txGot = n.transcribe.facts.map(f => npHit(f.match, r.tx)); r.txAt = new Date().toISOString(); persist();
-  if(typeof toast === "function") toast(`You caught ${r.txGot.filter(Boolean).length} of ${n.transcribe.facts.length}. The transcript and the answer key are open.`);
+  const g = npTxGrade(blockId, r.tx), a = {at: new Date().toISOString(), score: g.score, facts: g.facts, of: g.of, acc: g.acc, got: g.got, words: npWords(r.tx), text: r.tx};
+  r.txTries = (r.txTries || []).concat([a]);
+  if(g.score >= TX_PASS || r.txTries.length >= TX_TRIES) return npTxHandIn(blockId, a);
+  persist();
+  if(typeof toast === "function") toast(`Attempt ${r.txTries.length}: ${g.score}% (${g.facts} of ${g.of} facts, ${g.acc}% word accuracy). Improve it, or hand it in.`);
   npRepaint(blockId);
+};
+window.cmCaseFlow.txGrade = (said, typed) => txAccuracy(said, typed);
+window.cmCaseFlow.npTxHand = function(blockId){
+  const r = npRec(blockId), tries = r.txTries || [];
+  if(r.txAt || !tries.length) return;
+  npTxHandIn(blockId, tries[tries.length - 1]);
 };
 window.cmCaseFlow.npPlan = function(blockId){
   const n = notesOf(blockId), r = npRec(blockId), el = document.getElementById("npp_" + blockId), msg = document.getElementById("nppm_" + blockId);
@@ -2637,8 +2712,9 @@ window.cmCaseFlow.labGo = function(dayId, li){
 const dayScript = (d, k) => { const x = (((window.CM_CF_SCRIPTS || {})._days || {})[d && d.cf && d.cf.n] || {})[k]; return x && {say: named(x.say, `${d.id}::_${k}`), ask: named(x.ask || "", `${d.id}::_${k}?`)}; };
 // a script's paragraphs, as written: a line break starts a new one
 const sayParas = t => String(t || "").split(/\s*\n\s*/).map(x => x.trim()).filter(Boolean);
-const sayHtml = (t, cls) => sayParas(t).map(p => `<p${cls ? ` class="${cls}"` : ""}>${E(p)}</p>`).join("");
-const dayScriptHtml = x => `<div class="pn"><div class="script-block"><div class="script-head"><span>🎙 Script — read aloud</span></div>
+const sayHtml = (t, cls) => sayParas(t).map(p => `<p${cls ? ` class="${cls}${/^•\s/.test(p) ? " script-pt" : ""}"` : ""}>${E(p)}</p>`).join("");
+const isPointsSay = t => { const ps = sayParas(t); return ps.length > 0 && ps.every(p => /^•\s/.test(p)); };
+const dayScriptHtml = x => `<div class="pn"><div class="script-block"><div class="script-head"><span>${isPointsSay(x.say) ? "🗒 Talking points" : "🎙 Script — read aloud"}</span></div>
   ${sayHtml(x.say, "script-say")}${x.ask ? `<p class="script-say script-ask">${E(x.ask)}</p>` : ""}</div></div>`;
 const dayScriptLines = (x, label) => [`SLIDE: ${label.toUpperCase()}`, ...sayParas(x.say)].concat(x.ask ? [`ASK: ${x.ask}`] : []);
 if(typeof presenterCues === "function"){   // Presenter view: the trainer's note for the Training Agenda and Practice Lab slides
@@ -2659,7 +2735,7 @@ if(typeof presenterCues === "function"){   // Presenter view: the trainer's note
     if(slide && slide.type === "readyCheck" && cfDay(d && d.id)) return `<h3>Ready for the Knowledge Check?</h3><p>The day's Skill Activities are done. Give the room a couple of minutes on these ${labQuestions(d).length} key concepts, one from each of today's first modules: a wrong answer shows the reason and can be tried again. Then open the Knowledge Check.</p>`;
     if(!(slide && (slide.type === "practiceLab" || slide.type === "taskOverview") && cfDay(d && d.id))) return __cues.apply(this, arguments);
     if(slide.type === "taskOverview"){ const x = dayScript(d, "agenda"), a = agendaNotes(d);
-      return x ? `<h3>Training Agenda</h3>${dayScriptHtml(x)}<div class="pn-on pn-cue"><b>The run of the day, from the slide</b><p>${E(a.run)}</p></div>`
+      return x ? `<h3>Training Agenda</h3>${dayScriptHtml(x)}<div class="pn-on pn-cue"><b>The run of the day, from the slide</b>${sayHtml(a.say.split("\n").slice(1).join("\n"))}</div>`
         : `<h3>Training Agenda</h3><div class="pn-part">🎙 Script — read aloud</div>${sayHtml(a.say)}${a.ask ? `<p><b>Ask:</b> ${E(a.ask)}</p>` : ""}`; }
     const n = d.lessons.filter(l => l.cf.block.kind === "activity").length, x = dayScript(d, "lab");
     const how = `<p>Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. Today's ${n} Skill Activities each come straight after the lessons they practise: each opens with Your Case, then Your Task and Check Your Work. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
@@ -4541,6 +4617,10 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx-np li.ok{color:#1d5c3a;}
 .cfx-np-r{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:4px;}
 .cfx-np-r small{color:var(--ink-soft);font-size:13px;}
+.np-grade{margin-top:8px;border:2px solid #C9D1E6;background:#F4F6FB;border-radius:10px;padding:8px 12px;font:600 15px/1.45 var(--font-ui);color:#1E2340;}
+.np-grade > b{display:block;font-weight:800;font-size:16px;color:#1E2340;} .np-grade > span{display:block;color:#2E3450;}
+.np-tries{margin:6px 0 0;padding-left:20px;font-size:15px;font-weight:600;} .np-tries b{color:#1E2340;} .np-tries em{color:#B5651F;font-style:normal;font-weight:800;}
+.np-grade .sv-row{margin-top:6px;}
 .np-key{margin-top:8px;border:1px solid #BFE3CE;background:#F3F9F5;border-radius:10px;padding:8px 12px;}
 .np-key p{margin:4px 0;font-style:italic;}
 .np-key ul,.np-key ol{margin:4px 0 0;padding-left:20px;display:grid;gap:4px;}
@@ -5542,8 +5622,17 @@ document.head.appendChild(st);
 .cfx .cfx-step span{font-size:19px;font-weight:600;}
 .cfx .cfx-dd li{font-size:21px;font-weight:600;}
 .cfx .cfx-dd h3{font-size:24px;}
-.cfx .cfx-fw-flow li span, .cfx .cfx-fw-list span, .cfx .cfx-fw-tbl td{font-size:18px;font-weight:600;color:#141A2E;}
-.cfx .cfx-fw-flow li b, .cfx .cfx-fw-list b{font-size:18.5px;font-weight:800;color:#1E2340;}
+.cfx .cfx-fw-list span, .cfx .cfx-fw-tbl td{font-size:18px;font-weight:600;color:#141A2E;}
+.cfx .cfx-fw-list b{font-size:18.5px;font-weight:800;color:#1E2340;}
+/* the flow (The General Process and every step-by-step track): big, bold type, and the step number white on its navy
+   badge (it is a span too, so it used to take the description's near-black and vanish into the badge) */
+.cfx .cfx-fw-flow li{padding:16px 14px 16px;gap:8px;}
+.cfx .cfx-fw-flow li b{font-size:23px;font-weight:800;line-height:1.2;color:#1E2340;}
+/* six steps or more: the longest single words ("Documentation", "Communication") still fit their card at 1280×720 */
+.cfx .cfx-fw-flow[style*="--n:6"] li b, .cfx .cfx-fw-flow[style*="--n:7"] li b, .cfx .cfx-fw-flow[style*="--n:8"] li b{font-size:19.5px;}
+.cfx .cfx-fw-flow li span:last-child{font-size:20px;font-weight:700;line-height:1.35;color:#141A2E;}
+.cfx .cfx-fw-flow li .cfx-fw-n{width:36px;height:36px;font-size:17px;font-weight:800;color:#fff;background:#262B45;}
+@media(min-width:761px){.cfx .cfx-fw-flow li:not(:last-child)::after{font-size:20px;right:-17px;}}
 .cfx .cfx-doc-c p, .cfx .cfx-doc-c li, .cfx .cfx-grade-c li{font-size:18px;font-weight:600;color:#141A2E;}
 .cfx .cfx-upl span{font-weight:700;}
 .cfx .cfx-situation{font-weight:600;color:#141A2E;}
@@ -5623,7 +5712,10 @@ document.head.appendChild(st);
 .cfx-ready .cfx-lab-q > span{font-size:18px !important;} .cfx-ready .cfx-lab-q .o button{font-size:16.5px !important;}
 .cfx-agenda .cfx-ag-list li{justify-content:center !important;} .cfx-agenda .cfx-ag-list li > div{flex:0 1 auto !important;} .cfx-agenda .cfx-ag-list li > div,.cfx-agenda .cfx-ag-list li > div b{text-align:left !important;}   /* the agenda's topics, number and title together, centred in their boxes */
 .cfx-agenda .cfx-ag-side p{font-size:16.5px !important;} .cfx-agenda .cfx-ag-list li small{font-size:14px !important;}
-.cfx .cfx-model td,.cfx .cfx-model th,.cfx-model tbody td{font-size:16px !important;}
+.cfx .cfx-model td,.cfx .cfx-model th,.cfx-model tbody td{font-size:18px !important;font-weight:700 !important;color:#141A2E;line-height:1.45;}
+/* a model table's text bold, as the trainer asked: its header row and first column extra-bold, the caption bold and dark */
+.cfx .cfx-model th,.cfx-model thead th{font-weight:800 !important;color:#fff;} .cfx .cfx-model tbody td:first-child{font-weight:800 !important;}
+.cfx-model .cfx-caption{font-weight:800 !important;color:#1E2340 !important;font-size:21px !important;}
 .cfx .cfx-grade-c li{font-size:17px !important;}
 .cfx-agenda .cfx-ag-side p:not(.cfx-ag-day){font-size:17px !important;line-height:1.5 !important;}
 .cfx-agenda .cfx-ag-list li small{font-size:15px !important;} .cfx-agenda .cfx-ag-list li b{font-size:19px !important;}
@@ -5650,12 +5742,13 @@ body:not(.ft-fit) #lessonStage > .slide-nav{margin-top:8px !important;margin-bot
 .cfx .cfx-points li,.cfx .cfx-points li span{font-size:clamp(20px,2.6vh,25px) !important;}
 .cfx .cfx-job .cfx-step span{font-size:clamp(17px,2.2vh,20px) !important;font-weight:700 !important;}
 .cfx .cfx-job .cfx-step small{font-size:13.5px !important;font-weight:800 !important;}
-.cfx .cfx-fw-flow li span,.cfx .cfx-fw-list span{font-size:clamp(17px,2.2vh,20px) !important;font-weight:600 !important;}
-.cfx .cfx-fw-flow li b,.cfx .cfx-fw-list b{font-size:clamp(18px,2.3vh,21px) !important;font-weight:800 !important;}
+.cfx .cfx-fw-list span{font-size:clamp(17px,2.2vh,20px) !important;font-weight:600 !important;}
+.cfx .cfx-fw-list b{font-size:clamp(18px,2.3vh,21px) !important;font-weight:800 !important;}
+/* the flow keeps its own measured sizes (above, "the flow ..."): 23px titles (19.5px at six steps or more), 20px bold text */
 .cfx .cfx-hero-text p,.cfx .cfx-hero-text h3{font-weight:800 !important;}
 .cfx .cfx-ev-body,.cfx .cfx-side .cfx-why span,.cfx .cfx-deliver span,.cfx .cfx-when p{font-weight:600 !important;}
 .cfx .cfx-dd li,.cfx .cfx-dd li span{font-weight:700 !important;}
-.cfx .cfx-model td,.cfx .cfx-model th{font-weight:600 !important;}`;
+.cfx .cfx-model td,.cfx .cfx-model th{font-weight:700 !important;} .cfx .cfx-model th,.cfx .cfx-model tbody td:first-child{font-weight:800 !important;}`;
   document.head.appendChild(st);
 })();
 
@@ -5695,5 +5788,75 @@ body:not(.ft-fit) #lessonStage > .slide-nav{margin-top:8px !important;margin-bot
 .cfx-cv-plan li::before{content:counter(pl);position:absolute;left:12px;top:10px;width:24px;height:24px;border-radius:50%;background:#1E2340;color:#fff;font:800 14px 'Inter',sans-serif;display:flex;align-items:center;justify-content:center;}
 .cfx-cv-plan b{display:block;font:800 17.5px/1.3 'Inter',sans-serif;color:#1E2340;} .cfx-cv-plan span{display:block;font:600 16px/1.4 'Inter',sans-serif;color:#141A2E;}
 @media(max-width:900px){ .cfx-cm-track{grid-template-columns:1fr;gap:12px;} .cfx-cm-track::before{display:none;} .cfx-cv{grid-template-columns:1fr;} }`;
+  document.head.appendChild(st);
+})();
+
+/* The three micro-frameworks: CM Red Flag (Why It Matters), Rule vs. Exception (The Rules), Milestone Steps (On the Job).
+   LSH navy #1E2340 and orange #DB8437; the Red Flag in a red-bordered box with its flag icon and label, so its meaning
+   never rests on colour alone; body type on them never under 16px, bold. */
+(function(){
+  if(document.getElementById("cf-mf-css")) return;
+  const st = document.createElement("style"); st.id = "cf-mf-css";
+  st.textContent = `
+.cfx-rf{margin:8px 0 0;background:#FDECEA;border:2px solid #B3261E;border-left:8px solid #B3261E;border-radius:12px;padding:8px 16px 9px;text-align:left;}
+.cfx-rf-h{display:flex;align-items:center;gap:10px;margin:0 0 4px;color:#B3261E;}
+.cfx-rf-i{display:inline-flex;}
+.cfx-rf-h b{font:800 17px var(--font-ui);letter-spacing:.08em;text-transform:uppercase;color:#7F1D1D;}
+.cfx-rf-own{margin-left:auto;font:800 17px var(--font-ui);background:#1E2340;color:#fff;border-radius:999px;padding:3px 14px;white-space:nowrap;}
+.cfx-rf dl{margin:0;display:flex;flex-direction:column;gap:2px;}
+.cfx-rf-r{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:baseline;}
+.cfx-rf dt{font:800 17px var(--font-ui);color:#B3261E;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;}
+.cfx-rf dd{margin:0;font:700 clamp(17px,2.3vh,20px)/1.35 var(--font-ui);color:#3B0D0D;}
+.cfx-lesson .cfx-hero-rf{gap:16px;}
+.cfx .cfx-hero-rf .cfx-hook{font-size:clamp(24px,3.6vh,32px) !important;}
+.cfx-lesson .cfx-hero-rf .cfx-art{max-height:min(22vh,180px);}
+.cfx-lesson .cfx-hero-rf .cfx-art svg,.cfx-lesson .cfx-hero-rf .cfx-art img{max-height:min(22vh,180px);width:auto;}
+.cfx-lesson .cfx-split-rx{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr) !important;justify-content:stretch !important;align-items:start !important;column-gap:24px !important;}
+.cfx .cfx-split-rx .cfx-points{gap:8px;}
+.cfx .cfx-split-rx .cfx-points li,.cfx .cfx-split-rx .cfx-points li span{font-size:clamp(18px,2.4vh,22px) !important;line-height:1.32 !important;}
+.cfx-rx{display:flex;flex-direction:column;gap:6px;text-align:left;}
+.cfx-rx-p{display:flex;flex-direction:column;gap:6px;}
+.cfx-rx-rule,.cfx-rx-exc{border-radius:12px;padding:7px 14px 8px;}
+.cfx-rx-rule{background:#EEF1FA;border:2px solid #1E2340;}
+.cfx-rx-exc{background:#FFF3E6;border:2px solid #DB8437;}
+.cfx-rx-p b{display:inline-block;font:800 17px/1.2 var(--font-ui);letter-spacing:.08em;text-transform:uppercase;padding:2px 9px;border-radius:6px;background:#1E2340;color:#fff;margin-right:6px;vertical-align:1px;}
+.cfx-rx-exc b{background:#9A4E12;}
+.cfx-rx-p p{margin:0;font:700 clamp(17px,2.3vh,20px)/1.32 var(--font-ui);color:#1E2340;}
+.cfx-rx-exc p{color:#5A2A08;}
+.cfx-rx-file,.cfx-rx-conf{margin:0;font:700 clamp(17px,2.2vh,18px)/1.3 var(--font-ui);color:#141A2E;}
+.cfx-rx-file > b,.cfx-rx-conf > b{color:#9A4E12;font-weight:800;}
+.cfx .cfx-ms,.cfx .cfx-ms *,.cfx .cfx-rx,.cfx .cfx-rx *,.cfx .cfx-rf,.cfx .cfx-rf *{text-align:left !important;}
+.cfx .cfx-rx > *,.cfx .cfx-ms > *,.cfx .cfx-rf > *{margin-left:0 !important;margin-right:0 !important;}
+.cfx-ms{margin:0 0 10px;}
+.cfx-ms + .cfx-plain,.cfx-fw + .cfx-ms,.cfx-model + .cfx-ms{margin-top:12px;}
+.cfx-ms-t{margin:0 0 4px;font:800 18px var(--font-ui);color:#1E2340;text-transform:uppercase;letter-spacing:.06em;}
+.cfx-ms-rail{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:12px;position:relative;}
+.cfx-ms-rail::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#DB8437,#1E2340);border-radius:2px;}
+.cfx-ms-rail > li{position:relative;display:grid;grid-template-columns:40px minmax(0,1fr);align-items:center;column-gap:8px;row-gap:3px;padding:10px 0 0;align-content:start;}
+.cfx-ms-rail > li > .cfx-ms-done{grid-column:1 / -1;justify-self:start;}
+.cfx-ms-h{display:flex;flex-wrap:wrap;align-items:center;gap:3px 8px;}
+.cfx-ms-rail > li::before{display:none !important;content:none !important;}
+.cfx-ms-n{position:relative;z-index:1;width:40px;height:40px;border-radius:50%;background:#DB8437;color:#161829;font:800 19px var(--font-ui);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #fff;}
+.cfx-ms-rail b{font:800 clamp(17px,2.2vh,19px)/1.2 var(--font-ui);color:#1E2340;}
+.cfx-ms-chip{font:700 17px 'IBM Plex Mono',monospace;background:#1E2340;color:#fff;border-radius:6px;padding:2px 8px;white-space:nowrap;}
+.cfx-ms-done{font:700 17px/1.28 var(--font-ui);color:#141A2E;}
+.cfx-ms-done i{font-style:normal;font-weight:800;color:#9A4E12;}
+.cfx-ms-note{margin:6px 0 0;font:700 17px/1.35 var(--font-ui);color:#1E2340;}
+.cfx-job-ms{gap:10px !important;}
+.cfx .cfx-job-ms .cfx-step{padding:5px 10px;gap:2px;}
+.cfx .cfx-job-ms .cfx-flow + .cfx-flow .cfx-step small{display:none;}
+.cfx-lesson .cfx-split-ms{grid-template-columns:minmax(0,1fr) !important;justify-content:stretch !important;}
+.cfx .cfx-split-ms .cfx-points li,.cfx .cfx-split-ms .cfx-points li span{font-size:clamp(18px,2.4vh,22px) !important;}
+.cfx .cfx-split-ms .cfx-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px;}
+@media(max-width:600px){
+  .cfx-ms-rail{grid-template-columns:minmax(0,1fr);}
+  .cfx-ms-rail::before{left:0;right:auto;top:0;bottom:0;width:4px;height:auto;}
+  .cfx-ms-rail > li{padding:0 0 0 12px;}
+  .cfx .cfx-split-ms .cfx-points{grid-template-columns:minmax(0,1fr);}
+  .cfx-ms-rail > li > .cfx-ms-done{grid-column:2;}
+  .cfx-rf-r{grid-template-columns:minmax(0,1fr);gap:0;}
+  .cfx-lesson .cfx-split-rx{grid-template-columns:minmax(0,1fr) !important;}
+  .cfx-rx-p p,.cfx-rf dd{font-size:18px;}
+}`;
   document.head.appendChild(st);
 })();

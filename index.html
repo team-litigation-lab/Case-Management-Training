@@ -457,15 +457,15 @@ rect.svg-callout-badge{animation:none;}
 .lesson-compare .citem::before{content:"";position:absolute;left:0;top:4px;width:9px;height:9px;border-radius:50%;background:var(--orange);}
 .lesson-compare .cbox:first-child .citem::before{background:var(--navy);}
 
-.lesson-threebox{display:grid;grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));gap:10px;margin-bottom:14px;}
-.lesson-threebox .tbox{border-radius:10px;padding:16px;color:#fff;}
+.lesson-threebox{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px;margin-bottom:14px;}
+.lesson-threebox .tbox{border-radius:14px;padding:24px 26px;color:#fff;box-shadow:0 6px 18px rgba(28,32,58,.18);}
 .lesson-threebox .tbox:nth-child(3n+1){background:var(--navy);}
 .lesson-threebox .tbox:nth-child(3n+2){background:var(--orange);}
 .lesson-threebox .tbox:nth-child(3n+3){background:var(--navy-soft);}
-.lesson-threebox .tnum{font-family:'Fraunces';font-size:20px;font-weight:700;color:var(--orange);margin-bottom:6px;}
+.lesson-threebox .tnum{font-family:'Fraunces';font-size:38px;font-weight:700;line-height:1;color:var(--orange);margin-bottom:12px;}
 .lesson-threebox .tbox:nth-child(3n+2) .tnum{color:var(--navy-deep);}
-.lesson-threebox .tlabel{font-family:'Fraunces';font-size:var(--font-body);font-weight:600;margin-bottom:5px;}
-.lesson-threebox .tdesc{font-size:var(--font-sub);color:rgba(255,255,255,.9);line-height:1.4;}
+.lesson-threebox .tlabel{font-family:'Fraunces';font-size:24px;font-weight:700;line-height:1.2;margin-bottom:10px;}
+.lesson-threebox .tdesc{font-size:17px;font-weight:600;color:#fff;line-height:1.45;}
 
 .lesson-stat{
   background:var(--navy);border-radius:10px;padding:20px 24px;text-align:center;margin-bottom:14px;
@@ -1721,7 +1721,7 @@ body.tap-moving [ondrop]{outline:2px dashed rgba(219,132,55,.55);outline-offset:
 .script-head{display:flex;justify-content:space-between;align-items:center;font-weight:800;color:var(--navy);font-size:13px;margin-bottom:6px;}
 .script-time{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--orange-deep);background:#FFF1E2;border-radius:20px;padding:2px 8px;}
 .script-row{margin-top:8px;}
-.script-say{margin:8px 0 0;font-size:14px;line-height:1.6;} .script-say.script-ask{margin-top:10px;font-weight:600;color:var(--navy);} .script-next{margin:10px 0 0;font-size:12px;color:var(--orange-deep);font-weight:700;} .pn-cue{margin-top:10px;} .pn-cue p{font-size:12.5px;}
+.script-say{margin:8px 0 0;font-size:14px;line-height:1.6;} .script-say.script-pt{margin:5px 0 0;padding-left:1.1em;text-indent:-1.1em;} .script-say.script-ask{margin-top:10px;font-weight:600;color:var(--navy);} .script-next{margin:10px 0 0;font-size:12px;color:var(--orange-deep);font-weight:700;} .pn-cue{margin-top:10px;} .pn-cue p{font-size:12.5px;}
 .script-row b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--orange-deep);margin-bottom:2px;}
 .script-row p{margin:0;font-size:13px;line-height:1.5;white-space:pre-line;}   /* numbered step scripts keep their lines */
 .script-row ul{margin:2px 0 0;padding-left:18px;} .script-row li{font-size:13px;margin-bottom:3px;}
@@ -2289,9 +2289,9 @@ em.warn{font-style:normal;color:var(--danger);}
 .cal-block[data-lanes]:not([data-lanes="1"]) b{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.2;}
 
 .fb-composer{background:#FFF8EF;border:1.5px solid #F0C08A;border-radius:14px;padding:14px 16px;margin:10px 0 14px;}
-.fbc-head b{display:block;color:var(--navy);font-size:15px;} .fbc-head span{font-size:12.5px;color:var(--ink-soft);}
-.fb-composer label{display:flex;flex-direction:column;gap:3px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--navy);}
-.fb-composer textarea,.fb-composer select{font:inherit;font-size:13.5px;text-transform:none;letter-spacing:0;font-weight:400;border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:#fff;}
+.fbc-head b{display:block;color:var(--navy);font-size:16px;} .fbc-head span{font-size:14px;font-weight:600;color:var(--ink-soft);}
+.fb-composer label{display:flex;flex-direction:column;gap:3px;font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--navy);}
+.fb-composer textarea,.fb-composer select{font:inherit;font-size:14.5px;text-transform:none;letter-spacing:0;font-weight:400;border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:#fff;}
 .fbc-row{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0;} .fbc-row label{min-width:180px;}
 .fbc-full{margin-bottom:10px;} .fbc-row3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
 .fbc-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:10px;}
@@ -3278,7 +3278,7 @@ const mem = {}; // in-memory fallback if window.storage is unavailable
 const PERSONAL_KEYS = ["day-progress","practice-progress","lab-attempts-global","lab-attempts-by-day","admin-unlocked-days","admin-unlocked-copies","notes","completed-lab-actions",
   "day10-window","submissions","roleplayHistory","slide-progress","last-slide","attn-detail-findings",
   "calendar-custom","calendar-edits","call-log","inbox-filing","inbox-interactions","inbox-labels","trainee-batch",
-  "quick-check-answers","day-order-migrated","dividers-migrated","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log","lab-subs","case-flow","net-sheet","doc-filing","drive-setup","drive-grades"];
+  "quick-check-answers","day-order-migrated","dividers-migrated","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log","lab-subs","case-flow","net-sheet","doc-filing","drive-setup","drive-grades","cms-upload","cms-file"];
 const PERSONAL_KEY_SET = new Set(PERSONAL_KEYS);
 let cloudSaveTimer = null;
 function scheduleCloudSave(){
@@ -3760,6 +3760,8 @@ async function loadAll(){
 
 /* ---------- helpers ---------- */
 function esc(s){ return (s+"").replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+// A stored file's download link: only a real base64 data: URL, never markup or a javascript: link.
+const safeDataUrl = (u)=> /^data:[a-z0-9.+\/-]+(;[a-z0-9=.+-]+)*;base64,[a-z0-9+\/=\s]+$/i.test(String(u||"")) ? String(u) : "";
 
 async function callAIText(prompt, maxTokens, timeoutMs, feature){
   // Retry rate-limit / overload / transient server errors with backoff.
@@ -11440,13 +11442,20 @@ function tfbExportCsv(){
   saveBlob(blob, "LSH_trainee_feedback.csv");
 }
 Object.assign(window, {tfbSetStatus, tfbExportCsv, loadTraineeFeedbackAdmin});
+// A feedback record is the trainee's own writing: every field is escaped or narrowed to what it can be (the Worker
+// rebuilds new ones the same way; this also covers records saved before it did).
+const TFB_STATUSES = ["new","acknowledged","actioned"];
+const tfbStarCount = (v)=> Math.max(0, Math.min(5, Math.round(Number(v)) || 0));
 function tfbItemCard(x){
-  return `<div class="card tfb-item ${x.status||"new"}">
-      <div class="tfb-item-head"><b>${esc(x.name||"Trainee")}</b>${x.batch?` · Batch ${esc(batchShow(x.batch))}`:""} · ${x.dayId?`Day ${x.dayId}`:"Program overall"} · <span>${new Date(x.at).toLocaleString()}</span>
-        <span class="studio-badge ${x.status==="actioned"?"published":""}">${esc(x.status||"new")}</span></div>
-      <div class="tfb-item-ratings">${TFB_AREAS.filter(a=>x.ratings&&x.ratings[a.id]).map(a=>`<span>${a.icon} ${esc(a.label)}: <b>${"★".repeat(x.ratings[a.id])}${"☆".repeat(5-x.ratings[a.id])}</b></span>`).join("")}</div>
+  const status = TFB_STATUSES.includes(x.status) ? x.status : "new";
+  const day = parseInt(x.dayId, 10) || 0;
+  const when = isNaN(new Date(x.at)) ? "" : new Date(x.at).toLocaleString();
+  return `<div class="card tfb-item ${status}">
+      <div class="tfb-item-head"><b>${esc(x.name||"Trainee")}</b>${x.batch?` · Batch ${esc(batchShow(x.batch))}`:""} · ${day?`Day ${day}`:"Program overall"} · <span>${esc(when)}</span>
+        <span class="studio-badge ${status==="actioned"?"published":""}">${status}</span></div>
+      <div class="tfb-item-ratings">${TFB_AREAS.filter(a=>x.ratings&&tfbStarCount(x.ratings[a.id])).map(a=>`<span>${a.icon} ${esc(a.label)}: <b>${"★".repeat(tfbStarCount(x.ratings[a.id]))}${"☆".repeat(5-tfbStarCount(x.ratings[a.id]))}</b></span>`).join("")}</div>
       ${x.good?`<p><b>Worked well:</b> ${esc(x.good)}</p>`:""}${x.improve?`<p><b>Improve:</b> ${esc(x.improve)}</p>`:""}${x.facilitator?`<p><b>For facilitator:</b> ${esc(x.facilitator)}</p>`:""}
-      <div class="studio-actions">${["acknowledged","actioned"].filter(s=>s!==x.status).map(s=>`<button class="btn btn-ghost btn-sm" onclick="tfbSetStatus('${x.id}','${s}')">Mark ${s}</button>`).join("")}</div>
+      <div class="studio-actions">${["acknowledged","actioned"].filter(s=>s!==status).map(s=>`<button class="btn btn-ghost btn-sm" onclick="tfbSetStatus(${esc(JSON.stringify(String(x.id||"")))},'${s}')">Mark ${s}</button>`).join("")}</div>
     </div>`;
 }
 function renderAdminTraineeFeedback(){
@@ -11958,7 +11967,7 @@ async function loadAuditExtras(force){
     const got = await sharedGetMany(due.flatMap(rec=>["progress:"+rec.id, "feedback:"+rec.id, "focus:"+rec.id]));
     due.forEach((rec, i)=>{
       const [snap, fb, fo] = got.slice(i*3, i*3+3);
-      state.auditExtra[rec.id] = {at:Date.now(), data:(snap&&snap.data)||{}, savedAt:snap&&snap.savedAt, fb:(fb&&fb.days)||{}, focus:(fo&&fo.items)||[]};
+      state.auditExtra[rec.id] = {at:Date.now(), data:(snap&&snap.data)||{}, savedAt:snap&&snap.savedAt, fb:(fb&&fb.days)||{}, fbRec:fb||{}, focus:(fo&&fo.items)||[]};
     });
   }finally{ state.auditExtraLoading = false; }
   const wrap = document.getElementById("adminRowsWrap"); if(wrap && state.view==="admin" && !isTyping()) wrap.innerHTML = renderAdminRows();
@@ -12410,6 +12419,7 @@ function renderFeedbackComposer(rec){
       <label>Overall<select id="fbc_${sid}_rating"><option>Strong</option><option selected>On Track</option><option>Needs Support</option></select></label>
     </div>
     <label class="fbc-full">Your feedback<textarea id="fbc_${sid}_summary" rows="3" placeholder="What went well today, and what to work on next…"></textarea></label>
+    ${window.cmRubric ? cmRubric.composerHtml(sid, (fbDays[pick]||{}).rubric) : ""}
     <div class="fbc-row3">
       <label>Strengths (one per line)<textarea id="fbc_${sid}_strengths" rows="2"></textarea></label>
       <label>Not yet — to build (one per line)<textarea id="fbc_${sid}_areas" rows="2"></textarea></label>
@@ -12427,6 +12437,7 @@ function fbcLoad(id){
   const f = (work.feedback.days||{})[day] || {};
   const set = (k,v)=>{ const el = document.getElementById(`fbc_${sid}_${k}`); if(el) el.value = v; };
   set("rating", f.rating||"On Track"); set("summary", f.summary||""); set("strengths",(f.strengths||[]).join("\n")); set("areas",(f.areasToBuild||[]).join("\n")); set("next",(f.nextDayFocus||[]).join("\n"));
+  if(window.cmRubric) cmRubric.fill(sid, f.rubric);   // 📐 the day's rubric score, as saved
 }
 async function fbcSave(id, send){
   const sid = cssId(id);
@@ -12436,14 +12447,18 @@ async function fbcSave(id, send){
   const lines = (k)=> g(k).split("\n").map(x=>x.replace(/^[-•\s]+/,"").trim()).filter(Boolean);
   const day = parseInt(g("day")||"1",10);
   const upd = Object.assign({}, work.feedback.days[day]||{}, {rating:g("rating")||"On Track", summary:g("summary").trim(), strengths:lines("strengths"), areasToBuild:lines("areas"), nextDayFocus:lines("next"), editedByTrainer:true});
-  if(!upd.summary && !upd.strengths.length && !upd.areasToBuild.length){ toast("Write your feedback first."); return; }
+  // 📐 the rubric score (js/cm-rubric.js): a tier and points per dimension, the critical items; counted on the scorecard once sent
+  const rb = window.cmRubric ? cmRubric.read(sid) : null;
+  if(rb) upd.rubric = Object.assign(rb, {at:new Date().toISOString(), by:state.traineeName||"Trainer"}); else delete upd.rubric;
+  if(!upd.summary && !upd.strengths.length && !upd.areasToBuild.length && !rb){ toast("Write your feedback first."); return; }
   delete upd.auto;
   if(send) Object.assign(upd, {status:"sent", sentAt:new Date().toISOString(), readAt:null, sentBy:state.traineeName||"Trainer"}); else upd.status = upd.status==="sent" ? "sent" : "draft";
   work.feedback.days[day] = upd;
   const ok = await sharedSet("feedback:"+id, work.feedback);
   if(!ok){ toast("Couldn't save — check your connection or sign in to Admin again."); return; }
   toast(send ? `✅ Day ${day} feedback sent.` : `Draft saved for Day ${day}.`);
-  if(state.auditExtra[id]) state.auditExtra[id].fb = work.feedback.days;
+  if(state.auditExtra[id]){ state.auditExtra[id].fb = work.feedback.days; state.auditExtra[id].fbRec = work.feedback; }
+  if(window.cmScorecard && cmScorecard.invalidate) cmScorecard.invalidate();   // the Scorecards read it again when next opened
   const wrap = document.getElementById("adminRowsWrap"); if(wrap) wrap.innerHTML = renderAdminRows();
 }
 function openFeedbackFor(id){
@@ -12596,7 +12611,7 @@ function renderAdminDetail(rec){
         ${subs.map(s=>`
           <div style="display:flex;justify-content:space-between;align-items:center;font-size:12.5px;padding:6px 0;border-bottom:1px dashed var(--line);">
             <span>📎 ${esc(s.fileName)} <span style="color:var(--ink-soft);">— ${esc(s.toolTitle)} · ${(s.fileSize/1024).toFixed(0)}KB · ${fmtDate(s.submittedAt)}</span></span>
-            ${s.stored && s.dataUrl ? `<a href="${s.dataUrl}" download="${esc(s.fileName)}" class="btn btn-sm btn-ghost">Download</a>` : `<span style="color:var(--ink-soft);font-size:11px;">Too large to store — filename on record only</span>`}
+            ${s.stored && safeDataUrl(s.dataUrl) ? `<a href="${esc(safeDataUrl(s.dataUrl))}" download="${esc(s.fileName)}" class="btn btn-sm btn-ghost">Download</a>` : `<span style="color:var(--ink-soft);font-size:11px;">Too large to store — filename on record only</span>`}
           </div>`).join("")}
       </div>` : ""}
       ${renderAdminFilingPanel(rec)}
@@ -13248,6 +13263,8 @@ function cueInScript(cue, s){
    its own as written (a line break in the script starts a new paragraph), then the question on its
    own line, then a short scenario to work through with the room. */
 const scriptParas = t => String(t||"").split(/\s*\n\s*/).map(x=>x.trim()).filter(Boolean);
+// 🗒 talking points: notes written as "• " lines (build/case-flow/scripts/SCRIPTSPEC.md), said in the trainer's own words
+const scriptIsPoints = ps => ps.length > 0 && ps.every(x=>/^•\s/.test(x));
 function scriptProse(s){
   const body = [s.why, ...scriptParas(s.talk), (s.walk||[]).join(" ")].filter(Boolean);
   return body.concat(s.ask ? [s.ask] : []);
@@ -13262,8 +13279,8 @@ function renderPresenterNote(d, l, part, secs, allSecs, pg){
   let paras = scriptProse(s);
   if(!paras.length) paras = ["Give the room a moment to read this page, then ask which point here matters most in their own work."];
   return `<div class="pn">
-    <div class="script-block"><div class="script-head"><span>🎙 Script — read aloud${where}</span></div>
-      ${paras.map((x,i)=>`<p class="script-say${i && s.ask && i===paras.length-1 ? " script-ask" : ""}">${esc(x)}</p>`).join("")}
+    <div class="script-block"><div class="script-head"><span>${scriptIsPoints(s.ask ? paras.slice(0, -1) : paras) ? "🗒 Talking points" : "🎙 Script — read aloud"}${where}</span></div>
+      ${paras.map((x,i)=>`<p class="script-say${i && s.ask && i===paras.length-1 ? " script-ask" : /^•\s/.test(x) ? " script-pt" : ""}">${esc(x)}</p>`).join("")}
       ${s.more ? `<p class="script-next">Continues on the next page →</p>` : ""}
     </div>
     ${s.scenario ? `<div class="pn-scen"><b>🎬 Scenario — work through it with the room</b><p>${esc(s.scenario)}</p></div>` : ""}
@@ -16111,19 +16128,20 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/graded-calls.js?v=1"></script>
 <script src="/js/cm-case-flow-docs.js?v=28"></script>
 <script src="/js/cm-case-flow-art.js?v=3"></script>
-<script src="/js/cm-case-flow-slides.js?v=59"></script>
-<script src="/js/cm-case-flow-scripts.js?v=52"></script>
+<script src="/js/cm-case-flow-slides.js?v=60"></script>
+<script src="/js/cm-case-flow-scripts.js?v=56"></script>
 <script src="/js/cm-case-flow-sim.js?v=26"></script>
 <script src="/js/cm-case-flow-exhibits.js?v=7"></script>
 <script src="/js/cm-case-flow-data.js?v=63"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=3"></script>
-<script src="/js/cm-case-flow.js?v=132"></script>
-<script src="/js/cm-script-editor.js?v=17"></script>
+<script src="/js/cm-case-flow.js?v=137"></script>
 <!-- 🏅 the Scorecard (as in Foundational Training): My Performance for trainees, Scorecards for trainers -->
-<script src="/js/cm-scorecard.js?v=10"></script>
-<script src="/js/cm-batch-sheet.js?v=7"></script>
-<script src="/js/cm-know-tools.js?v=8"></script>
+<!-- 📐 the Feedback Rubric: one rubric (four dimensions, four tiers, the safety gate) for every graded piece of work -->
+<script src="/js/cm-rubric.js?v=2"></script>
+<script src="/js/cm-scorecard.js?v=11"></script>
+<script src="/js/cm-batch-sheet.js?v=9"></script>
+<script src="/js/cm-know-tools.js?v=9"></script>
 <!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
 <script src="/js/cm-companion-cases.js?v=1"></script>
 <script src="/js/cm-companion.js?v=3"></script>
@@ -16134,10 +16152,12 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-cms-case.js?v=cm-2026.10.22-heard"></script>
 <script src="/js/cm-doc-filing.js?v=cm-2026.11.12-drive-grades"></script>
 <script src="/js/cm-cms-upload.js?v=cm-2026.10.22-cms-upload"></script>
+<!-- 🗂 the CMS Case File grade: John Doe's file in the CMS, graded day by day against what a correct file holds -->
+<script src="/js/cm-cms-file.js?v=2"></script>
 <!-- 📂 the trainee's own Backup Drive: the firm's folder structure, built and graded on Day 1 -->
 <script src="/js/cm-drive.js?v=cm-2026.11.12-drive-naming"></script>
 <!-- 🛡 the Admin screen in sections, as Foundational Training: the section pills, their tabs, a navy banner (wraps renderAdmin last) -->
-<script src="/js/cm-admin-shell.js?v=4"></script>
+<script src="/js/cm-admin-shell.js?v=5"></script>
 <script src="/js/cm-audit-table.js?v=3"></script>
 <script src="/js/lsh-topbar.js?v=2"></script>
 <script src="/js/lsh-one-screen.js?v=1"></script>
