@@ -2421,7 +2421,7 @@ The Doe-John folder tree on the left, opened at 03 Medical Records and 04 Bills 
 
 **Scenario.** 04/24/2026, 3:30 p.m. John Doe is back in care at Riverton Spine & Rehab, and the treatment documents of the last two months are filed in the CMS: Riverton Urgent Care's first visit note (02/20/2026), Riverton Spine & Rehab's initial evaluation with the Letter of Protection (02/23–02/24/2026), Lakeside Orthopedics' consult and follow-up (03/05 and 03/27/2026) and Summit Imaging Center's invoice for the 03/13/2026 cervical MRI ($2,395.00). A colleague who helped with the backup last week saved the Summit Imaging invoice into 03 Medical Records.
 
-**Execution prompt.** File each of the four documents in the CMS from 📁 Work From if it isn't filed yet, so the copy lands on your Backup Drive in the folder its kind belongs in: the visit notes, the evaluation and the consult in 03 Medical Records, the invoice in 04 Bills & Invoices. Open your Google Drive and find the Summit Imaging invoice your colleague put in 03 Medical Records; move it into 04 Bills & Invoices. Then open 📂 My Backup Drive and run ✓ Check my drive. Last, write the records-vs-bills rule in Case Notes in two sentences: what goes in each folder, and why a bill in the records folder is a damages problem.
+**Execution prompt.** File each of the four documents in the CMS from 📁 Work From if it isn't filed yet, so the copy lands on your Backup Drive in the folder its kind belongs in: the visit notes, the evaluation and the consult in 03 Medical Records, the invoice in 04 Bills & Invoices. Open your Google Drive and find the Summit Imaging invoice your colleague put in 03 Medical Records; move it into 04 Bills & Invoices and rename it by the firm's naming convention, because your colleague saved it under a name of their own. Then open 📂 My Backup Drive and run ✓ Check my drive. Last, write the records-vs-bills rule in Case Notes in two sentences: what goes in each folder, and why a bill in the records folder is a damages problem.
 
 | | |
 |---|---|
@@ -2431,7 +2431,7 @@ The Doe-John folder tree on the left, opened at 03 Medical Records and 04 Bills 
 **Verification checkpoints**
 
 - [ ] Riverton Urgent Care's visit note, Riverton Spine & Rehab's evaluation with the LOP and Lakeside Orthopedics' consult in 03 Medical Records
-- [ ] Summit Imaging Center's $2,395.00 invoice in 04 Bills & Invoices, moved out of 03 Medical Records, not copied twice
+- [ ] Summit Imaging Center's $2,395.00 invoice in 04 Bills & Invoices, moved out of 03 Medical Records, not copied twice, and renamed by the firm's naming convention
 - [ ] Every document filed in the CMS today is on the drive: the dashboard count of backed-up documents matches what you filed
 - [ ] ✓ Check my drive run with no folder missing
 - [ ] The records-vs-bills rule in Case Notes: records say what was done to John Doe, bills say what it cost
@@ -2460,9 +2460,10 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **25%** | Documents backed up | All four filed in the CMS and on the drive in 03 Medical Records or 04 Bills & Invoices |
-| 🤖 AI | **20%** | Misfile corrected | The Summit Imaging invoice moved to 04 Bills & Invoices, with no copy left in 03 |
-| 🤖 AI | **15%** | Drive confirmed | ✓ Check my drive run with no folder missing |
+| 🤖 AI | **20%** | Documents backed up | All four filed in the CMS and on the drive in 03 Medical Records or 04 Bills & Invoices |
+| 🤖 AI | **16%** | Misfile corrected | The Summit Imaging invoice moved to 04 Bills & Invoices, with no copy left in 03 |
+| 🤖 AI | **12%** | Drive confirmed | ✓ Check my drive run with no folder missing |
+| 🤖 AI | **12%** | File names | Every file on the drive named by the firm's naming convention, the colleague's invoice included |
 | 🧑‍🏫 Trainer | **25%** | Records-vs-bills rule | Explains the rule and why a misfiled bill drops out of the Specials |
 | 🧑‍🏫 Trainer | **15%** | Findability | Finds the Lakeside consult and the Summit invoice on the drive in seconds |
 

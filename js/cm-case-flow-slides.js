@@ -4451,7 +4451,7 @@ window.CM_CF_SLIDES = {
   "steps": [
    "File the four documents so each **reaches its folder**",
    "Find the **Summit Imaging invoice** in 03 Medical Records",
-   "Move it to **04 Bills & Invoices**, one copy only",
+   "Move it to **04 Bills & Invoices**, named the firm's way",
    "Run **✓ Check my drive** from 📂 My Backup Drive",
    "Write the **records-vs-bills rule** in Case Notes"
   ],
@@ -4460,7 +4460,7 @@ window.CM_CF_SLIDES = {
   "principle": "Records say what was done; **bills say what it cost**",
   "checks": [
    "Visit notes, evaluation, consult in **03 Medical Records**",
-   "Summit invoice in **04 Bills & Invoices**, not twice",
+   "Summit invoice in **04 Bills & Invoices**, renamed, not twice",
    "**Backed up equals filed** on the dashboard",
    "**✓ Check my drive**: no folder missing",
    "The **rule in two sentences** in Case Notes"

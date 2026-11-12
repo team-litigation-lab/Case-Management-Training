@@ -40,7 +40,10 @@ function driveState(r){
   if(!rep.connected) return {k: "off", label: "Not connected", issue: true};
   if(!rep.builtAt) return {k: "on", label: "Connected", issue: false};
   if((rep.missing || []).length) return {k: "bad", label: `${rep.missing.length} folder${rep.missing.length === 1 ? "" : "s"} missing`, issue: true};
-  return {k: "ok", label: "Structure ✓", issue: false};
+  // 🏷 the names on the drive, from the Worker's last check of them (driveNaming in worker.js): a wrongly named file is a Drive issue
+  const wrong = (rep.naming && rep.naming.wrong) || 0;
+  if(wrong) return {k: "bad", label: `🏷 ${wrong} name${wrong === 1 ? "" : "s"} wrong`, issue: true};
+  return {k: "ok", label: rep.naming && rep.naming.checked ? "Structure ✓ · names ✓" : "Structure ✓", issue: false};
 }
 function rowOf(r){
   const a = auditSummary(r), day = adminDayStats(r), pp = adminPracticeStats(r);

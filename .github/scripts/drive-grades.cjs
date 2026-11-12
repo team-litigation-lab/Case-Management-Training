@@ -12,6 +12,8 @@
 //   4. Day 4: 06 Liens deleted, found by a check, put back, a clean check after; the day's papers in 06 and 07.
 //   5. Day 5: the litigation file in 09; the final audit, which a client folder moved under 04 Closed Files fails.
 //   6. A trainer grades a trainee from their saved progress; a trainee can't; Disconnect keeps the grades.
+// Every day also carries the 🏷 File names row (.github/scripts/drive-naming.cjs checks that one name by name), so a day
+// is only 100% here once every file is named the firm's way: the colleague's invoice renamed, the labels in their place.
 // Usage: node .github/scripts/drive-grades.cjs   (no server, no browser needed)
 const fs = require('fs'); const path = require('path'); const { pathToFileURL } = require('url');
 const failures = []; const fail = (m) => failures.push(m);
@@ -99,30 +101,37 @@ global.fetch = async (url, init = {}) => {
   if (drills[0] && drills[0].parents[0] !== folderId(`${C}/03 Medical Records`)) fail('the misfiled invoice should be in 03 Medical Records');
   moveTo('DOE-01_Doe-John_RS13_2026-07-01.pdf', `${C}/04 Bills & Invoices`);
   g = (await grade()).grades[2];
-  if (!g || g.score >= 70 || row(g, 'Misfile corrected').got !== 0 || row(g, 'Drive confirmed').got !== 0 || row(g, 'Documents backed up').got >= 25) fail(`Day 2 with a record in the bills folder, the misfile left and no check should be low: ${JSON.stringify(g)}`);
+  if (!g || g.score >= 70 || row(g, 'Misfile corrected').got !== 0 || row(g, 'Drive confirmed').got !== 0 || row(g, 'Documents backed up').got >= 20) fail(`Day 2 with a record in the bills folder, the misfile left and no check should be low: ${JSON.stringify(g)}`);
   if (!JSON.stringify(g.rows).includes('belongs in 03 Medical Records')) fail('Day 2 should say where the misplaced evaluation belongs');
   moveTo('DOE-01_Doe-John_RS13_2026-07-01.pdf', `${C}/03 Medical Records`);
   moveTo(drills[0].name, `${C}/04 Bills & Invoices`);
   await check();
   g = (await grade()).grades[2];
+  if (!g || g.score === 100 || row(g, 'File names').got >= row(g, 'File names').max || !/colleague/.test(JSON.stringify(row(g, 'File names').notes))) fail(`Day 2 with the colleague's invoice moved but still named as it arrived should lose File names points: ${JSON.stringify(g)}`);
+  rename(drills[0].name, 'DOE-01_Doe-John_Invoices_2026-07-01.pdf');
+  g = (await grade()).grades[2];
   if (!g || g.score !== 100 || !g.passed) fail(`Day 2 done right should be 100%: ${JSON.stringify(g)}`);
-  ok('Day 2: the documents in 03 and 04, the colleague\'s misfile moved (laid once), a clean check');
+  ok('Day 2: the documents in 03 and 04, the colleague\'s misfile moved (laid once) and renamed the firm\'s way, a clean check');
 
   /* 3: Day 3 */
   await put('RS72', 'medical'); await put('RS73', 'bills'); await put('RS95', 'settlement');
-  await put('RS26', 'bills', 'DOE-01_Doe-John_Statement_SUPERSEDED_2026-07-10.pdf');
-  await put('RS94', 'settlement', 'DOE-01_Doe-John_WageWorksheet_2026-06-23.pdf');
-  await put('RS33', 'insurance', 'DOE-01_Doe-John_Demand_DRAFT_2026-07-20.pdf');
-  await put('RS66', 'insurance', 'DOE-01_Doe-John_Exhibits_2026-07-20.pdf');
+  // a copy lands under the name it was filed with; a label is added in Drive, as a fifth part
+  await put('RS26', 'bills'); rename('DOE-01_Doe-John_RS26_2026-07-01.pdf', 'DOE-01_Doe-John_RS26_2026-07-01_SUPERSEDED-2026-07-10.pdf');
+  await put('RS94', 'settlement');
+  await put('RS33', 'insurance'); rename('DOE-01_Doe-John_RS33_2026-07-01.pdf', 'DOE-01_Doe-John_RS33_2026-07-01_DRAFT.pdf');
+  await put('RS66', 'insurance');
   filed.push('RS16');   // filed in the CMS, never reached the drive
   await check();
   g = (await grade()).grades[3];
   const n3 = JSON.stringify(g && g.rows);
-  if (!g || g.score >= 100 || row(g, 'Backup matches the CMS').got >= 25 || row(g, 'Superseded versions').got >= 20 || row(g, 'Demand Package placed').got >= 15
+  if (!g || g.score >= 100 || row(g, 'Backup matches the CMS').got >= 20 || row(g, 'Superseded versions').got >= 16 || row(g, 'Demand Package placed').got >= 12
     || !/not on the drive/.test(n3) || !/SUPERSEDED/.test(n3) || !/label it DRAFT/.test(n3)) fail(`Day 3 with a document not backed up, an unlabeled superseded worksheet and an unlabeled draft should lose points on each row and say why: ${n3}`);
   await put('RS16', 'medical'); filed.pop();
-  rename('DOE-01_Doe-John_WageWorksheet_2026-06-23.pdf', 'DOE-01_Doe-John_WageWorksheet_SUPERSEDED_2026-07-01.pdf');
-  rename('DOE-01_Doe-John_Exhibits_2026-07-20.pdf', 'DOE-01_Doe-John_Exhibits_DRAFT_2026-07-20.pdf');
+  rename('DOE-01_Doe-John_RS94_2026-07-01.pdf', 'DOE-01_Doe-John_RS94_2026-07-01_SUPERSEDED.pdf');
+  g = (await grade()).grades[3];
+  if (!g || row(g, 'Superseded versions').got >= 16) fail(`SUPERSEDED with no replacing date beside it (only the name's own filing date) should not pass: ${JSON.stringify(g && g.rows)}`);
+  rename('DOE-01_Doe-John_RS94_2026-07-01_SUPERSEDED.pdf', 'DOE-01_Doe-John_RS94_2026-07-01_SUPERSEDED-2026-07-01.pdf');
+  rename('DOE-01_Doe-John_RS66_2026-07-01.pdf', 'DOE-01_Doe-John_RS66_2026-07-01_DRAFT.pdf');
   await check();
   g = (await grade()).grades[3];
   if (!g || g.score !== 100) fail(`Day 3 done right should be 100%, renamed in Drive and all: ${JSON.stringify(g)}`);
@@ -132,7 +141,7 @@ global.fetch = async (url, init = {}) => {
   trash(folderId(`${C}/06 Liens & Reimbursement`));
   await check();
   g = (await grade()).grades[4];
-  if (!g || row(g, 'Missing folder found').got !== 15 || row(g, 'Folder restored').got !== 0) fail(`Day 4 after the deletion and a check: found, not restored yet: ${JSON.stringify(g)}`);
+  if (!g || row(g, 'Missing folder found').got !== 12 || row(g, 'Folder restored').got !== 0) fail(`Day 4 after the deletion and a check: found, not restored yet: ${JSON.stringify(g)}`);
   await call({ action: 'rebuild' }, t);
   await check();
   for (const [d, k] of [['RS41', 'liens'], ['RS42', 'liens'], ['RS84', 'liens'], ['RS85', 'liens'], ['RS86', 'liens'], ['RS44', 'settlement'], ['RS74', 'settlement']]) await put(d, k);
@@ -147,7 +156,7 @@ global.fetch = async (url, init = {}) => {
   if (!g || g.score !== 100) fail(`Day 5 done right should be 100%: ${JSON.stringify(g)}`);
   byName('Doe-John')[1].parents = [folderId('04 Closed Files')];
   g = (await grade()).grades[5];
-  if (!g || row(g, 'Final audit').got > 22 || !/leave the client folder where it is/.test(JSON.stringify(g.rows))) fail(`Day 5 with the client folder moved under 04 Closed Files should lose the final audit: ${JSON.stringify(g)}`);
+  if (!g || row(g, 'Final audit').got > 17 || !/leave the client folder where it is/.test(JSON.stringify(g.rows))) fail(`Day 5 with the client folder moved under 04 Closed Files should lose the final audit: ${JSON.stringify(g)}`);
   byName('Doe-John')[1].parents = [folderId('01 Clients')];
   ok('Day 5: the litigation file in 09, and the final audit, which a client folder moved to Closed Files fails');
 

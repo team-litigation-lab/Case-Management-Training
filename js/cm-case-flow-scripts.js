@@ -758,7 +758,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2-drive": {
   "task": {
-   "say": "• File the four documents in the CMS from Work From, so each copy lands in its backup folder\n• Notes, evaluations, consults go to 03 Medical Records; invoices to 04 Bills & Invoices\n• In Google Drive, move, not copy, the Summit invoice into 04 Bills & Invoices\n• Open My Backup Drive and run Check my drive\n• Write the records-versus-bills rule in two sentences in Case Notes"
+   "say": "• File the four documents in the CMS from Work From, so each copy lands in its backup folder\n• Notes, evaluations, consults go to 03 Medical Records; invoices to 04 Bills & Invoices\n• In Google Drive, move, not copy, the Summit invoice into 04 Bills & Invoices, and rename it by the naming convention on the slide\n• Open My Backup Drive and run Check my drive\n• Write the records-versus-bills rule in two sentences in Case Notes"
   },
   "case": {
    "say": "• 04/24/2026, 3:30 p.m.: John is back in care; two months of treatment paper filed in the CMS\n• Urgent Care first-visit note, Spine and Rehab evaluation with the LOP, Lakeside consult, Summit Imaging MRI invoice\n• A colleague's backup put the Summit invoice in 03 Medical Records\n• July's pre-demand audit totals bills from the bills folder, so the $2,395.00 would be missed"

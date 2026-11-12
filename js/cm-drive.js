@@ -22,6 +22,12 @@
         A layout that is right is then made in their Drive exactly as they laid it out.
      4. Keeps it. ↻ Check my drive asks Google whether every folder is still there and names any somebody
         deleted; 🔁 Put the missing folders back makes them again.
+     5. Names every file the firm's way. 🏷 The naming convention (the one a document is filed under in the CMS)
+        is shown wherever the drive is worked on: this panel, the dashboard card, Day 1's slide and each day's
+        Backup File Maintenance task, with a filled example to copy. Every time the drive is checked or graded
+        the Worker reads every name on it and lists each wrong one with its folder, the name it should have and
+        the part that differs. The rule, its wording and the check are the Worker's (FILE_NAME_PATTERN,
+        driveNaming in worker.js): this file only draws them.
 
    The server side is /api/drive in worker.js (every action, the grading and the Google tokens, which are
    sealed and never leave it). This file is the page: the dashboard card, the setup panel and the Drive
@@ -68,6 +74,7 @@ async function load(force){
   }
   paint(); fillSlot();
   document.querySelectorAll("[data-drv-slide]").forEach(el=>{ el.outerHTML = slide(); });   // Day 1's slide ticks the trainee's own steps
+  refreshBoxes();                            // 🏷 and every naming box on the page
   if(D && D.connected && D.built) grade();   // and the drive is graded as it stands today
 }
 function fillSlot(){
@@ -85,16 +92,19 @@ function card(){
     <div class="drv-c-h">📂 Day 1 · Set up your Backup Drive</div>
     <p>Every document you file in the CMS is also kept on the firm's backup drive, in the same case file you work from here — intake, records, bills, liens, litigation. Before Day 1's first block, connect your own Google Drive and lay the firm's ${n}-folder structure out in it yourself. It is graded, and it is where your work goes for the rest of the programme.</p>
     ${steps()}
+    ${namingBox({day:1, compact:true})}
     <button type="button" class="btn btn-navy btn-sm" onclick="CMDrive.show()">📂 Set up my Backup Drive</button>
   </div>`;
-  const missing = (D.lastMissing || []).length;
-  return `<div class="drv-card ${missing ? "drv-warn" : "drv-ok"}">
-    <div class="drv-c-h">📂 Backup Drive ${missing ? `· ${missing} folder${missing === 1 ? "" : "s"} missing` : "· in order"}</div>
+  const missing = (D.lastMissing || []).length, misnamed = wrongNames();
+  return `<div class="drv-card ${missing || misnamed ? "drv-warn" : "drv-ok"}">
+    <div class="drv-c-h">📂 Backup Drive ${missing ? `· ${missing} folder${missing === 1 ? "" : "s"} missing` : misnamed ? `· ${misnamed} name${misnamed === 1 ? "" : "s"} to fix` : "· in order"}</div>
     <p>${missing ? `${missing} of the firm's folders ${missing === 1 ? "is" : "are"} no longer in your Drive. A document filed into a folder that isn't there is a document the firm has lost.`
       : `The firm's ${n} folders are in your Drive${D.email ? ` (${esc(D.email)})` : ""}${(D.saved || []).length ? `, holding ${(D.saved || []).length} filed document${(D.saved || []).length === 1 ? "" : "s"}` : ""}.`}</p>
     ${steps()}
+    ${misnamed ? `<p class="drv-c-nm">🏷 ${misnamed} name${misnamed === 1 ? " isn't" : "s aren't"} the firm's way. Open your Backup Drive to see each one, and the name it should have.</p>` : ""}
+    ${namingBox({day:0, compact:true})}
     ${gradeLine()}
-    <button type="button" class="btn ${missing ? "btn-navy" : "btn-ghost"} btn-sm" onclick="CMDrive.show()">📂 Open my Backup Drive</button>
+    <button type="button" class="btn ${missing || misnamed ? "btn-navy" : "btn-ghost"} btn-sm" onclick="CMDrive.show()">📂 Open my Backup Drive</button>
   </div>`;
 }
 function gradeLine(){
@@ -110,7 +120,7 @@ function steps(){
   return `<ol class="drv-steps" style="list-style:none;margin:6px 0 10px;padding:0;font-size:12.5px;line-height:1.7;">
     ${li(!!D.connected, "Connect your Google Drive")}
     ${li(!!D.built && !missing, "Build the firm's folders" + (missing ? ` — ${missing} missing, put them back` : ""))}
-    ${li(saved > 0, "Keep every document you file backed up in its folder" + (saved ? ` (${saved} so far)` : ""))}
+    ${li(saved > 0, "Keep every document you file backed up in its folder, named the firm's way" + (saved ? ` (${saved} so far)` : ""))}
   </ol>`;
 }
 /* The dashboard asks for the card through its own slot, so it can be redrawn on its own later without
@@ -181,6 +191,7 @@ function paint(){
     body = `<p class="drv-p">Lay the firm's structure out as you would build it in a real practice: ${n} folders, named and nested and in order. It is the case file you already work from here — intake and retainer, the police report, records apart from bills, liens, wages and costs, property damage, litigation — plus the firm's own folders. Nothing is filled in for you. Press <b>Check and build it in my Drive</b> when it is how you would hand it to a colleague.</p>
       <div class="drv-tree">${rowsHTML(tree, "", 0)}</div>
       <button type="button" class="drv-mini drv-add" onclick="CMDrive.addTop()">➕ Add a top-level folder</button>
+      ${namingBox({day:1})}
       ${graded ? (graded.ok
         ? `<div class="drv-good"><b>Right${(D.setup && D.setup.attempts > 1) ? ` — on attempt ${D.setup.attempts}` : " first time"}.</b> The structure is in your Drive now.</div>`
         : `<div class="drv-bad"><b>Not built yet — ${graded.score}% of the structure is right.</b><ul>${graded.problems.map(p=>`<li>${esc(p)}</li>`).join("")}</ul></div>`) : ""}`;
@@ -199,6 +210,8 @@ function paint(){
       }).join("")}</div>
       ${missing.length ? `<div class="drv-bad"><b>${missing.length} folder${missing.length === 1 ? " is" : "s are"} no longer in your Drive.</b> A document filed into a folder that isn't there is a document the firm has lost.</div>`
         : verified ? `<div class="drv-good"><b>Every folder is where it should be.</b> Checked just now.</div>` : ""}
+      ${namingBox({day:0})}
+      ${namingReport()}
       ${gradesHTML()}`;
   }
   const foot = !D || !D.configured || !D.connected ? "" :
@@ -297,7 +310,7 @@ async function check(){
   busy = true; err = ""; paint();
   try{ const out = await api({action:"check"}); verified = out.verified; D = out.drive; keepCheck((verified && verified.missing) || []); }
   catch(e){ err = e.message; }
-  busy = false; paint(); fillSlot(); grade();
+  busy = false; paint(); fillSlot(); grade(true);   // and every name on the drive is read with it
 }
 async function rebuild(){
   if(busy) return;
@@ -320,10 +333,11 @@ async function grade(force){
   try{
     const out = await api({action:"grade", filed: filedIds()});
     D = out.drive;
-    try{ if(typeof storeSet === "function") await storeSet("drive-grades", Object.fromEntries(Object.entries(out.grades || {}).map(([n, g])=>[n, {score:g.score, passed:g.passed, at:g.at}]))); }catch(e){}
+    try{ if(typeof storeSet === "function") await storeSet("drive-grades", Object.fromEntries(Object.entries(out.grades || {}).map(([n, g])=>[n, {score:g.score, passed:g.passed, at:g.at, issues:[].concat(...(g.rows || []).map(r=>r.notes || [])).slice(0, 4)}]))); }catch(e){}
   }catch(e){ /* the grade waits for the next check; nothing else is blocked */ }
   grading = false; paint(); fillSlot();
   document.querySelectorAll("[data-drv-slide]").forEach(el=>{ el.outerHTML = slide(); });
+  refreshBoxes();
   try{ window.dispatchEvent(new CustomEvent("cm-drive-graded")); }catch(e){}
 }
 /* A day's Backup File Maintenance opened: Day 2 lays its drill (the colleague's misfiled invoice) once, then the day is graded. */
@@ -349,7 +363,7 @@ function gradesHTML(){
       return `<div class="drv-g-row"><b>Day ${n} · Backup File Maintenance</b>${pill(x.score, x.passed)}
         <small>${(x.rows || []).map(r=>`${r.got === r.max ? "✓" : "○"} ${esc(r.label)} ${r.got}/${r.max}`).join(" · ")}</small>
         ${notes.length ? `<ul>${notes.slice(0, 6).map(t=>`<li>${esc(t)}</li>`).join("")}</ul>` : ""}</div>`; }).join("")}
-    <p class="drv-meta">Graded from your Drive itself, every time you check it or file a document${D.gradedAt ? ` · last graded ${new Date(D.gradedAt).toLocaleString()}` : ""}. Your Case Notes are graded with the rest of the activity.</p>
+    <p class="drv-meta">${weightLine()} Graded from your Drive itself, every time you check it or file a document${D.gradedAt ? ` · last graded ${new Date(D.gradedAt).toLocaleString()}` : ""}. Your Case Notes are graded with the rest of the activity.</p>
   </div>`;
 }
 
@@ -381,6 +395,7 @@ async function loadStandard(){
   if(stdAsked) return; stdAsked = true;
   try{ STD = (await api({action:"standard"})).standard; }catch(e){ STD = {failed:true}; }
   document.querySelectorAll("[data-drv-slide]").forEach(el=>{ el.outerHTML = slide(); });
+  refreshBoxes();
 }
 function slide(){
   if(!STD) loadStandard();
@@ -390,7 +405,7 @@ function slide(){
     ["Connect your Google Drive", "From 📂 My Backup Drive. The platform asks for <b>drive.file</b> only: it sees the folders and files it makes, nothing else.", !!(me && me.connected)],
     ["Build the firm's folders by hand", "Every folder named, numbered, nested and in order, exactly to the standard. Submit it: it is graded folder by folder.", !!(me && me.built)],
     ["✓ Check my drive", "Confirm every folder is still there. Put back anything missing.", !!(me && me.built && me.checkedAt && (!me.builtAt || me.checkedAt >= me.builtAt) && !missing)],
-    ["File in the CMS, every day", "Each document you file lands in its folder on the drive too: the backup keeps up with the case.", !!(me && (me.saved || []).length)]
+    ["File in the CMS, every day", "Each document you file lands in its folder on the drive too, under the name you filed it with.", !!(me && (me.saved || []).length)]
   ];
   const off = STD && STD.configured === false;
   const list = (STD && STD.standard) || [];
@@ -401,16 +416,118 @@ function slide(){
       }).join("")}</ul>`
     : `<p class="drv-s-note">${STD && STD.failed ? "The firm's structure couldn't be loaded. Open 📂 My Backup Drive to see it." : "Loading the firm's structure…"}</p>`;
   return `<div class="drv-slide" data-drv-slide>
-    <div class="drv-s-col"><h3>📋 Your Task: The Case Backup</h3>
+    <div class="drv-s-col"><div class="drv-s-top"><h3>📋 Your Task: The Case Backup</h3>${!off && signedTrainee() ? `<button type="button" class="btn btn-navy btn-sm" onclick="CMDrive.show()">📂 Open My Backup Drive</button>` : ""}</div>
       <ol class="drv-s-steps">${steps.map(([h, t, done], i)=>`<li class="${done ? "is-done" : ""}"><span class="drv-s-n">${done ? "✓" : i + 1}</span><div><b>${h}</b><span>${t}</span></div></li>`).join("")}</ol>
-      ${off ? `<p class="drv-s-note">Google linking isn't switched on for this site yet: a trainer adds it once (README → 📂 The trainee's Backup Drive).</p>`
-        : signedTrainee() ? `<button type="button" class="btn btn-navy btn-sm" onclick="CMDrive.show()">📂 Open My Backup Drive</button>` : ""}
+      ${off ? `<p class="drv-s-note">Google linking isn't switched on for this site yet: a trainer adds it once (README → 📂 The trainee's Backup Drive).</p>` : ""}
+      ${namingBox({day:1, slide:true})}
     </div>
     <div class="drv-s-col"><h3>🗂 The Firm's Standard</h3>${tree}</div>
   </div>`;
 }
 
+/* ---------- 🏷 the firm's naming convention: the box, and the report of every name on the drive ----------
+   Everything here is drawn from what the Worker says (the drive status for a trainee, "standard" for a presenter):
+   the pattern, its parts, the Types, the labels, what a day's grade gives the names, and the last check of them. */
+const E = esc;
+const rule = ()=> (D && D.naming) || (STD && STD.naming) || null;
+const wrongNames = ()=> { const R = (rule() || {}).report; return R ? R.wrong || 0 : 0; };
+const today = ()=>{ const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`; };
+const myCase = ()=> (window.CMCase && typeof CMCase.id === "function" && CMCase.id()) || (rule() || {}).caseId || "";
+/* A name by the convention: the Worker's pattern, filled in. `category` is the CMS category (its Type comes from the
+   Worker's own list); with no Case ID known it gives nothing, unless an example is asked for. */
+function nameFor(o){
+  const N = rule(); o = o || {};
+  if(!N || !N.pattern) return "";
+  const caseId = o.caseId || myCase() || (o.example ? N.exampleCase : ""), type = o.type || (N.types || {})[o.category] || "";
+  if(!caseId || !type) return "";
+  const ext = String(o.ext || "pdf").toLowerCase().replace(/[^a-z0-9]/g, "") || "pdf";
+  return N.pattern.replace("<Case ID>", caseId).replace("<Last-First>", N.client).replace("<Type>", type).replace("<YYYY-MM-DD>", o.date || today()).replace("<ext>", ext);
+}
+/* The example: a document of that day's Backup File Maintenance, named as the trainee would file it today. */
+const DAY_BLOCK = {1:"d1m1-drive", 2:"d2-drive", 3:"d3-drive", 4:"d4-drive", 5:"d5-drive"};
+function exampleFor(day){
+  const ids = (window.CM_CF_DOC_PACKETS || {})[DAY_BLOCK[day] || "d2-drive"] || [];
+  const d = ids.map(id=> typeof cmDoc === "function" ? cmDoc(id) : null).find(Boolean) || null;
+  const category = d && window.cmDocFiling && cmDocFiling.expectedCategory ? cmDocFiling.expectedCategory(d) : "Medical Records";
+  const ext = d ? (/\.([A-Za-z0-9]{1,8})$/.exec(String(d.file || "")) || [])[1] : "pdf";
+  return {title: d ? String(d.title || "") : "a medical record", name: nameFor({category, ext, example:true})};
+}
+const weightLine = ()=>{ const N = rule(); return N && N.points ? `🏷 File names are <b>${N.points} of the ${N.of} points</b> the platform grades on each day's Backup File Maintenance.` : ""; };
+/* The 🏷 box. `day` picks the example (0: the drive as a whole); `compact` leaves the parts and the scope to the
+   panel; on a slide it is drawn in the deck's own size. It is redrawn in place when the rule or the Case ID arrives. */
+function namingBox(o){
+  o = o || {};
+  const day = Number(o.day) || 0, N = rule();
+  const attrs = `data-drv-naming="${day}" data-c="${o.compact ? 1 : 0}" data-s="${o.slide ? 1 : 0}"`;
+  const cls = `drv-nc${o.compact ? " drv-nc-c" : ""}${o.slide ? " drv-nc-s" : ""}`;
+  if(!N){
+    if(signedTrainee()){ if(!D) load(); } else if(!STD) loadStandard();
+    return `<div class="${cls}" ${attrs}><div class="drv-nc-h">🏷 Naming convention</div><p class="drv-nc-w">${STD && STD.failed ? "The firm's naming convention couldn't be loaded. Open 📂 My Backup Drive to see it." : "Loading the firm's naming convention…"}</p></div>`;
+  }
+  const ex = exampleFor(day || 2), mine = !!myCase();
+  if(o.slide) return `<div class="${cls}" ${attrs}>
+    <div class="drv-nc-r"><b class="drv-nc-h">🏷 Naming convention</b><code class="drv-nc-pat">${E(N.pattern)}</code>${day > 1 && N.points ? `<span class="drv-nc-pts" title="File names are ${N.points} of the ${N.of} points the platform grades on each day's Backup File Maintenance">🏅 ${N.points} of the ${N.of} graded points</span>` : ""}</div>
+    ${ex.name ? `<div class="drv-nc-r" title="${E(ex.title)}"><span>Example, filed today:</span><code class="drv-nc-exc">${E(ex.name)}</code><button type="button" class="drv-nc-copy" data-copy="${E(ex.name)}" onclick="CMDrive.copy(this)">📋 Copy</button></div>` : ""}
+    ${day >= 3 ? `<div class="drv-nc-r"><span>A label goes last:</span>${(N.labels || []).map(([word, add, what])=>`<span><code>…${E(add)}.pdf</code> ${E(what)}</span>`).join("")}</div>` : ""}
+  </div>`;
+  const labels = (N.labels || []).map(([word, add, what])=>`<span><code>…${E(add)}.pdf</code> ${E(what)}</span>`).join("");
+  return `<div class="${cls}" ${attrs}>
+    <div class="drv-nc-h">🏷 Naming convention <span>every file on your Backup Drive</span></div>
+    <code class="drv-nc-pat">${E(N.pattern)}</code>
+    ${ex.name ? `<div class="drv-nc-ex"><span>Example${mine ? ", with your Case ID" : ""} · ${E(ex.title)}, filed today</span>
+      <code>${E(ex.name)}</code><button type="button" class="drv-nc-copy" data-copy="${E(ex.name)}" onclick="CMDrive.copy(this)">📋 Copy</button></div>` : ""}
+    ${o.compact ? "" : `<ul class="drv-nc-parts">${(N.parts || []).map(([p, what])=>`<li><code>${E(p === "ext" ? ".<ext>" : `<${p}>`)}</code> ${E(what)}</li>`).join("")}</ul>`}
+    ${(!o.compact || day >= 3) && labels ? `<div class="drv-nc-lab"><b>A label is the last part:</b>${labels}</div>` : ""}
+    <p class="drv-nc-w">${weightLine()}${o.compact ? "" : " A copy keeps the name you filed it under in the CMS; rename a file in Google Drive only to add a label, or to fix a name this check reports."}</p>
+  </div>`;
+}
+function refreshBoxes(){
+  const onSlide = !!document.querySelector("#lessonSlideWrap [data-drv-naming]");
+  document.querySelectorAll("[data-drv-naming]").forEach(el=>{ el.outerHTML = namingBox({day:Number(el.dataset.drvNaming) || 0, compact:el.dataset.c === "1", slide:el.dataset.s === "1"}); });
+  // a box on a lesson slide has changed height: the slide is fitted to its frame again
+  if(onSlide && typeof window.paginateLessonSlide === "function"){ try{ window.paginateLessonSlide(); }catch(e){} }
+}
+async function copy(btn){
+  const text = (btn && btn.dataset && btn.dataset.copy) || "";
+  if(!text) return;
+  try{ await navigator.clipboard.writeText(text); }
+  catch(e){ const t = document.createElement("textarea"); t.value = text; t.style.cssText = "position:fixed;left:-9999px;top:0"; document.body.appendChild(t); t.select(); try{ document.execCommand("copy"); }catch(x){} t.remove(); }
+  const was = btn.textContent; btn.textContent = "✓ Copied"; setTimeout(()=>{ if(btn.isConnected) btn.textContent = was; }, 1400);
+}
+/* A name with one of its pieces marked: n is its place between the underscores ("ext": the extension, 0: all of it, -1: none). */
+function marked(name, n, cls){
+  const s = String(name || ""), dot = s.lastIndexOf("."), hasExt = dot > 0 && dot < s.length - 1;
+  const parts = (hasExt ? s.slice(0, dot) : s).split("_"), ext = hasExt ? s.slice(dot + 1) : "";
+  const m = (t)=> `<mark class="${cls}">${E(t)}</mark>`;
+  if(!n) return m(s);
+  if(n === "ext") return E(parts.join("_")) + (hasExt ? "." + m(ext) : "");
+  return parts.map((p, i)=> i === n - 1 ? m(p) : E(p)).join("_") + (hasExt ? "." + E(ext) : "");
+}
+/* The last check of the names, as the Worker reported it: each wrong one with its folder, the name as it is, the name
+   it should have and the part that differs; then what the check sees and what it can't. */
+function namingReport(){
+  const N = rule(), R = N && N.report;
+  if(!N) return "";
+  const scope = `<p class="drv-nr-see"><b>✓ What this check reads:</b> ${E(N.sees || "")}</p><p class="drv-nr-see drv-nr-blind"><b>⚠ What it can't see:</b> ${E(N.blind || "")}</p>`;
+  if(!R) return `<div class="drv-nr"><div class="drv-nr-h">🏷 File names</div><p class="drv-nr-sub">Every name on your drive is read when you run ↻ Check my drive, and each time a document you file lands here.</p>${scope}</div>`;
+  const all = R.checked || 0, bad = R.wrong || 0, list = R.list || [];
+  return `<div class="drv-nr">
+    <div class="drv-nr-h">🏷 File names <span class="drv-score ${bad ? "is-low" : "is-pass"}">${bad ? `${bad} to fix` : "all named the firm's way"}</span></div>
+    <p class="drv-nr-sub">${all ? `${R.named} of ${all} file${all === 1 ? "" : "s"} named the firm's way` : "No file is on your drive yet"}${R.at ? ` · checked ${E(new Date(R.at).toLocaleString())}` : ""}</p>
+    ${list.map(x=>`<div class="drv-nr-it">
+      <div class="drv-nr-f">✗ ${x.kind === "folder" ? "Folder in" : "In"} <b>${E(x.folder)}</b></div>
+      <div class="drv-nr-l"><span>Named</span><code>${marked(x.name, x.kind === "folder" ? 0 : !x.got ? -1 : x.part === "ext" ? "ext" : x.n, "drv-nr-bad")}</code></div>
+      <div class="drv-nr-l"><span>Should be</span><code>${x.kind === "folder" ? `<mark class="drv-nr-good">${E(x.want)}</mark>` : marked(x.want, x.part === "ext" ? "ext" : x.n || -1, "drv-nr-good")}</code>${/[<>]/.test(x.want) ? "" : `<button type="button" class="drv-nc-copy" data-copy="${E(x.want)}" onclick="CMDrive.copy(this)">📋 Copy</button>`}</div>
+      <div class="drv-nr-hint">👉 ${E(x.hint)}</div>
+    </div>`).join("")}
+    ${bad > list.length ? `<p class="drv-nr-sub">…and ${bad - list.length} more.</p>` : ""}
+    ${bad ? `<p class="drv-nr-sub">Rename each one in Google Drive (right-click → Rename), then run ↻ Check my drive again.</p>` : ""}
+    ${scope}
+  </div>`;
+}
+
 window.CMDrive = {card, slot, show, close, connect, disconnect, submit, check, rebuild, saveFiled, slide, grade, dayOpened,
+  namingBox, namingReport, nameFor, copy, naming:rule,
   name:setName, addSub, addTop, remove, move, status:()=>D, reload:()=>load(true)};
 
 /* ---------- the panel's own look ---------- */
@@ -423,7 +540,7 @@ css.textContent = `
 .drv-c-h{font-weight:800;color:var(--navy,#1B2240);font-size:15px;margin-bottom:5px;}
 .drv-card p{font-size:13px;line-height:1.55;color:var(--ink,#1B1E2E);margin:0 0 12px;max-width:80ch;}
 .drv-wrap{position:fixed;inset:0;z-index:4000;background:rgba(15,20,40,.55);display:flex;align-items:center;justify-content:center;padding:24px;}
-.drv-cardw{width:min(680px,100%);max-height:100%;display:flex;flex-direction:column;background:#fff;border-radius:14px;box-shadow:0 20px 60px rgba(10,15,35,.35);}
+.drv-cardw{width:min(800px,100%);max-height:100%;display:flex;flex-direction:column;background:#fff;border-radius:14px;box-shadow:0 20px 60px rgba(10,15,35,.35);}
 .drv-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:18px 20px 12px;border-bottom:1px solid var(--line,#E3E6EF);}
 .drv-head h3{margin:2px 0 0;font-size:18px;color:var(--navy,#1B2240);}
 .drv-eyebrow{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--orange-deep,#B9610F);}
@@ -477,6 +594,56 @@ css.textContent = `
 .drv-s-tree li{margin:0!important;padding-top:1px;padding-bottom:1px;display:block;}
 .drv-s-tree b{color:#1E2340;}
 .drv-s-note{margin:10px 0 0;padding:8px 12px;border-left:4px solid #DB8437;background:#FFF8F0;font:600 14px/1.45 'Inter',sans-serif;}
+.drv-nc{margin:12px 0;border:2px solid #1E2340;border-left:8px solid #DB8437;border-radius:12px;padding:10px 14px;background:#FFF8F0;color:#1E2340;font:700 14px/1.45 'Inter',sans-serif;text-align:left;}
+.drv-nc-h{font:800 16px 'Poppins','Inter',sans-serif;color:#1E2340;margin-bottom:6px;}
+.drv-nc-h span{font:700 14px 'Inter',sans-serif;color:#B9610F;margin-left:6px;}
+.drv-nc code{font:700 14px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#1E2340;overflow-wrap:anywhere;}
+.drv-nc-pat{display:block;background:#1E2340;color:#fff!important;border-radius:8px;padding:7px 10px;font-size:15px!important;}
+.drv-nc-ex{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px;}
+.drv-nc-ex > span{flex:1 1 100%;font:700 14px 'Inter',sans-serif;color:#1E2340;}
+.drv-nc-ex code{background:#fff;border:1.5px solid #DB8437;border-radius:8px;padding:5px 9px;}
+.drv-nc-copy{border:1.5px solid #1E2340;background:#fff;color:#1E2340;border-radius:8px;padding:4px 10px;font:800 14px 'Inter',sans-serif;cursor:pointer;white-space:nowrap;}
+.drv-nc-copy:hover{background:#1E2340;color:#fff;}
+.drv-nc-parts{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:3px;}
+.drv-nc-parts li{font:700 14px/1.4 'Inter',sans-serif;color:#1E2340;}
+.drv-nc-parts code{display:inline-block;min-width:118px;color:#B9610F;}
+.drv-nc-lab{margin-top:8px;display:grid;gap:3px;font:700 14px/1.4 'Inter',sans-serif;}
+.drv-nc-lab span{display:block;}
+.drv-nc-lab code{color:#B9610F;}
+.drv-nc-w{margin:8px 0 0!important;font:700 14px/1.45 'Inter',sans-serif!important;color:#1E2340!important;max-width:none!important;}
+.drv-nc-w b{color:#B9610F;}
+.drv-nc.drv-nc-c{padding:8px 12px;}
+.drv-nc.drv-nc-c .drv-nc-ex > span{flex:0 1 auto;}
+.drv-nc.drv-nc-s{margin:10px 0 0;padding:8px 14px;font:700 16px/1.4 'Inter',sans-serif;}
+.drv-nc-s .drv-nc-r{display:flex;align-items:center;gap:6px 12px;flex-wrap:wrap;}
+.drv-nc-s .drv-nc-r + .drv-nc-r{margin-top:6px;}
+.drv-nc-s .drv-nc-r > span{font:700 16px/1.4 'Inter',sans-serif;color:#1E2340;}
+.drv-nc-s .drv-nc-h{font:800 18px 'Poppins','Inter',sans-serif;margin:0;}
+.drv-nc-s code{font-size:16px;}
+.drv-nc-s .drv-nc-pat{display:inline-block;font-size:16px!important;padding:5px 10px;}
+.drv-nc-s .drv-nc-exc{background:#fff;border:1.5px solid #DB8437;border-radius:8px;padding:3px 9px;}
+.drv-nc-s .drv-nc-copy{font-size:16px;padding:3px 10px;}
+.drv-nc-s .drv-nc-r > span code{color:#B9610F;}
+.drv-nc-pts{margin-left:auto;background:#1E2340;color:#F6C08F!important;border-radius:999px;padding:3px 12px;font:800 16px 'Inter',sans-serif!important;white-space:nowrap;}
+.drv-s-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}
+.drv-s-top h3{margin:0;}
+.drv-c-nm{font:700 14px/1.45 'Inter',sans-serif!important;color:#8A2B2B!important;margin:0 0 8px!important;}
+.drv-nr{margin-top:14px;border:2px solid #1E2340;border-radius:12px;padding:10px 14px;background:#fff;color:#1E2340;font:700 14px/1.45 'Inter',sans-serif;}
+.drv-nr-h{font:800 16px 'Poppins','Inter',sans-serif;color:#1E2340;}
+.drv-nr-h .drv-score{font-size:14px;}
+.drv-nr-sub{margin:4px 0 0;font:700 14px/1.45 'Inter',sans-serif;color:#1E2340;}
+.drv-nr-it{margin-top:10px;border:1.5px solid #F0CFCF;border-left:6px solid #C0392B;border-radius:10px;padding:8px 10px;background:#FFFAFA;}
+.drv-nr-f{font:800 14px 'Inter',sans-serif;color:#8A2B2B;margin-bottom:4px;}
+.drv-nr-f b{color:#1E2340;}
+.drv-nr-l{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:3px;}
+.drv-nr-l > span{flex:0 0 78px;font:800 14px 'Inter',sans-serif;color:#1E2340;}
+.drv-nr-l code{flex:1 1 300px;font:700 14px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#1E2340;overflow-wrap:anywhere;}
+.drv-nr-bad{background:#FBD9D3;color:#8A2B2B;border-radius:4px;padding:0 2px;text-decoration:underline wavy #C0392B;text-underline-offset:3px;}
+.drv-nr-good{background:#D8F0DE;color:#17603A;border-radius:4px;padding:0 2px;}
+.drv-nr-hint{margin-top:6px;font:700 14px/1.45 'Inter',sans-serif;color:#1E2340;background:#FFF8F0;border-left:4px solid #DB8437;border-radius:6px;padding:5px 9px;}
+.drv-nr-see{margin:10px 0 0;font:700 14px/1.45 'Inter',sans-serif;color:#1E2340;}
+.drv-nr-see b{font-weight:800;}
+.drv-nr-blind{margin-top:4px;background:#FFF8F0;border-left:4px solid #DB8437;border-radius:6px;padding:5px 9px;}
 @media (max-width:860px){ .drv-slide{grid-template-columns:1fr;} }
 @media (max-width:760px){ .drv-wrap{padding:0;} .drv-cardw{width:100%;height:100%;border-radius:0;} }`;
 document.head.appendChild(css);
