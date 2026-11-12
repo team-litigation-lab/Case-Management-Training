@@ -1049,8 +1049,8 @@ window.cmCaseFlow.inject = function(dayId, i){
   document.body.appendChild(o);
 };
 /* 📞 The injected call: the trainer rings every trainee's LSH Ring Channel from the ⚡ Inject (or the Presenter's cue).
-   It's a shared record, call-inject-day<N> ({active, id, dayId, blockId, who, at}); each trainee's browser checks it every
-   15 seconds, on any page, and rings: 📞 Answer opens the graded call (cmCaseFlow.call), Decline or 60 seconds unanswered
+   It's a shared record, call-inject-day<N> ({active, id, dayId, blockId, who, at}); each trainee's browser reads it in its
+   once-a-minute check, on any page, and rings: 📞 Answer opens the graded call (cmCaseFlow.call), Decline or 60 seconds unanswered
    is a missed call. Either way it's logged on their file (REC.injects[id]) and counts on the Scorecard (📞 Case Calls). */
 const RING_FOR = 10 * 60 * 1000, RING_SECS = 60;
 function ringBtn(dayId, b){
@@ -1064,18 +1064,17 @@ window.cmCaseFlow.ring = async function(dayId, blockId){
   catch(e){ toast("The call couldn't be sent. Check the connection and try again."); }
 };
 let ringing = null;
-async function pollRing(){
-  if(ringing || !state.traineeId || state.isAdmin || typeof sharedGetMany !== "function" || document.hidden) return;
-  await load();
-  const ids = MODULES.map(d => d.id);   // every day: a trainer rings the whole room, wherever each trainee has got to
-  if(!ids.length) return;
-  let recs = [];
-  try{ recs = await sharedGetMany(ids.map(id => "call-inject-day" + id)) || []; }catch(e){ return; }
+/* No request of its own: the ring is read in the trainee's once-a-minute check, in the same get-many as the random
+   tasks (checkSurpriseTask in index.html), so it keeps that check's pace and is quiet while the tab is hidden. */
+window.cmCaseFlow.ringKeys = () => MODULES.map(d => "call-inject-day" + d.id);   // every day: a trainer rings the whole room, wherever each trainee has got to
+window.cmCaseFlow.onRing = async function(recs){
+  if(ringing || !state.traineeId || state.isAdmin) return;
+  await load();   // the calls already answered or missed are on the trainee's file
   const done = REC.injects || {};
-  const live = recs.filter(r => r && r.active && r.id && !done[r.id] && SIM.calls[r.blockId] && Date.now() - new Date(r.at).getTime() < RING_FOR)
+  const live = (recs || []).filter(r => r && r.active && r.id && !done[r.id] && SIM.calls[r.blockId] && Date.now() - new Date(r.at).getTime() < RING_FOR)
     .sort((a, b) => String(b.at).localeCompare(String(a.at)))[0];
   if(live) ring(live);
-}
+};
 function logInject(r, outcome){
   REC.injects = REC.injects || {};
   REC.injects[r.id] = {blockId: r.blockId, dayId: r.dayId, who: r.who, at: r.at, outcome, [outcome + "At"]: new Date().toISOString()};
@@ -1101,10 +1100,6 @@ function ring(r){
   document.body.appendChild(o);
   try{ if(navigator.vibrate) navigator.vibrate([400, 200, 400]); }catch(e){}
 }
-window.cmCaseFlow.pollRing = pollRing;
-setInterval(pollRing, 15000);
-setTimeout(pollRing, 4000);
-document.addEventListener("visibilitychange", () => { if(!document.hidden) pollRing(); });
 if(!document.getElementById("cfx-deck-font")){
   const f = document.createElement("link"); f.id = "cfx-deck-font"; f.rel = "stylesheet";
   f.href = "https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap";

@@ -27,6 +27,8 @@ async function workerChecks() {
     await workerChecks();
     const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
     const page = await browser.newPage({ viewport: { width: 1360, height: 900 } });
+    // the trainee's once-a-minute check (it carries the ring), sped up
+    await page.addInitScript(() => { window.EAPA_POLL = { approval: 3000 }; });
     page.on('pageerror', e => fail(`page error: ${e.message}`));
     const put = (key, value) => page.evaluate(([key, value]) => fetch('/api/storage/set', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key, value: JSON.stringify(value) }) }), [key, value]);
     await page.goto(BASE, { waitUntil: 'load' }); await page.waitForTimeout(800);
