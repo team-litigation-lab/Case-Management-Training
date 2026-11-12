@@ -11472,12 +11472,14 @@ function renderAdmin(){
       <button class="admin-tab-btn ${tab==='studio'?'active':''}" onclick="setAdminTab('studio')">Content Studio</button>
       <button class="admin-tab-btn ${tab==='tfeedback'?'active':''}" onclick="setAdminTab('tfeedback')">Trainee Feedback</button>
       <button class="admin-tab-btn ${tab==='activities'?'active':''}" onclick="setAdminTab('activities')">📋 Activities</button>
+      <button class="admin-tab-btn ${tab==='rtasks'?'active':''}" onclick="setAdminTab('rtasks')">🎲 Random Tasks</button>
       <button class="admin-tab-btn ${tab==='fbstyle'?'active':''}" onclick="setAdminTab('fbstyle')">🗣 Feedback Style</button>
       <button class="admin-tab-btn ${tab==='drivelinks'?'active':''}" onclick="setAdminTab('drivelinks')">📂 Drive Links</button>
     </div>`;
   if(tab==="activities") return tabBar + (typeof renderAdminActivities==="function" ? renderAdminActivities() : "");
   if(tab==="fbstyle") return tabBar + (typeof renderAdminFeedbackStyle==="function" ? renderAdminFeedbackStyle() : "");
   if(tab==="drivelinks") return tabBar + (typeof renderAdminDriveLinks==="function" ? renderAdminDriveLinks() : "");
+  if(tab==="rtasks") return tabBar + renderAdminRandomTasks();
   if(tab==="sop") return tabBar + renderAdminSOP();
   if(tab==="studio") return tabBar + renderAdminStudio();
   if(tab==="tfeedback") return tabBar + renderAdminTraineeFeedback();
@@ -11504,14 +11506,13 @@ function renderAdmin(){
         <h1 style="color:var(--navy);font-size:26px;margin:6px 0 4px;">Trainee Audit</h1>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-        <button class="btn btn-ghost btn-sm" onclick="refreshAdminData()">🔄 Refresh</button>
-        <button class="btn btn-navy btn-sm" onclick="downloadCohortPdf()">⬇ Download Cohort Report</button>
         <button class="btn btn-ghost btn-sm" onclick="adminLogout()">Log out</button>
       </div>
     </div>
     <p style="color:var(--ink-soft);font-size:13px;max-width:70ch;margin:0 0 20px;">Every trainee's registration, exact progress, Knowledge Checks, Skill Builders and your day-by-day feedback — refreshed automatically every 30 seconds.</p>
 
     ${state.secureMode===false ? `<div class="card" style="padding:14px 18px;margin-bottom:14px;border-left:4px solid var(--danger);background:var(--danger-bg);"><b style="color:var(--danger);">⚠ Security not enabled.</b> <span style="font-size:13px;">Storage and AI are open to anyone who finds the API. Run <code>wrangler secret put MASTER_ADMIN_PASSWORD</code> (and redeploy the updated worker.js) to require sign-in.</span></div>` : ""}
+    <details class="card adm-settings"><summary>⚙ Certificate signatories &amp; feedback drafts</summary>
     <div class="card cert-settings">
       <b style="color:var(--navy);font-size:13.5px;">🎓 Certificate signatories</b>
       <p>Signatures are generated automatically from these names. The trainer can also be set per trainee in <b>View Detail → Certificate details</b>.</p>
@@ -11532,26 +11533,7 @@ function renderAdmin(){
       <p>Trainers write each trainee's day-by-day feedback in <b>View Detail → Day-by-Day Feedback → ✍ Write feedback</b>, then click <b>Send to trainee</b>. Trainees only ever see feedback a trainer has sent.</p>
       <label><input type="checkbox" id="fbAutoDraft" ${(state.fbSettings && state.fbSettings.autoDraft)?"checked":""} onchange="saveFeedbackSettings()"> Optional: pre-fill a suggested draft (from the trainee's work) for trainers to edit — never sent automatically</label>
     </div>
-    <div class="card" style="padding:16px 18px;margin-bottom:20px;background:rgba(255,244,232,.62);border-color:var(--orange-soft);">
-      <b style="color:var(--navy);font-size:13.5px;">🎲 Random Task Injection</b>
-      <p style="font-size:12.5px;color:#5A4A32;margin:6px 0 12px;">Generates one unscripted task grounded in that day's actual lesson material and broadcasts it to every trainee currently on that day — an unannounced, real-time test of what they just learned. Timing is up to you; trigger it whenever fits the live session.</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-        <select id="surpriseTaskDaySelect" style="padding:7px 10px;border-radius:8px;border:1px solid var(--line);font-size:12.5px;">
-          ${DAYS.map(d=>`<option value="${d.id}">Day ${d.id} — ${esc(d.title)}</option>`).join("")}
-        </select>
-        <select id="surpriseTaskDuration" style="padding:7px 10px;border-radius:8px;border:1px solid var(--line);font-size:12.5px;" title="How long the task stays live for trainees">
-          <option value="15">Live for 15 min</option>
-          <option value="30" selected>Live for 30 min</option>
-          <option value="60">Live for 1 hour</option>
-          <option value="120">Live for 2 hours</option>
-        </select>
-        <button class="btn btn-navy btn-sm" onclick="injectSurpriseTask()">🎲 Generate & Broadcast</button>
-        <button class="btn btn-ghost btn-sm" style="color:var(--danger);" onclick="endSurpriseTaskFromAdmin()">⏹ End Task for This Day</button>
-      </div>
-      <p style="font-size:11.5px;color:#5A4A32;margin:8px 0 0;">Only trainees already registered at broadcast time receive it. It disappears automatically when the live window ends, or immediately when you end it.</p>
-      <div class="tk-admin-note">Trainees track each task in <b>🎲 Tasks</b>: acknowledge → plan → resolve before the timer ends. Resolutions are graded on timeliness, prioritisation, applying the day's lesson, communication and risk; missed tasks score 0. Results appear in each trainee's audit row, their Competency Profile and Rankings.</div>
-      <div id="surpriseTaskInjectResult" style="margin-top:10px;"></div>
-    </div>
+    </details>
 
     <div class="stat-row">
       <div class="card stat"><div class="num">${totalTrainees}</div><div class="lbl">Trainees tracked</div></div>
@@ -11621,6 +11603,35 @@ function renderBatchFilter(){
       ${batches.map(b=>`<option value="${esc(b)}" ${state.adminBatchFilter===b?"selected":""}>${esc(b)}</option>`).join("")}
     </select>`;
 }
+
+/* 🎲 Random Tasks: a tab of its own (as in Foundational Training), not a card on the Trainee Audit */
+function renderAdminRandomTasks(){
+  return `
+    <p class="eyebrow">Admin · Activities</p>
+    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 14px;">🎲 Random Tasks</h1>
+    <div class="card" style="padding:16px 18px;margin-bottom:20px;max-width:1100px;background:rgba(255,244,232,.62);border-color:var(--orange-soft);">
+      <b style="color:var(--navy);font-size:13.5px;">🎲 Random Task Injection</b>
+      <p style="font-size:12.5px;color:#5A4A32;margin:6px 0 12px;">Generates one unscripted task grounded in that day's actual lesson material and broadcasts it to every trainee currently on that day — an unannounced, real-time test of what they just learned. Timing is up to you; trigger it whenever fits the live session.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <select id="surpriseTaskDaySelect" style="padding:7px 10px;border-radius:8px;border:1px solid var(--line);font-size:12.5px;">
+          ${DAYS.map(d=>`<option value="${d.id}">Day ${d.id} — ${esc(d.title)}</option>`).join("")}
+        </select>
+        <select id="surpriseTaskDuration" style="padding:7px 10px;border-radius:8px;border:1px solid var(--line);font-size:12.5px;" title="How long the task stays live for trainees">
+          <option value="15">Live for 15 min</option>
+          <option value="30" selected>Live for 30 min</option>
+          <option value="60">Live for 1 hour</option>
+          <option value="120">Live for 2 hours</option>
+        </select>
+        <button class="btn btn-navy btn-sm" onclick="injectSurpriseTask()">🎲 Generate & Broadcast</button>
+        <button class="btn btn-ghost btn-sm" style="color:var(--danger);" onclick="endSurpriseTaskFromAdmin()">⏹ End Task for This Day</button>
+      </div>
+      <p style="font-size:11.5px;color:#5A4A32;margin:8px 0 0;">Only trainees already registered at broadcast time receive it. It disappears automatically when the live window ends, or immediately when you end it.</p>
+      <div class="tk-admin-note">Trainees track each task in <b>🎲 Tasks</b>: acknowledge → plan → resolve before the timer ends. Resolutions are graded on timeliness, prioritisation, applying the day's lesson, communication and risk; missed tasks score 0. Results appear in each trainee's audit row, their Competency Profile and Rankings.</div>
+      <div id="surpriseTaskInjectResult" style="margin-top:10px;"></div>
+    </div>
+  `;
+}
+window.renderAdminRandomTasks = renderAdminRandomTasks;
 
 async function downloadCohortPdf(){
   const lines = ["## Trainee Audit — Cohort Report"];

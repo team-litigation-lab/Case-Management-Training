@@ -2225,9 +2225,11 @@ window.cmCaseFlow.back = function(){
 const ADMIN_GROUPS = [
   {id: "admin", label: "🛡 Admin Master Control", tabs: ["audit", "rankings", "tfeedback"]},
   {id: "modules", label: "📚 Training Modules", tabs: ["sop", "studio"]},
-  {id: "activities", label: "📋 Activities", tabs: ["activities", "fbstyle"]}
+  {id: "activities", label: "📋 Activities", tabs: ["activities", "rtasks", "fbstyle"]}
 ];
 const adminGroupOf = tab => (ADMIN_GROUPS.find(g => g.tabs.includes(tab)) || ADMIN_GROUPS[0]).id;
+/* the Admin screen as Foundational's: one solid panel, the page as wide as the screen (main.cm-admin-main) */
+const adminPanel = out => state.isAdmin ? `<div class="cm-admin-screen">${out}</div>` : out;
 function groupAdminTabs(out){
   const a = out.indexOf('<div class="admin-tabs"'); if(a < 0) return out;
   const b = out.indexOf("</div>", a) + 6;
@@ -2378,7 +2380,7 @@ if(typeof window.renderDaySlideshow === "function"){
 }
 if(typeof window.afterRender === "function"){
   const __after = window.afterRender;
-  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ syncReturn(); sidePresenter(); kcFit(); fitFileCols(); yearInSide(); }catch(e){} return r; };
+  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ const mn = document.querySelector("#app > main, main"); if(mn) mn.classList.toggle("cm-admin-main", !!mn.querySelector(".cm-admin-screen")); syncReturn(); sidePresenter(); kcFit(); fitFileCols(); yearInSide(); }catch(e){} return r; };
 }
 /* Check Your Work: the reference of what the trainee did in the tool (a CMS Case ID, an e-filing or request number),
    kept on their record and shown to their trainer with the module's Learning Check */
@@ -3588,7 +3590,7 @@ if(typeof window.renderAdmin === "function"){
       return `<div class="card" style="padding:40px;text-align:center;"><div style="font-size:30px;margin-bottom:10px;">🛡</div><h2 style="color:var(--navy);margin:0;">Opening the admin screen…</h2></div>`;
     }
     if(state.isAdmin) adminWaits = 0;
-    if(state.adminTab === "attendance") state.adminTab = "audit"; return groupAdminTabs(relabelAll(__admin.apply(this, arguments)).replace("Knowledge Checks, Skill Builders and your day-by-day", "Knowledge Checks, Skill Activities and your day-by-day")); };   // (attendance is on the Main Portal now)
+    if(state.adminTab === "attendance") state.adminTab = "audit"; return adminPanel(groupAdminTabs(relabelAll(__admin.apply(this, arguments)).replace("Knowledge Checks, Skill Builders and your day-by-day", "Knowledge Checks, Skill Activities and your day-by-day"))); };   // (attendance is on the Main Portal now)
 }
 
 /* ---------- the trainer's 40%: entered in each trainee's Admin panel ---------- */
@@ -4809,6 +4811,14 @@ main:has(.cf-kc-result) #answerFeedback{max-width:none;}
 /* Case Documents: the Case File / Documents switch sits under the page's intro (no Open CMS: the slides send trainees to
    the CMS), so the copy js/lsh-topbar.js puts at the top of the page is hidden there */
 main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is wrapped, so js/lsh-topbar.js leaves it alone) */
+/* the Admin screen: a solid, full-width panel over the photo (as Foundational's js/ft-admin-tidy.js) */
+main.cm-admin-main, main:has(.cm-admin-screen){max-width:min(2200px,97vw);padding-left:16px;padding-right:16px;}
+.cm-admin-screen{background:#fff;border-radius:16px;padding:20px 24px 26px;box-shadow:0 10px 30px rgba(14,18,40,.28);color:#141A2E;}
+.cm-admin-screen .card{border:1px solid #C9CEDD;}
+.cm-admin-screen .admin-portal-link{display:none !important;}   /* (🏠 Main Portal is in the top bar) */
+.adm-settings{padding:10px 16px;margin:0 0 14px;} .adm-settings > summary{cursor:pointer;font-weight:800;color:var(--navy);font-size:14px;}
+.adm-settings[open] > summary{margin-bottom:8px;} .adm-settings .card{box-shadow:none;margin:8px 0 0;background:#fff;}
+@media(max-width:760px){ .cm-admin-screen{padding:14px 12px 18px;border-radius:12px;} }
 /* the Admin screen's tabs, grouped: the sections, then the open section's tabs */
 .admin-tabs.cf-admin-tabs{display:block !important;border-bottom:1px solid var(--line);margin-bottom:20px;white-space:normal;overflow:visible;}
 .cf-admin-secs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
