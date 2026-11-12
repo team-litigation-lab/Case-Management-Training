@@ -7,7 +7,8 @@
 //    🎯 Focus on box, the 100-point model (what feeds each dimension, the critical items), the Day scores, and the
 //    grading-systems table under a toggle; no other trainee's card;
 // 3. the trainer's 🏅 Scorecards: every approved trainee's card, the batch filter, the 🔎 one-trainee pick, and
-//    ⬇ Download still a CSV of the scores table (with the model's columns).
+//    ⬇ Download still a CSV of the scores table (with the model's columns); the same cards are Admin → 🏅 Scorecard →
+//    🏅 Scorecards (beside the 📋 Batch Sheet), with no admin action on them.
 // Usage: node .github/scripts/scorecard-card.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -117,6 +118,13 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
         if (!/"Trainee","Batch","Days passed",.*"Final %","Tier","Safety gate","Result","Daily compliance %","Overall %"/.test(lines[0])) fail(`the CSV header: ${lines[0].slice(0, 300)}`);
         if (!lines.some(l => l.includes('Cara Card'))) fail('the CSV should have the trainee\'s row');
     }
+    // the same cards in Admin → 🏅 Scorecard → 🏅 Scorecards, scores only
+    await page.evaluate(() => { cmScorecard.only(''); state.adminTab = 'scorecards'; goto('admin'); });
+    await page.waitForFunction((id) => !!document.querySelector('.cmsh-screen #bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_')), id, { timeout: 20000 }).catch(() => fail('Admin → 🏅 Scorecards shows no card for the trainee'));
+    const inAdmin = await page.evaluate(() => ({ sec: ((document.querySelector('.cmsh-sec.active') || {}).textContent || ''), tab: ((document.querySelector('.cmsh-row .admin-tab-btn.active') || {}).textContent || ''),
+        acts: /approveTrainee\(|resetTraineeLabAttempts\(|confirmRevokeTrainee\(|cmCompanion\.assign\(|openFeedbackFor\(|adminOpenCertificate\(/.test((document.querySelector('.cmsh-screen') || {}).innerHTML || '') }));
+    if (!/Scorecard/.test(inAdmin.sec) || !/Scorecards/.test(inAdmin.tab)) fail(`the cards should be Admin → 🏅 Scorecard → 🏅 Scorecards: ${JSON.stringify(inAdmin)}`);
+    if (inAdmin.acts) fail('Admin → 🏅 Scorecards carries an admin action (they are 🛡 Admin Master Control\'s)');
     await page.screenshot({ path: require('path').join(require('os').tmpdir(), 'scorecard-card.png'), fullPage: false }).catch(() => {});
     // phone width: the page keeps its width
     await page.setViewportSize({ width: 390, height: 840 }); await page.waitForTimeout(400);
