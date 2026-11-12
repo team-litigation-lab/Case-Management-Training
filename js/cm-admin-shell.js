@@ -192,6 +192,8 @@
 .cmsh-banner h2{font-size:26px !important;}
 .cmsh-banner .ft-banner-sub{font-size:15px !important;}
 .cmsh-screen .dsop-banner .btn-ghost{color:#fff !important;border-color:rgba(255,255,255,.7) !important;background:transparent !important;}
+/* the certificate signatories' six inputs fit the white panel (their 1fr columns may shrink below an input's default width) */
+.cmsh-screen .cert-settings-grid input,.cmsh-screen .cert-settings-grid select{min-width:0;width:100%;box-sizing:border-box;}
 .cmsh-empty{padding:22px 24px;} .cmsh-empty p{margin:0;font-size:16px;color:#2E3450;font-weight:600;}
 @media(max-width:760px){
   .cmsh-screen{padding:14px 12px 18px;border-radius:12px;}

@@ -52,6 +52,13 @@ const WHERE = { audit: '🏅 Scorecard', scorecards: '🏅 Scorecard', tfeedback
     if (!/Trainee Audit/.test(home.banner)) fail(`the Trainee Audit has no navy banner over it: "${home.banner}"`);
     if (home.h1s.includes('Trainee Audit')) fail('the Trainee Audit title shows twice (the banner and the old heading)');
 
+    // the Trainee Audit's certificate signatories stay inside the white panel at a laptop width
+    await page.setViewportSize({ width: 1366, height: 768 }); await open(null);
+    const fit = await page.evaluate(() => { const s = document.querySelector('.cmsh-screen'), g = document.querySelector('.cert-settings-grid');
+        return s && g ? Math.max(0, ...[...g.children].map(c => c.getBoundingClientRect().right - s.getBoundingClientRect().right)) : 0; });
+    if (fit > 1) fail(`at 1366px the certificate signatory inputs stick out of the Admin panel by ${Math.round(fit)}px`);
+    await page.setViewportSize({ width: 1440, height: 900 });
+
     // 1–2. every tab, in its section, with its banner
     for (const [tab, sec] of Object.entries(WHERE)) {
         const r = await open(tab);
