@@ -910,7 +910,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2-drive": {
   "task": {
-   "say": "Here's your job. File the four documents in the CMS from Work From, if they aren't filed yet, so each copy lands on your backup drive in its folder.\n\nNotes, evaluations and consults go to Medical Records. Invoices go to Bills and Invoices.\n\nThen open your Google Drive, find the Summit invoice sitting in Medical Records, and move it, don't copy it, into Bills and Invoices.\n\nOpen My Backup Drive and run Check my drive. Last, two sentences in Case Notes: the records versus bills rule, in your own words.\n\nA copy in both folders just doubles the confusion. One copy, in the one place the audit will look, is what we want. {name}, you're up first.",
+   "say": "Here's your job. File the four documents in the CMS from Work From, if they aren't filed yet, so each copy lands on your backup drive in its folder.\n\nNotes, evaluations and consults go to Medical Records. Invoices go to Bills and Invoices.\n\nThen open your Google Drive, find the Summit invoice sitting in Medical Records, and move it, don't copy it, into Bills and Invoices. Rename it the firm's way while you're there: your colleague saved it under a name of their own, and the naming box on this slide shows the pattern.\n\nOpen My Backup Drive and run Check my drive. Last, two sentences in Case Notes: the records versus bills rule, in your own words.\n\nA copy in both folders just doubles the confusion. One copy, in the one place the audit will look, is what we want. {name}, you're up first.",
    "ask": "{name}, the Letter of Protection is about money. Why does it still travel with the provider's evaluation?"
   },
   "case": {

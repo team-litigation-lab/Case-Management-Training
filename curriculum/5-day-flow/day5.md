@@ -2247,9 +2247,10 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | Litigation file backed up | Litigation and ADR documents in 09 Litigation & ADR |
-| 🤖 AI | **25%** | Final audit | Backed up equals filed across every folder; superseded and draft versions labeled; drive check clean |
-| 🤖 AI | **15%** | Closing checklist | Every closing line in Case Notes, ending with sign-off and the move to 04 Closed Files |
+| 🤖 AI | **16%** | Litigation file backed up | Litigation and ADR documents in 09 Litigation & ADR |
+| 🤖 AI | **20%** | Final audit | Backed up equals filed across every folder; superseded and draft versions labeled; drive check clean |
+| 🤖 AI | **12%** | Closing checklist | Every closing line in Case Notes, ending with sign-off and the move to 04 Closed Files |
+| 🤖 AI | **12%** | File names | Every file on the drive named by the firm's naming convention, labels included, from intake to award |
 | 🧑‍🏫 Trainer | **25%** | Close-out judgment | Knows the folder moves only after Atty. Thorne's sign-off, and why |
 | 🧑‍🏫 Trainer | **15%** | Findability | Finds any named document from intake to award on the drive in seconds |
 

@@ -1017,9 +1017,10 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **15%** | Missing folder found | A drive check after the deletion names 06 Liens & Reimbursement |
-| 🤖 AI | **20%** | Folder restored | Put back with 🔁, confirmed by a clean second check |
-| 🤖 AI | **25%** | Papers backed up | Five lien documents in 06; cost ledger and closing letter in 07; backed up equals filed |
+| 🤖 AI | **12%** | Missing folder found | A drive check after the deletion names 06 Liens & Reimbursement |
+| 🤖 AI | **16%** | Folder restored | Put back with 🔁, confirmed by a clean second check |
+| 🤖 AI | **20%** | Papers backed up | Five lien documents in 06; cost ledger and closing letter in 07; backed up equals filed |
+| 🤖 AI | **12%** | File names | Every file on the drive named by the firm's naming convention, and every folder named as the standard has it |
 | 🧑‍🏫 Trainer | **25%** | Recovery explained | Case Note says what was missing, how it was found and what was restored |
 | 🧑‍🏫 Trainer | **15%** | Lien-file completeness | Can show each lien's written resolution on the drive |
 

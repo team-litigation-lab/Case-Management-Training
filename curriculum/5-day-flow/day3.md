@@ -1182,7 +1182,7 @@ A two-column audit sheet: CMS on the left, BACKUP DRIVE on the right, rows linke
 
 **Scenario.** 07/17/2026, 3:00 p.m. The pre-demand audit closed on 07/15/2026 and the BI Time-Limited Demand is served on 07/20/2026. Since the last backup, corrected documents have replaced earlier ones: Summit Imaging's corrected-history addendum to the MRI report (07/15/2026), Crescent Pain & Spine's corrected $0.00 patient statement (07/10/2026, replacing the 07/01/2026 statement) and the final Lost Wage Verification Record (07/01/2026, replacing the 06/23/2026 draft worksheet). The demand specialist's draft demand and exhibit packet are on the file for audit.
 
-**Execution prompt.** Audit your Backup Drive against the CMS before the demand goes out. Open 📂 My Backup Drive and compare its count of backed-up documents with the documents filed in the CMS; for any filed document not on the drive, back it up from 📁 Work From. For each corrected document, put the current version in its folder and keep the version it replaces beside it, renamed with SUPERSEDED and the date of the version that replaced it: the MRI addendum in 03 Medical Records, Crescent's corrected statement in 04 Bills & Invoices, the final wage record in 07 Wages & Costs. File the draft demand and the exhibit packet so they land in 05 Insurance, Demands & Negotiation, labeled as drafts. Run ✓ Check my drive, and record the audit in Case Notes: X of Y backed up, what you replaced and what you labeled.
+**Execution prompt.** Audit your Backup Drive against the CMS before the demand goes out. Open 📂 My Backup Drive and compare its count of backed-up documents with the documents filed in the CMS; for any filed document not on the drive, back it up from 📁 Work From. For each corrected document, put the current version in its folder and keep the version it replaces beside it, renamed with SUPERSEDED and the date of the version that replaced it as the last part of its name: the MRI addendum in 03 Medical Records, Crescent's corrected statement in 04 Bills & Invoices, the final wage record in 07 Wages & Costs. File the draft demand and the exhibit packet so they land in 05 Insurance, Demands & Negotiation, labeled DRAFT as the last part of their names. Run ✓ Check my drive, and record the audit in Case Notes: X of Y backed up, what you replaced and what you labeled.
 
 | | |
 |---|---|
@@ -1222,9 +1222,10 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **25%** | Backup matches the CMS | Every filed document backed up: X of Y with X equal to Y |
-| 🤖 AI | **20%** | Superseded versions | Current versions in their folders; superseded versions kept and labeled with the replacing date |
-| 🤖 AI | **15%** | Demand Package placed | Draft demand and exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT; drive check clean |
+| 🤖 AI | **20%** | Backup matches the CMS | Every filed document backed up: X of Y with X equal to Y |
+| 🤖 AI | **16%** | Superseded versions | Current versions in their folders; superseded versions kept and labeled with the replacing date |
+| 🤖 AI | **12%** | Demand Package placed | Draft demand and exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT; drive check clean |
+| 🤖 AI | **12%** | File names | Every file on the drive named by the firm's naming convention, with DRAFT or SUPERSEDED and its date as the last part of the name |
 | 🧑‍🏫 Trainer | **25%** | Audit discipline | Works the CMS list one document at a time rather than eyeballing folders |
 | 🧑‍🏫 Trainer | **15%** | Explaining the audit | Case Note states the count and the changes plainly for Atty. Thorne |
 
