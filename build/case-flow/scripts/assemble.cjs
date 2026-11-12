@@ -35,8 +35,21 @@ function viewsIn(b){
 
 const wc = s => String(s).trim().split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)).length;
 const BANNED = [/\{(?!name\})[^}]*\}|\{name(?!\})/, /➔|→|←/, /\*\*/, /\b(Tool|Output|Walk|Talk|Ask|Why):/, /Watch for this/i, /\bOpen with\b/i, /\bPoint (at|to) the\b/i, /\bWalk the (room|lifecycle|track|trainees)\b/i, /\bLet the room\b/i, /\bLand it\b/i, /^\s*[-•·]\s/m, /\bblueprint\b/i, /\bApex\b|Jordan Davies/];
+// 🗒 TALKING POINTS (SCRIPTSPEC.md: Talking points): a slide's notes as 2–6 bullet lines ("• …", one per line), each at
+// most 25 words and 110 in all, the trainer saying them in their own words. Days rewritten this way use it; the rest
+// keep the read-aloud script below.
+const isPoints = s => typeof s === "string" && s.trim().split(/\n/).every(l => /^• \S/.test(l.trim()));
+const POINTS_BANNED = [/\{[^}]*\}/, /➔|→|←/, /\*\*/, /\bblueprint\b/i, /\bApex\b|Jordan Davies/];
+const points = (id, f, s) => {
+  const ls = s.trim().split(/\n/).map(l => l.trim());
+  if(ls.length < 2 || ls.length > 6) errors.push(`${id}.${f}: ${ls.length} talking points (want 2–6)`);
+  const long = ls.find(l => wc(l) > 25); if(long) errors.push(`${id}.${f}: a point of ${wc(long)} words (max 25)`);
+  if(wc(s) > 110) errors.push(`${id}.${f}: ${wc(s)} words of talking points (max 110)`);
+  const hit = POINTS_BANNED.find(r => r.test(s)); if(hit) errors.push(`${id}.${f}: ${String(s.match(hit)[0]).trim()}`);
+};
 const say = (id, f, s) => {
   if(typeof s !== "string" || !s.trim()) return errors.push(`${id}.${f}: missing`);
+  if(isPoints(s)) return points(id, f, s);
   const n = wc(s); if(n < 45 || n > 230) errors.push(`${id}.${f}: ${n} words (want 45–230)`);
   const hit = BANNED.find(r => r.test(s)); if(hit) errors.push(`${id}.${f}: reads like notes, not speech (${String(s.match(hit)[0]).trim()})`);
   // short paragraphs, one beat each, a blank line between them (SCRIPTSPEC.md: Short paragraphs)

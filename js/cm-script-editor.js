@@ -126,7 +126,7 @@ function open(){
   f.querySelector("#se-say").focus();
 }
 // the editor's fields; a slide with a saved edit also offers ↺ Restore original (the course's own script, for every trainer)
-const formHtml = (cur, slot) => `<label>🎙 Read aloud<textarea id="se-say" rows="12">${E(cur.say)}</textarea></label>
+const formHtml = (cur, slot) => `<label>🎙 What to say (talking points: one “• ” line each)<textarea id="se-say" rows="12">${E(cur.say)}</textarea></label>
     <label>❓ Ask the room<textarea id="se-ask" rows="3">${E(cur.ask)}</textarea></label>
     <small>Write <code>{name}</code> where you call on a trainee: it becomes a first name from the batch you teach. A blank line starts a new paragraph. Saved for every trainer.</small>
     <div class="se-msg" id="se-msg" aria-live="polite"></div>
