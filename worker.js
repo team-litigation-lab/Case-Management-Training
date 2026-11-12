@@ -978,7 +978,7 @@ const NAME_PARTS = [
 ];
 const NAME_LABELS = [
   ["DRAFT", "_DRAFT", "a draft that has not gone out"],
-  ["SUPERSEDED", "_SUPERSEDED-<YYYY-MM-DD>", "a version a newer one replaced, with the date of the version that replaced it"],
+  ["SUPERSEDED", "_SUPERSEDED-<YYYY-MM-DD>", "a version a newer one replaced, with the replacing version's date"],
 ];
 /* The course documents that carry a label on the drive (Day 3 teaches them, Day 5's final audit reads them again),
    and for a superseded one the version that replaced it: it is superseded once that version is on the drive too. */
@@ -1058,6 +1058,7 @@ function nameHint(c) {
   if (!i) return "";
   const rest = c.issues.length - 1, more = rest ? ` ${rest} more part${rest === 1 ? " differs" : "s differ"} too.` : "";
   if (i.n === 0) return i.why + more;
+  if (c.issues.length >= 3) return `This name isn't built the firm's way: ${c.issues.length} of its parts differ, so rename it as shown. Start with part ${i.n}, the ${ORDINAL[i.n]} piece between the underscores (${i.part}): "${i.got}" should be "${i.should}".`;
   if (i.part === "ext") return `Look at the extension, after the last dot: ${i.got ? `".${i.got}"` : "there is none"}, and it should be ".${i.should}". ${i.why}${more}`;
   if (i.part === "label") return (i.got ? `Look at part 5 of the name, the fifth piece between the underscores (the label): "${i.got}" ${i.should ? `should be "${i.should}"` : "shouldn't be there"}. ` : "") + i.why + more;
   return `Look at part ${i.n} of the name, the ${ORDINAL[i.n]} piece between the underscores (${i.part}): "${i.got}" should be "${i.should}". ${i.why}${more}`;
@@ -1091,7 +1092,8 @@ function driveNaming(rec, S) {
     const c = nameCheck(f.name, { filed: s ? s.name : "", caseId, label: need, type: isDrill ? typeOfDoc.RS25 || DRILL_TYPE : typeOfDoc[docId] || "",
       date: dayOf(f.created || (s && s.at) || (isDrill && drill.at)) });
     const i = c.issues[0] || {};
-    rows.push({ kind: "file", ok: c.ok, path, folder: label(path), name: f.name, want: c.want, n: i.n || 0, part: i.part || "", got: i.got || "", should: i.should || "", hint: nameHint(c) });
+    const open = c.want.includes("<Type>") ? ` In the name it should have, <Type> is the CMS category this document is filed under: ${FILE_TYPES.join(", ")}.` : "";
+    rows.push({ kind: "file", ok: c.ok, path, folder: label(path), name: f.name, want: c.want, n: i.n || 0, part: i.part || "", got: i.got || "", should: i.should || "", hint: nameHint(c) + open });
   });
   const files = rows.length;
   // the folders of the structure, by the standard's own names (a missing folder is ✓ Check my drive's to report)
@@ -1111,7 +1113,9 @@ function driveNaming(rec, S) {
 /* File names as a rubric row: one item per file (and per renamed folder), every one weighing the same. */
 function namingRow(N) {
   const row = gradeRow("File names", NAMING_POINTS, N ? N.items : []);
+  // one line for the row (each wrong name, with the name it should have, is in the naming report itself)
   if (!N || !N.items.length) row.notes = ["🏷 No file is on the drive yet, so there is no name to check."];
+  else if (row.notes.length) row.notes = [`${row.notes[0]}${row.notes.length > 1 ? ` ${row.notes.length - 1} more name${row.notes.length === 2 ? " isn't" : "s aren't"} the firm's way: each one is listed under 🏷 File names.` : ""}`];
   return row;
 }
 /* The convention as the page is told it: the pattern, its parts, the Types, the labels, an example Case ID, what a

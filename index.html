@@ -12680,8 +12680,10 @@ function driveCompetency(rep, filedCount){
   if((rep.missing||[]).length) why.push(`${rep.missing.length} folder${rep.missing.length===1?"":"s"} missing on the last check`);
   if(!rep.copies) why.push("no filed documents backed up yet");
   else if(filedCount > rep.copies) why.push(`${filedCount - rep.copies} filed document${filedCount - rep.copies===1?"":"s"} not backed up`);
+  const misnamed = (rep.naming && rep.naming.wrong) || 0;   // 🏷 the Worker's last check of every name on the drive
+  if(misnamed) why.push(`${misnamed} name${misnamed===1?"":"s"} not the firm's way`);
   return why.length ? {level:"Developing", color:"var(--warn, #B7791F)", why: why.join(" · ")}
-    : {level:"Proficient", color:"var(--success)", why:"Structure built to standard, every folder in place, filed documents backed up in their folders."};
+    : {level:"Proficient", color:"var(--success)", why:"Structure built to standard, every folder in place, filed documents backed up in their folders, every file named the firm's way."};
 }
 function renderDriveChip(rec){
   const rep = state.driveReports[rec.id];
@@ -12690,6 +12692,7 @@ function renderDriveChip(rec){
   if(!rep.connected){ label = "Not connected"; color = "var(--ink-soft)"; }
   else if(!rep.builtAt){ label = "Connected"; color = "var(--navy)"; }
   else if((rep.missing||[]).length){ label = `${rep.missing.length} folder${rep.missing.length===1?"":"s"} missing`; color = "var(--danger)"; }
+  else if(rep.naming && rep.naming.wrong){ label = `🏷 ${rep.naming.wrong} name${rep.naming.wrong===1?"":"s"} wrong`; color = "var(--danger)"; }
   else { label = "Structure ✓"; color = "var(--success)"; }
   return ` <span class="pill drv-chip" style="font-size:10px;font-weight:700;color:${color};border:1px solid currentColor;background:transparent;" title="Backup Drive">📂 Drive: ${label}</span>`;
 }
@@ -12710,6 +12713,18 @@ async function driveGradeFor(id){
   try{ const j = await driveAdminApi({action:"gradeFor", traineeId:id}); state.driveReports[id] = j.report || Object.assign({}, rep, {checkErr: j.error || "Backup Drive isn't switched on for this site."}); }
   catch(e){ state.driveReports[id] = Object.assign({}, rep, {checkErr:e.message}); }
   rerender();
+}
+/* 🏷 The names on a trainee's drive, as the Worker last read them (driveNaming in worker.js): how many files, how many
+   named wrong, and each wrong one with its folder, the name as it is, the name it should have and the part to look at. */
+function renderDriveNaming(rep){
+  const N = rep.naming;
+  const row = (k, v)=>`<div style="display:flex;justify-content:space-between;gap:12px;font-size:14px;font-weight:700;padding:5px 0;border-bottom:1px dashed var(--line);"><span>${k}</span><span style="text-align:right;">${v}</span></div>`;
+  if(!N) return row("🏷 File names", `<span style="color:var(--ink-soft);">Not read yet · 🏅 Grade now reads them</span>`);
+  const list = N.list || [];
+  return row("🏷 File names", N.wrong ? `<span style="color:var(--danger);">${N.wrong} named wrong</span> · ${N.named} of ${N.checked} file${N.checked===1?"":"s"} right${N.at ? ` · ${fmtDate(N.at)}` : ""}`
+      : N.checked ? `<span style="color:var(--success);">all ${N.checked} named the firm's way</span>${N.at ? ` · ${fmtDate(N.at)}` : ""}` : `<span style="color:var(--ink-soft);">No file on the drive yet</span>`)
+    + (list.length ? `<ul class="drv-adm-names" style="margin:4px 0 8px 18px;padding:0;font-size:14px;font-weight:700;line-height:1.45;color:var(--navy);">${list.slice(0, 12).map(x=>`<li style="margin-bottom:6px;"><span style="color:var(--danger);">✗ ${x.kind === "folder" ? "Folder in" : "In"} ${esc(x.folder)}:</span> <code style="font-size:14px;font-weight:700;overflow-wrap:anywhere;">${esc(x.name)}</code><br>should be <code style="font-size:14px;font-weight:700;color:var(--success);overflow-wrap:anywhere;">${esc(x.want)}</code><br><span style="color:var(--orange-deep,#B9610F);">👉 ${esc(x.hint)}</span></li>`).join("")}${N.wrong > 12 ? `<li>…and ${N.wrong - 12} more.</li>` : ""}</ul>` : "")
+    + `<div style="font-size:14px;font-weight:700;color:var(--ink-soft);padding:2px 0 6px;border-bottom:1px dashed var(--line);">Read: every file the platform put on the drive, and the firm's folders. Not seen: files the trainee uploads or copies in Google Drive by hand (Google shows the platform only the files it made), so check those by eye.</div>`;
 }
 function renderAdminDrivePanel(rec){
   const rep = state.driveReports[rec.id];
@@ -12736,11 +12751,12 @@ function renderAdminDrivePanel(rec){
     ${rep.restored ? line("Folders put back", rep.restored) : ""}
     ${line("Documents backed up", `${rep.copies} of ${filed} filed in the CMS${rep.lastCopyAt ? ` · last ${fmtDate(rep.lastCopyAt)}` : ""}`)}
     ${folders.map(f=>line(`<span style="padding-left:12px;color:var(--ink-soft);">${esc(f)}</span>`, rep.perFolder[f])).join("")}
+    ${renderDriveNaming(rep)}
     ${Object.keys(rep.grades||{}).sort().map(n=>{ const g = rep.grades[n], notes = [].concat(...(g.rows||[]).map(r=>r.notes||[]));
       return line(`🏅 Day ${n} backup <span style="color:var(--ink-soft);font-size:11.5px;">(auto-graded)</span>`, `<b style="color:${g.passed ? "var(--success)" : "var(--danger)"};">${g.score}%</b> · ${(g.rows||[]).map(r=>`${esc(r.label)} ${r.got}/${r.max}`).join(" · ")}`)
         + (notes.length ? `<ul style="margin:2px 0 6px 18px;padding:0;font-size:12px;color:var(--danger);">${notes.slice(0,6).map(t=>`<li>${esc(t)}</li>`).join("")}</ul>` : ""); }).join("")}
     ${rep.checkErr ? `<div style="font-size:12px;color:var(--danger);padding-top:6px;">${esc(rep.checkErr)}</div>` : ""}
-    ${rep.connected && rep.builtAt ? `<div style="padding-top:8px;"><button class="btn btn-sm btn-ghost" ${rep.checking ? "disabled" : ""} onclick="driveCheckFor('${esc(rec.id)}')" title="Check the trainee's Drive for missing folders now (read-only)">${rep.checking ? "Checking…" : "🔄 Check now"}</button> <button class="btn btn-sm btn-ghost" ${rep.grading ? "disabled" : ""} onclick="driveGradeFor('${esc(rec.id)}')" title="Grade Days 2–5 from the trainee's Drive now (read-only)">${rep.grading ? "Grading…" : "🏅 Grade now"}</button></div>` : ""}
+    ${rep.connected && rep.builtAt ? `<div style="padding-top:8px;"><button class="btn btn-sm btn-ghost" ${rep.checking ? "disabled" : ""} onclick="driveCheckFor('${esc(rec.id)}')" title="Check the trainee's Drive for missing folders now (read-only)">${rep.checking ? "Checking…" : "🔄 Check now"}</button> <button class="btn btn-sm btn-ghost" ${rep.grading ? "disabled" : ""} onclick="driveGradeFor('${esc(rec.id)}')" title="Grade Days 2–5 from the trainee's Drive now, and read every file name on it (read-only)">${rep.grading ? "Grading…" : "🏅 Grade now"}</button></div>` : ""}
   </div>`;
 }
 function renderAdminRoleplayPanel(rec){
@@ -16102,10 +16118,10 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-data.js?v=63"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=3"></script>
-<script src="/js/cm-case-flow.js?v=131"></script>
+<script src="/js/cm-case-flow.js?v=132"></script>
 <script src="/js/cm-script-editor.js?v=17"></script>
 <!-- 🏅 the Scorecard (as in Foundational Training): My Performance for trainees, Scorecards for trainers -->
-<script src="/js/cm-scorecard.js?v=9"></script>
+<script src="/js/cm-scorecard.js?v=10"></script>
 <script src="/js/cm-batch-sheet.js?v=7"></script>
 <script src="/js/cm-know-tools.js?v=8"></script>
 <!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
@@ -16119,10 +16135,10 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-doc-filing.js?v=cm-2026.11.12-drive-grades"></script>
 <script src="/js/cm-cms-upload.js?v=cm-2026.10.22-cms-upload"></script>
 <!-- 📂 the trainee's own Backup Drive: the firm's folder structure, built and graded on Day 1 -->
-<script src="/js/cm-drive.js?v=cm-2026.11.12-drive-grades"></script>
+<script src="/js/cm-drive.js?v=cm-2026.11.12-drive-naming"></script>
 <!-- 🛡 the Admin screen in sections, as Foundational Training: the section pills, their tabs, a navy banner (wraps renderAdmin last) -->
 <script src="/js/cm-admin-shell.js?v=4"></script>
-<script src="/js/cm-audit-table.js?v=2"></script>
+<script src="/js/cm-audit-table.js?v=3"></script>
 <script src="/js/lsh-topbar.js?v=2"></script>
 <script src="/js/lsh-one-screen.js?v=1"></script>
 </body>

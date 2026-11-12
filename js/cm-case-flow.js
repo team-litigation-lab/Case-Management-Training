@@ -939,7 +939,7 @@ function slideBody(view, l, d){
           <button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.notes('${b.id}')">📝 Open</button></div>` : ""}
         ${serviceOf(b.id) && SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ ${E(svWords(serviceOf(b.id)).label)}</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
           <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the ${E(svWords(serviceOf(b.id)).label)}</button></div>` : ""}
-        <button type="button" class="cfx-deliver" onclick="cmCaseFlow.toView('${b.id}','check')" title="Hand it in, then check your work"><b>📤 Deliver</b><span>${hl(c.deliver)}</span><em>Hand in &amp; check your work ➔</em></button></aside></div>`; }
+        <button type="button" class="cfx-deliver" onclick="cmCaseFlow.toView('${b.id}','check')" title="Hand it in, then check your work"><b>📤 Deliver</b><span>${hl(c.deliver)}</span><em>Hand in &amp; check your work ➔</em></button></aside></div>${(b.id === DRIVE_ACT || DRIVE_LATER.has(b.id)) && window.CMDrive && CMDrive.namingBox ? CMDrive.namingBox({day: Number(b.id.charAt(1)), slide: true}) : "" /* 🏷 the firm's naming convention, on every Backup File Maintenance task (js/cm-drive.js) */}`; }
     case "check": { const open = answersOpen(b.id);
       return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${open ? (justRevealed === b.id ? hl(x).replace(/class="cfx-hl"/g, 'class="cfx-hl cfx-unblur"') : hl(x)) : masked(x)}</span></label>`).join("")}</div>
       ${open ? (isTrainer() && !inAudience() ? `<p class="cfx-key-note">🔑 Trainer view: the answers. Trainees see them blurred until they finish the activity.</p>` : "")
@@ -4094,8 +4094,13 @@ async function backupDoc(btn, id){
   try{
     const r = await fetch("documents/" + d.file.split("/").map(encodeURIComponent).join("/"));
     if(!r.ok) throw new Error(r.status);
-    const out = await cmDocFiling.keepOnDrive(d.folder, d.file.split("/").pop(), await r.arrayBuffer(), d.id);
-    if(out && out.ok){ btn.textContent = "✓ In GDrive"; toast(`Backed up to your Drive under ${String(out.folder).split("/").pop()}.`); return; }
+    // 🏷 Named the firm's way, like every file on the drive: the name it was filed under in the CMS if it is filed, or else
+    // the convention filled in (the Worker's pattern, js/cm-drive.js) with the Case ID, its CMS category as the Type and today.
+    const filed = cmDocFiling.record && cmDocFiling.record(d.id), ext = (/\.([A-Za-z0-9]{1,8})$/.exec(d.file) || [])[1] || "pdf";
+    const name = (filed && filed.filed && filed.name) || (window.CMDrive && CMDrive.nameFor ? CMDrive.nameFor({category: cmDocFiling.expectedCategory(d), ext}) : "");
+    if(!name){ toast("Open your case in the CMS first (🗂 Open CMS): the backup copy is named with its Case ID, the firm's way."); return; }
+    const out = await cmDocFiling.keepOnDrive(d.folder, name, await r.arrayBuffer(), d.id);
+    if(out && out.ok){ btn.textContent = "✓ In GDrive"; toast(`Backed up to your Drive under ${String(out.folder).split("/").pop()} as ${name}.`); return; }
     toast(out && out.why === "no-drive" ? "Your Backup Drive isn't set up yet. Connect it, then try again." : "The backup didn't reach your Drive. Try again.");
   }catch(e){ toast("The backup didn't reach your Drive. Check your connection and try again."); }
   finally{ btn.disabled = false; if(btn.textContent === "Backing up…") btn.textContent = label; }
@@ -4111,7 +4116,7 @@ function caseFlowDocuments(){
   const shown = CF_DOCS.filter(docOpen), locked = CF_DOCS.filter(d => !docOpen(d));
   const tpl = (window.CM_DOCS || []).filter(d => d.folder === "templates");
   const row = d => `<div class="cm-doc-row"><div><span class="t">${E(d.title)}</span> <span style="font-size:11px;color:var(--ink-soft)">· ${d.folder === "templates" ? "Any day" : "Case Flow Day " + d.day}</span><div class="d">${E(d.desc)}</div>${state.isAdmin && d.key ? `<div class="cm-key">🔑 ${E(d.key)}</div>` : ""}</div>
-      <div style="display:flex;gap:6px;align-items:center"><span class="cms">CMS: ${E(d.cms)}</span><a class="btn btn-ghost btn-sm" href="${E(openUrl(d))}" target="_blank" rel="noopener"${/^RS\d\d$/.test(d.id) ? ` onclick="return cmCaseFlow.doc(event,'${d.id}')"` : ""}>Open</a><button type="button" class="btn btn-ghost btn-sm" title="Back up this file to your Google Drive, in its case folder" onclick="cmCaseFlow.backup(this,'${E(d.id)}')">☁️ Add to GDrive</button></div></div>`;
+      <div style="display:flex;gap:6px;align-items:center"><span class="cms">CMS: ${E(d.cms)}</span><a class="btn btn-ghost btn-sm" href="${E(openUrl(d))}" target="_blank" rel="noopener"${/^RS\d\d$/.test(d.id) ? ` onclick="return cmCaseFlow.doc(event,'${d.id}')"` : ""}>Open</a><button type="button" class="btn btn-ghost btn-sm" title="Back up this file to your Google Drive, in its case folder, named by the firm's naming convention" onclick="cmCaseFlow.backup(this,'${E(d.id)}')">☁️ Add to GDrive</button></div></div>`;
   const heldBy = d => dayUnlocked(cfIdOf(d.day)) && !docAvail(d);   // open by its day, waiting for the trainer to unlock it
   const folders = CF_FOLDERS.map(fo => ({fo, items: shown.filter(d => d.folder === fo.id), later: locked.filter(d => d.folder === fo.id && !heldBy(d)).length, held: locked.filter(d => d.folder === fo.id && heldBy(d)).length})).filter(x => x.items.length || x.later || x.held);
   return `<p class="eyebrow">Case Documents</p>

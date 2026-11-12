@@ -66,7 +66,7 @@ const SOURCES = [
       const d = typeof cmDoc === "function" ? cmDoc(id) : null;
       return {name: (d && (d.title || d.name)) || r.name || id, pct: r.filed ? Math.round(100 / r.attempts) : 0,
         note: r.filed ? `Filed as ${r.name || "named"}${r.category ? " under " + r.category : ""} · ${r.attempts === 1 ? "first time right" : r.attempts + " attempts"}` : `Not filed yet · ${r.attempts} attempt${r.attempts === 1 ? "" : "s"} refused`}; })},
-  {id: "bd", icon: "📂", label: "Backup Drive", about: "Your Backup Drive, graded automatically: Day 1's folder structure, then each day's Backup File Maintenance, read from your Drive itself (where each document is, what it is called, what was moved and put back). 70% passes.",
+  {id: "bd", icon: "📂", label: "Backup Drive", about: "Your Backup Drive, graded automatically: Day 1's folder structure, then each day's Backup File Maintenance, read from your Drive itself (where each document is, whether every file is named by the firm's naming convention, what was moved and put back). File names are 12 of the 60 points graded each day. 70% passes.",
     items: c => { const out = [], s = c.data["drive-setup"], g = c.data["drive-grades"] || {};
       if(s && typeof s.score === "number") out.push({name: "Day 1: the firm's folders", pct: num(s.score), note: s.ok ? `Built on attempt ${s.attempts || 1}` : "Not built yet"});
       Object.keys(g).sort().forEach(n => { const x = g[n]; if(x && typeof x.score === "number") out.push({name: `Day ${n}: Backup File Maintenance`, pct: num(x.score), note: [x.passed ? "Passed" : "Below 70%: not passed yet", fmt(x.at)].filter(Boolean).join(" · ")}); });
