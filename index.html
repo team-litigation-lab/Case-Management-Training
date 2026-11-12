@@ -11791,7 +11791,8 @@ function renderBatchFolderBody(){
 
 // Batch key for ranking/archiving; trainees with no (valid) batch share one group.
 const NO_BATCH = "__none__";
-function batchKey(rec){ return cleanBatch(rec && rec.batch) || NO_BATCH; }
+// grouped by the Batch ID as it is SHOWN (B + MMDDYY): a batch saved day-first (B250926) and month-first (B092526) is one batch
+function batchKey(rec){ const c = cleanBatch(rec && rec.batch); return c ? (batchShow(c) || c) : NO_BATCH; }
 function batchLabel(b){ return b===NO_BATCH ? "No batch" : batchShow(b); }
 function renderAdminRankings(onlyBatch){
   if(state.adminLoading || !state.adminData){
@@ -16110,7 +16111,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
 <script src="/js/cm-companion-cases.js?v=1"></script>
 <script src="/js/cm-companion.js?v=3"></script>
-<script src="/js/cm-open-lessons.js?v=1"></script>
+<script src="/js/cm-open-lessons.js?v=2"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=5"></script>
 <script src="/js/lsh-tool-links.js?v=cm-2026.10.23-trainer-sso"></script>
@@ -16120,7 +16121,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <!-- 📂 the trainee's own Backup Drive: the firm's folder structure, built and graded on Day 1 -->
 <script src="/js/cm-drive.js?v=cm-2026.11.12-drive-grades"></script>
 <!-- 🛡 the Admin screen in sections, as Foundational Training: the section pills, their tabs, a navy banner (wraps renderAdmin last) -->
-<script src="/js/cm-admin-shell.js?v=3"></script>
+<script src="/js/cm-admin-shell.js?v=4"></script>
 <script src="/js/cm-audit-table.js?v=2"></script>
 <script src="/js/lsh-topbar.js?v=2"></script>
 <script src="/js/lsh-one-screen.js?v=1"></script>
