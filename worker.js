@@ -360,6 +360,7 @@ async function traineeWrite(env, tok, key, value) {
       if (trainerOwned) { if (v && v.readAt && !cur.readAt) cur.readAt = v.readAt; continue; }
       if (v && typeof v === "object") {
         delete v.editedByTrainer;
+        delete v.rubric;   // a 📐 rubric score is the trainer's (js/cm-rubric.js): a trainee's own review never carries one
         v.auto = true;   // what a trainee writes is the auto-review, so it can never pass for a trainer's sent review
         if (cur && cur.trainerNote) v.trainerNote = cur.trainerNote;   // the trainee never sees it (forTrainee), so never drops or rewrites it
         out.days[d] = v;
