@@ -325,6 +325,8 @@ function forTrainee(tok, key, raw) {
 async function traineeWrite(env, tok, key, value) {
   const kv = kvOf(env);
   const id = tok.id;
+  // (a page still open on an account a trainer merged into another can't bring it back by saving: it is signed in again)
+  if ((await kv.get(`merged:${id}`)) != null) return "This account was merged into your current one. Open the program again from the LSH Training Portal.";
   let incoming; try { incoming = JSON.parse(value); } catch (e) { return "Invalid JSON"; }
   const existingRaw = await kv.get(key);
   let existing = null; try { existing = existingRaw ? JSON.parse(existingRaw) : null; } catch (e) { /* a damaged record is replaced */ }
@@ -1215,6 +1217,13 @@ export default {
         }
         if (id && id !== chosen && id !== newId && id !== rawId && id !== legacyId) return json({ error: "Name/batch don't match this session" }, 403);
         if (id && id !== chosen && (id === newId || id === rawId || id === legacyId)) { chosen = id; existing = await kv.get(`trainee:${id}`); }
+        // 👥 a duplicate account a trainer merged (📋 Batch Sheet → 👥 Duplicate accounts): its records are gone and merged:<id>
+        // = {into} is left, so the sign-in opens the account it was merged into instead of starting a new, empty one
+        if (!existing) {
+          let m = null; try { m = JSON.parse((await kv.get(`merged:${chosen}`)) || "null"); } catch (e) { m = null; }
+          const into = m && m.into ? await kv.get(`trainee:${m.into}`) : null;
+          if (into) { chosen = m.into; existing = into; }
+        }
         return json({ id: chosen, token: await makeToken(env, "t", chosen, 24 * 30), existing: existing ? JSON.parse(existing) : null, batch: canonicalBatch(batch) || String(batch || "").trim() });
       };
       if (path === "/api/auth/trainee") {

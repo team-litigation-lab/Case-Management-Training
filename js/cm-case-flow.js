@@ -4902,6 +4902,33 @@ main.cm-admin-main, main:has(.cm-admin-screen){max-width:min(2200px,97vw);paddin
 .adm-settings{padding:10px 16px;margin:0 0 14px;} .adm-settings > summary{cursor:pointer;font-weight:800;color:var(--navy);font-size:14px;}
 .adm-settings[open] > summary{margin-bottom:8px;} .adm-settings .card{box-shadow:none;margin:8px 0 0;background:#fff;}
 @media(max-width:760px){ .cm-admin-screen{padding:14px 12px 18px;border-radius:12px;} }
+/* the standard for every Admin tab (as Foundational's admin sections, body.lp-sec-admin): bigger, bolder text. max(…, 1em):
+   never smaller than the text around it, so nothing that was already bigger shrinks; !important beats the pages' inline sizes */
+.cm-admin-screen{font-size:16px;font-weight:600;color:#141A2E;}
+.cm-admin-screen p, .cm-admin-screen li, .cm-admin-screen label, .cm-admin-screen dd, .cm-admin-screen dt{font-size:max(16px, 1em) !important;line-height:1.55;font-weight:600 !important;}
+.cm-admin-screen p b, .cm-admin-screen li b, .cm-admin-screen label b, .cm-admin-screen strong{font-weight:800 !important;}
+.cm-admin-screen small, .cm-admin-screen .admin-id, .cm-admin-screen em{font-size:max(14px, 1em) !important;font-weight:700 !important;}
+.cm-admin-screen h1{font-size:max(30px, 1em) !important;font-weight:800 !important;} .cm-admin-screen h2{font-size:max(24px, 1em) !important;font-weight:800 !important;} .cm-admin-screen h3{font-size:max(20px, 1em) !important;font-weight:800 !important;}
+.cm-admin-screen summary{font-size:16.5px !important;font-weight:800 !important;}
+.cm-admin-screen .admin-tab-btn{font-size:16.5px !important;font-weight:800 !important;}
+.cm-admin-screen .cf-admin-sec{font-size:15px !important;font-weight:800 !important;}
+.cm-admin-screen .btn{font-size:max(15px, 1em) !important;font-weight:800 !important;}
+.cm-admin-screen input, .cm-admin-screen select, .cm-admin-screen textarea{font-size:16px !important;font-weight:700 !important;}
+.cm-admin-screen .admin-name{font-size:17px !important;font-weight:800 !important;}
+.cm-admin-screen .eyebrow{font-size:13px !important;font-weight:800 !important;}
+/* text the pages size inline (font-size:10px–14px): 15px at least, bold; a card's own title 17px */
+.cm-admin-screen [style*="font-size:10"], .cm-admin-screen [style*="font-size:11"], .cm-admin-screen [style*="font-size:12"], .cm-admin-screen [style*="font-size:13"], .cm-admin-screen [style*="font-size:14"]{font-size:max(15px, 1em) !important;font-weight:700 !important;}
+.cm-admin-screen .card > b[style*="font-size"], .cm-admin-screen .card > div > b[style*="font-size"]{font-size:17.5px !important;font-weight:800 !important;}
+.cm-admin-screen .tk-admin-note, .cm-admin-screen .audit-strip, .cm-admin-screen .audit-strip span, .cm-admin-screen .rv{font-size:max(15px, 1em) !important;font-weight:700 !important;}
+.cm-admin-screen .audit-strip .as-block > b{font-size:13.5px !important;font-weight:800 !important;}
+/* the Batch Sheet's grids: bigger cells, headers and notes */
+.cm-admin-screen .scx-card .gs{font-size:17px;} .cm-admin-screen .scx-card .gs td{font-weight:700;}
+.cm-admin-screen .scx-card .gs-head th{font-size:16px !important;font-weight:800 !important;}
+.cm-admin-screen .scx-card .gs-groups th{font-size:15.5px !important;}
+.cm-admin-screen .scx-card .bs-h{font-size:24px !important;} .cm-admin-screen .scx-card .bs-note{font-size:16px !important;font-weight:600 !important;}
+.cm-admin-screen .bs-ds-h, .cm-admin-screen .bs-ds-day > summary{font-size:16.5px !important;} .cm-admin-screen .bs-ctx{font-size:15.5px !important;}
+.cm-admin-screen .bs-view button{font-size:15px !important;font-weight:800 !important;}
+.cm-admin-screen .ft-banner .ft-banner-sub{font-size:16.5px !important;} .cm-admin-screen .scx-banner .gs-menu button{font-size:14.5px !important;}
 /* the Admin screen's tabs, grouped: the sections, then the open section's tabs */
 .admin-tabs.cf-admin-tabs{display:block !important;border-bottom:1px solid var(--line);margin-bottom:20px;white-space:normal;overflow:visible;}
 .cf-admin-secs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
