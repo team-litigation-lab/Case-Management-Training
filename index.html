@@ -1716,7 +1716,7 @@ body.tap-moving [ondrop]{outline:2px dashed rgba(219,132,55,.55);outline-offset:
 .script-head{display:flex;justify-content:space-between;align-items:center;font-weight:800;color:var(--navy);font-size:13px;margin-bottom:6px;}
 .script-time{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--orange-deep);background:#FFF1E2;border-radius:20px;padding:2px 8px;}
 .script-row{margin-top:8px;}
-.script-say{margin:8px 0 0;font-size:14px;line-height:1.6;} .script-say.script-ask{margin-top:10px;font-weight:600;color:var(--navy);} .script-next{margin:10px 0 0;font-size:12px;color:var(--orange-deep);font-weight:700;} .pn-cue{margin-top:10px;} .pn-cue p{font-size:12.5px;}
+.script-say{margin:8px 0 0;font-size:14px;line-height:1.6;} .script-say.script-pt{margin:5px 0 0;padding-left:1.1em;text-indent:-1.1em;} .script-say.script-ask{margin-top:10px;font-weight:600;color:var(--navy);} .script-next{margin:10px 0 0;font-size:12px;color:var(--orange-deep);font-weight:700;} .pn-cue{margin-top:10px;} .pn-cue p{font-size:12.5px;}
 .script-row b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--orange-deep);margin-bottom:2px;}
 .script-row p{margin:0;font-size:13px;line-height:1.5;white-space:pre-line;}   /* numbered step scripts keep their lines */
 .script-row ul{margin:2px 0 0;padding-left:18px;} .script-row li{font-size:13px;margin-bottom:3px;}
@@ -13007,6 +13007,8 @@ function cueInScript(cue, s){
    its own as written (a line break in the script starts a new paragraph), then the question on its
    own line, then a short scenario to work through with the room. */
 const scriptParas = t => String(t||"").split(/\s*\n\s*/).map(x=>x.trim()).filter(Boolean);
+// 🗒 talking points: notes written as "• " lines (build/case-flow/scripts/SCRIPTSPEC.md), said in the trainer's own words
+const scriptIsPoints = ps => ps.length > 0 && ps.every(x=>/^•\s/.test(x));
 function scriptProse(s){
   const body = [s.why, ...scriptParas(s.talk), (s.walk||[]).join(" ")].filter(Boolean);
   return body.concat(s.ask ? [s.ask] : []);
@@ -13021,8 +13023,8 @@ function renderPresenterNote(d, l, part, secs, allSecs, pg){
   let paras = scriptProse(s);
   if(!paras.length) paras = ["Give the room a moment to read this page, then ask which point here matters most in their own work."];
   return `<div class="pn">
-    <div class="script-block"><div class="script-head"><span>🎙 Script — read aloud${where}</span></div>
-      ${paras.map((x,i)=>`<p class="script-say${i && s.ask && i===paras.length-1 ? " script-ask" : ""}">${esc(x)}</p>`).join("")}
+    <div class="script-block"><div class="script-head"><span>${scriptIsPoints(s.ask ? paras.slice(0, -1) : paras) ? "🗒 Talking points" : "🎙 Script — read aloud"}${where}</span></div>
+      ${paras.map((x,i)=>`<p class="script-say${i && s.ask && i===paras.length-1 ? " script-ask" : /^•\s/.test(x) ? " script-pt" : ""}">${esc(x)}</p>`).join("")}
       ${s.more ? `<p class="script-next">Continues on the next page →</p>` : ""}
     </div>
     ${s.scenario ? `<div class="pn-scen"><b>🎬 Scenario — work through it with the room</b><p>${esc(s.scenario)}</p></div>` : ""}

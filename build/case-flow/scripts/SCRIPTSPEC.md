@@ -32,7 +32,28 @@ voice and limits as a block's slides. A day without them keeps the generic notes
 { "1": { "agenda": { "say": "…", "ask": "…" }, "lab": { "say": "…" }, "wrap": { "say": "…", "ask": "…" } } }
 ```
 
-## The voice
+## Talking points (the standard now)
+
+The trainer asked for simpler, straightforward notes that match how they actually teach: what to cover on the
+slide, said in their own words, not a script to read out. A day rewritten this way (Day 1 first) has, on every
+slide, a `say` of **talking points**:
+
+- 2–6 lines (3–5 usually), each starting `• ` and on its own line (`\n` between them, nothing else in the string).
+- Each point a short phrase or plain sentence, at most 25 words; at most 110 words in all. In the order the slide
+  covers it.
+- What to cover and explain, in plain language, with John Doe v. Robert Smith's real facts (names, dates, amounts
+  exactly as on the file). A term that needs it gets its plain meaning in a few words ("PIP: the client's own
+  no-fault medical coverage").
+- No games, icebreakers, jokes, teasers, mysteries or war stories; no `{name}`; no "I/we" narration; no arrows or
+  `**`.
+- `ask` stays optional: one simple check question, ending in "?", only where it helps (a block's last slide, an
+  activity's check); most slides have none. The End-of-Day Discussion keeps its question.
+
+Presenter view, the Speaker Notes PDF and the Training Agenda show these as a bulleted list headed
+"🗒 Talking points". `assemble.cjs` checks a talking-points `say` by the rules above, and any other `say` by the
+read-aloud rules below, which the days not yet rewritten still follow.
+
+## The voice (the read-aloud scripts, for days not yet rewritten as talking points)
 
 A person talking to the room, not notes about it, built on the trainer's training DNA (below).
 

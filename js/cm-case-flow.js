@@ -2580,8 +2580,9 @@ window.cmCaseFlow.labGo = function(dayId, li){
 const dayScript = (d, k) => { const x = (((window.CM_CF_SCRIPTS || {})._days || {})[d && d.cf && d.cf.n] || {})[k]; return x && {say: named(x.say, `${d.id}::_${k}`), ask: named(x.ask || "", `${d.id}::_${k}?`)}; };
 // a script's paragraphs, as written: a line break starts a new one
 const sayParas = t => String(t || "").split(/\s*\n\s*/).map(x => x.trim()).filter(Boolean);
-const sayHtml = (t, cls) => sayParas(t).map(p => `<p${cls ? ` class="${cls}"` : ""}>${E(p)}</p>`).join("");
-const dayScriptHtml = x => `<div class="pn"><div class="script-block"><div class="script-head"><span>🎙 Script — read aloud</span></div>
+const sayHtml = (t, cls) => sayParas(t).map(p => `<p${cls ? ` class="${cls}${/^•\s/.test(p) ? " script-pt" : ""}"` : ""}>${E(p)}</p>`).join("");
+const isPointsSay = t => { const ps = sayParas(t); return ps.length > 0 && ps.every(p => /^•\s/.test(p)); };
+const dayScriptHtml = x => `<div class="pn"><div class="script-block"><div class="script-head"><span>${isPointsSay(x.say) ? "🗒 Talking points" : "🎙 Script — read aloud"}</span></div>
   ${sayHtml(x.say, "script-say")}${x.ask ? `<p class="script-say script-ask">${E(x.ask)}</p>` : ""}</div></div>`;
 const dayScriptLines = (x, label) => [`SLIDE: ${label.toUpperCase()}`, ...sayParas(x.say)].concat(x.ask ? [`ASK: ${x.ask}`] : []);
 if(typeof presenterCues === "function"){   // Presenter view: the trainer's note for the Training Agenda and Practice Lab slides
@@ -2602,7 +2603,7 @@ if(typeof presenterCues === "function"){   // Presenter view: the trainer's note
     if(slide && slide.type === "readyCheck" && cfDay(d && d.id)) return `<h3>Ready for the Knowledge Check?</h3><p>The day's Skill Activities are done. Give the room a couple of minutes on these ${labQuestions(d).length} key concepts, one from each of today's first modules: a wrong answer shows the reason and can be tried again. Then open the Knowledge Check.</p>`;
     if(!(slide && (slide.type === "practiceLab" || slide.type === "taskOverview") && cfDay(d && d.id))) return __cues.apply(this, arguments);
     if(slide.type === "taskOverview"){ const x = dayScript(d, "agenda"), a = agendaNotes(d);
-      return x ? `<h3>Training Agenda</h3>${dayScriptHtml(x)}<div class="pn-on pn-cue"><b>The run of the day, from the slide</b><p>${E(a.run)}</p></div>`
+      return x ? `<h3>Training Agenda</h3>${dayScriptHtml(x)}<div class="pn-on pn-cue"><b>The run of the day, from the slide</b>${sayHtml(a.say.split("\n").slice(1).join("\n"))}</div>`
         : `<h3>Training Agenda</h3><div class="pn-part">🎙 Script — read aloud</div>${sayHtml(a.say)}${a.ask ? `<p><b>Ask:</b> ${E(a.ask)}</p>` : ""}`; }
     const n = d.lessons.filter(l => l.cf.block.kind === "activity").length, x = dayScript(d, "lab");
     const how = `<p>Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. Today's ${n} Skill Activities each come straight after the lessons they practise: each opens with Your Case, then Your Task and Check Your Work. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
@@ -5490,7 +5491,10 @@ document.head.appendChild(st);
 .cfx-ready .cfx-lab-q > span{font-size:18px !important;} .cfx-ready .cfx-lab-q .o button{font-size:16.5px !important;}
 .cfx-agenda .cfx-ag-list li{justify-content:center !important;} .cfx-agenda .cfx-ag-list li > div{flex:0 1 auto !important;} .cfx-agenda .cfx-ag-list li > div,.cfx-agenda .cfx-ag-list li > div b{text-align:left !important;}   /* the agenda's topics, number and title together, centred in their boxes */
 .cfx-agenda .cfx-ag-side p{font-size:16.5px !important;} .cfx-agenda .cfx-ag-list li small{font-size:14px !important;}
-.cfx .cfx-model td,.cfx .cfx-model th,.cfx-model tbody td{font-size:16px !important;}
+.cfx .cfx-model td,.cfx .cfx-model th,.cfx-model tbody td{font-size:18px !important;font-weight:700 !important;color:#141A2E;line-height:1.45;}
+/* a model table's text bold, as the trainer asked: its header row and first column extra-bold, the caption bold and dark */
+.cfx .cfx-model th,.cfx-model thead th{font-weight:800 !important;color:#fff;} .cfx .cfx-model tbody td:first-child{font-weight:800 !important;}
+.cfx-model .cfx-caption{font-weight:800 !important;color:#1E2340 !important;font-size:21px !important;}
 .cfx .cfx-grade-c li{font-size:17px !important;}
 .cfx-agenda .cfx-ag-side p:not(.cfx-ag-day){font-size:17px !important;line-height:1.5 !important;}
 .cfx-agenda .cfx-ag-list li small{font-size:15px !important;} .cfx-agenda .cfx-ag-list li b{font-size:19px !important;}
@@ -5523,7 +5527,7 @@ body:not(.ft-fit) #lessonStage > .slide-nav{margin-top:8px !important;margin-bot
 .cfx .cfx-hero-text p,.cfx .cfx-hero-text h3{font-weight:800 !important;}
 .cfx .cfx-ev-body,.cfx .cfx-side .cfx-why span,.cfx .cfx-deliver span,.cfx .cfx-when p{font-weight:600 !important;}
 .cfx .cfx-dd li,.cfx .cfx-dd li span{font-weight:700 !important;}
-.cfx .cfx-model td,.cfx .cfx-model th{font-weight:600 !important;}`;
+.cfx .cfx-model td,.cfx .cfx-model th{font-weight:700 !important;} .cfx .cfx-model th,.cfx .cfx-model tbody td:first-child{font-weight:800 !important;}`;
   document.head.appendChild(st);
 })();
 
