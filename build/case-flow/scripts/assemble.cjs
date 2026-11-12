@@ -86,7 +86,7 @@ for (const id of Object.keys(J)) if(!seen.has(id)) errors.push(`${id}: no such b
 const n = Object.values(out).reduce((a, x) => a + Object.keys(x).length, 0), nBlocks = Object.keys(out).length;
 // the day's own slides, outside any block (days.json): the opening Training Agenda, the Practice Lab, and the
 // End-of-Day Discussion before the Knowledge Check. Under "_days", by Case Flow day, so the case dates roll in them too.
-const DAYF = path.join(__dirname, "days.json"), SLOTS = ["agenda", "lab", "wrap", "build", "build2", "extra"];   // build, extra: a build day's 🏗 Build Your Companion Case and ➕ Optional Extra Practice
+const DAYF = path.join(__dirname, "days.json"), SLOTS = ["agenda", "lab", "wrap", "build", "build2", "extra", "lifemap", "coverage"];   // lifemap, coverage: Day 1's introduction graphics   // build, extra: a build day's 🏗 Build Your Companion Case and ➕ Optional Extra Practice
 if(fs.existsSync(DAYF)){
   const days = JSON.parse(fs.readFileSync(DAYF, "utf8")); out._days = {};
   for (const [k, c] of Object.entries(days)) {

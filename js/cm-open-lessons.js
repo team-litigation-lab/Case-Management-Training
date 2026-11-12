@@ -23,7 +23,7 @@ const cfOf = id => cfDays().find(d => d.id === Number(id)) || null;
 const label = id => { const d = cfOf(id); return d ? "Case Flow Day " + d.cf.n : "Day " + id; };
 const shortTitle = d => String(d.title || "").replace(/^Case Flow Day \d+\s*·\s*/, "");
 // one key per batch, whatever form its Batch ID is in (as Foundational's ftBatchKey; worker.js batchKey matches)
-const okey = b => String((typeof canonicalBatch === "function" && canonicalBatch(b)) || b || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+const okey = b => String((typeof batchShow === "function" && typeof canonicalBatch === "function" && canonicalBatch(b) && batchShow(b)) || (typeof canonicalBatch === "function" && canonicalBatch(b)) || b || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 const nums = a => [...new Set((Array.isArray(a) ? a : []).map(Number).filter(n => cfOf(n) || (n >= 11 && n <= 15)))].sort((x, y) => x - y);
 const merge = m => { const o = {}; Object.keys(m || {}).forEach(k => { const c = okey(k) || k; o[c] = nums([].concat(o[c] || [], (m || {})[k] || [])); if(!o[c].length) delete o[c]; }); return o; };
 const shape = x => x && typeof x === "object" ? {all: nums(x.all), batches: merge(x.batches)} : {all: [], batches: {}};

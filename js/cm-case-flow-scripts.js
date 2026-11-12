@@ -2469,6 +2469,14 @@ window.CM_CF_SCRIPTS = {
    "wrap": {
     "say": "• Robert Smith's insurer has already called John Doe, and he needs a car for work\n• Discuss what to tell him today, in what order\n• Cover: the do's and don'ts in plain words and the rental path\n• Log every step the same day; route anything legal to Atty. Thorne\n• What John says this week stays in the adjuster's notes for the life of the case",
     "ask": "What would you tell John Doe first, and why first?"
+   },
+   "lifemap": {
+    "say": "• The whole of John Doe's file on one slide, in the order we work it this week\n• Across the top: the six stages you carry on every file\n• Day 1 it's raw: the loss, the SOL docketed, the matter opened in the CMS\n• Then claims and care, the demand, liens and ADR, and litigation to the close\n• Each day picks the file up where the last one left it",
+    "ask": "Which one date on this track would you protect first, and why?"
+   },
+   "coverage": {
+    "say": "• Three layers pay in order: BI $10,000, Host UM $20,000, Relative UM $10,000\n• $40,000 is the cap, so the care and records must prove value through all three\n• Before any BI release: the UM consent to settle and the subrogation waiver\n• The Health Plan pays care now and recovers from the settlement, so plan the reduction early\n• The gap before treatment is the weak point: name it on Day 1, with its reason documented",
+    "ask": "If the BI adjuster offered the full $10,000 tomorrow, what must be on the file before anyone says yes?"
    }
   },
   "2": {
