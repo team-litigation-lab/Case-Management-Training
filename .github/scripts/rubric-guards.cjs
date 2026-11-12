@@ -1,3 +1,4 @@
+// @check node — 📐 Rubric guards (a rubric score is the trainer's; a trainee's own auto-scored results go on their own progress record only)
 // The Worker's guards on the grades of the 📐 Feedback Rubric and the CMS Case File (js/cm-rubric.js, js/cm-cms-file.js):
 //   1. A rubric score is the trainer's: a trainee's own save of feedback:<id> never carries one (a day they write is the
 //      auto-review, and its rubric is dropped), and a trainer's sent review keeps its rubric when the trainee's page saves

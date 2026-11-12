@@ -1,3 +1,4 @@
+// @check browser-noarg — Relaying a Portal simulator's document to the CMS (the records simulator's records and bills reach the CMS beside the lesson; only the Portal may ask)
 // 📤 Relaying a Portal simulator's document to the CMS (the relay at the end of js/cm-doc-filing.js).
 //
 // The LSH Training Portal's Medical Records Requests simulator produces the records and the itemized bill

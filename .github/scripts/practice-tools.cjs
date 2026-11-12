@@ -1,3 +1,4 @@
+// @check browser — One tools access per Practice Lab session (not on every activity row)
 // One tools access per Practice Lab session (caseFlowPractice in js/cm-case-flow.js).
 // A day's activities are worked in the same few platforms, so a set of tool buttons on every activity
 // row was the same two or three buttons repeated down the page, and opening one from the wrong row

@@ -1,3 +1,4 @@
+// @check node — Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400)
 // The Worker's guards on what a trainee writes and who a renewal signs in:
 //   1. Renewing a session (/api/auth/trainee under single sign-on) is for the record the trainee is already
 //      signed in to: an id in the body for a same-named trainee's record is ignored.

@@ -5714,7 +5714,17 @@ document.head.appendChild(st);
 .cfx .cfx-grade-c li{font-size:17px !important;}
 .cfx-agenda .cfx-ag-side p:not(.cfx-ag-day){font-size:17px !important;line-height:1.5 !important;}
 .cfx-agenda .cfx-ag-list li small{font-size:15px !important;} .cfx-agenda .cfx-ag-list li b{font-size:19px !important;}
-.cfx-agenda .cfx-ag-file dt{font-size:13px !important;} .cfx-agenda .cfx-ag-file dd{font-size:15.5px !important;} .cfx-agenda .cfx-ag-file-h small{font-size:13px !important;}`;
+.cfx-agenda .cfx-ag-file dt{font-size:13px !important;} .cfx-agenda .cfx-ag-file dd{font-size:15.5px !important;} .cfx-agenda .cfx-ag-file-h small{font-size:13px !important;}
+/* the Training Agenda, brighter (the trainer found it dull): each topic a lighter solid card with a bright edge, white
+   extra-bold titles, the number in a ringed orange badge; the case strip's values white on lighter boxes */
+.cfx-agenda .cfx-ag-list li{background:linear-gradient(135deg,#46508A 0%,#38416F 100%) !important;border:1.5px solid rgba(255,255,255,.42) !important;box-shadow:0 6px 16px -10px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.12) !important;}
+.cfx-agenda .cfx-ag-list li b{color:#fff !important;font-weight:800 !important;text-shadow:0 1px 1px rgba(0,0,0,.25);}
+.cfx-agenda .cfx-ag-list li small{color:#F2F4FA !important;font-weight:600 !important;}
+.cfx-agenda .cfx-ag-n{background:#F08A2C !important;box-shadow:0 0 0 3px rgba(255,255,255,.85) !important;color:#fff !important;}
+.cfx-agenda .cfx-ag-file dl > div{background:rgba(255,255,255,.16) !important;border:1.5px solid rgba(255,255,255,.38) !important;}
+.cfx-agenda .cfx-ag-file dt{color:#FFC98F !important;font-weight:800 !important;}
+.cfx-agenda .cfx-ag-file dd{color:#fff !important;font-weight:700 !important;}
+.cfx-agenda .cfx-ag-file-h{background:#DB8437 !important;border-color:#F4B77A !important;color:#fff !important;} .cfx-agenda .cfx-ag-file-h small{color:#FFF4E6 !important;}`;
   document.head.appendChild(st);
 })();
 
