@@ -41,13 +41,14 @@ const SEED = [{ id: `pat-pend-${tag}--s`, name: `Pat Pend ${tag}`, batch: BATCH,
         state.isAdmin = true; if (tab) state.adminTab = tab; else delete state.adminTab;
         goto('admin'); render(); await new Promise(r => setTimeout(r, 400)); render();
         const q = (s) => [...document.querySelectorAll(s)];
-        const banner = document.querySelector('.cmsh-tabs ~ .ft-banner, .cmsh-tabs ~ div .ft-banner, .cmsh-tabs ~ .dsop-banner, .cmsh-tabs ~ div .dsop-banner');
+        const banner = document.querySelector('.cmsh-tabs ~ .ft-banner, .cmsh-tabs ~ div .ft-banner, .cmsh-tabs ~ .dsop-banner, .cmsh-tabs ~ div .dsop-banner, .cmsh-tabs ~ .cm-ol-banner, .cmsh-tabs ~ div .cm-ol-banner');
+            const banners = document.querySelectorAll('main .ft-banner, main .dsop-banner, main .cm-ol-banner').length;   // one banner: a page's own, or the shell's
         return { view: state.view, tab: state.adminTab || 'audit', screen: !!document.querySelector('.cmsh-screen'),
             pills: q('.cmsh-sec').map(b => b.textContent.replace(/\d+$/, '').trim()), active: q('.cmsh-sec.active').map(b => b.textContent.replace(/\d+$/, '').trim()),
             row: q('.cmsh-row .admin-tab-btn').map(b => ((b.getAttribute('onclick') || '').match(/setAdminTab\('([^']+)'\)/) || [])[1]),
             rowHidden: !!(document.querySelector('.cmsh-row') || {}).hidden, activeTab: q('.cmsh-row .admin-tab-btn.active').map(b => ((b.getAttribute('onclick') || '').match(/setAdminTab\('([^']+)'\)/) || [])[1]),
             oldGroups: q('.cf-admin-secs').length, strips: q('.admin-tabs').length,
-            banner: banner ? banner.textContent.replace(/\s+/g, ' ').trim().slice(0, 120) : '', h1s: q('main h1').map(h => h.textContent.trim()), text: (document.querySelector('main') || document.body).innerText.slice(0, 4000) };
+            banners, banner: banner ? banner.textContent.replace(/\s+/g, ' ').trim().slice(0, 120) : '', h1s: q('main h1').map(h => h.textContent.trim()), text: (document.querySelector('main') || document.body).innerText.slice(0, 4000) };
     }, tab);
 
     await page.evaluate(async (SEED) => { for (const r of SEED) await sharedSet('trainee:' + r.id, r); }, SEED);
@@ -101,6 +102,7 @@ const SEED = [{ id: `pat-pend-${tag}--s`, name: `Pat Pend ${tag}`, batch: BATCH,
         if (JSON.stringify([...r.row].sort()) !== JSON.stringify([...mates].sort())) fail(`${sec}'s tabs should be ${mates.join(', ')}: ${r.row.join(', ')}`);
         if (r.rowHidden !== (mates.length < 2)) fail(`${sec}: the tab row should be ${mates.length < 2 ? 'hidden (one tab)' : 'shown'}`);
         if (!r.banner) fail(`${tab}: no navy banner heads the content`);
+        if (r.banners > 1) fail(`${tab}: ${r.banners} banners head the content (one: the page's own or the shell's)`);
     }
     const ol = await open('openlessons');
     if (!/Open Lessons/.test(ol.banner + ol.text) || !(await page.$('.cmsh-screen .ft-open-days'))) fail('🔓 Open Lessons does not draw its page (renderAdminOpenLessons)');

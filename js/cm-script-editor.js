@@ -12,12 +12,12 @@ let edits = {}, loaded = false, loading = false;
 // the course's own script under each edit, for laying a newer save over it:
 // a lesson slide "<day>::<lesson title>::p<n>" → its SLIDE_SCRIPTS part; a day script "<day>::_<agenda|lab>" → {say, ask}
 const ORIG = {};
-const DAY_KEYS = {taskOverview: "agenda", practiceLab: "lab", companionBuild: "build", companionBuild2: "build2", extraPractice: "extra"};
+const DAY_KEYS = {taskOverview: "agenda", practiceLab: "lab", companionBuild: "build", companionBuild2: "build2", extraPractice: "extra", caseMap: "lifemap", coverageMap: "coverage"};
 const isAdmin = () => typeof state !== "undefined" && !!state.isAdmin;
 const dayOf = id => (typeof DAYS !== "undefined" ? DAYS : []).find(x => String(x.id) === String(id));
 const dayScripts = d => { const all = (window.CM_CF_SCRIPTS = window.CM_CF_SCRIPTS || {}); all._days = all._days || {}; return (all._days[d.cf.n] = all._days[d.cf.n] || {}); };
 function slotOf(id){   // where an edit lives in the course's scripts
-  let m = /^(.*)::_(agenda|lab|build|build2|extra)$/.exec(id);
+  let m = /^(.*)::_(agenda|lab|build|build2|extra|lifemap|coverage)$/.exec(id);
   if(m){ const d = dayOf(m[1]); return d && d.cf ? {get: () => dayScripts(d)[m[2]], set: v => { dayScripts(d)[m[2]] = v; }, day: true} : null; }
   m = /^(.*)::(p\d+)$/.exec(id); if(!m) return null;
   const S = window.SLIDE_SCRIPTS = window.SLIDE_SCRIPTS || {};
@@ -159,8 +159,8 @@ function go(){
 function paintNav(){
   const nav = document.querySelector(".topbar .nav"); if(!nav) return;
   let b = nav.querySelector(".nav-sn");
-  // every page, for trainers (never in Trainee view); off the slides it takes the trainer back to them
-  if(!isAdmin() || state.adminPreview){ if(b) b.remove(); return; }
+  // not in the top bar any more: the speaker notes are edited in Presenter view, beside the notes themselves
+  if(b) b.remove(); return;
   load();
   const onSlides = state.view === "day" && state.dayViewMode === "slides";
   const slot = onSlides ? here() : null, status = !onSlides ? "off" : !slot ? "no script" : edits[slot.id] ? "edited" : "original";
