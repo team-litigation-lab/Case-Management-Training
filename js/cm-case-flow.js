@@ -5541,7 +5541,7 @@ document.head.appendChild(st);
 .cfx .cfx-top .cfx-full,.cfx .cfx-top .cfx-inject{font-size:14px !important;}
 .cfx-lab li > button .t{font-size:15.5px !important;}
 .cfx-ready .cfx-lab-q > span{font-size:18px !important;} .cfx-ready .cfx-lab-q .o button{font-size:16.5px !important;}
-.cfx-agenda .cfx-ag-list li > div,.cfx-agenda .cfx-ag-list li > div b{text-align:center !important;}   /* the agenda's topic titles, centred in their boxes */
+.cfx-agenda .cfx-ag-list li{justify-content:center !important;} .cfx-agenda .cfx-ag-list li > div{flex:0 1 auto !important;} .cfx-agenda .cfx-ag-list li > div,.cfx-agenda .cfx-ag-list li > div b{text-align:left !important;}   /* the agenda's topics, number and title together, centred in their boxes */
 .cfx-agenda .cfx-ag-side p{font-size:16.5px !important;} .cfx-agenda .cfx-ag-list li small{font-size:14px !important;}
 .cfx .cfx-model td,.cfx .cfx-model th,.cfx-model tbody td{font-size:16px !important;}
 .cfx .cfx-grade-c li{font-size:17px !important;}
