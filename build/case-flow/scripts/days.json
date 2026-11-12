@@ -75,6 +75,10 @@
     "extra": {
       "say": "Before the Knowledge Check, one quick note. Behind this slide are John Doe's own Day 5 activities: the litigation fork, the complaint and service, the deposition prep, the logs and the Dropped Case.\n\nThey're optional today. Your practical was your companion case, and that's the work I'm grading you on.\n\nBut here's my honest advice. Come back to these this week, while it's fresh. The deposition prep and the dropped-case close-out are the two that catch new Case Managers out on a real file.\n\nFor now, we skip straight to the Knowledge Check. {name}, how did your build go, in one sentence?",
       "ask": "{name}, which of John Doe's Day 5 activities would you do first after today, and why that one?"
+    },
+    "build2": {
+      "say": "Halfway. Hands up if you're still in the CMS. Okay, {name}, log what you have and move on, you can come back to it.\n\nThe last hour is where a Case Manager earns the attorney's trust. Step five is the care plan: the treatment map, the 14-day rule, any gap, who pays first, and whether you need an LOP.\n\nThen the note to Atty. Thorne. Lead with the decision he has to make, then the deadline it hangs on. Not a story, a decision.\n\nLast ten minutes: check your work. Every document in the CMS and in the case folder, and your CMS Case ID logged.\n\nHere's my challenge. When you sit down at the brainstorm, I want to hear the one thing on your case you'd flag before anyone asks.",
+      "ask": "{name}, what's the decision your note to Atty. Thorne leads with, in one sentence?"
     }
   }
 }

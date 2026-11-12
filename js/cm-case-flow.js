@@ -1016,7 +1016,7 @@ function card(l, i, d, part){
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title" title="${E(l.cf.heading)}">${E(l.cf.heading)}</h2></div>
       <div class="cfx-ribbon"><span title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span></div>
       <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}</span>
-        <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.num || phase.n}.${k + 1} · ${E(KIND[b.kind])}</span>${timeChip(l, d, view)}
+        <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.num || phase.n}.${k + 1} · ${E(KIND[b.kind])}</span><span class="cfx-top-rib" title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span>${timeChip(l, d, view)}
         ${view === "task" && isTrainer() && !inAudience() && injectsOf(b).length ? `<button type="button" class="cfx-inject" onclick="cmCaseFlow.inject(${d.id},${i})" title="Trainer only: a real-time task to inject while the room works this one">⚡ Inject: ${E(injectsOf(b).map(x => x.short).join(" · "))}</button>` : ""}
         <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Additional Reference</button></div>
       <div class="cfx-body${onNavy ? " cfx-body-navy" : ""}">${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}</div>
@@ -1153,7 +1153,7 @@ if(typeof buildDaySlides === "function"){
     });
     if(build){
       // 🏗 the build (150 minutes), the key concepts, then the optional extra practice: John Doe's activities, untimed
-      out.push({type: "companionBuild"});
+      out.push({type: "companionBuild"}, {type: "companionBuild2"});   // the build's seven steps on two slides, so the type stays large on a laptop
       if(labQuestions(d).length) out.push({type: "readyCheck"});
       if(extras.length){
         out.push({type: "extraPractice"});
@@ -1231,8 +1231,7 @@ function agendaSlide(d){
   const logo = "";
   const src = CF.days.find(x => x.n === d.cf.n) || {};
   const sc = daySchedule(d), parts = sc.parts;
-  const row = (n, title, small) => `<li><span class="cfx-ag-n">${String(n).padStart(2, "0")}</span><div><b>${E(title)}</b>
-      <small>${small}</small></div></li>`;
+  const row = (n, title) => `<li><span class="cfx-ag-n">${String(n).padStart(2, "0")}</span><div><b>${E(title)}</b></div></li>`;   // the title only: no "1 topic · 2 Skill Activities" line
   const pl = (k, one, many) => `${k} ${k === 1 ? one : many}`;
   // topic by topic: its lessons, its Skill Building and the brainstorm after it; the Knowledge Check last
   const rows = parts.map((p, i) => row(i + 1, p.title, [p.full ? `💬 ${pl(p.full, "topic", "topics")}` : "", p.briefs ? `💬 ${pl(p.briefs, "overview", "overviews")}` : "",
@@ -2515,22 +2514,23 @@ const BUILD_STEPS = [
   [20, "Note the decision to Atty. Thorne", "Decision first: what's decided, what needs his call, and the deadline it hangs on, in Case Notes.", "Days 3–5: the attorney decides value and strategy; you bring him the file ready for that decision."],
   [10, "Check your work", "Every document filed in the CMS and in the case folder; your CMS Case ID logged; ready for the brainstorm.", "If it isn't on the file, it didn't happen."]
 ];
-function companionBuild(d){
+function companionBuild(d, page){
+  page = page || 1;
   const mins = d.cf.build || 150, me = !isTrainer() && state.assignedCase, cc = me && (window.CM_COMPANION_CASES || {})[state.assignedCase.id];
   let t = 0;
-  const steps = BUILD_STEPS.map(([m, h, what, why], i) => { const from = t; t += m;
-    return `<li><span class="cfx-bd-t">${Math.floor(from / 60)}:${String(from % 60).padStart(2, "0")}<small>${m} min</small></span><div><b>${i + 1}. ${E(h)}</b><span>${E(what)}</span><em>Why: ${E(why)}</em></div></li>`; }).join("");
-  const mine = cc ? `<div class="cfx-bd-case"><p class="cfx-bd-k">📁 Your companion case · ${E(cc.theme)}</p><h3>${E(cc.title)}</h3><p>${E(cc.hook)}</p>
-      <dl><dt>Client</dt><dd>${E(cc.client)}</dd><dt>Coverage</dt><dd>${E(cc.coverage)}</dd></dl>
+  const all = BUILD_STEPS.map(([m, h, what, why], i) => { const from = t; t += m;
+    return `<li><span class="cfx-bd-t">${Math.floor(from / 60)}:${String(from % 60).padStart(2, "0")}<small>${m} min</small></span><div><b>${i + 1}. ${E(h)}</b><span>${E(what)}</span><em>Why: ${E(why)}</em></div></li>`; });
+  const steps = (page === 1 ? all.slice(0, 4) : all.slice(4)).join("");
+  const mine = cc ? `<div class="cfx-bd-case cfx-bd-slim" title="${E(cc.hook)}"><p class="cfx-bd-k">📁 Your companion case · ${E(cc.theme)}</p><h3>${E(cc.title)}</h3>
       <button type="button" class="btn btn-primary" onclick="cmCompanion.open('${E(state.assignedCase.id)}', ${d.cf.n})">📁 Open case file</button></div>`
     : isTrainer() ? `<div class="cfx-bd-case"><p class="cfx-bd-k">📁 Companion cases</p><h3>Every trainee builds the case you assigned</h3><p>Trainee Audit → 📁 on each row. Walk the room while they build; the 🧠 Brainstorm guide has each trainee's case and what to look for.</p>
       ${window.cmCompanion ? `<button type="button" class="btn btn-navy" onclick="cmCompanion.brainstorm(${d.id})">🧠 Brainstorm guide</button>` : ""}</div>`
     : `<div class="cfx-bd-case"><p class="cfx-bd-k">📁 Your companion case</p><h3>Not assigned yet</h3><p>Your trainer assigns it: ask them now, so you can start building.</p></div>`;
   return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; PRACTICAL &middot; ${mins} MINUTES</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-lab cfx-build">
-      <div class="cfx-deck-head"><h2 class="cfx-deck-title">🏗 Build Your Companion Case</h2></div>
-      <div class="cfx-ribbon"><span>${mins} minutes · everything you practised on John Doe's file, on a case of your own</span></div>
-      <div class="cfx-body"><div class="cfx-sheet"><div class="cfx-bd">${mine}<ol class="cfx-bd-steps">${steps}</ol></div></div></div>
+      <div class="cfx-deck-head"><h2 class="cfx-deck-title">🏗 Build Your Companion Case${page === 1 ? "" : ": the Second Half"}</h2></div>
+      <div class="cfx-ribbon"><span>${page === 1 ? `${mins} minutes · everything you practised on John Doe's file, on a case of your own` : `Steps 5 to 7 · the last hour`}</span></div>
+      <div class="cfx-body"><div class="cfx-sheet"><div class="cfx-bd">${page === 1 ? mine : ""}<ol class="cfx-bd-steps cfx-bd-p${page}">${steps}</ol></div></div></div>
     </div>`;
 }
 function extraPractice(d){
@@ -2593,12 +2593,12 @@ if(typeof presenterCues === "function"){   // Presenter view: the trainer's note
   const __cues = presenterCues;
   presenterCues = function(d, slide){
     if(slide && slide.type === "closing" && cfDay(d && d.id)) return `<h3>Congratulations & Thank You</h3><p>The case is closed. The Knowledge Check is done: celebrate with the room and read them the thank-you letter.</p>`;
-    if(slide && (slide.type === "companionBuild" || slide.type === "extraPractice") && cfDay(d && d.id)){
-      const k = slide.type === "companionBuild" ? "build" : "extra", x = dayScript(d, k);
-      const note = k === "build"
+    if(slide && (slide.type === "companionBuild" || slide.type === "companionBuild2" || slide.type === "extraPractice") && cfDay(d && d.id)){
+      const k = {companionBuild: "build", companionBuild2: "build2", extraPractice: "extra"}[slide.type], x = dayScript(d, k);
+      const note = k === "build" || k === "build2"
         ? `<p>${d.cf.build || 150} minutes: each trainee builds the companion case you assigned, step by step as the slide times it. Walk the room; the 🧠 Brainstorm guide has each trainee's case. Call time at each step so nobody spends the whole build on the CMS setup.</p>`
         : `<p>Optional and untimed: John Doe's Day ${d.cf.n} activities. Most rooms go straight to the Knowledge Check (⏭ on the slide); trainees can come back to these any time.</p>`;
-      return `<h3>${k === "build" ? "Build Your Companion Case" : "Optional Extra Practice"}</h3>${x ? dayScriptHtml(x) : ""}<div class="pn-on pn-cue"><b>Trainer note — not read aloud</b>${note}</div>`;
+      return `<h3>${k === "extra" ? "Optional Extra Practice" : "Build Your Companion Case"}</h3>${x ? dayScriptHtml(x) : ""}<div class="pn-on pn-cue"><b>Trainer note — not read aloud</b>${note}</div>`;
     }
     if(slide && slide.type === "readyCheck" && cfDay(d && d.id)) return `<h3>Ready for the Knowledge Check?</h3><p>The day's Skill Activities are done. Give the room a couple of minutes on these ${labQuestions(d).length} key concepts, one from each of today's first modules: a wrong answer shows the reason and can be tried again. Then open the Knowledge Check.</p>`;
     if(!(slide && (slide.type === "practiceLab" || slide.type === "taskOverview") && cfDay(d && d.id))) return __cues.apply(this, arguments);
@@ -2643,7 +2643,8 @@ if(typeof renderDaySlideContent === "function"){
   renderDaySlideContent = function(d, slide){
     if(slide && slide.type === "practiceLab" && cfDay(d && d.id)) return practiceLab(d);
     if(slide && slide.type === "readyCheck" && cfDay(d && d.id)) return readyCheck(d);
-    if(slide && slide.type === "companionBuild" && cfDay(d && d.id)) return companionBuild(d);
+    if(slide && slide.type === "companionBuild" && cfDay(d && d.id)) return companionBuild(d, 1);
+    if(slide && slide.type === "companionBuild2" && cfDay(d && d.id)) return companionBuild(d, 2);
     if(slide && slide.type === "extraPractice" && cfDay(d && d.id)) return extraPractice(d);
     if(slide && slide.type === "closing" && cfDay(d && d.id)) return closingSlide(d);
     return (slide && slide.type === "taskOverview" && cfDay(d && d.id)) ? agendaSlide(d) : __content.apply(this, arguments);
@@ -2656,6 +2657,7 @@ if(typeof daySlideTitle === "function"){
     if(cfDay(d && d.id) && slide && slide.type === "practiceLab") return "Practice Lab";
     if(cfDay(d && d.id) && slide && slide.type === "readyCheck") return "Ready for the Knowledge Check?";
     if(cfDay(d && d.id) && slide && slide.type === "companionBuild") return "Build Your Companion Case";
+    if(cfDay(d && d.id) && slide && slide.type === "companionBuild2") return "Build Your Companion Case: the Second Half";
     if(cfDay(d && d.id) && slide && slide.type === "extraPractice") return "Optional Extra Practice";
     if(cfDay(d && d.id) && slide && slide.type === "closing") return "Congratulations & Thank You";
     if(cfDay(d && d.id) && slide && slide.type === "topic"){ const l = d.lessons[slide.lessonIndex]; const v = viewsOf(l.cf.block)[(slide.part || 1) - 1]; return `${l.h} — ${VIEW_LABEL[v] || ""}`; }
@@ -5460,23 +5462,72 @@ document.head.appendChild(st);
   if(document.getElementById("cf-build-css")) return;
   const st = document.createElement("style"); st.id = "cf-build-css";
   st.textContent = `
-.cfx-bd{display:grid;grid-template-columns:minmax(260px,.85fr) minmax(0,2fr);gap:18px;align-items:start;}
-.cfx-bd-case{background:#1E2340;color:#fff;border-radius:14px;padding:16px 18px;border-top:5px solid #DB8437;}
+.cfx-bd{display:flex;flex-direction:column;gap:12px;text-align:left;}
+.cfx-bd-case{background:#1E2340;color:#fff;border-radius:14px;padding:12px 18px;border-left:6px solid #DB8437;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:'k k' 'h b' 'p b';column-gap:20px;align-items:center;}
+.cfx-bd-case .cfx-bd-k{grid-area:k;}
+.cfx-bd-case.cfx-bd-slim{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:'k h b';column-gap:16px;padding:10px 16px;} .cfx-bd-slim h3{margin:0 !important;} .cfx-bd-case h3{grid-area:h;} .cfx-bd-case > p:not(.cfx-bd-k){grid-area:p;} .cfx-bd-case dl{grid-area:dl;} .cfx-bd-case .btn{grid-area:b;white-space:nowrap;}
 .cfx-bd-k{margin:0;font:800 12.5px 'Inter',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#F6C08F;}
-.cfx-bd-case h3{margin:6px 0 8px;font:800 21px/1.25 'Poppins','Inter',sans-serif;color:#fff;}
-.cfx-bd-case p{margin:0 0 10px;font:600 15.5px/1.5 'Inter',sans-serif;color:#E3E7F1;}
-.cfx-bd-case dl{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:0 0 12px;font:600 14.5px/1.4 'Inter',sans-serif;}
+.cfx-bd-case h3{margin:6px 0 6px;font:800 23px/1.25 'Poppins','Inter',sans-serif;color:#fff;}
+.cfx-bd-case p{margin:0;font:600 17.5px/1.45 'Inter',sans-serif;color:#E3E7F1;}
+.cfx-bd-case dl{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:0;font:600 16.5px/1.4 'Inter',sans-serif;}
 .cfx-bd-case dt{color:#F6C08F;font-weight:800;} .cfx-bd-case dd{margin:0;color:#fff;}
-.cfx-bd-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;}
-.cfx-bd-steps li{display:grid;grid-template-columns:62px 1fr;gap:12px;align-items:start;background:#fff;border:1.5px solid #E2D7C8;border-left:5px solid #DB8437;border-radius:10px;padding:8px 12px;}
-.cfx-bd-t{font:800 16px 'IBM Plex Mono',monospace;color:#1E2340;display:flex;flex-direction:column;} .cfx-bd-t small{font:700 11.5px 'Inter',sans-serif;color:#A4470F;}
-.cfx-bd-steps b{display:block;font:800 17px/1.3 'Inter',sans-serif;color:#1E2340;} .cfx-bd-steps span{display:block;font:600 15.5px/1.45 'Inter',sans-serif;color:#141A2E;}
-.cfx-bd-steps em{display:block;font:600 14px/1.4 'Inter',sans-serif;font-style:normal;color:#4A5068;margin-top:2px;}
-.cfx-ex-lead{margin:0 0 12px;font:600 18px/1.5 'Inter',sans-serif;color:#141A2E;}
-.cfx-ex-list{list-style:none;margin:0 0 14px;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
-.cfx-ex-list button{width:100%;text-align:left;display:flex;gap:10px;align-items:baseline;border:1.5px solid #DDE1EA;background:#fff;border-radius:10px;padding:9px 12px;font:700 15.5px/1.35 'Inter',sans-serif;color:#1E2340;cursor:pointer;}
-.cfx-ex-list button:hover{border-color:#DB8437;} .cfx-ex-list button span{font:700 12.5px 'IBM Plex Mono',monospace;color:#A4470F;flex:0 0 auto;}
+.cfx-bd-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:10px;}
+.cfx-bd-steps li > div{text-align:left !important;}
+.cfx-bd-steps li{display:grid;grid-template-columns:82px 1fr;gap:16px;align-items:start;text-align:left;background:#fff;border:1.5px solid #E2D7C8;border-left:6px solid #DB8437;border-radius:12px;padding:9px 18px;}
+.cfx-bd-steps .cfx-bd-t{font:800 22px 'IBM Plex Mono',monospace;color:#1E2340;display:flex;flex-direction:column;gap:3px;} .cfx-bd-steps .cfx-bd-t small{font:800 15px 'Inter',sans-serif;color:#A4470F;}
+.cfx-bd-steps li > div > b{display:block;font:800 22px/1.3 'Inter',sans-serif;color:#1E2340;} .cfx-bd-steps li > div > span{display:block;font:600 19.5px/1.45 'Inter',sans-serif;color:#141A2E;margin-top:2px;}
+.cfx-bd-steps li::before,.cfx-ex-list li::before{display:none !important;content:none !important;} .cfx-ex-list li{padding:0 !important;margin:0 !important;}
+.cfx-bd-steps em{display:block;font:700 17.5px/1.4 'Inter',sans-serif;font-style:normal;color:#8E3A0B;margin-top:4px;}
+.cfx-ex-lead{text-align:left;margin:0 0 12px;font:600 20px/1.5 'Inter',sans-serif;color:#141A2E;}
+.cfx-ex-list{list-style:none;margin:0 0 14px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+.cfx-ex-list button{width:100%;text-align:left;display:flex;gap:10px;align-items:baseline;border:1.5px solid #DDE1EA;background:#fff;border-radius:10px;padding:8px 14px;font:700 18px/1.35 'Inter',sans-serif;color:#1E2340;cursor:pointer;}
+.cfx-ex-list button:hover{border-color:#DB8437;} .cfx-ex-list button span{font:700 15px 'IBM Plex Mono',monospace;color:#A4470F;flex:0 0 auto;}
 .cfx-ex-go{display:flex;justify-content:flex-end;} .cfx-ex-go .btn{font-size:17px;padding:12px 22px;}
-@media(max-width:900px){ .cfx-bd{grid-template-columns:1fr;} .cfx-ex-list{grid-template-columns:1fr;} }`;
+@media(max-width:900px){ .cfx-bd-case{grid-template-columns:1fr;grid-template-areas:'k' 'h' 'p' 'dl' 'b';} .cfx-bd-steps,.cfx-ex-list{grid-template-columns:1fr;} }`;
+  document.head.appendChild(st);
+})();
+
+/* A laptop (a short screen, 1366×768 and the like): the slide's content gets the height. The block's title moves into the
+   row of the view pill (no separate ribbon), the deck title and the gaps tighten, the kicker and the page's footer line
+   go, so the card's content is drawn at (or near) full size instead of being shrunk to fit. */
+(function(){
+  if(document.getElementById("cf-laptop-css")) return;
+  const st = document.createElement("style"); st.id = "cf-laptop-css";
+  st.textContent = `
+.cfx-top-rib{display:none;flex:1 1 auto;min-width:0;text-align:center;color:#fff;font:800 17px/1.2 'Poppins','Inter',sans-serif;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:4px 12px;border-bottom:3px solid #DB8437;border-radius:6px;background:linear-gradient(90deg,#343C66 0%,#46508A 50%,#343C66 100%);}
+@media (min-width:1000px) and (max-height:900px){
+  body:has(#lessonStage) .footer-note{display:none !important;}
+  .lesson-stage .cfx-deck-head{padding-bottom:2px !important;margin-bottom:6px !important;}
+  .lesson-stage .cfx-deck-title{font-size:clamp(20px,1.75vw,27px) !important;}
+  .cfx-deck:has(> .cfx-top .cfx-top-rib) > .cfx-ribbon{display:none !important;}
+  .cfx-deck .cfx-top-rib{display:block;}
+  .cfx-deck .cfx-kicker{display:none !important;}
+  .cfx-deck > .cfx-ribbon{margin-bottom:8px !important;} .cfx-deck > .cfx-ribbon span{font-size:16px !important;padding:5px 16px !important;}
+  .cfx-deck .cfx-top{margin-bottom:8px !important;}
+}
+/* readable on a laptop: the small print of the slides, raised (measured at 1366×768, every slide of every day) */
+.cfx .cfx-ev-body{font-size:17px !important;line-height:1.45 !important;}
+.cfx .cfx-ev-from{font-size:13.5px !important;} .cfx .cfx-ev-when{font-size:13px !important;}
+.cfx .cf-docline a,.cfx .dfl-doc a{font-size:16px !important;} .cfx .dfl-file{font-size:13.5px !important;}
+.cfx .dfl-conv,.cfx .dfl-conv code,.cfx .dfl-need{font-size:14px !important;} .cfx .dfl-h b{font-size:15.5px !important;} .cfx .dfl-fields .btn{font-size:15px !important;}
+.cfx .cfx-thumb span{font-size:14px !important;}
+.cfx .cf-strip .cf-anchor{font-size:16px !important;} .cfx .cf-strip .cf-anchor b{font-size:12.5px !important;}
+.cfx .cfx-when p{font-size:16.5px !important;} .cfx .cfx-when-date,.cfx .cfx-when-sol,.cfx .cfx-when-jump{font-size:15px !important;} .cfx .cfx-when-date b,.cfx .cfx-when-sol b{font-size:15px !important;}
+.cfx .cfx-side .cfx-why span{font-size:17px !important;line-height:1.45 !important;} .cfx .cfx-side .cfx-why b{font-size:15px !important;}
+.cfx .cfx-hero .cfx-chip{font-size:16px !important;}
+.cfx .cfx-fall p{font-size:16px !important;} .cfx .cfx-fall-why{font-size:13.5px !important;}
+.cfx .cfx-at{font-size:13.5px !important;}
+.cfx .cfx-deliver span{font-size:17px !important;} .cfx .cfx-deliver em{font-size:14.5px !important;}
+.cfx .cfx-do-now span{font-size:16.5px !important;}
+.cfx .cfx-call span{font-size:15.5px !important;} .cfx .cfx-simnote-s,.cfx .cfx-simnote{font-size:13.5px !important;}
+.cfx .cfx-top .cfx-full,.cfx .cfx-top .cfx-inject{font-size:14px !important;}
+.cfx-lab li > button .t{font-size:15.5px !important;}
+.cfx-ready .cfx-lab-q > span{font-size:18px !important;} .cfx-ready .cfx-lab-q .o button{font-size:16.5px !important;}
+.cfx-agenda .cfx-ag-side p{font-size:16.5px !important;} .cfx-agenda .cfx-ag-list li small{font-size:14px !important;}
+.cfx .cfx-model td,.cfx .cfx-model th,.cfx-model tbody td{font-size:16px !important;}
+.cfx .cfx-grade-c li{font-size:17px !important;}
+.cfx-agenda .cfx-ag-side p:not(.cfx-ag-day){font-size:17px !important;line-height:1.5 !important;}
+.cfx-agenda .cfx-ag-list li small{font-size:15px !important;} .cfx-agenda .cfx-ag-list li b{font-size:19px !important;}
+.cfx-agenda .cfx-ag-file dt{font-size:13px !important;} .cfx-agenda .cfx-ag-file dd{font-size:15.5px !important;} .cfx-agenda .cfx-ag-file-h small{font-size:13px !important;}`;
   document.head.appendChild(st);
 })();
