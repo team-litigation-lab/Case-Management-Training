@@ -1,6 +1,6 @@
 // 🗺 Roadmap (index.html openRoadmap): every day with its topics, as on Foundational Training, in place of each day
 // card's ☰ Topics button. Checks, as a trainee part-way through Day 1:
-//   - the day cards have no ☰ Topics button, and the dashboard has 🗺 Roadmap;
+//   - the day cards have no ☰ Topics button, and the dashboard has no 🗺 Roadmap pill (it opens from a slide);
 //   - the roadmap lists every day, in order, with every one of its topics, numbered by day (Day 2's are 2.1, 2.2 …);
 //   - a topic the trainee has reached opens its first slide; one not reached yet, or on a locked day, is 🔒 and doesn't;
 //   - opened from a slide, it marks the topic being taught ("● here");
@@ -25,8 +25,9 @@ const failures = []; const fail = (m) => failures.push(m);
     await page.evaluate(() => { const o = document.getElementById('ktLogin'); if (o) o.remove(); state.slideProgress = Object.assign({}, state.slideProgress, { [DAYS[0].id]: 40 }); goto('dashboard'); render(); });
     await page.waitForTimeout(400);
     if (await page.locator('.module-topics-btn').count()) fail('a day card still has its ☰ Topics button (the roadmap lists the topics now)');
-    if (!(await page.locator('.dash-roadmap-btn').count())) fail('the dashboard has no 🗺 Roadmap button');
-    else await page.click('.dash-roadmap-btn');
+    // the dashboard has no 🗺 Roadmap pill (it opens from 🗺 Roadmap beside Next → on a slide, and the trainer's side)
+    if (await page.locator('.dash-roadmap-btn').count()) fail('the dashboard should not have the 🗺 Roadmap pill');
+    await page.evaluate(() => openRoadmap());
     await page.waitForSelector('.rmx-day', { timeout: 5000 }).catch(() => fail('🗺 Roadmap didn\'t open'));
     const map = await page.evaluate(() => {
         const days = [...document.querySelectorAll('.rmx-day')].map(s => ({ head: s.querySelector('.rmx-dayh').innerText, nums: [...s.querySelectorAll('.rmx-tn')].map(x => x.textContent),
