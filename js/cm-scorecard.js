@@ -208,7 +208,7 @@ async function loadAll(){
   ALL.loading = false;
   if(state.view === "scorecard" && typeof render === "function") render();
 }
-const batchOf = b => typeof cleanBatch === "function" ? (cleanBatch(b) || b) : b;
+const batchOf = b => typeof batchShow === "function" ? (batchShow(b) || b) : typeof cleanBatch === "function" ? (cleanBatch(b) || b) : b;
 const shownRows = () => (ALL.rows || []).filter(r => !ALL.batch || batchOf(r.batch) === ALL.batch);
 function renderAll(){
   if(!ALL.rows){ if(!ALL.loading) loadAll(); return `<div class="scx-page scx-wide"><div class="card gs-card scx-card"><p class="bs-none scx-pad">Collecting every trainee's grades…</p></div></div>`; }
