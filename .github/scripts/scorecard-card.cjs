@@ -42,15 +42,15 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
     if (JSON.stringify(unit.weights) !== '[0.25,0.25,0.3,0.2]') fail(`the dimension weights should be 25/25/30/20: ${unit.weights}`);
     if (JSON.stringify(unit.mult) !== '{"1":1,"2":1.15,"3":1.15,"4":1.3,"5":1.3}') fail(`the day multipliers should be 1.0 / 1.15 / 1.15 / 1.3 / 1.3: ${JSON.stringify(unit.mult)}`);
     if (unit.pass !== 80) fail(`the pass mark should be 80: ${unit.pass}`);
-    if (JSON.stringify(unit.tiers) !== '[[90,"Exemplary"],[80,"Proficient"],[65,"Developing"],[0,"Unsatisfactory"]]') fail(`the 4-tier rubric: ${JSON.stringify(unit.tiers)}`);
+    if (JSON.stringify(unit.tiers) !== '[[90,"Exemplary"],[80,"Proficient"],[65,"Developing"],[0,"Needs Improvement"]]') fail(`the 4-tier rubric: ${JSON.stringify(unit.tiers)}`);
     if (JSON.stringify(unit.crit) !== '["upl","priv","date","trust"]') fail(`the critical items: ${unit.crit}`);
     // Day 1: PC (KC 100, upload 100) 100 · NA (risk) 60 · CP (accuracy/presence) 80 · CD (efficiency) 40 → 72; Day 4: CP 80 → 80
     if (JSON.stringify(unit.a.days) !== '[72,null,null,80,null]') fail(`day scores should be [72,-,-,80,-]: ${JSON.stringify(unit.a.days)}`);
     if (unit.a.final !== 77) fail(`Final should be (72×1.0 + 80×1.3) ÷ 2.3 = 77: ${unit.a.final}`);
-    if (unit.a.status !== 'gate' || unit.a.tier !== 'Unsatisfactory' || unit.a.gate.join() !== '1,2') fail(`a trust-money check failed should breach the gate (Unsatisfactory): ${JSON.stringify(unit.a)}`);
+    if (unit.a.status !== 'gate' || unit.a.tier !== 'Needs Improvement' || unit.a.gate.join() !== '1,2') fail(`a trust-money check failed should breach the gate (Needs Improvement): ${JSON.stringify(unit.a)}`);
     if (unit.a.comp !== 100 || unit.a.overall !== 89) fail(`Daily compliance (KC passed, takeaways graded, uploaded) 100 and Overall = avg(77, 100) = 89: ${JSON.stringify(unit.a)}`);
     if (unit.b.final !== 88 || unit.b.status !== 'pass' || unit.b.tier !== 'Proficient' || unit.b.gate.join() !== '2,2') fail(`(72 + 100×1.3) ÷ 2.3 = 88 with the gate met should pass, Proficient: ${JSON.stringify(unit.b)}`);
-    if (unit.c.final !== 75 || unit.c.status !== 'gate' || unit.c.tier !== 'Unsatisfactory' || unit.c.breach.join() !== 'upl') fail(`a takeaway with Risk 0 (UPL) should breach the gate whatever the score (75%, Developing on its own, is Unsatisfactory): ${JSON.stringify(unit.c)}`);
+    if (unit.c.final !== 75 || unit.c.status !== 'gate' || unit.c.tier !== 'Needs Improvement' || unit.c.breach.join() !== 'upl') fail(`a takeaway with Risk 0 (UPL) should breach the gate whatever the score (75%, Developing on its own, is Needs Improvement): ${JSON.stringify(unit.c)}`);
 
     // 2. a trainee with graded work: their own card
     await signIn(page, 'Cara', 'Card' + tag, 'B100926');
@@ -89,7 +89,7 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
         ['Overall', 'Scorecard', 'Daily compliance'].forEach((l, i) => { if (!mine.pills[i] || !mine.pills[i].startsWith(l)) fail(`pill ${i + 1} should be ${l}: ${JSON.stringify(mine.pills)}`); });
         if (!mine.pills.some(p => /Safety gate/.test(p))) fail(`a takeaway with Risk 0 should show the safety gate breached on the card: ${JSON.stringify(mine.pills)}`);
         if (!/Focus on/.test(mine.focus) || !/below the pass mark of 80%/.test(mine.focus) || !/⛔/.test(mine.focus)) fail(`the Focus on box should list the breach and the scores below 80%: ${mine.focus.slice(0, 300)}`);
-        ['Procedural Compliance & Timeliness', 'Needs Assessment & Risk Identification', 'Care/Action Plan Quality', 'Communication & Documentation', '25%', '30%', '20%', 'What feeds it', 'Safety gate', 'UPL', 'Privilege', 'Hard dates', 'Trust money', 'Exemplary', 'Proficient', 'Developing', 'Unsatisfactory', '× 1.15', '1.3']
+        ['Procedural Compliance & Timeliness', 'Needs Assessment & Risk Identification', 'Care/Action Plan Quality', 'Communication & Documentation', '25%', '30%', '20%', 'What feeds it', 'Safety gate', 'UPL', 'Privilege', 'Hard dates', 'Trust money', 'Exemplary', 'Proficient', 'Developing', 'Needs Improvement', '× 1.15', '1.3']
             .forEach(w => { if (!mine.model.includes(w) && !mine.days.join(' ').includes(w)) fail(`the card's 100-point model should say "${w}"`); });
         if (mine.days.length !== 6 || !/Day 1/.test(mine.days[1]) || !/Day 5/.test(mine.days[5])) fail(`Day scores should have the Final and Days 1–5: ${JSON.stringify(mine.days)}`);
         if (!mine.src) fail('the grading-systems table should be under the card, in a toggle');
