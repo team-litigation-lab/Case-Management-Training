@@ -114,15 +114,16 @@ main:has(.kt-page){max-width:min(2200px, 97vw) !important;padding-left:20px;padd
 .kt-page{max-width:none;margin:0 auto;}
 .kt-deck{background:linear-gradient(135deg,#1F2440,#2B3158 60%,#353C68);border-radius:20px;padding:20px 22px;color:#fff;}
 .kt-head h2{margin:0;font:800 30px 'Poppins','Inter',sans-serif;color:#F6C08F;} .kt-head p{margin:4px 0 14px;font:600 16px/1.5 'Inter',sans-serif;color:#E3E7F1;}
-.kt-body{display:grid;grid-template-columns:minmax(240px,320px) minmax(0,1fr);gap:16px;}
-.kt-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;}
-.kt-list button{width:100%;text-align:left;display:flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);color:#fff;border-radius:10px;padding:10px 12px;font:700 15px 'Inter',sans-serif;cursor:pointer;}
+.kt-body{display:grid;grid-template-columns:minmax(280px,400px) minmax(0,1fr);gap:18px;}
+.kt-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+.kt-list button{width:100%;text-align:left;display:flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);color:#fff;border-radius:10px;padding:12px 16px;font:800 18.5px/1.3 'Inter',sans-serif;cursor:pointer;}
+.kt-list button > span{font-size:21px;}
 .kt-list button.on{background:#F6C08F;color:#141A2E;border-color:#F6C08F;} .kt-list em{font-style:normal;margin-left:auto;}
 .kt-sheet{background:#fff;color:#141A2E;border-radius:16px;padding:26px 32px;}
 .kt-k{margin:0;font:800 15px 'Inter',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#A4470F;}
 .kt-sheet h3{margin:8px 0 20px;font:800 38px 'Poppins','Inter',sans-serif;color:#1E2340;}
 .kt-sheet dl{display:grid;grid-template-columns:240px 1fr;gap:16px 22px;margin:0 0 22px;}
-.kt-sheet dt{font:800 22px/1.4 'Inter',sans-serif;color:#1E2340;} .kt-sheet dd{margin:0;font:600 23px/1.5 'Inter',sans-serif;}
+.kt-sheet dt{font:800 22px/1.4 'Inter',sans-serif;color:#1E2340;} .kt-sheet dd{margin:0;font:700 23px/1.5 'Inter',sans-serif;}
 .kt-tip{margin:0 0 22px;padding:14px 20px;border-left:5px solid #DB8437;background:#FFF4E6;border-radius:0 10px 10px 0;font:700 21px/1.45 'Inter',sans-serif;}
 .kt-btns .btn{font-size:19px;padding:13px 22px;}
 .kt-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;background:rgba(255,255,255,.92);border-radius:14px;padding:8px 12px;color:#141A2E;font:700 14px 'IBM Plex Mono',monospace;}
