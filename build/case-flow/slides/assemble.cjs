@@ -101,6 +101,7 @@ const microFrameworks = (b, c) => {
     if(typeof m.title !== "string" || !m.title.trim() || wc(m.title) > 8 || marks(m.title)) errors.push(`${id}.milestones.title: want ≤ 8 words, no highlight`);
     if(m.start !== undefined && !(Number.isInteger(m.start) && m.start > 1)) errors.push(`${id}.milestones.start: a whole number above 1`);
     if(m.note !== undefined) opt("milestones.note", m.note, 16);
+    if(m.slide !== undefined && m.slide !== true) errors.push(`${id}.milestones.slide: true (the rail on a slide of its own, where its lesson's slides have no room for it) or omit`);
     if(!Array.isArray(m.steps) || m.steps.length < 3 || m.steps.length > 6) errors.push(`${id}.milestones.steps: want 3–6`);
     else m.steps.forEach((s, i) => {
       const f = `milestones.steps[${i}]`;
@@ -129,7 +130,7 @@ for (const day of CF.days) {
     if(b.kind === "lesson"){
       line(b.id, "hook", c.hook, 16); list(b.id, "points", c.points, 3, 4, 12);
       if((b.tell.upl || []).length) line(b.id, "upl", c.upl, 14, [0, 1]);
-      if((b.ops || []).length){ if(!Array.isArray(c.job) || !c.job.length || c.job.length > 3) errors.push(`${b.id}.job: want 1–3 rows`); else c.job.forEach((r, i) => { if(!Array.isArray(r) || r.length !== 4) errors.push(`${b.id}.job[${i}]: want 4 cells`); else r.forEach((x, k) => { if(wc(x) > 6) errors.push(`${b.id}.job[${i}][${k}]: ${wc(x)} words (max 6)`); }); }); }
+      if(c.job !== undefined) errors.push(`${b.id}.job: no lesson has an On the Job slide (Trigger ➔ Task ➔ Tool ➔ Checkpoint) any more; take its copy out`);
       if(c.roadmap !== undefined){   // a complex lesson's roadmap: 3–6 steps, shown before anything is taught or tested
         const r = c.roadmap;
         if(!r || typeof r.title !== "string" || !r.title.trim() || wc(r.title) > 8 || marks(r.title)) errors.push(`${b.id}.roadmap.title: want ≤ 8 words, no highlight`);

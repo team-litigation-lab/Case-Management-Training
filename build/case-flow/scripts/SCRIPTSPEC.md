@@ -17,8 +17,8 @@ in CI). A slide without a script here falls back to the script the course builds
 ```
 
 Keyed by block id, then by slide (the block's views, in order: a lesson is map · theory · theory2 ·
-frame · why · doc (when it introduces a document) · rules · model · job · dodont, the theory first and Why It Matters
-after it (a brief lesson is why · doc · rules · job); an activity is case · task · model · check; a Learning Check is
+frame · why · doc (when it introduces a document) · rules · model · steps (Milestone Steps, where the lesson gives them
+a slide of their own) · dodont, the theory first and Why It Matters after it (a brief lesson is why · doc · rules); an activity is case · task · model · check; a Learning Check is
 questions · summary · scale; only the slides the block actually has). Every slide of every block has one.
 
 ## The day's own slides
@@ -118,7 +118,8 @@ Every block carries all of them; every slide carries the ones that fit it.
 
 Where each fits best: a lesson's **why** is the icebreaker and the teaser; **map**, **theory**,
 **frame** and **model** tease and reveal in plain words; **rules** and **dodont** draw the lazy vs.
-high-value line; **job** tells the war story and the settlement consequence. An activity's **case**
+high-value line; **steps** walks the milestones as they run on the job, with the war story and the settlement
+consequence. An activity's **case**
 teases and reveals what just landed; **task**, **grade** and **audit** put trainees on the spot by
 name; **check** draws the lazy vs. high-value line. A Learning Check's **questions** play as a game
 show. The last slide of every block closes on the mystery.

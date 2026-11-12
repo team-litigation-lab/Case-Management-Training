@@ -13,26 +13,6 @@ window.CM_CF_SLIDES = {
    "Flag risk to Atty. Thorne **the day you see it**"
   ],
   "upl": "Explain the process and confirm facts; never value, merits or settlement advice",
-  "job": [
-   [
-    "New matter assigned",
-    "Read the raw file first",
-    "CMS → Case File",
-    "Parties, dates, carriers noted"
-   ],
-   [
-    "Client asks a legal question",
-    "Log it; route it same day",
-    "CMS → Communications Log",
-    "Routed; no opinion given"
-   ],
-   [
-    "Deadline or risk appears",
-    "Docket, flag, recommend next step",
-    "CMS → Calendar · Risk Flags",
-    "Nothing lives only in email"
-   ]
-  ],
   "dos": [
    "Keep **a dated next step** on every file",
    "Answer process questions; **route the legal ones**"
@@ -136,26 +116,6 @@ window.CM_CF_SLIDES = {
    "EMS date vs. first treatment record: **find the gap yourself**"
   ],
   "upl": "Share facts and the process; never value, or what the gap does",
-  "job": [
-   [
-    "Course begins",
-    "Read the Case File and intake",
-    "Case File · Documents",
-    "DOL, stack, gap from memory"
-   ],
-   [
-    "Matter opens in the CMS",
-    "Trace each fact to its document",
-    "CMS → Case File",
-    "No fact from memory alone"
-   ],
-   [
-    "A fact changes",
-    "Update the CMS the same day",
-    "CMS → Case Notes",
-    "The CMS matches the file"
-   ]
-  ],
   "dos": [
    "Trace every fact **to its document**",
    "Say the stack **in order**, every time"
@@ -249,26 +209,6 @@ window.CM_CF_SLIDES = {
    "Never value, strategy, settlement, or **what the gap does**"
   ],
   "upl": "Hear it, log it, **route it** to Atty. Thorne the same day",
-  "job": [
-   [
-    "Client asks his case's worth",
-    "Log it; route to counsel",
-    "CMS → Case Notes · Tasks",
-    "Routed today; no figure given"
-   ],
-   [
-    "Client asks what happens next",
-    "Explain the next step plainly",
-    "CMS → Case Notes",
-    "Process explained; no prediction"
-   ],
-   [
-    "Adjuster asks your view",
-    "Decline; share approved facts only",
-    "CMS → Communications Log",
-    "Nothing beyond the record"
-   ]
-  ],
   "dos": [
    "Answer from **the record**; route what it means",
    "Use **one routing line**, every time",
@@ -280,6 +220,7 @@ window.CM_CF_SLIDES = {
    "Coaching him on **what to tell an adjuster**"
   ],
   "milestones": {
+   "slide": true,
    "title": "When a question crosses the line",
    "steps": [
     {
@@ -387,26 +328,6 @@ window.CM_CF_SLIDES = {
    "Record the client's position: it decides **which policies can be reached**"
   ],
   "upl": "Confirm facts, explain the process; worth and merits are Atty. Thorne's call",
-  "job": [
-   [
-    "Raw file received",
-    "Conflict Check, then verify DOL",
-    "CMS → New Case",
-    "DOL matches the Police Report"
-   ],
-   [
-    "Matter created",
-    "Docket SOL; log retainer and HIPAA",
-    "CMS → Calendar · Documents",
-    "SOL 02/06/2028 on the calendar"
-   ],
-   [
-    "Parties identified",
-    "Map six roles; record position",
-    "CMS → Parties",
-    "None “unknown”; position from report"
-   ]
-  ],
   "dos": [
    "Record **the source** of every coverage fact",
    "Docket the statute of limitations **on day one**",
@@ -418,6 +339,7 @@ window.CM_CF_SLIDES = {
    "Accepting a case because intake **“mostly” looks fine**"
   ],
   "milestones": {
+   "slide": true,
    "title": "The SOL docket, calculated",
    "steps": [
     {
@@ -641,26 +563,6 @@ window.CM_CF_SLIDES = {
    "Step 3: notify the attorney and **assess SOL and hearing dates**"
   ],
   "upl": "Say what the firm needs, by when; never advise on rights or threaten withdrawal",
-  "job": [
-   [
-    "Client misses a contact",
-    "Step 1: review status, deadlines",
-    "CMS → Case Summary",
-    "Live deadlines identified first"
-   ],
-   [
-    "Review complete",
-    "Step 2: work the channel ladder",
-    "CMS → Communications Log",
-    "Date, time, channel, outcome logged"
-   ],
-   [
-    "Ladder exhausted",
-    "Step 3: notify Atty. Thorne",
-    "CMS → Tasks → Escalate",
-    "SOL 02/06/2028 impact assessed"
-   ]
-  ],
   "dos": [
    "Set a **follow-up reminder** as each request goes out",
    "Offer **an easy way to respond**: call, text, upload link"
@@ -670,6 +572,7 @@ window.CM_CF_SLIDES = {
    "Blaming the client for **process gaps**"
   ],
   "milestones": {
+   "slide": true,
    "title": "No Contact Protocol, Steps 1–3",
    "steps": [
     {
@@ -826,26 +729,6 @@ window.CM_CF_SLIDES = {
    "Withdrawal and skip-tracing are **counsel's decisions**; keep the file moving"
   ],
   "upl": "Never judge the claim or advise on rights; only the attorney ends representation",
-  "job": [
-   [
-    "No response after Step 3",
-    "Draft letter, 7–14 day deadline",
-    "Action Plan Editor",
-    "Attempts itemized; withdrawal notice present"
-   ],
-   [
-    "Letter ready",
-    "Confirm address; certified mail AND email",
-    "CMS → Documents → Outgoing",
-    "Both logged; receipt kept"
-   ],
-   [
-    "Response deadline expires",
-    "Verify all three criteria; escalate",
-    "CMS → Tasks → Escalate",
-    "Criteria evidenced in the log"
-   ]
-  ],
   "dos": [
    "Itemize **attempts with dates**",
    "Ask in-house help to **confirm an address**"
@@ -1010,26 +893,6 @@ window.CM_CF_SLIDES = {
    "Keep **every receipt** and a log of each trip to treatment"
   ],
   "upl": "Give the instruction; route questions about claim value to Atty. Thorne",
-  "job": [
-   [
-    "Retainer signed",
-    "Deliver standing instructions; log delivery",
-    "CMS → Onboarding",
-    "Date and method logged"
-   ],
-   [
-    "Client mentions an expense",
-    "Keep the receipt; log it",
-    "CMS → Case Notes",
-    "Receipt requested; logged"
-   ],
-   [
-    "Adverse carrier calls client",
-    "Route to the firm; log contact",
-    "CMS → Communications Log",
-    "No Recorded Statement; logged"
-   ]
-  ],
   "dos": [
    "Ask about **barriers to care** at every check-in",
    "Use **active listening**; heard clients follow instructions"
@@ -1130,26 +993,6 @@ window.CM_CF_SLIDES = {
    "The rental's last day reaches his care: **calendar and coordinate**"
   ],
   "upl": "Sort and refer; never advise Margaret Doe or **value her PD claim**",
-  "job": [
-   [
-    "PD document arrives",
-    "Index on John Doe's file",
-    "CMS → Documents",
-    "Filed as BI evidence"
-   ],
-   [
-    "Question about Civic's claim",
-    "Log it; refer to Atty. Thorne",
-    "CMS → Case Notes · Tasks",
-    "Referred the same day"
-   ],
-   [
-    "PD date touches his care",
-    "Calendar it; plan his rides",
-    "Calendar · CMS → Tasks",
-    "Rides planned before it"
-   ]
-  ],
   "dos": [
    "Ask of every PD fact: **does it touch our case**?",
    "Index photos and estimates **the day they arrive**"
@@ -1304,26 +1147,6 @@ window.CM_CF_SLIDES = {
    "**Flag adverse facts prominently**; a buried risk isn't disclosed"
   ],
   "upl": "State facts, flag risks; legal conclusions, value and posture are Atty. Thorne's",
-  "job": [
-   [
-    "Verification call complete",
-    "Record acceptance decision and reason",
-    "CMS → Case Notes",
-    "Reason a colleague can follow"
-   ],
-   [
-    "Coverage verified in writing",
-    "Draft all five bands",
-    "Action Plan Editor",
-    "Risks band populated"
-   ],
-   [
-    "Plan drafted",
-    "Docket window; route to Atty. Thorne",
-    "Route for review · Calendar",
-    "Routed before any position-committing action"
-   ]
-  ],
   "dos": [
    "Give each pillar **measurable goals**",
    "Give every decision **a reason others can follow**"
@@ -1423,26 +1246,6 @@ window.CM_CF_SLIDES = {
    "Map care in four groups; **calendar every transition**"
   ],
   "upl": "Record and coordinate; diagnosis, treatment and psychological care are the provider's call",
-  "job": [
-   [
-    "Intake call complete",
-    "Record four-domain assessment",
-    "CMS → Case Notes",
-    "All four domains dated"
-   ],
-   [
-    "Assessment recorded",
-    "Draft SMART goals, care groups",
-    "Action Plan Editor",
-    "Measure, date, owner on each"
-   ],
-   [
-    "Social risk found",
-    "Calendar it as treatment risk",
-    "Calendar · Risk Flags",
-    "Dated before it's a gap"
-   ]
-  ],
   "dos": [
    "Record the assessment **in his own words**, dated",
    "Ask about prior injuries **plainly and early**",
@@ -1454,6 +1257,7 @@ window.CM_CF_SLIDES = {
    "Calling a prior condition **“unrelated” or “aggravated”**"
   ],
   "milestones": {
+   "slide": true,
    "title": "Assess → SMART Goal → Coordinate",
    "steps": [
     {
@@ -1594,26 +1398,6 @@ window.CM_CF_SLIDES = {
    "No gain by week 6? **Ask the provider now**, before a denial"
   ],
   "upl": "You track and ask; **the provider decides care**, Atty. Thorne what it means",
-  "job": [
-   [
-    "Every check-in",
-    "Locate phase and week; ask “improving?”",
-    "Case File → Treatment timeline",
-    "Phase, week, answer, date logged"
-   ],
-   [
-    "Not improving or stop skipped",
-    "Classify variance; ask provider's office",
-    "Medical Records Requests · Case Notes",
-    "Variance named; answer on file"
-   ],
-   [
-    "Variance that can cost claim",
-    "Report facts to Atty. Thorne",
-    "Case File → Risk Flags",
-    "Routed same day, facts only"
-   ]
-  ],
   "dos": [
    "Write **phase and week** at the top of every note",
    "Report **what he can't do**, not just diagnoses",
@@ -1625,6 +1409,7 @@ window.CM_CF_SLIDES = {
    "**Waiting for a denial** before you course-correct"
   ],
   "milestones": {
+   "slide": true,
    "title": "John's route on the map",
    "steps": [
     {
@@ -1836,26 +1621,6 @@ window.CM_CF_SLIDES = {
    "At the plateau, **re-engage on his goal**; it's usually the plan"
   ],
   "upl": "Report flags; **the provider decides** care; MI is never medical or legal advice",
-  "job": [
-   [
-    "Record or bill arrives",
-    "Read it against red flags",
-    "CMS → Case File → Risk Flags",
-    "Flag logged with source, date"
-   ],
-   [
-    "Medical-danger flag spotted",
-    "Tell the provider today",
-    "Phone · CMS → Case Notes",
-    "Provider told same day"
-   ],
-   [
-    "Check-in once care starts",
-    "Run OARS; quote yellow flags",
-    "Call Simulator → AI John Doe",
-    "GIRP note same day"
-   ]
-  ],
   "dos": [
    "Ask **specific questions**: visits, pain score, function",
    "Write yellow flags **in his own words**, dated",
@@ -1867,6 +1632,7 @@ window.CM_CF_SLIDES = {
    "Treating late head-injury symptoms **as proof** before validation"
   ],
   "milestones": {
+   "slide": true,
    "title": "Bridging the gap",
    "steps": [
     {
@@ -2039,26 +1805,6 @@ window.CM_CF_SLIDES = {
    "No EMC: **capped at $2,500**; Riverton has no EMC rule"
   ],
   "upl": "The provider decides the EMC; Atty. Thorne decides what it means",
-  "job": [
-   [
-    "Florida file opened",
-    "Calendar the 14-day deadline",
-    "CMS → Calendar",
-    "Docketed the same day"
-   ],
-   [
-    "First record arrives",
-    "Check date, provider, EMC",
-    "Medical Records Requests",
-    "EMC status logged"
-   ],
-   [
-    "EMC missing or late",
-    "Log bucket; flag Atty. Thorne",
-    "CMS → Insurance tab → PIP Log",
-    "Flag routed same day"
-   ]
-  ],
   "dos": [
    "Read **the file's state** before its PIP",
    "Docket **the 14th day** at intake",
@@ -2070,6 +1816,7 @@ window.CM_CF_SLIDES = {
    "Telling a client to see a doctor **for the $10,000**"
   ],
   "milestones": {
+   "slide": true,
    "title": "Preventing forfeiture on a Florida file",
    "steps": [
     {
@@ -2190,26 +1937,6 @@ window.CM_CF_SLIDES = {
    "Re-route when **a material fact changes**"
   ],
   "upl": "Legal strategy is counsel's: review comments needing legal judgment go to Atty. Thorne",
-  "job": [
-   [
-    "Five bands drafted",
-    "Route to Atty. Thorne",
-    "Action Plan Editor",
-    "Routing timestamp recorded"
-   ],
-   [
-    "Returned with comments",
-    "Address every comment; re-route",
-    "Action Plan Editor → Revisions",
-    "No comment unaddressed"
-   ],
-   [
-    "Material fact changes",
-    "Mark superseded; re-route",
-    "Action Plan Editor → Version",
-    "Approved version kept; new one routed"
-   ]
-  ],
   "dos": [
    "Assume **defense counsel reads every note**",
    "Keep medical notes **factual and clinical**"
@@ -2219,6 +1946,7 @@ window.CM_CF_SLIDES = {
    "Writing **“this will help the case”** in a treatment note"
   ],
   "milestones": {
+   "slide": true,
    "title": "The plan's review loop",
    "steps": [
     {
@@ -2393,26 +2121,6 @@ window.CM_CF_SLIDES = {
    "Keystone gets **John Doe's name only**: no phone, address, birth date, employer"
   ],
   "upl": "You draft and send; Atty. Thorne signs. Never value the claim or argue fault.",
-  "job": [
-   [
-    "Claims opened 02/16–02/17/2026",
-    "Log number, adjuster, delivery method",
-    "CMS → Insurance tab",
-    "Number, adjuster or “none yet”, method"
-   ],
-   [
-    "LOR set drafted",
-    "Route all five for signature",
-    "CMS → Documents → Outgoing",
-    "Signed by counsel, never the CM"
-   ],
-   [
-    "Letters served 02/17/2026",
-    "Log delivery; calendar acknowledgement check",
-    "CMS → Communications Log",
-    "Follow-up 02/20/2026 if carrier silent"
-   ]
-  ],
   "dos": [
    "Confirm **claim number and adjuster** on every claim call",
    "Keep claim-opening facts **general and verifiable**",
@@ -2587,26 +2295,6 @@ window.CM_CF_SLIDES = {
    "Every open item carries **a dated next follow-up**"
   ],
   "upl": "You record and chase; applying terms or alleging bad faith is Atty. Thorne's call.",
-  "job": [
-   [
-    "Written coverage confirmation arrives",
-    "Enter limit, form, source, date",
-    "CMS → Insurance tab",
-    "Confirmed only with document attached"
-   ],
-   [
-    "Adjuster assigned: Teresa Okafor, 03/03/2026",
-    "Replace “not yet assigned” with contact",
-    "CMS → Insurance tab · Parties",
-    "No stale “not yet assigned” entry"
-   ],
-   [
-    "Follow-up date arrives, item open",
-    "Follow up, log, set next date",
-    "CMS → Calendar · Communications Log",
-    "No open item with past date"
-   ]
-  ],
   "dos": [
    "Log a verbal limit at once, **marked verbal**",
    "Keep **a paper trail** on every Keystone request",
@@ -2618,6 +2306,7 @@ window.CM_CF_SLIDES = {
    "An open request with **no next date**"
   ],
   "milestones": {
+   "slide": true,
    "title": "Verification Status Hierarchy",
    "steps": [
     {
@@ -2799,26 +2488,6 @@ window.CM_CF_SLIDES = {
    "The **affidavit of service** starts Smith's answer clock"
   ],
   "upl": "Request, track and check; **never swear, sign or notarize** for anyone",
-  "job": [
-   [
-    "Demand at the limit approved",
-    "Request Smith's affidavit",
-    "CMS → Tasks",
-    "Sworn **08/10/2026**"
-   ],
-   [
-    "Records request goes out",
-    "Ask for the custodian affidavit",
-    "ChartSwap",
-    "Set comes back **sworn**"
-   ],
-   [
-    "Affidavit arrives",
-    "Check it; route defects",
-    "CMS → Documents",
-    "Filed **where it's used**"
-   ]
-  ],
   "dos": [
    "Ask for the **custodian affidavit** with every records request",
    "Check every **jurat and seal** before filing"
@@ -2828,6 +2497,7 @@ window.CM_CF_SLIDES = {
    "Writing **an affiant's words** for them"
   ],
   "milestones": {
+   "slide": true,
    "title": "The jurat check",
    "steps": [
     {
@@ -2915,26 +2585,6 @@ window.CM_CF_SLIDES = {
    "PD acceptance is **not BI acceptance**: record each position"
   ],
   "upl": "Gather and preserve the evidence; **fault is Atty. Thorne's call**",
-  "job": [
-   [
-    "Claim set-up opens",
-    "Request and read the report",
-    "CMS → Police tab",
-    "Citation and witness recorded"
-   ],
-   [
-    "Video or vehicle data exists",
-    "Draft the preservation requests",
-    "Email Workspace",
-    "Signed, sent, custody logged"
-   ],
-   [
-    "A carrier states its position",
-    "Record it with its date",
-    "CMS → Insurance tab",
-    "Each position on file"
-   ]
-  ],
   "dos": [
    "Read the Police Report **line by line**",
    "**Preserve first**: video, photos and vehicle data",
@@ -3108,26 +2758,6 @@ window.CM_CF_SLIDES = {
    "Verify PIP and UM in writing; **never assume either**"
   ],
   "upl": "Route bills in the default order; primacy and lien enforceability are Atty. Thorne's",
-  "job": [
-   [
-    "Coverage confirmed in writing",
-    "Place it: stack, Payer Order, outside",
-    "CMS → Coverage Matrix",
-    "Stack $40,000; PIP outside it"
-   ],
-   [
-    "A provider asks whom to bill",
-    "Route it by Payer-First order",
-    "CMS → PIP Log",
-    "PIP, Peach State, then LOP"
-   ],
-   [
-    "A provider asks for an LOP",
-    "Check PIP and network first",
-    "CMS → Liens → LOP register",
-    "Atty. Thorne approves any LOP"
-   ]
-  ],
   "dos": [
    "Verify every coverage in writing: **a dated Declaration Page**",
    "Confirm the Health Plan was **active on the loss date**",
@@ -3139,6 +2769,7 @@ window.CM_CF_SLIDES = {
    "Assuming PIP, or **UM on the client's own policy**"
   ],
   "milestones": {
+   "slide": true,
    "title": "The Recovery Stack, in order",
    "steps": [
     {
@@ -3289,26 +2920,6 @@ window.CM_CF_SLIDES = {
    "Be the hub: **warm handoffs**, not phone numbers"
   ],
   "upl": "You prepare and route LOPs; never set terms, sign, promise payment or explain liability.",
-  "job": [
-   [
-    "Provider asks for an LOP",
-    "Run Payer Order; prepare if needed",
-    "CMS → Documents → Outgoing",
-    "Nothing sent without Atty. Thorne's approval"
-   ],
-   [
-    "PIP pays a bill",
-    "Post payment, running total, balance",
-    "CMS → PIP Log",
-    "$5,000.00 reached 06/12/2026; $0.00 left"
-   ],
-   [
-    "LOP statement arrives",
-    "Update balance; check lines against visits",
-    "CMS → Liens → LOP register",
-    "Every billed date an attended visit"
-   ]
-  ],
   "dos": [
    "Ask **“Is the plan working?”** at every contact",
    "Tell John Doe **which payer handles which bill**",
@@ -3418,26 +3029,6 @@ window.CM_CF_SLIDES = {
    "PIP paid **$5,000.00 in five checks**; exhausted 06/26/2026"
   ],
   "upl": "Read and report what payers paid; whether a balance is owed is Atty. Thorne's",
-  "job": [
-   [
-    "An EOB arrives",
-    "Post billed, allowed, paid, member share",
-    "CMS → Liens",
-    "Plan paid $1,860.00 logged"
-   ],
-   [
-    "A PIP check clears",
-    "Post check and limit remaining",
-    "CMS → PIP Log",
-    "Ties to Harbor Point's history"
-   ],
-   [
-    "A patient statement shows a balance",
-    "Compare with member responsibility",
-    "CMS → Liens · Email Workspace",
-    "Balance bill routed to Atty. Thorne"
-   ]
-  ],
   "dos": [
    "Read every EOB to **the member-responsibility line**",
    "Keep billed and paid **on the same CMS line**",
@@ -3606,26 +3197,6 @@ window.CM_CF_SLIDES = {
     "What it means for his recovery is **Atty. Thorne's to explain**"
    ]
   },
-  "job": [
-   [
-    "No payer covers the care",
-    "Check payers; route to counsel",
-    "CMS → Insurance · Case Notes",
-    "Payer check on file"
-   ],
-   [
-    "The LOP is signed",
-    "File it; set ledger task",
-    "CMS → Liens · Tasks",
-    "Balance tracked monthly"
-   ],
-   [
-    "“Where should I go?”",
-    "Give options; book his choice",
-    "CMS → Parties · Calendar",
-    "His choice logged, no advice"
-   ]
-  ],
   "dos": [
    "Check **every payer** before an LOP",
    "Give **options with facts**; he chooses",
@@ -3694,26 +3265,6 @@ window.CM_CF_SLIDES = {
    "Rental past the cutoff is **the owner's out-of-pocket** cost"
   ],
   "upl": "Log the costs; **never promise repayment**: the claim is Atty. Thorne's",
-  "job": [
-   [
-    "Treatment starts",
-    "Open the trip log",
-    "CMS → Case Notes · Tasks",
-    "Client told what to keep"
-   ],
-   [
-    "A receipt arrives",
-    "Enter cost; file receipt",
-    "CMS → Financial Ledger → Specials",
-    "Entered with its receipt"
-   ],
-   [
-    "MMI; demand next",
-    "Total the log; route it",
-    "CMS → Tasks",
-    "Rate confirmed by counsel"
-   ]
-  ],
   "dos": [
    "Start the trip log **at the first visit**",
    "File each receipt **the day it arrives**"
@@ -3811,26 +3362,6 @@ window.CM_CF_SLIDES = {
    "Adjust the plan first; **climb one documented rung** at a time"
   ],
   "upl": "You coordinate care, never direct it, and never tie missed visits to claim value.",
-  "job": [
-   [
-    "Missed-visit alert, client silent",
-    "Reach him: the **No Contact Protocol**",
-    "Communications Log · Call Simulator",
-    "**First attempt** logged same day"
-   ],
-   [
-    "Week 6 of care (04/07/2026)",
-    "Request re-evaluation measures from provider",
-    "Medical Records Requests",
-    "Measures on file, or flagged"
-   ],
-   [
-    "Barrier survives the clinical rung",
-    "Notice the carrier; copy Atty. Thorne",
-    "CMS → Tasks → Escalate",
-    "Each rung dated in log"
-   ]
-  ],
   "dos": [
    "Raise **two or more missed visits** with the provider",
    "**Proofread laterality**: everything on this file is right-sided",
@@ -3842,6 +3373,7 @@ window.CM_CF_SLIDES = {
    "Jumping to Atty. Thorne **before the first two rungs**"
   ],
   "milestones": {
+   "slide": true,
    "title": "A-C-T: Assess → Coordinate → Track",
    "steps": [
     {
@@ -3996,26 +3528,6 @@ window.CM_CF_SLIDES = {
    "Riverton's add-on PIP **doesn't reduce BI or UM**"
   ],
   "upl": "Forecast and report PIP; routing, set-off and severity arguments are Atty. Thorne's",
-  "job": [
-   [
-    "A PIP check clears",
-    "Record limit left, bills coming",
-    "CMS → PIP Log",
-    "Exhaustion date forecast"
-   ],
-   [
-    "Bill could go PIP or LOP",
-    "Lay out both routes' figures",
-    "Email Workspace",
-    "Atty. Thorne's decision logged"
-   ],
-   [
-    "First treating records arrive",
-    "Check EMC rule and finding",
-    "Medical Records Requests",
-    "Finding or absence flagged"
-   ]
-  ],
   "dos": [
    "Get set-off and reimbursement positions **in writing**",
    "Keep billed and **PIP-paid on one line**",
@@ -4027,6 +3539,7 @@ window.CM_CF_SLIDES = {
    "Asking a provider **to make an EMC finding**"
   ],
   "milestones": {
+   "slide": true,
    "title": "PIP's $5,000, spent once",
    "steps": [
     {
@@ -4201,26 +3714,6 @@ window.CM_CF_SLIDES = {
    "Flag the plan's reimbursement right **before the first demand**"
   ],
   "upl": "Report what a plan asserts; never judge enforceability or compromise without counsel",
-  "job": [
-   [
-    "Retainer signed",
-    "Get claim-specific HIPAA authorization",
-    "CMS → Documents",
-    "Authorization names 02/06/2026"
-   ],
-   [
-    "Age and benefits known",
-    "Verify SSDI status; report if required",
-    "CMS → Case Notes",
-    "BCRC answer logged, dated"
-   ],
-   [
-    "Plan pays accident-related bill",
-    "Record and flag the lien",
-    "CMS → Liens → Flag",
-    "Flag set before any demand"
-   ]
-  ],
   "dos": [
    "Clear the triple-check **before clinical planning**",
    "Log the **BCRC report date** or verified “not required”"
@@ -4330,26 +3823,6 @@ window.CM_CF_SLIDES = {
    "Flag the gap **the day records show it**: 14 days, routed"
   ],
   "upl": "Flag and report facts; **enforceability, compromise and value** are Atty. Thorne's",
-  "job": [
-   [
-    "Reimbursement right first noticed",
-    "Flag the lien, record identifiers",
-    "CMS → Liens → Flag",
-    "Flag dated before any demand"
-   ],
-   [
-    "Plan's itemized ledger arrives",
-    "Audit each line; dispute in writing",
-    "CMS → Liens",
-    "Plan confirms $1,860.00 in writing"
-   ],
-   [
-    "Records show first care 02/20/2026",
-    "Flag the 14-Day Gap; route",
-    "Action Plan Editor → Risks",
-    "Facts only; watch for breaks"
-   ]
-  ],
   "dos": [
    "Flag the lien **the day it is known**",
    "Audit the plan's ledger **line by line**"
@@ -4520,26 +3993,6 @@ window.CM_CF_SLIDES = {
    "Record **only with his spoken consent**; protect privilege"
   ],
   "upl": "Never say what the gap does to his case; route that to Atty. Thorne.",
-  "job": [
-   [
-    "Records show the 14-day gap",
-    "Write a questions-only plan",
-    "CMS → Case Notes",
-    "Plan saved; no reason named"
-   ],
-   [
-    "Call connects",
-    "Consent and privacy on record",
-    "Call Simulator → AI John Doe",
-    "Consent before first substantive question"
-   ],
-   [
-    "Carrier asks for Recorded Statement",
-    "Refer to firm; tell Atty. Thorne",
-    "CMS → Communications Log",
-    "No statement without Atty. Thorne"
-   ]
-  ],
   "dos": [
    "**Ask open**, follow his words, close last",
    "Paraphrase back and **let him correct you**",
@@ -4551,6 +4004,7 @@ window.CM_CF_SLIDES = {
    "**Blaming the client** for the gap"
   ],
   "milestones": {
+   "slide": true,
    "title": "The client interview",
    "steps": [
     {
@@ -4699,26 +4153,6 @@ window.CM_CF_SLIDES = {
    "Never hide an interruption: **show its dates**, same complaints before and after"
   ],
   "upl": "You collect, compare and flag; never tell a provider what to write.",
-  "job": [
-   [
-    "A provider record arrives",
-    "Compare mechanism, onset, body region",
-    "CMS → Treatment timeline",
-    "Consistent, or conflict quoted and flagged"
-   ],
-   [
-    "Histories conflict",
-    "Flag to Atty. Thorne; change nothing",
-    "CMS → Tasks → Escalate",
-    "Same day; no wording requests"
-   ],
-   [
-    "Work or excuse note arrives",
-    "Check signer, date, covered days",
-    "CMS → Documents",
-    "Every covered day matches a visit"
-   ]
-  ],
   "dos": [
    "Collect **what already exists** before asking for anything new",
    "**Quote records exactly**; never strengthen a history",
@@ -4870,26 +4304,6 @@ window.CM_CF_SLIDES = {
     "**Never draft or coach** the opinion; what it means stays Atty. Thorne's"
    ]
   },
-  "job": [
-   [
-    "Atty. Thorne seeks an opinion",
-    "Assemble records; docket follow-up",
-    "Records Requests · Calendar",
-    "Request under his signature"
-   ],
-   [
-    "Letter arrives 06/19/2026",
-    "Check it against the file",
-    "CMS → Documents → Medical",
-    "Mismatches flagged to Atty. Thorne"
-   ],
-   [
-    "Letter checked",
-    "File it; cite it; route it",
-    "Gap Explanation Record · Tasks",
-    "Cited on the 14-day band"
-   ]
-  ],
   "dos": [
    "Send the doctor **the complete record set**, priors included",
    "Read the letter **against the file** the day it arrives",
@@ -4901,6 +4315,7 @@ window.CM_CF_SLIDES = {
    "Telling John Doe the letter **raises his claim's value**"
   ],
   "milestones": {
+   "slide": true,
    "title": "The Causation Letter, request to file",
    "steps": [
     {
@@ -5027,26 +4442,6 @@ window.CM_CF_SLIDES = {
    "Future care ($3,400–$6,800) stays **out of the audited total**"
   ],
   "upl": "You audit and flag; valuing, billed-or-paid and the demand figure are Atty. Thorne's.",
-  "job": [
-   [
-    "MMI note received 06/12/2026",
-    "Record MMI; open the audit",
-    "CMS → Treatment timeline",
-    "MMI dated from provider's note"
-   ],
-   [
-    "Final bills and records in",
-    "Build and reconcile Specials ledger",
-    "CMS → Financial Ledger → Specials",
-    "Medical total $14,817.40"
-   ],
-   [
-    "Before the ask",
-    "Re-verify each limit, in order",
-    "CMS → Coverage Matrix",
-    "$40,000, each with written source"
-   ]
-  ],
   "dos": [
    "**Stress-test the file** before the defense does",
    "Identify **every lien before the demand**",
@@ -5058,6 +4453,7 @@ window.CM_CF_SLIDES = {
    "Discovering a lien **after the release** is signed"
   ],
   "milestones": {
+   "slide": true,
    "title": "Zero missing dates of service",
    "steps": [
     {
@@ -5266,26 +4662,6 @@ window.CM_CF_SLIDES = {
    "Frame decisions as **questions only he can answer**"
   ],
   "upl": "Recommend on operations only; the demand, billed-or-paid and the UM timing are Atty. Thorne's.",
-  "job": [
-   [
-    "Audit complete",
-    "Draft one-page memo and exhibit index",
-    "Action Plan Editor → Pre-demand brief",
-    "Exhibit labels match their pages"
-   ],
-   [
-    "Brief ready",
-    "Book session; send memo ahead",
-    "CMS → Calendar · Email Workspace",
-    "Held before any demand drafted"
-   ],
-   [
-    "Session held",
-    "Record decisions in counsel's words",
-    "CMS → Case Notes",
-    "Each decision dated, attributed, tasked"
-   ]
-  ],
   "dos": [
    "Bring **the bad facts** yourself",
    "Find **discrepancies before the defense** does",
@@ -5297,6 +4673,7 @@ window.CM_CF_SLIDES = {
    "Briefing **the initial PD estimate**, not the final figure"
   ],
   "milestones": {
+   "slide": true,
    "title": "Briefing Atty. Thorne, bottom line first",
    "steps": [
     {
@@ -5480,26 +4857,6 @@ window.CM_CF_SLIDES = {
     "What it means for coverage is **Atty. Thorne's to explain**"
    ]
   },
-  "job": [
-   [
-    "MMI declared (06/12/2026)",
-    "Docket MMI + 30",
-    "Court E-Filing · CMS → Tasks",
-    "07/12/2026 Sunday: work it Fri 07/10"
-   ],
-   [
-    "Dana's written acknowledgement (07/22/2026)",
-    "Docket the acceptance deadline",
-    "Court E-Filing",
-    "08/21/2026, from acknowledgement, not sending"
-   ],
-   [
-    "Keystone writes or calls",
-    "Log verbatim; route to Atty. Thorne",
-    "CMS → Communications Log",
-    "Same day; the CM changes nothing"
-   ]
-  ],
   "dos": [
    "Docket from the **written acknowledgement**, never the send date",
    "Lead with the value-drivers: the **MRI herniation** and injection",
@@ -5698,26 +5055,6 @@ window.CM_CF_SLIDES = {
     "File each consent; what it means for the stack is **Atty. Thorne's**"
    ]
   },
-  "job": [
-   [
-    "Keystone tenders $10,000 (08/12/2026)",
-    "Prepare 30-Day Letters for signature",
-    "Consent-to-settle template · Court E-Filing",
-    "Both sent 08/13/2026; windows docketed"
-   ],
-   [
-    "Draft release arrives (08/14/2026)",
-    "Compare it with approved terms",
-    "CMS → Tasks → Escalate",
-    "Overbreadth flagged; John Doe signs nothing"
-   ],
-   [
-    "Both consents in; release signed 08/28/2026",
-    "Open both UM demands as tasks",
-    "CMS → Tasks",
-    "Carrier, claim number, adjuster on each"
-   ]
-  ],
   "dos": [
    "Put **exhaustion proof at the front** of each UM package",
    "Record the add-on confirmation's source: **Harbor Point, 03/02/2026**",
@@ -5729,6 +5066,7 @@ window.CM_CF_SLIDES = {
    "Celebrating the $40,000 gross: **success is John Doe's net**"
   ],
   "milestones": {
+   "slide": true,
    "title": "Opening the UM layers, in order",
    "steps": [
     {
@@ -5885,26 +5223,6 @@ window.CM_CF_SLIDES = {
     "No acknowledgement? **Follow up that day**; escalate to Atty. Thorne"
    ]
   },
-  "job": [
-   [
-    "MMI declared (06/12/2026)",
-    "Request line-item bills; impact statement",
-    "CMS → Tasks · Medical Records Requests",
-    "Every provider requested"
-   ],
-   [
-    "The week of service",
-    "Run the Final Scrub",
-    "CMS → Financial Ledger → Specials",
-    "$16,401.40 ties out, balances confirmed"
-   ],
-   [
-    "Limited Release signed (08/28/2026)",
-    "Rebuild UM packages by function",
-    "Action Plan Editor → UM demand templates",
-    "Two complete packages, indexed"
-   ]
-  ],
   "dos": [
    "Write the story in **facts and dates**, not adjectives",
    "Pair each Property Damage photo with **the injury it explains**",
@@ -6070,26 +5388,6 @@ window.CM_CF_SLIDES = {
    "Restate the approved demand and name each stall; **make no moves**"
   ],
   "upl": "Present the record, relay offers; never counter, move number or deadline, or value offers.",
-  "job": [
-   [
-    "Keystone receives demand (07/22/2026)",
-    "Build battle map; compute net floor",
-    "Net Sheet · Case Notes",
-    "Floor $12,677.63; attacks matched to documents"
-   ],
-   [
-    "Adjuster calls with an offer",
-    "Pause, ask her data, restate demand",
-    "Call Simulator → AI Adjuster",
-    "No counter; 08/21/2026 unchanged"
-   ],
-   [
-    "Call ends",
-    "Log verbatim; report to Atty. Thorne",
-    "Communications Log · Escalate",
-    "Logged and reported same day"
-   ]
-  ],
   "dos": [
    "Make the adjuster **justify her number with data**",
    "Stay **firm, factual and professional**",
@@ -6258,26 +5556,6 @@ window.CM_CF_SLIDES = {
    "John Doe signs only **after both waivers** are in writing"
   ],
   "upl": "Request, docket, chase and match; **never interpret** the consent clause",
-  "job": [
-   [
-    "Tender, 08/12/2026",
-    "Draft both consent requests",
-    "Consent-to-settle template",
-    "Sent 08/13, windows docketed"
-   ],
-   [
-    "Keystone holds its check",
-    "Log the payment condition",
-    "CMS → Case Notes",
-    "Signing task on hold"
-   ],
-   [
-    "Consents arrive 08/24, 08/26",
-    "Match scope to the release",
-    "CMS → Documents",
-    "Smith and Keystone only"
-   ]
-  ],
   "dos": [
    "Name **the UM layers** before writing any request",
    "File the waivers **at the front** of each package"
@@ -6287,6 +5565,7 @@ window.CM_CF_SLIDES = {
    "Scheduling the signing **before the second consent**"
   ],
   "milestones": {
+   "slide": true,
    "title": "Consent to settle and the waivers",
    "steps": [
     {
@@ -6442,26 +5721,6 @@ window.CM_CF_SLIDES = {
    "**Never accept verbally** under pressure: log it, escalate"
   ],
   "upl": "Assemble evidence and relay offers; never accept, reject, counter or advise settling.",
-  "job": [
-   [
-    "UM offer received (09/14/2026)",
-    "Log and report to Atty. Thorne",
-    "Negotiation Log · Escalate",
-    "Logged and reported 09/14/2026"
-   ],
-   [
-    "Carrier offers its limits",
-    "Confirm terms without accepting; report",
-    "Email Workspace · Case Notes",
-    "Acceptance only after John Doe decides"
-   ],
-   [
-    "UM check arrives",
-    "Confirm release signed; deposit same day",
-    "CMS → Financial Ledger → Trust",
-    "Deposited 10/05 and 10/13/2026"
-   ]
-  ],
   "dos": [
    "Find **every stacking and resident-relative policy**",
    "Confirm **offset status in writing** from each carrier",
@@ -6473,6 +5732,7 @@ window.CM_CF_SLIDES = {
    "Finding a benefit-carrier lien **after disbursement**"
   ],
   "milestones": {
+   "slide": true,
    "title": "From limits to net",
    "steps": [
     {
@@ -6648,26 +5908,6 @@ window.CM_CF_SLIDES = {
    "Common fund, fee share: **$1,860.00 – $620.00 = $1,240.00**"
   ],
   "upl": "Classify and draft; no lien is compromised without Atty. Thorne's express authority.",
-  "job": [
-   [
-    "Gross reaches $40,000.00 (10/06/2026)",
-    "Run final inventory; classify each claim",
-    "Net Sheet → Lien Tracker",
-    "Two liens open; every “none” sourced"
-   ],
-   [
-    "Health Plan lien classified",
-    "Get plan documents; route funding status",
-    "CMS → Tasks → Escalate",
-    "Fully insured; governing law his call"
-   ],
-   [
-    "Atty. Thorne chooses the basis",
-    "Draft request: doctrine named, math shown",
-    "CMS → Documents → Outgoing",
-    "$1,240.00 shown; held for his approval"
-   ]
-  ],
   "dos": [
    "Record a verified “none” **with its source and date**",
    "Name the doctrine and **show the math** in every request",
@@ -6678,6 +5918,7 @@ window.CM_CF_SLIDES = {
    "Asking for **a “courtesy discount”** with no legal basis"
   ],
   "milestones": {
+   "slide": true,
    "title": "Regulatory Triple-Check: lien edition",
    "steps": [
     {
@@ -6850,26 +6091,6 @@ window.CM_CF_SLIDES = {
    "**No Payoff Letter, no payment**; pay from the payoff figure"
   ],
   "upl": "Ask only inside Atty. Thorne's written authority; never accept outside it or promise payment.",
-  "job": [
-   [
-    "Provider's Final Ledger received",
-    "Audit each line; request written correction",
-    "Medical Records Requests · Lien Tracker",
-    "33 visits; duplicate out; $6,105.00"
-   ],
-   [
-    "Audited balance confirmed",
-    "Draft request; get written authority",
-    "CMS → Documents → Outgoing",
-    "Authority logged before any call"
-   ],
-   [
-    "Reduction agreed",
-    "Get signed Payoff Letter; update tabs",
-    "Financial Ledger → Net Sheet",
-    "Full-and-final language; net recomputed same day"
-   ]
-  ],
   "dos": [
    "**Corrections first**, reductions second",
    "Show John Doe **his net rising**",
@@ -6881,6 +6102,7 @@ window.CM_CF_SLIDES = {
    "Paying **from a statement**, not the payoff figure"
   ],
   "milestones": {
+   "slide": true,
    "title": "Audit first, then ask",
    "steps": [
     {
@@ -7005,26 +6227,6 @@ window.CM_CF_SLIDES = {
     "Update the Lien Tracker and Net Sheet **the same day**"
    ]
   },
-  "job": [
-   [
-    "Audited balance confirmed",
-    "Draft the Reduction Request",
-    "CMS → Documents → Outgoing",
-    "Authority logged first"
-   ],
-   [
-    "Lienholder responds",
-    "Call with the authorized ask",
-    "CMS → Case Notes",
-    "Counter routed the same day"
-   ],
-   [
-    "Reduction agreed",
-    "Get the signed Payoff Letter",
-    "CMS → Net Sheet",
-    "Full-and-final on file"
-   ]
-  ],
   "dos": [
    "Send **the request** before the call",
    "Update the ledger **the same day**"
@@ -7141,26 +6343,6 @@ window.CM_CF_SLIDES = {
    "Run both streams at once: **net $20,359.92**"
   ],
   "upl": "Build and explain the arithmetic; never say whether the net is enough.",
-  "job": [
-   [
-    "Each settlement check received",
-    "Post it to its stream",
-    "Net Sheet → Recovery Ledger",
-    "BI $10,000.00 · UM $30,000.00"
-   ],
-   [
-    "Cost incurred",
-    "Attach receipt; post it once",
-    "Recovery Ledger",
-    "Five receipts = $486.75"
-   ],
-   [
-    "Both tabs complete",
-    "Tie to trust; route for review",
-    "CMS → Financial Ledger → Trust",
-    "Net $20,359.92; Atty. Thorne reviews first"
-   ]
-  ],
   "dos": [
    "Every reduction carries **its reason**: audit finding or named basis",
    "Show **the streams side by side**",
@@ -7329,26 +6511,6 @@ window.CM_CF_SLIDES = {
     "What a clause means for John is **Atty. Thorne's to explain**"
    ]
   },
-  "job": [
-   [
-    "Settlement agreed or tendered",
-    "Request the W-9; send with release",
-    "CMS → Documents → Outgoing",
-    "No accounting hold on the check"
-   ],
-   [
-    "Carrier's draft release arrives",
-    "Audit terms; route a redline memo",
-    "Release audit · Escalate",
-    "Every over-broad line quoted, flagged"
-   ],
-   [
-    "Settlement check received",
-    "Confirm release signed; deposit same day",
-    "CMS → Financial Ledger → Trust",
-    "$40,000.00 deposited; cleared by 10/20"
-   ]
-  ],
   "dos": [
    "**Match each document** to its signer",
    "Missing paperwork: **say exactly what**, give a deadline",
@@ -7360,6 +6522,7 @@ window.CM_CF_SLIDES = {
    "Paying from emailed instructions **without verifying by phone**"
   ],
   "milestones": {
+   "slide": true,
    "title": "Four gates before money moves",
    "steps": [
     {
@@ -7466,26 +6629,6 @@ window.CM_CF_SLIDES = {
    "Late bill: verify, classify, **route to Atty. Thorne** the same day"
   ],
   "upl": "Assemble, verify, draft and route; who owes a late bill is Atty. Thorne's.",
-  "job": [
-   [
-    "Ledger at $0.00 (10/22/2026)",
-    "Build money trail, zero-balance report",
-    "CMS → Financial Ledger → Trust",
-    "Three records agree at $0.00"
-   ],
-   [
-    "Closing memo (10/30/2026)",
-    "Tag documents; docket disposition dates",
-    "CMS → Case Summary · Calendar",
-    "Disposition 7 years from closing"
-   ],
-   [
-    "Bill after the closing letter",
-    "Verify, classify, route, tell John Doe",
-    "CMS → Tasks → Escalate",
-    "Routed and John told same day"
-   ]
-  ],
   "dos": [
    "Run **the audit-ready test** before asking to archive",
    "Collect satisfactions and receipt **with the payment**",
@@ -7497,6 +6640,7 @@ window.CM_CF_SLIDES = {
    "Destroying financial records **before the retention date**"
   ],
   "milestones": {
+   "slide": true,
    "title": "Four sets before archive",
    "steps": [
     {
@@ -7712,26 +6856,6 @@ window.CM_CF_SLIDES = {
    "Filing is counsel's decision; **its inputs are yours** to verify"
   ],
   "upl": "Document the impasse and ask; never recommend suit or value the claim.",
-  "job": [
-   [
-    "Offer repeated or deadline passes",
-    "Log the trigger with proof",
-    "CMS → Communications Log",
-    "Every trigger dated and documented"
-   ],
-   [
-    "Follow-ups unanswered",
-    "Escalate to supervisor; no new number",
-    "Email Workspace",
-    "Dated; asks for written position"
-   ],
-   [
-    "Escalation window closes unanswered",
-    "Assemble impasse record for counsel",
-    "CMS → Tasks → Escalate",
-    "Routed with SOL and internal dates"
-   ]
-  ],
   "dos": [
    "Date every contact **the day it happens**",
    "Ask for the carrier's reasons and evidence **in writing**",
@@ -7854,26 +6978,6 @@ window.CM_CF_SLIDES = {
    "Seed the Litigation Calendar **the day status changes**"
   ],
   "upl": "Tell John Doe what happens next; what it means is Atty. Thorne's.",
-  "job": [
-   [
-    "Atty. Thorne authorizes suit",
-    "Change status; open court fields",
-    "CMS → Litigation",
-    "Cites dated authorization; number “Pending”"
-   ],
-   [
-    "Status changed",
-    "Build master directory and five sub-folders",
-    "CMS → Documents → Litigation folders",
-    "Five sub-folders, named to standard"
-   ],
-   [
-    "Folders built",
-    "Seed calendar with 48-hour audits",
-    "CMS → Calendar · Court E-Filing",
-    "SOL, hard date, cutoff, audits calendared"
-   ]
-  ],
   "dos": [
    "Change status, fields, folders and calendar **in one sitting**",
    "Audit deadlines and exhibits; **don't just track** them",
@@ -8053,26 +7157,6 @@ window.CM_CF_SLIDES = {
     "Use the filed Complaint, **never the pre-filing draft**"
    ]
   },
-  "job": [
-   [
-    "Scheduling Order entered 12/10/2026",
-    "Enter every date; read each verb",
-    "Court E-Filing",
-    "“Completed by” entered as deadline"
-   ],
-   [
-    "Discovery mailed 12/01/2026",
-    "Count 30 + 3; RFAs separately",
-    "Case Docket & Calendar Conflict Resolver",
-    "Responses and RFAs due 01/04/2027"
-   ],
-   [
-    "SOL review",
-    "Set internal hard date and cutoff",
-    "CMS → Calendar",
-    "02/04/2028 and 11/05/2027 docketed"
-   ]
-  ],
   "dos": [
    "Record **trigger, rule and arithmetic** on every entry",
    "Calendar **the conservative date**, and flag it"
@@ -8216,26 +7300,6 @@ window.CM_CF_SLIDES = {
    "Bad faith is **a separate suit**, above the policy limit"
   ],
   "upl": "Read the clause, route it to Atty. Thorne; never call an offer unreasonable.",
-  "job": [
-   [
-    "UM offers come back low",
-    "Memo with both clauses quoted",
-    "CMS → Case Notes",
-    "Sent same day, uninterpreted"
-   ],
-   [
-    "Clauses in hand",
-    "Ask the route per layer",
-    "CMS → Tasks → Atty. Thorne",
-    "Nothing recommended, everything asked"
-   ],
-   [
-    "Route decided in writing",
-    "Open the ADR entry",
-    "CMS → ADR tab",
-    "Typed UM / UIM arbitration"
-   ]
-  ],
   "dos": [
    "Say **first party or third party** before anything else",
    "Quote the clause; **a paraphrase is interpretation**"
@@ -8384,26 +7448,6 @@ window.CM_CF_SLIDES = {
    "Golden Rule: **never argue**, speak on the record or represent John Doe"
   ],
   "upl": "Run logistics, exhibits and notes; never argue, negotiate or advise on a number.",
-  "job": [
-   [
-    "Mediation required by 03/31/2027",
-    "Collect 3–4 windows, then contact mediator",
-    "Calendaring Simulators",
-    "Windows logged before mediator contacted"
-   ],
-   [
-    "Opposing counsel rejects every window",
-    "Log pushback; escalate same day",
-    "CMS → Tasks → Escalate",
-    "Logged and escalated same day"
-   ],
-   [
-    "Directive from the bench",
-    "Log, calendar, memo Atty. Thorne",
-    "CMS → Case Notes · Calendar",
-    "Dated and calendared same day"
-   ]
-  ],
   "dos": [
    "Your hearing notes become Atty. Thorne's **post-hearing roadmap**",
    "Confirm the retainer payment **in writing**"
@@ -8414,6 +7458,7 @@ window.CM_CF_SLIDES = {
    "Logging bench directives **the next day from memory**"
   ],
   "milestones": {
+   "slide": true,
    "title": "What happens in the room",
    "steps": [
     {
@@ -8640,26 +7685,6 @@ window.CM_CF_SLIDES = {
     "What each defense means for the claim is **Atty. Thorne's to judge**"
    ]
   },
-  "job": [
-   [
-    "Mediation set for 03/18/2027",
-    "Seat each document in one section",
-    "CMS → Documents → Master index",
-    "Section, exhibit number, Bates, source"
-   ],
-   [
-    "Pleadings and evidence indexed",
-    "Check each pleaded defense against exhibits",
-    "CMS → Litigation → Pleadings Log",
-    "Each defense answered or flagged"
-   ],
-   [
-    "Binder assembled",
-    "OCR, bookmark, QA; route for approval",
-    "CMS → Documents → Mediation Binder",
-    "Approved, delivered by 03/11/2027"
-   ]
-  ],
   "dos": [
    "Start from **the 07/20/2026 Demand Package**",
    "Bookmark to the page **Atty. Thorne will quote**"
@@ -8670,6 +7695,7 @@ window.CM_CF_SLIDES = {
    "The confidential statement sent **ten minutes before the session**"
   ],
   "milestones": {
+   "slide": true,
    "title": "Six sections, one Master Index",
    "steps": [
     {
@@ -8862,26 +7888,6 @@ window.CM_CF_SLIDES = {
    "**Nothing from the confidential mediation** crosses over"
   ],
   "upl": "Assemble, index and audit; never argue an exhibit to the arbitrator or carriers.",
-  "job": [
-   [
-    "Arbitration invoked 04/05/2027",
-    "Open exhibit index; calendar exchange, brief",
-    "CMS → Litigation → Exhibit index",
-    "06/02/2027 exchange, 06/11/2027 brief calendared"
-   ],
-   [
-    "Provider records gathered",
-    "Request each custodian's certification",
-    "Medical Records Requests",
-    "One per provider, every date covered"
-   ],
-   [
-    "Exchange set assembled",
-    "Route set and flagged items",
-    "CMS → Tasks → Escalate",
-    "Approved before 06/02/2027; nothing privileged"
-   ]
-  ],
   "dos": [
    "Build to **the strict evidence standard** anyway",
    "Request certifications **the week arbitration is invoked**"
@@ -8993,26 +7999,6 @@ window.CM_CF_SLIDES = {
    "Flag every mismatch to Atty. Thorne; **never correct a record**"
   ],
   "upl": "Build and flag the record; causation, aggravation and experts are Atty. Thorne's.",
-  "job": [
-   [
-    "Arbitration invoked 04/05/2027",
-    "Request certified 2021 chart",
-    "Medical Records Requests",
-    "Every 2021 date certified"
-   ],
-   [
-    "Prior chart received",
-    "Build the side-by-side comparison",
-    "CMS → Litigation → Exhibit index",
-    "Every cell cites a record"
-   ],
-   [
-    "Mismatch or silent Causation Letter",
-    "Flag to Atty. Thorne",
-    "CMS → Tasks → Escalate",
-    "Flag dated; nothing altered"
-   ]
-  ],
   "dos": [
    "Put the prior in **your binder first**",
    "**Name the body region** in every line",
@@ -9088,26 +8074,6 @@ window.CM_CF_SLIDES = {
    "Future care goes in **the narrative**, never the Specials"
   ],
   "upl": "You build and source the record; **value and causation are argued by others**",
-  "job": [
-   [
-    "MMI is declared",
-    "Close chronology, audit the Specials",
-    "CMS → Medical · Net Sheet",
-    "Every bill tied to a record"
-   ],
-   [
-    "A gap is on record",
-    "Pair it with its reason",
-    "Gap Explanation Record",
-    "No break left unanswered"
-   ],
-   [
-    "Demand or binder assembled",
-    "Map each claim to its record",
-    "Packet Builder",
-    "Nothing without its source"
-   ]
-  ],
   "dos": [
    "Watch treatment **with the demand in mind**",
    "Close the chronology **at MMI**",
@@ -9258,26 +8224,6 @@ window.CM_CF_SLIDES = {
    "A record request unanswered **after 14 days** is a bottleneck"
   ],
   "upl": "Chase and report; never choose a remedy, discuss value or explain Keystone's silence.",
-  "job": [
-   [
-    "A follow-up goes unanswered",
-    "Log it; date the next follow-up",
-    "CMS → Communications Log",
-    "Date, time, method, outcome logged"
-   ],
-   [
-    "Second follow-up goes unanswered",
-    "Open a bottleneck entry",
-    "Case File → Bottleneck Log",
-    "Start date: first unanswered request"
-   ],
-   [
-    "Dependency open 10 days out",
-    "Red-flag it; tell Atty. Thorne",
-    "Case File → Risk Flags",
-    "Flag dated 03/01/2027 for 03/11/2027"
-   ]
-  ],
   "dos": [
    "A bottleneck found **at the deadline** was found too late",
    "Follow up **in writing** as well as by phone"
@@ -9410,26 +8356,6 @@ window.CM_CF_SLIDES = {
    "Zero defaults: ready by the hard date, marked **“Pending Final Verification”**"
   ],
   "upl": "Escalate and ask; Atty. Thorne chooses, signs and sends any legal tool.",
-  "job": [
-   [
-    "Rung 1 unanswered on cadence",
-    "Send a written Notice of Delay",
-    "Email Workspace",
-    "Item, start date, hard date named"
-   ],
-   [
-    "Rung 2 unanswered 48 hours",
-    "Escalate with the five-field report",
-    "CMS → Tasks → Escalate",
-    "Five fields; one ask per blocker"
-   ],
-   [
-    "Weekly reporting day",
-    "Send the Bottleneck Log",
-    "Case File → Bottleneck Log",
-    "Every item: owner, age, hard date"
-   ]
-  ],
   "dos": [
    "Lead the report with **the nearest hard date**",
    "Write the ask as **one decision and a date**"
@@ -9544,26 +8470,6 @@ window.CM_CF_SLIDES = {
    "Read the Answer as **a roadmap**: each defense is evidence to pull"
   ],
   "upl": "You track and draft; Atty. Thorne decides; never tell John Doe how to answer",
-  "job": [
-   [
-    "Atty. Thorne authorizes suit",
-    "Verify filing date and legal name",
-    "CMS → Litigation → Pleadings Log",
-    "Filed 09/24/2026, inside 02/04/2028 hard date"
-   ],
-   [
-    "A service attempt fails",
-    "Log it; escalate at day 14",
-    "CMS → Tasks → Escalate",
-    "Each attempt logged, date and address"
-   ],
-   [
-    "Discovery or RFAs land",
-    "Calendar; alert Atty. Thorne on RFAs",
-    "CMS → Calendar · Court E-Filing",
-    "Weekend rolled; RFA alert time-stamped"
-   ]
-  ],
   "dos": [
    "Write **trigger, service method, arithmetic** into every entry",
    "Ask the **three baseline questions** in every interrogatory set",
@@ -9692,26 +8598,6 @@ window.CM_CF_SLIDES = {
    "Prepare **the process, never the testimony**"
   ],
   "upl": "You schedule, assemble, track and relay; never agree an extension or coach testimony",
-  "job": [
-   [
-    "Scheduling Order entered 12/10/2026",
-    "Calendar six dates, three alerts each",
-    "CMS → Calendar · Court E-Filing",
-    "18 alerts; order in 01_PLEADINGS"
-   ],
-   [
-    "Extension agreed by phone",
-    "Draft confirmation for Atty. Thorne's signature",
-    "Email Workspace · CMS → Calendar",
-    "Sent the same day"
-   ],
-   [
-    "Deposition noticed",
-    "Book reporter, link, technology check",
-    "CMS → Calendar · Communications Log",
-    "Packet sent by 02/11/2027"
-   ]
-  ],
   "dos": [
    "Call every litigation client **at least every 30 days**",
    "Subpoena only **the witnesses Atty. Thorne names**",
@@ -9797,26 +8683,6 @@ window.CM_CF_SLIDES = {
    "Trial subpoenas only for **witnesses Atty. Thorne names**"
   ],
   "upl": "You draft, notice, serve and track; Atty. Thorne decides, signs and sets scope",
-  "job": [
-   [
-    "Request refused or custodian needed",
-    "Ask: “Do you want a subpoena?”",
-    "CMS → Tasks → Escalate",
-    "Routed before anything is drafted"
-   ],
-   [
-    "Subpoena approved",
-    "Notice Atty. Mercer, then serve",
-    "CMS → Documents → Subpoena template",
-    "Notice dated before service"
-   ],
-   [
-    "Every 10 days, subpoena open",
-    "Review row; call 5 days out",
-    "CMS → Litigation → Subpoena log",
-    "Dated reading; misses routed"
-   ]
-  ],
   "dos": [
    "Count back **from 05/28/2027** before drafting",
    "Route defense subpoena notices **the same day**",
@@ -9931,26 +8797,6 @@ window.CM_CF_SLIDES = {
    "$25,000 PD sits **outside the $40,000 stack**"
   ],
   "upl": "Sort, check and route; **never explain a release** or value a PD figure",
-  "job": [
-   [
-    "Keystone PD sends a release",
-    "Check scope; hold; route",
-    "CMS → Tasks → Escalate",
-    "Nobody asked to sign"
-   ],
-   [
-    "Keystone restates a PD figure",
-    "Log on Margaret's PD file",
-    "CMS → Communications Log",
-    "John's Net Sheet unchanged"
-   ],
-   [
-    "Discovery asks for PD documents",
-    "Match severity set and dates",
-    "CMS → Documents",
-    "Both files identical"
-   ]
-  ],
   "dos": [
    "Read every PD release for **scope and claim number**",
    "Keep the severity set and dates **identical on both files**"
@@ -10036,26 +8882,6 @@ window.CM_CF_SLIDES = {
    "Test with John **on 02/16/2027**: same device, same room"
   ],
   "upl": "Run the process; never tell John what to say. Substance goes to Atty. Thorne",
-  "job": [
-   [
-    "Notice served 01/20/2027",
-    "Calendar sessions, packet, day-before checklist",
-    "Court E-Filing · CMS → Calendar",
-    "02/04, 02/11, 02/16, 02/17, 02/18/2027 calendared"
-   ],
-   [
-    "Test call, 02/16/2027",
-    "Technology check on John's device",
-    "CMS → Case Notes",
-    "Each item logged pass or fail"
-   ],
-   [
-    "Day before, 02/17/2027",
-    "Confirm with all three; finalize exhibits",
-    "Email Workspace · CMS → Documents",
-    "Three confirmations logged"
-   ]
-  ],
   "dos": [
    "**Consistency is credibility**: records, answers and testimony agree",
    "Give **the dress-code talk** to every client",
@@ -10176,26 +9002,6 @@ window.CM_CF_SLIDES = {
    "John stops for an objection, then answers **unless instructed not to**"
   ],
   "upl": "Explain the rules and objections; never tell John how to answer a trap",
-  "job": [
-   [
-    "Answer served 11/12/2026",
-    "Map each defense to predicted questions",
-    "Deposition prep log",
-    "Each defense mapped to a trap"
-   ],
-   [
-    "Trap map complete",
-    "Confirm records in Atty. Thorne's set",
-    "CMS → Documents",
-    "EMS, MRI, Causation Letter, EDR present"
-   ],
-   [
-    "John asks how to answer",
-    "Log in his words; route it",
-    "CMS → Tasks → Escalate",
-    "Routed same day; no wording offered"
-   ]
-  ],
   "dos": [
    "**Silence is safe**; rambling is not",
    "Explain objections **ahead of time** so John doesn't freeze"
@@ -10329,26 +9135,6 @@ window.CM_CF_SLIDES = {
    "Every item needs source, **authenticating witness and custody**"
   ],
   "upl": "Gather, authenticate and index; never tell John his share of fault",
-  "job": [
-   [
-    "Answer filed 11/12/2026",
-    "Log each defense separately",
-    "CMS → Litigation → Pleadings Log",
-    "Three lines, each dated 11/12/2026"
-   ],
-   [
-    "Defenses logged",
-    "Map evidence to each allegation",
-    "CMS → Litigation → Liability counter-package",
-    "Every item: source and named witness"
-   ],
-   [
-    "Item lacks foundation",
-    "Flag for Subpoena Duces Tecum",
-    "CMS → Tasks → Escalate",
-    "Foundation gap and holder named"
-   ]
-  ],
   "dos": [
    "Answer each allegation **with a document**, not an argument",
    "Read **the damage pattern** with the video and witness"
@@ -10471,26 +9257,6 @@ window.CM_CF_SLIDES = {
    "The Step 4 letter: **certified mail AND email**, Atty. Thorne's signature"
   ],
   "upl": "Run authorized skip-traces and draft notices; never decide alternative service or threaten withdrawal",
-  "job": [
-   [
-    "Third failed attempt, 10/08/2026",
-    "Escalate for Skip-Trace authority",
-    "CMS → Tasks → Escalate",
-    "Result logged 10/09/2026"
-   ],
-   [
-    "Affidavit filed 10/16/2026",
-    "Docket answer date; weekly check",
-    "Court E-Filing · CMS → Calendar",
-    "Answer due 11/13/2026 calendared"
-   ],
-   [
-    "Client unreachable from 01/22/2027",
-    "Run Steps 1–3; draft Step 4",
-    "CMS → Communications Log",
-    "Response date before 02/04/2027"
-   ]
-  ],
   "dos": [
    "Ask the server for **each attempt's date and time**",
    "**Pay a custodian's invoice** the day it arrives",
@@ -10619,26 +9385,6 @@ window.CM_CF_SLIDES = {
    "Net: **$14,713.75**, routed before John Doe signs"
   ],
   "upl": "Explain the arithmetic; whether suing was worth it is Atty. Thorne's.",
-  "job": [
-   [
-    "Award received 07/06/2027",
-    "Log it; diary each payment",
-    "CMS → Litigation",
-    "Harbor Point $20,000.00 · Cardinal State $10,000.00"
-   ],
-   [
-    "The fund is known",
-    "Send Reduction Requests for approval",
-    "LSH Net Sheet",
-    "$1,116.00 · $4,275.00"
-   ],
-   [
-    "Last UM check cleared",
-    "Complete Net Sheet; route statement",
-    "LSH Net Sheet",
-    "Net $14,713.75"
-   ]
-  ],
   "dos": [
    "Show John **the 40% tier** in his retainer",
    "Attach **a receipt** to every cost"
@@ -10794,26 +9540,6 @@ window.CM_CF_SLIDES = {
    "Log, follow up, then **switch to Dropped**; keep the proof"
   ],
   "upl": "Atty. Thorne decides and explains; **never call a case worthless**.",
-  "job": [
-   [
-    "Pending Drop, client told",
-    "Prepare each party's letter",
-    "CMS → Documents",
-    "Word and PDF saved"
-   ],
-   [
-    "Letters signed",
-    "Send by method; log it",
-    "Communications Log",
-    "Party, method, date logged"
-   ],
-   [
-    "Receipts followed up",
-    "Switch status; file proof",
-    "CMS → Documents",
-    "Status Dropped, proof retained"
-   ]
-  ],
   "dos": [
    "Check **the gate** before you open the template",
    "Send the client's letter **two ways**, one with proof"
