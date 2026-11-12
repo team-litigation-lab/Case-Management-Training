@@ -1,3 +1,4 @@
+// @check browser — What a trainee writes never runs in a trainer's page (Trainee Feedback, a trainee's submitted files)
 // What a trainee writes never runs in a trainer's page. Trainees write their own records (feedback on the program,
 // files they submitted), and trainers read them in the Admin area, where the trainer's session token lives. This
 // plants hostile records the way an old, never-cleaned record could look (the local server stores writes as sent),
@@ -9,9 +10,9 @@
 //     attempts and an amendment request's log, all sent as markup where numbers and ids belong;
 //   - the Batch Sheet: a review the trainee wrote for themselves as "sent" is not shown as the trainer's remark.
 // The Worker's own clean-up of new feedback is checked in worker-guards.cjs.
-// Usage: node .github/scripts/auto/admin-xss.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
+// Usage: node .github/scripts/admin-xss.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
-const signIn = require('../sign-in.cjs');
+const signIn = require('./sign-in.cjs');
 const BASE = process.argv[2] || 'http://localhost:8787/';
 const failures = []; const fail = (m) => failures.push(m);
 (async () => {

@@ -1,3 +1,4 @@
+// @check browser — Uploading a drafted letter in the CMS, under the right tab and the firm's convention (the CMS answered by the test)
 // 📤 Uploading a drafted letter in the CMS (js/cm-cms-upload.js).
 //
 // The drafting activities (HIPAA, LOR, the medical provider's letters) no longer end at a download: the

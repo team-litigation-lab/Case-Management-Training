@@ -1,3 +1,4 @@
+// @check browser — 🚨 Case-file alerts reach the trainers (rules R1–R8; Trainee Audit chip, list and ✓ Resolved; top-bar badge)
 // 🚨 Case-file alerts reach the trainers (js/cm-progress-log.js, js/cm-audit-table.js, index.html loadAuditExtras, worker.js).
 // "Alert trainers when trainee has a glaring challenge or error in setting up their case files." Checks:
 // 1. the rules, on seeded progress: each of R1–R8 fires on its evidence and stays quiet just under its threshold

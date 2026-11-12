@@ -1,3 +1,4 @@
+// @check browser — The exhibit audit, the completed package and the Service Confirmation (the set audited, the finished set revealed, the service confirmation filed and backed up; the CMS answered by the test)
 // 🔍 The exhibit audit, the completed package and the Service Confirmation (js/cm-case-flow.js, js/cm-case-flow-exhibits.js).
 //
 // A Skill Activity that assembles or serves a document set audits the set itself: the trainee calls every

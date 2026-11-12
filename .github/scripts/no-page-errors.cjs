@@ -1,3 +1,4 @@
+// @check browser — No page errors (every page and Admin tab, every slide and Knowledge Check, Presenter view; trainee and trainer, 1366x768)
 // No page errors: opens every page of the course and every Admin tab, as a trainee and as a trainer, at 1366x768, and
 // fails on any page error, console error or exception thrown while a page draws. Each day is opened on every slide and its
 // Knowledge Check; the trainer also opens Presenter view's slides window, the roadmap and the

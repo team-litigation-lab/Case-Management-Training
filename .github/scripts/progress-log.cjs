@@ -1,3 +1,4 @@
+// @check browser — 📒 My Progress Log on the trainee's dashboard (a dated log of what they did and how it went; ⚠ Needs fixing; no deck utilization)
 // 📒 My Progress Log on the trainee's dashboard (js/cm-progress-log.js), in place of deck utilization.
 // The client: "Trainee's Dashboard should not track progress of the deck utilization but instead show trainee's progress
 // Log and Alert trainers when trainee has a glaring challenge or error in setting up their case files". Checks, with seeded

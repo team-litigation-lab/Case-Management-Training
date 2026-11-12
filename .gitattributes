@@ -1,2 +1,0 @@
-# Both sides only ever add steps to this file: keep both (git merges it by union, so a local merge needs no hand-fix).
-.github/workflows/checks.yml merge=union

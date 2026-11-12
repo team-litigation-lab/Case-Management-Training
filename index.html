@@ -7211,7 +7211,7 @@ function renderDaySlideshow(d){
       <span style="display:flex;gap:8px;align-items:center;">
         <button class="btn btn-ghost" ${idx===0?'disabled':''} onclick="prevSlide()">&larr; Previous</button>
         <button type="button" class="btn btn-ghost btn-sm nav-fs" onclick="lessonFullscreen()" title="${state.isAdmin ? "Present the slides full screen" : "Full screen"}">⛶ Full screen</button>
-        ${state.isAdmin && typeof presenterStart==="function" ? `<button type="button" class="btn btn-navy btn-sm nav-pv" onclick="presenterStart()" title="Your speaker notes beside the slide; share only the slides window in Google Meet">🖥 Presenter view</button>` : ""}
+        ${(state.isAdmin || state.adminPreview) && typeof presenterStart==="function" ? `<button type="button" class="btn btn-navy btn-sm nav-pv" onclick="presenterStart()" title="Your speaker notes beside the slide; share only the slides window in Google Meet">🖥 Presenter view</button>` : ""}
       </span>
       <button type="button" class="slide-counter sm-counter" onclick="openSlideMap()" title="Every slide of Day ${d.id}: jump back to any one you've reached">Step ${idx+1} of ${total} ▾</button>
       ${isLast && slide.type==="closing"

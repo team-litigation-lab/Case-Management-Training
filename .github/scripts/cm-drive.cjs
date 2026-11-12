@@ -1,3 +1,4 @@
+// @check node — The trainee's Backup Drive (the firm's folder structure, where a filed document lands, and the Day 1 grading)
 // 📂 The trainee's Backup Drive: the firm's folder structure, its grading, and where a filed document lands.
 //
 // The ways this breaks are all quiet ones — a folder with no rule written down, a document folder with
@@ -119,7 +120,7 @@ if (!/action:"setup"/.test(driveCode)) fail('js/cm-drive.js no longer sends the 
 // a filed document's copy goes by its own folder id, so nothing here has to guess where it belongs
 if (!/CMDrive\.saveFiled\(d\.folder,/.test(filing)) fail("js/cm-doc-filing.js no longer sends a filed document's copy to the backup drive by its own folder id.");
 if (!/const forDrive = bytes\.slice\(0\)/.test(filing)) fail('js/cm-doc-filing.js hands its only copy of the bytes to the CMS, so nothing is left to keep on the drive.');
-if (!html.includes('/js/cm-drive.js"')) fail("index.html doesn't load js/cm-drive.js.");
+if (!/\/js\/cm-drive\.js["?]/.test(html)) fail("index.html doesn't load js/cm-drive.js.");
 if (!/\$\{window\.CMDrive \? CMDrive\.slot\(\) : ""\}/.test(html)) fail('The dashboard no longer shows the Backup Drive card.');
 if (!/function renderAdminFilingPanel\(/.test(html) || !/\$\{renderAdminFilingPanel\(rec\)\}/.test(html))
   fail("A trainer can no longer see the filing and Backup Drive grades in the trainee's row.");

@@ -759,6 +759,8 @@ function pvOpenSlidesWindow(){
   return !!PV.win;
 }
 function presenterStart(){
+  // (an admin previewing as a trainee gets the button on every slide too: it takes them back to the admin view first)
+  if(!state.isAdmin && state.adminPreview && typeof setAdminViewMode === "function") setAdminViewMode("admin");
   if(!state.isAdmin){ toast("Presenter view is for trainers — sign in to Admin first."); return; }
   if(!pvChannel()){ toast("This browser can't run Presenter view — use Chrome or Edge."); return; }
   const d = DAYS.find(x=>x.id===state.dayId); if(!d) return;

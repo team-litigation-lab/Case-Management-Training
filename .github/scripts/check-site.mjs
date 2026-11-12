@@ -1,8 +1,11 @@
+// @check node — JavaScript syntax, local files, JSON
 // Site checks run by .github/workflows/checks.yml (and by hand: `node .github/scripts/check-site.mjs`).
 // Fails (exit 1) with a readable list when:
 //   1. any .js / .mjs / .cjs file, or any inline <script> in an .html page, has a syntax error;
 //   2. an .html page loads a local file (script src, link href, img src) that isn't in the repo;
-//   3. a JSON file doesn't parse.
+//   3. a JSON file doesn't parse;
+//   4. a page writes a version on a local script or stylesheet (src="/js/x.js?v=3"): the Worker stamps every one with its
+//      content fingerprint as it serves the page (worker.js stampAssets), so versions are never written, or bumped, by hand.
 // Run from the repository root. No dependencies.
 import fs from 'fs';
 import path from 'path';
@@ -40,11 +43,6 @@ function syntax(file, label) {
 
 function checkHtml(file) {
     pages++;
-    // No "?v=" on a local script or stylesheet: every pull request used to bump the same version lines and so conflicted with
-    // every other. The site's files are served "max-age=0, must-revalidate" with an ETag, so a browser always gets the
-    // newest copy without one. (CLAUDE.md: "No conflicts".)
-    for (const m of fs.readFileSync(file, 'utf8').matchAll(/(?:src|href)="(\/(?:js|css)\/[^"?]+)\?v=[^"]*"/g))
-        problems.push(`${rel(file)}: ${m[1]} carries a "?v=" version. Leave it off: versions made every pull request conflict (see CLAUDE.md).`);
     const html = fs.readFileSync(file, 'utf8');
     const lineOf = (i) => html.slice(0, i).split('\n').length;
     // 1. inline scripts
@@ -61,6 +59,9 @@ function checkHtml(file) {
         syntax(tmp, `${rel(file)} (inline <script> at line ${lineOf(m.index)})`);
         fs.unlinkSync(tmp);
     }
+    // 4. no hand-written versions on local scripts and stylesheets (worker.js stampAssets adds them)
+    const verRe = /\b(?:src|href)\s*=\s*["']\/?(?:js|css)\/[^"'?#]+\?v=[^"']*["']/gi;
+    while ((m = verRe.exec(html))) problems.push(`${rel(file)} line ${lineOf(m.index)} writes a version by hand (${m[0]}): drop the "?v=…". The Worker adds each file's content fingerprint as it serves the page (worker.js stampAssets), so no branch edits, or collides on, version numbers.`);
     // 2. local references
     const refRe = /<(script|link|img|source|iframe)\b[^>]*?\b(src|href)\s*=\s*["']([^"'#?]+)[^"']*["']/gi;
     while ((m = refRe.exec(html))) {

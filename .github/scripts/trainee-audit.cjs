@@ -1,3 +1,4 @@
+// @check browser — The Trainee Audit is one table (the name opens the detail, Reset beside it, Approve / Reject / Revoke as buttons; Companion Cases its own table)
 // The Trainee Audit is one table (js/cm-audit-table.js): Admin → 🛡 Admin Master Control → 👥 Trainee Audit (tab 'traineeaudit').
 // 1. one row per trainee in #adminRowsWrap (renderAdminRows keeps its name), with the columns a trainer scans
 //    (name & ID, batch, status, where they are and last active, Days 1–5, Knowledge Checks, lessons, Skill Builder,
