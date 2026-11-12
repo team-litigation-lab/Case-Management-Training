@@ -130,7 +130,9 @@ function loadToolLinks(stateObj, fetchImpl) {
         if (!rec) fail("the signed-in trainee's record should be in the store");
         else {
             const key = (await revoked.LSH_KV.list({ prefix: '' })).keys.map(k => k.name).find(k => k.endsWith('trainee:' + r2.id));
-            await revoked.LSH_KV.put(key, JSON.stringify(Object.assign({}, rec, { approved: false })));
+            // the trainer takes access away (an admin's save, which also keeps the admin-owned fields' own key)
+            const adm = await call(revoked, '/api/auth/admin', { passphrase: 'ci-pass' });
+            await call(revoked, '/api/storage/set', { key: 'trainee:' + r2.id, value: JSON.stringify(Object.assign({}, rec, { approved: false })) }, { Authorization: 'Bearer ' + adm.body.token });
             const out = await call(revoked, '/api/auth/tool-ticket', {}, { Authorization: 'Bearer ' + r2.token });
             if (out.status !== 403) fail(`a trainee who isn't approved should not get a tool ticket (403), got ${JSON.stringify(out)}`);
         }
@@ -147,6 +149,8 @@ function loadToolLinks(stateObj, fetchImpl) {
         const t1 = await call(imp, '/api/auth/tool-ticket', {}, eveAuth);
         const c1 = t1.body && t1.body.ticket ? JSON.parse(unb64url(t1.body.ticket.split('.')[0])) : {};
         if (c1.first === 'Vic' || c1.last === 'Tim') fail(`a renamed trainee's tool ticket must not name someone else: ${JSON.stringify(c1)}`);
+        // a record tampered with before the identity guard, with no admin-owned copy to correct it
+        await imp.LSH_KV.delete('cm:trainee-admin:' + eve.id);
         await imp.LSH_KV.put(recKey, JSON.stringify(Object.assign({}, mine, { name: 'Vic Tim', firstName: 'Vic', lastName: 'Tim' })));
         const t2 = await call(imp, '/api/auth/tool-ticket', {}, eveAuth);
         if (t2.status !== 403) fail(`a record naming someone other than the signed-in trainee should get no tool ticket (403), got ${JSON.stringify(t2)}`);

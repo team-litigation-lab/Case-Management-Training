@@ -76,7 +76,7 @@ global.fetch = async (url, init = {}) => {
   const std = (await call({ action: 'status' }, t)).body.drive;
   const built = await call({ action: 'setup', layout: std.standard }, t);
   if (!built.body || !built.body.built) { console.log('Could not build the drive: ' + JSON.stringify(built.body)); process.exit(1); }
-  const folderId = (p) => { const rec = JSON.parse(store.get('drive:' + tid)); return rec.folders[p]; };
+  const folderId = (p) => { const rec = JSON.parse(store.get('cm:drive:' + tid)); return rec.folders[p]; };
   const C = '01 Clients/Doe-John';
   const filed = [];
   const put = async (docId, kind, name) => { const r = await call({ action: 'put', docFolder: kind, name: name || `DOE-01_Doe-John_${docId}_2026-07-01.pdf`, b64: Buffer.from('%PDF-1.4 ' + docId).toString('base64url'), docId }, t); if (r.status !== 200) fail(`filing ${docId} failed: ${JSON.stringify(r.body)}`); filed.push(docId); return r.body; };

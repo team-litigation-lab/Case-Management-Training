@@ -35,6 +35,13 @@ async function ticketFor(payloadObj, secret) {
     };
     const raw = (p, body, token) => worker.fetch(new Request('http://x' + p, { method: 'POST', headers: Object.assign({ 'Content-Type': 'application/json' }, token ? { Authorization: 'Bearer ' + token } : {}), body }), env, { waitUntil() { } });
     const call = async (p, body, token) => { const res = await raw(p, JSON.stringify(body || {}), token); return { status: res.status, body: await res.json().catch(() => null) }; };
+    // a trainer's change to a trainee record goes through the admin API (it also keeps the admin-owned fields' own key)
+    let adminTok = null;
+    const asAdmin = async (key, rec) => {
+        if (!adminTok) adminTok = (await call('/api/auth/admin', { passphrase: 'ci-pass' })).body.token;
+        const r = await call('/api/storage/set', { key, value: JSON.stringify(rec) }, adminTok);
+        if (r.status !== 200) fail(`an admin's save of ${key} failed: ${JSON.stringify(r)}`);
+    };
     const kvGet = (k) => [...store.keys()].find(x => x.endsWith(k)) ? JSON.parse(store.get([...store.keys()].find(x => x.endsWith(k)))) : null;
 
     // two trainees with the same name in different batches, both signed in from the Portal
@@ -70,21 +77,34 @@ async function ticketFor(payloadObj, secret) {
         const certA = kvGet('cert:LSH-CM-2026-AAAAAA');
         if (!certA || certA.issuedBy !== 'self' || certA.traineeId !== a.id) fail(`a self-issued certificate should be marked self: ${JSON.stringify(certA)}`);
         // ... and only an approved trainee records one
-        const recB = kvGet(`trainee:${b.id}`) || {}; store.set(`cm:trainee:${b.id}`, JSON.stringify(Object.assign({}, recB, { approved: false })));
+        const recB = kvGet(`trainee:${b.id}`) || {}; await asAdmin(`trainee:${b.id}`, Object.assign({}, recB, { approved: false }));
         const unapproved = await call('/api/storage/set', { key: 'cert:LSH-CM-2026-CCCCCC', value: JSON.stringify({ certId: 'LSH-CM-2026-CCCCCC', traineeId: b.id }) }, b.token);
         if (unapproved.status === 200) fail('a trainee who isn\'t approved should not record a certificate');
-        store.set(`cm:trainee:${b.id}`, JSON.stringify(recB));
+        await asAdmin(`trainee:${b.id}`, recB);
         // 3b. a progress record has a size cap
         const huge = await call('/api/storage/set', { key: `progress:${a.id}`, value: JSON.stringify({ data: 'x'.repeat(2100000) }) }, a.token);
         if (huge.status === 200) fail('a progress record over 2 MB should be refused');
 
         // 3c. a trainee can't unlock a corrected copy for themselves: only the trainer's save sets unlockedCopies
         const recA0 = kvGet(`trainee:${a.id}`) || {};
-        store.set(`cm:trainee:${a.id}`, JSON.stringify(Object.assign({}, recA0, { unlockedCopies: ['RS73'] })));
+        await asAdmin(`trainee:${a.id}`, Object.assign({}, recA0, { unlockedCopies: ['RS73'] }));
         await call('/api/storage/set', { key: `trainee:${a.id}`, value: JSON.stringify(Object.assign({}, recA0, { unlockedCopies: ['RS72', 'RS73'], unlockedCopiesAt: 'forged' })) }, a.token);
         const recA1 = kvGet(`trainee:${a.id}`) || {};
         if (JSON.stringify(recA1.unlockedCopies) !== JSON.stringify(['RS73']) || recA1.unlockedCopiesAt === 'forged') fail(`a trainee should not change unlockedCopies on their own record: ${JSON.stringify(recA1.unlockedCopies)}`);
-        store.set(`cm:trainee:${a.id}`, JSON.stringify(recA0));
+        await asAdmin(`trainee:${a.id}`, recA0);
+
+        // 3d. an approval can't be undone by the trainee's page saving a copy it read just before (KV can serve a
+        //     minute-old copy elsewhere): whatever lands in trainee:<id>, the admin's fields come from their own key
+        await asAdmin(`trainee:${b.id}`, Object.assign({}, recB, { approved: false }));
+        const staleB = kvGet(`trainee:${b.id}`);
+        await asAdmin(`trainee:${b.id}`, Object.assign({}, recB, { approved: true, unlockedDays: [2] }));
+        store.set(`cm:trainee:${b.id}`, JSON.stringify(Object.assign({}, staleB, { approved: false, unlockedDays: [] })));   // the stale save landing
+        const seenB = (await call('/api/storage/get', { key: `trainee:${b.id}` }, b.token)).body;
+        const recB2 = seenB && seenB.value ? JSON.parse(seenB.value) : {};
+        if (recB2.approved !== true || JSON.stringify(recB2.unlockedDays) !== '[2]') fail(`a stale save by the trainee's page undid the trainer's approval: ${JSON.stringify({ approved: recB2.approved, unlockedDays: recB2.unlockedDays })}`);
+        const tix = await call('/api/auth/refresh', {}, b.token);
+        if (tix.status !== 200) fail(`the approved trainee should still be signed in: ${JSON.stringify(tix)}`);
+        await asAdmin(`trainee:${b.id}`, recB);
 
         // 4. ranking: a trainee's request reads their own record only
         for (let i = 0; i < 30; i++) store.set(`cm:trainee:t${i}--b100926`, JSON.stringify({ id: `t${i}--b100926`, name: `T ${i}`, batch: 'B100926', approved: true }));
@@ -128,6 +148,19 @@ async function ticketFor(payloadObj, secret) {
                 const text = JSON.stringify(r.body);
                 if (/SECRET|"refresh"|"access"|"exp"|token/i.test(text)) fail(`${what} sent a token field: ${text}`);
             }
+            // 4b. this program's drive records are its own (cm:drive:), apart from the Foundations training's drive:<id>
+            if ([...store.keys()].some((k) => k.startsWith('drive:'))) fail(`the Backup Drive wrote an unprefixed drive: key, which the Foundations training also uses: ${[...store.keys()].filter((k) => k.startsWith('drive:'))}`);
+            const foundations = { [`drive:${a.id}`]: JSON.stringify({ email: 'foundations@example.com', setup: { ok: false } }), 'drive:foundations-only--b100926': JSON.stringify({ email: 'f@example.com' }), [`drive:${b.id}`]: JSON.stringify({ email: 'legacy-cm@example.com', builtAt: '2026-10-30T00:00:00Z' }) };
+            Object.entries(foundations).forEach(([k, v]) => store.set(k, v));
+            const mineNow = await call('/api/drive', { action: 'report', traineeId: a.id }, admin.token);
+            if (!mineNow.body || !mineNow.body.report || mineNow.body.report.email !== 'trainee@example.com') fail(`a Foundations drive record under the same trainee id must not stand in for this program's: ${JSON.stringify(mineNow.body)}`);
+            const every = await call('/api/drive', { action: 'reportAll' }, admin.token);
+            const ids = Object.keys((every.body && every.body.reports) || {});
+            if (!ids.includes(a.id)) fail(`reportAll should list this program's drives: ${ids}`);
+            if (ids.includes('foundations-only--b100926')) fail(`reportAll listed a Foundations-only trainee's drive: ${ids}`);
+            if (!ids.includes(b.id) || every.body.reports[b.id].builtAt !== '2026-10-30T00:00:00Z') fail(`a CM trainee's drive record from before the cm: prefix should still be read: ${JSON.stringify(every.body.reports[b.id])}`);
+            await call('/api/drive', { action: 'disconnect' }, a.token);
+            Object.entries(foundations).forEach(([k, v]) => { if (store.get(k) !== v) fail(`this program changed the Foundations training's ${k}`); });
         } finally { globalThis.fetch = realFetch; }
     }
 
