@@ -13,7 +13,10 @@
 //   5. Day 5: the litigation file in 09; the final audit, which a client folder moved under 04 Closed Files fails.
 //   6. A trainer grades a trainee from their saved progress; a trainee can't; Disconnect keeps the grades.
 // Every day also carries the 🏷 File names row (.github/scripts/drive-naming.cjs checks that one name by name), so a day
-// is only 100% here once every file is named the firm's way: the colleague's invoice renamed, the labels in their place.
+// is only 100% here once its files are named the firm's way: the colleague's invoice renamed, the labels in their place.
+//   7. A rule that came afterwards doesn't lower a day already passed: Day 2 done as it was taught before the rename
+//      (the invoice moved, its drill laid before names were graded) is still 100%; and a misnamed Day 5 file lowers
+//      Day 5 only. Each day's grade carries its File names row (`names`) and says the 🏷 note first (`issues`).
 // Usage: node .github/scripts/drive-grades.cjs   (no server, no browser needed)
 const fs = require('fs'); const path = require('path'); const { pathToFileURL } = require('url');
 const failures = []; const fail = (m) => failures.push(m);
@@ -35,7 +38,9 @@ global.fetch = async (url, init = {}) => {
   if (u.pathname === '/upload/drive/v3/files') {
     const text = Buffer.from(init.body).toString('latin1');
     const meta = JSON.parse(text.split('\r\n\r\n')[1].split('\r\n--')[0]);
-    return reply({ id: make(meta.name, 'application/pdf', meta.parents[0]), webViewLink: 'https://drive/x' });
+    const id = make(meta.name, 'application/pdf', meta.parents[0]);
+    Object.assign(files.get(id), { description: meta.description || '', text });
+    return reply({ id, webViewLink: 'https://drive/x' });
   }
   if (u.pathname === '/drive/v3/files' && method === 'POST') { const b = JSON.parse(init.body); return reply({ id: make(b.name, b.mimeType, (b.parents || [])[0]) }); }
   if (u.pathname === '/drive/v3/files' && method === 'GET') {
@@ -63,7 +68,15 @@ global.fetch = async (url, init = {}) => {
     const m = docs.match(new RegExp(`\\{[^{}]*id:\\s*"${id}"[^{}]*\\}`)), f = m && (m[0].match(/folder:\s*"([^"]+)"/) || [])[1];
     if (f !== folder) fail(`${id} is graded against the "${folder}" folder, but the course files it in "${f}"`);
   });
-  ok("the grader's documents and folders are the course's");
+  // …and each graded document's Type in a file name is the CMS category the course files it under (the filing panel's long names)
+  const filing = fs.readFileSync(path.join(process.cwd(), 'js/cm-doc-filing.js'), 'utf8');
+  const LONG = new Function('return ' + (filing.match(/const LONG = (\{[\s\S]*?\});/) || [])[1])();
+  const CATS = JSON.parse((filing.match(/const CATEGORIES = (\[[^\]]*\]);/) || [])[1]);
+  Object.entries(DOC).forEach(([id, [, , category]]) => {
+    const m = docs.match(new RegExp(`\\{[^{}]*id:\\s*"${id}"[^{}]*\\}`)), cms = m && (m[0].match(/cms:\s*"([^"]+)"/) || [])[1];
+    if (!category || category !== (LONG[cms] || cms) || !CATS.includes(category)) fail(`${id} is named with the Type of "${category}", but the course files it in the CMS under "${LONG[cms] || cms}"`);
+  });
+  ok("the grader's documents, folders and CMS categories are the course's");
 
   /* the Worker, a trainee with a built drive */
   const worker = (await import(pathToFileURL(path.join(process.cwd(), 'worker.js')).href)).default;
@@ -99,6 +112,8 @@ global.fetch = async (url, init = {}) => {
   const drills = [...files.values()].filter((f) => /colleague/.test(f.name));
   if (d1.status !== 200 || d2.status !== 200 || drills.length !== 1) fail(`the Day 2 drill should lay one misfiled invoice, once: ${drills.length} laid`);
   if (drills[0] && drills[0].parents[0] !== folderId(`${C}/03 Medical Records`)) fail('the misfiled invoice should be in 03 Medical Records');
+  // the drill says what the grade asks: move it AND rename it
+  if (drills[0] && (!/rename it the firm's way/.test(drills[0].description) || !/04 Bills & Invoices/.test(drills[0].description) || !/move it there and rename it the firm's way/.test(drills[0].text))) fail(`the colleague's invoice should say "move it and rename it the firm's way", in its text and its Drive description: ${drills[0].description}`);
   moveTo('DOE-01_Doe-John_RS13_2026-07-01.pdf', `${C}/04 Bills & Invoices`);
   g = (await grade()).grades[2];
   if (!g || g.score >= 70 || row(g, 'Misfile corrected').got !== 0 || row(g, 'Drive confirmed').got !== 0 || row(g, 'Documents backed up').got >= 20) fail(`Day 2 with a record in the bills folder, the misfile left and no check should be low: ${JSON.stringify(g)}`);
@@ -108,6 +123,19 @@ global.fetch = async (url, init = {}) => {
   await check();
   g = (await grade()).grades[2];
   if (!g || g.score === 100 || row(g, 'File names').got >= row(g, 'File names').max || !/colleague/.test(JSON.stringify(row(g, 'File names').notes))) fail(`Day 2 with the colleague's invoice moved but still named as it arrived should lose File names points: ${JSON.stringify(g)}`);
+  // the day's grade carries the File names row by itself, and its 🏷 note leads what to put right
+  if (!g.names || g.names.got !== row(g, 'File names').got || g.names.max !== 12 || g.names.wrong !== 1 || !/^🏷/.test((g.issues || [])[0] || '')) fail(`Day 2's grade should carry names {got, max, wrong} and the 🏷 note first: ${JSON.stringify([g.names, g.issues])}`);
+  // Day 2 as it was taught before the rename: a drill laid before names were graded carries no stamp, and "moved" is still 100%
+  const drillName = drills[0].name;
+  const stamp = (on) => { const r = JSON.parse(store.get('cm:drive:' + tid)); if (on) r.drills[2].rule = on; else delete r.drills[2].rule; store.set('cm:drive:' + tid, JSON.stringify(r)); };
+  const stamped = JSON.parse(store.get('cm:drive:' + tid)).drills[2].rule;
+  if (!stamped) fail('a drill laid now should be stamped: its rename is part of the grade');
+  stamp(0);
+  let o = await grade(); g = o.grades[2];
+  const listed = (o.drive.naming.report.list || []).find((x) => x.name === drillName);
+  if (!g || g.score !== 100 || g.names.got !== 12 || g.names.wrong !== 0) fail(`Day 2 done as it was taught before (the invoice moved, not renamed, its drill laid before names were graded) should still be 100%: ${JSON.stringify(g)}`);
+  if (!listed || listed.scored !== false || !/^DOE-01_Doe-John_RS25_\d{4}-\d{2}-\d{2}\.pdf$/.test(listed.want)) fail(`…with the invoice still listed for the trainee to rename, and the whole name to copy: ${JSON.stringify(listed)}`);
+  stamp(stamped);
   rename(drills[0].name, 'DOE-01_Doe-John_Invoices_2026-07-01.pdf');
   g = (await grade()).grades[2];
   if (!g || g.score !== 100 || !g.passed) fail(`Day 2 done right should be 100%: ${JSON.stringify(g)}`);
@@ -130,6 +158,14 @@ global.fetch = async (url, init = {}) => {
   rename('DOE-01_Doe-John_RS94_2026-07-01.pdf', 'DOE-01_Doe-John_RS94_2026-07-01_SUPERSEDED.pdf');
   g = (await grade()).grades[3];
   if (!g || row(g, 'Superseded versions').got >= 16) fail(`SUPERSEDED with no replacing date beside it (only the name's own filing date) should not pass: ${JSON.stringify(g && g.rows)}`);
+  // four other notes or more, and the 🏷 note is still the first of the day's issues
+  if (!/^🏷/.test((g.issues || [])[0] || '') || g.names.wrong < 1) fail(`Day 3's issues should start with the 🏷 File names note: ${JSON.stringify(g.issues)}`);
+  // a date that is no date doesn't make a label
+  for (const bad of ['SUPERSEDED-1-1-11', 'SUPERSEDED-2026-02-31', 'SUPERSEDED-9999-12-31']) {
+    rename('DOE-01_Doe-John_RS94_2026-07-01_SUPERSEDED.pdf', `DOE-01_Doe-John_RS94_2026-07-01_${bad}.pdf`);
+    if (row((await grade()).grades[3], 'Superseded versions').got >= 16) fail(`"${bad}" is not a date the replacing version could carry, and should not pass the Superseded row`);
+    rename(`DOE-01_Doe-John_RS94_2026-07-01_${bad}.pdf`, 'DOE-01_Doe-John_RS94_2026-07-01_SUPERSEDED.pdf');
+  }
   rename('DOE-01_Doe-John_RS94_2026-07-01_SUPERSEDED.pdf', 'DOE-01_Doe-John_RS94_2026-07-01_SUPERSEDED-2026-07-01.pdf');
   rename('DOE-01_Doe-John_RS66_2026-07-01.pdf', 'DOE-01_Doe-John_RS66_2026-07-01_DRAFT.pdf');
   await check();
@@ -159,6 +195,22 @@ global.fetch = async (url, init = {}) => {
   if (!g || row(g, 'Final audit').got > 17 || !/leave the client folder where it is/.test(JSON.stringify(g.rows))) fail(`Day 5 with the client folder moved under 04 Closed Files should lose the final audit: ${JSON.stringify(g)}`);
   byName('Doe-John')[1].parents = [folderId('01 Clients')];
   ok('Day 5: the litigation file in 09, and the final audit, which a client folder moved to Closed Files fails');
+
+  /* 7: one wrong name is charged once, on its own day; Day 5 is graded out of the 48 points the Worker reads */
+  rename('DOE-01_Doe-John_RS53_2026-07-01.pdf', 'answer and defenses.pdf');
+  let all = (await grade()).grades;
+  if (all[5].score >= 100 || all[5].names.wrong !== 1 || !/^🏷/.test(all[5].issues[0])) fail(`a misnamed Day 5 file should lower Day 5: ${JSON.stringify(all[5])}`);
+  [2, 3, 4].forEach((n) => { if (all[n].score !== 100 || all[n].names.got !== 12) fail(`a misnamed Day 5 file must not lower Day ${n}: ${JSON.stringify(all[n].names)} ${all[n].score}%`); });
+  const total = (n) => all[n].rows.reduce((s, r) => s + r.max, 0);
+  if (total(2) !== 60 || total(3) !== 60 || total(4) !== 60 || total(5) !== 48 || all[5].score !== Math.round(100 * all[5].rows.reduce((s, r) => s + r.got, 0) / 48)) fail(`the Worker grades 60 points on Days 2, 3 and 4 and 48 on Day 5: ${[2, 3, 4, 5].map(total)}`);
+  rename('answer and defenses.pdf', 'DOE-01_Doe-John_RS53_2026-07-01.pdf');
+  // a Day 2 name gone wrong later lowers Day 2, where it belongs, and no other day
+  rename('DOE-01_Doe-John_RS12_2026-07-01.pdf', 'urgent care.pdf');
+  all = (await grade()).grades;
+  if (all[2].names.wrong !== 1 || all[2].score >= 100 || [3, 4, 5].some((n) => all[n].score !== 100)) fail(`a misnamed Day 2 document should lower Day 2 only: ${JSON.stringify([2, 3, 4, 5].map((n) => [n, all[n].score, all[n].names]))}`);
+  rename('urgent care.pdf', 'DOE-01_Doe-John_RS12_2026-07-01.pdf');
+  if ((await grade()).grades[5].score !== 100) fail('with the names put back every day should be 100% again');
+  ok('one wrong name is charged once, on its own day: a misnamed Day 5 file leaves Days 2, 3 and 4 whole; Day 5 is graded out of 48');
 
   /* 6: a trainer, a trainee, Disconnect */
   store.set('cm:progress:' + tid, JSON.stringify({ traineeId: tid, data: { 'doc-filing': Object.fromEntries(filed.map((d) => [d, { filed: true }])) } }));

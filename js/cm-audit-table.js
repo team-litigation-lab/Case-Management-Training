@@ -41,9 +41,12 @@ function driveState(r){
   if(!rep.builtAt) return {k: "on", label: "Connected", issue: false};
   if((rep.missing || []).length) return {k: "bad", label: `${rep.missing.length} folder${rep.missing.length === 1 ? "" : "s"} missing`, issue: true};
   // 🏷 the names on the drive, from the Worker's last check of them (driveNaming in worker.js): a wrongly named file is a Drive issue
-  const wrong = (rep.naming && rep.naming.wrong) || 0;
+  // (the ones it charges: `unscored` of `wrong` are a copy the platform named itself, or made before names were graded,
+  //  listed for the trainee to rename and no issue of theirs)
+  const all = (rep.naming && Number(rep.naming.wrong)) || 0;   // numbers, whatever was sent: they go into the cell as text
+  const wrong = Math.max(0, all - ((rep.naming && Number(rep.naming.unscored)) || 0));
   if(wrong) return {k: "bad", label: `🏷 ${wrong} name${wrong === 1 ? "" : "s"} wrong`, issue: true};
-  return {k: "ok", label: rep.naming && rep.naming.checked ? "Structure ✓ · names ✓" : "Structure ✓", issue: false};
+  return {k: "ok", label: rep.naming && rep.naming.checked && !all ? "Structure ✓ · names ✓" : "Structure ✓", issue: false};
 }
 function rowOf(r){
   const a = auditSummary(r), day = adminDayStats(r), pp = adminPracticeStats(r);

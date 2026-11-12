@@ -77,7 +77,10 @@ const SOURCES = [
   {id: "bd", icon: "📂", label: "Backup Drive", about: "Your Backup Drive, graded automatically: Day 1's folder structure, then each day's Backup File Maintenance, read from your Drive itself (where each document is, whether every file is named by the firm's naming convention, what was moved and put back). File names are 12 of the 60 points graded each day. 70% passes.", dims: ["pc"], how: "Read from the Drive by the Worker: the share of the day's checks that pass.",
     items: c => { const out = [], s = c.data["drive-setup"], g = c.data["drive-grades"] || {};
       if(s && typeof s.score === "number") out.push({name: "Day 1: the firm's folders", pct: num(s.score), note: s.ok ? `Built on attempt ${s.attempts || 1}` : "Not built yet"});
-      Object.keys(g).sort().forEach(n => { const x = g[n]; if(x && typeof x.score === "number") out.push({name: `Day ${n}: Backup File Maintenance`, pct: num(x.score), note: [x.passed ? "Passed" : "Below 70%: not passed yet", fmt(x.at)].filter(Boolean).join(" · ")}); });
+      // 🏷 the day's File names row is named in the note (js/cm-drive.js keeps it with the grade), so a lower score says why
+      const names = x => { const m = x && x.names; if(!m || typeof m.got !== "number" || typeof m.max !== "number") return "";
+        return `🏷 File names ${m.got}/${m.max}${m.wrong > 0 ? ` · ${m.wrong} name${m.wrong === 1 ? "" : "s"} wrong` : ""}`; };
+      Object.keys(g).sort().forEach(n => { const x = g[n]; if(x && typeof x.score === "number") out.push({name: `Day ${n}: Backup File Maintenance`, pct: num(x.score), note: [x.passed ? "Passed" : "Below 70%: not passed yet", names(x), fmt(x.at)].filter(Boolean).join(" · ")}); });
       return out; }},
   {id: "ns", icon: "📊", label: "Net Sheet Checks", about: "Each stage of the LSH Net Sheet, checked automatically with Check my sheet: the share of its checks that passed.", dims: ["cp"], how: "Check my sheet: checks passed ÷ checks; the trust-money stages are critical.",
     items: c => { const out = [], files = (c.data["net-sheet"] && c.data["net-sheet"].files) || {};

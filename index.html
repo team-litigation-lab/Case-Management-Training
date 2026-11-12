@@ -12442,7 +12442,12 @@ async function loadDriveReports(force){
   if(state.driveReportsLoading) return;
   if(!force && state.driveReportsAt && Date.now()-state.driveReportsAt < 60000) return;
   state.driveReportsLoading = true;
-  try{ const j = await driveAdminApi({action:"reportAll", traineeIds: recs.map(r=>r.id)}); Object.assign(state.driveReports, j.reports || {}); state.driveReportsAt = Date.now(); }
+  try{ const j = await driveAdminApi({action:"reportAll", traineeIds: recs.map(r=>r.id)}); const reps = j.reports || {};
+    // 🏷 the list carries each trainee's counts of wrong names, not the names: the ones already read for a trainee
+    // (their own report) are kept for as long as the list speaks of the same check of the drive
+    Object.keys(reps).forEach(id=>{ const was = (state.driveReports[id] || {}).naming, now = reps[id] && reps[id].naming;
+      if(was && now && Array.isArray(was.list) && !Array.isArray(now.list) && was.at === now.at) now.list = was.list; });
+    Object.assign(state.driveReports, reps); state.driveReportsAt = Date.now(); }
   catch(e){ state.driveReportsAt = Date.now(); }
   finally{ state.driveReportsLoading = false; }
   const wrap = document.getElementById("adminRowsWrap"); if(wrap && state.view==="admin" && !isTyping()) wrap.innerHTML = renderAdminRows();
@@ -12458,21 +12463,41 @@ function driveCompetency(rep, filedCount){
   if((rep.missing||[]).length) why.push(`${rep.missing.length} folder${rep.missing.length===1?"":"s"} missing on the last check`);
   if(!rep.copies) why.push("no filed documents backed up yet");
   else if(filedCount > rep.copies) why.push(`${filedCount - rep.copies} filed document${filedCount - rep.copies===1?"":"s"} not backed up`);
-  const misnamed = (rep.naming && rep.naming.wrong) || 0;   // 🏷 the Worker's last check of every name on the drive
+  const misnamed = driveNamesCharged(rep);   // 🏷 the Worker's last check of every name on the drive
   if(misnamed) why.push(`${misnamed} name${misnamed===1?"":"s"} not the firm's way`);
   return why.length ? {level:"Developing", color:"var(--warn, #B7791F)", why: why.join(" · ")}
-    : {level:"Proficient", color:"var(--success)", why:"Structure built to standard, every folder in place, filed documents backed up in their folders, every file named the firm's way."};
+    : {level:"Proficient", color:"var(--success)", why: Number(rep.naming && rep.naming.wrong) > 0   // names to rename that no grade is lower for
+        ? "Structure built to standard, every folder in place, filed documents backed up in their folders, no name the grade counts is wrong."
+        : "Structure built to standard, every folder in place, filed documents backed up in their folders, every file named the firm's way."};
+}
+/* 🏷 The wrong names a grade is lower for. The Worker's `wrong` counts every name to rename; `unscored` of them are not
+   charged (a copy the platform named itself, anything made before names were graded): no issue of the trainee's. */
+function driveNamesCharged(rep){
+  const N = rep && rep.naming;
+  return N ? Math.max(0, (Number(N.wrong) || 0) - (Number(N.unscored) || 0)) : 0;
+}
+/* 🏷 Each wrong name is in the trainee's own report, not in the list of trainees: read once, when a detail that has
+   names to list is opened (and again only when the drive has been checked since). */
+async function loadDriveNames(id){
+  const rep = state.driveReports[id], N = rep && rep.naming;
+  if(!N || !(Number(N.wrong) > 0) || Array.isArray(N.list) || rep.namesAsked === (N.at || "-")) return;
+  rep.namesAsked = N.at || "-";
+  let full = null;
+  try{ full = (await driveAdminApi({action:"report", traineeId:id})).report || null; }catch(e){ /* said in the row: 🏅 Grade now lists them */ }
+  if(full){ if(full.naming && !Array.isArray(full.naming.list)) full.naming.list = []; state.driveReports[id] = Object.assign(full, {namesAsked: rep.namesAsked}); }
+  else rep.namesFailed = rep.namesAsked;
+  const wrap = document.getElementById("adminRowsWrap"); if(wrap && state.view==="admin" && state.adminExpandedId===id && !isTyping()) wrap.innerHTML = renderAdminRows();
 }
 function renderDriveChip(rec){
   const rep = state.driveReports[rec.id];
   if(!rep) return "";
-  let label, color;
+  let label, color, names = false;   // names: the line is about file names, and is read at 14px bold like every naming line
   if(!rep.connected){ label = "Not connected"; color = "var(--ink-soft)"; }
   else if(!rep.builtAt){ label = "Connected"; color = "var(--navy)"; }
   else if((rep.missing||[]).length){ label = `${rep.missing.length} folder${rep.missing.length===1?"":"s"} missing`; color = "var(--danger)"; }
-  else if(rep.naming && rep.naming.wrong){ label = `🏷 ${rep.naming.wrong} name${rep.naming.wrong===1?"":"s"} wrong`; color = "var(--danger)"; }
+  else if(driveNamesCharged(rep) > 0){ const n = driveNamesCharged(rep); label = `🏷 ${n} name${n===1?"":"s"} wrong`; color = "var(--danger)"; names = true; }
   else { label = "Structure ✓"; color = "var(--success)"; }
-  return ` <span class="pill drv-chip" style="font-size:10px;font-weight:700;color:${color};border:1px solid currentColor;background:transparent;" title="Backup Drive">📂 Drive: ${label}</span>`;
+  return ` <span class="pill drv-chip${names ? " drv-chip-names" : ""}" style="font-size:${names ? "14px" : "10px"};font-weight:${names ? 800 : 700};color:${color};border:1px solid currentColor;background:transparent;" title="Backup Drive">📂 Drive: ${label}</span>`;
 }
 async function driveCheckFor(id){
   const rep = state.driveReports[id] || {};
@@ -12498,10 +12523,18 @@ function renderDriveNaming(rep){
   const N = rep.naming;
   const row = (k, v)=>`<div style="display:flex;justify-content:space-between;gap:12px;font-size:14px;font-weight:700;padding:5px 0;border-bottom:1px dashed var(--line);"><span>${k}</span><span style="text-align:right;">${v}</span></div>`;
   if(!N) return row("🏷 File names", `<span style="color:var(--ink-soft);">Not read yet · 🏅 Grade now reads them</span>`);
-  const list = N.list || [];
-  return row("🏷 File names", N.wrong ? `<span style="color:var(--danger);">${N.wrong} named wrong</span> · ${N.named} of ${N.checked} file${N.checked===1?"":"s"} right${N.at ? ` · ${fmtDate(N.at)}` : ""}`
-      : N.checked ? `<span style="color:var(--success);">all ${N.checked} named the firm's way</span>${N.at ? ` · ${fmtDate(N.at)}` : ""}` : `<span style="color:var(--ink-soft);">No file on the drive yet</span>`)
-    + (list.length ? `<ul class="drv-adm-names" style="margin:4px 0 8px 18px;padding:0;font-size:14px;font-weight:700;line-height:1.45;color:var(--navy);">${list.slice(0, 12).map(x=>`<li style="margin-bottom:6px;"><span style="color:var(--danger);">✗ ${x.kind === "folder" ? "Folder in" : "In"} ${esc(x.folder)}:</span> <code style="font-size:14px;font-weight:700;overflow-wrap:anywhere;">${esc(x.name)}</code><br>should be <code style="font-size:14px;font-weight:700;color:var(--success);overflow-wrap:anywhere;">${esc(x.want)}</code><br><span style="color:var(--orange-deep,#B9610F);">👉 ${esc(x.hint)}</span></li>`).join("")}${N.wrong > 12 ? `<li>…and ${N.wrong - 12} more.</li>` : ""}</ul>` : "")
+  const list = N.list || [], wrong = Number(N.wrong) || 0;
+  // files and folders are said apart when the Worker counts them apart; the differing pieces are marked as on the trainee's own list (js/cm-drive.js)
+  const W = window.CMDrive && CMDrive.wrongOf ? CMDrive.wrongOf(N) : {n: wrong, words: `${wrong} name${wrong===1?"":"s"}`};
+  const lines = (x)=> window.CMDrive && CMDrive.nameLines ? CMDrive.nameLines(x) : {is: esc(x.name), want: esc(x.want || "")};
+  // names the grade doesn't charge (the Worker's `unscored`) are to rename, and not the trainee's fault: not in red
+  const free = Math.min(W.n, Math.max(0, Number(N.unscored) || 0)), charged = W.n - free;
+  // the list of trainees carries the counts only: each name is read when this detail opens (loadDriveNames)
+  const asked = Array.isArray(N.list) || !W.n ? "" : rep.namesFailed === (N.at || "-") ? "🏅 Grade now lists each name" : "reading each name…";
+  return row("🏷 File names", W.n ? `<span style="color:${charged ? "var(--danger)" : "var(--ink-soft)"};">${W.words} ${charged ? "named wrong" : "to rename"}</span>${free ? ` (${charged ? `${free} not counted in the grade` : "not counted in the grade"})` : ""} · ${Number(N.named) || 0} of ${Number(N.checked) || 0} file${N.checked===1?"":"s"} right${N.at ? ` · ${fmtDate(N.at)}` : ""}${asked ? ` · <span class="drv-adm-asked" style="color:var(--ink-soft);">${asked}</span>` : ""}`
+      : N.checked ? `<span style="color:var(--success);">all ${Number(N.checked)} named the firm's way</span>${N.at ? ` · ${fmtDate(N.at)}` : ""}` : `<span style="color:var(--ink-soft);">No file on the drive yet</span>`)
+    + (list.length ? `<ul class="drv-adm-names" style="margin:4px 0 8px 18px;padding:0;font-size:14px;font-weight:700;line-height:1.45;color:var(--navy);">${list.slice(0, 12).map(x=>{ const L = lines(x);
+        return `<li style="margin-bottom:6px;"><span style="color:var(--danger);">✗ ${x.kind === "folder" ? "Folder in" : "In"} ${esc(x.folder)}:</span> <code style="font-size:14px;font-weight:700;overflow-wrap:anywhere;">${L.is}</code>${x.scored === false ? ` <span class="drv-adm-free" style="font-size:14px;font-weight:700;color:var(--ink-soft);">(not counted in the grade)</span>` : ""}${L.want ? `<br>should be <code style="font-size:14px;font-weight:700;overflow-wrap:anywhere;">${L.want}</code>` : ""}${x.hint ? `<br><span style="color:var(--orange-deep,#B9610F);">👉 ${esc(x.hint)}</span>` : ""}</li>`; }).join("")}${W.n > 12 ? `<li>…and ${W.n - 12} more.</li>` : ""}</ul>` : "")
     + `<div style="font-size:14px;font-weight:700;color:var(--ink-soft);padding:2px 0 6px;border-bottom:1px dashed var(--line);">Read: every file the platform put on the drive, and the firm's folders. Not seen: files the trainee uploads or copies in Google Drive by hand (Google shows the platform only the files it made), so check those by eye.</div>`;
 }
 function renderAdminDrivePanel(rec){
@@ -12511,6 +12544,7 @@ function renderAdminDrivePanel(rec){
   const x = state.auditExtra[rec.id], log = ((x && x.data) || {})["doc-filing"] || {};
   const filed = Object.keys(log).filter(id=>log[id] && log[id].filed).length;
   const comp = driveCompetency(rep, filed);
+  setTimeout(()=>loadDriveNames(rec.id), 0);   // 🏷 each wrong name, when there are any and they aren't here yet
   const tries = rep.tries || [];
   const firstOk = tries.length && tries[0].ok;
   const line = (k, v)=>`<div style="display:flex;justify-content:space-between;gap:12px;font-size:12.5px;padding:4px 0;border-bottom:1px dashed var(--line);"><span>${k}</span><span style="text-align:right;">${v}</span></div>`;
@@ -12530,9 +12564,11 @@ function renderAdminDrivePanel(rec){
     ${line("Documents backed up", `${rep.copies} of ${filed} filed in the CMS${rep.lastCopyAt ? ` · last ${fmtDate(rep.lastCopyAt)}` : ""}`)}
     ${folders.map(f=>line(`<span style="padding-left:12px;color:var(--ink-soft);">${esc(f)}</span>`, rep.perFolder[f])).join("")}
     ${renderDriveNaming(rep)}
-    ${Object.keys(rep.grades||{}).sort().map(n=>{ const g = rep.grades[n], notes = [].concat(...(g.rows||[]).map(r=>r.notes||[]));
-      return line(`🏅 Day ${n} backup <span style="color:var(--ink-soft);font-size:11.5px;">(auto-graded)</span>`, `<b style="color:${g.passed ? "var(--success)" : "var(--danger)"};">${g.score}%</b> · ${(g.rows||[]).map(r=>`${esc(r.label)} ${r.got}/${r.max}`).join(" · ")}`)
-        + (notes.length ? `<ul style="margin:2px 0 6px 18px;padding:0;font-size:12px;color:var(--danger);">${notes.slice(0,6).map(t=>`<li>${esc(t)}</li>`).join("")}</ul>` : ""); }).join("")}
+    ${Object.keys(rep.grades||{}).sort().map(n=>{ const g = rep.grades[n], rows = g.rows || [], isNames = r=>r && r.label === "File names";
+      // the 🏷 File names note first, so the six shown never drop it; the day's line and its notes read at 14px bold (they carry the names)
+      const notes = [].concat(...rows.filter(isNames).concat(rows.filter(r=>!isNames(r))).map(r=>(r && r.notes) || []));
+      return `<div class="drv-adm-day" style="display:flex;justify-content:space-between;gap:12px;font-size:14px;font-weight:700;padding:5px 0;border-bottom:1px dashed var(--line);"><span>🏅 Day ${n} backup <span style="color:var(--ink-soft);">(auto-graded)</span></span><span style="text-align:right;"><b style="color:${g.passed ? "var(--success)" : "var(--danger)"};">${g.score}%</b> · ${rows.map(r=>`${esc(r.label)} ${r.got}/${r.max}`).join(" · ")}</span></div>`
+        + (notes.length ? `<ul class="drv-adm-notes" style="margin:2px 0 6px 18px;padding:0;font-size:14px;font-weight:700;line-height:1.45;color:var(--danger);">${notes.slice(0,6).map(t=>`<li>${esc(t)}</li>`).join("")}</ul>` : ""); }).join("")}
     ${rep.checkErr ? `<div style="font-size:12px;color:var(--danger);padding-top:6px;">${esc(rep.checkErr)}</div>` : ""}
     ${rep.connected && rep.builtAt ? `<div style="padding-top:8px;"><button class="btn btn-sm btn-ghost" ${rep.checking ? "disabled" : ""} onclick="driveCheckFor('${esc(rec.id)}')" title="Check the trainee's Drive for missing folders now (read-only)">${rep.checking ? "Checking…" : "🔄 Check now"}</button> <button class="btn btn-sm btn-ghost" ${rep.grading ? "disabled" : ""} onclick="driveGradeFor('${esc(rec.id)}')" title="Grade Days 2–5 from the trainee's Drive now, and read every file name on it (read-only)">${rep.grading ? "Grading…" : "🏅 Grade now"}</button></div>` : ""}
   </div>`;
