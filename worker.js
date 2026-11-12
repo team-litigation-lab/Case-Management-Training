@@ -188,6 +188,7 @@ function candidateIds(name, batch) {
 const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|feedback-style|drive)$/, /^activities:day\d+$/, /^actfile:[a-z0-9]{1,40}$/, /^surprise-task-day\d+$/, /^call-inject-day\d+$/, /^extralessons:day\d+$/, /^lessonx:day\d+$/, /^extraquiz:day\d+$/, /^handouts:links$/];
 const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`, `actsub:${id}`];
 const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt", "driveLink", "driveLinkAt"];
+const IDENTITY_TRAINEE_FIELDS = ["name", "firstName", "lastName", "batch"];
 
 // callsim:<id>: the trainee's graded calls from the Call Simulator (☎ LSH Ring Channel), kept by the Training Portal (its /api/call-results).
 // labreview:<id>: the trainer's reviews of the trainee's Practice Lab (score, rating, comment per activity; js/cm-lab.js),
@@ -218,6 +219,10 @@ async function traineeWrite(env, tok, key, value) {
     // Trainees keep their own record current, but can never change approval, attempts resets, etc.
     const merged = Object.assign({}, incoming);
     PROTECTED_TRAINEE_FIELDS.forEach((f) => { if (existing && f in existing) merged[f] = existing[f]; else delete merged[f]; });
+    // Who the trainee is (their name and batch) is set once, at registration or by the Portal's sign-in; after that
+    // only an admin changes it. A Training Tools ticket is signed from these fields, so a trainee who renamed
+    // themselves could otherwise sign in elsewhere as someone else.
+    if (existing) IDENTITY_TRAINEE_FIELDS.forEach((f) => { if (f in existing) merged[f] = existing[f]; else delete merged[f]; });
     if (!existing) { merged.approved = false; merged.registeredAt = new Date().toISOString(); }
     merged.id = id;
     await kv.put(key, JSON.stringify(merged)); return null;
@@ -246,7 +251,7 @@ async function traineeWrite(env, tok, key, value) {
   if (key === `focus:${id}`) {
     // Trainees may only mark trainer focus items as seen/done.
     const out = existing && Array.isArray(existing.items) ? existing : { items: [] };
-    const byId = Object.fromEntries(((incoming && incoming.items) || []).map((x) => [x.id, x]));
+    const byId = Object.fromEntries((Array.isArray(incoming && incoming.items) ? incoming.items : []).filter((x) => x && typeof x === "object").map((x) => [x.id, x]));
     out.items.forEach((x) => { const u = byId[x.id]; if (u) { x.seenAt = u.seenAt || x.seenAt || null; x.doneAt = u.doneAt || null; } });
     await kv.put(key, JSON.stringify(out)); return null;
   }
@@ -337,7 +342,7 @@ export class GeminiRelay {
 const gatewayOn = (env) => !!String((env && env.AI_GATEWAY_SECRET) || "").trim();
 async function viaGateway(env, req, user) {
   const toText = (c) => typeof c === "string" ? c : (Array.isArray(c) ? c.map((p) => p && p.text ? p.text : "").join("\n") : "");
-  const messages = (req.messages || []).map((m) => ({ role: m.role === "assistant" ? "model" : "user", text: toText(m.content) }));
+  const messages = (req.messages || []).filter((m) => m && typeof m === "object").map((m) => ({ role: m.role === "assistant" ? "model" : "user", text: toText(m.content) }));
   let r, data = null;
   try {
     r = await fetch(String(env.PORTAL_URL || "https://cm-training-activity.pages.dev").replace(/\/+$/, "") + "/api/ai-gateway", {
@@ -384,9 +389,10 @@ const noThinking = new Set();   // models that refused a thinking setting: not s
 const isChat = (req) => /^(chat|call)$/i.test(String((req && req.feature) || ""));
 async function callGemini(env, rawBody, user) {
   let req; try { req = JSON.parse(rawBody); } catch (e) { return json({ error: "Invalid request" }, 400); }
+  if (!req || typeof req !== "object" || (req.messages !== undefined && !Array.isArray(req.messages))) return json({ error: "Invalid request" }, 400);
   if (gatewayOn(env)) return await viaGateway(env, req, user);
   const toText = (c) => typeof c === "string" ? c : (Array.isArray(c) ? c.map((p) => p && p.text ? p.text : "").join("\n") : "");
-  const contents = (req.messages || []).map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: toText(m.content) }] }));
+  const contents = (req.messages || []).filter((m) => m && typeof m === "object").map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: toText(m.content) }] }));
   const payload = {
     contents,
     // extra headroom: newer Gemini models may spend part of the budget "thinking" before answering
@@ -763,7 +769,14 @@ async function docFromR2(env, request, path) {
     h.set("Accept-Ranges", "bytes");
     // The browser may keep a copy but re-checks it (a cheap 304), so an updated document shows at once.
     h.set("Cache-Control", "no-cache");
-    if (!("body" in obj)) return new Response(null, { status: 304, headers: h });
+    if (!("body" in obj)) {
+      // A failed precondition: If-None-Match / If-Modified-Since mean "you already have it" (304); a failed
+      // If-Match / If-Unmodified-Since means the copy the client holds is stale (412), never a 304.
+      const q = request.headers, ifMatch = q.get("If-Match");
+      const matchFailed = ifMatch && ifMatch.trim() !== "*" && !ifMatch.split(",").map((t) => t.trim().replace(/^W\//, "")).includes(obj.httpEtag.replace(/^W\//, ""));
+      const freshness = q.has("If-None-Match") || q.has("If-Modified-Since");
+      return new Response(null, { status: matchFailed || !freshness ? 412 : 304, headers: h });
+    }
     let status = 200;
     if (obj.range && request.headers.has("Range")) {
       const r = obj.range;
@@ -928,6 +941,9 @@ export default {
         const words = String(rec.name || "").trim().split(/\s+/).filter(Boolean);
         const first = String(rec.firstName || words[0] || "").trim(), last = String(rec.lastName || words.slice(1).join(" ") || "").trim();
         if (!first || !last) return json({ error: "no-name" }, 400);
+        // The ticket names only the trainee this session belongs to: the name and batch must lead back to the token's own id.
+        const ids = candidateIds(`${first} ${last}`, rec.batch);
+        if (![ids.newId, ids.rawId, ids.legacyId].includes(tok.id)) return json({ error: "identity-mismatch" }, 403);
         return json({ ticket: await sign({ first, last, b: String(rec.batch || ""), exp: Date.now() + 5 * 60 * 1000 }) });
       }
 
@@ -1111,7 +1127,7 @@ export default {
       }
       if (path === "/api/storage/set") {
         if (!key) return json({ error: "Missing key" }, 400);
-        if (tok.role === "a") { await kv.put(key, body.value); return json({ ok: true }); }
+        if (tok.role === "a") { if (typeof body.value !== "string") return json({ error: "value must be a string" }, 400); await kv.put(key, body.value); return json({ ok: true }); }
         const err = await traineeWrite(env, tok, key, body.value);
         return err ? json({ error: err }, 403) : json({ ok: true });
       }

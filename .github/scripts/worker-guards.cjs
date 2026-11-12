@@ -138,6 +138,27 @@ async function ticketFor(payloadObj, secret) {
         if (res.status >= 500) fail(`${p} with a body that isn't JSON should not be a server error: ${res.status} ${JSON.stringify(j)}`);
         if (j && /\n\s+at /.test(String(j.detail || ''))) fail(`${p} sent a stack trace to the browser`);
     }
+    // ...and JSON of the wrong shape is a 4xx too, never a crash
+    if (a && a.token) {
+        const adm = (await call('/api/auth/admin', { passphrase: 'ci-pass' })).body;
+        const shapes = [
+            ['focus items as an object', '/api/storage/set', { key: `focus:${a.id}`, value: JSON.stringify({ items: {} }) }, a.token],
+            ['focus items with a null', '/api/storage/set', { key: `focus:${a.id}`, value: JSON.stringify({ items: [null] }) }, a.token],
+            ['AI request of null', '/api/ai', null, a.token],
+            ['AI messages as an object', '/api/ai', { messages: {} }, a.token],
+            ['admin set with no value', '/api/storage/set', { key: 'settings:tools' }, adm && adm.token]
+        ];
+        // a key is configured (or /api/ai answers "no key" before reading the body), and nothing may reach Google
+        const realFetch = globalThis.fetch;
+        env.GEMINI_API_KEY = 'test-key';
+        globalThis.fetch = async () => { throw new Error('a malformed request should be refused before calling Google'); };
+        try {
+            for (const [what, p, body, token] of shapes) {
+                const res = await raw(p, JSON.stringify(body), token);
+                if (res.status >= 500) fail(`${what} (${p}) should not be a server error: ${res.status} ${await res.text()}`);
+            }
+        } finally { globalThis.fetch = realFetch; delete env.GEMINI_API_KEY; }
+    }
 
     if (failures.length) { console.log(`${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
     console.log('Worker guards: a renewal stays on the trainee\'s own record, a trainee\'s review is the auto-review, certificates are their own, the ranking reads one record, the Backup Drive report is a trainer\'s and token-free, and a bad body is a 400.');

@@ -30,6 +30,8 @@ function makeR2() {
             const meta = { key: k, size: b.length, httpEtag: etag, writeHttpMetadata: (h) => h.set('Content-Type', 'application/pdf') };
             const inm = o.onlyIf && o.onlyIf.get && o.onlyIf.get('If-None-Match');
             if (inm && inm === etag) return meta;
+            const im = o.onlyIf && o.onlyIf.get && o.onlyIf.get('If-Match');
+            if (im && im !== etag) return meta;   // R2: any failed precondition comes back without a body
             const rh = o.range && o.range.get && o.range.get('Range');
             let part = b, range;
             const m = rh && rh.match(/^bytes=(\d*)-(\d*)$/);
@@ -58,6 +60,10 @@ const get = async (env, p, headers = {}, method = 'GET') => {
     if (tail.status !== 206 || tail.text !== 'document' || tail.headers.get('Content-Range') !== `bytes ${bytes.length - 8}-${bytes.length - 1}/${bytes.length}`) fail(`a suffix range is wrong: ${tail.status} ${tail.headers.get('Content-Range')} "${tail.text}"`);
     const again = await get(env, file, { 'If-None-Match': r.headers.get('ETag') });
     if (again.status !== 304) fail(`re-checking an unchanged document doesn't give 304 (${again.status})`);
+    const stale = await get(env, file, { 'If-Match': '"an-older-copy"', Range: 'bytes=0-7' });
+    if (stale.status !== 412) fail(`resuming a download of a changed document should be refused with 412, not ${stale.status} (a 304 lets the client splice stale bytes)`);
+    const current = await get(env, file, { 'If-Match': r.headers.get('ETag'), Range: 'bytes=0-7' });
+    if (current.status !== 206) fail(`If-Match with the current ETag should still answer the range (206), not ${current.status}`);
     const head = await get(env, file, {}, 'HEAD');
     if (head.status !== 200 || head.headers.get('Content-Length') !== String(bytes.length)) fail(`HEAD on a document: ${head.status} ${head.headers.get('Content-Length')}`);
     const missing = await get(env, dir + 'not-uploaded-yet.pdf');

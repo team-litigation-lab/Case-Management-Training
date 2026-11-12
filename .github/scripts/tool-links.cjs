@@ -134,6 +134,22 @@ function loadToolLinks(stateObj, fetchImpl) {
             const out = await call(revoked, '/api/auth/tool-ticket', {}, { Authorization: 'Bearer ' + r2.token });
             if (out.status !== 403) fail(`a trainee who isn't approved should not get a tool ticket (403), got ${JSON.stringify(out)}`);
         }
+        // A trainee can't rename themselves into someone else's ticket: saving their own record with another name or
+        // batch keeps the registered one, and a record that names someone else (written before this guard) is refused.
+        const imp = makeEnv({ PORTAL_SSO_SECRET: SECRET });
+        const eve = await signInTrainee(imp);
+        const eveAuth = { Authorization: 'Bearer ' + eve.token };
+        const recKey = (await imp.LSH_KV.list({ prefix: '' })).keys.map(k => k.name).find(k => k.endsWith('trainee:' + eve.id));
+        const mine = JSON.parse(await imp.LSH_KV.get(recKey));
+        await call(imp, '/api/storage/set', { key: 'trainee:' + eve.id, value: JSON.stringify(Object.assign({}, mine, { name: 'Vic Tim', firstName: 'Vic', lastName: 'Tim', batch: 'B010126' })) }, eveAuth);
+        const kept = JSON.parse(await imp.LSH_KV.get(recKey));
+        if (kept.firstName !== 'Ana' || kept.lastName !== 'Cruz' || kept.batch !== mine.batch) fail(`a trainee should not be able to change their own name or batch: ${JSON.stringify(kept)}`);
+        const t1 = await call(imp, '/api/auth/tool-ticket', {}, eveAuth);
+        const c1 = t1.body && t1.body.ticket ? JSON.parse(unb64url(t1.body.ticket.split('.')[0])) : {};
+        if (c1.first === 'Vic' || c1.last === 'Tim') fail(`a renamed trainee's tool ticket must not name someone else: ${JSON.stringify(c1)}`);
+        await imp.LSH_KV.put(recKey, JSON.stringify(Object.assign({}, mine, { name: 'Vic Tim', firstName: 'Vic', lastName: 'Tim' })));
+        const t2 = await call(imp, '/api/auth/tool-ticket', {}, eveAuth);
+        if (t2.status !== 403) fail(`a record naming someone other than the signed-in trainee should get no tool ticket (403), got ${JSON.stringify(t2)}`);
     }
     // without the secret the links open as they are, and the Worker says why
     const noSecret = makeEnv({});
