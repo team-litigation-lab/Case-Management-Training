@@ -4815,7 +4815,7 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
 main.cm-admin-main, main:has(.cm-admin-screen){max-width:min(2200px,97vw);padding-left:16px;padding-right:16px;}
 .cm-admin-screen{background:#fff;border-radius:16px;padding:20px 24px 26px;box-shadow:0 10px 30px rgba(14,18,40,.28);color:#141A2E;}
 .cm-admin-screen .card{border:1px solid #C9CEDD;}
-.cm-admin-screen .admin-portal-link{display:none !important;}   /* (🏠 Main Portal is in the top bar) */
+.cm-admin-screen .admin-portal-link{display:none !important;}   /* (🎓 Training Directory is in the top bar) */
 .adm-settings{padding:10px 16px;margin:0 0 14px;} .adm-settings > summary{cursor:pointer;font-weight:800;color:var(--navy);font-size:14px;}
 .adm-settings[open] > summary{margin-bottom:8px;} .adm-settings .card{box-shadow:none;margin:8px 0 0;background:#fff;}
 @media(max-width:760px){ .cm-admin-screen{padding:14px 12px 18px;border-radius:12px;} }

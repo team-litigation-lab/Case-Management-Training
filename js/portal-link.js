@@ -2,8 +2,8 @@
    🏠 Back to the LSH Training Portal (everyone who came from it)
    Trainees and admins open each program from the Portal's Training
    Directory, which opens it in a new tab. This adds a way back:
-     • admins:    top bar 🏠 Main Portal, and on the Admin screen
-                  ← Back to Main Portal (next to "Log out")
+     • admins:    top bar 🎓 Training Directory, and on the Admin screen
+                  ← Back to Training Directory (next to "Log out")
      • trainees:  top bar ← Training Directory, and a link under the
                   sign-in / approval notes (pending, not approved)
    Admins in 👁 Trainee view see the admin buttons.
@@ -58,7 +58,7 @@ function paint(){
   if(nav && !nav.querySelector(".nav-portal")){
     var b = document.createElement("button");
     b.type = "button"; b.className = "nav-portal"; b.title = TITLE;
-    b.textContent = "🏠 Main Portal";
+    b.textContent = "🎓 Training Directory";
     b.onclick = window.goToMainPortal;
     nav.insertBefore(b, beforeView(nav));
   }
@@ -66,7 +66,7 @@ function paint(){
   if(out && out.parentNode && !out.parentNode.querySelector(".admin-portal-link")){
     var a = document.createElement("a");
     a.className = "btn btn-ghost btn-sm admin-portal-link"; a.href = PORTAL_URL; a.title = TITLE;
-    a.textContent = "← Back to Main Portal";
+    a.textContent = "← Back to Training Directory";
     out.parentNode.insertBefore(a, out);
   }
 }
