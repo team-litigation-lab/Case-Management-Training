@@ -1,4 +1,3 @@
-// @check browser — Server requests (sparing, batched, none in the background)
 // Server requests: every /api/ request counts toward Cloudflare's Worker requests for the whole
 // account (shared with every other LSH site), so an open page must ask sparingly.
 // 1. /api/storage/get-many (worker.js, in secure mode): a trainee gets their own and public records

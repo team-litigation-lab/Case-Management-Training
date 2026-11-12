@@ -1,4 +1,3 @@
-// @check browser — Log Your Work takes the CMS Case ID from the CMS (the CMS answered by the test)
 // "Log Your Work" takes the CMS Case ID from the CMS.
 //
 // The CMS is integrated with this course, so a step whose work is done in the CMS no longer asks the

@@ -1,4 +1,3 @@
-// @check node — Case Flow dates roll forward exactly (weekdays, the two-year SOL, holidays; no date left behind)
 // Checks the Case Flow's date roll-forward (js/cm-case-dates.js) against every word of the case: the course
 // content (data, slides, simulation, document list) and the 70 case documents (documents/case-flow/html/).
 // For the base year and each future year the case can move to:

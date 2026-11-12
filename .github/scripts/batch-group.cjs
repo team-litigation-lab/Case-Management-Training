@@ -1,4 +1,3 @@
-// @check browser — One batch whichever way its Batch ID was saved (B250926 and B092526 are both B092526 on the admin pages)
 // One batch, whichever way its Batch ID was saved: B250926 (day-first) and B092526 (month-first) are both 25 September 2026,
 // shown as B092526. The admin pages group trainees by the Batch ID as shown (index.html batchKey), so the Batch Sheet, the
 // Trainee Audit and Open Lessons list everyone in the batch, and its picker shows it once.

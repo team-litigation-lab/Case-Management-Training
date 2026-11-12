@@ -1,4 +1,3 @@
-// @check browser — Notes & Action Plan (the voicemail transcribed and graded, every attempt, and the plan graded with their answer keys; the plan worked in the Email Simulator)
 // 📝 Notes & Action Plan (js/cm-case-flow.js, build/case-flow/exhibits/d1.json "notes").
 //
 // Day 1's voicemail activity (John Doe: Keystone asked to record him) is worked, not read: its Your Case slide

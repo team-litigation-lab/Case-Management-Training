@@ -1,4 +1,3 @@
-// @check browser — The trainer's injected call rings every trainee; answered or missed, it counts under Case Calls
 // The injected call (js/cm-case-flow.js, cmCaseFlow.ring): the trainer rings every trainee's LSH Ring Channel.
 // 1. the Worker: a trainee reads call-inject-day<N> (the trainer's shared record) but can't write it;
 // 2. in a browser: the trainee's page rings on its own (any page, within the 15-second check); Decline is a missed call,

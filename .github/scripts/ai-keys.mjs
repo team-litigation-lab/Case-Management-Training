@@ -1,4 +1,3 @@
-// @check node — Gemini key pool (every numbered key is used, keys take turns, a key out of credits rests; Google answered by the test)
 // The Gemini key pool in worker.js, with Gemini faked. Checks the things that keep a whole class
 // using the AI features at once, and that a key out of credits never stops the course:
 //   - every GEMINI_API_KEY secret is in the pool: GEMINI_API_KEY and any numbered one, above 9 too;

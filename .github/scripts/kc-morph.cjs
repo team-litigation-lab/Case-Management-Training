@@ -1,4 +1,3 @@
-// @check browser — The Knowledge Check repaints without rebuilding the page (no flicker; the bomb's fuse survives)
 // The Knowledge Check is repainted without rebuilding the page (gamePaint / paintInto in
 // js/cm-case-flow.js). Every answer, pick and move between questions used to write the whole page back
 // with innerHTML, which threw away and rebuilt every node and showed as a flicker — worst on Day 3,

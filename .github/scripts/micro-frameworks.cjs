@@ -1,4 +1,3 @@
-// @check browser — Micro-frameworks on the lessons (Milestone Steps, Rule vs. Exception, one CM Red Flag a slide with its owner; type ≥ 16px)
 // The three micro-frameworks are on the slides: every lesson the revamp gives a Milestone Steps rail, a Rule vs.
 // Exception callout or a CM Red Flag (build/case-flow/slides/dN.json: milestones, ruleEx, redFlag) draws it, on one of
 // its own slides (no slide is added); no slide carries more than one Red Flag; every Red Flag names its owner; and the

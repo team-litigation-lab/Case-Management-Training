@@ -1,4 +1,3 @@
-// @check browser — Filing the case documents into the CMS, named the firm's way (the CMS answered by the test)
 // 📤 Filing the case documents into the CMS, named the firm's way (js/cm-doc-filing.js).
 //
 // A Case Flow block's documents are filed into the trainee's own case in the CMS: the trainee picks the

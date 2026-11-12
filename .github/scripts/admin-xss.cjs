@@ -1,4 +1,3 @@
-// @check browser — What a trainee writes never runs in a trainer's page (Trainee Feedback, a trainee's submitted files)
 // What a trainee writes never runs in a trainer's page. Trainees write their own records (feedback on the program,
 // files they submitted), and trainers read them in the Admin area, where the trainer's session token lives. This
 // plants hostile records the way an old, never-cleaned record could look (the local server stores writes as sent),

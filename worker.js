@@ -263,31 +263,6 @@ async function readTraineeTokenGrace(env, request) {
   return { role, id: decodeURIComponent(subj) };
 }
 
-/* ---------- 🔖 SCRIPT VERSIONS, AUTOMATIC ----------
-   The pages load their scripts and stylesheets with no version in the address (<script src="/js/cm-case-flow.js">). As the
-   Worker serves a page it adds ?v=<fingerprint> to each local one: the file's content hash (the ETag Cloudflare keeps for
-   every asset), or, where there isn't one, the deployment's id. A browser fetches a script again exactly when its content
-   changed, and no branch ever edits a version number — the lines every branch used to bump, and so collide on, are gone.
-   Worked out once per deployment per Worker instance. .github/scripts/check-site.mjs fails a page that writes ?v= by hand. */
-const STAMPS = new Map();
-const LOCAL_ASSET = /(\b(?:src|href)\s*=\s*(["']))(\/?(?:js|css)\/[^"'?#]+\.(?:m?js|css))(?:\?v=[^"'#]*)?\2/g;
-async function stampAssets(env, request, html) {
-  const deploy = (env.CF_VERSION_METADATA && env.CF_VERSION_METADATA.id) || "dev";
-  const files = [...new Set([...html.matchAll(LOCAL_ASSET)].map((m) => m[3]))];
-  // (remembered per deployment; a local run, with no deployment id, works it out every time so an edited file shows at once)
-  let known = deploy === "dev" ? new Map() : STAMPS.get(deploy);
-  if (!known) { if (STAMPS.size > 4) STAMPS.clear(); known = new Map(); STAMPS.set(deploy, known); }
-  await Promise.all(files.filter((f) => !known.has(f)).map(async (f) => {
-    let v = "";
-    try {
-      const r = await env.ASSETS.fetch(new Request(new URL(f.startsWith("/") ? f : "/" + f, request.url), { method: "HEAD" }));
-      v = String(r.headers.get("ETag") || "").replace(/^W\//, "").replace(/[^A-Za-z0-9]/g, "").slice(0, 16);
-    } catch (e) { v = ""; }
-    known.set(f, v || deploy.replace(/[^A-Za-z0-9]/g, "").slice(0, 16) || "dev");
-  }));
-  return html.replace(LOCAL_ASSET, (all, pre, q, f) => `${pre}${f}?v=${known.get(f)}${q}`);
-}
-
 /* ---------- trainee IDs (must match the portal's generateTraineeId) ---------- */
 function slugPart(t) {
   return String(t || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -1226,25 +1201,13 @@ export default {
         return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nDeployment: ${deployment}\nWorker: secure-mode worker.js\nSecure mode: ${adminPass(env) ? "ON" : "OFF"}\nAdmin password: ${adminPassStatus(env)}\nBackup Drive (Google): ${driveConfigNote(env)}\nAI provider: ${geminiKeyNames(env).length ? "Google Gemini" : (gatewayOn(env) ? "Google Gemini via the Portal's AI gateway" : "none — add GEMINI_API_KEY")}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
       }
       if (!path.startsWith("/api/")) {
-        // (asked without the browser's validators, so a page comes back whole, to be stamped, never as a bare 304)
-        const plain = new Headers(request.headers); plain.delete("If-None-Match"); plain.delete("If-Modified-Since");
-        const res = (await docFromR2(env, request, path)) || (await env.ASSETS.fetch(new Request(request, { headers: plain })));
+        const res = (await docFromR2(env, request, path)) || (await env.ASSETS.fetch(request));
         const type = res.headers.get("Content-Type") || "";
         if (!type.includes("text/html")) return res;
+        // Never let browsers or the edge keep an old copy of the portal page.
         const h = new Headers(res.headers);
-        h.delete("Content-Length"); h.delete("ETag");
-        if (res.status !== 200) { h.set("Cache-Control", "no-cache, no-store, must-revalidate"); return new Response(res.body, { status: res.status, headers: h }); }
-        // 🔖 every local script and stylesheet gets ?v=<its content fingerprint> (stampAssets): nobody writes a version by hand.
-        // The stamped page has its own ETag (the deployment and the page's own fingerprint), so a browser revalidates it
-        // every time (no-cache) and an unchanged page is a 304, not 1.4 MB again; with no deployment id (a local run), no-store.
-        const deploy = env.CF_VERSION_METADATA && env.CF_VERSION_METADATA.id, pageTag = String(res.headers.get("ETag") || "").replace(/^W\//, "").replace(/[^A-Za-z0-9]/g, "");
-        const etag = deploy && pageTag ? `"${String(deploy).replace(/[^A-Za-z0-9-]/g, "")}-${pageTag}"` : "";
-        if (etag) {
-          h.set("Cache-Control", "no-cache"); h.set("ETag", etag);
-          const inm = request.headers.get("If-None-Match") || "";
-          if (inm.split(",").map((x) => x.trim().replace(/^W\//, "")).includes(etag)) { h.delete("Content-Type"); return new Response(null, { status: 304, headers: h }); }
-        } else h.set("Cache-Control", "no-cache, no-store, must-revalidate");
-        return new Response(await stampAssets(env, request, await res.text()), { status: 200, headers: h });
+        h.set("Cache-Control", "no-cache, no-store, must-revalidate");
+        return new Response(res.body, { status: res.status, headers: h });
       }
       if (request.method !== "POST") return json({ error: "POST only" }, 405);
       if (!kv && path.startsWith("/api/storage")) return json({ error: "LSH_KV namespace is not bound on this Worker." }, 500);

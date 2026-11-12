@@ -1,4 +1,3 @@
-// @check node — Linking a trainee's Google Drive (an unticked Drive box or a missing refresh token is cleared for a clean retry, a revoked link keeps the Day 1 grade; Google answered by the test)
 // 📂 Linking a trainee's Google Drive (/api/drive "connect" in worker.js), with Google answered by the test.
 //
 // The ways this breaks are ones a trainee can't read: a sign-in with the Drive box unticked that "connects" and then

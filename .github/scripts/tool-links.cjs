@@ -1,4 +1,3 @@
-// @check node — Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's)
 // Training tools open signed in: no CMS (or Training Portal) log-in page.
 // A trainee signed in on this program opens the CMS and the Portal's simulators already signed in, because
 // every outbound tool link carries a short-lived Portal-style ticket (js/lsh-tool-links.js, /api/auth/tool-ticket).

@@ -1,4 +1,3 @@
-// @check browser — The Case File (the facts are the trainer's; the page fits one screen, trainee and trainer)
 // The Case File page: the facts are the trainer's, and the page fits one screen.
 //
 // The fact cards are the answer key — the audited specials, the fork, Track A's net sheet, how the suit

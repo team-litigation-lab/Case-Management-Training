@@ -8,13 +8,7 @@
     "binding": "ASSETS",
     "run_worker_first": [
       "/decks/*",
-      "/documents/*",
-      "/",
-      "/index.html",
-      "/case-doc.html",
-      "/net-sheet.html",
-      "/case-doc",
-      "/net-sheet"
+      "/documents/*"
     ]
   },
   "kv_namespaces": [

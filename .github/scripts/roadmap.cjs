@@ -1,4 +1,3 @@
-// @check browser — 🗺 Roadmap lists every day and its topics (in place of the day cards' ☰ Topics), and opens a reached topic
 // 🗺 Roadmap (index.html openRoadmap): every day with its topics, as on Foundational Training, in place of each day
 // card's ☰ Topics button. Checks, as a trainee part-way through Day 1:
 //   - the day cards have no ☰ Topics button, and the dashboard has no 🗺 Roadmap pill (it opens from a slide);

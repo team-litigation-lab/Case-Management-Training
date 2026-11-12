@@ -1,4 +1,3 @@
-// @check browser — The Admin screen in sections, as Foundational (section pills, their tabs, a navy banner; opens on Scorecard → Batch Sheet, scores only; every admin action in Admin Master Control)
 // The Admin screen in sections, the Foundational Training way (js/cm-admin-shell.js):
 // 1. a row of section pills in Foundational's order, only the ones this course has (🏅 Scorecard · 🛡 Admin Master Control ·
 //    🔓 Open Lessons), the open section's tabs in a row under them, and a navy banner (.ft-banner) heading the content;

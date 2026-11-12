@@ -1,4 +1,3 @@
-// @check node — The Backup Drive is auto-graded day by day from the Drive itself (Days 2–5, against an in-memory Google Drive)
 // 🏅 The Backup Drive, auto-graded as the trainee goes (driveGrade in worker.js), against an in-memory Google Drive.
 //
 // A grade that can't be earned, or one that a trainee gets without doing the work, fails quietly: nobody sees it

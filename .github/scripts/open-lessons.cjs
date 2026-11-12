@@ -1,4 +1,3 @@
-// @check browser — 🔓 Open Lessons (the trainer opens a Case Flow day for a batch or one trainee; the trainee sees it; a trainee can't write it)
 // 🔓 Open Lessons (js/cm-open-lessons.js, as Foundational Training's): the trainer opens a Case Flow day for All batches
 // or one batch (settings:opendays), or 👤 for one trainee (unlockedDays on their record).
 // 1. the Worker: a trainee reads settings:opendays but can't write it, and can't set unlockedDays / unlockedDaysAt on their

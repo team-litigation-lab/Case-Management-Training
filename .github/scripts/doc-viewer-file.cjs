@@ -1,4 +1,3 @@
-// @check browser — The document viewer offers Download PDF only, and it downloads the PDF
 // ⬇ Download PDF, the document viewer's one action (case-doc.html).
 //
 // A trainee reading a case document beside the slide has one button on the viewer's bar: ⬇ Download PDF, which saves

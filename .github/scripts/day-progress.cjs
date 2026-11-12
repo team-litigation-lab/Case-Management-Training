@@ -1,4 +1,3 @@
-// @check browser — Day cards say where the trainee is (Start, Resume, Retake with the best score, Review)
 // What a day card tells a trainee about their own progress (moduleCard in index.html, and the wrapper
 // in js/cm-updates.js that rewrites it). A Knowledge Check under the pass mark is recorded —
 // progress[day].score keeps the best of every attempt and .history keeps them all — so a day the

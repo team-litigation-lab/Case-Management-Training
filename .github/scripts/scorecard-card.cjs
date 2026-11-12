@@ -1,4 +1,3 @@
-// @check browser — The Scorecard as the trainee card (the 100-point model, its day multipliers, pass at 80% with the safety gate; the trainee's own card, every card for the trainer, the CSV)
 // The Scorecard as Foundational's batch-sheet trainee card, with the client's 100-point model (js/cm-scorecard.js):
 // 1. the model, from records of known shape: the four weights (25/25/30/20), the day multipliers (Day 1 × 1.0, Days 2–3
 //    × 1.15, Days 4–5 × 1.3), Final = Σ(day score × multiplier) ÷ Σ multipliers, the tiers (90/80/65), pass at 80% only

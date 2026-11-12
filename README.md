@@ -434,7 +434,7 @@ git config core.hooksPath .githooks
 
 ## 📉 Staying under Cloudflare's monthly request allowance
 
-The Cloudflare account is on Workers Paid: **10 million requests a month for the whole account**, shared by every LSH site (the courses, the CMS, the Training Portal and the rest). This course's Worker counts for everything under `/api/` and `/version`, and for the three pages (`/`, `case-doc.html`, `net-sheet.html`), which it serves so it can stamp their scripts' versions (*Branches without conflicts* below); an unchanged page is a 304. The scripts and the rest of the static files (`js/`) are free and don't count. `decks/` and `documents/` now come from R2 through the Worker, so each of those files a browser loads (or re-checks) counts too: see *Documents in R2*. Past the allowance, Cloudflare charges for every extra million requests. Usage is under **Workers & Pages** in the Cloudflare dashboard.
+The Cloudflare account is on Workers Paid: **10 million requests a month for the whole account**, shared by every LSH site (the courses, the CMS, the Training Portal and the rest). This course's Worker counts for everything under `/api/` and `/version`; static files (the page, `js/`) are free and don't count. `decks/` and `documents/` now come from R2 through the Worker, so each of those files a browser loads (or re-checks) counts too: see *Documents in R2*. Past the allowance, Cloudflare charges for every extra million requests. Usage is under **Workers & Pages** in the Cloudflare dashboard.
 
 So an open page asks the server sparingly (`POLL` in `index.html`), and not at all while its tab is in the background. When it's back, whatever came due runs then; a quick look at another tab (Google Meet) asks nothing:
 
@@ -490,21 +490,13 @@ The document-heavy folders (`decks/`, `documents/`) are kept in **Cloudflare R2*
   - a server that doesn't answer doesn't sign the trainee out; a revoke does;
   - the Trainee Audit reads every trainee in two requests, and its progress columns in one.
 
-**Every check declares itself** on one line near its top (`// @check node — what it checks`, or `// @check browser — …` for one that drives the page through `.github/scripts/server.mjs`), and `.github/scripts/run-checks.mjs` finds and runs them all, so adding a check is adding a file: `checks.yml` doesn't change. To run them locally: `node .github/scripts/run-checks.mjs node`, and `node .github/scripts/run-checks.mjs browser` (needs Playwright; it starts the local server itself).
+To run them locally: `node .github/scripts/check-site.mjs`, `node .github/scripts/tool-links.cjs`, `node .github/scripts/check-data.mjs`, then `node .github/scripts/server.mjs 8787 &` and `node .github/scripts/smoke.cjs http://localhost:8787/` and `node .github/scripts/presenter.cjs http://localhost:8787/ 12` and `node .github/scripts/requests.cjs http://localhost:8787/` and `node .github/scripts/exhibit-audit.cjs http://localhost:8787/` (needs Playwright).
 
 **About the "Workers Builds: case-management-training" check on pull requests:** Cloudflare's preview build for non-`main` branches fails instantly and posts no log. The code builds (a `wrangler deploy --dry-run` passes) and `main` deploys normally. Fix or turn it off in the Cloudflare dashboard → Workers & Pages → case-management-training → Settings → Build:
 - open the failed build's log to see the reason;
 - or turn off **Builds for non-production branches**.
 
 Until then, go by **Checks**.
-
-## 🔀 Branches without conflicts
-
-Several branches are worked on at once, so the repository keeps the things they used to collide on out of their way:
-
-- **No version numbers by hand.** The pages load their scripts as `<script src="/js/cm-case-flow.js">`, with no `?v=`. The Worker adds each file's content fingerprint as it serves the page (`worker.js` `stampAssets`), so a browser fetches a script again exactly when it changed. `check-site.mjs` fails a page that writes `?v=` by hand.
-- **No list of checks to edit.** A check declares itself (`// @check …`, see *Checks*); `checks.yml` runs whatever declares itself.
-- **No generated file merged by hand.** To bring `main` into a branch, run `node .github/scripts/merge-main.mjs`: it merges, rebuilds the generated files (the assembled slides, trainer scripts, simulation, companion cases, exhibits and curriculum documents) from the merged sources instead of merging them, settles a script-list or `?v=` conflict on a page, runs the node checks and commits. Only a real conflict is left for you, listed.
 
 ## Deploy (Cloudflare Workers)
 

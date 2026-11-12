@@ -1,4 +1,3 @@
-// @check node — Case documents and handouts exist, document references resolve
 // Course data checks (run by .github/workflows/checks.yml).
 // Every case document and handout the portal links to must exist in documents/,
 // document ids must be unique, and every document packet a Skill Builder opens
