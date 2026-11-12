@@ -5,7 +5,8 @@
 //     not begun                 → Start
 //     slides worked             → Continue, with how far the slides got
 //     Knowledge Check under 70% → Continue, with the score and the 70% pass mark on the card
-//     passed                    → Review
+//     the whole deck seen       → Review
+//     passed                    → Review (back into the day's slides), with Review Score and Retake under it
 // and that a failing attempt is kept on the record at all (the best score is never lowered).
 // Usage: node .github/scripts/day-progress.cjs [baseUrl]   (needs `npm i playwright` and a browser)
 const { chromium } = require('playwright');
@@ -61,8 +62,14 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
     if (!/Knowledge Check 65%/.test(under.card)) fail(`the card should show the best score of a day not yet passed: "${under.card.slice(0, 160)}"`);
     if (!/70% to pass/.test(under.card)) fail(`the card should say what the pass mark is: "${under.card.slice(0, 160)}"`);
 
+    // the whole deck seen (the last slide reached), Knowledge Check not passed yet: Review
+    const lastIdx = await page.evaluate(() => buildDaySlides(DAYS[0]).length - 1);
+    const seenAll = await card(null, lastIdx);
+    if (seenAll.cta !== 'Review') fail(`a day whose whole deck has been seen should say "Review", says "${seenAll.cta}"`);
+
     const passed = await card({ done: true, score: 85, date: new Date().toISOString(), history: [{ score: 85, passed: true }] }, 20);
-    if (passed.cta !== 'Review') fail(`a day passed should say "Review", says "${passed.cta}"`);
+    if (passed.cta !== 'Review') fail(`a day passed should say "Review" (back into its slides), says "${passed.cta}"`);
+    if (!/Review Score/.test(passed.card) || !/Retake/.test(passed.card)) fail(`a day passed should keep Review Score and Retake: "${passed.card.slice(0, 160)}"`);
     if (!/Completed/i.test(passed.card)) fail(`a day passed should say Completed: "${passed.card.slice(0, 120)}"`);
 
     // a failing attempt is kept on the record, with the best score, and never lowers it
@@ -81,6 +88,6 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
 
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-    console.log('Day cards tell the trainee where they are: Start, Continue with how far the slides got and the Knowledge Check score beside the 70% pass mark, or Review; a failing attempt is kept and never lowers the best score.');
+    console.log('Day cards tell the trainee where they are: Start, Continue with how far the slides got and the Knowledge Check score beside the 70% pass mark, or Review once the deck is finished or the day passed (with Review Score and Retake); a failing attempt is kept and never lowers the best score.');
     console.log('All good.');
 })().catch(e => { console.error(e); process.exit(1); });
