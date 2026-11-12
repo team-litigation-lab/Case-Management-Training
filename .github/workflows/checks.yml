@@ -26,30 +26,8 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
-      - name: JavaScript syntax, local files, JSON
-        run: node .github/scripts/check-site.mjs
-      - name: Batch IDs are B + MMDDYY (the page and the Worker read them the same way; older codes keep working)
-        run: node .github/scripts/batch-id.cjs
-      - name: Single sign-on (the Portal is the only way a trainee gets in; a missing PORTAL_SSO_SECRET says so)
-        run: node .github/scripts/sso.cjs
-      - name: Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400)
-        run: node .github/scripts/worker-guards.cjs
-      - name: 📐 Rubric guards (a rubric score is the trainer's; a trainee's own auto-scored results go on their own progress record only)
-        run: node .github/scripts/rubric-guards.cjs
-      - name: Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's)
-        run: node .github/scripts/tool-links.cjs
-      - name: Gemini key pool (every numbered key is used, keys take turns, a key out of credits rests; Google answered by the test)
-        run: node .github/scripts/ai-keys.mjs
-      - name: Case documents and handouts exist, document references resolve
-        run: node .github/scripts/check-data.mjs
-      - name: The trainee's Backup Drive (the firm's folder structure, where a filed document lands, and the Day 1 grading)
-        run: node .github/scripts/cm-drive.cjs
-      - name: Linking a trainee's Google Drive (an unticked Drive box or a missing refresh token is cleared for a clean retry, a revoked link keeps the Day 1 grade; Google answered by the test)
-        run: node .github/scripts/drive-connect.cjs
-      - name: The Backup Drive is auto-graded day by day from the Drive itself (Days 2–5, against an in-memory Google Drive)
-        run: node .github/scripts/drive-grades.cjs
-      - name: The firm's file naming convention on the Backup Drive (one rule with the CMS filing; every name read in the grade's own calls, each wrong one with its folder, the name it should have and the differing part; 12 of each day's 60 points; against an in-memory Google Drive)
-        run: node .github/scripts/drive-naming.cjs
+      - name: Every node check in .github/scripts (each declares itself with "// @check node — …"; see run-checks.mjs)
+        run: node .github/scripts/run-checks.mjs node
       - name: Case Flow curriculum (rhythm, six components, 60/40 rubrics, every existing topic carried)
         run: node build/case-flow/curriculum.cjs --check
       - name: Case Flow slides (concise copy in the spec's limits, the assembled file in step)
@@ -74,10 +52,6 @@ jobs:
             git diff --stat
             exit 1
           fi
-      - name: Case Flow dates roll forward exactly (weekdays, the two-year SOL, holidays; no date left behind)
-        run: node .github/scripts/check-case-dates.mjs
-      - name: Documents served from R2 (ranges, 304s, static assets as the fallback)
-        run: node .github/scripts/r2-docs.mjs
       - name: Build the Worker without deploying (wrangler dry run)
         run: npx --yes wrangler@4 deploy --dry-run --outdir "$RUNNER_TEMP/dist"
 
@@ -94,130 +68,7 @@ jobs:
         run: |
           npm install --no-save --no-package-lock --prefix "$RUNNER_TEMP/pw" playwright@1.56.1 jspdf@4.2.1
           "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps chromium
-      - name: Sign in, render every day, page and tool (desktop and phone)
+      - name: Every browser check in .github/scripts, against the local Worker (each declares itself with "// @check browser — …"; see run-checks.mjs)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: |
-          node .github/scripts/server.mjs 8787 > "$RUNNER_TEMP/server.log" 2>&1 &
-          sleep 2
-          node .github/scripts/smoke.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: Log Your Work takes the CMS Case ID from the CMS (the CMS answered by the test)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/cms-case.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: The admin side is not the trainee's (no admin log-in, view or trainer's notes for a trainee)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/trainee-side.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: One tools access per Practice Lab session (not on every activity row)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/practice-tools.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: The Knowledge Check repaints without rebuilding the page (no flicker; the bomb's fuse survives)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/kc-morph.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: Day cards say where the trainee is (Start, Resume, Retake with the best score, Review)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/day-progress.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: The Case File (the facts are the trainer's; the page fits one screen, trainee and trainer)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/case-file.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: Filing the case documents into the CMS, named the firm's way (the CMS answered by the test)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/doc-filing.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: The exhibit audit, the completed package and the Service Confirmation (the set audited, the finished set revealed, the service confirmation filed and backed up; the CMS answered by the test)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/exhibit-audit.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: The pre-demand Amendment Requests (records screened, requests refused until complete, the corrected copy opened, filed and fed back; the CMS answered by the test)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/amend-requests.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: The document viewer offers Download PDF only, and it downloads the PDF
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/doc-viewer-file.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: Notes & Action Plan (the voicemail transcribed and graded, every attempt, and the plan graded with their answer keys; the plan worked in the Email Simulator)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/notes-plan.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: Uploading a drafted letter in the CMS, under the right tab and the firm's convention (the CMS answered by the test)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/cms-upload.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: Relaying a Portal simulator's document to the CMS (the records simulator's records and bills reach the CMS beside the lesson; only the Portal may ask)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/doc-relay.cjs
-      - name: Presenter view (the slides window shared in Meet never flickers)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/presenter.cjs http://localhost:8787/ 12 || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: Server requests (sparing, batched, none in the background)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/requests.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: Graded calls from the CMS Call Simulator (read only by the trainee; the dashboard's Graded calls card)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/graded-calls.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: Day 1's Backup File Maintenance slide is the Backup Drive task, the retired link-based case folder stays gone, and the naming convention box is on the slide, every Backup File Maintenance task and the Backup Drive panel
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/drive-slide.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: The Admin screen in sections, as Foundational (section pills, their tabs, a navy banner; opens on Scorecard → Batch Sheet, scores only; every admin action in Admin Master Control)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/admin-shell.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: The Trainee Audit is one table (the name opens the detail, Reset beside it, Approve / Reject / Revoke as buttons; Companion Cases its own table)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/trainee-audit.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: The trainer's injected call rings every trainee; answered or missed, it counts under Case Calls
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/ring-inject.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: 🔓 Open Lessons (the trainer opens a Case Flow day for a batch or one trainee; the trainee sees it; a trainee can't write it)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/open-lessons.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: The Scorecard as the trainee card (the 100-point model, its day multipliers, pass at 80% with the safety gate; the trainee's own card, every card for the trainer, the CSV)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/scorecard-card.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: 📐 The Feedback Rubric, the CMS Case File grade, graded transcription and every simulator on the scorecard (the composer's rubric counts once sent; the Batch Sheet and its CSV carry every system)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/scoring-rubric.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: 🗺 Roadmap lists every day and its topics (in place of the day cards' ☰ Topics), and opens a reached topic
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/roadmap.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: What a trainee writes never runs in a trainer's page (Trainee Feedback, a trainee's submitted files)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/admin-xss.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: One batch whichever way its Batch ID was saved (B250926 and B092526 are both B092526 on the admin pages)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/batch-group.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: Every slide fits on one screen (laptop and large screen, every page of every day)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/fit.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: Micro-frameworks on the lessons (Milestone Steps, Rule vs. Exception, one CM Red Flag a slide with its owner; type ≥ 16px)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/micro-frameworks.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: Every page fits one screen (the window never scrolls; a long page scrolls inside its body)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/one-screen.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: Blueprints (the Trainer blueprint and its PDF; the Trainee blueprint republished after every deploy)
-        env:
-          NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/blueprint.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+        run: node .github/scripts/run-checks.mjs browser

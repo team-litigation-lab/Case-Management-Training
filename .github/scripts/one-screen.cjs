@@ -1,3 +1,4 @@
+// @check browser — Every page fits one screen (the window never scrolls; a long page scrolls inside its body)
 // Every page fits one screen (js/lsh-one-screen.js): on a laptop and on a large screen the window itself
 // never scrolls — the top bar and the footer line keep their place and the page's body takes the height
 // between them. A page with more in it than fits (Case Documents, the Practice Lab, the Training Tools, a

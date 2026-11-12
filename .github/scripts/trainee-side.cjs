@@ -1,3 +1,4 @@
+// @check browser — The admin side is not the trainee's (no admin log-in, view or trainer's notes for a trainee)
 // The admin side is not the trainee's (traineeSide in index.html).
 // A signed-in trainee must never be offered an admin log-in, an admin view, or a trainer's notes —
 // they see their own record and nothing else. The check runs with state.portalOnly FALSE, which is the

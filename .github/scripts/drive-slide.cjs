@@ -1,3 +1,4 @@
+// @check browser — Day 1's Backup File Maintenance slide is the Backup Drive task, the retired case folder stays gone, and the 🏷 naming convention box is where the drive is worked on
 // Day 1's case backup is the Backup Drive (js/cm-drive.js), and only the Backup Drive:
 // 1. the deck: Day 1's Backup File Maintenance "Your Case" slide shows the Backup Drive task's four steps and the
 //    firm's standard as the Worker keeps it;

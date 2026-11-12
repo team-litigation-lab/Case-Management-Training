@@ -1,3 +1,4 @@
+// @check node — Single sign-on (the Portal is the only way a trainee gets in; a missing PORTAL_SSO_SECRET says so)
 // Single sign-on: the LSH Training Portal is the only way a trainee gets into this program.
 //   1. With an admin password set, single sign-on is on whether or not PORTAL_SSO_SECRET is — a name + batch
 //      typed at /api/auth/trainee is refused (403 portal-required), so opening this site directly gives a

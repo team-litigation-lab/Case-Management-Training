@@ -1,3 +1,4 @@
+// @check browser — 📐 The Feedback Rubric, the CMS Case File grade, graded transcription and every simulator on the scorecard (the composer's rubric counts once sent; the Batch Sheet and its CSV carry every system)
 // 📐 The Feedback Rubric, the CMS Case File grade, graded transcription and every simulator on the scorecard
 // (js/cm-rubric.js, js/cm-cms-file.js, js/cm-case-flow.js Notes & Action Plan, js/cm-scorecard.js SOURCES, js/cm-batch-sheet.js):
 // 1. the rubric: four dimensions 25 / 25 / 30 / 20 points, four tiers (Exemplary 90 · Proficient 80 · Developing 65 ·

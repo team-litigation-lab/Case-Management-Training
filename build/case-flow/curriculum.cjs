@@ -165,7 +165,7 @@ else {
   // Day 1 opens with the client (Meet Your Case), then the Case Manager's introduction, then the lessons
   const d1 = ((CF.sequence.find(d => d.n === 1) || {}).phases || []).flatMap(p => p.blocks);
   if(d1[0] !== "d1m1-case" || d1[1] !== "d1m1-role") errors.push(`sequence Day 1: must open with d1m1-case, then d1m1-role (it opens ${d1.slice(0, 2).join(", ")})`);
-  if(STORED["d1m1-role"] && !STORED["d1m1-role"].b.noGame) errors.push("d1m1-role: needs noGame (no 3 Clues before Meet Your Case)");
+  if(STORED["d1m1-role"] && !STORED["d1m1-role"].b.noGame) errors.push("d1m1-role: needs noGame (no Do & Don't slide before Meet Your Case)");
   const before = (a, b) => a[0] - b[0] || a[1] - b[1] || a[2] - b[2];
   CF.days.forEach(day => day.modules.forEach(mod => {
     const kc = mod.blocks.find(b => b.kind === "check"), t = kc && TAUGHT[kc.id];

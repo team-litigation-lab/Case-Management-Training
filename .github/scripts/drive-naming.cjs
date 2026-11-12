@@ -1,3 +1,4 @@
+// @check node — The firm's file naming convention on the Backup Drive (one rule with the CMS filing; every name checked, each wrong one with the name it should have)
 // 🏷 The firm's file naming convention on the Backup Drive (FILE_NAME_PATTERN, nameCheck, driveNaming in worker.js),
 // against an in-memory Google Drive.
 //

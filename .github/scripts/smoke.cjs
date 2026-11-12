@@ -1,3 +1,4 @@
+// @check browser — Sign in, render every day, page and tool (desktop and phone)
 // Smoke test: signs in as a trainee, renders every lesson slide and quiz of every
 // day, every page and every practice tool (all parts), at desktop and phone width.
 // Fails on any page error, console error or render exception.
