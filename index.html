@@ -12442,7 +12442,12 @@ async function loadDriveReports(force){
   if(state.driveReportsLoading) return;
   if(!force && state.driveReportsAt && Date.now()-state.driveReportsAt < 60000) return;
   state.driveReportsLoading = true;
-  try{ const j = await driveAdminApi({action:"reportAll", traineeIds: recs.map(r=>r.id)}); Object.assign(state.driveReports, j.reports || {}); state.driveReportsAt = Date.now(); }
+  try{ const j = await driveAdminApi({action:"reportAll", traineeIds: recs.map(r=>r.id)}); const reps = j.reports || {};
+    // 🏷 the list carries each trainee's counts of wrong names, not the names: the ones already read for a trainee
+    // (their own report) are kept for as long as the list speaks of the same check of the drive
+    Object.keys(reps).forEach(id=>{ const was = (state.driveReports[id] || {}).naming, now = reps[id] && reps[id].naming;
+      if(was && now && Array.isArray(was.list) && !Array.isArray(now.list) && was.at === now.at) now.list = was.list; });
+    Object.assign(state.driveReports, reps); state.driveReportsAt = Date.now(); }
   catch(e){ state.driveReportsAt = Date.now(); }
   finally{ state.driveReportsLoading = false; }
   const wrap = document.getElementById("adminRowsWrap"); if(wrap && state.view==="admin" && !isTyping()) wrap.innerHTML = renderAdminRows();
@@ -12458,10 +12463,30 @@ function driveCompetency(rep, filedCount){
   if((rep.missing||[]).length) why.push(`${rep.missing.length} folder${rep.missing.length===1?"":"s"} missing on the last check`);
   if(!rep.copies) why.push("no filed documents backed up yet");
   else if(filedCount > rep.copies) why.push(`${filedCount - rep.copies} filed document${filedCount - rep.copies===1?"":"s"} not backed up`);
-  const misnamed = (rep.naming && Number(rep.naming.wrong)) || 0;   // 🏷 the Worker's last check of every name on the drive
+  const misnamed = driveNamesCharged(rep);   // 🏷 the Worker's last check of every name on the drive
   if(misnamed) why.push(`${misnamed} name${misnamed===1?"":"s"} not the firm's way`);
   return why.length ? {level:"Developing", color:"var(--warn, #B7791F)", why: why.join(" · ")}
-    : {level:"Proficient", color:"var(--success)", why:"Structure built to standard, every folder in place, filed documents backed up in their folders, every file named the firm's way."};
+    : {level:"Proficient", color:"var(--success)", why: Number(rep.naming && rep.naming.wrong) > 0   // names to rename that no grade is lower for
+        ? "Structure built to standard, every folder in place, filed documents backed up in their folders, no name the grade counts is wrong."
+        : "Structure built to standard, every folder in place, filed documents backed up in their folders, every file named the firm's way."};
+}
+/* 🏷 The wrong names a grade is lower for. The Worker's `wrong` counts every name to rename; `unscored` of them are not
+   charged (a copy the platform named itself, anything made before names were graded): no issue of the trainee's. */
+function driveNamesCharged(rep){
+  const N = rep && rep.naming;
+  return N ? Math.max(0, (Number(N.wrong) || 0) - (Number(N.unscored) || 0)) : 0;
+}
+/* 🏷 Each wrong name is in the trainee's own report, not in the list of trainees: read once, when a detail that has
+   names to list is opened (and again only when the drive has been checked since). */
+async function loadDriveNames(id){
+  const rep = state.driveReports[id], N = rep && rep.naming;
+  if(!N || !(Number(N.wrong) > 0) || Array.isArray(N.list) || rep.namesAsked === (N.at || "-")) return;
+  rep.namesAsked = N.at || "-";
+  let full = null;
+  try{ full = (await driveAdminApi({action:"report", traineeId:id})).report || null; }catch(e){ /* said in the row: 🏅 Grade now lists them */ }
+  if(full){ if(full.naming && !Array.isArray(full.naming.list)) full.naming.list = []; state.driveReports[id] = Object.assign(full, {namesAsked: rep.namesAsked}); }
+  else rep.namesFailed = rep.namesAsked;
+  const wrap = document.getElementById("adminRowsWrap"); if(wrap && state.view==="admin" && state.adminExpandedId===id && !isTyping()) wrap.innerHTML = renderAdminRows();
 }
 function renderDriveChip(rec){
   const rep = state.driveReports[rec.id];
@@ -12470,7 +12495,7 @@ function renderDriveChip(rec){
   if(!rep.connected){ label = "Not connected"; color = "var(--ink-soft)"; }
   else if(!rep.builtAt){ label = "Connected"; color = "var(--navy)"; }
   else if((rep.missing||[]).length){ label = `${rep.missing.length} folder${rep.missing.length===1?"":"s"} missing`; color = "var(--danger)"; }
-  else if(rep.naming && Number(rep.naming.wrong) > 0){ const n = Number(rep.naming.wrong); label = `🏷 ${n} name${n===1?"":"s"} wrong`; color = "var(--danger)"; names = true; }
+  else if(driveNamesCharged(rep) > 0){ const n = driveNamesCharged(rep); label = `🏷 ${n} name${n===1?"":"s"} wrong`; color = "var(--danger)"; names = true; }
   else { label = "Structure ✓"; color = "var(--success)"; }
   return ` <span class="pill drv-chip${names ? " drv-chip-names" : ""}" style="font-size:${names ? "14px" : "10px"};font-weight:${names ? 800 : 700};color:${color};border:1px solid currentColor;background:transparent;" title="Backup Drive">📂 Drive: ${label}</span>`;
 }
@@ -12502,7 +12527,11 @@ function renderDriveNaming(rep){
   // files and folders are said apart when the Worker counts them apart; the differing pieces are marked as on the trainee's own list (js/cm-drive.js)
   const W = window.CMDrive && CMDrive.wrongOf ? CMDrive.wrongOf(N) : {n: wrong, words: `${wrong} name${wrong===1?"":"s"}`};
   const lines = (x)=> window.CMDrive && CMDrive.nameLines ? CMDrive.nameLines(x) : {is: esc(x.name), want: esc(x.want || "")};
-  return row("🏷 File names", W.n ? `<span style="color:var(--danger);">${W.words} named wrong</span> · ${Number(N.named) || 0} of ${Number(N.checked) || 0} file${N.checked===1?"":"s"} right${N.at ? ` · ${fmtDate(N.at)}` : ""}`
+  // names the grade doesn't charge (the Worker's `unscored`) are to rename, and not the trainee's fault: not in red
+  const free = Math.min(W.n, Math.max(0, Number(N.unscored) || 0)), charged = W.n - free;
+  // the list of trainees carries the counts only: each name is read when this detail opens (loadDriveNames)
+  const asked = Array.isArray(N.list) || !W.n ? "" : rep.namesFailed === (N.at || "-") ? "🏅 Grade now lists each name" : "reading each name…";
+  return row("🏷 File names", W.n ? `<span style="color:${charged ? "var(--danger)" : "var(--ink-soft)"};">${W.words} ${charged ? "named wrong" : "to rename"}</span>${free ? ` (${charged ? `${free} not counted in the grade` : "not counted in the grade"})` : ""} · ${Number(N.named) || 0} of ${Number(N.checked) || 0} file${N.checked===1?"":"s"} right${N.at ? ` · ${fmtDate(N.at)}` : ""}${asked ? ` · <span class="drv-adm-asked" style="color:var(--ink-soft);">${asked}</span>` : ""}`
       : N.checked ? `<span style="color:var(--success);">all ${Number(N.checked)} named the firm's way</span>${N.at ? ` · ${fmtDate(N.at)}` : ""}` : `<span style="color:var(--ink-soft);">No file on the drive yet</span>`)
     + (list.length ? `<ul class="drv-adm-names" style="margin:4px 0 8px 18px;padding:0;font-size:14px;font-weight:700;line-height:1.45;color:var(--navy);">${list.slice(0, 12).map(x=>{ const L = lines(x);
         return `<li style="margin-bottom:6px;"><span style="color:var(--danger);">✗ ${x.kind === "folder" ? "Folder in" : "In"} ${esc(x.folder)}:</span> <code style="font-size:14px;font-weight:700;overflow-wrap:anywhere;">${L.is}</code>${x.scored === false ? ` <span class="drv-adm-free" style="font-size:14px;font-weight:700;color:var(--ink-soft);">(not counted in the grade)</span>` : ""}${L.want ? `<br>should be <code style="font-size:14px;font-weight:700;overflow-wrap:anywhere;">${L.want}</code>` : ""}${x.hint ? `<br><span style="color:var(--orange-deep,#B9610F);">👉 ${esc(x.hint)}</span>` : ""}</li>`; }).join("")}${W.n > 12 ? `<li>…and ${W.n - 12} more.</li>` : ""}</ul>` : "")
@@ -12515,6 +12544,7 @@ function renderAdminDrivePanel(rec){
   const x = state.auditExtra[rec.id], log = ((x && x.data) || {})["doc-filing"] || {};
   const filed = Object.keys(log).filter(id=>log[id] && log[id].filed).length;
   const comp = driveCompetency(rep, filed);
+  setTimeout(()=>loadDriveNames(rec.id), 0);   // 🏷 each wrong name, when there are any and they aren't here yet
   const tries = rep.tries || [];
   const firstOk = tries.length && tries[0].ok;
   const line = (k, v)=>`<div style="display:flex;justify-content:space-between;gap:12px;font-size:12.5px;padding:4px 0;border-bottom:1px dashed var(--line);"><span>${k}</span><span style="text-align:right;">${v}</span></div>`;

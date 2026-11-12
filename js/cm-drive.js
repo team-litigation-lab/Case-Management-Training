@@ -417,7 +417,7 @@ function dayRecord(g){
   g = g || {};
   const rows = g.rows || [], nm = rows.find(r=>r && r.label === NAMES_ROW), sent = g.names && typeof g.names === "object" ? g.names : null;
   const names = sent ? {got:Number(sent.got) || 0, max:Number(sent.max) || 0, wrong:Number(sent.wrong) || 0}
-    : nm ? {got:Number(nm.got) || 0, max:Number(nm.max) || 0, wrong:wrongNames()} : null;
+    : nm ? {got:Number(nm.got) || 0, max:Number(nm.max) || 0, wrong:wrongOf((rule() || {}).report).charged} : null;
   const issues = (Array.isArray(g.issues) ? g.issues : notesOf(namesFirst(rows))).slice(0, 4).map(t=>String(t).slice(0, 300));
   return Object.assign({score:g.score, passed:g.passed, at:g.at, issues}, names ? {names} : {});
 }
@@ -561,14 +561,17 @@ function slide(){
 const E = esc;
 const rule = ()=> (D && D.naming) || (STD && STD.naming) || null;
 /* How many names are wrong, and in words. The Worker counts files and folders apart (wrongFiles, wrongFolders), and they
-   are said apart: "6 files and 1 folder". A report from before it did has the one number: "7 names". */
+   are said apart: "6 files and 1 folder". A report from before it did has the one number: "7 names".
+   `unscored` of them are listed for the trainee to rename and cost no points (the Worker's `unscored`: a copy the
+   platform named itself, anything made before names were graded); `charged` is the rest, the ones a grade is lower for. */
 function wrongOf(R){
   R = R || {};
   const apart = typeof R.wrongFiles === "number" || typeof R.wrongFolders === "number";
   const files = apart ? Math.max(0, Number(R.wrongFiles) || 0) : 0, folders = apart ? Math.max(0, Number(R.wrongFolders) || 0) : 0;
   const n = apart ? files + folders : Math.max(0, Number(R.wrong) || 0);
   const count = (k, word)=> k ? `${k} ${word}${k === 1 ? "" : "s"}` : "";
-  return {n, files, folders, apart, words: !n ? "" : apart ? [count(files, "file"), count(folders, "folder")].filter(Boolean).join(" and ") : count(n, "name")};
+  const unscored = Math.min(n, Math.max(0, Number(R.unscored) || 0));
+  return {n, files, folders, apart, unscored, charged: n - unscored, words: !n ? "" : apart ? [count(files, "file"), count(folders, "folder")].filter(Boolean).join(" and ") : count(n, "name")};
 }
 const wrongNames = ()=> wrongOf((rule() || {}).report).n;
 /* ✗ N names to fix · 📂 Open My Backup Drive: where the trainee is working (a slide, the dashboard card). It opens the
@@ -604,7 +607,12 @@ function exampleFor(day){
   const ext = d ? (/\.([A-Za-z0-9]{1,8})$/.exec(String(d.file || "")) || [])[1] : "pdf";
   return {title: d ? String(d.title || "") : "a medical record", name: nameFor({category, ext, example:true})};
 }
-const weightLine = ()=>{ const N = rule(); return N && N.points ? `🏷 File names are <b>${N.points} of the ${N.of} points</b> the platform grades on each day's Backup File Maintenance.` : ""; };
+/* What the names count for: the Worker's points, of the points it grades. It says each day's own total too (`ofDay`):
+   on Day 5 it grades 48, the rubric's last row being the trainee's Case Notes, so there the names are 12 of 48. */
+const weightOf = (day)=>{ const N = rule() || {}; return (N.ofDay && Number(N.ofDay[day])) || N.of; };
+const weightLine = ()=>{ const N = rule(); if(!N || !N.points) return "";
+  const other = Object.keys(N.ofDay || {}).sort().filter(d=>Number(N.ofDay[d]) && Number(N.ofDay[d]) !== Number(N.of));
+  return `🏷 File names are <b>${N.points} of the ${N.of} points</b> the platform grades on each day's Backup File Maintenance${other.length ? ` (${other.map(d=>`of ${Number(N.ofDay[d])} on Day ${E(d)}`).join(", ")})` : ""}.`; };
 /* The 🏷 box. `day` picks the example (0: the drive as a whole). Its forms (data-f, so it is redrawn in place as what it is
    when the rule, the Case ID or the count of names to fix arrives):
      ""        the panel: the pattern, the example, the parts, the labels, the weight and the scope;
@@ -643,7 +651,7 @@ function namingBox(o){
     const fix = fixLine();
     return `<div class="${cls}" ${attrs}><div class="drv-nc-r">
       ${fix ? `<b class="drv-nc-h" title="Naming convention">🏷</b>${fix}` : `<b class="drv-nc-h">🏷 Naming convention</b>`}<code class="drv-nc-pat">${pat}</code>${copyEx}
-      ${!fix && day > 1 && N.points ? `<span class="drv-nc-pts" title="File names are ${N.points} of the ${N.of} points the platform grades on each day's Backup File Maintenance">🏅 ${N.points} of the ${N.of} points</span>` : ""}
+      ${!fix && day > 1 && N.points ? `<span class="drv-nc-pts" title="File names are ${N.points} of the ${weightOf(day)} points the platform grades on Day ${day}'s Backup File Maintenance">🏅 ${N.points} of the ${weightOf(day)} points</span>` : ""}
     </div></div>`;
   }
   const labels = (N.labels || []).map(([word, add, what])=>`<span><code>…${E(add)}.pdf</code> ${E(what)}</span>`).join("");
@@ -708,6 +716,7 @@ function markName(name, issues, cls, asIs){
     const here = asIs ? i.got : i.should;   // the piece as this name has it: nothing to mark where the piece isn't in it
     if(i.part === "ext" || i.n === "ext"){ if(here == null || here !== "") extHit = true; }
     else if(i.part === "parts" || i.n === 0) whole = true;   // not a piece: the name as a whole (its pieces run together, or split)
+    else if(i.part === "label" && here && parts.lastIndexOf(String(here)) >= 4) hit.add(parts.lastIndexOf(String(here)));   // the label is where it stands in this name (a counter the CMS put after the date may come before it in one name and not the other)
     else if(Number(i.n) >= 1 && (here == null || here !== "")) hit.add(Number(i.n) - 1);
   });
   if(whole) return m(s);
@@ -733,7 +742,7 @@ function namingReport(){
   const all = R.checked || 0, W = wrongOf(R), bad = W.n, list = R.list || [];
   return `<div class="drv-nr" tabindex="-1">
     <div class="drv-nr-h">🏷 File names <span class="drv-score ${bad ? "is-low" : "is-pass"}">${bad ? `${W.words} to fix` : "all named the firm's way"}</span></div>
-    <p class="drv-nr-sub">${all ? `${R.named} of ${all} file${all === 1 ? "" : "s"} named the firm's way` : "No file is on your drive yet"}${W.folders ? ` · ${W.folders} folder${W.folders === 1 ? "" : "s"} renamed` : ""}${R.at ? ` · checked ${E(new Date(R.at).toLocaleString())}` : ""}</p>
+    <p class="drv-nr-sub">${all ? `${R.named} of ${all} file${all === 1 ? "" : "s"} named the firm's way` : "No file is on your drive yet"}${W.folders ? ` · ${W.folders} folder${W.folders === 1 ? "" : "s"} renamed` : ""}${W.unscored ? ` · ${W.unscored < bad ? `${W.unscored} of the ${bad} not counted in your grade` : bad === 1 ? "it is not counted in your grade" : `none of the ${bad} is counted in your grade`}` : ""}${R.at ? ` · checked ${E(new Date(R.at).toLocaleString())}` : ""}</p>
     ${list.map(x=>{ const L = nameLines(x), free = x.scored === false;
       return `<div class="drv-nr-it${free ? " is-free" : ""}">
       <div class="drv-nr-f">✗ ${x.kind === "folder" ? "Folder in" : "In"} <b>${E(x.folder)}</b>${free ? `<span class="drv-nr-free" title="The platform named this copy itself, before the convention was checked. Rename it to keep your drive in order: it does not lower your grade.">not counted in your grade</span>` : ""}</div>

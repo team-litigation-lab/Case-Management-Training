@@ -87,7 +87,8 @@ const failures = []; const fail = (m) => failures.push(m);
         box = await boxOf('#lessonSlideWrap .drv-nc');
         if (!box) { fail(`Day ${n}'s Backup File Maintenance task has no 🏷 naming convention box`); continue; }
         if (box.pattern !== PATTERN || !NAME.test(box.copy)) fail(`Day ${n}'s 🏷 box should show the pattern and an example to copy: "${box.pattern}" / "${box.copy}"`);
-        if (!/12 of the 60/.test(box.text)) fail(`Day ${n}'s 🏷 box should say what the names count for: "${box.text.slice(0, 200)}"`);
+        // of the points the Worker grades that day (its `ofDay`): 60 on Days 2, 3 and 4, 48 on Day 5
+        if (!(n === 5 ? /12 of the 48 points/ : /12 of the 60 points/).test(box.text)) fail(`Day ${n}'s 🏷 box should say what the names count for (12 of the ${n === 5 ? 48 : 60} points the Worker grades that day): "${box.text.slice(0, 200)}"`);
         // the labels that go last: from Day 3, at the end of the Practice Lab line (the row has the room for them)
         const labels = await page.evaluate(() => { const e = document.querySelector('#lessonSlideWrap .cfx-do-now .drv-nc-lb'); return e && !e.hidden ? e.innerText : ''; });
         if (n >= 3 && (!/_DRAFT\.pdf/.test(labels) || !/_SUPERSEDED-<YYYY-MM-DD>\.pdf/.test(labels) || !/label goes last/.test(labels))) fail(`Day ${n}'s task should show the DRAFT and SUPERSEDED labels, in its Practice Lab line: "${labels.slice(0, 300)}"`);
@@ -116,7 +117,7 @@ const failures = []; const fail = (m) => failures.push(m);
     if (!panel) fail('the Backup Drive panel did not open');
     else {
         if (!/<Case ID>_<Last-First>_<Type>_<YYYY-MM-DD>\.<ext>/.test(panel.box) || !/LSH-2026-MVA-000041_Doe-John_/.test(panel.box)) fail(`the panel's 🏷 box should show the pattern and an example with the trainee's Case ID: "${panel.box.slice(0, 240)}"`);
-        if (!/12 of the 60 points/.test(panel.box)) fail('the panel should state what the names count for in the grade');
+        if (!/12 of the 60 points/.test(panel.box) || !/of 48 on Day 5/.test(panel.box)) fail(`the panel should state what the names count for in the grade, and that Day 5 is graded of 48: "${panel.box.slice(-260)}"`);
         if (!/02 Police, Witness & Video/.test(panel.item) || !/LSH-2026-MVA-000041_John-Doe_Police-Report_2026-11-12\.pdf/.test(panel.item) || !/LSH-2026-MVA-000041_Doe-John_Police-Report_2026-11-12\.pdf/.test(panel.item) || !/part 2/.test(panel.item))
             fail(`the panel should list the wrongly named file with its folder, its name, the name it should have and the part to look at: "${panel.item}"`);
         if (panel.bad.join() !== 'John-Doe' || panel.good.join() !== 'Doe-John') fail(`the differing part should be marked in both names: ${JSON.stringify([panel.bad, panel.good])}`);
@@ -129,19 +130,23 @@ const failures = []; const fail = (m) => failures.push(m);
     /* ---------- 3b. 🏷 names to fix, as the Worker reports them: files and folders apart, every differing piece, a copy not counted ---------- */
     {
         const CASE = 'LSH-2026-MVA-000041';
-        const wrong = { at: '2026-11-12T12:30:00.000Z', checked: 6, named: 3, wrong: 4, wrongFiles: 3, wrongFolders: 1, list: [
+        const wrong = { at: '2026-11-12T12:30:00.000Z', checked: 6, named: 3, wrong: 4, wrongFiles: 3, wrongFolders: 1, unscored: 1, list: [
             { kind: 'file', folder: '03 Medical Records', name: `${CASE}_Doe-John_medical records_2026-11-10.PDF`, want: `${CASE}_Doe-John_Medical-Records_2026-11-10.pdf`, scored: true,
               issues: [{ n: 3, part: 'Type', got: 'medical records', should: 'Medical-Records' }, { n: 99, part: 'ext', got: 'PDF', should: 'pdf' }], hint: 'Look at part 3 (Type): "medical records" should be "Medical-Records". Also the extension: ".PDF" should be ".pdf".' },
             { kind: 'file', folder: '01 Intake & Retainer', name: 'RS_05_Retainer_Agreement.pdf', want: `${CASE}_Doe-John_Retainer_2026-07-01.pdf`, scored: false,
               issues: [{ n: 1, part: 'Case ID', got: 'RS', should: CASE }, { n: 2, part: 'Last-First', got: '05', should: 'Doe-John' }, { n: 4, part: 'YYYY-MM-DD', got: 'Agreement', should: '2026-07-01' }], hint: '3 parts of this name differ, so rename it as shown.' },
             { kind: 'file', folder: '05 Insurance, Demands & Negotiation', name: `${CASE}_Doe-John_Others_2026-11-12.pdf`, want: `${CASE}_Doe-John_Others_2026-11-12_DRAFT.pdf`, scored: true,
               issues: [{ n: 5, part: 'label', got: '', should: 'DRAFT' }], hint: 'This document is a draft: add _DRAFT after the date.' },
-            { kind: 'folder', folder: 'LSH Case Backups/01 Clients', name: 'doe john', want: 'Doe-John', scored: true, hint: 'A folder keeps the name the firm gave it.' }] };
+            { kind: 'folder', folder: 'LSH Case Backups/01 Clients', name: 'doe john', want: 'Doe-John', scored: true, issues: [{ n: 0, part: 'folder', got: 'doe john', should: 'Doe-John' }], hint: 'A folder keeps the name the firm gave it.' }] };
         const clean = { at: '2026-11-12T13:00:00.000Z', checked: 6, named: 6, wrong: 0, wrongFiles: 0, wrongFolders: 0, list: [] };
         let fixed = false;
-        const day = () => ({ score: fixed ? 85 : 62, passed: fixed, at: '2026-11-12T12:30:00.000Z', rows: [
+        const NOTE = '🏷 In 03 Medical Records, "medical records" should be named "Medical-Records". 2 more names aren\'t the firm\'s way: each one is listed under 🏷 File names.';
+        const day = () => Object.assign({ score: fixed ? 85 : 62, passed: fixed, at: '2026-11-12T12:30:00.000Z', rows: [
             { label: 'Documents backed up', got: 20, max: 25, notes: ['RS16 is not on the drive.', 'RS26 is not on the drive.'] }, { label: 'Right folder', got: 10, max: 13, notes: ['RS12 is in 04 Bills & Invoices.', 'RS13 is in 04 Bills & Invoices.', 'RS15 is in the wrong folder.'] },
-            { label: 'File names', got: fixed ? 12 : 6, max: 12, notes: fixed ? [] : ['🏷 "medical records" should be "Medical-Records". 2 more names aren\'t the firm\'s way: each one is listed under 🏷 File names.'] }] });
+            { label: 'File names', got: fixed ? 12 : 6, max: 12, notes: fixed ? [] : [NOTE] }] },
+            // as the Worker sends a day: the File names row by itself (`wrong`: the names it charges, so not the unscored copy)
+            // and the notes with the 🏷 one first. (The day with every name right is sent the older way, rows only: the page reads them.)
+            fixed ? {} : { names: { got: 6, max: 12, wrong: 3 }, issues: [NOTE, 'RS16 is not on the drive.', 'RS26 is not on the drive.', 'RS12 is in 04 Bills & Invoices.', 'RS13 is in 04 Bills & Invoices.', 'RS15 is in the wrong folder.'] });
         const drive = () => Object.assign({}, status.drive, { grades: { 2: day() }, gradedAt: '2026-11-12T12:30:00.000Z', naming: Object.assign({}, status.drive.naming, { report: fixed ? clean : wrong }) });
         await page.route('**/api/drive', (route) => {
             let b = {}; try { b = JSON.parse(route.request().postData() || '{}'); } catch (e) { /* no body */ }
@@ -187,6 +192,7 @@ const failures = []; const fail = (m) => failures.push(m);
             if (!/3 files and 1 folder to fix/.test(pv.top)) fail(`the panel's head should say names are to fix, wherever the panel is scrolled: "${pv.top}"`);
             if (!pv.reportFirst) fail('the report of the names should come above the naming convention box');
             if (!/3 files and 1 folder to fix/.test(pv.report) || !/3 of 6 files/.test(pv.report) || !/1 folder/.test(pv.report)) fail(`the report should count files and folders apart: "${pv.report.slice(0, 200)}"`);
+            if (!/1 of the 4 not counted in your grade/.test(pv.report)) fail(`the report should say how many of the names to fix the grade doesn't count (the Worker's unscored): "${pv.report.slice(0, 240)}"`);
             const [a, b, c, d] = pv.items;
             if (pv.items.length !== 4) fail(`the report should list the four wrong names: ${pv.items.length}`);
             else {
@@ -200,17 +206,19 @@ const failures = []; const fail = (m) => failures.push(m);
             if (!/^🏷/.test(pv.firstNote)) fail(`the day's notes in the panel should put the 🏷 File names note first: "${pv.firstNote.slice(0, 80)}"`);
             // the day's grade as it is kept for the Scorecard and the Batch Sheet: the File names row, and its note first
             const g2 = (pv.stored || {})[2] || {};
-            if (!g2.names || g2.names.got !== 6 || g2.names.max !== 12 || g2.names.wrong !== 4) fail(`the stored day's grade should carry names:{got,max,wrong}: ${JSON.stringify(g2.names)}`);
+            if (!g2.names || g2.names.got !== 6 || g2.names.max !== 12 || g2.names.wrong !== 3) fail(`the stored day's grade should carry the Worker's names:{got,max,wrong} (3 charged, of the 4 to fix): ${JSON.stringify(g2.names)}`);
             if (!/^🏷/.test((g2.issues || [])[0] || '') || (g2.issues || []).length > 4) fail(`the stored day's issues should put the 🏷 File names note first: ${JSON.stringify(g2.issues)}`);
             const note = await page.evaluate((g) => { try { const r = cmScorecard.compute({ rec: {}, cf: { days: {} }, data: { 'drive-grades': g } }).rows.find(r => r.s.id === 'bd'); return (r.items.find(i => /Day 2/.test(i.name)) || {}).note || ''; } catch (e) { return 'error: ' + e.message; } }, pv.stored);
-            if (!/🏷 File names 6\/12 · 4 names wrong/.test(note)) fail(`the Scorecard's note for the day should name the cause ("🏷 File names 6/12 · 4 names wrong"): "${note}"`);
+            if (!/🏷 File names 6\/12 · 3 names wrong/.test(note)) fail(`the Scorecard's note for the day should name the cause ("🏷 File names 6/12 · 3 names wrong"): "${note}"`);
         }
         await page.click('#cmDriveHost .drv-verdict .drv-nm-jump').catch(() => {});
         if (!(await inView())) fail('🏷 N names to fix ↓ should scroll the panel to the list of names');
         // the names are fixed: said once, and the red lines go
         fixed = true; said = await toasts();
         await page.evaluate(() => CMDrive.grade(true));
-        const done = await page.evaluate(() => ({ jumps: document.querySelectorAll('#cmDriveHost .drv-nm-jump').length, toasts: window.__ciToasts.slice() }));
+        const done = await page.evaluate(async () => ({ jumps: document.querySelectorAll('#cmDriveHost .drv-nm-jump').length, toasts: window.__ciToasts.slice(), stored: ((await storeGet('drive-grades')) || {})[2] || {} }));
+        // a day sent as rows only (a Worker from before it sent `names`): the page reads the File names row itself
+        if (!done.stored.names || done.stored.names.got !== 12 || done.stored.names.max !== 12 || done.stored.names.wrong !== 0) fail(`a day sent as rows only should still be kept with names:{got,max,wrong}, read from its File names row: ${JSON.stringify(done.stored.names)}`);
         if (done.jumps) fail('with every name right, the panel should show no names-to-fix line');
         if (done.toasts.length !== said.length + 1 || !/firm's way now/.test(done.toasts[done.toasts.length - 1])) fail(`names that were fixed should be said in one toast: ${JSON.stringify(done.toasts.slice(said.length))}`);
         await page.evaluate(() => CMDrive.close());
