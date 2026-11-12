@@ -133,7 +133,7 @@ SEQUENCE.forEach(seq => {
     quiz,
     discussionQuestion: day.discussion,
     noDividers: true,           // each block opens with its own phase/block header
-    cf: {n: day.n, gate: day.gate, quizMod, phases, build: Number(seq.build) || 0}   // build: minutes of the day's practical spent building the companion case (Day 5)
+    cf: {n: day.n, gate: day.gate, quizMod, phases, build: seq.build === "rest" ? "rest" : Number(seq.build) || 0, lessonMax: Number(seq.lessonMax) || 0}   // build: minutes of the day's practical spent building the companion case (Day 5)
   };
   MODULES.push(d);
   BY_ID[d.id] = d;
@@ -1175,7 +1175,7 @@ if(typeof buildDaySlides === "function"){
 function daySchedule(d){
   const items = d.lessons.filter(l => l.cf.block.kind !== "check").map(l => ({kind: l.cf.block.kind, brief: !!l.cf.block.brief, thorough: !!l.cf.block.thorough,
     slides: viewsOf(l.cf.block).length, heading: l.cf.heading, mod: l.cf.mod.id, modTitle: l.cf.mod.title, ref: l}));
-  const sc = window.CM_CF_SCHEDULE.schedule(items, {build: d.cf.build});
+  const sc = window.CM_CF_SCHEDULE.schedule(items, {build: d.cf.build, lessonMax: d.cf.lessonMax});
   // each lesson's own minutes (a refresher's share of the 30%, a thorough lesson's larger one), by the lesson
   sc.minsOf = new Map(items.filter(x => x.kind === "lesson").map(x => [x.ref, x.mins]));
   sc.parts.forEach(p => { p.topics = p.topics.map(x => x.ref); p.acts = p.acts.map(x => x.ref); p.extra = p.extra.map(x => x.ref); });
@@ -1236,7 +1236,7 @@ function agendaSlide(d){
   // topic by topic: its lessons, its Skill Building and the brainstorm after it; the Knowledge Check last
   const rows = parts.map((p, i) => row(i + 1, p.title, [p.full ? `💬 ${pl(p.full, "topic", "topics")}` : "", p.briefs ? `💬 ${pl(p.briefs, "overview", "overviews")}` : "",
       p.acts.length ? `🧪 ${pl(p.acts.length, "Skill Activity", "Skill Activities")}` : ""].filter(Boolean).join(" · "))).join("")
-    + (sc.build ? row(parts.length + 1, "Build Your Companion Case", "🏗 your own case, start to finish, the way you worked John Doe's") : "")
+    + (sc.build ? row(parts.length + 1, "Full Application Practice: Build Your Companion Case") : "")
     + row(parts.length + (sc.build ? 2 : 1), "Knowledge Check", `🎯 ${d.quiz.length} questions and your takeaway`);
   return `<div class="card lesson-card cf-card cfx cfx-deck cfx-agenda">
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">Case Management Training</h2></div>
@@ -2517,11 +2517,19 @@ const BUILD_STEPS = [
   [20, "Note the decision to Atty. Thorne", "Decision first: what's decided, what needs his call, and the deadline it hangs on, in Case Notes.", "Days 3–5: the attorney decides value and strategy; you bring him the file ready for that decision."],
   [10, "Check your work", "Every document filed in the CMS and in the case folder; your CMS Case ID logged; ready for the brainstorm.", "If it isn't on the file, it didn't happen."]
 ];
+/* the build's steps at the minutes the day gives it (the schedule's build: what the lessons and the Knowledge Check leave) */
+function buildSteps(d){
+  const mins = buildMins(d), base = BUILD_STEPS.reduce((a, x) => a + x[0], 0);
+  const out = BUILD_STEPS.map(x => [Math.max(5, Math.round(x[0] * mins / base / 5) * 5), x[1], x[2], x[3]]);
+  out[out.length - 1][0] += mins - out.reduce((a, x) => a + x[0], 0);   // the last step takes the rounding
+  return out;
+}
+function buildMins(d){ try{ return daySchedule(d).build || 150; }catch(e){ return 150; } }
 function companionBuild(d, page){
   page = page || 1;
-  const mins = d.cf.build || 150, me = !isTrainer() && state.assignedCase, cc = me && (window.CM_COMPANION_CASES || {})[state.assignedCase.id];
+  const mins = buildMins(d), me = !isTrainer() && state.assignedCase, cc = me && (window.CM_COMPANION_CASES || {})[state.assignedCase.id];
   let t = 0;
-  const all = BUILD_STEPS.map(([m, h, what, why], i) => { const from = t; t += m;
+  const all = buildSteps(d).map(([m, h, what, why], i) => { const from = t; t += m;
     return `<li><span class="cfx-bd-t">${Math.floor(from / 60)}:${String(from % 60).padStart(2, "0")}<small>${m} min</small></span><div><b>${i + 1}. ${E(h)}</b><span>${E(what)}</span><em>Why: ${E(why)}</em></div></li>`; });
   const steps = (page === 1 ? all.slice(0, 4) : all.slice(4)).join("");
   const mine = cc ? `<div class="cfx-bd-case cfx-bd-slim" title="${E(cc.hook)}"><p class="cfx-bd-k">📁 Your companion case · ${E(cc.theme)}</p><h3>${E(cc.title)}</h3>
@@ -2529,10 +2537,10 @@ function companionBuild(d, page){
     : isTrainer() ? `<div class="cfx-bd-case"><p class="cfx-bd-k">📁 Companion cases</p><h3>Every trainee builds the case you assigned</h3><p>Trainee Audit → 📁 on each row. Walk the room while they build; the 🧠 Brainstorm guide has each trainee's case and what to look for.</p>
       ${window.cmCompanion ? `<button type="button" class="btn btn-navy" onclick="cmCompanion.brainstorm(${d.id})">🧠 Brainstorm guide</button>` : ""}</div>`
     : `<div class="cfx-bd-case"><p class="cfx-bd-k">📁 Your companion case</p><h3>Not assigned yet</h3><p>Your trainer assigns it: ask them now, so you can start building.</p></div>`;
-  return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; PRACTICAL &middot; ${mins} MINUTES</div>
+  return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; FULL APPLICATION PRACTICE &middot; ${mins} MINUTES</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-lab cfx-build">
-      <div class="cfx-deck-head"><h2 class="cfx-deck-title">🏗 Build Your Companion Case${page === 1 ? "" : ": the Second Half"}</h2></div>
-      <div class="cfx-ribbon"><span>${page === 1 ? `${mins} minutes · everything you practised on John Doe's file, on a case of your own` : `Steps 5 to 7 · the last hour`}</span></div>
+      <div class="cfx-deck-head"><h2 class="cfx-deck-title">🏗 Full Application Practice${page === 1 ? ": Build Your Companion Case" : ": the Second Half"}</h2></div>
+      <div class="cfx-ribbon"><span>${page === 1 ? `${mins} minutes · everything you practised on John Doe's file, applied to a case of your own` : `Steps 5 to 7 · plan, decide, check`}</span></div>
       <div class="cfx-body"><div class="cfx-sheet"><div class="cfx-bd">${page === 1 ? mine : ""}<ol class="cfx-bd-steps cfx-bd-p${page}">${steps}</ol></div></div></div>
     </div>`;
 }
@@ -2599,9 +2607,9 @@ if(typeof presenterCues === "function"){   // Presenter view: the trainer's note
     if(slide && (slide.type === "companionBuild" || slide.type === "companionBuild2" || slide.type === "extraPractice") && cfDay(d && d.id)){
       const k = {companionBuild: "build", companionBuild2: "build2", extraPractice: "extra"}[slide.type], x = dayScript(d, k);
       const note = k === "build" || k === "build2"
-        ? `<p>${d.cf.build || 150} minutes: each trainee builds the companion case you assigned, step by step as the slide times it. Walk the room; the 🧠 Brainstorm guide has each trainee's case. Call time at each step so nobody spends the whole build on the CMS setup.</p>`
+        ? `<p>${buildMins(d)} minutes, the course's full application practice: each trainee builds the companion case you assigned, step by step as the slide times it. Walk the room; the 🧠 Brainstorm guide has each trainee's case. Call time at each step so nobody spends the whole build on the CMS setup.</p>`
         : `<p>Optional and untimed: John Doe's Day ${d.cf.n} activities. Most rooms go straight to the Knowledge Check (⏭ on the slide); trainees can come back to these any time.</p>`;
-      return `<h3>${k === "extra" ? "Optional Extra Practice" : "Build Your Companion Case"}</h3>${x ? dayScriptHtml(x) : ""}<div class="pn-on pn-cue"><b>Trainer note — not read aloud</b>${note}</div>`;
+      return `<h3>${k === "extra" ? "Optional Extra Practice" : "Full Application Practice"}</h3>${x ? dayScriptHtml(x) : ""}<div class="pn-on pn-cue"><b>Trainer note — not read aloud</b>${note}</div>`;
     }
     if(slide && slide.type === "readyCheck" && cfDay(d && d.id)) return `<h3>Ready for the Knowledge Check?</h3><p>The day's Skill Activities are done. Give the room a couple of minutes on these ${labQuestions(d).length} key concepts, one from each of today's first modules: a wrong answer shows the reason and can be tried again. Then open the Knowledge Check.</p>`;
     if(!(slide && (slide.type === "practiceLab" || slide.type === "taskOverview") && cfDay(d && d.id))) return __cues.apply(this, arguments);
@@ -2659,8 +2667,8 @@ if(typeof daySlideTitle === "function"){
     if(cfDay(d && d.id) && slide && slide.type === "taskOverview") return "Training Agenda";
     if(cfDay(d && d.id) && slide && slide.type === "practiceLab") return "Practice Lab";
     if(cfDay(d && d.id) && slide && slide.type === "readyCheck") return "Ready for the Knowledge Check?";
-    if(cfDay(d && d.id) && slide && slide.type === "companionBuild") return "Build Your Companion Case";
-    if(cfDay(d && d.id) && slide && slide.type === "companionBuild2") return "Build Your Companion Case: the Second Half";
+    if(cfDay(d && d.id) && slide && slide.type === "companionBuild") return "Full Application Practice: Build Your Companion Case";
+    if(cfDay(d && d.id) && slide && slide.type === "companionBuild2") return "Full Application Practice: the Second Half";
     if(cfDay(d && d.id) && slide && slide.type === "extraPractice") return "Optional Extra Practice";
     if(cfDay(d && d.id) && slide && slide.type === "closing") return "Congratulations & Thank You";
     if(cfDay(d && d.id) && slide && slide.type === "topic"){ const l = d.lessons[slide.lessonIndex]; const v = viewsOf(l.cf.block)[(slide.part || 1) - 1]; return `${l.h} — ${VIEW_LABEL[v] || ""}`; }
@@ -2799,8 +2807,8 @@ if(typeof window.sopRunOfShow === "function"){
     });
     if(sc.build){
       let at = 0;
-      add(sc.build, {title: `🏗 Build Your Companion Case`, do: [
-        `The practical: ${sc.build} minutes. Each trainee builds the companion case you assigned (Trainee Audit → 📁), on the slide's steps: ${BUILD_STEPS.map(([m, h]) => { const t = at; at += m; return `<b>${E(h)}</b> (${Math.floor(t / 60)}:${String(t % 60).padStart(2, "0")}, ${m} min)`; }).join(" · ")}.`,
+      add(sc.build, {title: `🏗 Full Application Practice: Build Your Companion Case`, do: [
+        `The practical: ${sc.build} minutes. Each trainee builds the companion case you assigned (Trainee Audit → 📁), on the slide's steps: ${buildSteps(d).map(([m, h]) => { const t = at; at += m; return `<b>${E(h)}</b> (${Math.floor(t / 60)}:${String(t % 60).padStart(2, "0")}, ${m} min)`; }).join(" · ")}.`,
         `Call time at each step. Walk the room with the 🧠 Brainstorm guide: it has each trainee's case and the trap to watch for.`,
         `John Doe's Day ${n} activities are behind the build as ➕ Optional Extra Practice, untimed: skip to the Knowledge Check from that slide.`],
         say: `“You've worked John Doe's file all week. Now you build one yourself: the steps and the minutes are on the slide, and I'll call time at each one.”`,
@@ -5561,6 +5569,7 @@ document.head.appendChild(st);
 .cfx .cfx-top .cfx-full,.cfx .cfx-top .cfx-inject{font-size:14px !important;}
 .cfx-lab li > button .t{font-size:15.5px !important;}
 .cfx-ready .cfx-lab-q > span{font-size:18px !important;} .cfx-ready .cfx-lab-q .o button{font-size:16.5px !important;}
+.cfx-agenda .cfx-ag-list li{justify-content:center !important;} .cfx-agenda .cfx-ag-list li > div{flex:0 1 auto !important;} .cfx-agenda .cfx-ag-list li > div,.cfx-agenda .cfx-ag-list li > div b{text-align:left !important;}   /* the agenda's topics, number and title together, centred in their boxes */
 .cfx-agenda .cfx-ag-side p{font-size:16.5px !important;} .cfx-agenda .cfx-ag-list li small{font-size:14px !important;}
 .cfx .cfx-model td,.cfx .cfx-model th,.cfx-model tbody td{font-size:16px !important;}
 .cfx .cfx-grade-c li{font-size:17px !important;}
