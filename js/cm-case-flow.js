@@ -862,12 +862,12 @@ function slideBody(view, l, d){
       const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(docAvail).filter(Boolean).slice(0, 4);
       const ev = SIM.events[b.id], fall = falloutFor(b.id), vm = ev && ev.channel === "voicemail" && ev.spoken;
       const thumbs = notesOf(b.id) ? npCard(b.id) : ev && ev.log ? logSnapshot(ev.log) : docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy" onerror="this.parentNode.classList.add('cfx-thumb-off');this.remove()"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
-      return `<div class="cfx-sb">${timeBanner(l)}
+      return `<div class="cfx-sb${vm ? " cfx-sb-vmw" : ""}">${timeBanner(l)}
         ${fall.map(x => { const e = x.f.then.event, [icon] = CHANNEL[e.channel] || ["⚠️"];
           return `<details class="cfx-fall"><summary><span class="cfx-fall-i">⚠️</span><b>${E(e.subject)}</b><span class="cfx-fall-from">${icon} ${E(e.from || "")}</span></summary>
             <p>${E(e.body)}</p>${isTrainer() ? `<small class="cfx-fall-why">${x.done ? "Not shown to this trainee: they confirmed" : "Shown because this wasn't confirmed"}: “${E(x.what)}” (${E(x.f.if.activity)})</small>` : ""}</details>`; }).join("")}
-        <div class="cfx-sb-grid${vm ? " cfx-sb-vm" : ""}">
-          <div class="cfx-sb-main">${ev ? (ev.before || []).map(x => eventCard(x, "cfx-ev-before")).join("") + eventCard(ev, "", b.id, (docs.length > 0 && !ev.log) || !!notesOf(b.id)) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}${docs.length && !notesOf(b.id) && !(ev && (ev.log || (ev.before || []).length)) ? art(c.image, "cfx-sb-art") : ""}</div>
+        <div class="cfx-sb-grid${vm ? " cfx-sb-vm" + (notesOf(b.id) ? "" : " cfx-sb-vmd") : ""}">
+          <div class="cfx-sb-main">${ev ? (ev.before || []).map(x => eventCard(x, "cfx-ev-before")).join("") + eventCard(ev, "", b.id, (docs.length > 0 && !ev.log) || !!notesOf(b.id)) : `<div class="cfx-task-card"><span class="cfx-chip">📂 On the file</span><p class="cfx-situation">${hl(c.situation)}</p></div>`}${docs.length && !vm && !notesOf(b.id) && !(ev && (ev.log || (ev.before || []).length)) ? art(c.image, "cfx-sb-art") : ""}</div>
           <div class="cfx-sb-docs">${thumbs}</div>
         </div></div>`;
     }
@@ -1244,9 +1244,20 @@ window.cmCaseFlow.callBack = function(){
    against what was said, and only then sees the transcript. Plays and the check are kept on their record
    (REC.listen) and shown to their trainer. A browser that can't speak (no speech engine, or no English voice
    installed) gets the steps to turn it on for that device, and the transcript stays closed until they've listened. */
-const VM = {playing: null, ctx: null, hiss: null};
+/* The player. speechSynthesis can't seek inside an utterance, so the message is spoken chunk by chunk (vmChunks: a
+   sentence, a long one cut at its commas) on a timeline (vmPlan) whose total is the length the card has always shown
+   (vmTotal). A place on the bar is a time; playing from it starts at the chunk that holds it, so ⏪ / ⏩ and a drag of
+   the bar land on the start of a phrase. One state (VM) drives every player on the page (the Your Case card, the
+   Listening Check, the Notes & Action Plan): each is a [data-vm] and vmPaint repaints them together.
+   A play is counted when playback starts from a stopped state (never played, played to the end, or ↺ Start over);
+   a pause and resume, a seek and ⏪ / ⏩ are the same play. Nothing runs while nothing plays: the frame loop, the
+   hiss and every timer end with the playback, and a hidden tab pauses it. */
+const VM = {ctx: null, hiss: null, osc: null, id: null, pos: 0, on: false, open: false, token: null, base: 0, cap: 0, at: 0, raf: 0, say: null, wait: null, seekT: 0, busy: false, plans: {}};
 const vmWords = t => String(t || "").split(/\s+/).filter(Boolean).length;
-const vmLength = e => { const s = Math.round(vmWords(e.spoken) / 2.3 + 6); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
+const VM_SYS = 6;   // seconds for the system voice and the tone, around the caller
+const vmTotal = e => Math.round(vmWords(e.spoken) / 2.3 + VM_SYS);
+const vmClock = s => { s = Math.max(0, Math.floor(s + 1e-6)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
+const vmLength = e => vmClock(vmTotal(e));
 const vmRec = id => { REC.listen = REC.listen || {}; return (REC.listen[id] = REC.listen[id] || {plays: 0, answers: []}); };
 const canSpeak = () => typeof speechSynthesis !== "undefined" && typeof SpeechSynthesisUtterance !== "undefined";
 function vmVoice(kind){
@@ -1264,70 +1275,204 @@ function vmWhen(e){
   return `${f({weekday: "long"})}, ${f({month: "long"})} ${d}${sfx}${e.time ? ", at " + e.time : ""}`;
 }
 const vmDigits = t => (String(t).match(/\(?\d{3}\)?[\s-]*\d{3}-\d{4}/) || [""])[0].replace(/\D/g, "").split("").map(n => n === "0" ? "oh" : n).join(" ").replace(/^(\S+ \S+ \S+) (\S+ \S+ \S+) /, "$1, $2, ");
-function vmTone(ctx, at, f, dur, gain){ const o = ctx.createOscillator(), g = ctx.createGain(); o.frequency.value = f; g.gain.value = gain; o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + at); o.stop(ctx.currentTime + at + dur); }
+// the caller's words in the pieces they are spoken in: each sentence, a long one (over 10 words) cut at its commas
+function vmChunks(spoken){
+  const out = [];
+  String(spoken || "").split(/(?<=[.?!])(?<!\b(?:Mr|Mrs|Ms|Dr|Atty|St|Jr|Sr|No|vs)\.)\s+/).filter(Boolean).forEach(sent => {   // (a title's full stop ends no sentence)
+    if(vmWords(sent) <= 10){ out.push(sent); return; }
+    const parts = []; let cur = "";
+    sent.split(/(?<=,)\s+/).forEach(piece => {
+      if(cur && vmWords(cur) >= 4 && vmWords(cur) + vmWords(piece) > 10){ parts.push(cur); cur = piece; }
+      else cur = cur ? cur + " " + piece : piece;
+    });
+    if(cur){ if(parts.length && vmWords(cur) < 3) parts[parts.length - 1] += " " + cur; else parts.push(cur); }
+    parts.forEach(x => out.push(x));
+  });
+  return out;
+}
+// the timeline: the system voice, the tone, the caller chunk by chunk, "End of message"; every piece has its start (t) and length (d), in seconds
+function vmPlan(blockId){
+  if(VM.plans[blockId]) return VM.plans[blockId];
+  const e = SIM.events[blockId]; if(!e || !e.spoken) return null;
+  const total = vmTotal(e), when = vmWhen(e);
+  const segs = [{kind: "system", text: `You have one new message. Received ${when}${/\.$/.test(when) ? "" : "."} From ${vmDigits(e.from)}.`, d: 4, gap: 0}, {kind: "tone", d: 1.2}];
+  const chunks = vmChunks(e.spoken), w = chunks.map(c => vmWords(c) + (/\.\.\.$/.test(c) ? 1.2 : /,$/.test(c) ? 0.3 : 0.6));
+  const sum = w.reduce((x, y) => x + y, 0) || 1, body = Math.max(1, total - VM_SYS);
+  chunks.forEach((c, i) => segs.push({kind: "caller", text: c.replace(/\.\.\./g, ","), d: body * w[i] / sum, gap: /\.\.\.$/.test(c) ? 500 : /,$/.test(c) ? 140 : 260}));
+  segs.push({kind: "system", text: "End of message.", d: 0.8, gap: 0});
+  let t = 0; segs.forEach(s => { s.t = t; t += s.d; });
+  return (VM.plans[blockId] = {segs, total});
+}
+const vmSegAt = (p, t) => { let i = 0; while(i + 1 < p.segs.length && p.segs[i + 1].t <= t + 1e-6) i++; return i; };
+// where the message is: live while it plays (never past the end of the chunk being spoken), else the place kept
+const vmNow = () => VM.on ? Math.min(VM.cap, VM.base + (performance.now() - VM.at) / 1000) : VM.pos;
+const vmAt = blockId => VM.id === blockId ? vmNow() : 0;
+function vmSync(t, cap){ VM.base = VM.pos = t; VM.cap = cap; VM.at = performance.now(); }
+function vmTone(ctx, at, f, dur, gain){ const o = ctx.createOscillator(), g = ctx.createGain(); o.frequency.value = f; g.gain.value = gain; o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + at); o.stop(ctx.currentTime + at + dur); return o; }
 function vmHiss(on){
   try{
     if(on){
+      if(VM.hiss) return;   // one hiss, however often a seek asks for it
       const Ctx = window.AudioContext || window.webkitAudioContext; if(!Ctx) return;
       const ctx = VM.ctx || (VM.ctx = new Ctx()), buf = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate), ch = buf.getChannelData(0);
       for(let i = 0; i < ch.length; i++) ch[i] = Math.random() * 2 - 1;
       const src = ctx.createBufferSource(), bp = ctx.createBiquadFilter(), g = ctx.createGain();
       src.buffer = buf; src.loop = true; bp.type = "bandpass"; bp.frequency.value = 1800; bp.Q.value = 0.6; g.gain.value = 0.018;
       src.connect(bp); bp.connect(g); g.connect(ctx.destination); src.start(); VM.hiss = src;
-    }else if(VM.hiss){ VM.hiss.stop(); VM.hiss = null; }
+    }else if(VM.hiss){ const h = VM.hiss; VM.hiss = null; h.stop(); }
   }catch(e){}
 }
-function vmSay(text, kind, token){
+function vmSay(seg, token){
   return new Promise(res => {
-    if(VM.playing !== token) return res();
-    const u = new SpeechSynthesisUtterance(text), v = vmVoice(kind);
+    if(VM.token !== token) return res();
+    const u = new SpeechSynthesisUtterance(seg.text), v = vmVoice(seg.kind);
     if(v) u.voice = v;
-    u.rate = kind === "caller" ? 0.92 : 1; u.pitch = kind === "caller" ? 0.85 : 1.08; u.volume = 1;
-    let done = false; const end = () => { if(!done){ done = true; res(); } };
+    u.rate = seg.kind === "caller" ? 0.92 : 1; u.pitch = seg.kind === "caller" ? 0.85 : 1.08; u.volume = 1;
+    let done = false, guard = 0;
+    const end = () => { if(done) return; done = true; clearTimeout(guard); if(VM.say === end){ VM.say = null; VM.u = null; } res(); };
+    // the clock is set to the chunk's start when the engine starts it, and moved on at each word the engine reports
+    u.onstart = () => { if(VM.token === token) vmSync(seg.t, seg.t + seg.d); };
+    u.onboundary = ev => { if(VM.token !== token || !ev || !(ev.charIndex > 0)) return;
+      const at = seg.t + seg.d * Math.min(1, ev.charIndex / Math.max(1, seg.text.length)); if(at > vmNow()){ VM.base = at; VM.at = performance.now(); } };
     u.onend = end; u.onerror = end;
-    setTimeout(end, Math.max(4000, vmWords(text) * 650));   // never hang if a browser drops the event
+    guard = setTimeout(end, Math.max(4000, vmWords(seg.text) * 650));   // never hang if a browser drops the event
+    VM.say = end; VM.u = u;   // (held, so the engine's events still arrive)
     speechSynthesis.speak(u);
   });
 }
-const vmPause = ms => new Promise(r => setTimeout(r, ms));
-function vmPaint(blockId){
+const vmPause = ms => new Promise(res => { const w = VM.wait = {res, t: setTimeout(() => { if(VM.wait === w) VM.wait = null; res(); }, ms)}; });
+// silence: what is being said, the tone and every pending timer
+function vmQuiet(){
+  if(VM.seekT){ clearTimeout(VM.seekT); VM.seekT = 0; }
+  if(VM.wait){ const w = VM.wait; VM.wait = null; clearTimeout(w.t); w.res(); }
+  if(VM.say){ const f = VM.say; VM.say = null; VM.u = null; f(); }
+  if(VM.osc){ try{ VM.osc.stop(); }catch(e){} VM.osc = null; }
+  try{ if(canSpeak()) speechSynthesis.cancel(); }catch(e){}
+}
+// stop speaking: keep = ⏸ (the place is kept, the play goes on), else back to the start (the next ▶ is a new play)
+function vmHalt(keep){
+  const id = VM.id, at = vmNow();
+  VM.on = false; VM.token = null; vmQuiet(); vmHiss(false);
+  if(VM.raf){ cancelAnimationFrame(VM.raf); VM.raf = 0; }
+  VM.pos = keep ? at : 0; if(!keep) VM.open = false;
+  if(id) vmPaint(id);
+}
+// speak from the chunk that holds the place, chunk after chunk, to the end of the message
+async function vmRun(token){
+  const p = vmPlan(VM.id); if(!p) return;
+  for(let i = vmSegAt(p, VM.pos); i < p.segs.length && VM.token === token; i++){
+    const s = p.segs[i];
+    vmSync(s.t, s.t + s.d); vmHiss(s.kind === "caller"); vmTime(VM.id);
+    if(s.kind === "tone"){ try{ if(VM.ctx) VM.osc = vmTone(VM.ctx, 0.15, 1000, 0.45, 0.08); }catch(er){} await vmPause(900); VM.osc = null; }
+    else{ await vmSay(s, token); if(VM.token === token && s.gap) await vmPause(s.gap); }
+  }
+  if(VM.token === token) vmHalt(false);   // the end of the message
+}
+// playing: go quiet, move to t, and speak from there after a beat (so a drag of the bar doesn't stutter)
+function vmGo(t){
+  const token = VM.token = {id: VM.id};
+  vmQuiet(); vmSync(t, t); vmPaint(VM.id);
+  VM.seekT = setTimeout(() => { VM.seekT = 0; if(VM.token === token) vmRun(token); }, 160);
+}
+function vmFrame(){ VM.raf = 0; if(!VM.on) return; vmTime(VM.id); VM.raf = requestAnimationFrame(vmFrame); }
+// the bar and the elapsed time of every player of this voicemail
+function vmTime(blockId){
+  const p = vmPlan(blockId); if(!p) return;
+  const at = vmAt(blockId), label = vmClock(at), f = (Math.min(1, at / p.total)).toFixed(4);
   document.querySelectorAll(`[data-vm="${blockId}"]`).forEach(el => {
-    const r = vmRec(blockId), on = VM.playing && VM.playing.id === blockId;
-    el.querySelectorAll(".cfx-vm-play").forEach(b => { b.textContent = on ? "⏹ Stop" : r.plays ? "↻ Play again" : "▶ Play"; b.setAttribute("aria-pressed", on ? "true" : "false"); });
-    el.querySelectorAll(".cfx-vm-st").forEach(x => { x.textContent = on ? "🔊 Playing…" : vmStatus(blockId); });
+    el.querySelectorAll(".vmp-el").forEach(x => { if(x.textContent !== label) x.textContent = label; });
+    el.querySelectorAll(".vmp-seek").forEach(x => { x.value = at.toFixed(1); x.style.setProperty("--f", f); if(x.dataset.at !== label){ x.dataset.at = label; x.setAttribute("aria-valuetext", `${label} of ${vmClock(p.total)}`); } });
+  });
+}
+function vmPaint(blockId){
+  const on = VM.on && VM.id === blockId, st = vmStatusNow(blockId);
+  document.querySelectorAll(`[data-vm="${blockId}"]`).forEach(el => {
+    el.querySelectorAll(".cfx-vm-play").forEach(b => { b.textContent = on ? "⏸️ Pause" : "▶ Play"; b.setAttribute("aria-pressed", on ? "true" : "false"); });
+    el.querySelectorAll(".cfx-vm-st").forEach(x => { x.textContent = st; });
     el.classList.toggle("on", !!on);
   });
+  vmTime(blockId);
 }
 function vmStatus(blockId){
   const r = vmRec(blockId), e = SIM.events[blockId];
   if(r.at) return `Listening Check ${r.score}/${(e.listen || []).length} · played ${r.plays}×`;
   return r.plays ? `Played ${r.plays}× · now check your notes` : "Not played yet";
 }
+// the line beside the player: playing, paused at a place, or where the trainee stands (vmStatus)
+function vmStatusNow(blockId){
+  if(VM.id !== blockId || !(VM.on || VM.open)) return vmStatus(blockId);
+  const n = vmRec(blockId).plays || 0;
+  return VM.on ? `🔊 Playing · played ${n}×` : `⏸️ Paused at ${vmClock(VM.pos)} · played ${n}×`;
+}
+/* the player itself: ▶ / ⏸, ⏪ 5s, ⏩ 5s, the bar (click, drag or arrow keys; a tick at each phrase), elapsed / total, ↺ Start over.
+   It never shows a word of the message. */
+function vmPlayer(blockId, cls){
+  const p = vmPlan(blockId); if(!p) return "";
+  const on = VM.on && VM.id === blockId, at = vmAt(blockId), tot = vmClock(p.total);
+  return `<div class="vmp${cls ? " " + cls : ""}" role="group" aria-label="Voicemail player">
+      <button type="button" class="vmp-play cfx-vm-play" onclick="cmCaseFlow.vmPlay('${blockId}')" aria-pressed="${on ? "true" : "false"}">${on ? "⏸️ Pause" : "▶ Play"}</button>
+      <button type="button" class="vmp-b vmp-back" onclick="cmCaseFlow.vmSkip('${blockId}',-5)" title="Back 5 seconds" aria-label="Back 5 seconds">⏪ 5s</button>
+      <button type="button" class="vmp-b vmp-fwd" onclick="cmCaseFlow.vmSkip('${blockId}',5)" title="Forward 5 seconds" aria-label="Forward 5 seconds">5s ⏩</button>
+      <span class="vmp-track"><span class="vmp-ticks" aria-hidden="true">${p.segs.filter(s => s.kind === "caller").map(s => `<i style="left:${(100 * s.t / p.total).toFixed(2)}%"></i>`).join("")}</span>
+        <input type="range" class="vmp-seek" min="0" max="${p.total}" step="0.1" value="${at.toFixed(1)}" style="--f:${(Math.min(1, at / p.total)).toFixed(4)}" aria-label="Place in the voicemail" aria-valuetext="${vmClock(at)} of ${tot}"
+          oninput="cmCaseFlow.vmSeek('${blockId}',this.value)" onkeydown="cmCaseFlow.vmKey(event,'${blockId}')"></span>
+      <span class="vmp-time"><b class="vmp-el">${vmClock(at)}</b> / <span class="vmp-tot">${tot}</span></span>
+      <button type="button" class="vmp-b vmp-over" onclick="cmCaseFlow.vmOver('${blockId}')" title="Back to the beginning">↺ Start over</button>
+    </div>`;
+}
+// ▶ Play / ⏸ Pause. From a stopped state it is a new play (counted on the record); from a pause it goes on from the place.
 window.cmCaseFlow.vmPlay = async function(blockId){
   const e = SIM.events[blockId];
   if(!e || !e.spoken) return;
-  if(VM.playing){ const was = VM.playing.id; VM.playing = null; try{ speechSynthesis.cancel(); }catch(er){} vmHiss(false); vmPaint(was); if(was === blockId) return; }
-  if(!(await vmVoicesReady())){ vmSetup(blockId); return; }
-  const token = {id: blockId}; VM.playing = token;
-  const r = vmRec(blockId); r.plays = (r.plays || 0) + 1; persist();
+  if(VM.on && VM.id === blockId){ vmHalt(true); return; }
+  if(VM.busy) return;
+  if(VM.id && VM.id !== blockId) vmHalt(false);
+  VM.busy = true; let ok = false; try{ ok = await vmVoicesReady(); }finally{ VM.busy = false; }
+  if(!ok){ vmSetup(blockId); return; }
+  if(document.hidden) return;
+  if(VM.id !== blockId){ VM.id = blockId; VM.pos = 0; VM.open = false; }
+  if(!VM.open){ VM.open = true; const r = vmRec(blockId); r.plays = (r.plays || 0) + 1; persist(); }
+  const token = VM.token = {id: blockId}; VM.on = true; vmSync(VM.pos, VM.pos);
   vmPaint(blockId);
+  if(!VM.raf) VM.raf = requestAnimationFrame(vmFrame);
   try{ speechSynthesis.cancel(); }catch(er){}
   const Ctx = window.AudioContext || window.webkitAudioContext;
-  try{ if(Ctx){ VM.ctx = VM.ctx || new Ctx(); if(VM.ctx.state === "suspended") await VM.ctx.resume(); } }catch(er){}
-  const when = vmWhen(e);
-  await vmSay(`You have one new message. Received ${when}${/\.$/.test(when) ? "" : "."} From ${vmDigits(e.from)}.`, "system", token);
-  if(VM.playing === token){ try{ VM.ctx && vmTone(VM.ctx, 0.15, 1000, 0.45, 0.08); }catch(er){} await vmPause(900); }
-  if(VM.playing === token) vmHiss(true);
-  // the caller, sentence by sentence, with the small gaps people leave
-  for(const part of String(e.spoken).split(/(?<=[.?!])\s+/)){
-    if(VM.playing !== token) break;
-    await vmSay(part.replace(/\.\.\./g, ","), "caller", token);
-    await vmPause(/\.\.\.$|,$/.test(part) ? 500 : 260);
-  }
-  vmHiss(false);
-  if(VM.playing === token) await vmSay("End of message.", "system", token);
-  if(VM.playing === token){ VM.playing = null; vmPaint(blockId); }
+  // (a browser that won't start the sound without a fresh tap leaves resume() waiting: the voice doesn't wait for it)
+  try{ if(Ctx){ VM.ctx = VM.ctx || new Ctx(); if(VM.ctx.state === "suspended") await Promise.race([VM.ctx.resume(), vmPause(400)]); } }catch(er){}
+  if(VM.token === token) vmRun(token);
 };
+// a place on the bar, in seconds: playing, it jumps there and keeps playing; paused or stopped, the place moves and it stays quiet
+window.cmCaseFlow.vmSeek = function(blockId, t){
+  const p = vmPlan(blockId); if(!p) return;
+  t = Math.max(0, Math.min(p.total - 0.05, Number(t) || 0));
+  if(VM.id !== blockId){ if(VM.id) vmHalt(false); VM.id = blockId; VM.pos = 0; VM.open = false; }
+  if(VM.on) vmGo(t); else{ VM.pos = t; vmPaint(blockId); }
+};
+// ⏪ / ⏩: playing, to the phrase that many seconds away (always a different one); paused, the place moves by that much
+window.cmCaseFlow.vmSkip = function(blockId, d){
+  const p = vmPlan(blockId); if(!p) return;
+  if(!(VM.on && VM.id === blockId)) return cmCaseFlow.vmSeek(blockId, vmAt(blockId) + d);
+  const now = vmNow(), cur = vmSegAt(p, now); let i = vmSegAt(p, Math.max(0, Math.min(p.total - 0.05, now + d)));
+  if(d > 0 && i <= cur) i = Math.min(p.segs.length - 1, cur + 1);
+  if(d < 0 && i >= cur) i = Math.max(0, cur - 1);
+  vmGo(p.segs[i].t);
+};
+// ↺ Start over: back to 0:00 and stopped; if it was playing it plays again from the top, a new play
+window.cmCaseFlow.vmOver = function(blockId){
+  const was = VM.on && VM.id === blockId;
+  if(VM.id === blockId) vmHalt(false);
+  if(was) cmCaseFlow.vmPlay(blockId);
+};
+// the bar from the keyboard: ← / → are ⏪ / ⏩, Home is the start (and the deck doesn't turn the slide)
+window.cmCaseFlow.vmKey = function(ev, blockId){
+  const d = {ArrowLeft: -5, ArrowDown: -5, ArrowRight: 5, ArrowUp: 5}[ev.key];
+  if(!d && ev.key !== "Home") return;
+  ev.preventDefault(); ev.stopPropagation();
+  if(d) cmCaseFlow.vmSkip(blockId, d); else cmCaseFlow.vmSeek(blockId, 0);
+};
+// a tab nobody is looking at doesn't talk: it pauses, and the place is kept
+document.addEventListener("visibilitychange", () => { if(document.hidden && VM.on) vmHalt(true); });
+window.addEventListener("pagehide", () => { if(VM.on) vmHalt(true); });
 /* speech in this browser: an engine and at least one English voice (Chrome loads its voices a moment after the page) */
 function vmVoicesReady(){
   if(!canSpeak()) return Promise.resolve(false);
@@ -1378,15 +1523,18 @@ window.cmCaseFlow.vmRetry = async function(blockId){
   if(await vmVoicesReady()){ cmCaseFlow.listenClose(); cmCaseFlow.vmPlay(blockId); return; }
   if(st) st.textContent = "Still no voice on this device. Finish the steps above (a restart of the browser is usually needed).";
 };
+/* the voicemail on the activity's Your Case slide: who it is from and when, the player, the play count, and the way
+   to the work on it (the Notes & Action Plan, or the Listening Check). Only what a phone shows: never the words. */
 function voicemailCard(e, blockId, extra){
-  return `<div class="cfx-ev cfx-ev-voicemail cfx-vm${extra ? " " + extra : ""}" data-vm="${blockId}">
-      <div class="cfx-ev-h"><span class="cfx-ev-i">📳</span><span class="cfx-ev-ch">Voicemail</span><span class="cfx-ev-from">${E(e.from || "")}</span>
-        <span class="cfx-ev-when">${E(e.date || "")}${e.time ? " · " + E(e.time) : ""}</span></div>
-      <div class="cfx-vm-body"><span class="cfx-vm-wave" aria-hidden="true">${"<i></i>".repeat(18)}</span>
-        <div><b>1 new message</b> · ${vmLength(e)}<br><small>${notesOf(blockId) ? "Listen, then transcribe it in your Notes &amp; Action Plan." : "Listen first: the transcript opens after your Listening Check."}</small></div></div>
-      <div class="cfx-vm-row"><button type="button" class="btn btn-orange btn-sm cfx-vm-play" onclick="cmCaseFlow.vmPlay('${blockId}')">${vmRec(blockId).plays ? "↻ Play again" : "▶ Play"}</button>
-        ${notesOf(blockId) ? `<button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.notes('${blockId}')">📝 Transcribe</button>` : `<button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.listen('${blockId}')">🎧 Listening Check</button>`}
-        <span class="cfx-vm-st">${E(vmStatus(blockId))}</span></div>
+  const np = notesOf(blockId), on = VM.on && VM.id === blockId;
+  return `<div class="cfx-ev cfx-ev-voicemail cfx-vm${extra ? " " + extra : ""}${on ? " on" : ""}" data-vm="${blockId}">
+      <div class="vmc-h"><span class="vmc-ch">📳 Voicemail</span><b class="vmc-from">${E(e.from || "")}</b>
+        <span class="vmc-when">${E(e.date || "")}${e.time ? " · " + E(e.time) : ""}</span></div>
+      <span class="cfx-vm-wave" aria-hidden="true">${"<i></i>".repeat(56)}</span>
+      ${vmPlayer(blockId)}
+      <div class="vmc-f"><span class="cfx-vm-st">${E(vmStatusNow(blockId))}</span>
+        <span class="vmc-hint">${np ? "Listen, then take it down word for word in your Notes &amp; Action Plan." : "Listen first: the transcript opens after your Listening Check."}</span>
+        ${np ? `<button type="button" class="btn btn-navy vmc-go" onclick="cmCaseFlow.notes('${blockId}')">📝 Transcribe</button>` : `<button type="button" class="btn btn-navy vmc-go" onclick="cmCaseFlow.listen('${blockId}')">🎧 Listening Check</button>`}</div>
     </div>`;
 }
 /* the Listening Check: notes from the message, checked against what was said, then the transcript */
@@ -1396,10 +1544,11 @@ window.cmCaseFlow.listen = function(blockId, reveal){
   let box = document.getElementById("cf-vm");
   if(!box){ box = document.createElement("div"); box.id = "cf-vm"; box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true"); box.setAttribute("aria-label", "Listening Check"); document.body.appendChild(box);
     document.addEventListener("keydown", ev => { if(ev.key === "Escape" && !box.hidden) cmCaseFlow.listenClose(); }); }
-  box.innerHTML = `<div class="cf-vm-card" data-vm="${blockId}">
+  box.innerHTML = `<div class="cf-vm-card${VM.on && VM.id === blockId ? " on" : ""}" data-vm="${blockId}">
       <div class="cf-vm-h"><div><b>🎧 Listening Check</b><span>Voicemail from ${E(e.from)} · ${E(e.date)}${e.time ? " · " + E(e.time) : ""}</span></div>
         <button type="button" class="cf-vm-x" onclick="cmCaseFlow.listenClose()" aria-label="Close">✕</button></div>
-      <div class="cfx-vm-row"><button type="button" class="btn btn-orange btn-sm cfx-vm-play" onclick="cmCaseFlow.vmPlay('${blockId}')">${r.plays ? "↻ Play again" : "▶ Play"}</button><span class="cfx-vm-st">${E(vmStatus(blockId))}</span></div>
+      ${vmPlayer(blockId, "vmp-2")}
+      <div class="cfx-vm-row"><span class="cfx-vm-st">${E(vmStatusNow(blockId))}</span></div>
       <p class="cf-vm-lead">Take the message down the way you would at your desk: from what you heard, not the caller ID.</p>
       <ol class="cf-vm-qs">${e.listen.map((x, j) => `<li><label for="cfvm_${blockId}_${j}">${E(x.q)}</label>
         <textarea id="cfvm_${blockId}_${j}" rows="2" oninput="cmCaseFlow.listenDraft('${blockId}',${j},this.value)" ${checked ? "readonly" : ""}>${E((r.answers || [])[j] || "")}</textarea>
@@ -2019,7 +2168,7 @@ function npEmail(blockId, e, open){
       <span class="sv-msg" id="npmm_${E(blockId)}_${E(e.id)}" aria-live="polite">${m.tries ? `Not sent yet — ${m.tries} attempt${m.tries === 1 ? "" : "s"}.` : ""}</span></div>`;
 }
 function npWorkspace(blockId){
-  const n = notesOf(blockId), r = npRec(blockId), ev = SIM.events[blockId] || {}, vm = vmRec(blockId);
+  const n = notesOf(blockId), r = npRec(blockId), ev = SIM.events[blockId] || {};
   const txDone = !!r.txAt, planDone = !!r.planAt, t = n.transcribe, p = n.plan;
   const tries = r.txTries || [], last = tries[tries.length - 1];
   const triesHtml = tries.length ? `<ol class="np-tries">${tries.map((a, i) => `<li><b>Attempt ${i + 1}: ${E(a.score)}%</b> · ${E(a.facts)} of ${E(a.of)} facts · ${E(a.acc)}% word accuracy${a.final ? " · <em>handed in</em>" : ""}</li>`).join("")}</ol>` : "";
@@ -2031,7 +2180,9 @@ function npWorkspace(blockId){
     : `<p class="sv-brief">${hl(t.brief)}</p>
       ${last ? `<div class="np-grade"><b>🎙 Attempt ${tries.length} of ${TX_TRIES}: ${E(last.score)}%</b><span>${E(last.facts)} of ${E(last.of)} facts caught · ${E(last.acc)}% word accuracy against the message. Play it again and improve it, or hand it in: the answer key opens when you do${tries.length >= TX_TRIES - 1 ? " (your next check is handed in)" : ""}.</span>${triesHtml}
         <div class="sv-row"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.npTxHand('${blockId}')">📤 Hand in attempt ${tries.length} (${E(last.score)}%)</button></div></div>` : ""}
-      <div class="sv-row"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.vmPlay('${blockId}')">${vm.plays ? "↻ Play again" : "▶ Play the voicemail"}</button><span class="sv-note">${E(ev.from || "")} · ${E(ev.date || "")}${ev.time ? " · " + E(ev.time) : ""}</span></div>
+      <div class="np-vm${VM.on && VM.id === blockId ? " on" : ""}" data-vm="${blockId}"><div class="np-vm-h"><b>📳 ${E(ev.from || "")}</b><span>${E(ev.date || "")}${ev.time ? " · " + E(ev.time) : ""}</span><span class="cfx-vm-st">${E(vmStatusNow(blockId))}</span></div>
+        ${vmPlayer(blockId, "vmp-2")}
+        <p class="np-vm-tip">⏪ 5s takes you back a phrase; drag the bar or click it to hear one part again.</p></div>
       <textarea class="sv-write" id="npt_${E(blockId)}" rows="6" placeholder="Type the message as you hear it." aria-label="Your transcript of the voicemail" oninput="cmCaseFlow.npDraft('${blockId}','tx',this.value)">${E(r.tx || "")}</textarea>
       <div class="sv-row"><button type="button" class="btn btn-navy" onclick="cmCaseFlow.npTx('${blockId}')">Check my transcript</button><span class="sv-msg" id="nptm_${E(blockId)}" aria-live="polite"></span></div>`;
   const plan = planDone
@@ -4720,43 +4871,101 @@ main > .cf-side-presenter{display:none;}
 /* the Case ID the CMS gave, not typed (js/cm-cms-case.js) */
 .cfx-log-from:not(:empty){font-size:11px;font-weight:700;color:#1F4E79;background:rgba(214,231,248,.75);border-radius:999px;padding:2px 8px;}
 .cf-tr-work{font-size:12.8px;margin:6px 0;padding:6px 10px;background:#F4F6FB;border-radius:8px;}
-.cfx-vm .cfx-vm-body{display:flex;align-items:center;gap:14px;margin:8px 0 10px;font-size:14px;}
-.cfx-vm .cfx-vm-body small{color:#5B6178;}
-.cfx-vm-wave{display:inline-flex;align-items:center;gap:3px;height:34px;}
-.cfx-vm-wave i{display:block;width:4px;border-radius:2px;background:#DB8437;height:30%;}
-.cfx-vm-wave i:nth-child(3n){height:75%}.cfx-vm-wave i:nth-child(4n+1){height:50%}.cfx-vm-wave i:nth-child(5n+2){height:95%}
+.cfx-vm-wave{display:flex;align-items:center;justify-content:space-between;gap:3px;height:34px;}
+.cfx-vm-wave i{display:block;flex:0 0 4px;width:4px;border-radius:2px;background:#DB8437;height:30%;}
+.cfx-vm-wave i:nth-child(3n){height:75%}.cfx-vm-wave i:nth-child(4n+1){height:50%}.cfx-vm-wave i:nth-child(5n+2){height:95%}.cfx-vm-wave i:nth-child(7n+3){height:62%}
 .cfx-vm.on .cfx-vm-wave i,.cf-vm-card.on .cfx-vm-wave i{animation:cfvm .9s ease-in-out infinite alternate;}
 .cfx-vm-wave i:nth-child(odd){animation-delay:.3s!important}
 @keyframes cfvm{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+@media (prefers-reduced-motion:reduce){.cfx-vm.on .cfx-vm-wave i{animation:none;}}
 .cfx-vm-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;}
-.cfx-vm-st{font:600 12.5px 'Inter',sans-serif;color:#5B6178;}
-/* a voicemail is a short card, so the documents get the room: one row of large pages under it */
-.cfx-sb-grid.cfx-sb-vm{grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:18px;align-items:start;}
-.cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-docs-row{gap:12px 18px;}
-.cfx-sb-grid.cfx-sb-vm .cfx-thumb span{font-size:13px;}
-/* the voicemail card itself: phone-sized */
-.cfx-sb-vm .cfx-vm .cfx-ev-h{flex-wrap:wrap;gap:2px 8px;}
-.cfx-sb-vm .cfx-vm .cfx-ev-from{flex-basis:100%;order:3;}
-.cfx-sb-vm .cfx-vm .cfx-ev-when{margin-left:auto;}
-.cfx-sb-vm .cfx-vm .cfx-vm-body{flex-direction:column;align-items:stretch;gap:6px;margin:8px 0;font-size:13px;}
-.cfx-sb-vm .cfx-vm .cfx-vm-wave{height:28px;justify-content:space-between;}
-.cfx-sb-vm .cfx-vm .cfx-vm-row{flex-wrap:wrap;gap:6px;}
-.cfx-sb-vm .cfx-vm .cfx-vm-row .btn{flex:1 1 auto;padding:6px 10px;font-size:12.5px;white-space:nowrap;}
-.cfx-sb-vm .cfx-vm .cfx-vm-st{flex-basis:100%;}
-@media(max-width:760px){.cfx-sb-grid.cfx-sb-vm{grid-template-columns:minmax(0,1fr);}}
+.cfx-vm-st{font:800 16px/1.3 'Inter',sans-serif;color:#1E2340;}
+/* the voicemail player (vmPlayer): one transport, the same on the slide, in the Listening Check and in the Notes & Action Plan.
+   Bold, never under 16px; on the slide it grows with the window (--vf). */
+.vmp{display:flex;flex-wrap:wrap;align-items:center;gap:.5em .6em;font:800 var(--vf,16px)/1.2 'Inter',sans-serif;color:#1E2340;}
+.vmp button{font:inherit;font-weight:800;line-height:1.2;white-space:nowrap;cursor:pointer;border-radius:999px;margin:0;}
+.vmp .vmp-play{min-width:7.3em;padding:.5em 1.1em;font-size:1.12em;background:#DB8437;color:#1E2340;border:2px solid #DB8437;box-shadow:0 3px 10px rgba(219,132,55,.45);}
+.vmp .vmp-play:hover,.vmp .vmp-play:focus-visible{background:#1E2340;border-color:#1E2340;color:#fff;outline:none;}
+.vmp .vmp-play[aria-pressed=true]{background:#1E2340;border-color:#1E2340;color:#fff;}
+.vmp .vmp-b{padding:.42em .8em;background:#fff;color:#1E2340;border:2px solid #1E2340;}
+.vmp .vmp-b:hover,.vmp .vmp-b:focus-visible{background:#1E2340;color:#fff;outline:none;}
+.vmp-track{position:relative;flex:1 1 200px;min-width:150px;display:flex;align-items:center;height:2.4em;}
+.vmp-ticks{position:absolute;left:11px;right:11px;top:50%;height:0;pointer-events:none;}
+.vmp-ticks i{position:absolute;top:10px;width:2px;height:7px;margin-left:-1px;border-radius:1px;background:#8A91A8;}
+.vmp-seek{-webkit-appearance:none;appearance:none;display:block;width:100%;height:12px;margin:0;padding:0;border:0;border-radius:999px;cursor:pointer;
+  background:linear-gradient(to right,#DB8437 calc(11px + (100% - 22px) * var(--f,0)),#CCD1E0 0);}
+.vmp-seek:focus-visible{outline:3px solid #DB8437;outline-offset:5px;}
+.vmp-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:#1E2340;border:3px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45);cursor:grab;}
+.vmp-seek::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#1E2340;border:3px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45);cursor:grab;}
+.vmp-seek::-moz-range-track{background:transparent;}
+.vmp-time{font:800 1.12em/1 'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;white-space:nowrap;color:#1E2340;}
+.vmp-time b{font-weight:800;color:#A4561A;}
+.vmp-2 .vmp-track{order:-2;flex:1 1 calc(100% - 9em);}
+.vmp-2 .vmp-time{order:-1;}
+.vmp-2 .vmp-over{margin-left:auto;}
+/* Your Case of a voicemail activity: the voicemail first, across the slide, and what is worked from it under it
+   (the Notes & Action Plan checklist, or the documents), the two sharing the slide's height */
+.cfx-sb.cfx-sb-vmw{flex:1 0 auto;min-height:0;display:flex;flex-direction:column;padding-bottom:4px;}
+.cfx-sb.cfx-sb-vmw .cfx-when{flex:0 0 auto;}
+.cfx .cfx-sb-vmw .cfx-when-date,.cfx .cfx-sb-vmw .cfx-when-sol,.cfx .cfx-sb-vmw .cfx-when-jump,.cfx .cfx-sb-vmw .cfx-when-date b,.cfx .cfx-sb-vmw .cfx-when-sol b{font-size:16px !important;font-weight:800 !important;}
+.cfx .cfx-sb-vmw .cfx-when p{font-weight:700 !important;}
+.cfx-sb-grid.cfx-sb-vm{--vf:clamp(16px,min(2.15vh,1.2vw),24px);flex:1 1 auto;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;align-content:stretch;gap:calc(var(--vf) * .8);align-items:stretch;}
+.cfx-sb-grid.cfx-sb-vm.cfx-sb-vmd{grid-template-rows:minmax(min-content,1fr) auto;}
+.cfx-sb-vm .cfx-sb-main>:first-child{margin-top:0;}
+.cfx-sb-vm .cfx-sb-main>.cfx-vm{flex:1 1 auto;display:flex;flex-direction:column;justify-content:space-between;gap:calc(var(--vf) * .5);padding:calc(var(--vf) * .7) calc(var(--vf) * 1.2);font:800 var(--vf)/1.25 'Inter',sans-serif;color:#1E2340;border-width:3px;}
+.vmc-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:.2em .9em;}
+.vmc-ch{font:800 1em 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#A4561A;}
+.vmc-from{font:800 1.3em/1.15 'Poppins','Inter',sans-serif;color:#1E2340;}
+.vmc-when{margin-left:auto;font:800 1em 'IBM Plex Mono',monospace;color:#1E2340;}
+.cfx-sb-vm .cfx-vm .cfx-vm-wave{flex:1 1 0;min-height:0;height:auto;max-height:calc(var(--vf) * 4);overflow:hidden;}
+.vmc-f{display:flex;flex-wrap:wrap;align-items:center;gap:.3em 1em;}
+.cfx-sb-vm .cfx-vm .cfx-vm-st{font:800 1em/1.25 'Inter',sans-serif;color:#1E2340;background:#FBEBDD;border-radius:999px;padding:.25em .8em;}
+.vmc-hint{flex:1 1 12em;font:700 1em/1.25 'Inter',sans-serif;color:#3A4256;}
+.cfx .cfx-sb-vm .cfx-vm .vmc-go{margin-left:auto;font:800 calc(var(--vf) * 1.05)/1.2 'Inter',sans-serif !important;padding:.5em 1.1em;white-space:nowrap;border-radius:999px;}
+/* under it, the Notes & Action Plan: its name and score at the left, the checklist in columns beside */
+.cfx-sb-vm .cfx-sb-docs{padding-top:0;display:flex;flex-direction:column;justify-content:center;min-height:0;}
+.cfx-sb-vm .cfx-np{flex:1 1 auto;display:grid;grid-template-columns:minmax(0,auto) minmax(0,1.6fr);grid-template-rows:auto auto auto;align-content:center;gap:calc(var(--vf) * .3) calc(var(--vf) * 2.4);padding:calc(var(--vf) * .7) calc(var(--vf) * 1.2);border-width:3px;border-left-width:8px;font:800 var(--vf)/1.3 var(--font-ui);}
+.cfx-sb-vm .cfx-np>b{grid-column:1;grid-row:1;font:800 1.3em/1.15 'Poppins',var(--font-ui);color:#1E2340;}
+.cfx-sb-vm .cfx-np .cfx-np-k{grid-column:1;grid-row:2;font:700 1em/1.3 var(--font-ui);color:#3A4256;max-width:24em;}
+.cfx-sb-vm .cfx-np .cfx-np-r{grid-column:1;grid-row:3;align-self:start;margin-top:.2em;}
+.cfx-sb-vm .cfx-np .cfx-np-r small{font:800 1em/1.3 var(--font-ui);color:#A4561A;}
+.cfx-sb-vm .cfx-np ol{grid-column:2;grid-row:1 / 4;align-self:center;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45em 1.6em;font:800 1em/1.25 var(--font-ui);color:#1E2340;}
+.cfx .cfx-sb-vm .cfx-np li{font-size:var(--vf) !important;font-weight:800 !important;line-height:1.25;text-align:left !important;}
+/* or the documents it is worked from, in one row of pages with their names */
+.cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-docs-row{gap:calc(var(--vf) * 1.2);align-items:stretch;}
+.cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-thumb{flex:1 1 0;max-width:none;flex-direction:row;align-items:center;gap:calc(var(--vf) * .7);}
+.cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-thumb img{flex:0 0 auto;width:auto;height:clamp(120px,calc(42vh - 150px),340px);}
+.cfx .cfx-sb-grid.cfx-sb-vm .cfx-thumb span{display:block;overflow:visible;min-width:0;font:800 clamp(16px,min(1.9vh,1.05vw),20px)/1.25 'Inter',sans-serif !important;color:#fff;text-align:left;}
+.cfx-sb-grid.cfx-sb-vm .cfx-thumb-off::before{flex:0 0 auto;height:clamp(120px,calc(42vh - 150px),340px);}
+@media(max-width:760px){
+  .cfx-sb-vm .cfx-np{grid-template-columns:minmax(0,1fr);grid-template-rows:none;}
+  .cfx-sb-vm .cfx-np>b,.cfx-sb-vm .cfx-np .cfx-np-k,.cfx-sb-vm .cfx-np .cfx-np-r,.cfx-sb-vm .cfx-np ol{grid-column:1;grid-row:auto;}
+  .cfx-sb-vm .cfx-np ol{grid-template-columns:minmax(0,1fr);}
+  .cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-docs-row{flex-wrap:wrap;}
+  .cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-thumb{flex:1 1 100%;}
+  .cfx-sb-grid.cfx-sb-vm .cfx-sb-docs .cfx-thumb img{height:110px;}
+  .vmp-track{flex-basis:100%;order:5;}
+}
+/* the player in the Listening Check and in the Notes & Action Plan */
+.cf-vm-card>.vmp{margin:4px 0 8px;}
+.np-vm{margin-top:10px;border:3px solid #DB8437;border-radius:12px;background:#FFFDF8;padding:10px 14px;}
+.np-vm-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin-bottom:8px;font:800 16px/1.3 var(--font-ui);color:#1E2340;}
+.np-vm-h b{font-size:17px;}
+.np-vm-h .cfx-vm-st{margin-left:auto;color:#A4561A;}
+.np-vm-tip{margin:8px 0 0;font:700 16px/1.35 var(--font-ui);color:#3A4256;}
 #cf-vm{position:fixed;left:0;right:0;bottom:0;top:var(--cf-topbar,0px);z-index:80;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(20,24,40,.55);}
 .cf-vm-card{max-height:calc(100vh - var(--cf-topbar,0px) - 32px)!important;}
 #cf-vm[hidden]{display:none;}
 .cf-vm-card{width:min(720px,100%);max-height:calc(100vh - 32px);overflow:auto;background:#FFFDF8;border:3px solid #DB8437;border-radius:18px;padding:16px 20px;box-shadow:0 18px 40px rgba(0,0,0,.35);}
 .cf-vm-h{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px;}
 .cf-vm-h b{display:block;font:800 19px 'Poppins','Inter',sans-serif;color:#262B45;}
-.cf-vm-h span{font-size:13px;color:#5B6178;}
+.cf-vm-h span{font:700 16px/1.35 'Inter',sans-serif;color:#3A4256;}
 .cf-vm-x{border:0;background:none;font-size:20px;cursor:pointer;color:#262B45;}
-.cf-vm-lead{font-size:13.5px;color:#37394A;margin:10px 0;}
+.cf-vm-lead{font:700 16px/1.4 'Inter',sans-serif;color:#37394A;margin:10px 0;}
 .cf-vm-qs{margin:0 0 12px;padding-left:20px;}
-.cf-vm-qs li{margin:0 0 10px;font-size:14px;}
-.cf-vm-qs label{display:block;font-weight:600;color:#262B45;margin-bottom:4px;}
-.cf-vm-qs textarea{width:100%;box-sizing:border-box;border:1px solid #C9CEDB;border-radius:8px;padding:6px 10px;font:14px 'Inter',sans-serif;resize:vertical;}
+.cf-vm-qs li{margin:0 0 10px;font-size:16px;font-weight:700;}
+.cf-vm-qs label{display:block;font-weight:700;color:#262B45;margin-bottom:4px;}
+.cf-vm-qs textarea{width:100%;box-sizing:border-box;border:1px solid #C9CEDB;border-radius:8px;padding:6px 10px;font:600 16px 'Inter',sans-serif;resize:vertical;}
 .cf-vm-res{font-size:13px;margin-top:4px;}.cf-vm-res.ok{color:#2E7D4F;}.cf-vm-res.miss{color:#B54A3F;}.cf-vm-res span{color:#37394A;}
 .cf-vm-steps{margin:6px 0 10px;padding-left:22px;font-size:14px;line-height:1.5;}
 .cf-vm-steps li{margin:0 0 6px;}
