@@ -4134,6 +4134,7 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .card.cf-kc-result{background:#fff !important;border:2px solid #262B45 !important;box-shadow:0 10px 30px -18px rgba(20,24,40,.5) !important;color:#141A2E;padding:22px 26px !important;}
 .cf-kcr-eyebrow{margin:0 0 10px;font:800 13px 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:#262B45;display:inline-block;padding:6px 14px;border-radius:8px;}
 .cf-kc-result .sub{color:#2E3450 !important;font-weight:600;font-size:15px !important;}
+.cf-kc-result .quiz-next-step, .cf-kc-result .quiz-next-step *{font-size:14.5px !important;line-height:1.5;color:#141A2E;} .cf-kc-result .cf-kcr-btns .btn{font-size:14px;padding:8px 14px;}
 .cf-kcr-top{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px;align-items:center;}
 .cf-kcr-score{display:flex;align-items:center;gap:14px;}
 .cf-kcr-take{display:flex;flex-direction:column;align-items:flex-start;margin-left:18px;padding:8px 14px;border-left:3px solid #DB8437;background:rgba(219,132,55,.08);border-radius:0 10px 10px 0;}
@@ -5278,6 +5279,25 @@ document.head.appendChild(st);
 .cfx-agenda .cfx-ag-list li{padding:14px 16px;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.28);}
 .cfx-agenda .cfx-ag-list small{font-size:14.5px;color:#E3E7F1;}
 .cfx-agenda .cfx-ag-side p:not(.cfx-ag-day){font-size:18px;}
+/* bigger and bold: every slide's body text, as on Foundational's decks */
+.cfx .cfx-th-c b{font-size:19px;font-weight:800;}
+.cfx .cfx-th-c span, .cfx-th-solo .cfx-th-c span{font-size:20px;font-weight:600;}
+.cfx .cfx-th-lead{font-size:24px;font-weight:700;}
+.cfx .cfx-points li{font-weight:600;}
+.cfx .cfx-step span{font-size:19px;font-weight:600;}
+.cfx .cfx-dd li{font-size:21px;font-weight:600;}
+.cfx .cfx-dd h3{font-size:24px;}
+.cfx .cfx-fw-flow li span, .cfx .cfx-fw-list span, .cfx .cfx-fw-tbl td{font-size:18px;font-weight:600;color:#141A2E;}
+.cfx .cfx-fw-flow li b, .cfx .cfx-fw-list b{font-size:18.5px;font-weight:800;color:#1E2340;}
+.cfx .cfx-doc-c p, .cfx .cfx-doc-c li, .cfx .cfx-grade-c li{font-size:18px;font-weight:600;color:#141A2E;}
+.cfx .cfx-upl span{font-weight:700;}
+.cfx .cfx-situation{font-weight:600;color:#141A2E;}
+.cf-strip .cf-anchor{font-size:15px;font-weight:700;}
+.cfx-agenda .cfx-ag-list b{font-size:20px;font-weight:800;}
+.cfx-agenda .cfx-ag-list small{font-size:15.5px;font-weight:600;}
+.cfx-agenda .cfx-ag-side p:not(.cfx-ag-day){font-size:19px;font-weight:700;}
+.cfx .cfx-plain{font-size:17px;border:2px solid #9DB0CC;background:#EEF3FA;} .cfx .cfx-plain summary{font-size:16px;font-weight:700;color:#141A2E;}
+.cfx .cfx-plain dt{font-weight:800;color:#141A2E;} .cfx .cfx-plain dd{color:#141A2E;font-weight:600;}
 `;
   document.head.appendChild(st);
 })();
