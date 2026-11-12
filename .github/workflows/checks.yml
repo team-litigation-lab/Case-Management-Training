@@ -165,11 +165,11 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/drive-slide.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: The Admin screen in sections, as Foundational (section pills, their tabs, a navy banner; opens on Scorecard → Trainee Audit; a later tab lands in its section)
+      - name: The Admin screen in sections, as Foundational (section pills, their tabs, a navy banner; opens on Scorecard → Batch Sheet, scores only; every admin action in Admin Master Control)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/admin-shell.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: The Trainee Audit is one table (a row per trainee, filters and sortable columns, every action in one ⋯ menu)
+      - name: The Trainee Audit is one table (the name opens the detail, Reset beside it, Approve / Reject / Revoke as buttons; Companion Cases its own table)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/trainee-audit.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
