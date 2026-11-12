@@ -110,14 +110,14 @@ window.cmKnowTools = {
 
 const css = document.createElement("style"); css.id = "cm-know-tools";
 css.textContent = `
-main:has(.kt-page){max-width:min(2200px, 97vw) !important;padding-left:20px;padding-right:20px;}
+main:has(.kt-page){max-width:min(2200px, 97vw) !important;padding:18px 20px 24px !important;}
 .kt-page{max-width:none;margin:0 auto;}
 .kt-deck{background:linear-gradient(135deg,#1F2440,#2B3158 60%,#353C68);border-radius:20px;padding:20px 22px;color:#fff;}
-.kt-head h2{margin:0;font:800 30px 'Poppins','Inter',sans-serif;color:#F6C08F;} .kt-head p{margin:4px 0 14px;font:600 16px/1.5 'Inter',sans-serif;color:#E3E7F1;}
+.kt-head h2{margin:0;font:800 30px 'Poppins','Inter',sans-serif;color:#F6C08F;} .kt-head p{margin:2px 0 12px;font:600 16px/1.5 'Inter',sans-serif;color:#E3E7F1;}
 .kt-body{display:grid;grid-template-columns:minmax(280px,400px) minmax(0,1fr);gap:18px;}
-.kt-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
-.kt-list button{width:100%;text-align:left;display:flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);color:#fff;border-radius:10px;padding:12px 16px;font:800 18.5px/1.3 'Inter',sans-serif;cursor:pointer;}
-.kt-list button > span{font-size:21px;}
+.kt-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;}
+.kt-list button{width:100%;text-align:left;display:flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);color:#fff;border-radius:10px;padding:8px 14px;font:800 18px/1.2 'Inter',sans-serif;cursor:pointer;}
+.kt-list button > span{font-size:20px;}
 .kt-list button.on{background:#F6C08F;color:#141A2E;border-color:#F6C08F;} .kt-list em{font-style:normal;margin-left:auto;}
 .kt-sheet{background:#fff;color:#141A2E;border-radius:16px;padding:26px 32px;}
 .kt-k{margin:0;font:800 15px 'Inter',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#A4470F;}
