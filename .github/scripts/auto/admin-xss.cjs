@@ -4,11 +4,14 @@
 // renders the trainer's views, and checks nothing injected runs and the cards still read right:
 //   - Admin → Trainee Feedback: an id, status, day, time and ratings that try to break out of their attributes, an
 //     onclick and the stars ("★".repeat of a rating outside 1 to 5 used to throw and blank the page);
-//   - the trainee's detail (Trainee Audit): a submitted file whose data URL tries to break out of its download link.
+//   - the trainee's detail (Trainee Audit): a submitted file whose data URL tries to break out of its download link;
+//   - the Trainee Audit table and detail: Skill Builder runs and scores, a day's score, the Backup Drive set-up, filing
+//     attempts and an amendment request's log, all sent as markup where numbers and ids belong;
+//   - the Batch Sheet: a review the trainee wrote for themselves as "sent" is not shown as the trainer's remark.
 // The Worker's own clean-up of new feedback is checked in worker-guards.cjs.
-// Usage: node .github/scripts/admin-xss.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
+// Usage: node .github/scripts/auto/admin-xss.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
-const signIn = require('./sign-in.cjs');
+const signIn = require('../sign-in.cjs');
 const BASE = process.argv[2] || 'http://localhost:8787/';
 const failures = []; const fail = (m) => failures.push(m);
 (async () => {
@@ -31,7 +34,21 @@ const failures = []; const fail = (m) => failures.push(m);
         rec.submissions = [{ stored: true, fileName: 'notes.pdf', toolTitle: 'Probe', fileSize: 12, submittedAt: '2026-01-01T00:00:00Z', dataUrl: '"><img src=x onerror="window.__xss=\'dataUrl\'">' },
             { stored: true, fileName: 'js.pdf', toolTitle: 'Probe', fileSize: 12, submittedAt: '2026-01-01T00:00:00Z', dataUrl: 'javascript:window.__xss=\'jsurl\'' },
             { stored: true, fileName: 'ok.pdf', toolTitle: 'Probe', fileSize: 12, submittedAt: '2026-01-01T00:00:00Z', dataUrl: 'data:application/pdf;base64,JVBERi0xLjQK' }];
+        // numbers a trainee's page keeps, sent as markup instead: Skill Builder runs and best scores, a day's score
+        const X = (t) => `<img src=x onerror="window.__xss='${t}'">`;
+        rec.practiceProgress = { anytool: { runs: X('pp.runs'), bestScore: X('pp.best') } };
+        const cfDays = DAYS.filter(d => d.cf).map(d => d.id);
+        rec.dayProgress = Object.fromEntries(cfDays.map(d => [d, { done: true, score: X('dp.score') }]));
         await set(key, rec);
+        // the trainee's progress record (free-form, theirs to write): the Backup Drive set-up, filed documents, and the
+        // log of a refused amendment request
+        const EXH = window.CM_CF_EXHIBITS || {}, amend = {}, filing = { probe: { filed: true, name: 'Probe.pdf', attempts: X('df.attempts') } };
+        Object.entries(EXH.amendments || {}).forEach(([a, x]) => { const req = {};
+            (x.requests || []).forEach(q => { req[q.doc] = { sent: true, tries: 2, choice: 0, body: 'x', log: [{ tripped: [X('am.tripped')], missing: [X('am.missing')] }] }; });
+            amend[a] = { screened: true, marks: {}, req }; });
+        await set('progress:' + state.traineeId, { savedAt: '2026-01-04T00:00:00Z', data: { 'drive-setup': { score: X('ds.score'), attempts: X('ds.attempts') }, 'doc-filing': filing, 'case-flow': { v: 1, modules: {}, amend } } });
+        // a review the trainee wrote for themselves as "sent" (the Worker stores what a trainee writes as the auto-review)
+        await set('feedback:' + state.traineeId, { days: { [cfDays[0]]: { status: 'sent', auto: true, rating: 'Strong', summary: 'FORGED-BY-TRAINEE outstanding' } } });
     }, fid);
 
     // Admin → Trainee Feedback
@@ -62,6 +79,27 @@ const failures = []; const fail = (m) => failures.push(m);
     if (html.imgs) fail(`the trainee's detail drew ${html.imgs} injected <img> element(s)`);
     if (html.links.some(l => !/^data:/.test(l.href))) fail(`a download link should only ever be a data: URL: ${JSON.stringify(html.links)}`);
     if (!html.links.some(l => l.name === 'ok.pdf')) fail(`a real stored file should still be offered for download: ${JSON.stringify(html.links)}`);
+    // the Trainee Audit table (drawn for every trainee as soon as the tab opens), then this trainee's detail with its
+    // Day-by-Day, Skill Builders, Document Filing & Backup Drive and Case Flow trainer panels
+    const tid = await page.evaluate(() => state.traineeId);
+    const injected = () => page.evaluate(() => [...document.querySelectorAll('img')].filter(i => i.getAttribute('src') === 'x').length);
+    await page.evaluate(() => { const b = document.getElementById('xss-detail'); if (b) b.remove(); state.adminData = null; goto('admin'); state.adminTab = 'traineeaudit'; render(); });
+    await page.waitForTimeout(3500);
+    if (!(await page.locator(`tr[data-id="${tid}"]`).count())) fail("the Trainee Audit should list the planted trainee");
+    if (await injected()) fail(`the Trainee Audit table drew ${await injected()} injected <img> element(s) from a trainee's Skill Builder numbers`);
+    await page.evaluate((id) => { state.adminExpandedId = id; render(); }, tid);
+    await page.waitForTimeout(3500);
+    await page.evaluate(() => { render(); document.querySelectorAll('details').forEach(d => { d.open = true; }); }); await page.waitForTimeout(1200);
+    const panels = await page.evaluate(() => ({ work: document.querySelectorAll('.cf-tr-work').length, text: document.body.innerText }));
+    if (!/Drive set up at/.test(panels.text)) fail("the trainee's detail should show the Backup Drive set-up line");
+    if (!/tripped/.test(panels.text)) fail("the Case Flow trainer panel should show the amendment request's refused attempt");
+    if (await injected()) fail(`the trainee's detail drew ${await injected()} injected <img> element(s) (scores, runs, Drive set-up, filing attempts or the amendment log)`);
+    // the Batch Sheet: a review the trainee wrote for themselves never reads as the trainer's remark
+    await page.evaluate(() => { state.adminExpandedId = null; state.adminTab = 'audit'; render(); });
+    await page.waitForTimeout(3500);
+    const forged = await page.evaluate(() => [...document.querySelectorAll('td')].filter(td => /FORGED/.test(td.title || '') || /FORGED/.test(td.textContent)).map(td => `${td.textContent} | ${td.title}`.slice(0, 120)));
+    if (forged.length) fail(`the Batch Sheet shows a review the trainee wrote as the trainer's remark: ${JSON.stringify(forged.slice(0, 2))}`);
+    if (await injected()) fail(`the Batch Sheet drew ${await injected()} injected <img> element(s)`);
     const ran = await page.evaluate(() => window.__xss);
     if (ran) fail(`a trainee's text ran in the trainer's page (through ${ran})`);
     await browser.close();
