@@ -181,6 +181,10 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/open-lessons.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: The Scorecard as the trainee card (the 100-point model, its day multipliers, pass at 80% with the safety gate; the trainee's own card, every card for the trainer, the CSV)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/scorecard-card.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: 🗺 Roadmap lists every day and its topics (in place of the day cards' ☰ Topics), and opens a reached topic
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
