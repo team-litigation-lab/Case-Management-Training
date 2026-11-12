@@ -89,9 +89,13 @@ const SOURCES = [
   {id: "ps", icon: "🧰", label: "Portal Simulators", about: "The best result on each Training Portal simulator.",
     items: c => Object.entries((c.sim && c.sim.best) || {}).filter(([, b]) => b && typeof b.score === "number").map(([k, b]) => ({
       name: k, pct: num(b.score), note: `${b.count || 1} run${(b.count || 1) === 1 ? "" : "s"}${b.at ? " · " + fmt(b.at) : ""}`}))},
-  {id: "rt", icon: "🎲", label: "Random Tasks", about: "Each resolved random task's grade: timeliness, priorities, the day's lesson, communication and risk.",
-    items: c => (c.data["task-log"] || []).filter(e => e && e.status === "resolved" && typeof e.score === "number").map(e => ({
-      name: (e.task && (e.task.title || e.task.name)) || (typeof e.task === "string" ? e.task.slice(0, 80) : "Random task"), pct: num(e.score), note: fmt(e.resolvedAt || e.id)}))}
+  {id: "rt", icon: "🎲", label: "Random Tasks", about: "Each random task's grade: timeliness, priorities, the day's lesson, communication and risk. A task not resolved before its timer ended counts 0.",
+    // (a missed task counts 0, as everywhere else in the course: the day's score, rankings and the Batch Sheet's Score Card)
+    items: c => (c.data["task-log"] || []).filter(Boolean).map(e => {
+      const missed = e.status === "missed" || ((e.status === "new" || e.status === "progress") && e.expiresAt && Date.now() > Date.parse(e.expiresAt));
+      const name = (e.task && (e.task.title || e.task.name)) || (typeof e.task === "string" ? e.task.slice(0, 80) : "Random task");
+      if(e.status === "resolved" && typeof e.score === "number") return {name, pct: num(e.score), note: fmt(e.submittedAt || e.resolvedAt || e.id)};
+      return missed ? {name, pct: 0, note: "Missed: not resolved before the timer ended"} : null; }).filter(Boolean)}
 ];
 function compute(c){
   const rows = SOURCES.map(s => {

@@ -156,7 +156,8 @@ function recentTable(ppl){
     days().forEach(d => { const p = dp[d.id]; if(p && typeof p.score === "number") push(r, p.date || p.at, "Knowledge Check", dayLabel(d), p.score); });
     (data["work-log"] || []).forEach(w => { if(!w || w.kind === "quiz") return;
       push(r, w.at, w.kind === "lab" ? "Skill Activity" : w.kind === "roleplay" ? "Call practice" : w.kind === "task" ? "Random task" : "Practice", w.label, typeof w.score === "number" ? w.score : null); });
-    (data["task-log"] || []).forEach(t => { if(t && t.status === "resolved") push(r, t.submittedAt || t.resolvedAt, "Random task resolved", (t.task && (t.task.title || t.task.name)) || "", t.score); else if(t && t.status === "missed") push(r, t.expiresAt, "Random task missed", (t.task && (t.task.title || t.task.name)) || "", 0); });
+    const tname = t => clip(typeof t.task === "string" ? t.task : (t.task && (t.task.title || t.task.name)) || "", 120);
+    (data["task-log"] || []).forEach(t => { if(t && t.status === "resolved") push(r, t.submittedAt || t.resolvedAt, "Random task resolved", tname(t), t.score); else if(t && t.status === "missed") push(r, t.expiresAt, "Random task missed", tname(t), 0); });
     const lv = data["last-view"]; if(lv && lv.at) push(r, lv.at, "Opened", lv.view === "day" ? `Day ${lv.dayId}` : lv.view === "tool" ? `Skill Builder ${lv.toolId || ""}` : String(lv.view || ""));
   });
   out.sort((a, b) => b.at - a.at);
