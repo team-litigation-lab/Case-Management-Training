@@ -169,6 +169,9 @@ html body .dash-main .module-card.mc-clean .mc-progress-empty{visibility:hidden;
 /* Blue: the Know Your Tools card and the scores band, in the course's navy with white text */
 html body .kt-card{background:linear-gradient(135deg,#1E2340 0%,#343C66 100%) !important;border-color:#2C335A !important;border-left-color:#DB8437 !important;}
 html body .kt-card b{color:#fff !important;} html body .kt-card small{color:#D9DCEA !important;}
+/* on the navy card, the ghost "Review" button is white, bold and outlined, so it reads (it was navy text on navy) */
+html body .kt-card .btn-ghost{color:#fff !important;background:rgba(255,255,255,.08) !important;border:2px solid rgba(255,255,255,.75) !important;font-weight:800 !important;}
+html body .kt-card .btn-ghost:hover{background:#fff !important;color:#1E2340 !important;}
 html body .dash-main > .dash-side{background:linear-gradient(135deg,#1E2340 0%,#343C66 100%) !important;border-color:#2C335A !important;}
 html body .dash-main > .dash-side .card{background:rgba(255,255,255,.08) !important;border-color:rgba(255,255,255,.18) !important;color:#fff !important;}
 html body .dash-main > .dash-side .stat .num, html body .dash-main > .dash-side .card .num{color:#fff !important;}
