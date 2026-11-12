@@ -3555,6 +3555,14 @@ function canonicalBatch(raw){
   return "B" + m[1] + m[2] + yy;
 }
 window.canonicalBatch = canonicalBatch;
+/* The Batch ID as it is SHOWN: always B + MMDDYY. A batch saved day-first (B + DDMMYY, e.g. B250926 for 25 September 2026)
+   shows month-first (B092526) wherever the day can't be a month (over 12); an ambiguous one is read as MMDDYY, the rule.
+   Display only: the saved batch, and the trainee ids the Worker builds from it, are never changed. */
+function batchShow(b){
+  const c = canonicalBatch(b); if(!c) return cleanBatch(b) || String(b || "");
+  return +c.slice(1, 3) > 12 ? "B" + c.slice(3, 5) + c.slice(1, 3) + c.slice(5) : c;
+}
+window.batchShow = batchShow;
 // The Batch ID to show and group by: in its one form, or, for an older code that isn't a date (B1, a guest
 // account's), as it was typed — so a trainee registered under one keeps their records. A new registration
 // has to give a real Batch ID (submitLogin, and worker.js refuses it server-side).
@@ -5361,7 +5369,7 @@ function renderRankingCard(){
   const row = (x,i)=>`<li class="${x.id===state.traineeId?'me':''}"><span class="rk">${medals[i]||"#"+(i+1)}</span><span class="nm">${x.id===state.traineeId?"You":esc(shortName(x.name))}</span><span class="sc">${x.overall}</span></li>`;
   return `<div class="card stat rank-card">
     <div class="num">${pos>=0 ? `#${pos+1}` : "—"} <span>of ${rd.ranked.length}</span></div>
-    <div class="lbl">Ranking${rd.batch ? ` · Batch ${esc(rd.batch)}` : ""}</div>
+    <div class="lbl">Ranking${rd.batch ? ` · Batch ${esc(batchShow(rd.batch))}` : ""}</div>
     <ol class="rank-list">${top.map(row).join("")}${pos>2 ? `<li class="gap">…</li>${row(rd.ranked[pos],pos)}` : ""}</ol>
     <div class="sub">Score = 35% progress · 25% quizzes · 25% Skill Builders · 15% random tasks (40/30/30 until a task is graded)</div>
   </div>`;
@@ -11431,7 +11439,7 @@ function tfbExportCsv(){
 Object.assign(window, {tfbSetStatus, tfbExportCsv, loadTraineeFeedbackAdmin});
 function tfbItemCard(x){
   return `<div class="card tfb-item ${x.status||"new"}">
-      <div class="tfb-item-head"><b>${esc(x.name||"Trainee")}</b>${x.batch?` · Batch ${esc(x.batch)}`:""} · ${x.dayId?`Day ${x.dayId}`:"Program overall"} · <span>${new Date(x.at).toLocaleString()}</span>
+      <div class="tfb-item-head"><b>${esc(x.name||"Trainee")}</b>${x.batch?` · Batch ${esc(batchShow(x.batch))}`:""} · ${x.dayId?`Day ${x.dayId}`:"Program overall"} · <span>${new Date(x.at).toLocaleString()}</span>
         <span class="studio-badge ${x.status==="actioned"?"published":""}">${esc(x.status||"new")}</span></div>
       <div class="tfb-item-ratings">${TFB_AREAS.filter(a=>x.ratings&&x.ratings[a.id]).map(a=>`<span>${a.icon} ${esc(a.label)}: <b>${"★".repeat(x.ratings[a.id])}${"☆".repeat(5-x.ratings[a.id])}</b></span>`).join("")}</div>
       ${x.good?`<p><b>Worked well:</b> ${esc(x.good)}</p>`:""}${x.improve?`<p><b>Improve:</b> ${esc(x.improve)}</p>`:""}${x.facilitator?`<p><b>For facilitator:</b> ${esc(x.facilitator)}</p>`:""}
@@ -11565,22 +11573,21 @@ function renderAdmin(){
     return tabBar + `<div class="card" style="padding:40px;text-align:center;color:var(--ink-soft);">Loading trainee ledger…</div>`;
   }
 
-  return tabBar + (typeof renderAdminBatchSheet==="function" ? renderAdminBatchSheet() : "") + renderTraineesAndBatches();
+  return tabBar + renderAdminSecurityNote() + (typeof renderAdminBatchSheet==="function" ? renderAdminBatchSheet() : "") + renderTraineesAndBatches();
 }
 /* 👥 Trainees & Batches, at the foot of the 📋 Batch Sheet (as in Foundational Training): what a trainer DOES — approvals,
    each trainee's actions, archiving, the folded settings. Their progress and scores are the sheet's tables above. */
-function renderTraineesAndBatches(){
-  const sort = state.adminSort || "completion_desc";
+/* 👥 what was Trainees & Batches is the 📋 Batch Sheet's own now (js/cm-batch-sheet.js): approvals and each trainee's actions in
+   its 👥 Trainees table, View Detail under it, Show archived and 📦 Archive this batch in its banner. Left here: the security
+   warning (above the sheet) and the folded settings (under it). */
+function renderAdminSecurityNote(){
   return `
-    <section class="bs-people" id="bs-people">
-    <div class="audit-page-head" style="display:flex;gap:12px 16px;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;">
-      <h2>👥 Trainees &amp; Batches</h2>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-        <button class="btn btn-ghost btn-sm" onclick="adminLogout()">Log out</button>
-      </div>
-    </div>
-    <p class="bs-people-sub">Approve new trainees, act on each one (detail, feedback, certificate, attempts) and archive a batch when it finishes. The batch picked in the sheet above filters this list.</p>
     ${state.secureMode===false ? `<div class="card" style="padding:14px 18px;margin-bottom:14px;border-left:4px solid var(--danger);background:var(--danger-bg);"><b style="color:var(--danger);">⚠ Security not enabled.</b> <span style="font-size:13px;">Storage and AI are open to anyone who finds the API. Run <code>wrangler secret put MASTER_ADMIN_PASSWORD</code> (and redeploy the updated worker.js) to require sign-in.</span></div>` : ""}
+  `;
+}
+function renderTraineesAndBatches(){
+  return `
+    <section class="bs-settings">
     <details class="card adm-settings"><summary>⚙ Certificate signatories &amp; feedback drafts</summary>
     <div class="card cert-settings">
       <b style="color:var(--navy);font-size:13.5px;">🎓 Certificate signatories</b>
@@ -11604,28 +11611,6 @@ function renderTraineesAndBatches(){
     </div>
     </details>
 
-    ${renderPendingApprovalsPanel()}
-
-    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:14px;">
-      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-        <input type="text" id="adminSearchInput" placeholder="Search by name…" value="${esc(state.adminSearch||"")}" oninput="setAdminSearch(this.value)"
-               style="padding:8px 12px;border-radius:8px;border:1px solid var(--line);font-size:13px;min-width:200px;">
-        <select onchange="setAdminSort(this.value)" style="padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:13px;">
-          <option value="name_asc" ${sort==="name_asc"?"selected":""}>Sort: Name (A–Z)</option>
-          <option value="completion_desc" ${sort==="completion_desc"?"selected":""}>Sort: Most days completed</option>
-          <option value="completion_asc" ${sort==="completion_asc"?"selected":""}>Sort: Fewest days completed</option>
-          <option value="recent" ${sort==="recent"?"selected":""}>Sort: Most recently active</option>
-        </select>
-        <label style="display:flex;align-items:center;gap:5px;font-size:12.5px;color:var(--ink-soft);cursor:pointer;">
-          <input type="checkbox" ${state.adminShowArchived?"checked":""} onchange="setAdminShowArchived(this.checked)"> Show archived
-        </label>
-      </div>
-      <div style="display:flex;gap:8px;">
-        ${state.adminBatchFilter ? `<button class="btn btn-ghost btn-sm" style="color:var(--danger);" onclick="confirmArchiveBatch('${esc(state.adminBatchFilter)}')">📦 Archive This Batch</button>` : ""}
-      </div>
-    </div>
-
-    <div id="adminRowsWrap">${renderAdminRows()}</div>
     </section>
   `;
 }
@@ -11711,7 +11696,7 @@ window.downloadCohortPdf = downloadCohortPdf;
    registry, rankings, trainee feedback and activity ---------- */
 // batchKey / NO_BATCH come from Rankings below (function declarations hoist; the
 // const is set before any render runs).
-function folderLabel(k){ return k===NO_BATCH ? "No batch" : `Batch ${k}`; }
+function folderLabel(k){ return k===NO_BATCH ? "No batch" : batchShow(k); }
 function batchMembers(k){ return (state.adminData||[]).filter(r=>batchKey(r)===k && (state.batchShowArchived || !r.archived)); }
 function batchFeedback(k){ return ((state.tfbAdmin||{}).items||[]).filter(x=>(cleanBatch(x.batch)||NO_BATCH)===k); }
 function openBatchFolder(k, sub){ state.batchFolder = k; state.batchSub = sub || state.batchSub || "registry"; render(); }
@@ -11797,7 +11782,7 @@ function renderBatchFolderBody(){
 // Batch key for ranking/archiving; trainees with no (valid) batch share one group.
 const NO_BATCH = "__none__";
 function batchKey(rec){ return cleanBatch(rec && rec.batch) || NO_BATCH; }
-function batchLabel(b){ return b===NO_BATCH ? "No batch" : b; }
+function batchLabel(b){ return b===NO_BATCH ? "No batch" : batchShow(b); }
 function renderAdminRankings(onlyBatch){
   if(state.adminLoading || !state.adminData){
     return `<div class="card" style="padding:40px;text-align:center;color:var(--ink-soft);">Loading trainee ledger…</div>`;
@@ -12025,7 +12010,7 @@ function renderAdminRow(rec, day, practice){
       <div class="admin-row-grid" style="display:grid;grid-template-columns:minmax(180px,1fr) auto;gap:12px;align-items:center;padding:14px 18px;">
         <div style="min-width:0;overflow:hidden;">
           <b class="admin-name" title="${esc(String(rec.name||"Unnamed").slice(0,200))}" style="color:var(--navy);font-size:13.5px;">${esc(String(rec.name||"Unnamed").slice(0,60))}${String(rec.name||"").length>60?"…":""}</b>${rec.archived?' <span style="font-size:10px;color:var(--ink-soft);">(archived)</span>':''}${rec.flaggedInvalidInput?' <span style="font-size:10px;color:var(--danger);font-weight:700;">⚠ invalid input removed</span>':''}${renderDriveChip(rec)}
-          <div class="admin-id" style="font-size:10.5px;color:var(--ink-soft);font-family:'IBM Plex Mono';">${esc(String(rec.id).slice(0,48))}${rec.batch?` · ${esc(cleanBatch(rec.batch))}`:''}</div>
+          <div class="admin-id" style="font-size:10.5px;color:var(--ink-soft);font-family:'IBM Plex Mono';">${esc(String(rec.id).slice(0,48))}${rec.batch?` · ${esc(batchShow(rec.batch))}`:''}</div>
         </div>
         <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:520px;">
           <button class="btn btn-sm btn-ghost" onclick="toggleAdminDetail('${rec.id}')">${expanded?"Hide":"View"} Detail</button>
@@ -16106,15 +16091,15 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-data.js?v=62"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=3"></script>
-<script src="/js/cm-case-flow.js?v=126"></script>
+<script src="/js/cm-case-flow.js?v=128"></script>
 <script src="/js/cm-script-editor.js?v=15"></script>
 <!-- 🏅 the Scorecard (as in Foundational Training): My Performance for trainees, Scorecards for trainers -->
-<script src="/js/cm-scorecard.js?v=6"></script>
-<script src="/js/cm-batch-sheet.js?v=1"></script>
+<script src="/js/cm-scorecard.js?v=8"></script>
+<script src="/js/cm-batch-sheet.js?v=6"></script>
 <script src="/js/cm-know-tools.js?v=8"></script>
 <!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
 <script src="/js/cm-companion-cases.js?v=1"></script>
-<script src="/js/cm-companion.js?v=1"></script>
+<script src="/js/cm-companion.js?v=2"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=5"></script>
 <script src="/js/lsh-tool-links.js?v=cm-2026.10.23-trainer-sso"></script>

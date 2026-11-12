@@ -133,7 +133,7 @@ function guideHtml(n){
   const rs = assigned();
   if(!rs.length) return `<p class="cc-none">No trainee has a companion case yet. Assign one in Admin → Trainee Audit (📁 on each trainee's row).</p>`;
   return rs.map(r => { const c = CASES[r.assignedCase.id], x = (c.days || {})[n] || {};
-    return `<details class="cc-g"><summary><b>${E(r.name || "Trainee")}</b>${r.batch ? `<span class="cc-batch">${E(typeof cleanBatch === "function" ? cleanBatch(r.batch) : r.batch)}</span>` : ""}<span>📁 ${E(c.title)} · ${E(x.title)}</span></summary>
+    return `<details class="cc-g"><summary><b>${E(r.name || "Trainee")}</b>${r.batch ? `<span class="cc-batch">${E(typeof batchShow === "function" ? batchShow(r.batch) : r.batch)}</span>` : ""}<span>📁 ${E(c.title)} · ${E(x.title)}</span></summary>
       <div class="cc-g-body">${dayHtml(c, n, true)}<button type="button" class="btn btn-ghost btn-sm" onclick="cmCompanion.open('${E(r.assignedCase.id)}', ${n}, {trainer: true, who: '${E(String(r.name || "").replace(/'/g, ""))}'})">Open the whole case file</button></div></details>`; }).join("");
 }
 function brainstormCard(d){
