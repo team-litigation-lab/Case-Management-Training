@@ -709,7 +709,7 @@ async function driveWrite(env, id, rec) { await kvOf(env).put(driveKey(id), JSON
    stay. Used by Disconnect and when Google says the link has expired or was taken back, so neither loses a grade. */
 async function driveUnlink(env, id, rec) {
   const kept = {};
-  if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt", "grades", "gradedAt", "checkLog", "restoreLog", "drills"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
+  if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt", "grades", "gradedAt", "checkLog", "restoreLog", "drills", "naming"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
   if (Object.keys(kept).length) return driveWrite(env, id, kept);
   await kvOf(env).put(driveKey(id), "null");
   return null;
@@ -853,6 +853,7 @@ function driveStatus(env, rec) {
     grades: (rec && rec.grades) || {},
     gradedAt: (rec && rec.gradedAt) || null,
     drills: Object.keys((rec && rec.drills) || {}),
+    naming: Object.assign(namingRule(rec), { report: (rec && rec.naming) || null }),   // 🏷 the convention, and the last check of the names
   };
 }
 
@@ -883,6 +884,7 @@ function driveReport(id, rec) {
     lastCopyAt,
     standard: FOLDER_STANDARD.length,
     grades: (rec && rec.grades) || {},
+    naming: (rec && rec.naming) || null,   // 🏷 the last check of the names: how many files, how many wrong, and each wrong one
   };
 }
 
@@ -925,7 +927,205 @@ const DRIVE_PASS = 70;
 const DRILL_NAME = "Summit-Imaging_Invoice_filed-here-by-a-colleague.pdf";
 const LIENS_FOLDER = DRIVE_HOMES.liens;
 const shortPath = (p) => String(p || "").split("/").pop();
-const SUPERSEDED_OK = (name) => /superseded/i.test(name) && /\d{4}-\d{2}-\d{2}|\d{1,2}[-._]\d{1,2}[-._]\d{2,4}|\d{8}/.test(name);
+/* SUPERSEDED with the replacing version's date beside it. The date has to follow the label: every name already
+   carries its filing date, so "a date somewhere in the name" would pass a label with no date at all. */
+const SUPERSEDED_OK = (name) => /superseded[\s_.()-]*(?:\d{4}-\d{2}-\d{2}|\d{1,2}[-._]\d{1,2}[-._]\d{2,4}|\d{8})/i.test(name);
+
+/* ============================================================
+   🏷 The firm's file naming convention, and the check of every name on the Backup Drive
+
+   One rule, the one a document is filed under in the CMS (js/cm-doc-filing.js, the CMS's caseFileName):
+
+       <Case ID>_<Last-First>_<Type>_<YYYY-MM-DD>.<ext>
+
+   The CMS checks it once, when a document is filed. This is the same rule kept on the drive afterwards, where a
+   name can still go wrong: a copy renamed by hand, a copy that never went through the CMS, a colleague's file, a
+   folder somebody retyped. The pattern, its parts, the Types (the CMS's Doc Hub categories, words joined by a
+   hyphen) and the two labels the drive activities teach live here and nowhere else; the page draws its 🏷 box
+   from them (driveStatus / "standard"), and .github/scripts/drive-naming.cjs keeps the pattern and the
+   categories the same as the filing panel's.
+
+   What is checked (driveNaming), with no Google request of its own: the grade already lists every file and
+   folder this platform can see (driveSnapshot), so every file in the firm's folders, and every copy the
+   platform made wherever it has been moved, is read by its name as it is in Drive now.
+     - A copy keeps the name it was filed under. The CMS named it, so that name is the firm's word for the file
+       and nothing here second-guesses a name the CMS accepted.
+     - Any other name is read part by part: the trainee's Case ID, the client as the client folder is named, a
+       Type the firm files under, a real date, a lower-case extension.
+     - A label is a fifth part: _DRAFT on a draft, _SUPERSEDED-<YYYY-MM-DD> (the replacing version's date) on a
+       version a newer one replaced. Required on the documents the course marks so (LABEL_DOCS), allowed nowhere
+       else unless it is one of the two.
+     - A folder of the structure is read against the standard's own name.
+   Each wrong name comes back with its folder, the name as it is, the name it should have and the part that
+   differs (nameHint), and the whole check is one row of every graded day (NAMING_POINTS).
+
+   What it cannot see: drive.file shows this platform only the files and folders it made. A file the trainee
+   uploads or copies into a folder by hand in Google Drive is invisible here, and the page says so.
+   ============================================================ */
+const FILE_NAME_PATTERN = "<Case ID>_<Last-First>_<Type>_<YYYY-MM-DD>.<ext>";
+/* The CMS's Doc Hub categories (CATEGORIES in js/cm-doc-filing.js): the Type is the category, words joined by a hyphen. */
+const FILE_CATEGORIES = ["Intake Documents", "Medical Records", "Police Report", "Case Files", "Invoices", "Bills", "Property Damage", "Litigation Documents", "Others"];
+const fileType = (category) => String(category || "").trim().replace(/[^A-Za-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+const FILE_TYPES = FILE_CATEGORIES.map(fileType);
+const NAME_CLIENT = shortPath(CLIENT_FOLDER);            // Doe-John: a file carries the client as the client folder is named
+const NAME_EXAMPLE_CASE = "LSH-2026-MVA-000041";         // only for the example, until the trainee's own Case ID is known
+const NAME_PARTS = [
+  ["Case ID", "the Case ID the CMS gave your case, exactly as the CMS shows it"],
+  ["Last-First", `the client, last name first, as the client folder is named: ${NAME_CLIENT}`],
+  ["Type", "the CMS category the document is filed under, its words joined by a hyphen"],
+  ["YYYY-MM-DD", "the day it was filed, year first"],
+  ["ext", "the file's own extension, in lower case"],
+];
+const NAME_LABELS = [
+  ["DRAFT", "_DRAFT", "a draft that has not gone out"],
+  ["SUPERSEDED", "_SUPERSEDED-<YYYY-MM-DD>", "a version a newer one replaced, with the date of the version that replaced it"],
+];
+/* The course documents that carry a label on the drive (Day 3 teaches them, Day 5's final audit reads them again),
+   and for a superseded one the version that replaced it: it is superseded once that version is on the drive too. */
+const LABEL_DOCS = { RS33: "DRAFT", RS66: "DRAFT", RS26: "SUPERSEDED", RS94: "SUPERSEDED" };
+const SUPERSEDED_BY = { RS26: "RS73", RS94: "RS95" };
+const DRILL_TYPE = "Invoices";                           // the colleague's file is Summit Imaging's invoice (RS25's category)
+/* File names are one row of every graded day: NAMING_POINTS of the NAMING_OF points the platform grades. */
+const NAMING_POINTS = 12, NAMING_OF = 60;
+
+const realDay = (s) => { if (!/^\d{4}-\d{2}-\d{2}$/.test(String(s))) return false; const d = new Date(s + "T00:00:00Z"); return !isNaN(d) && d.toISOString().slice(0, 10) === s; };
+const caseIdShape = (s) => /^[A-Z0-9]+(?:-[A-Z0-9]+)+$/.test(String(s));
+const typeShape = (s) => /^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$/.test(String(s));
+const clientShape = (s) => /^[A-Za-z]+(?:-[A-Za-z]+)+$/.test(String(s));
+const extShape = (s) => /^[a-z0-9]{1,8}$/.test(String(s));
+const looseKey = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+const nearType = (s) => FILE_TYPES.find((t) => looseKey(t) === looseKey(s)) || "";
+
+/* A name as its pieces: what sits between the underscores, and the extension after the last dot. */
+function nameSplit(name) {
+  const s = String(name == null ? "" : name);
+  const dot = s.lastIndexOf("."), hasExt = dot > 0 && dot < s.length - 1;
+  return { parts: (hasExt ? s.slice(0, dot) : s).split("_"), ext: hasExt ? s.slice(dot + 1) : "" };
+}
+/* The name a copy was filed under, when it has the convention's shape: the CMS named it, so it is the firm's
+   word for that file (its Case ID, client, Type, date and extension), whatever this Worker would have guessed. */
+function nameAsFiled(name) {
+  const { parts, ext } = nameSplit(name);
+  if (parts.length !== 4) return null;
+  const [caseId, client, type, date] = parts;
+  return caseIdShape(caseId) && clientShape(client) && typeShape(type) && realDay(date) && extShape(ext) ? { caseId, client, type, date, ext } : null;
+}
+/* One name against the convention. `ctx`: the name it was filed under (filed), the trainee's Case ID (caseId), the
+   label this document must carry (label: "DRAFT" | "SUPERSEDED"), and what to suggest where the name itself gives
+   no answer (type, date). Comes back {ok, want, issues:[{n, part, got, should, why}]}: `want` is the name it
+   should have, and each issue is one part that differs, in reading order (n = its place between the underscores). */
+function nameCheck(name, ctx = {}) {
+  const filed = ctx.filed ? nameAsFiled(ctx.filed) : null;
+  const { parts, ext } = nameSplit(name), k = parts.length;
+  const need = ctx.label || "";
+  const gotLabel = k >= 5 ? parts[4] : "";
+  const supDay = (/^SUPERSEDED-(\d{4}-\d{2}-\d{2})$/.exec(gotLabel) || [])[1] || "";
+  const supOk = !!supDay && realDay(supDay);
+  const lowerExt = String(ext).toLowerCase().replace(/[^a-z0-9]/g, "");
+  const want = {
+    caseId: filed ? filed.caseId : ctx.caseId || (caseIdShape(parts[0]) ? parts[0] : "<Case ID>"),
+    client: filed ? filed.client : NAME_CLIENT,
+    type: filed ? filed.type : FILE_TYPES.includes(parts[2]) ? parts[2] : ctx.type || nearType(parts[2]) || "<Type>",
+    date: filed ? filed.date : realDay(parts[3]) ? parts[3] : ctx.date || "<YYYY-MM-DD>",
+    label: need === "DRAFT" ? "DRAFT" : need === "SUPERSEDED" ? (supOk ? gotLabel : "SUPERSEDED-<YYYY-MM-DD>") : (gotLabel === "DRAFT" || supOk) ? gotLabel : "",
+    ext: filed ? filed.ext : extShape(ext) ? ext : lowerExt || "pdf",
+  };
+  const wantName = [want.caseId, want.client, want.type, want.date].concat(want.label ? [want.label] : []).join("_") + "." + want.ext;
+  const issues = [];
+  const say = (n, part, got, should, why) => issues.push({ n, part, got: String(got == null ? "" : got), should, why });
+  const labelWhy = need === "DRAFT" ? "This document is a draft: add _DRAFT after the date, so nobody sends it out as final."
+    : need === "SUPERSEDED" ? "A newer version replaced this one: add _SUPERSEDED- and the date of the version that replaced it (YYYY-MM-DD) after the date, so a colleague can tell which is current."
+    : "A fifth part is a label, and the firm has two, in capitals: DRAFT, and SUPERSEDED- with the date of the version that replaced it (YYYY-MM-DD).";
+  if (k < 4 || k > 5) {
+    say(0, "parts", name, wantName, `The name has ${k} piece${k === 1 ? "" : "s"} between underscores. The firm's names have four, joined by underscores: the Case ID, the client (Last-First), the Type and the date${want.label ? ", then the label" : ""}.`);
+  } else {
+    if (parts[0] !== want.caseId) say(1, "Case ID", parts[0], want.caseId, filed ? `It was filed in the CMS under ${want.caseId}.` : ctx.caseId ? `Your case's ID is ${ctx.caseId}, exactly as the CMS shows it.` : "The Case ID is the one the CMS gave your case: capitals and digits, joined by hyphens.");
+    if (parts[1] !== want.client) say(2, "Last-First", parts[1], want.client, looseKey(parts[1]) === looseKey(want.client) ? "Capitals and the hyphen count: the client is written exactly as the client folder is named."
+      : looseKey(parts[1]) === looseKey(want.client.split("-").reverse().join("-")) ? "Last name first, as the client folder is named, so a drive of clients sorts by surname."
+      : "The second part is the client, last name first, as the client folder is named.");
+    if (parts[2] !== want.type) say(3, "Type", parts[2], want.type, filed ? `It was filed in the CMS under ${want.type}: the Type is the CMS category, its words joined by a hyphen.`
+      : `The Type is the CMS category the document is filed under, its words joined by a hyphen: ${FILE_TYPES.join(", ")}.`);
+    if (parts[3] !== want.date) say(4, "YYYY-MM-DD", parts[3], want.date, filed ? `It was filed on ${want.date}: the date in the name is the day of filing.` : "The date is the day it was filed, year first: four digits, two, two, joined by hyphens.");
+    if (gotLabel !== want.label) say(5, "label", gotLabel, want.label, labelWhy);
+  }
+  if (issues.every((x) => x.n) && ext !== want.ext) say(6, "ext", ext, want.ext, ext ? "The extension is the file's own, in lower case." : "The name has lost its extension: without it the file doesn't open as what it is.");
+  return { ok: !issues.length, want: wantName, issues };
+}
+/* The differing part, pointed out: which piece of the name to look at, what it reads and what it should read. */
+const ORDINAL = ["", "first", "second", "third", "fourth", "fifth"];
+function nameHint(c) {
+  const i = (c.issues || [])[0];
+  if (!i) return "";
+  const rest = c.issues.length - 1, more = rest ? ` ${rest} more part${rest === 1 ? " differs" : "s differ"} too.` : "";
+  if (i.n === 0) return i.why + more;
+  if (i.part === "ext") return `Look at the extension, after the last dot: ${i.got ? `".${i.got}"` : "there is none"}, and it should be ".${i.should}". ${i.why}${more}`;
+  if (i.part === "label") return (i.got ? `Look at part 5 of the name, the fifth piece between the underscores (the label): "${i.got}" ${i.should ? `should be "${i.should}"` : "shouldn't be there"}. ` : "") + i.why + more;
+  return `Look at part ${i.n} of the name, the ${ORDINAL[i.n]} piece between the underscores (${i.part}): "${i.got}" should be "${i.should}". ${i.why}${more}`;
+}
+/* The trainee's Case ID: the one most of their filed copies carry. */
+function driveCaseId(rec) {
+  const count = {};
+  ((rec && rec.saved) || []).forEach((s) => { const f = nameAsFiled(s.name); if (f) count[f.caseId] = (count[f.caseId] || 0) + 1; });
+  return Object.keys(count).sort((a, b) => count[b] - count[a])[0] || "";
+}
+/* Every name on the drive, from the snapshot the grade already took: {items, report}. `items` is one per file (and
+   one per folder whose name was changed), {ok, why}; `report` is what the page and a trainer read. */
+function driveNaming(rec, S) {
+  const saved = {};
+  (rec.saved || []).forEach((s) => { if (s.id) saved[s.id] = s; });
+  const drill = (rec.drills && rec.drills[2]) || null, caseId = driveCaseId(rec);
+  const typeOfDoc = {};   // the Type a course document was filed under, learned from any copy of it the CMS named
+  (rec.saved || []).forEach((s) => { const f = s.docId && nameAsFiled(s.name); if (f) typeOfDoc[s.docId] = f.type; });
+  const dayOf = (iso) => { const d = new Date(iso || ""); return isNaN(d) ? "" : etNow(d).date; };
+  const order = (p) => (p == null ? 999 : p === "" ? -1 : FOLDER_STANDARD.indexOf(p));
+  const label = (p) => (p == null ? "a folder outside the firm's structure" : shortPath(p) || DRIVE_ROOT);
+  const rows = [];
+  Object.entries(S.files).forEach(([fid, f]) => {
+    const s = saved[fid] || null, isDrill = !!drill && drill.id === fid;
+    const path = S.pathOf[f.parent] !== undefined ? S.pathOf[f.parent] : f.parent === rec.rootId ? "" : null;
+    // only this drive: the firm's folders, and the platform's own copies wherever they were moved (the same Google
+    // account may hold another LSH site's files, which are none of this check's business)
+    if (!s && !isDrill && path == null) return;
+    const docId = (s && s.docId) || "";
+    const need = LABEL_DOCS[docId] === "DRAFT" ? "DRAFT" : SUPERSEDED_BY[docId] && S.copyOf(SUPERSEDED_BY[docId]) ? "SUPERSEDED" : "";
+    const c = nameCheck(f.name, { filed: s ? s.name : "", caseId, label: need, type: isDrill ? typeOfDoc.RS25 || DRILL_TYPE : typeOfDoc[docId] || "",
+      date: dayOf(f.created || (s && s.at) || (isDrill && drill.at)) });
+    const i = c.issues[0] || {};
+    rows.push({ kind: "file", ok: c.ok, path, folder: label(path), name: f.name, want: c.want, n: i.n || 0, part: i.part || "", got: i.got || "", should: i.should || "", hint: nameHint(c) });
+  });
+  const files = rows.length;
+  // the folders of the structure, by the standard's own names (a missing folder is ✓ Check my drive's to report)
+  [[DRIVE_ROOT, rec.rootId, null]].concat(FOLDER_STANDARD.map((p) => [shortPath(p), (rec.folders || {})[p], p])).forEach(([wantName, fid, p]) => {
+    const f = fid && S.folders[fid];
+    if (!f || f.name === wantName) return;
+    const cut = p ? p.lastIndexOf("/") : -1, parent = p == null ? "your Drive" : cut < 0 ? DRIVE_ROOT : shortPath(p.slice(0, cut));
+    rows.push({ kind: "folder", ok: false, path: p == null ? "" : cut < 0 ? "" : p.slice(0, cut), folder: parent, name: f.name, want: wantName, n: 0, part: "folder", got: f.name, should: wantName,
+      hint: `This folder is "${wantName}" in the firm's structure${looseKey(f.name) === looseKey(wantName) ? ": the number, the spaces and the capitals count" : ""}. A folder everybody shares is spelled one way.` });
+  });
+  rows.sort((a, b) => order(a.path) - order(b.path) || (a.kind === b.kind ? 0 : a.kind === "folder" ? -1 : 1) || String(a.name).localeCompare(String(b.name)));
+  const wrong = rows.filter((x) => !x.ok);
+  const items = rows.map((x) => (x.ok ? { ok: true } : { ok: false, why: x.kind === "folder" ? `🏷 In ${x.folder}, the folder "${x.name}" should be named "${x.want}".` : `🏷 In ${x.folder}, "${x.name}" should be named "${x.want}".` }));
+  return { items, report: { at: new Date().toISOString(), checked: files, named: rows.filter((x) => x.ok && x.kind === "file").length, wrong: wrong.length,
+    list: wrong.slice(0, 40).map(({ kind, folder, name, want, n, part, got, should, hint }) => ({ kind, folder, name, want, n, part, got, should, hint })) } };
+}
+/* File names as a rubric row: one item per file (and per renamed folder), every one weighing the same. */
+function namingRow(N) {
+  const row = gradeRow("File names", NAMING_POINTS, N ? N.items : []);
+  if (!N || !N.items.length) row.notes = ["🏷 No file is on the drive yet, so there is no name to check."];
+  return row;
+}
+/* The convention as the page is told it: the pattern, its parts, the Types, the labels, an example Case ID, what a
+   day's grade gives it, and what this check can and can't see. Never anything of a trainee's but their Case ID. */
+function namingRule(rec) {
+  return {
+    pattern: FILE_NAME_PATTERN, parts: NAME_PARTS, client: NAME_CLIENT,
+    types: Object.fromEntries(FILE_CATEGORIES.map((c) => [c, fileType(c)])),
+    labels: NAME_LABELS, exampleCase: NAME_EXAMPLE_CASE, caseId: rec ? driveCaseId(rec) : "",
+    points: NAMING_POINTS, of: NAMING_OF,
+    sees: "Every file this platform put on your drive (the copies of what you file in the CMS, ☁️ Add to GDrive copies, the colleague's invoice) and the firm's folders, wherever you have moved or renamed them.",
+    blind: "Files you upload, copy or create by hand in Google Drive: Google shows this platform only the files it made (drive.file). Name those the same way; your trainer checks them by eye.",
+  };
+}
 
 /* A one-page PDF with a few lines of text: the colleague's misfiled invoice for Day 2's drill. */
 function tinyPdf(lines) {
@@ -963,9 +1163,9 @@ async function driveList(env, id, rec, folders) {
   let token = "";
   for (let page = 0; page < 5; page++) {
     const q = encodeURIComponent(`mimeType ${folders ? "=" : "!="} '${FOLDER_MIME}' and trashed = false`);
-    const res = await drive(env, id, rec, "GET", `/files?q=${q}&pageSize=1000&fields=nextPageToken,files(id,name,parents)${token ? "&pageToken=" + encodeURIComponent(token) : ""}`);
+    const res = await drive(env, id, rec, "GET", `/files?q=${q}&pageSize=1000&fields=nextPageToken,files(id,name,parents,createdTime)${token ? "&pageToken=" + encodeURIComponent(token) : ""}`);
     if (!res.ok) throw new Error(driveMessage(res));
-    (res.data.files || []).forEach((f) => { out[f.id] = { name: f.name, parent: (f.parents || [])[0] || "" }; });
+    (res.data.files || []).forEach((f) => { out[f.id] = { name: f.name, parent: (f.parents || [])[0] || "", created: f.createdTime || "" }; });
     if (!res.data.nextPageToken) break;
     token = res.data.nextPageToken;
   }
@@ -1024,43 +1224,44 @@ function cleanCheck(rec, since) {
 }
 
 /* The automated rows of each day's rubric, from the Drive. `filed` is every course document filed in the CMS. */
-function gradeDay(n, rec, S, filed) {
+function gradeDay(n, rec, S, filed, N) {
   const rows = [], drills = rec.drills || {};
   const lastPut = (ids) => (rec.saved || []).filter((s) => ids.includes(s.docId)).reduce((m, s) => (s.at > m ? s.at : m), "");
   if (n === 2) {
-    rows.push(gradeRow("Documents backed up", 25, placed(S, DRIVE_DAY_DOCS[2])));
+    rows.push(gradeRow("Documents backed up", 20, placed(S, DRIVE_DAY_DOCS[2])));
     const d = drills[2], w = d && S.where(d.id);
-    rows.push(gradeRow("Misfile corrected", 20, [!d ? { ok: false, why: "The colleague's misfiled Summit invoice arrives in 03 Medical Records when Day 2's backup activity opens." }
+    rows.push(gradeRow("Misfile corrected", 16, [!d ? { ok: false, why: "The colleague's misfiled Summit invoice arrives in 03 Medical Records when Day 2's backup activity opens." }
       : !w ? { ok: false, why: "The colleague's Summit invoice is gone from the drive: move a misfiled document, never delete it." }
       : w.path === DRIVE_HOMES.bills ? { ok: true } : { ok: false, why: `The colleague's Summit invoice is still in ${w.path == null ? "a folder outside the structure" : shortPath(w.path)}; move it into 04 Bills & Invoices.` }]));
-    rows.push(gradeRow("Drive confirmed", 15, [cleanCheck(rec, lastPut(DRIVE_DAY_DOCS[2]))]));
+    rows.push(gradeRow("Drive confirmed", 12, [cleanCheck(rec, lastPut(DRIVE_DAY_DOCS[2]))]));
   } else if (n === 3) {
-    rows.push(gradeRow("Backup matches the CMS", 25, backedUp(S, filed).concat(filed.length ? [] : [{ ok: false, why: "Nothing is filed in the CMS yet." }])));
-    const sup = { RS26: "RS73", RS94: "RS95" };
-    rows.push(gradeRow("Superseded versions", 20, placed(S, ["RS72", "RS73", "RS95", "RS26", "RS94"], (d, c) => sup[d] && !SUPERSEDED_OK(c.name)
+    rows.push(gradeRow("Backup matches the CMS", 20, backedUp(S, filed).concat(filed.length ? [] : [{ ok: false, why: "Nothing is filed in the CMS yet." }])));
+    const sup = SUPERSEDED_BY;
+    rows.push(gradeRow("Superseded versions", 16, placed(S, ["RS72", "RS73", "RS95", "RS26", "RS94"], (d, c) => sup[d] && !SUPERSEDED_OK(c.name)
       ? { ok: false, why: `${DRIVE_DOC[d][1]} is still called "${c.name}": keep it beside ${DRIVE_DOC[sup[d]][1]}, renamed with SUPERSEDED and that version's date.` } : null)));
-    rows.push(gradeRow("Demand Package placed", 15, placed(S, ["RS33", "RS66"], (d, c) => /draft/i.test(c.name) ? null
+    rows.push(gradeRow("Demand Package placed", 12, placed(S, ["RS33", "RS66"], (d, c) => /draft/i.test(c.name) ? null
       : { ok: false, why: `${DRIVE_DOC[d][1]} is called "${c.name}": label it DRAFT.` }).concat([cleanCheck(rec, lastPut(DRIVE_DAY_DOCS[3]))])));
   } else if (n === 4) {
     const found = (rec.checkLog || []).find((c) => (c.missing || []).includes(LIENS_FOLDER));
-    rows.push(gradeRow("Missing folder found", 15, [found ? { ok: true } : { ok: false, why: "No ✓ Check my drive has reported 06 Liens & Reimbursement missing: delete it in Google Drive (the drill), then run the check." }]));
+    rows.push(gradeRow("Missing folder found", 12, [found ? { ok: true } : { ok: false, why: "No ✓ Check my drive has reported 06 Liens & Reimbursement missing: delete it in Google Drive (the drill), then run the check." }]));
     const back = (rec.restoreLog || []).find((r) => found && r.at >= found.at && (r.restored || []).includes(LIENS_FOLDER));
     const after = back && (rec.checkLog || []).find((c) => c.at >= back.at && !(c.missing || []).length);
-    rows.push(gradeRow("Folder restored", 20, [back ? { ok: true } : { ok: false, why: "06 Liens & Reimbursement hasn't been put back with 🔁 Put the missing folders back." },
+    rows.push(gradeRow("Folder restored", 16, [back ? { ok: true } : { ok: false, why: "06 Liens & Reimbursement hasn't been put back with 🔁 Put the missing folders back." },
       after ? { ok: true } : { ok: false, why: "Run ✓ Check my drive again after putting it back, until nothing is missing." }]));
-    rows.push(gradeRow("Papers backed up", 25, placed(S, DRIVE_DAY_DOCS[4]).concat(backedUp(S, filed))));
+    rows.push(gradeRow("Papers backed up", 20, placed(S, DRIVE_DAY_DOCS[4]).concat(backedUp(S, filed))));
   } else if (n === 5) {
-    rows.push(gradeRow("Litigation file backed up", 20, placed(S, DRIVE_DAY_DOCS[5])));
+    rows.push(gradeRow("Litigation file backed up", 16, placed(S, DRIVE_DAY_DOCS[5])));
     const homes = (rec.saved || []).filter((s) => s.docId && DRIVE_DOC[s.docId]).map((s) => s.docId).filter((d, i, a) => a.indexOf(d) === i);
     const labeled = [["RS33", /draft/i, "DRAFT"], ["RS66", /draft/i, "DRAFT"], ["RS26", /superseded/i, "SUPERSEDED"], ["RS94", /superseded/i, "SUPERSEDED"]]
       .filter(([d]) => S.copyOf(d)).map(([d, re, word]) => re.test(S.copyOf(d).name) ? { ok: true } : { ok: false, why: `${DRIVE_DOC[d][1]} isn't labeled ${word}.` });
-    rows.push(gradeParts("Final audit", 25, [
+    rows.push(gradeParts("Final audit", 20, [
       backedUp(S, filed),
       homes.map((d) => { const c = S.copyOf(d); return !c || c.path === DRIVE_HOMES[DRIVE_DOC[d][0]] ? { ok: true } : { ok: false, why: `${DRIVE_DOC[d][1]} is out of its folder.` }; }),
       labeled,
       [S.clientInPlace ? { ok: true } : { ok: false, why: "Doe-John isn't under 01 Clients: leave the client folder where it is in the training drive." }, cleanCheck(rec, lastPut(DRIVE_DAY_DOCS[5]))],
     ]));
   }
+  rows.push(namingRow(N));   // 🏷 every name on the drive, the same row on every graded day
   const max = rows.reduce((t, r) => t + r.max, 0), got = rows.reduce((t, r) => t + r.got, 0);
   const score = max ? Math.round((100 * got) / max) : 0;
   return { score, passed: score >= DRIVE_PASS, rows, at: new Date().toISOString() };
@@ -1075,9 +1276,12 @@ function dayStarted(n, rec) {
 async function driveGrade(env, id, rec, filed) {
   rec.grades = rec.grades || {};
   const days = [2, 3, 4, 5].filter((n) => dayStarted(n, rec));
-  if (days.length) {
+  // Day 1's documents are on the drive before any later day starts, and their names are read all the same
+  if (days.length || (rec.saved || []).some((s) => s.id)) {
     const S = await driveSnapshot(env, id, rec);
-    days.forEach((n) => { rec.grades[n] = gradeDay(n, rec, S, filed); });
+    const N = driveNaming(rec, S);       // from the snapshot: no request of its own
+    rec.naming = N.report;
+    days.forEach((n) => { rec.grades[n] = gradeDay(n, rec, S, filed, N); });
   }
   rec.gradedAt = new Date().toISOString();
   await driveWrite(env, id, rec);
@@ -1349,7 +1553,7 @@ export default {
           // The firm's structure and whether linking is switched on, for Day 1's slide. A presenter is an admin, so
           // this is open to anyone signed in; it reads no one's drive.
           const st = driveStatus(env, null);
-          return json({ standard: { configured: st.configured, root: st.root, standard: st.standard, why: st.why } });
+          return json({ standard: { configured: st.configured, root: st.root, standard: st.standard, why: st.why, naming: namingRule(null) } });
         }
         const who = mine || (tok.role === "a" && typeof b.traineeId === "string" ? b.traineeId.slice(0, 120) : "");
         // An open-mode Worker (no admin password) has no trainee tokens at all, so everyone reads as an
@@ -1473,7 +1677,9 @@ export default {
             const res = await driveUpload(env, who, rec, rec.folders[folder], name, String(b.mime || "application/pdf").slice(0, 100), bytes, "Filed from the LSH Case Management training platform.");
             if (!res.ok || !res.data.id) return json({ error: driveMessage(res) }, 502);
             const docId = /^[A-Za-z0-9_-]{1,40}$/.test(String(b.docId || "")) ? String(b.docId) : "";
-            rec.saved = (rec.saved || []).filter((s) => s.name !== name).concat([Object.assign({ name, folder, at: new Date().toISOString(), id: res.data.id }, docId ? { docId } : {})]).slice(-200);
+            // One record per copy. The firm's names repeat by design (two Medical Records filed on one day share a name), so a
+            // record gives way only to the same document filed again under the same name, never to another document's.
+            rec.saved = (rec.saved || []).filter((s) => !(s.name === name && (s.docId || "") === docId)).concat([Object.assign({ name, folder, at: new Date().toISOString(), id: res.data.id }, docId ? { docId } : {})]).slice(-200);
             await driveWrite(env, who, rec);
             return json({ saved: { name, folder, url: res.data.webViewLink || "" }, drive: driveStatus(env, rec) });
           }
