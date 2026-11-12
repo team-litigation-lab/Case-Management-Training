@@ -3610,7 +3610,7 @@ async function applyAdminUnlocks(rec){
   state.adminUnlockedDays = next;
   await storeSet("admin-unlocked-days", next);
   const added = next.filter(n=>!prev.includes(n));
-  if(added.length) toast(`🔓 Your trainer unlocked Day${added.length>1?"s":""} ${added.join(", ")} for you.`);
+  if(added.length) toast(`🔓 Your trainer opened ${added.map(n=>typeof daLabel==="function" ? daLabel(n) : "Day "+n).join(", ")} for you.`);
   state.labResetRenderPending = true;
   await renderLabResetIfSafe();
 }
@@ -5678,9 +5678,12 @@ async function checkSurpriseTask(){
     }
     // the trainer's injected Ring Channel call rides on the same request (js/cm-case-flow.js, cmCaseFlow.onRing)
     const ringKeys = (window.cmCaseFlow && typeof cmCaseFlow.ringKeys === "function") ? cmCaseFlow.ringKeys() : [];
-    const got = await sharedGetMany(dayIds.map(id=>"surprise-task-day"+id).concat(ringKeys));
+    // and so do the Case Flow days the trainer has opened (js/cm-open-lessons.js, 🔓 Open Lessons)
+    const openKeys = (window.cmOpenLessons && typeof cmOpenLessons.keys === "function") ? cmOpenLessons.keys() : [];
+    const got = await sharedGetMany(dayIds.map(id=>"surprise-task-day"+id).concat(ringKeys, openKeys));
     const recs = got.slice(0, dayIds.length);
-    if(ringKeys.length){ try{ cmCaseFlow.onRing(got.slice(dayIds.length)); }catch(e){} }
+    if(ringKeys.length){ try{ cmCaseFlow.onRing(got.slice(dayIds.length, dayIds.length + ringKeys.length)); }catch(e){} }
+    if(openKeys.length){ try{ cmOpenLessons.onKeys(got.slice(dayIds.length + ringKeys.length)); }catch(e){} }
     const live = recs.filter(r=>surpriseTaskIsLive(r)).sort((a,b)=>new Date(b.generatedAt||0)-new Date(a.generatedAt||0));
     state.activeSurpriseTask = live[0] || null;
     live.forEach(t=>syncTaskFromBroadcast(t));
@@ -16119,6 +16122,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
 <script src="/js/cm-companion-cases.js?v=1"></script>
 <script src="/js/cm-companion.js?v=1"></script>
+<script src="/js/cm-open-lessons.js?v=1"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=5"></script>
 <script src="/js/lsh-tool-links.js?v=cm-2026.10.23-trainer-sso"></script>
