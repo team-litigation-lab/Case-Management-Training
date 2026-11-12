@@ -52,7 +52,7 @@ function people(){
 }
 const statusOf = r => r.archived ? "Archived" : r.approved === true ? "Approved" : "Waiting for approval";
 const nameOf = r => (typeof cleanName === "function" ? cleanName(r.name) : "") || String(r.name || "Unnamed").slice(0, 60);
-const extraOf = r => (state.auditExtra || {})[r.id];
+const extraOf = r => (r && r.__extra) || (state.auditExtra || {})[r.id];
 const dataOf = r => (extraOf(r) || {}).data || {};
 
 /* ---------- loading: the rows' cache (progress, feedback, focus) and, for the Scores, callsim / simresults ---------- */
@@ -453,6 +453,7 @@ window.cmBatchSheet = {
   dsWho(id){ B.ds = id; B.dsOpen = {}; repaint(); setTimeout(() => { const d = document.getElementById("bs-dsdetail"); if(d) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
   dsOpen(d, open){ B.dsOpen[d] = open; },
   sys(id){ B.sys = id; repaint(); setTimeout(() => { const d = document.getElementById("bs-systems"); if(d) d.scrollIntoView({block: "start"}); }, 30); },
+  myOpen(id){ MY.open = MY.open === id ? null : id; render(); },
   dupKeep(key, id){ B.dupKeep = B.dupKeep || {}; B.dupKeep[key] = id; repaint(); },
   dupMerge,
   detail(id){ state.adminExpandedId = state.adminExpandedId === id ? null : id; repaint(); if(state.adminExpandedId) setTimeout(() => { const d = document.getElementById("bs-recdetail"); if(d) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
@@ -469,6 +470,58 @@ function hookCompanion(){
   const a = c.assign; c.assign = async function(){ const r = await a.apply(this, arguments); repaint(); return r; }; c.__bs = true;
 }
 setTimeout(hookCompanion, 0); document.addEventListener("DOMContentLoaded", hookCompanion);
+
+/* ============================================================
+   🏅 MY SCORE CARD (the trainee's dashboard, role-based): the Score Card's own day-by-day view with ONE trainee in it —
+   the one signed in. It reads only what is theirs (their own progress on this device, their own Drive grades, and the
+   feedback a trainer has SENT them, which the Worker gives a trainee without the trainer's private note): no other
+   trainee, no batch, no rank. Only the kinds of score they actually have are columns; a day opens to each graded item
+   with why it scored so, what they did best and what to improve.
+   ============================================================ */
+const MY = {open: null, loaded: false, setup: null, grades: null};
+const isTraineeView = () => typeof state !== "undefined" && ((!!state.traineeId && !state.isAdmin) || !!state.adminPreview);
+async function loadMine(){
+  if(MY.loaded || MY.loading || typeof storeGet !== "function") return; MY.loading = true;
+  try{ MY.setup = await storeGet("drive-setup"); MY.grades = await storeGet("drive-grades"); }catch(e){}
+  MY.loaded = true; MY.loading = false; if(state.view === "dashboard") render();
+}
+function myRec(){
+  let cf = {days: {}}; try{ if(window.cmCaseFlow && cmCaseFlow.scoreSummary) cf = cmCaseFlow.scoreSummary() || cf; }catch(e){}
+  const prog = state.progress || {};
+  return {id: state.traineeId || "me", name: state.traineeName || "Me", approved: true, dayProgress: prog, caseFlow: cf,
+    __extra: {data: {"day-progress": prog, "work-log": Array.isArray(state.workLog) ? state.workLog : [], "task-log": Array.isArray(state.taskLog) ? state.taskLog : [],
+      "drive-setup": MY.setup || null, "drive-grades": MY.grades || {}}, fb: state.myFeedback || {}}};
+}
+function myScoreCardHtml(){
+  if(!isTraineeView()) return "";
+  loadMine();
+  const r = myRec(), L = cfDaysL(); if(!L.length) return "";
+  const per = L.map(d => dayParts(r, d)), avgs = per.map(dayAvg), all = avgOf(avgs);
+  // (only the kinds of score this trainee has: a column nobody can fill yet would only be noise)
+  const cols = SC_COLS.filter(([g]) => per.some(xs => xs.some(x => g.split(",").includes(x.grp) && x.pct != null)));
+  const cell = (xs, g) => { const gs = g.split(","), its = xs.filter(x => gs.includes(x.grp) && x.pct != null), a = avgOf(its.map(x => x.pct));
+    return `<td class="${tone(a)}" title="${E(its.map(x => `${x.name.replace(/^\S+\s/, "")} ${x.pct}%`).join(" · "))}">${a == null ? "" : a + "%"}</td>`; };
+  const li = (h, xs, cls) => xs.length ? `<div class="bs-ctx ${cls}"><b>${h}</b><ul>${xs.map(x => `<li>${E(x)}</li>`).join("")}</ul></div>` : "";
+  const open = L.find(d => d.id === MY.open);
+  return `<section class="card my-sc"><div class="my-sc-h"><h2>🏅 My Scores <span>day by day</span></h2>
+      <span class="my-sc-all ${tone(all)}">${all == null ? "Nothing scored yet" : `Average ${all}%`}</span></div>
+    <p class="my-sc-sub">Only your own scores, the same ones your trainer sees. Click a day for each graded item: why it scored that way, what you did best and what to improve.</p>
+    <div class="my-sc-wrap"><table class="my-sc-t"><thead><tr><th>Day</th>${cols.map(([, l]) => `<th>${E(l)}</th>`).join("")}<th>Day average</th><th>💬 Trainer</th></tr></thead><tbody>
+      ${L.map((d, i) => { const f = fbOf(r, d);
+        return `<tr class="${MY.open === d.id ? "on" : ""}" onclick="cmBatchSheet.myOpen(${d.id})"><td class="my-sc-day"><b>${dayLabel(d)}</b><span>${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</span></td>
+          ${cols.map(([g]) => cell(per[i], g)).join("")}<td class="my-sc-avg ${tone(avgs[i])}">${avgs[i] == null ? "—" : avgs[i] + "%"}</td>
+          <td class="${f ? ratingTone(f.rating) : ""}">${f ? E(f.rating || "Sent") : ""}</td></tr>`; }).join("")}
+    </tbody></table></div>
+    ${open ? (() => { const xs = per[L.indexOf(open)];
+      return `<div class="my-sc-detail"><h3>${dayLabel(open)} · ${E(String(open.title).replace(/^Case Flow Day \d+ · /, ""))}</h3>${xs.length ? xs.map(x => { const rich = x.pct != null || x.best.length || x.improve.length;
+        return `<div class="bs-ds-it"><div class="bs-ds-h"><span>${E(x.name)}</span><small>${E(x.status || "")}</small><b class="${x.pct != null ? tone(x.pct) : ratingTone(x.grp === "fb" ? x.status : "")}">${x.pct != null ? x.pct + "%" : "—"}</b></div>
+          ${rich || x.why ? `<div class="bs-ctx bs-why"><b>🧾 Why this score</b><p>${E(x.why || "—")}</p></div>` : ""}${li("⭐ What you did best", x.best, "bs-best")}${li("🔧 What to improve", x.improve, "bs-imp")}</div>`; }).join("") : `<p class="bs-none">Nothing graded on this day yet.</p>`}</div>`; })() : ""}
+  </section>`;
+}
+if(typeof window.renderDashboard === "function" || typeof renderDashboard === "function"){
+  const __dash = window.renderDashboard || renderDashboard;
+  window.renderDashboard = renderDashboard = function(){ return __dash.apply(this, arguments) + myScoreCardHtml(); };
+}
 
 // the trainer's 🏅 Scorecards page is the sheet's 🏅 Scores now: an old link opens the Batch Sheet
 const __sc = window.renderScorecardPage;
@@ -508,6 +561,18 @@ css.textContent = `
 .scx-banner .gs-menu button.bs-danger{color:#A50E0E;}
 .bs-arch input{width:18px;height:18px;}
 .bs-settings{margin-top:14px;}
+/* 🏅 My Score Card on the trainee's dashboard */
+.my-sc{margin-top:16px;padding:18px 20px;background:#fff;border-radius:16px;color:#141A2E;}
+.my-sc-h{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;} .my-sc-h h2{margin:0;font:800 24px 'Fraunces',Georgia,serif;color:#1E2340;} .my-sc-h h2 span{font:700 15px Arial,sans-serif;color:#5F6368;margin-left:6px;}
+.my-sc-all{font:800 16px Arial,sans-serif;padding:5px 14px;border-radius:999px;background:#EEF0F6;} .my-sc-all.gs-hi{background:#E6F4EA;color:#0B5D1E;} .my-sc-all.gs-mid{background:#FFF4E0;color:#7A4B00;} .my-sc-all.gs-lo{background:#FDE8E8;color:#A50E0E;}
+.my-sc-sub{margin:6px 0 12px;font:600 15px/1.5 Arial,sans-serif;color:#2E3450;}
+.my-sc-wrap{overflow-x:auto;} .my-sc-t{width:100%;border-collapse:collapse;font:700 16px Arial,sans-serif;}
+.my-sc-t th{background:#F4F5F9;color:#1E2340;font:800 14.5px Arial,sans-serif;padding:9px 10px;border-bottom:2px solid #D6DAE5;text-align:center;white-space:nowrap;}
+.my-sc-t th:first-child{text-align:left;} .my-sc-t td{padding:10px;border-bottom:1px solid #E3E6EF;text-align:center;}
+.my-sc-t tbody tr{cursor:pointer;} .my-sc-t tbody tr:hover td{background:#F7F9FD;} .my-sc-t tbody tr.on td{background:#EEF3FD;}
+.my-sc-day{text-align:left !important;} .my-sc-day b{display:block;color:#1E2340;} .my-sc-day span{font:600 13.5px Arial,sans-serif;color:#5F6368;}
+.my-sc-t td.gs-hi{color:#0B5D1E;background:#E6F4EA;} .my-sc-t td.gs-mid{color:#7A4B00;background:#FFF4E0;} .my-sc-t td.gs-lo{color:#A50E0E;background:#FDE8E8;} .my-sc-avg{font-weight:800;}
+.my-sc-detail{margin-top:12px;border:1px solid #C9CEDD;border-radius:10px;} .my-sc-detail h3{margin:0;padding:10px 14px;font:800 17px Arial,sans-serif;color:#1E2340;background:#F4F5F9;border-radius:10px 10px 0 0;}
 .bs-dup{margin:14px 14px 4px;padding:14px 16px;border:2px solid #E8A13A;background:#FFF7EC;border-radius:10px;font:600 15px/1.5 Arial,sans-serif;color:#141A2E;}
 .bs-dup > b{font-size:17px;color:#7A4B00;} .bs-dup p{margin:4px 0 10px;}
 .bs-dup-t{border-collapse:collapse;margin:0 0 10px;background:#fff;font:600 14.5px Arial,sans-serif;} .bs-dup-t th, .bs-dup-t td{border:1px solid #D9C9AE;padding:6px 10px;text-align:left;}
