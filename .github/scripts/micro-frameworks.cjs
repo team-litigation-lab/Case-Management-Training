@@ -1,12 +1,12 @@
-// @check browser — Micro-frameworks on the lessons (Milestone Steps, Rule vs. Exception, one CM Red Flag a slide with its owner; type ≥ 16px; no Trigger ➔ Task ➔ Tool ➔ Checkpoint cards) and Why It Matters as the opening of The Theory
+// @check browser — Micro-frameworks on the lessons (Milestone Steps, Rule vs. Exception, one CM Red Flag a slide with its owner; type ≥ 16px; no Trigger ➔ Task ➔ Tool ➔ Checkpoint cards, no Milestone Steps slide) and Why It Matters as the opening of The Theory
 // The three micro-frameworks are on the slides: every lesson the revamp gives a Milestone Steps rail, a Rule vs.
 // Exception callout or a CM Red Flag (build/case-flow/slides/dN.json: milestones, ruleEx, redFlag) draws it, on one of
 // its own slides; no slide carries more than one Red Flag; every Red Flag names its owner; and the type on them stays
 // bold and at least 16px on a laptop (1366x768), after any fit-to-screen scaling.
 // The lessons' On the Job slide (rows of Trigger ➔ Task ➔ Tool ➔ Checkpoint cards) is gone: no lesson has that view
-// and no slide of any day draws such a row. Milestone Steps, which sat on it, is on The Framework, See It, The Theory
-// or The Rules where that slide has room, and otherwise on a slide of its own (the copy's "slide": true): the rail
-// alone, never scaled down on a laptop.
+// and no slide of any day draws such a row. So is the Milestone Steps slide 26 lessons had in its place: no lesson
+// has that view either, and those lessons draw no rail (their steps are in the trainer's talking points for The
+// Rules). A Milestone rail is drawn only on The Framework or The Rules, in the lessons SPEC gives one ("ms").
 // Why It Matters is no slide of its own in a lesson that has The Theory: that slide opens with a "💡 Why it matters"
 // line (the lesson's hook), above the theory's lead and every concept card, at full size on a laptop (no scaling, no
 // type under 16px or lighter than bold, no card cut off). The CM Red Flag that sat on Why It Matters is drawn once, at
@@ -18,18 +18,19 @@
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
 const BASE = process.argv[2] || 'http://localhost:8787/';
-// the lessons the revamp specifies a framework for, by day (rf: CM Red Flag, rx: Rule vs. Exception, ms: Milestone Steps);
-// Day 5's lessons are condensed: a Red Flag only
+// the lessons the revamp specifies a framework for, by day (rf: CM Red Flag, rx: Rule vs. Exception, ms: a Milestone
+// Steps rail, in the six lessons whose Framework or Rules slide holds one; the 26 that had a Milestone Steps slide of
+// their own draw none now); Day 5's lessons are condensed: a Red Flag only
 const SPEC = {
-  'd1m1-case': 'rf', 'd1m1-role': 'rx rf', 'd1m1-upl': 'rx ms rf', 'd1m1-l1': 'ms rx rf', 'd1m4-l1': 'rx rf', 'd1m3-l1': 'rx rf',
-  'd1m3-l2': 'rx rf', 'd1m2-l1': 'ms rx rf', 'd1m2-l2': 'ms rx rf',
-  'd2m1-l2': 'ms rf', 'd2m1-cov': 'ms rx rf', 'd2m1-l1': 'rf', 'd2m1-afd': 'ms rf', 'd2m1-liab': 'rx rf', 'd2m1-first': 'ms rf',
-  'd1m4-tplan': 'ms rf', 'd1m4-tmap': 'ms rx rf', 'd1m4-tcare': 'ms rx rf', 'd1m4-l2': 'ms rx rf', 'd2m2-l1': 'rf', 'd2m2-eob': 'rx rf',
-  'd2m2-pip': 'ms rx rf', 'd1m4-emc': 'rx ms rf', 'd2m2-lop': 'rx rf', 'd2m2-cost': 'rx rf', 'd1m1-l2': 'ms rf', 'd2m2-sum': 'rf', 'd2m2-l2': 'ms rx rf',
-  'd2m3-l1': 'ms rx rf', 'd2m3-l2': 'rx rf', 'd2m3-cause': 'ms rf', 'd2m4-l1': 'ms rx rf', 'd2m4-l2': 'ms rf', 'd3m1-l1': 'ms rx rf',
-  'd3m1-l2': 'ms rf', 'd3m1-pkg': 'rf', 'd3m2-l1': 'rx rf', 'd3m2-umw': 'ms rx rf', 'd3m2-l2': 'rx ms rf',
-  'd3m3-l1': 'rf ms rx', 'd3m3-l2': 'rx ms rf', 'd3m3-l3': 'ms rf', 'd3m4-l1': 'rx', 'd3m4-l2': 'ms rf', 'd3m4-close': 'ms rf',
-  'd4m2-l1': 'rx rf', 'd4m2-um': 'rx rf', 'd4m2-l2': 'rx ms rf', 'd4m3-l1': 'ms rf', 'd4m3-l2': 'rx rf', 'd4m3-prior': 'rx', 'd4m3-tx': 'ms rf',
+  'd1m1-case': 'rf', 'd1m1-role': 'rx rf', 'd1m1-upl': 'rx rf', 'd1m1-l1': 'rx rf', 'd1m4-l1': 'rx rf', 'd1m3-l1': 'rx rf',
+  'd1m3-l2': 'rx rf', 'd1m2-l1': 'rx rf', 'd1m2-l2': 'ms rx rf',
+  'd2m1-l2': 'rf', 'd2m1-cov': 'rx rf', 'd2m1-l1': 'rf', 'd2m1-afd': 'rf', 'd2m1-liab': 'rx rf', 'd2m1-first': 'ms rf',
+  'd1m4-tplan': 'rf', 'd1m4-tmap': 'rx rf', 'd1m4-tcare': 'rx rf', 'd1m4-l2': 'rx rf', 'd2m2-l1': 'rf', 'd2m2-eob': 'rx rf',
+  'd2m2-pip': 'rx rf', 'd1m4-emc': 'rx rf', 'd2m2-lop': 'rx rf', 'd2m2-cost': 'rx rf', 'd1m1-l2': 'ms rf', 'd2m2-sum': 'rf', 'd2m2-l2': 'rx rf',
+  'd2m3-l1': 'rx rf', 'd2m3-l2': 'rx rf', 'd2m3-cause': 'rf', 'd2m4-l1': 'rx rf', 'd2m4-l2': 'rf', 'd3m1-l1': 'ms rx rf',
+  'd3m1-l2': 'rf', 'd3m1-pkg': 'rf', 'd3m2-l1': 'rx rf', 'd3m2-umw': 'rx rf', 'd3m2-l2': 'rx rf',
+  'd3m3-l1': 'rf rx', 'd3m3-l2': 'rx rf', 'd3m3-l3': 'ms rf', 'd3m4-l1': 'rx', 'd3m4-l2': 'rf', 'd3m4-close': 'rf',
+  'd4m2-l1': 'rx rf', 'd4m2-um': 'rx rf', 'd4m2-l2': 'rx rf', 'd4m3-l1': 'rf', 'd4m3-l2': 'rx rf', 'd4m3-prior': 'rx', 'd4m3-tx': 'ms rf',
   'd4m1-l1': 'rf', 'd4m1-l2': 'rf', 'd5m1-l1': 'rf', 'd5m4-l2': 'rf', 'd5m3-l2': 'rf', 'd5m1-subp': 'rf', 'd5m2-l1': 'rf', 'd5m6-l1': 'rf'
 };
 // the lessons with a Theory slide that keep their Why It Matters slide, and why (a lesson not listed here must open
@@ -47,10 +48,10 @@ const KEEPS = {
   page.on('pageerror', e => failures.push(`page error: ${e.message}`));
   await page.goto(BASE, { waitUntil: 'load' }); await page.waitForTimeout(800);
   await signIn(page, 'Micro', 'Frameworks', 'B100926');
-  const r = await page.evaluate(async () => {
+  const r = await page.evaluate(async (SPEC) => {
     const sleep = ms => new Promise(r => setTimeout(r, ms));
     state.isAdmin = true; { const kt = document.getElementById('ktLogin'); if (kt) kt.remove(); }
-    const seen = {}, out = [], count = { slides: 0, steps: 0, opens: 0, whySlides: 0 }, lessons = {};
+    const seen = {}, out = [], count = { slides: 0, rails: 0, opens: 0, whySlides: 0 }, lessons = {};
     const plain = t => String(t || '').replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
     const zoomOf = el => { let z = 1; for (let n = el; n && n.style; n = n.parentElement) if (n.style.zoom) z *= Number(n.style.zoom) || 1; return z; };
     for (const d of DAYS) {
@@ -68,7 +69,7 @@ const KEEPS = {
         if (s.type !== 'topic') continue;
         const b = d.lessons[s.lessonIndex].cf.block; if (b.kind !== 'lesson') continue;
         const where = `Day ${d.id} slide ${i + 1} (${b.id})`, view = cmCaseFlow.viewsOf(b)[s.part - 1];
-        if (view === 'job' || !view) out.push(`${where}: ${view ? 'an On the Job slide (the view is gone)' : 'a slide with no view'}`);
+        if (view === 'job' || view === 'steps' || !view) out.push(`${where}: ${view === 'job' ? 'an On the Job slide (the view is gone)' : view ? 'a Milestone Steps slide (the view is gone)' : 'a slide with no view'}`);
         // Why It Matters: the opening of The Theory, or a slide of its own (a lesson with no Theory slide, or one the check lists)
         const vs = cmCaseFlow.viewsOf(b), L = lessons[b.id] = lessons[b.id] || { theory: vs.includes('theory'), why: vs.includes('why'), opens: 0 };
         if (view === 'why') count.whySlides++;
@@ -123,15 +124,11 @@ const KEEPS = {
         });
         rx.forEach(x => { got.rx = (got.rx || 0) + 1; if (!x.querySelector('.cfx-rx-rule p') || !x.querySelector('.cfx-rx-exc p') || !x.querySelector('.cfx-rx-conf')) out.push(`${where}: Rule vs. Exception wants a rule, an exception and a Confirm line`); });
         ms.forEach(x => { got.ms = (got.ms || 0) + 1; const n = x.querySelectorAll('ol > li').length; if (n < 3 || n > 6) out.push(`${where}: a Milestone rail of ${n} steps (3–6)`); });
-        // Milestone Steps on a slide of its own: the rail and nothing else, at full size on a laptop, no step cut off
-        if (view === 'steps') {
-          count.steps++;
-          if (ms.length !== 1) out.push(`${where}: a Milestone Steps slide with ${ms.length} rails (one)`);
-          else {
-            if (zoomOf(ms[0]) < 1) out.push(`${where}: the Milestone Steps slide is scaled down to ${zoomOf(ms[0])} on a laptop (it should fit at full size)`);
-            if ([...ms[0].querySelectorAll('ol > li')].some(li => li.scrollHeight > li.clientHeight + 1 || li.scrollWidth > li.clientWidth + 1)) out.push(`${where}: a step of the Milestone Steps slide is cut off`);
-            if (wrap.querySelector('.cfx-sheet') && [...wrap.querySelector('.cfx-sheet').children].some(c => !c.contains(ms[0]))) out.push(`${where}: the Milestone Steps slide carries something besides its rail`);
-          }
+        // a Milestone rail: on The Framework or The Rules only, and only in a lesson the spec gives one (never squeezed onto another slide)
+        if (ms.length) {
+          count.rails++;
+          if (!['frame', 'rules'].includes(view)) out.push(`${where}: a Milestone rail on ${view} (The Framework or The Rules only)`);
+          if (!/\bms\b/.test(SPEC[b.id] || '')) out.push(`${where}: draws a Milestone rail the spec doesn't give this lesson (the 26 lessons that had a Milestone Steps slide draw none)`);
         }
         // the type on them: bold, and at least 16px once the slide is scaled to fit
         for (const box of [...rf, ...rx, ...ms]) {
@@ -147,7 +144,7 @@ const KEEPS = {
       }
     }
     return { seen, out, count, lessons };
-  });
+  }, SPEC);
   failures.push(...r.out);
   // every lesson with a Theory slide opens it with why it matters, and has no Why It Matters slide, unless it is listed in KEEPS
   const merged = [], kept = [], briefs = [];
@@ -168,8 +165,9 @@ const KEEPS = {
     for (const k of want.split(' ')) { if (!got[k]) failures.push(`${id}: its ${{ rf: 'CM Red Flag', rx: 'Rule vs. Exception', ms: 'Milestone Steps' }[k]} isn't drawn`); else n++; }
   }
   await browser.close();
-  if (!r.count.steps) failures.push('no lesson has a Milestone Steps slide (the copy marks them "slide": true)');
+  const railsWant = Object.values(SPEC).filter(v => /\bms\b/.test(v)).length;
+  if (r.count.rails !== railsWant) failures.push(`${r.count.rails} Milestone rails are drawn; the spec gives ${railsWant} lessons one`);
   if (failures.length) { console.log(`${failures.length} problem(s):`); failures.slice(0, 80).forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
   const homes = {}; Object.entries(r.seen).forEach(([id, g]) => { if (g.rfOn) homes[g.rfOn] = (homes[g.rfOn] || 0) + 1; });
-  console.log(`Micro-frameworks: ${Object.keys(SPEC).length} lessons, ${n} frameworks drawn on their slides (${r.count.steps} Milestone Steps on a slide of their own, at full size), one Red Flag a slide at most, every Red Flag with its owner, type ≥ 16px and bold at 1366x768; none of the ${r.count.slides} slides draws a Trigger ➔ Task ➔ Tool ➔ Checkpoint row. Why It Matters: ${merged.length} lessons open The Theory with it (at full size, no type under 16px, no card cut off) and have no such slide; ${kept.length} lessons with a Theory slide keep the slide (listed, with the reason) and ${briefs.length} have no Theory slide; the Red Flag is on ${Object.entries(homes).map(([v, k]) => `${v} ${k}`).join(', ')}`);
+  console.log(`Micro-frameworks: ${Object.keys(SPEC).length} lessons, ${n} frameworks drawn on their slides (${r.count.rails} Milestone rails, on The Framework or The Rules; no lesson has a Milestone Steps slide), one Red Flag a slide at most, every Red Flag with its owner, type ≥ 16px and bold at 1366x768; none of the ${r.count.slides} slides draws a Trigger ➔ Task ➔ Tool ➔ Checkpoint row. Why It Matters: ${merged.length} lessons open The Theory with it (at full size, no type under 16px, no card cut off) and have no such slide; ${kept.length} lessons with a Theory slide keep the slide (listed, with the reason) and ${briefs.length} have no Theory slide; the Red Flag is on ${Object.entries(homes).map(([v, k]) => `${v} ${k}`).join(', ')}`);
 })();

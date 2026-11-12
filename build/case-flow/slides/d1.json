@@ -143,17 +143,6 @@
       "Running the Conflict Check on **a nickname or partial name**",
       "Accepting a case because intake **“mostly” looks fine**"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "The SOL docket, calculated",
-      "steps": [
-        {"label": "DOL confirmed", "chip": "02/06/2026", "done": "The date matches RS07, **the Police Report**"},
-        {"label": "SOL calculated", "chip": "02/06/2028", "done": "The **two-year limitation** configured for this training file applied"},
-        {"label": "Hard date set", "chip": "02/04/2028", "done": "SOL is a Sunday: **no weekend roll-forward**, so Friday"},
-        {"label": "Filing cutoff set", "chip": "11/05/2027", "done": "90 days earlier; Saturday 11/06/2027 **moves back to Friday**"}
-      ],
-      "note": "Done when all four dates are on **CMS → Calendar** with reminders"
-    },
     "ruleEx": {
       "rule": "Count from **the date of loss**, confirmed on the Police Report, never from intake",
       "exception": "**The governing statute decides** tolling, a minor or a government defendant; you never shorten or extend a limitation",
@@ -295,18 +284,6 @@
       "Letting a file sit **without logging attempts**",
       "Blaming the client for **process gaps**"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "No Contact Protocol, Steps 1–3",
-      "steps": [
-        {"label": "Internal review", "chip": "02/13/2026", "done": "Last contact 02/10; check-in missed; **no treatment start** on file"},
-        {"label": "Phone attempts", "chip": "02/11–02/16/2026", "done": "Calls 02/11, 02/13 and 02/16, **each logged** with its time"},
-        {"label": "Email and text", "chip": "02/16/2026", "done": "Email asks him to **call by 02/18**; text sent 9:35 a.m."},
-        {"label": "Emergency contact", "chip": "02/16/2026", "done": "Margaret Doe gets **a message, never the case**, 11:05 a.m."},
-        {"label": "Second email", "chip": "02/18/2026", "done": "Asks him to **call by 02/20/2026**"},
-        {"label": "Team notification", "chip": "02/20/2026", "done": "Atty. Thorne told at 4:30 p.m., **with the case impact**"}
-      ]
-    },
     "ruleEx": {
       "rule": "Escalate **by channel, not by volume**: every attempt logged with date, time, channel and outcome",
       "exception": "The emergency contact gets **a message, never the case**: 'Please have John call us by 02/18/2026.'",
@@ -654,17 +631,6 @@
       "Edits that **break the audit trail**",
       "Writing **“this will help the case”** in a treatment note"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "The plan's review loop",
-      "steps": [
-        {"label": "Draft", "done": "Every band written; **risks named** with source and date"},
-        {"label": "Routed", "done": "Sent to Atty. Thorne through **the Action Plan Editor**"},
-        {"label": "Returned with comment", "done": "Each comment addressed, then **routed again**"},
-        {"label": "Approved", "done": "Atty. Thorne's approval **recorded with its date**"},
-        {"label": "Execute", "done": "The file runs against **the approved version** only"}
-      ]
-    },
     "ruleEx": {
       "rule": "**The file runs against the approved version** of the plan",
       "exception": "When a material fact changes, **the plan is superseded** and routed again",
@@ -728,16 +694,6 @@
       "Guessing a value **“off the record”**",
       "Coaching him on **what to tell an adjuster**"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "When a question crosses the line",
-      "steps": [
-        {"label": "Hear it out", "done": "John finishes the question **in his own words**"},
-        {"label": "Log it verbatim", "done": "His exact words are in **CMS → Case Notes**"},
-        {"label": "Route it, decision first", "done": "The note reaches Atty. Thorne **the same day**"},
-        {"label": "Set his expectation", "done": "John knows **when to expect** Atty. Thorne's answer"}
-      ]
-    },
     "ruleEx": {
       "rule": "Tell John **what is, and what happens next**: facts and process are yours to give",
       "exception": "**'What does it mean for me?'** is Atty. Thorne's: 'That's his call; I'll get it to him today.'",
@@ -772,15 +728,6 @@
       "A goal like “reduce pain” with **no measure or date**",
       "Calling a prior condition **“unrelated” or “aggravated”**"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "Assess → SMART Goal → Coordinate",
-      "steps": [
-        {"label": "Assess", "chip": "02/06/2026", "done": "Clinical, social, pre-morbid, vocational: **each filled or dated**"},
-        {"label": "SMART goal (draft)", "done": "Full 8-hour shifts at Northgate; **the provider confirms** the measure"},
-        {"label": "Coordinate", "done": "Each care line filled: **'none ordered'** with a date if empty"}
-      ]
-    },
     "redFlag": {
       "see": "A blank field, or a goal like **'reduce pain'** with no measure",
       "costs": "Blank reads as never asked, and a goal without a measure can't show progress",
@@ -809,17 +756,6 @@
       "Calling a systemic delay **client non-compliance**",
       "**Waiting for a denial** before you course-correct"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "John's route on the map",
-      "steps": [
-        {"label": "Conservative care", "chip": "02/20/2026", "done": "Riverton Urgent Care, then **Riverton Spine & Rehab** from 02/24/2026"},
-        {"label": "Specialist", "chip": "03/05/2026", "done": "Dr. Alana Reyes, Lakeside Orthopedics, **orders the MRI**"},
-        {"label": "Imaging", "chip": "03/13/2026", "done": "Summit Imaging: **C5-C6 right paracentral herniation**"},
-        {"label": "Interventional", "chip": "05/15/2026", "done": "**ESI** by Dr. Omar Haddad, Crescent Pain & Spine"},
-        {"label": "MMI", "chip": "06/12/2026", "done": "Dr. Reyes: **residual intermittent right-arm paresthesia**"}
-      ]
-    },
     "ruleEx": {
       "rule": "The 6-Week Rule: **20–30% more range of motion or a lower VAS** by week 6 of care",
       "exception": "A stop skipped or out of order needs **the provider's documented clinical reason**; you ask and record it",
@@ -879,16 +815,6 @@
       "Reporting a yellow flag **with no plan**",
       "Treating late head-injury symptoms **as proof** before validation"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "Bridging the gap",
-      "steps": [
-        {"label": "Calendar the risk", "chip": "03/19/2026", "done": "The rental's last covered day **calendared as a treatment risk**"},
-        {"label": "Warm handoff", "chip": "02/23/2026", "done": "Booked with him on the line; **LOP signed before 02/24**"},
-        {"label": "Answer cost worry", "done": "He hears **which payer handles which bill**, PIP first"},
-        {"label": "Ask the one question", "done": "'What might **get in the way** this week?' asked and logged"}
-      ]
-    },
     "ruleEx": {
       "rule": "**OARS on every contact**: open questions, affirmations, reflections, summaries",
       "exception": "**Roll with resistance**: 'That clinic isn't a good fit for you. Let's look at why.'",
@@ -922,18 +848,6 @@
       "Treating a chiropractor's note as **an EMC determination**",
       "Telling a client to see a doctor **for the $10,000**"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "Preventing forfeiture on a Florida file",
-      "steps": [
-        {"label": "Docket the 14th day", "done": "The 14th day after the accident **calendared at intake**"},
-        {"label": "Give logistics", "done": "Where and when care is available, **as Atty. Thorne directs**"},
-        {"label": "Log credentials", "done": "Each provider's **credential recorded**"},
-        {"label": "Request the EMC", "done": "The **EMC determination** requested from the records"},
-        {"label": "Flag the same day", "done": "A missing EMC or late first visit **goes to Atty. Thorne**"}
-      ],
-      "note": "Had this file been in Florida: the 14th day was **02/20/2026**, his first treatment"
-    },
     "ruleEx": {
       "rule": "Florida (Fla. Stat. § 627.736(1)(a)): **initial care within 14 days**; without an EMC finding, PIP stops at $2,500 of $10,000",
       "exception": "Riverton, add-on PIP: **no 14-day condition and no EMC cap**",

@@ -106,7 +106,8 @@ const microFrameworks = (b, c) => {
     if(typeof m.title !== "string" || !m.title.trim() || wc(m.title) > 8 || marks(m.title)) errors.push(`${id}.milestones.title: want ≤ 8 words, no highlight`);
     if(m.start !== undefined && !(Number.isInteger(m.start) && m.start > 1)) errors.push(`${id}.milestones.start: a whole number above 1`);
     if(m.note !== undefined) opt("milestones.note", m.note, 16);
-    if(m.slide !== undefined && m.slide !== true) errors.push(`${id}.milestones.slide: true (the rail on a slide of its own, where its lesson's slides have no room for it) or omit`);
+    // drawn on The Framework, or on The Rules of a lesson without one, and only where that slide holds the rail at full size on a laptop
+    if(m.slide !== undefined) errors.push(`${id}.milestones.slide: no lesson has a Milestone Steps slide any more; take the rail out of the copy (its steps go in the trainer's talking points for The Rules) unless The Framework or The Rules has room for it`);
     if(!Array.isArray(m.steps) || m.steps.length < 3 || m.steps.length > 6) errors.push(`${id}.milestones.steps: want 3–6`);
     else m.steps.forEach((s, i) => {
       const f = `milestones.steps[${i}]`;
