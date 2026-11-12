@@ -116,10 +116,10 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m1-drive": {
   "task": {
-   "say": "• Open My Backup Drive and link your Google Drive; it only sees folders and files it creates\n• Build 01 Clients with Doe-John inside and its nine numbered folders, intake and retainer through litigation\n• Add the firm folders: administration, templates, closed files\n• Submit; read each graded problem as a firm rule; then run Check my drive\n• In Case Notes, place the signed retainer, Police Report and HIPAA authorization, with reasons"
+   "say": "• On the Backup File Maintenance slide, press Link my Google Drive in step one; it only sees folders and files it creates\n• Build 01 Clients with Doe-John inside and its nine numbered folders, intake and retainer through litigation\n• Add the firm folders: administration, templates, closed files\n• Submit; read each graded problem as a firm rule; then run Check my drive\n• In Case Notes, place the signed retainer, Police Report and HIPAA authorization, with reasons"
   },
   "case": {
-   "say": "• 02/09/2026, 4:30 p.m.: John Doe's matter is active in the CMS, nothing on the backup drive yet\n• Every file is built to one standard so a covering colleague finds any document in seconds\n• Four steps: link your Google Drive, build the folders by hand (graded), run Check my drive, then file documents as they arrive\n• Standard: 01 Clients, client folder last name first, nine numbered folders intake to litigation, then firm folders"
+   "say": "• 02/09/2026, 4:30 p.m.: John Doe's matter is active in the CMS, nothing on the backup drive yet\n• Every file is built to one standard so a covering colleague finds any document in seconds\n• Four steps: link your Google Drive here in step one, build the folders by hand (graded), run Check my drive, file documents as they arrive\n• Standard: 01 Clients, client folder last name first, nine numbered folders intake to litigation, then firm folders"
   },
   "check": {
    "say": "• Drive linked with the one narrow permission\n• Every folder named and numbered exactly to the standard, nothing invented or renamed\n• Doe-John under 01 Clients with all nine folders in order; Check my drive shows nothing missing\n• Case Notes: retainer and HIPAA authorization in Intake and Retainer, Police Report in Police, Witness and Video",
