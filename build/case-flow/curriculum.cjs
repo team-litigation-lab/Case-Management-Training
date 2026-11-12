@@ -141,7 +141,7 @@ else {
     const ids = (sd.phases || []).flatMap(ph => ph.blocks || []).filter(id => STORED[id]), bs = ids.map(id => STORED[id].b);
     const heads = Object.assign({}, ...(sd.phases || []).map(ph => ph.headings || {}));
     const sc = SCHED.schedule(ids.filter(id => STORED[id].b.kind !== "check").map(id => ({kind: STORED[id].b.kind, brief: !!STORED[id].b.brief, thorough: !!STORED[id].b.thorough,
-      slides: STORED[id].b.kind === "lesson" ? viewsOf(STORED[id].b).length : 1, heading: heads[id] || "", mod: STORED[id].mod.id, modTitle: STORED[id].mod.title})), {build: sd.build});
+      slides: STORED[id].b.kind === "lesson" ? viewsOf(STORED[id].b).length : 1, heading: heads[id] || "", mod: STORED[id].mod.id, modTitle: STORED[id].mod.title})), {build: sd.build, lessonMax: sd.lessonMax});
     if(!sc.fits) errors.push(`Day ${sd.n}: ${sc.total} minutes (${sc.lessonMin} of lessons, ${sc.acts} Skill Activities at ${sc.act}, ${sc.skillParts} brainstorms, ${sc.build ? sc.build + " of companion-case build, " : ""}the Knowledge Check and 20 minutes for the welcome, a break and the close) is over the 4-hour day`);
     // a refresher: lessons are at most 30% of the 220 teaching minutes, the practical the rest
     if(sc.lessonMin > SCHED.LESSON_MIN) errors.push(`Day ${sd.n}: ${sc.lessonMin} minutes of lessons, over the 30% (${SCHED.LESSON_MIN} minutes)`);
