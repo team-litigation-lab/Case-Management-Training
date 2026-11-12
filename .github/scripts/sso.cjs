@@ -98,6 +98,44 @@ async function ticketFor(payloadObj, secret) {
     const again = await call(env, '/api/auth/portal', { ticket: aTicket });
     if (again.status !== 401 || !again.body || again.body.code !== 'used') fail(`an administrator's ticket should work only once, got ${JSON.stringify(again)}`);
 
+    // 5b. ...once even when two uses arrive together and KV can't tell (a read elsewhere can be a minute stale): the
+    //     TicketLedger Durable Object decides. Here KV never remembers a use, and two uses of one ticket race.
+    {
+        const mod = await import(pathToFileURL(path.join(process.cwd(), 'worker.js')).href);
+        if (typeof mod.TicketLedger !== 'function') fail('worker.js should export the TicketLedger Durable Object (wrangler.json binds it)');
+        else {
+            const tick = () => new Promise((r) => setTimeout(r, 5));
+            const instances = new Map();
+            const instance = (name) => {
+                if (!instances.has(name)) {
+                    const data = new Map(); let gate = Promise.resolve(), alarmAt = null;
+                    const state = {
+                        // one event at a time inside the callback, as a Durable Object's input gate guarantees
+                        blockConcurrencyWhile: (fn) => { const run = gate.then(fn); gate = run.catch(() => {}); return run; },
+                        storage: { get: async (k) => { await tick(); return data.get(k); }, put: async (k, v) => { await tick(); data.set(k, v); }, setAlarm: async (t) => { alarmAt = t; }, deleteAll: async () => data.clear() }
+                    };
+                    const obj = new mod.TicketLedger(state, {});
+                    instances.set(name, { obj, data, alarm: () => alarmAt });
+                }
+                return instances.get(name);
+            };
+            const TICKET_LEDGER = { idFromName: (n) => n, get: (n) => ({ fetch: (u, o) => instance(n).obj.fetch(new Request(u, o)) }) };
+            const forgetful = makeEnv({ PORTAL_SSO_SECRET: SECRET, TICKET_LEDGER });
+            forgetful.LSH_KV.get = async () => null;   // KV sees no earlier use, as a stale read elsewhere would
+            const raced = await ticketFor({ r: 'a', n: 'Coach Ana', exp: Date.now() + 60000 }, SECRET);
+            const both = await Promise.all([call(forgetful, '/api/auth/portal', { ticket: raced }), call(forgetful, '/api/auth/portal', { ticket: raced })]);
+            const ins = both.filter((r) => r.status === 200).length;
+            if (ins !== 1) fail(`two uses of one administrator's ticket at once should sign in exactly once, signed in ${ins} times: ${JSON.stringify(both.map((r) => r.status))}`);
+            const third = await call(forgetful, '/api/auth/portal', { ticket: raced });
+            if (third.status !== 401 || !third.body || third.body.code !== 'used') fail(`a later use of the same ticket should be refused (401 used), got ${JSON.stringify(third)}`);
+            const [one] = [...instances.values()];
+            if (!one || !one.alarm() || one.alarm() - Date.now() < 10 * 60 * 1000) fail('the ledger should clear its mark only after the ticket can no longer be used (an alarm past 10 minutes)');
+            else { await one.obj.alarm(); if (one.data.size) fail('the ledger alarm should clear the mark'); }
+            const other = await call(forgetful, '/api/auth/portal', { ticket: await ticketFor({ r: 'a', n: 'Coach Ben', exp: Date.now() + 60000 }, SECRET) });
+            if (other.status !== 200) fail(`a different administrator's ticket should still sign in: ${JSON.stringify(other)}`);
+        }
+    }
+
     // 6. a trainee sees only their own Score Card: /api/ranking never names another trainee or shows their scores
     for (const [f, l] of [['Ben', 'Diaz'], ['Cara', 'Lim']]) {
         await env.LSH_KV.put(`cm:trainee:${f.toLowerCase()}-${l.toLowerCase()}--b100926`, JSON.stringify({ id: `${f.toLowerCase()}-${l.toLowerCase()}--b100926`, name: `${f} ${l}`, batch: 'B100926', approved: true, dayProgress: { 11: { done: true, score: 90 } } }));

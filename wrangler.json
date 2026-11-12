@@ -35,6 +35,10 @@
       {
         "name": "GEMINI_RELAY",
         "class_name": "GeminiRelay"
+      },
+      {
+        "name": "TICKET_LEDGER",
+        "class_name": "TicketLedger"
       }
     ]
   },
@@ -43,6 +47,12 @@
       "tag": "v1-gemini-relay",
       "new_sqlite_classes": [
         "GeminiRelay"
+      ]
+    },
+    {
+      "tag": "v2-ticket-ledger",
+      "new_sqlite_classes": [
+        "TicketLedger"
       ]
     }
   ],
@@ -59,6 +69,10 @@
         {
           "name": "GEMINI_RELAY",
           "class_name": "GeminiRelay"
+        },
+        {
+          "name": "TICKET_LEDGER",
+          "class_name": "TicketLedger"
         }
       ]
     }

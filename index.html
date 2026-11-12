@@ -2375,9 +2375,6 @@ em.warn{font-style:normal;color:var(--danger);}
 .dash-resume-btn span{font-size:12px;font-weight:600;opacity:.92;overflow:hidden;text-overflow:ellipsis;min-width:0;}
 .dash-resume-btn span::before{content:"· ";}
 .dash-resume-btn:hover{background:#B5651F;}
-.dash-roadmap-btn{display:flex;align-items:baseline;gap:8px;border:1px solid rgba(255,255,255,.4);border-radius:999px;background:#262B45;color:#fff;padding:7px 16px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(20,24,48,.3);white-space:nowrap;}
-.dash-roadmap-btn span{font-size:12px;font-weight:600;color:#F4B77A;} .dash-roadmap-btn span::before{content:"· ";color:#fff;}
-.dash-roadmap-btn:hover{background:#343C66;}
 .rm-modal{position:fixed;inset:0;z-index:1000;background:rgba(15,20,40,.55);display:flex;align-items:center;justify-content:center;padding:16px;}
 .rm-box{position:relative;background:#fff;border-radius:16px;padding:22px 24px;max-width:1100px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 20px 50px rgba(0,0,0,.3);}
 .rm-box h2{margin:0 0 14px;color:var(--navy);}
@@ -5453,7 +5450,7 @@ function renderDashboard(){
       </div>
 
       <!-- where the day circles were: ▶ Continue where you left off, centred under the title (🗺 Roadmap sits beside Next → on the slides) -->
-      <div class="dash-hero-row">${resumeLabel() ? `<button type="button" class="dash-resume-btn" onclick="resumeWhereLeftOff()" title="Back to ${esc(resumeLabel())}">▶ Continue where you left off<span>${esc(String(resumeLabel()).replace(/^Case Flow /, ""))}</span></button>` : ""}<button type="button" class="dash-roadmap-btn" onclick="openRoadmap()" title="Every day and its topics, and where you are">🗺 Roadmap<span>Every day and its topics</span></button></div>
+      ${resumeLabel() ? `<div class="dash-hero-row"><button type="button" class="dash-resume-btn" onclick="resumeWhereLeftOff()" title="Back to ${esc(resumeLabel())}">▶ Continue where you left off<span>${esc(String(resumeLabel()).replace(/^Case Flow /, ""))}</span></button></div>` : ""}
 
   </div>
   <div class="dash-layout">
