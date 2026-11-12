@@ -68,6 +68,7 @@ async function load(force){
   }
   paint(); fillSlot();
   document.querySelectorAll("[data-drv-slide]").forEach(el=>{ el.outerHTML = slide(); });   // Day 1's slide ticks the trainee's own steps
+  if(D && D.connected && D.built) grade();   // and the drive is graded as it stands today
 }
 function fillSlot(){
   const slot = document.getElementById("drvCardSlot");
@@ -92,8 +93,15 @@ function card(){
     <p>${missing ? `${missing} of the firm's folders ${missing === 1 ? "is" : "are"} no longer in your Drive. A document filed into a folder that isn't there is a document the firm has lost.`
       : `The firm's ${n} folders are in your Drive${D.email ? ` (${esc(D.email)})` : ""}${(D.saved || []).length ? `, holding ${(D.saved || []).length} filed document${(D.saved || []).length === 1 ? "" : "s"}` : ""}.`}</p>
     ${steps()}
+    ${gradeLine()}
     <button type="button" class="btn ${missing ? "btn-navy" : "btn-ghost"} btn-sm" onclick="CMDrive.show()">📂 Open my Backup Drive</button>
   </div>`;
+}
+function gradeLine(){
+  const g = (D && D.grades) || {}, parts = [];
+  if(D && D.setup) parts.push(`Day 1 ${D.setup.score}%`);
+  Object.keys(g).sort().forEach(n=>parts.push(`Day ${n} ${g[n].score}%`));
+  return parts.length ? `<p style="margin:0 0 10px;font-size:12.5px;font-weight:700;">🏅 ${parts.join(" · ")}</p>` : "";
 }
 /* The job in three steps, each ticked when done. Your trainer sees the same three in the Trainee Audit. */
 function steps(){
@@ -191,12 +199,13 @@ function paint(){
       }).join("")}</div>
       ${missing.length ? `<div class="drv-bad"><b>${missing.length} folder${missing.length === 1 ? " is" : "s are"} no longer in your Drive.</b> A document filed into a folder that isn't there is a document the firm has lost.</div>`
         : verified ? `<div class="drv-good"><b>Every folder is where it should be.</b> Checked just now.</div>` : ""}
-      ${D.setup ? `<p class="drv-meta">Day 1 setup: ${D.setup.score}% on ${D.setup.attempts} attempt${D.setup.attempts === 1 ? "" : "s"}${D.setup.at ? `, ${new Date(D.setup.at).toLocaleDateString()}` : ""}.</p>` : ""}`;
+      ${gradesHTML()}`;
   }
   const foot = !D || !D.configured || !D.connected ? "" :
     !D.built ? `<button type="button" class="drv-btn drv-go" onclick="CMDrive.submit()" ${busy ? "disabled" : ""}>${busy ? "Checking…" : "Check and build it in my Drive"}</button>
                 <button type="button" class="drv-btn" onclick="CMDrive.disconnect()">Disconnect</button>`
     : `<button type="button" class="drv-btn" onclick="CMDrive.check()" ${busy ? "disabled" : ""}>${busy ? "Checking…" : "↻ Check my drive"}</button>
+       <button type="button" class="drv-btn" onclick="CMDrive.grade(true)" ${grading ? "disabled" : ""}>${grading ? "Grading…" : "🏅 Grade my backup"}</button>
        ${((verified ? verified.missing : D.lastMissing) || []).length ? `<button type="button" class="drv-btn drv-go" onclick="CMDrive.rebuild()" ${busy ? "disabled" : ""}>🔁 Put the missing folders back</button>` : ""}
        ${D.rootUrl ? `<a class="drv-btn" href="${esc(D.rootUrl)}" target="_blank" rel="noopener noreferrer">Open in Drive ↗</a>` : ""}
        <button type="button" class="drv-btn" onclick="CMDrive.disconnect()">Disconnect</button>`;
@@ -281,14 +290,60 @@ async function check(){
   busy = true; err = ""; paint();
   try{ const out = await api({action:"check"}); verified = out.verified; D = out.drive; }
   catch(e){ err = e.message; }
-  busy = false; paint(); fillSlot();
+  busy = false; paint(); fillSlot(); grade();
 }
 async function rebuild(){
   if(busy) return;
   busy = true; err = ""; paint();
   try{ const out = await api({action:"rebuild"}); D = out.drive; verified = {missing:[]}; say("The missing folders are back in your Drive."); }
   catch(e){ err = e.message; }
-  busy = false; paint(); fillSlot();
+  busy = false; paint(); fillSlot(); grade();
+}
+
+/* ---------- 🏅 graded as you go: Days 2–5 (the Worker reads the Drive and grades; see driveGrade in worker.js) ----------
+   Runs after ✓ Check my drive, 🔁 Put back, a filed copy, and when a day's Backup File Maintenance opens. The grades
+   also ride the trainee's progress ("drive-grades"), so the Scorecard and the Trainee Audit read them with the rest. */
+const filedIds = ()=>{ const log = (typeof state === "object" && state.docFiling) || {}; return Object.keys(log).filter(k=>log[k] && log[k].filed); };
+let grading = false, gradeTimer = null, lastGrade = 0;
+function gradeSoon(){ clearTimeout(gradeTimer); gradeTimer = setTimeout(()=>grade(), 1500); }
+async function grade(force){
+  if(!signedTrainee() || !D || !D.configured || !D.connected || !D.built || grading) return;
+  if(!force && Date.now() - lastGrade < 8000) return gradeSoon();
+  grading = true; lastGrade = Date.now();
+  try{
+    const out = await api({action:"grade", filed: filedIds()});
+    D = out.drive;
+    try{ if(typeof storeSet === "function") await storeSet("drive-grades", Object.fromEntries(Object.entries(out.grades || {}).map(([n, g])=>[n, {score:g.score, passed:g.passed, at:g.at}]))); }catch(e){}
+  }catch(e){ /* the grade waits for the next check; nothing else is blocked */ }
+  grading = false; paint(); fillSlot();
+  document.querySelectorAll("[data-drv-slide]").forEach(el=>{ el.outerHTML = slide(); });
+  try{ window.dispatchEvent(new CustomEvent("cm-drive-graded")); }catch(e){}
+}
+/* A day's Backup File Maintenance opened: Day 2 lays its drill (the colleague's misfiled invoice) once, then the day is graded. */
+const opened = {};
+async function dayOpened(n){
+  if(opened[n] || !signedTrainee()) return; opened[n] = true;
+  if(!D) await load();
+  if(!D || !D.configured || !D.connected || !D.built) return;
+  if(n === 2 && !(D.drills || []).includes("2")){
+    try{ D = (await api({action:"drill", day:2})).drive; say("A colleague filed Summit Imaging's invoice in 03 Medical Records on your drive. Find it and move it."); }catch(e){}
+  }
+  grade(true);
+}
+/* The grades as lines: Day 1's structure, then each day graded so far. */
+function gradesHTML(){
+  const g = (D && D.grades) || {}, days = Object.keys(g).sort();
+  const setup = D && D.setup;
+  if(!setup && !days.length) return "";
+  const pill = (score, passed)=>`<span class="drv-score ${passed ? "is-pass" : "is-low"}">${score}%</span>`;
+  return `<div class="drv-grades"><div class="drv-g-h">🏅 Graded as you go</div>
+    ${setup ? `<div class="drv-g-row"><b>Day 1 · the firm's folders</b>${pill(setup.score, !!setup.ok)}<small>${setup.ok ? `Built on attempt ${setup.attempts}.` : `${(setup.problems || []).length} thing${(setup.problems || []).length === 1 ? "" : "s"} to fix.`}</small></div>` : ""}
+    ${days.map(n=>{ const x = g[n], notes = [].concat(...(x.rows || []).map(r=>r.notes || []));
+      return `<div class="drv-g-row"><b>Day ${n} · Backup File Maintenance</b>${pill(x.score, x.passed)}
+        <small>${(x.rows || []).map(r=>`${r.got === r.max ? "✓" : "○"} ${esc(r.label)} ${r.got}/${r.max}`).join(" · ")}</small>
+        ${notes.length ? `<ul>${notes.slice(0, 6).map(t=>`<li>${esc(t)}</li>`).join("")}</ul>` : ""}</div>`; }).join("")}
+    <p class="drv-meta">Graded from your Drive itself, every time you check it or file a document${D.gradedAt ? ` · last graded ${new Date(D.gradedAt).toLocaleString()}` : ""}. Your Case Notes are graded with the rest of the activity.</p>
+  </div>`;
 }
 
 /* ---------- a document filed in the CMS, kept on the backup drive too ----------
@@ -296,7 +351,7 @@ async function rebuild(){
    folder the firm keeps that kind of document in. The document's own folder id (CM_CF_DOC_FOLDERS) picks
    it, so nothing here guesses. The CMS is the file of record, so a drive that isn't connected or set up,
    or anything at all going wrong here, never undoes the filing. */
-async function saveFiled(docFolder, name, bytes){
+async function saveFiled(docFolder, name, bytes, docId){
   if(!D || !D.configured || !D.connected || !D.built) return {ok:false, why:"no-drive"};
   const folder = (D.homes || {})[docFolder];
   if(!folder) return {ok:false, why:"no-folder"};
@@ -304,8 +359,9 @@ async function saveFiled(docFolder, name, bytes){
     const b = new Uint8Array(bytes);
     let s = ""; for(let i = 0; i < b.length; i += 8192) s += String.fromCharCode.apply(null, b.subarray(i, i + 8192));
     const b64 = btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-    const out = await api({action:"put", docFolder, name, mime:"application/pdf", b64});
+    const out = await api({action:"put", docFolder, name, mime:"application/pdf", b64, docId: docId || ""});
     D = out.drive;
+    gradeSoon();
     return {ok:true, folder};
   }catch(e){ return {ok:false, why:e.message}; }
 }
@@ -347,7 +403,7 @@ function slide(){
   </div>`;
 }
 
-window.CMDrive = {card, slot, show, close, connect, disconnect, submit, check, rebuild, saveFiled, slide,
+window.CMDrive = {card, slot, show, close, connect, disconnect, submit, check, rebuild, saveFiled, slide, grade, dayOpened,
   name:setName, addSub, addTop, remove, move, status:()=>D, reload:()=>load(true)};
 
 /* ---------- the panel's own look ---------- */
@@ -389,6 +445,14 @@ css.textContent = `
 .drv-btn:hover:not(:disabled){border-color:var(--orange,#DB8437);}
 .drv-btn:disabled{opacity:.6;cursor:default;}
 .drv-btn.drv-go{background:var(--navy,#1B2240);border-color:var(--navy,#1B2240);color:#fff;}
+.drv-grades{margin-top:14px;border:1px solid var(--line,#E3E6EF);border-radius:10px;padding:10px 12px;background:#FAFBFE;}
+.drv-g-h{font-weight:800;color:var(--navy,#1B2240);font-size:13.5px;margin-bottom:6px;}
+.drv-g-row{padding:6px 0;border-top:1px dashed var(--line,#E3E6EF);font-size:12.5px;}
+.drv-g-row:first-of-type{border-top:0;}
+.drv-g-row b{color:var(--navy,#1B2240);} .drv-g-row small{display:block;color:var(--ink-soft,#6E748C);margin-top:2px;}
+.drv-g-row ul{margin:4px 0 0;padding-left:18px;color:#8A2B2B;} .drv-g-row li{margin-bottom:2px;}
+.drv-score{float:right;font-weight:800;border-radius:999px;padding:1px 9px;font-size:12px;}
+.drv-score.is-pass{background:#F1F8F2;color:#245B32;border:1px solid #CBE6CF;} .drv-score.is-low{background:#FDF2F2;color:#8A2B2B;border:1px solid #F0CFCF;}
 .drv-slide{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;}
 .drv-slide,.drv-slide *{text-align:left!important;}
 .drv-slide li::before,.drv-slide li::marker{content:none!important;display:none!important;}

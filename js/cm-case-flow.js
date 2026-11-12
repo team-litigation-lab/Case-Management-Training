@@ -861,6 +861,7 @@ function timeBanner(l){
 }
 function slideBody(view, l, d){
   const {block: b, day, mod} = l.cf, c = copyOf(b);
+  if(DRIVE_LATER.has(b.id) && window.CMDrive && CMDrive.dayOpened) CMDrive.dayOpened(Number(b.id.charAt(1)));   // a day's Backup File Maintenance: Day 2 lays its drill, and the day is graded
   switch(view){
     case "why": { const ls = leadSplit(c.hook);
       return `<div class="cfx-hero"><div class="cfx-hero-text"><span class="cfx-chip">${E(titleCase(b.topic))}</span>${ls ? `<p class="cfx-lead-1">${hl("**" + ls[0] + "**")}</p><p class="cfx-hook">${hl(ls[1])}</p>` : `<p class="cfx-hook">${hl(c.hook)}</p>`}</div>${art(c.image)}</div>${strip()}`; }
@@ -965,23 +966,22 @@ function noteReached(b, p){
 const BLOCK = {};
 CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { BLOCK[b.id] = b; })));
 /* Backup File Maintenance is graded by the Worker (/api/drive), not on the slide: Day 1's is done once the hierarchy
-   was graded as built and a drive check since then found every folder in place. Days 2–5 carry the same activity on:
-   each is also done by the drive, once it is in that state and holds a copy of every document filed in the CMS so
-   far (the trainer report's "backed up" against "filed"), at least one. Either way the normal completion still counts. */
+   was graded as built and a drive check since then found every folder in place. Days 2–5 are each done once that
+   day's auto-grade from the drive passes (driveDayPassed). Either way the normal completion still counts. */
 const DRIVE_ACT = "d1m1-drive", DRIVE_LATER = new Set(["d2-drive", "d3-drive", "d4-drive", "d5-drive"]);
 function driveDone(){
   const D = window.CMDrive && CMDrive.status && CMDrive.status();
   return !!(D && D.built && D.checkedAt && (!D.builtAt || D.checkedAt >= D.builtAt) && !(D.lastMissing || []).length);
 }
-function driveBackedUp(){
-  const D = window.CMDrive && CMDrive.status && CMDrive.status(), saved = ((D && D.saved) || []).length;
-  let filed = 0; try{ filed = (window.cmDocFiling && cmDocFiling.health) ? cmDocFiling.health().filed : 0; }catch(e){}
-  return saved > 0 && saved >= filed;
+/* Days 2–5 are auto-graded from the drive (driveGrade in worker.js): the day's grade passing finishes the activity. */
+function driveDayPassed(id){
+  const D = window.CMDrive && CMDrive.status && CMDrive.status(), g = D && D.grades && D.grades[String(id).charAt(1)];
+  return !!(g && g.passed);
 }
 function actDone(id){
   const b = BLOCK[id]; if(!b) return false;
   if(id === DRIVE_ACT && driveDone()) return true;
-  if(DRIVE_LATER.has(id) && driveDone() && driveBackedUp()) return true;
+  if(DRIVE_LATER.has(id) && driveDayPassed(id)) return true;
   return ((REC.reached || {})[id] || 0) >= viewsOf(b).length || ((REC.ticks || {})[id] || []).some(Boolean) || !!(REC.work || {})[id] || !!((REC.listen || {})[id] || {}).at || !!((REC.notes || {})[id] || {}).txAt || !!(REC.calls || {})[id];
 }
 const actOpened = id => !!(REC.reached || {})[id] || actDone(id);
@@ -3951,7 +3951,7 @@ async function backupDoc(btn, id){
   try{
     const r = await fetch("documents/" + d.file.split("/").map(encodeURIComponent).join("/"));
     if(!r.ok) throw new Error(r.status);
-    const out = await cmDocFiling.keepOnDrive(d.folder, d.file.split("/").pop(), await r.arrayBuffer());
+    const out = await cmDocFiling.keepOnDrive(d.folder, d.file.split("/").pop(), await r.arrayBuffer(), d.id);
     if(out && out.ok){ btn.textContent = "✓ In GDrive"; toast(`Backed up to your Drive under ${String(out.folder).split("/").pop()}.`); return; }
     toast(out && out.why === "no-drive" ? "Your Backup Drive isn't set up yet. Connect it, then try again." : "The backup didn't reach your Drive. Try again.");
   }catch(e){ toast("The backup didn't reach your Drive. Check your connection and try again."); }

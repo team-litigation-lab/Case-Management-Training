@@ -574,7 +574,7 @@ async function driveWrite(env, id, rec) { await env.LSH_KV.put(driveKey(id), JSO
    stay. Used by Disconnect and when Google says the link has expired or was taken back, so neither loses a grade. */
 async function driveUnlink(env, id, rec) {
   const kept = {};
-  if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
+  if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt", "grades", "gradedAt", "checkLog", "restoreLog", "drills"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
   if (Object.keys(kept).length) return driveWrite(env, id, kept);
   await env.LSH_KV.delete(driveKey(id));
   return null;
@@ -647,7 +647,10 @@ async function driveBuild(env, id, rec) {
     (had ? restored : made).push(path);
   }
   rec.builtAt = new Date().toISOString();
-  if (restored.length) rec.restoredCount = (Number(rec.restoredCount) || 0) + restored.length;
+  if (restored.length) {
+    rec.restoredCount = (Number(rec.restoredCount) || 0) + restored.length;
+    rec.restoreLog = (rec.restoreLog || []).concat([{ at: rec.builtAt, restored }]).slice(-20);
+  }
   await driveWrite(env, id, rec);
   return { made, restored };
 }
@@ -660,12 +663,14 @@ async function driveVerify(env, id, rec) {
     // any other check: without this the dashboard card would read "in order" for a drive that isn't there.
     rec.checkedAt = new Date().toISOString();
     rec.lastMissing = FOLDER_STANDARD.slice();
+    rec.checkLog = (rec.checkLog || []).concat([{ at: rec.checkedAt, missing: rec.lastMissing }]).slice(-40);
     await driveWrite(env, id, rec);
     return { missing: [DRIVE_ROOT].concat(FOLDER_STANDARD), rootGone: true };
   }
   for (const path of FOLDER_STANDARD) if (!(await folderLives(env, id, rec, rec.folders && rec.folders[path]))) missing.push(path);
   rec.checkedAt = new Date().toISOString();
   rec.lastMissing = missing;
+  rec.checkLog = (rec.checkLog || []).concat([{ at: rec.checkedAt, missing }]).slice(-40);   // Day 4's drill is graded from it
   await driveWrite(env, id, rec);
   return { missing, rootGone: false };
 }
@@ -710,6 +715,9 @@ function driveStatus(env, rec) {
     lastMissing: (rec && rec.lastMissing) || [],
     setup: (rec && rec.setup) || null,
     saved: (rec && rec.saved) || [],
+    grades: (rec && rec.grades) || {},
+    gradedAt: (rec && rec.gradedAt) || null,
+    drills: Object.keys((rec && rec.drills) || {}),
   };
 }
 
@@ -739,8 +747,216 @@ function driveReport(id, rec) {
     perFolder,
     lastCopyAt,
     standard: FOLDER_STANDARD.length,
+    grades: (rec && rec.grades) || {},
   };
 }
+
+/* ============================================================
+   🏅 The Backup Drive, auto-graded as the trainee goes (Days 2–5)
+
+   Day 1's structure is graded when it is submitted (gradeLayout). Each later day has a Backup File Maintenance
+   activity (d2-drive … d5-drive in js/cm-case-flow-data.js) whose rubric has automated rows; these grade those
+   rows from the trainee's Drive itself, not from what the page says: where each of the day's documents actually
+   is now, what it is called, whether the colleague's misfile was moved, whether a deleted folder was found and
+   put back. The trainee's own written work (Case Notes) is the rubric's other rows, graded where it always was.
+
+   One read of the Drive per grade: every file and folder this platform made (drive.file sees only those), each
+   with its name and folder, in two list calls. A copy knows which course document it is because the page sends
+   the document's id with it (`docId` on "put"); a copy the trainee moved or renamed in Drive is still found.
+   ============================================================ */
+/* Each day's documents (CF_PACKETS["dN-drive"] in js/cm-case-flow-docs.js) and the course folder each belongs
+   in (its `folder` there, DRIVE_HOMES above); .github/scripts/drive-grades.cjs keeps the two the same. */
+const DRIVE_DAY_DOCS = {
+  2: ["RS12", "RS13", "RS15", "RS25"],
+  3: ["RS72", "RS16", "RS73", "RS26", "RS95", "RS94", "RS33", "RS66"],
+  4: ["RS41", "RS42", "RS84", "RS85", "RS86", "RS44", "RS74"],
+  5: ["RS51", "RS52", "RS53", "RS55", "RS59", "RS69", "RS70"],
+};
+const DRIVE_DOC = {
+  RS12: ["medical", "Riverton Urgent Care's visit note"], RS13: ["medical", "Riverton Spine & Rehab's evaluation and LOP"],
+  RS15: ["medical", "Lakeside Orthopedics' consult"], RS25: ["bills", "Summit Imaging's invoice"],
+  RS72: ["medical", "the MRI addendum"], RS16: ["medical", "the cervical MRI report"],
+  RS73: ["bills", "Crescent's corrected $0.00 statement"], RS26: ["bills", "Crescent's 07/01 statement"],
+  RS95: ["settlement", "the final lost wage record"], RS94: ["settlement", "the 06/23 lost wage worksheet"],
+  RS33: ["insurance", "the draft BI demand"], RS66: ["insurance", "the demand's exhibit packet"],
+  RS41: ["liens", "Peach State's reduction acceptance"], RS42: ["liens", "Riverton Spine & Rehab's Payoff Letter"],
+  RS84: ["liens", "Vance & Kettering's charging lien"], RS85: ["liens", "the prior-attorney lien packet"],
+  RS86: ["liens", "Atty. Thorne's repudiation of the prior-attorney lien"], RS44: ["settlement", "the Case Cost Ledger"],
+  RS74: ["settlement", "the closing letter"], RS51: ["litigation", "the Complaint"], RS52: ["litigation", "the service papers"],
+  RS53: ["litigation", "the Answer"], RS55: ["litigation", "the Scheduling Order"], RS59: ["litigation", "the mediation term sheet"],
+  RS69: ["litigation", "the mediation binder"], RS70: ["litigation", "the arbitration binder"],
+};
+const DRIVE_PASS = 70;
+const DRILL_NAME = "Summit-Imaging_Invoice_filed-here-by-a-colleague.pdf";
+const LIENS_FOLDER = DRIVE_HOMES.liens;
+const shortPath = (p) => String(p || "").split("/").pop();
+const SUPERSEDED_OK = (name) => /superseded/i.test(name) && /\d{4}-\d{2}-\d{2}|\d{1,2}[-._]\d{1,2}[-._]\d{2,4}|\d{8}/.test(name);
+
+/* A one-page PDF with a few lines of text: the colleague's misfiled invoice for Day 2's drill. */
+function tinyPdf(lines) {
+  const esc = (t) => String(t).replace(/[^\x20-\x7e]/g, "-").replace(/([\\()])/g, "\\$1");
+  const text = lines.map((t, i) => `BT /F1 ${i ? 12 : 16} Tf 60 ${740 - i * 26} Td (${esc(t)}) Tj ET`).join("\n");
+  const objs = [
+    "<< /Type /Catalog /Pages 2 0 R >>",
+    "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+    "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>",
+    "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
+    `<< /Length ${text.length} >>\nstream\n${text}\nendstream`,
+  ];
+  let out = "%PDF-1.4\n";
+  const at = objs.map((o, i) => { const off = out.length; out += `${i + 1} 0 obj\n${o}\nendobj\n`; return off; });
+  const xref = out.length;
+  out += `xref\n0 ${objs.length + 1}\n0000000000 65535 f \n${at.map((o) => String(o).padStart(10, "0") + " 00000 n \n").join("")}`;
+  out += `trailer\n<< /Size ${objs.length + 1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF\n`;
+  return enc.encode(out);
+}
+
+/* One file into one of the trainee's folders (multipart upload). */
+async function driveUpload(env, id, rec, parentId, name, mime, bytes, description) {
+  const boundary = "lsh" + crypto.randomUUID().replace(/-/g, "");
+  const meta = JSON.stringify({ name, parents: [parentId], description });
+  const head = enc.encode(`--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${meta}\r\n--${boundary}\r\nContent-Type: ${mime}\r\n\r\n`);
+  const tail = enc.encode(`\r\n--${boundary}--`);
+  const raw = new Uint8Array(head.length + bytes.length + tail.length);
+  raw.set(head, 0); raw.set(bytes, head.length); raw.set(tail, head.length + bytes.length);
+  return drive(env, id, rec, "POST", DRIVE_UPLOAD, { raw, type: `multipart/related; boundary=${boundary}` });
+}
+
+/* Everything this platform made in the trainee's Drive and not trashed: {id: {name, parent}} for files and folders. */
+async function driveList(env, id, rec, folders) {
+  const out = {};
+  let token = "";
+  for (let page = 0; page < 5; page++) {
+    const q = encodeURIComponent(`mimeType ${folders ? "=" : "!="} '${FOLDER_MIME}' and trashed = false`);
+    const res = await drive(env, id, rec, "GET", `/files?q=${q}&pageSize=1000&fields=nextPageToken,files(id,name,parents)${token ? "&pageToken=" + encodeURIComponent(token) : ""}`);
+    if (!res.ok) throw new Error(driveMessage(res));
+    (res.data.files || []).forEach((f) => { out[f.id] = { name: f.name, parent: (f.parents || [])[0] || "" }; });
+    if (!res.data.nextPageToken) break;
+    token = res.data.nextPageToken;
+  }
+  return out;
+}
+
+/* The Drive as it is now: where each course document's copy sits, and the folders. */
+async function driveSnapshot(env, id, rec) {
+  const [files, folders] = [await driveList(env, id, rec, false), await driveList(env, id, rec, true)];
+  const pathOf = {};
+  Object.entries(rec.folders || {}).forEach(([p, fid]) => { if (folders[fid]) pathOf[fid] = p; });
+  const where = (fid) => (files[fid] ? { name: files[fid].name, path: pathOf[files[fid].parent] || (files[fid].parent === rec.rootId ? "" : null) } : null);
+  // a course document's copies, newest first; the first one still in the Drive is the one that counts
+  const copyOf = (docId) => {
+    const all = (rec.saved || []).filter((s) => s.docId === docId && s.id).sort((a, b) => String(b.at).localeCompare(String(a.at)));
+    for (const s of all) { const w = where(s.id); if (w) return w; }
+    return null;
+  };
+  const clientParent = folders[(rec.folders || {})[CLIENT_FOLDER]] ? folders[rec.folders[CLIENT_FOLDER]].parent : "";
+  return { files, folders, pathOf, where, copyOf, clientInPlace: !!clientParent && clientParent === (rec.folders || {})["01 Clients"] };
+}
+
+/* One rubric row: {label, max, got, notes:[what is wrong, in words]} */
+function gradeRow(label, max, items) {
+  const done = items.filter((x) => x.ok).length;
+  return { label, max, got: items.length ? Math.floor((max * done) / items.length) : 0, notes: items.filter((x) => !x.ok).map((x) => x.why) };
+}
+/* A row made of parts that weigh the same however many items each holds (the final audit: a missing client folder
+   must cost as much as a missing document, not one sixtieth of the row). An empty part counts as done. */
+function gradeParts(label, max, parts) {
+  const ratio = parts.reduce((t, items) => t + (items.length ? items.filter((x) => x.ok).length / items.length : 1), 0) / parts.length;
+  return { label, max, got: Math.floor(max * ratio + 1e-9), notes: [].concat(...parts.map((items) => items.filter((x) => !x.ok).map((x) => x.why))) };
+}
+/* Each of these documents in its folder: one item per document. */
+function placed(S, docIds, extra) {
+  return docIds.map((d) => {
+    const [kind, label] = DRIVE_DOC[d], home = DRIVE_HOMES[kind], c = S.copyOf(d);
+    if (!c) return { ok: false, why: `${label} isn't on the drive: file it in the CMS so its copy lands in ${shortPath(home)}.` };
+    if (c.path !== home) return { ok: false, why: `${label} is in ${c.path == null ? "a folder outside the firm's structure" : shortPath(c.path) || "the drive's top folder"}; it belongs in ${shortPath(home)}.` };
+    const more = extra && extra(d, c);
+    return more || { ok: true };
+  });
+}
+/* Every filed document has a copy on the drive: backed up of filed. */
+function backedUp(S, filed) {
+  const list = filed.filter((d) => DRIVE_DOC[d]);
+  return list.map((d) => S.copyOf(d) ? { ok: true } : { ok: false, why: `${DRIVE_DOC[d][1]} is filed in the CMS but not on the drive.` });
+}
+const lastCheck = (rec) => (rec.checkLog || [])[(rec.checkLog || []).length - 1] || null;
+function cleanCheck(rec, since) {
+  const c = lastCheck(rec);
+  if (!c) return { ok: false, why: "✓ Check my drive hasn't been run yet." };
+  if (since && c.at < since) return { ok: false, why: "Run ✓ Check my drive again: the last check was before today's work." };
+  if ((c.missing || []).length) return { ok: false, why: `The last ✓ Check my drive found ${c.missing.length} folder${c.missing.length === 1 ? "" : "s"} missing.` };
+  return { ok: true };
+}
+
+/* The automated rows of each day's rubric, from the Drive. `filed` is every course document filed in the CMS. */
+function gradeDay(n, rec, S, filed) {
+  const rows = [], drills = rec.drills || {};
+  const lastPut = (ids) => (rec.saved || []).filter((s) => ids.includes(s.docId)).reduce((m, s) => (s.at > m ? s.at : m), "");
+  if (n === 2) {
+    rows.push(gradeRow("Documents backed up", 25, placed(S, DRIVE_DAY_DOCS[2])));
+    const d = drills[2], w = d && S.where(d.id);
+    rows.push(gradeRow("Misfile corrected", 20, [!d ? { ok: false, why: "The colleague's misfiled Summit invoice arrives in 03 Medical Records when Day 2's backup activity opens." }
+      : !w ? { ok: false, why: "The colleague's Summit invoice is gone from the drive: move a misfiled document, never delete it." }
+      : w.path === DRIVE_HOMES.bills ? { ok: true } : { ok: false, why: `The colleague's Summit invoice is still in ${w.path == null ? "a folder outside the structure" : shortPath(w.path)}; move it into 04 Bills & Invoices.` }]));
+    rows.push(gradeRow("Drive confirmed", 15, [cleanCheck(rec, lastPut(DRIVE_DAY_DOCS[2]))]));
+  } else if (n === 3) {
+    rows.push(gradeRow("Backup matches the CMS", 25, backedUp(S, filed).concat(filed.length ? [] : [{ ok: false, why: "Nothing is filed in the CMS yet." }])));
+    const sup = { RS26: "RS73", RS94: "RS95" };
+    rows.push(gradeRow("Superseded versions", 20, placed(S, ["RS72", "RS73", "RS95", "RS26", "RS94"], (d, c) => sup[d] && !SUPERSEDED_OK(c.name)
+      ? { ok: false, why: `${DRIVE_DOC[d][1]} is still called "${c.name}": keep it beside ${DRIVE_DOC[sup[d]][1]}, renamed with SUPERSEDED and that version's date.` } : null)));
+    rows.push(gradeRow("Demand Package placed", 15, placed(S, ["RS33", "RS66"], (d, c) => /draft/i.test(c.name) ? null
+      : { ok: false, why: `${DRIVE_DOC[d][1]} is called "${c.name}": label it DRAFT.` }).concat([cleanCheck(rec, lastPut(DRIVE_DAY_DOCS[3]))])));
+  } else if (n === 4) {
+    const found = (rec.checkLog || []).find((c) => (c.missing || []).includes(LIENS_FOLDER));
+    rows.push(gradeRow("Missing folder found", 15, [found ? { ok: true } : { ok: false, why: "No ✓ Check my drive has reported 06 Liens & Reimbursement missing: delete it in Google Drive (the drill), then run the check." }]));
+    const back = (rec.restoreLog || []).find((r) => found && r.at >= found.at && (r.restored || []).includes(LIENS_FOLDER));
+    const after = back && (rec.checkLog || []).find((c) => c.at >= back.at && !(c.missing || []).length);
+    rows.push(gradeRow("Folder restored", 20, [back ? { ok: true } : { ok: false, why: "06 Liens & Reimbursement hasn't been put back with 🔁 Put the missing folders back." },
+      after ? { ok: true } : { ok: false, why: "Run ✓ Check my drive again after putting it back, until nothing is missing." }]));
+    rows.push(gradeRow("Papers backed up", 25, placed(S, DRIVE_DAY_DOCS[4]).concat(backedUp(S, filed))));
+  } else if (n === 5) {
+    rows.push(gradeRow("Litigation file backed up", 20, placed(S, DRIVE_DAY_DOCS[5])));
+    const homes = (rec.saved || []).filter((s) => s.docId && DRIVE_DOC[s.docId]).map((s) => s.docId).filter((d, i, a) => a.indexOf(d) === i);
+    const labeled = [["RS33", /draft/i, "DRAFT"], ["RS66", /draft/i, "DRAFT"], ["RS26", /superseded/i, "SUPERSEDED"], ["RS94", /superseded/i, "SUPERSEDED"]]
+      .filter(([d]) => S.copyOf(d)).map(([d, re, word]) => re.test(S.copyOf(d).name) ? { ok: true } : { ok: false, why: `${DRIVE_DOC[d][1]} isn't labeled ${word}.` });
+    rows.push(gradeParts("Final audit", 25, [
+      backedUp(S, filed),
+      homes.map((d) => { const c = S.copyOf(d); return !c || c.path === DRIVE_HOMES[DRIVE_DOC[d][0]] ? { ok: true } : { ok: false, why: `${DRIVE_DOC[d][1]} is out of its folder.` }; }),
+      labeled,
+      [S.clientInPlace ? { ok: true } : { ok: false, why: "Doe-John isn't under 01 Clients: leave the client folder where it is in the training drive." }, cleanCheck(rec, lastPut(DRIVE_DAY_DOCS[5]))],
+    ]));
+  }
+  const max = rows.reduce((t, r) => t + r.max, 0), got = rows.reduce((t, r) => t + r.got, 0);
+  const score = max ? Math.round((100 * got) / max) : 0;
+  return { score, passed: score >= DRIVE_PASS, rows, at: new Date().toISOString() };
+}
+/* A day is graded once the trainee has started it: one of its documents on the drive, or its drill begun. */
+function dayStarted(n, rec) {
+  if ((rec.saved || []).some((s) => DRIVE_DAY_DOCS[n].includes(s.docId))) return true;
+  if (n === 2 && rec.drills && rec.drills[2]) return true;
+  if (n === 4 && (rec.checkLog || []).some((c) => (c.missing || []).includes(LIENS_FOLDER))) return true;
+  return false;
+}
+async function driveGrade(env, id, rec, filed) {
+  rec.grades = rec.grades || {};
+  const days = [2, 3, 4, 5].filter((n) => dayStarted(n, rec));
+  if (days.length) {
+    const S = await driveSnapshot(env, id, rec);
+    days.forEach((n) => { rec.grades[n] = gradeDay(n, rec, S, filed); });
+  }
+  rec.gradedAt = new Date().toISOString();
+  await driveWrite(env, id, rec);
+  return rec.grades;
+}
+/* The course documents a trainee has filed in the CMS, from their saved progress (doc-filing). */
+async function filedFromProgress(env, id) {
+  try {
+    const p = JSON.parse((await kvOf(env).get(`progress:${id}`)) || "null");
+    const log = (p && p.data && p.data["doc-filing"]) || {};
+    return Object.keys(log).filter((k) => log[k] && log[k].filed);
+  } catch (e) { return []; }
+}
+const cleanFiled = (list) => (Array.isArray(list) ? list : []).filter((x) => typeof x === "string" && /^[A-Za-z0-9_-]{1,40}$/.test(x)).slice(0, 400);
 
 /* ---------- 🕘 automatic Time In (js/checkin.js; read by the Training Portal /attendance.html) ----------
    A trainee's course calls /api/checkin on their first visit each day (Eastern time). The first call records
@@ -959,7 +1175,7 @@ export default {
         const b = await request.json().catch(() => ({}));
         const action = String(b.action || "status");
         const mine = tok.role === "t" ? tok.id : "";
-        const adminOnly = ["report", "reportAll", "checkFor"].includes(action);
+        const adminOnly = ["report", "reportAll", "checkFor", "gradeFor"].includes(action);
         if (adminOnly && tok.role !== "a") return json({ error: "Only a trainer can read the Backup Drive report." }, 403);
         if (action === "reportAll") {
           // The audit list: the ids it shows, or every drive record when none are given.
@@ -983,7 +1199,7 @@ export default {
         // admin here and nobody has a drive. The page reads the code and simply shows nothing.
         if (!who) return json({ error: "Sign in as a trainee to use the Backup Drive.", code: "DRIVE_NOT_A_TRAINEE" }, 403);
         if (action === "report") return json({ report: driveReport(who, await driveRead(env, who)) });
-        if (!mine && action !== "status" && action !== "checkFor") return json({ error: "A trainer can read a trainee's Backup Drive, not change it." }, 403);
+        if (!mine && action !== "status" && action !== "checkFor" && action !== "gradeFor") return json({ error: "A trainer can read a trainee's Backup Drive, not change it." }, 403);
         if (!driveConfigured(env)) return json({ drive: driveStatus(env, null) });
         let rec = await driveRead(env, who);
         try {
@@ -1059,6 +1275,28 @@ export default {
             const out = await driveVerify(env, who, rec);
             return json({ verified: out, drive: driveStatus(env, rec) });
           }
+          if (action === "drill") {
+            // Day 2's drill: a colleague filed Summit Imaging's invoice in 03 Medical Records. Once, and only into a built drive.
+            if (Number(b.day) !== 2) return json({ error: "There is no drill for that day." }, 400);
+            if (!rec.builtAt || !rec.folders || !rec.folders[DRIVE_HOMES.medical]) return json({ error: "Build the firm's folders first (Day 1).", code: "DRIVE_NOT_BUILT" }, 400);
+            rec.drills = rec.drills || {};
+            if (!rec.drills[2]) {
+              const pdf = tinyPdf(["Summit Imaging Center - Invoice", "Patient: John Doe", "Cervical MRI, 03/13/2026: $2,395.00",
+                "Filed in 03 Medical Records by a colleague covering the desk.", "A bill belongs in 04 Bills & Invoices: move it there."]);
+              const res = await driveUpload(env, who, rec, rec.folders[DRIVE_HOMES.medical], DRILL_NAME, "application/pdf", pdf, "Day 2 drill: a misfiled bill. Move it to 04 Bills & Invoices.");
+              if (!res.ok || !res.data.id) return json({ error: driveMessage(res) }, 502);
+              rec.drills[2] = { id: res.data.id, at: new Date().toISOString() };
+              await driveWrite(env, who, rec);
+            }
+            return json({ drill: { day: 2, at: rec.drills[2].at }, drive: driveStatus(env, rec) });
+          }
+          if (action === "grade" || action === "gradeFor") {
+            // The automated rows of each started day's rubric, read from the Drive as it is now.
+            if (!rec.builtAt) return json({ error: "The firm's folders aren't built yet (Day 1).", code: "DRIVE_NOT_BUILT", drive: driveStatus(env, rec) }, 400);
+            const filed = action === "grade" ? cleanFiled(b.filed).concat(await filedFromProgress(env, who)).filter((x, i, a) => a.indexOf(x) === i) : await filedFromProgress(env, who);
+            await driveGrade(env, who, rec, filed);
+            return action === "grade" ? json({ grades: rec.grades, drive: driveStatus(env, rec) }) : json({ grades: rec.grades, report: driveReport(who, rec) });
+          }
           if (action === "rebuild") {
             const built = await driveBuild(env, who, rec);
             return json({ built, drive: driveStatus(env, rec) });
@@ -1075,15 +1313,10 @@ export default {
             try { bytes = unb64url(b.b64); } catch (e) { return json({ error: "The document didn't arrive. Try again." }, 400); }
             if (!bytes.length || bytes.length > DRIVE_MAX_BYTES) return json({ error: "The document is empty or larger than 4 MB." }, 400);
             if (!(await folderLives(env, who, rec, rec.folders[folder]))) await driveBuild(env, who, rec);
-            const boundary = "lsh" + crypto.randomUUID().replace(/-/g, "");
-            const meta = JSON.stringify({ name, parents: [rec.folders[folder]], description: "Filed from the LSH Case Management training platform." });
-            const head = enc.encode(`--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${meta}\r\n--${boundary}\r\nContent-Type: ${String(b.mime || "application/pdf").slice(0, 100)}\r\n\r\n`);
-            const tail = enc.encode(`\r\n--${boundary}--`);
-            const raw = new Uint8Array(head.length + bytes.length + tail.length);
-            raw.set(head, 0); raw.set(bytes, head.length); raw.set(tail, head.length + bytes.length);
-            const res = await drive(env, who, rec, "POST", DRIVE_UPLOAD, { raw, type: `multipart/related; boundary=${boundary}` });
+            const res = await driveUpload(env, who, rec, rec.folders[folder], name, String(b.mime || "application/pdf").slice(0, 100), bytes, "Filed from the LSH Case Management training platform.");
             if (!res.ok || !res.data.id) return json({ error: driveMessage(res) }, 502);
-            rec.saved = (rec.saved || []).filter((s) => s.name !== name).concat([{ name, folder, at: new Date().toISOString(), id: res.data.id }]).slice(-200);
+            const docId = /^[A-Za-z0-9_-]{1,40}$/.test(String(b.docId || "")) ? String(b.docId) : "";
+            rec.saved = (rec.saved || []).filter((s) => s.name !== name).concat([Object.assign({ name, folder, at: new Date().toISOString(), id: res.data.id }, docId ? { docId } : {})]).slice(-200);
             await driveWrite(env, who, rec);
             return json({ saved: { name, folder, url: res.data.webViewLink || "" }, drive: driveStatus(env, rec) });
           }
