@@ -68,6 +68,8 @@ async function workerChecks() {
         const v = await page.evaluate(() => ({ view: state.view, topic: state.rpSession && state.rpSession.topic.id }));
         if (v.view !== 'openroleplay' || v.topic !== 'cf-' + target.blockId) fail(`answering should open the graded call: ${JSON.stringify(v)}`);
     }
+    // the ring is a shared record: end it, so it doesn't ring the trainees of the checks that run after this one
+    if (target.dayId) await put('call-inject-day' + target.dayId, { active: false, dayId: target.dayId });
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
     console.log('The injected call rings every trainee on any page: Decline (or no answer) is a missed call, logged on their file and counted 0 under 📞 Case Calls; Answer opens the graded call; a call handled never rings again. Trainees read the ring but can\'t write it.');
