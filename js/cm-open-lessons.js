@@ -193,7 +193,8 @@ async function toggleTrainee(id, on){
   let rec;
   try{ rec = await sharedGetStrict("trainee:" + tid); }catch(e){ rec = null; }
   if(!rec){ say("Couldn't load that trainee: refresh and try again."); render(); return; }
-  const set = new Set(nums(rec.unlockedDays));
+  // only this Case Flow day changes: any other day already on the record stays
+  const set = new Set((Array.isArray(rec.unlockedDays) ? rec.unlockedDays : []).map(Number).filter(n => Number.isFinite(n)));
   if(on) set.add(Number(id)); else set.delete(Number(id));
   rec.unlockedDays = [...set].sort((a, b) => a - b);
   rec.unlockedDaysAt = new Date().toISOString();
@@ -226,10 +227,9 @@ if(typeof window.renderAdmin === "function"){
   window.renderAdmin = function(){
     if(!state.isAdmin) return __admin.apply(this, arguments);
     const want = state.adminTab === "openlessons";
-    let out;
+    let out = __admin.apply(this, arguments);
+    if(out.includes("setAdminTab('openlessons')")) return out;   // renderAdmin has the tab (and draws it): nothing to add
     if(want){ state.adminTab = "rankings"; try{ out = __admin.apply(this, arguments); } finally{ state.adminTab = "openlessons"; } }
-    else out = __admin.apply(this, arguments);
-    if(out.includes("setAdminTab('openlessons')")) return out;   // renderAdmin has the tab: nothing to add
     const r = out.indexOf('<div class="cf-admin-row">');
     if(r < 0) return out;
     const end = out.indexOf("</div></div>", r); if(end < 0) return out;
@@ -237,7 +237,9 @@ if(typeof window.renderAdmin === "function"){
     if(want) row = row.replace(/admin-tab-btn active/g, "admin-tab-btn");
     if(!want && !row.includes("setAdminTab('audit')")) return out;
     row += btn(want);
-    const head = out.slice(0, r) + row + "</div></div>";
+    // the open section's count (Admin Master Control's) takes the extra tab
+    const pre = out.slice(0, r).replace(/(<button type="button" class="cf-admin-sec active"[^>]*>[^<]*<span>)(\d+)(<\/span>)/, (m, a, n, z) => a + (Number(n) + 1) + z);
+    const head = pre + row + "</div></div>";
     return want ? head + window.renderAdminOpenLessons() : head + out.slice(end + 12);
   };
 }
