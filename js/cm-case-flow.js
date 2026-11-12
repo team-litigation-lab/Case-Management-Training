@@ -1147,7 +1147,7 @@ function agendaSlide(d){
    What the trainer says over each day's agenda slide, in the voice of the slide scripts (build/case-flow/scripts/
    SCRIPTSPEC.md: first person to the room, John Doe's file, no lists). The welcome and the question are written for
    each day; the run of the day is read from the slide itself (its parts, minutes, activities and questions), so the
-   notes and the slide can never disagree. Shown in Presenter view, on Admin → Trainer Cues and in the Speaker Notes PDF. */
+   notes and the slide can never disagree. Shown in Presenter view and in the Speaker Notes PDF. */
 const AGENDA_NOTES = {
   1: {open: "Welcome, everyone, and thanks for being here on time. For the next five days you're the Case Manager on one file, John Doe v. Robert Smith, Atty. Elijah Thorne's case, and everything we do this week happens on that file. Right now it's a raw file: nothing is in the CMS yet, John Doe hasn't started treatment, and there's a damaged car on it that nobody has sorted out.",
       ask: "Before we start, who has worked on a personal injury file before, and which part of it did you handle?"},
@@ -2792,16 +2792,17 @@ if(typeof window.renderPresenterNote === "function"){
     return h.replace(/ · slide \d+ of 2/, k > 1 ? ` · slide ${part || 1} of ${k}` : "");
   };
 }
-/* ---------- Admin → Trainer Cues, and the day's Speaker Notes PDF: every slide's script ----------
+/* ---------- the day's Speaker Notes PDF: every slide's script ----------
    The engine's pages listed each topic's two parts (and the old course's answer keys); a Case Flow block has up to
-   eight slides, so these list them all, by Case Phase, each under its slide's name, in the trainer's own words. */
-/* the picker in the lesson's side column (trainers), and the year on Presenter view's console */
+   eight slides, so it lists them all, by Case Phase, each under its slide's name, in the trainer's own words. */
+/* the case year picker: in the lesson's side column (trainers, when it shows) and on Presenter view's console */
 function yearInSide(){
   if(!DATES || !state.isAdmin || state.view !== "day") return;
   const top = document.querySelector(".ls-top");
   if(top && !state.presenting && !top.querySelector(".cf-yr")) top.insertAdjacentHTML("beforeend", `<div class="cf-yr-side">${caseYearPicker(true)}</div>`);
   const meta = document.querySelector(".pv-meta");
-  if(meta && !meta.querySelector(".cf-yr-pv")) meta.insertAdjacentHTML("beforeend", `<span class="cf-yr-pv" title="The case year these notes and the slides are in (set on Admin → Trainer Cues or beside the slides)">📅 ${E(DATES.year)}</span>`);
+  // the trainer picks it here, on the console they teach from (the side column's picker has no room on a laptop)
+  if(meta && !meta.querySelector(".cf-yr-pv")) meta.insertAdjacentHTML("beforeend", `<span class="cf-yr-pv">${caseYearPicker(true)}</span>`);
 }
 /* ---------- the case year a trainer's notes are in ----------
    Each trainee keeps the case year they started on (js/cm-case-dates.js), and a batch starts together: its ID is its
@@ -3543,7 +3544,7 @@ if(typeof renderAuditStrip === "function"){
   };
 }
 
-/* Every Admin tab (the Trainee Audit, Trainer Cues, the SOP, Activities) names the days as on screen: Case Flow Day 1–5, never their ids */
+/* Every Admin tab (the Trainee Audit, the SOP, Activities) names the days as on screen: Case Flow Day 1–5, never their ids */
 if(typeof window.renderAdmin === "function"){
   const __admin = window.renderAdmin;
   /* An admin opening the course from the Portal can reach the Admin screen a moment before their sign-in has settled
@@ -4695,8 +4696,8 @@ body.audience-mode.cm-tf-split.cm-tf-open #audienceRoot{right:var(--cm-tf-w,50vw
 .cf-yr-note{font-size:12px;color:var(--ink-soft);}
 .cf-yr-side .cf-yr{width:100%;justify-content:space-between;font-size:12px;}.cf-yr-side select{flex:1;min-width:0;font-size:12px;}
 .cf-yr-side .cf-yr-note{display:block;margin-top:4px;}
-@media (max-height:780px){.cf-yr-side{display:none;}}   /* a short screen: no room beside the slide; the picker is on Admin → Trainer Cues */
-.cf-yr-pv{font-family:'IBM Plex Mono',monospace;}
+@media (max-height:780px){.cf-yr-side{display:none;}}   /* a short screen: no room beside the slide; the picker is on Presenter view's console */
+.cf-yr-pv{display:inline-flex;align-items:center;gap:6px;} .cf-yr-pv .cf-yr{font-size:12px;color:#F6C08F;} .cf-yr-pv select{font-size:12px;padding:3px 6px;}
 /* the day's intro on one screen (renderDayIntro above) */
 .cf-intro .lesson-card{padding:18px 24px !important;}
 .cf-intro-obj{margin-bottom:12px;}

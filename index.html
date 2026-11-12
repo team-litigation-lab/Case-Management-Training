@@ -1587,11 +1587,6 @@ main{overflow-wrap:anywhere;}
 .cues-day-tabs{display:flex;gap:6px;flex-wrap:wrap;}
 .cues-day-tabs button{border:1px solid var(--line);background:#fff;color:var(--ink-soft);border-radius:20px;padding:7px 14px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;}
 .cues-day-tabs button.active{background:var(--navy);color:#fff;border-color:var(--navy);}
-.cue-item{border-bottom:1px solid var(--line);}
-.cue-item:last-child{border-bottom:none;}
-.cue-item summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy);font-size:14px;list-style-position:inside;}
-.cue-num{font-family:'IBM Plex Mono',monospace;color:var(--orange-deep);margin-right:10px;font-size:12px;}
-.cue-body{padding:0 18px 14px 18px;font-size:13px;}
 .cue-sub{display:block;font-size:11.5px;color:var(--navy);margin:10px 0 4px;text-transform:uppercase;letter-spacing:.04em;}
 
 .vc-note.vc-warn{background:rgba(181,74,63,.25);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:8px 10px;color:#fff;}
@@ -1977,7 +1972,6 @@ body.tap-moving [ondrop]{outline:2px dashed rgba(219,132,55,.55);outline-offset:
 .batch-folder .bf-icon{font-size:30px;line-height:1;}
 .batch-folder .bf-name{font-weight:800;color:var(--navy);font-size:15px;margin-top:4px;}
 .batch-folder .bf-meta{font-size:12px;color:var(--ink-soft);}
-.bf-crumb{margin-bottom:6px;}
 .bf-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 16px;}
 .bf-tabs button{font:inherit;font-size:13px;font-weight:700;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--navy);cursor:pointer;}
 .bf-tabs button.active{background:var(--navy);color:#fff;border-color:var(--navy);}
@@ -2093,8 +2087,6 @@ main:not(.main-dash){padding-bottom:84px;} /* room for the 💬 Feedback button 
   .dash-hero h1, .dash-hero p:not(.eyebrow){max-width:100% !important;overflow:hidden;}
 }
 
-.cue-steps{margin-left:auto;padding-left:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--orange-deep);white-space:nowrap;}
-.cue-item > summary{display:flex;align-items:center;gap:8px;}
 .script-slides{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--orange-deep);font-weight:700;margin-left:6px;}
 
 .audit-strip{display:grid;grid-template-columns:1.2fr 1.1fr 2fr 1.1fr 1fr 1.1fr 1.8fr;gap:14px;padding:4px 18px 14px;align-items:start;}
@@ -3975,7 +3967,7 @@ function clientAvatarSvg(){
 }
 
 /* Trainer cues, discussion cases, roleplay scripts and answer keys live ONLY in
-   Admin → Trainer Cues. Nothing trainer-facing renders inside lessons or the
+   Presenter view's speaker notes and the Speaker Notes PDF. Nothing trainer-facing renders inside lessons or the
    Skill Builders, so a screen-share or a shared device can never expose them. */
 function trainerInline(){ return false; }
 /* ============================================================
@@ -4175,7 +4167,7 @@ function renderFacilitatorGuide(){
       <div class="card" style="padding:40px;text-align:center;">
         <div style="font-size:34px;margin-bottom:10px;">🔒</div>
         <h2 style="color:var(--navy);margin:0 0 8px;">Trainers Only</h2>
-        <p style="color:var(--ink-soft);font-size:14px;">The Facilitator Guide, Trainer Cues, and Discussion Checkpoints are only visible once you're signed in as a trainer.</p>
+        <p style="color:var(--ink-soft);font-size:14px;">The Facilitator Guide, the speaker notes, and Discussion Checkpoints are only visible once you're signed in as a trainer.</p>
         ${((state.portalOnly && !state.isAdmin) || traineeSide()) ? "" : `<button class="btn btn-primary" style="margin-top:14px;" onclick="openAdmin()">🛡 Sign In as Trainer</button>`}
       </div>`;
   }
@@ -4192,7 +4184,7 @@ function renderFacilitatorGuide(){
 
     <div class="card fg-card">
       <h3>What Trainees See vs. What You See</h3>
-      <p>Trainees get a clean, self-paced flow: one topic per slide (with a 📖 Full explanation panel where you've published one), Quick Checks, the Skill Builders, then the Knowledge Check. <b>Trainer Cues, Applied Discussion Cases, verbal scripts, answer keys and crisis scripts never appear in the lesson slides — even when you're signed in as admin.</b> They live only in <b>Admin → Trainer Cues</b>, so screen-sharing the lesson is always safe.</p>
+      <p>Trainees get a clean, self-paced flow: one topic per slide (with a 📖 Full explanation panel where you've published one), Quick Checks, the Skill Builders, then the Knowledge Check. <b>Trainer Cues, Applied Discussion Cases, verbal scripts, answer keys and crisis scripts never appear in the lesson slides — even when you're signed in as admin.</b> They live only in <b>🖥 Presenter view</b>'s speaker notes (your console, never the shared slides window) and the Speaker Notes PDF, so screen-sharing the lesson is always safe.</p>
     </div>
 
     <div class="card fg-card">
@@ -15808,7 +15800,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/checkin.js?v=1"></script>
 <script src="/js/portal-link.js?v=4"></script>
 <!-- 🧭 Blueprints: the Trainer blueprint (blueprint-content.js) and the Trainee blueprint (Orientation, /blueprint.pdf) rebuilt after every deploy -->
-<script src="/js/blueprint-content.js?v=7"></script>
+<script src="/js/blueprint-content.js?v=8"></script>
 <script src="/js/lsh-blueprint-course.js?v=2"></script>
 <script src="/js/lsh-blueprint.js?v=2"></script>
 <script src="/js/lsh-dashboard.js?v=9"></script>
