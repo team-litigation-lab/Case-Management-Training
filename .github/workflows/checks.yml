@@ -195,6 +195,10 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/roadmap.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: What a trainee writes never runs in a trainer's page (Trainee Feedback, a trainee's submitted files)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/admin-xss.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: One batch whichever way its Batch ID was saved (B250926 and B092526 are both B092526 on the admin pages)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
