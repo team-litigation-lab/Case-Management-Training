@@ -205,9 +205,7 @@ function bannerHtml(){
       <p class="ft-banner-sub">${cur ? `Batch <b>${E(labelOf(cur))}</b>` : "All batches"} · refreshed automatically</p></div>
     <div class="ft-banner-right"><span>${ppl.length} trainee${ppl.length === 1 ? "" : "s"}</span>${waiting ? `<span class="bs-wait-pill">${waiting} waiting for approval</span>` : ""}</div>
     <div class="ft-banner-ctl"><span class="gs-menu"><label class="scx-bpick">Batch <select onchange="cmBatchSheet.batch(this.value)"><option value="">All batches</option>${keys.map(k => `<option value="${E(k)}" ${k === cur ? "selected" : ""}>${E(labelOf(k))}</option>`).join("")}</select></label>
-      <label class="scx-bpick">Recent <select onchange="cmBatchSheet.recent(this.value)">${[[7, "7 days"], [14, "14 days"], [30, "30 days"], [0, "All time"]].map(([v, l]) => `<option value="${v}" ${v === B.recent ? "selected" : ""}>${l}</option>`).join("")}</select></label>
-      <button onclick="cmBatchSheet.csv()">⬇ Download</button><button onclick="window.print()">🖨 Print</button><button onclick="cmBatchSheet.refresh()">↻ Refresh</button>
-      <button onclick="document.getElementById('bs-people').scrollIntoView({behavior:'smooth'})">👥 Trainees &amp; Batches ↓</button></span></div></div>`;
+      <button onclick="cmBatchSheet.csv()">⬇ Download</button><button onclick="cmBatchSheet.refresh()">↻ Refresh</button></span></div></div>`;
 }
 window.renderAdminBatchSheet = function(){
   if(state.adminLoading || !state.adminData) return `<div class="card" style="padding:40px;text-align:center;color:var(--ink-soft);">Loading the batches…</div>`;
@@ -223,7 +221,6 @@ function csv(){
 }
 window.cmBatchSheet = {
   batch(v){ B.pick = ""; if(typeof setAdminBatchFilter === "function") setAdminBatchFilter(v); else { state.adminBatchFilter = v; render(); } },
-  recent(v){ B.recent = Number(v) || 0; repaint(); },
   pick(id){ B.pick = B.pick === id ? "" : id; repaint(); setTimeout(() => { const d = document.getElementById("bs-detail"); if(d && B.pick) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
   refresh(){ B.extra = {}; if(state.auditExtra) Object.keys(state.auditExtra).forEach(k => delete state.auditExtra[k]); if(typeof refreshAdminData === "function") refreshAdminData(); else render(); },
   csv
