@@ -862,6 +862,7 @@ function timeBanner(l){
 }
 function slideBody(view, l, d){
   const {block: b, day, mod} = l.cf, c = copyOf(b);
+  if(DRIVE_LATER.has(b.id) && window.CMDrive && CMDrive.dayOpened) CMDrive.dayOpened(Number(b.id.charAt(1)));   // a day's Backup File Maintenance: Day 2 lays its drill, and the day is graded
   switch(view){
     case "why": { const ls = leadSplit(c.hook);
       return `<div class="cfx-hero"><div class="cfx-hero-text"><span class="cfx-chip">${E(titleCase(b.topic))}</span>${ls ? `<p class="cfx-lead-1">${hl("**" + ls[0] + "**")}</p><p class="cfx-hook">${hl(ls[1])}</p>` : `<p class="cfx-hook">${hl(c.hook)}</p>`}</div>${art(c.image)}</div>${strip()}`; }
@@ -906,7 +907,7 @@ function slideBody(view, l, d){
     case "job": return `<div class="cfx-job">${c.job.map((r, ri) => `<div class="cfx-flow">${r.map((x, j) => `<div class="cfx-step"><small>${["Trigger", "Task", "Tool", "Checkpoint"][j]}</small><span>${hl(x)}</span></div>`).join('<span class="cfx-arrow">➔</span>')}</div>`).join("")}</div>`;
     case "dodont": return ddList(c);   // the Do's and Don'ts themselves (3 Clues, 1 Rule is retired)
     case "case": {
-      if(b.id === "d1m1-drive" && window.cmDriveSop) return cmDriveSop.slide();   // Day 1's case folder: the SOP and the folder structure sample
+      if(b.id === "d1m1-drive" && window.CMDrive && CMDrive.slide) return CMDrive.slide();   // Day 1's case backup: the task in four steps and the firm's standard, from the Worker (js/cm-drive.js)
       const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(docAvail).filter(Boolean).slice(0, 4);
       const ev = SIM.events[b.id], fall = falloutFor(b.id), vm = ev && ev.channel === "voicemail" && ev.spoken;
       const thumbs = notesOf(b.id) ? npCard(b.id) : ev && ev.log ? logSnapshot(ev.log) : docs.length ? `<div class="cfx-docs-row">${docs.map(x => `<a class="cfx-thumb" href="${E(docUrl(x))}" target="_blank" rel="noopener" title="${E(x.desc)}" onclick="return cmCaseFlow.doc(event,'${x.id}')"><img src="/decks/cf-docs/${E(x.id)}.webp" alt="" loading="lazy" onerror="this.parentNode.classList.add('cfx-thumb-off');this.remove()"><span>${E(x.title)}</span></a>`).join("")}</div>` : art(c.image, "small");
@@ -966,23 +967,22 @@ function noteReached(b, p){
 const BLOCK = {};
 CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { BLOCK[b.id] = b; })));
 /* Backup File Maintenance is graded by the Worker (/api/drive), not on the slide: Day 1's is done once the hierarchy
-   was graded as built and a drive check since then found every folder in place. Days 2–5 carry the same activity on:
-   each is also done by the drive, once it is in that state and holds a copy of every document filed in the CMS so
-   far (the trainer report's "backed up" against "filed"), at least one. Either way the normal completion still counts. */
+   was graded as built and a drive check since then found every folder in place. Days 2–5 are each done once that
+   day's auto-grade from the drive passes (driveDayPassed). Either way the normal completion still counts. */
 const DRIVE_ACT = "d1m1-drive", DRIVE_LATER = new Set(["d2-drive", "d3-drive", "d4-drive", "d5-drive"]);
 function driveDone(){
   const D = window.CMDrive && CMDrive.status && CMDrive.status();
   return !!(D && D.built && D.checkedAt && (!D.builtAt || D.checkedAt >= D.builtAt) && !(D.lastMissing || []).length);
 }
-function driveBackedUp(){
-  const D = window.CMDrive && CMDrive.status && CMDrive.status(), saved = ((D && D.saved) || []).length;
-  let filed = 0; try{ filed = (window.cmDocFiling && cmDocFiling.health) ? cmDocFiling.health().filed : 0; }catch(e){}
-  return saved > 0 && saved >= filed;
+/* Days 2–5 are auto-graded from the drive (driveGrade in worker.js): the day's grade passing finishes the activity. */
+function driveDayPassed(id){
+  const D = window.CMDrive && CMDrive.status && CMDrive.status(), g = D && D.grades && D.grades[String(id).charAt(1)];
+  return !!(g && g.passed);
 }
 function actDone(id){
   const b = BLOCK[id]; if(!b) return false;
   if(id === DRIVE_ACT && driveDone()) return true;
-  if(DRIVE_LATER.has(id) && driveDone() && driveBackedUp()) return true;
+  if(DRIVE_LATER.has(id) && driveDayPassed(id)) return true;
   return ((REC.reached || {})[id] || 0) >= viewsOf(b).length || ((REC.ticks || {})[id] || []).some(Boolean) || !!(REC.work || {})[id] || !!((REC.listen || {})[id] || {}).at || !!((REC.notes || {})[id] || {}).txAt || !!(REC.calls || {})[id];
 }
 const actOpened = id => !!(REC.reached || {})[id] || actDone(id);
@@ -2241,9 +2241,11 @@ window.cmCaseFlow.back = function(){
 const ADMIN_GROUPS = [
   {id: "admin", label: "🛡 Admin Master Control", tabs: ["audit", "rankings", "tfeedback"]},
   {id: "modules", label: "📚 Training Modules", tabs: ["sop", "studio"]},
-  {id: "activities", label: "📋 Activities", tabs: ["activities", "fbstyle"]}
+  {id: "activities", label: "📋 Activities", tabs: ["activities", "rtasks", "fbstyle"]}
 ];
 const adminGroupOf = tab => (ADMIN_GROUPS.find(g => g.tabs.includes(tab)) || ADMIN_GROUPS[0]).id;
+/* the Admin screen as Foundational's: one solid panel, the page as wide as the screen (main.cm-admin-main) */
+const adminPanel = out => state.isAdmin ? `<div class="cm-admin-screen">${out}</div>` : out;
 function groupAdminTabs(out){
   const a = out.indexOf('<div class="admin-tabs"'); if(a < 0) return out;
   const b = out.indexOf("</div>", a) + 6;
@@ -2394,7 +2396,7 @@ if(typeof window.renderDaySlideshow === "function"){
 }
 if(typeof window.afterRender === "function"){
   const __after = window.afterRender;
-  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ syncReturn(); sidePresenter(); kcFit(); fitFileCols(); yearInSide(); }catch(e){} return r; };
+  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ const mn = document.querySelector("#app > main, main"); if(mn) mn.classList.toggle("cm-admin-main", !!mn.querySelector(".cm-admin-screen")); syncReturn(); sidePresenter(); kcFit(); fitFileCols(); yearInSide(); }catch(e){} return r; };
 }
 /* Check Your Work: the reference of what the trainee did in the tool (a CMS Case ID, an e-filing or request number),
    kept on their record and shown to their trainer with the module's Learning Check */
@@ -3671,7 +3673,7 @@ if(typeof window.renderAdmin === "function"){
       return `<div class="card" style="padding:40px;text-align:center;"><div style="font-size:30px;margin-bottom:10px;">🛡</div><h2 style="color:var(--navy);margin:0;">Opening the admin screen…</h2></div>`;
     }
     if(state.isAdmin) adminWaits = 0;
-    if(state.adminTab === "attendance") state.adminTab = "audit"; return groupAdminTabs(relabelAll(__admin.apply(this, arguments)).replace("Knowledge Checks, Skill Builders and your day-by-day", "Knowledge Checks, Skill Activities and your day-by-day")); };   // (attendance is on the Main Portal now)
+    if(state.adminTab === "attendance") state.adminTab = "audit"; return adminPanel(groupAdminTabs(relabelAll(__admin.apply(this, arguments)).replace("Knowledge Checks, Skill Builders and your day-by-day", "Knowledge Checks, Skill Activities and your day-by-day"))); };   // (attendance is on the Main Portal now)
 }
 
 /* ---------- the trainer's 40%: entered in each trainee's Admin panel ---------- */
@@ -4034,7 +4036,7 @@ async function backupDoc(btn, id){
   try{
     const r = await fetch("documents/" + d.file.split("/").map(encodeURIComponent).join("/"));
     if(!r.ok) throw new Error(r.status);
-    const out = await cmDocFiling.keepOnDrive(d.folder, d.file.split("/").pop(), await r.arrayBuffer());
+    const out = await cmDocFiling.keepOnDrive(d.folder, d.file.split("/").pop(), await r.arrayBuffer(), d.id);
     if(out && out.ok){ btn.textContent = "✓ In GDrive"; toast(`Backed up to your Drive under ${String(out.folder).split("/").pop()}.`); return; }
     toast(out && out.why === "no-drive" ? "Your Backup Drive isn't set up yet. Connect it, then try again." : "The backup didn't reach your Drive. Try again.");
   }catch(e){ toast("The backup didn't reach your Drive. Check your connection and try again."); }
@@ -4892,6 +4894,14 @@ main:has(.cf-kc-result) #answerFeedback{max-width:none;}
 /* Case Documents: the Case File / Documents switch sits under the page's intro (no Open CMS: the slides send trainees to
    the CMS), so the copy js/lsh-topbar.js puts at the top of the page is hidden there */
 main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is wrapped, so js/lsh-topbar.js leaves it alone) */
+/* the Admin screen: a solid, full-width panel over the photo (as Foundational's js/ft-admin-tidy.js) */
+main.cm-admin-main, main:has(.cm-admin-screen){max-width:min(2200px,97vw);padding-left:16px;padding-right:16px;}
+.cm-admin-screen{background:#fff;border-radius:16px;padding:20px 24px 26px;box-shadow:0 10px 30px rgba(14,18,40,.28);color:#141A2E;}
+.cm-admin-screen .card{border:1px solid #C9CEDD;}
+.cm-admin-screen .admin-portal-link{display:none !important;}   /* (🎓 Training Directory is in the top bar) */
+.adm-settings{padding:10px 16px;margin:0 0 14px;} .adm-settings > summary{cursor:pointer;font-weight:800;color:var(--navy);font-size:14px;}
+.adm-settings[open] > summary{margin-bottom:8px;} .adm-settings .card{box-shadow:none;margin:8px 0 0;background:#fff;}
+@media(max-width:760px){ .cm-admin-screen{padding:14px 12px 18px;border-radius:12px;} }
 /* the Admin screen's tabs, grouped: the sections, then the open section's tabs */
 .admin-tabs.cf-admin-tabs{display:block !important;border-bottom:1px solid var(--line);margin-bottom:20px;white-space:normal;overflow:visible;}
 .cf-admin-secs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;}

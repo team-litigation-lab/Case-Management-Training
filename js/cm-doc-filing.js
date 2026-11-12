@@ -145,7 +145,7 @@ async function fileDoc(docId, category, name){
   // so a drive that isn't set up never undoes the filing — the trainee is just told what didn't reach it.
   let drive = null;
   if(window.CMDrive){
-    drive = await CMDrive.saveFiled(d.folder, out.name, forDrive);
+    drive = await CMDrive.saveFiled(d.folder, out.name, forDrive, d.id);
     r.drive = drive.ok ? drive.folder : "";
     await save();
     if(drive.ok && typeof toast === "function") toast(`Kept on your Backup Drive under ${drive.folder.split("/").pop()}.`);
@@ -215,15 +215,15 @@ async function send(d){
   const out = await askCms({lsh: "cms-doc-file", name, category: d.category, original: d.original || name,
     mime: d.mime || "application/pdf", summary: d.summary || name, bytes}, "cms-doc-filed", [bytes]);
   if(!out || !out.ok) return out;
-  return Object.assign({}, out, {drive: await keepOnDrive(d.folder, out.name, forDrive)});
+  return Object.assign({}, out, {drive: await keepOnDrive(d.folder, out.name, forDrive, d.id)});
 }
 
 /* A copy of a filed document on the trainee's Backup Drive (js/cm-drive.js), in the folder its kind belongs
    in. Never throws and never changes the filing: it reports, and the caller tells the trainee. */
-async function keepOnDrive(folder, name, bytes){
+async function keepOnDrive(folder, name, bytes, docId){
   if(!folder) return {ok: false, why: "no-folder-given"};
   if(!window.CMDrive || typeof CMDrive.saveFiled !== "function") return {ok: false, why: "no-drive"};
-  try{ return await CMDrive.saveFiled(folder, name, bytes); }
+  try{ return await CMDrive.saveFiled(folder, name, bytes, docId); }
   catch(err){ return {ok: false, why: (err && err.message) || "the copy could not be made"}; }
 }
 
