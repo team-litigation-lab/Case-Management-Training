@@ -2245,6 +2245,7 @@ const ADMIN_GROUPS = [
 ];
 const adminGroupOf = tab => (ADMIN_GROUPS.find(g => g.tabs.includes(tab)) || ADMIN_GROUPS[0]).id;
 function groupAdminTabs(out){
+  if(window.cmAdminShell) return out;   // js/cm-admin-shell.js groups them (Foundational's sections), as the outermost wrapper
   const a = out.indexOf('<div class="admin-tabs"'); if(a < 0) return out;
   const b = out.indexOf("</div>", a) + 6;
   const t = document.createElement("template"); t.innerHTML = out.slice(a, b);
