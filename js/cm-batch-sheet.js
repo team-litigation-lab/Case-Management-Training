@@ -13,8 +13,9 @@
      📅 Day by Day      a column per day, and 🔎 a trainee's days in detail (why, ⭐ best, 🔧 improve)
      🧮 Grading systems a sheet per grading system with its own metrics (one shown at a time)
      🕒 Recent progress everything they did, newest first
-   Under the tables, 👥 Trainees & Batches (index.html renderTraineesAndBatches): approvals, each trainee's actions
-   (View Detail, ✍ Feedback, 🎓 Certificate, ↺ Reset Attempts, Revoke), archive and the folded settings.
+   What was 👥 Trainees & Batches is in the sheet: each trainee's actions (Approve / Reject for anyone waiting; View Detail,
+   ✍ Feedback, 🎓 Certificate, ↺ Reset Attempts, 📁 Assign a case…, Revoke) in 👥 Trainees, View Detail opening under it,
+   Show archived, 📦 Archive this batch and Log out in the banner; the folded settings under the sheet.
    It replaces what said the same thing twice: the Trainee Audit's stat tiles and each row's days / average / runs /
    last-active readouts, the Rankings tab, the batch folders' Registry / Rankings / Feedback / Activities sub-tabs, the
    trainer's 🏅 Scorecards page and ⬇ Download Cohort Report (the sheet's ⬇ Download).
@@ -92,8 +93,8 @@ const summaryOf = r => { try{ return typeof auditSummary === "function" ? auditS
 /* ---------- the tables: {id, title, note, head, rows: [[{v, f, cls}]], onRow, rowCls} ---------- */
 function traineesTable(ppl){
   return {id: "trainees", title: "👥 Trainees", note: "Everyone registered in the batch, from the moment they register: their status, when they were last on, how far they are and the feedback you have sent.",
-    head: ["Trainee", "Batch", "Status", "Registered", "Last on the platform", "Slides seen", "Knowledge Checks passed", "Now", "💬 Feedback"],
-    rows: ppl.map(r => {
+    head: ["Trainee", "Batch", "Status", "Actions", "Registered", "Last on the platform", "Slides seen", "Knowledge Checks passed", "Now", "💬 Feedback"],
+    rows: ppl.slice().sort((a, b) => (a.approved === true) - (b.approved === true)).map(r => {
       const a = summaryOf(r) || {days: [], seen: 0, total: 0, pct: 0, kcPassed: 0, where: "", sent: 0, read: 0, drafts: 0, toWrite: []};
       const last = [r.lastActive, (extraOf(r) || {}).savedAt].map(T0).filter(Boolean).sort((x, y) => y - x)[0];
       const st = statusOf(r), n = days().length;
@@ -102,6 +103,7 @@ function traineesTable(ppl){
         {v: nameOf(r), f: `${nameOf(r)} · ${r.id}`, cls: "gs-name"},
         {v: labelOf(keyOf(r)), f: r.batch || "No batch", cls: "gs-batch"},
         {v: st, f: st, cls: st === "Approved" ? "gs-hi" : st === "Archived" ? "" : "gs-mid"},
+        {v: "", html: actionsHtml(r), cls: "gs-act"},
         {v: dOnly(r.registeredAt), f: r.registeredAt ? new Date(r.registeredAt).toLocaleString() : "", cls: ""},
         {v: last ? dOnly(last) : "Not yet", f: last ? `${last.toLocaleString()} (${ago(last)})` : "Hasn't been on the platform since registering", cls: last && Date.now() - last < 2 * 864e5 ? "" : "gs-lo"},
         {v: a.total ? `${a.seen} / ${a.total} · ${a.pct}%` : "", f: `${a.seen} of ${a.total} slides seen`, cls: "gs-num " + tone(a.total ? a.pct : null)},
@@ -109,6 +111,25 @@ function traineesTable(ppl){
         {v: a.where || "", f: a.where || "", cls: "gs-txt"},
         {v: fb, f: `${a.sent} sent (${a.read} read)${a.drafts ? `, ${a.drafts} draft` : ""}${a.toWrite.length ? "; days with work but no feedback yet" : ""}`, cls: "gs-txt " + (a.toWrite.length ? "gs-mid" : "")}];
     })};
+}
+/* a trainee's actions, in the 👥 Trainees table: someone waiting gets Approve / Reject; everyone else the trainee row's own
+   buttons (index.html renderAdminRow, with what other files add to it: 📁 Assign a case…), View Detail opening under the table */
+function actionsHtml(r){
+  if(r.approved !== true && !r.archived) return `<div class="bs-acts"><button class="btn btn-navy btn-sm" onclick="approveTrainee('${E(r.id)}')">Approve</button><button class="btn btn-ghost btn-sm" style="color:var(--danger);" onclick="rejectTrainee('${E(r.id)}')">Reject</button></div>`;
+  if(typeof renderAdminRow !== "function") return "";
+  let html = ""; const keep = state.adminExpandedId; state.adminExpandedId = null;
+  try{ html = renderAdminRow(r, adminDayStats(r), adminPracticeStats(r)); }catch(e){ html = ""; } finally{ state.adminExpandedId = keep; }
+  const t = document.createElement("template"); t.innerHTML = html;
+  const grid = t.content.querySelector(".admin-row-grid"), acts = grid && grid.lastElementChild; if(!acts) return "";
+  acts.removeAttribute("style"); acts.className = "bs-acts";
+  acts.querySelectorAll('[onclick^="toggleAdminDetail("]').forEach(b => { b.textContent = keep === r.id ? "Hide Detail" : "View Detail"; b.setAttribute("onclick", `cmBatchSheet.detail('${E(r.id)}')`); });
+  return acts.outerHTML;
+}
+function detailHtml(ppl){
+  const r = ppl.find(x => x.id === state.adminExpandedId);
+  if(!r || typeof renderAdminDetail !== "function") return "";
+  let body = ""; try{ body = renderAdminDetail(r); }catch(e){ body = `<p class="bs-none">Couldn't open the detail.</p>`; }
+  return `<section class="bs-sec bs-recdetail" id="bs-recdetail"><h3 class="bs-h">🔎 ${E(nameOf(r))} <span>View Detail</span> <button class="btn btn-ghost btn-sm" onclick="cmBatchSheet.detail('${E(r.id)}')">✕ Close</button></h3>${body}</section>`;
 }
 function lessonsTable(ppl){
   const L = days();
@@ -322,7 +343,7 @@ function sheetHtml(T){
       <tr class="gs-letters"><th class="gs-corner"></th>${T.head.map((h, i) => `<th class="${i === 0 ? "gs-frz" : ""}">${letter(i)}</th>`).join("")}</tr>
       ${T.groups ? `<tr class="gs-groups"><th class="gs-rn"></th>${T.groups.map((g, i) => `<th colspan="${g.span}" class="${i === 0 ? "gs-frz" : ""}">${E(g.label)}</th>`).join("")}</tr>` : ""}
       <tr class="gs-head"><th class="gs-rn">1</th>${T.head.map((h, i) => `<th class="${i === 0 ? "gs-frz" : ""}">${E(h)}</th>`).join("")}</tr></thead>
-      <tbody>${T.rows.map((r, ri) => `<tr${T.rowCls && T.rowCls[ri] ? ` class="${T.rowCls[ri]}"` : ""}${T.onRow && T.onRow[ri] ? ` onclick="${T.onRow[ri]}"` : ""}><th class="gs-rn">${ri + 2}</th>${r.map((c, ci) => `<td tabindex="0" class="${c.cls || ""}${ci === 0 ? " gs-frz" : ""}"${c.f ? ` title="${E(c.f)}"` : ""}>${E(c.v)}</td>`).join("")}</tr>`).join("")}
+      <tbody>${T.rows.map((r, ri) => `<tr${T.rowCls && T.rowCls[ri] ? ` class="${T.rowCls[ri]}"` : ""}${T.onRow && T.onRow[ri] ? ` onclick="${T.onRow[ri]}"` : ""}><th class="gs-rn">${ri + 2}</th>${r.map((c, ci) => `<td tabindex="0" class="${c.cls || ""}${ci === 0 ? " gs-frz" : ""}"${c.f ? ` title="${E(c.f)}"` : ""}>${c.html != null ? c.html : E(c.v)}</td>`).join("")}</tr>`).join("")}
       ${T.rows.length ? "" : `<tr class="gs-empty"><th class="gs-rn">2</th><td colspan="${n}" class="bs-none">${E(T.empty || "No trainee here yet.")}</td></tr>`}</tbody></table></div></section>`;
 }
 let LAST = [];
@@ -334,7 +355,7 @@ function tablesHtml(){
   const sc = scoresTable(ppl), picked = sc.rowsRaw.find(x => x.r.id === B.pick), S = (window.cmScorecard && cmScorecard.sources) || [];
   const head = [traineesTable(ppl), scoreCardTable(ppl), dayTable(ppl)], tail = [lessonsTable(ppl), recentTable(ppl)];
   LAST = head.concat([sc], S.map(s => systemTable(ppl, s)), tail);
-  return head.map(sheetHtml).join("") + dayDetailHtml(ppl) + sheetHtml(sc) + (picked ? sheetHtml(detailTable(picked)) : "") + systemsHtml(ppl) + tail.map(sheetHtml).join("");
+  return sheetHtml(head[0]) + detailHtml(ppl) + head.slice(1).map(sheetHtml).join("") + dayDetailHtml(ppl) + sheetHtml(sc) + (picked ? sheetHtml(detailTable(picked)) : "") + systemsHtml(ppl) + tail.map(sheetHtml).join("");
 }
 function bannerHtml(){
   const keys = Array.from(new Set((state.adminData || []).filter(r => !r.rejected).map(keyOf))).sort((a, b) => typeof NO_BATCH !== "undefined" && a === NO_BATCH ? 1 : typeof NO_BATCH !== "undefined" && b === NO_BATCH ? -1 : a.localeCompare(b, undefined, {numeric: true}));
@@ -346,7 +367,9 @@ function bannerHtml(){
     <div class="ft-banner-ctl"><span class="gs-menu"><label class="scx-bpick">Batch <select onchange="cmBatchSheet.batch(this.value)"><option value="">All batches</option>${keys.map(k => `<option value="${E(k)}" ${k === cur ? "selected" : ""}>${E(labelOf(k))}</option>`).join("")}</select></label>
       <label class="scx-bpick">Recent <select onchange="cmBatchSheet.recent(this.value)">${[[7, "7 days"], [14, "14 days"], [30, "30 days"], [0, "All time"]].map(([v, l]) => `<option value="${v}" ${v === B.recent ? "selected" : ""}>${l}</option>`).join("")}</select></label>
       <button onclick="cmBatchSheet.csv()">⬇ Download</button><button onclick="window.print()">🖨 Print</button><button onclick="cmBatchSheet.refresh()">↻ Refresh</button>
-      <button onclick="document.getElementById('bs-people').scrollIntoView({behavior:'smooth'})">👥 Trainees &amp; Batches ↓</button></span></div></div>`;
+      <label class="scx-bpick bs-arch"><input type="checkbox" ${state.adminShowArchived ? "checked" : ""} onchange="setAdminShowArchived(this.checked)"> Show archived</label>
+      ${cur ? `<button class="bs-danger" onclick="confirmArchiveBatch('${E(cur)}')">📦 Archive this batch</button>` : ""}
+      <button onclick="adminLogout()">Log out</button></span></div></div>`;
 }
 window.renderAdminBatchSheet = function(){
   if(state.adminLoading || !state.adminData) return `<div class="card" style="padding:40px;text-align:center;color:var(--ink-soft);">Loading the batches…</div>`;
@@ -367,10 +390,20 @@ window.cmBatchSheet = {
   dsWho(id){ B.ds = id; B.dsOpen = {}; repaint(); setTimeout(() => { const d = document.getElementById("bs-dsdetail"); if(d) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
   dsOpen(d, open){ B.dsOpen[d] = open; },
   sys(id){ B.sys = id; repaint(); setTimeout(() => { const d = document.getElementById("bs-systems"); if(d) d.scrollIntoView({block: "start"}); }, 30); },
+  detail(id){ state.adminExpandedId = state.adminExpandedId === id ? null : id; repaint(); if(state.adminExpandedId) setTimeout(() => { const d = document.getElementById("bs-recdetail"); if(d) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
   pick(id){ B.pick = B.pick === id ? "" : id; repaint(); setTimeout(() => { const d = document.getElementById("bs-detail"); if(d && B.pick) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
   refresh(){ B.extra = {}; if(state.auditExtra) Object.keys(state.auditExtra).forEach(k => delete state.auditExtra[k]); if(typeof refreshAdminData === "function") refreshAdminData(); else render(); },
   csv
 };
+
+// a row action (↺ Reset Attempts, 📁 Assign a case…, View Detail's own saves) redraws the old row list: redraw the sheet instead
+const __rows = window.refreshAdminRows;
+if(typeof __rows === "function") window.refreshAdminRows = function(){ const r = __rows.apply(this, arguments); repaint(); return r; };
+function hookCompanion(){
+  const c = window.cmCompanion; if(!c || c.__bs || typeof c.assign !== "function") return;
+  const a = c.assign; c.assign = async function(){ const r = await a.apply(this, arguments); repaint(); return r; }; c.__bs = true;
+}
+setTimeout(hookCompanion, 0); document.addEventListener("DOMContentLoaded", hookCompanion);
 
 // the trainer's 🏅 Scorecards page is the sheet's 🏅 Scores now: an old link opens the Batch Sheet
 const __sc = window.renderScorecardPage;
@@ -404,6 +437,12 @@ css.textContent = `
 .bs-ds-h b.gs-hi{background:#E6F4EA;color:#0B5D1E;} .bs-ds-h b.gs-mid{background:#FFF4E0;color:#7A4B00;} .bs-ds-h b.gs-lo{background:#FDE8E8;color:#A50E0E;}
 .bs-ctx{margin:6px 0 0;font:600 13.5px/1.45 Arial,sans-serif;color:#2E3450;} .bs-ctx b{display:block;color:#141A2E;} .bs-ctx p{margin:2px 0 0;} .bs-ctx ul{margin:2px 0 0 18px;padding:0;}
 .bs-best b{color:#0B5D1E;} .bs-imp b{color:#A50E0E;}
+.scx-card td.gs-act{white-space:normal !important;min-width:430px;cursor:default;}
+.bs-acts{display:flex;flex-wrap:wrap;gap:6px;align-items:center;} .bs-acts .btn{padding:5px 10px;} .bs-acts select{max-width:220px;}
+.cm-admin-screen .bs-recdetail .bs-h .btn, .bs-recdetail .bs-h .btn{margin-left:10px;vertical-align:middle;font-size:15px !important;padding:5px 12px;}
+.scx-banner .gs-menu button.bs-danger{color:#A50E0E;}
+.bs-arch input{width:18px;height:18px;}
+.bs-settings{margin-top:14px;}
 .bs-people{margin-top:8px;padding-top:6px;border-top:2px solid #E3E6EF;scroll-margin-top:80px;}
 .bs-people > h2{margin:14px 0 4px;color:var(--navy);font-size:22px;}
 .bs-people > .bs-people-sub{margin:0 0 14px;color:#2E3450;font-size:13.5px;}
