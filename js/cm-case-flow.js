@@ -2656,8 +2656,8 @@ function caseMap(d){
     4: ["Liens reduced", "Net Sheet to the cent", "Mediation & Arbitration"],
     5: ["Impasse → suit", "Discovery & deposition", "Award, then close-out"]};
   const track = days.map(x => `<li class="cfx-cm-node${x.cf.n === d.cf.n ? " on" : ""}"><span class="cfx-cm-n">${x.cf.n}</span><b>${E(String(x.title).replace(/^Case Flow Day \d+ · /, ""))}</b><ul>${(marks[x.cf.n] || []).map(m => `<li>${E(m)}</li>`).join("")}</ul></li>`).join("");
-  const band = stages.length ? `<div class="cfx-cm-band"><span class="cfx-cm-k">Your work on every file: ${stages.length} stages</span><ol>${stages.map((x, i) => `<li><i>${i + 1}</i>${E(x)}</li>`).join("")}</ol></div>` : "";
-  return introFrame(d, "🗺", "The Life of John Doe's File", `${c.style} · from the loss to the close`, `${band}<p class="cfx-cm-k2">John Doe's file: ${days.length} case phases, one each day</p><ol class="cfx-cm-track">${track}</ol>
+  const band = stages.length ? `<div class="cfx-cm-band"><span class="cfx-cm-k">Your Work on Every File: ${stages.length} Stages</span><ol>${stages.map((x, i) => `<li><i>${i + 1}</i>${E(x)}</li>`).join("")}</ol></div>` : "";
+  return introFrame(d, "🗺", "The Life of John Doe's File", `${c.style} · from the loss to the close`, `${band}<p class="cfx-cm-k2">John Doe's File: ${days.length} Case Phases, One Each Day</p><ol class="cfx-cm-track">${track}</ol>
     <p class="cfx-cm-foot">You carry all ${stages.length} stages of your work through each of the ${days.length} case phases.</p>`);
 }
 function coverageMap(d){
@@ -2669,9 +2669,9 @@ function coverageMap(d){
     [`${c.health.carrier} pays care now, recovers later`, `${c.health.subro}: its lien comes out of the settlement, so plan the reduction early.`],
     ["The weak point, named on Day 1", c.critical + " Document the reason now, before an adjuster uses it against value."]];
   return introFrame(d, "🧱", "Coverage vs. Injury: the Strategy Plan", "Who pays, in what order, against what the injury will cost", `<div class="cfx-cv">
-    <section class="cfx-cv-l"><h3>The coverage hierarchy</h3><ol class="cfx-cv-ladder">${ladder}</ol>
-      <p class="cfx-cv-total">Total available: <b>${money(c.total)}</b></p></section>
-    <section class="cfx-cv-r"><h3>The strategy plan</h3><ol class="cfx-cv-plan">${plan.map(([h, t]) => `<li><b>${E(h)}</b><span>${E(t)}</span></li>`).join("")}</ol></section></div>`);
+    <section class="cfx-cv-l"><h3>The Coverage Hierarchy</h3><ol class="cfx-cv-ladder">${ladder}</ol>
+      <p class="cfx-cv-total">Total Available: <b>${money(c.total)}</b></p></section>
+    <section class="cfx-cv-r"><h3>The Strategy Plan</h3><ol class="cfx-cv-plan">${plan.map(([h, t]) => `<li><b>${E(h)}</b><span>${E(t)}</span></li>`).join("")}</ol></section></div>`);
 }
 function readyCheck(d){
   const qs = labQuestions(d), ph = d.cf.phases[0] || {title: ""};
