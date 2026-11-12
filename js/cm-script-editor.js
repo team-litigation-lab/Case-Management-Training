@@ -159,8 +159,8 @@ function go(){
 function paintNav(){
   const nav = document.querySelector(".topbar .nav"); if(!nav) return;
   let b = nav.querySelector(".nav-sn");
-  // every page, for trainers (never in Trainee view); off the slides it takes the trainer back to them
-  if(!isAdmin() || state.adminPreview){ if(b) b.remove(); return; }
+  // not in the top bar any more: the speaker notes are edited in Presenter view, beside the notes themselves
+  if(b) b.remove(); return;
   load();
   const onSlides = state.view === "day" && state.dayViewMode === "slides";
   const slot = onSlides ? here() : null, status = !onSlides ? "off" : !slot ? "no script" : edits[slot.id] ? "edited" : "original";

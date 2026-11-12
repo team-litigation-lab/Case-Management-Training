@@ -5544,8 +5544,6 @@ document.head.appendChild(st);
   body:has(#lessonStage) .footer-note{display:none !important;}
   .lesson-stage .cfx-deck-head{padding-bottom:2px !important;margin-bottom:6px !important;}
   .lesson-stage .cfx-deck-title{font-size:clamp(20px,1.75vw,27px) !important;}
-  .cfx-deck:has(> .cfx-top .cfx-top-rib) > .cfx-ribbon{display:none !important;}
-  .cfx-deck .cfx-top-rib{display:block;}
   .cfx-deck .cfx-kicker{display:none !important;}
   .cfx-deck > .cfx-ribbon{margin-bottom:8px !important;} .cfx-deck > .cfx-ribbon span{font-size:16px !important;padding:5px 16px !important;}
   .cfx-deck .cfx-top{margin-bottom:8px !important;}
@@ -5575,5 +5573,33 @@ document.head.appendChild(st);
 .cfx-agenda .cfx-ag-side p:not(.cfx-ag-day){font-size:17px !important;line-height:1.5 !important;}
 .cfx-agenda .cfx-ag-list li small{font-size:15px !important;} .cfx-agenda .cfx-ag-list li b{font-size:19px !important;}
 .cfx-agenda .cfx-ag-file dt{font-size:13px !important;} .cfx-agenda .cfx-ag-file dd{font-size:15.5px !important;} .cfx-agenda .cfx-ag-file-h small{font-size:13px !important;}`;
+  document.head.appendChild(st);
+})();
+
+/* Bigger decks: no row of view pill, kicker and 📖 Additional Reference above the card (a trainer's ⚡ Inject keeps its
+   row on Your Task), the block's title band always shown, no footer line on a lesson page, and bolder, bigger type. */
+(function(){
+  if(document.getElementById("cf-bigger-css")) return;
+  const st = document.createElement("style"); st.id = "cf-bigger-css";
+  st.textContent = `
+.cfx-deck .cfx-top .cfx-pill,.cfx-deck .cfx-top .cfx-dots,.cfx-deck .cfx-top .cfx-kicker,.cfx-deck .cfx-top .cfx-full,.cfx-deck .cfx-top .cfx-top-rib{display:none !important;}
+.cfx-deck .cfx-top:not(:has(.cfx-inject)){display:none !important;}
+.cfx-deck .cfx-top:has(.cfx-inject){justify-content:flex-end;margin:0 0 6px !important;}
+.cfx-deck > .cfx-ribbon{display:block !important;}
+body:has(#lessonStage) .footer-note{display:none !important;}
+body:not(.ft-fit) #lessonStage > .slide-nav{margin-top:8px !important;margin-bottom:0 !important;}
+/* bolder, bigger type on every slide */
+.cfx .cfx-sheet{font-weight:600;}
+.cfx .cfx-th-c span,.cfx .cfx-points li,.cfx .cfx-points li span{font-weight:700 !important;}
+.cfx .cfx-th-c b{font-weight:800 !important;}
+.cfx .cfx-points li,.cfx .cfx-points li span{font-size:clamp(20px,2.6vh,25px) !important;}
+.cfx .cfx-job .cfx-step span{font-size:clamp(17px,2.2vh,20px) !important;font-weight:700 !important;}
+.cfx .cfx-job .cfx-step small{font-size:13.5px !important;font-weight:800 !important;}
+.cfx .cfx-fw-flow li span,.cfx .cfx-fw-list span{font-size:clamp(17px,2.2vh,20px) !important;font-weight:600 !important;}
+.cfx .cfx-fw-flow li b,.cfx .cfx-fw-list b{font-size:clamp(18px,2.3vh,21px) !important;font-weight:800 !important;}
+.cfx .cfx-hero-text p,.cfx .cfx-hero-text h3{font-weight:800 !important;}
+.cfx .cfx-ev-body,.cfx .cfx-side .cfx-why span,.cfx .cfx-deliver span,.cfx .cfx-when p{font-weight:600 !important;}
+.cfx .cfx-dd li,.cfx .cfx-dd li span{font-weight:700 !important;}
+.cfx .cfx-model td,.cfx .cfx-model th{font-weight:600 !important;}`;
   document.head.appendChild(st);
 })();
