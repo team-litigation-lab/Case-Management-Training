@@ -148,6 +148,11 @@ const PARAPHRASE = 'John Doe called. Someone from an insurance company phoned hi
     check(tr.grid === 4 && tr.cells === 16 && tr.map === tr.n, `the trainee's 📐 Feedback Rubric: 4 dimensions × 4 tiers, every grading system mapped (${tr.grid}, ${tr.cells}, ${tr.map}/${tr.n})`);
     check(/UPL/.test(tr.crit) && /Trust money/.test(tr.crit) && tr.back, 'with the critical items and the way back to My Performance');
     check(tr.small === 0, `no rubric text under 14px (${tr.small})`);
+    // the mapping table's dimension headers read whole (one line each, never broken mid-word) and the table fits its frame
+    const hd = await page.evaluate(() => { const w = document.querySelector('.rbp-map').closest('.rbp-wrap');
+        return { wrapped: [...document.querySelectorAll('.rbp-map thead th.rbp-dc small')].filter(x => x.getBoundingClientRect().height > parseFloat(getComputedStyle(x).fontSize) * 1.9).map(x => x.textContent), over: w ? w.scrollWidth - w.clientWidth : 0 }; });
+    check(hd.wrapped.length === 0, `the rubric's dimension headers are not broken across lines (${hd.wrapped.join(', ')})`);
+    check(hd.over <= 1, `the grading-system table fits its frame at this width (${hd.over}px over)`);
     await page.evaluate(() => { state.scxRubric = false; });
 
     // 6. the trainer
