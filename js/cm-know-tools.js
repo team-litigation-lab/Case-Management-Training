@@ -24,11 +24,11 @@ const TOOLS = [
     where: "✉️ on the steps worked in email, or 🧰 Tools → Email Workspace.",
     when: "Days 1–5: LORs, records requests, Amendment Requests, demands, consents and reductions all go out from here.",
     tip: "Claim number in the subject line, every time."},
-  {id: "drive", icon: "📂", name: "Your Case Folder (Google Drive)", daily: true,
-    what: "Your backup of the case file in Google Drive: the main case folder named [Your Full Name] - [Case Name], with the firm's subfolders, kept current every day.",
-    where: "📂 on the dashboard and the Practice Lab slide; the folder link your trainer sends you.",
-    when: "Built on Day 1, then checked as a deliverable at the end of every day.",
-    tip: "A document filed in the CMS has a home in your folder too."},
+  {id: "drive", icon: "📂", name: "My Backup Drive (Google Drive)", daily: true,
+    what: "Your own Google Drive, linked to the platform, holding the firm's backup folders for John Doe's case: you build them by hand on Day 1, and every document you file in the CMS lands in its folder there too.",
+    where: "📂 on the dashboard, and 📂 Backup Drive on the Backup File Maintenance steps.",
+    when: "Linked and built on Day 1, graded; ✓ Check my drive whenever you file, every day after.",
+    tip: "A folder that goes missing is a document the firm has lost: check the drive, and put it back."},
   {id: "docs", icon: "📁", name: "Case Documents", what: "Every document on John Doe's file: the intake sheet, the police report, records, bills, letters and pleadings, with dates current to your case.",
     where: "📁 Documents in the top bar, or 📁 Work From on a slide.", when: "Every activity works from its documents; ⬇ Download PDF saves one.", tip: "Quote the document, never your memory."},
   {id: "plan", icon: "📝", name: "Action Plan Editor", what: "Where you write the Case Plan, the Action Plan, the warning letters and the demand drafts, and route them to Atty. Thorne.",
@@ -110,7 +110,8 @@ window.cmKnowTools = {
 
 const css = document.createElement("style"); css.id = "cm-know-tools";
 css.textContent = `
-.kt-page{max-width:1500px;margin:0 auto;}
+main:has(.kt-page){max-width:min(2200px, 97vw) !important;padding-left:20px;padding-right:20px;}
+.kt-page{max-width:none;margin:0 auto;}
 .kt-deck{background:linear-gradient(135deg,#1F2440,#2B3158 60%,#353C68);border-radius:20px;padding:20px 22px;color:#fff;}
 .kt-head h2{margin:0;font:800 30px 'Poppins','Inter',sans-serif;color:#F6C08F;} .kt-head p{margin:4px 0 14px;font:600 16px/1.5 'Inter',sans-serif;color:#E3E7F1;}
 .kt-body{display:grid;grid-template-columns:minmax(240px,320px) minmax(0,1fr);gap:16px;}

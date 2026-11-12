@@ -159,10 +159,10 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/graded-calls.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: Case folders follow the firm's SOP (trainer's Drive Links, the trainee's My Case Folder) and Day 1's slide is the Backup Drive task
+      - name: Day 1's Backup File Maintenance slide is the Backup Drive task, and the retired link-based case folder stays gone
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
-        run: node .github/scripts/drive-sop.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+        run: node .github/scripts/drive-slide.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: The trainer's injected call rings every trainee; answered or missed, it counts under Case Calls
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
