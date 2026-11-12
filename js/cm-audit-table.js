@@ -59,7 +59,9 @@ const NEEDS = [
   ["towrite", "💬 Feedback to write", x => x.a.loaded && x.a.toWrite.length > 0],
   ["below", "📉 Below 70%", x => x.a.loaded && x.a.kcBelow.length > 0],
   ["missed", "🎲 Missed a task", x => x.a.loaded && x.a.tasksMissed > 0],
-  ["drive", "📂 Drive issue", x => x.status === "active" && x.drive.issue]
+  ["drive", "📂 Drive issue", x => x.status === "active" && x.drive.issue],
+  // a glaring challenge or error in setting up their case files (js/cm-progress-log.js's rules); the chip opens the alerts list
+  ["alerts", "🚨 Case-file alerts", x => x.a.loaded && !!window.cmCaseAlerts && cmCaseAlerts.openFor(x.rec).length > 0]
 ];
 const STATUS_OPTS = [["current", "Current (active + pending)"], ["active", "Active"], ["pending", "⏳ Pending"], ["rejected", "Rejected"], ["archived", "Archived"], ["all", "All"]];
 function statusFilter(){
@@ -156,7 +158,8 @@ function rowHtml(x, ncol){
   const acts = [x.status === "pending" || x.status === "rejected" ? `<button type="button" class="btn btn-sm btn-navy" onclick="approveTrainee('${J(id)}')">Approve</button>` : "",
     x.status === "pending" ? `<button type="button" class="btn btn-sm btn-ghost at-danger" onclick="rejectTrainee('${J(id)}')">Reject</button>` : "",
     `<button type="button" class="btn btn-sm btn-ghost at-danger" onclick="cmAudit.revoke('${J(id)}')">Revoke</button>`].join("");
-  const flags = `${r.flaggedInvalidInput ? `<span class="at-flag bad">⚠ invalid input removed</span>` : ""}`;
+  const alertsN = a.loaded && window.cmCaseAlerts ? cmCaseAlerts.openFor(r).length : 0;
+  const flags = `${r.flaggedInvalidInput ? `<span class="at-flag bad">⚠ invalid input removed</span>` : ""}${alertsN ? `<button type="button" class="at-flag bad at-alerts" onclick="cmCaseAlerts.open()" title="Open the case-file alerts list">🚨 ${alertsN} case-file alert${alertsN === 1 ? "" : "s"}</button>` : ""}`;
   return `<tr class="at-row${open ? " open" : ""} st-${x.status}" data-id="${E(id)}">
     <th scope="row" class="at-c-name"><div class="at-who"><button type="button" class="at-name" aria-expanded="${open}" onclick="cmAudit.toggle('${J(id)}')" title="${E(nameOf(r).slice(0, 200))}: ${open ? "close" : "open"} their detail (feedback, certificate, scorecard)">${open ? "▾" : "▸"} ${E(nameOf(r).slice(0, 60))}${nameOf(r).length > 60 ? "…" : ""}</button>${reset}</div>
       <div class="at-id">${E(String(id).slice(0, 48))}</div>${flags}</th>
@@ -382,6 +385,7 @@ const st = document.createElement("style"); st.id = "cm-audit-table"; st.textCon
 .at-id{font:600 14px 'IBM Plex Mono',monospace;color:#2B2F3E;overflow-wrap:anywhere;}
 .at-flag{display:inline-block;margin-top:4px;font-size:14px;font-weight:700;}
 .at-flag.bad,.at-warn{color:#9B3A30;font-weight:700;}
+.at-alerts{all:unset;display:inline-block;margin-top:4px;cursor:pointer;font:800 14px 'Inter',system-ui,sans-serif;color:#fff;background:#B3261E;border-radius:999px;padding:2px 10px;}
 .at-dim{color:#2E3245;font-size:14px;font-weight:600;}
 .at-st{display:inline-block;border-radius:999px;padding:2px 10px;font-weight:700;font-size:14px;white-space:nowrap;}
 .at-st.ok{background:#E3F1E8;color:#24563A;} .at-st.pend{background:#FFE7CF;color:#7A3F0E;} .at-st.bad{background:#F8E1DE;color:#9B3A30;} .at-st.arch{background:#ECEDF2;color:#2B2F3E;}

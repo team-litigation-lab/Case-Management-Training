@@ -3278,7 +3278,7 @@ const mem = {}; // in-memory fallback if window.storage is unavailable
 const PERSONAL_KEYS = ["day-progress","practice-progress","lab-attempts-global","lab-attempts-by-day","admin-unlocked-days","admin-unlocked-copies","notes","completed-lab-actions",
   "day10-window","submissions","roleplayHistory","slide-progress","last-slide","attn-detail-findings",
   "calendar-custom","calendar-edits","call-log","inbox-filing","inbox-interactions","inbox-labels","trainee-batch",
-  "quick-check-answers","day-order-migrated","dividers-migrated","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log","lab-subs","case-flow","net-sheet","doc-filing","drive-setup","drive-grades","cms-upload","cms-file"];
+  "quick-check-answers","day-order-migrated","dividers-migrated","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log","lab-subs","case-flow","net-sheet","doc-filing","drive-setup","drive-grades","cms-upload","cms-file","drive-check"];
 const PERSONAL_KEY_SET = new Set(PERSONAL_KEYS);
 // A feature in its own js file registers the progress keys it saves, from that file (no edit to the list above, so
 // two pull requests adding keys never touch the same line): registerPersonalKeys(["my-key"]).
@@ -11967,8 +11967,11 @@ async function loadAuditExtras(force){
   if(state.auditExtraLoading) return; state.auditExtraLoading = true;
   try{
     const due = recs.filter(rec=>{ const cur = state.auditExtra[rec.id]; return !(cur && !force && Date.now()-cur.at < 60000); });
+    if(!due.length) return;
     // Every trainee's progress, feedback and Focus items with get-many (33 trainees a request), not three requests each.
-    const got = await sharedGetMany(due.flatMap(rec=>["progress:"+rec.id, "feedback:"+rec.id, "focus:"+rec.id]));
+    // …and, in the same get-many, the trainers' ✓ Resolved marks on the case-file alerts (one admin-only record, js/cm-progress-log.js)
+    const got = await sharedGetMany(due.flatMap(rec=>["progress:"+rec.id, "feedback:"+rec.id, "focus:"+rec.id]).concat(["case-alerts:resolved"]));
+    const resolved = got[got.length-1]; state.caseAlertsResolved = resolved && typeof resolved === "object" ? resolved : {};
     due.forEach((rec, i)=>{
       const [snap, fb, fo] = got.slice(i*3, i*3+3);
       state.auditExtra[rec.id] = {at:Date.now(), data:(snap&&snap.data)||{}, savedAt:snap&&snap.savedAt, fb:(fb&&fb.days)||{}, fbRec:fb||{}, focus:(fo&&fo.items)||[]};
@@ -16145,6 +16148,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <!-- 🛡 the Admin screen in sections, as Foundational Training: the section pills, their tabs, a navy banner (wraps renderAdmin last) -->
 <script src="/js/cm-admin-shell.js"></script>
 <script src="/js/cm-audit-table.js"></script>
+<script src="/js/cm-progress-log.js"></script>
 <script src="/js/lsh-topbar.js"></script>
 <script src="/js/lsh-one-screen.js"></script>
 </body>
