@@ -1,7 +1,7 @@
 {
   "d2m3-l1": {
     "why": {
-      "say": "• The only gap explanation that holds up is John Doe's own, in his words, backed by documents\n• Compare \"Was it because you had no car?\" with \"What, if anything, made it hard to get seen sooner?\"\n• A leading question gets a yes; an open question gets the truth\n• The job: draw it out and write it down exactly; never explain, defend or judge it"
+      "say": "• The only gap explanation that holds up is John Doe's own, in his words, backed by documents\n• Compare \"Was it because you had no car?\" with \"What, if anything, made it hard to get seen sooner?\"\n• The job: draw it out and write it down exactly; never explain, defend or judge it\n• Red flag: \"Was it because you had no car?\" A leading question buys a yes, not information; ask it open"
     },
     "theory": {
       "say": "• Gap interview roadmap: plan the questions, never the answers expected\n• Open on the record: date, who is on, role, his consent to record, privacy\n• Ask open, follow his words, ask for the paper, read it back, open a dated task per document\n• Coordinate, don't commingle: keep the medical and legal tracks separate in notes\n• Write facts, never conclusions; an opinion in a note is something the defense can use"
@@ -25,7 +25,7 @@
   },
   "d1m2-l1": {
     "why": {
-      "say": "• Clients go quiet for ordinary reasons: pain, overwhelm, a changed phone\n• When a client goes silent, the case and its deadlines keep running\n• No Contact Protocol: the step-by-step plan when a client stops answering\n• Three jobs: track the silence officially, prove the firm tried, protect the firm if questioned later"
+      "say": "• Clients go quiet for ordinary reasons: pain, overwhelm, a changed phone\n• When a client goes silent, the case and its deadlines keep running\n• No Contact Protocol: the step-by-step plan when a client stops answering\n• Three jobs: track the silence officially, prove the firm tried, protect the firm if questioned later\n• Red flag: two voicemails, 02/11 and 02/13, left and never logged; an unlogged attempt didn't happen\n• Log every attempt with the date, the time, the channel and what came of it"
     },
     "theory": {
       "say": "• Look inside the file first: case status, deadlines, last contact\n• Then the ladder: two calls, email and text, emergency contact, certified letter (mail with proof of delivery)\n• Then tell Atty. Thorne what the silence puts at risk\n• Due diligence: written proof of a real, reasonable effort; approved channels: the contact ways agreed at intake\n• Emergency contact on this file: Margaret Doe, his mother"
@@ -49,7 +49,7 @@
   },
   "d1m2-l2": {
     "why": {
-      "say": "• Final Warning Letter: the last cheap step before paying to find the client or the attorney ending the case\n• Two jobs: specific enough that the client answers, documented enough to back up what comes next\n• Common costly mistake: acting before three conditions are all true\n• The cheap letter always comes before the expensive search"
+      "say": "• Final Warning Letter: the last cheap step before paying to find the client or the attorney ending the case\n• Two jobs: specific enough that the client answers, documented enough to back up what comes next\n• Don't act before three conditions are all true; the cheap letter always comes before the expensive search\n• Red flag: a draft that says the firm is withdrawing or \"you will lose your case\"; strike it, that decision is Atty. Thorne's alone\n• The draft goes to Atty. Thorne before it goes anywhere"
     },
     "theory": {
       "say": "• The last written notice before a search or a move to withdraw\n• Sent two ways: certified mail proves delivery; email is what people read\n• Three-criteria gate: ladder done, letter sent, letter's deadline passed; all three, not one\n• Skip-trace: a paid search for a current address and phone; it costs money, so the attorney approves\n• Withdrawal: the firm stops representing the client; only the attorney decides, under firm and court rules"
@@ -109,7 +109,7 @@
   },
   "d2m2-l2": {
     "why": {
-      "say": "• Week-6 mark: six weeks after first therapy on 02/24/2026, so 04/07/2026, when doctors check therapy is working\n• John Doe missed it\n• On an LOP nobody denies visits in real time; Keystone challenges the care later, at the demand\n• The Case Manager is the only real-time check that the plan is working, acting the day it isn't"
+      "say": "• Week-6 mark: six weeks after first therapy on 02/24/2026, so 04/07/2026, when doctors check therapy is working; John Doe missed it\n• On an LOP nobody denies visits in real time; Keystone challenges the care later, at the demand\n• The Case Manager is the only real-time check that the plan is working, acting the day it isn't\n• Red flag: on A-C-T, the plan runs on unchanged through a crisis, or somebody puts a label on John\n• Document his distress in his own words, never diagnose, and adjust the plan with his consent"
     },
     "map": {
       "say": "• Check in on visits, pain, function and barriers: anything stopping him getting to care\n• Name the variance: clinical (medical), psychosocial (life or mood), or systemic (the system stuck)\n• Assess: medical danger to the provider, legal danger to Atty. Thorne; Coordinate: clarify and remove the barrier\n• Track: every fix in a GIRP note, Goal, Intervention, Response, Plan; facts only"
@@ -139,7 +139,7 @@
   },
   "d2m2-l1": {
     "why": {
-      "say": "• PIP: coverage on the car he rode in that pays Medical Bills regardless of fault\n• Harbor Point paid $685.00, $640.00, $2,395.00, then $640.00 for 03/27/2026, of $5,000; $640.00 left\n• Three payers in line: Harbor Point PIP, Peach State Health Plan, then a Letter of Protection\n• Wrong order turns a payable bill into a lien: a debt paid from John Doe's settlement"
+      "say": "• PIP: coverage on the car he rode in that pays Medical Bills regardless of fault\n• Harbor Point paid $685.00, $640.00, $2,395.00, then $640.00 for 03/27/2026, of $5,000; $640.00 left\n• Payers in line: Harbor Point PIP, Peach State Health Plan, then a Letter of Protection\n• Wrong order turns a payable bill into a lien: a debt paid from John Doe's settlement\n• Red flag: at the LOP desk, a provider wants your word they'll be paid in full at settlement; you can't give it\n• No amount, no reduction, no date: the LOP's terms are Atty. Thorne's"
     },
     "theory": {
       "say": "• After claim set-up the Case Plan has three pillars: clinical care, function, subrogation management (who gets paid back)\n• Payer Order: MedPay or PIP first, health insurance second, an LOP last; the order keeps liens down\n• Health insurance pays covered care at its contract rate and can claim reimbursement from the recovery\n• LOP: the client's signed agreement that a provider is paid from any recovery; a lien on his take-home"
@@ -166,7 +166,7 @@
   },
   "d2m2-eob": {
     "why": {
-      "say": "• EOB, Explanation of Benefits: the Health Plan's report on what it did with a bill; not a bill\n• RS26, Peach State's EOB: John Doe owes Crescent $0.00 for the injection\n• Each payer reports back: Peach State by EOB, Harbor Point by its PIP payment history\n• Line by line: billed, paid, written off, what the client may owe; the proof behind demand and lien numbers"
+      "say": "• EOB, Explanation of Benefits: the Health Plan's report on what it did with a bill; not a bill\n• RS26, Peach State's EOB: John Doe owes Crescent $0.00 for the injection\n• Each payer reports back: Peach State by EOB, Harbor Point by its PIP payment history\n• Line by line: billed, paid, written off, what the client may owe; the proof behind demand and lien numbers\n• Red flag: a lien logged at the billed amount, or a bill sent to PIP after 06/26/2026; log what the plan paid"
     },
     "theory": {
       "say": "• Read every payer report before touching a lien\n• EOB: the plan's account of one processed claim; proof of who paid what\n• Billed: the provider's charge; allowed: the plan's contract amount; in network the difference is written off\n• Remark codes explain each line: CO-45 is the write-off, AC1 flags a possible accident\n• Member responsibility, deductible, copay, coinsurance: the most an in-network provider may bill the patient"
@@ -190,7 +190,7 @@
   },
   "d2m3-l2": {
     "why": {
-      "say": "• The adjuster argues the gap proves John Doe healed\n• Records made at the time carry the weight, like the 02/07/2026 Riverton Drug receipt for pain relief\n• Also: notes placing pain at the collision, agreeing histories, the EMS report, work records, later a causation opinion\n• Causation opinion: a doctor's letter linking the injury to the crash; a record made to order destroys the case"
+      "say": "• The adjuster argues the gap proves John Doe healed\n• Records made at the time carry the weight, like the 02/07/2026 Riverton Drug receipt for pain relief\n• Also: notes placing pain at the collision, the EMS report, work records, later a causation opinion\n• A record made to order destroys the case\n• Red flag: asking a provider to change, back-date or add to a record; never\n• A record wrong at its source gets its author's dated addendum, like Summit's on 07/15/2026, and the original stays put"
     },
     "theory": {
       "say": "• Continuity of care: an unbroken path of treatment, each step following the last; adjusters test it\n• Treatment Gap: any break; adjusters read it as minor, healed or unrelated\n• Records made at the time by EMS, doctors and employers are strongest, because nobody wrote them for the claim\n• Consistent histories: the same how, when and where across every chart\n• The record proves continuity, not anyone's explanation of it"
@@ -214,7 +214,7 @@
   },
   "d2m3-cause": {
     "why": {
-      "say": "• Robert Smith's failure-to-stop citation and witness Ruth Calloway prove negligence, only half the case\n• Other half: causation and damages; this crash caused his C5-C6 herniation, a disc bulging between neck bones\n• Keystone has two other causes ready: the 14-day gap and his 2021 chiropractic visits\n• The Causation Letter, Dr. Alana Reyes, 06/19/2026: the demand, rebuttal and every binder lean on it"
+      "say": "• Robert Smith's failure-to-stop citation and witness Ruth Calloway prove negligence, only half the case\n• Other half: causation and damages; this crash caused his C5-C6 herniation, a disc bulging between neck bones\n• Keystone has two other causes ready: the 14-day gap and his 2021 chiropractic visits\n• The Causation Letter, Dr. Alana Reyes, 06/19/2026: the demand, rebuttal and every binder lean on it\n• Red flag: the letter says \"possibly\" or \"could be,\" short of more likely than not\n• Flag it to Atty. Thorne; never ask the doctor to strengthen it"
     },
     "doc": {
       "say": "• Causation Letter: a medical professional's formal opinion linking the accident to the specific injuries\n• Legal purpose: prove the defendant's conduct caused the harm, the expenses and ongoing limitations\n• Dr. Reyes: more likely than not; ties the herniation to 02/06/2026; answers the gap and the 2021 visits\n• Atty. Thorne requests it; the Case Manager assembles records, dockets follow-up, checks it on arrival, files and cites it\n• Handle the letter's path, never its words; read it the same day"
@@ -331,7 +331,7 @@
   },
   "d2m4-l1": {
     "why": {
-      "say": "• $7,965.00 in liens sits behind a $10,000 BI limit, leaving $2,035.00 of that layer for John Doe\n• Lien: a bill paid from the settlement before the client's share; BI: the at-fault driver's bodily injury coverage\n• The demand goes out later, but what it can claim is decided in this audit\n• One duplicate line or unchecked limit gives Keystone an easy out"
+      "say": "• $7,965.00 in liens sits behind a $10,000 BI limit, leaving $2,035.00 of that layer for John Doe\n• Lien: a bill paid from the settlement before the client's share; BI: the at-fault driver's bodily injury coverage\n• What the demand can claim is decided in this audit; one duplicate line gives Keystone an easy out\n• Red flag: Riverton billed 05/04/2026 twice, and no visit note supports the second; claiming it inflates the Specials\n• It comes off, and the correction goes to the provider in writing"
     },
     "theory": {
       "say": "• Pre-demand audit: the final stress test, leaving the defense no easy outs\n• Trinity of case alignment: the story, physical evidence and medical records must agree\n• MMI: the doctor's finding he's as good as he'll get; the bills are complete and the audit begins\n• Specials: provable dollar loss, Medical Bills plus lost wages plus Property Damage; every line needs a document\n• Three audit passes: dates for gaps, billing codes for duplicates, prior history for old injuries"
@@ -355,7 +355,7 @@
   },
   "d2m4-l2": {
     "why": {
-      "say": "• Atty. Thorne makes the strategy calls from the brief, so its shape matters\n• Weak opening: the story of 02/06/2026; strong: MMI, $16,401.40 audited Specials against $10,000 BI, decisions needed\n• Story first buries the decision; hiding a risk misleads; making the call for him crosses the line\n• Headline first, story second"
+      "say": "• Atty. Thorne makes the strategy calls from the brief, so its shape matters\n• Weak opening: the story of 02/06/2026; strong: MMI, $16,401.40 audited Specials against $10,000 BI, decisions needed\n• Story first buries the decision; hiding a risk misleads; making the call for him crosses the line\n• Red flag: someone asks \"What's it worth?\" and the Case Manager reaches for a number; don't, value is Atty. Thorne's\n• Answer with the inputs: Specials, limits, liens"
     },
     "theory": {
       "say": "• The strategy brief carries audit findings, not conclusions; Atty. Thorne makes every call\n• It reports on the four core audit objectives\n• Flags statement drift: a witness whose story changes between tellings\n• Names value killers: social media, a minor-impact label, venue\n• Always carries lien totals; bad math or a missed lien means a short-funded settlement, little or nothing for the client"
@@ -415,7 +415,7 @@
   },
   "d2m2-lop": {
     "why": {
-      "say": "• John Doe needs chiropractic care next week, and nothing he has will pay for it\n• Letter of Protection: a written promise the provider is paid from the settlement, so treatment happens now\n• Care that keeps moving keeps the file free of gaps\n• Not free money: a balance against his recovery that he still owes, tracked from signing"
+      "say": "• John Doe needs chiropractic care next week, and nothing he has will pay for it\n• Letter of Protection: a written promise the provider is paid from the settlement, so treatment happens now\n• Not free money: a balance against his recovery that he still owes, tracked from signing\n• Red flag: recommending a provider \"for the case,\" or telling John the LOP makes care free; he still owes the balance\n• Give options and logistics; Atty. Thorne explains the LOP before he signs"
     },
     "doc": {
       "say": "• LOP: the firm's signed promise that a provider's reasonable charges are paid from any recovery; not insurance\n• Legal purpose: keep care going when no payer applies; the provider defers collection, its charges protected\n• Evidence role: fixes the lien; Riverton's letter, acknowledged 02/23/2026, keeps John Doe responsible either way\n• Handling: check every payer, sign before visit one, request the ledger every 30 days; its meaning is Atty. Thorne's"
@@ -433,7 +433,7 @@
   },
   "d2m2-cost": {
     "why": {
-      "say": "• After the rental ends, John Doe still has therapy three times a week, plus rides, prescriptions, maybe a brace\n• None of it is on a provider's bill, but every dollar is a cost of the crash\n• Recoverable only if written down when it happened; the Case Manager keeps the log\n• What the demand claims, and at what rate, is Atty. Thorne's call under the governing state's rules"
+      "say": "• After the rental ends, John Doe still has therapy three times a week, plus rides, prescriptions, maybe a brace\n• None of it is on a provider's bill, but every dollar is a cost of the crash\n• Recoverable only if written down when it happened; the Case Manager keeps the log\n• Red flag: \"You'll get every penny back\" sounds like comfort but promises a result\n• What the demand claims, and at what rate, is Atty. Thorne's; log each receipt with who paid it"
     },
     "theory": {
       "say": "• Out-of-pocket costs: mileage, rides, parking, prescriptions, copays, equipment, an owner-paid rental, each with a receipt\n• Trip log: date, provider, round-trip miles per visit, from the first appointment, never rebuilt from memory\n• Mileage rate per state rules, confirmed by Atty. Thorne; course-time IRS rates: 20.5 cents medical, 72.5 business\n• Rental days past the cutoff or above the cap are the owner's cost, sent with the Property Damage claim\n• Each cost enters the Specials ledger, the list of money damages, the day its receipt arrives"
@@ -448,7 +448,7 @@
   },
   "d2m2-pip": {
     "why": {
-      "say": "• PIP is spent only once; Harbor Point's $5,000 paid five bills his settlement never repays\n• Where it landed decided what was left for Peach State, the LOP and his net take-home\n• The ledger signals seriousness to the BI adjuster, and in some states earns the defendant a credit\n• The bills used the whole limit first, so the $1,267.20 wage benefit was never paid"
+      "say": "• PIP is spent only once; Harbor Point's $5,000 paid five bills his settlement never repays\n• Where it landed decided what was left for Peach State, the LOP and his net take-home\n• The bills used the whole limit first, so the $1,267.20 wage benefit was never paid\n• Red flag: a PIP-paid bill counted as unpaid, or the injury sized up from PIP's $5,000\n• Severity comes from the audited Specials, $14,817.40 medical; PIP sits on the tracker as a payment source"
     },
     "rules": {
       "say": "• PIP does most good on fixed costs, ER, imaging, specialists; LOP providers reduce more readily than hospitals\n• Here PIP paid urgent care, Lakeside three times, Summit's $2,395.00 MRI; chiropractic and therapy ran under the LOP\n• The Case Manager forecasts; routing outside the Payer Order is Atty. Thorne's; limit used by 06/26/2026\n• EMC states cap PIP without a doctor's emergency medical condition finding; check early, never request it\n• Set-off credits the defendant for PIP paid; Riverton is add-on, so PIP doesn't reduce BI or UM"
@@ -460,7 +460,7 @@
   },
   "d2m2-sum": {
     "why": {
-      "say": "• Three money questions at once: who pays each bill now, who wants repayment, what to flag in the CMS today\n• This lesson puts all three on one page\n• A lien found at disbursement, or an unrecorded gap, is how a good file loses money\n• Flag it the day it's known"
+      "say": "• Three money questions at once: who pays each bill now, who wants repayment, what to flag in the CMS today\n• A lien found at disbursement, or an unrecorded gap, is how a good file loses money\n• Flag it the day it's known\n• Red flag: a CMS flag that says what the gap does to the claim is a legal conclusion in a discoverable record\n• Flags hold facts only: dates, counts, and \"explanation pending\""
     },
     "theory": {
       "say": "• Sort each coverage twice: whose it is, what it pays; only BI, Host UM and Relative UM make the $40,000 stack\n• Payer-First Principle: Harbor Point PIP, then Peach State, then an LOP last\n• Health subrogation: the plan claims back only what it paid, for the collision's care\n• Peach State asserted $3,618.00 on 06/10/2026, confirmed $1,860.00 in writing 06/24/2026\n• Two CMS flags go up the day known, facts only, routed to Atty. Thorne"
@@ -490,7 +490,7 @@
   },
   "d2m1-liab": {
     "why": {
-      "say": "• Coverage shows there's money; liability decides whether anyone must pay it\n• None of John Doe's three coverage layers pays unless Robert Smith is legally responsible\n• Evidence is freshest now: Ruth Calloway's memory fades, Margaret's doorbell camera records over, the Escape's data recorder moves\n• Investigate liability at claim set-up, beside coverage, not at the demand"
+      "say": "• Coverage shows there's money; liability decides whether anyone must pay it\n• None of John Doe's three coverage layers pays unless Robert Smith is legally responsible\n• Evidence is freshest now: Ruth Calloway's memory fades, Margaret's doorbell camera records over, the Escape's data recorder moves\n• Red flag: writing Ruth Calloway's statement for her to sign; it isn't her account, and the defense gets a gift\n• Keep her signed on-scene statement exactly as she gave it"
     },
     "rules": {
       "say": "• Read Police Report RPD-26-018842 field by field: Officer Garner cited Smith for failure to stop\n• Witness Ruth Calloway signed a statement on scene\n• Report lists the Escape as 2021, Harbor Point's Declaration Page says 2020: record both, correct from the policy\n• Doorbell copy secured 02/19/2026, hash (digital fingerprint) logged; the data recorder needs a preservation request Atty. Thorne signs\n• Keystone accepting PD liability on Margaret's Civic doesn't bind its BI adjuster on John's claim"
@@ -502,7 +502,7 @@
   },
   "d2m1-first": {
     "why": {
-      "say": "• Atty. Thorne reads between hearings with forty emails open; a story-first note gets answered last\n• Every note, email and brief opens with the decision or action needed, and its deadline\n• Then why, then the facts, then what happens after each answer\n• The difference between a yes by lunchtime and a missed deadline"
+      "say": "• Atty. Thorne reads between hearings with forty emails open; a story-first note gets answered last\n• Every note, email and brief opens with the decision or action needed, and its deadline\n• Then why, then the facts, then what happens after each answer\n• Red flag: subject line \"Update,\" story first, question at the very bottom; he reads to the end to find the ask, and the deadline slips\n• Decision and deadline go first"
     },
     "rules": {
       "say": "• First line, and the subject line: the decision and its deadline\n• Example: decision needed by 03/12/2026, approve declining Summit Imaging's LOP; the MRI goes to Harbor Point PIP\n• Why: PIP applies first, $3,675.00 left; then sourced facts, then options\n• If yes, send the decline and route the bill today; if no, draft the LOP for his signature\n• One decision per note; log the note and his answer in the CMS the same day",
@@ -514,7 +514,7 @@
       "say": "• Affidavit: written facts sworn under oath before a notary by someone with first-hand knowledge\n• Ends in a jurat, \"sworn to and subscribed before me\"; a false one is perjury, which makes it proof\n• Coverage: Robert Smith swears no other insurance; John, if asked, swears he lives with Margaret and owns no car\n• Damages: records custodians swear bills and records are true copies; Northgate verifies wages\n• Court: the process server swears Smith was served, starting his answer clock"
     },
     "why": {
-      "say": "• A Keystone letter saying Robert Smith has no other insurance isn't enough to settle at the $10,000 limit\n• Harbor Point and Cardinal State won't accept it either\n• An affidavit is a word under oath from the person who knows: Smith himself, sworn 08/10/2026\n• Every fact the file leans on, coverage, residency, bills, service, is only as strong as its proof"
+      "say": "• A Keystone letter saying Robert Smith has no other insurance isn't enough to settle at the $10,000 limit\n• Harbor Point and Cardinal State won't accept it either\n• An affidavit is a word under oath from the person who knows: Smith himself, sworn 08/10/2026\n• Red flag: unsigned or not notarized means it's just somebody's say-so; it goes back for signature and the jurat\n• Never sign it, notarize it, or tidy up the wording yourself"
     },
     "rules": {
       "say": "• Smith swears no other insurance, a condition of settling at the limit\n• John swears residency and no owned vehicle only if a carrier asks, from a draft Atty. Thorne reviewed\n• Records requests ask for the custodian's affidavit in the same letter, so bills enter evidence without calling each provider\n• Northgate's wage letter proves the $1,584.00; the affidavit of service is filed, 10/16/2026 here\n• Check affiant, numbers, dates, signature, jurat and seal; defects go back; never sign, notarize or fix sworn words"

@@ -1,7 +1,7 @@
 {
   "d4m1-l1": {
     "why": {
-      "say": "• Track B: same file, same 08/05/2026 offer of $3,500, but this time Keystone doesn't move\n• Track A is the road where the case settles; Track B is where the insurer won't budge and suit is filed\n• Keystone rests on the 14-Day Gap; BI must be used up before John Doe's UM coverage opens\n• So one $10,000 carrier freezes the whole $40,000 stack; every date matters"
+      "say": "• Track B: same file, same 08/05/2026 offer of $3,500, but this time Keystone doesn't move\n• Track A is where the case settles; Track B is where the insurer won't budge and suit is filed\n• Keystone rests on the 14-Day Gap; BI must be used up before John Doe's UM coverage opens\n• So one $10,000 carrier freezes the whole $40,000 stack; every date matters\n• Red flag: impasse is five dated triggers, never frustration; call it an impasse only when all five are logged with dates"
     },
     "theory": {
       "say": "• Impasse: a stall the record proves, not a feeling of being stuck\n• The stall: an adjuster's delay line, like \"waiting on authority\"; log it, never accept it\n• The rebuttal: a factual answer plus a firm reply date; an unanswered rebuttal becomes evidence of impasse\n• Ask for the carrier's reasons in writing; a named reason can be answered, a vague one cannot\n• Four elements every suit proves: duty, breach, causation, damages, each backed by a checked exhibit"
@@ -25,7 +25,7 @@
   },
   "d4m1-l2": {
     "why": {
-      "say": "• Keystone never said no; it went silent, and that dated, logged silence proved the impasse\n• On 09/10/2026, before filing, the case-number field reads \"Pending\"; anything else is a guess\n• Once Atty. Thorne authorizes suit, a court clock replaces the adjuster's clock\n• Status, court fields, folders and calendar must all change together, or real court deadlines slip"
+      "say": "• Keystone never said no; it went silent, and that dated, logged silence proved the impasse\n• On 09/10/2026, before filing, the case-number field reads \"Pending\"; anything else is a guess\n• Once Atty. Thorne authorizes suit, a court clock replaces the adjuster's clock\n• Red flag: pre-litigation habits in a court file cost deadlines; update status, court fields, folders and calendar in one sitting, citing Atty. Thorne's 09/09/2026 authorization"
     },
     "theory": {
       "say": "• Filing the Complaint, the paper telling the court what happened and what is asked, formally starts the lawsuit\n• Counsel writes the legal arguments; the Case Manager checks the facts underneath\n• Before counsel signs, confirm the Statute Date (last day to sue), the defendant's exact legal name, a business's Registered Agent\n• Registered Agent: the person who officially accepts legal papers for a business\n• Arbitration groups like AAA or JAMS send a strike list: possible arbitrators each side ranks and crosses off"
@@ -85,7 +85,7 @@
   },
   "d4m2-l1": {
     "why": {
-      "say": "• John Doe's statute of limitations, the last day the law allows filing, is 02/06/2028, a Sunday\n• Keystone's stonewall on the 14-Day Gap put the file on court time\n• From 09/24/2026, dates are set by rule, order and statute\n• They don't move when a carrier goes quiet or a client can't be reached; the firm moves first"
+      "say": "• John Doe's statute of limitations, the last day the law allows filing, is 02/06/2028, a Sunday\n• Keystone's stonewall on the 14-Day Gap put the file on court time\n• From 09/24/2026, dates are set by rule, order and statute, and don't move when a carrier goes quiet\n• Red flag: fifteen RFAs inside the general discovery entry, unanswered, may be deemed admitted; give them their own entry and alerts; tell Atty. Thorne"
     },
     "doc": {
       "say": "• The Complaint turns a claim into a lawsuit; Atty. Thorne drafts and signs it\n• Parts: caption, jurisdiction, facts, causes of action (legal reasons for suing), prayer for relief (what is asked)\n• Filed before the SOL, it preserves negligence and negligence per se claims against Robert Smith\n• Filed 09/24/2026, No. 26-CV-04417: bodily injury only, $14,817.40 medical, $1,584.00 wages; no Property Damage, John owns no vehicle\n• Verify filing date and Smith's exact name; stamped copy in 01_PLEADINGS; use only the filed version"
@@ -112,7 +112,7 @@
   },
   "d4m2-um": {
     "why": {
-      "say": "• Three carriers: Keystone, Harbor Point, Cardinal State\n• Keystone insured Robert Smith, who ran the stop sign: a claim against someone else's carrier\n• Harbor Point and Cardinal State are John's own coverage, under contracts he can call on\n• Harbor Point offered $8,000 against a $20,000 limit\n• One paragraph in Harbor Point's policy decides where this fight happens; read it before calendaring anything"
+      "say": "• Three carriers: Keystone, Harbor Point, Cardinal State\n• Keystone insured Robert Smith, who ran the stop sign; Harbor Point and Cardinal State are John's own coverage\n• Harbor Point offered $8,000 against a $20,000 limit\n• One paragraph in Harbor Point's policy decides where this fight happens; read it before calendaring anything\n• Red flag: UM routes docketed off the tort SOL can be missed; each has its own clock, docketed only from Atty. Thorne's written answer"
     },
     "theory": {
       "say": "• Third-party claim: against the at-fault driver's insurer, Keystone for Robert Smith\n• First-party claim: against coverage protecting the client, Harbor Point Host UM and Cardinal State Relative UM\n• UM: uninsured or underinsured motorist coverage, paying when the other driver's insurance isn't enough\n• Mandatory arbitration clause sends the dispute to a private decision-maker; the firm files a Demand for Arbitration\n• Bad faith: a separate suit over unfair handling, can exceed the limit; Atty. Thorne's alone"
@@ -136,7 +136,7 @@
   },
   "d4m2-l2": {
     "why": {
-      "say": "• Two neutrals: Hon. Carla Benton (Ret.), mediator, and Laura Whitcomb, Esq., arbitrator\n• Judge Benton can't decide anything; she helps the parties agree, and any deal needs John's agreement, through Atty. Thorne\n• Laura Whitcomb decides; her award stands with almost no appeal\n• The two sessions are three months apart; one common mistake moving between them can sink a hearing"
+      "say": "• Two neutrals: Hon. Carla Benton (Ret.), mediator, and Laura Whitcomb, Esq., arbitrator\n• Judge Benton can't decide anything; brackets, ranges and authority belong to Atty. Thorne and John\n• Laura Whitcomb decides; her award stands with almost no appeal\n• Red flag: any number the Case Manager speaks in caucus is an offer; log every move (time, who, what); keep the draft release ready"
     },
     "theory": {
       "say": "• Pre-suit: mediation usually follows treatment and the demand; arbitration only where a signed clause forces it\n• After filing, courts often order mediation during discovery, when both sides swap evidence\n• Both of John Doe's sessions sit on the filed side\n• Non-binding (mediation): both sides must agree; nobody is forced to settle\n• Binding (arbitration): final, enforced like a court order, reviewed only on narrow grounds; meaning for John is Atty. Thorne's to explain"
@@ -217,7 +217,7 @@
   },
   "d4m3-l1": {
     "why": {
-      "say": "• A disorganized file the morning of mediation costs Atty. Thorne momentum and can cost a point\n• Keystone's stonewall on the 14-Day Gap is why John Doe's file is in suit\n• At the 03/18/2027 mediation, Atty. Thorne has minutes to answer that argument\n• Every record, figure and quote must sit in a known place"
+      "say": "• A disorganized file the morning of mediation costs Atty. Thorne momentum and can cost a point\n• At the 03/18/2027 mediation, Atty. Thorne has minutes to answer Keystone's 14-Day Gap argument\n• Every record, figure and quote must sit in a known place\n• Red flag: Riverton still at $6,290.00 makes medical read $15,002.40, and Keystone already says the ledger is unverified; use the audited $6,105.00 and re-run totals"
     },
     "doc": {
       "say": "• The Answer and Affirmative Defenses: the defendant's response to the Complaint, admitting or denying each allegation\n• It tells the court and Atty. Thorne what Robert Smith disputes; it is the defense roadmap\n• Filed 11/12/2026 by Atty. Grant Mercer: comparative negligence (John partly to blame), causation (the gap, \"degenerative\" MRI), failure to mitigate\n• Log it, file it in 01_PLEADINGS, keep Section 3 to operative pleadings\n• Map each pleaded defense to an exhibit or a flag; what it means is Atty. Thorne's"
@@ -247,7 +247,7 @@
   },
   "d4m3-l2": {
     "why": {
-      "say": "• The Mediation Binder persuaded; the Arbitration Binder is evidence\n• Everything in this lesson counts back from the 06/02/2027 exchange\n• On 04/05/2027 Harbor Point and Cardinal State took up Keystone's gap argument; Laura Whitcomb, Esq. decides damages, bindingly\n• A page missing, unreadable or not exchanged by 06/02/2027 may not count"
+      "say": "• The Mediation Binder persuaded; the Arbitration Binder is evidence\n• Everything in this lesson counts back from the 06/02/2027 exchange\n• On 04/05/2027 Harbor Point and Cardinal State took up Keystone's gap argument; Laura Whitcomb, Esq. decides damages, bindingly\n• A page missing, unreadable or not exchanged by 06/02/2027 may not count\n• Red flag: Lien Sheet lists Harbor Point PIP at $5,000.00 and Summit at $2,395.00, neither owed; strike both, re-total, keep it in Atty. Thorne's set"
     },
     "theory": {
       "say": "• The Arbitration Binder is a trial-ready evidence record for a private judge who decides\n• The Case Manager's role is operational: timelines, scheduling, documents, with precision\n• The brief deadline is the cutoff for claims, exhibit indexes and witness lists, to the arbitrator and opposing counsel\n• Arbitration submissions set the ground rules, so they lead the binder\n• A missing page or a grayscale print can be excluded, with no second chance"
@@ -403,7 +403,7 @@
   },
   "d3m4-close": {
     "why": {
-      "say": "• The Trust Ledger hit $0.00 on 10/22/2026: five checks out, $40,000.00 in and $40,000.00 out\n• Zero is where closing starts, not where it ends\n• An auditor, a lienholder or John Doe with a late bill may open this file later\n• The file must show where every dollar went, who signed, and why each figure moved, matching the Net Sheet"
+      "say": "• The Trust Ledger hit $0.00 on 10/22/2026: five checks out, $40,000.00 in and $40,000.00 out\n• Zero is where closing starts, not where it ends\n• The file must show where every dollar went, who signed, and why each figure moved, matching the Net Sheet\n• Red flag: an email saying \"We've changed our wiring instructions.\" Stop the payment; verify by phone to a number already on file, not the email's"
     },
     "theory": {
       "say": "• Before a case is marked Archived, check four document sets, then apply the retention policy: how long the file is kept\n• The four: money trail, proof of delivery, compliance and identity, closing memo\n• Closing memo, most often skipped: one page on how the file started and ended, every gap and exception explained\n• Retention: every document tagged by type, destroy-by date calendared\n• A late bill after the closing letter is checked, classified and routed the same day"
@@ -461,7 +461,7 @@
   },
   "d4m3-tx": {
     "why": {
-      "say": "• A carrier starts valuing John Doe's injury the day he walks into urgent care, not at the demand\n• Everything paid is argued from the treatment record: how he was treated, how steadily, what doctors found\n• Watching treatment with the demand in mind means every visit documented and every gap answered\n• Otherwise the gaps surface in the adjuster's offer letter"
+      "say": "• A carrier starts valuing John Doe's injury the day he walks into urgent care, not at the demand\n• Everything paid is argued from the treatment record: how he was treated, how steadily, what doctors found\n• Every visit documented and every gap answered, or the gaps surface in the adjuster's offer letter\n• Red flag: a claimed harm with no dated record behind it can't be shown in the binder; flag it to Atty. Thorne, never argue it"
     },
     "theory": {
       "say": "• MMI (Maximum Medical Improvement) is the trigger: bills stop growing and the prognosis is known\n• Objective findings carry the weight: an MRI line beats a paragraph about pain\n• Continuity of care: steady treatment reads as real injury; every gap needs its answer on file\n• Special damages are billed hard costs; pain, prognosis and future care live in the narrative"
