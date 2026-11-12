@@ -5,14 +5,22 @@
      🧩 Learning Checks       each module's composite (AI × 0.60 + trainer × 0.40), the automated half until the trainer scores it
      📝 Takeaways             each day's Knowledge Check answers, AI-graded
      🧪 Skill Activities      each graded Skill Activity on John Doe's file (the work log)
-     🗂 CMS Case Checks       each document filed into the trainee's CMS case, checked for its category and file name (doc-filing)
+     🗂 CMS Case File         John Doe's file in the CMS, graded day by day (js/cm-cms-file.js): the case as the CMS reports it,
+                              each CMS activity's Check Your Work items by area, every document filed (doc-filing)
      📂 Backup Drive          Day 1's folder structure (drive-setup) and each later day's Backup File Maintenance, auto-graded from the drive (drive-grades)
      📊 Net Sheet Checks      each stage's Check my sheet on the LSH Net Sheet (net-sheet)
+     🎙 Transcription         each voicemail transcript: every attempt graded (facts 60% + word accuracy 40%), the one handed in counts
+     ✉️ Email Simulators      the Case Flow's Email Simulator sends (100% ÷ (refused drafts + 1)) and the Portal's email simulators
+     🗓 Calendaring           the Portal's Calendaring Simulators
+     🔎 Case Exercises        the exhibit audits, Listening Checks, records screening, judgement calls and action plans
      🛠 Skill Builders        each practice tool's best score
      🎯 Graded Calls          the best graded call on each Call Simulator line (callsim:<id>, written by the Portal)
-     🧰 Portal Simulators     the best result on each Training Portal simulator (simresults:<id>, written by the Portal)
-     🎲 Random Tasks          each resolved random task's grade
      📞 Case Calls            each graded call on John Doe's file, its best; a missed injected call counts 0
+     🧰 Portal Simulators     the best result on each other Training Portal simulator (simresults:<id>, written by the Portal)
+     🎲 Random Tasks          each resolved random task's grade
+     📐 Trainer Rubric        the trainer's rubric score on each day's sent review (feedback:<id>, the 📐 Feedback Rubric, js/cm-rubric.js)
+   Each system names the rubric dimensions it feeds (dims) and how it is scored (how): the 📐 Feedback Rubric page maps them,
+   and the card's 📐 Rubric profile averages them by dimension.
    Over them sits the client's 100-POINT MODEL (MODEL below): four weighted dimensions per Case Flow day, complexity
    multipliers, a 4-tier rubric, pass at 80% and a safety gate on the critical items.
    Both pages show it as Foundational's batch-sheet TRAINEE CARD (cardHtml), the standard format for all scorecards.
@@ -21,7 +29,7 @@
      then every trainee's card (🔎 picks one); a row of 🏅 Scores scrolls to its card.
    It only reads: trainee:<id> (its caseFlow summary, dayProgress and practiceProgress), progress:<id> (case-flow,
    work-log, task-log, doc-filing, net-sheet, case-folder, drive-setup), callsim:<id>, simresults:<id> and feedback:<id>
-   (the trainer's Learning Check scores), in one get-many. */
+   (the trainer's Learning Check scores and each day's review with its rubric score), in one get-many. */
 (function(){
 "use strict";
 const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
@@ -97,18 +105,16 @@ const SOURCES = [
       Object.entries(R.amend || {}).forEach(([b, r]) => Object.entries((r && r.req) || {}).forEach(([doc, x]) => sent(`Amendment request: ${doc}`, x)));
       Object.entries((c.sim && c.sim.best) || {}).filter(([k, b]) => simKind(k) === "email" && b && typeof b.score === "number").forEach(([k, b]) => out.push({name: k, pct: num(b.score), note: `Portal · ${b.count || 1} run${(b.count || 1) === 1 ? "" : "s"}`}));
       return out; }},
-  {id: "cal", icon: "🗓", label: "Calendaring", about: "The calendaring simulators: the Portal's Calendaring Simulators (the Litigation Week) and the course's Calendar Conflict Resolver.",
+  {id: "cal", icon: "🗓", label: "Calendaring", about: "The Training Portal's Calendaring Simulators (the Litigation Week: the prep, debrief, client and expert calls placed around a deposition, a hearing and a mediation).",
     dims: ["pc", "cp"], how: "The simulator's automated review under the attorney's rules (the trainer's score where given): the best run.",
     items: c => { const out = [];
       Object.entries((c.sim && c.sim.best) || {}).filter(([k, b]) => simKind(k) === "calendar" && b && typeof b.score === "number").forEach(([k, b]) => out.push({name: k, pct: num(b.score), note: `Portal · ${b.count || 1} run${(b.count || 1) === 1 ? "" : "s"}`}));
-      Object.entries(c.rec.practiceProgress || {}).filter(([id, v]) => CAL_TOOLS.has(id) && v && typeof v.bestScore === "number" && v.bestScore > 0).forEach(([id, v]) => {
-        const tl = (typeof PRACTICE_TOOLS !== "undefined" ? PRACTICE_TOOLS : []).find(x => x.id === id); out.push({name: tl ? tl.title : id, pct: num(v.bestScore), note: `${v.runs || 1} attempt${(v.runs || 1) === 1 ? "" : "s"}`}); });
       return out; }},
   {id: "cx", icon: "🔎", label: "Case Exercises", about: "The Case Flow's graded exercises on John Doe's file: the exhibit audits, the Listening Checks, the records screening, the judgement calls on served emails and the Notes & Action Plan's action plans.",
     dims: ["na", "cp"], how: "Each auto-checked against its answer key: the share called right (an audit's items, a Listening Check's facts, the records screened, the plan's required steps); a judgement call 100% or 0%.",
     items: c => (MODEL.evidence(c).items || []).filter(x => CX_GROUPS.has(x.group)).map(x => ({name: x.name, pct: num(x.pct), note: `Day ${x.day} · ${x.group.replace(/^\S+\s/, "")} · ${x.note}`}))},
-  {id: "sb", icon: "🛠", label: "Skill Builders", about: "Each practice tool's best score (the Calendar Conflict Resolver counts under Calendaring).", dims: ["na", "cp"], how: "The practice tool's own grader: the best score of its runs.",
-    items: c => Object.entries(c.rec.practiceProgress || {}).filter(([id, v]) => !CAL_TOOLS.has(id) && v && typeof v.bestScore === "number" && v.bestScore > 0).map(([id, v]) => {
+  {id: "sb", icon: "🛠", label: "Skill Builders", about: "Each practice tool's best score (the Calendar Conflict Resolver).", dims: ["na", "cp"], how: "The practice tool's own grader: the best score of its runs.",
+    items: c => Object.entries(c.rec.practiceProgress || {}).filter(([, v]) => v && typeof v.bestScore === "number" && v.bestScore > 0).map(([id, v]) => {
       const t = (typeof PRACTICE_TOOLS !== "undefined" ? PRACTICE_TOOLS : []).find(x => x.id === id);
       return {name: t ? t.title : id, pct: num(v.bestScore), note: `${v.runs || 1} attempt${(v.runs || 1) === 1 ? "" : "s"}`}; })},
   {id: "gc", icon: "🎯", label: "Graded Calls", about: "The best graded call on each Call Simulator line (☎ LSH Ring Channel).", dims: ["pc", "cd"], how: "The line's Mock Calls Metrics (the call and its required note), reported by the Portal: the best call.",
@@ -139,7 +145,6 @@ const SOURCES = [
 ];
 // what a Portal simulator's result is: an email simulator, a calendaring simulator, or another
 const simKind = k => /e-?mail|repl/i.test(k) ? "email" : /calend|calsim|litigation week/i.test(k) ? "calendar" : "other";
-const CAL_TOOLS = new Set(["calendar"]);
 const CX_GROUPS = new Set(["🔎 Exhibit audits", "🎧 Listening Checks", "🧾 Records screening", "⚖️ Judgement calls", "📝 Action Plan"]);
 const dn = v => { v = parseInt(v, 10); return v >= 11 && v <= 15 ? v - 10 : v >= 1 && v <= 5 ? v : null; };
 function compute(c){
@@ -571,7 +576,7 @@ css.textContent = `
 .scx-page{max-width:none;margin:0 auto;padding:4px 0 24px;}
 .ft-banner{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap;padding:16px 18px;border-radius:12px;background:linear-gradient(135deg,#1E2340,#33406B);color:#fff;margin:0 0 12px;}
 .ft-banner h2{margin:2px 0 !important;font:800 26px 'Fraunces',Georgia,serif !important;color:#fff !important;}
-.ft-banner .ft-banner-k{margin:0 !important;font:800 12px Arial,sans-serif !important;letter-spacing:.08em;text-transform:uppercase;color:#F6C08F !important;}
+.ft-banner .ft-banner-k{margin:0 !important;font:800 14px Arial,sans-serif !important;letter-spacing:.08em;text-transform:uppercase;color:#F6C08F !important;}
 .ft-banner .ft-banner-sub{margin:2px 0 0 !important;color:#E8ECF7 !important;font:600 15px Arial,sans-serif !important;} .ft-banner .ft-banner-sub b{color:#fff !important;}
 .ft-banner-right{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
 .ft-banner-right span{font:800 13px Arial,sans-serif;padding:4px 11px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);color:#fff;}
