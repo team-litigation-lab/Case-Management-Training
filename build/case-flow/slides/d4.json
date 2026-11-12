@@ -23,7 +23,13 @@
       "Treating silence as negotiation and **waiting another month**",
       "Sending a UM demand **before BI is exhausted**",
       "Telling John Doe it “will have to go **to court**”"
-    ]
+    ],
+    "redFlag": {
+      "see": "Frustration with Keystone **called 'impasse'** without its dated triggers",
+      "costs": "Impasse is proved by five dated triggers; whether to sue is Atty. Thorne's call",
+      "do": "Log each trigger with date and proof; **send Keystone no new number**",
+      "owner": "Atty. Thorne"
+    }
   },
   "d4m1-a1": {
     "image": "escalation-alert",
@@ -78,7 +84,13 @@
       "Leaving “scan001.pdf” **in a litigation folder**",
       "Treating mediation and arbitration **as the same thing**",
       "Assuming an arbitration error **can be appealed**"
-    ]
+    ],
+    "redFlag": {
+      "see": "A **pre-litigation habit** left in a court file",
+      "costs": "It costs a deadline: status, fields, folders and calendar must change together",
+      "do": "Change all four **in one sitting**, citing Atty. Thorne's 09/09/2026 authorization",
+      "owner": "Case Manager"
+    }
   },
   "d4m1-a2": {
     "image": "cms-screen",
@@ -153,7 +165,19 @@
       "Counting **the trigger day** as day one",
       "Rolling a backward deadline **forward to Monday**",
       "Relying on **the SOL's weekend roll-forward**"
-    ]
+    ],
+    "ruleEx": {
+      "rule": "**Exclude the trigger day, include the last**: served 10/14/2026 + 30 → answer 11/13/2026",
+      "exception": "A **backward count moves earlier**: arbitration brief 06/12/2027 (Sat) → 06/11/2027",
+      "onFile": "Discovery mailed 12/01/2026 + 30 + 3 → 01/04/2027",
+      "confirm": "Atty. Thorne confirms the governing court rule"
+    },
+    "redFlag": {
+      "see": "**15 RFAs** docketed inside the general discovery entry",
+      "costs": "Unanswered RFAs may be deemed admitted",
+      "do": "Give them **their own calendar entry** and alerts; tell Atty. Thorne",
+      "owner": "Atty. Thorne"
+    }
   },
   "d4m2-um": {
     "image": "coverage-check",
@@ -178,7 +202,19 @@
       "**Filing suit** where the policy sends it to arbitration",
       "Reading Harbor Point's clause **onto Cardinal State**",
       "Telling John Doe the carrier is **acting in bad faith**"
-    ]
+    ],
+    "ruleEx": {
+      "rule": "**Read each layer's clause**: Harbor Point's UM arbitration clause → Demand for Arbitration; Cardinal State joins",
+      "exception": "Where a state **bars mandatory arbitration** or allows an opt-out, the route is suit",
+      "onFile": "Consolidated before Laura Whitcomb, Esq., 06/22/2027",
+      "confirm": "Atty. Thorne analyzes the route"
+    },
+    "redFlag": {
+      "see": "The UM route **docketed off the tort SOL**",
+      "costs": "A route carries its own clock, and the wrong date misses it",
+      "do": "Docket only from **Atty. Thorne's written answer**",
+      "owner": "Atty. Thorne"
+    }
   },
   "d4m2-a1": {
     "image": "calendar-gap",
@@ -244,7 +280,28 @@
       "A mediation-quality binder **at an arbitration**",
       "**“Helpfully” answering the arbitrator** directly",
       "Logging bench directives **the next day from memory**"
-    ]
+    ],
+    "milestones": {
+      "title": "What happens in the room",
+      "steps": [
+        {"label": "Joint session", "done": "Optional; **the mediator sets it**"},
+        {"label": "Private caucus", "done": "Only **the mediator carries messages** between rooms"},
+        {"label": "Shuttle moves", "done": "Offers and demands carried between rooms, **each logged**"},
+        {"label": "Bracket", "done": "A conditional pair **from counsel**, never a Case Manager's number"},
+        {"label": "Term sheet", "chip": "03/18/2027", "done": "**Terms in writing** before anyone leaves (RS59)"}
+      ]
+    },
+    "ruleEx": {
+      "rule": "The Golden Rule: the Case Manager **never argues, speaks on the record or represents** John Doe",
+      "exception": "None. Asked about a bill, say **'I'm the Case Manager providing administrative assistance'** and hand it to Atty. Thorne",
+      "confirm": "Atty. Thorne speaks for John"
+    },
+    "redFlag": {
+      "see": "**A number spoken by you** in caucus",
+      "costs": "It's an offer: brackets, ranges and authority belong to Atty. Thorne and John Doe",
+      "do": "Log every move (time, who, what); **keep the draft release ready**",
+      "owner": "Atty. Thorne"
+    }
   },
   "d4m2-a2": {
     "image": "arbitration",
@@ -342,7 +399,24 @@
       "An unorganized file **the morning of the session**",
       "A snapshot sheet with **stale opposing-counsel contacts**",
       "The confidential statement sent **ten minutes before the session**"
-    ]
+    ],
+    "milestones": {
+      "title": "Six sections, one Master Index",
+      "steps": [
+        {"label": "Executive summary", "done": "Summary and **admin up front**"},
+        {"label": "Briefs", "chip": "03/11/2027", "done": "Ours goes **to the mediator only**"},
+        {"label": "Core pleadings", "chip": "11/12/2026", "done": "The 09/24/2026 complaint and **the answer**"},
+        {"label": "Key evidence", "done": "RPD-26-018842, Ruth Calloway, **doorbell stills**, EMS, EDR"},
+        {"label": "Damages", "done": "$14,817.40 + $1,584.00 = **$16,401.40**; Riverton at $6,105.00"},
+        {"label": "Settlement history", "chip": "08/12/2026", "done": "**Baseline $3,500** and the draft release"}
+      ]
+    },
+    "redFlag": {
+      "see": "The binder carrying **Riverton at $6,290.00**",
+      "costs": "Medical then reads $15,002.40, and Keystone already calls the ledger unverified",
+      "do": "Use the audited **$6,105.00** and re-run the Damages totals",
+      "owner": "Case Manager"
+    }
   },
   "d4m3-a1": {
     "image": "money-ledger",
@@ -423,7 +497,19 @@
       "**A grayscale print** of a crash still",
       "A draft brief or **superseded complaint** in the set",
       "The Confidential Mediation Statement **in the Arbitration Binder**"
-    ]
+    ],
+    "ruleEx": {
+      "rule": "**Authenticate every exhibit** with custodian certifications; C-1 numbering; freeze once exchanged",
+      "exception": "Arbitration may relax the evidence rules, but **build to the strict standard** anyway",
+      "onFile": "Exhibits exchanged and frozen 06/02/2027",
+      "confirm": "Atty. Thorne decides what is exchanged"
+    },
+    "redFlag": {
+      "see": "A Lien Sheet still listing **Harbor Point PIP $5,000.00** and Summit $2,395.00",
+      "costs": "Neither is owed: PIP paid Summit, and Harbor Point has no reimbursement right",
+      "do": "Strike both, re-total, and keep the Lien Sheet **in Atty. Thorne's set**",
+      "owner": "Atty. Thorne"
+    }
   },
   "d4m3-a2": {
     "image": "checklist-qa",
@@ -643,7 +729,22 @@
       "Archiving **without John Doe's signed receipt**",
       "Telling John Doe a late bill is **“not our problem”**",
       "Destroying financial records **before the retention date**"
-    ]
+    ],
+    "milestones": {
+      "title": "Four sets before archive",
+      "steps": [
+        {"label": "Money trail", "chip": "10/22/2026", "done": "$40,000.00 in; every payment out; **ledger at $0.00**"},
+        {"label": "Satisfactions", "done": "Every satisfaction plus **John's acknowledgment of receipt**"},
+        {"label": "Payer disclosure", "done": "PIP $5,000.00, Peach State $1,860.00, John $312.40; **current W-9**"},
+        {"label": "Closing memo", "chip": "10/30/2026", "done": "Filed; **retention 7 years**"}
+      ]
+    },
+    "redFlag": {
+      "see": "An email **changing the wiring instruction** for a payment",
+      "costs": "Money wired on an unverified change may never come back",
+      "do": "Stop the payment; **verify by phone** to a number already on file",
+      "owner": "Case Manager"
+    }
   },
   "d4m3-prior": {
     "image": "mri-scan",
@@ -684,7 +785,13 @@
       "Writing **“not degenerative”** in your own summary",
       "**A summary** in place of the certified chart",
       "**Correcting a conflicting history** instead of flagging it"
-    ]
+    ],
+    "ruleEx": {
+      "rule": "**Disclose the prior, then distinguish it** from the record",
+      "exception": "None: never write **'not degenerative'** or 'aggravation' yourself; that is medical opinion",
+      "onFile": "2021: low back, resolved. Since 02/06/2026: neck and right arm, C5-C6",
+      "confirm": "Atty. Thorne makes the argument"
+    }
   },
   "d4m2-medcal": {
     "image": "mediation-table",
@@ -779,7 +886,24 @@
       "Describing pain **instead of the finding**",
       "Putting future care **in the Specials**",
       "Finding the gaps **in the offer letter**"
-    ]
+    ],
+    "milestones": {
+      "title": "Every treatment stop becomes a line",
+      "steps": [
+        {"label": "Urgent care", "chip": "02/20/2026", "done": "Nina Patel's note, **its bill, its tab**"},
+        {"label": "Riverton Spine & Rehab", "done": "**33 visits** under the LOP, each mapped"},
+        {"label": "Lakeside consult", "chip": "03/05/2026", "done": "Dr. Reyes's record **and its bill**"},
+        {"label": "MRI", "chip": "03/13/2026", "done": "The Summit report **behind its tab**"},
+        {"label": "ESI", "chip": "05/15/2026", "done": "Crescent's procedure note **and its bill**"},
+        {"label": "MMI", "chip": "06/12/2026", "done": "Dr. Reyes's MMI note **closes the line**"}
+      ]
+    },
+    "redFlag": {
+      "see": "A claimed harm **with no dated record** behind it",
+      "costs": "It can't be shown in the binder, and it invites attack on the rest",
+      "do": "**Flag it to Atty. Thorne**; never argue it",
+      "owner": "Atty. Thorne"
+    }
   },
   "d4-drive": {
     "image": "escalation-alert",

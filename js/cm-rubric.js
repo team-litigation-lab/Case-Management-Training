@@ -190,8 +190,8 @@ css.textContent = `
 .rbp-grid td.rbp-pr{background:#F1F6FE;} .rbp-grid td.rbp-pr .rbp-band{color:#1E2340;}
 .rbp-grid td.rbp-dv{background:#FFF6E6;} .rbp-grid td.rbp-dv .rbp-band{color:#7A4B00;}
 .rbp-grid td.rbp-ni{background:#FDECEC;} .rbp-grid td.rbp-ni .rbp-band{color:#A50E0E;}
-.rbp-map td{font-weight:600;} .rbp-map td:nth-child(2){min-width:260px;} .rbp-map td:nth-child(3){min-width:260px;}
-.rbp-dc{text-align:center !important;width:64px;} .rbp-t thead th.rbp-dc small{color:#fff;font-size:14px;} .rbp-on{color:#DB8437;font-size:20px;}
+.rbp-map td{font-weight:600;} .rbp-map td:nth-child(2){min-width:180px;} .rbp-map td:nth-child(3){min-width:180px;} .rbp-map tbody th{min-width:170px;}
+.rbp-dc{text-align:center !important;min-width:112px;padding-left:6px !important;padding-right:6px !important;} .rbp-t thead th.rbp-dc,.rbp-t thead th.rbp-dc small{white-space:nowrap;word-break:normal;overflow-wrap:normal;hyphens:none;}   /* the dimension's name on one line, never broken mid-word */ .rbp-t thead th.rbp-dc small{color:#fff;font-size:14px;} .rbp-on{color:#DB8437;font-size:20px;}
 .rbp-how{margin:6px 0 0;padding-left:22px;font:600 15.5px/1.55 'Inter',Arial,sans-serif;color:#1F2433;} .rbp-how li{margin:6px 0;} .rbp-how b{color:#1E2340;}
 /* the composer */
 .rbc{margin:12px 0;padding:12px 14px;border:2px solid #C9D1E6;border-radius:12px;background:#F8FAFD;font-family:'Inter',Arial,sans-serif;}
