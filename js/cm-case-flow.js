@@ -83,7 +83,8 @@ SEQUENCE.forEach(seq => {
     // What this run of blocks is. Most are stages of the case (a lesson's title is just "Demand"), but some are
     // cross-phase work the Case Manager does throughout (bottlenecks, binders, deposition prep): calling
     // those a Case Phase is simply wrong, so a phase may name its own lead in CF.sequence.
-    const phase = {n: pi + 1, of: seq.phases.length, title: ph.title, lead: ph.lead || "Case Phase", count: ph.blocks.length, lane: ph.workstream || ""};
+    const phase = {n: pi + 1, of: seq.phases.length, title: ph.title, lead: ph.lead || "Case Phase", count: ph.blocks.length, lane: ph.workstream || "",
+      num: seq.phases.length > 1 ? pi + 1 : day.n};   // a topic's number: Day 2's topics are 2.1, 2.2 … (the phase's number when a day has several)
     phases.push(phase);
     ph.blocks.forEach((id, k) => {
       const at = STORED[id];
@@ -95,7 +96,7 @@ SEQUENCE.forEach(seq => {
         ? {corePrinciples: [b.act.scenario, b.act.prompt], howTo: b.act.checkpoints}
         : {corePrinciples: b.check.questions, howTo: b.check.summary};
       lessons.push(Object.assign({
-        h: `${phase.n}.${k + 1} ${b.title}`,
+        h: `${phase.num}.${k + 1} ${b.title}`,
         fourPart: Object.assign(fp, {bestPractices: b.best || [], discussionCase: ""}),
         trainerCue: (b.notes || [])[0] || "",
         cf: {day, mod, block: b, k, phase, lane: (ph.lanes || {})[id] || phase.lane,   // day: where it is taught; mod: its unit of scoring; lane: its workstream
@@ -1015,7 +1016,7 @@ function card(l, i, d, part){
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title" title="${E(l.cf.heading)}">${E(l.cf.heading)}</h2></div>
       <div class="cfx-ribbon"><span title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span></div>
       <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}</span>
-        <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.n}.${k + 1} · ${E(KIND[b.kind])}</span>${timeChip(l, d, view)}
+        <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.num || phase.n}.${k + 1} · ${E(KIND[b.kind])}</span>${timeChip(l, d, view)}
         ${view === "task" && isTrainer() && !inAudience() && injectsOf(b).length ? `<button type="button" class="cfx-inject" onclick="cmCaseFlow.inject(${d.id},${i})" title="Trainer only: a real-time task to inject while the room works this one">⚡ Inject: ${E(injectsOf(b).map(x => x.short).join(" · "))}</button>` : ""}
         <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Additional Reference</button></div>
       <div class="cfx-body${onNavy ? " cfx-body-navy" : ""}">${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}</div>
@@ -2225,9 +2226,11 @@ window.cmCaseFlow.back = function(){
 const ADMIN_GROUPS = [
   {id: "admin", label: "🛡 Admin Master Control", tabs: ["audit", "rankings", "tfeedback"]},
   {id: "modules", label: "📚 Training Modules", tabs: ["sop", "studio"]},
-  {id: "activities", label: "📋 Activities", tabs: ["activities", "fbstyle"]}
+  {id: "activities", label: "📋 Activities", tabs: ["activities", "rtasks", "fbstyle"]}
 ];
 const adminGroupOf = tab => (ADMIN_GROUPS.find(g => g.tabs.includes(tab)) || ADMIN_GROUPS[0]).id;
+/* the Admin screen as Foundational's: one solid panel, the page as wide as the screen (main.cm-admin-main) */
+const adminPanel = out => state.isAdmin ? `<div class="cm-admin-screen">${out}</div>` : out;
 function groupAdminTabs(out){
   const a = out.indexOf('<div class="admin-tabs"'); if(a < 0) return out;
   const b = out.indexOf("</div>", a) + 6;
@@ -2378,7 +2381,7 @@ if(typeof window.renderDaySlideshow === "function"){
 }
 if(typeof window.afterRender === "function"){
   const __after = window.afterRender;
-  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ syncReturn(); sidePresenter(); kcFit(); fitFileCols(); yearInSide(); }catch(e){} return r; };
+  window.afterRender = function(){ const r = __after.apply(this, arguments); try{ const mn = document.querySelector("#app > main, main"); if(mn) mn.classList.toggle("cm-admin-main", !!mn.querySelector(".cm-admin-screen")); syncReturn(); sidePresenter(); kcFit(); fitFileCols(); yearInSide(); }catch(e){} return r; };
 }
 /* Check Your Work: the reference of what the trainee did in the tool (a CMS Case ID, an e-filing or request number),
    kept on their record and shown to their trainer with the module's Learning Check */
@@ -3588,7 +3591,7 @@ if(typeof window.renderAdmin === "function"){
       return `<div class="card" style="padding:40px;text-align:center;"><div style="font-size:30px;margin-bottom:10px;">🛡</div><h2 style="color:var(--navy);margin:0;">Opening the admin screen…</h2></div>`;
     }
     if(state.isAdmin) adminWaits = 0;
-    if(state.adminTab === "attendance") state.adminTab = "audit"; return groupAdminTabs(relabelAll(__admin.apply(this, arguments)).replace("Knowledge Checks, Skill Builders and your day-by-day", "Knowledge Checks, Skill Activities and your day-by-day")); };   // (attendance is on the Main Portal now)
+    if(state.adminTab === "attendance") state.adminTab = "audit"; return adminPanel(groupAdminTabs(relabelAll(__admin.apply(this, arguments)).replace("Knowledge Checks, Skill Builders and your day-by-day", "Knowledge Checks, Skill Activities and your day-by-day"))); };   // (attendance is on the Main Portal now)
 }
 
 /* ---------- the trainer's 40%: entered in each trainee's Admin panel ---------- */
@@ -4809,6 +4812,14 @@ main:has(.cf-kc-result) #answerFeedback{max-width:none;}
 /* Case Documents: the Case File / Documents switch sits under the page's intro (no Open CMS: the slides send trainees to
    the CMS), so the copy js/lsh-topbar.js puts at the top of the page is hidden there */
 main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is wrapped, so js/lsh-topbar.js leaves it alone) */
+/* the Admin screen: a solid, full-width panel over the photo (as Foundational's js/ft-admin-tidy.js) */
+main.cm-admin-main, main:has(.cm-admin-screen){max-width:min(2200px,97vw);padding-left:16px;padding-right:16px;}
+.cm-admin-screen{background:#fff;border-radius:16px;padding:20px 24px 26px;box-shadow:0 10px 30px rgba(14,18,40,.28);color:#141A2E;}
+.cm-admin-screen .card{border:1px solid #C9CEDD;}
+.cm-admin-screen .admin-portal-link{display:none !important;}   /* (🎓 Training Directory is in the top bar) */
+.adm-settings{padding:10px 16px;margin:0 0 14px;} .adm-settings > summary{cursor:pointer;font-weight:800;color:var(--navy);font-size:14px;}
+.adm-settings[open] > summary{margin-bottom:8px;} .adm-settings .card{box-shadow:none;margin:8px 0 0;background:#fff;}
+@media(max-width:760px){ .cm-admin-screen{padding:14px 12px 18px;border-radius:12px;} }
 /* the Admin screen's tabs, grouped: the sections, then the open section's tabs */
 .admin-tabs.cf-admin-tabs{display:block !important;border-bottom:1px solid var(--line);margin-bottom:20px;white-space:normal;overflow:visible;}
 .cf-admin-secs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;}

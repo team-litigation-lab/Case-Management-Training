@@ -2375,10 +2375,39 @@ em.warn{font-style:normal;color:var(--danger);}
 .dash-resume-btn span{font-size:12px;font-weight:600;opacity:.92;overflow:hidden;text-overflow:ellipsis;min-width:0;}
 .dash-resume-btn span::before{content:"· ";}
 .dash-resume-btn:hover{background:#B5651F;}
+.dash-roadmap-btn{display:flex;align-items:baseline;gap:8px;border:1px solid rgba(255,255,255,.4);border-radius:999px;background:#262B45;color:#fff;padding:7px 16px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(20,24,48,.3);white-space:nowrap;}
+.dash-roadmap-btn span{font-size:12px;font-weight:600;color:#F4B77A;} .dash-roadmap-btn span::before{content:"· ";color:#fff;}
+.dash-roadmap-btn:hover{background:#343C66;}
 .rm-modal{position:fixed;inset:0;z-index:1000;background:rgba(15,20,40,.55);display:flex;align-items:center;justify-content:center;padding:16px;}
 .rm-box{position:relative;background:#fff;border-radius:16px;padding:22px 24px;max-width:1100px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 20px 50px rgba(0,0,0,.3);}
 .rm-box h2{margin:0 0 14px;color:var(--navy);}
 .rm-x{position:absolute;top:12px;right:14px;border:0;background:transparent;font-size:18px;cursor:pointer;color:var(--ink-soft);}
+/* 🗺 the roadmap: every day with its topics (Foundational's Training Roadmap, in this course's colours) */
+.rmx-box{position:relative;display:flex;flex-direction:column;width:min(1560px,100%);max-height:min(90vh,980px);background:#fff;border-radius:18px;box-shadow:0 24px 60px -20px rgba(15,20,40,.6);overflow:hidden;}
+.rmx-x{position:absolute;top:12px;right:12px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;border-radius:10px;width:34px;height:34px;font-size:15px;cursor:pointer;z-index:2;}
+.rmx-head{background:linear-gradient(135deg,#262B45,#343C66);color:#fff;padding:18px 24px 16px;}
+.rmx-kick{margin:0 0 4px;font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:#F4B77A;}
+.rmx-head h2{margin:0 0 4px !important;font:800 28px/1.15 'Poppins','Inter',sans-serif !important;color:#fff !important;-webkit-text-stroke:3px #DB8437;paint-order:stroke fill;}
+.rmx-sub{margin:0 0 10px;font-size:14.5px;color:#DDE1EC;} .rmx-sub b{color:#fff;}
+.rmx-bar{height:6px;border-radius:3px;background:rgba(255,255,255,.18);overflow:hidden;} .rmx-bar > span{display:block;height:100%;background:#E8913A;border-radius:3px;}
+.rmx-body{overflow:auto;padding:14px 16px 10px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;align-items:start;}
+.rmx-day{min-width:0;margin:0;border:1px solid #E3E6EE;border-radius:14px;padding:10px 10px 8px;background:#FAFBFD;}
+.rmx-day.here{border-color:#DB8437;box-shadow:0 0 0 3px rgba(219,132,55,.16);}
+.rmx-dayh{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:1px solid #E3E6EE;background:#fff;border-radius:10px;padding:8px 10px;cursor:pointer;color:#262B45;}
+.rmx-dayh:hover:not(:disabled){border-color:#DB8437;} .rmx-dayh:disabled{cursor:not-allowed;color:#8A90A6;}
+.rmx-dn{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:#262B45;color:#fff;font:800 13px 'IBM Plex Mono',monospace;flex:0 0 auto;}
+.rmx-day.done .rmx-dn{background:#DCEFE3;color:#1F7A45;} .rmx-day.here .rmx-dn{background:#DB8437;color:#fff;} .rmx-day.locked .rmx-dn{background:#ECEEF3;color:#8A90A6;}
+.rmx-dt{display:flex;flex-direction:column;min-width:0;} .rmx-dt small{font:700 11.5px 'IBM Plex Mono',monospace;letter-spacing:.03em;color:#A4470F;} .rmx-dt b{font:800 15.5px/1.3 'Poppins','Inter',sans-serif;color:#1E2340;}
+.rmx-topics{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:1px;}
+.rmx-topic{display:flex;align-items:flex-start;gap:6px;width:100%;text-align:left;border:0;background:transparent;border-radius:7px;padding:4px 6px;font:600 13px/1.35 'Inter',sans-serif;color:#262B45;cursor:pointer;}
+.rmx-topic:hover:not(:disabled){background:#EEF0F6;} .rmx-topic.on{background:#FDF0E4;color:#8E3A0B;font-weight:800;}
+.rmx-topic:disabled{cursor:not-allowed;color:#9AA0B4;}
+.rmx-tn{font:700 11px/1.65 'IBM Plex Mono',monospace;color:#8A90A6;flex:0 0 32px;} .rmx-topic.on .rmx-tn{color:#C4621A;}
+.rmx-tt{flex:1 1 auto;min-width:0;} .rmx-tt em{font-style:normal;margin-left:5px;font-size:12px;}
+.rmx-here{font:700 10.5px/1.6 'IBM Plex Mono',monospace;color:#C4621A;white-space:nowrap;} .rmx-lock{font-size:11px;opacity:.7;}
+.rmx-foot{margin:0;padding:8px 22px 14px;font-size:13.5px;color:var(--ink-soft);border-top:1px solid #EEF0F5;}
+@media(max-width:1250px){ .rmx-body{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media(max-width:700px){ .rmx-body{grid-template-columns:minmax(0,1fr);} .rmx-head h2{font-size:23px !important;} }
 /* the dashboard's Competency Profile, compact: each skill's name on one line (the full name in its tooltip), less
    padding, so the day cards above it keep their height */
 .dash-main .comp-strip{padding:10px 18px 12px;margin-top:10px;}
@@ -5339,19 +5368,70 @@ function renderRankingCard(){
     <div class="sub">Score = 35% progress · 25% quizzes · 25% Skill Builders · 15% random tasks (40/30/30 until a task is graded)</div>
   </div>`;
 }
-/* the dashboard's 🗺 Roadmap: every day at a glance, where you are on it, in a pop-up */
+/* 🗺 Roadmap (as on Foundational Training): every day with its topics, in one pop-up. The day and the topic you are on
+   are marked, finished days are ticked and locked ones show 🔒; a topic you have reached is a click away (a trainer: any
+   topic). It replaced the ☰ Topics button on each day card. Escape, ✕ or a click outside closes it. */
 function openRoadmap(){
   closeRoadmap();
-  const tile = (d, i)=>{ const p = state.progress[d.id] || {}, st = p.done ? "✓ Completed" : d.id === nextDayId() ? "▶ You're here" : dayUnlocked(d.id) ? "Open" : "🔒 Locked";
-    return `<div class="or-day"><span>Day ${i + 1}</span><b>${esc(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</b><em>${d.lessons.length} topics · ${st}</em></div>`; };
-  const o = document.createElement("div"); o.className = "rm-modal"; o.id = "rmModal"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Roadmap");
+  const inDay = state.view === "day" && DAYS.some(x => x.id === state.dayId);
+  const here = inDay ? state.dayId : nextDayId(), hereSlide = inDay ? (state.lessonSlide || 0) : -1;
+  const done = completedCount(), total = DAYS.reduce((a, d) => a + d.lessons.length, 0);
+  const dayN = (d, i) => (d.cf && d.cf.n) || (i + 1);
+  const topicName = l => (l.cf && l.cf.block ? l.cf.block.title : String(l.h || "").replace(/^\d+\.\d+\s+/, ""));
+  const KIND_TAG = {activity: ["🧪", "Skill Building"], check: ["✍️", "Learning Check"]};
+  const dayCol = (d, i) => {
+    const n = dayN(d, i), p = state.progress[d.id] || {}, open = state.isAdmin || dayUnlocked(d.id);
+    const st = p.done ? "done" : d.id === here ? "here" : "";
+    const slides = buildDaySlides(d), first = {};
+    slides.forEach((x, k) => { if(x.lessonIndex != null && first[x.lessonIndex] == null) first[x.lessonIndex] = k; });
+    const sp = (state.slideProgress || {})[d.id];
+    const reached = state.isAdmin || p.done ? Infinity : Math.max(typeof sp === "number" ? sp : 0, d.id === state.dayId ? (state.maxSlideReached || 0) : 0);
+    const curLesson = d.id === state.dayId && inDay && slides[hereSlide] ? slides[hereSlide].lessonIndex : null;
+    const deckSeen = reached >= slides.length - 1;
+    const topics = d.lessons.map((l, li) => {
+      // a Learning Check has no slide of its own: it's asked in the day's Knowledge Check, open once the deck is seen
+      const kc = k => k == null && l.cf && l.cf.block && l.cf.block.kind === "check";
+      const k = first[li], toKC = kc(k), ok = open && (toKC ? deckSeen : k != null && k <= reached), on = curLesson === li, kind = l.cf && l.cf.block && KIND_TAG[l.cf.block.kind];
+      return `<li><button type="button" class="rmx-topic${on ? " on" : ""}" ${ok ? `onclick="roadmapGo(${d.id}, ${toKC ? "'kc'" : k})"` : "disabled"} title="${esc(topicName(l))}${ok ? (toKC ? " (in the day's Knowledge Check)" : "") : open ? (toKC ? " (in the Knowledge Check, once the slides are done)" : " (reach it in the slides first)") : " (opens when this day does)"}"><span class="rmx-tn">${n}.${li + 1}</span><span class="rmx-tt">${esc(topicName(l))}${kind ? `<em title="${kind[1]}" aria-label="${kind[1]}">${kind[0]}</em>` : ""}</span>${on ? `<span class="rmx-here">● here</span>` : ok ? "" : `<span class="rmx-lock">🔒</span>`}</button></li>`;
+    }).join("");
+    const label = p.done ? "✓ Completed" : d.id === here ? "▶ You're here" : open ? "Open" : "🔒 Locked";
+    return `<section class="rmx-day${st ? " " + st : ""}${open ? "" : " locked"}">
+      <button type="button" class="rmx-dayh" ${open ? `onclick="roadmapGo(${d.id}, null)"` : "disabled"}><span class="rmx-dn">${p.done ? "✓" : n}</span><span class="rmx-dt"><small>Day ${n} · ${d.lessons.length} topics · ${label}</small><b>${esc(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</b></span></button>
+      <ol class="rmx-topics">${topics}</ol></section>`;
+  };
+  const hereDay = DAYS.find(x => x.id === here), hereIdx = DAYS.indexOf(hereDay);
+  const o = document.createElement("div"); o.className = "rm-modal rmx-modal"; o.id = "rmModal"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Training roadmap");
   o.onclick = e => { if(e.target === o) closeRoadmap(); };
-  o.innerHTML = `<div class="rm-box"><button type="button" class="rm-x" onclick="closeRoadmap()" aria-label="Close">✕</button>
-    <h2>🗺 Your ${DAYS.length}-day roadmap</h2><div class="or-days">${DAYS.map(tile).join("")}</div>
-    <p class="or-foot">Days open one at a time, and each builds on the one before.</p></div>`;
+  o.innerHTML = `<div class="rmx-box" role="document"><button type="button" class="rmx-x" onclick="closeRoadmap()" aria-label="Close the roadmap">✕</button>
+    <div class="rmx-head"><p class="rmx-kick">Personal Injury Case Management · ${DAYS.length} days · ${total} topics</p><h2>🗺 Training Roadmap</h2>
+      <p class="rmx-sub">${hereDay ? `You are on <b>Day ${dayN(hereDay, hereIdx)}</b>${inDay ? `, step ${hereSlide + 1}` : ""}. ` : ""}Tap a day or any topic you've reached to go there.</p>
+      <div class="rmx-bar" title="${done} of ${DAYS.length} days completed"><span style="width:${Math.round(done / Math.max(1, DAYS.length) * 100)}%"></span></div></div>
+    <div class="rmx-body">${DAYS.map(dayCol).join("")}</div>
+    <p class="rmx-foot">Days open one at a time, and each builds on the one before.</p></div>`;
   document.body.appendChild(o);
   document.addEventListener("keydown", roadmapKey);
+  const body = o.querySelector(".rmx-body"), mark = o.querySelector(".rmx-topic.on") || o.querySelector(".rmx-day.here");
+  if(body && mark) body.scrollTop = Math.max(0, mark.offsetTop - body.offsetTop - body.clientHeight / 3);
 }
+/* a topic (its first slide) or a day, from the roadmap; in Presenter view the slides window follows */
+function roadmapGo(dayId, slide){
+  closeRoadmap();
+  if(slide === "kc"){   // a Learning Check: the day's Knowledge Check
+    if(state.presenting && typeof presenterEnd === "function") presenterEnd(true);
+    if(!(state.view === "day" && state.dayId === dayId)) goto("day", dayId);
+    setTimeout(() => goToKnowledgeCheckWithInterstitial(), 0);
+    return;
+  }
+  if(state.view === "day" && state.dayId === dayId){
+    if(slide == null) return;
+    state.dayViewMode = "slides";
+    if(state.presenting && typeof presenterJump === "function") presenterJump(slide); else goToSlide(slide);
+    return;
+  }
+  goto("day", dayId);
+  if(slide != null) setTimeout(() => { state.dayViewMode = "slides"; goToSlide(slide); }, 0);
+}
+window.openRoadmap = openRoadmap; window.roadmapGo = roadmapGo;
 function roadmapKey(e){ if(e.key === "Escape") closeRoadmap(); }
 function closeRoadmap(){ const o = document.getElementById("rmModal"); if(o) o.remove(); document.removeEventListener("keydown", roadmapKey); }
 function renderDashboard(){
@@ -5373,7 +5453,7 @@ function renderDashboard(){
       </div>
 
       <!-- where the day circles were: ▶ Continue where you left off, centred under the title (🗺 Roadmap sits beside Next → on the slides) -->
-      ${resumeLabel() ? `<div class="dash-hero-row"><button type="button" class="dash-resume-btn" onclick="resumeWhereLeftOff()" title="Back to ${esc(resumeLabel())}">▶ Continue where you left off<span>${esc(String(resumeLabel()).replace(/^Case Flow /, ""))}</span></button></div>` : ""}
+      <div class="dash-hero-row">${resumeLabel() ? `<button type="button" class="dash-resume-btn" onclick="resumeWhereLeftOff()" title="Back to ${esc(resumeLabel())}">▶ Continue where you left off<span>${esc(String(resumeLabel()).replace(/^Case Flow /, ""))}</span></button>` : ""}<button type="button" class="dash-roadmap-btn" onclick="openRoadmap()" title="Every day and its topics, and where you are">🗺 Roadmap<span>Every day and its topics</span></button></div>
 
   </div>
   <div class="dash-layout">
@@ -7148,7 +7228,7 @@ function renderDaySlideshow(d){
         ? `<button class="btn btn-primary" onclick="goto('dashboard')">🏠 Back to Dashboard</button>`
         : isLast
         ? `<button class="btn btn-primary" onclick="goToKnowledgeCheckWithInterstitial()">Continue to Knowledge Check &rarr;</button>`
-        : `<span class="np-wrap">${slides[idx+1] ? `<span class="nav-nextup" title="Next up: ${esc(daySlideTitle(d, slides[idx+1]))}"><b>Next up</b><span>${esc(daySlideTitle(d, slides[idx+1]))}</span></span>` : ""}<button type="button" class="btn btn-ghost btn-sm rm-next" onclick="openRoadmap()" title="See all ${DAYS.length} days at a glance">🗺 Roadmap</button><button class="btn btn-primary" onclick="nextSlide()"${peekTrainer() ? ` onmouseenter="showSlidePeek(this)" onmouseleave="hideSlidePeek()" onfocus="showSlidePeek(this)" onblur="hideSlidePeek()"` : ""}>Next &rarr;</button></span>`}
+        : `<span class="np-wrap">${slides[idx+1] ? `<span class="nav-nextup" title="Next up: ${esc(daySlideTitle(d, slides[idx+1]))}"><b>Next up</b><span>${esc(daySlideTitle(d, slides[idx+1]))}</span></span>` : ""}<button type="button" class="btn btn-ghost btn-sm rm-next" onclick="openRoadmap()" title="Every day and its topics, and where you are">🗺 Roadmap</button><button class="btn btn-primary" onclick="nextSlide()"${peekTrainer() ? ` onmouseenter="showSlidePeek(this)" onmouseleave="hideSlidePeek()" onfocus="showSlidePeek(this)" onblur="hideSlidePeek()"` : ""}>Next &rarr;</button></span>`}
     </div>
 
     ${isLast && slide.type==="closing" ? `<div class="slide-done-banner">🎓 Training complete. Congratulations!</div>` : isLast ? `<div class="slide-done-banner">🎉 That's everything for Day ${d.id} — the Knowledge Check is the last step to mark this day complete.</div>` : ""}
@@ -11463,53 +11543,47 @@ function renderAdmin(){
   if(state.adminTab==="cues") state.adminTab = "audit";   // the trainer's scripts are read and edited in Presenter view
   // Batch Folders live inside the Trainee Audit now: an old link to the tab opens the audit on that batch
   if(state.adminTab==="batches"){ state.adminTab = "audit"; if(state.batchFolder) state.adminBatchFilter = state.batchFolder; }
+  // 📋 the Batch Sheet (js/cm-batch-sheet.js) is the 'audit' tab: its 🏅 Scores rank every trainee, so Rankings opens it
+  if(state.adminTab==="rankings" || state.adminTab==="batchsheet") state.adminTab = "audit";
   const tab = state.adminTab || "audit";
   const tabBar = `
     <div class="admin-tabs" style="display:flex;gap:8px;margin-bottom:20px;border-bottom:1px solid var(--line);">
-      <button class="admin-tab-btn ${tab==='audit'?'active':''}" onclick="setAdminTab('audit')">Trainee Audit</button>
-      <button class="admin-tab-btn ${tab==='rankings'?'active':''}" onclick="setAdminTab('rankings')">Rankings</button>
+      <button class="admin-tab-btn ${tab==='audit'?'active':''}" onclick="setAdminTab('audit')">📋 Batch Sheet</button>
       <button class="admin-tab-btn ${tab==='sop'?'active':''}" onclick="setAdminTab('sop')">SOP Reference</button>
       <button class="admin-tab-btn ${tab==='studio'?'active':''}" onclick="setAdminTab('studio')">Content Studio</button>
       <button class="admin-tab-btn ${tab==='tfeedback'?'active':''}" onclick="setAdminTab('tfeedback')">Trainee Feedback</button>
       <button class="admin-tab-btn ${tab==='activities'?'active':''}" onclick="setAdminTab('activities')">📋 Activities</button>
+      <button class="admin-tab-btn ${tab==='rtasks'?'active':''}" onclick="setAdminTab('rtasks')">🎲 Random Tasks</button>
       <button class="admin-tab-btn ${tab==='fbstyle'?'active':''}" onclick="setAdminTab('fbstyle')">🗣 Feedback Style</button>
     </div>`;
   if(tab==="activities") return tabBar + (typeof renderAdminActivities==="function" ? renderAdminActivities() : "");
   if(tab==="fbstyle") return tabBar + (typeof renderAdminFeedbackStyle==="function" ? renderAdminFeedbackStyle() : "");
+  if(tab==="rtasks") return tabBar + renderAdminRandomTasks();
   if(tab==="sop") return tabBar + renderAdminSOP();
   if(tab==="studio") return tabBar + renderAdminStudio();
   if(tab==="tfeedback") return tabBar + renderAdminTraineeFeedback();
-  if(tab==="rankings") return tabBar + renderAdminRankings();
 
   if(state.adminLoading || !state.adminData){
     return tabBar + `<div class="card" style="padding:40px;text-align:center;color:var(--ink-soft);">Loading trainee ledger…</div>`;
   }
 
+  return tabBar + (typeof renderAdminBatchSheet==="function" ? renderAdminBatchSheet() : "") + renderTraineesAndBatches();
+}
+/* 👥 Trainees & Batches, at the foot of the 📋 Batch Sheet (as in Foundational Training): what a trainer DOES — approvals,
+   each trainee's actions, archiving, the folded settings. Their progress and scores are the sheet's tables above. */
+function renderTraineesAndBatches(){
   const sort = state.adminSort || "completion_desc";
-
-  const totalTrainees = state.adminData.length;
-  const avgCompletion = totalTrainees ? Math.round(state.adminData.reduce((a,r)=>a+adminDayStats(r).done,0)/totalTrainees/DAYS.length*100) : 0;
-  const avgScoreAll = (()=>{
-    const all = state.adminData.flatMap(r=>Object.values(r.dayProgress||{}).filter(p=>p&&typeof p.score==="number").map(p=>p.score));
-    return all.length ? Math.round(all.reduce((a,b)=>a+b,0)/all.length) : 0;
-  })();
-  const fullyDone = state.adminData.filter(r=>adminDayStats(r).done===DAYS.length).length;
-
-  return tabBar + `
+  return `
+    <section class="bs-people" id="bs-people">
     <div class="audit-page-head" style="display:flex;gap:12px 16px;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;">
-      <div>
-        <p class="eyebrow">Admin Dashboard</p>
-        <h1 style="color:var(--navy);font-size:26px;margin:6px 0 4px;">Trainee Audit</h1>
-      </div>
+      <h2>👥 Trainees &amp; Batches</h2>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-        <button class="btn btn-ghost btn-sm" onclick="refreshAdminData()">🔄 Refresh</button>
-        <button class="btn btn-navy btn-sm" onclick="downloadCohortPdf()">⬇ Download Cohort Report</button>
         <button class="btn btn-ghost btn-sm" onclick="adminLogout()">Log out</button>
       </div>
     </div>
-    <p style="color:var(--ink-soft);font-size:13px;max-width:70ch;margin:0 0 20px;">Every trainee's registration, exact progress, Knowledge Checks, Skill Builders and your day-by-day feedback — refreshed automatically every 30 seconds.</p>
-
+    <p class="bs-people-sub">Approve new trainees, act on each one (detail, feedback, certificate, attempts) and archive a batch when it finishes. The batch picked in the sheet above filters this list.</p>
     ${state.secureMode===false ? `<div class="card" style="padding:14px 18px;margin-bottom:14px;border-left:4px solid var(--danger);background:var(--danger-bg);"><b style="color:var(--danger);">⚠ Security not enabled.</b> <span style="font-size:13px;">Storage and AI are open to anyone who finds the API. Run <code>wrangler secret put MASTER_ADMIN_PASSWORD</code> (and redeploy the updated worker.js) to require sign-in.</span></div>` : ""}
+    <details class="card adm-settings"><summary>⚙ Certificate signatories &amp; feedback drafts</summary>
     <div class="card cert-settings">
       <b style="color:var(--navy);font-size:13.5px;">🎓 Certificate signatories</b>
       <p>Signatures are generated automatically from these names. The trainer can also be set per trainee in <b>View Detail → Certificate details</b>.</p>
@@ -11530,33 +11604,7 @@ function renderAdmin(){
       <p>Trainers write each trainee's day-by-day feedback in <b>View Detail → Day-by-Day Feedback → ✍ Write feedback</b>, then click <b>Send to trainee</b>. Trainees only ever see feedback a trainer has sent.</p>
       <label><input type="checkbox" id="fbAutoDraft" ${(state.fbSettings && state.fbSettings.autoDraft)?"checked":""} onchange="saveFeedbackSettings()"> Optional: pre-fill a suggested draft (from the trainee's work) for trainers to edit — never sent automatically</label>
     </div>
-    <div class="card" style="padding:16px 18px;margin-bottom:20px;background:rgba(255,244,232,.62);border-color:var(--orange-soft);">
-      <b style="color:var(--navy);font-size:13.5px;">🎲 Random Task Injection</b>
-      <p style="font-size:12.5px;color:#5A4A32;margin:6px 0 12px;">Generates one unscripted task grounded in that day's actual lesson material and broadcasts it to every trainee currently on that day — an unannounced, real-time test of what they just learned. Timing is up to you; trigger it whenever fits the live session.</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-        <select id="surpriseTaskDaySelect" style="padding:7px 10px;border-radius:8px;border:1px solid var(--line);font-size:12.5px;">
-          ${DAYS.map(d=>`<option value="${d.id}">Day ${d.id} — ${esc(d.title)}</option>`).join("")}
-        </select>
-        <select id="surpriseTaskDuration" style="padding:7px 10px;border-radius:8px;border:1px solid var(--line);font-size:12.5px;" title="How long the task stays live for trainees">
-          <option value="15">Live for 15 min</option>
-          <option value="30" selected>Live for 30 min</option>
-          <option value="60">Live for 1 hour</option>
-          <option value="120">Live for 2 hours</option>
-        </select>
-        <button class="btn btn-navy btn-sm" onclick="injectSurpriseTask()">🎲 Generate & Broadcast</button>
-        <button class="btn btn-ghost btn-sm" style="color:var(--danger);" onclick="endSurpriseTaskFromAdmin()">⏹ End Task for This Day</button>
-      </div>
-      <p style="font-size:11.5px;color:#5A4A32;margin:8px 0 0;">Only trainees already registered at broadcast time receive it. It disappears automatically when the live window ends, or immediately when you end it.</p>
-      <div class="tk-admin-note">Trainees track each task in <b>🎲 Tasks</b>: acknowledge → plan → resolve before the timer ends. Resolutions are graded on timeliness, prioritisation, applying the day's lesson, communication and risk; missed tasks score 0. Results appear in each trainee's audit row, their Competency Profile and Rankings.</div>
-      <div id="surpriseTaskInjectResult" style="margin-top:10px;"></div>
-    </div>
-
-    <div class="stat-row">
-      <div class="card stat"><div class="num">${totalTrainees}</div><div class="lbl">Trainees tracked</div></div>
-      <div class="card stat"><div class="num">${avgCompletion}%</div><div class="lbl">Avg. completion</div></div>
-      <div class="card stat"><div class="num">${avgScoreAll}%</div><div class="lbl">Avg. quiz score</div></div>
-      <div class="card stat"><div class="num">${fullyDone}</div><div class="lbl">Finished all ${DAYS.length} days</div></div>
-    </div>
+    </details>
 
     ${renderPendingApprovalsPanel()}
 
@@ -11565,10 +11613,9 @@ function renderAdmin(){
         <input type="text" id="adminSearchInput" placeholder="Search by name…" value="${esc(state.adminSearch||"")}" oninput="setAdminSearch(this.value)"
                style="padding:8px 12px;border-radius:8px;border:1px solid var(--line);font-size:13px;min-width:200px;">
         <select onchange="setAdminSort(this.value)" style="padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:13px;">
+          <option value="name_asc" ${sort==="name_asc"?"selected":""}>Sort: Name (A–Z)</option>
           <option value="completion_desc" ${sort==="completion_desc"?"selected":""}>Sort: Most days completed</option>
           <option value="completion_asc" ${sort==="completion_asc"?"selected":""}>Sort: Fewest days completed</option>
-          <option value="score_desc" ${sort==="score_desc"?"selected":""}>Sort: Highest avg. score</option>
-          <option value="name_asc" ${sort==="name_asc"?"selected":""}>Sort: Name (A–Z)</option>
           <option value="recent" ${sort==="recent"?"selected":""}>Sort: Most recently active</option>
         </select>
         <label style="display:flex;align-items:center;gap:5px;font-size:12.5px;color:var(--ink-soft);cursor:pointer;">
@@ -11580,7 +11627,8 @@ function renderAdmin(){
       </div>
     </div>
 
-    ${renderAuditBatchView()}
+    <div id="adminRowsWrap">${renderAdminRows()}</div>
+    </section>
   `;
 }
 /* The batch folders, inside the Trainee Audit: a card per batch picks the batch (the same filter the rows use, so
@@ -11619,6 +11667,35 @@ function renderBatchFilter(){
       ${batches.map(b=>`<option value="${esc(b)}" ${state.adminBatchFilter===b?"selected":""}>${esc(b)}</option>`).join("")}
     </select>`;
 }
+
+/* 🎲 Random Tasks: a tab of its own (as in Foundational Training), not a card on the Trainee Audit */
+function renderAdminRandomTasks(){
+  return `
+    <p class="eyebrow">Admin · Activities</p>
+    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 14px;">🎲 Random Tasks</h1>
+    <div class="card" style="padding:16px 18px;margin-bottom:20px;max-width:1100px;background:rgba(255,244,232,.62);border-color:var(--orange-soft);">
+      <b style="color:var(--navy);font-size:13.5px;">🎲 Random Task Injection</b>
+      <p style="font-size:12.5px;color:#5A4A32;margin:6px 0 12px;">Generates one unscripted task grounded in that day's actual lesson material and broadcasts it to every trainee currently on that day — an unannounced, real-time test of what they just learned. Timing is up to you; trigger it whenever fits the live session.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <select id="surpriseTaskDaySelect" style="padding:7px 10px;border-radius:8px;border:1px solid var(--line);font-size:12.5px;">
+          ${DAYS.map(d=>`<option value="${d.id}">Day ${d.id} — ${esc(d.title)}</option>`).join("")}
+        </select>
+        <select id="surpriseTaskDuration" style="padding:7px 10px;border-radius:8px;border:1px solid var(--line);font-size:12.5px;" title="How long the task stays live for trainees">
+          <option value="15">Live for 15 min</option>
+          <option value="30" selected>Live for 30 min</option>
+          <option value="60">Live for 1 hour</option>
+          <option value="120">Live for 2 hours</option>
+        </select>
+        <button class="btn btn-navy btn-sm" onclick="injectSurpriseTask()">🎲 Generate & Broadcast</button>
+        <button class="btn btn-ghost btn-sm" style="color:var(--danger);" onclick="endSurpriseTaskFromAdmin()">⏹ End Task for This Day</button>
+      </div>
+      <p style="font-size:11.5px;color:#5A4A32;margin:8px 0 0;">Only trainees already registered at broadcast time receive it. It disappears automatically when the live window ends, or immediately when you end it.</p>
+      <div class="tk-admin-note">Trainees track each task in <b>🎲 Tasks</b>: acknowledge → plan → resolve before the timer ends. Resolutions are graded on timeliness, prioritisation, applying the day's lesson, communication and risk; missed tasks score 0. Results appear in each trainee's audit row, their Competency Profile and Rankings.</div>
+      <div id="surpriseTaskInjectResult" style="margin-top:10px;"></div>
+    </div>
+  `;
+}
+window.renderAdminRandomTasks = renderAdminRandomTasks;
 
 async function downloadCohortPdf(){
   const lines = ["## Trainee Audit — Cohort Report"];
@@ -11934,11 +12011,7 @@ function renderAuditStrip(rec){
     return `<span class="ad-cell ${cls}" title="${esc(tip)}">${d.id}${d.labDone?`<i></i>`:""}</span>`;
   };
   return `<div class="audit-strip">
-    <div class="as-block as-now"><b>📍 Now</b><span>${esc(a.where)}</span></div>
-    <div class="as-block"><b>Lessons</b><span>${a.seen} / ${a.total} slides · ${a.pct}%</span><div class="as-bar"><div style="width:${a.pct}%"></div></div></div>
-    <div class="as-block as-days"><b>Days</b><div class="ad-cells">${a.days.map(cell).join("")}</div></div>
-    <div class="as-block"><b>Knowledge Checks</b><span>${a.kcPassed} passed${a.kcBelow.length?` · <em class="warn">below 70%: Day ${a.kcBelow.join(", ")}</em>`:""}</span></div>
-    <div class="as-block"><b>Skill Builders</b><span>${a.labsDone} / ${DAYS.length} done${a.labAvg!==null?` · avg ${a.labAvg}%`:""}</span></div>
+    <!-- (where they are, slides, days, Knowledge Checks and Skill Builders: the 📋 Batch Sheet's tables) -->
     <div class="as-block"><b>Random tasks</b><span>${a.tasksTotal ? `${a.tasksDone}/${a.tasksTotal} resolved${a.tasksAvg!==null?` · avg ${a.tasksAvg}%`:""}${a.tasksMissed?` · <em class="warn">${a.tasksMissed} missed</em>`:""}${a.tasksOpen?` · ${a.tasksOpen} open`:""}` : "none yet"}</span></div>
     <div class="as-block as-review"><b>Review</b><span>
       <em class="rv sent">${a.sent} sent${a.sent?` (${a.read} read)`:""}</em>
@@ -11951,15 +12024,11 @@ function renderAdminRow(rec, day, practice){
   const expanded = state.adminExpandedId===rec.id;
   return `
     <div class="audit-row ${expanded?"expanded":""}">
-      <div class="admin-row-grid" style="display:grid;grid-template-columns:minmax(0,1fr) 110px 110px 110px 140px auto;gap:12px;align-items:center;padding:14px 18px;">
+      <div class="admin-row-grid" style="display:grid;grid-template-columns:minmax(180px,1fr) auto;gap:12px;align-items:center;padding:14px 18px;">
         <div style="min-width:0;overflow:hidden;">
           <b class="admin-name" title="${esc(String(rec.name||"Unnamed").slice(0,200))}" style="color:var(--navy);font-size:13.5px;">${esc(String(rec.name||"Unnamed").slice(0,60))}${String(rec.name||"").length>60?"…":""}</b>${rec.archived?' <span style="font-size:10px;color:var(--ink-soft);">(archived)</span>':''}${rec.flaggedInvalidInput?' <span style="font-size:10px;color:var(--danger);font-weight:700;">⚠ invalid input removed</span>':''}${renderDriveChip(rec)}
           <div class="admin-id" style="font-size:10.5px;color:var(--ink-soft);font-family:'IBM Plex Mono';">${esc(String(rec.id).slice(0,48))}${rec.batch?` · ${esc(cleanBatch(rec.batch))}`:''}</div>
         </div>
-        <div style="font-size:13px;">${day.done} / ${day.total} days</div>
-        <div style="font-size:13px;">${day.avg}% avg</div>
-        <div style="font-size:13px;">${practice.runs} runs</div>
-        <div style="font-size:11.5px;color:var(--ink-soft);">${rec.lastActive?fmtDate(rec.lastActive):"—"}</div>
         <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:520px;">
           <button class="btn btn-sm btn-ghost" onclick="toggleAdminDetail('${rec.id}')">${expanded?"Hide":"View"} Detail</button>
           <button class="btn btn-sm btn-primary" onclick="openFeedbackFor('${rec.id}')" title="Write and send feedback to this trainee">✍ Feedback</button>
@@ -16011,7 +16080,7 @@ window.addEventListener("unhandledrejection", (ev)=>{ const e = ev.reason; if(e 
 window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message && !/ResizeObserver|Script error/.test(ev.message)) showActionError(new Error(ev.message), ""); });
 
 </script>
-<script src="/js/cm-updates.js?v=40"></script>
+<script src="/js/cm-updates.js?v=42"></script>
 <script src="/js/cm-documents.js?v=3"></script>
 <script src="/js/cm-skillbuilders.js?v=cm-2026.10.23-efiling"></script>
 <script src="/js/cm-lor-data.js?v=1"></script>
@@ -16023,12 +16092,12 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-drafting.js?v=cm-2026.10.22-cms-upload"></script>
 <script src="/js/daily-activities.js?v=3"></script>
 <script src="/js/checkin.js?v=1"></script>
-<script src="/js/portal-link.js?v=3"></script>
+<script src="/js/portal-link.js?v=4"></script>
 <!-- 🧭 Blueprints: the Trainer blueprint (blueprint-content.js) and the Trainee blueprint (Orientation, /blueprint.pdf) rebuilt after every deploy -->
 <script src="/js/blueprint-content.js?v=7"></script>
 <script src="/js/lsh-blueprint-course.js?v=2"></script>
 <script src="/js/lsh-blueprint.js?v=2"></script>
-<script src="/js/lsh-dashboard.js?v=8"></script>
+<script src="/js/lsh-dashboard.js?v=9"></script>
 <script src="/js/graded-calls.js?v=1"></script>
 <script src="/js/cm-case-flow-docs.js?v=28"></script>
 <script src="/js/cm-case-flow-art.js?v=3"></script>
@@ -16039,11 +16108,12 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-data.js?v=60"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=1"></script>
-<script src="/js/cm-case-flow.js?v=122"></script>
-<script src="/js/cm-script-editor.js?v=13"></script>
+<script src="/js/cm-case-flow.js?v=124"></script>
+<script src="/js/cm-script-editor.js?v=14"></script>
 <!-- 🏅 the Scorecard (as in Foundational Training): My Performance for trainees, Scorecards for trainers -->
 <script src="/js/cm-scorecard.js?v=6"></script>
-<script src="/js/cm-know-tools.js?v=6"></script>
+<script src="/js/cm-batch-sheet.js?v=1"></script>
+<script src="/js/cm-know-tools.js?v=7"></script>
 <!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
 <script src="/js/cm-companion-cases.js?v=1"></script>
 <script src="/js/cm-companion.js?v=1"></script>
