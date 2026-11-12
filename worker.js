@@ -21,11 +21,97 @@
  */
 /* ---------- KV with the "cm:" namespace prefix ---------- */
 const KV_PREFIX = "cm:";
+/* ---------- what the trainer owns in a trainee's records ----------
+   A trainee's page saves whole records it read a moment before, and a KV read elsewhere can be up to a minute stale,
+   so a save could land on top of a trainer's change made in between: an approval undone, a review or a focus item
+   lost. So the trainer's part of each record below is also kept in its own key, <type>-admin:<id>, which only an
+   admin's save or the Worker writes (ownerPut) and the trainee never can, and every read lays it back over the record.
+   A record no admin has saved since reads exactly as it is.
+     trainee:<id>   approval, rejection, archive, unlocks, assignments, and who they are (name and batch)
+     feedback:<id>  a trainer's review of a day (and its read mark stays the trainee's), a trainer's note on an auto-review
+     focus:<id>     the focus items themselves (seen and done stay the trainee's)
+     actsub:<id>    a trainer's feedback on an activity, for the submission it was written for: a new submission
+                    retires it to prevFeedback, as the trainee's own save does */
+const isTrainerReview = (v) => !!(v && typeof v === "object" && (v.editedByTrainer || (v.status === "sent" && !v.auto)));
+const OWNED = {
+  trainee: {
+    split: (rec) => { const own = {}; ADMIN_OWNED_TRAINEE_FIELDS.forEach((f) => { if (f in rec) own[f] = rec[f]; }); return own; },
+    overlay: (rec, own) => { ADMIN_OWNED_TRAINEE_FIELDS.forEach((f) => { if (f in own) rec[f] = own[f]; else delete rec[f]; }); }
+  },
+  feedback: {
+    split: (rec) => {
+      const days = {};
+      Object.entries((rec && rec.days) || {}).forEach(([d, v]) => {
+        if (isTrainerReview(v)) days[d] = { review: v };
+        else if (v && v.trainerNote) days[d] = { note: v.trainerNote };
+      });
+      return { days };
+    },
+    overlay: (rec, own) => {
+      if (!rec.days || typeof rec.days !== "object") rec.days = {};
+      Object.entries(own.days || {}).forEach(([d, o]) => {
+        const cur = rec.days[d];
+        if (o.review) { const readAt = cur && cur.readAt; rec.days[d] = Object.assign({}, o.review); if (readAt && !rec.days[d].readAt) rec.days[d].readAt = readAt; }
+        else if (o.note && cur && typeof cur === "object") cur.trainerNote = o.note;
+      });
+    }
+  },
+  focus: {
+    split: (rec) => ({ items: (Array.isArray(rec.items) ? rec.items : []).filter((x) => x && typeof x === "object").map((x) => { const y = Object.assign({}, x); delete y.seenAt; delete y.doneAt; return y; }) }),
+    overlay: (rec, own) => {
+      const mine = Object.fromEntries((Array.isArray(rec.items) ? rec.items : []).filter((x) => x && typeof x === "object").map((x) => [x.id, x]));
+      rec.items = (own.items || []).map((x) => { const m = mine[x.id] || {}; return Object.assign({}, x, { seenAt: m.seenAt || null, doneAt: m.doneAt || null }); });
+    }
+  },
+  actsub: {
+    split: (rec) => {
+      const items = {};
+      Object.entries((rec && rec.items) || {}).forEach(([aid, v]) => {
+        if (v && typeof v === "object" && (v.feedback || v.prevFeedback)) items[aid] = { feedback: v.feedback || null, prevFeedback: v.prevFeedback || null, forSubmittedAt: v.submittedAt || null };
+      });
+      return { items };
+    },
+    overlay: (rec, own) => {
+      if (!rec.items || typeof rec.items !== "object") rec.items = {};
+      Object.entries(own.items || {}).forEach(([aid, o]) => {
+        const cur = rec.items[aid];
+        if (!cur || typeof cur !== "object") return;
+        if ((cur.submittedAt || null) === o.forSubmittedAt) {
+          if (o.feedback) cur.feedback = o.feedback; else delete cur.feedback;
+          if (o.prevFeedback && !cur.prevFeedback) cur.prevFeedback = o.prevFeedback;
+        } else if (o.feedback && o.feedback.status === "sent" && !cur.prevFeedback) cur.prevFeedback = o.feedback;   // resubmitted since: retired
+      });
+    }
+  }
+};
+const OWNED_KEY = /^(trainee|feedback|focus|actsub):([^:]+)$/;
+const ownedType = (k) => { const m = OWNED_KEY.exec(k); return m ? m[1] : null; };
+const ownerKey = (k) => k.replace(/^([a-z]+):/, "$1-admin:");
+// An admin's (or the Worker's) save of one of these records: the record, and the trainer's part in its own key.
+async function ownerPut(kv, key, value) {
+  await kv.put(key, value);
+  const t = ownedType(key);
+  if (!t) return;
+  let rec = null; try { rec = JSON.parse(value); } catch (e) { /* not a record: stored as given */ }
+  if (!rec || typeof rec !== "object") return;
+  await kv.put(ownerKey(key), JSON.stringify(OWNED[t].split(rec)));
+}
 function kvOf(env) {
   const raw = env.LSH_KV;
   if (!raw) return null;
   return {
-    get: (k) => raw.get(KV_PREFIX + k),
+    get: async (k) => {
+      const t = ownedType(k);
+      if (!t) return raw.get(KV_PREFIX + k);
+      const [base, owner] = await Promise.all([raw.get(KV_PREFIX + k), raw.get(KV_PREFIX + ownerKey(k))]);
+      if (base == null || owner == null) return base;
+      try {
+        const rec = JSON.parse(base), own = JSON.parse(owner);
+        if (!rec || typeof rec !== "object" || !own || typeof own !== "object") return base;
+        OWNED[t].overlay(rec, own);
+        return JSON.stringify(rec);
+      } catch (e) { return base; }
+    },
     put: (k, v, o) => raw.put(KV_PREFIX + k, v, o),
     delete: (k) => raw.delete(KV_PREFIX + k),
     list: async (opts = {}) => {
@@ -114,14 +200,40 @@ function portalSecret(env) { return String(env.PORTAL_SSO_SECRET || "").trim(); 
    PORTAL_ONLY=off is the way back to the old name + batch sign-in; leave it unset in production. */
 function portalOnly(env) { return !!(adminPass(env) && String(env.PORTAL_ONLY || "").trim().toLowerCase() !== "off"); }
 // why (optional) gets why a ticket was refused: "format", "signature" (the Portal and this program don't share the same secret) or "expired".
-// An administrator's Portal ticket signs in once: its signature is remembered for 10 minutes (longer than the ticket
-// lives), and a second use is refused.
-async function useTicketOnce(kv, ticket) {
+// An administrator's Portal ticket signs in once. KV can't answer "first use?" atomically (a read, then a write, and
+// a write takes up to a minute to be seen elsewhere), so two uses of a copied link close together could both get in.
+// TicketLedger, a Durable Object per ticket, answers it: one instance in the world per ticket, which checks and marks
+// it in one step. Without the binding (a local stand-in, the tests) the KV check is the fallback, as it was before.
+async function useTicketOnce(env, kv, ticket) {
+  const sig = String(ticket || "").split(".").pop().slice(0, 43);
+  if (env && env.TICKET_LEDGER) {
+    try {
+      const ns = env.TICKET_LEDGER;
+      const r = await ns.get(ns.idFromName("sso:" + sig)).fetch("https://ledger/use", { method: "POST" });
+      if (r.status === 200) return true;
+      if (r.status === 409) return false;
+    } catch (e) { /* the ledger couldn't be reached: the KV check below */ }
+  }
   if (!kv) return true;
-  const key = "sso-used:" + String(ticket || "").split(".").pop().slice(0, 43);
+  const key = "sso-used:" + sig;
   if (await kv.get(key)) return false;
   await kv.put(key, "1", { expirationTtl: 600 });
   return true;
+}
+// One instance per ticket. A Durable Object handles one request's storage step at a time (its input gate), so a
+// second request for the same ticket always sees the first one's mark. The mark is cleared after 15 minutes, when
+// the ticket (good for at most 10) can no longer be used anyway.
+export class TicketLedger {
+  constructor(state) { this.state = state; }
+  async fetch() {
+    return this.state.blockConcurrencyWhile(async () => {
+      if (await this.state.storage.get("used")) return new Response("used", { status: 409 });
+      await this.state.storage.put("used", Date.now());
+      await this.state.storage.setAlarm(Date.now() + 15 * 60 * 1000);
+      return new Response("ok", { status: 200 });
+    });
+  }
+  async alarm() { await this.state.storage.deleteAll(); }
 }
 async function readPortalTicket(env, ticket, why = {}) {
   if (!portalSecret(env)) { why.r = "format"; return null; }
@@ -188,6 +300,8 @@ function candidateIds(name, batch) {
 const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|feedback-style)$/, /^activities:day\d+$/, /^actfile:[a-z0-9]{1,40}$/, /^surprise-task-day\d+$/, /^call-inject-day\d+$/, /^extralessons:day\d+$/, /^lessonx:day\d+$/, /^extraquiz:day\d+$/, /^handouts:links$/];
 const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`, `actsub:${id}`];
 const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt"];
+const IDENTITY_TRAINEE_FIELDS = ["name", "firstName", "lastName", "batch"];
+const ADMIN_OWNED_TRAINEE_FIELDS = PROTECTED_TRAINEE_FIELDS.concat(IDENTITY_TRAINEE_FIELDS);
 
 // callsim:<id>: the trainee's graded calls from the Call Simulator (☎ LSH Ring Channel), kept by the Training Portal (its /api/call-results).
 // labreview:<id>: the trainer's reviews of the trainee's Practice Lab (score, rating, comment per activity; js/cm-lab.js),
@@ -220,6 +334,10 @@ async function traineeWrite(env, tok, key, value) {
     // Trainees keep their own record current, but can never change approval, attempts resets, etc.
     const merged = Object.assign({}, incoming);
     PROTECTED_TRAINEE_FIELDS.forEach((f) => { if (existing && f in existing) merged[f] = existing[f]; else delete merged[f]; });
+    // Who the trainee is (their name and batch) is set once, at registration or by the Portal's sign-in; after that
+    // only an admin changes it. A Training Tools ticket is signed from these fields, so a trainee who renamed
+    // themselves could otherwise sign in elsewhere as someone else.
+    if (existing) IDENTITY_TRAINEE_FIELDS.forEach((f) => { if (f in existing) merged[f] = existing[f]; else delete merged[f]; });
     if (!existing) { merged.approved = false; merged.registeredAt = new Date().toISOString(); }
     merged.id = id;
     await kv.put(key, JSON.stringify(merged)); return null;
@@ -248,7 +366,7 @@ async function traineeWrite(env, tok, key, value) {
   if (key === `focus:${id}`) {
     // Trainees may only mark trainer focus items as seen/done.
     const out = existing && Array.isArray(existing.items) ? existing : { items: [] };
-    const byId = Object.fromEntries(((incoming && incoming.items) || []).map((x) => [x.id, x]));
+    const byId = Object.fromEntries((Array.isArray(incoming && incoming.items) ? incoming.items : []).filter((x) => x && typeof x === "object").map((x) => [x.id, x]));
     out.items.forEach((x) => { const u = byId[x.id]; if (u) { x.seenAt = u.seenAt || x.seenAt || null; x.doneAt = u.doneAt || null; } });
     await kv.put(key, JSON.stringify(out)); return null;
   }
@@ -339,7 +457,7 @@ export class GeminiRelay {
 const gatewayOn = (env) => !!String((env && env.AI_GATEWAY_SECRET) || "").trim();
 async function viaGateway(env, req, user) {
   const toText = (c) => typeof c === "string" ? c : (Array.isArray(c) ? c.map((p) => p && p.text ? p.text : "").join("\n") : "");
-  const messages = (req.messages || []).map((m) => ({ role: m.role === "assistant" ? "model" : "user", text: toText(m.content) }));
+  const messages = (req.messages || []).filter((m) => m && typeof m === "object").map((m) => ({ role: m.role === "assistant" ? "model" : "user", text: toText(m.content) }));
   let r, data = null;
   try {
     r = await fetch(String(env.PORTAL_URL || "https://cm-training-activity.pages.dev").replace(/\/+$/, "") + "/api/ai-gateway", {
@@ -386,9 +504,10 @@ const noThinking = new Set();   // models that refused a thinking setting: not s
 const isChat = (req) => /^(chat|call)$/i.test(String((req && req.feature) || ""));
 async function callGemini(env, rawBody, user) {
   let req; try { req = JSON.parse(rawBody); } catch (e) { return json({ error: "Invalid request" }, 400); }
+  if (!req || typeof req !== "object" || (req.messages !== undefined && !Array.isArray(req.messages))) return json({ error: "Invalid request" }, 400);
   if (gatewayOn(env)) return await viaGateway(env, req, user);
   const toText = (c) => typeof c === "string" ? c : (Array.isArray(c) ? c.map((p) => p && p.text ? p.text : "").join("\n") : "");
-  const contents = (req.messages || []).map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: toText(m.content) }] }));
+  const contents = (req.messages || []).filter((m) => m && typeof m === "object").map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: toText(m.content) }] }));
   const payload = {
     contents,
     // extra headroom: newer Gemini models may spend part of the budget "thinking" before answering
@@ -468,7 +587,7 @@ async function listAll(env, prefix) {
 
    Google: only drive.file, so this can see and change the folders and files it made and nothing else in
    the trainee's Drive. Tokens are sealed with a key derived from SESSION_SECRET and kept in
-   drive:<trainee id>. Needs GOOGLE_CLIENT_ID (a plain variable) and GOOGLE_CLIENT_SECRET (a secret) on
+   cm:drive:<trainee id>. Needs GOOGLE_CLIENT_ID (a plain variable) and GOOGLE_CLIENT_SECRET (a secret) on
    this Worker, with the Google Drive API turned on in that Google Cloud project and this site among the
    OAuth client's authorized JavaScript origins; until both are set, /api/drive says so and the page says
    the Backup Drive isn't switched on yet. Nothing else is blocked either way.
@@ -569,16 +688,29 @@ async function googleRevoke(token) {
   if (!token) return;
   try { await fetch("https://oauth2.googleapis.com/revoke", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ token }).toString() }); } catch (e) { /* best effort */ }
 }
+/* A trainee's drive record is cm:drive:<id>, under this program's "cm:" prefix like every other record. It was once
+   drive:<id> with no prefix, a key the Foundations training's own Backup Drive also uses for the same trainee ids,
+   so the two programs overwrote each other's link, tokens and grades. That old key is read once, as a fallback, for
+   a CM trainee with no record here yet, and is never written or deleted from here again: it stays Foundations'.
+   A record taken away is kept as "null" (not deleted), so the old key isn't read back in its place. */
 const driveKey = (id) => `drive:${id}`;
-async function driveRead(env, id) { return JSON.parse((await env.LSH_KV.get(driveKey(id))) || "null"); }
-async function driveWrite(env, id, rec) { await env.LSH_KV.put(driveKey(id), JSON.stringify(rec)); return rec; }
+const LEGACY_DRIVE_PREFIX = "drive:";
+async function driveRead(env, id) {
+  const kv = kvOf(env);
+  const raw = await kv.get(driveKey(id));
+  if (raw != null) return JSON.parse(raw);
+  if (!(await kv.get(`trainee:${id}`))) return null;   // not one of this program's trainees: never Foundations' record
+  const legacy = await env.LSH_KV.get(LEGACY_DRIVE_PREFIX + id);
+  return legacy ? JSON.parse(legacy) : null;
+}
+async function driveWrite(env, id, rec) { await kvOf(env).put(driveKey(id), JSON.stringify(rec)); return rec; }
 /* The Google link goes; the Day 1 setup, its grade and the record of what was backed up are the trainee's and
    stay. Used by Disconnect and when Google says the link has expired or was taken back, so neither loses a grade. */
 async function driveUnlink(env, id, rec) {
   const kept = {};
   if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt", "grades", "gradedAt", "checkLog", "restoreLog", "drills"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
   if (Object.keys(kept).length) return driveWrite(env, id, kept);
-  await env.LSH_KV.delete(driveKey(id));
+  await kvOf(env).put(driveKey(id), "null");
   return null;
 }
 
@@ -1000,7 +1132,14 @@ async function docFromR2(env, request, path) {
     h.set("Accept-Ranges", "bytes");
     // The browser may keep a copy but re-checks it (a cheap 304), so an updated document shows at once.
     h.set("Cache-Control", "no-cache");
-    if (!("body" in obj)) return new Response(null, { status: 304, headers: h });
+    if (!("body" in obj)) {
+      // A failed precondition: If-None-Match / If-Modified-Since mean "you already have it" (304); a failed
+      // If-Match / If-Unmodified-Since means the copy the client holds is stale (412), never a 304.
+      const q = request.headers, ifMatch = q.get("If-Match");
+      const matchFailed = ifMatch && ifMatch.trim() !== "*" && !ifMatch.split(",").map((t) => t.trim().replace(/^W\//, "")).includes(obj.httpEtag.replace(/^W\//, ""));
+      const freshness = q.has("If-None-Match") || q.has("If-Modified-Since");
+      return new Response(null, { status: matchFailed || !freshness ? 412 : 304, headers: h });
+    }
     let status = 200;
     if (obj.range && request.headers.has("Range")) {
       const r = obj.range;
@@ -1126,7 +1265,7 @@ export default {
           // Single sign-on for trainers too: an administrator signed in on the Main Portal opens every program as a
           // trainer, with no second password here. Their ticket works once, so a copy of the link (browser history,
           // a forwarded URL) can't sign anyone in again inside its 5 minutes.
-          if (!(await useTicketOnce(kv, ticket))) return json({ error: "This sign-in link was already used. Open the program again from the LSH Training Portal.", code: "used" }, 401);
+          if (!(await useTicketOnce(env, kv, ticket))) return json({ error: "This sign-in link was already used. Open the program again from the LSH Training Portal.", code: "used" }, 401);
           return json({ admin: true, name: who.name, token: await makeToken(env, "a", "admin", 12) });
         }
         const res = await traineeSession(who.name, who.batch, "");
@@ -1136,7 +1275,7 @@ export default {
         const cur = out.existing;
         if (!cur || (cur.approved !== true && !cur.rejected)) {
           const rec = Object.assign({}, cur || { id: out.id, name: who.name, firstName: who.first, lastName: who.last, batch: who.batch, registeredAt: new Date().toISOString() }, { approved: true });
-          await kv.put(`trainee:${out.id}`, JSON.stringify(rec));
+          await ownerPut(kv, `trainee:${out.id}`, JSON.stringify(rec));
           out.existing = rec;
         }
         return json(Object.assign(out, { name: who.name, first: who.first, last: who.last, batch: who.batch }));
@@ -1172,6 +1311,9 @@ export default {
         const words = String(rec.name || "").trim().split(/\s+/).filter(Boolean);
         const first = String(rec.firstName || words[0] || "").trim(), last = String(rec.lastName || words.slice(1).join(" ") || "").trim();
         if (!first || !last) return json({ error: "no-name" }, 400);
+        // The ticket names only the trainee this session belongs to: the name and batch must lead back to the token's own id.
+        const ids = candidateIds(`${first} ${last}`, rec.batch);
+        if (![ids.newId, ids.rawId, ids.legacyId].includes(tok.id)) return json({ error: "identity-mismatch" }, 403);
         return json({ ticket: await sign({ first, last, b: String(rec.batch || ""), exp: Date.now() + 5 * 60 * 1000 }) });
       }
 
@@ -1181,6 +1323,7 @@ export default {
          every document they file in the CMS. A trainee only ever reaches their own drive; an admin reads
          a trainee's status to grade it, and can read nothing else of their Google account. */
       if (path === "/api/drive") {
+        if (!env.LSH_KV) return json({ error: "Storage (LSH_KV) isn't bound to this Worker, so the Backup Drive can't keep its link.", code: "NO_STORAGE" }, 503);
         const b = await request.json().catch(() => ({}));
         const action = String(b.action || "status");
         const mine = tok.role === "t" ? tok.id : "";
@@ -1190,8 +1333,12 @@ export default {
           // The audit list: the ids it shows, or every drive record when none are given.
           let ids = Array.isArray(b.traineeIds) ? b.traineeIds.filter((x) => typeof x === "string").map((x) => x.slice(0, 120)).slice(0, 500) : null;
           if (!ids) {
-            ids = []; let cursor;
-            do { const r = await env.LSH_KV.list({ prefix: "drive:", cursor }); r.keys.forEach((k) => ids.push(k.name.slice(6))); cursor = r.list_complete ? null : r.cursor; } while (cursor && ids.length < 2000);
+            // this program's drive records, and the old shared ones only for this program's own trainees
+            const own = new Set((await listAll(env, "drive:")).map((k) => k.slice(6)));
+            const trainees = new Set((await listAll(env, "trainee:")).map((k) => k.slice(8)));
+            let cursor;
+            do { const r = await env.LSH_KV.list({ prefix: LEGACY_DRIVE_PREFIX, cursor }); r.keys.forEach((k) => { const t = k.name.slice(LEGACY_DRIVE_PREFIX.length); if (trainees.has(t)) own.add(t); }); cursor = r.list_complete ? null : r.cursor; } while (cursor && own.size < 2000);
+            ids = [...own].slice(0, 2000);
           }
           const reports = {};
           await Promise.all(ids.map(async (id) => { reports[id] = driveReport(id, await driveRead(env, id)); }));
@@ -1356,7 +1503,7 @@ export default {
         const out = [];
         // A trainee only ever gets their own row, so only their record is read (not one read per trainee).
         for (const k of tok.role === "t" ? [`trainee:${tok.id}`] : await listAll(env, "trainee:")) {
-          const r = JSON.parse((await kv.get(k)) || "null");
+          const r = tok.role === "t" ? me : JSON.parse((await kv.get(k)) || "null");   // a trainee's own record is already read
           if (!r || r.approved !== true || r.archived) continue;
           if (batch && slugPart(r.batch) !== batch) continue;
           if (tok.role === "t" && r.id !== tok.id) continue;   // never another trainee's name or scores
@@ -1390,7 +1537,11 @@ export default {
       }
       if (path === "/api/storage/set") {
         if (!key) return json({ error: "Missing key" }, 400);
-        if (tok.role === "a") { await kv.put(key, body.value); return json({ ok: true }); }
+        if (tok.role === "a") {
+          if (typeof body.value !== "string") return json({ error: "value must be a string" }, 400);
+          await ownerPut(kv, key, body.value);
+          return json({ ok: true });
+        }
         const err = await traineeWrite(env, tok, key, body.value);
         return err ? json({ error: err }, 403) : json({ ok: true });
       }
@@ -1400,7 +1551,9 @@ export default {
       }
       if (path === "/api/storage/delete") {
         if (tok.role !== "a") return json({ error: "Not allowed" }, 403);
-        await kv.delete(key); return json({ ok: true });
+        await kv.delete(key);
+        if (ownedType(key)) await kv.delete(ownerKey(key));
+        return json({ ok: true });
       }
       return json({ error: "Unknown endpoint" }, 404);
     } catch (e) {

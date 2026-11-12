@@ -58,7 +58,7 @@ global.fetch = async (url, init = {}) => {
   if (!t) { console.log('Could not sign a trainee in.'); process.exit(1); }
   const id = (await call(on, '/api/drive', { action: 'status' }, t)).body;
   if (!id || !id.drive || id.drive.configured !== true) fail(`a trainee should see the Backup Drive switched on: ${JSON.stringify(id)}`);
-  const driveRec = () => { const k = [...store.keys()].find((k) => k.startsWith('drive:')); return k ? JSON.parse(store.get(k)) : null; };
+  const driveRec = () => { const k = [...store.keys()].find((k) => k.startsWith('cm:drive:')); return k ? JSON.parse(store.get(k)) : null; };
 
   /* 2: the Drive box unticked */
   revoked.length = 0;
@@ -90,7 +90,7 @@ global.fetch = async (url, init = {}) => {
   ok('a full sign-in links the drive; the tokens are sealed and never sent to the page');
 
   /* 5: Google takes the link back: the Day 1 grade stays */
-  const k = [...store.keys()].find((k) => k.startsWith('drive:'));
+  const k = [...store.keys()].find((k) => k.startsWith('cm:drive:'));
   store.set(k, JSON.stringify(Object.assign(driveRec(), { exp: 0, setup: { attempts: 2, ok: true, score: 100, problems: [] }, tries: [{ ok: false }, { ok: true }], builtAt: '2026-02-09T00:00:00Z', rootId: 'R' })));
   r = await call(on, '/api/drive', { action: 'check' }, t);
   if (!r.body || r.body.code !== 'DRIVE_RECONNECT') fail(`a link Google took back should ask to connect again: ${JSON.stringify(r)}`);
