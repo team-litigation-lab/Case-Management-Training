@@ -326,6 +326,7 @@ function sheetTop(title, sub, controls, right){
    by dimension, its Daily compliance and its critical items), and the grading systems behind it under a toggle. ---------- */
 const domId = id => String(id || "").replace(/[^A-Za-z0-9_-]/g, "_");
 const mpct = v => v == null ? "—" : v + "%";
+const mx = v => Number.isInteger(v) ? v.toFixed(1) : String(v);   // a day multiplier as the client writes it: 1.0, 1.15, 1.3
 function partsTable(ps){
   let g = null, h = "";
   ps.forEach(p => {
@@ -351,7 +352,7 @@ function modelTable(m){
   const g = m.gate, gv = g.total ? (g.breaches.length ? `${g.met} / ${g.total}` : "100%") : "—";
   const crit = MODEL.CRIT.map(k => { const xs = g.items.filter(x => x.id === k.id), bad = xs.filter(x => !x.met).length;
     return `<li><b>${E(k.label)}</b> <span class="bs-in-s">${xs.length ? (bad ? `${bad} breach${bad === 1 ? "" : "es"} of ${xs.length}` : `${xs.length} met`) : "not assessed yet"}</span> — ${E(k.how)}</li>`; }).join("");
-  const days = m.scored.map(x => `Day ${x.n} ${x.S}% × ${x.mult}`).join(" + ");
+  const days = m.scored.map(x => `Day ${x.n} ${x.S}% × ${mx(x.mult)}`).join(" + ");
   return `<table class="bs-pt-t bs-pt-s-model"><colgroup><col class="bs-pt-c1"><col class="bs-pt-c2"><col></colgroup><tbody>
     <tr class="bs-pt-sec"><th colspan="3">🏅 The 100-point model</th></tr>
     ${m.dims.map(x => row(`${x.k.icon} ${E(x.k.label)} <span class="bs-pt-w">${Math.round(x.k.w * 100)}%</span>`, mpct(x.v), MODEL.mtone(x.v),
@@ -372,7 +373,7 @@ function daysTable(m){
       parts.push({group: `${dm.k.icon} ${dm.k.label} · ${Math.round(dm.k.w * 100)}%`, groupV: dm.v + "%", top: true});
       dm.groups.forEach(gr => gr.items.forEach(it => parts.push({group: gr.name, groupV: gr.v + "%", name: it.name, v: it.pct + "%", tone: MODEL.mtone(it.pct), text: it.note}))); });
     if(x.crit.length) x.crit.forEach(cr => parts.push({group: "⛔ Safety gate: critical items", top: true, crit: true, name: cr.name, v: cr.met ? "Met" : "Breach", tone: cr.met ? "gs-hi" : "gs-lo", text: cr.note}));
-    const label = `${E(dayName(x.d))}<small class="bs-pt-mult">× ${x.mult} complexity${x.provisional ? " · provisional: not every dimension has evidence yet" : ""}</small>`;
+    const label = `${E(dayName(x.d))}<small class="bs-pt-mult">× ${mx(x.mult)} complexity${x.provisional ? " · provisional: not every dimension has evidence yet" : ""}</small>`;
     return `<tr><td class="bs-pt-m">${label}</td><td class="bs-pt-v ${MODEL.mtone(x.S)}">${x.S == null ? "—" : x.S + "%"}</td><td class="bs-pt-f">${partsTable(parts) || `<span class="bs-none">Nothing scored on this day yet.</span>`}</td></tr>`; }).join("");
   return `<table class="bs-pt-t bs-pt-s-days"><colgroup><col class="bs-pt-c1"><col class="bs-pt-c2"><col></colgroup><tbody>
     <tr class="bs-pt-sec"><th colspan="3">📅 Day scores</th></tr>
