@@ -9,9 +9,9 @@
        70% practical = 154 minutes: the Knowledge Check (10–15, longer the more topics), a brainstorm after every Skill
                        Building (5 minutes each, 30 at most, never under 3), and the Skill Activities, which share the rest
                        equally (5 to 30 minutes each). Whatever is left over is Q&A.
-   A day with a build (Day 5: the trainees build their companion case, 150 minutes) spends its practical on it: its own
-   Skill Activities are optional extra practice, untimed, and its lessons take what the build and the Knowledge Check
-   leave, up to the 30%.
+   A day with a build (Day 5's Full Application Practice: the trainees build their companion case) spends its practical on
+   it: its own Skill Activities are optional extra practice, untimed. Day 5's lessons are condensed and capped at 30
+   minutes (lessonMax), and the build takes every minute the lessons and the Knowledge Check leave (build: "rest").
    ============================================================ */
 (function(root){
 "use strict";
@@ -34,7 +34,9 @@ function share(total, weights, floor){
    opts: {build: minutes} for a day whose practical is a build (Day 5's companion case). */
 function schedule(items, opts){
   opts = opts || {};
-  const build = Math.max(0, Number(opts.build) || 0);
+  // build: minutes of practical spent on the build, or "rest" (whatever the lessons and the Knowledge Check leave)
+  const fill = opts.build === "rest", lessonMax = Math.max(0, Number(opts.lessonMax) || LESSON_MIN);
+  let build = fill ? 1 : Math.max(0, Number(opts.build) || 0);
   const timed = items.filter(x => !(x.kind === "activity" && (x.optional || build)));
   const lessons = timed.filter(x => x.kind === "lesson");
   const n = lessons.filter(x => !x.brief).length, m = lessons.filter(x => x.brief).length;
@@ -60,7 +62,8 @@ function schedule(items, opts){
   const s = parts.filter(p => p.acts.length).length;
   const brainstorm = s ? Math.max(STORM.min, Math.min(STORM.each, Math.floor(STORM.day / s))) : 0;
   // 30% lessons (less when a build and the Knowledge Check leave less), 70% practical
-  const lessonBudget = lessons.length ? Math.max(0, Math.min(LESSON_MIN, TEACH_MIN - kc - build - s * brainstorm - a * ACT.min)) : 0;
+  const lessonBudget = lessons.length ? Math.max(0, Math.min(LESSON_MIN, lessonMax, TEACH_MIN - kc - (fill ? 0 : build) - s * brainstorm - a * ACT.min)) : 0;
+  if(fill) build = Math.max(0, TEACH_MIN - lessonBudget - kc - s * brainstorm);
   const weights = lessons.map(x => Math.max(1, Number(x.slides) || 1) * (x.thorough ? THOROUGH_WEIGHT : 1));
   const mins = share(lessonBudget, weights, LESSON_FLOOR);
   lessons.forEach((x, i) => { x.mins = mins[i]; });
