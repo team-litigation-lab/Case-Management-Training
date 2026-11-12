@@ -1,20 +1,28 @@
 // The Admin screen in sections, the Foundational Training way (js/cm-admin-shell.js):
-// 1. a row of section pills (🏅 Scorecard · 📊 Rankings · 🔗 Drive Links · 🛡 Admin Master Control · 🔓 Open Lessons), the open
-//    section's tabs in a row under them, and a navy banner (.ft-banner) heading the section's content;
-// 2. Admin opens on 🏅 Scorecard → 👥 Trainee Audit; every existing tab still opens with setAdminTab and lands in its section;
-//    🏅 Scorecards (the #/scorecard page) and 🔓 Open Lessons are tabs here (Open Lessons draws renderAdminOpenLessons when loaded);
-// 3. a tab another script adds later lands in its section, and an unknown one under 🛡 Admin Master Control;
-// 4. ← / → move between the pills; a pill keeps the focus after it opens its section;
-// 5. on a phone the pills fit (no sideways scroll of the page) and the type stays at least 14px;
-// 6. a trainee never gets the Admin screen.
+// 1. a row of section pills in Foundational's order, only the ones this course has (🏅 Scorecard · 🛡 Admin Master Control ·
+//    🔓 Open Lessons), the open section's tabs in a row under them, and a navy banner (.ft-banner) heading the content;
+// 2. Admin opens on 🏅 Scorecard → 📋 Batch Sheet; every tab opens with setAdminTab and lands in its section;
+// 3. 🏅 Scorecard shows only scores (the 📋 Batch Sheet and the 🏅 Scorecards cards): no approving, rejecting, resetting,
+//    revoking, assigning, feedback, certificates, archiving or settings there; all of those are in 🛡 Admin Master Control
+//    (👥 Trainee Audit, 📁 Companion Cases, ⚙ Settings, 🎲 Random Tasks);
+// 4. a tab another script adds later lands under 🛡 Admin Master Control;
+// 5. ← / → move between the pills; a pill keeps the focus after it opens its section;
+// 6. on a phone the pills fit (no sideways scroll of the page) and the type stays at least 14px; a trainee never gets Admin.
 // Usage: node .github/scripts/admin-shell.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
 const BASE = process.argv[2] || 'http://localhost:8787/';
 const failures = []; const fail = (m) => failures.push(m);
-const PILLS = ['🏅 Scorecard', '📊 Rankings', '🔗 Drive Links', '🛡 Admin Master Control', '🔓 Open Lessons'];
-const WHERE = { audit: '🏅 Scorecard', scorecards: '🏅 Scorecard', tfeedback: '🏅 Scorecard', rankings: '📊 Rankings', drivelinks: '🔗 Drive Links',
-    sop: '🛡 Admin Master Control', openlessons: '🔓 Open Lessons', activities: '🔓 Open Lessons', fbstyle: '🔓 Open Lessons', studio: '🔓 Open Lessons' };
+const PILLS = ['🏅 Scorecard', '🛡 Admin Master Control', '🔓 Open Lessons'];
+const SC = '🏅 Scorecard', AMC = '🛡 Admin Master Control', OL = '🔓 Open Lessons';
+const WHERE = { audit: SC, scorecards: SC, traineeaudit: AMC, companion: AMC, tfeedback: AMC, rtasks: AMC, settings: AMC, sop: AMC, studio: AMC,
+    openlessons: OL, activities: OL, fbstyle: OL };
+// what a trainer DOES: never on the 🏅 Scorecard pages
+const ACTIONS = /approveTrainee\(|rejectTrainee\(|resetTraineeLabAttempts\(|confirmRevokeTrainee\(|cmAudit\.revoke\(|cmCompanion\.assign\(|openFeedbackFor\(|adminOpenCertificate\(|confirmArchiveBatch\(|confirmUnarchiveBatch\(|adminLogout\(|saveCertSettings\(|saveFeedbackSettings\(|injectSurpriseTask\(|dupMerge\(|cm-ol-chip/;
+const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
+const BATCH = 'SH' + tag.toUpperCase();
+const SEED = [{ id: `pat-pend-${tag}--s`, name: `Pat Pend ${tag}`, batch: BATCH, registeredAt: new Date().toISOString() },
+    { id: `ann-ok-${tag}--s`, name: `Ann Ok ${tag}`, batch: BATCH, approved: true, lastActive: new Date().toISOString(), labAttemptsGlobal: 1, dayProgress: { 11: { done: true, score: 90 } } }];
 
 (async () => {
     const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
@@ -42,20 +50,45 @@ const WHERE = { audit: '🏅 Scorecard', scorecards: '🏅 Scorecard', tfeedback
             banner: banner ? banner.textContent.replace(/\s+/g, ' ').trim().slice(0, 120) : '', h1s: q('main h1').map(h => h.textContent.trim()), text: (document.querySelector('main') || document.body).innerText.slice(0, 4000) };
     }, tab);
 
-    // 2. the default: 🏅 Scorecard → 👥 Trainee Audit
+    await page.evaluate(async (SEED) => { for (const r of SEED) await sharedSet('trainee:' + r.id, r); }, SEED);
+    await page.evaluate((b) => { state.adminData = null; state.adminBatchFilter = cleanBatch(b); }, BATCH);
+
+    // 2. the default: 🏅 Scorecard → 📋 Batch Sheet
     const home = await open(null);
     if (home.view !== 'admin' || !home.screen) fail(`the Admin screen did not open in its panel: ${JSON.stringify({ view: home.view, screen: home.screen })}`);
     if (JSON.stringify(home.pills) !== JSON.stringify(PILLS)) fail(`the section pills should be ${PILLS.join(' · ')}: ${home.pills.join(' · ')}`);
-    if (home.active[0] !== '🏅 Scorecard' || home.activeTab[0] !== 'audit') fail(`Admin should open on 🏅 Scorecard → Trainee Audit: ${home.active} / ${home.activeTab}`);
+    if (home.active[0] !== SC || home.activeTab[0] !== 'audit') fail(`Admin should open on 🏅 Scorecard → 📋 Batch Sheet: ${home.active} / ${home.activeTab}`);
     if (home.oldGroups) fail('js/cm-case-flow.js grouped the tabs as well (its .cf-admin-secs is on the page)');
     if (home.strips !== 1) fail(`one tab strip, not ${home.strips}`);
-    if (!/Trainee Audit/.test(home.banner)) fail(`the Trainee Audit has no navy banner over it: "${home.banner}"`);
-    if (home.h1s.includes('Trainee Audit')) fail('the Trainee Audit title shows twice (the banner and the old heading)');
+    if (!/Batch Sheet/.test(home.banner)) fail(`the Batch Sheet has no navy banner over it: "${home.banner}"`);
 
-    // the Trainee Audit's certificate signatories stay inside the white panel at a laptop width
-    await page.setViewportSize({ width: 1366, height: 768 }); await open(null);
+    // 3. 🏅 Scorecard: scores only (the sheet, once the batch's progress has loaded, and the cards)
+    const scoresOnly = async (tab, ready) => {
+        await open(tab);
+        await page.waitForFunction(ready, null, { timeout: 20000 }).catch(() => fail(`${tab}: the scores never drew`));
+        return page.evaluate(() => { const s = document.querySelector('.cmsh-screen'); return { html: s ? s.innerHTML : '', text: s ? s.innerText : '' }; });
+    };
+    const sheet = await scoresOnly('audit', () => !!document.querySelector('#bs-scores') && /Ann Ok/.test(document.querySelector('#bsSheet').innerText));
+    const m1 = ACTIONS.exec(sheet.html); if (m1) fail(`the 📋 Batch Sheet still carries an admin action: ${m1[0]}`);
+    if (/View Detail|Hide Detail|Assign a case|Certificate signatories|Archive this batch|Log out/.test(sheet.text)) fail('the 📋 Batch Sheet still shows admin controls (detail, assign, settings, archive, log out)');
+    if (!/Score Card/.test(sheet.text) || !/Scores/.test(sheet.text)) fail('the 📋 Batch Sheet lost its score tables');
+    const cards = await scoresOnly('scorecards', () => !!document.querySelector('.bs-pt'));
+    const m2 = ACTIONS.exec(cards.html); if (m2) fail(`🏅 Scorecards carries an admin action: ${m2[0]}`);
+    if (!/Safety gate|100-point|Final/.test(cards.text)) fail('🏅 Scorecards should show the trainee cards with the 100-point model');
+
+    // ... and they are all in 🛡 Admin Master Control
+    const where = async (tab, sel) => { await open(tab); await page.waitForTimeout(600); return page.evaluate((sel) => sel.filter(x => !document.querySelector('.cmsh-screen ' + x)), sel); };
+    let miss = await where('traineeaudit', [`.at-row button[onclick^="approveTrainee"]`, `.at-row button[onclick^="rejectTrainee"]`, `.at-row button[onclick^="resetTraineeLabAttempts"]`, `.at-row button[onclick^="cmAudit.revoke"]`, `button[onclick^="confirmArchiveBatch"]`, `button[onclick^="adminLogout"]`]);
+    if (miss.length) fail(`👥 Trainee Audit is missing: ${miss.join(', ')}`);
+    miss = await where('companion', ['select.cc-assign']); if (miss.length) fail(`📁 Companion Cases has no case picker: ${miss}`);
+    miss = await where('settings', ['#certTrainer', '#certNameFmt', '#fbAutoDraft', 'button[onclick^="saveCertSettings"]']); if (miss.length) fail(`⚙ Settings is missing: ${miss.join(', ')}`);
+    miss = await where('rtasks', ['#surpriseTaskDaySelect', 'button[onclick^="injectSurpriseTask"]']); if (miss.length) fail(`🎲 Random Tasks is missing: ${miss.join(', ')}`);
+
+    // the certificate signatories stay inside the white panel at a laptop width
+    await page.setViewportSize({ width: 1366, height: 768 }); await open('settings');
     const fit = await page.evaluate(() => { const s = document.querySelector('.cmsh-screen'), g = document.querySelector('.cert-settings-grid');
-        return s && g ? Math.max(0, ...[...g.children].map(c => c.getBoundingClientRect().right - s.getBoundingClientRect().right)) : 0; });
+        return s && g ? Math.max(0, ...[...g.children].map(c => c.getBoundingClientRect().right - s.getBoundingClientRect().right)) : -1; });
+    if (fit < 0) fail('⚙ Settings has no certificate signatories');
     if (fit > 1) fail(`at 1366px the certificate signatory inputs stick out of the Admin panel by ${Math.round(fit)}px`);
     await page.setViewportSize({ width: 1440, height: 900 });
 
@@ -70,14 +103,11 @@ const WHERE = { audit: '🏅 Scorecard', scorecards: '🏅 Scorecard', tfeedback
         if (!r.banner) fail(`${tab}: no navy banner heads the content`);
     }
     const ol = await open('openlessons');
-    if (!/Open Lessons/.test(ol.banner) || !/on its way/.test(ol.text)) fail('🔓 Open Lessons shows no placeholder');
-    await page.evaluate(() => { window.renderAdminOpenLessons = () => '<div class="card" id="olTest">OPEN LESSONS PAGE</div>'; });
-    if (!(await open('openlessons')).text.includes('OPEN LESSONS PAGE')) fail('🔓 Open Lessons does not draw renderAdminOpenLessons() once it exists');
-    await page.evaluate(() => { delete window.renderAdminOpenLessons; });
+    if (!/Open Lessons/.test(ol.banner + ol.text) || !(await page.$('.cmsh-screen .ft-open-days'))) fail('🔓 Open Lessons does not draw its page (renderAdminOpenLessons)');
     const sc = await open('scorecards');
     if (!/Scorecards/.test(sc.banner)) fail(`🏅 Scorecards does not show the scorecards page: "${sc.banner}"`);
 
-    // 3. a tab another script adds later (the ftAdminTab way): an unknown one lands under 🛡 Admin Master Control
+    // 4. a tab another script adds later (the ftAdminTab way): an unknown one lands under 🛡 Admin Master Control
     await page.evaluate(() => {
         const inner = window.renderAdmin;
         window.renderAdmin = function () {
@@ -93,18 +123,18 @@ const WHERE = { audit: '🏅 Scorecard', scorecards: '🏅 Scorecard', tfeedback
     const back = await open('sop');
     if (!back.row.includes('zzlater') || back.strips !== 1) fail(`the later tab is missing from Admin Master Control's row, or the strip doubled: ${back.row} (${back.strips} strips)`);
 
-    // 4. the keyboard: a pill opens its section and keeps the focus; → moves to the next pill
+    // 5. the keyboard: a pill opens its section and keeps the focus; → moves to the next pill
     await open(null);
-    await page.click('.cmsh-sec[data-sec="rankings"]'); await page.waitForTimeout(200);
+    await page.click('.cmsh-sec[data-sec="admin"]'); await page.waitForTimeout(200);
     const k = await page.evaluate(() => ({ tab: state.adminTab, focus: (document.activeElement || {}).dataset ? document.activeElement.dataset.sec : '' }));
-    if (k.tab !== 'rankings' || k.focus !== 'rankings') fail(`the 📊 Rankings pill should open rankings and keep the focus: ${JSON.stringify(k)}`);
+    if (k.tab !== 'traineeaudit' || k.focus !== 'admin') fail(`the 🛡 Admin Master Control pill should open 👥 Trainee Audit and keep the focus: ${JSON.stringify(k)}`);
     await page.keyboard.press('ArrowRight');
     const next = await page.evaluate(() => document.activeElement && document.activeElement.dataset.sec);
-    if (next !== 'drivelinks') fail(`→ should move to the 🔗 Drive Links pill: ${next}`);
+    if (next !== 'open') fail(`→ should move to the 🔓 Open Lessons pill: ${next}`);
     await page.keyboard.press('Enter'); await page.waitForTimeout(200);
-    if (await page.evaluate(() => state.adminTab) !== 'drivelinks') fail('Enter on a pill should open its section');
+    if (await page.evaluate(() => state.adminTab) !== 'openlessons') fail('Enter on a pill should open its section');
 
-    // 5. on a phone
+    // 6. on a phone
     await page.setViewportSize({ width: 390, height: 844 });
     await open('activities');
     const phone = await page.evaluate(() => ({ over: document.documentElement.scrollWidth - window.innerWidth,
@@ -112,6 +142,7 @@ const WHERE = { audit: '🏅 Scorecard', scorecards: '🏅 Scorecard', tfeedback
     if (phone.over > 1) fail(`on a phone the Admin screen scrolls sideways by ${phone.over}px`);
     if (phone.small.length) fail(`type under 14px on the Admin sections: ${JSON.stringify(phone.small)}`);
 
+    await page.evaluate(async (SEED) => { for (const r of SEED) await sharedDelete('trainee:' + r.id); }, SEED);
     await browser.close();
     if (failures.length) { console.error('Admin sections:\n - ' + failures.join('\n - ')); process.exit(1); }
     console.log('All good.');

@@ -347,7 +347,7 @@ const st = document.createElement("style"); st.id = "cm-audit-table"; st.textCon
 .at-wrap{font-family:'Inter',system-ui,sans-serif;}
 .at-bar-top{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:flex-end;background:#1E2340;color:#fff;border-radius:12px 12px 0 0;padding:12px 14px;}
 .at-f{display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:700;color:#E6E8F2;}
-.at-f input,.at-f select{font:500 15px 'Inter',system-ui,sans-serif;padding:7px 10px;border-radius:8px;border:1px solid #4A5070;background:#fff;color:#1E2340;min-height:38px;}
+.at-f input,.at-f select{font:600 15px 'Inter',system-ui,sans-serif;padding:7px 10px;border-radius:8px;border:1px solid #4A5070;background:#fff;color:#1E2340;min-height:38px;}
 .at-f-search input{min-width:220px;}
 .at-bar-top .btn-ghost{background:#262B45;border-color:#5A6080;color:#fff;}
 .at-bar-top .btn-ghost:hover{background:#343A5C;}
@@ -379,7 +379,7 @@ const st = document.createElement("style"); st.id = "cm-audit-table"; st.textCon
 .at-table thead th.at-c-name{z-index:4;}
 .at-name{all:unset;cursor:pointer;font:700 15px 'Inter',system-ui,sans-serif;color:#1E2340;text-decoration:underline;text-decoration-color:#DB8437;text-underline-offset:3px;overflow-wrap:anywhere;}
 .at-name:focus-visible{outline:2px solid #DB8437;}
-.at-id{font:500 14px 'IBM Plex Mono',monospace;color:#2B2F3E;overflow-wrap:anywhere;}
+.at-id{font:600 14px 'IBM Plex Mono',monospace;color:#2B2F3E;overflow-wrap:anywhere;}
 .at-flag{display:inline-block;margin-top:4px;font-size:14px;font-weight:700;}
 .at-flag.bad,.at-warn{color:#9B3A30;font-weight:700;}
 .at-dim{color:#2E3245;font-size:14px;font-weight:600;}

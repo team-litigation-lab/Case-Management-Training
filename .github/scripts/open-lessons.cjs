@@ -102,7 +102,7 @@ async function workerChecks() {
         await page.locator('.ft-od-one .ft-od-day input').nth(3).check(); await page.waitForTimeout(1200);
         const r2 = await page.evaluate((k) => sharedGet(k), 'trainee:' + tid);
         if (JSON.stringify(r2 && r2.unlockedDays) !== '[14]' || !r2.unlockedDaysAt) fail(`Case Flow Day 4 wasn't saved on the trainee's record: ${JSON.stringify(r2 && r2.unlockedDays)}`);
-        const chip = await page.evaluate(() => { state.adminTab = 'audit'; render(); return true; });
+        const chip = await page.evaluate(() => { state.adminTab = 'traineeaudit'; render(); return true; });
         await page.waitForTimeout(1500);
         const chipTxt = await page.evaluate(() => [...document.querySelectorAll('.cm-ol-chip')].map(x => x.textContent.trim()));
         if (chip && !chipTxt.some(t => /Opened for them: CF Day 4/.test(t))) fail(`the Trainee Audit row has no 🔓 chip naming the day opened for them: ${JSON.stringify(chipTxt)}`);
