@@ -5,3 +5,5 @@ wrangler.json
 build
 .github
 .git
+http:
+https:
