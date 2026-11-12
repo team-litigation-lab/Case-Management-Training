@@ -3,8 +3,6 @@
    ------------------------------------------------------------
    Admin → 🛡 Admin Master Control → 📋 Batch Sheet (the tab the Admin screen opens on). Pick a batch (or All batches)
    and every trainee who registered in it is on one page, in tables one under the other:
-     👥 Trainees        status, registered, last on the platform, slides seen, Knowledge Checks passed, where they are now,
-                        and the trainer's feedback (sent, to write)
      📚 Lessons         a column per Case Flow day: the deck (✓ finished, or how far in) and the Knowledge Check score
      🏅 Scores          a column per grading system (the Scorecard's own, js/cm-scorecard.js compute), the Overall % and the
                         rank; click a trainee for 🔎 Grades in detail under it
@@ -13,9 +11,9 @@
      📅 Day by Day      a column per day, and 🔎 a trainee's days in detail (why, ⭐ best, 🔧 improve)
      🧮 Grading systems a sheet per grading system with its own metrics (one shown at a time)
      🕒 Recent progress everything they did, newest first
-   What was 👥 Trainees & Batches is in the sheet: each trainee's actions (Approve / Reject for anyone waiting; View Detail,
-   ✍ Feedback, 🎓 Certificate, ↺ Reset Attempts, 📁 Assign a case…, Revoke) in 👥 Trainees, View Detail opening under it,
-   Show archived, 📦 Archive this batch and Log out in the banner; the folded settings under the sheet.
+   The sheet only shows scores: what a trainer DOES (Approve / Reject, ↺ Reset Attempts, Revoke, 📁 Assign a case…, the
+   detail with ✍ feedback and 🎓 the certificate, 👥 duplicate accounts, 📦 Archive this batch, the settings) is in
+   🛡 Admin Master Control (👥 Trainee Audit, js/cm-audit-table.js; 📁 Companion Cases, js/cm-companion.js; ⚙ Settings).
    It replaces what said the same thing twice: the Trainee Audit's stat tiles and each row's days / average / runs /
    last-active readouts, the Rankings tab, the batch folders' Registry / Rankings / Feedback / Activities sub-tabs, the
    trainer's 🏅 Scorecards page and ⬇ Download Cohort Report (the sheet's ⬇ Download).
@@ -71,6 +69,8 @@ function repaint(){
   if(state.view !== "admin" || !isSheetTab() || (typeof isTyping === "function" && isTyping())) return;
   const el = document.getElementById("bsSheet"); if(el) el.innerHTML = tablesHtml();
 }
+// the duplicate accounts are on the Trainee Audit: redraw whichever page shows them
+const redraw = () => { if(isSheetTab()) repaint(); else if(state.view === "admin" && typeof render === "function") render(); };
 const isSheetTab = () => ["batchsheet", "audit", "rankings"].includes(state.adminTab || "batchsheet");
 function ready(ppl){
   const missingRows = ppl.some(r => !extraOf(r));
@@ -93,40 +93,6 @@ function scoreOf(r){
 const summaryOf = r => { try{ return typeof auditSummary === "function" ? auditSummary(r) : null; }catch(e){ return null; } };
 
 /* ---------- the tables: {id, title, note, head, rows: [[{v, f, cls}]], onRow, rowCls} ---------- */
-function traineesTable(ppl){
-  return {id: "trainees", title: "👥 Trainees", note: "Everyone registered in the batch, from the moment they register: their status, when they were last on, how far they are and the feedback you have sent.",
-    head: ["Trainee", "Batch", "Status", "Actions", "Registered", "Last on the platform", "Slides seen", "Knowledge Checks passed", "Now", "💬 Feedback"],
-    rows: ppl.slice().sort((a, b) => (a.approved === true) - (b.approved === true)).map(r => {
-      const a = summaryOf(r) || {days: [], seen: 0, total: 0, pct: 0, kcPassed: 0, where: "", sent: 0, read: 0, drafts: 0, toWrite: []};
-      const last = [r.lastActive, (extraOf(r) || {}).savedAt].map(T0).filter(Boolean).sort((x, y) => y - x)[0];
-      const st = statusOf(r), n = days().length;
-      const fb = `${a.sent} sent${a.drafts ? ` · ${a.drafts} draft` : ""}${a.toWrite.length ? ` · to write: ${a.toWrite.map(id => { const d = days().find(z => z.id === id); return d ? dayLabel(d) : "Day " + id; }).join(", ")}` : ""}`;
-      return [
-        {v: nameOf(r), f: `${nameOf(r)} · ${r.id}`, cls: "gs-name"},
-        {v: labelOf(keyOf(r)), f: r.batch || "No batch", cls: "gs-batch"},
-        {v: st, f: st, cls: st === "Approved" ? "gs-hi" : st === "Archived" ? "" : "gs-mid"},
-        {v: "", html: actionsHtml(r), cls: "gs-act"},
-        {v: dOnly(r.registeredAt), f: r.registeredAt ? new Date(r.registeredAt).toLocaleString() : "", cls: ""},
-        {v: last ? dOnly(last) : "Not yet", f: last ? `${last.toLocaleString()} (${ago(last)})` : "Hasn't been on the platform since registering", cls: last && Date.now() - last < 2 * 864e5 ? "" : "gs-lo"},
-        {v: a.total ? `${a.seen} / ${a.total} · ${a.pct}%` : "", f: `${a.seen} of ${a.total} slides seen`, cls: "gs-num " + tone(a.total ? a.pct : null)},
-        {v: `${a.kcPassed} / ${n}`, f: `${a.kcPassed} of the ${n} Knowledge Checks passed (70% passes)`, cls: "gs-num"},
-        {v: a.where || "", f: a.where || "", cls: "gs-txt"},
-        {v: fb, f: `${a.sent} sent (${a.read} read)${a.drafts ? `, ${a.drafts} draft` : ""}${a.toWrite.length ? "; days with work but no feedback yet" : ""}`, cls: "gs-txt " + (a.toWrite.length ? "gs-mid" : "")}];
-    })};
-}
-/* a trainee's actions, in the 👥 Trainees table: someone waiting gets Approve / Reject; everyone else the trainee row's own
-   buttons (index.html renderAdminRow, with what other files add to it: 📁 Assign a case…), View Detail opening under the table */
-function actionsHtml(r){
-  if(r.approved !== true && !r.archived) return `<div class="bs-acts"><button class="btn btn-navy btn-sm" onclick="approveTrainee('${E(r.id)}')">Approve</button><button class="btn btn-ghost btn-sm" style="color:var(--danger);" onclick="rejectTrainee('${E(r.id)}')">Reject</button></div>`;
-  if(typeof renderAdminRow !== "function") return "";
-  let html = ""; const keep = state.adminExpandedId; state.adminExpandedId = null;
-  try{ html = renderAdminRow(r, adminDayStats(r), adminPracticeStats(r)); }catch(e){ html = ""; } finally{ state.adminExpandedId = keep; }
-  const t = document.createElement("template"); t.innerHTML = html;
-  const grid = t.content.querySelector(".admin-row-grid"), acts = grid && grid.lastElementChild; if(!acts) return "";
-  acts.removeAttribute("style"); acts.className = "bs-acts";
-  acts.querySelectorAll('[onclick^="toggleAdminDetail("]').forEach(b => { b.textContent = keep === r.id ? "Hide Detail" : "View Detail"; b.setAttribute("onclick", `cmBatchSheet.detail('${E(r.id)}')`); });
-  return acts.outerHTML;
-}
 /* 👥 DUPLICATE ACCOUNTS, as Foundational's (its dupGroups / dupMerge): one person with two accounts. A trainee's account id is
    their name + batch (worker.js candidateIds), so the same person coming in with the name or Batch ID written another way
    (the Portal's form of it, a retyped batch) gets a second, empty account. Each account shows its id, the batch as saved,
@@ -168,7 +134,7 @@ async function dupMerge(key){
   const g = dupGroups().find(x => x.key === key); if(!g) return;
   const keep = B.dupKeep && g.accts.some(a => a.id === B.dupKeep[key]) ? B.dupKeep[key] : g.accts[0].id, others = g.accts.filter(a => a.id !== keep);
   if(!confirm(`Keep ${nameOf(g.accts[0].r)}'s account ${keep} and merge ${others.map(a => a.id).join(", ")} into it?\n\nEverything the other account holds (progress, Knowledge Checks, feedback, Focus, scores) moves into the one kept, and the other account is deleted. A sign-in to it opens the kept one.`)) return;
-  B.dupBusy = key; repaint(); let ok = 0, err = "";
+  B.dupBusy = key; redraw(); let ok = 0, err = "";
   for(const o of others){
     try{
       const fromK = MERGE_KEYS(o.id), intoK = MERGE_KEYS(keep), vals = await sharedGetMany(fromK.concat(intoK));
@@ -189,12 +155,6 @@ async function dupMerge(key){
   B.dupBusy = null; B.extra = {}; B.rowsAt = 0; if(state.auditExtra) Object.keys(state.auditExtra).forEach(k => delete state.auditExtra[k]);
   if(typeof toast === "function") toast(ok === others.length ? `✓ Merged: one account for ${nameOf(g.accts[0].r)} (${keep}).` : `Couldn't merge every account (${err}). Try again.`);
   if(typeof refreshAdminData === "function") refreshAdminData(); else render();
-}
-function detailHtml(ppl){
-  const r = ppl.find(x => x.id === state.adminExpandedId);
-  if(!r || typeof renderAdminDetail !== "function") return "";
-  let body = ""; try{ body = renderAdminDetail(r); }catch(e){ body = `<p class="bs-none">Couldn't open the detail.</p>`; }
-  return `<section class="bs-sec bs-recdetail" id="bs-recdetail"><h3 class="bs-h">🔎 ${E(nameOf(r))} <span>View Detail</span> <button class="btn btn-ghost btn-sm" onclick="cmBatchSheet.detail('${E(r.id)}')">✕ Close</button></h3>${body}</section>`;
 }
 function lessonsTable(ppl){
   const L = days();
@@ -412,15 +372,15 @@ function sheetHtml(T){
       ${T.rows.length ? "" : `<tr class="gs-empty"><th class="gs-rn">2</th><td colspan="${n}" class="bs-none">${E(T.empty || "No trainee here yet.")}</td></tr>`}</tbody></table></div></section>`;
 }
 let LAST = [];
-// the page, as Foundational's: 👥 Trainees, 🏅 Score Card, 📅 Day by Day (and a trainee's days in detail), 🏅 Scores (and the
+// the page, as Foundational's, scores only: 🏅 Score Card, 📅 Day by Day (and a trainee's days in detail), 🏅 Scores (and the
 // picked trainee's grades in detail), 🧮 Grading systems, 📚 Lessons, 🕒 Recent progress. LAST: every table, for ⬇ Download.
 function tablesHtml(){
   const ppl = people();
   if(!ready(ppl)) return `<p class="bs-none scx-pad">Reading the batch's progress…</p>`;
   const sc = scoresTable(ppl), picked = sc.rowsRaw.find(x => x.r.id === B.pick), S = (window.cmScorecard && cmScorecard.sources) || [];
-  const head = [traineesTable(ppl), scoreCardTable(ppl), dayTable(ppl)], tail = [lessonsTable(ppl), recentTable(ppl)];
+  const head = [scoreCardTable(ppl), dayTable(ppl)], tail = [lessonsTable(ppl), recentTable(ppl)];
   LAST = head.concat([sc], S.map(s => systemTable(ppl, s)), tail);
-  return dupHtml() + sheetHtml(head[0]) + detailHtml(ppl) + head.slice(1).map(sheetHtml).join("") + dayDetailHtml(ppl) + sheetHtml(sc) + (picked ? sheetHtml(detailTable(picked)) : "") + systemsHtml(ppl) + tail.map(sheetHtml).join("");
+  return head.map(sheetHtml).join("") + dayDetailHtml(ppl) + sheetHtml(sc) + (picked ? sheetHtml(detailTable(picked)) : "") + systemsHtml(ppl) + tail.map(sheetHtml).join("");
 }
 function bannerHtml(){
   const keys = Array.from(new Set((state.adminData || []).filter(r => !r.rejected).map(keyOf))).sort((a, b) => typeof NO_BATCH !== "undefined" && a === NO_BATCH ? 1 : typeof NO_BATCH !== "undefined" && b === NO_BATCH ? -1 : a.localeCompare(b, undefined, {numeric: true}));
@@ -428,12 +388,10 @@ function bannerHtml(){
   const waiting = (state.adminData || []).filter(r => r.approved !== true && !r.rejected && (!cur || keyOf(r) === cur)).length;
   return `<div class="ft-banner scx-banner"><div><p class="ft-banner-k">Legal Support Help · Case Management Training</p><h2>📋 Batch Sheet</h2>
       <p class="ft-banner-sub">${cur ? `Batch <b>${E(labelOf(cur))}</b>` : "All batches"} · refreshed automatically</p></div>
-    <div class="ft-banner-right"><span>${ppl.length} trainee${ppl.length === 1 ? "" : "s"}</span>${waiting ? `<span class="bs-wait-pill">${waiting} waiting for approval</span>` : ""}</div>
+    <div class="ft-banner-right"><span>${ppl.length} trainee${ppl.length === 1 ? "" : "s"}</span>${waiting ? `<button type="button" class="bs-wait-pill" title="Approve or reject them in 🛡 Admin Master Control → 👥 Trainee Audit" onclick="state.auditStatus='pending';setAdminTab('traineeaudit')">${waiting} waiting for approval →</button>` : ""}</div>
     <div class="ft-banner-ctl"><span class="gs-menu"><label class="scx-bpick">Batch <select onchange="cmBatchSheet.batch(this.value)"><option value="">All batches</option>${keys.map(k => `<option value="${E(k)}" ${k === cur ? "selected" : ""}>${E(labelOf(k))}</option>`).join("")}</select></label>
       <button onclick="cmBatchSheet.csv()">⬇ Download</button><button onclick="cmBatchSheet.refresh()">↻ Refresh</button>
-      <label class="scx-bpick bs-arch"><input type="checkbox" ${state.adminShowArchived ? "checked" : ""} onchange="setAdminShowArchived(this.checked)"> Show archived</label>
-      ${cur ? `<button class="bs-danger" onclick="confirmArchiveBatch('${E(cur)}')">📦 Archive this batch</button>` : ""}
-      <button onclick="adminLogout()">Log out</button></span></div></div>`;
+      <label class="scx-bpick bs-arch"><input type="checkbox" ${state.adminShowArchived ? "checked" : ""} onchange="setAdminShowArchived(this.checked)"> Show archived</label></span></div></div>`;
 }
 window.renderAdminBatchSheet = function(){
   if(state.adminLoading || !state.adminData) return `<div class="card" style="padding:40px;text-align:center;color:var(--ink-soft);">Loading the batches…</div>`;
@@ -453,15 +411,15 @@ window.cmBatchSheet = {
   dsWho(id){ B.ds = id; B.dsOpen = {}; repaint(); setTimeout(() => { const d = document.getElementById("bs-dsdetail"); if(d) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
   dsOpen(d, open){ B.dsOpen[d] = open; },
   sys(id){ B.sys = id; repaint(); setTimeout(() => { const d = document.getElementById("bs-systems"); if(d) d.scrollIntoView({block: "start"}); }, 30); },
-  dupKeep(key, id){ B.dupKeep = B.dupKeep || {}; B.dupKeep[key] = id; repaint(); },
+  // 👥 duplicate accounts: drawn on 🛡 Admin Master Control → 👥 Trainee Audit (js/cm-audit-table.js), not on the sheet
+  dupHtml, dupKeep(key, id){ B.dupKeep = B.dupKeep || {}; B.dupKeep[key] = id; redraw(); },
   dupMerge,
-  detail(id){ state.adminExpandedId = state.adminExpandedId === id ? null : id; repaint(); if(state.adminExpandedId) setTimeout(() => { const d = document.getElementById("bs-recdetail"); if(d) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
   pick(id){ B.pick = B.pick === id ? "" : id; repaint(); setTimeout(() => { const d = document.getElementById("bs-detail"); if(d && B.pick) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
   refresh(){ B.extra = {}; B.rowsAt = 0; if(state.auditExtra) Object.keys(state.auditExtra).forEach(k => delete state.auditExtra[k]); if(typeof refreshAdminData === "function") refreshAdminData(); else render(); },
   csv
 };
 
-// a row action (↺ Reset Attempts, 📁 Assign a case…, View Detail's own saves) redraws the old row list: redraw the sheet instead
+// a trainee's saves (↺ Reset Attempts, 📁 Assign a case…, the detail's own) redraw the row list: redraw the sheet too
 const __rows = window.refreshAdminRows;
 if(typeof __rows === "function") window.refreshAdminRows = function(){ const r = __rows.apply(this, arguments); repaint(); return r; };
 function hookCompanion(){
@@ -470,18 +428,15 @@ function hookCompanion(){
 }
 setTimeout(hookCompanion, 0); document.addEventListener("DOMContentLoaded", hookCompanion);
 
-// the trainer's 🏅 Scorecards page is the sheet's 🏅 Scores now: an old link opens the Batch Sheet
-const __sc = window.renderScorecardPage;
-if(typeof __sc === "function") window.renderScorecardPage = function(){
-  if(state.isAdmin && !state.adminPreview){ setTimeout(() => { state.adminTab = "batchsheet"; goto("admin"); }, 0); return `<div class="card" style="padding:40px;text-align:center;">Opening the Batch Sheet…</div>`; }
-  return __sc.apply(this, arguments);
-};
+// the trainer's 🏅 Scorecards page (js/cm-scorecard.js: every trainee's card and the 100-point model) is its own tab beside
+// the sheet: Admin → 🏅 Scorecard → 🏅 Scorecards (js/cm-admin-shell.js)
 
 const css = document.createElement("style"); css.id = "cm-batch-sheet";
 css.textContent = `
 .bs-page{margin-bottom:22px;}
 .bs-page .ft-banner{margin-bottom:12px;}
 .bs-page .bs-wait-pill{background:#F6C08F !important;color:#1E2340 !important;border-color:#F6C08F !important;}
+button.bs-wait-pill{cursor:pointer;font:800 14px Arial,sans-serif;border:1px solid;border-radius:999px;padding:4px 12px;}
 .bs-page .gs-wrap{max-height:62vh;}
 .scx-card td.bs-lesson{font-size:14px;}
 /* headers wrap between words only (main's overflow-wrap:anywhere broke "Knowledg-e"); a column is as wide as its words */

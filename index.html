@@ -3615,7 +3615,7 @@ async function applyAdminUnlocks(rec){
   state.adminUnlockedDays = next;
   await storeSet("admin-unlocked-days", next);
   const added = next.filter(n=>!prev.includes(n));
-  if(added.length) toast(`🔓 Your trainer unlocked Day${added.length>1?"s":""} ${added.join(", ")} for you.`);
+  if(added.length) toast(`🔓 Your trainer opened ${added.map(n=>typeof daLabel==="function" ? daLabel(n) : "Day "+n).join(", ")} for you.`);
   state.labResetRenderPending = true;
   await renderLabResetIfSafe();
 }
@@ -5683,9 +5683,12 @@ async function checkSurpriseTask(){
     }
     // the trainer's injected Ring Channel call rides on the same request (js/cm-case-flow.js, cmCaseFlow.onRing)
     const ringKeys = (window.cmCaseFlow && typeof cmCaseFlow.ringKeys === "function") ? cmCaseFlow.ringKeys() : [];
-    const got = await sharedGetMany(dayIds.map(id=>"surprise-task-day"+id).concat(ringKeys));
+    // and so do the Case Flow days the trainer has opened (js/cm-open-lessons.js, 🔓 Open Lessons)
+    const openKeys = (window.cmOpenLessons && typeof cmOpenLessons.keys === "function") ? cmOpenLessons.keys() : [];
+    const got = await sharedGetMany(dayIds.map(id=>"surprise-task-day"+id).concat(ringKeys, openKeys));
     const recs = got.slice(0, dayIds.length);
-    if(ringKeys.length){ try{ cmCaseFlow.onRing(got.slice(dayIds.length)); }catch(e){} }
+    if(ringKeys.length){ try{ cmCaseFlow.onRing(got.slice(dayIds.length, dayIds.length + ringKeys.length)); }catch(e){} }
+    if(openKeys.length){ try{ cmOpenLessons.onKeys(got.slice(dayIds.length + ringKeys.length)); }catch(e){} }
     const live = recs.filter(r=>surpriseTaskIsLive(r)).sort((a,b)=>new Date(b.generatedAt||0)-new Date(a.generatedAt||0));
     state.activeSurpriseTask = live[0] || null;
     live.forEach(t=>syncTaskFromBroadcast(t));
@@ -11555,6 +11558,9 @@ function renderAdmin(){
   const tabBar = `
     <div class="admin-tabs" style="display:flex;gap:8px;margin-bottom:20px;border-bottom:1px solid var(--line);">
       <button class="admin-tab-btn ${tab==='audit'?'active':''}" onclick="setAdminTab('audit')">📋 Batch Sheet</button>
+      <button class="admin-tab-btn ${tab==='traineeaudit'?'active':''}" onclick="setAdminTab('traineeaudit')">👥 Trainee Audit</button>
+      <button class="admin-tab-btn ${tab==='companion'?'active':''}" onclick="setAdminTab('companion')">📁 Companion Cases</button>
+      <button class="admin-tab-btn ${tab==='settings'?'active':''}" onclick="setAdminTab('settings')">⚙ Settings</button>
       <button class="admin-tab-btn ${tab==='sop'?'active':''}" onclick="setAdminTab('sop')">SOP Reference</button>
       <button class="admin-tab-btn ${tab==='studio'?'active':''}" onclick="setAdminTab('studio')">Content Studio</button>
       <button class="admin-tab-btn ${tab==='tfeedback'?'active':''}" onclick="setAdminTab('tfeedback')">Trainee Feedback</button>
@@ -11573,7 +11579,11 @@ function renderAdmin(){
     return tabBar + `<div class="card" style="padding:40px;text-align:center;color:var(--ink-soft);">Loading trainee ledger…</div>`;
   }
 
-  return tabBar + renderAdminSecurityNote() + (typeof renderAdminBatchSheet==="function" ? renderAdminBatchSheet() : "") + renderTraineesAndBatches();
+  // 🛡 Admin Master Control: what a trainer DOES (approvals, resets, revoking, assigning, the settings); the 📋 Batch Sheet only shows scores
+  if(tab==="traineeaudit") return tabBar + renderAdminSecurityNote() + (typeof renderAdminTraineeAudit==="function" ? renderAdminTraineeAudit() : renderAuditBatchView());
+  if(tab==="companion") return tabBar + (window.cmCompanion && typeof cmCompanion.adminPage==="function" ? cmCompanion.adminPage() : "");
+  if(tab==="settings") return tabBar + `<p class="eyebrow">Admin</p><h1 style="color:var(--navy);font-size:26px;margin:6px 0 14px;">Settings</h1>` + renderTraineesAndBatches();
+  return tabBar + renderAdminSecurityNote() + (typeof renderAdminBatchSheet==="function" ? renderAdminBatchSheet() : "");
 }
 /* 👥 Trainees & Batches, at the foot of the 📋 Batch Sheet (as in Foundational Training): what a trainer DOES — approvals,
    each trainee's actions, archiving, the folded settings. Their progress and scores are the sheet's tables above. */
@@ -11588,10 +11598,10 @@ function renderAdminSecurityNote(){
 function renderTraineesAndBatches(){
   return `
     <section class="bs-settings">
-    <details class="card adm-settings"><summary>⚙ Certificate signatories &amp; feedback drafts</summary>
+    <details class="card adm-settings" open><summary>⚙ Certificate signatories &amp; feedback drafts</summary>
     <div class="card cert-settings">
       <b style="color:var(--navy);font-size:13.5px;">🎓 Certificate signatories</b>
-      <p>Signatures are generated automatically from these names. The trainer can also be set per trainee in <b>View Detail → Certificate details</b>.</p>
+      <p>Signatures are generated automatically from these names. The trainer can also be set per trainee in <b>👥 Trainee Audit → click their name → Certificate details</b>.</p>
       <div class="cert-settings-grid">
         <input id="certTrainer" placeholder="Default trainer name" value="${esc((state.certSettings||{}).trainerName||"")}">
         <input id="certTrainerTitle" placeholder="Trainer title" value="${esc((state.certSettings||{}).trainerTitle||"Trainer")}">
@@ -11606,7 +11616,7 @@ function renderTraineesAndBatches(){
     </div>
     <div class="card fb-settings">
       <b style="color:var(--navy);font-size:13.5px;">💬 Trainer feedback</b>
-      <p>Trainers write each trainee's day-by-day feedback in <b>View Detail → Day-by-Day Feedback → ✍ Write feedback</b>, then click <b>Send to trainee</b>. Trainees only ever see feedback a trainer has sent.</p>
+      <p>Trainers write each trainee's day-by-day feedback in <b>👥 Trainee Audit → click their name → Day-by-Day Feedback → ✍ Write feedback</b>, then click <b>Send to trainee</b>. Trainees only ever see feedback a trainer has sent.</p>
       <label><input type="checkbox" id="fbAutoDraft" ${(state.fbSettings && state.fbSettings.autoDraft)?"checked":""} onchange="saveFeedbackSettings()"> Optional: pre-fill a suggested draft (from the trainee's work) for trainers to edit — never sent automatically</label>
     </div>
     </details>
@@ -16091,15 +16101,16 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-data.js?v=62"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=3"></script>
-<script src="/js/cm-case-flow.js?v=130"></script>
+<script src="/js/cm-case-flow.js?v=131"></script>
 <script src="/js/cm-script-editor.js?v=17"></script>
 <!-- 🏅 the Scorecard (as in Foundational Training): My Performance for trainees, Scorecards for trainers -->
-<script src="/js/cm-scorecard.js?v=8"></script>
-<script src="/js/cm-batch-sheet.js?v=6"></script>
+<script src="/js/cm-scorecard.js?v=9"></script>
+<script src="/js/cm-batch-sheet.js?v=7"></script>
 <script src="/js/cm-know-tools.js?v=8"></script>
 <!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
 <script src="/js/cm-companion-cases.js?v=1"></script>
-<script src="/js/cm-companion.js?v=2"></script>
+<script src="/js/cm-companion.js?v=3"></script>
+<script src="/js/cm-open-lessons.js?v=1"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=5"></script>
 <script src="/js/lsh-tool-links.js?v=cm-2026.10.23-trainer-sso"></script>
@@ -16108,6 +16119,9 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-cms-upload.js?v=cm-2026.10.22-cms-upload"></script>
 <!-- 📂 the trainee's own Backup Drive: the firm's folder structure, built and graded on Day 1 -->
 <script src="/js/cm-drive.js?v=cm-2026.11.12-drive-grades"></script>
+<!-- 🛡 the Admin screen in sections, as Foundational Training: the section pills, their tabs, a navy banner (wraps renderAdmin last) -->
+<script src="/js/cm-admin-shell.js?v=3"></script>
+<script src="/js/cm-audit-table.js?v=2"></script>
 <script src="/js/lsh-topbar.js?v=2"></script>
 <script src="/js/lsh-one-screen.js?v=1"></script>
 </body>

@@ -2253,6 +2253,7 @@ const adminGroupOf = tab => (ADMIN_GROUPS.find(g => g.tabs.includes(tab)) || ADM
 /* the Admin screen as Foundational's: one solid panel, the page as wide as the screen (main.cm-admin-main) */
 const adminPanel = out => state.isAdmin ? `<div class="cm-admin-screen">${out}</div>` : out;
 function groupAdminTabs(out){
+  if(window.cmAdminShell) return out;   // js/cm-admin-shell.js groups them (Foundational's sections), as the outermost wrapper
   const a = out.indexOf('<div class="admin-tabs"'); if(a < 0) return out;
   const b = out.indexOf("</div>", a) + 6;
   const t = document.createElement("template"); t.innerHTML = out.slice(a, b);

@@ -165,10 +165,26 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/drive-slide.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: The Admin screen in sections, as Foundational (section pills, their tabs, a navy banner; opens on Scorecard → Batch Sheet, scores only; every admin action in Admin Master Control)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/admin-shell.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: The Trainee Audit is one table (the name opens the detail, Reset beside it, Approve / Reject / Revoke as buttons; Companion Cases its own table)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/trainee-audit.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: The trainer's injected call rings every trainee; answered or missed, it counts under Case Calls
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/ring-inject.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: 🔓 Open Lessons (the trainer opens a Case Flow day for a batch or one trainee; the trainee sees it; a trainee can't write it)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/open-lessons.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: The Scorecard as the trainee card (the 100-point model, its day multipliers, pass at 80% with the safety gate; the trainee's own card, every card for the trainer, the CSV)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/scorecard-card.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: 🗺 Roadmap lists every day and its topics (in place of the day cards' ☰ Topics), and opens a reached topic
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
