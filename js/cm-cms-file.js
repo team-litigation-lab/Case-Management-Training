@@ -72,7 +72,9 @@ function compute(c){
   const ticks = R.ticks || {}, work = R.work || {}, rev = R.revealed || {}, filing = data["doc-filing"] || {}, cms = data["cms-file"] || {};
   const closed = n => { const d = cfDays().find(x => x.cf.n === n); const p = d ? ((rec.dayProgress || {})[d.id] || {}) : {}; return !!(p.done || (cfd[n] || {}).passed); };
   const reached = n => { const d = cfDays().find(x => x.cf.n === n); return closed(n) || !!(d && (rec.dayProgress || {})[d.id]) || (P.days[n] || {acts: []}).acts.some(a => worked(a.id)); };
-  const worked = id => ((ticks[id] || []).some(Boolean)) || !!rev[id] || !!(work[id] && work[id].ref);
+  // an activity worked: a Check Your Work tick, its answers revealed, its work logged, or its own exercise done (the
+  // voicemail transcribed, the Listening Check handed in, the call taken), as the Case Flow counts it (actDone)
+  const worked = id => ((ticks[id] || []).some(Boolean)) || !!rev[id] || !!(work[id] && work[id].ref) || !!((R.notes || {})[id] || {}).txAt || !!((R.listen || {})[id] || {}).at || !!(R.calls || {})[id];
   const days = cfDays().map(d => {
     const n = d.cf.n, pl = P.days[n] || {acts: [], docs: []}, shut = closed(n), areas = {};
     const put = (aid, it) => { (areas[aid] = areas[aid] || []).push(it); };
