@@ -1,7 +1,7 @@
 // Every slide fits on one screen: on the lesson page, the slide and its Previous / Next bar end inside the
 // window (no scrolling), nothing inside the slide frame is cut off or scrolls, and no slide is split onto a
-// second page (a long one is scaled to fit) — every slide of every day, on a laptop and on a large screen. On a desktop the lesson's controls sit to the right of
-// the slide; on a narrower window (under 1000px) they stay above it, and the slide still never scrolls inside
+// second page (a long one is scaled to fit) — every slide of every day, on a laptop and on a large screen. On a desktop the slide takes the page's width with
+// ⛶ Full screen in its Previous / Next bar; on a narrower window (under 1000px) the controls stay above it, and the slide still never scrolls inside
 // (the page itself may: the site's top bar alone wraps to three rows there).
 // Usage: node .github/scripts/fit.cjs [baseUrl] [days]   (with .github/scripts/server.mjs running; needs `npm i playwright`;
 //        days: e.g. 1,4,7 — default every day)
@@ -49,9 +49,13 @@ const SIZES = [[1366, 768], [1920, 1080]];
                         if ([...wrap.children].some(c => c.style.zoom && Number(c.style.zoom) < 1)) counts.shrunk++;
                     }
                 }
-                // the controls: to the right of the slide on a desktop
-                const top = document.querySelector('.ls-top'), stage = document.getElementById('lessonStage');
-                if (top && stage && innerWidth >= 1000 && top.getBoundingClientRect().left < stage.getBoundingClientRect().right) out.push(`Day ${d.id}: the lesson controls aren't in the column to the right of the slide`);
+                // a desktop: the slide takes the page's width (no column beside it), ⛶ Full screen in its Previous / Next bar
+                const stage = document.getElementById('lessonStage'), main = document.querySelector('main');
+                if (stage && main && innerWidth >= 1000) {
+                    const free = main.clientWidth - (parseFloat(getComputedStyle(main).paddingLeft) || 0) - (parseFloat(getComputedStyle(main).paddingRight) || 0);
+                    if (stage.getBoundingClientRect().width < free - 4) out.push(`Day ${d.id}: the slide doesn't take the page's width (${Math.round(stage.getBoundingClientRect().width)} of ${Math.round(free)}px)`);
+                    if (!stage.querySelector('.slide-nav .nav-fs')) out.push(`Day ${d.id}: no ⛶ Full screen in the Previous / Next bar`);
+                }
             }
             return { out, counts };
         }, ONLY);
