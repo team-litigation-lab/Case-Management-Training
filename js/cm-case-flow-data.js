@@ -8152,7 +8152,7 @@ window.CM_CASE_FLOW = {
        },
 
       {
-        kind: "lesson", id: "d4m2-um",
+        kind: "lesson", id: "d4m2-um", thorough: true,
         title: "UM/UIM Disputes & Resolution Routes",
         topic: "A claim against your own client's carrier, and the two roads out of an impasse",
         visual: "A three-step flow across the full slide on cream, each step a white orange-bordered card that opens as a pop-up context card on click. ① CLAIM SUBMISSION · UM DEMAND PACKAGE (03/22/2027), its card listing the proof of exhaustion. ② DISPUTE · IMPASSE (03/31 $8,000 · 04/02 $6,000), its card holding the impasse memo. ③ RESOLUTION ROUTE, drawn as a fork: the upper arm, heavier and navy, DEMAND FOR ARBITRATION · HARBOR POINT CLAUSE, running to a mono date strip 06/22/2027; the lower arm, outlined, FILE SUIT AGAINST THE CARRIER, tagged STATE LAW BARS OR LETS THE INSURED OPT OUT. A separate red-bordered card stands off to the side, deliberately off the fork: BAD FAITH · A SEPARATE SUIT · ABOVE THE POLICY LIMIT · ATTY. THORNE DECIDES. Above the fork, a navy banner: THE ROUTE IS READ, NEVER CHOSEN. Along the top edge, two facing chips: THIRD PARTY → ROBERT SMITH'S CARRIER and FIRST PARTY → OUR OWN CLIENT'S CARRIER.",
@@ -8223,7 +8223,7 @@ window.CM_CASE_FLOW = {
       },
 
       {
-        kind: "lesson", id: "d4m2-l2", compact: true,
+        kind: "lesson", id: "d4m2-l2", thorough: true,
         title: "Mediation vs. Binding Arbitration & the UPL Line at Hearings",
         topic: "Two neutrals, two standards, one boundary",
         visual: "Two forum cards face each other across the slide, joined by a bold orange arrow labelled COMPROMISE → TRIAL-READY. Left, a navy-soft card: MEDIATION · 03/18/2027 · HON. CARLA BENTON (RET.), with three chips: NON-BINDING · CONFIDENTIAL · FACILITATES. Right, a solid navy card, visibly heavier: BINDING ARBITRATION · 06/22/2027 · LAURA WHITCOMB, ESQ., with three chips: ACTS AS JUDGE · BINDING AWARD · APPEAL LIMITED, and a mono hard-date strip beneath it (06/02 · 06/11 · 06/22/2027). Across the bottom, a full-width red-bordered UPL bar in two halves: CM CAN (observe · log directives · update the CMS) in navy, CM NEVER (argue · speak on the record · speak for John Doe · negotiate) in red. The bar spans both cards: the line is the same at both tables. Above both cards, a slim full-width timeline strip marks where ADR can land: BEFORE FILING (pre-litigation mediation · pre-filing arbitration clause) on the left in navy-soft, a vertical orange COMPLAINT FILED marker in the middle, and AFTER FILING (court-ordered mediation · agreed binding arbitration) on the right, with both of this file's sessions pinned on the right-hand half.",
@@ -8613,7 +8613,7 @@ window.CM_CASE_FLOW = {
       blocks: [
 
       {
-        kind: "lesson", id: "d4m3-l1", compact: true,
+        kind: "lesson", id: "d4m3-l1", thorough: true,
         title: "The Mediation Binder & Exhibit Indexing",
         topic: "Six sections, one master index, and the five-second rule",
         visual: "An open binder seen from above fills the left two-thirds: six navy divider tabs stepped down its right edge, each with an orange numbered badge ①–⑥ and its section name, and beside each tab a cream card listing this file's documents as mono pills (RPD-26-018842 · EDR · MRI 03/13/2026 · $16,401.40). Across the top runs a slim navy bar, MASTER INDEX — ONE SOURCE OF TRUTH, with column chips Exhibit · Bates · Source · Status and thin orange leader lines running from index rows down into the tabs. Right third: a large stopwatch chip, 5 SECONDS, above a red danger callout: “Drafts and superseded pleadings never enter the binder.” The leader lines run from the index into the binder, never back: that is the argument.",
@@ -8740,7 +8740,7 @@ window.CM_CASE_FLOW = {
       },
 
       {
-        kind: "lesson", id: "d4m3-l2", compact: true,
+        kind: "lesson", id: "d4m3-l2", thorough: true,
         title: "Arbitration Exhibits & Evidentiary Rules",
         topic: "From a binder that persuades to the record a binding award rests on",
         visual: "Two panels joined by a heavy orange arrow labelled THE GAP DISPUTE CARRIES OVER. Left, small and greyed: the Mediation Binder, captioned PERSUADES · NON-BINDING. Right, dominant: six navy tabs ①–⑥ with orange badges, each above a cream card stating its QC rule in one line. Over Tab 1, an orange-outlined THRESHOLD chip: BI EXHAUSTED · $10,000 TENDERED 03/18/2027. Beneath the tabs, an AUTHENTICATION rail of three mono pills: CUSTODIAN CERTIFICATION · NATIVE FILE · CHAIN OF CUSTODY. Bottom-right, a red danger callout: “Not exchanged by 06/02/2027 → may not count.” Beside it, a grey chip: CONFIRM THE FORUM'S RULES. The difference in size between the panels is the argument: this record decides.",
@@ -11360,7 +11360,7 @@ window.CM_CASE_FLOW = {
       {title: "Reductions, Lien Negotiation & ADR", lead: "Module 4", blocks: ["d3m3-l1", "d3m3-l2", "d3m3-l3", "d3m3-a1", "d3m3-a2", "d3m4-l1", "d3m4-l2", "d3m4-close", "d3m4-a1", "d3m4-pal", "d3m4-a2", "d4-drive", "d4m2-l1", "d4m2-um", "d4m2-l2", "d4m2-a3", "d4m2-a1", "d4m2-medcal", "d4m2-a2", "d4m2-arbcal", "d4m3-l1", "d4m3-l2", "d4m3-prior", "d4m3-tx", "d4m3-a1", "d4m3-a2", "d3m3-kc", "d3m4-kc", "d4m2-kc", "d4m3-kc"],
        headings: {"d4-drive": "Skill Building: Backup File Maintenance", "d3m3-l1": "Lien Negotiations & Reduction", "d3m3-l2": "Lien Negotiations & Reduction", "d3m3-l3": "Lien Negotiations & Reduction", "d3m4-l1": "Disbursement & Closing a Case", "d3m4-l2": "Disbursement & Closing a Case", "d3m4-close": "Disbursement & Closing a Case", "d4m2-l1": "ADR: UM Disputes, Mediation & Arbitration", "d4m2-um": "ADR: UM Disputes, Mediation & Arbitration", "d4m2-l2": "ADR: UM Disputes, Mediation & Arbitration", "d4m3-l1": "ADR: The Binders", "d4m3-l2": "ADR: The Binders", "d4m3-prior": "ADR: The Binders", "d4m3-tx": "ADR: The Binders", "d3m3-a1": "Skill Building: Lien Negotiations", "d3m3-a2": "Skill Building: Lien Negotiations", "d3m4-a1": "Skill Building: Disbursement & Closing", "d3m4-pal": "Skill Building: the Prior-Attorney Lien", "d3m4-a2": "Skill Building: Disbursement & Closing", "d4m2-a1": "Skill Building: UM Disputes, Mediation & Arbitration", "d4m2-medcal": "Skill Building: UM Disputes, Mediation & Arbitration", "d4m2-a2": "Skill Building: UM Disputes, Mediation & Arbitration", "d4m2-arbcal": "Skill Building: UM Disputes, Mediation & Arbitration", "d4m2-a3": "Skill Building: UM Disputes, Mediation & Arbitration", "d4m3-a1": "Skill Building: The Binders", "d4m3-a2": "Skill Building: The Binders"}}
     ]},
-    {n: 5, phases: [
+    {n: 5, build: 150, phases: [   // build: the practical is 150 minutes building the trainee's companion case (the day's own Skill Activities are optional extra practice)
       {title: "Litigation & Dropped Cases", lead: "Module 5", blocks: ["d4m1-l1", "d4m1-l2", "d4m1-a1", "d4m1-a2", "d4m1-efile", "d4m4-l1", "d4m4-l2", "d4m4-a1", "d4m4-a2", "d5m1-l1", "d5m1-l2", "d5m1-subp", "d5m1-a1", "d5m1-a2", "d5m2-l1", "d5m2-a1", "d5m3-l1", "d5m3-l2", "d5m3-a1", "d5m3-a2", "d5m4-l1", "d5m4-l2", "d5m4-a1", "d5m4-a2", "d5m5-l1", "d5m5-a1", "d5-drive", "d5m6-l1", "d5m6-a1", "d4m1-kc", "d4m4-kc", "d5m1-kc", "d5m2-kc", "d5m3-kc", "d5m4-kc", "d5m5-kc", "d5m6-kc"],
        headings: {"d5-drive": "Skill Building: Backup File Maintenance", "d4m1-l1": "Litigation", "d4m1-l2": "Litigation", "d4m4-l1": "Litigation", "d4m4-l2": "Litigation", "d5m1-l1": "Litigation", "d5m1-l2": "Litigation", "d5m1-subp": "Litigation", "d5m2-l1": "Litigation: Does PD Touch Our Case?", "d5m3-l1": "Litigation", "d5m3-l2": "Litigation", "d5m4-l1": "Litigation", "d5m4-l2": "Litigation", "d5m5-l1": "Case Won: Award & Disbursement", "d5m6-l1": "Dropped Cases & Withdrawal Letters", "d4m1-a1": "Skill Building: Litigation", "d4m1-a2": "Skill Building: Litigation", "d4m1-efile": "Skill Building: Litigation", "d4m4-a1": "Skill Building: Litigation", "d4m4-a2": "Skill Building: Litigation", "d5m1-a1": "Skill Building: Litigation", "d5m1-a2": "Skill Building: Litigation", "d5m2-a1": "Skill Building: Does PD Touch Our Case?", "d5m3-a1": "Skill Building: Litigation", "d5m3-a2": "Skill Building: Litigation", "d5m4-a1": "Skill Building: Litigation", "d5m4-a2": "Skill Building: Litigation", "d5m5-a1": "Skill Building: Case Won", "d5m6-a1": "Skill Building: Dropped Cases"}}
     ]}
