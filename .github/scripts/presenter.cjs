@@ -1,5 +1,5 @@
 // Presenter view test: the slides window (the one shared in Google Meet) must never flicker.
-// Opens Presenter view as a trainer, then watches the slides window's content being replaced.
+// Opens Presenter view as a trainer from the slide's footer card (🖥 Presenter view: the speaker notes beside the slide), then watches the slides window's content being replaced.
 //   - Next: the slide is drawn once, with no entrance animation (no blank first frames);
 //   - the console re-drawing (its live copy reconnects): the slides window is NOT drawn again;
 //   - a long slide's next page: shown in place, not drawn again;
@@ -28,11 +28,18 @@ const DAY = Number(process.argv[3] || 0);   // 0: the course's first day
         await fetch('/api/storage/set', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key, value: JSON.stringify(rec) }) });
     });
     await page.reload({ waitUntil: 'load' }); await sleep(1500);
-    await page.evaluate((day) => { state.isAdmin = true; goto('day', day || DAYS[0].id); state.dayViewMode = 'slides'; state.lessonSlide = 2; render(); }, DAY);
+    // (signed in as a trainee first: the trainee's 🔔 open-your-tools prompt is dismissed, as a trainee would)
+    await page.evaluate((day) => { const kt = document.getElementById('ktLogin'); if (kt) kt.remove(); state.isAdmin = true; goto('day', day || DAYS[0].id); state.dayViewMode = 'slides'; state.lessonSlide = 2; render(); }, DAY);
     await sleep(400);
+    // a trainer opens it from the slide's footer card (beside ⛶ Full screen), as they do in class
+    const pvBtn = page.locator('.slide-nav .nav-pv');
+    if (!(await pvBtn.count())) fail('the footer card under the slide has no 🖥 Presenter view button for the trainer');
     const popup = ctx.waitForEvent('page');
-    await page.evaluate(() => presenterStart());
+    if (await pvBtn.count()) await pvBtn.click(); else await page.evaluate(() => presenterStart());
     const aud = await popup; await aud.waitForLoadState('load');
+    // the trainer's side is the console with the speaker notes
+    await sleep(800);
+    if (!(await page.evaluate(() => !!document.querySelector('.pv #pvCues') && document.querySelector('#pvCues').innerText.trim().length > 40))) fail('Presenter view opened without the speaker notes beside the slide');
     aud.on('pageerror', e => fail(`slides window page error: ${e.message}`));
     await sleep(2500);
     // count every time the slides window's content is replaced, and the messages it hears

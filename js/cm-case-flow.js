@@ -5346,6 +5346,13 @@ document.head.appendChild(st);
 .cfx-agenda .cfx-ag-side p:not(.cfx-ag-day){font-size:18px;}
 /* bigger and bold: every slide's body text, as on Foundational's decks */
 .cfx .cfx-th-c b{font-size:19px;font-weight:800;}
+/* The Theory fills its card: the lead at the top, the concept cards sharing the rest of the height (no empty bands) */
+.cfx-sheet > .cfx-theory.cfx-th-solo{margin:0 !important;flex:1 1 auto;min-height:0;display:flex;flex-direction:column;}
+.cfx-th-solo > .cfx-th-main{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;gap:12px;}
+.cfx-th-solo .cfx-th-grid{flex:1 1 auto;min-height:0;grid-auto-rows:minmax(0,1fr);gap:14px;}
+.cfx .cfx-th-solo .cfx-th-c{justify-content:center;padding:clamp(12px,2vh,22px) clamp(16px,1.6vw,28px);gap:8px;}
+.cfx .cfx-th-solo .cfx-th-c b{font-size:clamp(19px,2.6vh,24px);}
+.cfx .cfx-th-solo .cfx-th-c span{font-size:clamp(19px,2.5vh,23px);line-height:1.45;}
 .cfx .cfx-th-c span, .cfx-th-solo .cfx-th-c span{font-size:20px;font-weight:600;}
 .cfx .cfx-th-lead{font-size:24px;font-weight:700;}
 .cfx .cfx-points li{font-weight:600;}

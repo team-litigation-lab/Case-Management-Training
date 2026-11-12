@@ -113,7 +113,6 @@ css.textContent = `
 main:has(.kt-page){max-width:min(2200px, 97vw) !important;padding:18px 20px 24px !important;}
 .kt-page{max-width:none;margin:0 auto;}
 .kt-deck{background:linear-gradient(135deg,#1F2440,#2B3158 60%,#353C68);border-radius:20px;padding:20px 22px;color:#fff;}
-.kt-head h2{margin:0;font:800 30px 'Poppins','Inter',sans-serif;color:#F6C08F;} .kt-head p{margin:2px 0 12px;font:600 16px/1.5 'Inter',sans-serif;color:#E3E7F1;}
 .kt-body{display:grid;grid-template-columns:minmax(280px,400px) minmax(0,1fr);gap:18px;}
 .kt-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;}
 .kt-list button{width:100%;text-align:left;display:flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);color:#fff;border-radius:10px;padding:8px 14px;font:800 18px/1.2 'Inter',sans-serif;cursor:pointer;}
@@ -126,9 +125,40 @@ main:has(.kt-page){max-width:min(2200px, 97vw) !important;padding:18px 20px 24px
 .kt-sheet dt{font:800 22px/1.4 'Inter',sans-serif;color:#1E2340;} .kt-sheet dd{margin:0;font:700 23px/1.5 'Inter',sans-serif;}
 .kt-tip{margin:0 0 22px;padding:14px 20px;border-left:5px solid #DB8437;background:#FFF4E6;border-radius:0 10px 10px 0;font:700 21px/1.45 'Inter',sans-serif;}
 .kt-btns .btn{font-size:19px;padding:13px 22px;}
-.kt-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;background:rgba(255,255,255,.92);border-radius:14px;padding:8px 12px;color:#141A2E;font:700 14px 'IBM Plex Mono',monospace;}
-.kt-card{display:flex;align-items:center;gap:14px;margin:0 0 14px;padding:12px 16px;border-radius:14px;background:var(--surface-glass,rgba(255,255,255,.75));backdrop-filter:blur(10px);border:1px solid #E3E6EE;border-left:5px solid #1E2340;}
-.kt-card-ic{font-size:26px;} .kt-card > div{flex:1;min-width:0;display:flex;flex-direction:column;} .kt-card b{font:800 17px 'Inter',sans-serif;color:#1E2340;} .kt-card small{font:600 13.5px 'Inter',sans-serif;color:#3C4258;}
+.kt-head h2{margin:0;font:800 36px 'Poppins','Inter',sans-serif;color:#F6C08F;} .kt-head p{margin:4px 0 16px;font:600 19px/1.5 'Inter',sans-serif;color:#E3E7F1;}
+.kt-nav .btn{font-size:16px;padding:10px 20px;}
+.kt-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;background:rgba(255,255,255,.92);border-radius:14px;padding:10px 14px;color:#141A2E;font:700 16px 'IBM Plex Mono',monospace;}
+.kt-card{display:flex;align-items:center;gap:20px;margin:0 0 16px;padding:22px 28px;min-height:104px;border-radius:16px;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border:1px solid #D6DAE5;border-left:7px solid #1E2340;box-shadow:0 10px 24px -16px rgba(38,43,69,.4);}
+.kt-card-ic{font-size:42px;line-height:1;} .kt-card > div{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;} .kt-card b{font:800 24px 'Poppins','Inter',sans-serif;color:#141A2E;} .kt-card small{font:600 16.5px/1.45 'Inter',sans-serif;color:#2A3048;}
+.kt-card .btn{padding:12px 30px;font-size:17px;font-weight:800;border-radius:12px;}
+@media(max-width:700px){ .kt-card{flex-wrap:wrap;padding:18px;} .kt-card .btn{width:100%;} }
+/* Contrast on the dashboard: the day cards and the scores band were 30–60% glass over the photo, so
+   their grey labels washed out. They take a near-solid sheet and the full ink; the photo still shows
+   around them. (Prefixed html body to sit above js/lsh-card-frame.js, which loads after this file.) */
+html body .dash-main .module-card.mc-clean{background:rgba(255,255,255,.93) !important;}
+html body .dash-main .module-card.mc-clean .module-head{background:#F4F5F9 !important;}
+html body .dash-main .module-card.mc-clean .mh-title{color:#141A2E !important;font-size:15.5px !important;}
+html body .dash-main .module-card.mc-clean .module-theme{color:#141A2E !important;}
+html body .dash-main .module-card.mc-clean .mc-progress{color:#2A3048 !important;font-size:13px !important;font-weight:600;}
+html body .dash-main .module-card.mc-clean .mc-progress b{color:#141A2E !important;}
+html body .dash-main .module-card.mc-clean .mc-grid > .module-start-btn{background:#E9EBF2 !important;color:#141A2E !important;}
+html body .dash-main .module-card.mc-clean .mc-grid > .module-start-btn:not(:disabled):hover,html body .dash-main .module-card.mc-clean:hover .mc-grid > .module-start-btn:not(:disabled){background:#353B57 !important;color:#fff !important;}
+html body .dash-main .module-card.mc-clean .mc-grid > button:not(.module-start-btn){background:#fff !important;color:#2A3048 !important;font-weight:700 !important;}
+html body .dash-main .module-card.mc-clean .mc-grid > button:not(.module-start-btn):not(:disabled):hover{background:#F3F4F8 !important;color:#141A2E !important;}
+html body .dash-main .module-card.mc-clean .mc-grid > button:disabled,html body .dash-main .module-card.mc-clean .mc-grid > .module-start-btn:disabled{opacity:1 !important;background:#F7F8FB !important;color:#5A6078 !important;}
+html body .dash-main .module-card.mc-clean .mc-grid .module-topics-btn span{color:#4A5070 !important;}
+html body .dash-main > .dash-side{background:rgba(255,255,255,.92) !important;border-color:#D6DAE5 !important;}
+html body .dash-main > .dash-side .card{background:#fff !important;border-color:#D6DAE5 !important;}
+html body .dash-main > .dash-side .tfb-dash{background:#FFF4E6 !important;border-color:#F0C9A3 !important;}
+html body .dash-main > .dash-side .stat .num{color:#141A2E !important;}
+html body .dash-main > .dash-side .stat .lbl,html body .dash-main > .dash-side .card .sub,html body .dash-main > .dash-side .stat .lbl span{color:#2A3048 !important;}
+@media(min-width:761px){
+  html body .dash-side-inner > .card.stat{padding:8px 12px;}
+  html body .dash-side .stat .num{font-size:19px;}
+  html body .dash-side .stat .lbl{font-size:10.5px;font-weight:700;}
+  html body .dash-side .stat .lbl span{font-size:10.5px;font-weight:500 !important;}
+  html body .dash-side .tfb-dash .sub,html body .dash-side .rank-card .sub,html body .dash-side .comp-card .sub,html body .dash-side .cert-dash .sub{font-size:11.5px;}
+}
 .kt-modal{position:fixed;inset:0;z-index:2147482500;background:rgba(15,20,40,.6);display:flex;align-items:center;justify-content:center;padding:16px;}
 .kt-box{background:#fff;color:#141A2E;border-radius:18px;padding:24px 26px;max-width:720px;width:100%;border-top:6px solid #DB8437;}
 .kt-box h3{margin:0 0 6px;font:800 24px 'Poppins','Inter',sans-serif;color:#1E2340;} .kt-box p{margin:0 0 14px;font:600 16px/1.5 'Inter',sans-serif;}
