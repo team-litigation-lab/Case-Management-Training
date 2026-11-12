@@ -1,7 +1,7 @@
 {
   "d1m1-role": {
     "why": {
-      "say": "• Three owners: the client owns the case, Atty. Thorne owns the judgment, the Case Manager owns the movement\n• The job is more than phones and paper; it shapes whether a case settles well\n• Example split: deciding to settle is the attorney's; getting the MRI report into the file is the Case Manager's\n• One line never to cross: no legal advice, covered in the rules slide"
+      "say": "• Three owners: the client owns the case, Atty. Thorne owns the judgment, the Case Manager owns the movement\n• The job shapes whether a case settles well, not just phones and paper\n• Example split: deciding to settle is the attorney's; getting the MRI report into the file is the Case Manager's\n• One line never to cross: no legal advice, covered in the rules slide\n• Red flag: a note to Atty. Thorne with the subject line \"Update\"; the ask gets buried, and the SOL doesn't wait"
     },
     "theory": {
       "say": "• Case Management: keeping the case moving from first call to final check, phase by phase\n• Three tests for every task: on time, documented in the file, everyone who needs to know is told\n• Case health analysis: reading the whole file for risk, not one task at a time\n• Spot weak points early, like a missed deadline, a silent client or a gap in treatment"
@@ -23,7 +23,7 @@
   },
   "d1m1-case": {
     "why": {
-      "say": "• Every new file raises the same questions: who was hurt, when, who is insured, for how much, what could go wrong\n• All week, every lesson and Learning Check works one file: John Doe v. Robert Smith\n• Know its facts cold so every CMS step makes sense\n• One detail on this file changes how much money John Doe can reach; trainees find it by the end of the block"
+      "say": "• Every new file raises the same questions: who was hurt, when, who is insured, for how much, what could go wrong\n• All week, every lesson and Learning Check works one file: John Doe v. Robert Smith\n• Know its facts cold so every CMS step makes sense\n• One detail on this file changes how much money John Doe can reach\n• Red flag: any snapshot field with no document behind it isn't verified, even John's seat; name the document or mark it not yet verified"
     },
     "theory": {
       "say": "• Case Snapshot: the file's ID card with parties, date of loss, statute of limitations, client position and insurance\n• Statute of limitations: the legal deadline to sue\n• Facts of Loss: how, where and when, backed by the Police Report and witnesses\n• Critical Case Event: the one fact the defense builds on; spot it early for Atty. Thorne\n• Sources: intake sheet, supplement, Police Report; quote the document, never memory"
@@ -48,7 +48,7 @@
   },
   "d1m1-l1": {
     "why": {
-      "say": "• Intake is where the Case Manager takes control of the file, not just data entry\n• A file opened wrong stays wrong: deadlines, demand letters and lien checks all read from intake fields\n• Lien: a bill paid out of the settlement before the client gets money\n• A mixed-up party or wrong field can cost the client a whole insurance policy"
+      "say": "• Intake is where the Case Manager takes control of the file, not just data entry\n• A file opened wrong stays wrong: deadlines, demand letters and lien checks all read from intake fields\n• Lien: a bill paid out of the settlement before the client gets money\n• Red flag: counting the SOL from the intake date, 02/09/2026, dockets 02/09/2028, three days past the limit\n• Recount from the date of loss on the Police Report, and put all three dates on the calendar"
     },
     "map": {
       "say": "• Opening a file runs in six steps, in order, on day one\n• 1 Conflict Check: every party's full legal name, before the file exists; 2 verify date of loss against the Police Report\n• 3 Calendar the statute of limitations, the legal deadline to sue, on day one\n• 4 Map every role and client seating; 5 insurance from the Dec Page; 6 name and file every document"
@@ -78,7 +78,7 @@
   },
   "d1m4-l1": {
     "why": {
-      "say": "• The Case Plan is the file's instruction manual; Atty. Thorne sets strategy from it\n• Every later day of the course works from this plan\n• A plan that hides a risk builds the strategy on a false picture\n• Example: John Doe's 14-day Treatment Gap belongs in the plan; opinions about him or case value do not"
+      "say": "• The Case Plan is the file's instruction manual; Atty. Thorne sets strategy from it\n• A plan that hides a risk builds the strategy on a false picture\n• Example: John Doe's 14-day Treatment Gap belongs in the plan; opinions about him or case value do not\n• Red flag: a Risks band that says \"none\" for a client nobody has examined isn't clean, it's buried\n• No treatment yet means the days keep counting; every open risk gets its source and its date"
     },
     "theory": {
       "say": "• Early evaluation answers three questions: is there money, who is responsible, how will the case move\n• Coverage determination: which policies apply, their benefits, limits and exclusions\n• Liability assessment: who caused the crash; clear, shared or disputed; on what evidence\n• Case projection: early read on risk and direction; case value always stays with the attorney\n• Strict compliance: every plan deadline goes on the calendar"
@@ -102,7 +102,7 @@
   },
   "d1m3-l1": {
     "why": {
-      "say": "• Most damage to an injury claim happens in the first two weeks, before the client is told what not to do\n• Common well-meant mistakes: posting a gym selfie, chatting with the other driver's insurer, skipping therapy\n• Case Manager gives the instructions; Atty. Thorne explains what they mean for the claim"
+      "say": "• Most damage to an injury claim happens in the first two weeks, before the client is told what not to do\n• Common mistakes: a gym selfie, chatting with the other driver's insurer, skipping therapy\n• Case Manager gives the instructions; Atty. Thorne explains what they mean for the claim\n• Red flag: John's voicemail says Dana Whitfield at Keystone asked him to record his account, 02/10/2026, 8:47 in the morning\n• Written notice goes out today: no direct contact, statements go through the firm; Atty. Thorne owns that call, and it gets logged"
     },
     "theory": {
       "say": "• Four topics: standing instructions, keeping treatment going, keeping receipts, and the car exception\n• Anything a client says, posts, signs or skips can become evidence\n• Recorded Statement: the insurer taping the client's version of the crash, usable later\n• Letter of Representation: tells the other side to contact the firm, not the client\n• Medical danger threatens health, call the doctor's office; legal danger threatens the claim, tell Atty. Thorne"
@@ -129,7 +129,7 @@
       "say": "• Intake: a tow from the scene and crush photos flag a serious injury early; keep them\n• Treatment: structural damage matches the injuries providers record\n• Demand: estimates and supplements answer the low-impact fender-bender argument\n• Negotiation and litigation: photos keep the injury from being called minor and support experts\n• Rental, Loss of Use and the repair argument never appear in John Doe's column"
     },
     "why": {
-      "say": "• John Doe was the front-seat passenger in Kevin's Escape and owns no car\n• The damaged car is Margaret Doe's 2019 Honda Civic\n• Its claim runs with Leah Moran at Keystone under $25,000 PD coverage, outside John's $40,000 stack\n• PD touches our case only as impact evidence and where its dates reach his care\n• Whether the firm helps Margaret is Atty. Thorne's call"
+      "say": "• John Doe was the front-seat passenger in Kevin's Escape and owns no car\n• The damaged car is Margaret Doe's 2019 Honda Civic, with Leah Moran at Keystone under $25,000 PD coverage\n• That claim sits outside John's $40,000 stack; PD touches the case only as impact evidence and where its dates reach his care\n• Red flag: never open a rental, PD or Loss of Use claim in John Doe's name\n• He doesn't own a car; the Civic is Margaret's, and her claim gets referred to Atty. Thorne"
     },
     "rules": {
       "say": "• Read the Police Report unit boxes first: who rode in which car, who owns which car\n• Index photos, Repair Estimate, supplements and the tow on John's file as evidence\n• Margaret's rental, Loss of Use, Diminished Value and repair negotiation: leave on her claim, refer\n• Keystone accepted PD liability on 02/17/2026: record the fact; its meaning is Atty. Thorne's\n• If a car call turns to John's neck, it stops and comes to us"
@@ -220,7 +220,7 @@
   },
   "d2m1-cov": {
     "why": {
-      "say": "• There is no such thing as full coverage; every policy pays a different thing\n• Keep two questions separate: who pays the bills now, and who pays the claim later\n• Payer-First Principle: each bill goes to the payer that must pay it first\n• Right order: a bill is paid once; wrong order: it returns as a lien, paid from John Doe's settlement"
+      "say": "• There is no such thing as full coverage; every policy pays a different thing\n• Keep two questions separate: who pays the bills now, and who pays the claim later\n• Payer-First Principle: each bill goes to the payer that must pay it first\n• Wrong order: the bill returns as a lien, paid from John Doe's settlement\n• Red flag: a stack that adds up to $45,000 means PIP slipped in; PIP pays bills, not the claim\n• The stack is BI $10,000, Host UM $20,000 and Relative UM $10,000: $40,000, every time"
     },
     "theory": {
       "say": "• Every policy: whose is it, and what does it pay?\n• Third-party coverage belongs to the at-fault driver, Robert Smith; first-party answers to the client's side\n• Recovery Stack: only coverage that pays the claim: BI (bodily injury on the at-fault driver), then UM/UIM\n• MedPay and PIP: no-fault medical coverage paying accident bills fast, regardless of fault\n• UM follows the person, not the car; John Doe has no car policy"
@@ -247,7 +247,7 @@
   },
   "d2m1-l1": {
     "why": {
-      "say": "• On 02/17/2026, five letters leave John Doe's file\n• Letter of Representation (LOR): tells an insurer to deal with the firm, not the client\n• Common errors: wrong insured named, a missed UM carrier, a notice that reads like a demand\n• One wrong letter follows the claim to the end and can risk $30,000 of UM coverage"
+      "say": "• On 02/17/2026, five letters leave John Doe's file\n• Letter of Representation (LOR): tells an insurer to deal with the firm, not the client\n• Common errors: wrong insured named, a missed UM carrier, a notice that reads like a demand\n• Red flag: a UM notice asking for payment before any BI tender is a demand, not notice, and risks $30,000 of the stack\n• Send notice only; payment waits, and that's Atty. Thorne's call"
     },
     "map": {
       "say": "• Draft one LOR per insurer on the firm template, each naming that insurer's own insured\n• Request limits and the Declaration Page, the policy's one-page summary, plus preservation of photos, statements, video, vehicle data\n• Protect the client: the other driver's insurer gets his name only\n• Send by each insurer's preferred method, signed by Atty. Thorne, logged by the Case Manager\n• No acknowledgement by the third business day: follow up"
@@ -278,7 +278,7 @@
   },
   "d2m1-l2": {
     "why": {
-      "say": "• Coverage statuses in order: reported, noticed, acknowledged, disclosed, confirmed in writing\n• On 03/11/2026 Keystone's BI limit was not confirmed; nobody saw its Dec Page until 03/20/2026\n• Both UM carriers confirmed in writing by 03/09/2026; the first payer was slowest\n• An unverified coverage fact is a guess; an adjuster's phone figure is not proof"
+      "say": "• Coverage statuses in order: reported, noticed, acknowledged, disclosed, confirmed in writing\n• Both UM carriers confirmed in writing by 03/09/2026; Keystone's Dec Page wasn't seen until 03/20/2026\n• An unverified coverage fact is a guess; an adjuster's phone figure is not proof\n• Red flag: on 03/11/2026 the matrix said BI was confirmed, sourced to the Police Report\n• A Police Report is a lead, never a limit; mark it disclosed and request the Dec Page in writing"
     },
     "theory": {
       "say": "• Coverage verification: turning \"someone told me\" into a document for every limit, form and exclusion\n• Coverage Matrix: one row per insurer, the file's single coverage record, with status, source and date\n• Only \"confirmed in writing\" is proof; earlier statuses are leads\n• Dec Page: the policy's own summary of who and what it covers, and for how much\n• Limits: per person caps one injured person, per accident caps everyone, combined single is one number"
@@ -306,7 +306,7 @@
   },
   "d1m1-l2": {
     "why": {
-      "say": "• Two separate questions: who pays John Doe's Medical Bills now, and who pays the claim at the end\n• Most confusion comes from treating them as one\n• The Health Plan pays bills now, then asks to be repaid from the settlement\n• A repayment claim found after the demand comes out of the client's money"
+      "say": "• Two separate questions: who pays John Doe's Medical Bills now, and who pays the claim at the end\n• Most confusion comes from treating them as one\n• The Health Plan pays bills now, then asks to be repaid from the settlement\n• Red flag: Peach State's notice landed 02/27/2026; flag it that day, before any demand\n• Flagged late means paid twice, out of the client's money"
     },
     "theory": {
       "say": "• Three checks before planning medical care: HIPAA authorization for this claim, Medicare/Medicaid check, Payer Order\n• Payer Order: the order bills go to; PIP first, then health insurance, then Letter of Protection or liens\n• Subrogation: a payer's right to recover what it paid for accident care\n• Letter of Protection: the firm's promise to pay a provider from the settlement\n• Client's net: what John keeps after fees, costs, liens; a late lien reduces it"
@@ -330,7 +330,7 @@
   },
   "d1m4-l2": {
     "why": {
-      "say": "• A plan in draft does nothing; it works only once Atty. Thorne reviews it and the file runs on the approved version\n• Routing: sending the plan to the attorney for review; it turns your work into approved work\n• Being sent back with comments is normal, not a bad job\n• Never leave a risk off the plan to avoid comments"
+      "say": "• A plan in draft does nothing; it works only once Atty. Thorne reviews it and the file runs on the approved version\n• Routing turns your work into approved work; comments back are normal\n• Never leave a risk off the plan to avoid comments\n• Red flag: \"This will help the case\" in a treatment note, or a plan run before every comment is answered\n• Every note is discoverable; facts only, and nothing runs until Atty. Thorne approves the version"
     },
     "theory": {
       "say": "• Case Plan: a living document; drafted, reviewed by Atty. Thorne, then the file runs on it\n• Section templates: same headings, same order, so reviewers scan fast\n• Review loop: draft, route, review, approve, run; a return is a normal step back to draft\n• Pre-confirmation: a conclusion still waiting on proof; different proof sends it back for review\n• CMS keeps every version; every note is discoverable (the other side can request it)"
@@ -471,7 +471,7 @@
   },
   "d1m1-upl": {
     "why": {
-      "say": "• UPL: unauthorized practice of law, giving legal advice without a law license\n• It usually happens by accident, when a Case Manager tries to help a worried client\n• Facts are fine, like appointment times or when a letter was sent\n• Kind-sounding reassurance, like saying the gap won't matter, is still an opinion"
+      "say": "• UPL: unauthorized practice of law, giving legal advice without a law license\n• It usually happens by accident, when a Case Manager tries to help a worried client\n• Facts are fine, like appointment times or when a letter was sent\n• Red flag: \"Don't worry, you'll be fine\" sounds kind but is advice, because it predicts his outcome\n• Stop, log his question word for word, and route it today"
     },
     "theory": {
       "say": "• Fact sharing: telling John Doe what a record says, like a date, an amount, what was sent\n• Process explanation: what happens next, what a form is for, who decides, never how it ends\n• Legal advice: any opinion on what his facts mean for rights, money or choices; Atty. Thorne only\n• Hear, log, route: write his question word for word, send to Atty. Thorne same day, give a time frame"
@@ -493,7 +493,7 @@
   },
   "d1m4-tplan": {
     "why": {
-      "say": "• Assessment is more than medical records; at intake on 02/09/2026 there were none\n• Sources then: the EMS Run Report (restrained front-seat passenger, neck stiffness, declined transport) and John himself\n• John Doe owns no car\n• A chart-only plan misses real barriers: no ride, a new job, worry about who pays\n• Those barriers create Treatment Gaps; treat the person, not just the chart"
+      "say": "• Assessment is more than medical records; at intake on 02/09/2026 there were none\n• Sources then: the EMS Run Report and John himself; John Doe owns no car\n• A chart-only plan misses real barriers: no ride, a new job, worry about who pays\n• Those barriers create Treatment Gaps; treat the person, not just the chart\n• Red flag: a blank field, or a goal like \"reduce pain\" with nothing to measure; blank reads like nobody asked\n• Write \"none ordered\" or \"not yet on file\" with the date, and the provider sets the measure"
     },
     "theory": {
       "say": "• Clinical Evaluation: physical, cognitive and emotional problems, in his words and the records'; never diagnose\n• Social Determinants: life outside the clinic; lives with mother Margaret Doe, no car, her Civic damaged\n• Pre-Morbid Status: how he was before the crash; nothing on file yet\n• Vocational Outlook: warehouse shift lead at Northgate Distribution, 8-hour shifts, $22.00 an hour\n• The social area is most often skipped"
@@ -520,7 +520,7 @@
   },
   "d1m4-tmap": {
     "why": {
-      "say": "• Adjusters, IME doctors and defense lawyers compare John Doe's records to a standard map of recovery\n• IME: an exam by a doctor the insurer hires\n• Care drifting off the map is the top reason insurers deny treatment and order an IME\n• Know the map, spot drift first, ask the doctor why, and get the answer on file"
+      "say": "• Adjusters, IME doctors and defense lawyers compare John Doe's records to a standard map of recovery\n• IME: an exam by a doctor the insurer hires\n• Care drifting off the map is the top reason insurers deny treatment and order an IME\n• Red flag: no visit from 04/02 to 04/21/2026, nineteen days, with no reason on file\n• Run A-C-T the same day, and his reason goes to Atty. Thorne"
     },
     "theory": {
       "say": "• Standard Treatment Map: ambulance and ER, imaging, chiropractic and therapy, orthopedics and pain management, surgery only if serious\n• A skipped or out-of-order stop needs a medical reason on file\n• Clinical Pathway: is he improving? If not, variance loop, figuring out why; next steps are the doctor's decision\n• Reasonable and Necessary: the insurer's payment test; normal care for the injury, and is he actually doing more"
@@ -547,7 +547,7 @@
   },
   "d1m4-tcare": {
     "why": {
-      "say": "• A client who never calls is a risk; silence is where cases fall apart\n• At intake John Doe had no treatment; only the 02/06/2026 EMS report: neck stiffness, declined transport\n• Once care begins, the Case Manager reads every record and hears from him between visits\n• Missed red flags, yellow flags or stalls can pull him off his doctors' plan and leave Atty. Thorne without facts"
+      "say": "• A client who never calls is a risk; silence is where cases fall apart\n• At intake John Doe had no treatment; only the 02/06/2026 EMS report: neck stiffness, declined transport\n• Once care begins, the Case Manager reads every record and hears from him between visits\n• Missed flags or stalls can pull him off his doctors' plan and leave Atty. Thorne without facts\n• Red flag: \"Missing visits will hurt your case\" is advice; talk logistics and his reasons, and what it means goes to Atty. Thorne"
     },
     "map": {
       "say": "• Read records for red flags, warning signs, by specialty: physical therapy, surgery, medication, mental health\n• Listen on calls for yellow flags: life and mood problems blocking recovery, written in his words\n• Talk using OARS: open questions, affirmations, reflections, summaries\n• At the plateau, when progress and interest drop, bring him back to his own goal\n• Route it: medical danger to the doctor, legal to Atty. Thorne; then A-C-T: Assess, Coordinate, Track"
@@ -577,7 +577,7 @@
   },
   "d1m4-emc": {
     "why": {
-      "say": "• PIP: the client's own insurance paying Medical Bills regardless of fault, written state by state\n• Florida's Emergency Medical Condition (EMC) rule decides early whether PIP pays $2,500, $10,000, or no medical\n• John Doe's file is in Riverton: add-on PIP, no EMC rule, so Harbor Point's $5,000 PIP isn't capped\n• On a Florida file, the clock starts at the date of loss; the Case Manager calendars it"
+      "say": "• PIP: the client's own insurance paying Medical Bills regardless of fault, written state by state\n• Florida's Emergency Medical Condition (EMC) rule decides early whether PIP pays $2,500, $10,000, or no medical\n• John Doe's file is in Riverton: add-on PIP, no EMC rule, so Harbor Point's $5,000 PIP isn't capped\n• On a Florida file, the clock starts at the date of loss; the Case Manager calendars it\n• Red flag: telling a Riverton client his PIP is capped over the 14 days; Riverton has no EMC rule"
     },
     "rules": {
       "say": "• Florida PIP, Fla. Stat. 627.736: $10,000, paying 80% of reasonable medical and 60% of lost income\n• Initial care within 14 days of the accident, or PIP pays no medical\n• Full $10,000 only if an MD, DO, dentist, PA or APRN finds an EMC; otherwise capped at $2,500\n• EMC: injury serious enough that going without care could seriously harm health; chiropractors can't find one\n• Example: a 02/06/2026 Florida loss makes 02/20/2026 day 14; always confirm the current statute",

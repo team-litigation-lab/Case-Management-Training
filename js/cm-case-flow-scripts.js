@@ -11,7 +11,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Six stages: intake and case opening, planning, documentation, communication, monitoring, billing and resolution\n• Intake includes the Conflict Check: making sure the firm doesn't already represent the other side\n• Planning: Case Manager drafts the Case Plan; Atty. Thorne sets strategy\n• Communication: update client, insurers and doctors, log every contact the same day; monitoring: every deadline calendared\n• Documentation is where cases most often stall; missing records delay the demand"
   },
   "why": {
-   "say": "• Three owners: the client owns the case, Atty. Thorne owns the judgment, the Case Manager owns the movement\n• The job is more than phones and paper; it shapes whether a case settles well\n• Example split: deciding to settle is the attorney's; getting the MRI report into the file is the Case Manager's\n• One line never to cross: no legal advice, covered in the rules slide"
+   "say": "• Three owners: the client owns the case, Atty. Thorne owns the judgment, the Case Manager owns the movement\n• The job shapes whether a case settles well, not just phones and paper\n• Example split: deciding to settle is the attorney's; getting the MRI report into the file is the Case Manager's\n• One line never to cross: no legal advice, covered in the rules slide\n• Red flag: a note to Atty. Thorne with the subject line \"Update\"; the ask gets buried, and the SOL doesn't wait"
   },
   "rules": {
    "say": "• Case Manager owns deadlines, documents, insurers, doctors and client updates\n• Atty. Thorne owns every legal judgment: value, strength, strategy, whether to settle\n• Log every contact, document and deadline in the CMS the same day; if it isn't in the CMS, it didn't happen\n• Allowed: explain the process, confirm facts; never: tell a client the case value or whether to take an offer",
@@ -33,7 +33,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Answer the five intake questions from the documents, not from memory\n• Who: John Doe, client; Robert Smith, defendant (the person the claim is against); seating is in the Police Report\n• What: a collision; the Run Report (ambulance crew's report) shows what EMS found\n• When and where: 02/06/2026, about 7:10 a.m., all-way stop at Maple Hollow Rd and Birch Ave\n• How, and any ticket: Police Report"
   },
   "why": {
-   "say": "• Every new file raises the same questions: who was hurt, when, who is insured, for how much, what could go wrong\n• All week, every lesson and Learning Check works one file: John Doe v. Robert Smith\n• Know its facts cold so every CMS step makes sense\n• One detail on this file changes how much money John Doe can reach; trainees find it by the end of the block"
+   "say": "• Every new file raises the same questions: who was hurt, when, who is insured, for how much, what could go wrong\n• All week, every lesson and Learning Check works one file: John Doe v. Robert Smith\n• Know its facts cold so every CMS step makes sense\n• One detail on this file changes how much money John Doe can reach\n• Red flag: any snapshot field with no document behind it isn't verified, even John's seat; name the document or mark it not yet verified"
   },
   "rules": {
    "say": "• Crash: 02/06/2026, about 7:10 a.m., all-way stop at Maple Hollow Rd and Birch Ave\n• Client: John Doe, 34, warehouse shift lead at Northgate Distribution; Atty. Elijah Thorne is Lead Counsel\n• Recovery Stack: every policy that could pay, in payment order; $40,000 across BI, Host UM, Relative UM\n• Where he sat decides which layers he reaches; trainees find it in the Police Report\n• Trainees also find the gap between the ambulance date and first doctor visit",
@@ -55,7 +55,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Fact sharing: telling John Doe what a record says, like a date, an amount, what was sent\n• Process explanation: what happens next, what a form is for, who decides, never how it ends\n• Legal advice: any opinion on what his facts mean for rights, money or choices; Atty. Thorne only\n• Hear, log, route: write his question word for word, send to Atty. Thorne same day, give a time frame"
   },
   "why": {
-   "say": "• UPL: unauthorized practice of law, giving legal advice without a law license\n• It usually happens by accident, when a Case Manager tries to help a worried client\n• Facts are fine, like appointment times or when a letter was sent\n• Kind-sounding reassurance, like saying the gap won't matter, is still an opinion"
+   "say": "• UPL: unauthorized practice of law, giving legal advice without a law license\n• It usually happens by accident, when a Case Manager tries to help a worried client\n• Facts are fine, like appointment times or when a letter was sent\n• Red flag: \"Don't worry, you'll be fine\" sounds kind but is advice, because it predicts his outcome\n• Stop, log his question word for word, and route it today"
   },
   "rules": {
    "say": "• Legal advice is any opinion on what John Doe's facts mean\n• Share facts and explain the process freely\n• Never give opinions on value, strategy, settling, or what a Treatment Gap does to the money\n• Test before speaking: am I telling him what is, or what it means\n• A guessed number anchors the client and makes fair offers feel like insults",
@@ -86,7 +86,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Raw file arrives from On the Records; read it end to end first\n• Check date of loss, parties and signatures against the Police Report, not the intake note\n• Run the Conflict Check on every full legal name; record date and result\n• Complete intake moves to acceptance; incomplete goes back; unsure if it qualifies goes to Atty. Thorne\n• Only then create the file in the CMS: six roles mapped, deadline calendared, documents named"
   },
   "why": {
-   "say": "• Intake is where the Case Manager takes control of the file, not just data entry\n• A file opened wrong stays wrong: deadlines, demand letters and lien checks all read from intake fields\n• Lien: a bill paid out of the settlement before the client gets money\n• A mixed-up party or wrong field can cost the client a whole insurance policy"
+   "say": "• Intake is where the Case Manager takes control of the file, not just data entry\n• A file opened wrong stays wrong: deadlines, demand letters and lien checks all read from intake fields\n• Lien: a bill paid out of the settlement before the client gets money\n• Red flag: counting the SOL from the intake date, 02/09/2026, dockets 02/09/2028, three days past the limit\n• Recount from the date of loss on the Police Report, and put all three dates on the calendar"
   },
   "rules": {
    "say": "• Case Manager is the gatekeeper of case quality; incomplete intake goes back, not forward\n• Conflict Check before the file exists, on Robert Smith, the host driver and the resident relative; record date and result\n• Confirm date of loss against the Police Report; calendar the statute of limitations, 02/06/2028, on day one\n• Check story and signatures; never quietly fix a mismatch; map all six roles, seating position and emergency contact\n• Insurance from the Dec Page with sources; firm naming for documents; never tell the client case value"
@@ -146,7 +146,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Silence usually starts with a bottleneck: a spot where the work slows or gets stuck\n• Missing information like a wrong number, slow follow-up, a Conflict Check stuck in backlog\n• Intake forms with wrong dates or missing signatures, facts needing attorney review, gaps between departments\n• Check the firm's own bottlenecks before blaming the client; a gap on the firm's side weakens the demand"
   },
   "why": {
-   "say": "• Clients go quiet for ordinary reasons: pain, overwhelm, a changed phone\n• When a client goes silent, the case and its deadlines keep running\n• No Contact Protocol: the step-by-step plan when a client stops answering\n• Three jobs: track the silence officially, prove the firm tried, protect the firm if questioned later"
+   "say": "• Clients go quiet for ordinary reasons: pain, overwhelm, a changed phone\n• When a client goes silent, the case and its deadlines keep running\n• No Contact Protocol: the step-by-step plan when a client stops answering\n• Three jobs: track the silence officially, prove the firm tried, protect the firm if questioned later\n• Red flag: two voicemails, 02/11 and 02/13, left and never logged; an unlogged attempt didn't happen\n• Log every attempt with the date, the time, the channel and what came of it"
   },
   "rules": {
    "say": "• Step 1, internal review: status, live deadlines, last contact date, before dialling\n• Step 2, the ladder: at least two calls, then email and text, emergency contact, certified mail or formal letter\n• Climb by channel, not by volume; nine calls to one number is not trying everything\n• Log each attempt with date, time, channel and outcome, plus a follow-up reminder\n• Step 3: tell Atty. Thorne; tell the client what is needed and by when, never that the case is dropped"
@@ -182,7 +182,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Step 4, Final Warning Letter: earlier attempts listed, 7 to 14 days to respond, warning the firm may withdraw\n• Step 5, no answer: the attorney decides on a Notice or Motion to Withdraw, telling the court the firm is leaving\n• Step 6: close the file \"No response, withdrew per protocol,\" keeping every proof\n• The Case Manager drives the letter and builds the record behind Steps 5 and 6"
   },
   "why": {
-   "say": "• Final Warning Letter: the last cheap step before paying to find the client or the attorney ending the case\n• Two jobs: specific enough that the client answers, documented enough to back up what comes next\n• Common costly mistake: acting before three conditions are all true\n• The cheap letter always comes before the expensive search"
+   "say": "• Final Warning Letter: the last cheap step before paying to find the client or the attorney ending the case\n• Two jobs: specific enough that the client answers, documented enough to back up what comes next\n• Don't act before three conditions are all true; the cheap letter always comes before the expensive search\n• Red flag: a draft that says the firm is withdrawing or \"you will lose your case\"; strike it, that decision is Atty. Thorne's alone\n• The draft goes to Atty. Thorne before it goes anywhere"
   },
   "rules": {
    "say": "• Step 4 goes by certified mail and email, both: attempts listed, 7 to 14 day deadline, possible withdrawal\n• Confirm the current address first; a letter to a stale address proves nothing\n• Skip-trace only with all three conditions met and counsel's approval, full log attached\n• Real dates, like \"Called 02/10, voicemail 02/13,\" not \"tried several times\"\n• Withdrawal may be called possible; never judge the claim or announce the case is over"
@@ -227,7 +227,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Four topics: standing instructions, keeping treatment going, keeping receipts, and the car exception\n• Anything a client says, posts, signs or skips can become evidence\n• Recorded Statement: the insurer taping the client's version of the crash, usable later\n• Letter of Representation: tells the other side to contact the firm, not the client\n• Medical danger threatens health, call the doctor's office; legal danger threatens the claim, tell Atty. Thorne"
   },
   "why": {
-   "say": "• Most damage to an injury claim happens in the first two weeks, before the client is told what not to do\n• Common well-meant mistakes: posting a gym selfie, chatting with the other driver's insurer, skipping therapy\n• Case Manager gives the instructions; Atty. Thorne explains what they mean for the claim"
+   "say": "• Most damage to an injury claim happens in the first two weeks, before the client is told what not to do\n• Common mistakes: a gym selfie, chatting with the other driver's insurer, skipping therapy\n• Case Manager gives the instructions; Atty. Thorne explains what they mean for the claim\n• Red flag: John's voicemail says Dana Whitfield at Keystone asked him to record his account, 02/10/2026, 8:47 in the morning\n• Written notice goes out today: no direct contact, statements go through the firm; Atty. Thorne owns that call, and it gets logged"
   },
   "rules": {
    "say": "• No Recorded Statement to the other driver's insurer; all contact goes through the firm\n• Start treatment, keep every appointment, report barriers like rides, money or work before a visit is missed\n• Post nothing about the crash, injuries or activities; sign nothing until the firm reviews it\n• Keep every receipt, including mileage\n• Go through each rule by phone, have the client repeat it back, and log that they understood"
@@ -263,7 +263,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Intake: a tow from the scene and crush photos flag a serious injury early; keep them\n• Treatment: structural damage matches the injuries providers record\n• Demand: estimates and supplements answer the low-impact fender-bender argument\n• Negotiation and litigation: photos keep the injury from being called minor and support experts\n• Rental, Loss of Use and the repair argument never appear in John Doe's column"
   },
   "why": {
-   "say": "• John Doe was the front-seat passenger in Kevin's Escape and owns no car\n• The damaged car is Margaret Doe's 2019 Honda Civic\n• Its claim runs with Leah Moran at Keystone under $25,000 PD coverage, outside John's $40,000 stack\n• PD touches our case only as impact evidence and where its dates reach his care\n• Whether the firm helps Margaret is Atty. Thorne's call"
+   "say": "• John Doe was the front-seat passenger in Kevin's Escape and owns no car\n• The damaged car is Margaret Doe's 2019 Honda Civic, with Leah Moran at Keystone under $25,000 PD coverage\n• That claim sits outside John's $40,000 stack; PD touches the case only as impact evidence and where its dates reach his care\n• Red flag: never open a rental, PD or Loss of Use claim in John Doe's name\n• He doesn't own a car; the Civic is Margaret's, and her claim gets referred to Atty. Thorne"
   },
   "rules": {
    "say": "• Read the Police Report unit boxes first: who rode in which car, who owns which car\n• Index photos, Repair Estimate, supplements and the tow on John's file as evidence\n• Margaret's rental, Loss of Use, Diminished Value and repair negotiation: leave on her claim, refer\n• Keystone accepted PD liability on 02/17/2026: record the fact; its meaning is Atty. Thorne's\n• If a car call turns to John's neck, it stops and comes to us"
@@ -324,7 +324,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Coverage: is there money? Valid policies, coverage type, limits, exclusions, gaps\n• Liability: who is responsible and how much? Includes comparative negligence: the client sharing some blame\n• Projection: how will the case move? Draws on coverage, liability, injury, expected treatment, paperwork quality\n• Projection comes last because it depends on the other two"
   },
   "why": {
-   "say": "• The Case Plan is the file's instruction manual; Atty. Thorne sets strategy from it\n• Every later day of the course works from this plan\n• A plan that hides a risk builds the strategy on a false picture\n• Example: John Doe's 14-day Treatment Gap belongs in the plan; opinions about him or case value do not"
+   "say": "• The Case Plan is the file's instruction manual; Atty. Thorne sets strategy from it\n• A plan that hides a risk builds the strategy on a false picture\n• Example: John Doe's 14-day Treatment Gap belongs in the plan; opinions about him or case value do not\n• Red flag: a Risks band that says \"none\" for a client nobody has examined isn't clean, it's buried\n• No treatment yet means the days keep counting; every open risk gets its source and its date"
   },
   "rules": {
    "say": "• Decide acceptance: Accepted, Escalated or Declined, with a reason others can follow; no file left in limbo\n• Projection stays preliminary until coverage is confirmed; liability needs the Police Report, statements, any video\n• Hold a place for the Regulatory Triple-Check, cleared in the Treatment Phase\n• File the plan within the state's window, often 30 to 60 days, and calendar it\n• Every goal gets a measure, owner, date; flag bad facts loudly; value is Atty. Thorne's"
@@ -345,7 +345,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Clinical Evaluation: physical, cognitive and emotional problems, in his words and the records'; never diagnose\n• Social Determinants: life outside the clinic; lives with mother Margaret Doe, no car, her Civic damaged\n• Pre-Morbid Status: how he was before the crash; nothing on file yet\n• Vocational Outlook: warehouse shift lead at Northgate Distribution, 8-hour shifts, $22.00 an hour\n• The social area is most often skipped"
   },
   "why": {
-   "say": "• Assessment is more than medical records; at intake on 02/09/2026 there were none\n• Sources then: the EMS Run Report (restrained front-seat passenger, neck stiffness, declined transport) and John himself\n• John Doe owns no car\n• A chart-only plan misses real barriers: no ride, a new job, worry about who pays\n• Those barriers create Treatment Gaps; treat the person, not just the chart"
+   "say": "• Assessment is more than medical records; at intake on 02/09/2026 there were none\n• Sources then: the EMS Run Report and John himself; John Doe owns no car\n• A chart-only plan misses real barriers: no ride, a new job, worry about who pays\n• Those barriers create Treatment Gaps; treat the person, not just the chart\n• Red flag: a blank field, or a goal like \"reduce pain\" with nothing to measure; blank reads like nobody asked\n• Write \"none ordered\" or \"not yet on file\" with the date, and the provider sets the measure"
   },
   "rules": {
    "say": "• Assess the whole person, starting from the intake call and Run Report\n• Medical findings in his words and the record's, never your diagnosis\n• Ask about living situation, transport, cost, and every prior injury, claim and doctor; request those records\n• Record what his job demands physically\n• Build doctor-confirmed SMART goals, map the four care groups, calendar every risk; coordinate care, never prescribe"
@@ -359,7 +359,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Standard Treatment Map: ambulance and ER, imaging, chiropractic and therapy, orthopedics and pain management, surgery only if serious\n• A skipped or out-of-order stop needs a medical reason on file\n• Clinical Pathway: is he improving? If not, variance loop, figuring out why; next steps are the doctor's decision\n• Reasonable and Necessary: the insurer's payment test; normal care for the injury, and is he actually doing more"
   },
   "why": {
-   "say": "• Adjusters, IME doctors and defense lawyers compare John Doe's records to a standard map of recovery\n• IME: an exam by a doctor the insurer hires\n• Care drifting off the map is the top reason insurers deny treatment and order an IME\n• Know the map, spot drift first, ask the doctor why, and get the answer on file"
+   "say": "• Adjusters, IME doctors and defense lawyers compare John Doe's records to a standard map of recovery\n• IME: an exam by a doctor the insurer hires\n• Care drifting off the map is the top reason insurers deny treatment and order an IME\n• Red flag: no visit from 04/02 to 04/21/2026, nineteen days, with no reason on file\n• Run A-C-T the same day, and his reason goes to Atty. Thorne"
   },
   "rules": {
    "say": "• Count phase from the date of loss and weeks of care from the first visit; place him on the map every check-in\n• If not improving, name the problem type: clinical, psychosocial (life or mood), or systemic (stuck approvals, booked clinics)\n• Systemic delays are never the client's fault\n• Get doctor's measurements on file; raise concerns at week 6 and the 12-week plateau; real red flags go into A-C-T\n• Doctor decides care; Atty. Thorne decides what it means for the case"
@@ -376,7 +376,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Know standard treatment patterns to spot when care goes off track\n• Red flag: a departure from the pattern signaling medical danger, a stuck case, or over-treatment for billing\n• Physical therapy flags show stalling or over-treatment; surgery flags concern safety and standard of care\n• Pain management and medication get the most scrutiny, due to opioid rules and necessity audits\n• Medical danger goes to the doctor same day; legal danger to Atty. Thorne"
   },
   "why": {
-   "say": "• A client who never calls is a risk; silence is where cases fall apart\n• At intake John Doe had no treatment; only the 02/06/2026 EMS report: neck stiffness, declined transport\n• Once care begins, the Case Manager reads every record and hears from him between visits\n• Missed red flags, yellow flags or stalls can pull him off his doctors' plan and leave Atty. Thorne without facts"
+   "say": "• A client who never calls is a risk; silence is where cases fall apart\n• At intake John Doe had no treatment; only the 02/06/2026 EMS report: neck stiffness, declined transport\n• Once care begins, the Case Manager reads every record and hears from him between visits\n• Missed flags or stalls can pull him off his doctors' plan and leave Atty. Thorne without facts\n• Red flag: \"Missing visits will hurt your case\" is advice; talk logistics and his reasons, and what it means goes to Atty. Thorne"
   },
   "rules": {
    "say": "• Read every note against the watch-list; report flags, the doctor judges them\n• Therapy: no gain after 12 sessions, passive-only care, two or more missed visits\n• Surgery: simpler care skipped, left/right mix-ups, post-surgery symptoms left to the follow-up\n• Medication: raise the opioid-relaxant-sedative combo, rising doses, test mismatches with the prescriber as facts, not accusations\n• Date every mental health symptom; record yellow flags in his words; at the plateau, revisit his goal"
@@ -387,7 +387,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m4-emc": {
   "why": {
-   "say": "• PIP: the client's own insurance paying Medical Bills regardless of fault, written state by state\n• Florida's Emergency Medical Condition (EMC) rule decides early whether PIP pays $2,500, $10,000, or no medical\n• John Doe's file is in Riverton: add-on PIP, no EMC rule, so Harbor Point's $5,000 PIP isn't capped\n• On a Florida file, the clock starts at the date of loss; the Case Manager calendars it"
+   "say": "• PIP: the client's own insurance paying Medical Bills regardless of fault, written state by state\n• Florida's Emergency Medical Condition (EMC) rule decides early whether PIP pays $2,500, $10,000, or no medical\n• John Doe's file is in Riverton: add-on PIP, no EMC rule, so Harbor Point's $5,000 PIP isn't capped\n• On a Florida file, the clock starts at the date of loss; the Case Manager calendars it\n• Red flag: telling a Riverton client his PIP is capped over the 14 days; Riverton has no EMC rule"
   },
   "rules": {
    "say": "• Florida PIP, Fla. Stat. 627.736: $10,000, paying 80% of reasonable medical and 60% of lost income\n• Initial care within 14 days of the accident, or PIP pays no medical\n• Full $10,000 only if an MD, DO, dentist, PA or APRN finds an EMC; otherwise capped at $2,500\n• EMC: injury serious enough that going without care could seriously harm health; chiropractors can't find one\n• Example: a 02/06/2026 Florida loss makes 02/20/2026 day 14; always confirm the current statute",
@@ -412,7 +412,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m4-l2": {
   "why": {
-   "say": "• A plan in draft does nothing; it works only once Atty. Thorne reviews it and the file runs on the approved version\n• Routing: sending the plan to the attorney for review; it turns your work into approved work\n• Being sent back with comments is normal, not a bad job\n• Never leave a risk off the plan to avoid comments"
+   "say": "• A plan in draft does nothing; it works only once Atty. Thorne reviews it and the file runs on the approved version\n• Routing turns your work into approved work; comments back are normal\n• Never leave a risk off the plan to avoid comments\n• Red flag: \"This will help the case\" in a treatment note, or a plan run before every comment is answered\n• Every note is discoverable; facts only, and nothing runs until Atty. Thorne approves the version"
   },
   "rules": {
    "say": "• Draft in the section templates; put each task's owner and date in their own fields\n• Route for review before anything that speaks for the firm outside the office\n• When returned, answer every comment and re-route; never run a half-fixed plan\n• Record the approved version; re-route when an important fact changes\n• Notes clean and factual; legal strategy only in the legal track; legal questions to Atty. Thorne"
@@ -454,7 +454,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Claim set-up is coverage determination: which policies apply, how much they pay, what they exclude\n• Four coverage questions: is it valid, what type applies, what are the limits, any exclusions\n• Liability assessment: who is legally responsible and how much; Atty. Thorne weighs it, the Case Manager secures proof\n• Third-party insurer is Robert Smith's, on the other side; first-party policies cover the client"
   },
   "why": {
-   "say": "• On 02/17/2026, five letters leave John Doe's file\n• Letter of Representation (LOR): tells an insurer to deal with the firm, not the client\n• Common errors: wrong insured named, a missed UM carrier, a notice that reads like a demand\n• One wrong letter follows the claim to the end and can risk $30,000 of UM coverage"
+   "say": "• On 02/17/2026, five letters leave John Doe's file\n• Letter of Representation (LOR): tells an insurer to deal with the firm, not the client\n• Common errors: wrong insured named, a missed UM carrier, a notice that reads like a demand\n• Red flag: a UM notice asking for payment before any BI tender is a demand, not notice, and risks $30,000 of the stack\n• Send notice only; payment waits, and that's Atty. Thorne's call"
   },
   "rules": {
    "say": "• Send LORs early, once the retainer is signed; claims opened 02/16 to 02/17/2026, LORs sent 02/17/2026\n• Address the adjuster by name, like Attn: Dana Whitfield; Cardinal State gets Attn: Claims Department\n• Name each insurer's insured: Robert Smith for Keystone, Kevin Alvarez for Harbor Point, Margaret Doe for Cardinal State\n• Notify all three stack carriers now; notice is not a demand\n• Keystone: name only, plus Property Damage carve-out for Leah Moran, 5 business days; Atty. Thorne signs",
@@ -493,7 +493,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Coverage verification: turning \"someone told me\" into a document for every limit, form and exclusion\n• Coverage Matrix: one row per insurer, the file's single coverage record, with status, source and date\n• Only \"confirmed in writing\" is proof; earlier statuses are leads\n• Dec Page: the policy's own summary of who and what it covers, and for how much\n• Limits: per person caps one injured person, per accident caps everyone, combined single is one number"
   },
   "why": {
-   "say": "• Coverage statuses in order: reported, noticed, acknowledged, disclosed, confirmed in writing\n• On 03/11/2026 Keystone's BI limit was not confirmed; nobody saw its Dec Page until 03/20/2026\n• Both UM carriers confirmed in writing by 03/09/2026; the first payer was slowest\n• An unverified coverage fact is a guess; an adjuster's phone figure is not proof"
+   "say": "• Coverage statuses in order: reported, noticed, acknowledged, disclosed, confirmed in writing\n• Both UM carriers confirmed in writing by 03/09/2026; Keystone's Dec Page wasn't seen until 03/20/2026\n• An unverified coverage fact is a guess; an adjuster's phone figure is not proof\n• Red flag: on 03/11/2026 the matrix said BI was confirmed, sourced to the Police Report\n• A Police Report is a lead, never a limit; mark it disclosed and request the Dec Page in writing"
   },
   "rules": {
    "say": "• Coverage Matrix fields: carrier, insured, claim number, adjuster, limit and type, status, source, date, next follow-up\n• A limit is preliminary until a Dec Page or Coverage Letter confirms it; never quote phone or Police Report figures\n• Check policy period covers 02/06/2026; Keystone BI $10,000 per person; Harbor Point add-on confirmed 03/02/2026\n• Stack: $10,000 + $20,000 + $10,000 = $40,000; file the Bluewater rejection from 03/14/2024\n• Timing: 24 to 48 hours unopened claim, third business day on an LOR, next follow-up within two business days"
@@ -507,7 +507,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Affidavit: written facts sworn under oath before a notary by someone with first-hand knowledge\n• Ends in a jurat, \"sworn to and subscribed before me\"; a false one is perjury, which makes it proof\n• Coverage: Robert Smith swears no other insurance; John, if asked, swears he lives with Margaret and owns no car\n• Damages: records custodians swear bills and records are true copies; Northgate verifies wages\n• Court: the process server swears Smith was served, starting his answer clock"
   },
   "why": {
-   "say": "• A Keystone letter saying Robert Smith has no other insurance isn't enough to settle at the $10,000 limit\n• Harbor Point and Cardinal State won't accept it either\n• An affidavit is a word under oath from the person who knows: Smith himself, sworn 08/10/2026\n• Every fact the file leans on, coverage, residency, bills, service, is only as strong as its proof"
+   "say": "• A Keystone letter saying Robert Smith has no other insurance isn't enough to settle at the $10,000 limit\n• Harbor Point and Cardinal State won't accept it either\n• An affidavit is a word under oath from the person who knows: Smith himself, sworn 08/10/2026\n• Red flag: unsigned or not notarized means it's just somebody's say-so; it goes back for signature and the jurat\n• Never sign it, notarize it, or tidy up the wording yourself"
   },
   "rules": {
    "say": "• Smith swears no other insurance, a condition of settling at the limit\n• John swears residency and no owned vehicle only if a carrier asks, from a draft Atty. Thorne reviewed\n• Records requests ask for the custodian's affidavit in the same letter, so bills enter evidence without calling each provider\n• Northgate's wage letter proves the $1,584.00; the affidavit of service is filed, 10/16/2026 here\n• Check affiant, numbers, dates, signature, jurat and seal; defects go back; never sign, notarize or fix sworn words"
@@ -519,7 +519,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m1-liab": {
   "why": {
-   "say": "• Coverage shows there's money; liability decides whether anyone must pay it\n• None of John Doe's three coverage layers pays unless Robert Smith is legally responsible\n• Evidence is freshest now: Ruth Calloway's memory fades, Margaret's doorbell camera records over, the Escape's data recorder moves\n• Investigate liability at claim set-up, beside coverage, not at the demand"
+   "say": "• Coverage shows there's money; liability decides whether anyone must pay it\n• None of John Doe's three coverage layers pays unless Robert Smith is legally responsible\n• Evidence is freshest now: Ruth Calloway's memory fades, Margaret's doorbell camera records over, the Escape's data recorder moves\n• Red flag: writing Ruth Calloway's statement for her to sign; it isn't her account, and the defense gets a gift\n• Keep her signed on-scene statement exactly as she gave it"
   },
   "rules": {
    "say": "• Read Police Report RPD-26-018842 field by field: Officer Garner cited Smith for failure to stop\n• Witness Ruth Calloway signed a statement on scene\n• Report lists the Escape as 2021, Harbor Point's Declaration Page says 2020: record both, correct from the policy\n• Doorbell copy secured 02/19/2026, hash (digital fingerprint) logged; the data recorder needs a preservation request Atty. Thorne signs\n• Keystone accepting PD liability on Margaret's Civic doesn't bind its BI adjuster on John's claim"
@@ -531,7 +531,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m1-first": {
   "why": {
-   "say": "• Atty. Thorne reads between hearings with forty emails open; a story-first note gets answered last\n• Every note, email and brief opens with the decision or action needed, and its deadline\n• Then why, then the facts, then what happens after each answer\n• The difference between a yes by lunchtime and a missed deadline"
+   "say": "• Atty. Thorne reads between hearings with forty emails open; a story-first note gets answered last\n• Every note, email and brief opens with the decision or action needed, and its deadline\n• Then why, then the facts, then what happens after each answer\n• Red flag: subject line \"Update,\" story first, question at the very bottom; he reads to the end to find the ask, and the deadline slips\n• Decision and deadline go first"
   },
   "rules": {
    "say": "• First line, and the subject line: the decision and its deadline\n• Example: decision needed by 03/12/2026, approve declining Summit Imaging's LOP; the MRI goes to Harbor Point PIP\n• Why: PIP applies first, $3,675.00 left; then sourced facts, then options\n• If yes, send the decline and route the bill today; if no, draft the LOP for his signature\n• One decision per note; log the note and his answer in the CMS the same day",
@@ -573,7 +573,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• BI liability: at-fault driver's, third-party, pays the injury claim\n• UM/UIM: client's side, through vehicle or household, pays when BI is too small; consent rules apply\n• PIP: from the vehicle the client rode in, pays Medical Bills without proving fault; verify repayment terms in writing\n• Health insurance: client's plan, contract rate, right to be repaid\n• Medicare and Medicaid: last, repaid by law, BCRC report"
   },
   "why": {
-   "say": "• There is no such thing as full coverage; every policy pays a different thing\n• Keep two questions separate: who pays the bills now, and who pays the claim later\n• Payer-First Principle: each bill goes to the payer that must pay it first\n• Right order: a bill is paid once; wrong order: it returns as a lien, paid from John Doe's settlement"
+   "say": "• There is no such thing as full coverage; every policy pays a different thing\n• Keep two questions separate: who pays the bills now, and who pays the claim later\n• Payer-First Principle: each bill goes to the payer that must pay it first\n• Wrong order: the bill returns as a lien, paid from John Doe's settlement\n• Red flag: a stack that adds up to $45,000 means PIP slipped in; PIP pays bills, not the claim\n• The stack is BI $10,000, Host UM $20,000 and Relative UM $10,000: $40,000, every time"
   },
   "rules": {
    "say": "• By whose: Keystone BI and PD are Robert Smith's; Host UM, Relative UM, PIP are John's side; Peach State: his Health Plan\n• Sort by what it pays: only BI and UM make the $40,000 stack; Harbor Point PIP $5,000 pays bills\n• Host UM: occupant of Kevin Alvarez's Escape; Relative UM: Margaret Doe's resident relative\n• Bill order: PIP (no repayment right, confirmed 03/02/2026), Health Plan, then Letter of Protection"
@@ -591,7 +591,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m2-l1": {
   "why": {
-   "say": "• PIP: coverage on the car he rode in that pays Medical Bills regardless of fault\n• Harbor Point paid $685.00, $640.00, $2,395.00, then $640.00 for 03/27/2026, of $5,000; $640.00 left\n• Three payers in line: Harbor Point PIP, Peach State Health Plan, then a Letter of Protection\n• Wrong order turns a payable bill into a lien: a debt paid from John Doe's settlement"
+   "say": "• PIP: coverage on the car he rode in that pays Medical Bills regardless of fault\n• Harbor Point paid $685.00, $640.00, $2,395.00, then $640.00 for 03/27/2026, of $5,000; $640.00 left\n• Payers in line: Harbor Point PIP, Peach State Health Plan, then a Letter of Protection\n• Wrong order turns a payable bill into a lien: a debt paid from John Doe's settlement\n• Red flag: at the LOP desk, a provider wants your word they'll be paid in full at settlement; you can't give it\n• No amount, no reduction, no date: the LOP's terms are Atty. Thorne's"
   },
   "rules": {
    "say": "• Order: Harbor Point PIP, Peach State, then LOP; John claims PIP as a passenger in Kevin Alvarez's 2020 Ford Escape\n• No policy in his household carries PIP; PIP pays in date order\n• Crescent's 05/15/2026 injection went to Peach State with $640.00 PIP left; track both ledgers, never re-route a paid claim\n• Riverton got an LOP as out of network; Summit's 03/11/2026 request was declined and its MRI went to PIP\n• LOP terms are Atty. Thorne's; never promise a provider an amount, reduction or date"
@@ -611,7 +611,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Match the claim: member ID, claim number, provider, date of service against the CMS treatment record\n• Billed to allowed: charge, allowed amount, write-off; then the patient's share\n• What the plan paid, with date and check or electronic payment number; any payback claim starts there\n• Remark codes: CO-45 explains the write-off; AC1 flags an accident and the plan's payback right\n• Reconcile against the provider's statement and lien register, flag balance billing; the step most often skipped"
   },
   "why": {
-   "say": "• EOB, Explanation of Benefits: the Health Plan's report on what it did with a bill; not a bill\n• RS26, Peach State's EOB: John Doe owes Crescent $0.00 for the injection\n• Each payer reports back: Peach State by EOB, Harbor Point by its PIP payment history\n• Line by line: billed, paid, written off, what the client may owe; the proof behind demand and lien numbers"
+   "say": "• EOB, Explanation of Benefits: the Health Plan's report on what it did with a bill; not a bill\n• RS26, Peach State's EOB: John Doe owes Crescent $0.00 for the injection\n• Each payer reports back: Peach State by EOB, Harbor Point by its PIP payment history\n• Line by line: billed, paid, written off, what the client may owe; the proof behind demand and lien numbers\n• Red flag: a lien logged at the billed amount, or a bill sent to PIP after 06/26/2026; log what the plan paid"
   },
   "rules": {
    "say": "• Peach State EOB 06/03/2026, claim PS-2605-449021: Crescent's 05/15/2026 epidural injection, a pain shot near the spine\n• Billed $3,400.00, allowed $1,860.00, $1,540.00 written off, paid $1,860.00, member responsibility $0.00\n• Crescent's 07/01/2026 statement asks John for $1,540.00: a balance bill; document it, route to Atty. Thorne that day\n• Draft a correction request and tell John what's happening; whether he owes anything is counsel's call\n• Peach State's claim starts at $1,860.00; Harbor Point's five checks total $5,000.00, exhausted 06/26/2026"
@@ -638,7 +638,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m2-lop": {
   "why": {
-   "say": "• John Doe needs chiropractic care next week, and nothing he has will pay for it\n• Letter of Protection: a written promise the provider is paid from the settlement, so treatment happens now\n• Care that keeps moving keeps the file free of gaps\n• Not free money: a balance against his recovery that he still owes, tracked from signing"
+   "say": "• John Doe needs chiropractic care next week, and nothing he has will pay for it\n• Letter of Protection: a written promise the provider is paid from the settlement, so treatment happens now\n• Not free money: a balance against his recovery that he still owes, tracked from signing\n• Red flag: recommending a provider \"for the case,\" or telling John the LOP makes care free; he still owes the balance\n• Give options and logistics; Atty. Thorne explains the LOP before he signs"
   },
   "doc": {
    "say": "• LOP: the firm's signed promise that a provider's reasonable charges are paid from any recovery; not insurance\n• Legal purpose: keep care going when no payer applies; the provider defers collection, its charges protected\n• Evidence role: fixes the lien; Riverton's letter, acknowledged 02/23/2026, keeps John Doe responsible either way\n• Handling: check every payer, sign before visit one, request the ledger every 30 days; its meaning is Atty. Thorne's"
@@ -652,7 +652,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m2-cost": {
   "why": {
-   "say": "• After the rental ends, John Doe still has therapy three times a week, plus rides, prescriptions, maybe a brace\n• None of it is on a provider's bill, but every dollar is a cost of the crash\n• Recoverable only if written down when it happened; the Case Manager keeps the log\n• What the demand claims, and at what rate, is Atty. Thorne's call under the governing state's rules"
+   "say": "• After the rental ends, John Doe still has therapy three times a week, plus rides, prescriptions, maybe a brace\n• None of it is on a provider's bill, but every dollar is a cost of the crash\n• Recoverable only if written down when it happened; the Case Manager keeps the log\n• Red flag: \"You'll get every penny back\" sounds like comfort but promises a result\n• What the demand claims, and at what rate, is Atty. Thorne's; log each receipt with who paid it"
   },
   "rules": {
    "say": "• Out-of-pocket costs are Specials; each needs a receipt or log entry\n• Start the trip log at the first visit; the rate is confirmed by Atty. Thorne\n• A rental the carrier didn't pay is the owner's cost: keep the receipt, send it with the PD claim\n• When the rental ends, plan rides before a visit is missed; check payers so nothing is claimed twice\n• Enter costs the day receipts arrive, total and route before the demand; never promise repayment"
@@ -670,7 +670,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Care off the Standard Treatment Map triggers denials and IMEs, exams by the insurer's own doctor\n• Acute, days 1 to 14: ER, imaging, first therapy, proving the crash caused the injury\n• Sub-acute, weeks 2 to 8: active therapy, specialists, measured gains\n• Restorative, weeks 9 to 24: injections, work hardening; then maintenance; MMI, Maximum Medical Improvement, opens pre-demand\n• Off the map: ask why first and record why, not just \"missed visits\""
   },
   "why": {
-   "say": "• Week-6 mark: six weeks after first therapy on 02/24/2026, so 04/07/2026, when doctors check therapy is working\n• John Doe missed it\n• On an LOP nobody denies visits in real time; Keystone challenges the care later, at the demand\n• The Case Manager is the only real-time check that the plan is working, acting the day it isn't"
+   "say": "• Week-6 mark: six weeks after first therapy on 02/24/2026, so 04/07/2026, when doctors check therapy is working; John Doe missed it\n• On an LOP nobody denies visits in real time; Keystone challenges the care later, at the demand\n• The Case Manager is the only real-time check that the plan is working, acting the day it isn't\n• Red flag: on A-C-T, the plan runs on unchanged through a crisis, or somebody puts a label on John\n• Document his distress in his own words, never diagnose, and adjust the plan with his consent"
   },
   "rules": {
    "say": "• Monitor outcomes, not attendance: visits, pain, limits at work and home, inside and outside barriers\n• 04/08/2026 is day 61, week 9; the week-6 mark was 04/07/2026, 02/24/2026 plus 42 days\n• Name the variance, run A-C-T for every red flag, adjust the plan first\n• Climb one documented rung at a time: clinical, administrative, legal; write every intervention as a GIRP note\n• Coordinate care, never direct it; never say missed visits cut his claim"
@@ -681,7 +681,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m2-pip": {
   "why": {
-   "say": "• PIP is spent only once; Harbor Point's $5,000 paid five bills his settlement never repays\n• Where it landed decided what was left for Peach State, the LOP and his net take-home\n• The ledger signals seriousness to the BI adjuster, and in some states earns the defendant a credit\n• The bills used the whole limit first, so the $1,267.20 wage benefit was never paid"
+   "say": "• PIP is spent only once; Harbor Point's $5,000 paid five bills his settlement never repays\n• Where it landed decided what was left for Peach State, the LOP and his net take-home\n• The bills used the whole limit first, so the $1,267.20 wage benefit was never paid\n• Red flag: a PIP-paid bill counted as unpaid, or the injury sized up from PIP's $5,000\n• Severity comes from the audited Specials, $14,817.40 medical; PIP sits on the tracker as a payment source"
   },
   "rules": {
    "say": "• PIP does most good on fixed costs, ER, imaging, specialists; LOP providers reduce more readily than hospitals\n• Here PIP paid urgent care, Lakeside three times, Summit's $2,395.00 MRI; chiropractic and therapy ran under the LOP\n• The Case Manager forecasts; routing outside the Payer Order is Atty. Thorne's; limit used by 06/26/2026\n• EMC states cap PIP without a doctor's emergency medical condition finding; check early, never request it\n• Set-off credits the defendant for PIP paid; Riverton is add-on, so PIP doesn't reduce BI or UM"
@@ -717,7 +717,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m1-l2": {
   "why": {
-   "say": "• Two separate questions: who pays John Doe's Medical Bills now, and who pays the claim at the end\n• Most confusion comes from treating them as one\n• The Health Plan pays bills now, then asks to be repaid from the settlement\n• A repayment claim found after the demand comes out of the client's money"
+   "say": "• Two separate questions: who pays John Doe's Medical Bills now, and who pays the claim at the end\n• Most confusion comes from treating them as one\n• The Health Plan pays bills now, then asks to be repaid from the settlement\n• Red flag: Peach State's notice landed 02/27/2026; flag it that day, before any demand\n• Flagged late means paid twice, out of the client's money"
   },
   "rules": {
    "say": "• HIPAA: Authorization to Release Medical Information naming the crash date, allowing legal and insurance contact\n• John Doe is 34: verify his SSDI status and record the answer\n• Verify whether PIP or MedPay applies; never assume\n• Payer Order pays the bills; the Recovery Stack pays the claim\n• Flag a Health Plan's repayment right on first notice; log carrier, member ID, group number that day; never promise amounts"
@@ -731,7 +731,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Sort each coverage twice: whose it is, what it pays; only BI, Host UM and Relative UM make the $40,000 stack\n• Payer-First Principle: Harbor Point PIP, then Peach State, then an LOP last\n• Health subrogation: the plan claims back only what it paid, for the collision's care\n• Peach State asserted $3,618.00 on 06/10/2026, confirmed $1,860.00 in writing 06/24/2026\n• Two CMS flags go up the day known, facts only, routed to Atty. Thorne"
   },
   "why": {
-   "say": "• Three money questions at once: who pays each bill now, who wants repayment, what to flag in the CMS today\n• This lesson puts all three on one page\n• A lien found at disbursement, or an unrecorded gap, is how a good file loses money\n• Flag it the day it's known"
+   "say": "• Three money questions at once: who pays each bill now, who wants repayment, what to flag in the CMS today\n• A lien found at disbursement, or an unrecorded gap, is how a good file loses money\n• Flag it the day it's known\n• Red flag: a CMS flag that says what the gap does to the claim is a legal conclusion in a discoverable record\n• Flags hold facts only: dates, counts, and \"explanation pending\""
   },
   "rules": {
    "say": "• Only BI and UM stack, $40,000; PIP and PD sit outside\n• Bills go PIP, then Peach State, then an LOP\n• Lien flagged in CMS Liens on first notice, Peach State's letter of 02/27/2026, always before any demand draft\n• Gap flagged the day records show it: 02/06/2026 to 02/20/2026, 14 days, facts only, routed, watched\n• Neither flag is a judgment; enforceability and effect on value are Atty. Thorne's"
@@ -785,7 +785,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Gap interview roadmap: plan the questions, never the answers expected\n• Open on the record: date, who is on, role, his consent to record, privacy\n• Ask open, follow his words, ask for the paper, read it back, open a dated task per document\n• Coordinate, don't commingle: keep the medical and legal tracks separate in notes\n• Write facts, never conclusions; an opinion in a note is something the defense can use"
   },
   "why": {
-   "say": "• The only gap explanation that holds up is John Doe's own, in his words, backed by documents\n• Compare \"Was it because you had no car?\" with \"What, if anything, made it hard to get seen sooner?\"\n• A leading question gets a yes; an open question gets the truth\n• The job: draw it out and write it down exactly; never explain, defend or judge it"
+   "say": "• The only gap explanation that holds up is John Doe's own, in his words, backed by documents\n• Compare \"Was it because you had no car?\" with \"What, if anything, made it hard to get seen sooner?\"\n• The job: draw it out and write it down exactly; never explain, defend or judge it\n• Red flag: \"Was it because you had no car?\" A leading question buys a yes, not information; ask it open"
   },
   "rules": {
    "say": "• Investigate, don't advocate: read the EMS report, the 02/20/2026 urgent-care history and the timeline; plan questions only\n• Funnel: broad open questions, then follow-ups on his words, yes-or-no last to pin a date or document\n• Never lead or judge; never offer the usual reasons, like rides, co-pays or work schedules\n• Record only with spoken consent; a Keystone Recorded Statement request is politely declined and sent to the firm\n• Confirm the 03/05/2026 Dr. Reyes consult and his rides after 03/19/2026; \"the gap won't matter\" is legal advice"
@@ -820,7 +820,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Therapy past 12 sessions with no gain and no specialist or imaging reads as stalled or over-treatment\n• Passive care only, heat, TENS (electrical pulses), massage with no exercise: adjusters discount it\n• Two or more missed appointments: the defense says the injury wasn't serious; the most common flag\n• Surgery before therapy or injections outside an emergency; opioid, muscle relaxant and sedative together with rising doses\n• Records with left and right switched, or life stress instead of the crash"
   },
   "why": {
-   "say": "• The adjuster argues the gap proves John Doe healed\n• Records made at the time carry the weight, like the 02/07/2026 Riverton Drug receipt for pain relief\n• Also: notes placing pain at the collision, agreeing histories, the EMS report, work records, later a causation opinion\n• Causation opinion: a doctor's letter linking the injury to the crash; a record made to order destroys the case"
+   "say": "• The adjuster argues the gap proves John Doe healed\n• Records made at the time carry the weight, like the 02/07/2026 Riverton Drug receipt for pain relief\n• Also: notes placing pain at the collision, the EMS report, work records, later a causation opinion\n• A record made to order destroys the case\n• Red flag: asking a provider to change, back-date or add to a record; never\n• A record wrong at its source gets its author's dated addendum, like Summit's on 07/15/2026, and the original stays put"
   },
   "rules": {
    "say": "• Read every history for how (the collision), when (02/06/2026), where (neck and right arm; 2021 was low back)\n• Therapy notes and Dr. Reyes disagree: flag to Atty. Thorne that day\n• Never ask a provider to change, back-date or add to a record; never order an excuse note\n• 02/09 to 02/13: Northgate's Attendance Record; EMS \"declined transport\" recorded exactly; keep the receipt and Margaret texts\n• Atty. Thorne requests a causation opinion; the Case Manager assembles and tracks, never drafts"
@@ -838,7 +838,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Duty and breach prove negligence; causation and damages prove what it cost; a claim needs both\n• Author: a treating physician or surgeon, or an independent medical expert; Dr. Reyes is his treating spine surgeon\n• Reasonable medical probability: more likely than not; \"possibly\" falls short; Atty. Thorne confirms the exact standard\n• Prior injury in the same region raises aggravation, an old problem made worse; his 2021 care was low back"
   },
   "why": {
-   "say": "• Robert Smith's failure-to-stop citation and witness Ruth Calloway prove negligence, only half the case\n• Other half: causation and damages; this crash caused his C5-C6 herniation, a disc bulging between neck bones\n• Keystone has two other causes ready: the 14-day gap and his 2021 chiropractic visits\n• The Causation Letter, Dr. Alana Reyes, 06/19/2026: the demand, rebuttal and every binder lean on it"
+   "say": "• Robert Smith's failure-to-stop citation and witness Ruth Calloway prove negligence, only half the case\n• Other half: causation and damages; this crash caused his C5-C6 herniation, a disc bulging between neck bones\n• Keystone has two other causes ready: the 14-day gap and his 2021 chiropractic visits\n• The Causation Letter, Dr. Alana Reyes, 06/19/2026: the demand, rebuttal and every binder lean on it\n• Red flag: the letter says \"possibly\" or \"could be,\" short of more likely than not\n• Flag it to Atty. Thorne; never ask the doctor to strengthen it"
   },
   "doc": {
    "say": "• Causation Letter: a medical professional's formal opinion linking the accident to the specific injuries\n• Legal purpose: prove the defendant's conduct caused the harm, the expenses and ongoing limitations\n• Dr. Reyes: more likely than not; ties the herniation to 02/06/2026; answers the gap and the 2021 visits\n• Atty. Thorne requests it; the Case Manager assembles records, dockets follow-up, checks it on arrival, files and cites it\n• Handle the letter's path, never its words; read it the same day"
@@ -892,7 +892,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Master Audit Checklist: tick it from the file, never from memory\n• Money: Specials documented line by line; lost wages need the employer's wage letter plus a doctor's work note\n• Lien resolution: every payer wanting repayment\n• Liability: final Police Report, witness drift, crash physics; Property Damage point of impact and supplements\n• Medical and billing: every gap explained, no duplicate codes, five to ten years of history"
   },
   "why": {
-   "say": "• $7,965.00 in liens sits behind a $10,000 BI limit, leaving $2,035.00 of that layer for John Doe\n• Lien: a bill paid from the settlement before the client's share; BI: the at-fault driver's bodily injury coverage\n• The demand goes out later, but what it can claim is decided in this audit\n• One duplicate line or unchecked limit gives Keystone an easy out"
+   "say": "• $7,965.00 in liens sits behind a $10,000 BI limit, leaving $2,035.00 of that layer for John Doe\n• Lien: a bill paid from the settlement before the client's share; BI: the at-fault driver's bodily injury coverage\n• What the demand can claim is decided in this audit; one duplicate line gives Keystone an easy out\n• Red flag: Riverton billed 05/04/2026 twice, and no visit note supports the second; claiming it inflates the Specials\n• It comes off, and the correction goes to the provider in writing"
   },
   "rules": {
    "say": "• MMI is Lakeside Orthopedics' call, from its 06/12/2026 note with future care; SOL 02/06/2028 on the calendar\n• The Civic runs on its own Keystone PD claim, so BI Specials are medical plus wages\n• Passes: dates for both gaps, codes for duplicates, prior history for 2021 low back\n• Northgate: 9 shifts at 8 hours and $22.00, $1,584.00; flag five with no note; $3,400 to $6,800 future injections stay out\n• Register every lien, Peach State's $1,860.00 included; audit and flag, never value the case"
@@ -937,7 +937,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• The strategy brief carries audit findings, not conclusions; Atty. Thorne makes every call\n• It reports on the four core audit objectives\n• Flags statement drift: a witness whose story changes between tellings\n• Names value killers: social media, a minor-impact label, venue\n• Always carries lien totals; bad math or a missed lien means a short-funded settlement, little or nothing for the client"
   },
   "why": {
-   "say": "• Atty. Thorne makes the strategy calls from the brief, so its shape matters\n• Weak opening: the story of 02/06/2026; strong: MMI, $16,401.40 audited Specials against $10,000 BI, decisions needed\n• Story first buries the decision; hiding a risk misleads; making the call for him crosses the line\n• Headline first, story second"
+   "say": "• Atty. Thorne makes the strategy calls from the brief, so its shape matters\n• Weak opening: the story of 02/06/2026; strong: MMI, $16,401.40 audited Specials against $10,000 BI, decisions needed\n• Story first buries the decision; hiding a risk misleads; making the call for him crosses the line\n• Red flag: someone asks \"What's it worth?\" and the Case Manager reaches for a number; don't, value is Atty. Thorne's\n• Answer with the inputs: Specials, limits, liens"
   },
   "rules": {
    "say": "• Bottom line first: MMI 06/12/2026, $16,401.40 Specials against $10,000 BI, decisions before any demand draft\n• Facts: report RPD-26-018842, Smith cited for failure to stop, Ruth Calloway checked for drift, the doorbell video\n• Force: door struck about 28 mph; Civic $6,940.00 to $9,255.00 with a $2,315.00 A-pillar (windshield frame post) supplement\n• Each risk paired with its answering document, including the often-missed 2021 low-back visits\n• Decisions as questions, options with consequences; record his decisions the same day"
@@ -978,7 +978,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• MMI, Maximum Medical Improvement: the doctor says the client has healed as much as he will\n• 30-Day Rule: send the demand within 30 days of MMI; John's MMI 06/12/2026, target 07/12/2026\n• Served 07/20/2026; a later date is Atty. Thorne's decision, with his reason recorded\n• Photo impact: lead with the most graphic Property Damage or injury image\n• Why Factor: every bill carries why the treatment was necessary"
   },
   "why": {
-   "say": "• John Doe's Specials, his bills and lost wages with a hard number on them, total $16,401.40\n• Robert Smith carries only $10,000 with Keystone\n• Goal: Keystone pays its full limit within 30 days\n• The tool is a Time-Limited Demand with five parts; miss one and Keystone can refuse at no risk\n• The first page or two of the package set the tone for the offer"
+   "say": "• John Doe's Specials total $16,401.40; Robert Smith carries only $10,000 with Keystone\n• Goal: Keystone pays its full limit within 30 days\n• The tool is a Time-Limited Demand with five parts; miss one and Keystone can refuse at no risk\n• The first page or two of the package set the tone for the offer\n• Red flag: “Thirty days from the date of this letter” is wrong; the window closes 08/21/2026, from Keystone's written acknowledgement. Fix it; tell Atty. Thorne."
   },
   "doc": {
    "say": "• Affidavit of No Other Insurance: Robert Smith's sworn, notarized statement that Keystone is his only liability coverage\n• No umbrella, business or employer's policy; Atty. Thorne makes it a condition of the demand\n• Smith swore it 08/10/2026; Keystone sent it with its tender, its offer to pay the full limit\n• Both UM carriers reviewed it before consenting\n• Case Manager: record it in the approved terms, check it is notarized and matches the file, cite it in each UM demand"
@@ -1020,7 +1020,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• UM is the client's safety net once the at-fault policy is used up, up to its limits\n• Net check: John cares only about what's left after fees and unreduced liens\n• BI exhaustion: the at-fault carrier paid its full limit; that opens the UM claim\n• Before releasing Smith, the UM carrier consents and waives subrogation, or substitutes its own check\n• Front-load the proof: at-fault Dec Page, signed release and consents up front"
   },
   "why": {
-   "say": "• Keystone's $10,000 minus fee and costs leaves $6,179.92\n• John's liens, bills repaid from the settlement, total $7,965.00 unreduced; BI alone nets him nothing\n• UM: his own coverage when the at-fault driver doesn't carry enough\n• Technicalities can lose UM: an early release, a UM demand before BI is used up, a missing consent\n• Gross is a headline; net is what John lives on"
+   "say": "• Keystone's $10,000 minus fee and costs leaves $6,179.92\n• John's liens total $7,965.00 unreduced; BI alone nets him nothing\n• UM: his own coverage when the at-fault driver doesn't carry enough\n• Technicalities can lose UM: an early release, a premature UM demand, a missing consent\n• Gross is a headline; net is what John lives on\n• Red flag: a UM demand before the documented BI tender, or Smith released without both written consents, can lose UM; stop, tell Atty. Thorne."
   },
   "doc": {
    "say": "• UM Consent to Settle: the UM carrier's written answer to the 30-Day Letter\n• Consents to the BI settlement, waives subrogation, its right to chase Smith for what it pays, and won't substitute its own check\n• Trap: release Smith without it and John Doe can lose the UM coverage\n• Harbor Point consented 08/24/2026, Cardinal State 08/26/2026; release of Smith and Keystone only, UM claims open\n• Prepare both for Atty. Thorne's signature, docket, file; John signs nothing until both are in"
@@ -1037,7 +1037,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• A Demand Package is proof sorted by what each piece proves\n• Big Four: Medical Specials, Narrative, Liability Proof, Special Damages; flawless before Atty. Thorne reviews\n• Human Story: how the injury changed John Doe's work and daily life, from his words and the records\n• Weak file vs. legal trap: 300 pages of raw charts get a lowball; a two-page summary and strict clock make refusal risky\n• Documents by function for UM: coverage, liability, special damages, general damages, release"
   },
   "why": {
-   "say": "• 08/05/2026: Keystone offered $3,500 on a claim with $16,401.40 in Specials\n• Its reasons: the 14-day gap and a “degenerative” MRI, meaning wear and tear from age, not the crash\n• Adjusters use any opening a package leaves; a missing part is a discount\n• Each part proves one thing: bills, story, fault, wages; for UM, coverage and exhaustion\n• Built for the BI demand served 07/20/2026, again for the UM demands of 08/31/2026"
+   "say": "• 08/05/2026: Keystone offered $3,500 on a claim with $16,401.40 in Specials\n• Its reasons: the 14-day gap and a “degenerative” MRI, meaning wear and tear from age, not the crash\n• Adjusters use any opening a package leaves; a missing part is a discount\n• Each part proves one thing: bills, story, fault, wages; for UM, coverage and exhaustion\n• Built for the BI demand served 07/20/2026, again for the UM demands of 08/31/2026\n• Red flag: Exhibit A cites RPD-26-018824, transposed, one of ten faults in the draft. Run the final scrub; fix all ten before Atty. Thorne signs."
   },
   "doc": {
    "say": "• Time-Limited Demand: the firm's offer to settle John Doe's BI claim for Keystone's $10,000 per-person limit, open for a fixed time\n• Makes Keystone decide on the record; Atty. Thorne sets every term: payment, Limited Release of Smith and Keystone, Smith's affidavit\n• Emailed to Dana Whitfield 07/20/2026: 81 pages, Exhibits A through J\n• 30 days run from her written acknowledgement of receipt, 07/22/2026; window closes 08/21/2026\n• No certified mail; the sent email and her reply are the proof; log, docket 08/21/2026, change no term"
@@ -1094,7 +1094,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• The demand letter is the opening move; adjusters protect the carrier by valuing claims low\n• The pitch: a template demand gets template treatment; a tailored one earns a real evaluation\n• Value drivers: the few facts that would scare a jury; every call leads with them\n• Anticipate: name your top two weak spots before the adjuster does, with documents ready\n• Professional pause: after a low number, stay quiet so she must justify it with data"
   },
   "why": {
-   "say": "• Keystone won't argue the crash: Robert Smith was cited and the doorbell camera caught him\n• It will argue the 14-Day Gap, call the MRI degenerative, and stall toward 08/21/2026\n• Expect Dana Whitfield to ask: “Why did he wait two weeks?”\n• Map both attacks and the documents that answer them before the first call\n• Answer with documents, never adjectives"
+   "say": "• Keystone won't argue the crash: Robert Smith was cited and the doorbell camera caught him\n• It will argue the 14-Day Gap, call the MRI degenerative, and stall toward 08/21/2026\n• Expect Dana Whitfield to ask: “Why did he wait two weeks?”\n• Map both attacks and the answering documents before the first call; answer with documents, never adjectives\n• Red flag: Whitfield presses for a number. Accept, reject, counter or value can change the demand's terms. Log her exact words; tell Atty. Thorne today."
   },
   "rules": {
    "say": "• Net floor: liens $7,965.00 plus costs $486.75 is $8,451.75; grossed up for the one-third fee, $12,677.63\n• Gross up: the settlement size that leaves that amount after the fee; above Keystone's $10,000 limit\n• Drivers: Smith on video, an independent witness, C5-C6 herniation and injection, right-arm paresthesia (numbness, tingling) at MMI\n• Anchor on $16,401.40 Specials, never PIP's $5,000; restate the demand and 08/21/2026, pause, ask for her data\n• Log Keystone's $3,500 counteroffer word for word; never counter or move the number or deadline"
@@ -1133,7 +1133,7 @@ window.CM_CF_SCRIPTS = {
    "ask": "What would have happened to the timeline if Harbor Point had substituted its own check?"
   },
   "why": {
-   "say": "• When Harbor Point or Cardinal State pays John, it steps into his shoes against Robert Smith: subrogation\n• If John releases Smith first, that right is gone and the policy may let the carrier refuse to pay\n• $30,000 of the $40,000 stack rides on two letters\n• Keystone won't pay and John won't sign until both UM carriers consent in writing and waive subrogation\n• Not Bluewater: Margaret rejected UM on the Civic on 03/14/2024, so nothing to waive"
+   "say": "• When Harbor Point or Cardinal State pays John, it steps into his shoes against Robert Smith: subrogation\n• If John releases Smith first, that right is gone and the policy may let the carrier refuse to pay\n• $30,000 of the $40,000 stack rides on two letters\n• Keystone won't pay and John won't sign until both UM carriers consent in writing and waive subrogation\n• Red flag: a consent request sent to Bluewater Auto; Margaret rejected UM in writing on 03/14/2024. Ask Harbor Point and Cardinal State, nobody else."
   },
   "doc": {
    "say": "• Waiver of Subrogation: a separate instrument from the consent letter, on the carrier's own form, signed and notarized\n• Waives recovery from Robert Smith and Keystone only; UM claim stays open; no substitute check\n• Notarized, so it can be filed or offered as an exhibit without testimony\n• Harbor Point signed 08/24, Cardinal State 08/26/2026\n• Check carrier, policy, claim, scope and notary block; what it means for John is Atty. Thorne's to explain"
@@ -1178,7 +1178,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• A UM settlement is won on paper: the other driver's fault, and damages above what's collected\n• Raw charts and a casual letter carry no risk for the carrier; a clear summary on a clock raises it\n• Sort documents by coverage, liability and damages; diagnostics and a causation narrative answer “he had this before”\n• Bracketing: paired ranges that close toward the middle; Atty. Thorne makes every move\n• PIP: no-fault states pay it first and limit suits; at-fault states, BI pays; John's Harbor Point PIP is add-on"
   },
   "why": {
-   "say": "• Harbor Point's 03/02/2026 letter contains the add-on clause: it pays on top of Keystone\n• On a reduction policy, Keystone's $10,000 would come off the $20,000; that one sentence is worth $10,000\n• After Keystone tenders, the money sits with two first-party carriers that insure John and will argue against him\n• Reach $40,000 by proving the gap above each layer and closing every reduction in writing first"
+   "say": "• Harbor Point's 03/02/2026 letter contains the add-on clause: it pays on top of Keystone\n• On a reduction policy, Keystone's $10,000 would come off the $20,000; that sentence is worth $10,000\n• After Keystone tenders, the money sits with two first-party carriers that insure John and will argue against him\n• Reach $40,000 by proving the gap above each layer and closing every reduction in writing first\n• Red flag: Harbor Point says “BI already compensated him.” Wrong on an add-on UM. Don't argue; answer with its 03/02/2026 letter; log for Atty. Thorne."
   },
   "rules": {
    "say": "• UM pays the gap: damages as Atty. Thorne values them, minus BI, up to its limit; Cardinal State needs damages above $30,000\n• “BI already compensated him”: Harbor Point's 03/02/2026 letter answers the limit half, medical proof the damages half\n• First offers are rarely last; bracketing is Atty. Thorne's tool alone\n• On a limits offer: confirm coverage, release scope, liens, payee, check date without accepting; report same day\n• Harbor Point PIP is add-on: no lien, no UM cut; never accept, reject or counter yourself"
@@ -1231,7 +1231,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Providers on an LOP sit high: they often reduce to get paid now\n• Private health insurance sits moderate, subject to made whole or common fund\n• Medicare and Medicaid sit low; ERISA self-funded plans very low, under federal law\n• Riverton Spine & Rehab is the LOP provider, top of the ladder; Peach State is fully insured, not ERISA\n• Fully insured: the employer bought a policy, so state law generally governs reduction; Atty. Thorne confirms"
   },
   "why": {
-   "say": "• A lien: a bill with a legal right to be paid from the settlement before the client's share\n• John Doe's $40,000: two liens asserted, five checked and found absent, each recorded with its source\n• The money isn't John's until every claim is found, sorted and resolved in writing\n• Liens bend differently: statutory to a formula, a Health Plan to a doctrine, a provider balance to negotiation\n• Sort one wrong and you overpay John's money away or freeze the payout"
+   "say": "• A lien: a bill with a legal right to be paid from the settlement before the client's share\n• John Doe's $40,000: two liens asserted, five checked and found absent, each recorded with its source\n• The money isn't John's until every claim is found, sorted and resolved in writing\n• Liens bend differently: statutory to a formula, a Health Plan to a doctrine, a provider balance to negotiation\n• Sort one wrong and you overpay John's money away or freeze the payout\n• Red flag: an unclassified lien gets paid at the wrong number. Classify every claimant first."
   },
   "rules": {
    "say": "• Statutory liens (Medicare, Medicaid, hospital, workers' comp) come from law and bend least; contractual claims rest on an agreement\n• Inventory every claimant, absent ones too: record where you checked and when, not just “none”\n• Two asserted: Peach State and Riverton Spine & Rehab; Harbor Point PIP has no reimbursement right; Crescent can't balance-bill\n• Peach State: Atty. Thorne asked for the one-third common-fund share; $1,860.00 minus $620.00 is $1,240.00\n• Name doctrines, never choose them; never compromise a lien without his authority or call one invalid to John"
@@ -1267,7 +1267,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Step 1: cross-reference records against the bill; a Level 3 visit billed as Level 5 gets corrected, not discounted\n• Step 2: hunt for duplicate charges, especially overlapping dates across hospitals and doctor groups\n• Step 3: common fund, the lienholder reducing by its share of fees and costs; Atty. Thorne's argument\n• Step 4: never pay without a signed Payoff Letter stating full and final satisfaction\n• Start at step 1: every error found is money not negotiated for"
   },
   "why": {
-   "say": "• On Keystone's $10,000 BI alone, John Doe takes home $0.00\n• Half the job is collecting from carriers; the other half is keeping money from lienholders\n• Every dollar a lien gives up lands in John's net\n• What moves a provider: an honest audit and pro-rata math it can check itself"
+   "say": "• On Keystone's $10,000 BI alone, John Doe takes home $0.00\n• Half the job is collecting from carriers; the other half is keeping money from lienholders\n• Every dollar a lien gives up lands in John's net\n• What moves a provider: an honest audit and pro-rata math it can check itself\n• Red flag: asking for a percentage off an inflated bill. Starting from $6,290.00 hands back the $185.00 the audit removes. Corrections first, reductions second."
   },
   "rules": {
    "say": "• Audit before asking: corrections first, reductions second\n• Riverton billed 34 lines at $185.00, $6,290.00; records show 33 visits and a 05/04/2026 duplicate; negotiate from $6,105.00\n• Match each code to that day's note; no lines between 04/02 and 04/21/2026\n• BI alone: $6,179.92 split pro rata, Peach State $1,443.15, Riverton $4,736.77, John nets nothing; Track A covers both liens\n• Argue true facts only; common fund is Atty. Thorne's; no Payoff Letter, no payment",
@@ -1283,7 +1283,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m3-l3": {
   "why": {
-   "say": "• Riverton Spine & Rehab agreed to take less; the finish line is the signed Payoff Letter, not the agreement\n• Won on paper first: show the audited balance, recovery, fee and costs, and the other liens\n• The lienholder needs a letter it can sign that closes the bill for good\n• Skip the paper and money is left on the table or the bill reopens"
+   "say": "• Riverton Spine & Rehab agreed to take less; the finish line is the signed Payoff Letter, not the agreement\n• Won on paper first: show the audited balance, recovery, fee and costs, and the other liens\n• The lienholder needs a letter it can sign that closes the bill for good\n• Skip the paper and money is left on the table or the bill reopens\n• Red flag: a phone yes isn't a reduction until it's in a signed Payoff Letter. Take it to Atty. Thorne; confirm in writing."
   },
   "doc": {
    "say": "• Payoff Letter: the lienholder's signed agreed payoff in full satisfaction\n• No balance billing (billing the client for the rest), no collections, lien released\n• Puts the phone reduction in writing so the account closes at $0.00\n• Riverton Spine & Rehab, 10/12/2026: $6,105.00 audited, $4,580.00 accepted if paid within 30 days\n• No Payoff Letter, no payment; check figures, docket the 30-day condition, update Lien Tracker and Net Sheet same day"
@@ -1358,7 +1358,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Road to zero: audit the release; both UM consents in writing before the BI release is signed\n• Show John how $40,000.00 becomes his net; deposit each check to IOLTA, the client trust account, when its release is signed\n• Disburse on Payoff Letters and Atty. Thorne's signature until the ledger reads $0.00\n• Closing documents: Release of All Claims, ending the right to sue; Settlement Disclosure Statement, gross to net\n• Satisfaction of Lien, the provider's signed paid letter; Dismissal With Prejudice where suit was filed"
   },
   "why": {
-   "say": "• Keystone's 08/14 draft released “all other persons, firms, corporations and insurers”\n• Unread, it would have released both UM carriers: $30,000\n• A release: the client gives up the right to sue in exchange for payment\n• Settled means the right release signed, every check cleared trust, every lien paid off in writing, ledger at $0.00"
+   "say": "• Keystone's 08/14 draft released “all other persons, firms, corporations and insurers”\n• Unread, it would have released both UM carriers: $30,000\n• A release: the client gives up the right to sue in exchange for payment\n• Settled means the right release signed, every check cleared trust, every lien paid off in writing, ledger at $0.00\n• Red flag: disbursing against uncleared funds or an open lien notice. Hold it; a disputed share stays in trust until Atty. Thorne clears it."
   },
   "doc": {
    "say": "• Limited Release: John Doe ends his BI claim, releasing Robert Smith and Keystone only, for the $10,000\n• Preserves the UM claims against Harbor Point and Cardinal State\n• Signed 08/28/2026, it is exhaustion proof in each UM demand\n• Keystone's 08/14 draft released all other insurers, $30,000 of UM coverage\n• Audit every line, quote overbroad words in a redline memo to Atty. Thorne, hold signature until both consents arrive"
@@ -1375,7 +1375,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Before a case is marked Archived, check four document sets, then apply the retention policy: how long the file is kept\n• The four: money trail, proof of delivery, compliance and identity, closing memo\n• Closing memo, most often skipped: one page on how the file started and ended, every gap and exception explained\n• Retention: every document tagged by type, destroy-by date calendared\n• A late bill after the closing letter is checked, classified and routed the same day"
   },
   "why": {
-   "say": "• The Trust Ledger hit $0.00 on 10/22/2026: five checks out, $40,000.00 in and $40,000.00 out\n• Zero is where closing starts, not where it ends\n• An auditor, a lienholder or John Doe with a late bill may open this file later\n• The file must show where every dollar went, who signed, and why each figure moved, matching the Net Sheet"
+   "say": "• The Trust Ledger hit $0.00 on 10/22/2026: five checks out, $40,000.00 in and $40,000.00 out\n• Zero is where closing starts, not where it ends\n• The file must show where every dollar went, who signed, and why each figure moved, matching the Net Sheet\n• Red flag: an email saying \"We've changed our wiring instructions.\" Stop the payment; verify by phone to a number already on file, not the email's"
   },
   "rules": {
    "say": "• Nothing archived until all four sets are present; test: could an outside auditor trace every dollar from the file alone\n• Money trail: three deposits, five 10/22/2026 checks, each with its confirmation number\n• Zero counts only when bank statement, trust journal and client ledger agree and every check cleared; second reviewer on each disbursement\n• Closing memo explains every figure that moved; Case Manager drafts the closing letter, Atty. Thorne signs\n• Retention: dispose 7 years from closing; a late bill goes to Atty. Thorne same day",
@@ -1439,7 +1439,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m1-l1": {
   "why": {
-   "say": "• Track B: same file, same 08/05/2026 offer of $3,500, but this time Keystone doesn't move\n• Track A is the road where the case settles; Track B is where the insurer won't budge and suit is filed\n• Keystone rests on the 14-Day Gap; BI must be used up before John Doe's UM coverage opens\n• So one $10,000 carrier freezes the whole $40,000 stack; every date matters"
+   "say": "• Track B: same file, same 08/05/2026 offer of $3,500, but this time Keystone doesn't move\n• Track A is where the case settles; Track B is where the insurer won't budge and suit is filed\n• Keystone rests on the 14-Day Gap; BI must be used up before John Doe's UM coverage opens\n• So one $10,000 carrier freezes the whole $40,000 stack; every date matters\n• Red flag: impasse is five dated triggers, never frustration; call it an impasse only when all five are logged with dates"
   },
   "rules": {
    "say": "• Keystone holds at $3,500, calls it \"final\" on 08/12, lets the demand lapse 08/21\n• Work the dispute path first: evidence, new findings, the 09/02 supervisor escalation; by 09/04/2026 all five triggers are met\n• Never bid against yourself: never lower the number because the carrier went quiet\n• Filing is Atty. Thorne's decision; inputs are yours: RPD-26-018842, Ruth Calloway, doorbell video, MRI, $16,401.40 Specials\n• Calendar SOL 02/06/2028, cutoff 11/05/2027; never recommend suit, value the claim or advise John on $3,500"
@@ -1462,7 +1462,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m1-l2": {
   "why": {
-   "say": "• Keystone never said no; it went silent, and that dated, logged silence proved the impasse\n• On 09/10/2026, before filing, the case-number field reads \"Pending\"; anything else is a guess\n• Once Atty. Thorne authorizes suit, a court clock replaces the adjuster's clock\n• Status, court fields, folders and calendar must all change together, or real court deadlines slip"
+   "say": "• Keystone never said no; it went silent, and that dated, logged silence proved the impasse\n• On 09/10/2026, before filing, the case-number field reads \"Pending\"; anything else is a guess\n• Once Atty. Thorne authorizes suit, a court clock replaces the adjuster's clock\n• Red flag: pre-litigation habits in a court file cost deadlines; update status, court fields, folders and calendar in one sitting, citing Atty. Thorne's 09/09/2026 authorization"
   },
   "rules": {
    "say": "• Status changes to Litigation only on Atty. Thorne's dated authorization, and cites it\n• Fee: 33⅓% before suit, 40% once suit is filed; court fields only from the record, number \"Pending\" until filing\n• Build DOE, JOHN - CASE FILE with folders 01 to 05 for the 09/24/2026 filing; name every PDF, never scan001.pdf\n• Calendar SOL 02/06/2028, hard date 02/04/2028, cutoff 11/05/2027, 48-hour audits; notify UM carriers in writing, no number\n• Keep the doorbell video unaltered; a binding award generally can't be appealed"
@@ -1512,7 +1512,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Once suit is filed, statute, rule and court order set the dates\n• Documents stop being paperwork and become evidence; a missing or misfiled page can hurt a trial\n• Court processes repeat weekly, each driven by the calendar\n• Built-in waits, like notice to opposing counsel before a third-party subpoena, go on the calendar like deadlines\n• A third party's missed date becomes the Case Manager's problem; follow up ahead"
   },
   "why": {
-   "say": "• John Doe's statute of limitations, the last day the law allows filing, is 02/06/2028, a Sunday\n• Keystone's stonewall on the 14-Day Gap put the file on court time\n• From 09/24/2026, dates are set by rule, order and statute\n• They don't move when a carrier goes quiet or a client can't be reached; the firm moves first"
+   "say": "• John Doe's statute of limitations, the last day the law allows filing, is 02/06/2028, a Sunday\n• Keystone's stonewall on the 14-Day Gap put the file on court time\n• From 09/24/2026, dates are set by rule, order and statute, and don't move when a carrier goes quiet\n• Red flag: fifteen RFAs inside the general discovery entry, unanswered, may be deemed admitted; give them their own entry and alerts; tell Atty. Thorne"
   },
   "doc": {
    "say": "• The Complaint turns a claim into a lawsuit; Atty. Thorne drafts and signs it\n• Parts: caption, jurisdiction, facts, causes of action (legal reasons for suing), prayer for relief (what is asked)\n• Filed before the SOL, it preserves negligence and negligence per se claims against Robert Smith\n• Filed 09/24/2026, No. 26-CV-04417: bodily injury only, $14,817.40 medical, $1,584.00 wages; no Property Damage, John owns no vehicle\n• Verify filing date and Smith's exact name; stamped copy in 01_PLEADINGS; use only the filed version"
@@ -1556,7 +1556,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Step one, claim submission: UM Demand Package with proof the at-fault limits were used up, sent 03/22/2027\n• Step two, dispute: Harbor Point offered $8,000, Cardinal State $6,000; $14,000 against $30,000 in limits\n• Step three, resolution route: Demand for Arbitration where the clause binds\n• Or a lawsuit against the carrier where state law bars the clause or lets the client opt out\n• Bad faith is not on this flow; separate action, Atty. Thorne's call"
   },
   "why": {
-   "say": "• Three carriers: Keystone, Harbor Point, Cardinal State\n• Keystone insured Robert Smith, who ran the stop sign: a claim against someone else's carrier\n• Harbor Point and Cardinal State are John's own coverage, under contracts he can call on\n• Harbor Point offered $8,000 against a $20,000 limit\n• One paragraph in Harbor Point's policy decides where this fight happens; read it before calendaring anything"
+   "say": "• Three carriers: Keystone, Harbor Point, Cardinal State\n• Keystone insured Robert Smith, who ran the stop sign; Harbor Point and Cardinal State are John's own coverage\n• Harbor Point offered $8,000 against a $20,000 limit\n• One paragraph in Harbor Point's policy decides where this fight happens; read it before calendaring anything\n• Red flag: UM routes docketed off the tort SOL can be missed; each has its own clock, docketed only from Atty. Thorne's written answer"
   },
   "rules": {
    "say": "• Know which claim it is: same evidence, different relationship\n• John owns no car; Margaret's Bluewater policy on the Civic had UM rejected in writing 03/14/2024\n• He reaches UM by status: passenger in Kevin Alvarez's Escape, relative living with Margaret\n• The route is read, never chosen; read each layer on its own, Harbor Point's clause doesn't speak for Cardinal State\n• Each route has its own clock, not the 02/06/2028 SOL; ask Atty. Thorne in writing, docket his answer"
@@ -1580,7 +1580,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Role: the mediator facilitates and negotiates; the arbitrator is a private judge and finder of fact\n• Decision power: mediator none; arbitrator issues a binding Arbitration Award\n• Outcome: parties control it at mediation; the arbitrator decides liability and damages and can exclude evidence\n• Review: none needed for mediation; narrow court review for arbitration\n• Common mistake: preparing for both the same way; compromise focus versus trial-ready"
   },
   "why": {
-   "say": "• Two neutrals: Hon. Carla Benton (Ret.), mediator, and Laura Whitcomb, Esq., arbitrator\n• Judge Benton can't decide anything; she helps the parties agree, and any deal needs John's agreement, through Atty. Thorne\n• Laura Whitcomb decides; her award stands with almost no appeal\n• The two sessions are three months apart; one common mistake moving between them can sink a hearing"
+   "say": "• Two neutrals: Hon. Carla Benton (Ret.), mediator, and Laura Whitcomb, Esq., arbitrator\n• Judge Benton can't decide anything; brackets, ranges and authority belong to Atty. Thorne and John\n• Laura Whitcomb decides; her award stands with almost no appeal\n• Red flag: any number the Case Manager speaks in caucus is an offer; log every move (time, who, what); keep the draft release ready"
   },
   "rules": {
    "say": "• Mediation: non-binding, confidential; court-ordered means John Doe must attend, not agree\n• Harbor Point's binding clause makes the arbitrator the judge; BI settled at mediation 03/18/2027, UM gap went to decision\n• Damages reduced first by the $10,000 BI; Harbor Point pays above that to $20,000, Cardinal State's $10,000 behind\n• Mediation logistics: 3 to 4 date windows, private room, interpreter check, 2-hour buffer; arbitrator's office only as directed\n• Never argue, speak on the record or represent John Doe; defer to Atty. Thorne"
@@ -1655,7 +1655,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Six sections, fixed order\n• One: snapshot sheet, mediation order or agreement, session schedule; two: confidential statement and defense brief if exchanged\n• Three: operative complaint and the answer with affirmative defenses, the defense's reasons not to pay\n• Four: Police Report, photos and video stills, deposition summaries; five: medical chart, bills ledger, wage-loss proof, expert reports\n• Six: the Negotiation Log of every demand and offer, plus a draft release"
   },
   "why": {
-   "say": "• A disorganized file the morning of mediation costs Atty. Thorne momentum and can cost a point\n• Keystone's stonewall on the 14-Day Gap is why John Doe's file is in suit\n• At the 03/18/2027 mediation, Atty. Thorne has minutes to answer that argument\n• Every record, figure and quote must sit in a known place"
+   "say": "• A disorganized file the morning of mediation costs Atty. Thorne momentum and can cost a point\n• At the 03/18/2027 mediation, Atty. Thorne has minutes to answer Keystone's 14-Day Gap argument\n• Every record, figure and quote must sit in a known place\n• Red flag: Riverton still at $6,290.00 makes medical read $15,002.40, and Keystone already says the ledger is unverified; use the audited $6,105.00 and re-run totals"
   },
   "doc": {
    "say": "• The Answer and Affirmative Defenses: the defendant's response to the Complaint, admitting or denying each allegation\n• It tells the court and Atty. Thorne what Robert Smith disputes; it is the defense roadmap\n• Filed 11/12/2026 by Atty. Grant Mercer: comparative negligence (John partly to blame), causation (the gap, \"degenerative\" MRI), failure to mitigate\n• Log it, file it in 01_PLEADINGS, keep Section 3 to operative pleadings\n• Map each pleaded defense to an exhibit or a flag; what it means is Atty. Thorne's"
@@ -1700,7 +1700,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Tab one, submissions: snapshot sheet, final brief, governing order or agreement, fee disclosures; tab two: current demand and written positions only\n• Tab three, liability and biomechanics (the physics of the crash): certified Police Report, diagrams, color photos and stills\n• Tab four, medical damages: consolidated ledger, provider records and bills, imaging, the causation opinion\n• Tab five, prior medical shield: prior injury records and work history with a medical opinion\n• Tab six, economic losses: wage-loss proof only; no miscellaneous tab"
   },
   "why": {
-   "say": "• The Mediation Binder persuaded; the Arbitration Binder is evidence\n• Everything in this lesson counts back from the 06/02/2027 exchange\n• On 04/05/2027 Harbor Point and Cardinal State took up Keystone's gap argument; Laura Whitcomb, Esq. decides damages, bindingly\n• A page missing, unreadable or not exchanged by 06/02/2027 may not count"
+   "say": "• The Mediation Binder persuaded; the Arbitration Binder is evidence\n• Everything in this lesson counts back from the 06/02/2027 exchange\n• On 04/05/2027 Harbor Point and Cardinal State took up Keystone's gap argument; Laura Whitcomb, Esq. decides damages, bindingly\n• A page missing, unreadable or not exchanged by 06/02/2027 may not count\n• Red flag: Lien Sheet lists Harbor Point PIP at $5,000.00 and Summit at $2,395.00, neither owed; strike both, re-total, keep it in Atty. Thorne's set"
   },
   "rules": {
    "say": "• The threshold leads: prove BI used up with Keystone's $10,000 tender, consents, Limited Release, Robert Smith's dismissal, never the Mediation Statement\n• Authenticate, prove it's real, with business-records certifications from each provider, Riverton Fire, Riverton PD, Northgate HR\n• Video in its original file with the 02/19/2026 chain of custody, the record of who held it; stills in color\n• Build to the strict standard even if rules are relaxed; number exhibits C-1 onward, freeze once exchanged\n• Nothing crosses from mediation; Lien Sheet stays in Atty. Thorne's set"
@@ -1733,7 +1733,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m3-tx": {
   "why": {
-   "say": "• A carrier starts valuing John Doe's injury the day he walks into urgent care, not at the demand\n• Everything paid is argued from the treatment record: how he was treated, how steadily, what doctors found\n• Watching treatment with the demand in mind means every visit documented and every gap answered\n• Otherwise the gaps surface in the adjuster's offer letter"
+   "say": "• A carrier starts valuing John Doe's injury the day he walks into urgent care, not at the demand\n• Everything paid is argued from the treatment record: how he was treated, how steadily, what doctors found\n• Every visit documented and every gap answered, or the gaps surface in the adjuster's offer letter\n• Red flag: a claimed harm with no dated record behind it can't be shown in the binder; flag it to Atty. Thorne, never argue it"
   },
   "rules": {
    "say": "• MMI 06/12/2026, Dr. Reyes's Causation Letter 06/19, BI demand 07/20\n• The 03/13 MRI: C5-C6 herniation with no significant degeneration next to it; that line is quoted\n• The fourteen-day gap and the April disruption were answered on file before Keystone's offer cited them\n• Specials $16,401.40, billed and audited\n• Repeat injections Dr. Reyes mentioned go in the narrative, note quoted, never in the Specials"
@@ -1833,7 +1833,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m1-l1": {
   "why": {
-   "say": "• Track B: the 07/20/2026 Time-Limited Demand to Keystone lapsed unaccepted on 08/21/2026; the 48-Hour Mandate got no answer\n• Atty. Thorne filed suit 09/24/2026: Civil Action No. 26-CV-04417; from then a judge sets the pace, not an adjuster\n• Pleadings Log: the running list of everything filed and served\n• Discovery Calendar: every date either side owes the other something"
+   "say": "• Track B: the 07/20/2026 Time-Limited Demand to Keystone lapsed unaccepted on 08/21/2026; the 48-Hour Mandate got no answer\n• Atty. Thorne filed suit 09/24/2026, Civil Action No. 26-CV-04417; now a judge sets the pace, not an adjuster\n• Pleadings Log: the running list of everything filed and served\n• Discovery Calendar: every date either side owes the other something\n• Red flag: fifteen RFAs lack their own row. An unanswered RFA may be deemed admitted. Give each a row; tell Atty. Thorne within the hour"
   },
   "rules": {
    "say": "• From the 09/24/2026 filing the court sets the pace; litigation is not a longer negotiation\n• Before Atty. Thorne signs: check the filing date against the SOL (deadline to sue) and the defendant's exact legal name\n• Log every service attempt; unserved at day 14 (10/08/2026), escalate for Skip-Trace authority; Smith served 10/14/2026\n• An RFA unanswered past its deadline may be deemed admitted, treated as true; calendar it the day it lands\n• Hold a Discovery Intake Meeting with John Doe, never mail him the 70 requests; never tell him how to answer"
@@ -1867,7 +1867,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m1-subp": {
   "why": {
-   "say": "• Robert Smith is a party, so he must answer; the records custodian and witness Ruth Calloway don't, unless the court commands it\n• That court command is a subpoena\n• Serve it out of order, write it too broadly, or get records after discovery closes 05/28/2027, and evidence can be lost"
+   "say": "• Robert Smith is a party, so he must answer; the records custodian and witness Ruth Calloway don't, unless the court commands it\n• That court command is a subpoena\n• Serve it out of order, write it too broadly, or get records after discovery closes 05/28/2027, and evidence can be lost\n• Red flag: \"all records of any kind\" invites a Motion to Quash. One subject, an exact date range, named record types; Atty. Thorne signs"
   },
   "rules": {
    "say": "• Trigger: a refused request, or a record Atty. Thorne needs from its custodian; he decides, signs and issues\n• Court-approved form: Civil Action No. 26-CV-04417, named custodian, narrow Exhibit A, the list of records sought\n• Copy to Atty. Grant Mercer first; after the notice period, Allied Process Services serves the custodian\n• Compliance call five days before production; pay the copy invoice promptly; records back before 05/28/2027\n• Trial subpoenas only for witnesses Atty. Thorne names, tasked against 08/12/2027 and 09/13/2027"
@@ -1903,7 +1903,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m2-l1": {
   "why": {
-   "say": "• Day 1's question returns: does Property Damage touch John Doe's case, now with money on the table\n• Keystone's $792.00 offer on Margaret's Civic does not lower John's settlement\n• Her Loss of Use and Diminished Value are her own claim, from Keystone's $25,000 Property Damage limit, outside John's $40,000 stack\n• Three things can reach John: a too-wide release, the photos and estimates in his severity set, the rental dates behind his gap"
+   "say": "• Day 1's question returns: does Property Damage touch John Doe's case, now with money on the table\n• Keystone's $792.00 offer on Margaret's Civic does not lower John's settlement\n• Her Loss of Use and Diminished Value come from Keystone's $25,000 Property Damage limit, outside John's $40,000 stack\n• Three things can reach John: a too-wide release, the photos and estimates in his severity set, the rental dates behind his gap\n• Red flag: Keystone's release, \"all claims arising from\" the 02/06/2026 accident, can reach John's BI suit. Accept, reject, counter nothing; Atty. Thorne gets it"
   },
   "rules": {
    "say": "• Read the release before the numbers: Keystone's 12/10/2026 release covers all claims from the 02/06/2026 accident, for Mr. Doe to sign\n• A Property Damage release must never release the injury claim\n• Check the claim number: KM-26-440871-PD for the car, KM-26-440871 for John; hold it, route to Atty. Thorne same day\n• John signs nothing; photos, estimate, $2,315.00 supplement and rental dates stay identical on both files\n• Never accept, reject, counter or value a car figure"
@@ -1962,7 +1962,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m3-l2": {
   "why": {
-   "say": "• \"So it was just the neck stiffness. Is that all?\" A hurried yes fences off the 02/20/2026 urgent-care note's hand numbness\n• Atty. Mercer doesn't need John to lie: a hurried yes, a guess or an argument does the damage\n• The Answer and records show where he'll dig: the gap, the disruption, the 2021 visits, the seatbelt\n• \"Degenerative,\" meaning worn down by age: agreeing gives the defense a reason the crash didn't cause the pain\n• Seven general rules and Atty. Thorne's objections protect John; a script doesn't"
+   "say": "• \"So it was just the neck stiffness. Is that all?\" A hurried yes fences off the 02/20/2026 urgent-care note's hand numbness\n• Atty. Mercer doesn't need John to lie: a hurried yes, a guess or an argument does the damage\n• Expect digging on the gap, the disruption, the 2021 visits, the seatbelt, and \"degenerative\" as the defense's other cause\n• Seven general rules and Atty. Thorne's objections protect John; a script doesn't\n• Red flag: Atty. Mercer springs a trap; any signal or message to John coaches the witness. Log the trap, time, his exact words, record fact"
   },
   "rules": {
    "say": "• Four categories of defense questions: personal background, crash mechanics, medical history, daily life\n• Medical history is underreported most; here, the 2021 low-back visits, which counsel usually already has\n• \"Is that all\" can fence off the hand numbness; the complete record, not memory, is the full list\n• Compound questions fold two facts into one yes; John can say a question is unclear\n• On an objection John stops, then answers unless told not to; explain rules, never coach answers"
@@ -2020,7 +2020,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m4-l2": {
   "why": {
-   "say": "• Two people went missing: Robert Smith moved before service; John Doe went silent 27 days before his deposition\n• Shared problem: no working contact point; difference: opponent versus client, so who may do what differs\n• Skip-Trace: a records search for a current address; process server: the person who hands over court papers\n• Certified proof of notice also applies; the record kept proves the work was done"
+   "say": "• Two people went missing: Robert Smith moved before service; John Doe went silent 27 days before his deposition\n• Shared problem: no working contact point; difference: opponent versus client, so who may do what differs\n• Skip-Trace: a records search for a current address; process server: the person who hands over court papers\n• Certified proof of notice also applies; the record kept proves the work was done\n• Red flag: Robert Smith unserved fourteen days after filing, 10/08/2026. A fourth knock burns time to the 01/22/2027 deadline; ask Atty. Thorne for skip-trace authority"
   },
   "rules": {
    "say": "• Summons: the court's notice of the suit and time to answer; filed 09/24, served 10/14, affidavit 10/16/2026\n• Three failed attempts at 118 Larkspur Ln, neighbor says Smith moved: Skip-Trace; 10/09 found 4410 Quarry Ridge Ct, Millbrook\n• Service starts his clock: answer due 11/13/2026; check the docket weekly\n• John, silent since 01/22/2027: No Contact Protocol; Step 4 letter by certified mail and email over Atty. Thorne's signature, by 01/27/2027\n• Withdrawal only if Atty. Thorne directs it; Margaret hears only that the firm needs John to call"
@@ -2102,7 +2102,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m6-l1": {
   "why": {
-   "say": "• Dropped Case: a claim the firm stops pursuing before it resolves; John Doe's file never gets here\n• Atty. Thorne talks to the client first; the letter only confirms it\n• Withdrawal Letter: formal notice the lawyer-client relationship has ended\n• Done carelessly, a drop confuses the client and exposes the firm; done right, the file proves everyone was told"
+   "say": "• Dropped Case: a claim the firm stops pursuing before it resolves; John Doe's file never gets here\n• Atty. Thorne talks to the client first; the letter only confirms it\n• Withdrawal Letter: formal notice the lawyer-client relationship has ended\n• Done carelessly, a drop confuses the client and exposes the firm; done right, the file proves everyone was told\n• Red flag: a carrier letter saying Denise stopped treating. Only the client's letter carries the reason, in Atty. Thorne's words; elsewhere it's a defect"
   },
   "rules": {
    "say": "• Six steps in order; 1, the gate: status Pending Drop and a note the client was told; either missing, nothing goes out\n• 2: a Withdrawal Letter for every party over Atty. Thorne's signature, saved in Word and PDF; 3: send each by its method\n• 4: annotate party, method, date, save the sent letter; 5: follow up on receipt\n• 6: switch the status to Dropped and keep the proof\n• An unresponsive client reaches this only through the No Contact Protocol"
