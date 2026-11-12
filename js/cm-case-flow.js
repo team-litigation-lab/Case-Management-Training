@@ -244,9 +244,10 @@ function strip(){
   const c = CF.case, L = stackLayers();
   return `<div class="cf-strip" aria-label="Case file">
     <span class="cf-anchor"><b>Case</b>${E(c.style)}</span>
-    <span class="cf-anchor"><b>Counsel</b>${E(c.counsel)}</span>
-    <span class="cf-anchor"><b>Stack</b>${E(L.map(l => money(l.limit) + " " + l.tag).join(" / "))} = ${E(money(c.total))}</span>
-    <span class="cf-anchor cf-flag"><b>Critical fact</b>${E(c.gapDays)}-Day Treatment Gap</span>
+    <span class="cf-anchor"><b>Client</b>${E(c.client.name)}</span>
+    <span class="cf-anchor"><b>Lead Counsel</b>${E(c.counsel)}</span>
+    <span class="cf-anchor"><b>SOL</b>${E(c.sol)}</span>
+    <span class="cf-anchor cf-flag"><b>Recovery Stack</b>${E(L.map(l => money(l.limit) + " " + l.tag).join(" / "))} = ${E(money(c.total))}</span>
   </div>`;
 }
 
@@ -747,6 +748,7 @@ function clueGame(b){
 }
 /* The game locks the slide: a trainee calls every round before Next moves on (a trainer, presenting, isn't held) */
 function cgUnfinished(){
+  return null;   // (the game is retired: nothing holds Next on the Do & Don't slide)
   if(typeof state === "undefined" || state.isAdmin) return null;
   if((state.lessonSlide || 0) < (state.maxSlideReached || 0)) return null;   // a slide already passed: going back over it isn't held
   const el = document.querySelector("#lessonSlideWrap .cfx-cg"); if(!el) return null;
@@ -901,7 +903,7 @@ function slideBody(view, l, d){
     }
     case "model": return `<div class="cfx-model">${b.show && b.show.caption ? `<p class="cfx-caption">${E(b.show.caption)}</p>` : ""}${visual(l, b)}</div>`;
     case "job": return `<div class="cfx-job">${c.job.map((r, ri) => `<div class="cfx-flow">${r.map((x, j) => `<div class="cfx-step"><small>${["Trigger", "Task", "Tool", "Checkpoint"][j]}</small><span>${hl(x)}</span></div>`).join('<span class="cfx-arrow">➔</span>')}</div>`).join("")}</div>`;
-    case "dodont": return (SLIDES[b.id] || {}).clues ? clueGame(b) : ddList(c);
+    case "dodont": return ddList(c);   // the Do's and Don'ts themselves (3 Clues, 1 Rule is retired)
     case "case": {
       const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(docAvail).filter(Boolean).slice(0, 4);
       const ev = SIM.events[b.id], fall = falloutFor(b.id), vm = ev && ev.channel === "voicemail" && ev.spoken;
@@ -1129,6 +1131,7 @@ function paintTimers(){
   });
 }
 function timeChip(l, d, view){
+  return "";   // no minute chips on the slides: the day's timing lives in the trainer's notes and the Speaker Notes PDF
   if(!d || !d.cf) return "";
   const sc = daySchedule(d), b = l.cf.block;
   const chip = (k, label, min, title) => `<button type="button" class="cfx-time" data-k="${k}" data-label="${label}" title="${title} Tap to start a countdown." onclick="cmCaseFlow.timer('${k}',${min})">${label}</button>`;
@@ -1147,8 +1150,7 @@ function agendaFile(d){
   const c = CF.case, dates = d.lessons.filter(l => l.cf.block.kind === "activity" && !l.cf.block.otherMatter && SIM.events[l.cf.block.id]).map(l => SIM.events[l.cf.block.id].date).sort((a, b) => dayMs(a) - dayMs(b));
   const tracks = [...new Set(d.lessons.filter(l => l.cf.block.kind === "activity").map(l => trackOf(l.cf.mod.id)).filter(Boolean))].sort();
   const rows = [["👤 Client", `${c.client.name} · ${c.client.position.toLowerCase()}`], ["⚖️ Lead counsel", c.counsel], ["📆 Date of loss · SOL", `${c.dol} · ${c.sol}`],
-    ["🧱 Recovery stack", `${stackLayers().map(x => `${x.tag} ${money(x.limit)}`).join(" → ")} = ${money(c.total)}`],
-    dates.length ? ["🗓 Today on the file", `${dates[0]} → ${dates[dates.length - 1]}${tracks.length ? ` · Track ${tracks.join(" & ")}` : ""}`] : null].filter(Boolean);
+    ["🧱 Recovery stack", `${stackLayers().map(x => `${x.tag} ${money(x.limit)}`).join(" → ")} = ${money(c.total)}`]];
   return `<div class="cfx-ag-file"><p class="cfx-ag-file-h">📂 ${E(c.style)} <small>${E(c.no)}</small></p><dl>${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${E(v)}</dd></div>`).join("")}</dl></div>`;
 }
 // the day as segments, for the views that list it: each part's lessons, then its Skill Building
@@ -1161,18 +1163,17 @@ function agendaSlide(d){
   const logo = "";
   const src = CF.days.find(x => x.n === d.cf.n) || {};
   const sc = daySchedule(d), parts = sc.parts;
-  const row = (n, title, small, mins) => `<li><span class="cfx-ag-n">${String(n).padStart(2, "0")}</span><div><b>${E(title)}</b>
-      <small>${small}</small></div><span class="cfx-ag-min">${mins} min</span></li>`;
+  const row = (n, title, small) => `<li><span class="cfx-ag-n">${String(n).padStart(2, "0")}</span><div><b>${E(title)}</b>
+      <small>${small}</small></div></li>`;
   const pl = (k, one, many) => `${k} ${k === 1 ? one : many}`;
   // topic by topic: its lessons, its Skill Building and the brainstorm after it; the Knowledge Check last
-  const rows = parts.map((p, i) => row(i + 1, p.title, [p.full ? `💬 ${pl(p.full, "topic", "topics")} × ${sc.per} min` : "", p.briefs ? `💬 ${pl(p.briefs, "overview", "overviews")} × ${sc.brief} min` : "",
-      p.acts.length ? `🧪 ${pl(p.acts.length, "Skill Activity", "Skill Activities")} × ${sc.act} min` : "", p.brainstorm ? `🧠 brainstorm ${p.brainstorm} min` : ""].filter(Boolean).join(" · "), p.mins)).join("")
-    + row(parts.length + 1, "Knowledge Check", `🎯 ${d.quiz.length} questions and your takeaway`, sc.kc);
+  const rows = parts.map((p, i) => row(i + 1, p.title, [p.full ? `💬 ${pl(p.full, "topic", "topics")}` : "", p.briefs ? `💬 ${pl(p.briefs, "overview", "overviews")}` : "",
+      p.acts.length ? `🧪 ${pl(p.acts.length, "Skill Activity", "Skill Activities")}` : ""].filter(Boolean).join(" · "))).join("")
+    + row(parts.length + 1, "Knowledge Check", `🎯 ${d.quiz.length} questions and your takeaway`);
   return `<div class="card lesson-card cf-card cfx cfx-deck cfx-agenda">
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">Case Management Training</h2></div>
       <div class="cfx-ribbon"><span>Day ${d.cf.n} · Training Agenda</span></div>
-      <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">📅</span>Training Agenda</span></div>
-      <div class="cfx-body cfx-body-navy"><div class="cfx-ag"><div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div>
+      <div class="cfx-body cfx-body-navy cfx-ag-body"><div class="cfx-ag"><div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div>
         <ol class="cfx-ag-list" style="--ag-rows:${Math.ceil((parts.length + 1) / 3)}">${rows}</ol>${agendaFile(d)}</div></div>
     </div>`;
 }
@@ -2919,7 +2920,7 @@ function writtenPart(d){
   const tabs = `<div class="cf-kc-tabs" role="tablist">${mods.map(({b, mod, ph}) => { const left = modMissing(b, mod.id);
       return `<button type="button" role="tab" class="cf-kc-tab${mod.id === sel ? " on" : ""}${left ? "" : " ok"}" aria-selected="${mod.id === sel}" onclick="cmCaseFlow.kcMod('${mod.id}')"><small>${day.n}.${ph.n} ${E(ph.title)}</small><b>${E(b.title)}</b><span class="cf-kc-badge ${left ? "" : "ok"}">${left ? "To do" : "Complete ✓"}</span></button>`; }).join("")}</div>`;
   const submit = `<div class="cf-kc-submit"><button class="btn btn-ghost" type="button" onclick="cmCaseFlow.kcPart('quiz')">← Back to the quiz</button>
-      <button class="btn btn-primary" style="padding:13px 28px;" type="button" ${state.quizSubmitting ? "disabled" : ""} onclick="cmCaseFlow.kcSubmit(${d.id})">Submit Knowledge Check</button></div>`;
+      <button class="btn btn-primary" style="padding:13px 28px;" type="button" ${state.quizSubmitting ? "disabled" : ""} onclick="cmCaseFlow.kcSubmit(${d.id})">Submit &amp; continue to End of Module →</button></div>`;
   return `<div class="cf-kc-written">${tabs}${mods.filter(x => x.mod.id === sel).map(({b, mod}) => {
       const m = rec(mod.id);
       return `<div class="card cf-kc-mod" data-mod="${mod.id}"><div class="cf-ss" data-mod="${mod.id}">
@@ -2978,6 +2979,7 @@ function cfResult(d){
   const next = d.cf.n < MODULES.length ? (dayUnlocked(cfIdOf(d.cf.n + 1)) ? `<button class="btn btn-primary" onclick="goToNextDay(${d.id})">Continue to Case Flow Day ${d.cf.n + 1} →</button>` : "")
     : (lastPassed ? `<button class="btn btn-primary" onclick="cmCaseFlow.finish()">🎓 Finish Training</button>` : "");   // the last day: the Congratulations slide
   return `<div class="card quiz-result cf-kc-result">
+      <p class="cf-kcr-eyebrow">End of Module · Case Flow Day ${d.cf.n} · ${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p>
       <div class="cf-kcr-top">
         <div class="cf-kcr-score">${typeof sealSvg === "function" ? sealSvg({size: 72, label: lastScore + "%", done: lastPassed}) : ""}<div><div class="big">${lastCorrect} / ${lastTotal} correct</div><div class="sub">${msg}</div></div>
           <div class="cf-kcr-take" id="cfkc_take_${d.id}">${takeawayHtml(d)}</div></div>
@@ -3102,7 +3104,7 @@ function gameQuiz(d){
       <div class="cfg-tally"><span><b>${right}</b> of ${n} right</span>${g.mode === "millionaire" ? "" : `<span><b class="cfg-count" data-to="${g.pts}">${g.pts.toLocaleString()}</b> points</span>`}<span>best streak <b>${g.best}</b></span></div>
       ${earned ? `<div class="cfg-earn">🤝 <b>+${earned} Ask a Friend token${earned === 1 ? "" : "s"}</b> for your next round: a hint from your AI colleague on a question you're stuck on</div>` : ""}
       ${gameBadges(d, g).length ? `<div class="cfg-badges">${gameBadges(d, g).map(([i, t, x]) => `<span class="cfg-badge"><i>${i}</i><b>${t}</b><small>${x}</small></span>`).join("")}</div>` : ""}
-      <button class="btn btn-primary" style="padding:13px 28px;" type="button" onclick="cmCaseFlow.kcPart('written')">Bonus round: your key takeaway →</button></div>`;
+      <button class="btn btn-primary" style="padding:13px 28px;" type="button" onclick="cmCaseFlow.kcPart('written')" title="Next: the bonus round (your key takeaway), then the End of Module">Continue →</button></div>`;
   // the board / the wheel / the doors come before a question
   if(g.mode === "jeopardy" && (state.cfJq == null || g.log[state.cfJq] && state.cfGameShow !== state.cfJq && state.cfJAns !== state.cfJq)){
     return `<div class="cfg">${hud}${titleRow}${finished ? clear : `<p class="cfg-hint">Pick a category and a value. One square hides a <b>Daily Double</b>.</p>`}${jeopardyBoard(d, g)}</div>`;
@@ -4127,14 +4129,19 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cf-kc-mod .cf-ss{padding:0 18px 14px;}
 .cf-kc-submit{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:6px 0 4px;}
 .cf-kc-result{padding:18px 22px !important;text-align:left !important;}
+/* the End of Module (the results): the screen's width, solid and high-contrast */
+main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
+.card.cf-kc-result{background:#fff !important;border:2px solid #262B45 !important;box-shadow:0 10px 30px -18px rgba(20,24,40,.5) !important;color:#141A2E;padding:22px 26px !important;}
+.cf-kcr-eyebrow{margin:0 0 10px;font:800 13px 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:#262B45;display:inline-block;padding:6px 14px;border-radius:8px;}
+.cf-kc-result .sub{color:#2E3450 !important;font-weight:600;font-size:15px !important;}
 .cf-kcr-top{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px;align-items:center;}
 .cf-kcr-score{display:flex;align-items:center;gap:14px;}
 .cf-kcr-take{display:flex;flex-direction:column;align-items:flex-start;margin-left:18px;padding:8px 14px;border-left:3px solid #DB8437;background:rgba(219,132,55,.08);border-radius:0 10px 10px 0;}
 .cf-kcr-take b{font-size:26px;line-height:1.1;color:#132A5C;}.cf-kcr-take span{font-weight:800;font-size:13px;color:#132A5C;}.cf-kcr-take small{font-size:11.5px;color:var(--ink-soft);}.cf-kcr-score .big{font-size:30px !important;margin:0 !important;}.cf-kcr-score .sub{margin-top:2px;}
 .cf-kcr-next .quiz-next-step{margin:0 !important;text-align:left;}
 .cf-kcr-mods{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:14px 0 10px;}
-.cf-kcr-mod{background:#F6F7FB;border:1px solid var(--line,#E3E6EE);border-radius:10px;padding:8px 12px;font-size:12.5px;}
-.cf-kcr-mod > b{display:block;color:var(--navy);margin-bottom:4px;font-size:13px;line-height:1.3;}
+.cf-kcr-mod{background:#EEF1F8;border:1px solid #AEB6C6;border-radius:10px;padding:10px 14px;font-size:14px;color:#141A2E;}
+.cf-kcr-mod > b{display:block;color:#141A2E;margin-bottom:4px;font-size:15px;line-height:1.3;}
 .cf-kcr-mod > small{display:block;font:700 10.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--orange-deep);}
 .cf-kcr-chips{display:flex;flex-wrap:wrap;gap:4px 12px;color:var(--ink-soft,#5B6178);}.cf-kcr-chips b{color:var(--navy);}.cf-kcr-chips em{color:var(--orange-deep);font-style:normal;font-weight:700;}
 .cf-kcr-foot{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;}
@@ -4178,16 +4185,16 @@ body.cf-kc-page main>.card,body.cf-kc-page main>#quizWrap~button{display:none!im
 .cfx-lab-lead{font:500 16px/1.45 var(--font-ui);color:var(--ink);margin:0 0 10px;text-align:left;}
 .cfx-lab-tools{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px;}
 .cfx-lab-tools[hidden]{display:none;}
-.cfx-lab-gate{border:1px solid #F0C9A0;background:#FFF8EF;border-radius:10px;padding:8px 12px;margin:0 0 10px;font:500 13px/1.4 var(--font-ui);color:var(--ink);text-align:left;}
+.cfx-lab-gate{border:2px solid #E3A867;background:#FFF6EA;border-radius:12px;padding:16px 20px;margin:0 0 12px;font:500 18px/1.5 var(--font-ui);color:#1F2433;text-align:left;}
 .cfx-lab-gate.passed{border-color:#9CD3B0;background:#F1FAF4;}
 .cfx-lab-gate.passed .cfx-lab-q{display:none;}
 .cfx-lab-gate.passed::after{content:" ✓ Ready: today's tools are open.";color:#2E7D4F;}
-.cfx-lab-q{margin-top:6px;}
-.cfx-lab-q .o{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px;}
-.cfx-lab-q .o button{font:500 12px/1.3 var(--font-ui);border:1px solid #CBD2E1;background:#fff;border-radius:6px;padding:3px 8px;cursor:pointer;text-align:left;}
+.cfx-lab-q{margin-top:14px;font-weight:600;}
+.cfx-lab-q .o{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.cfx-lab-q .o button{font:600 16.5px/1.35 var(--font-ui);color:#1F2433;border:2px solid #AEB6C6;background:#fff;border-radius:9px;padding:9px 14px;cursor:pointer;text-align:left;} .cfx-lab-q .o button:hover{border-color:#262B45;background:#F3F4F8;}
 .cfx-lab-q .o button.ok{background:#E3F4E8;border-color:#3E9A5E;}
 .cfx-lab-q .o button.no{background:#FDECEC;border-color:#C9473F;}
-.cfx-lab-q .r{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+.cfx-lab-q .r{font-size:15.5px;color:#3C4258;margin-top:6px;font-weight:500;}
 .cfx-lab-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;text-align:left;}
 .cfx-lab-list > li{padding:0 !important;margin:0 !important;}
 .cfx-lab-list > li::before, .cfx-lab-list > li::after{content:none !important;display:none !important;}
@@ -4724,9 +4731,10 @@ body:has(.cf-notes) #cf-return,body:has(.cf-notes) #cf-return-next{display:none 
 .cf-kc-take-st{font-size:12px;color:var(--ink-soft);min-height:16px;margin:4px 0 8px;}
 body.cf-kc-page #quizWrap{max-width:none;}
 .cf-kc-result{max-width:none;}
-.cf-ans-h{font:700 20px 'Fraunces',Georgia,serif;color:var(--navy);margin:16px 0 8px;}
+.cf-ans-h{font:800 24px 'Fraunces',Georgia,serif;color:#fff;background:#262B45;margin:18px 0 10px;padding:10px 16px;border-radius:10px;}
+main:has(.cf-kc-result) #answerFeedback{max-width:none;}
 .cf-ans-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;}
-.cf-ans{background:#fff;border:1px solid var(--line);border-left:4px solid #2F8F5B;border-radius:10px;padding:8px 10px;font:500 13.5px/1.4 var(--font-ui);color:var(--ink);cursor:help;}
+.cf-ans{background:#fff;border:1px solid #AEB6C6;border-left:6px solid #1E7A47;border-radius:10px;padding:10px 12px;font:500 14.5px/1.45 var(--font-ui);color:#141A2E;cursor:help;}
 .cf-ans.no{border-left-color:#C0392B;background:#FFF8F7;}
 .cf-ans p{margin:0 0 5px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
 .cf-ans-pick{font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
@@ -5229,4 +5237,47 @@ main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is
   .cf-scores{grid-template-columns:minmax(0,1fr);}
 }`;
 document.head.appendChild(st);
+})();
+
+/* ---------- the slides' contrast and type (Batch 1 revamp): every slide reads on a projector ----------
+   Dark ink on white, navy section labels with white text, stronger borders and highlights, theory cards larger
+   with 18–20px body type, the case strip in navy; the agenda's grid sits lower with more room. Loaded last, so it
+   overrides the slide styles above without changing any slide's content. */
+(function(){
+  const st = document.createElement("style"); st.id = "cf-contrast";
+  st.textContent = `
+.cfx{--ink:#141A2E;}
+.cfx .cfx-body:not(.cfx-body-navy){color:#141A2E;}
+.cfx mark.cfx-hl{background:linear-gradient(180deg,transparent 46%,#F8C48A 46%,#F8C48A 94%,transparent 94%);color:#141A2E;font-weight:800;}
+.cfx .cfx-chip{background:#262B45;color:#fff;font-size:14.5px;padding:7px 16px;}
+.cfx .cfx-hook{color:#141A2E;font-weight:700;}
+.cfx .cfx-lead-1, .cfx .cfx-th-lead{color:#141A2E;}
+.cfx-hero .cfx-art, .cfx .cfx-art svg{filter:saturate(1.35) contrast(1.12);}
+/* theory: bigger cards, more padding, 18–20px body */
+.cfx .cfx-th-c{border:2px solid #C9B9A3;border-left:6px solid #DB8437;padding:12px 16px;gap:5px;}
+.cfx .cfx-th-c b{font-size:17.5px;color:#1E2340;}
+.cfx .cfx-th-c span, .cfx-th-solo .cfx-th-c span{font-size:18.5px;line-height:1.45;color:#141A2E;}
+/* rules, steps, Do & Don't */
+.cfx .cfx-points li{color:#141A2E;}
+.cfx .cfx-step{background:#EEF1F8;border:1.5px solid #AEB6C6;border-top:5px solid #1E2340;}
+.cfx .cfx-step small{color:#7A3A0E;font-weight:800;}
+.cfx .cfx-step span{color:#141A2E;font-size:17.5px;}
+.cfx .cfx-dd > div{border-width:2px;border-radius:14px;padding:14px 18px;}
+.cfx .cfx-do{background:#E6F4EC;border-color:#1E7A47;} .cfx .cfx-dont{background:#FDEDEB;border-color:#B42318;}
+.cfx .cfx-do h3{color:#0B5D1E;} .cfx .cfx-dont h3{color:#8F1A12;}
+.cfx .cfx-dd li{font-size:18.5px;line-height:1.45;color:#141A2E;margin:0 0 6px;}
+.cfx .cfx-upl{border-width:2px;}
+/* the case strip: Case · Client · Lead Counsel · SOL · Recovery Stack */
+.cf-strip .cf-anchor{background:#1E2340;border:1px solid #1E2340;color:#fff;font-size:14px;padding:7px 13px;}
+.cf-strip .cf-anchor b{color:#F6C08F;font-size:11px;letter-spacing:.08em;text-transform:uppercase;}
+.cf-strip .cf-anchor.cf-flag{background:#FFF1E2;border-color:#DB8437;color:#141A2E;} .cf-strip .cf-anchor.cf-flag b{color:#A4470F;}
+/* the agenda: the grid lower, with more room */
+.cfx-agenda .cfx-ag-body{padding-top:22px !important;}
+.cfx-agenda .cfx-ag{gap:22px;}
+.cfx-agenda .cfx-ag-list{gap:14px 16px;}
+.cfx-agenda .cfx-ag-list li{padding:14px 16px;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.28);}
+.cfx-agenda .cfx-ag-list small{font-size:14.5px;color:#E3E7F1;}
+.cfx-agenda .cfx-ag-side p:not(.cfx-ag-day){font-size:18px;}
+`;
+  document.head.appendChild(st);
 })();

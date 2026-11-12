@@ -1,15 +1,10 @@
-// 📤 File in the CMS, from the document viewer (case-doc.html; js/cm-doc-filing.js fileDoc and adoptCmsTab).
+// ⬇ Download PDF, the document viewer's one action (case-doc.html).
 //
-// A trainee reading a case document beside the slide files it into their case in the CMS from the viewer's own bar,
-// beside 📄 Open PDF and ☁️ Add to GDrive. The course page that opened the viewer does the filing, the same way the 📤 panel does: the
-// category check, the CMS's name check, the attempt on the trainee's record. With no CMS open, the CMS opens in a new
-// tab from the trainee's press, signed in (the Portal ticket), and the document files once the CMS says which case
-// is open.
-// Checks, in a browser: the button is beside Download PDF; a wrong category is refused with where the firm files it and
-// nothing reaches the CMS; with no CMS open, File it opens the CMS in a new tab at the CMS's address, and the document
-// is filed there under the convention, as the original PDF; the viewer says so; and the filing is on the trainee's
-// record, so the 📤 panel shows it filed too.
-// The CMS is answered by this test (at its real address), so nothing leaves the machine.
+// A trainee reading a case document beside the slide has one button on the viewer's bar: ⬇ Download PDF, which saves
+// the document (dates current to their case year) as a PDF under its own name. Filing into the CMS and the Backup
+// Drive copy are done from the lesson's 📤 panel, not from the viewer (checked by doc-filing.cjs).
+// Checks, in a browser: the document opens in the viewer beside the slide; the bar offers Download PDF and nothing
+// else of the old three (no Add to GDrive, no File in the CMS); pressing it downloads a real PDF named for the document.
 // Usage: node .github/scripts/doc-viewer-file.cjs [baseUrl]   (needs `npm i playwright`; a local server on baseUrl)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -72,47 +67,24 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     check(!!frameEl, 'the document opens in the viewer beside the slide');
     if (!frameEl) return finish();
     const viewer = await frameEl.contentFrame();
-    await viewer.waitForSelector('#cms:not([hidden])', { timeout: 15000 });
-    const bar = await viewer.evaluate(() => [...document.querySelectorAll('.cdv-bar button')].filter(b => !b.hidden).map(b => b.textContent.trim()));
-    check(bar.includes('📄 Open PDF') && bar.includes('☁️ Add to GDrive (Back up files)') && bar.includes('📤 File in the CMS'), `Open PDF, Add to GDrive and File in the CMS sit together: ${bar.join(' · ')}`);
-
-    await viewer.click('#cms');
-    const cats = await viewer.evaluate(() => [...document.querySelectorAll('#fcat option')].map(o => o.value).filter(Boolean));
-    check(cats.includes('Medical Records') && cats.length >= 8, `it offers the CMS's categories: ${cats.length}`);
-    check(/opens it in a new tab, signed in/.test(await viewer.innerText('#fmsg')), 'and says the CMS will open in a new tab, signed in');
-
-    // a wrong category: refused, with where the firm files it, before any CMS is opened
-    const day = await page.evaluate(() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; });
-    const name = `${CASE_ID}_Doe-John_Medical-Records_${day}.pdf`;
-    await viewer.selectOption('#fcat', 'Bills');
-    await viewer.fill('#fname', name);
-    const tabPromise = ctx.waitForEvent('page', { timeout: 20000 }).catch(() => null);
-    await viewer.click('#fgo');
-    // with no CMS open, the press opens it in a new tab, signed in, at the CMS's address
-    const tab = await tabPromise;
-    check(!!tab, 'with no CMS open, File it opens the CMS in a new tab');
-    if (tab) { await tab.waitForURL(u => String(u).includes(CMS), { timeout: 15000 }).catch(() => {}); check(tab.url().includes(CMS), `at the CMS's address: ${tab.url().replace(/ticket=[^&]+/, 'ticket=…').slice(0, 110)}`); }
-    await viewer.waitForFunction(() => /Not filed|Filed in the CMS/.test(document.getElementById('fmsg').innerText), null, { timeout: 30000 }).catch(() => {});
-    check(/Medical Records, not Bills/.test(await viewer.innerText('#fmsg')), 'the wrong category is refused with where the firm files it');
-    check(tab ? (await tab.evaluate(() => window.__filed.length)) === 0 : false, 'and nothing reaches the CMS');
-
-    // the right category: filed in the CMS tab, under the convention, as the original PDF
-    await viewer.selectOption('#fcat', 'Medical Records');
-    await viewer.click('#fgo');
-    await viewer.waitForFunction(() => /Filed in the CMS as|Not filed/.test(document.getElementById('fmsg').innerText), null, { timeout: 30000 }).catch(() => {});
-    const said = await viewer.innerText('#fmsg');
-    check(new RegExp('Filed in the CMS as ' + name.replace(/\./g, '\\.')).test(said), `the viewer says it is filed: ${said.replace(/\s+/g, ' ').slice(0, 120)}`);
-    const filed = tab ? await tab.evaluate(() => window.__filed[0] || null) : null;
-    check(!!filed && filed.name === name && filed.category === 'Medical Records', `filed in the CMS tab under the convention: ${filed && filed.name}`);
-    check(!!filed && filed.head === '%PDF-' && filed.bytes > 1000, `as the document's own PDF: ${filed && filed.bytes} bytes`);
-    check(/2 attempts/.test(said), 'with the attempts it took');
-    const rec = await page.evaluate((doc) => cmDocFiling.record(doc), DOC);
-    check(!!rec && rec.filed && rec.name === name && rec.attempts === 2, 'and it is on the trainee\'s record, as a filing from the 📤 panel would be');
+    await viewer.waitForSelector('#pdf:not([hidden])', { timeout: 15000 });
+    const bar = await viewer.evaluate(() => [...document.querySelectorAll('.cdv-bar button')].filter(b => !b.hidden && b.offsetParent).map(b => b.textContent.trim()));
+    check(bar.includes('⬇ Download PDF'), `the bar offers Download PDF: ${bar.join(' · ')}`);
+    check(!bar.some(t => /GDrive|File in the CMS|Open PDF/.test(t)), `and nothing else of the old three (no Add to GDrive, no File in the CMS): ${bar.join(' · ')}`);
+    const [dl] = await Promise.all([page.waitForEvent('download', { timeout: 60000 }).catch(() => null), viewer.click('#pdf')]);
+    check(!!dl, 'pressing it downloads the document');
+    if (dl) {
+        const name = dl.suggestedFilename();
+        check(/^RS16 .*\.pdf$/.test(name), `as a PDF named for the document: ${name}`);
+        const path = await dl.path().catch(() => null), fs = require('fs');
+        const headBytes = path ? fs.readFileSync(path).slice(0, 5).toString() : '';
+        check(headBytes === '%PDF-', `a real PDF (${headBytes || 'no file'})`);
+    }
 
     finish();
     async function finish() {
         await browser.close();
-        console.log(failures.length ? `\n${failures.length} check(s) failed` : '\nFile in the CMS from the document viewer: all checks pass');
+        console.log(failures.length ? `\n${failures.length} check(s) failed` : '\nThe document viewer offers Download PDF only, and it downloads the PDF: all checks pass');
         process.exit(failures.length ? 1 : 0);
     }
 })().catch(e => { console.error(e); process.exit(1); });

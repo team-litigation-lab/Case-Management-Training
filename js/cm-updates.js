@@ -50,23 +50,25 @@ window.EAPA_UPDATE_PACK = "z-cm";
   .lesson-stage #lessonSlideWrap{padding-left:24px;padding-right:24px;}
   .lesson-stage #lessonSlideWrap > *, .lesson-stage:fullscreen #lessonSlideWrap > *{max-width:1600px;}
 }
-/* Lesson page: the slide and its Previous / Next bar fit on one screen. On a desktop the lesson's controls
-   (back links, title, Listen, Objectives, Present full screen, Presenter view) sit in a column to the right of
-   the slide, and fitSlideFrame() sizes the slide to the height that's left. (Foundational's deck-page lessons,
-   body.ft-fit, have their own layout in js/ft-slides.js.) */
+/* Lesson page: the slide and its Previous / Next bar fit on one screen, and the slide takes the page's width (as on
+   Foundational's decks): no column beside it. ⛶ Full screen sits in the Previous / Next bar; the presenter floats
+   at the lower right, over the slide's corner, and the bar stops short of her. On a narrower window the controls
+   stay above the slide. (Foundational's deck-page lessons, body.ft-fit, have their own layout in js/ft-slides.js.) */
 @media(min-width:1000px){
-  body:not(.ft-fit) main:has(> #lessonStage){display:grid;grid-template-columns:minmax(0,1fr) 200px;column-gap:16px;align-items:start;padding-top:12px;}
-  body:not(.ft-fit) main:has(> #lessonStage) > *{grid-column:2;margin:0 0 10px;}
-  body:not(.ft-fit) main:has(> #lessonStage) > #lessonStage{grid-column:1;grid-row:1 / span 40;margin:0;}
-  body:not(.ft-fit) main:has(> #lessonStage) > #navBackSlot:empty{display:none;}
-  body:not(.ft-fit) main:has(> #lessonStage) .day-head-compact{display:flex;flex-direction:column;gap:4px;border:0;padding:0;}
-  body:not(.ft-fit) main:has(> #lessonStage) .day-head-compact .dhc-title{white-space:normal;font-size:17px;line-height:1.3;}
-  body:not(.ft-fit) main:has(> #lessonStage) .ls-top{display:flex;flex-direction:column;align-items:stretch;gap:8px;}
-  body:not(.ft-fit) main:has(> #lessonStage) .ls-top > *, body:not(.ft-fit) main:has(> #lessonStage) .ls-top .btn{width:100%;margin:0 !important;justify-content:center;}
-  body:not(.ft-fit) main:has(> #lessonStage) .ls-top .audio-bar{display:grid;grid-template-columns:1fr auto;gap:6px;}
-  body:not(.ft-fit) main:has(> #lessonStage) .ls-top .audio-bar #audioModeBtn{grid-column:1 / -1;}
-  body:not(.ft-fit) main:has(> #lessonStage) .ls-top .or-tip{font-size:12px;line-height:1.4;order:9;white-space:normal;}
+  body:not(.ft-fit) main:has(> #lessonStage){display:block;padding-top:12px;}
+  body:not(.ft-fit) main:has(> #lessonStage) > .day-head-compact, body:not(.ft-fit) main:has(> #lessonStage) > #navBackSlot:empty, body:not(.ft-fit) main:has(> #lessonStage) > .ls-top{display:none !important;}
+  body:not(.ft-fit) main:has(> #lessonStage) > #lessonStage{margin:0;}
+  body:not(.ft-fit) main:has(> #lessonStage .cf-stage-card) > .cf-side-presenter{position:fixed !important;right:8px;bottom:0;width:clamp(120px, 8.5vw, 170px) !important;margin:0 !important;z-index:4;}
+  body:not(.ft-fit) #lessonStage:not(:fullscreen) > .slide-nav{margin-right:calc(clamp(120px, 8.5vw, 170px) - 24px) !important;}
 }
+@media(max-width:999px){ #lessonStage > .slide-nav .nav-fs, #lessonStage > .slide-nav .nav-nextup{display:none !important;} }
+/* the Previous / Next bar, as Foundational's: ← Previous and ⛶ Full screen, the step (it opens the slide map), then
+   the Next up card, 🗺 Roadmap and Next → */
+#lessonStage > .slide-nav{background:rgba(255,255,255,.9);border:1px solid rgba(38,43,69,.14);border-radius:14px;padding:8px 12px !important;gap:12px;}
+#lessonStage > .slide-nav .nav-nextup{display:flex;flex-direction:column;justify-content:center;min-width:0;max-width:min(440px, 34vw);background:#1E2340;color:#fff;border-radius:10px;padding:5px 14px;line-height:1.2;}
+#lessonStage > .slide-nav .nav-nextup b{font:800 10.5px 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#F6C08F;}
+#lessonStage > .slide-nav .nav-nextup span{font:700 13.5px 'Inter',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+#audienceRoot .nav-fs, #audienceRoot .nav-nextup{display:none !important;}
 /* ================= SOP Reference: readable reference + live Present mode ================= */
 .sopx-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px;}
 .sopx-days{display:flex;gap:6px;flex-wrap:wrap;}
@@ -134,30 +136,30 @@ ol.sopx-s-list li{padding-left:58px;} ol.sopx-s-list li::before{content:counter(
 .sopx-stage:fullscreen .sopx-s-list li, .sopx-stage:fullscreen .sopx-s-para{font-size:clamp(20px,1.8vw,28px);}
 @media(max-width:760px){.sopx-slide{height:auto;min-height:60vh;padding:26px 18px;} .sopx-s-list.two{grid-template-columns:1fr;} .sopx-jump{max-width:48%;}}
 /* ---- Presenter view (trainer console) ---- */
-.pv{background:linear-gradient(135deg,#1F2440 0%,#2B3158 60%,#353C68 100%);border-radius:20px;padding:16px 18px 18px;color:#fff;}
-.pv-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px;}
+.pv{background:linear-gradient(135deg,#1F2440 0%,#2B3158 60%,#353C68 100%);border-radius:20px;padding:12px 16px 14px;color:#fff;width:calc(100vw - 32px);margin-left:calc(50% - 50vw + 16px);box-sizing:border-box;}
+.pv-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px;}
 .pv-title{font-size:14px;} .pv-title b{color:#F0C08A;}
 .pv-meta{display:flex;gap:10px;align-items:center;margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#C9CDE3;}
 .pv-meta .pv-timer{background:rgba(255,255,255,.1);border-radius:8px;padding:4px 9px;color:#fff;font-weight:700;}
 .pv-aud{border-radius:999px;padding:4px 10px;font-weight:700;} .pv-aud.on{background:rgba(88,190,130,.2);color:#8FE0AE;} .pv-aud.off{background:rgba(240,120,90,.2);color:#FFB39E;}
-.pv-actions{display:flex;gap:8px;} .pv-actions .btn-ghost{background:#fff;}
-.pv-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,1fr);gap:16px;align-items:start;}
+.pv-actions{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 10px;padding:0 0 10px;border-bottom:1px solid #EDE4D3;} .pv-actions .btn-ghost{background:#fff;border:1px solid #D9DEEA;} .pv-actions .btn{font-size:12.5px;padding:6px 10px;}
+.pv-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(360px,1fr);gap:16px;align-items:start;}
 .pv-label{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#F0C08A;margin:0 0 8px;}
 .pv-mirror{position:relative;width:100%;aspect-ratio:16/9;background:#141833;border-radius:12px;overflow:hidden;box-shadow:0 0 0 2px rgba(240,192,138,.45);}
 .pv-frame{position:absolute;top:0;left:0;width:1280px;height:720px;border:0;transform-origin:0 0;pointer-events:none;background:#1F2440;}
 .pv-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;} .pv-nav .btn-ghost{background:#fff;}
 .pv-nav select{font:inherit;font-size:13px;border-radius:8px;border:none;padding:7px 8px;max-width:52%;color:var(--navy);}
-.pv-next{margin-top:10px;font-size:13px;color:#C9CDE3;} .pv-next b{color:#fff;}
-.pv-next-mini{margin-top:8px;max-width:380px;}
-.pv-cues{background:#FFFDF8;color:var(--ink);border-radius:14px;padding:16px 18px;max-height:calc(100vh - 150px);overflow:auto;position:sticky;top:80px;}
+.pv-next{margin:0 0 6px;font-size:13px;color:#4A5070;} .pv-next b{color:var(--navy);}
+.pv-next-mini{margin-top:8px;max-width:380px;} .pv-more{margin:0 0 12px;font-size:12.5px;color:#4A5070;} .pv-more summary{cursor:pointer;font-weight:700;color:var(--navy);}
+.pv-cues{background:#FFFDF8;color:var(--ink);border-radius:14px;padding:14px 18px 18px;height:calc(100vh - 24px);overflow:auto;position:sticky;top:12px;box-sizing:border-box;}
 .pv-cues .pv-label{color:var(--orange-deep);}
 .pv-cues h3{font-family:'Fraunces',Georgia,serif;color:var(--navy);font-size:19px;margin:0 0 10px;line-height:1.25;}
-.pv-cues p, .pv-cues li{font-size:14.5px;line-height:1.55;}
+.pv-cues p, .pv-cues li{font-size:15.5px;line-height:1.6;}
 .pv-cues .tc-tag, .pv-cues .cue-sub{display:block;margin:12px 0 4px;font-size:12px;font-weight:800;color:var(--navy);}
 .pv-cues .pv-empty{color:var(--ink-soft);font-size:14px;}
 .pv-ans{background:#EAF6EF;border-left:4px solid #3F7D58;border-radius:8px;padding:8px 12px;margin:6px 0 10px;}
-.pv-tip{margin:12px 0 0;font-size:12.5px;color:#C9CDE3;} .pv-tip b{color:#fff;}
-@media(max-width:1000px){.pv-grid{grid-template-columns:1fr;} .pv-cues{position:static;max-height:none;}}
+.pv-tip{margin:8px 0 0;font-size:12.5px;color:#4A5070;} .pv-tip b{color:var(--navy);}
+@media(max-width:1000px){.pv-grid{grid-template-columns:1fr;} .pv-cues{position:static;max-height:none;height:auto;} .pv{width:auto;margin-left:0;}}
 /* ---- Audience window (shared in Google Meet) ---- */
 body.audience-mode{overflow:hidden;background:#1F2440;}
 body.audience-mode > *:not(#audienceRoot):not(.aud-hint){display:none !important;}
@@ -852,16 +854,16 @@ function presenterNextMini(d, idx){ return typeof slidePeekMini === "function" ?
 function renderPresenterConsole(d){
   const slides = buildDaySlides(d);
   const idx = Math.min(state.lessonSlide||0, slides.length-1); state.lessonSlide = idx;
+  // the left column is the deck and its footer card only (Previous · Slide 1 · jump · Roadmap · Next); the trainer's
+  // buttons, Up next and the sharing tip live at the top of the notes, which take the whole height of the window
   return `
     <div class="pv">
       <div class="pv-head">
         <div class="pv-title"><b>🖥 Presenter view</b> · Day ${d.id} — ${esc(d.title)}</div>
         <div class="pv-meta"><span id="pvCount">${presenterCountText(d)}</span><span class="pv-timer" id="pvTimer">00:00</span><span class="pv-aud on" id="pvAud">● Slides window open</span></div>
-        <div class="pv-actions">${window.cmCompanion ? `<button class="btn btn-ghost btn-sm" onclick="cmCompanion.brainstorm(${d.id})" title="Today's Attorney–CM brainstorm: each trainee's companion case, what to ask and the answer key">🧠 Brainstorm</button>` : ""}<button class="btn btn-ghost btn-sm" onclick="downloadDayScriptsPdf(${d.id})" title="Every slide's script for this day, as a PDF">⬇ Speaker Notes (PDF)</button><button class="btn btn-ghost btn-sm" onclick="presenterReopen()">↗ Re-open slides window</button><button class="btn btn-primary btn-sm" onclick="presenterEnd()">■ End</button></div>
       </div>
       <div class="pv-grid">
-        <section>
-          <div class="pv-label">Now showing to the room</div>
+        <section class="pv-deck">
           <div class="pv-mirror" id="pvMirror"><iframe class="pv-frame" id="pvFrame" src="/?audience=mirror&day=${d.id}" tabindex="-1" inert title="Live copy of the slides window"></iframe></div>
           <div class="pv-nav">
             <button class="btn btn-ghost" onclick="presenterStep(-1)">← Previous</button>
@@ -870,11 +872,16 @@ function renderPresenterConsole(d){
             <button class="btn btn-ghost btn-sm" onclick="openRoadmap()" title="See all ${DAYS.length} days at a glance">🗺 Roadmap</button>
             <button class="btn btn-primary" onclick="presenterStep(1)">Next →</button>
           </div>
-          <div class="pv-next"><b>Up next:</b> <span id="pvNext">${presenterNextText(d)}</span></div>
-          <div class="pv-next-mini" id="pvNextMini" data-slide="${idx}">${presenterNextMini(d, idx)}</div>
-          <p class="pv-tip">In Google Meet: <b>Present now → A window</b> → pick <b>“LSH Slides — share this window”</b>. Keep this tab for yourself; use ← → keys here to move the slides. To show the room a tool or a document beside the slide, click its button in the slides window: it opens ⧉ Side by side there.</p>
         </section>
-        <aside class="pv-cues"><div class="pv-label">Your notes — only you can see these</div><div id="pvCues">${presenterCues(d, slides[idx])}</div></aside>
+        <aside class="pv-cues">
+          <div class="pv-actions">${window.cmCompanion ? `<button class="btn btn-ghost btn-sm" onclick="cmCompanion.brainstorm(${d.id})" title="Today's Attorney–CM brainstorm: each trainee's companion case, what to ask and the answer key">🧠 Brainstorm</button>` : ""}<button class="btn btn-ghost btn-sm" onclick="downloadDayScriptsPdf(${d.id})" title="Every slide's script for this day, as a PDF">⬇ Speaker Notes (PDF)</button><button class="btn btn-ghost btn-sm" onclick="presenterReopen()">↗ Re-open slides window</button><button class="btn btn-primary btn-sm" onclick="presenterEnd()">■ End</button></div>
+          <div class="pv-next"><b>Up next:</b> <span id="pvNext">${presenterNextText(d)}</span></div>
+          <details class="pv-more"><summary>Next slide preview &amp; sharing tip</summary>
+            <div class="pv-next-mini" id="pvNextMini" data-slide="${idx}">${presenterNextMini(d, idx)}</div>
+            <p class="pv-tip">In Google Meet: <b>Present now → A window</b> → pick <b>“LSH Slides — share this window”</b>. Keep this tab for yourself; use ← → keys here to move the slides. To show the room a tool or a document beside the slide, click its button in the slides window: it opens ⧉ Side by side there.</p>
+          </details>
+          <div class="pv-label">Your notes — only you can see these</div><div id="pvCues">${presenterCues(d, slides[idx])}</div>
+        </aside>
       </div>
     </div>`;
 }
