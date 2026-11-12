@@ -949,7 +949,8 @@ const SUPERSEDED_OK = (name) => /superseded[\s_.()-]*(?:\d{4}-\d{2}-\d{2}|\d{1,2
    folder this platform can see (driveSnapshot), so every file in the firm's folders, and every copy the
    platform made wherever it has been moved, is read by its name as it is in Drive now.
      - A copy keeps the name it was filed under. The CMS named it, so that name is the firm's word for the file
-       and nothing here second-guesses a name the CMS accepted.
+       and nothing here second-guesses a name the CMS accepted: its Case ID, its client, its Type, its date and
+       anything the CMS itself added after the date stand as filed.
      - Any other name is read part by part: the trainee's Case ID, the client as the client folder is named, a
        Type the firm files under, a real date, a lower-case extension.
      - A label is a fifth part: _DRAFT on a draft, _SUPERSEDED-<YYYY-MM-DD> (the replacing version's date) on a
@@ -991,7 +992,8 @@ const NAMING_POINTS = 12, NAMING_OF = 60;
 const realDay = (s) => { if (!/^\d{4}-\d{2}-\d{2}$/.test(String(s))) return false; const d = new Date(s + "T00:00:00Z"); return !isNaN(d) && d.toISOString().slice(0, 10) === s; };
 const caseIdShape = (s) => /^[A-Z0-9]+(?:-[A-Z0-9]+)+$/.test(String(s));
 const typeShape = (s) => /^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$/.test(String(s));
-const clientShape = (s) => /^[A-Za-z]+(?:-[A-Za-z]+)+$/.test(String(s));
+const wordsShape = (s) => /^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$/.test(String(s));
+const labelShape = (s) => s === "DRAFT" || (/^SUPERSEDED-\d{4}-\d{2}-\d{2}$/.test(String(s)) && realDay(String(s).slice(11)));
 const extShape = (s) => /^[a-z0-9]{1,8}$/.test(String(s));
 const looseKey = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
 const nearType = (s) => FILE_TYPES.find((t) => looseKey(t) === looseKey(s)) || "";
@@ -1006,9 +1008,11 @@ function nameSplit(name) {
    word for that file (its Case ID, client, Type, date and extension), whatever this Worker would have guessed. */
 function nameAsFiled(name) {
   const { parts, ext } = nameSplit(name);
-  if (parts.length !== 4) return null;
+  if (parts.length < 4) return null;
   const [caseId, client, type, date] = parts;
-  return caseIdShape(caseId) && clientShape(client) && typeShape(type) && realDay(date) && extShape(ext) ? { caseId, client, type, date, ext } : null;
+  // `extra`: anything the CMS put after the date itself (a counter on a second document of one Type and day); a label isn't that
+  const extra = parts.slice(4).filter((x, i, a) => !(i === a.length - 1 && labelShape(x)));
+  return wordsShape(caseId) && wordsShape(client) && typeShape(type) && realDay(date) && extShape(ext) && extra.every(wordsShape) ? { caseId, client, type, date, ext, extra } : null;
 }
 /* One name against the convention. `ctx`: the name it was filed under (filed), the trainee's Case ID (caseId), the
    label this document must carry (label: "DRAFT" | "SUPERSEDED"), and what to suggest where the name itself gives
@@ -1016,11 +1020,14 @@ function nameAsFiled(name) {
    should have, and each issue is one part that differs, in reading order (n = its place between the underscores). */
 function nameCheck(name, ctx = {}) {
   const filed = ctx.filed ? nameAsFiled(ctx.filed) : null;
-  const { parts, ext } = nameSplit(name), k = parts.length;
+  const split = nameSplit(name), ext = split.ext, extra = filed ? filed.extra : [];
+  // what the CMS itself added after the date stays where it is, and is read past
+  const kept = extra.length > 0 && extra.every((x, i) => split.parts[4 + i] === x);
+  const parts = kept ? split.parts.slice(0, 4).concat(split.parts.slice(4 + extra.length)) : split.parts, k = parts.length;
   const need = ctx.label || "";
   const gotLabel = k >= 5 ? parts[4] : "";
-  const supDay = (/^SUPERSEDED-(\d{4}-\d{2}-\d{2})$/.exec(gotLabel) || [])[1] || "";
-  const supOk = !!supDay && realDay(supDay);
+  const supOk = /^SUPERSEDED-/.test(gotLabel) && labelShape(gotLabel);
+  const at = 5 + (kept ? extra.length : 0);   // the label's place between the underscores
   const lowerExt = String(ext).toLowerCase().replace(/[^a-z0-9]/g, "");
   const want = {
     caseId: filed ? filed.caseId : ctx.caseId || (caseIdShape(parts[0]) ? parts[0] : "<Case ID>"),
@@ -1030,14 +1037,14 @@ function nameCheck(name, ctx = {}) {
     label: need === "DRAFT" ? "DRAFT" : need === "SUPERSEDED" ? (supOk ? gotLabel : "SUPERSEDED-<YYYY-MM-DD>") : (gotLabel === "DRAFT" || supOk) ? gotLabel : "",
     ext: filed ? filed.ext : extShape(ext) ? ext : lowerExt || "pdf",
   };
-  const wantName = [want.caseId, want.client, want.type, want.date].concat(want.label ? [want.label] : []).join("_") + "." + want.ext;
+  const wantName = [want.caseId, want.client, want.type, want.date].concat(extra).concat(want.label ? [want.label] : []).join("_") + "." + want.ext;
   const issues = [];
   const say = (n, part, got, should, why) => issues.push({ n, part, got: String(got == null ? "" : got), should, why });
   const labelWhy = need === "DRAFT" ? "This document is a draft: add _DRAFT after the date, so nobody sends it out as final."
     : need === "SUPERSEDED" ? "A newer version replaced this one: add _SUPERSEDED- and the date of the version that replaced it (YYYY-MM-DD) after the date, so a colleague can tell which is current."
     : "A fifth part is a label, and the firm has two, in capitals: DRAFT, and SUPERSEDED- with the date of the version that replaced it (YYYY-MM-DD).";
   if (k < 4 || k > 5) {
-    say(0, "parts", name, wantName, `The name has ${k} piece${k === 1 ? "" : "s"} between underscores. The firm's names have four, joined by underscores: the Case ID, the client (Last-First), the Type and the date${want.label ? ", then the label" : ""}.`);
+    say(0, "parts", name, wantName, `The name has ${split.parts.length} piece${split.parts.length === 1 ? "" : "s"} between underscores. The firm's names have four, joined by underscores: the Case ID, the client (Last-First), the Type and the date${want.label ? ", then the label" : ""}.`);
   } else {
     if (parts[0] !== want.caseId) say(1, "Case ID", parts[0], want.caseId, filed ? `It was filed in the CMS under ${want.caseId}.` : ctx.caseId ? `Your case's ID is ${ctx.caseId}, exactly as the CMS shows it.` : "The Case ID is the one the CMS gave your case: capitals and digits, joined by hyphens.");
     if (parts[1] !== want.client) say(2, "Last-First", parts[1], want.client, looseKey(parts[1]) === looseKey(want.client) ? "Capitals and the hyphen count: the client is written exactly as the client folder is named."
@@ -1046,13 +1053,15 @@ function nameCheck(name, ctx = {}) {
     if (parts[2] !== want.type) say(3, "Type", parts[2], want.type, filed ? `It was filed in the CMS under ${want.type}: the Type is the CMS category, its words joined by a hyphen.`
       : `The Type is the CMS category the document is filed under, its words joined by a hyphen: ${FILE_TYPES.join(", ")}.`);
     if (parts[3] !== want.date) say(4, "YYYY-MM-DD", parts[3], want.date, filed ? `It was filed on ${want.date}: the date in the name is the day of filing.` : "The date is the day it was filed, year first: four digits, two, two, joined by hyphens.");
-    if (gotLabel !== want.label) say(5, "label", gotLabel, want.label, labelWhy);
+    if (gotLabel !== want.label) say(at, "label", gotLabel, want.label, labelWhy);
+    else if (!issues.length && extra.length && !kept) say(0, "parts", name, wantName, `It was filed in the CMS as "${ctx.filed}": a copy keeps that name${want.label ? ", with its label added last" : ""}.`);
   }
-  if (issues.every((x) => x.n) && ext !== want.ext) say(6, "ext", ext, want.ext, ext ? "The extension is the file's own, in lower case." : "The name has lost its extension: without it the file doesn't open as what it is.");
+  if (issues.every((x) => x.n) && ext !== want.ext) say(EXT_PART, "ext", ext, want.ext, ext ? "The extension is the file's own, in lower case." : "The name has lost its extension: without it the file doesn't open as what it is.");
   return { ok: !issues.length, want: wantName, issues };
 }
 /* The differing part, pointed out: which piece of the name to look at, what it reads and what it should read. */
-const ORDINAL = ["", "first", "second", "third", "fourth", "fifth"];
+const ORDINAL = ["", "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth"];
+const EXT_PART = 99;   // an issue's `n` is its place between the underscores; the extension is after the last dot
 function nameHint(c) {
   const i = (c.issues || [])[0];
   if (!i) return "";
@@ -1060,7 +1069,7 @@ function nameHint(c) {
   if (i.n === 0) return i.why + more;
   if (c.issues.length >= 3) return `This name isn't built the firm's way: ${c.issues.length} of its parts differ, so rename it as shown. Start with part ${i.n}, the ${ORDINAL[i.n]} piece between the underscores (${i.part}): "${i.got}" should be "${i.should}".`;
   if (i.part === "ext") return `Look at the extension, after the last dot: ${i.got ? `".${i.got}"` : "there is none"}, and it should be ".${i.should}". ${i.why}${more}`;
-  if (i.part === "label") return (i.got ? `Look at part 5 of the name, the fifth piece between the underscores (the label): "${i.got}" ${i.should ? `should be "${i.should}"` : "shouldn't be there"}. ` : "") + i.why + more;
+  if (i.part === "label") return (i.got ? `Look at part ${i.n} of the name, the ${ORDINAL[i.n] || "last"} piece between the underscores (the label): "${i.got}" ${i.should ? `should be "${i.should}"` : "shouldn't be there"}. ` : "") + i.why + more;
   // where the name itself gives no answer (a Type that is no category, a date that is no date) the part is pointed at and the rule said
   return `Look at part ${i.n} of the name, the ${ORDINAL[i.n]} piece between the underscores (${i.part}): "${i.got}" ${/[<>]/.test(i.should) ? "isn't one" : `should be "${i.should}"`}. ${i.why}${more}`;
 }

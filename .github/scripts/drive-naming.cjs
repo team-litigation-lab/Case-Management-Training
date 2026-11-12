@@ -92,6 +92,9 @@ global.fetch = async (url, init = {}) => {
     // the CMS's word stands: a Type or a client the Worker would not have guessed, on a name the CMS filed
     ['LSH-2026-MVA-000041_Doe-John_Release-Review_2026-11-12.pdf', { filed: 'LSH-2026-MVA-000041_Doe-John_Release-Review_2026-11-12.pdf' }],
     ['LSH-2026-MVA-000041_Doe-Jon_Bills_2026-11-12.docx', { filed: 'LSH-2026-MVA-000041_Doe-Jon_Bills_2026-11-12.docx' }],
+    // and so does anything the CMS itself put after the date (a counter on a second document of one Type and day), with a label after it
+    ['LSH-2026-MVA-000041_Doe-John_Bills_2026-11-12_2.pdf', { filed: 'LSH-2026-MVA-000041_Doe-John_Bills_2026-11-12_2.pdf' }],
+    ['LSH-2026-MVA-000041_Doe-John_Others_2026-11-12_2_DRAFT.pdf', { filed: 'LSH-2026-MVA-000041_Doe-John_Others_2026-11-12_2.pdf', label: 'DRAFT' }],
   ];
   good.forEach(([n, c]) => { const r = chk(n, c); if (!r.ok) fail(`"${n}" should pass: ${R.nameHint(r)}`); });
   // [name, ctx, the part pointed at, the name it should have, what the hint must say]
@@ -104,8 +107,11 @@ global.fetch = async (url, init = {}) => {
     ['LSH-2026-MVA-000041_Doe-John_Medical-Records_11-12-2026.pdf', { caseId: CASE, date: '2026-11-12' }, 4, F, /part 4.*year first/],
     ['LSH-2026-MVA-000041_Doe-John_Medical-Records_2026-02-31.pdf', { caseId: CASE, date: '2026-11-12' }, 4, F, /part 4/],
     ['LSH-2026-MVA-000041_Doe-John_Medical-Records_2026-11-13.pdf', { filed: F }, 4, F, /filed on 2026-11-12/],
-    ['LSH-2026-MVA-000041_Doe-John_Medical-Records_2026-11-12.PDF', { filed: F }, 6, F, /extension.*lower case/],
-    ['LSH-2026-MVA-000041_Doe-John_Medical-Records_2026-11-12', { filed: F }, 6, F, /lost its extension/],
+    ['LSH-2026-MVA-000041_Doe-John_Medical-Records_2026-11-12.PDF', { filed: F }, 99, F, /extension.*lower case/],
+    ['LSH-2026-MVA-000041_Doe-John_Medical-Records_2026-11-12', { filed: F }, 99, F, /lost its extension/],
+    ['LSH-2026-MVA-000041_Doe-John_Bills_2026-11-12.pdf', { filed: 'LSH-2026-MVA-000041_Doe-John_Bills_2026-11-12_2.pdf' }, 0, 'LSH-2026-MVA-000041_Doe-John_Bills_2026-11-12_2.pdf', /a copy keeps that name/],
+    ['LSH-2026-MVA-000041_Doe-John_Others_2026-11-12_2.pdf', { filed: 'LSH-2026-MVA-000041_Doe-John_Others_2026-11-12_2.pdf', label: 'DRAFT' }, 6, 'LSH-2026-MVA-000041_Doe-John_Others_2026-11-12_2_DRAFT.pdf', /add _DRAFT/],
+    ['LSH-2026-MVA-000041_Doe-John_Bills_2026-11-12_2.pdf', { caseId: CASE }, 5, 'LSH-2026-MVA-000041_Doe-John_Bills_2026-11-12.pdf', /"2" shouldn't be there/],
     ['LSH-2026-MVA-000041 Doe-John Medical-Records 2026-11-12.pdf', { filed: F }, 0, F, /1 piece between underscores/],
     ['Copy of ' + F, { filed: F }, 1, F, /part 1/],
     ['RS_12_Urgent_Care_Note.pdf', { caseId: CASE, date: '2026-11-12', type: 'Medical-Records' }, 1, F, /5 of its parts differ/],

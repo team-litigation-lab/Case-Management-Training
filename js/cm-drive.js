@@ -487,13 +487,13 @@ async function copy(btn){
   catch(e){ const t = document.createElement("textarea"); t.value = text; t.style.cssText = "position:fixed;left:-9999px;top:0"; document.body.appendChild(t); t.select(); try{ document.execCommand("copy"); }catch(x){} t.remove(); }
   const was = btn.textContent; btn.textContent = "✓ Copied"; setTimeout(()=>{ if(btn.isConnected) btn.textContent = was; }, 1400);
 }
-/* A name with one of its pieces marked: n is its place between the underscores (5: the label, 6: the extension, 0: all of it). */
+/* A name with one of its pieces marked: n is its place between the underscores ("ext": the extension, 0: all of it, -1: none). */
 function marked(name, n, cls){
   const s = String(name || ""), dot = s.lastIndexOf("."), hasExt = dot > 0 && dot < s.length - 1;
   const parts = (hasExt ? s.slice(0, dot) : s).split("_"), ext = hasExt ? s.slice(dot + 1) : "";
   const m = (t)=> `<mark class="${cls}">${E(t)}</mark>`;
   if(!n) return m(s);
-  if(n === 6) return E(parts.join("_")) + (hasExt ? "." + m(ext) : "");
+  if(n === "ext") return E(parts.join("_")) + (hasExt ? "." + m(ext) : "");
   return parts.map((p, i)=> i === n - 1 ? m(p) : E(p)).join("_") + (hasExt ? "." + E(ext) : "");
 }
 /* The last check of the names, as the Worker reported it: each wrong one with its folder, the name as it is, the name
@@ -509,8 +509,8 @@ function namingReport(){
     <p class="drv-nr-sub">${all ? `${R.named} of ${all} file${all === 1 ? "" : "s"} named the firm's way` : "No file is on your drive yet"}${R.at ? ` · checked ${E(new Date(R.at).toLocaleString())}` : ""}</p>
     ${list.map(x=>`<div class="drv-nr-it">
       <div class="drv-nr-f">✗ ${x.kind === "folder" ? "Folder in" : "In"} <b>${E(x.folder)}</b></div>
-      <div class="drv-nr-l"><span>Named</span><code>${marked(x.name, x.kind === "folder" ? 0 : (x.got ? x.n : -1), "drv-nr-bad")}</code></div>
-      <div class="drv-nr-l"><span>Should be</span><code>${x.kind === "folder" ? `<mark class="drv-nr-good">${E(x.want)}</mark>` : marked(x.want, x.n || -1, "drv-nr-good")}</code>${/[<>]/.test(x.want) ? "" : `<button type="button" class="drv-nc-copy" data-copy="${E(x.want)}" onclick="CMDrive.copy(this)">📋 Copy</button>`}</div>
+      <div class="drv-nr-l"><span>Named</span><code>${marked(x.name, x.kind === "folder" ? 0 : !x.got ? -1 : x.part === "ext" ? "ext" : x.n, "drv-nr-bad")}</code></div>
+      <div class="drv-nr-l"><span>Should be</span><code>${x.kind === "folder" ? `<mark class="drv-nr-good">${E(x.want)}</mark>` : marked(x.want, x.part === "ext" ? "ext" : x.n || -1, "drv-nr-good")}</code>${/[<>]/.test(x.want) ? "" : `<button type="button" class="drv-nc-copy" data-copy="${E(x.want)}" onclick="CMDrive.copy(this)">📋 Copy</button>`}</div>
       <div class="drv-nr-hint">👉 ${E(x.hint)}</div>
     </div>`).join("")}
     ${bad > list.length ? `<p class="drv-nr-sub">…and ${bad - list.length} more.</p>` : ""}
@@ -615,9 +615,9 @@ css.textContent = `
 .drv-nc-s code{font-size:16px;}
 .drv-nc-s .drv-nc-pat{display:inline-block;font-size:16px!important;padding:5px 10px;}
 .drv-nc-s .drv-nc-exc{background:#fff;border:1.5px solid #DB8437;border-radius:8px;padding:3px 9px;}
-.drv-nc-s .drv-nc-copy{font-size:15px;}
+.drv-nc-s .drv-nc-copy{font-size:16px;padding:3px 10px;}
 .drv-nc-s .drv-nc-r > span code{color:#B9610F;}
-.drv-nc-pts{margin-left:auto;background:#1E2340;color:#F6C08F!important;border-radius:999px;padding:3px 12px;font:800 15px 'Inter',sans-serif!important;white-space:nowrap;}
+.drv-nc-pts{margin-left:auto;background:#1E2340;color:#F6C08F!important;border-radius:999px;padding:3px 12px;font:800 16px 'Inter',sans-serif!important;white-space:nowrap;}
 .drv-s-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}
 .drv-s-top h3{margin:0;}
 .drv-c-nm{font:700 14px/1.45 'Inter',sans-serif!important;color:#8A2B2B!important;margin:0 0 8px!important;}
