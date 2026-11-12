@@ -169,6 +169,10 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/admin-shell.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: The Trainee Audit is one table (a row per trainee, filters and sortable columns, every action in one ⋯ menu)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/trainee-audit.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: The trainer's injected call rings every trainee; answered or missed, it counts under Case Calls
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
