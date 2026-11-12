@@ -1,3 +1,4 @@
+// @check node — Documents served from R2 (ranges, 304s, static assets as the fallback)
 // Documents served from R2 (worker.js → docFromR2): the document folders listed in R2_DOC_DIRS come from the
 // DOCUMENTS bucket under the course's prefix, with byte ranges (PDF viewers) and 304s; a file not in R2 yet
 // comes from the static assets; other paths never touch R2; without the binding everything is assets.

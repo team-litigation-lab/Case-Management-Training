@@ -1,3 +1,4 @@
+// @check browser — The pre-demand Amendment Requests (records screened, requests refused until complete, the corrected copy opened, filed and fed back; the CMS answered by the test)
 // 📝 The pre-demand audit's Amendment Requests (js/cm-case-flow.js, build/case-flow/exhibits/d3.json "amendments").
 //
 // A Case Manager never fixes a provider's record. In Pre-Demand Case Auditing (d2m4-a1) the trainee screens the

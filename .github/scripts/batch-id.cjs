@@ -1,3 +1,4 @@
+// @check node — Batch IDs are B + MMDDYY (the page and the Worker read them the same way; older codes keep working)
 // Batch IDs are B + the date the batch started, as MMDDYY (B100926 for 9 October 2026) — the same rule on
 // every LSH platform (canonicalBatch in the CMS's functions/_utils.js). This checks the page's copy and the
 // Worker's copy agree and behave:

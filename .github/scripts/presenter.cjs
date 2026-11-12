@@ -1,3 +1,4 @@
+// @check browser 12 — Presenter view (the slides window shared in Meet never flickers)
 // Presenter view test: the slides window (the one shared in Google Meet) must never flicker.
 // Opens Presenter view as a trainer from the slide's footer card (🖥 Presenter view: the speaker notes beside the slide), then watches the slides window's content being replaced.
 //   - Next: the slide is drawn once, with no entrance animation (no blank first frames);

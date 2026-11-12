@@ -1,9 +1,11 @@
+// @check browser — Day cards say where the trainee is (Start, Resume, Retake with the best score, Review)
 // What a day card tells a trainee about their own progress (moduleCard in index.html, and the wrapper
 // in js/cm-updates.js that rewrites it). A Knowledge Check under the pass mark is recorded —
 // progress[day].score keeps the best of every attempt and .history keeps them all — so a day the
 // trainee has worked through must never invite them to "Start" it again. Checks each state of a day:
 //     not begun                 → Start
-//     slides worked             → Continue, with how far the slides got
+//     slides worked             → Continue (how far the deck was clicked through is NOT shown: the dashboard tracks
+//                                 what the trainee did, in 📒 My Progress Log, not deck utilization)
 //     Knowledge Check under 70% → Continue, with the score and the 70% pass mark on the card
 //     the whole deck seen       → Review
 //     passed                    → Review (back into the day's slides), with Review Score and Retake under it
@@ -54,13 +56,14 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
 
     const started = await card(null, 3);
     if (started.cta !== 'Continue') fail(`a day whose slides have been worked should say "Continue", says "${started.cta}"`);
-    if (!/Slides\s*\d+%/.test(started.card)) fail(`a day in progress should show how far the slides got: "${started.card.slice(0, 120)}"`);
+    if (/Slides\s*\d+\s*%/i.test(started.card)) fail(`a day card should not show deck utilization ("Slides N%"): "${started.card.slice(0, 120)}"`);
 
     // 13 of 20 is 65%: recorded, but not the 70% that completes the day
     const under = await card({ done: false, score: 65, date: new Date().toISOString(), history: [{ score: 55, passed: false }, { score: 65, passed: false }] }, 12);
     if (under.cta !== 'Continue') fail(`a day taken but under the pass mark should say "Continue", says "${under.cta}"`);
     if (!/Knowledge Check 65%/.test(under.card)) fail(`the card should show the best score of a day not yet passed: "${under.card.slice(0, 160)}"`);
     if (!/70% to pass/.test(under.card)) fail(`the card should say what the pass mark is: "${under.card.slice(0, 160)}"`);
+    if (/Slides\s*\d+\s*%/i.test(under.card)) fail(`a day card should not show deck utilization: "${under.card.slice(0, 160)}"`);
 
     // the whole deck seen (the last slide reached), Knowledge Check not passed yet: Review
     const lastIdx = await page.evaluate(() => buildDaySlides(DAYS[0]).length - 1);
@@ -71,6 +74,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
     if (passed.cta !== 'Review') fail(`a day passed should say "Review" (back into its slides), says "${passed.cta}"`);
     if (!/Review Score/.test(passed.card) || !/Retake/.test(passed.card)) fail(`a day passed should keep Review Score and Retake: "${passed.card.slice(0, 160)}"`);
     if (!/Completed/i.test(passed.card)) fail(`a day passed should say Completed: "${passed.card.slice(0, 120)}"`);
+    if (!/Knowledge Check 85%/.test(passed.card) || /Slides/i.test(passed.card)) fail(`a day passed shows its Knowledge Check score, not the slides: "${passed.card.slice(0, 160)}"`);
 
     // a failing attempt is kept on the record, with the best score, and never lowers it
     const kept = await page.evaluate(() => {
@@ -88,6 +92,6 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
 
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-    console.log('Day cards tell the trainee where they are: Start, Continue with how far the slides got and the Knowledge Check score beside the 70% pass mark, or Review once the deck is finished or the day passed (with Review Score and Retake); a failing attempt is kept and never lowers the best score.');
+    console.log('Day cards tell the trainee where they are: Start, Continue (no deck utilization shown) with the Knowledge Check score beside the 70% pass mark, or Review once the deck is finished or the day passed (with Review Score and Retake); a failing attempt is kept and never lowers the best score.');
     console.log('All good.');
 })().catch(e => { console.error(e); process.exit(1); });

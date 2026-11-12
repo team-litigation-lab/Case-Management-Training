@@ -1,3 +1,4 @@
+// @check browser — Blueprints (the Trainer blueprint and its PDF; the Trainee blueprint republished after every deploy)
 // Blueprint test for a course portal (js/lsh-blueprint.js, js/lsh-blueprint-course.js and the
 // course's js/blueprint-content.js), against .github/scripts/server.mjs. jsPDF is served from
 // node_modules in place of cdnjs; /version is answered by the test so the deployment can change.

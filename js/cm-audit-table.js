@@ -35,7 +35,7 @@ const STATUS = {active: ["Active", "ok"], pending: ["⏳ Pending", "pend"], reje
 const asked = r => !!(r.labResetRequestedAt && (!r.labAttemptsResetAt || r.labResetRequestedAt > r.labAttemptsResetAt));
 function driveState(r){
   const rep = (state.driveReports || {})[r.id];
-  if(!rep) return {k: "", label: r.driveLink ? "🔗 folder link sent" : "—", issue: false};
+  if(!rep) return {k: "", label: "—", issue: false};
   if(rep.checking) return {k: "chk", label: "Checking…", issue: false};
   if(!rep.connected) return {k: "off", label: "Not connected", issue: true};
   if(!rep.builtAt) return {k: "on", label: "Connected", issue: false};
@@ -59,7 +59,9 @@ const NEEDS = [
   ["towrite", "💬 Feedback to write", x => x.a.loaded && x.a.toWrite.length > 0],
   ["below", "📉 Below 70%", x => x.a.loaded && x.a.kcBelow.length > 0],
   ["missed", "🎲 Missed a task", x => x.a.loaded && x.a.tasksMissed > 0],
-  ["drive", "📂 Drive issue", x => x.status === "active" && x.drive.issue]
+  ["drive", "📂 Drive issue", x => x.status === "active" && x.drive.issue],
+  // a glaring challenge or error in setting up their case files (js/cm-progress-log.js's rules); the chip opens the alerts list
+  ["alerts", "🚨 Case-file alerts", x => x.a.loaded && !!window.cmCaseAlerts && cmCaseAlerts.openFor(x.rec).length > 0]
 ];
 const STATUS_OPTS = [["current", "Current (active + pending)"], ["active", "Active"], ["pending", "⏳ Pending"], ["rejected", "Rejected"], ["archived", "Archived"], ["all", "All"]];
 function statusFilter(){
@@ -146,17 +148,18 @@ function rowHtml(x, ncol){
   const kc = !a.loaded ? loading : (a.days.some(d => d.score !== null)
     ? `<b>${x.kcAvg}%</b> avg · ${a.kcPassed}/${a.days.length} passed${a.kcBelow.length ? `<div class="at-warn">below 70%: Day ${a.kcBelow.map(cfN).join(", ")}</div>` : ""}`
     : `<span class="at-dim">not taken</span>`);
-  const sb = `${x.pp.runs} run${x.pp.runs === 1 ? "" : "s"}${x.pp.avg ? ` · best ${x.pp.avg}%` : ""}${r.labAttemptsGlobal ? `<div class="at-dim">${E(r.labAttemptsGlobal)} of ${typeof LAB_ATTEMPT_CAP !== "undefined" ? LAB_ATTEMPT_CAP : 3} repeats used</div>` : ""}${x.asked ? `<div class="at-warn" title="Asked ${E(fmtDate(r.labResetRequestedAt))}">🙋 Asked for more attempts${r.labResetRequestedDay ? ` (Day ${E(cfN(r.labResetRequestedDay))})` : ""}</div>` : ""}`;
+  const sb = `${E(x.pp.runs)} run${x.pp.runs === 1 ? "" : "s"}${x.pp.avg ? ` · best ${E(x.pp.avg)}%` : ""}${r.labAttemptsGlobal ? `<div class="at-dim">${E(r.labAttemptsGlobal)} of ${typeof LAB_ATTEMPT_CAP !== "undefined" ? LAB_ATTEMPT_CAP : 3} repeats used</div>` : ""}${x.asked ? `<div class="at-warn" title="Asked ${E(fmtDate(r.labResetRequestedAt))}">🙋 Asked for more attempts${r.labResetRequestedDay ? ` (Day ${E(cfN(r.labResetRequestedDay))})` : ""}</div>` : ""}`;
   const tasks = !a.loaded ? loading : (a.tasksTotal ? `${a.tasksDone}/${a.tasksTotal} resolved${a.tasksAvg !== null ? ` · ${a.tasksAvg}%` : ""}${a.tasksMissed ? `<div class="at-warn">${a.tasksMissed} missed</div>` : ""}${a.tasksOpen ? `<div class="at-dim">${a.tasksOpen} open</div>` : ""}` : `<span class="at-dim">none yet</span>`);
   const fb = !a.loaded ? loading : `${a.sent} sent${a.sent ? ` (${a.read} read)` : ""}${a.drafts ? ` · ${a.drafts} draft` : ""}${a.toWrite.length ? `<div class="at-warn">to write: Day ${a.toWrite.map(cfN).join(", ")}</div>` : ""}<div class="at-dim">Focus ${a.focusOpen} open · ${a.focusDone} done</div>`;
-  const drive = `<span class="at-drv ${x.drive.k}">${E(x.drive.label)}</span>${r.driveLink && (state.driveReports || {})[id] ? `<div class="at-dim">🔗 folder link sent</div>` : ""}`;
+  const drive = `<span class="at-drv ${x.drive.k}">${E(x.drive.label)}</span>`;
   // ↺ Reset Attempts beside the name (orange when they asked); the 🔓 chip (js/cm-open-lessons.js) under the days
   const reset = `<button type="button" class="btn btn-sm ${x.asked ? "btn-primary" : "btn-ghost"} at-reset" title="Give ${E(nameOf(r))} a fresh ${typeof LAB_ATTEMPT_CAP !== "undefined" ? LAB_ATTEMPT_CAP : 3} Skill Builders repeat attempts on every day" onclick="resetTraineeLabAttempts('${J(id)}')">↺ Reset Attempts${r.labAttemptsGlobal ? ` (${E(r.labAttemptsGlobal)} used)` : ""}</button>`;
   const chip = openChip(r);
   const acts = [x.status === "pending" || x.status === "rejected" ? `<button type="button" class="btn btn-sm btn-navy" onclick="approveTrainee('${J(id)}')">Approve</button>` : "",
     x.status === "pending" ? `<button type="button" class="btn btn-sm btn-ghost at-danger" onclick="rejectTrainee('${J(id)}')">Reject</button>` : "",
     `<button type="button" class="btn btn-sm btn-ghost at-danger" onclick="cmAudit.revoke('${J(id)}')">Revoke</button>`].join("");
-  const flags = `${r.flaggedInvalidInput ? `<span class="at-flag bad">⚠ invalid input removed</span>` : ""}`;
+  const alertsN = a.loaded && window.cmCaseAlerts ? cmCaseAlerts.openFor(r).length : 0;
+  const flags = `${r.flaggedInvalidInput ? `<span class="at-flag bad">⚠ invalid input removed</span>` : ""}${alertsN ? `<button type="button" class="at-flag bad at-alerts" onclick="cmCaseAlerts.open()" title="Open the case-file alerts list">🚨 ${alertsN} case-file alert${alertsN === 1 ? "" : "s"}</button>` : ""}`;
   return `<tr class="at-row${open ? " open" : ""} st-${x.status}" data-id="${E(id)}">
     <th scope="row" class="at-c-name"><div class="at-who"><button type="button" class="at-name" aria-expanded="${open}" onclick="cmAudit.toggle('${J(id)}')" title="${E(nameOf(r).slice(0, 200))}: ${open ? "close" : "open"} their detail (feedback, certificate, scorecard)">${open ? "▾" : "▸"} ${E(nameOf(r).slice(0, 60))}${nameOf(r).length > 60 ? "…" : ""}</button>${reset}</div>
       <div class="at-id">${E(String(id).slice(0, 48))}</div>${flags}</th>
@@ -382,6 +385,7 @@ const st = document.createElement("style"); st.id = "cm-audit-table"; st.textCon
 .at-id{font:600 14px 'IBM Plex Mono',monospace;color:#2B2F3E;overflow-wrap:anywhere;}
 .at-flag{display:inline-block;margin-top:4px;font-size:14px;font-weight:700;}
 .at-flag.bad,.at-warn{color:#9B3A30;font-weight:700;}
+.at-alerts{all:unset;display:inline-block;margin-top:4px;cursor:pointer;font:800 14px 'Inter',system-ui,sans-serif;color:#fff;background:#B3261E;border-radius:999px;padding:2px 10px;}
 .at-dim{color:#2E3245;font-size:14px;font-weight:600;}
 .at-st{display:inline-block;border-radius:999px;padding:2px 10px;font-weight:700;font-size:14px;white-space:nowrap;}
 .at-st.ok{background:#E3F1E8;color:#24563A;} .at-st.pend{background:#FFE7CF;color:#7A3F0E;} .at-st.bad{background:#F8E1DE;color:#9B3A30;} .at-st.arch{background:#ECEDF2;color:#2B2F3E;}
@@ -395,7 +399,8 @@ const st = document.createElement("style"); st.id = "cm-audit-table"; st.textCon
 .at-drv{font-weight:700;} .at-drv.ok{color:#24563A;} .at-drv.bad,.at-drv.off{color:#9B3A30;}
 .at-c-sb{min-width:150px;}
 .at-c-act{position:sticky;right:0;z-index:2;box-shadow:-2px 0 0 #DCE0EA;}
-.at-acts{display:flex;gap:6px;justify-content:flex-end;white-space:nowrap;}
+/* the Actions stack (Approve · Reject · Revoke): a narrow sticky column, so it never covers the Days column and its 🔓 chip at 1366px */
+.at-acts{display:flex;flex-direction:column;align-items:stretch;gap:6px;white-space:nowrap;}
 .at-wrap .btn,.at-head .btn,.at-ask{font-size:14px;}
 .at-head .eyebrow{font-size:14px;}
 .at-danger{color:#9B3A30;}

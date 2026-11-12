@@ -1,3 +1,4 @@
+// @check browser — Every slide fits on one screen (laptop and large screen, every page of every day)
 // Every slide fits on one screen: on the lesson page, the slide and its Previous / Next bar end inside the
 // window (no scrolling), nothing inside the slide frame is cut off or scrolls, and no slide is split onto a
 // second page (a long one is scaled to fit) — every slide of every day, on a laptop and on a large screen. On a desktop the slide takes the page's width with
