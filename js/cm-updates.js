@@ -226,11 +226,10 @@ function prevSlide(){
     refreshLessonSlide();
   }
 }
+// after a slide draws: its callouts decorated and the slide split into pages if it doesn't fit (the name is the old narrator's hook)
 function narratorAfterRender(pageOnly){
-  if(state.view!=="day"){ if(Narrator.playing) Narrator.stop(true); __lastNarrKey = ""; return; }
+  if(state.view!=="day") return;
   if(!pageOnly){ decorateCallouts(); paginateLessonSlide(); }
-  const key = state.dayId+":"+(state.lessonSlide||0)+":"+(state.slidePage||0)+":"+state.dayViewMode;
-  if(key!==__lastNarrKey){ __lastNarrKey = key; Narrator.afterSlideChange(); } else Narrator.paint();
 }
 // Skill Builders, Simulators, Tools and Roleplay all live under 🧪 Practice (js/cm-practice.js).
 const PRACTICE_SUBVIEWS = ["tool","calls","tools","crisisroleplay"];
@@ -292,12 +291,6 @@ async function authFetch(url, payload){
   if(res.status===401 && sentAdmin && sentAdmin === state.adminToken && (state.isAdmin || state.adminPreview)){ setAdminToken(""); state.isAdmin = false; state.adminPreview = false; try{ sessionStorage.removeItem("lsh_admin_preview"); }catch(e){} toast("Your admin session expired — click 🛡 Admin and sign in again."); }
   return res;
 }
-Narrator.slideText = function(){
-    const card = document.querySelector("#lessonSlideWrap"); if(!card) return "";
-    const clone = card.cloneNode(true);
-    clone.querySelectorAll(".pg-hide, .pg-badge, svg, .svg-diagram-card, .vis-flow, .vis-chips, .vis-label, .topic-separator, .fp-num, .lnum, .vis-badge, .vis-card-i, .qc-actions, .quiz-rationale:not(.show), button, .lx-panel:not([open])").forEach(n=>n.remove());
-    return clone.innerText.replace(/\s*\n+\s*/g, ". ").replace(/(\.\s*){2,}/g, ". ").replace(/[→➜]/g, ", then ").replace(/\s+/g," ").trim();
-  };
 /* ---------- Standard-size slides: content that doesn't fit continues on the next page ----------
    The slide box has a fixed size. After each render we measure the content blocks
    and, if they overflow, split them into the fewest pages possible and then
@@ -773,7 +766,6 @@ function presenterStart(){
   if(!pvOpenSlidesWindow()){ toast("Your browser blocked the slides window — allow pop-ups for this site, then click Presenter view again."); return; }
   state.presenting = true; state.dayViewMode = "slides"; state.maxSlideReached = 9999;
   state.presentPage = 0; state.presentPages = 1; PV.startedAt = Date.now();
-  if(typeof Narrator!=="undefined" && Narrator.playing) Narrator.stop(true);
   clearInterval(PV.tick); PV.tick = setInterval(presenterTick, 1000);
   render(); presenterSend();
 }

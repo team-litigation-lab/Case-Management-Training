@@ -35,7 +35,7 @@ const STATUS = {active: ["Active", "ok"], pending: ["⏳ Pending", "pend"], reje
 const asked = r => !!(r.labResetRequestedAt && (!r.labAttemptsResetAt || r.labResetRequestedAt > r.labAttemptsResetAt));
 function driveState(r){
   const rep = (state.driveReports || {})[r.id];
-  if(!rep) return {k: "", label: r.driveLink ? "🔗 folder link sent" : "—", issue: false};
+  if(!rep) return {k: "", label: "—", issue: false};
   if(rep.checking) return {k: "chk", label: "Checking…", issue: false};
   if(!rep.connected) return {k: "off", label: "Not connected", issue: true};
   if(!rep.builtAt) return {k: "on", label: "Connected", issue: false};
@@ -149,7 +149,7 @@ function rowHtml(x, ncol){
   const sb = `${x.pp.runs} run${x.pp.runs === 1 ? "" : "s"}${x.pp.avg ? ` · best ${x.pp.avg}%` : ""}${r.labAttemptsGlobal ? `<div class="at-dim">${E(r.labAttemptsGlobal)} of ${typeof LAB_ATTEMPT_CAP !== "undefined" ? LAB_ATTEMPT_CAP : 3} repeats used</div>` : ""}${x.asked ? `<div class="at-warn" title="Asked ${E(fmtDate(r.labResetRequestedAt))}">🙋 Asked for more attempts${r.labResetRequestedDay ? ` (Day ${E(cfN(r.labResetRequestedDay))})` : ""}</div>` : ""}`;
   const tasks = !a.loaded ? loading : (a.tasksTotal ? `${a.tasksDone}/${a.tasksTotal} resolved${a.tasksAvg !== null ? ` · ${a.tasksAvg}%` : ""}${a.tasksMissed ? `<div class="at-warn">${a.tasksMissed} missed</div>` : ""}${a.tasksOpen ? `<div class="at-dim">${a.tasksOpen} open</div>` : ""}` : `<span class="at-dim">none yet</span>`);
   const fb = !a.loaded ? loading : `${a.sent} sent${a.sent ? ` (${a.read} read)` : ""}${a.drafts ? ` · ${a.drafts} draft` : ""}${a.toWrite.length ? `<div class="at-warn">to write: Day ${a.toWrite.map(cfN).join(", ")}</div>` : ""}<div class="at-dim">Focus ${a.focusOpen} open · ${a.focusDone} done</div>`;
-  const drive = `<span class="at-drv ${x.drive.k}">${E(x.drive.label)}</span>${r.driveLink && (state.driveReports || {})[id] ? `<div class="at-dim">🔗 folder link sent</div>` : ""}`;
+  const drive = `<span class="at-drv ${x.drive.k}">${E(x.drive.label)}</span>`;
   // ↺ Reset Attempts beside the name (orange when they asked); the 🔓 chip (js/cm-open-lessons.js) under the days
   const reset = `<button type="button" class="btn btn-sm ${x.asked ? "btn-primary" : "btn-ghost"} at-reset" title="Give ${E(nameOf(r))} a fresh ${typeof LAB_ATTEMPT_CAP !== "undefined" ? LAB_ATTEMPT_CAP : 3} Skill Builders repeat attempts on every day" onclick="resetTraineeLabAttempts('${J(id)}')">↺ Reset Attempts${r.labAttemptsGlobal ? ` (${E(r.labAttemptsGlobal)} used)` : ""}</button>`;
   const chip = openChip(r);

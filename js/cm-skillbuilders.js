@@ -137,7 +137,6 @@ const cmState = ()=> (toolState.cm = toolState.cm || {});
 const CM_UI = {};                                  // key -> config for the current tool
 window.__cmUI = CM_UI;                             // read-only hook for automated answer-key tests
 const toolOfKey = (key)=> key.split(":")[0];
-const dayOfTool = (id)=> { const t = PRACTICE_TOOLS.find(x=>x.id===id); return t ? parseInt(String(t.relates).replace(/\D/g,""),10) : null; };
 async function scorePart(key, score){ await bumpPracticeProgress(toolOfKey(key), score); if(score>=90 && typeof burstConfetti==="function") burstConfetti(); }
 const part = (title, intro, inner)=> `<div class="cm-part"><h3>${E(title)}</h3>${intro?`<p class="cm-intro">${intro}</p>`:""}${inner}</div>`;
 const scenario = (html)=> `<div class="cm-scn">${html}</div>`;
@@ -411,7 +410,6 @@ function toolStep(toolId, key, what){
       <span id="cmsLogged_${k}" style="font-size:12px;color:var(--success)">${saved.at?`✓ Logged ${fmtDate(saved.at)}`:""}</span>
     </div></div>`;
 }
-const cmsStep = (key, what)=> toolStep("cms", key, what);
 window.cmToolStep = toolStep;
 window.cmLogCms = async function(key, platform){
   const el = document.getElementById("cmsId_"+key.replace(/\W/g,"_"));

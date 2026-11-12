@@ -219,31 +219,6 @@ if(typeof renderUnlockDaysControl === "function"){
   };
 }
 
-/* ---------- a temporary hook so the tab works on its own: Admin → 🔓 Open Lessons (tab 'openlessons') ----------
-   Used only while renderAdmin itself has no 'openlessons' tab: it adds the button to the tab row and draws the page. */
-if(typeof window.renderAdmin === "function"){
-  const __admin = window.renderAdmin;
-  const btn = active => `<button class="admin-tab-btn ${active ? "active" : ""}" onclick="setAdminTab('openlessons')">🔓 Open Lessons</button>`;
-  window.renderAdmin = function(){
-    if(!state.isAdmin) return __admin.apply(this, arguments);
-    const want = state.adminTab === "openlessons";
-    let out = __admin.apply(this, arguments);
-    if(out.includes("setAdminTab('openlessons')")) return out;   // renderAdmin has the tab (and draws it): nothing to add
-    if(want){ state.adminTab = "rankings"; try{ out = __admin.apply(this, arguments); } finally{ state.adminTab = "openlessons"; } }
-    const r = out.indexOf('<div class="cf-admin-row">');
-    if(r < 0) return out;
-    const end = out.indexOf("</div></div>", r); if(end < 0) return out;
-    let row = out.slice(r, end);
-    if(want) row = row.replace(/admin-tab-btn active/g, "admin-tab-btn");
-    if(!want && !row.includes("setAdminTab('audit')")) return out;
-    row += btn(want);
-    // the open section's count (Admin Master Control's) takes the extra tab
-    const pre = out.slice(0, r).replace(/(<button type="button" class="cf-admin-sec active"[^>]*>[^<]*<span>)(\d+)(<\/span>)/, (m, a, n, z) => a + (Number(n) + 1) + z);
-    const head = pre + row + "</div></div>";
-    return want ? head + window.renderAdminOpenLessons() : head + out.slice(end + 12);
-  };
-}
-
 window.cmOpenLessons = {
   KEY, key: okey, shape, openFor, load,
   // the trainee's once-a-minute check reads the open days in its one get-many (checkSurpriseTask)

@@ -94,7 +94,7 @@
   // a page that opens with the old eyebrow and title gives them to the banner
   function banner(body, sec, tab){
     const head = body.slice(0, 1500);
-    if(/class="[^"]*\b[\w-]*banner\b/.test(head)) return body;   // any page with its own banner (ft-, dsop-, cm-ol-…) keeps just that one
+    if(/class="[^"]*\b[\w-]*banner\b/.test(head)) return body;   // any page with its own banner (ft-, cm-ol-…) keeps just that one
     let title = tab ? tab.label : sec.label;
     const h1 = /<h1\b[^>]*>([\s\S]*?)<\/h1>/.exec(head);
     if(h1){
@@ -191,7 +191,6 @@
 .cmsh-banner .ft-banner-k{font-size:14px !important;}
 .cmsh-banner h2{font-size:26px !important;}
 .cmsh-banner .ft-banner-sub{font-size:15px !important;}
-.cmsh-screen .dsop-banner .btn-ghost{color:#fff !important;border-color:rgba(255,255,255,.7) !important;background:transparent !important;}
 /* the certificate signatories' six inputs fit the white panel (their 1fr columns may shrink below an input's default width) */
 .cmsh-screen .cert-settings-grid input,.cmsh-screen .cert-settings-grid select{min-width:0;width:100%;box-sizing:border-box;}
 .cmsh-empty{padding:22px 24px;} .cmsh-empty p{margin:0;font-size:16px;color:#2E3450;font-weight:600;}

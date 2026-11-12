@@ -74,33 +74,6 @@ const theory = (b) => {
   }
   return t;
 };
-// 3 Clues, 1 Rule: the Do & Don't slide's game (build/case-flow/slides/clues-dN.json): three clues for each Do and
-// each Don't, widest first, that never say the rule's key words or give the verdict away
-const CL = {};
-for (const day of CF.days) { const f = path.join(__dirname, `clues-d${day.n}.json`); if(fs.existsSync(f)) Object.assign(CL, JSON.parse(fs.readFileSync(f, "utf8"))); }
-const VERDICT = /\b(do|don't|dont|never|always|should|must|avoid|mistakes?|wrong|right|good|bad|pitfalls?)\b/i;
-const clues = (b, c) => {
-  const k = CL[b.id], id = b.id; if(!k) return errors.push(`${id}.clues: missing (clues-dN.json)`), null;
-  for (const side of ["dos", "donts"]) {
-    const items = c[side] || [], set = k[side];
-    if(!Array.isArray(set) || set.length !== items.length){ errors.push(`${id}.clues.${side}: want ${items.length} sets of clues`); continue; }
-    set.forEach((three, i) => {
-      if(!Array.isArray(three) || three.length !== 3) return errors.push(`${id}.clues.${side}[${i}]: want 3 clues`);
-      const key = ((String(items[i]).match(/\*\*(.+?)\*\*/) || [])[1] || "").toLowerCase(), keyWords = key.split(/[^\p{L}]+/u).filter(w => w.length >= 5);
-      three.forEach((x, j) => {
-        const f = `clues.${side}[${i}][${j}]`;
-        if(typeof x !== "string" || !x.trim()) return errors.push(`${id}.${f}: missing`);
-        if(wc(x) < 5 || wc(x) > 14) errors.push(`${id}.${f}: ${wc(x)} words (want 5–14): ${x}`);
-        if(marks(x)) errors.push(`${id}.${f}: no highlight in a clue`);
-        if(VERDICT.test(x)) errors.push(`${id}.${f}: gives the verdict away ("${x.match(VERDICT)[0]}"): ${x}`);
-        const lw = x.toLowerCase(), hit = keyWords.find(w => new RegExp(`\\b${w}`, "i").test(lw));
-        if((key && lw.includes(key)) || hit) errors.push(`${id}.${f}: says the rule's key words ("${hit || key}"): ${x}`);
-        if(/\bApex\b|Jordan Davies/i.test(x)) errors.push(`${id}.${f}: the old Apex file`);
-      });
-    });
-  }
-  return k;
-};
 // the copy files, merged (a block's copy stays in its file when the block moves to another module or day)
 const j = {};
 for (const day of CF.days) {
@@ -132,9 +105,8 @@ for (const day of CF.days) {
         for (const f of ["definition", "purpose", "evidence"]) line(b.id, `document.${f}`, d[f], 24);
         list(b.id, "document.handling", d.handling, 2, 4, 12);
       }
-      let k = null;
-      if((b.best || []).length){ list(b.id, "dos", c.dos, 2, 3, 10); list(b.id, "donts", c.donts, 2, 3, 10); k = clues(b, c); }
-      const t = theory(b); if(t) out[b.id] = Object.assign({}, c, {theory: t}, k ? {clues: k} : {});
+      if((b.best || []).length){ list(b.id, "dos", c.dos, 2, 3, 10); list(b.id, "donts", c.donts, 2, 3, 10); }
+      const t = theory(b); if(t) out[b.id] = Object.assign({}, c, {theory: t});
     } else if(b.kind === "activity"){
       line(b.id, "situation", c.situation, 32, [1, 2]); list(b.id, "steps", c.steps, 3, 5, 12); line(b.id, "deliver", c.deliver, 14); list(b.id, "checks", c.checks, 3, 5, 10);
       if(c.purpose !== undefined) line(b.id, "purpose", c.purpose, 14); if(c.principle !== undefined) line(b.id, "principle", c.principle, 12);
@@ -153,7 +125,7 @@ for (const day of CF.days) {
 const n = Object.keys(out).length;
 if(errors.length){ console.log(`${errors.length} problem(s):`); errors.slice(0, 60).forEach((e, i) => console.log(`${i + 1}. ${e}`)); }
 const OUT = path.join(ROOT, "js/cm-case-flow-slides.js"), text = `/* The Case Flow slides' concise copy (one idea per slide, the key phrase **highlighted**), assembled from
-   build/case-flow/slides/dN.json (theory-dN.json, clues-dN.json) by build/case-flow/slides/assemble.cjs. Written to build/case-flow/slides/SLIDESPEC.md.
+   build/case-flow/slides/dN.json (and theory-dN.json) by build/case-flow/slides/assemble.cjs. Written to build/case-flow/slides/SLIDESPEC.md.
    Do not edit here: edit the JSON and assemble again. */
 window.CM_CF_SLIDES = ${JSON.stringify(out, null, 1)};
 `;

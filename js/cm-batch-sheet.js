@@ -29,7 +29,6 @@ const tone = p => p == null ? "" : p >= 85 ? "gs-hi" : p >= 70 ? "gs-mid" : "gs-
 const T0 = v => { const d = v ? new Date(v) : null; return d && isFinite(d) ? d : null; };
 const DF = new Intl.DateTimeFormat(undefined, {month: "short", day: "numeric", year: "numeric"});
 const DTF = new Intl.DateTimeFormat(undefined, {month: "short", day: "numeric", hour: "numeric", minute: "2-digit"});
-const dOnly = v => { const d = T0(v); return d ? DF.format(d) : ""; };
 const dTime = v => { const d = T0(v); return d ? DTF.format(d) : ""; };
 const ago = v => { const d = T0(v); if(!d) return ""; const m = Math.round((Date.now() - d) / 60000);
   return m < 2 ? "just now" : m < 60 ? `${m} min ago` : m < 1440 ? `${Math.round(m / 60)} h ago` : `${Math.round(m / 1440)} day${Math.round(m / 1440) === 1 ? "" : "s"} ago`; };
@@ -271,7 +270,6 @@ function dayParts(r, d){
   return out;
 }
 const dayAvg = xs => avgOf(xs.map(x => x.pct));
-const grpAvg = (xs, g) => avgOf(xs.filter(x => g.includes(x.grp)).map(x => x.pct));
 
 // 🏅 Score Card: a group of columns per day
 const SC_COLS = [["kc", "✍️ Knowledge Check"], ["lc", "🧩 Learning Checks"], ["tk", "📝 Takeaways"], ["sa,call", "🧪 Activities & calls"], ["rt", "🎲 Random tasks"], ["bd", "📂 Backup Drive"]];

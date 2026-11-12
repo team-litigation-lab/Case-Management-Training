@@ -1,5 +1,5 @@
 /* The Case Flow slides' concise copy (one idea per slide, the key phrase **highlighted**), assembled from
-   build/case-flow/slides/dN.json (theory-dN.json, clues-dN.json) by build/case-flow/slides/assemble.cjs. Written to build/case-flow/slides/SLIDESPEC.md.
+   build/case-flow/slides/dN.json (and theory-dN.json) by build/case-flow/slides/assemble.cjs. Written to build/case-flow/slides/SLIDESPEC.md.
    Do not edit here: edit the JSON and assemble again. */
 window.CM_CF_SLIDES = {
  "d1m1-role": {
@@ -112,32 +112,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Six stages on one track, from opening the file to closing it."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Friday afternoon, you close John Doe's file for the weekend.",
-     "Monday morning, the team asks what happens on it, and when.",
-     "One task, one owner, a calendar entry: nothing sits idle."
-    ],
-    [
-     "John Doe calls with two questions in a single breath.",
-     "One is about paperwork; the other is about what the law means.",
-     "You answer the first; Atty. Thorne gets the second, same day."
-    ]
-   ],
-   "donts": [
-    [
-     "At the end of a call, John Doe asks one more thing.",
-     "He wants a number, and he wants it from you.",
-     "You toss out a dollar figure that only Atty. Thorne can set."
-    ],
-    [
-     "Dana Whitfield emails an update on John Doe's BI claim.",
-     "The message stays put in your email, flagged and starred.",
-     "The CMS log is blank; colleagues think nothing has moved."
-    ]
-   ]
   }
  },
  "d1m1-case": {
@@ -245,32 +219,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Every answer comes from a document; ambiguous facts of loss or liability go to Atty. Thorne for review."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "A colleague asks you for John Doe's date of loss.",
-     "You answer 02/06/2026, and the colleague asks how you know.",
-     "You point to the Police Report, page and line."
-    ],
-    [
-     "Three policies sit on John Doe's file, totaling $40,000.",
-     "Keystone Mutual pays first, then Harbor Point, then Cardinal State Mutual.",
-     "Every call, the same lineup: BI, Host UM, then Relative UM."
-    ]
-   ],
-   "donts": [
-    [
-     "An adjuster asks for John Doe's first treatment date.",
-     "You recall it off the top of your head, confidently.",
-     "No record backs your answer, and nobody checked the file first."
-    ],
-    [
-     "The EMS Run Report and the first treatment record carry different dates.",
-     "Days pass between them, and nobody yet knows why.",
-     "A case note reads: he waited, so that's on him."
-    ]
-   ]
   }
  },
  "d1m1-upl": {
@@ -346,42 +294,6 @@ window.CM_CF_SLIDES = {
    ],
    "pages": [
     "D4#24"
-   ]
-  },
-  "clues": {
-   "dos": [
-    [
-     "John Doe asks when his crash happened, then what that means.",
-     "You read him 02/06/2026 straight from the Police Report.",
-     "The meaning part goes to Atty. Thorne with a same-day task."
-    ],
-    [
-     "Three clients ask three different opinion questions this week.",
-     "Each hears the same sentence: that's Atty. Thorne's call.",
-     "The words stay identical, so nobody hears a guess."
-    ],
-    [
-     "John Doe asks if taking the first offer is smart.",
-     "You log it for Atty. Thorne instead of answering.",
-     "Then you add: he'll call you back by Friday."
-    ]
-   ],
-   "donts": [
-    [
-     "John Doe is anxious over the days before his first visit.",
-     "You want to calm him down quickly.",
-     "You tell him: relax, it won't matter at all."
-    ],
-    [
-     "John Doe asks for a ballpark, just between friends.",
-     "He promises nobody will hold you to it.",
-     "You say probably around forty thousand, roughly."
-    ],
-    [
-     "Keystone Mutual wants to talk with John Doe directly.",
-     "He asks you how to answer their questions.",
-     "You hand him a script: say the other driver ran it."
-    ]
    ]
   }
  },
@@ -544,42 +456,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Nothing moves before the Conflict Check is documented; coverage is then read off the Declaration Page."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Harbor Point confirms a $20,000 Host UM limit by phone.",
-     "You type the limit into the CMS coverage field.",
-     "Next to it goes the Dec Page, adjuster letter, or Police Report."
-    ],
-    [
-     "John Doe's matter opens in the CMS this morning.",
-     "Every deadline on the file counts from 02/06/2026.",
-     "By lunch, 02/06/2028 sits on the calendar with reminders."
-    ],
-    [
-     "Marcus Bell sends an update, and a colleague forwards it around.",
-     "Side emails pile up with different versions of the facts.",
-     "Everything lands in the CMS, and that's the one place people look."
-    ]
-   ],
-   "donts": [
-    [
-     "A raw file arrives from On the Records at 9 a.m.",
-     "A new matter number appears in the CMS within minutes.",
-     "Nobody has yet screened Robert Smith's name against firm records."
-    ],
-    [
-     "A screening search runs on the parties to John Doe's file.",
-     "The search box holds only R. Smith, and results come back clear.",
-     "Nobody types the full legal name Robert Smith into the system."
-    ],
-    [
-     "Intake hands over John Doe's file with a signature missing.",
-     "The narrative and the Police Report differ on a detail or two.",
-     "Close enough, says the team, and the file goes active anyway."
-    ]
-   ]
   }
  },
  "d1m1-open": {
@@ -774,32 +650,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "A silent client is Delayed Client Follow-Up: the No Contact Protocol clears it, one logged attempt at a time."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "A records request for John Doe goes out at noon.",
-     "Ten days later, the CMS pings you about the missing reply.",
-     "That ping was set the very minute the request left."
-    ],
-    [
-     "John Doe works as a shift lead at Northgate Distribution.",
-     "He can't take calls on the floor, but texts reach him.",
-     "A call window, a text, an upload link: he picks one."
-    ]
-   ],
-   "donts": [
-    [
-     "John Doe has gone quiet for eleven days running.",
-     "The file note says only: we're waiting on the client.",
-     "Calls were placed, but the CMS shows no dates, times, or outcomes."
-    ],
-    [
-     "John Doe's signed HIPAA form arrives three weeks late.",
-     "Nobody sent it with a deadline or an upload link.",
-     "The case note pins the delay squarely on John Doe."
-    ]
-   ]
   }
  },
  "d1m2-a1": {
@@ -924,32 +774,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Skip-tracing waits for all three: ladder exhausted, letter sent, deadline passed. Counsel authorizes it."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Step 4 arrives: the Final Warning Letter for John Doe.",
-     "The letter has to prove the firm did its part.",
-     "Each call, text, and email appears as a line with its calendar day."
-    ],
-    [
-     "The Final Warning Letter is ready for certified mail.",
-     "2214 Maple Hollow Rd, Riverton may be stale by now.",
-     "In-house help checks where John Doe actually lives before it ships."
-    ]
-   ],
-   "donts": [
-    [
-     "John Doe has not answered phone, email, text, or emergency contact.",
-     "No Final Warning Letter has gone out, and no deadline has passed.",
-     "A Skip-Trace launches anyway, with one of three gates met."
-    ],
-    [
-     "John Doe's Final Warning Letter draft lands on your screen.",
-     "Atty. Thorne has not seen or signed off on it.",
-     "One line announces the firm is ending representation, as decided."
-    ]
-   ]
   }
  },
  "d1m2-a2": {
@@ -1089,32 +913,6 @@ window.CM_CF_SLIDES = {
     "D1#44",
     "D1#28"
    ]
-  },
-  "clues": {
-   "dos": [
-    [
-     "Margaret Doe's rental runs out in a few weeks.",
-     "He mentions his carpool might end soon.",
-     "You note it and help line up another ride now."
-    ],
-    [
-     "John Doe calls, frustrated about missing shifts at Northgate Distribution.",
-     "You let him finish, then repeat his worry back to him.",
-     "Feeling heard, he follows the firm's instructions without pushback."
-    ]
-   ],
-   "donts": [
-    [
-     "Dana Whitfield of Keystone Mutual asks John Doe for a Recorded Statement.",
-     "John Doe asks you why giving one would be a problem.",
-     "You explain how it could hurt his claim, instead of just instructing."
-    ],
-    [
-     "The adverse carrier calls John Doe under the LOR carve-out.",
-     "The talk starts with repair photos and the damaged door.",
-     "Soon the adjuster asks about his neck, and nobody stops the call."
-    ]
-   ]
   }
  },
  "d1m3-a1": {
@@ -1242,32 +1040,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "The PD claim stays the owner's; its severity is **physical evidence** for the injury claim in every phase."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Keystone's PD adjuster sends the Civic's damage photos to the firm.",
-     "Before filing them, you check what they prove about John Doe.",
-     "They show the force his body took, so they go in his file."
-    ],
-    [
-     "A body shop's estimate for the Civic lands in the firm's inbox.",
-     "It lists crushed panels and a bent pillar on the passenger side.",
-     "Within the hour it is indexed as severity evidence for John."
-    ]
-   ],
-   "donts": [
-    [
-     "John Doe calls; he needs a way to get to treatment.",
-     "Keystone has offered Margaret a car while the Civic is repaired.",
-     "A new PD file opens with John Doe listed as owner."
-    ],
-    [
-     "The Civic's repair photos come in with the tow bill.",
-     "They get filed with the car paperwork, far from the medical records.",
-     "At demand time, nobody shows the adjuster how hard the hit was."
-    ]
-   ]
   }
  },
  "d1m3-a2": {
@@ -1437,37 +1209,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Projection reads risk and trajectory; it stays preliminary until coverage is confirmed, and case value stays with Atty. Thorne."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "The Case Plan reaches the functional pillar for John Doe.",
-     "Return to work at Northgate Distribution needs a way to track progress.",
-     "Each pillar gets a target with a number and a date."
-    ],
-    [
-     "You mark a file Escalated in the Case Plan's acceptance band.",
-     "A colleague covering next week opens it cold.",
-     "A written why sits beside the call, plain enough for anyone."
-    ]
-   ],
-   "donts": [
-    [
-     "The Three-Pillar Case Plan for John Doe hits Atty. Thorne's desk.",
-     "PT and specialty consults fill the page with goals.",
-     "Return-to-work status and who pays the bills appear nowhere on it."
-    ],
-    [
-     "The verification call has confirmed John Doe's facts of loss.",
-     "Accepted, Escalated, or Declined waits on the screen.",
-     "Instead of choosing, you order three more records and wait."
-    ],
-    [
-     "A new file's liability facts look murky after the verification call.",
-     "No summary goes to Atty. Thorne, and no decision gets recorded.",
-     "Weeks pass with the file parked, neither accepted nor escalated."
-    ]
-   ]
   }
  },
  "d1m4-tplan": {
@@ -1615,42 +1356,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Defensible to clinicians and adjusters alike: the provider sets target and measure; the CM writes the goal into the Case Plan."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "It's 02/09/2026, and John Doe is describing his neck on the intake call.",
-     "Your note quotes his description word for word, not your summary of it.",
-     "The note is dated and sits beside the Run Report's “neck stiffness”."
-    ],
-    [
-     "The intake call reaches John Doe's medical history.",
-     "You ask whether he has ever hurt his neck or back before.",
-     "Any providers and dates he names go in the file, with requests sent."
-    ],
-    [
-     "The care coordination section of the Case Plan lists four groups.",
-     "No provider has prescribed equipment or counseling for John Doe.",
-     "Those two lines carry a dated note saying so, instead of sitting blank."
-    ]
-   ],
-   "donts": [
-    [
-     "A colleague drafts John Doe's Clinical pillar from the EMS Run Report alone.",
-     "Nothing in it says how he will reach appointments without a car.",
-     "His job's physical demands at Northgate appear nowhere."
-    ],
-    [
-     "The Functional pillar needs a goal for John Doe's return to work.",
-     "The draft reads: “Reduce pain and get back to normal.”",
-     "No scale, no number and no review date sit beside it."
-    ],
-    [
-     "On a typical file, a new client mentions an old injury at intake.",
-     "The CM's note declares it has no link to the crash.",
-     "No provider has said so, and Atty. Thorne hasn't seen it."
-    ]
-   ]
   }
  },
  "d1m4-tmap": {
@@ -1826,42 +1531,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Every intervention is the provider's order; the Case Manager tracks the phase, spots the variance and asks."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "You open a fresh note after a call with John Doe.",
-     "A colleague reading it later needs to place him on the map.",
-     "The first line reads: acute, day 3 from the DOL."
-    ],
-    [
-     "Atty. Thorne asks for a status update on a client.",
-     "The provider's note lists a diagnosis and a pain score.",
-     "Your update says lifting at work and sleeping are now limited."
-    ],
-    [
-     "Care has started and the weeks of visits are adding up.",
-     "The adjuster will look for a functional gain at week 6.",
-     "At week 4 you ask the office for range of motion and pain scores."
-    ]
-   ],
-   "donts": [
-    [
-     "A client's visits taper off over a few weeks.",
-     "The chart shows the plan changed, but nobody asked the provider why.",
-     "Months later the defense finds the change and an empty note."
-    ],
-    [
-     "A referral for imaging sits waiting on an insurer's approval.",
-     "Visits stall for three weeks while the paperwork moves.",
-     "Your note puts the missed visits down to him."
-    ],
-    [
-     "Twelve therapy sessions in, the pain score still reads 10/10.",
-     "You note it and plan to see what the adjuster says.",
-     "The next six sessions are refused before anyone called the provider."
-    ]
-   ]
   }
  },
  "d1m4-tcare": {
@@ -2055,42 +1724,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Medical danger reaches the provider the same day; legal danger reaches Atty. Thorne. Then A-C-T runs."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Once John Doe's care starts, you call him between visits.",
-     "“How are you?” gets “Fine” and nothing worth recording.",
-     "Visits kept, the pain score and lifting at work each get asked."
-    ],
-    [
-     "On a check-in, a client says, “I'm done lifting boxes, forever.”",
-     "Your GIRP note could say “catastrophizing”, or it could quote him.",
-     "The note keeps his exact sentence and the date he said it."
-    ],
-    [
-     "A drug screen comes back without the prescribed medication in it.",
-     "The prescriber's office gets a call with dates and one question.",
-     "The client hears no suspicion about it from the Case Manager."
-    ]
-   ],
-   "donts": [
-    [
-     "A client says the clinic is a waste of his time.",
-     "The Case Manager explains, point by point, why he is off base.",
-     "Then adds that missed visits will cost him at settlement."
-    ],
-    [
-     "A client sounds afraid to turn his neck at all.",
-     "An email to the provider reports the fear, and nothing more.",
-     "No question, no next step, no date to follow up."
-    ],
-    [
-     "Months into a case, headaches and memory lapses first appear.",
-     "The ER record from the collision mentions no memory loss.",
-     "The file already treats the new complaint as settled evidence."
-    ]
-   ]
   }
  },
  "d1m4-emc": {
@@ -2175,42 +1808,6 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D1#27",
     "D1#39"
-   ]
-  },
-  "clues": {
-   "dos": [
-    [
-     "A new PIP file lands on your desk from intake.",
-     "Florida and Riverton write very different PIP rules.",
-     "You check where the crash happened before reading any limit."
-    ],
-    [
-     "A Florida client calls the firm the week of the crash.",
-     "The date of loss starts a short clock.",
-     "Before hanging up, the deadline goes on the calendar."
-    ],
-    [
-     "Treatment records start arriving from several offices.",
-     "MD, PA-C and DC look alike in a busy log.",
-     "Each visit line shows the letters after the treater's name."
-    ]
-   ],
-   "donts": [
-    [
-     "John Doe asks how much PIP he has left.",
-     "His claim sits under Harbor Point's $5,000 PIP in Riverton.",
-     "The answer quotes a Florida limit for a Riverton file."
-    ],
-    [
-     "A Florida client's first visit was at a chiropractic office.",
-     "The note reads severe neck pain, treated with an adjustment.",
-     "The PIP Log moves to the $10,000 bucket on that note."
-    ],
-    [
-     "A Florida client asks about his PIP benefits by phone.",
-     "The full medical benefit hangs on a provider's finding.",
-     "The call ends with advice to book a physician for the money."
-    ]
    ]
   }
  },
@@ -2347,32 +1944,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "The file is discoverable in litigation: write every plan note as if defense counsel will read it."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "You type a quick note after a call with John Doe.",
-     "The CMS keeps an unalterable trail of each line you write.",
-     "You write as if Robert Smith's lawyer will open the file."
-    ],
-    [
-     "John Doe's PT session wraps up, and you log the visit.",
-     "Medical and legal tracks run side by side, kept apart.",
-     "The note lists range of motion and pain scores, nothing more."
-    ]
-   ],
-   "donts": [
-    [
-     "An old CMS entry on John Doe's file has a typo.",
-     "Defense counsel may one day read that exact history.",
-     "The original text is overwritten, with no record of the change."
-    ],
-    [
-     "John Doe's PT visit gets logged in the medical track.",
-     "A strategy comment slips in next to the PT findings.",
-     "The note cheers that this visit will boost his claim."
-    ]
-   ]
   }
  },
  "d1m4-a2": {
@@ -2565,42 +2136,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Every LOR request chases a coverage answer; Atty. Thorne weighs liability, and the preservation request protects its proof"
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Keystone Mutual picks up on 02/16/2026 to open a file.",
-     "Every later Attn line and subject line depends on this call.",
-     "KM-26-440871 and Dana Whitfield, spelled exactly, go straight into the log."
-    ],
-    [
-     "Harbor Point asks how the 02/06/2026 collision happened.",
-     "Anything said now can be quoted back at the demand table.",
-     "Date, time, place, type of collision and parties, and nothing more."
-    ],
-    [
-     "An acknowledgement letter mentions a policy nobody has logged yet.",
-     "It might be a fourth layer, or nothing at all.",
-     "Lead Counsel decides whether it applies, not the Case Manager."
-    ]
-   ],
-   "donts": [
-    [
-     "Cardinal State gets its notice letter on 02/17/2026.",
-     "The BI tender from Keystone has not been documented yet.",
-     "The letter asks Cardinal State to pay its $10,000 now."
-    ],
-    [
-     "Keystone's letter goes out to Robert Smith's own carrier.",
-     "Third-party adjusters work for the other side of the table.",
-     "(555) 010-2288 and 2214 Maple Hollow Rd appear in that letter."
-    ],
-    [
-     "Cardinal State has nobody assigned to CS-26-20355 on 02/17/2026.",
-     "The Attn line needs something, and the letters go out today.",
-     "A made-up person replaces Claims Department; Teresa Okafor arrives 03/03/2026."
-    ]
-   ]
   }
  },
  "d1m1-a1": {
@@ -2808,42 +2343,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Only BI and the UM layers stack; on this file $10,000 + $20,000 + $10,000 = $40,000"
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Keystone's adjuster mentions a $10,000 limit during the set-up call.",
-     "Nothing in writing will follow until a formal request arrives.",
-     "The figure goes in the Matrix at once, tagged as spoken, not confirmed."
-    ],
-    [
-     "Keystone wants formal requests, proof of representation and supporting documents.",
-     "Its BI limit stayed unconfirmed until 03/20/2026.",
-     "Each ask goes out in writing, logged with its date and attachments."
-    ],
-    [
-     "A Declaration Page arrives with its policy period printed on top.",
-     "A policy that lapsed before the crash pays nothing.",
-     "The effective dates are read against the date of loss."
-    ]
-   ],
-   "donts": [
-    [
-     "The Recovery Stack total gets updated after a busy morning.",
-     "Harbor Point's $5,000 and Keystone's $25,000 for the car are included.",
-     "The $40,000 figure suddenly reads $70,000."
-    ],
-    [
-     "A Police Report lists a carrier and a limit for Robert Smith.",
-     "No Declaration Page or Coverage Letter sits behind it yet.",
-     "The Matrix status flips to confirmed in writing anyway."
-    ],
-    [
-     "A written request to Keystone has been out for a week.",
-     "The calendar shows nothing coming up for that item.",
-     "Nobody chases it, and it stays open forever."
-    ]
-   ]
   }
  },
  "d2m1-afd": {
@@ -2955,32 +2454,6 @@ window.CM_CF_SLIDES = {
     }
    ],
    "pages": []
-  },
-  "clues": {
-   "dos": [
-    [
-     "The bills go into evidence with no provider on the stand.",
-     "Each provider keeps its own records in the ordinary course.",
-     "One request can bring the records and the sworn paper together."
-    ],
-    [
-     "A notary's commission number and expiry date matter.",
-     "The signer swore the facts before an officer.",
-     "Look at the bottom of the page before you file it."
-    ]
-   ],
-   "donts": [
-    [
-     "A typed letter says Smith has no umbrella policy.",
-     "Nobody signed it under oath before a notary.",
-     "The UM carriers will not consent on its strength."
-    ],
-    [
-     "The process server's draft shows 3:15 p.m., not 3:51.",
-     "The docket entry says otherwise, to the minute.",
-     "The fix belongs to the person who swore it."
-    ]
-   ]
   }
  },
  "d2m1-liab": {
@@ -3047,42 +2520,6 @@ window.CM_CF_SLIDES = {
     "D1#21",
     "D3#15"
    ]
-  },
-  "clues": {
-   "dos": [
-    [
-     "The officer's diagram sits on page two of the report.",
-     "A witness name appears in a box near the narrative.",
-     "The unit year differs from what the policy lists."
-    ],
-    [
-     "A doorbell camera at the corner overwrites itself every week.",
-     "The Escape still holds data about the moment of impact.",
-     "On 02/19/2026 a copy left the house with a hash."
-    ],
-    [
-     "An adjuster later asks where a fact came from.",
-     "A note in the CMS reads only “witness saw it”.",
-     "Two months on, nobody remembers which call said what."
-    ]
-   ],
-   "donts": [
-    [
-     "Keystone's letter of 02/17/2026 concerns Margaret Doe's Civic.",
-     "The BI adjuster on John Doe's claim has said nothing yet.",
-     "A demand cites the letter as proof of fault."
-    ],
-    [
-     "Ruth Calloway gave a statement to Officer Garner on scene.",
-     "A typed page arrives for her to sign as written.",
-     "Her words and the page's words differ in two places."
-    ],
-    [
-     "Officer Garner's paperwork lists the Escape as a 2021.",
-     "Harbor Point's Declaration Page lists a 2020.",
-     "Someone edits the CMS to read 2021."
-    ]
-   ]
   }
  },
  "d2m1-first": {
@@ -3128,42 +2565,6 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D1#42",
     "D2#10"
-   ]
-  },
-  "clues": {
-   "dos": [
-    [
-     "Atty. Thorne scans forty emails between two hearings.",
-     "Most of them are titled with a client's name alone.",
-     "One of them carries a date and a yes-or-no question."
-    ],
-    [
-     "Summit's LOP request could be approved or declined.",
-     "Each answer leads to a different task the same afternoon.",
-     "The note names what happens after a yes, and after a no."
-    ],
-    [
-     "He replied by text from the courthouse steps.",
-     "A week later the same question reaches him again.",
-     "The CMS shows the question but not his reply."
-    ]
-   ],
-   "donts": [
-    [
-     "The note begins with how Summit's call came in.",
-     "Four paragraphs describe the PIP payments in date order.",
-     "The request for approval appears in the last sentence."
-    ],
-    [
-     "His inbox shows fifteen messages with the same title.",
-     "None of them says what he is being asked.",
-     "The one with a deadline looks like all the others."
-    ],
-    [
-     "The note offers one path and its benefits.",
-     "The other path appears nowhere in the message.",
-     "He approves it without knowing a choice existed."
-    ]
    ]
   }
  },
@@ -3349,42 +2750,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Payer-First: MedPay or PIP, then health insurance, then an LOP. Liability and UM pay the claim, not the bills"
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "A carrier says Host UM is $20,000 on a quick call.",
-     "The Coverage Matrix wants a source and a date behind that figure.",
-     "Harbor Point's 03/02/2026 letter turns a phone figure into a confirmed layer."
-    ],
-    [
-     "Crescent Pain & Spine bills Peach State Health Plan for an injection.",
-     "A plan that began after the crash would pay nothing at all.",
-     "Peach State began 02/01/2026, five days before the collision."
-    ],
-    [
-     "Two lists sit side by side on John Doe's Insurance tab.",
-     "One says who pays the bills first; the other totals $40,000.",
-     "PIP leads the Payer Order yet adds nothing to the BI and UM layers."
-    ]
-   ],
-   "donts": [
-    [
-     "Summit Imaging asks the firm for a Letter of Protection.",
-     "Harbor Point's $5,000 no-fault coverage still has room for the MRI.",
-     "A bill Harbor Point could cover turns into a lien on John Doe's net."
-    ],
-    [
-     "Someone totals every policy on the file to impress John Doe.",
-     "Keystone PD's $25,000 and Harbor Point's $5,000 land in the claim total.",
-     "The number he hears is more than BI and UM can pay."
-    ],
-    [
-     "A new file arrives and coverage gets filled in from memory.",
-     "No-fault wage benefits are presumed without a Declaration Page behind them.",
-     "On 03/14/2024 Margaret Doe signed away UM on the Bluewater coverage for her Civic."
-    ]
-   ]
   }
  },
  "d2m2-l1": {
@@ -3508,42 +2873,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "On this file: Harbor Point PIP, then Peach State, then an LOP; providers bill whom they bill"
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "John Doe calls about a ride to Riverton Spine & Rehab.",
-     "Visits, pain and what he can manage at work all come up.",
-     "Each contact checks whether the treatment is actually helping him."
-    ],
-    [
-     "John Doe worries about the envelopes piling up from providers.",
-     "Cost worry left unanswered is how a client stops going.",
-     "Summit goes to PIP, Crescent to Peach State, Riverton under an LOP."
-    ],
-    [
-     "Riverton's PT note and Dr. Reyes's note describe John Doe differently.",
-     "The defense will read the mismatch as a hole in the medicals.",
-     "Both offices hear about it the same day, before it spreads."
-    ]
-   ],
-   "donts": [
-    [
-     "A provider asks for a Letter of Protection over the phone.",
-     "Harbor Point's $5,000 and Peach State go unexamined.",
-     "The LOP is issued simply because someone asked, and a lien grows."
-    ],
-    [
-     "Riverton Spine & Rehab's billing office asks about its balance.",
-     "LOP terms belong to Lead Counsel, and the firm guarantees nothing.",
-     "The Case Manager promises the whole bill gets covered when the case resolves."
-    ],
-    [
-     "A treatment check-in drifts into topics far from his care.",
-     "Hours go to issues that block nothing about the treatment goal.",
-     "The Case Manager adopts each new worry as a personal project."
-    ]
-   ]
   }
  },
  "d2m2-eob": {
@@ -3678,42 +3007,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "PIP's payment history reads the same way: date of service, billed, paid, check number and the limit remaining"
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Peach State's EOB for claim PS-2605-449021 lands on the desk.",
-     "It is stamped THIS IS NOT A BILL across the top.",
-     "The final row, $0.00, is the most Crescent may bill John Doe."
-    ],
-    [
-     "Crescent billed $3,400.00 and Peach State paid $1,860.00.",
-     "The Specials need one number; the lien register needs the other.",
-     "Both figures sit side by side in a single entry."
-    ],
-    [
-     "John Doe calls about a $1,540.00 statement from Crescent.",
-     "Counsel gets it the same day and a correction request is drafted.",
-     "He hears the next steps and when he will hear back."
-    ]
-   ],
-   "donts": [
-    [
-     "Peach State's reimbursement claim is entered in the lien register.",
-     "The plan paid $1,860.00 on Crescent's injection.",
-     "The register shows $3,400.00, Crescent's full charge, instead."
-    ],
-    [
-     "Crescent's 07/01/2026 statement asks John Doe for $1,540.00.",
-     "The EOB lists that sum as a CO-45 contractual adjustment.",
-     "Someone tells John Doe he owes it and logs it as a lien."
-    ],
-    [
-     "A new Lakeside Orthopedics bill is ready to go out.",
-     "Harbor Point's five checks already total $5,000.00.",
-     "It comes back with a notice of exhaustion, unpaid."
-    ]
-   ]
   }
  },
  "d2m2-a1": {
@@ -3832,42 +3125,6 @@ window.CM_CF_SLIDES = {
     }
    ],
    "pages": []
-  },
-  "clues": {
-   "dos": [
-    [
-     "John Doe has no plan that covers chiropractic care.",
-     "Health insurance, MedPay and PIP were checked first.",
-     "The file records why an LOP is the last resort."
-    ],
-    [
-     "Riverton Spine & Rehab bills under an LOP.",
-     "Its ledger grows with every visit.",
-     "The Case Manager requests the itemized ledger every 30 days."
-    ],
-    [
-     "John Doe asks the Case Manager where to go for treatment.",
-     "He gets a short list with locations, hours and network status.",
-     "He chooses, and the Case Manager books his choice."
-    ]
-   ],
-   "donts": [
-    [
-     "A Case Manager tells John Doe one clinic writes reports that help cases.",
-     "It sounds helpful and well meant.",
-     "It steers his care: that is the UPL line."
-    ],
-    [
-     "John Doe hears the LOP means he pays nothing.",
-     "The bill is paid from the settlement.",
-     "He still owes the balance if the recovery falls short."
-    ],
-    [
-     "The LOP was signed after the third visit.",
-     "The first visits have no protection.",
-     "An LOP is signed before the first visit and filed."
-    ]
-   ]
   }
  },
  "d2m2-cost": {
@@ -3948,32 +3205,6 @@ window.CM_CF_SLIDES = {
     }
    ],
    "pages": []
-  },
-  "clues": {
-   "dos": [
-    [
-     "John Doe gets a ride to Dr. Reyes's office on 02/20/2026.",
-     "That same day you give him a simple form for his trips.",
-     "It asks for the date, the provider and the miles."
-    ],
-    [
-     "A pharmacy receipt lands in your inbox from John Doe.",
-     "You enter its amount in the Specials ledger that afternoon.",
-     "The receipt itself goes into the case documents too."
-    ]
-   ],
-   "donts": [
-    [
-     "Treatment ended months ago at Lakeside Orthopedics.",
-     "Nobody kept a list of the drives to appointments.",
-     "You guess the miles now to fill in the demand."
-    ],
-    [
-     "John Doe worries about what the rides are costing him.",
-     "He asks if he will get that money back.",
-     "You tell him the firm will recover all of it."
-    ]
-   ]
   }
  },
  "d2m2-l2": {
@@ -4142,42 +3373,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Deviations from the map are the main trigger for denials and IMEs; name the variance before funding stops"
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Riverton's attendance log shows empty slots starting 04/03/2026.",
-     "The defense reads absences as an injury not serious enough to treat.",
-     "After the second no-show, the clinic hears about it from the Case Manager."
-    ],
-    [
-     "A summary for counsel describes John Doe's hand and his herniation.",
-     "One flipped word here damages credibility with every reader.",
-     "Each mention of a side is checked: this file has only one."
-    ],
-    [
-     "John Doe stops coming to PT and stops answering calls.",
-     "The 14-Day Gap is still being reconstructed after the fact.",
-     "This disruption goes in a GIRP note on its very first day."
-    ]
-   ],
-   "donts": [
-    [
-     "Four visits are missed in April 2026 while John Doe is silent.",
-     "Notices, his mother and a call to his doctor sit unused.",
-     "The schedule stays exactly as written, crisis or not."
-    ],
-    [
-     "A referral authorization stalls for reasons outside John Doe's control.",
-     "His missed visits get labelled non-compliance in the notes.",
-     "The GIRP note points at him instead of the process."
-    ],
-    [
-     "A carrier is stalling on a request that blocks therapy.",
-     "The office manager and a written carrier notice both get skipped.",
-     "The ladder is climbed from the top rung down."
-    ]
-   ]
   }
  },
  "d2m2-pip": {
@@ -4255,42 +3450,6 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D2#22",
     "D2#26"
-   ]
-  },
-  "clues": {
-   "dos": [
-    [
-     "Harbor Point's PIP adjuster explains its position by phone.",
-     "Whether PIP wants its money back changes John Doe's net.",
-     "On 03/02/2026 a signed letter from the carrier lands on the file."
-    ],
-    [
-     "Summit Imaging's MRI shows $2,395.00 in two places on the file.",
-     "The Specials need the charge; the balances need the payment.",
-     "A single CMS row carries both figures side by side."
-    ],
-    [
-     "A new file comes in from a state with a PIP cap.",
-     "Some PIP limits pay in full only with a physician's finding.",
-     "The first urgent-care records are on your desk this week."
-    ]
-   ],
-   "donts": [
-    [
-     "Lakeside's 03/05/2026 visit sits in the balances column.",
-     "Harbor Point's check for that visit cleared weeks ago.",
-     "The ledger still lists $640.00 owed on that date of service."
-    ],
-    [
-     "An adjuster asks for the total medical figure on a call.",
-     "The answer given is the billed total, nothing more.",
-     "Five Harbor Point checks go unmentioned, and credibility drops."
-    ],
-    [
-     "A file sits in a state with a PIP cap.",
-     "The first records carry no emergency medical condition note.",
-     "A call goes to the doctor suggesting what the chart could say."
-    ]
    ]
   }
  },
@@ -4480,32 +3639,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Clear all three before clinical planning begins: the claim is established and you are authorized to act."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Retainer signed, John Doe is ready to start treatment talks.",
-     "HIPAA release, BCRC answer, and Payer Order sit on a checklist.",
-     "All three are cleared first; only then does treatment mapping begin."
-    ],
-    [
-     "John Doe is 34, so the age trigger is ruled out.",
-     "His SSDI status still needs checking under MMSEA rules from 2007.",
-     "The Benefits Coordination & Recovery Center answer gets logged with its timestamp."
-    ]
-   ],
-   "donts": [
-    [
-     "Peach State and providers need permission to share John Doe's records.",
-     "A boilerplate HIPAA form goes out from the supply drawer.",
-     "Nowhere on it does 02/06/2026 appear, so providers may balk."
-    ],
-    [
-     "John Doe worries out loud about his growing Medical Bills.",
-     "Peach State has already asserted reimbursement against any settlement.",
-     "You tell him not to worry, the plan pays everything."
-    ]
-   ]
   }
  },
  "d2m2-sum": {
@@ -4597,32 +3730,6 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D2#25",
     "D1#22"
-   ]
-  },
-  "clues": {
-   "dos": [
-    [
-     "Timing counts for more than polish in the lien register",
-     "Peach State's letter of 02/27/2026 started the clock",
-     "Same-day entry, dated, with member ID and group"
-    ],
-    [
-     "An interim itemization arrived on 06/10/2026 asserting $3,618.00",
-     "Three entries had no connection with the collision",
-     "Compare each claim with dates, codes and what was paid"
-    ]
-   ],
-   "donts": [
-    [
-     "A reimbursement claim discovered late comes out of the net",
-     "By then there is no time to negotiate from strength",
-     "Disbursement is the worst moment to meet a Health Plan"
-    ],
-    [
-     "The risks band holds dates, a count and a pending note",
-     "Valuation belongs to Atty. Thorne, not the record keeper",
-     "Defense counsel may read every note in the file"
-    ]
    ]
   }
  },
@@ -4824,42 +3931,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "For a gap in care, Assess is already answered: a legal danger, routed to Atty. Thorne"
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "The recorded call with John Doe about the 14-day gap begins.",
-     "Broad questions come early; dates and names get pinned at the end.",
-     "The opener sounds like: take me through the days after the crash."
-    ],
-    [
-     "John Doe says he figured the pain would pass.",
-     "The Case Manager repeats it back in his own words.",
-     "He gets the chance to fix anything the summary got off."
-    ],
-    [
-     "John Doe's 03/05/2026 consult with Dr. Reyes gets confirmed.",
-     "Margaret Doe's rental, his ride to care, ends 03/19/2026.",
-     "Transport gets lined up now, so no new break in care appears."
-    ]
-   ],
-   "donts": [
-    [
-     "The question plan for the gap call is being drafted.",
-     "John Doe agrees easily, and the account stops being his.",
-     "“Was it because you had no car?” goes on the list."
-    ],
-    [
-     "John Doe asks whether the gap will sink his claim.",
-     "Any answer about value belongs to Atty. Thorne alone.",
-     "He hears that it won't matter, or that it will hurt."
-    ],
-    [
-     "John Doe explains he expected the pain to pass on its own.",
-     "The tone of the next question turns sharp and judging.",
-     "He stops telling the whole story to the firm."
-    ]
-   ]
   }
  },
  "d2m3-a1": {
@@ -5035,37 +4106,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Under A-C-T, raise medical flags with the provider and legal flags with Atty. Thorne; you never direct care"
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "The 14-Day Gap needs proof made at the time.",
-     "The EMS report, Riverton Drug receipt and Northgate call-outs are on hand.",
-     "Those get gathered first; a Causation Letter request comes later."
-    ],
-    [
-     "The EMS report says John Doe declined transport on 02/06/2026.",
-     "Every summary of a history gets compared with the original wording.",
-     "Neck stiffness stays neck stiffness, word for word, in the timeline."
-    ],
-    [
-     "The treatment timeline from 02/06 to 06/19 is being built.",
-     "Unexplained breaks in care read to an adjuster as healed.",
-     "The 14-day gap and the 19-day disruption both show, with dates."
-    ]
-   ],
-   "donts": [
-    [
-     "A PT note and Dr. Reyes's findings disagree.",
-     "A letter to the clinic asks it to clarify the note.",
-     "The request spells out the exact wording the clinic is to use."
-    ],
-    [
-     "The timeline for the demand is nearly finished.",
-     "Fourteen days between 02/06 and 02/20/2026 look awkward on paper.",
-     "They quietly vanish from the chart, in hopes Keystone misses them."
-    ]
-   ]
   }
  },
  "d2m3-cause": {
@@ -5164,42 +4204,6 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D3#17",
     "D2#15"
-   ]
-  },
-  "clues": {
-   "dos": [
-    [
-     "Atty. Thorne's request letter to Dr. Reyes is going out.",
-     "Birch Avenue Chiropractic's 2021 low-back notes sit in the file.",
-     "Every chart, the 2021 ones too, travels with the request."
-    ],
-    [
-     "Dr. Reyes's letter dated 06/19/2026 lands on the desk.",
-     "The MRI's history line once carried a 02/16/2026 injury date.",
-     "Date of loss, level, side and visit dates get compared that day."
-    ],
-    [
-     "Robert Smith's citation for failure to stop is on file.",
-     "Keystone can concede fault and still pay little.",
-     "Each injury and expense gets tied to a physician's opinion."
-    ]
-   ],
-   "donts": [
-    [
-     "Dr. Reyes's first version reads a little cautious.",
-     "An email to Lakeside Orthopedics proposes stronger phrasing.",
-     "It offers a ready-made sentence for Dr. Reyes to sign."
-    ],
-    [
-     "The request set for Dr. Reyes is being assembled.",
-     "Birch Avenue Chiropractic's low-back visits feel risky to include.",
-     "They stay behind, and the opinion is silent about them."
-    ],
-    [
-     "John Doe calls after hearing the letter arrived.",
-     "He asks what it means for his case.",
-     "The answer given is that it makes his case worth more."
-    ]
    ]
   }
  },
@@ -5384,42 +4388,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Opened at MMI, when the incurred Specials are complete; every finding goes to Atty. Thorne, who sets the demand"
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "MMI is recorded from Lakeside Orthopedics' 06/12/2026 note.",
-     "Duplicate lines, prior history and each gap get hunted down.",
-     "The defense's attacks are rehearsed in-house before Keystone sees anything."
-    ],
-    [
-     "$16,401.40 in Specials sits against a $10,000 BI limit.",
-     "Peach State's $1,860.00 and Riverton's LOP wait behind that limit.",
-     "Each interest gets registered while the ask is still being built."
-    ],
-    [
-     "Atty. Thorne picks a random line in the Specials ledger.",
-     "He wants to check it in seconds, not hours.",
-     "Each number carries the document and date it came from."
-    ]
-   ],
-   "donts": [
-    [
-     "The Demand Package is ready and the clock is ticking.",
-     "Riverton's duplicate $185.00 line from 05/04/2026 is still in it.",
-     "It ships anyway, math unchecked, and Keystone finds the slip."
-    ],
-    [
-     "Lakeside's MMI note mentions possible repeat injections.",
-     "They could cost $3,400 to $6,800 down the road.",
-     "That range gets folded into the audited $16,401.40 total."
-    ],
-    [
-     "Settlement paperwork is signed and the file feels finished.",
-     "John Doe's share of the money is being calculated.",
-     "A payer's reimbursement claim surfaces only once the signatures are dry."
-    ]
-   ]
   }
  },
  "d2m4-wage": {
@@ -5579,42 +4547,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "The audit is the file's sanity check: the brief reports each objective's findings; Atty. Thorne draws the conclusions"
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "The strategy brief for Atty. Thorne reaches its Risks section.",
-     "The 14-Day Gap, the 2021 low-back visits and the declined transport.",
-     "Counsel hears each weakness from the Case Manager first, not the adjuster."
-    ],
-    [
-     "John Doe's account, the impact force and the C5-C6 herniation get compared.",
-     "One piece out of line hands Keystone an easy out.",
-     "Mismatches get caught in-house while there is still time to answer them."
-    ],
-    [
-     "The demand is close, and the other side will go looking online.",
-     "John Doe's posts are viewed, but none is touched.",
-     "Any instruction about his accounts comes only from Atty. Thorne."
-    ]
-   ],
-   "donts": [
-    [
-     "The summary memo for the strategy session is drafted.",
-     "The bottom line hides somewhere below the chronology.",
-     "It needs a stapler where one sheet was the limit."
-    ],
-    [
-     "The exhibit index goes out with the memo.",
-     "Atty. Thorne flips to the Causation Letter it lists.",
-     "The listed location holds a different document entirely."
-    ],
-    [
-     "The brief's force section covers Kevin Alvarez's Escape and the Civic.",
-     "A $2,315.00 A-pillar supplement changed the Civic's repair figure.",
-     "The brief still quotes $6,940.00 instead of $9,255.00."
-    ]
-   ]
   }
  },
  "d2m4-a2": {
@@ -5802,42 +4734,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Treat the carrier like a bank that hasn't paid its bill: the demand presents a debt owed."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "The Keystone demand went to Dana Whitfield by email on 07/20/2026.",
-     "Her reply on 07/22/2026 confirms the 81-page package arrived.",
-     "Thirty days from her reply lands on 08/21/2026, not 08/19."
-    ],
-    [
-     "Dana Whitfield opens the Keystone package and reads page one.",
-     "Keystone plans to call John Doe's neck injury degenerative wear.",
-     "The 03/13/2026 C5-C6 finding and the injection open the letter."
-    ],
-    [
-     "Keystone said yes to the $10,000 limit by 08/21/2026.",
-     "Its check did not arrive until 09/04/2026, two weeks later.",
-     "The thirty days govern the yes; check timing is Atty. Thorne's term."
-    ]
-   ],
-   "donts": [
-    [
-     "The demand letter to Keystone is drafted and ready to sign.",
-     "Nothing in it says when the offer expires or what starts the clock.",
-     "With no date to answer by, Keystone can refuse at no cost."
-    ],
-    [
-     "John Doe waited from 02/06 to 02/20/2026 for his first treatment.",
-     "The demand's chronology skips those 14 days and hopes nobody counts.",
-     "Dana Whitfield finds the missing two weeks herself and calls him healed."
-    ],
-    [
-     "John Doe is still in therapy and the bills keep growing.",
-     "No future-care plan exists yet, so the Specials are unfinished.",
-     "The demand goes out ahead of the 06/12/2026 Maximum Medical Improvement note."
-    ]
-   ]
   }
  },
  "d3m1-a1": {
@@ -6043,42 +4939,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "An offset policy subtracts the BI from the UM limit; add-on pays on top (Harbor Point, 03/02/2026)."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Two UM Demand Packages are being assembled on 08/31/2026.",
-     "The UM adjusters will ask whether Keystone's $10,000 is truly spent.",
-     "Page one holds the tender, the consents and the Limited Release."
-    ],
-    [
-     "The Coverage Matrix shows Host UM as add-on, worth $20,000.",
-     "Someone asks later who said add-on, and when they said it.",
-     "The matrix cell names the Host carrier's letter and its March date."
-    ],
-    [
-     "John Doe is an insured under both UM coverages on this file.",
-     "Those carriers will dig into his 2021 low-back visits.",
-     "Expect an IME request and a fresh liability check on Smith."
-    ]
-   ],
-   "donts": [
-    [
-     "Keystone's paperwork arrives on 08/14/2026 for John Doe to sign.",
-     "One line frees all persons, firms and corporations, plus every carrier.",
-     "Signing it would free Harbor Point and Cardinal State, costing $30,000."
-    ],
-    [
-     "John Doe calls asking how much the UM side will bring.",
-     "Offset status at Cardinal State is still unconfirmed in writing.",
-     "He hears $30,000 is guaranteed, with no coverage check done."
-    ],
-    [
-     "The third carrier says yes and the stack hits $40,000 gross.",
-     "Liens, fee and costs have not been subtracted yet.",
-     "The office cheers while the client's take-home figure stays unknown."
-    ]
-   ]
   }
  },
  "d3m1-pkg": {
@@ -6182,42 +5042,6 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D2#16",
     "D3#7"
-   ]
-  },
-  "clues": {
-   "dos": [
-    [
-     "The draft narrative reaches you for a final read.",
-     "One line calls John Doe's life “devastated.”",
-     "You swap it for five shifts missed, 02/09 to 02/13."
-    ],
-    [
-     "The Civic's teardown found a bent A-pillar.",
-     "The supplement came to $2,315.00, a structural repair.",
-     "Its photo sits beside the C5-C6 herniation on the MRI."
-    ],
-    [
-     "Dr. Reyes notes one or two repeat ESIs may follow.",
-     "Each would cost $3,400 within 24 months.",
-     "The Specials total stays at $16,401.40."
-    ]
-   ],
-   "donts": [
-    [
-     "Riverton Spine & Rehab sends every chart it has.",
-     "The stack runs to hundreds of pages.",
-     "It goes to Keystone with no summary on top."
-    ],
-    [
-     "The story draft is due to Atty. Thorne today.",
-     "It says John Doe can no longer lift anything.",
-     "No chart or note on the file says that."
-    ],
-    [
-     "Birch Avenue Chiropractic treated John Doe in 2021.",
-     "Three appointments, all for low-back stiffness.",
-     "The package leaves them out, hoping Keystone misses them."
-    ]
    ]
   }
  },
@@ -6415,42 +5239,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Built before the first call. The CM presents the record; every move on the number is Atty. Thorne's."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Dana Whitfield calls with a low offer on the Keystone claim.",
-     "The line goes quiet the moment her figure lands.",
-     "Next comes a question: what records support that $3,500 figure."
-    ],
-    [
-     "Dana Whitfield calls the 14-Day Gap proof of a minor injury.",
-     "Raising your voice hands the carrier a note for its file.",
-     "Calm tone, dated documents, polite but unmoved on the demand."
-    ],
-    [
-     "Keystone's adjuster says the MRI shows degenerative change.",
-     "A stock rebuttal paragraph from another file sits ready to paste.",
-     "Instead, Dr. Park's adjacent-level line and John Doe's dates get quoted."
-    ]
-   ],
-   "donts": [
-    [
-     "Dana Whitfield sighs that $10,000 seems awfully steep for this claim.",
-     "The caller hints the ask could come down a little.",
-     "Hoping to sound reasonable, the trainee shaves the figure unprompted."
-    ],
-    [
-     "The call with Keystone starts in five minutes.",
-     "Nobody has added liens, costs and fee for John Doe yet.",
-     "Below $12,677.63 gross he walks away with zero, and nobody knows."
-    ],
-    [
-     "Dana Whitfield says she is still waiting on authority.",
-     "She promises to get back to you sometime soon.",
-     "No date is set while 08/21/2026 keeps ticking closer."
-    ]
-   ]
   }
  },
  "d3m2-a1": {
@@ -6601,32 +5389,6 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D2#33",
     "D3#5"
-   ]
-  },
-  "clues": {
-   "dos": [
-    [
-     "Read the Coverage Matrix before drafting a single letter.",
-     "Host coverage, then the household policy behind it.",
-     "Two names go on the request, no more."
-    ],
-    [
-     "Open the Host UM package and see the paper first.",
-     "Tender, consent, waiver, signed release, then the medicine.",
-     "The adjuster finds the trigger on page one."
-    ]
-   ],
-   "donts": [
-    [
-     "A letter goes to Margaret's Civic carrier.",
-     "Its UM coverage was turned down in writing long ago.",
-     "A window is spent waiting on a company with nothing to sign."
-    ],
-    [
-     "Harbor Point's letter arrived; Cardinal State's has not.",
-     "John is booked for Friday at ten.",
-     "The notary is waiting when the call comes."
-    ]
    ]
   }
  },
@@ -6791,42 +5553,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "To secure a UM settlement, the package shows the other driver's fault and damages above what's collected."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Keystone's $10,000 alone leaves John Doe with nothing once liens are paid.",
-     "Margaret Doe's coverage at Cardinal State counts because John lives with her.",
-     "Layering the host car's UM on top builds the $40,000 total."
-    ],
-    [
-     "Two UM carriers stand behind Keystone on John Doe's file.",
-     "One question decides whether Host UM is worth $20,000 or $10,000.",
-     "A dated letter from each carrier settles add-on versus reduction."
-    ],
-    [
-     "John Doe asks when the UM money will show up.",
-     "Demand, evaluation, possibly an IME, then negotiation lie ahead.",
-     "He hears the steps and timing, but no dollar figure is pledged."
-    ]
-   ],
-   "donts": [
-    [
-     "Harbor Point makes its first UM offer on 09/14/2026.",
-     "The thinking goes that John Doe's own carrier surely plays fair.",
-     "Taking the opening number because he is their insured leaves money behind."
-    ],
-    [
-     "Marcus Bell agrees on the phone to pay the UM limit.",
-     "Everyone hangs up happy and moves on to other files.",
-     "Weeks later, nothing on paper shows what anyone agreed to."
-    ],
-    [
-     "The five checks have gone out and the Trust Ledger reads zero.",
-     "A health-benefit carrier then sends a reimbursement claim.",
-     "Nothing is left in trust to pay it, and John Doe is exposed."
-    ]
-   ]
   }
  },
  "d3m2-a2": {
@@ -7007,37 +5733,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Statutory claims have stronger legal backing than contractual ones. Every compromise needs Atty. Thorne's express authority."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Medicare shows no interest in John Doe's recovery.",
-     "The Lien Tracker gets a line even though nothing is owed.",
-     "That line says who confirmed it, such as the BCRC check, and when."
-    ],
-    [
-     "A Reduction Request to Peach State Health Plan is being drafted.",
-     "Atty. Thorne picked common fund as the basis for the ask.",
-     "The letter spells out $1,860.00 minus $620.00 equals $1,240.00."
-    ],
-    [
-     "The $40,000 sits in trust, waiting to go out.",
-     "Peach State and Riverton Spine & Rehab both still hold claims.",
-     "Each one gets a signed letter closing it out first."
-    ]
-   ],
-   "donts": [
-    [
-     "A Health Plan asserts reimbursement against the settlement.",
-     "Self-funded ERISA plans answer to federal law and resist cuts.",
-     "The trainee haggles with it the way one haggles with Riverton."
-    ],
-    [
-     "The trainee phones Peach State's recovery unit about its $1,860.00.",
-     "No doctrine is named and no math is attached.",
-     "The whole pitch is asking for a favor, pretty please."
-    ]
-   ]
   }
  },
  "d3m3-a1": {
@@ -7196,42 +5891,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Corrections first, reductions second: never negotiate a percentage off an inflated bill."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Riverton Spine & Rehab bills 34 lines at $185.00 each.",
-     "The treatment notes show only 33 visits; 05/04/2026 appears twice.",
-     "The duplicate comes off, then the reduction talk starts from $6,105.00."
-    ],
-    [
-     "Peach State agrees to $1,240.00 on 10/09.",
-     "The Net Sheet is updated that same day.",
-     "John Doe sees his take-home climb with each saved dollar."
-    ],
-    [
-     "Riverton's billing office agrees to $4,580.00 over the phone.",
-     "Disbursement is still days away on 10/22.",
-     "A signed Payoff Letter with full-and-final language lands in the file."
-    ]
-   ],
-   "donts": [
-    [
-     "Riverton's $6,290.00 ledger arrives, and nobody compares it to the notes.",
-     "The 05/04/2026 duplicate line stays buried in the total.",
-     "Haggling for a percentage off starts from the padded figure."
-    ],
-    [
-     "Riverton's biller says sure, $4,580.00 works for them.",
-     "Nobody sends or receives a letter about it.",
-     "Later the full balance shows up, and nothing proves the deal."
-    ],
-    [
-     "Disbursement day arrives for Riverton Spine & Rehab's check.",
-     "A monthly bill from the provider sits on the desk.",
-     "The check is cut from that bill, not the signed payoff figure."
-    ]
-   ]
   }
  },
  "d3m3-l3": {
@@ -7320,32 +5979,6 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D3#21",
     "D3#22"
-   ]
-  },
-  "clues": {
-   "dos": [
-    [
-     "Riverton's audited balance is $6,105.00.",
-     "A letter with the recovery, fee, costs and other liens goes out first.",
-     "Atty. Thorne's written authority is already in the file."
-    ],
-    [
-     "Peach State agrees to $1,240.00.",
-     "The Net Sheet changes that afternoon.",
-     "John Doe sees his take-home rise before he asks."
-    ]
-   ],
-   "donts": [
-    [
-     "Riverton's biller says $4,580.00 works for them.",
-     "Nothing is sent and nothing comes back signed.",
-     "The full balance reappears a month later."
-    ],
-    [
-     "The provider counters below the floor.",
-     "The CM says yes to close it out.",
-     "Atty. Thorne hears about it after the fact."
-    ]
    ]
   }
  },
@@ -7499,42 +6132,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Track each stream separately: fee terms can differ between BI and UM, and no dollar is counted twice."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Riverton's line on the Net Sheet drops from $6,290.00 to $4,580.00.",
-     "Atty. Thorne asks why each number moved.",
-     "Beside it: the 05/04 duplicate and the one-third procurement-cost basis."
-    ],
-    [
-     "Keystone opened at $3,500 on the gap and the MRI.",
-     "The BI side closed at $10,000; UM added $30,000.",
-     "Two columns, BI and UM, sit next to each other for John Doe."
-    ],
-    [
-     "John Doe sits down to review his $20,359.92 net.",
-     "Each fee, cost and lien figure matches its receipt and letter.",
-     "He leaves confident the firm counted his recovery honestly."
-    ]
-   ],
-   "donts": [
-    [
-     "Keystone's check and both UM checks get posted to the ledger.",
-     "All $40,000 lands on one undivided line.",
-     "Nobody can tell which carrier paid what or price the fee separately."
-    ],
-    [
-     "The certified mail receipt for $72.00 gets posted.",
-     "It lands in full on the BI column.",
-     "Then it lands in full on the UM column too."
-    ],
-    [
-     "Riverton Spine & Rehab's figure goes onto the Lien Tracker.",
-     "Its status column for full-and-final paperwork sits blank.",
-     "A check goes out with no signed satisfaction from the provider."
-    ]
-   ]
   }
  },
  "d3m4-a1": {
@@ -7710,42 +6307,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Disbursement serves accuracy, compliance and fraud prevention: no gate opens before the one before it closes."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Four kinds of paperwork wait for signatures to close the file.",
-     "The W-9 goes to the payee; the release goes to John Doe.",
-     "The Payoff Letter belongs to the lienholder, the stipulation to the attorneys."
-    ],
-    [
-     "John Doe's paperwork comes back with something missing.",
-     "A vague note saying incomplete stalls the file for weeks.",
-     "The kickback names the missing item and sets a firm date."
-    ],
-    [
-     "A payment request from Riverton Spine & Rehab hits the queue.",
-     "Last time, the 05/04/2026 line showed up twice on their bill.",
-     "Each billing ID gets checked against the ledger first."
-    ]
-   ],
-   "donts": [
-    [
-     "Keystone's 08/14/2026 draft says it frees all other insurers.",
-     "Harbor Point and Cardinal State would walk away clean.",
-     "John Doe signs and loses $30,000 of UM recovery."
-    ],
-    [
-     "The UM check from Cardinal State hit IOLTA on 10/13.",
-     "The bank shows the deposit as pending until 10/20.",
-     "Five disbursement checks go out that same week anyway."
-    ],
-    [
-     "An email arrives saying Riverton has new bank details.",
-     "It asks that the payoff go to the new account.",
-     "The check is wired with no call to a number on file."
-    ]
-   ]
   }
  },
  "d3m4-close": {
@@ -7872,42 +6433,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Before a case is marked Archived, all four sets are verified present; then each document is tagged for the retention schedule."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "The Trust Ledger reads $0.00 and the box is nearly packed.",
-     "A stranger picks up John Doe's file years from now.",
-     "Can one dollar be followed from Keystone's check to its payee?"
-    ],
-    [
-     "Peach State and Riverton Spine & Rehab each get their checks.",
-     "Weeks later, nobody answers requests for signed paperwork.",
-     "The satisfaction request travels in the same envelope as the check."
-    ],
-    [
-     "A statement arrives after the closing letter has gone out.",
-     "Peach State's EOB shows $1,540.00 as a contractual adjustment.",
-     "The first question sorts it into one of two kinds."
-    ]
-   ],
-   "donts": [
-    [
-     "All five checks went out on 10/22/2026.",
-     "The box is sealed and the file marked Archived.",
-     "Nothing in it shows John Doe got his $20,359.92."
-    ],
-    [
-     "John Doe calls, upset about a statement that came yesterday.",
-     "The money is gone and the file is closed.",
-     "He hears that it's his to sort out now."
-    ],
-    [
-     "Storage space is tight in the closed-file room.",
-     "The trust journal on John Doe's file is three years old.",
-     "The shredder takes it anyway."
-    ]
-   ]
   }
  },
  "d3m4-pal": {
@@ -8106,42 +6631,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Log every stall the day it happens; any new number is Atty. Thorne's to answer, never yours."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "A Keystone voicemail arrives while you juggle five other files.",
-     "Weeks later, the impasse memo leans on exact dates, not recollection.",
-     "The log entry carries the same date as the call itself."
-    ],
-    [
-     "Keystone says its $3,500 offer is final, and gives no reason.",
-     "Atty. Thorne needs a carrier position he can actually quote back.",
-     "You ask Keystone to put its grounds and evidence on paper."
-    ],
-    [
-     "Two follow-ups to Dana Whitfield, 08/24 and 08/31, sit unanswered.",
-     "Before anyone calls impasse, one more rung above her gets tested.",
-     "On 09/02 an email goes to the claims boss over Dana Whitfield."
-    ]
-   ],
-   "donts": [
-    [
-     "Keystone has gone quiet since its final word on 08/12.",
-     "Meanwhile $40,000 of coverage stays frozen behind a $10,000 carrier.",
-     "The plan is to sit tight until October and hope Keystone calls."
-    ],
-    [
-     "Keystone stalls on BI, and the UM layers look tempting.",
-     "Harbor Point's $20,000 only opens once Keystone's $10,000 is paid or tendered.",
-     "A limits demand goes out to Marcus Bell while Keystone still holds."
-    ],
-    [
-     "John Doe calls, worried, asking what comes next with Keystone.",
-     "What the stall means for his claim belongs to Atty. Thorne alone.",
-     "You tell him a judge and a lawsuit are coming for sure."
-    ]
-   ]
   }
  },
  "d4m1-a1": {
@@ -8287,42 +6776,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Counsel drafts the claims; you check each section's facts against the file. The case number stays “Pending” until filing."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Atty. Thorne's dated authorization to sue lands on the file.",
-     "Status, court fields, folders and the calendar all need changing.",
-     "Every change gets made together, before you leave your desk."
-    ],
-    [
-     "A deadline sits on the Litigation Calendar, colored and alerted.",
-     "A grayscale exhibit or missed date can cost evidence or leverage.",
-     "Forty-eight hours out, you check the exhibits and dates line by line."
-    ],
-    [
-     "Two sessions loom: Hon. Carla Benton (Ret.) and Laura Whitcomb, Esq.",
-     "One cares about valuation; the other weighs admissible evidence.",
-     "Each binder is built for the person in that chair."
-    ]
-   ],
-   "donts": [
-    [
-     "The scanner spits out a filed Complaint at the end of the day.",
-     "Later, nobody searching 01_PLEADINGS can tell what the PDF is.",
-     "The file keeps its scanner name: scan001.pdf."
-    ],
-    [
-     "Two sessions are on the calendar: 03/18/2027 and 06/22/2027.",
-     "One neutral can only facilitate; the other issues a binding award.",
-     "Both get the identical prep, binder and expectations."
-    ],
-    [
-     "Laura Whitcomb, Esq.'s award arrives with a math slip in it.",
-     "Courts vacate or correct awards only on narrow grounds, quickly.",
-     "Someone shrugs and says a higher court will fix it later."
-    ]
-   ]
   }
  },
  "d4m1-a2": {
@@ -8495,37 +6948,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Atty. Thorne decides whether to subpoena and signs it; you draft, docket each notice period and track compliance."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Robert Smith was served 10/14/2026, and an answer date is due.",
-     "Weeks later a colleague needs to re-check how 11/13/2026 was reached.",
-     "The entry shows the service date, the 30-day rule and the math."
-    ],
-    [
-     "A court rule reads two ways, and the dates differ.",
-     "An earlier date costs time; a later one can cost rights.",
-     "You docket the earlier reading and flag it to Atty. Thorne."
-    ]
-   ],
-   "donts": [
-    [
-     "Robert Smith was served on 10/14/2026, and the count begins.",
-     "The answer date comes out one day earlier than 11/13/2026.",
-     "The service date itself gets counted as day one."
-    ],
-    [
-     "The arbitration brief is due 10 days ahead of the 06/22/2027 hearing.",
-     "The count lands on 06/12/2027, a Saturday.",
-     "The date gets pushed to the next business day after Sunday."
-    ],
-    [
-     "John Doe's limitation date, 02/06/2028, falls on a Sunday.",
-     "The firm's internal dates sit at 02/04/2028 and 11/05/2027.",
-     "The calendar shows only the Sunday, counting on a grace day."
-    ]
-   ]
   }
  },
  "d4m2-a1": {
@@ -8708,37 +7130,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Bad faith sits off this flow: a separate action about the carrier's handling, and Atty. Thorne's call alone."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Keystone insured the driver who ran the stop sign.",
-     "Harbor Point and Cardinal State insure our own side.",
-     "Which it is changes the duties, the defences and the exit."
-    ],
-    [
-     "Marcus Bell will not move off his 03/31/2027 number.",
-     "Atty. Thorne needs the policy's own words in front of him.",
-     "You copy the paragraph across rather than summarise it."
-    ]
-   ],
-   "donts": [
-    [
-     "The UM negotiation with Harbor Point has plainly failed.",
-     "Its policy says where a dispute under it is decided.",
-     "You reach for a complaint because the BI claim went that way."
-    ],
-    [
-     "Two UM layers, two carriers, two certified policies.",
-     "Only one of them has arrived with its paragraph legible.",
-     "You assume the second one says what the first one does."
-    ],
-    [
-     "John Doe rings, angry about an offer worth a third.",
-     "Whether handling was unreasonable is a legal opinion.",
-     "You agree with him on the phone and name the consequence."
-    ]
-   ]
   }
  },
  "d4m2-l2": {
@@ -8884,37 +7275,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Court-ordered mediation compels attendance, never agreement. At both tables the Case Manager never argues or speaks for John Doe."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Laura Whitcomb, Esq. reacts sharply to a doorbell still on 06/22/2027.",
-     "Afterward, Atty. Thorne needs to know what landed and what did not.",
-     "Your notes on testimony and reactions guide every next step he takes."
-    ],
-    [
-     "The arbitrator's office sends a fee schedule and a retainer request.",
-     "An unpaid retainer can push the 06/22/2027 session off the calendar.",
-     "Accounting pays, and you get confirmation on paper ahead of the date."
-    ]
-   ],
-   "donts": [
-    [
-     "The 06/22/2027 session with Laura Whitcomb, Esq. is days away.",
-     "Her award binds, so exhibits get one shot at admissibility.",
-     "The set you bring was built to persuade Hon. Carla Benton (Ret.)."
-    ],
-    [
-     "Laura Whitcomb, Esq. turns and asks you about a Medical Bill.",
-     "The Golden Rule keeps Case Managers off the record entirely.",
-     "You explain the bill yourself instead of handing it to Atty. Thorne."
-    ],
-    [
-     "From the bench comes a directive with a date attached.",
-     "It belongs on the calendar and in a memo that same day.",
-     "Tomorrow morning, you try to recall what she said exactly."
-    ]
-   ]
   }
  },
  "d4m2-a2": {
@@ -9147,37 +7507,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Build three sets, for counsel, the mediator and John Doe, or one OCR-searchable digital set."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "The 03/18/2027 mediation is set, and the binder starts empty.",
-     "Most of Sections 4 and 5 were already assembled last summer.",
-     "You reopen what went to Keystone back in July, ahead of the stall."
-    ],
-    [
-     "Counsel has minutes to answer the 14-Day Gap at mediation.",
-     "The five-second rule applies to every page in the binder.",
-     "Each bookmark lands on the exact line he plans to read aloud."
-    ]
-   ],
-   "donts": [
-    [
-     "Everyone meets Hon. Carla Benton (Ret.) on 03/18/2027.",
-     "Atty. Thorne hunts for proof and may concede a point.",
-     "He gets a loose stack of papers at breakfast that day."
-    ],
-    [
-     "Section 1 of the binder opens with the snapshot sheet.",
-     "Hon. Carla Benton (Ret.) tries to reach the defense side's lawyer.",
-     "The phone and email listed for Atty. Mercer are months old."
-    ],
-    [
-     "The confidential statement for Hon. Carla Benton (Ret.) is drafted.",
-     "It was due to her by 03/11/2027, a full week ahead.",
-     "It reaches her inbox as everyone is already taking seats."
-    ]
-   ]
   }
  },
  "d4m3-a1": {
@@ -9353,37 +7682,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Liens, the negotiation ledger, the tort complaint and answer stay in Atty. Thorne's set; nothing from mediation crosses over."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "The forum's rules let the arbitrator admit whatever seems relevant.",
-     "Admitted is not the same as persuasive in a binding award.",
-     "You prep every exhibit as if a full trial courtroom were waiting."
-    ],
-    [
-     "On 04/05/2027 Harbor Point and Cardinal State take up the gap fight.",
-     "Riverton Fire, Riverton PD and Northgate HR custodians are notoriously slow.",
-     "Certification requests go out within days of 04/05/2027."
-    ]
-   ],
-   "donts": [
-    [
-     "The doorbell video holds the clearest frame of the crash.",
-     "QC on Tab 3 checks every still for color.",
-     "The copy that reaches Laura Whitcomb, Esq. is shades of gray."
-    ],
-    [
-     "The exchange set is assembled for the 06/02/2027 deadline.",
-     "Tab 2 is meant to hold operative versions only.",
-     "An old pleading version and a draft brief ride along."
-    ],
-    [
-     "Materials from 03/18/2027 sit on the shelf beside the new tabs.",
-     "Whatever Hon. Carla Benton (Ret.) saw is typically inadmissible later.",
-     "Our brief to her lands in the set for Laura Whitcomb, Esq."
-    ]
-   ]
   }
  },
  "d4m3-prior": {
@@ -9473,42 +7771,6 @@ window.CM_CF_SLIDES = {
     "D4#29",
     "D4#34"
    ]
-  },
-  "clues": {
-   "dos": [
-    [
-     "Defense counsel spent time on the 2021 visits at the deposition.",
-     "Laura Whitcomb, Esq. will see those visits one way or another.",
-     "Tab 5 opens with them, already set against the neck injury."
-    ],
-    [
-     "Tab 5 compares two sets of medical files, five years apart.",
-     "One set is about stiffness low in the spine.",
-     "Each comparison line says low back, or cervical spine and arm."
-    ],
-    [
-     "A line in Tab 5 describes how the 2021 care ended.",
-     "The chart itself says “resolved” and “released to full activity”.",
-     "Those exact phrases appear in Tab 5, in quotation marks."
-    ]
-   ],
-   "donts": [
-    [
-     "Your Tab 5 notes describe the condition of John Doe's spine.",
-     "Dr. Park's read already says what the scan showed.",
-     "Your draft adds your own medical conclusion about the neck."
-    ],
-    [
-     "Birch Avenue Chiropractic's file is slow to arrive.",
-     "John Doe remembers 2021 as a few back adjustments.",
-     "Tab 5 holds a typed paragraph from his memory instead."
-    ],
-    [
-     "The audit lines up every provider's intake form side by side.",
-     "One form disagrees with the others about the past.",
-     "You edit it to match before Atty. Thorne sees it."
-    ]
-   ]
   }
  },
  "d4m3-tx": {
@@ -9574,42 +7836,6 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D1#40",
     "D3#16"
-   ]
-  },
-  "clues": {
-   "dos": [
-    [
-     "Each visit note lands in the file as it arrives.",
-     "Months later a carrier asks what one visit proved.",
-     "The note was read on the day it arrived."
-    ],
-    [
-     "The bills are still growing in early June.",
-     "Lakeside's 06/12/2026 note says improvement has leveled off.",
-     "The chronology is closed and totalled that week."
-    ],
-    [
-     "Dr. Reyes writes that injections may be repeated.",
-     "Nobody has paid for those injections yet.",
-     "The note is quoted under prognosis, with its date."
-    ]
-   ],
-   "donts": [
-    [
-     "The draft says John suffered terrible, constant pain.",
-     "The MRI line about the adjacent levels is missing.",
-     "An adjuster calls the injury minor soft tissue."
-    ],
-    [
-     "The damages total suddenly reads $23,201.40.",
-     "Two injections still in the future were added.",
-     "The audit can no longer tie to a single bill."
-    ],
-    [
-     "On 08/05/2026 Keystone cites the fourteen days at $3,500.",
-     "Nothing on file explains those days yet.",
-     "The answer is drafted only after Keystone writes."
-    ]
    ]
   }
  },
@@ -9798,32 +8024,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Countermeasures: a 48-hour audit before every deadline, and early lien reconciliation against health-plan EOBs."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Riverton Spine & Rehab's Final Ledger has not arrived yet.",
-     "The binder is due to Hon. Carla Benton (Ret.) on 03/11/2027.",
-     "You flag the holdup on 03/01/2027, ten days out, not 03/11."
-    ],
-    [
-     "You call Dana Whitfield and reach voicemail again.",
-     "Later, the impasse file has to prove the silence happened.",
-     "Each call gets a matching email, dated and logged."
-    ]
-   ],
-   "donts": [
-    [
-     "Keystone leaves 08/24 and 08/31 unanswered, then ignores 09/02.",
-     "The log is what proves the silence to Atty. Thorne.",
-     "The entry just shrugs that Dana Whitfield has a lot going on."
-    ],
-    [
-     "Damage photos and doorbell stills are headed to a binding hearing.",
-     "An illegible copy can be excluded or given little weight.",
-     "The printer is set to black and white to save toner."
-    ]
-   ]
   }
  },
  "d4m4-a1": {
@@ -9950,37 +8150,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Give each rung 48 hours after the second unanswered follow-up. With a hard date 10 days out, tell counsel in parallel."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Keystone's silence threatens UM and the 11/05/2027 cutoff at once.",
-     "Atty. Thorne reads the report's first line and sets his urgency.",
-     "The closest deadline on the calendar sits at the very top."
-    ],
-    [
-     "The five-field report to Atty. Thorne is almost finished.",
-     "Its last field is the ask, which he can act on in one read.",
-     "It names a single choice he needs to make, and by when."
-    ]
-   ],
-   "donts": [
-    [
-     "Dana Whitfield misses one follow-up on the cadence.",
-     "Her supervisor has not yet received a Notice of Delay.",
-     "Lead counsel gets the problem first, with both lower rungs untried."
-    ],
-    [
-     "An email to Atty. Thorne reports that Keystone still is not responding.",
-     "To act, he first digs up every follow-up himself.",
-     "It closes with a two-word request for guidance and nothing else."
-    ],
-    [
-     "The 06/02/2027 exhibit exchange arrives with one provider still outstanding.",
-     "No extension from Atty. Thorne is on the docket.",
-     "The set waits for the straggler, and 06/02/2027 slips past."
-    ]
-   ]
   }
  },
  "d4m4-a2": {
@@ -10131,42 +8300,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Discovery is where you spend most of your litigation time; every phase runs on the court's deadlines, not an adjuster's."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Defendant's discovery lands on John Doe's file on 12/01/2026 by mail.",
-     "The calendar row shows 12/01 plus 30, plus 3, Sunday rolled.",
-     "Anyone can re-check the 01/04/2027 date because the math sits in the entry."
-    ],
-    [
-     "Our first interrogatory set to Robert Smith goes out 12/14/2026.",
-     "It asks about every policy: primary, excess and umbrella coverage.",
-     "Employment scope and surveillance join insurance in a trio asked every time."
-    ],
-    [
-     "A 60-minute Discovery Intake Meeting with John Doe walks every request.",
-     "His answers go into the response template for Atty. Thorne's review.",
-     "No suggested answers: John's phrasing, his voice, typed exactly as spoken."
-    ]
-   ],
-   "donts": [
-    [
-     "Atty. Thorne's Complaint has a flawless caption, facts and prayer for relief.",
-     "The clerk stamps it on 02/07/2028, and the defense smiles.",
-     "The limitation date on the docket read 02/06/2028, one sunrise earlier."
-    ],
-    [
-     "Pre-suit, Dana Whitfield's response dates bent, and nobody lost the case.",
-     "Now the expert disclosure date of 03/15/2027 arrives with nothing filed.",
-     "A judge's date gets the same loose grace as a carrier's."
-    ],
-    [
-     "Discovery mailed 12/01/2026 sits on the desk with a calendar open.",
-     "The tally starts with 12/01 itself as number one.",
-     "Every due date lands one day early, like 12/30 instead of 12/31."
-    ]
-   ]
   }
  },
  "d5m1-a1": {
@@ -10301,42 +8434,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "The Scheduling Order sets every date: pin it to the front of the file, with 30-, 14- and 7-day alerts."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "The court docket goes quiet for weeks on 26-CV-04417.",
-     "John Doe hears nothing and starts wondering whether his case died.",
-     "A monthly check-in call goes out, news or no news."
-    ],
-    [
-     "Trial subpoenas are drafted ahead of the 09/13/2027 trial calendar.",
-     "Ruth Calloway, the Riverton PD officer and Dr. Reyes are candidates.",
-     "Lead counsel picks the list; the Case Manager drafts only those."
-    ],
-    [
-     "Subpoenas go out to records custodians ahead of trial.",
-     "Each one needs a status check: served, produced, objected or stalled.",
-     "The calendar pings the audit on a ten-day loop, without fail."
-    ]
-   ],
-   "donts": [
-    [
-     "Defense counsel agrees on a call to move a discovery date.",
-     "No confirming letter goes out in Atty. Thorne's name that day.",
-     "Weeks later, the other side remembers the agreement differently."
-    ],
-    [
-     "Trial is set for the 09/13/2027 calendar and binders need building.",
-     "The tabbed exhibits come from the Demand Package assembled pre-suit.",
-     "Months of later treatment and the latest provider bills are absent."
-    ],
-    [
-     "John Doe's deposition is set for 02/18/2027 at 10:00 a.m.",
-     "The attorney-approved prep packet with the ground rules goes out.",
-     "It hits his inbox on 02/17/2027, with no time to absorb it."
-    ]
-   ]
   }
  },
  "d5m1-subp": {
@@ -10427,42 +8524,6 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D5#28",
     "D5#35"
-   ]
-  },
-  "clues": {
-   "dos": [
-    [
-     "A records subpoena for John Doe's file is about to be drafted.",
-     "The Scheduling Order entered 12/10/2026 sits pinned at the front.",
-     "Notice period, service and production are counted against discovery's end."
-    ],
-    [
-     "Atty. Mercer's office notices a subpoena to one of John Doe's providers.",
-     "Any objection to it belongs to Atty. Thorne alone.",
-     "It is docketed and on his desk before the afternoon ends."
-    ],
-    [
-     "Ruth Calloway is one of the witnesses Atty. Thorne may name.",
-     "The trial calendar opens 09/13/2027, not on one fixed day.",
-     "Her phone number and address are rechecked and logged each review."
-    ]
-   ],
-   "donts": [
-    [
-     "A Subpoena Duces Tecum to Riverton Fire EMS is signed.",
-     "Allied Process Services reaches the records custodian on day one.",
-     "Defense counsel learns of it only when the production arrives."
-    ],
-    [
-     "A custodian receives a subpoena for John Doe's file.",
-     "Exhibit A names no dates and no document types.",
-     "The defense calls it a fishing expedition and moves to quash."
-    ],
-    [
-     "The 09/13/2027 trial calendar is getting close.",
-     "Paramedic J. Ortiz from Medic 7 seems a useful person to call.",
-     "The Case Manager drafts a subpoena for him unasked."
-    ]
    ]
   }
  },
@@ -10564,32 +8625,6 @@ window.CM_CF_SLIDES = {
    "pages": [
     "D5#39",
     "D5#40"
-   ]
-  },
-  "clues": {
-   "dos": [
-    [
-     "Keystone PD mails a settlement paper for the Civic on 12/10/2026.",
-     "Its wording covers everything arising from the 02/06/2026 accident.",
-     "Before anything else, you compare it against KM-26-440871-PD."
-    ],
-    [
-     "Defense counsel requests the photos and estimates from Margaret's PD record.",
-     "The same photos already sit in John Doe's severity set.",
-     "You compare them page by page, date by date, before production."
-    ]
-   ],
-   "donts": [
-    [
-     "Keystone's PD release arrives addressed for “Mr. Doe” to sign.",
-     "Its wording reaches everything from the 02/06/2026 accident.",
-     "Someone emails it to the client “just so he can see it.”"
-    ],
-    [
-     "Keystone holds firm at $792.00 for the Civic's Diminished Value.",
-     "John Doe's Net Sheet sits on the screen beside it.",
-     "A Case Manager trims his figures to match the car offer."
-    ]
    ]
   }
  },
@@ -10738,42 +8773,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Atty. Thorne prepares the substance; you prepare the person and the setting."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Records, signed interrogatory answers and deposition testimony sit side by side.",
-     "Defense counsel hunts for any spot where they disagree.",
-     "All three line up because all three are simply true."
-    ],
-    [
-     "John Doe will appear on camera on 02/18/2027.",
-     "Business casual, nothing flashy, no hats or slogans on his shirt.",
-     "Every client hears the same wardrobe speech, so nobody takes it personally."
-    ],
-    [
-     "John Doe is nervous about his first deposition.",
-     "No judge, no jury, just questions on a video call.",
-     "A settled nervous system means shorter, more accurate answers on the transcript."
-    ]
-   ],
-   "donts": [
-    [
-     "The night before, John Doe asks whether he will lose.",
-     "The reply skips the process and talks about the case outcome.",
-     "“You can't lose your case today,” the Case Manager promises."
-    ],
-    [
-     "Atty. Mercer slides an exhibit onto the shared screen mid-deposition.",
-     "It shows three low-back visits from years before the crash.",
-     "John Doe blinks, forgot all about it, and nobody had warned him."
-    ],
-    [
-     "Practice sessions with John Doe run night after night.",
-     "His answers start arriving in identical phrasing every time.",
-     "Defense counsel hears a script, recited perfectly, and smells coaching."
-    ]
-   ]
   }
  },
  "d5m3-a1": {
@@ -10913,37 +8912,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Questions fall into four categories: background, crash mechanics, medical history, daily life. Clients underreport medical history most."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "John Doe finishes a short answer and Atty. Mercer just waits.",
-     "The pause stretches, and the urge to fill it grows.",
-     "Eyes on the camera, mouth closed, he waits for the next question."
-    ],
-    [
-     "Mid-answer, Atty. Thorne says “Objection, form” into the microphone.",
-     "John stops, lets it finish, then hears “You can answer.”",
-     "He knew this would happen, from a prep session weeks earlier."
-    ]
-   ],
-   "donts": [
-    [
-     "Atty. Mercer asks: so it was just the neck stiffness, nothing else.",
-     "The hand numbness and arm symptoms go unmentioned in the moment.",
-     "John answers yes, recalling the list off the top of his head."
-    ],
-    [
-     "Atty. Mercer pushes a loaded question about the 14-Day Gap.",
-     "John's voice rises and he talks over Atty. Thorne's objection.",
-     "He tries to win the point on the record, mid-deposition."
-    ],
-    [
-     "Prep sessions drill the all-way stop, the speed and the impact.",
-     "Nobody covers the three low-back visits from 2021.",
-     "The Liar's Trap question about prior treatment catches John cold."
-    ]
-   ]
   }
  },
  "d5m3-a2": {
@@ -11093,32 +9061,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Every item carries its source, its authenticating witness and **its chain of custody**; its weight is Atty. Thorne's call."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "The Answer claims John Doe rode unbelted in the Escape.",
-     "The EDR shows the front-passenger belt buckled at impact.",
-     "The EMS Run Report says “restrained front-seat passenger”; counsel argues the rest."
-    ],
-    [
-     "The defense says the Escape entered the all-way stop out of turn.",
-     "Ruth Calloway's account and Margaret Doe's doorbell video are both secured.",
-     "Point of impact, the front passenger door, plus direction of travel."
-    ]
-   ],
-   "donts": [
-    [
-     "The Answer pleads comparative fault against John Doe.",
-     "John asks the Case Manager whether a passenger could share fault.",
-     "He hears a flat assurance he is untouchable, a legal opinion."
-    ],
-    [
-     "The defense points at the host driver for the all-way stop crash.",
-     "Someone sees a fresh coverage layer in that driver's own insurance.",
-     "The verified $40,000 stack suddenly grows a fourth rung without Atty. Thorne."
-    ]
-   ]
   }
  },
  "d5m4-a1": {
@@ -11254,42 +9196,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Unserved before the court's deadline, a case can be dismissed: confirm the court's rule."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "The process server reports Robert Smith still unserved at 118 Larkspur Ln.",
-     "The Case Manager follows up every 5 days with the server.",
-     "Each knock gets logged with its calendar stamp and clock reading."
-    ],
-    [
-     "A Subpoena Duces Tecum pulls a non-party's files toward production.",
-     "The copy bill lands in the firm's inbox this morning.",
-     "Payment goes out the same day, so production keeps moving."
-    ],
-    [
-     "John Doe has gone silent since 01/22/2027, ahead of his deposition.",
-     "The Step 4 Final Warning Letter is ready for Atty. Thorne's signature.",
-     "Someone verifies the street address first, so the return receipt means something."
-    ]
-   ],
-   "donts": [
-    [
-     "Three tries at 118 Larkspur Ln fail: 10/01, 10/05, 10/08.",
-     "A neighbor says Robert Smith moved out in August.",
-     "The server gets sent to the same door yet again."
-    ],
-    [
-     "A records subpoena for a non-party provider is drafted and narrowed.",
-     "The process server heads straight to the records desk.",
-     "Atty. Mercer's office first hears about it after the papers land."
-    ],
-    [
-     "On 02/03/2027 Margaret Doe, John's emergency contact, picks up the phone.",
-     "She asks what is going on and why the call.",
-     "The deposition, the lawsuit and the silence all get explained to her."
-    ]
-   ]
   }
  },
  "d5m4-a2": {
@@ -11439,32 +9345,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Nothing leaves trust until both UM checks clear and every Payoff Letter is in Documents."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "John Doe's litigated net comes in at $14,713.75.",
-     "He asks why settling pre-suit would have paid him more.",
-     "His own retainer shows the fee climbs to 40% once suit is filed."
-    ],
-    [
-     "The Net Sheet lists $3,895.25 in litigation costs.",
-     "Allied Process Services $285.00, Riverton Court Reporting $645.50, filing fee $218.00.",
-     "Each line has its proof of payment attached in Documents."
-    ]
-   ],
-   "donts": [
-    [
-     "Drafting the litigated Net Sheet, habit takes over the fee line.",
-     "The pre-suit fee percentage gets typed in from the old settlement path.",
-     "Atty. Thorne sees $13,333.33 where the retainer says $16,000.00."
-    ],
-    [
-     "Keystone's $10,000.00 check has sat in trust since 03/29/2027.",
-     "Peach State and Riverton Spine & Rehab have no Payoff Letters yet.",
-     "Money leaves trust anyway, and the medical payers are still waiting."
-    ]
-   ]
   }
  },
  "d5m5-a1": {
@@ -11634,37 +9514,6 @@ window.CM_CF_SLIDES = {
     ],
     "note": "Only the client's letter gives the reason; every letter is saved in Word and PDF and logged."
    }
-  },
-  "clues": {
-   "dos": [
-    [
-     "Denise Harlow's file reads Pending Drop on 12/08/2026.",
-     "Before drafting anything, the Case Manager looks for Atty. Thorne's note.",
-     "The note confirms Denise was told by phone at 2:10 p.m."
-    ],
-    [
-     "Denise prefers text and email for anything from the firm.",
-     "Her letter also goes by Certified Mail to 87 Alder Creek Dr.",
-     "The green return receipt comes back signed and goes in the file."
-    ]
-   ],
-   "donts": [
-    [
-     "Granite Shield's withdrawal notice is drafted for Paul Ostrander.",
-     "A line explains that Denise stopped treating at Brookside.",
-     "The adjuster now knows why the firm closed its file."
-    ],
-    [
-     "Denise's text and email went out at 9:00 a.m.",
-     "Brookside's fax hasn't been sent yet, and nothing is in the log.",
-     "The status already reads Dropped on the CMS screen."
-    ],
-    [
-     "Denise calls after the Certified Mail arrives, upset.",
-     "She asks whether her claim was ever worth anything.",
-     "The reply gives her a view on what her claim was worth."
-    ]
-   ]
   }
  },
  "d5m6-a1": {

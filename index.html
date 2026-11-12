@@ -2232,7 +2232,6 @@ em.warn{font-style:normal;color:var(--danger);}
 /* ---------- audio controls ---------- */
 .audio-bar{display:inline-flex;align-items:center;gap:6px;margin-right:auto;}
 .audio-rate{font:inherit;font-size:12px;border:1px solid var(--line);border-radius:8px;padding:5px 6px;background:#fff;}
-#audioModeBtn.on{background:var(--orange);color:#fff;border-color:var(--orange);}
 .ls-top{justify-content:space-between !important;}
 /* ---------- full-screen alignment: no big empty card, content centred and larger ---------- */
 .lesson-stage:fullscreen .lesson-slide{display:flex;flex-direction:column;justify-content:center;font-size:1.4em;}
@@ -2347,8 +2346,6 @@ em.warn{font-style:normal;color:var(--danger);}
 .np-mini-in{width:1040px;transform:scale(.34);transform-origin:top left;pointer-events:none;}
 .np-mini-in *{animation:none !important;transition:none !important;}
 /* 🗺 the slide map */
-.sm-open{background:#DB8437;color:#fff;border:1px solid #DB8437;font-weight:800;font-size:15px;letter-spacing:.02em;box-shadow:0 3px 10px rgba(219,132,55,.35);}
-.sm-open:hover{background:#B5651F;border-color:#B5651F;color:#fff;}
 .sm-modal{position:fixed;inset:0;z-index:1000;background:rgba(15,20,40,.55);display:flex;align-items:center;justify-content:center;padding:16px;}
 .sm-box{position:relative;background:#fff;border-radius:16px;padding:0 22px 20px;width:100%;max-width:1000px;max-height:88vh;overflow:auto;box-shadow:0 20px 50px rgba(0,0,0,.3);}
 .sm-box h2{margin:0 30px 2px 0;color:var(--navy);font-size:22px;}
@@ -5953,7 +5950,6 @@ function reviewMyScore(dayId){
   const prog = state.progress[dayId];
   if(!prog){ toast("No recorded result yet for this day."); return; }
   const d = DAYS.find(x=>x.id===dayId);
-  const lastAttempt = (prog.history && prog.history.length) ? prog.history[prog.history.length-1] : {score: prog.score, passed: prog.done};
   state.view = "day";
   state.dayId = dayId;
   state.dayViewMode = "knowledgeCheck";
@@ -6812,7 +6808,7 @@ async function applyUpdate(){
   try{
     if(state.view==="tool" && typeof saveLabNow==="function" && state.labDrafts){ await storeSet("lab-drafts", state.labDrafts); }
     if(state.traineeId && !state.isAdmin) await cloudSaveNow();
-    sessionStorage.setItem("lsh_resume_after_update", JSON.stringify({view:state.view, dayId:state.dayId, lessonSlide:state.lessonSlide, toolId:state.toolId, wizardIndex:(state.view==="tool" && toolState && toolState.wizardIndex) || 0, adminTab:state.adminTab, cuesDay:state.cuesDay, sopDay:state.sopDay, studioDay:state.studioDay, orientIdx:state.orientIdx, scroll:window.scrollY}));
+    sessionStorage.setItem("lsh_resume_after_update", JSON.stringify({view:state.view, dayId:state.dayId, lessonSlide:state.lessonSlide, toolId:state.toolId, wizardIndex:(state.view==="tool" && toolState && toolState.wizardIndex) || 0, adminTab:state.adminTab, sopDay:state.sopDay, studioDay:state.studioDay, orientIdx:state.orientIdx, scroll:window.scrollY}));
   }catch(e){}
   location.reload();
 }
@@ -6832,7 +6828,7 @@ function showUpdateBanner(){
 function restoreAfterUpdate(){
   let st = null; try{ st = JSON.parse(sessionStorage.getItem("lsh_resume_after_update")||"null"); sessionStorage.removeItem("lsh_resume_after_update"); }catch(e){}
   if(!st || !st.view || st.view==="login") return false;
-  ["adminTab","cuesDay","sopDay","studioDay","orientIdx"].forEach(k=>{ if(st[k]!=null) state[k] = st[k]; });
+  ["adminTab","sopDay","studioDay","orientIdx"].forEach(k=>{ if(st[k]!=null) state[k] = st[k]; });
   if(st.view==="day" && st.dayId){ goto("day", st.dayId); if(typeof st.lessonSlide==="number"){ state.lessonSlide = Math.min(st.lessonSlide, Math.max(state.maxSlideReached||0, st.lessonSlide)); render(); } }
   else if(st.view==="tool" && st.toolId){ state.labWizard = {toolId:st.toolId, idx:st.wizardIndex||0}; goto("tool", st.toolId); }
   else goto(st.view);
@@ -7308,53 +7304,13 @@ function openSlideMap(){
 function slideMapKey(e){ if(e.key==="Escape") closeSlideMap(); }
 function closeSlideMap(){ const o = document.getElementById("slideMap"); if(o) o.remove(); document.removeEventListener("keydown", slideMapKey); }
 window.openSlideMap = openSlideMap; window.closeSlideMap = closeSlideMap;
-function goToSlide(i){
-  state.slideDir = i>(state.lessonSlide||0) ? "next" : "prev";
-  state.lessonSlide = i;
-  refreshLessonSlide();
-}
-window.goToSlide = goToSlide;
-function nextSlide(){
-  const d = DAYS.find(x=>x.id===state.dayId);
-  const slides = buildDaySlides(d);
-  const nextIdx = (state.lessonSlide||0)+1;
-  if(nextIdx <= slides.length-1){
-    state.slideDir = "next";
-    state.maxSlideReached = Math.max(state.maxSlideReached||0, nextIdx);
-    state.slideProgress = state.slideProgress || {};
-    state.slideProgress[state.dayId] = state.maxSlideReached;
-    storeSet("slide-progress", state.slideProgress);
-    state.lessonSlide = nextIdx;
-    refreshLessonSlide();
-  }
-}
-window.nextSlide = nextSlide;
-function goToKnowledgeCheckWithInterstitial(){
-  state.dayViewMode = "knowledgeCheck";
-  render();
-  window.scrollTo({top:0, behavior:"smooth"});
-}
-window.goToKnowledgeCheckWithInterstitial = goToKnowledgeCheckWithInterstitial;
-function prevSlide(){
-  if((state.lessonSlide||0) > 0){
-    state.slideDir = "prev";
-    state.lessonSlide = (state.lessonSlide||0)-1;
-    refreshLessonSlide();
-  }
-}
-window.prevSlide = prevSlide;
 function decorateCallouts(root){
   (root||document).querySelectorAll(".lesson-card .callout-title, .lesson-card .mindset-title, .lesson-card [class*='callout'] b:first-child, .lesson-card [class*='callout'] .fp-label").forEach(el=>{
     if(el.dataset.vis) return; const chips = renderCalloutFlow(el.textContent); if(chips){ el.dataset.vis = "1"; el.insertAdjacentHTML("afterend", chips); }
   });
 }
-let __lastNarrKey = "";
-function narratorAfterRender(){
-  if(state.view!=="day"){ if(Narrator.playing) Narrator.stop(true); __lastNarrKey = ""; return; }
-  decorateCallouts();
-  const key = state.dayId+":"+(state.lessonSlide||0)+":"+state.dayViewMode;
-  if(key!==__lastNarrKey){ __lastNarrKey = key; Narrator.afterSlideChange(); } else Narrator.paint();
-}
+// after a slide draws: its callouts decorated (js/cm-updates.js adds the page split)
+function narratorAfterRender(){ if(state.view==="day") decorateCallouts(); }
 function refreshLessonSlide(){
   if(document.fullscreenElement && document.fullscreenElement.id==="lessonStage" && updateLessonStage()){ narratorAfterRender(); return; }
   render();
@@ -7443,64 +7399,6 @@ function renderCalloutFlow(title){
   if(parts.length < 2) return "";
   return `<div class="vis-chips">${parts.map((p,i)=>`<span class="vis-chip">${esc(p)}</span>${i<parts.length-1?'<i>→</i>':""}`).join("")}</div>`;
 }
-/* ============================================================
-   AUDIO MODE — listen to lessons instead of (or while) reading.
-   ▶ Listen reads the current slide aloud; Audio mode reads every
-   slide automatically and moves on when each one finishes.
-   ============================================================ */
-const Narrator = {
-  playing:false, utts:[], token:0,
-  get supported(){ return "speechSynthesis" in window; },
-  rate(){ return parseFloat(localStorage.getItem("lsh_audio_rate")||"1") || 1; },
-  voice(){
-    const vs = speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang));
-    return vs.find(v=>/natural|neural|aria|jenny|google us english|samantha/i.test(v.name)) || vs.find(v=>/en-US/i.test(v.lang)) || vs[0] || null;
-  },
-  slideText(){
-    const card = document.querySelector("#lessonSlideWrap"); if(!card) return "";
-    const clone = card.cloneNode(true);
-    clone.querySelectorAll("svg, .svg-diagram-card, .vis-flow, .vis-chips, .vis-label, .topic-separator, .fp-num, .lnum, .vis-badge, .vis-card-i, .qc-actions, .quiz-rationale:not(.show), button, .lx-panel:not([open])").forEach(n=>n.remove());
-    return clone.innerText.replace(/\s*\n+\s*/g, ". ").replace(/(\.\s*){2,}/g, ". ").replace(/[→➜]/g, ", then ").replace(/\s+/g," ").trim();
-  },
-  play(){
-    if(!this.supported){ toast("Audio isn't supported in this browser — try Chrome or Edge."); return; }
-    const text = this.slideText(); if(!text) return;
-    this.stop(true); this.playing = true; const tok = ++this.token;
-    const chunks = text.match(/[^.!?]+[.!?]*/g) || [text];
-    const v = this.voice();
-    this.utts = chunks.map((c,i)=>{ const u = new SpeechSynthesisUtterance(c.trim()); if(v) u.voice = v; u.rate = this.rate();
-      if(i===chunks.length-1) u.onend = ()=>{ if(tok!==this.token) return; this.playing = false; this.paint(); this.finished(); };
-      u.onerror = (e)=>{ if(e && e.error==="interrupted") return; };
-      return u; });
-    setTimeout(()=>{ if(tok!==this.token) return; try{ speechSynthesis.resume(); }catch(e){} this.utts.forEach(u=>speechSynthesis.speak(u)); }, 60);
-    this.paint();
-  },
-  pause(){ if(speechSynthesis.speaking && !speechSynthesis.paused){ speechSynthesis.pause(); this.paint(); } else if(speechSynthesis.paused){ speechSynthesis.resume(); this.paint(); } },
-  stop(silent){ this.token++; this.playing = false; try{ speechSynthesis.cancel(); }catch(e){} if(!silent) this.paint(); },
-  finished(){
-    if(!state.audioMode || state.view!=="day") return;
-    const d = DAYS.find(x=>x.id===state.dayId); const total = buildDaySlides(d).length;
-    if((state.lessonSlide||0) < total-1){ setTimeout(()=>{ if(state.audioMode && state.view==="day") nextSlide(); }, 900); }
-    else toast("🎧 That's the last slide — the Knowledge Check is next.");
-  },
-  afterSlideChange(){ this.stop(true); if(state.audioMode && state.view==="day" && state.dayViewMode!=="knowledgeCheck") setTimeout(()=>this.play(), 350); else this.paint(); },
-  paint(){
-    const b = document.getElementById("narrBtn"); if(b) b.innerHTML = this.playing ? (speechSynthesis.paused ? "▶ Resume" : "⏸ Pause") : "▶ Listen";
-    const m = document.getElementById("audioModeBtn"); if(m){ m.classList.toggle("on", !!state.audioMode); m.innerHTML = state.audioMode ? "🎧 Audio mode: on" : "🎧 Audio mode"; }
-  }
-};
-state.audioMode = false; try{ localStorage.removeItem("lsh_audio_mode"); }catch(e){}   // audio mode is retired: slides are never read aloud or advanced on their own
-function narrToggle(){ if(Narrator.playing) Narrator.pause(); else Narrator.play(); }
-function toggleAudioMode(){
-  state.audioMode = !state.audioMode; localStorage.setItem("lsh_audio_mode", state.audioMode ? "1" : "0");
-  if(state.audioMode){ toast("🎧 Audio mode on — each slide is read aloud and moves on by itself. Press Pause any time."); Narrator.play(); }
-  else { Narrator.stop(); toast("Audio mode off."); }
-  Narrator.paint();
-}
-function setAudioRate(v){ localStorage.setItem("lsh_audio_rate", v); if(Narrator.playing) Narrator.play(); }
-Object.assign(window, {narrToggle, toggleAudioMode, setAudioRate});
-if("speechSynthesis" in window) speechSynthesis.onvoiceschanged = ()=>{};
-
 function renderLessonCard(l,i,d,unused,part){
   // Explicit, hand-authored fourPart content (simple string/array shape) takes
   // priority for new topics. Existing topics without it fall back to the
@@ -11478,67 +11376,6 @@ function renderAdminTraineeFeedback(){
     ${items.length ? items.map(tfbItemCard).join("") : `<div class="empty-note">No feedback ${all.length?"matches these filters":"yet — trainees can send it from the 💬 Feedback button or after each Knowledge Check"}.</div>`}`;
 }
 
-function renderAdminSOP(){
-  const day = state.sopDay || 1;
-  const d = sopForDay(day);
-  const availableDays = DAYS.map(x=>x.id);
-  return `
-    <p class="eyebrow">Admin — Reference</p>
-    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 4px;">SOP Reference</h1>
-    <p style="color:var(--ink-soft);font-size:13px;max-width:70ch;margin:0 0 20px;">The full trainer-facing Upskill Training Guide SOP, transcribed for in-app reference. Trainee-facing lesson content lives in each Day's own page — this is the underlying trainer script and detail behind it.</p>
-
-    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;">
-      ${Array.from({length:DAYS.length},(_,i)=>i+1).map(n=>{
-        const has = availableDays.includes(n);
-        return `<button class="btn btn-sm ${n===day?'btn-navy':'btn-ghost'}" ${has?'':'disabled title="Not yet added"'} onclick="setSopDay(${n})">Day ${n}${has?'':' (soon)'}</button>`;
-      }).join("")}
-    </div>
-
-    ${d ? renderSopDayContent(d) : `<div class="card" style="padding:30px;text-align:center;color:var(--ink-soft);">Day ${day}'s SOP content hasn't been added yet.</div>`}
-  `;
-}
-function renderSopDayContent(d){
-  return `
-    <div class="card" style="padding:22px 26px;margin-bottom:18px;">
-      <div style="font-size:12px;color:var(--orange);font-weight:700;letter-spacing:.04em;text-transform:uppercase;">Day ${d.id}</div>
-      <h2 style="color:var(--navy);margin:4px 0 14px;">${esc(d.title)}</h2>
-      <div style="background:#F8F9FC;border-radius:10px;padding:14px 16px;margin-bottom:16px;">
-        <p style="font-size:13px;font-style:italic;color:#37394A;margin:0;">"${esc(d.introduction)}"</p>
-      </div>
-      <b style="font-size:12.5px;color:var(--navy);">Objectives — by the end of this session, participants will be able to:</b>
-      <ul style="margin:6px 0 14px;padding-left:20px;">
-        ${d.objectives.map(o=>`<li style="font-size:13px;margin-bottom:4px;">${esc(o)}</li>`).join("")}
-      </ul>
-      <div style="display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ink-soft);margin-bottom:14px;">
-        <span><b>Duration:</b> ${esc(d.discussionInfo.duration)}</span>
-        <span><b>PPT:</b> ${esc(d.discussionInfo.ppt)}</span>
-        <span><b>Canva:</b> ${esc(d.discussionInfo.canvaLabel)}</span>
-        <span><b>Video:</b> ${esc(d.discussionInfo.video)}</span>
-      </div>
-      <b style="font-size:12.5px;color:var(--navy);">Today we will discuss:</b>
-      <ul style="margin:6px 0 0;padding-left:20px;">
-        ${d.topics.map(t=>`<li style="font-size:13px;margin-bottom:4px;">${esc(t)}</li>`).join("")}
-      </ul>
-    </div>
-    ${d.handWritten ? "" : `<div class="empty-note" style="margin-bottom:12px;">This day's SOP is generated from the live portal content, so it always matches what trainees see. Add a hand-written script for it any time and it will appear above the auto-built plan.</div>`}
-    ${d.sections.map(renderSopSection).join("")}
-  `;
-}
-function renderSopSection(s){
-  let body = "";
-  if(s.type==="bullets"){
-    body = `<ul style="margin:0;padding-left:20px;">${s.items.map(i=>`<li style="font-size:13px;margin-bottom:5px;">${esc(i)}</li>`).join("")}</ul>`;
-  }else if(s.type==="paragraph"){
-    body = `<p style="font-size:13px;margin:0;line-height:1.55;">${esc(s.text)}</p>`;
-  }else if(s.type==="table"){
-    body = `<div style="overflow-x:auto;"><table class="log-table"><thead><tr>${s.headers.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${s.rows.map(r=>`<tr>${r.map(c=>`<td style="font-size:12.5px;">${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
-  }
-  return `
-    <div class="card" style="padding:16px 20px;margin-bottom:12px;">
-      <h3 style="font-size:14.5px;color:var(--navy);margin:0 0 10px;">${esc(s.h)}</h3>
-      ${body}
-    </div>`;
-}
 
 function renderAdmin(){
   if(!state.isAdmin){
@@ -11651,15 +11488,6 @@ function renderAuditBatchView(){
   return renderAuditBatchStrip() + `<div class="bf-tabs">${tabs.map(([id,l])=>`<button type="button" class="${sub===id?"active":""}" onclick="setBatchSub('${id}')">${l}</button>`).join("")}</div>`
     + (sub==="registry" ? `<div id="adminRowsWrap">${renderAdminRows()}</div>` : `<div id="batchFolderBody">${renderBatchFolderBody()}</div>`);
 }
-function renderBatchFilter(){
-  const batches = Array.from(new Set(state.adminData.map(r=>cleanBatch(r.batch)).filter(Boolean))).sort();
-  if(!batches.length) return "";
-  return `
-    <select onchange="setAdminBatchFilter(this.value)" style="padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:13px;">
-      <option value="">All batches</option>
-      ${batches.map(b=>`<option value="${esc(b)}" ${state.adminBatchFilter===b?"selected":""}>${esc(b)}</option>`).join("")}
-    </select>`;
-}
 
 /* 🎲 Random Tasks: a tab of its own (as in Foundational Training), not a card on the Trainee Audit */
 function renderAdminRandomTasks(){
@@ -11709,54 +11537,9 @@ window.downloadCohortPdf = downloadCohortPdf;
 function folderLabel(k){ return k===NO_BATCH ? "No batch" : batchShow(k); }
 function batchMembers(k){ return (state.adminData||[]).filter(r=>batchKey(r)===k && (state.batchShowArchived || !r.archived)); }
 function batchFeedback(k){ return ((state.tfbAdmin||{}).items||[]).filter(x=>(cleanBatch(x.batch)||NO_BATCH)===k); }
-function openBatchFolder(k, sub){ state.batchFolder = k; state.batchSub = sub || state.batchSub || "registry"; render(); }
-function closeBatchFolder(){ state.batchFolder = null; render(); }
 function setBatchSub(sub){ state.batchSub = sub; render(); }
-Object.assign(window, {openBatchFolder, closeBatchFolder, setBatchSub});
+window.setBatchSub = setBatchSub;
 
-function renderAdminBatchFolders(){
-  if(state.adminLoading || !state.adminData){
-    return `<div class="card" style="padding:40px;text-align:center;color:var(--ink-soft);">Loading trainee ledger…</div>`;
-  }
-  if(!state.tfbAdmin) setTimeout(()=>loadTraineeFeedbackAdmin(), 0);
-  const keys = Array.from(new Set(state.adminData.map(batchKey))).sort((a,b)=> a===NO_BATCH ? 1 : b===NO_BATCH ? -1 : a.localeCompare(b, undefined, {numeric:true}));
-  if(state.batchFolder && !keys.includes(state.batchFolder)) state.batchFolder = null;
-  if(state.batchFolder) return renderBatchFolder(state.batchFolder);
-  const head = `
-    <p class="eyebrow">Admin Dashboard</p>
-    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 4px;">Batch Folders</h1>
-    <p style="color:var(--ink-soft);font-size:13px;max-width:72ch;margin:0 0 18px;">Each batch has its own folder: the trainees registered in it, their rankings, the feedback they sent and their latest activity — kept apart from every other batch.</p>`;
-  if(!keys.length) return head + `<div class="empty-note">No trainees yet — a folder appears for each batch as trainees register.</div>`;
-  return head + `<div class="batch-folder-grid">${keys.map(k=>{
-    const all = state.adminData.filter(r=>batchKey(r)===k);
-    const active = all.filter(r=>!r.archived);
-    const done = active.length ? Math.round(active.reduce((a,r)=>a+adminDayStats(r).done,0)/active.length/DAYS.length*100) : 0;
-    const fb = batchFeedback(k).length;
-    return `<button type="button" class="batch-folder" onclick="openBatchFolder('${esc(k)}','registry')">
-      <span class="bf-icon">📁</span>
-      <span class="bf-name">${esc(folderLabel(k))}</span>
-      <span class="bf-meta">${active.length} trainee${active.length===1?"":"s"}${all.length>active.length?` · ${all.length-active.length} archived`:""}</span>
-      <span class="bf-meta">${done}% avg completion · ${state.tfbAdmin&&!state.tfbAdmin.loading ? `${fb} feedback` : "feedback…"}</span>
-    </button>`; }).join("")}</div>`;
-}
-function renderBatchFolder(k){
-  const sub = state.batchSub || "registry";
-  const members = batchMembers(k);
-  const tabs = [["registry","🗂 Registry"],["rankings","🏆 Rankings"],["feedback","💬 Feedback"],["activities","📈 Activities"]];
-  return `
-    <div class="bf-crumb"><button type="button" class="btn btn-ghost btn-sm" onclick="closeBatchFolder()">← All batch folders</button></div>
-    <p class="eyebrow">Batch Folder</p>
-    <div style="display:flex;gap:10px 16px;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;">
-      <h1 style="color:var(--navy);font-size:26px;margin:6px 0 4px;">📁 ${esc(folderLabel(k))}</h1>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;align-items:center;">
-        <label style="display:flex;align-items:center;gap:5px;font-size:12.5px;color:var(--ink-soft);cursor:pointer;"><input type="checkbox" ${state.batchShowArchived?"checked":""} onchange="state.batchShowArchived=this.checked;render()"> Include archived</label>
-        <button class="btn btn-ghost btn-sm" onclick="refreshAdminData();loadTraineeFeedbackAdmin()">🔄 Refresh</button>
-        ${k!==NO_BATCH && members.some(r=>!r.archived) ? `<button class="btn btn-ghost btn-sm" style="color:var(--danger);" onclick="confirmArchiveBatch('${esc(k)}')">📦 Archive This Batch</button>` : ""}
-      </div>
-    </div>
-    <div class="bf-tabs">${tabs.map(([id,l])=>`<button type="button" class="${sub===id?"active":""}" onclick="setBatchSub('${id}')">${l}${id==="registry"?` <em>${members.length}</em>`:id==="feedback"&&state.tfbAdmin&&!state.tfbAdmin.loading?` <em>${batchFeedback(k).length}</em>`:""}</button>`).join("")}</div>
-    <div id="batchFolderBody">${renderBatchFolderBody()}</div>`;
-}
 function renderBatchFolderBody(){
   const k = state.batchFolder; if(!k) return "";
   const sub = state.batchSub || "registry";
@@ -13577,70 +13360,8 @@ function renderAdminStudio(){
 `;
 }
 
-function setCuesDay(id){ state.cuesDay = id; render(); }
-window.setCuesDay = setCuesDay;
-function renderAdminTrainerCues(){
-  const dayId = state.cuesDay || 1;
-  const d = DAYS.find(x=>x.id===dayId) || DAYS[0];
-  const lessonBlocks = d.lessons.map((l,i)=>{
-    return `
-      <details class="cue-item" ${i===0?"open":""}>
-        <summary><span class="cue-num">${String(i+1).padStart(2,"0")}</span>${esc(l.h)}<span class="cue-steps">${slideLabel(d, i)}</span></summary>
-        <div class="cue-body">
-          ${l.singleSlide ? renderPresenterNote(d, l, 1) : `<div class="pn-part">Part 1</div>${renderPresenterNote(d, l, 1)}<div class="pn-part">Part 2</div>${renderPresenterNote(d, l, 2)}`}
-        </div>
-      </details>`;
-  }).join("");
-  const crisisSets = Object.keys(typeof CRISIS_SCENARIO_SETS!=="undefined" ? CRISIS_SCENARIO_SETS : {});
-  return `
-    <p class="eyebrow">Admin Only</p>
-    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 4px;">Trainer Cues &amp; Discussion Points</h1>
-    <p style="color:var(--ink-soft);font-size:13px;max-width:75ch;margin:0 0 18px;">Everything trainer-facing lives here and nowhere else — trainees (and your screen-share) only ever see the clean lesson. Keep this tab open in a second window while you run the session.</p>
-    <div class="cues-day-tabs">
-      ${DAYS.map(x=>`<button class="${x.id===d.id?'active':''}" onclick="setCuesDay(${x.id})">Day ${x.id}</button>`).join("")}
-    </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:16px 0 10px;">
-      <h2 style="color:var(--navy);font-size:19px;margin:0;">Day ${d.id} — ${esc(d.title)}</h2>
-      <button class="btn btn-navy btn-sm" onclick="downloadDayScriptsPdf(${d.id})">⬇ Download Day ${d.id} Speaker Notes (PDF)</button>
-    </div>
-    ${d.id===1 ? `<div class="card" style="padding:14px 18px;margin-bottom:12px;">${renderMeetClientTrainerGuide()}</div>` : ""}
-    ${d.discussionQuestion ? `
-      <div class="card discussion-card" style="margin-bottom:12px;">
-        <div class="discussion-tag">💬 End-of-Day Discussion Checkpoint</div>
-        <p class="discussion-q">${esc(d.discussionQuestion)}</p>
-        <p class="discussion-note">Pause the self-paced flow after the Skill Builders and raise this live with the cohort.</p>
-        <p class="discussion-note"><b>Say:</b> "Before we close Day ${d.id}, let's step back and talk about this together." <b>Then ask the question above.</b> Take 2–3 answers, connect each one to a lesson from today, and close with: "Hold onto those examples — we'll build on them tomorrow."</p>
-      </div>` : ""}
-    <div class="card" style="padding:6px 0;margin-bottom:18px;">${lessonBlocks || `<p style="padding:14px 18px;color:var(--ink-soft);">No trainer cues for this day.</p>`}</div>
-    ${d.id===1 ? `
-      <div class="card" style="padding:16px 18px;margin-bottom:12px;">
-        <div class="tc-tag">🧑‍🏫 Skill Builders — Answer Key (Attention to Detail)</div>
-        <p style="font-size:13px;">Graded automatically against these planted errors — spot-check a few submissions by hand.</p>
-        <ul>${(typeof ATTENTION_TO_DETAIL_ANSWERS!=="undefined"?ATTENTION_TO_DETAIL_ANSWERS:[]).map(a=>`<li style="font-size:12.8px;margin-bottom:6px;">${esc(a)}</li>`).join("")}</ul>
-      </div>` : ""}
-    <div class="card" style="padding:16px 18px;margin-bottom:12px;">
-      <div class="tc-tag">🧑‍🏫 Skill Builders — Trainer Checkpoint</div>
-      <p style="font-size:13px;">Once a day's Skill Builders exercise is finished, pause for a live debrief — have trainees walk through what they did, why, and where their judgment differed from the model answer.</p>
-      <p style="font-size:13px;"><b>Inbox triage (Eisenhower) tool:</b> the inbox now generates on the first click (about 15–30 seconds). The old deliberate "first click fails" resilience test is switched off; it can be re-enabled in the code (IZ_SIMULATE_FIRST_FAILURE).</p>
-    </div>
-    <div class="card" style="padding:16px 18px;">
-      <div class="tc-tag">🧑‍🏫 Crisis Roleplay Scripts &amp; Answer Keys</div>
-      <p style="font-size:13px;margin:0 0 10px;">Full scripts and model answers for the crisis roleplays — hidden from trainees.</p>
-      ${crisisSets.map(k=>`
-        <details class="cue-item"><summary>${esc(k)} scenarios (${CRISIS_SCENARIO_SETS[k].length})</summary>
-          <div class="cue-body">${CRISIS_SCENARIO_SETS[k].map(sc=>`<div style="margin-bottom:14px;"><b>${esc(sc.title)}</b>${renderCrScenarioBody(k, sc.id)}</div>`).join("")}</div>
-        </details>`).join("")}
-      ${typeof DAY6_CRISIS_SCENARIOS!=="undefined" ? `
-        <details class="cue-item"><summary>Day 6 scenarios (${DAY6_CRISIS_SCENARIOS.length})</summary>
-          <div class="cue-body">${DAY6_CRISIS_SCENARIOS.map(sc=>`<div style="margin-bottom:14px;"><b>${esc(sc.title)}</b>${renderD6CrScenarioBody(sc.id)}</div>`).join("")}</div>
-        </details>` : ""}
-    </div>
-  `;
-}
 function setAdminTab(t){ state.adminTab=t; render(); }
 window.setAdminTab = setAdminTab;
-function setSopDay(d){ state.sopDay=d; render(); }
-window.setSopDay = setSopDay;
 async function confirmArchiveBatch(batch){
   const members = state.adminData.filter(r=>batchKey(r)===batch && !r.archived);
   if(!members.length){ toast("Nothing to archive in this batch."); return; }
@@ -16077,13 +15798,11 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 </script>
 <script src="/js/cm-updates.js?v=45"></script>
 <script src="/js/cm-documents.js?v=3"></script>
-<script src="/js/cm-skillbuilders.js?v=cm-2026.10.23-efiling"></script>
-<script src="/js/cm-lor-data.js?v=1"></script>
+<script src="/js/cm-skillbuilders.js?v=cm-2026.11.12-cleanup"></script>
 <script src="/js/cm-hipaa-data.js?v=1"></script>
-<script src="/js/cm-medprov-data.js?v=1"></script>
-<script src="/js/cm-lor.js?v=3"></script>
+<script src="/js/cm-lor.js?v=4"></script>
 <script src="/js/cm-hipaa.js?v=cm-2026.10.22-cms-upload"></script>
-<script src="/js/cm-medprov.js?v=2"></script>
+<script src="/js/cm-medprov.js?v=3"></script>
 <script src="/js/cm-drafting.js?v=cm-2026.10.22-cms-upload"></script>
 <script src="/js/daily-activities.js?v=3"></script>
 <script src="/js/checkin.js?v=1"></script>
@@ -16096,23 +15815,23 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/graded-calls.js?v=1"></script>
 <script src="/js/cm-case-flow-docs.js?v=28"></script>
 <script src="/js/cm-case-flow-art.js?v=3"></script>
-<script src="/js/cm-case-flow-slides.js?v=58"></script>
+<script src="/js/cm-case-flow-slides.js?v=59"></script>
 <script src="/js/cm-case-flow-scripts.js?v=51"></script>
 <script src="/js/cm-case-flow-sim.js?v=26"></script>
 <script src="/js/cm-case-flow-exhibits.js?v=7"></script>
 <script src="/js/cm-case-flow-data.js?v=62"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=3"></script>
-<script src="/js/cm-case-flow.js?v=131"></script>
-<script src="/js/cm-script-editor.js?v=17"></script>
+<script src="/js/cm-case-flow.js?v=132"></script>
+<script src="/js/cm-script-editor.js?v=18"></script>
 <!-- 🏅 the Scorecard (as in Foundational Training): My Performance for trainees, Scorecards for trainers -->
 <script src="/js/cm-scorecard.js?v=9"></script>
-<script src="/js/cm-batch-sheet.js?v=7"></script>
+<script src="/js/cm-batch-sheet.js?v=8"></script>
 <script src="/js/cm-know-tools.js?v=8"></script>
 <!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
 <script src="/js/cm-companion-cases.js?v=1"></script>
 <script src="/js/cm-companion.js?v=3"></script>
-<script src="/js/cm-open-lessons.js?v=2"></script>
+<script src="/js/cm-open-lessons.js?v=3"></script>
 <script src="/js/show-password.js?v=1"></script>
 <script src="/js/lsh-card-frame.js?v=5"></script>
 <script src="/js/lsh-tool-links.js?v=cm-2026.10.23-trainer-sso"></script>
