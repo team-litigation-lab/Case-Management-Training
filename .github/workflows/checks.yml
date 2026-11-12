@@ -203,6 +203,16 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/batch-group.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: Every check in .github/scripts/auto/ (a new check goes there as its own file; this workflow isn't edited)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: |
+          for f in .github/scripts/auto/*.cjs; do
+            [ -e "$f" ] || continue
+            echo "::group::$f"
+            node "$f" http://localhost:8787/ || { echo "::endgroup::"; echo "FAILED: $f"; echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+            echo "::endgroup::"
+          done
       - name: Every slide fits on one screen (laptop and large screen, every page of every day)
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
