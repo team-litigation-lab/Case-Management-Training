@@ -1061,7 +1061,8 @@ function nameHint(c) {
   if (c.issues.length >= 3) return `This name isn't built the firm's way: ${c.issues.length} of its parts differ, so rename it as shown. Start with part ${i.n}, the ${ORDINAL[i.n]} piece between the underscores (${i.part}): "${i.got}" should be "${i.should}".`;
   if (i.part === "ext") return `Look at the extension, after the last dot: ${i.got ? `".${i.got}"` : "there is none"}, and it should be ".${i.should}". ${i.why}${more}`;
   if (i.part === "label") return (i.got ? `Look at part 5 of the name, the fifth piece between the underscores (the label): "${i.got}" ${i.should ? `should be "${i.should}"` : "shouldn't be there"}. ` : "") + i.why + more;
-  return `Look at part ${i.n} of the name, the ${ORDINAL[i.n]} piece between the underscores (${i.part}): "${i.got}" should be "${i.should}". ${i.why}${more}`;
+  // where the name itself gives no answer (a Type that is no category, a date that is no date) the part is pointed at and the rule said
+  return `Look at part ${i.n} of the name, the ${ORDINAL[i.n]} piece between the underscores (${i.part}): "${i.got}" ${/[<>]/.test(i.should) ? "isn't one" : `should be "${i.should}"`}. ${i.why}${more}`;
 }
 /* The trainee's Case ID: the one most of their filed copies carry. */
 function driveCaseId(rec) {

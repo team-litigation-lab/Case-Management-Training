@@ -46,6 +46,8 @@ jobs:
         run: node .github/scripts/drive-connect.cjs
       - name: The Backup Drive is auto-graded day by day from the Drive itself (Days 2–5, against an in-memory Google Drive)
         run: node .github/scripts/drive-grades.cjs
+      - name: The firm's file naming convention on the Backup Drive (one rule with the CMS filing; every name read in the grade's own calls, each wrong one with its folder, the name it should have and the differing part; 12 of each day's 60 points; against an in-memory Google Drive)
+        run: node .github/scripts/drive-naming.cjs
       - name: Case Flow curriculum (rhythm, six components, 60/40 rubrics, every existing topic carried)
         run: node build/case-flow/curriculum.cjs --check
       - name: Case Flow slides (concise copy in the spec's limits, the assembled file in step)
@@ -161,7 +163,7 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/graded-calls.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
-      - name: Day 1's Backup File Maintenance slide is the Backup Drive task, and the retired link-based case folder stays gone
+      - name: Day 1's Backup File Maintenance slide is the Backup Drive task, the retired link-based case folder stays gone, and the naming convention box is on the slide, every Backup File Maintenance task and the Backup Drive panel
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/drive-slide.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
