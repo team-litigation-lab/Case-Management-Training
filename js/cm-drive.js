@@ -338,12 +338,12 @@ function slide(){
       }).join("")}</ul>`
     : `<p class="drv-s-note">${STD && STD.failed ? "The firm's structure couldn't be loaded. Open 📂 My Backup Drive to see it." : "Loading the firm's structure…"}</p>`;
   return `<div class="drv-slide" data-drv-slide>
-    <div class="drv-s-col"><h3>📋 Your task: the case backup</h3>
+    <div class="drv-s-col"><h3>📋 Your Task: The Case Backup</h3>
       <ol class="drv-s-steps">${steps.map(([h, t, done], i)=>`<li class="${done ? "is-done" : ""}"><span class="drv-s-n">${done ? "✓" : i + 1}</span><div><b>${h}</b><span>${t}</span></div></li>`).join("")}</ol>
       ${off ? `<p class="drv-s-note">Google linking isn't switched on for this site yet: a trainer adds it once (README → 📂 The trainee's Backup Drive).</p>`
         : signedTrainee() ? `<button type="button" class="btn btn-navy btn-sm" onclick="CMDrive.show()">📂 Open My Backup Drive</button>` : ""}
     </div>
-    <div class="drv-s-col"><h3>🗂 The firm's standard</h3>${tree}</div>
+    <div class="drv-s-col"><h3>🗂 The Firm's Standard</h3>${tree}</div>
   </div>`;
 }
 
