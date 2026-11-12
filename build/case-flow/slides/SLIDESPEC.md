@@ -95,6 +95,24 @@ context the decks gave, not only the rules. Take it from the deck pages that tea
   - `note` (optional) — one line under it, **≤ 22 words**.
   - At most one highlight in any cell or step text; none is required. The same doctrine rule: never Apex's facts.
 
+**Micro-frameworks** (optional, in the lesson's copy): the three components the revamp gives the lessons, drawn on the
+lesson's existing slides, so no slide is added and no timing changes. Take every fact from the block and
+`curriculum/5-day-flow/case-file.md`; at most one highlight in any line, none required.
+- `redFlag` — the **CM Red Flag**, drawn on Why It Matters (a red-bordered box with its flag icon and label; one per slide):
+  `{"see": "…", "costs": "…", "do": "…", "owner": "Atty. Thorne"}` — `see` (what you notice) and `costs` (what it costs
+  the file) **≤ 18 words**, `do` (an operational step, never a legal conclusion) **≤ 15 words**; `owner` is required:
+  `Atty. Thorne` (the decision is counsel's) or `Case Manager`.
+- `ruleEx` — **Rule vs. Exception**, drawn on The Rules in place of its picture: `{"rule": "…", "exception": "…",
+  "onFile": "…", "confirm": "…"}` — `rule` and `exception` **≤ 25 words** (the exception a real carve-out or a
+  jurisdictional contrast; `"contrast": true` labels it CONTRAST), `onFile` (optional) **≤ 20 words**, `confirm` **≤ 8
+  words** naming Atty. Thorne or the governing statute.
+- `milestones` — **Milestone Steps**, a numbered rail drawn on On the Job (or, without one, The Framework, See It, The
+  Theory or The Rules): `{"title": "…", "steps": [{"label": "…", "chip": "02/06/2028", "done": "…"}], "note": "…", "start": 4}` —
+  `title` **≤ 8 words**, **3–6** steps in case order: `label` **≤ 4 words**, `chip` (optional) a date on the case file
+  (MM/DD/YYYY) or a case document or claim id, `done` (the step's "Done when:") **≤ 12 words**; `note` (optional) **≤ 16
+  words**; `start` numbers a rail that continues another (Steps 4–6).
+- `.github/scripts/micro-frameworks.cjs` checks that every lesson the revamp gives a framework draws it, with type ≥ 16px.
+
 **Activity** (`kind: "activity"`): drawn as Your case · Your task · The model (if `show`) · Check your work.
 - `situation` — the scenario in **≤ 32 words**: file date, what just happened, what is at stake. Keep the key
   dates and figures the task needs; drop the rest.
