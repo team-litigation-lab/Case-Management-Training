@@ -1,7 +1,7 @@
 /* 📁 Companion cases (build/case-flow/cases/CASESPEC.md): a second, shorter file a trainer assigns each trainee beside
    John Doe v. Robert Smith, with a new problem on it every Case Flow day and an Attorney–CM brainstorm at the end of
    the day, the trainer playing Atty. Thorne.
-   • Trainer: Admin → Trainee Audit → each row's 📁 Case picks the trainee's case (saved on their record as
+   • Trainer: Admin → 🛡 Admin Master Control → 📁 Companion Cases, a table of the trainees, picks each one's case (saved on their record as
      assignedCase, which only a trainer can change). Presenter view's 🧠 Brainstorm and the end of the day's Speaker
      Notes PDF give the day's brainstorm guide for every assigned trainee: the situation, what to ask, the answer key,
      the attorney's call and the mistake to watch for.
@@ -41,12 +41,48 @@ async function assign(traineeId, caseId){
   if(!(await sharedSet("trainee:" + traineeId, rec))){ if(typeof toast === "function") toast("Not saved: check your connection and try again."); return; }
   if(state.adminData){ const i = state.adminData.findIndex(r => r.id === traineeId); if(i !== -1) state.adminData[i] = rec; }
   const wrap = document.getElementById("adminRowsWrap"); if(wrap && typeof renderAdminRows === "function") wrap.innerHTML = renderAdminRows();
+  const t = document.getElementById("ccTable"); if(t && state.view === "admin") t.outerHTML = tableHtml();
   if(typeof toast === "function") toast(rec.assignedCase ? `${rec.name || "Trainee"} now has ${CASES[caseId].title}. They'll see it on their Case File.` : `Companion case removed for ${rec.name || "the trainee"}.`);
 }
 if(typeof window.renderUnlockDaysControl === "function" || typeof renderUnlockDaysControl === "function"){
   // the row's controls: the case picker sits where the (retired) day-unlock control renders
   const __unlock = renderUnlockDaysControl;
   window.renderUnlockDaysControl = renderUnlockDaysControl = function(rec){ return __unlock.apply(this, arguments) + renderCaseAssignControl(rec); };
+}
+
+/* ---------- Admin → 🛡 Admin Master Control → 📁 Companion Cases: one row per trainee, the case picker in its own column ---------- */
+const nameOfRec = r => (typeof cleanName === "function" ? cleanName(r.name) : "") || String(r.name || "Unnamed").slice(0, 60);
+const keyOfRec = r => typeof batchKey === "function" ? batchKey(r) : (r.batch || "");
+const labelOfKey = k => typeof folderLabel === "function" ? folderLabel(k) : k;
+function people(){
+  const k = state.adminBatchFilter || "";
+  return (state.adminData || []).filter(r => r && !r.rejected && !r.archived && (!k || keyOfRec(r) === k))
+    .sort((a, b) => nameOfRec(a).localeCompare(nameOfRec(b)));
+}
+function tableHtml(){
+  const ppl = people();
+  if(!ppl.length) return `<div id="ccTable" class="cc-adm-empty">No trainee in ${state.adminBatchFilter ? "this batch" : "any batch"} yet.</div>`;
+  const when = v => { const d = v ? new Date(v) : null; return d && isFinite(d) ? d.toLocaleDateString(undefined, {month: "short", day: "numeric", year: "numeric"}) : ""; };
+  return `<div id="ccTable" class="cc-adm-scroll"><table class="cc-adm-t"><thead><tr><th scope="col">Trainee</th><th scope="col">Batch</th><th scope="col">Status</th><th scope="col">Companion case</th><th scope="col">Assigned</th><th scope="col">📁 Assign a case</th></tr></thead><tbody>
+    ${ppl.map(r => { const a = r.assignedCase, c = caseOf(a && a.id), i = c ? ids().indexOf(a.id) + 1 : 0;
+      return `<tr data-id="${E(r.id)}"><th scope="row">${E(nameOfRec(r))}<div class="cc-adm-id">${E(String(r.id).slice(0, 48))}</div></th>
+        <td>${E(labelOfKey(keyOfRec(r)))}</td><td>${r.approved === true ? "Approved" : "⏳ Waiting for approval"}</td>
+        <td class="cc-adm-case">${c ? `<b>📁 ${i}. ${E(c.title)}</b><div>${E(c.theme)}</div><button type="button" class="btn btn-sm btn-ghost" onclick="cmCompanion.open('${E(a.id)}', 1, {trainer: true, who: '${E(nameOfRec(r).replace(/\\/g, "\\\\").replace(/'/g, "\\'"))}'})">Open the case file</button>` : `<span class="cc-adm-none">No case yet</span>`}</td>
+        <td>${c ? E(when(a.at)) : ""}</td>
+        <td>${renderCaseAssignControl(r)}</td></tr>`; }).join("")}</tbody></table></div>`;
+}
+function adminPage(){
+  if(!state.adminData) return `<div class="card" style="padding:40px;text-align:center;">Loading the trainees…</div>`;
+  const keys = Array.from(new Set(state.adminData.filter(r => !r.rejected && !r.archived).map(keyOfRec))).sort((a, b) => String(a).localeCompare(String(b), undefined, {numeric: true}));
+  if(state.adminBatchFilter && !keys.includes(state.adminBatchFilter)) state.adminBatchFilter = "";
+  const ppl = people(), withCase = ppl.filter(r => caseOf(r.assignedCase && r.assignedCase.id)).length;
+  return `<p class="eyebrow">Admin</p><h1>📁 Companion Cases</h1>
+    <div class="card cc-adm">
+      <p class="cc-adm-help">Each trainee gets a second, shorter file beside John Doe v. Robert Smith: a new problem on it every Case Flow day, and an Attorney–CM brainstorm at the end of the day, with you as Atty. Thorne. Pick a case in a trainee's row; they see it on their Case File page.</p>
+      <div class="cc-adm-bar"><label>Batch <select onchange="setAdminBatchFilter(this.value)"><option value="">All batches</option>${keys.map(k => `<option value="${E(k)}" ${k === state.adminBatchFilter ? "selected" : ""}>${E(labelOfKey(k))}</option>`).join("")}</select></label>
+        <span class="cc-adm-count"><b>${withCase}</b> of ${ppl.length} trainee${ppl.length === 1 ? "" : "s"} have a case</span></div>
+      ${tableHtml()}
+    </div>`;
 }
 
 /* ---------- the case file, in a pop-up (trainee and trainer) ---------- */
@@ -198,6 +234,23 @@ css.textContent = `
 .cc-g{border-top:1px solid #ECEEF4;padding:8px 0;} .cc-g summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;font-size:14px;}
 .cc-g summary span{color:#5B6579;font-size:13px;} .cc-batch{font-family:'IBM Plex Mono',monospace;font-size:11.5px !important;}
 .cc-g-body{padding:10px 0 4px;}`;
+css.textContent += `
+.cc-adm{padding:18px 20px;}
+.cc-adm-help{margin:0 0 12px;font:600 15px/1.5 'Inter',sans-serif;color:#2E3450;max-width:90ch;}
+.cc-adm-bar{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin-bottom:12px;font:700 15px 'Inter',sans-serif;color:#141A2E;}
+.cc-adm-bar select{font:700 15px 'Inter',sans-serif;padding:7px 10px;border:2px solid #3B4A8C;border-radius:8px;color:#141A2E;background:#fff;margin-left:6px;}
+.cc-adm-count b{font-size:17px;color:#1E2340;}
+.cc-adm-scroll{overflow-x:auto;border:1px solid #C9CEDD;border-radius:10px;}
+.cc-adm-t{border-collapse:collapse;width:100%;min-width:860px;font:600 15px/1.4 'Inter',sans-serif;color:#141A2E;}
+.cc-adm-t th,.cc-adm-t td{border-bottom:1px solid #E1E4EE;padding:10px 12px;text-align:left;vertical-align:top;}
+.cc-adm-t thead th{background:#1E2340;color:#fff;font-weight:800;font-size:15px;white-space:nowrap;}
+.cc-adm-t tbody th{font-weight:800;color:#141A2E;}
+.cc-adm-id{font:600 14px 'IBM Plex Mono',monospace;color:#3E4560;margin-top:2px;}
+.cc-adm-case b{color:#1E2340;} .cc-adm-case div{font-size:14px;color:#3E4560;margin:2px 0 6px;}
+.cc-adm-case .btn,.cc-adm-t select{font-size:14px !important;font-weight:700;}
+.cc-adm-t select.cc-assign{max-width:320px;color:#141A2E;border:2px solid #3B4A8C;}
+.cc-adm-none{color:#7A4B00;font-weight:700;}
+.cc-adm-empty{padding:18px;font:700 15px 'Inter',sans-serif;color:#2E3450;}`;
 document.head.appendChild(css);
-window.cmCompanion = {open, close: () => close(), day, assign, brainstorm, cases: () => CASES};
+window.cmCompanion = {open, close: () => close(), day, assign, brainstorm, cases: () => CASES, picker: renderCaseAssignControl, adminPage};
 })();

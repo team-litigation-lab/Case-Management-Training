@@ -7,15 +7,19 @@
    A tab added later by another script lands in its section too, and a tab no section names goes under
    🛡 Admin Master Control.
 
-   The sections, in Foundational's order, for the admin content Case Management has:
-     🏅 Scorecard            audit (👥 Trainee Audit, the lead and the default), scorecards (🏅 Scorecards, the
-                             #/scorecard page shown here), tfeedback (💬 Trainee Feedback)
-     📊 Rankings             rankings (Foundational's Weekly Reports slot)
-     🔗 Drive Links          drivelinks
-     🛡 Admin Master Control sop (📋 SOP Reference) and any tab no section names
-     🔓 Open Lessons         openlessons (renderAdminOpenLessons, when loaded), activities, fbstyle, studio
-   Foundational's Graders, Intake Packets, Assign LORs, Announcements and EOD Inbox have no page in this course,
-   so they have no pill (a section shows only when it has a tab).
+   The sections, in Foundational's order (🏅 Scorecard · 📊 Weekly Reports · 🔗 Drive Links · 🧑‍🏫 Graders · 📦 Intake
+   Packets · 📄 Assign LORs · 📢 Announcements · 📧 EOD Inbox · 🛡 Admin Master Control · 🔓 Open Lessons), for the admin
+   content Case Management has:
+     🏅 Scorecard            scores only: audit (📋 Batch Sheet, js/cm-batch-sheet.js, the lead and the default) and
+                             scorecards (🏅 Scorecards, the #/scorecard page: every trainee's card, the 100-point model)
+     🛡 Admin Master Control what a trainer does: traineeaudit (👥 Trainee Audit: approvals, ↺ resets, revoking, each trainee's
+                             detail with ✍ feedback and 🎓 the certificate), companion (📁 Companion Cases), tfeedback
+                             (💬 Trainee Feedback), rtasks (🎲 Random Tasks), settings (⚙ certificate signatories, feedback
+                             drafts), sop (📋 SOP Reference), studio (✏️ Content Studio) and any tab no section names
+     🔓 Open Lessons         openlessons (renderAdminOpenLessons, when loaded), activities, fbstyle
+   Weekly Reports, Drive Links (retired here: the trainee's Backup Drive is graded on Day 1), Graders, Intake Packets,
+   Assign LORs, Announcements and EOD Inbox have no page in this course, so they have no pill (a section shows only
+   when it has a tab).
 
    Only the outermost renderAdmin wrapper groups (window.cmAdminOut, as Foundational's lshAdminOut): this file
    wraps again once every script has loaded if another wrapper came after it. js/cm-case-flow.js's own grouping
@@ -26,11 +30,9 @@
   const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
 
   const SECTIONS = [
-    {id: "scorecard", label: "🏅 Scorecard", tabs: ["audit", "scorecards", "tfeedback"]},
-    {id: "rankings", label: "📊 Rankings", tabs: ["rankings"]},
-    {id: "drivelinks", label: "🔗 Drive Links", tabs: ["drivelinks"]},
-    {id: "admin", label: "🛡 Admin Master Control", tabs: ["sop"]},
-    {id: "open", label: "🔓 Open Lessons", tabs: ["openlessons", "activities", "fbstyle", "studio"]}
+    {id: "scorecard", label: "🏅 Scorecard", tabs: ["audit", "scorecards"]},
+    {id: "admin", label: "🛡 Admin Master Control", tabs: ["traineeaudit", "companion", "tfeedback", "rtasks", "settings", "sop", "studio"]},
+    {id: "open", label: "🔓 Open Lessons", tabs: ["openlessons", "activities", "fbstyle"]}
   ];
   const FALLBACK = "admin";
   // the tabs this file adds (their buttons, and their pages when no other script draws them)
@@ -39,7 +41,7 @@
     openlessons: {label: "🔓 Open Lessons"}
   };
   // the base strip's plain labels, given the icons Foundational's tabs have (only when the text is still the plain one)
-  const RELABEL = {audit: ["Trainee Audit", "👥 Trainee Audit"], rankings: ["Rankings", "🏆 Rankings"], sop: ["SOP Reference", "📋 SOP Reference"],
+  const RELABEL = {sop: ["SOP Reference", "📋 SOP Reference"],
     studio: ["Content Studio", "✏️ Content Studio"], tfeedback: ["Trainee Feedback", "💬 Trainee Feedback"]};
   const KICKER = "Legal Support Help · Case Management Training";
 
@@ -88,7 +90,7 @@
     return out.slice(0, at[0]) + bar + banner(out.slice(at[1]), open.g, curTab);
   }
 
-  // the navy banner over the section's content: a page that draws its own (🏅 Scorecards, 📂 Drive Links) keeps it;
+  // the navy banner over the section's content: a page that draws its own (📋 Batch Sheet, 🏅 Scorecards, 🔓 Open Lessons) keeps it;
   // a page that opens with the old eyebrow and title gives them to the banner
   function banner(body, sec, tab){
     const head = body.slice(0, 1500);
