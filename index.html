@@ -3251,7 +3251,7 @@ const mem = {}; // in-memory fallback if window.storage is unavailable
 const PERSONAL_KEYS = ["day-progress","practice-progress","lab-attempts-global","lab-attempts-by-day","admin-unlocked-days","admin-unlocked-copies","notes","completed-lab-actions",
   "day10-window","submissions","roleplayHistory","slide-progress","last-slide","attn-detail-findings",
   "calendar-custom","calendar-edits","call-log","inbox-filing","inbox-interactions","inbox-labels","trainee-batch",
-  "quick-check-answers","day-order-migrated","dividers-migrated","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log","lab-subs","case-flow","net-sheet","doc-filing","drive-setup","case-folder"];
+  "quick-check-answers","day-order-migrated","dividers-migrated","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log","lab-subs","case-flow","net-sheet","doc-filing","drive-setup","drive-grades"];
 const PERSONAL_KEY_SET = new Set(PERSONAL_KEYS);
 let cloudSaveTimer = null;
 function scheduleCloudSave(){
@@ -11474,11 +11474,9 @@ function renderAdmin(){
       <button class="admin-tab-btn ${tab==='activities'?'active':''}" onclick="setAdminTab('activities')">📋 Activities</button>
       <button class="admin-tab-btn ${tab==='rtasks'?'active':''}" onclick="setAdminTab('rtasks')">🎲 Random Tasks</button>
       <button class="admin-tab-btn ${tab==='fbstyle'?'active':''}" onclick="setAdminTab('fbstyle')">🗣 Feedback Style</button>
-      <button class="admin-tab-btn ${tab==='drivelinks'?'active':''}" onclick="setAdminTab('drivelinks')">📂 Drive Links</button>
     </div>`;
   if(tab==="activities") return tabBar + (typeof renderAdminActivities==="function" ? renderAdminActivities() : "");
   if(tab==="fbstyle") return tabBar + (typeof renderAdminFeedbackStyle==="function" ? renderAdminFeedbackStyle() : "");
-  if(tab==="drivelinks") return tabBar + (typeof renderAdminDriveLinks==="function" ? renderAdminDriveLinks() : "");
   if(tab==="rtasks") return tabBar + renderAdminRandomTasks();
   if(tab==="sop") return tabBar + renderAdminSOP();
   if(tab==="studio") return tabBar + renderAdminStudio();
@@ -12652,6 +12650,15 @@ async function driveCheckFor(id){
   catch(e){ state.driveReports[id] = Object.assign({}, rep, {checkErr:e.message}); }
   rerender();
 }
+async function driveGradeFor(id){
+  const rep = state.driveReports[id] || {};
+  state.driveReports[id] = Object.assign({}, rep, {grading:true, checkErr:""});
+  const rerender = ()=>{ const w = document.getElementById("adminRowsWrap"); if(w) w.innerHTML = renderAdminRows(); };
+  rerender();
+  try{ const j = await driveAdminApi({action:"gradeFor", traineeId:id}); state.driveReports[id] = j.report || Object.assign({}, rep, {checkErr: j.error || "Backup Drive isn't switched on for this site."}); }
+  catch(e){ state.driveReports[id] = Object.assign({}, rep, {checkErr:e.message}); }
+  rerender();
+}
 function renderAdminDrivePanel(rec){
   const rep = state.driveReports[rec.id];
   const head = `<div class="sidebar-section-lbl" style="padding-left:0;">📂 Backup Drive</div>`;
@@ -12677,8 +12684,11 @@ function renderAdminDrivePanel(rec){
     ${rep.restored ? line("Folders put back", rep.restored) : ""}
     ${line("Documents backed up", `${rep.copies} of ${filed} filed in the CMS${rep.lastCopyAt ? ` · last ${fmtDate(rep.lastCopyAt)}` : ""}`)}
     ${folders.map(f=>line(`<span style="padding-left:12px;color:var(--ink-soft);">${esc(f)}</span>`, rep.perFolder[f])).join("")}
+    ${Object.keys(rep.grades||{}).sort().map(n=>{ const g = rep.grades[n], notes = [].concat(...(g.rows||[]).map(r=>r.notes||[]));
+      return line(`🏅 Day ${n} backup <span style="color:var(--ink-soft);font-size:11.5px;">(auto-graded)</span>`, `<b style="color:${g.passed ? "var(--success)" : "var(--danger)"};">${g.score}%</b> · ${(g.rows||[]).map(r=>`${esc(r.label)} ${r.got}/${r.max}`).join(" · ")}`)
+        + (notes.length ? `<ul style="margin:2px 0 6px 18px;padding:0;font-size:12px;color:var(--danger);">${notes.slice(0,6).map(t=>`<li>${esc(t)}</li>`).join("")}</ul>` : ""); }).join("")}
     ${rep.checkErr ? `<div style="font-size:12px;color:var(--danger);padding-top:6px;">${esc(rep.checkErr)}</div>` : ""}
-    ${rep.connected && rep.builtAt ? `<div style="padding-top:8px;"><button class="btn btn-sm btn-ghost" ${rep.checking ? "disabled" : ""} onclick="driveCheckFor('${esc(rec.id)}')" title="Check the trainee's Drive for missing folders now (read-only)">${rep.checking ? "Checking…" : "🔄 Check now"}</button></div>` : ""}
+    ${rep.connected && rep.builtAt ? `<div style="padding-top:8px;"><button class="btn btn-sm btn-ghost" ${rep.checking ? "disabled" : ""} onclick="driveCheckFor('${esc(rec.id)}')" title="Check the trainee's Drive for missing folders now (read-only)">${rep.checking ? "Checking…" : "🔄 Check now"}</button> <button class="btn btn-sm btn-ghost" ${rep.grading ? "disabled" : ""} onclick="driveGradeFor('${esc(rec.id)}')" title="Grade Days 2–5 from the trainee's Drive now (read-only)">${rep.grading ? "Grading…" : "🏅 Grade now"}</button></div>` : ""}
   </div>`;
 }
 function renderAdminRoleplayPanel(rec){
@@ -16034,18 +16044,17 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-docs.js?v=28"></script>
 <script src="/js/cm-case-flow-art.js?v=3"></script>
 <script src="/js/cm-case-flow-slides.js?v=58"></script>
-<script src="/js/cm-case-flow-scripts.js?v=48"></script>
+<script src="/js/cm-case-flow-scripts.js?v=49"></script>
 <script src="/js/cm-case-flow-sim.js?v=26"></script>
 <script src="/js/cm-case-flow-exhibits.js?v=7"></script>
 <script src="/js/cm-case-flow-data.js?v=60"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=1"></script>
-<script src="/js/cm-case-flow.js?v=121"></script>
+<script src="/js/cm-case-flow.js?v=122"></script>
 <script src="/js/cm-script-editor.js?v=13"></script>
 <!-- 🏅 the Scorecard (as in Foundational Training): My Performance for trainees, Scorecards for trainers -->
-<script src="/js/cm-scorecard.js?v=5"></script>
-<script src="/js/cm-know-tools.js?v=2"></script>
-<script src="/js/cm-drive-sop.js?v=1"></script>
+<script src="/js/cm-scorecard.js?v=6"></script>
+<script src="/js/cm-know-tools.js?v=6"></script>
 <!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
 <script src="/js/cm-companion-cases.js?v=1"></script>
 <script src="/js/cm-companion.js?v=1"></script>
@@ -16053,10 +16062,10 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/lsh-card-frame.js?v=5"></script>
 <script src="/js/lsh-tool-links.js?v=cm-2026.10.23-trainer-sso"></script>
 <script src="/js/cm-cms-case.js?v=cm-2026.10.22-heard"></script>
-<script src="/js/cm-doc-filing.js?v=cm-2026.10.22-viewer"></script>
+<script src="/js/cm-doc-filing.js?v=cm-2026.11.12-drive-grades"></script>
 <script src="/js/cm-cms-upload.js?v=cm-2026.10.22-cms-upload"></script>
 <!-- 📂 the trainee's own Backup Drive: the firm's folder structure, built and graded on Day 1 -->
-<script src="/js/cm-drive.js?v=cm-2026.10.23-drive-report"></script>
+<script src="/js/cm-drive.js?v=cm-2026.11.12-drive-grades"></script>
 <script src="/js/lsh-topbar.js?v=2"></script>
 <script src="/js/lsh-one-screen.js?v=1"></script>
 </body>

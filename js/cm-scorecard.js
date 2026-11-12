@@ -6,6 +6,7 @@
      📝 Takeaways             each day's Knowledge Check answers, AI-graded
      🧪 Skill Activities      each graded Skill Activity on John Doe's file (the work log)
      🗂 CMS Case Checks       each document filed into the trainee's CMS case, checked for its category and file name (doc-filing)
+     📂 Backup Drive          Day 1's folder structure (drive-setup) and each later day's Backup File Maintenance, auto-graded from the drive (drive-grades)
      📊 Net Sheet Checks      each stage's Check my sheet on the LSH Net Sheet (net-sheet)
      🛠 Skill Builders        each practice tool's best score
      🎯 Graded Calls          the best graded call on each Call Simulator line (callsim:<id>, written by the Portal)
@@ -59,6 +60,11 @@ const SOURCES = [
       const d = typeof cmDoc === "function" ? cmDoc(id) : null;
       return {name: (d && (d.title || d.name)) || r.name || id, pct: r.filed ? Math.round(100 / r.attempts) : 0,
         note: r.filed ? `Filed as ${r.name || "named"}${r.category ? " under " + r.category : ""} · ${r.attempts === 1 ? "first time right" : r.attempts + " attempts"}` : `Not filed yet · ${r.attempts} attempt${r.attempts === 1 ? "" : "s"} refused`}; })},
+  {id: "bd", icon: "📂", label: "Backup Drive", about: "Your Backup Drive, graded automatically: Day 1's folder structure, then each day's Backup File Maintenance, read from your Drive itself (where each document is, what it is called, what was moved and put back). 70% passes.",
+    items: c => { const out = [], s = c.data["drive-setup"], g = c.data["drive-grades"] || {};
+      if(s && typeof s.score === "number") out.push({name: "Day 1: the firm's folders", pct: num(s.score), note: s.ok ? `Built on attempt ${s.attempts || 1}` : "Not built yet"});
+      Object.keys(g).sort().forEach(n => { const x = g[n]; if(x && typeof x.score === "number") out.push({name: `Day ${n}: Backup File Maintenance`, pct: num(x.score), note: [x.passed ? "Passed" : "Below 70%: not passed yet", fmt(x.at)].filter(Boolean).join(" · ")}); });
+      return out; }},
   {id: "ns", icon: "📊", label: "Net Sheet Checks", about: "Each stage of the LSH Net Sheet, checked automatically with Check my sheet: the share of its checks that passed.",
     items: c => { const out = [], files = (c.data["net-sheet"] && c.data["net-sheet"].files) || {};
       Object.values(files).forEach(f => Object.entries((f && f.checks) || {}).forEach(([stage, k]) => {
