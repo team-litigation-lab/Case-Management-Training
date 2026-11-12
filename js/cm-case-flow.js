@@ -1151,6 +1151,12 @@ if(typeof buildDaySlides === "function"){
       viewsOf(d.lessons[sl.lessonIndex].cf.block).forEach((v, j) => out.push({type: "topic", lessonIndex: sl.lessonIndex, part: j + 1}));
       if(d.lessons[sl.lessonIndex].cf.block.kind === "activity") lastAct = out.length;
     });
+    // Day 1's introduction: after Meet Your Case, the file's life at a glance and its coverage against the injury
+    if(d.cf.n === 1){
+      const li = d.lessons.findIndex(l => l.cf.block.id === "d1m1-case");
+      let at = -1; out.forEach((x, k) => { if(x.type === "topic" && x.lessonIndex === li) at = k; });
+      if(at >= 0) out.splice(at + 1, 0, {type: "caseMap"}, {type: "coverageMap"});
+    }
     if(build){
       // 🏗 the build (150 minutes), the key concepts, then the optional extra practice: John Doe's activities, untimed
       out.push({type: "companionBuild"}, {type: "companionBuild2"});   // the build's seven steps on two slides, so the type stays large on a laptop
@@ -2557,6 +2563,41 @@ function extraPractice(d){
       </div></div>
     </div>`;
 }
+/* ---------- Day 1's introduction, drawn: the life of John Doe's file, and his coverage against his injury ---------- */
+function introFrame(d, icon, title, ribbon, body){
+  return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; INTRODUCTION</div>
+    <div class="card lesson-card cf-card cfx cfx-deck cfx-intro">
+      <div class="cfx-deck-head"><h2 class="cfx-deck-title">${icon} ${E(title)}</h2></div>
+      <div class="cfx-ribbon"><span>${E(ribbon)}</span></div>
+      <div class="cfx-body"><div class="cfx-sheet">${body}</div></div>
+    </div>`;
+}
+function caseMap(d){
+  const c = CF.case, days = MODULES.filter(x => x.cf).sort((a, b) => a.cf.n - b.cf.n);
+  const stages = ((SLIDES["d1m1-role"] || {}).theory || {}).framework ? SLIDES["d1m1-role"].theory.framework.steps.map(x => x.label) : [];
+  const marks = {1: [`Loss ${c.dol}`, `SOL ${c.sol} docketed`, "Matter opened in the CMS"],
+    2: [`Care starts ${c.treatmentStart}`, `${c.gapDays}-day gap to explain`, "LORs to every carrier"],
+    3: ["Specials audited", "Demand served", `${money(c.total)} stack negotiated`],
+    4: ["Liens reduced", "Net Sheet to the cent", "Mediation & Arbitration"],
+    5: ["Impasse → suit", "Discovery & deposition", "Award, then close-out"]};
+  const track = days.map(x => `<li class="cfx-cm-node${x.cf.n === d.cf.n ? " on" : ""}"><span class="cfx-cm-n">${x.cf.n}</span><b>${E(String(x.title).replace(/^Case Flow Day \d+ · /, ""))}</b><ul>${(marks[x.cf.n] || []).map(m => `<li>${E(m)}</li>`).join("")}</ul></li>`).join("");
+  const band = stages.length ? `<div class="cfx-cm-band"><span class="cfx-cm-k">Your six stages, on every file</span><ol>${stages.map((x, i) => `<li><i>${i + 1}</i>${E(x)}</li>`).join("")}</ol></div>` : "";
+  return introFrame(d, "🗺", "The Life of John Doe's File", `${c.style} · from the loss to the close`, `${band}<ol class="cfx-cm-track">${track}</ol>
+    <p class="cfx-cm-foot">One file, five days: each day picks the file up where the last one left it.</p>`);
+}
+function coverageMap(d){
+  const c = CF.case, layers = stackLayers(), max = Math.max(...layers.map(l => l.limit));
+  const ladder = layers.map((l, i) => `<li><span class="cfx-cv-o">${i + 1}</span><div class="cfx-cv-bar" style="--w:${Math.round(l.limit / max * 100)}%"><b>${E(l.tag)} · ${money(l.limit)}</b><span>${E(l.carrier)}</span></div><em>${E(l.note)}</em></li>`).join("");
+  const plan = [
+    [`The stack caps the recovery at ${money(c.total)}`, "Plan the care and the records so the damages prove value through all three layers."],
+    [`${layers[0].tag} pays first: ${money(layers[0].limit)}`, `Tender at limits opens ${layers[1] ? layers[1].tag : "the next layer"}; UM consent to settle and the subrogation waiver come before any release.`],
+    [`${c.health.carrier} pays care now, recovers later`, `${c.health.subro}: its lien comes out of the settlement, so plan the reduction early.`],
+    ["The weak point, named on Day 1", c.critical + " Document the reason now, before an adjuster uses it against value."]];
+  return introFrame(d, "🧱", "Coverage vs. Injury: the Strategy Plan", "Who pays, in what order, against what the injury will cost", `<div class="cfx-cv">
+    <section class="cfx-cv-l"><h3>The coverage hierarchy</h3><ol class="cfx-cv-ladder">${ladder}</ol>
+      <p class="cfx-cv-total">Total available: <b>${money(c.total)}</b></p></section>
+    <section class="cfx-cv-r"><h3>The strategy plan</h3><ol class="cfx-cv-plan">${plan.map(([h, t]) => `<li><b>${E(h)}</b><span>${E(t)}</span></li>`).join("")}</ol></section></div>`);
+}
 function readyCheck(d){
   const qs = labQuestions(d), ph = d.cf.phases[0] || {title: ""};
   return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; ${E(String(ph.lead || "").toUpperCase())} &middot; READY FOR THE KNOWLEDGE CHECK?</div>
@@ -2604,6 +2645,10 @@ if(typeof presenterCues === "function"){   // Presenter view: the trainer's note
   const __cues = presenterCues;
   presenterCues = function(d, slide){
     if(slide && slide.type === "closing" && cfDay(d && d.id)) return `<h3>Congratulations & Thank You</h3><p>The case is closed. The Knowledge Check is done: celebrate with the room and read them the thank-you letter.</p>`;
+    if(slide && (slide.type === "caseMap" || slide.type === "coverageMap") && cfDay(d && d.id)){
+      const x = dayScript(d, slide.type === "caseMap" ? "lifemap" : "coverage");
+      return `<h3>${slide.type === "caseMap" ? "The Life of John Doe's File" : "Coverage vs. Injury: the Strategy Plan"}</h3>${x ? dayScriptHtml(x) : ""}`;
+    }
     if(slide && (slide.type === "companionBuild" || slide.type === "companionBuild2" || slide.type === "extraPractice") && cfDay(d && d.id)){
       const k = {companionBuild: "build", companionBuild2: "build2", extraPractice: "extra"}[slide.type], x = dayScript(d, k);
       const note = k === "build" || k === "build2"
@@ -2654,6 +2699,8 @@ if(typeof renderDaySlideContent === "function"){
   renderDaySlideContent = function(d, slide){
     if(slide && slide.type === "practiceLab" && cfDay(d && d.id)) return practiceLab(d);
     if(slide && slide.type === "readyCheck" && cfDay(d && d.id)) return readyCheck(d);
+    if(slide && slide.type === "caseMap" && cfDay(d && d.id)) return caseMap(d);
+    if(slide && slide.type === "coverageMap" && cfDay(d && d.id)) return coverageMap(d);
     if(slide && slide.type === "companionBuild" && cfDay(d && d.id)) return companionBuild(d, 1);
     if(slide && slide.type === "companionBuild2" && cfDay(d && d.id)) return companionBuild(d, 2);
     if(slide && slide.type === "extraPractice" && cfDay(d && d.id)) return extraPractice(d);
@@ -2667,6 +2714,8 @@ if(typeof daySlideTitle === "function"){
     if(cfDay(d && d.id) && slide && slide.type === "taskOverview") return "Training Agenda";
     if(cfDay(d && d.id) && slide && slide.type === "practiceLab") return "Practice Lab";
     if(cfDay(d && d.id) && slide && slide.type === "readyCheck") return "Ready for the Knowledge Check?";
+    if(cfDay(d && d.id) && slide && slide.type === "caseMap") return "The Life of John Doe's File";
+    if(cfDay(d && d.id) && slide && slide.type === "coverageMap") return "Coverage vs. Injury: the Strategy Plan";
     if(cfDay(d && d.id) && slide && slide.type === "companionBuild") return "Full Application Practice: Build Your Companion Case";
     if(cfDay(d && d.id) && slide && slide.type === "companionBuild2") return "Full Application Practice: the Second Half";
     if(cfDay(d && d.id) && slide && slide.type === "extraPractice") return "Optional Extra Practice";
@@ -5554,8 +5603,6 @@ document.head.appendChild(st);
   body:has(#lessonStage) .footer-note{display:none !important;}
   .lesson-stage .cfx-deck-head{padding-bottom:2px !important;margin-bottom:6px !important;}
   .lesson-stage .cfx-deck-title{font-size:clamp(20px,1.75vw,27px) !important;}
-  .cfx-deck:has(> .cfx-top .cfx-top-rib) > .cfx-ribbon{display:none !important;}
-  .cfx-deck .cfx-top-rib{display:block;}
   .cfx-deck .cfx-kicker{display:none !important;}
   .cfx-deck > .cfx-ribbon{margin-bottom:8px !important;} .cfx-deck > .cfx-ribbon span{font-size:16px !important;padding:5px 16px !important;}
   .cfx-deck .cfx-top{margin-bottom:8px !important;}
@@ -5585,5 +5632,73 @@ document.head.appendChild(st);
 .cfx-agenda .cfx-ag-side p:not(.cfx-ag-day){font-size:17px !important;line-height:1.5 !important;}
 .cfx-agenda .cfx-ag-list li small{font-size:15px !important;} .cfx-agenda .cfx-ag-list li b{font-size:19px !important;}
 .cfx-agenda .cfx-ag-file dt{font-size:13px !important;} .cfx-agenda .cfx-ag-file dd{font-size:15.5px !important;} .cfx-agenda .cfx-ag-file-h small{font-size:13px !important;}`;
+  document.head.appendChild(st);
+})();
+
+/* Bigger decks: no row of view pill, kicker and 📖 Additional Reference above the card (a trainer's ⚡ Inject keeps its
+   row on Your Task), the block's title band always shown, no footer line on a lesson page, and bolder, bigger type. */
+(function(){
+  if(document.getElementById("cf-bigger-css")) return;
+  const st = document.createElement("style"); st.id = "cf-bigger-css";
+  st.textContent = `
+.cfx-deck .cfx-top .cfx-pill,.cfx-deck .cfx-top .cfx-dots,.cfx-deck .cfx-top .cfx-kicker,.cfx-deck .cfx-top .cfx-full,.cfx-deck .cfx-top .cfx-top-rib{display:none !important;}
+.cfx-deck .cfx-top:not(:has(.cfx-inject)){display:none !important;}
+.cfx-deck .cfx-top:has(.cfx-inject){justify-content:flex-end;margin:0 0 6px !important;}
+.cfx-deck > .cfx-ribbon{display:block !important;}
+body:has(#lessonStage) .footer-note{display:none !important;}
+body:not(.ft-fit) #lessonStage > .slide-nav{margin-top:8px !important;margin-bottom:0 !important;}
+/* bolder, bigger type on every slide */
+.cfx .cfx-sheet{font-weight:600;}
+.cfx .cfx-th-c span,.cfx .cfx-points li,.cfx .cfx-points li span{font-weight:700 !important;}
+.cfx .cfx-th-c b{font-weight:800 !important;}
+.cfx .cfx-points li,.cfx .cfx-points li span{font-size:clamp(20px,2.6vh,25px) !important;}
+.cfx .cfx-job .cfx-step span{font-size:clamp(17px,2.2vh,20px) !important;font-weight:700 !important;}
+.cfx .cfx-job .cfx-step small{font-size:13.5px !important;font-weight:800 !important;}
+.cfx .cfx-fw-list span{font-size:clamp(17px,2.2vh,20px) !important;font-weight:600 !important;}
+.cfx .cfx-fw-list b{font-size:clamp(18px,2.3vh,21px) !important;font-weight:800 !important;}
+/* the flow keeps its own measured sizes (above, "the flow ..."): 23px titles (19.5px at six steps or more), 20px bold text */
+.cfx .cfx-hero-text p,.cfx .cfx-hero-text h3{font-weight:800 !important;}
+.cfx .cfx-ev-body,.cfx .cfx-side .cfx-why span,.cfx .cfx-deliver span,.cfx .cfx-when p{font-weight:600 !important;}
+.cfx .cfx-dd li,.cfx .cfx-dd li span{font-weight:700 !important;}
+.cfx .cfx-model td,.cfx .cfx-model th{font-weight:600 !important;}`;
+  document.head.appendChild(st);
+})();
+
+/* Day 1's introduction graphics */
+(function(){
+  if(document.getElementById("cf-intro-css")) return;
+  const st = document.createElement("style"); st.id = "cf-intro-css";
+  st.textContent = `
+.cfx-intro .cfx-sheet{text-align:left;display:flex;flex-direction:column;gap:14px;}
+.cfx-intro li::before{display:none !important;content:none !important;} .cfx-intro .cfx-cv-plan li::before{display:flex !important;content:counter(pl) !important;}
+.cfx-intro .cfx-cv li,.cfx-intro .cfx-cv li *{text-align:left !important;} .cfx-intro li{padding-left:0;}
+.cfx-cm-band{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#1E2340;border-radius:12px;padding:10px 14px;}
+.cfx-cm-k{font:800 13px 'Inter',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#F6C08F;}
+.cfx-cm-band ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;}
+.cfx-cm-band li{font:700 15px 'Inter',sans-serif;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:4px 12px;}
+.cfx-cm-band li i{font-style:normal;color:#F6C08F;margin-right:6px;}
+.cfx-cm-track{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;position:relative;}
+.cfx-cm-track::before{content:"";position:absolute;left:4%;right:4%;top:24px;height:6px;border-radius:3px;background:linear-gradient(90deg,#DB8437,#1E2340);}
+.cfx-cm-node{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 8px;}
+.cfx-cm-n{position:relative;z-index:1;width:54px;height:54px;border-radius:50%;background:#1E2340;color:#fff;font:800 24px 'Poppins','Inter',sans-serif;display:flex;align-items:center;justify-content:center;border:5px solid #fff;box-shadow:0 0 0 3px #DB8437;}
+.cfx-cm-node.on .cfx-cm-n{background:#DB8437;}
+.cfx-cm-node > b{margin:10px 0 8px;font:800 18px/1.25 'Poppins','Inter',sans-serif;color:#1E2340;min-height:2.5em;}
+.cfx-cm-node ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;width:100%;}
+.cfx-cm-node ul li{font:700 15.5px/1.35 'Inter',sans-serif;color:#141A2E;background:#FFF4E6;border:1.5px solid #F0C9A0;border-radius:8px;padding:6px 8px;}
+.cfx-cm-foot{margin:0;font:700 17px 'Inter',sans-serif;color:#A4470F;text-align:center;}
+.cfx-cv{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:22px;}
+.cfx-cv h3{margin:0 0 10px;font:800 21px 'Poppins','Inter',sans-serif;color:#1E2340;}
+.cfx-cv-ladder{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+.cfx-cv-ladder > li{display:grid;grid-template-columns:40px 1fr;gap:4px 12px;align-items:center;}
+.cfx-cv-o{width:40px;height:40px;border-radius:50%;background:#DB8437;color:#fff;font:800 19px 'Inter',sans-serif;display:flex;align-items:center;justify-content:center;}
+.cfx-cv-bar{width:max(var(--w),46%);background:linear-gradient(90deg,#1E2340,#343C66);color:#fff;border-radius:10px;padding:8px 14px;border-left:6px solid #DB8437;}
+.cfx-cv-bar b{display:block;font:800 19px 'Inter',sans-serif;text-align:left;} .cfx-cv-bar span{display:block;font:600 15px 'Inter',sans-serif;color:#E3E7F1;}
+.cfx-cv-ladder em{grid-column:2;font:700 15px/1.35 'Inter',sans-serif;font-style:normal;color:#4A5068;}
+.cfx-cv-total{margin:12px 0 0;font:700 18px 'Inter',sans-serif;color:#1E2340;} .cfx-cv-total b{color:#A4470F;font-size:22px;}
+.cfx-cv-plan{list-style:none;counter-reset:pl;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;}
+.cfx-intro .cfx-cv-plan li{counter-increment:pl;position:relative;padding:9px 12px 9px 46px !important;background:#fff;border:1.5px solid #E2D7C8;border-left:5px solid #1E2340;border-radius:10px;}
+.cfx-cv-plan li::before{content:counter(pl);position:absolute;left:12px;top:10px;width:24px;height:24px;border-radius:50%;background:#1E2340;color:#fff;font:800 14px 'Inter',sans-serif;display:flex;align-items:center;justify-content:center;}
+.cfx-cv-plan b{display:block;font:800 17.5px/1.3 'Inter',sans-serif;color:#1E2340;} .cfx-cv-plan span{display:block;font:600 16px/1.4 'Inter',sans-serif;color:#141A2E;}
+@media(max-width:900px){ .cfx-cm-track{grid-template-columns:1fr;gap:12px;} .cfx-cm-track::before{display:none;} .cfx-cv{grid-template-columns:1fr;} }`;
   document.head.appendChild(st);
 })();

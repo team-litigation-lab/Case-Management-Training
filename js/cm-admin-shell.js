@@ -94,7 +94,7 @@
   // a page that opens with the old eyebrow and title gives them to the banner
   function banner(body, sec, tab){
     const head = body.slice(0, 1500);
-    if(/class="[^"]*\b(ft-banner|dsop-banner)\b/.test(head)) return body;
+    if(/class="[^"]*\b[\w-]*banner\b/.test(head)) return body;   // any page with its own banner (ft-, dsop-, cm-ol-…) keeps just that one
     let title = tab ? tab.label : sec.label;
     const h1 = /<h1\b[^>]*>([\s\S]*?)<\/h1>/.exec(head);
     if(h1){
