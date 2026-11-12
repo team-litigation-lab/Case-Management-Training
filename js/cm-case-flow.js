@@ -872,12 +872,16 @@ function slideBody(view, l, d){
         </div></div>`;
     }
     case "task": { const main = blockTools(b).filter(id => id !== "call")[0] || "cms";
+      // 🏷 a Backup File Maintenance task carries the firm's naming convention (js/cm-drive.js): one row under the task, and
+      // from Day 3 the labels at the end of the Practice Lab line, so neither costs the slide any size
+      // (Days 2–5. Day 1's task has no room for the row at full size: it stays as it is, and its Your Case slide, the next one, carries the convention)
+      const drv = DRIVE_LATER.has(b.id) && !!window.CMDrive && !!CMDrive.namingBox;
       const where = TOOLKIT.find(t => t.id === main), whereName = where ? where.name.replace(/^the /, "the ") : "the CMS";
       /* the busiest slides were shrunk to fit: the Practice Lab note is one line, and the things to do (the live call,
          the service confirmation) sit under the steps, so the two columns are about the same height; with both, the
          service confirmation goes to the right column */
-      return `${plainBox(b)}<div class="cfx-do-now"><b>🧪 Practice Lab</b><span>Work the steps in ${E(whereName)}${SIM.calls[b.id] ? ", take the live call" : ""}, then <em>Deliver</em>.</span></div>
-      <div class="cfx-task"><div class="cfx-task-main"><ol class="cfx-points">${c.steps.map(x => `<li><span>${hl(x)}${stepLink(x, b)}</span></li>`).join("")}</ol>
+      return `${plainBox(b)}<div class="cfx-do-now${drv ? " cfx-drv" : ""}"><b>🧪 Practice Lab</b><span>Work the steps in ${E(whereName)}${SIM.calls[b.id] ? ", take the live call" : ""}, then <em>Deliver</em>.</span>${drv ? CMDrive.namingBox({day: Number(b.id.charAt(1)), labels: true}) : ""}</div>
+      <div class="cfx-task${drv ? " cfx-drv" : ""}"><div class="cfx-task-main"><ol class="cfx-points">${c.steps.map(x => `<li><span>${hl(x)}${stepLink(x, b)}</span></li>`).join("")}</ol>
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}<small class="cfx-simnote-s">⏱ Simulated in real time for accelerated training</small></span>
           <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
         ${serviceOf(b.id) && !SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ ${E(svWords(serviceOf(b.id)).label)}</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
@@ -890,7 +894,7 @@ function slideBody(view, l, d){
           <button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.notes('${b.id}')">📝 Open</button></div>` : ""}
         ${serviceOf(b.id) && SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ ${E(svWords(serviceOf(b.id)).label)}</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
           <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the ${E(svWords(serviceOf(b.id)).label)}</button></div>` : ""}
-        <button type="button" class="cfx-deliver" onclick="cmCaseFlow.toView('${b.id}','check')" title="Hand it in, then check your work"><b>📤 Deliver</b><span>${hl(c.deliver)}</span><em>Hand in &amp; check your work ➔</em></button></aside></div>${(b.id === DRIVE_ACT || DRIVE_LATER.has(b.id)) && window.CMDrive && CMDrive.namingBox ? CMDrive.namingBox({day: Number(b.id.charAt(1)), slide: true}) : "" /* 🏷 the firm's naming convention, on every Backup File Maintenance task (js/cm-drive.js) */}`; }
+        <button type="button" class="cfx-deliver" onclick="cmCaseFlow.toView('${b.id}','check')" title="Hand it in, then check your work"><b>📤 Deliver</b><span>${hl(c.deliver)}</span><em>Hand in &amp; check your work ➔</em></button></aside></div>${drv ? CMDrive.namingBox({day: Number(b.id.charAt(1)), slide: true}) : ""}`; }
     case "check": { const open = answersOpen(b.id);
       return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${open ? (justRevealed === b.id ? hl(x).replace(/class="cfx-hl"/g, 'class="cfx-hl cfx-unblur"') : hl(x)) : masked(x)}</span></label>`).join("")}</div>
       ${open ? (isTrainer() && !inAudience() ? `<p class="cfx-key-note">🔑 Trainer view: the answers. Trainees see them blurred until they finish the activity.</p>` : "")
@@ -4008,7 +4012,13 @@ async function backupDoc(btn, id){
     // the convention filled in (the Worker's pattern, js/cm-drive.js) with the Case ID, its CMS category as the Type and today.
     const filed = cmDocFiling.record && cmDocFiling.record(d.id), ext = (/\.([A-Za-z0-9]{1,8})$/.exec(d.file) || [])[1] || "pdf";
     const name = (filed && filed.filed && filed.name) || (window.CMDrive && CMDrive.nameFor ? CMDrive.nameFor({category: cmDocFiling.expectedCategory(d), ext}) : "");
-    if(!name){ toast("Open your case in the CMS first (🗂 Open CMS): the backup copy is named with its Case ID, the firm's way."); return; }
+    if(!name){
+      // why no name could be made: the drive isn't there, the firm's naming rule hasn't loaded, or (the rule here) no Case ID yet
+      const st = window.CMDrive && CMDrive.status ? CMDrive.status() : null, ruled = !!(window.CMDrive && CMDrive.naming && CMDrive.naming());
+      toast(!st || !st.configured || !st.connected || !st.built ? "Your Backup Drive isn't set up yet. Connect it, then try again."
+        : !ruled ? "The firm's naming convention hasn't loaded yet. Open 📂 My Backup Drive, then try again."
+        : "Open your case in the CMS first (🗂 Open CMS): the backup copy is named with its Case ID, the firm's way.");
+      return; }
     const out = await cmDocFiling.keepOnDrive(d.folder, name, await r.arrayBuffer(), d.id);
     if(out && out.ok){ btn.textContent = "✓ In GDrive"; toast(`Backed up to your Drive under ${String(out.folder).split("/").pop()} as ${name}.`); return; }
     toast(out && out.why === "no-drive" ? "Your Backup Drive isn't set up yet. Connect it, then try again." : "The backup didn't reach your Drive. Try again.");
