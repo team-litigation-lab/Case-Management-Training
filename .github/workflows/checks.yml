@@ -157,6 +157,10 @@ jobs:
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules
         run: node .github/scripts/graded-calls.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
+      - name: Case folders follow the firm's SOP (trainer's Drive Links, the trainee's My Case Folder, Day 1's SOP slide)
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node .github/scripts/drive-sop.cjs http://localhost:8787/ || { echo "--- server log ---"; cat "$RUNNER_TEMP/server.log"; exit 1; }
       - name: The trainer's injected call rings every trainee; answered or missed, it counts under Case Calls
         env:
           NODE_PATH: ${{ runner.temp }}/pw/node_modules

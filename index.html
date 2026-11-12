@@ -3251,7 +3251,7 @@ const mem = {}; // in-memory fallback if window.storage is unavailable
 const PERSONAL_KEYS = ["day-progress","practice-progress","lab-attempts-global","lab-attempts-by-day","admin-unlocked-days","admin-unlocked-copies","notes","completed-lab-actions",
   "day10-window","submissions","roleplayHistory","slide-progress","last-slide","attn-detail-findings",
   "calendar-custom","calendar-edits","call-log","inbox-filing","inbox-interactions","inbox-labels","trainee-batch",
-  "quick-check-answers","day-order-migrated","dividers-migrated","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log","lab-subs","case-flow","net-sheet","doc-filing","drive-setup"];
+  "quick-check-answers","day-order-migrated","dividers-migrated","last-view","lab-drafts","work-log","cert-name","reg-name","intro-seen","task-log","task-day-since","cms-log","lab-subs","case-flow","net-sheet","doc-filing","drive-setup","case-folder"];
 const PERSONAL_KEY_SET = new Set(PERSONAL_KEYS);
 let cloudSaveTimer = null;
 function scheduleCloudSave(){
@@ -11468,9 +11468,11 @@ function renderAdmin(){
       <button class="admin-tab-btn ${tab==='tfeedback'?'active':''}" onclick="setAdminTab('tfeedback')">Trainee Feedback</button>
       <button class="admin-tab-btn ${tab==='activities'?'active':''}" onclick="setAdminTab('activities')">📋 Activities</button>
       <button class="admin-tab-btn ${tab==='fbstyle'?'active':''}" onclick="setAdminTab('fbstyle')">🗣 Feedback Style</button>
+      <button class="admin-tab-btn ${tab==='drivelinks'?'active':''}" onclick="setAdminTab('drivelinks')">📂 Drive Links</button>
     </div>`;
   if(tab==="activities") return tabBar + (typeof renderAdminActivities==="function" ? renderAdminActivities() : "");
   if(tab==="fbstyle") return tabBar + (typeof renderAdminFeedbackStyle==="function" ? renderAdminFeedbackStyle() : "");
+  if(tab==="drivelinks") return tabBar + (typeof renderAdminDriveLinks==="function" ? renderAdminDriveLinks() : "");
   if(tab==="sop") return tabBar + renderAdminSOP();
   if(tab==="studio") return tabBar + renderAdminStudio();
   if(tab==="tfeedback") return tabBar + renderAdminTraineeFeedback();
@@ -16016,17 +16018,18 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-flow-docs.js?v=28"></script>
 <script src="/js/cm-case-flow-art.js?v=3"></script>
 <script src="/js/cm-case-flow-slides.js?v=58"></script>
-<script src="/js/cm-case-flow-scripts.js?v=47"></script>
+<script src="/js/cm-case-flow-scripts.js?v=48"></script>
 <script src="/js/cm-case-flow-sim.js?v=26"></script>
 <script src="/js/cm-case-flow-exhibits.js?v=7"></script>
 <script src="/js/cm-case-flow-data.js?v=60"></script>
 <script src="/js/cm-case-dates.js?v=8"></script>
 <script src="/js/cm-case-flow-schedule.js?v=1"></script>
-<script src="/js/cm-case-flow.js?v=118"></script>
+<script src="/js/cm-case-flow.js?v=119"></script>
 <script src="/js/cm-script-editor.js?v=13"></script>
 <!-- 🏅 the Scorecard (as in Foundational Training): My Performance for trainees, Scorecards for trainers -->
 <script src="/js/cm-scorecard.js?v=5"></script>
 <script src="/js/cm-know-tools.js?v=1"></script>
+<script src="/js/cm-drive-sop.js?v=1"></script>
 <!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
 <script src="/js/cm-companion-cases.js?v=1"></script>
 <script src="/js/cm-companion.js?v=1"></script>
