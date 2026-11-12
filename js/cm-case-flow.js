@@ -1040,13 +1040,70 @@ window.cmCaseFlow.inject = function(dayId, i){
   const d = cfDay(dayId), l = d && d.lessons[i], xs = injectsOf(l && l.cf.block); if(!xs.length) return;
   const o = document.createElement("div"); o.className = "cfx-modal cfx-more cfx-inject-m"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Inject a real-time task");
   o.innerHTML = `<div class="cfx-modal-in card lesson-card"><div class="cfx-modal-h"><b>⚡ Inject a real-time task: trainer only</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>
-    <p class="cfx-more-lead">Inject it once the trainees are working this task, not before: the point is handling it mid-task, the way it lands on a real desk.</p><ul>${xs.map(x => `<li>${x.html}</li>`).join("")}</ul></div>`;
+    <p class="cfx-more-lead">Inject it once the trainees are working this task, not before: the point is handling it mid-task, the way it lands on a real desk.</p><ul>${xs.map(x => `<li>${x.html}</li>`).join("")}</ul>${ringBtn(d.id, l.cf.block)}</div>`;
   const close = () => { o.remove(); document.removeEventListener("keydown", esc, true); };
   const esc = e => { if(e.key === "Escape"){ e.stopPropagation(); close(); } };
   o.addEventListener("click", e => { if(e.target === o || e.target.closest(".cfx-modal-h button")) close(); });
   document.addEventListener("keydown", esc, true);
   document.body.appendChild(o);
 };
+/* 📞 The injected call: the trainer rings every trainee's LSH Ring Channel from the ⚡ Inject (or the Presenter's cue).
+   It's a shared record, call-inject-day<N> ({active, id, dayId, blockId, who, at}); each trainee's browser checks it every
+   15 seconds, on any page, and rings: 📞 Answer opens the graded call (cmCaseFlow.call), Decline or 60 seconds unanswered
+   is a missed call. Either way it's logged on their file (REC.injects[id]) and counts on the Scorecard (📞 Case Calls). */
+const RING_FOR = 10 * 60 * 1000, RING_SECS = 60;
+function ringBtn(dayId, b){
+  if(!b || !SIM.calls[b.id] || !isTrainer()) return "";
+  return `<div class="cfx-ringrow"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.ring(${dayId},'${b.id}')">📞 Ring every trainee now: ${E(SIM.calls[b.id].who)}</button><small>Rings their LSH Ring Channel for ${RING_SECS} seconds; answered or missed, it's on their Scorecard.</small></div>`;
+}
+window.cmCaseFlow.ring = async function(dayId, blockId){
+  const c = SIM.calls[blockId]; if(!c || typeof sharedSet !== "function") return;
+  const now = new Date().toISOString();
+  try{ await sharedSet("call-inject-day" + dayId, {active: true, id: now, at: now, dayId, blockId, who: c.who}); toast(`📞 Ringing every trainee on Day ${(cfDay(dayId) || {cf: {}}).cf.n || dayId}: ${c.who}.`); }
+  catch(e){ toast("The call couldn't be sent. Check the connection and try again."); }
+};
+let ringing = null;
+async function pollRing(){
+  if(ringing || !state.traineeId || state.isAdmin || typeof sharedGetMany !== "function" || document.hidden) return;
+  await load();
+  const ids = MODULES.map(d => d.id);   // every day: a trainer rings the whole room, wherever each trainee has got to
+  if(!ids.length) return;
+  let recs = [];
+  try{ recs = await sharedGetMany(ids.map(id => "call-inject-day" + id)) || []; }catch(e){ return; }
+  const done = REC.injects || {};
+  const live = recs.filter(r => r && r.active && r.id && !done[r.id] && SIM.calls[r.blockId] && Date.now() - new Date(r.at).getTime() < RING_FOR)
+    .sort((a, b) => String(b.at).localeCompare(String(a.at)))[0];
+  if(live) ring(live);
+}
+function logInject(r, outcome){
+  REC.injects = REC.injects || {};
+  REC.injects[r.id] = {blockId: r.blockId, dayId: r.dayId, who: r.who, at: r.at, outcome, [outcome + "At"]: new Date().toISOString()};
+  persist();
+}
+function ring(r){
+  if(document.getElementById("cfRing")) return;
+  const o = document.createElement("div"); o.id = "cfRing"; o.className = "cf-ring"; o.setAttribute("role", "alertdialog"); o.setAttribute("aria-label", "Incoming call");
+  let left = RING_SECS;
+  o.innerHTML = `<div class="cf-ring-box"><div class="cf-ring-ic" aria-hidden="true">📞</div><p class="cf-ring-k">Incoming call · LSH Ring Channel</p><h3>${E(r.who)}</h3>
+    <p class="cf-ring-on">On John Doe's file · <span class="cf-ring-t">${left}s</span></p>
+    <div class="cf-ring-btns"><button type="button" class="btn cf-ring-no">Decline</button><button type="button" class="btn cf-ring-yes">📞 Answer</button></div>
+    <small>Answered or missed, this call is logged on your file and your Scorecard.</small></div>`;
+  ringing = r;
+  const t = setInterval(() => { left--; const el = o.querySelector(".cf-ring-t"); if(el) el.textContent = left + "s"; if(left <= 0) end("missed"); }, 1000);
+  function end(outcome){
+    clearInterval(t); o.remove(); ringing = null; logInject(r, outcome);
+    if(outcome === "answered") cmCaseFlow.call(r.blockId);
+    else toast(`📞 Missed call from ${r.who}. It's logged on your file: call back from the day's Your Task slide.`);
+  }
+  o.querySelector(".cf-ring-yes").onclick = () => end("answered");
+  o.querySelector(".cf-ring-no").onclick = () => end("missed");
+  document.body.appendChild(o);
+  try{ if(navigator.vibrate) navigator.vibrate([400, 200, 400]); }catch(e){}
+}
+window.cmCaseFlow.pollRing = pollRing;
+setInterval(pollRing, 15000);
+setTimeout(pollRing, 4000);
+document.addEventListener("visibilitychange", () => { if(!document.hidden) pollRing(); });
 if(!document.getElementById("cfx-deck-font")){
   const f = document.createElement("link"); f.id = "cfx-deck-font"; f.rel = "stylesheet";
   f.href = "https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap";
@@ -2498,7 +2555,7 @@ if(typeof presenterCues === "function"){   // Presenter view: ⚡ Inject, at the
     const l = d.lessons[slide.lessonIndex], b = l && l.cf && l.cf.block;
     if(!b || viewsOf(b)[(slide.part || 1) - 1] !== "task") return html;
     const xs = injectsOf(b); if(!xs.length) return html;
-    return `<div class="pv-inject"><b>⚡ Inject now: a real-time task</b><span>Once the room is working this task, not before.</span><ul>${xs.map(x => `<li>${x.html}</li>`).join("")}</ul></div>` + html;
+    return `<div class="pv-inject"><b>⚡ Inject now: a real-time task</b><span>Once the room is working this task, not before.</span><ul>${xs.map(x => `<li>${x.html}</li>`).join("")}</ul>${ringBtn(d.id, b)}</div>` + html;
   };
 }
 if(typeof presenterCues === "function"){   // Presenter view: the slide's ＋ More pop-ups, opened in the room's window from the console
@@ -4417,7 +4474,16 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx-inject-m ul li{margin-bottom:6px;}
 .pv-inject{margin:0 0 12px;padding:10px 12px;border-radius:10px;background:#FDF0E6;border:2px solid #DB8437;}
 .pv-inject > b{display:block;color:#8E2A2A;font-size:14px;}.pv-inject > span{display:block;font-size:12px;color:var(--ink-soft);margin:2px 0 4px;}
-.pv-inject ul{margin:0;padding-left:18px;}.pv-inject li{font-size:13.5px;margin:4px 0;}
+.pv-inject ul{margin:0;padding-left:18px;}
+.cfx-ringrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;}.cfx-ringrow small{font:600 12.5px var(--font-ui);color:#3C4258;}
+.cf-ring{position:fixed;inset:0;z-index:2147483000;background:rgba(15,20,40,.72);display:flex;align-items:center;justify-content:center;padding:16px;}
+.cf-ring-box{background:#1E2340;color:#fff;border-radius:22px;padding:26px 30px;max-width:440px;width:100%;text-align:center;border-top:6px solid #DB8437;box-shadow:0 20px 60px rgba(0,0,0,.45);}
+.cf-ring-ic{font-size:46px;animation:cfRing 1s ease-in-out infinite;} .cf-ring-k{margin:6px 0 0;font:800 12.5px var(--font-ui);letter-spacing:.1em;text-transform:uppercase;color:#F6C08F;}
+.cf-ring-box h3{margin:6px 0;font:800 26px 'Poppins',var(--font-ui);color:#fff;} .cf-ring-on{margin:0 0 16px;font:600 15px var(--font-ui);color:#E3E7F1;}
+.cf-ring-btns{display:flex;gap:12px;justify-content:center;margin-bottom:10px;} .cf-ring-btns .btn{flex:1;padding:12px;font:800 16px var(--font-ui);border:0;border-radius:999px;color:#fff;}
+.cf-ring-no{background:#C0392B;} .cf-ring-yes{background:#1E8E4F;} .cf-ring-box small{font:600 12.5px var(--font-ui);color:#C9CEDC;}
+@keyframes cfRing{0%,100%{transform:rotate(0)}20%{transform:rotate(-14deg)}40%{transform:rotate(14deg)}60%{transform:rotate(-10deg)}80%{transform:rotate(10deg)}}
+@media(prefers-reduced-motion:reduce){.cf-ring-ic{animation:none;}}.pv-inject li{font-size:13.5px;margin:4px 0;}
 .pv-more{margin:14px 0 0;padding:10px 12px;border:1px dashed #DB8437;border-radius:10px;background:#FFF6EC;}
 .pv-more b{display:block;font-size:13px;color:var(--navy);}.pv-more span{display:block;font-size:12px;color:var(--ink-soft);margin:2px 0 6px;}
 .pv-more div{display:flex;flex-wrap:wrap;gap:6px;}
