@@ -102,11 +102,8 @@
     }
   },
   "d4m2-um": {
-    "why": {
-      "say": "• Three carriers: Keystone, Harbor Point, Cardinal State\n• Keystone insured Robert Smith, who ran the stop sign; Harbor Point and Cardinal State are John's own coverage\n• Harbor Point offered $8,000 against a $20,000 limit\n• One paragraph in Harbor Point's policy decides where this fight happens; read it before calendaring anything\n• Red flag: UM routes docketed off the tort SOL can be missed; each has its own clock, docketed only from Atty. Thorne's written answer"
-    },
     "theory": {
-      "say": "• Third-party claim: against the at-fault driver's insurer, Keystone for Robert Smith\n• First-party claim: against coverage protecting the client, Harbor Point Host UM and Cardinal State Relative UM\n• UM: uninsured or underinsured motorist coverage, paying when the other driver's insurance isn't enough\n• Mandatory arbitration clause sends the dispute to a private decision-maker; the firm files a Demand for Arbitration\n• Bad faith: a separate suit over unfair handling, can exceed the limit; Atty. Thorne's alone"
+      "say": "• Three carriers. Third-party claim: against the at-fault driver's insurer, Keystone for Robert Smith, who ran the stop sign\n• First-party claim: against coverage protecting the client, John's own: Harbor Point Host UM and Cardinal State Relative UM\n• UM: uninsured or underinsured motorist coverage, paying when the other driver's insurance isn't enough; Harbor Point offered $8,000 against a $20,000 limit\n• One paragraph in Harbor Point's policy decides where this fight happens; read it before calendaring anything\n• Mandatory arbitration clause sends the dispute to a private decision-maker; the firm files a Demand for Arbitration\n• Bad faith: a separate suit over unfair handling, can exceed the limit; Atty. Thorne's alone"
     },
     "frame": {
       "say": "• Step one, claim submission: UM Demand Package with proof the at-fault limits were used up, sent 03/22/2027\n• Step two, dispute: Harbor Point offered $8,000, Cardinal State $6,000; $14,000 against $30,000 in limits\n• Step three, resolution route: Demand for Arbitration where the clause binds\n• Or a lawsuit against the carrier where state law bars the clause or lets the client opt out\n• Bad faith is not on this flow; separate action, Atty. Thorne's call"
@@ -118,7 +115,7 @@
       "say": "• Claim submission, 03/22/2027: injuries, records, $16,401.40 in Specials, wage letter, proof Keystone's $10,000 was tendered and consented to\n• Tendered: offered up in full\n• Dispute: $8,000 on 03/31, $6,000 on 04/02; $14,000 against $30,000 of limits\n• Route: Harbor Point invoked its arbitration clause in April 2027; hearing 06/22 before Laura Whitcomb\n• Margaret's Bluewater policy is not a route: UM rejected in writing; John owns no car"
     },
     "dodont": {
-      "say": "• Do: say first party or third party before anything else about a claim\n• Do: quote the clause in the memo, then stop; a paraphrase is already an interpretation\n• Don't: file or announce a lawsuit when the policy sends the dispute to arbitration\n• Don't read Harbor Point's clause onto Cardinal State's policy\n• Don't tell John a carrier is acting in bad faith or that he can recover above limits",
+      "say": "• Do: say first party or third party before anything else about a claim\n• Do: quote the clause in the memo, then stop; a paraphrase is already an interpretation\n• Don't: file or announce a lawsuit when the policy sends the dispute to arbitration\n• Don't read Harbor Point's clause onto Cardinal State's policy\n• Don't tell John a carrier is acting in bad faith or that he can recover above limits\n• Red flag: UM routes docketed off the tort SOL can be missed; each has its own clock, docketed only from Atty. Thorne's written answer",
       "ask": "Until Cardinal State's certified policy arrives, what can be said about how its dispute is decided?"
     }
   },
@@ -204,14 +201,11 @@
     }
   },
   "d4m3-l1": {
-    "why": {
-      "say": "• A disorganized file the morning of mediation costs Atty. Thorne momentum and can cost a point\n• At the 03/18/2027 mediation, Atty. Thorne has minutes to answer Keystone's 14-Day Gap argument\n• Every record, figure and quote must sit in a known place\n• Red flag: Riverton still at $6,290.00 makes medical read $15,002.40, and Keystone already says the ledger is unverified; use the audited $6,105.00 and re-run totals"
-    },
     "doc": {
       "say": "• The Answer and Affirmative Defenses: the defendant's response to the Complaint, admitting or denying each allegation\n• It tells the court and Atty. Thorne what Robert Smith disputes; it is the defense roadmap\n• Filed 11/12/2026 by Atty. Grant Mercer: comparative negligence (John partly to blame), causation (the gap, \"degenerative\" MRI), failure to mitigate\n• Log it, file it in 01_PLEADINGS, keep Section 3 to operative pleadings\n• Map each pleaded defense to an exhibit or a flag; what it means is Atty. Thorne's"
     },
     "theory": {
-      "say": "• The Mediation Binder: the case's critical documents, organized so counsel never fumbles in a fast compromise session\n• Section one, executive summary and administration: a one-page snapshot of the parties, the order and the schedule\n• Section two, mediation briefs: both sides' arguments side by side\n• Section three, core pleadings: the filed documents that say what the lawsuit is about\n• Six sections in all; these first three set the stage"
+      "say": "• A disorganized file the morning of mediation costs Atty. Thorne momentum and can cost a point\n• At the 03/18/2027 mediation he has minutes to answer Keystone's 14-Day Gap argument; every record, figure and quote must sit in a known place\n• The Mediation Binder: the case's critical documents, organized so counsel never fumbles in a fast compromise session\n• Section one, executive summary and administration: a one-page snapshot of the parties, the order and the schedule\n• Section two, mediation briefs: both sides' arguments side by side; section three, core pleadings: the filed documents that say what the lawsuit is about\n• Six sections in all; these first three set the stage"
     },
     "theory2": {
       "say": "• The back half of the binder proves the case\n• Section four, key evidence and liability: reports, video stills, highlighted deposition pages (sworn testimony taken outside court)\n• Section five, damages, financials and experts: records, bills, wage proof, expert reports behind counsel's figure\n• Section six, settlement history and drafts, so Atty. Thorne can finalize a deal before anyone leaves"
@@ -229,22 +223,19 @@
       "say": "• Mediation set for 03/18/2027: open the master index under Documents; seat each document in exactly one section\n• Every entry gets its section, exhibit number, Bates range and source\n• In the Pleadings Log, check each pleaded defense against sections four and five: an answering exhibit, or a flag to Atty. Thorne\n• OCR the binder, making the PDF text-searchable; bookmark, check against the index, send for approval\n• Searchable, approved and delivered by 03/11/2027"
     },
     "dodont": {
-      "say": "• Do: start from the 07/20/2026 Demand Package; most of the binder already lives there\n• Do: bookmark to the page Atty. Thorne will quote, like Dr. Reyes's causation opinion, not the cover\n• Don't: an unorganized file on 03/18/2027, or a snapshot sheet with stale opposing-counsel contacts\n• Don't send the confidential statement late: due 03/11/2027, to the mediator, not the other side\n• Dr. Reyes's causation opinion may need disclosure by 03/15/2027; how is Atty. Thorne's call",
+      "say": "• Do: start from the 07/20/2026 Demand Package; most of the binder already lives there\n• Do: bookmark to the page Atty. Thorne will quote, like Dr. Reyes's causation opinion, not the cover\n• Don't: an unorganized file on 03/18/2027, or a snapshot sheet with stale opposing-counsel contacts\n• Don't send the confidential statement late: due 03/11/2027, to the mediator, not the other side\n• Dr. Reyes's causation opinion may need disclosure by 03/15/2027; how is Atty. Thorne's call\n• Red flag: Riverton still at $6,290.00 makes medical read $15,002.40, and Keystone already says the ledger is unverified; use the audited $6,105.00 and re-run totals",
       "ask": "Why does the 03/15/2027 expert disclosure date matter before the mediation, and who is told today?"
     }
   },
   "d4m3-l2": {
-    "why": {
-      "say": "• The Mediation Binder persuaded; the Arbitration Binder is evidence\n• Everything in this lesson counts back from the 06/02/2027 exchange\n• On 04/05/2027 Harbor Point and Cardinal State took up Keystone's gap argument; Laura Whitcomb, Esq. decides damages, bindingly\n• A page missing, unreadable or not exchanged by 06/02/2027 may not count\n• Red flag: Lien Sheet lists Harbor Point PIP at $5,000.00 and Summit at $2,395.00, neither owed; strike both, re-total, keep it in Atty. Thorne's set"
-    },
     "theory": {
-      "say": "• The Arbitration Binder is a trial-ready evidence record for a private judge who decides\n• The Case Manager's role is operational: timelines, scheduling, documents, with precision\n• The brief deadline is the cutoff for claims, exhibit indexes and witness lists, to the arbitrator and opposing counsel\n• Arbitration submissions set the ground rules, so they lead the binder\n• A missing page or a grayscale print can be excluded, with no second chance"
+      "say": "• The Mediation Binder persuaded; the Arbitration Binder is evidence: a trial-ready record for a private judge who decides\n• On 04/05/2027 Harbor Point and Cardinal State took up Keystone's gap argument; Laura Whitcomb, Esq. decides damages, bindingly\n• Everything counts back from the 06/02/2027 exchange: a page missing, unreadable, grayscale or not exchanged by then can be excluded, with no second chance\n• The Case Manager's role is operational: timelines, scheduling, documents, with precision\n• The brief deadline is the cutoff for claims, exhibit indexes and witness lists, to the arbitrator and opposing counsel\n• Arbitration submissions set the ground rules, so they lead the binder"
     },
     "frame": {
       "say": "• Tab one, submissions: snapshot sheet, final brief, governing order or agreement, fee disclosures; tab two: current demand and written positions only\n• Tab three, liability and biomechanics (the physics of the crash): certified Police Report, diagrams, color photos and stills\n• Tab four, medical damages: consolidated ledger, provider records and bills, imaging, the causation opinion\n• Tab five, prior medical shield: prior injury records and work history with a medical opinion\n• Tab six, economic losses: wage-loss proof only; no miscellaneous tab"
     },
     "rules": {
-      "say": "• The threshold leads: prove BI used up with Keystone's $10,000 tender, consents, Limited Release, Robert Smith's dismissal, never the Mediation Statement\n• Authenticate, prove it's real, with business-records certifications from each provider, Riverton Fire, Riverton PD, Northgate HR\n• Video in its original file with the 02/19/2026 chain of custody, the record of who held it; stills in color\n• Build to the strict standard even if rules are relaxed; number exhibits C-1 onward, freeze once exchanged\n• Nothing crosses from mediation; Lien Sheet stays in Atty. Thorne's set"
+      "say": "• The threshold leads: prove BI used up with Keystone's $10,000 tender, consents, Limited Release, Robert Smith's dismissal, never the Mediation Statement\n• Authenticate, prove it's real, with business-records certifications from each provider, Riverton Fire, Riverton PD, Northgate HR\n• Video in its original file with the 02/19/2026 chain of custody, the record of who held it; stills in color\n• Build to the strict standard even if rules are relaxed; number exhibits C-1 onward, freeze once exchanged\n• Nothing crosses from mediation; Lien Sheet stays in Atty. Thorne's set\n• Red flag: Lien Sheet lists Harbor Point PIP at $5,000.00 and Summit at $2,395.00, neither owed; strike both and re-total"
     },
     "model": {
       "say": "• Left, small and gray: the Mediation Binder, persuades, non-binding; an orange arrow carries the gap dispute over\n• Right, larger: six arbitration tabs, each card stating its quality rule\n• Threshold chip over tab one: BI exhausted, $10,000 tendered 03/18/2027\n• Authentication rail below: custodian certification, original file, chain of custody\n• Red warning: not exchanged by 06/02/2027 may not count; confirm the forum's rules"
@@ -381,17 +372,14 @@
     }
   },
   "d3m4-close": {
-    "why": {
-      "say": "• The Trust Ledger hit $0.00 on 10/22/2026: five checks out, $40,000.00 in and $40,000.00 out\n• Zero is where closing starts, not where it ends\n• The file must show where every dollar went, who signed, and why each figure moved, matching the Net Sheet\n• Red flag: an email saying \"We've changed our wiring instructions.\" Stop the payment; verify by phone to a number already on file, not the email's"
-    },
     "theory": {
-      "say": "• Before a case is marked Archived, check four document sets, then apply the retention policy: how long the file is kept\n• The four: money trail, proof of delivery, compliance and identity, closing memo\n• Closing memo, most often skipped: one page on how the file started and ended, every gap and exception explained\n• Retention: every document tagged by type, destroy-by date calendared\n• A late bill after the closing letter is checked, classified and routed the same day"
+      "say": "• The Trust Ledger hit $0.00 on 10/22/2026: five checks out, $40,000.00 in, $40,000.00 out; zero is where closing starts, not ends\n• The file must show where every dollar went, who signed, why each figure moved, matching the Net Sheet\n• Before a case is marked Archived, check four sets: money trail, proof of delivery, compliance and identity, closing memo\n• Closing memo, most often skipped: one page on how the file started and ended, every gap and exception explained\n• Retention policy, how long the file is kept: every document tagged by type, destroy-by date calendared\n• A late bill after the closing letter is checked, classified and routed the same day"
     },
     "frame": {
       "say": "• Money trail: every payment with transaction ID and zero-balance confirmation: three deposits, five checks on 10/22/2026, $0.00\n• Proof of delivery: Peach State's and Riverton Spine & Rehab's satisfactions, and John Doe's signed acknowledgment\n• Compliance and identity: duplication-of-benefits statement, proving nobody was paid twice, and an updated W-9\n• His payer disclosure names PIP, Peach State and the $312.40 he paid himself\n• Closing memo dated 10/30/2026 notes Margaret Doe's Property Damage claim still open; then tag for retention"
     },
     "rules": {
-      "say": "• Nothing archived until all four sets are present; test: could an outside auditor trace every dollar from the file alone\n• Money trail: three deposits, five 10/22/2026 checks, each with its confirmation number\n• Zero counts only when bank statement, trust journal and client ledger agree and every check cleared; second reviewer on each disbursement\n• Closing memo explains every figure that moved; Case Manager drafts the closing letter, Atty. Thorne signs\n• Retention: dispose 7 years from closing; a late bill goes to Atty. Thorne same day",
+      "say": "• Nothing archived until all four sets are present; test: could an outside auditor trace every dollar from the file alone\n• Money trail: three deposits, five 10/22/2026 checks, each with its confirmation number\n• Zero counts only when bank statement, trust journal and client ledger agree and every check cleared; second reviewer on each disbursement\n• Closing memo explains every figure that moved; Case Manager drafts the closing letter, Atty. Thorne signs\n• Retention: dispose 7 years from closing; a late bill goes to Atty. Thorne same day\n• Red flag: an email saying \"We've changed our wiring instructions.\" Stop the payment; verify by phone to a number already on file, not the email's",
       "ask": "Riverton Spine & Rehab's $6,290.00 became $4,580.00. What does the closing memo say about that?"
     },
     "steps": {
@@ -400,11 +388,8 @@
     }
   },
   "d4m3-prior": {
-    "why": {
-      "say": "• The defense line since the first offer: the injury was already there\n• Keystone called the MRI degenerative, wear and tear from age, on 08/05/2026; Atty. Grant Mercer's 11/12/2026 Answer pleaded causation on it\n• At the 02/18/2027 deposition, defense counsel pressed John's three chiropractic visits in 2021, for his low back, not his neck\n• Harbor Point and Cardinal State dispute damages; Laura Whitcomb, Esq. decides 06/22/2027, bindingly\n• Tab 5 of the Arbitration Binder answers the prior from the record"
-    },
     "theory": {
-      "say": "• Tab 5, the Prior Medical Shield, answers prior records before the defense raises them\n• Defense moves: already there, imaging shows wear and tear, continuation of the old injury; often no pre-crash imaging\n• The answer starts with the pre-morbid baseline: John's condition before 02/06/2026, from records, not memory\n• Eggshell idea: generally the at-fault driver takes the injured person as found; worsening an old problem still counts\n• That argument is Atty. Thorne's; an unshielded prior is an arbitration landmine"
+      "say": "• Defense line since Keystone's 08/05/2026 offer: already there, a degenerative MRI (wear and tear), the old injury continuing; often no pre-crash imaging\n• Atty. Grant Mercer's 11/12/2026 Answer pleaded causation on it; the 02/18/2027 deposition pressed John's three 2021 chiropractic visits, low back, not neck\n• Harbor Point and Cardinal State dispute damages; Laura Whitcomb, Esq. decides 06/22/2027, bindingly\n• Tab 5 of the Arbitration Binder, the Prior Medical Shield, answers priors before the defense raises them\n• It starts from the pre-morbid baseline: John's condition before 02/06/2026, from records, not memory\n• Eggshell idea: generally the at-fault driver takes the injured person as found; worsening an old problem still counts; Atty. Thorne's argument"
     },
     "rules": {
       "say": "• Disclose the prior, never hide it; build the shield in five pieces\n• Birch Avenue Chiropractic's complete chart for 05/04, 05/11, 05/18/2021, certified; resolution in the record's words: low-back stiffness resolved, full activity\n• Body region side by side: low back then, neck and right arm now\n• The gap between, by records: the release, his Northgate job from 01/12/2026, histories with no prior neck complaint\n• Dr. Park's sentence and Dr. Reyes's Causation Letter in the same tab; mismatches go to Atty. Thorne"

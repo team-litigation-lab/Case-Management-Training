@@ -3,6 +3,7 @@
     "theoryFirst": true,
     "image": "team-huddle",
     "hook": "You own **the file's movement**; Atty. Thorne owns every legal judgment.",
+    "whySlide": true,
     "points": [
       "Coordinate the case **from intake to resolution**, end to end",
       "Log every contact, deadline and decision **in the CMS**",
@@ -50,6 +51,7 @@
       "Treating the gap as **the client's fault**"
     ],
     "redFlag": {
+      "on": "dodont",
       "see": "A Case Snapshot field with no named source document, even **the client's seat**",
       "costs": "An unverified field becomes the file's fact, and a wrong seat reaches the wrong policies",
       "do": "Name each field's document (RS01, RS07); mark the rest **not yet verified**",
@@ -159,6 +161,7 @@
       "confirm": "Atty. Thorne confirms the governing statute"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "The SOL counted from **the intake date, 02/09/2026**",
       "costs": "It dockets 02/09/2028: three days past the limit",
       "do": "Recount from the DOL on RS07; **docket all three dates** in CMS → Calendar",
@@ -276,6 +279,7 @@
       ]
     },
     "hook": "A client you can't reach **still has deadlines**; the protocol proves the firm did its part.",
+    "whySlide": true,
     "points": [
       "Step 1: review status, deadlines and last contact **before you call**",
       "Step 2: **2+ phone attempts**, email and text, emergency contact, certified mail",
@@ -375,6 +379,7 @@
       "confirm": "Atty. Thorne decides and tells John"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "A draft letter saying **'we are withdrawing'** or 'you will lose your case'",
       "costs": "It announces a decision only Atty. Thorne can make, and predicts the claim",
       "do": "Strike it; **send the draft to Atty. Thorne** for review before it goes",
@@ -428,6 +433,7 @@
       ]
     },
     "hook": "Most self-inflicted claim damage happens **in the first two weeks**, before the client is told.",
+    "whySlide": true,
     "points": [
       "**No Recorded Statement** to the adverse carrier; route contact through the firm",
       "Start treatment and **keep every appointment**",
@@ -504,6 +510,7 @@
       "confirm": "Margaret's PD claim is referred to Atty. Thorne"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "A rental, PD or Loss of Use claim **opened in John Doe's name**",
       "costs": "John has no PD claim: Margaret Doe's Civic claim (KM-26-440871-PD) tangles with his BI file",
       "do": "Keep PD under Margaret Doe; **refer her claim** to Atty. Thorne",
@@ -594,6 +601,7 @@
       "confirm": "Atty. Thorne owns value and acceptance"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "A Risks band reading **'none'** for a client nobody has examined",
       "costs": "A buried risk: no treatment yet, and the days without care keep counting",
       "do": "List each open risk **with its source and date** in the Risks band",
@@ -737,6 +745,7 @@
       "confirm": "Atty. Thorne answers value and strategy"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "You hear yourself tell John **'Don't worry, you'll be fine'**",
       "costs": "That is advice: it predicts his outcome, and only Atty. Thorne may",
       "do": "Stop, log his question word for word, and **route it the same day**",
@@ -782,6 +791,7 @@
   "d1m4-tmap": {
     "image": "medical-visit",
     "hook": "Know where he **should be on the map**, and you'll see the drift before the adjuster.",
+    "whySlide": true,
     "points": [
       "Locate him every check-in: **phase and week**, counted from the DOL",
       "Not improving? **Name the variance**: clinical, psychosocial or systemic",
@@ -851,6 +861,7 @@
       ]
     },
     "hook": "You read every record and hear every call: **spot the flag, route it**, keep him engaged.",
+    "whySlide": true,
     "points": [
       "Red flags by specialty: **PT, surgery, medication, behavioral health**",
       "Yellow flags: fear-avoidance, catastrophizing, litigation stress, **passive-care reliance**",

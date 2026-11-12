@@ -36,6 +36,7 @@
       "confirm": "Atty. Thorne confirms each policy's terms"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "A Recovery Stack **totalling $45,000**",
       "costs": "PIP was added: PIP pays bills, not the claim, so every figure built on it is wrong",
       "do": "Rebuild it: **BI $10,000, Host UM $20,000, Relative UM $10,000**",
@@ -70,6 +71,7 @@
       ]
     },
     "hook": "The LOR moves every carrier onto the firm; one wrong letter risks **$30,000 of UM coverage**.",
+    "whySlide": true,
     "points": [
       "Name the **right insured** on each: Robert Smith, Kevin Alvarez, Margaret Doe",
       "Notify **all three stack carriers** now: late notice hands them a defense",
@@ -251,6 +253,7 @@
       "confirm": "Atty. Thorne handles the balance bill"
     },
     "redFlag": {
+      "on": "theory2",
       "see": "A lien logged **at the billed amount**, or a bill sent to PIP after 06/26/2026",
       "costs": "The lien is overstated by the contractual adjustment, or the bill goes to an exhausted payer",
       "do": "Log the plan-paid **$1,860.00**; check PIP's balance before routing any bill",
@@ -454,6 +457,7 @@
       ]
     },
     "hook": "The gap explanation that holds up is **John Doe's own**, backed by documents.",
+    "whySlide": true,
     "points": [
       "Investigate, don't advocate: write **questions only**, never expected answers",
       "Funnel: **open first**, closed questions last, one at a time",
@@ -649,6 +653,7 @@
   "d2m4-l1": {
     "image": "checklist-qa",
     "hook": "Most value is won or lost here: the demands spend only **what this audit proves**.",
+    "whySlide": true,
     "points": [
       "MMI is **a medical determination**; record it from the 06/12/2026 note",
       "BI Specials are **medical plus wages**; the Civic runs separately",
@@ -1066,6 +1071,7 @@
       ]
     },
     "hook": "A fact the file relies on is proven by **the person who knows it**, under oath.",
+    "whySlide": true,
     "points": [
       "Smith swears **no other insurance**: the condition for the limit",
       "John's **residency** keeps Relative UM; sworn if a carrier asks",

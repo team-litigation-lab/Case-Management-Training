@@ -99,17 +99,14 @@
     }
   },
   "d3m2-l1": {
-    "why": {
-      "say": "• Keystone won't argue the crash: Robert Smith was cited and the doorbell camera caught him\n• It will argue the 14-Day Gap, call the MRI degenerative, and stall toward 08/21/2026\n• Expect Dana Whitfield to ask: “Why did he wait two weeks?”\n• Map both attacks and the answering documents before the first call; answer with documents, never adjectives\n• Red flag: Whitfield presses for a number. Accept, reject, counter or value can change the demand's terms. Log her exact words; tell Atty. Thorne today."
-    },
     "theory": {
-      "say": "• The demand letter is the opening move; adjusters protect the carrier by valuing claims low\n• The pitch: a template demand gets template treatment; a tailored one earns a real evaluation\n• Value drivers: the few facts that would scare a jury; every call leads with them\n• Anticipate: name your top two weak spots before the adjuster does, with documents ready\n• Professional pause: after a low number, stay quiet so she must justify it with data"
+      "say": "• Keystone won't argue the crash: Smith was cited and the doorbell camera caught him\n• It will argue the 14-Day Gap, call the MRI degenerative, stall toward 08/21/2026; expect Dana Whitfield's “Why did he wait two weeks?”\n• Anticipate: map both attacks, your top two weak spots, and their answering documents before the first call; documents, never adjectives\n• The demand letter is the opening move; adjusters protect the carrier by valuing claims low\n• A template demand gets template treatment, a tailored one a real evaluation; value drivers, the few facts that would scare a jury, lead every call\n• Professional pause: after a low number, stay quiet so she justifies it with data"
     },
     "frame": {
       "say": "• Four steps, all done before any phone rings\n• Step 1, Net Sheet: total liens, costs and fee; below that line the client receives $0\n• Step 2, three value drivers; step 3, top two weak spots and their documents; step 4, rebuttal ready\n• Step 1 is most often skipped; the decision is Atty. Thorne's, the numbers are the Case Manager's\n• John Doe's weak spots: the gap and the “degenerative” MRI"
     },
     "rules": {
-      "say": "• Net floor: liens $7,965.00 plus costs $486.75 is $8,451.75; grossed up for the one-third fee, $12,677.63\n• Gross up: the settlement size that leaves that amount after the fee; above Keystone's $10,000 limit\n• Drivers: Smith on video, an independent witness, C5-C6 herniation and injection, right-arm paresthesia (numbness, tingling) at MMI\n• Anchor on $16,401.40 Specials, never PIP's $5,000; restate the demand and 08/21/2026, pause, ask for her data\n• Log Keystone's $3,500 counteroffer word for word; never counter or move the number or deadline"
+      "say": "• Net floor: liens $7,965.00 plus costs $486.75 is $8,451.75; grossed up for the one-third fee, $12,677.63\n• Gross up: the settlement size that leaves that amount after the fee; above Keystone's $10,000 limit\n• Drivers: Smith on video, an independent witness, C5-C6 herniation and injection, right-arm paresthesia (numbness, tingling) at MMI\n• Anchor on $16,401.40 Specials, never PIP's $5,000; restate the demand and 08/21/2026, pause, ask for her data\n• Log Keystone's $3,500 counteroffer word for word; never counter or move the number or deadline\n• Red flag: Whitfield presses for a number. Accept, reject, counter or value can change the demand's terms. Log her exact words; tell Atty. Thorne today."
     },
     "model": {
       "say": "• The Keystone battle map, finished before the call; demand expires 08/21/2026\n• Station 1: net floor $12,677.63 gross, with a red note that Keystone's limit is $10,000\n• Station 2: value drivers; station 3: the two attacks, the 14-day gap and the “degenerative” MRI\n• Station 4: gap answered by the EMS report and 06/19/2026 Causation Letter; degenerative by the 03/13/2026 Summit MRI\n• Causation Letter: the doctor's letter tying the injury to the crash; on unreduced liens, John nets $0"
@@ -183,11 +180,8 @@
     }
   },
   "d3m3-l1": {
-    "why": {
-      "say": "• A lien: a bill with a legal right to be paid from the settlement before the client's share\n• John Doe's $40,000: two liens asserted, five checked and found absent, each recorded with its source\n• The money isn't John's until every claim is found, sorted and resolved in writing\n• Liens bend differently: statutory to a formula, a Health Plan to a doctrine, a provider balance to negotiation\n• Sort one wrong and you overpay John's money away or freeze the payout\n• Red flag: an unclassified lien gets paid at the wrong number. Classify every claimant first."
-    },
     "theory": {
-      "say": "• A lien's legal basis decides how far it bends; picture a ladder\n• Top: providers on an LOP, a Letter of Protection promising payment from the settlement; very negotiable\n• Next: health insurance subrogation, a private plan wanting back what it paid; shaped by made whole and common fund\n• Made whole: repaid only once the client is fully compensated; common fund: lienholder shares the cost of recovery\n• Lower: Medicare and Medicaid, strict formulas; bottom: ERISA self-funded employer plans, hardest to reduce"
+      "say": "• Lien: a bill with a legal right to payment from the settlement before the client's share\n• John Doe's $40,000: two liens asserted, five checked and found absent, each sourced; not his until all are found, sorted, resolved in writing\n• Legal basis decides how far a lien bends: sort one wrong and you overpay or freeze the payout\n• Top: providers on an LOP, a Letter of Protection promising payment from the settlement; very negotiable\n• Next: health insurance subrogation; made whole means repaid only once the client is fully compensated, common fund that the lienholder shares recovery costs\n• Lower: Medicare and Medicaid, strict formulas; bottom: ERISA self-funded employer plans, hardest to reduce"
     },
     "frame": {
       "say": "• Providers on an LOP sit high: they often reduce to get paid now\n• Private health insurance sits moderate, subject to made whole or common fund\n• Medicare and Medicaid sit low; ERISA self-funded plans very low, under federal law\n• Riverton Spine & Rehab is the LOP provider, top of the ladder; Peach State is fully insured, not ERISA\n• Fully insured: the employer bought a policy, so state law generally governs reduction; Atty. Thorne confirms"
@@ -202,7 +196,7 @@
       "say": "• Gross reaches $40,000.00 on 10/06/2026: run the final inventory in the Lien Tracker\n• Re-verify the Day 2 register; classify each claim statutory or contractual\n• Medicare, Medicaid, hospital, workers' comp and PIP each get “none” with a source; prior attorney “none known to John Doe”\n• Health Plan: get plan documents, escalate funding status; fully insured on file, governing law recorded as Atty. Thorne's\n• Draft the request naming the doctrine and showing $1,860.00 minus $620.00 equals $1,240.00, held for approval"
     },
     "dodont": {
-      "say": "• Do: record a verified “none” like a lien, with source and date\n• Do: name the doctrine and show the math in every Reduction Request; resolve every lien in writing before disbursement\n• Don't: treat an ERISA plan, a federally governed job-based plan, like a provider LOP\n• Don't: ask for a “courtesy discount” with no legal basis\n• Kevin Alvarez's carpool and workers' comp is Atty. Thorne's coverage question; record no claim filed, no lien asserted",
+      "say": "• Do: record a verified “none” like a lien, with source and date\n• Do: name the doctrine and show the math in every Reduction Request; resolve every lien in writing before disbursement\n• Don't: treat an ERISA plan, a federally governed job-based plan, like a provider LOP\n• Don't: ask for a “courtesy discount” with no legal basis\n• Kevin Alvarez's carpool and workers' comp is Atty. Thorne's coverage question; record no claim filed, no lien asserted\n• Red flag: an unclassified lien gets paid at the wrong number. Classify every claimant first.",
       "ask": "John Doe knows of no other lawyer; why does quantum meruit still get a line?"
     }
   },
@@ -279,11 +273,8 @@
     }
   },
   "d3m4-l1": {
-    "why": {
-      "say": "• BI stream alone: $6,179.92 against $7,965.00 in liens; John Doe takes home nothing\n• What he actually nets: $20,359.92\n• Net Sheet: the one page showing every dollar in and out\n• $40,000 from three carriers in two streams goes out as five checks\n• If a dollar can't be traced on the sheet, it doesn't leave trust"
-    },
     "theory": {
-      "say": "• The Net Sheet works in two streams\n• Stream 1, third-party BI: the at-fault driver's insurer; usually exhausted to its limit first as a legal step\n• Stream 2, first-party UM: the client's or a resident relative's policy; opens once BI is used up or the driver is uninsured\n• Double-dipping: the same dollar counted twice; trace every dollar's source so liens are paid correctly\n• The final total shows both streams side by side"
+      "say": "• BI stream alone: $6,179.92 against $7,965.00 in liens, John Doe takes home nothing; he actually nets $20,359.92\n• Net Sheet: one page, every dollar in and out: $40,000 from three carriers in two streams, out as five checks\n• A dollar that can't be traced on the sheet doesn't leave trust\n• Stream 1, third-party BI: the at-fault driver's insurer; usually exhausted to its limit first as a legal step\n• Stream 2, first-party UM: the client's or a resident relative's policy; opens once BI is used up or the driver is uninsured\n• Double-dipping: the same dollar counted twice; trace each dollar's source so liens are paid right; the total shows both streams"
     },
     "frame": {
       "say": "• Stream 1, third-party BI: Keystone, $10,000, used up first\n• Stream 2, first-party UM or UIM: host vehicle or resident relative; opens after BI is exhausted\n• On this file: Harbor Point $20,000 plus Cardinal State $10,000\n• Three carriers feed two columns; keep them separate from the first entry to the last"
@@ -359,17 +350,14 @@
     }
   },
   "d3m1-pkg": {
-    "why": {
-      "say": "• 08/05/2026: Keystone offered $3,500 on a claim with $16,401.40 in Specials\n• Its reasons: the 14-day gap and a “degenerative” MRI, meaning wear and tear from age, not the crash\n• Adjusters use any opening a package leaves; a missing part is a discount\n• Each part proves one thing: bills, story, fault, wages; for UM, coverage and exhaustion\n• Built for the BI demand served 07/20/2026, again for the UM demands of 08/31/2026\n• Red flag: Exhibit A cites RPD-26-018824, transposed, one of ten faults in the draft. Run the final scrub; fix all ten before Atty. Thorne signs."
-    },
     "doc": {
       "say": "• Time-Limited Demand: the firm's offer to settle John Doe's BI claim for Keystone's $10,000 per-person limit, open for a fixed time\n• Makes Keystone decide on the record; Atty. Thorne sets every term: payment, Limited Release of Smith and Keystone, Smith's affidavit\n• Emailed to Dana Whitfield 07/20/2026: 81 pages, Exhibits A through J\n• 30 days run from her written acknowledgement of receipt, 07/22/2026; window closes 08/21/2026\n• No certified mail; the sent email and her reply are the proof; log, docket 08/21/2026, change no term"
     },
     "theory": {
-      "say": "• A Demand Package is proof sorted by what each piece proves\n• Big Four: Medical Specials, Narrative, Liability Proof, Special Damages; flawless before Atty. Thorne reviews\n• Human Story: how the injury changed John Doe's work and daily life, from his words and the records\n• Weak file vs. legal trap: 300 pages of raw charts get a lowball; a two-page summary and strict clock make refusal risky\n• Documents by function for UM: coverage, liability, special damages, general damages, release"
+      "say": "• 08/05/2026: Keystone offered $3,500 against $16,401.40 in Specials, citing the 14-day gap and a “degenerative” MRI, wear and tear from age\n• A missing part is a discount: a Demand Package is proof sorted by what each piece proves\n• Big Four: Medical Specials, Narrative, Liability Proof, Special Damages; flawless before Atty. Thorne reviews\n• Human Story: how the injury changed his work and daily life, from his words and the records\n• 300 pages of raw charts get a lowball; a two-page summary and a strict clock make refusal risky\n• Built for the BI demand served 07/20/2026, rebuilt by function for the 08/31/2026 UM demands: coverage, exhaustion, liability, special and general damages, release"
     },
     "rules": {
-      "say": "• Medical Specials from line-item bills, reconciled to the audit: $14,817.40, 05/04/2026 duplicate gone, every line with its why\n• Two-page treatment summary in front; Human Story: five Northgate shifts missed, right-hand numbness from 02/18, paresthesia at MMI\n• Liability: Police Report, Ruth Calloway, doorbell clip, Property Damage photos; Special Damages: Northgate's $1,584.00 letter; $16,401.40 total\n• Final Scrub: no overlaps, 2021 low-back visits disclosed, every balance confirmed by phone\n• For UM, rebuild by function with exhaustion proof, not proof of uninsured status"
+      "say": "• Medical Specials from line-item bills, reconciled to the audit: $14,817.40, 05/04/2026 duplicate gone, every line with its why\n• Two-page treatment summary in front; Human Story: five Northgate shifts missed, right-hand numbness from 02/18, paresthesia at MMI\n• Liability: Police Report, Ruth Calloway, doorbell clip, Property Damage photos; Special Damages: Northgate's $1,584.00 letter; $16,401.40 total\n• Final Scrub: no overlaps, 2021 low-back visits disclosed, every balance confirmed by phone\n• For UM, rebuild by function with exhaustion proof, not proof of uninsured status\n• Red flag: Exhibit A cites RPD-26-018824, transposed, one of ten faults in the draft. Run the final scrub; fix all ten before Atty. Thorne signs."
     }
   },
   "d3m2-bins": {
@@ -397,18 +385,15 @@
     }
   },
   "d3m2-umw": {
-    "why": {
-      "say": "• When Harbor Point or Cardinal State pays John, it steps into his shoes against Robert Smith: subrogation\n• If John releases Smith first, that right is gone and the policy may let the carrier refuse to pay\n• $30,000 of the $40,000 stack rides on two letters\n• Keystone won't pay and John won't sign until both UM carriers consent in writing and waive subrogation\n• Red flag: a consent request sent to Bluewater Auto; Margaret rejected UM in writing on 03/14/2024. Ask Harbor Point and Cardinal State, nobody else."
-    },
     "doc": {
       "say": "• Waiver of Subrogation: a separate instrument from the consent letter, on the carrier's own form, signed and notarized\n• Waives recovery from Robert Smith and Keystone only; UM claim stays open; no substitute check\n• Notarized, so it can be filed or offered as an exhibit without testimony\n• Harbor Point signed 08/24, Cardinal State 08/26/2026\n• Check carrier, policy, claim, scope and notary block; what it means for John is Atty. Thorne's to explain"
     },
     "theory": {
-      "say": "• Subrogation: the paying carrier's right to recover from the at-fault driver\n• Consent to settle: the UM carrier's written permission for John to settle with and release Smith\n• Each carrier chooses: waive subrogation, or pay the $10,000 itself to keep its claim; both waived here\n• Keystone's condition: Dana Whitfield's 08/14 cover letter holds the check until both waivers arrive with the executed release",
+      "say": "• Subrogation: when Harbor Point or Cardinal State pays John, it steps into his shoes to recover from the at-fault driver, Robert Smith\n• If John releases Smith first, that right is gone and the policy may let the carrier refuse to pay\n• $30,000 of the $40,000 stack rides on two letters\n• Consent to settle: the UM carrier's written permission for John to settle with and release Smith\n• Each carrier chooses: waive subrogation, or pay the $10,000 itself to keep its claim; both waived here\n• Keystone won't pay and John won't sign until both consent in writing; Whitfield's 08/14 cover letter holds the check pending both waivers and executed release",
       "ask": "What would have happened to the timeline if Harbor Point had substituted its own check?"
     },
     "rules": {
-      "say": "• Ask the right carriers: Harbor Point and Cardinal State, never Bluewater\n• 30-Day Letter 08/13/2026, the day after the tender, for Atty. Thorne's signature, with tender letter and Smith's affidavit; docket windows\n• Read each consent's scope: Smith and Keystone only, subrogation waived, no substitution; anything wider goes to Atty. Thorne\n• John signs nothing until both are in writing and Atty. Thorne approves and reviews the release with him\n• Request, docket, chase and match; never explain the consent clause"
+      "say": "• Ask the right carriers: Harbor Point and Cardinal State, never Bluewater\n• 30-Day Letter 08/13/2026, the day after the tender, for Atty. Thorne's signature, with tender letter and Smith's affidavit; docket windows\n• Read each consent's scope: Smith and Keystone only, subrogation waived, no substitution; anything wider goes to Atty. Thorne\n• John signs nothing until both are in writing and Atty. Thorne approves and reviews the release with him\n• Request, docket, chase and match; never explain the consent clause\n• Red flag: a consent request sent to Bluewater Auto; Margaret rejected UM in writing on 03/14/2024. Ask Harbor Point and Cardinal State, nobody else."
     },
     "steps": {
       "say": "• 08/12/2026 tender: prepare both consent requests for Atty. Thorne's signature and docket the windows\n• Sent 08/13, with the reason Bluewater isn't asked recorded on the file\n• 08/14: Keystone's cover letter conditions payment on the waivers; log it, hold the signing task against it\n• Consents arrive 08/24 and 08/26: match each scope to the release, Smith and Keystone only\n• Both go into the transmittal packet and the front of each UM package",

@@ -35,11 +35,21 @@ per block of the day (20 per day), in this shape:
 
 ## Fields by block kind
 
-**Lesson** (`kind: "lesson"`): drawn as Why it matters · The theory · The rules · See it (the block's existing `show` visual) ·
-Milestone Steps (where its copy says `"slide": true`, below) · Do & Don't. (There is no On the job slide: the lesson's
+**Lesson** (`kind: "lesson"`): drawn as The Theory (which opens with why it matters) · The rules · See it (the block's existing `show` visual) ·
+Milestone Steps (where its copy says `"slide": true`, below) · Do & Don't. A lesson with no Theory slide (a `brief` one) is
+Why it matters · The rules. (There is no On the job slide: the lesson's
 `ops`, Trigger ➔ Task ➔ Tool ➔ Checkpoint, stay in 📖 Additional Reference and the trainer's blueprint, and a `job`
 field here is refused.)
-- `hook` — one sentence, **≤ 16 words**: the strategic why (from `tell.why`), as a confident headline.
+- `hook` — one sentence, **≤ 16 words**: the strategic why (from `tell.why`), as a confident headline. In a lesson that
+  has The Theory it is no slide of its own: it opens that slide as a "💡 Why it matters" line above the theory's lead
+  (one slide where there were two), so keep it to the one sentence (a `**Bold first sentence.** and more` hook is refused
+  there: only the first sentence would be drawn). A `brief` lesson has no Theory slide and keeps its Why It Matters
+  slide: the hook beside its picture, the CM Red Flag and the case strip.
+- `whySlide` (optional) — `true` keeps Why It Matters as a slide of its own in a lesson that has The Theory. Set it only
+  where the merge can't be done at full size on a laptop (1366x768, no scaling, type ≥ 16px): the Theory slide has no
+  room for the opening line (it already carries the lesson's roadmap strip, or the hook runs to two lines), or no slide
+  of the lesson has room for its CM Red Flag (below). `.github/scripts/micro-frameworks.cjs` lists these lessons with
+  the reason, and fails a lesson that keeps the slide without being listed.
 - `points` — **3 or 4** rules, **≤ 12 words each**, from `tell.rules` (the most important ones; merge where
   natural). Imperative or declarative, no sub-clauses piled up.
 - `upl` — the UPL boundary in **≤ 14 words**, if the block has `tell.upl` (else omit).
@@ -98,10 +108,14 @@ context the decks gave, not only the rules. Take it from the deck pages that tea
 **Micro-frameworks** (optional, in the lesson's copy): the three components the revamp gives the lessons, drawn on the
 lesson's existing slides, so no slide is added and no timing changes. Take every fact from the block and
 `curriculum/5-day-flow/case-file.md`; at most one highlight in any line, none required.
-- `redFlag` — the **CM Red Flag**, drawn on Why It Matters (a red-bordered box with its flag icon and label; one per slide):
+- `redFlag` — the **CM Red Flag** (a red-bordered box with its flag icon and label; one per slide):
   `{"see": "…", "costs": "…", "do": "…", "owner": "Atty. Thorne"}` — `see` (what you notice) and `costs` (what it costs
   the file) **≤ 18 words**, `do` (an operational step, never a legal conclusion) **≤ 15 words**; `owner` is required:
-  `Atty. Thorne` (the decision is counsel's) or `Case Manager`.
+  `Atty. Thorne` (the decision is counsel's) or `Case Manager`. It is drawn on Why It Matters where the lesson has that
+  slide. Where Why It Matters opens The Theory it is drawn on **The Rules**: under the points, or beside them in the
+  picture's place when The Rules has a picture (no `ruleEx`). Where The Rules has no room for it at full size on a
+  laptop, `"on"` names the slide that has: `"dodont"` (under the Do & Don't), `"theory2"` or `"theory"`. Where none
+  has, the lesson keeps its Why It Matters slide (`whySlide`).
 - `ruleEx` — **Rule vs. Exception**, drawn on The Rules in place of its picture: `{"rule": "…", "exception": "…",
   "onFile": "…", "confirm": "…"}` — `rule` and `exception` **≤ 25 words** (the exception a real carve-out or a
   jurisdictional contrast; `"contrast": true` labels it CONTRAST), `onFile` (optional) **≤ 20 words**, `confirm` **≤ 8
@@ -115,7 +129,9 @@ lesson's existing slides, so no slide is added and no timing changes. Take every
   slide the rail would sit on has no room for it on a laptop (1366x768) without scaling the slide down; the slide takes a
   trainer script, `steps` (SCRIPTSPEC.md).
 - `.github/scripts/micro-frameworks.cjs` checks that every lesson the revamp gives a framework draws it, with type ≥ 16px,
-  that a Milestone Steps slide is never scaled down on a laptop, and that no slide draws Trigger ➔ Task ➔ Tool ➔ Checkpoint cards.
+  that a Milestone Steps slide is never scaled down on a laptop, that no slide draws Trigger ➔ Task ➔ Tool ➔ Checkpoint cards,
+  that every lesson with a Theory slide opens it with why it matters at full size (and has no Why It Matters slide, unless
+  listed), and that a Red Flag moved off Why It Matters sits on a slide that is not scaled down.
 
 **Activity** (`kind: "activity"`): drawn as Your case · Your task · The model (if `show`) · Check your work.
 - `situation` — the scenario in **≤ 32 words**: file date, what just happened, what is at stake. Keep the key

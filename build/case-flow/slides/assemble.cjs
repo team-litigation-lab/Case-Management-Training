@@ -87,6 +87,11 @@ const microFrameworks = (b, c) => {
     const r = c.redFlag || {};
     opt("redFlag.see", r.see, 18); opt("redFlag.costs", r.costs, 18); opt("redFlag.do", r.do, 15);
     if(typeof r.owner !== "string" || !OWNERS.test(r.owner)) errors.push(`${id}.redFlag.owner: name the owner (Atty. Thorne or Case Manager), got ${JSON.stringify(r.owner)}`);
+    // the slide that draws it where the lesson has no Why It Matters slide: The Rules unless `on` names another with room for it at full size
+    if(r.on !== undefined && !["theory", "theory2", "rules", "dodont"].includes(r.on)) errors.push(`${id}.redFlag.on: theory, theory2, rules or dodont (the slide with room for it at full size on a laptop), or omit for The Rules`);
+    if(r.on !== undefined && (b.brief || c.whySlide)) errors.push(`${id}.redFlag.on: the lesson keeps its Why It Matters slide, and the Red Flag is drawn there; take "on" out`);
+    if(r.on === "theory2" && (b.compact || ((TH[id] || {}).concepts || []).length <= 4)) errors.push(`${id}.redFlag.on: the lesson has no The Theory, Continued slide`);
+    if(r.on === "dodont" && (b.compact || b.noGame || !(b.best || []).length)) errors.push(`${id}.redFlag.on: the lesson has no Do & Don't slide`);
   }
   if(c.ruleEx !== undefined){
     const x = c.ruleEx || {};
@@ -147,6 +152,10 @@ for (const day of CF.days) {
         for (const f of ["definition", "purpose", "evidence"]) line(b.id, `document.${f}`, d[f], 24);
         list(b.id, "document.handling", d.handling, 2, 4, 12);
       }
+      // Why It Matters opens The Theory (no slide of its own); "whySlide": true keeps the slide in a lesson whose Theory or Rules slide has no room
+      if(c.whySlide !== undefined && c.whySlide !== true) errors.push(`${b.id}.whySlide: true (the lesson keeps its Why It Matters slide: its Theory slide has no room for the opening line, or no slide has room for its Red Flag, at full size on a laptop) or omit`);
+      if(c.whySlide && b.brief) errors.push(`${b.id}.whySlide: a brief lesson has no Theory slide and always keeps Why It Matters; take it out`);
+      if(/^\*\*[^*]+?[.!?:]\*\*\s+\S/.test(String(c.hook || "")) && !b.brief && !c.whySlide) errors.push(`${b.id}.hook: a hook that opens The Theory is one sentence (only its bold first sentence would be drawn)`);
       microFrameworks(b, c);
       if((b.best || []).length){ list(b.id, "dos", c.dos, 2, 3, 10); list(b.id, "donts", c.donts, 2, 3, 10); }
       const t = theory(b); if(t) out[b.id] = Object.assign({}, c, {theory: t});

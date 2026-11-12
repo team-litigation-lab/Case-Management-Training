@@ -6,6 +6,7 @@ window.CM_CF_SLIDES = {
   "theoryFirst": true,
   "image": "team-huddle",
   "hook": "You own **the file's movement**; Atty. Thorne owns every legal judgment.",
+  "whySlide": true,
   "points": [
    "Coordinate the case **from intake to resolution**, end to end",
    "Log every contact, deadline and decision **in the CMS**",
@@ -125,6 +126,7 @@ window.CM_CF_SLIDES = {
    "Treating the gap as **the client's fault**"
   ],
   "redFlag": {
+   "on": "dodont",
    "see": "A Case Snapshot field with no named source document, even **the client's seat**",
    "costs": "An unverified field becomes the file's fact, and a wrong seat reaches the wrong policies",
    "do": "Name each field's document (RS01, RS07); mark the rest **not yet verified**",
@@ -248,6 +250,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne answers value and strategy"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "You hear yourself tell John **'Don't worry, you'll be fine'**",
    "costs": "That is advice: it predicts his outcome, and only Atty. Thorne may",
    "do": "Stop, log his question word for word, and **route it the same day**",
@@ -372,6 +375,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne confirms the governing statute"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "The SOL counted from **the intake date, 02/09/2026**",
    "costs": "It dockets 02/09/2028: three days past the limit",
    "do": "Recount from the DOL on RS07; **docket all three dates** in CMS → Calendar",
@@ -556,6 +560,7 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "A client you can't reach **still has deadlines**; the protocol proves the firm did its part.",
+  "whySlide": true,
   "points": [
    "Step 1: review status, deadlines and last contact **before you call**",
    "Step 2: **2+ phone attempts**, email and text, emergency contact, certified mail",
@@ -762,6 +767,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne decides and tells John"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "A draft letter saying **'we are withdrawing'** or 'you will lose your case'",
    "costs": "It announces a decision only Atty. Thorne can make, and predicts the claim",
    "do": "Strike it; **send the draft to Atty. Thorne** for review before it goes",
@@ -886,6 +892,7 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "Most self-inflicted claim damage happens **in the first two weeks**, before the client is told.",
+  "whySlide": true,
   "points": [
    "**No Recorded Statement** to the adverse carrier; route contact through the firm",
    "Start treatment and **keep every appointment**",
@@ -1008,6 +1015,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Margaret's PD claim is referred to Atty. Thorne"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "A rental, PD or Loss of Use claim **opened in John Doe's name**",
    "costs": "John has no PD claim: Margaret Doe's Civic claim (KM-26-440871-PD) tangles with his BI file",
    "do": "Keep PD under Margaret Doe; **refer her claim** to Atty. Thorne",
@@ -1163,6 +1171,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne owns value and acceptance"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "A Risks band reading **'none'** for a client nobody has examined",
    "costs": "A buried risk: no treatment yet, and the days without care keep counting",
    "do": "List each open risk **with its source and date** in the Risks band",
@@ -1391,6 +1400,7 @@ window.CM_CF_SLIDES = {
  "d1m4-tmap": {
   "image": "medical-visit",
   "hook": "Know where he **should be on the map**, and you'll see the drift before the adjuster.",
+  "whySlide": true,
   "points": [
    "Locate him every check-in: **phase and week**, counted from the DOL",
    "Not improving? **Name the variance**: clinical, psychosocial or systemic",
@@ -1614,6 +1624,7 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "You read every record and hear every call: **spot the flag, route it**, keep him engaged.",
+  "whySlide": true,
   "points": [
    "Red flags by specialty: **PT, surgery, medication, behavioral health**",
    "Yellow flags: fear-avoidance, catastrophizing, litigation stress, **passive-care reliance**",
@@ -2114,6 +2125,7 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "The LOR moves every carrier onto the firm; one wrong letter risks **$30,000 of UM coverage**.",
+  "whySlide": true,
   "points": [
    "Name the **right insured** on each: Robert Smith, Kevin Alvarez, Margaret Doe",
    "Notify **all three stack carriers** now: late notice hands them a defense",
@@ -2481,6 +2493,7 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "A fact the file relies on is proven by **the person who knows it**, under oath.",
+  "whySlide": true,
   "points": [
    "Smith swears **no other insurance**: the condition for the limit",
    "John's **residency** keeps Relative UM; sworn if a carrier asks",
@@ -2797,6 +2810,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne confirms each policy's terms"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "A Recovery Stack **totalling $45,000**",
    "costs": "PIP was added: PIP pays bills, not the claim, so every figure built on it is wrong",
    "do": "Rebuild it: **BI $10,000, Host UM $20,000, Relative UM $10,000**",
@@ -3046,6 +3060,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne handles the balance bill"
   },
   "redFlag": {
+   "on": "theory2",
    "see": "A lien logged **at the billed amount**, or a bill sent to PIP after 06/26/2026",
    "costs": "The lien is overstated by the contractual adjustment, or the bill goes to an exhausted payer",
    "do": "Log the plan-paid **$1,860.00**; check PIP's balance before routing any bill",
@@ -3986,6 +4001,7 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "The gap explanation that holds up is **John Doe's own**, backed by documents.",
+  "whySlide": true,
   "points": [
    "Investigate, don't advocate: write **questions only**, never expected answers",
    "Funnel: **open first**, closed questions last, one at a time",
@@ -4435,6 +4451,7 @@ window.CM_CF_SLIDES = {
  "d2m4-l1": {
   "image": "checklist-qa",
   "hook": "Most value is won or lost here: the demands spend only **what this audit proves**.",
+  "whySlide": true,
   "points": [
    "MMI is **a medical determination**; record it from the 06/12/2026 note",
    "BI Specials are **medical plus wages**; the Civic runs separately",
@@ -4837,6 +4854,7 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "A clear, timed **$10,000 Limits Demand** makes Keystone decide on the record.",
+  "whySlide": true,
   "points": [
    "Demand **within limits**: $10,000, Keystone's full BI limit",
    "Make **every term acceptable as written**; release Smith and Keystone only",
@@ -5035,6 +5053,7 @@ window.CM_CF_SLIDES = {
  "d3m1-l2": {
   "image": "insurance-stack",
   "hook": "The UM layers change John Doe's net, and **a technicality can lose them**.",
+  "whySlide": true,
   "points": [
    "Host UM opens once **Keystone's 08/12/2026 tender** is documented",
    "Send the 30-Day Letters (08/13/2026) asking each to **consent or substitute**",
@@ -5714,6 +5733,7 @@ window.CM_CF_SLIDES = {
  "d3m2-l2": {
   "image": "coverage-check",
   "hook": "John Doe's own carriers will argue against him; **prove the gap above each layer**.",
+  "whySlide": true,
   "points": [
    "UM pays **the gap**: damages minus BI, up to its limit",
    "Check **the offset rule first**: add-on pays on top",
@@ -5943,6 +5963,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne confirms the governing law"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "A lien on the tracker **not yet classified** statutory or contractual",
    "costs": "An unclassified lien gets paid at the wrong number, or freezes the money",
    "do": "Classify every claimant, **with its source**, before any number is discussed",
@@ -6084,6 +6105,7 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "Every dollar a lien gives up **lands in John Doe's net**.",
+  "whySlide": true,
   "points": [
    "Audit first: drop the 05/04/2026 duplicate, **negotiate from $6,105.00**",
    "Pro rata: equal-priority liens **share in proportion** to their amounts",
@@ -6491,6 +6513,7 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "One unread line in Keystone's 08/14 draft would have **cost John Doe $30,000**.",
+  "whySlide": true,
   "points": [
    "Read **every release line by line** before John Doe sees it",
    "BI release: **both UM consents first**, PD claim left open",
@@ -7137,6 +7160,7 @@ window.CM_CF_SLIDES = {
  "d4m2-l1": {
   "image": "clock-deadline",
   "hook": "From 09/24/2026 the dates are set by rule, and **one mis-counted day** can end a claim.",
+  "whySlide": true,
   "points": [
    "Count the court's way: **exclude the trigger day**, include the last",
    "Served by mail? **Add 3 days**; e-service adds nothing",
@@ -7316,6 +7340,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne analyzes the route"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "The UM route **docketed off the tort SOL**",
    "costs": "A route carries its own clock, and the wrong date misses it",
    "do": "Docket only from **Atty. Thorne's written answer**",
@@ -7411,6 +7436,7 @@ window.CM_CF_SLIDES = {
  "d4m2-l2": {
   "image": "mediation-table",
   "hook": "Hon. Carla Benton (Ret.) helps parties agree; **Laura Whitcomb, Esq. decides**, with almost no appeal.",
+  "whySlide": true,
   "roadmap": {
    "title": "Standard Case Progression Roadmap",
    "merge": true,
@@ -7728,6 +7754,7 @@ window.CM_CF_SLIDES = {
    ]
   },
   "redFlag": {
+   "on": "dodont",
    "see": "The binder carrying **Riverton at $6,290.00**",
    "costs": "Medical then reads $15,002.40, and Keystone already calls the ledger unverified",
    "do": "Use the audited **$6,105.00** and re-run the Damages totals",

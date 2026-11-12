@@ -18,11 +18,8 @@
     }
   },
   "d1m1-case": {
-    "why": {
-      "say": "• Every new file raises the same questions: who was hurt, when, who is insured, for how much, what could go wrong\n• All week, every lesson and Learning Check works one file: John Doe v. Robert Smith\n• Know its facts cold so every CMS step makes sense\n• One detail on this file changes how much money John Doe can reach\n• Red flag: any snapshot field with no document behind it isn't verified, even John's seat; name the document or mark it not yet verified"
-    },
     "theory": {
-      "say": "• Case Snapshot: the file's ID card with parties, date of loss, statute of limitations, client position and insurance\n• Statute of limitations: the legal deadline to sue\n• Facts of Loss: how, where and when, backed by the Police Report and witnesses\n• Critical Case Event: the one fact the defense builds on; spot it early for Atty. Thorne\n• Sources: intake sheet, supplement, Police Report; quote the document, never memory"
+      "say": "• Every new file raises the same questions: who was hurt, when, who is insured, for how much, what could go wrong\n• All week every lesson works one file, John Doe v. Robert Smith: know its facts cold; one detail changes how much money he can reach\n• Case Snapshot: the file's ID card with parties, date of loss, statute of limitations (the legal deadline to sue), client position and insurance\n• Facts of Loss: how, where and when, backed by the Police Report and witnesses\n• Critical Case Event: the one fact the defense builds on; spot it early for Atty. Thorne\n• Sources: intake sheet, supplement, Police Report; quote the document, never memory"
     },
     "frame": {
       "say": "• Answer the five intake questions from the documents, not from memory\n• Who: John Doe, client; Robert Smith, defendant (the person the claim is against); seating is in the Police Report\n• What: a collision; the Run Report (ambulance crew's report) shows what EMS found\n• When and where: 02/06/2026, about 7:10 a.m., all-way stop at Maple Hollow Rd and Birch Ave\n• How, and any ticket: Police Report"
@@ -35,19 +32,16 @@
       "say": "• Walk the file at a glance: John Doe v. Robert Smith, matter LSH-2026-MVA-770412\n• Scene: all-way stop at Maple Hollow Rd and Birch Ave\n• Stack bars: BI $10,000, Host UM $20,000, Relative UM $10,000 = $40,000\n• Orange strip: date of loss to first treatment; trainees work out its length\n• Missing on purpose: where he sat and who got the ticket; passenger status can open an extra layer"
     },
     "dodont": {
-      "say": "• Do: trace every fact to its document, e.g. date of loss 02/06/2026 is on the Police Report\n• Do: say the stack in order: Keystone Mutual BI, Harbor Point Host UM, Cardinal State Mutual Relative UM, $40,000\n• Don't: repeat facts from memory alone\n• Don't: treat the gap as the client's fault; record the dates, 02/06/2026 to 02/20/2026, for Atty. Thorne",
+      "say": "• Do: trace every fact to its document, e.g. date of loss 02/06/2026 is on the Police Report\n• Do: say the stack in order: Keystone Mutual BI, Harbor Point Host UM, Cardinal State Mutual Relative UM, $40,000\n• Don't: repeat facts from memory alone\n• Don't: treat the gap as the client's fault; record the dates, 02/06/2026 to 02/20/2026, for Atty. Thorne\n• Red flag: any snapshot field with no document behind it isn't verified, even John's seat; name the document or mark it not yet verified",
       "ask": "Which document tells you where John Doe was sitting, and why does it matter?"
     }
   },
   "d1m1-l1": {
-    "why": {
-      "say": "• Intake is where the Case Manager takes control of the file, not just data entry\n• A file opened wrong stays wrong: deadlines, demand letters and lien checks all read from intake fields\n• Lien: a bill paid out of the settlement before the client gets money\n• Red flag: counting the SOL from the intake date, 02/09/2026, dockets 02/09/2028, three days past the limit\n• Recount from the date of loss on the Police Report, and put all three dates on the calendar"
-    },
     "map": {
       "say": "• Opening a file runs in six steps, in order, on day one\n• 1 Conflict Check: every party's full legal name, before the file exists; 2 verify date of loss against the Police Report\n• 3 Calendar the statute of limitations, the legal deadline to sue, on day one\n• 4 Map every role and client seating; 5 insurance from the Dec Page; 6 name and file every document"
     },
     "theory": {
-      "say": "• Recovery Stack: every policy that can pay the claim, in the order it pays; find every layer at intake\n• Bodily Injury Liability (BI): the at-fault driver's coverage for injuries to others; pays first, a third-party claim\n• UM/UIM: coverage when the at-fault driver has no or not enough insurance; first-party, from the client's car or household\n• Exclusions and signed UM rejections can close a layer; record the exact document that did it"
+      "say": "• Intake is control of the file, not data entry; opened wrong it stays wrong: deadlines, demand letters and lien checks read from intake fields\n• Lien: a bill paid out of the settlement before the client gets money\n• Recovery Stack: every policy that can pay the claim, in the order it pays; find every layer at intake\n• Bodily Injury Liability (BI): the at-fault driver's coverage for injuries to others; pays first, a third-party claim\n• UM/UIM: coverage when the at-fault driver has no or not enough insurance; first-party, from the client's car or household\n• Exclusions and signed UM rejections can close a layer; record the exact document that did it"
     },
     "theory2": {
       "say": "• MedPay and PIP: medical coverage from the client's side that pays regardless of fault, early in the claim\n• Property Damage liability and collision cover cars only; neither joins the injury stack\n• Split limit, e.g. 25/50: first number caps each injured person, second caps the whole accident; read both\n• Declaration Page (Dec Page): the insurer's own statement of insureds, cars, coverage and limits; the only proof"
@@ -65,16 +59,13 @@
       "say": "• Raw file arrives from On the Records; run and record the Conflict Check in CMS New Case first\n• Check date of loss, parties and signatures against the documents\n• Once created: deadline 02/06/2028 on the Calendar; retainer and HIPAA authorization logged in Documents\n• Retainer: signed agreement hiring the firm; HIPAA authorization: client's permission to get medical records\n• Map all six roles in Parties; name and file each document the firm's way"
     },
     "dodont": {
-      "say": "• Do: record the source of every coverage fact, e.g. Harbor Point Host UM $20,000 with its Dec Page or letter\n• Do: docket the statute of limitations day one; date of loss 02/06/2026, deadline 02/06/2028; CMS is the single source of truth\n• Don't: create the file before the Conflict Check, or run it on a partial name like \"R. Smith\"\n• Don't: accept a case because intake mostly looks fine; On the Records files arrive unverified",
+      "say": "• Do: record the source of every coverage fact, e.g. Harbor Point Host UM $20,000 with its Dec Page or letter\n• Do: docket the statute of limitations day one; date of loss 02/06/2026, deadline 02/06/2028; CMS is the single source of truth\n• Don't: create the file before the Conflict Check, or run it on a partial name like \"R. Smith\"\n• Don't: accept a case because intake mostly looks fine; On the Records files arrive unverified\n• Red flag: counting the SOL from the intake date, 02/09/2026, dockets 02/09/2028, three days past the limit\n• Recount from the date of loss on the Police Report, and put all three dates on the calendar",
       "ask": "Why must the Conflict Check happen before the file is created?"
     }
   },
   "d1m4-l1": {
-    "why": {
-      "say": "• The Case Plan is the file's instruction manual; Atty. Thorne sets strategy from it\n• A plan that hides a risk builds the strategy on a false picture\n• Example: John Doe's 14-day Treatment Gap belongs in the plan; opinions about him or case value do not\n• Red flag: a Risks band that says \"none\" for a client nobody has examined isn't clean, it's buried\n• No treatment yet means the days keep counting; every open risk gets its source and its date"
-    },
     "theory": {
-      "say": "• Early evaluation answers three questions: is there money, who is responsible, how will the case move\n• Coverage determination: which policies apply, their benefits, limits and exclusions\n• Liability assessment: who caused the crash; clear, shared or disputed; on what evidence\n• Case projection: early read on risk and direction; case value always stays with the attorney\n• Strict compliance: every plan deadline goes on the calendar"
+      "say": "• The Case Plan is the file's instruction manual; Atty. Thorne sets strategy from it, and a hidden risk builds it on a false picture\n• Example: John Doe's 14-day Treatment Gap belongs in the plan; opinions about him or case value do not\n• Early evaluation answers three questions: is there money, who is responsible, how will the case move\n• Coverage determination: which policies apply, their benefits, limits and exclusions; liability assessment: who caused the crash, clear, shared or disputed, on what evidence\n• Case projection: early read on risk and direction; case value always stays with the attorney\n• Strict compliance: every plan deadline goes on the calendar"
     },
     "frame": {
       "say": "• Coverage: is there money? Valid policies, coverage type, limits, exclusions, gaps\n• Liability: who is responsible and how much? Includes comparative negligence: the client sharing some blame\n• Projection: how will the case move? Draws on coverage, liability, injury, expected treatment, paperwork quality\n• Projection comes last because it depends on the other two"
@@ -86,7 +77,7 @@
       "say": "• Band 1: Case Snapshot and acceptance decision\n• Band 2: coverage, liability and projection\n• Band 3: Regulatory Triple-Check, held open until the Treatment Phase\n• Band 4: Three-Pillar Plan in Clinical, Functional and Financial columns\n• Band 5: Risks and Flags, red and largest, holding the 14-Day Treatment Gap; plan routed to Atty. Elijah Thorne"
     },
     "dodont": {
-      "say": "• Do: give each pillar measurable goals, e.g. return to work at Northgate Distribution with a number and date\n• Do: give every decision a reason a colleague can follow in one read\n• Don't: write a plan covering only clinical care\n• Don't: keep gathering information at acceptance, or let an uncertain file sit for weeks\n• Flagging a risk early makes the case defensible later",
+      "say": "• Do: give each pillar measurable goals, e.g. return to work at Northgate Distribution with a number and date\n• Do: give every decision a reason a colleague can follow in one read\n• Don't: write a plan covering only clinical care, keep gathering information at acceptance, or let an uncertain file sit for weeks\n• Flagging a risk early makes the case defensible later\n• Red flag: a Risks band that says \"none\" for a client nobody has examined isn't clean, it's buried\n• No treatment yet means the days keep counting; every open risk gets its source and its date",
       "ask": "Why does the risks band get more room than the plan itself?"
     }
   },
@@ -110,13 +101,10 @@
   },
   "d1m3-l2": {
     "theory": {
-      "say": "• Property Damage (PD): the car side of a crash\n• The claim follows the vehicle and belongs to the owner; John Doe owns no car\n• The damage is evidence: photos, estimates and supplements show how hard the hit was\n• Where the owner's claim touches the client's care, coordinate\n• Everything else about the owner's claim goes to the attorney"
+      "say": "• John Doe was the front-seat passenger in Kevin's Escape and owns no car\n• The damaged car is Margaret Doe's 2019 Honda Civic, with Leah Moran at Keystone under $25,000 PD coverage\n• That claim sits outside John's $40,000 stack; PD touches the case only as impact evidence and where its dates reach his care\n• Property Damage (PD): the car side of a crash; the claim follows the vehicle and belongs to the owner\n• The damage is evidence: photos, estimates and supplements show how hard the hit was\n• Where the owner's claim touches the client's care, coordinate; everything else about it goes to the attorney"
     },
     "frame": {
       "say": "• Intake: a tow from the scene and crush photos flag a serious injury early; keep them\n• Treatment: structural damage matches the injuries providers record\n• Demand: estimates and supplements answer the low-impact fender-bender argument\n• Negotiation and litigation: photos keep the injury from being called minor and support experts\n• Rental, Loss of Use and the repair argument never appear in John Doe's column"
-    },
-    "why": {
-      "say": "• John Doe was the front-seat passenger in Kevin's Escape and owns no car\n• The damaged car is Margaret Doe's 2019 Honda Civic, with Leah Moran at Keystone under $25,000 PD coverage\n• That claim sits outside John's $40,000 stack; PD touches the case only as impact evidence and where its dates reach his care\n• Red flag: never open a rental, PD or Loss of Use claim in John Doe's name\n• He doesn't own a car; the Civic is Margaret's, and her claim gets referred to Atty. Thorne"
     },
     "rules": {
       "say": "• Read the Police Report unit boxes first: who rode in which car, who owns which car\n• Index photos, Repair Estimate, supplements and the tow on John's file as evidence\n• Margaret's rental, Loss of Use, Diminished Value and repair negotiation: leave on her claim, refer\n• Keystone accepted PD liability on 02/17/2026: record the fact; its meaning is Atty. Thorne's\n• If a car call turns to John's neck, it stops and comes to us"
@@ -126,7 +114,7 @@
       "ask": "Why is the rental row partly ours and partly Margaret's?"
     },
     "dodont": {
-      "say": "• Do: ask of every PD fact whether it touches our case\n• Do: index photos and estimates the day they arrive, e.g. the Escape's crushed front passenger door\n• Don't: open a rental claim in John's name; the Civic's claim and rental are Margaret's\n• Don't: treat PD as just the car; keep repair photos where the demand can use them",
+      "say": "• Do: ask of every PD fact whether it touches our case\n• Do: index photos and estimates the day they arrive, e.g. the Escape's crushed front passenger door\n• Don't: open a rental claim in John's name; the Civic's claim and rental are Margaret's\n• Don't: treat PD as just the car; keep repair photos where the demand can use them\n• Red flag: never open a rental, PD or Loss of Use claim in John Doe's name\n• He doesn't own a car; the Civic is Margaret's, and her claim gets referred to Atty. Thorne",
       "ask": "Does Property Damage touch John Doe's case, and how?"
     }
   },
@@ -203,11 +191,8 @@
     }
   },
   "d2m1-cov": {
-    "why": {
-      "say": "• There is no such thing as full coverage; every policy pays a different thing\n• Keep two questions separate: who pays the bills now, and who pays the claim later\n• Payer-First Principle: each bill goes to the payer that must pay it first\n• Wrong order: the bill returns as a lien, paid from John Doe's settlement\n• Red flag: a stack that adds up to $45,000 means PIP slipped in; PIP pays bills, not the claim\n• The stack is BI $10,000, Host UM $20,000 and Relative UM $10,000: $40,000, every time"
-    },
     "theory": {
-      "say": "• Every policy: whose is it, and what does it pay?\n• Third-party coverage belongs to the at-fault driver, Robert Smith; first-party answers to the client's side\n• Recovery Stack: only coverage that pays the claim: BI (bodily injury on the at-fault driver), then UM/UIM\n• MedPay and PIP: no-fault medical coverage paying accident bills fast, regardless of fault\n• UM follows the person, not the car; John Doe has no car policy"
+      "say": "• No such thing as full coverage: every policy pays a different thing; ask whose it is and what it pays\n• Two separate questions: who pays the bills now, who pays the claim later\n• Payer-First Principle: each bill goes to the payer that must pay it first, or it returns as a lien on John Doe's settlement\n• Third-party coverage is the at-fault driver's, Robert Smith's; first-party is the client's side, and UM follows the person: John Doe has no car policy\n• Recovery Stack: only coverage that pays the claim: BI (bodily injury on the at-fault driver), then UM/UIM\n• MedPay and PIP: no-fault medical coverage paying accident bills fast, regardless of fault"
     },
     "theory2": {
       "say": "• Set-off and non-duplication: some policies subtract what PIP or MedPay paid; verify in writing\n• Subrogation: a payer's right to be repaid from the settlement\n• Contract rate and write-off: in-network providers accept the Health Plan's price, so the lien is smaller\n• Medicare Secondary Payer: Medicare pays last, is repaid by law, case reported to the BCRC\n• Bill first the payer with no right to be repaid"
@@ -225,7 +210,7 @@
       "say": "• As each claim opens, list every coverage, carrier and what it pays in the CMS Insurance tab\n• Once confirmed in writing, place it on the Coverage Matrix: in the stack, the bill order, or neither\n• Provider asks who to bill: use the PIP Log; PIP, then Peach State, then a Letter of Protection\n• LOP: our written promise to pay a provider from the settlement; Atty. Thorne approves\n• Post each payment on its ledger"
     },
     "dodont": {
-      "say": "• Do: verify every coverage with a dated Declaration Page; confirm Peach State was active (began 02/01/2026)\n• Do: keep the Payer Order and the Recovery Stack separate\n• Don't: send an LOP where PIP pays; PIP paid Summit Imaging's $2,395.00 with nothing to repay\n• Don't: add PIP, PD or collision to the $40,000 stack\n• Don't: assume PIP or UM on the client's own policy; Margaret rejected Bluewater UM 03/14/2024",
+      "say": "• Do: verify every coverage with a dated Declaration Page; confirm Peach State was active (began 02/01/2026)\n• Do: keep the Payer Order and the Recovery Stack separate\n• Don't: send an LOP where PIP pays; PIP paid Summit Imaging's $2,395.00 with nothing to repay\n• Don't: assume PIP or UM on the client's own policy; Margaret rejected Bluewater UM 03/14/2024\n• Red flag: a stack that adds up to $45,000 means PIP slipped in; never add PIP, PD or collision: PIP pays bills, not the claim\n• The stack is BI $10,000, Host UM $20,000 and Relative UM $10,000: $40,000, every time",
       "ask": "How does John Doe reach $30,000 of UM without an auto policy of his own?"
     }
   },
@@ -258,11 +243,8 @@
     }
   },
   "d2m1-l2": {
-    "why": {
-      "say": "• Coverage statuses in order: reported, noticed, acknowledged, disclosed, confirmed in writing\n• Both UM carriers confirmed in writing by 03/09/2026; Keystone's Dec Page wasn't seen until 03/20/2026\n• An unverified coverage fact is a guess; an adjuster's phone figure is not proof\n• Red flag: on 03/11/2026 the matrix said BI was confirmed, sourced to the Police Report\n• A Police Report is a lead, never a limit; mark it disclosed and request the Dec Page in writing"
-    },
     "theory": {
-      "say": "• Coverage verification: turning \"someone told me\" into a document for every limit, form and exclusion\n• Coverage Matrix: one row per insurer, the file's single coverage record, with status, source and date\n• Only \"confirmed in writing\" is proof; earlier statuses are leads\n• Dec Page: the policy's own summary of who and what it covers, and for how much\n• Limits: per person caps one injured person, per accident caps everyone, combined single is one number"
+      "say": "• An unverified coverage fact is a guess; statuses run reported, noticed, acknowledged, disclosed, confirmed in writing, and only the last is proof\n• An adjuster's phone figure is not proof; both UM carriers confirmed in writing by 03/09/2026, Keystone's Dec Page wasn't seen until 03/20/2026\n• Coverage verification: turning \"someone told me\" into a document for every limit, form and exclusion\n• Coverage Matrix: one row per insurer, the file's single coverage record, with status, source and date\n• Dec Page: the policy's own summary of who and what it covers, and for how much\n• Limits: per person caps one injured person, per accident caps everyone, combined single is one number"
     },
     "theory2": {
       "say": "• Add-on (excess) UM pays on top of BI; reduced UM subtracts what BI paid from its limit\n• Only liability and UM layers stack; PIP, PD and collision are tracked separately\n• A verified zero, like a signed rejection form, is a fact; an assumed zero is a guess\n• Insurer stalls: find the root cause, act now, set a dated follow-up",
@@ -272,7 +254,7 @@
       "say": "• BI liability: proven by Dec Page or Coverage Letter; first layer; confirm no step-down, a clause that shrinks the limit\n• Host UM: add-on or reduced, proven by the insurer's written form confirmation; opens after BI offers its limit\n• Relative UM: also check the other-insurance clause, who pays first; certified policy and Coverage Letter; priority is Atty. Thorne's call\n• MedPay/PIP: pays Medical Bills regardless of fault, tracked separately; PD and collision outside the stack\n• Client's own UM is zero only with a signed rejection form"
     },
     "rules": {
-      "say": "• Coverage Matrix fields: carrier, insured, claim number, adjuster, limit and type, status, source, date, next follow-up\n• A limit is preliminary until a Dec Page or Coverage Letter confirms it; never quote phone or Police Report figures\n• Check policy period covers 02/06/2026; Keystone BI $10,000 per person; Harbor Point add-on confirmed 03/02/2026\n• Stack: $10,000 + $20,000 + $10,000 = $40,000; file the Bluewater rejection from 03/14/2024\n• Timing: 24 to 48 hours unopened claim, third business day on an LOR, next follow-up within two business days"
+      "say": "• Matrix fields: carrier, insured, claim number, adjuster, limit and type, status, source, date, next follow-up\n• A limit is preliminary until a Dec Page or Coverage Letter confirms it; never quote phone or Police Report figures\n• Check policy period covers 02/06/2026; Keystone BI $10,000 per person; Harbor Point add-on confirmed 03/02/2026; stack $10,000 + $20,000 + $10,000 = $40,000\n• Timing: 24 to 48 hours unopened claim, third business day on an LOR, follow-up within two business days; file the 03/14/2024 Bluewater rejection\n• Red flag: on 03/11/2026 the matrix read BI confirmed, sourced to the Police Report\n• A Police Report is a lead, never a limit; mark it disclosed, request the Dec Page in writing"
     },
     "model": {
       "say": "• Top: five-stage status track, with confirmed in writing as the green end\n• Host UM and Relative UM reached green on 03/02 and 03/09\n• BI held short on 03/11/2026, written request pending, confirmed 03/20\n• Bottom: firm timing band; behind it the legal backstop, confirm the rule with Atty. Thorne\n• A layer is verified only at the green end"
@@ -448,11 +430,8 @@
     }
   },
   "d1m1-upl": {
-    "why": {
-      "say": "• UPL: unauthorized practice of law, giving legal advice without a law license\n• It usually happens by accident, when a Case Manager tries to help a worried client\n• Facts are fine, like appointment times or when a letter was sent\n• Red flag: \"Don't worry, you'll be fine\" sounds kind but is advice, because it predicts his outcome\n• Stop, log his question word for word, and route it today"
-    },
     "theory": {
-      "say": "• Fact sharing: telling John Doe what a record says, like a date, an amount, what was sent\n• Process explanation: what happens next, what a form is for, who decides, never how it ends\n• Legal advice: any opinion on what his facts mean for rights, money or choices; Atty. Thorne only\n• Hear, log, route: write his question word for word, send to Atty. Thorne same day, give a time frame"
+      "say": "• UPL: unauthorized practice of law, giving legal advice without a law license\n• It usually happens by accident, when a Case Manager tries to help a worried client\n• Fact sharing: telling John Doe what a record says, like a date, an amount, an appointment time, when a letter was sent\n• Process explanation: what happens next, what a form is for, who decides, never how it ends\n• Legal advice: any opinion on what his facts mean for rights, money or choices; Atty. Thorne only\n• Hear, log, route: write his question word for word, send to Atty. Thorne same day, give a time frame"
     },
     "rules": {
       "say": "• Legal advice is any opinion on what John Doe's facts mean\n• Share facts and explain the process freely\n• Never give opinions on value, strategy, settling, or what a Treatment Gap does to the money\n• Test before speaking: am I telling him what is, or what it means\n• A guessed number anchors the client and makes fair offers feel like insults",
@@ -465,16 +444,13 @@
       "say": "• Client asks case value: log his words in Case Notes, open a task, route same day, give no number\n• Client asks what happens next: explain the next step plainly, with no prediction\n• Adjuster or doctor's office asks your view: decline, share only approved facts, log in Communications Log\n• Explain the firm is his law firm, not his insurance company; nothing is off the record with an adjuster"
     },
     "dodont": {
-      "say": "• Do: answer from the record, like reading 02/06/2026 from the Police Report; route what it means\n• Do: use one routing line every time and give a time frame for the answer\n• Don't: reassure about the outcome, guess a value off the record, or coach what to tell an adjuster\n• Safe kindness is a clear next step and time frame, not a guess",
+      "say": "• Do: answer from the record, like reading 02/06/2026 from the Police Report; route what it means\n• Do: use one routing line every time and give a time frame for the answer\n• Don't: reassure about the outcome, guess a value off the record, or coach what to tell an adjuster\n• Safe kindness is a clear next step and time frame, not a guess\n• Red flag: \"Don't worry, you'll be fine\" sounds kind but is advice, because it predicts his outcome\n• Stop, log his question word for word, and route it today",
       "ask": "What sentence will you use every time a client asks what their case is worth?"
     }
   },
   "d1m4-tplan": {
-    "why": {
-      "say": "• Assessment is more than medical records; at intake on 02/09/2026 there were none\n• Sources then: the EMS Run Report and John himself; John Doe owns no car\n• A chart-only plan misses real barriers: no ride, a new job, worry about who pays\n• Those barriers create Treatment Gaps; treat the person, not just the chart\n• Red flag: a blank field, or a goal like \"reduce pain\" with nothing to measure; blank reads like nobody asked\n• Write \"none ordered\" or \"not yet on file\" with the date, and the provider sets the measure"
-    },
     "theory": {
-      "say": "• Clinical Evaluation: physical, cognitive and emotional problems, in his words and the records'; never diagnose\n• Social Determinants: life outside the clinic; lives with mother Margaret Doe, no car, her Civic damaged\n• Pre-Morbid Status: how he was before the crash; nothing on file yet\n• Vocational Outlook: warehouse shift lead at Northgate Distribution, 8-hour shifts, $22.00 an hour\n• The social area is most often skipped"
+      "say": "• Assessment is more than medical records: at intake on 02/09/2026 there were none, only the EMS Run Report and John himself\n• A chart-only plan misses real barriers: no ride, a new job, worry about who pays; they create Treatment Gaps, treat the person, not the chart\n• Clinical Evaluation: physical, cognitive and emotional problems, in his words and the records'; never diagnose\n• Social Determinants: life outside the clinic; lives with mother Margaret Doe, no car, her Civic damaged; the area most often skipped\n• Pre-Morbid Status: how he was before the crash; nothing on file yet\n• Vocational Outlook: warehouse shift lead at Northgate Distribution, 8-hour shifts, $22.00 an hour"
     },
     "theory2": {
       "say": "• Every goal carries a real measurement and a date\n• Acute and restorative care: surgery, physical therapy, occupational therapy\n• Psychological support: counseling or CBT (a type of talk therapy)\n• Durable medical equipment: wheelchairs, ramps, braces\n• Rehabilitation milestones: hospital, outpatient, home; John declined transport, so outpatient; calendar every handoff"
@@ -483,7 +459,7 @@
       "say": "• Specific: name the task, e.g. walk 50 meters with a rolling walker\n• Measurable: a standard scale, e.g. range of motion, pain or disability score, sessions attended\n• Achievable: set by the doctor's outlook, never the claim; Relevant: tied to injuries, daily life, work\n• Time-bound: a check-in date, e.g. the 12-week review\n• The doctor sets the medical target; we write the goal into the Case Plan"
     },
     "rules": {
-      "say": "• Assess the whole person, starting from the intake call and Run Report\n• Medical findings in his words and the record's, never your diagnosis\n• Ask about living situation, transport, cost, and every prior injury, claim and doctor; request those records\n• Record what his job demands physically\n• Build doctor-confirmed SMART goals, map the four care groups, calendar every risk; coordinate care, never prescribe"
+      "say": "• Assess the whole person from the intake call and Run Report; medical findings in his words and the record's, never your diagnosis\n• Ask about living situation, transport, cost, and every prior injury, claim and doctor; request those records\n• Record what his job demands physically\n• Build doctor-confirmed SMART goals, map the four care groups, calendar every risk; coordinate care, never prescribe\n• Red flag: a blank field, or a goal like \"reduce pain\" with nothing to measure; blank reads like nobody asked\n• Write \"none ordered\" or \"not yet on file\" with the date, and the provider sets the measure"
     },
     "model": {
       "say": "• Assessment after intake on 02/09/2026\n• Clinical: Run Report neck stiffness, transport declined, no treatment yet; need his dated description and first doctor evaluation\n• Social: lives with Margaret at 2214 Maple Hollow Rd, no car, Civic damaged, carpools with Kevin Alvarez\n• Pre-morbid: open question; Vocational: Northgate since 01/12/2026, 8-hour shifts, $22.00 an hour\n• Draft SMART goal: full 8-hour shifts by a dated review"

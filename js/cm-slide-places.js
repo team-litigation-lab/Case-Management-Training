@@ -8,6 +8,13 @@
    same slide of today's: an On the Job slide itself becomes the lesson's Milestone Steps slide where that took its
    place, and otherwise the lesson's slide before it (The Rules or See It): the same lesson, never further on than
    the trainee had been, never past the end of the day.
+   Then Why It Matters went too, in every lesson whose Theory slide now opens with it (js/cm-case-flow.js: whyView):
+   every position after one moved up again. A place on a Why It Matters slide that is gone becomes the lesson's The
+   Theory slide (where its line now is); the furthest slide reached becomes the slide the trainee had already passed
+   to get there (The Framework, or The Theory, Continued, or The Theory), so nothing they had not seen is unlocked
+   and nothing they had seen is locked again.
+   The layouts: 1, the deck with both slides (no layout on the saved place); 2, without On the Job; 3, today's. A
+   place saved in 1 is moved through both changes in one go.
    Each saved object carries the layout it was written in (cfLayout), so the move happens once, on whichever device
    or tab reads it first, and a place saved since is left alone. The reload after an update says which layout its
    slide was saved in the same way (lsh_resume_layout): a page still running the old deck doesn't, and is moved.
@@ -15,38 +22,54 @@
 (function(){
 "use strict";
 if(typeof state === "undefined" || typeof DAYS === "undefined" || typeof buildDaySlides !== "function") return;
-const LAYOUT = 2, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
+const LAYOUT = 3, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
 const build = buildDaySlides;   // as js/cm-case-flow.js left it: a Case Flow block is one slide per view
 const cfDay = d => !!(d && d.cf && Array.isArray(d.lessons));
 
-/* today's slide for each position of the day's deck as it was with the On the Job slides */
-function placeMap(d){
-  const views = window.cmCaseFlow && window.cmCaseFlow.viewsOf, map = [];
-  build(d).forEach((sl, k) => {
-    map.push(k);
-    const l = sl.type === "topic" ? d.lessons[sl.lessonIndex] : null, b = l && l.cf && l.cf.block;
-    if(!b || !views || b.kind !== "lesson" || !(b.ops || []).length) return;   // only a lesson with ops had the slide
-    const vs = views(b);
-    if(vs.includes("steps")) return;   // Milestone Steps sits where On the Job sat: nothing moved in this lesson
-    const at = vs.includes("dodont") ? vs.indexOf("dodont") : vs.length;   // On the Job came after The Rules or See It, before Do & Don't
-    if(sl.part === at) map.push(k);   // the On the Job slide itself: its lesson's slide before it
-  });
-  return map;
+/* a lesson's slides as they were in an older layout, from the slides it has today */
+function viewsWere(b, vs, from){
+  const old = vs.slice();
+  // layouts 1 and 2: Why It Matters was a slide of its own, after The Theory's slides
+  if(from < 3 && !old.includes("why")) old.splice(Math.max(old.indexOf("theory"), old.indexOf("theory2"), old.indexOf("frame")) + 1, 0, "why");
+  // layout 1: On the Job came after The Rules or See It, before Do & Don't (Milestone Steps sits where it sat: nothing moved in that lesson)
+  if(from < 2 && (b.ops || []).length && !old.includes("steps")) old.splice(old.includes("dodont") ? old.indexOf("dodont") : old.length, 0, "job");
+  return old;
 }
-function moved(d, i){
-  const m = placeMap(d); if(!m.length) return 0;
+/* the day's deck as it was in layout `from`: for each of its positions, [today's slide for it, today's slide for
+   "the furthest reached" when it was that position] */
+function oldDeck(d, from){
+  const views = window.cmCaseFlow && window.cmCaseFlow.viewsOf, out = [], deck = build(d);
+  deck.forEach((sl, k) => {
+    out.push([k, k]);
+    const l = sl.type === "topic" ? d.lessons[sl.lessonIndex] : null, b = l && l.cf && l.cf.block;
+    if(!b || !views || b.kind !== "lesson") return;   // only a lesson had either slide
+    const vs = views(b), old = viewsWere(b, vs, from);
+    // the slides that followed this one in the old deck and are gone: Why It Matters is on The Theory now; On the Job, the lesson's slide before it
+    for(let j = old.indexOf(vs[sl.part - 1]) + 1; j > 0 && j < old.length && !vs.includes(old[j]); j++){
+      const t = old[j] === "why" ? deck.findIndex(x => x.type === "topic" && x.lessonIndex === sl.lessonIndex && vs[x.part - 1] === "theory") : -1;
+      out.push(t >= 0 ? [t, k] : [k, k]);
+    }
+  });
+  return out;
+}
+const layoutOf = from => { const n = Math.round(Number(from)) || 1; return n < 1 ? 1 : n; };
+const placeMap = (d, from) => oldDeck(d, layoutOf(from)).map(x => x[0]);   // where each old position's slide is today
+const reachMap = (d, from) => oldDeck(d, layoutOf(from)).map(x => x[1]);   // how far each old position had reached, in today's deck
+function moved(d, i, from, far){
+  if(layoutOf(from) >= LAYOUT) return Math.max(0, Math.round(Number(i) || 0));
+  const m = far ? reachMap(d, from) : placeMap(d, from); if(!m.length) return 0;
   return m[Math.max(0, Math.min(Math.round(Number(i) || 0), m.length - 1))];
 }
 
 /* a saved object, moved once and stamped with today's layout; true when a place in it moved or was there to move */
 const FIELD = {"last-slide": "lastSlide", "slide-progress": "slideProgress"};
 const current = o => !o || typeof o !== "object" || o[STAMP] >= LAYOUT;
-function settle(o){
+function settle(o, key){
   if(current(o)) return false;
   let had = false;
   DAYS.forEach(d => {
     const i = o[d.id]; if(!cfDay(d) || typeof i !== "number" || !(i > 0)) return;
-    had = true; o[d.id] = moved(d, i);
+    had = true; o[d.id] = moved(d, i, o[STAMP], key === "slide-progress");   // the layout it was saved in; no layout on it: the first
   });
   o[STAMP] = LAYOUT;
   return had;
@@ -59,7 +82,7 @@ const __get = window.storeGet, __set = window.storeSet;
 if(typeof __get === "function" && typeof __set === "function"){
   window.storeGet = async function(key){
     const v = await __get.apply(this, arguments);
-    try{ if(FIELD[key] && settle(v)) __set(key, v); }catch(e){ console.warn("[slide-places]", e); }
+    try{ if(FIELD[key] && settle(v, key)) __set(key, v); }catch(e){ console.warn("[slide-places]", e); }
     return v;
   };
   window.storeSet = function(key, val){
@@ -69,9 +92,9 @@ if(typeof __get === "function" && typeof __set === "function"){
   };
   window.addEventListener("storage", e => {   // (index.html's own listener, registered first, has put the other tab's value in state)
     const key = e.key && e.key.indexOf("lsh_") === 0 ? e.key.slice(4) : "";
-    try{ if(FIELD[key] && e.newValue !== null && settle(state[FIELD[key]])) __set(key, state[FIELD[key]]); }catch(err){ console.warn("[slide-places]", err); }
+    try{ if(FIELD[key] && e.newValue !== null && settle(state[FIELD[key]], key)) __set(key, state[FIELD[key]]); }catch(err){ console.warn("[slide-places]", err); }
   });
-  try{ Object.keys(FIELD).forEach(key => { if(settle(state[FIELD[key]])) __set(key, state[FIELD[key]]); }); }catch(e){ console.warn("[slide-places]", e); }
+  try{ Object.keys(FIELD).forEach(key => { if(settle(state[FIELD[key]], key)) __set(key, state[FIELD[key]]); }); }catch(e){ console.warn("[slide-places]", e); }
 }
 
 /* the reload after an update: the slide it kept is in today's layout only if this code wrote it */
@@ -86,12 +109,12 @@ if(typeof window.restoreAfterUpdate === "function"){
       const wrote = Number(sessionStorage.getItem(RESUME_LAYOUT)) || 0; sessionStorage.removeItem(RESUME_LAYOUT);
       const st = JSON.parse(sessionStorage.getItem(RESUME) || "null"), d = st && st.view === "day" ? DAYS.find(x => x.id === st.dayId) : null;
       if(d && cfDay(d) && typeof st.lessonSlide === "number" && wrote < LAYOUT){
-        st.lessonSlide = moved(d, st.lessonSlide);
+        st.lessonSlide = moved(d, st.lessonSlide, wrote);   // the layout the page that kept it was running (none said: the first)
         sessionStorage.setItem(RESUME, JSON.stringify(st));
       }
     }catch(e){ console.warn("[slide-places]", e); }
     return __restore.apply(this, arguments);
   };
 }
-window.cmSlidePlaces = {LAYOUT, placeMap, moved};   // .github/scripts/slide-places.cjs
+window.cmSlidePlaces = {LAYOUT, placeMap, reachMap, moved};   // .github/scripts/slide-places.cjs
 })();

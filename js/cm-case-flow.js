@@ -489,16 +489,17 @@ const theoryViews = b => { const t = theoryOf(b); return !t ? [] : (t.concepts.l
    evidentiary role, how the Case Manager handles it) before anything asks the trainee to work with it */
 const docView = b => (SLIDES[b.id] || {}).document ? ["doc"] : [];
 /* The three micro-frameworks (build/case-flow/slides/SLIDESPEC.md), drawn on a lesson's existing slides so no slide
-   is added: the CM Red Flag on Why It Matters (the risk, what it costs, what you do, whose call), Rule vs. Exception on
-   The Rules, and Milestone Steps (the case's own dates) on The Framework, or See It, The Theory or The Rules where a
+   is added: the CM Red Flag (the risk, what it costs, what you do, whose call) on the slide rfView names (Why It
+   Matters where the lesson still has that slide; otherwise The Rules, or the slide the copy's `on` names), Rule vs.
+   Exception on The Rules, and Milestone Steps (the case's own dates) on The Framework, or See It, The Theory or The Rules where a
    lesson has no Framework (msView: the first of them the lesson has). Where that slide has no room for the rail on a
    laptop without shrinking its type, the copy says `"slide": true` and Milestone Steps is the one framework with a
    slide of its own, after The Rules or See It (the rail alone, in large type). At most one Red Flag on a slide.
    (The lessons had an On the Job slide here, rows of Trigger ➔ Task ➔ Tool ➔ Checkpoint cards: it is gone.) */
 const mfOf = b => { const c = SLIDES[b.id] || {}; return {redFlag: c.redFlag || null, ruleEx: c.ruleEx || null, milestones: c.milestones || null}; };
 const FLAG_SVG = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M5 21V4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M6 4h11l-2.6 4L17 12H6z" fill="currentColor"/></svg>`;
-function redFlagBox(b){
-  const r = mfOf(b).redFlag; if(!r) return "";
+function redFlagBox(b, view){
+  const r = mfOf(b).redFlag; if(!r || rfView(b) !== view) return "";
   const row = (k, x) => `<div class="cfx-rf-r"><dt>${k}</dt><dd>${hl(x)}</dd></div>`;
   return `<aside class="cfx-rf" role="note" aria-label="CM Red Flag"><div class="cfx-rf-h"><span class="cfx-rf-i">${FLAG_SVG}</span><b>CM Red Flag</b><span class="cfx-rf-own">Owner: ${E(r.owner)}</span></div>
     <dl>${row("You see", r.see)}${row("It costs", r.costs)}${row("You do", r.do)}</dl></aside>`;
@@ -517,10 +518,20 @@ function milestoneRail(b, view){
   return `<section class="cfx-ms" aria-label="Milestone Steps: ${E(m.title)}"><h3 class="cfx-ms-t">${E(m.title)}</h3><ol class="cfx-ms-rail" style="--n:${m.steps.length};--c:${m.steps.length > 4 ? Math.ceil(m.steps.length / 2) : m.steps.length}" start="${n0}">${m.steps.map((s, i) => `<li><span class="cfx-ms-n">${n0 + i}</span><span class="cfx-ms-h"><b>${E(s.label)}</b>${s.chip ? `<code class="cfx-ms-chip">${E(s.chip)}</code>` : ""}</span><span class="cfx-ms-done"><i>Done when:</i> ${hl(s.done)}</span></li>`).join("")}</ol>
     ${m.note ? `<p class="cfx-ms-note">${hl(m.note)}</p>` : ""}</section>`;
 }
+/* Why It Matters is no slide of its own in a lesson that has The Theory: its line opens that slide (whyOpen: a
+   "💡 Why it matters" band above the theory's lead), one slide where there were two, and the CM Red Flag that sat on
+   it is on The Rules, or on the slide the copy names (rfView). A brief lesson has no Theory slide and keeps Why It
+   Matters as it was; so does a lesson whose Theory slide has no room for the band, or none of whose slides has room
+   for its Red Flag, at full size on a laptop (the copy's "whySlide": true; .github/scripts/micro-frameworks.cjs lists them).
+   js/cm-slide-places.js moves a place saved in the deck that had the slide. */
+const whyView = b => theoryViews(b).length && !(SLIDES[b.id] || {}).whySlide ? [] : ["why"];
+const rfView = b => { const r = mfOf(b).redFlag, vs = viewsOf(b); return !r ? null : vs.includes("why") ? "why" : vs.includes(r.on) ? r.on : "rules"; };
+const whyOpen = (b, c) => { if(b.kind !== "lesson" || viewsOf(b).includes("why") || !c.hook) return ""; const ls = leadSplit(c.hook);
+  return `<p class="cfx-whyline" role="note" aria-label="Why it matters"><b class="cfx-whyline-k">💡 Why it matters</b><span class="cfx-whyline-t">${hl(ls ? ls[0] : c.hook)}</span></p>`; };
 function viewsOf(b){
-  if(b.kind === "lesson" && b.brief) return ["why"].concat(docView(b), ["rules"], stepsView(b));   // brief: a condensed overview (Day 5's litigation)
-  if(b.kind === "lesson" && b.compact) return mapView(b).concat(theoryViews(b).slice(0, 1), ["why"], docView(b), ["rules"], stepsView(b));   // compact: a full topic on fewer slides
-  if(b.kind === "lesson") return mapView(b).concat(theoryViews(b), ["why"], docView(b), ["rules"], b.show ? ["model"] : [], stepsView(b), (b.best || []).length && !b.noGame ? ["dodont"] : []);   // the theory first, then why it matters; noGame: the CM introduction
+  if(b.kind === "lesson" && b.brief) return ["why"].concat(docView(b), ["rules"], stepsView(b));   // brief: a condensed overview (Day 5's litigation); no Theory slide, so Why It Matters stays
+  if(b.kind === "lesson" && b.compact) return mapView(b).concat(theoryViews(b).slice(0, 1), whyView(b), docView(b), ["rules"], stepsView(b));   // compact: a full topic on fewer slides
+  if(b.kind === "lesson") return mapView(b).concat(theoryViews(b), whyView(b), docView(b), ["rules"], b.show ? ["model"] : [], stepsView(b), (b.best || []).length && !b.noGame ? ["dodont"] : []);   // The Theory opens with why it matters; noGame: the CM introduction
   if(b.kind === "activity") return ["task", "case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], EX.audits[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);   // Your Task first: what to do, then the file it's done on   // compact: no See It slide (the worked model stays in 📖 Full text)
   return (copyOf(b).questions.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
 }
@@ -821,13 +832,14 @@ function slideBody(view, l, d){
   if(DRIVE_LATER.has(b.id) && window.CMDrive && CMDrive.dayOpened) CMDrive.dayOpened(Number(b.id.charAt(1)));   // a day's Backup File Maintenance: Day 2 lays its drill, and the day is graded
   switch(view){
     case "why": { const ls = leadSplit(c.hook);
-      return `<div class="cfx-hero${mfOf(b).redFlag ? " cfx-hero-rf" : ""}"><div class="cfx-hero-text"><span class="cfx-chip">${E(titleCase(b.topic))}</span>${ls ? `<p class="cfx-lead-1">${hl("**" + ls[0] + "**")}</p><p class="cfx-hook">${hl(ls[1])}</p>` : `<p class="cfx-hook">${hl(c.hook)}</p>`}</div>${art(c.image)}</div>${redFlagBox(b)}${strip()}`; }
+      return `<div class="cfx-hero${mfOf(b).redFlag ? " cfx-hero-rf" : ""}"><div class="cfx-hero-text"><span class="cfx-chip">${E(titleCase(b.topic))}</span>${ls ? `<p class="cfx-lead-1">${hl("**" + ls[0] + "**")}</p><p class="cfx-hook">${hl(ls[1])}</p>` : `<p class="cfx-hook">${hl(c.hook)}</p>`}</div>${art(c.image)}</div>${redFlagBox(b, "why")}${strip()}`; }
     case "theory": case "theory2": {
       const t = c.theory, half = Math.ceil(t.concepts.length / 2), two = t.concepts.length > TH_PER;
       const list = !two ? t.concepts : view === "theory" ? t.concepts.slice(0, half) : t.concepts.slice(half);
-      return `<div class="cfx-theory cfx-th-solo"><div class="cfx-th-main">${view === "theory" ? mapStrip(b) : ""}
+      const why = view === "theory" ? whyOpen(b, c) : "";
+      return `<div class="cfx-theory cfx-th-solo${why ? " cfx-th-why" : ""}${rfView(b) === view ? " cfx-th-rf" : ""}"><div class="cfx-th-main">${why}${view === "theory" ? mapStrip(b) : ""}
           ${view === "theory" ? (leadSplit(t.lead) ? `<p class="cfx-lead-1">${hl("**" + leadSplit(t.lead)[0] + "**")}</p><p class="cfx-th-lead">${hl(leadSplit(t.lead)[1])}</p>` : `<p class="cfx-th-lead">${hl(t.lead)}</p>`) : `<p class="cfx-th-cont">${E(titleCase(b.topic))}: continued</p>`}
-          <div class="cfx-th-grid">${list.map((x, j) => `<div class="cfx-th-c" style="animation-delay:${j * .05}s"><b>${E(x.term)}</b><span>${hl(x.text)}</span>${(x.more || []).length ? `<button type="button" class="cfx-th-more" onclick="cmCaseFlow.more('${b.id}',${t.concepts.indexOf(x)})" title="More on ${E(x.term)}">＋ More</button>` : ""}</div>`).join("")}</div>${view === "theory" ? milestoneRail(b, "theory") : ""}</div>
+          <div class="cfx-th-grid">${list.map((x, j) => `<div class="cfx-th-c" style="animation-delay:${j * .05}s"><b>${E(x.term)}</b><span>${hl(x.text)}</span>${(x.more || []).length ? `<button type="button" class="cfx-th-more" onclick="cmCaseFlow.more('${b.id}',${t.concepts.indexOf(x)})" title="More on ${E(x.term)}">＋ More</button>` : ""}</div>`).join("")}</div>${view === "theory" ? milestoneRail(b, "theory") : ""}${redFlagBox(b, view)}${why ? strip() : ""}</div>
       </div>`;
     }
     case "frame": {   // the deck page's structure, drawn in the course's own design
@@ -851,8 +863,9 @@ function slideBody(view, l, d){
     case "map": { const r = roadmapOf(b), steps = r.steps;
       return `<div class="cfx-fw cfx-map"><h3 class="cfx-fw-t">🗺 ${E(r.title)}</h3><ol class="cfx-fw-flow" style="--n:${steps.length}">${steps.map((x, i) => `<li style="animation-delay:${i * .07}s"><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span></li>`).join("")}</ol><p class="cfx-fw-note">Where this lesson is going: each step is taught next, before anything asks you to do it.</p></div>`;
     }
-    case "rules": return `<div class="cfx-split${mfOf(b).ruleEx ? " cfx-split-rx" : msView(b) === "rules" && mfOf(b).milestones ? " cfx-split-ms" : ""}"><ol class="cfx-points">${c.points.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>${mfOf(b).ruleEx ? ruleExBox(b) : msView(b) === "rules" && mfOf(b).milestones ? "" : art(c.image, "small")}</div>${milestoneRail(b, "rules")}${plainBox(b)}
-      ${c.upl ? `<div class="cfx-upl"><b>⚖ UPL Line</b><span>${hl(c.upl)}</span></div>` : ""}`;
+    case "rules": { const side = mfOf(b).ruleEx ? "rx" : msView(b) === "rules" && mfOf(b).milestones ? "ms" : rfView(b) === "rules" ? "rf" : "";   // beside the points: Rule vs. Exception, or the Red Flag, in the picture's place
+      return `<div class="cfx-split${side ? " cfx-split-" + side : ""}"><ol class="cfx-points">${c.points.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>${side === "rx" ? ruleExBox(b) : side === "ms" ? "" : side === "rf" ? redFlagBox(b, "rules") : art(c.image, "small")}</div>${side === "rf" ? "" : redFlagBox(b, "rules")}${milestoneRail(b, "rules")}${plainBox(b)}
+      ${c.upl ? `<div class="cfx-upl"><b>⚖ UPL Line</b><span>${hl(c.upl)}</span></div>` : ""}`; }
     case "audit": return auditSlide(b);
     case "grade": {   // what a Grade-A packet or binder holds and how it is built, shown before Your Task
       const g = SLIDES[b.id].grade, col = (cls, h, xs, ol) => `<div class="cfx-grade-c ${cls}"><h3>${h}</h3><${ol ? "ol" : "ul"}>${xs.map(x => `<li>${hl(x)}</li>`).join("")}</${ol ? "ol" : "ul"}></div>`;
@@ -861,7 +874,7 @@ function slideBody(view, l, d){
     }
     case "model": return `<div class="cfx-model">${b.show && b.show.caption ? `<p class="cfx-caption">${E(b.show.caption)}</p>` : ""}${visual(l, b)}</div>${milestoneRail(b, "model")}`;
     case "steps": return `<div class="cfx-ms-own${mfOf(b).milestones.steps.length > 4 ? "" : " cfx-ms-row"}">${milestoneRail(b, "steps")}</div>`;   // Milestone Steps, alone on the slide
-    case "dodont": return ddList(c);   // the Do's and Don'ts themselves (3 Clues, 1 Rule is retired)
+    case "dodont": return ddList(c) + redFlagBox(b, "dodont");   // the Do's and Don'ts themselves (3 Clues, 1 Rule is retired)
     case "case": {
       if(b.id === "d1m1-drive" && window.CMDrive && CMDrive.slide) return CMDrive.slide();   // Day 1's case backup: the task in four steps and the firm's standard, from the Worker (js/cm-drive.js)
       const docs = (CF_PACKETS[b.id] || []).map(id => CF_DOCS.find(x => x.id === id)).filter(docAvail).filter(Boolean).slice(0, 4);
@@ -2873,7 +2886,8 @@ MODULES.forEach(d => d.lessons.forEach(l => {
   const b = l.cf.block, n = b.notes || [], vs = viewsOf(b), best = (b.best || []).map(x => String(x).replace(/^pitfall:\s*/i, "Watch for this: "));
   const per = {   // one script per slide (view); the block's speaker notes spread across its slides
     why: {why: b.tell && b.tell.why, talk: n[0] || ""},
-    theory: theoryOf(b) ? {why: String(theoryOf(b).lead).replace(/\*\*/g, ""), walk: theoryOf(b).concepts.slice(0, theoryOf(b).concepts.length > TH_PER ? Math.ceil(theoryOf(b).concepts.length / 2) : TH_PER).map(x => `${x.term}: ${String(x.text).replace(/\*\*/g, "")}`), ask: "Which of these have you met before, and where would it show up on John Doe's file?"} : {},
+    // (a lesson whose Why It Matters opens The Theory: its why and its note come first on that slide)
+    theory: theoryOf(b) ? {why: (vs.includes("why") || !(b.tell && b.tell.why) ? "" : b.tell.why + " ") + String(theoryOf(b).lead).replace(/\*\*/g, ""), talk: vs.includes("why") ? "" : n[0] || "", walk: theoryOf(b).concepts.slice(0, theoryOf(b).concepts.length > TH_PER ? Math.ceil(theoryOf(b).concepts.length / 2) : TH_PER).map(x => `${x.term}: ${String(x.text).replace(/\*\*/g, "")}`), ask: "Which of these have you met before, and where would it show up on John Doe's file?"} : {},
     theory2: theoryOf(b) ? {why: "The theory, continued.", walk: theoryOf(b).concepts.slice(Math.ceil(theoryOf(b).concepts.length / 2)).map(x => `${x.term}: ${String(x.text).replace(/\*\*/g, "")}`)} : {},
     frame: theoryOf(b) && theoryOf(b).framework ? {why: theoryOf(b).framework.title, walk: (theoryOf(b).framework.rows || []).map(r => r.map(x => String(x).replace(/\*\*/g, "")).join(" · ")).concat((theoryOf(b).framework.steps || []).map(x => `${x.label}: ${String(x.text).replace(/\*\*/g, "")}`)), ask: "Walk the room through it on John Doe's file: where is he on this right now?"} : {},
     doc: (SLIDES[b.id] || {}).document ? {why: `${SLIDES[b.id].document.name}: what it is, why the law cares, what it proves, and how you handle it.`, walk: ["definition", "purpose", "evidence"].map(k => String(SLIDES[b.id].document[k]).replace(/\*\*/g, "")).concat(SLIDES[b.id].document.handling.map(x => String(x).replace(/\*\*/g, "")))} : {},
@@ -2937,7 +2951,7 @@ if(typeof window.sopRunOfShow === "function"){
       const full = p.topics.filter(l => !l.cf.block.brief);
       if(p.topics.length) add(p.lecture, {title: `Topic ${i + 1}: ${E(p.title)}`, do: [
         `${p.topics.length} topic${p.topics.length > 1 ? "s" : ""}, ${p.lecture} minutes in all (${p.topics.map(l => `${(sc.minsOf && sc.minsOf.get(l)) || sc.per} min`).join(", ")}): ${p.topics.map(l => `<b>${E(titleCase(l.cf.block.title))}</b>`).join(" · ")}.`,
-        `A refresher: the room has met every one of these, so recap the rule, check it with one question about John Doe's file, and move on; each topic keeps all its slides (The Theory, Why It Matters, The Rules, See It, Milestone Steps, Do &amp; Don't), at a quicker pace. ${p.topics.some(l => l.cf.block.thorough) ? "<b>The mediation and arbitration lessons are the exception: teach them in full</b>, they get the most minutes." : ""}`,
+        `A refresher: the room has met every one of these, so recap the rule, check it with one question about John Doe's file, and move on; each topic keeps all its slides (The Theory, which opens with why it matters, The Rules, See It, Milestone Steps, Do &amp; Don't), at a quicker pace. ${p.topics.some(l => l.cf.block.thorough) ? "<b>The mediation and arbitration lessons are the exception: teach them in full</b>, they get the most minutes." : ""}`,
         `Read the script in Presenter view as written or in your own words; take one or two answers per question, not a round of the room.`],
         say: `“Now we're into ${p.title}. Keep John Doe's file in your head the whole way through: in a few minutes you'll do this on it.”`,
         watch: "Silence usually means it's too abstract: bring it back to John Doe's file and ask what they'd do next on it."});
@@ -4463,6 +4477,26 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx-lead-1{text-align:center;font:700 30px/1.3 'Fraunces',Georgia,serif;color:var(--ink);margin:0 0 12px;}
 .cfx-hero-text .cfx-lead-1 + .cfx-hook{text-align:center;font-size:26px;}
 .cfx-theory .cfx-lead-1{font-size:24px;} .cfx-theory .cfx-lead-1 + .cfx-th-lead{text-align:center;}
+/* 💡 Why it matters, the line that opens The Theory (the lesson's Why It Matters slide, merged into it) */
+.cfx .cfx-whyline{display:flex;align-items:center;gap:14px;margin:0;padding:6px 16px;background:#1E2340;border-left:8px solid #DB8437;border-radius:12px;text-align:left !important;flex:none;}
+.cfx .cfx-whyline-k{flex:none;font:800 16px/1.3 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:#1E2340;background:#DB8437;border-radius:999px;padding:4px 14px;white-space:nowrap;}
+.cfx .cfx-whyline-t{font:800 clamp(21px,2.8vh,26px)/1.3 var(--font-ui);color:#fff;text-align:left !important;}
+.cfx .cfx-whyline mark.cfx-hl{background:none;color:#FFC98F;padding:0;font-weight:800;}
+/* the band takes its height from the slide's spacing, never from the theory's type or its cards */
+.cfx-th-solo.cfx-th-why > .cfx-th-main{gap:10px;} .cfx .cfx-th-why .cfx-th-lead{margin-bottom:0;} .cfx-th-solo.cfx-th-why .cfx-th-grid{gap:10px 14px;}
+/* the case strip that sat on Why It Matters: under the theory's cards on a screen with room for it (a large screen, the
+   shared slides window), not on a laptop, where the slide is full */
+.cfx .cfx-th-why .cf-strip{display:none;margin:0;justify-content:center;flex:none;}
+@media (min-width:1500px) and (min-height:940px){ #lessonStage .cfx-th-why .cf-strip, #audienceRoot .cfx-th-why .cf-strip{display:flex;} }
+.cfx .cfx-th-why .cf-strip .cf-anchor{font-size:18px !important;font-weight:800;} .cfx .cfx-th-why .cf-strip .cf-anchor b{font-size:16px !important;font-weight:800;}
+/* ＋ More on a concept card: bold and 16px like the rest of the slide, the card's title kept clear of it */
+.cfx .cfx-th-c .cfx-th-more{font:800 16px/1.5 var(--font-ui);padding:1px 12px;} .cfx .cfx-th-c:has(> .cfx-th-more) > b{padding-right:96px;}
+/* the CM Red Flag beside the points on The Rules (in the picture's place), and under the Do & Don't */
+.cfx-lesson .cfx-split-rf{grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;justify-content:stretch !important;align-items:center !important;column-gap:24px !important;}
+.cfx .cfx-split-rf .cfx-rf{margin:0;} .cfx .cfx-dd + .cfx-rf{margin-top:14px;} .cfx .cfx-split + .cfx-rf{margin-top:6px;}
+.cfx .cfx-rf ~ .cfx-upl,.cfx .cfx-rf ~ .cfx-plain,.cfx .cfx-split-rf ~ .cfx-upl,.cfx .cfx-split-rf ~ .cfx-plain{margin-top:10px;}
+.cfx-th-solo.cfx-th-rf > .cfx-th-main{gap:10px;} .cfx-th-solo.cfx-th-rf .cfx-th-grid{gap:10px 14px;} .cfx .cfx-th-rf .cfx-rf{margin:0;flex:none;} .cfx .cfx-th-rf .cfx-th-cont{margin-bottom:4px !important;}
+@media (max-width:760px){ .cfx .cfx-whyline{flex-wrap:wrap;gap:4px 10px;} .cfx-lesson .cfx-split-rf{grid-template-columns:minmax(0,1fr) !important;} }   /* a phone: the label above its line, the Red Flag under the points */
 .cfx-lab-lead{font:500 16px/1.45 var(--font-ui);color:var(--ink);margin:0 0 10px;text-align:left;}
 .cfx-lab-tools{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px;}
 .cfx-lab-tools[hidden]{display:none;}

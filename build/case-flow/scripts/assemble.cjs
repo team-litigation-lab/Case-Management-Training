@@ -18,17 +18,14 @@ const out = {}, errors = [];
 // a block's slides, in order: the same as viewsOf() in js/cm-case-flow.js
 const TH_PER = 4, KC_PER = 4;
 function viewsOf(b){
-  const vs = viewsIn(b), t = vs.indexOf("theory");
-  return (SLIDES[b.id] || {}).theoryFirst && vs[0] === "why" && t > 0 ? ["theory", "why"].concat(vs.slice(1).filter(v => v !== "theory")) : vs;
-}
-function viewsIn(b){
   const t = (SLIDES[b.id] || {}).theory;
   const theory = !t ? [] : (t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]).concat(t.framework ? ["frame"] : []);
   const steps = ((SLIDES[b.id] || {}).milestones || {}).slide ? ["steps"] : [];   // Milestone Steps on a slide of its own
   const doc = (SLIDES[b.id] || {}).document ? ["doc"] : [], map = (SLIDES[b.id] || {}).roadmap && !(SLIDES[b.id] || {}).roadmap.merge ? ["map"] : [];
+  const why = theory.length && !(SLIDES[b.id] || {}).whySlide ? [] : ["why"];   // Why It Matters opens The Theory; a slide of its own only without one, or where the copy keeps it ("whySlide")
   if(b.kind === "lesson" && b.brief) return ["why"].concat(doc, ["rules"], steps);
-  if(b.kind === "lesson" && b.compact) return map.concat(theory.slice(0, 1), ["why"], doc, ["rules"], steps);
-  if(b.kind === "lesson") return map.concat(theory, ["why"], doc, ["rules"], b.show ? ["model"] : [], steps, (b.best || []).length && !b.noGame ? ["dodont"] : []);
+  if(b.kind === "lesson" && b.compact) return map.concat(theory.slice(0, 1), why, doc, ["rules"], steps);
+  if(b.kind === "lesson") return map.concat(theory, why, doc, ["rules"], b.show ? ["model"] : [], steps, (b.best || []).length && !b.noGame ? ["dodont"] : []);
   if(b.kind === "activity") return ["task", "case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], AUDITS[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);
   const qs = (SLIDES[b.id] || {}).questions || b.check.questions;
   return (qs.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
@@ -81,7 +78,9 @@ for (const day of CF.days) for (const m of day.modules) for (const b of m.blocks
   for (const v of vs) { const x = c[v]; if(!x){ errors.push(`${b.id}.${v}: no script for this slide`); continue; } say(b.id, `${v}.say`, x.say); ask(b.id, `${v}.ask`, x.ask); }
   if(c.job) errors.push(`${b.id}.job: no lesson has an On the Job slide (Trigger ➔ Task ➔ Tool ➔ Checkpoint) any more; take its script out`);
   // a brief or compact (condensed) block keeps its full scripts, unused, so it can be taught in full again
-  for (const v of Object.keys(c)) if(!vs.includes(v) && !b.brief && !b.compact) errors.push(`${b.id}.${v}: the block has no such slide`);
+  // Why It Matters opens The Theory where a lesson has one: no slide, so no script of its own (its points lead the theory's)
+  if(c.why && !vs.includes("why")) errors.push(`${b.id}.why: Why It Matters opens The Theory in this lesson, it is no slide of its own; put its points first in the theory script and take "why" out`);
+  for (const v of Object.keys(c)) if(!vs.includes(v) && !b.brief && !b.compact && v !== "why") errors.push(`${b.id}.${v}: the block has no such slide`);
   out[b.id] = Object.fromEntries(vs.filter(v => c[v]).map(v => [v, c[v].ask ? {say: c[v].say.trim(), ask: c[v].ask.trim()} : {say: c[v].say.trim()}]));
 }
 for (const id of Object.keys(J)) if(!seen.has(id)) errors.push(`${id}: no such block`);

@@ -10,16 +10,24 @@ in CI). A slide without a script here falls back to the script the course builds
 ```json
 {
   "d1m1-role": {
-    "why":   { "say": "…", "ask": "…" },
-    "rules": { "say": "…" }
+    "theory": { "say": "…", "ask": "…" },
+    "rules":  { "say": "…" }
   }
 }
 ```
 
 Keyed by block id, then by slide (the block's views, in order: a lesson is map · theory · theory2 ·
-frame · why · doc (when it introduces a document) · rules · model · steps (Milestone Steps, where the lesson gives them
-a slide of their own) · dodont, the theory first and Why It Matters after it (a brief lesson is why · doc · rules); an activity is case · task · model · check; a Learning Check is
+frame · doc (when it introduces a document) · rules · model · steps (Milestone Steps, where the lesson gives them
+a slide of their own) · dodont; an activity is case · task · model · check; a Learning Check is
 questions · summary · scale; only the slides the block actually has). Every slide of every block has one.
+
+**Why it matters** is the opening of The Theory, not a slide: a lesson with a Theory slide has no `why` script. Its
+`theory` talking points start with the why (what the hook means on John Doe's file), then the theory, inside the limits
+below; where the two together run over, tighten the wording, never drop a point that carries a fact. The point about
+the lesson's CM Red Flag goes on the slide that draws it (`rules`, or `dodont` / `theory2` where the copy's
+`redFlag.on` says so). Only two kinds of lesson still have a `why` slide and a `why` script, after the theory's slides
+and before doc and rules: a brief lesson (why · doc · rules: it has no Theory slide) and a lesson whose copy says
+`"whySlide": true` (SLIDESPEC.md).
 
 ## The day's own slides
 
@@ -116,7 +124,7 @@ Every block carries all of them; every slide carries the ones that fit it.
    real carriers, firms or people. Each joke still points at the lesson, and no premise repeats
    across blocks.
 
-Where each fits best: a lesson's **why** is the icebreaker and the teaser; **map**, **theory**,
+Where each fits best: a lesson's **why** (or the opening of its **theory**, where Why It Matters opens that slide) is the icebreaker and the teaser; **map**, **theory**,
 **frame** and **model** tease and reveal in plain words; **rules** and **dodont** draw the lazy vs.
 high-value line; **steps** walks the milestones as they run on the job, with the war story and the settlement
 consequence. An activity's **case**
