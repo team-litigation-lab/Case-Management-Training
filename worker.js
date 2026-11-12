@@ -185,9 +185,9 @@ function candidateIds(name, batch) {
 /* ---------- what a trainee may touch ---------- */
 // Daily Activities: activities:dayN and their attachments (actfile:*) are published by admins for everyone;
 // settings:feedback-style is the facilitator voice the portal's AI feedback is written in.
-const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|feedback-style)$/, /^activities:day\d+$/, /^actfile:[a-z0-9]{1,40}$/, /^surprise-task-day\d+$/, /^extralessons:day\d+$/, /^lessonx:day\d+$/, /^extraquiz:day\d+$/, /^handouts:links$/];
+const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|feedback-style|drive)$/, /^activities:day\d+$/, /^actfile:[a-z0-9]{1,40}$/, /^surprise-task-day\d+$/, /^call-inject-day\d+$/, /^extralessons:day\d+$/, /^lessonx:day\d+$/, /^extraquiz:day\d+$/, /^handouts:links$/];
 const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`, `actsub:${id}`];
-const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt"];
+const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt", "driveLink", "driveLinkAt"];
 
 // callsim:<id>: the trainee's graded calls from the Call Simulator (☎ LSH Ring Channel), kept by the Training Portal (its /api/call-results).
 // labreview:<id>: the trainer's reviews of the trainee's Practice Lab (score, rating, comment per activity; js/cm-lab.js),

@@ -235,7 +235,7 @@ const PRACTICE_SUBVIEWS = ["tool","calls","tools","crisisroleplay"];
 // The three Drafting Tools (js/cm-lor.js, js/cm-hipaa.js, js/cm-medprov.js) each get their own address;
 // "drafting" is the hub page that links to all three (js/cm-drafting.js).
 const DRAFTING_SUBVIEWS = ["lor","hipaa","medprov"];
-window.EXTRA_ROUTE_VIEWS = ["casedocs", "drafting", "scorecard"].concat(DRAFTING_SUBVIEWS);
+window.EXTRA_ROUTE_VIEWS = ["casedocs", "drafting", "scorecard", "knowtools"].concat(DRAFTING_SUBVIEWS);
 // Page names for the "← Back to …" button, matching this top bar.
 window.EXTRA_ROUTE_LABELS = {clientprofile:"Case File", casedocs:"Documents", practice:"Practice", notes:"Notes",
   drafting:"Drafting Tools", handouts:"Knowledge Base", scorecard:"My Performance", lor:"Drafting Tools", hipaa:"Drafting Tools", medprov:"Drafting Tools"};

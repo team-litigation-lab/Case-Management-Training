@@ -195,7 +195,7 @@
   },
   "d1m1-drive": {
     "case": {
-      "say": "It's 02/09/2026, half past four. John Doe's matter went active in the CMS this afternoon, and his intake documents are filed there.\n\nNow picture tomorrow morning. You're out sick, and a colleague picks up John's file because Keystone is on the phone asking about the Police Report.\n\nCan they find it in seconds? Only if every file at this firm is laid out the same way. That's what the backup drive is for.\n\nRight now there's nothing on it for John Doe.\n\n{name}, quick guess: how long would you give a colleague to find one document on someone else's file before you'd call it lost?\n\nSame layout on every file, so anyone can cover it.",
+      "say": "It's 02/09/2026, half past four. John Doe's matter went active in the CMS this afternoon. Now picture tomorrow: you're out sick, and a colleague has to find his Police Report in seconds.\n\nThat only works if every file is built the same way. So here's the firm's procedure, four steps, on the left.\n\nOne: create the Main Case Folder, named your full name, a dash, then the case. Two: set up the firm's subfolders. Three: connect the root folder to the platform. Four: keep uploading, every day.\n\nOn the right is the sample. Nine subfolders, numbered in the order the case runs, intake to litigation.\n\nYour trainer sends you the link to the folder you build it in. It's on your dashboard, under My Case Folder.\n\n{name}, look at folders 03 and 04. Why would a firm keep the medical records and the bills apart?\n\nSame layout on every file, so anyone can cover it.",
       "ask": "{name}, what makes a folder easy for someone else to find, when they've never seen your file?"
     },
     "task": {
