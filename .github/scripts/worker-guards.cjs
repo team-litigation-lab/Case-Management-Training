@@ -149,6 +149,27 @@ async function ticketFor(payloadObj, secret) {
             if (!ac2.prevFeedback || ac2.prevFeedback.text !== 'good work') fail(`the retired feedback should stay as prevFeedback: ${JSON.stringify(ac2)}`);
         }
 
+        // 3f. a trainee's feedback on the program is rebuilt by the Worker: never stored as sent
+        {
+            const fk = 'tfeedback:' + 'probe' + Date.now().toString(36);
+            const sent = { id: "x');alert(1);//", status: 'actioned', name: 'Someone Else', traineeId: 'someone-else--b100926', batch: 'B999999', at: '<b>', dayId: '<img>',
+                ratings: { platform: 7, lessons: 4, facilitator: '<b>', bogus: 5 }, good: '<img src=x onerror=alert(1)>', improve: 'x'.repeat(5000), anonymous: false };
+            const w = await call('/api/storage/set', { key: fk, value: JSON.stringify(sent) }, a.token);
+            if (w.status !== 200) fail(`a trainee's feedback should be saved: ${JSON.stringify(w)}`);
+            const got = kvGet(fk) || {};
+            if (got.id !== fk.slice(10)) fail(`a feedback record's id is its key, not what was sent: ${got.id}`);
+            if (got.status !== 'new') fail(`new feedback always starts "new": ${got.status}`);
+            if (got.traineeId !== a.id || got.name === 'Someone Else' || got.batch === 'B999999') fail(`feedback should name the trainee who sent it, from their own record: ${JSON.stringify({ traineeId: got.traineeId, name: got.name, batch: got.batch })}`);
+            if (JSON.stringify(got.ratings) !== JSON.stringify({ lessons: 4 })) fail(`only 1–5 ratings in the known areas are kept: ${JSON.stringify(got.ratings)}`);
+            if (got.dayId !== null || !/^\d{4}-/.test(got.at || '') || (got.improve || '').length > 1500) fail(`day, time and text should be narrowed: ${JSON.stringify({ dayId: got.dayId, at: got.at, improve: (got.improve || '').length })}`);
+            const again = await call('/api/storage/set', { key: fk, value: JSON.stringify({ good: 'second' }) }, a.token);
+            if (again.status === 200) fail('a feedback record is written once');
+            const anon = 'tfeedback:' + 'anon' + Date.now().toString(36);
+            await call('/api/storage/set', { key: anon, value: JSON.stringify({ anonymous: true, good: 'fine', name: 'Leak' }) }, a.token);
+            const an = kvGet(anon) || {};
+            if (an.name !== 'Anonymous' || an.traineeId !== null || an.batch !== '') fail(`anonymous feedback should carry no name, id or batch: ${JSON.stringify(an)}`);
+        }
+
         // 4. ranking: a trainee's request reads their own record only
         for (let i = 0; i < 30; i++) store.set(`cm:trainee:t${i}--b100926`, JSON.stringify({ id: `t${i}--b100926`, name: `T ${i}`, batch: 'B100926', approved: true }));
         reads = 0;
