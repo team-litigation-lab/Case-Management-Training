@@ -4106,8 +4106,6 @@ async function autoPublishBlueprint(){
   }catch(e){ console.warn("blueprint auto-publish skipped:", e); }
   finally{ state.blueprintJob = false; }
 }
-async function republishBlueprint(){ state.blueprintMeta = null; await sharedSet("blueprint:meta", {build:"", at:""}); toast("Rebuilding the blueprint PDF…"); await autoPublishBlueprint(); toast(state.blueprintMeta && state.blueprintMeta.build===APP_BUILD ? "✅ Blueprint PDF updated." : "Couldn't rebuild the blueprint — try Download PDF instead."); }
-window.republishBlueprint = republishBlueprint;
 function printOrientation(){
   const slides = orientSlides();
   const css = [...document.querySelectorAll("style")].map(x=>x.textContent).join("\n");
@@ -5821,15 +5819,6 @@ function showDayTopics(dayId){
   document.body.appendChild(overlay);
 }
 window.showDayTopics = showDayTopics;
-function scrollToModule(id){
-  state.view = "dashboard";
-  render();
-  setTimeout(()=>{
-    const el = document.getElementById("module-"+id);
-    if(el) el.scrollIntoView({behavior:"smooth", block:"center"});
-  }, 30);
-}
-window.scrollToModule = scrollToModule;
 /* Where a trainee should land when they come back to a day: the slide they
    were last on, falling back to the furthest slide they've reached. */
 /* Topics grouped by their "section" (Day 3 so far): [{section, items:[{l, i}]}], or null when the day has none. */
@@ -6193,7 +6182,6 @@ function openRouteFromHash(){
   return true;
 }
 const newTabUrl = (hash)=> location.pathname + (location.search ? location.search + "&" : "?") + "nt=1" + hash;   // ?nt=1: this tab opens the page it was asked for
-function openInNewTab(){ syncRouteHash(); window.open(newTabUrl(routeHash() || ""), "_blank"); }
 function openRouteInNewTab(hash){ window.open(newTabUrl(hash), "_blank"); }
 window.addEventListener("hashchange", ()=>{
   if(!(state.traineeId || state.isAdmin) || ["login","pendingApproval","registrationDenied"].includes(state.view)) return;
@@ -6213,7 +6201,7 @@ window.addEventListener("storage", (e)=>{
   if(key==="slide-progress" && state.view==="day" && state.dayId && !state.isAdmin) state.maxSlideReached = Math.max(state.maxSlideReached||0, val[state.dayId]||0);
   if(key==="notes" && state.view==="notes" && !(typeof isTyping==="function" && isTyping())) render();
 });
-Object.assign(window, {openInNewTab, openRouteInNewTab});
+window.openRouteInNewTab = openRouteInNewTab;
 function resumeLabel(){
   const lv = state.lastView; if(!lv) return "";
   if(lv.view==="day" && lv.dayId){ const idx = resumeSlideFor(lv.dayId); const d = DAYS.find(x=>x.id===lv.dayId); const sl = buildDaySlides(d)[idx]; return `Day ${lv.dayId} · ${sl ? daySlideTitle(d, sl) : "Lesson"}`; }
@@ -7026,14 +7014,13 @@ function showSlidePeek(btn, pinned){
   box.style.top = Math.max(8, r.top - h - 10) + "px";
 }
 function hideSlidePeek(force){ if(state.peekPinned && !force) return; const b = document.getElementById("slidePeek"); if(b) b.remove(); }
-function togglePeekPin(){ state.peekPinned = !state.peekPinned; hideSlidePeek(true); render(); }
 // pinned: the preview floats over the slide above Next (never in the page's flow, so the slide keeps its size), redrawn on each slide
 function placePinnedPeek(){
   hideSlidePeek(true);
   if(!state.peekPinned || state.view!=="day" || !peekTrainer()) return;
   const btn = document.querySelector(".slide-nav .np-wrap .btn-primary"); if(btn) showSlidePeek(btn, true);
 }
-Object.assign(window, {showSlidePeek, hideSlidePeek, togglePeekPin, slidePeekMini});
+Object.assign(window, {showSlidePeek, hideSlidePeek, slidePeekMini});
 function renderDaySlideContent(d, slide, idx){
   if(slide.type==="video") return renderVideoPlaceholder(d);
   if(slide.type==="taskOverview") return renderTaskOverview(d.taskOverview);
@@ -7250,13 +7237,6 @@ function updateLessonStage(){
   st.scrollTop = 0; const ls = document.getElementById("lessonSlideWrap"); if(ls) ls.scrollTop = 0;
   return true;
 }
-function togglePageFullscreen(){
-  if(document.fullscreenElement){ document.exitFullscreen && document.exitFullscreen(); return; }
-  const el = document.documentElement;
-  if(el.requestFullscreen) el.requestFullscreen().catch(()=>toast("Your browser blocked full screen — press F11 instead."));
-  else toast("Press F11 for full screen.");
-}
-window.togglePageFullscreen = togglePageFullscreen;
 function lessonFullscreen(){
   const el = document.getElementById("lessonStage");
   if(!document.fullscreenElement && el && el.requestFullscreen) el.requestFullscreen().catch(()=>toast("Your browser blocked full screen — press F11 instead."));
@@ -12686,8 +12666,6 @@ function toggleAdminDetail(id){
 window.toggleAdminDetail = toggleAdminDetail;
 function setAdminSearch(v){ state.adminSearch=v; refreshAdminRows(); }
 window.setAdminSearch = setAdminSearch;
-function setAdminSort(v){ state.adminSort=v; refreshAdminRows(); }
-window.setAdminSort = setAdminSort;
 function setAdminBatchFilter(v){ state.adminBatchFilter=v; render(); }
 window.setAdminBatchFilter = setAdminBatchFilter;
 function setAdminShowArchived(v){ state.adminShowArchived=v; render(); }
