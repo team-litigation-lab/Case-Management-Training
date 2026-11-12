@@ -38,7 +38,28 @@
       "An LOP to a provider **PIP would have paid**",
       "PIP, PD or collision **added to the stack**",
       "Assuming PIP, or **UM on the client's own policy**"
-    ]
+    ],
+    "milestones": {
+      "title": "The Recovery Stack, in order",
+      "steps": [
+        {"label": "BI · Keystone", "chip": "KM-26-440871", "done": "$10,000 per person on Robert Smith's policy; **exhausted first**"},
+        {"label": "Host UM · Harbor Point", "chip": "HP-26-7741", "done": "$20,000/$40,000 on the Escape; **add-on** (03/02/2026)"},
+        {"label": "Relative UM · Cardinal State", "chip": "CS-26-20355", "done": "$10,000/$20,000 via Margaret Doe; **stacks behind Host UM**"}
+      ],
+      "note": "Outside the **$40,000**: Harbor Point PIP $5,000, Keystone PD $25,000, Bluewater collision"
+    },
+    "ruleEx": {
+      "rule": "**BI is exhausted first** (paid or tendered at limits); Host UM opens next, and Relative UM stacks behind it",
+      "exception": "Settling or releasing BI **without the UM carriers' written consent** can forfeit the stack",
+      "onFile": "Consent comes first, on Atty. Thorne's authority",
+      "confirm": "Atty. Thorne confirms each policy's terms"
+    },
+    "redFlag": {
+      "see": "A Recovery Stack **totalling $45,000**",
+      "costs": "PIP was added: PIP pays bills, not the claim, so every figure built on it is wrong",
+      "do": "Rebuild it: **BI $10,000, Host UM $20,000, Relative UM $10,000**",
+      "owner": "Case Manager"
+    }
   },
   "d2m1-l1": {
     "image": "policy-letter",
@@ -104,7 +125,13 @@
       "A UM letter that **reads as a demand**",
       "The client's **phone, address or birth date** to Keystone",
       "A **guessed adjuster name** for Cardinal State"
-    ]
+    ],
+    "redFlag": {
+      "see": "A UM notice letter that **asks for payment** before any BI tender",
+      "costs": "Notice is not demand: a premature UM demand puts $30,000 of the stack at risk",
+      "do": "Send notice only; **payment requests wait** for the documented BI tender",
+      "owner": "Atty. Thorne"
+    }
   },
   "d2m1-a1": {
     "image": "email-outreach",
@@ -174,7 +201,23 @@
       "**Adding PIP or PD** to the stack total",
       "Confirming a limit **from a phone call** or Police Report",
       "An open request with **no next date**"
-    ]
+    ],
+    "milestones": {
+      "title": "Verification Status Hierarchy",
+      "steps": [
+        {"label": "Reported", "chip": "02/16–02/17/2026", "done": "Claim number and adjuster, or **'none yet'**, logged"},
+        {"label": "Noticed", "chip": "02/17/2026", "done": "Five letters served; **each delivery logged**"},
+        {"label": "Acknowledged", "chip": "03/03/2026", "done": "Written receipt; none by **business day 3**, follow up"},
+        {"label": "Disclosed", "done": "A limit stated, **still preliminary**: Keystone's $10,000, verbal"},
+        {"label": "Confirmed in writing", "chip": "03/20/2026", "done": "**Dec Page or Coverage Letter** on file, with source and date"}
+      ]
+    },
+    "redFlag": {
+      "see": "The matrix on **03/11/2026** reads 'BI: Confirmed · Police Report'",
+      "costs": "A Police Report, a phone call or the client's memory is a lead, never a limit",
+      "do": "Mark BI 'Disclosed', **request the Dec Page** in writing, docket the follow-up",
+      "owner": "Case Manager"
+    }
   },
   "d2m1-a2": {
     "image": "insurance-stack",
@@ -251,7 +294,13 @@
       "An LOP **before checking PIP** and Peach State",
       "Telling a provider **“paid in full at settlement”**",
       "Mission creep: taking on **every problem John Doe raises**"
-    ]
+    ],
+    "redFlag": {
+      "see": "A provider wants your word they'll be **paid in full** at settlement",
+      "costs": "It's a promise you can't make: the LOP's terms are Atty. Thorne's",
+      "do": "Promise no amount, reduction or date; **route terms to Atty. Thorne**",
+      "owner": "Atty. Thorne"
+    }
   },
   "d2m2-eob": {
     "image": "money-ledger",
@@ -292,7 +341,19 @@
       "A lien logged **at the billed amount**",
       "A contractual write-off treated as **the client's debt**",
       "A bill sent to PIP **after 06/26/2026**"
-    ]
+    ],
+    "ruleEx": {
+      "rule": "A plan's reimbursement claim is **what it paid, never what was billed**",
+      "exception": "Crescent's 07/01/2026 statement for $1,540.00 is **a balance bill**: route it to Atty. Thorne the same day",
+      "onFile": "Peach State EOB 06/03/2026: billed $3,400.00, plan paid $1,860.00",
+      "confirm": "Atty. Thorne handles the balance bill"
+    },
+    "redFlag": {
+      "see": "A lien logged **at the billed amount**, or a bill sent to PIP after 06/26/2026",
+      "costs": "The lien is overstated by the contractual adjustment, or the bill goes to an exhausted payer",
+      "do": "Log the plan-paid **$1,860.00**; check PIP's balance before routing any bill",
+      "owner": "Case Manager"
+    }
   },
   "d2m2-a1": {
     "image": "medical-visit",
@@ -387,7 +448,29 @@
       "**Continuing the plan unchanged** through a crisis",
       "**Blaming the client** for a systemic delay",
       "Jumping to Atty. Thorne **before the first two rungs**"
-    ]
+    ],
+    "milestones": {
+      "title": "A-C-T: Assess → Coordinate → Track",
+      "steps": [
+        {"label": "Monitor", "chip": "04/07/2026", "done": "**Week-6 measures** due and checked"},
+        {"label": "Detect and classify", "chip": "04/03/2026", "done": "Missed visits from 04/03 **classified: psychosocial**"},
+        {"label": "Assess", "chip": "04/08/2026", "done": "**No Contact Protocol** runs 04/08 → 04/17"},
+        {"label": "Coordinate", "chip": "04/20/2026", "done": "With consent: **Dr. Reyes by telephone**, evening LOP slots"},
+        {"label": "Track", "chip": "04/21/2026", "done": "GIRP note; **attendance 04/21 and 04/23**"}
+      ]
+    },
+    "ruleEx": {
+      "rule": "**A-C-T for every red flag**, the same day",
+      "exception": "A silent client can't be assessed until reached: **Assess runs through the No Contact Protocol**",
+      "onFile": "Silence is a symptom, not non-compliance",
+      "confirm": "Legal danger goes to Atty. Thorne"
+    },
+    "redFlag": {
+      "see": "The plan run **unchanged through a crisis**, or a label put on John",
+      "costs": "Care stalls, and your note carries a diagnosis no doctor made",
+      "do": "Document his distress **in his own words**; adjust the plan with consent",
+      "owner": "Case Manager"
+    }
   },
   "d2m2-a2": {
     "image": "phone-call",
@@ -524,7 +607,30 @@
       "A question that **names the reason** you expect",
       "Reassuring or alarming him: **both are case opinions**",
       "**Blaming the client** for the gap"
-    ]
+    ],
+    "milestones": {
+      "title": "The client interview",
+      "steps": [
+        {"label": "Consent on record", "done": "Date, who's on the call, **'not a lawyer'**, his spoken yes"},
+        {"label": "Privacy and privilege", "done": "He can talk alone; **the call is labelled privileged**"},
+        {"label": "Funnel the questions", "done": "Broad open, follow-up **in his words**, closed only to pin facts"},
+        {"label": "Paper and read-back", "done": "One dated task per document; **he corrects your read-back**"},
+        {"label": "Prevent the next gap", "chip": "03/05/2026", "done": "Dr. Reyes consult kept; **rides planned** past 03/19/2026"},
+        {"label": "GIRP note", "done": "Sent to Atty. Thorne **the same day**"}
+      ]
+    },
+    "ruleEx": {
+      "rule": "John's recorded account **to his own firm**, with consent, stays inside the firm",
+      "exception": "**Keystone asks for a Recorded Statement**: he declines and refers it to the firm",
+      "onFile": "Harbor Point or Cardinal State requests fall under cooperation clauses",
+      "confirm": "Atty. Thorne handles first-party carrier requests"
+    },
+    "redFlag": {
+      "see": "A leading question: **'Was it because you had no car?'**",
+      "costs": "It buys agreement, not information, and the account stops being his",
+      "do": "Ask open: 'What got in the way?' Then **log his exact words**",
+      "owner": "Case Manager"
+    }
   },
   "d2m3-a1": {
     "image": "client-call",
@@ -593,7 +699,19 @@
     "donts": [
       "A “clarify” request that **tells them what to write**",
       "**Leaving the gap out** of the timeline"
-    ]
+    ],
+    "ruleEx": {
+      "rule": "Continuity is proved by **records made at the time**, then by a treating doctor's opinion",
+      "exception": "A record wrong at its source is corrected by **its author's dated addendum**; the original stays",
+      "onFile": "Summit's 02/16/2026 history date → addendum 07/15/2026 (RS72)",
+      "confirm": "Atty. Thorne approves any correction request"
+    },
+    "redFlag": {
+      "see": "A request to a provider to **change, back-date or add** to a record",
+      "costs": "An altered record undercuts every record around it",
+      "do": "Request only **the author's dated addendum**; never order an excuse note",
+      "owner": "Atty. Thorne"
+    }
   },
   "d2m3-cause": {
     "image": "medical-visit",
@@ -647,7 +765,23 @@
       "Suggesting or **shaping the doctor's words**",
       "Leaving **the 2021 records** out of the set",
       "Telling John Doe the letter **raises his claim's value**"
-    ]
+    ],
+    "milestones": {
+      "title": "The Causation Letter, request to file",
+      "steps": [
+        {"label": "Atty. Thorne requests", "done": "With **John's written authorization**"},
+        {"label": "Assemble the records", "done": "EMS, urgent care, rehab, MRI, Crescent, **2021 chiropractic**"},
+        {"label": "Letter arrives", "chip": "06/19/2026", "done": "Dr. Reyes's letter **logged on arrival**"},
+        {"label": "Check it", "done": "DOL 02/06/2026; **C5-C6, right**; visits 03/05, 03/27, 06/12"},
+        {"label": "File and cite", "chip": "07/20/2026", "done": "Cited in **the Demand Package** and the 08/06 rebuttal"}
+      ]
+    },
+    "redFlag": {
+      "see": "**'Possibly'** or 'could be' in the Causation Letter's opinion",
+      "costs": "It falls short of 'more likely than not'",
+      "do": "Flag it to Atty. Thorne; **never ask the doctor** to strengthen it",
+      "owner": "Atty. Thorne"
+    }
   },
   "d2m3-a2": {
     "image": "calendar-gap",
@@ -726,7 +860,28 @@
       "Sending the demand and **hoping nobody checks**",
       "**Adding future care** to the Specials",
       "Discovering a lien **after the release** is signed"
-    ]
+    ],
+    "milestones": {
+      "title": "Zero missing dates of service",
+      "steps": [
+        {"label": "Chronology pass", "done": "Every gap has **its documented reason**: 14 days; 19 days"},
+        {"label": "Coding pass", "done": "**One date of service**, one line"},
+        {"label": "Prior-history pass", "done": "Three 2021 low-back visits, resolved; **no prior neck complaint**"},
+        {"label": "Reconcile Riverton", "chip": "05/04/2026", "done": "34 lines vs 33 visits: duplicate removed, **$6,105.00**"},
+        {"label": "Match PIP", "chip": "06/12/2026", "done": "Five payments total **$5,000.00**, exhausted with the MMI visit"}
+      ]
+    },
+    "ruleEx": {
+      "rule": "Specials are **incurred, documented economic losses**: $14,817.40 medical, $16,401.40 with wages",
+      "exception": "Future medical ($3,400–$6,800, possible repeat ESIs) is real but not incurred: **narrative, never the total**",
+      "confirm": "Atty. Thorne decides billed versus paid"
+    },
+    "redFlag": {
+      "see": "A Riverton ledger line, **05/04/2026**, that no visit note supports",
+      "costs": "Claiming it inflates the Specials and gives Keystone a reason to doubt the ledger",
+      "do": "Remove it; **send the billing correction** to the provider in writing",
+      "owner": "Case Manager"
+    }
   },
   "d2m4-a1": {
     "image": "money-ledger",
@@ -796,7 +951,24 @@
       "A summary memo that **runs to three pages**",
       "An exhibit index whose **page numbers don't match**",
       "Briefing **the initial PD estimate**, not the final figure"
-    ]
+    ],
+    "milestones": {
+      "title": "Briefing Atty. Thorne, bottom line first",
+      "steps": [
+        {"label": "Bottom line", "chip": "06/12/2026", "done": "MMI; **$16,401.40 Specials** against a $10,000 BI limit"},
+        {"label": "Facts, the trinity", "done": "Narrative, physicality, medicals: **the C5-C6 herniation**"},
+        {"label": "Risks, with answers", "done": "Each risk paired with **the document that answers it**"},
+        {"label": "His decisions", "done": "Figure, terms, time limit, billed vs paid, **UM consent plan**"},
+        {"label": "Options", "done": "Each with its **operational consequence**"},
+        {"label": "Read back", "done": "Each decision read back; **a CMS task** with owner and date"}
+      ]
+    },
+    "redFlag": {
+      "see": "You're asked **'What's it worth?'** and reach for a number",
+      "costs": "Value is Atty. Thorne's call, and a Case Manager's figure can anchor the demand",
+      "do": "Answer with inputs: **Specials, limits, liens**. Never a number",
+      "owner": "Atty. Thorne"
+    }
   },
   "d2m4-a2": {
     "image": "strategy-session",
@@ -886,7 +1058,19 @@
       "Saying one provider is **better for the case**",
       "Calling the LOP bill **free**",
       "Letting the balance **surprise the Net Sheet**"
-    ]
+    ],
+    "ruleEx": {
+      "rule": "Offer **options and logistics**: providers near him that take an LOP, with hours and distance; he chooses, you book",
+      "exception": "**Never which care**: not 'they write great reports' or 'chiropractic will make your case worth more'",
+      "onFile": "Crescent Pain & Spine is in network with Peach State",
+      "confirm": "Atty. Thorne sets the LOP's terms"
+    },
+    "redFlag": {
+      "see": "Recommending a provider **'for the case'**, or saying the LOP makes care free",
+      "costs": "John still owes the balance, and a provider picked for the case invites attack",
+      "do": "Give options and logistics only; **Atty. Thorne explains the LOP** before he signs",
+      "owner": "Atty. Thorne"
+    }
   },
   "d2m2-cost": {
     "image": "money-ledger",
@@ -925,7 +1109,19 @@
     "donts": [
       "Estimating mileage **from memory** at the end",
       "Promising the client **every cost comes back**"
-    ]
+    ],
+    "ruleEx": {
+      "rule": "**Enter each cost the day its receipt arrives**: no receipt, no claim",
+      "exception": "**Check the payers first** and record who paid, so nothing is claimed twice",
+      "onFile": "Keystone paid Margaret's rental, $1,260.00: her PD claim, not John's Specials",
+      "confirm": "Atty. Thorne decides what the demand claims"
+    },
+    "redFlag": {
+      "see": "You tell John **'You'll get every penny back'**",
+      "costs": "It promises a result: what the demand claims, and at what rate, is Atty. Thorne's",
+      "do": "Log each receipt with its payer; **route recovery questions** to Atty. Thorne",
+      "owner": "Atty. Thorne"
+    }
   },
   "d2m2-pip": {
     "image": "lien-scale",
@@ -966,7 +1162,30 @@
       "Counting a PIP-paid bill **as unpaid**",
       "Quoting the Specials **without the PIP Log**",
       "Asking a provider **to make an EMC finding**"
-    ]
+    ],
+    "milestones": {
+      "title": "PIP's $5,000, spent once",
+      "steps": [
+        {"label": "Riverton Urgent Care", "chip": "02/20/2026", "done": "$685.00 paid; **$4,315.00 left**"},
+        {"label": "Lakeside consult", "chip": "03/05/2026", "done": "$640.00 paid; **$3,675.00 left**"},
+        {"label": "Summit MRI", "chip": "03/13/2026", "done": "$2,395.00 paid; **$1,280.00 left**"},
+        {"label": "Lakeside follow-up", "chip": "03/27/2026", "done": "$640.00 paid; **$640.00 left**"},
+        {"label": "Lakeside MMI visit", "chip": "06/12/2026", "done": "$640.00 paid; **exhausted 06/26/2026**"}
+      ]
+    },
+    "ruleEx": {
+      "rule": "Riverton add-on PIP **does not reduce BI or UM**: no reimbursement right, no non-duplication reduction",
+      "exception": "Set-off states, a typical file: **Gross Settlement Value − PIP Paid** = Defendant's Remaining Liability ($60,000 − $10,000 = $50,000)",
+      "onFile": "Harbor Point's letter of 03/02/2026 confirms add-on PIP",
+      "confirm": "Any set-off argument is Atty. Thorne's",
+      "contrast": true
+    },
+    "redFlag": {
+      "see": "A PIP-paid bill counted **as unpaid**, or severity read from PIP's $5,000",
+      "costs": "The Specials go wrong: medical is $14,817.40, and $16,401.40 with wages",
+      "do": "Read severity from **the audited Specials**; log PIP as a payment source",
+      "owner": "Case Manager"
+    }
   },
   "d2m2-sum": {
     "image": "checklist-qa",
@@ -1005,7 +1224,13 @@
     "donts": [
       "Waiting for **the demand** to flag a lien",
       "Recording **what the gap means** for value"
-    ]
+    ],
+    "redFlag": {
+      "see": "A CMS flag recording **what the gap does to the claim**",
+      "costs": "That's a legal conclusion in a discoverable record, and it's Atty. Thorne's call",
+      "do": "Record facts only: **dates, counts, 'explanation pending'**; route to Atty. Thorne",
+      "owner": "Atty. Thorne"
+    }
   },
   "d2m4-wage": {
     "image": "documents-audit",
@@ -1073,7 +1298,19 @@
       "Treating **PD acceptance** as a BI admission",
       "Asking a witness **to sign your wording**",
       "Correcting the file **to match the report** alone"
-    ]
+    ],
+    "ruleEx": {
+      "rule": "**Reconcile the Police Report against the file**, never the file against the report",
+      "exception": "Keystone's PD acceptance (02/17/2026) **is not BI acceptance**: record each carrier's position in writing",
+      "onFile": "The Escape is a 2020 per the Dec Page, a 2021 on RPD-26-018842",
+      "confirm": "Atty. Thorne reads each liability position"
+    },
+    "redFlag": {
+      "see": "A witness statement **you wrote**, sent to Ruth Calloway to sign",
+      "costs": "It is no longer her account, and it hands the defense a credibility attack",
+      "do": "Preserve her **signed on-scene statement** as given; questions go to Atty. Thorne",
+      "owner": "Atty. Thorne"
+    }
   },
   "d2m1-first": {
     "image": "strategy-session",
@@ -1094,7 +1331,23 @@
       "**Telling the story first**, the question last",
       "A subject line of **“Update”**",
       "Leaving out **the option you dislike**"
-    ]
+    ],
+    "milestones": {
+      "title": "Decision-First, in five lines",
+      "steps": [
+        {"label": "Decision + deadline", "chip": "03/12/2026", "done": "First line and subject: **decline Summit's LOP request**"},
+        {"label": "Why", "done": "One rule or fact: **PIP applies first**, $3,675.00 left"},
+        {"label": "Facts", "chip": "03/11/2026", "done": "Each with source and date: **Summit's request**; the MRI, $2,395.00"},
+        {"label": "Options", "done": "If yes, if no: **what you'll do** after each"},
+        {"label": "Log", "done": "The note and his answer logged **the same day**"}
+      ]
+    },
+    "redFlag": {
+      "see": "A subject line of **'Update'**, the story first and the question last",
+      "costs": "Atty. Thorne reads to the end to find the ask, and the deadline slips",
+      "do": "Lead with **the decision and deadline**; give both options, even the one you don't recommend",
+      "owner": "Case Manager"
+    }
   },
   "d2m1-afd": {
     "image": "coverage-check",
@@ -1159,7 +1412,23 @@
     "donts": [
       "Accepting an **unsworn statement** as proof",
       "Writing **an affiant's words** for them"
-    ]
+    ],
+    "milestones": {
+      "title": "The jurat check",
+      "steps": [
+        {"label": "Affiant", "done": "The person swearing is **the one named**"},
+        {"label": "Case and claim nos.", "done": "LSH-2026-MVA-770412 and the claim number **match the file**"},
+        {"label": "Dates and figures", "done": "Every date and amount **matches its source**"},
+        {"label": "Signature", "done": "Signed by **the affiant**, never by you"},
+        {"label": "Jurat and seal", "done": "Notarized: **jurat completed**, seal present"}
+      ]
+    },
+    "redFlag": {
+      "see": "An **unsigned or un-notarized** 'affidavit' in the file",
+      "costs": "It is only an assertion, not sworn proof of the fact it claims",
+      "do": "Return it for signature and jurat; **never sign, notarize or reword** it",
+      "owner": "Case Manager"
+    }
   },
   "d2-drive": {
     "image": "medical-visit",
