@@ -2081,7 +2081,7 @@ function npParts(blockId){
 }
 function npCard(blockId){
   const n = notesOf(blockId), parts = npParts(blockId), r = npRec(blockId);
-  const sc = r.txAt ? ` · transcript ${r.txGot.filter(Boolean).length}/${n.transcribe.facts.length}` : "", pl = r.planAt ? ` · plan ${r.planGot.filter(Boolean).length}/${n.plan.required.length}` : "";
+  const sc = r.txAt ? ` · transcript ${npTxScore(n, r)}% (${r.txGot.filter(Boolean).length}/${n.transcribe.facts.length} facts)` : (r.txTries || []).length ? ` · transcript attempt ${r.txTries.length}: ${r.txTries[r.txTries.length - 1].score}%` : "", pl = r.planAt ? ` · plan ${r.planGot.filter(Boolean).length}/${n.plan.required.length}` : "";
   // the card itself opens the workspace (Your Task's steps open it too): no separate "Open Notes & Action Plan" button
   return `<div class="cfx-np" role="button" tabindex="0" title="Open the Notes &amp; Action Plan" onclick="cmCaseFlow.notes('${blockId}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();cmCaseFlow.notes('${blockId}')}"><b>📝 Notes &amp; Action Plan</b><span class="cfx-np-k">${E(n.kicker)}</span>
     <ol>${parts.map(p => `<li class="${p.done ? "ok" : ""}">${p.done ? "✓" : "○"} ${E(p.label)}</li>`).join("")}</ol>
@@ -2102,11 +2102,16 @@ function npEmail(blockId, e, open){
 function npWorkspace(blockId){
   const n = notesOf(blockId), r = npRec(blockId), ev = SIM.events[blockId] || {}, vm = vmRec(blockId);
   const txDone = !!r.txAt, planDone = !!r.planAt, t = n.transcribe, p = n.plan;
+  const tries = r.txTries || [], last = tries[tries.length - 1];
+  const triesHtml = tries.length ? `<ol class="np-tries">${tries.map((a, i) => `<li><b>Attempt ${i + 1}: ${E(a.score)}%</b> · ${E(a.facts)} of ${E(a.of)} facts · ${E(a.acc)}% word accuracy${a.final ? " · <em>handed in</em>" : ""}</li>`).join("")}</ol>` : "";
   const tx = txDone
     ? `<pre class="sv-body">${E(r.tx)}</pre>
+      <div class="np-grade"><b>🎙 Transcript grade: ${E(npTxScore(n, r))}%</b><span>${E(TX_HOW)}</span>${triesHtml}</div>
       <div class="np-key"><b>Answer key: what was said</b><p>${E(ev.spoken || "")}</p>
         <ul>${t.facts.map((f, i) => `<li class="${r.txGot[i] ? "ok" : "miss"}">${r.txGot[i] ? "✓ Caught" : "✗ Missed"} · ${E(f.label)}</li>`).join("")}</ul></div>`
     : `<p class="sv-brief">${hl(t.brief)}</p>
+      ${last ? `<div class="np-grade"><b>🎙 Attempt ${tries.length} of ${TX_TRIES}: ${E(last.score)}%</b><span>${E(last.facts)} of ${E(last.of)} facts caught · ${E(last.acc)}% word accuracy against the message. Play it again and improve it, or hand it in: the answer key opens when you do${tries.length >= TX_TRIES - 1 ? " (your next check is handed in)" : ""}.</span>${triesHtml}
+        <div class="sv-row"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.npTxHand('${blockId}')">📤 Hand in attempt ${tries.length} (${E(last.score)}%)</button></div></div>` : ""}
       <div class="sv-row"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.vmPlay('${blockId}')">${vm.plays ? "↻ Play again" : "▶ Play the voicemail"}</button><span class="sv-note">${E(ev.from || "")} · ${E(ev.date || "")}${ev.time ? " · " + E(ev.time) : ""}</span></div>
       <textarea class="sv-write" id="npt_${E(blockId)}" rows="6" placeholder="Type the message as you hear it." aria-label="Your transcript of the voicemail" oninput="cmCaseFlow.npDraft('${blockId}','tx',this.value)">${E(r.tx || "")}</textarea>
       <div class="sv-row"><button type="button" class="btn btn-navy" onclick="cmCaseFlow.npTx('${blockId}')">Check my transcript</button><span class="sv-msg" id="nptm_${E(blockId)}" aria-live="polite"></span></div>`;
@@ -2146,15 +2151,60 @@ window.cmCaseFlow.npDraft = function(blockId, k, v){
   clearTimeout(npT); npT = setTimeout(persist, 600);
 };
 const npWords = t => String(t || "").split(/\s+/).filter(Boolean).length;
+/* 🎙 The transcript is graded, every attempt: the facts it had to catch (the answer key, 60%) and its word accuracy
+   against what was said (the voicemail's own words, 40%: the words in common, in order, over the two lengths, so a
+   word left out and a word made up both cost). Up to TX_TRIES checks; a check at 90% or more, the last one, or
+   📤 Hand in hands it in, and only then the answer key opens. Each attempt is kept (r.txTries); the one handed in
+   is the transcript's grade (r.txScore), the scorecard's 🎙 Transcription and the 100-point model's Documentation. */
+const TX_TRIES = 3, TX_PASS = 90;
+const TX_HOW = "Graded on the facts it had to catch (60%) and its word accuracy against what was said (40%).";
+const TX_FILL = new Set(["uh", "um", "er", "ah", "hmm", "erm", "like"]);
+const TX_NUM = {zero: "0", oh: "0", o: "0", one: "1", two: "2", three: "3", four: "4", five: "5", six: "6", seven: "7", eight: "8", nine: "9"};
+function txWords(t){
+  const out = [];
+  String(t || "").toLowerCase().replace(/[’']/g, "").split(/[^a-z0-9]+/).filter(Boolean).forEach(w => {
+    if(TX_FILL.has(w)) return;
+    if(/^\d+$/.test(w)) w.split("").forEach(d => out.push(d)); else out.push(TX_NUM[w] || w);
+  });
+  return out;
+}
+function txAccuracy(said, typed){
+  const a = txWords(said), b = txWords(typed); if(!a.length || !b.length) return 0;
+  let prev = new Array(b.length + 1).fill(0);
+  for(let i = 1; i <= a.length; i++){ const cur = [0]; for(let j = 1; j <= b.length; j++) cur[j] = a[i - 1] === b[j - 1] ? prev[j - 1] + 1 : Math.max(prev[j], cur[j - 1]); prev = cur; }
+  return Math.round(100 * 2 * prev[b.length] / (a.length + b.length));
+}
+function npTxGrade(blockId, text){
+  const n = notesOf(blockId), got = n.transcribe.facts.map(f => npHit(f.match, text)), facts = got.filter(Boolean).length, of = got.length;
+  const acc = txAccuracy((SIM.events[blockId] || {}).spoken || "", text);
+  return {got, facts, of, acc, score: Math.round(0.6 * (of ? 100 * facts / of : 0) + 0.4 * acc)};
+}
+// the transcript's grade: the attempt handed in (a transcript from before the grading had only its facts)
+const npTxScore = (n, r) => typeof r.txScore === "number" ? r.txScore : Math.round(100 * (r.txGot || []).filter(Boolean).length / Math.max(1, n.transcribe.facts.length));
+function npTxHandIn(blockId, a){
+  const r = npRec(blockId); a.final = true; if(a.text) r.tx = a.text;
+  r.txGot = a.got; r.txScore = a.score; r.txAt = new Date().toISOString(); persist();
+  if(typeof toast === "function") toast(`Transcript handed in: ${a.score}% (${a.facts} of ${a.of} facts, ${a.acc}% word accuracy). The answer key is open.`);
+  npRepaint(blockId);
+}
 window.cmCaseFlow.npTx = function(blockId){
   const n = notesOf(blockId), r = npRec(blockId), el = document.getElementById("npt_" + blockId), msg = document.getElementById("nptm_" + blockId);
   if(!n || r.txAt) return;
   r.tx = ((el && el.value) || r.tx || "").trim().slice(0, 4000);
   if(!vmRec(blockId).plays && !isTrainer()){ if(msg) msg.textContent = "Play the voicemail first: the transcript is of what you hear."; return; }
   if(npWords(r.tx) < 25){ if(msg) msg.textContent = "Take more of it down: type the message as he says it, start to finish."; return; }
-  r.txGot = n.transcribe.facts.map(f => npHit(f.match, r.tx)); r.txAt = new Date().toISOString(); persist();
-  if(typeof toast === "function") toast(`You caught ${r.txGot.filter(Boolean).length} of ${n.transcribe.facts.length}. The transcript and the answer key are open.`);
+  const g = npTxGrade(blockId, r.tx), a = {at: new Date().toISOString(), score: g.score, facts: g.facts, of: g.of, acc: g.acc, got: g.got, words: npWords(r.tx), text: r.tx};
+  r.txTries = (r.txTries || []).concat([a]);
+  if(g.score >= TX_PASS || r.txTries.length >= TX_TRIES) return npTxHandIn(blockId, a);
+  persist();
+  if(typeof toast === "function") toast(`Attempt ${r.txTries.length}: ${g.score}% (${g.facts} of ${g.of} facts, ${g.acc}% word accuracy). Improve it, or hand it in.`);
   npRepaint(blockId);
+};
+window.cmCaseFlow.txGrade = (said, typed) => txAccuracy(said, typed);
+window.cmCaseFlow.npTxHand = function(blockId){
+  const r = npRec(blockId), tries = r.txTries || [];
+  if(r.txAt || !tries.length) return;
+  npTxHandIn(blockId, tries[tries.length - 1]);
 };
 window.cmCaseFlow.npPlan = function(blockId){
   const n = notesOf(blockId), r = npRec(blockId), el = document.getElementById("npp_" + blockId), msg = document.getElementById("nppm_" + blockId);
@@ -4537,6 +4587,10 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx-np li.ok{color:#1d5c3a;}
 .cfx-np-r{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:4px;}
 .cfx-np-r small{color:var(--ink-soft);font-size:13px;}
+.np-grade{margin-top:8px;border:2px solid #C9D1E6;background:#F4F6FB;border-radius:10px;padding:8px 12px;font:600 15px/1.45 var(--font-ui);color:#1E2340;}
+.np-grade > b{display:block;font-weight:800;font-size:16px;color:#1E2340;} .np-grade > span{display:block;color:#2E3450;}
+.np-tries{margin:6px 0 0;padding-left:20px;font-size:15px;font-weight:600;} .np-tries b{color:#1E2340;} .np-tries em{color:#B5651F;font-style:normal;font-weight:800;}
+.np-grade .sv-row{margin-top:6px;}
 .np-key{margin-top:8px;border:1px solid #BFE3CE;background:#F3F9F5;border-radius:10px;padding:8px 12px;}
 .np-key p{margin:4px 0;font-style:italic;}
 .np-key ul,.np-key ol{margin:4px 0 0;padding-left:20px;display:grid;gap:4px;}
