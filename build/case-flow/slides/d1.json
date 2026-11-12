@@ -10,11 +10,6 @@
       "Flag risk to Atty. Thorne **the day you see it**"
     ],
     "upl": "Explain the process and confirm facts; never value, merits or settlement advice",
-    "job": [
-      ["New matter assigned", "Read the raw file first", "CMS → Case File", "Parties, dates, carriers noted"],
-      ["Client asks a legal question", "Log it; route it same day", "CMS → Communications Log", "Routed; no opinion given"],
-      ["Deadline or risk appears", "Docket, flag, recommend next step", "CMS → Calendar · Risk Flags", "Nothing lives only in email"]
-    ],
     "dos": [
       "Keep **a dated next step** on every file",
       "Answer process questions; **route the legal ones**"
@@ -46,11 +41,6 @@
       "EMS date vs. first treatment record: **find the gap yourself**"
     ],
     "upl": "Share facts and the process; never value, or what the gap does",
-    "job": [
-      ["Course begins", "Read the Case File and intake", "Case File · Documents", "DOL, stack, gap from memory"],
-      ["Matter opens in the CMS", "Trace each fact to its document", "CMS → Case File", "No fact from memory alone"],
-      ["A fact changes", "Update the CMS the same day", "CMS → Case Notes", "The CMS matches the file"]
-    ],
     "dos": [
       "Trace every fact **to its document**",
       "Say the stack **in order**, every time"
@@ -141,11 +131,6 @@
       "Record the client's position: it decides **which policies can be reached**"
     ],
     "upl": "Confirm facts, explain the process; worth and merits are Atty. Thorne's call",
-    "job": [
-      ["Raw file received", "Conflict Check, then verify DOL", "CMS → New Case", "DOL matches the Police Report"],
-      ["Matter created", "Docket SOL; log retainer and HIPAA", "CMS → Calendar · Documents", "SOL 02/06/2028 on the calendar"],
-      ["Parties identified", "Map six roles; record position", "CMS → Parties", "None “unknown”; position from report"]
-    ],
     "dos": [
       "Record **the source** of every coverage fact",
       "Docket the statute of limitations **on day one**",
@@ -157,6 +142,7 @@
       "Accepting a case because intake **“mostly” looks fine**"
     ],
     "milestones": {
+      "slide": true,
       "title": "The SOL docket, calculated",
       "steps": [
         {"label": "DOL confirmed", "chip": "02/06/2026", "done": "The date matches RS07, **the Police Report**"},
@@ -223,11 +209,6 @@
       "Flag the plan's reimbursement right **before the first demand**"
     ],
     "upl": "Report what a plan asserts; never judge enforceability or compromise without counsel",
-    "job": [
-      ["Retainer signed", "Get claim-specific HIPAA authorization", "CMS → Documents", "Authorization names 02/06/2026"],
-      ["Age and benefits known", "Verify SSDI status; report if required", "CMS → Case Notes", "BCRC answer logged, dated"],
-      ["Plan pays accident-related bill", "Record and flag the lien", "CMS → Liens → Flag", "Flag set before any demand"]
-    ],
     "dos": [
       "Clear the triple-check **before clinical planning**",
       "Log the **BCRC report date** or verified “not required”"
@@ -302,11 +283,6 @@
       "Step 3: notify the attorney and **assess SOL and hearing dates**"
     ],
     "upl": "Say what the firm needs, by when; never advise on rights or threaten withdrawal",
-    "job": [
-      ["Client misses a contact", "Step 1: review status, deadlines", "CMS → Case Summary", "Live deadlines identified first"],
-      ["Review complete", "Step 2: work the channel ladder", "CMS → Communications Log", "Date, time, channel, outcome logged"],
-      ["Ladder exhausted", "Step 3: notify Atty. Thorne", "CMS → Tasks → Escalate", "SOL 02/06/2028 impact assessed"]
-    ],
     "dos": [
       "Set a **follow-up reminder** as each request goes out",
       "Offer **an easy way to respond**: call, text, upload link"
@@ -316,6 +292,7 @@
       "Blaming the client for **process gaps**"
     ],
     "milestones": {
+      "slide": true,
       "title": "No Contact Protocol, Steps 1–3",
       "steps": [
         {"label": "Internal review", "chip": "02/13/2026", "done": "Last contact 02/10; check-in missed; **no treatment start** on file"},
@@ -375,11 +352,6 @@
       "Withdrawal and skip-tracing are **counsel's decisions**; keep the file moving"
     ],
     "upl": "Never judge the claim or advise on rights; only the attorney ends representation",
-    "job": [
-      ["No response after Step 3", "Draft letter, 7–14 day deadline", "Action Plan Editor", "Attempts itemized; withdrawal notice present"],
-      ["Letter ready", "Confirm address; certified mail AND email", "CMS → Documents → Outgoing", "Both logged; receipt kept"],
-      ["Response deadline expires", "Verify all three criteria; escalate", "CMS → Tasks → Escalate", "Criteria evidenced in the log"]
-    ],
     "dos": [
       "Itemize **attempts with dates**",
       "Ask in-house help to **confirm an address**"
@@ -463,11 +435,6 @@
       "Keep **every receipt** and a log of each trip to treatment"
     ],
     "upl": "Give the instruction; route questions about claim value to Atty. Thorne",
-    "job": [
-      ["Retainer signed", "Deliver standing instructions; log delivery", "CMS → Onboarding", "Date and method logged"],
-      ["Client mentions an expense", "Keep the receipt; log it", "CMS → Case Notes", "Receipt requested; logged"],
-      ["Adverse carrier calls client", "Route to the firm; log contact", "CMS → Communications Log", "No Recorded Statement; logged"]
-    ],
     "dos": [
       "Ask about **barriers to care** at every check-in",
       "Use **active listening**; heard clients follow instructions"
@@ -522,11 +489,6 @@
       "The rental's last day reaches his care: **calendar and coordinate**"
     ],
     "upl": "Sort and refer; never advise Margaret Doe or **value her PD claim**",
-    "job": [
-      ["PD document arrives", "Index on John Doe's file", "CMS → Documents", "Filed as BI evidence"],
-      ["Question about Civic's claim", "Log it; refer to Atty. Thorne", "CMS → Case Notes · Tasks", "Referred the same day"],
-      ["PD date touches his care", "Calendar it; plan his rides", "Calendar · CMS → Tasks", "Rides planned before it"]
-    ],
     "dos": [
       "Ask of every PD fact: **does it touch our case**?",
       "Index photos and estimates **the day they arrive**"
@@ -616,11 +578,6 @@
       "**Flag adverse facts prominently**; a buried risk isn't disclosed"
     ],
     "upl": "State facts, flag risks; legal conclusions, value and posture are Atty. Thorne's",
-    "job": [
-      ["Verification call complete", "Record acceptance decision and reason", "CMS → Case Notes", "Reason a colleague can follow"],
-      ["Coverage verified in writing", "Draft all five bands", "Action Plan Editor", "Risks band populated"],
-      ["Plan drafted", "Docket window; route to Atty. Thorne", "Route for review · Calendar", "Routed before any position-committing action"]
-    ],
     "dos": [
       "Give each pillar **measurable goals**",
       "Give every decision **a reason others can follow**"
@@ -681,11 +638,6 @@
       "Re-route when **a material fact changes**"
     ],
     "upl": "Legal strategy is counsel's: review comments needing legal judgment go to Atty. Thorne",
-    "job": [
-      ["Five bands drafted", "Route to Atty. Thorne", "Action Plan Editor", "Routing timestamp recorded"],
-      ["Returned with comments", "Address every comment; re-route", "Action Plan Editor → Revisions", "No comment unaddressed"],
-      ["Material fact changes", "Mark superseded; re-route", "Action Plan Editor → Version", "Approved version kept; new one routed"]
-    ],
     "dos": [
       "Assume **defense counsel reads every note**",
       "Keep medical notes **factual and clinical**"
@@ -695,6 +647,7 @@
       "Writing **“this will help the case”** in a treatment note"
     ],
     "milestones": {
+      "slide": true,
       "title": "The plan's review loop",
       "steps": [
         {"label": "Draft", "done": "Every band written; **risks named** with source and date"},
@@ -757,11 +710,6 @@
       "Never value, strategy, settlement, or **what the gap does**"
     ],
     "upl": "Hear it, log it, **route it** to Atty. Thorne the same day",
-    "job": [
-      ["Client asks his case's worth", "Log it; route to counsel", "CMS → Case Notes · Tasks", "Routed today; no figure given"],
-      ["Client asks what happens next", "Explain the next step plainly", "CMS → Case Notes", "Process explained; no prediction"],
-      ["Adjuster asks your view", "Decline; share approved facts only", "CMS → Communications Log", "Nothing beyond the record"]
-    ],
     "dos": [
       "Answer from **the record**; route what it means",
       "Use **one routing line**, every time",
@@ -773,6 +721,7 @@
       "Coaching him on **what to tell an adjuster**"
     ],
     "milestones": {
+      "slide": true,
       "title": "When a question crosses the line",
       "steps": [
         {"label": "Hear it out", "done": "John finishes the question **in his own words**"},
@@ -804,26 +753,6 @@
       "Map care in four groups; **calendar every transition**"
     ],
     "upl": "Record and coordinate; diagnosis, treatment and psychological care are the provider's call",
-    "job": [
-      [
-        "Intake call complete",
-        "Record four-domain assessment",
-        "CMS → Case Notes",
-        "All four domains dated"
-      ],
-      [
-        "Assessment recorded",
-        "Draft SMART goals, care groups",
-        "Action Plan Editor",
-        "Measure, date, owner on each"
-      ],
-      [
-        "Social risk found",
-        "Calendar it as treatment risk",
-        "Calendar · Risk Flags",
-        "Dated before it's a gap"
-      ]
-    ],
     "dos": [
       "Record the assessment **in his own words**, dated",
       "Ask about prior injuries **plainly and early**",
@@ -835,6 +764,7 @@
       "Calling a prior condition **“unrelated” or “aggravated”**"
     ],
     "milestones": {
+      "slide": true,
       "title": "Assess → SMART Goal → Coordinate",
       "steps": [
         {"label": "Assess", "chip": "02/06/2026", "done": "Clinical, social, pre-morbid, vocational: **each filled or dated**"},
@@ -859,26 +789,6 @@
       "No gain by week 6? **Ask the provider now**, before a denial"
     ],
     "upl": "You track and ask; **the provider decides care**, Atty. Thorne what it means",
-    "job": [
-      [
-        "Every check-in",
-        "Locate phase and week; ask “improving?”",
-        "Case File → Treatment timeline",
-        "Phase, week, answer, date logged"
-      ],
-      [
-        "Not improving or stop skipped",
-        "Classify variance; ask provider's office",
-        "Medical Records Requests · Case Notes",
-        "Variance named; answer on file"
-      ],
-      [
-        "Variance that can cost claim",
-        "Report facts to Atty. Thorne",
-        "Case File → Risk Flags",
-        "Routed same day, facts only"
-      ]
-    ],
     "dos": [
       "Write **phase and week** at the top of every note",
       "Report **what he can't do**, not just diagnoses",
@@ -890,6 +800,7 @@
       "**Waiting for a denial** before you course-correct"
     ],
     "milestones": {
+      "slide": true,
       "title": "John's route on the map",
       "steps": [
         {"label": "Conservative care", "chip": "02/20/2026", "done": "Riverton Urgent Care, then **Riverton Spine & Rehab** from 02/24/2026"},
@@ -947,26 +858,6 @@
       "At the plateau, **re-engage on his goal**; it's usually the plan"
     ],
     "upl": "Report flags; **the provider decides** care; MI is never medical or legal advice",
-    "job": [
-      [
-        "Record or bill arrives",
-        "Read it against red flags",
-        "CMS → Case File → Risk Flags",
-        "Flag logged with source, date"
-      ],
-      [
-        "Medical-danger flag spotted",
-        "Tell the provider today",
-        "Phone · CMS → Case Notes",
-        "Provider told same day"
-      ],
-      [
-        "Check-in once care starts",
-        "Run OARS; quote yellow flags",
-        "Call Simulator → AI John Doe",
-        "GIRP note same day"
-      ]
-    ],
     "dos": [
       "Ask **specific questions**: visits, pain score, function",
       "Write yellow flags **in his own words**, dated",
@@ -978,6 +869,7 @@
       "Treating late head-injury symptoms **as proof** before validation"
     ],
     "milestones": {
+      "slide": true,
       "title": "Bridging the gap",
       "steps": [
         {"label": "Calendar the risk", "chip": "03/19/2026", "done": "The rental's last covered day **calendared as a treatment risk**"},
@@ -1009,26 +901,6 @@
       "No EMC: **capped at $2,500**; Riverton has no EMC rule"
     ],
     "upl": "The provider decides the EMC; Atty. Thorne decides what it means",
-    "job": [
-      [
-        "Florida file opened",
-        "Calendar the 14-day deadline",
-        "CMS → Calendar",
-        "Docketed the same day"
-      ],
-      [
-        "First record arrives",
-        "Check date, provider, EMC",
-        "Medical Records Requests",
-        "EMC status logged"
-      ],
-      [
-        "EMC missing or late",
-        "Log bucket; flag Atty. Thorne",
-        "CMS → Insurance tab → PIP Log",
-        "Flag routed same day"
-      ]
-    ],
     "dos": [
       "Read **the file's state** before its PIP",
       "Docket **the 14th day** at intake",
@@ -1040,6 +912,7 @@
       "Telling a client to see a doctor **for the $10,000**"
     ],
     "milestones": {
+      "slide": true,
       "title": "Preventing forfeiture on a Florida file",
       "steps": [
         {"label": "Docket the 14th day", "done": "The 14th day after the accident **calendared at intake**"},

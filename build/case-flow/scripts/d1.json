@@ -15,10 +15,6 @@
     },
     "model": {
       "say": "• Case lifecycle, eight stations: Intake, Claim Set-Up, Treatment, Pre-Demand, Demand, Settlement and Liens, Disbursement, Litigation\n• Liens: bills paid out of the settlement before the client gets their share\n• Litigation is dashed: the path only taken if the case doesn't settle\n• Navy band: Case Manager owns the movement; orange band: Atty. Thorne owns every legal judgment\n• The CMS sits under station one because the whole track runs on it"
-    },
-    "job": {
-      "say": "• New case assigned: read the raw file in the CMS first, noting every party, date and insurer before calling\n• Client asks a legal question: log it in the Communications Log, create a task, route to Atty. Thorne same day\n• Deadlines and risks go on the Calendar and under Risk Flags, each with a next step\n• Adjusters read the file history; a clean, logged file signals the firm is organized and ready",
-      "ask": "What is the first thing you check on a brand-new file?"
     }
   },
   "d1m1-case": {
@@ -37,9 +33,6 @@
     },
     "model": {
       "say": "• Walk the file at a glance: John Doe v. Robert Smith, matter LSH-2026-MVA-770412\n• Scene: all-way stop at Maple Hollow Rd and Birch Ave\n• Stack bars: BI $10,000, Host UM $20,000, Relative UM $10,000 = $40,000\n• Orange strip: date of loss to first treatment; trainees work out its length\n• Missing on purpose: where he sat and who got the ticket; passenger status can open an extra layer"
-    },
-    "job": {
-      "say": "• First job: read the Case File and intake until you can state the date of loss, stack and critical fact\n• Once the matter opens in the CMS, every fact entered must trace to a document\n• When a fact changes, update Case Notes and tell the team the same day\n• Why it matters: the adjuster's first offer is built on what is in our file"
     },
     "dodont": {
       "say": "• Do: trace every fact to its document, e.g. date of loss 02/06/2026 is on the Police Report\n• Do: say the stack in order: Keystone Mutual BI, Harbor Point Host UM, Cardinal State Mutual Relative UM, $40,000\n• Don't: repeat facts from memory alone\n• Don't: treat the gap as the client's fault; record the dates, 02/06/2026 to 02/20/2026, for Atty. Thorne",
@@ -68,7 +61,7 @@
     "model": {
       "say": "• Raw intake passes three gates, verify, map, structure, into a clean CMS matter card with six roles\n• A driver in his own car may only reach his own policy\n• A passenger can reach the host car's coverage too, sometimes a relative's\n• Same crash, but available money can be four times larger, decided by one field\n• Confirm John Doe's position from the Police Report and record it"
     },
-    "job": {
+    "steps": {
       "say": "• Raw file arrives from On the Records; run and record the Conflict Check in CMS New Case first\n• Check date of loss, parties and signatures against the documents\n• Once created: deadline 02/06/2028 on the Calendar; retainer and HIPAA authorization logged in Documents\n• Retainer: signed agreement hiring the firm; HIPAA authorization: client's permission to get medical records\n• Map all six roles in Parties; name and file each document the firm's way"
     },
     "dodont": {
@@ -92,9 +85,6 @@
     "model": {
       "say": "• Band 1: Case Snapshot and acceptance decision\n• Band 2: coverage, liability and projection\n• Band 3: Regulatory Triple-Check, held open until the Treatment Phase\n• Band 4: Three-Pillar Plan in Clinical, Functional and Financial columns\n• Band 5: Risks and Flags, red and largest, holding the 14-Day Treatment Gap; plan routed to Atty. Elijah Thorne"
     },
-    "job": {
-      "say": "• After the verification call, record the acceptance decision and reason in Case Notes\n• Once coverage is confirmed in writing, draft all five bands in the Action Plan Editor; risks band never empty\n• Calendar the filing window; route the plan to Atty. Thorne before any position-committing action\n• A gap flagged on day one can be explained; found by the adjuster later, it cuts the offer"
-    },
     "dodont": {
       "say": "• Do: give each pillar measurable goals, e.g. return to work at Northgate Distribution with a number and date\n• Do: give every decision a reason a colleague can follow in one read\n• Don't: write a plan covering only clinical care\n• Don't: keep gathering information at acceptance, or let an uncertain file sit for weeks\n• Flagging a risk early makes the case defensible later",
       "ask": "Why does the risks band get more room than the plan itself?"
@@ -112,9 +102,6 @@
     },
     "model": {
       "say": "• Board layout: green Do column on the left, red Don't column on the right\n• Each Don't lines up with the Do that replaces it\n• Examples: no Recorded Statement, no posts, bring any insurer release to the firm instead of signing it\n• Ask family not to tag the client in posts either\n• Three orange tags most broken in week one: no Recorded Statement, keep every receipt, car only"
-    },
-    "job": {
-      "say": "• Retainer signed: deliver the standing instructions and log date and method in CMS Onboarding\n• Client mentions an expense, like a prescription or urgent care ride: keep the receipt, log it in Case Notes\n• Other side's insurer calls the client: send them to the firm, log it in the Communications Log\n• Every receipt logged now becomes a line in the demand later"
     },
     "dodont": {
       "say": "• Do: ask about barriers to care at every check-in; John Doe owns no car, so rides matter\n• Do: listen actively, for example when he worries about missed shifts at Northgate Distribution\n• Don't: explain why a Keystone Mutual Recorded Statement could hurt him; that is legal advice for Atty. Thorne\n• Don't: let a Property Damage call drift into questions about his injuries\n• Social media rule covers vacations and activities too",
@@ -137,9 +124,6 @@
     "model": {
       "say": "• Walk the six-row sort table\n• Point-of-impact photos, Repair Estimate and supplements: evidence of force, on John's file\n• Police Report units: cite in the Case Note for who rode and who owns\n• Margaret's rental: hers, but its last covered day removes John's ride to treatment; calendar it, plan rides\n• Loss of Use, Diminished Value, repair argument: Margaret's, referred, never negotiated",
       "ask": "Why is the rental row partly ours and partly Margaret's?"
-    },
-    "job": {
-      "say": "• A PD document arrives: index it on John's file that day as severity evidence for the demand to Dana Whitfield\n• Questions about the Civic's rental, Loss of Use or repair: log in their words, refer to Atty. Thorne same day\n• A car date touches John's care: calendar it as a treatment risk and plan rides\n• Summary: sort, index, coordinate, refer"
     },
     "dodont": {
       "say": "• Do: ask of every PD fact whether it touches our case\n• Do: index photos and estimates the day they arrive, e.g. the Escape's crushed front passenger door\n• Don't: open a rental claim in John's name; the Civic's claim and rental are Margaret's\n• Don't: treat PD as just the car; keep repair photos where the demand can use them",
@@ -237,7 +221,7 @@
     "model": {
       "say": "• Navy, third-party: Keystone BI $10,000, Keystone PD $25,000\n• Orange, first-party: Harbor Point Host UM $20,000, Cardinal State Relative UM $10,000, Harbor Point PIP $5,000, Bluewater collision\n• Green: Peach State Health Plan; grey, crossed out: Bluewater UM, rejected 03/14/2024\n• Only the three claim cards form the $40,000 stack; PD's $25,000 is not in it\n• Bill order staircase: MedPay or PIP, Health Plan, Letter of Protection"
     },
-    "job": {
+    "steps": {
       "say": "• As each claim opens, list every coverage, carrier and what it pays in the CMS Insurance tab\n• Once confirmed in writing, place it on the Coverage Matrix: in the stack, the bill order, or neither\n• Provider asks who to bill: use the PIP Log; PIP, then Peach State, then a Letter of Protection\n• LOP: our written promise to pay a provider from the settlement; Atty. Thorne approves\n• Post each payment on its ledger"
     },
     "dodont": {
@@ -268,9 +252,6 @@
     "model": {
       "say": "• One LOR template on firm letterhead: Attn line, subject with claim number and date of loss, client, insured, requests, signature\n• Signature line: Atty. Elijah Thorne\n• Keystone: BI plus Property Damage carve-out, name only; Harbor Point: Host UM and PIP; Cardinal State: Claims Department\n• Bluewater and Peach State sit outside the stack, in grey\n• Both UM letters are notice, not demand; never copy one letter straight to another"
     },
-    "job": {
-      "say": "• Claims opened by phone 02/16 and 02/17/2026; log claim number, adjuster or none yet, delivery method\n• Log these in the Insurance tab and the Communications Log\n• Route all five LORs to Atty. Thorne for signature through Documents, Outgoing, with a task\n• Letters sent 02/17/2026; log method and time, calendar a follow-up for 02/20/2026\n• File each acknowledgement and record any coverage or limit with source and date"
-    },
     "dodont": {
       "say": "• Do: confirm claim number and adjuster on every call, like KM-26-440871 and Dana Whitfield for Keystone Mutual\n• Do: keep claim facts general and verifiable; route any unlogged policy to Atty. Thorne\n• Don't: let a UM letter read as a demand; Cardinal State gets notice only\n• Don't: give Keystone his phone, address or birth date; don't guess Cardinal State's adjuster\n• Teresa Okafor is assigned 03/03/2026; Case Manager drafts and sends, Atty. Thorne signs",
       "ask": "Which two letters name an insured who wasn't in the car, and why?"
@@ -296,7 +277,7 @@
     "model": {
       "say": "• Top: five-stage status track, with confirmed in writing as the green end\n• Host UM and Relative UM reached green on 03/02 and 03/09\n• BI held short on 03/11/2026, written request pending, confirmed 03/20\n• Bottom: firm timing band; behind it the legal backstop, confirm the rule with Atty. Thorne\n• A layer is verified only at the green end"
     },
-    "job": {
+    "steps": {
       "say": "• Written confirmation arrives: enter limit, form and terms on the Coverage Matrix with source and date, document attached\n• 03/03/2026: Teresa Okafor assigned at Cardinal State; update Insurance tab and Parties, re-address letters to her\n• Follow-up date arrives with item open: follow up, log result, set next date; no past-dated open items\n• Legal or policy deadlines go to Atty. Thorne to confirm, then calendar with source\n• Payoff: the demand quotes a verified $40,000 stack"
     },
     "dodont": {
@@ -320,9 +301,6 @@
     "model": {
       "say": "• Upper lane, pays the bills now: PIP or MedPay, then Peach State Health Plan, then LOPs and provider liens\n• Lower lane, pays the claim later: BI, then Host UM, then Relative UM, ending at settlement\n• Curved arrow: the Health Plan's repayment claim comes out of the settlement\n• Triple-check chips: HIPAA, BCRC, Payer Order; warning: flagged late equals paid twice"
     },
-    "job": {
-      "say": "• Retainer signed: file the claim-specific HIPAA authorization in Documents, naming 02/06/2026\n• Age and benefits known: check SSDI status, report to BCRC if required, log answer and date in Case Notes\n• Health Plan identified: record carrier, member ID, group and Payer Order in Liens\n• Plan pays an accident bill: flag its repayment right before any demand\n• Get a photo of the insurance card, front and back"
-    },
     "dodont": {
       "say": "• Do: clear HIPAA, BCRC and Payer Order before anyone plans treatment\n• Do: log the BCRC report date or a verified \"not required\"; John is 34 but the check must show\n• Don't: use a generic release without the 02/06/2026 incident date\n• Don't: tell the client insurance will cover it; say the firm is tracking it, Atty. Thorne will explain\n• A lien registered early can be negotiated on Day 4",
       "ask": "Why flag the Health Plan's repayment right on first notice instead of waiting for the demand?"
@@ -344,7 +322,7 @@
     "model": {
       "say": "• Left: the editor with four callouts: section templates, risks band, owner and date fields, route-for-review button\n• Right: the routing loop: draft, route, review, approved, run\n• Orange branch: returned with comment, back to draft; drawn as bold as approval because returns are normal\n• Grey bar underneath: the audit trail, every saved version"
     },
-    "job": {
+    "steps": {
       "say": "• Draft all five bands, then route for review; the CMS stamps the time\n• Returned with comments: fix each one under Revisions and re-route\n• A big fact changes after approval: never type over the approved plan\n• Mark it superseded under Version and route a new one to Atty. Thorne\n• A clean version history shows what the firm knew and when",
       "ask": "A fact changes after approval: what is the first step?"
     },
@@ -483,7 +461,7 @@
     "model": {
       "say": "• Same questions answered two ways: fact sharing on the left, crossing the line on the right\n• Left examples: date of loss 02/06/2026 from the Police Report; next step is a letter to each insurer\n• Left routing line: that's for Atty. Thorne, logged, he'll call by Friday\n• Right examples: probably worth policy limits, take the offer, the gap will hurt, don't worry\n• Kind words about the outcome are still advice"
     },
-    "job": {
+    "steps": {
       "say": "• Client asks case value: log his words in Case Notes, open a task, route same day, give no number\n• Client asks what happens next: explain the next step plainly, with no prediction\n• Adjuster or doctor's office asks your view: decline, share only approved facts, log in Communications Log\n• Explain the firm is his law firm, not his insurance company; nothing is off the record with an adjuster"
     },
     "dodont": {
@@ -510,7 +488,7 @@
     "model": {
       "say": "• Assessment after intake on 02/09/2026\n• Clinical: Run Report neck stiffness, transport declined, no treatment yet; need his dated description and first doctor evaluation\n• Social: lives with Margaret at 2214 Maple Hollow Rd, no car, Civic damaged, carpools with Kevin Alvarez\n• Pre-morbid: open question; Vocational: Northgate since 01/12/2026, 8-hour shifts, $22.00 an hour\n• Draft SMART goal: full 8-hour shifts by a dated review"
     },
-    "job": {
+    "steps": {
       "say": "• Record the four-area assessment in Case Notes, each area dated, unknowns as open questions\n• Prior injury: request records through Medical Records Requests; write body part, dates, doctor, outcome\n• In the Action Plan Editor, write SMART goals and care groups under Clinical and Functional pillars\n• Each with a measure, date and owner; ask the first doctor to confirm\n• Calendar life barriers, like no ride, as treatment risks"
     },
     "dodont": {
@@ -537,7 +515,7 @@
     "model": {
       "say": "• At intake John Doe had one medical record: the EMS Run Report from 02/06/2026\n• It notes neck stiffness and that he declined transport, so no ER stop\n• He was in the acute phase with no care; every day without evaluation is a fact on the timeline\n• Tell Atty. Thorne about any gap; focus on causation facts and Harbor Point's $5,000 PIP confirmed in writing\n• Later: attendance, week-6 measurements, return-to-work blockers, the doctor's MMI note"
     },
-    "job": {
+    "steps": {
       "say": "• At each check-in, record in the CMS treatment timeline: phase, week from date of loss, week of care, improving or not, date\n• If not improving or a stop is skipped, label the problem type, call the doctor's office, note the plan in Case Notes\n• Request measurements at week 6 of care and every 30 days after\n• Claim-threatening problems: same-day Risk Flag to Atty. Thorne, facts only"
     },
     "dodont": {
@@ -567,7 +545,7 @@
     "model": {
       "say": "• Open question: \"Walk me through how your neck has been since the collision\"\n• Affirmation: recognize effort, e.g. \"Nice work getting that first appointment booked\"\n• Reflection: repeat back what was heard; Summary: pull the call together, ask what was missed\n• If therapy feels pointless, set it beside his goal of full shifts at Northgate and let him answer\n• If he resists a clinic, don't argue; ask why and take the reason to the doctor"
     },
-    "job": {
+    "steps": {
       "say": "• Read every treatment record, prescription record and bill against the red-flag list\n• Log any flag in Risk Flags with its source record and date first seen\n• Medical danger: call the doctor's office same day, note it in Case Notes, run A-C-T, tell Atty. Thorne\n• Check-ins run on OARS; yellow flags in his words; GIRP note (goal, intervention, response, plan) same day\n• Dated logs show when the firm knew"
     },
     "dodont": {
@@ -583,7 +561,7 @@
       "say": "• Florida PIP, Fla. Stat. 627.736: $10,000, paying 80% of reasonable medical and 60% of lost income\n• Initial care within 14 days of the accident, or PIP pays no medical\n• Full $10,000 only if an MD, DO, dentist, PA or APRN finds an EMC; otherwise capped at $2,500\n• EMC: injury serious enough that going without care could seriously harm health; chiropractors can't find one\n• Example: a 02/06/2026 Florida loss makes 02/20/2026 day 14; always confirm the current statute",
       "ask": "A Florida client is first seen on day 14 by a PA. What does PIP pay?"
     },
-    "job": {
+    "steps": {
       "say": "• At intake, calendar the 14-day initial-care deadline from the date of loss\n• Tell the client the deadline and where care is available: facts and logistics, no medical recommendation\n• First record: check the date against day 14, the provider, and a written EMC determination; request it if missing\n• Track the $2,500 or $10,000 bucket in the PIP Log, the record of every PIP payment\n• Missing EMC or late first visit goes to Atty. Thorne same day",
       "ask": "A Florida client first sees a chiropractor on day 10. What's covered, and what's missing?"
     }

@@ -9,11 +9,6 @@
       "Filing is counsel's decision; **its inputs are yours** to verify"
     ],
     "upl": "Document the impasse and ask; never recommend suit or value the claim.",
-    "job": [
-      ["Offer repeated or deadline passes", "Log the trigger with proof", "CMS → Communications Log", "Every trigger dated and documented"],
-      ["Follow-ups unanswered", "Escalate to supervisor; no new number", "Email Workspace", "Dated; asks for written position"],
-      ["Escalation window closes unanswered", "Assemble impasse record for counsel", "CMS → Tasks → Escalate", "Routed with SOL and internal dates"]
-    ],
     "dos": [
       "Date every contact **the day it happens**",
       "Ask for the carrier's reasons and evidence **in writing**",
@@ -70,11 +65,6 @@
       "Seed the Litigation Calendar **the day status changes**"
     ],
     "upl": "Tell John Doe what happens next; what it means is Atty. Thorne's.",
-    "job": [
-      ["Atty. Thorne authorizes suit", "Change status; open court fields", "CMS → Litigation", "Cites dated authorization; number “Pending”"],
-      ["Status changed", "Build master directory and five sub-folders", "CMS → Documents → Litigation folders", "Five sub-folders, named to standard"],
-      ["Folders built", "Seed calendar with 48-hour audits", "CMS → Calendar · Court E-Filing", "SOL, hard date, cutoff, audits calendared"]
-    ],
     "dos": [
       "Change status, fields, folders and calendar **in one sitting**",
       "Audit deadlines and exhibits; **don't just track** them",
@@ -152,11 +142,6 @@
         "Use the filed Complaint, **never the pre-filing draft**"
       ]
     },
-    "job": [
-      ["Scheduling Order entered 12/10/2026", "Enter every date; read each verb", "Court E-Filing", "“Completed by” entered as deadline"],
-      ["Discovery mailed 12/01/2026", "Count 30 + 3; RFAs separately", "Case Docket & Calendar Conflict Resolver", "Responses and RFAs due 01/04/2027"],
-      ["SOL review", "Set internal hard date and cutoff", "CMS → Calendar", "02/04/2028 and 11/05/2027 docketed"]
-    ],
     "dos": [
       "Record **trigger, rule and arithmetic** on every entry",
       "Calendar **the conservative date**, and flag it"
@@ -189,11 +174,6 @@
       "Bad faith is **a separate suit**, above the policy limit"
     ],
     "upl": "Read the clause, route it to Atty. Thorne; never call an offer unreasonable.",
-    "job": [
-      ["UM offers come back low", "Memo with both clauses quoted", "CMS → Case Notes", "Sent same day, uninterpreted"],
-      ["Clauses in hand", "Ask the route per layer", "CMS → Tasks → Atty. Thorne", "Nothing recommended, everything asked"],
-      ["Route decided in writing", "Open the ADR entry", "CMS → ADR tab", "Typed UM / UIM arbitration"]
-    ],
     "dos": [
       "Say **first party or third party** before anything else",
       "Quote the clause; **a paraphrase is interpretation**"
@@ -267,11 +247,6 @@
       "Golden Rule: **never argue**, speak on the record or represent John Doe"
     ],
     "upl": "Run logistics, exhibits and notes; never argue, negotiate or advise on a number.",
-    "job": [
-      ["Mediation required by 03/31/2027", "Collect 3–4 windows, then contact mediator", "Calendaring Simulators", "Windows logged before mediator contacted"],
-      ["Opposing counsel rejects every window", "Log pushback; escalate same day", "CMS → Tasks → Escalate", "Logged and escalated same day"],
-      ["Directive from the bench", "Log, calendar, memo Atty. Thorne", "CMS → Case Notes · Calendar", "Dated and calendared same day"]
-    ],
     "dos": [
       "Your hearing notes become Atty. Thorne's **post-hearing roadmap**",
       "Confirm the retainer payment **in writing**"
@@ -282,6 +257,7 @@
       "Logging bench directives **the next day from memory**"
     ],
     "milestones": {
+      "slide": true,
       "title": "What happens in the room",
       "steps": [
         {"label": "Joint session", "done": "Optional; **the mediator sets it**"},
@@ -386,11 +362,6 @@
         "What each defense means for the claim is **Atty. Thorne's to judge**"
       ]
     },
-    "job": [
-      ["Mediation set for 03/18/2027", "Seat each document in one section", "CMS → Documents → Master index", "Section, exhibit number, Bates, source"],
-      ["Pleadings and evidence indexed", "Check each pleaded defense against exhibits", "CMS → Litigation → Pleadings Log", "Each defense answered or flagged"],
-      ["Binder assembled", "OCR, bookmark, QA; route for approval", "CMS → Documents → Mediation Binder", "Approved, delivered by 03/11/2027"]
-    ],
     "dos": [
       "Start from **the 07/20/2026 Demand Package**",
       "Bookmark to the page **Atty. Thorne will quote**"
@@ -401,6 +372,7 @@
       "The confidential statement sent **ten minutes before the session**"
     ],
     "milestones": {
+      "slide": true,
       "title": "Six sections, one Master Index",
       "steps": [
         {"label": "Executive summary", "done": "Summary and **admin up front**"},
@@ -484,11 +456,6 @@
       "**Nothing from the confidential mediation** crosses over"
     ],
     "upl": "Assemble, index and audit; never argue an exhibit to the arbitrator or carriers.",
-    "job": [
-      ["Arbitration invoked 04/05/2027", "Open exhibit index; calendar exchange, brief", "CMS → Litigation → Exhibit index", "06/02/2027 exchange, 06/11/2027 brief calendared"],
-      ["Provider records gathered", "Request each custodian's certification", "Medical Records Requests", "One per provider, every date covered"],
-      ["Exchange set assembled", "Route set and flagged items", "CMS → Tasks → Escalate", "Approved before 06/02/2027; nothing privileged"]
-    ],
     "dos": [
       "Build to **the strict evidence standard** anyway",
       "Request certifications **the week arbitration is invoked**"
@@ -585,11 +552,6 @@
       "A record request unanswered **after 14 days** is a bottleneck"
     ],
     "upl": "Chase and report; never choose a remedy, discuss value or explain Keystone's silence.",
-    "job": [
-      ["A follow-up goes unanswered", "Log it; date the next follow-up", "CMS → Communications Log", "Date, time, method, outcome logged"],
-      ["Second follow-up goes unanswered", "Open a bottleneck entry", "Case File → Bottleneck Log", "Start date: first unanswered request"],
-      ["Dependency open 10 days out", "Red-flag it; tell Atty. Thorne", "Case File → Risk Flags", "Flag dated 03/01/2027 for 03/11/2027"]
-    ],
     "dos": [
       "A bottleneck found **at the deadline** was found too late",
       "Follow up **in writing** as well as by phone"
@@ -638,11 +600,6 @@
       "Zero defaults: ready by the hard date, marked **“Pending Final Verification”**"
     ],
     "upl": "Escalate and ask; Atty. Thorne chooses, signs and sends any legal tool.",
-    "job": [
-      ["Rung 1 unanswered on cadence", "Send a written Notice of Delay", "Email Workspace", "Item, start date, hard date named"],
-      ["Rung 2 unanswered 48 hours", "Escalate with the five-field report", "CMS → Tasks → Escalate", "Five fields; one ask per blocker"],
-      ["Weekly reporting day", "Send the Bottleneck Log", "Case File → Bottleneck Log", "Every item: owner, age, hard date"]
-    ],
     "dos": [
       "Lead the report with **the nearest hard date**",
       "Write the ask as **one decision and a date**"
@@ -700,26 +657,6 @@
       "Late bill: verify, classify, **route to Atty. Thorne** the same day"
     ],
     "upl": "Assemble, verify, draft and route; who owes a late bill is Atty. Thorne's.",
-    "job": [
-      [
-        "Ledger at $0.00 (10/22/2026)",
-        "Build money trail, zero-balance report",
-        "CMS → Financial Ledger → Trust",
-        "Three records agree at $0.00"
-      ],
-      [
-        "Closing memo (10/30/2026)",
-        "Tag documents; docket disposition dates",
-        "CMS → Case Summary · Calendar",
-        "Disposition 7 years from closing"
-      ],
-      [
-        "Bill after the closing letter",
-        "Verify, classify, route, tell John Doe",
-        "CMS → Tasks → Escalate",
-        "Routed and John told same day"
-      ]
-    ],
     "dos": [
       "Run **the audit-ready test** before asking to archive",
       "Collect satisfactions and receipt **with the payment**",
@@ -731,6 +668,7 @@
       "Destroying financial records **before the retention date**"
     ],
     "milestones": {
+      "slide": true,
       "title": "Four sets before archive",
       "steps": [
         {"label": "Money trail", "chip": "10/22/2026", "done": "$40,000.00 in; every payment out; **ledger at $0.00**"},
@@ -756,26 +694,6 @@
       "Flag every mismatch to Atty. Thorne; **never correct a record**"
     ],
     "upl": "Build and flag the record; causation, aggravation and experts are Atty. Thorne's.",
-    "job": [
-      [
-        "Arbitration invoked 04/05/2027",
-        "Request certified 2021 chart",
-        "Medical Records Requests",
-        "Every 2021 date certified"
-      ],
-      [
-        "Prior chart received",
-        "Build the side-by-side comparison",
-        "CMS → Litigation → Exhibit index",
-        "Every cell cites a record"
-      ],
-      [
-        "Mismatch or silent Causation Letter",
-        "Flag to Atty. Thorne",
-        "CMS → Tasks → Escalate",
-        "Flag dated; nothing altered"
-      ]
-    ],
     "dos": [
       "Put the prior in **your binder first**",
       "**Name the body region** in every line",
@@ -857,26 +775,6 @@
       "Future care goes in **the narrative**, never the Specials"
     ],
     "upl": "You build and source the record; **value and causation are argued by others**",
-    "job": [
-      [
-        "MMI is declared",
-        "Close chronology, audit the Specials",
-        "CMS → Medical · Net Sheet",
-        "Every bill tied to a record"
-      ],
-      [
-        "A gap is on record",
-        "Pair it with its reason",
-        "Gap Explanation Record",
-        "No break left unanswered"
-      ],
-      [
-        "Demand or binder assembled",
-        "Map each claim to its record",
-        "Packet Builder",
-        "Nothing without its source"
-      ]
-    ],
     "dos": [
       "Watch treatment **with the demand in mind**",
       "Close the chronology **at MMI**",

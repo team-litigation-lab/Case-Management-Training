@@ -18,9 +18,6 @@
     "model": {
       "say": "• John Doe's demand with its five elements pinned on as badges\n• Within limits: $10,000; clear: release and affidavit terms; reasonable: conditions and 30 days\n• Documented: list of everything enclosed; timed: deadline and delivery lines\n• Clock bar: emailed 07/20/2026, receipt confirmed in writing 07/22/2026, window closes 08/21/2026\n• Red warning: an unclear term is an escape hatch for Keystone"
     },
-    "job": {
-      "say": "• MMI 06/12/2026: docket MMI plus 30 with reminders; open the Demand Package task in the CMS\n• 07/12/2026 is a Sunday; internal target, so work it Friday 07/10; legal deadlines roll to the next business day\n• Enter the approved terms in Case Notes exactly, before drafting\n• Docket 08/21/2026 from Dana Whitfield's 07/22/2026 acknowledgement, never the send date; none arrives, follow up and escalate\n• Keystone contact before the deadline: log it word for word, route to Atty. Thorne same day"
-    },
     "dodont": {
       "say": "• Do: docket from the adjuster's written acknowledgement, never the send date\n• Do: lead with the MRI herniation, a disc pushed out of place, and the injection\n• The window is for Keystone to accept, not to pay\n• Don't: omit the deadline or clock trigger, leave the gap out, or demand before MMI or a future-care plan\n• Bad faith is Atty. Thorne's conclusion, never the Case Manager's label",
       "ask": "What makes a gap explanation hold up with an adjuster, and who supplies it?"
@@ -48,7 +45,7 @@
     "model": {
       "say": "• A six-station line: tender 08/12, consent requests 08/13, consents 08/24 and 08/26\n• Orange gate: no release before both consents\n• Limited Release 08/28 ends only the claim against Smith and Keystone; UM demands 08/31; Keystone's check 09/04\n• Ladder above: BI $10,000, Host UM $20,000 add-on, Relative UM $10,000 excess\n• Struck through: Keystone's 08/14 draft releasing “all other persons, firms, corporations and insurers,” the UM carriers included"
     },
-    "job": {
+    "steps": {
       "say": "• Keystone tenders $10,000 on 08/12/2026: prepare 30-Day Letters to both UM carriers for Atty. Thorne's signature\n• Use the Action Plan Editor template; both go 08/13 with tender, Dec Page and affidavit; docket each window\n• 08/14: compare who and what Keystone's draft release covers against the approved terms\n• “All other insurers” goes to Atty. Thorne as an escalated task; nothing to John to sign\n• After both consents and the 08/28 Limited Release: two CMS tasks for the UM demands, with carrier, claim number, adjuster"
     },
     "dodont": {
@@ -117,9 +114,6 @@
     "model": {
       "say": "• The Keystone battle map, finished before the call; demand expires 08/21/2026\n• Station 1: net floor $12,677.63 gross, with a red note that Keystone's limit is $10,000\n• Station 2: value drivers; station 3: the two attacks, the 14-day gap and the “degenerative” MRI\n• Station 4: gap answered by the EMS report and 06/19/2026 Causation Letter; degenerative by the 03/13/2026 Summit MRI\n• Causation Letter: the doctor's letter tying the injury to the crash; on unreduced liens, John nets $0"
     },
-    "job": {
-      "say": "• Keystone receives the demand 07/22/2026: build the battle map and the net floor on the Net Sheet\n• Match every attack to a dated document in Case Notes\n• On the offer call: soft lead, pause, ask for her data, restate the demand; no counter\n• Log the offer and her exact words in the Communications Log; report to Atty. Thorne that day\n• “Waiting on authority”: name the stall, send a same-day email citing 08/21/2026; no open-ended callbacks"
-    },
     "dodont": {
       "say": "• Do: make the adjuster justify her number with data\n• Do: stay firm, factual and professional, and tie every answer to John Doe's record\n• Don't: soften the demand, negotiate without the net floor, or accept “I'll get back to you”\n• Never apologize for the gap: the EMS report, call-outs, receipt, numbness and Causation Letter explain it\n• Ask for a callback date",
       "ask": "What is the difference between holding the demand and softening it to seem reasonable?"
@@ -141,7 +135,7 @@
     "model": {
       "say": "• Three rungs: BI $10,000 tendered 08/12, Host UM $20,000, Relative UM $10,000; running total to $40,000 gross\n• Under Host UM, three possible reductions struck through: BI offset, PIP non-duplication (paying twice), PIP lien\n• None apply: Harbor Point's 03/02/2026 letter knocks out all three\n• Side note: this PIP is add-on, so no set-off\n• Bottom row: confirm scope, release, liens, payee, check date, then a confirming email"
     },
-    "job": {
+    "steps": {
       "say": "• 09/14/2026: log Harbor Point's offer and reasons in the Negotiation Log on the Insurance tab; report to Atty. Thorne\n• Offer cites the BI payment and gap: counter-package of the 03/02/2026 letter, MRI, Causation Letter, MMI residuals, future care\n• MMI residuals: what's still wrong after healing; approved counter goes out 09/16\n• On a limits offer: confirm terms without accepting; acceptance email only after John's logged decision and approval\n• Each UM check: confirm its release is signed, deposit to trust same day, 10/05 and 10/13/2026"
     },
     "dodont": {
@@ -204,7 +198,7 @@
     "model": {
       "say": "• Every claim on the $40,000, on a ladder from provider LOP down to ERISA self-funded\n• Two solid bars: Riverton Spine & Rehab $6,290.00 and Peach State $1,860.00\n• Hollow bars with green checks: none, verified\n• Outlined prior-attorney bar tagged quantum meruit, a lawyer's claim for work already done\n• Doctrine cards: common fund, made whole, comparative fault greyed out; unclassified means overpaid or frozen"
     },
-    "job": {
+    "steps": {
       "say": "• Gross reaches $40,000.00 on 10/06/2026: run the final inventory in the Lien Tracker\n• Re-verify the Day 2 register; classify each claim statutory or contractual\n• Medicare, Medicaid, hospital, workers' comp and PIP each get “none” with a source; prior attorney “none known to John Doe”\n• Health Plan: get plan documents, escalate funding status; fully insured on file, governing law recorded as Atty. Thorne's\n• Draft the request naming the doctrine and showing $1,860.00 minus $620.00 equals $1,240.00, held for approval"
     },
     "dodont": {
@@ -229,7 +223,7 @@
     "model": {
       "say": "• Pro-rata picture on BI alone: $6,179.92 left after fee and costs\n• Split 23.35% to Peach State, $1,443.15, and 76.65% to Riverton Spine & Rehab, $4,736.77\n• $7,965.00 of liens overhang in red hatching; John Doe nets $0.00\n• Order of work: audit, correct, calculate, ask with authority, confirm in writing, update the Net Sheet"
     },
-    "job": {
+    "steps": {
       "say": "• Provider's Final Ledger arrives: audit each line against the visit records; request written correction of errors\n• John Doe's file: 33 visits matched, 05/04/2026 duplicate removed, $6,105.00 in the Lien Tracker\n• Draft the Reduction Request with the math; Atty. Thorne's written authority, escalated through CMS, logged before any request or call\n• Reduction agreed: get the signed Payoff Letter, update Lien Tracker and Net Sheet, recompute the net same day",
       "ask": "Which of these three steps is most tempting to rush, and what would it cost John?"
     }
@@ -258,10 +252,6 @@
     },
     "rules": {
       "say": "• Negotiate from audited balances: Riverton $6,105.00, Peach State $1,860.00, $7,965.00 in all\n• Written Reduction Request first, with Atty. Thorne's written authority on file\n• On the call, make only his ask; log name, date, every figure; counters outside authority go to him same day\n• A useful note names the person, such as Tammy Greer, billing manager, the figure, date and routing time\n• No Payoff Letter, no payment: full and final, no balance billing or collections; update both tabs that day"
-    },
-    "job": {
-      "say": "• Audited balance confirmed: draft the Reduction Request with the math; get Atty. Thorne's written authority first\n• Lienholder responds: call with the authorized ask; log who, when and every figure\n• Reduction agreed: get the signed Payoff Letter, update Lien Tracker and Net Sheet same day\n• John Doe sees his net change the same day\n• BI alone nets John $0.00; the real file nets $20,359.92",
-      "ask": "If a provider later says the bill is still open, which step do you check first?"
     }
   },
   "d3m3-a2": {
@@ -303,10 +293,6 @@
     },
     "model": {
       "say": "• Recovery Ledger in front: columns for total, Stream 1 BI, Stream 2 UM\n• Rows: gross, 33⅓% fee, costs, Peach State, Riverton Spine & Rehab\n• Orange net row: $20,359.92, which is $5,089.98 plus $15,269.94\n• Lines from each lien row to the Lien Tracker tab: proved by Payoff Letter\n• Corner reminder: BI alone meant $0.00 to John Doe"
-    },
-    "job": {
-      "say": "• Post each check to its stream with carrier and check reference: BI $10,000.00, UM $20,000.00 plus $10,000.00\n• Each cost posted once with its receipt; five receipts make $486.75\n• Accepted reductions: Lien Tracker gets asserted, audited, reduced figures and Payoff Letter; Peach State $1,240.00, Riverton $4,580.00\n• Tie the Net Sheet to the Trust Ledger, $20,359.92 on both\n• Route to Atty. Thorne before John Doe sees it; the first number a client sees is the one he remembers",
-      "ask": "If the two stream nets didn't add up to $20,359.92, where would you look first?"
     }
   },
   "d3m4-l2": {
@@ -328,7 +314,7 @@
     "model": {
       "say": "• John Doe's money path: no gate opens before the one to its left closes\n• Gate 1: releases signed, 08/28 plus the UM releases; gate 2: checks into IOLTA 09/04, 10/05, 10/13\n• Gate 3: funds clear 10/20; gate 4: statement signed 10/21; gate 5: Atty. Thorne signs 10/22; gate 6: reconciled to $0.00\n• Above gate 1, the struck-through catch-all line, minus $30,000\n• Trust Ledger steps down from $40,000.00 to $0.00"
     },
-    "job": {
+    "steps": {
       "say": "• Settlement agreed or tendered: request the payee's W-9, the tax form accounting needs, same day; return it with the signed release\n• Draft release: audit parties, claims, indemnity, Medicare and confidentiality; route a redline memo quoting each bad line\n• Check arrives: confirm its release is signed, deposit to IOLTA that day, log clearance; 09/04, 10/05, 10/13\n• $40,000.00 all cleared by 10/20\n• If suit is pending, not Track A: prepare the stipulation of dismissal with prejudice, docket it, confirm entry"
     },
     "dodont": {
@@ -384,10 +370,6 @@
     },
     "rules": {
       "say": "• Medical Specials from line-item bills, reconciled to the audit: $14,817.40, 05/04/2026 duplicate gone, every line with its why\n• Two-page treatment summary in front; Human Story: five Northgate shifts missed, right-hand numbness from 02/18, paresthesia at MMI\n• Liability: Police Report, Ruth Calloway, doorbell clip, Property Damage photos; Special Damages: Northgate's $1,584.00 letter; $16,401.40 total\n• Final Scrub: no overlaps, 2021 low-back visits disclosed, every balance confirmed by phone\n• For UM, rebuild by function with exhaustion proof, not proof of uninsured status"
-    },
-    "job": {
-      "say": "• MMI 06/12/2026: open the Demand Package task, request line-item bills, ask John how the injury changed his days\n• Week of service: Final Scrub, call every provider for a final balance, note name and date until $16,401.40 ties out\n• Index exhibits by what each proves; route package and narrative to Atty. Thorne\n• After the 08/28/2026 Limited Release, rebuild each UM package by function\n• Impairment rating, the doctor's percentage of permanent lost function: the question goes to Atty. Thorne, not Dr. Reyes",
-      "ask": "Why might a provider's final balance differ from the bill already on file?"
     }
   },
   "d3m2-bins": {
@@ -428,7 +410,7 @@
     "rules": {
       "say": "• Ask the right carriers: Harbor Point and Cardinal State, never Bluewater\n• 30-Day Letter 08/13/2026, the day after the tender, for Atty. Thorne's signature, with tender letter and Smith's affidavit; docket windows\n• Read each consent's scope: Smith and Keystone only, subrogation waived, no substitution; anything wider goes to Atty. Thorne\n• John signs nothing until both are in writing and Atty. Thorne approves and reviews the release with him\n• Request, docket, chase and match; never explain the consent clause"
     },
-    "job": {
+    "steps": {
       "say": "• 08/12/2026 tender: prepare both consent requests for Atty. Thorne's signature and docket the windows\n• Sent 08/13, with the reason Bluewater isn't asked recorded on the file\n• 08/14: Keystone's cover letter conditions payment on the waivers; log it, hold the signing task against it\n• Consents arrive 08/24 and 08/26: match each scope to the release, Smith and Keystone only\n• Both go into the transmittal packet and the front of each UM package",
       "ask": "Why does the signing task wait on those two letters?"
     }

@@ -15,8 +15,8 @@
     "model": {
       "say": "• Green column, ask it open; red column, never like this; each open question sits beside the leading version it replaces\n• Last red row, tagged UPL (unauthorized practice of law): the soothing line, an opinion on his case\n• Funnel below: open first, follow his words, then pin dates and documents; recorded, consent on the record\n• Same fact asked two ways gives two different cases"
     },
-    "job": {
-      "say": "• Trigger: records show the 14-day gap; read the EMS report, urgent-care history and treatment timeline in the CMS\n• Save the questions-only plan in Case Notes before the call; no question names a reason\n• Call Simulator, AI John Doe: state the date, who is on, that it's recorded; get consent, confirm privacy\n• Privilege, the protection on client and firm talk, needs privacy, not an audience\n• Asked what the gap does to his case: no opinion; log it, route to Atty. Thorne through Tasks same day"
+    "steps": {
+      "say": "• Records show the 14-day gap; read the EMS report, urgent-care history and treatment timeline in the CMS\n• Save the questions-only plan in Case Notes before the call; no question names a reason\n• Call Simulator, AI John Doe: state the date, who is on, that it's recorded; get consent, confirm privacy\n• Privilege, the protection on client and firm talk, needs privacy, not an audience\n• Asked what the gap does to his case: no opinion; log it, route to Atty. Thorne through Tasks same day"
     },
     "dodont": {
       "say": "• Do: ask open, follow his words, close last; read his story back so he can correct it\n• Do: prevent the next gap now; cheaper than explaining a second one in the demand\n• Weak: \"Was it because you had no car?\" Strong: hears the car, soreness, cost worry, numbness from 02/18\n• Don't: name the expected reason, blame him for the gap, or reassure or alarm him; both are case opinions",
@@ -39,8 +39,8 @@
     "model": {
       "say": "• Six stations: internal review, contact attempts, team notification in colour; Steps 4 to 6 greyed for the next lesson\n• Station two opens into the ladder: phone, email and text, emergency contact, certified mail\n• Each rung is wider: it reaches further and costs more; don't skip rungs or stay on one\n• Red card: the statute of limitations, the legal deadline to file suit, keeps running throughout"
     },
-    "job": {
-      "say": "• Trigger: John Doe misses an appointment; open the Case Summary in the CMS and do Step 1\n• Work the ladder in the Communications Log, the record of every contact: date, time, channel, outcome\n• Escalate to Atty. Thorne through Tasks with the impact: SOL 02/06/2028 and any hearing dates\n• A vanished client signals minor injuries to an adjuster; the log proves otherwise"
+    "steps": {
+      "say": "• John Doe misses an appointment; open the Case Summary in the CMS and do Step 1\n• Work the ladder in the Communications Log, the record of every contact: date, time, channel, outcome\n• Escalate to Atty. Thorne through Tasks with the impact: SOL 02/06/2028 and any hearing dates\n• A vanished client signals minor injuries to an adjuster; the log proves otherwise"
     },
     "dodont": {
       "say": "• Do: set a follow-up reminder the moment each request goes out\n• Do: make answering easy; as a Northgate shift lead he can't take calls on the floor, so text or upload link\n• Don't: let a file sit unlogged while waiting on the client, or blame the client for a process gap\n• Strong: log every attempt and switch channel instead of a third call to the same phone",
@@ -62,9 +62,6 @@
     },
     "model": {
       "say": "• Left: the letter on letterhead, four required parts: attempts listed, 7 to 14 day deadline, withdrawal possible, how to respond\n• Above it: certified mail AND email, not either\n• Right: the Step 5 fork: response by the deadline? Yes, the file picks back up\n• No: a gate of three chips, ladder done, letter sent, deadline passed, before skip-trace and the attorney's decision"
-    },
-    "job": {
-      "say": "• Step 3 escalation done, still no answer: draft the letter in the Action Plan Editor from the firm's template\n• Confirm the address; send from CMS Documents, Outgoing, by certified mail and email; log both, keep the receipt\n• After the deadline, check the three conditions in the log\n• Then ask Atty. Thorne through Tasks for skip-trace approval and the Step 5 decision; a judge may read this record"
     },
     "dodont": {
       "say": "• Do: itemize every attempt by date; have in-house help confirm the address, 2214 Maple Hollow Rd, first\n• Don't: start a skip-trace on one condition alone, or announce withdrawal in a letter the attorney never approved\n• Weak: a vague please-call note; strong: every attempt by date, a clear deadline, withdrawal possible\n• The Case Manager builds the record; only the attorney ends representation",
@@ -129,7 +126,7 @@
     "model": {
       "say": "• Navy ring: \"Is the plan working?\"; a red detect node breaks out into assess, coordinate, track\n• Track curves back into the ring: A-C-T closes back into monitoring\n• Corner: the treatment map, marker on restorative, week 9, 04/08/2026\n• Variance chips: clinical, psychosocial, systemic; psychosocial is lit, because what the crash left him with derailed him"
     },
-    "job": {
+    "steps": {
       "say": "• Missed-visit alert: reach John Doe that day; if silent, start the No Contact Protocol, first attempt logged that day\n• Week 6, 04/07/2026: request re-evaluation measures: range of motion, pain score, disability index\n• PHQ-9 or GAD-7 mood screens are the provider's call; anything putting mental health on record goes to Atty. Thorne\n• Barrier unfixed: written notice to the causing carrier, copied to Atty. Thorne; only property facts to Keystone PD"
     },
     "dodont": {
@@ -156,9 +153,6 @@
     "model": {
       "say": "• PIP Log: Harbor Point's $5,000 in five rows by date; gauge hits $0.00 at the 06/12/2026 visit\n• Payer rail: PIP first, Peach State second, LOP third on counsel-approved terms\n• Riverton Spine & Rehab ticked for its LOP; Summit Imaging crossed, its bill went to PIP\n• An LOP is the last rung, not the first answer to a provider; each LOP dollar comes off John's net"
     },
-    "job": {
-      "say": "• LOP request: run the Payer Order; prepare only if needed, on counsel's template, routed from CMS Documents, Outgoing\n• PIP pays: post payment, running total and balance on the PIP Log; $5,000.00 reached on the 06/12/2026 visit\n• LOP statement: check each line against visits; through 04/02/2026, 16 visits at $185.00, $2,960.00, all attended\n• New referral: warm handoff, John and the new office on one call; confirm the payer before visit one"
-    },
     "dodont": {
       "say": "• Do: ask \"Is the plan working?\" at every contact; reconcile conflicting provider statements at once\n• Do: tell John Doe which payer handles which bill; unanswered cost worry makes clients stop going\n• Don't: issue an LOP before checking PIP and Peach State, or promise \"paid in full at settlement\"\n• Don't: mission creep, taking on every problem he raises; Summit's 03/11 request was checked and sent to PIP",
       "ask": "Why is an LOP never really free for John Doe?"
@@ -182,10 +176,6 @@
     },
     "model": {
       "say": "• Left: Peach State EOB, claim PS-2605-449021, stamped THIS IS NOT A BILL\n• Rows: billed $3,400.00, allowed $1,860.00, adjustment $1,540.00, deductible $0.00, paid $1,860.00, member responsibility $0.00\n• Right: Harbor Point's five checks, limit falling from $5,000.00 to nothing, exhausted 06/26/2026\n• Below: Crescent's 07/01/2026 statement for $1,540.00, linked to the $0.00 row; the EOB beats the statement"
-    },
-    "job": {
-      "say": "• EOB arrives: post billed, allowed, adjustment, paid and member share in CMS Liens and Documents, linked to the visit\n• PIP check clears: post it on the PIP Log with date of service and limit left; $0.00 after 06/26/2026\n• Statement shows a balance: compare with member responsibility, flag the $1,540.00, tell Atty. Thorne, draft the correction\n• Peach State's itemized lien: match each line to an EOB and the collision; only those lines stand",
-      "ask": "What happens to a Peach State lien line that no EOB supports?"
     }
   },
   "d2m3-l2": {
@@ -206,10 +196,6 @@
     },
     "model": {
       "say": "• Compare board: made at the time versus made to order\n• Left, green: 02/06 EMS report, 02/07 receipt, 02/09 to 02/13 call-outs, 02/20 urgent care note, 06/19 Causation Letter\n• Right, red: what never happens, every item struck through\n• Timeline 02/06 to 06/19: proof laid down while the gap was happening; timing makes it believable"
-    },
-    "job": {
-      "say": "• Provider record arrives: compare how, when and where with other histories; log consistent, or flag quoting the line\n• Conflicting histories: flag to Atty. Thorne through Tasks same day; don't call the provider about wording\n• Causation opinion requested: assemble records for his letter, calendar the follow-up\n• Work or excuse note: check signer, date and covered days against the visit record",
-      "ask": "Why not call the provider directly to sort out a conflicting history?"
     }
   },
   "d2m3-cause": {
@@ -228,7 +214,7 @@
     "model": {
       "say": "• Table: her four opinions, the defense each answers, the records behind each\n• Delay clinically consistent, answering \"he waited two weeks\": EMS report and 02/20 urgent-care note\n• Herniation more likely than not from the collision, answering \"degenerative\" (age wear): MRI shows no significant adjacent degeneration\n• 2021 care unrelated, answering pre-existing; treatment reasonable and necessary, future injections in the 06/12 MMI note\n• Pull one record and its opinion weakens"
     },
-    "job": {
+    "steps": {
       "say": "• Request decided: assemble the record set, prior records included, for his letter; calendar the follow-up\n• 06/19/2026 arrival: check date of loss, level and side, visit dates, records listed; log a match or quote and flag\n• File and cite it on the Gap Explanation Record's 14-day band and in the audit's risks\n• Demand Package: goes in beside the MRI and EMS reports, served 07/20/2026",
       "ask": "What happens if the letter lists the wrong date of loss?"
     }
@@ -348,7 +334,7 @@
     "model": {
       "say": "• Gate first: MMI 06/12/2026, ticked; nothing enters the ledger before it\n• Riverton Spine & Rehab: $6,290.00 struck, $6,105.00 instead; a $185.00 duplicate on 05/04/2026\n• $14,817.40 medicals plus $1,584.00 wages, $16,401.40; future medical sits outside the total\n• Targets in order: $10,000 BI, $20,000 Host UM, $10,000 Relative UM, each with its source\n• UM covers when at-fault insurance falls short: Host UM on the car he rode in, Relative UM via a relative"
     },
-    "job": {
+    "steps": {
       "say": "• 06/12/2026 MMI note: record MMI and future care on the timeline; open the audit task with owner and date\n• Final bills: build the Specials ledger until every billed date matches a visit; medical total $14,817.40\n• Register every lien, billed beside paid, in Liens and the Lien Tracker; route billed versus paid to Atty. Thorne\n• Before the ask, re-verify each limit in the Coverage Matrix: $10,000, $20,000, $10,000, $40,000 total, each sourced",
       "ask": "Why re-verify the limits now, when the Coverage Matrix was confirmed weeks ago?"
     }
@@ -369,7 +355,7 @@
     "model": {
       "say": "• One page in five bands, in the order counsel reads it\n• Bottom line in navy, largest type; audited facts in narrative, physicality and medicals, each ticked\n• Risks in red: 14-Day Gap, the disruption, 2021 low back, the \"degenerative\" read, each tied to its document\n• Decisions written as questions; options with consequences\n• Right rail: Atty. Elijah Thorne decides, ending in a dated, tasked decision record"
     },
-    "job": {
+    "steps": {
       "say": "• Audit done: draft the one-page memo and exhibit index, the numbered list of attachments, in the Action Plan Editor\n• Book the session on the CMS calendar; send the memo ahead via the Email Workspace, before any demand draft\n• After: record each decision in counsel's words in Case Notes; open dated tasks with owner and due date\n• Mark the Case Plan superseded, meaning replaced, and re-route the new version the same day"
     },
     "dodont": {
@@ -423,9 +409,6 @@
     "rules": {
       "say": "• Last resort: check health insurance, MedPay and PIP first, and record why none works\n• Signed before the first visit and filed; Riverton's was signed 02/23/2026\n• Request the itemized ledger every 30 days and update the Liens tab\n• John asks where to go: give options with facts, book his pick, log his choice in his words"
     },
-    "job": {
-      "say": "• No payer covers the care: document the payer check, route the LOP to Atty. Thorne to approve\n• Once signed: file it and set the recurring ledger task\n• Referral: two or three options with location, hours, network status and any firm relationship; book his choice\n• Never say which option is better for his case\n• At settlement each LOP dollar comes off his check unless negotiated down; a clean ledger is the leverage"
-    },
     "theory": {
       "say": "• LOP: a written promise to pay a provider from the settlement; a claim on his recovery, not insurance\n• Payer-first: check health insurance, MedPay and PIP before reaching for an LOP\n• The balance grows every visit; the 30-day itemized ledger keeps the Liens tab accurate\n• Referrals are options and logistics only: a list, network status, the booking, his choice",
       "ask": "A provider wants a promise of payment in full. What is the answer?"
@@ -440,10 +423,6 @@
     },
     "rules": {
       "say": "• Out-of-pocket costs are Specials; each needs a receipt or log entry\n• Start the trip log at the first visit; the rate is confirmed by Atty. Thorne\n• A rental the carrier didn't pay is the owner's cost: keep the receipt, send it with the PD claim\n• When the rental ends, plan rides before a visit is missed; check payers so nothing is claimed twice\n• Enter costs the day receipts arrive, total and route before the demand; never promise repayment"
-    },
-    "job": {
-      "say": "• Treatment starts: open the trip log in Case Notes, set a task, tell John to keep every receipt and trip\n• Receipt arrives: enter it in the Financial Ledger under Specials the same day, file it in Documents\n• MMI reached, demand next: total the log, route to Atty. Thorne, who confirms the rate and the claim\n• Documented mileage also proves John showed up, visit after visit\n• Keystone ended Margaret's rental 03/19/2026; his rides now depend on a carpool",
-      "ask": "What should John Doe start keeping today, and why that first?"
     }
   },
   "d2m2-pip": {
@@ -453,7 +432,7 @@
     "rules": {
       "say": "• PIP does most good on fixed costs, ER, imaging, specialists; LOP providers reduce more readily than hospitals\n• Here PIP paid urgent care, Lakeside three times, Summit's $2,395.00 MRI; chiropractic and therapy ran under the LOP\n• The Case Manager forecasts; routing outside the Payer Order is Atty. Thorne's; limit used by 06/26/2026\n• EMC states cap PIP without a doctor's emergency medical condition finding; check early, never request it\n• Set-off credits the defendant for PIP paid; Riverton is add-on, so PIP doesn't reduce BI or UM"
     },
-    "job": {
+    "steps": {
       "say": "• PIP check clears: post it in the PIP Log; record what's left, what's coming and the wage claim\n• That forecast shows the empty date before it arrives\n• Bill could go PIP or LOP: email Atty. Thorne both routes with figures, log his decision; never re-route a paid claim\n• EMC-state file: check the rule and look for the finding in the first records; if missing, tell Atty. Thorne that day",
       "ask": "What is recorded first when a PIP check clears, and why?"
     }
@@ -467,10 +446,6 @@
     },
     "rules": {
       "say": "• Only BI and UM stack, $40,000; PIP and PD sit outside\n• Bills go PIP, then Peach State, then an LOP\n• Lien flagged in CMS Liens on first notice, Peach State's letter of 02/27/2026, always before any demand draft\n• Gap flagged the day records show it: 02/06/2026 to 02/20/2026, 14 days, facts only, routed, watched\n• Neither flag is a judgment; enforceability and effect on value are Atty. Thorne's"
-    },
-    "job": {
-      "say": "• Reimbursement right first noticed: flag the lien in CMS Liens with its identifiers, dated before any demand\n• Itemized ledger arrives: audit each line, dispute non-collision care in writing; change the register only on confirmation, $1,860.00\n• Records show first care 02/20/2026: flag the 14-Day Gap in the Action Plan Editor's risks band, facts only\n• Keep watching; that caught the 19-day break in April the day the alert came",
-      "ask": "What exactly goes in the risks band for the 14-Day Gap?"
     }
   },
   "d2m4-wage": {
@@ -494,10 +469,6 @@
     },
     "rules": {
       "say": "• Read Police Report RPD-26-018842 field by field: Officer Garner cited Smith for failure to stop\n• Witness Ruth Calloway signed a statement on scene\n• Report lists the Escape as 2021, Harbor Point's Declaration Page says 2020: record both, correct from the policy\n• Doorbell copy secured 02/19/2026, hash (digital fingerprint) logged; the data recorder needs a preservation request Atty. Thorne signs\n• Keystone accepting PD liability on Margaret's Civic doesn't bind its BI adjuster on John's claim"
-    },
-    "job": {
-      "say": "• Claim set-up: request the Police Report, read it field by field, log the citation and witness in the CMS\n• Video or vehicle data exists: draft preservation requests for Atty. Thorne's signature\n• Copy secured: log chain of custody, the trail of who held it and when\n• A carrier states its liability position: record it in the Insurance tab with date and source, one carrier at a time",
-      "ask": "How would the file prove the doorbell copy matches what Margaret's camera recorded?"
     }
   },
   "d2m1-first": {
@@ -519,7 +490,7 @@
     "rules": {
       "say": "• Smith swears no other insurance, a condition of settling at the limit\n• John swears residency and no owned vehicle only if a carrier asks, from a draft Atty. Thorne reviewed\n• Records requests ask for the custodian's affidavit in the same letter, so bills enter evidence without calling each provider\n• Northgate's wage letter proves the $1,584.00; the affidavit of service is filed, 10/16/2026 here\n• Check affiant, numbers, dates, signature, jurat and seal; defects go back; never sign, notarize or fix sworn words"
     },
-    "job": {
+    "steps": {
       "say": "• Demand at the limit approved: request Smith's affidavit through Keystone and docket it; sworn 08/10/2026\n• Records request: include the custodian's affidavit, so the set returns ready for evidence\n• Affidavit arrives: check it against the file, route any defect with a task\n• File it where it'll be used: demand conditions, UM packages, the trial binder",
       "ask": "An affidavit arrives signed but with no notary seal. What happens, and who is told?"
     }

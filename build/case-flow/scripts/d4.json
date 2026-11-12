@@ -15,9 +15,6 @@
     "model": {
       "say": "• One trunk on the left: same file, 08/05/2026, a $3,500 offer\n• Gray top branch: Track A, the payment that opened UM; orange bottom branch: Track B, today\n• Orange stops: 08/12 \"final\", 08/21 lapse, follow-ups 08/24 and 08/31, 09/02 escalation, silence 09/04\n• Ends at the impasse memo on 09/08; Atty. Thorne decides\n• Below: $10,000, $20,000, $10,000 layers, red padlock on BI: $40,000 frozen behind a $10,000 carrier"
     },
-    "job": {
-      "say": "• Offer repeated or deadline passes: log the trigger in the CMS Communications Log with its date and proof\n• A good entry: date, time, method, person tried, email attached; not just \"called, no answer\"\n• Follow-ups unanswered: escalate to the adjuster's supervisor in the Email Workspace, no new number, ask for a written position\n• Window closes silent: build the impasse record, send through Tasks, Escalate, with SOL and internal dates\n• If filed, this log is the story a judge reads"
-    },
     "dodont": {
       "say": "• Do: date every contact the day it happens, like the unanswered 08/24 and 08/31 follow-ups\n• Do: ask for reasons and evidence in writing; escalate a silent adjuster to the supervisor first, as on 09/02\n• Don't: wait another month, send a UM demand before BI is exhausted, or tell John Doe it \"will go to court\"\n• Strong note: two dated follow-ups, a supervisor escalation, a written request for reasons; the 09/08 memo nearly writes itself",
       "ask": "Someone wants to demand the UM limits while BI stalls. Do or Don't, and which rule decides?"
@@ -38,9 +35,6 @@
     },
     "model": {
       "say": "• Left, gray: the pre-suit file with a claim folder, an adjuster clock and a 33⅓% chip\n• Orange arrow across the middle: status to Litigation, on counsel's authority\n• Right, navy: five numbered folders, court-fields card, calendar with 48-hour audit flags, 40% chip \"on filing\"\n• The civil action number stays a dashed \"Pending\" pill, on purpose\n• Bottom: the mediator helps both sides talk, decides nothing; the arbitrator decides, binding, red final seal"
-    },
-    "job": {
-      "say": "• Trigger: Atty. Thorne authorizes suit\n• Change status, open court fields in Case Summary and Litigation, cite his dated authorization, case number \"Pending\"\n• Build the master folder and five sub-folders under Documents, named to standard\n• Seed the Litigation Calendar: SOL, internal hard date, cutoff, 48-hour audits, all in one sitting\n• Strike list or proposed neutral arrives: pull résumés and past awards, docket the strike deadline that day; strikes are his"
     },
     "dodont": {
       "say": "• Do: change status, fields, folders and calendar in one sitting; audit deadlines and exhibits, don't just track them\n• Do: tailor the binder to the neutral: the value story for a mediator, the evidence for an arbitrator\n• Don't: leave \"scan001.pdf\" in a litigation folder or treat mediation and arbitration as the same\n• Don't assume an arbitration error can be appealed; only a narrow fix for an obvious math error, on a short deadline",
@@ -102,9 +96,6 @@
     "model": {
       "say": "• The master calendar as one ribbon, 10/2026 to 02/2028\n• Navy, above: the court's hard rules, 11/13/2026, 01/04/2027, 03/31/2027, 05/28/2027\n• Orange, below: forum dates 03/11, 03/18, 06/02, 06/11 and 06/22/2027\n• Red flag on 02/06/2028, a Sunday, never relied on; orange pins step back to 02/04/2028 and 11/05/2027\n• Docketed dates always sit earlier than the law allows; that cushion protects the case"
     },
-    "job": {
-      "say": "• Week of 12/10/2026, the Scheduling Order arrives: enter every date in Court E-Filing with trigger, rule, owner, alerts\n• Read each verb: \"completed by\" goes in as a deadline\n• Discovery mailed 12/01/2026: 30 plus 3 lands on Sunday, so move it forward\n• Enter RFAs separately in the Conflict Resolver at 01/04/2027, deemed-admitted flag set\n• SOL: calendar 02/04/2028 and 11/05/2027; arbitration invoked 04/05/2027: hard-code 06/02, 06/11, 06/22/2027 that day"
-    },
     "dodont": {
       "say": "• Do: record trigger, rule and arithmetic on every entry; when unclear, calendar the earlier date and flag it\n• Don't: count the trigger day as day one, or roll a backward count forward to Monday\n• Don't trust the SOL's weekend roll: 02/06/2028 is a Sunday, so the hard date is Friday 02/04/2028\n• Brief counts back to Saturday 06/12/2027 from the 06/22 hearing; move it to Friday 06/11, not Monday",
       "ask": "The brief's backward count lands on Saturday 06/12/2027. Which date gets docketed, and why?"
@@ -125,9 +116,6 @@
     },
     "model": {
       "say": "• Claim submission, 03/22/2027: injuries, records, $16,401.40 in Specials, wage letter, proof Keystone's $10,000 was tendered and consented to\n• Tendered: offered up in full\n• Dispute: $8,000 on 03/31, $6,000 on 04/02; $14,000 against $30,000 of limits\n• Route: Harbor Point invoked its arbitration clause in April 2027; hearing 06/22 before Laura Whitcomb\n• Margaret's Bluewater policy is not a route: UM rejected in writing; John owns no car"
-    },
-    "job": {
-      "say": "• UM offers come back low: impasse memo the same day, both dispute clauses quoted from the certified policies, not interpreted\n• Clauses and statute in hand: route options to Atty. Thorne as findings, each layer's deadline as a question\n• He decides in writing: ADR entry typed UM / UIM arbitration, required by policy; case status matches the route\n• Arbitration invoked: docket the hearing and everything counted back from it\n• Tell John only what happens procedurally"
     },
     "dodont": {
       "say": "• Do: say first party or third party before anything else about a claim\n• Do: quote the clause in the memo, then stop; a paraphrase is already an interpretation\n• Don't: file or announce a lawsuit when the policy sends the dispute to arbitration\n• Don't read Harbor Point's clause onto Cardinal State's policy\n• Don't tell John a carrier is acting in bad faith or that he can recover above limits",
@@ -150,7 +138,7 @@
     "model": {
       "say": "• Left, lighter card: mediation, 03/18/2027, Hon. Carla Benton (Ret.): non-binding, confidential, facilitates\n• Right, navy card: binding arbitration, 06/22/2027, Laura Whitcomb, Esq.: acts as judge, binding award, appeal limited\n• Hard dates underneath: 06/02, 06/11, 06/22/2027; an orange arrow joins compromise to trial-ready\n• Red UPL bar across both: unauthorized practice of law, doing a lawyer's job without being one\n• Can: observe, log directives, update the CMS; never: argue, speak on record, speak for John, negotiate"
     },
-    "job": {
+    "steps": {
       "say": "• Order requires mediation by 03/31/2027: collect 3 to 4 windows from Atty. Thorne, John Doe, opposing counsel first\n• Use the Calendaring Simulators; the session must land inside 03/31/2027\n• Opposing counsel rejects every window: log it, escalate the same day for an attorney-to-attorney call\n• Arbitrator's fee schedule and retainer: confirm, send retainer to accounting, internal invites, payment confirmed in writing\n• Bench directive: log it as given in Case Notes, calendar it, memo Atty. Thorne that day"
     },
     "dodont": {
@@ -237,7 +225,7 @@
     "model": {
       "say": "• John Doe's binder from above: six navy tabs down the right edge, each with an orange number and name\n• Beside each, a card of this file's documents: RPD-26-018842, the EDR, the 03/13/2026 MRI, the $16,401.40 in Specials\n• Across the top, the master index: exhibit, Bates, source, status\n• Orange lines run one way only, index to binder\n• Right side: a five-second stopwatch and a red warning: drafts and old pleadings never enter the binder"
     },
-    "job": {
+    "steps": {
       "say": "• Mediation set for 03/18/2027: open the master index under Documents; seat each document in exactly one section\n• Every entry gets its section, exhibit number, Bates range and source\n• In the Pleadings Log, check each pleaded defense against sections four and five: an answering exhibit, or a flag to Atty. Thorne\n• OCR the binder, making the PDF text-searchable; bookmark, check against the index, send for approval\n• Searchable, approved and delivered by 03/11/2027"
     },
     "dodont": {
@@ -260,9 +248,6 @@
     },
     "model": {
       "say": "• Left, small and gray: the Mediation Binder, persuades, non-binding; an orange arrow carries the gap dispute over\n• Right, larger: six arbitration tabs, each card stating its quality rule\n• Threshold chip over tab one: BI exhausted, $10,000 tendered 03/18/2027\n• Authentication rail below: custodian certification, original file, chain of custody\n• Red warning: not exchanged by 06/02/2027 may not count; confirm the forum's rules"
-    },
-    "job": {
-      "say": "• Arbitration invoked 04/05/2027: open the claimant exhibit index; put the 06/02/2027 exchange and 06/11/2027 brief in Court E-Filing that day\n• As records arrive, use Medical Records Requests to ask each records custodian for a business-records certification\n• One per provider, covering every date exhibited; custodians are slow, so don't wait\n• Send the exchange set and flagged items to Atty. Thorne through Tasks, Escalate\n• Approved before 06/02/2027, nothing privileged in it"
     },
     "dodont": {
       "say": "• Do: build to the strict evidence standard even when the forum relaxes it\n• Do: request certifications the week arbitration is invoked, the week of 04/05/2027, not before the 06/22 hearing\n• Don't: grayscale crash stills, or a draft brief or superseded complaint in the exchanged set\n• Don't: the Confidential Mediation Statement in the Arbitration Binder; once exchanged, it can't be unsent\n• Strong set: color, certified, current, screened; privileged items flagged for Atty. Thorne",
@@ -333,9 +318,6 @@
     "model": {
       "say": "• Track B timeline on a navy rail; hard dates 08/21/2026, 03/11/2027, 03/18/2027, 03/31/2027, 06/02/2027, 06/22/2027\n• Three cards above: non-responsive party, delayed record, scheduling, each with an orange line to the date it threatens\n• Biggest card: non-responsive party, red callout \"$10,000 carrier, $40,000 frozen\"\n• Right edge: at mediation a gap costs leverage; at arbitration it costs evidence\n• Measure a bottleneck by the hard date it threatens"
     },
-    "job": {
-      "say": "• Follow-up unanswered: log it in the Communications Log with date, time, method, outcome; next follow-up five business days out\n• Second one unanswered: open a Bottleneck Log entry with blocker, start date, threatened hard date\n• For Keystone the start date is the first unanswered request, 08/24/2026\n• Proposed mediation or arbitration date: run it through the Conflict Resolver; nothing after 03/31/2027 is offered as available\n• Binder item open 10 days out: red-flag it, like 03/01/2027 for the 03/11/2027 binder"
-    },
     "dodont": {
       "say": "• Do: clear bottlenecks early; one found at the deadline was found too late\n• Do: follow up in writing as well as by phone\n• Don't: log Keystone's silence as \"adjuster busy\" instead of dates, or print stills in grayscale for a binding hearing\n• A gap before mediation costs leverage; before arbitration it can get evidence excluded\n• Strong entry: a call, an email, a date for each, the next follow-up calendared",
       "ask": "Keystone's adjuster arrives with authority below the limits. What failed earlier, and which rule catches it?"
@@ -356,9 +338,6 @@
     },
     "model": {
       "say": "• Left: three-step ladder bottom up: source, supervisor with Notice of Delay, Atty. Thorne; 48-hour pill between each\n• Red strip under it: don't skip, don't sit\n• Right: the Keystone report as it reached Atty. Thorne on 09/08/2026\n• Five fields with orange badges: blocker, when it started, what it threatens, what was tried, the ask\n• The ask is boxed in orange and bold: the decision needed and by when"
-    },
-    "job": {
-      "say": "• Step one unanswered: written Notice of Delay to the supervisor from the Email Workspace: item, start date, hard date; log it\n• Step two silent 48 hours: escalate to Atty. Thorne through Tasks, Escalate, five fields filled, one ask per blocker\n• Weekly reporting day: send him the Bottleneck Log, each item's age and days to its hard date\n• Hard date arrives, blocker open: file what's there marked pending, or confirm his extension is docketed\n• Zero defaults"
     },
     "dodont": {
       "say": "• Do: lead the report with the nearest hard date, like the 06/02/2027 exhibit exchange\n• Do: write the ask as one decision and the date it's needed by\n• Don't: go straight to Atty. Thorne before the source and supervisor, or send \"please advise\" with no dates\n• Don't let a deadline pass for a late record: send what's there marked pending, or get his extension docketed\n• Subpoenas or motions to compel can be named as options; he decides",
@@ -415,7 +394,7 @@
       "say": "• Nothing archived until all four sets are present; test: could an outside auditor trace every dollar from the file alone\n• Money trail: three deposits, five 10/22/2026 checks, each with its confirmation number\n• Zero counts only when bank statement, trust journal and client ledger agree and every check cleared; second reviewer on each disbursement\n• Closing memo explains every figure that moved; Case Manager drafts the closing letter, Atty. Thorne signs\n• Retention: dispose 7 years from closing; a late bill goes to Atty. Thorne same day",
       "ask": "Riverton Spine & Rehab's $6,290.00 became $4,580.00. What does the closing memo say about that?"
     },
-    "job": {
+    "steps": {
       "say": "• Ledger at $0.00 on 10/22/2026: build the money trail in the Trust Ledger with deposits, disbursements, confirmation numbers, zero-balance report\n• Confirm bank statement, trust journal and client ledger agree once all five checks clear\n• Satisfactions and John Doe's receipt back: file with his payer disclosure and current W-9; draft the closing letter for signature\n• With the 10/30/2026 closing memo, tag every document and docket disposition 7 years from closing\n• Late bill: check, classify, route to Atty. Thorne, call John Doe the same day",
       "ask": "A statement for Crescent's $1,540.00 lands after the closing letter. What's the first document you pull?"
     }
@@ -429,10 +408,6 @@
     },
     "rules": {
       "say": "• Disclose the prior, never hide it; build the shield in five pieces\n• Birch Avenue Chiropractic's complete chart for 05/04, 05/11, 05/18/2021, certified; resolution in the record's words: low-back stiffness resolved, full activity\n• Body region side by side: low back then, neck and right arm now\n• The gap between, by records: the release, his Northgate job from 01/12/2026, histories with no prior neck complaint\n• Dr. Park's sentence and Dr. Reyes's Causation Letter in the same tab; mismatches go to Atty. Thorne"
-    },
-    "job": {
-      "say": "• Arbitration invoked 04/05/2027: that week, request Birch Avenue Chiropractic's complete 2021 chart through Medical Records Requests\n• Ask for a business-records certification covering all three dates\n• On arrival, build the side-by-side comparison in the exhibit index, every cell citing a record and page\n• Histories don't match, or the Causation Letter is silent on 2021: escalate via Tasks, Escalate, records attached, change nothing\n• Anything open 10 days before the 06/02/2027 exchange gets a red flag",
-      "ask": "Which single document makes the whole shield stand up?"
     }
   },
   "d4m2-medcal": {
@@ -468,10 +443,6 @@
     },
     "rules": {
       "say": "• MMI 06/12/2026, Dr. Reyes's Causation Letter 06/19, BI demand 07/20\n• The 03/13 MRI: C5-C6 herniation with no significant degeneration next to it; that line is quoted\n• The fourteen-day gap and the April disruption were answered on file before Keystone's offer cited them\n• Specials $16,401.40, billed and audited\n• Repeat injections Dr. Reyes mentioned go in the narrative, note quoted, never in the Specials"
-    },
-    "job": {
-      "say": "• MMI declared: close the chronology, audit the Specials in the CMS and Net Sheet, every bill tied to a dated record\n• Gap or missed visit: pair it with its documented reason the same week in Case Notes and the Gap Explanation Record\n• Demand or binder assembled: map each claim to its proving record in the Packet Builder\n• No figure or finding goes out without its source",
-      "ask": "What would you check first if a binder's damages tab didn't tie to the Specials?"
     }
   },
   "d4-drive": {

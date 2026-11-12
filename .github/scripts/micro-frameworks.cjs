@@ -1,8 +1,12 @@
-// @check browser — Micro-frameworks on the lessons (Milestone Steps, Rule vs. Exception, one CM Red Flag a slide with its owner; type ≥ 16px)
+// @check browser — Micro-frameworks on the lessons (Milestone Steps, Rule vs. Exception, one CM Red Flag a slide with its owner; type ≥ 16px; no Trigger ➔ Task ➔ Tool ➔ Checkpoint cards)
 // The three micro-frameworks are on the slides: every lesson the revamp gives a Milestone Steps rail, a Rule vs.
 // Exception callout or a CM Red Flag (build/case-flow/slides/dN.json: milestones, ruleEx, redFlag) draws it, on one of
-// its own slides (no slide is added); no slide carries more than one Red Flag; every Red Flag names its owner; and the
-// type on them stays bold and at least 16px on a laptop (1366x768), after any fit-to-screen scaling.
+// its own slides; no slide carries more than one Red Flag; every Red Flag names its owner; and the type on them stays
+// bold and at least 16px on a laptop (1366x768), after any fit-to-screen scaling.
+// The lessons' On the Job slide (rows of Trigger ➔ Task ➔ Tool ➔ Checkpoint cards) is gone: no lesson has that view
+// and no slide of any day draws such a row. Milestone Steps, which sat on it, is on The Framework, See It, The Theory
+// or The Rules where that slide has room, and otherwise on a slide of its own (the copy's "slide": true): the rail
+// alone, never scaled down on a laptop.
 // Usage: node .github/scripts/micro-frameworks.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -31,18 +35,24 @@ const SPEC = {
   const r = await page.evaluate(async () => {
     const sleep = ms => new Promise(r => setTimeout(r, ms));
     state.isAdmin = true; { const kt = document.getElementById('ktLogin'); if (kt) kt.remove(); }
-    const seen = {}, out = [];
+    const seen = {}, out = [], count = { slides: 0, steps: 0 };
     const zoomOf = el => { let z = 1; for (let n = el; n && n.style; n = n.parentElement) if (n.style.zoom) z *= Number(n.style.zoom) || 1; return z; };
     for (const d of DAYS) {
       if (!d.lessons || !d.lessons.some(l => l.cf)) continue;
       goto('day', d.id); state.dayViewMode = 'slides'; state.lessonSlide = 0; render(); await sleep(40);
       const slides = buildDaySlides(d);
       for (let i = 0; i < slides.length; i++) {
-        const s = slides[i]; if (s.type !== 'topic') continue;
-        const b = d.lessons[s.lessonIndex].cf.block; if (b.kind !== 'lesson') continue;
+        const s = slides[i];
         state.lessonSlide = i; state.slidePage = 0; render(); await sleep(10);
         const wrap = document.getElementById('lessonSlideWrap'); if (!wrap) continue;
-        const where = `Day ${d.id} slide ${i + 1} (${b.id})`;
+        // no slide of any day draws the Trigger ➔ Task ➔ Tool ➔ Checkpoint cards
+        count.slides++;
+        if (wrap.querySelector('.cfx-flow, .cfx-step, .cfx-job') || /Trigger\s*(➔|→|>)\s*(Case Manager )?Task/i.test(wrap.textContent)
+          || [...wrap.querySelectorAll('small, th, dt, b')].filter(x => /^(Trigger|Checkpoint)$/i.test(x.textContent.trim())).length > 1) out.push(`Day ${d.id} slide ${i + 1} (${s.type}): draws a Trigger ➔ Task ➔ Tool ➔ Checkpoint row`);
+        if (s.type !== 'topic') continue;
+        const b = d.lessons[s.lessonIndex].cf.block; if (b.kind !== 'lesson') continue;
+        const where = `Day ${d.id} slide ${i + 1} (${b.id})`, view = cmCaseFlow.viewsOf(b)[s.part - 1];
+        if (view === 'job' || !view) out.push(`${where}: ${view ? 'an On the Job slide (the view is gone)' : 'a slide with no view'}`);
         const rf = wrap.querySelectorAll('.cfx-rf'), rx = wrap.querySelectorAll('.cfx-rx'), ms = wrap.querySelectorAll('.cfx-ms');
         if (rf.length > 1) out.push(`${where}: ${rf.length} CM Red Flags on one slide (at most one)`);
         if (ms.length > 1) out.push(`${where}: ${ms.length} Milestone rails on one slide (one)`);
@@ -56,6 +66,16 @@ const SPEC = {
         });
         rx.forEach(x => { got.rx = (got.rx || 0) + 1; if (!x.querySelector('.cfx-rx-rule p') || !x.querySelector('.cfx-rx-exc p') || !x.querySelector('.cfx-rx-conf')) out.push(`${where}: Rule vs. Exception wants a rule, an exception and a Confirm line`); });
         ms.forEach(x => { got.ms = (got.ms || 0) + 1; const n = x.querySelectorAll('ol > li').length; if (n < 3 || n > 6) out.push(`${where}: a Milestone rail of ${n} steps (3–6)`); });
+        // Milestone Steps on a slide of its own: the rail and nothing else, at full size on a laptop, no step cut off
+        if (view === 'steps') {
+          count.steps++;
+          if (ms.length !== 1) out.push(`${where}: a Milestone Steps slide with ${ms.length} rails (one)`);
+          else {
+            if (zoomOf(ms[0]) < 1) out.push(`${where}: the Milestone Steps slide is scaled down to ${zoomOf(ms[0])} on a laptop (it should fit at full size)`);
+            if ([...ms[0].querySelectorAll('ol > li')].some(li => li.scrollHeight > li.clientHeight + 1 || li.scrollWidth > li.clientWidth + 1)) out.push(`${where}: a step of the Milestone Steps slide is cut off`);
+            if (wrap.querySelector('.cfx-sheet') && [...wrap.querySelector('.cfx-sheet').children].some(c => !c.contains(ms[0]))) out.push(`${where}: the Milestone Steps slide carries something besides its rail`);
+          }
+        }
         // the type on them: bold, and at least 16px once the slide is scaled to fit
         for (const box of [...rf, ...rx, ...ms]) {
           for (const el of box.querySelectorAll('dd, p, b, .cfx-ms-done, dt, .cfx-ms-chip')) {
@@ -69,7 +89,7 @@ const SPEC = {
         }
       }
     }
-    return { seen, out };
+    return { seen, out, count };
   });
   failures.push(...r.out);
   let n = 0;
@@ -79,6 +99,7 @@ const SPEC = {
     for (const k of want.split(' ')) { if (!got[k]) failures.push(`${id}: its ${{ rf: 'CM Red Flag', rx: 'Rule vs. Exception', ms: 'Milestone Steps' }[k]} isn't drawn`); else n++; }
   }
   await browser.close();
+  if (!r.count.steps) failures.push('no lesson has a Milestone Steps slide (the copy marks them "slide": true)');
   if (failures.length) { console.log(`${failures.length} problem(s):`); failures.slice(0, 80).forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-  console.log(`Micro-frameworks: ${Object.keys(SPEC).length} lessons, ${n} frameworks drawn on their slides, one Red Flag a slide at most, every Red Flag with its owner, type ≥ 16px and bold at 1366x768`);
+  console.log(`Micro-frameworks: ${Object.keys(SPEC).length} lessons, ${n} frameworks drawn on their slides (${r.count.steps} Milestone Steps on a slide of their own, at full size), one Red Flag a slide at most, every Red Flag with its owner, type ≥ 16px and bold at 1366x768; none of the ${r.count.slides} slides draws a Trigger ➔ Task ➔ Tool ➔ Checkpoint row`);
 })();
