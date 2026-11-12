@@ -481,6 +481,10 @@ window.cmCaseAlerts = {
 
 /* ---------- look: LSH navy and orange, bold, 14px and up ---------- */
 const st = document.createElement("style"); st.id = "cm-progress-log"; st.textContent = `
+/* a day card with a 💬 Trainer feedback button and a Knowledge Check line is short of height on a laptop: its icon gives
+   way so the theme stays readable instead of being cut mid-line */
+@media (max-height:900px){ .dash-main .module-card.mc-clean .module-body:has(.fb-open) .module-icon{display:none;} }
+.dash-main .module-card.mc-clean .mc-progress{font-weight:700;}
 .plog-jump{font:800 15px 'Inter',system-ui,sans-serif;display:inline-flex;align-items:center;gap:10px;border:2px solid #DB8437;background:#1E2340;color:#fff;border-radius:999px;padding:9px 18px;cursor:pointer;margin-left:10px;}
 .plog-jump b{background:#DB8437;color:#241304;border-radius:999px;padding:2px 10px;font-size:14px;}
 .plog-jump:hover{background:#262B45;}
@@ -533,6 +537,7 @@ const st = document.createElement("style"); st.id = "cm-progress-log"; st.textCo
 .cma-sev{display:inline-block;border-radius:999px;padding:2px 10px;font-weight:800;font-size:14px;white-space:nowrap;}
 .cma-sev.high{background:#F8E1DE;color:#9B3A30;} .cma-sev.medium{background:#FFE7CF;color:#7A3F0E;}
 .cma-rule{font-weight:800;color:#1E2340;margin-top:4px;}
+.cma-table td:first-child{min-width:170px;} .cma-table td:nth-child(2){min-width:200px;} .cma-table td:nth-child(3){min-width:320px;}
 .cma-when{white-space:nowrap;} .cma-act{white-space:nowrap;text-align:right;}
 .cma-act .btn{font-size:14px !important;font-weight:800;}
 .cma-ok{background:#DB8437 !important;background-image:none !important;color:#241304 !important;border-color:#DB8437 !important;}

@@ -144,14 +144,15 @@ async function workerChecks() {
     t0 = Date.now();
     await page.evaluate(async () => { await loadAdminLedger(); });
     if (since(t0, x => x.path === '/api/storage/get').length) fail('opening the Trainee Audit still reads the trainees one at a time');
-    // its progress, feedback and Focus columns: up to 33 trainees a request, not three requests each
+    // its progress, feedback and Focus columns: up to 33 trainees a request, not three requests each (and the case-file
+    // alerts' ✓ Resolved marks ride the same get-many: js/cm-progress-log.js)
     // (rendering the rows starts a background load on a timer; let it finish, or the forced load below finds one in flight and returns)
     await page.waitForTimeout(300);
     await page.waitForFunction(() => !state.auditExtraLoading, null, { timeout: 15000 });
     t0 = Date.now();
     const rows = await page.evaluate(async () => { await loadAuditExtras(true); return state.adminData.length; });
     const extras = since(t0, x => x.path.startsWith('/api/storage/'));
-    const want = Math.ceil(3 * rows / 100);
+    const want = Math.ceil((3 * rows + 1) / 100);   // + the trainers' ✓ Resolved marks on the case-file alerts, in the same get-many
     if (extras.length !== want || extras.some(x => x.path !== '/api/storage/get-many')) fail(`the Trainee Audit's progress columns for ${rows} trainees took ${extras.length} requests (expected ${want} get-many): ${JSON.stringify(extras.map(x => x.path + ' ' + x.key.slice(0, 40)))}`);
 
     await browser.close();
