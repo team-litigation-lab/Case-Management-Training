@@ -164,6 +164,22 @@ const failures = []; const fail = (m) => failures.push(m);
     if (/No CMS Case ID/.test(fixTxt)) fail('a trainee who filed documents into a case has a CMS Case ID (R4 should not fire)');
     if (!view.jump || !/⚠ \d+ to fix/.test(view.jumpText)) fail(`the top bar should link to the log with the number to fix: "${view.jumpText}"`);
 
+    // the trainee sees what they are missing: 📒 Progress Log in the top bar opens the list of things to fix, each with what to do
+    const miss = await page.evaluate(async () => {
+        goto('practice'); await new Promise(r => setTimeout(r, 300));
+        const b = document.querySelector('.plog-jump'); if (!b) return null; b.click(); await new Promise(r => setTimeout(r, 200));
+        const p = document.getElementById('plogMissing'); if (!p) return { open: false };
+        const items = [...p.querySelectorAll('li')].map(li => li.innerText.replace(/\s+/g, ' '));
+        p.querySelector('.btn-navy').click(); await new Promise(r => setTimeout(r, 900));
+        return { open: true, items, view: state.view, closed: !document.getElementById('plogMissing') };
+    });
+    if (!miss || !miss.open) fail('📒 Progress Log in the top bar should open the list of what the trainee has to fix');
+    else {
+        if (miss.items.length !== view.fix.length) fail(`the top bar's list should have the ${view.fix.length} things to fix: ${miss.items.length}`);
+        if (miss.items.some(t => !/What to do:/.test(t))) fail('each thing to fix in the top bar\'s list should say what to do');
+        if (miss.view !== 'dashboard' || !miss.closed) fail(`📒 Open my Progress Log should close the list and open the dashboard's log: ${miss.view}`);
+    }
+
     // 5. bold, 14px and up
     [['title', view.sTitle], ['detail', view.sDetail], ['time', view.sTime], ['what to do', view.sFix], ['day heading', view.sDay]].forEach(([n, s]) => {
         if (!s) { fail(`no ${n} in the log`); return; }
