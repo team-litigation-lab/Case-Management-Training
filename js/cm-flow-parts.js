@@ -119,12 +119,12 @@ css.textContent = `
 .sm-groups .sm-part-lab{background:#DB8437;} .sm-groups .sm-part-lab span{color:#fff;}
 .sm-groups .sm-part-kc{background:#EEF0F6;color:#1E2340;} .sm-groups .sm-part-kc span{color:#4A5170;}
 /* the Training Agenda: Part 1 · Lessons in the first two columns, Part 2 · Practice Lab and the Knowledge Check in the third */
-.cfx-agenda .cfx-ag-list.cfx-ag-two{gap:8px 12px;}
+.cfx-agenda .cfx-ag-list.cfx-ag-two{gap:6px 12px;}
 .cfx-agenda .cfx-ag-list.cfx-ag-two li{padding-top:5px;padding-bottom:5px;}
 .cfx-agenda .cfx-ag-list.cfx-ag-two .cfx-ag-n{width:34px;height:34px;font-size:16px;}   /* the label row costs a row: the rows under it are a little tighter, the titles the same size */
 .cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-label{background:none !important;border:0 !important;border-bottom:2px solid #DB8437 !important;border-radius:0 !important;padding:0 2px 3px !important;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:flex-start;gap:2px 12px;align-self:end;grid-row:1;grid-column:1 / span 2;}
-.cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-label b{display:inline;font:800 20px/1.25 'Poppins','Inter',sans-serif !important;color:#F4B77A;letter-spacing:.03em;text-transform:uppercase;}
-.cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-label span{font:700 17px/1.3 'Inter',sans-serif;color:#E8EBF3;}
+.cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-label b{display:inline;font:800 18px/1.2 'Poppins','Inter',sans-serif !important;color:#F4B77A;letter-spacing:.03em;text-transform:uppercase;}
+.cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-label span{font:700 16px/1.2 'Inter',sans-serif;color:#E8EBF3;}
 .cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-label ~ li.cfx-ag-label{grid-column:3;}   /* Part 2: the third column */
 .cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-lab{grid-column:3;grid-row:2;background:rgba(219,132,55,.24);border-color:#DB8437;}
 .cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-kc{grid-column:3;grid-row:3;}

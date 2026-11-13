@@ -58,6 +58,11 @@ function schedule(items, opts){
   // "Litigation" six times reads as nothing: a heading used more than once takes its module's name, up to its first "&" or ","
   const short = t => String(t || "").split(/\s+&\s+|,\s/)[0].trim();
   parts.forEach(p => { const mt = short(p.modTitle); p.title = seen[p.heading] > 1 && mt ? (mt.toLowerCase().includes(String(p.heading).toLowerCase()) ? mt : `${p.heading}: ${mt}`) : p.heading; });
+  // … unless a run under that heading holds the lessons of several modules (all the lessons come together now, so a
+  // run is no longer one module's), or two runs would get the same name: then they are numbered, "Litigation (1 of 2)"
+  Object.keys(seen).filter(h => seen[h] > 1).forEach(h => { const same = parts.filter(p => p.heading === h);
+    const mixed = same.some(p => new Set(p.topics.map(x => x.mod)).size > 1), names = new Set(same.map(p => p.title));
+    if(mixed || names.size < same.length) same.forEach((p, i) => { p.title = `${h} (${i + 1} of ${same.length})`; }); });
   // the Practice Lab's Skill Building groups: the activities, in order, that practise one section's lessons
   const labs = []; let lab = null;
   items.filter(x => x.kind === "activity").forEach(x => {
