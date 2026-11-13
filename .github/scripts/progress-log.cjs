@@ -13,7 +13,7 @@
 // 3. "⚠ Needs fixing": the trainee's own open case-file alerts, each with what to do; a document filed is not in it;
 // 4. a real filing under the wrong category (cmDocFiling.fileDoc) is recorded (wrongCat, firstAt / lastAt) and shows up
 //    as a Needs fixing item;
-// 5. bold, 14px and up, LSH navy / orange; a link at the top of the dashboard jumps to it;
+// 5. bold, 14px and up, LSH navy / orange; 📒 Progress Log in the top bar jumps to it;
 // 6. drawing it asks the server nothing (the trainee page adds no requests).
 // Usage: node .github/scripts/progress-log.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
@@ -162,7 +162,7 @@ const failures = []; const fail = (m) => failures.push(m);
     if (view.fix.some(f => !/What to do:/.test(f))) fail('every Needs fixing item should say what to do');
     if (/First time right|CaseFiles_2026/.test(fixTxt)) fail('a document already filed is not something to fix');
     if (/No CMS Case ID/.test(fixTxt)) fail('a trainee who filed documents into a case has a CMS Case ID (R4 should not fire)');
-    if (!view.jump || !/⚠ \d+ to fix/.test(view.jumpText)) fail(`the dashboard's top should link to the log with the number to fix: "${view.jumpText}"`);
+    if (!view.jump || !/⚠ \d+ to fix/.test(view.jumpText)) fail(`the top bar should link to the log with the number to fix: "${view.jumpText}"`);
 
     // 5. bold, 14px and up
     [['title', view.sTitle], ['detail', view.sDetail], ['time', view.sTime], ['what to do', view.sFix], ['day heading', view.sDay]].forEach(([n, s]) => {
