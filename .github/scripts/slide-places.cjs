@@ -59,7 +59,7 @@ const OLD = {
     'd4m4-a1 task case check', 'd4m4-a2 task case check', 'd5m1-a1 task case check', 'd5m1-a2 task case check', 'd5m2-a1 task case check', 'd5m3-a1 task case check', 'd5m3-a2 task case check', 
     'd5m4-a1 task case check', 'd5m4-a2 task case check', 'd5m5-a1 task case check', 'd5-drive task case check', 'd5m6-a1 task case check']
 };
-const LAYOUT = 3;
+const LAYOUT = 4;
 (async () => {
   const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
   const page = await browser.newPage({ viewport: { width: 1366, height: 768 } });
@@ -75,6 +75,11 @@ const LAYOUT = 3;
       const now = buildDaySlides(d).map(sl => { const b = sl.type === 'topic' ? d.lessons[sl.lessonIndex].cf.block : null; return b ? { id: b.id, view: cmCaseFlow.viewsOf(b)[sl.part - 1], li: sl.lessonIndex } : { id: '~' + sl.type, view: '', li: -1 }; });
       let k = 0;
       (window.__OLD[d.cf.n] || []).forEach(row => { const [id, ...views] = row.split(' ');
+        // a lesson drawn from the trainer's deck now (layout 4): its old slides spread over its deck pages, in order
+        if ((window.CM_DECK_SLIDES || {})[id]) { const was = views.filter(v => !(v === 'job' && layout > 1)), n = now.filter(x => x.id === id).length;
+          if (!now[k] || now[k].id !== id || !n) { bad.push(id + ': its deck pages are not at slide ' + (k + 1)); return; }
+          was.forEach((view, j) => { const t = k + Math.min(n - 1, Math.floor(j * n / was.length)); out.push({ id, view, li: now[k].li, place: t, reach: t, kept: false, deck: true }); });
+          k += n; return; }
         (id[0] === '~' ? [''] : views).forEach(view => {
           if (view === 'job' && layout > 1) return;
           const n = now[k], here = n && n.id === id && n.view === view;
@@ -111,8 +116,8 @@ const LAYOUT = 3;
           if (i && far < reach[i - 1]) out.push(`${where}: its furthest-reached slide lands before that of the slide ahead of it`);
           if (to > far) out.push(`${where}: the place lands further on than the furthest slide reached`);
           if (x.li >= 0 && (sl.type !== 'topic' || sl.lessonIndex !== x.li || fs.type !== 'topic' || fs.lessonIndex !== x.li)) out.push(`${where}: lands outside its lesson`);
-          if (!x.kept && x.view === 'why' && cmCaseFlow.viewsOf(d.lessons[x.li].cf.block)[sl.part - 1] !== 'theory') out.push(`${where}: a Why It Matters slide that is gone should land on The Theory`);
-          if (!x.kept && x.view === 'steps' && cmCaseFlow.viewsOf(d.lessons[x.li].cf.block)[sl.part - 1] !== 'rules') out.push(`${where}: a Milestone Steps slide should land on The Rules`);
+          if (!x.kept && !x.deck && x.view === 'why' && cmCaseFlow.viewsOf(d.lessons[x.li].cf.block)[sl.part - 1] !== 'theory') out.push(`${where}: a Why It Matters slide that is gone should land on The Theory`);
+          if (!x.kept && !x.deck && x.view === 'steps' && cmCaseFlow.viewsOf(d.lessons[x.li].cf.block)[sl.part - 1] !== 'rules') out.push(`${where}: a Milestone Steps slide should land on The Rules`);
           if (x.kept && (x.view === 'steps' || x.view === 'job')) out.push(`${where}: the deck still has a ${x.view === 'steps' ? 'Milestone Steps' : 'On the Job'} slide`);
         });
         if (place[place.length - 1] !== now.length - 1 || reach[reach.length - 1] !== now.length - 1) out.push(`${L}: the deck's last slide doesn't land on today's last`);

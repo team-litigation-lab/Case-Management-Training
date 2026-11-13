@@ -183,9 +183,12 @@ const SPOKEN = {
     return { seen, out, count, lessons, spoken };
   }, SPEC);
   failures.push(...r.out);
+  // a lesson whose slides are the trainer's own Canva deck pages (js/cm-deck-slides.js) draws the deck, not these
+  const deckLessons = new Set(Object.keys(await page.evaluate(() => window.CM_DECK_SLIDES || {})));
   // every lesson with a Theory slide opens it with why it matters, and has no Why It Matters slide, unless it is listed in KEEPS
   const merged = [], kept = [], briefs = [];
   for (const [id, L] of Object.entries(r.lessons)) {
+    if (deckLessons.has(id)) continue;   // drawn from the trainer's deck pages: no Theory or Why It Matters slide of its own
     if (!L.theory) { briefs.push(id); if (!L.why) failures.push(`${id}: no Theory slide and no Why It Matters slide: its why it matters is nowhere`); if (KEEPS[id]) failures.push(`${id}: listed in KEEPS, but it has no Theory slide (it keeps Why It Matters anyway: take it off the list)`); continue; }
     if (L.why && !KEEPS[id]) failures.push(`${id}: has a Theory slide and still a Why It Matters slide (The Theory should open with it; or list the lesson in KEEPS with the reason)`);
     if (!L.why && KEEPS[id]) failures.push(`${id}: listed in KEEPS (${KEEPS[id]}), but its Why It Matters now opens The Theory: take it off the list`);
@@ -205,12 +208,8 @@ const SPOKEN = {
   }
   for (const id of Object.keys(r.spoken)) if (!SPOKEN[id]) failures.push(`${id}: its copy says the CM Red Flag is spoken, not drawn; list it in SPOKEN with the measurements that forced it`);
   let n = 0;
-  // a lesson whose slides are the trainer's own Canva deck pages (js/cm-deck-slides.js) draws the deck, then its
-  // Milestone Steps: its Rule vs. Exception and CM Red Flag stay in 📖 Additional Reference
-  const deckLessons = new Set(Object.keys(await page.evaluate(() => window.CM_DECK_SLIDES || {})));
-  for (const [id, all] of Object.entries(SPEC)) {
-    const want = deckLessons.has(id) ? all.split(' ').filter(k => k === 'ms').join(' ') : all;
-    if (!want) continue;
+  for (const [id, want] of Object.entries(SPEC)) {
+    if (deckLessons.has(id)) continue;   // its micro-frameworks stay in 📖 Additional Reference
     const got = r.seen[id];
     if (!got) { failures.push(`${id}: not on any slide`); continue; }
     for (const k of want.split(' ')) { if (k === 'rf' && SPOKEN[id]) { n++; continue; }   // spoken, not drawn (checked above)

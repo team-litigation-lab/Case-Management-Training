@@ -20,6 +20,9 @@
    The layouts: 1, the deck with On the Job (no layout on the saved place); 2, without On the Job (the deck with the
    Milestone Steps slides and every Why It Matters slide); 3, today's. A place saved in 1 is moved through every
    change in one go.
+   Layout 4: six lessons show the trainer's own Canva deck pages in place of their drawn slides (js/cm-deck-slides.js),
+   so those lessons have a different number of slides. A place in one keeps its lesson and how far through it the
+   trainee was: slide j of the m it had becomes deck page ⌊j·n/m⌋ of its n, and so does the furthest slide reached.
    Each saved object carries the layout it was written in (cfLayout), so the move happens once, on whichever device
    or tab reads it first, and a place saved since is left alone. The reload after an update says which layout its
    slide was saved in the same way (lsh_resume_layout): a page still running the old deck doesn't, and is moved.
@@ -27,7 +30,7 @@
 (function(){
 "use strict";
 if(typeof state === "undefined" || typeof DAYS === "undefined" || typeof buildDaySlides !== "function") return;
-const LAYOUT = 3, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
+const LAYOUT = 4, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
 const build = buildDaySlides;   // as js/cm-case-flow.js left it: a Case Flow block is one slide per view
 const cfDay = d => !!(d && d.cf && Array.isArray(d.lessons));
 
@@ -51,8 +54,15 @@ function viewsWere(b, vs, from){
 function oldDeck(d, from){
   const views = window.cmCaseFlow && window.cmCaseFlow.viewsOf, out = [], deck = build(d);
   deck.forEach((sl, k) => {
-    out.push([k, k]);
     const l = sl.type === "topic" ? d.lessons[sl.lessonIndex] : null, b = l && l.cf && l.cf.block;
+    if(b && views && b.kind === "lesson" && from < 4 && (window.CM_DECK_SLIDES || {})[b.id] && window.cmCaseFlow.drawnViewsOf){
+      // a lesson drawn from the deck now: its old slides, spread over its deck pages in order (once, at its first page)
+      if(sl.part !== 1) return;
+      const was = viewsWere(b, window.cmCaseFlow.drawnViewsOf(b), from), n = views(b).length;
+      was.forEach((v, j) => { const t = k + Math.min(n - 1, Math.floor(j * n / was.length)); out.push([t, t]); });
+      return;
+    }
+    out.push([k, k]);
     if(!b || !views || b.kind !== "lesson") return;   // only a lesson had any of these slides
     const vs = views(b), old = viewsWere(b, vs, from);
     const at = v => deck.findIndex(x => x.type === "topic" && x.lessonIndex === sl.lessonIndex && vs[x.part - 1] === v);

@@ -511,7 +511,7 @@ function ruleExBox(b){
     <div class="cfx-rx-exc"><p><b>${x.contrast ? "Contrast" : "Exception"}</b> ${hl(x.exception)}</p></div></div>
     ${x.onFile ? `<p class="cfx-rx-file"><b>On this file:</b> ${hl(x.onFile)}</p>` : ""}<p class="cfx-rx-conf"><b>Confirm:</b> ${hl(x.confirm)}</p></section>`;
 }
-const msView = b => { const vs = viewsOf(b); return ["steps", "frame", "rules"].find(v => vs.includes(v)) || null; };   // steps: a deck lesson's own Milestone Steps slide (viewsOf)
+const msView = b => { const vs = viewsOf(b); return ["frame", "rules"].find(v => vs.includes(v)) || null; };
 function milestoneRail(b, view){
   const m = mfOf(b).milestones; if(!m || msView(b) !== view) return "";
   const n0 = m.start || 1;
@@ -519,12 +519,11 @@ function milestoneRail(b, view){
     ${m.note ? `<p class="cfx-ms-note">${hl(m.note)}</p>` : ""}</section>`;
 }
 /* A lesson whose slides are the trainer's own Canva deck pages (js/cm-deck-slides.js, from build/videoslide): one slide
-   per page, named deck<page>, in place of the lesson's drawn slides, then its Milestone Steps slide where it has one. The page's speaker notes are its Presenter script. */
+   per page, named deck<page>, in place of the lesson's drawn slides. The page's speaker notes are its Presenter script. */
 const DECK = window.CM_DECK_SLIDES || {};
 const deckOf = b => (b.kind === "lesson" && DECK[b.id]) || null;
 const deckPage = (b, view) => (deckOf(b) || []).find(x => "deck" + x.page === view) || null;
 Object.values(DECK).forEach(xs => xs.forEach(x => { VIEW_LABEL["deck" + x.page] = x.title; VIEW_ICON["deck" + x.page] = "🖼"; }));
-VIEW_LABEL.steps = "Milestone Steps"; VIEW_ICON.steps = "📍";
 /* Why It Matters is no slide of its own in a lesson that has The Theory: its line opens that slide (whyOpen: a
    "💡 Why it matters" band above the theory's lead), one slide where there were two. The band is one line: the
    lesson's hook, or the copy's shorter `whyLine` where the hook would wrap (the full hook is then in the slide's
@@ -538,8 +537,8 @@ const whyView = b => theoryViews(b).length && !(SLIDES[b.id] || {}).whySlide ? [
 const rfView = b => { const r = mfOf(b).redFlag, vs = viewsOf(b); return !r ? null : vs.includes("why") ? "why" : r.spoken ? null : vs.includes(r.on) ? r.on : "rules"; };
 const whyOpen = (b, c) => { if(b.kind !== "lesson" || viewsOf(b).includes("why") || !c.hook) return ""; const ls = leadSplit(c.hook), line = (SLIDES[b.id] || {}).whyLine || (ls ? ls[0] : c.hook);
   return `<p class="cfx-whyline" role="note" aria-label="Why it matters"><b class="cfx-whyline-k">💡 Why it matters</b><span class="cfx-whyline-t">${hl(line)}</span></p>`; };
-function viewsOf(b){
-  if(deckOf(b)) return deckOf(b).map(x => "deck" + x.page).concat(mfOf(b).milestones ? ["steps"] : []);   // then the lesson's Milestone Steps: the CMS steps its Skill Activities build on
+function viewsOf(b, drawn){   // drawn: the lesson's own slides, as before its deck pages took their place (js/cm-slide-places.js)
+  if(deckOf(b) && !drawn) return deckOf(b).map(x => "deck" + x.page);
   if(b.kind === "lesson" && b.brief) return ["why"].concat(docView(b), ["rules"]);   // brief: a condensed overview (Day 5's litigation); no Theory slide, so Why It Matters stays
   if(b.kind === "lesson" && b.compact) return mapView(b).concat(theoryViews(b).slice(0, 1), whyView(b), docView(b), ["rules"]);   // compact: a full topic on fewer slides
   if(b.kind === "lesson") return mapView(b).concat(theoryViews(b), whyView(b), docView(b), ["rules"], b.show ? ["model"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // The Theory opens with why it matters; noGame: the CM introduction
@@ -841,7 +840,6 @@ function timeBanner(l){
 function slideBody(view, l, d){
   const {block: b, day, mod} = l.cf, c = copyOf(b);
   const dp = deckPage(b, view);
-  if(view === "steps" && deckOf(b)) return `<div class="cfx-ms-own">${milestoneRail(b, "steps")}</div>`;   // a deck lesson's Milestone Steps, alone on the slide
   if(dp) return `<figure class="cfx-deckpage"><img src="${E(dp.img)}" alt="${E(dp.title)}: ${E(String(dp.notes).slice(0, 220))}" width="1600" height="900" decoding="async"></figure>`;
   if(DRIVE_LATER.has(b.id) && window.CMDrive && CMDrive.dayOpened) CMDrive.dayOpened(Number(b.id.charAt(1)));   // a day's Backup File Maintenance: Day 2 lays its drill, and the day is graded
   switch(view){
@@ -2886,7 +2884,7 @@ function named(s, k){
 
 /* ---------- Presenter view: the speaker notes, as this course's slide scripts ---------- */
 window.SLIDE_SCRIPTS = window.SLIDE_SCRIPTS || {};
-window.cmCaseFlow = window.cmCaseFlow || {}; window.cmCaseFlow.viewsOf = b => viewsOf(b);
+window.cmCaseFlow = window.cmCaseFlow || {}; window.cmCaseFlow.viewsOf = b => viewsOf(b); window.cmCaseFlow.drawnViewsOf = b => viewsOf(b, true);
 // a block's slide by its view (Your Task's Deliver goes straight to Check Your Work, past Your Case)
 window.cmCaseFlow.toView = function(blockId, view){
   const d = typeof DAYS !== "undefined" ? DAYS.find(x => x.id === state.dayId) : null; if(!d || typeof buildDaySlides !== "function") return nextSlide();
@@ -2921,8 +2919,7 @@ MODULES.forEach(d => d.lessons.forEach(l => {
   // a slide without one falls back to the script built above from the block
   const said = (window.CM_CF_SCRIPTS || {})[b.id] || {}, sc = {};
   vs.forEach((v, j) => {
-    const ms = v === "steps" && mfOf(b).milestones;
-    const x = deckPage(b, v) ? {talk: deckPage(b, v).notes} : ms ? {why: `Milestone Steps: ${ms.title}`, walk: ms.steps.map(y => `${y.label}${y.chip ? ` (${y.chip})` : ""}. Done when: ${String(y.done).replace(/\*\*/g, "")}`)} : per[v] || {}, h = said[v];
+    const x = deckPage(b, v) ? {talk: deckPage(b, v).notes} : per[v] || {}, h = said[v];
     sc["p" + (j + 1)] = h ? {why: "", talk: h.say, walk: [], ask: h.ask || "", scenario: x.scenario || ""}
       : {why: x.why || "", talk: x.talk || "", walk: x.walk || [], ask: x.ask || "", scenario: x.scenario || ""};
   });
