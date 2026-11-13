@@ -102,8 +102,9 @@ context the decks gave, not only the rules. Take it from the deck pages that tea
 - The decks were written for the archived John Doe v. Apex file: take their *doctrine*, never Apex's names, dates
   or figures, and nothing that contradicts this course's block or `curriculum/5-day-flow/case-file.md`.
 - `framework` (optional, but give one wherever the deck page carries a structure) — the deck page's own table,
-  flowchart or checklist, **rebuilt as data** so the course draws it in its own design (the slides never show the
-  deck's page images). Drawn as its own slide after The theory, titled by `title`.
+  flowchart or checklist, **rebuilt as data** so the course draws it in its own design (a block's slides never show the
+  deck's page images; the one exception is the trainers' revised deck, whose pages open their topics on Day 3 as
+  slides of their own, outside any block: `js/cm-deck-pages.js`). Drawn as its own slide after The theory, titled by `title`.
   - `title` — the deck's name for it, **≤ 8 words**, no highlight ("The Standard Treatment Map").
   - `kind` — `"table"`: `head` (2–4 column headings, ≤ 4 words) and `rows` (2–6 rows of that many cells, ≤ 12 words
     each); or `"flow"` (a sequence, drawn with arrows) / `"list"` (cards): `steps`, 3–6 of `{label ≤ 5 words, text ≤ 16

@@ -6,8 +6,9 @@
 // lesson that has one. A position saved in an older deck would open a few slides too far on, and a trainee near the
 // end would find the Knowledge Check open on slides never seen. js/cm-slide-places.js moves a saved place once.
 // The layouts: 1, the deck with On the Job (what a place with no layout on it was saved in); 2, without On the Job:
-// the live deck before this change, with the Milestone Steps slides and every Why It Matters slide; 3, today's. The
-// decks of layouts 1 and 2 are recorded below as data (OLD), slide by slide. Checked:
+// the deck with the Milestone Steps slides and every Why It Matters slide; 3, without the revised deck's pages
+// (js/cm-deck-pages.js); 4, today's. The decks of layouts 1 and 2 are recorded below as data (OLD), slide by slide;
+// layout 3's is the same without the slides layout 3 had dropped, and every layout's lacks the deck's pages. Checked:
 //   · the recorded decks are today's deck plus the slides that are gone, and nothing else;
 //   · every position of every day's deck, in both older layouts, lands on the same lesson: on the same slide where it
 //     still exists; a Why It Matters slide that is gone on its lesson's The Theory, and a Milestone Steps slide on its
@@ -59,7 +60,7 @@ const OLD = {
     'd4m4-a1 task case check', 'd4m4-a2 task case check', 'd5m1-a1 task case check', 'd5m1-a2 task case check', 'd5m2-a1 task case check', 'd5m3-a1 task case check', 'd5m3-a2 task case check', 
     'd5m4-a1 task case check', 'd5m4-a2 task case check', 'd5m5-a1 task case check', 'd5-drive task case check', 'd5m6-a1 task case check']
 };
-const LAYOUT = 3;
+const LAYOUT = 4;
 (async () => {
   const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
   const page = await browser.newPage({ viewport: { width: 1366, height: 768 } });
@@ -72,16 +73,18 @@ const LAYOUT = 3;
   // record and today's deck alone, never from js/cm-slide-places.js
   const ORACLE = `window.__OLD = ${JSON.stringify(OLD)};
     window.__oldDeck = (d, layout) => { const out = [], bad = [];
-      const now = buildDaySlides(d).map(sl => { const b = sl.type === 'topic' ? d.lessons[sl.lessonIndex].cf.block : null; return b ? { id: b.id, view: cmCaseFlow.viewsOf(b)[sl.part - 1], li: sl.lessonIndex } : { id: '~' + sl.type, view: '', li: -1 }; });
+      // the revised deck's pages (layout 4) are in no older deck: the record is matched against the rest, at their positions today
+      const now = buildDaySlides(d).map((sl, at) => { const b = sl.type === 'topic' ? d.lessons[sl.lessonIndex].cf.block : null; return b ? { id: b.id, view: cmCaseFlow.viewsOf(b)[sl.part - 1], li: sl.lessonIndex, at } : { id: '~' + sl.type, view: '', li: -1, at }; }).filter(x => x.id !== '~deckPage');
       let k = 0;
       (window.__OLD[d.cf.n] || []).forEach(row => { const [id, ...views] = row.split(' ');
         (id[0] === '~' ? [''] : views).forEach(view => {
           if (view === 'job' && layout > 1) return;
           const n = now[k], here = n && n.id === id && n.view === view;
-          if (here) { out.push({ id, view, li: n.li, place: k, reach: k, kept: true }); k++; return; }
+          if (here) { out.push({ id, view, li: n.li, place: n.at, reach: n.at, kept: true }); k++; return; }
+          if ((view === 'why' || view === 'steps') && layout > 2) return;   // layout 3 had neither
           const prev = out[out.length - 1];
           if ((view !== 'job' && view !== 'why' && view !== 'steps') || !prev || prev.id !== id) { bad.push(id + ' ' + view + ' is in the record and not in the deck (slide ' + (k + 1) + ' is ' + (n ? n.id + ' ' + n.view : 'the end') + ')'); return; }
-          const th = now.findIndex(x => x.id === id && x.view === 'theory'), ru = now.findIndex(x => x.id === id && x.view === 'rules');
+          const th0 = now.find(x => x.id === id && x.view === 'theory'), ru0 = now.find(x => x.id === id && x.view === 'rules'), th = th0 ? th0.at : -1, ru = ru0 ? ru0.at : -1;
           if (view === 'why' && th < 0) { bad.push(id + ': Why It Matters is gone from a lesson with no Theory slide'); return; }
           if (view === 'steps' && ru < 0) { bad.push(id + ': Milestone Steps is gone from a lesson with no The Rules slide'); return; }
           out.push({ id, view, li: prev.li, place: view === 'why' ? th : view === 'steps' ? ru : prev.reach, reach: prev.reach, kept: false });
@@ -98,7 +101,7 @@ const LAYOUT = 3;
     for (const d of DAYS) {
       if (!d.cf) continue;
       const now = buildDaySlides(d), row = { n: d.cf.n, now: now.length };
-      for (const layout of [1, 2]) {
+      for (const layout of [1, 2, 3]) {
         const old = __oldDeck(d, layout), place = cmSlidePlaces.placeMap(d, layout), reach = cmSlidePlaces.reachMap(d, layout), L = `Day ${d.cf.n}, layout ${layout}`;
         old.bad.forEach(m => out.push(`${L}: ${m}`));
         row['was' + layout] = old.length; row['job' + layout] = old.filter(x => x.view === 'job' && !x.kept).length; row['why' + layout] = old.filter(x => x.view === 'why' && !x.kept).length; row['steps' + layout] = old.filter(x => x.view === 'steps' && !x.kept).length;

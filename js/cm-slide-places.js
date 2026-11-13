@@ -17,8 +17,10 @@
      the trainee had already passed to get there (The Framework, or The Theory, Continued, or The Theory).
    Every position after a slide that is gone moved up; nothing the trainee had not seen is unlocked, nothing seen is
    locked again, and no place leaves its lesson or passes the end of the day.
+   Then pages were added (layout 4): the revised deck's pages, at the head of the topics they teach (js/cm-deck-pages.js).
+   A place saved before them stays on the slide it was on, and the pages before it count as seen.
    The layouts: 1, the deck with On the Job (no layout on the saved place); 2, without On the Job (the deck with the
-   Milestone Steps slides and every Why It Matters slide); 3, today's. A place saved in 1 is moved through every
+   Milestone Steps slides and every Why It Matters slide); 3, without the deck's pages; 4, today's. A place saved in 1 is moved through every
    change in one go.
    Each saved object carries the layout it was written in (cfLayout), so the move happens once, on whichever device
    or tab reads it first, and a place saved since is left alone. The reload after an update says which layout its
@@ -27,8 +29,8 @@
 (function(){
 "use strict";
 if(typeof state === "undefined" || typeof DAYS === "undefined" || typeof buildDaySlides !== "function") return;
-const LAYOUT = 3, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
-const build = buildDaySlides;   // as js/cm-case-flow.js left it: a Case Flow block is one slide per view
+const LAYOUT = 4, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
+const build = buildDaySlides;   // as js/cm-case-flow.js and js/cm-deck-pages.js left it: a Case Flow block is one slide per view
 const cfDay = d => !!(d && d.cf && Array.isArray(d.lessons));
 
 /* the 26 lessons that had a Milestone Steps slide of their own in layouts 1 and 2 (the copy's "slide": true, which is
@@ -51,6 +53,7 @@ function viewsWere(b, vs, from){
 function oldDeck(d, from){
   const views = window.cmCaseFlow && window.cmCaseFlow.viewsOf, out = [], deck = build(d);
   deck.forEach((sl, k) => {
+    if(from < 4 && sl.type === "deckPage") return;   // the revised deck's pages came in with layout 4
     out.push([k, k]);
     const l = sl.type === "topic" ? d.lessons[sl.lessonIndex] : null, b = l && l.cf && l.cf.block;
     if(!b || !views || b.kind !== "lesson") return;   // only a lesson had any of these slides
