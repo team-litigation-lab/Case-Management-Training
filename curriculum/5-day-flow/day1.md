@@ -563,7 +563,7 @@ A Google Drive folder tree as a large mock-up on the left two-thirds: LSH Case B
 
 **Verification checkpoints**
 
-- [ ] Google Drive linked to the platform, with the drive.file permission only
+- [ ] A Google Drive folder of your own shared with the platform as Editor and linked
 - [ ] Every folder named and numbered exactly as the firm standard has it, nothing invented
 - [ ] The client folder named last name first (Doe-John) and nested under 01 Clients, its nine folders inside it
 - [ ] Folders in the standard's order, 01 to 09 and 01 to 04, with the firm folders after the client work
@@ -575,7 +575,7 @@ A Google Drive folder tree as a large mock-up on the left two-thirds: LSH Case B
 
 | Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
 |---|---|---|---|
-| Matter active in the CMS | Link your Google Drive to the platform | Backup Drive | Connected with drive.file only |
+| Matter active in the CMS | Link your Google Drive folder to the platform | Backup Drive | Shared as Editor and linked |
 | Drive linked, no structure yet | Build the firm's hierarchy, named, numbered, nested and in order | Backup Drive | Graded as built, nothing invented |
 | Structure built | Confirm it with ✓ Check my drive; put back anything missing | Backup Drive | No folder missing |
 | Documents filed in the CMS | Record where each belongs on the backup | CMS → Case Notes | Retainer, HIPAA, Police Report placed with reasons |

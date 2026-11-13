@@ -4186,13 +4186,13 @@ async function backupDoc(btn, id){
     if(!name){
       // why no name could be made: the drive isn't there, the firm's naming rule hasn't loaded, or (the rule here) no Case ID yet
       const st = window.CMDrive && CMDrive.status ? CMDrive.status() : null, ruled = !!(window.CMDrive && CMDrive.naming && CMDrive.naming());
-      toast(!st || !st.configured || !st.connected || !st.built ? "Your Backup Drive isn't set up yet. Connect it, then try again."
+      toast(!st || !st.configured || !st.connected || !st.built ? "Your Backup Drive isn't set up yet. Link it, then try again."
         : !ruled ? "The firm's naming convention hasn't loaded yet. Open 📂 My Backup Drive, then try again."
         : "Open your case in the CMS first (🗂 Open CMS): the backup copy is named with its Case ID, the firm's way.");
       return; }
     const out = await cmDocFiling.keepOnDrive(d.folder, name, await r.arrayBuffer(), d.id);
     if(out && out.ok){ btn.textContent = "✓ In GDrive"; toast(`Backed up to your Drive under ${String(out.folder).split("/").pop()} as ${name}.`); return; }
-    toast(out && out.why === "no-drive" ? "Your Backup Drive isn't set up yet. Connect it, then try again." : "The backup didn't reach your Drive. Try again.");
+    toast(out && out.why === "no-drive" ? "Your Backup Drive isn't set up yet. Link it, then try again." : "The backup didn't reach your Drive. Try again.");
   }catch(e){ toast("The backup didn't reach your Drive. Check your connection and try again."); }
   finally{ btn.disabled = false; if(btn.textContent === "Backing up…") btn.textContent = label; }
 }
