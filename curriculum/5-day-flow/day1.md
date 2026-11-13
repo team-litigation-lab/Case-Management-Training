@@ -789,7 +789,7 @@ A Google Drive folder tree as a large mock-up on the left two-thirds: LSH Case B
 
 **Verification checkpoints**
 
-- [ ] Google Drive linked to the platform, with the drive.file permission only
+- [ ] A Google Drive folder of your own shared with the platform as Editor and linked
 - [ ] Every folder named and numbered exactly as the firm standard has it, nothing invented
 - [ ] The client folder named last name first (Doe-John) and nested under 01 Clients, its nine folders inside it
 - [ ] Folders in the standard's order, 01 to 09 and 01 to 04, with the firm folders after the client work
