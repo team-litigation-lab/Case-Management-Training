@@ -5933,8 +5933,8 @@ body:not(.ft-fit) #lessonStage > .slide-nav{margin-top:8px !important;margin-bot
 .cfx .cfx-model{display:flex;flex-direction:column;flex:1 1 auto;min-height:0;}
 .cfx .cfx-model .cfx-caption{font:800 clamp(22px,3vh,28px)/1.25 'Poppins','Inter',sans-serif !important;color:#1E2340 !important;margin:0 0 12px !important;}
 .cfx .cfx-model table{width:100%;font-size:clamp(19px,2.6vh,23px) !important;}
-.cfx .cfx-model th{font-size:clamp(17px,2.2vh,20px) !important;font-weight:800 !important;padding:clamp(8px,1.4vh,14px) 16px !important;}
-.cfx .cfx-model td,.cfx-model tbody td{font-size:clamp(19px,2.6vh,23px) !important;font-weight:700 !important;line-height:1.35 !important;padding:clamp(8px,1.5vh,16px) 16px !important;color:#141A2E !important;}
+.cfx .cfx-model th{font-size:clamp(17px,2.2vh,20px) !important;font-weight:800 !important;padding:clamp(7px,1.2vh,14px) 16px !important;}
+.cfx .cfx-model td,.cfx-model tbody td{font-size:clamp(19px,2.6vh,23px) !important;font-weight:700 !important;line-height:1.3 !important;padding:clamp(6px,1.1vh,14px) 16px !important;color:#141A2E !important;}
 .cfx .cfx-model tbody td:first-child{font-weight:800 !important;color:#1E2340 !important;white-space:nowrap;}`;
   document.head.appendChild(st);
 })();
