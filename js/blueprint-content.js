@@ -27,7 +27,7 @@ window.LSH_BLUEPRINT = {
         where: 'Your dashboard — the day cards, in order.',
         tip: 'Read the Case File before Day 1: every lesson and exercise works that one file.' },
       { icon: '🖥', title: 'How every day works', points: [
-          'Every module runs Lesson → Skill Activity → Lesson → Skill Activity → Knowledge Check: Tell Them, Show Them, Let Them.',
+          'Every day runs in two parts, then the check: all of its Lessons → one Practice Lab with all of its Skill Activities → Knowledge Check: Tell Them, Show Them, Let Them.',
           '1. Lessons: the rules and the why, then the model to follow. Every slide is whole on one screen. Your place is saved.',
           '2. Skill Activities: do the real task on the live file, from the documents the slide names (📁 Work from).',
           '3. Knowledge Check: your Self-Summary and Skill Scale for each module, and the day\'s auto-graded questions — pass at 70% to open the next day.'],

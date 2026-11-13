@@ -4207,7 +4207,7 @@ window.CM_CASE_FLOW = {
         notes: [
           "This is the one-page recap of the Treatment Phase's money lessons: open each ＋ More card in turn and let the room say the rule before you show it.",
           "Ask for the two flag rules word for word. A trainee who says “when I get to it” for the lien, or “about two weeks” for the gap, hasn't got them yet.",
-          "Peach State's interim itemization is the bridge to the next activity: $3,618.00 asserted, $1,860.00 confirmed. The difference is the audit.",
+          "Peach State's interim itemization is the bridge to the lien audit in the Practice Lab (Health Plan Subrogation: Flag, Request & Audit the Lien): $3,618.00 asserted, $1,860.00 confirmed. The difference is the audit.",
           "Close on the line: you flag, record and request; Atty. Thorne decides what any of it means."
         ]
       },
@@ -10860,8 +10860,8 @@ window.CM_CASE_FLOW = {
   ],
 
   /* The order the course teaches the blocks in, day by day. Each day is ONE module of the five (Intake & Property Damage, Claim Set Up, the Treatment Phase, Pre-Demand Audit & the Demand, Closing & Settlement), all on John Doe's
-     one file, and every module runs the same lifecycle: Lesson → Skill Building → Lesson → Skill Building → … →
-     Knowledge Check (each topic's lessons, then straight away the Skill Activities that practise them). Day 1 opens with the Case Manager's
+     one file, and every module runs the same lifecycle: ALL of its Lessons → ONE Practice Lab (all of its Skill
+     Activities, in the order their lessons were taught) → Knowledge Check (see `sequence` below). Day 1 opens with the Case Manager's
      introduction, then the client (Meet Your Case), then the lessons proper; Days 2–5 go straight into lessons
      anchored on where the file stands. Claim Set Up runs CMS case file setup → draft the LORs and notices →
      transmit and log them → receive the carriers' claim correspondence. The advanced theory (the Payer-First

@@ -17,9 +17,16 @@ in CI). A slide without a script here falls back to the script the course builds
 ```
 
 Keyed by block id, then by slide (the block's views, in order: a lesson is map · theory · theory2 ·
-frame · doc (when it introduces a document) · rules · model · dodont; an activity is case · task · model · check;
-a Learning Check is questions · summary · scale; only the slides the block actually has). Every slide of every
-block has one.
+frame · doc (when it introduces a document) · rules · model · dodont, and a lesson with no Theory slide opens with
+why; an activity is task · case · grade · audit · model · check: **Your Task first, then Your Case**; a Learning Check
+is questions · summary · scale; only the slides the block actually has). Every slide of every block has one.
+
+The notes are shown beside the slide they are keyed to, so each is about THAT slide and can be read without the one
+before it: a `task` note covers the steps (the scenario comes on the next slide, Your Case: say "on the next slide"
+when it points there), a `case` note covers the scenario on the file and never introduces the task again. A day runs
+ALL of its lessons first and then ONE Practice Lab with all of its Skill Activities, so a lesson's note never says
+"the next activity" (its activity is in the lab, named there by "Practises: …"), and an activity's note never says
+"the lesson we just did".
 
 **Milestone Steps** is no slide: a `steps` script is refused. The 26 lessons that had the slide carry their steps in
 the `rules` talking points (one or two points: the steps in order, with their dates), with the points that were on the
@@ -40,9 +47,12 @@ you do; the assembler refuses the build without it. Only a brief lesson still ha
 ## The day's own slides
 
 `days.json` holds the scripts for the slides outside any block, by Case Flow day: `agenda` (the opening
-Training Agenda), `lab` (the Practice Lab, before the first Skill Activity) and `wrap` (the End-of-Day
-Discussion, before the Knowledge Check; its say puts the day's discussion question to the room). Same
-voice and limits as a block's slides. A day without them keeps the generic notes.
+Training Agenda: Part 1 the lessons, Part 2 the Practice Lab), `lab` (the one Practice Lab slide, after ALL of the
+day's lessons and before its first Skill Activity) and `wrap` (the End-of-Day Discussion: shown beside the day's
+last slide, 🎯 Ready for the Knowledge Check?; its say puts the day's discussion question to the room). A build day
+(Day 5) has `build`, `build2` (the two Full Application Practice slides) and `extra` (Optional Extra Practice)
+where the other days have the Practice Lab. Same voice and limits as a block's slides. A day without them keeps the
+generic notes.
 
 ```json
 { "1": { "agenda": { "say": "…", "ask": "…" }, "lab": { "say": "…" }, "wrap": { "say": "…", "ask": "…" } } }

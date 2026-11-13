@@ -1553,7 +1553,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 - This is the one-page recap of the Treatment Phase's money lessons: open each ＋ More card in turn and let the room say the rule before you show it.
 - Ask for the two flag rules word for word. A trainee who says “when I get to it” for the lien, or “about two weeks” for the gap, hasn't got them yet.
-- Peach State's interim itemization is the bridge to the next activity: $3,618.00 asserted, $1,860.00 confirmed. The difference is the audit.
+- Peach State's interim itemization is the bridge to the lien audit in the Practice Lab (Health Plan Subrogation: Flag, Request & Audit the Lien): $3,618.00 asserted, $1,860.00 confirmed. The difference is the audit.
 - Close on the line: you flag, record and request; Atty. Thorne decides what any of it means.
 
 ---

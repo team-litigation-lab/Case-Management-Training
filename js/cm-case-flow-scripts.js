@@ -91,7 +91,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m1-drive": {
   "task": {
-   "say": "• On the Backup File Maintenance slide, press Link my Google Drive in step one; it only sees folders and files it creates\n• Build 01 Clients with Doe-John inside and its nine numbered folders, intake and retainer through litigation\n• Add the firm folders: administration, templates, closed files\n• Submit; read each graded problem as a firm rule; then run Check my drive\n• In Case Notes, place the signed retainer, Police Report and HIPAA authorization, with reasons"
+   "say": "• On the next slide, Your Case, press Link my Google Drive in step one; it only sees folders and files it creates\n• Build 01 Clients with Doe-John inside and its nine numbered folders, intake and retainer through litigation\n• Add the firm folders: administration, templates, closed files\n• Submit; read each graded problem as a firm rule; then run Check my drive\n• In Case Notes, place the signed retainer, Police Report and HIPAA authorization, with reasons"
   },
   "case": {
    "say": "• 02/09/2026, 4:30 p.m.: John Doe's matter is active in the CMS, nothing on the backup drive yet\n• Every file is built to one standard so a covering colleague finds any document in seconds\n• Four steps: link your Google Drive here in step one, build the folders by hand (graded), run Check my drive, file documents as they arrive\n• Standard: 01 Clients, client folder last name first, nine numbered folders intake to litigation, then firm folders"
@@ -347,7 +347,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Draft the Case Plan for John Doe v. Robert Smith in the Action Plan Editor, all five bands\n• Acceptance decision and reason; coverage stack in payment order; liability, meaning who's at fault; early projection\n• Triple-check on privacy, Medicare and who pays first, held open until the Treatment Phase\n• Clinical, Functional and Financial pillars with measurable goals; every task has an owner and date\n• Risks band leads with the 14-day gap; docket the filing window, then route"
   },
   "case": {
-   "say": "• This activity is the gate out of Claim Set Up\n• In the file: parties mapped, $40,000 stack verified, onboarding packet tracked, 14-day Treatment Gap flagged\n• Stack: the layers of insurance that pay this claim, in order\n• On 03/16/2026 Atty. Thorne asks for the full five-band Case Plan by end of day\n• Goal: a plan he can act on without asking a single question"
+   "say": "• On the file, this Case Plan is the gate out of Claim Set Up: once Atty. Thorne has it, treatment follows\n• In the file: parties mapped, $40,000 stack verified, onboarding packet tracked, 14-day Treatment Gap flagged\n• Stack: the layers of insurance that pay this claim, in order\n• On 03/16/2026 Atty. Thorne asks for the full five-band Case Plan by end of day\n• Goal: a plan he can act on without asking a single question"
   },
   "check": {
    "say": "• Snapshot: date of loss 02/06/2026, statute of limitations 02/06/2028, client a passenger\n• Coverage $10,000, $20,000, $10,000, total $40,000, in order: BI, Host UM, Relative UM\n• Projection and liability preliminary until coverage, Police Report and driver statements confirm\n• Triple-check held open; every task owned and dated; gap up front; plan routed with timestamp\n• Gate: LORs logged, stack verified, gap flagged, plan routed, or Treatment Phase doesn't start",
@@ -1805,7 +1805,7 @@ window.CM_CF_SCRIPTS = {
  "_days": {
   "1": {
    "agenda": {
-    "say": "• Welcome; today starts John Doe's case from the beginning\n• Lessons: the case, your role, facts vs. legal advice, reading the file, Case Plan & treatment, client communications, the car (repair, rental)\n• Then 7 Skill Activities in the CMS on his real file\n• Knowledge Check: 70% opens Day 2"
+    "say": "• Welcome; today starts John Doe's case from the beginning\n• Part 1, all the lessons: the case, your role, facts vs. legal advice, reading the file, Case Plan, client directions, the car, client communications\n• Part 2, one Practice Lab: all 7 Skill Activities in the CMS on his real file\n• Knowledge Check: 70% opens Day 2"
    },
    "lab": {
     "say": "• Open the CMS beside the slides\n• Seven Skill Activities in order: open the case with the Conflict Check first; link Google Drive and build backup folders\n• Work the voicemail and deliver the Direction Packet; assign directions in the system; sort the Civic's Property Damage file\n• Then two client communications activities: outreach logging and the final warning letter\n• Every field matches a document, every correction has a source, every step logged"
@@ -1825,7 +1825,7 @@ window.CM_CF_SCRIPTS = {
   },
   "2": {
    "agenda": {
-    "say": "• Welcome back; today covers John Doe's claim set-up and treatment\n• Claim set-up lessons: coverage tracking, affidavits, liability, decision-first notes, LORs; then the treatment plan and Case Plan\n• Treatment lessons: payers, LOPs, EOBs, PIP strategy, the EMC rule, costs, health subrogation, A-C-T monitoring\n• Then 10 Skill Activities in the CMS on his real file\n• Knowledge Check: 70% opens Day 3"
+    "say": "• Welcome back; today covers John Doe's claim set-up and treatment\n• Claim set-up lessons: coverage tracking, affidavits, liability, decision-first notes, LORs; then the treatment plan and Case Plan\n• Treatment lessons: payers, LOPs, EOBs, PIP strategy, the EMC rule, costs, health subrogation, A-C-T monitoring\n• Then one Practice Lab: all 10 Skill Activities in the CMS on his real file\n• Knowledge Check: 70% opens Day 3"
    },
    "lab": {
     "say": "• Open the CMS beside the slides\n• Ten Skill Activities in order: verify the Policy Stack, send LORs to all three carriers, audit the Coverage Matrix\n• Flag the 14-Day Gap, draft the Case Plan for Atty. Thorne; transmit LOPs: Riverton yes, Summit declined\n• Redirect the referral John won't attend, audit Peach State's lien, re-engage John in the near-drop, sort the backup drive\n• Every note says who, when, which channel, what was said and what happens next"
@@ -1837,7 +1837,7 @@ window.CM_CF_SCRIPTS = {
   },
   "3": {
    "agenda": {
-    "say": "• Welcome back; from Day 2: when John's ride ended, ask the clinic about transportation help, log it, tell Atty. Thorne\n• Lessons: the Gap Explanation Record, pre-demand case auditing, the demand, settlement negotiations, the UM consent and waiver, the settlement release\n• Specials: out-of-pocket damages like Medical Bills; Time-Limited Demand: an offer with a deadline\n• Then 14 Skill Activities in the CMS on John Doe's file\n• Knowledge Check: 70% opens Day 4"
+    "say": "• Welcome back; from Day 2: when John's ride ended, ask the clinic about transportation help, log it, tell Atty. Thorne\n• Lessons: the Gap Explanation Record, pre-demand case auditing, the demand, settlement negotiations, the UM consent and waiver, the settlement release\n• Specials: out-of-pocket damages like Medical Bills; Time-Limited Demand: an offer with a deadline\n• Then one Practice Lab: all 14 Skill Activities in the CMS on John Doe's file\n• Knowledge Check: 70% opens Day 4"
    },
    "lab": {
     "say": "• Open the CMS beside the slides; 14 Skill Activities, three with AI role-play: John Doe, Atty. Thorne, the adjuster\n• Build the Gap Explanation Record from John's own words, audit the Specials, audit the backup drive against the CMS\n• Serve the BI demand with its deadline; QC the two UM demands, the coverage that pays when the other driver's runs out\n• Negotiate, close the $40,000, build both Net Sheets, every dollar in and out\n• In role-plays, listen and ask the next question; every number in the demand must be exact"
@@ -1849,7 +1849,7 @@ window.CM_CF_SCRIPTS = {
   },
   "4": {
    "agenda": {
-    "say": "• Welcome back; today covers the money side of Track A, the settled file, then Track B, where it doesn't settle\n• Lessons: liens and provider balances, reductions, the Net Sheet, the release audit, disbursement and closing\n• Then court hard rules and calendar, UM disputes, mediation versus arbitration, and the two binders\n• Then 13 Skill Activities in the CMS on John Doe's file\n• Knowledge Check: 70% opens Day 5"
+    "say": "• Welcome back; today covers the money side of Track A, the settled file, then Track B, where it doesn't settle\n• Lessons: liens and provider balances, reductions, the Net Sheet, the release audit, disbursement and closing\n• Then court hard rules and calendar, UM disputes, mediation versus arbitration, and the two binders\n• Then one Practice Lab: all 13 Skill Activities in the CMS on John Doe's file\n• Knowledge Check: 70% opens Day 5"
    },
    "lab": {
     "say": "• Open the CMS beside the slides; 13 Skill Activities on both sides of the same file\n• Settled side: Health Plan and statutory lien reductions, provider balances, the final Net Sheet with both tabs\n• Then audit the release, trigger the disbursement, back up the lien file and restore the missing folder\n• Unsettled side: route the UM impasse, audit court hard rules and cutoffs, calendar the mediation and arbitration\n• Map the ADR rules and the UPL line; build both binders; every date checked against its source letter"
@@ -1861,7 +1861,7 @@ window.CM_CF_SCRIPTS = {
   },
   "5": {
    "agenda": {
-    "say": "• Welcome back to the last day: Litigation and Dropped Cases on John Doe's file\n• Lessons, about 30 minutes: the litigation fork and filing, bottlenecks and escalation, litigation tracking, trial prep, subpoenas\n• Then: Property Damage at settlement, deposition prep, comparative negligence and skip-tracing, the award and Net Sheet, Dropped Cases\n• Then the Full Application Practice: about 150 minutes building the assigned companion case\n• John's 15 Skill Activities are optional extra practice; Knowledge Check: 70% finishes the Case Flow"
+    "say": "• Welcome back to the last day: Litigation and Dropped Cases on John Doe's file\n• Lessons, about 30 minutes: the litigation fork and filing, bottlenecks and escalation, litigation tracking, trial prep, subpoenas\n• Then: Property Damage at settlement, deposition prep, comparative negligence and skip-tracing, the award and Net Sheet, Dropped Cases\n• Then the Full Application Practice: the rest of the day, about three hours, building the assigned companion case\n• John's 15 Skill Activities are optional extra practice; Knowledge Check: 70% finishes the Case Flow"
    },
    "lab": {
     "say": "• Practice Lab: 15 Skill Activities on John Doe's file in the CMS, optional extra practice today\n• Litigation fork and litigation status, e-filing the Complaint and calendaring service, CMS countermeasures, a bottleneck\n• Pleadings and discovery logs, trial-prep checklist audit, Keystone's final Property Damage position, deposition prep, mock cross-examination\n• Liability counter-package, skip-tracing, Litigation Net Sheet, final backup audit, Denise Harlow's Dropped Case\n• Calendar everything each task starts; in litigation a missed date can end the claim"
@@ -1871,7 +1871,7 @@ window.CM_CF_SCRIPTS = {
     "ask": "What do you do today, in what order, and what is Atty. Thorne's call, not yours?"
    },
    "build": {
-    "say": "• Full Application Practice: about 150 minutes building the assigned companion case, worked like John Doe's file\n• Step 1, read the file; step 2, open it in the CMS, Conflict Check first on every party's full legal name\n• Step 3, the folder by the SOP: [Your Full Name] - [Case Name], nine subfolders, connected, intake documents uploaded\n• Step 4, the claims: every carrier in the stack, Letters of Representation, verification status, coverage matrix\n• Time is called at each step; each case has its own problem to find",
+    "say": "• Full Application Practice: the rest of the day, about three hours, building the assigned companion case, worked like John Doe's file\n• Step 1, read the file; step 2, open it in the CMS, Conflict Check first on every party's full legal name\n• Step 3, the folder by the SOP: [Your Full Name] - [Case Name], nine subfolders, connected, intake documents uploaded\n• Step 4, the claims: every carrier in the stack, Letters of Representation, verification status, coverage matrix\n• Time is called at each step; each case has its own problem to find",
     "ask": "What is the first fact on your case to confirm, and where?"
    },
    "build2": {
@@ -1879,7 +1879,7 @@ window.CM_CF_SCRIPTS = {
     "ask": "What decision does the note to Atty. Thorne lead with?"
    },
    "extra": {
-    "say": "• Optional extra practice: John Doe's 15 Day 5 Skill Activities, untimed\n• Today's practical was the companion case\n• Worth coming back to soon: the deposition prep and the Dropped Case close-out\n• Most rooms go straight to the Knowledge Check"
+    "say": "• Optional extra practice: John Doe's 15 Day 5 Skill Activities, untimed\n• Today's practical was the companion case\n• Worth coming back to soon: the deposition prep and the Dropped Case close-out\n• Most rooms skip these: the skip button goes to the Ready check, then the Knowledge Check"
    }
   }
  }

@@ -3123,7 +3123,8 @@ if(typeof window.buildDayScriptLines === "function"){
       const ls = d.lessons.map((l, i) => [l, i]).filter(([l]) => l.cf.phase === ph); if(!ls.length) return;
       lines.push(`## ${ph.lead === "Case Phase" ? `Case Phase ${ph.n}` : ph.lead}: ${ph.title}`);
       ls.forEach(([l, i]) => {
-        if(lab && i === firstAct) lines.push("## Practice Lab", ...dayScriptLines(lab, "Practice Lab"), "---");
+        if(i === firstAct && d.cf.build) [["build", "Full Application Practice: Build Your Companion Case"], ["build2", "Full Application Practice: the Second Half"], ["extra", "Optional Extra Practice"]].forEach(([k, t]) => { const x = dayScript(d, k); if(x) lines.push(`## ${t}`, ...dayScriptLines(x, t), "---"); });   // the deck's order: the build, then John Doe's optional activities
+        else if(lab && i === firstAct) lines.push("## Practice Lab", ...dayScriptLines(lab, "Practice Lab"), "---");
         lines.push(`## ${String(i + 1).padStart(2, "0")}. ${titleCase(l.cf.block.title)}  ·  ${slideLabel(d, i)}`);
         viewsOf(l.cf.block).forEach((v, j) => {
           const sc = slideScript(d, l, j + 1), sb = scriptBody(sc);
