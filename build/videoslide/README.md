@@ -4,9 +4,12 @@
 slide's notes while the slide is on screen. The MP4 also has captions (a subtitle track you can turn on) and one chapter
 per slide.
 
-- `day1.json`: the speaker notes for *Revised Case Management Training Day 1* (54 pages). Canva leaves notes
-  out of a PDF export, so these notes were written from what each page says. They add no new facts. Edit a
-  slide's `notes` and build again.
+- `day1.json`: the speaker notes for *Revised Case Management Training Day 1* (54 pages).
+  `day2.json`: the speaker notes for *Revised Case Management Training Day 2* (44 pages).
+  Canva leaves notes out of a PDF export, so these notes were written from what each page says. They add no new
+  facts. Edit a slide's `notes` and build again.
+- The Skill Building pages are not in the videos (Day 1 pages 19, 20, 52, 53; Day 2 pages 11, 12, 20, 32, 43): the
+  trainees work those in the room. A page with no entry in the notes file is left out of the video.
   `say` sets how the voice says a term (PIP → "P I P"). The captions keep the term as it is written.
 - The voice is [Piper](https://github.com/rhasspy/piper) `en_US-lessac-high`. It is free and runs offline, so nothing is
   sent anywhere.
@@ -19,6 +22,7 @@ curl -LO https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/lessa
 
 ```bash
 python3 build/videoslide/make_video.py --deck "Revised Case Management Training Day 1.pdf" --notes build/videoslide/day1.json --voice en_US-lessac-high.onnx --out out/day1
+python3 build/videoslide/make_video.py --deck "Revised Case Management Training Day 2.pdf" --notes build/videoslide/day2.json --voice en_US-lessac-high.onnx --out out/day2
 ```
 
 Add `--only 16-18` to preview a few pages quickly, or `--rate 1.1` to speak 10% faster. The build also writes the
