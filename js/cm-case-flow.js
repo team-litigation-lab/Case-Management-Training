@@ -980,6 +980,14 @@ function oneOfEachTool(html){
   root.querySelectorAll(".cfx-side .cfx-btns").forEach(x => { if(!x.querySelector("[data-tool]")) x.remove(); });
   return t.innerHTML;
 }
+/* One title on a slide. The big title is the lesson's or activity's own numbered title (l.h: "2.3 Liability
+   Investigation …"), the one the Agenda's picker, "Next up", the Roadmap and Presenter view give it (daySlideTitle).
+   The band under it says what this slide is in plain words (The Theory, See It, Your Task …), with a small label
+   for which of the two the trainee is in: a Lesson or the Practice Lab. The group a lesson sits in ("Claim Set Up",
+   "Skill Building: Client Directions": l.cf.heading) is a section heading in the Agenda and the Roadmap, and is
+   not shown on the slide. A long title is set a size smaller and wraps; it is never cut with an ellipsis. */
+const WHAT = {lesson: "Lesson", activity: "Practice Lab", check: "Knowledge Check"};
+const TITLE_LONG = 72;
 function card(l, i, d, part){
   const {day, mod, block: b, k, phase} = l.cf, vs = viewsOf(b), p = Math.min(Math.max(part || 1, 1), vs.length), view = vs[p - 1];
   noteReached(b, p);
@@ -988,8 +996,8 @@ function card(l, i, d, part){
   const onNavy = view === "case";   // a Skill Building opener sits on the slide itself, like the deck's
   return oneOfEachTool(`<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; ${phase.lead === "Case Phase" ? `CASE PHASE ${phase.n} OF ${phase.of}` : phase.lead.toUpperCase()} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-${view} cfx-${b.kind}" data-part="${p}">
-      <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title" title="${E(l.cf.heading)}">${E(l.cf.heading)}</h2></div>
-      <div class="cfx-ribbon"><span title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span></div>
+      <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title${l.h.length > TITLE_LONG ? " cfx-t-long" : ""}" title="${E(l.h)}">${E(l.h)}</h2></div>
+      <div class="cfx-ribbon cfx-what"><span><i class="cfx-what-k">${E(WHAT[b.kind])}</i><b class="cfx-what-v">${E(VIEW_LABEL[view])}</b></span></div>
       <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}</span>
         <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.num || phase.n}.${k + 1} · ${E(KIND[b.kind])}</span><span class="cfx-top-rib" title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span>
         ${view === "task" && isTrainer() && !inAudience() && injectsOf(b).length ? `<button type="button" class="cfx-inject" onclick="cmCaseFlow.inject(${d.id},${i})" title="Trainer only: a real-time task to inject while the room works this one">⚡ Inject: ${E(injectsOf(b).map(x => x.short).join(" · "))}</button>` : ""}
@@ -1188,8 +1196,8 @@ function agendaSlide(d){
     + (sc.build ? row(parts.length + 1, "Full Application Practice: Build Your Companion Case") : "")
     + row(parts.length + (sc.build ? 2 : 1), "Knowledge Check", `🎯 ${d.quiz.length} questions and your takeaway`);
   return `<div class="card lesson-card cf-card cfx cfx-deck cfx-agenda">
-      <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">Case Management Training</h2></div>
-      <div class="cfx-ribbon"><span>Day ${d.cf.n} · Training Agenda</span></div>
+      <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">Training Agenda</h2></div>
+      <div class="cfx-ribbon"><span>Case Management Training · Day ${d.cf.n}</span></div>
       <div class="cfx-body cfx-body-navy cfx-ag-body"><div class="cfx-ag"><div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div>
         <ol class="cfx-ag-list" style="--ag-rows:${Math.ceil((parts.length + (sc.build ? 2 : 1)) / 3)}">${rows}</ol>${agendaFile(d)}</div></div>
     </div>`;
@@ -2592,7 +2600,7 @@ function practiceLab(d){
   return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; ${E(String(ph.lead || "").toUpperCase())} &middot; PRACTICE LAB</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-lab">
       <div class="cfx-deck-head"><h2 class="cfx-deck-title">🧪 Practice Lab</h2></div>
-      <div class="cfx-ribbon"><span>${E(titleCase(ph.title))}</span></div>
+      <div class="cfx-ribbon"><span>Day ${d.cf.n} · ${acts.length} Skill Activities on John Doe's file</span></div>
       <div class="cfx-body"><div class="cfx-sheet">
         <p class="cfx-lab-lead">Open your tools here, once: they stay open beside the slides. Today's <b>${acts.length} Skill Activities</b> come straight after the lessons they practise, on John Doe's file, in the order the work happens. Each opens with <em>Your Case</em>, then <em>Your Task</em> and <em>Check Your Work</em>; 📞 marks a live call.</p>
         <div class="cfx-lab-tools" id="cfxLabTools${d.id}">${labTools(d).map(([id, bid]) => toolChip(id, bid, true)).join("")}</div>
@@ -2723,7 +2731,7 @@ function readyCheck(d){
   return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; ${E(String(ph.lead || "").toUpperCase())} &middot; READY FOR THE KNOWLEDGE CHECK?</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-lab cfx-ready">
       <div class="cfx-deck-head"><h2 class="cfx-deck-title">🎯 Ready for the Knowledge Check?</h2></div>
-      <div class="cfx-ribbon"><span>${E(titleCase(ph.title))}</span></div>
+      <div class="cfx-ribbon"><span>Day ${d.cf.n} · ${qs.length} key concepts from today's lessons</span></div>
       <div class="cfx-body"><div class="cfx-sheet">
         <div class="cfx-lab-gate" id="cfxLabGate${d.id}"><b>${d.cf.build ? "You've built your companion case." : "You've worked today's Skill Activities."}</b> Before you check your work, answer these ${qs.length} key concepts from today's lessons.
         ${qs.map((q, qi) => `<div class="cfx-lab-q" data-q="${qi}"><span>${qi + 1}. ${E(q.q)}</span><div class="o">${q.opts.map((o, oi) =>

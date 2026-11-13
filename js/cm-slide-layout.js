@@ -55,6 +55,19 @@
   if(document.getElementById("cf-slide-layout-css")) return;
   const st = document.createElement("style"); st.id = "cf-slide-layout-css";
   st.textContent = `
+/* One title: the lesson's or activity's own numbered title, never cut with an ellipsis (a long one is a size smaller
+   and wraps); the band under it says what this slide is, with "Lesson" or "Practice Lab" as its label */
+.lesson-stage .cfx-deck-title{white-space:normal !important;overflow:visible !important;text-overflow:clip !important;line-height:1.2 !important;text-wrap:balance;}
+.lesson-stage .cfx-deck-title.cfx-t-long{font-size:clamp(17px,1.45vw,23px) !important;-webkit-text-stroke-width:3px;}
+@media (min-width:1000px) and (max-height:900px){ .lesson-stage .cfx-deck-head{margin-bottom:3px !important;} }   /* the title's taller line costs the card nothing */
+.lesson-stage .cfx-ribbon > span{white-space:normal !important;overflow:visible !important;text-overflow:clip !important;}
+.cfx-deck > .cfx-ribbon.cfx-what > span{display:flex !important;align-items:center;justify-content:center;gap:12px;text-transform:none !important;letter-spacing:0 !important;padding-top:3px !important;padding-bottom:3px !important;}
+.cfx-what-k{font:800 16px/1.2 'Inter',sans-serif;font-style:normal;text-transform:uppercase;letter-spacing:.08em;background:#DB8437;color:#1E2340;border-radius:999px;padding:2px 12px;white-space:nowrap;}
+.cfx-what-v{font:800 clamp(18px,1.45vw,22px)/1.2 'Poppins','Inter',sans-serif;color:#fff;letter-spacing:.02em;}
+/* "Next up" gives the same title on two lines beside its label (it was cut after one), in the room the bar already has */
+#lessonStage > .slide-nav .nav-nextup{flex-direction:row;align-items:center;gap:10px;padding:3px 12px;}
+#lessonStage > .slide-nav .nav-nextup b{flex:0 0 auto;}
+#lessonStage > .slide-nav .nav-nextup span{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:13px;line-height:1.18;}
 /* ↕ in the middle: Your Case (the navy body) and See It sit in the middle of the card like every other slide */
 @media (min-width:761px){
   .lesson-stage .cfx-body.cfx-body-navy > :first-child{margin-top:auto;}
