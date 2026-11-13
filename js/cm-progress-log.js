@@ -359,13 +359,23 @@ if(typeof renderDashboard === "function"){
     const t = document.createElement("template"); t.innerHTML = html;
     const main = t.content.querySelector(".dash-main"); if(!main) return html;
     main.insertAdjacentHTML("beforeend", log);
-    // a way to it from the top of the dashboard: the log sits under the day cards
-    const fix = (log.match(/class="sev-/g) || []).length;
-    const link = `<button type="button" class="plog-jump${fix ? " has-fix" : ""}" onclick="cmProgressLog.jump()">📒 My Progress Log${fix ? `<b>⚠ ${fix} to fix</b>` : ""}</button>`;
-    const row = t.content.querySelector(".dash-hero-row");
-    if(row) row.insertAdjacentHTML("beforeend", link);
-    else { const top = t.content.querySelector(".dash-top"); if(top) top.insertAdjacentHTML("beforeend", `<div class="dash-hero-row">${link}</div>`); }
     return t.innerHTML;
+  };
+}
+// The way to it is 📒 Progress Log in the trainee's top bar (next to 🏅 My Performance), not a button on the dashboard's
+// banner: from any page it opens the dashboard at the log, with the number to fix on it.
+function fixCount(){ try{ return myLog().fix.length; }catch(e){ return 0; } }
+if(typeof renderTopbar === "function"){
+  const __bar = renderTopbar;
+  renderTopbar = window.renderTopbar = function(){
+    const html = __bar.apply(this, arguments);
+    if(!isTrainee() || state.adminPreview) return html;
+    const fix = fixCount();
+    const b = `<button type="button" class="plog-jump${fix ? " has-fix" : ""}" onclick="cmProgressLog.jump()" title="My Progress Log: what you did and how it went">📒 Progress Log${fix ? `<b>⚠ ${fix} to fix</b>` : ""}</button>`;
+    const i = html.indexOf('class="nav-focus"'), s = i < 0 ? -1 : html.lastIndexOf("<button", i);
+    if(s >= 0) return html.slice(0, s) + b + html.slice(s);
+    const n = html.lastIndexOf("</nav>");
+    return n < 0 ? html : html.slice(0, n) + b + html.slice(n);
   };
 }
 
@@ -468,7 +478,13 @@ if(typeof window.afterRender === "function"){
 window.cmProgressLog = {
   entries, compute, RULES, T, ownData,
   html: logHtml,
-  jump(){ const el = document.getElementById("myProgressLog"); if(el) el.scrollIntoView({behavior: "smooth", block: "start"}); },
+  jump(){
+    const go = smooth => { const el = document.getElementById("myProgressLog"); if(el) el.scrollIntoView({behavior: smooth ? "smooth" : "auto", block: "start"}); return !!el; };
+    if(state.view === "dashboard") return go(true);
+    // from another page: open the dashboard, then go to the log once it is drawn (the page may draw it twice)
+    if(typeof goto === "function") goto("dashboard");
+    [80, 300, 700].forEach(ms => setTimeout(() => { if(state.view === "dashboard") go(false); }, ms));
+  },
   toggleAll(){ state.plogAll = !state.plogAll; const el = document.getElementById("myProgressLog"); if(el) el.outerHTML = logHtml(); }
 };
 window.cmCaseAlerts = {
@@ -485,9 +501,9 @@ const st = document.createElement("style"); st.id = "cm-progress-log"; st.textCo
    way so the theme stays readable instead of being cut mid-line */
 @media (max-height:900px){ .dash-main .module-card.mc-clean .module-body:has(.fb-open) .module-icon{display:none;} }
 .dash-main .module-card.mc-clean .mc-progress{font-weight:700;}
-.plog-jump{font:800 15px 'Inter',system-ui,sans-serif;display:inline-flex;align-items:center;gap:10px;border:2px solid #DB8437;background:#1E2340;color:#fff;border-radius:999px;padding:9px 18px;cursor:pointer;margin-left:10px;}
-.plog-jump b{background:#DB8437;color:#241304;border-radius:999px;padding:2px 10px;font-size:14px;}
-.plog-jump:hover{background:#262B45;}
+/* 📒 Progress Log in the top bar: a nav button like its neighbours, the number to fix as a small orange count */
+.plog-jump{display:inline-flex;align-items:center;gap:6px;}
+.plog-jump b{background:#DB8437;color:#241304;border-radius:999px;padding:1px 8px;font-size:12px;font-weight:800;line-height:1.5;}
 .plog{margin-top:18px;padding:18px 20px !important;font-family:'Inter',system-ui,sans-serif;color:#141A2E;background:#fff !important;scroll-margin-top:12px;}
 .plog-h{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;border-bottom:3px solid #DB8437;padding-bottom:10px;margin-bottom:12px;}
 .plog-h h2{margin:0;font:800 22px 'Inter',system-ui,sans-serif;color:#1E2340;}
@@ -516,7 +532,7 @@ const st = document.createElement("style"); st.id = "cm-progress-log"; st.textCo
 .plog-row.tone-bad{box-shadow:inset 4px 0 0 #B3261E;} .plog-row.tone-warn{box-shadow:inset 4px 0 0 #DB8437;} .plog-row.tone-good{box-shadow:inset 4px 0 0 #3E8A5E;}
 .plog-empty{font-size:15px;font-weight:600;color:#2E3245;}
 .plog-more{margin-top:10px;font-size:14px !important;font-weight:700;}
-@media (max-width:760px){ .plog-row{grid-template-columns:58px 24px minmax(0,1fr);} .plog-score{grid-column:3;justify-self:start;} .plog-jump{margin:8px 0 0;} }
+@media (max-width:760px){ .plog-row{grid-template-columns:58px 24px minmax(0,1fr);} .plog-score{grid-column:3;justify-self:start;} }
 .cma{margin:0 !important;border-radius:0 !important;padding:14px 16px !important;font-family:'Inter',system-ui,sans-serif;border-top:3px solid #DB8437 !important;}
 .cma-h{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;}
 .cma-h h2{margin:0;font:800 20px 'Inter',system-ui,sans-serif;color:#1E2340;}
