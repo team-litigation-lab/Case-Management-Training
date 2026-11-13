@@ -371,7 +371,7 @@ if(typeof renderTopbar === "function"){
     const html = __bar.apply(this, arguments);
     if(!isTrainee() || state.adminPreview) return html;
     const fix = fixCount();
-    const b = `<button type="button" class="plog-jump${fix ? " has-fix" : ""}" onclick="cmProgressLog.jump()" title="My Progress Log: what you did and how it went">📒 Progress Log${fix ? `<b>⚠ ${fix} to fix</b>` : ""}</button>`;
+    const b = `<button type="button" class="plog-jump${fix ? " has-fix" : ""}" onclick="cmProgressLog.open(this)" title="${fix ? `You have ${fix} thing${fix === 1 ? "" : "s"} to fix: click to see what is missing` : "My Progress Log: what you did and how it went"}">📒 Progress Log${fix ? `<b>⚠ ${fix} to fix</b>` : ""}</button>`;
     const i = html.indexOf('class="nav-focus"'), s = i < 0 ? -1 : html.lastIndexOf("<button", i);
     if(s >= 0) return html.slice(0, s) + b + html.slice(s);
     const n = html.lastIndexOf("</nav>");
@@ -475,9 +475,30 @@ if(typeof window.afterRender === "function"){
   window.afterRender = function(){ const r = __after.apply(this, arguments); try{ paintBadge(); }catch(e){} return r; };
 }
 
+/* ⚠ What you're missing: with something to fix, 📒 Progress Log opens a list under the top bar of each thing to fix and
+   what to do about it (the log's own "⚠ Needs fixing"), with a way to the whole log. Trainees only. */
+function closeMissing(){ const p = document.getElementById("plogMissing"); if(p) p.remove(); document.removeEventListener("mousedown", outside, true); document.removeEventListener("keydown", onKey, true); }
+function outside(e){ const p = document.getElementById("plogMissing"); if(p && !p.contains(e.target) && !e.target.closest(".plog-jump")) closeMissing(); }
+function onKey(e){ if(e.key === "Escape") closeMissing(); }
+function openMissing(btn){
+  if(document.getElementById("plogMissing")){ closeMissing(); return; }
+  const fix = myLog().fix; if(!fix.length) return window.cmProgressLog.jump();
+  const box = document.createElement("div"); box.id = "plogMissing"; box.className = "plog-missing"; box.setAttribute("role", "dialog"); box.setAttribute("aria-label", "What you need to fix");
+  box.innerHTML = `<div class="plog-missing-h"><b>⚠ ${fix.length} thing${fix.length === 1 ? "" : "s"} to fix</b><button type="button" aria-label="Close" onclick="cmProgressLog.close()">✕</button></div>
+    <p class="plog-missing-sub">What is missing from your case file, and what to do about it. Your trainer sees these too.</p>
+    <ol>${fix.map(a => `<li class="sev-${a.sev}"><b>${E(a.icon)} ${E(a.title)}</b>${a.detail ? `<span>${E(a.detail)}</span>` : ""}<span class="plog-missing-do"><i>What to do:</i> ${E(a.fix)}</span></li>`).join("")}</ol>
+    <button type="button" class="btn btn-navy btn-sm" onclick="cmProgressLog.close(); cmProgressLog.jump()">📒 Open my Progress Log</button>`;
+  document.body.appendChild(box);
+  const r = btn.getBoundingClientRect(), w = box.offsetWidth;
+  box.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, r.right - w)) + "px";
+  box.style.top = (r.bottom + 8) + "px";
+  setTimeout(() => { document.addEventListener("mousedown", outside, true); document.addEventListener("keydown", onKey, true); }, 0);
+}
+
 window.cmProgressLog = {
   entries, compute, RULES, T, ownData,
   html: logHtml,
+  open: openMissing, close: closeMissing,
   jump(){
     const go = smooth => { const el = document.getElementById("myProgressLog"); if(el) el.scrollIntoView({behavior: smooth ? "smooth" : "auto", block: "start"}); return !!el; };
     if(state.view === "dashboard") return go(true);
@@ -504,6 +525,18 @@ const st = document.createElement("style"); st.id = "cm-progress-log"; st.textCo
 /* 📒 Progress Log in the top bar: a nav button like its neighbours, the number to fix as a small orange count */
 .plog-jump{display:inline-flex;align-items:center;gap:6px;}
 .plog-jump b{background:#DB8437;color:#241304;border-radius:999px;padding:1px 8px;font-size:12px;font-weight:800;line-height:1.5;}
+.plog-missing{position:fixed;z-index:9000;width:min(460px,calc(100vw - 16px));max-height:min(70vh,560px);overflow:auto;background:#fff;color:#1E2340;border:2px solid #DB8437;border-radius:14px;box-shadow:0 18px 40px rgba(20,24,48,.35);padding:14px 16px;font-weight:700;}
+.plog-missing-h{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:18px;}
+.plog-missing-h b{color:#B4581A;}
+.plog-missing-h button{border:0;background:transparent;font-size:18px;cursor:pointer;color:#1E2340;}
+.plog-missing-sub{margin:4px 0 10px;font-size:14px;color:#3c4160;}
+.plog-missing ol{margin:0 0 12px;padding-left:20px;display:flex;flex-direction:column;gap:10px;}
+.plog-missing li{font-size:15px;line-height:1.35;}
+.plog-missing li b{display:block;font-weight:800;}
+.plog-missing li span{display:block;font-size:14px;color:#3c4160;}
+.plog-missing li.sev-high::marker{color:#C0392B;}
+.plog-missing .plog-missing-do{color:#1E2340;}
+.plog-missing .plog-missing-do i{font-style:normal;color:#B4581A;font-weight:800;}
 .plog{margin-top:18px;padding:18px 20px !important;font-family:'Inter',system-ui,sans-serif;color:#141A2E;background:#fff !important;scroll-margin-top:12px;}
 .plog-h{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;border-bottom:3px solid #DB8437;padding-bottom:10px;margin-bottom:12px;}
 .plog-h h2{margin:0;font:800 22px 'Inter',system-ui,sans-serif;color:#1E2340;}
