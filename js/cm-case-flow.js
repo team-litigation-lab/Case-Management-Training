@@ -4853,7 +4853,7 @@ main > .cf-side-presenter{display:none;}
 .cfx-sheet .cfx-tool{border-color:#DB8437;background:#FFF3E6;color:#9A4E12;}
 .cfx-sheet .cfx-tool:hover,.cfx-sheet .cfx-tool:focus-visible{background:#DB8437;color:#fff;}
 .cfx-tools-in{display:inline-flex;flex-wrap:wrap;gap:4px;margin-left:6px;vertical-align:middle;}
-.cfx-log{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin-top:6px;padding:4px 10px;border:1px dashed #DB8437;border-radius:10px;background:#FFF8EF;font-size:12.5px;}
+.cfx-log{display:flex;flex:0 0 auto;flex-wrap:wrap;align-items:center;gap:4px 8px;margin-top:6px;padding:4px 10px;border:1px dashed #DB8437;border-radius:10px;background:#FFF8EF;font-size:12.5px;}
 .cfx-log .btn{padding:4px 12px;}
 .cfx-log b{color:#262B45;}
 .cfx-log input{flex:1 1 200px;min-width:0;padding:4px 10px;border:1px solid #C9CEDB;border-radius:8px;font:12.5px 'Inter',sans-serif;}
@@ -5930,11 +5930,20 @@ body:not(.ft-fit) #lessonStage > .slide-nav{margin-top:8px !important;margin-bot
   if(document.getElementById("cf-model-big")) return;
   const st = document.createElement("style"); st.id = "cf-model-big";
   st.textContent = `
-.cfx .cfx-model{display:flex;flex-direction:column;flex:1 1 auto;min-height:0;}
+/* the model never shrinks under its content, and its table never scrolls inside the slide: a long one makes the card
+   overflow, and the frame then scales the card's content to fit (fitSlideZoom), so every row is on the one screen */
+.cfx .cfx-model{display:flex;flex-direction:column;flex:1 0 auto;min-height:auto;}
+.cfx .cfx-model > *{flex-shrink:0;}
+.cfx .cfx-model .mini-table-wrap{overflow:visible;}
 .cfx .cfx-model .cfx-caption{font:800 clamp(22px,3vh,28px)/1.25 'Poppins','Inter',sans-serif !important;color:#1E2340 !important;margin:0 0 12px !important;}
 .cfx .cfx-model table{width:100%;font-size:clamp(19px,2.6vh,23px) !important;}
 .cfx .cfx-model th{font-size:clamp(17px,2.2vh,20px) !important;font-weight:800 !important;padding:clamp(7px,1.2vh,14px) 16px !important;}
 .cfx .cfx-model td,.cfx-model tbody td{font-size:clamp(19px,2.6vh,23px) !important;font-weight:700 !important;line-height:1.3 !important;padding:clamp(6px,1.1vh,14px) 16px !important;color:#141A2E !important;}
-.cfx .cfx-model tbody td:first-child{font-weight:800 !important;color:#1E2340 !important;white-space:nowrap;}`;
+.cfx .cfx-model tbody td:first-child{font-weight:800 !important;color:#1E2340 !important;white-space:nowrap;}
+/* See It compares (✅ Do / ❌ Don't, "Matched pairs"): big, bold lines that use the card's room */
+.cfx .cfx-model .lesson-compare .chead{font-size:clamp(24px,3.4vh,30px) !important;font-weight:800 !important;padding:clamp(12px,1.8vh,18px) 22px !important;}
+.cfx .cfx-model .lesson-compare .cbody{padding:clamp(16px,2.4vh,26px) 24px !important;}
+.cfx .cfx-model .lesson-compare .citem{font-size:clamp(22px,3.1vh,27px) !important;font-weight:700 !important;line-height:1.35 !important;color:#141A2E !important;padding-left:30px !important;margin-bottom:clamp(12px,2vh,20px) !important;}
+.cfx .cfx-model .lesson-compare .citem::before{top:.45em !important;width:13px !important;height:13px !important;}`;
   document.head.appendChild(st);
 })();

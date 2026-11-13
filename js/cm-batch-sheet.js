@@ -159,7 +159,7 @@ async function dupMerge(key){
 }
 function lessonsTable(ppl){
   const L = days();
-  return {id: "lessons", title: "📚 Lessons", note: "One column per day: the slides (✓ finished, or how far in) and the Knowledge Check score (70% passes). Blank: not opened yet.",
+  return {id: "lessons", title: "📚 Lessons", 
     head: ["Trainee"].concat(L.map(d => `${dayLabel(d)}. ${String(d.title).replace(/^Case Flow Day \d+ · /, "")}`)),
     rows: ppl.map(r => { const a = summaryOf(r) || {days: []};
       return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}].concat(L.map(d => {
@@ -175,7 +175,7 @@ function scoresTable(ppl){
   const rows = ppl.filter(r => r.approved === true).map(r => ({r, sc: scoreOf(r)})).filter(x => x.sc);
   const order = rows.filter(x => x.sc.overall != null).slice().sort((a, b) => b.sc.overall - a.sc.overall);
   order.forEach((x, i) => { x.rank = i && order[i - 1].sc.overall === x.sc.overall ? order[i - 1].rank : i + 1; });
-  return {id: "scores", rowsRaw: rows, title: "🏅 Scores", note: "Every grade, averaged per grading system (blank: nothing graded yet), then the Overall % (the average of the systems with a score, so each counts the same), ranked. Click a trainee for their grades in detail.",
+  return {id: "scores", rowsRaw: rows, title: "🏅 Scores", 
     head: ["Trainee", "Overall %", "Rank", "Days passed"].concat(S.map(s => `${s.icon} ${s.label}`)),
     rows: rows.map(x => [{v: nameOf(x.r), f: nameOf(x.r), cls: "gs-name"},
         {v: pct(x.sc.overall), f: x.sc.overall == null ? "Nothing graded yet" : `The average of ${x.sc.systems} grading systems = ${x.sc.overall}%`, cls: "gs-num gs-calc gs-bold " + tone(x.sc.overall)},
@@ -299,7 +299,7 @@ const SC_COLS = [["kc", "✍️ Knowledge Check"], ["lc", "🧩 Learning Checks"
 function scoreCardTable(ppl, day){
   // (one day at a time on the page, the trainer picks it: a table of every day side by side scrolled sideways; ⬇ Download has each day)
   const ALL = cfDaysL(), L = day ? [day] : ALL, P = SC_COLS.map(c => c[1]).concat(["Average", "💬 Remarks"]);
-  return {id: day ? "scorecard-d" + day.id : "scorecard", title: day ? `🏅 Score Card · ${dayLabel(day)}` : "🏅 Score Card", note: "Each trainee's scores, day by day: the Knowledge Check, the Learning Checks, the Takeaways, the graded Skill Activities and calls, the random tasks and the Backup Drive, the day's Average, and the trainer's remarks. Hover a cell for how it was worked out. Blank: nothing scored yet.",
+  return {id: day ? "scorecard-d" + day.id : "scorecard", title: day ? `🏅 Score Card · ${dayLabel(day)}` : "🏅 Score Card", 
     groups: [{label: "", span: 2}].concat(L.map(d => ({label: `${dayLabel(d)} · ${String(d.title).replace(/^Case Flow Day \d+ · /, "")}`, span: P.length}))),
     head: ["Trainee", "Overall"].concat(...L.map(() => P)),
     rows: ppl.map(r => { const SA = ALL.map(d => dayParts(r, d)), all = avgOf(SA.map(dayAvg)), S = L.map(d => SA[ALL.indexOf(d)]), avgs = S.map(dayAvg);
@@ -379,7 +379,7 @@ function systemTable(ppl, s){
   const cols = []; per.forEach(p => p.items.forEach(i => { if(!cols.includes(i.name)) cols.push(i.name); }));
   if(/^(kc|tk|bd)$/.test(s.id)) cols.sort((a, b) => (parseInt(a.replace(/\D+/, ""), 10) || 0) - (parseInt(b.replace(/\D+/, ""), 10) || 0));
   const X = EXTRA[s.id] || {head: [], cells: () => []};
-  return {id: "sys", title: `${s.icon} ${s.label}`, note: s.about + " Each trainee's Average and how many are graded, this system's own counts, then a column per item (hover for its detail). Blank: not graded yet.",
+  return {id: "sys", title: `${s.icon} ${s.label}`, 
     head: ["Trainee", "Average", "Graded"].concat(X.head, cols),
     rows: per.map(({r, c, items}) => { const a = avgOf(items.map(i => i.pct));
       return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, {v: pct(a), f: a == null ? "Nothing graded yet" : `The average of ${items.length} = ${a}%`, cls: "gs-num gs-calc gs-bold " + tone(a)}, cnt(items.length || "", `${items.length} graded`)]
