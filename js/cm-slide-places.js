@@ -17,7 +17,7 @@
      the trainee had already passed to get there (The Framework, or The Theory, Continued, or The Theory).
    Every position after a slide that is gone moved up; nothing the trainee had not seen is unlocked, nothing seen is
    locked again, and no place leaves its lesson or passes the end of the day.
-   Then pages were added (layout 4): the revised deck's pages, at the head of the topics they teach (js/cm-deck-pages.js).
+   Then pages were added (layout 4): the revised Day 2 deck's pages and their Skill Building, on Day 2 (js/cm-deck-pages.js).
    A place saved before them stays on the slide it was on, and the pages before it count as seen.
    The layouts: 1, the deck with On the Job (no layout on the saved place); 2, without On the Job (the deck with the
    Milestone Steps slides and every Why It Matters slide); 3, without the deck's pages; 4, today's. A place saved in 1 is moved through every
