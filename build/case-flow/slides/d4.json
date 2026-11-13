@@ -122,7 +122,6 @@
   "d4m2-l1": {
     "image": "clock-deadline",
     "hook": "From 09/24/2026 the dates are set by rule, and **one mis-counted day** can end a claim.",
-    "whySlide": true,
     "points": [
       "Count the court's way: **exclude the trigger day**, include the last",
       "Served by mail? **Add 3 days**; e-service adds nothing",
@@ -159,6 +158,7 @@
       "confirm": "Atty. Thorne confirms the governing court rule"
     },
     "redFlag": {
+      "spoken": true,
       "see": "**15 RFAs** docketed inside the general discovery entry",
       "costs": "Unanswered RFAs may be deemed admitted",
       "do": "Give them **their own calendar entry** and alerts; tell Atty. Thorne",
@@ -230,7 +230,7 @@
   "d4m2-l2": {
     "image": "mediation-table",
     "hook": "Hon. Carla Benton (Ret.) helps parties agree; **Laura Whitcomb, Esq. decides**, with almost no appeal.",
-    "whySlide": true,
+    "whyLine": "A mediator helps the parties agree; **an arbitrator decides**, with almost no appeal.",
     "roadmap": {
       "title": "Standard Case Progression Roadmap",
       "merge": true,
@@ -265,6 +265,7 @@
       "confirm": "Atty. Thorne speaks for John"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "**A number spoken by you** in caucus",
       "costs": "It's an offer: brackets, ranges and authority belong to Atty. Thorne and John Doe",
       "do": "Log every move (time, who, what); **keep the draft release ready**",

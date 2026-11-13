@@ -6,7 +6,6 @@ window.CM_CF_SLIDES = {
   "theoryFirst": true,
   "image": "team-huddle",
   "hook": "You own **the file's movement**; Atty. Thorne owns every legal judgment.",
-  "whySlide": true,
   "points": [
    "Coordinate the case **from intake to resolution**, end to end",
    "Log every contact, deadline and decision **in the CMS**",
@@ -29,6 +28,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne makes the decision"
   },
   "redFlag": {
+   "spoken": true,
    "see": "A note to Atty. Thorne with **'Update'** as its subject line",
    "costs": "The buried ask waits in his inbox, and the SOL (02/06/2028) does not",
    "do": "Rewrite the subject and first line as **the decision and its deadline**",
@@ -511,7 +511,6 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "A client you can't reach **still has deadlines**; the protocol proves the firm did its part.",
-  "whySlide": true,
   "points": [
    "Step 1: review status, deadlines and last contact **before you call**",
    "Step 2: **2+ phone attempts**, email and text, emergency contact, certified mail",
@@ -534,6 +533,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne decides what follows Step 3"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "Voicemails left **02/11 and 02/13** that never reached the Communications Log",
    "costs": "An unlogged attempt did not happen: the ladder can't show the attempts were made",
    "do": "Log each attempt now **with date, time, channel and outcome**",
@@ -807,7 +807,7 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "Most self-inflicted claim damage happens **in the first two weeks**, before the client is told.",
-  "whySlide": true,
+  "whyLine": "Most self-inflicted claim damage happens **in the first two weeks**.",
   "points": [
    "**No Recorded Statement** to the adverse carrier; route contact through the firm",
    "Start treatment and **keep every appointment**",
@@ -830,6 +830,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Injury questions route to Atty. Thorne"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "Dana Whitfield (Keystone) asked John Doe **to record his account** (his voicemail, 02/10/2026, 8:47 a.m.)",
    "costs": "A represented client's recorded account becomes Keystone's evidence on the 14-Day Gap",
    "do": "Send written notice today: no direct contact; **statements go through the firm**. Log it.",
@@ -1296,7 +1297,6 @@ window.CM_CF_SLIDES = {
  "d1m4-tmap": {
   "image": "medical-visit",
   "hook": "Know where he **should be on the map**, and you'll see the drift before the adjuster.",
-  "whySlide": true,
   "points": [
    "Locate him every check-in: **phase and week**, counted from the DOL",
    "Not improving? **Name the variance**: clinical, psychosocial or systemic",
@@ -1321,6 +1321,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Provider documents; Atty. Thorne gets the note"
   },
   "redFlag": {
+   "spoken": true,
    "see": "**No visit from 04/02 to 04/21/2026** (19 days), with no reason on file",
    "costs": "A break off the map with no record of why it happened",
    "do": "Run **A-C-T the same day**; record his reason and route it to Atty. Thorne",
@@ -1489,7 +1490,6 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "You read every record and hear every call: **spot the flag, route it**, keep him engaged.",
-  "whySlide": true,
   "points": [
    "Red flags by specialty: **PT, surgery, medication, behavioral health**",
    "Yellow flags: fear-avoidance, catastrophizing, litigation stress, **passive-care reliance**",
@@ -1514,6 +1514,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Legal danger goes to Atty. Thorne"
   },
   "redFlag": {
+   "spoken": true,
    "see": "You tell John **'Missing visits will hurt your case'**",
    "costs": "That is advice about his claim, and it can push him away from care",
    "do": "Talk logistics and his reasons; **route what it means** to Atty. Thorne",
@@ -1913,7 +1914,7 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "The LOR moves every carrier onto the firm; one wrong letter risks **$30,000 of UM coverage**.",
-  "whySlide": true,
+  "whyLine": "One wrong Letter of Representation risks **$30,000 of UM coverage**.",
   "points": [
    "Name the **right insured** on each: Robert Smith, Kevin Alvarez, Margaret Doe",
    "Notify **all three stack carriers** now: late notice hands them a defense",
@@ -1932,6 +1933,7 @@ window.CM_CF_SLIDES = {
    "A **guessed adjuster name** for Cardinal State"
   ],
   "redFlag": {
+   "tight": true,
    "see": "A UM notice letter that **asks for payment** before any BI tender",
    "costs": "Notice is not demand: a premature UM demand puts $30,000 of the stack at risk",
    "do": "Send notice only; **payment requests wait** for the documented BI tender",
@@ -2251,7 +2253,6 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "A fact the file relies on is proven by **the person who knows it**, under oath.",
-  "whySlide": true,
   "points": [
    "Smith swears **no other insurance**: the condition for the limit",
    "John's **residency** keeps Relative UM; sworn if a carrier asks",
@@ -3649,7 +3650,6 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "The gap explanation that holds up is **John Doe's own**, backed by documents.",
-  "whySlide": true,
   "points": [
    "Investigate, don't advocate: write **questions only**, never expected answers",
    "Funnel: **open first**, closed questions last, one at a time",
@@ -3674,6 +3674,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne handles first-party carrier requests"
   },
   "redFlag": {
+   "spoken": true,
    "see": "A leading question: **'Was it because you had no car?'**",
    "costs": "It buys agreement, not information, and the account stops being his",
    "do": "Ask open: 'What got in the way?' Then **log his exact words**",
@@ -4040,7 +4041,6 @@ window.CM_CF_SLIDES = {
  "d2m4-l1": {
   "image": "checklist-qa",
   "hook": "Most value is won or lost here: the demands spend only **what this audit proves**.",
-  "whySlide": true,
   "points": [
    "MMI is **a medical determination**; record it from the 06/12/2026 note",
    "BI Specials are **medical plus wages**; the Civic runs separately",
@@ -4064,6 +4064,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne decides billed versus paid"
   },
   "redFlag": {
+   "spoken": true,
    "see": "A Riverton ledger line, **05/04/2026**, that no visit note supports",
    "costs": "Claiming it inflates the Specials and gives Keystone a reason to doubt the ledger",
    "do": "Remove it; **send the billing correction** to the provider in writing",
@@ -4384,7 +4385,6 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "A clear, timed **$10,000 Limits Demand** makes Keystone decide on the record.",
-  "whySlide": true,
   "points": [
    "Demand **within limits**: $10,000, Keystone's full BI limit",
    "Make **every term acceptable as written**; release Smith and Keystone only",
@@ -4449,6 +4449,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne confirms the delivery rule"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "The draft reads **'30 days from the date of this letter'** (08/19/2026)",
    "costs": "The send date never starts the clock: the window closes 08/21/2026",
    "do": "Correct it to run **from the written acknowledgement**; flag it to Atty. Thorne",
@@ -4583,7 +4584,6 @@ window.CM_CF_SLIDES = {
  "d3m1-l2": {
   "image": "insurance-stack",
   "hook": "The UM layers change John Doe's net, and **a technicality can lose them**.",
-  "whySlide": true,
   "points": [
    "Host UM opens once **Keystone's 08/12/2026 tender** is documented",
    "Send the 30-Day Letters (08/13/2026) asking each to **consent or substitute**",
@@ -4615,6 +4615,7 @@ window.CM_CF_SLIDES = {
    "Celebrating the $40,000 gross: **success is John Doe's net**"
   ],
   "redFlag": {
+   "tight": true,
    "see": "A UM demand **before the documented BI tender**, or Smith released without both consents",
    "costs": "Releasing Smith without both written consents can forfeit $30,000 of the stack",
    "do": "Hold every UM step until **the tender and both consents** are filed",
@@ -5197,7 +5198,6 @@ window.CM_CF_SLIDES = {
  "d3m2-l2": {
   "image": "coverage-check",
   "hook": "John Doe's own carriers will argue against him; **prove the gap above each layer**.",
-  "whySlide": true,
   "points": [
    "UM pays **the gap**: damages minus BI, up to its limit",
    "Check **the offset rule first**: add-on pays on top",
@@ -5221,6 +5221,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne accepts; you report the same day"
   },
   "redFlag": {
+   "spoken": true,
    "see": "Harbor Point's stated reason: **'BI already compensated him'**",
    "costs": "Wrong on an add-on UM, and answering with an opinion argues the claim",
    "do": "Answer with **Harbor Point's 03/02/2026 letter**; log it for Atty. Thorne",
@@ -5524,7 +5525,6 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "Every dollar a lien gives up **lands in John Doe's net**.",
-  "whySlide": true,
   "points": [
    "Audit first: drop the 05/04/2026 duplicate, **negotiate from $6,105.00**",
    "Pro rata: equal-priority liens **share in proportion** to their amounts",
@@ -5549,6 +5549,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne sets the written target"
   },
   "redFlag": {
+   "on": "model",
    "see": "A percentage off **an inflated bill**",
    "costs": "You negotiate from $6,290.00 and give away the $185.00 the audit removes",
    "do": "**Corrections first, reductions second**, inside Atty. Thorne's written target",
@@ -5904,7 +5905,6 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "One unread line in Keystone's 08/14 draft would have **cost John Doe $30,000**.",
-  "whySlide": true,
   "points": [
    "Read **every release line by line** before John Doe sees it",
    "BI release: **both UM consents first**, PD claim left open",
@@ -6503,7 +6503,6 @@ window.CM_CF_SLIDES = {
  "d4m2-l1": {
   "image": "clock-deadline",
   "hook": "From 09/24/2026 the dates are set by rule, and **one mis-counted day** can end a claim.",
-  "whySlide": true,
   "points": [
    "Count the court's way: **exclude the trigger day**, include the last",
    "Served by mail? **Add 3 days**; e-service adds nothing",
@@ -6540,6 +6539,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne confirms the governing court rule"
   },
   "redFlag": {
+   "spoken": true,
    "see": "**15 RFAs** docketed inside the general discovery entry",
    "costs": "Unanswered RFAs may be deemed admitted",
    "do": "Give them **their own calendar entry** and alerts; tell Atty. Thorne",
@@ -6779,7 +6779,7 @@ window.CM_CF_SLIDES = {
  "d4m2-l2": {
   "image": "mediation-table",
   "hook": "Hon. Carla Benton (Ret.) helps parties agree; **Laura Whitcomb, Esq. decides**, with almost no appeal.",
-  "whySlide": true,
+  "whyLine": "A mediator helps the parties agree; **an arbitrator decides**, with almost no appeal.",
   "roadmap": {
    "title": "Standard Case Progression Roadmap",
    "merge": true,
@@ -6832,6 +6832,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne speaks for John"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "**A number spoken by you** in caucus",
    "costs": "It's an offer: brackets, ranges and authority belong to Atty. Thorne and John Doe",
    "do": "Log every move (time, who, what); **keep the draft release ready**",

@@ -3,7 +3,6 @@
     "theoryFirst": true,
     "image": "team-huddle",
     "hook": "You own **the file's movement**; Atty. Thorne owns every legal judgment.",
-    "whySlide": true,
     "points": [
       "Coordinate the case **from intake to resolution**, end to end",
       "Log every contact, deadline and decision **in the CMS**",
@@ -26,6 +25,7 @@
       "confirm": "Atty. Thorne makes the decision"
     },
     "redFlag": {
+      "spoken": true,
       "see": "A note to Atty. Thorne with **'Update'** as its subject line",
       "costs": "The buried ask waits in his inbox, and the SOL (02/06/2028) does not",
       "do": "Rewrite the subject and first line as **the decision and its deadline**",
@@ -268,7 +268,6 @@
       ]
     },
     "hook": "A client you can't reach **still has deadlines**; the protocol proves the firm did its part.",
-    "whySlide": true,
     "points": [
       "Step 1: review status, deadlines and last contact **before you call**",
       "Step 2: **2+ phone attempts**, email and text, emergency contact, certified mail",
@@ -291,6 +290,7 @@
       "confirm": "Atty. Thorne decides what follows Step 3"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "Voicemails left **02/11 and 02/13** that never reached the Communications Log",
       "costs": "An unlogged attempt did not happen: the ladder can't show the attempts were made",
       "do": "Log each attempt now **with date, time, channel and outcome**",
@@ -410,7 +410,7 @@
       ]
     },
     "hook": "Most self-inflicted claim damage happens **in the first two weeks**, before the client is told.",
-    "whySlide": true,
+    "whyLine": "Most self-inflicted claim damage happens **in the first two weeks**.",
     "points": [
       "**No Recorded Statement** to the adverse carrier; route contact through the firm",
       "Start treatment and **keep every appointment**",
@@ -433,6 +433,7 @@
       "confirm": "Injury questions route to Atty. Thorne"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "Dana Whitfield (Keystone) asked John Doe **to record his account** (his voicemail, 02/10/2026, 8:47 a.m.)",
       "costs": "A represented client's recorded account becomes Keystone's evidence on the 14-Day Gap",
       "do": "Send written notice today: no direct contact; **statements go through the firm**. Log it.",
@@ -738,7 +739,6 @@
   "d1m4-tmap": {
     "image": "medical-visit",
     "hook": "Know where he **should be on the map**, and you'll see the drift before the adjuster.",
-    "whySlide": true,
     "points": [
       "Locate him every check-in: **phase and week**, counted from the DOL",
       "Not improving? **Name the variance**: clinical, psychosocial or systemic",
@@ -763,6 +763,7 @@
       "confirm": "Provider documents; Atty. Thorne gets the note"
     },
     "redFlag": {
+      "spoken": true,
       "see": "**No visit from 04/02 to 04/21/2026** (19 days), with no reason on file",
       "costs": "A break off the map with no record of why it happened",
       "do": "Run **A-C-T the same day**; record his reason and route it to Atty. Thorne",
@@ -797,7 +798,6 @@
       ]
     },
     "hook": "You read every record and hear every call: **spot the flag, route it**, keep him engaged.",
-    "whySlide": true,
     "points": [
       "Red flags by specialty: **PT, surgery, medication, behavioral health**",
       "Yellow flags: fear-avoidance, catastrophizing, litigation stress, **passive-care reliance**",
@@ -822,6 +822,7 @@
       "confirm": "Legal danger goes to Atty. Thorne"
     },
     "redFlag": {
+      "spoken": true,
       "see": "You tell John **'Missing visits will hurt your case'**",
       "costs": "That is advice about his claim, and it can push him away from care",
       "do": "Talk logistics and his reasons; **route what it means** to Atty. Thorne",

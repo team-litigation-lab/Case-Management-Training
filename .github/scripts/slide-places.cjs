@@ -128,7 +128,7 @@ const LAYOUT = 3;
   if (maps.layout !== LAYOUT) fail(`js/cm-slide-places.js is at layout ${maps.layout}; this check describes layout ${LAYOUT}`);
   if (!maps.days.length) fail('no Case Flow day found');
   if (maps.days.length && !maps.days.some(x => x.job1 > 0)) fail('no day lost an On the Job slide: the record is wrong, or the slides are back');
-  if (maps.days.length && !maps.days.some(x => x.why2 > 0)) fail('no day lost a Why It Matters slide: the record is wrong, or no lesson opens The Theory with it');
+  if (maps.days.length && maps.days.reduce((a, x) => a + x.why2, 0) !== 41) fail(`the record should hold the 41 Why It Matters slides of the lessons with a Theory slide, all gone (each opens The Theory now): ${maps.days.reduce((a, x) => a + x.why2, 0)} are gone`);
   if (maps.days.length && maps.days.reduce((a, x) => a + x.steps2, 0) !== 26) fail(`the record should hold the 26 Milestone Steps slides of the live deck, all gone: it holds ${maps.days.reduce((a, x) => a + x.steps2, 0)} that are gone`);
 
   // 2. slide 40 of Day 1, saved in layout 1 (no layout on it): opened, reloaded, opened again

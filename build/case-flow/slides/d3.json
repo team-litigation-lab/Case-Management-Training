@@ -13,7 +13,6 @@
       ]
     },
     "hook": "A clear, timed **$10,000 Limits Demand** makes Keystone decide on the record.",
-    "whySlide": true,
     "points": [
       "Demand **within limits**: $10,000, Keystone's full BI limit",
       "Make **every term acceptable as written**; release Smith and Keystone only",
@@ -61,6 +60,7 @@
       "confirm": "Atty. Thorne confirms the delivery rule"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "The draft reads **'30 days from the date of this letter'** (08/19/2026)",
       "costs": "The send date never starts the clock: the window closes 08/21/2026",
       "do": "Correct it to run **from the written acknowledgement**; flag it to Atty. Thorne",
@@ -124,7 +124,6 @@
   "d3m1-l2": {
     "image": "insurance-stack",
     "hook": "The UM layers change John Doe's net, and **a technicality can lose them**.",
-    "whySlide": true,
     "points": [
       "Host UM opens once **Keystone's 08/12/2026 tender** is documented",
       "Send the 30-Day Letters (08/13/2026) asking each to **consent or substitute**",
@@ -156,6 +155,7 @@
       "Celebrating the $40,000 gross: **success is John Doe's net**"
     ],
     "redFlag": {
+      "tight": true,
       "see": "A UM demand **before the documented BI tender**, or Smith released without both consents",
       "costs": "Releasing Smith without both written consents can forfeit $30,000 of the stack",
       "do": "Hold every UM step until **the tender and both consents** are filed",
@@ -381,7 +381,6 @@
   "d3m2-l2": {
     "image": "coverage-check",
     "hook": "John Doe's own carriers will argue against him; **prove the gap above each layer**.",
-    "whySlide": true,
     "points": [
       "UM pays **the gap**: damages minus BI, up to its limit",
       "Check **the offset rule first**: add-on pays on top",
@@ -405,6 +404,7 @@
       "confirm": "Atty. Thorne accepts; you report the same day"
     },
     "redFlag": {
+      "spoken": true,
       "see": "Harbor Point's stated reason: **'BI already compensated him'**",
       "costs": "Wrong on an add-on UM, and answering with an opinion argues the claim",
       "do": "Answer with **Harbor Point's 03/02/2026 letter**; log it for Atty. Thorne",
@@ -523,7 +523,6 @@
       ]
     },
     "hook": "Every dollar a lien gives up **lands in John Doe's net**.",
-    "whySlide": true,
     "points": [
       "Audit first: drop the 05/04/2026 duplicate, **negotiate from $6,105.00**",
       "Pro rata: equal-priority liens **share in proportion** to their amounts",
@@ -548,6 +547,7 @@
       "confirm": "Atty. Thorne sets the written target"
     },
     "redFlag": {
+      "on": "model",
       "see": "A percentage off **an inflated bill**",
       "costs": "You negotiate from $6,290.00 and give away the $185.00 the audit removes",
       "do": "**Corrections first, reductions second**, inside Atty. Thorne's written target",
@@ -706,7 +706,6 @@
       ]
     },
     "hook": "One unread line in Keystone's 08/14 draft would have **cost John Doe $30,000**.",
-    "whySlide": true,
     "points": [
       "Read **every release line by line** before John Doe sees it",
       "BI release: **both UM consents first**, PD claim left open",

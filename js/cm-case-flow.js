@@ -519,15 +519,18 @@ function milestoneRail(b, view){
     ${m.note ? `<p class="cfx-ms-note">${hl(m.note)}</p>` : ""}</section>`;
 }
 /* Why It Matters is no slide of its own in a lesson that has The Theory: its line opens that slide (whyOpen: a
-   "💡 Why it matters" band above the theory's lead), one slide where there were two, and the CM Red Flag that sat on
-   it is on The Rules, or on the slide the copy names (rfView). A brief lesson has no Theory slide and keeps Why It
-   Matters as it was; so does a lesson whose Theory slide has no room for the band, or none of whose slides has room
-   for its Red Flag, at full size on a laptop (the copy's "whySlide": true; .github/scripts/micro-frameworks.cjs lists them).
-   js/cm-slide-places.js moves a place saved in the deck that had the slide. */
+   "💡 Why it matters" band above the theory's lead), one slide where there were two. The band is one line: the
+   lesson's hook, or the copy's shorter `whyLine` where the hook would wrap (the full hook is then in the slide's
+   talking points). A lesson whose Theory also carries its merged roadmap draws the roadmap down the left and the
+   theory beside it (cfx-th-road), so the three fit at full size on a laptop. The CM Red Flag that sat on Why It
+   Matters is on The Rules, or on the slide the copy names (rfView: `on`), or, where no slide of the lesson has room
+   for it at full size, in the trainer's talking points for The Rules only (`spoken`). A brief lesson has no Theory
+   slide and keeps Why It Matters as it was; `"whySlide": true` in the copy would keep the slide in a lesson with a
+   Theory (none does). js/cm-slide-places.js moves a place saved in the deck that had the slide. */
 const whyView = b => theoryViews(b).length && !(SLIDES[b.id] || {}).whySlide ? [] : ["why"];
-const rfView = b => { const r = mfOf(b).redFlag, vs = viewsOf(b); return !r ? null : vs.includes("why") ? "why" : vs.includes(r.on) ? r.on : "rules"; };
-const whyOpen = (b, c) => { if(b.kind !== "lesson" || viewsOf(b).includes("why") || !c.hook) return ""; const ls = leadSplit(c.hook);
-  return `<p class="cfx-whyline" role="note" aria-label="Why it matters"><b class="cfx-whyline-k">💡 Why it matters</b><span class="cfx-whyline-t">${hl(ls ? ls[0] : c.hook)}</span></p>`; };
+const rfView = b => { const r = mfOf(b).redFlag, vs = viewsOf(b); return !r ? null : vs.includes("why") ? "why" : r.spoken ? null : vs.includes(r.on) ? r.on : "rules"; };
+const whyOpen = (b, c) => { if(b.kind !== "lesson" || viewsOf(b).includes("why") || !c.hook) return ""; const ls = leadSplit(c.hook), line = (SLIDES[b.id] || {}).whyLine || (ls ? ls[0] : c.hook);
+  return `<p class="cfx-whyline" role="note" aria-label="Why it matters"><b class="cfx-whyline-k">💡 Why it matters</b><span class="cfx-whyline-t">${hl(line)}</span></p>`; };
 function viewsOf(b){
   if(b.kind === "lesson" && b.brief) return ["why"].concat(docView(b), ["rules"]);   // brief: a condensed overview (Day 5's litigation); no Theory slide, so Why It Matters stays
   if(b.kind === "lesson" && b.compact) return mapView(b).concat(theoryViews(b).slice(0, 1), whyView(b), docView(b), ["rules"]);   // compact: a full topic on fewer slides
@@ -836,10 +839,10 @@ function slideBody(view, l, d){
     case "theory": case "theory2": {
       const t = c.theory, half = Math.ceil(t.concepts.length / 2), two = t.concepts.length > TH_PER;
       const list = !two ? t.concepts : view === "theory" ? t.concepts.slice(0, half) : t.concepts.slice(half);
-      const why = view === "theory" ? whyOpen(b, c) : "";
-      return `<div class="cfx-theory cfx-th-solo${why ? " cfx-th-why" : ""}${rfView(b) === view ? " cfx-th-rf" : ""}"><div class="cfx-th-main">${why}${view === "theory" ? mapStrip(b) : ""}
+      const why = view === "theory" ? whyOpen(b, c) : "", road = view === "theory" ? mapStrip(b) : "", cols = !!(why && road);   // cols: the merged roadmap down the left, the theory beside it
+      return `<div class="cfx-theory cfx-th-solo${why ? " cfx-th-why" : ""}${cols ? " cfx-th-road" : ""}${rfView(b) === view ? " cfx-th-rf" : ""}"><div class="cfx-th-main">${why}${cols ? `<div class="cfx-th-cols">${road}<div class="cfx-th-side">` : road}
           ${view === "theory" ? (leadSplit(t.lead) ? `<p class="cfx-lead-1">${hl("**" + leadSplit(t.lead)[0] + "**")}</p><p class="cfx-th-lead">${hl(leadSplit(t.lead)[1])}</p>` : `<p class="cfx-th-lead">${hl(t.lead)}</p>`) : `<p class="cfx-th-cont">${E(titleCase(b.topic))}: continued</p>`}
-          <div class="cfx-th-grid">${list.map((x, j) => `<div class="cfx-th-c" style="animation-delay:${j * .05}s"><b>${E(x.term)}</b><span>${hl(x.text)}</span>${(x.more || []).length ? `<button type="button" class="cfx-th-more" onclick="cmCaseFlow.more('${b.id}',${t.concepts.indexOf(x)})" title="More on ${E(x.term)}">＋ More</button>` : ""}</div>`).join("")}</div>${redFlagBox(b, view)}${why ? strip() : ""}</div>
+          <div class="cfx-th-grid">${list.map((x, j) => `<div class="cfx-th-c" style="animation-delay:${j * .05}s"><b>${E(x.term)}</b><span>${hl(x.text)}</span>${(x.more || []).length ? `<button type="button" class="cfx-th-more" onclick="cmCaseFlow.more('${b.id}',${t.concepts.indexOf(x)})" title="More on ${E(x.term)}">＋ More</button>` : ""}</div>`).join("")}</div>${cols ? "</div></div>" : ""}${redFlagBox(b, view)}${why ? strip() : ""}</div>
       </div>`;
     }
     case "frame": {   // the deck page's structure, drawn in the course's own design
@@ -849,7 +852,7 @@ function slideBody(view, l, d){
         : f.kind === "flow"
           ? `<ol class="cfx-fw-flow" style="--n:${steps.length}">${steps.map((x, i) => `<li style="animation-delay:${i * .07}s"><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span>${stepMore(b, x, i)}</li>`).join("")}</ol>`
           : `<div class="cfx-fw-list">${steps.map((x, i) => `<div style="animation-delay:${i * .05}s"><b>${E(x.label)}</b><span>${hl(x.text)}</span>${stepMore(b, x, i)}</div>`).join("")}</div>`;
-      return `<div class="cfx-fw"><h3 class="cfx-fw-t">${E(String(f.title).replace(/,?\s*\(?Steps?\s+\d+\s*[–-]\s*\d+\)?\s*$/i, ""))}</h3>${body}${f.note ? `<p class="cfx-fw-note">${hl(f.note)}</p>` : ""}</div>${milestoneRail(b, "frame")}`;
+      return `<div class="cfx-fw"><h3 class="cfx-fw-t">${E(String(f.title).replace(/,?\s*\(?Steps?\s+\d+\s*[–-]\s*\d+\)?\s*$/i, ""))}</h3>${body}${f.note ? `<p class="cfx-fw-note">${hl(f.note)}</p>` : ""}</div>${milestoneRail(b, "frame")}${redFlagBox(b, "frame")}`;
     }
     case "doc": {   // The Document: what it is, why the law cares, what it proves, and the Case Manager's handling
       const d = c.document, f = d.doc && CF_DOCS.find(x => x.id === d.doc);
@@ -861,10 +864,10 @@ function slideBody(view, l, d){
         <p class="cfx-fw-note">Know the document before you're asked to work with it.</p></div>`;
     }
     case "map": { const r = roadmapOf(b), steps = r.steps;
-      return `<div class="cfx-fw cfx-map"><h3 class="cfx-fw-t">🗺 ${E(r.title)}</h3><ol class="cfx-fw-flow" style="--n:${steps.length}">${steps.map((x, i) => `<li style="animation-delay:${i * .07}s"><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span></li>`).join("")}</ol><p class="cfx-fw-note">Where this lesson is going: each step is taught next, before anything asks you to do it.</p></div>`;
+      return `<div class="cfx-fw cfx-map"><h3 class="cfx-fw-t">🗺 ${E(r.title)}</h3><ol class="cfx-fw-flow" style="--n:${steps.length}">${steps.map((x, i) => `<li style="animation-delay:${i * .07}s"><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span></li>`).join("")}</ol><p class="cfx-fw-note">Where this lesson is going: each step is taught next, before anything asks you to do it.</p></div>${redFlagBox(b, "map")}`;
     }
     case "rules": { const side = mfOf(b).ruleEx ? "rx" : msView(b) === "rules" && mfOf(b).milestones ? "ms" : rfView(b) === "rules" ? "rf" : "";   // beside the points: Rule vs. Exception, or the Red Flag, in the picture's place
-      return `<div class="cfx-split${side ? " cfx-split-" + side : ""}"><ol class="cfx-points">${c.points.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>${side === "rx" ? ruleExBox(b) : side === "ms" ? "" : side === "rf" ? redFlagBox(b, "rules") : art(c.image, "small")}</div>${side === "rf" ? "" : redFlagBox(b, "rules")}${milestoneRail(b, "rules")}${plainBox(b)}
+      return `<div class="cfx-split${side ? " cfx-split-" + side : ""}${side === "rf" && mfOf(b).redFlag.tight ? " cfx-split-tight" : ""}"><ol class="cfx-points">${c.points.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>${side === "rx" ? ruleExBox(b) : side === "ms" ? "" : side === "rf" ? redFlagBox(b, "rules") : art(c.image, "small")}</div>${side === "rf" ? "" : redFlagBox(b, "rules")}${milestoneRail(b, "rules")}${plainBox(b)}
       ${c.upl ? `<div class="cfx-upl"><b>⚖ UPL Line</b><span>${hl(c.upl)}</span></div>` : ""}`; }
     case "audit": return auditSlide(b);
     case "grade": {   // what a Grade-A packet or binder holds and how it is built, shown before Your Task
@@ -872,7 +875,7 @@ function slideBody(view, l, d){
       return `<div class="cfx-fw cfx-grade-w"><h3 class="cfx-fw-t">🏅 ${E(g.title)}</h3><div class="cfx-grade">${col("cfx-grade-g", "📐 Guidelines", g.guide)}${col("cfx-grade-i", "📦 Standard Inclusions", g.include)}${col("cfx-grade-s", "🪜 Steps to Grade A", g.steps, true)}</div>
         <p class="cfx-fw-note">Build your own version from the downloaded case documents, then upload it to your training Drive and the CMS: the platform audits it against this standard.</p></div>`;
     }
-    case "model": return `<div class="cfx-model">${b.show && b.show.caption ? `<p class="cfx-caption">${E(b.show.caption)}</p>` : ""}${visual(l, b)}</div>`;
+    case "model": return `<div class="cfx-model">${b.show && b.show.caption ? `<p class="cfx-caption">${E(b.show.caption)}</p>` : ""}${visual(l, b)}</div>${redFlagBox(b, "model")}`;
     case "dodont": return ddList(c) + redFlagBox(b, "dodont");   // the Do's and Don'ts themselves (3 Clues, 1 Rule is retired)
     case "case": {
       if(b.id === "d1m1-drive" && window.CMDrive && CMDrive.slide) return CMDrive.slide();   // Day 1's case backup: the task in four steps and the firm's standard, from the Worker (js/cm-drive.js)
@@ -4480,6 +4483,24 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx .cfx-whyline-k{flex:none;font:800 16px/1.3 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:#1E2340;background:#DB8437;border-radius:999px;padding:4px 14px;white-space:nowrap;}
 .cfx .cfx-whyline-t{font:800 clamp(21px,2.8vh,26px)/1.3 var(--font-ui);color:#fff;text-align:left !important;}
 .cfx .cfx-whyline mark.cfx-hl{background:none;color:#FFC98F;padding:0;font-weight:800;}
+/* The Theory with its merged roadmap and the opening line: the roadmap's steps down the left, the lead and the
+   concept cards beside them, every line bold and at least 16px on a laptop (the row of steps across the top left the
+   cards no room) */
+.cfx-th-solo.cfx-th-why.cfx-th-road > .cfx-th-main{gap:8px;}
+.cfx-th-solo.cfx-th-road .cfx-th-cols{flex:1 1 auto;min-height:0;display:grid;grid-template-columns:minmax(0,.35fr) minmax(0,.65fr);gap:0 18px;align-items:stretch;}
+.cfx .cfx-th-road .cfx-map-strip{display:flex;flex-direction:column;justify-content:space-around;gap:3px;margin:0;padding:0 16px 0 0;border-bottom:0;border-right:2px dashed #E3B98A;}
+.cfx .cfx-th-road .cfx-map-strip li{grid-template-columns:30px minmax(0,1fr);column-gap:10px;margin:0 !important;}
+.cfx .cfx-th-road .cfx-map-strip .cfx-fw-n{width:30px;height:30px;font-size:16px;font-weight:800;}
+.cfx .cfx-th-road .cfx-map-strip b{font:800 clamp(16.5px,2.2vh,23px)/1.2 var(--font-ui);color:#1E2340;}
+.cfx .cfx-th-road .cfx-map-strip li > span:last-child{font:700 clamp(16px,2.1vh,22px)/1.22 var(--font-ui);color:#141A2E;}
+.cfx .cfx-th-road .cfx-map-strip mark.cfx-hl{font-weight:800;}
+.cfx-th-solo.cfx-th-road .cfx-th-side{min-width:0;min-height:0;display:flex;flex-direction:column;gap:6px;}
+.cfx .cfx-th-road .cfx-th-lead{font-size:clamp(19px,2.6vh,26px);line-height:1.25;text-align:left;margin:0;}
+.cfx-th-solo.cfx-th-road .cfx-th-grid{gap:6px 12px;}
+.cfx .cfx-th-solo.cfx-th-road .cfx-th-c{padding:clamp(5px,.8vh,16px) 14px;gap:2px;}
+.cfx .cfx-th-solo.cfx-th-road .cfx-th-c b{font-size:clamp(17.5px,2.4vh,24px);line-height:1.15;}
+.cfx .cfx-th-solo.cfx-th-road .cfx-th-c span{font-size:clamp(17px,2.3vh,23px);line-height:1.25;}
+@media (max-width:900px){ .cfx-th-solo.cfx-th-road .cfx-th-cols{grid-template-columns:minmax(0,1fr);gap:10px;} .cfx .cfx-th-road .cfx-map-strip{border-right:0;padding:0;} }
 /* the band takes its height from the slide's spacing, never from the theory's type or its cards */
 .cfx-th-solo.cfx-th-why > .cfx-th-main{gap:10px;} .cfx .cfx-th-why .cfx-th-lead{margin-bottom:0;} .cfx-th-solo.cfx-th-why .cfx-th-grid{gap:10px 14px;}
 /* the case strip that sat on Why It Matters: under the theory's cards on a screen with room for it (a large screen, the
@@ -4492,6 +4513,10 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 /* the CM Red Flag beside the points on The Rules (in the picture's place), and under the Do & Don't */
 .cfx-lesson .cfx-split-rf{grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;justify-content:stretch !important;align-items:center !important;column-gap:24px !important;}
 .cfx .cfx-split-rf .cfx-rf{margin:0;} .cfx .cfx-dd + .cfx-rf{margin-top:14px;} .cfx .cfx-split + .cfx-rf{margin-top:6px;}
+/* the copy's "tight": four two-line points beside the Red Flag, at the size they take beside a Rule vs. Exception box */
+.cfx .cfx-split-tight .cfx-points{gap:8px;} .cfx .cfx-split-tight .cfx-points li,.cfx .cfx-split-tight .cfx-points li span{font-size:clamp(18px,2.4vh,22px) !important;line-height:1.32 !important;}
+/* the Red Flag under See It, The Framework or The Roadmap (the copy's "on") */
+.cfx .cfx-model + .cfx-rf,.cfx .cfx-fw + .cfx-rf{margin-top:10px;}
 .cfx .cfx-rf ~ .cfx-upl,.cfx .cfx-rf ~ .cfx-plain,.cfx .cfx-split-rf ~ .cfx-upl,.cfx .cfx-split-rf ~ .cfx-plain{margin-top:10px;}
 .cfx-th-solo.cfx-th-rf > .cfx-th-main{gap:10px;} .cfx-th-solo.cfx-th-rf .cfx-th-grid{gap:10px 14px;} .cfx .cfx-th-rf .cfx-rf{margin:0;flex:none;} .cfx .cfx-th-rf .cfx-th-cont{margin-bottom:4px !important;}
 @media (max-width:760px){ .cfx .cfx-whyline{flex-wrap:wrap;gap:4px 10px;} .cfx-lesson .cfx-split-rf{grid-template-columns:minmax(0,1fr) !important;} }   /* a phone: the label above its line, the Red Flag under the points */

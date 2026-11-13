@@ -1,16 +1,13 @@
 {
   "d1m1-role": {
-    "why": {
-      "say": "• Three owners: the client owns the case, Atty. Thorne owns the judgment, the Case Manager owns the movement\n• The job shapes whether a case settles well, not just phones and paper\n• Example split: deciding to settle is the attorney's; getting the MRI report into the file is the Case Manager's\n• One line never to cross: no legal advice, covered in the rules slide\n• Red flag: a note to Atty. Thorne with the subject line \"Update\"; the ask gets buried, and the SOL doesn't wait"
-    },
     "theory": {
-      "say": "• Case Management: keeping the case moving from first call to final check, phase by phase\n• Three tests for every task: on time, documented in the file, everyone who needs to know is told\n• Case health analysis: reading the whole file for risk, not one task at a time\n• Spot weak points early, like a missed deadline, a silent client or a gap in treatment"
+      "say": "• Three owners: the client owns the case, Atty. Thorne the judgment, the Case Manager the movement; the job shapes how well a case settles\n• Example split: deciding to settle is the attorney's; getting the MRI report into the file is yours; no legal advice, ever\n• Case Management: keeping the case moving from first call to final check, phase by phase\n• Three tests for every task: on time, documented in the file, everyone who needs to know is told\n• Case health analysis: reading the whole file for risk, not one task at a time\n• Spot weak points early, like a missed deadline, a silent client or a gap in treatment"
     },
     "frame": {
       "say": "• Six stages: intake and case opening, planning, documentation, communication, monitoring, billing and resolution\n• Intake includes the Conflict Check: making sure the firm doesn't already represent the other side\n• Planning: Case Manager drafts the Case Plan; Atty. Thorne sets strategy\n• Communication: update client, insurers and doctors, log every contact the same day; monitoring: every deadline calendared\n• Documentation is where cases most often stall; missing records delay the demand"
     },
     "rules": {
-      "say": "• Case Manager owns deadlines, documents, insurers, doctors and client updates\n• Atty. Thorne owns every legal judgment: value, strength, strategy, whether to settle\n• Log every contact, document and deadline in the CMS the same day; if it isn't in the CMS, it didn't happen\n• Allowed: explain the process, confirm facts; never: tell a client the case value or whether to take an offer",
+      "say": "• Case Manager owns deadlines, documents, insurers, doctors and client updates\n• Atty. Thorne owns every legal judgment: value, strength, strategy, whether to settle\n• Log every contact, document and deadline in the CMS the same day; if it isn't in the CMS, it didn't happen\n• Allowed: explain the process, confirm facts; never: tell a client the case value or whether to take an offer\n• Red flag: a note to Atty. Thorne headed \"Update\": the ask waits, the SOL, 02/06/2028, doesn't; rewrite it as the decision and its deadline",
       "ask": "A client asks whether to take the offer. What do you say?"
     },
     "model": {
@@ -79,11 +76,8 @@
     }
   },
   "d1m3-l1": {
-    "why": {
-      "say": "• Most damage to an injury claim happens in the first two weeks, before the client is told what not to do\n• Common mistakes: a gym selfie, chatting with the other driver's insurer, skipping therapy\n• Case Manager gives the instructions; Atty. Thorne explains what they mean for the claim\n• Red flag: John's voicemail says Dana Whitfield at Keystone asked him to record his account, 02/10/2026, 8:47 in the morning\n• Written notice goes out today: no direct contact, statements go through the firm; Atty. Thorne owns that call, and it gets logged"
-    },
     "theory": {
-      "say": "• Four topics: standing instructions, keeping treatment going, keeping receipts, and the car exception\n• Anything a client says, posts, signs or skips can become evidence\n• Recorded Statement: the insurer taping the client's version of the crash, usable later\n• Letter of Representation: tells the other side to contact the firm, not the client\n• Medical danger threatens health, call the doctor's office; legal danger threatens the claim, tell Atty. Thorne"
+      "say": "• Most self-inflicted claim damage happens in the first two weeks, before the client is told: a gym selfie, chatting with the other insurer, skipped therapy\n• Case Manager gives the instructions; Atty. Thorne explains what they mean for the claim\n• Four topics: standing instructions, keeping treatment going, keeping receipts, the car exception; anything he says, posts, signs or skips can become evidence\n• Recorded Statement: the insurer taping the client's version of the crash, usable later\n• Letter of Representation: tells the other side to contact the firm, not the client\n• Medical danger threatens health, call the doctor's office; legal danger threatens the claim, tell Atty. Thorne"
     },
     "rules": {
       "say": "• No Recorded Statement to the other driver's insurer; all contact goes through the firm\n• Start treatment, keep every appointment, report barriers like rides, money or work before a visit is missed\n• Post nothing about the crash, injuries or activities; sign nothing until the firm reviews it\n• Keep every receipt, including mileage\n• Go through each rule by phone, have the client repeat it back, and log that they understood"
@@ -92,7 +86,7 @@
       "say": "• Board layout: green Do column on the left, red Don't column on the right\n• Each Don't lines up with the Do that replaces it\n• Examples: no Recorded Statement, no posts, bring any insurer release to the firm instead of signing it\n• Ask family not to tag the client in posts either\n• Three orange tags most broken in week one: no Recorded Statement, keep every receipt, car only"
     },
     "dodont": {
-      "say": "• Do: ask about barriers to care at every check-in; John Doe owns no car, so rides matter\n• Do: listen actively, for example when he worries about missed shifts at Northgate Distribution\n• Don't: explain why a Keystone Mutual Recorded Statement could hurt him; that is legal advice for Atty. Thorne\n• Don't: let a Property Damage call drift into questions about his injuries\n• Social media rule covers vacations and activities too",
+      "say": "• Do: ask about barriers to care at every check-in; John Doe owns no car, so rides matter\n• Do: listen actively, for example when he worries about missed shifts at Northgate Distribution\n• Don't: explain why a Keystone Mutual Recorded Statement could hurt him; that is legal advice for Atty. Thorne\n• Don't: let a Property Damage call drift into questions about his injuries\n• Social media rule covers vacations and activities too\n• Red flag: Keystone's Dana Whitfield asked John to record his account (voicemail, 02/10/2026, 8:47 a.m.); written notice today, statements through the firm; Atty. Thorne's call",
       "ask": "Which of these rules is John Doe closest to breaking right now?"
     }
   },
@@ -209,14 +203,11 @@
     }
   },
   "d2m1-l1": {
-    "why": {
-      "say": "• On 02/17/2026, five letters leave John Doe's file\n• Letter of Representation (LOR): tells an insurer to deal with the firm, not the client\n• Common errors: wrong insured named, a missed UM carrier, a notice that reads like a demand\n• Red flag: a UM notice asking for payment before any BI tender is a demand, not notice, and risks $30,000 of the stack\n• Send notice only; payment waits, and that's Atty. Thorne's call"
-    },
     "map": {
       "say": "• Draft one LOR per insurer on the firm template, each naming that insurer's own insured\n• Request limits and the Declaration Page, the policy's one-page summary, plus preservation of photos, statements, video, vehicle data\n• Protect the client: the other driver's insurer gets his name only\n• Send by each insurer's preferred method, signed by Atty. Thorne, logged by the Case Manager\n• No acknowledgement by the third business day: follow up"
     },
     "theory": {
-      "say": "• Claim set-up is coverage determination: which policies apply, how much they pay, what they exclude\n• Four coverage questions: is it valid, what type applies, what are the limits, any exclusions\n• Liability assessment: who is legally responsible and how much; Atty. Thorne weighs it, the Case Manager secures proof\n• Third-party insurer is Robert Smith's, on the other side; first-party policies cover the client"
+      "say": "• On 02/17/2026 five letters leave John Doe's file: the LOR moves every carrier onto the firm; one wrong letter risks $30,000 of UM coverage\n• LOR, Letter of Representation: tells an insurer to deal with the firm; common errors: wrong insured, missed UM carrier, a notice reading like a demand\n• Claim set-up is coverage determination: which policies apply, how much they pay, what they exclude\n• Four coverage questions: is it valid, what type applies, what are the limits, any exclusions\n• Liability assessment: who is legally responsible and how much; Atty. Thorne weighs it, you secure proof\n• Third-party insurer is Robert Smith's, on the other side; first-party policies cover the client"
     },
     "theory2": {
       "say": "• Information protection: the other side's insurer learns only what it must\n• Notice says a claim is coming; a demand asks for money; UM demand waits until BI offers full limit in writing\n• Preservation request: keep photos, statements, video, the vehicle and its event data recorder\n• Acknowledgement: the insurer's written receipt of the LOR, sometimes stating coverage and limit; calendar and log it"
@@ -225,7 +216,7 @@
       "say": "• Coverage side: valid insurance, type, policy limits, exclusions or gaps\n• Liability side: who caused the crash, is fault clear, shared or disputed, what evidence supports it\n• Comparative negligence: whether the client could be blamed for part of the crash\n• Every LOR request chases one of these eight answers; ask about money and protect the proof"
     },
     "rules": {
-      "say": "• Send LORs early, once the retainer is signed; claims opened 02/16 to 02/17/2026, LORs sent 02/17/2026\n• Address the adjuster by name, like Attn: Dana Whitfield; Cardinal State gets Attn: Claims Department\n• Name each insurer's insured: Robert Smith for Keystone, Kevin Alvarez for Harbor Point, Margaret Doe for Cardinal State\n• Notify all three stack carriers now; notice is not a demand\n• Keystone: name only, plus Property Damage carve-out for Leah Moran, 5 business days; Atty. Thorne signs",
+      "say": "• Send LORs early, once the retainer is signed; claims opened 02/16 to 02/17/2026, LORs sent 02/17/2026\n• Address the adjuster by name, like Attn: Dana Whitfield; Cardinal State gets Attn: Claims Department\n• Name each insurer's insured: Robert Smith for Keystone, Kevin Alvarez for Harbor Point, Margaret Doe for Cardinal State\n• Notify all three stack carriers now; notice is not a demand\n• Keystone: name only, plus Property Damage carve-out for Leah Moran, 5 business days; Atty. Thorne signs\n• Red flag: a UM notice asking for payment before any BI tender is a demand, risking $30,000; send notice only; payment waits, Atty. Thorne's call",
       "ask": "Why does Cardinal State get a letter now, before it owes anything?"
     },
     "model": {
@@ -455,11 +446,8 @@
     }
   },
   "d1m4-tmap": {
-    "why": {
-      "say": "• Adjusters, IME doctors and defense lawyers compare John Doe's records to a standard map of recovery\n• IME: an exam by a doctor the insurer hires\n• Care drifting off the map is the top reason insurers deny treatment and order an IME\n• Red flag: no visit from 04/02 to 04/21/2026, nineteen days, with no reason on file\n• Run A-C-T the same day, and his reason goes to Atty. Thorne"
-    },
     "theory": {
-      "say": "• Standard Treatment Map: ambulance and ER, imaging, chiropractic and therapy, orthopedics and pain management, surgery only if serious\n• A skipped or out-of-order stop needs a medical reason on file\n• Clinical Pathway: is he improving? If not, variance loop, figuring out why; next steps are the doctor's decision\n• Reasonable and Necessary: the insurer's payment test; normal care for the injury, and is he actually doing more"
+      "say": "• Adjusters, IME doctors (examiners the insurer hires) and defense lawyers compare John Doe's records to a standard map of recovery\n• Care drifting off the map is the top reason insurers deny treatment and order an IME\n• Standard Treatment Map: ambulance and ER, imaging, chiropractic and therapy, orthopedics and pain management, surgery only if serious\n• A skipped or out-of-order stop needs a medical reason on file\n• Clinical Pathway: is he improving? If not, variance loop, figuring out why; next steps are the doctor's decision\n• Reasonable and Necessary: the insurer's payment test; normal care for the injury, and is he actually doing more"
     },
     "theory2": {
       "say": "• 6-Week Rule: by week 6, expect 20 to 30 percent more range of motion or lower pain; otherwise raise it\n• Red Flag Rule: no disability score change after 12 weeks is a plateau; specialist or second opinion is the doctor's call\n• Objective metrics: Oswestry or DASH every 30 days, walking test, PHQ-9 and GAD-7 when stalled, FCE before return to work\n• Stakeholder Triad: clinic, lawyer and insurer, with the Case Manager passing information"
@@ -479,14 +467,11 @@
     }
   },
   "d1m4-tcare": {
-    "why": {
-      "say": "• A client who never calls is a risk; silence is where cases fall apart\n• At intake John Doe had no treatment; only the 02/06/2026 EMS report: neck stiffness, declined transport\n• Once care begins, the Case Manager reads every record and hears from him between visits\n• Missed flags or stalls can pull him off his doctors' plan and leave Atty. Thorne without facts\n• Red flag: \"Missing visits will hurt your case\" is advice; talk logistics and his reasons, and what it means goes to Atty. Thorne"
-    },
     "map": {
       "say": "• Read records for red flags, warning signs, by specialty: physical therapy, surgery, medication, mental health\n• Listen on calls for yellow flags: life and mood problems blocking recovery, written in his words\n• Talk using OARS: open questions, affirmations, reflections, summaries\n• At the plateau, when progress and interest drop, bring him back to his own goal\n• Route it: medical danger to the doctor, legal to Atty. Thorne; then A-C-T: Assess, Coordinate, Track"
     },
     "theory": {
-      "say": "• Know standard treatment patterns to spot when care goes off track\n• Red flag: a departure from the pattern signaling medical danger, a stuck case, or over-treatment for billing\n• Physical therapy flags show stalling or over-treatment; surgery flags concern safety and standard of care\n• Pain management and medication get the most scrutiny, due to opioid rules and necessity audits\n• Medical danger goes to the doctor same day; legal danger to Atty. Thorne"
+      "say": "• A silent client is a risk; at intake John Doe had no treatment, only the 02/06/2026 EMS report: neck stiffness, declined transport\n• Once care begins, you read every record and hear from him between visits; missed flags or stalls pull him off plan, leaving Atty. Thorne factless\n• Know standard treatment patterns; a red flag is a departure signaling medical danger, a stuck case, or billing-driven over-treatment\n• Physical therapy flags show stalling or over-treatment; surgery flags concern safety and standard of care\n• Pain management and medication get the most scrutiny, due to opioid rules and necessity audits\n• Medical danger goes to the doctor same day; legal danger to Atty. Thorne"
     },
     "theory2": {
       "say": "• Mental health and head-injury claims must be tied to the crash and confirmed by a doctor\n• Yellow flags: fear-avoidance (afraid to move), catastrophizing (expecting the worst), lawsuit stress, relying on pills or passive care\n• Yellow flags are mostly heard on calls, not read in records\n• Motivational interviewing: drawing out the client's own reasons to keep going\n• Mid-treatment plateau: early motivation fades and attendance drops unless someone re-engages him"

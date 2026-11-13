@@ -78,20 +78,17 @@
     }
   },
   "d4m2-l1": {
-    "why": {
-      "say": "• John Doe's statute of limitations, the last day the law allows filing, is 02/06/2028, a Sunday\n• Keystone's stonewall on the 14-Day Gap put the file on court time\n• From 09/24/2026, dates are set by rule, order and statute, and don't move when a carrier goes quiet\n• Red flag: fifteen RFAs inside the general discovery entry, unanswered, may be deemed admitted; give them their own entry and alerts; tell Atty. Thorne"
-    },
     "doc": {
       "say": "• The Complaint turns a claim into a lawsuit; Atty. Thorne drafts and signs it\n• Parts: caption, jurisdiction, facts, causes of action (legal reasons for suing), prayer for relief (what is asked)\n• Filed before the SOL, it preserves negligence and negligence per se claims against Robert Smith\n• Filed 09/24/2026, No. 26-CV-04417: bodily injury only, $14,817.40 medical, $1,584.00 wages; no Property Damage, John owns no vehicle\n• Verify filing date and Smith's exact name; stamped copy in 01_PLEADINGS; use only the filed version"
     },
     "theory": {
-      "say": "• Once suit is filed, statute, rule and court order set the dates\n• Documents stop being paperwork and become evidence; a missing or misfiled page can hurt a trial\n• Court processes repeat weekly, each driven by the calendar\n• Built-in waits, like notice to opposing counsel before a third-party subpoena, go on the calendar like deadlines\n• A third party's missed date becomes the Case Manager's problem; follow up ahead"
+      "say": "• John Doe's statute of limitations, the last day the law allows filing, is 02/06/2028, a Sunday\n• Keystone's stonewall on the 14-Day Gap put the file on court time: from 09/24/2026 statute, rule and order set the dates, whatever a carrier does\n• Documents stop being paperwork and become evidence; a missing or misfiled page can hurt a trial\n• Court processes repeat weekly, each driven by the calendar\n• Built-in waits, like notice to opposing counsel before a third-party subpoena, go on the calendar like deadlines\n• A third party's missed date becomes the Case Manager's problem; follow up ahead"
     },
     "frame": {
       "say": "• One subpoena, four steps, each on the calendar\n• Draft the court-approved Subpoena Duces Tecum: a court command to hand over documents\n• Serve the defense a copy first; most states require 5 to 10 days' notice to opposing counsel\n• Formal service: a process server delivers it to the facility's Registered Agent\n• Track compliance: call the records department five days before the deadline"
     },
     "rules": {
-      "say": "• Hard rule: a date fixed by statute, court rule, order or forum rules; miss one and the claim can go\n• Leave out the trigger day, count the last: Robert Smith served 10/14/2026, answer due 11/13/2026\n• Add 3 days for mail, none for e-service; forward counts roll later, backward counts roll earlier\n• RFAs, requests to admit facts, get their own entry; unanswered ones can be treated as admitted\n• Sunday SOL becomes hard date 02/04/2028, cutoff 11/05/2027; unsure, docket earlier and flag"
+      "say": "• Hard rule: a date fixed by statute, court rule, order or forum rules; miss one and the claim can go\n• Leave out the trigger day, count the last: Robert Smith served 10/14/2026, answer due 11/13/2026\n• Add 3 days for mail, none for e-service; forward counts roll later, backward counts roll earlier\n• Red flag: fifteen RFAs, requests to admit facts, inside the general discovery entry; unanswered, they may be deemed admitted: own entry, alerts, tell Atty. Thorne\n• Sunday SOL becomes hard date 02/04/2028, cutoff 11/05/2027; unsure, docket earlier and flag"
     },
     "model": {
       "say": "• The master calendar as one ribbon, 10/2026 to 02/2028\n• Navy, above: the court's hard rules, 11/13/2026, 01/04/2027, 03/31/2027, 05/28/2027\n• Orange, below: forum dates 03/11, 03/18, 06/02, 06/11 and 06/22/2027\n• Red flag on 02/06/2028, a Sunday, never relied on; orange pins step back to 02/04/2028 and 11/05/2027\n• Docketed dates always sit earlier than the law allows; that cushion protects the case"
@@ -120,11 +117,8 @@
     }
   },
   "d4m2-l2": {
-    "why": {
-      "say": "• Two neutrals: Hon. Carla Benton (Ret.), mediator, and Laura Whitcomb, Esq., arbitrator\n• Judge Benton can't decide anything; brackets, ranges and authority belong to Atty. Thorne and John\n• Laura Whitcomb decides; her award stands with almost no appeal\n• Red flag: any number the Case Manager speaks in caucus is an offer; log every move (time, who, what); keep the draft release ready"
-    },
     "theory": {
-      "say": "• Pre-suit: mediation usually follows treatment and the demand; arbitration only where a signed clause forces it\n• After filing, courts often order mediation during discovery, when both sides swap evidence\n• Both of John Doe's sessions sit on the filed side\n• Non-binding (mediation): both sides must agree; nobody is forced to settle\n• Binding (arbitration): final, enforced like a court order, reviewed only on narrow grounds; meaning for John is Atty. Thorne's to explain"
+      "say": "• Two neutrals: Hon. Carla Benton (Ret.) helps parties agree; Laura Whitcomb, Esq. decides, with almost no appeal\n• Judge Benton, the mediator, can't decide anything; brackets, ranges and authority belong to Atty. Thorne and John\n• Pre-suit: mediation usually follows treatment and the demand; arbitration only where a signed clause forces it\n• After filing, courts often order mediation during discovery, when both sides swap evidence; both of John Doe's sessions sit on the filed side\n• Non-binding (mediation): both sides must agree; nobody is forced to settle\n• Binding (arbitration): the award is final, enforced like a court order, reviewed only on narrow grounds; meaning for John is Atty. Thorne's to explain"
     },
     "frame": {
       "say": "• Role: the mediator facilitates and negotiates; the arbitrator is a private judge and finder of fact\n• Decision power: mediator none; arbitrator issues a binding Arbitration Award\n• Outcome: parties control it at mediation; the arbitrator decides liability and damages and can exclude evidence\n• Review: none needed for mediation; narrow court review for arbitration\n• Common mistake: preparing for both the same way; compromise focus versus trial-ready\n• In the room: joint session if the mediator sets one; private caucus; shuttle moves, each logged; brackets only from counsel; term sheet in writing 03/18/2027"
@@ -136,7 +130,7 @@
       "say": "• Left, lighter card: mediation, 03/18/2027, Hon. Carla Benton (Ret.): non-binding, confidential, facilitates\n• Right, navy card: binding arbitration, 06/22/2027, Laura Whitcomb, Esq.: acts as judge, binding award, appeal limited\n• Hard dates underneath: 06/02, 06/11, 06/22/2027; an orange arrow joins compromise to trial-ready\n• Red UPL bar across both: unauthorized practice of law, doing a lawyer's job without being one\n• Can: observe, log directives, update the CMS; never: argue, speak on record, speak for John, negotiate"
     },
     "dodont": {
-      "say": "• Do: treat hearing notes as Atty. Thorne's roadmap; write every directive the moment it's given\n• Do: confirm the neutral's retainer payment in writing\n• Don't: bring a mediation-quality binder to arbitration, or \"helpfully\" answer the arbitrator\n• Don't log bench directives the next day from memory\n• If the arbitrator turns to the Case Manager: say it goes to Atty. Thorne right away, nothing more",
+      "say": "• Do: treat hearing notes as Atty. Thorne's roadmap; write every directive the moment it's given\n• Do: confirm the neutral's retainer payment in writing\n• Don't: bring a mediation-quality binder to arbitration, or \"helpfully\" answer the arbitrator\n• Don't log bench directives the next day from memory\n• If the arbitrator turns to the Case Manager: say it goes to Atty. Thorne right away, nothing more\n• Red flag: any number the Case Manager speaks in caucus is an offer; log every move (time, who, what); keep the draft release ready",
       "ask": "The arbitrator asks you about a bill. What do you actually say?"
     }
   },

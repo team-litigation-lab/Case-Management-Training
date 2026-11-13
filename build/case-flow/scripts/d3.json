@@ -1,13 +1,10 @@
 {
   "d3m1-l1": {
-    "why": {
-      "say": "• John Doe's Specials total $16,401.40; Robert Smith carries only $10,000 with Keystone\n• Goal: Keystone pays its full limit within 30 days\n• The tool is a Time-Limited Demand with five parts; miss one and Keystone can refuse at no risk\n• The first page or two of the package set the tone for the offer\n• Red flag: “Thirty days from the date of this letter” is wrong; the window closes 08/21/2026, from Keystone's written acknowledgement. Fix it; tell Atty. Thorne."
-    },
     "doc": {
       "say": "• Affidavit of No Other Insurance: Robert Smith's sworn, notarized statement that Keystone is his only liability coverage\n• No umbrella, business or employer's policy; Atty. Thorne makes it a condition of the demand\n• Smith swore it 08/10/2026; Keystone sent it with its tender, its offer to pay the full limit\n• Both UM carriers reviewed it before consenting\n• Case Manager: record it in the approved terms, check it is notarized and matches the file, cite it in each UM demand"
     },
     "theory": {
-      "say": "• Time-Limited Demand: a letter asking for the full policy limit, with a set number of days to accept\n• Five stops: confirm the foundation, demand within limits with clear terms, a reasonable window, a complete package, serve and docket\n• Foundation: deadline to sue, fault and coverage, each from its own document; Atty. Thorne decides every term\n• A demand presents a debt owed and forces a decision on the record\n• Final Scrub: last line-by-line clean-up; Why Factor: every bill shows why the treatment was needed"
+      "say": "• John Doe's Specials total $16,401.40; Robert Smith carries only $10,000 with Keystone; goal: its full limit within 30 days\n• Time-Limited Demand: a letter asking for the full policy limit, with set days to accept; miss a part, Keystone refuses at no risk\n• Five stops: confirm the foundation, demand within limits on clear terms, reasonable window, complete package, serve and docket\n• Foundation: deadline to sue, fault, coverage, each from its own document; Atty. Thorne decides every term\n• A demand presents a debt owed and forces a decision on the record; its first pages set the tone\n• Final Scrub: last line-by-line clean-up; Why Factor: each bill shows why treatment was needed"
     },
     "frame": {
       "say": "• MMI, Maximum Medical Improvement: the doctor says the client has healed as much as he will\n• 30-Day Rule: send the demand within 30 days of MMI; John's MMI 06/12/2026, target 07/12/2026\n• Served 07/20/2026; a later date is Atty. Thorne's decision, with his reason recorded\n• Photo impact: lead with the most graphic Property Damage or injury image\n• Why Factor: every bill carries why the treatment was necessary"
@@ -19,19 +16,16 @@
       "say": "• John Doe's demand with its five elements pinned on as badges\n• Within limits: $10,000; clear: release and affidavit terms; reasonable: conditions and 30 days\n• Documented: list of everything enclosed; timed: deadline and delivery lines\n• Clock bar: emailed 07/20/2026, receipt confirmed in writing 07/22/2026, window closes 08/21/2026\n• Red warning: an unclear term is an escape hatch for Keystone"
     },
     "dodont": {
-      "say": "• Do: docket from the adjuster's written acknowledgement, never the send date\n• Do: lead with the MRI herniation, a disc pushed out of place, and the injection\n• The window is for Keystone to accept, not to pay\n• Don't: omit the deadline or clock trigger, leave the gap out, or demand before MMI or a future-care plan\n• Bad faith is Atty. Thorne's conclusion, never the Case Manager's label",
+      "say": "• Do: docket from the adjuster's written acknowledgement, never the send date\n• Do: lead with the MRI herniation, a disc pushed out of place, and the injection\n• The window is for Keystone to accept, not to pay\n• Don't: omit the deadline or clock trigger, leave the gap out, or demand before MMI or a future-care plan\n• Bad faith is Atty. Thorne's conclusion, never the Case Manager's label\n• Red flag: “Thirty days from the date of this letter” is wrong; the window closes 08/21/2026, from Keystone's written acknowledgement. Fix it; tell Atty. Thorne.",
       "ask": "What makes a gap explanation hold up with an adjuster, and who supplies it?"
     }
   },
   "d3m1-l2": {
-    "why": {
-      "say": "• Keystone's $10,000 minus fee and costs leaves $6,179.92\n• John's liens total $7,965.00 unreduced; BI alone nets him nothing\n• UM: his own coverage when the at-fault driver doesn't carry enough\n• Technicalities can lose UM: an early release, a premature UM demand, a missing consent\n• Gross is a headline; net is what John lives on\n• Red flag: a UM demand before the documented BI tender, or Smith released without both written consents, can lose UM; stop, tell Atty. Thorne."
-    },
     "doc": {
       "say": "• UM Consent to Settle: the UM carrier's written answer to the 30-Day Letter\n• Consents to the BI settlement, waives subrogation, its right to chase Smith for what it pays, and won't substitute its own check\n• Trap: release Smith without it and John Doe can lose the UM coverage\n• Harbor Point consented 08/24/2026, Cardinal State 08/26/2026; release of Smith and Keystone only, UM claims open\n• Prepare both for Atty. Thorne's signature, docket, file; John signs nothing until both are in"
     },
     "theory": {
-      "say": "• UM is the client's safety net once the at-fault policy is used up, up to its limits\n• Net check: John cares only about what's left after fees and unreduced liens\n• BI exhaustion: the at-fault carrier paid its full limit; that opens the UM claim\n• Before releasing Smith, the UM carrier consents and waives subrogation, or substitutes its own check\n• Front-load the proof: at-fault Dec Page, signed release and consents up front"
+      "say": "• Keystone's $10,000 minus fee and costs leaves $6,179.92; liens total $7,965.00 unreduced: BI alone nets John nothing\n• Gross is a headline, net is what John lives on: what's left after fees and unreduced liens\n• UM: his own coverage, the safety net once the at-fault policy is used up, up to its limits\n• BI exhaustion: the at-fault carrier paid its full limit; that opens the UM claim\n• Technicalities can lose UM: an early release, a premature demand, a missing consent; before releasing Smith, the UM carrier consents and waives subrogation, or substitutes\n• Front-load the proof: at-fault Dec Page, signed release and consents up front"
     },
     "theory2": {
       "say": "• UM is a first-party claim, against the client's own insurer, not the other driver's\n• It's a contract claim, and still a fight\n• UM pays the gap between damages and what's already collected, not simply its limit\n• Policy form: offset subtracts the BI money from the UM limit; add-on or stacked pays on top\n• Relative UM is excess: it answers only above BI and Host UM"
@@ -114,11 +108,8 @@
     }
   },
   "d3m2-l2": {
-    "why": {
-      "say": "• Harbor Point's 03/02/2026 letter contains the add-on clause: it pays on top of Keystone\n• On a reduction policy, Keystone's $10,000 would come off the $20,000; that sentence is worth $10,000\n• After Keystone tenders, the money sits with two first-party carriers that insure John and will argue against him\n• Reach $40,000 by proving the gap above each layer and closing every reduction in writing first\n• Red flag: Harbor Point says “BI already compensated him.” Wrong on an add-on UM. Don't argue; answer with its 03/02/2026 letter; log for Atty. Thorne."
-    },
     "theory": {
-      "say": "• A UM settlement is won on paper: the other driver's fault, and damages above what's collected\n• Raw charts and a casual letter carry no risk for the carrier; a clear summary on a clock raises it\n• Sort documents by coverage, liability and damages; diagnostics and a causation narrative answer “he had this before”\n• Bracketing: paired ranges that close toward the middle; Atty. Thorne makes every move\n• PIP: no-fault states pay it first and limit suits; at-fault states, BI pays; John's Harbor Point PIP is add-on"
+      "say": "• Harbor Point's 03/02/2026 letter is add-on: it pays on top of Keystone; a reduction policy would deduct the $10,000\n• After the tender, two first-party carriers insure John yet argue against him; reach $40,000 by proving the gap above each layer, reductions closed in writing\n• A UM settlement is won on paper: fault, and damages above what's collected; a clear summary on a clock raises the risk\n• Sort documents by coverage, liability, damages; diagnostics and a causation narrative answer “he had this before”\n• Bracketing: paired ranges closing toward the middle; every move is Atty. Thorne's\n• PIP: no-fault states pay it first and limit suits; at-fault states, BI pays; John's is add-on"
     },
     "frame": {
       "say": "• The UM demand packet has four groups\n• Liability: Police Report, Property Damage photos, witnesses, video; here the citation, Ruth Calloway, the doorbell video\n• Economic damages: itemized Medical Bills, full records, lost-wage proof, future medical estimates\n• Non-economic damages, the pain and how life changed: demand letter, impact statement, injury photos\n• Proof of exhaustion: signed Limited Release, check copy, at-fault Dec Page, consent to settle; carriers check it first"
@@ -192,11 +183,8 @@
     }
   },
   "d3m3-l2": {
-    "why": {
-      "say": "• On Keystone's $10,000 BI alone, John Doe takes home $0.00\n• Half the job is collecting from carriers; the other half is keeping money from lienholders\n• Every dollar a lien gives up lands in John's net\n• What moves a provider: an honest audit and pro-rata math it can check itself\n• Red flag: asking for a percentage off an inflated bill. Starting from $6,290.00 hands back the $185.00 the audit removes. Corrections first, reductions second."
-    },
     "theory": {
-      "say": "• Road: audit each bill line by line and correct errors before asking for a reduction; then run the pro-rata math\n• Ask with Atty. Thorne's written request and target; pay nothing without a full-and-final Payoff Letter; update the ledger that day\n• An error earns a demand for correction, not a favor\n• Upcoding: billing a bigger visit than records show; unbundling: splitting one service into several bills\n• Pro rata: each lien gets a share in proportion to its size; common fund: lienholders share recovery costs"
+      "say": "• On Keystone's $10,000 BI alone, John Doe nets $0.00; every dollar a lien gives up lands in his net\n• Half the job is collecting from carriers, half keeping money from lienholders; providers move on an honest audit and checkable math\n• Road: audit each bill line by line; an error earns a correction, not a favor; then the pro-rata math\n• Ask with Atty. Thorne's written request and target; pay only on a full-and-final Payoff Letter; update the ledger that day\n• Upcoding: billing a bigger visit than records show; unbundling: one service split into several bills\n• Pro rata: each lien shares in proportion to its size; common fund: lienholders share recovery costs"
     },
     "frame": {
       "say": "• Step 1: cross-reference records against the bill; a Level 3 visit billed as Level 5 gets corrected, not discounted\n• Step 2: hunt for duplicate charges, especially overlapping dates across hospitals and doctor groups\n• Step 3: common fund, the lienholder reducing by its share of fees and costs; Atty. Thorne's argument\n• Step 4: never pay without a signed Payoff Letter stating full and final satisfaction\n• Start at step 1: every error found is money not negotiated for"
@@ -206,7 +194,7 @@
       "ask": "Riverton billed $6,290.00; what number do you negotiate from, and why?"
     },
     "model": {
-      "say": "• Pro-rata picture on BI alone: $6,179.92 left after fee and costs\n• Split 23.35% to Peach State, $1,443.15, and 76.65% to Riverton Spine & Rehab, $4,736.77\n• $7,965.00 of liens overhang in red hatching; John Doe nets $0.00\n• Order of work: audit, correct, calculate, ask with authority, confirm in writing, update the Net Sheet"
+      "say": "• Pro-rata picture on BI alone: $6,179.92 left after fee and costs\n• Split 23.35% to Peach State, $1,443.15, and 76.65% to Riverton Spine & Rehab, $4,736.77\n• $7,965.00 of liens overhang in red hatching; John Doe nets $0.00\n• Order of work: audit, correct, calculate, ask with authority, confirm in writing, update the Net Sheet\n• Red flag: asking for a percentage off an inflated bill. Starting from $6,290.00 hands back the $185.00 the audit removes. Corrections first, reductions second."
     }
   },
   "d3m3-a1": {
@@ -274,14 +262,11 @@
     }
   },
   "d3m4-l2": {
-    "why": {
-      "say": "• Keystone's 08/14 draft released “all other persons, firms, corporations and insurers”\n• Unread, it would have released both UM carriers: $30,000\n• A release: the client gives up the right to sue in exchange for payment\n• Settled means the right release signed, every check cleared trust, every lien paid off in writing, ledger at $0.00\n• Red flag: disbursing against uncleared funds or an open lien notice. Hold it; a disputed share stays in trust until Atty. Thorne clears it."
-    },
     "doc": {
       "say": "• Limited Release: John Doe ends his BI claim, releasing Robert Smith and Keystone only, for the $10,000\n• Preserves the UM claims against Harbor Point and Cardinal State\n• Signed 08/28/2026, it is exhaustion proof in each UM demand\n• Keystone's 08/14 draft released all other insurers, $30,000 of UM coverage\n• Audit every line, quote overbroad words in a redline memo to Atty. Thorne, hold signature until both consents arrive"
     },
     "theory": {
-      "say": "• Road to zero: audit the release; both UM consents in writing before the BI release is signed\n• Show John how $40,000.00 becomes his net; deposit each check to IOLTA, the client trust account, when its release is signed\n• Disburse on Payoff Letters and Atty. Thorne's signature until the ledger reads $0.00\n• Closing documents: Release of All Claims, ending the right to sue; Settlement Disclosure Statement, gross to net\n• Satisfaction of Lien, the provider's signed paid letter; Dismissal With Prejudice where suit was filed"
+      "say": "• Keystone's 08/14 draft released “all other persons, firms, corporations and insurers”: unread, both UM carriers, $30,000\n• A release gives up the right to sue for payment; settled means signed, every check cleared, every lien paid off in writing, ledger $0.00\n• Road to zero: audit the release; both UM consents written before the BI release; show John how $40,000.00 becomes his net\n• Each check to IOLTA, the client trust account, once its release is signed; disburse on Payoff Letters and Atty. Thorne's signature\n• Closing documents: Release of All Claims; Settlement Disclosure Statement, gross to net\n• Satisfaction of Lien, the provider's signed paid letter; Dismissal With Prejudice if suit was filed"
     },
     "frame": {
       "say": "• Payout workflow in four stages, protecting accuracy, compliance and against fraud\n• Verification: confirm every condition precedent, each item required before money moves\n• Documentation: invoices and receipts readable and matching the claim\n• Authorization: Atty. Thorne approves and signs, never the Case Manager; reconciliation: confirm funds, mark Paid\n• On John Doe's file, all four land between 10/20 and 10/22/2026"

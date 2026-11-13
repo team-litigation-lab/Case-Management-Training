@@ -88,7 +88,16 @@ const microFrameworks = (b, c) => {
     opt("redFlag.see", r.see, 18); opt("redFlag.costs", r.costs, 18); opt("redFlag.do", r.do, 15);
     if(typeof r.owner !== "string" || !OWNERS.test(r.owner)) errors.push(`${id}.redFlag.owner: name the owner (Atty. Thorne or Case Manager), got ${JSON.stringify(r.owner)}`);
     // the slide that draws it where the lesson has no Why It Matters slide: The Rules unless `on` names another with room for it at full size
-    if(r.on !== undefined && !["theory", "theory2", "rules", "dodont"].includes(r.on)) errors.push(`${id}.redFlag.on: theory, theory2, rules or dodont (the slide with room for it at full size on a laptop), or omit for The Rules`);
+    if(r.on !== undefined && !["theory", "theory2", "frame", "map", "model", "rules", "dodont"].includes(r.on)) errors.push(`${id}.redFlag.on: theory, theory2, frame, map, model, rules or dodont (the slide with room for it at full size on a laptop), or omit for The Rules`);
+    // no slide of the lesson has room for it at full size: it is spoken, in the talking points for The Rules (scripts/assemble.cjs requires the point), not drawn
+    if(r.spoken !== undefined && r.spoken !== true) errors.push(`${id}.redFlag.spoken: true (no slide of the lesson has room for the Red Flag at full size on a laptop: it is in the trainer's talking points for The Rules) or omit`);
+    if(r.spoken && (r.on !== undefined || b.brief || c.whySlide)) errors.push(`${id}.redFlag.spoken: a Red Flag is drawn ("on", or a lesson that keeps its Why It Matters slide) or spoken, not both`);
+    // beside the points on The Rules, with four two-line points: they are drawn at the size they take beside a Rule vs. Exception box
+    if(r.tight !== undefined && r.tight !== true) errors.push(`${id}.redFlag.tight: true (The Rules draws its points a size smaller so the Red Flag fits beside them at full size) or omit`);
+    if(r.tight && (r.spoken || c.ruleEx || (r.on !== undefined && r.on !== "rules") || b.brief || c.whySlide)) errors.push(`${id}.redFlag.tight: only where the Red Flag is drawn beside the points on The Rules`);
+    if(r.on === "frame" && (b.compact || !(TH[id] || {}).framework)) errors.push(`${id}.redFlag.on: the lesson has no The Framework slide`);
+    if(r.on === "map" && !(c.roadmap && !c.roadmap.merge)) errors.push(`${id}.redFlag.on: the lesson has no The Roadmap slide`);
+    if(r.on === "model" && (b.compact || !b.show)) errors.push(`${id}.redFlag.on: the lesson has no See It slide`);
     if(r.on !== undefined && (b.brief || c.whySlide)) errors.push(`${id}.redFlag.on: the lesson keeps its Why It Matters slide, and the Red Flag is drawn there; take "on" out`);
     if(r.on === "theory2" && (b.compact || ((TH[id] || {}).concepts || []).length <= 4)) errors.push(`${id}.redFlag.on: the lesson has no The Theory, Continued slide`);
     if(r.on === "dodont" && (b.compact || b.noGame || !(b.best || []).length)) errors.push(`${id}.redFlag.on: the lesson has no Do & Don't slide`);
@@ -157,6 +166,12 @@ for (const day of CF.days) {
       if(c.whySlide !== undefined && c.whySlide !== true) errors.push(`${b.id}.whySlide: true (the lesson keeps its Why It Matters slide: its Theory slide has no room for the opening line, or no slide has room for its Red Flag, at full size on a laptop) or omit`);
       if(c.whySlide && b.brief) errors.push(`${b.id}.whySlide: a brief lesson has no Theory slide and always keeps Why It Matters; take it out`);
       if(/^\*\*[^*]+?[.!?:]\*\*\s+\S/.test(String(c.hook || "")) && !b.brief && !c.whySlide) errors.push(`${b.id}.hook: a hook that opens The Theory is one sentence (only its bold first sentence would be drawn)`);
+      // the opening line of The Theory where the hook would wrap: one sentence, at most 14 words (the full hook is then in the theory's talking points)
+      if(c.whyLine !== undefined){
+        line(b.id, "whyLine", c.whyLine, 14);
+        if(b.brief || c.whySlide) errors.push(`${b.id}.whyLine: the lesson keeps its Why It Matters slide, which shows the hook; take "whyLine" out`);
+        if(/[.!?]\s+\S/.test(String(c.whyLine).replace(/\*\*/g, "").replace(/\b(Atty|Dr|Hon|Esq|Ret|v|vs)\./g, "$1"))) errors.push(`${b.id}.whyLine: one sentence`);
+      }
       microFrameworks(b, c);
       if((b.best || []).length){ list(b.id, "dos", c.dos, 2, 3, 10); list(b.id, "donts", c.donts, 2, 3, 10); }
       const t = theory(b); if(t) out[b.id] = Object.assign({}, c, {theory: t});

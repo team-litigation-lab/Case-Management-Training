@@ -61,7 +61,7 @@
       ]
     },
     "hook": "The LOR moves every carrier onto the firm; one wrong letter risks **$30,000 of UM coverage**.",
-    "whySlide": true,
+    "whyLine": "One wrong Letter of Representation risks **$30,000 of UM coverage**.",
     "points": [
       "Name the **right insured** on each: Robert Smith, Kevin Alvarez, Margaret Doe",
       "Notify **all three stack carriers** now: late notice hands them a defense",
@@ -80,6 +80,7 @@
       "A **guessed adjuster name** for Cardinal State"
     ],
     "redFlag": {
+      "tight": true,
       "see": "A UM notice letter that **asks for payment** before any BI tender",
       "costs": "Notice is not demand: a premature UM demand puts $30,000 of the stack at risk",
       "do": "Send notice only; **payment requests wait** for the documented BI tender",
@@ -425,7 +426,6 @@
       ]
     },
     "hook": "The gap explanation that holds up is **John Doe's own**, backed by documents.",
-    "whySlide": true,
     "points": [
       "Investigate, don't advocate: write **questions only**, never expected answers",
       "Funnel: **open first**, closed questions last, one at a time",
@@ -450,6 +450,7 @@
       "confirm": "Atty. Thorne handles first-party carrier requests"
     },
     "redFlag": {
+      "spoken": true,
       "see": "A leading question: **'Was it because you had no car?'**",
       "costs": "It buys agreement, not information, and the account stops being his",
       "do": "Ask open: 'What got in the way?' Then **log his exact words**",
@@ -598,7 +599,6 @@
   "d2m4-l1": {
     "image": "checklist-qa",
     "hook": "Most value is won or lost here: the demands spend only **what this audit proves**.",
-    "whySlide": true,
     "points": [
       "MMI is **a medical determination**; record it from the 06/12/2026 note",
       "BI Specials are **medical plus wages**; the Civic runs separately",
@@ -622,6 +622,7 @@
       "confirm": "Atty. Thorne decides billed versus paid"
     },
     "redFlag": {
+      "spoken": true,
       "see": "A Riverton ledger line, **05/04/2026**, that no visit note supports",
       "costs": "Claiming it inflates the Specials and gives Keystone a reason to doubt the ledger",
       "do": "Remove it; **send the billing correction** to the provider in writing",
@@ -982,7 +983,6 @@
       ]
     },
     "hook": "A fact the file relies on is proven by **the person who knows it**, under oath.",
-    "whySlide": true,
     "points": [
       "Smith swears **no other insurance**: the condition for the limit",
       "John's **residency** keeps Relative UM; sworn if a carrier asks",

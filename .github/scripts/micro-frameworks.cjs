@@ -8,12 +8,16 @@
 // has that view either, and those lessons draw no rail (their steps are in the trainer's talking points for The
 // Rules). A Milestone rail is drawn only on The Framework or The Rules, in the lessons SPEC gives one ("ms").
 // Why It Matters is no slide of its own in a lesson that has The Theory: that slide opens with a "💡 Why it matters"
-// line (the lesson's hook), above the theory's lead and every concept card, at full size on a laptop (no scaling, no
-// type under 16px or lighter than bold, no card cut off). The CM Red Flag that sat on Why It Matters is drawn once, at
-// full size, on The Rules (under the points, or beside them in the picture's place), Do & Don't or The Theory,
-// Continued. A lesson keeps its Why It Matters slide only where it has no Theory slide (a brief lesson) or where it is
-// listed in KEEPS below with the reason: its Theory slide has no room for the line, or no slide of the lesson has room
-// for its Red Flag, at full size on a laptop.
+// line (the lesson's hook, or the copy's shorter whyLine where the hook would wrap: the full hook is then in the slide's
+// talking points, which build/case-flow/scripts/assemble.cjs requires), above the theory's lead and every concept card,
+// at full size on a laptop (no scaling, no type under 16px or lighter than bold, no card cut off, the line on one
+// line). A lesson whose Theory carries its merged roadmap draws the roadmap's steps down the left and the theory beside
+// them, to the same standard. The CM Red Flag that sat on Why It Matters is drawn once, at full size, on The Rules
+// (under the points, or beside them in the picture's place), Do & Don't, The Theory, Continued or See It, with nothing
+// beside it covered or cut off; where no slide of the lesson can take it at full size it is spoken, not drawn (SPOKEN
+// below): no slide draws it and the trainer's talking points for The Rules carry a "Red flag" point. A lesson keeps
+// its Why It Matters slide only where it has no Theory slide (a brief lesson); KEEPS, the list of lessons with a
+// Theory slide that keep it, is empty, and a lesson that keeps the slide without being listed there fails.
 // Usage: node .github/scripts/micro-frameworks.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -33,13 +37,22 @@ const SPEC = {
   'd4m2-l1': 'rx rf', 'd4m2-um': 'rx rf', 'd4m2-l2': 'rx rf', 'd4m3-l1': 'rf', 'd4m3-l2': 'rx rf', 'd4m3-prior': 'rx', 'd4m3-tx': 'ms rf',
   'd4m1-l1': 'rf', 'd4m1-l2': 'rf', 'd5m1-l1': 'rf', 'd5m4-l2': 'rf', 'd5m3-l2': 'rf', 'd5m1-subp': 'rf', 'd5m2-l1': 'rf', 'd5m6-l1': 'rf'
 };
-// the lessons with a Theory slide that keep their Why It Matters slide, and why (a lesson not listed here must open
-// The Theory with it; a lesson listed here that no longer needs the slide must come off the list)
-const KEEPS = {
-  // The Theory already carries the lesson's roadmap strip (or the hook runs to two lines): no room for the line at full size
-  'd1m3-l1': 'theory', 'd1m2-l1': 'theory', 'd2m1-afd': 'theory', 'd2m1-l1': 'theory', 'd2m3-l1': 'theory', 'd3m1-l1': 'theory', 'd3m3-l2': 'theory', 'd3m4-l2': 'theory', 'd4m2-l2': 'theory',
-  // no slide of the lesson has room for its CM Red Flag at full size (The Rules is full, and it has no Do & Don't)
-  'd1m1-role': 'red flag', 'd1m4-tmap': 'red flag', 'd1m4-tcare': 'red flag', 'd2m4-l1': 'red flag', 'd3m1-l2': 'red flag', 'd3m2-l2': 'red flag', 'd4m2-l1': 'red flag'
+// the lessons with a Theory slide that keep their Why It Matters slide, and why: none (a lesson not listed here must
+// open The Theory with it; a lesson listed here that no longer needs the slide must come off the list)
+const KEEPS = {};
+// Red Flag spoken, not drawn: no slide of the lesson has room for it at full size on a laptop, so its text is in the
+// trainer's talking points for The Rules. The copy says "spoken": true; the point must exist. Measured at 1366x768
+// (the slide's card is 468px tall, the flag 126px) with the flag on each of the lesson's slides in turn: how far the
+// slide then runs over (and the scale it would be shown at), how much taller its concept cards would need to be, or
+// how much of the slide's own content the flag covers.
+const SPOKEN = {
+  'd1m1-role': 'The Rules (with Rule vs. Exception) runs over by 94px (0.8); The Framework by 109px (0.85); The Theory: each concept card 67px short; See It: the flag covers 28px of the board',
+  'd1m4-tmap': 'The Rules (with Rule vs. Exception) runs over by 116px (0.8); The Theory: each concept card 67px short; the lesson has no other slide',
+  'd1m4-tcare': 'The Rules (with Rule vs. Exception) runs over by 84px (0.85); The Roadmap by 15px (0.95); The Theory: each concept card 39px short',
+  'd2m3-l1': 'The Rules (with Rule vs. Exception) runs over by 84px (0.85); The Theory (with its roadmap): the flag covers 88px of the cards; the lesson has no other slide',
+  'd2m4-l1': 'The Rules (with Rule vs. Exception) runs over by 93px (0.85); The Framework by 125px (0.85); The Theory: each card 67px short; The Theory, Continued: 24px short; See It: the flag covers 51px of the table',
+  'd3m2-l2': 'The Rules (with Rule vs. Exception) runs over by 75px (0.85); The Theory: each concept card 67px short; the lesson has no other slide',
+  'd4m2-l1': 'The Rules (with Rule vs. Exception) runs over by 108px (0.85); The Theory: each concept card 39px short; The Document is scaled to 0.95 without it'
 };
 (async () => {
   const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
@@ -51,7 +64,8 @@ const KEEPS = {
   const r = await page.evaluate(async (SPEC) => {
     const sleep = ms => new Promise(r => setTimeout(r, ms));
     state.isAdmin = true; { const kt = document.getElementById('ktLogin'); if (kt) kt.remove(); }
-    const seen = {}, out = [], count = { slides: 0, rails: 0, opens: 0, whySlides: 0 }, lessons = {};
+    const seen = {}, out = [], count = { slides: 0, rails: 0, opens: 0, whySlides: 0, shortLines: 0, roads: 0 }, lessons = {}, spoken = {};
+    const scripts = window.CM_CF_SCRIPTS || {};
     const plain = t => String(t || '').replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
     const zoomOf = el => { let z = 1; for (let n = el; n && n.style; n = n.parentElement) if (n.style.zoom) z *= Number(n.style.zoom) || 1; return z; };
     for (const d of DAYS) {
@@ -72,6 +86,8 @@ const KEEPS = {
         if (view === 'job' || view === 'steps' || !view) out.push(`${where}: ${view === 'job' ? 'an On the Job slide (the view is gone)' : view ? 'a Milestone Steps slide (the view is gone)' : 'a slide with no view'}`);
         // Why It Matters: the opening of The Theory, or a slide of its own (a lesson with no Theory slide, or one the check lists)
         const vs = cmCaseFlow.viewsOf(b), L = lessons[b.id] = lessons[b.id] || { theory: vs.includes('theory'), why: vs.includes('why'), opens: 0 };
+        const cp = (window.CM_CF_SLIDES || {})[b.id] || {};
+        if (cp.redFlag && cp.redFlag.spoken && !vs.includes('why')) spoken[b.id] = /^• Red flag\b/m.test(((scripts[b.id] || {}).rules || {}).say || '');
         if (view === 'why') count.whySlides++;
         if (view === 'why' && wrap.querySelector('.cfx-whyline')) out.push(`${where}: a Why It Matters slide that also draws the opening line of The Theory`);
         if (view !== 'theory' && wrap.querySelector('.cfx-whyline')) out.push(`${where}: the 💡 Why it matters line belongs on The Theory, not on ${view}`);
@@ -81,7 +97,19 @@ const KEEPS = {
           else {
             L.opens++; count.opens++;
             if (!/why it matters/i.test((band.querySelector('.cfx-whyline-k') || {}).textContent || '')) out.push(`${where}: the opening line isn't labelled "Why it matters"`);
-            if (plain((band.querySelector('.cfx-whyline-t') || {}).textContent) !== plain(copy.hook)) out.push(`${where}: the opening line should be the lesson's hook ("${plain(copy.hook)}"); it reads "${plain((band.querySelector('.cfx-whyline-t') || {}).textContent)}"`);
+            const lineT = band.querySelector('.cfx-whyline-t'), wantLine = plain(copy.whyLine || copy.hook);
+            if (plain((lineT || {}).textContent) !== wantLine) out.push(`${where}: the opening line should be the lesson's ${copy.whyLine ? 'whyLine' : 'hook'} ("${wantLine}"); it reads "${plain((lineT || {}).textContent)}"`);
+            if (copy.whyLine) { count.shortLines++;   // a shorter line than the hook: the full hook is said on this slide (its talking points)
+              if (!plain(((scripts[b.id] || {}).theory || {}).say).toLowerCase().includes(plain(copy.hook).replace(/\.$/, '').toLowerCase())) out.push(`${where}: the opening line is shorter than the hook, and the hook ("${plain(copy.hook)}") isn't in The Theory's talking points`); }
+            if (lineT) { const rg = document.createRange(); rg.selectNodeContents(lineT); const rows = new Set([...rg.getClientRects()].map(r => Math.round(r.top / 4))).size;
+              if (rows > 1) out.push(`${where}: the 💡 Why it matters line wraps onto ${rows} lines (one line: give the lesson a shorter whyLine)`); }
+            // a merged roadmap: its steps down the left, none cut off
+            const road = wrap.querySelector('.cfx-map-strip');
+            if (road) { count.roads++;
+              if (!wrap.querySelector('.cfx-th-road .cfx-th-cols')) out.push(`${where}: The Theory carries its roadmap and the opening line, but not the roadmap-beside-the-theory layout`);
+              const rr = road.getBoundingClientRect(), n = (copy.roadmap || {}).steps ? copy.roadmap.steps.length : 0, lis = [...road.querySelectorAll(':scope > li')];
+              if (lis.length !== n) out.push(`${where}: the roadmap shows ${lis.length} steps (want ${n})`);
+              if (lis.some(li => li.getBoundingClientRect().bottom > rr.bottom + 1 || li.scrollWidth > li.clientWidth + 1) || road.scrollHeight > road.clientHeight + 1) out.push(`${where}: a step of the roadmap is cut off`); }
             const first = [...band.parentElement.children].find(c => c.getBoundingClientRect().height > 0);
             if (first !== band) out.push(`${where}: the 💡 Why it matters line should open the slide (it comes after ${first ? first.className : 'nothing'})`);
             if (!wrap.querySelector('.cfx-th-lead')) out.push(`${where}: The Theory lost its lead`);
@@ -114,9 +142,18 @@ const KEEPS = {
         const got = seen[b.id] = seen[b.id] || {};
         rf.forEach(x => {
           got.rf = (got.rf || 0) + 1; got.rfOn = view;
-          // the Red Flag's slide: Why It Matters where the lesson keeps that slide; otherwise The Rules, Do & Don't or The Theory, Continued, at full size
-          if (vs.includes('why') ? view !== 'why' : !['rules', 'dodont', 'theory', 'theory2'].includes(view)) out.push(`${where}: the CM Red Flag is on ${view} (want ${vs.includes('why') ? 'Why It Matters, which this lesson keeps' : "The Rules, Do & Don't or The Theory"})`);
+          // the Red Flag's slide: Why It Matters where the lesson keeps that slide; otherwise The Rules, Do & Don't, The Theory('s second slide) or See It, at full size
+          if (vs.includes('why') ? view !== 'why' : !['rules', 'dodont', 'theory', 'theory2', 'model'].includes(view)) out.push(`${where}: the CM Red Flag is on ${view} (want ${vs.includes('why') ? 'Why It Matters, which this lesson keeps' : "The Rules, Do & Don't, The Theory or See It"})`);
+          if (cp.redFlag && cp.redFlag.spoken && !vs.includes('why')) out.push(`${where}: the lesson's CM Red Flag is marked spoken, not drawn, and a slide draws it`);
           if (!vs.includes('why') && zoomOf(x) < 1) out.push(`${where}: the slide that took the CM Red Flag from Why It Matters (${view}) is scaled down to ${zoomOf(x)} on a laptop (it should hold it at full size)`);
+          if (!vs.includes('why')) {   // and nothing on that slide is covered by the flag or pushed off the slide by it
+            const rb = x.getBoundingClientRect(), sb = (wrap.querySelector('.cfx-sheet') || wrap).getBoundingClientRect();
+            for (const el of (wrap.querySelector('.cfx-sheet') || wrap).querySelectorAll('*')) {
+              if (x.contains(el) || el.contains(x) || el.closest('svg') || !el.getClientRects().length || ![...el.childNodes].some(t => t.nodeType === 3 && t.textContent.trim())) continue;
+              const r = el.getBoundingClientRect(), under = r.right > rb.left + 1 && r.left < rb.right - 1 ? Math.min(r.bottom, rb.bottom) - Math.max(r.top, rb.top) : 0;
+              if (under > 4 || r.bottom > sb.bottom + 2) { out.push(`${where}: on ${view}, "${el.textContent.trim().slice(0, 30)}" is ${under > 4 ? 'covered by the CM Red Flag' : 'pushed off the slide'} (the slide has no room for the flag at full size)`); break; }
+            }
+          }
           const own = x.querySelector('.cfx-rf-own'), txt = own ? own.textContent.replace(/^Owner:\s*/, '').trim() : '';
           if (!txt) out.push(`${where}: a CM Red Flag with no owner`);
           if (x.getAttribute('role') !== 'note' || x.getAttribute('aria-label') !== 'CM Red Flag' || !x.querySelector('svg')) out.push(`${where}: the CM Red Flag needs role="note", its label and its flag icon`);
@@ -143,7 +180,7 @@ const KEEPS = {
         }
       }
     }
-    return { seen, out, count, lessons };
+    return { seen, out, count, lessons, spoken };
   }, SPEC);
   failures.push(...r.out);
   // every lesson with a Theory slide opens it with why it matters, and has no Why It Matters slide, unless it is listed in KEEPS
@@ -157,17 +194,27 @@ const KEEPS = {
   }
   for (const id of Object.keys(KEEPS)) if (!r.lessons[id]) failures.push(`${id}: listed in KEEPS, and no such lesson is taught`);
   if (!merged.length) failures.push('no lesson opens The Theory with why it matters');
+  if (kept.length) failures.push(`${kept.length} lesson(s) with a Theory slide keep a Why It Matters slide (${kept.join(', ')}): none should`);
   for (const [id, got] of Object.entries(r.seen)) if (got.rf > 1) failures.push(`${id}: its CM Red Flag is drawn on ${got.rf} slides (one)`);
+  // Red Flag spoken, not drawn: the copy and the list agree, no slide draws it, and the talking point exists
+  for (const id of Object.keys(SPOKEN)) {
+    if (!(id in r.spoken)) failures.push(`${id}: listed as Red Flag spoken, not drawn, but its copy doesn't say "spoken": true (or it keeps a Why It Matters slide)`);
+    else if (!r.spoken[id]) failures.push(`${id}: its CM Red Flag is spoken, not drawn, and the talking points for The Rules have no "Red flag" point`);
+    if ((r.seen[id] || {}).rf) failures.push(`${id}: listed as Red Flag spoken, not drawn, and a slide draws it: take it off the list`);
+    if (!/\brf\b/.test(SPEC[id] || '')) failures.push(`${id}: listed as Red Flag spoken, not drawn, but the spec gives it no Red Flag`);
+  }
+  for (const id of Object.keys(r.spoken)) if (!SPOKEN[id]) failures.push(`${id}: its copy says the CM Red Flag is spoken, not drawn; list it in SPOKEN with the measurements that forced it`);
   let n = 0;
   for (const [id, want] of Object.entries(SPEC)) {
     const got = r.seen[id];
     if (!got) { failures.push(`${id}: not on any slide`); continue; }
-    for (const k of want.split(' ')) { if (!got[k]) failures.push(`${id}: its ${{ rf: 'CM Red Flag', rx: 'Rule vs. Exception', ms: 'Milestone Steps' }[k]} isn't drawn`); else n++; }
+    for (const k of want.split(' ')) { if (k === 'rf' && SPOKEN[id]) { n++; continue; }   // spoken, not drawn (checked above)
+      if (!got[k]) failures.push(`${id}: its ${{ rf: 'CM Red Flag', rx: 'Rule vs. Exception', ms: 'Milestone Steps' }[k]} isn't drawn`); else n++; }
   }
   await browser.close();
   const railsWant = Object.values(SPEC).filter(v => /\bms\b/.test(v)).length;
   if (r.count.rails !== railsWant) failures.push(`${r.count.rails} Milestone rails are drawn; the spec gives ${railsWant} lessons one`);
   if (failures.length) { console.log(`${failures.length} problem(s):`); failures.slice(0, 80).forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
   const homes = {}; Object.entries(r.seen).forEach(([id, g]) => { if (g.rfOn) homes[g.rfOn] = (homes[g.rfOn] || 0) + 1; });
-  console.log(`Micro-frameworks: ${Object.keys(SPEC).length} lessons, ${n} frameworks drawn on their slides (${r.count.rails} Milestone rails, on The Framework or The Rules; no lesson has a Milestone Steps slide), one Red Flag a slide at most, every Red Flag with its owner, type ≥ 16px and bold at 1366x768; none of the ${r.count.slides} slides draws a Trigger ➔ Task ➔ Tool ➔ Checkpoint row. Why It Matters: ${merged.length} lessons open The Theory with it (at full size, no type under 16px, no card cut off) and have no such slide; ${kept.length} lessons with a Theory slide keep the slide (listed, with the reason) and ${briefs.length} have no Theory slide; the Red Flag is on ${Object.entries(homes).map(([v, k]) => `${v} ${k}`).join(', ')}`);
+  console.log(`Micro-frameworks: ${Object.keys(SPEC).length} lessons, ${n} frameworks (${Object.keys(SPOKEN).length} Red Flags spoken, not drawn: their point is in the talking points for The Rules; the rest drawn on their slides; ${r.count.rails} Milestone rails, on The Framework or The Rules; no lesson has a Milestone Steps slide), one Red Flag a slide at most, every Red Flag with its owner, type ≥ 16px and bold at 1366x768; none of the ${r.count.slides} slides draws a Trigger ➔ Task ➔ Tool ➔ Checkpoint row. Why It Matters: ${merged.length} lessons open The Theory with it (one line, at full size, no type under 16px, no card cut off; ${r.count.roads} with their roadmap beside the theory, ${r.count.shortLines} with a shorter line and the hook in the talking points) and have no such slide; ${kept.length} lessons with a Theory slide keep the slide and ${briefs.length} have no Theory slide; the Red Flag is drawn on ${Object.entries(homes).map(([v, k]) => `${v} ${k}`).join(', ')}`);
 })();
