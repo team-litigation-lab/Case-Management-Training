@@ -465,6 +465,12 @@ function profileTable(sc){
     <tr><td colspan="3" class="bs-pt-f"><a href="#" onclick="cmRubric.open();return false" class="bs-pt-rlink">📐 Open the Feedback Rubric</a>: the tiers, each dimension's descriptors, the critical items and which grading system feeds which dimension.</td></tr>
   </tbody></table>`;
 }
+/* A trainer's card names its trainee in a dropdown: every trainee shown (the batch picked above), to go straight to
+   another one's card from the card itself. Choosing a name shows that trainee's card by itself. */
+function whoPick(r){
+  const rows = shownRows();
+  return `<b class="bs-pt-who"><select aria-label="Trainee: choose a name to open their card" title="Choose a name to open that trainee's card" onchange="cmScorecard.only(this.value)">${rows.map(o => `<option value="${E(o.id)}" ${o.id === r.id ? "selected" : ""}>${E(o.name)}</option>`).join("")}${ALL.only ? `<option value="">Every trainee's card</option>` : ""}</select></b>`;
+}
 function cardHtml(r, me){
   const m = r.m, why = {
     overall: m.overall == null ? "Nothing scored yet" : `Overall = the average of the Scorecard ${mpct(m.final)} and the Daily compliance ${mpct(m.comp)} = ${m.overall}%`,
@@ -473,7 +479,7 @@ function cardHtml(r, me){
   const pills = [["Overall", m.overall, why.overall], ["Scorecard", m.final, why.final], ["Daily compliance", m.comp, why.comp]];
   const rtone = m.status === "pass" ? "gs-hi" : m.status === "pending" ? "gs-mid" : m.status === "none" ? "" : "gs-lo";
   return `<div class="bs-pt${!me && ALL.pick === r.id ? " bs-pt-on" : ""}" id="bs-pt-${domId(r.id)}" data-id="${E(r.id)}">
-    <div class="bs-pt-h"><b>${E(r.name)}</b>${!me && r.batch ? `<i>${E(batchOf(r.batch))}</i>` : ""}
+    <div class="bs-pt-h">${me ? `<b>${E(r.name)}</b>` : whoPick(r)}${!me && r.batch ? `<i>${E(batchOf(r.batch))}</i>` : ""}
       ${pills.map(([l, v, f]) => `<span class="bs-pt-k ${MODEL.mtone(v)}" title="${E(f)}">${E(l)} <b>${mpct(v)}</b></span>`).join("")}
       <span class="bs-pt-k bs-pt-r ${rtone}" title="Pass = Final ≥ ${MODEL.PASS}% and the safety gate at 100%">${m.tier ? E(m.tier.label) + " · " : ""}<b>${E(MODEL.STATUS[m.status])}</b></span></div>
     ${focusHtml(m)}
@@ -627,6 +633,8 @@ css.textContent = `
 .bs-pt{border:1px solid #DDE1EC;border-radius:12px;background:#fff;scroll-margin-top:80px;} .bs-pt.bs-pt-on{box-shadow:0 0 0 3px #DB8437;}
 .bs-pt-h{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px 14px;padding:14px 16px;background:linear-gradient(135deg,#1E2340,#33406B);color:#fff;border-radius:11px 11px 0 0;font:600 18px 'Poppins','Inter',Arial,sans-serif;}
 .bs-pt-h > b{color:#fff;font:800 24px 'Poppins','Inter',Arial,sans-serif;margin-right:6px;} .bs-pt-h > i{color:#FFD9A8;font-style:normal;font-weight:700;font-size:15px;}
+.bs-pt-who select{font:800 24px 'Poppins','Inter',Arial,sans-serif;color:#fff;background:#2B3560;border:2px solid rgba(255,255,255,.6);border-radius:10px;padding:4px 12px;max-width:min(520px,80vw);cursor:pointer;}
+.bs-pt-who select:hover,.bs-pt-who select:focus{border-color:#DB8437;outline:none;} .bs-pt-who option{color:#1E2340;background:#fff;font-weight:700;font-size:16px;}
 .bs-pt-k{display:inline-flex;align-items:baseline;gap:7px;padding:5px 14px;border-radius:999px;background:#fff;border:2px solid #C9D1E6;color:#1E2340 !important;font:700 16px 'Poppins','Inter',Arial,sans-serif;}
 .bs-pt-k b{font-size:22px;color:#1E2340;} .bs-pt-k.bs-pt-r b{font-size:17px;}
 .bs-pt-k.gs-hi{background:#E6F4EA;border-color:#1E8E3E;} .bs-pt-k.gs-hi b{color:#0B5D1E;}

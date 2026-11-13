@@ -158,6 +158,7 @@
       "confirm": "Atty. Thorne confirms the governing court rule"
     },
     "redFlag": {
+      "spoken": true,
       "see": "**15 RFAs** docketed inside the general discovery entry",
       "costs": "Unanswered RFAs may be deemed admitted",
       "do": "Give them **their own calendar entry** and alerts; tell Atty. Thorne",
@@ -190,6 +191,7 @@
       "confirm": "Atty. Thorne analyzes the route"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "The UM route **docketed off the tort SOL**",
       "costs": "A route carries its own clock, and the wrong date misses it",
       "do": "Docket only from **Atty. Thorne's written answer**",
@@ -228,6 +230,7 @@
   "d4m2-l2": {
     "image": "mediation-table",
     "hook": "Hon. Carla Benton (Ret.) helps parties agree; **Laura Whitcomb, Esq. decides**, with almost no appeal.",
+    "whyLine": "A mediator helps the parties agree; **an arbitrator decides**, with almost no appeal.",
     "roadmap": {
       "title": "Standard Case Progression Roadmap",
       "merge": true,
@@ -256,23 +259,13 @@
       "**“Helpfully” answering the arbitrator** directly",
       "Logging bench directives **the next day from memory**"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "What happens in the room",
-      "steps": [
-        {"label": "Joint session", "done": "Optional; **the mediator sets it**"},
-        {"label": "Private caucus", "done": "Only **the mediator carries messages** between rooms"},
-        {"label": "Shuttle moves", "done": "Offers and demands carried between rooms, **each logged**"},
-        {"label": "Bracket", "done": "A conditional pair **from counsel**, never a Case Manager's number"},
-        {"label": "Term sheet", "chip": "03/18/2027", "done": "**Terms in writing** before anyone leaves (RS59)"}
-      ]
-    },
     "ruleEx": {
       "rule": "The Golden Rule: the Case Manager **never argues, speaks on the record or represents** John Doe",
       "exception": "None. Asked about a bill, say **'I'm the Case Manager providing administrative assistance'** and hand it to Atty. Thorne",
       "confirm": "Atty. Thorne speaks for John"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "**A number spoken by you** in caucus",
       "costs": "It's an offer: brackets, ranges and authority belong to Atty. Thorne and John Doe",
       "do": "Log every move (time, who, what); **keep the draft release ready**",
@@ -371,19 +364,8 @@
       "A snapshot sheet with **stale opposing-counsel contacts**",
       "The confidential statement sent **ten minutes before the session**"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "Six sections, one Master Index",
-      "steps": [
-        {"label": "Executive summary", "done": "Summary and **admin up front**"},
-        {"label": "Briefs", "chip": "03/11/2027", "done": "Ours goes **to the mediator only**"},
-        {"label": "Core pleadings", "chip": "11/12/2026", "done": "The 09/24/2026 complaint and **the answer**"},
-        {"label": "Key evidence", "done": "RPD-26-018842, Ruth Calloway, **doorbell stills**, EMS, EDR"},
-        {"label": "Damages", "done": "$14,817.40 + $1,584.00 = **$16,401.40**; Riverton at $6,105.00"},
-        {"label": "Settlement history", "chip": "08/12/2026", "done": "**Baseline $3,500** and the draft release"}
-      ]
-    },
     "redFlag": {
+      "on": "dodont",
       "see": "The binder carrying **Riverton at $6,290.00**",
       "costs": "Medical then reads $15,002.40, and Keystone already calls the ledger unverified",
       "do": "Use the audited **$6,105.00** and re-run the Damages totals",
@@ -667,16 +649,6 @@
       "Telling John Doe a late bill is **“not our problem”**",
       "Destroying financial records **before the retention date**"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "Four sets before archive",
-      "steps": [
-        {"label": "Money trail", "chip": "10/22/2026", "done": "$40,000.00 in; every payment out; **ledger at $0.00**"},
-        {"label": "Satisfactions", "done": "Every satisfaction plus **John's acknowledgment of receipt**"},
-        {"label": "Payer disclosure", "done": "PIP $5,000.00, Peach State $1,860.00, John $312.40; **current W-9**"},
-        {"label": "Closing memo", "chip": "10/30/2026", "done": "Filed; **retention 7 years**"}
-      ]
-    },
     "redFlag": {
       "see": "An email **changing the wiring instruction** for a payment",
       "costs": "Money wired on an unverified change may never come back",

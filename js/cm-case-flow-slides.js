@@ -28,6 +28,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne makes the decision"
   },
   "redFlag": {
+   "spoken": true,
    "see": "A note to Atty. Thorne with **'Update'** as its subject line",
    "costs": "The buried ask waits in his inbox, and the SOL (02/06/2028) does not",
    "do": "Rewrite the subject and first line as **the decision and its deadline**",
@@ -125,6 +126,7 @@ window.CM_CF_SLIDES = {
    "Treating the gap as **the client's fault**"
   ],
   "redFlag": {
+   "on": "dodont",
    "see": "A Case Snapshot field with no named source document, even **the client's seat**",
    "costs": "An unverified field becomes the file's fact, and a wrong seat reaches the wrong policies",
    "do": "Name each field's document (RS01, RS07); mark the rest **not yet verified**",
@@ -219,28 +221,6 @@ window.CM_CF_SLIDES = {
    "Guessing a value **“off the record”**",
    "Coaching him on **what to tell an adjuster**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "When a question crosses the line",
-   "steps": [
-    {
-     "label": "Hear it out",
-     "done": "John finishes the question **in his own words**"
-    },
-    {
-     "label": "Log it verbatim",
-     "done": "His exact words are in **CMS → Case Notes**"
-    },
-    {
-     "label": "Route it, decision first",
-     "done": "The note reaches Atty. Thorne **the same day**"
-    },
-    {
-     "label": "Set his expectation",
-     "done": "John knows **when to expect** Atty. Thorne's answer"
-    }
-   ]
-  },
   "ruleEx": {
    "rule": "Tell John **what is, and what happens next**: facts and process are yours to give",
    "exception": "**'What does it mean for me?'** is Atty. Thorne's: 'That's his call; I'll get it to him today.'",
@@ -248,6 +228,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne answers value and strategy"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "You hear yourself tell John **'Don't worry, you'll be fine'**",
    "costs": "That is advice: it predicts his outcome, and only Atty. Thorne may",
    "do": "Stop, log his question word for word, and **route it the same day**",
@@ -338,33 +319,6 @@ window.CM_CF_SLIDES = {
    "Running the Conflict Check on **a nickname or partial name**",
    "Accepting a case because intake **“mostly” looks fine**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "The SOL docket, calculated",
-   "steps": [
-    {
-     "label": "DOL confirmed",
-     "chip": "02/06/2026",
-     "done": "The date matches RS07, **the Police Report**"
-    },
-    {
-     "label": "SOL calculated",
-     "chip": "02/06/2028",
-     "done": "The **two-year limitation** configured for this training file applied"
-    },
-    {
-     "label": "Hard date set",
-     "chip": "02/04/2028",
-     "done": "SOL is a Sunday: **no weekend roll-forward**, so Friday"
-    },
-    {
-     "label": "Filing cutoff set",
-     "chip": "11/05/2027",
-     "done": "90 days earlier; Saturday 11/06/2027 **moves back to Friday**"
-    }
-   ],
-   "note": "Done when all four dates are on **CMS → Calendar** with reminders"
-  },
   "ruleEx": {
    "rule": "Count from **the date of loss**, confirmed on the Police Report, never from intake",
    "exception": "**The governing statute decides** tolling, a minor or a government defendant; you never shorten or extend a limitation",
@@ -372,6 +326,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne confirms the governing statute"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "The SOL counted from **the intake date, 02/09/2026**",
    "costs": "It dockets 02/09/2028: three days past the limit",
    "do": "Recount from the DOL on RS07; **docket all three dates** in CMS → Calendar",
@@ -571,42 +526,6 @@ window.CM_CF_SLIDES = {
    "Letting a file sit **without logging attempts**",
    "Blaming the client for **process gaps**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "No Contact Protocol, Steps 1–3",
-   "steps": [
-    {
-     "label": "Internal review",
-     "chip": "02/13/2026",
-     "done": "Last contact 02/10; check-in missed; **no treatment start** on file"
-    },
-    {
-     "label": "Phone attempts",
-     "chip": "02/11–02/16/2026",
-     "done": "Calls 02/11, 02/13 and 02/16, **each logged** with its time"
-    },
-    {
-     "label": "Email and text",
-     "chip": "02/16/2026",
-     "done": "Email asks him to **call by 02/18**; text sent 9:35 a.m."
-    },
-    {
-     "label": "Emergency contact",
-     "chip": "02/16/2026",
-     "done": "Margaret Doe gets **a message, never the case**, 11:05 a.m."
-    },
-    {
-     "label": "Second email",
-     "chip": "02/18/2026",
-     "done": "Asks him to **call by 02/20/2026**"
-    },
-    {
-     "label": "Team notification",
-     "chip": "02/20/2026",
-     "done": "Atty. Thorne told at 4:30 p.m., **with the case impact**"
-    }
-   ]
-  },
   "ruleEx": {
    "rule": "Escalate **by channel, not by volume**: every attempt logged with date, time, channel and outcome",
    "exception": "The emergency contact gets **a message, never the case**: 'Please have John call us by 02/18/2026.'",
@@ -614,6 +533,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne decides what follows Step 3"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "Voicemails left **02/11 and 02/13** that never reached the Communications Log",
    "costs": "An unlogged attempt did not happen: the ladder can't show the attempts were made",
    "do": "Log each attempt now **with date, time, channel and outcome**",
@@ -762,6 +682,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne decides and tells John"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "A draft letter saying **'we are withdrawing'** or 'you will lose your case'",
    "costs": "It announces a decision only Atty. Thorne can make, and predicts the claim",
    "do": "Strike it; **send the draft to Atty. Thorne** for review before it goes",
@@ -886,6 +807,7 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "Most self-inflicted claim damage happens **in the first two weeks**, before the client is told.",
+  "whyLine": "Most self-inflicted claim damage happens **in the first two weeks**.",
   "points": [
    "**No Recorded Statement** to the adverse carrier; route contact through the firm",
    "Start treatment and **keep every appointment**",
@@ -908,6 +830,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Injury questions route to Atty. Thorne"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "Dana Whitfield (Keystone) asked John Doe **to record his account** (his voicemail, 02/10/2026, 8:47 a.m.)",
    "costs": "A represented client's recorded account becomes Keystone's evidence on the 14-Day Gap",
    "do": "Send written notice today: no direct contact; **statements go through the firm**. Log it.",
@@ -1008,6 +931,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Margaret's PD claim is referred to Atty. Thorne"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "A rental, PD or Loss of Use claim **opened in John Doe's name**",
    "costs": "John has no PD claim: Margaret Doe's Civic claim (KM-26-440871-PD) tangles with his BI file",
    "do": "Keep PD under Margaret Doe; **refer her claim** to Atty. Thorne",
@@ -1163,6 +1087,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne owns value and acceptance"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "A Risks band reading **'none'** for a client nobody has examined",
    "costs": "A buried risk: no treatment yet, and the days without care keep counting",
    "do": "List each open risk **with its source and date** in the Risks band",
@@ -1256,25 +1181,6 @@ window.CM_CF_SLIDES = {
    "A goal like “reduce pain” with **no measure or date**",
    "Calling a prior condition **“unrelated” or “aggravated”**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "Assess → SMART Goal → Coordinate",
-   "steps": [
-    {
-     "label": "Assess",
-     "chip": "02/06/2026",
-     "done": "Clinical, social, pre-morbid, vocational: **each filled or dated**"
-    },
-    {
-     "label": "SMART goal (draft)",
-     "done": "Full 8-hour shifts at Northgate; **the provider confirms** the measure"
-    },
-    {
-     "label": "Coordinate",
-     "done": "Each care line filled: **'none ordered'** with a date if empty"
-    }
-   ]
-  },
   "redFlag": {
    "see": "A blank field, or a goal like **'reduce pain'** with no measure",
    "costs": "Blank reads as never asked, and a goal without a measure can't show progress",
@@ -1408,37 +1314,6 @@ window.CM_CF_SLIDES = {
    "Calling a systemic delay **client non-compliance**",
    "**Waiting for a denial** before you course-correct"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "John's route on the map",
-   "steps": [
-    {
-     "label": "Conservative care",
-     "chip": "02/20/2026",
-     "done": "Riverton Urgent Care, then **Riverton Spine & Rehab** from 02/24/2026"
-    },
-    {
-     "label": "Specialist",
-     "chip": "03/05/2026",
-     "done": "Dr. Alana Reyes, Lakeside Orthopedics, **orders the MRI**"
-    },
-    {
-     "label": "Imaging",
-     "chip": "03/13/2026",
-     "done": "Summit Imaging: **C5-C6 right paracentral herniation**"
-    },
-    {
-     "label": "Interventional",
-     "chip": "05/15/2026",
-     "done": "**ESI** by Dr. Omar Haddad, Crescent Pain & Spine"
-    },
-    {
-     "label": "MMI",
-     "chip": "06/12/2026",
-     "done": "Dr. Reyes: **residual intermittent right-arm paresthesia**"
-    }
-   ]
-  },
   "ruleEx": {
    "rule": "The 6-Week Rule: **20–30% more range of motion or a lower VAS** by week 6 of care",
    "exception": "A stop skipped or out of order needs **the provider's documented clinical reason**; you ask and record it",
@@ -1446,6 +1321,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Provider documents; Atty. Thorne gets the note"
   },
   "redFlag": {
+   "spoken": true,
    "see": "**No visit from 04/02 to 04/21/2026** (19 days), with no reason on file",
    "costs": "A break off the map with no record of why it happened",
    "do": "Run **A-C-T the same day**; record his reason and route it to Atty. Thorne",
@@ -1631,30 +1507,6 @@ window.CM_CF_SLIDES = {
    "Reporting a yellow flag **with no plan**",
    "Treating late head-injury symptoms **as proof** before validation"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "Bridging the gap",
-   "steps": [
-    {
-     "label": "Calendar the risk",
-     "chip": "03/19/2026",
-     "done": "The rental's last covered day **calendared as a treatment risk**"
-    },
-    {
-     "label": "Warm handoff",
-     "chip": "02/23/2026",
-     "done": "Booked with him on the line; **LOP signed before 02/24**"
-    },
-    {
-     "label": "Answer cost worry",
-     "done": "He hears **which payer handles which bill**, PIP first"
-    },
-    {
-     "label": "Ask the one question",
-     "done": "'What might **get in the way** this week?' asked and logged"
-    }
-   ]
-  },
   "ruleEx": {
    "rule": "**OARS on every contact**: open questions, affirmations, reflections, summaries",
    "exception": "**Roll with resistance**: 'That clinic isn't a good fit for you. Let's look at why.'",
@@ -1662,6 +1514,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Legal danger goes to Atty. Thorne"
   },
   "redFlag": {
+   "spoken": true,
    "see": "You tell John **'Missing visits will hurt your case'**",
    "costs": "That is advice about his claim, and it can push him away from care",
    "do": "Talk logistics and his reasons; **route what it means** to Atty. Thorne",
@@ -1815,33 +1668,6 @@ window.CM_CF_SLIDES = {
    "Treating a chiropractor's note as **an EMC determination**",
    "Telling a client to see a doctor **for the $10,000**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "Preventing forfeiture on a Florida file",
-   "steps": [
-    {
-     "label": "Docket the 14th day",
-     "done": "The 14th day after the accident **calendared at intake**"
-    },
-    {
-     "label": "Give logistics",
-     "done": "Where and when care is available, **as Atty. Thorne directs**"
-    },
-    {
-     "label": "Log credentials",
-     "done": "Each provider's **credential recorded**"
-    },
-    {
-     "label": "Request the EMC",
-     "done": "The **EMC determination** requested from the records"
-    },
-    {
-     "label": "Flag the same day",
-     "done": "A missing EMC or late first visit **goes to Atty. Thorne**"
-    }
-   ],
-   "note": "Had this file been in Florida: the 14th day was **02/20/2026**, his first treatment"
-  },
   "ruleEx": {
    "rule": "Florida (Fla. Stat. § 627.736(1)(a)): **initial care within 14 days**; without an EMC finding, PIP stops at $2,500 of $10,000",
    "exception": "Riverton, add-on PIP: **no 14-day condition and no EMC cap**",
@@ -1945,32 +1771,6 @@ window.CM_CF_SLIDES = {
    "Edits that **break the audit trail**",
    "Writing **“this will help the case”** in a treatment note"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "The plan's review loop",
-   "steps": [
-    {
-     "label": "Draft",
-     "done": "Every band written; **risks named** with source and date"
-    },
-    {
-     "label": "Routed",
-     "done": "Sent to Atty. Thorne through **the Action Plan Editor**"
-    },
-    {
-     "label": "Returned with comment",
-     "done": "Each comment addressed, then **routed again**"
-    },
-    {
-     "label": "Approved",
-     "done": "Atty. Thorne's approval **recorded with its date**"
-    },
-    {
-     "label": "Execute",
-     "done": "The file runs against **the approved version** only"
-    }
-   ]
-  },
   "ruleEx": {
    "rule": "**The file runs against the approved version** of the plan",
    "exception": "When a material fact changes, **the plan is superseded** and routed again",
@@ -2114,6 +1914,7 @@ window.CM_CF_SLIDES = {
    ]
   },
   "hook": "The LOR moves every carrier onto the firm; one wrong letter risks **$30,000 of UM coverage**.",
+  "whyLine": "One wrong Letter of Representation risks **$30,000 of UM coverage**.",
   "points": [
    "Name the **right insured** on each: Robert Smith, Kevin Alvarez, Margaret Doe",
    "Notify **all three stack carriers** now: late notice hands them a defense",
@@ -2132,6 +1933,7 @@ window.CM_CF_SLIDES = {
    "A **guessed adjuster name** for Cardinal State"
   ],
   "redFlag": {
+   "tight": true,
    "see": "A UM notice letter that **asks for payment** before any BI tender",
    "costs": "Notice is not demand: a premature UM demand puts $30,000 of the stack at risk",
    "do": "Send notice only; **payment requests wait** for the documented BI tender",
@@ -2305,36 +2107,6 @@ window.CM_CF_SLIDES = {
    "Confirming a limit **from a phone call** or Police Report",
    "An open request with **no next date**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "Verification Status Hierarchy",
-   "steps": [
-    {
-     "label": "Reported",
-     "chip": "02/16–02/17/2026",
-     "done": "Claim number and adjuster, or **'none yet'**, logged"
-    },
-    {
-     "label": "Noticed",
-     "chip": "02/17/2026",
-     "done": "Five letters served; **each delivery logged**"
-    },
-    {
-     "label": "Acknowledged",
-     "chip": "03/03/2026",
-     "done": "Written receipt; none by **business day 3**, follow up"
-    },
-    {
-     "label": "Disclosed",
-     "done": "A limit stated, **still preliminary**: Keystone's $10,000, verbal"
-    },
-    {
-     "label": "Confirmed in writing",
-     "chip": "03/20/2026",
-     "done": "**Dec Page or Coverage Letter** on file, with source and date"
-    }
-   ]
-  },
   "redFlag": {
    "see": "The matrix on **03/11/2026** reads 'BI: Confirmed · Police Report'",
    "costs": "A Police Report, a phone call or the client's memory is a lead, never a limit",
@@ -2496,32 +2268,6 @@ window.CM_CF_SLIDES = {
    "Accepting an **unsworn statement** as proof",
    "Writing **an affiant's words** for them"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "The jurat check",
-   "steps": [
-    {
-     "label": "Affiant",
-     "done": "The person swearing is **the one named**"
-    },
-    {
-     "label": "Case and claim nos.",
-     "done": "LSH-2026-MVA-770412 and the claim number **match the file**"
-    },
-    {
-     "label": "Dates and figures",
-     "done": "Every date and amount **matches its source**"
-    },
-    {
-     "label": "Signature",
-     "done": "Signed by **the affiant**, never by you"
-    },
-    {
-     "label": "Jurat and seal",
-     "done": "Notarized: **jurat completed**, seal present"
-    }
-   ]
-  },
   "redFlag": {
    "see": "An **unsigned or un-notarized** 'affidavit' in the file",
    "costs": "It is only an assertion, not sworn proof of the fact it claims",
@@ -2768,28 +2514,6 @@ window.CM_CF_SLIDES = {
    "PIP, PD or collision **added to the stack**",
    "Assuming PIP, or **UM on the client's own policy**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "The Recovery Stack, in order",
-   "steps": [
-    {
-     "label": "BI · Keystone",
-     "chip": "KM-26-440871",
-     "done": "$10,000 per person on Robert Smith's policy; **exhausted first**"
-    },
-    {
-     "label": "Host UM · Harbor Point",
-     "chip": "HP-26-7741",
-     "done": "$20,000/$40,000 on the Escape; **add-on** (03/02/2026)"
-    },
-    {
-     "label": "Relative UM · Cardinal State",
-     "chip": "CS-26-20355",
-     "done": "$10,000/$20,000 via Margaret Doe; **stacks behind Host UM**"
-    }
-   ],
-   "note": "Outside the **$40,000**: Harbor Point PIP $5,000, Keystone PD $25,000, Bluewater collision"
-  },
   "ruleEx": {
    "rule": "**BI is exhausted first** (paid or tendered at limits); Host UM opens next, and Relative UM stacks behind it",
    "exception": "Settling or releasing BI **without the UM carriers' written consent** can forfeit the stack",
@@ -2797,6 +2521,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne confirms each policy's terms"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "A Recovery Stack **totalling $45,000**",
    "costs": "PIP was added: PIP pays bills, not the claim, so every figure built on it is wrong",
    "do": "Rebuild it: **BI $10,000, Host UM $20,000, Relative UM $10,000**",
@@ -3046,6 +2771,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne handles the balance bill"
   },
   "redFlag": {
+   "on": "theory2",
    "see": "A lien logged **at the billed amount**, or a bill sent to PIP after 06/26/2026",
    "costs": "The lien is overstated by the contractual adjustment, or the bill goes to an exhausted payer",
    "do": "Log the plan-paid **$1,860.00**; check PIP's balance before routing any bill",
@@ -3372,37 +3098,6 @@ window.CM_CF_SLIDES = {
    "**Blaming the client** for a systemic delay",
    "Jumping to Atty. Thorne **before the first two rungs**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "A-C-T: Assess → Coordinate → Track",
-   "steps": [
-    {
-     "label": "Monitor",
-     "chip": "04/07/2026",
-     "done": "**Week-6 measures** due and checked"
-    },
-    {
-     "label": "Detect and classify",
-     "chip": "04/03/2026",
-     "done": "Missed visits from 04/03 **classified: psychosocial**"
-    },
-    {
-     "label": "Assess",
-     "chip": "04/08/2026",
-     "done": "**No Contact Protocol** runs 04/08 → 04/17"
-    },
-    {
-     "label": "Coordinate",
-     "chip": "04/20/2026",
-     "done": "With consent: **Dr. Reyes by telephone**, evening LOP slots"
-    },
-    {
-     "label": "Track",
-     "chip": "04/21/2026",
-     "done": "GIRP note; **attendance 04/21 and 04/23**"
-    }
-   ]
-  },
   "ruleEx": {
    "rule": "**A-C-T for every red flag**, the same day",
    "exception": "A silent client can't be assessed until reached: **Assess runs through the No Contact Protocol**",
@@ -3538,37 +3233,6 @@ window.CM_CF_SLIDES = {
    "Quoting the Specials **without the PIP Log**",
    "Asking a provider **to make an EMC finding**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "PIP's $5,000, spent once",
-   "steps": [
-    {
-     "label": "Riverton Urgent Care",
-     "chip": "02/20/2026",
-     "done": "$685.00 paid; **$4,315.00 left**"
-    },
-    {
-     "label": "Lakeside consult",
-     "chip": "03/05/2026",
-     "done": "$640.00 paid; **$3,675.00 left**"
-    },
-    {
-     "label": "Summit MRI",
-     "chip": "03/13/2026",
-     "done": "$2,395.00 paid; **$1,280.00 left**"
-    },
-    {
-     "label": "Lakeside follow-up",
-     "chip": "03/27/2026",
-     "done": "$640.00 paid; **$640.00 left**"
-    },
-    {
-     "label": "Lakeside MMI visit",
-     "chip": "06/12/2026",
-     "done": "$640.00 paid; **exhausted 06/26/2026**"
-    }
-   ]
-  },
   "ruleEx": {
    "rule": "Riverton add-on PIP **does not reduce BI or UM**: no reimbursement right, no non-duplication reduction",
    "exception": "Set-off states, a typical file: **Gross Settlement Value − PIP Paid** = Defendant's Remaining Liability ($60,000 − $10,000 = $50,000)",
@@ -4003,37 +3667,6 @@ window.CM_CF_SLIDES = {
    "Reassuring or alarming him: **both are case opinions**",
    "**Blaming the client** for the gap"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "The client interview",
-   "steps": [
-    {
-     "label": "Consent on record",
-     "done": "Date, who's on the call, **'not a lawyer'**, his spoken yes"
-    },
-    {
-     "label": "Privacy and privilege",
-     "done": "He can talk alone; **the call is labelled privileged**"
-    },
-    {
-     "label": "Funnel the questions",
-     "done": "Broad open, follow-up **in his words**, closed only to pin facts"
-    },
-    {
-     "label": "Paper and read-back",
-     "done": "One dated task per document; **he corrects your read-back**"
-    },
-    {
-     "label": "Prevent the next gap",
-     "chip": "03/05/2026",
-     "done": "Dr. Reyes consult kept; **rides planned** past 03/19/2026"
-    },
-    {
-     "label": "GIRP note",
-     "done": "Sent to Atty. Thorne **the same day**"
-    }
-   ]
-  },
   "ruleEx": {
    "rule": "John's recorded account **to his own firm**, with consent, stays inside the firm",
    "exception": "**Keystone asks for a Recorded Statement**: he declines and refers it to the firm",
@@ -4041,6 +3674,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne handles first-party carrier requests"
   },
   "redFlag": {
+   "spoken": true,
    "see": "A leading question: **'Was it because you had no car?'**",
    "costs": "It buys agreement, not information, and the account stops being his",
    "do": "Ask open: 'What got in the way?' Then **log his exact words**",
@@ -4314,34 +3948,6 @@ window.CM_CF_SLIDES = {
    "Leaving **the 2021 records** out of the set",
    "Telling John Doe the letter **raises his claim's value**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "The Causation Letter, request to file",
-   "steps": [
-    {
-     "label": "Atty. Thorne requests",
-     "done": "With **John's written authorization**"
-    },
-    {
-     "label": "Assemble the records",
-     "done": "EMS, urgent care, rehab, MRI, Crescent, **2021 chiropractic**"
-    },
-    {
-     "label": "Letter arrives",
-     "chip": "06/19/2026",
-     "done": "Dr. Reyes's letter **logged on arrival**"
-    },
-    {
-     "label": "Check it",
-     "done": "DOL 02/06/2026; **C5-C6, right**; visits 03/05, 03/27, 06/12"
-    },
-    {
-     "label": "File and cite",
-     "chip": "07/20/2026",
-     "done": "Cited in **the Demand Package** and the 08/06 rebuttal"
-    }
-   ]
-  },
   "redFlag": {
    "see": "**'Possibly'** or 'could be' in the Causation Letter's opinion",
    "costs": "It falls short of 'more likely than not'",
@@ -4452,40 +4058,13 @@ window.CM_CF_SLIDES = {
    "**Adding future care** to the Specials",
    "Discovering a lien **after the release** is signed"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "Zero missing dates of service",
-   "steps": [
-    {
-     "label": "Chronology pass",
-     "done": "Every gap has **its documented reason**: 14 days; 19 days"
-    },
-    {
-     "label": "Coding pass",
-     "done": "**One date of service**, one line"
-    },
-    {
-     "label": "Prior-history pass",
-     "done": "Three 2021 low-back visits, resolved; **no prior neck complaint**"
-    },
-    {
-     "label": "Reconcile Riverton",
-     "chip": "05/04/2026",
-     "done": "34 lines vs 33 visits: duplicate removed, **$6,105.00**"
-    },
-    {
-     "label": "Match PIP",
-     "chip": "06/12/2026",
-     "done": "Five payments total **$5,000.00**, exhausted with the MMI visit"
-    }
-   ]
-  },
   "ruleEx": {
    "rule": "Specials are **incurred, documented economic losses**: $14,817.40 medical, $16,401.40 with wages",
    "exception": "Future medical ($3,400–$6,800, possible repeat ESIs) is real but not incurred: **narrative, never the total**",
    "confirm": "Atty. Thorne decides billed versus paid"
   },
   "redFlag": {
+   "spoken": true,
    "see": "A Riverton ledger line, **05/04/2026**, that no visit note supports",
    "costs": "Claiming it inflates the Specials and gives Keystone a reason to doubt the ledger",
    "do": "Remove it; **send the billing correction** to the provider in writing",
@@ -4672,37 +4251,6 @@ window.CM_CF_SLIDES = {
    "An exhibit index whose **page numbers don't match**",
    "Briefing **the initial PD estimate**, not the final figure"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "Briefing Atty. Thorne, bottom line first",
-   "steps": [
-    {
-     "label": "Bottom line",
-     "chip": "06/12/2026",
-     "done": "MMI; **$16,401.40 Specials** against a $10,000 BI limit"
-    },
-    {
-     "label": "Facts, the trinity",
-     "done": "Narrative, physicality, medicals: **the C5-C6 herniation**"
-    },
-    {
-     "label": "Risks, with answers",
-     "done": "Each risk paired with **the document that answers it**"
-    },
-    {
-     "label": "His decisions",
-     "done": "Figure, terms, time limit, billed vs paid, **UM consent plan**"
-    },
-    {
-     "label": "Options",
-     "done": "Each with its **operational consequence**"
-    },
-    {
-     "label": "Read back",
-     "done": "Each decision read back; **a CMS task** with owner and date"
-    }
-   ]
-  },
   "redFlag": {
    "see": "You're asked **'What's it worth?'** and reach for a number",
    "costs": "Value is Atty. Thorne's call, and a Case Manager's figure can anchor the demand",
@@ -4901,6 +4449,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne confirms the delivery rule"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "The draft reads **'30 days from the date of this letter'** (08/19/2026)",
    "costs": "The send date never starts the clock: the window closes 08/21/2026",
    "do": "Correct it to run **from the written acknowledgement**; flag it to Atty. Thorne",
@@ -5065,38 +4614,8 @@ window.CM_CF_SLIDES = {
    "Promising **full UM limits** before coverage and offset are confirmed",
    "Celebrating the $40,000 gross: **success is John Doe's net**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "Opening the UM layers, in order",
-   "steps": [
-    {
-     "label": "Keystone tender",
-     "chip": "08/12/2026",
-     "done": "BI limit **tendered in writing**"
-    },
-    {
-     "label": "30-Day Letter",
-     "chip": "08/13/2026",
-     "done": "Sent to **both UM carriers**"
-    },
-    {
-     "label": "Consents received",
-     "chip": "08/26/2026",
-     "done": "Harbor Point 08/24, Cardinal State 08/26, **both written**"
-    },
-    {
-     "label": "Limited Release signed",
-     "chip": "08/28/2026",
-     "done": "John signs **after both consents** are in"
-    },
-    {
-     "label": "UM demands emailed",
-     "chip": "08/31/2026",
-     "done": "Each shows **damages above the layers** before it"
-    }
-   ]
-  },
   "redFlag": {
+   "tight": true,
    "see": "A UM demand **before the documented BI tender**, or Smith released without both consents",
    "costs": "Releasing Smith without both written consents can forfeit $30,000 of the stack",
    "do": "Hold every UM step until **the tender and both consents** are filed",
@@ -5564,41 +5083,6 @@ window.CM_CF_SLIDES = {
    "Asking **Bluewater Auto** for a waiver",
    "Scheduling the signing **before the second consent**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "Consent to settle and the waivers",
-   "steps": [
-    {
-     "label": "Tender",
-     "chip": "08/12/2026",
-     "done": "Keystone tenders **its $10,000 BI limit**"
-    },
-    {
-     "label": "30-Day Letter",
-     "chip": "08/13/2026",
-     "done": "Atty. Thorne signs; **both UM carriers** notified"
-    },
-    {
-     "label": "Conditional cover letter",
-     "chip": "08/14/2026",
-     "done": "Payment needs **both consents, waivers** and the W-9"
-    },
-    {
-     "label": "Consents read",
-     "chip": "08/26/2026",
-     "done": "08/24 and 08/26, **each read for scope**"
-    },
-    {
-     "label": "Waivers filed",
-     "done": "Notarized waivers **at the front** of each UM package"
-    },
-    {
-     "label": "John signs",
-     "chip": "08/28/2026",
-     "done": "Limited Release signed **after both consents**"
-    }
-   ]
-  },
   "ruleEx": {
    "rule": "The UM carrier **consents and waives subrogation** against Robert Smith and Keystone only",
    "exception": "It may **substitute its own check** to keep its claim; a substitution or wider consent goes to Atty. Thorne",
@@ -5731,38 +5215,13 @@ window.CM_CF_SLIDES = {
    "A verbal settlement **with no confirming email**",
    "Finding a benefit-carrier lien **after disbursement**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "From limits to net",
-   "steps": [
-    {
-     "label": "Release",
-     "done": "Signed release **matches the agreed scope**"
-    },
-    {
-     "label": "Check",
-     "done": "Payable to John Doe and LSH Law Group; **he endorses**"
-    },
-    {
-     "label": "IOLTA deposit",
-     "done": "Deposited **the same day**"
-    },
-    {
-     "label": "Liens, fee, costs",
-     "done": "Each paid from trust **against its Payoff Letter**"
-    },
-    {
-     "label": "Net to John",
-     "done": "His net disbursed; **the ledger ties out**"
-    }
-   ]
-  },
   "ruleEx": {
    "rule": "Ranges, brackets, increments and tender strategy **are Atty. Thorne's**; relay a bracket only on his written instruction",
    "exception": "When a carrier offers limits, **confirm its terms without accepting**: coverage, release scope, liens, payee, check date",
    "confirm": "Atty. Thorne accepts; you report the same day"
   },
   "redFlag": {
+   "spoken": true,
    "see": "Harbor Point's stated reason: **'BI already compensated him'**",
    "costs": "Wrong on an add-on UM, and answering with an opinion argues the claim",
    "do": "Answer with **Harbor Point's 03/02/2026 letter**; log it for Atty. Thorne",
@@ -5917,25 +5376,6 @@ window.CM_CF_SLIDES = {
    "Treating an ERISA plan **like a provider LOP**",
    "Asking for **a “courtesy discount”** with no legal basis"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "Regulatory Triple-Check: lien edition",
-   "steps": [
-    {
-     "label": "Timeliness",
-     "chip": "02/27/2026",
-     "done": "When asserted, against what: **Peach State's notice**, RS40"
-    },
-    {
-     "label": "Perfection / recording",
-     "done": "Riverton: **LOP only**, no recorded or served lien notice"
-    },
-    {
-     "label": "Scope",
-     "done": "Every line **belongs to the collision**; strike the rest"
-    }
-   ]
-  },
   "ruleEx": {
    "rule": "**Fully insured plan**: state insurance law reaches the insurer, through ERISA's savings clause",
    "exception": "**Self-funded ERISA plan**: state insurance law is preempted, and the plan's written terms govern",
@@ -5943,6 +5383,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne confirms the governing law"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "A lien on the tracker **not yet classified** statutory or contractual",
    "costs": "An unclassified lien gets paid at the wrong number, or freezes the money",
    "do": "Classify every claimant, **with its source**, before any number is discussed",
@@ -6101,34 +5542,6 @@ window.CM_CF_SLIDES = {
    "Agreeing to a reduction verbally with **no written confirmation**",
    "Paying **from a statement**, not the payoff figure"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "Audit first, then ask",
-   "steps": [
-    {
-     "label": "Audit",
-     "done": "**34 lines vs 33 visits** in the attendance log"
-    },
-    {
-     "label": "Correct",
-     "chip": "05/04/2026",
-     "done": "Duplicate removed: **$6,290.00 − $185.00 = $6,105.00**"
-    },
-    {
-     "label": "Calculate",
-     "done": "Math **the lienholder can check**"
-    },
-    {
-     "label": "Ask with authority",
-     "done": "**Atty. Thorne's written target** only"
-    },
-    {
-     "label": "Confirm in writing",
-     "done": "**Signed Payoff Letter** on file"
-    }
-   ],
-   "note": "Liens: **$7,965.00 audited** → $5,820.00 paid"
-  },
   "ruleEx": {
    "rule": "**Compute from the fraction**, not the rounded percentage",
    "exception": "The pro-rata split is **a teaching number**: on Track A the fund covers every lien",
@@ -6136,6 +5549,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne sets the written target"
   },
   "redFlag": {
+   "on": "model",
    "see": "A percentage off **an inflated bill**",
    "costs": "You negotiate from $6,290.00 and give away the $185.00 the audit removes",
    "do": "**Corrections first, reductions second**, inside Atty. Thorne's written target",
@@ -6521,30 +5935,6 @@ window.CM_CF_SLIDES = {
    "Cutting checks **against uncleared funds**",
    "Paying from emailed instructions **without verifying by phone**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "Four gates before money moves",
-   "steps": [
-    {
-     "label": "Verification",
-     "chip": "10/20/2026",
-     "done": "Consents before the 08/28 release; **funds cleared**"
-    },
-    {
-     "label": "Documentation",
-     "done": "**Payoff Letters, W-9s** and receipts in Documents"
-    },
-    {
-     "label": "Authorization",
-     "done": "**Atty. Thorne signs** the disbursement"
-    },
-    {
-     "label": "Reconciliation",
-     "chip": "10/22/2026",
-     "done": "Trust Ledger at **$0.00**"
-    }
-   ]
-  },
   "redFlag": {
    "see": "A disbursement **against uncleared funds** or an open lien notice",
    "costs": "Trust money moves before it's safe, and a disputed share leaves trust",
@@ -6639,30 +6029,6 @@ window.CM_CF_SLIDES = {
    "Telling John Doe a late bill is **“not our problem”**",
    "Destroying financial records **before the retention date**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "Four sets before archive",
-   "steps": [
-    {
-     "label": "Money trail",
-     "chip": "10/22/2026",
-     "done": "$40,000.00 in; every payment out; **ledger at $0.00**"
-    },
-    {
-     "label": "Satisfactions",
-     "done": "Every satisfaction plus **John's acknowledgment of receipt**"
-    },
-    {
-     "label": "Payer disclosure",
-     "done": "PIP $5,000.00, Peach State $1,860.00, John $312.40; **current W-9**"
-    },
-    {
-     "label": "Closing memo",
-     "chip": "10/30/2026",
-     "done": "Filed; **retention 7 years**"
-    }
-   ]
-  },
   "redFlag": {
    "see": "An email **changing the wiring instruction** for a payment",
    "costs": "Money wired on an unverified change may never come back",
@@ -7173,6 +6539,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne confirms the governing court rule"
   },
   "redFlag": {
+   "spoken": true,
    "see": "**15 RFAs** docketed inside the general discovery entry",
    "costs": "Unanswered RFAs may be deemed admitted",
    "do": "Give them **their own calendar entry** and alerts; tell Atty. Thorne",
@@ -7316,6 +6683,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne analyzes the route"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "The UM route **docketed off the tort SOL**",
    "costs": "A route carries its own clock, and the wrong date misses it",
    "do": "Docket only from **Atty. Thorne's written answer**",
@@ -7411,6 +6779,7 @@ window.CM_CF_SLIDES = {
  "d4m2-l2": {
   "image": "mediation-table",
   "hook": "Hon. Carla Benton (Ret.) helps parties agree; **Laura Whitcomb, Esq. decides**, with almost no appeal.",
+  "whyLine": "A mediator helps the parties agree; **an arbitrator decides**, with almost no appeal.",
   "roadmap": {
    "title": "Standard Case Progression Roadmap",
    "merge": true,
@@ -7457,39 +6826,13 @@ window.CM_CF_SLIDES = {
    "**“Helpfully” answering the arbitrator** directly",
    "Logging bench directives **the next day from memory**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "What happens in the room",
-   "steps": [
-    {
-     "label": "Joint session",
-     "done": "Optional; **the mediator sets it**"
-    },
-    {
-     "label": "Private caucus",
-     "done": "Only **the mediator carries messages** between rooms"
-    },
-    {
-     "label": "Shuttle moves",
-     "done": "Offers and demands carried between rooms, **each logged**"
-    },
-    {
-     "label": "Bracket",
-     "done": "A conditional pair **from counsel**, never a Case Manager's number"
-    },
-    {
-     "label": "Term sheet",
-     "chip": "03/18/2027",
-     "done": "**Terms in writing** before anyone leaves (RS59)"
-    }
-   ]
-  },
   "ruleEx": {
    "rule": "The Golden Rule: the Case Manager **never argues, speaks on the record or represents** John Doe",
    "exception": "None. Asked about a bill, say **'I'm the Case Manager providing administrative assistance'** and hand it to Atty. Thorne",
    "confirm": "Atty. Thorne speaks for John"
   },
   "redFlag": {
+   "on": "dodont",
    "see": "**A number spoken by you** in caucus",
    "costs": "It's an offer: brackets, ranges and authority belong to Atty. Thorne and John Doe",
    "do": "Log every move (time, who, what); **keep the draft release ready**",
@@ -7694,40 +7037,8 @@ window.CM_CF_SLIDES = {
    "A snapshot sheet with **stale opposing-counsel contacts**",
    "The confidential statement sent **ten minutes before the session**"
   ],
-  "milestones": {
-   "slide": true,
-   "title": "Six sections, one Master Index",
-   "steps": [
-    {
-     "label": "Executive summary",
-     "done": "Summary and **admin up front**"
-    },
-    {
-     "label": "Briefs",
-     "chip": "03/11/2027",
-     "done": "Ours goes **to the mediator only**"
-    },
-    {
-     "label": "Core pleadings",
-     "chip": "11/12/2026",
-     "done": "The 09/24/2026 complaint and **the answer**"
-    },
-    {
-     "label": "Key evidence",
-     "done": "RPD-26-018842, Ruth Calloway, **doorbell stills**, EMS, EDR"
-    },
-    {
-     "label": "Damages",
-     "done": "$14,817.40 + $1,584.00 = **$16,401.40**; Riverton at $6,105.00"
-    },
-    {
-     "label": "Settlement history",
-     "chip": "08/12/2026",
-     "done": "**Baseline $3,500** and the draft release"
-    }
-   ]
-  },
   "redFlag": {
+   "on": "dodont",
    "see": "The binder carrying **Riverton at $6,290.00**",
    "costs": "Medical then reads $15,002.40, and Keystone already calls the ledger unverified",
    "do": "Use the audited **$6,105.00** and re-run the Damages totals",
