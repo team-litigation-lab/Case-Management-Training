@@ -17,17 +17,25 @@ in CI). A slide without a script here falls back to the script the course builds
 ```
 
 Keyed by block id, then by slide (the block's views, in order: a lesson is map · theory · theory2 ·
-frame · doc (when it introduces a document) · rules · model · steps (Milestone Steps, where the lesson gives them
-a slide of their own) · dodont; an activity is case · task · model · check; a Learning Check is
-questions · summary · scale; only the slides the block actually has). Every slide of every block has one.
+frame · doc (when it introduces a document) · rules · model · dodont; an activity is case · task · model · check;
+a Learning Check is questions · summary · scale; only the slides the block actually has). Every slide of every
+block has one.
+
+**Milestone Steps** is no slide: a `steps` script is refused. The 26 lessons that had the slide carry their steps in
+the `rules` talking points (one or two points: the steps in order, with their dates), with the points that were on the
+slide folded in beside them; where `rules` was at the limits below, the overflow sits on another slide of The Theory's
+run (`theory`, `theory2`, `frame`; once on `map`, once on `model`, and on `why` in three brief lessons). Tighten wording
+before dropping a fact.
 
 **Why it matters** is the opening of The Theory, not a slide: a lesson with a Theory slide has no `why` script. Its
 `theory` talking points start with the why (what the hook means on John Doe's file), then the theory, inside the limits
-below; where the two together run over, tighten the wording, never drop a point that carries a fact. The point about
-the lesson's CM Red Flag goes on the slide that draws it (`rules`, or `dodont` / `theory2` where the copy's
-`redFlag.on` says so). Only two kinds of lesson still have a `why` slide and a `why` script, after the theory's slides
-and before doc and rules: a brief lesson (why · doc · rules: it has no Theory slide) and a lesson whose copy says
-`"whySlide": true` (SLIDESPEC.md).
+below; where the two together run over, tighten the wording, never drop a point that carries a fact. Where the slide's
+opening line is the copy's shorter `whyLine`, the full hook is one of those points, word for word (the assembler checks).
+The point about the lesson's CM Red Flag goes on the slide that draws it (`rules`, or `dodont` / `model` / `theory2`
+where the copy's `redFlag.on` says so). A Red Flag that is **spoken, not drawn** (`redFlag.spoken`: no slide of the
+lesson has room for it) is a point in `rules` that starts "Red flag" and carries what you see, what it costs and what
+you do; the assembler refuses the build without it. Only a brief lesson still has a `why` slide and a `why` script
+(why · doc · rules: it has no Theory slide).
 
 ## The day's own slides
 
@@ -126,8 +134,8 @@ Every block carries all of them; every slide carries the ones that fit it.
 
 Where each fits best: a lesson's **why** (or the opening of its **theory**, where Why It Matters opens that slide) is the icebreaker and the teaser; **map**, **theory**,
 **frame** and **model** tease and reveal in plain words; **rules** and **dodont** draw the lazy vs.
-high-value line; **steps** walks the milestones as they run on the job, with the war story and the settlement
-consequence. An activity's **case**
+high-value line (and **rules** walks the milestones as they run on the job, with the settlement consequence). An
+activity's **case**
 teases and reveals what just landed; **task**, **grade** and **audit** put trainees on the spot by
 name; **check** draws the lazy vs. high-value line. A Learning Check's **questions** play as a game
 show. The last slide of every block closes on the mystery.
