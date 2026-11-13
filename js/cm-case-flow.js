@@ -517,7 +517,14 @@ function milestoneRail(b, view){
   return `<section class="cfx-ms" aria-label="Milestone Steps: ${E(m.title)}"><h3 class="cfx-ms-t">${E(m.title)}</h3><ol class="cfx-ms-rail" style="--n:${m.steps.length};--c:${m.steps.length > 4 ? Math.ceil(m.steps.length / 2) : m.steps.length}" start="${n0}">${m.steps.map((s, i) => `<li><span class="cfx-ms-n">${n0 + i}</span><span class="cfx-ms-h"><b>${E(s.label)}</b>${s.chip ? `<code class="cfx-ms-chip">${E(s.chip)}</code>` : ""}</span><span class="cfx-ms-done"><i>Done when:</i> ${hl(s.done)}</span></li>`).join("")}</ol>
     ${m.note ? `<p class="cfx-ms-note">${hl(m.note)}</p>` : ""}</section>`;
 }
+/* A lesson whose slides are the trainer's own Canva deck pages (js/cm-deck-slides.js, from build/videoslide): one slide
+   per page, named deck<page>, in place of the lesson's drawn slides. The page's speaker notes are its Presenter script. */
+const DECK = window.CM_DECK_SLIDES || {};
+const deckOf = b => (b.kind === "lesson" && DECK[b.id]) || null;
+const deckPage = (b, view) => (deckOf(b) || []).find(x => "deck" + x.page === view) || null;
+Object.values(DECK).forEach(xs => xs.forEach(x => { VIEW_LABEL["deck" + x.page] = x.title; VIEW_ICON["deck" + x.page] = "🖼"; }));
 function viewsOf(b){
+  if(deckOf(b)) return deckOf(b).map(x => "deck" + x.page);
   if(b.kind === "lesson" && b.brief) return ["why"].concat(docView(b), ["rules"], stepsView(b));   // brief: a condensed overview (Day 5's litigation)
   if(b.kind === "lesson" && b.compact) return mapView(b).concat(theoryViews(b).slice(0, 1), ["why"], docView(b), ["rules"], stepsView(b));   // compact: a full topic on fewer slides
   if(b.kind === "lesson") return mapView(b).concat(theoryViews(b), ["why"], docView(b), ["rules"], b.show ? ["model"] : [], stepsView(b), (b.best || []).length && !b.noGame ? ["dodont"] : []);   // the theory first, then why it matters; noGame: the CM introduction
@@ -818,6 +825,8 @@ function timeBanner(l){
 }
 function slideBody(view, l, d){
   const {block: b, day, mod} = l.cf, c = copyOf(b);
+  const dp = deckPage(b, view);
+  if(dp) return `<figure class="cfx-deckpage"><img src="${E(dp.img)}" alt="${E(dp.title)}: ${E(String(dp.notes).slice(0, 220))}" width="1600" height="900" decoding="async"></figure>`;
   if(DRIVE_LATER.has(b.id) && window.CMDrive && CMDrive.dayOpened) CMDrive.dayOpened(Number(b.id.charAt(1)));   // a day's Backup File Maintenance: Day 2 lays its drill, and the day is graded
   switch(view){
     case "why": { const ls = leadSplit(c.hook);
@@ -2895,7 +2904,7 @@ MODULES.forEach(d => d.lessons.forEach(l => {
   // a slide without one falls back to the script built above from the block
   const said = (window.CM_CF_SCRIPTS || {})[b.id] || {}, sc = {};
   vs.forEach((v, j) => {
-    const x = per[v] || {}, h = said[v];
+    const x = deckPage(b, v) ? {talk: deckPage(b, v).notes} : per[v] || {}, h = said[v];
     sc["p" + (j + 1)] = h ? {why: "", talk: h.say, walk: [], ask: h.ask || "", scenario: x.scenario || ""}
       : {why: x.why || "", talk: x.talk || "", walk: x.walk || [], ask: x.ask || "", scenario: x.scenario || ""};
   });
@@ -4638,6 +4647,8 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx-dd ul{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px;}
 .cfx-dd li{font:500 21px/1.4 var(--font-ui);color:var(--ink);}
 /* The Theory: the deck's lead line, its concepts as cards, the original deck pages beside them */
+.cfx-deckpage{margin:0;flex:1 1 auto;min-height:0;display:flex;align-items:center;justify-content:center;height:100%;}
+.cfx-deckpage img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;aspect-ratio:16/9;object-fit:contain;border-radius:10px;box-shadow:0 2px 14px rgba(30,35,64,.22);}
 .cfx-theory{display:grid;grid-template-columns:minmax(0,1fr) clamp(160px,20%,250px);gap:18px;align-items:start;}
 .cfx-theory.cfx-th-solo{grid-template-columns:minmax(0,1fr);}
 .cfx-th-lead{font:600 22px/1.3 'Fraunces',Georgia,serif;color:var(--ink);margin:0 0 10px;text-align:center;}
