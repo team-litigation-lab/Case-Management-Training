@@ -197,14 +197,14 @@ const SPOKEN = {
         try {
           d.lessons.forEach((l, li) => {
             cmCaseFlow.full(d.id, li);
-            const m = document.querySelector('.cfx-modal'), id = l.cf.block.id;
+            const m = document.querySelector('.cfx-ref, .cfx-modal'), id = l.cf.block.id;   // the panel over the slide (it was a pop-up)
             if (!m) { out.push(`${id}: 📖 Additional Reference did not open`); return; }
             const txt = m.textContent, hd = [...m.querySelectorAll(HEADS)].find(x => /trigger/i.test(x.textContent));
             if (/Trigger/.test(txt)) out.push(`${id}: 📖 Additional Reference shows "Trigger": …${near(txt, /Trigger/)}…`);
             if (hd) out.push(`${id}: a heading in 📖 Additional Reference uses the word "trigger": ${hd.textContent.trim().slice(0, 90)}`);
             if (/Verification checkpoint/i.test([...m.querySelectorAll('th')].map(x => x.textContent).join(' '))) out.push(`${id}: 📖 Additional Reference still draws the operational table`);
             count.refs++;
-            const x = m.querySelector('.cfx-modal-h button'); if (x) x.click(); if (m.isConnected) m.remove();
+            if (cmCaseFlow.fullClose) cmCaseFlow.fullClose(); const x = m.querySelector('.cfx-modal-h button'); if (x) x.click(); if (m.isConnected) m.remove();
           });
         } finally { window.open = open; } }
     }
