@@ -61,7 +61,8 @@ async function workerChecks() {
                 const d = DAYS.find(x => x.lessons.some(y => y.cf && y.cf.block.id === id)); if (!d) { out.bad.push(id + ': no such lesson'); return; }
                 const l = d.lessons.find(x => x.cf && x.cf.block.id === id);
                 const vs = cmCaseFlow.viewsOf(l.cf.block); out.lessons++; out.slides += vs.length;
-                if (vs.join() !== pages.map(p => 'deck' + p.page).join()) out.bad.push(id + ': views ' + vs.join());
+                const want = pages.map(p => 'deck' + p.page).join();   // the deck pages, then at most the lesson's Milestone Steps
+                if (vs.join() !== want && vs.join() !== want + ',steps') out.bad.push(id + ': views ' + vs.join());
                 const sc = window.SLIDE_SCRIPTS[`${d.id}::${l.h}`] || {};
                 pages.forEach((p, j) => { if (((sc['p' + (j + 1)] || {}).talk || '') !== p.notes) out.bad.push(`${id} page ${p.page}: its speaker notes aren't the slide's script`); });
             });

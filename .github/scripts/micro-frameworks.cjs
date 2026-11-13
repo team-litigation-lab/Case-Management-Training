@@ -93,11 +93,12 @@ const SPEC = {
   });
   failures.push(...r.out);
   let n = 0;
-  // a lesson whose slides are the trainer's own Canva deck pages (js/cm-deck-slides.js) draws the deck, not these:
-  // its micro-frameworks stay in 📖 Additional Reference
+  // a lesson whose slides are the trainer's own Canva deck pages (js/cm-deck-slides.js) draws the deck, then its
+  // Milestone Steps: its Rule vs. Exception and CM Red Flag stay in 📖 Additional Reference
   const deckLessons = new Set(Object.keys(await page.evaluate(() => window.CM_DECK_SLIDES || {})));
-  for (const [id, want] of Object.entries(SPEC)) {
-    if (deckLessons.has(id)) continue;
+  for (const [id, all] of Object.entries(SPEC)) {
+    const want = deckLessons.has(id) ? all.split(' ').filter(k => k === 'ms').join(' ') : all;
+    if (!want) continue;
     const got = r.seen[id];
     if (!got) { failures.push(`${id}: not on any slide`); continue; }
     for (const k of want.split(' ')) { if (!got[k]) failures.push(`${id}: its ${{ rf: 'CM Red Flag', rx: 'Rule vs. Exception', ms: 'Milestone Steps' }[k]} isn't drawn`); else n++; }

@@ -518,13 +518,13 @@ function milestoneRail(b, view){
     ${m.note ? `<p class="cfx-ms-note">${hl(m.note)}</p>` : ""}</section>`;
 }
 /* A lesson whose slides are the trainer's own Canva deck pages (js/cm-deck-slides.js, from build/videoslide): one slide
-   per page, named deck<page>, in place of the lesson's drawn slides. The page's speaker notes are its Presenter script. */
+   per page, named deck<page>, in place of the lesson's drawn slides, then its Milestone Steps slide where it has one. The page's speaker notes are its Presenter script. */
 const DECK = window.CM_DECK_SLIDES || {};
 const deckOf = b => (b.kind === "lesson" && DECK[b.id]) || null;
 const deckPage = (b, view) => (deckOf(b) || []).find(x => "deck" + x.page === view) || null;
 Object.values(DECK).forEach(xs => xs.forEach(x => { VIEW_LABEL["deck" + x.page] = x.title; VIEW_ICON["deck" + x.page] = "🖼"; }));
 function viewsOf(b){
-  if(deckOf(b)) return deckOf(b).map(x => "deck" + x.page);
+  if(deckOf(b)) return deckOf(b).map(x => "deck" + x.page).concat(mfOf(b).milestones ? ["steps"] : []);   // then the lesson's Milestone Steps: the CMS steps its Skill Activities build on
   if(b.kind === "lesson" && b.brief) return ["why"].concat(docView(b), ["rules"], stepsView(b));   // brief: a condensed overview (Day 5's litigation)
   if(b.kind === "lesson" && b.compact) return mapView(b).concat(theoryViews(b).slice(0, 1), ["why"], docView(b), ["rules"], stepsView(b));   // compact: a full topic on fewer slides
   if(b.kind === "lesson") return mapView(b).concat(theoryViews(b), ["why"], docView(b), ["rules"], b.show ? ["model"] : [], stepsView(b), (b.best || []).length && !b.noGame ? ["dodont"] : []);   // the theory first, then why it matters; noGame: the CM introduction
