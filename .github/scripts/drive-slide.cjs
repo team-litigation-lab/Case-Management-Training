@@ -18,15 +18,15 @@
 //    slides (a trainer; a trainee; a trainee with names to fix): nothing under #lessonSlideWrap is scaled down (no zoom
 //    below 1), no text is under 16px, nothing is cut off, 🔗 Link my Google Drive and 📂 Build my folders are in plain view,
 //    and Day 1's 🏷 card covers none of the firm's standard.
-// 4. 🔗 Step 1 of Day 1's slide is where the drive is linked. A trainee has 🔗 Link my Google Drive there: Google's sign-in
-//    script is fetched when the slide is drawn, so the first press starts the sign-in (initCodeClient().requestCode()) from the
-//    slide, and the code Google hands back goes to /api/drive as "connect". While it runs the button reads Linking…; a sign-in
-//    that didn't finish is a line in step 1 and the button works again. Linked, step 1 is ticked and shows the email and
-//    Open my Drive ↗ (what the server sent is escaped), step 2 offers 📂 Build my folders, and the slide has redrawn itself in
-//    place: the page isn't rendered again and the deck doesn't move. A trainer, and the slides window a presenter shares, get
-//    the same button as a sample: pressing it asks nothing of Google and writes nothing to /api/drive. With linking not
+// 4. 🔗 Step 1 of Day 1's slide is where the drive is linked, the way Foundational links a trainee's Drive (no Google sign-in).
+//    A trainee has 🔗 Link my Google Drive there: the press opens 📂 My Backup Drive at its three steps (make the folder, share
+//    it with the platform's address as Editor, paste its link), and the link goes to /api/drive as "link". A link the Worker
+//    refuses is said in the panel and as a line in step 1, and the button works again. Linked, step 1 is ticked and shows the
+//    folder and Open my Drive ↗ (what the server sent is escaped), step 2 offers 📂 Build my folders, and the slide has redrawn
+//    itself in place: the page isn't rendered again and the deck doesn't move. A trainer, and the slides window a presenter
+//    shares, get the same button as a sample: pressing it opens nothing and writes nothing to /api/drive. With linking not
 //    switched on there is no button. Nothing on the slide is under 16px, and it is never cut off at 1366x768.
-//    (Google and /api/drive are answered by the test: the test server has no Google keys and no trainee tokens.)
+//    (/api/drive is answered by the test: the test server has no service account and no trainee tokens.)
 // Usage: node .github/scripts/drive-slide.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -122,7 +122,7 @@ const failures = []; const fail = (m) => failures.push(m);
             fail(`the panel should list the wrongly named file with its folder, its name, the name it should have and the part to look at: "${panel.item}"`);
         if (panel.bad.join() !== 'John-Doe' || panel.good.join() !== 'Doe-John') fail(`the differing part should be marked in both names: ${JSON.stringify([panel.bad, panel.good])}`);
         if (panel.copy !== 'LSH-2026-MVA-000041_Doe-John_Police-Report_2026-11-12.pdf') fail(`the name it should have should be copyable: "${panel.copy}"`);
-        if (!/can't see/.test(panel.report) || !/by hand/.test(panel.report) || !/3 of 4 files/.test(panel.report)) fail(`the panel should say how many names are right and what the check can't see: "${panel.report.slice(0, 300)}"`);
+        if (!/can't see/.test(panel.report) || !/outside your Backup Drive folder/.test(panel.report) || !/3 of 4 files/.test(panel.report)) fail(`the panel should say how many names are right and what the check can't see: "${panel.report.slice(0, 300)}"`);
         if (!/1 name to fix/.test(panel.card)) fail(`the dashboard card should say a name needs fixing: "${panel.card.slice(0, 200)}"`);
         if (panel.small.length) fail(`the panel's naming box and report have type under 14px bold: ${JSON.stringify(panel.small.slice(0, 4))}`);
     }
@@ -246,12 +246,12 @@ const failures = []; const fail = (m) => failures.push(m);
     /* ---------- 4. 🔗 step 1 is where the drive is linked ---------- */
     {
         const ctx = await browser.newContext({ viewport: { width: 1366, height: 768 } });
-        const EMAIL = 'dana<img src=x onerror="window.__xss=1">@example.com', ROOT = 'https://drive.google.com/drive/folders/ci-root';
-        const calls = []; let gsi = 0, linked = false, refuse = '', built = false, report = null;
+        const NAME = 'Dana<img src=x onerror="window.__xss=1"> Backups', SHARE = 'lsh-backup@ci-project.iam.gserviceaccount.com', ROOT = 'https://drive.google.com/drive/folders/ci-root';
+        const calls = []; let linked = false, refuse = '', built = false, report = null;
         const CASE = 'LSH-2026-MVA-000041', CLEAN = { at: '2026-11-12T12:00:00.000Z', checked: 6, named: 6, wrong: 0, wrongFiles: 0, wrongFolders: 0, list: [] };
         const WRONG = { at: '2026-11-12T12:00:00.000Z', checked: 6, named: 3, wrong: 4, wrongFiles: 3, wrongFolders: 1, list: [{ kind: 'file', folder: '03 Medical Records', name: `${CASE}_John-Doe_Medical-Records_2026-11-10.pdf`, want: `${CASE}_Doe-John_Medical-Records_2026-11-10.pdf`, scored: true, issues: [{ n: 2, part: 'Last-First', got: 'John-Doe', should: 'Doe-John' }], hint: 'Look at part 2 (Last-First).' }] };
-        const driveOf = () => ({ drive: { configured: true, clientId: 'ci-client.apps.googleusercontent.com', scopes: 'openid email https://www.googleapis.com/auth/drive.file', standard: (std || {}).standard || [], why: (std || {}).why || {}, homes: {}, root: (std || {}).root || '',
-            connected: linked, email: linked ? EMAIL : '', rootUrl: linked ? ROOT : '', built, builtAt: built ? '2026-11-12T10:00:00.000Z' : null, checkedAt: built ? '2026-11-12T11:00:00.000Z' : null, lastMissing: [],
+        const driveOf = () => ({ drive: { configured: true, shareWith: SHARE, standard: (std || {}).standard || [], why: (std || {}).why || {}, homes: {}, root: (std || {}).root || '',
+            connected: linked, email: linked ? 'dana@example.com' : '', folderName: linked ? NAME : '', rootUrl: linked ? ROOT : '', built, builtAt: built ? '2026-11-12T10:00:00.000Z' : null, checkedAt: built ? '2026-11-12T11:00:00.000Z' : null, lastMissing: [],
             setup: built ? { attempts: 1, ok: true, score: 100, problems: [] } : null, saved: built ? [{ folder: '03 Medical Records', name: 'x.pdf' }] : [], grades: {}, gradedAt: null, drills: ['2'],
             naming: Object.assign({}, (std || {}).naming, { caseId: CASE, report }) } });
         await ctx.route('**/api/drive', (route) => {
@@ -259,15 +259,12 @@ const failures = []; const fail = (m) => failures.push(m);
             calls.push(b);
             const send = (status, body) => route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(body) });
             if (b.action === 'standard') return send(200, { standard: Object.assign({}, std, { configured: true }) });
-            if (b.action === 'connect') {
-                if (refuse) { const code = refuse; refuse = ''; return send(400, { error: "Google Drive access wasn't ticked on Google's screen.", code }); }
+            if (b.action === 'link') {
+                if (refuse) { const code = refuse; refuse = ''; return send(400, { error: `The platform can't open that folder yet. In Google Drive, share it with ${SHARE} as Editor, then link it again.`, code }); }
                 linked = true;
             }
             return send(200, driveOf());
         });
-        // Google's sign-in script, answered here: what the page asked it for is kept, and the test answers as Google would
-        await ctx.route('https://accounts.google.com/**', (route) => { gsi++; route.fulfill({ status: 200, contentType: 'text/javascript', body:
-            'window.__gis = { inits: 0, requests: 0, cfg: null }; window.google = { accounts: { oauth2: { initCodeClient(cfg) { __gis.inits++; __gis.cfg = cfg; return { requestCode() { __gis.requests++; } }; } } } };' }); });
         const p2 = await ctx.newPage();
         p2.on('pageerror', e => fail(`page error (linking): ${e.message}`));
         await p2.goto(BASE, { waitUntil: 'load' }); await p2.waitForTimeout(800);
@@ -338,69 +335,70 @@ const failures = []; const fail = (m) => failures.push(m);
         const openTask = (pg, n, view) => pg.evaluate(([n, view]) => { state.isAdmin = true; const d = DAYS.find(d => d.cf && d.cf.n === n); goto('day', d.id); state.dayViewMode = 'slides';
             const id = n === 1 ? 'd1m1-drive' : `d${n}-drive`, ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === id && cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === view);
             if (k < 0) return false; goToSlide(k); return true; }, [n, view]);
-        const gis = (pg) => pg.evaluate(() => window.__gis ? { inits: __gis.inits, requests: __gis.requests, cfg: __gis.cfg && { client_id: __gis.cfg.client_id, scope: __gis.cfg.scope, ux_mode: __gis.cfg.ux_mode } } : null);
+        // the panel at its link steps: the address to share with, the link box, what it says went wrong
+        const panel = (pg) => pg.evaluate(() => { const h = document.getElementById('cmDriveHost'); if (!h) return null; const i = h.querySelector('#drvLinkUrl');
+            return { text: h.innerText, sa: (h.querySelector('.drv-sa') || {}).textContent || '', input: !!i, focused: !!i && document.activeElement === i, bad: (h.querySelector('.drv-bad') || {}).innerText || '' }; });
+        const paste = async (pg, url) => { await pg.fill('#drvLinkUrl', url); await pg.click('#cmDriveHost .drv-link-row .drv-go'); await pg.waitForTimeout(300); };
         const writes = () => calls.filter(b => !['standard', 'status', undefined].includes(b.action)).map(b => b.action);
 
-        // (a) a trainee: the button is in step 1, and Google's script was fetched when the slide was drawn
+        // (a) a trainee: the button is in step 1
         const at = await openSlide(p2);
         await p2.waitForSelector('.drv-slide [data-drv-link]', { timeout: 10000 }).catch(() => {});
-        await p2.waitForFunction(() => /09 Litigation & ADR/.test((document.querySelector('.drv-slide') || {}).innerText || '') && /Case ID/.test((document.querySelector('.drv-slide .drv-nc') || {}).innerText || '') && !!window.__gis, null, { timeout: 10000 }).catch(() => {});
+        await p2.waitForFunction(() => /09 Litigation & ADR/.test((document.querySelector('.drv-slide') || {}).innerText || '') && /Case ID/.test((document.querySelector('.drv-slide .drv-nc') || {}).innerText || ''), null, { timeout: 10000 }).catch(() => {});
         let v = await look(p2);
         if (!v || !v.btn) fail(`a trainee should have 🔗 Link my Google Drive on Day 1's slide: "${v ? v.one : 'no slide'}"`);
         else {
             if (!v.btn.inOne || !/^🔗 Link my Google Drive$/.test(v.btn.text) || v.btn.disabled) fail(`the button should be in step 1, reading 🔗 Link my Google Drive, ready to press: ${JSON.stringify(v.btn)}`);
             if (!v.btn.logo) fail("the button should carry the Google Drive logo");
-            if (!/Link your Google Drive/.test(v.one) || /From 📂 My Backup Drive/.test(v.one) || !/button here/.test(v.one) || !/drive\.file only/.test(v.one) || !/nothing else/.test(v.one))
-                fail(`step 1 should say to press the button here and that the platform asks for drive.file only: "${v.one}"`);
+            if (!/Link your Google Drive/.test(v.one) || !/button here/.test(v.one) || !/share it with the platform as Editor/.test(v.one) || !/that folder only/.test(v.one))
+                fail(`step 1 should say to press the button here, share a folder with the platform as Editor, and that the platform works in that folder only: "${v.one}"`);
             if (v.done || v.n !== '1') fail('step 1 should not be ticked before the drive is linked');
             if (v.build) fail('📂 Build my folders should wait until the drive is linked');
-            if (!gsi || !(await gis(p2))) fail("Google's sign-in script should be fetched when the slide is drawn, so the first press works");
             if (writes().length) fail(`drawing the slide should write nothing to /api/drive: ${writes()}`);
+            if (await p2.evaluate(() => !!document.querySelector('script[src*="accounts.google.com"]'))) fail("the slide still loads Google's sign-in script: the drive is linked by a shared folder now");
             sound(v, 'a trainee, not linked'); await sized(p2, "Day 1's slide, a trainee not linked");
 
-            // (b) the first press starts Google's sign-in from the slide; the button reads Linking… until Google answers
-            await p2.click('.drv-slide [data-drv-link]');
-            let g = await gis(p2); v = await look(p2);
-            if (!g || g.inits !== 1 || g.requests !== 1) fail(`pressing the button should call google.accounts.oauth2.initCodeClient(…).requestCode() once: ${JSON.stringify(g)}`);
-            else if (g.cfg.ux_mode !== 'popup' || g.cfg.client_id !== 'ci-client.apps.googleusercontent.com' || !/auth\/drive\.file/.test(g.cfg.scope)) fail(`the sign-in should be the popup code flow, for the site's client and drive.file: ${JSON.stringify(g.cfg)}`);
-            if (!v.btn || !/^Linking…$/.test(v.btn.text) || !v.btn.disabled) fail(`while linking, the button should read Linking… and be disabled: ${JSON.stringify(v.btn)}`);
-            if (v.panel) fail('linking from the slide should not open the 📂 My Backup Drive panel');
-            if (writes().length) fail(`nothing should be sent to /api/drive before Google hands a code back: ${writes()}`);
-            // the trainee closes Google's window: a line in step 1, and the button works again
-            await p2.evaluate(() => __gis.cfg.error_callback({ type: 'popup_closed' }));
-            v = await look(p2);
-            if (!v.errInOne || !/closed/.test(v.err)) fail(`a sign-in that was closed should be a line in step 1 of the slide: "${v.err}"`);
-            if (!v.btn || v.btn.disabled || !/Link my Google Drive/.test(v.btn.text)) fail(`after a sign-in that didn't finish, the button should work again: ${JSON.stringify(v.btn)}`);
-            sound(v, 'a trainee, after a sign-in that was closed'); await sized(p2, "Day 1's slide, after a sign-in that was closed");
-            // the longest thing a failed sign-in says (two lines of step 1): the slide still isn't scaled down
-            await p2.click('.drv-slide [data-drv-link]');
-            await p2.evaluate(() => __gis.cfg.error_callback({ type: 'popup_failed_to_open' }));
-            await sized(p2, "Day 1's slide, after a sign-in the browser blocked");
-            // the Drive box left unticked on Google's screen: the Worker refuses it, and the slide says what to do
-            refuse = 'DRIVE_SCOPE_MISSING';
-            await p2.click('.drv-slide [data-drv-link]');
-            await p2.evaluate(() => __gis.cfg.callback({ code: 'ci-code-unticked' }));
-            await p2.waitForSelector('.drv-slide .drv-s-err', { timeout: 10000 }).catch(() => {});
-            v = await look(p2);
-            if (!v.errInOne || !/wasn't ticked/.test(v.err) || !v.btn || v.btn.disabled) fail(`a sign-in without Drive access should be a line in step 1, and the button should work again: "${v.err}" ${JSON.stringify(v.btn)}`);
-            if (v.done) fail('a refused sign-in should not tick step 1');
-            // and a full sign-in: the code Google hands back goes to the Worker as "connect"
-            calls.length = 0;
-            await p2.click('.drv-slide [data-drv-link]');
-            await p2.evaluate(() => __gis.cfg.callback({ code: 'ci-code-123' }));
-            await p2.waitForFunction(() => !!document.querySelector('.drv-slide .drv-s-steps > li.is-done'), null, { timeout: 10000 }).catch(() => {});
-            const sent = calls.find(b => b.action === 'connect');
-            if (!sent || sent.code !== 'ci-code-123') fail(`the code Google hands back should be sent to /api/drive as "connect": ${JSON.stringify(calls)}`);
-            g = await gis(p2);
-            if (g.requests !== 4) fail(`each press should start one sign-in: ${g.requests} for 4 presses`);
+            // (b) the press opens 📂 My Backup Drive at its three steps: the address to share with, and the link box, ready to type in
+            await p2.click('.drv-slide [data-drv-link]'); await p2.waitForTimeout(200);
+            let P = await panel(p2);
+            if (!P || !P.input) fail('pressing 🔗 Link my Google Drive should open 📂 My Backup Drive at the box for the folder\'s link');
+            else {
+                if (P.sa !== SHARE) fail(`the panel should give the address to share the folder with: "${P.sa}"`);
+                if (!/as Editor/.test(P.text) || !/LSH Case Backups|New folder/.test(P.text)) fail(`the panel should say to make the folder and share it as Editor: "${P.text.slice(0, 300)}"`);
+                if (!P.focused) fail('the link box should take the keyboard when the panel opens from the slide');
+                if (writes().length) fail(`opening the panel should write nothing to /api/drive: ${writes()}`);
+                // not a Drive link: said in the panel, nothing sent
+                await paste(p2, 'https://example.com/not-drive');
+                P = await panel(p2);
+                if (!/Paste the folder's link/.test(P.bad) || writes().length) fail(`a link that isn't Google Drive's should be refused in the panel, with nothing sent: "${P.bad}" ${writes()}`);
+                // a folder the platform can't open yet: the Worker's reason in the panel, and as a line in step 1
+                refuse = 'DRIVE_NOT_SHARED';
+                await paste(p2, 'https://drive.google.com/drive/folders/ci-unshared');
+                P = await panel(p2);
+                if (!P.bad.includes(SHARE)) fail(`a folder not shared yet should say, in the panel, to share it with the address: "${P.bad}"`);
+                await p2.evaluate(() => CMDrive.close());
+                v = await look(p2);
+                if (!v.errInOne || !v.err.includes(SHARE)) fail(`a link that was refused should be a line in step 1 of the slide: "${v.err}"`);
+                if (!v.btn || v.btn.disabled || !/Link my Google Drive/.test(v.btn.text)) fail(`after a link that was refused, the button should work again: ${JSON.stringify(v.btn)}`);
+                if (v.done) fail('a refused link should not tick step 1');
+                sound(v, 'a trainee, after a link that was refused'); await sized(p2, "Day 1's slide, after a link that was refused");
+                // and a shared folder: its link goes to the Worker as "link"
+                calls.length = 0;
+                await p2.click('.drv-slide [data-drv-link]'); await p2.waitForTimeout(200);
+                await paste(p2, ROOT + '?usp=sharing');
+                await p2.waitForFunction(() => !!document.querySelector('.drv-slide .drv-s-steps > li.is-done'), null, { timeout: 10000 }).catch(() => {});
+                const sent = calls.find(b => b.action === 'link');
+                if (!sent || sent.url !== ROOT + '?usp=sharing') fail(`the folder's link should be sent to /api/drive as "link": ${JSON.stringify(calls)}`);
+                await p2.evaluate(() => CMDrive.close());
+            }
 
             // (c) linked: step 1 ticked, the email and Open my Drive ↗ in it, the button gone; step 2 offers 📂 Build my folders
             v = await look(p2);
             if (!v.done || v.n !== '✓') fail('once linked, step 1 should be ticked');
             if (v.btn) fail('once linked, 🔗 Link my Google Drive should be gone');
             if (v.err) fail(`once linked, the line about the earlier try should be gone: "${v.err}"`);
-            if (!v.one.includes('Linked: ' + EMAIL)) fail(`once linked, step 1 should show the email: "${v.one}"`);
-            if (v.img || v.xss) fail('the email is put on the slide unescaped');
+            if (!v.one.includes('Linked: ' + NAME)) fail(`once linked, step 1 should show the folder: "${v.one}"`);
+            if (v.img || v.xss) fail('the folder name is put on the slide unescaped');
             if (!v.open || v.open.href !== ROOT || v.open.target !== '_blank' || !/noopener/.test(v.open.rel) || !/noreferrer/.test(v.open.rel) || !/Open my Drive/.test(v.open.text) || !v.open.inOne) fail(`once linked, step 1 should link to the drive's folder in a new tab: ${JSON.stringify(v.open)}`);
             if (!v.build || !v.build.inTwo || !/Build my folders/.test(v.build.text)) fail(`once linked, step 2 should offer 📂 Build my folders: ${JSON.stringify(v.build)}`);
             if (!v.kept || v.at !== at) fail(`the slide should redraw itself in place: the page was rendered again or the deck moved (slide ${v.at}, was ${at})`);
@@ -446,7 +444,7 @@ const failures = []; const fail = (m) => failures.push(m);
         report = null; built = false;
         await asTrainee(p2); await openSlide(p2);
 
-        // (d) a trainer: the same button, as a sample. Pressing it asks nothing of Google and writes nothing to /api/drive
+        // (d) a trainer: the same button, as a sample. Pressing it opens nothing and writes nothing to /api/drive
         const sample = async (pg, who) => {
             await pg.waitForSelector('.drv-slide [data-drv-link]', { timeout: 10000 }).catch(() => {});
             await pg.waitForFunction(() => /Case ID/.test((document.querySelector('.drv-slide .drv-nc') || {}).innerText || ''), null, { timeout: 10000 }).catch(() => {});
@@ -455,14 +453,13 @@ const failures = []; const fail = (m) => failures.push(m);
             if (w.done || /Linked:/.test(w.one) || w.build) fail(`${who} should not be shown a trainee's own link: "${w.one}"`);
             sound(w, who); await sized(pg, `Day 1's slide, ${who}`);
             await pg.waitForTimeout(900);   // the page's own first reads (the standard, a status) are done: what follows is the press's
-            calls.length = 0; const g0 = gsi, i0 = ((await gis(pg)) || { inits: 0 }).inits;
+            calls.length = 0;
             await pg.click('.drv-slide [data-drv-link]'); await pg.waitForTimeout(400);
             // said where it can be seen: the toast, or in the slides window (which shows nothing but the slide) that window's own hint
             const toast = await pg.evaluate(() => { const seen = (e) => !!e && e.getClientRects().length > 0 && getComputedStyle(e).visibility !== 'hidden';
                 const t = document.getElementById('toast'), a = document.querySelector('.drv-aud-say'); return seen(t) && t.classList.contains('show') ? t.textContent : seen(a) ? a.textContent : ''; });
             if (!/Trainees link their own Google Drive/.test(toast)) fail(`${who} pressing the sample should be told, where it can be seen, that trainees link their own drive: "${toast}"`);
             if (calls.length) fail(`${who} pressing the sample sent ${calls.length} /api/drive request(s): ${JSON.stringify(calls)}`);
-            if (gsi !== g0 || ((await gis(pg)) || { inits: 0 }).inits !== i0) fail(`${who} pressing the sample called Google`);
             const after = await look(pg);
             if (!after.btn || after.btn.disabled || after.panel) fail(`${who} pressing the sample should leave the slide as it was: ${JSON.stringify(after.btn)}`);
         };
@@ -481,7 +478,7 @@ const failures = []; const fail = (m) => failures.push(m);
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
     console.log('Day 1\'s case backup is the Backup Drive: the slide carries its four steps and the firm\'s standard, and the retired case folder stays gone.');
     console.log('🏷 The naming convention is on Day 1\'s slide, every Backup File Maintenance task and the Backup Drive panel, which lists each wrong name with the part that differs.');
-    console.log('🔗 Step 1 of Day 1\'s slide links the drive: a trainee\'s press starts Google\'s sign-in and the code goes to the Worker; linked, it shows the email; a trainer\'s button is a sample.');
+    console.log('🔗 Step 1 of Day 1\'s slide links the drive: a trainee\'s press opens the steps to share a folder and paste its link, which goes to the Worker; linked, it shows the folder; a trainer\'s button is a sample.');
     console.log('📐 At 1366x768 none of the Backup File Maintenance slides is scaled down, in any state: no zoom under #lessonSlideWrap, no text under 16px, nothing cut off.');
     console.log('All good.');
 })().catch(e => { console.error(e); process.exit(1); });

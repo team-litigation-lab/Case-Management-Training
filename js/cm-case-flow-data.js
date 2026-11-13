@@ -873,7 +873,7 @@ window.CM_CASE_FLOW = {
         sources: ["D1#12", "D1#13", "LSH firm standard: backup drive folder hierarchy"],
         rubric: {
           ai: [
-            ["Drive linked", 10, "Google Drive connected to the platform with the drive.file permission"],
+            ["Drive linked", 10, "A Google Drive folder of the trainee's own shared with the platform as Editor and linked"],
             ["Hierarchy to standard", 30, "Every folder named, numbered, nested and ordered as the firm standard has it; graded as built"],
             ["Drive confirmed", 20, "✓ Check my drive run with no folder missing"]
           ],

@@ -11,7 +11,8 @@
 //      its children, and nothing is described that isn't in it.
 //   2. It is the case file this course already teaches: every folder in CM_CF_DOC_FOLDERS has a home on
 //      the drive (DRIVE_HOMES), each home is a real folder of the structure, and no home is invented.
-//   3. Google is asked for drive.file and nothing wider.
+//   3. Google is reached as Foundational does: the program's service account, in the one folder the trainee linked
+//      (no Google sign-in on the page, every listing scoped to a folder of that tree).
 //   4. The Day 1 grading passes the firm's own structure and refuses a missing, differently spelled,
 //      invented or misordered folder — and is not thrown by a stray slash or trailing space.
 //   5. Both grades reach the trainee's account (PERSONAL_KEYS), the page carries no copy of the structure
@@ -37,9 +38,9 @@ if (!wBlock.includes('function gradeLayout')) { console.log('Could not find the 
 const W = {};
 try {
   new Function('out', 'const enc = new TextEncoder(); const adminPass = () => "x";\n' + wBlock +
-    '\nout.FOLDER_STANDARD = FOLDER_STANDARD; out.FOLDER_WHY = FOLDER_WHY; out.DRIVE_HOMES = DRIVE_HOMES; out.gradeLayout = gradeLayout; out.DRIVE_SCOPES = DRIVE_SCOPES;')(W);
+    '\nout.FOLDER_STANDARD = FOLDER_STANDARD; out.FOLDER_WHY = FOLDER_WHY; out.DRIVE_HOMES = DRIVE_HOMES; out.gradeLayout = gradeLayout; out.driveConfigured = driveConfigured; out.folderIdOf = folderIdOf;')(W);
 } catch (e) { console.log('The Backup Drive rules could not be read: ' + e.message); process.exit(1); }
-const { FOLDER_STANDARD, FOLDER_WHY, DRIVE_HOMES, gradeLayout, DRIVE_SCOPES } = W;
+const { FOLDER_STANDARD, FOLDER_WHY, DRIVE_HOMES, gradeLayout, driveConfigured, folderIdOf } = W;
 
 /* ---------- 1: a tree, with a rule for every folder ---------- */
 FOLDER_STANDARD.forEach((p, i) => {
@@ -72,10 +73,15 @@ Object.keys(DRIVE_HOMES).forEach((id) => {
 });
 ok(`every one of the case file's ${FOLDERS.length} folders has its folder on the drive`);
 
-/* ---------- 3: drive.file and nothing wider ---------- */
-if (!/drive\.file/.test(DRIVE_SCOPES) || /drive\.readonly|auth\/drive(['" ]|$)/.test(DRIVE_SCOPES))
-  fail('The Backup Drive asks Google for more than drive.file: it may only see the folders and files it makes.');
-ok('Google is asked for drive.file only');
+/* ---------- 3: the service account, in the trainee's own folder only ---------- */
+if (driveConfigured({}) || driveConfigured({ GDRIVE_SA_EMAIL: 'x' }) || !driveConfigured({ GDRIVE_SA_EMAIL: 'x', GDRIVE_SA_KEY: 'y' }))
+  fail('The Backup Drive should be on exactly when GDRIVE_SA_EMAIL and GDRIVE_SA_KEY are set, as on Foundational.');
+if (/accounts\.google\.com\/gsi|initCodeClient|GOOGLE_CLIENT_ID/.test(drive + worker)) fail('A Google sign-in is still in the Backup Drive: it links a shared folder through the service account.');
+if (folderIdOf('https://drive.google.com/drive/folders/1AbC_d-9xYz?usp=sharing') !== '1AbC_d-9xYz' || folderIdOf('https://docs.google.com/document/d/1AbC/edit') !== '')
+  fail('A folder link should give its folder id, and a file link none.');
+const listing = (worker.match(/async function driveList[\s\S]*?\n}/) || [''])[0];
+if (!/in parents/.test(listing)) fail('The drive is listed without a parent: the platform would read beyond the folder the trainee linked.');
+ok('Google is reached through the service account, in the folder the trainee linked and nowhere else');
 
 /* ---------- 4: the Day 1 grading ---------- */
 const right = gradeLayout(FOLDER_STANDARD.slice());
