@@ -113,12 +113,12 @@ function adminCard(){
   const all = new Set(o.all), mine = new Set(sel === "__all" ? [] : o.batches[sel] || []);
   const tiles = ids().map(id => {
     const viaAll = sel !== "__all" && all.has(id), on = viaAll || (sel === "__all" ? all.has(id) : mine.has(id));
-    return `<label class="ft-od-day${on ? " on" : ""}${viaAll ? " via" : ""}"><input type="checkbox" ${on ? "checked" : ""} ${viaAll ? "disabled" : ""} onchange="cmDayVideo.toggle(${id}, this.checked)">
+    return `<label class="cm-dv-day${on ? " on" : ""}${viaAll ? " via" : ""}"><input type="checkbox" ${on ? "checked" : ""} ${viaAll ? "disabled" : ""} onchange="cmDayVideo.toggle(${id}, this.checked)">
       <span><b>🎬 ${E(dayName(id))}</b>${E(VIDEOS[id].title)}<small>${on ? (viaAll || sel === "__all" ? "unlocked for all batches" : "unlocked for " + E(name)) : "locked: trainees see 🔒 Video"}</small></span></label>`;
   }).join("");
   return `<div class="card ft-open-days cm-dv-admin"><h3>🎬 Unlock Videos</h3>
     <p class="cm-ol-help">A day's narrated video stays locked for trainees (🔒 Video on the day card) until you tick it here, for the batch picked above (${E(name)}). You can always play it yourself: <button type="button" class="btn btn-ghost btn-sm" onclick="cmDayVideo.open(${ids()[0]})">▶ Preview</button></p>
-    <div class="ft-od-days">${tiles}</div></div>`;
+    <div class="cm-dv-days">${tiles}</div></div>`;
 }
 if(typeof window.renderAdminOpenLessons === "function"){
   const __admin = window.renderAdminOpenLessons;
@@ -166,6 +166,13 @@ css.textContent = `
 .cm-dv-chapters button.on{background:#DB8437;color:#1E2340;}
 .cm-dv-chapters button.on b,.cm-dv-chapters button.on i{color:#1E2340;}
 .cm-dv-admin{margin-top:0;}
+.cm-dv-days{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;}
+.cm-dv-day{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:12px;padding:14px;font-size:15px;line-height:1.4;color:#262B45;background:#fff;cursor:pointer;min-height:64px;}
+.cm-dv-day input[type=checkbox]{width:18px;height:18px;margin-top:2px;flex:0 0 auto;accent-color:#DB8437;}
+.cm-dv-day.on{border-color:var(--orange);background:#FFF6EC;}
+.cm-dv-day.via{cursor:default;}
+.cm-dv-day b{display:block;color:var(--navy);font-weight:800;font-size:16px;}
+.cm-dv-day small{display:block;margin-top:4px;font-size:14px;font-weight:700;color:#A4470F;}
 @media (max-width:900px){ .cm-dv-main{grid-template-columns:minmax(0,1fr);} .cm-dv-chapters{max-height:34vh;} .cm-dv-stage video{max-height:52vh;} }
 `;
 document.head.appendChild(css);
