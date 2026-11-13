@@ -63,7 +63,7 @@ const theory = (b) => {
       if(!Array.isArray(f.rows) || f.rows.length < 2 || f.rows.length > 6) errors.push(`${id}.theory.framework.rows: want 2–6`);
       else f.rows.forEach((r, i) => { if(!Array.isArray(r) || r.length !== (f.head || []).length) errors.push(`${id}.theory.framework.rows[${i}]: want ${(f.head || []).length} cells`); else r.forEach((x, j) => cell(`rows[${i}][${j}]`, x, 12)); });
     } else if(f && (f.kind === "flow" || f.kind === "list")){
-      if(!Array.isArray(f.steps) || f.steps.length < 3 || f.steps.length > 6) errors.push(`${id}.theory.framework.steps: want 3–6`);
+      if(!Array.isArray(f.steps) || f.steps.length < 3 || f.steps.length > (f.kind === "flow" ? 7 : 6)) errors.push(`${id}.theory.framework.steps: want 3–${f.kind === "flow" ? 7 : 6}`);   // a flow may run to seven (the deck's General Process)
       else f.steps.forEach((x, i) => { cell(`steps[${i}].label`, x && x.label, 5); cell(`steps[${i}].text`, x && x.text, 16);
         if(x && x.more !== undefined){   // ＋ More on a step: its pop-up card, as on a concept
           if(!Array.isArray(x.more) || x.more.length < 2 || x.more.length > 6) errors.push(`${id}.theory.framework.steps[${i}].more: want 2–6 lines`);

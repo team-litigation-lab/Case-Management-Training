@@ -35,44 +35,61 @@ window.CM_CF_SLIDES = {
    "owner": "Case Manager"
   },
   "theory": {
-   "lead": "Case Management is the **end-to-end coordination** of a case from intake to resolution: tracking, handling and moving it, phase by phase.",
+   "lead": "Case Management is the **end-to-end coordination, tracking and handling** of a case, from intake to resolution.",
    "concepts": [
     {
      "term": "What It Ensures",
-     "text": "Timely progression, proper documentation and compliance, clear communication: **the three tests** every task on the file must pass",
+     "text": "Every file passes three tests: **timely progression**, proper documentation and compliance, effective communication",
      "more": [
-      "Timely progression: no file sits without **a dated task**",
-      "Documentation and compliance: every contact, document and deadline in the CMS the same day",
-      "Communication: client, carriers and providers kept updated, every contact logged"
+      "Timely progression of cases: no file sits without **a dated next step**",
+      "Proper documentation and compliance: every contact, document and deadline in the CMS",
+      "Effective communication between all parties: client, carriers, providers and Atty. Thorne"
      ]
     },
     {
-     "term": "The General Process",
-     "text": "Six stages, from Intake & Case Opening to Billing, Resolution & Closing: **you carry the file** through all six"
+     "term": "Case Updates and Summaries",
+     "text": "Keep the file's status current and summed up, so **Atty. Thorne decides** from one read"
     },
     {
-     "term": "Case Planning & Strategy Support",
-     "text": "You build the plan and recommend next steps; **strategy itself stays** with Atty. Thorne",
+     "term": "Legal Compliance Research",
+     "text": "Research **the relevant laws and rules**: deadlines, notice requirements and the state's own conditions"
+    },
+    {
+     "term": "Document Drafting and Filing",
+     "text": "Draft, name and file **every legal document** to the firm's standard, for Atty. Thorne's signature"
+    },
+    {
+     "term": "Task and Progress Monitoring",
+     "text": "Watch **task compliance and case progress**: every task done on time, every phase moving",
      "more": [
-      "You own the Case Plan draft, its risk flags and your recommendations to counsel",
-      "Atty. Thorne owns accepting the case, value and merits, **demand strategy and amounts**",
-      "Settlement authority, lien compromises and every filing stay with him too"
+      "Task Compliance Monitoring: each task has an owner and a date",
+      "Case Progress Monitoring: the file moves **phase by phase**, never stalls"
      ]
+    },
+    {
+     "term": "Client Communication",
+     "text": "Keep John Doe informed and directed; **log every contact** the same day"
     },
     {
      "term": "Case Health Analysis",
-     "text": "Reading the whole file for risk, not single tasks: **spotting the weak point** before it costs the client",
+     "text": "Read the whole file for risk, not single tasks: **spot the weak point** early",
      "more": [
       "The usual weak points: **a missed deadline**, a silent client, a gap in treatment",
-      "Flag it to Atty. Thorne the day you see it, with the facts and a recommended next step",
-      "Log it in CMS → Case File → Risk Flags; nothing lives only in email",
-      "Don't wait until you've fixed it yourself: flag first, then work it"
+      "Flag it to Atty. Thorne the day you see it, with the facts and a next step"
+     ]
+    },
+    {
+     "term": "Planning and Recommendation",
+     "text": "Allocate the file's resources and **recommend next steps**; strategy itself stays with Atty. Thorne",
+     "more": [
+      "Resource Allocation: the right provider, vendor and task at the right time",
+      "Planning and Recommendation: you draft the plan; **Atty. Thorne sets strategy**"
      ]
     }
    ],
    "pages": [
     "D1#3",
-    "D1#4"
+    "D1#5"
    ],
    "framework": {
     "title": "The General Process",
@@ -80,7 +97,7 @@ window.CM_CF_SLIDES = {
     "steps": [
      {
       "label": "Intake & Case Opening",
-      "text": "Verify the facts, run the Conflict Check and open the file in the CMS"
+      "text": "Verify the facts, run the Conflict Check, **open the file** in the CMS"
      },
      {
       "label": "Case Planning & Strategy Support",
@@ -88,22 +105,26 @@ window.CM_CF_SLIDES = {
      },
      {
       "label": "Documentation & File Management",
-      "text": "Request, name and file every document; the CMS is the single source of truth"
+      "text": "Request, name and file every document; **the CMS** is the single source of truth"
      },
      {
       "label": "Communication Management",
-      "text": "Keep the client, carriers and providers updated; log every contact the same day"
+      "text": "Keep the client, carriers and providers updated; **log every contact**"
      },
      {
       "label": "Case Monitoring & Tracking",
-      "text": "Docket every deadline, watch progress and flag risk to counsel the day you see it"
+      "text": "Docket every deadline and **flag risk** to counsel the day you see it"
      },
      {
-      "label": "Billing, Resolution & Closing",
-      "text": "Support the billing and lien records through resolution, then close a complete file"
+      "label": "Billing & Documentation Support",
+      "text": "Keep **the bills, liens and costs** recorded and current for the demand"
+     },
+     {
+      "label": "Case Resolution & Closing",
+      "text": "Support resolution and disbursement, then **close a complete file**"
      }
     ],
-    "note": "Six stages on one track, from opening the file to closing it."
+    "note": "Seven steps on one track; each case phase, Intake to Litigation, has its own goals and deliverables."
    }
   }
  },
@@ -333,94 +354,94 @@ window.CM_CF_SLIDES = {
    "owner": "Case Manager"
   },
   "theory": {
-   "lead": "Intake is where you establish **control, structure and clarity**: verifying facts and mapping every party to the policy it unlocks.",
+   "lead": "The Intake Phase is where Case Managers establish **control, structure and clarity** from the very beginning of a case.",
    "concepts": [
     {
-     "term": "The Recovery Stack",
-     "text": "Every policy that can pay the claim, layered in the order it pays; **find every layer** at intake"
+     "term": "More Than Data Collection",
+     "text": "Intake is the first chance to ensure **accuracy, compliance and proper case direction**"
     },
     {
-     "term": "Bodily Injury Liability",
-     "text": "The at-fault driver's coverage for injuries he causes others: **the first layer** to pay, and a third-party claim"
-    },
-    {
-     "term": "UM/UIM Coverage",
-     "text": "First-party cover for when the at-fault driver's BI is **missing or too small**; reached through the vehicle or household",
+     "term": "Your Role at Intake",
+     "text": "Verify and organize essential case information while ensuring the case **meets acceptance standards**",
      "more": [
-      "Reached by status, not ownership: occupant of the vehicle, or **resident relative** of the household",
-      "Host UM: $20,000 at Harbor Point, reached through the host vehicle",
-      "Relative UM: $10,000 at Cardinal State Mutual, through John Doe's resident relative",
-      "His position in the vehicle decides which layers open: record it from the Police Report"
+      "Capturing complete and accurate client details",
+      "Screening for **conflicts of interest**",
+      "Assessing case viability and eligibility",
+      "Establishing a properly structured case file"
      ]
     },
     {
-     "term": "Exclusions and Rejections",
-     "text": "A signed UM rejection or an owned-vehicle exclusion **closes a layer**; record the document that does it",
+     "term": "Initial Client Contact",
+     "text": "The first interaction with a potential client, **followed immediately by intake**",
      "more": [
-      "On this file: Margaret Doe rejected UM on her Bluewater policy, in writing",
-      "The signed form goes in the file, so **the zero is verified**, not assumed",
-      "Whether an exclusion or rejection applies is Atty. Thorne's call; you record the document"
+      "It gathers the basic facts and **assesses urgency**",
+      "It decides whether the case can move forward"
      ]
     },
     {
-     "term": "MedPay and PIP",
-     "text": "First-party medical coverage paid regardless of fault: **it pays bills first**, while the claim is still open",
+     "term": "The Gatekeeper of Quality",
+     "text": "Your role begins after intake: **quality control and case validation** before a case is accepted",
      "more": [
-      "MedPay: reasonable accident Medical Bills up to its limit, never wages",
-      "PIP, where a state requires it, also pays **a share of lost wages** and replacement services",
-      "This file: $5,000 PIP at Harbor Point",
-      "Verify PIP or MedPay on every file; never assume it"
+      "Intake work is complete and accurate",
+      "It is properly documented",
+      "It is **ready for case activation**"
      ]
     },
     {
-     "term": "Property Damage and Collision",
-     "text": "PD liability repairs what the at-fault driver damaged; collision is the owner's own cover. **Neither joins the injury stack**"
+     "term": "The Conflict Check",
+     "text": "Run in the system **before proceeding**, on every party's full legal name, and documented"
     },
     {
-     "term": "Per-Person vs. Per-Accident Limits",
-     "text": "A split limit caps each injured person at the first figure and **the whole accident** at the second; read both"
+     "term": "Document Review",
+     "text": "Review every document for **completeness and relevance**; flag what is missing or inconsistent"
     },
     {
-     "term": "The Declaration Page",
-     "text": "The carrier's statement of the named insured, covered vehicles, coverages and limits: **written proof of coverage**",
+     "term": "Naming and System Entry",
+     "text": "Create the case file with **proper naming conventions** and a complete system entry"
+    },
+    {
+     "term": "Working Independently",
+     "text": "Run intake end to end yourself, then **communicate next steps clearly** to the client or team",
      "more": [
-      "Read it line by line: named insured, policy number, **a policy period covering** 02/06/2026",
-      "The insured vehicle and VIN, coverages and limits, deductibles",
-      "Listed or excluded drivers, and any endorsements",
-      "Until it arrives, a limit is preliminary: a phone figure is a lead, never quoted to the client"
+      "Conduct a full intake call or review the intake submission",
+      "Identify **missing or inconsistent** client information",
+      "Perform and document a conflict check accurately",
+      "Decide if the case meets basic acceptance criteria",
+      "Set up a complete, organized case file in the system",
+      "Communicate next steps clearly to the client or internal team"
      ]
     }
    ],
    "pages": [
-    "D1#21",
-    "D1#22"
+    "D1#7",
+    "D1#8"
    ],
    "framework": {
     "title": "The Intake Workflow",
     "kind": "flow",
     "steps": [
      {
-      "label": "Raw File Received",
-      "text": "The file arrives from “On the Records”; read it end to end first"
+      "label": "Inquiry Form Submitted",
+      "text": "The intake arrives; on this file, the raw file from **“On the Records”**"
      },
      {
-      "label": "Review & Verify Details",
-      "text": "Check the DOL, parties and signatures against the Police Report, not the intake note"
+      "label": "Details Reviewed and Verified",
+      "text": "Check the DOL, parties and signatures against **the Police Report**"
      },
      {
       "label": "Conflict Check Completed",
-      "text": "Run it on every party's **full legal name**; log its date and result"
+      "text": "Every party's **full legal name**; log its date and result"
      },
      {
       "label": "Approved or Escalated",
-      "text": "Complete intake moves to acceptance; incomplete intake goes back, uncertain eligibility to Atty. Thorne"
+      "text": "Complete intake moves to acceptance; **uncertain eligibility** goes to Atty. Thorne"
      },
      {
       "label": "File Created and Logged",
-      "text": "Open the matter in the CMS: six roles mapped, SOL docketed, documents named"
+      "text": "Open the matter in the CMS: roles mapped, **SOL docketed**, documents named"
      }
     ],
-    "note": "Nothing moves before the Conflict Check is documented; coverage is then read off the Declaration Page."
+    "note": "This phase determines whether the case should move forward or be declined."
    }
   }
  },
@@ -826,12 +847,12 @@ window.CM_CF_SLIDES = {
   "ruleEx": {
    "rule": "After notice, **the adverse carrier talks to the firm**, not to John: no Recorded Statement",
    "exception": "**Property Damage only**, with the vehicle's owner: Keystone PD (Leah Moran) deals with Margaret Doe about the Civic",
-   "onFile": "Notice to Dana Whitfield 02/10/2026, after Keystone called John on 02/09",
+   "onFile": "Notice to Dana Whitfield 02/10/2026, after Keystone called John on 02/08",
    "confirm": "Injury questions route to Atty. Thorne"
   },
   "redFlag": {
    "on": "dodont",
-   "see": "Dana Whitfield (Keystone) asked John Doe **to record his account** (his voicemail, 02/10/2026, 8:47 a.m.)",
+   "see": "Dana Whitfield (Keystone) asked John Doe **to record his account** (his voicemail, 02/09/2026, 8:47 a.m.)",
    "costs": "A represented client's recorded account becomes Keystone's evidence on the 14-Day Gap",
    "do": "Send written notice today: no direct contact; **statements go through the firm**. Log it.",
    "owner": "Atty. Thorne"

@@ -1,4 +1,4 @@
-// @check browser — A saved place follows its slide (On the Job and Milestone Steps are gone, and Why It Matters opens The Theory: a place saved in either older deck lands on the same lesson, never past the end)
+// @check browser — A saved place follows its slide (On the Job and Milestone Steps are gone, Why It Matters opens The Theory, Day 1 was reordered: a place saved in any older deck lands on the same slide or lesson, never past the end)
 // A trainee's place in a day is a slide position ("last-slide", "slide-progress", and the slide kept across the reload
 // that brings in a new version). The Case Flow decks have changed twice: the lessons lost their On the Job slide (the
 // Trigger ➔ Task ➔ Tool ➔ Checkpoint cards); and then, in one change, the 26 Milestone Steps slides went (their steps
@@ -23,6 +23,9 @@
 //     kept by this code is not;
 //   · copy left over from the old decks (a "job" or "steps" entry in the slides or the trainer scripts, a "slide": true
 //     on a Milestone rail) draws nothing and breaks nothing.
+// Layout 4 put Day 1 in the order of the revised Day 1 deck (Client Directions and the voicemail before the file is
+// opened in the CMS) and gave Case Management Fundamentals The Theory, Continued. Layout 3's Day 1 is recorded below
+// (L3); a place saved in it lands on the same slide in today's deck, wherever that slide now sits.
 // Usage: node .github/scripts/slide-places.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -59,7 +62,15 @@ const OLD = {
     'd4m4-a1 task case check', 'd4m4-a2 task case check', 'd5m1-a1 task case check', 'd5m1-a2 task case check', 'd5m2-a1 task case check', 'd5m3-a1 task case check', 'd5m3-a2 task case check', 
     'd5m4-a1 task case check', 'd5m4-a2 task case check', 'd5m5-a1 task case check', 'd5-drive task case check', 'd5m6-a1 task case check']
 };
-const LAYOUT = 3;
+// Layout 3's deck of a day that layout 4 reordered (the same notation); every other day's layout 3 is today's
+const L3 = {
+  1: ['~taskOverview', 'd1m1-case theory frame rules model dodont', '~caseMap', '~coverageMap', 'd1m1-role theory frame rules model', 'd1m1-upl theory rules model dodont',
+    'd1m1-l1 map theory theory2 frame rules model dodont', 'd1m4-l1 theory frame rules model dodont', '~practiceLab', 'd1m1-open task case check', 'd1m1-drive task case check',
+    'd1m3-l1 theory rules model dodont', 'd1m3-l2 theory frame rules model dodont', 'd1m3-a1 task case check', 'd1m3-a2 task case check', 'd1m3-a3 task case check',
+    'd1m2-l1 theory frame rules model dodont', 'd1m2-l2 theory frame rules model dodont', 'd1m2-a1 task case check', 'd1m2-a2 task', '~readyCheck', 'd1m2-a2 case check']
+};
+const NEW_IN_4 = ['d1m1-role theory2'];   // the slides layout 4 added
+const LAYOUT = 4;
 (async () => {
   const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
   const page = await browser.newPage({ viewport: { width: 1366, height: 768 } });
@@ -70,21 +81,31 @@ const LAYOUT = 3;
   // the deck of a day in an older layout, from the record: each slide's block and view, and where it should land in
   // today's deck (place: where that slide is now; reach: the furthest slide it stands for), worked out here from the
   // record and today's deck alone, never from js/cm-slide-places.js
-  const ORACLE = `window.__OLD = ${JSON.stringify(OLD)};
+  const ORACLE = `window.__OLD = ${JSON.stringify(OLD)}; window.__L3 = ${JSON.stringify(L3)}; window.__NEW4 = ${JSON.stringify(NEW_IN_4)};
     window.__oldDeck = (d, layout) => { const out = [], bad = [];
-      const now = buildDaySlides(d).map(sl => { const b = sl.type === 'topic' ? d.lessons[sl.lessonIndex].cf.block : null; return b ? { id: b.id, view: cmCaseFlow.viewsOf(b)[sl.part - 1], li: sl.lessonIndex } : { id: '~' + sl.type, view: '', li: -1 }; });
+      const today = buildDaySlides(d).map(sl => { const b = sl.type === 'topic' ? d.lessons[sl.lessonIndex].cf.block : null; return b ? { id: b.id, view: cmCaseFlow.viewsOf(b)[sl.part - 1], li: sl.lessonIndex } : { id: '~' + sl.type, view: '', li: -1 }; });
+      // layout 3's deck: the record where the day was reordered since (every one of its slides still in today's deck,
+      // and today's deck nothing more than it and the slides layout 4 added), else today's
+      let now = today;
+      if (window.__L3[d.cf.n]) {
+        now = []; window.__L3[d.cf.n].forEach(row => { const [id, ...views] = row.split(' '); (id[0] === '~' ? [''] : views).forEach(view => {
+          const t = today.find(x => x.id === id && x.view === view); if (!t) bad.push('layout 3 slide ' + id + ' ' + view + ' is not in the deck of today'); now.push({ id, view, li: t ? t.li : -1 }); }); });
+        today.forEach(x => { if (!now.some(y => y.id === x.id && y.view === x.view) && !window.__NEW4.includes(x.id + ' ' + x.view)) bad.push('the slide ' + x.id + ' ' + x.view + ' of today is neither in layout 3 nor new in layout 4'); });
+      }
+      const here4 = k3 => { const y = now[k3]; return y ? today.findIndex(x => x.id === y.id && x.view === y.view) : -1; };
+      if (layout === 3) { now.forEach((y, k3) => out.push({ id: y.id, view: y.view, li: y.li, place: here4(k3), reach: here4(k3), kept: true })); out.bad = bad; return out; }
       let k = 0;
       (window.__OLD[d.cf.n] || []).forEach(row => { const [id, ...views] = row.split(' ');
         (id[0] === '~' ? [''] : views).forEach(view => {
           if (view === 'job' && layout > 1) return;
           const n = now[k], here = n && n.id === id && n.view === view;
-          if (here) { out.push({ id, view, li: n.li, place: k, reach: k, kept: true }); k++; return; }
+          if (here) { out.push({ id, view, li: n.li, place: here4(k), reach: here4(k), k3: k, kept: true }); k++; return; }
           const prev = out[out.length - 1];
           if ((view !== 'job' && view !== 'why' && view !== 'steps') || !prev || prev.id !== id) { bad.push(id + ' ' + view + ' is in the record and not in the deck (slide ' + (k + 1) + ' is ' + (n ? n.id + ' ' + n.view : 'the end') + ')'); return; }
           const th = now.findIndex(x => x.id === id && x.view === 'theory'), ru = now.findIndex(x => x.id === id && x.view === 'rules');
           if (view === 'why' && th < 0) { bad.push(id + ': Why It Matters is gone from a lesson with no Theory slide'); return; }
           if (view === 'steps' && ru < 0) { bad.push(id + ': Milestone Steps is gone from a lesson with no The Rules slide'); return; }
-          out.push({ id, view, li: prev.li, place: view === 'why' ? th : view === 'steps' ? ru : prev.reach, reach: prev.reach, kept: false });
+          out.push({ id, view, li: prev.li, place: here4(view === 'why' ? th : view === 'steps' ? ru : prev.k3), reach: prev.reach, k3: prev.k3, kept: false });
         }); });
       if (k !== now.length) bad.push('the record ends at slide ' + k + ' of ' + now.length + ' (slide ' + (k + 1) + ' is ' + (now[k] ? now[k].id + ' ' + now[k].view : '?') + ')');
       out.bad = bad; return out; };`;
@@ -98,7 +119,7 @@ const LAYOUT = 3;
     for (const d of DAYS) {
       if (!d.cf) continue;
       const now = buildDaySlides(d), row = { n: d.cf.n, now: now.length };
-      for (const layout of [1, 2]) {
+      for (const layout of [1, 2, 3]) {
         const old = __oldDeck(d, layout), place = cmSlidePlaces.placeMap(d, layout), reach = cmSlidePlaces.reachMap(d, layout), L = `Day ${d.cf.n}, layout ${layout}`;
         old.bad.forEach(m => out.push(`${L}: ${m}`));
         row['was' + layout] = old.length; row['job' + layout] = old.filter(x => x.view === 'job' && !x.kept).length; row['why' + layout] = old.filter(x => x.view === 'why' && !x.kept).length; row['steps' + layout] = old.filter(x => x.view === 'steps' && !x.kept).length;
@@ -108,7 +129,7 @@ const LAYOUT = 3;
           if (!sl || !fs) return out.push(`${where}: lands on no slide (${to}, furthest ${far})`);
           if (to !== x.place) out.push(`${where}: ${x.kept ? 'that slide is now' : x.view === 'why' ? "its lesson's The Theory is slide" : x.view === 'steps' ? "its lesson's The Rules is slide" : "its lesson's slide before it is"} ${x.place + 1}, the place lands on ${to + 1}`);
           if (far !== x.reach) out.push(`${where}: as the furthest slide reached it should be ${x.reach + 1}, it lands on ${far + 1}`);
-          if (i && far < reach[i - 1]) out.push(`${where}: its furthest-reached slide lands before that of the slide ahead of it`);
+          if (i && far < reach[i - 1] && !window.__L3[d.cf.n]) out.push(`${where}: its furthest-reached slide lands before that of the slide ahead of it`);
           if (to > far) out.push(`${where}: the place lands further on than the furthest slide reached`);
           if (x.li >= 0 && (sl.type !== 'topic' || sl.lessonIndex !== x.li || fs.type !== 'topic' || fs.lessonIndex !== x.li)) out.push(`${where}: lands outside its lesson`);
           if (!x.kept && x.view === 'why' && cmCaseFlow.viewsOf(d.lessons[x.li].cf.block)[sl.part - 1] !== 'theory') out.push(`${where}: a Why It Matters slide that is gone should land on The Theory`);
