@@ -8,6 +8,9 @@
 //     Continued → The Framework → The Document → The Rules → See It → Do & Don't (a lesson with no Theory slide opens
 //     with Why It Matters instead); an activity is Your Task → Your Case → The Grade-A Standard → Audit → See It →
 //     Check Your Work; and what each slide draws is that view of that block (its label and its block's title);
+//   · a lesson drawn from the trainer's own deck pages (js/cm-deck-slides.js, window.CM_DECK_SLIDES) is a lesson like
+//     any other, before the Practice Lab: its slides are its deck pages and nothing else, together, in the deck's
+//     order (rising page numbers), each labelled with its page's title in the band and in the slide picker;
 //   · the Practice Lab's opening slide lists every activity of the day, in the deck's order, each with the lesson it
 //     practises ("Practises: 2.3 Liability Investigation"); that lesson is taught before the lab; the activities follow
 //     the order of the lessons' sections; and each activity's own first slide names its lesson the same way;
@@ -37,7 +40,8 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
   await page.evaluate(() => { const kt = document.getElementById('ktLogin'); if (kt) kt.remove(); });
 
   // 1. the order of every day's deck, and of every block's slides
-  const decks = await page.evaluate(async ({ LESSON, ACTIVITY, LABEL }) => {
+  const decks = await page.evaluate(async ({ LESSON, ACTIVITY, LABEL: LABELS }) => {
+    const LABEL = LABELS;
     state.isAdmin = true;
     const out = [], days = [], norm = s => String(s || '').replace(/\s+/g, ' ').trim().toLowerCase();
     for (const d of DAYS.filter(x => x.cf)) {
@@ -60,6 +64,14 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
       runs.forEach(r => {
         if (seen[r.id]) out.push(`${L}: ${r.id}'s slides are split (slides ${seen[r.id].from + 1}–${seen[r.id].to + 1} and again from ${r.from + 1}): another slide sits inside the block`);
         seen[r.id] = r;
+        const pages = r.kind === 'lesson' ? (window.CM_DECK_SLIDES || {})[r.id] : null;
+        if (pages) {   // drawn from the trainer's deck: its pages, all of them, in the deck's order
+          if (r.views.join(' ') !== pages.map(p => 'deck' + p.page).join(' ')) out.push(`${L}: ${r.id} is drawn from the deck and runs ${r.views.join(' → ')}; its deck pages are ${pages.map(p => 'deck' + p.page).join(' → ')}`);
+          if (pages.some((p, i) => i && p.page <= pages[i - 1].page)) out.push(`${L}: ${r.id}'s deck pages are not in the deck's order (${pages.map(p => p.page).join(', ')})`);
+          if (pages.some(p => !String(p.title || '').trim() || !p.img)) out.push(`${L}: ${r.id} has a deck page with no title (the band that names the slide) or no picture`);
+          if (r.views.join(' ') !== cmCaseFlow.viewsOf(r.b).join(' ')) out.push(`${L}: ${r.id} shows ${r.views.join(' ')}; the block's slides are ${cmCaseFlow.viewsOf(r.b).join(' ')}`);
+          return;
+        }
         const order = r.kind === 'lesson' ? LESSON : ACTIVITY, pos = r.views.map(v => order.indexOf(v));
         if (pos.some(p => p < 0) || pos.some((p, i) => i && p <= pos[i - 1])) out.push(`${L}: ${r.id} (${r.kind}) runs ${r.views.join(' → ')}; the fixed order is ${order.join(' → ')}`);
         if (r.views.join(' ') !== cmCaseFlow.viewsOf(r.b).join(' ')) out.push(`${L}: ${r.id} shows ${r.views.join(' ')}; the block's slides are ${cmCaseFlow.viewsOf(r.b).join(' ')}`);
@@ -81,6 +93,9 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
         const w = document.getElementById('lessonSlideWrap'), x = at[k];
         if (!w) { out.push(`${L} slide ${k + 1}: nothing drawn`); continue; }
         if (x.id) {
+          const dp = x.kind === 'lesson' && ((window.CM_DECK_SLIDES || {})[x.id] || []).find(p => 'deck' + p.page === x.view), LABEL = dp ? Object.assign({}, LABELS, { [x.view]: dp.title }) : LABELS;
+          if (dp && !w.querySelector('.cfx-deckpage img[src="' + dp.img + '"]')) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): the slide doesn't draw its deck page (${dp.img})`);
+          if (dp && w.querySelectorAll('.cfx-title').length !== 1) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): a deck page should have one band that names it; it has ${w.querySelectorAll('.cfx-title').length}`);
           const pill = norm((w.querySelector('.cfx-title') || {}).textContent), text = norm(w.textContent);
           if (!pill.includes(norm(LABEL[x.view]))) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): the slide drawn is labelled "${pill}", not ${LABEL[x.view]}`);
           if (!text.includes(norm(x.b.title).slice(0, 40))) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): the slide drawn doesn't carry its block's title (${x.b.title})`);

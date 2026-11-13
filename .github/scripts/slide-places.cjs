@@ -1,4 +1,4 @@
-// @check browser — A saved place follows its slide (On the Job and Milestone Steps are gone, Why It Matters opens The Theory, and a day is now all its lessons and then one Practice Lab: a place saved in any older deck lands on the same slide of the same block, never past the end)
+// @check browser — A saved place follows its slide (On the Job and Milestone Steps are gone, Why It Matters opens The Theory, and a day is now all its lessons and then one Practice Lab, and six Day 1 lessons are drawn from the deck pages: a place saved in any older deck lands on the same slide of the same block, or on its lesson's deck page, never past the end)
 // A trainee's place in a day is a slide position ("last-slide", "slide-progress", and the slide kept across the reload
 // that brings in a new version). The Case Flow decks have changed twice: the lessons lost their On the Job slide (the
 // Trigger ➔ Task ➔ Tool ➔ Checkpoint cards); and then, in one change, the 26 Milestone Steps slides went (their steps
@@ -8,12 +8,18 @@
 // Then the ORDER of a day changed (layout 4): a day is ALL of its lessons, then ONE Practice Lab holding all of its
 // Skill Activities, then the Ready check as its last slide (before, groups of lessons and their activities took turns,
 // and Day 1's Ready check sat inside its last activity). No slide was added or removed, every one sits elsewhere.
+// Then six Day 1 lessons were drawn from the trainer's own deck pages (layout 5, js/cm-deck-slides.js): such a lesson
+// has another number of slides, so a place saved in one keeps its lesson and how far through it the trainee was (slide
+// j of the m the lesson had becomes deck page ⌊j·n/m⌋ of its n), after it has been carried to today's order.
 // The layouts: 1, the deck with On the Job (what a place with no layout on it was saved in); 2, without On the Job,
 // with the Milestone Steps slides and every Why It Matters slide; 3, without those, in the old order: the live deck
-// before this change; 4, today's. The decks of layouts 1, 2 and 3 are recorded below as data (OLD, OLD3), slide by
-// slide, in the order they were. Checked:
+// before these changes; 4, today's order with every lesson on its own drawn slides; 5, today's. The decks of layouts
+// 1, 2 and 3 are recorded below as data (OLD, OLD3), slide by slide, in the order they were; layout 4's is today's
+// deck with each deck lesson's pages replaced by the slides OLD3 records for it. Checked:
 //   · the recorded decks are today's slides (each exactly once) plus the slides that are gone, and nothing else;
-//   · every position of every day's deck, in all three older layouts, lands on the same slide of the same block where
+//   · a place in a lesson that is drawn from the deck now lands on that lesson's deck page ⌊j·n/m⌋, in every older
+//     layout: its first slide on its first page, in order, never outside the lesson;
+//   · every position of every day's deck, in all four older layouts, lands on the same slide of the same block where
 //     it still exists; a Why It Matters slide that is gone on its lesson's The Theory, and a Milestone Steps slide on
 //     its lesson's The Rules; an On the Job slide on its lesson's slide before it; never past the end of the day;
 //   · the furthest slide reached becomes the furthest, in today's order, of the slides the trainee had seen: never
@@ -95,7 +101,7 @@ const OLD3 = {
     'd5m1-a2 task case check', 'd5m2-a1 task case check', 'd5m3-a1 task case check', 'd5m3-a2 task case check', 'd5m4-a1 task case check', 'd5m4-a2 task case check', 'd5m5-a1 task case check', 
     'd5-drive task case check', 'd5m6-a1 task case check']
 };
-const LAYOUT = 4;
+const LAYOUT = 5;
 (async () => {
   const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
   const page = await browser.newPage({ viewport: { width: 1366, height: 768 } });
@@ -109,7 +115,17 @@ const LAYOUT = 4;
   const ORACLE = `window.__OLD = ${JSON.stringify(OLD)}; window.__OLD3 = ${JSON.stringify(OLD3)};
     window.__oldDeck = (d, layout) => { const out = [], bad = [], seen = new Set();
       const now = buildDaySlides(d).map(sl => { const b = sl.type === 'topic' ? d.lessons[sl.lessonIndex].cf.block : null; return b ? { id: b.id, view: cmCaseFlow.viewsOf(b)[sl.part - 1], li: sl.lessonIndex } : { id: '~' + sl.type, view: '', li: -1 }; });
-      ((layout >= 3 ? window.__OLD3 : window.__OLD)[d.cf.n] || []).forEach(row => { const [id, ...views] = row.split(' ');
+      // layout 4: today's order, a lesson drawn from the deck now on the slides layout 3 records for it
+      const DECKS = window.CM_DECK_SLIDES || {}, rec3 = id => (window.__OLD3[d.cf.n] || []).find(r => r.split(' ')[0] === id);
+      const rows = layout >= 4 ? now.reduce((a, x, k) => { if (DECKS[x.id]) { if (!k || now[k - 1].id !== x.id) a.push(rec3(x.id) || x.id); } else if (x.id[0] === '~') a.push(x.id); else if (a.length && a[a.length - 1].split(' ')[0] === x.id && now[k - 1].id === x.id) a[a.length - 1] += ' ' + x.view; else a.push(x.id + ' ' + x.view); return a; }, [])
+        : (layout >= 3 ? window.__OLD3 : window.__OLD)[d.cf.n] || [];
+      rows.forEach(row => { const [id, ...views] = row.split(' ');
+        // a lesson drawn from the trainer's deck now (layout 5): its old slides spread over its deck pages, in order
+        if (DECKS[id]) { const was = views.filter(v => !(v === 'job' && layout > 1)), first = now.findIndex(x => x.id === id), n = now.filter(x => x.id === id).length;
+          if (first < 0 || !n || !was.length || now.slice(first, first + n).some(x => x.id !== id)) { bad.push(id + ': its deck pages are not together in the deck, or the record has no slide for it'); return; }
+          for (let q = 0; q < n; q++) { if (seen.has(first + q)) bad.push(id + ' is in the record twice'); seen.add(first + q); }
+          was.forEach((view, j) => { const t = first + Math.min(n - 1, Math.floor(j * n / was.length)); out.push({ id, view, li: now[first].li, place: t, own: t, kept: false, deck: true, j, m: was.length, n, first }); });
+          return; }
         (id[0] === '~' ? [''] : views).forEach(view => {
           if (view === 'job' && layout > 1) return;
           const k = now.findIndex(x => x.id === id && x.view === view);   // the same slide of the same block, wherever today's order puts it
@@ -136,7 +152,7 @@ const LAYOUT = 4;
     for (const d of DAYS) {
       if (!d.cf) continue;
       const now = buildDaySlides(d), row = { n: d.cf.n, now: now.length };
-      for (const layout of [1, 2, 3]) {
+      for (const layout of [1, 2, 3, 4]) {
         const old = __oldDeck(d, layout), place = cmSlidePlaces.placeMap(d, layout), reach = cmSlidePlaces.reachMap(d, layout), L = `Day ${d.cf.n}, layout ${layout}`;
         old.bad.forEach(m => out.push(`${L}: ${m}`));
         row['was' + layout] = old.length; row['moved' + layout] = old.filter((x, i) => x.place !== i).length; row['job' + layout] = old.filter(x => x.view === 'job' && !x.kept).length; row['why' + layout] = old.filter(x => x.view === 'why' && !x.kept).length; row['steps' + layout] = old.filter(x => x.view === 'steps' && !x.kept).length;
@@ -154,13 +170,21 @@ const LAYOUT = 4;
           if (x.kept && sl.type === 'topic' && (d.lessons[sl.lessonIndex].cf.block.id !== x.id || cmCaseFlow.viewsOf(d.lessons[sl.lessonIndex].cf.block)[sl.part - 1] !== x.view)) out.push(`${where}: lands on another slide (${d.lessons[sl.lessonIndex].cf.block.id} ${cmCaseFlow.viewsOf(d.lessons[sl.lessonIndex].cf.block)[sl.part - 1]})`);
           // the whole deck counts as seen only for a trainee who had reached the Ready check, or the old deck's end
           if (far === now.length - 1 && i < old.length - 1 && !old.slice(0, i + 1).some(o => o.id === '~readyCheck')) out.push(`${where}: its furthest-reached slide is the day's last, and the trainee had seen neither the Ready check nor the end`);
-          if (!x.kept && x.view === 'why' && cmCaseFlow.viewsOf(d.lessons[x.li].cf.block)[sl.part - 1] !== 'theory') out.push(`${where}: a Why It Matters slide that is gone should land on The Theory`);
-          if (!x.kept && x.view === 'steps' && cmCaseFlow.viewsOf(d.lessons[x.li].cf.block)[sl.part - 1] !== 'rules') out.push(`${where}: a Milestone Steps slide should land on The Rules`);
+          if (!x.kept && !x.deck && x.view === 'why' && cmCaseFlow.viewsOf(d.lessons[x.li].cf.block)[sl.part - 1] !== 'theory') out.push(`${where}: a Why It Matters slide that is gone should land on The Theory`);
+          if (!x.kept && !x.deck && x.view === 'steps' && cmCaseFlow.viewsOf(d.lessons[x.li].cf.block)[sl.part - 1] !== 'rules') out.push(`${where}: a Milestone Steps slide should land on The Rules`);
+          // a lesson drawn from the deck now: page ⌊j·n/m⌋ of its own pages, the first slide on the first page, in order
+          if (x.deck) { const b = d.lessons[x.li].cf.block, pages = (window.CM_DECK_SLIDES[x.id] || []).map(p => 'deck' + p.page), v = sl.type === 'topic' ? cmCaseFlow.viewsOf(b)[sl.part - 1] : '';
+            if (v !== pages[Math.min(x.n - 1, Math.floor(x.j * x.n / x.m))]) out.push(`${where}: slide ${x.j + 1} of the ${x.m} the lesson had should open deck page ${pages[Math.min(x.n - 1, Math.floor(x.j * x.n / x.m))]} of its ${x.n}; it opens ${v || sl.type}`);
+            if (x.j === 0 && to !== x.first) out.push(`${where}: the lesson's first slide should open its first deck page`);
+            if (x.j && old[i - 1].deck && old[i - 1].id === x.id && to < place[i - 1]) out.push(`${where}: lands before the slide ahead of it in the same lesson`);
+            if (pages.length !== x.n || x.n !== cmCaseFlow.viewsOf(b).length) out.push(`${where}: the lesson has ${cmCaseFlow.viewsOf(b).length} slides and ${pages.length} deck pages`);
+            row.deck = (row.deck || 0) + 1; }
           if (x.kept && (x.view === 'steps' || x.view === 'job')) out.push(`${where}: the deck still has a ${x.view === 'steps' ? 'Milestone Steps' : 'On the Job'} slide`);
         });
         if (reach[reach.length - 1] !== now.length - 1) out.push(`${L}: a trainee who had reached the deck's last slide has not reached today's last`);
         if (place[place.length - 1] !== old[old.length - 1].place) out.push(`${L}: the deck's last slide doesn't land on the same slide`);
       }
+      row.deckLessons = d.lessons.filter(l => l.cf && (window.CM_DECK_SLIDES || {})[l.cf.block.id]).map(l => ({ id: l.cf.block.id, n: cmCaseFlow.viewsOf(l.cf.block).length, m: cmCaseFlow.drawnViewsOf ? cmCaseFlow.drawnViewsOf(l.cf.block).length : -1 }));
       const views = now.filter(sl => sl.type === 'topic').map(sl => cmCaseFlow.viewsOf(d.lessons[sl.lessonIndex].cf.block)[sl.part - 1]);
       if (views.includes('job')) out.push(`Day ${d.cf.n}: a lesson still has an On the Job slide`);
       if (views.includes('steps')) out.push(`Day ${d.cf.n}: a lesson still has a Milestone Steps slide`);
@@ -174,13 +198,19 @@ const LAYOUT = 4;
   if (maps.days.length && !maps.days.some(x => x.job1 > 0)) fail('no day lost an On the Job slide: the record is wrong, or the slides are back');
   if (maps.days.length && maps.days.reduce((a, x) => a + x.why2, 0) !== 41) fail(`the record should hold the 41 Why It Matters slides of the lessons with a Theory slide, all gone (each opens The Theory now): ${maps.days.reduce((a, x) => a + x.why2, 0)} are gone`);
   maps.days.forEach(x => { if (!(x.moved3 > 0)) fail(`Day ${x.n}: no position of layout 3 moved: the record of layout 3 is today's order, or the order did not change`);
-    if (x.was3 !== x.now) fail(`Day ${x.n}: layout 3 had ${x.was3} slides and today's deck has ${x.now}: the reordering should neither add nor remove a slide`); });
+    if (x.was3 !== x.was4) fail(`Day ${x.n}: layout 3 had ${x.was3} slides and layout 4 ${x.was4}: the reordering should neither add nor remove a slide`);
+    // layout 5: only the lessons drawn from the deck changed their number of slides
+    const diff = x.deckLessons.reduce((a, l) => a + l.n - l.m, 0);
+    if (x.now - x.was4 !== diff) fail(`Day ${x.n}: layout 4 had ${x.was4} slides and today's deck has ${x.now}; the lessons drawn from the deck account for ${diff}`);
+    if (x.deckLessons.some(l => l.m < 1 || l.n < 1)) fail(`Day ${x.n}: a lesson drawn from the deck has no drawn slides on record, or no deck page: ${JSON.stringify(x.deckLessons)}`);
+    if (x.deckLessons.length && !(x.deck > 0)) fail(`Day ${x.n}: no position of an older layout stood in a lesson drawn from the deck`); });
+  if (maps.days.length && !maps.days.some(x => x.deckLessons.length)) fail('no lesson is drawn from the deck (window.CM_DECK_SLIDES): layout 5 describes nothing');
   if (maps.days.length && maps.days.reduce((a, x) => a + x.steps2, 0) !== 26) fail(`the record should hold the 26 Milestone Steps slides of the live deck, all gone: it holds ${maps.days.reduce((a, x) => a + x.steps2, 0)} that are gone`);
 
   // 2. slide 40 of Day 1, saved in layout 1 (no layout on it): opened, reloaded, opened again
   const put = (at, layout, n) => page.evaluate(async ({ at, layout, n }) => {
     const d = DAYS.find(x => x.cf && x.cf.n === (n || 1)), old = __oldDeck(d, layout || 1);
-    const i = typeof at === 'string' && / /.test(at) ? old.findIndex(x => x.id + ' ' + x.view === at) : at === 'last' ? old.length - 1 : at === 'far' ? 9999 : at === 'why' ? old.findIndex(x => x.view === 'why' && !x.kept && x.place !== x.reach) : at === 'steps' ? old.findIndex(x => x.view === 'steps' && !x.kept && x.place !== x.reach) : at;
+    const i = typeof at === 'string' && / /.test(at) ? old.findIndex(x => x.id + ' ' + x.view === at) : at === 'last' ? old.length - 1 : at === 'far' ? 9999 : at === 'why' ? old.findIndex(x => x.view === 'why' && !x.kept && !x.deck && x.place !== x.reach) : at === 'steps' ? old.findIndex(x => x.view === 'steps' && !x.kept && !x.deck && x.place !== x.reach) : at;
     // in storage as the old code left them: positions in the old deck, with the layout that code stamped (the first stamped none)
     const saved = o => JSON.stringify(layout > 1 ? Object.assign(o, { cfLayout: layout }) : o);
     localStorage.setItem('lsh_last-slide', saved({ [d.id]: i })); localStorage.setItem('lsh_slide-progress', saved({ [d.id]: i }));
@@ -228,7 +258,7 @@ const LAYOUT = 4;
   if (own.stored !== `${own.last}/${LAYOUT}` || own.reread !== own.last) fail(`a place saved by this page should carry its layout and read back unmoved (${own.last}/${LAYOUT}): saved ${own.stored}, read back ${own.reread}`);
   // never past the end, from any older layout: the old deck's last slide (Day 1's was the last activity's Check Your
   // Work; the Ready check is last now) opens on that same slide, with the whole deck reached
-  for (const layout of [1, 2, 3]) for (const at of ['last', 'far']) {
+  for (const layout of [1, 2, 3, 4]) for (const at of ['last', 'far']) {
     const p = await put(at, layout), g = await open(p.dayId);
     if (g.at !== p.want || g.far !== p.total - 1 || g.at > p.total - 1) fail(`a place at ${at === 'last' ? "the deck's last slide" : 'slide 10000'} (${p.was}), saved in layout ${layout}, should open that slide (${p.want + 1}) with the whole deck reached (${p.total}): slide ${g.at + 1}, furthest ${g.far + 1}`);
   }
@@ -246,6 +276,22 @@ const LAYOUT = 4;
     await page.evaluate(async () => { await loadAll(); state.isAdmin = true; });
     const twice = await open(lab3.dayId);
     if (twice.at !== lab3.want || twice.far !== lab3.far) fail(`a place moved from layout 3 was moved again when read a second time: slide ${twice.at + 1}, furthest ${twice.far + 1}`);
+  }
+  // a place saved inside a lesson that is drawn from the deck now (layout 5), in the old order (3) and in today's (4):
+  // it opens that lesson's deck page ⌊j·n/m⌋, moved once
+  let inDeck = null;
+  for (const layout of [3, 4]) {
+    const pick = await page.evaluate((layout) => { for (const d of DAYS.filter(x => x.cf)) { const old = __oldDeck(d, layout), x = old.filter(o => o.deck && o.j === o.m - 1 && o.m > 1)[0]; if (x) return { n: d.cf.n, at: x.id + ' ' + x.view, j: x.j, m: x.m, pages: x.n, first: x.first }; } return null; }, layout);
+    if (!pick) { fail(`no lesson drawn from the deck had more than one slide in layout ${layout} (the check wants one to stand on)`); continue; }
+    const p = await put(pick.at, layout, pick.n), g = await open(p.dayId), want = pick.first + Math.min(pick.pages - 1, Math.floor(pick.j * pick.pages / pick.m));
+    if (p.want !== want) fail(`the record puts ${p.was} (layout ${layout}) on slide ${p.want + 1}; page ⌊j·n/m⌋ of its lesson is slide ${want + 1}`);
+    if (g.at !== want || g.li !== p.li || !new RegExp('^' + pick.at.split(' ')[0] + ' deck\\d+$').test(g.is)) fail(`a trainee on ${p.was} (slide ${pick.j + 1} of ${pick.m}, layout ${layout}) should open deck page ${Math.min(pick.pages - 1, Math.floor(pick.j * pick.pages / pick.m)) + 1} of that lesson's ${pick.pages} (slide ${want + 1}); opened ${g.at + 1} (${g.is})`);
+    if (g.far !== p.far || g.far < g.at) fail(`the furthest slide reached, saved on ${p.was} in layout ${layout}, should be slide ${p.far + 1}; it is ${g.far + 1}`);
+    if (g.stored !== `${p.want}/${LAYOUT} ${p.far}/${LAYOUT}`) fail(`the places moved into a deck lesson from layout ${layout} should be saved with cfLayout ${LAYOUT} (${p.want}/${LAYOUT} ${p.far}/${LAYOUT}): ${g.stored}`);
+    await page.evaluate(async () => { await loadAll(); state.isAdmin = true; });
+    const twice = await open(p.dayId);
+    if (twice.at !== p.want || twice.far !== p.far) fail(`a place moved into a deck lesson from layout ${layout} was moved again when read a second time: slide ${twice.at + 1}, furthest ${twice.far + 1}`);
+    inDeck = { was: p.was, layout, to: g.is, slide: want + 1 };
   }
   // a place saved in layout 2 (this deck, before Why It Matters opened The Theory) on a Why It Matters slide that is gone
   const w2 = await put('why', 2);
@@ -294,6 +340,9 @@ const LAYOUT = 4;
   const from3 = await resume(3);
   if (from3.view !== 'day' || from3.at !== from3.want) fail(`an update from layout 3 on slide 40 should reopen slide ${from3.want + 1}: reopened ${from3.at + 1} (${from3.view})`);
   if (from3.want === 39) fail('slide 40 of Day 1 sits where it sat in layout 3: the check proves nothing about an update across the reordering (pick another slide)');
+  const from4 = await resume(4);
+  if (from4.view !== 'day' || from4.at !== from4.want) fail(`an update from layout 4 on slide 40 should reopen slide ${from4.want + 1}: reopened ${from4.at + 1} (${from4.view})`);
+  if (from4.want === 39) fail('slide 40 of Day 1 sits where it sat in layout 4: the check proves nothing about an update across the deck pages (pick another slide)');
   const fromNew = await resume(LAYOUT);
   if (fromNew.at !== 39) fail(`an update between two versions of today's deck should reopen the same slide (40): reopened ${fromNew.at + 1}`);
   if (fromNew.left !== null) fail('the layout the update saved its slide in should be cleared once read');
@@ -323,5 +372,5 @@ const LAYOUT = 4;
   await browser.close();
   if (failures.length) { console.log(`${failures.length} problem(s):`); failures.slice(0, 60).forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
   const sum = k => maps.days.reduce((a, x) => a + x[k], 0);
-  console.log(`A saved place follows its slide: ${maps.days.map(x => `Day ${x.n} ${x.was1}→${x.was2}→${x.was3}→${x.now} slides`).join(', ')} (layout 1→2→3→4: ${sum('job1')} On the Job slides gone, then ${sum('steps2')} Milestone Steps slides gone and ${sum('why2')} Why It Matters slides now the opening of The Theory, then every day reordered to all its lessons and one Practice Lab: ${sum('moved3')} of layout 3's ${sum('was3')} positions sit elsewhere); every position of all three older decks lands on the same slide of its own block and never past the end; slide 40 of Day 1 (${s40.was}) opens on slide ${s40.want + 1}, after a reload and after an update too, and is moved once${inLab ? `; a layout-3 place in Day 2's lab (${lab3.was}, slide ${lab3.i + 1}) opens the same slide, now ${lab3.want + 1}` : ''}${why2 ? `; a Why It Matters place (${w2.was}) opens The Theory, slide ${w2.want + 1}` : ''}${steps2 ? `; a Milestone Steps place (${st2.was}) opens The Rules, slide ${st2.want + 1}` : ''}.`);
+  console.log(`A saved place follows its slide: ${maps.days.map(x => `Day ${x.n} ${x.was1}→${x.was2}→${x.was3}→${x.was4}→${x.now} slides`).join(', ')} (layout 1→2→3→4→5: ${sum('job1')} On the Job slides gone, then ${sum('steps2')} Milestone Steps slides gone and ${sum('why2')} Why It Matters slides now the opening of The Theory, then every day reordered to all its lessons and one Practice Lab: ${sum('moved3')} of layout 3's ${sum('was3')} positions sit elsewhere, then ${maps.days.reduce((a, x) => a + x.deckLessons.length, 0)} lessons drawn from the trainer's deck pages: a place in one opens page ⌊j·n/m⌋ of its lesson); every position of all four older decks lands on the same slide of its own block and never past the end; slide 40 of Day 1 (${s40.was}) opens on slide ${s40.want + 1}, after a reload and after an update too, and is moved once${inDeck ? `; ${inDeck.was} (layout ${inDeck.layout}) opens ${inDeck.to}, slide ${inDeck.slide}` : ''}${inLab ? `; a layout-3 place in Day 2's lab (${lab3.was}, slide ${lab3.i + 1}) opens the same slide, now ${lab3.want + 1}` : ''}${why2 ? `; a Why It Matters place (${w2.was}) opens The Theory, slide ${w2.want + 1}` : ''}${steps2 ? `; a Milestone Steps place (${st2.was}) opens The Rules, slide ${st2.want + 1}` : ''}.`);
 })().catch(e => { console.error(e); process.exit(1); });

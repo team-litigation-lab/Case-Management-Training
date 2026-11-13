@@ -160,9 +160,10 @@ async function dupMerge(key){
 function lessonsTable(ppl){
   const L = days();
   return {id: "lessons", title: "📚 Lessons", 
-    head: ["Trainee"].concat(L.map(d => `${dayLabel(d)}. ${String(d.title).replace(/^Case Flow Day \d+ · /, "")}`)),
+    head: ["Trainee", "Registered"].concat(L.map(d => `${dayLabel(d)}. ${String(d.title).replace(/^Case Flow Day \d+ · /, "")}`)),
     rows: ppl.map(r => { const a = summaryOf(r) || {days: []};
-      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}].concat(L.map(d => {
+      const reg = T0(r.registeredAt), regV = [reg ? dTime(r.registeredAt) : "", labelOf(keyOf(r))].filter(Boolean).join(" · ");   // (no longer a row of its own in 🕒 Recent progress)
+      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, {v: regV, f: reg ? `Registered ${reg.toLocaleString()} in ${labelOf(keyOf(r))}` : "", cls: "bs-reg"}].concat(L.map(d => {
         const x = a.days.find(z => z.id === d.id) || {n: 0, reached: 0, score: null};
         const fin = x.n && x.reached >= x.n, deck = fin ? "Slides ✓" : x.reached ? `Slides ${x.reached}/${x.n}` : "";
         const check = x.score == null ? "" : `Check ${x.score}%`;
@@ -198,7 +199,6 @@ function recentTable(ppl){
   const out = [], since = B.recent ? Date.now() - B.recent * 864e5 : 0;
   const push = (r, at, what, detail, score) => { const d = T0(at); if(d && (!since || +d >= since)) out.push({r, at: d, what, detail: detail || "", score: num(score)}); };
   ppl.forEach(r => {
-    push(r, r.registeredAt, "Registered", labelOf(keyOf(r)));
     const data = dataOf(r), dp = data["day-progress"] || r.dayProgress || {};
     // every Knowledge Check attempt (its history), not only the best one
     days().forEach(d => { const p = dp[d.id] || {}, h = Array.isArray(p.history) ? p.history : [];
@@ -525,6 +525,9 @@ css.textContent = `
 .bs-page .bs-wait-pill{background:#F6C08F !important;color:#1E2340 !important;border-color:#F6C08F !important;}
 button.bs-wait-pill{cursor:pointer;font:800 14px Arial,sans-serif;border:1px solid;border-radius:999px;padding:4px 12px;}
 .bs-page .gs-wrap{max-height:62vh;}
+/* a sheet is as wide as the page: its columns share the room (a sheet wider than the page still scrolls sideways) */
+.scx-card .gs{min-width:100%;}
+.scx-card td.bs-reg{color:#3E4560;}
 .scx-card td.bs-lesson{font-size:14px;}
 /* headers wrap between words only (main's overflow-wrap:anywhere broke "Knowledg-e"); a column is as wide as its words */
 .scx-card .gs th, .scx-card .gs td{overflow-wrap:normal !important;word-break:normal !important;hyphens:none;}

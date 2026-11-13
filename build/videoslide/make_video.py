@@ -70,6 +70,9 @@ def main():
     ap.add_argument("--name", default=None)
     ap.add_argument("--rate", type=float, default=1.0, help="speaking speed: 1.1 is 10%% faster")
     ap.add_argument("--only", default=None, help="e.g. 1-5: build just these pages (a quick preview)")
+    ap.add_argument("--audio-from", default=None, help="a folder of slide-NN.wav (revoice.py's audio-revoiced): each slide plays "
+                    "that narration instead, and is held for its length; the captions are timed from this voice's own run, scaled to fit")
+    ap.add_argument("--web", action="store_true", help="also write <name>-web.mp4: 1280x720, small enough for the course site (< 25 MB)")
     a = ap.parse_args()
 
     if not (a.voice or a.clone):
@@ -81,6 +84,9 @@ def main():
     if a.only:
         lo, _, hi = a.only.partition("-"); hi = hi or lo
         slides = [s for s in slides if int(lo) <= s["page"] <= int(hi)]
+    # pages left out of the video ("video": {"skip": [...]}: the Skill Building pages, worked in the platform, not watched)
+    skip = set((spec.get("video") or {}).get("skip") or [])
+    slides = [s for s in slides if s["page"] not in skip]
     name = a.name or Path(a.notes).stem
     out = Path(a.out); (out / "audio").mkdir(parents=True, exist_ok=True); (out / "pages").mkdir(exist_ok=True)
 
@@ -116,6 +122,9 @@ def main():
             return b"".join(c.audio_int16_bytes for c in voice.synthesize(text, syn_config=cfg))
     gap = b"\x00\x00" * int(rate * SILENCE_BETWEEN)
 
+    if a.audio_from:   # every slide plays its converted narration: the video runs at that audio's rate
+        with wave.open(str(Path(a.audio_from) / f"slide-{slides[0]['page']:02}.wav")) as w: out_rate = w.getframerate()
+    else: out_rate = rate
     all_pcm = bytearray(); cues = []; chapters = []; concat = []; t = 0.0
     for s in slides:
         n = s["page"]
@@ -145,15 +154,23 @@ def main():
             with wave.open(str(wav_path), "wb") as w:
                 w.setnchannels(1); w.setsampwidth(2); w.setframerate(rate); w.writeframes(bytes(pcm))
             cue_path.write_text(json.dumps({"key": key, "cues": slide_cues}))
+        if a.audio_from:
+            # the converted narration says the same words: its captions are this voice's, stretched to its length
+            own = len(pcm) / 2 / rate
+            with wave.open(str(Path(a.audio_from) / f"slide-{n:02}.wav")) as w:
+                if w.getframerate() != out_rate: sys.exit(f"{a.audio_from}: slide-{n:02}.wav is not at {out_rate} Hz like the others")
+                pcm = bytearray(w.readframes(w.getnframes()))
+            k = (len(pcm) / 2 / out_rate) / own
+            slide_cues = [(c0 * k, c1 * k, txt) for c0, c1, txt in slide_cues]
         cues += [(t + c0, t + c1, txt) for c0, c1, txt in slide_cues]
-        dur = len(pcm) / 2 / rate
+        dur = len(pcm) / 2 / out_rate
         chapters.append((t, t + dur, f"{n}. {s['title']}"))
         concat.append((by_page[n], t, t + dur))
         all_pcm += pcm; t += dur
 
     narration = out / "narration.wav"
     with wave.open(str(narration), "wb") as w:
-        w.setnchannels(1); w.setsampwidth(2); w.setframerate(rate); w.writeframes(bytes(all_pcm))
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(out_rate); w.writeframes(bytes(all_pcm))
 
     srt = "".join(f"{i}\n{ts(a0)} --> {ts(b0)}\n{txt}\n\n" for i, (a0, b0, txt) in enumerate(cues, 1))
     (out / f"{name}.srt").write_text(srt, encoding="utf-8")
@@ -162,6 +179,8 @@ def main():
     meta = f";FFMETADATA1\ntitle={spec.get('title', name)}\n" + "".join(
         f"\n[CHAPTER]\nTIMEBASE=1/1000\nSTART={int(c0*1000)}\nEND={int(c1*1000)}\ntitle={ct}\n" for c0, c1, ct in chapters)
     (out / "chapters.txt").write_text(meta, encoding="utf-8")
+    # the pages in the video and where each starts: "video.starts" in the notes file, and revoice.py's slide order
+    (out / "slides.json").write_text(json.dumps([{"page": s["page"], "start": round(c0, 1)} for s, (c0, _, _) in zip(slides, chapters)]))
 
     print(f"Encoding {t/60:.1f} min of video…", flush=True)
     # One looped input per slide, each held for a whole number of frames that ends where its narration ends
@@ -180,7 +199,12 @@ def main():
                     "-c:v", "libx264", "-preset", "medium", "-tune", "stillimage", "-crf", "20", "-r", str(fps),
                     "-c:a", "aac", "-b:a", "128k", "-c:s", "mov_text", "-metadata:s:s:0", "language=eng",
                     "-movflags", "+faststart", str(out / f"{name}.mp4")], check=True)
+    if a.web:
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(out / f"{name}.mp4"), "-map", "0:v", "-map", "0:a", "-map_chapters", "0",
+                        "-vf", "scale=1280:720", "-c:v", "libx264", "-preset", "slow", "-crf", "30", "-tune", "stillimage", "-g", "300", "-r", "10",
+                        "-c:a", "aac", "-b:a", "40k", "-ac", "1", "-movflags", "+faststart", str(out / f"{name}-web.mp4")], check=True)
     print(f"Done: {out / (name + '.mp4')}  ({t/60:.1f} min, {len(slides)} slides)")
+    print("video.starts: " + json.dumps([round(c0, 1) for c0, _, _ in chapters]))
 
 
 if __name__ == "__main__":

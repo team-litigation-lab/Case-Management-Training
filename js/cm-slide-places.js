@@ -26,9 +26,16 @@
    the furthest of the slides the trainee had seen, as today's deck orders them: nothing seen is locked again, the
    place the trainee was on is always inside it, and it is the day's last slide only for a trainee who had reached
    the Ready check or the end.
+   Then lessons were drawn from the trainer's deck (layout 5): six Day 1 lessons show the trainer's own Canva deck
+   pages in place of their drawn slides (js/cm-deck-slides.js, window.CM_DECK_SLIDES), so those lessons have a
+   different number of slides, and every slide after one sits at another position. A place saved before is first
+   carried to today's order (as above); then, where its lesson is now drawn from the deck, it keeps its lesson and how
+   far through it the trainee was: slide j of the m the lesson had in the layout the place was saved in becomes deck
+   page ⌊j·n/m⌋ of its n. The furthest slide reached is, as before, the furthest in today's order of the slides seen.
    The layouts: 1, the deck with On the Job (no layout on the saved place); 2, without On the Job (the deck with the
-   Milestone Steps slides and every Why It Matters slide); 3, without those, in the old order; 4, today's. A place
-   saved in 1, 2 or 3 is moved through every change in one go.
+   Milestone Steps slides and every Why It Matters slide); 3, without those, in the old order; 4, in today's order,
+   every lesson on its own drawn slides; 5, today's. A place saved in 1, 2, 3 or 4 is moved through every change in
+   one go.
    Each saved object carries the layout it was written in (cfLayout), so the move happens once, on whichever device
    or tab reads it first, and a place saved since is left alone. The reload after an update says which layout its
    slide was saved in the same way (lsh_resume_layout): a page still running the old deck doesn't, and is moved.
@@ -36,7 +43,7 @@
 (function(){
 "use strict";
 if(typeof state === "undefined" || typeof DAYS === "undefined" || typeof buildDaySlides !== "function") return;
-const LAYOUT = 4, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
+const LAYOUT = 5, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
 const build = buildDaySlides;   // as js/cm-case-flow.js left it: a Case Flow block is one slide per view
 const cfDay = d => !!(d && d.cf && Array.isArray(d.lessons));
 
@@ -51,21 +58,8 @@ const ORDER3 = {
   4: "~taskOverview d3m3-l1 d3m3-l2 d3m3-l3 ~practiceLab d3m3-a1 d3m3-a2 d3m4-l1 d3m4-l2 d3m4-close d3m4-a1 d3m4-pal d3m4-a2 d4-drive d4m2-l1 d4m2-um d4m2-l2 d4m2-a3 d4m2-a1 d4m2-medcal d4m2-a2 d4m2-arbcal d4m3-l1 d4m3-l2 d4m3-prior d4m3-tx d4m3-a1 d4m3-a2 ~readyCheck",
   5: "~taskOverview d4m1-l1 d4m1-l2 d4m4-l1 d4m4-l2 d5m1-l1 d5m1-l2 d5m1-subp d5m2-l1 d5m3-l1 d5m3-l2 d5m4-l1 d5m4-l2 d5m5-l1 d5m6-l1 ~companionBuild ~companionBuild2 ~readyCheck ~extraPractice d4m1-a1 d4m1-a2 d4m1-efile d4m4-a1 d4m4-a2 d5m1-a1 d5m1-a2 d5m2-a1 d5m3-a1 d5m3-a2 d5m4-a1 d5m4-a2 d5m5-a1 d5-drive d5m6-a1"
 };
-/* layout 3's deck of a day, as today's slide for each of its positions (-1: a slide today's deck no longer has) */
-function deck3(d, deck, views){
-  const row = ORDER3[d.cf && d.cf.n]; if(!row) return deck.map((sl, k) => ({k, sl}));   // a day with no record was never reordered
-  const out = [], used = {}, typeAt = t => deck.findIndex(x => x.type === t);
-  row.split(" ").forEach(tok => {
-    if(tok[0] === "~"){ const k = typeAt(tok.slice(1)); out.push({k, sl: k >= 0 ? deck[k] : null}); return; }
-    const [id, n] = tok.split("/"), li = d.lessons.findIndex(l => l.cf && l.cf.block.id === id); if(li < 0) return;
-    const vs = views(d.lessons[li].cf.block), from = used[id] || 0, to = n ? Math.min(vs.length, from + Number(n)) : vs.length;
-    for(let p = from; p < to; p++){ const k = deck.findIndex(x => x.type === "topic" && x.lessonIndex === li && x.part === p + 1); out.push({k, sl: k >= 0 ? deck[k] : null}); }
-    used[id] = to;
-  });
-  // a slide that is gone lands on the one before it
-  out.forEach((x, i) => { if(x.k < 0){ x.k = i ? out[i - 1].k : 0; x.sl = deck[x.k]; } });
-  return out;
-}
+/* a lesson drawn from the trainer's deck pages now (layout 5): its slides before were its own drawn ones */
+const deckLesson = b => !!(b && b.kind === "lesson" && (window.CM_DECK_SLIDES || {})[b.id] && window.cmCaseFlow && window.cmCaseFlow.drawnViewsOf);
 /* the 26 lessons that had a Milestone Steps slide of their own in layouts 1 and 2 (the copy's "slide": true, which is
    gone with the slide: the list is the record of where those slides sat) */
 const STEPS_WERE = new Set(("d1m1-upl d1m1-l1 d1m2-l1 d1m4-tplan d1m4-tmap d1m4-tcare d1m4-emc d1m4-l2 d2m1-l2 d2m1-afd d2m1-cov d2m2-l2 d2m2-pip "
@@ -81,24 +75,54 @@ function viewsWere(b, vs, from){
   if(from < 2 && (b.ops || []).length && !old.includes("steps")) old.splice(tail(), 0, "job");
   return old;
 }
+/* a block's run of slides as it was in layout `from`: for each, [today's slide for it, the slide of today's the
+   trainee had passed to be there] */
+function runWas(d, li, deck, views, from){
+  const b = d.lessons[li].cf.block, vs = views(b), out = [];
+  const part = p => deck.findIndex(x => x.type === "topic" && x.lessonIndex === li && x.part === p + 1);
+  if(from < 5 && deckLesson(b)){
+    // drawn from the deck now: the slides it had, spread over its deck pages in order (slide j of m: page ⌊j·n/m⌋ of n)
+    const was = viewsWere(b, window.cmCaseFlow.drawnViewsOf(b), from), n = vs.length;
+    was.forEach((v, j) => { const t = part(Math.min(n - 1, Math.floor(j * n / was.length))); out.push([t, t]); });
+    return out;
+  }
+  const old = b.kind === "lesson" ? viewsWere(b, vs, from) : vs, at = v => part(vs.indexOf(v));
+  vs.forEach((v, p) => {
+    const k = part(p); out.push([k, k]);
+    // the slides that followed this one in the old deck and are gone: Why It Matters is on The Theory now, the
+    // Milestone Steps are spoken on The Rules; On the Job, the lesson's slide before it
+    for(let j = old.indexOf(v) + 1; j > 0 && j < old.length && !vs.includes(old[j]); j++){
+      const t = old[j] === "why" ? at("theory") : old[j] === "steps" ? at("rules") : -1;
+      out.push(t >= 0 && t <= k ? [t, k] : [k, k]);
+    }
+  });
+  return out;
+}
 /* the day's deck as it was in layout `from`: for each of its positions, [today's slide for it, today's slide for
    "the furthest reached" when it was that position] */
 function oldDeck(d, from){
   const views = window.cmCaseFlow && window.cmCaseFlow.viewsOf, out = [], deck = build(d);
   if(!views) return deck.map((sl, k) => [k, k]);
-  deck3(d, deck, views).forEach(({k, sl}) => {
-    out.push([k, k]);
-    const l = sl.type === "topic" ? d.lessons[sl.lessonIndex] : null, b = l && l.cf && l.cf.block;
-    if(!b || !views || b.kind !== "lesson") return;   // only a lesson had any of these slides
-    const vs = views(b), old = viewsWere(b, vs, from);
-    const at = v => deck.findIndex(x => x.type === "topic" && x.lessonIndex === sl.lessonIndex && vs[x.part - 1] === v);
-    // the slides that followed this one in the old deck and are gone: Why It Matters is on The Theory now, the
-    // Milestone Steps are spoken on The Rules; On the Job, the lesson's slide before it
-    for(let j = old.indexOf(vs[sl.part - 1]) + 1; j > 0 && j < old.length && !vs.includes(old[j]); j++){
-      const t = old[j] === "why" ? at("theory") : old[j] === "steps" ? at("rules") : -1;
-      out.push(t >= 0 && t <= k ? [t, k] : [k, k]);
-    }
-  });
+  const row = from < 4 ? ORDER3[d.cf && d.cf.n] : null;
+  if(row){
+    // layouts 1 to 3: the old order, block by block ("id/1": the block's first slide alone, the rest at its next mention)
+    const used = {}, typeAt = t => deck.findIndex(x => x.type === t);
+    row.split(" ").forEach(tok => {
+      if(tok[0] === "~"){ const k = typeAt(tok.slice(1)); out.push([k, k]); return; }
+      const [id, n] = tok.split("/"), li = d.lessons.findIndex(l => l.cf && l.cf.block.id === id); if(li < 0) return;
+      const run = runWas(d, li, deck, views, from), a = used[id] || 0, z = n ? Math.min(run.length, a + Number(n)) : run.length;
+      for(let p = a; p < z; p++) out.push(run[p]);
+      used[id] = z;
+    });
+  } else {
+    // layout 4 (and a day whose order was never recorded): today's order, each block's run where its first slide is
+    deck.forEach((sl, k) => {
+      if(sl.type !== "topic"){ out.push([k, k]); return; }
+      if(sl.part === 1) runWas(d, sl.lessonIndex, deck, views, from).forEach(x => out.push(x));
+    });
+  }
+  // a slide that is gone lands on the one before it
+  out.forEach((x, i) => { if(x[0] < 0){ const p = i ? out[i - 1] : [0, 0]; x[0] = p[0]; x[1] = p[1]; } });
   // the furthest slide reached: the furthest, in today's order, of every slide up to that position
   let far = 0; out.forEach(x => { far = Math.max(far, x[1], x[0]); x[1] = far; });
   return out;

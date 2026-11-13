@@ -519,6 +519,12 @@ function milestoneRail(b, view){
   return `<section class="cfx-ms" aria-label="Milestone Steps: ${E(m.title)}"><h3 class="cfx-ms-t">${E(m.title)}</h3><ol class="cfx-ms-rail" style="--n:${m.steps.length}" start="${n0}">${m.steps.map((s, i) => `<li><span class="cfx-ms-n">${n0 + i}</span><span class="cfx-ms-h"><b>${E(s.label)}</b>${s.chip ? `<code class="cfx-ms-chip">${E(s.chip)}</code>` : ""}</span><span class="cfx-ms-done"><i>Done when:</i> ${hl(s.done)}</span></li>`).join("")}</ol>
     ${m.note ? `<p class="cfx-ms-note">${hl(m.note)}</p>` : ""}</section>`;
 }
+/* A lesson whose slides are the trainer's own Canva deck pages (js/cm-deck-slides.js, from build/videoslide): one slide
+   per page, named deck<page>, in place of the lesson's drawn slides. The page's speaker notes are its Presenter script. */
+const DECK = window.CM_DECK_SLIDES || {};
+const deckOf = b => (b.kind === "lesson" && DECK[b.id]) || null;
+const deckPage = (b, view) => (deckOf(b) || []).find(x => "deck" + x.page === view) || null;
+Object.values(DECK).forEach(xs => xs.forEach(x => { VIEW_LABEL["deck" + x.page] = x.title; VIEW_ICON["deck" + x.page] = "🖼"; }));
 /* Why It Matters is no slide of its own in a lesson that has The Theory: its line opens that slide (whyOpen: a
    "💡 Why it matters" band above the theory's lead), one slide where there were two. The band is one line: the
    lesson's hook, or the copy's shorter `whyLine` where the hook would wrap (the full hook is then in the slide's
@@ -532,7 +538,8 @@ const whyView = b => theoryViews(b).length && !(SLIDES[b.id] || {}).whySlide ? [
 const rfView = b => { const r = mfOf(b).redFlag, vs = viewsOf(b); return !r ? null : vs.includes("why") ? "why" : r.spoken ? null : vs.includes(r.on) ? r.on : "rules"; };
 const whyOpen = (b, c) => { if(b.kind !== "lesson" || viewsOf(b).includes("why") || !c.hook) return ""; const ls = leadSplit(c.hook), line = (SLIDES[b.id] || {}).whyLine || (ls ? ls[0] : c.hook);
   return `<p class="cfx-whyline" role="note" aria-label="Why it matters"><b class="cfx-whyline-k">💡 Why it matters</b><span class="cfx-whyline-t">${hl(line)}</span></p>`; };
-function viewsOf(b){
+function viewsOf(b, drawn){   // drawn: the lesson's own slides, as before its deck pages took their place (js/cm-slide-places.js)
+  if(deckOf(b) && !drawn) return deckOf(b).map(x => "deck" + x.page);
   if(b.kind === "lesson" && b.brief) return ["why"].concat(docView(b), ["rules"]);   // brief: a condensed overview (Day 5's litigation); no Theory slide, so Why It Matters stays
   if(b.kind === "lesson" && b.compact) return mapView(b).concat(theoryViews(b).slice(0, 1), whyView(b), docView(b), ["rules"]);   // compact: a full topic on fewer slides
   if(b.kind === "lesson") return mapView(b).concat(theoryViews(b), whyView(b), docView(b), ["rules"], b.show ? ["model"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // The Theory opens with why it matters; noGame: the CM introduction
@@ -833,6 +840,8 @@ function timeBanner(l){
 }
 function slideBody(view, l, d){
   const {block: b, day, mod} = l.cf, c = copyOf(b);
+  const dp = deckPage(b, view);
+  if(dp) return `<figure class="cfx-deckpage"><img src="${E(dp.img)}" alt="${E(dp.title)}: ${E(String(dp.notes).slice(0, 220))}" width="1600" height="900" decoding="async"></figure>`;
   if(DRIVE_LATER.has(b.id) && window.CMDrive && CMDrive.dayOpened) CMDrive.dayOpened(Number(b.id.charAt(1)));   // a day's Backup File Maintenance: Day 2 lays its drill, and the day is graded
   switch(view){
     case "why": { const ls = leadSplit(c.hook);
@@ -2900,7 +2909,7 @@ function named(s, k){
 
 /* ---------- Presenter view: the speaker notes, as this course's slide scripts ---------- */
 window.SLIDE_SCRIPTS = window.SLIDE_SCRIPTS || {};
-window.cmCaseFlow = window.cmCaseFlow || {}; window.cmCaseFlow.viewsOf = b => viewsOf(b);
+window.cmCaseFlow = window.cmCaseFlow || {}; window.cmCaseFlow.viewsOf = b => viewsOf(b); window.cmCaseFlow.drawnViewsOf = b => viewsOf(b, true);
 // a block's slide by its view (Your Task's Deliver goes straight to Check Your Work, past Your Case)
 window.cmCaseFlow.toView = function(blockId, view){
   const d = typeof DAYS !== "undefined" ? DAYS.find(x => x.id === state.dayId) : null; if(!d || typeof buildDaySlides !== "function") return nextSlide();
@@ -2935,7 +2944,7 @@ MODULES.forEach(d => d.lessons.forEach(l => {
   // a slide without one falls back to the script built above from the block
   const said = (window.CM_CF_SCRIPTS || {})[b.id] || {}, sc = {};
   vs.forEach((v, j) => {
-    const x = per[v] || {}, h = said[v];
+    const x = deckPage(b, v) ? {talk: deckPage(b, v).notes} : per[v] || {}, h = said[v];
     sc["p" + (j + 1)] = h ? {why: "", talk: h.say, walk: [], ask: h.ask || "", scenario: x.scenario || ""}
       : {why: x.why || "", talk: x.talk || "", walk: x.walk || [], ask: x.ask || "", scenario: x.scenario || ""};
   });
@@ -4738,6 +4747,8 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx-dd ul{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px;}
 .cfx-dd li{font:500 21px/1.4 var(--font-ui);color:var(--ink);}
 /* The Theory: the deck's lead line, its concepts as cards, the original deck pages beside them */
+.cfx-deckpage{margin:0;flex:1 1 auto;min-height:0;display:flex;align-items:center;justify-content:center;height:100%;}
+.cfx-deckpage img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;aspect-ratio:16/9;object-fit:contain;border-radius:10px;box-shadow:0 2px 14px rgba(30,35,64,.22);}
 .cfx-theory{display:grid;grid-template-columns:minmax(0,1fr) clamp(160px,20%,250px);gap:18px;align-items:start;}
 .cfx-theory.cfx-th-solo{grid-template-columns:minmax(0,1fr);}
 .cfx-th-lead{font:600 22px/1.3 'Fraunces',Georgia,serif;color:var(--ink);margin:0 0 10px;text-align:center;}

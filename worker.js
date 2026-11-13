@@ -323,7 +323,8 @@ function candidateIds(name, batch) {
 // Daily Activities: activities:dayN and their attachments (actfile:*) are published by admins for everyone;
 // settings:feedback-style is the facilitator voice the portal's AI feedback is written in;
 // settings:opendays is which Case Flow days trainers have opened (Admin → 🔓 Open Lessons, js/cm-open-lessons.js).
-const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|feedback-style|opendays)$/, /^activities:day\d+$/, /^actfile:[a-z0-9]{1,40}$/, /^surprise-task-day\d+$/, /^call-inject-day\d+$/, /^extralessons:day\d+$/, /^lessonx:day\d+$/, /^extraquiz:day\d+$/, /^handouts:links$/];
+// settings:openvideos is which days' narrated videos trainers have unlocked (Admin → 🔓 Open Lessons → 🎬 Unlock Videos, js/cm-day-video.js).
+const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|feedback-style|opendays|openvideos)$/, /^activities:day\d+$/, /^actfile:[a-z0-9]{1,40}$/, /^surprise-task-day\d+$/, /^call-inject-day\d+$/, /^extralessons:day\d+$/, /^lessonx:day\d+$/, /^extraquiz:day\d+$/, /^handouts:links$/];
 // case-alerts:resolved: the trainers' ✓ Resolved marks on the case-file alerts (js/cm-progress-log.js), {<traineeId>:
 // {<alert key>: {at, by}}}. Admin-only on purpose, both ways: it is in neither OWN nor PUBLIC_READ, so a trainee can't
 // read it, and traineeWrite refuses it, so a trainee can't mark their own alert resolved.
