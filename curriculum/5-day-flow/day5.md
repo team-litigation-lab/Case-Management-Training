@@ -32,14 +32,14 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 
 **Module 5 — Litigation & Dropped Cases**
 
-1. *Lesson* — Impasse Triggers & Filing Criteria (condensed)
+1. *Lesson* — Signs of Impasse & Filing Criteria (condensed)
 2. *Lesson* — From Pre-Lit to Litigation & ADR (condensed)
-3. *Skill Activity* — Triggering the Litigation Fork
+3. *Skill Activity* — Taking the Litigation Fork
 4. *Skill Activity* — Transition the File to Litigation Status
 5. *Skill Activity* — E-Filing the Complaint & Calendaring Service
 6. *Lesson* — Identifying Non-Responsive Adjusters, Delayed Records & Scheduling Bottlenecks (condensed)
 7. *Lesson* — Escalation Workflows & Supervisory Reporting Guidelines (condensed)
-8. *Skill Activity* — Automated Countermeasure Triggering in CMS
+8. *Skill Activity* — Setting Automated Countermeasures in CMS
 9. *Skill Activity* — Bottleneck Resolution Simulation
 10. *Lesson* — Litigation Tracking: the Pleadings Log & the Discovery Calendar (condensed)
 11. *Lesson* — Trial Preparation Checklists & Litigation KPIs (condensed)
@@ -78,7 +78,7 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 
 **Order:** Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
 
-### 5.1.1 Impasse Triggers & Filing Criteria
+### 5.1.1 Signs of Impasse & Filing Criteria
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Where Track B leaves Track A, and when a stall becomes an impasse  
@@ -109,23 +109,15 @@ A fork diagram fills the upper two-thirds. From the left, a single navy trunk la
 
 #### 2 · Slide Body — Show Them
 
-*The five impasse triggers, and where each sits on John Doe's file*
+*The five signs of impasse, and where each sits on John Doe's file*
 
-| Trigger | On this file | Proof |
+| Sign of impasse | On this file | Proof |
 |---|---|---|
 | Same offer, no new reason | $3,500 on 08/05; “final” on 08/12 | Communications Log |
 | Objection kept after rebuttal | The gap and a “degenerative” MRI, answered 08/06 | Rebuttal and delivery proof |
 | Demand deadline passed | Time-Limited Demand lapsed 08/21/2026 | Written acknowledgement (07/22); calendar |
 | Follow-ups unanswered | 08/24 and 08/31 | Sent emails; log |
 | Escalation ignored | Claims supervisor 09/02; nothing by 09/04 | Escalation email; log |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Offer repeated or a demand deadline passes unaccepted | Log the trigger with its date and proof | CMS → Communications Log | Every trigger dated and tied to a document |
-| Follow-ups unanswered | Escalate to the adjuster's supervisor; send no new number | Email Workspace · CMS → Communications Log | Escalation dated; asks for Keystone's written position and evidence; restates no offer and reopens no deadline unless Atty. Thorne approved the wording |
-| Escalation window closes unanswered | Assemble the impasse record and the filing inputs for counsel | CMS → Tasks → Escalate | Routed to Atty. Thorne with the SOL and internal dates |
 
 **Best practices & pitfalls**
 
@@ -200,15 +192,6 @@ A before-and-after split. Left panel, muted gray, titled PRE-LIT FILE: a claim f
 | Binder emphasis | Valuation and settlement history | Admissible evidence, right the first time |
 | On this file, later | Hon. Carla Benton (Ret.), court-ordered, 03/18/2027 | Laura Whitcomb, Esq., UM claims, 06/22/2027 |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Atty. Thorne authorizes suit | Change status and open the court fields | CMS → Case Summary · CMS → Litigation | Status change cites the dated authorization; case number “Pending” |
-| Status changed | Build the master directory and the five sub-folders | CMS → Documents → Litigation folders | All five sub-folders, named to the standard |
-| Folders built | Seed the Litigation Calendar with 48-hour audits | CMS → Calendar · Court E-Filing | SOL, internal hard date, cutoff and audits all on the calendar |
-| A panel list or proposed neutral arrives | Pull resumes and prior-award history for Atty. Thorne; docket any strike deadline | CMS → Litigation → ADR · CMS → Calendar | Deadline docketed the day the list arrives; strikes approved by counsel |
-
 **Best practices & pitfalls**
 
 - Change status, fields, folders and calendar in one sitting, as soon as the authorization is on file.
@@ -246,7 +229,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.3 Triggering the Litigation Fork
+### 5.1.3 Taking the Litigation Fork
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Skill Activity 1 — the impasse memo: Keystone's stonewall on the 14-Day Gap  
@@ -280,14 +263,6 @@ A single memo page on white letterhead, a navy header band reading IMPASSE MEMO 
 - [ ] Decision requested as questions for Atty. Thorne (does he authorize suit; what notice Harbor Point and Cardinal State need; what John Doe is told, and by whom); no sentence recommends suit, values the claim or assesses Robert Smith's exposure above his limits
 - [ ] No new number sent to Keystone (never bid against yourself), and nothing said to John Doe about the $3,500
 - [ ] Escalation task opened to Atty. Thorne on Fri 09/04/2026; memo routed Tue 09/08/2026, the first business day after Labor Day (09/07), with a requested response date
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| 09/04/2026: the 48-Hour Mandate window (09/02 → 09/04) closes unanswered | Stop waiting: open the escalation task to Atty. Thorne; pull every contact and verify each date against its proof | CMS → Communications Log | Nine events, 07/20 to 09/04, each matched to a receipt, email or log entry |
-| Chronology verified | Draft the memo: record, grounds, frozen stack, clock, decision requested | CMS → Documents → Memo | All three layers shown; SOL and internal dates correct |
-| Memo complete | Route it to Atty. Thorne for decision | CMS → Tasks → Escalate | Routed Tue 09/08/2026, the first business day after Labor Day; no recommendation in the text |
 
 **Best practices & pitfalls**
 
@@ -359,14 +334,6 @@ A full-slide CMS screen, white with a navy header showing LSH-2026-MVA-770412 an
 - [ ] ADR fields: mediator “not yet assigned”; Harbor Point's arbitration clause flagged for Atty. Thorne, not interpreted
 - [ ] UM deadlines flagged for Atty. Thorne as questions: each policy's suit or arbitration-demand limitation for Harbor Point and Cardinal State, and whether either carrier must be served with or notified of the Complaint once filed (confirm the policy and the governing rule); each date docketed only from his written answer
 - [ ] Calendar: filing target 09/24/2026 (Thu) with a 48-hour audit on 09/22/2026 (Tue: 09/24 less two days); SOL 02/06/2028, internal hard date 02/04/2028, internal filing cutoff 11/05/2027
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| 09/09/2026: suit authorized; fee tier discussed with John Doe | Change status and court fields; note the fee tier | CMS → Case Summary · CMS → Financial Ledger → Fee tier | Litigation dated 09/10/2026; 40% effective on filing |
-| Status changed | Build the folders; draft UM notices and preservation letters for approval | CMS → Documents → Outgoing | Drafts routed before sending; no UM figure |
-| Approvals received | Send as directed; seed the Litigation Calendar | CMS → Communications Log · CMS → Calendar | Delivery logged; filing target, audit and SOL dates on the calendar |
 
 **Best practices & pitfalls**
 
@@ -440,15 +407,6 @@ A left-to-right relay of four cards on a thin navy rail, each with an orange num
 - [ ] Service deadline 01/22/2027 (Fri): 09/24/2026 + 120 days, rule set configured for this training file; alerts 11/23/2026 (60 days), 12/23/2026 (30), 01/08/2027 (14) and a 48-hour audit 01/20/2027
 - [ ] Hand-off of the stamped Complaint and issued summons to Allied Process Services tasked for 09/24/2026, with Smith's pleaded address and a follow-up every 5 days (first 09/29/2026)
 - [ ] Case Management Conference 12/10/2026 (Thu), 9:00 a.m., by videoconference: Atty. Thorne as attendee, 48-hour audit 12/08/2026 (Tue); answer deadline entered as “set on service: 30 days from service (training rule set)”, no date; the open UM-carrier question re-sent to Atty. Thorne with the filing date
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Atty. Thorne approves the Complaint, 09/22/2026 | Tag Nadia Brooks to draft the cover sheet and summons | CMS → Tasks | Documents, source, due date and signature route named |
-| Set signed, 09/23/2026 | Check every signature; submit the envelope | Court E-Filing | Only signed documents; $218.00 fee; filing attorney named |
-| Envelope accepted, 09/24/2026 | Record the number, the documents and the fee | CMS → Litigation → Pleadings Log · CMS → Documents · CMS → Financial Ledger | 26-CV-04417 entered; three PDFs in 01_PLEADINGS; costs $704.75 |
-| Summons and CMC notice issued | Calendar service, the hand-off and the conference | CMS → Calendar · Court E-Filing | 01/22/2027 with alerts; 12/10/2026 with Atty. Thorne; answer set on service |
 
 **Best practices & pitfalls**
 
@@ -525,15 +483,6 @@ A Track B timeline runs across the full slide on a navy rail, hard dates as mono
 | Scheduling | A proposed mediation date | Falls after the order's deadline | Mediation completed by 03/31/2027 |
 | Evidentiary exclusion | Arbitration exhibits, prior-medical shield | An exhibit incomplete 10 days out | Exhibit exchange 06/02/2027 |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A follow-up goes unanswered | Log it and date the next follow-up on the 5-business-day cadence | CMS → Communications Log | Date, time, method and outcome logged; next follow-up dated |
-| The second follow-up goes unanswered | Open a bottleneck entry: blocker, start date, hard date threatened | CMS → Case File → Bottleneck Log | Start date is the first unanswered request (Keystone: 08/24/2026) |
-| A proposed ADR date arrives | Check it against every party's window and the hard-date calendar before anyone accepts it | Case Docket & Calendar Conflict Resolver | No mediation date after 03/31/2027 reaches Atty. Thorne as available |
-| A binder or exhibit dependency is open 10 days out | Red-flag it and tell Atty. Thorne | CMS → Case File → Risk Flags | Flag dated 03/01/2027 for the 03/11/2027 binder |
-
 **Best practices & pitfalls**
 
 - Anticipate and eliminate: a bottleneck found at the deadline was found too late.
@@ -607,15 +556,6 @@ Left third: a three-rung ladder drawn bottom-up, navy rungs with orange numbered
 | Tried | Follow-ups 08/24 and 08/31; supervisor escalation 09/02; no response 09/04 | Proves the rungs were climbed |
 | The ask | Your decision on how the firm proceeds, needed this week; full record attached. No recommendation on filing. | One decision, ready to make |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Rung 1 unanswered on its cadence | Send a written Notice of Delay to the supervisor or office manager | Email Workspace · CMS → Communications Log | Notice names the item, start date and hard date; date, time and method logged |
-| Rung 2 unanswered for 48 hours | Escalate to Atty. Thorne with the five-field report | CMS → Tasks → Escalate | All five fields complete; one ask per blocker |
-| Weekly reporting day | Send the Bottleneck Log with each item's age and days to its hard date | CMS → Case File → Bottleneck Log | No open item without an owner, an age and a hard date |
-| A hard date arrives with the blocker open | Prepare the filing or exchange with what you have, marked “Pending Final Verification”, for Atty. Thorne's sign-off, or confirm his extension, in the form the rule requires, is docketed | CMS → Calendar · CMS → Documents → Outgoing | Zero defaults: every hard date met or covered by an extension in the form the rule requires |
-
 **Best practices & pitfalls**
 
 - Climb one rung at a time and document each attempt.
@@ -650,7 +590,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.8 Automated Countermeasure Triggering in CMS
+### 5.1.8 Setting Automated Countermeasures in CMS
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Skill Activity 1 — rules that fire before the deadline does  
@@ -684,15 +624,6 @@ A CMS rules panel fills the left two-thirds: four rule rows on cream cards, each
 - [ ] Fallback recorded if the ledger is still missing at the 03/09/2027 audit: escalate, mark the treatment “Pending Final Verification”, include the audited interim ledger ($6,105.00: 33 visits × $185.00), Atty. Thorne sets expectations
 - [ ] Every firing carries a date, an action and an owner
 - [ ] No rule sends an external message on its own; every firing opens a task or a flag for review
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A request needs an answer | Stamp it with its rule and response-due date | CMS → Tasks → Countermeasure rules | No open request without a rule and a due date |
-| A rule fires | Execute its action the same day and log it | CMS → Tasks → Escalate · CMS → Communications Log | Firing logged and its task opened the same day |
-| A hard date is docketed | Attach the 10-day red-flag check and the 48-hour audit to it | CMS → Calendar | Both tasks present for 03/11/2027 and 03/18/2027 |
-| Atty. Thorne issues a records subpoena | Put it on a recurring 10-day compliance review | CMS → Calendar | Review recurs every 10 days until compliance is logged |
 
 **Best practices & pitfalls**
 
@@ -764,14 +695,6 @@ A triage board fills the slide: five problem cards in a column on the left, each
 - [ ] Root cause of item 1 named: Crescent's first request went out 05/05/2027, a month after the 04/05/2027 invocation; the binder rule is to request every certification that week. The bottleneck began with our own delay
 - [ ] Nothing decided that is Atty. Thorne's: no exhibit withheld or substituted, no extension requested, no lien compromised
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Several bottlenecks open at once | Triage each by hard date, reversibility and owner | Case Docket & Calendar Conflict Resolver | Every item has a hard date, a rung and an owner |
-| Items need counsel's decision | Send one five-field report, nearest hard date first | CMS → Tasks → Escalate | Report sent 05/24/2027, the day the cluster is triaged |
-| Items the Case Manager owns | Fix and log them the same day; set the pre-exchange audit | CMS → Documents · CMS → Calendar | Ledger and exhibit-set fixes logged 05/24/2027; audit on the calendar for 05/28/2027 |
-
 **Best practices & pitfalls**
 
 - Longest lead first: send what needs someone else's decision before you fix what you own.
@@ -836,24 +759,15 @@ A full-width horizontal court timeline on a navy rail runs from 09/24/2026 to 01
 
 #### 2 · Slide Body — Show Them
 
-*The master timeline: every deadline is a trigger plus a count you can re-check*
+*The master timeline: every deadline is an event plus a count you can re-check*
 
-| Trigger | Next action | Standard deadline | On this file |
+| Event | Next action | Standard deadline | On this file |
 |---|---|---|---|
 | Complaint filed | Serve defendant | Often 90–120 days, by rule | Filed 09/24/2026; served 10/14/2026 |
 | Defendant served | Answer | 20–30 days (federal: 21) | 10/14/2026 + 30 = 11/13/2026 |
 | Discovery mailed | Responses | 30 days + mail days by rule (3 on this file's rule set; some courts add 5) | 12/01/2026 + 33 = 01/03/2027, Sunday → 01/04/2027 |
 | Discovery e-served by consent | Responses | 30 days; added days vary by court | 12/14/2026 + 30 = 01/13/2027 |
 | Motion filed | Response | 14–21 days, by local rule | Calendar on receipt |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Atty. Thorne authorizes suit | Verify the filing date against the SOL and Robert Smith's exact legal name and address before signature | CMS → Litigation → Pleadings Log | Filed 09/24/2026, inside the 02/04/2028 internal hard date; Robert Smith's legal name confirmed from an independent record (for example, the Declaration Page or property or DMV records), not the Police Report alone |
-| Complaint filed | File the stamped complaint in 01_PLEADINGS and log the filing | CMS → Documents | Filed the same day; no pre-lit correspondence in the sub-folders |
-| A service attempt fails | Log it; still unserved at day 14 (here 10/08/2026, the third failed attempt), escalate to Atty. Thorne for Skip-Trace authority with the attempt log attached, run it on his approval (result 10/09/2026), and send him the status update; alternative service is his call | CMS → Tasks → Escalate | Each attempt logged with date and address; status update dated |
-| Discovery or RFAs land | Calendar the response date with its arithmetic; alert Atty. Thorne the hour RFAs arrive | CMS → Calendar · Court E-Filing | Due date = trigger + 30 (+ 3 for mail), weekend rolled; RFA alert time-stamped |
 
 **Best practices & pitfalls**
 
@@ -928,15 +842,6 @@ Upper half: a horizontal trial-prep runway on a navy line from 01/20/2027 to 09/
 1. **Pleadings & service** — Service Check: a server assigned within 48 hours of filing. 14-Day Service Milestone: unserved at day 14 (10/08/2026) → escalate to Atty. Thorne for Skip-Trace authority, run it on his approval, status update to him.
 2. **Discovery & documents** — 48-Hour Docket Rule. RFA Priority Check: Atty. Thorne alerted within the hour. Discovery Countdown: drafts to him 7+ days before the deadline. Clean Discovery Check: no blanks, verification page attached. Zero-Default: no deadline passes without a response or a signed written extension.
 3. **Client & trial** — 30-Day Client Pulse: every litigation client called at least every 30 days, news or not. Subpoena Audit: every outstanding subpoena reviewed every 10 days.
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Scheduling Order entered 12/10/2026 | Pin it to the front of the file; calendar all six dates with three alerts each | CMS → Calendar · Court E-Filing | Six dates exact; 18 alerts set; order filed in 01_PLEADINGS |
-| An extension is agreed by phone | Confirm Atty. Thorne's approval, draft the written confirmation for his signature, recalendar | Email Workspace · CMS → Calendar | Confirmation sent the same day over Atty. Thorne's name; no scheduling-order date moved without a court order |
-| Deposition noticed | Book the reporter, the link and the technology check; send the attorney-approved packet a week out | CMS → Calendar · Communications Log | Packet sent by 02/11/2027; receipt confirmed with John Doe and logged |
-| Weekly docket audit | Take every KPI reading from the log and route each miss | CMS → Litigation → KPI tracker · Tasks → Escalate | Each KPI shows its formula, target and a dated reading |
 
 **Best practices & pitfalls**
 
@@ -1014,15 +919,6 @@ Left two-thirds: a horizontal four-station pipeline on a navy rail, each station
 5. **Track** — Compliance call 5 days before production; invoice paid promptly; the row reviewed every 10 days; production due before 05/28/2027.
 6. **Log the return** — Records logged as received, indexed and tabbed for the trial binder; Atty. Thorne told they are in.
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A records request is refused or ignored, or a record must come from its custodian | Flag it to Atty. Thorne as a question: “Do you want a records subpoena?” | CMS → Tasks → Escalate | Question routed with the refused request attached; nothing drafted until he decides |
-| Atty. Thorne approves a Subpoena Duces Tecum | Draft on the court-approved form with a narrow Exhibit A; serve notice on Atty. Mercer, then arrange service on the custodian | CMS → Documents → Subpoena template · Court E-Filing | Exhibit A names one subject, exact dates and record types; notice dated before service |
-| Every 10 days while a subpoena is open | Review each row; compliance call 5 days before production; pay the invoice | CMS → Litigation → Subpoena log · CMS → Calendar | Every open row has a dated reading; each miss routed to Atty. Thorne |
-| Atty. Thorne names his trial witnesses | Draft the trial subpoenas; arrange service under the court's rules; log the proof | CMS → Documents → Subpoena template · CMS → Calendar | Tasked against 08/12/2027 and 09/13/2027; proof of service in 05_SUBPOENAS |
-
 **Best practices & pitfalls**
 
 - Read every Exhibit A against three questions: whose records, which dates, which record types? Anything wider goes back.
@@ -1094,14 +990,6 @@ A CMS Pleadings Log screen fills the left two-thirds: a white card with a navy h
 - [ ] Scheduling Order renamed Scheduling_Order_Entered.pdf, saved to 01_PLEADINGS, and its six dates logged and reconciled to the audited calendar: 03/15/2027, 04/15/2027, 03/31/2027, 05/28/2027, 08/12/2027, 09/13/2027
 - [ ] No scan names left; every document filed in one of the five numbered sub-folders under DOE, JOHN - CASE FILE
 - [ ] Late filings recorded honestly: the affidavit, the RFA row and the scheduling-order rows logged as misses of the 48-hour docket rule, not back-dated
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Anything arrives from the court, opposing counsel or the process server | File it in its numbered sub-folder under the convention and add or update its log row | CMS → Documents · Pleadings Log | Filed and docketed within 48 hours; source document linked to the row |
-| Discovery served on John Doe | Log each set as its own row and compute its response date | CMS → Calendar | 12/01/2026 by mail → 01/04/2027, arithmetic in the row; RFA row flagged red |
-| A deadline found passed without proof of compliance | Escalate to Atty. Thorne the same day; contact no one on the other side | CMS → Tasks → Escalate | Escalation dated 01/05/2027 and names the missing document |
 
 **Best practices & pitfalls**
 
@@ -1185,14 +1073,6 @@ Split slide. Left 55%: the trial-prep checklist as a cream clipboard card with o
 - [ ] Smith's responses (due 01/13/2027) docketed as received 01/13/2027, logged as a 48-Hour Docket miss and routed to Atty. Thorne for review; no extension agreed by the Case Manager
 - [ ] Review lenses applied. Coverage: Smith's insurance answers routed to Atty. Thorne, and a UM consent-to-settle task set before mediation (Harbor Point and Cardinal State, on notice since 09/10/2026). Treatment: the Gap Record and the A-C-T record mapped to causation and failure to mitigate. Liability: doorbell video, Ruth Calloway, the RPD-26-018842 citation, the EMS report and the EDR mapped to comparative negligence
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Scheduling Order on file | Load all six dates into the checklist with an owner and three alerts each | CMS → Calendar | Dates match the 12/10/2026 order exactly; 18 alerts set |
-| Deposition notice received 01/20/2027 | Docket it; book the reporter, the link and the technology check; calendar the packet | CMS → Calendar · Communications Log | Docketed by 01/22/2027; packet due 02/11/2027 |
-| Weekly docket audit | Update every KPI reading and route each miss | CMS → Litigation → KPI tracker · Tasks → Escalate | Nine KPIs with formula, target, sourced reading and status; misses escalated with a date |
-
 **Best practices & pitfalls**
 
 - Read the checklist against the order line by line, never from memory.
@@ -1267,14 +1147,6 @@ A two-column sorting board. Left, navy, headed REACHES JOHN DOE'S SETTLEMENT: th
 | Loss of Use, $2,016.00 vs $0 | No: Margaret Doe's PD claim | Her PD file |
 | Diminished Value, $3,600.00 vs $792.00 | No: Margaret Doe's PD claim | Her PD file |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Keystone PD sends a release | Check its scope and claim number; hold it; route it to Atty. Thorne | CMS → Tasks → Escalate | Routed the same day; nobody asked to sign |
-| Keystone restates a PD figure | Log it on Margaret Doe's PD file, not in John Doe's figures | CMS → Communications Log | John Doe's Net Sheet unchanged |
-| Discovery asks for the PD documents | Confirm the severity set and the rental dates match the PD file | CMS → Documents | Photos, estimate, supplement and dates identical |
-
 **Best practices & pitfalls**
 
 - Read every PD release for its scope and claim number before anything else.
@@ -1340,14 +1212,6 @@ A memo on the left two-thirds, headed TO ATTY. THORNE — DOES IT TOUCH JOHN'S C
 - [ ] Rental dates 02/18 and 03/19/2026 match John Doe's gap record
 - [ ] Leah Moran told only that the position is with Atty. Thorne; the call logged in her words
 - [ ] The memo ends with the answer: PD reaches John Doe's settlement through the release and the evidence, never through its figures
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Keystone's final PD position arrives with a release | Sort each outcome; hold the release | CMS → Case Notes | Each outcome sorted with its reason |
-| Release language reaches “all claims” | Route it to Atty. Thorne the same day | CMS → Tasks → Escalate | Escalated; nobody asked to sign |
-| Leah Moran calls for an answer | Log her words; say it is with Atty. Thorne | Call Simulator · CMS → Communications Log | No figure accepted, rejected or countered |
 
 **Best practices & pitfalls**
 
@@ -1419,15 +1283,6 @@ A two-lane calendar runs left to right across the slide in six date columns, AUD
 | 02/16/2027 · prep 2 | Mock cross-examination and debrief | Technology check; keeps the Trap Log |
 | 02/17/2027 | Approves the exhibit set | Three confirmations; backup numbers; objection reminder |
 | 02/18/2027 · 10:00 a.m. | Defends the deposition | On standby; never messages John |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Notice of deposition served 01/20/2027 | Calendar the deposition, both prep sessions, the 02/11/2027 prep packet and the day-before checklist; start the pre-deposition audit | Court E-Filing · CMS → Calendar | 02/04, 02/11 (packet), 02/16, 02/17 and 02/18/2027 (10:00 a.m.) on the calendar for Atty. Thorne and John |
-| Audit complete | Route the landmine list and any discovery mismatch to Atty. Thorne | CMS → Tasks → Escalate | Routed before 02/04/2027; every landmine tied to its source record |
-| Test call, 02/16/2027 | Run the technology check on John's device, in the room he will use | CMS → Case Notes | Camera, audio, link, lighting, room and backup number each logged pass or fail |
-| Day before, 02/17/2027 | Confirm logistics with all three; finalize the exhibit set | Email Workspace · CMS → Documents | Three confirmations logged; exhibit set approved by Atty. Thorne |
 
 **Best practices & pitfalls**
 
@@ -1504,14 +1359,6 @@ A wide trap map in three columns. Left: seven red-bordered trap cards stacked ve
 | Seatbelt | “You weren't buckled, were you?” | 1 · the EMS report and the EDR |
 | 2021 prior | “You'd treated your neck before?” | 1 · the 2021 records: low back |
 | Silent stare | A long pause after a short answer | 6 · hold the silence |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Answer served 11/12/2026 | Map each pleaded defense to the questions it predicts | CMS → Litigation → Deposition prep log | Comparative fault, causation and failure to mitigate each mapped to at least one trap |
-| Trap map complete | Confirm the record that meets each trap is in Atty. Thorne's set | CMS → Documents | EMS report, MRI report (03/13/2026), Causation Letter (06/19/2026), EDR download and Northgate Attendance Record all present |
-| John asks how to answer a trap | Log it in his words and route it | CMS → Tasks → Escalate | Routed the same day; no wording offered |
 
 **Best practices & pitfalls**
 
@@ -1594,14 +1441,6 @@ A video-call frame fills the left two-thirds: AI John Doe's tile large, the trai
 - [ ] Atty. Thorne's gap set (EMS report, the 02/20/2026 urgent-care note, Northgate Attendance Record, Dr. Reyes's 06/19/2026 Causation Letter) ready to share for his segment; nothing sent to John by you
 - [ ] No script, suggested wording or written summary of substance given to John
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| John reached through Margaret, 02/03/2027 | Update his new number; confirm the 02/04/2027 session | CMS → Parties · CMS → Calendar | New number on file before the session; Margaret recorded as backup |
-| Substantive question raised | Log it in John's words and route it | CMS → Tasks → Escalate | Every question routed before the segment ends; none answered |
-| Segment complete | Record what was delivered; calendar the test call | CMS → Case Notes · CMS → Calendar | Pillars and in-room rules marked delivered; 02/16/2027 test call on the calendar |
-
 **Best practices & pitfalls**
 
 - Answer the process; route the substance.
@@ -1681,14 +1520,6 @@ Split screen. Left 60%: a mock video deposition — AI ATTY. GRANT MERCER questi
 - [ ] No coaching: no signal, chat message or comment to John during or after the mock
 - [ ] Log routed to Atty. Thorne before the debrief
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Prep session 2 opens, 02/16/2027 | Open the Trap Log and start the clock at the first question | CMS → Litigation → Deposition prep log | Log opened before the first question; timestamps run from it |
-| Trap or objection observed | Log the time, the words, the category, the trap type and the rules tested | CMS → Litigation → Deposition prep log | All six assigned trap types covered; record fact beside every mischaracterisation |
-| Mock ends | Route the log to Atty. Thorne for the debrief | CMS → Tasks → Escalate | Routed before the debrief; no comment made to John |
-
 **Best practices & pitfalls**
 
 - Log the question in the questioner's exact words; a paraphrase hides the trap.
@@ -1759,15 +1590,6 @@ Two zones. Left 60%: the four-row regime table on a cream card, regime names in 
 | Modified, 50% bar | Recovers 80% | Barred |
 | Modified, 51% bar | Recovers 80% | Recovers 50% |
 | Contributory | Barred | Barred |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Answer filed 11/12/2026 pleading comparative fault, causation and failure to mitigate | Log each defense as its own line and confirm the filing on the docket | CMS → Litigation → Pleadings Log · Court E-Filing | Three defenses logged separately, each dated 11/12/2026 |
-| Defenses logged | Map the file's evidence to each allegation with source, witness and custody | CMS → Litigation → Liability counter-package | No item without a source document and a named authenticating witness |
-| An item lacks foundation or a holder won't produce | Flag it for a Subpoena Duces Tecum and route to Atty. Thorne | CMS → Tasks → Escalate | Foundation gap named, with the record holder |
-| Deposition prep set for 02/04 and 02/16/2027 | Deliver the counter-package and the Gap Record to Atty. Thorne's prep set | CMS → Documents · CMS → Tasks | Both in the prep set before 02/04/2027 |
 
 **Best practices & pitfalls**
 
@@ -1842,15 +1664,6 @@ Two parallel swimlanes, left to right. Upper lane, navy, ROBERT SMITH — DEFEND
 | 10/14: served by Allied Process Services; 10/16 affidavit. | Step 4: certified mail AND email; reply before 02/04/2027. |
 | Answer due 11/13/2026; filed 11/12/2026. | 02/03/2027: reached through Margaret Doe. |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Third failed attempt, 10/08/2026; neighbor says Smith moved | Escalate for Skip-Trace authority; send the result to the process server | CMS → Tasks → Escalate · Email Workspace | Skip-Trace result logged 10/09/2026; server re-assigned to 4410 Quarry Ridge Ct |
-| Affidavit of service filed 10/16/2026 | Docket the answer date and set the weekly docket check | Court E-Filing · CMS → Calendar | Answer due 11/13/2026 on the calendar; weekly check recurring |
-| Subpoena Duces Tecum approved by Atty. Thorne | Notice opposing counsel, then serve the custodian by process server | Court E-Filing · CMS → Litigation → Subpoena log | Notice to Atty. Grant Mercer dated before service; compliance call 5 days before production |
-| Client unreachable with a deposition noticed (from 01/22/2027) | Run Steps 1–3; draft the Step 4 notice for Atty. Thorne's signature | CMS → Communications Log | Response date before 02/04/2027; certified mail AND email both logged |
-
 **Best practices & pitfalls**
 
 - Follow up with the process server every 5 days, and ask for the date and time of each attempt, not just the result.
@@ -1921,14 +1734,6 @@ A three-row counter-package matrix across the full slide width on a white card w
 - [ ] Open questions routed to Atty. Thorne: fault regime, seatbelt and citation admissibility, Kevin Alvarez and coverage
 - [ ] Stack stated as $40,000 (BI → Host UM → Relative UM); no layer added
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Answer received 11/12/2026 | Open the counter-package, one row per allegation | CMS → Litigation → Liability counter-package | Three rows, each with evidence, source, witness and custody |
-| A record will need a custodian | Draft the Subpoena Duces Tecum with a narrow Exhibit A | CMS → Documents → Subpoena template | Exhibit A names John Doe, 02/06/2026 and specific record types |
-| Package complete | Route to Atty. Thorne with the open legal questions | CMS → Tasks → Escalate | Every question listed; no conclusion drafted as advice |
-
 **Best practices & pitfalls**
 
 - One allegation, one row: a reviewer should find the answer to each in seconds.
@@ -1998,14 +1803,6 @@ Split slide. Left half, PART 1 — SERVICE: a vertical log card (date · time ·
 - [ ] Withdrawal language present only as Atty. Thorne directed; none from the CM in any other channel, and nothing on what missing the deposition would do to the case
 - [ ] Gate assessed on Day 2's three criteria: ladder exhausted (yes, logged); letter sent by certified mail AND email (by 01/27/2027); deadline expired (no: Margaret reached John on 02/03/2027, the response date). Gate not met; no Skip-Trace. Unlike Smith, John's address is known; only his phone changed
 - [ ] Margaret Doe told only that the firm needs John to call, and how
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Third failed attempt, 10/08/2026 | Escalate for Skip-Trace authority; re-assign the server to the new address | CMS → Tasks → Escalate · Email Workspace | Skip-Trace result 10/09/2026 logged; varied windows instructed |
-| Affidavit of service filed 10/16/2026 | Docket the answer date | Court E-Filing | 11/13/2026 on the calendar with a reminder |
-| John unreachable from 01/22/2027 | Run Steps 1–3, then dispatch the Step 4 notice | CMS → Communications Log · CMS → Documents → Outgoing | Both deliveries logged; response date before 02/04/2027 |
 
 **Best practices & pitfalls**
 
@@ -2079,14 +1876,6 @@ Two tall ledger cards side by side on cream: TRACK A (navy header) and TRACK B (
 | Liens: $1,240.00 + $4,580.00 = $5,820.00 | Liens: $1,116.00 + $4,275.00 = $5,391.00 |
 | Net to John Doe: $20,359.92 | Net to John Doe: $14,713.75 |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Award received (07/06/2027) | Log it and diary each carrier's payment | CMS → Litigation · CMS → Calendar | Harbor Point $20,000.00 · Cardinal State $10,000.00 |
-| The fund is known | Send the Reduction Requests for Atty. Thorne's approval | LSH Net Sheet · CMS → Liens | Peach State $1,116.00 · Riverton Spine & Rehab $4,275.00 |
-| Last UM check cleared | Complete the Net Sheet and route the Settlement Statement | LSH Net Sheet · CMS → Tasks → Escalate | Net $14,713.75, routed before John Doe signs |
-
 **Best practices & pitfalls**
 
 - Show John the fee tier from his own retainer: 40% once suit was filed.
@@ -2153,14 +1942,6 @@ The LSH Net Sheet fills the slide in its four navy-headed sections. Section 1 re
 - [ ] Nothing disbursed until both UM checks clear and John Doe signs the Settlement Statement (07/29/2027); disbursement 07/30/2027
 - [ ] The difference from a pre-suit settlement explained to John Doe as arithmetic; whether suing was worth it routed to Atty. Thorne
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Last UM check received (07/22/2027) | Post it and complete the Net Sheet | LSH Net Sheet | Gross $40,000.00 · net $14,713.75 |
-| Liens accepted in writing | Log the reduced figures and Payoff Letters | LSH Net Sheet · CMS → Documents | Peach State $1,116.00 · Riverton Spine & Rehab $4,275.00 |
-| Net Sheet ties to trust | Route the Settlement Statement | CMS → Tasks → Escalate | Routed before John Doe signs |
-
 **Best practices & pitfalls**
 
 - Enter every cost from its receipt, on its row.
@@ -2222,15 +2003,6 @@ The Doe-John folder tree with every folder ticked green and 09 Litigation & ADR 
 - [ ] ✓ Check my drive run with no folder missing
 - [ ] The closing checklist in Case Notes, ending with Atty. Thorne's sign-off and the move to 04 Closed Files
 - [ ] The client folder left in place in the training drive
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Litigation documents filed | File each so its copy lands in 09 Litigation & ADR | CMS → Documents | All on the backup |
-| Award disbursed | Run the final backup audit | Backup Drive | Backed up equals filed; check clean |
-| File complete | Write the closing checklist for sign-off | CMS → Case Notes | Every line answered |
-| Atty. Thorne signs off | The firm moves Doe-John under 04 Closed Files | Backup Drive | Moved whole, closing date logged |
 
 **Best practices & pitfalls**
 
@@ -2301,14 +2073,6 @@ A six-step horizontal process rail on cream, each step a navy card with an orang
 5. **5 · Follow up** — Return receipt, acknowledgement, fax confirmation
 6. **6 · Close** — Status “Dropped”; proof retained
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Status “Pending Drop”, with Atty. Thorne's note that the client was told | Prepare each party's Withdrawal Letter for his signature | CMS → Documents → Withdrawal Letter template | Client, carrier and provider letters, each saved in Word and PDF |
-| Letters signed | Send each by its method and log the dispatch | Email Workspace · CMS → Communications Log | Party, method and date logged for every letter |
-| Receipts followed up | Switch the status and file the proof | CMS → Case Status · CMS → Documents | Status “Dropped”; receipts, logs and the attorney's note filed |
-
 **Best practices & pitfalls**
 
 - Check the gate before you open the template: no note, no letter.
@@ -2377,14 +2141,6 @@ A PRACTICE MATTER banner in orange across the top: DENISE HARLOW · LSH-2026-MVA
 - [ ] Follow-up on 12/16/2026: the return receipt, Granite Shield's acknowledgement and Brookside's fax confirmation
 - [ ] Status switched to “Dropped” only after all three letters are sent, logged and followed up; proof retained: letters, receipts, logs and Atty. Thorne's note
 - [ ] If Denise asks whether her case was worthless: no view on its value or on restarting treatment; Atty. Thorne made the decision and will call her; the call logged and routed
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Pending Drop with Atty. Thorne's 12/08/2026 note | Confirm the gate; draft the three letters | CMS → Documents → Withdrawal Letter template | Client, Granite Shield and Brookside letters, Word and PDF |
-| Letters signed, 12/09/2026 | Send each by its method and annotate it | CMS → Documents → close-out log | Text, email and Certified Mail; email; fax |
-| Follow-up, 12/16/2026 | Confirm receipt, then switch the status | CMS → Documents → close-out log | Dropped; proof retained |
 
 **Best practices & pitfalls**
 

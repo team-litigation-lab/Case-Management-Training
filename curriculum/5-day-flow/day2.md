@@ -114,15 +114,6 @@ A horizontal five-stage status track across the upper half — REPORTED → NOTI
 | Disclosed | A limit stated by phone or letter; still preliminary | Keystone: verbal at set-up only; nothing in writing before a written request |
 | Confirmed in writing | Dec Page or Coverage Letter, with source and date | Harbor Point 03/02 · Cardinal State 03/09 · Keystone 03/20/2026 |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Written coverage confirmation arrives | Enter limit, form and terms with source and date; update the status | CMS → Insurance tab → Coverage Matrix | “Confirmed in writing” only with the document attached |
-| Adjuster assigned (Teresa Okafor, 03/03/2026) | Replace “not yet assigned” with name and direct contact; re-address correspondence | CMS → Insurance tab · Parties | No “not yet assigned” entry after the assignment date |
-| A follow-up date arrives with the item still open | Follow up, log the result, set the next date | CMS → Calendar · Communications Log | No open item carries a past follow-up date |
-| Regulatory or policy deadline identified | Have Atty. Thorne confirm the rule, then docket it | CMS → Tasks → Escalate · Calendar | Each deadline docketed with its source, marked confirmed by counsel |
-
 **Best practices & pitfalls**
 
 - Record a verbal limit the moment it is given, marked verbal: an early baseline, not a confirmation.
@@ -194,14 +185,6 @@ A row of five document cards on a navy rail, each with a notary seal in its corn
 | Records & billing custodian | Each provider's records custodian | Bills and records into evidence | Requested with each certified records set |
 | Wage verification | Northgate Distribution HR | Lost wages, $1,584.00 | Signed letter 06/30/2026; sworn form if suit |
 | Affidavit of Service | The process server | Proof Smith was served; the answer clock | Filed 10/16/2026 |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Atty. Thorne approves a demand at the limit | Request Smith's affidavit of no other insurance through Keystone; docket it | CMS → Tasks · Docket System | Sworn 08/10/2026, a condition met before the tender |
-| A certified records request goes out | Ask for the custodian's records and billing affidavit in the same request | ChartSwap (Medical Records Requests) | Each set comes back sworn, ready for evidence |
-| An affidavit arrives | Check affiant, numbers, dates, signature, jurat and seal; route any defect | CMS → Documents · CMS → Tasks → Escalate | Filed where it will be used; defects logged and returned |
 
 **Best practices & pitfalls**
 
@@ -275,14 +258,6 @@ An evidence board fills the slide. Centre, a small diagram of the all-way stop a
 | The Escape's event data recorder | Speed and belt status at impact | Preservation request for Atty. Thorne's signature |
 | EMS Run Report | “Restrained front-seat passenger” | On file: answers the unbelted argument |
 | Keystone's position | PD liability accepted 02/17/2026 | BI liability position still to be confirmed in writing |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Claim set-up opens | Request the Police Report; read every field | CMS → Police tab | Report logged; citation and witness recorded |
-| Video or vehicle data exists | Draft preservation requests for Atty. Thorne | Email Workspace | Request signed and sent; chain of custody logged |
-| A carrier states its liability position | Record it with its date and source | CMS → Insurance tab | Each carrier's position on file in writing |
 
 **Best practices & pitfalls**
 
@@ -431,15 +406,6 @@ A distribution fan reads left to right. Left: a white LOR page on navy firm lett
 | Bluewater (notice) | Margaret's policy on her Civic: collision option; UM rejection form | Margaret Doe | Claims Department (policy no. in subject) |
 | Peach State (notice) | Reimbursement right · PSH-55017742 · GRP-41208 | John Doe (member) | Recovery unit |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Claims opened by phone 02/16–02/17/2026 | Log each claim number, adjuster (or “none yet”) and preferred delivery method | CMS → Insurance tab · Communications Log | Every claim has a number, an adjuster or “none yet”, and a method |
-| LOR set drafted | Route all five letters for Atty. Thorne's signature | CMS → Documents → Outgoing · Tasks | Signed by counsel before sending; none signed by the CM |
-| Letters served 02/17/2026 | Log method and time; calendar the acknowledgement check | CMS → Communications Log · Calendar | Follow-up dated 02/20/2026 for any carrier still silent |
-| Acknowledgement arrives | File it; record any disclosure, coverage statement or limit with its source | CMS → Documents · Insurance tab | Source and date on every coverage fact |
-
 **Best practices & pitfalls**
 
 - Confirm on every claim call: claim number, the adjuster's name and spelling, direct phone, fax, email and preferred method. A claim not opened on the call gets a follow-up within 24–48 hours.
@@ -524,14 +490,6 @@ A vertical three-rung ladder in the centre of the slide, built bottom-up so the 
 - [ ] Source of each limit recorded (set-up call for now; Declaration Page to be requested in the LOR)
 - [ ] Projection marked preliminary until each limit is confirmed in writing
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Limits reported on the set-up calls | Enter each layer with its limits and identifiers | CMS → Insurance tab | Three layers, each with policy number, claim number and adjuster (or “none yet”) |
-| All layers entered | Verify the total and record the order of operations | CMS → Insurance tab → Comments | $40,000; BI → Host UM → Relative UM |
-| A limit is unconfirmed | Hold the projection as preliminary | CMS → Case Notes | No limit quoted to the client before written confirmation |
-
 **Best practices & pitfalls**
 
 - Record where each limit came from, so anyone can check it.
@@ -600,14 +558,6 @@ A letter-assembly workbench. Centre: the firm-letterhead LOR template as a white
 - [ ] Bluewater notice requests the Declaration Page and the signed UM rejection form (03/14/2024), and records the collision option ($500 deductible) for the Civic
 - [ ] Same day: John Doe told to preserve the doorbell-camera video from 2214 Maple Hollow Rd
 - [ ] All five routed for Atty. Thorne's signature and sent 02/17/2026 by preferred method; acknowledgement due by 02/19/2026, follow-up calendared for 02/20/2026 if none
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Claim numbers and delivery methods logged | Generate the five letters from the template | CMS → Documents → Outgoing | Five drafts, each with Attn line, insured, number and DOL |
-| Drafts complete | Route the set for signature | CMS → Tasks | Atty. Thorne's signature on all five before any is sent |
-| Letters sent 02/17/2026 | Log method and time; calendar the acknowledgement checks | CMS → Communications Log · Calendar | Acknowledgement due 02/19/2026; follow-up 02/20/2026 for any carrier still silent |
 
 **Best practices & pitfalls**
 
@@ -692,14 +642,6 @@ A full-width CMS Coverage Matrix in a white card with a navy header bar: six row
 - [ ] The Escape's year: the Police Report lists a 2021, Harbor Point's Declaration Page a 2020; the CMS follows the Declaration Page, with the discrepancy noted and both sources cited (credited, an unplanted finding)
 - [ ] Audit note to Atty. Thorne: confirmed in writing (Host UM; Relative UM coverage), preliminary (BI; Relative UM form: add-on or reduced by the BI payment, which the 03/09/2026 letter does not say), escalated (the missing Bluewater form; any coverage question)
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Coverage Matrix audit (03/11/2026) | Check every row against the document that should prove it | CMS → Insurance tab → Coverage Matrix · Documents | Each correction cites a document and its date |
-| Past-due follow-up found | Follow up with Dana Whitfield today; log it; set the next date | Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual · CMS → Calendar | Logged 03/11/2026; next date by 03/13/2026 |
-| Audit complete | Route the audit note | CMS → Tasks → Escalate | Note separates confirmed, preliminary and escalated items |
-
 **Best practices & pitfalls**
 
 - Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).
@@ -774,15 +716,6 @@ Three panels left to right, joined by orange arrows. ① WHOLE-PERSON ASSESSMENT
 | Pre-Morbid Status | Nothing on file yet: an open question, not a blank | Every prior injury, treatment or claim to the neck or back, with dates and providers; prior records requested | A baseline note in facts only, routed to Atty. Thorne |
 | Vocational Outlook | Northgate Distribution warehouse shift lead since 01/12/2026; $22.00/hour, 8-hour shifts; Peach State coverage through Northgate, effective 02/01/2026 | The job's physical demands, in his words | Functional pillar: return to full duty, written as a SMART goal |
 | SMART goal (draft) | “John Doe works full 8-hour shifts as a warehouse shift lead at Northgate by the [review date], measured by [the provider's measure].” | The provider's measure, target and review date | Functional pillar once the provider confirms it; owner and review date set |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Intake call complete (02/09/2026) | Record the four-domain assessment: symptoms in his words, home and transport, prior injuries, the job's demands | CMS → Case Notes | All four domains dated; anything unknown listed as an open question |
-| A prior injury or prior care disclosed | Request the prior records and record the baseline as facts: body region, dates, provider, outcome | Medical Records Requests · CMS → Case Notes | Request sent; baseline note in facts only, copied to Atty. Thorne |
-| Assessment recorded | Draft the SMART goals and the four care groups into the Clinical and Functional pillars; ask the first treating provider to confirm each measure and date | Action Plan Editor | Each goal has a measure, a date and an owner; empty groups read “none ordered” |
-| A social risk found (no ride, a cost worry, a handoff) | Calendar it as a treatment risk and flag it | CMS → Calendar · Case File → Risk Flags | Dated task on the calendar before it becomes a gap |
 
 **Best practices & pitfalls**
 
@@ -859,15 +792,6 @@ A horizontal treatment map across the slide: five phase pills on a navy track, A
 | Restorative · weeks 9–24 | Work hardening, injections or psychological support, if ordered | Barriers to return to work; a disability index unchanged after 12 weeks of PT | The provider decides any referral; you ask and record the answer |
 | Maintenance · 6 months+ | Home exercise program; as-needed visits | Whether the provider is approaching MMI | The provider |
 | MMI / discharge | The provider's MMI note and any impairment rating; an FCE if ordered | The treatment phase closes; records and balances go to lien resolution | The provider declares MMI; Atty. Thorne leads what follows |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Every check-in with John Doe or a provider | Locate him on the map (phase, week from the DOL, week of care) and ask “Is he improving?” | CMS → Case File → Treatment timeline | Phase, week, answer and date recorded |
-| The answer is no, or a stop is skipped | Classify the variance and ask the provider's office what is planned | Medical Records Requests · CMS → Case Notes | Variance type named; the provider's answer on file with its date |
-| Week 6 of care, then every 30 days | Request the objective measures: range of motion, pain score, disability index | Medical Records Requests | Measures on file, or the missing re-evaluation flagged |
-| A variance that can cost the claim | Report the facts to Atty. Thorne in the map's language: phase, variance type, the provider's plan | CMS → Case File → Risk Flags | Flag routed the same day, facts only |
 
 **Best practices & pitfalls**
 
@@ -949,15 +873,6 @@ A split stage. Left half, headed IN THE RECORDS: a navy column of four stacked s
 | Developing discrepancy | Sets what he is doing beside the goal he named | If he names full shifts at Northgate as his goal and therapy starts to feel pointless: “You said getting back to full shifts matters most. How does stepping back from therapy fit with that?” | His goal and his answer; no pressure |
 | Rolling with resistance | Pivots to his reason instead of arguing | If he pushes back on a clinic: “It sounds like that clinic isn't a good fit for you. Let's look at why.” | His reason, routed to the provider |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A treatment record, prescription record or bill arrives | Read it against the red flags by specialty; log any flag with its source record and the date first seen | Medical Records Requests · CMS → Case File → Risk Flags | Every flag logged with its record, specialty and date |
-| A medical-danger flag (fever or sharp pain after surgery, a medication concern) | Report the fact to the provider's office the same day, then run A-C-T and tell Atty. Thorne | Phone · CMS → Case Notes | Provider told the same day; the call note dated |
-| Each client check-in, once care starts | Run OARS: specific questions on visits, pain and function; note any yellow flag in his words | Call Simulator → AI John Doe · CMS → Case Notes | GIRP note the same day: his words, no labels, no advice |
-| A yellow flag or a plateau heard | Report it to the provider with a plan and a question (is a screen or a plan change indicated?); flag anything putting his mental health in the record to Atty. Thorne | Email Workspace · CMS → Case File → Risk Flags | The provider's answer and its date on file |
-
 **Best practices & pitfalls**
 
 - Ask specific questions, never just “How are you?”: visits kept, the pain score, what he can't do at work or at home.
@@ -1033,14 +948,6 @@ Two parts. Left: the Word-style editor as a document page with its toolbar, anno
 | Approved | Counsel has authorized the plan | Execute against this version and record it as the operative plan. |
 | Superseded | A material fact changed after approval | Re-route. The earlier approval no longer covers the new picture. |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Plan drafted across all five bands | Route to Atty. Thorne | Action Plan Editor → Route for review | Routing recorded with timestamp |
-| Plan returned with comments | Address every comment and re-route | Action Plan Editor → Revisions | No comment left unaddressed |
-| Material fact changes after approval | Mark the plan superseded and re-route | Action Plan Editor → Version | Approved version kept; new version routed |
-
 **Best practices & pitfalls**
 
 - Assume every note will be read by defense counsel.
@@ -1104,14 +1011,6 @@ A horizontal treatment timeline is the whole slide. Far left, a navy node: DOL �
 - [ ] Investigation steps recorded: the client's own explanation, supporting documents, provider confirmation
 - [ ] Flag placed prominently in the Case Plan's risks band
 - [ ] Flag routed to Atty. Thorne
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Treatment records received | Compute the gap from DOL to first treatment | CMS → Case File → Treatment timeline | 14 days, both dates recorded |
-| Gap confirmed | Flag it with its defense uses and likely causes | Action Plan Editor → Risks | Prominent flag with consequences |
-| Flag recorded | Route to Atty. Thorne; schedule the Day 3 investigation | CMS → Tasks | Routed and scheduled |
 
 **Best practices & pitfalls**
 
@@ -1181,14 +1080,6 @@ A full-slide editor canvas showing the live plan with all five bands stubbed and
 - [ ] Risks band: 14-Day Gap and the risk of a later break in care, prominent, with consequences
 - [ ] Filing window docketed
 - [ ] Plan routed to Atty. Elijah Thorne with a timestamp
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Claim Set Up complete | Draft all five bands | Action Plan Editor | Meter at five of five |
-| Plan complete | Docket the filing window | CMS → Calendar | Due date on the calendar |
-| Plan docketed | Route to Atty. Thorne | Action Plan Editor → Route for review | Routed with timestamp |
 
 **Best practices & pitfalls**
 
@@ -1263,16 +1154,6 @@ A two-tier slide. The top tier is a coverage map: eight cards in three colour gr
 | Health Plan | Peach State Health Plan | Medical Bills, at the contract rate | Payer Order 2nd; reimbursement right |
 | PD liability (third-party) | Keystone Mutual · $25,000 | The Civic, the rental, Loss of Use | Outside the stack |
 | Collision (first-party) | Bluewater · $500 deductible | The Civic, regardless of fault | Margaret's, outside the stack (her UM: rejected 03/14/2024) |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Each claim is opened | List every coverage, its carrier and what it pays | CMS → Insurance tab | Each tagged third-party, first-party or health |
-| Coverage confirmed in writing | Place it: Recovery Stack, Payer Order or outside both | CMS → Insurance tab → Coverage Matrix | Stack $40,000; PIP, PD and collision outside it |
-| A provider asks whom to bill | Route it by the Payer-First order | CMS → Insurance tab → PIP Log | PIP first, Peach State next, an LOP last |
-| A provider asks for an LOP | Check PIP and network status first | CMS → Liens → LOP register | Payer check recorded; Atty. Thorne approves any LOP |
-| A payer pays a bill | Post payer, bill and amount on its ledger | CMS → Insurance tab → PIP Log · CMS → Liens | Every ledger current; no paid claim re-routed |
 
 **Best practices & pitfalls**
 
@@ -1350,15 +1231,6 @@ Centre-right, a cream ledger card with a navy header bar, PIP · HARBOR POINT ·
 | 03/13/2026 | Summit Imaging Center | $2,395.00 | $3,720.00 | $1,280.00 |
 | 03/27/2026 | Lakeside Orthopedics | $640.00 | $4,360.00 | $640.00 |
 | 06/12/2026 | Lakeside Orthopedics (MMI) | $640.00 | $5,000.00 | $0.00 — exhausted |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A provider asks for an LOP | Run the Payer Order; prepare the LOP on counsel's template only for care PIP and Peach State can't carry | CMS → Documents → Outgoing → Route for approval | Payer check recorded before routing; nothing sent without Atty. Thorne's approval |
-| PIP pays a bill | Post the payment, the running total and the balance left | CMS → Insurance tab → PIP Log | Running total ties to Harbor Point's payments; $5,000.00 reached on the 06/12/2026 visit, $0.00 left |
-| An LOP provider's itemized statement arrives | Update the balance and check every line against the visits you tracked | CMS → Liens → LOP register | Balance current (through 04/02/2026: 16 visits × $185.00 = $2,960.00); every billed date is an attended visit |
-| A new referral or provider | Warm handoff: book it with John Doe on the line and confirm the payer before the first visit | Call Simulator → AI John Doe · CMS → Case File → Treatment timeline | Appointment and payer recorded before the visit date |
 
 **Best practices & pitfalls**
 
@@ -1438,15 +1310,6 @@ Two documents side by side, each read line by line. Left, Peach State's Explanat
 | Plan paid | $1,860.00 | EFT PSH-EFT-0603-77815, 06/03/2026 | Peach State's reimbursement claim |
 | Member responsibility | $0.00 | The most Crescent may bill John Doe | Its $1,540.00 statement is a balance bill |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| An EOB arrives | Post billed, allowed, adjustment, paid and member share against the visit | CMS → Liens · CMS → Documents | Plan paid $1,860.00 logged; claim PS-2605-449021 linked to the visit |
-| A PIP check clears | Post the check, the date of service and the limit remaining | CMS → Insurance tab → PIP Log | Ledger ties to Harbor Point's payment history, $0.00 left after 06/26/2026 |
-| A patient statement shows a balance | Compare it with the EOB's member responsibility; route any balance bill | CMS → Liens · Email Workspace | $1,540.00 flagged; Atty. Thorne told the same day; correction request drafted |
-| The plan's itemized lien arrives | Match each line to an EOB and to the collision | CMS → Liens → Peach State | Only EOB-backed, accident-related lines stand |
-
 **Best practices & pitfalls**
 
 - Read every EOB down to the member-responsibility line before you answer a balance question.
@@ -1523,15 +1386,6 @@ A single horizontal bar labelled HARBOR POINT PIP · $5,000 · ONE LIMIT, filled
 | Does the BI carrier get a set-off? | Where set-off applies: Gross Settlement Value − PIP Paid = Defendant's Remaining Liability | Add-on: PIP does not reduce BI or UM; any argument is Atty. Thorne's |
 | Does PIP want its money back? | A subrogated carrier liens the settlement: log it | No: Harbor Point, 03/02/2026, no reimbursement right |
 | Was the wage benefit used? | Medical Bills and wages share one limit | No: bills used it by 06/26/2026; $1,267.20 never paid; $1,584.00 stays in the Specials |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A PIP check clears | Record the limit left, the bills still coming and the wage claim | CMS → Insurance tab → PIP Log | Forecast shows when PIP runs out |
-| A bill could go to PIP or an LOP | Lay out both routes with the figures | Email Workspace | Atty. Thorne's routing decision logged; no paid claim re-routed |
-| First treating records arrive (EMC states) | Check the PIP rule and the records for an EMC finding | Medical Records Requests · CMS → Insurance tab | Finding, or its absence, flagged to Atty. Thorne |
-| PIP is exhausted | Post what PIP paid by bill beside the billed Specials | CMS → Insurance tab → PIP Log · CMS → Liens | PIP-paid bills at $0.00 owed; billed totals kept |
 
 **Best practices & pitfalls**
 
@@ -1611,15 +1465,6 @@ A two-lane comparison under a thin header strip reading STATE-SPECIFIC: CONFIRM 
 | Chiropractic care | May give initial care; cannot make the EMC determination | No EMC rule | Riverton Spine & Rehab (Dr. Mark Ellison, DC, chiropractic + PT) could not make the finding |
 | Without an EMC determination | Medical benefits capped at $2,500 | No cap below the $5,000 limit | $2,500 of the $10,000 until a qualifying provider documents an EMC |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A Florida PIP file is opened at intake | Calendar the 14-day initial-care deadline from the date of loss; tell the client the deadline and where and when care is available (facts and logistics only) | CMS → Calendar · CMS → Communications Log | Deadline docketed the same day; the call logged with no medical recommendation |
-| The first treatment record arrives | Check the visit date against day 14, who saw the client (MD, DO, dentist, PA, APRN or chiropractor), and whether an EMC determination is documented | Medical Records Requests · CMS → Case File → Risk Flags | Date, provider type and EMC status logged with the source record |
-| No EMC determination in a qualifying provider's record | Ask the provider's office whether an EMC was assessed and documented, and request the determination in the records | Medical Records Requests · Email Workspace | Request dated; the provider's answer on file |
-| A PIP payment posts, or a gap is found | Update the $2,500 or $10,000 bucket in the PIP Log; flag a missing EMC or a late first visit to Atty. Thorne | CMS → Insurance tab → PIP Log · CMS → Tasks → Escalate | Bucket current; the flag routed the same day |
-
 **Best practices & pitfalls**
 
 - Read the file's state before you read its PIP: the EMC rule is Florida's, not every state's.
@@ -1692,14 +1537,6 @@ A three-party triangle: John Doe at the top, Riverton Spine & Rehab bottom left,
 | “Which one works for you? I'll book it while we're on the phone.” | “Don't worry about the bill; the LOP means it's free.” |
 | “The firm does refer clients to Riverton Spine & Rehab; you're free to choose any of them.” | “Skip the injection; it won't help.” |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| No payer will cover a provider John Doe needs | Check every payer first; record why an LOP is needed; route to Atty. Thorne to approve | CMS → Insurance · Case Notes | Payer check on file; attorney approval logged |
-| The LOP is signed | File it; set a 30-day ledger request | CMS → Documents · Liens · Tasks | LOP on file; ledger task recurring |
-| John Doe asks where he should go for treatment | Give the list with network status; book his choice; disclose any firm relationship | CMS → Parties · Calendar · Case Notes | Options given, his choice recorded, no recommendation |
-
 **Best practices & pitfalls**
 
 - Check every payer before an LOP: the LOP is the last resort, not the first.
@@ -1767,14 +1604,6 @@ A receipt ledger fills the slide: rows for TREATMENT MILEAGE (date · provider �
 | “Keep every receipt, and write down each trip: the date, the office and the miles.” | “No need for receipts; we'll estimate it all at the end.” |
 | “Send me a photo of the pharmacy receipt today, and I'll log it.” | “You'll get every penny of that back.” |
 | “Let's set up your ride to Thursday's appointment now.” | “If you can't get a ride, just skip the visit.” |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Treatment starts | Open the trip log; tell the client what to keep | CMS → Case Notes · Tasks | Log open; client told what to keep |
-| A receipt comes in | Enter the cost; file the receipt | CMS → Financial Ledger → Specials · Documents | Entered with its receipt |
-| MMI is reached; the demand is next | Total the log; route it to Atty. Thorne | CMS → Tasks | Totals routed; the rate confirmed by counsel |
 
 **Best practices & pitfalls**
 
@@ -1844,15 +1673,6 @@ Two dated envelopes side by side, each a white card with a navy header. Left, 02
 - [ ] Summit Imaging's 03/11/2026 request declined in writing with the reason stated (PIP applies first) and Harbor Point PIP named as the payer
 - [ ] Decline proved from the ledger: $5,000.00 – $685.00 – $640.00 = $3,675.00 left, enough for the $2,395.00 MRI, leaving $1,280.00
 - [ ] No payment amount, reduction or payment date promised to either provider; Atty. Thorne copied on the decline
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| 02/23/2026: Riverton Spine & Rehab needs an LOP before the 02/24/2026 visit | Run the Payer Order, prepare the LOP on the approved template, route it for approval | CMS → Documents → Outgoing → Route for approval | Approved and signed before the first visit |
-| LOP signed | Transmit it with the HIPAA authorization; confirm receipt; open the register entry | Email Workspace · CMS → Liens → LOP register | Receipt confirmed and dated in the Communications Log |
-| LOP received by the clinic | Call the office manager: confirm acceptance, secure the evaluation, set the billing protocol; then note, task and file it | Call Simulator · CMS → Case Notes · CMS → Tasks | Appointment confirmed; note dated; tasks owned and dated; nothing promised |
-| 03/11/2026: Summit Imaging asks for an LOP | Decline in writing, naming Harbor Point PIP as the payer; post the ledger | Email Workspace · CMS → Insurance tab → PIP Log | Reason stated; ledger shows $3,675.00 left before the MRI |
 
 **Best practices & pitfalls**
 
@@ -1945,14 +1765,6 @@ The CMS Tasks board fills the slide as a white card with a navy header, JOHN DOE
 - [ ] Transport plan agreed with John Doe and recorded; Crescent's pre-procedure instructions passed on as given, not interpreted
 - [ ] GIRP note and a short report to Atty. Thorne on 04/22/2026; no treatment advice and nothing about the claim's value anywhere on the file
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| 04/22/2026: John Doe's voicemail refuses Millbrook | Call back; read Dr. Reyes's referral; verify Crescent with Peach State | Call Simulator → AI John Doe · CMS → Case Notes | Reasons logged; Crescent verified in network |
-| Facility chosen by John Doe | Redirect with Janelle Brooks; book 05/15/2026 with him on the line; cancel Millbrook | CMS → Calendar · CMS → Parties | Old slot off; new slot, reminder and attendance check on |
-| Downstream work | Do each task or delegate it with an owner and a due date; report to Atty. Thorne | CMS → Tasks · ChartSwap · CMS → Liens · Email Workspace | Every task Done or Delegated; none without an owner |
-
 **Best practices & pitfalls**
 
 - Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).
@@ -2028,15 +1840,6 @@ A two-lane swimlane running left to right. Upper lane, navy, labelled PAYS THE B
 | 3. LOP/provider liens. | 3. Relative UM — $10,000. |
 | The Health Plan then asserts a reimbursement right against the settlement. | $40,000 total. Our demands are built against these layers. |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Retainer signed | Obtain the claim-specific HIPAA authorization naming the incident date | CMS → Documents | Authorization names 02/06/2026 and permits legal and insurance contact |
-| Client's age and benefits known | Verify SSDI status; report to the BCRC if 65+ or on SSDI | CMS → Case Notes | BCRC answer logged with its date |
-| Health Plan identified | Record carrier, member ID and group; record the Payer Order | CMS → Liens | Lien record exists and is dated; Payer Order noted |
-| Plan pays an accident-related bill | Flag the reimbursement right against the matter | CMS → Liens → Flag | Flag set before any demand is drafted |
-
 **Best practices & pitfalls**
 
 - Clear the triple-check before any clinical planning.
@@ -2106,15 +1909,6 @@ Left half: a CMS Liens screen on a white card with a navy header bar, five field
 - [ ] Dispute emailed 06/12/2026; Peach State's corrected itemization of 06/24/2026 confirms $1,860.00 in writing; the register shows $3,618.00 asserted → $1,860.00 confirmed
 - [ ] Exchange converted into a memorandum, filed in the CMS under the naming convention and kept on the Backup Drive (Liens & Reimbursement)
 - [ ] Escalation noted: any compromise, the plan's “without reduction” demand and any disclosure of limits need Atty. Thorne's authority
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Plan's notice or first payment | Create and flag the lien record | CMS → Liens | Record dated; flag set |
-| Lien record created | Attach the Triple-Check results; request the itemized ledger | CMS → Case Notes · Email Workspace | HIPAA, BCRC and Payer Order recorded; request logged |
-| Interim itemization arrives | Audit each line; dispute in writing; get the corrected figure confirmed | CMS → Liens · Email Workspace | Register shows only the figure confirmed in writing |
-| Any request to compromise or to commit to repayment | Route to Atty. Thorne | CMS → Tasks → Escalate | Nothing agreed without counsel's authority |
 
 **Best practices & pitfalls**
 
@@ -2190,14 +1984,6 @@ A one-page summary board in four quadrants on a cream card, each a context card 
 | 14-Day Gap | The day the records show first care 14 days after the loss (02/06 → 02/20/2026) | CMS → Case File → Risk Flags · Action Plan Editor → Risks | Dates, count, explanation pending; routed to Atty. Thorne; watch set |
 | Later break in care | The day a missed-visit alert arrives (04/08/2026) | CMS → Case File → Treatment timeline | 04/02 → 04/21/2026, 19 days; A-C-T the same day |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A reimbursement right is first noticed | Flag the lien and record its identifiers | CMS → Liens → Flag | Flag dated before any demand is drafted |
-| The plan's itemized ledger arrives | Audit each line; dispute in writing | CMS → Liens · Email Workspace | Register changed only to the figure confirmed in writing |
-| Records show first care 02/20/2026 | Flag the 14-Day Gap in facts only; route it; set the watch | CMS → Case File → Risk Flags · Action Plan Editor → Risks | Dates and count recorded; routed to Atty. Thorne |
-
 **Best practices & pitfalls**
 
 - Flag a reimbursement right the day it is known, and before the first demand.
@@ -2269,15 +2055,6 @@ A closed monitoring loop drawn as a navy ring left of centre, with “IS THE PLA
 3. **Assess** — Medical danger → the provider today; legal danger → Atty. Thorne. Here: the No Contact Protocol from 04/08/2026 until John called on 04/17.
 4. **Coordinate** — With his consent: Dr. Reyes by phone 04/20, evening slots under the LOP, Margaret Doe driving a route that avoids the corner.
 5. **Track** — GIRP note; file restored 04/20; attendance confirmed 04/21 and 04/23/2026; the why on file for counsel.
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Provider's missed-visit alert | Run A-C-T the same day: reach John Doe (the No Contact Protocol if he is silent), classify the variance, record it | Call Simulator → AI John Doe · CMS → Communications Log · CMS → Case Notes | First attempt and note dated the day the alert arrives |
-| Week 6 of care (04/07/2026) | Ask the provider for the re-evaluation measures: range of motion, pain score, disability index. Whether a PHQ-9/GAD-7 screen is indicated is the provider's call; anything putting John Doe's mental health in the record is flagged to Atty. Thorne | Medical Records Requests · CMS → Case File → Treatment timeline | Measures on file, or the missed re-evaluation flagged |
-| Barrier not fixed at the clinical rung | Climb one rung: written notice to the carrier causing it, copied to Atty. Thorne (Keystone PD: property facts only) | Email Workspace · CMS → Tasks → Escalate | Each rung dated in the Communications Log |
-| A red flag that can cost the claim (missed visits, generic notes, passive-only care) | Report it to Atty. Thorne with the fix attempted | CMS → Case File → Risk Flags | Flag routed with the GIRP note attached |
 
 **Best practices & pitfalls**
 
@@ -2360,14 +2137,6 @@ A horizontal treatment timeline from 04/02/2026 to 04/21/2026. A hollow red band
 - [ ] Privileged GIRP note filed 04/17/2026; Atty. Thorne told the same day; file restored 04/20: Drop Warning cleared, 14-day trigger reset, Action Plan updated
 - [ ] Missed visits exact (04/03, 04/07, 04/09, 04/14); 04/02 → 04/21/2026 = 19 days; attendance confirmed 04/21 and 04/23/2026
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| 04/08/2026: missed-visit alert, client silent | Step 1 review; Notices 1 and 2 by different channels | CMS → Case Summary · Call Simulator · Email Workspace · CMS → Communications Log | Each notice logged with date, time, channel, outcome |
-| 04/10/2026: emergency contact reached, still no word | Escalate; send the 10-day Final Warning Letter; set Drop Warning | CMS → Tasks → Escalate · CMS → Documents → Outgoing · CMS → Case Status | Certified mail and email logged; 04/20 calendared |
-| 04/17/2026: John calls | Trauma-informed interview; coordinate with his consent; restore the file | Call Simulator → AI John Doe · CMS → Case Notes · CMS → Calendar | GIRP note same day; Drop Warning cleared 04/20; visits 04/21 and 04/23 confirmed |
-
 **Best practices & pitfalls**
 
 - Silence is a symptom until you know otherwise: look for the cause before you write the client off.
@@ -2435,15 +2204,6 @@ The Doe-John folder tree on the left, opened at 03 Medical Records and 04 Bills 
 - [ ] Every document filed in the CMS today is on the drive: the dashboard count of backed-up documents matches what you filed
 - [ ] ✓ Check my drive run with no folder missing
 - [ ] The records-vs-bills rule in Case Notes: records say what was done to John Doe, bills say what it cost
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Treatment documents arrive | File each in the CMS so its copy reaches the drive | CMS → Documents | Each in its folder on the backup |
-| A bill found among the records | Move it to 04 Bills & Invoices | Backup Drive | One copy, in the bills folder |
-| Backup brought up to date | Run ✓ Check my drive | Backup Drive | No folder missing |
-| The rule applied | Record the records-vs-bills rule | CMS → Case Notes | Two sentences, in your own words |
 
 **Best practices & pitfalls**
 

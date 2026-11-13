@@ -192,7 +192,7 @@ and never lowers the best score.
 Continue and Resume open; `slide-progress`, the furthest slide reached; and the slide kept across the reload
 that brings in a new version). When the deck changes, a position saved in the old deck is moved once to the
 same slide of the new one (`js/cm-slide-places.js`). The decks have changed twice: the lessons' On the Job
-slide (the Trigger ➔ Task ➔ Tool ➔ Checkpoint cards) was removed (layout 2); then the 26 Milestone Steps
+slide (the operational steps as cards) was removed (layout 2); then the 26 Milestone Steps
 slides went and Why It Matters became the opening line of The Theory in every lesson that has one (layout 3).
 A place saved on a slide that is gone opens on the same lesson: a Why It Matters place on that lesson's The
 Theory, a Milestone Steps place on its The Rules (where the steps are now spoken), an On the Job place on the

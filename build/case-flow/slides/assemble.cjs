@@ -145,7 +145,7 @@ for (const day of CF.days) {
     if(b.kind === "lesson"){
       line(b.id, "hook", c.hook, 16); list(b.id, "points", c.points, 3, 4, 12);
       if((b.tell.upl || []).length) line(b.id, "upl", c.upl, 14, [0, 1]);
-      if(c.job !== undefined) errors.push(`${b.id}.job: no lesson has an On the Job slide (Trigger ➔ Task ➔ Tool ➔ Checkpoint) any more; take its copy out`);
+      if(c.job !== undefined) errors.push(`${b.id}.job: no lesson has an On the Job slide any more; take its copy out`);
       if(c.roadmap !== undefined){   // a complex lesson's roadmap: 3–6 steps, shown before anything is taught or tested
         const r = c.roadmap;
         if(!r || typeof r.title !== "string" || !r.title.trim() || wc(r.title) > 8 || marks(r.title)) errors.push(`${b.id}.roadmap.title: want ≤ 8 words, no highlight`);

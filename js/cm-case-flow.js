@@ -271,8 +271,6 @@ function ladder(){
 const visual = (l, b) => !b.show ? "" : (b.show.type === "stack" ? ladder() : renderLessonVisual(l));
 const showLabel = (b, head) => head + (b.show && b.show.caption ? ` — ${b.show.caption}` : "");
 
-const opsTable = ops => !(ops && ops.length) ? "" :
-  table(["Trigger event", "Case Manager task", "Tool / interface", "Verification checkpoint"], ops);
 
 function rubricHtml(r){   // the grading weights stay with the scoring (the Knowledge Check, the trainer's panel): not shown in the lesson
   return "";
@@ -413,14 +411,12 @@ function fullText(l, d){
       + S(1 + n, "Tell Them — the rules and the strategic why", `<p class="cf-why">${E(b.tell.why)}</p>${ul(b.tell.rules)}`
       + (b.tell.upl || []).map(u => renderCallout({type: "warning", label: "UPL boundary", text: u})).join(""))
     + S(2 + n, showLabel(b, "Show Them"), visual(l, b))
-    + S(3 + n, "Trigger ➔ Task ➔ Tool ➔ Checkpoint", opsTable(b.ops))
-    + S(4 + n, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
+    + S(3 + n, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
   }
   if(b.kind === "activity") return S(1, "The scenario", `<div class="scenario-card"><div class="stag">John Doe v. Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
     + S(2, "Execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
     + S(3, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once you finish the activity and reveal the answers on its Check Your Work slide.</p>`)
-    + S(4, "Trigger ➔ Task ➔ Tool ➔ Checkpoint", opsTable(b.ops))
-    + S(5, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
+    + S(4, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
   return S(1, "Knowledge verification", `<ol class="cf-q">${b.check.questions.map(q => `<li>${E(q)}</li>`).join("")}</ol>`)
     + S(2, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
 }
@@ -494,8 +490,8 @@ const docView = b => (SLIDES[b.id] || {}).document ? ["doc"] : [];
    Exception on The Rules, and Milestone Steps (the case's own dates) on The Framework, or on The Rules where a
    lesson has no Framework (msView), in the few lessons whose slide has room for the rail at full size on a laptop.
    At most one Red Flag on a slide.
-   (The lessons had an On the Job slide here, rows of Trigger ➔ Task ➔ Tool ➔ Checkpoint cards, and 26 of them then a
-   Milestone Steps slide of their own in its place: both are gone. Those lessons' steps are in the trainer's talking
+   (The lessons had an On the Job slide here, their operational steps as rows of cards, and 26 of them then a
+   Milestone Steps slide of their own in its place: both are gone, and so is that table in 📖 Additional Reference. Those lessons' steps are in the trainer's talking
    points for The Rules, build/case-flow/scripts.) */
 const mfOf = b => { const c = SLIDES[b.id] || {}; return {redFlag: c.redFlag || null, ruleEx: c.ruleEx || null, milestones: c.milestones || null}; };
 const FLAG_SVG = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M5 21V4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M6 4h11l-2.6 4L17 12H6z" fill="currentColor"/></svg>`;
@@ -781,7 +777,7 @@ function plainFirst(){
   CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { all[b.id] = b; })));
   SEQUENCE.forEach(sd => (sd.phases || []).forEach(ph => (ph.blocks || []).forEach(id => {
     const b = all[id]; if(!b) return;
-    // (a lesson's ops, its Trigger ➔ Task ➔ Tool ➔ Checkpoint steps, count: they are in its 📖 Additional Reference and the trainer walks them, though no slide draws them now)
+    // (a lesson's ops, its operational steps in the data, count: nothing draws them now, but their tools and terms are still what the lesson teaches)
     const text = JSON.stringify([SLIDES[id] || {}, b.title, b.topic, b.tell || {}, b.kind === "lesson" ? b.ops || [] : [], b.act ? [b.act.scenario, b.act.prompt] : [], b.check ? b.check.questions : []]).replace(/\*\*/g, "");
     const fresh = terms.filter(t => !seen.has(t) && plainRe(t).test(text));
     fresh.forEach(t => seen.add(t));

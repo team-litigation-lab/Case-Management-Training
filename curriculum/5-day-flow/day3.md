@@ -116,15 +116,6 @@ A matched-pairs board fills the upper two-thirds: a green-bordered left column h
 | “What made you go in on 02/20?” | “The pain got worse, right?” |
 | “That's one for Atty. Thorne. I'll make sure he gets it.” | “Don't worry, it won't matter.” or “This will hurt your case.” |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Records show the 14-day gap | Read the EMS report, the urgent-care history and the timeline; write the question plan | CMS → Case File → Treatment timeline · Case Notes | Plan saved before the call; no question in it names a reason |
-| Call connects | State date, participants and recording; get consent; confirm privacy | Call Simulator → AI John Doe (recorded call) | Consent and privacy on the recording before the first substantive question |
-| John Doe asks what the gap does to his case | Give no opinion; log the question and route it | CMS → Tasks → Escalate | Escalated to Atty. Thorne the same day; no opinion on the recording |
-| A carrier asks John Doe for a Recorded Statement | Remind him to route it to the firm; log it; tell Atty. Thorne | CMS → Communications Log | No statement given without Atty. Thorne; request logged and escalated the same day |
-
 **Best practices & pitfalls**
 
 - Ask open, follow his words, close last.
@@ -199,15 +190,6 @@ A two-column compare board. Left: a cream card with a green top rule headed COUN
 | Northgate call-outs 02/09–02/13; work notes matched to a visit. | Scripting what John Doe tells his providers. |
 | Dated, unaltered texts and receipts. | Editing, cropping or deleting texts or posts. |
 | Dr. Reyes's Causation Letter, requested through Atty. Thorne. | Quietly “fixing” a history that conflicts. |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A provider record arrives | Compare mechanism, onset date and body region with the other histories | CMS → Case File → Treatment timeline | Each history logged consistent, or flagged with the conflicting line quoted |
-| A history conflicts with another provider's | Flag it to Atty. Thorne; change and request nothing | CMS → Tasks → Escalate | Escalated the day it is found; no contact with the provider about wording |
-| Atty. Thorne decides to seek a causation opinion | Assemble the records for his request letter; docket the follow-up | Medical Records Requests · CMS → Calendar | Request goes under his signature; follow-up date on the calendar |
-| A work or excuse note arrives | Check signer, date and covered days against the visit record | CMS → Documents | Every covered day matches a visit or a restriction given at one; mismatches flagged |
 
 **Best practices & pitfalls**
 
@@ -290,14 +272,6 @@ A call-simulator screen across the left two-thirds: a navy header bar reading AI
 - [ ] GIRP note filed 03/04/2026 and labelled privileged: Goal, Intervention, Response (his words, in quotation marks), Plan
 - [ ] One dated task per document: the text thread, the receipt, the Northgate Attendance Record
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Call connects | Open on the record: role, consent, privacy, purpose | Call Simulator → AI John Doe (recorded call) | Consent audible before the first substantive question |
-| John Doe raises a reason or names someone he told | Follow up open, then pin the date and the document | Call Simulator → AI John Doe (recorded call) | Each reason tied to a date and a source he named |
-| Call ends | File the GIRP note; open a task per document | CMS → Case Notes · Tasks | Note dated 03/04/2026; every task with an owner and a due date |
-
 **Best practices & pitfalls**
 
 - Let a pause run; clients fill silence with the detail you need.
@@ -379,15 +353,6 @@ A white CMS record card with a navy header, GAP EXPLANATION RECORD · JOHN DOE, 
 - [ ] Facts and citations only; defense-eye pass logged: John Doe's public social media for both windows checked, nothing deleted or advised deleted; record routed to Atty. Thorne with a timestamp
 - [ ] Two layers: the internal record (account-only tags, the Kevin Alvarez flag, the defense-eye and social-media pass) is labelled attorney work product and stays in the CMS. If Atty. Thorne decides the gap goes to Keystone, an outward-facing gap timeline (dates, reasons, documents only) is drafted from it for his approval.
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Causation Letter received | Log it; cite it beside the expected-to-pass and escalation reasons | CMS → Documents · Case File → Gap Explanation Record | Letter dated 06/19/2026 cited on the 14-day band |
-| Record drafted | Pair every reason with a dated document; mark account-only reasons | CMS → Case File → Gap Explanation Record | No reason without a document or an “account only” tag |
-| Record complete | Run the defense-eye pass and route to Atty. Thorne | CMS → Tasks | Routed with a timestamp before the pre-demand strategy session |
-| Mental-anguish records received | File and log the referral, the counseling summary and his statement for the demand | CMS → Documents · Drive → Medical Records | Each filed under the naming convention and flagged for Atty. Thorne |
-
 **Best practices & pitfalls**
 
 - One reason per row, one dated document per reason.
@@ -464,15 +429,6 @@ The slide is split into two halves of one case. Left, a navy card headed NEGLIGE
 | The 2021 chiropractic care is unrelated | A pre-existing condition | Birch Avenue Chiropractic, 2021: three low-back visits, resolved; no neck complaint |
 | The treatment was reasonable and necessary; future care is reasonably anticipated | Over-treatment; no future medical | Lakeside Orthopedics' MMI note, 06/12/2026: 1–2 repeat injections within 24 months |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Atty. Thorne decides to request a causation opinion | Assemble the record set, prior records included, for his letter; docket the follow-up | Medical Records Requests · CMS → Calendar | Request goes under his signature with John Doe's authorization; follow-up dated |
-| The Causation Letter arrives (06/19/2026) | Check the date of loss, injury level and side, visit dates and records listed against the file | CMS → Documents → Medical | Each item logged as matching, or the mismatch quoted and flagged to Atty. Thorne |
-| The letter is checked | File it and cite it on the Gap Explanation Record and in the audit's risks | CMS → Case File → Gap Explanation Record · CMS → Tasks | Cited on the 14-day band; routed to Atty. Thorne |
-| The Demand Package is assembled | Place the letter with the MRI report and the EMS report | Action Plan Editor · CMS → Documents → Outgoing | The letter is in the package served on 07/20/2026 |
-
 **Best practices & pitfalls**
 
 - Treat causation as half the case: check that every injury and expense claimed has a medical link on paper.
@@ -547,15 +503,6 @@ A left-to-right audit run across the full slide. Far left, a navy vertical gate 
 | 3 | Relative UM — Cardinal State Mutual | $10,000 | Coverage (03/09/2026 letter); UM form and other-insurance clause from the certified policy; priority is Atty. Thorne's call |
 | Not a layer | PIP · Keystone PD | — | Neither counts toward the $40,000 |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| MMI note received (06/12/2026) | Record MMI and the future-care plan; open the pre-demand audit | CMS → Case File → Treatment timeline · CMS → Tasks | MMI dated from the provider's note; audit task has an owner and a date |
-| Final bills and records in | Build the Specials ledger and reconcile it to the chronology | CMS → Financial Ledger → Specials | Every billed date matches a visit; medical total $14,817.40 |
-| Ledger reconciled | Register every lien; record billed beside paid | CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker | $1,860.00 and $6,105.00 listed; billed-vs-paid routed to Atty. Thorne |
-| Before the ask | Re-verify each limit and record the targets in order | CMS → Insurance tab → Coverage Matrix | $10,000 → $20,000 → $10,000 = $40,000, each with its written source |
-
 **Best practices & pitfalls**
 
 - Stress-test the file before the defense gets its hands on it.
@@ -628,15 +575,6 @@ A single brief page fills the centre of the slide, a white card with five horizo
 4. **Decisions needed** — Each one a question for Atty. Thorne.
 5. **Options → consequences** — Service, docketing, consents, the release.
 6. **Record & re-route** — Dated, attributed, tasked; the plan re-routed.
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Audit complete | Draft the one-page summary memo and the exhibit index | Action Plan Editor → Pre-demand brief | Five sections in protocol order; every exhibit label matches its page |
-| Brief ready | Book the strategy session and send the memo ahead | CMS → Calendar · Email Workspace | Session held before any demand is drafted; memo and index attached |
-| Session held | Record each decision in counsel's words and open its tasks | CMS → Case Notes · CMS → Tasks | Every decision dated, attributed to Atty. Thorne, with an owner and a due date |
-| Decisions change the plan | Mark the Case Plan superseded and re-route it | Action Plan Editor → Version | Approved version kept; new version routed the same day |
 
 **Best practices & pitfalls**
 
@@ -711,14 +649,6 @@ A two-column reconciliation board. Left column, NORTHGATE'S RECORD: nine shift t
 - [ ] Earning capacity: released to full duty at MMI 06/12/2026; any claim flagged to Atty. Thorne, never asserted by the Case Manager
 - [ ] $1,584.00 entered in the Specials and the Net Sheet; Case Plan updated; employer correspondence filed in the CMS and kept on the Backup Drive (Wages & Costs)
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| MMI declared; authorization signed | Request the employer's verification and records in writing | Email Workspace | Request dated; authorization attached; the six items asked |
-| Northgate replies | Match each missed shift to a provider record; flag the rest | Audit workbench · CMS → Case Notes | No unexcused absence; 02/09–02/13 flagged to Atty. Thorne |
-| Verified total reached | Enter it; update the plan; file the correspondence | CMS → Financial Ledger → Specials · Action Plan Editor · CMS → Documents | $1,584.00 entered; correspondence filed and kept on the Backup Drive |
-
 **Best practices & pitfalls**
 
 - Ask the employer for records, not recollection: the form, the payroll records and the letter.
@@ -791,14 +721,6 @@ A full-width Specials ledger on a cream card, provider rows in mono under five c
 - [ ] Reasonable and necessary: each charge tied to the collision in the provider's own records and to a clinical basis (MRI ordered 03/05/2026; injection after the 03/27/2026 referral); Riverton Drug receipts attached, from 02/07/2026
 - [ ] Amendment Requests: the three records wrong at their source found (the MRI history's 02/16/2026, the 05/04/2026 duplicate, Crescent's $1,540.00 statement); each provider asked in writing on 07/06/2026 with Atty. Thorne's approval; Crescent's $0.00 statement (07/10/2026) and Summit's addendum (07/15/2026) filed in the CMS; Riverton Spine & Rehab won't reissue before the account closes, so $6,105.00 goes out with the attendance log
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| All bills in after MMI | Enter and reconcile every provider's charges | CMS → Financial Ledger → Specials | Medical total $14,817.40; the 05/04/2026 duplicate removed and noted |
-| Ledger totals | Show billed beside paid; route the choice and the wage flag | CMS → Tasks → Escalate | Both columns shown; routed to Atty. Thorne with the five pre-treatment shifts named |
-| Audit complete | Register liens and re-verify the targets | CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Insurance tab | $1,860.00 + $6,105.00 = $7,965.00 in liens listed; $40,000 in order |
-
 **Best practices & pitfalls**
 
 - Count the visits in the notes before you add up a provider's lines.
@@ -869,15 +791,6 @@ A two-pane Call Simulator screen. Left pane: the session transcript as alternati
 - [ ] Billed-vs-paid recorded as Atty. Thorne's decision, in his words
 - [ ] Recommendations kept operational (e.g., email the demand to Dana Whitfield and request her written acknowledgement of receipt; the acceptance window docketed from that acknowledgement); no demand figure proposed
 - [ ] Each decision read back, dated, attributed and tasked with an owner and a date; Case Plan marked superseded and re-routed
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Strategy session called | Send the one-page memo and the exhibit index ahead | Email Workspace | Memo and index sent before the session |
-| Session under way | Brief in protocol order; answer each challenge with a document | Call Simulator → AI Atty. Elijah Thorne (strategy session) | Bottom line first; every challenge met with a sourced fact |
-| Decisions made | Record, read back and task each decision | CMS → Case Notes · CMS → Tasks | Each decision dated and attributed; demand-service task due 07/20/2026 |
-| Plan changed | Mark the plan superseded and re-route it | Action Plan Editor → Version | New version routed the same day |
 
 **Best practices & pitfalls**
 
@@ -955,15 +868,6 @@ Left half: a Time-Limited Demand Letter on navy-banded letterhead, five orange n
 | Documented | Big Four, the gap answered up front | Never shown the claim |
 | Timed | 07/22 → 08/21/2026, written acknowledgement on file | No proof of receipt, no clock |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| MMI declared (06/12/2026) | Docket MMI + 30 and open the Demand Package task | Court E-Filing · CMS → Tasks | 07/12/2026 falls on a Sunday. It is an internal target, so the firm works it early, on Fri 07/10; legal deadlines counted forward roll to the next business day (Day 4); a later service date recorded as Atty. Thorne's, with the reason |
-| Atty. Thorne approves the terms | Record them exactly before drafting | CMS → Case Notes | $10,000; Limited Release of Smith and Keystone only, BI claim only (the PD claim excluded); Smith's affidavit; 30 days to accept, from the adjuster's written acknowledgement of receipt; payment due as he sets it |
-| Dana Whitfield confirms receipt in writing (07/22/2026) | Compute and docket the acceptance deadline with reminders | Court E-Filing | 08/21/2026 docketed from her written acknowledgement, not the send date; if none comes, follow up with her the same day and escalate to Atty. Thorne |
-| Keystone writes or calls before the deadline | Log it word for word and route it to Atty. Thorne | CMS → Communications Log · CMS → Tasks → Escalate | Routed the same day; the CM changes nothing on terms or time, and restates the approved terms only where Atty. Thorne's written authority says so |
-
 **Best practices & pitfalls**
 
 - Know which value-drivers the demand leads with: the MRI herniation, the injection, the residual right-arm paresthesia at MMI, clear liability.
@@ -1037,14 +941,6 @@ A six-station horizontal timeline across the slide, stations numbered in orange 
 4. **Limited release** — 08/14 general draft revised; signed 08/28/2026.
 5. **UM demands** — 08/31/2026: Host UM $20,000; Relative UM $10,000, excess. Each emailed to its adjuster and logged.
 6. **Check** — 09/04/2026 into trust; copy to both UM files.
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Keystone tenders the $10,000 (08/12/2026) | Prepare the 30-Day Letters (consent-to-settle requests) to both UM carriers for Atty. Thorne's signature; docket each window | Action Plan Editor → Consent-to-settle template · Court E-Filing | Both sent 08/13/2026 with the tender, Dec Page and affidavit; both 30-day windows docketed |
-| Keystone's draft release arrives (08/14/2026) | Compare who and what it releases with the approved terms; flag overbreadth | CMS → Documents · CMS → Tasks → Escalate | “All other … insurers” flagged to Atty. Thorne; nothing sent to John Doe to sign |
-| Both consents in writing; Limited Release signed (08/28/2026) | Open the Host UM and Relative UM demands as tracked tasks | CMS → Tasks | Two tasks, each with carrier, claim number and adjuster |
 
 **Best practices & pitfalls**
 
@@ -1123,15 +1019,6 @@ An exhibit-index board fills the slide: six cream tabbed folders standing in a r
 | Threshold & Coverage (UM) | Each UM carrier's coverage proof; Keystone's exhaustion proof | A technicality defense |
 | General Damages (UM) | The MRI, the Causation Letter, the MMI note; any impairment rating | “Pre-existing,” “degenerative” |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| MMI declared (06/12/2026) | Open the Demand Package task; request each provider's itemized line-item bill; ask John Doe for his impact in his own words | CMS → Tasks · Medical Records Requests · Call Simulator → AI John Doe | Every provider requested; his words recorded before the narrative is drafted |
-| The week of service | Run the Final Scrub: overlaps, the prior disclosed, every final balance by phone | CMS → Financial Ledger → Specials · CMS → Case Notes | Each balance confirmed with a name and date; $16,401.40 ties out |
-| Draft package assembled | Index every exhibit by function; route the package and the narrative to Atty. Thorne | Action Plan Editor → Demand Package · CMS → Tasks → Escalate | Every exhibit indexed to a part; narrative marked draft for review |
-| Limited Release signed (08/28/2026) | Rebuild each UM package by function; route the impairment-rating question | Action Plan Editor → UM demand templates · CMS → Tasks → Escalate | Two complete packages; the rating question with Atty. Thorne |
-
 **Best practices & pitfalls**
 
 - Order the package the way the adjuster reads it: the terms, the gap answered, then the proof, with an exhibit index naming what each document proves.
@@ -1197,15 +1084,6 @@ A two-column audit sheet: CMS on the left, BACKUP DRIVE on the right, rows linke
 - [ ] The draft demand and the exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT
 - [ ] ✓ Check my drive run with no folder missing
 - [ ] The audit in Case Notes: the count, what was replaced and what was labeled
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Demand about to be served | Compare the drive with the CMS | Backup Drive | X of Y backed up, X equal to Y |
-| Corrected versions on file | Put the current version in its folder, label the superseded one | Backup Drive | Both kept, the old one marked SUPERSEDED |
-| Draft Demand Package on file | File it so it lands in 05 Insurance, Demands & Negotiation | CMS → Documents | Labeled DRAFT |
-| Audit done | Run ✓ Check my drive and record the audit | CMS → Case Notes | Clean check, count recorded |
 
 **Best practices & pitfalls**
 
@@ -1274,15 +1152,6 @@ A three-column assembly board. Left: the Demand Package as five tabbed cream fol
 - [ ] Her written acknowledgement (07/22/2026, 9:06 a.m.) filed with the sent email as proof of delivery; deadline docketed 08/21/2026 (07/22 + 30 days) with reminders
 - [ ] Any extension request or response from Keystone routed to Atty. Thorne the same day, never answered by the CM
 - [ ] The BI settlement set the demand sets in motion tracked as one CMS task from the day it is served: Smith's affidavit of no other insurance (the demand's condition), both UM carriers' consents and notarized Waivers of Subrogation, the executed Limited Release and the W-9; Keystone pays only once it is complete
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Draft package on file | Audit against the Big Four and the Final Scrub; assign each fix | CMS → Tasks | Every deficiency is a dated, assigned task |
-| Atty. Thorne signs | Email the demand to Dana Whitfield with the Demand Package attached; ask for written acknowledgement of receipt | CMS → Documents → Outgoing · Email Workspace | Sent and logged 07/20/2026 |
-| Dana Whitfield acknowledges receipt in writing (07/22/2026) | Docket the acceptance deadline and reminders | Court E-Filing | 08/21/2026 on the docket, counted from her acknowledgement |
-| No written acknowledgement | Follow up with Dana Whitfield the same day; escalate to Atty. Thorne | Email Workspace · CMS → Tasks → Escalate | Nothing docketed from the send date or a guess |
 
 **Best practices & pitfalls**
 
@@ -1355,14 +1224,6 @@ Two demand letters side by side on white letterhead: left HOST UM · HARBOR POIN
 - [ ] A two-page treatment summary matching each diagnosis, with its code, to its treatment, not a record dump
 - [ ] Gap and “degenerative” answered up front: “no significant degenerative change at the adjacent levels,” the Causation Letter, the EMS report, the Gap Explanation Record (the 14-day gap and the 19-day disruption)
 - [ ] Response deadline left as a marked blank for Atty. Thorne; both drafts routed to him, nothing served
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Limited Release signed (08/28/2026) | Draft both UM demands with exhaustion proof on page one | Action Plan Editor → UM demand templates | Tender, Dec Page, affidavit, consents and Limited Release present in each |
-| Drafts complete | Route both to Atty. Thorne for review, deadline and signature | CMS → Tasks → Escalate · Court E-Filing | Nothing sent before his sign-off; then each emailed to its adjuster (Marcus Bell, Teresa Okafor), logged, written acknowledgement requested; the deadline he sets docketed from it |
-| Keystone's check received | Send its copy to Marcus Bell and Teresa Okafor as a supplemental exhibit | CMS → Documents → Outgoing | Check copy logged in both UM files the day it reaches trust |
 
 **Best practices & pitfalls**
 
@@ -1438,15 +1299,6 @@ A battle map across the full slide width: four orange-numbered stations on a nav
 3. **Their top two** — The 14-Day Gap. The “degenerative” MRI.
 4. **Rebuttal ready** — EMS report, call-outs, receipt, Causation Letter; Dr. Park's MRI read.
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Dana Whitfield acknowledges the demand in writing (07/22/2026) | Build the battle map and compute the net floor | CMS → Financial Ledger → Net Sheet · CMS → Case Notes | Floor $12,677.63 gross on unreduced liens ($12,677.63 – $4,225.88 fee = $8,451.75); each attack matched to a dated document |
-| Adjuster calls with an offer | Soft lead, professional pause, ask for her data; restate the approved demand | Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual | No counter; terms and the 08/21/2026 deadline unchanged |
-| Call ends | Log the offer and the adjuster's exact words; report to Atty. Thorne | CMS → Communications Log · CMS → Tasks → Escalate | Logged and reported the same day, reasons quoted verbatim |
-| Adjuster stalls (“waiting on authority”) | Name it and tie it to the deadline in writing | Email Workspace | Same-day email cites 08/21/2026; no open-ended callback accepted |
-
 **Best practices & pitfalls**
 
 - Make the adjuster justify her number with data; silence after a low offer is a tool.
@@ -1521,14 +1373,6 @@ Three linked cards across the slide on a navy rail. Left: KEYSTONE · BI $10,000
 | Bluewater Auto | None: UM rejected 03/14/2024 | Not asked; Margaret's Civic policy is not a UM layer |
 | Keystone | BI $10,000 (KM-26-440871) | Check held until both waivers arrive with the executed release |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Keystone tenders the $10,000 (08/12/2026) | Prepare both consent-and-waiver requests for Atty. Thorne's signature; docket each window | Action Plan Editor → Consent-to-settle template · Docket System | Sent 08/13/2026 to Marcus Bell and Teresa Okafor; Bluewater not asked, with the reason recorded |
-| Keystone's cover letter conditions payment on the waivers (08/14/2026) | Log the condition; tie it to the signing task | CMS → Case Notes · CMS → Tasks | Signing task held until both waivers are in writing |
-| Each consent arrives (08/24, 08/26/2026) | Match its scope to the release; route anything wider, or a substitution, to Atty. Thorne | CMS → Documents · CMS → Tasks → Escalate | Both cover Smith and Keystone only; filed for the UM packages and the transmittal |
-
 **Best practices & pitfalls**
 
 - Name the UM layers from the Coverage Matrix before you write a single request; a request to the wrong carrier wastes the window.
@@ -1600,15 +1444,6 @@ Three rungs build left to right: BI $10,000 (navy, ticked TENDERED 08/12), HOST 
 | EMC ceiling | In PIP states, some cap benefits lower without an emergency-medical-condition finding (confirm the rule); John Doe's Harbor Point PIP has no such cap. | PIP paid its full $5,000.00; the rest of the care became Peach State and LOP liens. |
 | Subrogation | A subrogated carrier liens the settlement: log it, plan the reduction. | Harbor Point, 03/02/2026: no reimbursement right. |
 | UM offset | A reduction policy subtracts the BI from the UM limit. | Add-on: $20,000 of room, not $20,000 – $10,000 = $10,000. |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| UM offer received (Harbor Point, 09/14/2026) | Log the offer and its stated reasons; report to Atty. Thorne | CMS → Insurance tab → Negotiation Log · CMS → Tasks → Escalate | Offer, date and quoted reasons logged and reported 09/14/2026 |
-| Offer cites the BI payment or the gap | Assemble the counter-package for approval: the 03/02/2026 letter, MRI read, Causation Letter, MMI residuals, future care | Action Plan Editor · CMS → Documents → Outgoing | Approved by Atty. Thorne and sent 09/16/2026 |
-| Carrier offers its limits | Confirm scope, release, liens, payee and check date without accepting; report to Atty. Thorne; draft the acceptance email | Email Workspace · CMS → Case Notes | Acceptance email sent only after John Doe's decision is logged and Atty. Thorne approves it |
-| UM check arrives | Confirm its UM release is signed, then deposit to trust the same day; if not, secure the check and route it to Atty. Thorne | CMS → Financial Ledger → Trust | Each UM release signed before its check; deposited the day received (10/05 and 10/13/2026) |
 
 **Best practices & pitfalls**
 
@@ -1694,14 +1529,6 @@ A call-simulator screen across two-thirds of the slide: a navy header bar readin
 - [ ] Written rebuttal drafted for Atty. Thorne's approval, ready to send 08/06/2026
 - [ ] If Dana Whitfield raises the April break, the 19-day disruption (04/02–04/21/2026) is answered from the Gap Explanation Record (crash-related anxiety after the 04/02 panic at the collision corner: Dr. Reyes's 04/20/2026 note, the 06/10/2026 counseling summary; the firm's follow-up 04/08–04/21, attendance confirmed 04/21 and 04/23), not conceded as non-compliance; what goes to Keystone is Atty. Thorne's call
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Offer made on the call (08/05/2026) | Log it in the adjuster's words; report to Atty. Thorne | CMS → Communications Log · CMS → Tasks → Escalate | Logged and reported 08/05/2026; reasons quoted verbatim |
-| Atty. Thorne approves the rebuttal | Send it with the MRI report, Causation Letter, EMS report and Gap Explanation Record | Email Workspace · CMS → Documents → Outgoing | Sent 08/06/2026, inside the 08/21/2026 window; delivery logged |
-| Keystone tenders the $10,000 limits (08/12/2026) | Log the tender and route it to Atty. Thorne the same day; draft, for his signature, the written confirmation that it is BI only (the Civic's property-damage claim stays open), on the demand's terms: Limited Release, Smith's 08/10 affidavit of no other insurance | CMS → Insurance tab → Negotiation Log · Email Workspace | Tender dated inside the 08/21/2026 window; no release signed before the UM consent-to-settle requests (08/13/2026) are answered |
-
 **Best practices & pitfalls**
 
 - Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).
@@ -1773,14 +1600,6 @@ Left two-thirds: Keystone's Release of All Claims as a white page with margin fl
 - [ ] The adjuster's request to sign the standard form first routed to Atty. Thorne the same day, not answered
 - [ ] Memorandum filed in CMS → Doc Hub under the firm's naming convention and kept on the Backup Drive
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Keystone's draft release arrives (08/14/2026) | Audit every clause against the demand's terms and the open claims | CMS → Documents → Release audit | Every clause called with a reason; amendments drafted |
-| Audit complete | Email the clause review to Atty. Thorne for approval | Email Workspace · CMS → Tasks → Escalate | Sent 08/14/2026; three clauses flagged for his decision |
-| Atty. Thorne approves (08/17/2026) | File the approval; hold the signing task until Keystone reissues and both consents arrive | CMS → Documents · CMS → Tasks | Limited Release issued 08/19/2026; signing scheduled only after 08/26 |
-
 **Best practices & pitfalls**
 
 - Quote every over-broad word exactly; a paraphrase hides the problem.
@@ -1849,14 +1668,6 @@ A five-station horizontal workflow on a navy rail, each station a cream card wit
 - [ ] Check of $10,000.00 received and deposited to IOLTA 09/04/2026; copies to Marcus Bell and Teresa Okafor
 - [ ] Settlement record filed in CMS → Doc Hub and kept on the Backup Drive
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Both consents in writing (08/26/2026) | Call John Doe to schedule the signing; log the call | Call Simulator → AI Client: John Doe · CMS → Communications Log | Session set for 08/28/2026; logistics only |
-| Release executed (08/28/2026) | Confirm execution, upload it, and email the packet to Keystone | CMS → Documents · Email Workspace | Release, both waivers and the W-9 sent 08/28; original by courier |
-| Keystone's check arrives (09/04/2026) | Deposit to trust the same day; file the settlement record | CMS → Financial Ledger → Trust · CMS → Documents | $10,000.00 in IOLTA; record in the CMS and Drive |
-
 **Best practices & pitfalls**
 
 - Check the name on the ID, the release and the claim before the notary arrives.
@@ -1923,15 +1734,6 @@ The LSH Net Sheet across the left half, headed STREAM 1 · BI · KEYSTONE KM-26-
 - [ ] Shared pro rata: Peach State 23.35% → $1,443.15; Riverton Spine & Rehab 76.65% → $4,736.77; total $6,179.92; net to John Doe $0.00
 - [ ] Trust-hold flag routed as a fact: once received, the BI money goes into the IOLTA trust account and cannot be paid out on its own; it is held until the liens resolve (confirm the governing trust rule)
 - [ ] Routed to Atty. Thorne on 08/12/2026, before John Doe signs anything; the allocation method, any lien reduction and every word to John Doe about value left to him, with no figure given to John Doe by the CM
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Keystone tenders the $10,000 limits (08/12/2026) | Build Stream 1 at the tender, liens as they stand | LSH Net Sheet | Gross $10,000.00 · fee $3,333.33 · liens $7,965.00 unreduced |
-| Atty. Thorne's 25% / 75% working allocation | Run the labelled projection and the BI-alone fact pattern | LSH Net Sheet | $4,553.73 projected; alone, $6,179.92 against $7,965.00 → $0.00 |
-| Sheet complete | Route it with the trust-hold flag | CMS → Tasks → Escalate | Routed 08/12/2026, before John Doe signs anything |
-| Keystone's check arrives, after the Limited Release is signed | Post the deposit; hold it | CMS → Financial Ledger → Trust | Deposited to IOLTA; nothing disbursed until the liens resolve |
 
 **Best practices & pitfalls**
 
@@ -2002,14 +1804,6 @@ A Negotiation Log fills the slide: two carrier swimlanes on a shared date axis f
 - [ ] Recovery Ledger: $10,000.00 + $20,000.00 + $10,000.00 = $40,000.00 gross; PIP, Keystone PD and Bluewater excluded
 - [ ] Each UM release signed and returned before its check arrived; checks received and deposited to IOLTA the same day (10/05 and 10/13/2026)
 - [ ] Carrier-conduct entries dated and quoted for Atty. Thorne; no “bad faith” accusation sent by the CM
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Each carrier offer or tender | Log date, amount and the carrier's words; report to Atty. Thorne | CMS → Insurance tab → Negotiation Log | Four carrier entries (09/14, 09/29, 10/01, 10/06/2026) plus the 09/16 counter-package, each reported the same day |
-| John Doe decides, through Atty. Thorne | Record the decision; draft the acceptance email for his approval | Email Workspace · CMS → Case Notes | Decision attributed to John Doe; email sent the same day |
-| Last layer closes (10/06/2026) | Post all three layers to the Recovery Ledger | CMS → Financial Ledger → Net Sheet → Recovery Ledger | Gross = $40,000.00 exactly; nothing outside the stack added |
 
 **Best practices & pitfalls**
 
@@ -2083,15 +1877,6 @@ The LSH Net Sheet's Recovery Ledger on a white card, with the Stream 2 — UM co
 - [ ] What moves the projection stated on the sheet: every $1.00 cut from a lien adds $0.75 to Stream 2 and $0.25 to Stream 1; no reduced figure is entered before a written acceptance
 - [ ] Four questions to Atty. Thorne in writing: (1) the 33⅓% tier on both UM layers; (2) the 25% / 75% pro-rata allocation of costs and liens; (3) authority and timing for both Reduction Requests, including raising the $185.00 duplicate with Tammy Greer; (4) when and in what form John Doe sees a projected sheet
 - [ ] Routed to Atty. Thorne the same day through CMS → Tasks → Escalate; the sheet is not sent to John Doe and no net figure is quoted to him by the CM
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Atty. Thorne's memo, 10/06/2026 | Post both UM layers and the fee to Stream 2 | CMS → Financial Ledger → Net Sheet → Recovery Ledger | Gross $30,000.00; fee $10,000.00; Cardinal State marked tendered, not received |
-| Liens as they stand on 10/06/2026 | Allocate costs and liens at 75% and mark each a projection | CMS → Financial Ledger → Net Sheet → Recovery Ledger | $365.06 · $1,395.00 · $4,578.75; projected net $13,661.19 |
-| Stream 2 complete | Tie to Stream 1 and the Trust Ledger | CMS → Financial Ledger → Trust | $13,661.19 + $4,553.73 = $18,214.92; $30,000.00 in trust, $10,000.00 receivable |
-| Sheet ties | Route the sheet with four written questions | CMS → Tasks → Escalate | Routed to Atty. Thorne the same day; nothing sent to John Doe |
 
 **Best practices & pitfalls**
 

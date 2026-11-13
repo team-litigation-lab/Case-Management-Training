@@ -24,7 +24,7 @@
      act:      {scenario, prompt, tool, output, checkpoints[]} activity
      check:    {questions[], summary[], scale[]}             check
      show:     the visual model — see SHOW TYPES
-     ops:      [[trigger, task, tool, checkpoint]]
+     ops:      [[what starts it, task, tool, checkpoint]]   (drawn nowhere now; the tools and terms a lesson teaches are still read from it)
      best:     practices, and pitfalls written "Pitfall: …"
      sources:  where the theory came from
      rubric:   {ai:[[dimension, pts, criteria]], trainer:[…]}  60 / 40
@@ -1086,7 +1086,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d1m2-l2",
-        title: "Final Warning Letter & the Skip-Trace Trigger",
+        title: "Final Warning Letter & When a Skip-Trace Starts",
         topic: "No Contact Protocol Steps 4 to 6, and when the search begins",
         visual: "Two panels. Left: the Final Warning Letter on white letterhead with a navy band, four required elements called out by orange numbered badges — ① the earlier attempts, itemized ② a response deadline of 7–14 days ③ notice of potential withdrawal ④ how to respond. Above the letter, a chip pair reads CERTIFIED MAIL + EMAIL, joined by a bold AND, because both are required. Right: the Step 5 decision fork on a pale ground. Root, navy: “Response within the deadline?” Yes (green) → RESUME FILE. No (orange) → a three-chip AND gate (ladder exhausted · letter sent · deadline expired) ending in two outcomes: TRIGGER SKIP-TRACE and ATTORNEY DECISION POINT. Draw the gate as a gate, never as a bullet list.",
         tell: {
@@ -7282,7 +7282,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "activity", id: "d3m4-a2",
-        title: "Disbursement Command Triggering: Releases, Hold Cleared, Money Out",
+        title: "Starting the Disbursement Command: Releases, Hold Cleared, Money Out",
         topic: "Skill Activity 3 — confirm every gate, then move the money to $0.00",
         visual: "Two panels joined by an orange arrow dated 10/21 → 10/22. Left: a navy-header checklist card, CONDITIONS PRECEDENT, with green ticks: LIMITED RELEASE EXECUTED 08/28 · UM RELEASES FILED · FUNDS CLEARED 10/20 · STATEMENT SIGNED 10/21 · PAYOFF LETTERS · LIEN HOLD RELEASED 10/19 (a struck-through red chip beneath it reads VANCE & KETTERING $6,666.67 — WITHDRAWN). Right: the CMS Trust screen as a table of five disbursement commands, payee and mono amount on each, each with an empty ATTY. THORNE · APPROVE chip, and a running-balance column ending in a green $0.00. The argument: the checklist on the left is what makes the commands on the right safe.",
         act: {
@@ -7457,7 +7457,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d4m1-l1", brief: true,
-        title: "Impasse Triggers & Filing Criteria",
+        title: "Signs of Impasse & Filing Criteria",
         topic: "Where Track B leaves Track A, and when a stall becomes an impasse",
         visual: "A fork diagram fills the upper two-thirds. From the left, a single navy trunk labeled SAME FILE · 08/05/2026 · $3,500 OFFER runs to a split point. The upper branch, grayed back, reads TRACK A · DAY 3 — TENDER → UM OPENS. The lower branch, in orange, carries six mono-pill stations — 08/12 “FINAL” · 08/21 LAPSE · 08/24 · 08/31 · 09/02 ESCALATION · 09/04 SILENCE — ending at a navy card: IMPASSE MEMO 09/08 → ATTY. THORNE DECIDES. Below, three cream stack rungs ($10,000 · $20,000 · $10,000) sit behind a red padlock on the BI rung, captioned “$40,000 frozen behind a $10,000 carrier.” The padlock is the argument.",
         tell: {
@@ -7479,9 +7479,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         show: {
-          caption: "The five impasse triggers, and where each sits on John Doe's file",
+          caption: "The five signs of impasse, and where each sits on John Doe's file",
           type: "table",
-          head: ["Trigger", "On this file", "Proof"],
+          head: ["Sign of impasse", "On this file", "Proof"],
           rows: [
             ["Same offer, no new reason", "$3,500 on 08/05; “final” on 08/12", "Communications Log"],
             ["Objection kept after rebuttal", "The gap and a “degenerative” MRI, answered 08/06", "Rebuttal and delivery proof"],
@@ -7527,7 +7527,7 @@ window.CM_CASE_FLOW = {
       {
         kind: "activity", id: "d4m1-a1",
         transition: "This is where Track B begins: Keystone let the demand lapse and will not move from $3,500. We trigger the litigation fork.",
-        title: "Triggering the Litigation Fork",
+        title: "Taking the Litigation Fork",
         topic: "Skill Activity 1 — the impasse memo: Keystone's stonewall on the 14-Day Gap",
         visual: "A single memo page on white letterhead, a navy header band reading IMPASSE MEMO · TO ATTY. ELIJAH THORNE · 09/08/2026. Four orange-numbered sections run down the page: ① CHRONOLOGY, a dated ledger from 07/20 to 09/04 with a proof chip (receipt, email, log) at the right of each row ② KEYSTONE'S GROUNDS AND OUR REBUTTAL ③ THE FROZEN STACK, three rows with the two UM rows hatched gray behind a padlock ④ DECISION REQUESTED, a cream box holding questions, not answers. In the right margin, a red-bordered guard rail lists what the memo never contains: a recommendation to sue, a value, an excess-exposure opinion.",
         act: {
@@ -7944,7 +7944,7 @@ window.CM_CASE_FLOW = {
         show: {
           caption: "This file's hard rules, counted (as configured for this training file)",
           type: "table",
-          head: ["Trigger", "Rule and count", "Docket"],
+          head: ["Counts from", "Rule and count", "Docket"],
           rows: [
             ["Smith served 10/14/2026", "Answer: 30 days", "11/13/2026 (Fri)"],
             ["Discovery mailed 12/01/2026", "30 + 3 = 01/03/2027 (Sun) → forward", "01/04/2027 (Mon), RFAs too"],
@@ -8071,7 +8071,7 @@ window.CM_CASE_FLOW = {
            tool: "Calendaring Simulators · CMS → Calendar · Court E-Filing · CMS → Tasks · CMS → Case Notes",
            output: "A mediation calendar of verified, trigger-counted entries mirrored to the CMS, a cost task for the fee, a client-confirmation task, and a same-day summary to Atty. Thorne with the UM consent flag and the one conflict.",
            checkpoints: [
-             "Trigger verified: the Notice of Mediation filed 01/08/2027 (Fri) meets the order's 30-day rule (12/10/2026 + 30 = 01/09/2027, a Saturday); the 12/10/2026 windows task closed with the notice attached, not re-created",
+             "The trigger is verified: the Notice of Mediation filed 01/08/2027 (Fri) meets the order's 30-day rule (12/10/2026 + 30 = 01/09/2027, a Saturday); the 12/10/2026 windows task closed with the notice attached, not re-created",
              "Session entered once: 03/18/2027 (Thu), 9:30 a.m., in person at Hon. Carla Benton (Ret.)'s office, court-ordered; the day blocked for Atty. Thorne, John Doe and the CM (logistics only)",
              "Attendance read from the order: each party (John Doe; Robert Smith with Atty. Grant Mercer) and a Keystone representative with full authority to settle; the representative's name logged as “to be confirmed by Atty. Mercer”, not guessed",
              "Completion deadline verified, not re-entered: 03/18/2027 is 13 days inside 03/31/2027 (Wed); the 12/10/2026 “completed by” entry linked to the session",
@@ -8384,7 +8384,7 @@ window.CM_CASE_FLOW = {
            tool: "Calendaring Simulators · Court E-Filing · CMS → Calendar · CMS → Tasks",
            output: "A letter-anchored arbitration calendar with every dependent date, its trigger, rule, arithmetic, owner and alerts, the fee share routed as a cost, and one written question to Atty. Thorne on the court dates.",
            checkpoints: [
-             "Trigger recorded: Laura Whitcomb, Esq.'s scheduling letter of 04/26/2027 (Mon); the hearing, exchange and brief entries drafted on 04/05/2027 re-anchored to it and verified, not entered twice",
+             "The trigger is recorded: Laura Whitcomb, Esq.'s scheduling letter of 04/26/2027 (Mon); the hearing, exchange and brief entries drafted on 04/05/2027 re-anchored to it and verified, not entered twice",
              "Hearing 06/22/2027 (Tue), 9:00 a.m., one day held for Atty. Thorne and the Case Manager",
              "Exhibit exchange and witness list 06/02/2027 (Wed): 06/22/2027 − 20 days",
              "Brief 06/11/2027 (Fri): 06/22/2027 − 10 days = 06/12/2027 (Sat); counting backward, the earlier business day; nothing on 06/14/2027",
@@ -9212,7 +9212,7 @@ window.CM_CASE_FLOW = {
       {
         kind: "activity", id: "d4m4-a1",
         transition: "The suit is five months old and the file is backing up: a ledger the binder needs has not arrived. We find the bottlenecks and set the CMS to catch them.",
-        title: "Automated Countermeasure Triggering in CMS",
+        title: "Setting Automated Countermeasures in CMS",
         topic: "Skill Activity 1 — rules that fire before the deadline does",
         visual: "A CMS rules panel fills the left two-thirds: four rule rows on cream cards, each with an orange numbered badge and a mono threshold pill — ① SILENCE · 48 H ② RECORDS · 14 D ③ RED FLAG · 10 D ④ AUDIT · 48 H — and an IF → THEN → OWNER line in navy type. Right third: a vertical firing log for the mediation calendar, one dated row per firing, the 03/11/2027 and 03/18/2027 hard dates as red pills at the foot. Across the top, a slim grey CALIBRATION strip shows the Keystone record with Rule ① firing on 09/02/2026 and 09/04/2026, ticked green. The argument: a rule is trusted on live dates only after it reproduces a known record.",
         act: {
@@ -9518,9 +9518,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         show: {
-          caption: "The master timeline: every deadline is a trigger plus a count you can re-check",
+          caption: "The master timeline: every deadline is an event plus a count you can re-check",
           type: "table",
-          head: ["Trigger", "Next action", "Standard deadline", "On this file"],
+          head: ["Event", "Next action", "Standard deadline", "On this file"],
           rows: [
             ["Complaint filed", "Serve defendant", "Often 90–120 days, by rule", "Filed 09/24/2026; served 10/14/2026"],
             ["Defendant served", "Answer", "20–30 days (federal: 21)", "10/14/2026 + 30 = 11/13/2026"],

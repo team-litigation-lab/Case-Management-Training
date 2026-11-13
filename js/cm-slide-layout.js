@@ -11,12 +11,28 @@
   const SEE_MAX = 24, SEE_MIN = 16, STEP = 0.05;
   /* The most a slide is enlarged: 1.3 on a laptop (1366x768), and as much more as the window is larger than that. */
   const growCap = () => Math.min(2.2, 1.3 * Math.max(1, Math.min(window.innerHeight / 768, window.innerWidth / 1366)));
-  /* box: the slide's card (.cfx-sheet, or the navy body of Your Case). True when something is cut off: the card
-     itself, or anything inside it that clips or scrolls. */
+  /* box: the slide's card (.cfx-sheet, or the navy body of Your Case). Returns a test that is true when something
+     is cut off or squeezed: the card itself, or any box inside it whose content no longer fits it (a concept card
+     whose text eats its padding or runs out of it, a strip that scrolls), or the 💡 Why it matters line taking a
+     second line. What already
+     ran over before anything was changed (by design: a badge hung on a corner) is allowed the same, no more. */
   const cutter = box => {
-    const clips = [...box.querySelectorAll("*")].filter(e => { if(!e.getClientRects().length) return false; const c = getComputedStyle(e); return (c.overflowY !== "visible" || c.overflowX !== "visible") && c.display.indexOf("table") !== 0 && c.display !== "inline"; });   // (a table does not scroll, whatever its overflow says)
-    return () => box.scrollHeight > box.clientHeight + 2 || box.scrollWidth > box.clientWidth + 2
-      || clips.some(e => e.scrollHeight > e.clientHeight + 2 || e.scrollWidth > e.clientWidth + 2);
+    const zoom = () => Number(box.firstElementChild && box.firstElementChild.style.zoom) || 1;
+    const all = [box, ...box.querySelectorAll("*")].filter(e => e.clientHeight > 0 && e.getClientRects().length), css = all.map(e => getComputedStyle(e));
+    const boxes = all.filter((e, k) => css[k].display.indexOf("table") !== 0);
+    const was = boxes.map(e => [Math.max(0, e.scrollHeight - e.clientHeight), Math.max(0, e.scrollWidth - e.clientWidth)]);
+    was[0] = [0, 0];   // the card itself may never run over
+    const lines = [...box.querySelectorAll(".cfx-whyline")].map(e => [e, e.clientHeight]);
+    // a box that lays its content out itself (flex, grid): centred content that outgrows it eats its padding before it runs over
+    const inset = f => { const r = f.e.getBoundingClientRect(), z = zoom(); let t = 1e9, b = -1e9;
+      for(const k of f.e.children){ const q = k.getBoundingClientRect(); if(!q.height) continue; t = Math.min(t, q.top); b = Math.max(b, q.bottom); }
+      return t > b ? [0, 0] : [Math.min(0, (t - r.top) / z - f.pt), Math.min(0, (r.bottom - b) / z - f.pb)]; };
+    const flex = all.map((e, k) => ({e, c: css[k]})).filter(x => x.e !== box && x.e.children.length && /flex|grid/.test(x.c.display))
+      .map(x => ({e: x.e, pt: parseFloat(x.c.paddingTop) + parseFloat(x.c.borderTopWidth), pb: parseFloat(x.c.paddingBottom) + parseFloat(x.c.borderBottomWidth)}));
+    flex.forEach(f => { f.was = inset(f); });
+    return () => boxes.some((e, k) => e.scrollHeight - e.clientHeight > was[k][0] + 2 || e.scrollWidth - e.clientWidth > was[k][1] + 2)
+      || lines.some(([e, h]) => e.clientHeight > h + 2)
+      || flex.some(f => { const now = inset(f); return now[0] < f.was[0] - 1.5 || now[1] < f.was[1] - 1.5; });
   };
   function fitType(box){
     box.style.removeProperty("--see");
@@ -24,12 +40,13 @@
     [...box.children].forEach(n => { n.style.zoom = ""; });
     // a table whose first column is short labels keeps them on one line; a first column of sentences wraps like the rest
     box.querySelectorAll(".cfx-model table").forEach(t => t.classList.toggle("see-labels", [...t.querySelectorAll("tbody td:first-child")].every(td => td.textContent.trim().length <= 30)));
-    const cut = cutter(box);
-    for(let px = SEE_MAX; px >= SEE_MIN; px--){ box.style.setProperty("--see", px + "px"); if(!cut()) return; }
+    box.style.setProperty("--see", SEE_MIN + "px");
+    const cut = cutter(box);   // measured at the smallest size: what runs over there runs over by design
+    for(let px = SEE_MAX; px > SEE_MIN; px--){ box.style.setProperty("--see", px + "px"); if(!cut()) return; }
+    box.style.setProperty("--see", SEE_MIN + "px");
   }
   function grow(box, inner){
     const cut = cutter(box);
-    if(cut()) return 1;   // something is already clipped at full size (a strip that scrolls by design): leave the slide as it is
     const cap = growCap(); let z = 1;
     while(z + STEP <= cap + 1e-6){
       const n = Math.round((z + STEP) * 100) / 100;

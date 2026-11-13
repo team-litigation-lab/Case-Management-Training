@@ -274,7 +274,6 @@ function showMd(s){
   }
   return o.join("\n");
 }
-const opsMd = ops => !(ops || []).length ? "" : ["| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |", "|---|---|---|---|", ...ops.map(r => `| ${r.map(md).join(" | ")} |`)].join("\n");
 const rubricMd = r => ["| Channel | Weight | Dimension | What is graded |", "|---|---|---|---|",
   ...r.ai.map(([d, p, c]) => `| 🤖 AI | **${p}%** | ${md(d)} | ${md(c)} |`),
   ...r.trainer.map(([d, p, c]) => `| 🧑‍🏫 Trainer | **${p}%** | ${md(d)} | ${md(c)} |`),
@@ -304,7 +303,6 @@ function blockMd(b, day, phase, k, mod){
   if(b.kind === "check"){
     L.push("#### 2 · Slide Body — Knowledge verification", "", ...b.check.questions.map((q, i) => `${i + 1}. ${q}`), "");
   }
-  if((b.ops || []).length) L.push("**Operational mapping**", "", opsMd(b.ops), "");
   L.push("**Best practices & pitfalls**", "", ...b.best.map(x => `- ${/^pitfall:/i.test(x) ? "⚠️ " + x : x}`), "");
   L.push("#### 3 · Knowledge Check & CM Summary", "");
   if(b.kind === "check"){
