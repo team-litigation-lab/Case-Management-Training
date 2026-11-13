@@ -559,9 +559,8 @@ window.CM_CASE_FLOW = {
           ]
         },
         show: {
-          caption: "John Doe's file at a glance",
           type: "table",
-          head: ["", "On this file"],
+          head: ["", "John Doe's file at a glance"],
           rows: [
             ["Case", "John Doe v. Robert Smith · LSH-2026-MVA-770412 · motor vehicle collision"],
             ["Date of loss / SOL", "02/06/2026 · SOL 02/06/2028"],
