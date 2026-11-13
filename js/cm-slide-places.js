@@ -26,12 +26,16 @@
    the furthest of the slides the trainee had seen, as today's deck orders them: nothing seen is locked again, the
    place the trainee was on is always inside it, and it is the day's last slide only for a trainee who had reached
    the Ready check or the end.
-   Then lessons were drawn from the trainer's deck (layout 5): six Day 1 lessons show the trainer's own Canva deck
-   pages in place of their drawn slides (js/cm-deck-slides.js, window.CM_DECK_SLIDES), so those lessons have a
-   different number of slides, and every slide after one sits at another position. A place saved before is first
-   carried to today's order (as above); then, where its lesson is now drawn from the deck, it keeps its lesson and how
-   far through it the trainee was: slide j of the m the lesson had in the layout the place was saved in becomes deck
-   page ⌊j·n/m⌋ of its n. The furthest slide reached is, as before, the furthest in today's order of the slides seen.
+   Then the trainers' deck pages came in (layout 5), two ways in one change:
+   · six lessons show the trainer's own Canva deck pages in place of their drawn slides (js/cm-deck-slides.js,
+     window.CM_DECK_SLIDES), so those lessons have a different number of slides, and every slide after one sits at
+     another position. A place saved before is first carried to today's order (as above); then, where its lesson is
+     now drawn from the deck, it keeps its lesson and how far through it the trainee was: slide j of the m the lesson
+     had in the layout the place was saved in becomes deck page ⌊j·n/m⌋ of its n.
+   · the revised Day 2 deck's pages and their Skill Building are slides of their own on Day 2, after its last lesson
+     and before its Practice Lab (js/cm-deck-pages.js, slides of type "deckPage"). No older deck had them: a place
+     saved before them stays on the slide it was on, and the pages count as seen for a trainee who was past them.
+   The furthest slide reached is, as before, the furthest in today's order of the slides seen.
    The layouts: 1, the deck with On the Job (no layout on the saved place); 2, without On the Job (the deck with the
    Milestone Steps slides and every Why It Matters slide); 3, without those, in the old order; 4, in today's order,
    every lesson on its own drawn slides; 5, today's. A place saved in 1, 2, 3 or 4 is moved through every change in
@@ -44,7 +48,7 @@
 "use strict";
 if(typeof state === "undefined" || typeof DAYS === "undefined" || typeof buildDaySlides !== "function") return;
 const LAYOUT = 5, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
-const build = buildDaySlides;   // as js/cm-case-flow.js left it: a Case Flow block is one slide per view
+const build = buildDaySlides;   // as js/cm-case-flow.js and js/cm-deck-pages.js left it: a Case Flow block is one slide per view
 const cfDay = d => !!(d && d.cf && Array.isArray(d.lessons));
 
 /* Layout 3's deck, day by day (the deck before the lessons were put together and the Skill Activities into one
@@ -117,6 +121,7 @@ function oldDeck(d, from){
   } else {
     // layout 4 (and a day whose order was never recorded): today's order, each block's run where its first slide is
     deck.forEach((sl, k) => {
+      if(sl.type === "deckPage" && from < 5) return;   // the revised deck's pages came in with layout 5 (ORDER3 has none either)
       if(sl.type !== "topic"){ out.push([k, k]); return; }
       if(sl.part === 1) runWas(d, sl.lessonIndex, deck, views, from).forEach(x => out.push(x));
     });
