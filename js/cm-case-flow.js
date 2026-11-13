@@ -100,11 +100,16 @@ SEQUENCE.forEach(seq => {
         fourPart: Object.assign(fp, {bestPractices: b.best || [], discussionCase: ""}),
         trainerCue: (b.notes || [])[0] || "",
         cf: {day, mod, block: b, k, phase, lane: (ph.lanes || {})[id] || phase.lane,   // day: where it is taught; mod: its unit of scoring; lane: its workstream
+             practises: b.kind === "activity" ? (ph.practises || {})[id] || "" : "",   // an activity: the id of the lesson it practises (cf.of: that lesson, set below)
              heading: (ph.headings || {})[id] || (b.kind === "lesson" ? (phase.lead === "Case Phase" ? "" : phase.lead + ": ") : b.kind === "activity" ? "Skill Building: " : "Learning Check: ") + ph.title}
       }, layoutOf(b.show)));
       if(b.kind === "check") pools.push((mod.quiz || []).map(q => ({q, mod: mod.id})));
     });
   });
+  // a Skill Activity's lesson (the sequence's `practises`; without one, the last lesson of its own module taught before it)
+  lessons.forEach((l, i) => { if(l.cf.block.kind !== "activity") return;
+    l.cf.of = lessons.find(x => x.cf.block.kind === "lesson" && x.cf.block.id === l.cf.practises)
+      || lessons.slice(0, i).filter(x => x.cf.block.kind === "lesson" && x.cf.mod === l.cf.mod).pop() || null; });
   // every day's Knowledge Check: 20 questions. A day with more takes them in turn from each module it checks (so every
   // module a day checks is asked about), kept in the order they are taught
   const take = pools.map(() => 0); let left = Math.min(QUIZ_N, pools.reduce((a, p) => a + p.length, 0));
@@ -1111,21 +1116,24 @@ if(typeof buildDaySlides === "function"){
   buildDaySlides = function(d){
     const s = __build.apply(this, arguments);
     if(!cfDay(d && d.id)) return s;
-    // the day's lessons are already in the order the course teaches them (CF.sequence): Lesson → its Skill Building →
-    // Lesson → its Skill Building → …; each block is one slide per view. The Learning Checks (questions,
-    // Self-Summary, Skill Scale) aren't slides: they're on the day's Knowledge Check page.
-    const out = [], build = d.cf.build, extras = [];
-    let lab = false, lastAct = -1;   // the module's one Practice Lab slide, just before its first Skill Activity (the base deck's own is dropped)
+    // A day is two parts, in this order, whatever order the data lists its blocks in:
+    //   the Training Agenda → ALL of the day's lessons, in teaching order (CF.sequence) → ONE 🧪 Practice Lab slide and
+    //   ALL of the day's Skill Activities behind it, in the order their lessons were taught → 🎯 Ready for the
+    //   Knowledge Check? (the last slide: its button opens the Knowledge Check).
+    // Each block is one slide per view. The Learning Checks (questions, Self-Summary, Skill Scale) aren't slides:
+    // they're on the day's Knowledge Check page. The base deck's own Practice Lab slide is dropped.
+    const out = [], build = d.cf.build, acts = [], tail = [];
+    let topics = false;
     s.forEach(sl => {
       if(sl.type === "practiceLab") return;
-      if(sl.type !== "topic") return out.push(sl);
-      // a build day (Day 5): its Skill Activities wait behind the companion-case build, as optional extra practice
-      if(build && d.lessons[sl.lessonIndex].cf.block.kind === "activity"){ if(sl.part === 1) extras.push(sl.lessonIndex); return; }
-      if(!lab && d.lessons[sl.lessonIndex].cf.block.kind === "activity" && sl.part === 1){ lab = true; out.push({type: "practiceLab"}); }
-      if(sl.part !== 1 || d.lessons[sl.lessonIndex].cf.block.kind === "check") return;
-      viewsOf(d.lessons[sl.lessonIndex].cf.block).forEach((v, j) => out.push({type: "topic", lessonIndex: sl.lessonIndex, part: j + 1}));
-      if(d.lessons[sl.lessonIndex].cf.block.kind === "activity") lastAct = out.length;
+      if(sl.type !== "topic") return (topics ? tail : out).push(sl);   // the base deck's slides after its last topic follow the Practice Lab
+      topics = true;
+      const b = d.lessons[sl.lessonIndex].cf.block;
+      if(sl.part !== 1 || b.kind === "check") return;
+      if(b.kind === "activity"){ acts.push(sl.lessonIndex); return; }
+      viewsOf(b).forEach((v, j) => out.push({type: "topic", lessonIndex: sl.lessonIndex, part: j + 1}));
     });
+    const lab = extra => acts.forEach(li => viewsOf(d.lessons[li].cf.block).forEach((v, j) => out.push(Object.assign({type: "topic", lessonIndex: li, part: j + 1}, extra ? {extra: true} : {}))));
     // Day 1's introduction: after Meet Your Case, the file's life at a glance and its coverage against the injury
     if(d.cf.n === 1){
       const li = d.lessons.findIndex(l => l.cf.block.id === "d1m1-case");
@@ -1133,16 +1141,15 @@ if(typeof buildDaySlides === "function"){
       if(at >= 0) out.splice(at + 1, 0, {type: "caseMap"}, {type: "coverageMap"});
     }
     if(build){
-      // 🏗 the build (150 minutes), the key concepts, then the optional extra practice: John Doe's activities, untimed
+      // a build day (Day 5): 🏗 the build is the practical; then the optional extra practice (John Doe's activities,
+      // untimed: ⏭ on its opening slide skips them to the Ready check)
       out.push({type: "companionBuild"}, {type: "companionBuild2"});   // the build's seven steps on two slides, so the type stays large on a laptop
-      if(labQuestions(d).length) out.push({type: "readyCheck"});
-      if(extras.length){
-        out.push({type: "extraPractice"});
-        extras.forEach(li => viewsOf(d.lessons[li].cf.block).forEach((v, j) => out.push({type: "topic", lessonIndex: li, part: j + 1, extra: true})));
-      }
+      if(acts.length){ out.push({type: "extraPractice"}); lab(true); }
     }
-    // the module's three key concepts, after its last Skill Activity, right before the Knowledge Check
-    else if(lastAct >= 0 && labQuestions(d).length) out.splice(lastAct, 0, {type: "readyCheck"});
+    else if(acts.length){ out.push({type: "practiceLab"}); lab(false); }
+    // the day's three key concepts: the last slide, after the last Skill Activity, right before the Knowledge Check
+    if((acts.length || build) && labQuestions(d).length) out.push({type: "readyCheck"});
+    tail.forEach(sl => out.push(sl));
     // the last day closes the case: a congratulations and a thank-you card, not in the deck: it opens only from
     // 🎓 Finish Training, once the Knowledge Check is passed
     if(isLastCfDay(d) && state.cfClosing === d.id) out.push({type: "closing"});

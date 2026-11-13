@@ -5,8 +5,8 @@
        node build/case-flow/curriculum.cjs           writes curriculum/5-day-flow/dayN.md + traceability.md
        node build/case-flow/curriculum.cjs --check   validates only; writes nothing
 
-   Validation (exit 1 on any breach): every module runs Lesson → Activity → Lesson →
-   Activity → Knowledge Check; every block has all six components; every rubric is
+   Validation (exit 1 on any breach): every day runs all its Lessons → one Practice Lab (all its
+   Skill Activities, each naming the lesson it practises) → Knowledge Check; every block has all six components; every rubric is
    60 AI / 40 trainer; every quiz question is well formed; every block names its
    sources; every "D<day>#<topic>" source names a real topic in build/day<day>.js; and
    every one of the course's existing topics is either used by a block or planned for
@@ -92,11 +92,15 @@ CF.days.forEach(day => {
     });
   });
 });
-/* The sequence: each day is one module, taught as its lessons → its activities → its Knowledge Check.
-   Every block exactly once, and each module's Knowledge Check no earlier than the blocks it checks. */
+/* The sequence: each day is one module, taught in two parts: ALL of its lessons, in teaching order, then ONE Practice
+   Lab that holds all of its Skill Activities, in the order their lessons were taught, then its Knowledge Check.
+   Every block exactly once, each module's Knowledge Check no earlier than the blocks it checks, and every Skill
+   Activity names the lesson it practises (the phase's `practises`: the Practice Lab's opening slide and the
+   activity's first slide say it, so the link survives the distance between a lesson and its lab). */
 const STORED = {};
 CF.days.forEach(day => day.modules.forEach(mod => mod.blocks.forEach(b => { STORED[b.id] = {day, mod, b}; })));
 const TAUGHT = {};   // block id → [day n, phase index, position]
+const SCHEDULES = {};   // day n → its schedule (printed by --check)
 if(!Array.isArray(CF.sequence)) errors.push("sequence: missing (the order the course teaches the blocks)");
 else {
   if(CF.sequence.map(d => d.n).join(",") !== CF.days.map(d => d.n).join(",")) errors.push("sequence: needs one entry per Case Flow day, in order");
@@ -110,12 +114,24 @@ else {
       if(!x) return errors.push(`${at}: ${id} is not a block`);
       if(TAUGHT[id]) errors.push(`${at}: ${id} is already taught on Day ${TAUGHT[id][0]}`);
       TAUGHT[id] = [sd.n, pi, k];
-      // a day runs topic by topic (a topic's lessons, then its Skill Activities), with its Learning Checks last
+      // a day is all its lessons, then all its Skill Activities (one Practice Lab), with its Learning Checks last
       if(last === 2 && x.b.kind !== "check") errors.push(`${at}: ${id} (${x.b.kind}) comes after a Learning Check; the Knowledge Check closes the day`);
+      if(last === 1 && x.b.kind === "lesson") errors.push(`${at}: ${id} (lesson) comes after a Skill Activity; all of a day's lessons come before its one Practice Lab`);
+      if(x.b.kind === "activity"){
+        const of = (ph.practises || {})[id], li = (ph.blocks || []).indexOf(of);
+        if(!of || !STORED[of] || STORED[of].b.kind !== "lesson" || li < 0 || li > k) errors.push(`${at}: ${id} (activity) needs practises: the id of a lesson taught before it on the same day (it has ${of || "none"})`);
+      }
       if(x.b.kind === "activity" && !(ph.blocks || []).slice(0, k).some(p => STORED[p] && STORED[p].b.kind === "lesson" && STORED[p].mod.id === x.mod.id)) errors.push(`${at}: ${id} (activity) comes before any lesson of its own topic (${x.mod.id}); a topic's Skill Building follows its lessons`);
       last = Math.max(last, rank[x.b.kind]);
     });
     if(!(ph.blocks || []).some(id => STORED[id] && STORED[id].b.kind === "check")) errors.push(`${at}: ends without a Learning Check`);
+    Object.keys(ph.practises || {}).forEach(id => { if(!(ph.blocks || []).includes(id) || !STORED[id] || STORED[id].b.kind !== "activity") errors.push(`${at}: practises names ${id}, which is not a Skill Activity of this day`); });
+    // the Practice Lab runs in the order the lessons were taught: its activities' sections (the heading each practised lesson is taught under) never go back
+    { const runOf = {}; let r = -1, prev = null;
+      (ph.blocks || []).forEach(id => { if(!STORED[id] || STORED[id].b.kind !== "lesson") return; const h = (ph.headings || {})[id] || prev; if(h !== prev){ r++; prev = h; } runOf[id] = r; });
+      let far = -1; (ph.blocks || []).forEach(id => { const of = (ph.practises || {})[id]; if(!of || runOf[of] == null) return;
+        if(runOf[of] < far) errors.push(`${at}: ${id} practises ${of}, taught before the lessons of the activity ahead of it; the Practice Lab follows the order of the lessons`);
+        far = Math.max(far, runOf[of]); }); }
   }));
   Object.keys(STORED).forEach(id => { if(!TAUGHT[id]) errors.push(`sequence: ${id} is never taught`); });
   // the slides of a block (its views): the same as viewsOf() in js/cm-case-flow.js and build/case-flow/scripts/assemble.cjs
@@ -134,15 +150,17 @@ else {
     if(b.kind === "activity") return ["task", "case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], AUDITS[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);
     return [];   // a Knowledge Check is its own page, not slides
   };
-  /* One module a day, on John Doe's one file, in four hours, with a 20-question Knowledge Check: topic by topic (a
-     topic's lessons, its Skill Building, a brainstorm), then the Knowledge Check. The minutes are js/cm-case-flow-schedule.js,
+  /* One module a day, on John Doe's one file, in four hours, with a 20-question Knowledge Check: all the lessons, then
+     one Practice Lab (its Skill Building groups, a brainstorm after each), then the Knowledge Check. The minutes are js/cm-case-flow-schedule.js,
      the same arithmetic the slides' timers, the Training Agenda and the trainer's run of show use. */
   const SCHED = require(path.join(ROOT, "js/cm-case-flow-schedule.js"));
   CF.sequence.forEach(sd => {
     const ids = (sd.phases || []).flatMap(ph => ph.blocks || []).filter(id => STORED[id]), bs = ids.map(id => STORED[id].b);
     const heads = Object.assign({}, ...(sd.phases || []).map(ph => ph.headings || {}));
-    const sc = SCHED.schedule(ids.filter(id => STORED[id].b.kind !== "check").map(id => ({kind: STORED[id].b.kind, brief: !!STORED[id].b.brief, thorough: !!STORED[id].b.thorough,
+    const pract = Object.assign({}, ...(sd.phases || []).map(ph => ph.practises || {}));
+    const sc = SCHED.schedule(ids.filter(id => STORED[id].b.kind !== "check").map(id => ({kind: STORED[id].b.kind, brief: !!STORED[id].b.brief, thorough: !!STORED[id].b.thorough, id, of: pract[id] || "",
       slides: STORED[id].b.kind === "lesson" ? viewsOf(STORED[id].b).length : 1, heading: heads[id] || "", mod: STORED[id].mod.id, modTitle: STORED[id].mod.title})), {build: sd.build, lessonMax: sd.lessonMax});
+    SCHEDULES[sd.n] = sc;
     if(!sc.fits) errors.push(`Day ${sd.n}: ${sc.total} minutes (${sc.lessonMin} of lessons, ${sc.acts} Skill Activities at ${sc.act}, ${sc.skillParts} brainstorms, ${sc.build ? sc.build + " of companion-case build, " : ""}the Knowledge Check and 20 minutes for the welcome, a break and the close) is over the 4-hour day`);
     // a refresher: lessons are at most 30% of the 220 teaching minutes, the practical the rest
     if(sc.lessonMin > SCHED.LESSON_MIN) errors.push(`Day ${sd.n}: ${sc.lessonMin} minutes of lessons, over the 30% (${SCHED.LESSON_MIN} minutes)`);
@@ -190,9 +208,9 @@ Object.keys(LEGACY).forEach(k => {
     errors.push(`${k} "${LEGACY[k].h}" is planned for Case Flow Day ${[...new Set(targets)].join(" and ")}, which is written, but no block uses it`);
 });
 
-// Lessons before practice, topic by topic: every Skill Activity is preceded, in teaching order, by a lesson of its own
-// module or by the lessons its `prereq` names (a day runs a topic's lessons, then its Skill Building, then the next
-// topic). No trainee lands in a lab or simulator untaught.
+// Lessons before practice: every Skill Activity is preceded, in teaching order, by a lesson of its own module or by
+// the lessons its `prereq` names (a day runs all its lessons, then its one Practice Lab). No trainee lands in a lab or
+// simulator untaught.
 if(Array.isArray(CF.sequence)){
   const of = {}; CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { of[b.id] = {b, mod: m.id}; })));
   const taught = new Set(), lessonsSeen = new Set();
@@ -335,14 +353,17 @@ function dayMd(day){
     `| **Policy stack** | ${stack().map(l => `${money(l.limit)} ${l.tag}`).join(" / ")} = **${money(c.total)}** |`,
     `| **Health plan** | ${c.health.carrier} · ${c.health.memberId} · ${c.health.group} |`, `| **Critical fact** | ${c.critical} |`, "",
     "## This day's module", "",
-    "The day is one module, on John Doe's one file, run topic by topic: a topic's lessons, then its Skill Building (its Skill Activities on the file in the CMS, Your Task first, then Your Case), then a short brainstorm, then the next topic; the Knowledge Check closes the day. A lesson marked (condensed) is a short overview.", ""];
+    "The day is one module, on John Doe's one file, in two parts: first ALL of its lessons, in teaching order under their section headings; then ONE Practice Lab that holds all of its Skill Activities (on the file in the CMS, each Your Task first, then Your Case), in the order their lessons were taught, with a short brainstorm after each Skill Building group; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.", ""];
+  const pract = Object.assign({}, ...CF.sequence.find(x => x.n === day.n).phases.map(ph => ph.practises || {}));
+  const practises = x => x.b.kind === "activity" && pract[x.b.id] && STORED[pract[x.b.id]] ? ` (practises: ${STORED[pract[x.b.id]].b.title})` : "";
   const phases = CF.sequence.find(x => x.n === day.n).phases.map((ph, i) => ({n: i + 1, title: ph.title, lead: ph.lead || `Case Phase ${i + 1}`, blocks: ph.blocks.map(id => STORED[id])}));
   phases.forEach(ph => {
-    L.push(`**${ph.lead} — ${ph.title}**`, "", ...ph.blocks.map((x, i) => `${i + 1}. *${KIND[x.b.kind]}* — ${x.b.title}${x.b.brief ? " (condensed)" : ""}`), "");
+    L.push(`**${ph.lead} — ${ph.title}**`, "", ...ph.blocks.map((x, i) => `${i + 1}. *${KIND[x.b.kind]}* — ${x.b.title}${x.b.brief ? " (condensed)" : ""}${practises(x)}`), "");
   });
   L.push(`**End-of-day discussion (trainer):** ${day.discussion}`, "", "---", "");
   phases.forEach(ph => {
-    L.push(`## ${ph.lead} — ${ph.title}`, "", `**Order:** ${ph.blocks.map(x => KIND[x.b.kind]).join(" ➔ ")}`, "");
+    const count = k => ph.blocks.filter(x => x.b.kind === k).length;
+    L.push(`## ${ph.lead} — ${ph.title}`, "", `**Order:** Lessons (${count("lesson")}) ➔ Practice Lab (${count("activity")} Skill Activities) ➔ Knowledge Check (${count("check")} Learning Checks)`, "");
     ph.blocks.forEach((x, k) => L.push(blockMd(x.b, day, ph, k, x.mod)));
   });
   return L.join("\n");
@@ -390,4 +411,6 @@ if(!CHECK_ONLY){
   fs.writeFileSync(path.join(OUT, "traceability.md"), traceMd());
   console.log("wrote curriculum/5-day-flow/traceability.md");
 }
+if(CHECK_ONLY) Object.keys(SCHEDULES).forEach(n => { const sc = SCHEDULES[n];
+  console.log(`Day ${n}: ${sc.total} of ${sc.DAY_MIN} minutes = ${sc.BREAK_MIN} (welcome, break, close) + lessons ${sc.lessonMin} (${sc.lessonShare}%: ${sc.topics} lessons) + practical ${sc.used - sc.lessonMin} (${sc.build ? `companion-case build ${sc.build}` : `Practice Lab ${sc.labMin}: ${sc.acts} Skill Activities at ${sc.act}, ${sc.skillParts} brainstorms at ${sc.brainstorm}`}, Knowledge Check ${sc.kc})${sc.buffer ? `, ${sc.buffer} spare for Q&A` : ""}`); });
 console.log(`Case Flow: ${CF.days.length} of 5 days · ${blocks} blocks · sequence, six components, 60/40 rubrics, quizzes and sources verified · ${Object.keys(LEGACY).length} existing topics, 0 unplaced · slides a day ${DECK.map(x => x.slides).join(" / ")}`);
