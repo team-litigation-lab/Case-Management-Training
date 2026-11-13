@@ -131,10 +131,13 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
     const who = admin ? 'trainer' : 'trainee';
     const r = await page.evaluate(async ({ admin }) => {
       state.isAdmin = admin; const out = [];
-      if (!admin) state.adminUnlockedDays = DAYS.map(d => d.id);   // 👤 the trainer opened every day for this trainee (js/cm-open-lessons.js)
+      // a trainee has every day open here: each is one they have started (js/cm-open-lessons.js: a day a trainee has started
+      // is never locked again), set as each day is opened so the page's once-a-minute refresh cannot close it mid-run
+      const started = d => { if (!admin) { state.slideProgress = state.slideProgress || {}; state.slideProgress[d.id] = Math.max(1, state.slideProgress[d.id] || 0); } };
       for (const d of DAYS.filter(x => x.cf)) {
         const total = buildDaySlides(d).length, L = `Day ${d.cf.n}`;
-        goto('day', d.id); state.dayViewMode = 'slides'; state.maxSlideReached = 9999; render();
+        started(d); goto('day', d.id);
+        if (state.view !== 'day' || state.dayId !== d.id) { out.push(`${L}: the day did not open (${state.view})`); continue; } state.dayViewMode = 'slides'; state.maxSlideReached = 9999; render();
         for (let k = 0; k < total; k++) {
           state.dayViewMode = 'slides'; state.lessonSlide = k; state.slidePage = 0; render(); await new Promise(r => setTimeout(r, 3));
           const nav = document.querySelector('.slide-nav'), next = nav && nav.querySelector('button[onclick^="nextSlide"]'), kc = nav && nav.querySelector('button[onclick^="goToKnowledgeCheckWithInterstitial"]');
@@ -142,7 +145,7 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
             if (!next || !/^Next/.test(next.textContent.trim())) { out.push(`${L} slide ${k + 1}: no Next button`); continue; }
             if (kc) out.push(`${L} slide ${k + 1}: a Continue to Knowledge Check button before the last slide`);
             for (let p = 0; p < 6 && state.lessonSlide === k && state.view === 'day'; p++) { next.click(); await new Promise(r => setTimeout(r, 2)); if ((state.slidePages || 1) <= 1) break; }
-            if (state.view !== 'day' || state.dayId !== d.id || state.dayViewMode !== 'slides' || state.lessonSlide !== k + 1) { out.push(`${L} slide ${k + 1}: Next should open slide ${k + 2}; it went to ${state.view}${state.view === 'day' ? ' slide ' + (state.lessonSlide + 1) + ' (' + state.dayViewMode + ')' : ''}`); goto('day', d.id); state.dayViewMode = 'slides'; }
+            if (state.view !== 'day' || state.dayId !== d.id || state.dayViewMode !== 'slides' || state.lessonSlide !== k + 1) { out.push(`${L} slide ${k + 1}: Next should open slide ${k + 2}; it went to ${state.view}${state.view === 'day' ? ' slide ' + (state.lessonSlide + 1) + ' (' + state.dayViewMode + ')' : ''}`); started(d); goto('day', d.id); state.dayViewMode = 'slides'; }
           } else {
             if (next) out.push(`${L}: the last slide still has a Next button`);
             if (!kc || !/^Continue to Knowledge Check/.test(kc.textContent.trim())) { out.push(`${L}: the last slide has no "Continue to Knowledge Check" button`); continue; }
@@ -161,7 +164,8 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
   if (!plans.length) fail('no Skill Activity is drafted in the Action Plan Editor (the check wants one to stand on)');
   for (const p of plans) {
     const r = await page.evaluate(async (p) => {
-      state.isAdmin = false; state.adminUnlockedDays = DAYS.map(d => d.id); goto('day', p.dayId); state.dayViewMode = 'slides'; state.maxSlideReached = 9999; state.lessonSlide = p.from; render(); await new Promise(r => setTimeout(r, 30));
+      state.isAdmin = false; state.slideProgress = state.slideProgress || {}; state.slideProgress[p.dayId] = Math.max(1, state.slideProgress[p.dayId] || 0); goto('day', p.dayId);
+      if (state.view !== 'day' || state.dayId !== p.dayId) return { err: 'the day did not open for the trainee' }; state.dayViewMode = 'slides'; state.maxSlideReached = 9999; state.lessonSlide = p.from; render(); await new Promise(r => setTimeout(r, 30));
       const btn = [...document.querySelectorAll('#lessonSlideWrap button')].find(b => /Open the Action Plan Editor/.test(b.textContent));
       if (!btn) return { err: 'its Your Task has no "📝 Open the Action Plan Editor" button' };
       btn.click(); await new Promise(r => setTimeout(r, 60));
@@ -181,7 +185,8 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
   const skip = await page.evaluate(async () => {
     const d = DAYS.find(x => x.cf && x.cf.build); if (!d) return null;
     const deck = buildDaySlides(d), ex = deck.findIndex(x => x.type === 'extraPractice'), ready = deck.findIndex(x => x.type === 'readyCheck');
-    state.isAdmin = false; state.adminUnlockedDays = DAYS.map(x => x.id); goto('day', d.id); state.dayViewMode = 'slides'; state.maxSlideReached = ex; state.lessonSlide = ex; render(); await new Promise(r => setTimeout(r, 30));
+    state.isAdmin = false; state.slideProgress = state.slideProgress || {}; state.slideProgress[d.id] = Math.max(1, state.slideProgress[d.id] || 0); goto('day', d.id);
+    if (state.view !== 'day' || state.dayId !== d.id) return { err: 'the day did not open for the trainee' }; state.dayViewMode = 'slides'; state.maxSlideReached = ex; state.lessonSlide = ex; render(); await new Promise(r => setTimeout(r, 30));
     const btn = document.querySelector('#lessonSlideWrap .cfx-ex-go button'); if (!btn) return { err: 'no ⏭ button on Optional Extra Practice' };
     const label = btn.textContent.trim(); btn.click(); await new Promise(r => setTimeout(r, 60));
     return { label, at: state.lessonSlide, ready, view: state.view, mode: state.dayViewMode, last: deck.length - 1, reached: state.maxSlideReached };

@@ -4079,7 +4079,8 @@ if(typeof window.renderDayIntro === "function"){
     // optional extra practice); then the 🎯 Knowledge Check
     const segs = daySegments(d), les = segs.filter(p => p.kind === "lesson"), pra = segs.filter(p => p.kind === "practice"), build = d.cf.build;
     const liL = p => `<li><span aria-hidden="true">📘</span> <strong>${E(p.title)}</strong> <small>${p.topics.length} lesson${p.topics.length === 1 ? "" : "s"}</small></li>`;
-    const liP = p => `<li><span aria-hidden="true">🧪</span> <strong>${E(p.title)}</strong> <small>${p.items.length} activit${p.items.length === 1 ? "y" : "ies"}: ${E(p.items.map(l => titleCase(l.cf.block.title)).join(" · "))}</small></li>`;
+    // (one line a group, as the lessons beside it: the activities are named on the Practice Lab slide, each with its lesson)
+    const liP = p => `<li title="${E(p.items.map(l => titleCase(l.cf.block.title)).join(" · "))}"><span aria-hidden="true">🧪</span> <strong>${E(p.title)}</strong> <small>${p.items.length} activit${p.items.length === 1 ? "y" : "ies"}</small></li>`;
     const nA = pra.reduce((a, p) => a + p.items.length, 0);
     const cols = [
       [{name: `Part 1 · 📘 Lessons (${les.reduce((a, p) => a + p.topics.length, 0)}, all together)`, groups: [{title: "", html: les.map(liL).join("")}]}],
