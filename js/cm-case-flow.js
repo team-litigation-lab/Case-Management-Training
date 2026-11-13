@@ -998,7 +998,7 @@ function card(l, i, d, part){
   return oneOfEachTool(`<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; ${phase.lead === "Case Phase" ? `CASE PHASE ${phase.n} OF ${phase.of}` : phase.lead.toUpperCase()} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-${view} cfx-${b.kind}" data-part="${p}">
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title" title="${E(l.cf.heading)}">${E(l.cf.heading)}</h2></div>
-      <div class="cfx-ribbon"><span title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span></div>
+      <div class="cfx-ribbon cfx-ribbon-ref"><span title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span>${inAudience() ? "" : `<button type="button" class="cfx-ref-open" onclick="cmCaseFlow.full(${d.id},${i})" title="The full text of this block, over the slide">📖 Reference</button>`}</div>
       <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}</span>
         <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.num || phase.n}.${k + 1} · ${E(KIND[b.kind])}</span><span class="cfx-top-rib" title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span>
         ${view === "task" && isTrainer() && !inAudience() && injectsOf(b).length ? `<button type="button" class="cfx-inject" onclick="cmCaseFlow.inject(${d.id},${i})" title="Trainer only: a real-time task to inject while the room works this one">⚡ Inject: ${E(injectsOf(b).map(x => x.short).join(" · "))}</button>` : ""}
@@ -1091,24 +1091,24 @@ if(!document.getElementById("cfx-deck-font")){
   document.head.appendChild(f);
 }
 window.cmCaseFlow = window.cmCaseFlow || {};
+/* 📖 Additional Reference: the block's full text in a panel over the slide it was opened from, in the same window
+   (✕, Esc or moving to another slide closes it). It scrolls inside; the slide's own size doesn't change. */
 window.cmCaseFlow.full = function(dayId, i){
   const d = cfDay(dayId), l = d && d.lessons[i]; if(!l) return;
-  // its own browser tab, so the slides and the tool beside them stay in view; the pop-up only when tabs are blocked
-  const w = window.open("", "_blank");
-  if(w && w.document){
-    const head = [...document.querySelectorAll('link[rel="stylesheet"], style')].map(n => n.outerHTML).join("");
-    w.document.open();
-    w.document.write(`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${E(titleCase(l.cf.block.title))} — Additional Reference</title><base href="${location.origin}/">${head}<style>body{background:#F4F5FA;margin:0;padding:24px 16px}.cfx-full-page{max-width:980px;margin:0 auto;padding:18px 24px !important}</style></head><body><div class="card lesson-card cfx-full-page"><h2 style="margin:0 0 12px">📖 ${E(titleCase(l.cf.block.title))} — Additional Reference</h2>${strip()}${fullText(l, d)}</div></body></html>`);
-    w.document.close();
-    return;
-  }
-  const o = document.createElement("div"); o.className = "cfx-modal"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Additional Reference");
-  o.innerHTML = `<div class="cfx-modal-in card lesson-card"><div class="cfx-modal-h"><b>📖 ${E(titleCase(l.cf.block.title))} — Additional Reference</b><button type="button" class="btn btn-ghost btn-sm">Close ✕</button></div>${strip()}${fullText(l, d)}</div>`;
-  const close = () => { o.remove(); document.removeEventListener("keydown", esc, true); };
-  const esc = e => { if(e.key === "Escape"){ e.stopPropagation(); close(); } };
-  o.addEventListener("click", e => { if(e.target === o || e.target.closest(".cfx-modal-h button")) close(); });
-  document.addEventListener("keydown", esc, true);
-  document.body.appendChild(o);
+  window.cmCaseFlow.fullClose();
+  const host = document.querySelector(".cf-card .cfx-body") || document.querySelector(".cf-card");
+  const o = document.createElement("section"); o.className = "cfx-ref"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Additional Reference");
+  o.innerHTML = `<div class="cfx-ref-h"><b>📖 Additional Reference <span>${E(titleCase(l.cf.block.title))}</span></b><button type="button" class="cfx-ref-x" onclick="cmCaseFlow.fullClose()" aria-label="Close the reference and go back to the slide">✕ Back to the slide</button></div>
+    <div class="cfx-ref-b" tabindex="0">${strip()}${fullText(l, d)}</div>`;
+  if(host){ host.classList.add("cfx-ref-host"); host.appendChild(o); }
+  else { o.classList.add("cfx-ref-float"); document.body.appendChild(o); }   // no slide on screen (a link from elsewhere): over the page
+  document.addEventListener("keydown", fullEsc, true);
+  const b = o.querySelector(".cfx-ref-x"); if(b) b.focus();
+};
+function fullEsc(e){ if(e.key === "Escape" && document.querySelector(".cfx-ref")){ e.stopPropagation(); window.cmCaseFlow.fullClose(); } }
+window.cmCaseFlow.fullClose = function(){
+  document.querySelectorAll(".cfx-ref").forEach(x => { const h = x.parentElement; x.remove(); if(h) h.classList.remove("cfx-ref-host"); });
+  document.removeEventListener("keydown", fullEsc, true);
 };
 const __card = window.renderLessonCard;
 window.renderLessonCard = function(l, i, d, unused, part){
@@ -4706,6 +4706,21 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 /* The Theory: the deck's lead line, its concepts as cards, the original deck pages beside them */
 .cfx-deckpage{margin:0;flex:1 1 auto;min-height:0;display:flex;align-items:center;justify-content:center;height:100%;}
 .cfx-deckpage img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;aspect-ratio:16/9;object-fit:contain;border-radius:10px;box-shadow:0 2px 14px rgba(30,35,64,.22);}
+.cfx-ref-host{position:relative;}
+/* 📖 Reference: in the block's title band, on every slide of the block (the room's shared window doesn't show it) */
+.cfx-ribbon.cfx-ribbon-ref,.cfx-deck > .cfx-ribbon.cfx-ribbon-ref{display:flex !important;align-items:stretch;gap:8px;}
+.cfx-ribbon.cfx-ribbon-ref > span{flex:1 1 auto;min-width:0;}
+.cfx-ref-open{flex:0 0 auto;font:800 16px/1 'Inter',sans-serif;padding:0 14px;border-radius:6px;border:2px solid #DB8437;background:#fff;color:#1E2340;cursor:pointer;white-space:nowrap;}
+.cfx-ref-open:hover,.cfx-ref-open:focus-visible{background:#DB8437;color:#fff;outline:none;}
+.cfx-ref{position:absolute;inset:0;z-index:30;display:flex;flex-direction:column;background:#fff;border:3px solid #1E2340;border-radius:14px;box-shadow:0 10px 34px rgba(30,35,64,.35);overflow:hidden;animation:cfxRefIn .18s ease-out;}
+.cfx-ref.cfx-ref-float{position:fixed;inset:6vh 4vw;z-index:4000;}
+@keyframes cfxRefIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.cfx-ref-h{display:flex;align-items:center;gap:12px;padding:10px 16px;background:#1E2340;color:#fff;border-bottom:3px solid #DB8437;flex:0 0 auto;}
+.cfx-ref-h b{flex:1;font:800 18px/1.3 'Poppins','Inter',sans-serif;min-width:0;}
+.cfx-ref-h b span{color:#F6C08F;margin-left:8px;font-size:16px;}
+.cfx-ref-x{font:800 16px/1 'Inter',sans-serif;padding:9px 14px;border-radius:999px;border:2px solid #fff;background:#DB8437;color:#fff;cursor:pointer;white-space:nowrap;}
+.cfx-ref-x:hover,.cfx-ref-x:focus-visible{background:#fff;color:#1E2340;outline:none;}
+.cfx-ref-b{flex:1 1 auto;min-height:0;overflow-y:auto;padding:16px 22px 22px;font-size:16px;font-weight:600;}
 .cfx-theory{display:grid;grid-template-columns:minmax(0,1fr) clamp(160px,20%,250px);gap:18px;align-items:start;}
 .cfx-theory.cfx-th-solo{grid-template-columns:minmax(0,1fr);}
 .cfx-th-lead{font:600 22px/1.3 'Fraunces',Georgia,serif;color:var(--ink);margin:0 0 10px;text-align:center;}
