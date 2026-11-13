@@ -25,6 +25,7 @@
       "confirm": "Atty. Thorne makes the decision"
     },
     "redFlag": {
+      "spoken": true,
       "see": "A note to Atty. Thorne with **'Update'** as its subject line",
       "costs": "The buried ask waits in his inbox, and the SOL (02/06/2028) does not",
       "do": "Rewrite the subject and first line as **the decision and its deadline**",
@@ -50,6 +51,7 @@
       "Treating the gap as **the client's fault**"
     ],
     "redFlag": {
+      "on": "dodont",
       "see": "A Case Snapshot field with no named source document, even **the client's seat**",
       "costs": "An unverified field becomes the file's fact, and a wrong seat reaches the wrong policies",
       "do": "Name each field's document (RS01, RS07); mark the rest **not yet verified**",
@@ -141,17 +143,6 @@
       "Running the Conflict Check on **a nickname or partial name**",
       "Accepting a case because intake **“mostly” looks fine**"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "The SOL docket, calculated",
-      "steps": [
-        {"label": "DOL confirmed", "chip": "02/06/2026", "done": "The date matches RS07, **the Police Report**"},
-        {"label": "SOL calculated", "chip": "02/06/2028", "done": "The **two-year limitation** configured for this training file applied"},
-        {"label": "Hard date set", "chip": "02/04/2028", "done": "SOL is a Sunday: **no weekend roll-forward**, so Friday"},
-        {"label": "Filing cutoff set", "chip": "11/05/2027", "done": "90 days earlier; Saturday 11/06/2027 **moves back to Friday**"}
-      ],
-      "note": "Done when all four dates are on **CMS → Calendar** with reminders"
-    },
     "ruleEx": {
       "rule": "Count from **the date of loss**, confirmed on the Police Report, never from intake",
       "exception": "**The governing statute decides** tolling, a minor or a government defendant; you never shorten or extend a limitation",
@@ -159,6 +150,7 @@
       "confirm": "Atty. Thorne confirms the governing statute"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "The SOL counted from **the intake date, 02/09/2026**",
       "costs": "It dockets 02/09/2028: three days past the limit",
       "do": "Recount from the DOL on RS07; **docket all three dates** in CMS → Calendar",
@@ -291,18 +283,6 @@
       "Letting a file sit **without logging attempts**",
       "Blaming the client for **process gaps**"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "No Contact Protocol, Steps 1–3",
-      "steps": [
-        {"label": "Internal review", "chip": "02/13/2026", "done": "Last contact 02/10; check-in missed; **no treatment start** on file"},
-        {"label": "Phone attempts", "chip": "02/11–02/16/2026", "done": "Calls 02/11, 02/13 and 02/16, **each logged** with its time"},
-        {"label": "Email and text", "chip": "02/16/2026", "done": "Email asks him to **call by 02/18**; text sent 9:35 a.m."},
-        {"label": "Emergency contact", "chip": "02/16/2026", "done": "Margaret Doe gets **a message, never the case**, 11:05 a.m."},
-        {"label": "Second email", "chip": "02/18/2026", "done": "Asks him to **call by 02/20/2026**"},
-        {"label": "Team notification", "chip": "02/20/2026", "done": "Atty. Thorne told at 4:30 p.m., **with the case impact**"}
-      ]
-    },
     "ruleEx": {
       "rule": "Escalate **by channel, not by volume**: every attempt logged with date, time, channel and outcome",
       "exception": "The emergency contact gets **a message, never the case**: 'Please have John call us by 02/18/2026.'",
@@ -310,6 +290,7 @@
       "confirm": "Atty. Thorne decides what follows Step 3"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "Voicemails left **02/11 and 02/13** that never reached the Communications Log",
       "costs": "An unlogged attempt did not happen: the ladder can't show the attempts were made",
       "do": "Log each attempt now **with date, time, channel and outcome**",
@@ -375,6 +356,7 @@
       "confirm": "Atty. Thorne decides and tells John"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "A draft letter saying **'we are withdrawing'** or 'you will lose your case'",
       "costs": "It announces a decision only Atty. Thorne can make, and predicts the claim",
       "do": "Strike it; **send the draft to Atty. Thorne** for review before it goes",
@@ -428,6 +410,7 @@
       ]
     },
     "hook": "Most self-inflicted claim damage happens **in the first two weeks**, before the client is told.",
+    "whyLine": "Most self-inflicted claim damage happens **in the first two weeks**.",
     "points": [
       "**No Recorded Statement** to the adverse carrier; route contact through the firm",
       "Start treatment and **keep every appointment**",
@@ -450,6 +433,7 @@
       "confirm": "Injury questions route to Atty. Thorne"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "Dana Whitfield (Keystone) asked John Doe **to record his account** (his voicemail, 02/10/2026, 8:47 a.m.)",
       "costs": "A represented client's recorded account becomes Keystone's evidence on the 14-Day Gap",
       "do": "Send written notice today: no direct contact; **statements go through the firm**. Log it.",
@@ -504,6 +488,7 @@
       "confirm": "Margaret's PD claim is referred to Atty. Thorne"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "A rental, PD or Loss of Use claim **opened in John Doe's name**",
       "costs": "John has no PD claim: Margaret Doe's Civic claim (KM-26-440871-PD) tangles with his BI file",
       "do": "Keep PD under Margaret Doe; **refer her claim** to Atty. Thorne",
@@ -594,6 +579,7 @@
       "confirm": "Atty. Thorne owns value and acceptance"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "A Risks band reading **'none'** for a client nobody has examined",
       "costs": "A buried risk: no treatment yet, and the days without care keep counting",
       "do": "List each open risk **with its source and date** in the Risks band",
@@ -646,17 +632,6 @@
       "Edits that **break the audit trail**",
       "Writing **“this will help the case”** in a treatment note"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "The plan's review loop",
-      "steps": [
-        {"label": "Draft", "done": "Every band written; **risks named** with source and date"},
-        {"label": "Routed", "done": "Sent to Atty. Thorne through **the Action Plan Editor**"},
-        {"label": "Returned with comment", "done": "Each comment addressed, then **routed again**"},
-        {"label": "Approved", "done": "Atty. Thorne's approval **recorded with its date**"},
-        {"label": "Execute", "done": "The file runs against **the approved version** only"}
-      ]
-    },
     "ruleEx": {
       "rule": "**The file runs against the approved version** of the plan",
       "exception": "When a material fact changes, **the plan is superseded** and routed again",
@@ -720,16 +695,6 @@
       "Guessing a value **“off the record”**",
       "Coaching him on **what to tell an adjuster**"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "When a question crosses the line",
-      "steps": [
-        {"label": "Hear it out", "done": "John finishes the question **in his own words**"},
-        {"label": "Log it verbatim", "done": "His exact words are in **CMS → Case Notes**"},
-        {"label": "Route it, decision first", "done": "The note reaches Atty. Thorne **the same day**"},
-        {"label": "Set his expectation", "done": "John knows **when to expect** Atty. Thorne's answer"}
-      ]
-    },
     "ruleEx": {
       "rule": "Tell John **what is, and what happens next**: facts and process are yours to give",
       "exception": "**'What does it mean for me?'** is Atty. Thorne's: 'That's his call; I'll get it to him today.'",
@@ -737,6 +702,7 @@
       "confirm": "Atty. Thorne answers value and strategy"
     },
     "redFlag": {
+      "on": "dodont",
       "see": "You hear yourself tell John **'Don't worry, you'll be fine'**",
       "costs": "That is advice: it predicts his outcome, and only Atty. Thorne may",
       "do": "Stop, log his question word for word, and **route it the same day**",
@@ -763,15 +729,6 @@
       "A goal like “reduce pain” with **no measure or date**",
       "Calling a prior condition **“unrelated” or “aggravated”**"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "Assess → SMART Goal → Coordinate",
-      "steps": [
-        {"label": "Assess", "chip": "02/06/2026", "done": "Clinical, social, pre-morbid, vocational: **each filled or dated**"},
-        {"label": "SMART goal (draft)", "done": "Full 8-hour shifts at Northgate; **the provider confirms** the measure"},
-        {"label": "Coordinate", "done": "Each care line filled: **'none ordered'** with a date if empty"}
-      ]
-    },
     "redFlag": {
       "see": "A blank field, or a goal like **'reduce pain'** with no measure",
       "costs": "Blank reads as never asked, and a goal without a measure can't show progress",
@@ -799,17 +756,6 @@
       "Calling a systemic delay **client non-compliance**",
       "**Waiting for a denial** before you course-correct"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "John's route on the map",
-      "steps": [
-        {"label": "Conservative care", "chip": "02/20/2026", "done": "Riverton Urgent Care, then **Riverton Spine & Rehab** from 02/24/2026"},
-        {"label": "Specialist", "chip": "03/05/2026", "done": "Dr. Alana Reyes, Lakeside Orthopedics, **orders the MRI**"},
-        {"label": "Imaging", "chip": "03/13/2026", "done": "Summit Imaging: **C5-C6 right paracentral herniation**"},
-        {"label": "Interventional", "chip": "05/15/2026", "done": "**ESI** by Dr. Omar Haddad, Crescent Pain & Spine"},
-        {"label": "MMI", "chip": "06/12/2026", "done": "Dr. Reyes: **residual intermittent right-arm paresthesia**"}
-      ]
-    },
     "ruleEx": {
       "rule": "The 6-Week Rule: **20–30% more range of motion or a lower VAS** by week 6 of care",
       "exception": "A stop skipped or out of order needs **the provider's documented clinical reason**; you ask and record it",
@@ -817,6 +763,7 @@
       "confirm": "Provider documents; Atty. Thorne gets the note"
     },
     "redFlag": {
+      "spoken": true,
       "see": "**No visit from 04/02 to 04/21/2026** (19 days), with no reason on file",
       "costs": "A break off the map with no record of why it happened",
       "do": "Run **A-C-T the same day**; record his reason and route it to Atty. Thorne",
@@ -868,16 +815,6 @@
       "Reporting a yellow flag **with no plan**",
       "Treating late head-injury symptoms **as proof** before validation"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "Bridging the gap",
-      "steps": [
-        {"label": "Calendar the risk", "chip": "03/19/2026", "done": "The rental's last covered day **calendared as a treatment risk**"},
-        {"label": "Warm handoff", "chip": "02/23/2026", "done": "Booked with him on the line; **LOP signed before 02/24**"},
-        {"label": "Answer cost worry", "done": "He hears **which payer handles which bill**, PIP first"},
-        {"label": "Ask the one question", "done": "'What might **get in the way** this week?' asked and logged"}
-      ]
-    },
     "ruleEx": {
       "rule": "**OARS on every contact**: open questions, affirmations, reflections, summaries",
       "exception": "**Roll with resistance**: 'That clinic isn't a good fit for you. Let's look at why.'",
@@ -885,6 +822,7 @@
       "confirm": "Legal danger goes to Atty. Thorne"
     },
     "redFlag": {
+      "spoken": true,
       "see": "You tell John **'Missing visits will hurt your case'**",
       "costs": "That is advice about his claim, and it can push him away from care",
       "do": "Talk logistics and his reasons; **route what it means** to Atty. Thorne",
@@ -911,18 +849,6 @@
       "Treating a chiropractor's note as **an EMC determination**",
       "Telling a client to see a doctor **for the $10,000**"
     ],
-    "milestones": {
-      "slide": true,
-      "title": "Preventing forfeiture on a Florida file",
-      "steps": [
-        {"label": "Docket the 14th day", "done": "The 14th day after the accident **calendared at intake**"},
-        {"label": "Give logistics", "done": "Where and when care is available, **as Atty. Thorne directs**"},
-        {"label": "Log credentials", "done": "Each provider's **credential recorded**"},
-        {"label": "Request the EMC", "done": "The **EMC determination** requested from the records"},
-        {"label": "Flag the same day", "done": "A missing EMC or late first visit **goes to Atty. Thorne**"}
-      ],
-      "note": "Had this file been in Florida: the 14th day was **02/20/2026**, his first treatment"
-    },
     "ruleEx": {
       "rule": "Florida (Fla. Stat. § 627.736(1)(a)): **initial care within 14 days**; without an EMC finding, PIP stops at $2,500 of $10,000",
       "exception": "Riverton, add-on PIP: **no 14-day condition and no EMC cap**",

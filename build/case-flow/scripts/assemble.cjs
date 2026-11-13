@@ -18,17 +18,13 @@ const out = {}, errors = [];
 // a block's slides, in order: the same as viewsOf() in js/cm-case-flow.js
 const TH_PER = 4, KC_PER = 4;
 function viewsOf(b){
-  const vs = viewsIn(b), t = vs.indexOf("theory");
-  return (SLIDES[b.id] || {}).theoryFirst && vs[0] === "why" && t > 0 ? ["theory", "why"].concat(vs.slice(1).filter(v => v !== "theory")) : vs;
-}
-function viewsIn(b){
   const t = (SLIDES[b.id] || {}).theory;
   const theory = !t ? [] : (t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]).concat(t.framework ? ["frame"] : []);
-  const steps = ((SLIDES[b.id] || {}).milestones || {}).slide ? ["steps"] : [];   // Milestone Steps on a slide of its own
   const doc = (SLIDES[b.id] || {}).document ? ["doc"] : [], map = (SLIDES[b.id] || {}).roadmap && !(SLIDES[b.id] || {}).roadmap.merge ? ["map"] : [];
-  if(b.kind === "lesson" && b.brief) return ["why"].concat(doc, ["rules"], steps);
-  if(b.kind === "lesson" && b.compact) return map.concat(theory.slice(0, 1), ["why"], doc, ["rules"], steps);
-  if(b.kind === "lesson") return map.concat(theory, ["why"], doc, ["rules"], b.show ? ["model"] : [], steps, (b.best || []).length && !b.noGame ? ["dodont"] : []);
+  const why = theory.length && !(SLIDES[b.id] || {}).whySlide ? [] : ["why"];   // Why It Matters opens The Theory; a slide of its own only without one, or where the copy keeps it ("whySlide")
+  if(b.kind === "lesson" && b.brief) return ["why"].concat(doc, ["rules"]);
+  if(b.kind === "lesson" && b.compact) return map.concat(theory.slice(0, 1), why, doc, ["rules"]);
+  if(b.kind === "lesson") return map.concat(theory, why, doc, ["rules"], b.show ? ["model"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);
   if(b.kind === "activity") return ["task", "case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], AUDITS[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);
   const qs = (SLIDES[b.id] || {}).questions || b.check.questions;
   return (qs.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
@@ -80,8 +76,16 @@ for (const day of CF.days) for (const m of day.modules) for (const b of m.blocks
   const vs = viewsOf(b);
   for (const v of vs) { const x = c[v]; if(!x){ errors.push(`${b.id}.${v}: no script for this slide`); continue; } say(b.id, `${v}.say`, x.say); ask(b.id, `${v}.ask`, x.ask); }
   if(c.job) errors.push(`${b.id}.job: no lesson has an On the Job slide (Trigger ➔ Task ➔ Tool ➔ Checkpoint) any more; take its script out`);
+  if(c.steps) errors.push(`${b.id}.steps: no lesson has a Milestone Steps slide any more; fold its points into the rules (or theory) script and take "steps" out`);
+  // a CM Red Flag no slide of the lesson has room for is spoken, not drawn (the copy's redFlag.spoken): its point is in the talking points for The Rules
+  const copy = SLIDES[b.id] || {}, plain = t => String(t || "").replace(/\*\*/g, "").replace(/\s+/g, " ").trim();
+  if(copy.redFlag && copy.redFlag.spoken && !(c.rules && /^• Red flag\b/m.test(String(c.rules.say)))) errors.push(`${b.id}.rules: the lesson's CM Red Flag is spoken, not drawn; its talking points for The Rules need a point that starts "Red flag"`);
+  // a short opening line on The Theory (the copy's whyLine): the full hook is then said, word for word, in that slide's talking points
+  if(copy.whyLine && vs.includes("theory") && !(c.theory && plain(c.theory.say).toLowerCase().includes(plain(copy.hook).replace(/\.$/, "").toLowerCase()))) errors.push(`${b.id}.theory: The Theory opens with a shorter line than the lesson's hook (whyLine); put the full hook in its talking points, word for word: ${plain(copy.hook)}`);
   // a brief or compact (condensed) block keeps its full scripts, unused, so it can be taught in full again
-  for (const v of Object.keys(c)) if(!vs.includes(v) && !b.brief && !b.compact) errors.push(`${b.id}.${v}: the block has no such slide`);
+  // Why It Matters opens The Theory where a lesson has one: no slide, so no script of its own (its points lead the theory's)
+  if(c.why && !vs.includes("why")) errors.push(`${b.id}.why: Why It Matters opens The Theory in this lesson, it is no slide of its own; put its points first in the theory script and take "why" out`);
+  for (const v of Object.keys(c)) if(!vs.includes(v) && !b.brief && !b.compact && v !== "why") errors.push(`${b.id}.${v}: the block has no such slide`);
   out[b.id] = Object.fromEntries(vs.filter(v => c[v]).map(v => [v, c[v].ask ? {say: c[v].say.trim(), ask: c[v].ask.trim()} : {say: c[v].say.trim()}]));
 }
 for (const id of Object.keys(J)) if(!seen.has(id)) errors.push(`${id}: no such block`);

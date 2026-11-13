@@ -87,6 +87,20 @@ const microFrameworks = (b, c) => {
     const r = c.redFlag || {};
     opt("redFlag.see", r.see, 18); opt("redFlag.costs", r.costs, 18); opt("redFlag.do", r.do, 15);
     if(typeof r.owner !== "string" || !OWNERS.test(r.owner)) errors.push(`${id}.redFlag.owner: name the owner (Atty. Thorne or Case Manager), got ${JSON.stringify(r.owner)}`);
+    // the slide that draws it where the lesson has no Why It Matters slide: The Rules unless `on` names another with room for it at full size
+    if(r.on !== undefined && !["theory", "theory2", "frame", "map", "model", "rules", "dodont"].includes(r.on)) errors.push(`${id}.redFlag.on: theory, theory2, frame, map, model, rules or dodont (the slide with room for it at full size on a laptop), or omit for The Rules`);
+    // no slide of the lesson has room for it at full size: it is spoken, in the talking points for The Rules (scripts/assemble.cjs requires the point), not drawn
+    if(r.spoken !== undefined && r.spoken !== true) errors.push(`${id}.redFlag.spoken: true (no slide of the lesson has room for the Red Flag at full size on a laptop: it is in the trainer's talking points for The Rules) or omit`);
+    if(r.spoken && (r.on !== undefined || b.brief || c.whySlide)) errors.push(`${id}.redFlag.spoken: a Red Flag is drawn ("on", or a lesson that keeps its Why It Matters slide) or spoken, not both`);
+    // beside the points on The Rules, with four two-line points: they are drawn at the size they take beside a Rule vs. Exception box
+    if(r.tight !== undefined && r.tight !== true) errors.push(`${id}.redFlag.tight: true (The Rules draws its points a size smaller so the Red Flag fits beside them at full size) or omit`);
+    if(r.tight && (r.spoken || c.ruleEx || (r.on !== undefined && r.on !== "rules") || b.brief || c.whySlide)) errors.push(`${id}.redFlag.tight: only where the Red Flag is drawn beside the points on The Rules`);
+    if(r.on === "frame" && (b.compact || !(TH[id] || {}).framework)) errors.push(`${id}.redFlag.on: the lesson has no The Framework slide`);
+    if(r.on === "map" && !(c.roadmap && !c.roadmap.merge)) errors.push(`${id}.redFlag.on: the lesson has no The Roadmap slide`);
+    if(r.on === "model" && (b.compact || !b.show)) errors.push(`${id}.redFlag.on: the lesson has no See It slide`);
+    if(r.on !== undefined && (b.brief || c.whySlide)) errors.push(`${id}.redFlag.on: the lesson keeps its Why It Matters slide, and the Red Flag is drawn there; take "on" out`);
+    if(r.on === "theory2" && (b.compact || ((TH[id] || {}).concepts || []).length <= 4)) errors.push(`${id}.redFlag.on: the lesson has no The Theory, Continued slide`);
+    if(r.on === "dodont" && (b.compact || b.noGame || !(b.best || []).length)) errors.push(`${id}.redFlag.on: the lesson has no Do & Don't slide`);
   }
   if(c.ruleEx !== undefined){
     const x = c.ruleEx || {};
@@ -101,7 +115,8 @@ const microFrameworks = (b, c) => {
     if(typeof m.title !== "string" || !m.title.trim() || wc(m.title) > 8 || marks(m.title)) errors.push(`${id}.milestones.title: want ≤ 8 words, no highlight`);
     if(m.start !== undefined && !(Number.isInteger(m.start) && m.start > 1)) errors.push(`${id}.milestones.start: a whole number above 1`);
     if(m.note !== undefined) opt("milestones.note", m.note, 16);
-    if(m.slide !== undefined && m.slide !== true) errors.push(`${id}.milestones.slide: true (the rail on a slide of its own, where its lesson's slides have no room for it) or omit`);
+    // drawn on The Framework, or on The Rules of a lesson without one, and only where that slide holds the rail at full size on a laptop
+    if(m.slide !== undefined) errors.push(`${id}.milestones.slide: no lesson has a Milestone Steps slide any more; take the rail out of the copy (its steps go in the trainer's talking points for The Rules) unless The Framework or The Rules has room for it`);
     if(!Array.isArray(m.steps) || m.steps.length < 3 || m.steps.length > 6) errors.push(`${id}.milestones.steps: want 3–6`);
     else m.steps.forEach((s, i) => {
       const f = `milestones.steps[${i}]`;
@@ -146,6 +161,16 @@ for (const day of CF.days) {
         if(d.doc !== undefined && !DOC_IDS.has(d.doc)) errors.push(`${b.id}.document.doc: "${d.doc}" isn't a case document (js/cm-case-flow-docs.js)`);
         for (const f of ["definition", "purpose", "evidence"]) line(b.id, `document.${f}`, d[f], 24);
         list(b.id, "document.handling", d.handling, 2, 4, 12);
+      }
+      // Why It Matters opens The Theory (no slide of its own); "whySlide": true keeps the slide in a lesson whose Theory or Rules slide has no room
+      if(c.whySlide !== undefined && c.whySlide !== true) errors.push(`${b.id}.whySlide: true (the lesson keeps its Why It Matters slide: its Theory slide has no room for the opening line, or no slide has room for its Red Flag, at full size on a laptop) or omit`);
+      if(c.whySlide && b.brief) errors.push(`${b.id}.whySlide: a brief lesson has no Theory slide and always keeps Why It Matters; take it out`);
+      if(/^\*\*[^*]+?[.!?:]\*\*\s+\S/.test(String(c.hook || "")) && !b.brief && !c.whySlide) errors.push(`${b.id}.hook: a hook that opens The Theory is one sentence (only its bold first sentence would be drawn)`);
+      // the opening line of The Theory where the hook would wrap: one sentence, at most 14 words (the full hook is then in the theory's talking points)
+      if(c.whyLine !== undefined){
+        line(b.id, "whyLine", c.whyLine, 14);
+        if(b.brief || c.whySlide) errors.push(`${b.id}.whyLine: the lesson keeps its Why It Matters slide, which shows the hook; take "whyLine" out`);
+        if(/[.!?]\s+\S/.test(String(c.whyLine).replace(/\*\*/g, "").replace(/\b(Atty|Dr|Hon|Esq|Ret|v|vs)\./g, "$1"))) errors.push(`${b.id}.whyLine: one sentence`);
       }
       microFrameworks(b, c);
       if((b.best || []).length){ list(b.id, "dos", c.dos, 2, 3, 10); list(b.id, "donts", c.donts, 2, 3, 10); }
