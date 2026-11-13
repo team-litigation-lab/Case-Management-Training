@@ -11,6 +11,7 @@ Several branches (and Claude sessions) work on this course at once. Keep out of 
 - **Progress keys a feature saves are registered from its own file**: `registerPersonalKeys(["my-key"])`. Don't edit the `PERSONAL_KEYS` list in `index.html`.
 - **In a list that sits on one long line** (the Worker's `PUBLIC_READ`, `PROTECTED_TRAINEE_FIELDS`), add your item and nothing else on that line: no reordering, no reformatting.
 - **When both sides changed the same lines, keep both changes.** Never drop the other side's work to make a merge go through.
+- **A browser check must pass in the open-source Chromium that CI runs**, which cannot play H.264/AAC video (an `.mp4`) or speak (no speech voices): check that the file is served, its captions and its controls, and playback only where `canPlayType` says the browser can. Run the whole suite before pushing, not only your own check.
 - Before pushing: `node .github/scripts/run-checks.mjs node` (and `node .github/scripts/run-checks.mjs browser` if you changed what a page does).
 
 ## The course
