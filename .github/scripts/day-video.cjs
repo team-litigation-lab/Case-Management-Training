@@ -107,12 +107,22 @@ async function workerChecks() {
             const vid = o.querySelector('video'), n = o.querySelectorAll('.cm-dv-chapters button').length;
             cmDayVideo.seek(16); await new Promise(r => setTimeout(r, 1200));
             const on = o.querySelector('.cm-dv-chapters button.on');
-            return { src: vid.getAttribute('src'), track: !!vid.querySelector('track[kind=captions]'), ready: vid.readyState, dur: Math.round(vid.duration || 0), n, t: Math.round(vid.currentTime), on: on ? on.textContent : null, box: o.querySelector('.cm-dv-box').getBoundingClientRect().bottom <= innerHeight + 1 };
+            const h264 = !!vid.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');   // Chrome and Edge, as trainees use; the open-source Chromium the checks run in has no H.264
+            const head = await fetch(vid.getAttribute('src'), { headers: { Range: 'bytes=0-1023' } }).then(async r => { const b = await r.arrayBuffer(), total = Number(((r.headers.get('content-range') || '').split('/')[1])) || Number(r.headers.get('content-length')) || b.byteLength;
+                return { status: r.status === 206 ? 200 : r.status, type: r.headers.get('content-type') || '', size: total }; }).catch(e => ({ status: 0, err: String(e) }));
+            return { h264, head, src: vid.getAttribute('src'), track: !!vid.querySelector('track[kind=captions]'), ready: vid.readyState, dur: Math.round(vid.duration || 0), n, t: Math.round(vid.currentTime), on: on ? on.textContent : null, box: o.querySelector('.cm-dv-box').getBoundingClientRect().bottom <= innerHeight + 1 };
         });
         if (!v || v.n !== 54 || !v.track) fail(`the viewer: ${JSON.stringify(v)}`);
         else {
-            if (v.ready < 1 || v.dur < 1800) fail(`the video didn't load: ${JSON.stringify(v)}`);
-            if (Math.abs(v.t - notes.video.starts[16]) > 3 || !/Tools for Case Planning/.test(v.on || '')) fail(`a chapter didn't jump to its slide: ${JSON.stringify(v)}`);
+            // the file is served whole, as a video, whatever browser runs the check
+            if (v.head.status !== 200 || !/video\/mp4/.test(v.head.type) || v.head.size < 1e6) fail(`the video file isn't served as an mp4: ${JSON.stringify(v.head)}`);
+            if (v.h264) {   // a browser that plays H.264 (Chrome, Edge): it loads, and a chapter seeks to its slide and lights up
+                if (v.ready < 1 || v.dur < 1800) fail(`the video didn't load: ${JSON.stringify(v)}`);
+                if (Math.abs(v.t - notes.video.starts[16]) > 3 || !/Tools for Case Planning/.test(v.on || '')) fail(`a chapter didn't jump to its slide: ${JSON.stringify(v)}`);
+            } else {        // open-source Chromium can't decode it: the chapter still moves the video to its slide's time
+                if (Math.abs(v.t - notes.video.starts[16]) > 3) fail(`a chapter didn't move the video to its slide: ${JSON.stringify(v)}`);
+                console.log('(this browser has no H.264, as the open-source Chromium in CI: playback itself was not checked, the file, the captions and the chapters were)');
+            }
             if (!v.box) fail('the viewer is taller than the screen at 1366×768');
         }
         await page.keyboard.press('Escape'); await page.waitForTimeout(200);
