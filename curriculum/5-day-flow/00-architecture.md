@@ -141,10 +141,6 @@ The same block also fills the course's native fields (`fourPart`, `layout`, `tra
 | Assessment Criteria (AI + Trainer) | ✓ (behind 📖 Full text) | Curriculum spec |
 | Speaker Notes | — (never on the shared screen) | **Presenter view** (`SLIDE_SCRIPTS`) and the curriculum spec |
 
-### Operational mapping
-
-`Trigger Event ➔ Case Manager Task ➔ Tool/Interface ➔ Verification Checkpoint` on every lesson and activity. The checkpoint is the gradeable field.
-
 ---
 
 ## 5. Scoring — 60% automated, 40% trainer

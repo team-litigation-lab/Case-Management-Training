@@ -1,10 +1,12 @@
-// @check browser — Micro-frameworks on the lessons (Milestone Steps, Rule vs. Exception, one CM Red Flag a slide with its owner; type ≥ 16px; no Trigger ➔ Task ➔ Tool ➔ Checkpoint cards, no Milestone Steps slide) and Why It Matters as the opening of The Theory
+// @check browser — Micro-frameworks on the lessons (Milestone Steps, Rule vs. Exception, one CM Red Flag a slide with its owner; type ≥ 16px; no Trigger ➔ Task ➔ Tool ➔ Checkpoint cards or table and the word "Trigger" on no slide, title or 📖 Additional Reference; no Milestone Steps slide) and Why It Matters as the opening of The Theory
 // The three micro-frameworks are on the slides: every lesson the revamp gives a Milestone Steps rail, a Rule vs.
 // Exception callout or a CM Red Flag (build/case-flow/slides/dN.json: milestones, ruleEx, redFlag) draws it, on one of
 // its own slides; no slide carries more than one Red Flag; every Red Flag names its owner; and the type on them stays
 // bold and at least 16px on a laptop (1366x768), after any fit-to-screen scaling.
 // The lessons' On the Job slide (rows of Trigger ➔ Task ➔ Tool ➔ Checkpoint cards) is gone: no lesson has that view
-// and no slide of any day draws such a row. So is the Milestone Steps slide 26 lessons had in its place: no lesson
+// and no slide of any day draws such a row; its table is gone from 📖 Additional Reference too, and the word "Trigger"
+// is on no slide, in no slide title or heading (in any letter case) and in no 📖 Additional Reference panel of any day
+// (a sentence may still say that a deadline or a coverage is triggered). So is the Milestone Steps slide 26 lessons had in its place: no lesson
 // has that view either, and those lessons draw no rail (their steps are in the trainer's talking points for The
 // Rules). A Milestone rail is drawn only on The Framework or The Rules, in the lessons SPEC gives one ("ms").
 // Why It Matters is no slide of its own in a lesson that has The Theory: that slide opens with a "💡 Why it matters"
@@ -64,10 +66,12 @@ const SPOKEN = {
   const r = await page.evaluate(async (SPEC) => {
     const sleep = ms => new Promise(r => setTimeout(r, ms));
     state.isAdmin = true; { const kt = document.getElementById('ktLogin'); if (kt) kt.remove(); }
-    const seen = {}, out = [], count = { slides: 0, rails: 0, opens: 0, whySlides: 0, shortLines: 0, roads: 0 }, lessons = {}, spoken = {};
+    const seen = {}, out = [], count = { slides: 0, rails: 0, opens: 0, whySlides: 0, shortLines: 0, roads: 0, refs: 0 }, lessons = {}, spoken = {};
     const scripts = window.CM_CF_SCRIPTS || {};
     const plain = t => String(t || '').replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
     const zoomOf = el => { let z = 1; for (let n = el; n && n.style; n = n.parentElement) if (n.style.zoom) z *= Number(n.style.zoom) || 1; return z; };
+    const near = (t, re) => { const m = re.exec(t); return m ? t.slice(Math.max(0, m.index - 30), m.index + 40).replace(/\s+/g, ' ') : ''; };
+    const HEADS = 'h1, h2, h3, h4, h5, th, summary, .cfx-caption, .cfx-what-v, .cfx-modal-h b, .fp-label, .fp-title';
     for (const d of DAYS) {
       if (!d.lessons || !d.lessons.some(l => l.cf)) continue;
       goto('day', d.id); state.dayViewMode = 'slides'; state.lessonSlide = 0; render(); await sleep(40);
@@ -80,6 +84,14 @@ const SPOKEN = {
         count.slides++;
         if (wrap.querySelector('.cfx-flow, .cfx-step, .cfx-job') || /Trigger\s*(➔|→|>)\s*(Case Manager )?Task/i.test(wrap.textContent)
           || [...wrap.querySelectorAll('small, th, dt, b')].filter(x => /^(Trigger|Checkpoint)$/i.test(x.textContent.trim())).length > 1) out.push(`Day ${d.id} slide ${i + 1} (${s.type}): draws a Trigger ➔ Task ➔ Tool ➔ Checkpoint row`);
+        // the word "Trigger" (the old framework's column, and the titles and headings that used it) is on no slide: not
+        // in anything the slide holds, shown or folded away (the trainer's view, so the answers too), and in no letter
+        // case in the slide's title or in a heading on it. An ordinary sentence may still say a deadline is triggered.
+        { const tl = String(daySlideTitle(d, s) || ''), txt = wrap.textContent;
+          if (/trigger/i.test(tl)) out.push(`Day ${d.id} slide ${i + 1}: its title uses the word "Trigger": ${tl}`);
+          if (/Trigger/.test(txt)) out.push(`Day ${d.id} slide ${i + 1} (${tl}): shows "Trigger": …${near(txt, /Trigger/)}…`);
+          const hd = [...wrap.querySelectorAll(HEADS)].find(x => /trigger/i.test(x.textContent));
+          if (hd) out.push(`Day ${d.id} slide ${i + 1} (${tl}): a heading uses the word "trigger": ${hd.textContent.trim().slice(0, 90)}`); }
         if (s.type !== 'topic') continue;
         const b = d.lessons[s.lessonIndex].cf.block; if (b.kind !== 'lesson') continue;
         const where = `Day ${d.id} slide ${i + 1} (${b.id})`, view = cmCaseFlow.viewsOf(b)[s.part - 1];
@@ -179,13 +191,32 @@ const SPOKEN = {
           if (rb.bottom > wb.bottom + 1 || rb.right > wb.right + 1) out.push(`${where}: a micro-framework runs off the slide`);
         }
       }
+      // 📖 Additional Reference of every lesson, activity and Knowledge Check of the day (the pop-up, as a trainer reads it:
+      // the checkpoints open): no Trigger ➔ Task ➔ Tool ➔ Checkpoint section or table, and the word "Trigger" nowhere in it
+      { const open = window.open; window.open = () => null;   // no new tab: the pop-up on this page
+        try {
+          d.lessons.forEach((l, li) => {
+            cmCaseFlow.full(d.id, li);
+            const m = document.querySelector('.cfx-ref, .cfx-modal'), id = l.cf.block.id;   // the panel over the slide (it was a pop-up)
+            if (!m) { out.push(`${id}: 📖 Additional Reference did not open`); return; }
+            const txt = m.textContent, hd = [...m.querySelectorAll(HEADS)].find(x => /trigger/i.test(x.textContent));
+            if (/Trigger/.test(txt)) out.push(`${id}: 📖 Additional Reference shows "Trigger": …${near(txt, /Trigger/)}…`);
+            if (hd) out.push(`${id}: a heading in 📖 Additional Reference uses the word "trigger": ${hd.textContent.trim().slice(0, 90)}`);
+            if (/Verification checkpoint/i.test([...m.querySelectorAll('th')].map(x => x.textContent).join(' '))) out.push(`${id}: 📖 Additional Reference still draws the operational table`);
+            count.refs++;
+            if (cmCaseFlow.fullClose) cmCaseFlow.fullClose(); const x = m.querySelector('.cfx-modal-h button'); if (x) x.click(); if (m.isConnected) m.remove();
+          });
+        } finally { window.open = open; } }
     }
     return { seen, out, count, lessons, spoken };
   }, SPEC);
   failures.push(...r.out);
+  // a lesson whose slides are the trainer's own Canva deck pages (js/cm-deck-slides.js) draws the deck, not these
+  const deckLessons = new Set(Object.keys(await page.evaluate(() => window.CM_DECK_SLIDES || {})));
   // every lesson with a Theory slide opens it with why it matters, and has no Why It Matters slide, unless it is listed in KEEPS
   const merged = [], kept = [], briefs = [];
   for (const [id, L] of Object.entries(r.lessons)) {
+    if (deckLessons.has(id)) continue;   // drawn from the trainer's deck pages: no Theory or Why It Matters slide of its own
     if (!L.theory) { briefs.push(id); if (!L.why) failures.push(`${id}: no Theory slide and no Why It Matters slide: its why it matters is nowhere`); if (KEEPS[id]) failures.push(`${id}: listed in KEEPS, but it has no Theory slide (it keeps Why It Matters anyway: take it off the list)`); continue; }
     if (L.why && !KEEPS[id]) failures.push(`${id}: has a Theory slide and still a Why It Matters slide (The Theory should open with it; or list the lesson in KEEPS with the reason)`);
     if (!L.why && KEEPS[id]) failures.push(`${id}: listed in KEEPS (${KEEPS[id]}), but its Why It Matters now opens The Theory: take it off the list`);
@@ -206,6 +237,7 @@ const SPOKEN = {
   for (const id of Object.keys(r.spoken)) if (!SPOKEN[id]) failures.push(`${id}: its copy says the CM Red Flag is spoken, not drawn; list it in SPOKEN with the measurements that forced it`);
   let n = 0;
   for (const [id, want] of Object.entries(SPEC)) {
+    if (deckLessons.has(id)) continue;   // its micro-frameworks stay in 📖 Additional Reference
     const got = r.seen[id];
     if (!got) { failures.push(`${id}: not on any slide`); continue; }
     for (const k of want.split(' ')) { if (k === 'rf' && SPOKEN[id]) { n++; continue; }   // spoken, not drawn (checked above)
@@ -216,5 +248,5 @@ const SPOKEN = {
   if (r.count.rails !== railsWant) failures.push(`${r.count.rails} Milestone rails are drawn; the spec gives ${railsWant} lessons one`);
   if (failures.length) { console.log(`${failures.length} problem(s):`); failures.slice(0, 80).forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
   const homes = {}; Object.entries(r.seen).forEach(([id, g]) => { if (g.rfOn) homes[g.rfOn] = (homes[g.rfOn] || 0) + 1; });
-  console.log(`Micro-frameworks: ${Object.keys(SPEC).length} lessons, ${n} frameworks (${Object.keys(SPOKEN).length} Red Flags spoken, not drawn: their point is in the talking points for The Rules; the rest drawn on their slides; ${r.count.rails} Milestone rails, on The Framework or The Rules; no lesson has a Milestone Steps slide), one Red Flag a slide at most, every Red Flag with its owner, type ≥ 16px and bold at 1366x768; none of the ${r.count.slides} slides draws a Trigger ➔ Task ➔ Tool ➔ Checkpoint row. Why It Matters: ${merged.length} lessons open The Theory with it (one line, at full size, no type under 16px, no card cut off; ${r.count.roads} with their roadmap beside the theory, ${r.count.shortLines} with a shorter line and the hook in the talking points) and have no such slide; ${kept.length} lessons with a Theory slide keep the slide and ${briefs.length} have no Theory slide; the Red Flag is drawn on ${Object.entries(homes).map(([v, k]) => `${v} ${k}`).join(', ')}`);
+  console.log(`Micro-frameworks: ${Object.keys(SPEC).length} lessons, ${n} frameworks (${Object.keys(SPOKEN).length} Red Flags spoken, not drawn: their point is in the talking points for The Rules; the rest drawn on their slides; ${r.count.rails} Milestone rails, on The Framework or The Rules; no lesson has a Milestone Steps slide), one Red Flag a slide at most, every Red Flag with its owner, type ≥ 16px and bold at 1366x768; none of the ${r.count.slides} slides draws a Trigger ➔ Task ➔ Tool ➔ Checkpoint row. Why It Matters: ${merged.length} lessons open The Theory with it (one line, at full size, no type under 16px, no card cut off; ${r.count.roads} with their roadmap beside the theory, ${r.count.shortLines} with a shorter line and the hook in the talking points) and have no such slide; ${kept.length} lessons with a Theory slide keep the slide and ${briefs.length} have no Theory slide; the Red Flag is drawn on ${Object.entries(homes).map(([v, k]) => `${v} ${k}`).join(', ')}; the word "Trigger" is on none of the ${r.count.slides} slides, in none of their titles or headings, and in none of the ${r.count.refs} 📖 Additional Reference panels`);
 })();

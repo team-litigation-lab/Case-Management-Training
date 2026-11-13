@@ -797,17 +797,17 @@ body:has(#cmDriveHost) #toast{z-index:4100;}   /* what is said while the panel i
 .drv-slide,.drv-slide *{text-align:left!important;}
 .drv-slide li::before,.drv-slide li::marker{content:none!important;display:none!important;}
 .drv-s-col{background:#fff;border:1px solid #DDE1EA;border-radius:14px;padding:12px 18px 10px;color:#141A2E;}
-.drv-s-col h3{margin:0 0 6px;font:800 20px 'Poppins','Inter',sans-serif;color:#1E2340;}
+.drv-s-col h3{margin:0 0 8px;font:800 clamp(21px,2.8vh,27px) 'Poppins','Inter',sans-serif;color:#1E2340;}
 .drv-s-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
 .drv-s-steps.is-tight{gap:6px;} .drv-s-steps.is-tight li > div > span{line-height:1.4;}   /* a sign-in that didn't finish adds its line to step 1: the steps close up for it, so the slide is never scaled down */
 .drv-s-steps li{display:flex;gap:12px;align-items:flex-start;margin:0;padding:0;}
-.drv-s-n{flex:0 0 32px;height:32px;border-radius:50%;background:#1E2340;color:#F6C08F;display:flex;align-items:center;justify-content:center;font:800 16px 'Inter',sans-serif;}
+.drv-s-n{flex:0 0 clamp(32px,4.6vh,40px);height:clamp(32px,4.6vh,40px);border-radius:50%;background:#1E2340;color:#F6C08F;display:flex;align-items:center;justify-content:center;font:800 19px 'Inter',sans-serif;}
 .drv-s-steps li.is-done .drv-s-n{background:#1E8E4F;color:#fff;}
-.drv-s-steps li > div > b{display:block;font:800 18px 'Inter',sans-serif;color:#1E2340;}
+.drv-s-steps li > div > b{display:block;font:800 clamp(19px,2.55vh,25px) 'Inter',sans-serif;color:#1E2340;}
 .drv-s-steps span b{font-weight:800;color:#1E2340;}
-.drv-s-steps li > div > span{display:block;font:600 16px/1.45 'Inter',sans-serif;}
+.drv-s-steps li > div > span{display:block;font:700 clamp(17px,2.2vh,21px)/1.4 'Inter',sans-serif;}
 .drv-s-act{display:flex;align-items:center;gap:4px 14px;flex-wrap:wrap;margin-top:5px;}
-.drv-s-link{display:inline-flex;align-items:center;gap:8px;border:2px solid #1E2340;background:#1E2340;color:#fff;border-radius:10px;padding:4px 16px 4px 7px;font:800 17px/1.3 'Inter',sans-serif;cursor:pointer;box-shadow:0 3px 0 #DB8437;margin-bottom:3px;}
+.drv-s-link{display:inline-flex;align-items:center;gap:8px;border:2px solid #1E2340;background:#1E2340;color:#fff;border-radius:10px;padding:5px 18px 5px 8px;font:800 clamp(17px,2.3vh,22px)/1.3 'Inter',sans-serif;cursor:pointer;box-shadow:0 3px 0 #DB8437;margin-bottom:3px;}
 .drv-s-link:hover:not(:disabled){background:#DB8437;border-color:#DB8437;color:#1E2340;box-shadow:0 3px 0 #1E2340;}
 .drv-s-link:focus-visible,.drv-s-open:focus-visible{outline:3px solid #DB8437;outline-offset:3px;}
 .drv-s-link:disabled{opacity:.7;cursor:default;}

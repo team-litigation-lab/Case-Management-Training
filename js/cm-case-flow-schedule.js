@@ -9,6 +9,9 @@
        70% practical = 154 minutes: the Knowledge Check (10–15, longer the more topics), a brainstorm after every Skill
                        Building (5 minutes each, 30 at most, never under 3), and the Skill Activities, which share the rest
                        equally (5 to 30 minutes each). Whatever is left over is Q&A.
+   A day is two parts, in this order: ALL of its lessons (`parts`: a run of lessons under one section heading), then ONE
+   Practice Lab that holds all of its Skill Activities (`labs`: the lab's Skill Building groups, each the activities that
+   practise one section's lessons, with a brainstorm after each group), then the Knowledge Check.
    A day with a build (Day 5's Full Application Practice: the trainees build their companion case) spends its practical on
    it: its own Skill Activities are optional extra practice, untimed. Day 5's lessons are condensed and capped at 30
    minutes (lessonMax), and the build takes every minute the lessons and the Knowledge Check leave (build: "rest").
@@ -29,8 +32,9 @@ function share(total, weights, floor){
   return out;
 }
 /* items: the day's lessons and Skill Activities in teaching order (no Learning Checks), each
-   {kind: "lesson"|"activity", brief, thorough, slides, optional, heading, mod, modTitle, ref} — ref is handed back on the
-   parts untouched; slides: the lesson's slide count (its views), 1 when not given.
+   {kind: "lesson"|"activity", brief, thorough, slides, optional, heading, mod, modTitle, ref, id, of} — ref is handed back on
+   the parts untouched; slides: the lesson's slide count (its views), 1 when not given; id: the block's id, and on an
+   activity of: the id of the lesson it practises (its Skill Building group is that lesson's section).
    opts: {build: minutes} for a day whose practical is a build (Day 5's companion case). */
 function schedule(items, opts){
   opts = opts || {};
@@ -42,24 +46,31 @@ function schedule(items, opts){
   const n = lessons.filter(x => !x.brief).length, m = lessons.filter(x => x.brief).length;
   const a = timed.filter(x => x.kind === "activity").length;
   const kc = Math.max(10, Math.min(15, Math.round(10 + (Math.max(n, 1) + m / 2 - 8) * 2.5)));
-  // the parts: a run of lessons under one heading, and the Skill Activities that follow it
-  const parts = []; let cur = null;
+  // the lessons' parts: a run of lessons under one section heading (all of the day's lessons come before its Practice Lab)
+  const parts = [], partOf = {}; let cur = null;
   const open = x => { cur = {heading: x.heading, mod: x.mod, modTitle: x.modTitle, topics: [], acts: [], extra: []}; parts.push(cur); };
-  items.forEach(x => {
-    if(x.kind === "lesson"){
-      const h = x.heading || (cur && !cur.acts.length ? cur.heading : "");   // a lesson with no heading of its own carries on the topic before it
-      if(!cur || cur.acts.length || cur.heading !== h) open(Object.assign({}, x, {heading: h})); cur.topics.push(x);
-    }
-    else if(x.kind === "activity"){
-      if(!cur) open(Object.assign({}, x, {heading: String(x.heading || "").replace(/^Skill Building:\s*/, "")}));
-      (timed.includes(x) ? cur.acts : cur.extra).push(x);
-    }
+  items.filter(x => x.kind === "lesson").forEach(x => {
+    const h = x.heading || (cur ? cur.heading : "");   // a lesson with no heading of its own carries on the topic before it
+    if(!cur || cur.heading !== h) open(Object.assign({}, x, {heading: h}));
+    cur.topics.push(x); if(x.id) partOf[x.id] = cur;
   });
   const seen = {}; parts.forEach(p => { seen[p.heading] = (seen[p.heading] || 0) + 1; });
   // "Litigation" six times reads as nothing: a heading used more than once takes its module's name, up to its first "&" or ","
   const short = t => String(t || "").split(/\s+&\s+|,\s/)[0].trim();
   parts.forEach(p => { const mt = short(p.modTitle); p.title = seen[p.heading] > 1 && mt ? (mt.toLowerCase().includes(String(p.heading).toLowerCase()) ? mt : `${p.heading}: ${mt}`) : p.heading; });
-  const s = parts.filter(p => p.acts.length).length;
+  // … unless a run under that heading holds the lessons of several modules (all the lessons come together now, so a
+  // run is no longer one module's), or two runs would get the same name: then they are numbered, "Litigation (1 of 2)"
+  Object.keys(seen).filter(h => seen[h] > 1).forEach(h => { const same = parts.filter(p => p.heading === h);
+    const mixed = same.some(p => new Set(p.topics.map(x => x.mod)).size > 1), names = new Set(same.map(p => p.title));
+    if(mixed || names.size < same.length) same.forEach((p, i) => { p.title = `${h} (${i + 1} of ${same.length})`; }); });
+  // the Practice Lab's Skill Building groups: the activities, in order, that practise one section's lessons
+  const labs = []; let lab = null;
+  items.filter(x => x.kind === "activity").forEach(x => {
+    const part = (x.of && partOf[x.of]) || null, key = part || String(x.heading || "").replace(/^Skill Building:\s*/, "");
+    if(!lab || lab.key !== key){ lab = {key, part, title: part ? part.title : key, acts: [], extra: []}; labs.push(lab); }
+    (timed.includes(x) ? lab.acts : lab.extra).push(x);
+  });
+  const s = labs.filter(p => p.acts.length).length;
   const brainstorm = s ? Math.max(STORM.min, Math.min(STORM.each, Math.floor(STORM.day / s))) : 0;
   // 30% lessons (less when a build and the Knowledge Check leave less), 70% practical
   const lessonBudget = lessons.length ? Math.max(0, Math.min(LESSON_MIN, lessonMax, TEACH_MIN - kc - (fill ? 0 : build) - s * brainstorm - a * ACT.min)) : 0;
@@ -74,12 +85,13 @@ function schedule(items, opts){
   const briefMin = m ? Math.round(lessons.filter(x => x.brief).reduce((t, x) => t + x.mins, 0) / m) : BRIEF_MIN;
   parts.forEach(p => {
     p.full = p.topics.filter(x => !x.brief).length; p.briefs = p.topics.length - p.full;
-    p.lecture = p.topics.reduce((t, x) => t + (x.mins || 0), 0); p.skill = p.acts.length * act; p.brainstorm = p.acts.length ? brainstorm : 0;
-    p.mins = p.lecture + p.skill + p.brainstorm;
+    p.lecture = p.topics.reduce((t, x) => t + (x.mins || 0), 0); p.skill = 0; p.brainstorm = 0;
+    p.mins = p.lecture;
   });
+  labs.forEach(p => { delete p.key; p.skill = p.acts.length * act; p.brainstorm = p.acts.length ? brainstorm : 0; p.mins = p.skill + p.brainstorm; });
   const used = lessonBudget + a * act + s * brainstorm + kc + build;
   const total = BREAK_MIN + used;
-  return {per, brief: briefMin, act, brainstorm, kc, build, parts, room: TEACH_MIN, used, buffer: Math.max(0, TEACH_MIN - used), fits: total <= DAY_MIN,
+  return {per, brief: briefMin, act, brainstorm, kc, build, parts, labs, labMin: a * act + s * brainstorm, room: TEACH_MIN, used, buffer: Math.max(0, TEACH_MIN - used), fits: total <= DAY_MIN,
     total, topics: n + m, full: n, briefs: m, acts: a, extras: items.filter(x => x.kind === "activity").length - a, skillParts: s,
     lessonMin: lessonBudget, practicalMin: TEACH_MIN - lessonBudget, lessonShare: Math.round(lessonBudget / TEACH_MIN * 100),
     DAY_MIN, BREAK_MIN, TEACH_MIN, LESSON_SHARE};
