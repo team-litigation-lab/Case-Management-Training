@@ -194,7 +194,7 @@ function tableHtml(){
   }
   const th = ([key, label]) => !key ? `<th scope="col" class="at-c-act">${label}</th>`
     : `<th scope="col"${key === "name" ? ` class="at-c-name"` : ""} aria-sort="${key === k ? (dir === "asc" ? "ascending" : "descending") : "none"}"><button type="button" class="at-sort${key === k ? " on" : ""}" onclick="cmAudit.sort('${key}')">${label}<span>${key === k ? (dir === "asc" ? "▲" : "▼") : "↕"}</span></button></th>`;
-  return `<table class="at-table"><caption class="at-cap">${rs.length} trainee${rs.length === 1 ? "" : "s"} shown · click a trainee's name to open their detail (✍ feedback, 🎓 certificate, 🏅 scorecard) · click a column's header to sort · 📁 companion cases are assigned in 📁 Companion Cases</caption>
+  return `<table class="at-table">
     <thead><tr>${COLS.map(th).join("")}</tr></thead>
     <tbody>${rs.map(x => rowHtml(x, COLS.length)).join("")}</tbody></table>`;
 }

@@ -88,9 +88,7 @@ A case card filling the slide like a file folder: top-left the style JOHN DOE v.
 
 #### 2 · Slide Body — Show Them
 
-*John Doe's file at a glance*
-
-|  | On this file |
+|  | John Doe's file at a glance |
 |---|---|
 | Case | John Doe v. Robert Smith · LSH-2026-MVA-770412 · motor vehicle collision |
 | Date of loss / SOL | 02/06/2026 · SOL 02/06/2028 |

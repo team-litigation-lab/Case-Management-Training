@@ -39,7 +39,7 @@ const tools = () => (typeof PRACTICE_TOOLS !== "undefined" ? PRACTICE_TOOLS : []
 const keyOf = r => typeof batchKey === "function" ? batchKey(r) : (r.batch || "");
 const labelOf = k => typeof folderLabel === "function" ? folderLabel(k) : k;
 
-const B = {extra: {}, loading: false, pick: "", recent: 14, ds: "", dsOpen: {}, sys: ""};
+const B = {extra: {}, loading: false, pick: "", recent: 14, ds: "", dsOpen: {}, trOpen: {}, sys: "", scDay: null};
 
 /* ---------- who is on the sheet: the picked batch (state.adminBatchFilter, "" = all), not archived, not rejected ---------- */
 function people(){
@@ -200,7 +200,20 @@ function recentTable(ppl){
   ppl.forEach(r => {
     push(r, r.registeredAt, "Registered", labelOf(keyOf(r)));
     const data = dataOf(r), dp = data["day-progress"] || r.dayProgress || {};
-    days().forEach(d => { const p = dp[d.id]; if(p && typeof p.score === "number") push(r, p.date || p.at, "Knowledge Check", dayLabel(d), p.score); });
+    // every Knowledge Check attempt (its history), not only the best one
+    days().forEach(d => { const p = dp[d.id] || {}, h = Array.isArray(p.history) ? p.history : [];
+      if(h.length) h.forEach((x, i) => push(r, x.date || x.at, "Knowledge Check", `${dayLabel(d)} · attempt ${i + 1}${x.passed ? " · passed" : ""}`, x.score));
+      else if(typeof p.score === "number") push(r, p.date || p.at, "Knowledge Check", dayLabel(d), p.score); });
+    // documents filed into the CMS case (js/cm-doc-filing.js): first time right is 100%, then 100% ÷ the attempts
+    Object.entries(data["doc-filing"] || {}).forEach(([id, x]) => { if(!x || !x.attempts) return;
+      push(r, x.at || x.lastAt, x.filed ? "Document filed in the CMS" : "Document refused by the CMS", `${x.name || id}${x.category ? " · " + x.category : ""} · ${x.attempts} attempt${x.attempts === 1 ? "" : "s"}`, x.filed ? Math.round(100 / x.attempts) : 0); });
+    // the Backup Drive: Day 1's folders and each day's Backup File Maintenance (js/cm-drive.js)
+    const ds = data["drive-setup"]; if(ds && typeof ds.score === "number") push(r, ds.at, "Backup Drive set up", `the firm's folders · attempt ${ds.attempts || 1}`, ds.score);
+    Object.entries(data["drive-grades"] || {}).forEach(([n, g]) => { if(g && typeof g.score === "number") push(r, g.at, "Backup File Maintenance", `Case Flow Day ${n}${g.passed ? " · passed" : ""}`, g.score); });
+    // feedback a trainer sent (its rubric score when it has one)
+    Object.entries(((extraOf(r) || {}).fb) || {}).forEach(([dayId, f]) => { if(!f || f.status !== "sent" || (f.auto && !f.editedByTrainer)) return;
+      const d = days().find(x => String(x.id) === String(dayId)), rb = window.cmRubric && cmRubric.counts && cmRubric.counts(f) ? cmRubric.total(f.rubric) : null;
+      push(r, f.sentAt, "Trainer feedback sent", `${d ? dayLabel(d) : "Day " + dayId}${f.rating ? " · " + f.rating : ""}`, rb); });
     (data["work-log"] || []).forEach(w => { if(!w || w.kind === "quiz") return;
       push(r, w.at, w.kind === "lab" ? "Skill Activity" : w.kind === "roleplay" ? "Call practice" : w.kind === "task" ? "Random task" : "Practice", w.label, typeof w.score === "number" ? w.score : null); });
     const tname = t => clip(typeof t.task === "string" ? t.task : (t.task && (t.task.title || t.task.name)) || "", 120);
@@ -208,7 +221,7 @@ function recentTable(ppl){
     const lv = data["last-view"]; if(lv && lv.at) push(r, lv.at, "Opened", lv.view === "day" ? `Day ${lv.dayId}` : lv.view === "tool" ? `Skill Builder ${lv.toolId || ""}` : String(lv.view || ""));
   });
   out.sort((a, b) => b.at - a.at);
-  return {id: "recent", title: "🕒 Recent progress", note: `Everything they did${B.recent ? ` in the last ${B.recent} days` : ""}, newest first.`,
+  return {id: "recent", title: "🕒 Recent progress", note: `Everything they did${B.recent ? ` in the last ${B.recent} days` : ""}, newest first: Knowledge Check attempts, Skill Activities and calls, documents filed in the CMS, the Backup Drive, random tasks and the feedback sent, each with its score.`,
     head: ["When", "Trainee", "What", "Detail", "Score"],
     rows: out.slice(0, 300).map(x => [{v: dTime(x.at), f: x.at.toLocaleString(), cls: ""}, {v: nameOf(x.r), f: nameOf(x.r), cls: "gs-name"}, {v: x.what, f: x.what}, {v: x.detail, f: x.detail, cls: "gs-txt"}, {v: pct(x.score), f: pct(x.score), cls: "gs-num " + tone(x.score)}]),
     empty: "Nothing in this period."};
@@ -283,12 +296,13 @@ const dayAvg = xs => avgOf(xs.map(x => x.pct));
 
 // 🏅 Score Card: a group of columns per day
 const SC_COLS = [["kc", "✍️ Knowledge Check"], ["lc", "🧩 Learning Checks"], ["tk", "📝 Takeaways"], ["sa,call", "🧪 Activities & calls"], ["rt", "🎲 Random tasks"], ["bd", "📂 Backup Drive"], ["cmsf", "🗂 CMS file"], ["fb", "📐 Trainer rubric"]];
-function scoreCardTable(ppl){
-  const L = cfDaysL(), P = SC_COLS.map(c => c[1]).concat(["Average", "💬 Remarks"]);
-  return {id: "scorecard", title: "🏅 Score Card", note: "Each trainee's scores, day by day: the Knowledge Check, the Learning Checks, the Takeaways, the graded Skill Activities and calls, the random tasks and the Backup Drive, the day's Average, and the trainer's remarks. Hover a cell for how it was worked out. Blank: nothing scored yet.",
+function scoreCardTable(ppl, day){
+  // (one day at a time on the page, the trainer picks it: a table of every day side by side scrolled sideways; ⬇ Download has each day)
+  const ALL = cfDaysL(), L = day ? [day] : ALL, P = SC_COLS.map(c => c[1]).concat(["Average", "💬 Remarks"]);
+  return {id: day ? "scorecard-d" + day.id : "scorecard", title: day ? `🏅 Score Card · ${dayLabel(day)}` : "🏅 Score Card", note: "Each trainee's scores, day by day: the Knowledge Check, the Learning Checks, the Takeaways, the graded Skill Activities and calls, the random tasks and the Backup Drive, the day's Average, and the trainer's remarks. Hover a cell for how it was worked out. Blank: nothing scored yet.",
     groups: [{label: "", span: 2}].concat(L.map(d => ({label: `${dayLabel(d)} · ${String(d.title).replace(/^Case Flow Day \d+ · /, "")}`, span: P.length}))),
     head: ["Trainee", "Overall"].concat(...L.map(() => P)),
-    rows: ppl.map(r => { const S = L.map(d => dayParts(r, d)), avgs = S.map(dayAvg), all = avgOf(avgs);
+    rows: ppl.map(r => { const SA = ALL.map(d => dayParts(r, d)), all = avgOf(SA.map(dayAvg)), S = L.map(d => SA[ALL.indexOf(d)]), avgs = S.map(dayAvg);
       return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, {v: pct(all), f: all == null ? "Nothing scored yet" : `The average of the days' averages = ${all}%`, cls: "gs-num gs-calc gs-bold " + tone(all)}]
         .concat(...S.map((xs, i) => { const nm = dayLabel(L[i]), f = fbOf(r, L[i]);
           return SC_COLS.map(([g, l]) => { const gs = g.split(","), its = xs.filter(x => gs.includes(x.grp) && x.pct != null), a = avgOf(its.map(x => x.pct));
@@ -298,9 +312,16 @@ function scoreCardTable(ppl){
     })};
 }
 // 📅 Day by Day: a column per day (the average of its scored deliverables)
+// the Score Card's day picker: Day 1 … Day 5 (the latest day anyone has a score on opens first)
+function scoreCardHtml(ppl){
+  const ALL = cfDaysL(); if(!ALL.length) return "";
+  const scored = ALL.filter(d => ppl.some(r => dayAvg(dayParts(r, d)) != null));
+  const cur = ALL.find(d => d.id === B.scDay) || scored[scored.length - 1] || ALL[0];
+  return `<div class="bs-sys bs-scday"><div class="bs-view">${ALL.map(d => `<button class="${d === cur ? "on" : ""}" onclick="cmBatchSheet.scDay(${d.id})">${dayLabel(d)} · ${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</button>`).join("")}</div></div>` + sheetHtml(scoreCardTable(ppl, cur));
+}
 function dayTable(ppl){
   const L = cfDaysL();
-  return {id: "days", title: "📅 Day by Day", note: "Each trainee's score for each Case Flow day: the average of the day's scored deliverables. A day with work but nothing scored yet shows how many are done. Hover a cell for each deliverable; pick a trainee under the table for every deliverable's score, why, what they did best and what to improve.",
+  return {id: "days", title: "📅 Day by Day", note: "Each trainee's score for each Case Flow day: the average of the day's scored deliverables. A day with work but nothing scored yet shows how many are done. Hover a cell for each deliverable; click a trainee to open their score card just below, with every deliverable's score, why, what they did best and what to improve.",
     head: ["Trainee", "Average"].concat(L.map(d => `${dayLabel(d)}. ${String(d.title).replace(/^Case Flow Day \d+ · /, "")}`)),
     rows: ppl.map(r => { const per = L.map(d => dayParts(r, d)), avgs = per.map(dayAvg), a = avgOf(avgs);
       return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, {v: pct(a), f: a == null ? "Nothing scored yet" : `The average of the days = ${a}%`, cls: "gs-num gs-calc gs-bold " + tone(a)}]
@@ -311,14 +332,17 @@ function dayTable(ppl){
 }
 function dayDetailHtml(ppl){
   if(!ppl.length) return "";
-  const id = ppl.some(r => r.id === B.ds) ? B.ds : ppl[0].id, r = ppl.find(x => x.id === id);
   const li = (h, xs, cls) => xs.length ? `<div class="bs-ctx ${cls}"><b>${h}</b><ul>${xs.map(x => `<li>${E(x)}</li>`).join("")}</ul></div>` : "";
-  return `<section class="bs-sec bs-ds" id="bs-dsdetail"><h3 class="bs-h">🔎 Detailed scores <label class="bs-ck-who">for <select onchange="cmBatchSheet.dsWho(this.value)">${ppl.map(x => `<option value="${E(x.id)}" ${x.id === id ? "selected" : ""}>${E(nameOf(x))}</option>`).join("")}</select></label></h3>
-    <div class="bs-ds-days">${cfDaysL().map(d => { const xs = dayParts(r, d), a = dayAvg(xs), open = B.dsOpen[d.id] != null ? B.dsOpen[d.id] : a != null;
-      return `<details class="bs-ds-day" data-day="${d.id}"${open ? " open" : ""} ontoggle="cmBatchSheet.dsOpen(${d.id}, this.open)"><summary><b>${dayLabel(d)}</b> <span>${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</span><em class="${tone(a)}">${a != null ? a + "%" : `${xs.filter(x => x.pct != null || /Passed|Sent|Resolved/.test(x.status)).length}/${xs.length} done`}</em></summary>
-        ${xs.map(x => { const rich = x.pct != null || x.best.length || x.improve.length;
-          return `<div class="bs-ds-it"><div class="bs-ds-h"><span>${E(x.name)}</span><small>${E(x.status || "")}</small><b class="${x.pct != null ? tone(x.pct) : ratingTone(x.grp === "fb" ? x.status : "")}">${x.pct != null ? x.pct + "%" : "—"}</b></div>
-            ${rich || x.why ? `<div class="bs-ctx bs-why"><b>🧾 Why this score</b><p>${E(x.why || "—")}</p></div>` : ""}${li("⭐ What they did best", x.best, "bs-best")}${li("🔧 What needs to be improved", x.improve, "bs-imp")}</div>`; }).join("")}</details>`; }).join("")}</div></section>`;
+  // 🔎 a card per trainee (each trainee's own score card, apart from the others), its days inside; the one picked in 📅 Day by Day opens
+  return `<section class="bs-sec bs-ds" id="bs-dsdetail"><h3 class="bs-h">🔎 Each trainee's score card <span>${ppl.length} trainee${ppl.length === 1 ? "" : "s"}</span></h3>
+    <p class="bs-note">One card per trainee: each Case Flow day's graded items with why each was scored that way, what they did best and what needs to be improved. Click a trainee's row in 📅 Day by Day to open their card.</p>
+    ${ppl.map(r => { const per = cfDaysL().map(d => dayParts(r, d)), all = avgOf(per.map(dayAvg)), tOpen = B.trOpen[r.id] != null ? B.trOpen[r.id] : B.ds === r.id;
+      return `<details class="bs-ds-tr" id="bs-ds-${E(r.id)}"${tOpen ? " open" : ""} ontoggle="cmBatchSheet.trOpen('${E(r.id)}', this.open)"><summary><b>${E(nameOf(r))}</b><span>${E(labelOf(keyOf(r)))}</span><em class="${tone(all)}">${all != null ? "Overall " + all + "%" : "Nothing scored yet"}</em></summary>
+      <div class="bs-ds-days">${cfDaysL().map((d, i) => { const xs = per[i], a = dayAvg(xs), k = r.id + "|" + d.id, open = B.dsOpen[k] != null ? B.dsOpen[k] : a != null;
+        return `<details class="bs-ds-day"${open ? " open" : ""} ontoggle="cmBatchSheet.dsOpen('${E(k)}', this.open)"><summary><b>${dayLabel(d)}</b> <span>${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</span><em class="${tone(a)}">${a != null ? a + "%" : `${xs.filter(x => x.pct != null || /Passed|Sent|Resolved/.test(x.status)).length}/${xs.length} done`}</em></summary>
+          ${xs.map(x => { const rich = x.pct != null || x.best.length || x.improve.length;
+            return `<div class="bs-ds-it"><div class="bs-ds-h"><span>${E(x.name)}</span><small>${E(x.status || "")}</small><b class="${x.pct != null ? tone(x.pct) : ratingTone(x.grp === "fb" ? x.status : "")}">${x.pct != null ? x.pct + "%" : "—"}</b></div>
+              ${rich || x.why ? `<div class="bs-ctx bs-why"><b>🧾 Why this score</b><p>${E(x.why || "—")}</p></div>` : ""}${li("⭐ What they did best", x.best, "bs-best")}${li("🔧 What needs to be improved", x.improve, "bs-imp")}</div>`; }).join("")}</details>`; }).join("")}</div></details>`; }).join("")}</section>`;
 }
 
 /* ============================================================
@@ -386,9 +410,9 @@ function tablesHtml(){
   const ppl = people();
   if(!ready(ppl)) return `<p class="bs-none scx-pad">Reading the batch's progress…</p>`;
   const sc = scoresTable(ppl), picked = sc.rowsRaw.find(x => x.r.id === B.pick), S = (window.cmScorecard && cmScorecard.sources) || [];
-  const head = [scoreCardTable(ppl), dayTable(ppl)], tail = [lessonsTable(ppl), recentTable(ppl)];
-  LAST = head.concat([sc], S.map(s => systemTable(ppl, s)), tail);
-  return head.map(sheetHtml).join("") + dayDetailHtml(ppl) + sheetHtml(sc) + (picked ? sheetHtml(detailTable(picked)) : "") + systemsHtml(ppl) + tail.map(sheetHtml).join("");
+  const days5 = cfDaysL().map(d => scoreCardTable(ppl, d)), dt = dayTable(ppl), tail = [lessonsTable(ppl), recentTable(ppl)];
+  LAST = days5.concat([dt, sc], S.map(s => systemTable(ppl, s)), tail);
+  return scoreCardHtml(ppl) + sheetHtml(sc) + (picked ? sheetHtml(detailTable(picked)) : "") + systemsHtml(ppl) + tail.map(sheetHtml).join("") + sheetHtml(dt) + dayDetailHtml(ppl);
 }
 function bannerHtml(){
   const keys = Array.from(new Set((state.adminData || []).filter(r => !r.rejected).map(keyOf))).sort((a, b) => typeof NO_BATCH !== "undefined" && a === NO_BATCH ? 1 : typeof NO_BATCH !== "undefined" && b === NO_BATCH ? -1 : a.localeCompare(b, undefined, {numeric: true}));
@@ -416,8 +440,10 @@ function csv(){
 }
 window.cmBatchSheet = {
   batch(v){ B.pick = ""; if(typeof setAdminBatchFilter === "function") setAdminBatchFilter(v); else { state.adminBatchFilter = v; render(); } },
-  dsWho(id){ B.ds = id; B.dsOpen = {}; repaint(); setTimeout(() => { const d = document.getElementById("bs-dsdetail"); if(d) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
-  dsOpen(d, open){ B.dsOpen[d] = open; },
+  dsWho(id){ B.ds = id; B.trOpen[id] = true; repaint(); setTimeout(() => { const d = document.getElementById("bs-ds-" + id); if(d) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
+  dsOpen(k, open){ B.dsOpen[k] = open; },
+  trOpen(id, open){ B.trOpen[id] = open; },
+  scDay(id){ B.scDay = id; repaint(); },
   sys(id){ B.sys = id; repaint(); setTimeout(() => { const d = document.getElementById("bs-systems"); if(d) d.scrollIntoView({block: "start"}); }, 30); },
   // 👥 duplicate accounts: drawn on 🛡 Admin Master Control → 👥 Trainee Audit (js/cm-audit-table.js), not on the sheet
   dupHtml, dupKeep(key, id){ B.dupKeep = B.dupKeep || {}; B.dupKeep[key] = id; redraw(); },
@@ -510,6 +536,10 @@ button.bs-wait-pill{cursor:pointer;font:800 14px Arial,sans-serif;border:1px sol
 .bs-view button.on{background:#1E2340;color:#fff;border-color:#1E2340;}
 .bs-ds{padding:14px;} .bs-ck-who{font:700 15px Arial,sans-serif;margin-left:8px;} .bs-ck-who select{font:700 15px Arial,sans-serif;padding:4px 8px;border:1px solid #9AA3B5;border-radius:6px;}
 .bs-ds-days{display:flex;flex-direction:column;gap:8px;margin-top:8px;}
+.bs-ds-tr{border:2px solid #1E2340;border-radius:12px;background:#F7F8FB;margin-top:12px;} .bs-ds-tr > summary{cursor:pointer;padding:12px 16px;display:flex;gap:12px;align-items:center;font:800 17px Arial,sans-serif;color:#1E2340;}
+.bs-ds-tr > summary span{flex:1;font-weight:700;font-size:14.5px;color:#5F6368;} .bs-ds-tr > summary em{font-style:normal;font-weight:800;padding:3px 12px;border-radius:999px;background:#EEF0F6;}
+.bs-ds-tr > summary em.gs-hi{background:#E6F4EA;color:#0B5D1E;} .bs-ds-tr > summary em.gs-mid{background:#FFF4E0;color:#7A4B00;} .bs-ds-tr > summary em.gs-lo{background:#FDE8E8;color:#A50E0E;}
+.bs-ds-tr > .bs-ds-days{padding:0 12px 12px;}
 .bs-ds-day{border:1px solid #C9CEDD;border-radius:10px;background:#fff;} .bs-ds-day > summary{cursor:pointer;padding:10px 14px;display:flex;gap:10px;align-items:center;font:700 15px Arial,sans-serif;color:#141A2E;}
 .bs-ds-day > summary span{flex:1;color:#2E3450;} .bs-ds-day > summary em{font-style:normal;font-weight:800;padding:2px 10px;border-radius:999px;background:#EEF0F6;}
 .bs-ds-day > summary em.gs-hi{background:#E6F4EA;color:#0B5D1E;} .bs-ds-day > summary em.gs-mid{background:#FFF4E0;color:#7A4B00;} .bs-ds-day > summary em.gs-lo{background:#FDE8E8;color:#A50E0E;}
