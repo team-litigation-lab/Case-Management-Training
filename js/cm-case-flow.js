@@ -5675,7 +5675,12 @@ document.head.appendChild(st);
 .cfx .cfx-points li{font-weight:600;}
 .cfx .cfx-dd li{font-size:21px;font-weight:600;}
 .cfx .cfx-dd h3{font-size:24px;}
-.cfx .cfx-fw-list span, .cfx .cfx-fw-tbl td{font-size:18px;font-weight:600;color:#141A2E;}
+.cfx .cfx-fw-list span{font-size:18px;font-weight:600;color:#141A2E;}
+/* the framework tables (The Structured Intake Questions and the like): big, bold type, as on the cards */
+.cfx .cfx-fw-tbl td{font-size:21px;font-weight:700;line-height:1.35;color:#141A2E;padding:12px 18px;}
+.cfx .cfx-fw-tbl tbody th{font-size:21px;font-weight:800;padding:12px 18px;}
+.cfx .cfx-fw-tbl thead th{font-size:16px;padding:11px 18px;}
+.cfx .cfx-fw-note{font-size:18px;font-weight:700;color:#2E3450;}
 .cfx .cfx-fw-list b{font-size:18.5px;font-weight:800;color:#1E2340;}
 /* the flow (The General Process and every step-by-step track): big, bold type, and the step number white on its navy
    badge (it is a span too, so it used to take the description's near-black and vanish into the badge) */

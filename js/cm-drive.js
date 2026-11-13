@@ -57,7 +57,11 @@ const ownScreen = ()=> signedTrainee() && !(typeof PV_IS_AUDIENCE !== "undefined
 
 /* ---------- the server ---------- */
 async function api(body){
-  const r = await fetch("/api/drive", {method:"POST", headers:Object.assign({"Content-Type":"application/json"}, typeof authHeaders === "function" ? authHeaders() : {}), body:JSON.stringify(body || {action:"status"})});
+  const ctl = typeof AbortController === "function" ? new AbortController() : null, tm = ctl && setTimeout(()=>ctl.abort(), 20000);
+  let r;
+  try{ r = await fetch("/api/drive", {method:"POST", signal: ctl ? ctl.signal : undefined, headers:Object.assign({"Content-Type":"application/json"}, typeof authHeaders === "function" ? authHeaders() : {}), body:JSON.stringify(body || {action:"status"})}); }
+  catch(e){ throw new Error(e && e.name === "AbortError" ? "Your Backup Drive didn't answer in time. Try again." : "Your Backup Drive couldn't be reached. Check your connection, then try again."); }
+  finally{ if(tm) clearTimeout(tm); }
   let j = {}; try{ j = await r.json(); }catch(e){}
   if(!r.ok){
     const e = new Error(j.error || `The Backup Drive request failed (${r.status}).`);
@@ -136,7 +140,7 @@ function steps(){
 function slot(){ return `<div id="drvCardSlot">${card()}</div>`; }
 
 /* ---------- the panel ---------- */
-function show(to){ open = true; if(!D) load(); if(!tree) tree = [{name:"", children:[]}]; paint(); if(to === "names") toNames(); }
+function show(to){ open = true; if(!D) load(settled); if(!tree) tree = [{name:"", children:[]}]; paint(); if(to === "names") toNames(); }
 /* 🏷 N names to fix ↓ : the panel is scrolled to the report of the names, which takes the keyboard too. */
 function toNames(){
   const el = document.querySelector("#cmDriveHost .drv-nr");
@@ -197,7 +201,9 @@ function paint(){
   if(!host){ host = document.createElement("div"); host.id = "cmDriveHost"; document.body.appendChild(host); }
   const n = D ? (D.standard || []).length : 0;
   let body;
-  if(!D) body = `<p class="drv-p">Checking your Backup Drive…</p>`;
+  if(!D && !signedTrainee()) body = `<p class="drv-p">Each trainee opens their own Backup Drive, signed in as themselves. A trainer sees every trainee's drive and grades in the 📋 Batch Sheet and the Trainee Audit.</p>`;
+  else if(!D && settled) body = `<p class="drv-p">Your Backup Drive couldn't be checked just now.</p><button type="button" class="drv-btn drv-go" onclick="CMDrive.retry()">↻ Try again</button>`;
+  else if(!D) body = `<p class="drv-p">Checking your Backup Drive…</p>`;
   else if(!D.configured) body = `<p class="drv-p">The Backup Drive isn't switched on for this site yet — a trainer sets it up once (README → 📂 The trainee's Backup Drive). Nothing else in the programme is blocked.</p>`;
   else if(!D.connected){
     preloadGis();
@@ -756,7 +762,7 @@ function namingReport(){
   </div>`;
 }
 
-window.CMDrive = {card, slot, show, close, connect, link, disconnect, submit, check, rebuild, saveFiled, slide, grade, dayOpened,
+window.CMDrive = {card, slot, show, close, retry(){ err = ""; settled = false; paint(); load(true); }, connect, link, disconnect, submit, check, rebuild, saveFiled, slide, grade, dayOpened,
   namingBox, namingReport, nameFor, copy, naming:rule, toNames, nameLines, wrongOf,
   name:setName, addSub, addTop, remove, move, status:()=>D, reload:()=>load(true)};
 
