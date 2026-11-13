@@ -1,22 +1,47 @@
 {
   "title": "Case Management Training — Day 1",
-  "deck": "Revised Case Management Training Day 1 (Canva, 54 pages)",
-  "voice": "en_US-lessac-high",
+  "deck": "Revised Case Management Training Day 1 (Canva, 50 pages, in two parts: 1-18 and 19-50)",
+  "voice": "en_US-lessac-high, converted to the trainer's own voice (revoice.py)",
   "day": 11,
   "lessons": {
     "d1m1-role": [1, 2, 3, 4, 5, 6, 17],
-    "d1m1-l1": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20],
-    "d1m4-l1": [21, 22, 23, 24, 25, 26, 27, 28],
-    "d1m4-tplan": [29, 30, 31, 32, 33, 36, 37, 38],
-    "d1m4-tmap": [39, 40, 41, 42, 43, 44, 45, 46, 50, 51],
-    "d1m4-tcare": [34, 35, 47, 48, 49, 52, 53]
+    "d1m1-l1": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, "sb-1", "sb-2"],
+    "d1m4-l1": [19, 20, 21, 22, 23, 24, 25, 26],
+    "d1m4-tplan": [27, 28, 29, 30, 31, 34, 35, 36],
+    "d1m4-tmap": [37, 38, 39, 40, 41, 42, 43, 44, 48, 49],
+    "d1m4-tcare": [32, 33, 45, 46, 47, "sb-3", "sb-4"]
   },
   "video": {
     "src": "/decks/day1/day1-narrated.mp4",
     "captions": "/decks/day1/day1-narrated.vtt",
-    "skip": [19, 20, 52, 53],
-    "starts": [0.0, 26.1, 52.4, 87.0, 122.6, 155.4, 186.9, 228.2, 276.0, 313.1, 340.7, 372.8, 393.7, 414.9, 437.1, 455.9, 480.0, 561.9, 582.2, 625.6, 667.2, 724.7, 773.3, 832.0, 863.2, 903.2, 926.9, 967.4, 1019.2, 1062.9, 1112.1, 1165.1, 1225.6, 1282.9, 1318.5, 1352.7, 1388.6, 1423.8, 1482.4, 1514.2, 1558.7, 1595.4, 1632.9, 1691.0, 1746.7, 1795.6, 1826.7, 1873.0, 1904.2, 1938.6]
+    "starts": [0.0, 26.1, 47.2, 81.8, 116.6, 150.0, 181.4, 222.9, 270.4, 307.6, 334.9, 367.0, 387.7, 408.3, 430.6, 449.3, 473.8, 555.7, 576.1, 619.6, 660.6, 718.2, 767.1, 826.2, 857.4, 897.8, 921.3, 962.2, 1014.3, 1057.4, 1107.4, 1160.4, 1220.5, 1277.1, 1312.9, 1347.3, 1383.4, 1418.2, 1476.4, 1508.1, 1552.7, 1589.4, 1627.0, 1685.0, 1740.7, 1789.7, 1820.8, 1867.0, 1898.2, 1932.7]
   },
+  "skillPages": [
+    {
+      "id": "sb-1",
+      "title": "Skill Building: Intake Decision Challenge",
+      "notes": "Time for your first skill-building exercise: the Intake Decision Challenge. A new potential client, John Doe, submits an inquiry about a case against Apex Delivery Services. Your task is to complete the intake evaluation and decide whether the case should be accepted, escalated, or declined. Accepted means it moves to case opening. Escalated means it goes to an attorney or senior reviewer. Declined means it fails on eligibility or risk factors. Whichever you choose, clearly document the reason for your decision, and communicate the next steps to the intake team or the client.",
+      "from": "the original 54-page deck, page 19"
+    },
+    {
+      "id": "sb-2",
+      "title": "Skill Building: Applied Case Manager Actions",
+      "notes": "Now apply what you learned about bottlenecks. Identify where intake is breaking down on the file, and what actions will move it forward. Work through four steps. First, identify the areas where intake has slowed. Second, conduct a root cause analysis: why did it slow down? Third, implement immediate actions to get the file moving. And fourth, put a fix in place to prevent it from happening again.",
+      "from": "the original 54-page deck, page 20"
+    },
+    {
+      "id": "sb-3",
+      "title": "Skill Building: The Eggshell Plaintiff",
+      "notes": "Skill-building: John Doe versus Apex Delivery Services, with Aggressive Casualty as the carrier. Intake has surfaced a critical complication: the eggshell plaintiff narrative, against a prior lumbar strain from 2018. The carrier has seen the 2018 record. It is stalling the MRI for the L4-L5 protrusion in your intake, claiming it is a pre-existing degenerative condition, not caused by the collision with the Apex truck. Your objective is to support proving aggravation. Under US law, an eggshell plaintiff is entitled to full recovery for the increase in disability, even if they were more vulnerable to injury than a healthy person. Think about how you would document the client's baseline and the change since the accident, and what you would escalate to the attorney.",
+      "from": "the original 54-page deck, page 52"
+    },
+    {
+      "id": "sb-4",
+      "title": "Skill Building: The Transportation Wall",
+      "notes": "Our final exercise is a flash simulation: the transportation wall. John is in a 12-week intensive chiropractic program, and he has been doing great for four weeks. Then he calls you. His car's transmission just died. He says: I can't get to the clinic anymore. It's a 45-minute drive. I might as well quit the program and try again next year when I have money saved. Your task: decide how you will handle this common treatment-phase obstacle. Think about treatment gaps, warm handoffs, and the barriers we discussed today. Then create a case file in the training interface, and update it with your plan.",
+      "from": "the original 54-page deck, page 53"
+    }
+  ],
   "say": {
     "PIP/MedPay": "P I P or Med Pay",
     "PIP": "P I P",
@@ -165,181 +190,161 @@
     },
     {
       "page": 19,
-      "title": "Skill Building: Intake Decision Challenge",
-      "notes": "Time for your first skill-building exercise: the Intake Decision Challenge. A new potential client, John Doe, submits an inquiry about a case against Apex Delivery Services. Your task is to complete the intake evaluation and decide whether the case should be accepted, escalated, or declined. Accepted means it moves to case opening. Escalated means it goes to an attorney or senior reviewer. Declined means it fails on eligibility or risk factors. Whichever you choose, clearly document the reason for your decision, and communicate the next steps to the intake team or the client."
-    },
-    {
-      "page": 20,
-      "title": "Skill Building: Applied Case Manager Actions",
-      "notes": "Now apply what you learned about bottlenecks. Identify where intake is breaking down on the file, and what actions will move it forward. Work through four steps. First, identify the areas where intake has slowed. Second, conduct a root cause analysis: why did it slow down? Third, implement immediate actions to get the file moving. And fourth, put a fix in place to prevent it from happening again."
-    },
-    {
-      "page": 21,
       "title": "Claim Set Up: Coverage and Liability",
       "notes": "Next, we move into claim set up, the early evaluation phase. It starts with two questions. Coverage determination is the process of identifying which insurance policies apply to a claim, and what benefits, limits, and exclusions exist. Ask: is there valid insurance coverage? What type of coverage applies? What are the policy limits? And are there exclusions or coverage gaps? Liability assessment determines who is legally responsible for the incident, and to what degree. Ask: who caused the incident? Is liability clear, shared, or disputed? What evidence supports fault? And are there comparative negligence factors?"
     },
     {
-      "page": 22,
+      "page": 20,
       "title": "Case Projection",
       "notes": "The third piece is case projection: the early estimate of a case's value, risk, and outcome trajectory. It is based on coverage availability, liability strength, injury severity, treatment expectations, and documentation quality. These three pieces work together, and you cannot project a case accurately without all of them. Coverage asks: is there money to pay the claim? Liability asks: who is responsible? And projection asks: what is this case likely worth, and how will it move? Remember that the case's value is the attorney's call. Your projection is support for that decision, not a promise to the client."
     },
     {
-      "page": 23,
+      "page": 21,
       "title": "Case Example: Coverage Analysis",
       "notes": "Let's apply this to our case, John Doe versus Apex. The snapshot: our client is John Doe. The defendant is Apex, a commercial trucking company. The incident is a rear-end motor vehicle collision involving a commercial vehicle, during a highway traffic slowdown, and the date of loss is pending verification. Now the coverage sources. Apex's commercial auto liability is assumed active, and it is the primary source. The employer umbrella is unknown and must be verified. The client's PIP and MedPay require insurance details from the client. And UM/UIM coverage is pending, depending on the Apex policy. Because Apex is a commercial carrier, substantial liability coverage is likely, with limits higher than a standard auto policy. The insight: coverage looks strong on the defendant's side, but it must be confirmed before the projection can be finalized."
     },
     {
-      "page": 24,
+      "page": 22,
       "title": "Case Example: Liability Determination",
       "notes": "Now liability. The fact pattern: a rear-end collision with a commercial vehicle, in a traffic slowdown. Our client was struck from behind. The defendant may have been following too closely, or failed to brake. And there is no police report yet. Rear-end collisions involving commercial vehicles generally create a strong presumption of negligence. The Apex driver may be liable for negligent operation and failure to keep a safe distance, and Apex itself may carry vicarious liability as the employer. But note the risk: liability is strong, not final. It still needs confirmation from the police report, the driver's statement, and dashcam or other evidence. So, liability is likely favorable, but still in the pre-confirmation stage."
     },
     {
-      "page": 25,
+      "page": 23,
       "title": "Case Planning Framework: Regulatory Triple-Check",
       "notes": "Before clinical planning begins, you must clear the Regulatory Triple-Check, so the claim is properly established and you are authorized to act. One, HIPAA compliance: obtain a claim-specific authorization to release medical information. A standard release may not be enough for a personal injury case; it should name the incident date and allow communication with legal and insurance parties. Two, Medicare and Medicaid reporting: if the client is 65+ or on SSDI, report the case to the Benefits Coordination and Recovery Center, the BCRC, to avoid severe federal penalties and possible settlement freezes. This duty comes from the MMSEA, the Medicare, Medicaid, and SCHIP Extension Act of 2007. Three, subrogation management: determine the payer order. Typically that is PIP or MedPay first, then private health insurance, then Letter of Protection and provider liens."
     },
     {
-      "page": 26,
+      "page": 24,
       "title": "The Three-Pillar Case Plan",
       "notes": "Once the claim is set up, the case plan must be filed, often within 30–60 days, depending on the state. Structure it in three pillars. Clinical: the acute interventions, such as physical therapy and specialty consults. Functional: activities of daily living, and the client's return to work status. And subrogation management, which is the payer order we just covered: PIP or MedPay, then private health insurance, then LOP and provider liens."
     },
     {
-      "page": 27,
+      "page": 25,
       "title": "Mandatory Disclosure & Compliance Tracking",
       "notes": "US Case Managers have a duty to keep a clean file, because the file is discoverable in litigation. Three things to track. Electronic record integrity: make sure your case management system is SOC2 compliant and keeps an unalterable audit trail. State-specific timelines: in no-fault states like New York or Florida, the framework must include a timeline for independent medical examinations, which the carrier will require early in the set-up. And Letter of Protection management: if the client is uninsured, the plan must track every provider working under an LOP, to avoid surprise medical bills that exceed the policy limits."
     },
     {
-      "page": 28,
+      "page": 26,
       "title": "The Golden Rule of US Claim Set-Up",
       "notes": "Here is the golden rule of claim set-up: coordinate, don't commingle. Treat the medical plan and the legal claim as two parallel tracks that never cross-contaminate. Never offer legal opinions in medical notes. Defense counsel often uses those notes to attack the Case Manager's neutrality. Keep your file clean, because everything in it can be discovered."
     },
     {
-      "page": 29,
+      "page": 27,
       "title": "The Treatment Phase: Core Objectives",
       "notes": "Now we reach the Treatment Phase. Here your focus shifts from: what does the client need? to: is the plan working? Your role rests on three pillars. Facilitation: making sure the client can actually access services, which means transportation, paperwork, and scheduling. Coordination: making sure the therapist, the doctor, and the social worker are not working at cross-purposes. And advocacy: stepping in when a client is denied service or hits a bureaucratic wall. This phase is the engine room of case management, where set goals are achieved, and you must balance support, monitoring, and problem-solving."
     },
     {
-      "page": 30,
+      "page": 28,
       "title": "Key Responsibilities & Skills",
       "notes": "Your key responsibilities in treatment come in three parts. Monitoring progress: you are not just checking boxes; you are evaluating clinical and functional outcomes. At check-ins, ask specific questions about the plan, like whether the client attended therapy, not just: how are you? And document using GIRP or SOAP notes to track changes and milestones. Identifying barriers: treatment rarely goes perfectly, so be a barrier detective. Internal barriers include motivation, relapse, and mental health symptoms. External barriers include housing loss, childcare shortages, and insurance lapses. And crisis intervention: if a client faces a crisis, such as an eviction or a medical emergency, pause or adjust the treatment plan to deal with the immediate issue first."
     },
     {
-      "page": 31,
+      "page": 29,
       "title": "Essential Client Communication Strategies",
       "notes": "Three communication strategies keep clients on track. Motivational interviewing helps clients stay committed once the newness of treatment wears off. Boundaries prevent burnout, and keep the focus on the client's self-sufficiency. And active listening makes sure the client feels heard, and reduces misunderstandings with providers. Remember, the Treatment Phase is not linear. It is a cycle. Regularly assess the client's response, evaluate how well the plan is working, and adjust the intervention. If a client isn't reaching their goals, the cause is usually the plan, not the person. Modifying the plan is proactive management, not a mistake in your first evaluation."
     },
     {
-      "page": 32,
+      "page": 30,
       "title": "Handling the Treatment Phase: Documentation",
       "notes": "Your notes are the legal and professional record of treatment success. Structure them with the GIRP format. Goal: what part of the treatment plan are we addressing today? Intervention: what did you do? Response: how did the client react? And Plan: what is the next step before the next meeting? At the midpoint of treatment, many clients plateau, as the early excitement fades and the hard work begins. That is where motivational interviewing helps. Develop discrepancy: help the client see the gap between their current behavior and their long-term goals. Roll with resistance: if a client refuses a service, don't argue. Pivot, and explore why. And use OARS: open-ended questions, affirmations, reflective listening, and summaries."
     },
     {
-      "page": 33,
+      "page": 31,
       "title": "Handling the Treatment Phase: Coordination & Boundaries",
       "notes": "You are the hub of the wheel, and the key skill here is the warm handoff. Instead of handing a client a phone number, a high-skill Case Manager says: I know someone at that office; let's call them together right now and schedule your appointment. That reduces the referral leak, where clients drop out of treatment during transitions. Next, manage boundaries. One of the biggest risks in this phase is mission creep: trying to solve every new problem, which dilutes the focus on the primary treatment goals. Prioritize, by asking whether a new issue must be solved to reach the primary goal. And empower: coach clients through problems instead of solving them yourself. The goal is to eventually make the Case Manager unnecessary. Pro tip: end every treatment-phase contact by asking: what is the one thing that might get in the way of reaching your goal this week?"
     },
     {
-      "page": 34,
+      "page": 32,
       "title": "Red Flags: Physical Therapy & Surgery",
       "notes": "You need to know the standard US treatment protocols, and their red flags. Physical therapy and conservative care are often the baseline of treatment in a legal case. Red flags here signal a stagnating case, or over-treatment for billing. Watch for more than 12 sessions with no improvement in range of motion or pain, with no referral to a specialist or imaging. Watch for passive sessions, like heat packs, TENS units, or massage, with no active exercise, which adjusters see as feel-good treatment. And watch for two or more missed appointments, which lets the defense argue the injury isn't severe. Surgery is the most valuable part of a claim, and its red flags involve safety and the standard of care: surgery recommended before therapy or injections, outside an emergency; left and right switched in the records; a client told to just wait on a fever or redness; and sharp or mechanical pain after surgery, which may signal a hardware problem."
     },
     {
-      "page": 35,
+      "page": 33,
       "title": "Red Flags: Pain Management & Behavioral Health",
       "notes": "Pain management and medication is the most scrutinized area, because of opioid regulations and medical necessity audits. Red flags: an opioid, a muscle relaxant, and a sedative prescribed together, which is a major safety risk and a liability if the client has an accident while medicated. A urine drug screen showing the client is not taking their prescribed medication, or is taking illicit substances. And dosages rising with no change in diagnosis, which suggests the treatment is failing, or an addiction is forming. Clients with traumatic brain injury are high-value cases that need great discretion. Red flags: memory loss never mentioned at the ER, but significant TBI symptoms three months later when the lawsuit starts, which needs immediate neurological validation. And behavioral health notes about general life stress rather than the trauma of the accident, which are rarely covered and look unreasonable."
     },
     {
-      "page": 36,
+      "page": 34,
       "title": "Case Planning: The Assessment Phase",
       "notes": "Before you can build a treatment plan, you need to understand the whole person, which means more than reviewing medical records. Assess four areas. Clinical evaluation: the client's physical, cognitive, and psychological impairments. Social determinants: housing, family support, and financial stability. Pre-morbid status: the client's baseline before the accident, so you can separate pre-existing conditions from accident-related injuries. And vocational and educational outlook: can the client return to their previous role, or do they need retraining?"
     },
     {
-      "page": 37,
+      "page": 35,
       "title": "SMART Goal Setting",
       "notes": "In a personal injury case, goals must be defensible and measurable, for clinicians and adjusters alike. Use SMART goals. Specific: not improve mobility, but walk 50 meters with a rolling walker. Measurable: use standardized scales, such as FIM scores, or the PHQ-9 for depression. Achievable: the goal is realistic for the prognosis. Relevant: it relates directly to the injuries in the claim. And time-bound: it has clear milestones, like by the 12-week review."
     },
     {
-      "page": 38,
+      "page": 36,
       "title": "The Care Coordination Strategy",
       "notes": "The care coordination strategy maps out the specific interventions the client needs. A standard framework groups them into four categories. Acute and restorative care: surgery, physiotherapy, and occupational therapy. Psychological support: counseling or cognitive behavioral therapy for PTSD, anxiety, or adjustment disorders. Durable medical equipment: sourcing wheelchairs, ramps, or assistive technology. And rehabilitation milestones: moving from inpatient to outpatient, or to home-based care."
     },
     {
-      "page": 39,
+      "page": 37,
       "title": "The Standard Treatment Map",
       "notes": "This is the Standard Treatment Map: the typical path of care in a personal injury case. It begins with emergency medical services and emergency room treatment, then MRI and radiology. From there, care continues through providers such as EMC, chiropractic care, physical therapy, and orthopedics, then pain management. Where needed, the path moves to surgery, post-operative care, and long-term pain management. Learn this map well. In the next slides, you will use it to spot when a client drifts off course."
     },
     {
-      "page": 40,
+      "page": 38,
       "title": "Treatment Road Map Mastery",
       "notes": "Mastering the treatment map is the difference between a Case Manager who observes a recovery and one who drives it. Deviations from the map are the main reason for insurance denials and independent medical exam triggers. The map has four phases. Acute, days 1–14: the ER, imaging, bracing, rest and ice, and initial therapy. Your focus is establishing causation and MedPay coverage. Sub-acute, weeks 2–8: active physical therapy two to three times a week, and specialist follow-up. Your focus is monitoring functional gains, like range of motion and weight-bearing. Restorative, months 2–6: work hardening, injections, and psychological adjustment. Your focus is identifying barriers to returning to work. And maintenance, six months and beyond: a home exercise program and as-needed visits. Your focus is determining maximum medical improvement, or MMI."
     },
     {
-      "page": 41,
+      "page": 39,
       "title": "Variance Analysis: Why the Map Fails",
       "notes": "When a client drifts off the map, you must diagnose why, before the insurer ends funding. There are three kinds of variance. Clinical variance: secondary complications, such as a back injury that develops nerve pain that was not in the original ER report. Psychosocial variance: yellow flags like fear-avoidance behavior, depression, or no transportation to therapy. And systemic variance: delays in insurance authorization for an MRI or a specialist referral."
     },
     {
-      "page": 42,
+      "page": 40,
       "title": "Communication Loops: The Stakeholder Triad",
       "notes": "You are the central router for information, and a breakdown in any of these three loops can stall a case for months. The clinical loop: make sure the physical therapist's notes line up with the orthopedist's orders. If therapy says ninety percent recovered and the orthopedist says total disability, the file has a documentation crisis. The legal loop, with the attorney: provide status reports that translate medical jargon into functional evidence. The attorney needs to know what the client can't do in daily life to calculate pain and suffering damages. And the financial loop, with the adjuster: send proactive updates before the six-week physician referral expires, to prevent gaps in treatment the defense could later call non-compliance."
     },
     {
-      "page": 43,
+      "page": 41,
       "title": "The Golden Standard: Reasonable and Necessary",
       "notes": "Under US law, in utilization review, every item in your monitoring framework must meet two criteria. Reasonable: is the treatment common for this mechanism of injury? And necessary: is there objective evidence, not just subjective pain, that the treatment is improving function? Then apply the red flag rule. If a client's Oswestry Disability Index score has not changed after 12 weeks of physical therapy, the map shows a plateau. A proactive Case Manager seeks a specialist or a second opinion, instead of continuing treatment that isn't working."
     },
     {
-      "page": 44,
+      "page": 42,
       "title": "Immediate Action Protocol: A-C-T",
       "notes": "When you spot a red flag, follow the A-C-T protocol. Assess: is this a medical danger, like a fever or hardware failure, or a legal danger, like gaps in care or generic notes? Clarify: call the provider's medical assistant and ask directly. For example: the client has had 15 therapy sessions with no progress; is the doctor considering an orthopedic referral? And Track: document the red flag and your attempt to fix it. If the attorney ever needs to drop a provider who is damaging the case, your documentation provides the reason why."
     },
     {
-      "page": 45,
+      "page": 43,
       "title": "Illustration: The Clinical Pathway Flowchart",
       "notes": "This flowchart puts the whole treatment map on one page. Phase one, acute, days 1 to 14: initial set-up, with ER or urgent care diagnostics, establishing causation and the mechanism of injury, and PIP or MedPay verification. Phase two, sub-acute, weeks 2 to 8: conservative care like therapy or chiropractic, and diagnostic imaging. Then the key question: is the patient improving? If yes, continue the treatment plan. If no, a variance is detected, and the variance loop begins: medication management or injections, a specialist referral, and psychological screening for yellow flags. Phase three, restorative: work hardening, a functional capacity evaluation, and the question of surgical intervention. And phase four, MMI and discharge: the permanent impairment rating, final lien resolution, and case settlement support."
     },
     {
-      "page": 46,
+      "page": 44,
       "title": "Using the Map for Course Correction",
       "notes": "Here is how to use the map for course correction. First, identify the plateau, using the six-week rule. Most adjusters look for a functional gap at the six-week mark. The map expects a 20–30% improvement in range of motion, or a drop in pain scores. If the client is still at 10/10 pain after 12 therapy sessions, pivot immediately. Don't wait for the adjuster to deny the next six sessions. Second, monitor with objective metrics, to keep the loop with the insurer tight. Use the Oswestry or DASH score to measure disability in daily activities, every 30 days. Use gait analysis for mobility and fall risk in lower-extremity injuries. Use the PHQ-9 and GAD-7 to screen for depression and anxiety when physical progress stalls. And use a functional capacity evaluation before a return to work, or at MMI."
     },
     {
-      "page": 47,
+      "page": 45,
       "title": "The Yellow Flag Warning System",
       "notes": "Watch for psychosocial barriers that derail the map. Catastrophizing: I will never walk again, despite minor clinical findings. Litigation stress: high conflict with the defense side slowing recovery. And iatrogenic factors: dependency on opioids, or too much passive care, like ice and heat, instead of active care like exercise. When you communicate with the attorney and the insurer, use the map to justify your plan. For example: the client is in phase two, sub-acute. We have noted a clinical variance: physical therapy has not reduced the radicular pain. Per the Standard Treatment Map, I am recommending an MRI and a neurosurgical consult to rule out surgical necessity before phase three. This keeps treatment reasonable and necessary."
     },
     {
-      "page": 48,
+      "page": 46,
       "title": "Handling Treatment Gaps",
       "notes": "Treatment gaps found during active care can weaken the credibility of the injury, delay recovery, create documentation inconsistencies, and reduce future settlement value. Intervening early prevents bigger problems in the demand phase. The common causes are: missed appointments, transportation problems, financial concerns or co-pays, work schedule conflicts, a client stopping treatment after temporary relief, and delays in referrals, imaging, or authorizations."
     },
     {
-      "page": 49,
+      "page": 47,
       "title": "Treatment Gaps: Case Manager Responsibilities",
       "notes": "Your responsibilities with treatment gaps: monitor treatment frequency and appointment compliance. Follow up immediately after a missed appointment. Educate the client on why consistent treatment matters. Help coordinate transportation, scheduling, or referrals. Communicate with providers about interruptions in care. And document every client explanation and every follow-up effort. As best practice, keep treatment timelines updated, track referrals and pending appointments, encourage clients to report worsening symptoms promptly, and escalate prolonged or unexplained gaps to supervising staff or the attorney. Consistent treatment documentation strengthens both the medical support and the future negotiating position."
     },
     {
-      "page": 50,
+      "page": 48,
       "title": "Bottlenecks: The Escalation Protocol",
       "notes": "When a bottleneck occurs, use the three-step escalation. Level one, clinical: contact the provider's office manager to expedite notes or a peer-to-peer review. Level two, administrative: send a notice of delay to the adjuster and the plaintiff's attorney, documenting the barrier to care. Level three, legal: ask the attorney to file a motion to compel, or to use a Letter of Protection to get past insurance stalling. That last decision always belongs to the attorney."
     },
     {
-      "page": 51,
+      "page": 49,
       "title": "Resolve: The Escalation Ladder",
       "notes": "When the treatment map hits a wall, move up the escalation ladder. Step A, the clinician: request a peer-to-peer review between the treating doctor and the insurer's medical director. Step B, the adjuster: send a status update that states plainly that the delay is increasing the total claim cost, by extending the period of temporary disability. Step C, the attorney: if step B fails, notify the attorney, who may issue a 30-day demand, or move the provider to a Letter of Protection basis to avoid the insurance authorization wait."
     },
     {
-      "page": 52,
-      "title": "Skill Building: The Eggshell Plaintiff",
-      "notes": "Skill-building: John Doe versus Apex Delivery Services, with Aggressive Casualty as the carrier. Intake has surfaced a critical complication: the eggshell plaintiff narrative, against a prior lumbar strain from 2018. The carrier has seen the 2018 record. It is stalling the MRI for the L4-L5 protrusion in your intake, claiming it is a pre-existing degenerative condition, not caused by the collision with the Apex truck. Your objective is to support proving aggravation. Under US law, an eggshell plaintiff is entitled to full recovery for the increase in disability, even if they were more vulnerable to injury than a healthy person. Think about how you would document the client's baseline and the change since the accident, and what you would escalate to the attorney."
-    },
-    {
-      "page": 53,
-      "title": "Skill Building: The Transportation Wall",
-      "notes": "Our final exercise is a flash simulation: the transportation wall. John is in a 12-week intensive chiropractic program, and he has been doing great for four weeks. Then he calls you. His car's transmission just died. He says: I can't get to the clinic anymore. It's a 45-minute drive. I might as well quit the program and try again next year when I have money saved. Your task: decide how you will handle this common treatment-phase obstacle. Think about treatment gaps, warm handoffs, and the barriers we discussed today. Then create a case file in the training interface, and update it with your plan."
-    },
-    {
-      "page": 54,
+      "page": 50,
       "title": "Thank You!",
       "notes": "That completes Day 1. Today you learned what a Case Manager owns, how to run a clean intake and acceptance decision, how to set up a claim, and how to keep the treatment phase on track. Thank you for your attention. Bring your questions to the next session."
     }

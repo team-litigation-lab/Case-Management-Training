@@ -4,11 +4,12 @@
 slide's notes while the slide is on screen. The MP4 also has captions (a subtitle track you can turn on) and one chapter
 per slide.
 
-- `day1.json`: the speaker notes for *Revised Case Management Training Day 1* (54 pages).
+- `day1.json`: the speaker notes for *Revised Case Management Training Day 1* (50 pages, exported from Canva in two
+  parts: join them with `pdfunite "Day 1_1.pdf" "Day 1_2.pdf" "Day 1.pdf"`).
   `day2.json`: the speaker notes for *Revised Case Management Training Day 2* (44 pages).
   Canva leaves notes out of a PDF export, so these notes were written from what each page says. They add no new
   facts. Edit a slide's `notes` and build again.
-- The Skill Building pages are not in the videos (Day 1 pages 19, 20, 52, 53; Day 2 pages 11, 12, 20, 32, 43): the
+- The Skill Building pages are not in the videos (the Day 1 deck no longer has them; Day 2 pages 11, 12, 20, 32, 43): the
   trainees work those in the room. A page with no entry in the notes file is left out of the video.
   `say` sets how the voice says a term (PIP → "P I P"). The captions keep the term as it is written.
 - The voice is [Piper](https://github.com/rhasspy/piper) `en_US-lessac-high`. It is free and runs offline, so nothing is
@@ -37,9 +38,9 @@ The deck and its video are embedded in the course from the same `dayN.json`:
   one slide, and its `notes` are the slide's script in 🖥 Presenter view. A lesson that isn't listed keeps its own slides.
   A lesson's pages show on the day the course teaches that lesson (the treatment lessons are on Case Flow Day 2).
 - `video` is the day's narrated video (`decks/dayN/dayN-narrated.mp4`, its captions, and the start time of each page in
-  it). `video.skip` lists the pages left out of the video (the Skill Building pages: they are worked in the platform,
-  where they stay as slides). make_video.py leaves them out and prints the new `video.starts`.
-  The day card shows ▶ Video once a trainer unlocks it (Admin → 🔓 Open Lessons → 🎬 Unlock Videos), 🔒 Video until then.
+  it). The day card shows ▶ Video once a trainer unlocks it (Admin → 🔓 Open Lessons → 🎬 Unlock Videos), 🔒 Video until then.
+- `skillPages`: Day 1's four Skill Building pages (from the original 54-page deck), kept apart from the deck: they are
+  slides in the platform (named `sb-1`…`sb-4` in `lessons`, images `decks/day1/sb-N.webp`) and are not in the video.
 - The page images are `decks/dayN/NN.webp` (1600×900). The video must stay under 25 MB to be served by the site.
 
 After changing `lessons`, the notes, or the video, run:
