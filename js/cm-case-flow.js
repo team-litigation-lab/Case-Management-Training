@@ -902,17 +902,20 @@ function slideBody(view, l, d){
       // (Days 2–5. Day 1's task has no room for the row at full size: it stays as it is, and its Your Case slide, the next one, carries the convention)
       const drv = DRIVE_LATER.has(b.id) && !!window.CMDrive && !!CMDrive.namingBox;
       const where = TOOLKIT.find(t => t.id === main), whereName = where ? where.name.replace(/^the /, "the ") : "the CMS";
+      // the lesson this activity practises: at the end of the Practice Lab line; on a Backup File Maintenance task, whose
+      // Practice Lab line carries the naming labels, under the steps instead (the left column has the room), so the line stays one row
+      const ofLine = practisesLine(l) ? `<b class="cfx-of" title="The lesson this activity practises: ${E(titleCase(l.cf.of.cf.block.title))}">${E(practisesLine(l))}</b>` : "";
       /* the busiest slides were shrunk to fit: the Practice Lab note is one line, and the things to do (the live call,
          the service confirmation) sit under the steps, so the two columns are about the same height; with both, the
          service confirmation goes to the right column */
-      return `${plainBox(b)}<div class="cfx-do-now${drv ? " cfx-drv" : ""}"><b>🧪 Practice Lab</b><span>Work the steps in ${E(whereName)}${SIM.calls[b.id] ? ", take the live call" : ""}, then <em>Deliver</em>.</span>${planGo(b, l.cf.day.n)}${practisesLine(l) ? `<b class="cfx-of" title="The lesson this activity practises: ${E(titleCase(l.cf.of.cf.block.title))}">${E(practisesLine(l))}</b>` : ""}${drv ? CMDrive.namingBox({day: Number(b.id.charAt(1)), labels: true}) : ""}</div>
+      return `${plainBox(b)}<div class="cfx-do-now${drv ? " cfx-drv" : ""}"><b>🧪 Practice Lab</b><span>Work the steps in ${E(whereName)}${SIM.calls[b.id] ? ", take the live call" : ""}, then <em>Deliver</em>.</span>${planGo(b, l.cf.day.n)}${!drv ? ofLine : ""}${drv ? CMDrive.namingBox({day: Number(b.id.charAt(1)), labels: true}) : ""}</div>
       <div class="cfx-task${drv ? " cfx-drv" : ""}"><div class="cfx-task-main"><ol class="cfx-points">${c.steps.map(x => `<li><span>${hl(x)}${stepLink(x, b)}</span></li>`).join("")}</ol>
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}<small class="cfx-simnote-s">⏱ Simulated in real time for accelerated training</small></span>
           <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
         ${serviceOf(b.id) && !SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ ${E(svWords(serviceOf(b.id)).label)}</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
           <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the ${E(svWords(serviceOf(b.id)).label)}</button></div>` : ""}
         ${amendOf(b.id) ? (s => `<div class="cfx-call cfx-svb"><b>📝 Skill Builder: Amendment Requests</b><span>${E(amendOf(b.id).kicker)}${s.sent ? ` · <em>${s.sent} of ${s.of} sent · ${s.filed} of ${s.copies} corrected copies filed</em>` : ""}</span>
-          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.amend('${b.id}')">📝 Open the Amendment Requests</button></div>`)(amSummary(b.id, amendOf(b.id), amRec(b.id))) : ""}</div>
+          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.amend('${b.id}')">📝 Open the Amendment Requests</button></div>`)(amSummary(b.id, amendOf(b.id), amRec(b.id))) : ""}${drv && ofLine ? `<p class="cfx-of-row">${ofLine}</p>` : ""}</div>
       <aside class="cfx-side">${c.purpose || c.principle ? `<div class="cfx-why">${c.purpose ? `<b>🎯 Purpose</b><span>${hl(c.purpose)}</span>` : ""}${c.principle ? `<b>⚖️ Principle</b><span>${hl(c.principle)}</span>` : ""}</div>` : ""}
         ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
         ${notesOf(b.id) ? `<div class="cfx-call cfx-svb"><b>📝 Notes &amp; Action Plan</b><span>${npParts(b.id).filter(p => p.done).length} of ${npParts(b.id).length} done</span>
@@ -2590,7 +2593,7 @@ function labChip(id, blockId){
   return `<button type="button" class="btn btn-navy btn-sm" data-tool="${id}" onclick="cmCaseFlow.tool('${id}','${blockId || ""}')" title="Open ${E(name)}">${t.icon} ${E(live ? "Live Call" : t.short)}</button>`;
 }
 /* an activity's name on the lab's list: a long title up to its colon (the whole of it is on the activity's own slides) */
-const labTitle = b => { const t = titleCase(b.title); return t.length > 54 ? shortTitle(b.title, 54) : t; };
+const labTitle = b => { const t = titleCase(b.title), cut = titleCase(String(b.title).split(/:\s| — /)[0]); return t.length > 54 && cut.length >= 12 ? cut : t; };
 function practiceLab(d){
   const acts = d.lessons.map((l, li) => [l, li]).filter(([l]) => l.cf.block.kind === "activity");
   const ph = d.cf.phases[0] || {title: ""};
@@ -4578,7 +4581,7 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx-lab-of .of{display:block;font:700 16px/1.2 var(--font-ui);color:#A4470F;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .cfx-lab-of .c{flex:none;font-size:18px;}
 .cfx-do-now{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;background:#EEF4FF;border:1.5px solid #9DB6E8;border-left:6px solid #2457C5;border-radius:12px;padding:10px 16px;margin:0 0 12px;text-align:left;}
-.cfx-do-now b{font:800 16px var(--font-ui);color:#1C3F8F;} .cfx-do-now b.cfx-of{margin-left:auto;color:#A4470F;white-space:nowrap;} .cfx .cfx-do-now .cfx-plan-go{font:700 16px/1.2 var(--font-ui) !important;padding:2px 12px !important;min-height:0 !important;height:auto !important;align-self:center;}   /* the lesson this activity practises, at the end of the Practice Lab line */ .cfx-do-now span{font:500 15.5px/1.45 var(--font-ui);color:var(--ink);}
+.cfx-do-now b{font:800 16px var(--font-ui);color:#1C3F8F;} .cfx-do-now b.cfx-of{margin-left:auto;color:#A4470F;white-space:nowrap;} .cfx .cfx-of-row{margin:4px 0 0;text-align:left;} .cfx .cfx-of-row .cfx-of{font:800 16px/1.3 var(--font-ui);color:#A4470F;} .cfx .cfx-do-now .cfx-plan-go{font:700 16px/1.2 var(--font-ui) !important;padding:2px 12px !important;min-height:0 !important;height:auto !important;align-self:center;}   /* the lesson this activity practises, at the end of the Practice Lab line */ .cfx-do-now span{font:500 15.5px/1.45 var(--font-ui);color:var(--ink);}
 .cfx-situation{font:500 25px/1.5 var(--font-ui);color:var(--ink);margin:0;}
 .cfx-art{display:flex;align-items:center;justify-content:center;animation:cfxIn .5s ease both;}
 .cfx-art{cursor:pointer;}

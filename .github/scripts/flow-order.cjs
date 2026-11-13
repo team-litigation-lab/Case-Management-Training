@@ -99,7 +99,7 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
         const s = sectionOf(of.cf.block.id); if (s < far) out.push(`${L}: ${r.id} practises a lesson (${of.cf.block.id}) of a section taught before the lessons of the activity ahead of it: the lab follows the lessons' order`); far = Math.max(far, s);
         // its own first slide says it
         state.lessonSlide = r.from; render();
-        const line = norm((document.querySelector('#lessonSlideWrap .cfx-do-now .cfx-of') || {}).textContent), num = of.h.split(' ')[0];
+        const line = norm((document.querySelector('#lessonSlideWrap .cfx-of') /* in the Practice Lab line; under the steps on a Backup File Maintenance task */ || {}).textContent), num = of.h.split(' ')[0];
         if (!line.startsWith('practises: ' + num + ' ') || !norm(of.cf.block.title).startsWith(line.slice(('practises: ' + num + ' ').length).slice(0, 12))) out.push(`${L}: ${r.id}'s Your Task should say "Practises: ${num} ${of.cf.block.title.slice(0, 30)}…"; it says "${line}"`);
       });
       if (!d.cf.build && lab >= 0) {

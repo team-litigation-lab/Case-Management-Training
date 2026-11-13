@@ -320,7 +320,9 @@ const failures = []; const fail = (m) => failures.push(m);
                 below: Math.round((wrap.closest('.lesson-stage') || wrap).getBoundingClientRect().bottom + window.scrollY - innerHeight),
                 hidden: [...wrap.querySelectorAll('[data-drv-link], [data-drv-build]')].filter(b => !plain(b)).map(b => b.innerText.trim()),
                 over: cr ? [...wrap.querySelectorAll('.drv-s-tree li b, .drv-s-root b')].filter(b => { const r = b.getBoundingClientRect(); return r.right > cr.left && r.left < cr.right && r.bottom > cr.top && r.top < cr.bottom; }).map(b => b.textContent) : [],
-                lines: row ? new Set([...row.children].map(c => Math.round(c.getBoundingClientRect().top / 16))).size : 0,
+                lines: row ? (() => {   // the lines the row's pieces take: two pieces are on one line when they overlap top to bottom (not by rounding their tops to a 16px grid: a row that straddled a grid line counted as two)
+                    const rs = [...row.children].map(c => c.getBoundingClientRect()).filter(r => r.height > 0).sort((x, y) => x.top - y.top); let n = 0, bottom = -Infinity;
+                    rs.forEach(r => { if (r.top >= bottom - 1) n++; bottom = Math.max(bottom, r.bottom); }); return n; })() : 0,
                 box: !!wrap.querySelector('.drv-nc'), fix: (wrap.querySelector('[data-drv-fix]') || {}).innerText || '' };
         };
         const sized = async (pg, what, o) => {
