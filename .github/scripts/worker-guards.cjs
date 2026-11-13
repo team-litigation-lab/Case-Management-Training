@@ -179,20 +179,19 @@ async function ticketFor(payloadObj, secret) {
         if (reads > 3) fail(`a trainee's ranking read ${reads} records (should read only their own)`);
 
         // 6. the Backup Drive report is a trainer's, and never carries a token
-        env.GOOGLE_CLIENT_ID = 'ci-client'; env.GOOGLE_CLIENT_SECRET = 'ci-google-secret';
+        Object.assign(env, require('./drive-sa-fake.cjs').saEnv());   // the program's service account, as on Foundational
         const realFetch = globalThis.fetch; let nextId = 0;
-        const idTok = 'x.' + b64url(JSON.stringify({ email: 'trainee@example.com' })) + '.y';
         globalThis.fetch = async (u, o = {}) => {
             const url = String(u), resp = (j) => new Response(JSON.stringify(j), { status: 200, headers: { 'Content-Type': 'application/json' } });
-            if (url.includes('oauth2.googleapis.com/token')) return resp({ access_token: 'ACCESS-SECRET', refresh_token: 'REFRESH-SECRET', expires_in: 3600, id_token: idTok });
+            if (url.includes('oauth2.googleapis.com/token')) return resp({ access_token: 'ACCESS-SECRET', expires_in: 3600 });
             if (url.includes('googleapis.com') && (o.method || 'GET') === 'POST') return resp({ id: 'f' + (++nextId), webViewLink: 'https://drive/x' });
-            if (url.includes('googleapis.com')) return resp({ id: 'f', trashed: false });
+            if (url.includes('googleapis.com')) return resp({ id: 'f', trashed: false, name: 'LSH Case Backups', mimeType: 'application/vnd.google-apps.folder', capabilities: { canAddChildren: true }, owners: [{ emailAddress: 'trainee@example.com' }], files: [] });
             return realFetch(u, o);
         };
         try {
             const admin = (await call('/api/auth/admin', { passphrase: 'ci-pass' })).body;
-            const st = await call('/api/drive', { action: 'connect', code: 'c' }, a.token);
-            if (st.status !== 200 || !st.body.drive.connected) fail(`a trainee should connect a stubbed Google Drive: ${JSON.stringify(st)}`);
+            const st = await call('/api/drive', { action: 'link', url: 'https://drive.google.com/drive/folders/f' }, a.token);
+            if (st.status !== 200 || !st.body.drive.connected) fail(`a trainee should link a stubbed Google Drive folder: ${JSON.stringify(st).slice(0, 400)}`);
             const standard = st.body.drive.standard || [];
             await call('/api/drive', { action: 'setup', layout: standard.slice(1) }, a.token);
             const built = await call('/api/drive', { action: 'setup', layout: standard }, a.token);

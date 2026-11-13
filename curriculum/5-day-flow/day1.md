@@ -812,7 +812,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **10%** | Drive linked | Google Drive connected to the platform with the drive.file permission |
+| 🤖 AI | **10%** | Drive linked | A Google Drive folder of the trainee's own shared with the platform as Editor and linked |
 | 🤖 AI | **30%** | Hierarchy to standard | Every folder named, numbered, nested and ordered as the firm standard has it; graded as built |
 | 🤖 AI | **20%** | Drive confirmed | ✓ Check my drive run with no folder missing |
 | 🧑‍🏫 Trainer | **25%** | Document placement | Retainer, HIPAA authorization and Police Report each placed in the right folder, with the reason |
