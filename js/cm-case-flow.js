@@ -905,7 +905,7 @@ function slideBody(view, l, d){
       /* the busiest slides were shrunk to fit: the Practice Lab note is one line, and the things to do (the live call,
          the service confirmation) sit under the steps, so the two columns are about the same height; with both, the
          service confirmation goes to the right column */
-      return `${plainBox(b)}<div class="cfx-do-now${drv ? " cfx-drv" : ""}"><b>🧪 Practice Lab</b><span>Work the steps in ${E(whereName)}${SIM.calls[b.id] ? ", take the live call" : ""}, then <em>Deliver</em>.</span>${practisesLine(l) ? `<b class="cfx-of" title="The lesson this activity practises: ${E(titleCase(l.cf.of.cf.block.title))}">${E(practisesLine(l))}</b>` : ""}${drv ? CMDrive.namingBox({day: Number(b.id.charAt(1)), labels: true}) : ""}</div>
+      return `${plainBox(b)}<div class="cfx-do-now${drv ? " cfx-drv" : ""}"><b>🧪 Practice Lab</b><span>Work the steps in ${E(whereName)}${SIM.calls[b.id] ? ", take the live call" : ""}, then <em>Deliver</em>.</span>${planGo(b, l.cf.day.n)}${practisesLine(l) ? `<b class="cfx-of" title="The lesson this activity practises: ${E(titleCase(l.cf.of.cf.block.title))}">${E(practisesLine(l))}</b>` : ""}${drv ? CMDrive.namingBox({day: Number(b.id.charAt(1)), labels: true}) : ""}</div>
       <div class="cfx-task${drv ? " cfx-drv" : ""}"><div class="cfx-task-main"><ol class="cfx-points">${c.steps.map(x => `<li><span>${hl(x)}${stepLink(x, b)}</span></li>`).join("")}</ol>
         ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}<small class="cfx-simnote-s">⏱ Simulated in real time for accelerated training</small></span>
           <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
@@ -2405,10 +2405,12 @@ window.cmCaseFlow.back = function(){
 };
 /* the Admin screen as Foundational's: one solid panel, the page as wide as the screen (main.cm-admin-main) */
 const adminPanel = out => state.isAdmin ? `<div class="cm-admin-screen">${out}</div>` : out;
-/* the way back: a pill on the course page a step opened, until the trainee goes back or elsewhere in the Case Flow;
-   after an activity worked in the Action Plan Editor, a second one carries on to the next step */
+/* the way back: a pill on the course page a step opened, until the trainee goes back or elsewhere in the Case Flow.
+   It returns to the slide the trainee left (cmCaseFlow.back). There is no second pill that carries on to another
+   step: a page opened from a slide only ever leads back to that slide. */
 function syncReturn(){
   let pill = document.getElementById("cf-return"), go = document.getElementById("cf-return-next");
+  if(go){ go.remove(); go = null; }
   // the dashboard has its own ▶ Continue where you left off: no floating Back / Next over it, and reaching it ends the way back
   if(state.view === "dashboard") state.cfReturn = null;
   const r = state.cfReturn, show = !!r && state.view !== "day";
@@ -2417,57 +2419,29 @@ function syncReturn(){
   if(!pill){ pill = document.createElement("button"); pill.id = "cf-return"; pill.type = "button"; pill.onclick = () => cmCaseFlow.back(); document.body.appendChild(pill); }
   pill.textContent = r.view === "day" ? `← Back to Case Flow Day ${r.n}` : "← Back to the Case Flow";
   pill.hidden = false;
-  if(r.next == null){ if(go) go.hidden = true; return; }
-  if(!go){ go = document.createElement("button"); go.id = "cf-return-next"; go.type = "button"; go.onclick = () => cmCaseFlow.onward(); document.body.appendChild(go); }
-  go.textContent = `Next: ${r.nextLabel} →`;
-  go.hidden = false;
 }
-/* ---------- Next after an Action Plan activity: the live draft in the editor, then the next step ----------
-   On the last slide of a Skill Activity worked in the Action Plan Editor (the Live Case Plan Draft, the warning
-   letter, the demand and memo drafts), Next opens the editor, where "Next: …" carries on to the activity after it
-   (or the day's Knowledge Check). Presenting, the console does it only on the day's last slide, so the shared
-   slides window isn't closed mid-day; there, with no draft to open, Next goes on to the Knowledge Check. */
+/* ---------- Next is Next; the Action Plan Editor is a button ----------
+   Next always goes to the next slide and "Continue to Knowledge Check" always opens the Knowledge Check: for a
+   trainee, for a trainer and in Presenter view. (On the last slide of a Skill Activity worked in the Action Plan
+   Editor both used to open the editor instead, with a "Next: …" pill there that carried on: a button that said one
+   thing and did another. That detour is gone.)
+   The draft itself is one click from the activity's own slide: 📝 Open the Action Plan Editor, in the Practice Lab
+   line of its Your Task (planGo; no slide is any taller for it). It opens the editor with the way back to the slide the trainee left
+   (cmCaseFlow.tool → state.cfReturn → "← Back to Case Flow Day N", cmCaseFlow.back).
+   In Presenter view the console's forward button on the day's last slide ends the presentation and opens the
+   Knowledge Check, and says so: it reads "Continue to Knowledge Check →" there (js/cm-flow-parts.js). */
 const PLAN_TOOL = /^\s*Action Plan Editor/i;
-function planStop(d, idx){
-  const slides = buildDaySlides(d), x = slides[idx], nx = slides[idx + 1]; if(!x) return null;
-  const l = d.lessons[x.lessonIndex], b = l && l.cf && l.cf.block;
-  if(!b || b.kind !== "activity" || !PLAN_TOOL.test((b.act && b.act.tool) || "") || (nx && nx.lessonIndex === x.lessonIndex)) return null;
-  return {b, next: nx ? idx + 1 : "kc", nextLabel: nx ? String(daySlideTitle(d, nx)).replace(/<[^>]+>/g, "") : "Knowledge Check"};
-}
-function openPlanStop(d, idx, stop){
-  state.cfReturn = {dayId: d.id, n: d.cf.n, slide: idx, view: "day", next: stop.next, nextLabel: stop.nextLabel};
-  goto.apply(null, PAGE.plan);
-  if(typeof toast === "function") toast(`📝 ${stop.b.title}: draft it here, then Next.`);
-}
-window.cmCaseFlow.onward = function(){
-  const r = state.cfReturn; state.cfReturn = null; syncReturn();
-  if(!r) return;
-  goto("day", r.dayId);
-  setTimeout(() => {
-    if(r.next === "kc"){ state.dayViewMode = "knowledgeCheck"; render(); window.scrollTo({top: 0}); }
-    else { state.dayViewMode = "slides"; if(typeof goToSlide === "function") goToSlide(r.next); }
-  }, 0);
-};
-const onLastPage = () => !((state.slidePages || 1) > 1 && (state.slidePage || 0) < state.slidePages - 1);
-["nextSlide", "goToKnowledgeCheckWithInterstitial"].forEach(fn => {
-  const orig = window[fn]; if(typeof orig !== "function") return;
-  window[fn] = function(){
-    const d = cfDay(state.dayId), idx = state.lessonSlide || 0, stop = d && state.view === "day" && onLastPage() && planStop(d, idx);
-    if(stop){ openPlanStop(d, idx, stop); return; }
-    return orig.apply(this, arguments);
-  };
-});
+const planAct = b => !!b && b.kind === "activity" && PLAN_TOOL.test((b.act && b.act.tool) || "");
+const planGo = (b, n) => planAct(b) ? `<button type="button" class="btn btn-navy btn-sm cfx-plan-go" data-tool="plan" onclick="cmCaseFlow.tool('plan','${b.id}')" title="Your draft for this activity is written there. “← Back to Case Flow Day ${n}” brings you back to this slide.">📝 Open the Action Plan Editor</button>` : "";
+window.cmCaseFlow.onward = function(){ cmCaseFlow.back(); };   // (an older page's "Next: …" pill: it goes back to the slide, as Back does)
 if(typeof window.presenterStep === "function"){
   const __step = window.presenterStep;
   window.presenterStep = function(dir){
     const d = cfDay(state.dayId);
     if(dir > 0 && d){
       const total = buildDaySlides(d).length, idx = state.lessonSlide || 0, lastPage = (state.presentPage || 0) >= (state.presentPages || 1) - 1;
-      if(lastPage && idx === total - 1){
-        const stop = planStop(d, idx);
-        if(stop){ openPlanStop(d, idx, stop); return; }
-        if(typeof goToKnowledgeCheckWithInterstitial === "function"){ if(typeof presenterEnd === "function") presenterEnd(true); goToKnowledgeCheckWithInterstitial(); return; }
-      }
+      // the day's last slide: the forward button reads "Continue to Knowledge Check →" and does that
+      if(lastPage && idx === total - 1 && typeof goToKnowledgeCheckWithInterstitial === "function"){ if(typeof presenterEnd === "function") presenterEnd(true); goToKnowledgeCheckWithInterstitial(); return; }
     }
     return __step.apply(this, arguments);
   };
@@ -3009,7 +2983,7 @@ if(typeof window.sopRunOfShow === "function"){
           + `${p.acts.length} Skill Activit${p.acts.length === 1 ? "y" : "ies"}: ` + p.acts.map(l => `<b>${E(l.cf.block.title)}</b> <span style="color:var(--ink-soft)">(${E(String(l.cf.block.act.tool || "").split("·")[0].trim())}${l.cf.of ? "; practises " + E(lessonRef(l.cf.of)) : ""})</span>`).join(" · "),
           `About ${sc.act} minutes each (the 🧪 chip counts it down). Your Task first, then Your Case: trainees work it on John Doe's file in the CMS or the tool the step names, beside the slide (⧉ Side by side), then tick Check Your Work and log the reference.`,
           calls.length ? `📞 Live call${calls.length > 1 ? "s" : ""}: ${andList(calls.map(c => E(c.who)))}. Each starts from “Take the call” on the Your Task slide; let one trainee take it while the room listens, or everyone takes it at their desk.` : "",
-          p.acts.some(l => PLAN_TOOL.test(l.cf.block.act.tool || "")) ? `The Action Plan drafts: Next on the activity's last slide opens the editor, and “Next” there carries on.` : "",
+          p.acts.some(l => planAct(l.cf.block)) ? `The Action Plan drafts: <b>📝 Open the Action Plan Editor</b> is on the activity's Your Task slide; “← Back to Case Flow Day ${n}” there returns to the slide. Next on the slide is always the next slide.` : "",
           ...p.acts.flatMap(l => injectsOf(l.cf.block).filter(x => x.kind === "fallout").map(x => `⚡ <b>Inject mid-task</b> on ${E(titleCase(l.cf.block.title))} (the ⚡ pill on its Your Task slide): ${x.html.replace(/^<b>[^<]*<\/b>\s*/, "")}`))].filter(Boolean),
           say: p.acts.length === 1 ? `“Your turn. Open John Doe's file and do this the way you would at your desk. Shout if you get stuck, and log what you did before we move on.”`
             : `“Your turn. There are ${p.acts.length} of these, in the order the work happens on the file. Work them the way you would at your desk, and shout if you get stuck.”`,
@@ -4177,14 +4151,14 @@ window.cmCaseFlow.planTemplate = function(){
 
 /* ---------- My Notes & Action Plan: one screen ----------
    The page's title in a column on the left, with the way back to the Case Flow at its foot; the note editor takes
-   the rest of the width and the height of the screen (its page scrolls inside); Download (PDF) and, after an
-   activity, Next sit at the bottom right. One note: the Action Plan (earlier notes still show, below it). */
+   the rest of the width and the height of the screen (its page scrolls inside); Download (PDF) sits at the bottom
+   right. One note: the Action Plan (earlier notes still show, below it). */
 if(typeof window.renderNotes === "function" && typeof window.renderNoteCard === "function"){
   window.renderNotes = function(){
     if(typeof ensureDefaultNote === "function") ensureDefaultNote();
     const r = state.cfReturn;
     const back = r ? `<button type="button" class="btn btn-ghost cf-notes-back" onclick="cmCaseFlow.back()">${r.view === "day" ? `← Back to Case Flow Day ${E(r.n)}` : "← Back to the Case Flow"}</button>` : "";
-    const next = r && r.next != null ? `<button type="button" class="btn btn-primary" onclick="cmCaseFlow.onward()">Next: ${E(r.nextLabel)} →</button>` : "";
+    const next = "";   // no "Next: …" here: the page leads back to the slide it was opened from, and Next is on the slide
     return `<div class="cf-notes">
       <section class="page-hero cf-notes-hero"><p class="eyebrow">Personal Workspace</p><h1>My Notes &amp; Action Plan</h1>
         <p>Your action plan, takeaways, and anything else worth keeping. It saves automatically, and <b>Review</b> gives quick feedback on quality, professionalism and compliance before you finalize anything.</p>${back}</section>
@@ -4574,6 +4548,7 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx-lab-gate.passed{border-color:#9CD3B0;background:#F1FAF4;}
 .cfx-lab-gate.passed .cfx-lab-q{display:none;}
 .cfx-lab-gate.passed::after{content:" ✓ Ready: today's tools are open.";color:#2E7D4F;}
+.cfx-ready .cfx-lab-gate.passed::after{content:none;}   /* the Ready check says its own line (✓ All right. Next: the Knowledge Check): the tools line belonged to a gate on the Practice Lab slide */
 .cfx-lab-q{margin-top:14px;font-weight:600;}
 .cfx-lab-q .o{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
 .cfx-lab-q .o button{font:600 16.5px/1.35 var(--font-ui);color:#1F2433;border:2px solid #AEB6C6;background:#fff;border-radius:9px;padding:9px 14px;cursor:pointer;text-align:left;} .cfx-lab-q .o button:hover{border-color:#262B45;background:#F3F4F8;}
@@ -4601,7 +4576,7 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx-lab-of .of{display:block;font:700 16px/1.2 var(--font-ui);color:#A4470F;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .cfx-lab-of .c{flex:none;font-size:18px;}
 .cfx-do-now{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;background:#EEF4FF;border:1.5px solid #9DB6E8;border-left:6px solid #2457C5;border-radius:12px;padding:10px 16px;margin:0 0 12px;text-align:left;}
-.cfx-do-now b{font:800 16px var(--font-ui);color:#1C3F8F;} .cfx-do-now b.cfx-of{margin-left:auto;color:#A4470F;white-space:nowrap;}   /* the lesson this activity practises, at the end of the Practice Lab line */ .cfx-do-now span{font:500 15.5px/1.45 var(--font-ui);color:var(--ink);}
+.cfx-do-now b{font:800 16px var(--font-ui);color:#1C3F8F;} .cfx-do-now b.cfx-of{margin-left:auto;color:#A4470F;white-space:nowrap;} .cfx .cfx-do-now .cfx-plan-go{font:700 16px/1.2 var(--font-ui) !important;padding:2px 12px !important;min-height:0 !important;height:auto !important;align-self:center;}   /* the lesson this activity practises, at the end of the Practice Lab line */ .cfx-do-now span{font:500 15.5px/1.45 var(--font-ui);color:var(--ink);}
 .cfx-situation{font:500 25px/1.5 var(--font-ui);color:var(--ink);margin:0;}
 .cfx-art{display:flex;align-items:center;justify-content:center;animation:cfxIn .5s ease both;}
 .cfx-art{cursor:pointer;}

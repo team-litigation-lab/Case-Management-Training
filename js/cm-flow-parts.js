@@ -11,7 +11,9 @@
        Learning Checks;
      · the slide picker (index.html openSlideMap, "Step 12 of 83 ▾"): a label above the first lesson's slides, above
        the Practice Lab slide and above the Ready check;
-     · Presenter view's "Jump to a slide" list (js/cm-updates.js, #pvJump): the same three groups.
+     · Presenter view's "Jump to a slide" list (js/cm-updates.js, #pvJump): the same three groups; and its forward
+       button, which on the day's last slide ends the presentation and opens the Knowledge Check (js/cm-case-flow.js),
+       reads "Continue to Knowledge Check →" there instead of "Next →".
    It also carries the styles of the Training Agenda's two part labels.
    ============================================================ */
 (function(){
@@ -71,6 +73,13 @@ function labelSlideMap(){
     sec.insertBefore(h, sec.firstChild);
   });
 }
+/* ---------- Presenter view: on the day's last slide the forward button opens the Knowledge Check, and says so ---------- */
+function labelNext(){
+  const d = DAYS.find(x => x.id === state.dayId), btn = document.querySelector('button[onclick="presenterStep(1)"]'); if(!btn || !cf(d)) return;
+  const last = (state.lessonSlide || 0) >= buildDaySlides(d).length - 1 && (state.presentPage || 0) >= (state.presentPages || 1) - 1;
+  const want = last ? "Continue to Knowledge Check →" : "Next →";
+  if(btn.textContent !== want){ btn.textContent = want; btn.title = last ? "Ends the presentation and opens the day's Knowledge Check" : ""; }
+}
 /* ---------- Presenter view's "Jump to a slide" ---------- */
 function labelJump(){
   const sel = document.getElementById("pvJump"), d = DAYS.find(x => x.id === state.dayId);
@@ -91,7 +100,7 @@ wrap("openSlideMap", labelSlideMap);
 if(typeof MutationObserver === "function"){
   let queued = false;
   new MutationObserver(() => { if(queued || !state.presenting) return; queued = true;
-    requestAnimationFrame(() => { queued = false; try{ labelJump(); }catch(e){ console.warn("[flow-parts]", e); } }); })
+    requestAnimationFrame(() => { queued = false; try{ labelJump(); labelNext(); }catch(e){ console.warn("[flow-parts]", e); } }); })
     .observe(document.body, {childList: true, subtree: true});
 }
 
