@@ -7,6 +7,9 @@
 Needs: pdftoppm (poppler), ffmpeg, and Piper (`pip install piper-tts`, a free neural voice that runs offline).
 Voices: https://huggingface.co/rhasspy/piper-voices (download the .onnx and its .onnx.json side by side).
 
+In the trainer's own voice: --clone my-voice.wav (10-30 s of them speaking, clean) in place of --voice, with
+Chatterbox (`pip install chatterbox-tts`, MIT, offline). Without a GPU it voices about 1 s of audio per 5 s.
+
 Writes, in --out:
   <name>.mp4  1920x1080 H.264 + AAC, one chapter per slide, captions as a subtitle track (turn on CC)
   <name>.srt / <name>.vtt  the captions on their own (for an LMS or YouTube upload)
@@ -15,7 +18,7 @@ Writes, in --out:
 The notes file (dayN.json) is the source: edit a slide's "notes" and run this again. "say" maps a term as it is
 written (captions keep it) to how the voice should say it (PIP -> "P I P").
 """
-import argparse, json, os, re, subprocess, sys, wave
+import argparse, hashlib, json, os, re, subprocess, sys, wave
 from pathlib import Path
 
 SILENCE_BETWEEN = 0.35   # seconds between sentences
@@ -60,15 +63,17 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--deck", required=True)
     ap.add_argument("--notes", required=True)
-    ap.add_argument("--voice", required=True)
+    ap.add_argument("--voice", help="a Piper voice (.onnx)")
+    ap.add_argument("--clone", help="instead of --voice: a 10-30 s recording of the narrator; their voice is cloned "
+                    "with Chatterbox (pip install chatterbox-tts; slow without a GPU)")
     ap.add_argument("--out", required=True)
     ap.add_argument("--name", default=None)
     ap.add_argument("--rate", type=float, default=1.0, help="speaking speed: 1.1 is 10%% faster")
     ap.add_argument("--only", default=None, help="e.g. 1-5: build just these pages (a quick preview)")
     a = ap.parse_args()
 
-    from piper import PiperVoice
-    from piper.config import SynthesisConfig
+    if not (a.voice or a.clone):
+        ap.error("give --voice or --clone")
 
     spec = json.load(open(a.notes, encoding="utf-8"))
     say = spec.get("say", {})
@@ -86,30 +91,61 @@ def main():
     pngs = sorted((out / "pages").glob("p-*.png"))
     by_page = {int(re.search(r"-(\d+)\.png$", p.name).group(1)): p for p in pngs}
 
-    voice = PiperVoice.load(a.voice)
-    rate = voice.config.sample_rate
-    cfg = SynthesisConfig(length_scale=1.0 / a.rate)
+    if a.clone:
+        os.environ.setdefault("TQDM_DISABLE", "1")
+        import numpy as np, torch
+        from chatterbox.tts import ChatterboxTTS
+        torch.manual_seed(7)
+        model = ChatterboxTTS.from_pretrained(device="cuda" if torch.cuda.is_available() else "cpu")
+        model.prepare_conditionals(a.clone, exaggeration=0.5)
+        rate = model.sr
+        voice_id = "clone:" + hashlib.sha1(Path(a.clone).read_bytes()).hexdigest()
+
+        def synth(text):
+            wav = model.generate(text, cfg_weight=0.5, exaggeration=0.5).squeeze(0).numpy()
+            return (np.clip(wav, -1, 1) * 32767).astype("<i2").tobytes()
+    else:
+        from piper import PiperVoice
+        from piper.config import SynthesisConfig
+        voice = PiperVoice.load(a.voice)
+        rate = voice.config.sample_rate
+        cfg = SynthesisConfig(length_scale=1.0 / a.rate)
+        voice_id = "piper:" + Path(a.voice).name + f":{a.rate}"
+
+        def synth(text):
+            return b"".join(c.audio_int16_bytes for c in voice.synthesize(text, syn_config=cfg))
     gap = b"\x00\x00" * int(rate * SILENCE_BETWEEN)
 
     all_pcm = bytearray(); cues = []; chapters = []; concat = []; t = 0.0
     for s in slides:
         n = s["page"]
         print(f"  slide {n:02}: {s['title']}", flush=True)
-        pcm = bytearray(b"\x00\x00" * int(rate * LEAD_IN))
-        for i, sent in enumerate(sentences(s["notes"])):
-            start = t + len(pcm) / 2 / rate
-            for chunk in voice.synthesize(spoken(sent, say), syn_config=cfg):
-                pcm += chunk.audio_int16_bytes
-            end = t + len(pcm) / 2 / rate
-            pieces = caption_lines(sent)
-            total = sum(len(p) for p in pieces); cur = start
-            for p in pieces:
-                d = (end - start) * len(p) / total
-                cues.append((cur, cur + d, p)); cur += d
-            pcm += gap
-        pcm += b"\x00\x00" * int(rate * TAIL)
-        with wave.open(str(out / "audio" / f"slide-{n:02}.wav"), "wb") as w:
-            w.setnchannels(1); w.setsampwidth(2); w.setframerate(rate); w.writeframes(bytes(pcm))
+        # Each slide's audio is kept with its caption timings, so a rebuild after editing one slide's notes (or
+        # after a long cloned-voice run is cut off) only voices the slides that changed.
+        wav_path = out / "audio" / f"slide-{n:02}.wav"; cue_path = wav_path.with_suffix(".json")
+        key = hashlib.sha1(json.dumps([voice_id, s["notes"], say]).encode()).hexdigest()
+        cached = json.loads(cue_path.read_text()) if cue_path.exists() and wav_path.exists() else None
+        if cached and cached.get("key") == key:
+            with wave.open(str(wav_path)) as w:
+                pcm = bytearray(w.readframes(w.getnframes()))
+            slide_cues = cached["cues"]
+        else:
+            pcm = bytearray(b"\x00\x00" * int(rate * LEAD_IN)); slide_cues = []
+            for sent in sentences(s["notes"]):
+                start = len(pcm) / 2 / rate
+                pcm += synth(spoken(sent, say))
+                end = len(pcm) / 2 / rate
+                pieces = caption_lines(sent)
+                total = sum(len(p) for p in pieces); cur = start
+                for p in pieces:
+                    d = (end - start) * len(p) / total
+                    slide_cues.append((cur, cur + d, p)); cur += d
+                pcm += gap
+            pcm += b"\x00\x00" * int(rate * TAIL)
+            with wave.open(str(wav_path), "wb") as w:
+                w.setnchannels(1); w.setsampwidth(2); w.setframerate(rate); w.writeframes(bytes(pcm))
+            cue_path.write_text(json.dumps({"key": key, "cues": slide_cues}))
+        cues += [(t + c0, t + c1, txt) for c0, c1, txt in slide_cues]
         dur = len(pcm) / 2 / rate
         chapters.append((t, t + dur, f"{n}. {s['title']}"))
         concat.append((by_page[n], t, t + dur))
