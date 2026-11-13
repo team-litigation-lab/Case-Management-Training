@@ -3,7 +3,7 @@
    A trainee's place in a day is a slide position: "last-slide" (where they were: Continue and Resume open it),
    "slide-progress" (the furthest slide reached: what Next has unlocked, and what turns a day's card to Review) and,
    across the reload that brings in a new version, the slide kept in sessionStorage (index.html: applyUpdate /
-   restoreAfterUpdate). The Case Flow lessons had an On the Job slide (rows of Trigger ➔ Task ➔ Tool ➔ Checkpoint
+   restoreAfterUpdate). The Case Flow lessons had an On the Job slide (their operational steps as rows of
    cards); it is gone, so every position after one moved up. A position saved in that deck is moved, once, to the
    same slide of today's: an On the Job slide itself becomes the lesson's slide before it (The Rules or See It):
    the same lesson, never further on than the trainee had been, never past the end of the day. (In 26 lessons a
@@ -77,7 +77,7 @@ function viewsWere(b, vs, from){
   if(from < 3 && !old.includes("why")) old.splice(Math.max(old.indexOf("theory"), old.indexOf("theory2"), old.indexOf("frame")) + 1, 0, "why");
   // layouts 1 and 2: Milestone Steps, after The Rules or See It, before Do & Don't
   if(from < 3 && STEPS_WERE.has(b.id)) old.splice(tail(), 0, "steps");
-  // layout 1: On the Job sat there in every other lesson that had its Trigger ➔ Task ➔ Tool ➔ Checkpoint rows
+  // layout 1: On the Job sat there in every other lesson that had operational steps (ops) in its data
   if(from < 2 && (b.ops || []).length && !old.includes("steps")) old.splice(tail(), 0, "job");
   return old;
 }

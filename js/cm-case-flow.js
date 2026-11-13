@@ -276,8 +276,6 @@ function ladder(){
 const visual = (l, b) => !b.show ? "" : (b.show.type === "stack" ? ladder() : renderLessonVisual(l));
 const showLabel = (b, head) => head + (b.show && b.show.caption ? ` — ${b.show.caption}` : "");
 
-const opsTable = ops => !(ops && ops.length) ? "" :
-  table(["Trigger event", "Case Manager task", "Tool / interface", "Verification checkpoint"], ops);
 
 function rubricHtml(r){   // the grading weights stay with the scoring (the Knowledge Check, the trainer's panel): not shown in the lesson
   return "";
@@ -418,14 +416,12 @@ function fullText(l, d){
       + S(1 + n, "Tell Them — the rules and the strategic why", `<p class="cf-why">${E(b.tell.why)}</p>${ul(b.tell.rules)}`
       + (b.tell.upl || []).map(u => renderCallout({type: "warning", label: "UPL boundary", text: u})).join(""))
     + S(2 + n, showLabel(b, "Show Them"), visual(l, b))
-    + S(3 + n, "Trigger ➔ Task ➔ Tool ➔ Checkpoint", opsTable(b.ops))
-    + S(4 + n, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
+    + S(3 + n, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
   }
   if(b.kind === "activity") return S(1, "The scenario", `<div class="scenario-card"><div class="stag">John Doe v. Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
     + S(2, "Execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
     + S(3, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once you finish the activity and reveal the answers on its Check Your Work slide.</p>`)
-    + S(4, "Trigger ➔ Task ➔ Tool ➔ Checkpoint", opsTable(b.ops))
-    + S(5, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
+    + S(4, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
   return S(1, "Knowledge verification", `<ol class="cf-q">${b.check.questions.map(q => `<li>${E(q)}</li>`).join("")}</ol>`)
     + S(2, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
 }
@@ -499,8 +495,8 @@ const docView = b => (SLIDES[b.id] || {}).document ? ["doc"] : [];
    Exception on The Rules, and Milestone Steps (the case's own dates) on The Framework, or on The Rules where a
    lesson has no Framework (msView), in the few lessons whose slide has room for the rail at full size on a laptop.
    At most one Red Flag on a slide.
-   (The lessons had an On the Job slide here, rows of Trigger ➔ Task ➔ Tool ➔ Checkpoint cards, and 26 of them then a
-   Milestone Steps slide of their own in its place: both are gone. Those lessons' steps are in the trainer's talking
+   (The lessons had an On the Job slide here, their operational steps as rows of cards, and 26 of them then a
+   Milestone Steps slide of their own in its place: both are gone, and so is that table in 📖 Additional Reference. Those lessons' steps are in the trainer's talking
    points for The Rules, build/case-flow/scripts.) */
 const mfOf = b => { const c = SLIDES[b.id] || {}; return {redFlag: c.redFlag || null, ruleEx: c.ruleEx || null, milestones: c.milestones || null}; };
 const FLAG_SVG = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M5 21V4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M6 4h11l-2.6 4L17 12H6z" fill="currentColor"/></svg>`;
@@ -786,7 +782,7 @@ function plainFirst(){
   CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { all[b.id] = b; })));
   SEQUENCE.forEach(sd => (sd.phases || []).forEach(ph => (ph.blocks || []).forEach(id => {
     const b = all[id]; if(!b) return;
-    // (a lesson's ops, its Trigger ➔ Task ➔ Tool ➔ Checkpoint steps, count: they are in its 📖 Additional Reference and the trainer walks them, though no slide draws them now)
+    // (a lesson's ops, its operational steps in the data, count: nothing draws them now, but their tools and terms are still what the lesson teaches)
     const text = JSON.stringify([SLIDES[id] || {}, b.title, b.topic, b.tell || {}, b.kind === "lesson" ? b.ops || [] : [], b.act ? [b.act.scenario, b.act.prompt] : [], b.check ? b.check.questions : []]).replace(/\*\*/g, "");
     const fresh = terms.filter(t => !seen.has(t) && plainRe(t).test(text));
     fresh.forEach(t => seen.add(t));
@@ -988,6 +984,14 @@ function oneOfEachTool(html){
   root.querySelectorAll(".cfx-side .cfx-btns").forEach(x => { if(!x.querySelector("[data-tool]")) x.remove(); });
   return t.innerHTML;
 }
+/* One title on a slide. The big title is the lesson's or activity's own numbered title (l.h: "2.3 Liability
+   Investigation …"), the one the Agenda's picker, "Next up", the Roadmap and Presenter view give it (daySlideTitle).
+   The band under it says what this slide is in plain words (The Theory, See It, Your Task …), with a small label
+   for which of the two the trainee is in: a Lesson or the Practice Lab. The group a lesson sits in ("Claim Set Up",
+   "Skill Building: Client Directions": l.cf.heading) is a section heading in the Agenda and the Roadmap, and is
+   not shown on the slide. A long title is set a size smaller and wraps; it is never cut with an ellipsis. */
+const WHAT = {lesson: "Lesson", activity: "Practice Lab", check: "Knowledge Check"};
+const TITLE_LONG = 72;
 function card(l, i, d, part){
   const {day, mod, block: b, k, phase} = l.cf, vs = viewsOf(b), p = Math.min(Math.max(part || 1, 1), vs.length), view = vs[p - 1];
   noteReached(b, p);
@@ -996,8 +1000,8 @@ function card(l, i, d, part){
   const onNavy = view === "case";   // a Skill Building opener sits on the slide itself, like the deck's
   return oneOfEachTool(`<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; ${phase.lead === "Case Phase" ? `CASE PHASE ${phase.n} OF ${phase.of}` : phase.lead.toUpperCase()} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-${view} cfx-${b.kind}" data-part="${p}">
-      <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title" title="${E(l.cf.heading)}">${E(l.cf.heading)}</h2></div>
-      <div class="cfx-ribbon"><span title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span></div>
+      <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title${l.h.length > TITLE_LONG ? " cfx-t-long" : ""}" title="${E(l.h)}">${E(l.h)}</h2></div>
+      <div class="cfx-ribbon cfx-what"><span><i class="cfx-what-k">${E(WHAT[b.kind])}</i><b class="cfx-what-v">${E(VIEW_LABEL[view])}</b></span></div>
       <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}</span>
         <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.num || phase.n}.${k + 1} · ${E(KIND[b.kind])}</span><span class="cfx-top-rib" title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span>
         ${view === "task" && isTrainer() && !inAudience() && injectsOf(b).length ? `<button type="button" class="cfx-inject" onclick="cmCaseFlow.inject(${d.id},${i})" title="Trainer only: a real-time task to inject while the room works this one">⚡ Inject: ${E(injectsOf(b).map(x => x.short).join(" · "))}</button>` : ""}
@@ -1210,8 +1214,8 @@ function agendaSlide(d){
     + (sc.build ? row(parts.length + 1, "Build Your Companion Case", "lab") : row(parts.length + 1, `Practice Lab: ${nActs} Skill Activities`, "lab"))
     + row(parts.length + 2, "Knowledge Check", "kc");
   return `<div class="card lesson-card cf-card cfx cfx-deck cfx-agenda">
-      <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">Case Management Training</h2></div>
-      <div class="cfx-ribbon"><span>Day ${d.cf.n} · Training Agenda</span></div>
+      <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">Training Agenda</h2></div>
+      <div class="cfx-ribbon"><span>Case Management Training · Day ${d.cf.n}</span></div>
       <div class="cfx-body cfx-body-navy cfx-ag-body"><div class="cfx-ag"><div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div>
         <ol class="cfx-ag-list cfx-ag-two" style="--ag-rows:${Math.max(3, Math.ceil(parts.length / 2) + 1)}">${rows}</ol>${agendaFile(d)}</div></div>
     </div>`;
@@ -2730,7 +2734,7 @@ function readyCheck(d){
   return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; ${E(String(ph.lead || "").toUpperCase())} &middot; READY FOR THE KNOWLEDGE CHECK?</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-lab cfx-ready">
       <div class="cfx-deck-head"><h2 class="cfx-deck-title">🎯 Ready for the Knowledge Check?</h2></div>
-      <div class="cfx-ribbon"><span>${E(titleCase(ph.title))}</span></div>
+      <div class="cfx-ribbon"><span>Day ${d.cf.n} · ${qs.length} key concepts from today's lessons</span></div>
       <div class="cfx-body"><div class="cfx-sheet">
         <div class="cfx-lab-gate" id="cfxLabGate${d.id}"><b>${d.cf.build ? "You've built your companion case." : "You've worked today's Skill Activities."}</b> Before you check your work, answer these ${qs.length} key concepts from today's lessons.
         ${qs.map((q, qi) => `<div class="cfx-lab-q" data-q="${qi}"><span>${qi + 1}. ${E(q.q)}</span><div class="o">${q.opts.map((o, oi) =>

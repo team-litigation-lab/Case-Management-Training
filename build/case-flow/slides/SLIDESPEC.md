@@ -38,7 +38,7 @@ per block of the day (20 per day), in this shape:
 **Lesson** (`kind: "lesson"`): drawn as The Theory (which opens with why it matters) · The rules · See it (the block's existing `show` visual) ·
 Do & Don't. A lesson with no Theory slide (a `brief` one) is
 Why it matters · The rules. (There is no On the job slide: the lesson's
-`ops`, Trigger ➔ Task ➔ Tool ➔ Checkpoint, stay in 📖 Additional Reference and the trainer's blueprint, and a `job`
+`ops` in the data are drawn nowhere now, not on a slide and not in 📖 Additional Reference, and a `job`
 field here is refused. There is no Milestone Steps slide either: see `milestones`, below.)
 - `hook` — one sentence, **≤ 16 words**: the strategic why (from `tell.why`), as a confident headline. In a lesson that
   has The Theory it is no slide of its own: it opens that slide as a "💡 Why it matters" line above the theory's lead
@@ -142,8 +142,8 @@ lesson's existing slides, so no slide is added and no timing changes. Take every
   points for The Rules (SCRIPTSPEC.md), as they are for the 26 lessons that once had the slide.
 - `.github/scripts/micro-frameworks.cjs` checks that every lesson the revamp gives a framework draws it, with type ≥ 16px
   (a Red Flag listed as spoken, not drawn, is on no slide and in the talking points for The Rules), that no lesson has a
-  Milestone Steps slide and a rail is drawn only on The Framework or The Rules, that no slide draws Trigger ➔ Task ➔ Tool ➔
-  Checkpoint cards, that every lesson with a Theory slide opens it with why it matters on one line at full size (and has
+  Milestone Steps slide and a rail is drawn only on The Framework or The Rules, that no slide draws the On the Job cards (and no slide, 📖 Additional Reference
+  panel or slide title of any day shows the word "Trigger"), that every lesson with a Theory slide opens it with why it matters on one line at full size (and has
   no Why It Matters slide), and that a Red Flag moved off Why It Matters sits on a slide that is not scaled down, with
   nothing beside it covered.
 

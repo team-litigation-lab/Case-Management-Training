@@ -41,14 +41,14 @@ The day is one module, on John Doe's one file, in two parts: first ALL of its le
 6. *Lesson* — Client Do's and Don'ts
 7. *Lesson* — Property Damage: Does It Touch Our Case?
 8. *Lesson* — The No Contact Protocol — Steps 1 to 3
-9. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
+9. *Lesson* — Final Warning Letter & When a Skip-Trace Starts
 10. *Skill Activity* — Opening John Doe's File in the CMS (practises: Ingesting the Raw File)
 11. *Skill Activity* — Backup File Maintenance: the Firm's Folders and Hierarchy (practises: Ingesting the Raw File)
 12. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet (practises: Client Do's and Don'ts)
 13. *Skill Activity* — Onboarding Direction Assignment in System (practises: Client Do's and Don'ts)
 14. *Skill Activity* — Does It Touch Our Case? Sorting the PD File (practises: Property Damage: Does It Touch Our Case?)
 15. *Skill Activity* — Multi-Channel Outreach Logging (practises: The No Contact Protocol — Steps 1 to 3)
-16. *Skill Activity* — Final Warning Letter Drafting (practises: Final Warning Letter & the Skip-Trace Trigger)
+16. *Skill Activity* — Final Warning Letter Drafting (practises: Final Warning Letter & When a Skip-Trace Starts)
 17. *Knowledge Check* — CM Fundamentals Knowledge Check
 18. *Knowledge Check* — Onboarding & Property Damage Check
 19. *Knowledge Check* — MIA Escalation Knowledge Check
@@ -100,14 +100,6 @@ A case card filling the slide like a file folder: top-left the style JOHN DOE v.
 | Recovery Stack | $10,000 BI → $20,000 Host UM → $10,000 Relative UM = $40,000 |
 | Health Plan | Peach State · reimbursement right asserted |
 | Critical fact | A Treatment Gap: compare the EMS Run Report with the first treatment record |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| The course begins | Read the Case File profile and the intake documents | Case File · Case Documents | Can state the DOL, the stack and the critical fact from memory |
-| The matter opens in the CMS | Check every case fact against its source document | CMS → Case File · Documents | Each fact traced to a document, none to memory |
-| A fact changes | Update the CMS and tell the team the same day | CMS → Case Notes | The CMS matches the file, always |
 
 **Best practices & pitfalls**
 
@@ -177,14 +169,6 @@ A single horizontal case-lifecycle track across the slide: eight rounded station
 | Documents requested, named and filed | Settlement authority |
 | The Case Plan draft and its risk flags | Lien compromises |
 | Recommendations to counsel | Every filing and court decision |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A new matter is assigned | Read the raw file end to end before contacting anyone | CMS → Case File | Every party, date and carrier noted before the first call |
-| The client asks a legal question | Log it and route it to Atty. Thorne the same day | CMS → Communications Log · Tasks | Question routed with the facts; no opinion given |
-| A deadline or risk appears | Docket it, flag it and recommend a next step | CMS → Calendar · Case File → Risk Flags | Nothing lives only in an email or in memory |
 
 **Best practices & pitfalls**
 
@@ -256,14 +240,6 @@ A two-column board split by a red vertical line labelled THE UPL LINE. Left, a g
 | “That's a question for Atty. Thorne. I've logged it, and he'll call you by Friday.” | “The gap in your treatment will hurt your case.” |
 | “Carriers usually answer within a few weeks; I'll follow up and update you.” | “Don't worry, that won't matter.” |
 | “I'll write down exactly what you told me, and the document that shows it.” | “Tell the adjuster it was the other driver's fault.” |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| John Doe asks what his case is worth | Say it is Atty. Thorne's question; log his words exactly | CMS → Case Notes · Tasks | Routed the same day; no figure given |
-| John Doe asks what happens next | Explain the next step of the process in plain words | CMS → Case Notes | Process explained; no prediction of the outcome |
-| An adjuster or provider asks your view of the case | Decline politely; share only facts the firm has approved | CMS → Communications Log | Nothing said beyond the record; contact logged |
 
 **Best practices & pitfalls**
 
@@ -342,15 +318,6 @@ Left-to-right intake pipeline across the full slide width. Left third: a muted g
 | Host driver | Operator of the vehicle John Doe rode in | Source of the $20,000 Host UM layer. |
 | Resident relative | John Doe's household relative | Source of the $10,000 Relative UM layer. |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Raw file received from “On the Records” | Run and document the Conflict Check, then verify DOL, parties and signatures against the source documents | CMS → New Case | Conflict Check logged before the file exists; DOL matches the Police Report |
-| Matter created | Docket the SOL and log the retainer and the claim-specific HIPAA authorization | CMS → Calendar · Documents | SOL 02/06/2028 on the calendar; both signatures logged |
-| Parties identified | Map all six roles and record the client's position in the vehicle | CMS → Parties | No party left “unknown”; position recorded from the Police Report |
-| Documents arrive | Name each to the firm's convention and file it under its CMS category | CMS → Documents | Every document findable by its convention name |
-
 **Best practices & pitfalls**
 
 - Record the source of every coverage fact (Dec Page, adjuster letter, Police Report).
@@ -426,14 +393,6 @@ A five-band vertical architecture, each band a full-width navy or navy-soft bar 
 4. **Three-Pillar Plan** — Clinical, Functional, Financial goals, each with an owner and a date.
 5. **Risks & flags** — Adverse facts stated plainly: here, the 14-Day Treatment Gap. Routed to Atty. Thorne.
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Verification call complete | Record the acceptance decision with its reason | CMS → Case Notes | Accepted / Escalated / Declined, with a reason a colleague can follow |
-| Coverage verified in writing | Draft the plan across all five bands | Action Plan Editor | All five bands present; risks band populated |
-| Plan drafted | Docket the filing window and route to Atty. Thorne | Action Plan Editor → Route for review · CMS → Calendar | Routed before any position-committing action; due date on the calendar |
-
 **Best practices & pitfalls**
 
 - Each pillar should have measurable goals.
@@ -507,14 +466,6 @@ A balanced two-column DO / DON'T board on the upper two-thirds, green-bordered l
 | Bring every carrier document to the firm before signing. | Sign a carrier's release or medical authorization yourself. |
 | Report any change of address, phone or provider at once. | Post about the collision, the injuries or your activities. |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Retainer signed | Deliver the standing instructions and log delivery | CMS → Onboarding | Delivery logged with date and method |
-| Client mentions an accident-related expense | Tell him to keep the receipt; log the expense | CMS → Case Notes | Receipt requested; expense logged |
-| Adverse carrier calls the client directly | Instruct the client to route it to the firm; log the contact | CMS → Communications Log | No Recorded Statement; contact logged |
-
 **Best practices & pitfalls**
 
 - Educate the client on why consistent treatment matters, not just that it does.
@@ -585,14 +536,6 @@ A two-lane sorting board fills the upper two-thirds. Left lane, navy-bordered, h
 | Loss of Use, Diminished Value | No: Margaret Doe's PD claim | Refer to Atty. Thorne |
 | Repair or total-loss negotiation | No: Margaret Doe's PD claim | Refer; never negotiate it |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A PD document arrives (photos, estimate, supplement) | Index it on John Doe's file as severity evidence | CMS → Documents | Filed as BI evidence, not opened as a PD claim |
-| Anyone asks about the Civic's rental, Loss of Use or repair figure | Log the question and refer it to Atty. Thorne | CMS → Case Notes · CMS → Tasks | Referred the same day; no advice given |
-| A PD date touches John Doe's care | Calendar it as a treatment risk; plan his rides | Calendar · CMS → Tasks | Rides planned before the date |
-
 **Best practices & pitfalls**
 
 - Ask of every PD fact: does it prove the impact, or reach his care? If neither, it stays on Margaret Doe's claim.
@@ -661,14 +604,6 @@ A six-station vertical protocol spine down the left third, stations numbered 1�
 5. **Decision Point** — The attorney may file a Notice of Withdrawal or a Motion to Withdraw. (Next lesson.)
 6. **File Closure** — “No response – withdrew per protocol”; all proof of attempts retained. (Next lesson.)
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Client misses a scheduled contact or appointment | Step 1: review case status, deadlines and the last contact date | CMS → Case Summary | Live deadlines identified before outreach begins |
-| Internal review complete | Step 2: work the channel ladder; log each attempt | CMS → Communications Log | 2+ phone attempts, then email and text, each with date, time, channel, outcome |
-| Channel ladder exhausted | Step 3: notify Atty. Thorne and assess deadline impact on John Doe's file | CMS → Tasks → Escalate | Escalation documented; SOL (02/06/2028) and any hearing dates assessed |
-
 **Best practices & pitfalls**
 
 - Set follow-up reminders the moment a request goes out.
@@ -701,7 +636,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ---
 
-### 1.1.9 Final Warning Letter & the Skip-Trace Trigger
+### 1.1.9 Final Warning Letter & When a Skip-Trace Starts
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** No Contact Protocol Steps 4 to 6, and when the search begins  
@@ -734,14 +669,6 @@ Two panels. Left: the Final Warning Letter on white letterhead with a navy band,
 1. **Contact ladder exhausted** — 2+ phone attempts, email, text and the emergency contact, all attempted and logged.
 2. **Final Warning Letter sent** — Certified mail AND email, to a confirmed address, stating the 7–14 day deadline.
 3. **Deadline expired** — The response window has passed with no contact from the client.
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Step 3 escalation made, still no response | Draft the Final Warning Letter with a 7–14 day deadline | Action Plan Editor → Warning letter template | Earlier attempts itemized; deadline and withdrawal notice present |
-| Letter ready | Confirm the current address; send by certified mail AND email | CMS → Documents → Outgoing | Both channels used and logged; certified receipt kept |
-| Response deadline expires | Verify all three criteria; escalate to Atty. Thorne for Skip-Trace authority and the Step 5 decision | CMS → Tasks → Escalate | All three criteria evidenced in the log first |
 
 **Best practices & pitfalls**
 
@@ -808,14 +735,6 @@ The CMS New Case screen as a large mock-up on the left two-thirds: a Conflict Ch
 - [ ] Every intake document filed under its CMS category and named to convention
 - [ ] Corrections summarized to Atty. Thorne in Case Notes
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Raw file received | Run and document the Conflict Check on full legal names | CMS → New Case | Conflict Check logged before the matter exists |
-| Draft record keyed | Verify every field against its source document and correct with the source | CMS → Case File · Documents | No field accepted from the draft unchecked |
-| Matter active | Docket the SOL, map the parties, file the intake documents | CMS → Calendar · Parties · Documents | SOL 02/06/2028 with reminders; six roles; every document filed |
-
 **Best practices & pitfalls**
 
 - Verify against the Police Report and signed documents, not the draft.
@@ -879,15 +798,6 @@ A Google Drive folder tree as a large mock-up on the left two-thirds: LSH Case B
 - [ ] The hierarchy submitted and graded as built
 - [ ] ✓ Check my drive run with no folder missing
 - [ ] The signed retainer and the HIPAA authorization placed in 01 Intake & Retainer, the Police Report in 02 Police, Witness & Video, each with its reason in Case Notes
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Matter active in the CMS | Link your Google Drive to the platform | Backup Drive | Connected with drive.file only |
-| Drive linked, no structure yet | Build the firm's hierarchy, named, numbered, nested and in order | Backup Drive | Graded as built, nothing invented |
-| Structure built | Confirm it with ✓ Check my drive; put back anything missing | Backup Drive | No folder missing |
-| Documents filed in the CMS | Record where each belongs on the backup | CMS → Case Notes | Retainer, HIPAA, Police Report placed with reasons |
 
 **Best practices & pitfalls**
 
@@ -954,15 +864,6 @@ An exploded packet: a central navy folder with six document cards fanned around 
 - [ ] Atty. Thorne told the same day that the adverse carrier contacted a represented client
 - [ ] The adverse-contact instruction named as the urgent one, and John Doe repeated it back
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Voicemail: the carrier asked to record the client | Transcribe it; write the action plan; tell Atty. Thorne | Notes & Action Plan · CMS → Communications Log | Plan graded; attorney told the same day |
-| Adverse carrier has called a represented client | Email the adjuster: no direct contact; statements through the firm | Email Workspace · CMS → Communications Log | Sent and logged; nothing about injuries |
-| Client sore, not yet seen | Check in; outline next steps; coordinate with the facility | Call Simulator → AI John Doe · Email Workspace | Instruction repeated back; first visit arranged |
-| Packet ready | Deliver and log | CMS → Onboarding | Date and method recorded |
-
 **Best practices & pitfalls**
 
 - A confirmation step means more than sending: ask how you will know he read it.
@@ -1027,14 +928,6 @@ A CMS task board in three columns — ASSIGNED · DUE · VERIFIED — with direc
 - [ ] Treatment-start follow-up scheduled
 - [ ] No task left without a date
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Packet delivered | Turn each direction into a task | CMS → Tasks | Owner, date, verification on each |
-| Mis-assigned task found | Reassign to the firm with the reason | CMS → Tasks | Reason recorded |
-| Treatment not yet started | Schedule the treatment-start follow-up | CMS → Tasks · Calendar | Follow-up dated |
-
 **Best practices & pitfalls**
 
 - Use task trackers so a gap in treatment is visible the day it starts.
@@ -1097,14 +990,6 @@ A sorting tray: six item cards (damage photos, the tow record, the Police Report
 - [ ] Margaret Doe's two questions referred to Atty. Thorne the same day, with no advice on her claim
 - [ ] John Doe told the rental is not his, and his ride to treatment solved
 - [ ] The note ends with the answer: PD touches John Doe's case as evidence of the impact and through his rides, never as a claim of his
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| PD items reach the file | Sort each one: BI evidence, coordinate, or Margaret's claim | CMS → Case Notes | Sort recorded with the Police Report cited |
-| Severity evidence identified | Index it on John Doe's file | CMS → Documents | Photos and estimate indexed as BI evidence |
-| Margaret Doe asks about her PD claim | Refer to Atty. Thorne; plan John Doe's rides | CMS → Tasks · Calendar | Referred the same day; rental follow-up dated |
 
 **Best practices & pitfalls**
 
@@ -1169,14 +1054,6 @@ A CMS Communications Log as a table across the full slide width, four rows pre-f
 - [ ] Next action recorded with a due date
 - [ ] Step 3 impact names the running SOL (02/06/2028) and the treatment that has not started
 - [ ] No entry threatens withdrawal or case closure
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Six days without contact | Step 1 internal review | CMS → Case Summary | Live deadlines listed |
-| Review complete | Reconstruct and continue the log | CMS → Communications Log | Unbroken log, distinct channels |
-| Ladder cleared, no answer | Step 3 escalation with case impact | CMS → Tasks → Escalate | Atty. Thorne notified; impact recorded |
 
 **Best practices & pitfalls**
 
@@ -1244,14 +1121,6 @@ A split drafting view. Left two-thirds: the live letter draft on white letterhea
 - [ ] Current address confirmed before sending
 - [ ] No statement about claim value, legal consequences or settled representation status
 - [ ] Skip-Trace criteria recorded; Step 5 authority noted as Atty. Thorne's
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Eleven days, Step 3 made | Draft the letter | Action Plan Editor | Four elements present |
-| Draft complete | Send by certified mail and email | CMS → Documents → Outgoing | Both logged |
-| Letter sent | Calendar the response deadline | CMS → Calendar | Deadline date on the calendar |
 
 **Best practices & pitfalls**
 

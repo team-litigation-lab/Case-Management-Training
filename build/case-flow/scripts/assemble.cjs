@@ -75,7 +75,7 @@ for (const day of CF.days) for (const m of day.modules) for (const b of m.blocks
   const c = J[b.id]; if(!c){ errors.push(`${b.id}: no script`); continue; }
   const vs = viewsOf(b);
   for (const v of vs) { const x = c[v]; if(!x){ errors.push(`${b.id}.${v}: no script for this slide`); continue; } say(b.id, `${v}.say`, x.say); ask(b.id, `${v}.ask`, x.ask); }
-  if(c.job) errors.push(`${b.id}.job: no lesson has an On the Job slide (Trigger ➔ Task ➔ Tool ➔ Checkpoint) any more; take its script out`);
+  if(c.job) errors.push(`${b.id}.job: no lesson has an On the Job slide any more; take its script out`);
   if(c.steps) errors.push(`${b.id}.steps: no lesson has a Milestone Steps slide any more; fold its points into the rules (or theory) script and take "steps" out`);
   // a CM Red Flag no slide of the lesson has room for is spoken, not drawn (the copy's redFlag.spoken): its point is in the talking points for The Rules
   const copy = SLIDES[b.id] || {}, plain = t => String(t || "").replace(/\*\*/g, "").replace(/\s+/g, " ").trim();

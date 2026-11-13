@@ -49,7 +49,7 @@ The day is one module, on John Doe's one file, in two parts: first ALL of its le
 15. *Skill Activity* — Provider Balance Negotiation Exercises (practises: Lien Negotiation Calls: the Reduction Request, the Ask and the Payoff Letter)
 16. *Skill Activity* — Completing the Final Dual-Tab Net Sheet (practises: The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker)
 17. *Skill Activity* — Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold (practises: Release Audits, Trust Accounting & Disbursement Commands)
-18. *Skill Activity* — Disbursement Command Triggering: Releases, Hold Cleared, Money Out (practises: Release Audits, Trust Accounting & Disbursement Commands)
+18. *Skill Activity* — Starting the Disbursement Command: Releases, Hold Cleared, Money Out (practises: Release Audits, Trust Accounting & Disbursement Commands)
 19. *Skill Activity* — Backup File Maintenance: Liens, Costs and a Missing Folder (practises: Closing the File: Final Reconciliation, the Closing Memo, the Closing Letter & Retention)
 20. *Skill Activity* — Routing the UM Impasse: Arbitration or Court (practises: UM/UIM Disputes & Resolution Routes)
 21. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs (practises: Court Hard Rules, SOL Cutoffs & the Master Calendar)
@@ -112,15 +112,6 @@ A reducibility ladder fills the left two-thirds: horizontal bars stacked from MO
 | Hospital · workers' comp | Statute | None asserted: verify, record |
 | Prior attorney | Quantum meruit | None known to John Doe at 10/06; Vance & Kettering asserts one 10/14 (worked at closing) |
 | Harbor Point PIP | Not a lien | No reimbursement right |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Gross recovery reaches $40,000.00 (10/06/2026) | Run the final inventory, re-verifying the Day 2 lien register, asserted and absent, and classify each as statutory or contractual | CMS → Financial Ledger → Net Sheet → Lien Tracker | Two liens open; Medicare, Medicaid, hospital, workers' comp, prior attorney and PIP each recorded “none” with a source |
-| Health Plan lien classified | Obtain the plan documents and route the funding status to Atty. Thorne | CMS → Tasks → Escalate | Fully insured status on file; the governing-law call recorded as his |
-| Atty. Thorne chooses the reduction basis | Draft the request naming the doctrine, with the math | CMS → Documents → Outgoing | Doctrine named; $1,860.00 – $620.00 = $1,240.00 shown; held for his approval |
-| Prior-attorney question open | Ask John Doe and check the intake record; record the answer | CMS → Case Notes | “No other lawyer known to John Doe” logged with its date and source |
 
 **Best practices & pitfalls**
 
@@ -196,14 +187,6 @@ Top half: the pro-rata illustration as one long horizontal bar, the $6,179.92 fu
 | Total | $7,965.00 | 100% | $6,179.92 |
 | John Doe's net | — | — | $0.00 |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Provider's Final Ledger received | Audit each line against the visit records; request a written correction of any error | Medical Records Requests · CMS → Financial Ledger → Net Sheet → Lien Tracker | 33 visits matched; 05/04/2026 duplicate removed; $6,105.00 |
-| Audited balance confirmed | Draft the Reduction Request with the math and obtain Atty. Thorne's written authority | CMS → Documents → Outgoing · CMS → Tasks → Escalate | Authority logged before the request goes or any call is made |
-| Reduction agreed | Obtain the signed Payoff Letter; update the Lien Tracker and the Net Sheet | CMS → Financial Ledger → Net Sheet | Full-and-final language on file; net recomputed the same day |
-
 **Best practices & pitfalls**
 
 - Corrections first, reductions second.
@@ -273,14 +256,6 @@ A three-step ladder on the left: REDUCTION REQUEST → THE CALL → PAYOFF LETTE
 | Riverton Spine & Rehab | $6,105.00 | $4,580.00 | $1,525.00 | Signed, full and final |
 | Total | $7,965.00 | $5,820.00 | $2,145.00 | Both on file before disbursement |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Audited balance confirmed | Draft the Reduction Request with the math; get Atty. Thorne's written authority | CMS → Documents → Outgoing · CMS → Tasks → Escalate | Authority logged before the request goes |
-| Lienholder responds | Call with the authorized ask; log the name, date and figures | CMS → Case Notes · CMS → Liens | Counter outside authority routed the same day |
-| Reduction agreed | Obtain the signed Payoff Letter; update the Lien Tracker and Net Sheet | CMS → Financial Ledger → Net Sheet | Full-and-final language on file |
-
 **Best practices & pitfalls**
 
 - Paper first, phone second.
@@ -349,15 +324,6 @@ A wide two-tab spreadsheet card fills the slide, cream with a navy header bar ca
 | Costs, receipted: $121.69 + $365.06 = $486.75. | Harbor Point PIP $5,000.00: no reimbursement right (03/02/2026) → $0.00. |
 | Liens from the Lien Tracker, 25% / 75%: $1,455.00 + $4,365.00 = $5,820.00. | Crescent Pain & Spine: balance written off, no balance-billing → $0.00. |
 | Net to John Doe: $5,089.98 + $15,269.94 = $20,359.92. | Payoff Letter status on every line. |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Each settlement check received | Post it to its stream with carrier and check reference | CMS → Financial Ledger → Net Sheet → Recovery Ledger | BI $10,000.00 · UM $20,000.00 + $10,000.00 · total $40,000.00 |
-| Cost incurred | Attach the receipt and post it once | CMS → Financial Ledger → Net Sheet → Recovery Ledger | Five receipts = $486.75; no cost charged to both streams in full |
-| Lien reduction accepted | Record asserted, audited and reduced figures and the Payoff Letter | CMS → Financial Ledger → Net Sheet → Lien Tracker | Peach State $1,240.00 · Riverton Spine & Rehab $4,580.00 · letters dated |
-| Both tabs complete | Tie the Net Sheet to the Trust Ledger and route it to Atty. Thorne | CMS → Financial Ledger → Trust · CMS → Tasks → Escalate | Net $20,359.92 on both; routed before John Doe sees it |
 
 **Best practices & pitfalls**
 
@@ -433,15 +399,6 @@ A horizontal six-gate money path across the slide, each gate a navy card with an
 4. **Statement signed** — John Doe, 10/21, after Atty. Thorne explains it.
 5. **Disbursement** — 10/22: five checks, approved and signed by Atty. Thorne.
 6. **Reconcile** — Ledger $0.00; lien satisfactions and John Doe's receipt filed; closing memo 10/30.
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Settlement agreed or tendered | Request the payee's W-9 the same day and send it with the signed release | CMS → Documents → Outgoing | W-9 travels with the release; no accounting hold on the check |
-| Carrier's draft release arrives | Audit parties, claims, indemnity, Medicare and confidentiality terms; route a redline memo | CMS → Documents → Release audit · CMS → Tasks → Escalate | Every over-broad line quoted and flagged before John Doe sees the draft |
-| Settlement check received | Confirm its release is signed, then deposit to IOLTA the same day and log the clearance date | CMS → Financial Ledger → Trust | Deposits 09/04, 10/05, 10/13 = $40,000.00; all funds cleared by 10/20 |
-| Suit pending at settlement (not on Track A) | Prepare the stipulation of dismissal with prejudice for the attorneys' signatures | Court E-Filing · CMS → Calendar | “With prejudice” verified; court entry confirmed and docketed |
 
 **Best practices & pitfalls**
 
@@ -520,15 +477,6 @@ A tall archive box at the right edge of the slide, navy, with a faded orange ARC
 6. **Closing memo** — 10/30/2026: how it started versus how it ended, discrepancy notes, exceptions; the Property Damage claim noted as open.
 7. **Retention, then archive** — Every document tagged by type; disposition review docketed 7 years from closing.
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Ledger at $0.00 (10/22/2026) | Build the money trail: three deposits, five disbursements, confirmation numbers and the zero-balance report | CMS → Financial Ledger → Trust | Bank statement, trust journal and client ledger agree at $0.00 once all five checks clear |
-| Satisfactions and John Doe's receipt returned | File proof of delivery, the payer-disclosure statement and a current W-9; draft the closing letter | CMS → Documents · CMS → Documents → Outgoing | All four sets present; letter signed by Atty. Thorne and sent before archive |
-| Closing memo written (10/30/2026) | Tag every document by type and docket each disposition date | CMS → Case Summary · CMS → Calendar | Discrepancies explained; disposition review 7 years from closing |
-| A bill arrives after the closing letter | Verify and classify it, route it to Atty. Thorne, and tell John Doe the same day | CMS → Tasks → Escalate · Email Workspace | Routed and John Doe told the day it arrives; correction request drafted |
-
 **Best practices & pitfalls**
 
 - Run the audit-ready test before you ask to archive: give the file to someone who never worked it and ask them to trace Riverton Spine & Rehab's $4,580.00 from deposit to payee.
@@ -600,22 +548,13 @@ A horizontal master-calendar ribbon across the full slide width on a cream groun
 
 *This file's hard rules, counted (as configured for this training file)*
 
-| Trigger | Rule and count | Docket |
+| Counts from | Rule and count | Docket |
 |---|---|---|
 | Smith served 10/14/2026 | Answer: 30 days | 11/13/2026 (Fri) |
 | Discovery mailed 12/01/2026 | 30 + 3 = 01/03/2027 (Sun) → forward | 01/04/2027 (Mon), RFAs too |
 | Mediation 03/18/2027 | Statement and binder 7 days before | 03/11/2027 (Thu) |
 | Hearing 06/22/2027 | Exhibits 20 days before; brief 10 days before = 06/12 (Sat) → back | 06/02/2027; 06/11/2027 (Fri) |
 | SOL 02/06/2028 (Sun) | Hard date before the weekend; cutoff 90 days earlier = 11/06/2027 (Sat) → back | 02/04/2028; 11/05/2027 (Fri) |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Scheduling Order entered 12/10/2026 | Enter every date with its trigger, rule, owner and alerts; read each verb | Court E-Filing | All six order dates entered that day; “completed by” entered as a deadline |
-| Discovery served by mail 12/01/2026 | Count 30 + 3, move the Sunday forward, enter the RFAs separately | Case Docket & Calendar Conflict Resolver | Responses and RFAs both at 01/04/2027; deemed-admitted flag set |
-| SOL review | Set the internal hard date and the internal filing cutoff | CMS → Calendar | 02/04/2028 and 11/05/2027 docketed; nothing relies on 02/06/2028 |
-| Arbitration invoked 04/05/2027 | Hard-code the hearing, exhibit-exchange and brief dates | CMS → Calendar → Master calendar | 06/02, 06/11 and 06/22/2027 entered with alerts the same day |
 
 **Best practices & pitfalls**
 
@@ -691,15 +630,6 @@ A three-step flow across the full slide on cream, each step a white orange-borde
 | 2 · Dispute | Impasse | Harbor Point offers $8,000 (03/31/2027) and Cardinal State $6,000 (04/02/2027) against $30,000 of UM limits; both hold on 04/05/2027, citing the gap; impasse memo to Atty. Thorne |
 | 3 · Resolution route | Demand for Arbitration, or file suit against the carrier | Read the governing state law and each policy's clause. Harbor Point's UM policy has a binding arbitration clause: invoked 04/05/2027, heard 06/22/2027 before Laura Whitcomb, Esq. Where no clause binds, a civil suit against the carrier; a bad-faith action is a separate suit, and Atty. Thorne's call |
 | Not a route | Margaret Doe's Bluewater Auto policy, on her parked Civic | UM/UIM rejected in writing by Margaret 03/14/2024, and John owns no car: there is no third layer and no third route |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| UM offers come back low (03/31 and 04/02/2027) | Write the impasse memo; pull Harbor Point's and Cardinal State's dispute-resolution clauses from the certified policies | CMS → Case Notes · CMS → Insurance tab → Coverage Matrix | Memo to Atty. Thorne the same day, with both clauses attached and neither interpreted |
-| Clauses and the governing statute in hand | Lay the route options before Atty. Thorne as findings, with each layer's own filing or demand deadline as a question | CMS → Tasks → Atty. Thorne | Both layers presented separately; no route recommended; every deadline asked, not assumed |
-| Route decided in writing | Record it, set the case status and open the ADR entry | CMS → ADR tab · CMS → Case Status | ADR Type UM / UIM arbitration; How It Was Set Required by the policy or contract; status matches the route |
-| Arbitration invoked 04/05/2027 | Docket the hearing and its backward-counted dates; tell John Doe what happens procedurally | CMS → Calendar → Master calendar | 06/02, 06/11 and 06/22/2027 entered with alerts; John Doe told the date, place and what to bring, and nothing about value |
 
 **Best practices & pitfalls**
 
@@ -780,15 +710,6 @@ Two forum cards face each other across the slide, joined by a bold orange arrow 
 | Across: Robert Smith, defended by Keystone. | Across: Harbor Point and Cardinal State. |
 | CM: windows, rooms, interpreter, buffer, notes. | CM: retainer, setup, notes, directives. |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Order requires mediation by 03/31/2027 | Collect 3–4 windows from Atty. Thorne, John Doe and opposing counsel, then contact the mediator's office | Calendaring Simulators | Windows logged before the mediator is contacted; session inside 03/31/2027 |
-| Opposing counsel rejects every window | Log the pushback; escalate for an attorney-to-attorney call | CMS → Tasks → Escalate | Logged and escalated the same day |
-| Arbitrator's fee schedule and retainer request received | Confirm the schedule; route the retainer to accounting; send internal invites | CMS → Tasks → Accounting · CMS → Calendar | Payment confirmed in writing before the hearing |
-| Directive from the bench | Log it as given; calendar it; memo Atty. Thorne | CMS → Case Notes · CMS → Calendar | Directive dated and calendared the same day |
-
 **Best practices & pitfalls**
 
 - Your hearing notes become Atty. Thorne's post-hearing roadmap.
@@ -868,14 +789,6 @@ An open binder seen from above fills the left two-thirds: six navy divider tabs 
 | 5 · Damages, financials & experts | Ledger, Northgate HR letter, MRI, Causation Letter, Gap Explanation Record | Ledger = sources: $16,401.40 |
 | 6 · Settlement history & drafts | Negotiation Log from 07/20/2026; draft release (Smith, Keystone) | Baseline stated; scope and UM consents flagged for Atty. Thorne |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Mediation set for 03/18/2027 | Open the master index and seat each document in one section | CMS → Documents → Master index | Every entry has section, exhibit number, Bates range and source |
-| Pleadings and evidence indexed | Check each defense pleaded in the answer against Sections 4 and 5 | CMS → Litigation → Pleadings Log | Each pleaded defense has an answering exhibit, or a flag to Atty. Thorne |
-| Binder assembled | OCR, bookmark and QA against the index; route for approval | CMS → Documents → Mediation Binder | Text-searchable; approved, then delivered by 03/11/2027 |
-
 **Best practices & pitfalls**
 
 - Start from the 07/20/2026 Demand Package: most of Sections 4 and 5 already exist there.
@@ -948,14 +861,6 @@ Two panels joined by a heavy orange arrow labelled THE GAP DISPUTE CARRIES OVER.
 | 5 · Prior medical shield | 2021 chiropractic: three low-back visits, resolved; no prior neck complaint; work history | Paired with the MRI read and a medical opinion |
 | 6 · Economic losses | Northgate HR letter ($1,584.00) | Wage proof only |
 | Attorney's set — not for exchange | Audited Lien Sheet; negotiation ledger; tort complaint and answer | Atty. Thorne decides |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Arbitration invoked 04/05/2027 | Open the claimant exhibit index and calendar the exchange and the brief | CMS → Litigation → Exhibit index · Court E-Filing | 06/02/2027 exchange and 06/11/2027 brief on the calendar |
-| Provider records gathered | Request each custodian's business-records certification | Medical Records Requests | One certification per provider covering every date exhibited |
-| Exchange set assembled | Route the set and every flagged item to Atty. Thorne | CMS → Tasks → Escalate | Approved before 06/02/2027; no privileged item in the set |
 
 **Best practices & pitfalls**
 
@@ -1033,15 +938,6 @@ A split comparison board titled TAB 5 · THE PRIOR MEDICAL SHIELD. Left column, 
 | Outcome | Resolved; released to full activity | MMI 06/12/2026; residual intermittent right-arm paresthesia |
 | Proof in Tab 5 | The complete chart, certified for every date | Certified records; Dr. Reyes's Causation Letter (06/19/2026); a declaration only if Atty. Thorne directs |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Arbitration invoked 04/05/2027 | Request Birch Avenue Chiropractic's complete 2021 chart with a business-records certification | Medical Records Requests | Full chart for 05/04, 05/11 and 05/18/2021, certified; not a summary |
-| Prior chart received | Build the side-by-side comparison from the certified records, quoting their words | CMS → Litigation → Exhibit index | Every cell cites a record and page |
-| A history mismatch, or a Causation Letter silent on 2021 | Flag it to Atty. Thorne with the records attached; he decides on a supplemental declaration | CMS → Tasks → Escalate | Flag dated; no record or testimony altered |
-| Tab 5 assembled | Check every claimed harm against the dated treatment timeline; route the tab for approval | CMS → Case File → Treatment timeline | Approved before the 06/02/2027 exchange |
-
 **Best practices & pitfalls**
 
 - Put the prior in your own binder first, already distinguished.
@@ -1117,14 +1013,6 @@ A two-lane board. The top lane is the treatment timeline in navy: EMS 02/06/2026
 | Disrupted care, 04/02–04/21/2026 | Ride lost; A-C-T call 04/08; care resumed 04/21 | The A-C-T record: failure to mitigate answered |
 | Injection, 05/15/2026 | Cervical epidural steroid injection | Escalating care, in the Specials at $3,400.00 billed |
 | MMI, 06/12/2026 | Residual intermittent right-arm paresthesia; 1–2 repeat injections possible | The prognosis and future care, in the narrative |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| MMI is declared | Close the chronology and audit the Specials | CMS → Medical · Net Sheet | Every bill tied to a dated record |
-| A gap or missed visit is on the record | Pair it with its documented reason | CMS → Case Notes · Gap Explanation Record | No break left unanswered before the demand |
-| The demand or a binder is assembled | Map each claim to the record that proves it | Packet Builder | No figure or finding without its source |
 
 **Best practices & pitfalls**
 
@@ -1207,14 +1095,6 @@ A two-panel lab bench. Left panel: a white CMS Lien Tracker card with a navy hea
 - [ ] PIP-paid providers (Riverton Urgent Care, Lakeside Orthopedics, Summit Imaging) at a zero balance; Summit's 03/11/2026 LOP request was declined, so it holds no lien
 - [ ] Acceptance logged 10/09/2026 at $1,240.00 only with Peach State's written confirmation and Atty. Thorne's approval attached
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Peach State's itemized ledger received | Match each payment to the treatment record | Medical Records Requests · CMS → Financial Ledger → Net Sheet → Lien Tracker | One line, 05/15/2026, $1,860.00, accident-related |
-| Reduction Request drafted | Route to Atty. Thorne for approval and signature | CMS → Tasks → Escalate | Nothing sent before his written approval is logged |
-| Plan's written acceptance arrives | Record the reduced figure and attach the confirmation | CMS → Financial Ledger → Net Sheet → Lien Tracker | $1,240.00 dated 10/09/2026; confirmation attached |
-
 **Best practices & pitfalls**
 
 - Audit the Health Plan's claim too: a plan's ledger can carry charges unrelated to the collision.
@@ -1283,14 +1163,6 @@ A phone-call storyboard in three frames across the slide, each a cream card with
 - [ ] Lien Tracker: $6,290.00 billed → $6,105.00 audited → $4,580.00 accepted 10/12/2026 ($185.00 corrected + $1,525.00 negotiated = $1,710.00 saved)
 - [ ] Net Sheet recomputed: $40,000.00 – $13,333.33 – $486.75 – $1,240.00 – $4,580.00 = $20,359.92
 - [ ] Savings reported to John Doe as facts, with no advice on the settlement
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Final LOP ledger received | Audit it and request the written correction | Medical Records Requests · Email Workspace | $6,105.00 confirmed in writing before any reduction is asked |
-| Request approved and sent | Make the follow-up call and log it | Call Simulator → AI Billing Manager: Riverton Spine & Rehab · CMS → Communications Log | Call logged with the ask and the answer; no figure accepted on the call |
-| Provider agrees to a figure | Route it for approval, obtain the signed Payoff Letter, update both tabs | CMS → Tasks → Escalate · CMS → Financial Ledger → Net Sheet | Payoff Letter on file; net $20,359.92 |
 
 **Best practices & pitfalls**
 
@@ -1361,14 +1233,6 @@ Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns A
 - [ ] Future medical ($3,400–$6,800 in possible repeat ESIs) flagged to Atty. Thorne before John Doe signs: the settlement is full and final, and no carrier pays more
 - [ ] Ties out: trust deposits $40,000.00 = Recovery Ledger gross; liens audited $1,860.00 + $6,105.00 = $7,965.00, paid $1,240.00 + $4,580.00 = $5,820.00 ($2,145.00 negotiated, plus the $185.00 duplicate removed at audit)
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Last UM check received (10/13/2026) | Post the deposit and complete the Recovery Ledger by stream | CMS → Financial Ledger → Net Sheet → Recovery Ledger | Streams $10,000.00 / $30,000.00; net $20,359.92 |
-| Lien reduction accepted in writing | Complete the Lien Tracker row and log the Payoff Letter | CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Documents | Peach State $1,240.00 (10/09); Riverton Spine & Rehab $4,580.00 (10/12) |
-| Both tabs tie to the Trust Ledger | Route the draft Settlement Statement with the future-medical flag | CMS → Tasks → Escalate | Routed to Atty. Thorne before John Doe sees the statement |
-
 **Best practices & pitfalls**
 
 - Every reduction needs a named basis or an audit finding, written on its line.
@@ -1438,14 +1302,6 @@ Centre: Vance & Kettering's notice as a cream letter with a red stamp, CHARGING 
 - [ ] No fee division confirmed, negotiated or discussed with Vance & Kettering
 - [ ] Correspondence archived in CMS → Doc Hub and kept on the Backup Drive; the 10/19/2026 withdrawal and the hold's release logged when they come
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A notice of charging lien arrives (10/14/2026) | Log it on receipt; route to Atty. Thorne; on his instruction, hold the disputed amount | CMS → Communications Log · CMS → Tasks → Escalate · CMS → Financial Ledger → Trust | Routed the same day; $6,666.67 on hold; nothing sent to the claiming firm |
-| Investigation (10/15/2026) | Compare signatures, cross-reference dates, audit the work, take John Doe's account | CMS → Documents · Call Simulator → AI Client: John Doe | Each finding tied to a document on the file |
-| Packet delivered | Deliver the evidentiary packet; update the Action Plan; archive everything | CMS → Tasks → Escalate · Action Plan Editor · CMS → Documents | Atty. Thorne repudiates 10/16; withdrawal 10/19; hold released by him |
-
 **Best practices & pitfalls**
 
 - Write the packet so Atty. Thorne could send it unedited: dates, documents, quotations, no adjectives.
@@ -1478,7 +1334,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.18 Disbursement Command Triggering: Releases, Hold Cleared, Money Out
+### 4.1.18 Starting the Disbursement Command: Releases, Hold Cleared, Money Out
 
 > **Skill Activity** · Day 4 — Reductions, lien negotiation & ADR · Module 4: Reductions, Lien Negotiation & ADR · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity 3 — confirm every gate, then move the money to $0.00  
@@ -1512,14 +1368,6 @@ Two panels joined by an orange arrow dated 10/21 → 10/22. Left: a navy-header 
 - [ ] Each lien check requests a signed satisfaction of lien; John Doe's check goes with an acknowledgment of receipt to sign
 - [ ] Invoice and payoff references cross-checked so no payee is paid twice
 - [ ] Every command marked for Atty. Thorne's approval and signature; none released by the CM
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Funds cleared (10/20) and statement signed (10/21) | Confirm every condition precedent, the lien hold's release included | CMS → Documents · CMS → Financial Ledger → Trust | Each condition tied to its document; nothing assumed |
-| Conditions confirmed | Queue five disbursement commands with their packets | CMS → Financial Ledger → Trust | Commands total $40,000.00; ledger projects to $0.00 |
-| Atty. Thorne approves and signs (10/22/2026) | Post each disbursement; request lien satisfactions and John Doe's receipt | CMS → Financial Ledger → Trust · Email Workspace | Ledger reads $0.00; file marked Paid only once receipt is confirmed |
 
 **Best practices & pitfalls**
 
@@ -1585,15 +1433,6 @@ The Doe-John folder tree with a dashed, empty gap where 06 Liens & Reimbursement
 - [ ] The Case Cost Ledger and the closing letter in 07 Wages & Costs
 - [ ] Every document filed in the CMS is on the drive
 - [ ] Case Notes: the missing folder, how it was found, what was restored, what is now backed up
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A folder deleted from the backup | Run ✓ Check my drive | Backup Drive | The missing folder named |
-| Folder reported missing | 🔁 Put the missing folders back, then check again | Backup Drive | No folder missing |
-| Liens resolved in writing | File the acceptances, payoff and lien papers | CMS → Documents | In 06 Liens & Reimbursement |
-| Costs and closing letter final | File the cost ledger and closing letter | CMS → Documents | In 07 Wages & Costs |
 
 **Best practices & pitfalls**
 
@@ -1662,15 +1501,6 @@ A two-pane working screen. Left, two stacked policy cards with a highlighted cla
 - [ ] Nothing docketed from assumption: the calendar entries are drafted and held, to be entered only from his written answer; the tort SOL 02/06/2028 is not used as a UM deadline
 - [ ] CMS set up to carry the answer: ADR Type UM / UIM arbitration, How It Was Set Required by the policy or contract, status matching the route, a task per open question with an owner and a date
 - [ ] The explanation to John Doe is procedural only: what a Demand for Arbitration is in plain words, that a neutral will decide rather than a jury, and that Atty. Thorne will go through what it means for his claim; no view on the offers, the limits or the carrier's conduct
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Both UM carriers hold at their offers, 04/05/2027 | Write the impasse memo with both clauses quoted | CMS → Case Notes | Memo dated 04/05/2027; Cardinal State's clause marked outstanding |
-| Certified policy outstanding | Chase it and log the request | CMS → Tasks | Chase task with an owner and a date; the gap stated in the memo, not filled in |
-| Questions sent to Atty. Thorne | Hold every date; draft the entries without saving them | CMS → Calendar | Nothing docketed; the drafts wait on his written answer |
-| John Doe calls to ask what happens now | Explain the procedure; route value and conduct to Atty. Thorne | CMS → Case Notes → Client Communications | Call logged the same day with what was said and what was routed |
 
 **Best practices & pitfalls**
 
@@ -1759,14 +1589,6 @@ The Case Docket & Calendar Conflict Resolver fills the slide: a white table card
 - [ ] Errors ranked: the missing and later-than-correct entries ahead of the early 12/31/2026 entry
 - [ ] Correction log routed to Atty. Thorne with rule questions flagged “confirm the court's rules”; no extension discussed with opposing counsel
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Scheduling Order entered 12/10/2026 | Audit every entry against its trigger document | Case Docket & Calendar Conflict Resolver | Every planted error found; correct entries untouched |
-| Errors corrected | Give each entry its trigger, rule, owner and alerts | Court E-Filing | No entry without a trigger document and alerts |
-| Audit complete | Route the ranked correction log, rule questions flagged | CMS → Tasks → Escalate | Routed to Atty. Thorne the same day |
-
 **Best practices & pitfalls**
 
 - Recompute from the trigger document, never from the entry you are checking.
@@ -1824,7 +1646,7 @@ A horizontal date rail across the slide from 01/08/2027 to 03/31/2027, the Notic
 
 **Verification checkpoints**
 
-- [ ] Trigger verified: the Notice of Mediation filed 01/08/2027 (Fri) meets the order's 30-day rule (12/10/2026 + 30 = 01/09/2027, a Saturday); the 12/10/2026 windows task closed with the notice attached, not re-created
+- [ ] The trigger is verified: the Notice of Mediation filed 01/08/2027 (Fri) meets the order's 30-day rule (12/10/2026 + 30 = 01/09/2027, a Saturday); the 12/10/2026 windows task closed with the notice attached, not re-created
 - [ ] Session entered once: 03/18/2027 (Thu), 9:30 a.m., in person at Hon. Carla Benton (Ret.)'s office, court-ordered; the day blocked for Atty. Thorne, John Doe and the CM (logistics only)
 - [ ] Attendance read from the order: each party (John Doe; Robert Smith with Atty. Grant Mercer) and a Keystone representative with full authority to settle; the representative's name logged as “to be confirmed by Atty. Mercer”, not guessed
 - [ ] Completion deadline verified, not re-entered: 03/18/2027 is 13 days inside 03/31/2027 (Wed); the 12/10/2026 “completed by” entry linked to the session
@@ -1836,15 +1658,6 @@ A horizontal date rail across the slide from 01/08/2027 to 03/31/2027, the Notic
 - [ ] UM flag: Harbor Point and Cardinal State each require written consent before any BI settlement, with 30 days from written notice to consent or advance; a tentative settlement noticed 03/18/2027 runs to 04/17/2027 (Sat); routed to Atty. Thorne as a question, no carrier contacted
 - [ ] Conflict check: plaintiff's expert disclosure 03/15/2027 (Mon) falls between binder delivery and the session, flagged as a workload overlap; 01/13/2027 and 05/28/2027 clear; no conflict on 03/18/2027
 - [ ] Every entry carries its trigger, rule, arithmetic, owner and alerts in the Calendaring Simulators and the CMS → Calendar; the summary routed to Atty. Thorne on 01/08/2027
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Notice of Mediation filed 01/08/2027 | Verify the trigger; enter the session; close the windows task | Calendaring Simulators · CMS → Calendar | Session 03/18/2027 entered once; 30-day rule and 03/31/2027 verified |
-| Session entered | Count the statement, binder and internal dates back; the report forward | Court E-Filing | 03/11, 03/09, 03/04, 03/02 and 03/25/2027, each with its arithmetic |
-| Order divides the mediator's fees equally | Open the cost task for the plaintiff's $1,200.00 half | CMS → Tasks → Accounting | Posted to the Case Cost Ledger only on the receipted invoice |
-| Calendar built | Route the summary: the UM consent flag and the 03/15/2027 overlap | CMS → Tasks → Escalate | Routed to Atty. Thorne the same day |
 
 **Best practices & pitfalls**
 
@@ -1927,14 +1740,6 @@ A matrix canvas across two-thirds of the slide: row labels down the left in navy
 - [ ] UPL map: never argue, speak on the record, speak for John Doe, negotiate or advise him on a number; do observe, log directives and update the CMS
 - [ ] Scripted deferral: “I'm the Case Manager providing administrative assistance; Atty. Thorne will address that,” and the document handed to him
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Arbitration invoked 04/05/2027 | Hard-code the hearing, exhibit-exchange and brief dates with alerts | CMS → Calendar → Master calendar | 06/02, 06/11 and 06/22/2027 entered the same day; nothing on 06/14/2027 |
-| Arbitrator's fee schedule and retainer request received | Confirm the schedule; route the retainer; file the payment confirmation | CMS → Tasks → Accounting | Written payment confirmation filed before the hearing |
-| Matrix and UPL map drafted | Route to Atty. Thorne before the team works from them | Action Plan Editor → Route for review | Routed with timestamp; approved version recorded |
-
 **Best practices & pitfalls**
 
 - Build the matrix for the colleague who staffs the hearing with you, not for yourself.
@@ -1993,7 +1798,7 @@ A horizontal calendar ribbon from 04/26/2027 to 06/22/2027. At the right end a s
 
 **Verification checkpoints**
 
-- [ ] Trigger recorded: Laura Whitcomb, Esq.'s scheduling letter of 04/26/2027 (Mon); the hearing, exchange and brief entries drafted on 04/05/2027 re-anchored to it and verified, not entered twice
+- [ ] The trigger is recorded: Laura Whitcomb, Esq.'s scheduling letter of 04/26/2027 (Mon); the hearing, exchange and brief entries drafted on 04/05/2027 re-anchored to it and verified, not entered twice
 - [ ] Hearing 06/22/2027 (Tue), 9:00 a.m., one day held for Atty. Thorne and the Case Manager
 - [ ] Exhibit exchange and witness list 06/02/2027 (Wed): 06/22/2027 − 20 days
 - [ ] Brief 06/11/2027 (Fri): 06/22/2027 − 10 days = 06/12/2027 (Sat); counting backward, the earlier business day; nothing on 06/14/2027
@@ -2005,15 +1810,6 @@ A horizontal calendar ribbon from 04/26/2027 to 06/22/2027. At the right end a s
 - [ ] SOL entries unchanged: internal hard date 02/04/2028 (Fri) and filing cutoff 11/05/2027 (Fri); 02/06/2028 (Sun) never relied on
 - [ ] Court entries in No. 26-CV-04417 (discovery closes 05/28/2027, pretrial conference 08/12/2027, trial calendar 09/13/2027) kept and marked “Robert Smith dismissed: confirm vacated”, with one written question to Atty. Thorne; nothing deleted
 - [ ] No award date docketed; every entry carries its trigger, rule, arithmetic, owner and alerts at 14, 7 and 1 days, mirrored from Court E-Filing to CMS → Calendar
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Scheduling letter arrives 04/26/2027 | Enter the hearing; re-anchor exchange and brief to the letter | Court E-Filing · CMS → Calendar | 06/22, 06/02 and 06/11/2027 verified; nothing on 06/14/2027 |
-| Hearing date fixed | Count back binder QC, records requests and the prep holds | Calendaring Simulators | 05/03, 05/14, 05/17, 06/15 and 06/21/2027, each with its rule |
-| Arbitrator's invoice for the plaintiff's share | Route $900.00 to accounting as a case cost | CMS → Tasks → Accounting | Payment confirmation on file by 05/17/2027 |
-| Master calendar checked | Ask Atty. Thorne which court dates stay live | CMS → Tasks → Escalate | Court entries kept and marked until he answers |
 
 **Best practices & pitfalls**
 
@@ -2087,14 +1883,6 @@ A three-column workbench. Left: the draft binder as a grey stack topped by two r
 - [ ] Master index complete: every document in exactly one section with an exhibit number and Bates range; PDF OCR-searchable and bookmarked
 - [ ] Audit memo names both landmines and their fixes; binder, statement and memo routed to Atty. Thorne before delivery; nothing about value said to Atty. Mercer
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Binder due 03/11/2027 | Build the six sections from the master index | CMS → Documents → Mediation Binder | Every document in one section, numbered and Bates-ranged |
-| Opposing counsel calls the ledger unverified | Chase the outstanding certified ledger and rebuild from what is certified | Medical Records Requests | Ledger ties to invoices and the Northgate HR letter: $14,817.40 + $1,584.00 = $16,401.40 |
-| Binder audited | Route binder and statement to Atty. Thorne; deliver on approval | CMS → Tasks → Escalate · Email Workspace | Approved before delivery; delivery to the mediator logged by 03/11/2027 |
-
 **Best practices & pitfalls**
 
 - Answer every pleaded defense with a page, not a sentence.
@@ -2165,14 +1953,6 @@ A sorting board. Left column: the unsorted folder as a pile of white document ca
 - [ ] Tab 6, wage proof only: Northgate HR letter, 9 shifts × 8 h × $22.00 = $1,584.00; the negotiation ledger (07/20/2026 demand to the executed settlement documents, no session offers) kept in the attorney's set
 - [ ] Impasse memo, negotiation ledger and Lien Sheet flagged for Atty. Thorne's privilege and exchange decision, none placed in the exchange set by the CM
 - [ ] Master index: C-numbers sequential, Bates ranges match page counts, authentication column complete, forum's evidence rule noted as “confirm with Atty. Thorne”; set approved before the 06/02/2027 exchange
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Exchange on 06/02/2027, 16 days out | Sort into six tabs, apply QC, number and Bates-range | CMS → Litigation → Exhibit index | C-1 onward; ranges match page counts; all four traps handled |
-| Lien Sheet lists PIP and Summit Imaging | Reconcile against the PIP payment log, Peach State's EOB and Harbor Point's 03/02/2026 letter | CMS → Financial Ledger → Net Sheet → Lien Tracker | Liens $1,860.00 + $6,105.00 = $7,965.00 |
-| Set audited | Route the set and the flagged items to Atty. Thorne | CMS → Tasks → Escalate | Approved, then exchanged by 06/02/2027 |
 
 **Best practices & pitfalls**
 
@@ -2309,15 +2089,6 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 1. Take John Doe's $40,000.00 to his $20,359.92 net, stream by stream. What does each stream carry for fee, costs and liens, and why is the split 25% / 75%?
 2. Name the four document sets that must be in the file before it is archived, the item on John Doe's file that satisfies each, and how long the closed file is kept.
 3. The Trust Ledger reads $0.00 after the 10/22/2026 disbursement. Which records prove it, and what would a balance left in trust tell you?
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Ledger at $0.00 (10/22/2026) | Assemble the money trail: every check itemized with its transaction ID, and the zero-balance report | CMS → Financial Ledger → Trust | Bank statement, trust journal and client ledger agree at $0.00, only after all five checks clear |
-| Satisfactions and receipt returned | File proof of delivery, the payer-disclosure confirmation and a current W-9 | CMS → Documents | All four sets present before archive |
-| Disbursement posted and satisfactions in | Draft the closing letter to John Doe for Atty. Thorne's signature: what was paid, to whom, and the satisfactions received | CMS → Documents → Outgoing | Signed by Atty. Thorne and sent before the file is archived |
-| Closing memo written (10/30/2026) | Tag every document by type and docket the disposition date | CMS → Case Summary · CMS → Calendar | Disposition review set 7 years from closing |
 
 **Best practices & pitfalls**
 
