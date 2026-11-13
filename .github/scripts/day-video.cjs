@@ -33,6 +33,12 @@ async function workerChecks() {
     await workerChecks();
     // the files the page points at are in the repository
     const notes = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'build/videoslide/day1.json'), 'utf8'));
+    // the video leaves out the Skill Building pages (worked in the platform, not watched): one chapter per page it keeps
+    const skip = new Set(notes.video.skip || []), inVideo = notes.slides.filter(s => !skip.has(s.page));
+    if (!skip.size) fail('the video should leave out the Skill Building pages (video.skip)');
+    if (notes.video.starts.length !== inVideo.length) fail(`video.starts has ${notes.video.starts.length} times for the ${inVideo.length} pages in the video`);
+    for (const p of skip) if (!notes.slides.some(s => s.page === p && /Skill Building/.test(s.title))) fail(`page ${p} is left out of the video but isn't a Skill Building page`);
+    if (!Object.values(notes.lessons).flat().some(p => skip.has(p))) fail('the Skill Building pages left out of the video should still be slides in the platform');
     for (const f of [notes.video.src, notes.video.captions]) if (!fs.existsSync(path.join(process.cwd(), f))) fail(`${f} is missing`);
     if (fs.statSync(path.join(process.cwd(), notes.video.src)).size > 25 * 1024 * 1024) fail(`${notes.video.src} is over 25 MB: Cloudflare won't serve it as a static asset`);
 
@@ -112,7 +118,7 @@ async function workerChecks() {
                 return { status: r.status === 206 ? 200 : r.status, type: r.headers.get('content-type') || '', size: total }; }).catch(e => ({ status: 0, err: String(e) }));
             return { h264, head, src: vid.getAttribute('src'), track: !!vid.querySelector('track[kind=captions]'), ready: vid.readyState, dur: Math.round(vid.duration || 0), n, t: Math.round(vid.currentTime), on: on ? on.textContent : null, box: o.querySelector('.cm-dv-box').getBoundingClientRect().bottom <= innerHeight + 1 };
         });
-        if (!v || v.n !== 54 || !v.track) fail(`the viewer: ${JSON.stringify(v)}`);
+        if (!v || v.n !== inVideo.length || !v.track) fail(`the viewer: ${JSON.stringify(v)}`);
         else {
             // the file is served whole, as a video, whatever browser runs the check
             if (v.head.status !== 200 || !/video\/mp4/.test(v.head.type) || v.head.size < 1e6) fail(`the video file isn't served as an mp4: ${JSON.stringify(v.head)}`);
@@ -130,5 +136,5 @@ async function workerChecks() {
     } catch (e) { fail(`the check stopped: ${e.message}`); }
     await browser.close();
     if (failures.length) { console.error('🎬 Day video check FAILED:\n - ' + failures.join('\n - ')); process.exit(1); }
-    console.log('🎬 Day 1 deck and video: 53 deck pages are the lessons\' slides with their notes as scripts, the video is locked until a trainer unlocks it for the batch, and the viewer plays it with captions and 54 slide chapters.');
+    console.log('🎬 Day 1 deck and video: 53 deck pages are the lessons\' slides with their notes as scripts, the video is locked until a trainer unlocks it for the batch, and the viewer plays it with captions and a chapter per page it keeps (the Skill Building pages are slides only).');
 })();

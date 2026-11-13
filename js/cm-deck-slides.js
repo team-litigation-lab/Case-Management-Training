@@ -350,37 +350,37 @@ window.CM_DAY_VIDEOS = {
     "title": "Training Agenda"
    },
    {
-    "t": 52.7,
+    "t": 52.4,
     "page": 3,
     "title": "What is Case Management?"
    },
    {
-    "t": 87.3,
+    "t": 87,
     "page": 4,
     "title": "The General Process"
    },
    {
-    "t": 122.1,
+    "t": 122.6,
     "page": 5,
     "title": "Key Duties"
    },
    {
-    "t": 155.5,
+    "t": 155.4,
     "page": 6,
     "title": "Understanding Case Phases"
    },
    {
-    "t": 187,
+    "t": 186.9,
     "page": 7,
     "title": "Case Phase: Intake"
    },
    {
-    "t": 228.4,
+    "t": 228.2,
     "page": 8,
     "title": "Intake in Practice"
    },
    {
-    "t": 275.9,
+    "t": 276,
     "page": 9,
     "title": "Intake and Initial Client Contact"
    },
@@ -390,222 +390,202 @@ window.CM_DAY_VIDEOS = {
     "title": "Case Acceptance Determination"
    },
    {
-    "t": 340.4,
+    "t": 340.7,
     "page": 11,
     "title": "Common Intake Bottlenecks"
    },
    {
-    "t": 372.5,
+    "t": 372.8,
     "page": 12,
     "title": "Bottleneck: Incomplete Client Information"
    },
    {
-    "t": 393.2,
+    "t": 393.7,
     "page": 13,
     "title": "Bottleneck: Delayed Client Follow-Up"
    },
    {
-    "t": 413.8,
+    "t": 414.9,
     "page": 14,
     "title": "Bottleneck: Conflict Check Delays"
    },
    {
-    "t": 436.1,
+    "t": 437.1,
     "page": 15,
     "title": "Bottleneck: Intake Form Errors"
    },
    {
-    "t": 454.8,
+    "t": 455.9,
     "page": 16,
     "title": "Bottleneck: Case Eligibility Uncertainty"
    },
    {
-    "t": 479.3,
+    "t": 480,
     "page": 17,
     "title": "Tools for Case Planning"
    },
    {
-    "t": 561.2,
+    "t": 561.9,
     "page": 18,
     "title": "Bottleneck: Communication Gaps"
    },
    {
-    "t": 581.6,
-    "page": 19,
-    "title": "Skill Building: Intake Decision Challenge"
-   },
-   {
-    "t": 619.5,
-    "page": 20,
-    "title": "Skill Building: Applied Case Manager Actions"
-   },
-   {
-    "t": 647.4,
+    "t": 582.2,
     "page": 21,
     "title": "Claim Set Up: Coverage and Liability"
    },
    {
-    "t": 690.8,
+    "t": 625.6,
     "page": 22,
     "title": "Case Projection"
    },
    {
-    "t": 731.9,
+    "t": 667.2,
     "page": 23,
     "title": "Case Example: Coverage Analysis"
    },
    {
-    "t": 789.5,
+    "t": 724.7,
     "page": 24,
     "title": "Case Example: Liability Determination"
    },
    {
-    "t": 838.3,
+    "t": 773.3,
     "page": 25,
     "title": "Case Planning Framework: Regulatory Triple-Check"
    },
    {
-    "t": 897.5,
+    "t": 832,
     "page": 26,
     "title": "The Three-Pillar Case Plan"
    },
    {
-    "t": 928.7,
+    "t": 863.2,
     "page": 27,
     "title": "Mandatory Disclosure & Compliance Tracking"
    },
    {
-    "t": 969.1,
+    "t": 903.2,
     "page": 28,
     "title": "The Golden Rule of US Claim Set-Up"
    },
    {
-    "t": 992.5,
+    "t": 926.9,
     "page": 29,
     "title": "The Treatment Phase: Core Objectives"
    },
    {
-    "t": 1033.5,
+    "t": 967.4,
     "page": 30,
     "title": "Key Responsibilities & Skills"
    },
    {
-    "t": 1085.6,
+    "t": 1019.2,
     "page": 31,
     "title": "Essential Client Communication Strategies"
    },
    {
-    "t": 1128.7,
+    "t": 1062.9,
     "page": 32,
     "title": "Handling the Treatment Phase: Documentation"
    },
    {
-    "t": 1178.7,
+    "t": 1112.1,
     "page": 33,
     "title": "Handling the Treatment Phase: Coordination & Boundaries"
    },
    {
-    "t": 1231.7,
+    "t": 1165.1,
     "page": 34,
     "title": "Red Flags: Physical Therapy & Surgery"
    },
    {
-    "t": 1291.8,
+    "t": 1225.6,
     "page": 35,
     "title": "Red Flags: Pain Management & Behavioral Health"
    },
    {
-    "t": 1348.4,
+    "t": 1282.9,
     "page": 36,
     "title": "Case Planning: The Assessment Phase"
    },
    {
-    "t": 1384.2,
+    "t": 1318.5,
     "page": 37,
     "title": "SMART Goal Setting"
    },
    {
-    "t": 1418.6,
+    "t": 1352.7,
     "page": 38,
     "title": "The Care Coordination Strategy"
    },
    {
-    "t": 1454.7,
+    "t": 1388.6,
     "page": 39,
     "title": "The Standard Treatment Map"
    },
    {
-    "t": 1489.5,
+    "t": 1423.8,
     "page": 40,
     "title": "Treatment Road Map Mastery"
    },
    {
-    "t": 1547.7,
+    "t": 1482.4,
     "page": 41,
     "title": "Variance Analysis: Why the Map Fails"
    },
    {
-    "t": 1579.3,
+    "t": 1514.2,
     "page": 42,
     "title": "Communication Loops: The Stakeholder Triad"
    },
    {
-    "t": 1624,
+    "t": 1558.7,
     "page": 43,
     "title": "The Golden Standard: Reasonable and Necessary"
    },
    {
-    "t": 1660.8,
+    "t": 1595.4,
     "page": 44,
     "title": "Immediate Action Protocol: A-C-T"
    },
    {
-    "t": 1697.5,
+    "t": 1632.9,
     "page": 45,
     "title": "Illustration: The Clinical Pathway Flowchart"
    },
    {
-    "t": 1755.8,
+    "t": 1691,
     "page": 46,
     "title": "Using the Map for Course Correction"
    },
    {
-    "t": 1811.9,
+    "t": 1746.7,
     "page": 47,
     "title": "The Yellow Flag Warning System"
    },
    {
-    "t": 1860.3,
+    "t": 1795.6,
     "page": 48,
     "title": "Handling Treatment Gaps"
    },
    {
-    "t": 1891.1,
+    "t": 1826.7,
     "page": 49,
     "title": "Treatment Gaps: Case Manager Responsibilities"
    },
    {
-    "t": 1937.3,
+    "t": 1873,
     "page": 50,
     "title": "Bottlenecks: The Escalation Protocol"
    },
    {
-    "t": 1968.7,
+    "t": 1904.2,
     "page": 51,
     "title": "Resolve: The Escalation Ladder"
    },
    {
-    "t": 2003.4,
-    "page": 52,
-    "title": "Skill Building: The Eggshell Plaintiff"
-   },
-   {
-    "t": 2052.3,
-    "page": 53,
-    "title": "Skill Building: The Transportation Wall"
-   },
-   {
-    "t": 2092.9,
+    "t": 1938.6,
     "page": 54,
     "title": "Thank You!"
    }

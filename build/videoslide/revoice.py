@@ -3,16 +3,16 @@
 
 make_video.py --voice voices the notes with the Piper narrator (American). This converts that narration to the
 sound of another voice (Chatterbox voice conversion, offline): the words, accent and timing stay the narrator's, the
-voice becomes the one in the sample. Each slide keeps its exact length, so the captions and chapters still fit.
+voice becomes the one in the sample.
 
-    python3 build/videoslide/revoice.py --build out/day1 --sample my-voice.wav --name day1
+    python3 build/videoslide/revoice.py --build out/day1 --sample my-voice.wav
 
---build is make_video.py's --out folder (its audio/slide-NN.wav, <name>.mp4). Writes there:
+--build is make_video.py's --out folder (its audio/slide-NN.wav, slides.json). Writes there:
   audio-revoiced/slide-NN.wav   (kept: a second run only converts the slides that are missing)
-  <name>-revoiced.mp4           the same video, chapters and captions, with the converted narration
+then make_video.py --audio-from <that folder> builds the video on that narration (each slide held for its length).
 Needs `pip install chatterbox-tts` and ffmpeg. Without a GPU it converts about 1 s of audio in 3-4 s.
 """
-import argparse, os, subprocess, sys, wave
+import argparse, json, os, subprocess, sys, wave
 from pathlib import Path
 
 
@@ -20,13 +20,16 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--build", required=True)
     ap.add_argument("--sample", required=True, help="10-30 s of the voice to sound like, clean, one speaker")
-    ap.add_argument("--name", required=True, help="the video's name in --build, without .mp4")
     a = ap.parse_args()
     os.environ.setdefault("TQDM_DISABLE", "1")
     import numpy as np, torch
     from chatterbox.vc import ChatterboxVC
 
-    build = Path(a.build); src = sorted((build / "audio").glob("slide-*.wav")); dst = build / "audio-revoiced"; dst.mkdir(exist_ok=True)
+    build = Path(a.build)
+    # the slides in the video, in its order (make_video.py's slides.json: pages it skips have no part in it)
+    order = build / "slides.json"
+    src = [build / "audio" / f"slide-{x['page']:02}.wav" for x in json.loads(order.read_text())] if order.exists() else sorted((build / "audio").glob("slide-*.wav"))
+    dst = build / "audio-revoiced"; dst.mkdir(exist_ok=True)
     if not src: sys.exit(f"no slide audio in {build / 'audio'}")
     model = None
     for f in src:
@@ -42,13 +45,8 @@ def main():
             w.setnchannels(1); w.setsampwidth(2); w.setframerate(model.sr); w.writeframes((np.clip(wav, -1, 1) * 32767).astype("<i2").tobytes())
         tmp.rename(o)
         print(f"  {f.name}  {want:.1f}s", flush=True)
-    lst = build / "revoiced.txt"; lst.write_text("".join(f"file '{(dst / f.name).resolve()}'\n" for f in src))
-    out = build / f"{a.name}-revoiced.mp4"
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(build / f"{a.name}.mp4"), "-f", "concat", "-safe", "0", "-i", str(lst),
-                    "-map", "0:v", "-map", "1:a", "-map", "0:s?", "-map_chapters", "0", "-map_metadata", "0",
-                    "-c:v", "copy", "-c:s", "copy", "-af", "loudnorm=I=-18:TP=-1.5", "-ar", "24000", "-c:a", "aac", "-b:a", "128k",
-                    "-movflags", "+faststart", str(out)], check=True)
-    print(f"Done: {out}")
+    print(f"Done: {len(src)} slides in {dst}. Now build the video from them:\n"
+          f"  python3 build/videoslide/make_video.py ... --out {build} --audio-from {dst}")
 
 
 if __name__ == "__main__":
