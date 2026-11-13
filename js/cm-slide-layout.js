@@ -91,6 +91,13 @@
   .lesson-stage .cfx-body.cfx-body-navy > :last-child{margin-bottom:auto;}
   .lesson-stage .cfx .cfx-sheet > .cfx-model{flex:0 1 auto !important;}
 }
+/* Your Case: what landed on the file and its documents sit level with each other in the middle (no card pinned to
+   the top with a band under it); the small picture that only took what was left of the column is not drawn, so the
+   message and the documents have its room */
+.cfx-sb-grid:not(.cfx-sb-vm){align-items:center !important;}
+.cfx-sb-grid:not(.cfx-sb-vm) .cfx-sb-main > :first-child{margin-top:0;}
+.cfx-sb-grid:not(.cfx-sb-vm) .cfx-sb-docs{padding-top:0;}
+.cfx-sb-grid:not(.cfx-sb-vm) .cfx-sb-main > .cfx-sb-art{display:none;}
 /* Your Case: a document's name under its thumbnail is read in full (no two-line cut-off), bold */
 .cfx-sb-docs .cfx-thumb span{display:block;-webkit-line-clamp:unset;overflow:visible;font:700 16px/1.25 'Inter',sans-serif;color:#fff;}
 /* 🔎 See It: the visual takes the card's width; its type is the card's --see (24px down to 16px, whatever fits), bold */
