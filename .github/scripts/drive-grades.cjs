@@ -11,7 +11,7 @@
 //      date; the draft demand and exhibits labeled DRAFT.
 //   4. Day 4: 06 Liens deleted, found by a check, put back, a clean check after; the day's papers in 06 and 07.
 //   5. Day 5: the litigation file in 09; the final audit, which a client folder moved under 04 Closed Files fails.
-//   6. A trainer grades a trainee from their saved progress; a trainee can't; Disconnect keeps the grades.
+//   6. A trainer grades a trainee from their saved progress; a trainee can't; Unlink keeps the grades.
 // Every day also carries the 🏷 File names row (.github/scripts/drive-naming.cjs checks that one name by name), so a day
 // is only 100% here once its files are named the firm's way: the colleague's invoice renamed, the labels in their place.
 //   7. A rule that came afterwards doesn't lower a day already passed: Day 2 done as it was taught before the rename
@@ -19,6 +19,7 @@
 //      Day 5 only. Each day's grade carries its File names row (`names`) and says the 🏷 note first (`issues`).
 // Usage: node .github/scripts/drive-grades.cjs   (no server, no browser needed)
 const fs = require('fs'); const path = require('path'); const { pathToFileURL } = require('url');
+const SA = require('./drive-sa-fake.cjs');
 const failures = []; const fail = (m) => failures.push(m);
 const ok = (m) => console.log('ok  ' + m);
 
@@ -32,8 +33,7 @@ const reply = (o, status = 200) => new Response(JSON.stringify(o), { status, hea
 const realFetch = global.fetch;
 global.fetch = async (url, init = {}) => {
   const u = new URL(String(url)), method = init.method || 'GET';
-  if (u.href === 'https://oauth2.googleapis.com/token') return reply({ access_token: 'AT', refresh_token: 'RT', expires_in: 3600, scope: 'openid email https://www.googleapis.com/auth/drive.file', id_token: 'x.' + Buffer.from('{"email":"ana@example.com"}').toString('base64url') + '.x' });
-  if (u.href === 'https://oauth2.googleapis.com/revoke') return reply({});
+  if (u.href === 'https://oauth2.googleapis.com/token') return reply({ access_token: 'AT', expires_in: 3600 });   // the service account's token
   if (u.host !== 'www.googleapis.com') return realFetch(url, init);
   if (u.pathname === '/upload/drive/v3/files') {
     const text = Buffer.from(init.body).toString('latin1');
@@ -44,11 +44,12 @@ global.fetch = async (url, init = {}) => {
   }
   if (u.pathname === '/drive/v3/files' && method === 'POST') { const b = JSON.parse(init.body); return reply({ id: make(b.name, b.mimeType, (b.parents || [])[0]) }); }
   if (u.pathname === '/drive/v3/files' && method === 'GET') {
-    const q = u.searchParams.get('q') || '', folders = /mimeType = /.test(q);
-    return reply({ files: [...files].filter(([, f]) => !f.trashed && (f.mimeType === FOLDER) === folders).map(([id, f]) => ({ id, name: f.name, parents: f.parents })) });
+    const match = SA.qMatch(u.searchParams.get('q'));
+    return reply({ files: [...files].filter(([, f]) => match(f)).map(([id, f]) => ({ id, name: f.name, mimeType: f.mimeType, parents: f.parents })) });
   }
+  if (/^\/drive\/v3\/files\/[^/]+\/permissions$/.test(u.pathname)) return reply({ id: 'p' });
   const m = u.pathname.match(/^\/drive\/v3\/files\/([^/]+)$/);
-  if (m) { const f = files.get(m[1]); return f ? reply({ id: m[1], trashed: f.trashed }) : reply({ error: { message: 'File not found' } }, 404); }
+  if (m) { const f = files.get(m[1]); return f ? reply(SA.fileMeta(m[1], f)) : reply({ error: { message: 'File not found' } }, 404); }
   return reply({ error: { message: 'not in this test: ' + u.pathname } }, 500);
 };
 
@@ -81,14 +82,14 @@ global.fetch = async (url, init = {}) => {
   /* the Worker, a trainee with a built drive */
   const worker = (await import(pathToFileURL(path.join(process.cwd(), 'worker.js')).href)).default;
   const store = new Map();
-  const env = { MASTER_ADMIN_PASSWORD: 'ci-pass', SESSION_SECRET: 'ci-secret', PORTAL_ONLY: 'off', GOOGLE_CLIENT_ID: 'cid', GOOGLE_CLIENT_SECRET: 'cs',
+  const env = { MASTER_ADMIN_PASSWORD: 'ci-pass', SESSION_SECRET: 'ci-secret', PORTAL_ONLY: 'off', ...SA.saEnv(),
     LSH_KV: { get: async (k) => store.has(k) ? store.get(k) : null, put: async (k, v) => store.set(k, v), delete: async (k) => store.delete(k),
       list: async ({ prefix = '' } = {}) => ({ keys: [...store.keys()].filter((k) => k.startsWith(prefix)).map((name) => ({ name })), list_complete: true }) } };
   const call = async (body, token) => { const res = await worker.fetch(new Request('http://x/api/drive', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify(body) }), env, { waitUntil() {} }); return { status: res.status, body: await res.json().catch(() => null) }; };
   const auth = async (p, b) => (await (await worker.fetch(new Request('http://x' + p, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b) }), env, { waitUntil() {} })).json());
   const t = (await auth('/api/auth/trainee', { name: 'Ana Cruz', batch: 'B100926' })).token;
   const tid = (await auth('/api/auth/trainee', { name: 'Ana Cruz', batch: 'B100926' })).id;
-  await call({ action: 'connect', code: 'c' }, t);
+  await call({ action: 'link', url: SA.folderUrl(make('LSH Case Backups', FOLDER)) }, t);
   const std = (await call({ action: 'status' }, t)).body.drive;
   const built = await call({ action: 'setup', layout: std.standard }, t);
   if (!built.body || !built.body.built) { console.log('Could not build the drive: ' + JSON.stringify(built.body)); process.exit(1); }
@@ -221,8 +222,8 @@ global.fetch = async (url, init = {}) => {
   if (/"RT"|"AT"/.test(JSON.stringify(gf.body))) fail('the report carries a token');
   await call({ action: 'disconnect' }, t);
   const after = (await call({ action: 'report', traineeId: tid }, admin)).body.report;
-  if (!after || !after.grades || !after.grades[2]) fail('Disconnect dropped the trainee\'s grades');
-  ok("a trainer grades from the trainee's saved progress; a trainee can't; Disconnect keeps the grades");
+  if (!after || !after.grades || !after.grades[2]) fail('Unlinking dropped the trainee\'s grades');
+  ok("a trainer grades from the trainee's saved progress; a trainee can't; Unlink keeps the grades");
 
   if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
   console.log('\nThe Backup Drive is graded from the Drive itself, day by day: all good.');

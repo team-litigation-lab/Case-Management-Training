@@ -849,7 +849,7 @@ window.CM_CASE_FLOW = {
           tool: "Backup Drive · CMS → Case Notes",
           output: "A linked Google Drive holding the firm's hierarchy for John Doe's case, graded and confirmed by a clean drive check, and a Case Note placing the retainer, the Police Report and the HIPAA authorization in their folders.",
           checkpoints: [
-            "Google Drive linked to the platform, with the drive.file permission only",
+            "A Google Drive folder of your own shared with the platform as Editor and linked",
             "Every folder named and numbered exactly as the firm standard has it, nothing invented",
             "The client folder named last name first (Doe-John) and nested under 01 Clients, its nine folders inside it",
             "Folders in the standard's order, 01 to 09 and 01 to 04, with the firm folders after the client work",
@@ -859,7 +859,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Matter active in the CMS", "Link your Google Drive to the platform", "Backup Drive", "Connected with drive.file only"],
+          ["Matter active in the CMS", "Link your Google Drive folder to the platform", "Backup Drive", "Shared as Editor and linked"],
           ["Drive linked, no structure yet", "Build the firm's hierarchy, named, numbered, nested and in order", "Backup Drive", "Graded as built, nothing invented"],
           ["Structure built", "Confirm it with ✓ Check my drive; put back anything missing", "Backup Drive", "No folder missing"],
           ["Documents filed in the CMS", "Record where each belongs on the backup", "CMS → Case Notes", "Retainer, HIPAA, Police Report placed with reasons"]
@@ -873,7 +873,7 @@ window.CM_CASE_FLOW = {
         sources: ["D1#12", "D1#13", "LSH firm standard: backup drive folder hierarchy"],
         rubric: {
           ai: [
-            ["Drive linked", 10, "Google Drive connected to the platform with the drive.file permission"],
+            ["Drive linked", 10, "A Google Drive folder of the trainee's own shared with the platform as Editor and linked"],
             ["Hierarchy to standard", 30, "Every folder named, numbered, nested and ordered as the firm standard has it; graded as built"],
             ["Drive confirmed", 20, "✓ Check my drive run with no folder missing"]
           ],

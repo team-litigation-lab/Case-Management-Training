@@ -465,7 +465,7 @@ window.CM_CF_SLIDES = {
   "purpose": "A covering Case Manager must **find any document in seconds**",
   "principle": "Every file is laid out **the same way, every time**",
   "checks": [
-   "Drive linked with **drive.file only**",
+   "Drive folder **shared as Editor** and linked",
    "Every folder **named and numbered** to the standard",
    "**Doe-John** under 01 Clients, nine folders inside",
    "**✓ Check my drive**: no folder missing",
