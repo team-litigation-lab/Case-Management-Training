@@ -109,6 +109,21 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
     await page.selectOption('select[onchange^="cmScorecard.only"]', id); await page.waitForTimeout(400);
     const one = await page.evaluate(() => document.querySelectorAll('.bs-pt').length);
     if (one !== 1) fail(`🔎 one trainee should show one card: ${one}`);
+    // the card names its trainee in a dropdown of names: every trainee shown, this one selected; choosing a name opens that card
+    const whoPick = await page.evaluate((id) => { const c = document.getElementById('bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_')), sel = c && c.querySelector('.bs-pt-h .bs-pt-who select');
+        return sel ? { picked: sel.value, names: [...sel.options].map(o => o.textContent), ids: [...sel.options].map(o => o.value), size: parseFloat(getComputedStyle(sel).fontSize) } : null; }, id);
+    if (!whoPick) fail('a trainer\'s card should name its trainee in a dropdown of names (.bs-pt-who select)');
+    else {
+        if (whoPick.picked !== id || !whoPick.names.some(n => /Cara Card/.test(n))) fail(`the card's dropdown should have this trainee selected and listed: ${JSON.stringify(whoPick).slice(0, 300)}`);
+        if (whoPick.size < 20) fail(`the name in the card's dropdown should stay large (${whoPick.size}px)`);
+        const other = whoPick.ids.find(v => v && v !== id);
+        if (other) {
+            await page.selectOption('#bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_') + ' .bs-pt-who select', other); await page.waitForTimeout(400);
+            const now = await page.evaluate(() => [...document.querySelectorAll('.bs-pt')].map(c => c.dataset.id));
+            if (now.length !== 1 || now[0] !== other) fail(`choosing a name in the card should open that trainee's card by itself: ${JSON.stringify(now)}`);
+            await page.evaluate((id) => cmScorecard.only(id), id); await page.waitForTimeout(300);
+        }
+    }
     await page.selectOption('select[onchange^="cmScorecard.batch"]', { index: 0 }).catch(() => {});
     const [dl] = await Promise.all([page.waitForEvent('download', { timeout: 8000 }).catch(() => null), page.evaluate(() => cmScorecard.csv())]);
     if (!dl) fail('⬇ Download gave no CSV');
