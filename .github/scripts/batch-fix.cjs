@@ -1,12 +1,12 @@
 // @check node — A Batch ID corrected on the Portal reaches the trainee's record (a merged account), and nothing else changes
 // What a corrected Batch ID does at the Portal's sign-in (worker.js /api/auth/portal):
 //   1. a trainee signs in under one Batch ID: their record carries it;
-//   2. the Batch ID is corrected on the Portal: the next sign-in, under the new id, finds no record there, finds theirs
-//      under the nearby old batch and opens it (merged:<new id> = {into}, as a trainer's 👥 merge leaves), with no new account;
-//   3. the next sign-in opens the same account, and its record carries the corrected Batch ID, with its work kept;
+//   2. the Batch ID is corrected on the Portal: the next sign-in, under the new id, makes a second account (the id is the
+//      name + batch); a trainer merges it (👥 Duplicate accounts: merged:<new id> = {into: the one kept});
+//   3. the next sign-in opens the account kept, and its record now carries the corrected Batch ID, with its work kept;
 //   4. the same Batch ID typed another way (B100926 / B10092026) is the same batch: the record is not rewritten;
-//   5. a namesake in a batch months away is someone else: their own new account; two nearby records: refused (409),
-//      for a trainer to merge.
+//   5. a ticket that carries the Portal's own id for the trainee (u): the record keeps it (portalUid, which a trainee can't
+//      change), and a corrected Batch ID opens that record at once, with no new account; a namesake is still someone else.
 // Usage: node .github/scripts/batch-fix.cjs   (no server, no browser needed)
 const path = require('path');
 const { pathToFileURL } = require('url');
@@ -29,9 +29,9 @@ async function ticketFor(payloadObj) {
         MASTER_ADMIN_PASSWORD: 'ci-pass', SESSION_SECRET: 'ci-secret', PORTAL_SSO_SECRET: SECRET,
         LSH_KV: { get: async (k) => store.has(k) ? store.get(k) : null, put: async (k, v) => store.set(k, v), delete: async (k) => store.delete(k), list: async ({ prefix = '' } = {}) => ({ keys: [...store.keys()].filter(k => k.startsWith(prefix)).map(name => ({ name })), list_complete: true }) }
     };
-    const portal = async (b) => {
+    const portal = async (b, u, first = 'Alex', last = 'Rivera') => {
         const res = await worker.fetch(new Request('http://x/api/auth/portal', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ ticket: await ticketFor({ first: 'Alex', last: 'Rivera', b, exp: Date.now() + 60000 }) }) }), env, { waitUntil() { } });
+            body: JSON.stringify({ ticket: await ticketFor(Object.assign({ first, last, b, exp: Date.now() + 60000 }, u ? { u } : {})) }) }), env, { waitUntil() { } });
         return { status: res.status, body: await res.json().catch(() => null) };
     };
     const api = async (p, body, token) => {
@@ -54,11 +54,12 @@ async function ticketFor(payloadObj) {
     r1.dayProgress = { 11: { score: 85, done: true, history: [{ score: 85, passed: true }] } };
     await put('trainee:' + oldId, r1);
 
-    // 2. corrected on the Portal: the sign-in opens the record under the old batch, not a new empty account
+    // 2. corrected on the Portal: a second account, which a trainer merges into the first
     const second = await portal('B092626');
-    if (!second.body || second.body.id !== oldId) fail(`a corrected Batch ID should open the trainee's own record (${oldId}), not a new account: ${JSON.stringify(second.body && (second.body.id || second.body.error))}`);
-    if (store.has('lsh:trainee:alex-rivera--b092626') || [...store.keys()].some(k => /trainee:alex-rivera--b092626$/.test(k))) fail('a corrected Batch ID should not leave a second, empty account');
-    if (![...store.keys()].some(k => /merged:alex-rivera--b092626$/.test(k))) fail('the corrected sign-in should leave merged:<new id> pointing at the record kept');
+    const newId = second.body && second.body.id;
+    if (!newId || newId === oldId) fail(`a different Batch ID should open its own account before a merge: ${newId}`);
+    await del('trainee:' + newId);
+    await put('merged:' + newId, { into: oldId, at: new Date().toISOString() });
 
     // 3. the next sign-in opens the account kept, with the corrected Batch ID and its work
     const third = await portal('B092626');
@@ -73,12 +74,24 @@ async function ticketFor(payloadObj) {
     await portal('B09262026');
     if (JSON.stringify(await rec(oldId)) !== before) fail('the same Batch ID in its long form should not rewrite the record');
 
-    // 5. a namesake months away: their own new account; two nearby records: refused
-    const far = await portal('B031527');
-    if (!far.body || far.body.id === oldId || !/b031527$/.test(far.body.id || '')) fail(`a namesake in a batch months away should get their own account: ${JSON.stringify(far.body && far.body.id)}`);
-    await put('trainee:alex-rivera--b100126', { id: 'alex-rivera--b100126', name: 'Alex Rivera', batch: 'B100126', approved: true });
-    const amb = await portal('B100326');
-    if (amb.status !== 409 || amb.body.code !== 'batch-ambiguous') fail(`two nearby records under the name should be refused for a trainer to merge: ${amb.status} ${JSON.stringify(amb.body)}`);
+    // 5. a ticket with the Portal's own id for the trainee (u): the record keeps it, and a corrected Batch ID opens that
+    //    record at once (no new account, no merge needed); a namesake with another Portal id gets their own account
+    const k1 = await portal('B110226', 'portal-user-17', 'Kai', 'Moreno');
+    const kId = k1.body && k1.body.id;
+    const k1r = (await rec(kId)) || {};
+    if (k1r.portalUid !== 'portal-user-17') fail(`the record should keep the Portal's id for the trainee: ${JSON.stringify(k1r.portalUid)}`);
+    k1r.dayProgress = { 11: { score: 90, done: true, history: [{ score: 90, passed: true }] } }; await put('trainee:' + kId, k1r);
+    const k2 = await portal('B110326', 'portal-user-17', 'Kai', 'Moreno');
+    if (!k2.body || k2.body.id !== kId) fail(`with the Portal's id, a corrected Batch ID should open the trainee's own record (${kId}): ${JSON.stringify(k2.body && (k2.body.id || k2.body.error))}`);
+    const k2r = (await rec(kId)) || {};
+    if (k2r.batch !== 'B110326' || !k2r.dayProgress || k2r.dayProgress[11].score !== 90) fail(`the record should carry the corrected Batch ID and keep its work: ${JSON.stringify({ b: k2r.batch, dp: k2r.dayProgress })}`);
+    if (await rec('kai-moreno--b110326')) fail('a corrected Batch ID with the Portal\'s id should leave no second, empty account');
+    const other = await portal('B110426', 'portal-user-99', 'Kai', 'Moreno');
+    if (!other.body || other.body.id === kId) fail(`a namesake with another Portal id is someone else: their own account: ${JSON.stringify(other.body && other.body.id)}`);
+    // a trainee can't give their record someone else's Portal id
+    const ot = other.body.token, mine = (await rec(other.body.id)) || {};
+    await api('/api/storage/set', { key: 'trainee:' + other.body.id, value: JSON.stringify(Object.assign({}, mine, { portalUid: 'portal-user-17' })) }, ot);
+    if (((await rec(other.body.id)) || {}).portalUid !== 'portal-user-99') fail('a trainee should not be able to change the Portal id on their record');
 
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
     console.log('A Batch ID corrected on the Portal reaches the trainee\'s record (the account kept after a merge), with its work; the same batch written another way leaves the record alone.');

@@ -248,7 +248,9 @@ async function readPortalTicket(env, ticket, why = {}) {
   if (t.r === "a") return { admin: true, name: String(t.n || "").trim().slice(0, 60) };   // an administrator signed in on the Portal (their own admin account)
   const first = String(t.first || "").trim(), last = String(t.last || "").trim(), batch = String(t.b || "").trim();
   if (!first || !last || !batch) return null;
-  return { name: `${first} ${last}`, first, last, batch };
+  // u: the Portal's own id for the trainee, when the ticket carries one (it stays the same when their Batch ID is corrected)
+  const uid = String(t.u || "").trim().slice(0, 80);
+  return { name: `${first} ${last}`, first, last, batch, uid };
 }
 // Like readToken, but an expired token still counts for a while (same signature, same trainee), so a trainee
 // midway through the course whose 30 days run out isn't sent back to the portal in the middle of a lesson.
@@ -318,18 +320,14 @@ function candidateIds(name, batch) {
   const b = slugPart(canonicalBatch(batch) || batch).slice(0, 20), raw = slugPart(batch).slice(0, 20);
   return { newId: b ? `${slug}--${b}` : slug, rawId: raw ? `${slug}--${raw}` : slug, legacyId: slugPart(name).slice(0, 40) || "trainee", slug };
 }
-// The records of this trainee (the same name) under another batch that started within BATCH_FIX_DAYS of `who.batch`:
-// what a Batch ID corrected on the Portal looks like (/api/auth/portal). Archived or rejected ones don't count.
-const BATCH_FIX_DAYS = 31;
-function batchDay(b) {
-  const m = /^B(\d{2})(\d{2})(\d{2})$/.exec(canonicalBatch(b) || "");
-  if (!m) return null;
-  const at = (mm, dd) => batchRealDay(mm, dd, +m[3]) ? Date.UTC(2000 + +m[3], mm - 1, dd) : null;
-  return at(+m[1], +m[2]) || at(+m[2], +m[1]);
-}
+// This trainee's own record under another batch: what a Batch ID corrected on the Portal looks like (/api/auth/portal).
+// A name alone can't tell a correction from a namesake in another batch (two John Does are two trainees), so a record
+// is theirs only when it carries the Portal's own id for them (portalUid, from the ticket's "u"), the same one this
+// ticket carries. With no "u" in the ticket nothing is found, and the sign-in opens a new account as before (a trainer
+// merges it: 👥 Duplicate accounts). Archived or rejected records don't count.
 async function sameTraineeOtherBatch(kv, who, newId) {
-  const { slug } = candidateIds(who.name, who.batch), day = batchDay(who.batch);
-  if (!slug || day == null) return [];
+  const { slug } = candidateIds(who.name, who.batch);
+  if (!slug || !who.uid) return [];
   const keys = []; let cursor;
   do { const r = await kv.list({ prefix: `trainee:${slug}--`, cursor }); r.keys.forEach((k) => keys.push(k.name)); cursor = r.list_complete ? null : r.cursor; } while (cursor && keys.length < 200);
   const out = [];
@@ -337,10 +335,8 @@ async function sameTraineeOtherBatch(kv, who, newId) {
     const id = k.slice("trainee:".length);
     if (id === newId || id.slice(slug.length + 2).includes("--")) continue;   // another name that starts with this one
     let r = null; try { r = JSON.parse((await kv.get(k)) || "null"); } catch (e) { r = null; }
-    if (!r || r.archived || r.rejected || slugPart(r.name) !== slugPart(who.name)) continue;
+    if (!r || r.archived || r.rejected || r.portalUid !== who.uid) continue;
     if (batchKey(r.batch || "") === batchKey(who.batch)) continue;
-    const d = batchDay(r.batch);
-    if (d == null || Math.abs(d - day) > BATCH_FIX_DAYS * 86400000) continue;
     out.push({ id, rec: r });
   }
   return out;
@@ -356,7 +352,7 @@ const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|
 // {<alert key>: {at, by}}}. Admin-only on purpose, both ways: it is in neither OWN nor PUBLIC_READ, so a trainee can't
 // read it, and traineeWrite refuses it, so a trainee can't mark their own alert resolved.
 const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`, `actsub:${id}`];
-const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt"];
+const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt", "portalUid"];
 const IDENTITY_TRAINEE_FIELDS = ["name", "firstName", "lastName", "batch"];
 const ADMIN_OWNED_TRAINEE_FIELDS = PROTECTED_TRAINEE_FIELDS.concat(IDENTITY_TRAINEE_FIELDS);
 
@@ -1853,11 +1849,11 @@ export default {
         let out = await res.json();
         // 🏷 A Batch ID corrected on the Portal: no record under the new batch yet, but this trainee's record is here under the
         // batch they first had. The sign-in opens that one (leaving merged:<new id> = {into}, as a trainer's merge does) rather
-        // than starting a new, empty account. Only the same name, under a batch that started within BATCH_FIX_DAYS of the new
-        // one (a correction, not another cohort's namesake); two such records are refused, for a trainer to merge.
+        // than starting a new, empty account. Only a record with this trainee's Portal id (sameTraineeOtherBatch: never by name
+        // alone, a namesake in another batch is someone else); two such records are refused, for a trainer to merge.
         if (!out.existing) {
           const found = await sameTraineeOtherBatch(kv, who, out.id);
-          if (found.length > 1) return json({ error: "We found more than one account under your name in a nearby batch, so we can't tell which is yours. Please ask your trainer to merge them (📋 Batch Sheet → 👥 Duplicate accounts), then open the program again from the LSH Training Portal.", code: "batch-ambiguous" }, 409);
+          if (found.length > 1) return json({ error: "We found more than one account of yours under other Batch IDs, so we can't tell which to open. Please ask your trainer to merge them (📋 Batch Sheet → 👥 Duplicate accounts), then open the program again from the LSH Training Portal.", code: "batch-ambiguous" }, 409);
           if (found.length === 1) {
             await kv.put(`merged:${out.id}`, JSON.stringify({ into: found[0].id, at: new Date().toISOString(), by: "portal-batch" }));
             res = await traineeSession(who.name, who.batch, "");
@@ -1875,8 +1871,11 @@ export default {
         }
         // 🏷 A Batch ID corrected on the Portal reaches the record the sign-in opened (its id stays; only the batch it shows
         // changes), e.g. an account a trainer merged (👥) into the one kept: the Portal's signed ticket is who the trainee is
-        if (out.existing && who.batch && batchKey(out.existing.batch || "") !== batchKey(who.batch)) {
-          const rec = Object.assign({}, out.existing, { batch: canonicalBatch(who.batch) || who.batch });
+        // (and the record keeps the Portal's id for the trainee, set once, so a later correction finds it: portalUid)
+        const uidNew = !!(out.existing && who.uid && !out.existing.portalUid);
+        const batchNew = !!(out.existing && who.batch && batchKey(out.existing.batch || "") !== batchKey(who.batch));
+        if (batchNew || uidNew) {
+          const rec = Object.assign({}, out.existing, batchNew ? { batch: canonicalBatch(who.batch) || who.batch } : {}, uidNew ? { portalUid: who.uid } : {});
           await ownerPut(kv, `trainee:${out.id}`, JSON.stringify(rec));
           out.existing = rec;
         }
