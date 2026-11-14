@@ -1,0 +1,272 @@
+{
+  "title": "Case Management Training — Day 4",
+  "deck": "Revised Case Management Training Day 4 (Canva, 36 pages; the Skill Building pages 16, 17, 18, 31 and 32 are left out of the video)",
+  "voice": "en_US-lessac-high, converted to the trainer's own voice (revoice.py)",
+  "day": 14,
+  "onDeck": [
+    {
+      "key": "neutral",
+      "topic": "Introducing the Neutral",
+      "pages": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "key": "mediation",
+      "topic": "Mediation",
+      "pages": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "key": "arbitration",
+      "topic": "Arbitration",
+      "pages": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ]
+    },
+    {
+      "key": "bottlenecks",
+      "topic": "Common Bottlenecks in Mediation & Arbitration",
+      "pages": [
+        33,
+        34,
+        35
+      ]
+    }
+  ],
+  "video": {
+    "src": "/decks/day4/day4-narrated.mp4",
+    "captions": "/decks/day4/day4-narrated.vtt",
+    "starts": [
+      0.0,
+      53.1,
+      96.0,
+      154.3,
+      221.0,
+      279.0,
+      340.3,
+      392.7,
+      446.9,
+      501.6,
+      555.8,
+      617.3,
+      676.9,
+      732.9,
+      798.3,
+      852.6,
+      913.2,
+      970.4,
+      1040.0,
+      1101.2,
+      1157.1,
+      1216.6,
+      1281.6,
+      1329.7,
+      1386.1,
+      1453.1,
+      1520.8,
+      1581.2,
+      1641.9,
+      1700.0,
+      1753.4
+    ]
+  },
+  "say": {
+    "CMS": "C M S",
+    "AAA": "Triple A",
+    "JAMS": "Jams",
+    "OCR": "O C R",
+    "UPL": "U P L",
+    "PI": "P I",
+    "MVA": "M V A",
+    "MRIs": "M R Is",
+    "EOBs": "E O Bs",
+    "W-2s": "W 2s",
+    "CM": "C M",
+    "UM": "U M",
+    "C5-C6": "C 5 C 6",
+    "EMC": "E M C",
+    "48-hour": "48 hour",
+    "100%": "100 percent"
+  },
+  "slides": [
+    {
+      "page": 1,
+      "title": "Case Management Training — Day 4",
+      "notes": "Welcome to Day 4 of Case Management Training with Legal Support Help. We'll keep using our sample case, John Doe versus Robert Smith, the same file you're working on in the platform. Today we take the other road from the demand. Keystone held at three thousand five hundred dollars, and our Time-Limited Demand lapsed on August 21st, 2026. Because Keystone's ten thousand dollar Bodily Injury limit was never paid, the whole forty thousand dollar recovery stack sat frozen behind it, and Attorney Thorne authorized suit. So what happens when two sides still can't agree? First comes mediation, where everyone works toward a compromise. Then, if that isn't enough, arbitration, where someone else makes the call. You'll see how your scheduling, your binders and your eye for detail decide how ready the attorney is when it counts. Let's dive in."
+    },
+    {
+      "page": 2,
+      "title": "Training Agenda",
+      "notes": "Today has three parts, and they follow the order our file moves in. First, the Mediation phase, where the goal is a deal both sides can live with, and where your job is mostly scheduling, logistics and the binder. On our file, that's the court-ordered mediation on March 18th, 2027. Second, the Arbitration phase, where the case is decided for the parties instead. For John Doe, that's the binding UM arbitration that follows. Here the stakes rise, because the decision is final. And third, the common bottlenecks in both, the places where cases like John's tend to stall, so you can spot trouble early and keep your files moving."
+    },
+    {
+      "page": 3,
+      "title": "Introducing the Neutral: Expertise & Background",
+      "notes": "Before we get into either phase, let's meet the person in the middle, the neutral. In both mediation and arbitration, there is someone who belongs to neither side, but the two roles call for different strengths. A mediator is usually a seasoned personal injury trial attorney or a retired judge, and their gift is moving people toward a number. They understand negotiation, they know how liens can block a deal, and they can tell both sides what a case is realistically worth. On our file, the mediator is the Honorable Carla Benton, a retired judge. An arbitrator is usually a retired judge or a senior trial attorney, and their gift is the law itself: the rules of evidence, tort law, liability standards and medical causation. Our arbitrator is Laura Whitcomb, an attorney. Why should you care? Because knowing who is in the room tells you what the attorney needs from you: persuasion material for one, airtight evidence for the other."
+    },
+    {
+      "page": 4,
+      "title": "Introducing the Neutral: Assignment & Selection",
+      "notes": "So how does a neutral end up on a case? For a mediator, there are two paths. Sometimes the parties agree on someone known for fair evaluations after reviewing panel resumes. Other times a judge orders mediation, and the mediator comes from a court-approved roster. On our file, the court's Scheduling Order required mediation to be completed by March 31st, 2027, and Attorney Thorne selected Judge Benton. Arbitrators arrive differently. Often arbitration isn't a choice at all, because a policy contract or a post-mediation agreement requires it. That's exactly our situation. After mediation, Harbor Point and Cardinal State held firm on damages, so Harbor Point's UM arbitration clause was invoked, and Cardinal State joined one consolidated arbitration. The slide also describes the panel strike list used by bodies like AAA and JAMS. That's general information worth knowing: both sides vet the candidates, rank them and strike names until one neutral is left. Our file runs on the carriers' arbitration clause instead."
+    },
+    {
+      "page": 5,
+      "title": "Introducing the Neutral: Decision-Making Power",
+      "notes": "Here is the most important difference of all. Think of the mediator as a facilitator, not a judge. A mediator can't force a settlement, can't rule on anything, and can't order anyone to pay. Our client keeps 100% control over whether to sign. On our file, Judge Benton didn't make Keystone do anything. Keystone chose to tender its ten thousand dollar limits at the mediation. An arbitrator is the opposite. Think of a private judge who also decides the facts. The arbitrator issues a binding award, decides liability, sets damages, and can even exclude evidence. And once that award comes down, appeal rights are virtually non-existent. On July 6th, 2027, Laura Whitcomb awarded twenty thousand dollars against Harbor Point and ten thousand against Cardinal State. That decision was final. Let that sink in, because it explains everything that follows today."
+    },
+    {
+      "page": 6,
+      "title": "Mediation Logistics & Scheduling",
+      "notes": "Let's start with mediation, and with the part that falls squarely on you: logistics. Your job is to set the stage for compromise and keep the negotiations confidential. First, getting everyone on the same calendar. Gather three to four workable windows from the client, the handling attorney and opposing counsel before you ever reach out to the neutral. On our file, four windows were collected from Attorney Thorne, John Doe and defense counsel on December 17th, 2026, before Judge Benton was chosen. That's why the Notice of Mediation could set a firm date: March 18th, 2027, at nine thirty in the morning. Second, controlling the environment. Mediation involves private strategy talks, so the setting has to protect them, whether that's a secure room with somewhere for the client to wait or a stable Zoom link with private breakout rooms. Our session is at Judge Benton's office, and John's attendance is required. So plan for where he'll be while the attorney talks strategy."
+    },
+    {
+      "page": 7,
+      "title": "Preparing Mediation Binders: What a Binder Is",
+      "notes": "Now the heart of your mediation prep: the binder, sometimes called a mediation packet. It's the most critical documents in the case, gathered and organized in one place. The best way to think of it is as a cheat sheet for the attorney and the mediator. Why does that matter so much? Picture the session. Defense counsel raises a point, and our attorney has seconds to answer it. There's no time to flip through loose paper or hunt through folders on a laptop. The attorney needs that medical record, that clause, or that line of deposition testimony within about five seconds. On our file, there's a hard date attached. The Confidential Mediation Statement and the binder are due to Judge Benton seven days before the session, on March 11th, 2027. So the binder isn't something you finish the night before. It goes out a full week ahead."
+    },
+    {
+      "page": 8,
+      "title": "Preparing Mediation Binders: The Roadmap for Settlement",
+      "notes": "Another way to see the binder is as the roadmap to settlement. It pulls together the key medical records, the special damages you've already verified, the liability reports, and the exhibits the case turns on. On John Doe's file, verified really means verified. The audited specials total sixteen thousand four hundred one dollars and forty cents, after a duplicate visit line from Riverton Spine and Rehab was removed. The liability report is the police report citing Robert Smith for failing to stop at the stop sign. But collecting documents is only half the job. The other half is making them easy to find. That's why careful indexing and bookmarking matter so much. When the conversation moves fast, the attorney and the mediator should land on the right page in seconds. So how should the binder be organized? Let's walk through it, section by section."
+    },
+    {
+      "page": 9,
+      "title": "Mediation Binder Section 1: Executive Summary",
+      "notes": "A strong mediation binder usually has six sections, and section one is the executive summary and administrative details. This is what the attorney sees first, so it sets the frame for everything else. It holds three things. The CM snapshot, a single page showing the parties, our file numbers and how to reach opposing counsel. For us, that's John Doe versus Robert Smith in the State Court of Riverton County, with defense counsel Attorney Grant Mercer of Mercer and Hale. Next, the mediation order or agreement, which sets the rules and how the mediator's fee is split. Read the split from the document itself. Never assume it. And then the schedule: March 18th, 2027, nine thirty in the morning, at Judge Benton's office. Think of this section as answering the basic who, when, where, and on what terms before the attorney turns another page."
+    },
+    {
+      "page": 10,
+      "title": "Mediation Binder Section 2: The Mediation Briefs",
+      "notes": "Section two holds the briefs, meaning each side's legal and factual arguments. You'll include two. Ours is confidential. The handling attorney writes it to lay out our strongest points, our key evidence and where we stand on settlement. On our file, that's the Confidential Mediation Statement Attorney Thorne sends Judge Benton by March 11th, 2027. Then there's the brief from opposing counsel. Why include the other side's brief? Because it lets our attorney read both arguments side by side and get rebuttals ready ahead of time. On this file, you can already predict the defense themes, because they've been the same since Keystone's first offer: the fourteen-day treatment gap, and an MRI they call degenerative. When the defense raises them in the room, our attorney has seen them coming. Your part is making sure both briefs are there, current, and easy to reach."
+    },
+    {
+      "page": 11,
+      "title": "Mediation Binder Section 3: Core Pleadings",
+      "notes": "Section three is the core pleadings, the legal frame of the case. These are the formal court filings that define what the lawsuit is actually about. First, the active complaint, the operative version of what our client alleges. Ours was e-filed on September 24th, 2026, and it pleads the medical specials, lost wages, future medical care and pain and suffering. Then the answer and any affirmative defenses, the other side's formal response and the legal shields they're relying on. Attorney Mercer's answer, filed November 12th, 2026, denies the claim and pleads three things. Comparative negligence: that the Escape entered the all-way stop out of turn, and that John was unbelted. Causation: the gap and the so-called degenerative MRI. And failure to mitigate: the disrupted care. Having the two side by side keeps everyone anchored to what's really in dispute, and tells our attorney exactly which defenses we need to overcome."
+    },
+    {
+      "page": 12,
+      "title": "Mediation Binder Section 4: Key Evidence & Liability Exhibits",
+      "notes": "Section four is where the case gets proven. The slide calls these the smoking guns, the raw evidence that shows we're right. The contract and email examples are for business disputes. In a personal injury case like ours, it's the official report of what happened. For John Doe, that's the Riverton police report, where Robert Smith was cited for failure to stop at a stop sign. Then the photographs and video stills, showing the damage, the scene and the injuries. Our file has something even better: doorbell-camera video from Margaret Doe's house showing the Escape stopped and Smith rolling through. Finally, the deposition summaries, with the exact transcript pages highlighted. John was deposed on February 18th, 2027, and defense counsel worked the gap, the disruption, his 2021 low-back visits and the seatbelt. Why both a summary and the pages? So the attorney can scan fast and still point to the precise words."
+    },
+    {
+      "page": 13,
+      "title": "Mediation Binder Section 5: Damages, Financials & Experts",
+      "notes": "If section four proves what happened, section five proves what it cost. This is where we justify the dollar figure we're asking for. Start with the medical side: the records summary with chart notes in date order, and a ledger of every medical expense so far. On our file, the medical specials come to fourteen thousand eight hundred seventeen dollars and forty cents after the audit. Then the proof of financial loss. For John, that's nine missed shifts, one thousand five hundred eighty-four dollars, verified by Northgate's wage-and-attendance letter. Last come the supporting medical and expert opinions. The slide's examples are general. On our file, the key one is Doctor Reyes's Causation Letter, which says the injury was more likely than not caused by the collision. As a case manager, your eye is on accuracy. A ledger that doesn't match the records weakens the very number this section is meant to support."
+    },
+    {
+      "page": 14,
+      "title": "Mediation Binder Section 6: Settlement History & Draft Agreements",
+      "notes": "Section six closes the binder, and it's about getting the deal done. First, the negotiation log, every demand and every counter-offer in order, so no one argues about where the numbers stand. On our file, that's the July 20th, 2026 demand for Keystone's ten thousand dollar limits, the three thousand five hundred dollar offer on August 5th, and Keystone calling that number final. Second, a draft settlement agreement or release, ready to sign before anyone leaves the room. Here the draft has to be a Limited Release, covering Robert Smith and Keystone only, with the UM carriers' consent, so the thirty thousand dollars of UM coverage behind Keystone survives. That's exactly what happened at our mediation: Keystone tendered its limits, the UM consents were obtained, the release was a Limited Release, and Robert Smith was dismissed. And a practical tip. For in-person mediation, make three binders: for the attorney, the mediator and the client. For virtual mediation, run OCR on the PDF so it's keyword-searchable."
+    },
+    {
+      "page": 15,
+      "title": "Quality Assurance and Logistics Auditor",
+      "notes": "Once the binder is built, you shift into a quality assurance role, the final check that the attorney walks in fully prepared. Three things to confirm. First, multiple sets: three identical physical copies for the handling attorney, the mediator and the client, or one shared digital setup they can all use. Our session is in person at Judge Benton's office, so think three physical copies. Second, searchability. If any version is digital, run a full OCR text-recognition scan so evidence can be found with Control F. Third, indexing: six numbered divider tabs that match the firm's master index. See how that lines up with the six sections we just covered? And remember the calendar. On our file, all of this has to be finished before the binder goes to Judge Benton on March 11th, 2027, not on the morning of March 18th."
+    },
+    {
+      "page": 19,
+      "title": "The Anatomy of a Personal Injury Arbitration",
+      "notes": "Now let's move into arbitration. In PI practice, when a motor vehicle accident, or MVA, case or a commercial trucking case doesn't settle at mediation, it often ends up here. Our file took a slightly different path. Mediation did resolve the Bodily Injury piece when Keystone tendered its limits. Then the UM carriers made low offers, eight thousand from Harbor Point and six thousand from Cardinal State, and held firm on damages. So Harbor Point's UM arbitration clause sent the rest to one consolidated binding arbitration before Laura Whitcomb. What's your role at the hearing? Think of yourself as the attorney's eyes and memory. Observe and document the witness testimony, opposing counsel's focus and how the arbitrator reacts to evidence. Log directives, recording any post-hearing brief timelines or rulings from the bench right away. And update the CMS back at the office with the new deadlines, along with a summary memo for the handling attorney."
+    },
+    {
+      "page": 20,
+      "title": "Arbitration: Operational Mindset",
+      "notes": "Arbitration calls for a different mindset. In mediation we focused on compromise. Here, we prepare as if we're going to trial. Why the change? Mediation is voluntary and non-binding. It's a negotiation, and nobody has to agree. Arbitration is adversarial and formal. A neutral third party, the arbitrator, sits as the judge and issues a final, binding decision called the award. Once the award comes down, the law sharply limits any appeal. Think about what that meant for John Doe. Everything still open on his file, the thirty thousand dollars of UM coverage from Harbor Point and Cardinal State, was riding on one hearing before Laura Whitcomb. There was no second chance to fix a missing exhibit or a late brief. That's why you treat an arbitration hearing with the same precision as a multi-day trial in state or federal court. Everything that follows comes from that mindset."
+    },
+    {
+      "page": 21,
+      "title": "Arbitration Track 1: Critical Timelines",
+      "notes": "On the arbitration track, most of your work is operational: tracking timelines, keeping strict schedules and managing documents carefully. Let's start with the calendar. The moment a case goes to arbitration, the key dates become hard rules on the firm's master calendar. First, the hearing date, the trial-like day when the attorney argues, cross-examines and puts in evidence. Ours is June 22nd, 2027, at nine in the morning. Second, the brief deadline, the absolute cutoff for our claims, arguments, exhibit index and witness list. Ours is due ten days before the hearing. That lands on Saturday, June 12th, so it's docketed for Friday, June 11th, 2027. When you count backward, you move to the earlier business day, never the later one. Our file also has an exhibit exchange twenty days out, on June 2nd, 2027. Third, the arbitrator selection cutoff, for vetting and striking names from a panel through bodies like AAA or JAMS. Our arbitrator came through the carriers' clause, but on a panel case, that cutoff is just as hard."
+    },
+    {
+      "page": 22,
+      "title": "Arbitration Track 2: Logistics & Setup Protocols",
+      "notes": "The second track is logistics, and here you're the main coordinator. Notice how much this echoes mediation. You start by coordinating availability, working with the other side's staff to find three to four time blocks that work for everyone, before any formal outreach to the arbitrator. On our file, the hearing date came out of a scheduling call on April 23rd, 2027, and Laura Whitcomb's Notice of Hearing followed on April 26th. Next, retain the neutral: vet the arbitrator, confirm the daily and hourly fees, and get the retainer deposits to accounting for prompt payment. Those fees are real case costs. Our share of Laura Whitcomb's fee came to nine hundred dollars, and it's one of the case costs in John's final numbers. Finally, handle logistics: calendar invites to everyone on our team, and either a firm conference room or a secure virtual Zoom layout with clear breakout rooms. The difference from mediation is the stakes. Every detail now supports a binding hearing."
+    },
+    {
+      "page": 23,
+      "title": "Boundaries at Hearings: The Golden Rule",
+      "notes": "Now an essential boundary. What can you do at a hearing, and what can't you do? Here's the golden rule. You may never present legal arguments, speak on the record, or represent the client in front of the arbitrator. Doing so is the unauthorized practice of law, or UPL. Think about our hearing before Laura Whitcomb. You may know John Doe's file better than anyone in the room, every visit, every date, every page of the binder. Even so, the advocacy belongs to Attorney Thorne. Your role is administrative help, technical support and careful observation. So what's left for you? Quite a lot. You watch and take notes on the testimony, on what the other side keeps pushing, and on how the arbitrator reacts. You record any rulings or post-hearing deadlines the moment they're given. And back at the office, you update the CMS and send the attorney a summary memo."
+    },
+    {
+      "page": 24,
+      "title": "Boundaries at Hearings: The UPL Policy",
+      "notes": "This rule matters enough that the firm makes it formal policy, so let's think about what it means in practice. The UPL policy draws a clear line. Case managers don't argue the law, don't speak on the record and don't represent clients before the arbitrator. Where might you be tempted to cross it? Maybe the other side raises the 2021 low-back visits or the seatbelt, and you know exactly where the answer is in the binder. Or someone turns and asks you a question directly. The policy says your role stays administrative, technical and observational. You can quietly hand the attorney the right page, but you can't step into the advocate's shoes. It's the same line we held during John's deposition prep, where the case manager runs logistics and never coaches testimony. Within that boundary, your value is still huge: documenting the hearing, capturing directives from the bench, and getting the CMS and the attorney's memo updated as soon as you're back."
+    },
+    {
+      "page": 25,
+      "title": "Arbitration Binder Section 1: The Arbitration Submissions",
+      "notes": "Now let's revisit the binder, this time for arbitration. In mediation, the binder helped people reach a compromise. Here, it's a formal evidentiary record that goes straight to a private judge, so it has to be trial-ready. Consider what can go wrong. Leave out a page, or print a key vehicle intrusion photo in faded grayscale, and the arbitrator can exclude it for good, with no chance of appeal. On our file, that intrusion is personal: Smith's truck struck the Escape's front passenger door, right where John was sitting. Like the mediation binder, this one has six tabbed sections. Section one is the arbitration submissions, the paperwork that sets the ground rules. Your case manager snapshot sheet. The final arbitration brief, docketed for June 11th, 2027. The governing order or agreement. For us, that's Harbor Point's UM arbitration clause and Laura Whitcomb's Notice of Hearing. And the arbitrator fee disclosures: rates, the split, and confirmation that retainer deposits were received."
+    },
+    {
+      "page": 26,
+      "title": "Arbitration Binder Section 2: Core Litigation Pleadings",
+      "notes": "Section two gives the arbitrator the legal framework of the lawsuit, just like the pleadings in the mediation binder. First, the operative amended complaint, the version actually in force, setting out the specific counts we're pursuing. Here's a practical point: take the older complaints out. If superseded versions sit in the binder, they can blur which claims are actually live. Second, the answer and affirmative defenses, showing how the defense plans to avoid liability or argue comparative fault. On John Doe's file, you already know that argument. The answer says the Escape entered the all-way stop out of turn and that John was unbelted. Putting those defenses right in front of the arbitrator tells our attorney exactly what the evidence in the next section has to beat."
+    },
+    {
+      "page": 27,
+      "title": "Arbitration Binder Section 3: Liability & Biomechanical Evidence",
+      "notes": "Section three proves fault. Its job is to show the adverse driver is 100% responsible for the impact. Start with the official police and incident reports, unredacted, with the officer's narrative, diagrams and any citations. On our file, the Riverton police report cites Robert Smith for failure to stop at a stop sign, and an independent witness, Ruth Calloway, gave a signed statement at the scene. Then the photos of the vehicle damage and the scene layout, in high-resolution color. Grayscale isn't allowed. Why so strict? Smith hit the Escape's front passenger door at about twenty-eight miles per hour and pushed it into the parked Civic. A washed-out black-and-white print can't show that, and that impact is exactly what this section exists to prove. This tab also answers the seatbelt defense. The Escape's event data recorder shows John's front-passenger belt was buckled."
+    },
+    {
+      "page": 28,
+      "title": "Arbitration Binder Section 4: Medical Damages",
+      "notes": "Section four turns from fault to injury. It justifies the compensation we're asking for John's physical injuries. Think of it in layers. On top is the consolidated medical ledger, the treatment chart in date order with a billing spreadsheet tracking total costs. For us, that's fourteen thousand eight hundred seventeen dollars and forty cents in audited medical specials. Underneath are the provider treatment logs, the records, intake packets, chart notes and invoices from every facility, from Riverton Urgent Care through Riverton Spine and Rehab, Lakeside Orthopedics and Crescent Pain and Spine. Then the diagnostic imaging. John's cervical MRI at Summit Imaging confirmed a C5-C6 disc herniation. Last, the slide lists Emergency Medical Condition declarations for medical necessity. Be careful here. That's a Florida PIP rule, and our Riverton file has no EMC rule. You'd include it when you work a Florida file. Together, these layers answer the arbitrator's questions: what was done, what it cost, and what proves the injury."
+    },
+    {
+      "page": 29,
+      "title": "Arbitration Binder Section 5: The Prior Medical Shield",
+      "notes": "Section five is defensive, and you build it on purpose. Defense attorneys like to take a client's old records and argue that the current injury is just a pre-existing degenerative condition. This section is your shield, ready before they make the argument. It holds the prior injury records and work history, documenting past injuries honestly. The slide's example, a 2018 strain, is a general one. Here's what our file actually shows. In John Doe versus Robert Smith, our client's only prior care was three chiropractic visits in 2021 at Birch Avenue Chiropractic, for low-back stiffness. It resolved, and he had no prior neck complaints. His injury in this case is in his neck. The section also holds the medical opinions that answer the defense. Against the word degenerative, the radiologist, Doctor Helen Park, found no significant degenerative change at the adjacent levels, and Doctor Reyes's Causation Letter ties the injury to the collision. The lesson: don't hide old injuries. Document them so they can't be used against the client."
+    },
+    {
+      "page": 30,
+      "title": "Arbitration Binder Section 6: Economic Losses & Liens",
+      "notes": "The final section is the money, and it directly shapes what the client actually takes home. Start with lost wages, verified through W-2s, tax returns or employment verification. For John, that's nine missed shifts, one thousand five hundred eighty-four dollars, verified by Northgate. Then the negotiation ledger, the timeline of every demand and counter-offer, including Harbor Point's eight thousand dollar offer and Cardinal State's six thousand. Then the audited lien payout sheets, with health insurance holds and subrogation claims reconciled. This is where your attention pays off. Check each provider lien against what health insurance paid. Our file shows why. Crescent Pain and Spine billed three thousand four hundred dollars for John's injection, but Peach State paid it at the contract rate of one thousand eight hundred sixty dollars, and Crescent can't bill John for the rest. Catching that kind of thing stops a provider from collecting the full face value out of the client's recovery."
+    },
+    {
+      "page": 33,
+      "title": "Mediation Bottlenecks: The Compromise Traps",
+      "notes": "To wrap up the day, let's look at where cases get stuck, starting with mediation. Think of these as compromise traps. The first is a medical ledger or lien picture that isn't verified. Unreconciled hospital bills or missing final treatment records leave the defense with damages it can't confirm. On our file, Riverton Spine and Rehab's ledger still carries a duplicate visit, so the audited figure of six thousand one hundred five dollars has to stand on the attendance log. The second trap is missing decision-makers. If the adjuster or defense representative in the room lacks full settlement authority, and nothing was pre-negotiated, nobody can say yes. The third is brief misalignment. A brief that arrives late, or without key exhibits like MRIs and crash diagrams, leaves the mediator unprepared. That's why our statement and binder were due to Judge Benton a full week ahead. Notice that the first and third traps are things your own prep can prevent."
+    },
+    {
+      "page": 34,
+      "title": "Arbitration Bottlenecks: The Trial-Ready Landmines",
+      "notes": "Arbitration has its own traps, and since we're preparing for trial, think of them as landmines. First, evidence gets excluded because a document is missing or a photo is a poor black-and-white print. Remember the color rule from section three. On our file, that's the color photo of the Escape's struck passenger door. Second, pre-existing injury traps, where prior injury records like past strains aren't backed by expert medical declarations. For John, that's his 2021 low-back visits, which defense counsel already raised at his deposition. The prior medical shield exists for exactly this. Third, calendar and deadline misses: arbitrator scheduling windows that aren't coordinated, or a hard brief cutoff that slips by. Picture docketing our brief for Saturday, June 12th, instead of Friday, June 11th, 2027. Each of these landmines connects back to something we covered today."
+    },
+    {
+      "page": 35,
+      "title": "Case Manager Operational Countermeasures",
+      "notes": "So how do you stay ahead of all this? Two habits make a big difference. First, the 48-hour pre-session audit. Build in a mandatory file review 48 hours before any deadline to check the ledgers and confirm the binder is complete. On our file, that means auditing before the mediation binder goes to Judge Benton on March 11th, 2027, and before the arbitration brief on June 11th. That buffer gives you time to fix a problem instead of discovering it in the room. Second, reconcile liens early. Review the health insurance Explanation of Benefits, the EOBs, well in advance, so you can catch double-dipping hospital and provider liens. Crescent's injection, paid by Peach State at the contract rate, is exactly the kind of line that check protects. One habit protects the evidence, and the other protects the client's recovery."
+    },
+    {
+      "page": 36,
+      "title": "Thank You!",
+      "notes": "That brings us to the end of Day 4. Today we met the neutrals and saw why a mediator and an arbitrator call for such different preparation. We built the mediation binder, and watched John Doe's mediation before Judge Benton end with Keystone tendering its limits under a Limited Release. Then we moved into a trial-ready mindset for arbitration, drew a clear line around what you can and can't do at a hearing, and built the six-section arbitration binder that carried John's UM claims to an award of twenty thousand dollars plus ten thousand dollars. Finally, we looked at the traps that stall these cases and the habits that prevent them. Take some time to review the John Doe versus Robert Smith file, because the precision you bring here protects the client's recovery. Thank you."
+    }
+  ]
+}

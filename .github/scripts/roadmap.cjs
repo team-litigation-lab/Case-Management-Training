@@ -6,7 +6,7 @@
 //     (Day 3's 3.9 comes after 3.8: the Skill Building is numbered where it sits, not where the sequence lists it);
 //   - Part 1 · Lessons is the day's lessons; Part 2 · 🔁 The Daily Loop is the loop's real steps, in order, each a row:
 //     👋 Meet John Doe / 📇 Case Profile Check-In → 🎯 the Skill Building (Day 5: 🏗 Build Your Companion Case) →
-//     📁 Backup File Maintenance (Required) → 📝 Update Your Action Plan → "Optional side exercises (N)", one collapsible
+//     📁 Backup File Maintenance (Required) → 📝 Update Your Action Plan → "Skill activities (N)", one collapsible
 //     group holding every other activity → ✅ Ready for the Knowledge Check? → the ✍️ Learning Checks; the Part 2 band
 //     names the Action Plan and the required Backup File Maintenance;
 //   - a topic the trainee has reached opens its first slide; one not reached yet, or on a locked day, is 🔒 and doesn't;
@@ -41,9 +41,10 @@ const failures = []; const fail = (m) => failures.push(m);
         const title = l => (l.cf && l.cf.block ? l.cf.block.title : String(l.h || '').replace(/^\d+\.\d+\s+/, ''));
         const days = [...document.querySelectorAll('.rmx-day')].map((s, i) => {
             const d = DAYS[i], ol = s.querySelector('.rmx-topics');
-            const topics = [...s.querySelectorAll('.rmx-topic')].map(b => ({ num: b.querySelector('.rmx-tn').textContent, name: b.querySelector('.rmx-tt').textContent.trim(), enabled: !b.disabled }));
+            // (📑 Deck pages, js/cm-day-decks.js, li.rmx-dk, are the day's deck topics: not lessons of the day)
+            const topics = [...s.querySelectorAll('li:not(.rmx-dk) > .rmx-topic, .rmx-subtopics > li:not(.rmx-dk) > .rmx-topic')].map(b => ({ num: b.querySelector('.rmx-tn').textContent, name: b.querySelector('.rmx-tt').textContent.trim(), enabled: !b.disabled }));
             // the rows of the day, top to bottom: P:label, S:step (its icon), T:topic (its lesson's kind and role), G:the side group
-            const rows = [...ol.children].map(li => li.classList.contains('rmx-part') ? 'P:' + li.textContent.replace(/\s+/g, ' ').trim()
+            const rows = [...ol.children].filter(li => !li.classList.contains('rmx-dk')).map(li => li.classList.contains('rmx-part') ? 'P:' + li.textContent.replace(/\s+/g, ' ').trim()
                 : li.classList.contains('rmx-steprow') ? 'S:' + li.querySelector('.rmx-si').textContent.trim()
                 : li.classList.contains('rmx-sides') ? `G:${li.querySelectorAll('.rmx-subtopics .rmx-topic').length}:${!!li.querySelector('details')}:${li.querySelector('summary').textContent.trim()}`
                 : 'T:' + (/🎯 Skill Building/.test(li.textContent) ? 'main' : /📁 Required/.test(li.textContent) ? 'drive' : '') + ':' + li.querySelector('.rmx-tt').textContent.trim());
@@ -76,7 +77,7 @@ const failures = []; const fail = (m) => failures.push(m);
         const want2 = [d.n === 1 ? '👋' : '📇', d.build ? '🏗' : 'main', 'drive', '📝'].concat(d.sides ? ['sides'] : []);
         if (loop.join(' ') !== want2.join(' ')) fail(`${L}: Part 2 should run ${want2.join(' → ')}: ${loop.join(' → ')}`);
         const g = r.find(x => /^G:/.test(x));
-        if (d.sides && !(g && g.split(':')[1] === String(d.sides) && g.split(':')[2] === 'true' && new RegExp(`Optional side exercises \\(${d.sides}\\)`).test(g))) fail(`${L}: the side exercises should be one collapsible group, "Optional side exercises (${d.sides})": ${g}`);
+        if (d.sides && !(g && g.split(':')[1] === String(d.sides) && g.split(':')[2] === 'true' && new RegExp(`Skill activities \\(${d.sides}\\)`).test(g))) fail(`${L}: the side exercises should be one collapsible group, "Skill activities (${d.sides})": ${g}`);
         if (r.slice(pk + 1)[0] !== 'S:✅' || r.slice(pk + 2).some(x => !/^T::/.test(x))) fail(`${L}: after the Knowledge Check band, ✅ Ready for the Knowledge Check? then the Learning Checks: ${r.slice(pk + 1).join(' | ')}`);
         if (!/✅ Ready check · ✍️ Knowledge Check/.test(r[pk] || '')) fail(`${L}: the last band should be ✅ Ready check · ✍️ Knowledge Check: ${r[pk]}`);
     });
@@ -130,6 +131,6 @@ const failures = []; const fail = (m) => failures.push(m);
     }
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-    console.log('🗺 Roadmap lists every day and all its topics, numbered in the order shown; Part 2 is the daily loop\'s steps (Case Profile → Skill Building → required Backup File Maintenance → Action Plan → the optional side exercises, one collapsible group → Ready check and Learning Checks); it opens any topic a trainee has reached, locks the rest, marks the topic being taught, opens everything for a trainer and fits at 1366×768 and 1920×1080.');
+    console.log('🗺 Roadmap lists every day and all its topics, numbered in the order shown; Part 2 is the daily loop\'s steps (Case Profile → Skill Building → required Backup File Maintenance → Action Plan → the other skill activities, one collapsible group → Ready check and Learning Checks); it opens any topic a trainee has reached, locks the rest, marks the topic being taught, opens everything for a trainer and fits at 1366×768 and 1920×1080.');
     console.log('All good.');
 })().catch(e => { console.error(e); process.exit(1); });

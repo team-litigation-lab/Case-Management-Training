@@ -101,7 +101,7 @@ function labelRoadmap(){
     if(sidesI.length){
       const g = document.createElement("li"); g.className = "rmx-sides";
       const inside = sidesI.some(li => lis[li].querySelector(".rmx-topic.on"));
-      g.innerHTML = `<details${inside ? " open" : ""}><summary><span class="rmx-si" aria-hidden="true">🧪</span><span>Optional side exercises (${sidesI.length})</span></summary><ol class="rmx-subtopics"></ol></details>`;
+      g.innerHTML = `<details${inside ? " open" : ""}><summary><span class="rmx-si" aria-hidden="true">🧪</span><span>Skill activities (${sidesI.length})</span></summary><ol class="rmx-subtopics"></ol></details>`;
       const sub = g.querySelector(".rmx-subtopics"); sidesI.forEach(li => sub.appendChild(lis[li]));
       out.push(g);
     }
@@ -125,10 +125,14 @@ function labelSlideMap(){
   const parts = partsOf(d), L = labels(d), secs = [...o.querySelectorAll(".sm-groups > section")];
   let at = 0, last = "";
   secs.forEach(sec => {
-    const n = sec.querySelectorAll(".sm-item").length, part = parts[at] || ""; at += n;
-    if(!part || part === last) return; last = part;
-    const h = document.createElement("p"); h.className = "sm-part sm-part-" + part; h.innerHTML = labelHtml("", L[part]);
-    sec.insertBefore(h, sec.firstChild);
+    // a part can begin inside a group (with no side exercises the Ready check follows the Action Plan in one): the label
+    // goes before the slide it begins on, or atop the group when that is its first
+    [...sec.querySelectorAll(".sm-item")].forEach((it, j) => {
+      const part = parts[at + j] || ""; if(!part || part === last) return; last = part;
+      const h = document.createElement("p"); h.className = "sm-part sm-part-" + part; h.innerHTML = labelHtml("", L[part]);
+      if(j === 0) sec.insertBefore(h, sec.firstChild); else it.parentNode.insertBefore(h, it);
+    });
+    at += sec.querySelectorAll(".sm-item").length;
   });
 }
 /* ---------- Presenter view: on the day's last slide the forward button opens the Knowledge Check, and says so ---------- */

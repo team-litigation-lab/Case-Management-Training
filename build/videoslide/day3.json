@@ -1,0 +1,179 @@
+{
+  "title": "Case Management Training — Day 3",
+  "deck": "Revised Case Management Training Day 3 (Canva, 20 pages; the Skill Building page 10 is left out of the video)",
+  "voice": "en_US-lessac-high, converted to the trainer's own voice (revoice.py)",
+  "day": 13,
+  "onDeck": [
+    {
+      "key": "liens",
+      "topic": "Lien Negotiations & Reduction",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "key": "disbursement",
+      "topic": "Disbursement",
+      "pages": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ]
+    }
+  ],
+  "video": {
+    "src": "/decks/day3/day3-narrated.mp4",
+    "captions": "/decks/day3/day3-narrated.vtt",
+    "starts": [
+      0.0,
+      72.5,
+      145.2,
+      216.5,
+      289.8,
+      360.3,
+      433.7,
+      515.2,
+      586.9,
+      658.2,
+      726.5,
+      797.2,
+      861.8,
+      921.7,
+      988.9,
+      1060.7,
+      1121.0,
+      1188.3,
+      1246.3
+    ]
+  },
+  "say": {
+    "UM/UIM": "U M and U I M",
+    "BI": "B I",
+    "UM": "U M",
+    "UIM": "U I M",
+    "LSH": "L S H",
+    "PT": "P T",
+    "MRI": "M R I",
+    "PIP": "P I P",
+    "ACH": "A C H",
+    "W-9": "W 9",
+    "IDs": "I Ds",
+    "ID": "I D",
+    "GEICO": "Geico",
+    "33.33": "33 point 33",
+    "LOP": "L O P",
+    "Atty.": "Attorney",
+    "0048213": "0 0 4 8 2 1 3"
+  },
+  "slides": [
+    {
+      "page": 1,
+      "title": "Lien Negotiations: Key Legal Doctrines",
+      "notes": "Welcome to Day 3 of Case Management Training with Legal Support Help. Today we cover two phases of the case: first lien negotiations and reduction, and then disbursement. Throughout the day, our sample case is John Doe versus Robert Smith, the same file you're working on in the platform. Let's start with liens. Once a case settles, lienholders want to be paid in full. But the attorney has legal arguments that can push them to accept less, and every dollar saved goes back to the client. The Common Fund Doctrine says a lienholder collecting from money our attorney worked to recover should share the cost of recovering it. That's exactly what happened on our file. Peach State Health Plan asserted 1,860 dollars and accepted 1,240 dollars, a one third procurement cost reduction. The Made Whole Doctrine says that in many jurisdictions, a lienholder collects nothing until the client is fully compensated, pain and suffering included. And comparative fault cuts a lien by the same share the client's recovery was cut, the slide's example being 20 percent. You can name these doctrines. Which one to argue is always Atty. Thorne's call."
+    },
+    {
+      "page": 2,
+      "title": "Quantum Meruit: Prior Attorney Liens",
+      "notes": "Not every lien comes from a medical provider. Sometimes a lawyer who came before us wants to be paid. Quantum Meruit means as much as he has deserved. It's how the law values work when there's no valid contract, typically when a lawyer is dismissed before the case settles. Personal injury fees are usually contingent, a percentage of the win, so a dismissed lawyer can't claim that percentage. Instead, they file a lien for the work actually done. The law balances two rights: the client can fire their lawyer at any time, and the lawyer deserves pay for the value they added. Our file shows why you check the facts behind any such claim. On October 14th, 2026, Vance and Kettering Injury Law sent a charging lien demanding half the fee, 6,666 dollars and 67 cents. But the agreement was signed by John's mother, not John, and their own time record showed an intake call and a welcome letter, nothing more. It was logged and routed to Atty. Thorne the same day, and on his instruction those funds were put on hold. On October 19th, 2026, they withdrew the lien in writing and claimed no fee."
+    },
+    {
+      "page": 3,
+      "title": "Increasing the Client's Net",
+      "notes": "Here's the mindset for this phase. Half of a case manager's job is getting money from the insurance company, and the other half is protecting it from the providers. The pro rata argument shows a provider that the pie is fixed. If they won't come down, the slide's example is 30 percent, the settlement may stall, and nobody gets paid for years. Our file makes the math real. Had John recovered only Keystone's 10,000 dollar BI limit, after the fee and costs just 6,179 dollars and 92 cents would have been left, against 7,965 dollars of unreduced liens. Shared pro rata, the liens would have taken all of it, and John would have walked away with nothing. That's why this lesson matters. The Made Whole argument applies only where state law allows. Peach State is a fully insured plan, so state law governs its reduction, and that analysis belongs to Atty. Thorne. And never send a check without a signed payoff letter stating it's full and final satisfaction of all liens. Before Riverton Spine and Rehab's reduced 4,580 dollars goes out, that letter has to be in the file."
+    },
+    {
+      "page": 4,
+      "title": "Auditing the Billing",
+      "notes": "Before you ask anyone for a discount, make sure the bill is right. Some providers upcode, billing a more complex service than they gave, or unbundle, splitting one service into several charges. If the bill is wrong, you're not negotiating, you're correcting. So cross reference the records against the billing statement. The slide's example is a Level 3 visit billed as a Level 5. That's a correction you demand, not a favor you ask for. Then hunt for duplicates. Our file has a real one. Riverton Spine and Rehab billed 34 lines at 185 dollars each, 6,290 dollars, but the attendance log shows 33 visits. May 4th, 2026 was billed twice. The audit took the bill to 6,105 dollars, and only then did negotiation start, ending at 4,580 dollars. Once the bill is clean, bring in the Common Fund Doctrine. The attorney did the work and paid the costs that created the money. Under the one third rule, lienholders in many states reduce their claim by their share of fees and costs. That's how Peach State's 1,860 dollars became 1,240."
+    },
+    {
+      "page": 5,
+      "title": "The Net Sheet: Purpose of a Combined BI/UM Net Sheet",
+      "notes": "Now the tool that ties it all together: the net sheet. When a case recovers from both BI and UM, as ours does, we use one combined sheet, for three reasons. First, avoiding double dipping. Carriers audit our files, so we show exactly where every dollar came from and pay liens without mixing funds. On our file, the BI stream is 10,000 dollars and the UM stream is 30,000, and costs and liens are allocated to each stream in proportion to its share of the gross, 25 and 75 percent. Second, fee transparency. The fee can be structured differently for a third party BI policy than a first party UM/UIM policy, so we track each separately. On John's file, the retainer's one third pre-suit fee applies to both. Third, protecting the final aggregate net. Side by side, the client sees how his coverages stacked up and how negotiation grew his check. For John, that's 20,359 dollars and 92 cents: 5,089 dollars and 98 cents from BI and 15,269 dollars and 94 cents from UM."
+    },
+    {
+      "page": 6,
+      "title": "The Net Sheet: Two Recovery Streams",
+      "notes": "So what are the two streams? Stream one is third party Bodily Injury, or BI, paid by the at fault driver's insurer. The slide names GEICO or Progressive as general examples. On our file, it's Keystone Mutual, Robert Smith's carrier, with a 10,000 dollar limit. Your focus is exhausting that limit first, because that's usually a legal prerequisite before the first party coverage opens. Keystone tendered its limit on August 12th, 2026. Stream two is first party Uninsured or Underinsured Motorist coverage, UM/UIM. The slide points to the client's own policy or a resident relative's household policy. John owns no car and has no policy of his own, so his UM comes from two places. As a passenger, he reaches Harbor Point's 20,000 dollar Host UM on Kevin Alvarez's Escape. And as a resident relative of his mother, Margaret Doe, he reaches Cardinal State's 10,000 dollar Relative UM, which stacks behind Host UM. UM triggers only when BI is exhausted, or when the tortfeasor has no insurance at all. Order matters: BI, then Host UM, then Relative UM."
+    },
+    {
+      "page": 7,
+      "title": "The BI/UM Master Financial Ledger",
+      "notes": "Here's what the net sheet looks like: our LSH corporate net sheet. It reads top to bottom, the way the money flows. The slide image is a blank template, and Progressive Corporation is just its example reference. Let's fill it in with our file. Section one, the settlement recovery summary: a gross of 40,000 dollars from Keystone, Harbor Point and Cardinal State. Section two, attorney fees and advanced case expenses. The template shows 33.33 percent. John's fee is one third, 13,333 dollars and 33 cents. His case costs total 486 dollars and 75 cents, including the police report, medical records and billing, certified mail, MRI images on disc, and postage and copies. Every line on the template, from filing fees to file storage, gets checked, even if it's empty. Section three, the medical provider ledger, is where your lien work lands. For each provider you track charges, PIP, health and med pay payments, adjustments, balance owed and your max offer. John's MRI and orthopedic visits were paid by PIP, while Riverton Spine and Rehab's chiro and PT, treated under an LOP, carry the balance you negotiated."
+    },
+    {
+      "page": 8,
+      "title": "Case Manager Protocols for Dual Settlements",
+      "notes": "When a case has both BI and UM, the order of steps is everything. First, secure the BI tender in writing from the at fault carrier. Keystone tendered its 10,000 dollar limit on August 12th, 2026. Second, before John signs any BI release, send a formal Consent to Settle to the UM carriers, to protect their subrogation rights. We sent requests to Harbor Point and Cardinal State on August 13th, and their consents came in on August 24th and 26th. Only then was the Limited Release signed, on August 28th, 2026. Settling BI without those consents could have cost John the whole UM stack. Third, negotiate medical bills once, against the combined value, not provider by provider for each policy. The slide's 50,000 dollar figure is a general example. Our stack is 40,000 dollars, and that's what Peach State and Riverton Spine and Rehab negotiated against. Fourth, fill out both sides of the net sheet together and confirm the client's net matches our software ledger exactly. On our file, that's 20,359 dollars and 92 cents."
+    },
+    {
+      "page": 9,
+      "title": "Key Takeaway: The Value of a CM",
+      "notes": "If you take one thing from this section, take this. Your job isn't data entry, it's financial engineering. When you pair a third party BI recovery with first party UM coverage, you grow the pool the client can recover from. The slide calls it doubling. On John's file, two UM layers added 30,000 dollars on top of a 10,000 dollar BI limit. Tracking those streams cleanly on one dual net sheet protects the firm, keeps the medical liens clear, and gets the client every dollar he's legally entitled to. Then there are firm costs. The slide lists police report fees, medical records retrieval and expert witness retainers as examples. John's costs were 486 dollars and 75 cents, including a 25 dollar police report and 214 dollars and 75 cents for medical records and billing. Costs are totaled for the whole case, then taken out as one line or split proportionally. We split ours by share of gross: 121 dollars and 69 cents to BI, and 365 dollars and 6 cents to UM. Now, with the money calculated, let's get it out the door."
+    },
+    {
+      "page": 11,
+      "title": "Disbursement: Core Objectives",
+      "notes": "Which brings us to our second phase, disbursement. This is where money leaves the trust account, so mistakes are hard to undo. On our file, disbursement happened on October 22nd, 2026. Keep four objectives in mind. Accuracy means every payment matches what was approved, the figures on the net sheet you just built. Compliance means following every local, state and federal regulation that applies. Fraud prevention means spotting red flags before funds go out, not after. Remember the Vance and Kettering lien. A claim that didn't add up arrived days before disbursement, and the funds it targeted were held until Atty. Thorne resolved it. The slide then lists compliance a second time, about meeting statutory requirements like the Statute of Limitations before the demand went out. On John's file, the demand went to Keystone on July 20th, 2026, well ahead of the limitation date docketed for February 6th, 2028. Disbursement is your last checkpoint, so confirm that everything that should have been done earlier is actually in the file."
+    },
+    {
+      "page": 12,
+      "title": "Disbursement: The Workflow",
+      "notes": "So how does a payment actually move through the office? Think of four stages, each feeding the next. Verification comes first. You pull files marked Ready for Payment and confirm every condition precedent is met, meaning everything that must happen before money moves has happened. On our file, that meant all three carrier checks had been received and every lien was resolved, including the Vance and Kettering hold released on October 19th, 2026. Next is documentation. Gather invoices and receipts and make sure they're readable and match the claim. Then authorization. The release of funds is signed off, and the packet goes to finance and accounting. Our funds cleared on October 20th, and John signed his Settlement Statement on October 21st. Finally, reconciliation. Once you confirm the funds were received, update the case file to show Paid. After John's disbursement on October 22nd, 2026, the trust ledger went to zero. That last step keeps the whole team looking at the same accurate picture of the case. Next, let's look at what goes into that documentation packet."
+    },
+    {
+      "page": 13,
+      "title": "Disbursement: Documentation Checklist",
+      "notes": "Here's what belongs in the packet before money is released. Each item answers a simple question. Who's getting paid? That's proof of identity, a valid ID for the payee. Who asked for the payment? That's the payment request form, signed by the beneficiary or an authorized representative. What exactly are we paying for? That's the verified invoices, with dates, service descriptions and tax IDs. On our file, Riverton Spine and Rehab's invoice has to match what was audited and agreed, not the 6,290 dollars it first billed. Where is the money going? That's the banking information, and the slide pairs it with updating the case file to Paid once the payment goes through. And finally, W-9 and other tax forms where they apply, which is for vendor payments. If any one of these is missing, the packet isn't ready. It's far easier to hold a payment for a missing document than to pull back money that already went to the wrong place. Which brings us to the challenges you'll run into."
+    },
+    {
+      "page": 14,
+      "title": "Disbursement: Common Challenges and Mitigation",
+      "notes": "Even with a good checklist, a few problems come up again and again. The first is incomplete paperwork. Use a Kickback Protocol. Tell the client exactly what's missing and give a deadline. A vague request just leaves the file sitting while the client waits for money that's already been won. The second is a change of circumstance, when something about the payment changes along the way, like a new address or payee name. Per the slide, that needs a signature from the beneficiary or an authorized representative. On our file, Keystone's adjuster asked whether Peach State should be added as a payee on the BI check. That went to Atty. Thorne, and the payee stayed unchanged. Changes like that are never yours to decide alone. The third is duplicate payments. Before you click Approve, cross reference the invoice number in the system. It's the same discipline that caught Riverton Spine and Rehab's double billed May 4th visit. A few seconds of checking can save hours of clawing money back."
+    },
+    {
+      "page": 15,
+      "title": "Final Case Reconciliation: The Net Sheet",
+      "notes": "The money is out. Can we close the file? Not yet. Before any case is marked Archived, the case manager confirms that the key document sets are in the file. The first is the net sheet, the money trail. It's the final accounting of every dollar that moved. Behind it, you need three things. An itemized list of every check, ACH or wire transfer. On our file, that starts with the three carrier checks: Keystone's check number 0048213 for 10,000 dollars, then Harbor Point's and Cardinal State's. You also need the transaction IDs, the bank confirmation numbers for each payment, so any payment can be traced. And a zero balance confirmation, a report showing the approved budget minus the total disbursed equals zero. That zero tells a later reviewer that nothing is outstanding and the remaining balance has been de obligated. For John, the trust ledger reached zero dollars after the October 22nd, 2026 disbursement. If you don't get to zero, the case isn't ready to close. Find the difference first."
+    },
+    {
+      "page": 16,
+      "title": "Final Case Reconciliation: Proof of Delivery",
+      "notes": "The net sheet shows where the money went. The next set proves it got there and did what it was meant to do. That's proof of delivery or completion, evidence the funds were used for their intended purpose. The most basic piece is a signed acknowledgment of receipt, John's own signature confirming he received his 20,359 dollars and 92 cents. That protects the firm if questions come up later. If a disbursement paid for construction or repairs, you'd also need a signed Certificate of Completion or a final inspection report. John's settlement didn't pay for repairs, and the Civic's repair ran on Margaret's separate property damage claim, so that item doesn't apply here. And when you pay providers, you need provider lien waivers, signed documents saying they've been paid in full and waive any future claims against the client or the claim. On our file, that's Riverton Spine and Rehab at its reduced 4,580 dollars, and Peach State's 1,240 dollars needs the same written confirmation. This ties back to the final payoff letter. Paying a provider isn't enough. You need it in writing that they're done."
+    },
+    {
+      "page": 17,
+      "title": "Final Case Reconciliation: Compliance and Identity",
+      "notes": "The next set is compliance and identity verification. In other words, proving on paper that we paid the right people the right way. It has two items. First, updated W-9 and tax documents, so the most recent tax information is on file for any ten ninety-nine reporting. Check that what's in the file is current before you close it. Second, the duplication of benefits final review. This is a signed statement from the beneficiary confirming he didn't receive double funding from another source, like insurance, after the case started. Why does that matter on John's file? Because his care was paid from several directions. Harbor Point's PIP paid 5,000 dollars of bills, Peach State paid the injection, and Riverton Spine and Rehab treated under an LOP. With that many payers, the file has to show that no expense was paid twice. It's the same principle as the net sheet. Every dollar should come from one clear source, and the file should prove it."
+    },
+    {
+      "page": 18,
+      "title": "Final Case Reconciliation: The Closing Memo",
+      "notes": "Next is the document people tend to skip, the internal closing memo. It's a one page summary you write for the internal file, and it's the first thing anyone reads if they open this case years from now. John's closing memo was dated October 30th, 2026. It should cover three things. First, a case summary, how it started versus how it ended. For John, that's a file that opened with a 14 day treatment gap and a 3,500 dollar opening offer from Keystone, and ended with all three policy limits, 40,000 dollars, recovered. Second, discrepancy notes. If the final payout differs from the first estimate, explain why. The slide's example about a change order is general. On our file, you'd explain why Riverton Spine and Rehab's claimed 6,290 dollars became 6,105 after audit and 4,580 after negotiation. Third, exception reports, documenting any policy waivers granted along the way. If a rule was bent for a good reason, write the reason down now, while you still remember it."
+    },
+    {
+      "page": 19,
+      "title": "Final Case Reconciliation: Retention Schedule",
+      "notes": "The last piece of reconciliation is the retention and disposition schedule. Once a case closes, the paperwork doesn't just sit forever. It's organized under a retention policy, and each document type has its own timeline and its own end step. The slide's table is a general example. Financial records are kept 7 years as the standard and then digitally deleted. Eligibility documents are kept 3 to 5 years and then archived or moved off site. Correspondence is kept 3 years and then purged from the active server. Our training file follows the firm's schedule: the closed file is kept 7 years from closing, so don't apply the slide's shorter periods to John's file. Why does this matter to you? Because how you file things at closing decides whether the right documents can be found while they must be kept, and cleared out properly once they don't. Filing it right at closing is the final step in handling a case well."
+    },
+    {
+      "page": 20,
+      "title": "Thank You!",
+      "notes": "That brings us to the end of Day 3. Today we learned how to protect the client's settlement through lien negotiations, using legal doctrines, billing audits, and a combined BI and UM net sheet. Then we followed that money through disbursement, from the workflow and the documentation packet to the final reconciliation that lets a case be archived. Review your notes on John Doe versus Robert Smith tonight, because these are the steps that make sure the client keeps every dollar they're entitled to. Thank you."
+    }
+  ]
+}

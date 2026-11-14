@@ -26,9 +26,13 @@ LEAD_IN = 0.8            # the slide shows before the voice starts
 TAIL = 1.4               # and stays after it stops
 
 
+ABBR = r"\b(Mr|Mrs|Ms|Dr|Atty|Hon|Esq|No|St|Ln|Ct|Rd|Ave|Inc|Co|Jr|Sr|vs|v)\.(?=\s)"
+
+
 def sentences(text):
-    parts = re.split(r'(?<=[.!?])\s+(?=[A-Z0-9"“])', text.strip())
-    return [p.strip() for p in parts if p.strip()]
+    t = re.sub(ABBR, lambda m: m.group(1) + "\x00", text.strip())   # no sentence break after an abbreviation
+    parts = re.split(r'(?<=[.!?])\s+(?=[A-Z0-9"“])', t)
+    return [p.replace("\x00", ".").strip() for p in parts if p.strip()]
 
 
 def spoken(text, say):
