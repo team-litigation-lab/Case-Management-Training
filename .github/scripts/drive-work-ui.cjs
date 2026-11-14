@@ -6,6 +6,8 @@
 //      files not matched. Typing a grade and a comment and pressing ✓ Save sends "override" with them; the row then shows
 //      the trainer's grade. 🏅 Grade now sends "workGradeFor" and says what it did. Every file name and every line of a grade
 //      is escaped (a name with markup in it stays text).
+//      A day with no grade says why in its row (never a bare "—"); Day 1 graded from a drive made by hand says so, with what
+//      to put right; the folders found and the course documents filed by hand are listed with the structure grade.
 //   2. The 🏅 Scorecard's 📂 Backup Drive reads the final grades: the written work, and a day's override in place of its
 //      auto grade, from the Worker's report only: a "trainer's grade" a trainee put in their own progress shows nowhere.
 //   3. The trainee: 📂 My Backup Drive shows ✍ Your written work, graded: the trainer's grade with the AI's beside it, the
@@ -28,10 +30,13 @@ const item = (o) => Object.assign({ id: 'd3m2-rel', day: 3, title: 'Settlement R
 let ov = null, dayOv = null;
 const view = () => {
   const it = item(ov ? { final: ov.score, override: ov } : {});
-  const structure = { 1: { auto: 100, final: 100 }, 2: { auto: 90, final: 90 }, 3: dayOv ? { auto: 70, final: dayOv.score, override: dayOv } : { auto: 70, final: 70 }, 4: { auto: null, final: null }, 5: { auto: null, final: null } };
+  // 🔎 Day 1 found in a drive made by hand (its feedback with it); a day with no grade says why
+  const structure = { 1: { auto: 34, final: 34, from: 'drive', notes: ['"Doe -John" is the firm\'s "Doe-John": the spaces, the hyphen and the capitals count.', '🏷 "x_RS01.pdf.pdf" should be named "x.pdf"'] }, 2: { auto: 90, final: 90 }, 3: dayOv ? { auto: 70, final: dayOv.score, override: dayOv } : { auto: 70, final: 70 },
+    4: { auto: null, final: null, why: "Day 4 hasn't started on the drive: none of its documents (RS41, RS42) is in the linked folder yet." }, 5: { auto: null, final: null, why: "Day 5 hasn't started on the drive: none of its documents (RS51) is in the linked folder yet." } };
   return { work: { items: [it], unmatched: [{ name: 'notes <script>x</script>', folder: '05 Insurance, Demands & Negotiation', why: 'No activity\'s title is in its name or first lines.', url: 'javascript:alert(1)' }], unreadable: [], older: [], days: {} },
     brief: { items: [{ a: it.id, d: 3, t: it.title, s: it.final, ai: 82, ov: !!ov, c: ov ? ov.comment : '' }], days: dayOv ? { 3: { s: dayOv.score, c: dayOv.comment } } : {}, n: 1, unmatched: 1 },
-    structure, guide: [{ id: 'd3m2-rel', day: 3, title: it.title, folder: '01 Clients/Doe-John/05 Insurance, Demands & Negotiation', heading: 'Day 3 · ' + it.title }], linked: true, configured: true, ai: true, maxChars: 20000 };
+    structure, filing: [{ docId: 'RS01', name: 'LSH-2026-MVA-000098_Doe-John_RS01-New-Client-Intake-Sheet_2026-11-12.pdf.pdf', folder: '01 intake & Retainer', home: '01 Intake & Retainer', ok: true }],
+    found: { at: '2026-11-14T07:00:00.000Z', folders: 3, of: 16, missing: [], why: '', names: { '01 Clients/Doe-John': 'Doe -John' } }, guide: [{ id: 'd3m2-rel', day: 3, title: it.title, folder: '01 Clients/Doe-John/05 Insurance, Demands & Negotiation', heading: 'Day 3 · ' + it.title }], linked: true, configured: true, ai: true, maxChars: 20000 };
 };
 const calls = [];
 async function answer(route) {
@@ -43,7 +48,7 @@ async function answer(route) {
     if (b.kind === 'day') dayOv = o; else ov = o;
     return send(Object.assign(view(), { saved: { kind: b.kind, key: b.key } }));
   }
-  if (b.action === 'workGradeFor') return send(Object.assign(view(), { ran: { graded: 1, failed: 0, pending: 0, structure: true } }));
+  if (b.action === 'workGradeFor') return send(Object.assign(view(), { ran: { graded: 1, failed: 0, pending: 0, structure: true, built: false, filing: 4, found: { folders: 3, of: 16, why: '' } } }));
   if (b.action === 'work' || b.action === 'workFor') return send(view());
   if (b.action === 'reportAll') return send({ reports: { [TID]: { traineeId: TID, connected: true, folder: 'LSH Case Backups', email: 'ana@example.com', grades: {}, work: view().brief } } });
   if (b.action === 'status' || b.action === 'grade' || b.action === 'check') return send({ grades: {}, drive: { configured: true, connected: true, built: true, builtAt: '2026-11-12T10:00:00.000Z', standard: ['01 Clients'], why: {}, homes: {}, root: 'LSH Case Backups', lastMissing: [], saved: [], grades: {}, drills: [], setup: { score: 100, ok: true, attempts: 1 }, naming: null } });
@@ -78,6 +83,12 @@ async function answer(route) {
   else {
     if (!/Day 3 · Backup File Maintenance/.test(opened.text) || !/Day 1 · the firm's folders/.test(opened.text)) fail(`each day's structure grade should be listed: "${opened.text.slice(0, 400)}"`);
     if (!/Day 3 · Settlement Release Clause Review/.test(opened.text) || !/82%/.test(opened.text)) fail('each activity\'s AI grade should be listed');
+    // 🔎 a day with no grade says why (never a bare "—"); Day 1 found in a drive made by hand says so, with its feedback; the
+    // course documents filed by hand are listed as filing, not written work
+    const why4 = await page.evaluate((TID) => { const r = document.querySelector(`#cmdwAdm details[data-cmdw-id="${TID}"] tr[data-cmdw-day="4"] [data-cmdw-why]`); return r ? r.textContent : ''; }, TID);
+    if (!/Day 4 hasn't started on the drive: none of its documents/.test(why4)) fail(`a day with no grade should say why in its row: "${why4}"`);
+    if (!/Graded from the folders found in the trainee's Drive/.test(opened.text) || !/2 things to put right/.test(opened.text)) fail(`Day 1 graded from a drive made by hand should say so, with what to put right: "${opened.text.slice(0, 600)}"`);
+    if (!/Found in the trainee's Drive: 3 of the firm's 16 folders/.test(opened.text) || !/Course documents filed by hand/.test(opened.text) || !/RS01 · LSH-2026-MVA-000098_Doe-John_RS01/.test(opened.text)) fail(`the folders found and the documents filed by hand should be listed with the structure: "${opened.text.slice(0, 900)}"`);
     if (!/not matched/i.test(opened.text) || !/notes <script>x<\/script>/.test(opened.text)) fail('the files not matched should be listed, their names as text');
     if (opened.img || opened.js || await page.evaluate(() => window.__xss)) fail('a file name with markup in it was drawn as markup (or a javascript: address linked)');
     if (!/&lt;img src=x/.test(opened.html)) fail('the file name should be escaped');
@@ -107,9 +118,10 @@ async function answer(route) {
   if (calls.length !== n0 || !/whole number from 0 to 100/.test(await page.evaluate(() => document.getElementById('cmdwAdm').innerText))) fail('a grade over 100 should be refused on the page, nothing sent');
   // 🏅 Grade now
   await page.click(`#cmdwAdm details[data-cmdw-id="${TID}"] [data-cmdw-now]`);
-  await page.waitForFunction(() => /Graded 1 file/.test((document.getElementById('cmdwAdm') || {}).innerText || ''), null, { timeout: 10000 }).catch(() => {});
+  await page.waitForFunction(() => /Graded 1 written file/.test((document.getElementById('cmdwAdm') || {}).innerText || ''), null, { timeout: 10000 }).catch(() => {});
   if (!calls.some((c) => c.action === 'workGradeFor' && c.traineeId === TID)) fail('🏅 Grade now should send "workGradeFor" for the trainee');
-  if (!/Graded 1 file/.test(await page.evaluate(() => document.getElementById('cmdwAdm').innerText))) fail('🏅 Grade now should say what it graded');
+  const nowText = await page.evaluate(() => document.getElementById('cmdwAdm').innerText);
+  if (!/Graded 1 written file/.test(nowText) || !/Found 3 of the firm's 16 folders in the trainee's Drive/.test(nowText) || !/4 course documents filed by hand were graded as filing/.test(nowText)) fail(`🏅 Grade now should say what it graded, the folders it found and the filing: "${nowText.slice(0, 400)}"`);
   ok('a trainer overrides an activity\'s and a day\'s grade with a comment (✓ Save), a grade out of range is refused, 🏅 Grade now runs the grading');
 
   /* 2: the 🏅 Scorecard reads the final grades */
