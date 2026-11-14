@@ -2,9 +2,10 @@
 // js/cm-companion-grade.js with js/cm-ai-grader.js, in a real browser, as a trainee with a companion case assigned:
 //   · "companion-build" is registered with the AI Grader, its rubric in the activities' format (rubric.ai, 60 of 100, each
 //     dimension one of the Day 1–4 deliverables; the trainer's 40);
-//   · the Full Application Practice's second slide (companionBuild2) carries "🤖 Submit to the AI Grader" on its ribbon, and the slide
+//   · the Full Application Practice's second slide (companionBuild2) carries "Submit my companion case →" (never "AI Grader") on its ribbon, and the slide
 //     still fits one screen at 1366×768 and 1920×1080;
-//   · the bar opens the AI Grader over the slide, its box filled in with the companion case and the build's seven steps;
+//   · the bar opens the grader over the slide: no box to write in, the evidence the platform holds (the companion case
+//     first), checked by itself as it opens (Submit → again);
 //   · submitted (the AI answered by the test, callAIJson: the test server has no AI key), the score shows in the panel and
 //     on the button, is saved under "cf-ai-grades" blocks["companion-build"], and the work log (the 🏅 Scorecard's 🧪 Skill
 //     Activities) has the attempt under "Build Your Companion Case", on Day 5.
@@ -46,23 +47,27 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
       return { bar: !!bar, text: bar ? bar.textContent : '', over: wrap ? wrap.scrollHeight - wrap.clientHeight : -1, below: stage ? stage.getBoundingClientRect().bottom - innerHeight : 99, barBelow: r ? r.bottom - innerHeight : 99, pages: state.slidePages || 1,
         zoom: [...(wrap || document.body).querySelectorAll('*')].filter(e => e.style && e.style.zoom && Number(e.style.zoom) < 1).map(e => e.className + ':' + e.style.zoom).join(' ') }; });
     if (k < 0) fail('Day 5 has no Full Application Practice second slide');
-    if (!fit.bar || !/Submit to the AI Grader/.test(fit.text)) fail(`${w}×${h}: the build's second slide should carry 🤖 Submit to the AI Grader`);
+    if (!fit.bar || !/Submit my companion case/.test(fit.text) || /AI Grader/.test(fit.text)) fail(`${w}×${h}: the build's second slide should carry "Submit my companion case →" (never "AI Grader"): "${fit.text}"`);
     if (fit.over > 2 || fit.below > 1 || fit.barBelow > 1 || fit.pages !== 1 || fit.zoom) fail(`${w}×${h}: the build's second slide should still fit one screen: ${JSON.stringify(fit)}`);
   }
 
-  // open the grader, the box filled in
-  await page.click('#lessonSlideWrap .cbg-go'); await sleep(400);
-  const box = await page.evaluate(() => { const p = document.getElementById('cbgPanel'), t = p && p.querySelector('textarea.aig-box'); return { panel: !!p, text: t ? t.value : '' }; });
-  if (!box.panel) fail('🤖 Submit to the AI Grader should open the grader over the slide');
-  if (!/My companion case/.test(box.text) || !/7\. Check your work/.test(box.text)) fail(`the box should be filled in with the companion case and the build's steps: ${box.text.slice(0, 200)}`);
-
-  // submit, the AI answering
+  // open the grader: no box to write in (as every activity's Submit, js/cm-ai-grader.js): what the platform holds for
+  // the build, checked against the rubric by itself as the panel opens (the AI answered by the test)
   await page.evaluate(() => { window.callAIJson = async () => ({ accuracyScore: 27, presenceScore: 23, riskScore: 16, efficiencyScore: 11,
     strengths: ['You ran the Conflict Check on every party first.'], blindspots: ['Name the gap\'s exact dates.'], growthSuggestions: ['Put the deadline in the note\'s first line.'] }); });
-  await page.evaluate(() => { const t = document.querySelector('#cbgPanel textarea.aig-box');
-    t.value = t.value.replace(/→ $/m, '→ Ran the Conflict Check on all four parties, opened the matter, calendared the SOL two years from the DOL, logged the CMS Case ID.').replace(/   → \n/g, '   → done, filed in the CMS and the folder\n');
-    t.dispatchEvent(new Event('input')); });
-  await page.click('#cbgPanel .aig-go'); await sleep(1500);
+  await page.click('#lessonSlideWrap .cbg-go'); await sleep(400);
+  const box = await page.evaluate(() => { const p = document.getElementById('cbgPanel');
+    return { panel: !!p, box: !!(p && p.querySelector('textarea')), ev: p ? [...p.querySelectorAll('.aig-ev li')].map(x => x.textContent) : [], sent: ((CMAIGrader.all().blocks['companion-build'] || {}).draft) || '', go: !!(p && (p.querySelector('.aig-go') || p.querySelector('.aig-res'))) }; });
+  if (!box.panel) fail('Submit my companion case → should open the grader over the slide');
+  const said = await page.evaluate(() => /AI Grader/.test((document.getElementById('cbgPanel') || {}).textContent || ''));
+  if (said) fail('the companion case\'s Submit panel says "AI Grader": trainees only ever see Submit');
+  if (box.box) fail('the companion case\'s Submit should have no box to write in: it is checked from what the platform holds');
+  // (the evidence listed, or, once it has checked itself, what it sent)
+  if (!box.ev.some(x => /My companion case/.test(x)) && !/My companion case/.test(box.sent)) fail(`the panel should check what the platform holds, the companion case first: ${JSON.stringify(box.ev)} ${box.sent.slice(0, 120)}`);
+  if (!box.go) fail('the panel should offer Submit → (or show the grade it checked by itself)');
+  // checked by itself as it opened; Submit → once more if it has not finished
+  await sleep(1500);
+  if (await page.evaluate(() => !CMAIGrader.result('companion-build'))) { await page.click('#cbgPanel .aig-go').catch(() => {}); await sleep(1500); }
   const res = await page.evaluate(async () => { const p = document.getElementById('cbgPanel'), st = await storeGet('cf-ai-grades');
     return { shown: p && (p.querySelector('.aig-score b') || {}).textContent, saved: CMAIGrader.result('companion-build'), stored: st && st.blocks && st.blocks['companion-build'] && st.blocks['companion-build'].score,
       status: p && (p.querySelector('.aig-st') || {}).textContent,
@@ -81,6 +86,6 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
   await browser.close();
   if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-  console.log(`Day 5's companion build is AI graded on a rubric of the Day 1–4 deliverables (60 AI / 40 trainer): 🤖 Submit on the build's second slide (which still fits), ${want}/100 shown, stored under cf-ai-grades and in the work log for the Scorecard.`);
+  console.log(`Day 5's companion build is AI graded on a rubric of the Day 1–4 deliverables (60 AI / 40 trainer): Submit on the build's second slide (which still fits), ${want}/100 shown, stored under cf-ai-grades and in the work log for the Scorecard.`);
   console.log('All good.');
 })().catch(e => { console.error(e); process.exit(1); });

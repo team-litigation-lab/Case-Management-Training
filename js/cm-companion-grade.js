@@ -11,7 +11,7 @@
    The grade is stored and shown like any other AI grade: "cf-ai-grades" blocks["companion-build"] on the trainee's record,
    and the work log entry runRubricEvaluation writes ("Day <id> · Case Flow Day 5 · Build Your Companion Case — Skill
    Building"), which is what the 🏅 Scorecard's 🧪 Skill Activities and the trainer read.
-   On the slide: the build's second slide ("the Second Half", step 7 Check your work) carries 🤖 Submit to the AI Grader
+   On the slide: the build's second slide ("the Second Half", step 7 Check your work) carries "Submit my companion case →" (trainees see Submit, never "AI Grader")
    on its ribbon (as a block's 📖 Additional Reference sits on its own), which opens the grader in a panel over the slide:
    the slide keeps its size. Once graded, the button shows the score.
    ============================================================ */
@@ -76,14 +76,14 @@ window.CM_AIG_EXTRA[ID] = {
 /* ---------- the panel over the slide ---------- */
 function body(){
   const v = window.CMAIGrader && typeof CMAIGrader.view === "function" ? CMAIGrader.view(ID) : "";
-  return v || `<p class="cbg-none">The AI Grader isn't available on this page right now.</p>`;
+  return v || `<p class="cbg-none">Submitting isn't available on this page right now.</p>`;
 }
 function open(){
   close();
   const cc = caseOf();
-  const o = document.createElement("div"); o.id = "cbgPanel"; o.className = "cbg-modal"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "AI Grader: your companion case");
-  o.innerHTML = `<div class="cbg-box"><div class="cbg-h"><b>🤖 AI Grader · Build Your Companion Case</b><span>${cc ? E(cc.title) : trainer() ? "Trainer view: each trainee submits their own case" : "Your companion case"}</span>
-      <button type="button" class="cbg-x" onclick="cmCompanionGrade.close()" aria-label="Close the AI Grader">✕</button></div>
+  const o = document.createElement("div"); o.id = "cbgPanel"; o.className = "cbg-modal"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Submit your companion case");
+  o.innerHTML = `<div class="cbg-box"><div class="cbg-h"><b>Submit · Build Your Companion Case</b><span>${cc ? E(cc.title) : trainer() ? "Trainer view: each trainee submits their own case" : "Your companion case"}</span>
+      <button type="button" class="cbg-x" onclick="cmCompanionGrade.close()" aria-label="Close">✕</button></div>
     <p class="cbg-lead">Graded on what Days 1–4 taught, applied to your own case: the intake and the CMS, the backup file, the claims, the care plan and the decision-first note. Your trainer reviews it with you at the brainstorm too.</p>
     <div class="cbg-body">${body()}</div></div>`;
   o.addEventListener("click", e => { if(e.target === o) close(); });
@@ -107,7 +107,7 @@ window.cmCompanionGrade = {ID, RUBRIC, open, close, result: () => window.CMAIGra
 /* ---------- the button on the build's second slide's ribbon ---------- */
 function bar(){
   const r = window.CMAIGrader ? CMAIGrader.result(ID) : null;
-  return `<button type="button" class="cbg-go" onclick="cmCompanionGrade.open()" title="Step 7 done? Hand your companion case in to the AI Grader">${r ? `🤖 AI Grader: <b>${E(r.score)}/100</b>` : "🤖 Submit to the AI Grader"}</button>`;
+  return `<button type="button" class="cbg-go" onclick="cmCompanionGrade.open()" title="Step 7 done? Hand your companion case in to be graded">${r ? `Graded: <b>${E(r.score)}/100</b>` : "Submit my companion case →"}</button>`;
 }
 if(typeof renderDaySlideContent === "function"){
   const __content = renderDaySlideContent;

@@ -107,7 +107,7 @@
   },
   "d1m1-drive": {
     "case": {
-      "say": "• 02/09/2026, 4:30 p.m.: John Doe's matter is active in the CMS, nothing on the backup drive yet\n• Every file is built to one standard so a covering colleague finds any document in seconds\n• Standard: 01 Clients, client folder last name first, nine numbered folders intake to litigation, then firm folders\n• It is graded twice: the AI Grader reads their Case Notes, and the drive itself is checked folder by folder"
+      "say": "• 02/09/2026, 4:30 p.m.: John Doe's matter is active in the CMS, nothing on the backup drive yet\n• Every file is built to one standard so a covering colleague finds any document in seconds\n• Standard: 01 Clients, client folder last name first, nine numbered folders intake to litigation, then firm folders\n• It is graded twice: Submit grades their Case Notes, and the drive itself is checked folder by folder"
     },
     "task": {
       "say": "• Required every day, straight after the Skill Building: today it builds John Doe's backup drive\n• Press Launch CMS & Google Drive; not linked yet, paste your shared folder's link in the Backup Drive panel\n• Build 01 Clients with Doe-John inside and its nine numbered folders, intake and retainer through litigation\n• Add the firm folders: administration, templates, closed files\n• Submit in My Backup Drive, fix what it returns, then run Check my drive until clean\n• In Case Notes, place the signed retainer, Police Report and HIPAA authorization, with reasons"
@@ -119,35 +119,35 @@
   },
   "d1m3-a1": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Email Workspace, tell Dana Whitfield the firm represents John Doe: no direct contact, and any Recorded Statement goes through the firm\n• Step 2: Log it in CMS › Communications Log, with a task in CMS › Tasks to set up his first visit at Riverton Urgent Care"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Email Workspace, tell Dana Whitfield the firm represents John Doe: no direct contact, and any Recorded Statement goes through the firm\n• Step 2: Log it in CMS › Communications Log, with a task in CMS › Tasks to set up his first visit at Riverton Urgent Care"
     },
     "case": {
       "say": "• Assuming John Doe's voicemail is transcribed and Keystone has asked to record him, the firm's instruction and his first visit now need logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Keystone told in writing, every contact logged, the first visit tasked"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Dana told in writing: no direct contact; Recorded Statement routed through the firm; First visit tasked with a date\n• The one thing to watch for: Telling Dana anything about his injuries"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Dana told in writing: no direct contact; Recorded Statement routed through the firm; First visit tasked with a date\n• The one thing to watch for: Telling Dana anything about his injuries"
     }
   },
   "d1m3-a2": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Tasks, add one task for each direction, with an owner\n• A due date and how it will be checked. Give the firm any task that was wrongly assigned to John\n• Step 2: Log a follow-up task that confirms he has started treatment"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Tasks, add one task for each direction, with an owner\n• A due date and how it will be checked. Give the firm any task that was wrongly assigned to John\n• Step 2: Log a follow-up task that confirms he has started treatment"
     },
     "case": {
       "say": "• Assuming John Doe's onboarding packet is delivered and logged, his directions now need to become tracked tasks in the CMS\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a tracked task set with correct owners, dates and verification"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Every task has an owner and due date; Verification method recorded for each task\n• Mis-assigned card reassigned to the firm; Reason for reassignment recorded; Treatment-start follow-up scheduled\n• The one thing to watch for: Tracking tasks without confirming they were done"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Every task has an owner and due date; Verification method recorded for each task\n• Mis-assigned card reassigned to the firm; Reason for reassignment recorded; Treatment-start follow-up scheduled\n• The one thing to watch for: Tracking tasks without confirming they were done"
     }
   },
   "d1m3-a3": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents, index the photos, the tow record and the Police Report as evidence for John Doe's injury claim\n• Step 2: Log one Case Note in CMS › Case Notes: the rental and Loss of Use stay on Margaret's claim\n• Referred to Atty. Thorne. Does PD touch our case?"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents, index the photos, the tow record and the Police Report as evidence for John Doe's injury claim\n• Step 2: Log one Case Note in CMS › Case Notes: the rental and Loss of Use stay on Margaret's claim\n• Referred to Atty. Thorne. Does PD touch our case?"
     },
     "case": {
       "say": "• Assuming the Police Report shows Margaret Doe owns the Civic and John Doe rode as a passenger\n• Keystone PD's six items need sorting on the file\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: BI evidence indexed and the one-line PD answer logged"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Photos, tow record, Police Report indexed as BI evidence\n• Rental, Loss of Use left on Margaret's claim; Note ends with the one-line answer\n• The one thing to watch for: Handling Margaret's Loss of Use on John Doe's file"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Photos, tow record, Police Report indexed as BI evidence\n• Rental, Loss of Use left on Margaret's claim; Note ends with the one-line answer\n• The one thing to watch for: Handling Margaret's Loss of Use on John Doe's file"
     }
   },
   "d1m3-kc": {
@@ -286,29 +286,29 @@
   },
   "d1m1-a1": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance, enter the three layers in pursuit order, BI, Host UM, Relative UM, each marked first-party or third-party\n• Step 2: Log the $40,000 total in the Comments box and mark the projection preliminary until every limit is confirmed in writing"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance, enter the three layers in pursuit order, BI, Host UM, Relative UM, each marked first-party or third-party\n• Step 2: Log the $40,000 total in the Comments box and mark the projection preliminary until every limit is confirmed in writing"
     },
     "case": {
       "say": "• Assuming all three carriers reported their limits on the set-up calls and no Declaration Page has arrived, the stack now needs entering in the CMS\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a three-layer matrix totalling $40,000, ordered and marked preliminary"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Limits $10,000 / $20,000 / $10,000; total $40,000; Order recorded: BI › Host UM › Relative UM\n• BI third-party; both UM layers first-party; Projection marked preliminary until confirmed in writing\n• The one thing to watch for: Quoting a likely limit before written confirmation"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Limits $10,000 / $20,000 / $10,000; total $40,000; Order recorded: BI › Host UM › Relative UM\n• BI third-party; both UM layers first-party; Projection marked preliminary until confirmed in writing\n• The one thing to watch for: Quoting a likely limit before written confirmation"
     }
   },
   "d2m1-a2": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance › Coverage Matrix, take PIP out of the stack and correct the total to $40,000, citing the document behind each fix\n• Step 2: Log a three-line audit note to Atty. Thorne in CMS › Case Notes: what is confirmed in writing\n• What is still preliminary, and what you escalated"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance › Coverage Matrix, take PIP out of the stack and correct the total to $40,000, citing the document behind each fix\n• Step 2: Log a three-line audit note to Atty. Thorne in CMS › Case Notes: what is confirmed in writing\n• What is still preliminary, and what you escalated"
     },
     "case": {
       "say": "• Assuming a colleague's Coverage Matrix totals $45,000 and the file holds Harbor Point's and Cardinal State's letters but no Keystone Declaration Page\n• The matrix needs correcting\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a corrected matrix totalling $40,000, its audit note routed"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: PIP out of the stack: it pays bills; Stack total $45,000 corrected to $40,000; BI still preliminary until the Declaration Page\n• The one thing to watch for: Marking BI confirmed because $10,000 is expected"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: PIP out of the stack: it pays bills; Stack total $45,000 corrected to $40,000; BI still preliminary until the Declaration Page\n• The one thing to watch for: Marking BI confirmed because $10,000 is expected"
     }
   },
   "d1m1-a2": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Liens, register Peach State's claim with the member number, its Payer Order position and today's date\n• Step 2: Log your email asking Dion Carver for an itemized ledger, sent from the Email Workspace, and file it in the CMS"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Liens, register Peach State's claim with the member number, its Payer Order position and today's date\n• Step 2: Log your email asking Dion Carver for an itemized ledger, sent from the Email Workspace, and file it in the CMS"
     },
     "case": {
       "say": "• Assuming Peach State has written that claims are in process and no lien record exists yet, its reimbursement claim now needs registering\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a flagged lien record and the itemized ledger requested"
@@ -317,29 +317,29 @@
       "say": "• The finished set, for reference: the side exercise asks only for the two steps, not the whole audit\n• Have them check theirs for this: Position: after PIP/MedPay, before LOP"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: PSH-55017742 and GRP-41208 entered for Peach State; Position: after PIP/MedPay, before LOP; Flag dated before any demand is drafted\n• The one thing to watch for: Finding the lien at disbursement"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: PSH-55017742 and GRP-41208 entered for Peach State; Position: after PIP/MedPay, before LOP; Flag dated before any demand is drafted\n• The one thing to watch for: Finding the lien at disbursement"
     }
   },
   "d1m4-a1": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case File › Risk Flags, record the exact gap in days from the date of loss\n• And set a watch for later breaks in care\n• Step 2: Log the facts only in the Action Plan's risks band, and route the flag to Atty. Thorne in the CMS"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case File › Risk Flags, record the exact gap in days from the date of loss\n• And set a watch for later breaks in care\n• Step 2: Log the facts only in the Action Plan's risks band, and route the flag to Atty. Thorne in the CMS"
     },
     "case": {
       "say": "• Assuming John Doe's first treatment record is in the CMS, dated 02/20/2026, the gap from the date of loss now needs flagging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a precisely computed gap flag, routed to Atty. Thorne"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Gap: 14 days, 02/06/2026 to 02/20/2026; Risks band: facts only, explanation pending; Flag routed to Atty. Thorne\n• The one thing to watch for: Writing “about two weeks” instead of exact dates"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Gap: 14 days, 02/06/2026 to 02/20/2026; Risks band: facts only, explanation pending; Flag routed to Atty. Thorne\n• The one thing to watch for: Writing “about two weeks” instead of exact dates"
     }
   },
   "d1m4-a2": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, record the stack in order with a preliminary projection\n• And put the 14-Day Gap at the top of the risks band\n• Step 2: Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, record the stack in order with a preliminary projection\n• And put the 14-Day Gap at the top of the risks band\n• Step 2: Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne"
     },
     "case": {
       "say": "• Assuming the set-up is in, the $40,000 stack verified and the 14-Day Treatment Gap flagged, Atty. Thorne now needs the Case Plan\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Case Plan routed to Atty. Thorne, the filing window docketed"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Order BI › Host UM › Relative UM; projection preliminary; Risks band: the 14-Day Gap first; Plan routed to Atty. Elijah Thorne\n• The one thing to watch for: a projection stated as a number before coverage is confirmed"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Order BI › Host UM › Relative UM; projection preliminary; Risks band: the 14-Day Gap first; Plan routed to Atty. Elijah Thorne\n• The one thing to watch for: a projection stated as a number before coverage is confirmed"
     }
   },
   "d1m1-kc": {

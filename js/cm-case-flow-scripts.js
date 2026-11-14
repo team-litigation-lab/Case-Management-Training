@@ -78,7 +78,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Required every day, straight after the Skill Building: today it builds John Doe's backup drive\n• Press Launch CMS & Google Drive; not linked yet, paste your shared folder's link in the Backup Drive panel\n• Build 01 Clients with Doe-John inside and its nine numbered folders, intake and retainer through litigation\n• Add the firm folders: administration, templates, closed files\n• Submit in My Backup Drive, fix what it returns, then run Check my drive until clean\n• In Case Notes, place the signed retainer, Police Report and HIPAA authorization, with reasons"
   },
   "case": {
-   "say": "• 02/09/2026, 4:30 p.m.: John Doe's matter is active in the CMS, nothing on the backup drive yet\n• Every file is built to one standard so a covering colleague finds any document in seconds\n• Standard: 01 Clients, client folder last name first, nine numbered folders intake to litigation, then firm folders\n• It is graded twice: the AI Grader reads their Case Notes, and the drive itself is checked folder by folder"
+   "say": "• 02/09/2026, 4:30 p.m.: John Doe's matter is active in the CMS, nothing on the backup drive yet\n• Every file is built to one standard so a covering colleague finds any document in seconds\n• Standard: 01 Clients, client folder last name first, nine numbered folders intake to litigation, then firm folders\n• It is graded twice: Submit grades their Case Notes, and the drive itself is checked folder by folder"
   },
   "check": {
    "say": "• Drive folder shared as Editor and linked\n• Every folder named and numbered exactly to the standard, nothing invented or renamed\n• Doe-John under 01 Clients with all nine folders in order; Check my drive shows nothing missing\n• Case Notes: retainer and HIPAA authorization in Intake and Retainer, Police Report in Police, Witness and Video",
@@ -117,13 +117,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m2-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in CMS › Communications Log: the two earlier voicemails, then an email\n• A text and the emergency contact, each with date, time, channel and outcome\n• Step 2: Record the next action and its due date in the Communications Log"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in CMS › Communications Log: the two earlier voicemails, then an email\n• A text and the emergency contact, each with date, time, channel and outcome\n• Step 2: Record the next action and its due date in the Communications Log"
   },
   "case": {
    "say": "• Assuming John Doe has been silent six days and the Step 1 review is done, his outreach attempts now need logging in order\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an unbroken, contemporaneous outreach log, the next action dated"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Every entry: date, time, channel, outcome; Email and SMS attempted, not repeat calls; No entry threatens withdrawal or closure\n• The one thing to watch for: Logging “called client, no answer” with no details"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Every entry: date, time, channel, outcome; Email and SMS attempted, not repeat calls; No entry threatens withdrawal or closure\n• The one thing to watch for: Logging “called client, no answer” with no details"
   }
  },
  "d1m2-l2": {
@@ -146,13 +146,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m2-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents\n• Fill in the Final Warning Letter template: list the earlier attempts with their dates and set a reply date 7 to 14 days from today\n• Step 2: Log it in the CMS Communications Log: the letter went by certified mail and by email, and Atty. Thorne decides any next step"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents\n• Fill in the Final Warning Letter template: list the earlier attempts with their dates and set a reply date 7 to 14 days from today\n• Step 2: Log it in the CMS Communications Log: the letter went by certified mail and by email, and Atty. Thorne decides any next step"
   },
   "case": {
    "say": "• Assuming the No Contact Protocol has been maxed (phone, email\n• Texts and emergency contact all tried and logged), John Doe's Step 4 Final Warning Letter is due today\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a send-ready Final Warning Letter, both deliveries logged, escalation recorded"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: DOL 02/06/2026 and file reference present; Deadline is a date inside 7–14 days\n• Withdrawal noted as possible, not decided; Certified mail AND email both recorded; No statement on value or legal consequences\n• The one thing to watch for: a deadline of “as soon as possible”"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: DOL 02/06/2026 and file reference present; Deadline is a date inside 7–14 days\n• Withdrawal noted as possible, not decided; Certified mail AND email both recorded; No statement on value or legal consequences\n• The one thing to watch for: a deadline of “as soon as possible”"
   }
  },
  "d1m2-kc": {
@@ -184,13 +184,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m3-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Email Workspace, tell Dana Whitfield the firm represents John Doe: no direct contact, and any Recorded Statement goes through the firm\n• Step 2: Log it in CMS › Communications Log, with a task in CMS › Tasks to set up his first visit at Riverton Urgent Care"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Email Workspace, tell Dana Whitfield the firm represents John Doe: no direct contact, and any Recorded Statement goes through the firm\n• Step 2: Log it in CMS › Communications Log, with a task in CMS › Tasks to set up his first visit at Riverton Urgent Care"
   },
   "case": {
    "say": "• Assuming John Doe's voicemail is transcribed and Keystone has asked to record him, the firm's instruction and his first visit now need logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Keystone told in writing, every contact logged, the first visit tasked"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Dana told in writing: no direct contact; Recorded Statement routed through the firm; First visit tasked with a date\n• The one thing to watch for: Telling Dana anything about his injuries"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Dana told in writing: no direct contact; Recorded Statement routed through the firm; First visit tasked with a date\n• The one thing to watch for: Telling Dana anything about his injuries"
   }
  },
  "d1m3-l2": {
@@ -214,24 +214,24 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m3-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Tasks, add one task for each direction, with an owner\n• A due date and how it will be checked. Give the firm any task that was wrongly assigned to John\n• Step 2: Log a follow-up task that confirms he has started treatment"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Tasks, add one task for each direction, with an owner\n• A due date and how it will be checked. Give the firm any task that was wrongly assigned to John\n• Step 2: Log a follow-up task that confirms he has started treatment"
   },
   "case": {
    "say": "• Assuming John Doe's onboarding packet is delivered and logged, his directions now need to become tracked tasks in the CMS\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a tracked task set with correct owners, dates and verification"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Every task has an owner and due date; Verification method recorded for each task\n• Mis-assigned card reassigned to the firm; Reason for reassignment recorded; Treatment-start follow-up scheduled\n• The one thing to watch for: Tracking tasks without confirming they were done"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Every task has an owner and due date; Verification method recorded for each task\n• Mis-assigned card reassigned to the firm; Reason for reassignment recorded; Treatment-start follow-up scheduled\n• The one thing to watch for: Tracking tasks without confirming they were done"
   }
  },
  "d1m3-a3": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents, index the photos, the tow record and the Police Report as evidence for John Doe's injury claim\n• Step 2: Log one Case Note in CMS › Case Notes: the rental and Loss of Use stay on Margaret's claim\n• Referred to Atty. Thorne. Does PD touch our case?"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents, index the photos, the tow record and the Police Report as evidence for John Doe's injury claim\n• Step 2: Log one Case Note in CMS › Case Notes: the rental and Loss of Use stay on Margaret's claim\n• Referred to Atty. Thorne. Does PD touch our case?"
   },
   "case": {
    "say": "• Assuming the Police Report shows Margaret Doe owns the Civic and John Doe rode as a passenger\n• Keystone PD's six items need sorting on the file\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: BI evidence indexed and the one-line PD answer logged"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Photos, tow record, Police Report indexed as BI evidence\n• Rental, Loss of Use left on Margaret's claim; Note ends with the one-line answer\n• The one thing to watch for: Handling Margaret's Loss of Use on John Doe's file"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Photos, tow record, Police Report indexed as BI evidence\n• Rental, Loss of Use left on Margaret's claim; Note ends with the one-line answer\n• The one thing to watch for: Handling Margaret's Loss of Use on John Doe's file"
   }
  },
  "d1m3-kc": {
@@ -302,13 +302,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m4-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case File › Risk Flags, record the exact gap in days from the date of loss\n• And set a watch for later breaks in care\n• Step 2: Log the facts only in the Action Plan's risks band, and route the flag to Atty. Thorne in the CMS"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case File › Risk Flags, record the exact gap in days from the date of loss\n• And set a watch for later breaks in care\n• Step 2: Log the facts only in the Action Plan's risks band, and route the flag to Atty. Thorne in the CMS"
   },
   "case": {
    "say": "• Assuming John Doe's first treatment record is in the CMS, dated 02/20/2026, the gap from the date of loss now needs flagging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a precisely computed gap flag, routed to Atty. Thorne"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Gap: 14 days, 02/06/2026 to 02/20/2026; Risks band: facts only, explanation pending; Flag routed to Atty. Thorne\n• The one thing to watch for: Writing “about two weeks” instead of exact dates"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Gap: 14 days, 02/06/2026 to 02/20/2026; Risks band: facts only, explanation pending; Flag routed to Atty. Thorne\n• The one thing to watch for: Writing “about two weeks” instead of exact dates"
   }
  },
  "d1m4-l2": {
@@ -322,13 +322,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m4-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, record the stack in order with a preliminary projection\n• And put the 14-Day Gap at the top of the risks band\n• Step 2: Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, record the stack in order with a preliminary projection\n• And put the 14-Day Gap at the top of the risks band\n• Step 2: Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne"
   },
   "case": {
    "say": "• Assuming the set-up is in, the $40,000 stack verified and the 14-Day Treatment Gap flagged, Atty. Thorne now needs the Case Plan\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Case Plan routed to Atty. Thorne, the filing window docketed"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Order BI › Host UM › Relative UM; projection preliminary; Risks band: the 14-Day Gap first; Plan routed to Atty. Elijah Thorne\n• The one thing to watch for: a projection stated as a number before coverage is confirmed"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Order BI › Host UM › Relative UM; projection preliminary; Risks band: the 14-Day Gap first; Plan routed to Atty. Elijah Thorne\n• The one thing to watch for: a projection stated as a number before coverage is confirmed"
   }
  },
  "d1m4-kc": {
@@ -357,13 +357,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m1-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance, enter the three layers in pursuit order, BI, Host UM, Relative UM, each marked first-party or third-party\n• Step 2: Log the $40,000 total in the Comments box and mark the projection preliminary until every limit is confirmed in writing"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance, enter the three layers in pursuit order, BI, Host UM, Relative UM, each marked first-party or third-party\n• Step 2: Log the $40,000 total in the Comments box and mark the projection preliminary until every limit is confirmed in writing"
   },
   "case": {
    "say": "• Assuming all three carriers reported their limits on the set-up calls and no Declaration Page has arrived, the stack now needs entering in the CMS\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a three-layer matrix totalling $40,000, ordered and marked preliminary"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Limits $10,000 / $20,000 / $10,000; total $40,000; Order recorded: BI › Host UM › Relative UM\n• BI third-party; both UM layers first-party; Projection marked preliminary until confirmed in writing\n• The one thing to watch for: Quoting a likely limit before written confirmation"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Limits $10,000 / $20,000 / $10,000; total $40,000; Order recorded: BI › Host UM › Relative UM\n• BI third-party; both UM layers first-party; Projection marked preliminary until confirmed in writing\n• The one thing to watch for: Quoting a likely limit before written confirmation"
   }
  },
  "d2m1-a1": {
@@ -414,13 +414,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m1-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance › Coverage Matrix, take PIP out of the stack and correct the total to $40,000, citing the document behind each fix\n• Step 2: Log a three-line audit note to Atty. Thorne in CMS › Case Notes: what is confirmed in writing\n• What is still preliminary, and what you escalated"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance › Coverage Matrix, take PIP out of the stack and correct the total to $40,000, citing the document behind each fix\n• Step 2: Log a three-line audit note to Atty. Thorne in CMS › Case Notes: what is confirmed in writing\n• What is still preliminary, and what you escalated"
   },
   "case": {
    "say": "• Assuming a colleague's Coverage Matrix totals $45,000 and the file holds Harbor Point's and Cardinal State's letters but no Keystone Declaration Page\n• The matrix needs correcting\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a corrected matrix totalling $40,000, its audit note routed"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: PIP out of the stack: it pays bills; Stack total $45,000 corrected to $40,000; BI still preliminary until the Declaration Page\n• The one thing to watch for: Marking BI confirmed because $10,000 is expected"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: PIP out of the stack: it pays bills; Stack total $45,000 corrected to $40,000; BI still preliminary until the Declaration Page\n• The one thing to watch for: Marking BI confirmed because $10,000 is expected"
   }
  },
  "d2m1-kc": {
@@ -483,13 +483,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m2-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Liens › LOP register, record Riverton's LOP signed by John Doe and Atty. Thorne\n• And send it with the HIPAA authorization from the Email Workspace\n• Step 2: Log Summit Imaging's declined LOP request in CMS › Case Notes, naming Harbor Point PIP as the payer, and calendar the rental's 03/19/2026 end"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Liens › LOP register, record Riverton's LOP signed by John Doe and Atty. Thorne\n• And send it with the HIPAA authorization from the Email Workspace\n• Step 2: Log Summit Imaging's declined LOP request in CMS › Case Notes, naming Harbor Point PIP as the payer, and calendar the rental's 03/19/2026 end"
   },
   "case": {
    "say": "• Assuming Riverton Spine & Rehab is out of network for Peach State and Atty. Thorne has approved its LOP, the LOP now needs sending and logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: One counsel-approved LOP sent, one declined, both logged"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Signed by John Doe and Atty. Thorne before 02/24/2026; Decline names Harbor Point PIP as payer\n• No payment promised to any provider; Rental end 03/19/2026 calendared\n• The one thing to watch for: an LOP to a provider PIP would have paid"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Signed by John Doe and Atty. Thorne before 02/24/2026; Decline names Harbor Point PIP as payer\n• No payment promised to any provider; Rental end 03/19/2026 calendared\n• The one thing to watch for: an LOP to a provider PIP would have paid"
   }
  },
  "d2m2-lop": {
@@ -533,24 +533,24 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m2-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the call in CMS › Case Notes in his own words, with no diagnosis or advice\n• Step 2: In CMS › Calendar, book his 04/21 and 04/23 visits, then restore the file's status in CMS › Case Status"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the call in CMS › Case Notes in his own words, with no diagnosis or advice\n• Step 2: In CMS › Calendar, book his 04/21 and 04/23 visits, then restore the file's status in CMS › Case Status"
   },
   "case": {
    "say": "• Assuming the No Contact Protocol has been maxed and John Doe calls back on 04/17, his re-engagement now needs logging before the letter's date\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: His words logged, visits booked, the file restored"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: His words quoted; no label, no counseling advice; Visits 04/21 and 04/23 on the calendar; Drop Warning cleared; 14-day trigger reset\n• The one thing to watch for: Telling him “that sounds like PTSD”"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: His words quoted; no label, no counseling advice; Visits 04/21 and 04/23 on the calendar; Drop Warning cleared; 14-day trigger reset\n• The one thing to watch for: Telling him “that sounds like PTSD”"
   }
  },
  "d2m2-a3": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in the CMS: cancel the Millbrook slot on the Calendar\n• Add Crescent under Parties, and open one task for each follow-up with an owner and a due date\n• Step 2: Write a short Case Note for Atty. Thorne saying what changed and why, with no medical advice"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in the CMS: cancel the Millbrook slot on the Calendar\n• Add Crescent under Parties, and open one task for each follow-up with an owner and a due date\n• Step 2: Write a short Case Note for Atty. Thorne saying what changed and why, with no medical advice"
   },
   "case": {
    "say": "• Assuming John Doe has refused Millbrook and Crescent Pain & Spine is booked for 05/15/2026, the follow-up tasks still need logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a CMS task list: every task Done by me or Delegated, owner and date"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Crescent verified in network with Peach State, not hearsay; Crescent's 05/15/2026 slot: no new Treatment Gap; Millbrook cancelled\n• Calendar and reminders updated; Records request delegated with an owner and due date; No medical advice; no talk of claim value\n• The one thing to watch for: Telling John Doe which facility is better medically"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Crescent verified in network with Peach State, not hearsay; Crescent's 05/15/2026 slot: no new Treatment Gap; Millbrook cancelled\n• Calendar and reminders updated; Records request delegated with an owner and due date; No medical advice; no talk of claim value\n• The one thing to watch for: Telling John Doe which facility is better medically"
   }
  },
  "d1m1-l2": {
@@ -571,7 +571,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m1-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Liens, register Peach State's claim with the member number, its Payer Order position and today's date\n• Step 2: Log your email asking Dion Carver for an itemized ledger, sent from the Email Workspace, and file it in the CMS"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Liens, register Peach State's claim with the member number, its Payer Order position and today's date\n• Step 2: Log your email asking Dion Carver for an itemized ledger, sent from the Email Workspace, and file it in the CMS"
   },
   "case": {
    "say": "• Assuming Peach State has written that claims are in process and no lien record exists yet, its reimbursement claim now needs registering\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a flagged lien record and the itemized ledger requested"
@@ -580,7 +580,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• The finished set, for reference: the side exercise asks only for the two steps, not the whole audit\n• Have them check theirs for this: Position: after PIP/MedPay, before LOP"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: PSH-55017742 and GRP-41208 entered for Peach State; Position: after PIP/MedPay, before LOP; Flag dated before any demand is drafted\n• The one thing to watch for: Finding the lien at disbursement"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: PSH-55017742 and GRP-41208 entered for Peach State; Position: after PIP/MedPay, before LOP; Flag dated before any demand is drafted\n• The one thing to watch for: Finding the lien at disbursement"
   }
  },
  "d2-drive": {
@@ -617,7 +617,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m3-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Take the recorded call below: state the date and his consent, ask open questions only, and read his account back to him\n• Step 2: Log a privileged GIRP note in CMS › Case Notes the same day, with a dated task for each corroborating document"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Take the recorded call below: state the date and his consent, ask open questions only, and read his account back to him\n• Step 2: Log a privileged GIRP note in CMS › Case Notes the same day, with a dated task for each corroborating document"
   },
   "case": {
    "say": "• Assuming John Doe has agreed to a recorded call about why he waited 14 days, his four reasons now need capturing in his own words\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: All four reasons in his words, the GIRP note filed"
@@ -626,7 +626,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• See It: the finished work, for reference only; this side exercise asks for the logged entry\n• Point to it on the model: Zero leading questions; no reason introduced first"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Zero leading questions; no reason introduced first; Four reasons in his words: transport, soreness, coverage, numbness\n• GIRP note filed 03/04/2026, labelled privileged; Corroboration requested with a dated task\n• The one thing to watch for: Rescuing a hesitant client with a suggested reason"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Zero leading questions; no reason introduced first; Four reasons in his words: transport, soreness, coverage, numbness\n• GIRP note filed 03/04/2026, labelled privileged; Corroboration requested with a dated task\n• The one thing to watch for: Rescuing a hesitant client with a suggested reason"
   }
  },
  "d2m3-l2": {
@@ -663,7 +663,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m3-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case File › Gap Explanation Record\n• Enter the 14-day gap and the 19-day disruption with exact dates, each reason beside its dated document\n• Step 2: Log it as routed to Atty. Thorne, and file the non-economic damages records in the CMS"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case File › Gap Explanation Record\n• Enter the 14-day gap and the 19-day disruption with exact dates, each reason beside its dated document\n• Step 2: Log it as routed to Atty. Thorne, and file the non-economic damages records in the CMS"
   },
   "case": {
    "say": "• Assuming Dr. Reyes's 06/19/2026 Causation Letter and her 04/20 note are in, Atty. Thorne needs the Gap Explanation Record before the pre-demand session\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a routed record of both interruptions, every reason sourced"
@@ -672,7 +672,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• See It: the finished work, for reference only; this side exercise asks for the logged entry\n• Point to it on the model: 14 days, 02/06/2026 to 02/20/2026; 19 days, 04/02 to 04/21/2026"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: 14 days, 02/06/2026 to 02/20/2026; 19 days, 04/02 to 04/21/2026\n• Continuity: EMS report, call-outs, 06/19/2026 Causation Letter; Nothing argues or values the claim\n• The one thing to watch for: Documenting the 14-day gap and forgetting the 19-day disruption"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: 14 days, 02/06/2026 to 02/20/2026; 19 days, 04/02 to 04/21/2026\n• Continuity: EMS report, call-outs, 06/19/2026 Causation Letter; Nothing argues or values the claim\n• The one thing to watch for: Documenting the 14-day gap and forgetting the 19-day disruption"
   }
  },
  "d2m3-kc": {
@@ -707,7 +707,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m4-wage": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Specials, correct the draft worksheet from $1,760.00 to the verified $1,584.00\n• Step 2: Log it by filing Northgate's letters in CMS › Documents\n• Flag the 02/09–02/13 shifts to Atty. Thorne, and send no medical records to the employer"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Specials, correct the draft worksheet from $1,760.00 to the verified $1,584.00\n• Step 2: Log it by filing Northgate's letters in CMS › Documents\n• Flag the 02/09–02/13 shifts to Atty. Thorne, and send no medical records to the employer"
   },
   "case": {
    "say": "• Assuming Northgate HR has sent the employer's verification and every missed shift matches a provider's note, the wage loss now needs entering\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: $1,584.00 verified in the Specials, Northgate's letters filed"
@@ -716,18 +716,18 @@ window.CM_CF_SCRIPTS = {
    "say": "• The finished set, for reference: the side exercise asks only for the two steps, not the whole audit\n• Have them check theirs for this: Northgate's verification filed in the CMS"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Draft corrected: $1,760.00 › $1,584.00; Northgate's verification filed in the CMS\n• No medical records sent to the employer; 02/09–02/13 shifts flagged to Atty. Thorne\n• The one thing to watch for: Dropping shifts with no doctor's note"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Draft corrected: $1,760.00 › $1,584.00; Northgate's verification filed in the CMS\n• No medical records sent to the employer; 02/09–02/13 shifts flagged to Atty. Thorne\n• The one thing to watch for: Dropping shifts with no doctor's note"
   }
  },
  "d2m4-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Specials, remove the duplicate and total the medical at $14,817.40 plus the wages, showing billed beside paid\n• Step 2: Log the liens in CMS › Liens and flag the billed-versus-paid choice to Atty. Thorne"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Specials, remove the duplicate and total the medical at $14,817.40 plus the wages, showing billed beside paid\n• Step 2: Log the liens in CMS › Liens and flag the billed-versus-paid choice to Atty. Thorne"
   },
   "case": {
    "say": "• Assuming Riverton Spine & Rehab's 05/04/2026 duplicate line is confirmed and Northgate verified $1,584.00 in wages, the Specials now need totalling\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an audited ledger at $16,401.40, liens listed, choice routed"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: 05/04/2026 duplicate removed: $6,290.00 › $6,105.00; Specials $16,401.40: medical plus wages; Billed-vs-paid choice routed to Atty. Thorne\n• The one thing to watch for: Totaling the statement instead of auditing it"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: 05/04/2026 duplicate removed: $6,290.00 › $6,105.00; Specials $16,401.40: medical plus wages; Billed-vs-paid choice routed to Atty. Thorne\n• The one thing to watch for: Totaling the statement instead of auditing it"
   }
  },
  "d2m4-l2": {
@@ -740,13 +740,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m4-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log each decision in CMS › Case Notes, attributed to Atty. Thorne, with the date it was made\n• Step 2: In CMS › Tasks, open a task with an owner for each decision, and propose no demand figure"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log each decision in CMS › Case Notes, attributed to Atty. Thorne, with the date it was made\n• Step 2: In CMS › Tasks, open a task with an owner for each decision, and propose no demand figure"
   },
   "case": {
    "say": "• Assuming Atty. Thorne has decided on a time-limited BI demand, served 07/20/2026, his strategy decisions now need recording on the file\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a dated decision record, attributed to Atty. Thorne, tasked"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Decision recorded: time-limited BI demand, 07/20/2026; UM plan: no UM demand before the BI tender; No demand figure proposed\n• The one thing to watch for: Apologizing for the gap instead of explaining it"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Decision recorded: time-limited BI demand, 07/20/2026; UM plan: no UM demand before the BI tender; No demand figure proposed\n• The one thing to watch for: Apologizing for the gap instead of explaining it"
   }
  },
  "d2m4-kc": {
@@ -824,7 +824,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m1-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor's UM demand templates\n• Put the exhaustion proof on page one of each draft, and claim only damages above what was collected\n• Step 2: Log both drafts in CMS › Tasks › Escalate for Atty. Thorne, with the response deadline left blank"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor's UM demand templates\n• Put the exhaustion proof on page one of each draft, and claim only damages above what was collected\n• Step 2: Log both drafts in CMS › Tasks › Escalate for Atty. Thorne, with the response deadline left blank"
   },
   "case": {
    "say": "• Assuming Keystone's $10,000 tender, both consents and the signed Limited Release are on file, the desk's two UM demand drafts need a quick QC\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Two QC'd UM drafts, exhaustion proof first, routed"
@@ -833,7 +833,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• The Grade-A standard, for this side exercise: Two packages, HP-26-7741 and CS-26-20355\n• And Exhaustion on page one of each\n• Only the logged entry is graded, under the assumption on the slide"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Two packages, HP-26-7741 and CS-26-20355; Exhaustion on page one of each; Response deadline left blank; nothing served\n• The one thing to watch for: Re-sending the BI demand with new addressees"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Two packages, HP-26-7741 and CS-26-20355; Exhaustion on page one of each; Response deadline left blank; nothing served\n• The one thing to watch for: Re-sending the BI demand with new addressees"
   }
  },
  "d3-drive": {
@@ -870,24 +870,24 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m2-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log her exact words in CMS › Communications Log, and report the offer to Atty. Thorne the same day\n• Step 2: In the Email Workspace, draft the 08/06/2026 rebuttal for his approval, answering the gap from the record"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log her exact words in CMS › Communications Log, and report the offer to Atty. Thorne the same day\n• Step 2: In the Email Workspace, draft the 08/06/2026 rebuttal for his approval, answering the gap from the record"
   },
   "case": {
    "say": "• Assuming Dana Whitfield has offered $3,500 citing the gap and a degenerative MRI, and Atty. Thorne's authority is no counter, the offer needs logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a logged offer, a same-day report, a drafted rebuttal"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: $3,500 nets John Doe $0.00; Offer logged in her exact words; No counter; 08/21/2026 deadline unchanged\n• The one thing to watch for: Answering “degenerative” with an opinion, not the radiologist's sentence"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: $3,500 nets John Doe $0.00; Offer logged in her exact words; No counter; 08/21/2026 deadline unchanged\n• The one thing to watch for: Answering “degenerative” with an opinion, not the radiologist's sentence"
   }
  },
  "d3m2-bins": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the LSH Net Sheet, enter the $10,000.00 gross, the 33⅓% fee\n• The receipted costs and both liens, with the 25% projection labelled as a projection\n• Step 2: Log it to Atty. Thorne in CMS › Tasks › Escalate, flagging that the money stays in trust"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the LSH Net Sheet, enter the $10,000.00 gross, the 33⅓% fee\n• The receipted costs and both liens, with the 25% projection labelled as a projection\n• Step 2: Log it to Atty. Thorne in CMS › Tasks › Escalate, flagging that the money stays in trust"
   },
   "case": {
    "say": "• Assuming Keystone tendered the $10,000 BI limits today and the liens are still unreduced, Atty. Thorne needs Stream 1's Net Sheet\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Stream 1 Net Sheet, the projection labelled, routed"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Fee $3,333.33, not $3,333.00; Projection labelled: Stream 1 net $4,553.73; Trust-hold flag routed to Atty. Thorne\n• The one thing to watch for: Quoting John Doe a BI figure before Atty. Thorne"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Fee $3,333.33, not $3,333.00; Projection labelled: Stream 1 net $4,553.73; Trust-hold flag routed to Atty. Thorne\n• The one thing to watch for: Quoting John Doe a BI figure before Atty. Thorne"
   }
  },
  "d3m2-umw": {
@@ -905,7 +905,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m2-rel": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents › Release audit, replace the catch-all insurers clause, reserve the UM claims, and flag the rest for Atty. Thorne\n• Step 2: Log your review by email to Atty. Thorne for approval, and send nothing to John Doe"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents › Release audit, replace the catch-all insurers clause, reserve the UM claims, and flag the rest for Atty. Thorne\n• Step 2: Log your review by email to Atty. Thorne for approval, and send nothing to John Doe"
   },
   "case": {
    "say": "• Assuming Keystone's Release of All Claims has arrived for John Doe's signature, its clauses need checking against the approved terms\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an audited release sent for Atty. Thorne's approval"
@@ -914,18 +914,18 @@ window.CM_CF_SCRIPTS = {
    "say": "• The finished set, for reference: the side exercise asks only for the two steps, not the whole audit\n• Have them check theirs for this: Property Damage cut; UM claims reserved"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Catch-all “all other … insurers” replaced; Property Damage cut; UM claims reserved; Nothing sent to John Doe\n• The one thing to watch for: Agreeing release wording with the adjuster"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Catch-all “all other … insurers” replaced; Property Damage cut; UM claims reserved; Nothing sent to John Doe\n• The one thing to watch for: Agreeing release wording with the adjuster"
   }
  },
  "d3m2-exec": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Email Workspace, send Dana Whitfield the executed release with both waivers and the W-9, asking for the check date\n• Step 2: Log the check into trust in CMS › Financial Ledger › Trust, and route any payee question to Atty. Thorne"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Email Workspace, send Dana Whitfield the executed release with both waivers and the W-9, asking for the check date\n• Step 2: Log the check into trust in CMS › Financial Ledger › Trust, and route any payee question to Atty. Thorne"
   },
   "case": {
    "say": "• Assuming John Doe signed the Limited Release before the notary on 08/28/2026 and both UM waivers are in, the packet needs sending\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an executed release sent and the check in trust"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Packet sent 08/28 with both waivers and W-9; Payee question routed; no lien assurance; Check 0048213 into IOLTA 09/04/2026\n• The one thing to watch for: Explaining what a paragraph means to John Doe"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Packet sent 08/28 with both waivers and W-9; Payee question routed; no lien assurance; Check 0048213 into IOLTA 09/04/2026\n• The one thing to watch for: Explaining what a paragraph means to John Doe"
   }
  },
  "d3m2-l2": {
@@ -938,24 +938,24 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m2-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log each acceptance in CMS › Insurance › Negotiation Log, with a confirming email drafted for Atty. Thorne's approval\n• Step 2: Show $40,000.00 gross on the CMS Recovery Ledger, each check deposited only after its release is signed"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log each acceptance in CMS › Insurance › Negotiation Log, with a confirming email drafted for Atty. Thorne's approval\n• Step 2: Show $40,000.00 gross on the CMS Recovery Ledger, each check deposited only after its release is signed"
   },
   "case": {
    "say": "• Assuming John Doe has accepted through Atty. Thorne and both UM layers settled at their limits, the recovery now needs logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a complete Negotiation Log and $40,000.00 gross recorded"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Each confirming email: coverage, release, liens, payee; Recovery Ledger $40,000.00 gross\n• PIP and Keystone PD excluded from the gross; Each UM release signed before its check\n• The one thing to watch for: Adding PIP or property-damage payments to the gross"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Each confirming email: coverage, release, liens, payee; Recovery Ledger $40,000.00 gross\n• PIP and Keystone PD excluded from the gross; Each UM release signed before its check\n• The one thing to watch for: Adding PIP or property-damage payments to the gross"
   }
  },
  "d3m2-umns": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: On the CMS Recovery Ledger, post the $30,000.00 UM gross to Stream 2\n• Apply the 33⅓% fee, costs and liens, and mark the net as a projection\n• Step 2: Log it to Atty. Thorne in CMS › Tasks › Escalate"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: On the CMS Recovery Ledger, post the $30,000.00 UM gross to Stream 2\n• Apply the 33⅓% fee, costs and liens, and mark the net as a projection\n• Step 2: Log it to Atty. Thorne in CMS › Tasks › Escalate"
   },
   "case": {
    "say": "• Assuming Cardinal State has tendered its $10,000 limits and Harbor Point's $20,000 is in trust, Stream 2's Net Sheet is due\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Stream 2 Net Sheet projecting $13,661.19, routed"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Fee: $30,000.00 ÷ 3 = $10,000.00; Projected net $13,661.19, labelled projection; Streams tie: $18,214.92 in total\n• The one thing to watch for: Charging all costs and liens to the UM stream"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Fee: $30,000.00 ÷ 3 = $10,000.00; Projected net $13,661.19, labelled projection; Streams tie: $18,214.92 in total\n• The one thing to watch for: Charging all costs and liens to the UM stream"
   }
  },
  "d3m2-kc": {
@@ -990,13 +990,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m3-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Net Sheet › Lien Tracker, show the math, $1,860.00 – $620.00 = $1,240.00, and record each absent claimant as a verified none\n• Step 2: Log the 10/09/2026 acceptance only once Peach State confirms it in writing"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Net Sheet › Lien Tracker, show the math, $1,860.00 – $620.00 = $1,240.00, and record each absent claimant as a verified none\n• Step 2: Log the 10/09/2026 acceptance only once Peach State confirms it in writing"
   },
   "case": {
    "say": "• Assuming Peach State asserts $1,860.00 and Atty. Thorne has signed off on the one-third reduction, the lien needs recording\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: $1,240.00 recorded once confirmed in writing"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Lien is what the plan paid: $1,860.00; Math shown: $1,860.00 – $620.00 = $1,240.00; Acceptance logged only with written confirmation\n• The one thing to watch for: Arguing a doctrine Atty. Thorne hasn't chosen"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Lien is what the plan paid: $1,860.00; Math shown: $1,860.00 – $620.00 = $1,240.00; Acceptance logged only with written confirmation\n• The one thing to watch for: Arguing a doctrine Atty. Thorne hasn't chosen"
   }
  },
  "d3m3-l2": {
@@ -1027,13 +1027,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m3-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Net Sheet › Lien Tracker, enter $4,580.00 with the signed Payoff Letter as its source\n• Step 2: Log the call and the letter in CMS › Documents, and recompute the Net Sheet"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Net Sheet › Lien Tracker, enter $4,580.00 with the signed Payoff Letter as its source\n• Step 2: Log the call and the letter in CMS › Documents, and recompute the Net Sheet"
   },
   "case": {
    "say": "• Assuming Riverton's ledger is corrected to $6,105.00 and its billing manager agreed to $4,580.00 in a signed Payoff Letter, the Net Sheet needs updating\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a signed $4,580.00 Payoff Letter logged, the Net Sheet recomputed"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Correction first: $6,290.00 – $185.00 = $6,105.00; Signed Payoff Letter: full and final; Net Sheet recomputed: net $20,359.92\n• The one thing to watch for: Agreeing on the phone because it sounds good"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Correction first: $6,290.00 – $185.00 = $6,105.00; Signed Payoff Letter: full and final; Net Sheet recomputed: net $20,359.92\n• The one thing to watch for: Agreeing on the phone because it sounds good"
   }
  },
  "d3m3-kc": {
@@ -1064,13 +1064,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m4-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: On the CMS Net Sheet's Recovery Ledger\n• Post each check by stream with the 33⅓% fee, and split the costs and liens 25% and 75%\n• Step 2: Log each lien's figures and payoff status in the Lien Tracker\n• Tie both tabs to the Trust Ledger, and flag future ESIs to Atty. Thorne"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: On the CMS Net Sheet's Recovery Ledger\n• Post each check by stream with the 33⅓% fee, and split the costs and liens 25% and 75%\n• Step 2: Log each lien's figures and payoff status in the Lien Tracker\n• Tie both tabs to the Trust Ledger, and flag future ESIs to Atty. Thorne"
   },
   "case": {
    "say": "• Assuming $40,000.00 is received, Peach State accepted $1,240.00 and Riverton $4,580.00, with costs of $486.75, the final Net Sheet needs finishing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a two-tab Net Sheet reaching $20,359.92 both ways"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Pre-suit fee: $13,333.33; Costs $486.75, charged once; Net: $5,089.98 + $15,269.94 = $20,359.92; Future ESIs flagged to Atty. Thorne\n• The one thing to watch for: Marking a lien final from an email or phone call"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Pre-suit fee: $13,333.33; Costs $486.75, charged once; Net: $5,089.98 + $15,269.94 = $20,359.92; Future ESIs flagged to Atty. Thorne\n• The one thing to watch for: Marking a lien final from an email or phone call"
   }
  },
  "d3m4-l2": {
@@ -1096,7 +1096,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m4-pal": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the notice in CMS › Communications Log, routed to Atty. Thorne, and send nothing to Vance & Kettering\n• Step 2: In CMS › Financial Ledger › Trust, hold $6,666.67 on his instruction"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the notice in CMS › Communications Log, routed to Atty. Thorne, and send nothing to Vance & Kettering\n• Step 2: In CMS › Financial Ledger › Trust, hold $6,666.67 on his instruction"
   },
   "case": {
    "say": "• Assuming Vance & Kettering's charging lien notice for $6,666.67 has arrived and Atty. Thorne has ordered a hold, the file needs securing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: the notice logged and $6,666.67 held"
@@ -1105,18 +1105,18 @@ window.CM_CF_SCRIPTS = {
    "say": "• The finished set, for reference: the side exercise asks only for the two steps, not the whole audit\n• Have them check theirs for this: $6,666.67 held on Atty. Thorne's instruction"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Logged and routed 10/14; nothing sent to the firm; $6,666.67 held on Atty. Thorne's instruction; Validity left to Atty. Thorne\n• The one thing to watch for: Replying to the claiming lawyer yourself"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Logged and routed 10/14; nothing sent to the firm; $6,666.67 held on Atty. Thorne's instruction; Validity left to Atty. Thorne\n• The one thing to watch for: Replying to the claiming lawyer yourself"
   }
  },
  "d3m4-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Trust, queue one disbursement per Net Sheet line for Atty. Thorne's approval, taking the ledger to $0.00\n• Step 2: Log your requests for the lien satisfactions and John Doe's receipt in CMS › Documents"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Trust, queue one disbursement per Net Sheet line for Atty. Thorne's approval, taking the ledger to $0.00\n• Step 2: Log your requests for the lien satisfactions and John Doe's receipt in CMS › Documents"
   },
   "case": {
    "say": "• Assuming every condition is met, the funds cleared and the lien hold released by Atty. Thorne, the 10/22 disbursement needs queuing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Five commands to $0.00, queued for approval"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Five commands match the Net Sheet exactly; None released by the CM; Lien satisfactions requested in writing\n• The one thing to watch for: Queuing a command before the funds clear"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Five commands match the Net Sheet exactly; None released by the CM; Lien satisfactions requested in writing\n• The one thing to watch for: Queuing a command before the funds clear"
   }
  },
  "d4-drive": {
@@ -1153,13 +1153,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m1-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents › Memo, log a dated chronology from the 07/20/2026 demand, each event tied to its proof\n• Step 2: End the memo with the decision you need, as questions, and route it in CMS › Tasks › Escalate"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents › Memo, log a dated chronology from the 07/20/2026 demand, each event tied to its proof\n• Step 2: End the memo with the decision you need, as questions, and route it in CMS › Tasks › Escalate"
   },
   "case": {
    "say": "• Assuming Keystone called $3,500 “final” and the demand lapsed 08/21 with no answer since, the impasse needs logging for Atty. Thorne\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a sourced memo that asks for a decision, recommends none"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Events 07/20 to 09/04, each tied to proof; SOL 02/06/2028, cutoff 11/05/2027; Questions only; no sentence recommends suit\n• The one thing to watch for: Waiting another follow-up cycle instead of escalating"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Events 07/20 to 09/04, each tied to proof; SOL 02/06/2028, cutoff 11/05/2027; Questions only; no sentence recommends suit\n• The one thing to watch for: Waiting another follow-up cycle instead of escalating"
   }
  },
  "d4m1-l2": {
@@ -1172,24 +1172,24 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m1-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case Summary, set the status to Litigation, citing the 09/09 authorization, with the case number reading “Pending — assigned on filing”\n• Step 2: Log the 40% fee tier from the filing date, and the 48-hour audit on 09/22/2026 in CMS › Calendar"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case Summary, set the status to Litigation, citing the 09/09 authorization, with the case number reading “Pending — assigned on filing”\n• Step 2: Log the 40% fee tier from the filing date, and the 48-hour audit on 09/22/2026 in CMS › Calendar"
   },
   "case": {
    "say": "• Assuming Atty. Thorne authorized suit on 09/09 with a filing target of 09/24/2026, the file needs switching to Litigation\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Litigation status set on Atty. Thorne's authority"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Status cites the 09/09/2026 authorization; Case number reads “Pending — assigned on filing”; Filing target 09/24/2026, 48-hour audit 09/22/2026\n• The one thing to watch for: Recording the 40% tier from the status date"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Status cites the 09/09/2026 authorization; Case number reads “Pending — assigned on filing”; Filing target 09/24/2026, 48-hour audit 09/22/2026\n• The one thing to watch for: Recording the 40% tier from the status date"
   }
  },
  "d4m1-efile": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in the CMS: record 26-CV-04417 in the Pleadings Log\n• File the stamped Complaint and summons, and add the $218.00 fee to costs\n• Step 2: On the CMS Calendar, enter the service deadline with alerts and the Case Management Conference, and hold the answer date until service"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in the CMS: record 26-CV-04417 in the Pleadings Log\n• File the stamped Complaint and summons, and add the $218.00 fee to costs\n• Step 2: On the CMS Calendar, enter the service deadline with alerts and the Case Management Conference, and hold the answer date until service"
   },
   "case": {
    "say": "• Assuming Atty. Thorne signed the Complaint on 09/23/2026 and the court accepted it on 09/24 as 26-CV-04417, the filing must be logged\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a signed set filed as 26-CV-04417, recorded and calendared"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: 26-CV-04417 in the Pleadings Log; stamped set filed; Costs $486.75 + $218.00 = $704.75\n• Service deadline 01/22/2027 (Fri) with alerts; CMC 12/10/2026, 9:00 a.m., Atty. Thorne attending\n• The one thing to watch for: Docketing an answer date before service"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: 26-CV-04417 in the Pleadings Log; stamped set filed; Costs $486.75 + $218.00 = $704.75\n• Service deadline 01/22/2027 (Fri) with alerts; CMC 12/10/2026, 9:00 a.m., Atty. Thorne attending\n• The one thing to watch for: Docketing an answer date before service"
   }
  },
  "d4m1-kc": {
@@ -1217,24 +1217,24 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m2-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Calendar, correct the responses to 01/04/2027 (Mon): 30 days plus 3 mail days from the trigger, moved to a business day\n• Step 2: Log the RFA entry, “deemed admitted if unanswered”, and route the change to Atty. Thorne in Case Notes"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Calendar, correct the responses to 01/04/2027 (Mon): 30 days plus 3 mail days from the trigger, moved to a business day\n• Step 2: Log the RFA entry, “deemed admitted if unanswered”, and route the change to Atty. Thorne in Case Notes"
   },
   "case": {
    "say": "• Assuming the Scheduling Order in No. 26-CV-04417 was entered 12/10/2026 and 15 RFAs were mailed 12/01/2026, the calendar needs two fixes\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a corrected calendar and the RFA entry logged"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Responses corrected to 01/04/2027 (Mon); RFA entry added: “deemed admitted if unanswered”; Correction routed to Atty. Thorne\n• The one thing to watch for: Missing what isn't on the screen, like the RFAs"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Responses corrected to 01/04/2027 (Mon); RFA entry added: “deemed admitted if unanswered”; Correction routed to Atty. Thorne\n• The one thing to watch for: Missing what isn't on the screen, like the RFAs"
   }
  },
  "d4m2-medcal": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in the CMS Calendar: the session with its attendees\n• The statement and binder due 03/11/2027, and the mediator's report watch on 03/25/2027\n• Step 2: Open a task for the $1,200.00 fee as a case cost and flag the UM consent question to Atty. Thorne"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in the CMS Calendar: the session with its attendees\n• The statement and binder due 03/11/2027, and the mediator's report watch on 03/25/2027\n• Step 2: Open a task for the $1,200.00 fee as a case cost and flag the UM consent question to Atty. Thorne"
   },
   "case": {
    "say": "• Assuming the mediation is set for 03/18/2027 at 9:30 a.m. and the binder is due 7 days before, the dates must be logged\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a trigger-counted mediation calendar and a same-day summary to Atty. Thorne"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Statement and binder due 03/11/2027 (Thu); Mediator's report watched on 03/25/2027\n• Fee $1,200.00, half of $2,400.00; Fee task opened; UM consent question flagged to Atty. Thorne\n• The one thing to watch for: Contacting the UM carriers without Atty. Thorne"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Statement and binder due 03/11/2027 (Thu); Mediator's report watched on 03/25/2027\n• Fee $1,200.00, half of $2,400.00; Fee task opened; UM consent question flagged to Atty. Thorne\n• The one thing to watch for: Contacting the UM carriers without Atty. Thorne"
   }
  },
  "d4m2-um": {
@@ -1275,35 +1275,35 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m2-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor's ADR rules matrix\n• Count back from the hearing: exhibits 20 days before, the brief 10, each on a business day\n• Step 2: Log both dates with alerts on the CMS Calendar, and route the matrix to Atty. Thorne"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor's ADR rules matrix\n• Count back from the hearing: exhibits 20 days before, the brief 10, each on a business day\n• Step 2: Log both dates with alerts on the CMS Calendar, and route the matrix to Atty. Thorne"
   },
   "case": {
    "say": "• Assuming Harbor Point has invoked arbitration and the hearing is set for 06/22/2027 (Tue), the arbitration dates need hard-coding\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Arbitration dates hard-coded with alerts, routed"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Exhibits 06/02/2027; Brief 06/11/2027 (Fri), never 06/14/2027; Matrix routed to Atty. Thorne\n• The one thing to watch for: a brief deadline that lives only in an email"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Exhibits 06/02/2027; Brief 06/11/2027 (Fri), never 06/14/2027; Matrix routed to Atty. Thorne\n• The one thing to watch for: a brief deadline that lives only in an email"
   }
  },
  "d4m2-arbcal": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in the CMS Calendar: the hearing, exhibits 06/02/2027, the brief 06/11/2027, and records requests out by 05/03/2027\n• Step 2: Route the $900.00 fee share to accounting as a case cost, and ask Atty. Thorne in writing which old court dates stay"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in the CMS Calendar: the hearing, exhibits 06/02/2027, the brief 06/11/2027, and records requests out by 05/03/2027\n• Step 2: Route the $900.00 fee share to accounting as a case cost, and ask Atty. Thorne in writing which old court dates stay"
   },
   "case": {
    "say": "• Assuming Laura Whitcomb's letter sets the hearing for 06/22/2027 at 9:00 a.m\n• With exhibits due 20 days before and the brief 10, the dates must be logged\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a letter-anchored calendar, every date with its rule, questions to Atty. Thorne"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Brief 06/11/2027 (Fri), exhibits 06/02/2027, from the letter; Records requests out by 05/03/2027 (Mon)\n• Hearing 06/22/2027, 9:00 a.m. on the Calendar; $900.00 fee share logged as a case cost; Court dates kept, flagged for Atty. Thorne; SOL dates unchanged\n• The one thing to watch for: Deleting a court date without Atty. Thorne's answer"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Brief 06/11/2027 (Fri), exhibits 06/02/2027, from the letter; Records requests out by 05/03/2027 (Mon)\n• Hearing 06/22/2027, 9:00 a.m. on the Calendar; $900.00 fee share logged as a case cost; Court dates kept, flagged for Atty. Thorne; SOL dates unchanged\n• The one thing to watch for: Deleting a court date without Atty. Thorne's answer"
   }
  },
  "d4m2-a3": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the impasse memo to Atty. Thorne in CMS › Case Notes, with each layer's dispute clause quoted word for word\n• Step 2: Ask him in writing for the route and the deadline, and docket nothing before his answer"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the impasse memo to Atty. Thorne in CMS › Case Notes, with each layer's dispute clause quoted word for word\n• Step 2: Ask him in writing for the route and the deadline, and docket nothing before his answer"
   },
   "case": {
    "say": "• Assuming Harbor Point offers $8,000 of $20,000, Cardinal State $6,000 of $10,000, and neither will move, the impasse needs routing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an impasse memo routed to Atty. Thorne, nothing docketed"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: $8,000 / $20,000 and $6,000 / $10,000; Harbor Point's clause quoted, not paraphrased; Nothing docketed before his written answer\n• The one thing to watch for: Docketing an arbitration deadline from the tort SOL"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: $8,000 / $20,000 and $6,000 / $10,000; Harbor Point's clause quoted, not paraphrased; Nothing docketed before his written answer\n• The one thing to watch for: Docketing an arbitration deadline from the tort SOL"
   }
  },
  "d4m2-kc": {
@@ -1396,7 +1396,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m3-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Litigation › Exhibit index, number the exhibits C-1 onward with their Bates ranges, leading with the BI exhaustion record\n• Step 2: Log the audited Lien Sheet at $7,965.00, and route the binder to Atty. Thorne"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Litigation › Exhibit index, number the exhibits C-1 onward with their Bates ranges, leading with the BI exhaustion record\n• Step 2: Log the audited Lien Sheet at $7,965.00, and route the binder to Atty. Thorne"
   },
   "case": {
    "say": "• Assuming the Mediation Binder is built and the 06/02/2027 exchange is close, the Arbitration Binder's exhibits need numbering\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a C-numbered binder and an audited Lien Sheet, routed"
@@ -1408,7 +1408,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• The finished set, for reference: the side exercise asks only for the two steps, not the whole audit\n• Have them check theirs for this: Liens: $1,860.00 + $6,105.00 = $7,965.00"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Threshold exhibits first, nothing from the Mediation Statement; Liens: $1,860.00 + $6,105.00 = $7,965.00; Draft removed; impasse memo flagged\n• The one thing to watch for: Conceding a reimbursement right the carrier gave up"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Threshold exhibits first, nothing from the Mediation Statement; Liens: $1,860.00 + $6,105.00 = $7,965.00; Draft removed; impasse memo flagged\n• The one thing to watch for: Conceding a reimbursement right the carrier gave up"
   }
  },
  "d4m3-kc": {
@@ -1433,13 +1433,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m4-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Tasks › Countermeasure rules\n• Set a second request for the late record and the 48-hour audit, each with a date and an owner\n• Step 2: Log the red flags for 03/01/2027 and 03/08/2027 in CMS › Case File › Risk Flags"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Tasks › Countermeasure rules\n• Set a second request for the late record and the 48-hour audit, each with a date and an owner\n• Step 2: Log the red flags for 03/01/2027 and 03/08/2027 in CMS › Case File › Risk Flags"
   },
   "case": {
    "say": "• Assuming the binder is due 03/11/2027 and Riverton's ledger, requested 02/08/2027, hasn't arrived, the countermeasure rules need setting\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Countermeasures set, every firing dated and owned"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Rule 2 fires 02/22/2027: Notice of Delay sent; Red flags 03/01/2027 and 03/08/2027; Audits 03/09/2027 and 03/16/2027\n• The one thing to watch for: Waiting for the perfect ledger instead of escalating"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Rule 2 fires 02/22/2027: Notice of Delay sent; Red flags 03/01/2027 and 03/08/2027; Audits 03/09/2027 and 03/16/2027\n• The one thing to watch for: Waiting for the perfect ledger instead of escalating"
   }
  },
  "d4m4-l2": {
@@ -1452,13 +1452,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m4-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log one bottleneck report in CMS › Case File › Bottleneck Log, nearest hard date first, with one ask per item\n• Step 2: Send it in CMS › Tasks › Escalate, and date the 48-hour audit"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log one bottleneck report in CMS › Case File › Bottleneck Log, nearest hard date first, with one ask per item\n• Step 2: Send it in CMS › Tasks › Escalate, and date the 48-hour audit"
   },
   "case": {
    "say": "• Assuming five problems threaten the 06/02/2027 exhibit exchange and Atty. Thorne must decide three of them, one report needs sending\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: One five-field report, sent 05/24/2027"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Items 1–3 in one report, nearest date first; Audit Fri 05/28/2027: Memorial Day moves it; Nothing decided that is Atty. Thorne's\n• The one thing to watch for: Escalating the grayscale reprint while sitting on the certification"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Items 1–3 in one report, nearest date first; Audit Fri 05/28/2027: Memorial Day moves it; Nothing decided that is Atty. Thorne's\n• The one thing to watch for: Escalating the grayscale reprint while sitting on the certification"
   }
  },
  "d4m4-kc": {
@@ -1483,13 +1483,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m1-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Litigation › Pleadings Log, add the RFA row with a deemed-admission flag, and log the Certificate of Service with its date\n• Step 2: Report any miss to Atty. Thorne today in CMS › Tasks › Escalate, without back-dating"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Litigation › Pleadings Log, add the RFA row with a deemed-admission flag, and log the Certificate of Service with its date\n• Step 2: Report any miss to Atty. Thorne today in CMS › Tasks › Escalate, without back-dating"
   },
   "case": {
    "say": "• Assuming the 15 RFAs have no row in the Pleadings Log and their 01/04/2027 Certificate of Service sits unlogged, the log needs fixing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a corrected, source-linked log, misses reported the same day"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: RFA row (15) added with a deemed-admission flag; Certificate of Service logged; Late filings logged as misses, not back-dated\n• The one thing to watch for: Quietly fixing a passed deadline instead of telling Atty. Thorne"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: RFA row (15) added with a deemed-admission flag; Certificate of Service logged; Late filings logged as misses, not back-dated\n• The one thing to watch for: Quietly fixing a passed deadline instead of telling Atty. Thorne"
   }
  },
  "d5m1-l2": {
@@ -1510,13 +1510,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m1-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Calendar, correct our expert disclosure to 03/15/2027, and record mediation as completed by 03/31/2027\n• Step 2: Log both changes in CMS › Litigation › KPI tracker"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Calendar, correct our expert disclosure to 03/15/2027, and record mediation as completed by 03/31/2027\n• Step 2: Log both changes in CMS › Litigation › KPI tracker"
   },
   "case": {
    "say": "• Assuming John Doe's deposition notice for 02/18/2027 has arrived and the checklist was never reconciled to the order, two dates need fixing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a checklist matching the order date for date"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Expert disclosure corrected to 03/15/2027; Mediation completed by 03/31/2027; KPI tracker updated with both changes\n• The one thing to watch for: Scheduling discovery work after the discovery cutoff"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Expert disclosure corrected to 03/15/2027; Mediation completed by 03/31/2027; KPI tracker updated with both changes\n• The one thing to watch for: Scheduling discovery work after the discovery cutoff"
   }
  },
  "d5m1-kc": {
@@ -1541,13 +1541,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m2-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the release in CMS › Documents as held, and route it to Atty. Thorne in CMS › Tasks › Escalate the same day\n• Step 2: Log one Case Note: Diminished Value and Loss of Use stay on Margaret's file. Does this touch John Doe's case?"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the release in CMS › Documents as held, and route it to Atty. Thorne in CMS › Tasks › Escalate the same day\n• Step 2: Log one Case Note: Diminished Value and Loss of Use stay on Margaret's file. Does this touch John Doe's case?"
   },
   "case": {
    "say": "• Assuming Keystone PD's final position is $792.00 and $0 with an all-claims release for Mr. Doe, the release needs holding\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: the release routed, each PD outcome sorted"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: “All claims” release routed the same day\n• Nobody asked to sign before Atty. Thorne's review; Diminished Value and Loss of Use on Margaret's file\n• The one thing to watch for: Telling Leah Moran “we'd probably take” any figure"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: “All claims” release routed the same day\n• Nobody asked to sign before Atty. Thorne's review; Diminished Value and Loss of Use on Margaret's file\n• The one thing to watch for: Telling Leah Moran “we'd probably take” any figure"
   }
  },
  "d5m2-kc": {
@@ -1572,13 +1572,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m3-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log his new number, the 02/16/2027 test call and the 10:00 a.m. deposition at Riverton Court Reporting in CMS › Tasks\n• Step 2: Route each question he asked about his case to Atty. Thorne in his own words, answering none and giving him no script"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log his new number, the 02/16/2027 test call and the 10:00 a.m. deposition at Riverton Court Reporting in CMS › Tasks\n• Step 2: Route each question he asked about his case to Atty. Thorne in his own words, answering none and giving him no script"
   },
   "case": {
    "say": "• Assuming John Doe has a new number and his video deposition is 02/18/2027, the prep logistics and his questions need logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Logistics logged and his questions routed in his words"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Logistics exact: 02/18/2027, 10:00 a.m; All questions routed, not answered; No outcome predicted to John; No script or wording given to John\n• The one thing to watch for: the helpful half-answer; it is a script"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Logistics exact: 02/18/2027, 10:00 a.m; All questions routed, not answered; No outcome predicted to John; No script or wording given to John\n• The one thing to watch for: the helpful half-answer; it is a script"
   }
  },
  "d5m3-l2": {
@@ -1591,13 +1591,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m3-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Litigation › Deposition prep log\n• Put the record fact and its source beside each trap, such as the gap: 14 days, 02/06 to 02/20/2026\n• Step 2: Route the log to Atty. Thorne before his debrief"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Litigation › Deposition prep log\n• Put the record fact and its source beside each trap, such as the gap: 14 days, 02/06 to 02/20/2026\n• Step 2: Route the log to Atty. Thorne before his debrief"
   },
   "case": {
    "say": "• Assuming Atty. Thorne's mock cross-examination ran on 02/16/2027 with your microphone muted, the Trap Log needs finishing for his debrief\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a timestamped Trap Log, routed before the debrief"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Gap entry: 14 days, 02/06/2026 to 02/20/2026; “Degenerative” entry cites the 03/13/2026 MRI; No coaching: no signal to John\n• The one thing to watch for: Telling John afterwards “you should have said…”"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Gap entry: 14 days, 02/06/2026 to 02/20/2026; “Degenerative” entry cites the 03/13/2026 MRI; No coaching: no signal to John\n• The one thing to watch for: Telling John afterwards “you should have said…”"
   }
  },
  "d5m3-kc": {
@@ -1622,13 +1622,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m4-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Litigation › Liability counter-package, give each allegation its own row with the evidence, its source and chain of custody\n• Step 2: Log the questions only Atty. Thorne can answer at the end"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Litigation › Liability counter-package, give each allegation its own row with the evidence, its source and chain of custody\n• Step 2: Log the questions only Atty. Thorne can answer at the end"
   },
   "case": {
    "say": "• Assuming Atty. Mercer's Answer pleads comparative negligence and failure to mitigate, the counter-package needs its evidence logged\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an allegation-by-allegation counter-package, questions routed"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Three separate rows: out of turn, unbelted, mitigate; EDR's 11 mph used as corroboration only; Video chain: native file unaltered\n• The one thing to watch for: an Exhibit A asking for “all records of any kind”"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Three separate rows: out of turn, unbelted, mitigate; EDR's 11 mph used as corroboration only; Video chain: native file unaltered\n• The one thing to watch for: an Exhibit A asking for “all records of any kind”"
   }
  },
  "d5m4-l2": {
@@ -1641,13 +1641,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m4-a2": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Communications Log, log service at 4410 Quarry Ridge Ct, Millbrook, and docket the answer date in CMS › Calendar\n• Step 2: Log why John Doe's Skip-Trace gate is not met yet in CMS › Case Notes"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Communications Log, log service at 4410 Quarry Ridge Ct, Millbrook, and docket the answer date in CMS › Calendar\n• Step 2: Log why John Doe's Skip-Trace gate is not met yet in CMS › Case Notes"
   },
   "case": {
    "say": "• Assuming Robert Smith's new address is confirmed on two sources, his service and the answer date need logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a service record through the answer date"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: 4410 Quarry Ridge Ct on two current sources; Answer due 11/13/2026 docketed; Gate not met: no Skip-Trace for John\n• The one thing to watch for: a response date after the first prep session"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: 4410 Quarry Ridge Ct on two current sources; Answer due 11/13/2026 docketed; Gate not met: no Skip-Trace for John\n• The one thing to watch for: a response date after the first prep session"
   }
  },
  "d5m4-kc": {
@@ -1672,13 +1672,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m5-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the LSH Net Sheet, enter the gross by carrier, the 40% fee after suit, the receipted costs and each reduced lien\n• Step 2: Log the Settlement Statement to Atty. Thorne in CMS › Tasks › Escalate"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the LSH Net Sheet, enter the gross by carrier, the 40% fee after suit, the receipted costs and each reduced lien\n• Step 2: Log the Settlement Statement to Atty. Thorne in CMS › Tasks › Escalate"
   },
   "case": {
    "say": "• Assuming $40,000.00 is in trust after the award, with Peach State at $1,116.00 and Riverton at $4,275.00, the Litigation Net Sheet is due\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Net Sheet reaching $14,713.75"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Fee at 40%: $16,000.00; Liens: $1,116.00 + $4,275.00; Net: $14,713.75, tied to trust\n• The one thing to watch for: Paying a lien from a phone call"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Fee at 40%: $16,000.00; Liens: $1,116.00 + $4,275.00; Net: $14,713.75, tied to trust\n• The one thing to watch for: Paying a lien from a phone call"
   }
  },
  "d5-drive": {
@@ -1715,13 +1715,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m6-a1": {
   "task": {
-   "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents › Withdrawal Letter template, draft the three letters for his signature, with his reason only in Denise's\n• Step 2: Log each send and the 12/16/2026 follow-up, then switch the case to Dropped"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents › Withdrawal Letter template, draft the three letters for his signature, with his reason only in Denise's\n• Step 2: Log each send and the 12/16/2026 follow-up, then switch the case to Dropped"
   },
   "case": {
    "say": "• Assuming Atty. Thorne dropped Denise Harlow's case and told her on 12/08, with the status at Pending Drop, the close-out needs logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Three letters for signature and a close-out log"
   },
   "check": {
-   "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Gate confirmed before any letter goes out; the reason only in Denise's letter; Dropped only after the follow-up\n• The one thing to watch for: Offering Denise a way to save the case"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Gate confirmed before any letter goes out; the reason only in Denise's letter; Dropped only after the follow-up\n• The one thing to watch for: Offering Denise a way to save the case"
   }
  },
  "d5m6-kc": {
@@ -1739,10 +1739,10 @@ window.CM_CF_SCRIPTS = {
  "_days": {
   "1": {
    "agenda": {
-    "say": "• Welcome; today starts John Doe's case from the beginning\n• Part 1, all the lessons: the case, your role, facts vs. legal advice, reading the file, Case Plan, client directions, the car, client communications\n• Part 2, the daily loop: meet John Doe on his Case Profile and do his Intake, our Skill Building, then write the Action Plan\n• Six short side exercises after it are optional\n• Knowledge Check: 70% opens Day 2"
+    "say": "• Welcome; today starts John Doe's case from the beginning\n• Part 1, all the lessons: the case, your role, facts vs. legal advice, reading the file, Case Plan, client directions, the car, client communications\n• Part 2, the daily loop: meet John Doe on his Case Profile and do his Intake, our Skill Building\n• Then 📁 Backup File Maintenance, required: the firm's folders on his Backup Drive; then write the Action Plan\n• Then 5 short skill activities in a 20-minute Practice Lab: time for about 4\n• Knowledge Check: 70% opens Day 2"
    },
    "lab": {
-    "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The backup folders, the Recorded Statement instruction, the PD file, the outreach log, the task set, the warning letter\n• About 30 minutes, about five minutes each; then the Ready check"
+    "say": "• Practice Lab: 5 short skill activities, each one an assumption and one entry to log in the CMS\n• The Recorded Statement instruction, the direction assignment, the PD file, the outreach log, the warning letter\n• About 20 minutes, about five minutes each: time for about 4, so each trainee chooses 4; then the Ready check\n• The backup folders are not here: Backup File Maintenance is required, done before the Action Plan"
    },
    "plan": {
     "say": "• Step 4 of the loop, guided: the Action Plan template, section by section, on the shared screen\n• Every fact from the Intake with the document it comes from; every action item with an owner, a date and a tool\n• Anything only Atty. Thorne decides is routed to him, with the date"
@@ -1762,13 +1762,13 @@ window.CM_CF_SCRIPTS = {
   },
   "2": {
    "agenda": {
-    "say": "• Welcome back; today covers John Doe's claim set-up and treatment\n• Claim set-up lessons: coverage tracking, affidavits, liability, decision-first notes, LORs; then the treatment plan and Case Plan\n• Treatment lessons: payers, LOPs, EOBs, PIP strategy, the EMC rule, costs, health subrogation, A-C-T monitoring\n• Part 2, the daily loop: the Case Profile, then one Skill Building, the LORs to all three carriers, then update the Action Plan\n• Nine short side exercises after it are optional\n• Knowledge Check: 70% opens Day 3"
+    "say": "• Welcome back; today covers John Doe's claim set-up and treatment\n• Lessons: claim set-up (coverage, affidavits, liability, notes, LORs, the Case Plan), then treatment (payers, LOPs, EOBs, PIP, EMC, costs, subrogation, A-C-T)\n• Part 2, the daily loop: the Case Profile, then one Skill Building, the LORs to all three carriers\n• Then 📁 Backup File Maintenance, required: today's documents filed the firm's way; then update the Action Plan\n• Then 8 short skill activities in a 20-minute Practice Lab: time for about 4\n• Knowledge Check: 70% opens Day 3"
    },
    "profile": {
     "say": "• Step 2 of the loop: a minute on John Doe's Case Profile, The Case So Far\n• Since yesterday: the matter is open and three claims were reported by phone, nothing in writing yet\n• Ask what has to be confirmed in writing first, then straight into the Skill Building"
    },
    "lab": {
-    "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The policy stack, the matrix audit, the gap flag, the Case Plan, the LOPs, the redirected referral, the lien, the near-drop, the backup\n• About 30 minutes: time for about six of them, so each trainee chooses six; then the Ready check"
+    "say": "• Practice Lab: 8 short skill activities, each one an assumption and one entry to log in the CMS\n• The policy stack, the matrix audit, the gap flag, the Case Plan, the LOPs, the redirected referral, the lien, the near-drop\n• About 20 minutes: time for about 4 of them, so each trainee chooses 4; then the Ready check"
    },
    "plan": {
     "say": "• Step 4: update the Action Plan on your own, about ten minutes\n• Every claim now open, with its carrier and claim number; the next action items with owners and dates"
@@ -1780,13 +1780,13 @@ window.CM_CF_SCRIPTS = {
   },
   "3": {
    "agenda": {
-    "say": "• Welcome back; from Day 2: when John's ride ended, ask the clinic about transportation help, log it, tell Atty. Thorne\n• Lessons: the Gap Explanation Record, pre-demand case auditing, the demand, settlement negotiations, the UM consent and waiver, the settlement release\n• Part 2, the daily loop: the Case Profile, then one Skill Building, serving the BI demand, then update the Action Plan\n• Thirteen short side exercises after it are optional\n• Knowledge Check: 70% opens Day 4"
+    "say": "• Welcome back; from Day 2: when John's ride ended, ask the clinic about transportation help, log it, tell Atty. Thorne\n• Lessons: the Gap Explanation Record, pre-demand case auditing, the demand, settlement negotiations, the UM consent and waiver, the settlement release\n• Part 2, the daily loop: the Case Profile, then one Skill Building, serving the BI demand\n• Then 📁 Backup File Maintenance, required; then update the Action Plan\n• Then 12 short skill activities in a 20-minute Practice Lab: time for about 4\n• Knowledge Check: 70% opens Day 4"
    },
    "profile": {
     "say": "• Step 2 of the loop: John Doe's Case Profile, The Case So Far\n• Treatment is complete: MMI 06/12/2026, Specials $16,401.40, the gap still to be explained from his documents\n• Then straight into the Skill Building: the BI demand"
    },
    "lab": {
-    "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The gap call and record, wages and Specials, the strategy decisions, the backup audit, the UM demands, the offer, the release, both Net Sheets\n• About 30 minutes: time for about six of them, so each trainee chooses six; then the Ready check"
+    "say": "• Practice Lab: 12 short skill activities, each one an assumption and one entry to log in the CMS\n• The gap call and record, wages and Specials, the strategy session, the UM demands\n• The offer, the release, the execution, both Net Sheets, the gross recovery\n• About 20 minutes: time for about 4 of them, so each trainee chooses 4; then the Ready check"
    },
    "plan": {
     "say": "• Step 4: update the Action Plan: where the demand stands and the next deadline\n• A lighter touch today: the trainees write it, you spot-check two plans"
@@ -1798,13 +1798,13 @@ window.CM_CF_SCRIPTS = {
   },
   "4": {
    "agenda": {
-    "say": "• Welcome back; today covers the money side of Track A, the settled file, then Track B, where it doesn't settle\n• Lessons: liens and provider balances, reductions, the Net Sheet, the release audit, disbursement and closing, court rules, mediation and arbitration, the binders\n• Part 2, the daily loop: the Case Profile, then one Skill Building, the Mediation Binder, then update the Action Plan\n• Twelve short side exercises after it are optional\n• Knowledge Check: 70% opens Day 5"
+    "say": "• Welcome back; today covers the money side of Track A, the settled file, then Track B, where it doesn't settle\n• Lessons: liens and provider balances, reductions, the Net Sheet, the release audit, disbursement and closing, court rules, mediation and arbitration, the binders\n• Part 2, the daily loop: the Case Profile, then one Skill Building, the Mediation Binder\n• Then 📁 Backup File Maintenance, required; then update the Action Plan\n• Then 11 short skill activities in a 20-minute Practice Lab: time for about 4\n• Knowledge Check: 70% opens Day 5"
    },
    "profile": {
     "say": "• Step 2 of the loop: John Doe's Case Profile, The Case So Far\n• Track A settled at $40,000 gross; liens still to resolve; Track B heads to mediation and arbitration\n• Then straight into the Skill Building: the Mediation Binder"
    },
    "lab": {
-    "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The two lien reductions, the final Net Sheet, the prior-attorney lien, the disbursement, the backup, the impasse, the calendars, the ADR matrix, the Arbitration Binder\n• About 30 minutes: time for about six of them, so each trainee chooses six; then the Ready check"
+    "say": "• Practice Lab: 11 short skill activities, each one an assumption and one entry to log in the CMS\n• The two lien reductions, the final Net Sheet, the prior-attorney lien, the disbursement\n• The impasse, the court rules, the calendars, the ADR matrix, the Arbitration Binder\n• About 20 minutes: time for about 4 of them, so each trainee chooses 4; then the Ready check"
    },
    "plan": {
     "say": "• Step 4: update the Action Plan: the binder's exchange date and what Atty. Thorne still decides\n• The trainees work alone; spot-check that every item has an owner and a date"
@@ -1816,13 +1816,13 @@ window.CM_CF_SCRIPTS = {
   },
   "5": {
    "agenda": {
-    "say": "• Welcome back to the last day: Litigation and Dropped Cases on John Doe's file\n• Lessons, about 30 minutes: the litigation fork and filing, bottlenecks, litigation tracking, trial prep, depositions, the award, Dropped Cases\n• Part 2, the daily loop: the Case Profile, then the Full Application Practice, about three hours on the assigned companion case\n• Then close out the Action Plan; John's 15 side exercises are optional\n• Knowledge Check: 70% finishes the Case Flow"
+    "say": "• Welcome back to the last day: Litigation and Dropped Cases on John Doe's file\n• Lessons, about 30 minutes: the litigation fork and filing, bottlenecks, litigation tracking, trial prep, depositions, the award, Dropped Cases\n• Part 2, the daily loop: the Case Profile, then the Full Application Practice, about 150 minutes on the assigned companion case\n• The build is submitted and graded on what Days 1–4 taught\n• Then 📁 Backup File Maintenance, required: the final backup audit; then close out the Action Plan; John's 14 other Skill Activities are extra practice\n• Knowledge Check: 70% finishes the Case Flow"
    },
    "profile": {
     "say": "• Step 2 of the loop: John Doe's Case Profile, The Case So Far\n• Track B: the demand lapsed, suit filed 09/24/2026, discovery and the deposition ahead\n• Then straight into the Full Application Practice"
    },
    "lab": {
-    "say": "• Practice Lab: 15 Skill Activities on John Doe's file in the CMS, optional extra practice today\n• Litigation fork and litigation status, e-filing the Complaint and calendaring service, CMS countermeasures, a bottleneck\n• Pleadings and discovery logs, trial-prep checklist audit, Keystone's final Property Damage position, deposition prep, mock cross-examination\n• Liability counter-package, skip-tracing, Litigation Net Sheet, final backup audit, Denise Harlow's Dropped Case\n• Calendar everything each task starts; in litigation a missed date can end the claim"
+    "say": "• Practice Lab: 14 Skill Activities on John Doe's file in the CMS, extra practice today\n• Litigation fork and litigation status, e-filing the Complaint and calendaring service, CMS countermeasures, a bottleneck\n• Pleadings and discovery logs, trial-prep checklist audit, Keystone's final Property Damage position, deposition prep, mock cross-examination\n• Liability counter-package, skip-tracing, Litigation Net Sheet, Denise Harlow's Dropped Case (the final backup audit is the required Backup File Maintenance)\n• Calendar everything each task starts; in litigation a missed date can end the claim"
    },
    "plan": {
     "say": "• Step 4: close out the Action Plan: the litigation handoff, what is still open, the sign-off\n• A few minutes, on their own"
@@ -1832,7 +1832,7 @@ window.CM_CF_SCRIPTS = {
     "ask": "What do you do today, in what order, and what is Atty. Thorne's call, not yours?"
    },
    "build": {
-    "say": "• Full Application Practice: the rest of the day, about three hours, building the assigned companion case, worked like John Doe's file\n• Step 1, read the file; step 2, open it in the CMS, Conflict Check first on every party's full legal name\n• Step 3, the folder by the SOP: [Your Full Name] - [Case Name], nine subfolders, connected, intake documents uploaded\n• Step 4, the claims: every carrier in the stack, Letters of Representation, verification status, coverage matrix\n• Time is called at each step; each case has its own problem to find",
+    "say": "• Full Application Practice: the rest of the day, about 150 minutes, building the assigned companion case, worked like John Doe's file\n• Step 1, read the file; step 2, open it in the CMS, Conflict Check first on every party's full legal name\n• Step 3, the folder by the SOP: [Your Full Name] - [Case Name], nine subfolders, connected, intake documents uploaded\n• Step 4, the claims: every carrier in the stack, Letters of Representation, verification status, coverage matrix\n• Time is called at each step; each case has its own problem to find",
     "ask": "What is the first fact on your case to confirm, and where?"
    },
    "build2": {
@@ -1840,7 +1840,7 @@ window.CM_CF_SCRIPTS = {
     "ask": "What decision does the note to Atty. Thorne lead with?"
    },
    "extra": {
-    "say": "• Optional extra practice: John Doe's 15 Day 5 Skill Activities, untimed\n• Today's practical was the companion case\n• Worth coming back to soon: the deposition prep and the Dropped Case close-out\n• Most rooms skip these: the skip button goes to the Ready check, then the Knowledge Check"
+    "say": "• Extra practice: John Doe's 14 other Day 5 Skill Activities, untimed (the final backup audit was the required Backup File Maintenance)\n• Today's practical was the companion case\n• Worth coming back to soon: the deposition prep and the Dropped Case close-out\n• Most rooms skip these: the skip button goes to the Ready check, then the Knowledge Check"
    }
   }
  }

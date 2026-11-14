@@ -40,6 +40,31 @@ const stripDay = d => String(d.title || "").replace(/^Case Flow Day \d+ · /, ""
 const mainLesson = d => { const id = mainId(d); return id ? d.lessons.find(l => l.cf.block.id === id) : null; };
 const cut = (t, max) => { t = String(t || ""); const c = t.split(/:\s| — /)[0]; return t.length > max && c.length >= 12 ? c : t; };
 
+/* ---------- the topics' numbers, in the loop's order ----------
+   A topic's number (l.h "3.9 …", js/cm-case-flow.js) was its place in the sequence; the loop moves the Skill Building
+   and the Backup File Maintenance ahead of the other activities, so every Case Flow topic is numbered once here, in the
+   order the deck and the 🗺 Roadmap show it: the lessons, the Skill Building, the Backup File Maintenance, the side
+   exercises in the sequence's order, the Learning Checks. The slide titles, NEXT UP, the slide picker, Presenter view's
+   jump list, "Practises: N.M" and the Roadmap all read l.h, so they agree. The lessons' indices (d.lessons) and the
+   saved places (block ids, js/cm-slide-keys.js) do not change; the number a topic had is kept (l.cf.h0) for what was
+   stored under it (a published lesson expansion, lessonExpansion). */
+function renumber(d){
+  const mid = mainId(d), did = driveId(d), kind = l => l.cf.block.kind, id = l => l.cf.block.id;
+  const cfL = d.lessons.filter(l => l && l.cf && l.cf.block);
+  const acts = cfL.filter(l => kind(l) === "activity");
+  const order = cfL.filter(l => kind(l) === "lesson").concat(acts.filter(l => id(l) === mid), acts.filter(l => did && id(l) === did),
+    acts.filter(l => id(l) !== mid && id(l) !== did), cfL.filter(l => kind(l) !== "lesson" && kind(l) !== "activity"));
+  order.forEach((l, k) => { const m = /^(\d+)\.\d+(\s)/.exec(String(l.h || "")); if(!m) return;
+    if(l.cf.h0 == null) l.cf.h0 = l.h;
+    l.h = `${m[1]}.${k + 1}${m[2]}${String(l.h).slice(m[0].length)}`; });
+}
+DAYS.filter(isCf).forEach(renumber);
+if(typeof lessonExpansion === "function"){
+  const __exp = lessonExpansion;
+  const exp = function(d, l){ const r = __exp.apply(this, arguments); return r || !(l && l.cf && l.cf.h0 && l.cf.h0 !== l.h) ? r : __exp.call(this, d, Object.assign({}, l, {h: l.cf.h0})); };
+  try{ lessonExpansion = exp; }catch(e){}
+}
+
 /* ---------- the deck, in the loop's order ---------- */
 const before = buildDaySlides;   // as js/cm-case-flow.js, js/cm-case-profile.js and js/cm-deck-pages.js left it (layout 8's order)
 buildDaySlides = function(d){

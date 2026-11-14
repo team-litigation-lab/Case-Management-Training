@@ -3,7 +3,8 @@
 // Training, in place of each day card's ☰ Topics button. Checks, as a trainee part-way through Day 1:
 //   - the day cards have no ☰ Topics button, and the dashboard has no 🗺 Roadmap pill (it opens from a slide);
 //   - the roadmap lists every day, in order, with every one of its topics, numbered by day in the order they are SHOWN
-//     (Day 3's 3.9 comes after 3.8: the Skill Building is numbered where it sits, not where the sequence lists it);
+//     (Day 3's 3.9 comes after 3.8: the Skill Building is numbered where it sits, not where the sequence lists it), and
+//     each topic's number is the one its slide titles carry (l.h, numbered in the loop's order by js/cm-day-loop.js);
 //   - Part 1 · Lessons is the day's lessons; Part 2 · 🔁 The Daily Loop is the loop's real steps, in order, each a row:
 //     👋 Meet John Doe / 📇 Case Profile Check-In → 🎯 the Skill Building (Day 5: 🏗 Build Your Companion Case) →
 //     📁 Backup File Maintenance (Required) → 📝 Update Your Action Plan → "Skill activities (N)", one collapsible
@@ -52,7 +53,11 @@ const failures = []; const fail = (m) => failures.push(m);
             const by = k => d.lessons.map((l, li) => li).filter(li => d.lessons[li].cf.block.kind === k);
             const acts = by('activity'), mi = d.lessons.findIndex(l => l.cf.block.id === seq.main), di = d.lessons.findIndex(l => l.cf.block.id === seq.drive);
             const order = by('lesson').concat(mi >= 0 ? [mi] : [], di >= 0 ? [di] : [], acts.filter(x => x !== mi && x !== di), by('check'));   // the order shown
-            return { head: s.querySelector('.rmx-dayh').innerText, topics, rows, order, titles: order.map(li => title(d.lessons[li])),
+            // the number each topic carries everywhere else (l.h: the slide titles, NEXT UP, the slide picker, Presenter view)
+            const deck = buildDaySlides(d), hs = order.map(li => String(d.lessons[li].h || '').split(' ')[0]);
+            const slideNums = order.map(li => { const k = deck.findIndex(sl => sl.type === 'topic' && sl.lessonIndex === li); if (k < 0) return null;
+                const m = /(\d+\.\d+) /.exec(String(daySlideTitle(d, deck[k]))); return m ? m[1] : '?'; });
+            return { head: s.querySelector('.rmx-dayh').innerText, topics, rows, order, titles: order.map(li => title(d.lessons[li])), hs, slideNums,
                 n: d.cf.n, count: d.lessons.length, build: !!d.cf.build, main: mi >= 0 ? title(d.lessons[mi]) : '', drive: di >= 0 ? title(d.lessons[di]) : '', sides: acts.length - (mi >= 0) - (di >= 0) };
         });
         const slides = buildDaySlides(DAYS[0]), firsts = {}; slides.forEach((x, k) => { if (x.lessonIndex != null && firsts[x.lessonIndex] == null) firsts[x.lessonIndex] = k; });
@@ -65,6 +70,9 @@ const failures = []; const fail = (m) => failures.push(m);
         // numbered in the order shown, 1 to N, no gaps
         const nums = d.topics.map(t => t.num), want = d.topics.map((t, k) => `${d.n}.${k + 1}`);
         if (nums.join() !== want.join()) fail(`${L}'s topics should be numbered ${d.n}.1 to ${d.n}.${d.count} in the order shown: ${nums.join(' ')}`);
+        // the same number as the topic's slides and everything else that names it (l.h, js/cm-day-loop.js renumber)
+        d.topics.forEach((t, k) => { if (d.hs[k] !== t.num) fail(`${L}: the Roadmap numbers "${t.name.slice(0, 40)}" ${t.num}; the topic itself (l.h) says ${d.hs[k]}`);
+            if (d.slideNums[k] != null && d.slideNums[k] !== t.num) fail(`${L}: the Roadmap numbers "${t.name.slice(0, 40)}" ${t.num}; its slide title says ${d.slideNums[k]}`); });
         // in the loop's order: the lessons, the Skill Building, the Backup File Maintenance, the side exercises, the Learning Checks
         d.topics.forEach((t, k) => { if (!t.name.startsWith(d.titles[k])) fail(`${L}: topic ${t.num} should be "${d.titles[k]}": "${t.name}"`); });
         // Part 1, then Part 2 as the loop's steps
@@ -109,6 +117,17 @@ const failures = []; const fail = (m) => failures.push(m);
     await page.waitForTimeout(500);
     const planAt = await page.evaluate(() => ({ view: state.view, slide: state.lessonSlide }));
     if (planAt.view !== 'day' || planAt.slide !== map.plan1) fail(`the 📝 Update Your Action Plan row should open its slide (${map.plan1 + 1}): ${JSON.stringify(planAt)}`);
+    // opened from a step's later slide (the build's second slide, the Practice Lab or Day 5's extra practice), that step is "● here"
+    const hereOn = await page.evaluate(async () => { const out = [], sleep = ms => new Promise(r => setTimeout(r, ms));
+        const at = (n, types, sel) => { const d = DAYS.find(x => x.cf && x.cf.n === n), deck = buildDaySlides(d), k = deck.findIndex(sl => types.includes(sl.type)); if (k < 0) return out.push(`Day ${n} has no ${types.join('/')} slide`);
+            closeRoadmap(); goto('day', d.id); state.dayViewMode = 'slides'; state.lessonSlide = k; render(); openRoadmap();
+            const sec = [...document.querySelectorAll('.rmx-day')][DAYS.indexOf(d)], m = sec && sec.querySelector(sel);
+            if (!m || !/● here/.test(m.textContent)) out.push(`opened from Day ${n}'s ${types[0]} slide, the Roadmap should mark ${sel} "● here"`); };
+        at(5, ['companionBuild2'], '.rmx-step-build .rmx-step.on');
+        at(1, ['practiceLab'], '.rmx-sides summary.on');
+        at(5, ['extraPractice'], '.rmx-sides summary.on');
+        closeRoadmap(); return out; });
+    hereOn.forEach(fail);
     // a side exercise inside the closed group opens once the group is opened
     await page.evaluate(() => openRoadmap());
     const side = await page.evaluate(async () => { const g = [...document.querySelectorAll('.rmx-day')][0].querySelector('.rmx-sides details'); if (!g) return 'no group';

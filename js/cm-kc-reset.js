@@ -3,15 +3,19 @@
    Knowledge Checks take one attempt (js/cm-kc-once.js). A trainer may reopen one, once at a time:
    • Admin → 🛡 Admin Master Control → 👥 Trainee Audit → a trainee's detail: "🔁 Reset Knowledge Check" on every Case
      Flow day the trainee has an attempt on, and the day's reset log (who, when) under it.
-   • The reset is written on the trainee's record, trainee:<id>.kcReset = {<dayId>: {at, by, log: [{at, by}, …]}}: a
-     field only a trainer writes (worker.js PROTECTED_TRAINEE_FIELDS). worker.js keepKcAttempts (kcRetake) then lets the
-     trainee's next write add exactly ONE new attempt to that day, dated by the Worker; another needs another reset.
+   • The reset is set by the Worker (worker.js kcResetApi, /api/kc-reset), on the stored record, kcReset only:
+     trainee:<id>.kcReset = {<dayId>: {at, by, n, log: [{at, by, n}, …]}}, a field only a trainer writes (worker.js
+     PROTECTED_TRAINEE_FIELDS). `at` is the Worker's clock, `by` the trainer signed in (a trainer from the Portal by
+     name; "Trainer (admin password)" otherwise), `n` the attempts the day held when it was reset. Attempts are counted,
+     never compared by date: a reset is open while the day holds exactly n attempts, and worker.js keepKcAttempts
+     (kcRetake) then lets the trainee's next write add exactly ONE new attempt, dated by the Worker; another needs
+     another reset. (A reset written before `n` was kept is judged by its date, as it was then.)
    • On the trainee's page the record's kcReset is read at sign-in, before the check opens again (✓ Finish Training,
      🔁 Retake) and before a submit (js/cm-kc-once.js reads the record there): a reset not used yet reopens the check, and
      🔁 Retake on the day card unlocks once. The day keeps its best score, the first attempt's or the new one's: nothing
      already recorded is recalculated.
    • A reset not used yet is "reopened": the trainee detail says so (⏳ waiting for the new attempt) and offers no second
-     reset until it is used.
+     reset until it is used. The reset is reported only once the record the Worker wrote is read back reopened.
    ============================================================ */
 (function(){
 "use strict";
@@ -25,9 +29,12 @@ const when = s => { const d = new Date(s); return isNaN(d) ? "" : d.toLocaleStri
 const attempts = p => !p ? 0 : Array.isArray(p.history) && p.history.length ? p.history.length : typeof p.score === "number" ? 1 : 0;
 
 state.kcReset = state.kcReset || {};
-/* a day's reset, reopening its check: newer than the first attempt and no attempt after it (the Worker's rule, kcRetake) */
+/* a day's reset, reopening its check: the day holds exactly the attempts it held when reset (n), so one more is allowed
+   (the Worker's rule, kcResetOpen); a reset from before n was kept: newer than the first attempt, none after it */
 function openIn(reset, p){
-  const r = reset && t(reset.at); if(!Number.isFinite(r) || !attempts(p)) return false;
+  if(!reset || typeof reset !== "object" || !attempts(p)) return false;
+  if(Number.isInteger(reset.n)) return attempts(p) === reset.n;
+  const r = t(reset.at); if(!Number.isFinite(r)) return false;
   const h = Array.isArray(p.history) ? p.history : [], first = t((h[0] || p).date);
   if(Number.isFinite(first) && first >= r) return false;
   return !h.some(x => x && t(x.date) > r);
@@ -39,6 +46,9 @@ function since(p){
   if(!p || !Array.isArray(p.history)) return [];
   const id = Object.keys(state.progress || {}).find(k => state.progress[k] === p);
   const rs = id != null ? (state.kcReset || {})[id] : null, log = rs && Array.isArray(rs.log) && rs.log.length ? rs.log : rs ? [rs] : [];
+  if(!log.length) return [];
+  const n0 = log.map(x => x && x.n).filter(Number.isInteger)[0];
+  if(Number.isInteger(n0)) return p.history.slice(Math.max(1, n0));
   const r0 = Math.min(...log.map(x => t(x.at)).filter(Number.isFinite));
   return Number.isFinite(r0) ? p.history.slice(1).filter(x => x && t(x.date) > r0) : [];
 }
@@ -73,24 +83,29 @@ if(typeof loadAll === "function"){
   window[name] = w; try{ if(name === "retakeQuiz") retakeQuiz = w; else finishTrainingForDay = w; }catch(e){}
 });
 
-/* ---------- the trainer: 🔁 Reset Knowledge Check in a trainee's detail ---------- */
-const byName = () => String(((state.certSettings || {}).trainerName) || "").trim() || "Trainer";
+/* ---------- the trainer: 🔁 Reset Knowledge Check in a trainee's detail ----------
+   The Worker sets the reset on the stored record (/api/kc-reset): its clock, the trainer signed in, the attempts
+   counted there, and nothing else of the record touched, so a trainee's save meanwhile is kept. The record is then
+   read back, and the reset reported only when it reopens the check there. */
+const readRec = async id => { try{ return typeof sharedGetStrict === "function" ? await sharedGetStrict("trainee:" + id) : await sharedGet("trainee:" + id); }catch(e){ return null; } };
 async function reset(traineeId, dayId){
   if(!state.isAdmin || state.adminPreview) return;
   const d = cfDays().find(x => x.id === Number(dayId)); if(!d) return;
-  let rec = null;
-  try{ rec = typeof sharedGetStrict === "function" ? await sharedGetStrict("trainee:" + traineeId) : await sharedGet("trainee:" + traineeId); }catch(e){ rec = null; }
+  let rec = await readRec(traineeId);
   if(!rec){ say("Couldn't load that trainee: refresh and try again."); return; }
   const p = (rec.dayProgress || {})[d.id];
   if(!attempts(p)){ say(`Nothing to reset: no Knowledge Check attempt on Case Flow Day ${d.cf.n}.`); return; }
-  const cur = (rec.kcReset || {})[d.id];
-  if(openIn(cur, p)){ say(`Case Flow Day ${d.cf.n}'s check is already reopened: waiting for the new attempt.`); return; }
+  if(openIn((rec.kcReset || {})[d.id], p)){ say(`Case Flow Day ${d.cf.n}'s check is already reopened: waiting for the new attempt.`); return; }
   if(typeof confirm === "function" && !confirm(`Reset Case Flow Day ${d.cf.n}'s Knowledge Check for ${rec.name || "this trainee"}?\n\nThey get ONE new attempt. Their best score is kept; nothing already recorded changes.`)) return;
-  const at = new Date().toISOString(), by = byName();
-  rec.kcReset = Object.assign({}, rec.kcReset || {}, {[d.id]: {at, by, log: ((cur && Array.isArray(cur.log)) ? cur.log : []).concat([{at, by}])}});
-  if(!(await sharedSet("trainee:" + traineeId, rec))){ say("Not saved: check your connection and try again."); return; }
-  if(state.adminData){ const i = state.adminData.findIndex(r => r.id === traineeId); if(i !== -1) state.adminData[i] = rec; }
-  say(`Case Flow Day ${d.cf.n}'s Knowledge Check reopened for ${rec.name || "the trainee"}: one new attempt. Their page picks it up when they open the check.`);
+  let res = null, j = {};
+  try{ res = typeof authFetch === "function" ? await authFetch("/api/kc-reset", {traineeId, dayId: d.id}) : null; j = res ? await res.json().catch(() => ({})) : {}; }catch(e){ res = null; }
+  if(!res || (!res.ok && res.status !== 409)){ say(j.error ? `Not reset: ${j.error}` : "Not reset: check your connection and try again."); return; }
+  // read back what the Worker wrote: reported only when the check is reopened there
+  rec = await readRec(traineeId);
+  const now = rec && (rec.kcReset || {})[d.id], ok = !!(rec && openIn(now, (rec.dayProgress || {})[d.id]));
+  if(rec && state.adminData){ const i = state.adminData.findIndex(r => r.id === traineeId); if(i !== -1) state.adminData[i] = rec; }
+  if(ok) say(`Case Flow Day ${d.cf.n}'s Knowledge Check reopened for ${rec.name || "the trainee"}: one new attempt. Their page picks it up when they open the check.`);
+  else say(`Case Flow Day ${d.cf.n}'s check did not reopen: refresh the trainee's detail and try again.`);
   const wrap = document.getElementById("adminRowsWrap");
   if(wrap && typeof renderAdminRows === "function") wrap.innerHTML = renderAdminRows(); else if(typeof render === "function") render();
 }

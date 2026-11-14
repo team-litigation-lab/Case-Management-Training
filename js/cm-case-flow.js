@@ -2974,7 +2974,7 @@ if(typeof window.sopRunOfShow === "function"){
         add(p.skill, {title: sc.loop ? `🎯 Skill Building: ${n === 1 ? "the Intake, " : ""}${E(p.title)}` : `Practice Lab ${i + 1} of ${labs.length} · Skill Building: ${E(p.title)}`, do: [
           (i === 0 && !sc.loop ? `Put the <b>🧪 Practice Lab</b> slide up first: everyone opens their tools from it, once, and it lists all ${sc.acts} activities with the lesson each one practises. ` : "")
           + `${p.acts.length} Skill Activit${p.acts.length === 1 ? "y" : "ies"}: ` + p.acts.map(l => `<b>${E(l.cf.block.title)}</b> <span style="color:var(--ink-soft)">(${E(String(l.cf.block.act.tool || "").split("·")[0].trim())}${l.cf.of ? "; practises " + E(lessonRef(l.cf.of)) : ""})</span>`).join(" · "),
-          `About ${sc.act} minutes each (the 🧪 chip counts it down). Your Task first, then Your Case: trainees work it on John Doe's file in the CMS or the tool the step names, beside the slide (⧉ Side by side), then submit it to the AI Grader and log the reference.`,
+          `About ${sc.act} minutes each (the 🧪 chip counts it down). Your Task first, then Your Case: trainees work it on John Doe's file in the CMS or the tool the step names, beside the slide (⧉ Side by side), then press Submit → and log the reference.`,
           calls.length ? `📞 Live call${calls.length > 1 ? "s" : ""}: ${andList(calls.map(c => E(c.who)))}. Each starts from “Take the call” on the Your Task slide; let one trainee take it while the room listens, or everyone takes it at their desk.` : "",
           p.acts.some(l => planAct(l.cf.block)) ? `The Action Plan drafts: <b>📝 Open the Action Plan Editor</b> is on the activity's Your Task slide; “← Back to Case Flow Day ${n}” there returns to the slide. Next on the slide is always the next slide.` : "",
           ...p.acts.flatMap(l => injectsOf(l.cf.block).filter(x => x.kind === "fallout").map(x => `⚡ <b>Inject mid-task</b> on ${E(titleCase(l.cf.block.title))} (the ⚡ pill on its Your Task slide): ${x.html.replace(/^<b>[^<]*<\/b>\s*/, "")}`))].filter(Boolean),
@@ -2993,7 +2993,7 @@ if(typeof window.sopRunOfShow === "function"){
       add(sc.build, {title: `🏗 Full Application Practice: Build Your Companion Case`, do: [
         `The practical: ${sc.build} minutes. Each trainee builds the companion case you assigned (Trainee Audit → 📁), on the slide's steps: ${buildSteps(d).map(([m, h]) => { const t = at; at += m; return `<b>${E(h)}</b> (${Math.floor(t / 60)}:${String(t % 60).padStart(2, "0")}, ${m} min)`; }).join(" · ")}.`,
         `Call time at each step. Walk the room with the 🧠 Brainstorm guide: it has each trainee's case and the trap to watch for.`,
-        `At step 7 each trainee hands the case in with <b>🤖 Submit to the AI Grader</b> on the build's second slide (js/cm-companion-grade.js: a rubric of the Day 1–4 deliverables; the score is on their Scorecard). Your own review at the brainstorm stays as it is.`,
+        `At step 7 each trainee hands the case in with <b>Submit my companion case →</b> on the build's second slide (js/cm-companion-grade.js: a rubric of the Day 1–4 deliverables; the score is on their Scorecard). Your own review at the brainstorm stays as it is.`,
         `John Doe's Day ${n} activities are behind the build as ➕ Optional Extra Practice, untimed: ⏭ on that slide skips them to the Ready check, the day's last slide.`],
         say: `“You've worked John Doe's file all week. Now you build one yourself: the steps and the minutes are on the slide, and I'll call time at each one.”`,
         watch: "Anyone still in the CMS setup at the 45-minute mark: get them to log what they have and move to the folder."});
@@ -3018,7 +3018,7 @@ if(typeof window.sopRunOfShow === "function"){
     if(d.discussionQuestion && spare >= 18) add(8, {title: "End-of-day discussion", say: `“Before the Knowledge Check, let's step back and talk about this together: ${E(d.discussionQuestion)}”`, do: ["Take two or three answers and connect each one to a moment on John Doe's file from today."]});
     add(sc.kc, {title: `Knowledge Check · ${game.icon} ${E(game.name)}`, do: [
       `Trainees open the Knowledge Check from the last slide: ① today's game, ${E(game.name)}, then ② the module's takeaway, and one Submit.`,
-      `70% marks the day complete. One attempt only: the first score is the one recorded. Below 70%, open the next day for them in 🔓 Open Lessons.`],
+      `70% marks the day complete. One attempt only: the first score is the one recorded. Below 70%, you can give a trainee one new attempt with <b>🔁 Reset Knowledge Check</b> (👥 Trainee Audit → the trainee's detail; their best score is kept), or open the next day for them in 🔓 Open Lessons.`],
       say: `“Last stretch for today. The Knowledge Check is a game, ${game.name}, and then a short takeaway, a few lines in your own words about what you will do differently. No looking at each other's screens.”`,
       watch: "Stop presenting while they answer, so nobody reads answers off the shared screen."});
     add(5, {title: "Close", do: [`Ask everyone to send quick feedback with the 💬 Feedback button.`, `Click <b>■ End</b> in Presenter view.`],

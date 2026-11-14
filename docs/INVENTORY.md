@@ -110,9 +110,9 @@ None.
 
 ## The Worker (worker.js): routes
 
-`/api/ai` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
+`/api/ai` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (29)
+## Node checks (30)
 
 | Check | What it covers |
 |---|---|
@@ -135,13 +135,14 @@ None.
 | `inventory.cjs` | The code inventory (docs/INVENTORY.md) is in step with the files: run node build/inventory.cjs after adding, removing or renaming one |
 | `kc-on-slides.cjs` | Every Knowledge Check answer is taught on the slides (its key words are on the revised deck or the slide sources) |
 | `kc-once-worker.cjs` | The Worker holds the one-attempt Knowledge Check: a trainee's own write can't drop or replace an attempt on their record |
-| `kc-reset-worker.cjs` | A trainer's 🔁 Reset Knowledge Check allows exactly one new attempt on the Worker: kcReset is the trainer's, the retake keeps the best score, and a used reset reopens nothing |
+| `kc-reset-worker.cjs` | A trainer's 🔁 Reset Knowledge Check allows exactly one new attempt on the Worker: set by the Worker (its clock, the trainer, the attempts counted), kcReset is the trainer's, the retake keeps the best score whatever the clocks say, and a used reset reopens nothing |
 | `lesson-tips.cjs` | every 💡 Tip (js/cm-lesson-tips.js) sits on an activity still in the course and quotes a lesson that is not |
+| `loop-notes.cjs` | The trainer's notes for each day's agenda, Practice Lab and extra practice tell the daily loop as the schedule runs it: the required Backup File Maintenance, the side exercises' count and minutes, Day 5's build minutes |
 | `merge-main-generated.mjs` | Every generated file is one merge-main.mjs rebuilds: each build output and each file headed "generated" is in its GENERATED list, each file-writing build script is a BUILD step or says why not |
 | `r2-docs.mjs` | Documents served from R2 (ranges, 304s, static assets as the fallback) |
 | `rubric-guards.cjs` | 📐 Rubric guards (a rubric score is the trainer's; a trainee's own auto-scored results go on their own progress record only) |
 | `run-checks.mjs` | What it checks                    (run as: node <file>) |
-| `side-notes.cjs` | Every optional side exercise's speaker notes tell its own short exercise: the steps on Your Task, the "Assuming …" scenario on Your Case, the AI Grader and the one thing to watch for on the AI Grader slide |
+| `side-notes.cjs` | Every side exercise's speaker notes tell its own short exercise: the steps on Your Task, the "Assuming …" scenario on Your Case, Submit and the one thing to watch for on the Submit slide |
 | `sso.cjs` | Single sign-on (the Portal is the only way a trainee gets in; a missing PORTAL_SSO_SECRET says so) |
 | `tool-links.cjs` | Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's) |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |

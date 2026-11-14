@@ -3,16 +3,16 @@
 // in a real browser:
 //   · the deck runs the loop's steps in order and never goes back: the Training Agenda, ALL the lessons (Day 2's deck
 //     pages with them), ONE Case Profile slide (Day 1: 👋 Meet John Doe; Days 2–5: 📇 Case Profile Check-In), the ONE
-//     Skill Building (all of the day's `main` activity's slides, together, ending on the AI Grader; Day 5: the Full
+//     Skill Building (all of the day's `main` activity's slides, together, ending on Submit; Day 5: the Full
 //     Application Practice's two slides), then 📁 Backup File Maintenance (CF.sequence `drive`), REQUIRED every day: all
-//     of its slides together, a full activity (not "side", its full steps, ending on the AI Grader, its top line
+//     of its slides together, a full activity (not "side", its full steps, ending on Submit, its top line
 //     REQUIRED · BACKUP FILE MAINTENANCE), ONE 📝 Update Your Action Plan slide, then the side exercises behind one
 //     Practice Lab slide, then 🎯 Ready for the Knowledge Check? as the last slide;
 //   · every activity that is not the day's Skill Building is a side exercise: "side": true in its copy, a situation that
 //     opens with its assumption ("Assuming …"), two or three steps; its slides say SKILL ACTIVITY on their top
 //     line, the Skill Building's say THE DAY'S SKILL BUILDING; the Practice Lab slide lists exactly the side exercises
 //     and its ⏭ goes to the Ready check;
-//   · the Skill Building's Your Task has 🚀 Launch CMS & Google Drive and its last slide submits to the AI Grader;
+//   · the Skill Building's Your Task has 🚀 Launch CMS & Google Drive and its last slide is Submit;
 //   · the Case Profile slide's button opens the Case Profile (Day 1 on 👋 Meet John Doe, later on 📅 The Case So Far) and
 //     the Action Plan slide's opens My Notes & Action Plan; "← Back to Case Flow Day N" returns to the slide;
 //   · progressive autonomy: Day 1's Action Plan slide is numbered, step by step (at least five steps); each later day
@@ -69,7 +69,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
         else {
           const vs = cmCaseFlow.viewsOf(b), got = sb.map(([sl]) => sl.type === 'topic' && sl.lessonIndex === li ? vs[sl.part - 1] : sl.type);
           if (got.join(' ') !== vs.join(' ')) out.push(`${L}: the Skill Building should be all of ${main}'s slides, together (${got.join(' → ')}; its slides are ${vs.join(' → ')})`);
-          if (vs[vs.length - 1] !== 'check') out.push(`${L}: ${main} should end on the AI Grader`);
+          if (vs[vs.length - 1] !== 'check') out.push(`${L}: ${main} should end on Submit`);
           if (SL[main] && SL[main].side) out.push(`${L}: the Skill Building ${main} is marked a side exercise`);
         }
       }
@@ -185,7 +185,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
         if (!/REQUIRED · BACKUP FILE MAINTENANCE/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: the Backup File Maintenance's top line should say REQUIRED · BACKUP FILE MAINTENANCE`);
         if (norm((w.querySelector('.cfx-what-k') || {}).textContent) !== 'Required: Backup File Maintenance') out.push(`${L}: the Backup File Maintenance's band should say Required: Backup File Maintenance (${norm((w.querySelector('.cfx-what-k') || {}).textContent)})`);
         w = await show(dv[dv.length - 1][1]);
-        if (!/Submit to AI Grader/.test(w.textContent)) out.push(`${L}: the Backup File Maintenance's last slide has no "Submit to AI Grader"`); }
+        if (!/Submit →/.test(w.textContent) || /AI Grader/.test(w.textContent)) out.push(`${L}: the Backup File Maintenance's last slide should have "Submit →" and never say "AI Grader"`); }
       const sideK = deck.findIndex((sl, k) => steps[k] === 'side' && sl.type === 'topic');
       if (sideK >= 0) { w = await show(sideK); if (!/SKILL ACTIVITY/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: a side exercise's top line should say SKILL ACTIVITY`);
         if (norm((w.querySelector('.cfx-what-k') || {}).textContent) !== 'Skill Activity') out.push(`${L}: a side exercise's band should say Skill Activity (${norm((w.querySelector('.cfx-what-k') || {}).textContent)})`); }
@@ -222,6 +222,6 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
   ds.slice(1).forEach((x, i) => { if (x.guided) fail(`Day ${x.n}'s Action Plan slide should not be the step-by-step one`); if (!(x.planSteps < ds[0].planSteps) || x.planSteps > ds[i].planSteps || !x.planSteps) fail(`Day ${x.n}'s Action Plan slide has ${x.planSteps} prompts: fewer than Day 1's and no more than the day before`); });
   await browser.close();
   if (failures.length) { console.log(`${failures.length} problem(s):`); failures.slice(0, 60).forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-  ds.forEach(x => console.log(`Day ${x.n}: ${x.order} (Skill Building: ${x.main}; ${x.sides} optional side exercises; Action Plan ${x.guided ? 'step by step, ' : ''}${x.planSteps} prompt${x.planSteps === 1 ? '' : 's'})`));
-  console.log('Every day runs the loop: lessons → Case Profile → one Skill Building → required Backup File Maintenance → Action Plan → optional side exercises → Knowledge Check.');
+  ds.forEach(x => console.log(`Day ${x.n}: ${x.order} (Skill Building: ${x.main}; ${x.sides} side exercises (skill activities); Action Plan ${x.guided ? 'step by step, ' : ''}${x.planSteps} prompt${x.planSteps === 1 ? '' : 's'})`));
+  console.log('Every day runs the loop: lessons → Case Profile → one Skill Building → required Backup File Maintenance → Action Plan → the other skill activities → Knowledge Check.');
 })().catch(e => { console.error(e); process.exit(1); });

@@ -241,11 +241,11 @@ function compute(data, ctx){
     if(f.length >= T.KC_FAILS){
       add({key: `kcfail:${id}`, rule: "kcfail", sev: f.length >= 3 ? "high" : "medium", at: (f[f.length - 1] || {}).date || p.date || null, fixable: true,
         title: `${dayName(id)} Knowledge Check failed ${f.length} times`, detail: `R7: scores ${f.map(h => h.score + "%").join(", ")}; ${T.KC_PASS}% passes. Best so far ${p.score}%.`,
-        fix: `Review the questions you missed in the lessons. The Knowledge Check takes one attempt: ask your trainer about opening the next day.`});
+        fix: `Review the questions you missed in the lessons. The Knowledge Check takes one attempt: ask your trainer to reset this check (🔁 Reset Knowledge Check) for one new attempt.`});
     } else if(first && hoursSince(first, now) >= T.KC_STUCK_H){
       add({key: `stuck:kc:${id}`, rule: "stuck", sev: "medium", at: p.date || first, fixable: true,
         title: `${dayName(id)} Knowledge Check not passed after ${Math.floor(hoursSince(first, now) / 24)} days`, detail: `R8: first taken ${new Date(first).toLocaleDateString()}; best ${p.score}%.`,
-        fix: `The Knowledge Check takes one attempt: ask your trainer about opening the next day.`});
+        fix: `The Knowledge Check takes one attempt: ask your trainer to reset this check (🔁 Reset Knowledge Check) for one new attempt.`});
     }
   });
   return out.sort((a, b) => (a.sev === b.sev ? 0 : a.sev === "high" ? -1 : 1) || ms(b.at) - ms(a.at));

@@ -129,7 +129,7 @@ window.cmLitigationNote = {NOTE, START, HANDOFF: Object.keys(HANDOFF), show: id 
 if(!document.getElementById("lgn-css")){
   const st = document.createElement("style"); st.id = "lgn-css";
   st.textContent = `
-.lgn-note{display:flex;gap:10px;align-items:center;margin:0 0 8px;padding:6px 14px;background:#FFF4E8;border:2px solid #DB8437;border-left:8px solid #DB8437;border-radius:10px;text-align:left;}
+.lgn-note{display:flex;gap:10px;align-items:center;margin:0 0 5px;padding:3px 12px;background:#FFF4E8;border:2px solid #DB8437;border-left:8px solid #DB8437;border-radius:10px;text-align:left;}
 .lgn-note .lgn-ic{font-size:20px;line-height:1;flex:0 0 auto;}
 .lgn-note p{margin:0;font:700 16px/1.32 'Inter',sans-serif;color:#1E2340;}
 .lgn-note p b{color:#A4470F;}

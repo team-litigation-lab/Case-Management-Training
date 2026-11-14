@@ -39,8 +39,15 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
             { const kt = document.getElementById('ktLogin'); if (kt) kt.remove(); }
             const d = DAYS.find(x => x.cf && x.lessons.some(l => l.cf.block.id === id)) || DAYS.find(x => x.cf && x.cf.n === 5), s = buildDaySlides(d);
             const i = s.findIndex(x => x.type === 'topic' && x.part === 1 && d.lessons[x.lessonIndex].cf.block.id === id);
-            goto('day', d.id); state.dayViewMode = 'slides'; state.lessonSlide = i; render();
-            await new Promise(r => setTimeout(r, 450));
+            // the day open for the trainee for the whole run: a day they have reached is never locked again (js/cm-open-lessons.js,
+            // whose once-a-minute check could otherwise close Day 5 partway), set before the day is drawn
+            if (!trainer) { state.slideProgress = state.slideProgress || {}; state.slideProgress[d.id] = Math.max(i + 1, state.slideProgress[d.id] || 0); }
+            const draw = () => { goto('day', d.id); state.dayViewMode = 'slides'; state.lessonSlide = i; render(); };
+            draw();
+            // wait for the slide itself (its callout), not a fixed time; drawn again once if the page re-rendered elsewhere
+            const drawn = () => { const w = document.getElementById('lessonSlideWrap'); return !!(w && w.querySelector('.lgn-note')); };
+            for (let t = 0; t < 60 && !drawn(); t++) { await new Promise(r => setTimeout(r, 50)); if (t === 30 && !drawn()) draw(); }
+            await new Promise(r => setTimeout(r, 150));
             const w = document.getElementById('lessonSlideWrap'), stage = document.getElementById('lessonStage');
             const box = w && [...w.querySelectorAll('.lgn-note')].find(x => !x.closest('.np-mini')), p = box && box.querySelector('p');
             const pop = document.getElementById('lgnPop');

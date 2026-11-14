@@ -119,6 +119,10 @@ const submit = async function(id){
       return;
     }
   }
+  // a retake on a record from before history was kept: its one attempt becomes history[0] first, so it is never lost
+  // and stays the first attempt (the Worker does the same, kcRetake)
+  const p0 = progOf(id);
+  if(!trainer() && p0 && reopened(id) && !(Array.isArray(p0.history) && p0.history.length) && typeof p0.score === "number") p0.history = [{score: p0.score, passed: !!p0.done, date: p0.date || null}];
   const r = await __submit.apply(this, arguments);
   // the first attempt is the official score (submitQuiz keeps the best of several; with one attempt they're the same,
   // and this keeps it so whatever is on the record)
@@ -157,13 +161,14 @@ if(typeof window.renderQuiz === "function"){
   window.renderQuiz = quiz;
   try{ renderQuiz = quiz; }catch(e){}
 }
-/* the next step after a check under 70%: the score stands; the trainer opens the next day */
+/* the next step after a check under 70%: the score stands; the trainer can reset the check (🔁 Reset Knowledge Check,
+   js/cm-kc-reset.js) for one new attempt, or open the next day */
 if(typeof window.renderQuizNextStep === "function" || typeof renderQuizNextStep === "function"){
   const __next = typeof renderQuizNextStep === "function" ? renderQuizNextStep : window.renderQuizNextStep;
   const next = function(d, passed){
     if(passed || !d || trainer()) return clean(__next.apply(this, arguments));
     const n = d.cf ? d.cf.n : d.id, name = d.cf ? "Case Flow Day" : "Day", last = d.cf ? !(typeof DAYS !== "undefined" && DAYS.some(x => x.cf && x.cf.n === n + 1)) : d.id >= (DAYS || []).length;
-    const lines = [`<b>${E(ONCE)}</b> This check can't be taken again.`,
+    const lines = [`<b>${E(ONCE)}</b> This check can't be taken again unless your trainer resets it: ask your trainer to reset this check.`,
       last ? "Ask your trainer about your next step." : `${name} ${n + 1} opens on a pass, or when your trainer opens it for you. Ask your trainer.`];
     if(d.cf && d.cf.gate) lines.push(`<b>Gate:</b> ${E(d.cf.gate)}.`);
     return `<div class="quiz-next-step qns-stop"><div class="qns-title">Not yet passing — 70% is required to mark ${name} ${n} complete.</div>${lines.map(x => `<p>${x}</p>`).join("")}</div>`;

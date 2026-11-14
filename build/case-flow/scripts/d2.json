@@ -55,24 +55,24 @@
   },
   "d1m2-a1": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in CMS › Communications Log: the two earlier voicemails, then an email\n• A text and the emergency contact, each with date, time, channel and outcome\n• Step 2: Record the next action and its due date in the Communications Log"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in CMS › Communications Log: the two earlier voicemails, then an email\n• A text and the emergency contact, each with date, time, channel and outcome\n• Step 2: Record the next action and its due date in the Communications Log"
     },
     "case": {
       "say": "• Assuming John Doe has been silent six days and the Step 1 review is done, his outreach attempts now need logging in order\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an unbroken, contemporaneous outreach log, the next action dated"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Every entry: date, time, channel, outcome; Email and SMS attempted, not repeat calls; No entry threatens withdrawal or closure\n• The one thing to watch for: Logging “called client, no answer” with no details"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Every entry: date, time, channel, outcome; Email and SMS attempted, not repeat calls; No entry threatens withdrawal or closure\n• The one thing to watch for: Logging “called client, no answer” with no details"
     }
   },
   "d1m2-a2": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents\n• Fill in the Final Warning Letter template: list the earlier attempts with their dates and set a reply date 7 to 14 days from today\n• Step 2: Log it in the CMS Communications Log: the letter went by certified mail and by email, and Atty. Thorne decides any next step"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents\n• Fill in the Final Warning Letter template: list the earlier attempts with their dates and set a reply date 7 to 14 days from today\n• Step 2: Log it in the CMS Communications Log: the letter went by certified mail and by email, and Atty. Thorne decides any next step"
     },
     "case": {
       "say": "• Assuming the No Contact Protocol has been maxed (phone, email\n• Texts and emergency contact all tried and logged), John Doe's Step 4 Final Warning Letter is due today\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a send-ready Final Warning Letter, both deliveries logged, escalation recorded"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: DOL 02/06/2026 and file reference present; Deadline is a date inside 7–14 days\n• Withdrawal noted as possible, not decided; Certified mail AND email both recorded; No statement on value or legal consequences\n• The one thing to watch for: a deadline of “as soon as possible”"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: DOL 02/06/2026 and file reference present; Deadline is a date inside 7–14 days\n• Withdrawal noted as possible, not decided; Certified mail AND email both recorded; No statement on value or legal consequences\n• The one thing to watch for: a deadline of “as soon as possible”"
     }
   },
   "d1m2-kc": {
@@ -186,18 +186,18 @@
   },
   "d2m2-a1": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Liens › LOP register, record Riverton's LOP signed by John Doe and Atty. Thorne\n• And send it with the HIPAA authorization from the Email Workspace\n• Step 2: Log Summit Imaging's declined LOP request in CMS › Case Notes, naming Harbor Point PIP as the payer, and calendar the rental's 03/19/2026 end"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Liens › LOP register, record Riverton's LOP signed by John Doe and Atty. Thorne\n• And send it with the HIPAA authorization from the Email Workspace\n• Step 2: Log Summit Imaging's declined LOP request in CMS › Case Notes, naming Harbor Point PIP as the payer, and calendar the rental's 03/19/2026 end"
     },
     "case": {
       "say": "• Assuming Riverton Spine & Rehab is out of network for Peach State and Atty. Thorne has approved its LOP, the LOP now needs sending and logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: One counsel-approved LOP sent, one declined, both logged"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Signed by John Doe and Atty. Thorne before 02/24/2026; Decline names Harbor Point PIP as payer\n• No payment promised to any provider; Rental end 03/19/2026 calendared\n• The one thing to watch for: an LOP to a provider PIP would have paid"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Signed by John Doe and Atty. Thorne before 02/24/2026; Decline names Harbor Point PIP as payer\n• No payment promised to any provider; Rental end 03/19/2026 calendared\n• The one thing to watch for: an LOP to a provider PIP would have paid"
     }
   },
   "d2m3-a1": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Take the recorded call below: state the date and his consent, ask open questions only, and read his account back to him\n• Step 2: Log a privileged GIRP note in CMS › Case Notes the same day, with a dated task for each corroborating document"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Take the recorded call below: state the date and his consent, ask open questions only, and read his account back to him\n• Step 2: Log a privileged GIRP note in CMS › Case Notes the same day, with a dated task for each corroborating document"
     },
     "case": {
       "say": "• Assuming John Doe has agreed to a recorded call about why he waited 14 days, his four reasons now need capturing in his own words\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: All four reasons in his words, the GIRP note filed"
@@ -206,34 +206,34 @@
       "say": "• See It: the finished work, for reference only; this side exercise asks for the logged entry\n• Point to it on the model: Zero leading questions; no reason introduced first"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Zero leading questions; no reason introduced first; Four reasons in his words: transport, soreness, coverage, numbness\n• GIRP note filed 03/04/2026, labelled privileged; Corroboration requested with a dated task\n• The one thing to watch for: Rescuing a hesitant client with a suggested reason"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Zero leading questions; no reason introduced first; Four reasons in his words: transport, soreness, coverage, numbness\n• GIRP note filed 03/04/2026, labelled privileged; Corroboration requested with a dated task\n• The one thing to watch for: Rescuing a hesitant client with a suggested reason"
     }
   },
   "d2m2-a2": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the call in CMS › Case Notes in his own words, with no diagnosis or advice\n• Step 2: In CMS › Calendar, book his 04/21 and 04/23 visits, then restore the file's status in CMS › Case Status"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the call in CMS › Case Notes in his own words, with no diagnosis or advice\n• Step 2: In CMS › Calendar, book his 04/21 and 04/23 visits, then restore the file's status in CMS › Case Status"
     },
     "case": {
       "say": "• Assuming the No Contact Protocol has been maxed and John Doe calls back on 04/17, his re-engagement now needs logging before the letter's date\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: His words logged, visits booked, the file restored"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: His words quoted; no label, no counseling advice; Visits 04/21 and 04/23 on the calendar; Drop Warning cleared; 14-day trigger reset\n• The one thing to watch for: Telling him “that sounds like PTSD”"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: His words quoted; no label, no counseling advice; Visits 04/21 and 04/23 on the calendar; Drop Warning cleared; 14-day trigger reset\n• The one thing to watch for: Telling him “that sounds like PTSD”"
     }
   },
   "d2m2-a3": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in the CMS: cancel the Millbrook slot on the Calendar\n• Add Crescent under Parties, and open one task for each follow-up with an owner and a due date\n• Step 2: Write a short Case Note for Atty. Thorne saying what changed and why, with no medical advice"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in the CMS: cancel the Millbrook slot on the Calendar\n• Add Crescent under Parties, and open one task for each follow-up with an owner and a due date\n• Step 2: Write a short Case Note for Atty. Thorne saying what changed and why, with no medical advice"
     },
     "case": {
       "say": "• Assuming John Doe has refused Millbrook and Crescent Pain & Spine is booked for 05/15/2026, the follow-up tasks still need logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a CMS task list: every task Done by me or Delegated, owner and date"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Crescent verified in network with Peach State, not hearsay; Crescent's 05/15/2026 slot: no new Treatment Gap; Millbrook cancelled\n• Calendar and reminders updated; Records request delegated with an owner and due date; No medical advice; no talk of claim value\n• The one thing to watch for: Telling John Doe which facility is better medically"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Crescent verified in network with Peach State, not hearsay; Crescent's 05/15/2026 slot: no new Treatment Gap; Millbrook cancelled\n• Calendar and reminders updated; Records request delegated with an owner and due date; No medical advice; no talk of claim value\n• The one thing to watch for: Telling John Doe which facility is better medically"
     }
   },
   "d2m3-a2": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case File › Gap Explanation Record\n• Enter the 14-day gap and the 19-day disruption with exact dates, each reason beside its dated document\n• Step 2: Log it as routed to Atty. Thorne, and file the non-economic damages records in the CMS"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case File › Gap Explanation Record\n• Enter the 14-day gap and the 19-day disruption with exact dates, each reason beside its dated document\n• Step 2: Log it as routed to Atty. Thorne, and file the non-economic damages records in the CMS"
     },
     "case": {
       "say": "• Assuming Dr. Reyes's 06/19/2026 Causation Letter and her 04/20 note are in, Atty. Thorne needs the Gap Explanation Record before the pre-demand session\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a routed record of both interruptions, every reason sourced"
@@ -242,7 +242,7 @@
       "say": "• See It: the finished work, for reference only; this side exercise asks for the logged entry\n• Point to it on the model: 14 days, 02/06/2026 to 02/20/2026; 19 days, 04/02 to 04/21/2026"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: 14 days, 02/06/2026 to 02/20/2026; 19 days, 04/02 to 04/21/2026\n• Continuity: EMS report, call-outs, 06/19/2026 Causation Letter; Nothing argues or values the claim\n• The one thing to watch for: Documenting the 14-day gap and forgetting the 19-day disruption"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: 14 days, 02/06/2026 to 02/20/2026; 19 days, 04/02 to 04/21/2026\n• Continuity: EMS report, call-outs, 06/19/2026 Causation Letter; Nothing argues or values the claim\n• The one thing to watch for: Documenting the 14-day gap and forgetting the 19-day disruption"
     }
   },
   "d2m2-kc": {
@@ -307,24 +307,24 @@
   },
   "d2m4-a1": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Specials, remove the duplicate and total the medical at $14,817.40 plus the wages, showing billed beside paid\n• Step 2: Log the liens in CMS › Liens and flag the billed-versus-paid choice to Atty. Thorne"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Specials, remove the duplicate and total the medical at $14,817.40 plus the wages, showing billed beside paid\n• Step 2: Log the liens in CMS › Liens and flag the billed-versus-paid choice to Atty. Thorne"
     },
     "case": {
       "say": "• Assuming Riverton Spine & Rehab's 05/04/2026 duplicate line is confirmed and Northgate verified $1,584.00 in wages, the Specials now need totalling\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an audited ledger at $16,401.40, liens listed, choice routed"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: 05/04/2026 duplicate removed: $6,290.00 › $6,105.00; Specials $16,401.40: medical plus wages; Billed-vs-paid choice routed to Atty. Thorne\n• The one thing to watch for: Totaling the statement instead of auditing it"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: 05/04/2026 duplicate removed: $6,290.00 › $6,105.00; Specials $16,401.40: medical plus wages; Billed-vs-paid choice routed to Atty. Thorne\n• The one thing to watch for: Totaling the statement instead of auditing it"
     }
   },
   "d2m4-a2": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log each decision in CMS › Case Notes, attributed to Atty. Thorne, with the date it was made\n• Step 2: In CMS › Tasks, open a task with an owner for each decision, and propose no demand figure"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log each decision in CMS › Case Notes, attributed to Atty. Thorne, with the date it was made\n• Step 2: In CMS › Tasks, open a task with an owner for each decision, and propose no demand figure"
     },
     "case": {
       "say": "• Assuming Atty. Thorne has decided on a time-limited BI demand, served 07/20/2026, his strategy decisions now need recording on the file\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a dated decision record, attributed to Atty. Thorne, tasked"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Decision recorded: time-limited BI demand, 07/20/2026; UM plan: no UM demand before the BI tender; No demand figure proposed\n• The one thing to watch for: Apologizing for the gap instead of explaining it"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Decision recorded: time-limited BI demand, 07/20/2026; UM plan: no UM demand before the BI tender; No demand figure proposed\n• The one thing to watch for: Apologizing for the gap instead of explaining it"
     }
   },
   "d2m4-kc": {
@@ -384,7 +384,7 @@
   },
   "d2m4-wage": {
     "task": {
-      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Specials, correct the draft worksheet from $1,760.00 to the verified $1,584.00\n• Step 2: Log it by filing Northgate's letters in CMS › Documents\n• Flag the 02/09–02/13 shifts to Atty. Thorne, and send no medical records to the employer"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Specials, correct the draft worksheet from $1,760.00 to the verified $1,584.00\n• Step 2: Log it by filing Northgate's letters in CMS › Documents\n• Flag the 02/09–02/13 shifts to Atty. Thorne, and send no medical records to the employer"
     },
     "case": {
       "say": "• Assuming Northgate HR has sent the employer's verification and every missed shift matches a provider's note, the wage loss now needs entering\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: $1,584.00 verified in the Specials, Northgate's letters filed"
@@ -393,7 +393,7 @@
       "say": "• The finished set, for reference: the side exercise asks only for the two steps, not the whole audit\n• Have them check theirs for this: Northgate's verification filed in the CMS"
     },
     "check": {
-      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Draft corrected: $1,760.00 › $1,584.00; Northgate's verification filed in the CMS\n• No medical records sent to the employer; 02/09–02/13 shifts flagged to Atty. Thorne\n• The one thing to watch for: Dropping shifts with no doctor's note"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Draft corrected: $1,760.00 › $1,584.00; Northgate's verification filed in the CMS\n• No medical records sent to the employer; 02/09–02/13 shifts flagged to Atty. Thorne\n• The one thing to watch for: Dropping shifts with no doctor's note"
     }
   },
   "d2m1-liab": {
