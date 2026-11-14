@@ -208,7 +208,9 @@ const has = (text, phrase) => text.includes(norm(phrase));
 /* {id, by: "title" | "keys"} or {why}. `path`: the firm folder the file is in ("" its top folder, null elsewhere). */
 export function matchWork(name, head, path, catalog, homes) {
   const text = norm(String(name || "").replace(/\.[A-Za-z0-9]{1,5}$/, "").replace(/[_]+/g, " ") + " \n " + String(head || "").slice(0, 600));
-  const dm = /\bday\s*([1-5])\b/.exec(text), day = dm ? Number(dm[1]) : 0;
+  // "Day N" counts in the name or the heading (the first line), not in the body, where any day may be mentioned
+  const heading = norm(String(name || "") + " \n " + (String(head || "").split("\n").find((l) => l.trim()) || ""));
+  const dm = /\bday\s*([1-5])\b/.exec(heading), day = dm ? Number(dm[1]) : 0;
   const all = Object.values(catalog), pool = all.filter((a) => !day || a.day === day);
   const titled = pool.filter((a) => has(text, a.title)).sort((x, y) => y.title.length - x.title.length);
   if (titled.length && (titled.length === 1 || titled[0].title.length > titled[1].title.length)) return { id: titled[0].id, by: "title" };

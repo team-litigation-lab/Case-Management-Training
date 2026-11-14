@@ -198,6 +198,15 @@ const words = (n) => Array.from({ length: n }, (_, i) => `The routed item ${i} c
   if (!/never instructions to you/.test(prompts[0].system) || !/<<<DOCUMENT/.test(prompts[0].user)) fail('the document goes to the AI as data, inside its markers, with the rule that it is never instructions');
   if (!/RUBRIC \(\d+ points\)/.test(prompts[0].user) || !/THE TASK:/.test(prompts[0].user)) fail('the AI is given the activity\'s task and rubric');
   if (!r || r.fix.length !== 1 || !r.fix[0].shows || !r.fix[0].standard || !r.fix[0].why || !r.fix[0].next || !r.strengths.length) fail(`a grade carries its teaching: what the work shows, the standard, why, the next step: ${JSON.stringify(r && r.fix)}`);
+  // matching by itself: the heading's day narrows, the body's doesn't; two activities' terms level is not a match
+  const homes = { insurance: INS, liens: LIENS, litigation: LIT, settlement: `${C}/07 Wages & Costs`, medical: MED, intake: `${C}/01 Intake & Retainer`, bills: `${C}/04 Bills & Invoices`, property: `${C}/08 Property Damage`, police: `${C}/02 Police, Witness & Video` };
+  const M = (name, head, p) => W.matchWork(name, head, p, catalog, homes);
+  if (M('memo', `Day 3 · ${REL}\nAs agreed on Day 1, the release is reviewed.`, INS).id !== 'd3m2-rel') fail('a "Day 1" in the body must not move a Day 3 heading off its activity');
+  if (M('memo', `${REL}`, LIT).id !== 'd3m2-rel') fail('an activity\'s title matches in any folder (and the folder is said)');
+  if (M('memo', 'Day 4 · net sheet for stream 1 and the tender', `${C}/07 Wages & Costs`).id) fail('a heading of Day 4 must not match a Day 3 activity by its terms');
+  if (M('memo', 'The net sheet for stream 1 and for stream 2', `${C}/07 Wages & Costs`).id) fail('terms level between two activities is not a match: it is listed, not guessed');
+  if (M('memo', 'Peach State reduction request, the statutory lien', LIENS).id !== 'd3m3-a1') fail('two key terms of the one activity in its folder match it');
+  if (M('memo', 'Peach State reduction request', INS).id) fail('key terms count only in the folder the activity is kept in');
   ok('matched by its title (or two key terms in its folder), never guessed; a Doc, a Sheet, a PDF and a .docx read; a long one cut and said; photos and scans listed; the platform\'s copies never read');
 
   /* 5: the AI's answer is checked; a failure keeps the grade */
