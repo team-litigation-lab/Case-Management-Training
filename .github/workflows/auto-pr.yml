@@ -1,0 +1,47 @@
+# Opens a pull request for every claude/* branch pushed without one, and starts its Checks.
+# A Claude session pushes its work to a claude/ branch; this opens the PR into main at once (titled and described from
+# the branch's latest commit), so nothing waits for someone to press "Compare & pull request". auto-merge.yml merges it
+# when its Checks pass.
+# A PR opened with GITHUB_TOKEN starts no workflows of its own (GitHub's rule), so the Checks for the branch are started
+# here by hand (checks.yml has workflow_dispatch); their results show on the PR's commit.
+# A branch that already has an open PR is left alone (its push runs the Checks through the PR as usual).
+name: Open PR for claude branches
+
+on:
+  push:
+    branches: ['claude/**']
+
+permissions:
+  contents: read
+  pull-requests: write
+  actions: write
+
+concurrency:
+  group: auto-pr-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  open:
+    name: Open the branch's pull request
+    if: github.event.deleted != true
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+      BRANCH: ${{ github.ref_name }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+      - name: Open the PR (if the branch has none) and start its Checks
+        run: |
+          OPEN=$(gh pr list --repo "$REPO" --head "$BRANCH" --state open --json number --jq 'length')
+          if [ "$OPEN" != "0" ]; then echo "$BRANCH already has an open pull request."; exit 0; fi
+          # nothing to merge: the branch is main's own commit (a branch made and pushed with no work yet)
+          git fetch -q --depth=50 origin main "$BRANCH"
+          if [ "$(git rev-list --count origin/main..FETCH_HEAD 2>/dev/null || echo 1)" = "0" ]; then echo "No commits ahead of main."; exit 0; fi
+          TITLE=$(git log -1 --format=%s "$GITHUB_SHA")
+          BODY=$(printf '%s\n\n---\nOpened automatically for `%s` (.github/workflows/auto-pr.yml). It merges by itself when its Checks pass (auto-merge.yml); add the label `no-auto-merge` to hold it.\n' "$(git log -1 --format=%b "$GITHUB_SHA")" "$BRANCH")
+          gh pr create --repo "$REPO" --base main --head "$BRANCH" --title "$TITLE" --body "$BODY"
+          gh workflow run checks.yml --repo "$REPO" --ref "$BRANCH" || echo "::warning::could not start Checks for $BRANCH"

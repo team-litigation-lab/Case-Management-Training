@@ -1,0 +1,54 @@
+# Merges a claude/* pull request as soon as its Checks pass (the repository has GitHub's own auto-merge switched off).
+# When a run of Checks (checks.yml: "Syntax, files and build" and "Smoke test in a browser") finishes green, the open PR
+# whose branch and latest commit it ran on is merged into main, if it:
+#   - comes from a claude/ branch of this repository (never a fork),
+#   - has no merge conflict, is not a draft, and has no "no-auto-merge" label,
+#   - still has that commit as its head (a newer push waits for its own Checks).
+# The Cloudflare preview build (Workers Builds) is not one of the Checks and does not hold a merge.
+# A merge made with GITHUB_TOKEN starts no workflows, so main's own Checks and "Update PR branches" (which brings main
+# into the other open PRs) are started here by hand.
+name: Auto-merge claude PRs
+
+on:
+  workflow_run:
+    workflows: [Checks]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+concurrency:
+  group: auto-merge
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    name: Merge the PR its Checks passed for
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      startsWith(github.event.workflow_run.head_branch, 'claude/') &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+      BRANCH: ${{ github.event.workflow_run.head_branch }}
+      SHA: ${{ github.event.workflow_run.head_sha }}
+    steps:
+      - name: Merge
+        run: |
+          PR=$(gh pr list --repo "$REPO" --head "$BRANCH" --state open --json number,headRefOid,isDraft,mergeable,labels \
+            --jq "[.[] | select(.headRefOid == \"$SHA\" and (.isDraft | not) and ([.labels[].name] | index(\"no-auto-merge\") | not))][0].number // empty")
+          if [ -z "$PR" ]; then echo "No open, ready PR for $BRANCH at $SHA (a newer push, a draft, the no-auto-merge label, or no PR)."; exit 0; fi
+          # both of the Checks' jobs passed on this commit (the run's conclusion covers them; this says which)
+          gh api "repos/$REPO/commits/$SHA/check-runs" --jq '.check_runs[] | "\(.name): \(.conclusion // .status)"'
+          if gh pr merge "$PR" --repo "$REPO" --merge --match-head-commit "$SHA"; then
+            echo "Merged #$PR."
+            gh workflow run checks.yml --repo "$REPO" --ref main || echo "::warning::could not start main's Checks"
+            gh workflow run update-branches.yml --repo "$REPO" --ref main || echo "::warning::could not start Update PR branches"
+          else
+            echo "::warning::#$PR could not be merged (a conflict, or main moved): Update PR branches brings main in, and its next green Checks merge it."
+          fi
