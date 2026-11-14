@@ -1,6 +1,7 @@
-# Cloudflare Worker Previews: each branch's Preview holds its own copies of the Worker's Durable Objects, and the
-# account allows 500 Durable Object namespaces. Old Previews filled that, and every new Preview failed to deploy
-# ("This account has reached its limit of 500 Durable Object namespaces", code 10067). So:
+# Cloudflare Worker Previews: each branch's Preview used to hold its own copies of the Worker's Durable Objects (now
+# Previews run without them: wrangler.json previews), and the account allows 500 Durable Object namespaces. Old
+# Previews filled that, and every new Preview failed to deploy ("…limit of 500 Durable Object namespaces", code 10067).
+# Deleting old Previews gives those namespaces back, and keeps the Previews list short. So:
 # - when a pull request is closed or merged, its branch's Preview is deleted;
 # - "Run workflow" (Actions tab) lists every Preview and, with "delete" ticked, deletes each one whose branch has no
 #   open pull request (main's is kept). Unticked, it only lists what it would delete.

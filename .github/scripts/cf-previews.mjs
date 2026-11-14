@@ -1,7 +1,8 @@
 // Cloudflare Worker Previews for case-management-training: list them, and delete the ones no open pull request needs.
-// Every branch's Preview keeps its own copies of the Worker's Durable Objects (wrangler.json previews.durable_objects),
-// and the account allows 500 Durable Object namespaces: once old Previews fill that, every new Preview fails to deploy
-// ("This account has reached its limit of 500 Durable Object namespaces", code 10067).
+// Every branch's Preview used to keep its own copies of the Worker's Durable Objects (wrangler.json previews had
+// durable_objects; Previews now run without them), and the account allows 500 Durable Object namespaces: old
+// Previews filled that, and every new Preview failed to deploy ("…limit of 500 Durable Object namespaces", code 10067).
+// Deleting them gives the namespaces back.
 // Run by .github/workflows/cf-previews.yml (not a check: it has no @check line).
 //   node .github/scripts/cf-previews.mjs            list them, and what would be deleted (deletes nothing)
 //   node .github/scripts/cf-previews.mjs --delete   delete every Preview whose branch has no open pull request
