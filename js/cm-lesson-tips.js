@@ -54,7 +54,7 @@ renderDaySlideContent = function(d, slide){
 
 const css = document.createElement("style");
 css.textContent = `/* a small pill beside the Practises line (the slide's own button rules would restyle it: hence !important) */
-.cm-lt-btn{display:inline-flex !important;align-items:center;width:auto !important;min-width:0 !important;height:auto !important;margin:0 0 0 8px !important;vertical-align:middle;border:1px solid #f0c94a !important;background:#fff8dc !important;color:#5b4500 !important;font:700 12px/1 inherit;padding:4px 10px !important;border-radius:999px !important;cursor:pointer;box-shadow:none !important}
+.cm-lt-btn{display:inline-flex !important;align-items:center;width:auto !important;min-width:0 !important;height:auto !important;margin:0 0 0 8px !important;vertical-align:middle;border:1px solid #f0c94a !important;background:#fff8dc !important;color:#5b4500 !important;font-family:inherit;font-size:16px !important;font-weight:700 !important;line-height:1.1 !important;padding:4px 12px !important;border-radius:999px !important;cursor:pointer;box-shadow:none !important}
 .cm-lt-row{display:flex;justify-content:flex-end;margin-top:6px}
 .cm-lt-btn:hover{background:#ffefb0 !important}
 .cm-lt-pop{position:fixed;right:22px;top:120px;z-index:1000;width:min(440px,calc(100vw - 32px));max-height:min(60vh,520px);overflow:auto;background:#fff;color:#1e2340;border:1px solid #e3d6a3;border-radius:12px;padding:16px 18px 12px;box-shadow:0 10px 30px rgba(30,35,64,.25);font-size:14px;line-height:1.45}
