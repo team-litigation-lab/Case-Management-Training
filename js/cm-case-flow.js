@@ -420,7 +420,7 @@ function fullText(l, d){
   }
   if(b.kind === "activity") return S(1, "The scenario", `<div class="scenario-card"><div class="stag">John Doe VS Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
     + S(2, "Execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
-    + S(3, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once you finish the activity and reveal the answers on its Check Your Work slide.</p>`)
+    + S(3, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once the AI Grader has scored your work on this activity.</p>`)
     + S(4, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
   return S(1, "Knowledge verification", `<ol class="cf-q">${b.check.questions.map(q => `<li>${E(q)}</li>`).join("")}</ol>`)
     + S(2, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
@@ -473,8 +473,8 @@ function falloutFor(blockId){
   }).filter(x => isTrainer() || !x.done);
 }
 const VIEW_LABEL = {grade: "The Grade-A Standard", audit: "Audit & the Finished Set", why: "Why It Matters", doc: "The Document", theory: "The Theory", theory2: "The Theory, Continued", frame: "The Framework", rules: "The Rules", map: "The Roadmap", model: "See It", dodont: "Do & Don't",
-  case: "Your Case", task: "Your Task", check: "Check Your Work", questions: "Knowledge Check", questions2: "Knowledge Check, Continued", summary: "Self-Summary", scale: "Skill Scale"};
-const VIEW_ICON = {grade: "🏅", audit: "🔍", why: "💡", doc: "📄", theory: "📚", theory2: "📚", frame: "🧭", rules: "📏", map: "🗺", model: "🔍", dodont: "✅", case: "📂", task: "🎯", check: "☑️", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
+  case: "Your Case", task: "Your Task", check: "AI Grader", questions: "Knowledge Check", questions2: "Knowledge Check, Continued", summary: "Self-Summary", scale: "Skill Scale"};
+const VIEW_ICON = {grade: "🏅", audit: "🔍", why: "💡", doc: "📄", theory: "📚", theory2: "📚", frame: "🧭", rules: "📏", map: "🗺", model: "🔍", dodont: "✅", case: "📂", task: "🎯", check: "🤖", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
 const KC_PER = 4;   // Knowledge Check questions on one slide
 /* The Theory: the lesson's concepts from the original Canva decks (build/case-flow/slides/theory-dN.json), four to a
    slide (a deep topic, 6–8 concepts, takes two); then The Framework, the deck page's own table, flowchart or checklist
@@ -554,9 +554,8 @@ const titleCase = t => String(t || "").split(/(\s+|—|–|\/)/).map((w, i, a) =
 }).join("");
 const leadSplit = t => { const m = String(t || "").match(/^\*\*([^*]+?[.!?:])\*\*\s+(.+)$/); return m ? [m[1], m[2]] : null; };
 const hl = t => E(t).replace(/\*\*(.+?)\*\*/g, '<mark class="cfx-hl">$1</mark>');
-/* Check Your Work holds the answers (the **marked** parts): a trainee sees them blurred in place (no gap in the sentence) until they finish the activity and
-   reveal them; the trainer always sees them, except on the shared slides window (the audience sees what trainees see). */
-const masked = t => E(t).replace(/\*\*(.+?)\*\*/g, '<span class="cfx-blank" title="Your answer, from the file: shown when you finish" aria-hidden="true">$1</span>');
+/* The answers (an activity's checkpoints, and the **marked** parts of its checks) open once the trainee has finished the activity
+   (graded by the AI Grader, or revealed on a record from before it); the trainer always sees them, except on the shared slides window. */
 const inAudience = () => typeof document !== "undefined" && !!document.body && document.body.classList.contains("audience-mode");
 let justRevealed = null;   // the block whose answers were just revealed: they animate from blurred to clear once
 const answersOpen = id => (isTrainer() && !inAudience()) || !!((REC.revealed || {})[id]);
@@ -687,7 +686,6 @@ const WORKED_IN = {
   "d2m2-a1": ["records"], "d2m2-a2": ["records"], "d2m2-a3": ["records"], "d2m3-a2": ["records"], "d2m4-a1": ["records"], "d3m3-a2": ["records"],
   "d4m1-a2": ["efiling"], "d4m2-a2": ["efiling"], "d5m1-a1": ["efiling", "records"], "d5m1-a2": ["efiling"],
   "d5m3-a1": ["efiling"], "d5m4-a2": ["efiling"],
-  "d3m1-pkg": ["packet"], "d3m1-a1": ["packet"], "d4m3-l1": ["packet"], "d4m3-a1": ["packet"], "d4m3-l2": ["packet"], "d4m3-a2": ["packet"],
   "d2m2-l1": ["records"], "d2m2-l2": ["records"], "d2m4-l1": ["records"], "d4m1-l2": ["efiling"], "d4m2-l1": ["efiling"], "d5m1-l1": ["efiling"], "d5m1-l2": ["efiling"]};
 /* LOR Drafting (js/cm-lor.js, on John Doe's file with no assignment) is the claims phase's: Claim Set Up drafts the LORs */
 const LOR_BLOCKS = new Set();
@@ -726,31 +724,6 @@ function blockTools(b){
   ids = ids.concat(WORKED_IN[b.id] || []);
   ids = [...new Set(ids)];
   return ids.length ? ids : ["cms"];
-}
-/* Your Task: each step ends with a link to where it's done. The CMS screen a step names (New Case for the Conflict
-   Check, Calendar for a deadline, Case Notes for a note); a step worked from the file's documents opens 📁 Work From
-   (its documents open beside the slide); otherwise the tool the step names, else the block's own tool. */
-const STEP_AT = [
-  [/Backup Drive|\bhierarchy\b|Check my drive/i, "drive", "Backup Drive"],
-  [/Conflict Check/i, "cms", "CMS → New Case"],
-  [/Case Notes/, "cms", "CMS → Case Notes"],
-  [/\bDocket\b(?! System)|\bSOL\b|\bcalendar\b(?! Conflict)/i, "cms", "CMS → Calendar"],
-  [/\bParties\b|\broles?\b/i, "cms", "CMS → Parties"],
-  [/source documents?|signed documents?|against (the|its|each) (Police Report|Declaration Page|record|document)/i, "docs", "Documents"]
-];
-function stepLink(text, b){
-  const t = String(text || "").replace(/\*\*/g, ""), hit = STEP_AT.find(([re]) => re.test(t));
-  // a step worked in the Notes & Action Plan (the transcript, the plan, its emails) opens it
-  if(notesOf(b.id) && /transcribe|action plan|^email|coordinate/i.test(t)) return ` <button type="button" class="cfx-at" onclick="cmCaseFlow.notes('${b.id}')" title="Open the Notes &amp; Action Plan">📝 ${/^email|coordinate/i.test(t) ? "Email Simulator" : "Notes"} ↗</button>`;
-  // 🔗 the drive is linked on the block's own Your Case slide (step 1 of Day 1's Backup File Maintenance, js/cm-drive.js): the step leads there
-  if(/Link my Google Drive/.test(t) && viewsOf(b).includes("case")) return ` <button type="button" class="cfx-at" onclick="cmCaseFlow.toView('${b.id}','case')" title="Go to the Backup File Maintenance slide: the drive is linked in its step 1">🔗 Go to the slide ↗</button>`;
-  let id = hit && hit[1], label = hit && hit[2];
-  if(id === "docs" && !(CF_PACKETS[b.id] || []).length){ id = toolLive("docs", b.id) ? "docs" : null; label = "Documents"; }
-  if(id === "cms" && !toolLive("cms", b.id)) id = null;
-  if(!id){ id = toolsIn(t, b.id)[0] || blockTools(b).filter(x => x !== "call")[0]; label = id && TOOL[id] ? TOOL[id].short : ""; }
-  if(!id || !TOOL[id]) return "";
-  const go = id === "docs" && (CF_PACKETS[b.id] || []).length ? `cmCaseFlow.workFrom(this)` : `cmCaseFlow.tool('${id}','${b.id}')`;
-  return ` <button type="button" class="cfx-at" onclick="${go}" title="Open ${E(label)}">${TOOL[id].icon} ${E(label)} ↗</button>`;
 }
 function toolChip(id, blockId, big){
   const t = TOOL[id];
@@ -901,38 +874,28 @@ function slideBody(view, l, d){
           <div class="cfx-sb-docs">${thumbs}</div>
         </div></div>`;
     }
-    case "task": { const main = blockTools(b).filter(id => id !== "call")[0] || "cms";
-      // 🏷 a Backup File Maintenance task carries the firm's naming convention (js/cm-drive.js): one row under the task, and
-      // from Day 3 the labels at the end of the Practice Lab line, so neither costs the slide any size
-      // (Days 2–5. Day 1's task has no room for the row at full size: it stays as it is, and its Your Case slide, the next one, carries the convention)
-      const drv = DRIVE_LATER.has(b.id) && !!window.CMDrive && !!CMDrive.namingBox;
-      const where = TOOLKIT.find(t => t.id === main), whereName = where ? where.name.replace(/^the /, "the ") : "the CMS";
-      // the lesson this activity practises: at the end of the Practice Lab line; on a Backup File Maintenance task, whose
-      // Practice Lab line carries the naming labels, under the steps instead (the left column has the room), so the line stays one row
+    case "task": {   /* Your Task, in one column (js/cm-sb-task.js styles it and draws its Launch button): one button opens the CMS and
+         Google Drive, then the steps in full sentences, then what is done in another tool (the live call, the service confirmation,
+         the Amendment Requests, the Notes & Action Plan), then one bar: the source files and Submit to AI Grader (js/cm-ai-grader.js).
+         Purpose, principle and the naming convention are in 📖 Reference, with the rest of the rules. */
       const ofLine = practisesLine(l) ? `<b class="cfx-of" title="The lesson this activity practises: ${E(titleCase(l.cf.of.cf.block.title))}">${E(practisesLine(l))}</b>` : "";
-      /* the busiest slides were shrunk to fit: the Practice Lab note is one line, and the things to do (the live call,
-         the service confirmation) sit under the steps, so the two columns are about the same height; with both, the
-         service confirmation goes to the right column */
-      return `${plainBox(b)}<div class="cfx-do-now${drv ? " cfx-drv" : ""}"><b>🧪 Practice Lab</b><span>Work the steps in ${E(whereName)}${SIM.calls[b.id] ? ", take the live call" : ""}, then <em>Deliver</em>.</span>${planGo(b, l.cf.day.n)}${!drv ? ofLine : ""}${drv ? CMDrive.namingBox({day: Number(b.id.charAt(1)), labels: true}) : ""}</div>
-      <div class="cfx-task${drv ? " cfx-drv" : ""}"><div class="cfx-task-main"><ol class="cfx-points">${c.steps.map(x => `<li><span>${hl(x)}${stepLink(x, b)}</span></li>`).join("")}</ol>
-        ${SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}<small class="cfx-simnote-s">⏱ Simulated in real time for accelerated training</small></span>
-          <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : ""}
-        ${serviceOf(b.id) && !SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ ${E(svWords(serviceOf(b.id)).label)}</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
-          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the ${E(svWords(serviceOf(b.id)).label)}</button></div>` : ""}
-        ${amendOf(b.id) ? (s => `<div class="cfx-call cfx-svb"><b>📝 Skill Builder: Amendment Requests</b><span>${E(amendOf(b.id).kicker)}${s.sent ? ` · <em>${s.sent} of ${s.of} sent · ${s.filed} of ${s.copies} corrected copies filed</em>` : ""}</span>
-          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.amend('${b.id}')">📝 Open the Amendment Requests</button></div>`)(amSummary(b.id, amendOf(b.id), amRec(b.id))) : ""}${drv && ofLine ? `<p class="cfx-of-row">${ofLine}</p>` : ""}</div>
-      <aside class="cfx-side">${c.purpose || c.principle ? `<div class="cfx-why">${c.purpose ? `<b>🎯 Purpose</b><span>${hl(c.purpose)}</span>` : ""}${c.principle ? `<b>⚖️ Principle</b><span>${hl(c.principle)}</span>` : ""}</div>` : ""}
-        ${docLine(b.id) ? `<details class="cfx-docs"><summary><b>📁 Work From</b> · ${(CF_PACKETS[b.id] || []).length} Documents</summary>${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</details>` : ""}
-        ${notesOf(b.id) ? `<div class="cfx-call cfx-svb"><b>📝 Notes &amp; Action Plan</b><span>${npParts(b.id).filter(p => p.done).length} of ${npParts(b.id).length} done</span>
-          <button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.notes('${b.id}')">📝 Open</button></div>` : ""}
-        ${serviceOf(b.id) && SIM.calls[b.id] ? `<div class="cfx-call cfx-svb"><b>✉ ${E(svWords(serviceOf(b.id)).label)}</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
-          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the ${E(svWords(serviceOf(b.id)).label)}</button></div>` : ""}
-        <button type="button" class="cfx-deliver" onclick="cmCaseFlow.toView('${b.id}','check')" title="Hand it in, then check your work"><b>📤 Deliver</b><span>${hl(c.deliver)}</span><em>Hand in &amp; check your work ➔</em></button></aside></div>${drv ? CMDrive.namingBox({day: Number(b.id.charAt(1)), slide: true}) : ""}`; }
-    case "check": { const open = answersOpen(b.id);
-      return `<div class="cfx-check">${c.checks.map((x, j) => `<label class="cfx-tick"><input type="checkbox" ${((REC.ticks || {})[b.id] || [])[j] ? "checked" : ""} onchange="cmCaseFlow.tick('${b.id}',${j},this.checked)"><span>${open ? (justRevealed === b.id ? hl(x).replace(/class="cfx-hl"/g, 'class="cfx-hl cfx-unblur"') : hl(x)) : masked(x)}</span></label>`).join("")}</div>
-      ${open ? (isTrainer() && !inAudience() ? `<p class="cfx-key-note">🔑 Trainer view: the answers. Trainees see them blurred until they finish the activity.</p>` : "")
-        : `<div class="cfx-reveal"><span>Work the activity in the tool first, then compare: each blurred part is an answer your file should hold.</span><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.reveal('${b.id}')">✓ I've finished: show the answers</button></div>`}
-      ${c.donts.length ? `<div class="cfx-watch"><b>⚠️ Watch For</b>${c.donts.map(x => `<span>${hl(x)}</span>`).join("")}</div>` : ""}${workLog(b)}`; }
+      const more = blockTools(b).filter(id => !["cms", "drive", "call", "docs", "plan"].includes(id)).map(id => toolChip(id, b.id)).join(""), n = (CF_PACKETS[b.id] || []).length;
+      const acts = (SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}<small class="cfx-simnote-s">⏱ Simulated in real time for accelerated training</small></span>
+          <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : "")
+        + (serviceOf(b.id) ? `<div class="cfx-call cfx-svb"><b>✉ ${E(svWords(serviceOf(b.id)).label)}</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
+          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the ${E(svWords(serviceOf(b.id)).label)}</button></div>` : "")
+        + (amendOf(b.id) ? (s => `<div class="cfx-call cfx-svb"><b>📝 Amendment Requests</b><span>${E(amendOf(b.id).kicker)}${s.sent ? ` · <em>${s.sent} of ${s.of} sent · ${s.filed} of ${s.copies} corrected copies filed</em>` : ""}</span>
+          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.amend('${b.id}')">📝 Open the Amendment Requests</button></div>`)(amSummary(b.id, amendOf(b.id), amRec(b.id))) : "")
+        + (notesOf(b.id) ? `<div class="cfx-call cfx-svb"><b>📝 Notes &amp; Action Plan</b><span>${npParts(b.id).filter(p => p.done).length} of ${npParts(b.id).length} done</span>
+          <button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.notes('${b.id}')">📝 Open</button></div>` : "");
+      return `${plainBox(b)}<div class="cfx-task cfx-task1">
+        <div class="cfx-task-bar">${window.CMSbTask ? CMSbTask.launch(b.id) : ""}${planGo(b, l.cf.day.n)}${more ? `<details class="cfx-more-tools"><summary>🧰 Other tools</summary><span class="cfx-tools-in">${more}</span></details>` : ""}${ofLine}</div>
+        <ol class="cfx-points cfx-steps">${c.steps.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>
+        ${acts ? `<div class="cfx-task-acts">${acts}</div>` : ""}
+        <div class="cfx-task-foot">${docLine(b.id) ? `<details class="cfx-docs"><summary>📁 Source Files (${n} Document${n === 1 ? "" : "s"})</summary><div class="cfx-docs-pop">${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</div></details>` : "<span></span>"}
+          <button type="button" class="btn cfx-grade-go" onclick="cmCaseFlow.toView('${b.id}','check')" title="Hand in what you did: the AI Grader scores it and says what to improve">Submit to AI Grader →</button></div></div>`; }
+    case "check":   // 🤖 the AI Grader (js/cm-ai-grader.js) in place of the old self-tick list, then the reference of the work
+      return (window.CMAIGrader ? CMAIGrader.view(b.id) : `<p class="cf-note">The AI Grader is loading…</p>`) + workLog(b);
     case "questions": case "questions2": {   // each question with its answer box; answers save as they're typed
       const from = view === "questions2" ? KC_PER : 0, m = rec(mod.id), last = from + KC_PER >= c.questions.length;
       return `<ol class="cfx-points cfx-qs cfx-qs-2 cfx-kc" style="counter-reset:cfx ${from}">${c.questions.slice(from, from + KC_PER).map((q, j) => `<li><span><span class="cfx-kc-q">${hl(q)}</span>
@@ -1117,6 +1080,7 @@ window.cmCaseFlow.full = function(dayId, i){
   document.addEventListener("keydown", fullEsc, true);
   const b = o.querySelector(".cfx-ref-x"); if(b) b.focus();
 };
+window.cmCaseFlow.blockAt = (dayId, i) => { const d = cfDay(dayId), l = d && d.lessons[i]; return (l && l.cf && l.cf.block) || null; };   // the block a slide is of (js/cm-sb-task.js: the Rules & Naming Guide)
 function fullEsc(e){ if(e.key === "Escape" && document.querySelector(".cfx-ref")){ e.stopPropagation(); window.cmCaseFlow.fullClose(); } }
 window.cmCaseFlow.fullClose = function(){
   document.querySelectorAll(".cfx-ref").forEach(x => { const h = x.parentElement; x.remove(); if(h) h.classList.remove("cfx-ref-host"); });
@@ -2544,6 +2508,7 @@ function workLog(b){
     <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.logWork('${b.id}','${main}')">Log it</button>
     <span class="cfx-log-ok" id="cflogok_${b.id}">${w.at ? `✓ Logged ${E(new Date(w.at).toLocaleDateString())}` : ""}</span></div>`;
 }
+window.cmCaseFlow.record = () => REC;   // the trainee's Case Flow record, read by the AI Grader (js/cm-ai-grader.js) to fill in what was done
 window.cmCaseFlow.logWork = function(blockId, tool){
   const el = document.getElementById("cflog_" + blockId);
   // nothing typed on a CMS step: the case open in the CMS (js/cm-cms-case.js)
@@ -2811,7 +2776,7 @@ if(typeof presenterCues === "function"){   // Presenter view: the trainer's note
       return x ? `<h3>Training Agenda</h3>${dayScriptHtml(x)}<div class="pn-on pn-cue"><b>The run of the day, from the slide</b>${sayHtml(a.say.split("\n").slice(1).join("\n"))}</div>`
         : `<h3>Training Agenda</h3><div class="pn-part">🎙 Script — read aloud</div>${sayHtml(a.say)}${a.ask ? `<p><b>Ask:</b> ${E(a.ask)}</p>` : ""}`; }
     const n = d.lessons.filter(l => l.cf.block.kind === "activity").length, x = dayScript(d, "lab");
-    const how = `<p>The lessons are done: every slide from here to the Ready check is practice. Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. All ${n} of today's Skill Activities follow, in the order their lessons were taught; the slide names the lesson each one practises, and so does each activity's first slide. Each runs Your Task, then Your Case, then Check Your Work. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
+    const how = `<p>The lessons are done: every slide from here to the Ready check is practice. Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. All ${n} of today's Skill Activities follow, in the order their lessons were taught; the slide names the lesson each one practises, and so does each activity's first slide. Each runs Your Task, then Your Case, then the AI Grader. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
     return x ? `<h3>Practice Lab</h3>${dayScriptHtml(x)}<div class="pn-on pn-cue"><b>Trainer note — not read aloud</b>${how}</div>` : `<h3>Practice Lab</h3>${how}`;
   };
 }
@@ -2904,7 +2869,7 @@ function named(s, k){
 /* ---------- Presenter view: the speaker notes, as this course's slide scripts ---------- */
 window.SLIDE_SCRIPTS = window.SLIDE_SCRIPTS || {};
 window.cmCaseFlow = window.cmCaseFlow || {}; window.cmCaseFlow.viewsOf = b => viewsOf(b); window.cmCaseFlow.drawnViewsOf = b => viewsOf(b, true);
-// a block's slide by its view (Your Task's Deliver goes straight to Check Your Work, past Your Case)
+// a block's slide by its view (Your Task's Submit to AI Grader goes straight to the AI Grader, past Your Case)
 window.cmCaseFlow.toView = function(blockId, view){
   const d = typeof DAYS !== "undefined" ? DAYS.find(x => x.id === state.dayId) : null; if(!d || typeof buildDaySlides !== "function") return nextSlide();
   const li = d.lessons.findIndex(l => l.cf && l.cf.block.id === blockId), vs = li >= 0 ? viewsOf(d.lessons[li].cf.block) : [];
@@ -2991,7 +2956,7 @@ if(typeof window.sopRunOfShow === "function"){
         add(p.skill, {title: `Practice Lab ${i + 1} of ${labs.length} · Skill Building: ${E(p.title)}`, do: [
           (i === 0 ? `Put the <b>🧪 Practice Lab</b> slide up first: everyone opens their tools from it, once, and it lists all ${sc.acts} activities with the lesson each one practises. ` : "")
           + `${p.acts.length} Skill Activit${p.acts.length === 1 ? "y" : "ies"}: ` + p.acts.map(l => `<b>${E(l.cf.block.title)}</b> <span style="color:var(--ink-soft)">(${E(String(l.cf.block.act.tool || "").split("·")[0].trim())}${l.cf.of ? "; practises " + E(lessonRef(l.cf.of)) : ""})</span>`).join(" · "),
-          `About ${sc.act} minutes each (the 🧪 chip counts it down). Your Task first, then Your Case: trainees work it on John Doe's file in the CMS or the tool the step names, beside the slide (⧉ Side by side), then tick Check Your Work and log the reference.`,
+          `About ${sc.act} minutes each (the 🧪 chip counts it down). Your Task first, then Your Case: trainees work it on John Doe's file in the CMS or the tool the step names, beside the slide (⧉ Side by side), then submit it to the AI Grader and log the reference.`,
           calls.length ? `📞 Live call${calls.length > 1 ? "s" : ""}: ${andList(calls.map(c => E(c.who)))}. Each starts from “Take the call” on the Your Task slide; let one trainee take it while the room listens, or everyone takes it at their desk.` : "",
           p.acts.some(l => planAct(l.cf.block)) ? `The Action Plan drafts: <b>📝 Open the Action Plan Editor</b> is on the activity's Your Task slide; “← Back to Case Flow Day ${n}” there returns to the slide. Next on the slide is always the next slide.` : "",
           ...p.acts.flatMap(l => injectsOf(l.cf.block).filter(x => x.kind === "fallout").map(x => `⚡ <b>Inject mid-task</b> on ${E(titleCase(l.cf.block.title))} (the ⚡ pill on its Your Task slide): ${x.html.replace(/^<b>[^<]*<\/b>\s*/, "")}`))].filter(Boolean),

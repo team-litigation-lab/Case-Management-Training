@@ -70,11 +70,13 @@ function plan(){
 function compute(c){
   const P = plan(), data = (c && c.data) || {}, R = data["case-flow"] || {}, rec = (c && c.rec) || {}, cfd = ((c && c.cf) || {}).days || {};
   const ticks = R.ticks || {}, work = R.work || {}, rev = R.revealed || {}, filing = data["doc-filing"] || {}, cms = data["cms-file"] || {};
+  // 🤖 the AI Grader's score of an activity (js/cm-ai-grader.js), which took the place of the Check Your Work ticks
+  const ai = (data["cf-ai-grades"] || {}).blocks || {}, aiScore = id => ai[id] && typeof ai[id].score === "number" ? ai[id].score : null;
   const closed = n => { const d = cfDays().find(x => x.cf.n === n); const p = d ? ((rec.dayProgress || {})[d.id] || {}) : {}; return !!(p.done || (cfd[n] || {}).passed); };
   const reached = n => { const d = cfDays().find(x => x.cf.n === n); return closed(n) || !!(d && (rec.dayProgress || {})[d.id]) || (P.days[n] || {acts: []}).acts.some(a => worked(a.id)); };
   // an activity worked: a Check Your Work tick, its answers revealed, its work logged, or its own exercise done (the
   // voicemail transcribed, the Listening Check handed in, the call taken), as the Case Flow counts it (actDone)
-  const worked = id => ((ticks[id] || []).some(Boolean)) || !!rev[id] || !!(work[id] && work[id].ref) || !!((R.notes || {})[id] || {}).txAt || !!((R.listen || {})[id] || {}).at || !!(R.calls || {})[id];
+  const worked = id => aiScore(id) != null || ((ticks[id] || []).some(Boolean)) || !!rev[id] || !!(work[id] && work[id].ref) || !!((R.notes || {})[id] || {}).txAt || !!((R.listen || {})[id] || {}).at || !!(R.calls || {})[id];
   const days = cfDays().map(d => {
     const n = d.cf.n, pl = P.days[n] || {acts: [], docs: []}, shut = closed(n), areas = {};
     const put = (aid, it) => { (areas[aid] = areas[aid] || []).push(it); };
@@ -83,7 +85,7 @@ function compute(c){
       const id = String(cms.caseId || "").trim(), client = String(cms.client || "");
       const item = (name, ok, yes, no, pend) => put("open", ok == null ? {name, pct: null, pending: true, note: pend} : {name, pct: ok ? 100 : 0, note: ok ? yes : no});
       const due = shut || worked("d1m1-open");
-      item("CMS Case ID logged on Check Your Work", ref ? true : due ? false : null, `Logged: ${ref}`, "No CMS Case ID logged", "Log it on the first CMS activity's Check Your Work");
+      item("CMS Case ID logged on the AI Grader slide", ref ? true : due ? false : null, `Logged: ${ref}`, "No CMS Case ID logged", "Log it on the first CMS activity's AI Grader slide");
       item("The CMS reported your case open", id ? true : due ? false : null, `${id}${cms.at ? " · last heard " + new Date(cms.at).toLocaleDateString() : ""}`, "The CMS never reported a case: open your own case in 🗂 Open CMS", "Open your own case in the CMS beside the lesson");
       if(id){
         item("Client recorded as John Doe", /\bjohn\b/i.test(client) && /\bdoe\b/i.test(client), `Client: ${client}`, `The CMS has the client as "${client || "blank"}"`);
@@ -94,7 +96,8 @@ function compute(c){
     pl.acts.forEach(a => { const w = worked(a.id), t = ticks[a.id] || [];
       a.checks.forEach((ck, j) => {
         const base = {block: a.id, act: a.title, screen: a.screen, text: ck, revealed: !!rev[a.id]};
-        if(w) put(a.area, Object.assign(base, {pct: t[j] ? 100 : 0, note: t[j] ? "Checked off on Check Your Work" : "Not checked off: the file doesn't hold it yet"}));
+        if(w && !t.some(Boolean) && aiScore(a.id) != null) put(a.area, Object.assign(base, {pct: aiScore(a.id), note: `AI Grader: ${aiScore(a.id)}/100`}));
+        else if(w) put(a.area, Object.assign(base, {pct: t[j] ? 100 : 0, note: t[j] ? "Checked off on Check Your Work" : "Not checked off: the file doesn't hold it yet"}));
         else if(shut) put(a.area, Object.assign(base, {pct: 0, unworked: true, note: "Activity not worked: the day closed without this entry"}));
         else put(a.area, Object.assign(base, {pct: null, pending: true, note: "Still to do"}));
       }); });

@@ -30,11 +30,9 @@
     "image": "data-entry",
     "situation": "01/05/2027: the Pleadings Log for 26-CV-04417 was never reconciled to the calendar. The **15 RFAs** have no row; **their 01/04/2027 deadline** passed. A 01/04/2027 Certificate of Service sits unlogged.",
     "steps": [
-      "Add every missing row; **recompute each response date** with arithmetic",
-      "File each document in its **numbered sub-folder** under the convention",
-      "Calendar the **Scheduling Order's six dates**",
-      "**Prove RFA compliance** from the Certificate of Service",
-      "Record both misses honestly; **report them to Atty. Thorne** today"
+      "In the Pleadings Log, add every missing row and recompute each response date, **showing the arithmetic**.",
+      "File each document in its numbered folder and calendar the Scheduling Order's six dates.",
+      "Prove the RFA response from its Certificate of Service, record both misses honestly, and report them to Atty. Thorne today."
     ],
     "deliver": "A **corrected, source-linked log** and calendar, RFA compliance proved, misses reported the same day",
     "purpose": "A missed RFA deadline can mean **deemed admissions** against John Doe",
@@ -80,11 +78,9 @@
     "image": "calendar-gap",
     "situation": "01/20/2027: John Doe's **deposition notice** arrived for 02/18/2027. The trial-prep checklist was never reconciled to **the 12/10/2026 order**; there is no KPI tracker.",
     "steps": [
-      "Audit each line against the order: **right date, owner, three alerts**",
-      "Add the 02/18/2027 **deposition logistics and prep documents**",
-      "Build the tracker: **nine KPIs**, formula, target, sourced reading, status",
-      "Set one task per **review lens**: coverage, treatment, liability",
-      "Name **the two items** you route to Atty. Thorne first, and why"
+      "Audit the trial checklist line by line against the Scheduling Order: the right date, an owner and **three alerts** each.",
+      "Build the KPI tracker with all nine KPIs and set one task for each review lens.",
+      "Name the two items you route to Atty. Thorne first, and why."
     ],
     "deliver": "A checklist matching **the order date for date**, and a complete KPI tracker",
     "purpose": "A checklist that drifts from the order lets **a court date pass** unprepared",
@@ -142,11 +138,9 @@
     "image": "phone-call",
     "situation": "12/10/2026: Keystone PD's final position is **$792.00 and $0**, with a release of **“all claims”** for “Mr. Doe” to sign. Leah Moran calls this afternoon.",
     "steps": [
-      "Read the release: **its scope and claim number**",
-      "Hold it; route it to Atty. Thorne in **CMS → Tasks → Escalate**",
-      "Sort each outcome: **John's case or Margaret's file**",
-      "Take Leah Moran's call **without accepting or countering**",
-      "Write the memo ending in **the one-line answer**"
+      "Read Keystone's release for its scope and claim number, hold it, and route it to Atty. Thorne.",
+      "Sort each PD outcome into John's case or Margaret's file, and take Leah Moran's call **without accepting or countering**.",
+      "Write the memo ending in one line: does this touch John Doe's case, and how?"
     ],
     "deliver": "A memo sorting each PD outcome, **the release routed**, the call logged",
     "purpose": "One signature on a wide release could **reach John's BI claim**",
@@ -198,11 +192,9 @@
     "image": "client-call",
     "situation": "02/04/2027: John, reached through Margaret yesterday, has **a new number**. He's anxious about his **02/18/2027 video deposition**, expecting a TV cross-examination. You run the first segment; Atty. Thorne takes the substance after.",
     "steps": [
-      "Confirm his **new number**, with Margaret as backup",
-      "Confirm logistics and **a 02/16/2027 test call**",
-      "Deliver **the three pillars** and in-room rules; drill the pause",
-      "Answer no substance: log each question **in his words**",
-      "Have **Atty. Thorne's gap set** ready to share"
+      "Take the prep session below: confirm his new number and the 02/16/2027 test call.",
+      "Teach the three pillars and the room rules, and drill the pause.",
+      "Answer no questions about the case: log each one **in his words** for Atty. Thorne."
     ],
     "deliver": "A delivered segment, a logistics record, and **substantive questions routed** in John's words",
     "purpose": "A calm, prepared John gives **shorter, more accurate answers** on 02/18/2027",
@@ -252,11 +244,9 @@
     "image": "checklist-qa",
     "situation": "02/16/2027, the second prep session: Atty. Thorne runs a mock cross-examination. AI Mercer questions AI John; **your microphone is muted**. Atty. Thorne **debriefs from your log**.",
     "steps": [
-      "Open the Trap Log; **start the clock** at the first question",
-      "Log time, **exact words**, category, trap type and rules",
-      "Put **the record fact and source** beside every mischaracterisation",
-      "Log each objection and **whether John stopped talking**",
-      "**Coach nothing**; route the log to Atty. Thorne"
+      "Keep the Trap Log from the first question: time, **exact words**, category, trap type and the rules kept or broken.",
+      "Beside each mischaracterisation, put the record fact and its source, and log each objection.",
+      "Coach nothing, and route the log to Atty. Thorne."
     ],
     "deliver": "A **timestamped Trap Log**, scored against the seven Golden Rules, routed before the debrief",
     "purpose": "Atty. Thorne's debrief is only as good as **the log you keep**",
@@ -307,11 +297,9 @@
     "image": "documents-audit",
     "situation": "11/12/2026: Atty. Grant Mercer's Answer pleads **comparative negligence** (out of turn; unbelted), causation and **failure to mitigate**. The file holds RPD-26-018842, Ruth Calloway, the doorbell video, EDR, EMS report, A-C-T record.",
     "steps": [
-      "List the evidence answering **each of the three allegations**",
-      "Give each item **source, witness, custody** and foundation gaps",
-      "Write **the video's chain** from 02/17/2026 to 02/19/2026",
-      "Draft **a narrow Exhibit A** for any needed custodian",
-      "Close with questions **only Atty. Thorne can answer**"
+      "For each of the three allegations, list the evidence that answers it with its source, witness and **chain of custody**.",
+      "Write the doorbell video's chain from 02/17/2026 to 02/19/2026, and draft a narrow Exhibit A for any custodian needed.",
+      "Close with the questions only Atty. Thorne can answer."
     ],
     "deliver": "An **allegation-by-allegation counter-package** with full foundation, a draft Exhibit A, questions routed",
     "purpose": "Each of Mercer's three defenses needs **a documented, authenticated answer**",
@@ -363,11 +351,9 @@
     "image": "email-outreach",
     "situation": "10/08/2026: **a third failed attempt** at 118 Larkspur Ln; a neighbor says Smith moved in August. 01/22/2027: calls to John Doe go unanswered, **deposition 02/18/2027**, prep 02/04 and 02/16/2027.",
     "steps": [
-      "Escalate for **Skip-Trace authority**",
-      "Pick the address on **recency and two corroborating sources**",
-      "Re-instruct the server; log service and affidavit; **docket the answer date**",
-      "Run Steps 1–3; draft **the Step 4 certified notice**",
-      "Assess John's **Skip-Trace gate** on Day 2's three criteria"
+      "Escalate for Skip-Trace authority, choose the address on recency and two sources, and log service and the **answer date**.",
+      "Run Steps 1 to 3, then draft the Step 4 certified notice for Atty. Thorne's signature and send it by certified mail and email.",
+      "Assess John's Skip-Trace gate on Day 2's three criteria."
     ],
     "deliver": "A service record through the answer date; **a certified notice dispatched**, both deliveries logged",
     "purpose": "An unserved defendant stalls the case; **an unreachable client** imperils his deposition",
@@ -425,11 +411,9 @@
     "image": "email-outreach",
     "situation": "Practice matter, 12/09/2026: Denise Harlow has **no Health Plan** and stopped treatment 10/29/2026. Atty. Thorne dropped the case and told her 12/08. Status: **Pending Drop**.",
     "steps": [
-      "Record **the gate**: Pending Drop and Atty. Thorne's note",
-      "Draft Denise's letter with **his reason and next step**",
-      "Draft Granite Shield's and Brookside's letters, **no reason given**",
-      "Send by text, email and **Certified Mail**; email; fax",
-      "Log, follow up 12/16/2026, then **switch to Dropped**"
+      "Record the gate: Pending Drop and Atty. Thorne's note.",
+      "Draft the three Withdrawal Letters for his signature: Denise's with **his reason** and next step, the two carriers' with no reason given.",
+      "Send each by its method, log it, follow up on 12/16/2026, then switch the case to Dropped."
     ],
     "deliver": "Three letters for his signature and **a close-out log to Dropped**",
     "purpose": "Denise must learn **time limits apply**; carriers must learn only that we're out",
@@ -474,11 +458,9 @@
     "image": "money-ledger",
     "situation": "File date 07/22/2027. The award gave **Harbor Point $20,000.00 and Cardinal State $10,000.00**; with Keystone's $10,000.00, **$40,000.00 is in trust**. Peach State accepted $1,116.00, Riverton $4,275.00.",
     "steps": [
-      "Enter **the gross by carrier**: $40,000.00",
-      "Apply **the 40% fee** the retainer sets after suit",
-      "Post **every receipted cost** on its row",
-      "Enter each lien's **reduced figure** with its Payoff Letter",
-      "**Route the Settlement Statement** to Atty. Thorne"
+      "In the LSH Net Sheet, enter the gross by carrier, the **40% fee** after suit, and every receipted cost.",
+      "Enter each lien's reduced figure with its Payoff Letter and tie the sheet to the Trust Ledger.",
+      "Route the Settlement Statement to Atty. Thorne."
     ],
     "deliver": "A Net Sheet reaching **$14,713.75**, every cost and lien proved",
     "purpose": "The client's money moves on this sheet: **one wrong line** shortchanges John Doe",
@@ -534,13 +516,11 @@
   },
   "d4m1-efile": {
     "image": "legal-filing",
-    "situation": "09/22/2026, Track B. Atty. Thorne approved **his Complaint** this morning. Filing target **09/24/2026**. A 09/15 draft, unsigned, sits in the CMS.",
+    "situation": "Assuming Atty. Thorne **signed the Complaint** on 09/23/2026 and the court accepted it on 09/24 as 26-CV-04417, the filing must be logged.",
+    "side": true,
     "steps": [
-      "Tag Nadia Brooks in **CMS → Tasks**: cover sheet, summons",
-      "Check **every signature** before you upload",
-      "Submit the envelope in **Court E-Filing**: $218.00",
-      "Record **26-CV-04417** in the Pleadings Log and Documents",
-      "Calendar service, the conference and **answer: set on service**"
+      "Log it in the CMS: record 26-CV-04417 in the Pleadings Log, file the stamped Complaint and summons, and add the **$218.00 fee** to costs.",
+      "On the CMS Calendar, enter the service deadline with alerts and the Case Management Conference, and hold the answer date until service."
     ],
     "deliver": "A signed set filed as **26-CV-04417**, recorded and calendared",
     "purpose": "An unsigned page or an uncalendared date can **sink the suit**",
@@ -563,11 +543,9 @@
     "image": "checklist-qa",
     "situation": "07/30/2027, 3:00 p.m. The award is **disbursed**, and the file waits on **Atty. Thorne's sign-off**.",
     "steps": [
-      "Litigation and ADR papers into **09 Litigation & ADR**",
-      "Final audit: **backed up equals filed**, all nine folders",
-      "Run **✓ Check my drive** from 📂 My Backup Drive",
-      "Write the **closing checklist** in Case Notes",
-      "After sign-off: **move to 04 Closed Files** (described)"
+      "File the litigation and ADR papers in the CMS so they reach **09 Litigation & ADR**.",
+      "Run ✓ Check my drive and confirm the drive holds every document filed in the CMS, across all nine folders.",
+      "Write the closing checklist in Case Notes for Atty. Thorne's sign-off. Do not move the folder in your training drive."
     ],
     "deliver": "A complete, checked backup **ready to close**",
     "purpose": "Years later, **anyone can find any page**",
