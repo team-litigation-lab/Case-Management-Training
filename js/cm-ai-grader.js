@@ -214,10 +214,12 @@ window.CMAIGrader = {
     const {b, n, dayId} = f, cs = CF().case || {}, sl = SLIDES()[id] || {};
     const label = `Day ${dayId} · Case Flow Day ${n} · ${b.title} — Skill Building`;
     const ctx = `Case: ${cs.style || "John Doe VS Robert Smith"}${cs.type ? ", " + cs.type : ""}. ${cs.counsel ? "Lead Counsel " + cs.counsel + ". " : ""}${cs.dol ? "DOL " + cs.dol + "; " : ""}${cs.sol ? "SOL " + cs.sol + ". " : ""}\n`
-      + `Activity (Case Flow Day ${n}): ${b.title}\nScenario: ${(b.act || {}).scenario || plain(sl.situation)}\n`
-      + `What the trainee was asked to do: ${(b.act || {}).prompt || ""}\nSteps on the slide:\n${(sl.steps || []).map((s, i) => `${i + 1}. ${plain(s)}`).join("\n")}\n`
-      + `Where it is done: ${(b.act || {}).tool || ""}\nExpected output: ${(b.act || {}).output || plain(sl.deliver)}\n`
-      + `Answer key (what a correct file holds): ${((b.act || {}).checkpoints || []).join(" | ")}${(sl.checks || []).length ? " | " + sl.checks.map(plain).join(" | ") : ""}`;
+      + `Activity (Case Flow Day ${n}): ${b.title}\nScenario: ${(!sl.side && (b.act || {}).scenario) || plain(sl.situation)}\n`
+      // a side activity's task is only the slide's own steps (its "Assuming …"): the full activity's prompt and checkpoints
+      // would grade work the slide never asked for, so its answer key is the slide's checks alone
+      + `${sl.side ? "" : `What the trainee was asked to do: ${(b.act || {}).prompt || ""}\n`}Steps on the slide:\n${(sl.steps || []).map((s, i) => `${i + 1}. ${plain(s)}`).join("\n")}\n`
+      + `Where it is done: ${(b.act || {}).tool || ""}\nExpected output: ${(!sl.side && (b.act || {}).output) || plain(sl.deliver)}\n`
+      + `Answer key (what a correct file holds): ${(sl.side ? [] : ((b.act || {}).checkpoints || [])).concat((sl.checks || []).map(plain)).join(" | ")}`;
     const notes = `This is a Skill Building activity worked in the CMS and the course's tools; the submission is the trainee's account of what they did, with what the platform recorded. `
       + `Lines that start with a number are the task's own steps: grade what the trainee wrote after each arrow and the platform records, not the step text. `
       + `${sl.side ? "This is a short side activity: the task is only to log the entry in the CMS under the stated assumptions; do not mark down for leaving out work it did not ask for. " : ""}`
