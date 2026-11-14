@@ -57,7 +57,7 @@ jobs:
 
   smoke:
     name: Smoke test in a browser
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # Playwright 1.56.1 can't install Chromium on ubuntu-latest (26.04) yet
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
