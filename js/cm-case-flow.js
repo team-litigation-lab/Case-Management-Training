@@ -543,7 +543,9 @@ function viewsOf(b, drawn){   // drawn: the lesson's own slides, as before its d
   if(b.kind === "lesson" && b.brief) return ["why"].concat(docView(b), ["rules"]);   // brief: a condensed overview (Day 5's litigation); no Theory slide, so Why It Matters stays
   if(b.kind === "lesson" && b.compact) return mapView(b).concat(theoryViews(b).slice(0, 1), whyView(b), docView(b), ["rules"]);   // compact: a full topic on fewer slides
   if(b.kind === "lesson") return mapView(b).concat(theoryViews(b), whyView(b), docView(b), ["rules"], b.show ? ["model"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // The Theory opens with why it matters; noGame: the CM introduction
-  if(b.kind === "activity") return ["task", "case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], EX.audits[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);   // Your Task first: what to do, then the file it's done on   // compact: no See It slide (the worked model stays in 📖 Full text)
+  // one page of instructions (Your Task), its materials (Your Case, with the 🧠 banner), the work itself where there is
+  // some (the exhibit audit), then Submit: the Grade-A Standard and See It slides are in 📖 Reference, not on the deck
+  if(b.kind === "activity") return ["task", "case"].concat(EX.audits[b.id] ? ["audit"] : [], ["check"]);   // Your Task first: what to do, then the file it's done on   // compact: no See It slide (the worked model stays in 📖 Full text)
   return (copyOf(b).questions.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
 }
 const SMALL = new Set(["a", "an", "the", "and", "or", "but", "nor", "of", "to", "in", "on", "for", "at", "by", "with", "from", "as", "per", "vs.", "v.", "via", "into"]);
@@ -1146,6 +1148,7 @@ function daySchedule(d){
   return sc;
 }
 function lectureParts(d){ return daySchedule(d).parts; }   // the lessons' parts: a run of lessons under one section heading
+window.cmCaseFlow.plainOf = id => (plainFirst()[id] || []).map(t => ({t, d: (CF.plain || {})[t] || ""}));   // js/cm-day-loop.js: the terms a Skill Building's banner names
 window.cmCaseFlow.schedule = daySchedule;   // js/cm-day-loop.js: the side exercises' minutes
 /* "2.3 Liability Investigation": a lesson by its number and its title up to the first colon (the Practice Lab's list and
    an activity's first slide name the lesson an activity practises this way) */
@@ -4323,7 +4326,8 @@ function caseFlowPractice(){
     const sessionTools = open ? Object.keys(firstFor).map(id => toolChip(id, firstFor[id].blockId)).filter(Boolean).join("") : "";
     // the module's Practice, in the order the work happens, grouped under each activity's heading
     const groups = [];
-    d.lessons.forEach((l, li) => { if(l.cf.block.kind !== "activity") return; const t = l.cf.heading.replace(/^Skill Building:\s*/, ""), last = groups[groups.length - 1];
+    const only = window.cmDayLoop && window.cmDayLoop.mainId ? window.cmDayLoop.mainId(d) : "";   // one Skill Building a day: the Practice page offers it alone
+    d.lessons.forEach((l, li) => { if(l.cf.block.kind !== "activity" || (only && l.cf.block.id !== only)) return; const t = l.cf.heading.replace(/^Skill Building:\s*/, ""), last = groups[groups.length - 1];
       if(last && last.title === t) last.acts.push({b: l.cf.block, li}); else groups.push({title: t, acts: [{b: l.cf.block, li}]}); });
     // one screen: every activity a compact tile (its topic, title, tool and documents; the output on hover), in a grid
     // the daily loop (js/cm-day-loop.js): the day's one Skill Building marked 🎯, every other activity an optional side exercise

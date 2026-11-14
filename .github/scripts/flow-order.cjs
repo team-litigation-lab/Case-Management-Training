@@ -55,13 +55,12 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
       // the practice starts with the daily loop's Case Profile slide (js/cm-day-loop.js)
       const lab = at.findIndex(x => x.type === 'meetJohnDoe' || x.type === 'profileCheck');
       if (lab < 0) out.push(`${L}: no Case Profile slide after the lessons (the daily loop's step 2)`);
-      if (at.filter(x => x.type === 'practiceLab').length !== (d.cf.build ? 0 : 1)) out.push(`${L}: ${at.filter(x => x.type === 'practiceLab').length} Practice Lab slides; a day has one, of its side exercises (a build day none: they are its Optional Extra Practice)`);
+      if (at.some(x => x.type === 'practiceLab' || x.type === 'extraPractice')) out.push(`${L}: a Practice Lab of side exercises is on the deck: one Skill Building a day`);
       at.forEach((x, k) => {
         if (x.kind === 'lesson' && lab >= 0 && k > lab) out.push(`${L} slide ${k + 1}: a lesson slide (${x.id} ${x.view}) after the day's first practice slide (slide ${lab + 1})`);
         if (x.kind === 'activity' && (lab < 0 || k < lab)) out.push(`${L} slide ${k + 1}: a Skill Activity slide (${x.id} ${x.view}) before the Practice Lab`);
         if (x.kind === 'check') out.push(`${L} slide ${k + 1}: a Learning Check (${x.id}) is a slide; it belongs to the day's Knowledge Check page`);
       });
-      if (d.cf.build && at.findIndex(x => x.type === 'extraPractice') < at.findIndex(x => x.type === 'companionBuild2')) out.push(`${L}: the optional extra practice should follow the build`);
       // every block: its slides together, once, in the fixed order
       const runs = []; at.forEach((x, k) => { if (!x.id) return; const r = runs[runs.length - 1]; if (r && r.id === x.id && r.to === k - 1) { r.to = k; r.views.push(x.view); } else runs.push({ id: x.id, kind: x.kind, from: k, to: k, views: [x.view], b: x.b }); });
       const seen = {};
@@ -83,15 +82,18 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
           if (r.views.includes('why') && r.views.includes('theory')) out.push(`${L}: ${r.id} has both The Theory and a Why It Matters slide`);
           if (r.views.includes('why') && r.views[r.views.includes('map') ? 1 : 0] !== 'why') out.push(`${L}: ${r.id}: Why It Matters should open a lesson with no Theory slide (${r.views.join(' → ')})`);
           if (r.views[r.views.length - 1] !== (r.views.includes('dodont') ? 'dodont' : r.views.includes('model') ? 'model' : 'rules')) out.push(`${L}: ${r.id} should end on The Rules, See It or Do & Don't (${r.views.join(' → ')})`);
-        } else if (r.views[0] !== 'task' || r.views[1] !== 'case' || r.views[r.views.length - 1] !== 'check') out.push(`${L}: ${r.id} should run Your Task → Your Case → … → AI Grader (${r.views.join(' → ')})`);
+        } else if (r.views[0] !== 'task' || r.views[1] !== 'case' || r.views[r.views.length - 1] !== 'check') out.push(`${L}: ${r.id} should run Your Task → Your Case → … → Submit (${r.views.join(' → ')})`);
       });
-      d.lessons.forEach(l => { if (l.cf.block.kind !== 'check' && !seen[l.cf.block.id]) out.push(`${L}: ${l.cf.block.id} (${l.cf.block.kind}) has no slide in the deck`); });
+      // every lesson is on the deck; of the activities, the day's one Skill Building (a build day: none, it builds instead)
+      const mainOf = (CM_CASE_FLOW.sequence.find(s => s.n === n) || {}).main || '';
+      d.lessons.forEach(l => { const k = l.cf.block.kind; if (k === 'check' || (k === 'activity' && l.cf.block.id !== mainOf)) return; if (!seen[l.cf.block.id]) out.push(`${L}: ${l.cf.block.id} (${k}) has no slide in the deck`); });
+      d.lessons.forEach(l => { if (l.cf.block.kind === 'activity' && l.cf.block.id !== mainOf && seen[l.cf.block.id]) out.push(`${L}: ${l.cf.block.id} is on the deck, but only the day's Skill Building is`); });
       // the lessons in the order the sequence lists them, the activities too
       // (the activities: the day's one Skill Building first, then the side exercises in the sequence's order)
       const main = (CM_CASE_FLOW.sequence.find(s => s.n === n) || {}).main || '';
       const ord = kind => runs.filter(r => r.kind === kind).map(r => r.id).join(' '), seq = kind => d.lessons.filter(l => l.cf.block.kind === kind).map(l => l.cf.block.id).sort((a, b) => kind === 'activity' ? (b === main) - (a === main) : 0).join(' ');
       if (ord('lesson') !== seq('lesson')) out.push(`${L}: the lessons are not in the order the course teaches them`);
-      if (ord('activity') !== seq('activity')) out.push(`${L}: the Skill Activities are not the day's Skill Building and then the side exercises in the sequence's order`);
+      if (ord('activity') !== (main ? main : '')) out.push(`${L}: the deck's Skill Activities should be the day's one Skill Building (${main || 'none on a build day'}): ${ord('activity')}`);
       // what each slide draws: that view of that block
       goto('day', d.id); state.dayViewMode = 'slides'; render();
       for (let k = 0; k < deck.length; k++) {
@@ -207,6 +209,7 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
   const skip = await page.evaluate(async () => {
     const d = DAYS.find(x => x.cf && x.cf.build); if (!d) return null;
     const deck = buildDaySlides(d), ex = deck.findIndex(x => x.type === 'extraPractice'), ready = deck.findIndex(x => x.type === 'readyCheck');
+    if (ex < 0) return { none: true };   // one Skill Building a day: no Optional Extra Practice on the deck
     state.isAdmin = false; state.slideProgress = state.slideProgress || {}; state.slideProgress[d.id] = Math.max(1, state.slideProgress[d.id] || 0); goto('day', d.id);
     if (state.view !== 'day' || state.dayId !== d.id) return { err: 'the day did not open for the trainee' }; state.dayViewMode = 'slides'; state.maxSlideReached = ex; state.lessonSlide = ex; render(); await new Promise(r => setTimeout(r, 30));
     const btn = document.querySelector('#lessonSlideWrap .cfx-ex-go button'); if (!btn) return { err: 'no ⏭ button on Optional Extra Practice' };
@@ -214,6 +217,7 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
     return { label, at: state.lessonSlide, ready, view: state.view, mode: state.dayViewMode, last: deck.length - 1, reached: state.maxSlideReached };
   });
   if (!skip) fail('no build day (Day 5) found');
+  else if (skip.none) { /* no Optional Extra Practice: nothing to skip */ }
   else if (skip.err) fail(`Day 5: ${skip.err}`);
   else {
     if (!/Ready for the Knowledge Check/.test(skip.label) || /Skip to the Knowledge Check/.test(skip.label)) fail(`Day 5: the ⏭ button on Optional Extra Practice should say it goes to the Ready check: "${skip.label}"`);

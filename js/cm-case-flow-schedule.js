@@ -118,7 +118,7 @@ function loopSchedule(items, opts){
   const lessons = items.filter(x => x.kind === "lesson");
   const base = schedule(lessons, {lessonMax: opts.lessonMax});
   const profile = LOOP.profile[first ? 0 : 1], plan = LOOP.plan[first ? 0 : 1];
-  const sides = items.filter(x => x.kind === "activity" && x !== main);
+  const sides = [];   // one Skill Building a day: the other activities are no longer side exercises on the day
   const side = fill || !sides.length ? 0 : Math.min(SIDE.max, SIDE.each * sides.length);
   const brainstorm = main ? STORM.each : 0, kc = base.kc;
   // the lessons keep their 30% (less only when the loop's fixed steps and the Skill Building's least would not fit)

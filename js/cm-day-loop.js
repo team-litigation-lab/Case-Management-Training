@@ -60,7 +60,8 @@ buildDaySlides = function(d){
   });
   if(!main.length && !build.length) return s;   // a day without its Skill Building (not this course's data): as it was
   if(!step2.length) step2.push({type: PROFILE});
-  const lab = sides.length ? (labHead.length ? labHead.slice(0, 1) : [{type: "practiceLab"}]).concat(sides) : [];
+  // one Skill Building a day: the optional side exercises (and their Practice Lab) are no longer on the deck
+  const lab = [];
   return head.concat(lessons, step2, main, build, [{type: PLAN}], lab, ready, tail);
 };
 
@@ -103,7 +104,7 @@ function stepOf(d, sl){
    One row for the loop's three steps (the agenda's grid keeps the three rows Part 2 had: label, the loop, the Knowledge
    Check, so the slide is not scaled down further), the label saying how many optional side exercises follow. Day 1's
    Intake (d1m1-open, opening John Doe's file in the CMS) IS the day's Skill Building: one practical, not two. */
-const sideCount = d => d.lessons.filter(x => x.cf.block.kind === "activity" && x.cf.block.id !== mainId(d)).length;
+const sideCount = d => 0;   // one Skill Building a day: no side exercises follow it
 function mainName(d, sc){
   const l = mainLesson(d);
   if(sc && sc.build || d.cf.build) return "Build Your Companion Case";
@@ -241,8 +242,26 @@ if(typeof window.renderLessonCard === "function"){
     return String(html).replace(/(<div class="topic-separator cfx-sepline">[^<]*)(<\/div>)/, `$1 &middot; ${tag}$2`)
       .replace(/(class="card lesson-card cf-card cfx )/, `$1${b.id === mainId(d) ? "dl-main " : "dl-side-ex "}`)
       // the band's label: "Practice Lab" now names only the optional block after the Action Plan
-      .replace(/(<i class="cfx-what-k">)Practice Lab(<\/i>)/, `$1${b.id === mainId(d) ? "Skill Building" : "Optional Side Exercise"}$2`);
+      .replace(/(<i class="cfx-what-k">)Practice Lab(<\/i>)/, `$1${b.id === mainId(d) ? "Skill Building" : "Optional Side Exercise"}$2`)
+      // the materials of a voicemail are transcribed: the slide says so (not "Your Case")
+      .replace(/(<b class="cfx-what-v">)Your Case(<\/b>)/, `$1${vmOf(b.id) ? "Transcription Exercise" : "Your Case"}$2`)
+      // 🧠 a critical-thinking banner opens the materials, tied to the lesson it practises and its plain-English terms
+      .replace(/(<div class="cfx-sb(?: [^"]*)?">)/, m => m + thinkBanner(l, b));
   };
+}
+const vmOf = id => { const ev = ((window.CM_CF_SIM || {}).events || {})[id]; return !!(ev && ev.channel === "voicemail"); };
+// the first real sentence of a text: not a date or a "File date …" line, at least a few words
+const firstS = t => (String(t || "").replace(/\*\*/g, "").match(/[^.!?]*[.!?](?=\s|$)/g) || []).map(x => x.trim()).find(x => x.split(/\s+/).length >= 6 && !/^(File date\b|\d{2}\/\d{2}\/\d{4})/.test(x)) || "";
+function thinkBanner(l, b){
+  const sl = (window.CM_CF_SLIDES || {})[b.id] || {}, of = l && l.cf && l.cf.of;
+  const plainOf = id => window.cmCaseFlow && typeof cmCaseFlow.plainOf === "function" ? cmCaseFlow.plainOf(id) : [];
+  const seen = new Set(), terms = plainOf(b.id).concat(of ? plainOf(of.cf.block.id) : []).filter(x => !seen.has(x.t) && seen.add(x.t)).slice(0, 4);
+  const what = firstS(sl.situation) || firstS((b.act || {}).scenario);
+  const ask = vmOf(b.id) ? "Listen first and transcribe it word for word. Then decide: what does it change on the file, what do you log, and what is Atty. Thorne's call?"
+    : "Before you open the CMS, decide: what does the file need from you, in what order, and what is Atty. Thorne's call?";
+  return `<div class="dl-think" role="note"><b class="dl-think-h">🧠 Think it through</b><p>${what ? E(what) + " " : ""}${E(ask)}</p>`
+    + (of || terms.length ? `<p class="dl-think-use">${of ? `<span>Use <b>${E(String(of.h || "").split(" ")[0])} ${E(of.cf.block.title)}</b></span>` : ""}${terms.map(x => `<details class="dl-think-t"><summary>📖 ${E(x.t)}</summary><span>${E(x.d)}</span></details>`).join("")}</p>` : "")
+    + `</div>`;
 }
 // Presenter view: what to say on the loop's own slides (build/case-flow/scripts/days.json "profile", "plan", "lab")
 const said = (n, k) => (((window.CM_CF_SCRIPTS || {})._days || {})[n] || {})[k];
@@ -274,6 +293,12 @@ if(!document.getElementById("dl-css")){
 .dl-plan li::before{display:none !important;content:none !important;}
 .dl-plan .dl-n{flex:none;display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#1E2340;color:#fff;font:800 16px/1 var(--font-ui,'Inter',sans-serif);}
 .dl-plan-at{font:700 16px/1.3 var(--font-ui,'Inter',sans-serif);color:#1F7A4D;}
+.dl-think{margin:0 0 10px;padding:10px 14px;border-radius:12px;background:#FFF6EA;border:2px solid #DB8437;color:#1E2340;font:600 16px/1.45 var(--font-ui,'Inter',sans-serif);}
+.dl-think p{margin:2px 0 0;} .dl-think-h{font-weight:900;color:#A4470F;}
+.dl-think-use{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:14px;}
+.dl-think-t{display:inline-block;position:relative;} .dl-think-t summary{cursor:pointer;list-style:none;padding:1px 8px;border-radius:7px;background:#1E2340;color:#fff;font-weight:800;}
+.dl-think-t summary::-webkit-details-marker{display:none;}
+.dl-think-t[open] span{position:absolute;z-index:5;left:0;top:calc(100% + 4px);width:min(420px,70vw);padding:8px 10px;border-radius:8px;background:#fff;border:2px solid #1E2340;box-shadow:0 6px 18px rgba(30,35,64,.2);font-weight:600;}
 .dl-side-lead{margin:0 0 10px;font:700 17px/1.4 var(--font-ui,'Inter',sans-serif);color:#2B3147;}
 .dl-side-go{margin-top:6px !important;}
 `;
