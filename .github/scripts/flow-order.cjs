@@ -7,7 +7,7 @@
 //   · a block's slides sit together, in the one fixed order: a lesson is The Roadmap → The Theory → The Theory,
 //     Continued → The Framework → The Document → The Rules → See It → Do & Don't (a lesson with no Theory slide opens
 //     with Why It Matters instead); an activity is Your Task → Your Case → The Grade-A Standard → Audit → See It →
-//     Check Your Work; and what each slide draws is that view of that block (its label and its block's title);
+//     the AI Grader; and what each slide draws is that view of that block (its label and its block's title);
 //   · a lesson drawn from the trainer's own deck pages (js/cm-deck-slides.js, window.CM_DECK_SLIDES) is a lesson like
 //     any other, before the Practice Lab: its slides are its deck pages and nothing else, together, in the deck's
 //     order (rising page numbers), each labelled with its page's title in the band and in the slide picker;
@@ -29,7 +29,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
 const LESSON = ['map', 'theory', 'theory2', 'frame', 'why', 'doc', 'rules', 'model', 'dodont'];
 const ACTIVITY = ['task', 'case', 'grade', 'audit', 'model', 'check'];
 const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, Continued', frame: 'The Framework', why: 'Why It Matters', doc: 'The Document', rules: 'The Rules', model: 'See It', dodont: "Do & Don't",
-  task: 'Your Task', case: 'Your Case', grade: 'The Grade-A Standard', audit: 'Audit & the Finished Set', check: 'Check Your Work' };
+  task: 'Your Task', case: 'Your Case', grade: 'The Grade-A Standard', audit: 'Audit & the Finished Set', check: 'AI Grader' };
 (async () => {
   const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
   const page = await browser.newPage({ viewport: { width: 1366, height: 768 } });
@@ -79,7 +79,7 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
           if (r.views.includes('why') && r.views.includes('theory')) out.push(`${L}: ${r.id} has both The Theory and a Why It Matters slide`);
           if (r.views.includes('why') && r.views[r.views.includes('map') ? 1 : 0] !== 'why') out.push(`${L}: ${r.id}: Why It Matters should open a lesson with no Theory slide (${r.views.join(' → ')})`);
           if (r.views[r.views.length - 1] !== (r.views.includes('dodont') ? 'dodont' : r.views.includes('model') ? 'model' : 'rules')) out.push(`${L}: ${r.id} should end on The Rules, See It or Do & Don't (${r.views.join(' → ')})`);
-        } else if (r.views[0] !== 'task' || r.views[1] !== 'case' || r.views[r.views.length - 1] !== 'check') out.push(`${L}: ${r.id} should run Your Task → Your Case → … → Check Your Work (${r.views.join(' → ')})`);
+        } else if (r.views[0] !== 'task' || r.views[1] !== 'case' || r.views[r.views.length - 1] !== 'check') out.push(`${L}: ${r.id} should run Your Task → Your Case → … → AI Grader (${r.views.join(' → ')})`);
       });
       d.lessons.forEach(l => { if (l.cf.block.kind !== 'check' && !seen[l.cf.block.id]) out.push(`${L}: ${l.cf.block.id} (${l.cf.block.kind}) has no slide in the deck`); });
       // the lessons in the order the sequence lists them, the activities too

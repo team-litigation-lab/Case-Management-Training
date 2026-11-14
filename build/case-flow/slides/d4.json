@@ -30,11 +30,9 @@
     "image": "escalation-alert",
     "situation": "File date 09/08/2026, Track B. Keystone called $3,500 **“final” on 08/12**; the demand lapsed 08/21. Follow-ups 08/24 and 08/31 and the 09/02 escalation: **no answer**. SOL 02/06/2028.",
     "steps": [
-      "Build a **dated chronology** from the 07/20/2026 demand to 09/04",
-      "Tie each event to **its proof** in the Communications Log",
-      "State Keystone's grounds and the **unanswered rebuttal evidence**",
-      "Show the **frozen stack**, the Specials, then SOL and internal dates",
-      "End with the decision needed, **framed as questions**"
+      "Draft the impasse memo to Atty. Thorne with a dated chronology from the 07/20/2026 demand, each event tied to its proof.",
+      "State Keystone's grounds, the rebuttal it has not answered, the stack and the dates.",
+      "End with the decision you need, written as **questions**, and recommend nothing legal."
     ],
     "deliver": "A dated, sourced memo to Atty. Thorne: **asks for a decision**, recommends none",
     "purpose": "Atty. Thorne decides suit from this memo; **an undated impasse** proves nothing",
@@ -86,11 +84,9 @@
     "image": "cms-screen",
     "situation": "File date 09/10/2026, Track B. On 09/09 Atty. Thorne **authorized suit** in the State Court of Riverton County, filing target **09/24/2026**. Harbor Point's UM policy has an arbitration clause.",
     "steps": [
-      "Set status on the 09/09 authorization; **never guess a case number**",
-      "Record the fee tier **as the retainer sets it**",
-      "Build the **five litigation folders** to the firm standard",
-      "Draft UM notices and preservation requests **for his approval**",
-      "Seed the Litigation Calendar **with 48-hour audits**"
+      "In the CMS, set the file to Litigation on the 09/09 authorization, open the court fields without guessing a case number, and record the fee tier.",
+      "Build the five litigation folders and draft the UM notices and preservation requests **for his approval**.",
+      "Open the ADR fields and seed the Litigation Calendar with 48-hour audits."
     ],
     "deliver": "Litigation status with every field, folder, notice and date **on Atty. Thorne's authority**",
     "purpose": "Court dates, fees and notices all run **from this transition**",
@@ -202,11 +198,9 @@
     "image": "calendar-gap",
     "situation": "12/10/2026: the Scheduling Order in No. 26-CV-04417 was entered. Discovery, including **15 RFAs**, was mailed 12/01/2026. SOL 02/06/2028. A colleague re-keyed the calendar: **unverified, no alerts**.",
     "steps": [
-      "Recompute every entry **from its trigger document**",
-      "Exclude the trigger day; **add 3 mail days**",
-      "Move forward counts later, **backward counts earlier**",
-      "Fix errors, add missing entries, **leave correct ones alone**",
-      "Rank errors by risk; **route the log** to Atty. Thorne"
+      "Recompute every calendar entry from its trigger document: leave out the trigger day, add 3 mail days, and move to the **right business day**.",
+      "Fix the errors, add the missing entries, leave correct ones alone, and mirror each change to the CMS Calendar.",
+      "Rank the errors by risk, log them in Case Notes and route them to Atty. Thorne."
     ],
     "deliver": "A verified calendar and **a ranked correction log** routed to Atty. Thorne",
     "purpose": "One mis-counted day can **deem 15 RFAs admitted** or end the claim",
@@ -276,11 +270,9 @@
     "image": "arbitration",
     "situation": "It is 04/05/2027. Keystone tendered **$10,000 BI** at mediation; Harbor Point invokes arbitration, Cardinal State joins. Hearing before Laura Whitcomb, Esq. **06/22/2027 (Tue)**; exhibits 20 days before, brief 10.",
     "steps": [
-      "Build the matrix: a column each for **mediation and arbitration**",
-      "Hard-code the arbitration dates today, **counting back from the hearing**",
-      "Map **the UPL boundary** for the hearing",
-      "Script your exact words **if asked about a bill**",
-      "Route both **to Atty. Thorne**"
+      "In the Action Plan Editor, build the ADR rules matrix with a column for the mediation and one for the arbitration.",
+      "Hard-code the arbitration dates today, counting back from the hearing, and map **the UPL line** for the hearing, with your exact words if asked about a bill.",
+      "Route both to Atty. Thorne."
     ],
     "deliver": "A two-forum matrix, **dates hard-coded**, and a UPL map, routed to Atty. Thorne",
     "purpose": "A binding award has **almost no appeal**: a missed date can't be undone",
@@ -305,11 +297,9 @@
     "image": "documents-audit",
     "situation": "04/05/2027. Harbor Point offers **$8,000 of $20,000**; Cardinal State **$6,000 of $10,000**. Both refuse to move.",
     "steps": [
-      "Write the impasse memo: **offers against the limits**",
-      "Quote **each layer's dispute-resolution clause** verbatim",
-      "Ask the route, the deadline and consolidation **in writing**",
-      "Open the ADR entry and **hold every date**",
-      "Draft John Doe's **procedural** explanation"
+      "Write the impasse memo to Atty. Thorne: the offers against the limits and each layer's dispute clause, **quoted word for word**.",
+      "Ask him in writing for the route, the deadline and whether to combine them, and set up the CMS entries to hold every date.",
+      "Draft what you will tell John Doe about the process, with no opinion."
     ],
     "deliver": "An impasse memo, a routed CMS file, **no opinion in either**",
     "purpose": "Two UM layers, two clauses: **a misread route** sends the claim the wrong way",
@@ -376,11 +366,9 @@
     "image": "money-ledger",
     "situation": "It is 03/04/2027; binder due **03/11/2027** for the 03/18/2027 mediation. The draft carries Riverton Spine & Rehab at **$6,290.00** and Crescent's $3,400.00 as open. Riverton's certified ledger is outstanding.",
     "steps": [
-      "Build six sections from **the master index**",
-      "Map every pleaded defense **to the exhibit answering it**",
-      "Rebuild the ledger from certified bills **to $16,401.40**",
-      "Cross-check balances **against PIP and Peach State**",
-      "Add Negotiation Log, release, consent requests; **route to Atty. Thorne**"
+      "Build the six sections from the master index, starting from the 07/20/2026 demand, and give each document **one exhibit number** and Bates range.",
+      "Map every defense in the answer to the exhibit that answers it, and rebuild the ledger from the certified bills to $16,401.40.",
+      "Add the Negotiation Log, a draft release and the consent requests, then route the binder to Atty. Thorne."
     ],
     "deliver": "Indexed, OCR-searchable binder with **an audited ledger**, routed to Atty. Thorne, ready by 03/11/2027",
     "purpose": "Keystone won't put a real number up **while the ledger is unverified**",
@@ -404,7 +392,7 @@
         "6 Negotiation Log and **draft Limited Release**"
       ],
       "steps": [
-        "Download the case documents into **your training Drive**",
+        "Download the case documents; build the binder **by hand** from them",
         "Build **the master index first**; seat each document once",
         "Number exhibits by section; **Bates-stamp each page once**",
         "Rebuild the ledger from certified bills: **fix both landmines**",
@@ -464,11 +452,9 @@
     "image": "checklist-qa",
     "situation": "It is 05/17/2027. **Exchange 06/02/2027**, hearing 06/22/2027. The folder holds a pre-filing draft complaint, grayscale stills, the impasse memo and **a Lien Sheet** listing Harbor Point PIP and Summit Imaging.",
     "steps": [
-      "Sort into six tabs, **applying each QC rule** as you go",
-      "Lead with **the BI exhaustion record**",
-      "Number exhibits **C-1 onward** with Bates ranges; log authentication",
-      "Build Tab 5's **prior medical shield**",
-      "Strip liens **to what is owed**; flag privileged items for Atty. Thorne"
+      "Sort the documents into the six tabs, applying each tab's check, and lead with the **BI exhaustion record**.",
+      "Number the exhibits C-1 onward with their Bates ranges and log each one's authentication.",
+      "Build Tab 5's prior-medical shield, cut the Lien Sheet to what is owed, and flag privileged items for Atty. Thorne."
     ],
     "deliver": "A six-tab, C-numbered binder, authentication log and audited Lien Sheet, **routed to Atty. Thorne**",
     "purpose": "The binding award rests **on this exhibit set** alone",
@@ -492,7 +478,7 @@
         "6 **Northgate wage letter** only"
       ],
       "steps": [
-        "Download the case documents into **your training Drive**",
+        "Download the case documents; build the binder **by hand** from them",
         "Sort each document by **its tab's QC rule**",
         "Number **C-1 onward**; keep the production Bates numbers",
         "Request certifications; **log each receipt**",
@@ -547,11 +533,9 @@
     "image": "cms-screen",
     "situation": "File date 02/22/2027. Binder due **03/11/2027**, mediation 03/18/2027. Riverton Spine & Rehab's ledger, requested 02/08/2027, **hasn't arrived**. Keystone's representative and authority are unconfirmed.",
     "steps": [
-      "Rule 1: follow-ups every 5 business days, **then 48-hour escalations**",
-      "Rule 2: **no record in 14 days** → second request, subpoena flag",
-      "Rule 3: open dependency **10 days out** → red flag",
-      "Rule 4: **48-Hour Mandate audit** before every hard date",
-      "Calibrate on Keystone, then **fire all four** on the mediation calendar"
+      "In CMS → Tasks, set the four countermeasure rules: follow-ups on silence, a second request for a late record, a red flag 10 days out, and the **48-hour audit**.",
+      "Calibrate the first rule on the Keystone record.",
+      "Fire all four on the mediation calendar, each with a date, an action and an owner."
     ],
     "deliver": "Four calibrated rules; every firing **dated, actioned and owned**",
     "purpose": "Riverton's missing ledger **threatens the 03/11/2027 binder** unless rules fire early",
@@ -596,11 +580,9 @@
     "image": "clock-deadline",
     "situation": "Mon 05/24/2027. Exhibit exchange **06/02/2027**, brief 06/11/2027, hearing 06/22/2027. **Five problems**: Crescent's missing records, Dr. Reyes away until 06/01/2027, Cardinal State's silence, Riverton's restored duplicate, a grayscale non-OCR set.",
     "steps": [
-      "Triage each: **hard date, rung**, countermeasure",
-      "Write one report: **five fields, one ask** per item",
-      "Send it first: items needing **Atty. Thorne's decision**",
-      "Fix what you own **the same day**",
-      "Date **the 48-hour audit** before the exchange"
+      "Triage the five problems: the hard date each threatens, its rung and the countermeasure.",
+      "Write one bottleneck report with five fields and **one ask** per item, and send the items that need Atty. Thorne first.",
+      "Fix what you own today and date the 48-hour audit."
     ],
     "deliver": "Sequenced triage of all five, and **one five-field report** sent 05/24/2027",
     "purpose": "Five problems converge on **the 06/02/2027 exchange**, and none can wait",
@@ -685,13 +667,11 @@
   },
   "d4m2-medcal": {
     "image": "mediation-table",
-    "situation": "01/08/2027: the Notice of Mediation sets **03/18/2027 (Thu), 9:30 a.m.** before Hon. Carla Benton (Ret.). Statement and binder due 7 days before; mediation **completed by 03/31/2027**.",
+    "situation": "Assuming the mediation is set for **03/18/2027 at 9:30 a.m.** and the binder is due 7 days before, the dates must be logged.",
+    "side": true,
     "steps": [
-      "Verify the trigger and **link the 03/31/2027 deadline**",
-      "Enter the session with **its attendees** in the Calendaring Simulators",
-      "Count the binder and internal dates **back from the session**",
-      "Open the client and **$1,200.00 cost** tasks in CMS → Tasks",
-      "Conflict-check, then **route the UM consent flag** to Atty. Thorne"
+      "Log it in the CMS Calendar: the session with its attendees, the statement and binder due 03/11/2027, and the mediator's report watch on **03/25/2027**.",
+      "Open a task for the $1,200.00 fee as a case cost and flag the UM consent question to Atty. Thorne."
     ],
     "deliver": "A trigger-counted mediation calendar and **a same-day summary** to Atty. Thorne",
     "purpose": "One notice creates a dozen dates; **one missed date** costs the session",
@@ -712,13 +692,11 @@
   },
   "d4m2-arbcal": {
     "image": "clock-deadline",
-    "situation": "04/26/2027: Laura Whitcomb's letter sets the hearing **06/22/2027 (Tue), 9:00 a.m.** Exhibits 20 days before, brief 10. Calendar **every date hanging off it**.",
+    "situation": "Assuming Laura Whitcomb's letter sets the hearing for **06/22/2027 at 9:00 a.m.**, with exhibits due 20 days before and the brief 10, the dates must be logged.",
+    "side": true,
     "steps": [
-      "Re-anchor hearing, exhibits and brief **to the letter** in Court E-Filing",
-      "Count back binder QC and **records-request dates** in Calendaring Simulators",
-      "Hold attendance, prep and **tech-check dates** on CMS → Calendar",
-      "Route the **$900.00 fee share** to accounting as a cost",
-      "Check the master calendar; **ask Atty. Thorne** about court dates"
+      "Log it in the CMS Calendar: the hearing, exhibits 06/02/2027, the brief 06/11/2027, and records requests out by **05/03/2027**.",
+      "Route the $900.00 fee share to accounting as a case cost, and ask Atty. Thorne in writing which old court dates stay."
     ],
     "deliver": "A letter-anchored calendar, **every date with its rule**, questions to Atty. Thorne",
     "purpose": "Every arbitration task counts back from **one hearing date**",
@@ -779,11 +757,10 @@
     "image": "escalation-alert",
     "situation": "10/23/2026, 2:00 p.m. Track A has disbursed, the liens are closed, and **a lien folder has been deleted**.",
     "steps": [
-      "Delete **06 Liens & Reimbursement** (the drill)",
-      "Run **✓ Check my drive**; read what is missing",
-      "**🔁 Put the missing folders back**, check again",
-      "Lien papers into **06**; costs and closing letter into 07",
-      "Record **what was lost and restored** in Case Notes"
+      "In Google Drive, delete 06 Liens & Reimbursement from Doe-John as the drill, then run ✓ Check my drive and read what it reports.",
+      "Use 🔁 Put the missing folders back and check again until **nothing is missing**.",
+      "File the day's lien papers in the CMS so they reach 06, and the cost ledger and closing letter so they reach 07.",
+      "In CMS → Case Notes, record what was lost, how you found it and what you restored."
     ],
     "deliver": "A restored folder and **every lien paper backed up**",
     "purpose": "A copy filed into a **deleted folder is lost**",

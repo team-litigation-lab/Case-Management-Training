@@ -8974,7 +8974,7 @@ window.CM_CASE_FLOW = {
          ops: [
            ["MMI is declared", "Close the chronology and audit the Specials", "CMS → Medical · Net Sheet", "Every bill tied to a dated record"],
            ["A gap or missed visit is on the record", "Pair it with its documented reason", "CMS → Case Notes · Gap Explanation Record", "No break left unanswered before the demand"],
-           ["The demand or a binder is assembled", "Map each claim to the record that proves it", "Packet Builder", "No figure or finding without its source"]
+           ["The demand or a binder is assembled", "Map each claim to the record that proves it", "CMS → Documents (the packet built by hand)", "No figure or finding without its source"]
          ],
          best: [
            "Watch treatment with the demand in mind: every visit is a future exhibit.",

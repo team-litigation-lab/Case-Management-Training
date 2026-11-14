@@ -179,7 +179,7 @@ const CM_TOOL_DEFAULTS = [
    url:"https://cm-training-activity.pages.dev/simulators/email-replies.html", portalSim:true,
    desc:"One email at a time from the John Doe file: the client, the adjuster, a lienholder, defense counsel, your attorney, plus a phishing attempt. Reply on the portal, or have it sent to your own inbox and reply from there. Scored with a model reply.",
    evidence:"Score", idHint:"Score"},
-  {id:"packet", icon:"📚", name:"Demand Packets & Binders (LSH Training Portal)", short:"Packet Builder", status:"live",
+  {id:"packet", icon:"📚", name:"Demand Packets & Binders (LSH Training Portal)", short:"Packet Builder", status:"coming",   /* retired from the course: trainees build the packet by hand from the slide (js/cm-case-flow.js grade view) */
    url:"https://cm-training-activity.pages.dev/simulators/demand-packet.html", portalSim:true,
    desc:"Put the full packet together as one PDF: the cover letter, the index, the demand letter, the PIP log, the medical bills and records, or the Mediation and Arbitration Binders' numbered tabs. Add as many PDFs as each section needs; it numbers and Bates-stamps every page, bookmarks every section and builds the index from the pages themselves. Opened beside the CMS, it files the packet into your case, named the firm's way.",
    evidence:"Score", idHint:"Score"},

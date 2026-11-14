@@ -148,16 +148,21 @@ lesson's existing slides, so no slide is added and no timing changes. Take every
   no Why It Matters slide), and that a Red Flag moved off Why It Matters sits on a slide that is not scaled down, with
   nothing beside it covered.
 
-**Activity** (`kind: "activity"`): drawn as Your case · Your task · The model (if `show`) · Check your work.
+**Activity** (`kind: "activity"`): drawn as Your Task · Your Case · The model (if `show`) · AI Grader.
 - `situation` — the scenario in **≤ 32 words**: file date, what just happened, what is at stake. Keep the key
   dates and figures the task needs; drop the rest.
-- `steps` — the task (from `act.prompt`) as **3–5 imperative steps, ≤ 12 words each**, in order.
-- `deliver` — the expected output (`act.output`) in **≤ 14 words**.
-- `purpose` (optional) — why the task matters to the file, in **≤ 14 words**; shown as 🎯 Purpose beside the steps.
-- `principle` (optional) — the rule the task turns on, in **≤ 12 words**; shown as ⚖️ Principle (without it, the first
-  `dos` item is shown). Each step ends with a link to where it is done (CMS → New Case, → Calendar, → Case Notes,
-  📁 Documents, or the tool it names), drawn from the step's own words: name the place in the step.
-- `checks` — **3–5** verification checkpoints (`act.checkpoints`), **≤ 10 words each**.
+- `steps` — the task (from `act.prompt`) as one numbered block of **full, plain sentences, ≤ 32 words each**, in order,
+  each ending in a full stop and saying where it is done ("In CMS → Case Notes, …", "In Google Drive, …"). No
+  shorthand ("X of Y"). At most one highlight. Day 1 is fully guided (**4–6 steps**); later days give less (Days 2–3:
+  **3–5**; Days 4–5: **3–4**). The slide has one 🚀 Launch CMS & Google Drive button, not a link per step.
+- `side` (optional, `true`) — a short side skill builder: its `situation` opens with the assumption it rests on
+  ("Assuming the No Contact Protocol has been maxed, …") and it has **2–3 steps**, usually "Log it in the CMS: …".
+- `deliver` — the expected output (`act.output`) in **≤ 14 words**; shown as 📤 What to hand in in 📖 Reference.
+- `purpose` (optional) — why the task matters to the file, in **≤ 14 words**; shown as 🎯 Purpose in 📖 Reference
+  (the 📋 Rules & Naming Guide, js/cm-sb-task.js), not on the slide.
+- `principle` (optional) — the rule the task turns on, in **≤ 12 words**; shown as ⚖️ Principle beside it.
+- `checks` — **3–5** verification checkpoints (`act.checkpoints`), **≤ 10 words each**: the answer key the AI Grader
+  slide opens once the trainee's work is graded (js/cm-ai-grader.js).
 - `dos` / `donts` — **1–2 each** from `best`, ≤ 10 words.
 
 **Knowledge Check** (`kind: "check"`): drawn as the questions, then the Self-Summary & Skill Scale (unchanged).
