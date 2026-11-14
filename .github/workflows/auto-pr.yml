@@ -6,7 +6,7 @@
 #    because a pull request opened with this workflow's GITHUB_TOKEN starts no workflows of its own.
 # 2. When Checks finishes (and every 15 minutes, in case a finish was missed), each open claude/* pull request is
 #    merged if all of these hold:
-#      - it is from this repository, into main, not a draft, without the "hold" label;
+#      - it is from this repository, into main, not a draft, without the label "hold" or "no-auto-merge";
 #      - GitHub says it can merge (no conflict);
 #      - on its head commit, "Syntax, files and build" and "Smoke test in a browser" both passed, and no other
 #        check failed except Cloudflare's "Workers Builds" preview (the account's Preview limit, not the code).
@@ -14,7 +14,7 @@
 #    Checks on main, Update PR branches (brings the new main into the other open PRs) and, when decks/ or
 #    documents/ changed, R2 documents. Cloudflare deploys main from its own Git integration as usual.
 #
-# To keep a branch from merging: open its pull request as a draft, or add the label "hold". A pull request a
+# To keep a branch from merging: open its pull request as a draft, or add the label "hold" (or "no-auto-merge"). A pull request a
 # person or session opened is merged the same way once its checks pass.
 # Setup: Settings → Actions → General → Workflow permissions → tick "Allow GitHub Actions to create and approve
 # pull requests". Until it is ticked, step 1 prints GitHub's refusal and opens nothing (step 2 still merges).
@@ -91,7 +91,7 @@ jobs:
           set -uo pipefail
           merged=0; docs=0
           prs=$(gh api "repos/$REPO/pulls?state=open&base=main&per_page=100" --paginate \
-            --jq '.[] | select(.head.repo.full_name == "'"$REPO"'") | select(.head.ref | startswith("claude/")) | select(.draft | not) | select([.labels[].name] | index("hold") | not) | "\(.number) \(.head.sha) \(.head.ref)"')
+            --jq '.[] | select(.head.repo.full_name == "'"$REPO"'") | select(.head.ref | startswith("claude/")) | select(.draft | not) | select([.labels[].name] | (index("hold") or index("no-auto-merge")) | not) | "\(.number) \(.head.sha) \(.head.ref)"')
           while read -r num sha ref; do
             [ -n "${num:-}" ] || continue
             # GitHub works out mergeability lazily: ask, and wait a moment if it hasn't yet
