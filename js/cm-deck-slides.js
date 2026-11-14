@@ -112,18 +112,6 @@ window.CM_DECK_SLIDES = {
    "title": "Bottleneck: Communication Gaps",
    "img": "/decks/day1/18.webp",
    "notes": "The last bottleneck is communication gaps. The intake team may not be updating Case Managers. A Case Manager may not receive the complete intake packet. Or departments may simply miscommunicate. Closing these gaps is part of your job: confirm you have the full packet, and log every hand-off."
-  },
-  {
-   "page": "sb-1",
-   "title": "Skill Building: Intake Decision Challenge",
-   "img": "/decks/day1/sb-1.webp",
-   "notes": "Time for your first skill-building exercise: the Intake Decision Challenge. A new potential client, John Doe, submits an inquiry about a case against Apex Delivery Services. Your task is to complete the intake evaluation and decide whether the case should be accepted, escalated, or declined. Accepted means it moves to case opening. Escalated means it goes to an attorney or senior reviewer. Declined means it fails on eligibility or risk factors. Whichever you choose, clearly document the reason for your decision, and communicate the next steps to the intake team or the client."
-  },
-  {
-   "page": "sb-2",
-   "title": "Skill Building: Applied Case Manager Actions",
-   "img": "/decks/day1/sb-2.webp",
-   "notes": "Now apply what you learned about bottlenecks. Identify where intake is breaking down on the file, and what actions will move it forward. Work through four steps. First, identify the areas where intake has slowed. Second, conduct a root cause analysis: why did it slow down? Third, implement immediate actions to get the file moving. And fourth, put a fix in place to prevent it from happening again."
   }
  ],
  "d1m4-l1": [
@@ -318,18 +306,6 @@ window.CM_DECK_SLIDES = {
    "title": "Treatment Gaps: Case Manager Responsibilities",
    "img": "/decks/day1/47.webp",
    "notes": "Your responsibilities with treatment gaps: monitor treatment frequency and appointment compliance. Follow up immediately after a missed appointment. Educate the client on why consistent treatment matters. Help coordinate transportation, scheduling, or referrals. Communicate with providers about interruptions in care. And document every client explanation and every follow-up effort. As best practice, keep treatment timelines updated, track referrals and pending appointments, encourage clients to report worsening symptoms promptly, and escalate prolonged or unexplained gaps to supervising staff or the attorney. Consistent treatment documentation strengthens both the medical support and the future negotiating position."
-  },
-  {
-   "page": "sb-3",
-   "title": "Skill Building: The Eggshell Plaintiff",
-   "img": "/decks/day1/sb-3.webp",
-   "notes": "Skill-building: John Doe versus Apex Delivery Services, with Aggressive Casualty as the carrier. Intake has surfaced a critical complication: the eggshell plaintiff narrative, against a prior lumbar strain from 2018. The carrier has seen the 2018 record. It is stalling the MRI for the L4-L5 protrusion in your intake, claiming it is a pre-existing degenerative condition, not caused by the collision with the Apex truck. Your objective is to support proving aggravation. Under US law, an eggshell plaintiff is entitled to full recovery for the increase in disability, even if they were more vulnerable to injury than a healthy person. Think about how you would document the client's baseline and the change since the accident, and what you would escalate to the attorney."
-  },
-  {
-   "page": "sb-4",
-   "title": "Skill Building: The Transportation Wall",
-   "img": "/decks/day1/sb-4.webp",
-   "notes": "Our final exercise is a flash simulation: the transportation wall. John is in a 12-week intensive chiropractic program, and he has been doing great for four weeks. Then he calls you. His car's transmission just died. He says: I can't get to the clinic anymore. It's a 45-minute drive. I might as well quit the program and try again next year when I have money saved. Your task: decide how you will handle this common treatment-phase obstacle. Think about treatment gaps, warm handoffs, and the barriers we discussed today. Then create a case file in the training interface, and update it with your plan."
   }
  ]
 };

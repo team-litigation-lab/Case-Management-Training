@@ -39,8 +39,6 @@ The deck and its video are embedded in the course from the same `dayN.json`:
   A lesson's pages show on the day the course teaches that lesson (the treatment lessons are on Case Flow Day 2).
 - `video` is the day's narrated video (`decks/dayN/dayN-narrated.mp4`, its captions, and the start time of each page in
   it). The day card shows ▶ Video once a trainer unlocks it (Admin → 🔓 Open Lessons → 🎬 Unlock Videos), 🔒 Video until then.
-- `skillPages`: Day 1's four Skill Building pages (from the original 54-page deck), kept apart from the deck: they are
-  slides in the platform (named `sb-1`…`sb-4` in `lessons`, images `decks/day1/sb-N.webp`) and are not in the video.
 - The page images are `decks/dayN/NN.webp` (1600×900). The video must stay under 25 MB to be served by the site.
 
 After changing `lessons`, the notes, or the video, run:

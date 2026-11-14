@@ -36,10 +36,13 @@
      and before its Practice Lab (js/cm-deck-pages.js, slides of type "deckPage"). No older deck had them: a place
      saved before them stays on the slide it was on, and the pages count as seen for a trainee who was past them.
    The furthest slide reached is, as before, the furthest in today's order of the slides seen.
+   Then Day 1's four Skill Building pages went (layout 6): they were from another case than John Doe v. Robert Smith.
+   They were the last two deck pages of two lessons (GONE6); a place on one becomes the lesson's last page now, and
+   every slide after them moved up.
    The layouts: 1, the deck with On the Job (no layout on the saved place); 2, without On the Job (the deck with the
    Milestone Steps slides and every Why It Matters slide); 3, without those, in the old order; 4, in today's order,
-   every lesson on its own drawn slides; 5, today's. A place saved in 1, 2, 3 or 4 is moved through every change in
-   one go.
+   every lesson on its own drawn slides; 5, with Day 1's Skill Building pages; 6, today's. A place saved in any older
+   layout is moved through every change in one go.
    Each saved object carries the layout it was written in (cfLayout), so the move happens once, on whichever device
    or tab reads it first, and a place saved since is left alone. The reload after an update says which layout its
    slide was saved in the same way (lsh_resume_layout): a page still running the old deck doesn't, and is moved.
@@ -47,7 +50,7 @@
 (function(){
 "use strict";
 if(typeof state === "undefined" || typeof DAYS === "undefined" || typeof buildDaySlides !== "function") return;
-const LAYOUT = 5, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
+const LAYOUT = 6, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
 const build = buildDaySlides;   // as js/cm-case-flow.js and js/cm-deck-pages.js left it: a Case Flow block is one slide per view
 const cfDay = d => !!(d && d.cf && Array.isArray(d.lessons));
 
@@ -62,6 +65,9 @@ const ORDER3 = {
   4: "~taskOverview d3m3-l1 d3m3-l2 d3m3-l3 ~practiceLab d3m3-a1 d3m3-a2 d3m4-l1 d3m4-l2 d3m4-close d3m4-a1 d3m4-pal d3m4-a2 d4-drive d4m2-l1 d4m2-um d4m2-l2 d4m2-a3 d4m2-a1 d4m2-medcal d4m2-a2 d4m2-arbcal d4m3-l1 d4m3-l2 d4m3-prior d4m3-tx d4m3-a1 d4m3-a2 ~readyCheck",
   5: "~taskOverview d4m1-l1 d4m1-l2 d4m4-l1 d4m4-l2 d5m1-l1 d5m1-l2 d5m1-subp d5m2-l1 d5m3-l1 d5m3-l2 d5m4-l1 d5m4-l2 d5m5-l1 d5m6-l1 ~companionBuild ~companionBuild2 ~readyCheck ~extraPractice d4m1-a1 d4m1-a2 d4m1-efile d4m4-a1 d4m4-a2 d5m1-a1 d5m1-a2 d5m2-a1 d5m3-a1 d5m3-a2 d5m4-a1 d5m4-a2 d5m5-a1 d5-drive d5m6-a1"
 };
+/* layout 5's Skill Building pages, gone in layout 6: how many each lesson ended on (they were its last deck pages).
+   A record of that deck; never edit it to match a later one. */
+const GONE6 = {"d1m1-l1": 2, "d1m4-tcare": 2};
 /* a lesson drawn from the trainer's deck pages now (layout 5): its slides before were its own drawn ones */
 const deckLesson = b => !!(b && b.kind === "lesson" && (window.CM_DECK_SLIDES || {})[b.id] && window.cmCaseFlow && window.cmCaseFlow.drawnViewsOf);
 /* the 26 lessons that had a Milestone Steps slide of their own in layouts 1 and 2 (the copy's "slide": true, which is
@@ -100,6 +106,8 @@ function runWas(d, li, deck, views, from){
       out.push(t >= 0 && t <= k ? [t, k] : [k, k]);
     }
   });
+  // layout 5: the lesson ended on Skill Building pages that are gone; a place on one is on its last page now
+  if(from === 5 && GONE6[b.id] && vs.length){ const last = part(vs.length - 1); for(let g = 0; g < GONE6[b.id]; g++) out.push([last, last]); }
   return out;
 }
 /* the day's deck as it was in layout `from`: for each of its positions, [today's slide for it, today's slide for

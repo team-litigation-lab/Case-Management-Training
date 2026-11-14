@@ -33,16 +33,13 @@ async function workerChecks() {
     await workerChecks();
     // the files the page points at are in the repository
     const notes = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'build/videoslide/day1.json'), 'utf8'));
-    // the video is the deck, page for page; the Skill Building pages (skillPages) are not in it: they are worked in the platform
-    const inVideo = notes.slides, sb = notes.skillPages || [];
-    if (!sb.length) fail('the Skill Building pages should be kept for the platform (skillPages)');
-    if (notes.slides.some(s => /Skill Building/.test(s.title))) fail('a Skill Building page is in the deck the video is made from');
+    // the video is the deck, page for page. The original deck's Skill Building pages were from another case than
+    // John Doe v. Robert Smith: they are gone, from the video and from the platform's slides alike
+    const inVideo = notes.slides;
+    if (notes.slides.some(s => /Skill Building/.test(s.title)) || notes.skillPages) fail('a Skill Building page from the deck is still in day1.json');
+    if (Object.values(notes.lessons).flat().some(p => typeof p !== 'number' || !notes.slides.some(s => s.page === p))) fail("a lesson names a page that isn't in the deck");
+    if (fs.readdirSync(path.join(process.cwd(), 'decks/day1')).some(f => /^sb-/.test(f))) fail('decks/day1 still has a Skill Building page image');
     if (notes.video.starts.length !== inVideo.length) fail(`video.starts has ${notes.video.starts.length} times for the ${inVideo.length} pages in the video`);
-    for (const x of sb) {
-        if (!/Skill Building/.test(x.title)) fail(`${x.id} is kept apart from the deck but isn't a Skill Building page`);
-        if (!Object.values(notes.lessons).flat().includes(x.id)) fail(`${x.id} should be a slide in the platform (in a lesson's pages)`);
-        if (!fs.existsSync(path.join(process.cwd(), 'decks/day1', x.id + '.webp'))) fail(`decks/day1/${x.id}.webp is missing`);
-    }
     for (const f of [notes.video.src, notes.video.captions]) if (!fs.existsSync(path.join(process.cwd(), f))) fail(`${f} is missing`);
     if (fs.statSync(path.join(process.cwd(), notes.video.src)).size > 25 * 1024 * 1024) fail(`${notes.video.src} is over 25 MB: Cloudflare won't serve it as a static asset`);
 
@@ -140,5 +137,5 @@ async function workerChecks() {
     } catch (e) { fail(`the check stopped: ${e.message}`); }
     await browser.close();
     if (failures.length) { console.error('🎬 Day video check FAILED:\n - ' + failures.join('\n - ')); process.exit(1); }
-    console.log('🎬 Day 1 deck and video: the deck pages and its Skill Building pages are the lessons\' slides with their notes as scripts, the video is locked until a trainer unlocks it for the batch, and the viewer plays it with captions and a chapter per page it keeps (the Skill Building pages are slides only).');
+    console.log('🎬 Day 1 deck and video: the deck pages are the lessons\' slides with their notes as scripts, the video is locked until a trainer unlocks it for the batch, and the viewer plays it with captions and a chapter per page it keeps (the Skill Building pages are slides only).');
 })();
