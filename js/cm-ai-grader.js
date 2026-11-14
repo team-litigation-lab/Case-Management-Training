@@ -24,6 +24,8 @@
    "Day <id> · … — Skill Building"), which is where the Scorecard's 🧪 Skill Activities and the trainer read activity scores;
    js/cm-cms-file.js reads the grade for the CMS Case File areas.
    The AI not answering (quota, network) is said plainly, the work stays saved, and Try again sends it once more.
+   Work that is no block of the lesson data registers itself in window.CM_AIG_EXTRA[<id>] = {b, n, dayId(), slide,
+   prefill()} and is graded the same way (Day 5's companion-case build: js/cm-companion-grade.js).
    ============================================================ */
 (function(){
 "use strict";
@@ -34,7 +36,9 @@ const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;
 const hl = t => E(t).replace(/\*\*(.+?)\*\*/g, '<mark class="cfx-hl">$1</mark>');
 const plain = t => String(t || "").replace(/\*\*/g, "");
 const CF = () => window.CM_CASE_FLOW || {days: []};
-const SLIDES = () => window.CM_CF_SLIDES || {};
+// the slide copy of an activity (steps, checks, deliver); a registered extra's own (window.CM_AIG_EXTRA)
+const EXTRA = () => window.CM_AIG_EXTRA || {};
+const SLIDES = () => new Proxy(window.CM_CF_SLIDES || {}, {get: (o, k) => (EXTRA()[k] && EXTRA()[k].slide) || o[k]});
 const isTrainer = () => typeof state === "object" && !!(state.isAdmin || state.adminPreview);
 const audience = () => !!document.body && document.body.classList.contains("audience-mode");
 const DRIVE_DAY = {"d1m1-drive": 1, "d2-drive": 2, "d3-drive": 3, "d4-drive": 4, "d5-drive": 5};
@@ -69,6 +73,7 @@ if(typeof window.logout === "function"){
 
 /* the block, the day it's taught on (the sequence) and that day's id in the app */
 function find(id){
+  const X = EXTRA()[id]; if(X && X.b) return {b: X.b, n: X.n, dayId: typeof X.dayId === "function" ? X.dayId() : X.dayId};
   let blk = null, day = null;
   (CF().days || []).forEach(d => (d.modules || []).forEach(m => (m.blocks || []).forEach(b => { if(b.id === id){ blk = b; day = d; } })));
   let n = day && day.n;
@@ -82,6 +87,7 @@ function prefill(id){
   const f = find(id); if(!f) return "";
   const R = (window.cmCaseFlow && typeof cmCaseFlow.record === "function" && cmCaseFlow.record()) || {};
   const out = [], add = (h, t) => { t = String(t || "").trim(); if(t) out.push(`${h}: ${t.length > 2500 ? t.slice(0, 2500) + "…" : t}`); };
+  const X = EXTRA()[id]; if(X && typeof X.prefill === "function") (X.prefill() || []).forEach(([h, t]) => add(h, t));
   const w = (R.work || {})[id]; if(w && w.ref) add(`Reference I logged (${w.tool || "CMS"})`, w.ref);
   const cms = window.CMCase && typeof CMCase.id === "function" ? CMCase.id() : ""; if(cms) add("My case in the CMS", cms);
   const call = G.calls[id];

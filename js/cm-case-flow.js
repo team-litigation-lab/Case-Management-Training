@@ -2990,6 +2990,7 @@ if(typeof window.sopRunOfShow === "function"){
       add(sc.build, {title: `🏗 Full Application Practice: Build Your Companion Case`, do: [
         `The practical: ${sc.build} minutes. Each trainee builds the companion case you assigned (Trainee Audit → 📁), on the slide's steps: ${buildSteps(d).map(([m, h]) => { const t = at; at += m; return `<b>${E(h)}</b> (${Math.floor(t / 60)}:${String(t % 60).padStart(2, "0")}, ${m} min)`; }).join(" · ")}.`,
         `Call time at each step. Walk the room with the 🧠 Brainstorm guide: it has each trainee's case and the trap to watch for.`,
+        `At step 7 each trainee hands the case in with <b>🤖 Submit to the AI Grader</b> on the build's second slide (js/cm-companion-grade.js: a rubric of the Day 1–4 deliverables; the score is on their Scorecard). Your own review at the brainstorm stays as it is.`,
         `John Doe's Day ${n} activities are behind the build as ➕ Optional Extra Practice, untimed: ⏭ on that slide skips them to the Ready check, the day's last slide.`],
         say: `“You've worked John Doe's file all week. Now you build one yourself: the steps and the minutes are on the slide, and I'll call time at each one.”`,
         watch: "Anyone still in the CMS setup at the 45-minute mark: get them to log what they have and move to the folder."});
