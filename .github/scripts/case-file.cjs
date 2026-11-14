@@ -1,5 +1,6 @@
-// @check browser — The Case File (the facts are the trainer's; the page fits one screen, trainee and trainer)
-// The Case File page: the facts are the trainer's, and the page fits one screen.
+// @check browser — The Case Profile, was the Case File (the facts are the trainer's; the page fits one screen, trainee and trainer)
+// The Case Profile page (the Case File, renamed): the facts are the trainer's, and the page fits one screen. A trainee
+// gets the tabs that are everyone's (👋 Meet John Doe, 🗺 File Map and 📅 The Case So Far, js/cm-case-profile.js) and no key tab.
 //
 // The fact cards are the answer key — the audited specials, the fork, Track A's net sheet, how the suit
 // ends — so a trainee never sees them: they build the file from the documents and their own work, and see
@@ -40,14 +41,14 @@ const check = (ok, m) => { console.log((ok ? 'PASS ' : 'FAIL ') + m); if (!ok) f
         await sleep(400);
         const t = await page.evaluate(() => {
             const main = document.querySelector('#app > main');
-            return { text: document.body.innerText, tabs: document.querySelectorAll('.cf-file-tab').length,
+            return { text: document.body.innerText, tabs: document.querySelectorAll('.cf-file-tab.key').length, own: document.querySelectorAll('.cf-file-tab:not(.key)').length,
                 cards: document.querySelectorAll('.cf-file-sec').length,
                 window: document.documentElement.scrollHeight - innerHeight, body: main.scrollHeight - main.clientHeight };
         });
-        check(t.cards === 0 && t.tabs === 0, `${W}x${H} a trainee gets no fact cards and no key tabs (cards ${t.cards}, tabs ${t.tabs})`);
+        check(t.cards === 0 && t.tabs === 0 && t.own >= 2, `${W}x${H} a trainee gets no fact cards and no key tabs (cards ${t.cards}, key tabs ${t.tabs}; their own tabs, Meet John Doe, File Map and The Case So Far: ${t.own})`);
         const leaked = ANSWERS.filter(re => re.test(t.text)).map(String);
         check(!leaked.length, `${W}x${H} and none of the answers are on the page${leaked.length ? ': ' + leaked.join(', ') : ''}`);
-        check(t.window <= 2 && t.body <= 2, `${W}x${H} the trainee's Case File fits one screen (window+${t.window}, body+${t.body})`);
+        check(t.window <= 2 && t.body <= 2, `${W}x${H} the trainee's Case Profile fits one screen (window+${t.window}, body+${t.body})`);
 
         // the trainer
         await page.evaluate(() => { state.isAdmin = true; render(); }); await sleep(400);
@@ -72,5 +73,5 @@ const check = (ok, m) => { console.log((ok ? 'PASS ' : 'FAIL ') + m); if (!ok) f
     }
     await browser.close();
     if (failures.length) { console.error(`\n${failures.length} check(s) failed.`); process.exit(1); }
-    console.log('\nAll good: the facts are the trainer\'s, and the Case File fits one screen.');
+    console.log('\nAll good: the facts are the trainer\'s, and the Case Profile fits one screen.');
 })().catch(e => { console.error(e); process.exit(1); });

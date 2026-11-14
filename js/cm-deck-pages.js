@@ -8,7 +8,7 @@
    day's Skill Building is the course's own (its Practice Lab and Skill Activities, on John Doe's file in the CMS).
    (Day 3 still teaches the same topics as lessons, with their Skill Activities in the CMS.)
    A page that names the old practice file's facts (Apex Delivery, Dr. Sarah Spine, the $41,400 in specials, a PIP
-   limit gone in 48 hours) carries `old`: the Presenter view tells the trainer what John Doe v. Robert Smith says.
+   limit gone in 48 hours) carries `old`: the Presenter view tells the trainer what John Doe VS Robert Smith says.
    Saved places in a day move with the pages (js/cm-slide-places.js: layout 5, and layout 6 for the Skill Building gone).
    Checked by .github/scripts/deck-pages.cjs (every page's file is there) and .github/scripts/fit.cjs (each page fits).
    ============================================================ */
@@ -36,8 +36,8 @@ const DECK = [
   {key: "negotiation", topic: "Settlement Negotiations", pages: [
     {title: "The Pitch: the Negotiation Battle Map"},
     {title: "The Valuation Baseline: the Set-Off"},
-    {title: "The Valuation Baseline: PIP as a Valuation Baseline", old: "The page's example (a $10,000 PIP limit gone in 48 hours, $41,400 in specials) is the old practice file's. Use John Doe v. Robert Smith's own PIP history and Specials from the CMS."},
-    {title: "The Valuation Baseline: the EMC and the Benefit Ceiling", old: "The page names Dr. Sarah Spine, from the old practice file. On John Doe v. Robert Smith, take the EMC finding and its provider from the CMS."},
+    {title: "The Valuation Baseline: PIP as a Valuation Baseline", old: "The page's example (a $10,000 PIP limit gone in 48 hours, $41,400 in specials) is the old practice file's. Use John Doe VS Robert Smith's own PIP history and Specials from the CMS."},
+    {title: "The Valuation Baseline: the EMC and the Benefit Ceiling", old: "The page names Dr. Sarah Spine, from the old practice file. On John Doe VS Robert Smith, take the EMC finding and its provider from the CMS."},
     {title: "The Valuation Baseline: Subrogation vs. Non-Subrogation"},
     {title: "The Valuation Baseline: Strategic Exhaustion"},
     {title: "Negotiations Initiated: the First Call"},

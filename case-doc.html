@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Case Document</title>
-<!-- One John Doe v. Robert Smith case document (documents/case-flow/html/RSNN.html, the source its PDF is rendered
+<!-- One John Doe VS Robert Smith case document (documents/case-flow/html/RSNN.html, the source its PDF is rendered
      from) with its dates rolled forward to the trainee's case year by js/cm-case-dates.js. The Case Flow opens
      documents here once the case has moved past 2026: case-doc.html?id=RS01&year=2029. -->
 <style id="doc-css"></style>
@@ -99,8 +99,8 @@
   }
   document.getElementById("doc-css").textContent = css;
   document.title = `${id} ${doc.title}`;
-  document.getElementById("title").innerHTML = `${esc(doc.title)}<small>John Doe v. Robert Smith · ${esc(id)} · dates current to your case (collision ${esc(D.dol())})</small>`;
-  const foot = `<div class="cdv-foot"><span>LSH CASE MANAGEMENT TRAINING — SIMULATED DOCUMENT — FICTIONAL PARTIES — NOT A REAL RECORD · John Doe v. Robert Smith · ${esc(id)}</span></div>`;
+  document.getElementById("title").innerHTML = `${esc(doc.title)}<small>John Doe VS Robert Smith · ${esc(id)} · dates current to your case (collision ${esc(D.dol())})</small>`;
+  const foot = `<div class="cdv-foot"><span>LSH CASE MANAGEMENT TRAINING — SIMULATED DOCUMENT — FICTIONAL PARTIES — NOT A REAL RECORD · John Doe VS Robert Smith · ${esc(id)}</span></div>`;
   // The footer repeats on every printed page, as on the rendered PDFs: each part between the document's own page
   // breaks is a table whose footer row Chrome repeats on each page that part runs over.
   const parts = html.split('<div class="page-break"></div>');
@@ -126,7 +126,7 @@
       const stage = document.createElement("div");
       stage.style.cssText = `position:fixed;left:-10000px;top:0;width:${PX}px;background:#fff`;
       document.body.appendChild(stage);
-      const footText = `LSH CASE MANAGEMENT TRAINING — SIMULATED DOCUMENT — FICTIONAL PARTIES — NOT A REAL RECORD · John Doe v. Robert Smith · ${id}`;
+      const footText = `LSH CASE MANAGEMENT TRAINING — SIMULATED DOCUMENT — FICTIONAL PARTIES — NOT A REAL RECORD · John Doe VS Robert Smith · ${id}`;
       let first = true;
       try{
         for(const part of parts){

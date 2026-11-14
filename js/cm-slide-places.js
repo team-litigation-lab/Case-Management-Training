@@ -36,15 +36,23 @@
      and before its Practice Lab (js/cm-deck-pages.js, slides of type "deckPage"). No older deck had them: a place
      saved before them stays on the slide it was on, and the pages count as seen for a trainee who was past them.
    The furthest slide reached is, as before, the furthest in today's order of the slides seen.
-   Then Day 1's four Skill Building pages went (layout 6): they were from another case than John Doe v. Robert Smith.
+   Then Day 1's four Skill Building pages went (layout 6): they were from another case than John Doe VS Robert Smith.
    They were the last two deck pages of two lessons (GONE6); a place on one becomes the lesson's last page now, and
    every slide after them moved up.
    In the same change Day 2's four Skill Building slides went from its deck pages (js/cm-deck-pages.js), one after each
    topic's pages (GONE6_DECK): a place on one becomes that topic's last page, and every slide after it moved up.
+   Then Meet John Doe left the lesson deck (layout 7): Day 1's first lesson, Meet Your Case (d1m1-case), and the two
+   introduction slides after it (The Life of John Doe's File, Coverage vs. Injury) are gone; their facts are on the
+   Case Profile now (js/cm-case-profile.js), and one new slide right after Day 1's last lesson ("meetJohnDoe") sends
+   the trainee there. A place saved on one of the slides that are gone lands on the slide before them (the Training
+   Agenda); every other place keeps its slide. The new slide is in no older deck: no older place lands on it, and it
+   counts as seen for a trainee who was past it.
    The layouts: 1, the deck with On the Job (no layout on the saved place); 2, without On the Job (the deck with the
    Milestone Steps slides and every Why It Matters slide); 3, without those, in the old order; 4, in today's order,
-   every lesson on its own drawn slides; 5, with Day 1's Skill Building pages; 6, today's. A place saved in any older
-   layout is moved through every change in one go.
+   every lesson on its own drawn slides; 5, with the deck pages, Day 1's and Day 2's Skill Building pages and Meet
+   Your Case; 6, without the Skill Building pages, still with Meet Your Case; 7, today's. A place saved in any older
+   layout is moved through every change in one go (a place saved in 5 loses the Skill Building pages and Meet Your
+   Case together; one saved in 6, only Meet Your Case).
    Each saved object carries the layout it was written in (cfLayout), so the move happens once, on whichever device
    or tab reads it first, and a place saved since is left alone. The reload after an update says which layout its
    slide was saved in the same way (lsh_resume_layout): a page still running the old deck doesn't, and is moved.
@@ -52,7 +60,7 @@
 (function(){
 "use strict";
 if(typeof state === "undefined" || typeof DAYS === "undefined" || typeof buildDaySlides !== "function") return;
-const LAYOUT = 6, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
+const LAYOUT = 7, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
 const build = buildDaySlides;   // as js/cm-case-flow.js and js/cm-deck-pages.js left it: a Case Flow block is one slide per view
 const cfDay = d => !!(d && d.cf && Array.isArray(d.lessons));
 
@@ -72,6 +80,13 @@ const ORDER3 = {
 const GONE6 = {"d1m1-l1": 2, "d1m4-tcare": 2};
 /* layout 5's Skill Building slides on Day 2's deck pages, gone in layout 6: how many followed each topic's last page. */
 const GONE6_DECK = {"predemand": 1, "demand": 1, "negotiation": 1, "bisettlement": 1};
+/* Layout 7: the blocks that left the deck, with the drawn slides they had in layouts 3 to 6 (layouts 1 and 2 add
+   theirs as viewsWere does for any lesson), the day they sat on, the day's own slide they followed and the day's own
+   slides that went with them (each "~type" in ORDER3 that today's deck no longer has lands on the slide before by
+   itself). And the day's own slides that layout 7 added, in no older deck. */
+const GONE = {"d1m1-case": {day: 1, after: "taskOverview", views: ["theory", "frame", "rules", "model", "dodont"], ops: true, with: ["caseMap", "coverageMap"]}};
+const NEW7 = new Set(["meetJohnDoe"]);
+const goneRun = (id, from) => { const g = GONE[id]; return viewsWere({id, kind: "lesson", ops: g.ops ? [1] : []}, g.views.slice(), from).length; };
 /* a lesson drawn from the trainer's deck pages now (layout 5): its slides before were its own drawn ones */
 const deckLesson = b => !!(b && b.kind === "lesson" && (window.CM_DECK_SLIDES || {})[b.id] && window.cmCaseFlow && window.cmCaseFlow.drawnViewsOf);
 /* the 26 lessons that had a Milestone Steps slide of their own in layouts 1 and 2 (the copy's "slide": true, which is
@@ -128,7 +143,9 @@ function oldDeck(d, from){
     const used = {}, typeAt = t => deck.findIndex(x => x.type === t);
     row.split(" ").forEach(tok => {
       if(tok[0] === "~"){ const k = typeAt(tok.slice(1)); out.push([k, k]); return; }
-      const [id, n] = tok.split("/"), li = d.lessons.findIndex(l => l.cf && l.cf.block.id === id); if(li < 0) return;
+      const [id, n] = tok.split("/"), li = d.lessons.findIndex(l => l.cf && l.cf.block.id === id);
+      if(li < 0 && GONE[id]){ for(let p = goneRun(id, from); p > 0; p--) out.push([-1, -1]); return; }   // left the deck (layout 7): lands on the slide before
+      if(li < 0) return;
       const run = runWas(d, li, deck, views, from), a = used[id] || 0, z = n ? Math.min(run.length, a + Number(n)) : run.length;
       for(let p = a; p < z; p++) out.push(run[p]);
       used[id] = z;
@@ -137,8 +154,12 @@ function oldDeck(d, from){
     // layout 4 (and a day whose order was never recorded): today's order, each block's run where its first slide is
     deck.forEach((sl, k) => {
       if(sl.type === "deckPage" && from < 5) return;   // the revised deck's pages came in with layout 5 (ORDER3 has none either)
+      if(NEW7.has(sl.type) && from < 7) return;   // and Meet John Doe's slide with layout 7
       if(sl.type !== "topic"){
         out.push([k, k]);
+        // the blocks that left the deck in layout 7 sat after this slide, with their own slides: each lands on the slide before
+        if(from < 7) Object.keys(GONE).filter(id => GONE[id].day === (d.cf && d.cf.n) && GONE[id].after === sl.type)
+          .forEach(id => { for(let p = goneRun(id, from) + GONE[id].with.length; p > 0; p--) out.push([-1, -1]); });
         // layout 5: the topic's Skill Building slide followed its last deck page; gone, a place on it lands on that page
         const n = sl.type === "deckPage" && from === 5 ? GONE6_DECK[sl.deck] || 0 : 0, nx = deck[k + 1];
         if(n && !(nx && nx.type === "deckPage" && nx.deck === sl.deck)) for(let g = 0; g < n; g++) out.push([-1, -1]);

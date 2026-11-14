@@ -12,7 +12,7 @@ window.LSH_BLUEPRINT = {
     sub: 'Your guide to the portal: the 5-day Case Management Training, day by day',
     slides: [
       { icon: '👋', title: 'Welcome to the program', points: [
-          'Five days to work like a confident, organized Case Manager — the 5-Day Legal Case Management Flow, built around one realistic file, John Doe v. Robert Smith, from intake to deposition.',
+          'Five days to work like a confident, organized Case Manager — the 5-Day Legal Case Management Flow, built around one realistic file, John Doe VS Robert Smith, from intake to deposition.',
           'Learn: short lessons, each followed straight away by a Skill Activity on the live file.',
           'Practice: hands-on Skill Activities, live calls and the CMS.',
           'Prove: a Knowledge Check each day — and a certificate at the end.',
@@ -25,7 +25,7 @@ window.LSH_BLUEPRINT = {
           "Passing a day's Knowledge Check (70%) opens the next day.",
           'Every day you have finished stays open: press Review to go back to it any time.'],
         where: 'Your dashboard — the day cards, in order.',
-        tip: 'Read the Case File before Day 1: every lesson and exercise works that one file.' },
+        tip: 'Read the Case Profile (start with Meet John Doe) before Day 1: every lesson and exercise works that one file.' },
       { icon: '🖥', title: 'How every day works', points: [
           'Every day runs in two parts, then the check: all of its Lessons → one Practice Lab with all of its Skill Activities → Knowledge Check: Tell Them, Show Them, Let Them.',
           '1. Lessons: the rules and the why, then the model to follow. Every slide is whole on one screen. Your place is saved.',
@@ -50,19 +50,19 @@ window.LSH_BLUEPRINT = {
         tip: 'Check the day cards for 💬 at the end of each day: that is your trainer\'s feedback waiting.' },
       { icon: '🧭', title: 'Getting around', points: [
           '🎲 Tasks: surprise tasks from your trainer — acknowledge, plan and resolve before the timer ends. Graded.',
-          'Case File: John Doe v. Robert Smith, your client\'s profile — it grows as the days open. 📁 Case Documents holds every record, bill, letter and pleading, with its CMS upload category.',
+          'Case Profile: John Doe VS Robert Smith, your client\'s profile — it grows as the days open. 📁 Case Documents holds every record, bill, letter and pleading, with its CMS upload category.',
           '🧪 Practice: every Skill Activity of the Case Flow, day by day, with the tool it runs in, plus open practice (quick roleplay calls, the CMS Training Library).',
           'My Notes and Handouts: your private notes, downloadable as a PDF, and printable checklists and Excel templates for each day.',
           '🎯 Focus and 💬 Feedback: your trainer\'s priorities for you, and your say on what is working.'],
         where: 'The top bar. On a phone, everything is under ☰ Menu; Search finds any topic or tool.',
         tip: "Each day's tools open with that day, so you never have to hunt for the right one." },
-      { icon: '📂', title: 'The case: John Doe v. Robert Smith', points: [
+      { icon: '📂', title: 'The case: John Doe VS Robert Smith', points: [
           'John Doe, a front-seat passenger, hurt when Robert Smith ran an all-way stop — a $40,000 recovery stack (BI → Host UM → Relative UM), Atty. Elijah Thorne, and a 14-day treatment gap.',
           'Every lesson and Skill Activity works this one file. Day 3 settles it (Track A); Days 4–5 take the same file to suit (Track B).',
-          'Read the Case File before Day 1, then open the documents in 📁 Case Documents.',
+          'Read the Case Profile before Day 1, then open the documents in 📁 Case Documents.',
           'The documents contain real-world inconsistencies — catching them is the job.',
           'Treat everything as confidential, like a real client file.'],
-        where: 'Case File and 📁 Case Documents in the top bar.',
+        where: 'Case Profile and 📁 Case Documents in the top bar.',
         tip: 'Keep 📁 Case Documents open beside the slide while you work a Skill Activity.' },
       { icon: '🧪', title: 'How your work is scored', points: [
           'Each module ends with your Self-Summary and Skill Scale, saved to your record as you go.',
@@ -102,7 +102,7 @@ window.LSH_BLUEPRINT = {
         tip: 'When two documents in the file disagree, raise it rather than picking one — that is the judgment being graded.' },
       { icon: '🚀', title: "Let's begin", points: [
           '1. Sign in: last name, first name and your batch code.',
-          '2. Read the Case File: John Doe v. Robert Smith.',
+          '2. Read the Case Profile: John Doe VS Robert Smith.',
           '3. Open Case Flow Day 1 from your dashboard and press Start.',
           'Questions before we start?'],
         where: 'The LSH Training Portal → this program → your dashboard.',
@@ -137,13 +137,13 @@ window.LSH_BLUEPRINT = {
           'Both show up on the trainee\'s screen straight away.'],
         where: 'Admin → Trainee Audit → a trainee.',
         tip: 'Use a surprise task to check what the class found hard that morning.' },
-      { icon: '🧠', title: 'The Case File and the 40% assessment', points: [
-          'The Case File is John Doe v. Robert Smith\'s profile: each section opens with its day; you see all of it.',
+      { icon: '🧠', title: 'The Case Profile and the 40% assessment', points: [
+          'The Case Profile is John Doe VS Robert Smith\'s profile: each section opens with its day; you see all of it.',
           'In each trainee\'s panel: their Self-Summaries and Skill Scales, and your trainer score (the 40%) for every module.'],
-        where: 'Top bar → Case File (as a trainer) · Admin → Trainee Audit.',
-        tip: 'Walk one section of the Case File with the class before trainees work the next on their own.' },
+        where: 'Top bar → Case Profile (as a trainer) · Admin → Trainee Audit.',
+        tip: 'Walk one section of the Case Profile with the class before trainees work the next on their own.' },
       { icon: '📁', title: 'Case documents and the audit key', points: [
-          'The John Doe v. Robert Smith file (60 documents, each opening with its day), the templates and the handouts.',
+          'The John Doe VS Robert Smith file (60 documents, each opening with its day), the templates and the handouts.',
           'Signed in as a trainer, every document shows a red 🔑 note with its planted discrepancies.',
           'Trainees never see the 🔑 notes: they have to find the errors themselves.'],
         where: 'Top bar → 📁 Documents.',

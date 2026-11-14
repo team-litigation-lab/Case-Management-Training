@@ -1,5 +1,5 @@
 /* 📁 Companion cases (build/case-flow/cases/CASESPEC.md): a second, shorter file a trainer assigns each trainee beside
-   John Doe v. Robert Smith, with a new problem on it every Case Flow day and an Attorney–CM brainstorm at the end of
+   John Doe VS Robert Smith, with a new problem on it every Case Flow day and an Attorney–CM brainstorm at the end of
    the day, the trainer playing Atty. Thorne.
    • Trainer: Admin → 🛡 Admin Master Control → 📁 Companion Cases, a table of the trainees, picks each one's case (saved on their record as
      assignedCase, which only a trainer can change). Presenter view's 🧠 Brainstorm and the end of the day's Speaker
@@ -42,7 +42,7 @@ async function assign(traineeId, caseId){
   if(state.adminData){ const i = state.adminData.findIndex(r => r.id === traineeId); if(i !== -1) state.adminData[i] = rec; }
   const wrap = document.getElementById("adminRowsWrap"); if(wrap && typeof renderAdminRows === "function") wrap.innerHTML = renderAdminRows();
   const t = document.getElementById("ccTable"); if(t && state.view === "admin") t.outerHTML = tableHtml();
-  if(typeof toast === "function") toast(rec.assignedCase ? `${rec.name || "Trainee"} now has ${CASES[caseId].title}. They'll see it on their Case File.` : `Companion case removed for ${rec.name || "the trainee"}.`);
+  if(typeof toast === "function") toast(rec.assignedCase ? `${rec.name || "Trainee"} now has ${CASES[caseId].title}. They'll see it on their Case Profile.` : `Companion case removed for ${rec.name || "the trainee"}.`);
 }
 if(typeof window.renderUnlockDaysControl === "function" || typeof renderUnlockDaysControl === "function"){
   // the row's controls: the case picker sits where the (retired) day-unlock control renders
@@ -78,7 +78,7 @@ function adminPage(){
   const ppl = people(), withCase = ppl.filter(r => caseOf(r.assignedCase && r.assignedCase.id)).length;
   return `<p class="eyebrow">Admin</p><h1>Companion Cases</h1>
     <div class="card cc-adm">
-      <p class="cc-adm-help">Each trainee gets a second, shorter file beside John Doe v. Robert Smith: a new problem on it every Case Flow day, and an Attorney–CM brainstorm at the end of the day, with you as Atty. Thorne. Pick a case in a trainee's row; they see it on their Case File page.</p>
+      <p class="cc-adm-help">Each trainee gets a second, shorter file beside John Doe VS Robert Smith: a new problem on it every Case Flow day, and an Attorney–CM brainstorm at the end of the day, with you as Atty. Thorne. Pick a case in a trainee's row; they see it on their Case File page.</p>
       <div class="cc-adm-bar"><label>Batch <select onchange="setAdminBatchFilter(this.value)"><option value="">All batches</option>${keys.map(k => `<option value="${E(k)}" ${k === state.adminBatchFilter ? "selected" : ""}>${E(labelOfKey(k))}</option>`).join("")}</select></label>
         <span class="cc-adm-count"><b>${withCase}</b> of ${ppl.length} trainee${ppl.length === 1 ? "" : "s"} have a case</span></div>
       ${tableHtml()}

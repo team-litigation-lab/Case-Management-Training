@@ -1,6 +1,6 @@
 # Case Flow Day 1 — Intake, Claims & Property Damage
 
-**Phase:** Intake, claims & Property Damage · **Focus case:** John Doe v. Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
+**Phase:** Intake, claims & Property Damage · **Focus case:** John Doe VS Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
 
 **Objective.** Know the Case Manager's role and the six stages of a file; meet John Doe and his case; hold the UPL line; read the raw file, make the acceptance decision and see which claims the file will carry; open the matter correctly in the CMS with the Conflict Check first; deliver the client's do's and don'ts and onboarding directions; sort the Property Damage side to see what touches John Doe's case (the severity evidence, the rental's last day for his rides) and what stays on Margaret Doe's separate claim; and keep John Doe reachable from the first week (the No Contact Protocol and the Final Warning Letter).
 
@@ -19,7 +19,7 @@
 
 | | |
 |---|---|
-| **Case** | John Doe v. Robert Smith (LSH-2026-MVA-770412) — MVA — passenger injury |
+| **Case** | John Doe VS Robert Smith (LSH-2026-MVA-770412) — MVA — passenger injury |
 | **Lead Counsel** | Atty. Elijah Thorne |
 | **Date of loss** | 02/06/2026 · **SOL** 02/06/2028 (Docketed on a two-year limitation for this training file. Confirm the governing state's statute before relying on it.) |
 | **Client** | John Doe — Front-seat passenger in the host vehicle |
@@ -33,25 +33,24 @@ The day is one module, on John Doe's one file, in two parts: first ALL of its le
 
 **Module 1 — Intake, Claims & Property Damage**
 
-1. *Lesson* — Meet Your Case: John Doe v. Robert Smith
-2. *Lesson* — The Case Manager's Role
-3. *Lesson* — Fact Sharing vs. Legal Advice: the UPL Line
-4. *Lesson* — Ingesting the Raw File
-5. *Lesson* — The Acceptance Decision & the Three-Pillar Case Plan
-6. *Lesson* — Client Do's and Don'ts
-7. *Lesson* — Property Damage: Does It Touch Our Case?
-8. *Lesson* — The No Contact Protocol — Steps 1 to 3
-9. *Lesson* — Final Warning Letter & When a Skip-Trace Starts
-10. *Skill Activity* — Opening John Doe's File in the CMS (practises: Ingesting the Raw File)
-11. *Skill Activity* — Backup File Maintenance: the Firm's Folders and Hierarchy (practises: Ingesting the Raw File)
-12. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet (practises: Client Do's and Don'ts)
-13. *Skill Activity* — Onboarding Direction Assignment in System (practises: Client Do's and Don'ts)
-14. *Skill Activity* — Does It Touch Our Case? Sorting the PD File (practises: Property Damage: Does It Touch Our Case?)
-15. *Skill Activity* — Multi-Channel Outreach Logging (practises: The No Contact Protocol — Steps 1 to 3)
-16. *Skill Activity* — Final Warning Letter Drafting (practises: Final Warning Letter & When a Skip-Trace Starts)
-17. *Knowledge Check* — CM Fundamentals Knowledge Check
-18. *Knowledge Check* — Onboarding & Property Damage Check
-19. *Knowledge Check* — MIA Escalation Knowledge Check
+1. *Lesson* — The Case Manager's Role
+2. *Lesson* — Fact Sharing vs. Legal Advice: the UPL Line
+3. *Lesson* — Ingesting the Raw File
+4. *Lesson* — The Acceptance Decision & the Three-Pillar Case Plan
+5. *Lesson* — Client Do's and Don'ts
+6. *Lesson* — Property Damage: Does It Touch Our Case?
+7. *Lesson* — The No Contact Protocol — Steps 1 to 3
+8. *Lesson* — Final Warning Letter & When a Skip-Trace Starts
+9. *Skill Activity* — Opening John Doe's File in the CMS (practises: Ingesting the Raw File)
+10. *Skill Activity* — Backup File Maintenance: the Firm's Folders and Hierarchy (practises: Ingesting the Raw File)
+11. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet (practises: Client Do's and Don'ts)
+12. *Skill Activity* — Onboarding Direction Assignment in System (practises: Client Do's and Don'ts)
+13. *Skill Activity* — Does It Touch Our Case? Sorting the PD File (practises: Property Damage: Does It Touch Our Case?)
+14. *Skill Activity* — Multi-Channel Outreach Logging (practises: The No Contact Protocol — Steps 1 to 3)
+15. *Skill Activity* — Final Warning Letter Drafting (practises: Final Warning Letter & When a Skip-Trace Starts)
+16. *Knowledge Check* — CM Fundamentals Knowledge Check
+17. *Knowledge Check* — Onboarding & Property Damage Check
+18. *Knowledge Check* — MIA Escalation Knowledge Check
 
 **End-of-day discussion (trainer):** Robert Smith's carrier has already called John Doe, and he needs a car to get to work. What do you tell him today, in what order, and what has to be on the file before tomorrow's claim set-up?
 
@@ -59,83 +58,13 @@ The day is one module, on John Doe's one file, in two parts: first ALL of its le
 
 ## Module 1 — Intake, Claims & Property Damage
 
-**Order:** Lessons (9) ➔ Practice Lab (7 Skill Activities) ➔ Knowledge Check (3 Learning Checks)
+**Order:** Lessons (8) ➔ Practice Lab (7 Skill Activities) ➔ Knowledge Check (3 Learning Checks)
 
-### 1.1.1 Meet Your Case: John Doe v. Robert Smith
-
-> **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
-> **Topic:** The one file you will work for five days  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#19` Claim Set-Up: Case Projection — Why the Three Work Together · curriculum/5-day-flow/case-file.md §1–2: the file at intake, people and vehicles, the collision
-
-#### 1 · Visual Layout Description
-
-A case card filling the slide like a file folder: top-left the style JOHN DOE v. ROBERT SMITH in Fraunces with the matter number LSH-2026-MVA-770412 in mono beneath. Left column: a small diagram of the all-way stop at Maple Hollow Rd & Birch Ave, the pickup's arrow running the stop into the Escape's passenger door. Right column: three stacked navy-to-orange bars for the $40,000 stack (BI $10,000, Host UM $20,000, Relative UM $10,000). Along the bottom, an orange timeline strip from DOL 02/06/2026 to first treatment 02/20/2026, labelled 14-DAY TREATMENT GAP.
-
-#### 2 · Slide Body — Tell Them
-
-*Why:* Every lesson, activity and Learning Check in this course works one file: John Doe v. Robert Smith. Knowing its facts cold (who, when, which policies, what is at risk) is what makes every step you take in the CMS make sense.
-
-1. The collision: 02/06/2026, about 7:10 a.m., at the all-way stop at Maple Hollow Rd & Birch Ave. Who ran the stop, which vehicles were involved and who was cited are in the Police Report: read it, don't assume.
-2. Your client: John Doe, 34, a warehouse shift lead at Northgate Distribution. Lead Counsel: Atty. Elijah Thorne. Case Manager: you. Where John Doe was sitting is a fact you find in the records, not one you are given.
-3. The Recovery Stack is $40,000, worked in order: $10,000 BI (Keystone Mutual) → $20,000 Host UM (Harbor Point) → $10,000 Relative UM (Cardinal State Mutual).
-4. His position in the vehicle decides which of those layers he can reach. Work it out from the Police Report and the policies before you name a single carrier.
-5. Health: Peach State Health Plan asserted a reimbursement right on first notice; Harbor Point carries $5,000 PIP on the Escape.
-6. The critical fact: compare the EMS Run Report's date with the first treatment record. The days between them are a Treatment Gap: you record its dates and, later, John Doe's own documented explanation. You never judge it.
-7. The statute of limitations is docketed for 02/06/2028. Every deadline on the file counts from the date of loss.
-
-> ⚠️ **UPL boundary.** You may share facts and explain the process to John Doe. You may not tell him what his case is worth or what the gap does to his claim. That is Atty. Thorne's call.
-
-#### 2 · Slide Body — Show Them
-
-|  | John Doe's file at a glance |
-|---|---|
-| Case | John Doe v. Robert Smith · LSH-2026-MVA-770412 · motor vehicle collision |
-| Date of loss / SOL | 02/06/2026 · SOL 02/06/2028 |
-| Client | John Doe, 34 · his position in the vehicle: find it in the Police Report |
-| Defendant | Robert Smith · what happened, and any citation: the Police Report |
-| Lead Counsel | Atty. Elijah Thorne |
-| Recovery Stack | $10,000 BI → $20,000 Host UM → $10,000 Relative UM = $40,000 |
-| Health Plan | Peach State · reimbursement right asserted |
-| Critical fact | A Treatment Gap: compare the EMS Run Report with the first treatment record |
-
-**Best practices & pitfalls**
-
-- Know the stack, the dates and the critical fact before the first call.
-- Trace every fact to its document: Police Report, Declaration Page, medical record.
-- ⚠️ Pitfall: repeating a fact from memory that the documents don't support.
-- ⚠️ Pitfall: treating a gap in treatment as the client's fault rather than a fact to document.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **25%** | Case facts | DOL, SOL, parties and John Doe's position stated correctly |
-| 🤖 AI | **20%** | Recovery Stack | $40,000 in the order BI → Host UM → Relative UM |
-| 🤖 AI | **15%** | Critical fact | Finds the Treatment Gap in the records and states its dates, without judging it |
-| 🧑‍🏫 Trainer | **25%** | Fact discipline | Traces facts to documents rather than memory |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | Shares facts, never value or merits |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Hand out nothing yet. Ask the room what they would want to know about a new file in the first five minutes, then show the case card.
-- Say the stack out loud in order, twice: BI, Host UM, Relative UM. It is the spine of Days 1 to 3.
-- Land the critical fact without blame: a 14-day gap is ordinary life (work, waiting it out), and the Case Manager's job is to document it, not judge it.
-- Close: “From the next slide on, every fact you use comes from a document in the file, not from this card.”
-
----
-
-### 1.1.2 The Case Manager's Role
+### 1.1.1 The Case Manager's Role
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Owning the file from intake to resolution  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#1` Training Agenda & What Case Management Is · `D1#2` The General Case Management Process · `D1#3` Key Duties of a Case Manager · `D1#4` Understanding Case Phases
 
 #### 1 · Visual Layout Description
@@ -202,11 +131,11 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.3 Fact Sharing vs. Legal Advice: the UPL Line
+### 1.1.2 Fact Sharing vs. Legal Advice: the UPL Line
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** What you may say, and what only Atty. Thorne says  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#20` Ethics & Boundaries: What You Can and Cannot Do at Hearings (UPL) · LSH Claims Specialist: communication skills and professionalism — clarity without jargon, calm reassurance · Newly authored: a dedicated, practical UPL lesson: fact sharing vs. legal advice, and the hear-log-route habit
 
 #### 1 · Visual Layout Description
@@ -273,11 +202,11 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.4 Ingesting the Raw File
+### 1.1.3 Ingesting the Raw File
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** From “On the Records” to a structured matter  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#1` Training Agenda & What Case Management Is · `D1#3` Key Duties of a Case Manager · `D1#4` Understanding Case Phases · `D1#5` Case Phase: Intake — Establishing Control · `D1#6` The Real Intake Workflow · `D1#7` Intake & Initial Client Contact — Gatekeepers of Case Quality · `D1#10` Bottleneck: Incomplete Client Information · `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · `D1#15` Bottleneck: Communication Gaps · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · LSH Claims Specialist: pre-claim data set, Declaration Page, coverage asymmetry
 
 #### 1 · Visual Layout Description
@@ -352,11 +281,11 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.5 The Acceptance Decision & the Three-Pillar Case Plan
+### 1.1.4 The Acceptance Decision & the Three-Pillar Case Plan
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** The document that makes the file move  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#8` Case Acceptance Determination · `D1#14` Bottleneck: Case Eligibility Uncertainty · `D1#17` Skill Building: Intake Decision Challenge & Applied Case Manager Actions · `D1#19` Claim Set-Up: Case Projection — Why the Three Work Together · `D1#21` Case Study: John Doe v. Apex — Liability Determination · `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#23` Case Planning Framework: The Three-Pillar Case Plan
 
 #### 1 · Visual Layout Description
@@ -425,11 +354,11 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 1.1.6 Client Do's and Don'ts
+### 1.1.5 Client Do's and Don'ts
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Protecting the claim from the client's own good intentions  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#44` Handling Treatment Gaps During the Treatment Phase · LSH Claims Specialist: LOR Property Damage carve-out, documents to support the claim
 
 #### 1 · Visual Layout Description
@@ -495,11 +424,11 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 ---
 
-### 1.1.7 Property Damage: Does It Touch Our Case?
+### 1.1.6 Property Damage: Does It Touch Our Case?
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** What from the PD side feeds John Doe's injury claim, and what stays on Margaret Doe's  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · `D5#35` Property Damage: Calculating the Value of the Claim · LSH Claims Specialist: LOR Property Damage carve-out, Property Damage severity as evidence for the injury claim
 
 #### 1 · Visual Layout Description
@@ -566,11 +495,11 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 ---
 
-### 1.1.8 The No Contact Protocol — Steps 1 to 3
+### 1.1.7 The No Contact Protocol — Steps 1 to 3
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Internal review, escalating contact attempts, team notification  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: No Contact Protocol, Steps 1–3 · `D1#11` Bottleneck: Delayed Client Follow-Up · `D1#9` Common Intake Bottlenecks — Overview · D5 agenda: MIA Clients
 
 #### 1 · Visual Layout Description
@@ -634,11 +563,11 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ---
 
-### 1.1.9 Final Warning Letter & When a Skip-Trace Starts
+### 1.1.8 Final Warning Letter & When a Skip-Trace Starts
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** No Contact Protocol Steps 4 to 6, and when the search begins  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: No Contact Protocol, Steps 4–6; Withdrawal Letters · D5 agenda: MIA Clients
 
 #### 1 · Visual Layout Description
@@ -700,11 +629,11 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ---
 
-### 1.1.10 Opening John Doe's File in the CMS
+### 1.1.9 Opening John Doe's File in the CMS
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Skill Activity — from raw file to an active matter  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#5` Case Phase: Intake — Establishing Control · `D1#6` The Real Intake Workflow · `D1#7` Intake & Initial Client Contact — Gatekeepers of Case Quality · `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors
 
 #### 1 · Visual Layout Description
@@ -765,11 +694,11 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.11 Backup File Maintenance: the Firm's Folders and Hierarchy
+### 1.1.10 Backup File Maintenance: the Firm's Folders and Hierarchy
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Skill Activity — link the drive and build the backup the way the firm keeps it  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · LSH firm standard: backup drive folder hierarchy
 
 #### 1 · Visual Layout Description
@@ -829,11 +758,11 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.12 Voicemails & Recorded Statements: the Action Plan and Direction Packet
+### 1.1.11 Voicemails & Recorded Statements: the Action Plan and Direction Packet
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Skill Activity 1 — work the voicemail, then send what the client gets on day one  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#44` Handling Treatment Gaps During the Treatment Phase · LSH Claims Specialist: client communication protocol
 
 #### 1 · Visual Layout Description
@@ -894,11 +823,11 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 ---
 
-### 1.1.13 Onboarding Direction Assignment in System
+### 1.1.12 Onboarding Direction Assignment in System
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Skill Activity 2 — turn directions into tracked tasks  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#3` Key Duties of a Case Manager · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#44` Handling Treatment Gaps During the Treatment Phase
 
 #### 1 · Visual Layout Description
@@ -956,11 +885,11 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 ---
 
-### 1.1.14 Does It Touch Our Case? Sorting the PD File
+### 1.1.13 Does It Touch Our Case? Sorting the PD File
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Skill Activity 3 — sort the Property Damage items, decide refer, coordinate or handle, and say whether PD touches John Doe's case  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · LSH Claims Specialist: LOR Property Damage carve-out, Property Damage severity as evidence for the injury claim
 
 #### 1 · Visual Layout Description
@@ -1019,11 +948,11 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 ---
 
-### 1.1.15 Multi-Channel Outreach Logging
+### 1.1.14 Multi-Channel Outreach Logging
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 1 — build a defensible record  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: No Contact Protocol, Step 2 · `D1#11` Bottleneck: Delayed Client Follow-Up
 
 #### 1 · Visual Layout Description
@@ -1085,11 +1014,11 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ---
 
-### 1.1.16 Final Warning Letter Drafting
+### 1.1.15 Final Warning Letter Drafting
 
 > **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 2 — write the letter that gets answered  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: Final Warning Letter; sample unresponsive-client letters
 
 #### 1 · Visual Layout Description
@@ -1152,11 +1081,11 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ---
 
-### 1.1.17 CM Fundamentals Knowledge Check
+### 1.1.16 CM Fundamentals Knowledge Check
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#1` Training Agenda & What Case Management Is · `D1#5` Case Phase: Intake — Establishing Control · `D1#12` Bottleneck: Conflict Check Delays · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy
 
 #### 1 · Visual Layout Description
@@ -1261,11 +1190,11 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 1.1.18 Onboarding & Property Damage Check
+### 1.1.17 Onboarding & Property Damage Check
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · `D5#35` Property Damage: Calculating the Value of the Claim · `D1#44` Handling Treatment Gaps During the Treatment Phase
 
 #### 1 · Visual Layout Description
@@ -1359,11 +1288,11 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 ---
 
-### 1.1.19 MIA Escalation Knowledge Check
+### 1.1.18 MIA Escalation Knowledge Check
 
 > **Knowledge Check** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: No Contact Protocol · `D1#11` Bottleneck: Delayed Client Follow-Up
 
 #### 1 · Visual Layout Description

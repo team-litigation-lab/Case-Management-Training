@@ -1,5 +1,5 @@
 /* ============================================================
-   John Doe v. Robert Smith — the case documents (the Case Flow's document set)
+   John Doe VS Robert Smith — the case documents (the Case Flow's document set)
    Every file lives in documents/case-flow/<folder>/. Built from build/case-flow/documents/
    (src/RSNN.html → render.cjs; SPEC.md says what each document holds and plants).
    Fields as in js/cm-documents.js: "cms" is the CMS upload category; "key" is the trainer-only
@@ -215,7 +215,7 @@ window.CM_CF_DOCS = [
    desc:"An earlier draft of the Complaint.",
    key:"PLANTED: it is a superseded pre-filing draft (no case number, unsigned, marked DRAFT 09/15/2026). Never in a binder or exhibit set — use the filed complaint (RS51)."},
   {id:"RS51", folder:"litigation", file:"case-flow/litigation/RS_51_Complaint_Filed.pdf", title:"Complaint (filed 09/24/2026)", cms:"Litigation", day:4,
-   desc:"John Doe v. Robert Smith, State Court of Riverton County, No. 26-CV-04417, filed 09/24/2026.",
+   desc:"John Doe VS Robert Smith, State Court of Riverton County, No. 26-CV-04417, filed 09/24/2026.",
    key:"The operative pleading: use it, never the pre-filing draft (RS50). It pleads John Doe's bodily-injury damages only (medical Specials, lost wages, future medical, pain and suffering): no Property Damage, because the Civic is Margaret Doe's claim, not his. Filed 09/24/2026, well inside the internal cutoff (11/05/2027)."},
   {id:"RS52", folder:"litigation", file:"case-flow/litigation/RS_52_Service_Skip_Trace_and_Affidavit.pdf", title:"Service of Process — Non-Service, Skip-Trace & Affidavit of Service", cms:"Litigation", day:5,
    desc:"Allied Process Services' failed attempts, the TraceLine Skip-Trace and the affidavit of service.",

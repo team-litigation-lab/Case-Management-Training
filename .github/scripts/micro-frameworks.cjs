@@ -28,7 +28,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
 // Steps rail, in the six lessons whose Framework or Rules slide holds one; the 26 that had a Milestone Steps slide of
 // their own draw none now); Day 5's lessons are condensed: a Red Flag only
 const SPEC = {
-  'd1m1-case': 'rf', 'd1m1-role': 'rx rf', 'd1m1-upl': 'rx rf', 'd1m1-l1': 'rx rf', 'd1m4-l1': 'rx rf', 'd1m3-l1': 'rx rf',
+  'd1m1-role': 'rx rf', 'd1m1-upl': 'rx rf', 'd1m1-l1': 'rx rf', 'd1m4-l1': 'rx rf', 'd1m3-l1': 'rx rf',
   'd1m3-l2': 'rx rf', 'd1m2-l1': 'rx rf', 'd1m2-l2': 'ms rx rf',
   'd2m1-l2': 'rf', 'd2m1-cov': 'rx rf', 'd2m1-l1': 'rf', 'd2m1-afd': 'rf', 'd2m1-liab': 'rx rf', 'd2m1-first': 'ms rf',
   'd1m4-tplan': 'rf', 'd1m4-tmap': 'rx rf', 'd1m4-tcare': 'rx rf', 'd1m4-l2': 'rx rf', 'd2m2-l1': 'rf', 'd2m2-eob': 'rx rf',
@@ -161,7 +161,8 @@ const SPOKEN = {
           if (!vs.includes('why')) {   // and nothing on that slide is covered by the flag or pushed off the slide by it
             const rb = x.getBoundingClientRect(), sb = (wrap.querySelector('.cfx-sheet') || wrap).getBoundingClientRect();
             for (const el of (wrap.querySelector('.cfx-sheet') || wrap).querySelectorAll('*')) {
-              if (x.contains(el) || el.contains(x) || el.closest('svg') || !el.getClientRects().length || ![...el.childNodes].some(t => t.nodeType === 3 && t.textContent.trim())) continue;
+              // (the folded-away text of a closed In plain English box is not on the slide, so it cannot be pushed off it)
+              if (x.contains(el) || el.contains(x) || el.closest('svg') || (el.closest('details:not([open])') && !el.closest('summary')) || !el.getClientRects().length || ![...el.childNodes].some(t => t.nodeType === 3 && t.textContent.trim())) continue;
               const r = el.getBoundingClientRect(), under = r.right > rb.left + 1 && r.left < rb.right - 1 ? Math.min(r.bottom, rb.bottom) - Math.max(r.top, rb.top) : 0;
               if (under > 4 || r.bottom > sb.bottom + 2) { out.push(`${where}: on ${view}, "${el.textContent.trim().slice(0, 30)}" is ${under > 4 ? 'covered by the CM Red Flag' : 'pushed off the slide'} (the slide has no room for the flag at full size)`); break; }
             }

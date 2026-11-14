@@ -1,6 +1,6 @@
 # Case Flow Day 5 — Litigation & Dropped Cases
 
-**Phase:** Litigation & Dropped Cases · **Focus case:** John Doe v. Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
+**Phase:** Litigation & Dropped Cases · **Focus case:** John Doe VS Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
 
 **Objective.** On Track B, document the impasse and move the file into litigation without losing a deadline; keep the pleadings and discovery logs, the trial-prep checklist moving; sort which Property Damage outcomes on Margaret Doe's separate claim reach John Doe's settlement (a release that must not reach his BI claim) and which stay on her file; prepare John Doe for his deposition; handle a comparative-negligence defense and a client who goes missing; disburse the arbitration award on the Litigation Net Sheet; and close out a dropped practice matter with its Withdrawal Letters.
 
@@ -18,7 +18,7 @@
 
 | | |
 |---|---|
-| **Case** | John Doe v. Robert Smith (LSH-2026-MVA-770412) — MVA — passenger injury |
+| **Case** | John Doe VS Robert Smith (LSH-2026-MVA-770412) — MVA — passenger injury |
 | **Lead Counsel** | Atty. Elijah Thorne |
 | **Date of loss** | 02/06/2026 · **SOL** 02/06/2028 (Docketed on a two-year limitation for this training file. Confirm the governing state's statute before relying on it.) |
 | **Client** | John Doe — Front-seat passenger in the host vehicle |
@@ -82,7 +82,7 @@ The day is one module, on John Doe's one file, in two parts: first ALL of its le
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Where Track B leaves Track A, and when a stall becomes an impasse  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#1` Welcome to Day 4: When Pre-Suit Negotiations Stall · `D2#29` Settlement Negotiations: The “Never” Rule · LSH Claims Specialist: liability denial and disputes — the dispute path to litigation; duty, breach, causation and damages; ask for the denial's reasons and evidence in writing · Newly authored: the five impasse triggers, each proved from the file
 
 #### 1 · Visual Layout Description
@@ -158,7 +158,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Status, court fields, litigation folders, the Litigation Calendar and the neutral  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#31` Litigation File Architecture · `D4#1` Welcome to Day 4: When Pre-Suit Negotiations Stall · `D4#2` Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background · `D4#3` Introducing the Neutral: Assignment & Selection Workflows · `D4#4` Introducing the Neutral: Extent of Decision-Making Power · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · LSH Claims Specialist: Letter for Preservation of Evidence · Newly authored: a UM notice is not a demand; status, fields, folders and calendar changed together
 
 #### 1 · Visual Layout Description
@@ -233,7 +233,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Name the bottleneck by the date it threatens  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · `D4#30` Common Bottlenecks: Arbitration (The Trial-Ready Landmines) · LSH Claims Specialist: BI liability follow-ups (every 5 business days) and the escalation protocol
 
 #### 1 · Visual Layout Description
@@ -306,7 +306,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** The ladder decides who hears; the report decides whether they can act  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D5#32` Advanced KPIs for Litigation Case Managers · LSH Claims Specialist: escalation protocol (supervisor review, internal flag, certified request for a written position)
 
 #### 1 · Visual Layout Description
@@ -379,7 +379,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Managing litigation tracking systems, pleadings logs & discovery calendars  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#1` Welcome to Day 5: Stepping into Litigation · `D5#2` The Case Manager's Tactical Role in Litigation: The Litigation Lifecycle · `D5#3` Phase 1: The Pleadings & Service Stage · `D5#4` Phase 2: Discovery — A. Interrogatories & Requests for Production · `D5#21` The Litigation Toolkit: The Litigation Document Index · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#26` Advanced Workflow Deep-Dive: The Complaint / Petition · `D5#27` Written Discovery: Interrogatories, RFPs & RFAs · `D5#28` Master Timeline & Deadline Calculations · `D5#31` Litigation File Architecture · Newly authored: whether e-service adds days (none on this file's rule set; the federal example)
 
 #### 1 · Visual Layout Description
@@ -457,7 +457,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Trial preparation checklists & tracking litigation KPIs  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#2` The Case Manager's Tactical Role in Litigation: The Litigation Lifecycle · `D5#5` Phase 2: Discovery — B. Deposition Coordination & Preparation · `D5#6` Phase 3: The Trial & Mediation Preparation Stage · `D5#7` The Litigation Mindset: Critical Traps & KPIs · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#32` Advanced KPIs for Litigation Case Managers · LSH Claims Specialist: liability acceptance post-lawsuit (the defense pivots to causation and damages) · Newly authored: a scheduling-order date moves only by court order
 
 #### 1 · Visual Layout Description
@@ -530,7 +530,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Commanding evidence from outside the suit: in order, narrow and on time  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#6` Phase 3: The Trial & Mediation Preparation Stage · `D5#23` Critical Litigation Process 3: Third-Party Evidence Subpoenas · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#30` Subpoena Duces Tecum: Execution Strategy · `D5#31` Litigation File Architecture · Newly authored: trial subpoenas tasked against the pretrial and trial-calendar dates; service rules and witness fees confirmed with the court's rules · Newly authored: a subpoena noticed by the defense is docketed and routed to Atty. Thorne
 
 #### 1 · Visual Layout Description
@@ -543,7 +543,7 @@ Left two-thirds: a horizontal four-station pipeline on a navy rail, each station
 
 1. Two subpoenas, two jobs. A Subpoena Duces Tecum commands a non-party to produce documents; a trial subpoena commands a witness (a fact witness, a treating physician, a police officer) to appear and testify, so they legally show up. Robert Smith's own documents come through Requests for Production, not a subpoena.
 2. The trigger is a refusal or a custodian need: a hospital, cell phone provider or employer ignores or refuses a request made with John Doe's authorization, or Atty. Thorne needs a record produced by its custodian. Flag it as a question (“Do you want a records subpoena?”); he decides, signs and issues it.
-3. Draft on the court-approved Subpoena Duces Tecum form only: the case style (John Doe v. Robert Smith, State Court of Riverton County, Civil Action No. 26-CV-04417), the named custodian, the production date and place, and Exhibit A. Route the draft to Atty. Thorne for review and signature.
+3. Draft on the court-approved Subpoena Duces Tecum form only: the case style (John Doe VS Robert Smith, State Court of Riverton County, Civil Action No. 26-CV-04417), the named custodian, the production date and place, and Exhibit A. Route the draft to Atty. Thorne for review and signature.
 4. Write Exhibit A narrow: one subject, an exact date range, named record types. The deck's model: “Any and all emergency room records, triage notes, and radiological imaging regarding [Client] for the treatment date of [Accident Date] only.” Never “all records of any kind”: that is an overly broad fishing expedition, and the defense or the third party can move to quash it.
 5. Notice before service, always. A copy goes to opposing counsel, here Atty. Grant Mercer of Mercer & Hale LLP, before the third party is served; most states set a notice period, often 5 to 10 days. Confirm the governing rule and calendar the earliest service date from it.
 6. Formal service by process server on the facility's Registered Agent or records custodian; on this file, Allied Process Services. The signed subpoena and the proof of service are filed in 05_SUBPOENAS.
@@ -606,7 +606,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with PD Transition Check (`d5m2`)  
 > **Topic:** Which Property Damage outcomes reach John Doe's settlement, and which stay on Margaret Doe's file  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · `D5#35` Property Damage: Calculating the Value of the Claim · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · LSH Claims Specialist: Property Damage coverage outside the BI stack · Newly authored: the PD-only release, and the transition between the PD and BI files
 
 #### 1 · Visual Layout Description
@@ -675,7 +675,7 @@ Verified in PD Transition Check (taught on Case Flow Day 5) and that day's auto-
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The audit, the three pillars, and the room John testifies from  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#8` Preparing Your Client for a Deposition: The Pre-Deposition Audit · `D5#9` Discovery Intake Meeting — Pillar 1: De-escalating Anxiety · `D5#10` Discovery Intake Meeting — Pillar 2: The Essential Testimony Guidelines · `D5#11` Discovery Intake Meeting — Pillar 3: Dress Code & Professional Demeanor · `D5#14` Case Manager Checklist: The Day Before the Deposition · `D5#19` Professional Presentation: Dress Code & Demeanor · Newly authored: remote-deposition room protocol; refreshed-memory documents; social-media preservation
 
 #### 1 · Visual Layout Description
@@ -750,7 +750,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The four categories, the seven Golden Rules, and what an objection means  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#10` Discovery Intake Meeting — Pillar 2: The Essential Testimony Guidelines · `D5#12` Navigating the Silent Traps — Drill A: The “Is That All?” Trap · `D5#13` Navigating the Silent Traps — Drill B: The Thoughtful Silence · `D5#15` What Will the Defense Attorney Ask Me? The Four Categories · `D5#16` The 7 Golden Rules for Testifying (Rules 1–3) · `D5#17` The 7 Golden Rules for Testifying (Rules 4–5) · `D5#18` The 7 Golden Rules for Testifying (Rules 6–7) · `D5#20` What Happens When Your Lawyer Objects? · Newly authored: compound and loaded-question traps
 
 #### 1 · Visual Layout Description
@@ -825,7 +825,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Three allegations in the 11/12/2026 Answer, and the evidence that answers each  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: liability determination — accepted, partial, denied; written confirmation; pure and modified comparative negligence · LSH Claims Specialist: liability disputes — strengthening the evidence, damage patterns, the post-suit pivot to causation and damages · Newly authored: seatbelt-evidence and citation admissibility as state-variable questions; authentication and chain of custody in the counter-package
 
 #### 1 · Visual Layout Description
@@ -897,7 +897,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Finding the defendant who moved and the client who went quiet  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#22` Critical Litigation Processes: Service of Process & E-Filing/Docketing · `D5#23` Critical Litigation Process 3: Third-Party Evidence Subpoenas · `D5#29` The Process Server & Evading Defendant Protocol · `D5#30` Subpoena Duces Tecum: Execution Strategy · LSH Claims Specialist: No Contact Protocol, Steps 1–6; Final Warning Letter; Withdrawal Letters · Newly authored: the No Contact Protocol compressed against a deposition date; the emergency contact gets the request, never the case
 
 #### 1 · Visual Layout Description
@@ -971,7 +971,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Same $40,000.00, a different net: what suit cost the client, line by line  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#21` Increasing the Client's Net · `D3#23` The Net Sheet: Purpose of a Combined BI/UM Net Sheet · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D3#27` Key Takeaway — The Value of a Case Manager · Newly authored: the Track B close-out (the 07/06/2027 award and the litigated Net Sheet)
 
 #### 1 · Visual Layout Description
@@ -1040,7 +1040,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 > **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** From “Pending Drop” to “Dropped”: the gate, three Withdrawal Letters, their dispatch and the proof  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: Dropped Cases — definition, common reasons, the Pending Drop check, Withdrawal Letters to clients, carriers and medical providers, annotating and saving them, and switching the status to Dropped · LSH Claims Specialist: No Contact Protocol — the decision point (Notice of Withdrawal or Motion to Withdraw) and file closure · Newly authored: no health insurance as a drop reason; the reason kept to the client's letter; the six-step close-out in order
 
 #### 1 · Visual Layout Description
@@ -1112,7 +1112,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Skill Activity 1 — the impasse memo: Keystone's stonewall on the 14-Day Gap  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#29` Settlement Negotiations: The “Never” Rule · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · LSH Claims Specialist: liability decisions — the escalation protocol: supervisor, dated contact, file flagged for legal review · Newly authored: the impasse memo that frames a decision without recommending one
 
 #### 1 · Visual Layout Description
@@ -1182,7 +1182,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Skill Activity 2 — re-architect John Doe's file in the CMS  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#31` Litigation File Architecture · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D4#3` Introducing the Neutral: Assignment & Selection Workflows · LSH Claims Specialist: Letter for Preservation of Evidence
 
 #### 1 · Visual Layout Description
@@ -1254,7 +1254,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Skill Activity — from approved Complaint to accepted filing and a calendar that runs from it  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#3` Phase 1: The Pleadings & Service Stage · `D5#22` Critical Litigation Processes: Service of Process & E-Filing/Docketing · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#31` Litigation File Architecture · Newly authored: the filing set tasked to the Litigation Desk, signed by counsel, e-filed and calendared from the accepted filing (09/22–09/24/2026)
 
 #### 1 · Visual Layout Description
@@ -1263,7 +1263,7 @@ A left-to-right relay of four cards on a thin navy rail, each with an orange num
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** File date 09/22/2026, Track B. The file went to Litigation status on 09/10/2026 on Atty. Thorne's 09/09 authorization; the filing target is 09/24/2026 and today is its 48-hour audit. This morning Atty. Thorne approved his Complaint for John Doe v. Robert Smith in the State Court of Riverton County: negligence and negligence per se; medical Specials, lost wages, future medical and pain and suffering; jury demanded; Smith at 118 Larkspur Ln, Riverton. The CMS also holds his 09/15/2026 draft, stamped NOT FOR FILING, unsigned, with no case number. The civil cover sheet and summons have not been drafted. The fee tier moves from 33⅓% to 40% on the filing date (per the retainer). Pre-suit costs on the ledger: $486.75. Atty. Thorne's 09/10 question on notifying the UM carriers of the filed Complaint is still open.
+**Scenario.** File date 09/22/2026, Track B. The file went to Litigation status on 09/10/2026 on Atty. Thorne's 09/09 authorization; the filing target is 09/24/2026 and today is its 48-hour audit. This morning Atty. Thorne approved his Complaint for John Doe VS Robert Smith in the State Court of Riverton County: negligence and negligence per se; medical Specials, lost wages, future medical and pain and suffering; jury demanded; Smith at 118 Larkspur Ln, Riverton. The CMS also holds his 09/15/2026 draft, stamped NOT FOR FILING, unsigned, with no case number. The civil cover sheet and summons have not been drafted. The fee tier moves from 33⅓% to 40% on the filing date (per the retainer). Pre-suit costs on the ledger: $486.75. Atty. Thorne's 09/10 question on notifying the UM carriers of the filed Complaint is still open.
 
 **Execution prompt.** Tag the Litigation Desk paralegal, Nadia Brooks, with a CMS task precise enough to need no follow-up question: which documents, from which approved Complaint, due when, routed to Atty. Thorne for signature. After he signs on 09/23, submit the e-filing envelope in Court E-Filing on 09/24 (caption, court, case type, filing attorney, document types, filing fee), and check every page is signed before it goes in. Record the accepted filing: the civil action number, the filing date, the stamped Complaint, the issued summons and the Notice of Case Management Conference in 01_PLEADINGS, the fee receipt to the costs ledger. Then calendar from the filing: the service deadline with warning alerts, the hand-off to Allied Process Services, the Case Management Conference with Atty. Thorne as attendee, and the answer deadline held until service. Graded judgment: which date can be calendared today and which cannot.
 
@@ -1277,7 +1277,7 @@ A left-to-right relay of four cards on a thin navy rail, each with an orange num
 - [ ] CMS task to Nadia Brooks dated 09/22/2026: civil cover sheet and summons, built from the Complaint Atty. Thorne approved that morning (not the 09/15/2026 draft), due end of day 09/22/2026, routed to Atty. Thorne for signature
 - [ ] The summons in the task: directed to Robert Smith at 118 Larkspur Ln, Riverton, the address pleaded in the Complaint; the cover sheet: motor vehicle personal injury, jury demanded
 - [ ] Signature check before upload: Complaint, cover sheet and summons signed by Atty. Thorne on 09/23/2026; the 09/15/2026 draft never uploaded
-- [ ] Envelope in Court E-Filing: John Doe v. Robert Smith, State Court of Riverton County, new civil case; Complaint (lead), civil cover sheet, summons for issuance; filing attorney Atty. Elijah Thorne, State Bar No. 418207; filing fee and summons $218.00
+- [ ] Envelope in Court E-Filing: John Doe VS Robert Smith, State Court of Riverton County, new civil case; Complaint (lead), civil cover sheet, summons for issuance; filing attorney Atty. Elijah Thorne, State Bar No. 418207; filing fee and summons $218.00
 - [ ] Envelope accepted 09/24/2026; court fields updated: Civil Action No. 26-CV-04417 replaces “Pending”, filing date 09/24/2026, service status “Summons issued, not served”
 - [ ] Pleadings Log row: Complaint filed 09/24/2026, e-file stamp 10:42 a.m., source document linked
 - [ ] 01_PLEADINGS holds Complaint_Filed_Stamped.pdf, Summons_Issued.pdf and Notice_of_Case_Management_Conference.pdf; no scan names
@@ -1327,7 +1327,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Skill Activity 1 — rules that fire before the deadline does  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · LSH Claims Specialist: BI liability follow-ups and the escalation protocol
 
 #### 1 · Visual Layout Description
@@ -1396,7 +1396,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Skill Activity 2 — five problems, nine days, one order  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#30` Common Bottlenecks: Arbitration (The Trial-Ready Landmines) · `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder
 
 #### 1 · Visual Layout Description
@@ -1466,7 +1466,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Skill Activity 1 — repair the log before it costs the case  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#3` Phase 1: The Pleadings & Service Stage · `D5#4` Phase 2: Discovery — A. Interrogatories & Requests for Production · `D5#21` The Litigation Toolkit: The Litigation Document Index · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#27` Written Discovery: Interrogatories, RFPs & RFAs · `D5#28` Master Timeline & Deadline Calculations · `D5#31` Litigation File Architecture · `D5#32` Advanced KPIs for Litigation Case Managers
 
 #### 1 · Visual Layout Description
@@ -1538,7 +1538,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Skill Activity 2 — audit against the order, measure against the target  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#5` Phase 2: Discovery — B. Deposition Coordination & Preparation · `D5#6` Phase 3: The Trial & Mediation Preparation Stage · `D5#7` The Litigation Mindset: Critical Traps & KPIs · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#28` Master Timeline & Deadline Calculations · `D5#32` Advanced KPIs for Litigation Case Managers · `D5#33` Skill Building: The Ultimate Case Management — Jordan Davies · LSH Claims Specialist: liability acceptance post-lawsuit (the defense pivots to causation and damages) · Newly authored: the last day to serve written discovery, counted back from the discovery cutoff
 
 #### 1 · Visual Layout Description
@@ -1620,7 +1620,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Transition Check (`d5m2`)  
 > **Topic:** Skill Activity 1 — sort Keystone's final PD position between John Doe's case and Margaret Doe's file  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#35` Property Damage: Calculating the Value of the Claim · `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · LSH Claims Specialist: liability disputes — written basis, escalation to the attorney · Newly authored: the PD-only release, and the transition between the PD and BI files
 
 #### 1 · Visual Layout Description
@@ -1685,7 +1685,7 @@ Verified in PD Transition Check (taught on Case Flow Day 5) and that day's auto-
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 1 — client injury & 14-Day Gap defense: your segment, his substance  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#9` Discovery Intake Meeting — Pillar 1: De-escalating Anxiety · `D5#10` Discovery Intake Meeting — Pillar 2: The Essential Testimony Guidelines · `D5#11` Discovery Intake Meeting — Pillar 3: Dress Code & Professional Demeanor · `D5#14` Case Manager Checklist: The Day Before the Deposition · `D5#19` Professional Presentation: Dress Code & Demeanor · Newly authored: remote-deposition room protocol
 
 #### 1 · Visual Layout Description
@@ -1766,7 +1766,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 2 — observe, log and route; never coach  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#12` Navigating the Silent Traps — Drill A: The “Is That All?” Trap · `D5#13` Navigating the Silent Traps — Drill B: The Thoughtful Silence · `D5#15` What Will the Defense Attorney Ask Me? The Four Categories · `D5#16` The 7 Golden Rules for Testifying (Rules 1–3) · `D5#17` The 7 Golden Rules for Testifying (Rules 4–5) · `D5#18` The 7 Golden Rules for Testifying (Rules 6–7) · `D5#20` What Happens When Your Lawyer Objects? · Newly authored: compound and loaded-question traps
 
 #### 1 · Visual Layout Description
@@ -1844,7 +1844,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 1 — answer each allegation from the file  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#23` Critical Litigation Process 3: Third-Party Evidence Subpoenas · `D5#30` Subpoena Duces Tecum: Execution Strategy · LSH Claims Specialist: handling liability disputes — written basis, stronger evidence, witness statements, escalation to the legal team · Newly authored: authentication and chain of custody in the counter-package
 
 #### 1 · Visual Layout Description
@@ -1913,7 +1913,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 2 — find the defendant, reach the client, prove both  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#22` Critical Litigation Processes: Service of Process & E-Filing/Docketing · `D5#29` The Process Server & Evading Defendant Protocol · LSH Claims Specialist: No Contact Protocol; Final Warning Letter; sending Withdrawal Letters (current address, certified mail, dispatch recorded)
 
 #### 1 · Visual Layout Description
@@ -1985,7 +1985,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Skill Activity — take the award to $14,713.75 on the LSH Net Sheet  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#21` Increasing the Client's Net · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D3#27` Key Takeaway — The Value of a Case Manager · `D3#28` Skill Building: The “Doe v. Apex” Final Net Challenge · Newly authored: the Track B close-out
 
 #### 1 · Visual Layout Description
@@ -2049,7 +2049,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Skill Activity — back up the litigation file, run the final audit and prepare the case for Closed Files  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · `D3#28` Skill Building: The “Doe v. Apex” Final Net Challenge · LSH firm standard: backup drive folder hierarchy
 
 #### 1 · Visual Layout Description
@@ -2112,7 +2112,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 > **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Skill Activity — a practice matter: three Withdrawal Letters, their dispatch and the Dropped status  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: Dropped Cases — sending Withdrawal Letters to clients, carriers and medical providers; the sample letters by email, by text, to a carrier and to a provider · Newly authored: the Denise Harlow practice matter (no health insurance, treatment ended, Pending Drop)
 
 #### 1 · Visual Layout Description
@@ -2178,7 +2178,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#1` Welcome to Day 4: When Pre-Suit Negotiations Stall · `D4#2` Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background · `D4#3` Introducing the Neutral: Assignment & Selection Workflows · `D4#4` Introducing the Neutral: Extent of Decision-Making Power · `D2#29` Settlement Negotiations: The “Never” Rule · `D5#31` Litigation File Architecture
 
 #### 1 · Visual Layout Description
@@ -2270,7 +2270,7 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · `D4#30` Common Bottlenecks: Arbitration (The Trial-Ready Landmines) · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder
 
 #### 1 · Visual Layout Description
@@ -2355,7 +2355,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#7` The Litigation Mindset: Critical Traps & KPIs · `D5#21` The Litigation Toolkit: The Litigation Document Index · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#28` Master Timeline & Deadline Calculations · `D5#31` Litigation File Architecture · `D5#32` Advanced KPIs for Litigation Case Managers · `D5#33` Skill Building: The Ultimate Case Management — Jordan Davies
 
 #### 1 · Visual Layout Description
@@ -2444,7 +2444,7 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Transition Check (`d5m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · `D5#35` Property Damage: Calculating the Value of the Claim · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive
 
 #### 1 · Visual Layout Description
@@ -2527,7 +2527,7 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#8` Preparing Your Client for a Deposition: The Pre-Deposition Audit · `D5#14` Case Manager Checklist: The Day Before the Deposition · `D5#15` What Will the Defense Attorney Ask Me? The Four Categories · `D5#16` The 7 Golden Rules for Testifying (Rules 1–3) · `D5#17` The 7 Golden Rules for Testifying (Rules 4–5) · `D5#18` The 7 Golden Rules for Testifying (Rules 6–7) · `D5#20` What Happens When Your Lawyer Objects?
 
 #### 1 · Visual Layout Description
@@ -2609,7 +2609,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Knowledge Check (all five days) + CM Learning Summary & Self-Scale  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#44` Handling Treatment Gaps During the Treatment Phase · `D3#3` BI Exhaustion & Consent — Mechanic 1: Locking the Escape Hatches · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D4#1` Welcome to Day 4: When Pre-Suit Negotiations Stall · `D5#15` What Will the Defense Attorney Ask Me? The Four Categories · LSH Claims Specialist: liability determination and disputes
 
 #### 1 · Visual Layout Description
@@ -2689,7 +2689,7 @@ The standard knowledge-check split, extended for the final check. Above the crea
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#23` The Net Sheet: Purpose of a Combined BI/UM Net Sheet · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D3#27` Key Takeaway — The Value of a Case Manager · Newly authored: the Track B close-out
 
 #### 1 · Visual Layout Description
@@ -2757,7 +2757,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 > **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: Dropped Cases — Withdrawal Letters and closing the file · Newly authored: the Denise Harlow practice matter
 
 #### 1 · Visual Layout Description
