@@ -186,7 +186,9 @@ for (const day of CF.days) {
       const taught = TAUGHT[b.id] || 0, side = c.side === true;
       if(c.side !== undefined && c.side !== true) errors.push(`${b.id}.side: true (a short side skill builder) or omit`);
       if(side && !/^Assuming\b/.test(String(c.situation || ""))) errors.push(`${b.id}.situation: a side skill builder opens with its assumption ("Assuming …")`);
-      const [s0, s1] = side ? [2, 3] : taught === 1 ? [4, 6] : taught >= 4 ? [3, 4] : [3, 5];
+      // "ownerSteps": true keeps the steps the course owner wrote word for word (Day 3's Backup File Maintenance, a side exercise with five)
+      if(c.ownerSteps !== undefined && (c.ownerSteps !== true || !side)) errors.push(`${b.id}.ownerSteps: true, on a side skill builder whose steps the owner wrote, or omit`);
+      const [s0, s1] = side ? (c.ownerSteps ? [2, 5] : [2, 3]) : taught === 1 ? [4, 6] : taught >= 4 ? [3, 4] : [3, 5];
       if(!Array.isArray(c.steps) || c.steps.length < s0 || c.steps.length > s1) errors.push(`${b.id}.steps: ${Array.isArray(c.steps) ? c.steps.length : "no"} steps (want ${s0}–${s1} on Day ${taught}${side ? ", a side skill builder" : ""})`);
       else c.steps.forEach((s, i) => { line(b.id, `steps[${i}]`, s, 32, [0, 1]);
         if(!/[.?!]$/.test(String(s).replace(/\*\*/g, "").trim())) errors.push(`${b.id}.steps[${i}]: write it as a full sentence, ending in a full stop: ${s}`);

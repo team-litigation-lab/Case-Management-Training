@@ -859,17 +859,23 @@
     "image": "documents-audit",
     "situation": "Assuming **three corrected versions** have arrived before the 07/20/2026 demand, your backup must match the CMS before anything goes out.",
     "side": true,
+    "ownerSteps": true,
     "steps": [
-      "In Google Drive, rename each older version with **_SUPERSEDED-[Date]** and move the demand drafts into 05 Insurance, Demands & Negotiation.",
-      "Run ✓ Check my drive, and log the audit in CMS → Case Notes."
+      "Compare the files in your Backup Drive against the CMS to see what is missing.",
+      "Upload any missing filed documents from the CMS into your Backup Drive.",
+      "Keep the newest version in the main folder, and rename any older version with _SUPERSEDED-[Date].",
+      "Move the draft demand and packet into folder 05 Insurance.",
+      "Run the Check My Drive audit tool and record your completion."
     ],
     "deliver": "A backup that **matches the CMS** before the demand",
     "purpose": "What the adjuster gets must be **on our drive first**",
     "principle": "**Supersede, never delete**: label the old version",
     "checks": [
+      "**Every filed document** in the CMS is on the drive",
+      "**Current versions** in 03, 04 and 07",
       "Old versions **labeled SUPERSEDED** with a date",
       "Demand drafts in **05**, labeled DRAFT",
-      "**✓ Check my drive** clean; audit logged"
+      "**✓ Check my drive** clean; audit in Case Notes"
     ],
     "dos": [
       "Audit the backup **before every package**"
