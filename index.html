@@ -2580,7 +2580,7 @@ const DAYS = [];   // the course's days are the Case Flow's: js/cm-case-flow.js 
    Conflict Resolver (relates to Case Flow Day 5, id 15: the litigation calendar). */
 const PRACTICE_TOOLS = [
   {id:"calendar", icon:"◫", title:"Case Docket & Calendar Conflict Resolver", relates:"Day 15",
-   desc:"A case manager's week across John Doe v. Robert Smith and three other matters — depositions, mediation, IMEs, a brief deadline and an SOL — with overlapping commitments to resolve, hard deadlines to calculate, and an AI-drafted docket briefing for the handling attorney."}
+   desc:"A case manager's week across John Doe VS Robert Smith and three other matters — depositions, mediation, IMEs, a brief deadline and an SOL — with overlapping commitments to resolve, hard deadlines to calculate, and an AI-drafted docket briefing for the handling attorney."}
 ];
 
 
@@ -2653,7 +2653,7 @@ const CAL_EVENTS = [
   {t:"Arbitrator Strike List Due — Okafor (AAA panel)", day:"Wed", s:13.5, e:14, p:"High", loc:"Email", type:"Arbitration"},
   {t:"Weekly Docket Check — all litigated files", day:"Wed", s:15, e:16, p:"Medium", loc:"Court portal", type:"Litigation"},
   {t:"Process Server Follow-up — Smith (5-day check)", day:"Wed", s:15.5, e:16, p:"Medium", loc:"Phone", type:"Litigation"},
-  {t:"Mediation — John Doe v. Robert Smith (Zoom + breakout rooms)", day:"Thu", s:9, e:13, p:"High", loc:"Zoom", type:"Mediation"},
+  {t:"Mediation — John Doe VS Robert Smith (Zoom + breakout rooms)", day:"Thu", s:9, e:13, p:"High", loc:"Zoom", type:"Mediation"},
   {t:"Client Pre-Brief — John Doe (15 min before mediation)", day:"Thu", s:8.75, e:9, p:"High", loc:"Zoom", type:"Client"},
   {t:"Subpoena Compliance Call — Metro General Records", day:"Thu", s:10, e:10.5, p:"Medium", loc:"Phone", type:"Litigation"},
   {t:"New Referral Intake — Walk-in", day:"Thu", s:11, e:11.5, p:"Low", loc:"Office", type:"Intake"},
@@ -3061,11 +3061,11 @@ const TRIAL_RECOVERY_SCENARIO = {
 };
 
 /* ---------- Client Profile Reference Document (always accessible) ---------- */
-/* The client profile (the Case File, and the case dossier inside every AI prompt): John Doe v. Robert Smith, from
+/* The client profile (the Case File, and the case dossier inside every AI prompt): John Doe VS Robert Smith, from
    js/cm-case-flow-data.js (CM_CASE_FLOW.case and .profile). */
 const CLIENT_PROFILE_DOC = [
   {section:"Case Snapshot", items:[
-    "Case: John Doe v. Robert Smith · LSH file LSH-2026-MVA-770412 · MVA — passenger injury",
+    "Case: John Doe VS Robert Smith · LSH file LSH-2026-MVA-770412 · MVA — passenger injury",
     "Client: John Doe · DOB 08/14/1991 · 2214 Maple Hollow Rd, Riverton · (555) 010-2288 · john.doe@example.com",
     "Client position: Front-seat passenger in the host vehicle",
     "Date of loss: 02/06/2026 · Statute of Limitations docketed 02/06/2028 (Docketed on a two-year limitation for this training file. Confirm the governing state's statute before relying on it.)",
@@ -3188,7 +3188,7 @@ const CLIENT_PROFILE_DOC = [
   ]},
   {section:"Track B: From Impasse to Suit", items:[
     "09/08 impasse memo to Atty. Thorne · 09/09 suit authorized, 40% fee tier discussed with John · 09/10 CMS status → Litigation; Harbor Point and Cardinal State notified",
-    "09/24/2026 complaint filed: John Doe v. Robert Smith, State Court of Riverton County, Civil Action No. 26-CV-04417 (medical Specials, wages, future medical, pain and suffering; no Property Damage is pleaded: the Civic's Loss of Use and Diminished Value stay on Margaret's own PD claim)",
+    "09/24/2026 complaint filed: John Doe VS Robert Smith, State Court of Riverton County, Civil Action No. 26-CV-04417 (medical Specials, wages, future medical, pain and suffering; no Property Damage is pleaded: the Civic's Loss of Use and Diminished Value stay on Margaret's own PD claim)",
     "Mediation 03/18/2027, Hon. Carla Benton (Ret.) · statement and binder due 03/11 · consolidated binding UM arbitration 06/22/2027, Laura Whitcomb, Esq. (exhibits 06/02, brief docketed 06/11)",
     "SOL: 02/06/2028 is a Sunday; never rely on a weekend roll-forward. Internal hard date 02/04/2028; internal filing cutoff 11/05/2027"
   ]},
@@ -3988,7 +3988,7 @@ function orientSlides(){
   const pill = (i,t,d)=>`<div class="or-pill"><div>${i}</div><b>${t}</b><span>${d}</span></div>`;
   return [
    {k:"Welcome", h:"Welcome to the LSH Case Management Training", body:`
-     <p class="or-lead">Five days to work like a confident, organized Case Manager — built around one realistic case, John Doe v. Robert Smith, from Case Flow Day 1 to Day 5.</p>
+     <p class="or-lead">Five days to work like a confident, organized Case Manager — built around one realistic case, John Doe VS Robert Smith, from Case Flow Day 1 to Day 5.</p>
      <div class="or-3">${pill("📚","Learn",`${topics} short topics across ${DAYS.length} days`)}${pill("🧪","Practice",`${PRACTICE_TOOLS.length} hands-on Skill Builders & live calls`)}${pill("✅","Prove","A Knowledge Check each day — and a certificate at the end")}</div>
      <div class="or-note"><b>You'll need:</b> Chrome or Edge on a computer, a headset with a microphone for the live calls, and a stable connection. Your progress saves to your account automatically.</div>`},
    {k:"Roadmap", h:`Your ${DAYS.length}-day roadmap`, body:`<div class="or-days">${DAYS.map(dayTile).join("")}</div>
@@ -4012,14 +4012,14 @@ function orientSlides(){
      </div>`},
    {k:"Navigation", h:"Getting around", body:`
      <div class="or-nav">
-       ${[["Dashboard","Your home: progress, days, stats."],["🎲 Tasks","Surprise tasks from your trainer — acknowledge, plan and resolve before the timer ends. Graded."],["Case File","John Doe v. Robert Smith — the working case. Read it first."],["📁 Case Documents","Every record, bill, lien letter and pleading — with its CMS upload category."],["🧪 Practice","The Case Flow's Skill Activities, a page per day: each with its tool, its expected output and the documents it works from. Each day's activities open with that day."],["My Notes","Your private notes — download them as a PDF."],["Handouts","Printable checklists and Excel templates for each day."],["🎯 Focus","Your trainer's feedback and what to work on next."],["💬 Feedback","Tell us what's working and what isn't — anonymously if you like."]].map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join("")}
+       ${[["Dashboard","Your home: progress, days, stats."],["🎲 Tasks","Surprise tasks from your trainer — acknowledge, plan and resolve before the timer ends. Graded."],["Case Profile","John Doe VS Robert Smith — the working case. Meet John Doe here first."],["📁 Case Documents","Every record, bill, lien letter and pleading — with its CMS upload category."],["🧪 Practice","The Case Flow's Skill Activities, a page per day: each with its tool, its expected output and the documents it works from. Each day's activities open with that day."],["My Notes","Your private notes — download them as a PDF."],["Handouts","Printable checklists and Excel templates for each day."],["🎯 Focus","Your trainer's feedback and what to work on next."],["💬 Feedback","Tell us what's working and what isn't — anonymously if you like."]].map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join("")}
      </div>
      <p class="or-foot">On a phone, everything is under <b>☰ Menu</b>. Search (top bar) finds any topic or tool.</p>`},
-   {k:"Client", h:"Meet the case: John Doe v. Robert Smith", body:`
+   {k:"Client", h:"Meet the case: John Doe VS Robert Smith", body:`
       <div class="or-client">
         <div class="or-avatar">JD</div>
         <div><p class="or-lead" style="margin-top:0">John Doe, a front-seat passenger, was hurt on 02/06/2026 when Robert Smith rolled through a stop sign and struck the car he rode in: a C5-C6 disc herniation, a 14-day gap before treatment, and $40,000 of BI and UM coverage to work. Every lesson, Skill Activity and CMS exercise works this one file.</p>
-        <ul class="or-list"><li>Read the <b>Case File</b> before Day 1, then open the documents in <b>📁 Case Documents</b>.</li><li>The documents contain real-world inconsistencies — catching them is the job.</li><li>Treat everything as confidential, like a real client file.</li></ul></div>
+        <ul class="or-list"><li>Read the <b>Case Profile</b> (start with Meet John Doe) before Day 1, then open the documents in <b>📁 Case Documents</b>.</li><li>The documents contain real-world inconsistencies — catching them is the job.</li><li>Treat everything as confidential, like a real client file.</li></ul></div>
       </div>`},
    {k:"Practice", h:"Skill Builders: how grading works", body:`
      <div class="or-3">${pill("🆓","First try is free","Your first submission of each exercise never uses an attempt.")}${pill("🔁",`${LAB_ATTEMPT_CAP} repeats per day`,"Each day's Skill Builders have their own repeats. Your trainer can reset them.")}${pill("💾","Auto-saves","Close the tab or switch devices — your work is still there.")}</div>
@@ -4035,7 +4035,7 @@ function orientSlides(){
    {k:"Ground rules", h:"Ground rules", body:`
      <ul class="or-list big"><li>🔒 <b>Confidentiality first</b> — never paste real client or firm information into any tool.</li><li>🤖 <b>AI is a tool, not the answer</b> — its use depends on each attorney's preferences; always review its output.</li><li>✍ <b>Your own work</b> — the feedback only helps if it's your thinking.</li><li>🙋 <b>Stuck?</b> Ask your trainer, or use 💬 Feedback to tell us what's unclear.</li></ul>`},
    {k:"Start", h:"Let's begin", body:`
-     <div class="or-flow start">${step(1,"👤","Sign in","Last name, first name and your batch code.")}<i>→</i>${step(2,"📂","Case File","Read the John Doe v. Robert Smith file.")}<i>→</i>${step(3,"🚀","Day 1","Open Day 1 from your dashboard and press Start.")}</div>
+     <div class="or-flow start">${step(1,"👤","Sign in","Last name, first name and your batch code.")}<i>→</i>${step(2,"📇","Case Profile","Meet John Doe and read the John Doe VS Robert Smith file.")}<i>→</i>${step(3,"🚀","Day 1","Open Day 1 from your dashboard and press Start.")}</div>
      <p class="or-lead" style="text-align:center;margin-top:26px">Questions before we start?</p>`}
   ];
 }
@@ -4279,7 +4279,7 @@ function renderClientProfile(){
 
 
 function renderTopbar(){
-  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","Skill Builders"],["calls","🛠 Simulators"],["tools","🧰 Tools"],["crisisroleplay","🔥 Roleplay"],["notes","Notes"],["handouts","Handouts"]];
+  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case Profile"],["casedocs","📁 Documents"],["practice","Skill Builders"],["calls","🛠 Simulators"],["tools","🧰 Tools"],["crisisroleplay","🔥 Roleplay"],["notes","Notes"],["handouts","Handouts"]];
   if(state.isAdmin){
     // Admin is a trainer monitoring dashboard, not a trainee workspace — hide
     // the trainee-facing-only views that have no role here.
@@ -4351,7 +4351,7 @@ window.toggleMobileNav = toggleMobileNav;
 
 
 /* ---------- crisis roleplay hub ---------- */
-/* The Live Roleplay topics: the Case Flow's calls on John Doe v. Robert Smith, by Case Flow day (generated from
+/* The Live Roleplay topics: the Case Flow's calls on John Doe VS Robert Smith, by Case Flow day (generated from
    js/cm-case-flow-sim.js and js/cm-case-flow-data.js). */
 const ROLEPLAY_CATEGORIES = [
   {id:"cfday1", icon:"📂", label:"Case Flow Day 1 · Intake, Claims & Property Damage", topics:[
@@ -4855,7 +4855,7 @@ async function rpGenerateOpening(){
   render();
   const prompt = `You are generating the OPENING LINE for a live, unscripted roleplay training call for a personal-injury Case Manager. You are playing the person calling or messaging in — stay fully in character, no meta-commentary, no scenario description, just the actual opening line someone would say.
 
-CASE BACKGROUND (John Doe v. Robert Smith — the caller may be the client, an adjuster, a provider, a lienholder, opposing counsel or the handling attorney):
+CASE BACKGROUND (John Doe VS Robert Smith — the caller may be the client, an adjuster, a provider, a lienholder, opposing counsel or the handling attorney):
 ${CLIENT_DOSSIER_MD}
 
 SITUATION TYPE: ${s.topic.label} (category: ${s.category.label})
@@ -6140,7 +6140,7 @@ function syncRouteHash(){
 function routeDepth(){ const st = history.state; return (st && typeof st.lshDepth==="number") ? st.lshDepth : 0; }
 function routeTrail(){ try{ const t = JSON.parse(sessionStorage.getItem("lsh_route_trail")||"[]"); return Array.isArray(t) ? t : []; }catch(e){ return []; } }
 function routeTrailSet(depth, h){ const t = routeTrail().slice(0, depth); t[depth] = h; try{ sessionStorage.setItem("lsh_route_trail", JSON.stringify(t.slice(-60))); }catch(e){} }
-const ROUTE_LABELS = {dashboard:"Dashboard", practice:"Skill Builders", activities:"Activities", notes:"My Notes", clientprofile:"Client Profile", handouts:"Handouts",
+const ROUTE_LABELS = {dashboard:"Dashboard", practice:"Skill Builders", activities:"Activities", notes:"My Notes", clientprofile:"Case Profile", handouts:"Handouts",
   tasks:"Tasks", crisisroleplay:"Live Roleplay", orientation:"Orientation", facilitatorguide:"Facilitator Guide"};
 function routeLabel(h){
   const m = String(h||"").match(/^#\/([a-z]+)(?:\/([^/?#]+))?/i);
@@ -6276,7 +6276,7 @@ window.addEventListener("resize", ()=>{ clearTimeout(window.__heroFitT); window.
 if(document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", ()=>fitHeroText());
 
 /* ---------- Uniform page heroes: every page title gets the dashboard hero look ---------- */
-const PAGE_EYEBROWS = {clientprofile:"Case File", casedocs:"Case Documents", tools:"Training Tools", cms:"Training Tools", calls:"Simulators", practice:"Skill Builders", notes:"My Notes", handouts:"Reference Library", crisisroleplay:"Live Roleplay", facilitatorguide:"For Trainers", admin:"Admin Dashboard"};
+const PAGE_EYEBROWS = {clientprofile:"Case Profile", casedocs:"Case Documents", tools:"Training Tools", cms:"Training Tools", calls:"Simulators", practice:"Skill Builders", notes:"My Notes", handouts:"Reference Library", crisisroleplay:"Live Roleplay", facilitatorguide:"For Trainers", admin:"Admin Dashboard"};
 function applyPageHero(){
   if(["dashboard","day","login","pendingApproval","registrationDenied","orientation","tool"].includes(state.view)) return;
   const main = document.querySelector("#app > main"); if(!main) return;
@@ -6981,7 +6981,7 @@ function buildDaySlides(d){
 function daySlideTitle(d, slide){
   if(slide.type==="video") return "Video Recap";
   if(slide.type==="taskOverview") return "Case Manager Task Overview";
-  if(slide.type==="meetClient") return "Meet the Case — John Doe v. Robert Smith";
+  if(slide.type==="meetClient") return "Meet the Case — John Doe VS Robert Smith";
   if(slide.type==="divider") return `Topic ${slide.lessonIndex+1}: ${d.lessons[slide.lessonIndex].h}`;
   if(slide.type==="topic"){ const l = d.lessons[slide.lessonIndex]; return l.h + (l.singleSlide ? "" : (slide.part===1 ? " (Part 1 of 2)" : " (Part 2 of 2)")); }
   if(slide.type==="quickCheck") return "Quick Check";
@@ -11185,7 +11185,7 @@ function sopForDay(id){
   const lessons = d.lessons;
   return {id, title:d.title, handWritten:false,
     introduction:`Welcome to LSH Case Management Training Day ${id}. My name is ___ and I am your upskill coach. Today is about ${d.title}.`,
-    objectives:[d.objective || `Apply the Day ${id} concepts to the John Doe v. Robert Smith case file.`,
+    objectives:[d.objective || `Apply the Day ${id} concepts to the John Doe VS Robert Smith case file.`,
       `Work through ${lessons.length} topics, from ${lessons[0].h} to ${lessons[lessons.length-1].h}.`,
       relatedTools(id).length ? `Complete the ${relatedTools(id)[0].title} Skill Builders to a professional standard.` : "Apply the day's learning in a live discussion."],
     discussionInfo:{duration:`Approximately ${Math.max(1, Math.round((lessons.length*2.5+60)/60))}–${Math.max(2, Math.round((lessons.length*2.5+90)/60))} hours`, ppt:`Revised CM Training Day ${id}`, canvaLabel:`CM Day ${id}`, video:`Video Discussion EA PA Day ${id}`},
@@ -13152,7 +13152,7 @@ function renderExpansionPanel(sec, open){
     ${sec.scenario ? blk("Scenario", `<p><i>${esc(sec.scenario.situation||"")}</i></p>${sec.scenario.whatToDo?`<p><b>What a strong Case Manager does:</b> ${esc(sec.scenario.whatToDo)}</p>`:""}`) : ""}
   </details>`;
 }
-function studioContext(d){ return `Program: LSH (Legal Support Help) 5-day Case Management Training for personal-injury Case Managers (many are remote VAs supporting US law firms). Running case: John Doe v. Robert Smith (a passenger injury: C5-C6 herniation, the 14-Day Treatment Gap, a $40,000 BI + Host UM + Relative UM stack). Day ${d.id}: ${d.title}. Day objective: ${d.objective||""}`; }
+function studioContext(d){ return `Program: LSH (Legal Support Help) 5-day Case Management Training for personal-injury Case Managers (many are remote VAs supporting US law firms). Running case: John Doe VS Robert Smith (a passenger injury: C5-C6 herniation, the 14-Day Treatment Gap, a $40,000 BI + Host UM + Relative UM stack). Day ${d.id}: ${d.title}. Day objective: ${d.objective||""}`; }
 function expansionPrompt(d, l){
   const {principles, steps} = lessonParts(l);
   return `${studioContext(d)}
@@ -13168,7 +13168,7 @@ Return ONLY a JSON object (no markdown) with these keys:
 "context": 2-3 sentences of additional context (firm size, practice area, remote vs in-office),
 "lawsAndRules": the laws, professional rules or regulations that genuinely apply (US-focused; e.g., ABA Model Rules such as 1.6 confidentiality or 5.3 responsibilities regarding nonlawyer assistance, CAN-SPAM, TCPA, HIPAA, state bar advertising rules, GDPR for EU contacts) - name only rules you are confident apply, add "confirm specifics with the firm's policy or counsel", and if no specific law applies say so plainly instead of inventing one,
 "challenges": array of 3 common real-world challenges, one sentence each,
-"scenario": {"situation": a 2-3 sentence scenario from the John Doe v. Robert Smith file, "whatToDo": 2-3 sentences on what a strong Case Manager does}.`;
+"scenario": {"situation": a 2-3 sentence scenario from the John Doe VS Robert Smith file, "whatToDo": 2-3 sentences on what a strong Case Manager does}.`;
 }
 function newLessonPrompt(d, title){
   return `${studioContext(d)}
@@ -13176,7 +13176,7 @@ Existing topics today: ${d.lessons.map(l=>l.h).join(" | ")}
 
 Write a new lesson titled "${title}" that does not repeat the existing topics. Balance theory with practical, job-ready steps.
 Return ONLY a JSON object (no markdown):
-{"h":"${title.replace(/"/g,"'")}","fourPart":{"corePrinciples":[3 sentences],"howTo":[4 actionable steps],"bestPractices":[3 items, at least one starting "Pitfall:"],"discussionCase":"a 2-sentence discussion case from the John Doe v. Robert Smith file"},"trainerCue":"one sentence telling the trainer how to run a short activity"}`;
+{"h":"${title.replace(/"/g,"'")}","fourPart":{"corePrinciples":[3 sentences],"howTo":[4 actionable steps],"bestPractices":[3 items, at least one starting "Pitfall:"],"discussionCase":"a 2-sentence discussion case from the John Doe VS Robert Smith file"},"trainerCue":"one sentence telling the trainer how to run a short activity"}`;
 }
 function proposeTopicsPrompt(d, n){
   return `${studioContext(d)}
@@ -13292,7 +13292,7 @@ Write 2 multiple-choice Knowledge Check questions for the lesson "${l.h}".
 Key points: ${principles.join(" | ")}
 Steps: ${steps.join(" | ")}
 Pitfalls: ${pitfalls.join(" | ")}
-Test application and judgment (short realistic situations from the John Doe v. Robert Smith file), not word-for-word recall. Exactly one correct option; three plausible distractors.
+Test application and judgment (short realistic situations from the John Doe VS Robert Smith file), not word-for-word recall. Exactly one correct option; three plausible distractors.
 Return ONLY a JSON array: [{"q":"question","opts":["A","B","C","D"],"a":<index 0-3 of the correct option>,"r":"one-sentence rationale"}]`;
 }
 async function studioDraftQuiz(dayId){
@@ -15871,12 +15871,16 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-dates.js"></script>
 <script src="/js/cm-case-flow-schedule.js"></script>
 <script src="/js/cm-case-flow.js"></script>
+<!-- 📇 the Case Profile: its header card, 👋 Meet John Doe (moved out of the lesson deck) and Day 1's slide that opens it -->
+<script src="/js/cm-case-profile.js"></script>
 <!-- 🏅 the Scorecard (as in Foundational Training): My Performance for trainees, Scorecards for trainers -->
 <!-- 📐 the Feedback Rubric: one rubric (four dimensions, four tiers, the safety gate) for every graded piece of work -->
 <script src="/js/cm-rubric.js"></script>
 <script src="/js/cm-scorecard.js"></script>
 <script src="/js/cm-batch-sheet.js"></script>
 <script src="/js/cm-know-tools.js"></script>
+<!-- ⚖️ the Litigation note: verify the assigned Case Manager before a handoff (the Litigation section's start and its handoff steps) -->
+<script src="/js/cm-litigation-note.js"></script>
 <!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
 <script src="/js/cm-companion-cases.js"></script>
 <script src="/js/cm-companion.js"></script>

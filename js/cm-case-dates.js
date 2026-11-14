@@ -1,4 +1,4 @@
-/* Keeps John Doe v. Robert Smith current. The case is written in 2026 (collision Fri 02/06/2026, SOL Sun
+/* Keeps John Doe VS Robert Smith current. The case is written in 2026 (collision Fri 02/06/2026, SOL Sun
    02/06/2028); this rolls every date on it forward so a trainee in 2029 or 2034 works a recent case, and keeps
    the law exact while doing it:
      · the shift is whole weeks, so every weekday, weekend roll-forward, business-day count, the 14-day gap and

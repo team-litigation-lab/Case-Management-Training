@@ -238,10 +238,10 @@ const PRACTICE_SUBVIEWS = ["tool","calls","tools","crisisroleplay"];
 const DRAFTING_SUBVIEWS = ["lor","hipaa","medprov"];
 window.EXTRA_ROUTE_VIEWS = ["casedocs", "drafting", "scorecard", "knowtools"].concat(DRAFTING_SUBVIEWS);
 // Page names for the "← Back to …" button, matching this top bar.
-window.EXTRA_ROUTE_LABELS = {clientprofile:"Case File", casedocs:"Documents", practice:"Practice", notes:"Notes",
+window.EXTRA_ROUTE_LABELS = {clientprofile:"Case Profile", casedocs:"Documents", practice:"Practice", notes:"Notes",
   drafting:"Drafting Tools", handouts:"Knowledge Base", scorecard:"My Performance", lor:"Drafting Tools", hipaa:"Drafting Tools", medprov:"Drafting Tools"};
 function renderTopbar(){   // trainees never see an admin sign-in (🛡 Admin is for admins only): admins come in from the Portal (?admin=1)
-  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case File"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","Notes"],["handouts","📚 Knowledge Base"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
+  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case Profile"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","Notes"],["handouts","📚 Knowledge Base"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
   if(state.isAdmin){
     // Admin is a trainer monitoring dashboard, not a trainee workspace — hide
     // the trainee-facing-only views that have no role here.
@@ -826,7 +826,7 @@ function presenterCues(d, slide){
       out.push(`<p><b>${esc(c.q)}</b></p><div class="pv-ans">✓ ${esc((c.opts||[])[c.a] || "")}</div>${c.r ? `<p>${esc(c.r)}</p>` : ""}`);
     });
   }else if(slide.type==="meetClient"){
-    out.push(`<h3>Meet the Case — John Doe v. Robert Smith</h3>` + renderMeetClientTrainerGuide());
+    out.push(`<h3>Meet the Case — John Doe VS Robert Smith</h3>` + renderMeetClientTrainerGuide());
   }else if(slide.type==="discussion"){
     out.push(`<h3>Trainer Checkpoint</h3><p><b>Say:</b> "Before we close Day ${cmDayN(d.id)}, let's step back and talk about this together."</p><p><b>Ask:</b> ${esc(d.discussionQuestion||"")}</p><p>Take 2–3 answers, connect each one to a lesson from today, then move on to the Knowledge Check.</p>`);
   }else if(slide.type==="practiceLab"){
@@ -1231,7 +1231,7 @@ function sopRunOfShow(dRaw){
     `Recap yesterday in one minute: the 1–2 things most people found hard (check Rankings / Knowledge Check scores).`],
     say:`“By the end of today you'll be able to ${esc(String(d.objective||d.title).replace(/\.$/,"").replace(/^[A-Z](?=[a-z])/, c=>c.toLowerCase()))}.”`,
     watch:"Anyone who hasn't opened today's day yet — ask them to open it now so they can follow along."});
-  if(d.id===1) add(8, {title:"Meet the Case — John Doe v. Robert Smith", do:[`On the <b>Meet the Case</b> slide, open the three “Start here” documents (intake summary, police report, intake sheet) and walk the room through the facts of loss in 5–8 minutes.`, `Ask: “What would you verify first, and where would you record it?” Take two answers, then point them to 📂 <b>Case File</b> and 📁 <b>Case Documents</b> — every Skill Builder uses these files.`], watch:"Trainees accepting the summary at face value — remind them the documents contain deliberate errors they're expected to catch."});
+  if(d.id===1) add(8, {title:"Meet the Case — John Doe VS Robert Smith", do:[`On the <b>Meet the Case</b> slide, open the three “Start here” documents (intake summary, police report, intake sheet) and walk the room through the facts of loss in 5–8 minutes.`, `Ask: “What would you verify first, and where would you record it?” Take two answers, then point them to 📂 <b>Case File</b> and 📁 <b>Case Documents</b> — every Skill Builder uses these files.`], watch:"Trainees accepting the summary at face value — remind them the documents contain deliberate errors they're expected to catch."});
   // teaching blocks of ~45 minutes, with the Quick Checks where they fall and breaks in between
   const perTopic = 2.5, blockTopics = Math.max(8, Math.round(45/perTopic));
   let i = 0, block = 1; const blocks = Math.ceil(n/blockTopics);
@@ -1298,7 +1298,7 @@ function sopProgramFlow(){
   const days = DAYS.map(d=>{ const tl = relatedTools(d.id); return `<tr><td><b>Day ${cmDayN(d.id)}</b></td><td>${esc(d.title)}</td><td>${d.lessons.length}</td><td>${tl.length?tl.map(t=>esc(t.title)).join("<br>"):"—"}</td><td><button class="btn btn-ghost btn-sm" onclick="setSopDay(${d.id})">Run of show →</button></td></tr>`; }).join("");
   return `
     <section class="card sopf"><div class="sopx-kicker">Trainer reference · The whole program</div><h2 style="font-family:'Fraunces',Georgia,serif;color:var(--navy);font-size:26px;margin:4px 0 8px;">How to facilitate the LSH Case Management Training</h2>
-      <p style="font-size:14.5px;line-height:1.6;margin:0;max-width:85ch;">Five live sessions, one realistic case file (John Doe v. Robert Smith), one rhythm every day: <b>teach → check → practise → debrief → assess → follow up</b>. This page is the big picture; open any day for its minute-by-minute run of show.</p></section>
+      <p style="font-size:14.5px;line-height:1.6;margin:0;max-width:85ch;">Five live sessions, one realistic case file (John Doe VS Robert Smith), one rhythm every day: <b>teach → check → practise → debrief → assess → follow up</b>. This page is the big picture; open any day for its minute-by-minute run of show.</p></section>
     <div class="sopf-grid">
       <section class="card sopf-card"><h3>1 · Before the program</h3><ol>
         <li>Open <b>/version</b> on the portal: it should show the current build and <b>AI provider: Google Gemini</b>. If not, add <code>GEMINI_API_KEY</code> in Cloudflare.</li>
@@ -1309,7 +1309,7 @@ function sopProgramFlow(){
       <section class="card sopf-card"><h3>2 · Kick-off (≈20 min, before Day 1)</h3><ol>
         <li>Admin → <b>🧭 Orientation</b> → <b>Present full screen</b>. It covers the roadmap, how a day works, live sessions, the dashboard, grading and ground rules.</li>
         <li>Share the <b>Blueprint PDF</b> (link on the Orientation page) as the take-home version.</li>
-        <li>Everyone reads the <b>Case File</b> before Day 1 and knows where <b>📁 Case Documents</b> are — every Skill Builder is graded against those documents.</li></ol></section>
+        <li>Everyone reads the <b>Case Profile</b> (Meet John Doe) before Day 1 and knows where <b>📁 Case Documents</b> are — every Skill Builder is graded against those documents.</li></ol></section>
       <section class="card sopf-card"><h3>3 · Every day, the same rhythm</h3><ol>
         <li><b>Before:</b> approvals, unlocks, open Presenter view (≈15 min early).</li>
         <li><b>Open:</b> recap + today's objectives (5 min).</li>
@@ -1368,12 +1368,12 @@ window.renderMeetClientTrainerGuide = function(){
   return `
     <div class="trainer-checkpoint">
       <div class="tc-tag">🧑‍🏫 Trainer Guide — Meet the Case</div>
-      <p><b>Say:</b> "For the next five days you're the Case Manager on John Doe v. Robert Smith. Let's open the file the way you would on day one."</p>
-      <p><b>Do (5–8 minutes):</b> open the Case File and the first intake documents and walk the facts of loss: 02/06/2026, about 7:10 a.m., John Doe in the front passenger seat of Kevin Alvarez's Escape when Robert Smith rolled through the stop sign at Maple Hollow Rd &amp; Birch Ave; a 14-day wait before his first treatment.</p>
+      <p><b>Say:</b> "For the next five days you're the Case Manager on John Doe VS Robert Smith. Let's open the file the way you would on day one."</p>
+      <p><b>Do (5–8 minutes):</b> open the Case Profile and the first intake documents and walk the facts of loss: 02/06/2026, about 7:10 a.m., John Doe in the front passenger seat of Kevin Alvarez's Escape when Robert Smith rolled through the stop sign at Maple Hollow Rd &amp; Birch Ave; a 14-day wait before his first treatment.</p>
       <p><b>Ask:</b> "What would you verify first, and where would you record it?" — then "Which of these facts would an adjuster attack?"</p>
       <p><b>Listen for:</b> the passenger position (it opens two UM layers), the Police Report number, the doorbell video to preserve, the Health Plan's reimbursement right, and the 14-Day Gap.</p>
       <p><b>If quiet:</b> point at the date of loss and the first treatment date and ask what an adjuster will say about the 14 days between them.</p>
-      <p><b>Close:</b> "Everything you do this week happens on this file — read the 📂 Case File tonight and keep 📁 Case Documents open."</p>
+      <p><b>Close:</b> "Everything you do this week happens on this file — read the 📇 Case Profile tonight and keep 📁 Case Documents open."</p>
     </div>`;
 };
 

@@ -11,7 +11,7 @@
 "use strict";
 const e = v => esc(String(v == null ? "" : v));
 const adminOn = () => !!state.isAdmin && !state.adminPreview;
-// every trainee drafts on John Doe v. Robert Smith, the Case Flow's own file, its date of loss in their case year (js/cm-case-dates.js)
+// every trainee drafts on John Doe VS Robert Smith, the Case Flow's own file, its date of loss in their case year (js/cm-case-dates.js)
 const JD_DOL = () => { const D = window.CM_CASE_DATES, s = D && D.dol ? D.dol() : "02/06/2026", [m, d, y] = s.split("/").map(Number);
   return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-US", {year:"numeric", month:"long", day:"numeric", timeZone:"UTC"}); };
 
@@ -33,9 +33,9 @@ window.render = function(){
 };
 
 window.cmLorCard = function(){
-  const note = `${adminOn() ? "Every trainee's case" : "Your case"}: <b>${e(`John Doe v. Robert Smith · ${JD_DOL()}`)}</b>.`;
+  const note = `${adminOn() ? "Every trainee's case" : "Your case"}: <b>${e(`John Doe VS Robert Smith · ${JD_DOL()}`)}</b>.`;
   return `<div class="card fts-card"><h3>📄 LOR Drafting</h3>
-    <p class="fts-note">Draft the Letter of Representation for the 1P and the 3P carrier on John Doe v. Robert Smith (the Case Flow's Claim Set Up step), in the firm's own templates, then download them. It opens on the Training Portal, where the download is the firm's own Word file with your answers written into it — letterhead and logo included, ready to upload to SA.</p>
+    <p class="fts-note">Draft the Letter of Representation for the 1P and the 3P carrier on John Doe VS Robert Smith (the Case Flow's Claim Set Up step), in the firm's own templates, then download them. It opens on the Training Portal, where the download is the firm's own Word file with your answers written into it — letterhead and logo included, ready to upload to SA.</p>
     <p class="fss-case">${note}</p>
     <div class="fts-tool-act"><button class="btn btn-navy btn-sm" type="button" onclick="lshOpenPortalDrafting()">Open LOR Drafting &rarr;</button></div></div>`;
 };
