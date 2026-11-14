@@ -530,8 +530,10 @@ const DECK7 = { 1: '74:1d3nxnu', 2: '135:1c0ub5w', 3: '89:1en7hyz', 4: '97:1v909
   const pgOn = days => page.evaluate((deck8) => { for (const d of DAYS.filter(x => x.cf && deck8[x.cf.n])) { const now = buildDaySlides(d), a = now.findIndex(sl => sl.type === 'deckPage'); if (a > 0) { const n = now.filter(sl => sl.type === 'deckPage').length, old = __oldDeck(d, 4, true);
     return { n: d.cf.n, first: a, pages: n, after: old.findIndex(o => o.place === a + n), before: old.map(o => o.place).lastIndexOf(a - 1), afterIs: now[a + n] ? now[a + n].type : 'the end' }; } } return null; }, days);
   const pg = await pgOn(deck8);
-  if (!pg && all7 && !(await pgOn(anyDay))) fail("no day has the revised deck's pages (js/cm-deck-pages.js): layout 5 describes none");
-  else if (!pg) { /* the day with the revised deck's pages is no longer layout 7's deck */ }
+  // (the record is what is stood on: layout 8's frozen deck must have the revised deck's pages; today's deck has none,
+  // they are its lessons' own slides now, so the day stands aside as soon as its live deck is no longer layout 8's)
+  if (!pg && all7 && !(await page.evaluate(() => DAYS.some(d => d.cf && __keys8(d).some(k => k.indexOf('~deckPage:') === 0))))) fail("no day of layout 8's frozen deck has the revised deck's pages: layout 5 describes none");
+  else if (!pg) { /* the day with the revised deck's pages is no longer layout 8's deck */ }
   else if (pg.after < 0 || pg.before < 0) fail(`Day ${pg.n}: layout 4 has no slide just before or just after the revised deck's pages (the check wants both to stand on)`);
   else {
     const pa = await put(pg.after, 4, pg.n), ga = await open(pa.dayId);

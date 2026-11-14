@@ -31,15 +31,17 @@ const failures = []; const fail = (m) => failures.push(m);
     await page.evaluate(() => openRoadmap());
     await page.waitForSelector('.rmx-day', { timeout: 5000 }).catch(() => fail('🗺 Roadmap didn\'t open'));
     const map = await page.evaluate(() => {
-        const days = [...document.querySelectorAll('.rmx-day')].map(s => ({ head: s.querySelector('.rmx-dayh').innerText, nums: [...s.querySelectorAll('li:not(.rmx-dk) .rmx-tn')].map(x => x.textContent),
-            // (📑 Deck pages, js/cm-day-decks.js, are the day's deck topics: not lessons of the day)
-            names: [...s.querySelectorAll('li:not(.rmx-dk) .rmx-tt')].map(x => x.textContent.trim()), enabled: [...s.querySelectorAll('li:not(.rmx-dk) .rmx-topic')].map(b => !b.disabled) }));
+        const days = [...document.querySelectorAll('.rmx-day')].map(s => ({ head: s.querySelector('.rmx-dayh').innerText, nums: [...s.querySelectorAll('li .rmx-tn')].map(x => x.textContent),
+            // (the trainers' deck pages are lessons' own slides: no 📑 deck-topic row, rmx-dk, beside the lessons)
+            deckRows: s.querySelectorAll('.rmx-dk').length,
+            names: [...s.querySelectorAll('li .rmx-tt')].map(x => x.textContent.trim()), enabled: [...s.querySelectorAll('li .rmx-topic')].map(b => !b.disabled) }));
         const want = DAYS.map((d, i) => ({ n: (d.cf && d.cf.n) || i + 1, count: d.lessons.length, first: d.lessons[0] && (d.lessons[0].cf ? d.lessons[0].cf.block.title : d.lessons[0].h) }));
         const slides = buildDaySlides(DAYS[0]), firsts = {}; slides.forEach((x, k) => { if (x.lessonIndex != null && firsts[x.lessonIndex] == null) firsts[x.lessonIndex] = k; });
         return { days, want, firsts };
     });
     if (map.days.length !== map.want.length) fail(`the roadmap shows ${map.days.length} days, the course has ${map.want.length}`);
     map.want.forEach((w, i) => { const d = map.days[i]; if (!d) return;
+        if (d.deckRows) fail(`Day ${w.n}: ${d.deckRows} 📑 deck-topic row(s) in the roadmap; the deck pages are the lessons' own slides`);
         if (!new RegExp(`Day ${w.n}\\b`).test(d.head)) fail(`the roadmap's day ${i + 1} should be Day ${w.n}: "${d.head}"`);
         if (d.names.length !== w.count) fail(`Day ${w.n}: ${d.names.length} topics in the roadmap, ${w.count} in the day`);
         if (d.nums[0] !== `${w.n}.1` || d.nums[d.nums.length - 1] !== `${w.n}.${w.count}`) fail(`Day ${w.n}'s topics should be numbered ${w.n}.1 to ${w.n}.${w.count}: ${d.nums[0]} … ${d.nums[d.nums.length - 1]}`);

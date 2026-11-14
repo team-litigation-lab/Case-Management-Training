@@ -34,14 +34,14 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 **Module 1 — Fundamentals, Intake & Claim Set Up**
 
 1. *Lesson* — The Case Manager's Role
-2. *Lesson* — Ingesting the Raw File
-3. *Lesson* — The Acceptance Decision & the Three-Pillar Case Plan
+2. *Lesson* — Case Phase: Intake & the Intake Bottlenecks
+3. *Lesson* — Claim Set Up: Coverage, Liability & the Case Plan
 4. *Lesson* — Property Damage: Does It Touch Our Case?
 5. *Lesson* — The No Contact Protocol — Steps 1 to 3
-6. *Skill Activity* — Opening John Doe's File in the CMS (practises: Ingesting the Raw File) — **Skill Building**
-7. *Skill Activity* — Backup File Maintenance: the Firm's Folders and Hierarchy (practises: Ingesting the Raw File) — *side*
-8. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet (practises: Ingesting the Raw File) — *side*
-9. *Skill Activity* — Onboarding Direction Assignment in System (practises: Ingesting the Raw File) — *side*
+6. *Skill Activity* — Opening John Doe's File in the CMS (practises: Case Phase: Intake & the Intake Bottlenecks) — **Skill Building**
+7. *Skill Activity* — Backup File Maintenance: the Firm's Folders and Hierarchy (practises: Case Phase: Intake & the Intake Bottlenecks) — *side*
+8. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet (practises: Case Phase: Intake & the Intake Bottlenecks) — *side*
+9. *Skill Activity* — Onboarding Direction Assignment in System (practises: Case Phase: Intake & the Intake Bottlenecks) — *side*
 10. *Skill Activity* — Does It Touch Our Case? Sorting the PD File (practises: Property Damage: Does It Touch Our Case?) — *side*
 11. *Skill Activity* — Multi-Channel Outreach Logging (practises: The No Contact Protocol — Steps 1 to 3) — *side*
 12. *Skill Activity* — Final Warning Letter Drafting (practises: The No Contact Protocol — Steps 1 to 3) — *side*
@@ -128,7 +128,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.2 Ingesting the Raw File
+### 1.1.2 Case Phase: Intake & the Intake Bottlenecks
 
 > **Lesson** · Day 1 — Fundamentals, intake & claim set up · Module 1: Fundamentals, Intake & Claim Set Up · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** From “On the Records” to a structured matter  
@@ -207,7 +207,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.3 The Acceptance Decision & the Three-Pillar Case Plan
+### 1.1.3 Claim Set Up: Coverage, Liability & the Case Plan
 
 > **Lesson** · Day 1 — Fundamentals, intake & claim set up · Module 1: Fundamentals, Intake & Claim Set Up · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** The document that makes the file move  

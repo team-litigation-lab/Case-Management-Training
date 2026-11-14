@@ -3,9 +3,10 @@
    show and build/case-flow/curriculum.cjs (which fails a day that doesn't fit).
    The course is a REFRESHER: the trainees have met every topic before, so a day is 30% lesson and 70% practical.
      240 minutes = 20 (the welcome 5, a break 10, the close 5) + 220 teaching minutes:
-       30% lessons   = 66 minutes, shared by the day's lessons in proportion to their slides (every lesson keeps all of its
-                       slides and content: a refresher is taught faster, not thinner). The thorough lessons (mediation and
-                       arbitration, `thorough` in the lesson data) count 1.5 times a slide.
+       lessons       = PER_SLIDE (1.5) minutes a lesson slide, at most 30% (66 minutes): the trainers' deck pages are most
+                       lessons' slides and a lesson the decks don't teach is at most three slides, so a day's lessons are
+                       its slides at a refresher's pace, shared by the lessons in proportion to their slides. The thorough
+                       lessons (mediation and arbitration, `thorough` in the lesson data) count 1.5 times a slide.
        70% practical = 154 minutes: the Knowledge Check (10–15, longer the more topics), a brainstorm after every Skill
                        Building (5 minutes each, 30 at most, never under 3), and the Skill Activities, which share the rest
                        equally (5 to 30 minutes each). Whatever is left over is Q&A.
@@ -30,9 +31,12 @@
 const DAY_MIN = 240, BREAK_MIN = 20, TEACH_MIN = DAY_MIN - BREAK_MIN, LESSON_SHARE = 0.30;
 const LESSON_MIN = Math.round(TEACH_MIN * LESSON_SHARE);   // 66
 const THOROUGH_WEIGHT = 1.5, LESSON_FLOOR = 2, BRIEF_MIN = 4;
+// a lesson slide (a deck page, or one of a drawn lesson's at most three) is about PER_SLIDE minutes at a refresher's
+// pace: a day with fewer lesson slides takes fewer lesson minutes (never more than its 30%), and the practical gets the rest
+const PER_SLIDE = 1.5;
 const TOPIC = {base: 15, min: 2, max: 30}, ACT = {base: 10, min: 5, max: 30}, STORM = {each: 5, min: 3, day: 30};
 // the daily loop: the Case Profile and the Action Plan (Day 1's guided, later days' lighter), the one Skill Building, the side exercises
-const LOOP = {profile: [10, 5], plan: [15, 10]}, MAIN = {min: 30, max: 90}, SIDE = {each: 5, max: 30};
+const LOOP = {profile: [10, 5], plan: [15, 10]}, MAIN = {min: 30, max: 90}, SIDE = {each: 5, max: 30, most: 10};
 /* split `total` whole minutes over weights, largest remainder first, each at least `floor` (when it can be) */
 function share(total, weights, floor){
   const n = weights.length; if(!n) return [];
@@ -85,9 +89,10 @@ function schedule(items, opts){
   const s = labs.filter(p => p.acts.length).length;
   const brainstorm = s ? Math.max(STORM.min, Math.min(STORM.each, Math.floor(STORM.day / s))) : 0;
   // 30% lessons (less when a build and the Knowledge Check leave less), 70% practical
-  const lessonBudget = lessons.length ? Math.max(0, Math.min(LESSON_MIN, lessonMax, TEACH_MIN - kc - (fill ? 0 : build) - s * brainstorm - a * ACT.min)) : 0;
-  if(fill) build = Math.max(0, TEACH_MIN - lessonBudget - kc - s * brainstorm);
   const weights = lessons.map(x => Math.max(1, Number(x.slides) || 1) * (x.thorough ? THOROUGH_WEIGHT : 1));
+  const need = Math.max(lessons.length * LESSON_FLOOR, Math.ceil(weights.reduce((t, w) => t + w, 0) * PER_SLIDE));   // the lessons' slides at PER_SLIDE each
+  const lessonBudget = lessons.length ? Math.max(0, Math.min(LESSON_MIN, lessonMax, need, TEACH_MIN - kc - (fill ? 0 : build) - s * brainstorm - a * ACT.min)) : 0;
+  if(fill) build = Math.max(0, TEACH_MIN - lessonBudget - kc - s * brainstorm);
   const mins = share(lessonBudget, weights, LESSON_FLOOR);
   lessons.forEach((x, i) => { x.mins = mins[i]; });
   const practical = TEACH_MIN - lessonBudget;
@@ -119,18 +124,21 @@ function loopSchedule(items, opts){
   const base = schedule(lessons, {lessonMax: opts.lessonMax});
   const profile = LOOP.profile[first ? 0 : 1], plan = LOOP.plan[first ? 0 : 1];
   const sides = items.filter(x => x.kind === "activity" && x !== main);
-  const side = fill || !sides.length ? 0 : Math.min(SIDE.max, SIDE.each * sides.length);
+  const side0 = fill || !sides.length ? 0 : Math.min(SIDE.max, SIDE.each * sides.length);
   const brainstorm = main ? STORM.each : 0, kc = base.kc;
-  // the lessons keep their 30% (less only when the loop's fixed steps and the Skill Building's least would not fit)
-  const lessonBudget = Math.max(0, Math.min(base.lessonMin, TEACH_MIN - kc - profile - plan - side - brainstorm - (main ? MAIN.min : 0)));
+  // the lessons keep their minutes, at most 30% (less only when the loop's fixed steps and the Skill Building's least would not fit)
+  const lessonBudget = Math.max(0, Math.min(base.lessonMin, TEACH_MIN - kc - profile - plan - side0 - brainstorm - (main ? MAIN.min : 0)));
   if(lessonBudget !== base.lessonMin){
     const mins = share(lessonBudget, lessons.map(x => Math.max(1, Number(x.slides) || 1) * (x.thorough ? THOROUGH_WEIGHT : 1)), LESSON_FLOOR);
     lessons.forEach((x, i) => { x.mins = mins[i]; });
     base.parts.forEach(p => { p.lecture = p.mins = p.topics.reduce((t, x) => t + (x.mins || 0), 0); });
   }
-  const room = TEACH_MIN - lessonBudget - kc - profile - plan - side - brainstorm;
-  const build = fill ? Math.max(0, room) : Math.max(0, Number(opts.build) || 0);
-  const act = main ? Math.max(MAIN.min, Math.min(MAIN.max, room - build)) : 0;
+  const room0 = TEACH_MIN - lessonBudget - kc - profile - plan - side0 - brainstorm;
+  const build = fill ? Math.max(0, room0) : Math.max(0, Number(opts.build) || 0);
+  const act = main ? Math.max(MAIN.min, Math.min(MAIN.max, room0 - build)) : 0;
+  // what the Skill Building can't use (it is at MAIN.max) goes to the side exercises, Backup File Maintenance among
+  // them, up to SIDE.most an exercise; only what is left after that is Q&A
+  const side = side0 ? side0 + Math.max(0, Math.min(SIDE.most * sides.length - side0, room0 - build - act)) : 0;
   const labs = [];
   if(main) labs.push({title: String(main.heading || "").replace(/^Skill Building:\s*/, "") || "Skill Building", main: true, acts: [main], extra: [], skill: act, brainstorm, mins: act + brainstorm});
   if(sides.length) labs.push({title: "Side exercises (optional)", side: true, acts: [], extra: sides, skill: side, brainstorm: 0, mins: side});
@@ -143,7 +151,7 @@ function loopSchedule(items, opts){
     lessonMin: lessonBudget, practicalMin: TEACH_MIN - lessonBudget, lessonShare: Math.round(lessonBudget / TEACH_MIN * 100),
     DAY_MIN, BREAK_MIN, TEACH_MIN, LESSON_SHARE};
 }
-const api = {schedule, share, DAY_MIN, BREAK_MIN, TEACH_MIN, LESSON_SHARE, LESSON_MIN, THOROUGH_WEIGHT, BRIEF_MIN, TOPIC, ACT, STORM, LOOP, MAIN, SIDE};
+const api = {schedule, share, PER_SLIDE, DAY_MIN, BREAK_MIN, TEACH_MIN, LESSON_SHARE, LESSON_MIN, THOROUGH_WEIGHT, BRIEF_MIN, TOPIC, ACT, STORM, LOOP, MAIN, SIDE};
 if(typeof module === "object" && module.exports) module.exports = api;
 root.CM_CF_SCHEDULE = api;
 })(typeof window !== "undefined" ? window : globalThis);

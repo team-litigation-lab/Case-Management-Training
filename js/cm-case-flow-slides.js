@@ -856,7 +856,7 @@ window.CM_CF_SLIDES = {
    "concepts": [
     {
      "term": "Whose Claim It Is",
-     "text": "PD follows the vehicle: it belongs to **the owner's claim**, not to a passenger who owns no car"
+     "text": "PD follows the vehicle: **the owner's claim**, outside the $40,000 stack: it neither adds to nor reduces his recovery"
     },
     {
      "term": "PD as Evidence",

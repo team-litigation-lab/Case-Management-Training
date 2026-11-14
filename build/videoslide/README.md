@@ -38,13 +38,15 @@ Canva instead). It needs `pdftoppm` (poppler) and `ffmpeg`.
 
 The deck and its video are embedded in the course from the same `dayN.json`:
 
-- `lessons` names the deck pages that stand in for a lesson's drawn slides (`"d1m1-role": [1, 2, 3, …]`). Each page is
-  one slide, and its `notes` are the slide's script in 🖥 Presenter view. A lesson that isn't listed keeps its own slides.
-  A lesson's pages show on the day the course teaches that lesson (the treatment lessons are on Case Flow Day 2).
-- `onDeck` (Days 3–5): the deck's teaching pages shown on the Case Flow day itself, topic by topic, after the day's
-  lessons and before its Practice Lab (`js/cm-day-decks.js`, the way `js/cm-deck-pages.js` shows the Day 2 deck), each
-  page with its notes as the talking points in 🖥 Presenter view. No title, agenda, Thank You or Skill Building page.
-  Pictures are `decks/dayN/NN.webp` (1600×900); `.github/scripts/day-decks.cjs` checks them.
+- `lessons` names the deck pages that ARE a lesson's slides (`"d1m1-role": [3, 4, 5, …]`), on every day's deck (Days 1–5).
+  Each page is one slide, and its `notes` are the slide's script in 🖥 Presenter view. A page shows on the day the course
+  teaches its lesson: Day 1's treatment pages on Case Flow Day 2, Day 2's pre-demand, demand, negotiation and BI
+  settlement pages on Case Flow Day 3 (the lessons the activities of that day practise), Day 3's lien and disbursement
+  pages on Case Flow Day 4. A lesson that isn't listed keeps its own drawn slides, at most three (js/cm-case-flow.js
+  `lean`); a listed lesson's own rules are a 💡 Tip on the activities that practise it (js/cm-lesson-tips.js).
+  Every teaching page (not the title, Training Agenda or Thank You page) is one lesson's slide: nothing is shown beside
+  the lessons. `.github/scripts/day-decks.cjs` checks Days 2–5, `.github/scripts/day-video.cjs` Day 1.
+  Pictures are `decks/dayN/NN.webp` (1600×900), named by page number.
 - `video` is the day's narrated video (`decks/dayN/dayN-narrated.mp4`, its captions, and the start time of each page in
   it). The day card shows ▶ Video once a trainer unlocks it (Admin → 🔓 Open Lessons → 🎬 Unlock Videos), 🔒 Video until then.
 - The page images are `decks/dayN/NN.webp` (1600×900). The video must stay under 25 MB to be served by the site.

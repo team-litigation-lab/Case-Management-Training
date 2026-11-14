@@ -36,14 +36,14 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 2. *Lesson* — From Pre-Lit to Litigation & ADR (condensed)
 3. *Lesson* — Identifying Non-Responsive Adjusters, Delayed Records & Scheduling Bottlenecks (condensed)
 4. *Lesson* — Escalation Workflows & Supervisory Reporting Guidelines (condensed)
-5. *Lesson* — Litigation Tracking: the Pleadings Log & the Discovery Calendar (condensed)
-6. *Lesson* — Trial Preparation Checklists & Litigation KPIs (condensed)
-7. *Lesson* — Subpoena Management: Records Subpoenas (Duces Tecum) & Trial Subpoenas (condensed)
-8. *Lesson* — Property Damage at Settlement: Does It Touch Our Case? (condensed)
-9. *Lesson* — Client Prep for a Virtual Deposition & Injury Narrative Alignment (condensed)
-10. *Lesson* — Opposing Counsel's Traps & Defending Key Testimony (condensed)
+5. *Lesson* — Litigation: Pleadings, Discovery & File Maintenance (condensed)
+6. *Lesson* — Trial Preparation & Litigation KPIs (condensed)
+7. *Lesson* — Subpoenas: Third-Party Subpoenas & Duces Tecum (condensed)
+8. *Lesson* — Property Damage in Litigation (condensed)
+9. *Lesson* — Deposition Prep: Preparing the Client (condensed)
+10. *Lesson* — Testifying: the Silent Traps, the Golden Rules & Objections (condensed)
 11. *Lesson* — Comparative Negligence & the Liability Counter-Package (condensed)
-12. *Lesson* — Skip-Tracing, Process Servers & Certified Notice (condensed)
+12. *Lesson* — The Process Server & the Evading Defendant (condensed)
 13. *Lesson* — Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund (condensed)
 14. *Lesson* — Dropped Cases: the Case Manager's Close-Out (condensed)
 15. *Skill Activity* — Taking the Litigation Fork (practises: Signs of Impasse & Filing Criteria) — *side*
@@ -51,13 +51,13 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 17. *Skill Activity* — E-Filing the Complaint & Calendaring Service (practises: From Pre-Lit to Litigation & ADR) — *side*
 18. *Skill Activity* — Setting Automated Countermeasures in CMS (practises: Identifying Non-Responsive Adjusters, Delayed Records & Scheduling Bottlenecks) — *side*
 19. *Skill Activity* — Bottleneck Resolution Simulation (practises: Escalation Workflows & Supervisory Reporting Guidelines) — *side*
-20. *Skill Activity* — Pleadings & Discovery Log Maintenance (practises: Litigation Tracking: the Pleadings Log & the Discovery Calendar) — *side*
-21. *Skill Activity* — Trial Prep Checklist Audit & KPI Update (practises: Trial Preparation Checklists & Litigation KPIs) — *side*
-22. *Skill Activity* — Does It Touch Our Settlement? Keystone's Final PD Position (practises: Property Damage at Settlement: Does It Touch Our Case?) — *side*
-23. *Skill Activity* — Virtual Deposition Prep Roleplay (practises: Client Prep for a Virtual Deposition & Injury Narrative Alignment) — *side*
-24. *Skill Activity* — Mock Deposition Cross-Examination Handling (practises: Opposing Counsel's Traps & Defending Key Testimony) — *side*
+20. *Skill Activity* — Pleadings & Discovery Log Maintenance (practises: Litigation: Pleadings, Discovery & File Maintenance) — *side*
+21. *Skill Activity* — Trial Prep Checklist Audit & KPI Update (practises: Trial Preparation & Litigation KPIs) — *side*
+22. *Skill Activity* — Does It Touch Our Settlement? Keystone's Final PD Position (practises: Property Damage in Litigation) — *side*
+23. *Skill Activity* — Virtual Deposition Prep Roleplay (practises: Deposition Prep: Preparing the Client) — *side*
+24. *Skill Activity* — Mock Deposition Cross-Examination Handling (practises: Testifying: the Silent Traps, the Golden Rules & Objections) — *side*
 25. *Skill Activity* — Building the Comparative Liability Counter-Package (practises: Comparative Negligence & the Liability Counter-Package) — *side*
-26. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch (practises: Skip-Tracing, Process Servers & Certified Notice) — *side*
+26. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch (practises: The Process Server & the Evading Defendant) — *side*
 27. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award (practises: Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund) — *side*
 28. *Skill Activity* — Backup File Maintenance: the Final Audit and the Close-Out (practises: Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund) — *side*
 29. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log (practises: Dropped Cases: the Case Manager's Close-Out) — *side*
@@ -375,7 +375,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 ---
 
-### 5.1.5 Litigation Tracking: the Pleadings Log & the Discovery Calendar
+### 5.1.5 Litigation: Pleadings, Discovery & File Maintenance
 
 > **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Managing litigation tracking systems, pleadings logs & discovery calendars  
@@ -453,7 +453,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.6 Trial Preparation Checklists & Litigation KPIs
+### 5.1.6 Trial Preparation & Litigation KPIs
 
 > **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Trial preparation checklists & tracking litigation KPIs  
@@ -526,7 +526,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.7 Subpoena Management: Records Subpoenas (Duces Tecum) & Trial Subpoenas
+### 5.1.7 Subpoenas: Third-Party Subpoenas & Duces Tecum
 
 > **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Commanding evidence from outside the suit: in order, narrow and on time  
@@ -602,7 +602,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.8 Property Damage at Settlement: Does It Touch Our Case?
+### 5.1.8 Property Damage in Litigation
 
 > **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with PD Transition Check (`d5m2`)  
 > **Topic:** Which Property Damage outcomes reach John Doe's settlement, and which stay on Margaret Doe's file  
@@ -671,7 +671,7 @@ Verified in PD Transition Check (taught on Case Flow Day 5) and that day's auto-
 
 ---
 
-### 5.1.9 Client Prep for a Virtual Deposition & Injury Narrative Alignment
+### 5.1.9 Deposition Prep: Preparing the Client
 
 > **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The audit, the three pillars, and the room John testifies from  
@@ -746,7 +746,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.10 Opposing Counsel's Traps & Defending Key Testimony
+### 5.1.10 Testifying: the Silent Traps, the Golden Rules & Objections
 
 > **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The four categories, the seven Golden Rules, and what an objection means  
@@ -893,7 +893,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.12 Skip-Tracing, Process Servers & Certified Notice
+### 5.1.12 The Process Server & the Evading Defendant
 
 > **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Finding the defendant who moved and the client who went quiet  

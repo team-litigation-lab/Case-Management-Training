@@ -524,7 +524,9 @@ function milestoneRail(b, view){
 const DECK = window.CM_DECK_SLIDES || {};
 const deckOf = b => (b.kind === "lesson" && DECK[b.id]) || null;
 const deckPage = (b, view) => (deckOf(b) || []).find(x => "deck" + x.page === view) || null;
-Object.values(DECK).forEach(xs => xs.forEach(x => { VIEW_LABEL["deck" + x.page] = x.title; VIEW_ICON["deck" + x.page] = "🖼"; }));
+/* a slide's name: a deck page's own title (pages of different decks share a number, so it is looked up by the block),
+   or the view's label */
+const viewLabel = (b, v) => { const dp = deckPage(b, v); return dp ? dp.title : VIEW_LABEL[v] || ""; };
 /* Why It Matters is no slide of its own in a lesson that has The Theory: its line opens that slide (whyOpen: a
    "💡 Why it matters" band above the theory's lead), one slide where there were two. The band is one line: the
    lesson's hook, or the copy's shorter `whyLine` where the hook would wrap (the full hook is then in the slide's
@@ -538,8 +540,21 @@ const whyView = b => theoryViews(b).length && !(SLIDES[b.id] || {}).whySlide ? [
 const rfView = b => { const r = mfOf(b).redFlag, vs = viewsOf(b); return !r ? null : vs.includes("why") ? "why" : r.spoken ? null : vs.includes(r.on) ? r.on : "rules"; };
 const whyOpen = (b, c) => { if(b.kind !== "lesson" || viewsOf(b).includes("why") || !c.hook) return ""; const ls = leadSplit(c.hook), line = (SLIDES[b.id] || {}).whyLine || (ls ? ls[0] : c.hook);
   return `<p class="cfx-whyline" role="note" aria-label="Why it matters"><b class="cfx-whyline-k">💡 Why it matters</b><span class="cfx-whyline-t">${hl(line)}</span></p>`; };
+/* A lesson the decks don't teach is drawn on at most LESSON_MAX slides (the owner: lessons are 1-3 slides, the time goes
+   to the practical): The Theory (or Why It Matters), The Rules (with the Rule vs. Exception's "On this file"), and the CM
+   Red Flag's own slide (See It or Do & Don't, where its copy puts it), else The Document or The Framework. The slides
+   left out (The Theory, Continued, See It, Do & Don't, The Roadmap) stay in 📖 Reference and in the trainer's talking
+   points for the lesson's last slide (slideScripts: `lean`). The same rule is in build/case-flow/curriculum.cjs and
+   build/case-flow/scripts/assemble.cjs. drawn: the lesson's full slides, as before (js/cm-slide-places.js). */
+const LESSON_MAX = 3, LEAN_KEEP = ["theory", "why", "rules", "doc", "frame", "theory2", "model", "map", "dodont"];
+const lean = (vs, b) => { if(vs.length <= LESSON_MAX) return vs; const rf = ((SLIDES[b.id] || {}).redFlag || {}), home = !rf.spoken && rf.on;   // the CM Red Flag's own slide is the third kept
+  const k = new Set(LEAN_KEEP.filter(v => vs.includes(v) && (v === "theory" || v === "why" || v === "rules" || v === home)).concat(LEAN_KEEP.filter(v => vs.includes(v))).slice(0, LESSON_MAX)); return vs.filter(v => k.has(v)); };
 function viewsOf(b, drawn){   // drawn: the lesson's own slides, as before its deck pages took their place (js/cm-slide-places.js)
   if(deckOf(b) && !drawn) return deckOf(b).map(x => "deck" + x.page);
+  if(b.kind === "lesson" && !drawn) return lean(fullViewsOf(b), b);
+  return fullViewsOf(b);
+}
+function fullViewsOf(b){
   if(b.kind === "lesson" && b.brief) return ["why"].concat(docView(b), ["rules"]);   // brief: a condensed overview (Day 5's litigation); no Theory slide, so Why It Matters stays
   if(b.kind === "lesson" && b.compact) return mapView(b).concat(theoryViews(b).slice(0, 1), whyView(b), docView(b), ["rules"]);   // compact: a full topic on fewer slides
   if(b.kind === "lesson") return mapView(b).concat(theoryViews(b), whyView(b), docView(b), ["rules"], b.show ? ["model"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // The Theory opens with why it matters; noGame: the CM introduction
@@ -969,17 +984,18 @@ const TITLE_LONG = 72;
 function card(l, i, d, part){
   const {day, mod, block: b, k, phase} = l.cf, vs = viewsOf(b), p = Math.min(Math.max(part || 1, 1), vs.length), view = vs[p - 1];
   noteReached(b, p);
-  const dots = vs.map((v, j) => `<span class="cfx-dot${j === p - 1 ? " on" : j < p - 1 ? " done" : ""}" title="${E(VIEW_LABEL[v])}"></span>`).join("");
-  const logo = "";   // (the LSH logo is in the top bar; the slide doesn't repeat it)
   const onNavy = view === "case";   // a Skill Building opener sits on the slide itself, like the deck's
-  return oneOfEachTool(`<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; ${phase.lead === "Case Phase" ? `CASE PHASE ${phase.n} OF ${phase.of}` : phase.lead.toUpperCase()} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${VIEW_LABEL[view].toUpperCase()}</div>
-    <div class="card lesson-card cf-card cfx cfx-deck cfx-${view} cfx-${b.kind}" data-part="${p}">
-      <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title${l.h.length > TITLE_LONG ? " cfx-t-long" : ""}" title="${E(l.h)}">${E(l.h)}</h2></div>
-      <div class="cfx-ribbon cfx-what cfx-ribbon-ref"><span><i class="cfx-what-k">${E(WHAT[b.kind])}</i><b class="cfx-what-v">${E(VIEW_LABEL[view])}</b></span>${inAudience() ? "" : `<button type="button" class="cfx-ref-open" onclick="cmCaseFlow.full(${d.id},${i})" title="The full text of this block, over the slide">📖 Reference</button>`}</div>
-      <div class="cfx-top"><span class="cfx-title cfx-pill"><span class="cfx-vi">${VIEW_ICON[view]}</span>${E(VIEW_LABEL[view])}</span>
-        <span class="cfx-dots" aria-label="Slide ${p} of ${vs.length}">${dots}</span><span class="cfx-kicker">${phase.num || phase.n}.${k + 1} · ${E(KIND[b.kind])}</span><span class="cfx-top-rib" title="${E(titleCase(b.title))}">${E(titleCase(b.title))}</span>
-        ${view === "task" && isTrainer() && !inAudience() && injectsOf(b).length ? `<button type="button" class="cfx-inject" onclick="cmCaseFlow.inject(${d.id},${i})" title="Trainer only: a real-time task to inject while the room works this one">⚡ Inject: ${E(injectsOf(b).map(x => x.short).join(" · "))}</button>` : ""}
-        <button type="button" class="cfx-full" onclick="cmCaseFlow.full(${d.id},${i})">📖 Additional Reference</button></div>
+  /* No hidden leftovers: the view pill, the dots, the kicker, the 📖 Additional Reference row and the title ribbon above
+     the card were all hidden by CSS (the band under the title says the view; 📖 Reference is on the band), so they are
+     no longer drawn. A trainer's ⚡ Inject keeps its row on Your Task. A lesson has no separator line either; an
+     activity keeps it, as the daily loop's tag line (js/cm-day-loop.js: THE DAY'S SKILL BUILDING / SKILL ACTIVITY). */
+  const inject = view === "task" && isTrainer() && !inAudience() && injectsOf(b).length ? `<button type="button" class="cfx-inject" onclick="cmCaseFlow.inject(${d.id},${i})" title="Trainer only: a real-time task to inject while the room works this one">⚡ Inject: ${E(injectsOf(b).map(x => x.short).join(" · "))}</button>` : "";
+  const sep = b.kind === "lesson" ? "" : `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; ${phase.lead === "Case Phase" ? `CASE PHASE ${phase.n} OF ${phase.of}` : phase.lead.toUpperCase()} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${viewLabel(b, view).toUpperCase()}</div>`;
+  return oneOfEachTool(`${sep}
+    <div class="card lesson-card cf-card cfx cfx-deck cfx-${view} cfx-${b.kind}" data-part="${p}" aria-label="${E(viewLabel(b, view))}, slide ${p} of ${vs.length}">
+      <div class="cfx-deck-head"><h2 class="cfx-deck-title${l.h.length > TITLE_LONG ? " cfx-t-long" : ""}" title="${E(l.h)}">${E(l.h)}</h2></div>
+      <div class="cfx-ribbon cfx-what cfx-ribbon-ref"><span><i class="cfx-what-k">${E(WHAT[b.kind])}</i><b class="cfx-what-v">${E(viewLabel(b, view))}</b></span>${inAudience() ? "" : `<button type="button" class="cfx-ref-open" onclick="cmCaseFlow.full(${d.id},${i})" title="The full text of this block, over the slide">📖 Reference</button>`}</div>
+      ${inject ? `<div class="cfx-top">${inject}</div>` : ""}
       <div class="cfx-body${onNavy ? " cfx-body-navy" : ""}">${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}</div>
     </div>`);
 }
@@ -1180,12 +1196,11 @@ function agendaSlide(d){
   // (all of the day's Skill Activities; on a build day, the Full Application Practice); the Knowledge Check last
   const nActs = d.lessons.filter(l => l.cf.block.kind === "activity").length, nLessons = d.lessons.filter(l => l.cf.block.kind === "lesson").length;
   const label = (k, t) => `<li class="cfx-ag-label"><b>${k}</b><span>${E(t)}</span></li>`;
-  // the trainers' deck pages a day shows after its lessons (js/cm-deck-pages.js Day 2, js/cm-day-decks.js Days 3-5) are lesson sections too, by their topic
-  const dp = window.CM_DECK_PAGES, dd = (window.CM_DAY_DECKS || {})[d.cf.n], deckTopics = dp && dp.DAY === d.cf.n ? dp.DECK.map(g => g.topic) : dd ? dd.map(g => g.topic) : [], n1 = parts.length + deckTopics.length;
+  // (the trainers' deck pages are the lessons' own slides, js/cm-deck-slides.js: no deck topics of their own here)
+  const n1 = parts.length;
   // Part 2 is the daily loop (js/cm-day-loop.js): the Case Profile → the Skill Building → the Action Plan, then the Knowledge Check
   const loop = sc.loop && window.cmDayLoop ? window.cmDayLoop.agendaRows(d, sc) : null;
-  const rows = label("Part 1 · 📘 Lessons", `${nLessons} lessons${deckTopics.length ? ` and ${deckTopics.length} deck topics` : ""}, all together`) + parts.map((p, i) => row(i + 1, p.title)).join("")
-    + deckTopics.map((t, i) => row(parts.length + i + 1, t)).join("")
+  const rows = label("Part 1 · 📘 Lessons", `${nLessons} lessons, all together`) + parts.map((p, i) => row(i + 1, p.title)).join("")
     + (loop ? label(loop.label, loop.side) + loop.rows.map((t, i) => row(n1 + i + 1, t, "lab")).join("") + row(n1 + loop.rows.length + 1, "Knowledge Check", "kc")
     : label(sc.build ? "Part 2 · 🏗 Full Application Practice" : "Part 2 · 🧪 Practice Lab", sc.build ? "then optional extra practice" : `all ${nActs} Skill Activities, in one place`)
     + (sc.build ? row(n1 + 1, "Build Your Companion Case", "lab") : row(n1 + 1, `Practice Lab: ${nActs} Skill Activities`, "lab"))
@@ -2847,7 +2862,7 @@ if(typeof daySlideTitle === "function"){
     if(cfDay(d && d.id) && slide && slide.type === "companionBuild2") return "Full Application Practice: the Second Half";
     if(cfDay(d && d.id) && slide && slide.type === "extraPractice") return "Optional Extra Practice";
     if(cfDay(d && d.id) && slide && slide.type === "closing") return "Congratulations & Thank You";
-    if(cfDay(d && d.id) && slide && slide.type === "topic"){ const l = d.lessons[slide.lessonIndex]; const v = viewsOf(l.cf.block)[(slide.part || 1) - 1]; return `${l.h} — ${VIEW_LABEL[v] || ""}`; }
+    if(cfDay(d && d.id) && slide && slide.type === "topic"){ const l = d.lessons[slide.lessonIndex]; const v = viewsOf(l.cf.block)[(slide.part || 1) - 1]; return `${l.h} — ${viewLabel(l.cf.block, v)}`; }
     return __title.apply(this, arguments);
   };
 }
@@ -2920,6 +2935,10 @@ MODULES.forEach(d => d.lessons.forEach(l => {
     sc["p" + (j + 1)] = h ? {why: "", talk: h.say, walk: [], ask: h.ask || "", scenario: x.scenario || ""}
       : {why: x.why || "", talk: x.talk || "", walk: x.walk || [], ask: x.ask || "", scenario: x.scenario || ""};
   });
+  // lean: a drawn lesson's slides left off the deck (at most LESSON_MAX are drawn): their points go with its last slide
+  const gone = b.kind === "lesson" && !deckOf(b) ? fullViewsOf(b).filter(v => !vs.includes(v)) : [], last = sc["p" + vs.length];
+  if(gone.length && last) last.walk = last.walk.concat(gone.flatMap(v => { const x = per[v] || {}, h = said[v];
+    return (h ? [h.say] : [x.talk].concat(x.walk || [])).filter(Boolean).map(s => `${VIEW_LABEL[v] || v} (in 📖 Reference): ${String(s).replace(/\*\*/g, "")}`); }));
   window.SLIDE_SCRIPTS[`${d.id}::${l.h}`] = sc;
 }));
 
@@ -2957,7 +2976,7 @@ if(typeof window.sopRunOfShow === "function"){
     parts.forEach((p, i) => {
       if(p.topics.length) add(p.lecture, {title: `Lessons ${i + 1} of ${parts.length}: ${E(p.title)}`, do: [
         `${p.topics.length} topic${p.topics.length > 1 ? "s" : ""}, ${p.lecture} minutes in all (${p.topics.map(l => `${(sc.minsOf && sc.minsOf.get(l)) || sc.per} min`).join(", ")}): ${p.topics.map(l => `<b>${E(titleCase(l.cf.block.title))}</b>`).join(" · ")}.`,
-        `A refresher: the room has met every one of these, so recap the rule, check it with one question about John Doe's file, and move on; each topic keeps all its slides (The Theory, which opens with why it matters, The Rules, See It, Do &amp; Don't), at a quicker pace. ${p.topics.some(l => l.cf.block.thorough) ? "<b>The mediation and arbitration lessons are the exception: teach them in full</b>, they get the most minutes." : ""}`,
+        `A refresher: the room has met every one of these, so recap the rule, check it with one question about John Doe's file, and move on; a topic's slides are the trainers' deck pages (their notes are in Presenter view), or at most three drawn slides (The Theory, The Rules and The Framework or The Document; the rest is in 📖 Reference and the talking points), at a quicker pace. ${p.topics.some(l => l.cf.block.thorough) ? "<b>The mediation and arbitration lessons are the exception: teach them in full</b>, they get the most minutes." : ""}`,
         `Read the script in Presenter view as written or in your own words; take one or two answers per question, not a round of the room.`],
         say: `“Now we're into ${p.title}. Keep John Doe's file in your head the whole way through: ${sc.loop ? "in today's Skill Building you'll do this on it" : "in the Practice Lab you'll do this on it"}.”`,
         watch: "Silence usually means it's too abstract: bring it back to John Doe's file and ask what they'd do next on it."});
@@ -3047,7 +3066,7 @@ if(typeof window.sopProgramFlow === "function"){
   window.sopProgramFlow = function(){
     return [
       [/every Skill Builder is graded against those documents/g, "every Skill Activity works from those documents"],
-      [/<li><b>Teach:<\/b>[^<]*<\/li>/, "<li><b>Teach:</b> each day is one module and a refresher: 30% lessons (66 of the 220 teaching minutes, each topic's slides at a quicker pace; the mediation and arbitration lessons in full), 70% practical (the Skill Building straight after each topic, the brainstorms and the Knowledge Check). Day 5's practical is the 150-minute companion-case build.</li>"],
+      [/<li><b>Teach:<\/b>[^<]*<\/li>/, "<li><b>Teach:</b> each day is one module and a refresher: lessons at most 30% (a minute and a half a slide, 66 of the 220 teaching minutes at most: the deck pages, and at most three drawn slides a topic; the mediation and arbitration deck pages in full), the rest practical (the Skill Building straight after each topic, the brainstorms and the Knowledge Check). Day 5's practical is the 150-minute companion-case build.</li>"],
       [/<li><b>Practise:<\/b>[^<]*(<[^/][^>]*>[^<]*<\/[^>]+>[^<]*)*<\/li>/, "<li><b>Practise:</b> each topic's Skill Activities on John Doe's file in the CMS, straight after its lessons, with their live calls.</li>"],
       [/<li>Reset <b>Skill Builder attempts<\/b>[^<]*<\/li>/, ""],
       [/\(trainees log their Case ID in each Skill Builder\)/, "(trainees log their CMS Case ID once, and each activity's reference)"],
@@ -3124,7 +3143,7 @@ if(typeof window.buildDayScriptLines === "function"){
       lines.push(`## ${String(i + 1).padStart(2, "0")}. ${titleCase(l.cf.block.title)}  ·  ${slideLabel(d, i)}`);
       viewsOf(l.cf.block).forEach((v, j) => {
         const sc = slideScript(d, l, j + 1), sb = scriptBody(sc);
-        lines.push(`SLIDE ${j + 1}: ${(VIEW_LABEL[v] || v).toUpperCase()}`);
+        lines.push(`SLIDE ${j + 1}: ${(viewLabel(l.cf.block, v) || v).toUpperCase()}`);
         lines.push(...sb.say);
         if(sb.ask) lines.push(`ASK: ${sb.ask}`);
         if(sc.scenario) lines.push(`SCENARIO: ${sc.scenario}`);
@@ -3169,7 +3188,7 @@ if(typeof window.buildDayScriptLines === "function"){
         lines.push(`## ${String(i + 1).padStart(2, "0")}. ${titleCase(l.cf.block.title)}  ·  ${slideLabel(d, i)}`);
         viewsOf(l.cf.block).forEach((v, j) => {
           const sc = slideScript(d, l, j + 1), sb = scriptBody(sc);
-          lines.push(`SLIDE ${j + 1}: ${(VIEW_LABEL[v] || v).toUpperCase()}`);
+          lines.push(`SLIDE ${j + 1}: ${(viewLabel(l.cf.block, v) || v).toUpperCase()}`);
           lines.push(...sb.say);
           if(sb.ask) lines.push(`ASK: ${sb.ask}`);
           if(sc.scenario) lines.push(`SCENARIO: ${sc.scenario}`);

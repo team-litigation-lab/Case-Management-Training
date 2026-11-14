@@ -651,7 +651,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d1m1-l1",
-        title: "Ingesting the Raw File",
+        title: "Case Phase: Intake & the Intake Bottlenecks",
         topic: "From “On the Records” to a structured matter",
         visual: "Left-to-right intake pipeline across the full slide width. Left third: a muted grey stack of unsorted documents labelled RAW INTAKE, deliberately untidy. Centre: three orange-numbered gates in a row — ① Verify ② Map ③ Structure — each a navy card with the orange circle badge top-centre and a thin navy → connector between them. Right third: a clean white CMS matter card with six filled role rows, each with a green ✓. The argument is made by the contrast between the grey untidy left edge and the crisp white right edge. Beneath the pipeline, a full-width orange-bordered strip holds the case's four continuity anchors as mono pills.",
         tell: {
@@ -1637,7 +1637,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d1m4-l1",
-        title: "The Acceptance Decision & the Three-Pillar Case Plan",
+        title: "Claim Set Up: Coverage, Liability & the Case Plan",
         topic: "The document that makes the file move",
         visual: "A five-band vertical architecture, each band a full-width navy or navy-soft bar with an orange index number at its left edge: ① CASE SNAPSHOT & ACCEPTANCE ② COVERAGE · LIABILITY · PROJECTION ③ REGULATORY TRIPLE-CHECK ④ THREE-PILLAR PLAN — the band split into three equal columns, CLINICAL · FUNCTIONAL · FINANCIAL ⑤ RISKS & FLAGS. Band ⑤ is in danger red rather than navy and visibly taller, holding one highlighted chip, 14-DAY TREATMENT GAP; that asymmetry must survive any redesign. To the right, a thin vertical routing rail with an arrow ending in a card: ATTY. ELIJAH THORNE · REVIEW, and under it a calendar chip, FILE WITHIN 30–60 DAYS.",
         tell: {
@@ -4786,7 +4786,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d2m4-l1", noGame: true,
-        title: "MMI, Special Damages & Policy-Limits Targets",
+        title: "Pre-Demand Case Auditing",
         topic: "The audit that decides what the demand can claim",
         visual: "A left-to-right audit run across the full slide. Far left, a navy vertical gate labelled MMI · 06/12/2026 with a green ✓; nothing enters the ledger until it is passed. Centre, a cream ledger card with the provider rows in mono; the Riverton Spine & Rehab row shows $6,290.00 struck through in red, replaced by $6,105.00, with an orange badge: –$185.00 · 05/04/2026 DUPLICATE. Under it, the sum in large Fraunces: $14,817.40 + $1,584.00 = $16,401.40. A grey card, FUTURE MEDICAL · NARRATIVE, sits deliberately outside the ledger frame. Right third: three numbered targets bottom-up, ① $10,000 BI ② $20,000 HOST UM ③ $10,000 RELATIVE UM, each with a mono source pill. The argument: an audited number, inside its frame, aimed at limits in order.",
         tell: {
@@ -5226,7 +5226,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d3m1-l1",
-        title: "Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup",
+        title: "Case Phase: Demand",
         topic: "What makes a $10,000 demand one Keystone has to answer",
         visual: "Left half: a Time-Limited Demand Letter on navy-banded letterhead, five orange numbered badges pinned to its parts: ① the $10,000 amount (within limits), ② the release and affidavit terms (clear), ③ the conditions and the 30 days to meet them (reasonable), ④ the enclosure list (documented), ⑤ the deadline and delivery lines (timed). Right half: a horizontal clock bar running 07/20/2026 SERVED → 07/22/2026 ACKNOWLEDGED (a navy mono pill with a reply-email icon) → 08/21/2026 WINDOW CLOSES in orange. Above the bar, a red danger callout: “An ambiguous term is an escape hatch.” Bottom strip, a full-width navy band in white type: CLEAR · REASONABLE · WITHIN LIMITS · DOCUMENTED · TIMED. The argument: each badge is a door Keystone could refuse through, and the demand shuts all five.",
         tell: {
@@ -5358,7 +5358,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d3m1-l2", compact: true,
-        title: "Secondary UM Demand Structuring & Policy Stacking Rules",
+        title: "BI Settlement: the UM/UIM Safety Check & Key Laws",
         topic: "Locking the escape hatches before Host UM and Relative UM open",
         visual: "A six-station horizontal timeline across the slide, stations numbered in orange circles on a navy rail: ① TENDER 08/12 ② CONSENT REQUESTS 08/13 ③ CONSENTS 08/24 · 08/26 ④ LIMITED RELEASE 08/28 ⑤ UM DEMANDS 08/31 ⑥ CHECK 09/04, each date in a mono pill. Between stations ③ and ④ a heavy orange gate bar labelled NO RELEASE BEFORE BOTH CONSENTS. Above the rail, a small three-rung ladder on a cream card shows BI $10,000 → HOST UM $20,000 (ADD-ON) → RELATIVE UM $10,000 (EXCESS). Bottom-left, a red danger card quotes Keystone's 08/14 draft: “all other persons, firms, corporations and insurers,” struck through. The argument: sequence is protection.",
         tell: {
@@ -6111,7 +6111,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d3m2-l2", compact: true,
-        title: "Securing Maximum Gross Policy-Limit Settlements",
+        title: "Settlement Negotiations & the BI Settlement",
         topic: "The UM gap, the reductions that don't apply, and closing at limits",
         visual: "Three rungs build left to right: BI $10,000 (navy, ticked TENDERED 08/12), HOST UM $20,000 (navy-soft), RELATIVE UM $10,000 (orange), with a running-total pill above each ($10,000 → $30,000 → $40,000) ending in a large Fraunces $40,000 GROSS. Under the Host UM rung sit three struck-through red chips, the reductions that do not apply here (BI OFFSET · PIP NON-DUPLICATION · PIP LIEN), tied by one mono pill: HARBOR POINT LETTER 03/02/2026. A grey chip, PIP IS ADD-ON: NO SET-OFF, sits apart. Bottom strip: a cream card, CONFIRM SCOPE · RELEASE · LIENS · PAYEE · CHECK DATE → CONFIRMING EMAIL. The argument: the gross is protected by documents checked before the negotiation.",
         tell: {
@@ -6423,7 +6423,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d3m3-l1",
-        title: "Statutory Liens, Health Subrogation & Provider Balances",
+        title: "Lien Negotiations: Key Legal Doctrines",
         topic: "Not all liens are created equal: classify before you negotiate",
         visual: "A reducibility ladder fills the left two-thirds: horizontal bars stacked from MOST NEGOTIABLE at the top (PROVIDER LOP, navy) through HEALTH PLAN · FULLY INSURED and WORKERS' COMP (navy-soft) and MEDICARE/MEDICAID (grey) to ERISA SELF-FUNDED at the bottom (dark grey). The two live liens, Riverton Spine & Rehab and Peach State, are solid bars with mono pills, $6,290.00 and $1,860.00; every other bar is hollow with a green ✓ NONE — VERIFIED chip. Beside the ladder, an outlined PRIOR ATTORNEY bar tagged QUANTUM MERUIT. Right third: three cream doctrine cards with orange numbered badges, ① COMMON FUND ② MADE WHOLE ③ COMPARATIVE FAULT, the third greyed. Bottom: a red danger strip, “Unclassified = overpaid or frozen.” The argument: absent liens are checked as carefully as present ones.",
         tell: {
@@ -6562,7 +6562,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d3m3-l2", noGame: true,
-        title: "Pro-Rata Distribution & Medical Bill Reduction",
+        title: "Increasing the Client's Net: Auditing the Billing",
         topic: "Audit first, then show the lienholder the math",
         visual: "Top half: the pro-rata illustration as one long horizontal bar, the $6,179.92 fund, split 23.35% navy (PEACH STATE · $1,443.15) and 76.65% orange (RIVERTON SPINE & REHAB · $4,736.77). A bracket beneath it shows $7,965.00 of liens overhanging the bar's right end in hatched red. At the far right a small card in red: JOHN DOE NETS $0.00. Bottom half: a five-step strip of orange numbered badges, ① Audit ② Correct ③ Calculate ④ Ask with authority ⑤ Confirm in writing, ending in a navy ledger chip, NET SHEET UPDATED. The argument: the math is the leverage, and the audit comes before the ask.",
         tell: {
@@ -6828,7 +6828,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d3m4-l1", noGame: true,
-        title: "The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker",
+        title: "The Net Sheet: Two Recovery Streams & the Master Ledger",
         topic: "One Net Sheet, two streams, every dollar's origin visible",
         visual: "A wide two-tab spreadsheet card fills the slide, cream with a navy header bar carrying two tabs: RECOVERY LEDGER (active, orange underline) and LIEN TRACKER (navy-soft, set behind). The ledger has three mono columns, TOTAL · STREAM 1 BI · STREAM 2 UM, and rows Gross, Fee 33⅓%, Costs, Peach State, Riverton Spine & Rehab, closing on a heavy orange-ruled NET row: $20,359.92 = $5,089.98 + $15,269.94. A thin orange connector runs from each lien row back to the Lien Tracker tab, labelled PROVED BY PAYOFF LETTER. Bottom-right, a red danger callout: “BI alone: $0.00 to John Doe.” The argument: every figure on the net row traces to its source.",
         tell: {
@@ -6967,7 +6967,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d3m4-l2", compact: true,
-        title: "Release Audits, Trust Accounting & Disbursement Commands",
+        title: "Disbursement: Prior-Attorney Liens, the Workflow & the Documentation",
         topic: "No money moves until every gate behind it is closed",
         visual: "A horizontal six-gate money path across the slide, each gate a navy card with an orange numbered badge and a mono date pill: ① Releases signed · 08/28 + UM ② Checks into IOLTA · 09/04 · 10/05 · 10/13 ③ Funds clear · 10/20 ④ Statement signed · 10/21 ⑤ Atty. Thorne signs · 10/22 ⑥ Reconciled · $0.00. Above gate ①, a red danger callout quotes Keystone's 08/14 draft, “all other persons, firms, corporations and insurers”, struck through, with –$30,000 beside it. Below the path, a slim grey trust-ledger bar steps from $40,000.00 down to $0.00 in mono. The argument: money moves only after every gate to its left is closed.",
         tell: {
@@ -7037,7 +7037,7 @@ window.CM_CASE_FLOW = {
        {
          kind: "lesson", id: "d3m4-close",
          compact: true,
-         title: "Closing the File: Final Reconciliation, the Closing Memo, the Closing Letter & Retention",
+         title: "Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention",
          topic: "After $0.00: the four document sets that let a file be archived, and the bill that comes after",
          visual: "A tall archive box at the right edge of the slide, navy, with a faded orange ARCHIVED stamp, locked behind a gate. Leading to it from the left, four stacked cream cards, each with an empty orange tick box: ① MONEY TRAIL ($40,000.00 IN · $40,000.00 OUT · $0.00) ② PROOF OF DELIVERY (2 SATISFACTIONS · JOHN DOE'S RECEIPT) ③ COMPLIANCE & IDENTITY (PAYER DISCLOSURE · W-9) ④ CLOSING MEMO · 10/30/2026. Above the box, a mono pill: RETENTION · 7 YEARS FROM CLOSING. Bottom-left, a red envelope labelled LATE BILL? arrives after the gate, with a leader line to two chips, MISSED LIEN · BILL NOBODY OWES, and a routing arrow to an ATTY. THORNE card. The argument: $0.00 opens the close; only four verified sets lock it, and the file must still answer the bill that comes after.",
          tell: {
@@ -8169,7 +8169,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d4m2-l2", thorough: true,
-        title: "Mediation vs. Binding Arbitration & the UPL Line at Hearings",
+        title: "Introducing the Neutral, Mediation Logistics & the Arbitration Hearing",
         topic: "Two neutrals, two standards, one boundary",
         visual: "Two forum cards face each other across the slide, joined by a bold orange arrow labelled COMPROMISE → TRIAL-READY. Left, a navy-soft card: MEDIATION · 03/18/2027 · HON. CARLA BENTON (RET.), with three chips: NON-BINDING · CONFIDENTIAL · FACILITATES. Right, a solid navy card, visibly heavier: BINDING ARBITRATION · 06/22/2027 · LAURA WHITCOMB, ESQ., with three chips: ACTS AS JUDGE · BINDING AWARD · APPEAL LIMITED, and a mono hard-date strip beneath it (06/02 · 06/11 · 06/22/2027). Across the bottom, a full-width red-bordered UPL bar in two halves: CM CAN (observe · log directives · update the CMS) in navy, CM NEVER (argue · speak on the record · speak for John Doe · negotiate) in red. The bar spans both cards: the line is the same at both tables. Above both cards, a slim full-width timeline strip marks where ADR can land: BEFORE FILING (pre-litigation mediation · pre-filing arbitration clause) on the left in navy-soft, a vertical orange COMPLAINT FILED marker in the middle, and AFTER FILING (court-ordered mediation · agreed binding arbitration) on the right, with both of this file's sessions pinned on the right-hand half.",
         tell: {
@@ -8559,7 +8559,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d4m3-l1", thorough: true,
-        title: "The Mediation Binder & Exhibit Indexing",
+        title: "Preparing the Mediation Binder",
         topic: "Six sections, one master index, and the five-second rule",
         visual: "An open binder seen from above fills the left two-thirds: six navy divider tabs stepped down its right edge, each with an orange numbered badge ①–⑥ and its section name, and beside each tab a cream card listing this file's documents as mono pills (RPD-26-018842 · EDR · MRI 03/13/2026 · $16,401.40). Across the top runs a slim navy bar, MASTER INDEX — ONE SOURCE OF TRUTH, with column chips Exhibit · Bates · Source · Status and thin orange leader lines running from index rows down into the tabs. Right third: a large stopwatch chip, 5 SECONDS, above a red danger callout: “Drafts and superseded pleadings never enter the binder.” The leader lines run from the index into the binder, never back: that is the argument.",
         tell: {
@@ -8686,7 +8686,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d4m3-l2", thorough: true,
-        title: "Arbitration Exhibits & Evidentiary Rules",
+        title: "The Arbitration Binder & the Common Bottlenecks",
         topic: "From a binder that persuades to the record a binding award rests on",
         visual: "Two panels joined by a heavy orange arrow labelled THE GAP DISPUTE CARRIES OVER. Left, small and greyed: the Mediation Binder, captioned PERSUADES · NON-BINDING. Right, dominant: six navy tabs ①–⑥ with orange badges, each above a cream card stating its QC rule in one line. Over Tab 1, an orange-outlined THRESHOLD chip: BI EXHAUSTED · $10,000 TENDERED 03/18/2027. Beneath the tabs, an AUTHENTICATION rail of three mono pills: CUSTODIAN CERTIFICATION · NATIVE FILE · CHAIN OF CUSTODY. Bottom-right, a red danger callout: “Not exchanged by 06/02/2027 → may not count.” Beside it, a grey chip: CONFIRM THE FORUM'S RULES. The difference in size between the panels is the argument: this record decides.",
         tell: {
@@ -8754,7 +8754,7 @@ window.CM_CASE_FLOW = {
        {
          kind: "lesson", id: "d4m3-prior",
          compact: true,
-         title: "The Prior Medical Shield: Answering the Pre-Existing-Condition Defense from the Record",
+         title: "Arbitration Binder Section 5: the Prior Medical Shield",
          topic: "Tab 5: the 2021 baseline, laid beside the injury, before the carriers raise it",
          visual: "A split comparison board titled TAB 5 · THE PRIOR MEDICAL SHIELD. Left column, small and in greyed cream: 2021 · BIRCH AVENUE CHIROPRACTIC, a spine silhouette with only the lower back tinted, three mono date pills 05/04 · 05/11 · 05/18/2021, and a green stamp RESOLVED · RELEASED TO FULL ACTIVITY. Right column, larger and navy: SINCE 02/06/2026, the same silhouette with the neck tinted orange and labelled C5-C6 RIGHT PARACENTRAL, above two cream cards: MRI 03/13/2026 · DR. HELEN PARK quoting “no significant degenerative change at the adjacent levels”, and CAUSATION LETTER 06/19/2026 · DR. ALANA REYES. Between the columns, a horizontal bar labelled SYMPTOM-FREE INTERVAL running from 05/18/2021 to 02/06/2026, with a NORTHGATE · 01/12/2026 chip near its end. Across the top, three red defense chips, each struck through by an orange arrow to its answer: PRE-EXISTING → A DIFFERENT REGION · DEGENERATIVE → DR. PARK'S READ · CONTINUATION → RESOLVED IN 2021. Bottom-right, a grey routing card: ATTY. THORNE ARGUES · DECIDES ON A DECLARATION. The argument: every defense move is answered by a document, never by an adjective.",
          tell: {
@@ -9441,7 +9441,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d5m1-l1", brief: true,
-        title: "Litigation Tracking: the Pleadings Log & the Discovery Calendar",
+        title: "Litigation: Pleadings, Discovery & File Maintenance",
         topic: "Managing litigation tracking systems, pleadings logs & discovery calendars",
         visual: "A full-width horizontal court timeline on a navy rail runs from 09/24/2026 to 01/13/2027, with orange numbered badges on each trigger: ① Complaint filed ② Smith served 10/14 ③ Answer 11/12 ④ Discovery mailed 12/01 ⑤ Scheduling Order 12/10 ⑥ Our set e-served 12/14. From each trigger a thin orange arrow drops to its due date in a mono pill below the rail. The 12/01 arrow is drawn in three visible segments, + 30 · + 3 MAIL · SUN → MON, so the count reads physically. Right edge, a red danger callout on a cream card: “15 RFAs · unanswered = deemed admitted.” Bottom strip: the five numbered litigation sub-folders as mono pills. The argument: every date on the calendar is a calculation anyone can re-check.",
         tell: {
@@ -9574,7 +9574,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d5m1-l2", brief: true,
-        title: "Trial Preparation Checklists & Litigation KPIs",
+        title: "Trial Preparation & Litigation KPIs",
         topic: "Trial preparation checklists & tracking litigation KPIs",
         visual: "Upper half: a horizontal trial-prep runway on a navy line from 01/20/2027 to 09/13/2027 with seven orange-numbered milestones: ① Deposition 02/18 ② Our experts 03/15 ③ Mediation by 03/31 ④ Defense experts 04/15 ⑤ Discovery closes 05/28 ⑥ Pretrial 08/12 ⑦ Trial calendar 09/13. Before each milestone, three small tick marks labelled 30 · 14 · 7. A red danger band drops from ⑤: nothing that needs an answer is scheduled past it. Lower half: three cream cards in a row, the KPI families, each with mono pills for its targets (48 h · 14 days · 1 hour · 7 days · 30 days · 10 days). The argument: the order sets the dates; the KPIs prove you are ahead of them.",
         tell: {
@@ -9643,7 +9643,7 @@ window.CM_CASE_FLOW = {
        {
          kind: "lesson", id: "d5m1-subp", brief: true,
          compact: true,
-         title: "Subpoena Management: Records Subpoenas (Duces Tecum) & Trial Subpoenas",
+         title: "Subpoenas: Third-Party Subpoenas & Duces Tecum",
          topic: "Commanding evidence from outside the suit: in order, narrow and on time",
          visual: "Left two-thirds: a horizontal four-station pipeline on a navy rail, each station a navy card with an orange badge: ① DRAFT ② NOTICE ③ SERVE ④ TRACK. Between ② and ③ a gate chip reads NOTICE FIRST · ATTY. GRANT MERCER, and ③ carries a mono pill, REGISTERED AGENT / RECORDS CUSTODIAN. Above station ①, an Exhibit A card narrowing through three stacked filters, SUBJECT · DATES · RECORD TYPES, with the phrase “all records of any kind” struck through in red beside a red MOTION TO QUASH chip. A red vertical cutoff line, DISCOVERY CLOSES 05/28/2027, stands to the right of ④; every return arrow lands left of it and drops into a tabbed TRIAL BINDER icon. Right third, a separate cream lane for trial subpoenas: four witness chips (Ruth Calloway · Officer Thomas Garner #2217 · Dr. Alana Reyes · Dr. Helen Park) under the label IF ATTY. THORNE NAMES THEM, pointing to two date pills, PRETRIAL 08/12/2027 and TRIAL CALENDAR 09/13/2027. Along the bottom, one row of the subpoena log in mono type with a 10-DAY AUDIT badge. The argument: order, scope and timing decide whether the evidence arrives.",
          tell: {
@@ -9919,7 +9919,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d5m2-l1", brief: true,
-        title: "Property Damage at Settlement: Does It Touch Our Case?",
+        title: "Property Damage in Litigation",
         topic: "Which Property Damage outcomes reach John Doe's settlement, and which stay on Margaret Doe's file",
         visual: "A two-column sorting board. Left, navy, headed REACHES JOHN DOE'S SETTLEMENT: three cards, the “ALL CLAIMS” release stamped HOLD · ROUTE, the severity set (photos, the 02/16/2026 estimate, the $2,315.00 supplement) and the rental dates 02/18 and 03/19/2026 marked MATCH BOTH FILES. Right, cream, headed STAYS ON MARGARET DOE'S FILE: Loss of Use $2,016.00 vs $0 and Diminished Value $3,600.00 vs $792.00, under a note: Keystone PD $25,000, outside the $40,000 stack. A red-bordered strip along the bottom: “PD-only release. Never the BI claim.”",
         tell: {
@@ -10110,7 +10110,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d5m3-l1", brief: true,
-        title: "Client Prep for a Virtual Deposition & Injury Narrative Alignment",
+        title: "Deposition Prep: Preparing the Client",
         topic: "The audit, the three pillars, and the room John testifies from",
         visual: "A two-lane calendar runs left to right across the slide in six date columns, AUDIT → 02/04 → 02/11 → 02/16 → 02/17 → 02/18/2027 · 10:00 A.M., the last column framed in orange. Upper lane, navy, labelled ATTY. THORNE · SUBSTANCE. Lower lane, cream cards with orange numbered badges, labelled CASE MANAGER · THE PERSON AND THE SETTING. A solid red rule divides the lanes the full width; thin orange arrows cross it upward only, each tagged QUESTION ROUTED, and nothing crosses downward. Bottom-right, a laptop mock-up holds the set-up as mono pills: CAMERA AT EYE LEVEL · LIGHT IN FRONT · PRIVATE ROOM · NO NOTES · NO MESSAGING. The argument: the CM's lane is full, and none of it is what John should say.",
         tell: {
@@ -10253,7 +10253,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d5m3-l2", brief: true,
-        title: "Opposing Counsel's Traps & Defending Key Testimony",
+        title: "Testifying: the Silent Traps, the Golden Rules & Objections",
         topic: "The four categories, the seven Golden Rules, and what an objection means",
         visual: "A wide trap map in three columns. Left: seven red-bordered trap cards stacked vertically, each with a mono label — IS THAT ALL? · COMPOUND · “DEGENERATIVE” · GAP MISCHARACTERISED · SEATBELT · 2021 PRIOR · SILENT STARE. Centre: seven navy rule chips with orange numbered badges ①–⑦ (TRUTH · PAUSE · SAY IT · NO GUESSING · SHORT · SILENCE · DON'T ARGUE), each trap joined to its rule by a thin orange leader. Right: one tall navy shield, ATTY. THORNE · PREPARES · OBJECTS, that every leader ends in. No card anywhere holds a scripted answer; that empty space is deliberate. Footer strip in red: OBJECTION → STOP TALKING.",
         tell: {
@@ -10584,7 +10584,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d5m4-l2", brief: true,
-        title: "Skip-Tracing, Process Servers & Certified Notice",
+        title: "The Process Server & the Evading Defendant",
         topic: "Finding the defendant who moved and the client who went quiet",
         visual: "Two parallel swimlanes, left to right. Upper lane, navy, ROBERT SMITH — DEFENDANT: three red ✗ attempt dots at 118 LARKSPUR LN (10/01 · 10/05 · 10/08), then an orange SKIP-TRACE node (10/09) bending the lane to 4410 QUARRY RIDGE CT and a green ✓ SERVED 10/14, ending at an AFFIDAVIT 10/16 chip and a mono pill ANSWER DUE 11/13/2026. Lower lane, orange, JOHN DOE — CLIENT: a grey silent stretch from 01/22/2027 with protocol badges ①–④ along it, a CERTIFIED MAIL + EMAIL chip pair, and a green node 02/03 · VIA MARGARET, ending at a navy DEPOSITION 02/18/2027 block. Between the lanes, a red callout: “Withdrawal: never the CM's to raise.” The argument: the same tools, different authority.",
         tell: {
@@ -11316,7 +11316,7 @@ window.CM_CASE_FLOW = {
     {n: 5, build: "rest", lessonMax: 30, phases: [   // build: the practical is 150 minutes building the trainee's companion case (the day's own Skill Activities are optional extra practice)
       {title: "Litigation & Property Damage", lead: "Module 5", blocks: ["d4m1-l1", "d4m1-l2", "d4m4-l1", "d4m4-l2", "d5m1-l1", "d5m1-l2", "d5m1-subp", "d5m2-l1", "d5m3-l1", "d5m3-l2", "d5m4-l1", "d5m4-l2", "d5m5-l1", "d5m6-l1", "d4m1-a1", "d4m1-a2", "d4m1-efile", "d4m4-a1", "d4m4-a2", "d5m1-a1", "d5m1-a2", "d5m2-a1", "d5m3-a1", "d5m3-a2", "d5m4-a1", "d5m4-a2", "d5m5-a1", "d5-drive", "d5m6-a1", "d4m1-kc", "d4m4-kc", "d5m1-kc", "d5m2-kc", "d5m3-kc", "d5m4-kc", "d5m5-kc", "d5m6-kc"],
        practises: {"d4m1-a1": "d4m1-l1", "d4m1-a2": "d4m1-l2", "d4m1-efile": "d4m1-l2", "d4m4-a1": "d4m4-l1", "d4m4-a2": "d4m4-l2", "d5m1-a1": "d5m1-l1", "d5m1-a2": "d5m1-l2", "d5m2-a1": "d5m2-l1", "d5m3-a1": "d5m3-l1", "d5m3-a2": "d5m3-l2", "d5m4-a1": "d5m4-l1", "d5m4-a2": "d5m4-l2", "d5m5-a1": "d5m5-l1", "d5-drive": "d5m5-l1", "d5m6-a1": "d5m6-l1"},
-       headings: {"d5-drive": "Skill Building: Backup File Maintenance", "d4m1-l1": "Litigation", "d4m1-l2": "Litigation", "d4m4-l1": "Litigation", "d4m4-l2": "Litigation", "d5m1-l1": "Litigation", "d5m1-l2": "Litigation", "d5m1-subp": "Litigation", "d5m2-l1": "Litigation: Does PD Touch Our Case?", "d5m3-l1": "Litigation", "d5m3-l2": "Litigation", "d5m4-l1": "Litigation", "d5m4-l2": "Litigation", "d5m5-l1": "Case Won: Award & Disbursement", "d5m6-l1": "Dropped Cases & Withdrawal Letters", "d4m1-a1": "Skill Building: Litigation", "d4m1-a2": "Skill Building: Litigation", "d4m1-efile": "Skill Building: Litigation", "d4m4-a1": "Skill Building: Litigation", "d4m4-a2": "Skill Building: Litigation", "d5m1-a1": "Skill Building: Litigation", "d5m1-a2": "Skill Building: Litigation", "d5m2-a1": "Skill Building: Does PD Touch Our Case?", "d5m3-a1": "Skill Building: Litigation", "d5m3-a2": "Skill Building: Litigation", "d5m4-a1": "Skill Building: Litigation", "d5m4-a2": "Skill Building: Litigation", "d5m5-a1": "Skill Building: Case Won", "d5m6-a1": "Skill Building: Dropped Cases"}}
+       headings: {"d5-drive": "Skill Building: Backup File Maintenance", "d4m1-l1": "Litigation", "d4m1-l2": "Litigation", "d4m4-l1": "Litigation", "d4m4-l2": "Litigation", "d5m1-l1": "Litigation", "d5m1-l2": "Litigation", "d5m1-subp": "Litigation", "d5m2-l1": "Property Damage in Litigation", "d5m3-l1": "Litigation", "d5m3-l2": "Litigation", "d5m4-l1": "Litigation", "d5m4-l2": "Litigation", "d5m5-l1": "Case Won: Award & Disbursement", "d5m6-l1": "Dropped Cases & Withdrawal Letters", "d4m1-a1": "Skill Building: Litigation", "d4m1-a2": "Skill Building: Litigation", "d4m1-efile": "Skill Building: Litigation", "d4m4-a1": "Skill Building: Litigation", "d4m4-a2": "Skill Building: Litigation", "d5m1-a1": "Skill Building: Litigation", "d5m1-a2": "Skill Building: Litigation", "d5m2-a1": "Skill Building: Does PD Touch Our Case?", "d5m3-a1": "Skill Building: Litigation", "d5m3-a2": "Skill Building: Litigation", "d5m4-a1": "Skill Building: Litigation", "d5m4-a2": "Skill Building: Litigation", "d5m5-a1": "Skill Building: Case Won", "d5m6-a1": "Skill Building: Dropped Cases"}}
     ]}
   ]
 };

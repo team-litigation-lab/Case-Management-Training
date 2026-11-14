@@ -32,32 +32,32 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 **Module 4 — Mediation & Arbitration**
 
-1. *Lesson* — Statutory Liens, Health Subrogation & Provider Balances
-2. *Lesson* — Pro-Rata Distribution & Medical Bill Reduction
+1. *Lesson* — Lien Negotiations: Key Legal Doctrines
+2. *Lesson* — Increasing the Client's Net: Auditing the Billing
 3. *Lesson* — Lien Negotiation Calls: the Reduction Request, the Ask and the Payoff Letter (condensed)
-4. *Lesson* — The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker
-5. *Lesson* — Release Audits, Trust Accounting & Disbursement Commands
-6. *Lesson* — Closing the File: Final Reconciliation, the Closing Memo, the Closing Letter & Retention
+4. *Lesson* — The Net Sheet: Two Recovery Streams & the Master Ledger
+5. *Lesson* — Disbursement: Prior-Attorney Liens, the Workflow & the Documentation
+6. *Lesson* — Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention
 7. *Lesson* — Court Hard Rules, SOL Cutoffs & the Master Calendar
 8. *Lesson* — UM/UIM Disputes & Resolution Routes
-9. *Lesson* — Mediation vs. Binding Arbitration & the UPL Line at Hearings
-10. *Lesson* — The Mediation Binder & Exhibit Indexing
-11. *Lesson* — Arbitration Exhibits & Evidentiary Rules
-12. *Lesson* — The Prior Medical Shield: Answering the Pre-Existing-Condition Defense from the Record
+9. *Lesson* — Introducing the Neutral, Mediation Logistics & the Arbitration Hearing
+10. *Lesson* — Preparing the Mediation Binder
+11. *Lesson* — The Arbitration Binder & the Common Bottlenecks
+12. *Lesson* — Arbitration Binder Section 5: the Prior Medical Shield
 13. *Lesson* — From Treatment to Demand: How the Treatment Record Becomes the Claim (condensed)
-14. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab (practises: Statutory Liens, Health Subrogation & Provider Balances) — *side*
+14. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab (practises: Lien Negotiations: Key Legal Doctrines) — *side*
 15. *Skill Activity* — Provider Balance Negotiation Exercises (practises: Lien Negotiation Calls: the Reduction Request, the Ask and the Payoff Letter) — *side*
-16. *Skill Activity* — Completing the Final Dual-Tab Net Sheet (practises: The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker) — *side*
-17. *Skill Activity* — Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold (practises: Release Audits, Trust Accounting & Disbursement Commands) — *side*
-18. *Skill Activity* — Starting the Disbursement Command: Releases, Hold Cleared, Money Out (practises: Release Audits, Trust Accounting & Disbursement Commands) — *side*
-19. *Skill Activity* — Backup File Maintenance: Liens, Costs and a Missing Folder (practises: Closing the File: Final Reconciliation, the Closing Memo, the Closing Letter & Retention) — *side*
+16. *Skill Activity* — Completing the Final Dual-Tab Net Sheet (practises: The Net Sheet: Two Recovery Streams & the Master Ledger) — *side*
+17. *Skill Activity* — Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold (practises: Disbursement: Prior-Attorney Liens, the Workflow & the Documentation) — *side*
+18. *Skill Activity* — Starting the Disbursement Command: Releases, Hold Cleared, Money Out (practises: Disbursement: Prior-Attorney Liens, the Workflow & the Documentation) — *side*
+19. *Skill Activity* — Backup File Maintenance: Liens, Costs and a Missing Folder (practises: Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention) — *side*
 20. *Skill Activity* — Routing the UM Impasse: Arbitration or Court (practises: UM/UIM Disputes & Resolution Routes) — *side*
 21. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs (practises: Court Hard Rules, SOL Cutoffs & the Master Calendar) — *side*
-22. *Skill Activity* — Calendaring the Mediation: the Session and Every Date That Hangs Off It (practises: Mediation vs. Binding Arbitration & the UPL Line at Hearings) — *side*
-23. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping (practises: Mediation vs. Binding Arbitration & the UPL Line at Hearings) — *side*
-24. *Skill Activity* — Calendaring the Arbitration from the Scheduling Letter (practises: Mediation vs. Binding Arbitration & the UPL Line at Hearings) — *side*
-25. *Skill Activity* — Assembling the 6-Section Mediation Binder (practises: The Mediation Binder & Exhibit Indexing) — **Skill Building**
-26. *Skill Activity* — Assembling the 6-Tab Arbitration Binder (practises: Arbitration Exhibits & Evidentiary Rules) — *side*
+22. *Skill Activity* — Calendaring the Mediation: the Session and Every Date That Hangs Off It (practises: Introducing the Neutral, Mediation Logistics & the Arbitration Hearing) — *side*
+23. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping (practises: Introducing the Neutral, Mediation Logistics & the Arbitration Hearing) — *side*
+24. *Skill Activity* — Calendaring the Arbitration from the Scheduling Letter (practises: Introducing the Neutral, Mediation Logistics & the Arbitration Hearing) — *side*
+25. *Skill Activity* — Assembling the 6-Section Mediation Binder (practises: Preparing the Mediation Binder) — **Skill Building**
+26. *Skill Activity* — Assembling the 6-Tab Arbitration Binder (practises: The Arbitration Binder & the Common Bottlenecks) — *side*
 27. *Knowledge Check* — Lien Reduction Verification
 28. *Knowledge Check* — Final Accounting Check
 29. *Knowledge Check* — ADR & Calendar Compliance Check
@@ -71,7 +71,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 **Order:** Lessons (13) ➔ Case Profile ➔ Skill Building (Assembling the 6-Section Mediation Binder) ➔ Update Your Action Plan ➔ Practice Lab (12 optional side exercises) ➔ Knowledge Check (4 Learning Checks)
 
-### 4.1.1 Statutory Liens, Health Subrogation & Provider Balances
+### 4.1.1 Lien Negotiations: Key Legal Doctrines
 
 > **Lesson** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Not all liens are created equal: classify before you negotiate  
@@ -148,7 +148,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 4) and that day
 
 ---
 
-### 4.1.2 Pro-Rata Distribution & Medical Bill Reduction
+### 4.1.2 Increasing the Client's Net: Auditing the Billing
 
 > **Lesson** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Audit first, then show the lienholder the math  
@@ -286,7 +286,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 4) and that day
 
 ---
 
-### 4.1.4 The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker
+### 4.1.4 The Net Sheet: Two Recovery Streams & the Master Ledger
 
 > **Lesson** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** One Net Sheet, two streams, every dollar's origin visible  
@@ -363,7 +363,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.5 Release Audits, Trust Accounting & Disbursement Commands
+### 4.1.5 Disbursement: Prior-Attorney Liens, the Workflow & the Documentation
 
 > **Lesson** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** No money moves until every gate behind it is closed  
@@ -437,7 +437,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.6 Closing the File: Final Reconciliation, the Closing Memo, the Closing Letter & Retention
+### 4.1.6 Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention
 
 > **Lesson** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** After $0.00: the four document sets that let a file be archived, and the bill that comes after  
@@ -668,7 +668,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.9 Mediation vs. Binding Arbitration & the UPL Line at Hearings
+### 4.1.9 Introducing the Neutral, Mediation Logistics & the Arbitration Hearing
 
 > **Lesson** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Two neutrals, two standards, one boundary  
@@ -749,7 +749,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.10 The Mediation Binder & Exhibit Indexing
+### 4.1.10 Preparing the Mediation Binder
 
 > **Lesson** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Six sections, one master index, and the five-second rule  
@@ -822,7 +822,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.11 Arbitration Exhibits & Evidentiary Rules
+### 4.1.11 The Arbitration Binder & the Common Bottlenecks
 
 > **Lesson** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** From a binder that persuades to the record a binding award rests on  
@@ -896,7 +896,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ---
 
-### 4.1.12 The Prior Medical Shield: Answering the Pre-Existing-Condition Defense from the Record
+### 4.1.12 Arbitration Binder Section 5: the Prior Medical Shield
 
 > **Lesson** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Tab 5: the 2021 baseline, laid beside the injury, before the carriers raise it  

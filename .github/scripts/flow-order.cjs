@@ -101,9 +101,13 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
         if (x.id) {
           const dp = x.kind === 'lesson' && ((window.CM_DECK_SLIDES || {})[x.id] || []).find(p => 'deck' + p.page === x.view), LABEL = dp ? Object.assign({}, LABELS, { [x.view]: dp.title }) : LABELS;
           if (dp && !w.querySelector('.cfx-deckpage img[src="' + dp.img + '"]')) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): the slide doesn't draw its deck page (${dp.img})`);
-          if (dp && w.querySelectorAll('.cfx-title').length !== 1) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): a deck page should have one band that names it; it has ${w.querySelectorAll('.cfx-title').length}`);
-          const pill = norm((w.querySelector('.cfx-title') || {}).textContent), text = norm(w.textContent);
-          if (!pill.includes(norm(LABEL[x.view]))) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): the slide drawn is labelled "${pill}", not ${LABEL[x.view]}`);
+          if (dp && w.querySelectorAll('.cfx-what-v').length !== 1) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): a deck page should have one band that names it; it has ${w.querySelectorAll('.cfx-what-v').length}`);
+          // no hidden leftovers above the card: the view pill, its dots, the kicker and the title ribbon were CSS-hidden, so they are not drawn at all
+          const left = w.querySelectorAll('.cfx-pill, .cfx-dots, .cfx-kicker, .cfx-top-rib, .cfx-full').length + (x.kind === 'lesson' ? w.querySelectorAll('.cfx-sepline').length : 0);
+          if (left) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): ${left} hidden leftover(s) drawn (the view pill, dots, kicker, title ribbon, Additional Reference row or a lesson's separator line)`);
+          const pill = norm((w.querySelector('.cfx-what-v') || {}).textContent), text = norm(w.textContent);
+          // (the band is what the room sees: a voicemail activity's Your Case reads Transcription Exercise there, js/cm-day-loop.js)
+          if (!pill.includes(norm(LABEL[x.view])) && !(x.view === 'case' && pill === 'transcription exercise' && w.querySelector('.cfx-sb-vmw'))) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): the slide drawn is labelled "${pill}", not ${LABEL[x.view]}`);
           if (!text.includes(norm(x.b.title).slice(0, 40))) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): the slide drawn doesn't carry its block's title (${x.b.title})`);
           const title = String(daySlideTitle(d, deck[k]));
           if (!title.includes(LABEL[x.view]) || !title.includes(x.l.h)) out.push(`${L} slide ${k + 1}: its name in the slide picker is "${title}", not ${x.l.h} — ${LABEL[x.view]}`);
@@ -236,10 +240,11 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
   });
   lists.rm.forEach((row, i) => {
     const parts = row.split('|'), p1 = parts.findIndex(x => /^P:Part 1/.test(x)), p2 = parts.findIndex(x => /^P:Part 2/.test(x));
+    if (parts.includes('D')) fail(`Roadmap, Day ${i + 1}: a 📑 deck-topic row beside the lessons; the deck pages are the lessons' own slides`);
     if (p1 !== 0) fail(`Roadmap, Day ${i + 1}: "Part 1 · Lessons" should head the day's topics`);
     if (p2 < 0) fail(`Roadmap, Day ${i + 1}: no "Part 2 · 🔁 The Daily Loop" label`);
-    // the day's deck topics (📑 Deck pages, js/cm-day-decks.js) come after its lessons, before Part 2
-    else if (parts.slice(p1 + 1, p2).some(x => x !== 'L' && x !== 'D') || /D.*L/.test(parts.slice(p1 + 1, p2).join('')) || parts[p2 + 1] !== 'A') fail(`Roadmap, Day ${i + 1}: "Part 2" should sit after the last lesson and before the first Skill Activity`);
+    // the deck pages are the lessons' own slides: no row of the roadmap is a deck topic beside the lessons (rmx-dk)
+    else if (parts.slice(p1 + 1, p2).some(x => x !== 'L') || parts[p2 + 1] !== 'A') fail(`Roadmap, Day ${i + 1}: "Part 2" should sit after the last lesson and before the first Skill Activity`);
   });
   if (lists.sm.length !== 3 || !/^Part 1.*Lessons/.test(lists.sm[0]) || !/^Part 2.*Daily Loop/.test(lists.sm[1]) || !/Knowledge Check/.test(lists.sm[2])) fail(`the slide picker of Day 2 should label Part 1 · Lessons, Part 2 · 🔁 The Daily Loop and the Knowledge Check: ${JSON.stringify(lists.sm)}`);
   if (!/Case Profile/.test(lists.firstLab)) fail('the slide picker\'s "Part 2 · 🔁 The Daily Loop" label should sit above the Case Profile slide, the loop\'s first');

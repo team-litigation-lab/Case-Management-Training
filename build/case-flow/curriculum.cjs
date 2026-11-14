@@ -139,14 +139,21 @@ else {
   // an activity that audits a document set draws one more slide (build/case-flow/exhibits), so it counts here too
   const AUDITS = (() => { require(path.join(ROOT, "js/cm-case-flow-exhibits.js")); return (global.window.CM_CF_EXHIBITS || {}).audits || {}; })();
   const SLIDE_CAP = 125, TH_PER = 4;   // 110: raised from 100 when Day 3 took the Causation Letter lesson; 125 when Day 4 took its mediation and arbitration lessons in full
+  const DECK_SLIDES = (() => { require(path.join(ROOT, "js/cm-deck-slides.js")); return global.window.CM_DECK_SLIDES || {}; })();
+  const LESSON_MAX = 3, LEAN_KEEP = ["theory", "why", "rules", "doc", "frame", "theory2", "model", "map", "dodont"];
+  const lean = (vs, b) => { if(vs.length <= LESSON_MAX) return vs; const rf = (SLIDES[b.id] || {}).redFlag || {}, home = !rf.spoken && rf.on;
+    const k = new Set(LEAN_KEEP.filter(v => vs.includes(v) && (v === "theory" || v === "why" || v === "rules" || v === home)).concat(LEAN_KEEP.filter(v => vs.includes(v))).slice(0, LESSON_MAX)); return vs.filter(v => k.has(v)); };
   const viewsOf = b => {
     const t = (SLIDES[b.id] || {}).theory, map = (SLIDES[b.id] || {}).roadmap && !(SLIDES[b.id] || {}).roadmap.merge ? ["map"] : [];
     const theory = !t ? [] : (t.concepts.length > TH_PER ? ["theory", "theory2"] : ["theory"]).concat(t.framework ? ["frame"] : []);
     const doc = (SLIDES[b.id] || {}).document ? ["doc"] : [];
     const why = theory.length && !(SLIDES[b.id] || {}).whySlide ? [] : ["why"];   // Why It Matters opens The Theory; a slide of its own only without one, or where the copy keeps it ("whySlide")
-    if(b.kind === "lesson" && b.brief) return ["why"].concat(doc, ["rules"]);
-    if(b.kind === "lesson" && b.compact) return map.concat(theory.slice(0, 1), why, doc, ["rules"]);
-    if(b.kind === "lesson") return map.concat(theory, why, doc, ["rules"], b.show ? ["model"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);
+    // a lesson drawn from the trainer's deck pages (js/cm-deck-slides.js): one slide per page; any other lesson at most
+    // LESSON_MAX of its slides (lean, as js/cm-case-flow.js draws it)
+    if(b.kind === "lesson" && DECK_SLIDES[b.id]) return DECK_SLIDES[b.id].map(x => "deck" + x.page);
+    if(b.kind === "lesson" && b.brief) return lean(["why"].concat(doc, ["rules"]), b);
+    if(b.kind === "lesson" && b.compact) return lean(map.concat(theory.slice(0, 1), why, doc, ["rules"]), b);
+    if(b.kind === "lesson") return lean(map.concat(theory, why, doc, ["rules"], b.show ? ["model"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []), b);
     if(b.kind === "activity") return ["task", "case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], AUDITS[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);
     return [];   // a Knowledge Check is its own page, not slides
   };

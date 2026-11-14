@@ -36,25 +36,25 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 1. *Lesson* — Interview Techniques & UPL Boundaries in Client Investigation
 2. *Lesson* — Medical Excuse Notes & Continuous-Care Documentation Rules
 3. *Lesson* — The Causation Letter: Proving the Collision Caused the Harm
-4. *Lesson* — MMI, Special Damages & Policy-Limits Targets
+4. *Lesson* — Pre-Demand Case Auditing
 5. *Lesson* — Strategy Briefing Protocols with Lead Counsel
-6. *Lesson* — Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup
-7. *Lesson* — Secondary UM Demand Structuring & Policy Stacking Rules
-8. *Lesson* — Securing Maximum Gross Policy-Limit Settlements
+6. *Lesson* — Case Phase: Demand
+7. *Lesson* — BI Settlement: the UM/UIM Safety Check & Key Laws
+8. *Lesson* — Settlement Negotiations & the BI Settlement
 9. *Skill Activity* — Probe the 14-Day Treatment Gap with AI John Doe (practises: Interview Techniques & UPL Boundaries in Client Investigation) — *side*
 10. *Skill Activity* — Gap Explanation Record Creation (practises: Medical Excuse Notes & Continuous-Care Documentation Rules) — *side*
-11. *Skill Activity* — Wage Loss Verification & the Medical Nexus (practises: MMI, Special Damages & Policy-Limits Targets) — *side*
-12. *Skill Activity* — Calculating Total Specials & the Special Damages Audit (practises: MMI, Special Damages & Policy-Limits Targets) — *side*
+11. *Skill Activity* — Wage Loss Verification & the Medical Nexus (practises: Pre-Demand Case Auditing) — *side*
+12. *Skill Activity* — Calculating Total Specials & the Special Damages Audit (practises: Pre-Demand Case Auditing) — *side*
 13. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne (practises: Strategy Briefing Protocols with Lead Counsel) — *side*
-14. *Skill Activity* — Backup File Maintenance: the Pre-Demand Backup Audit (practises: Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup) — *side*
-15. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package (practises: Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup) — **Skill Building**
-16. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands (practises: Secondary UM Demand Structuring & Policy Stacking Rules) — *side*
-17. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap (practises: Securing Maximum Gross Policy-Limit Settlements) — *side*
-18. *Skill Activity* — Settlement Release Clause Review & Attorney Approval (practises: Securing Maximum Gross Policy-Limit Settlements) — *side*
-19. *Skill Activity* — Client Execution, Transmittal to Keystone & Check Confirmation (practises: Securing Maximum Gross Policy-Limit Settlements) — *side*
-20. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender (practises: Securing Maximum Gross Policy-Limit Settlements) — *side*
-21. *Skill Activity* — Closing the $40,000 Gross Recovery (practises: Securing Maximum Gross Policy-Limit Settlements) — *side*
-22. *Skill Activity* — The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes (practises: Securing Maximum Gross Policy-Limit Settlements) — *side*
+14. *Skill Activity* — Backup File Maintenance: the Pre-Demand Backup Audit (practises: Case Phase: Demand) — *side*
+15. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package (practises: Case Phase: Demand) — **Skill Building**
+16. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands (practises: BI Settlement: the UM/UIM Safety Check & Key Laws) — *side*
+17. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap (practises: Settlement Negotiations & the BI Settlement) — *side*
+18. *Skill Activity* — Settlement Release Clause Review & Attorney Approval (practises: Settlement Negotiations & the BI Settlement) — *side*
+19. *Skill Activity* — Client Execution, Transmittal to Keystone & Check Confirmation (practises: Settlement Negotiations & the BI Settlement) — *side*
+20. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender (practises: Settlement Negotiations & the BI Settlement) — *side*
+21. *Skill Activity* — Closing the $40,000 Gross Recovery (practises: Settlement Negotiations & the BI Settlement) — *side*
+22. *Skill Activity* — The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes (practises: Settlement Negotiations & the BI Settlement) — *side*
 23. *Knowledge Check* — UPL & Investigation Review
 24. *Knowledge Check* — Pre-Demand Audit & Day 3 Gate
 25. *Knowledge Check* — Demand Execution Audit
@@ -295,7 +295,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 ---
 
-### 3.1.4 MMI, Special Damages & Policy-Limits Targets
+### 3.1.4 Pre-Demand Case Auditing
 
 > **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** The audit that decides what the demand can claim  
@@ -445,7 +445,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ---
 
-### 3.1.6 Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup
+### 3.1.6 Case Phase: Demand
 
 > **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** What makes a $10,000 demand one Keystone has to answer  
@@ -520,7 +520,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.7 Secondary UM Demand Structuring & Policy Stacking Rules
+### 3.1.7 BI Settlement: the UM/UIM Safety Check & Key Laws
 
 > **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Locking the escape hatches before Host UM and Relative UM open  
@@ -595,7 +595,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.8 Securing Maximum Gross Policy-Limit Settlements
+### 3.1.8 Settlement Negotiations & the BI Settlement
 
 > **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** The UM gap, the reductions that don't apply, and closing at limits  
