@@ -13,7 +13,7 @@ import os from 'os';
 import { execFileSync } from 'child_process';
 
 const ROOT = path.resolve(process.argv[2] || '.');
-const SKIP = /(^|\/)(node_modules|\.git|\.wrangler|dist|\.github)(\/|$)/;
+const SKIP = /(^|\/)(node_modules|\.git|\.wrangler|dist|\.github|\.claude)(\/|$)/;
 // Paths served by code (Pages Functions / the Worker), not by files.
 const DYNAMIC = /^\/?(api|functions|kb-files)\//;
 const problems = [];
