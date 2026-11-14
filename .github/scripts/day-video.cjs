@@ -120,8 +120,9 @@ async function workerChecks() {
             const h264 = !!vid.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');   // Chrome and Edge, as trainees use; the open-source Chromium the checks run in has no H.264
             const head = await fetch(vid.getAttribute('src'), { headers: { Range: 'bytes=0-1023' } }).then(async r => { const b = await r.arrayBuffer(), total = Number(((r.headers.get('content-range') || '').split('/')[1])) || Number(r.headers.get('content-length')) || b.byteLength;
                 return { status: r.status === 206 ? 200 : r.status, type: r.headers.get('content-type') || '', size: total }; }).catch(e => ({ status: 0, err: String(e) }));
-            return { h264, head, src: vid.getAttribute('src'), track: !!vid.querySelector('track[kind=captions]'), ready: vid.readyState, dur: Math.round(vid.duration || 0), n, t: Math.round(vid.currentTime), on: on ? on.textContent : null, box: o.querySelector('.cm-dv-box').getBoundingClientRect().bottom <= innerHeight + 1 };
+            return { h264, head, src: vid.getAttribute('src'), track: !!vid.querySelector('track[kind=captions]'), cc: !!o.querySelector('.cm-dv-cc') && (vid.textTracks[0] || {}).mode === 'hidden', ready: vid.readyState, dur: Math.round(vid.duration || 0), n, t: Math.round(vid.currentTime), on: on ? on.textContent : null, box: o.querySelector('.cm-dv-box').getBoundingClientRect().bottom <= innerHeight + 1 };
         });
+        if (v && !v.cc) fail(`the captions should be in the strip under the video (the track hidden), not drawn over the slide: ${JSON.stringify(v)}`);
         if (!v || v.n !== inVideo.length || !v.track) fail(`the viewer: ${JSON.stringify(v)}`);
         else {
             // the file is served whole, as a video, whatever browser runs the check
