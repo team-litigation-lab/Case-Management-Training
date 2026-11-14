@@ -223,6 +223,20 @@ async function ticketFor(payloadObj, secret) {
             if (!ids.includes(a.id)) fail(`reportAll should list this program's drives: ${ids}`);
             if (ids.includes('foundations-only--b100926')) fail(`reportAll listed a Foundations-only trainee's drive: ${ids}`);
             if (!ids.includes(b.id) || every.body.reports[b.id].builtAt !== '2026-10-30T00:00:00Z') fail(`a CM trainee's drive record from before the cm: prefix should still be read: ${JSON.stringify(every.body.reports[b.id])}`);
+            // 4c. a trainer links (and unlinks) a trainee's folder for them, and nothing else of the drive
+            const tl = await call('/api/drive', { action: 'link', traineeId: b.id, url: 'https://drive.google.com/drive/folders/f' }, admin.token);
+            if (tl.status !== 200 || !tl.body.drive || !tl.body.drive.connected) fail(`a trainer should link a trainee's Drive folder for them: ${JSON.stringify(tl).slice(0, 300)}`);
+            const trec = JSON.parse(store.get('cm:drive:' + b.id) || 'null');
+            if (!trec || trec.linkedBy !== 'trainer') fail(`a folder a trainer linked should be marked linkedBy trainer: ${JSON.stringify(trec).slice(0, 200)}`);
+            const tsetup = await call('/api/drive', { action: 'setup', traineeId: b.id, layout: [] }, admin.token);
+            if (tsetup.status !== 403) fail(`a trainer should not submit a trainee's folder setup: ${tsetup.status}`);
+            const tnone = await call('/api/drive', { action: 'link', traineeId: 'nobody--b000000', url: 'https://drive.google.com/drive/folders/f' }, admin.token);
+            if (tnone.status !== 404) fail(`linking for a trainee who doesn't exist should be 404: ${tnone.status}`);
+            const tun = await call('/api/drive', { action: 'disconnect', traineeId: b.id }, admin.token);
+            if (tun.status !== 200 || tun.body.drive.connected) fail(`a trainer should unlink a trainee's folder: ${JSON.stringify(tun.body).slice(0, 200)}`);
+            const bWas = store.get('cm:drive:' + b.id);
+            await call('/api/drive', { action: 'link', traineeId: b.id, url: 'https://drive.google.com/drive/folders/f' }, a.token);   // a trainee's call is always about their own drive
+            if (store.get('cm:drive:' + b.id) !== bWas) fail('a trainee changed another trainee\'s Backup Drive by naming their id');
             await call('/api/drive', { action: 'disconnect' }, a.token);
             Object.entries(foundations).forEach(([k, v]) => { if (store.get(k) !== v) fail(`this program changed the Foundations training's ${k}`); });
         } finally { globalThis.fetch = realFetch; }
