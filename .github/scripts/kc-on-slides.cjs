@@ -6,9 +6,9 @@
 // theory-d1…dN.json (a Day 2 check may ask what Day 1 taught; never what a later day teaches). A question whose
 // answer the slides never teach fails here: rewrite it from a slide. (Lenient on purpose: at least 60% of the words.)
 // And on the slides as they are SHOWN (the deck was decluttered: a lesson's slides are its deck pages, or at most three
-// of its drawn slides): the answer's key words must also be in what the days so far put on screen: each lesson's deck
+// of its drawn slides, now one: The Rules): the answer's key words must also be in what the days so far put on screen: each lesson's deck
 // pages (build/case-flow/slides/deck-pages.json, by the deck it comes from), the drawn slides a lesson still shows
-// (The Theory, The Framework, The Document, The Rules … as js/cm-case-flow.js `lean` keeps them) and the 💡 Tips that
+// (one: The Rules, with its why line and its document's name and definition, as js/cm-case-flow.js `lean` keeps it) and the 💡 Tips that
 // carry a deck lesson's or a retired lesson's rules on its activities (js/cm-lesson-tips.js). A figure the trainee
 // works out from the question (a total, a pro-rata share) is not looked for on screen; its words are.
 // Usage: node .github/scripts/kc-on-slides.cjs
@@ -52,13 +52,11 @@ let asked = 0;
 // what the slides SHOW, day by day
 const COPY = {}, TH = {};
 for (let n = 1; n <= 5; n++) { Object.assign(COPY, read(`d${n}.json`)); if (fs.existsSync(path.join(S, `theory-d${n}.json`))) Object.assign(TH, read(`theory-d${n}.json`)); }
-const LEAN = ['theory', 'why', 'rules', 'doc', 'frame', 'theory2', 'model', 'map', 'dodont'];   // js/cm-case-flow.js lean: at most 3: The Theory, The Rules, the Red Flag's own slide, then in this order
-const lean = (vs, b) => { if (vs.length <= 3) return vs; const rf = (COPY[b.id] || {}).redFlag || {}, home = !rf.spoken && rf.on;   // the Red Flag's own slide is kept third
-  const k = new Set(LEAN.filter(v => vs.includes(v) && (v === 'theory' || v === 'why' || v === 'rules' || v === home)).concat(LEAN.filter(v => vs.includes(v))).slice(0, 3)); return vs.filter(v => k.has(v)); };
+const lean = vs => vs.length <= 1 ? vs : ['rules'];   // js/cm-case-flow.js lean: a drawn lesson is one slide, The Rules (its why line and its document's name and definition on it)
 function viewsOf(b) {   // js/cm-case-flow.js viewsOf, for a drawn lesson
   const c = COPY[b.id] || {}, t = TH[b.id] || c.theory, map = c.roadmap && !c.roadmap.merge ? ['map'] : [];
   const th = !t ? [] : (t.concepts.length > 4 ? ['theory', 'theory2'] : ['theory']).concat(t.framework ? ['frame'] : []), doc = c.document ? ['doc'] : [], why = th.length && !c.whySlide ? [] : ['why'];
-  return lean(b.brief ? ['why'].concat(doc, ['rules']) : b.compact ? map.concat(th.slice(0, 1), why, doc, ['rules']) : map.concat(th, why, doc, ['rules'], b.show ? ['model'] : [], (b.best || []).length && !b.noGame ? ['dodont'] : []), b);
+  return lean(b.brief ? ['why'].concat(doc, ['rules']) : b.compact ? map.concat(th.slice(0, 1), why, doc, ['rules']) : map.concat(th, why, doc, ['rules'], b.show ? ['model'] : [], (b.best || []).length && !b.noGame ? ['dodont'] : []));
 }
 const tipText = b => b && b.tell ? flat([b.tell.why, b.tell.rules]) : '';
 function shown(b) {
@@ -66,6 +64,8 @@ function shown(b) {
   if (b.kind !== 'lesson') return '';
   if (DK[b.id]) return DK[b.id].map(p => flat(((deck[(p.img.match(/day(\d)/) || [])[1]] || {})[p.page]) || {})).join(' ');
   const c = COPY[b.id] || {}, t = TH[b.id] || c.theory || {}, vs = viewsOf(b), cs = t.concepts || [], half = Math.ceil(cs.length / 2);
+  const one = vs.length === 1 && vs[0] === 'rules', ls = String(c.hook || '').match(/^\*\*([^*]+?[.!?:])\*\*\s+\S/);   // the one slide: its why line (the whyLine, or the hook's bold first sentence) and the document's name and definition
+  if (one) return [c.whyLine || (ls ? ls[1] : c.hook), c.document ? [c.document.name, c.document.definition] : [], c.points, c.upl, c.ruleEx, (c.redFlag || {}).spoken ? [] : c.redFlag, c.milestones].map(flat).join(' ');
   return [vs.includes('why') || vs.includes('theory') ? [c.hook, c.whyLine] : [], vs.includes('theory') ? [t.lead, cs.length > 4 ? cs.slice(0, half) : cs] : [],
     vs.includes('theory2') ? cs.slice(half) : [], vs.includes('frame') ? t.framework : [], vs.includes('doc') ? c.document : [], vs.includes('map') ? c.roadmap : [],
     vs.includes('rules') ? [c.points, c.upl, c.ruleEx, c.redFlag, c.milestones] : [], vs.includes('model') ? b.show : [], vs.includes('dodont') ? [c.dos, c.donts] : []].map(flat).join(' ');

@@ -1,5 +1,6 @@
-// @check browser — 🤖 the AI Grader on every Skill Building activity: its last slide takes the trainee's work (filled in from what the platform holds), grades it against the activity's rubric, shows the score with what went well and what to improve, keeps it, and puts it where trainers see activity scores; the old self-tick Check Your Work is gone
-// js/cm-ai-grader.js. Every Case Flow activity ends on the AI Grader slide (view "check"): no self-tick boxes, no blurred
+// @check browser — 🤖 the AI Grader on every Skill Building activity: its Your Task's Submit takes the trainee's work (filled in from what the platform holds), grades it against the activity's rubric, shows the score with what went well and what to improve, keeps it, and puts it where trainers see activity scores; the old self-tick Check Your Work is gone
+// js/cm-ai-grader.js. Every Case Flow activity's Your Task ends in Submit →, which turns the slide into the AI Grader (view
+// "check", on the same slide; no slide of its own): no self-tick boxes, no blurred
 // answers, no box to write in. On Day 1's first activity (d1m1-open), as a trainee: the slide lists what the platform holds
 // (the CMS Case ID they logged, the call) and checks it by itself as it opens, once; the AI not
 // answering says so, keeps the work and offers Try again; answering, the slide shows the score, what went well and what to
@@ -22,10 +23,10 @@ const failures = []; const fail = (m) => failures.push(m);
   const last = 'Grade' + String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
   await signIn(page, 'Dana', last, 'B100926');
 
-  // every activity ends on the AI Grader, labelled so
+  // every activity's Your Task ends in Submit →, which turns the slide into the AI Grader (no slide of its own)
   const views = await page.evaluate(() => { const out = []; (window.CM_CASE_FLOW.days || []).forEach(d => d.modules.forEach(m => m.blocks.forEach(b => {
-    if (b.kind !== 'activity') return; const vs = cmCaseFlow.viewsOf(b); if (vs[vs.length - 1] !== 'check' || !(b.rubric && (b.rubric.ai || []).length)) out.push(b.id); }))); return out; });
-  if (views.length) fail(`activities that don't end on the AI Grader with an AI rubric: ${views.join(', ')}`);
+    if (b.kind !== 'activity') return; const vs = cmCaseFlow.viewsOf(b); if (vs[0] !== 'task' || vs.includes('check') || !(b.rubric && (b.rubric.ai || []).length)) out.push(b.id); }))); return out; });
+  if (views.length) fail(`activities whose Your Task doesn't open the AI Grader with an AI rubric (or that keep an AI Grader slide): ${views.join(', ')}`);
   if (!await page.evaluate(() => typeof CMAIGrader === 'object' && PERSONAL_KEY_SET.has('cf-ai-grades'))) fail('the AI Grader should register its personal key "cf-ai-grades"');
 
   // the AI not answering at first (the slide checks the work by itself as it opens)
@@ -37,8 +38,8 @@ const failures = []; const fail = (m) => failures.push(m);
     // a long live-call transcript on the record: the list of what is checked must not push Submit off the slide
     CMAIGrader.all().calls['d1m1-open'] = { at: new Date().toISOString(), text: Array.from({ length: 40 }, (_, i) => (i % 2 ? 'John Doe: ' : 'Me: ') + 'This is line ' + (i + 1) + ' of a long call about the crash and the police report.').join('\n') }; });
   const go = () => page.evaluate(() => { const d = DAYS.find(d => d.cf && d.cf.n === 1); goto('day', d.id); state.dayViewMode = 'slides';
-    const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === 'd1m1-open' && cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === 'check');
-    if (k < 0) return false; goToSlide(k); return true; });
+    const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === 'd1m1-open' && cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === 'task');
+    if (k < 0) return false; goToSlide(k); cmCaseFlow.mode('d1m1-open', 'check'); return true; });   // Your Task, then its Submit →
   if (!await go()) fail('Day 1 has no Submit slide for d1m1-open');
   await page.waitForTimeout(900);
   const s = await page.evaluate(() => { const c = document.querySelector('#app .cf-card.cfx-check');
@@ -100,5 +101,5 @@ const failures = []; const fail = (m) => failures.push(m);
 
   await browser.close();
   if (failures.length) { console.log('✗ AI Grader:\n  ' + failures.join('\n  ')); process.exit(1); }
-  console.log('Submit: every activity ends on it; no box to write in, checked automatically from what the platform holds, graded against its rubric, the AI being down said plainly with Try again, the score and feedback shown, saved, and in the work log the Scorecard reads.');
+  console.log('Submit: every activity\'s Your Task opens it on the slide; no box to write in, checked automatically from what the platform holds, graded against its rubric, the AI being down said plainly with Try again, the score and feedback shown, saved, and in the work log the Scorecard reads.');
 })().catch(e => { console.log('✗ ' + (e && e.stack || e)); process.exit(1); });

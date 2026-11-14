@@ -51,6 +51,9 @@ const cmsPage = (caseId) => `<!doctype html><title>CMS (test)</title><body><p>CM
         const n = buildDaySlides(d).length;
         for (let i = 0; i < n; i++) {
             state.lessonSlide = i; render(); await sleep(0);
+            // (the 🧾 Log Your Work row is on the AI Grader, which an activity's Submit opens on its Your Task)
+            const sl = buildDaySlides(d)[i], b = sl.type === 'topic' && d.lessons[sl.lessonIndex].cf.block;
+            if (b && b.kind === 'activity' && cmCaseFlow.viewsOf(b)[sl.part - 1] === 'task') { cmCaseFlow.mode(b.id, 'check'); await sleep(0); }
             const el = document.querySelector('.cfx-log input[data-cms-id]');
             if (el) return { slide: i, id: el.id };
         }

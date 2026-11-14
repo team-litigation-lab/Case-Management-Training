@@ -69,7 +69,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
         else {
           const vs = cmCaseFlow.viewsOf(b), got = sb.map(([sl]) => sl.type === 'topic' && sl.lessonIndex === li ? vs[sl.part - 1] : sl.type);
           if (got.join(' ') !== vs.join(' ')) out.push(`${L}: the Skill Building should be all of ${main}'s slides, together (${got.join(' → ')}; its slides are ${vs.join(' → ')})`);
-          if (vs[vs.length - 1] !== 'check') out.push(`${L}: ${main} should end on Submit`);
+          if (vs[0] !== 'task' || vs.includes('check')) out.push(`${L}: ${main} should open on Your Task, whose Submit opens the AI Grader on the slide (its slides are ${vs.join(' → ')})`);
           if (SL[main] && SL[main].side) out.push(`${L}: the Skill Building ${main} is marked a side exercise`);
         }
       }
@@ -173,21 +173,19 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
           goto('day', d.id); state.dayViewMode = 'slides';
         }
       }
-      // the Skill Building's top line, its Launch button and its AI Grader; a side exercise's top line
+      // the Skill Building's top line, its Launch button and its Submit (the AI Grader, on Your Task); a side exercise's top line
       const sbK = sb.length ? sb[0][1] : -1;
       if (!d.cf.build && sbK >= 0) {
         w = await show(sbK);
         if (!/THE DAY'S SKILL BUILDING/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: the Skill Building's top line should say THE DAY'S SKILL BUILDING`);
         if (norm((w.querySelector('.cfx-what-k') || {}).textContent) !== 'Skill Building') out.push(`${L}: the Skill Building's band should say Skill Building (${norm((w.querySelector('.cfx-what-k') || {}).textContent)})`);
         if (!w.querySelector('[data-launch]')) out.push(`${L}: the Skill Building's Your Task has no 🚀 Launch CMS & Google Drive`);
-        w = await show(sb[sb.length - 1][1]);
-        if (!/Submit →/.test(w.textContent) || /AI Grader/.test(w.textContent)) out.push(`${L}: the Skill Building's last slide should have "Submit →" and never say "AI Grader"`);
+        if (!/Submit →/.test(w.textContent) || /AI Grader/.test(w.textContent)) out.push(`${L}: the Skill Building's Your Task should have "Submit →" and never say "AI Grader"`);
       }
       if (dv.length) { w = await show(dv[0][1]);
         if (!/REQUIRED · BACKUP FILE MAINTENANCE/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: the Backup File Maintenance's top line should say REQUIRED · BACKUP FILE MAINTENANCE`);
         if (norm((w.querySelector('.cfx-what-k') || {}).textContent) !== 'Required: Backup File Maintenance') out.push(`${L}: the Backup File Maintenance's band should say Required: Backup File Maintenance (${norm((w.querySelector('.cfx-what-k') || {}).textContent)})`);
-        w = await show(dv[dv.length - 1][1]);
-        if (!/Submit →/.test(w.textContent) || /AI Grader/.test(w.textContent)) out.push(`${L}: the Backup File Maintenance's last slide should have "Submit →" and never say "AI Grader"`); }
+        if (!/Submit →/.test(w.textContent) || /AI Grader/.test(w.textContent)) out.push(`${L}: the Backup File Maintenance's Your Task should have "Submit →" and never say "AI Grader"`); }
       const sideK = deck.findIndex((sl, k) => steps[k] === 'side' && sl.type === 'topic');
       if (sideK >= 0) { w = await show(sideK); if (!/SKILL ACTIVITY/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: a side exercise's top line should say SKILL ACTIVITY`);
         if (norm((w.querySelector('.cfx-what-k') || {}).textContent) !== 'Skill Activity') out.push(`${L}: a side exercise's band should say Skill Activity (${norm((w.querySelector('.cfx-what-k') || {}).textContent)})`); }

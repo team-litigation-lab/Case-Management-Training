@@ -35,25 +35,27 @@ per block of the day (20 per day), in this shape:
 
 ## Fields by block kind
 
-**Lesson** (`kind: "lesson"`): drawn as The Theory (which opens with why it matters) · The rules · See it (the block's existing `show` visual) ·
-Do & Don't. A lesson with no Theory slide (a `brief` one) is
-Why it matters · The rules. (There is no On the job slide: the lesson's
+**Lesson** (`kind: "lesson"`): the trainers' Canva deck pages are the lessons (`js/cm-deck-slides.js`, one slide a page,
+never changed here). A lesson the decks don't teach is **one slide**, The Rules (js/cm-case-flow.js `lean`): its 💡 Why
+it matters line, the document it introduces (name and what it is), its points, Rule vs. Exception, the CM Red Flag
+where the slide holds it, a Milestone rail where the lesson has one, and the UPL line. Everything else the copy below
+describes (The Theory, The Framework, The Document in full, The Roadmap, See It, Do & Don't, Why It Matters) stays in
+📖 Reference and in that slide's talking points (the trainer's notes for the slides left off it are carried on it), so
+write it as before. (There is no On the job slide: the lesson's
 `ops` in the data are drawn nowhere now, not on a slide and not in 📖 Additional Reference, and a `job`
 field here is refused. There is no Milestone Steps slide either: see `milestones`, below.)
-- `hook` — one sentence, **≤ 16 words**: the strategic why (from `tell.why`), as a confident headline. In a lesson that
-  has The Theory it is no slide of its own: it opens that slide as a "💡 Why it matters" line above the theory's lead
-  (one slide where there were two), so keep it to the one sentence (a `**Bold first sentence.** and more` hook is refused
-  there: only the first sentence would be drawn); where it is too long for one line of the band, add a `whyLine`. A
-  `brief` lesson has no Theory slide and keeps its Why It Matters slide: the hook beside its picture, the CM Red Flag
-  and the case strip.
-- `whyLine` (optional) — the opening line of The Theory where the hook would wrap onto a second line of the band: **one
-  sentence, ≤ 14 words**, one highlight, saying why it matters (the hook's meaning, never a new fact). The full hook is
-  then said on that slide: it must appear, word for word, in the lesson's `theory` talking points
+- `hook` — one sentence, **≤ 16 words**: the strategic why (from `tell.why`), as a confident headline. It is no slide of
+  its own: it opens the lesson's one slide as a "💡 Why it matters" line above the points, so keep it to the one
+  sentence (a `**Bold first sentence.** and more` hook is refused: only the first sentence would be drawn); where it is
+  too long for one line of the band, add a `whyLine`.
+- `whyLine` (optional) — the opening line of the lesson's slide where the hook would wrap onto a second line of the
+  band: **one sentence, ≤ 14 words**, one highlight, saying why it matters (the hook's meaning, never a new fact). The
+  full hook is then said on that slide: it must appear, word for word, in one of the lesson's talking points
   (`build/case-flow/scripts/assemble.cjs` refuses the build otherwise). Omit it where the hook fits on one line
   (about 85 characters on a laptop; `.github/scripts/micro-frameworks.cjs` fails a line that wraps).
-- `whySlide` (optional) — `true` would keep Why It Matters as a slide of its own in a lesson that has The Theory. **No
-  lesson uses it**: every one opens The Theory with the line at full size on a laptop (1366x768, no scaling, type ≥
-  16px bold), and `.github/scripts/micro-frameworks.cjs` fails a lesson that keeps the slide.
+- `whySlide` — retired: **no lesson uses it**. Every drawn lesson opens its one slide with the line at full size on a
+  laptop (1366x768, no scaling, type ≥ 16px bold), and `.github/scripts/micro-frameworks.cjs` fails a lesson drawn on
+  more than one slide.
 - `points` — **3 or 4** rules, **≤ 12 words each**, from `tell.rules` (the most important ones; merge where
   natural). Imperative or declarative, no sub-clauses piled up.
 - `upl` — the UPL boundary in **≤ 14 words**, if the block has `tell.upl` (else omit).
@@ -61,9 +63,10 @@ field here is refused. There is no Milestone Steps slide either: see `milestones
 
 **The Document** (`document`, in the lesson's copy): **the New Document Instructional Standard.** Whenever a legal or
 medical document enters the curriculum or the CMS workflow (a Causation Letter, a Letter of Protection, an
-affidavit…), the lesson that introduces it carries a `document` breakdown, drawn as its own slide right after The
-Theory's slides (after Why it matters in a brief lesson), and before any Skill Activity asks the trainee to request,
-draft, audit or file that document.
+affidavit…), the lesson that introduces it carries a `document` breakdown, taught before any Skill Activity asks the
+trainee to request, draft, audit or file that document. On the lesson's one slide it is drawn under the why line: the
+document's name, what it is (`definition`) and its copy on John Doe's file one tap away; its legal purpose, what it
+proves and its handling are in 📖 Reference and that slide's talking points.
 ```json
 "document": {"name": "Causation Letter", "doc": "RS19", "definition": "…", "purpose": "…", "evidence": "…", "handling": ["…", "…", "…"]}
 ```
@@ -104,8 +107,8 @@ context the decks gave, not only the rules. Take it from the deck pages that tea
 - `framework` (optional, but give one wherever the deck page carries a structure) — the deck page's own table,
   flowchart or checklist, **rebuilt as data** so the course draws it in its own design (a block's slides never show the
   deck's page images, except a lesson whose slides ARE the trainers' deck pages, build/videoslide/dayN.json `lessons`:
-  then its copy here is drawn nowhere). Drawn as its own slide after The theory, titled by `title`. A lesson the decks
-  don't teach shows at most three slides (js/cm-case-flow.js `lean`: The Theory, The Rules, then The Document or this).
+  then its copy here is drawn nowhere). It is in 📖 Reference, titled by `title`: a lesson the decks don't teach is one
+  slide, The Rules (js/cm-case-flow.js `lean`).
   - `title` — the deck's name for it, **≤ 8 words**, no highlight ("The Standard Treatment Map").
   - `kind` — `"table"`: `head` (2–4 column headings, ≤ 4 words) and `rows` (2–6 rows of that many cells, ≤ 12 words
     each); or `"flow"` (a sequence, drawn with arrows) / `"list"` (cards): `steps`, 3–6 of `{label ≤ 5 words, text ≤ 16
@@ -120,14 +123,11 @@ lesson's existing slides, so no slide is added and no timing changes. Take every
 - `redFlag` — the **CM Red Flag** (a red-bordered box with its flag icon and label; one per slide):
   `{"see": "…", "costs": "…", "do": "…", "owner": "Atty. Thorne"}` — `see` (what you notice) and `costs` (what it costs
   the file) **≤ 18 words**, `do` (an operational step, never a legal conclusion) **≤ 15 words**; `owner` is required:
-  `Atty. Thorne` (the decision is counsel's) or `Case Manager`. It is drawn on Why It Matters where the lesson has that
-  slide (a brief lesson). Where Why It Matters opens The Theory it is drawn on **The Rules**: under the points, or
+  `Atty. Thorne` (the decision is counsel's) or `Case Manager`. It is drawn on the lesson's one slide, **The Rules**: under the points, or
   beside them in the picture's place when The Rules has a picture (no `ruleEx`); `"tight": true` draws four two-line
   points at the size they take beside Rule vs. Exception, so the flag fits beside them. Where The Rules has no room
-  for it at full size on a laptop, `"on"` names the slide that has: `"dodont"` (under the Do & Don't), `"model"`
-  (under See It), `"theory2"`, `"theory"`, `"frame"` or `"map"`; the slide must hold it without scaling and without
-  the flag covering anything. Where no slide of the lesson has, `"spoken": true`: the Red Flag is **spoken, not
-  drawn**. Its text then goes in the lesson's talking points for The Rules as a point that starts "Red flag" (the
+  for it at full size on a laptop (with its why line, Rule vs. Exception and UPL line), `"spoken": true`: the Red
+  Flag is **spoken, not drawn**. (`"on"`, naming another slide, is for a lesson drawn on several slides: none is now.) Its text then goes in the lesson's talking points for The Rules as a point that starts "Red flag" (the
   scripts assembler requires it), and `.github/scripts/micro-frameworks.cjs` lists the lesson with the measurements
   that forced it.
 - `ruleEx` — **Rule vs. Exception**, drawn on The Rules in place of its picture: `{"rule": "…", "exception": "…",
@@ -145,11 +145,18 @@ lesson's existing slides, so no slide is added and no timing changes. Take every
 - `.github/scripts/micro-frameworks.cjs` checks that every lesson the revamp gives a framework draws it, with type ≥ 16px
   (a Red Flag listed as spoken, not drawn, is on no slide and in the talking points for The Rules), that no lesson has a
   Milestone Steps slide and a rail is drawn only on The Framework or The Rules, that no slide draws the On the Job cards (and no slide, 📖 Additional Reference
-  panel or slide title of any day shows the word "Trigger"), that every lesson with a Theory slide opens it with why it matters on one line at full size (and has
-  no Why It Matters slide), and that a Red Flag moved off Why It Matters sits on a slide that is not scaled down, with
-  nothing beside it covered.
+  panel or slide title of any day shows the word "Trigger"), that every drawn lesson is one slide, opened by why it
+  matters on one line at full size with all its points, and that a drawn Red Flag sits on a slide that is not scaled
+  down, with nothing beside it covered.
 
-**Activity** (`kind: "activity"`): drawn as Your Task · Your Case · The model (if `show`) · AI Grader.
+**Activity** (`kind: "activity"`): **one slide**, Your Task (the owner: practice slides as minimal as they can be):
+📂 Your Case (`situation`, in a line or two) at the top, the numbered `steps`, then three buttons: 🚀 Launch CMS & Google
+Drive, 🧰 Tools ▾ (the live call, the service confirmation, the Notes & Action Plan, the Action Plan Editor, 📁 Source
+Files, the lesson it practises with its 💡 Tip, a trainer's ⚡ Inject) and Submit →, which turns the slide into the 🤖 AI
+Grader. Only the day's Skill Building keeps a second slide, its document audit, and Day 1's Backup File Maintenance its
+Your Case (the Backup Drive set-up); a side exercise's audit opens from 🧰 Tools on the same slide. What landed on the
+file, the Grade-A Standard (`grade`), the model (`show`) and the answer key are in 📖 Reference, the AI Grader and the
+trainer's talking points (js/cm-case-flow.js `actViews`).
 - `situation` — the scenario in **≤ 32 words**: file date, what just happened, what is at stake. Keep the key
   dates and figures the task needs; drop the rest.
 - `steps` — the task (from `act.prompt`) as one numbered block of **full, plain sentences, ≤ 32 words each**, in order,

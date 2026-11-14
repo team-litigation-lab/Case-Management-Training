@@ -61,7 +61,7 @@ renderDaySlideContent = function(d, slide){
   const btn = `<button type="button" class="cm-lt-btn" data-tips="${E(ids.join(","))}" onclick="cmLessonTips.open(this)" title="Tips from the lesson">💡 Tip</button>`;
   // beside the activity's "Practises: …" line (in the flow of the slide, so it covers nothing); a slide without one: at its end
   const at = html.search(/<b class="cfx-of"[^>]*>[\s\S]*?<\/b>/);
-  if(at < 0) return html + `<div class="cm-lt-row">${btn}</div>`;
+  if(at < 0) return window.cmCaseFlow && cmCaseFlow.modeOf && cmCaseFlow.modeOf(l.cf.block.id) ? html : html + `<div class="cm-lt-row">${btn}</div>`;   // (not on Your Task turned into its AI Grader or audit: its menu has it)
   const end = html.indexOf("</b>", at) + 4;
   return html.slice(0, end) + btn + html.slice(end);
 };

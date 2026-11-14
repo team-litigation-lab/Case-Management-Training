@@ -4,7 +4,7 @@
    The course is a REFRESHER: the trainees have met every topic before, so a day is 30% lesson and 70% practical.
      240 minutes = 20 (the welcome 5, a break 10, the close 5) + 220 teaching minutes:
        lessons       = PER_SLIDE (1.5) minutes a lesson slide, at most 30% (66 minutes): the trainers' deck pages are most
-                       lessons' slides and a lesson the decks don't teach is at most three slides, so a day's lessons are
+                       lessons' slides and a lesson the decks don't teach is one slide, so a day's lessons are
                        its slides at a refresher's pace, shared by the lessons in proportion to their slides. The thorough
                        lessons (mediation and arbitration, `thorough` in the lesson data) count 1.5 times a slide.
        70% practical = 154 minutes: the Knowledge Check (10–15, longer the more topics), a brainstorm after every Skill
@@ -33,7 +33,7 @@
 const DAY_MIN = 240, BREAK_MIN = 20, TEACH_MIN = DAY_MIN - BREAK_MIN, LESSON_SHARE = 0.30;
 const LESSON_MIN = Math.round(TEACH_MIN * LESSON_SHARE);   // 66
 const THOROUGH_WEIGHT = 1.5, LESSON_FLOOR = 2, BRIEF_MIN = 4;
-// a lesson slide (a deck page, or one of a drawn lesson's at most three) is about PER_SLIDE minutes at a refresher's
+// a lesson slide (a deck page, or a drawn lesson's one slide) is about PER_SLIDE minutes at a refresher's
 // pace: a day with fewer lesson slides takes fewer lesson minutes (never more than its 30%), and the practical gets the rest
 const PER_SLIDE = 1.5;
 const TOPIC = {base: 15, min: 2, max: 30}, ACT = {base: 10, min: 5, max: 30}, STORM = {each: 5, min: 3, day: 30};

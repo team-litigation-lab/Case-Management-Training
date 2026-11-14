@@ -461,7 +461,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne decides what follows Step 3"
   },
   "redFlag": {
-   "on": "dodont",
+   "spoken": true,
    "see": "Voicemails left **02/11 and 02/13** that never reached the Communications Log",
    "costs": "An unlogged attempt did not happen: the ladder can't show the attempts were made",
    "do": "Log each attempt now **with date, time, channel and outcome**",
@@ -849,7 +849,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Margaret's PD claim is referred to Atty. Thorne"
   },
   "redFlag": {
-   "on": "dodont",
+   "spoken": true,
    "see": "A rental, PD or Loss of Use claim **opened in John Doe's name**",
    "costs": "John has no PD claim: Margaret Doe's Civic claim (KM-26-440871-PD) tangles with his BI file",
    "do": "Keep PD under Margaret Doe; **refer her claim** to Atty. Thorne",
@@ -1685,6 +1685,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne approves each version"
   },
   "redFlag": {
+   "spoken": true,
    "see": "**'This will help the case'** in a treatment note, or a partly addressed plan run",
    "costs": "Every note is discoverable, and an unapproved plan runs the file off course",
    "do": "Write facts only; **execute nothing** until Atty. Thorne approves the version",
@@ -2326,6 +2327,7 @@ window.CM_CF_SLIDES = {
    ]
   },
   "redFlag": {
+   "spoken": true,
    "see": "A subject line of **'Update'**, the story first and the question last",
    "costs": "Atty. Thorne reads to the end to find the ask, and the deadline slips",
    "do": "Lead with **the decision and deadline**; give both options, even the one you don't recommend",
@@ -2666,7 +2668,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne handles the balance bill"
   },
   "redFlag": {
-   "on": "theory2",
+   "spoken": true,
    "see": "A lien logged **at the billed amount**, or a bill sent to PIP after 06/26/2026",
    "costs": "The lien is overstated by the contractual adjustment, or the bill goes to an exhausted payer",
    "do": "Log the plan-paid **$1,860.00**; check PIP's balance before routing any bill",
@@ -2832,6 +2834,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne sets the LOP's terms"
   },
   "redFlag": {
+   "spoken": true,
    "see": "Recommending a provider **'for the case'**, or saying the LOP makes care free",
    "costs": "John still owes the balance, and a provider picked for the case invites attack",
    "do": "Give options and logistics only; **Atty. Thorne explains the LOP** before he signs",
@@ -2898,6 +2901,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne decides what the demand claims"
   },
   "redFlag": {
+   "spoken": true,
    "see": "You tell John **'You'll get every penny back'**",
    "costs": "It promises a result: what the demand claims, and at what rate, is Atty. Thorne's",
    "do": "Log each receipt with its payer; **route recovery questions** to Atty. Thorne",
@@ -6151,6 +6155,7 @@ window.CM_CF_SLIDES = {
  "d4m1-l2": {
   "image": "legal-filing",
   "hook": "Once suit is authorized, **a court clock** replaces the adjuster's: status, fields, folders, calendar change together.",
+  "whyLine": "Once suit is authorized, **a court clock** replaces the adjuster's.",
   "points": [
    "Change status only on **Atty. Thorne's dated authorization** to sue",
    "Fill court fields from the record; **never guess a number**",
@@ -6483,7 +6488,7 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne analyzes the route"
   },
   "redFlag": {
-   "on": "dodont",
+   "spoken": true,
    "see": "The UM route **docketed off the tort SOL**",
    "costs": "A route carries its own clock, and the wrong date misses it",
    "do": "Docket only from **Atty. Thorne's written answer**",

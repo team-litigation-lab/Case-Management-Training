@@ -1,8 +1,8 @@
-// @check browser — 🎯 Your Task on a Skill Building activity: one column, one 🚀 Launch CMS & Google Drive button (no per-step tool pills, no floating CMS · Drive card), steps in full sentences, one foot bar (📁 Source Files · Submit to AI Grader →), the rules in 📖 Reference
+// @check browser — 🎯 Your Task on a Skill Building activity: one column, steps in full sentences, one foot bar (🚀 Launch CMS & Google Drive · 🧰 Tools ▾ with 📁 Source Files · Submit →; no per-step tool pills, no floating CMS · Drive card), the rules in 📖 Reference
 // js/cm-sb-task.js and the Your Task slide in js/cm-case-flow.js. On Day 3's Backup File Maintenance (d3-drive) and Day 1's
 // "Does PD Touch Our Case?" (d1m3-a3): no Purpose/Principle sidebar, no 🏷 naming bar or _DRAFT/_SUPERSEDED labels and no
 // points badge on the slide; no ↗ pills beside the steps and no #cm-sb-dock card; the steps are the owner's five sentences;
-// the foot bar's Source Files opens its list, and Submit to AI Grader goes to the AI Grader slide. 📖 Reference opens with the
+// the foot bar's 🧰 Tools holds the Source Files, which open their list, and Submit → turns the slide into the AI Grader. 📖 Reference opens with the
 // 📋 Rules & Naming Guide (Purpose, Principle, the naming convention and its 📋 Copy). Launch opens the CMS beside the slide and,
 // for a trainee with no linked Drive, the Backup Drive panel to link it. Type is bold and at least 16px; the slide fits 1366×768.
 // Usage: node .github/scripts/sb-task.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
@@ -43,7 +43,7 @@ const D3 = [
         .map(e => { const st = getComputedStyle(e); return [e.textContent.trim().slice(0, 40), parseFloat(st.fontSize), Number(st.fontWeight)]; }).filter(x => x[1] < 16 || x[2] < 700) : [];
       const card = c && c.getBoundingClientRect(), foot = c && c.querySelector('.cfx-task-foot'), fr = foot && foot.getBoundingClientRect();
       return { card: !!c, oneCol: q('.cfx-task.cfx-task1'), side: q('.cfx-side, .cfx-why'), pills: q('.cfx-at'), naming: q('[data-drv-naming], .drv-nc-lb, .drv-nc-pts'),
-        deliver: q('.cfx-deliver'), launch: q('.cfx-launch'), launchTop: c && c.querySelector('.cfx-task-bar .cfx-launch') ? 1 : 0, steps, small,
+        deliver: q('.cfx-deliver'), launch: q('.cfx-launch'), launchTop: c && c.querySelector('.cfx-task-foot .cfx-launch') ? 1 : 0, tools: c && c.querySelector('.cfx-task-foot .cfx-tools-menu') ? 1 : 0, steps, small,
         foot: !!foot, footText: foot ? foot.textContent.replace(/\s+/g, ' ').trim() : '', pts: c ? /points/i.test(c.textContent) : true,
         dock: !!document.getElementById('cm-sb-dock'), footInside: !!(fr && card && fr.bottom <= Math.min(card.bottom, innerHeight) + 1) };
     });
@@ -54,7 +54,8 @@ const D3 = [
     if (s.naming) fail(`${id}: the naming convention (bar, _DRAFT/_SUPERSEDED labels or points) is still on the slide`);
     if (s.deliver) fail(`${id}: the old 📤 Deliver box is still on the slide`);
     if (s.dock) fail(`${id}: the floating CMS · Drive card (#cm-sb-dock) is still on the page`);
-    if (s.launch !== 1 || !s.launchTop) fail(`${id}: want one 🚀 Launch CMS & Google Drive button at the top of the card, found ${s.launch}`);
+    if (s.launch !== 1 || !s.launchTop) fail(`${id}: want one 🚀 Launch CMS & Google Drive button in the foot bar, found ${s.launch}`);
+    if (!s.tools) fail(`${id}: the foot bar has no 🧰 Tools ▾ menu (the task's other tools and its Source Files)`);
     if (s.pts) fail(`${id}: a point counter shows before anything is submitted`);
     if (!s.foot || !/Submit →/.test(s.footText) || /AI Grader/.test(s.footText)) fail(`${id}: the foot bar should end in Submit → (never "AI Grader"): "${s.footText}"`);
     if (!s.footInside) fail(`${id}: the foot bar is not on screen at 1366×768`);
@@ -62,11 +63,13 @@ const D3 = [
     if (s.steps.some(t => /\bX of Y\b/.test(t) || !/[.?!]$/.test(t))) fail(`${id}: every step should be a full sentence: ${JSON.stringify(s.steps)}`);
     if (id === 'd3-drive') {
       if (JSON.stringify(s.steps) !== JSON.stringify(D3)) fail(`d3-drive's steps should be the owner's five: ${JSON.stringify(s.steps)}`);
-      if (!/Source Files \(\d+ Documents?\)/.test(s.footText)) fail(`d3-drive: the foot bar should open with 📁 Source Files (N Documents): "${s.footText}"`);
-      // Source Files opens its list
+      if (!/Source Files \(\d+ Documents?\)/.test(s.footText)) fail(`d3-drive: the foot bar's 🧰 Tools should hold 📁 Source Files (N Documents): "${s.footText}"`);
+      // Source Files opens its list, from the 🧰 Tools menu
+      await page.click('#app .cfx-task-foot .cfx-tools-menu > summary');
       await page.click('#app .cfx-task-foot .cfx-docs summary');
       if (!await page.evaluate(() => { const p = document.querySelector('#app .cfx-task-foot .cfx-docs[open] .cfx-docs-pop'); return !!p && p.getBoundingClientRect().height > 20; })) fail('d3-drive: 📁 Source Files does not open its list');
       await page.click('#app .cfx-task-foot .cfx-docs summary');
+      await page.click('#app .cfx-task-foot .cfx-tools-menu > summary');
 
       // 📖 Reference: the Rules & Naming Guide
       await page.click('#app .cfx-ref-open'); await page.waitForTimeout(300);
@@ -85,10 +88,10 @@ const D3 = [
       if (!l.opened.some(u => /^https:\/\/drive\.google\.com\//.test(u))) fail(`🚀 Launch did not open Google Drive in a new tab: ${JSON.stringify(l.opened)}`);
       await page.evaluate(() => { if (typeof closeToolFrame === 'function') closeToolFrame(); });
 
-      // Submit to AI Grader →: the AI Grader slide
+      // Submit →: Your Task turns into the AI Grader, on the same slide
       await go(3, 'd3-drive', 'task'); await page.waitForTimeout(400);
       await page.click('#app .cfx-grade-go'); await page.waitForTimeout(500);
-      if (!await page.evaluate(() => !!document.querySelector('#app .cf-card.cfx-check [data-aig]'))) fail('Submit to AI Grader → did not go to the AI Grader slide');
+      if (!await page.evaluate(() => !!document.querySelector('#app .cf-card.cfx-check [data-aig]'))) fail('Submit to AI Grader → did not open the AI Grader on the slide');
     } else {
       // 🚀 Launch, as a trainee with no linked Drive: the CMS beside the slide and the Backup Drive panel to link it
       await page.evaluate(() => { window.__opened = []; });
@@ -110,5 +113,5 @@ const D3 = [
 
   await browser.close();
   if (failures.length) { console.log('✗ Your Task slide:\n  ' + failures.join('\n  ')); process.exit(1); }
-  console.log('Your Task slide: one column, one Launch CMS & Google Drive button, steps in full sentences, the rules in Reference, one foot bar with Source Files and Submit.');
+  console.log('Your Task slide: one column, steps in full sentences, the rules in Reference, one foot bar: Launch CMS & Google Drive, Tools (with the Source Files) and Submit, which opens the AI Grader on the slide.');
 })().catch(e => { console.log('✗ ' + (e && e.stack || e)); process.exit(1); });
