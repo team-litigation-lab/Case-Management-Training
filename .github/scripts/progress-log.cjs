@@ -159,7 +159,7 @@ const failures = []; const fail = (m) => failures.push(m);
      [/Conflict Check not documented/, 'the Conflict Check (R6)'], [/Knowledge Check failed 2 times/, 'the Knowledge Check failed twice (R7)'],
      [/Multi-Channel Outreach Logging.*38%/, 'the Skill Activity below 50% (R5)']]
         .forEach(([re, what]) => { if (!re.test(fixTxt)) fail(`Needs fixing should list ${what}: ${fixTxt.slice(0, 400)}`); });
-    if (view.fix.some(f => !/What to do:/.test(f))) fail('every Needs fixing item should say what to do');
+    if (view.fix.some(f => !/Your next step:/.test(f) || !/The standard:/.test(f) || !/Why it matters:/.test(f))) fail(`every Needs fixing item should teach: the standard, why it matters and the next step: ${JSON.stringify(view.fix).slice(0, 300)}`);
     if (/First time right|CaseFiles_2026/.test(fixTxt)) fail('a document already filed is not something to fix');
     if (/No CMS Case ID/.test(fixTxt)) fail('a trainee who filed documents into a case has a CMS Case ID (R4 should not fire)');
     if (!view.jump || !/⚠ \d+ to fix/.test(view.jumpText)) fail(`the top bar should link to the log with the number to fix: "${view.jumpText}"`);
@@ -176,7 +176,8 @@ const failures = []; const fail = (m) => failures.push(m);
     if (!miss || !miss.open) fail('📒 Progress Log in the top bar should open the list of what the trainee has to fix');
     else {
         if (miss.items.length !== view.fix.length) fail(`the top bar's list should have the ${view.fix.length} things to fix: ${miss.items.length}`);
-        if (miss.items.some(t => !/What to do:/.test(t))) fail('each thing to fix in the top bar\'s list should say what to do');
+        if (miss.items.some(t => !/Your next step:/.test(t) || !/The standard:/.test(t) || !/Why it matters:/.test(t))) fail('each thing to fix in the top bar\'s list should teach: the standard, why it matters and the next step');
+        if (miss.items.some(t => /\bR\d:/.test(t))) fail('a trainee\'s list should not show the trainer\'s rule codes (R1…R8)');
         if (miss.view !== 'dashboard' || !miss.closed) fail(`📒 Open my Progress Log should close the list and open the dashboard's log: ${miss.view}`);
     }
 
