@@ -311,8 +311,6 @@ function paint(){
 }
 
 /* ---------- 🔗 linking the trainee's folder (as the Foundations training links a trainee's Drive: shared, then pasted) ---------- */
-/* A try to link that didn't finish: said once as a toast, and kept as a line in step 1 of the slide until the next try. */
-function linkFail(m){ linkErr = m; say(m); paint(); redrawSlides(); }
 function linkInput(v){ linkUrl = String(v || ""); }
 async function linkFolder(){
   if(!D || !D.configured || connecting) return;
