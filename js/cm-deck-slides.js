@@ -806,67 +806,67 @@ window.CM_DAY_VIDEOS = {
     "title": "The Net Sheet: Two Recovery Streams"
    },
    {
-    "t": 433.7,
+    "t": 429,
     "page": 7,
     "title": "The BI/UM Master Financial Ledger"
    },
    {
-    "t": 515.2,
+    "t": 508.2,
     "page": 8,
     "title": "Case Manager Protocols for Dual Settlements"
    },
    {
-    "t": 586.9,
+    "t": 577.2,
     "page": 9,
     "title": "Key Takeaway: The Value of a CM"
    },
    {
-    "t": 658.2,
+    "t": 648.4,
     "page": 11,
     "title": "Disbursement: Core Objectives"
    },
    {
-    "t": 726.5,
+    "t": 716.7,
     "page": 12,
     "title": "Disbursement: The Workflow"
    },
    {
-    "t": 797.2,
+    "t": 787.5,
     "page": 13,
     "title": "Disbursement: Documentation Checklist"
    },
    {
-    "t": 861.8,
+    "t": 852,
     "page": 14,
     "title": "Disbursement: Common Challenges and Mitigation"
    },
    {
-    "t": 921.7,
+    "t": 911.9,
     "page": 15,
     "title": "Final Case Reconciliation: The Net Sheet"
    },
    {
-    "t": 988.9,
+    "t": 979.2,
     "page": 16,
     "title": "Final Case Reconciliation: Proof of Delivery"
    },
    {
-    "t": 1060.7,
+    "t": 1051,
     "page": 17,
     "title": "Final Case Reconciliation: Compliance and Identity"
    },
    {
-    "t": 1121,
+    "t": 1111.3,
     "page": 18,
     "title": "Final Case Reconciliation: The Closing Memo"
    },
    {
-    "t": 1188.3,
+    "t": 1178.5,
     "page": 19,
     "title": "Final Case Reconciliation: Retention Schedule"
    },
    {
-    "t": 1246.3,
+    "t": 1236.6,
     "page": 20,
     "title": "Thank You!"
    }
@@ -1008,27 +1008,27 @@ window.CM_DAY_VIDEOS = {
     "title": "Arbitration Binder Section 5: The Prior Medical Shield"
    },
    {
-    "t": 1520.8,
+    "t": 1513.8,
     "page": 30,
     "title": "Arbitration Binder Section 6: Economic Losses & Liens"
    },
    {
-    "t": 1581.2,
+    "t": 1574.2,
     "page": 33,
     "title": "Mediation Bottlenecks: The Compromise Traps"
    },
    {
-    "t": 1641.9,
+    "t": 1634.9,
     "page": 34,
     "title": "Arbitration Bottlenecks: The Trial-Ready Landmines"
    },
    {
-    "t": 1700,
+    "t": 1693,
     "page": 35,
     "title": "Case Manager Operational Countermeasures"
    },
    {
-    "t": 1753.4,
+    "t": 1746.4,
     "page": 36,
     "title": "Thank You!"
    }
@@ -1085,162 +1085,162 @@ window.CM_DAY_VIDEOS = {
     "title": "Deposition Prep: The Pre-Deposition Audit"
    },
    {
-    "t": 565.4,
+    "t": 560.1,
     "page": 10,
     "title": "Discovery Intake Meeting: Pillar 1, De-escalating Anxiety"
    },
    {
-    "t": 629.5,
+    "t": 621.1,
     "page": 11,
     "title": "Pillar 2: Essential Testimony Guidelines"
    },
    {
-    "t": 695.6,
+    "t": 687.2,
     "page": 12,
     "title": "Pillar 3: Dress Code & Professional Demeanor"
    },
    {
-    "t": 751.9,
+    "t": 743.5,
     "page": 13,
     "title": "Silent Traps — Drill A: The “Is That All?” Trap"
    },
    {
-    "t": 807.8,
+    "t": 799.4,
     "page": 14,
     "title": "Silent Traps — Drill B: The Thoughtful Silence"
    },
    {
-    "t": 857.6,
+    "t": 849.3,
     "page": 15,
     "title": "Checklist: The Day Before the Deposition"
    },
    {
-    "t": 922.3,
+    "t": 914,
     "page": 16,
     "title": "What Will the Defense Attorney Ask Me?"
    },
    {
-    "t": 984.3,
+    "t": 975.9,
     "page": 17,
     "title": "The 7 Golden Rules for Testifying: Rules 1–3"
    },
    {
-    "t": 1046.8,
+    "t": 1038.4,
     "page": 18,
     "title": "Golden Rules 4 & 5"
    },
    {
-    "t": 1100.2,
+    "t": 1091.9,
     "page": 19,
     "title": "Golden Rules 6 & 7"
    },
    {
-    "t": 1152,
+    "t": 1143.6,
     "page": 20,
     "title": "Professional Presentation: Dress Code & Demeanor"
    },
    {
-    "t": 1216.9,
+    "t": 1208.5,
     "page": 21,
     "title": "What Happens When Your Lawyer Objects?"
    },
    {
-    "t": 1277,
+    "t": 1268.6,
     "page": 22,
     "title": "Litigation Toolkit: The Complaint / Petition"
    },
    {
-    "t": 1343.7,
+    "t": 1335.3,
     "page": 23,
     "title": "Core Document: The Answer"
    },
    {
-    "t": 1411.4,
+    "t": 1403.1,
     "page": 24,
     "title": "Core Document: Interrogatories"
    },
    {
-    "t": 1459.8,
+    "t": 1451.4,
     "page": 25,
     "title": "Core Document: Requests for Production"
    },
    {
-    "t": 1505.2,
+    "t": 1496.8,
     "page": 26,
     "title": "Core Document: Requests for Admission"
    },
    {
-    "t": 1555.9,
+    "t": 1547.5,
     "page": 27,
     "title": "Critical Processes 1 & 2: Service and Docketing"
    },
    {
-    "t": 1621.3,
+    "t": 1613,
     "page": 28,
     "title": "Critical Process 3: Third-Party Subpoenas"
    },
    {
-    "t": 1679.6,
+    "t": 1671.2,
     "page": 29,
     "title": "The 3 Golden Rules of File Maintenance"
    },
    {
-    "t": 1749.7,
+    "t": 1741.3,
     "page": 30,
     "title": "KPIs for Document Management"
    },
    {
-    "t": 1805,
+    "t": 1796.6,
     "page": 31,
     "title": "Deep-Dive: The Complaint / Petition"
    },
    {
-    "t": 1881.2,
+    "t": 1872.8,
     "page": 32,
     "title": "Written Discovery: Interrogatories, RFPs, and RFAs"
    },
    {
-    "t": 1949.4,
+    "t": 1941.1,
     "page": 33,
     "title": "Master Timeline & Deadline Calculations"
    },
    {
-    "t": 2020.7,
+    "t": 2012.3,
     "page": 34,
     "title": "The Process Server & Evading Defendant Protocol"
    },
    {
-    "t": 2090.6,
+    "t": 2082.3,
     "page": 35,
     "title": "Subpoena Duces Tecum: Execution Strategy"
    },
    {
-    "t": 2155,
+    "t": 2146.6,
     "page": 36,
     "title": "Litigation File Architecture"
    },
    {
-    "t": 2216.7,
+    "t": 2208.4,
     "page": 37,
     "title": "Advanced KPIs for Litigation Case Managers"
    },
    {
-    "t": 2275.6,
+    "t": 2267.2,
     "page": 39,
     "title": "Property Damage: Types of Damages You Can Recover"
    },
    {
-    "t": 2348.5,
+    "t": 2340.1,
     "page": 40,
     "title": "Calculating the Value: The “Lesser Of” Rule"
    },
    {
-    "t": 2413,
+    "t": 2404.7,
     "page": 41,
     "title": "Calculating the Value: Sentimental or Special Value"
    },
    {
-    "t": 2473,
+    "t": 2464.6,
     "page": 42,
     "title": "Thank You!"
    }
