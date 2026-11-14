@@ -98,8 +98,9 @@ async function workerChecks() {
         await page.evaluate(() => cmDayVideo.open(11)); await page.waitForTimeout(200);
         if (await page.$('#cm-dv')) fail('a locked video opened for a trainee');
         await page.evaluate((k) => { state.isAdmin = true; state.adminPreview = false; state.cmOpenVideos = null; state.adminData = null; cmOpenLessons.go(k); }, BKEY); await page.waitForTimeout(1200);
-        const tile = await page.$('.cm-dv-admin .cm-dv-day input');
-        if (!tile) fail('Admin → 🔓 Open Lessons has no 🎬 Unlock Videos tile');
+        // (a locator, found afresh each try: the tab redraws as its data arrives)
+        const tile = page.locator('.cm-dv-admin .cm-dv-day input[onchange*="(11,"]');
+        if (!(await tile.count())) fail('Admin → 🔓 Open Lessons has no 🎬 Unlock Videos tile for Case Flow Day 1');
         else { await tile.check(); await page.waitForTimeout(900); }
         const saved = await page.evaluate(async () => sharedGet('settings:openvideos'));
         if (!saved || JSON.stringify(saved.all) !== '[]' || JSON.stringify((saved.batches || {})[BKEY]) !== '[11]') fail(`ticking the tile saved: ${JSON.stringify(saved)}`);
