@@ -194,7 +194,7 @@ const LAYOUT = 5;
         if (reach[reach.length - 1] !== now.length - 1) out.push(`${L}: a trainee who had reached the deck's last slide has not reached today's last`);
         if (place[place.length - 1] !== old[old.length - 1].place) out.push(`${L}: the deck's last slide doesn't land on the same slide`);
       }
-      row.deckLessons = d.lessons.filter(l => l.cf && (window.CM_DECK_SLIDES || {})[l.cf.block.id]).map(l => ({ id: l.cf.block.id, n: cmCaseFlow.viewsOf(l.cf.block).length, m: cmCaseFlow.drawnViewsOf ? cmCaseFlow.drawnViewsOf(l.cf.block).length : -1 }));
+      row.deckLessons = d.lessons.filter(l => l.cf && (window.CM_DECK_SLIDES || {})[l.cf.block.id]).map(l => ({ id: l.cf.block.id, n: cmCaseFlow.viewsOf(l.cf.block).length, m: cmCaseFlow.drawnViewsOf ? cmCaseFlow.drawnViewsOf(l.cf.block).filter(v => !(v === 'theory2' && l.cf.block.id === 'd1m1-role')).length : -1 }));   // d1m1-role's The Theory, Continued is newer than layout 4 (js/cm-slide-places.js THEORY2_NEW)
       const views = now.filter(sl => sl.type === 'topic').map(sl => cmCaseFlow.viewsOf(d.lessons[sl.lessonIndex].cf.block)[sl.part - 1]);
       if (views.includes('job')) out.push(`Day ${d.cf.n}: a lesson still has an On the Job slide`);
       if (views.includes('steps')) out.push(`Day ${d.cf.n}: a lesson still has a Milestone Steps slide`);

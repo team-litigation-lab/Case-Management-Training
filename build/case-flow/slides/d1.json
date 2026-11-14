@@ -429,12 +429,12 @@
     "ruleEx": {
       "rule": "After notice, **the adverse carrier talks to the firm**, not to John: no Recorded Statement",
       "exception": "**Property Damage only**, with the vehicle's owner: Keystone PD (Leah Moran) deals with Margaret Doe about the Civic",
-      "onFile": "Notice to Dana Whitfield 02/10/2026, after Keystone called John on 02/09",
+      "onFile": "Notice to Dana Whitfield 02/10/2026, after Keystone called John on 02/08",
       "confirm": "Injury questions route to Atty. Thorne"
     },
     "redFlag": {
       "on": "dodont",
-      "see": "Dana Whitfield (Keystone) asked John Doe **to record his account** (his voicemail, 02/10/2026, 8:47 a.m.)",
+      "see": "Dana Whitfield (Keystone) asked John Doe **to record his account** (his voicemail, 02/09/2026, 8:47 a.m.)",
       "costs": "A represented client's recorded account becomes Keystone's evidence on the 14-Day Gap",
       "do": "Send written notice today: no direct contact; **statements go through the firm**. Log it.",
       "owner": "Atty. Thorne"

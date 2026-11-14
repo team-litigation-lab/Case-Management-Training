@@ -7,8 +7,10 @@ const ROOT = path.join(__dirname, "..", "..");
 const lessons = {}, videos = {};
 for (const f of fs.readdirSync(__dirname).filter((x) => /^day\d+\.json$/.test(x)).sort()) {
   const d = JSON.parse(fs.readFileSync(path.join(__dirname, f), "utf8")), n = f.match(/\d+/)[0];
-  const by = new Map(d.slides.map((s) => [s.page, s]));
-  const img = (p) => `/decks/day${n}/${String(p).padStart(2, "0")}.webp`;
+  // a deck page by its number, or a Skill Building page by its id ("sb-1"): those are slides in the platform only,
+  // kept apart from the deck (the deck the video is made from no longer has them), images decks/dayN/<id>.webp
+  const by = new Map(d.slides.map((s) => [s.page, s]).concat((d.skillPages || []).map((s) => [s.id, Object.assign({ page: s.id }, s)])));
+  const img = (p) => `/decks/day${n}/${typeof p === "number" ? String(p).padStart(2, "0") : p}.webp`;
   for (const [block, pages] of Object.entries(d.lessons || {})) {
     lessons[block] = pages.map((p) => {
       const s = by.get(p); if (!s) throw new Error(`${f}: lesson ${block} names page ${p}, which has no notes`);
@@ -17,8 +19,8 @@ for (const f of fs.readdirSync(__dirname).filter((x) => /^day\d+\.json$/.test(x)
     });
   }
   if (d.video) {
-    // the pages in the video: every slide but the ones it skips (the Skill Building pages are worked in the platform)
-    const skip = new Set(d.video.skip || []), inVideo = d.slides.filter((s) => !skip.has(s.page));
+    // the pages in the video: every slide of the deck (the Skill Building pages, in skillPages, are worked in the platform)
+    const inVideo = d.slides;
     if (d.video.starts.length !== inVideo.length) throw new Error(`${f}: video.starts needs one time per slide in the video (${inVideo.length})`);
     videos[d.day] = { title: d.title, src: d.video.src, captions: d.video.captions,
       chapters: inVideo.map((s, i) => ({ t: d.video.starts[i], page: s.page, title: s.title })) };

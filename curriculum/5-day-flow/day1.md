@@ -842,7 +842,7 @@ An exploded packet: a central navy folder with six document cards fanned around 
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** 02/10/2026, 8:47 a.m.: a voicemail from John Doe. Dana from Keystone Mutual, Robert Smith's carrier, called him last night and asked to record what happened; he said he'd think about it, and she is calling back today. His neck is still stiff and he hasn't seen anyone. Nothing has reached him from the firm yet.
+**Scenario.** 02/09/2026, 8:47 a.m.: a voicemail from John Doe. Dana from Keystone Mutual, Robert Smith's carrier, called him last night and asked to record what happened; he said he'd think about it, and she is calling back today. His neck is still stiff and he hasn't seen anyone. Nothing has reached him from the firm yet.
 
 **Execution prompt.** Work the voicemail in your Notes & Action Plan: transcribe it, then write your action plan (graded, with the answer key once handed in). Work the plan: email Dana Whitfield that the firm represents John Doe, that she is not to contact him directly and that any Recorded Statement request comes through the firm, with nothing about his injuries; call John Doe back to check on his neck and his treatment status, outline the next steps and have him repeat the instruction (no Recorded Statement, no talk about the case with anyone outside the firm); and coordinate his first visit with Riverton Urgent Care. Then assemble his onboarding Direction Packet (all six sections, the Property Damage section specific to this file: from the records, whose vehicle and claim it is), deliver it and log every contact.
 
