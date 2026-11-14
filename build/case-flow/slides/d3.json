@@ -71,11 +71,11 @@
     "image": "checklist-qa",
     "situation": "File date 07/20/2026. MMI reached; Specials $16,401.40. Atty. Thorne approved **$10,000 limits**, a Limited Release of Smith and Keystone, Smith's affidavit, 30 days from receipt. The draft awaits **your final audit**.",
     "steps": [
-      "Audit the draft against **the Big Four** and the Final Scrub",
-      "Log each deficiency as **an assigned CMS task**",
-      "Assemble the package with **the gap answered** on page one",
-      "Once signed, **email it to Dana Whitfield**; log it",
-      "Docket **08/21/2026 from her acknowledgement** dated 07/22/2026, with reminders"
+      "Download the case documents from 📁 Source Files, check the draft against the Big Four and the Final Scrub, and log each fix as a CMS task.",
+      "Build the packet by hand, in this order: cover letter, index, demand letter, PIP Log, then the **bills and records** by provider and date.",
+      "Combine them into one PDF, make it searchable (OCR), bookmark each section, and Bates-number every page once.",
+      "Name it by the firm's convention, ending in _DRAFT, and file it in CMS → Documents so it reaches folder 05 Insurance.",
+      "Once Atty. Thorne signs, email it to Dana Whitfield, and docket 08/21/2026 from her 07/22/2026 written acknowledgement."
     ],
     "deliver": "An audited, emailed demand with **written acknowledgement** and 08/21/2026 docketed",
     "purpose": "Keystone's 30 days run from receipt: **without proof, no deadline** to hold",
@@ -98,12 +98,12 @@
         "Limited Release terms and **Smith's affidavit** request"
       ],
       "steps": [
-        "Download the case documents into **your training Drive**",
+        "Download the case documents from 📁 Source Files into **your training Drive**",
         "Audit the draft against **the Big Four and Final Scrub**",
-        "Log each deficiency as **an assigned CMS task**",
-        "Assemble in reading order; **OCR and bookmark** the PDF",
-        "Route to Atty. Thorne; **serve only once signed**",
-        "Upload the served set to **the CMS for the audit**"
+        "Order it by hand: cover letter, index, demand, PIP Log, **bills, records**",
+        "Combine into one PDF; **OCR, bookmark** and Bates-number every page",
+        "Name it by the convention, ending **_DRAFT**; route to Atty. Thorne",
+        "Once signed, upload the served set to **the CMS for the audit**"
       ]
     },
     "checks": [
@@ -166,11 +166,10 @@
     "image": "binder-exhibits",
     "situation": "File date 08/31/2026. Keystone tendered $10,000 limits 08/12; consents came 08/24 and 08/26; the **Limited Release was signed** 08/28. Keystone's **check hasn't arrived**. Keystone had called the MRI “degenerative.”",
     "steps": [
-      "QC the desk's **Host UM draft** to Harbor Point",
-      "QC **Relative UM to Cardinal State**: excess, not primary",
-      "Put **exhaustion proof on page one**; show damages above collections",
-      "Answer the gap and “degenerative” **with the MRI**",
-      "**Leave the response deadline** blank for Atty. Thorne; route both"
+      "Check the desk's Host UM draft to Harbor Point and the Relative UM draft to Cardinal State line by line against the records, and fix each error.",
+      "Put the **exhaustion proof** on page one of each, and show damages above what has been collected.",
+      "Answer the gap and the word degenerative with the MRI.",
+      "Leave the response deadline blank for Atty. Thorne and route both drafts to him."
     ],
     "deliver": "Two QC'd UM drafts, **exhaustion proof first**, routed for review",
     "purpose": "Each draft reaches a carrier as written: **one missed error** travels with it",
@@ -260,11 +259,10 @@
     "image": "phone-call",
     "situation": "File date 08/05/2026. Acceptance runs to 08/21/2026. Dana Whitfield **calls with $3,500**: John Doe “waited two weeks,” the MRI is “degenerative.” Atty. Thorne's authority: restate the demand, **no counter**.",
     "steps": [
-      "Run **the math check on $3,500** before dialing",
-      "Pause after her number; **ask what data supports it**",
-      "Name each stall; answer **the gap and “degenerative”** from the record",
-      "Log her exact words; **report to Atty. Thorne** the same day",
-      "Draft **the 08/06/2026 rebuttal** for his approval"
+      "Before the call, work out what $3,500 leaves John Doe after the fee, costs and liens.",
+      "Take the call below with Dana Whitfield: pause after her number, ask **what data supports it**, and answer the gap only from the record.",
+      "Log her exact words in the Communications Log and report the offer to Atty. Thorne the same day.",
+      "Draft the 08/06/2026 written rebuttal for his approval."
     ],
     "deliver": "A call **held inside Atty. Thorne's authority**, logged offer, same-day report, drafted rebuttal",
     "purpose": "A careless word on this call **cracks the demand** before 08/21/2026",
@@ -326,11 +324,10 @@
     "image": "release-signature",
     "situation": "File date 08/14/2026. Keystone sends its **Release of All Claims** for John Doe's notarized signature, and holds its check until **both UM waivers** arrive.",
     "steps": [
-      "Audit **every clause** against the demand's terms in the workbench",
-      "Call each clause and **write the proposed amendment**",
-      "Email the review to **Atty. Thorne** for approval",
-      "Route the adjuster's **side-letter request**; send nothing to John",
-      "File the memorandum in **the CMS and Drive**"
+      "Audit Keystone's draft release clause by clause in the workbench below, against the demand's approved terms.",
+      "Mark each clause keep, replace, pull, add or flag, and write the **proposed amendment**.",
+      "Email your review to Atty. Thorne for approval, route the adjuster's request to him, and send nothing to John Doe.",
+      "File the memorandum in the CMS so it is backed up to your Drive."
     ],
     "deliver": "An audited release, **Atty. Thorne's written approval**, the memo filed",
     "purpose": "One unread line would **cost John Doe $30,000** of UM",
@@ -354,11 +351,9 @@
     "image": "client-call",
     "situation": "File date 08/26/2026. **Both consents are in** and Keystone's Limited Release is approved. Keystone wants a notarized original, both waivers and **a W-9 before paying**.",
     "steps": [
-      "Call John Doe to **schedule the 08/28 signing**",
-      "Confirm **notary, ID and original**; Atty. Thorne explains first",
-      "Email Dana Whitfield **the executed packet**; request acknowledgement",
-      "Route **her payee question** to Atty. Thorne",
-      "Deposit the check; **file the settlement record**"
+      "Take the call below and book John Doe's 08/28/2026 signing: photo ID, signing before the notary, and Atty. Thorne explains the release first.",
+      "Email the executed packet to Dana Whitfield and ask her to confirm receipt and the **check date**.",
+      "Route her payee question to Atty. Thorne, record the check into trust, and file the settlement record in the CMS."
     ],
     "deliver": "An executed release sent, **the check in trust**, the record filed",
     "purpose": "Keystone pays only on **a complete, executed packet**",
@@ -415,11 +410,10 @@
     "image": "settlement-check",
     "situation": "File date 09/14/2026. Keystone's $10,000 is in trust; UM demands went out 08/31. Marcus Bell offers **$8,000 for Harbor Point**, citing the gap and **“BI already compensated him.”**",
     "steps": [
-      "Log the **$8,000 and its reasons**; report it same day",
-      "Assemble **the 09/16 counter-package** for Atty. Thorne's approval",
-      "Log **every later move** in the Negotiation Log",
-      "Record **John Doe's decision** through Atty. Thorne, then draft the acceptance",
-      "Prove **$40,000 gross** on the Recovery Ledger"
+      "In CMS → Insurance → Negotiation Log, log Harbor Point's $8,000 with its reasons and report it to Atty. Thorne the same day.",
+      "Assemble the 09/16 counter-package for his approval and log every later move.",
+      "Record John Doe's decision through Atty. Thorne, then draft each acceptance email for his approval.",
+      "Show **$40,000 gross** on the Recovery Ledger."
     ],
     "deliver": "A complete Negotiation Log, approved counter-package, confirming emails, Recovery Ledger at **$40,000.00 gross**",
     "purpose": "The gross sets every later number: **one wrong entry** skews John Doe's net",
@@ -484,11 +478,9 @@
     "image": "documents-audit",
     "situation": "File date 10/06/2026; **gross is $40,000.00**. Peach State **asserts $1,860.00**, its payment for the 05/15/2026 injection at Crescent Pain & Spine. Plan documents show a fully insured group plan.",
     "steps": [
-      "Match **the plan's payments** to the treatment record",
-      "Classify it, record funding, and **escalate governing law** to Atty. Thorne",
-      "Draft the request: doctrine named, **one-third math to $1,240.00**",
-      "Flag **made whole** for Atty. Thorne to argue",
-      "Record **every absent claimant** as a verified “none”"
+      "In the Lien Tracker, match the Health Plan's payments to the treatment record, classify the lien, and escalate the governing law to Atty. Thorne.",
+      "Draft the Reduction Request for his signature, showing the **one-third math** to $1,240.00, and flag made whole for him to argue.",
+      "Record every absent claimant as a verified none, with its source."
     ],
     "deliver": "A signature-ready request, absent claimants cleared, $1,240.00 recorded **once confirmed in writing**",
     "purpose": "Every lien dollar left unproved comes out of **John Doe's net**",
@@ -604,11 +596,10 @@
     "image": "negotiation",
     "situation": "10/09/2026: Peach State accepted $1,240.00. Riverton Spine & Rehab's ledger bills **34 lines × $185.00 = $6,290.00**. Atty. Thorne set a written target; **no lien is paid** until resolved in writing.",
     "steps": [
-      "Audit the ledger; **request a written correction** first",
-      "Draft the Reduction Request; **send it once approved**",
-      "Call the billing manager **inside Atty. Thorne's authority**",
-      "State the audited balance, recovery and math; ask for **payment in full**",
-      "When the manager agrees to $4,580.00, say **it goes to Atty. Thorne**"
+      "Audit Riverton Spine & Rehab's ledger and ask for a written correction first.",
+      "Draft the Reduction Request for Atty. Thorne and send it once he approves.",
+      "Take the call below with the billing manager, inside his written authority, and ask for **payment in full**.",
+      "When the manager agrees to $4,580.00, say it goes to Atty. Thorne, and update the Net Sheet only once the Payoff Letter is signed."
     ],
     "deliver": "Audited $6,105.00, a logged call, **a signed $4,580.00 Payoff Letter**, recomputed Net Sheet",
     "purpose": "Without a signed Payoff Letter, **balance billing can follow** John Doe",
@@ -668,11 +659,9 @@
     "image": "money-ledger",
     "situation": "File date 10/13/2026. Cardinal State's check arrived today: **$40,000.00 received**, the last hasn't cleared. Peach State accepted $1,240.00, Riverton Spine & Rehab $4,580.00. Costs $486.75. **Both tabs are half-built**.",
     "steps": [
-      "Post each check **by carrier and stream**",
-      "Apply **the 33⅓% fee per stream** and receipted costs",
-      "Split costs and liens **25% / 75%** down to net",
-      "Complete the Lien Tracker: **asserted, audited, reduced**, payoff status",
-      "**Tie both tabs** to the Trust Ledger"
+      "On the Net Sheet's Recovery Ledger, post each check by carrier and stream, the 33⅓% fee per stream and the receipted costs.",
+      "Split costs and liens 25% and 75% down to the net per stream and in total.",
+      "In the Lien Tracker, enter each lien's asserted, audited and reduced figure with its **payoff status**, then tie both tabs to the Trust Ledger."
     ],
     "deliver": "A two-tab Net Sheet reaching **$20,359.92 both ways**, routed to Atty. Thorne",
     "purpose": "John Doe signs on this Net Sheet: **one wrong cent** misstates his net",
@@ -747,11 +736,10 @@
     "image": "escalation-alert",
     "situation": "File date 10/14/2026. $40,000.00 sits in trust. Vance & Kettering claims **a charging lien** and demands **$6,666.67** of the fee.",
     "steps": [
-      "Log the notice; **route it to Atty. Thorne** today",
-      "On his instruction, **hold $6,666.67** and update the Action Plan",
-      "Compare signatures and **cross-reference the dates**",
-      "Ask John Doe, **without opinion**, whether he hired them",
-      "Deliver **the evidentiary packet**; archive in CMS and Drive"
+      "Log the prior attorney's notice and route it to Atty. Thorne today. Send nothing to Vance & Kettering.",
+      "On his instruction, hold $6,666.67 in the CMS and update the Action Plan.",
+      "In the workbench below, compare signatures and dates, then take the call and ask John Doe, **without opinion**, whether he hired them.",
+      "Send Atty. Thorne the factual packet and file every letter in the CMS."
     ],
     "deliver": "A held amount and **a factual packet** on Atty. Thorne's desk",
     "purpose": "The disbursement waits on **a dispute only counsel resolves**",
@@ -775,11 +763,9 @@
     "image": "settlement-check",
     "situation": "File date 10/21/2026. $40,000.00 cleared by 10/20, statement signed, Payoff Letters in, **lien withdrawn 10/19**. **Disbursement is 10/22**.",
     "steps": [
-      "Confirm **every condition precedent** against its document",
-      "Confirm the **lien hold released** by Atty. Thorne",
-      "Queue **one command per Net Sheet line**",
-      "Show the Trust Ledger reaching **$0.00**",
-      "Request **lien satisfactions** and John Doe's receipt"
+      "Confirm every condition before money moves against its document, including the lien hold **released by Atty. Thorne**.",
+      "In the Trust Ledger, queue one disbursement for each Net Sheet line, for his approval, and show the ledger reaching $0.00.",
+      "Request the lien satisfactions and John Doe's receipt."
     ],
     "deliver": "A confirmed checklist and **five commands to $0.00**",
     "purpose": "Money moves only when **every gate behind it** is closed",
@@ -851,11 +837,10 @@
     "image": "money-ledger",
     "situation": "File date 08/12/2026. Keystone **tendered the $10,000 BI limits** today. Atty. Thorne wants the BI settlement Net Sheet **before John Doe signs** anything; liens are still unreduced.",
     "steps": [
-      "Enter Stream 1 in the LSH Net Sheet: **gross, fee, costs**",
-      "Enter both liens in the Net Sheet **as they stand today**",
-      "Run **the 25% projection**, labelled, in the Net Sheet",
-      "Run **the BI-alone math** in the Net Sheet: $6,179.92 against $7,965.00",
-      "Route it with **the trust-hold flag** via CMS → Tasks → Escalate"
+      "In the LSH Net Sheet, enter Stream 1: the $10,000.00 gross as tendered, the 33⅓% fee and the five receipted costs.",
+      "Enter both liens as they stand today and run the 25% projection, labelled as a projection.",
+      "Beside it, run the BI-alone math: what the fee and costs leave against the **unreduced liens**.",
+      "Route the sheet to Atty. Thorne through CMS → Tasks → Escalate, flagging that the money stays in trust until the liens resolve."
     ],
     "deliver": "A Stream 1 Net Sheet, **projections labelled**, routed to Atty. Thorne on 08/12/2026",
     "purpose": "Alone, the BI money **nets John Doe $0.00**; Atty. Thorne must see why",
@@ -878,11 +863,9 @@
     "image": "money-ledger",
     "situation": "10/06/2026. Cardinal State tenders **$10,000 limits**; Harbor Point's $20,000 is in trust. Liens unreduced. Atty. Thorne wants the UM Net Sheet before he meets John Doe.",
     "steps": [
-      "Post **$30,000.00 gross** to Stream 2 on the Recovery Ledger",
-      "Apply **the 33⅓% fee**, then costs at 75%",
-      "Enter liens **as asserted or audited**, each marked projection",
-      "**Tie Stream 2** to Stream 1 and the Trust Ledger",
-      "Escalate the sheet with **four questions** to Atty. Thorne"
+      "On the Recovery Ledger, post the $30,000.00 UM gross to Stream 2 and show which check is in trust.",
+      "Apply the 33⅓% fee, then costs and liens at 75%, each lien at its asserted or audited figure and **marked as a projection**.",
+      "Tie Stream 2 to Stream 1 and the Trust Ledger, then escalate it with your questions to Atty. Thorne."
     ],
     "deliver": "A Stream 2 Net Sheet projecting **$13,661.19**, flagged and routed to Atty. Thorne",
     "purpose": "John Doe hears this from Atty. Thorne: **no projection may read as final**",
@@ -905,17 +888,17 @@
     "image": "documents-audit",
     "situation": "07/17/2026, 3:00 p.m. The demand is served **on 07/20/2026**, and **three corrected versions** have arrived.",
     "steps": [
-      "Compare **📂 Backup Drive with the CMS**: X of Y",
-      "Back up **every filed document** still missing",
-      "Current version in its folder, old one **SUPERSEDED**",
-      "Draft demand and packet into **05 Insurance**",
-      "Run **✓ Check my drive**; record the audit"
+      "Compare the files in your Backup Drive against the CMS to see what is missing.",
+      "Upload any missing filed documents from the CMS into your Backup Drive.",
+      "Keep the newest version in the main folder, and rename any older version with _SUPERSEDED-[Date].",
+      "Move the draft demand and packet into folder 05 Insurance.",
+      "Run the Check My Drive audit tool and record your completion."
     ],
     "deliver": "A backup that **matches the CMS** before the demand goes out",
     "purpose": "What the adjuster gets must be **on our drive first**",
     "principle": "**Supersede, never delete**: label the old version",
     "checks": [
-      "**X of Y backed up**, X equal to Y",
+      "**Every filed document** in the CMS is on the drive",
       "**Current versions** in 03, 04 and 07",
       "Old versions **labeled SUPERSEDED** with a date",
       "Demand drafts in **05**, labeled DRAFT",

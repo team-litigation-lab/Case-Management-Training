@@ -214,7 +214,7 @@ function compute(data, ctx){
   if(openWorked && !ticks[0] && (movedOn || othersTicked >= nChecks - 1)){
     add({key: "conflict", rule: "conflict", sev: "high", at: (cf.tickAt || {})[OPEN_ACT] || cf.updatedAt || null, fixable: true,
       title: "Conflict Check not documented", detail: `R6: "${blockTitle(OPEN_ACT)}" was left with its first checkpoint (Conflict Check documented before the matter was created) unticked${othersTicked ? `, ${othersTicked} other checkpoint${othersTicked === 1 ? "" : "s"} ticked` : ""}.`,
-      fix: "In CMS → New Case, run and document the Conflict Check on every party's full legal name, then tick it in that activity's Check Your Work."});
+      fix: "In CMS → New Case, run and document the Conflict Check on every party's full legal name, then hand the activity in to the AI Grader."});
   }
 
   // R5 — a Skill Activity's latest graded attempt below 50%
@@ -233,11 +233,11 @@ function compute(data, ctx){
     if(f.length >= T.KC_FAILS){
       add({key: `kcfail:${id}`, rule: "kcfail", sev: f.length >= 3 ? "high" : "medium", at: (f[f.length - 1] || {}).date || p.date || null, fixable: true,
         title: `${dayName(id)} Knowledge Check failed ${f.length} times`, detail: `R7: scores ${f.map(h => h.score + "%").join(", ")}; ${T.KC_PASS}% passes. Best so far ${p.score}%.`,
-        fix: `Review the questions you missed, then retake ${dayName(id)}'s Knowledge Check.`});
+        fix: `Review the questions you missed in the lessons. The Knowledge Check takes one attempt: ask your trainer about opening the next day.`});
     } else if(first && hoursSince(first, now) >= T.KC_STUCK_H){
       add({key: `stuck:kc:${id}`, rule: "stuck", sev: "medium", at: p.date || first, fixable: true,
         title: `${dayName(id)} Knowledge Check not passed after ${Math.floor(hoursSince(first, now) / 24)} days`, detail: `R8: first taken ${new Date(first).toLocaleDateString()}; best ${p.score}%.`,
-        fix: `Retake ${dayName(id)}'s Knowledge Check.`});
+        fix: `The Knowledge Check takes one attempt: ask your trainer about opening the next day.`});
     }
   });
   return out.sort((a, b) => (a.sev === b.sev ? 0 : a.sev === "high" ? -1 : 1) || ms(b.at) - ms(a.at));

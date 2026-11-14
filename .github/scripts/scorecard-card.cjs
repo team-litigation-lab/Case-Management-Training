@@ -7,8 +7,8 @@
 // 2. the trainee's 🏅 My Performance: their own card: the name, the Overall / Scorecard / Daily compliance pills, the
 //    🎯 Focus on box, the 100-point model (what feeds each dimension, the critical items), the Day scores, and the
 //    grading-systems table under a toggle; no other trainee's card;
-// 3. the trainer's 🏅 Scorecards: every approved trainee's card, the batch filter, the 🔎 one-trainee pick, and
-//    ⬇ Download still a CSV of the scores table (with the model's columns); the same cards are Admin → 🏅 Scorecard →
+// 3. the trainer's 🏅 Scorecards: every approved trainee's card, the batch filter, the 🔎 one-trainee pick, a short 🏅 Scores
+//    sheet on screen (days, Knowledge Checks, activities, Total, Result), and ⬇ Download a CSV of every column (the model's too); the same cards are Admin → 🏅 Scorecard →
 //    🏅 Scorecards (beside the 📋 Batch Sheet), with no admin action on them.
 // Usage: node .github/scripts/scorecard-card.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
@@ -105,7 +105,12 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
         who: [...document.querySelectorAll('select[onchange^="cmScorecard.only"] option')].map(o => o.value), head: [...document.querySelectorAll('#scx-scores .gs-head th')].map(t => t.textContent) }), id);
     if (!all.batch) fail('the trainer\'s Scorecards lost its batch filter');
     if (!all.who.includes(id)) fail('the 🔎 pick should list the trainee');
-    ['Final %', 'Tier', 'Safety gate', 'Result', 'Daily compliance %', 'Overall %', '✍️ Knowledge Checks'].forEach(h => { if (!all.head.includes(h)) fail(`🏅 Scores should have a "${h}" column: ${JSON.stringify(all.head)}`); });
+    // 🏅 Scores on screen is the short sheet (the owner asked for the scorecards simplified): each day's score, the Knowledge
+    // Checks, the AI-graded activities, the Total and the Result; ⬇ Download keeps every column (checked below)
+    ['Trainee', 'Batch', 'Days passed', 'Day 1 %', 'Day 5 %', '✍️ Knowledge Checks %', '🧪 Activities (AI-graded) %', 'Total %', 'Result'].forEach(h => { if (!all.head.includes(h)) fail(`🏅 Scores should have a "${h}" column: ${JSON.stringify(all.head)}`); });
+    if (all.head.length > 15) fail(`🏅 Scores on screen should stay short (${all.head.length - 1} columns): ${JSON.stringify(all.head)}`);
+    const tidy = await page.evaluate(() => ({ how: [...document.querySelectorAll('.sc-how')].filter(p => !p.closest('details')).length, model: [...document.querySelectorAll('.bs-pt-s-model')].filter(t => !t.closest('details.bs-pt-how')).length }));
+    if (tidy.how || tidy.model) fail(`the long "how it is scored" text and the model table should sit under the card's "How this is scored" toggle: ${JSON.stringify(tidy)}`);
     await page.selectOption('select[onchange^="cmScorecard.only"]', id); await page.waitForTimeout(400);
     const one = await page.evaluate(() => document.querySelectorAll('.bs-pt').length);
     if (one !== 1) fail(`🔎 one trainee should show one card: ${one}`);

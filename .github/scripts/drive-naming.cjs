@@ -95,7 +95,10 @@ global.fetch = async (url, init = {}) => {
   // the page draws the rule, it doesn't keep one
   if (/Case ID>_|&lt;Case ID&gt;_/.test(drivePage)) fail('js/cm-drive.js carries its own copy of the pattern; it should draw the Worker\'s (naming.pattern)');
   R.FILE_TYPES.filter((t) => t.includes('-')).forEach((t) => { if (drivePage.includes(t)) fail(`js/cm-drive.js carries the Type "${t}"; the Types come from the Worker (naming.types)`); });
-  if (!/namingBox\(\{day/.test(drivePage) || !/CMDrive\.namingBox\(\{day: Number\(b\.id\.charAt\(1\)\)/.test(flow)) fail('the 🏷 box should be on the Backup Drive panel and card and on every Backup File Maintenance task');
+  // the box is on the Backup Drive panel and card, and in 📖 Reference (the 📋 Rules & Naming Guide, js/cm-sb-task.js) of every Backup File Maintenance task, off the slide itself
+  const sbTask = read('js/cm-sb-task.js');
+  if (!/namingBox\(\{day/.test(drivePage) || !/CMDrive\.namingBox\(\{day\}\)/.test(sbTask) || !/"d1m1-drive": 1, "d2-drive": 2, "d3-drive": 3, "d4-drive": 4, "d5-drive": 5/.test(sbTask)) fail('the 🏷 box should be on the Backup Drive panel and card and in the Reference of every Backup File Maintenance task');
+  if (/CMDrive\.namingBox\(/.test(flow)) fail('the 🏷 box is back on the Your Task slide: it belongs in 📖 Reference (js/cm-sb-task.js), so the slide shows only what to do');
   if (/keepOnDrive\(d\.folder, d\.file\.split/.test(flow)) fail('☁️ Add to GDrive still uploads the document under its manifest name, not the firm\'s');
   ok("one rule: the Worker's pattern, Types and client part are the filing panel's and the client folder's, and the page draws them");
 
