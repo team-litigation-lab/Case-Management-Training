@@ -156,8 +156,9 @@ function trainerBody(id){
   const S = V.structure || {}, v = V.work || {items: [], unmatched: [], unreadable: []};
   return `${V.ai ? "" : `<p class="cmdw-p cmdw-no">No AI is configured on the Worker (GEMINI_API_KEY or AI_GATEWAY_SECRET): the written work is matched but not graded.</p>`}
     <table class="cmdw-t"><thead><tr><th>Backup Drive</th><th>Auto</th><th>Final</th><th>Change the grade · comment</th></tr></thead><tbody>
-    ${[1, 2, 3, 4, 5].map(n=>{ const s = S[n] || {}; return `<tr data-cmdw-day="${n}"><td><b>Day ${n} · ${E(DAYNAME[n])}</b></td><td>${pill(s.auto)}</td><td>${pill(s.final)}${s.override ? ` <small>trainer</small>` : ""}</td><td>${ovRow(id, "day", String(n), s)}</td></tr>`; }).join("")}
+    ${[1, 2, 3, 4, 5].map(n=>{ const s = S[n] || {}; return `<tr data-cmdw-day="${n}"><td><b>Day ${n} · ${E(DAYNAME[n])}</b>${dayNote(s)}</td><td>${pill(s.auto)}</td><td>${pill(s.final)}${s.override ? ` <small>trainer</small>` : ""}</td><td>${ovRow(id, "day", String(n), s)}</td></tr>`; }).join("")}
     </tbody></table>
+    ${foundHtml(V)}
     <table class="cmdw-t"><thead><tr><th>Written work</th><th>AI</th><th>Final</th><th>Change the grade · comment</th></tr></thead><tbody>
     ${(v.items || []).map(x=>`<tr data-cmdw-row="${E(x.id)}"><td><details class="cmdw-det"><summary><b>Day ${E(x.day)} · ${E(x.title)}</b>${x.file ? `<div class="cmdw-meta">📄 ${E(x.file)}</div>` : ""}</summary>${itemHtml(x, true)}</details></td>
       <td>${pill(x.auto)}</td><td>${pill(x.final)}${x.override ? ` <small>trainer</small>` : ""}</td><td>${ovRow(id, "work", x.id, x)}</td></tr>`).join("") || `<tr><td colspan="4">No written work matched to an activity yet.</td></tr>`}
@@ -165,6 +166,22 @@ function trainerBody(id){
     ${listHtml("Not matched to an activity (not graded)", v.unmatched)}
     ${listHtml("Not readable as text", v.unreadable)}
     ${(v.older || []).length ? `<p class="cmdw-p cmdw-dim">Older versions not graded (the newest file of an activity is): ${v.older.map(o=>E(o.name)).join(", ")}</p>` : ""}`;
+}
+/* 🔎 why a day has no grade (never a bare "—"), where Day 1 was read from, and what to put right */
+function dayNote(s){
+  const out = [];
+  if(s.auto == null && s.why) out.push(`<div class="cmdw-why" data-cmdw-why>${E(s.why)}</div>`);
+  if(s.from === "drive") out.push(`<div class="cmdw-why">🔎 Graded from the folders found in the trainee's Drive (made by hand, not built on the platform).</div>`);
+  if((s.notes || []).length) out.push(`<details class="cmdw-det cmdw-dn"><summary>${E(s.notes.length)} thing${s.notes.length === 1 ? "" : "s"} to put right</summary><ul class="cmdw-notes">${s.notes.map(x=>`<li>${E(x)}</li>`).join("")}</ul></details>`);
+  return out.join("");
+}
+/* 🔎 the drive as found (a structure made by hand), and the course documents filed by hand: filing evidence, not written work */
+function foundHtml(V){
+  const f = V.found, xs = V.filing || [], out = [];
+  if(f && f.why) out.push(`<p class="cmdw-p cmdw-no" data-cmdw-found>🔎 ${E(f.why)}</p>`);
+  else if(f && f.folders) out.push(`<p class="cmdw-p cmdw-dim" data-cmdw-found>🔎 Found in the trainee's Drive: ${E(f.folders)} of the firm's ${E(f.of)} folders${Object.keys(f.names || {}).length ? `, ${E(Object.keys(f.names).length)} named differently from the firm's standard (said under Day 1)` : ""}.</p>`);
+  if(xs.length) out.push(`<div class="cmdw-list" data-cmdw-filing><b>📎 Course documents filed by hand (graded with the folders and filing, not as written work)</b><ul>${xs.map(x=>`<li>${x.ok ? "✓" : "✗"} ${E(x.docId)} · ${E(x.name)} <span>in ${E(x.folder)}${x.ok ? "" : ` — it belongs in ${E(x.home)}`}</span></li>`).join("")}</ul></div>`);
+  return out.join("");
 }
 function trainerSection(rows){
   const reps = state.driveReports || {};
@@ -212,13 +229,21 @@ async function save(id, kind, key, clear){
   }catch(e){ MSG[id] = {ok:false, text:e.message}; }
   redraw();
 }
+/* what 🏅 Grade now did, in words: the written work, the folders (found by hand or built), and why nothing was, if nothing was */
+function ranText(r){
+  const f = r.found || null;
+  const work = `Graded ${r.graded || 0} written file${r.graded === 1 ? "" : "s"}${r.failed ? `, ${r.failed} couldn't be graded (the last grade stands)` : ""}${r.pending ? `; ${r.pending} more wait for the next press or tonight` : ""}.`;
+  const where = !r.built && f ? (f.why ? ` ${f.why}` : ` Found ${f.folders} of the firm's ${f.of} folders in the trainee's Drive (made by hand).`) : "";
+  const filing = r.filing ? ` ${r.filing} course document${r.filing === 1 ? "" : "s"} filed by hand ${r.filing === 1 ? "was" : "were"} graded as filing.` : "";
+  return `${work}${where}${r.structure ? " The folders and filing were graded too." : ""}${filing}`;
+}
 async function gradeNow(id){
   if(BUSY[id]) return;
   BUSY[id] = true; OPEN[id] = true; MSG[id] = {ok:true, text:"Grading this trainee's Drive now: the AI reads each changed file…"}; redraw();
   try{
     DATA[id] = await api({action:"workGradeFor", traineeId:id}); keepBrief(id, DATA[id]);
     const r = DATA[id].ran || {};
-    MSG[id] = {ok:true, text:`Graded ${r.graded || 0} file${r.graded === 1 ? "" : "s"}${r.failed ? `, ${r.failed} couldn't be graded (the last grade stands)` : ""}${r.pending ? `; ${r.pending} more wait for the next press or tonight` : ""}.${r.structure ? " The folders and filing were graded too." : ""}`};
+    MSG[id] = {ok:true, text:ranText(r)};
   }catch(e){ MSG[id] = {ok:false, text:e.message}; }
   BUSY[id] = false; redraw();
 }
@@ -315,6 +340,6 @@ css.textContent = `.cmdw-sec{margin:16px 0 4px;padding:14px 16px;border:2px soli
 .cmdw-t small{color:#DB8437;font-weight:800;}
 .cmdw-ovf{display:flex;gap:6px;flex-wrap:wrap;align-items:center;} .cmdw-in{padding:6px 8px;border:2px solid #C9D1E6;border-radius:8px;font:600 14px 'Inter',sans-serif;}
 .cmdw-score{width:80px;} .cmdw-comment{flex:1 1 220px;min-width:0;}
-.cmdw-det summary{cursor:pointer;} .cmdw-msg{font:700 14px/1.4 'Inter',sans-serif;margin:0 14px 8px;} .cmdw-msg.ok{color:#1E7A3A;} .cmdw-msg.no{color:#A50E0E;}`;
+.cmdw-det summary{cursor:pointer;} .cmdw-why{font:600 14px/1.4 'Inter',sans-serif;color:#5F6577;margin-top:3px;} .cmdw-dn{margin-top:3px;font:600 14px 'Inter',sans-serif;color:#2E3245;} .cmdw-msg{font:700 14px/1.4 'Inter',sans-serif;margin:0 14px 8px;} .cmdw-msg.ok{color:#1E7A3A;} .cmdw-msg.no{color:#A50E0E;}`;
 document.head.appendChild(css);
 })();
