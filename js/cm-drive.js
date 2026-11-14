@@ -438,7 +438,8 @@ function dayRecord(g){
   const names = sent ? {got:Number(sent.got) || 0, max:Number(sent.max) || 0, wrong:Number(sent.wrong) || 0}
     : nm ? {got:Number(nm.got) || 0, max:Number(nm.max) || 0, wrong:wrongOf((rule() || {}).report).charged} : null;
   const issues = (Array.isArray(g.issues) ? g.issues : notesOf(namesFirst(rows))).slice(0, 4).map(t=>String(t).slice(0, 300));
-  return Object.assign({score:g.score, passed:g.passed, at:g.at, issues}, names ? {names} : {});
+  const dims = g.dims && typeof g.dims === "object" ? g.dims : null;   // 📐 compliance, attention to detail, organization, naming (worker.js DRIVE_DIMS)
+  return Object.assign({score:g.score, passed:g.passed, at:g.at, issues}, names ? {names} : {}, dims ? {dims} : {});
 }
 /* 🏷 The trainee is told, once, when the names to fix are not the ones they were last told about: after a grade or
    ✓ Check my drive (which ends in a grade). What they were told is remembered on this browser, per trainee; where

@@ -915,7 +915,7 @@ async function driveRead(env, id) {
 async function driveWrite(env, id, rec) { await kvOf(env).put(driveKey(id), JSON.stringify(rec && typeof rec === "object" ? Object.assign({}, rec, { overrides: undefined }) : rec)); return rec; }
 // ✍ what worker-drive-work.js uses of the Backup Drive and the AI
 const driveWorkDeps = () => ({ json, kvOf, listAll, driveRead, driveWrite, driveLinked, driveConfigured, drive, driveMessage, saToken, callGemini, geminiKeyNames, gatewayOn,
-  nameCheck, nameHint, fileType, driveCaseId, driveSnapshot, driveNaming, gradeDay, dayStarted, filedFromProgress, FOLDER_STANDARD, DRIVE_HOMES, DRIVE_HOME_CATEGORY });
+  nameCheck, nameHint, fileType, driveCaseId, driveSnapshot, driveNaming, gradeDay, dayStarted, daysReached, filedFromProgress, FOLDER_STANDARD, DRIVE_HOMES, DRIVE_HOME_CATEGORY });
 /* Linked: a folder of the trainee's own, shared with the service account and pasted in ("link"). A record from the old
    Google sign-in (a sealed refresh token, no linkedAt) is not linked: the trainee shares and pastes once. */
 const driveLinked = (rec) => !!(rec && rec.rootId && rec.linkedAt);
@@ -1587,6 +1587,24 @@ function cleanCheck(rec, since) {
   return { ok: true };
 }
 
+/* 📐 The four measures each day's Backup Drive grade is also given in (the Scorecard shows them beside the score):
+   compliance (everything filed in the CMS is backed up, and the drive is confirmed with ✓ Check my drive), attention to
+   detail (the misfile caught, versions labeled SUPERSEDED and DRAFT, the missing folder noticed), organization (each
+   document in its folder, the structure kept whole) and naming convention (every file named the firm's way). */
+const DRIVE_DIMS = {
+  "Backup matches the CMS": "compliance", "Drive confirmed": "compliance", "Final audit": "compliance",
+  "Misfile corrected": "detail", "Superseded versions": "detail", "Demand Package placed": "detail", "Missing folder found": "detail",
+  "Documents backed up": "organization", "Papers backed up": "organization", "Litigation file backed up": "organization", "Folder restored": "organization",
+  "File names": "naming" };
+/* The Case Flow days a trainee has reached (their saved progress, "day-progress": day ids 12–15 are Days 2–5): a day
+   reached is graded every night whether or not anything of it is on the drive yet (nothing there scores what it earns: 0). */
+async function daysReached(env, id) {
+  try {
+    const p = JSON.parse((await kvOf(env).get(`progress:${id}`)) || "null");
+    const dp = (p && p.data && p.data["day-progress"]) || {};
+    return [2, 3, 4, 5].filter((n) => dp[10 + n] && typeof dp[10 + n] === "object");
+  } catch (e) { return []; }
+}
 /* The automated rows of each day's rubric, from the Drive. `filed` is every course document filed in the CMS. */
 function gradeDay(n, rec, S, filed, N) {
   const rows = [], drills = rec.drills || {};
@@ -1629,10 +1647,14 @@ function gradeDay(n, rec, S, filed, N) {
   rows.push(names);
   const max = rows.reduce((t, r) => t + r.max, 0), got = rows.reduce((t, r) => t + r.got, 0);
   const score = max ? Math.round((100 * got) / max) : 0;
+  // 📐 the four measures of a Case Manager's file keeping, each from the rows that show it (DRIVE_DIMS)
+  const dims = {};
+  rows.forEach((r) => { const k = DRIVE_DIMS[r.label]; if (!k) return; const x = dims[k] = dims[k] || { got: 0, max: 0 }; x.got += r.got; x.max += r.max; });
+  Object.keys(dims).forEach((k) => { dims[k] = dims[k].max ? Math.round((100 * dims[k].got) / dims[k].max) : null; });
   // `names`: the File names row by itself, so the Scorecard and the Batch Sheet can say a lower score is the names';
   // `issues`: what to put right, the 🏷 note first (a list cut short must not be the one that drops it)
   const issues = names.notes.concat(...rows.slice(0, -1).map((r) => r.notes)).slice(0, 6).map((x) => clip(x, 320));
-  return { score, passed: score >= DRIVE_PASS, rows, names: { got: names.got, max: names.max, wrong: names.wrong }, issues, at: new Date().toISOString() };
+  return { score, passed: score >= DRIVE_PASS, rows, dims, names: { got: names.got, max: names.max, wrong: names.wrong }, issues, at: new Date().toISOString() };
 }
 /* A day is graded once the trainee has started it: one of its documents on the drive, or its drill begun. */
 function dayStarted(n, rec) {
@@ -1643,7 +1665,8 @@ function dayStarted(n, rec) {
 }
 async function driveGrade(env, id, rec, filed) {
   rec.grades = rec.grades || {};
-  const days = [2, 3, 4, 5].filter((n) => dayStarted(n, rec));
+  const reached = await daysReached(env, id);
+  const days = [2, 3, 4, 5].filter((n) => dayStarted(n, rec) || reached.includes(n));
   // Day 1's documents are on the drive before any later day starts, and their names are read all the same
   if (days.length || (rec.saved || []).some((s) => s.id)) {
     const S = await driveSnapshot(env, id, rec);

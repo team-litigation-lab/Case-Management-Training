@@ -688,8 +688,10 @@ export async function driveWorkApi(env, D, tok, b) {
 
 /* The structure grade (worker.js gradeDay), read from the drive now and merged into the record as it is when written,
    so a document the trainee filed meanwhile isn't lost. */
+const DAILY = 20 * 3600 * 1000;   // a drive's structure is graded again at least this often (the run is nightly)
 async function gradeStructure(env, D, id, rec, budget) {
-  const days = [2, 3, 4, 5].filter((n) => D.dayStarted(n, rec));
+  const reached = D.daysReached ? await D.daysReached(env, id) : [];
+  const days = [2, 3, 4, 5].filter((n) => D.dayStarted(n, rec) || reached.includes(n));
   if (!days.length && !(rec.saved || []).some((s) => s.id)) return false;
   if (!budget.take(2 + D.FOLDER_STANDARD.length)) return false;
   const filed = await D.filedFromProgress(env, id);
@@ -733,11 +735,15 @@ async function nightlyRun(env, D, budget) {
     // a drive the run could do nothing on with its whole budget is passed over, so it can't hold up everyone after it
     const passOver = (progress, why) => { if (wasFirst && !progress) { out.cursor = id; out.passedOver.push(`${id}: ${why}`); } };
     try {
-      const r = await gradeTraineeWork(env, D, id, rec, budget);
+      // the written work first; a failure there (one that needn't stop the run) leaves the structure's daily grade to run
+      let r;
+      try { r = await gradeTraineeWork(env, D, id, rec, budget); }
+      catch (e) { if (mustStop(e)) throw e; out.errors.push(`${id}: ${clip(e && e.message, 160)}`); r = { graded: 0, failed: 0, pending: 0, changed: false, prevNewest: "", newestAll: "" }; }
       out.trainees++; out.graded += r.graded; out.failed += r.failed; out.pending += r.pending;
       if (!r.changed && !r.graded && !r.pending) out.skipped++;
       // the structure too, when anything on the drive changed since it was last graded (or it never was)
-      if (rec.builtAt && (!rec.gradedAt || (r.newestAll && r.newestAll > rec.gradedAt) || r.prevNewest !== (r.newestAll || ""))) {
+      // and at least once a day, so a day reached with nothing on the drive yet is scored too (DAILY)
+      if (rec.builtAt && (!rec.gradedAt || Date.now() - Date.parse(rec.gradedAt) > DAILY || (r.newestAll && r.newestAll > rec.gradedAt) || r.prevNewest !== (r.newestAll || ""))) {
         if (await gradeStructure(env, D, id, rec, budget)) out.structure++;
       }
       if (r.pending) { out.stopped = out.stopped || "budget"; passOver(r.progress, "nothing could be read or graded within the run's budget"); break; }   // finished first next time
