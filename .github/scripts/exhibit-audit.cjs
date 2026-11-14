@@ -188,6 +188,9 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     await page.evaluate(async (a) => {
         const r = (await storeGet('case-flow')) || {};
         if (r.service && r.service[a.b]) { r.service[a.b].choice = a.i; await storeSet('case-flow', r); }
+        // storeSet only schedules the cloud copy (4 s later); a reload before it lands brings the older copy back from
+        // the server, so the answer would be the wrong one again. Save it now, as the page does on leaving.
+        if (typeof cloudSaveNow === 'function') await cloudSaveNow();
     }, { b: BLOCK, i: right });
     await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800);
     await page.evaluate(() => { state.isAdmin = true; });
