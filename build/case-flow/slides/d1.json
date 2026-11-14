@@ -258,7 +258,7 @@
       "confirm": "Atty. Thorne decides what follows Step 3"
     },
     "redFlag": {
-      "on": "dodont",
+      "spoken": true,
       "see": "Voicemails left **02/11 and 02/13** that never reached the Communications Log",
       "costs": "An unlogged attempt did not happen: the ladder can't show the attempts were made",
       "do": "Log each attempt now **with date, time, channel and outcome**",
@@ -446,7 +446,7 @@
       "confirm": "Margaret's PD claim is referred to Atty. Thorne"
     },
     "redFlag": {
-      "on": "dodont",
+      "spoken": true,
       "see": "A rental, PD or Loss of Use claim **opened in John Doe's name**",
       "costs": "John has no PD claim: Margaret Doe's Civic claim (KM-26-440871-PD) tangles with his BI file",
       "do": "Keep PD under Margaret Doe; **refer her claim** to Atty. Thorne",
@@ -586,6 +586,7 @@
       "confirm": "Atty. Thorne approves each version"
     },
     "redFlag": {
+      "spoken": true,
       "see": "**'This will help the case'** in a treatment note, or a partly addressed plan run",
       "costs": "Every note is discoverable, and an unapproved plan runs the file off course",
       "do": "Write facts only; **execute nothing** until Atty. Thorne approves the version",

@@ -420,10 +420,17 @@ function fullText(l, d){
     + S(2 + n, showLabel(b, "Show Them"), visual(l, b))
     + S(3 + n, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
   }
-  if(b.kind === "activity") return S(1, "The scenario", `<div class="scenario-card"><div class="stag">John Doe VS Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
-    + S(2, "Execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
-    + S(3, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once your work on this activity has been submitted and graded.</p>`)
-    + S(4, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
+  if(b.kind === "activity"){   // (an activity is one slide, Your Task: what landed on the file, the Grade-A Standard and the model are here)
+    const ev = SIM.events[b.id], g = (SLIDES[b.id] || {}).grade, vs = viewsOf(b); let n = 0;
+    const col = (h, xs, ol) => `<div><b>${h}</b><${ol ? "ol" : "ul"}>${xs.map(x => `<li>${hl(x)}</li>`).join("")}</${ol ? "ol" : "ul"}></div>`;
+    return S(++n, "The scenario", `<div class="scenario-card"><div class="stag">John Doe VS Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
+    + (ev && !vs.includes("case") ? S(++n, "📂 Your Case: what landed on the file", `${timeBanner(l)}${falloutFor(b.id).map(x => `<p class="cf-note">⚠️ <b>${E(x.f.then.event.subject)}</b> (${E(x.f.then.event.from || "")}): ${E(x.f.then.event.body)}</p>`).join("")}${(ev.before || []).map(x => eventCard(x, "cfx-ev-before")).join("")}${eventCard(ev, "")}`) : "")
+    + S(++n, "Execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
+    + (g ? S(++n, `🏅 ${g.title}`, `<div class="cfx-guide-g">${col("📐 Guidelines", g.guide)}${col("📦 Standard Inclusions", g.include)}${col("🪜 Steps to Grade A", g.steps, true)}</div>`) : "")
+    + (b.show ? S(++n, showLabel(b, "See It"), visual(l, b)) : "")
+    + S(++n, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once your work on this activity has been submitted and graded.</p>`)
+    + S(++n, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
+  }
   return S(1, "Knowledge verification", `<ol class="cf-q">${b.check.questions.map(q => `<li>${E(q)}</li>`).join("")}</ol>`)
     + S(2, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
 }
@@ -542,18 +549,35 @@ const whyView = b => theoryViews(b).length && !(SLIDES[b.id] || {}).whySlide ? [
 const rfView = b => { const r = mfOf(b).redFlag, vs = viewsOf(b); return !r ? null : vs.includes("why") ? "why" : r.spoken ? null : vs.includes(r.on) ? r.on : "rules"; };
 const whyOpen = (b, c) => { if(b.kind !== "lesson" || viewsOf(b).includes("why") || !c.hook) return ""; const ls = leadSplit(c.hook), line = (SLIDES[b.id] || {}).whyLine || (ls ? ls[0] : c.hook);
   return `<p class="cfx-whyline" role="note" aria-label="Why it matters"><b class="cfx-whyline-k">💡 Why it matters</b><span class="cfx-whyline-t">${hl(line)}</span></p>`; };
-/* A lesson the decks don't teach is drawn on at most LESSON_MAX slides (the owner: lessons are 1-3 slides, the time goes
-   to the practical): The Theory (or Why It Matters), The Rules (with the Rule vs. Exception's "On this file"), and the CM
-   Red Flag's own slide (See It or Do & Don't, where its copy puts it), else The Document or The Framework. The slides
-   left out (The Theory, Continued, See It, Do & Don't, The Roadmap) stay in 📖 Reference and in the trainer's talking
-   points for the lesson's last slide (slideScripts: `lean`). The same rule is in build/case-flow/curriculum.cjs and
-   build/case-flow/scripts/assemble.cjs. drawn: the lesson's full slides, as before (js/cm-slide-places.js). */
-const LESSON_MAX = 3, LEAN_KEEP = ["theory", "why", "rules", "doc", "frame", "theory2", "model", "map", "dodont"];
-const lean = (vs, b) => { if(vs.length <= LESSON_MAX) return vs; const rf = ((SLIDES[b.id] || {}).redFlag || {}), home = !rf.spoken && rf.on;   // the CM Red Flag's own slide is the third kept
-  const k = new Set(LEAN_KEEP.filter(v => vs.includes(v) && (v === "theory" || v === "why" || v === "rules" || v === home)).concat(LEAN_KEEP.filter(v => vs.includes(v))).slice(0, LESSON_MAX)); return vs.filter(v => k.has(v)); };
+/* The Document on a drawn lesson's one slide: its name and what it is, with the file's copy one tap away; its legal
+   purpose, what it proves and its handling are in 📖 Reference (The Document) and in the slide's talking points */
+const docStrip = (b, c) => { const d = c.document; if(!d) return ""; const f = d.doc && CF_DOCS.find(x => x.id === d.doc);
+  return `<div class="cfx-docline" role="note" aria-label="The Document: ${E(d.name)}"><b class="cfx-docline-k">📄 ${E(d.name)}</b><span class="cfx-docline-t">${hl(d.definition)}</span>${f ? `<a class="cfx-docline-f" href="${E(docUrl(f))}" target="_blank" rel="noopener" title="${E(f.desc)}" onclick="return cmCaseFlow.doc(event,'${f.id}')">On John Doe's file ↗</a>` : ""}</div>`; };
+/* A lesson the decks don't teach is drawn on ONE slide (the owner: the Canva decks are the lessons, so our side of
+   them is compact, and the time goes to the practical): The Rules, opened by the lesson's 💡 Why it matters line
+   (whyOpen) and, in a lesson that introduces a document, the document's name and what it is (docStrip), with the
+   Rule vs. Exception, the CM Red Flag, the Milestone rail and the UPL line where the lesson has them. The slides left
+   out (The Theory, The Theory, Continued, The Framework, The Document in full, The Roadmap, See It, Do & Don't, Why It
+   Matters) stay in 📖 Reference and in the trainer's talking points for that one slide (slideScripts: `lean`). The same
+   rule is in build/case-flow/curriculum.cjs and .github/scripts/kc-on-slides.cjs. drawn: the lesson's full slides, as
+   before (js/cm-slide-places.js). */
+const LESSON_MAX = 1;
+const lean = vs => vs.length <= LESSON_MAX ? vs : ["rules"];
+/* A Skill Activity is one slide, Your Task (the owner: practice slides as minimal as they can be): Your Case in a line
+   or two, the steps, and Launch · 🧰 Tools · Submit. Only the day's one Skill Building keeps a second slide, its document
+   audit, and Day 1's Backup File Maintenance its Your Case (the Backup Drive set-up, from the Worker). Submit turns
+   Your Task into the 🤖 AI Grader in place (MODE: the slide's "check"), and a side exercise's audit opens the same way
+   ("audit"); ← Your Task turns it back. Your Case, the Grade-A Standard, See It and the answer key are in 📖 Reference
+   and the trainer's talking points. The same rule is in build/case-flow/curriculum.cjs and .github/scripts/flow-order.cjs. */
+const MAIN_ACTS = () => new Set(SEQUENCE.map(sd => sd.main).filter(Boolean));
+const actViews = b => ["task"].concat(EX.audits[b.id] && MAIN_ACTS().has(b.id) ? ["audit"] : [], b.id === "d1m1-drive" ? ["case"] : []);
+const MODE = {}, TOOLS_OPEN = {};
+const MODE_LABEL = {check: "← Your Task", audit: "← Your Task"};
+const modeBack = (b, view) => b.kind === "activity" && !viewsOf(b).includes(view) && !inAudience() ? `<button type="button" class="btn cfx-mode-back" onclick="cmCaseFlow.mode('${b.id}','')" title="Back to the task's steps">${MODE_LABEL[view] || "← Your Task"}</button>` : "";
 function viewsOf(b, drawn){   // drawn: the lesson's own slides, as before its deck pages took their place (js/cm-slide-places.js)
   if(deckOf(b) && !drawn) return deckOf(b).map(x => "deck" + x.page);
-  if(b.kind === "lesson" && !drawn) return lean(fullViewsOf(b), b);
+  if(b.kind === "lesson" && !drawn) return lean(fullViewsOf(b));
+  if(b.kind === "activity" && !drawn) return actViews(b);
   return fullViewsOf(b);
 }
 function fullViewsOf(b){
@@ -792,8 +816,8 @@ function plainFirst(){
 function plainBox(b){
   const ts = plainFirst()[b.id] || [];
   if(!ts.length) return "";
-  // (closed, its terms still named on the line, where The Rules also carries a Milestone rail: the slide keeps full size)
-  return `<details class="cfx-plain"${ts.length <= 3 && !(mfOf(b).milestones && msView(b) === "rules") ? " open" : ""}><summary>📖 <b>In plain English</b> · ${ts.map(E).join(" · ")}</summary><dl>${ts.map(t => `<div><dt>${E(t)}</dt><dd>${E(CF.plain[t])}</dd></div>`).join("")}</dl></details>`;
+  // (closed, its terms still named on the line, where The Rules also carries a Milestone rail, or is a drawn lesson's one slide: the slide keeps full size)
+  return `<details class="cfx-plain"${ts.length <= 3 && !(mfOf(b).milestones && msView(b) === "rules") && !(b.kind === "lesson" && viewsOf(b).length === 1) ? " open" : ""}><summary>📖 <b>In plain English</b> · ${ts.map(E).join(" · ")}</summary><dl>${ts.map(t => `<div><dt>${E(t)}</dt><dd>${E(CF.plain[t])}</dd></div>`).join("")}</dl></details>`;
 }
 /* Time on the file. The course is five days; John Doe's case runs from the collision to the award over a year and a
    half, and its Skill Activities are taught by topic, not in date order. So each one's Your Case opens by saying how
@@ -870,9 +894,10 @@ function slideBody(view, l, d){
       return `<div class="cfx-fw cfx-map"><h3 class="cfx-fw-t">🗺 ${E(r.title)}</h3><ol class="cfx-fw-flow" style="--n:${steps.length}">${steps.map((x, i) => `<li style="animation-delay:${i * .07}s"><span class="cfx-fw-n">${i + 1}</span><b>${E(x.label)}</b><span>${hl(x.text)}</span></li>`).join("")}</ol><p class="cfx-fw-note">Where this lesson is going: each step is taught next, before anything asks you to do it.</p></div>${redFlagBox(b, "map")}`;
     }
     case "rules": { const side = mfOf(b).ruleEx ? "rx" : msView(b) === "rules" && mfOf(b).milestones ? "ms" : rfView(b) === "rules" ? "rf" : "";   // beside the points: Rule vs. Exception, or the Red Flag, in the picture's place
-      return `<div class="cfx-split${side ? " cfx-split-" + side : ""}${side === "rf" && mfOf(b).redFlag.tight ? " cfx-split-tight" : ""}"><ol class="cfx-points">${c.points.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>${side === "rx" ? ruleExBox(b) : side === "ms" ? "" : side === "rf" ? redFlagBox(b, "rules") : art(c.image, "small")}</div>${side === "rf" ? "" : redFlagBox(b, "rules")}${milestoneRail(b, "rules")}${plainBox(b)}
+      // a drawn lesson's one slide (lean): it opens with the lesson's 💡 Why it matters line and, where it introduces a document, that document
+      return `${b.kind === "lesson" && viewsOf(b).length === 1 ? whyOpen(b, c) + docStrip(b, c) : ""}<div class="cfx-split${side ? " cfx-split-" + side : ""}${side === "rf" && mfOf(b).redFlag.tight ? " cfx-split-tight" : ""}"><ol class="cfx-points">${c.points.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>${side === "rx" ? ruleExBox(b) : side === "ms" ? "" : side === "rf" ? redFlagBox(b, "rules") : art(c.image, "small")}</div>${side === "rf" ? "" : redFlagBox(b, "rules")}${milestoneRail(b, "rules")}${plainBox(b)}
       ${c.upl ? `<div class="cfx-upl"><b>⚖ UPL Line</b><span>${hl(c.upl)}</span></div>` : ""}`; }
-    case "audit": return auditSlide(b);
+    case "audit": return modeBack(b, "audit") + auditSlide(b);
     case "grade": {   // what a Grade-A packet or binder holds and how it is built, shown before Your Task
       const g = SLIDES[b.id].grade, col = (cls, h, xs, ol) => `<div class="cfx-grade-c ${cls}"><h3>${h}</h3><${ol ? "ol" : "ul"}>${xs.map(x => `<li>${hl(x)}</li>`).join("")}</${ol ? "ol" : "ul"}></div>`;
       return `<div class="cfx-fw cfx-grade-w"><h3 class="cfx-fw-t">🏅 ${E(g.title)}</h3><div class="cfx-grade">${col("cfx-grade-g", "📐 Guidelines", g.guide)}${col("cfx-grade-i", "📦 Standard Inclusions", g.include)}${col("cfx-grade-s", "🪜 Steps to Grade A", g.steps, true)}</div>
@@ -894,28 +919,35 @@ function slideBody(view, l, d){
           <div class="cfx-sb-docs">${thumbs}</div>
         </div></div>`;
     }
-    case "task": {   /* Your Task, in one column (js/cm-sb-task.js styles it and draws its Launch button): one button opens the CMS and
-         Google Drive, then the steps in full sentences, then what is done in another tool (the live call, the service confirmation,
-         the Amendment Requests, the Notes & Action Plan), then one bar: the source files and Submit to AI Grader (js/cm-ai-grader.js).
-         Purpose, principle and the naming convention are in 📖 Reference, with the rest of the rules. */
+    case "task": {   /* Your Task, the activity's one slide (js/cm-sb-task.js styles it and draws its Launch button): 📂 Your Case, the
+         assumption or what just landed, in a line or two; the steps; then one bar with three buttons: 🚀 Launch CMS & Google
+         Drive, 🧰 Tools ▾ (everything else the task is done with: the Action Plan Editor, the live call, the service
+         confirmation, the Amendment Requests, the Notes & Action Plan, the Source Files, a side exercise's document audit,
+         a trainer's ⚡ Inject) and Submit →, which turns this slide into the 🤖 AI Grader (js/cm-ai-grader.js). What the
+         slide no longer shows (the message that landed, the file date, the Grade-A Standard, the model, the answer key)
+         is in 📖 Reference and the trainer's talking points; purpose, principle and the naming convention too. */
       const ofLine = practisesLine(l) ? `<b class="cfx-of" title="The lesson this activity practises: ${E(titleCase(l.cf.of.cf.block.title))}">${E(practisesLine(l))}</b>` : "";
       const more = blockTools(b).filter(id => !["cms", "drive", "call", "docs", "plan"].includes(id)).map(id => toolChip(id, b.id)).join(""), n = (CF_PACKETS[b.id] || []).length;
-      const acts = (SIM.calls[b.id] ? `<div class="cfx-call"><b>📞 Live Call</b><span>${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}<small class="cfx-simnote-s">⏱ Simulated in real time for accelerated training</small></span>
-          <button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button></div>` : "")
-        + (serviceOf(b.id) ? `<div class="cfx-call cfx-svb"><b>✉ ${E(svWords(serviceOf(b.id)).label)}</b><span>${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}</span>
-          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the ${E(svWords(serviceOf(b.id)).label)}</button></div>` : "")
-        + (amendOf(b.id) ? (s => `<div class="cfx-call cfx-svb"><b>📝 Amendment Requests</b><span>${E(amendOf(b.id).kicker)}${s.sent ? ` · <em>${s.sent} of ${s.of} sent · ${s.filed} of ${s.copies} corrected copies filed</em>` : ""}</span>
-          <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.amend('${b.id}')">📝 Open the Amendment Requests</button></div>`)(amSummary(b.id, amendOf(b.id), amRec(b.id))) : "")
-        + (notesOf(b.id) ? `<div class="cfx-call cfx-svb"><b>📝 Notes &amp; Action Plan</b><span>${npParts(b.id).filter(p => p.done).length} of ${npParts(b.id).length} done</span>
-          <button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.notes('${b.id}')">📝 Open</button></div>` : "");
-      return `${plainBox(b)}<div class="cfx-task cfx-task1">
-        <div class="cfx-task-bar">${window.CMSbTask ? CMSbTask.launch(b.id) : ""}${planGo(b, l.cf.day.n)}${more ? `<details class="cfx-more-tools"><summary>🧰 Other tools</summary><span class="cfx-tools-in">${more}</span></details>` : ""}${ofLine}</div>
-        <ol class="cfx-points cfx-steps">${c.steps.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>
-        ${acts ? `<div class="cfx-task-acts">${acts}</div>` : ""}
-        <div class="cfx-task-foot">${docLine(b.id) ? `<details class="cfx-docs"><summary>📁 Source Files (${n} Document${n === 1 ? "" : "s"})</summary><div class="cfx-docs-pop">${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</div></details>` : "<span></span>"}
-          <button type="button" class="btn cfx-grade-go" onclick="cmCaseFlow.toView('${b.id}','check')" title="Hand in what you did: it is scored and you see what to improve">Submit →</button></div></div>`; }
+      const row = (h, t, btn) => `<div class="cfx-call cfx-svb"><b>${h}</b><span>${t}</span>${btn}</div>`, li = d && d.lessons ? d.lessons.indexOf(l) : -1;
+      const tools = (isTrainer() && !inAudience() && injectsOf(b).length && li >= 0 ? row("⚡ Inject: trainer only", E(injectsOf(b).map(x => x.short).join(" · ")), `<button type="button" class="btn btn-navy btn-sm cfx-inject" onclick="cmCaseFlow.inject(${d.id},${li})" title="Trainer only: a real-time task to inject while the room works this one">⚡ Inject</button>`) : "")
+        + (EX.audits[b.id] && !viewsOf(b).includes("audit") ? row("🔍 Document audit", "Audit the set, then submit", `<button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.mode('${b.id}','audit')">🔍 Open the audit</button>`) : "")
+        + (SIM.calls[b.id] ? row("📞 Live Call", `${E(SIM.calls[b.id].who)} is on the line${(REC.calls || {})[b.id] ? ` · <em>✓ taken ${E(new Date(REC.calls[b.id].at).toLocaleDateString())}</em>` : ""}<small class="cfx-simnote-s">⏱ Simulated in real time for accelerated training</small>`, `<button type="button" class="btn btn-orange btn-sm" data-tool="call" onclick="cmCaseFlow.call('${b.id}')">📞 Take the call</button>`) : "")
+        + (serviceOf(b.id) ? row(`✉ ${E(svWords(serviceOf(b.id)).label)}`, `${E(serviceOf(b.id).kicker)}${svRec(b.id).filed ? ` · <em>✓ filed ${E(svRec(b.id).filed.name)}</em>` : ""}`, `<button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.service('${b.id}')">✉ Open the ${E(svWords(serviceOf(b.id)).label)}</button>`) : "")
+        + (amendOf(b.id) ? (x => row("📝 Amendment Requests", `${E(amendOf(b.id).kicker)}${x.sent ? ` · <em>${x.sent} of ${x.of} sent · ${x.filed} of ${x.copies} corrected copies filed</em>` : ""}`, `<button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.amend('${b.id}')">📝 Open the Amendment Requests</button>`))(amSummary(b.id, amendOf(b.id), amRec(b.id))) : "")
+        + ((x => x && x.channel === "voicemail" && x.spoken && x.listen && !notesOf(b.id) ? row("📳 Voicemail", `${E(x.from || "")} · ${E(x.date || "")}`, `<button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.listen('${b.id}')">🎧 Listen</button>`) : "")(SIM.events[b.id]))
+        + (notesOf(b.id) ? row("📝 Notes &amp; Action Plan", `${npParts(b.id).filter(x => x.done).length} of ${npParts(b.id).length} done`, `<button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.notes('${b.id}')">📝 Open</button>`) : "")
+        + (planGo(b, l.cf.day.n) ? row("📝 Action Plan Editor", "Your draft for this activity", planGo(b, l.cf.day.n)) : "")
+        + (more ? `<div class="cfx-call cfx-svb cfx-tools-row"><b>🧰 More tools</b><span class="cfx-tools-in">${more}</span></div>` : "")
+        + (docLine(b.id) ? `<details class="cfx-docs"><summary>📁 Source Files (${n} Document${n === 1 ? "" : "s"})</summary><div class="cfx-docs-pop">${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</div></details>` : "");
+      const sit = c.situation ? `<p class="cfx-yc"><b class="cfx-yc-k">📂 Your Case</b><span class="cfx-yc-t">${hl(c.situation)}</span></p>` : "";
+      // (the lesson it practises, with its 💡 Tip (js/cm-lesson-tips.js), heads the menu: the bar keeps its three buttons)
+      const menu = (ofLine ? `<div class="cfx-call cfx-svb cfx-of-row">${ofLine}</div>` : "") + tools + plainBox(b);
+      return `<div class="cfx-task cfx-task1">${sit}
+        <ol class="cfx-points cfx-steps${c.steps.length > 4 ? " cfx-steps-long" : ""}">${c.steps.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>
+        <div class="cfx-task-foot">${window.CMSbTask ? CMSbTask.launch(b.id) : ""}${menu ? `<details class="cfx-tools-menu" data-tools="${b.id}"${TOOLS_OPEN[b.id] ? " open" : ""} ontoggle="cmCaseFlow.toolsOpen('${b.id}',this.open)"><summary>🧰 Tools ▾</summary><div class="cfx-task-acts cfx-tools-pop">${menu}</div></details>` : ""}
+          <button type="button" class="btn cfx-grade-go" onclick="cmCaseFlow.mode('${b.id}','check')" title="Hand in what you did: it is scored and you see what to improve">Submit →</button></div></div>`; }
     case "check":   // 🤖 the AI Grader (js/cm-ai-grader.js) in place of the old self-tick list, then the reference of the work
-      return (window.CMAIGrader ? CMAIGrader.view(b.id) : `<p class="cf-note">Loading…</p>`) + workLog(b);
+      return modeBack(b, "check") + (window.CMAIGrader ? CMAIGrader.view(b.id) : `<p class="cf-note">Loading…</p>`) + workLog(b);
     case "questions": case "questions2": {   // each question with its answer box; answers save as they're typed
       const from = view === "questions2" ? KC_PER : 0, m = rec(mod.id), last = from + KC_PER >= c.questions.length;
       return `<ol class="cfx-points cfx-qs cfx-qs-2 cfx-kc" style="counter-reset:cfx ${from}">${c.questions.slice(from, from + KC_PER).map((q, j) => `<li><span><span class="cfx-kc-q">${hl(q)}</span>
@@ -954,7 +986,7 @@ function actDone(id){
   const b = BLOCK[id]; if(!b) return false;
   if(id === DRIVE_ACT && driveDone()) return true;
   if(DRIVE_LATER.has(id) && driveDayPassed(id)) return true;
-  return ((REC.reached || {})[id] || 0) >= viewsOf(b).length || ((REC.ticks || {})[id] || []).some(Boolean) || !!(REC.work || {})[id] || !!((REC.listen || {})[id] || {}).at || !!((REC.notes || {})[id] || {}).txAt || !!(REC.calls || {})[id];
+  return ((REC.reached || {})[id] || 0) >= viewsOf(b).length + 1 || ((REC.ticks || {})[id] || []).some(Boolean) || !!(REC.work || {})[id] || !!((REC.listen || {})[id] || {}).at || !!((REC.notes || {})[id] || {}).txAt || !!(REC.calls || {})[id];
 }
 const actOpened = id => !!(REC.reached || {})[id] || actDone(id);
 /* each tool once per slide: a slide names its tools in the top row, in the Your Task "Where" box, beside a step,
@@ -985,20 +1017,18 @@ function oneOfEachTool(html){
 const WHAT = {lesson: "Lesson", activity: "Practice Lab", check: "Knowledge Check"};
 const TITLE_LONG = 72;
 function card(l, i, d, part){
-  const {day, mod, block: b, k, phase} = l.cf, vs = viewsOf(b), p = Math.min(Math.max(part || 1, 1), vs.length), view = vs[p - 1];
-  noteReached(b, p);
+  const {day, mod, block: b, k, phase} = l.cf, vs = viewsOf(b), p = Math.min(Math.max(part || 1, 1), vs.length), view = vs[p - 1] === "task" && MODE[b.id] ? MODE[b.id] : vs[p - 1];
+  noteReached(b, view === "check" ? vs.length + 1 : p);   // an activity is worked through once its Submit (the AI Grader) is opened
   const onNavy = view === "case";   // a Skill Building opener sits on the slide itself, like the deck's
   /* No hidden leftovers: the view pill, the dots, the kicker, the 📖 Additional Reference row and the title ribbon above
      the card were all hidden by CSS (the band under the title says the view; 📖 Reference is on the band), so they are
-     no longer drawn. A trainer's ⚡ Inject keeps its row on Your Task. A lesson has no separator line either; an
+     no longer drawn. A trainer's ⚡ Inject is in Your Task's 🧰 Tools. A lesson has no separator line either; an
      activity keeps it, as the daily loop's tag line (js/cm-day-loop.js: THE DAY'S SKILL BUILDING / SKILL ACTIVITY). */
-  const inject = view === "task" && isTrainer() && !inAudience() && injectsOf(b).length ? `<button type="button" class="cfx-inject" onclick="cmCaseFlow.inject(${d.id},${i})" title="Trainer only: a real-time task to inject while the room works this one">⚡ Inject: ${E(injectsOf(b).map(x => x.short).join(" · "))}</button>` : "";
   const sep = b.kind === "lesson" ? "" : `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${day.n}${day.track ? ` &middot; ${E(day.track).toUpperCase()}` : ""} &middot; ${phase.lead === "Case Phase" ? `CASE PHASE ${phase.n} OF ${phase.of}` : phase.lead.toUpperCase()} &middot; ${KIND[b.kind].toUpperCase()} &middot; BLOCK ${k + 1} OF ${mod.blocks.length} &middot; ${viewLabel(b, view).toUpperCase()}</div>`;
   return oneOfEachTool(`${sep}
     <div class="card lesson-card cf-card cfx cfx-deck cfx-${view} cfx-${b.kind}" data-part="${p}" aria-label="${E(viewLabel(b, view))}, slide ${p} of ${vs.length}">
       <div class="cfx-deck-head"><h2 class="cfx-deck-title${l.h.length > TITLE_LONG ? " cfx-t-long" : ""}" title="${E(l.h)}">${E(l.h)}</h2></div>
       <div class="cfx-ribbon cfx-what cfx-ribbon-ref"><span><i class="cfx-what-k">${E(WHAT[b.kind])}</i><b class="cfx-what-v">${E(viewLabel(b, view))}</b></span>${inAudience() ? "" : `<button type="button" class="cfx-ref-open" onclick="cmCaseFlow.full(${d.id},${i})" title="The full text of this block, over the slide">📖 Reference</button>`}</div>
-      ${inject ? `<div class="cfx-top">${inject}</div>` : ""}
       <div class="cfx-body${onNavy ? " cfx-body-navy" : ""}">${onNavy ? slideBody(view, l, d) : `<div class="cfx-sheet">${slideBody(view, l, d)}</div>`}</div>
     </div>`);
 }
@@ -2901,13 +2931,28 @@ function named(s, k){
 window.SLIDE_SCRIPTS = window.SLIDE_SCRIPTS || {};
 window.cmCaseFlow = window.cmCaseFlow || {}; window.cmCaseFlow.viewsOf = b => viewsOf(b); window.cmCaseFlow.drawnViewsOf = b => viewsOf(b, true);
 // a block's slide by its view (Your Task's Submit to AI Grader goes straight to the AI Grader, past Your Case)
+// (a view the block no longer draws as a slide of its own: the AI Grader or the audit opens on its Your Task slide, MODE;
+// any other goes to the block's first slide)
 window.cmCaseFlow.toView = function(blockId, view){
   const d = typeof DAYS !== "undefined" ? DAYS.find(x => x.id === state.dayId) : null; if(!d || typeof buildDaySlides !== "function") return nextSlide();
-  const li = d.lessons.findIndex(l => l.cf && l.cf.block.id === blockId), vs = li >= 0 ? viewsOf(d.lessons[li].cf.block) : [];
-  const i = buildDaySlides(d).findIndex(sl => sl.type === "topic" && sl.lessonIndex === li && vs[sl.part - 1] === view);
+  const li = d.lessons.findIndex(l => l.cf && l.cf.block.id === blockId), b = li >= 0 ? d.lessons[li].cf.block : null, vs = b ? viewsOf(b) : [];
+  const mode = b && b.kind === "activity" && !vs.includes(view) && (view === "check" || view === "audit") ? view : "";
+  const at = vs.includes(view) ? view : mode ? "task" : vs[0];
+  const i = buildDaySlides(d).findIndex(sl => sl.type === "topic" && sl.lessonIndex === li && vs[sl.part - 1] === at);
   if(i < 0) return nextSlide();
-  if(typeof goToSlide === "function") goToSlide(i); else { state.lessonSlide = i; render(); }
-};   // a block's slides, in order (the scripts' keys)
+  if(typeof goToSlide === "function") goToSlide(i); else state.lessonSlide = i;
+  if(mode){ MODE[blockId] = mode; } else delete MODE[blockId];
+  if(typeof render === "function") render();
+};
+// Your Task's Submit (the AI Grader) and a side exercise's audit, on the same slide; "" back to the steps
+window.cmCaseFlow.mode = function(blockId, view){
+  if(view) MODE[blockId] = view; else delete MODE[blockId];
+  if(typeof render === "function") render();
+};
+window.cmCaseFlow.modeOf = blockId => MODE[blockId] || "";
+window.cmCaseFlow.clearModes = () => { Object.keys(MODE).forEach(k => delete MODE[k]); Object.keys(TOOLS_OPEN).forEach(k => delete TOOLS_OPEN[k]); };
+// the 🧰 Tools menu stays open across a redraw (a tool's status changing redraws the slide)
+window.cmCaseFlow.toolsOpen = (blockId, open) => { if(open) TOOLS_OPEN[blockId] = true; else delete TOOLS_OPEN[blockId]; };   // a block's slides, in order (the scripts' keys)
 MODULES.forEach(d => d.lessons.forEach(l => {
   const b = l.cf.block, n = b.notes || [], vs = viewsOf(b), best = (b.best || []).map(x => String(x).replace(/^pitfall:\s*/i, "Watch for this: "));
   const per = {   // one script per slide (view); the block's speaker notes spread across its slides
@@ -2938,8 +2983,10 @@ MODULES.forEach(d => d.lessons.forEach(l => {
     sc["p" + (j + 1)] = h ? {why: "", talk: h.say, walk: [], ask: h.ask || "", scenario: x.scenario || ""}
       : {why: x.why || "", talk: x.talk || "", walk: x.walk || [], ask: x.ask || "", scenario: x.scenario || ""};
   });
-  // lean: a drawn lesson's slides left off the deck (at most LESSON_MAX are drawn): their points go with its last slide
-  const gone = b.kind === "lesson" && !deckOf(b) ? fullViewsOf(b).filter(v => !vs.includes(v)) : [], last = sc["p" + vs.length];
+  // lean: a drawn lesson's slides left off the deck (it is one slide), and an activity's (Your Task, with its Skill
+  // Building's audit): their points go with its last slide
+  const gone = b.kind === "lesson" && !deckOf(b) ? fullViewsOf(b).filter(v => !vs.includes(v))
+    : b.kind === "activity" ? [...new Set(fullViewsOf(b).concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], b.show ? ["model"] : []))].filter(v => !vs.includes(v)) : [], last = sc["p" + vs.length];
   if(gone.length && last) last.walk = last.walk.concat(gone.flatMap(v => { const x = per[v] || {}, h = said[v];
     return (h ? [h.say] : [x.talk].concat(x.walk || [])).filter(Boolean).map(s => `${VIEW_LABEL[v] || v} (in 📖 Reference): ${String(s).replace(/\*\*/g, "")}`); }));
   window.SLIDE_SCRIPTS[`${d.id}::${l.h}`] = sc;
@@ -4590,6 +4637,16 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx .cfx-whyline-k{flex:none;font:800 16px/1.3 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:#1E2340;background:#DB8437;border-radius:999px;padding:4px 14px;white-space:nowrap;}
 .cfx .cfx-whyline-t{font:800 clamp(21px,2.8vh,26px)/1.3 var(--font-ui);color:#fff;text-align:left !important;}
 .cfx .cfx-whyline mark.cfx-hl{background:none;color:#FFC98F;padding:0;font-weight:800;}
+.cfx .cfx-docline{display:flex;align-items:center;gap:12px;margin:0;padding:3px 12px;background:#FFF6EC;border:2px solid #DB8437;border-radius:12px;text-align:left !important;flex:none;}
+.cfx .cfx-docline-k{flex:none;font:800 18px/1.3 var(--font-ui);color:#1E2340;white-space:nowrap;}
+.cfx .cfx-docline-t{flex:1 1 auto;font:700 clamp(16px,2.2vh,20px)/1.25 var(--font-ui);color:#1E2340;text-align:left !important;}
+.cfx .cfx-docline-f{flex:none;font:800 16px/1.2 var(--font-ui);color:#1E2340;background:#DB8437;border-radius:999px;padding:5px 12px;text-decoration:none;white-space:nowrap;}
+/* a drawn lesson's one slide (The Rules, lean): the points, the box beside them and the UPL line closer together, so it holds its why line at full size */
+.cfx.cfx-lesson.cfx-rules .cfx-whyline,.cfx.cfx-lesson.cfx-rules .cfx-docline{margin-bottom:6px;}
+.cfx.cfx-lesson.cfx-rules .cfx-points{gap:8px;}
+.cfx.cfx-lesson.cfx-rules .cfx-points li,.cfx.cfx-lesson.cfx-rules .cfx-points li span{font-size:clamp(18px,2.4vh,22px) !important;line-height:1.32 !important;}
+.cfx.cfx-lesson.cfx-rules .cfx-upl{margin-top:8px;padding:8px 16px;}
+.cfx.cfx-lesson.cfx-rules .cfx-split + .cfx-rf{margin-top:8px;}
 /* The Theory with its merged roadmap and the opening line: the roadmap's steps down the left, the lead and the
    concept cards beside them, every line bold and at least 16px on a laptop (the row of steps across the top left the
    cards no room) */
@@ -4706,7 +4763,7 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx .cfx-points li::before{content:counter(cfx) !important;grid-column:1;grid-row:1;position:static !important;display:grid !important;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--orange);color:#fff;font:700 19px 'Fraunces',Georgia,serif;box-shadow:0 3px 8px rgba(224,122,31,.3);}
 .cfx-qs li{font-size:23px;}
 .cfx-upl{margin-top:20px;display:flex;gap:14px;align-items:center;background:#FFF4F2;border:1.5px solid #F2C4BC;border-radius:14px;padding:12px 18px;font:500 20px/1.4 var(--font-ui);}
-.cfx-upl b{white-space:nowrap;color:#A33A2A;font-size:15px;letter-spacing:.04em;text-transform:uppercase;}
+.cfx-upl b{white-space:nowrap;color:#A33A2A;font-size:16px;letter-spacing:.04em;text-transform:uppercase;}
 /* lesson slides sit in the middle of their sheet, not against its left edge: the Why It Matters hook, the Rules list
    with its picture as one centred group, the UPL line, and each Do / Don't heading over its (centred) list */
 .cfx-lesson .cfx-hero-text{text-align:center;}
@@ -5160,7 +5217,8 @@ main > .cf-side-presenter{display:none;}
 .cf-vm-h{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px;}
 .cf-vm-h b{display:block;font:800 19px 'Poppins','Inter',sans-serif;color:#262B45;}
 .cf-vm-h span{font:700 16px/1.35 'Inter',sans-serif;color:#3A4256;}
-.cf-vm-x{border:0;background:none;font-size:20px;cursor:pointer;color:#262B45;}
+.cf-vm-x{border:0;background:none;font-size:20px;font-weight:800;cursor:pointer;color:#262B45;}
+.cf-vm-card .btn{font-size:16px !important;font-weight:800 !important;}   /* the Listening Check opens from a slide: its type at the slides' 16px bold */
 .cf-vm-lead{font:700 16px/1.4 'Inter',sans-serif;color:#37394A;margin:10px 0;}
 .cf-vm-qs{margin:0 0 12px;padding-left:20px;}
 .cf-vm-qs li{margin:0 0 10px;font-size:16px;font-weight:700;}

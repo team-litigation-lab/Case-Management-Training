@@ -1,4 +1,4 @@
-// @check browser — The voicemail has a real player (play / pause, ⏪ 5s, ⏩ 5s, a seek bar, elapsed / total, ↺ Start over) on its Your Case slide, in the Listening Check and in the Notes & Action Plan
+// @check browser — The voicemail has a real player (play / pause, ⏪ 5s, ⏩ 5s, a seek bar, elapsed / total, ↺ Start over) in the Notes & Action Plan and the Listening Check, opened from the activity's one slide
 // 📳 The voicemail player (js/cm-case-flow.js: vmPlan, vmPlayer, cmCaseFlow.vmPlay / vmSeek / vmSkip / vmOver).
 //
 // A voicemail is not a sound file: the browser's speech engine speaks it. The engine can't seek inside what it is
@@ -6,8 +6,8 @@
 // holds it. A trainee transcribing word for word goes back to one part of the message instead of the whole minute.
 // This test puts a speech engine and an audio context of its own in the page (they record what is spoken and whether
 // the line hiss is running, and fire the engine's start and end when the test says), then checks, at 1366x768:
-//  1. Day 1's voicemail Your Case slide shows the player, wide and first: nothing on the slide is under 16px or less
-//     than bold, the slide is not scaled down, nothing is cut off, and no words of the message are on it;
+//  1. Day 1's voicemail activity is one slide, Your Task: its 🧰 Tools open the Notes & Action Plan, which shows the
+//     player: nothing in it under 16px or less than bold, and no words of the message on the slide or beside the player;
 //  2. ▶ Play speaks the first phrase (the voicemail box's own voice), then the caller's first words;
 //  3. ⏸ Pause keeps the place and ▶ resumes at the same phrase; ↺ Start over goes back to 0:00;
 //  4. stopped, a seek to about half way speaks nothing; ▶ then speaks the phrase at that time, not the beginning;
@@ -15,9 +15,10 @@
 //  6. the elapsed label and the bar agree, in every player, and the time moves while it plays;
 //  7. "Played N×" goes up by one for each play started from a stopped state, and not on a seek, ⏪ / ⏩ or a
 //     pause and resume; the count is what is kept on the trainee's record;
-//  8. the Notes & Action Plan and the Listening Check show the same player in the same state, and repaint with it;
+//  8. the Listening Check shows the same player in the same state, and repaints with it;
 //  9. the hiss never runs twice and never after a pause or the end; a hidden tab pauses; the end of the message stops;
-// 10. The second voicemail (d2m2-a3, the redirected referral, on Day 1 with the treatment it belongs to) has the player too, at full size.
+// 10. The second voicemail (d2m2-a3, the redirected referral, on Day 1 with the treatment it belongs to): its one slide's
+//     🧰 Tools open its Listening Check, with the player, at full size.
 // Usage: node .github/scripts/vm-seek.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -59,19 +60,23 @@ const STUB = () => {
     await signIn(page, 'Seek', 'Vm' + String(Date.now()).slice(-7).replace(/\d/g, d => 'abcdefghij'[d]), 'B100926');
     await page.evaluate(() => { const kt = document.getElementById('ktLogin'); if (kt) kt.remove(); });
 
-    const toCase = (n, block) => page.evaluate(([n, block]) => { const d = DAYS.find(d => d.cf && d.cf.n === n); goto('day', d.id); state.dayViewMode = 'slides';
-        const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === block && cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === 'case');
-        if (k < 0) return false; goToSlide(k); return true; }, [n, block]);
+    // the activity's one slide (Your Task), and from its 🧰 Tools the panel with the player: the Notes & Action Plan, or the Listening Check
+    const toCase = (n, block) => page.evaluate(async ([n, block]) => { const d = DAYS.find(d => d.cf && d.cf.n === n); goto('day', d.id); state.dayViewMode = 'slides';
+        const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === block && cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === 'task');
+        if (k < 0) return false; goToSlide(k); await new Promise(r => setTimeout(r, 300));
+        const w = document.getElementById('lessonSlideWrap'), row = w && [...w.querySelectorAll('.cfx-tools-menu .cfx-call')].find(x => /Notes &(amp;)? Action Plan|Voicemail/.test(x.textContent));
+        window.__vmWords = w ? w.innerText.replace(/\s+/g, ' ') : '';
+        if (!row || !row.querySelector('button')) return false; row.querySelector('button').click(); return true; }, [n, block]);
     // the slide: its player, its type, its size
     const slideOf = (block) => page.evaluate((block) => {
-        const w = document.getElementById('lessonSlideWrap'), card = w && w.querySelector(`[data-vm="${block}"]`); if (!card) return null;
+        const w = document.querySelector('#cf-np, #cf-vm'), card = w && w.querySelector(`[data-vm="${block}"]`); if (!card) return null;
         const has = s => !!card.querySelector(s), vis = e => e.getClientRects().length > 0;
-        const small = [...w.querySelectorAll('*')].filter(e => vis(e) && [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()))
+        const small = [...card.querySelectorAll('*')].filter(e => vis(e) && [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()))
             .map(e => { const c = getComputedStyle(e); return { t: e.textContent.trim().slice(0, 28), px: parseFloat(c.fontSize), w: Number(c.fontWeight) }; }).filter(x => x.px < 16 || x.w < 700);
         const zoom = [...w.querySelectorAll('*')].map(e => e.style.zoom).filter(z => z && Number(z) < 1);
         const body = w.querySelector('.cfx-body') || w, wr = w.getBoundingClientRect(), cr = card.getBoundingClientRect();
         const under = [...w.querySelectorAll('.cfx-np,.cfx-thumb')].map(e => e.getBoundingClientRect());
-        const said = String((CM_CF_SIM.events[block] || {}).spoken || '').split(/(?<=[.?!,])\s+/).filter(x => x.split(/\s+/).length >= 4), text = w.innerText.replace(/\s+/g, ' ');
+        const said = String((CM_CF_SIM.events[block] || {}).spoken || '').split(/(?<=[.?!,])\s+/).filter(x => x.split(/\s+/).length >= 4), text = window.__vmWords + ' ' + card.innerText.replace(/\s+/g, ' ');
         return { parts: { play: has('.vmp .vmp-play'), back: has('.vmp .vmp-back'), fwd: has('.vmp .vmp-fwd'), bar: has('.vmp input[type=range].vmp-seek'), time: (card.querySelector('.vmp-time') || {}).innerText || '', over: has('.vmp .vmp-over'), ticks: card.querySelectorAll('.vmp-ticks i').length },
             head: card.innerText.replace(/\s+/g, ' '), small, zoom, cut: body.scrollHeight > body.clientHeight + 2 || cr.bottom > wr.bottom + 1 || under.some(r => r.bottom > wr.bottom + 1),
             wide: cr.width / wr.width, first: under.every(r => r.top >= cr.bottom - 1), under: under.length, words: said.filter(x => text.includes(x)) };
@@ -89,21 +94,19 @@ const STUB = () => {
     // where a spoken phrase sits in the message, 0 to 1 (-1: not the caller's words)
     const spoken = (await page.evaluate((b) => CM_CF_SIM.events[b].spoken, BLOCK)).replace(/\.\.\./g, ',');
     const placeOf = (phrase) => { const i = spoken.indexOf(phrase); return i < 0 ? -1 : i / spoken.length; };
-    const SLIDE = '#lessonSlideWrap', wait = (ms) => page.waitForTimeout(ms);
+    const SLIDE = '#cf-np', wait = (ms) => page.waitForTimeout(ms);   // the player opened from the slide: the Notes & Action Plan's
 
     // 1. the slide
-    check(await toCase(1, BLOCK), "Day 1 has the voicemail activity's Your Case slide"); await wait(900);
+    check(await toCase(1, BLOCK), "Day 1's voicemail activity's Your Task opens its Notes & Action Plan from 🧰 Tools"); await wait(900);
     const s1 = await slideOf(BLOCK);
-    check(!!s1, 'the slide carries the voicemail');
+    check(!!s1, 'the Notes & Action Plan carries the voicemail');
     if (!s1) { await browser.close(); console.log(`\n${failures.length} failure(s).`); process.exit(1); }
     check(s1.parts.play && s1.parts.back && s1.parts.fwd && s1.parts.bar && s1.parts.over, `it is a player: ▶ Play, ⏪ 5s, ⏩ 5s, a seek bar, ↺ Start over (${JSON.stringify(s1.parts)})`);
     check(/^0:00 \/ \d:\d\d$/.test(s1.parts.time.trim()), `with the elapsed and total time as m:ss ("${s1.parts.time.trim()}")`);
     check(s1.parts.ticks > 8, `and a mark on the bar at each phrase (${s1.parts.ticks})`);
     check(/Northgate Distribution/.test(s1.head) && /02\/09\/2026/.test(s1.head) && /8:47/.test(s1.head) && /Not played yet/.test(s1.head), 'it says who the message is from, its date and time, and that it has not been played');
-    check(s1.wide > 0.9 && s1.first && s1.under === 1, `the voicemail is first, across the slide, with the Notes & Action Plan under it (${Math.round(s1.wide * 100)}% wide)`);
-    check(!s1.small.length, `nothing on the slide is under 16px or less than bold: ${JSON.stringify(s1.small.slice(0, 4))}`);
-    check(!s1.zoom.length && !s1.cut, `the slide fits 1366x768 at full size (zoom ${s1.zoom.join(',') || 'none'}, cut off: ${s1.cut})`);
-    check(!s1.words.length, `no words of the message are on the slide: ${JSON.stringify(s1.words.slice(0, 2))}`);
+    check(!s1.small.length, `nothing in the player is under 16px or less than bold: ${JSON.stringify(s1.small.slice(0, 4))}`);
+    check(!s1.words.length, `no words of the message are on the slide or beside the player: ${JSON.stringify(s1.words.slice(0, 2))}`);
     const total = secs(s1.parts.time.split('/')[1].trim());
 
     // 2. play: the voicemail box, then the caller from his first words
@@ -168,25 +171,22 @@ const STUB = () => {
     check(t.speaking && /Pause/.test(p[0].btn) && placeOf(t.last) >= 0 && placeOf(t.last) < 0.3 && secs(p[0].el) <= 12, `a seek while it plays jumps and keeps playing: "${t.last}" at ${p[0].el}`);
     check(await plays() === 2 && t.hiss === 1 && t.hissMax === 1, `none of that is a new play, and the hiss never runs twice (played ${await plays()}×, hiss ${t.hiss}, most at once ${t.hissMax})`);
 
-    // 8. the Notes & Action Plan and the Listening Check: the same player, in the same state
+    // 8. the Listening Check: the same player, in the same state
     await fire('start');
-    await page.evaluate((b) => cmCaseFlow.notes(b), BLOCK); await page.waitForSelector('#cf-np .vmp'); await wait(300);
-    p = await players();
-    const notes = p.find(x => x.where === 'notes'), slide = p.find(x => x.where === 'slide');
-    check(!!notes && /Pause/.test(notes.btn) && notes.time.trim() === slide.time.trim() && notes.max === total, `the Notes & Action Plan has the player, playing, at the same time as the slide (${notes && notes.time.trim()})`);
-    check(p.every(x => x.el === clock(x.bar)), `the label and the bar agree in every player: ${p.map(x => `${x.where} ${x.el}/${x.bar}`).join(', ')}`);
     await seek('#cf-np', half); await wait(350);
     t = await T(); p = await players();
-    check(placeOf(t.last) > 0.25 && p.every(x => x.el === p[0].el && secs(x.el) > 12), `its bar seeks, and the slide's player follows: "${t.last}" (${p.map(x => x.el).join(', ')})`);
+    check(placeOf(t.last) > 0.25 && secs(p[0].el) > 12, `its bar seeks: "${t.last}" (${p.map(x => x.el).join(', ')})`);
     await page.click('#cf-np .vmp-play'); await wait(200);
     p = await players();
-    check(p.length === 2 && p.every(x => /Play/.test(x.btn) && /Paused at/.test(x.st)), `paused there, both say so (${p.map(x => x.btn).join(', ')})`);
+    check(p.length === 1 && /Play/.test(p[0].btn) && /Paused at/.test(p[0].st), `paused there, it says so (${p.map(x => x.btn).join(', ')})`);
     check(await page.locator('#cf-np button[onclick*="vmPlay"]').count() === 1, 'and it is the only play button there (the old play-from-the-top button is gone)');
+    const was = p[0].el;
     await page.keyboard.press('Escape'); await wait(400);
     await page.evaluate((b) => cmCaseFlow.listen(b), BLOCK); await page.waitForSelector('#cf-vm .vmp'); await wait(200);
     p = await players();
     const lc = p.find(x => x.where === 'check');
-    check(!!lc && /Play/.test(lc.btn) && /Paused at/.test(lc.st) && lc.el === p.find(x => x.where === 'slide').el, `the Listening Check has the player, paused at the same place (${lc && lc.el})`);
+    check(!!lc && /Play/.test(lc.btn) && /Paused at/.test(lc.st) && lc.el === was, `the Listening Check has the player, paused at the same place (${lc && lc.el})`);
+    check(p.every(x => x.el === clock(x.bar)), `the label and the bar agree in every player: ${p.map(x => `${x.where} ${x.el}/${x.bar}`).join(', ')}`);
     const n1 = (await T()).n;
     await page.click('#cf-vm .vmp-play'); await wait(250);
     t = await T(); p = await players();
@@ -216,13 +216,13 @@ const STUB = () => {
     // 10. the second voicemail (d2m2-a3), as a trainer presents it, on the day the course teaches it
     await page.evaluate(() => { state.isAdmin = true; });
     const vmDay = await page.evaluate(() => (CM_CASE_FLOW.sequence.find(s => s.phases.some(p => p.blocks.includes('d2m2-a3'))) || {}).n);
-    check(await toCase(vmDay, 'd2m2-a3'), `Day ${vmDay} has its second voicemail activity's Your Case slide`); await wait(1200);
+    check(await toCase(vmDay, 'd2m2-a3'), `Day ${vmDay}'s second voicemail activity's Your Task opens its Listening Check from 🧰 Tools`); await wait(1200);
     const s2 = await slideOf('d2m2-a3');
     check(!!s2 && s2.parts.play && s2.parts.bar && s2.parts.back && s2.parts.over, 'with the player');
-    check(!!s2 && !s2.small.length, `nothing on it under 16px or less than bold: ${JSON.stringify(s2 ? s2.small.slice(0, 4) : [])}`);
-    check(!!s2 && !s2.zoom.length && !s2.cut && s2.first, `and it fits 1366x768 at full size, the voicemail first (zoom ${s2 ? s2.zoom.join(',') || 'none' : '?'}, cut off: ${s2 && s2.cut})`);
+    check(!!s2 && !s2.small.length, `nothing in the player under 16px or less than bold: ${JSON.stringify(s2 ? s2.small.slice(0, 4) : [])}`);
+    check(!!s2 && !s2.words.length, `and no words of the message beside it: ${JSON.stringify(s2 ? s2.words.slice(0, 2) : [])}`);
 
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s).`); process.exit(1); }
-    console.log('\nAll good: the voicemail plays, pauses, goes back 5 seconds and seeks to a place, in all three players, and a play is counted once.');
+    console.log('\nAll good: the voicemail plays, pauses, goes back 5 seconds and seeks to a place, in the Notes & Action Plan and the Listening Check, and a play is counted once.');
 })().catch(e => { console.error(e); process.exit(1); });

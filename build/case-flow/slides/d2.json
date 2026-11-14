@@ -227,7 +227,7 @@
       "confirm": "Atty. Thorne handles the balance bill"
     },
     "redFlag": {
-      "on": "theory2",
+      "spoken": true,
       "see": "A lien logged **at the billed amount**, or a bill sent to PIP after 06/26/2026",
       "costs": "The lien is overstated by the contractual adjustment, or the bill goes to an exhausted payer",
       "do": "Log the plan-paid **$1,860.00**; check PIP's balance before routing any bill",
@@ -731,6 +731,7 @@
       "confirm": "Atty. Thorne sets the LOP's terms"
     },
     "redFlag": {
+      "spoken": true,
       "see": "Recommending a provider **'for the case'**, or saying the LOP makes care free",
       "costs": "John still owes the balance, and a provider picked for the case invites attack",
       "do": "Give options and logistics only; **Atty. Thorne explains the LOP** before he signs",
@@ -762,6 +763,7 @@
       "confirm": "Atty. Thorne decides what the demand claims"
     },
     "redFlag": {
+      "spoken": true,
       "see": "You tell John **'You'll get every penny back'**",
       "costs": "It promises a result: what the demand claims, and at what rate, is Atty. Thorne's",
       "do": "Log each receipt with its payer; **route recovery questions** to Atty. Thorne",
@@ -915,6 +917,7 @@
       ]
     },
     "redFlag": {
+      "spoken": true,
       "see": "A subject line of **'Update'**, the story first and the question last",
       "costs": "Atty. Thorne reads to the end to find the ask, and the deadline slips",
       "do": "Lead with **the decision and deadline**; give both options, even the one you don't recommend",

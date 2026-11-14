@@ -80,8 +80,9 @@ for (const day of CF.days) for (const m of day.modules) for (const b of m.blocks
   // a CM Red Flag no slide of the lesson has room for is spoken, not drawn (the copy's redFlag.spoken): its point is in the talking points for The Rules
   const copy = SLIDES[b.id] || {}, plain = t => String(t || "").replace(/\*\*/g, "").replace(/\s+/g, " ").trim();
   if(copy.redFlag && copy.redFlag.spoken && !(c.rules && /^• Red flag\b/m.test(String(c.rules.say)))) errors.push(`${b.id}.rules: the lesson's CM Red Flag is spoken, not drawn; its talking points for The Rules need a point that starts "Red flag"`);
-  // a short opening line on The Theory (the copy's whyLine): the full hook is then said, word for word, in that slide's talking points
-  if(copy.whyLine && vs.includes("theory") && !(c.theory && plain(c.theory.say).toLowerCase().includes(plain(copy.hook).replace(/\.$/, "").toLowerCase()))) errors.push(`${b.id}.theory: The Theory opens with a shorter line than the lesson's hook (whyLine); put the full hook in its talking points, word for word: ${plain(copy.hook)}`);
+  // a short 💡 Why it matters line on a drawn lesson's one slide (the copy's whyLine): the full hook is then said, word for word, in
+  // its talking points (the slide carries the talking points of the lesson's slides left off it: js/cm-case-flow.js lean)
+  if(copy.whyLine && b.kind === "lesson" && !Object.values(c).some(x => x && plain(x.say).toLowerCase().includes(plain(copy.hook).replace(/\.$/, "").toLowerCase()))) errors.push(`${b.id}: its slide opens with a shorter line than the lesson's hook (whyLine); put the full hook in its talking points, word for word: ${plain(copy.hook)}`);
   // a brief or compact (condensed) block keeps its full scripts, unused, so it can be taught in full again
   // Why It Matters opens The Theory where a lesson has one: no slide, so no script of its own (its points lead the theory's)
   if(c.why && !vs.includes("why")) errors.push(`${b.id}.why: Why It Matters opens The Theory in this lesson, it is no slide of its own; put its points first in the theory script and take "why" out`);

@@ -1,9 +1,11 @@
 /* ============================================================
    🎯 Your Task on a Skill Building activity: one column, one button for the tools, the rules one tap away
 
-   The Case Flow draws the Your Task slide (js/cm-case-flow.js, slideBody "task"): the steps in full sentences, what is
-   done in another tool (the live call, the service confirmation, the Amendment Requests, the Notes & Action Plan), and
-   one bar at its foot (📁 Source Files on the left, Submit → on the right, js/cm-ai-grader.js). This file:
+   The Case Flow draws the Your Task slide (js/cm-case-flow.js, slideBody "task"), a Skill Activity's one slide: 📂 Your
+   Case in a line or two, the steps in full sentences, and one bar at its foot with three buttons: 🚀 Launch, 🧰 Tools ▾
+   (what is done in another tool: the live call, the service confirmation, the Amendment Requests, the Notes & Action
+   Plan, the Action Plan Editor, 📁 Source Files) and Submit →, which opens the AI Grader on the slide (js/cm-ai-grader.js).
+   This file:
      • 🚀 Launch CMS & Google Drive: the one button at the top of the card. It opens the CMS beside the slide (the course's
        tool frame) and the trainee's own Backup Drive in a new tab, at their case folder once it is built (CMDrive.launch;
        Google Drive can't be framed). A trainee whose
@@ -80,7 +82,7 @@ if(window.cmCaseFlow && typeof cmCaseFlow.full === "function"){
 const css = document.createElement("style");
 css.id = "cm-sb-task-css";
 css.textContent = `
-.cfx .cfx-task.cfx-task1{display:flex;flex-direction:column;gap:12px;align-items:stretch;text-align:left;}
+.cfx .cfx-task.cfx-task1{display:flex;flex-direction:column;gap:8px;align-items:stretch;text-align:left;}
 .cfx-task1 .cfx-task-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;}
 .cfx-task1 .cfx-launch{background:#1E2340 !important;color:#fff !important;border:2px solid #DB8437 !important;font:800 18px/1.2 var(--font-ui) !important;padding:10px 18px !important;border-radius:12px !important;min-height:0 !important;height:auto !important;}
 .cfx-task1 .cfx-launch:hover,.cfx-task1 .cfx-launch:focus-visible{background:#DB8437 !important;outline:none;}
@@ -93,6 +95,8 @@ css.textContent = `
 .cfx-task1 .cfx-more-tools .cfx-tool{font:800 16px/1.2 var(--font-ui);}
 .cfx-task1 .cfx-steps{gap:10px;}
 .cfx-task1 .cfx-steps li,.cfx-task1 .cfx-steps li > span{font:700 clamp(18px,2.5vh,22px)/1.38 var(--font-ui);}
+.cfx-task1 .cfx-steps-long{gap:8px;} .cfx-task1 .cfx-steps-long li,.cfx-task1 .cfx-steps-long li > span{font:700 clamp(17px,2.3vh,21px)/1.3 var(--font-ui);}   /* a Skill Building's five or six steps, at full size on a laptop */
+.cfx .cfx-task1 .cfx-steps-long li{grid-template-columns:34px 1fr;gap:10px;margin-bottom:0 !important;} .cfx .cfx-task1 .cfx-steps-long li::before{width:30px !important;height:30px !important;font-size:16px !important;}
 .cfx-task1 .cfx-task-acts{display:flex;flex-wrap:wrap;gap:10px;}
 .cfx-task1 .cfx-task-acts .cfx-call{flex:1 1 300px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:2px 12px;background:#262B45;border-radius:14px;padding:10px 14px;color:#fff;text-align:left;}
 .cfx-task1 .cfx-task-acts .cfx-call b{grid-column:1;font:800 16px var(--font-ui);color:#F4B77A;}
@@ -100,7 +104,7 @@ css.textContent = `
 .cfx-task1 .cfx-task-acts .cfx-call em{color:#9BE0B4;font-style:normal;}
 .cfx-task1 .cfx-task-acts .cfx-call small{display:block;font:700 16px/1.3 var(--font-ui);color:#C9CFE0;}
 .cfx-task1 .cfx-task-acts .cfx-call .btn{grid-column:2;grid-row:1 / span 2;font-weight:800;}
-.cfx-task1 .cfx-task-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:4px;padding:10px 14px;background:#F6F7FB;border:2px solid #E3E6EF;border-radius:14px;}
+.cfx-task1 .cfx-task-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:0;padding:6px 12px;background:#F6F7FB;border:2px solid #E3E6EF;border-radius:14px;}
 .cfx-task1 .cfx-task-foot .cfx-docs{position:relative;background:none;border:0;padding:0;}
 .cfx-task1 .cfx-task-foot .cfx-docs summary{cursor:pointer;font:800 17px/1.3 var(--font-ui);color:#1E2340;text-decoration:underline;text-underline-offset:3px;margin:0;}
 .cfx-task1 .cfx-task-foot .cfx-docs-pop{position:absolute;z-index:6;bottom:calc(100% + 12px);left:0;width:min(680px,80vw);max-height:52vh;overflow:auto;background:#fff;border:2px solid #C9D3EA;border-radius:14px;padding:12px 14px;box-shadow:0 12px 28px rgba(14,18,40,.22);font-size:16px;}
@@ -108,12 +112,33 @@ css.textContent = `
 body .cfx .cfx-task1 .cfx-docs-pop button,body .cfx .cfx-task1 .cfx-docs-pop a,body .cfx .cfx-task1 .cfx-docs-pop select{font-size:16px !important;font-weight:700 !important;}
 .cfx-task1 .cfx-grade-go{margin-left:auto;background:#DB8437 !important;color:#fff !important;border:0 !important;font:800 18px/1.2 var(--font-ui) !important;padding:11px 22px !important;border-radius:12px !important;min-height:0 !important;height:auto !important;box-shadow:0 4px 12px rgba(219,132,55,.35);}
 .cfx-task1 .cfx-grade-go:hover,.cfx-task1 .cfx-grade-go:focus-visible{background:#1E2340 !important;outline:none;}
+/* the one slide: 📂 Your Case in a line or two, and the bar's three buttons (Launch, 🧰 Tools ▾, Submit) */
+.cfx-task1 .cfx-yc{display:flex;gap:12px;align-items:baseline;margin:0;padding:10px 16px;background:#1E2340;border-left:8px solid #DB8437;border-radius:12px;text-align:left;}
+.cfx-task1 .cfx-yc-k{flex:none;font:800 16px/1.3 var(--font-ui);color:#1E2340;background:#DB8437;border-radius:999px;padding:3px 12px;white-space:nowrap;}
+.cfx-task1 .cfx-yc-t{font:700 clamp(18px,2.4vh,21px)/1.38 var(--font-ui);color:#fff;}
+.cfx-task1 .cfx-yc mark.cfx-hl{background:none;color:#FFC98F;padding:0;font-weight:800;}
+.cfx-task1 .cfx-tools-pop .cfx-of-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:#FFF6EC;}
+.cfx-task1 .cfx-tools-pop .cfx-of-row .cfx-of{font:800 16px/1.3 var(--font-ui);color:#A4470F;}
+.cfx-task1 .cfx-tools-menu{position:relative;}
+.cfx-task1 .cfx-tools-menu > summary{cursor:pointer;list-style:none;font:800 17px/1.2 var(--font-ui);color:#1E2340;background:#fff;border:2px solid #1E2340;border-radius:12px;padding:9px 14px;}
+.cfx-task1 .cfx-tools-menu > summary::-webkit-details-marker{display:none;}
+.cfx-task1 .cfx-tools-menu[open] > summary{background:#1E2340;color:#fff;}
+.cfx-task1 .cfx-tools-pop{position:absolute;z-index:7;bottom:calc(100% + 8px);left:0;width:min(660px,78vw);max-height:min(340px,52vh);overflow:auto;flex-direction:column;flex-wrap:nowrap;background:#fff;border:2px solid #1E2340;border-radius:14px;padding:12px;box-shadow:0 14px 32px rgba(30,35,64,.28);}
+.cfx-task1 .cfx-tools-pop .cfx-call{flex:none;}
+.cfx-task1 .cfx-tools-pop .cfx-tools-row .cfx-tools-in{display:flex;flex-wrap:wrap;gap:8px;}
+.cfx-task1 .cfx-tools-pop .cfx-tools-row .cfx-tool{font:800 16px/1.2 var(--font-ui);}
+.cfx-task1 .cfx-tools-pop .cfx-docs{position:static;background:#F6F7FB;border:2px solid #E3E6EF;border-radius:12px;padding:10px 14px;}
+.cfx-task1 .cfx-tools-pop .cfx-docs summary{cursor:pointer;font:800 17px/1.3 var(--font-ui);color:#1E2340;}
+.cfx-task1 .cfx-tools-pop .cfx-docs-pop{position:static;width:auto;max-height:none;overflow:visible;box-shadow:none;border:0;padding:8px 0 0;}
+.cfx-task1 .cfx-tools-pop .cfx-inject{font:800 16px/1.2 var(--font-ui) !important;}
+.cfx .cfx-mode-back{display:inline-flex;align-self:flex-start;margin:0 0 10px;font:800 16px/1.2 var(--font-ui) !important;color:#1E2340 !important;background:#fff !important;border:2px solid #1E2340 !important;border-radius:12px !important;padding:8px 14px !important;min-height:0 !important;height:auto !important;}
+.cfx .cfx-mode-back:hover,.cfx .cfx-mode-back:focus-visible{background:#1E2340 !important;color:#fff !important;outline:none;}
 .cfx-guide{margin:0 0 16px;padding:14px 16px;background:#F6F7FB;border:2px solid #E3E6EF;border-left:8px solid #DB8437;border-radius:14px;text-align:left;}
 .cfx-guide h3{margin:0 0 10px;font:800 20px/1.2 var(--font-ui);color:#1E2340;}
 .cfx-guide-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:10px;}
 .cfx-guide-g b{display:block;font:800 16px var(--font-ui);color:#1E2340;}
 .cfx-guide-g p{margin:4px 0 0;font:600 16px/1.4 var(--font-ui);color:#141A2E;}
-@media (max-width:760px){ .cfx-task1 .cfx-task-foot{flex-wrap:wrap;} .cfx-task1 .cfx-grade-go{margin-left:0;width:100%;} .cfx-task1 .cfx-task-bar .cfx-of{margin-left:0;} }
+@media (max-width:760px){ .cfx-task1 .cfx-task-foot{flex-wrap:wrap;} .cfx-task1 .cfx-grade-go{margin-left:0;width:100%;} .cfx-task1 .cfx-task-foot .cfx-of{margin-left:0;} .cfx-task1 .cfx-tools-pop{width:min(660px,92vw);} }
 `;
 document.head.appendChild(css);
 })();

@@ -5,10 +5,10 @@
 //   · no lesson slide after the day's first practice slide (the daily loop's Case Profile slide, js/cm-day-loop.js: Day 1's
 //     👋 Meet John Doe, later days' 📇 Case Profile Check-In), and no Skill Activity slide before it; exactly one Practice
 //     Lab slide (the other skill activities) on a day with a Skill Building (Day 5's are behind Optional Extra Practice);
-//   · a block's slides sit together, in the one fixed order: a lesson is The Roadmap → The Theory → The Theory,
-//     Continued → The Framework → The Document → The Rules → See It → Do & Don't (a lesson with no Theory slide opens
-//     with Why It Matters instead); an activity is Your Task → Your Case → The Grade-A Standard → Audit → See It →
-//     the AI Grader; and what each slide draws is that view of that block (its label and its block's title);
+//   · a block's slides sit together: a drawn lesson is one slide, The Rules; an activity is one slide, Your Task (its
+//     Submit opens the AI Grader on it), with a second only for the day's Skill Building's document audit (Audit & the
+//     Finished Set) or Day 1's Backup Drive set-up (Your Case); and what each slide draws is that view of that block
+//     (its label and its block's title);
 //   · a lesson drawn from the trainer's own deck pages (js/cm-deck-slides.js, window.CM_DECK_SLIDES) is a lesson like
 //     any other, before the Practice Lab: its slides are its deck pages and nothing else, together, in the deck's
 //     order (rising page numbers), each labelled with its page's title in the band and in the slide picker;
@@ -21,7 +21,7 @@
 //     (it used to open the Action Plan Editor after an activity drafted there); the last slide has no Next: its button
 //     reads "Continue to Knowledge Check" and opens the Knowledge Check;
 //   · in Presenter view the forward button does the same, and on the last slide it reads "Continue to Knowledge Check";
-//   · an activity drafted in the Action Plan Editor has a plain 📝 Open the Action Plan Editor button on its Your Task;
+//   · an activity drafted in the Action Plan Editor has a plain 📝 Open the Action Plan Editor button on its Your Task (in its 🧰 Tools);
 //     it opens the editor, and Back returns to the slide the trainee left;
 //   · Day 5's ⏭ on Optional Extra Practice goes to the Ready check (and says so);
 //   · the two parts (Part 1 · Lessons, Part 2 · 🔁 The Daily Loop) are labelled on the Training Agenda, the Roadmap and
@@ -50,6 +50,7 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
     const out = [], days = [], norm = s => String(s || '').replace(/\s+/g, ' ').trim().toLowerCase();
     for (const d of DAYS.filter(x => x.cf)) {
       const n = d.cf.n, deck = buildDaySlides(d), L = `Day ${n}`;
+      const sq = CM_CASE_FLOW.sequence.find(s => s.n === n) || {}, main = sq.main || '', drive = sq.drive || '';   // the day's Skill Building and Backup File Maintenance
       const at = deck.map(sl => { const l = sl.type === 'topic' ? d.lessons[sl.lessonIndex] : null, b = l && l.cf.block; return b ? { id: b.id, kind: b.kind, view: cmCaseFlow.viewsOf(b)[sl.part - 1], l, b, part: sl.part } : { type: sl.type }; });
       if (!at.length || at[0].type !== 'taskOverview') out.push(`${L}: the deck should open with the Training Agenda (it opens with ${at[0] ? at[0].type || at[0].id : 'nothing'})`);
       if (at[at.length - 1].type !== 'readyCheck') out.push(`${L}: the deck should end on 🎯 Ready for the Knowledge Check? (it ends on ${at[at.length - 1].type || at[at.length - 1].id + ' ' + at[at.length - 1].view})`);
@@ -80,11 +81,15 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
         const order = r.kind === 'lesson' ? LESSON : ACTIVITY, pos = r.views.map(v => order.indexOf(v));
         if (pos.some(p => p < 0) || pos.some((p, i) => i && p <= pos[i - 1])) out.push(`${L}: ${r.id} (${r.kind}) runs ${r.views.join(' → ')}; the fixed order is ${order.join(' → ')}`);
         if (r.views.join(' ') !== cmCaseFlow.viewsOf(r.b).join(' ')) out.push(`${L}: ${r.id} shows ${r.views.join(' ')}; the block's slides are ${cmCaseFlow.viewsOf(r.b).join(' ')}`);
+        // a drawn lesson is one slide, The Rules; a Skill Activity is one slide, Your Task (its AI Grader opens on it from
+        // Submit), with a second only for the day's Skill Building's document audit or Day 1's Backup Drive set-up (Your Case)
         if (r.kind === 'lesson') {
-          if (r.views.includes('why') && r.views.includes('theory')) out.push(`${L}: ${r.id} has both The Theory and a Why It Matters slide`);
-          if (r.views.includes('why') && r.views[r.views.includes('map') ? 1 : 0] !== 'why') out.push(`${L}: ${r.id}: Why It Matters should open a lesson with no Theory slide (${r.views.join(' → ')})`);
-          if (r.views[r.views.length - 1] !== (r.views.includes('dodont') ? 'dodont' : r.views.includes('model') ? 'model' : 'rules')) out.push(`${L}: ${r.id} should end on The Rules, See It or Do & Don't (${r.views.join(' → ')})`);
-        } else if (r.views[0] !== 'task' || r.views[1] !== 'case' || r.views[r.views.length - 1] !== 'check') out.push(`${L}: ${r.id} should run Your Task → Your Case → … → AI Grader (${r.views.join(' → ')})`);
+          if (r.views.join(' ') !== 'rules') out.push(`${L}: ${r.id} is a drawn lesson and runs ${r.views.join(' → ')}; it is one slide, The Rules`);
+        } else {
+          const want = ['task'].concat(r.id === main && (window.CM_CF_EXHIBITS || {}).audits && CM_CF_EXHIBITS.audits[r.id] ? ['audit'] : [], r.id === 'd1m1-drive' ? ['case'] : []);
+          if (r.views.join(' ') !== want.join(' ')) out.push(`${L}: ${r.id} runs ${r.views.join(' → ')}; a Skill Activity is ${want.map(v => LABEL[v]).join(' → ')}${r.id === main ? ' (the day\'s Skill Building)' : r.id === drive ? ' (Backup File Maintenance)' : ' (a side exercise: one slide)'}`);
+          if (r.views.includes('check')) out.push(`${L}: ${r.id} has an AI Grader slide; its Submit opens the AI Grader on Your Task`);
+        }
       });
       // the blocks are numbered in the order their slides come (2.20 never before 2.19), and so is the 🧪 Practice page
       const nums = runs.map(r => Number(String((d.lessons.find(l => l.cf.block.id === r.id) || {}).h || '').split(' ')[0].split('.')[1]));
@@ -93,7 +98,6 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
       // the lessons in the order the sequence lists them, the activities too
       // (the activities: the day's one Skill Building first, then the required Backup File Maintenance, then the side
       // exercises in the sequence's order)
-      const sq = CM_CASE_FLOW.sequence.find(s => s.n === n) || {}, main = sq.main || '', drive = sq.drive || '';
       const rank = id => id === main ? 0 : id === drive ? 1 : 2;
       const ord = kind => runs.filter(r => r.kind === kind).map(r => r.id).join(' '), seq = kind => d.lessons.filter(l => l.cf.block.kind === kind).map(l => l.cf.block.id).sort((a, b) => kind === 'activity' ? rank(a) - rank(b) : 0).join(' ');
       if (ord('lesson') !== seq('lesson')) out.push(`${L}: the lessons are not in the order the course teaches them`);
