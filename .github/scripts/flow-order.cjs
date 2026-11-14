@@ -1,10 +1,10 @@
-// @check browser — A day is all its lessons, then the daily loop (Case Profile, one Skill Building, Action Plan, one Practice Lab of optional side exercises), then the Knowledge Check; every block's slides in one fixed order; Next is always the next slide and the last slide's button opens the Knowledge Check
+// @check browser — A day is all its lessons, then the daily loop (Case Profile, one Skill Building, the required Backup File Maintenance, Action Plan, one Practice Lab of the other skill activities), then the Knowledge Check; every block's slides in one fixed order; Next is always the next slide and the last slide's button opens the Knowledge Check
 // The order nobody gets lost in (js/cm-case-flow.js buildDaySlides, CF.sequence in js/cm-case-flow-data.js). Checked on
 // all five days, slide by slide, in a real browser:
 //   · the deck opens with the Training Agenda and ends on 🎯 Ready for the Knowledge Check?;
 //   · no lesson slide after the day's first practice slide (the daily loop's Case Profile slide, js/cm-day-loop.js: Day 1's
 //     👋 Meet John Doe, later days' 📇 Case Profile Check-In), and no Skill Activity slide before it; exactly one Practice
-//     Lab slide (the optional side exercises) on a day with a Skill Building (Day 5's are behind Optional Extra Practice);
+//     Lab slide (the other skill activities) on a day with a Skill Building (Day 5's are behind Optional Extra Practice);
 //   · a block's slides sit together, in the one fixed order: a lesson is The Roadmap → The Theory → The Theory,
 //     Continued → The Framework → The Document → The Rules → See It → Do & Don't (a lesson with no Theory slide opens
 //     with Why It Matters instead); an activity is Your Task → Your Case → The Grade-A Standard → Audit → See It →
@@ -12,8 +12,9 @@
 //   · a lesson drawn from the trainer's own deck pages (js/cm-deck-slides.js, window.CM_DECK_SLIDES) is a lesson like
 //     any other, before the Practice Lab: its slides are its deck pages and nothing else, together, in the deck's
 //     order (rising page numbers), each labelled with its page's title in the band and in the slide picker;
-//   · the day's one Skill Building (CF.sequence `main`) comes first of the activities; the Practice Lab's opening slide
-//     lists every other activity (the side exercises), in the deck's order, each with the lesson it practises
+//   · the day's one Skill Building (CF.sequence `main`) comes first of the activities, then the required 📁 Backup File
+//     Maintenance (CF.sequence `drive`); the Practice Lab's opening slide lists every other activity (the side
+//     exercises), in the deck's order, each with the lesson it practises
 //     ("Practises: 2.3 Liability Investigation"); that lesson is taught before the practice; the side exercises follow
 //     the order of the lessons' sections; and each activity's own first slide names its lesson the same way;
 //   · Next, clicked on every slide as a trainee and again as a trainer, goes to the very next slide and nowhere else
@@ -87,11 +88,13 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
       });
       d.lessons.forEach(l => { if (l.cf.block.kind !== 'check' && !seen[l.cf.block.id]) out.push(`${L}: ${l.cf.block.id} (${l.cf.block.kind}) has no slide in the deck`); });
       // the lessons in the order the sequence lists them, the activities too
-      // (the activities: the day's one Skill Building first, then the side exercises in the sequence's order)
-      const main = (CM_CASE_FLOW.sequence.find(s => s.n === n) || {}).main || '';
-      const ord = kind => runs.filter(r => r.kind === kind).map(r => r.id).join(' '), seq = kind => d.lessons.filter(l => l.cf.block.kind === kind).map(l => l.cf.block.id).sort((a, b) => kind === 'activity' ? (b === main) - (a === main) : 0).join(' ');
+      // (the activities: the day's one Skill Building first, then the required Backup File Maintenance, then the side
+      // exercises in the sequence's order)
+      const sq = CM_CASE_FLOW.sequence.find(s => s.n === n) || {}, main = sq.main || '', drive = sq.drive || '';
+      const rank = id => id === main ? 0 : id === drive ? 1 : 2;
+      const ord = kind => runs.filter(r => r.kind === kind).map(r => r.id).join(' '), seq = kind => d.lessons.filter(l => l.cf.block.kind === kind).map(l => l.cf.block.id).sort((a, b) => kind === 'activity' ? rank(a) - rank(b) : 0).join(' ');
       if (ord('lesson') !== seq('lesson')) out.push(`${L}: the lessons are not in the order the course teaches them`);
-      if (ord('activity') !== seq('activity')) out.push(`${L}: the Skill Activities are not the day's Skill Building and then the side exercises in the sequence's order`);
+      if (ord('activity') !== seq('activity')) out.push(`${L}: the Skill Activities are not the day's Skill Building, the Backup File Maintenance, then the side exercises in the sequence's order`);
       // what each slide draws: that view of that block
       goto('day', d.id); state.dayViewMode = 'slides'; render();
       for (let k = 0; k < deck.length; k++) {
@@ -110,14 +113,14 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
         }
       }
       // the Practice Lab's opening slide: every activity, in order, with the lesson it practises
-      const acts = runs.filter(r => r.kind === 'activity'), lessonRuns = runs.filter(r => r.kind === 'lesson'), sideRuns = acts.filter(r => r.id !== main);
+      const acts = runs.filter(r => r.kind === 'activity'), lessonRuns = runs.filter(r => r.kind === 'lesson'), sideRuns = acts.filter(r => r.id !== main && r.id !== drive);
       const sectionOf = id => { let s = -1, prev = null, got = -1; d.lessons.forEach(l => { if (l.cf.block.kind !== 'lesson') return; if (l.cf.heading !== prev) { s++; prev = l.cf.heading; } if (l.cf.block.id === id) got = s; }); return got; };
       let far = -1;
       acts.forEach(r => { const l = d.lessons.find(x => x.cf.block.id === r.id), of = l.cf.of;
         if (!of || of.cf.block.kind !== 'lesson') return out.push(`${L}: ${r.id} names no lesson it practises`);
         const lr = lessonRuns.find(x => x.id === of.cf.block.id);
         if (!lr || lr.from > r.from) out.push(`${L}: ${r.id} practises ${of.cf.block.id}, which is not taught before it`);
-        const s = sectionOf(of.cf.block.id); if (r.id !== main && s < far) out.push(`${L}: ${r.id} practises a lesson (${of.cf.block.id}) of a section taught before the lessons of the activity ahead of it: the lab follows the lessons' order`); if (r.id !== main) far = Math.max(far, s);
+        const s = sectionOf(of.cf.block.id), lab = r.id !== main && r.id !== drive; if (lab && s < far) out.push(`${L}: ${r.id} practises a lesson (${of.cf.block.id}) of a section taught before the lessons of the activity ahead of it: the lab follows the lessons' order`); if (lab) far = Math.max(far, s);
         // its own first slide says it
         state.lessonSlide = r.from; render();
         const line = norm((document.querySelector('#lessonSlideWrap .cfx-of') /* in the Practice Lab line; under the steps on a Backup File Maintenance task */ || {}).textContent), num = of.h.split(' ')[0];
@@ -226,7 +229,7 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
     state.isAdmin = true; const d = DAYS.find(x => x.cf && x.cf.n === 2); goto('day', d.id); state.dayViewMode = 'slides'; state.lessonSlide = 0; render();
     openRoadmap(); await new Promise(r => setTimeout(r, 80));
     const rm = [...document.querySelectorAll('#rmModal .rmx-day')].map(sec => { const lis = [...sec.querySelectorAll('.rmx-topics > li')];
-      return lis.map((li, i) => li.classList.contains('rmx-dk') ? 'D' : li.classList.contains('rmx-part') ? 'P:' + li.textContent.replace(/\s+/g, ' ').trim() : (li.querySelector('.rmx-tt em') ? 'A' : 'L')).join('|'); });
+      return lis.map((li, i) => li.classList.contains('rmx-dk') ? 'D' : li.classList.contains('rmx-part') ? 'P:' + li.textContent.replace(/\s+/g, ' ').trim() : li.classList.contains('rmx-steprow') ? 'S' : li.classList.contains('rmx-sides') ? 'G' : (li.querySelector('.rmx-tt em') ? 'A' : 'L')).join('|'); });
     closeRoadmap();
     openSlideMap(); await new Promise(r => setTimeout(r, 80));
     const sm = [...document.querySelectorAll('#slideMap .sm-part')].map(e => e.textContent.replace(/\s+/g, ' ').trim());
@@ -239,7 +242,7 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
     if (p1 !== 0) fail(`Roadmap, Day ${i + 1}: "Part 1 · Lessons" should head the day's topics`);
     if (p2 < 0) fail(`Roadmap, Day ${i + 1}: no "Part 2 · 🔁 The Daily Loop" label`);
     // the day's deck topics (📑 Deck pages, js/cm-day-decks.js) come after its lessons, before Part 2
-    else if (parts.slice(p1 + 1, p2).some(x => x !== 'L' && x !== 'D') || /D.*L/.test(parts.slice(p1 + 1, p2).join('')) || parts[p2 + 1] !== 'A') fail(`Roadmap, Day ${i + 1}: "Part 2" should sit after the last lesson and before the first Skill Activity`);
+    else if (parts.slice(p1 + 1, p2).some(x => x !== 'L' && x !== 'D') || /D.*L/.test(parts.slice(p1 + 1, p2).join('')) || parts[p2 + 1] !== 'S') fail(`Roadmap, Day ${i + 1}: "Part 2" should sit after the last lesson and open on the loop's first step, the Case Profile (roadmap.cjs checks the rest of the loop)`);
   });
   if (lists.sm.length !== 3 || !/^Part 1.*Lessons/.test(lists.sm[0]) || !/^Part 2.*Daily Loop/.test(lists.sm[1]) || !/Knowledge Check/.test(lists.sm[2])) fail(`the slide picker of Day 2 should label Part 1 · Lessons, Part 2 · 🔁 The Daily Loop and the Knowledge Check: ${JSON.stringify(lists.sm)}`);
   if (!/Case Profile/.test(lists.firstLab)) fail('the slide picker\'s "Part 2 · 🔁 The Daily Loop" label should sit above the Case Profile slide, the loop\'s first');

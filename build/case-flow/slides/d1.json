@@ -62,17 +62,21 @@
   },
   "d1m1-drive": {
     "image": "documents-audit",
-    "situation": "Assuming John Doe's matter is **active in the CMS** and your Google Drive is linked (🚀 Launch CMS & Google Drive links it), his backup folders now need building.",
-    "side": true,
+    "situation": "02/09/2026, 4:30 p.m. John Doe's matter is **active in the CMS**, and nothing is on **the firm's backup drive** yet.",
     "steps": [
-      "In 📂 My Backup Drive, press 📂 Build my folders, fix anything it returns, and run **✓ Check my drive** until no folder is missing.",
-      "Log it in CMS → Case Notes: where the retainer, the Police Report and the HIPAA authorization belong, and why."
+      "Press 🚀 Launch CMS & Google Drive. Not linked yet? Paste your folder's link in the **Backup Drive panel**.",
+      "In Google Drive, build 01 Clients by hand, holding Doe-John with its nine numbered folders.",
+      "Add 02 Firm Administration with its two folders, then 03 Templates and 04 Closed Files, named as the standard shows.",
+      "In 📂 My Backup Drive, submit the folders, fix what it returns, and run **✓ Check my drive** until clean.",
+      "In CMS → Case Notes, write where the retainer, the Police Report and the HIPAA authorization belong, and why."
     ],
-    "deliver": "A drive **built to standard**, checked clean, the placements logged",
+    "deliver": "A linked drive **built to standard**, confirmed by a clean check",
     "purpose": "A covering Case Manager must **find any document in seconds**",
     "principle": "Every file is laid out **the same way, every time**",
     "checks": [
+      "Drive folder **shared as Editor** and linked",
       "Every folder **named and numbered** to the standard",
+      "**Doe-John** under 01 Clients, nine folders inside",
       "**✓ Check my drive**: no folder missing",
       "Three documents **placed, with reasons**"
     ],

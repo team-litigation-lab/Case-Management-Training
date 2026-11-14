@@ -28,7 +28,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
 
 **Module 4 — Mediation & Arbitration**
 
@@ -50,7 +50,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 16. *Skill Activity* — Completing the Final Dual-Tab Net Sheet (practises: The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker) — *side*
 17. *Skill Activity* — Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold (practises: Release Audits, Trust Accounting & Disbursement Commands) — *side*
 18. *Skill Activity* — Starting the Disbursement Command: Releases, Hold Cleared, Money Out (practises: Release Audits, Trust Accounting & Disbursement Commands) — *side*
-19. *Skill Activity* — Backup File Maintenance: Liens, Costs and a Missing Folder (practises: Closing the File: Final Reconciliation, the Closing Memo, the Closing Letter & Retention) — *side*
+19. *Skill Activity* — Backup File Maintenance: Liens, Costs and a Missing Folder (practises: Closing the File: Final Reconciliation, the Closing Memo, the Closing Letter & Retention) — **Required: Backup File Maintenance**
 20. *Skill Activity* — Routing the UM Impasse: Arbitration or Court (practises: UM/UIM Disputes & Resolution Routes) — *side*
 21. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs (practises: Court Hard Rules, SOL Cutoffs & the Master Calendar) — *side*
 22. *Skill Activity* — Calendaring the Mediation: the Session and Every Date That Hangs Off It (practises: Mediation vs. Binding Arbitration & the UPL Line at Hearings) — *side*
@@ -69,7 +69,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 ## Module 4 — Mediation & Arbitration
 
-**Order:** Lessons (13) ➔ Case Profile ➔ Skill Building (Assembling the 6-Section Mediation Binder) ➔ Update Your Action Plan ➔ Practice Lab (12 optional side exercises) ➔ Knowledge Check (4 Learning Checks)
+**Order:** Lessons (13) ➔ Case Profile ➔ Skill Building (Assembling the 6-Section Mediation Binder) ➔ Backup File Maintenance (required) ➔ Update Your Action Plan ➔ Practice Lab (11 optional side exercises) ➔ Knowledge Check (4 Learning Checks)
 
 ### 4.1.1 Statutory Liens, Health Subrogation & Provider Balances
 

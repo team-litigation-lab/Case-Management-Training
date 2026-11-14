@@ -29,7 +29,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
 
 **Module 2 — Claim Set Up, Treatment & the Bodily Injury Claim**
 
@@ -60,7 +60,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 25. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It (practises: Letters of Protection & the Case Manager's Part in Provider Referrals) — *side*
 26. *Skill Activity* — Health Plan Subrogation: Flag, Request & Audit the Lien (practises: Health Subrogation, Payer Order & the Regulatory Triple-Check) — *side*
 27. *Skill Activity* — The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol (practises: A-C-T Crisis Protocol & Treatment Monitoring Principles) — *side*
-28. *Skill Activity* — Backup File Maintenance: Records and Bills in Their Folders (practises: A-C-T Crisis Protocol & Treatment Monitoring Principles) — *side*
+28. *Skill Activity* — Backup File Maintenance: Records and Bills in Their Folders (practises: A-C-T Crisis Protocol & Treatment Monitoring Principles) — **Required: Backup File Maintenance**
 29. *Knowledge Check* — Coverage Setup Verification Check
 30. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
 31. *Knowledge Check* — Treatment Monitoring Review
@@ -71,7 +71,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 ## Module 2 — Claim Set Up, Treatment & the Bodily Injury Claim
 
-**Order:** Lessons (18) ➔ Case Profile ➔ Skill Building (Generating Formal LORs to BI, Host UM, and Relative UM Carriers) ➔ Update Your Action Plan ➔ Practice Lab (9 optional side exercises) ➔ Knowledge Check (3 Learning Checks)
+**Order:** Lessons (18) ➔ Case Profile ➔ Skill Building (Generating Formal LORs to BI, Host UM, and Relative UM Carriers) ➔ Backup File Maintenance (required) ➔ Update Your Action Plan ➔ Practice Lab (8 optional side exercises) ➔ Knowledge Check (3 Learning Checks)
 
 ### 2.1.1 Coverage Verification Tracking & Follow-Up Deadlines
 

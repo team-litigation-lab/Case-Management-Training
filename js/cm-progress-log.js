@@ -196,8 +196,9 @@ function compute(data, ctx){
     add({key: `drive:day${n}`, rule: "drive", sev: g.score < 50 ? "high" : "medium", at: g.at, fixable: true,
       title: `Day ${n} Backup File Maintenance: ${g.score}%`, detail: `R3: below the ${T.DRIVE_PASS}% pass mark, graded from the Drive itself.`,
       fix: `Open Day ${n}'s Backup File Maintenance, move each document to its folder and name it the firm's way, then ✓ Check my drive.`}); });
-  // Day 1's Backup Drive is an optional side exercise in the daily loop (js/cm-day-loop.js, "side" in its slide copy):
-  // skipping it is no alert; one started and left without its folders submitted is
+  // Day 1's Backup Drive is a REQUIRED step of the daily loop again (js/cm-day-loop.js, CF.sequence `drive`): a trainee
+  // past Day 1's opening work with no folders submitted is flagged. (Were it ever a side exercise again, "side" in its
+  // slide copy, skipping it would be no alert; only one started and left without its folders submitted.)
   const driveSide = !!((window.CM_CF_SLIDES || {})["d1m1-drive"] || {}).side;
   if(!ds && movedOn && (driveSide ? t.has("d1m1-drive") : (openWorked || t.has("d1m1-drive")))){
     add({key: "drive:none", rule: "drive", sev: "high", at: (kc1 && kc1.date) || cf.updatedAt || null, fixable: true,
@@ -240,11 +241,11 @@ function compute(data, ctx){
     if(f.length >= T.KC_FAILS){
       add({key: `kcfail:${id}`, rule: "kcfail", sev: f.length >= 3 ? "high" : "medium", at: (f[f.length - 1] || {}).date || p.date || null, fixable: true,
         title: `${dayName(id)} Knowledge Check failed ${f.length} times`, detail: `R7: scores ${f.map(h => h.score + "%").join(", ")}; ${T.KC_PASS}% passes. Best so far ${p.score}%.`,
-        fix: `Review the questions you missed in the lessons. The Knowledge Check takes one attempt: ask your trainer about opening the next day.`});
+        fix: `Review the questions you missed in the lessons. The Knowledge Check takes one attempt: ask your trainer to reset this check (🔁 Reset Knowledge Check) for one new attempt.`});
     } else if(first && hoursSince(first, now) >= T.KC_STUCK_H){
       add({key: `stuck:kc:${id}`, rule: "stuck", sev: "medium", at: p.date || first, fixable: true,
         title: `${dayName(id)} Knowledge Check not passed after ${Math.floor(hoursSince(first, now) / 24)} days`, detail: `R8: first taken ${new Date(first).toLocaleDateString()}; best ${p.score}%.`,
-        fix: `The Knowledge Check takes one attempt: ask your trainer about opening the next day.`});
+        fix: `The Knowledge Check takes one attempt: ask your trainer to reset this check (🔁 Reset Knowledge Check) for one new attempt.`});
     }
   });
   return out.sort((a, b) => (a.sev === b.sev ? 0 : a.sev === "high" ? -1 : 1) || ms(b.at) - ms(a.at));

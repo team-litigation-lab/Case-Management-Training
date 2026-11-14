@@ -2,7 +2,12 @@
 // The owner's note (js/cm-litigation-note.js), checked in a real browser on Case Flow Day 5:
 //   · its exact words are on the first slide of the Litigation section (d4m1-l1) and on the first slide of every
 //     litigation transition or file-handoff step (d4m1-l2 From Pre-Lit to Litigation, d4m1-a1 the fork, d4m1-a2 the
-//     move to Litigation status, d4m1-efile the filing handed to the Litigation Desk), in bold type of at least 16px;
+//     move to Litigation status, d4m1-efile the filing handed to the Litigation Desk; on Day 4 the court work once suit
+//     is filed, d4m2-l1 Court Hard Rules, SOL Cutoffs & the Master Calendar, d4m2-a1 its calendar-cutoff audit and
+//     d4m2-medcal the court-ordered mediation's calendar; on Day 5 the litigated disbursement, d5m5-l1 and d5m5-a1 the
+//     Litigation Net Sheet), in bold type of at least 16px;
+//   · the same words at the top of each of those blocks' full text (📖 Additional Reference, the lesson card that is not
+//     a slide), and not on a block that is no handoff;
 //   · a trainee reaching a handoff step gets it as a pop-up too; "Got it" puts it away, it does not come back on that
 //     step (and it is saved as the trainee's progress, "litigation-note-seen"), while the callout stays on the slide;
 //   · a trainer gets no pop-up, and Presenter view's notes say to read the note aloud;
@@ -12,7 +17,7 @@ const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
 const BASE = process.argv[2] || 'http://localhost:8787/';
 const NOTE = 'Note: Case Managers handling Litigation and Pre-Litigation are sometimes different individuals. Always verify the assigned Case Manager in the CMS/Case Profile before transferring files, logging updates, or routing communications.';
-const BLOCKS = ['d4m1-l1', 'd4m1-l2', 'd4m1-a1', 'd4m1-a2', 'd4m1-efile'];
+const BLOCKS = ['d4m1-l1', 'd4m1-l2', 'd4m1-a1', 'd4m1-a2', 'd4m1-efile', 'd4m2-l1', 'd4m2-a1', 'd4m2-medcal', 'd5m5-l1', 'd5m5-a1'];
 const SIZES = [[1366, 768], [1920, 1080]];
 const failures = [];
 const check = (ok, m) => { console.log((ok ? 'PASS ' : 'FAIL ') + m); if (!ok) failures.push(m); };
@@ -32,10 +37,17 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
         const go = (id, trainer) => page.evaluate(async ({ id, trainer }) => {
             state.isAdmin = trainer; state.adminPreview = false; state.presenting = false; state.adminUnlockedDays = DAYS.map(d => d.id);
             { const kt = document.getElementById('ktLogin'); if (kt) kt.remove(); }
-            const d = DAYS.find(x => x.cf && x.cf.n === 5), s = buildDaySlides(d);
+            const d = DAYS.find(x => x.cf && x.lessons.some(l => l.cf.block.id === id)) || DAYS.find(x => x.cf && x.cf.n === 5), s = buildDaySlides(d);
             const i = s.findIndex(x => x.type === 'topic' && x.part === 1 && d.lessons[x.lessonIndex].cf.block.id === id);
-            goto('day', d.id); state.dayViewMode = 'slides'; state.lessonSlide = i; render();
-            await new Promise(r => setTimeout(r, 450));
+            // the day open for the trainee for the whole run: a day they have reached is never locked again (js/cm-open-lessons.js,
+            // whose once-a-minute check could otherwise close Day 5 partway), set before the day is drawn
+            if (!trainer) { state.slideProgress = state.slideProgress || {}; state.slideProgress[d.id] = Math.max(i + 1, state.slideProgress[d.id] || 0); }
+            const draw = () => { goto('day', d.id); state.dayViewMode = 'slides'; state.lessonSlide = i; render(); };
+            draw();
+            // wait for the slide itself (its callout), not a fixed time; drawn again once if the page re-rendered elsewhere
+            const drawn = () => { const w = document.getElementById('lessonSlideWrap'); return !!(w && w.querySelector('.lgn-note')); };
+            for (let t = 0; t < 60 && !drawn(); t++) { await new Promise(r => setTimeout(r, 50)); if (t === 30 && !drawn()) draw(); }
+            await new Promise(r => setTimeout(r, 150));
             const w = document.getElementById('lessonSlideWrap'), stage = document.getElementById('lessonStage');
             const box = w && [...w.querySelectorAll('.lgn-note')].find(x => !x.closest('.np-mini')), p = box && box.querySelector('p');
             const pop = document.getElementById('lgnPop');
@@ -47,7 +59,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
         await page.evaluate(async () => { await storeSet('litigation-note-seen', {}); await cmLitigationNote.reload(); });
         for (const id of BLOCKS) {
             const t = await go(id, false);
-            check(t.i >= 0, `${L} Day 5 has ${id}'s first slide`);
+            check(t.i >= 0, `${L} the course has ${id}'s first slide`);
             check(t.text === NOTE, `${L} ${id}: the note is on the slide, word for word${t.text === NOTE ? '' : ` ("${t.text.slice(0, 90)}…")`}`);
             check(t.size >= 16 && t.weight >= 600, `${L} ${id}: in bold type of at least 16px (${t.size}px, weight ${t.weight})`);
             check(t.over <= 2 && t.below <= 1 && t.pages === 1, `${L} ${id}: the slide still fits one screen (inside +${t.over}, below +${Math.round(t.below)}, ${t.pages} page)`);
@@ -71,6 +83,15 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
             }
             await page.evaluate(() => { const p = document.getElementById('lgnPop'); if (p) p.remove(); });
         }
+        // the full text (📖 Additional Reference) of every one of them opens on the note; a block that is no handoff has none
+        const full = await page.evaluate(async (ids) => { const out = {};
+            for (const id of ids.concat(['d4m3-a1'])) { const d = DAYS.find(x => x.cf && x.lessons.some(l => l.cf.block.id === id)), i = d.lessons.findIndex(l => l.cf.block.id === id);
+                cmCaseFlow.full(d.id, i); await new Promise(r => setTimeout(r, 30));
+                const b = document.querySelector('.cfx-ref .cfx-ref-b'), n = b && b.querySelector('.lgn-note');
+                out[id] = n ? (b.firstElementChild === n ? '' : 'top:') + n.textContent.replace(/\s+/g, ' ').replace(/^\W+/, '').trim() : ''; cmCaseFlow.fullClose(); }
+            return out; }, BLOCKS);
+        BLOCKS.forEach(id => check(full[id] === NOTE, `${L} ${id}: the note heads its full text (📖 Additional Reference)${full[id] === NOTE ? '' : ` ("${String(full[id]).slice(0, 60)}")`}`));
+        check(full['d4m3-a1'] === '', `${L} a block that is no handoff (d4m3-a1) has no note in its full text`);
         // a trainer: no pop-up; Presenter view says to read it aloud
         await page.evaluate(async () => { await storeSet('litigation-note-seen', {}); await cmLitigationNote.reload(); });
         const tr = await go('d4m1-a1', true);
@@ -82,5 +103,5 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
     }
     await browser.close();
     if (failures.length) { console.error(`\n${failures.length} check(s) failed.`); process.exit(1); }
-    console.log('\nAll good: the Litigation note is at the start of the section and on every handoff step, word for word.');
+    console.log('\nAll good: the Litigation note is at the start of the section and on every handoff step (Day 4\'s court work after suit and Day 5\'s litigated disbursement too), on the slide and in its full text, word for word.');
 })().catch(e => { console.error(e); process.exit(1); });

@@ -54,27 +54,25 @@
     }
   },
   "d1m2-a1": {
-    "case": {
-      "say": "• 02/16/2026, file LSH-2026-MVA-770412: six days with no contact from John Doe\n• Last logged contact 02/10/2026; missed check-in call 02/13/2026; no treatment start recorded\n• Phone system shows two voicemails to his mobile, neither in the Communications Log\n• Emergency contact Margaret Doe, (555) 010-2291; Step 1 of the No Contact Protocol is due today\n• \"Called client, no answer\" fails: no time, no number, no next step"
-    },
     "task": {
-      "say": "• Step 1 first: internal review in the CMS Case Summary, naming the live deadlines\n• Log the two missing voicemails, then carry the Step 2 ladder forward in the Communications Log\n• Every attempt: date, time, channel, outcome, next action and due date\n• Live call with Margaret Doe: confirm she's the emergency contact, ask John to call by a set date\n• Confirm his best number and address, share no case details; hand in Step 1, the log and a Step 3 call"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in CMS › Communications Log: the two earlier voicemails, then an email\n• A text and the emergency contact, each with date, time, channel and outcome\n• Step 2: Record the next action and its due date in the Communications Log"
+    },
+    "case": {
+      "say": "• Assuming John Doe has been silent six days and the Step 1 review is done, his outreach attempts now need logging in order\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an unbroken, contemporaneous outreach log, the next action dated"
     },
     "check": {
-      "say": "• Step 1 done first: status, live deadlines, last contact reviewed\n• Both earlier voicemails logged; phone rung cleared with two attempts, then email and text, then Margaret\n• Every entry has date, time, channel, outcome, and a next action with due date\n• Step 3 impact names the SOL of 02/06/2028 and treatment not started; nothing threatens to drop the case\n• The missing treatment start is the seed of the 14-Day Gap",
-      "ask": "If his mobile was called three times, how many channels were used?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Every entry: date, time, channel, outcome; Email and SMS attempted, not repeat calls; No entry threatens withdrawal or closure\n• The one thing to watch for: Logging “called client, no answer” with no details"
     }
   },
   "d1m2-a2": {
-    "case": {
-      "say": "• 02/21/2026: eleven days with no word from John Doe and no known treatment\n• Phone rung cleared, emails and texts sent, Margaret Doe tried, all logged\n• Atty. Thorne wants the Final Warning Letter drafted for review Monday morning\n• Every attempt dated, a response date, how to reach the firm; certified mail and email\n• Withdrawal possible, not decided; nothing about his claim; urgent but not threatening"
-    },
     "task": {
-      "say": "• Draft the Step 4 letter in the Action Plan Editor on the warning letter template\n• List every attempt by date; deadline inside 7 to 14 days; withdrawal possible; exactly how to respond\n• Stay inside the UPL line: nothing on claim strength, what silence does legally, or dropping the case\n• Write what must be true before a skip-trace, and whose approval Step 5 needs\n• Hand in a ready-to-send letter, both deliveries logged, escalation recorded"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents\n• Fill in the Final Warning Letter template: list the earlier attempts with their dates and set a reply date 7 to 14 days from today\n• Step 2: Log it in the CMS Communications Log: the letter went by certified mail and by email, and Atty. Thorne decides any next step"
+    },
+    "case": {
+      "say": "• Assuming the No Contact Protocol has been maxed (phone, email\n• Texts and emergency contact all tried and logged), John Doe's Step 4 Final Warning Letter is due today\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a send-ready Final Warning Letter, both deliveries logged, escalation recorded"
     },
     "check": {
-      "say": "• A real response date inside 7 to 14 days, not \"as soon as possible\"\n• Firm name, file reference, date of loss 02/06/2026, earlier attempts by date\n• Withdrawal possible, not decided; at least two ways to respond\n• Certified mail and email recorded, address confirmed; nothing on claim value or legal consequence\n• Skip-trace conditions written down; Step 5 noted as Atty. Thorne's",
-      "ask": "Does the letter say what's needed and by when, without saying what happens to his case?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: DOL 02/06/2026 and file reference present; Deadline is a date inside 7–14 days\n• Withdrawal noted as possible, not decided; Certified mail AND email both recorded; No statement on value or legal consequences\n• The one thing to watch for: a deadline of “as soon as possible”"
     }
   },
   "d1m2-kc": {
@@ -187,75 +185,64 @@
     }
   },
   "d2m2-a1": {
-    "case": {
-      "say": "• 02/23/2026: Tammy Greer, Office Manager at Riverton Spine & Rehab, emails ahead of the 02/24 evaluation\n• Out of network with Peach State; wants a signed LOP and HIPAA authorization (records-sharing form) today\n• First treatment: Riverton Urgent Care 02/20/2026, $685.00, paid by Harbor Point PIP; Atty. Thorne approved the LOP template\n• Baseline: three 2021 chiropractic visits for low-back stiffness\n• 03/11/2026: Summit Imaging, booked for the neck MRI Dr. Reyes ordered 03/05/2026, also asks for an LOP"
-    },
     "task": {
-      "say": "• Run the Payer Order first on each date\n• 02/23/2026: prepare Riverton's LOP on the approved template, route to Atty. Thorne to sign, send with the HIPAA authorization\n• Live call with Tammy Greer: confirm the LOP is accepted, secure the evaluation, answer with facts only\n• Write the call up as a case note, open follow-up tasks, file in the CMS\n• 03/11/2026: decline Summit in writing, naming Harbor Point PIP, proved from the PIP Log; promise no payment"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Liens › LOP register, record Riverton's LOP signed by John Doe and Atty. Thorne\n• And send it with the HIPAA authorization from the Email Workspace\n• Step 2: Log Summit Imaging's declined LOP request in CMS › Case Notes, naming Harbor Point PIP as the payer, and calendar the rental's 03/19/2026 end"
+    },
+    "case": {
+      "say": "• Assuming Riverton Spine & Rehab is out of network for Peach State and Atty. Thorne has approved its LOP, the LOP now needs sending and logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: One counsel-approved LOP sent, one declined, both logged"
     },
     "check": {
-      "say": "• LOP signed by John Doe and Atty. Thorne 02/23/2026, before the 02/24 visit; nothing signed by the Case Manager\n• Baseline shows the 2021 visits were low back, resolved, a different region\n• Rental end 03/19/2026 calendared as a treatment risk\n• Summit decline names PIP with $3,675.00 left, enough for the $2,395.00 MRI; Tammy Greer call logged, nothing promised",
-      "ask": "When a provider asks whether they'll be paid in full, what is the answer?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Signed by John Doe and Atty. Thorne before 02/24/2026; Decline names Harbor Point PIP as payer\n• No payment promised to any provider; Rental end 03/19/2026 calendared\n• The one thing to watch for: an LOP to a provider PIP would have paid"
     }
   },
   "d2m3-a1": {
-    "case": {
-      "say": "• 03/04/2026: Riverton Urgent Care's 02/20/2026 note: onset at the MVA 02/06/2026, worsening, right-hand numbness since 02/18\n• The EMS Run Report records neck stiffness on 02/06/2026\n• At Riverton Spine & Rehab since 02/24/2026; Margaret's rental runs to 03/19/2026\n• Nobody has asked why he waited 14 days; Atty. Thorne wants a recorded call today, then a GIRP note\n• Fails: a leading question, a suggested reason, or any \"won't matter\" or \"will hurt the case\""
-    },
     "task": {
-      "say": "• Recorded call with AI John Doe in the Call Simulator: why first treatment came 02/20/2026, 14 days after\n• Open on the record: date, who's on, role, consent to record, privacy\n• Ask open, follow his words, yes-or-no only to pin dates and documents; four reasons to draw out\n• Find who he told and what he kept; read his account back; confirm the 03/05 consult and rides after 03/19\n• Hand in a privileged GIRP note in Case Notes with a dated task per document"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Take the recorded call below: state the date and his consent, ask open questions only, and read his account back to him\n• Step 2: Log a privileged GIRP note in CMS › Case Notes the same day, with a dated task for each corroborating document"
+    },
+    "case": {
+      "say": "• Assuming John Doe has agreed to a recorded call about why he waited 14 days, his four reasons now need capturing in his own words\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: All four reasons in his words, the GIRP note filed"
     },
     "model": {
-      "say": "• Left: simulator screen, AI John Doe, recorded call 03/04/2026, transcript below\n• Meter counts questions: open, closed, leading; leading stays at zero\n• Right: four reason slots, each with a document space, filled only as reasons surface\n• Warning: a suggested reason earns a yes, not a fact; target four reasons, four documents"
+      "say": "• See It: the finished work, for reference only; this side exercise asks for the logged entry\n• Point to it on the model: Zero leading questions; no reason introduced first"
     },
     "check": {
-      "say": "• Opened 03/04/2026 with participants, role, spoken consent, privacy; first question open, zero leading\n• One: no transport; Civic towed, Kevin Alvarez's Escape in the shop, no rental until 02/18/2026\n• Two: thought it was soreness, ibuprofen and lidocaine patches; three: doubted Peach State coverage, didn't know PIP existed\n• Four: numbness from 02/18; worked two shifts, then urgent care on his first day off\n• Texts, Northgate call-outs and receipt surfaced; GIRP note quotes his words, dated plan, labelled privileged",
-      "ask": "Does the GIRP note record an intervention and a plan, or only how John Doe felt?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Zero leading questions; no reason introduced first; Four reasons in his words: transport, soreness, coverage, numbness\n• GIRP note filed 03/04/2026, labelled privileged; Corroboration requested with a dated task\n• The one thing to watch for: Rescuing a hesitant client with a suggested reason"
     }
   },
   "d2m2-a2": {
-    "case": {
-      "say": "• 04/08/2026 alert from Riverton Spine & Rehab, LOP account RSR-26-0412: John Doe missed 04/03 and 04/07, no call\n• Last visit 04/02/2026; not answering the clinic; last firm contact a 03/31 check-in\n• Then: misses 04/09 and 04/14; Margaret says on 04/10 he's safe but keeping to himself\n• 04/16: the CMS 14-day no-visit trigger fires; 04/17: John calls in"
-    },
     "task": {
-      "say": "• Step 1 review first, then notices by channel: call and text 04/08, call and email 04/09, Margaret 04/10\n• Escalate to Atty. Thorne; 10-day Final Warning Letter by certified mail and email, response date 04/20/2026; set Drop Warning\n• 04/17 call: trauma-informed interview; safety first, his pace, his choices, his words\n• No diagnosis, no counselor referral, nothing on the claim; with consent, arrange Dr. Reyes and evening LOP visits\n• Restore the file and confirm 04/21 and 04/23"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the call in CMS › Case Notes in his own words, with no diagnosis or advice\n• Step 2: In CMS › Calendar, book his 04/21 and 04/23 visits, then restore the file's status in CMS › Case Status"
     },
-    "model": {
-      "say": "• Safety first: thank him, no trouble calling late, ask whether he's safe\n• Any mention of self-harm: give the 988 Suicide and Crisis Lifeline and tell Atty. Thorne at once\n• His choice and pace: ask before recording and before returning to the crash; let silences run\n• His words, not labels: his chest goes tight every time he gets in a car, written exactly as he says it\n• What it is belongs to Dr. Reyes; what it means for the claim, to Atty. Thorne"
+    "case": {
+      "say": "• Assuming the No Contact Protocol has been maxed and John Doe calls back on 04/17, his re-engagement now needs logging before the letter's date\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: His words logged, visits booked, the file restored"
     },
     "check": {
-      "say": "• Step 1 dated 04/08/2026 before outreach; notices 04/08, 04/09, Margaret 04/10, each with date, time, channel, outcome\n• Letter by certified mail and email, response date 04/20/2026, withdrawal possible not decided, nothing on the claim\n• Interview quotes his words on the 04/02 panic at the corner, his sleep and mood; no labels\n• 04/20: Drop Warning cleared, 14-day trigger reset, Action Plan updated; four missed visits, 19 days; attended 04/21, 04/23",
-      "ask": "Which word in a note would do the defense's work on these 19 days?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: His words quoted; no label, no counseling advice; Visits 04/21 and 04/23 on the calendar; Drop Warning cleared; 14-day trigger reset\n• The one thing to watch for: Telling him “that sounds like PTSD”"
     }
   },
   "d2m2-a3": {
-    "case": {
-      "say": "• 04/22/2026, 12:18 p.m. voicemail from John Doe; care restarted at Riverton Spine & Rehab, evenings, Margaret driving\n• The Civic is still in the shop\n• Lakeside booked Dr. Reyes's 03/27/2026 injection referral at Millbrook Interventional Pain Center for 05/14/2026\n• John won't go: too far, no ride, and a coworker said it's out of network with Peach State\n• He still wants the injection somewhere reachable; rumors aren't records"
-    },
     "task": {
-      "say": "• Call John back and listen; where he goes, among options his doctors find appropriate, is his choice\n• What care he gets is Dr. Reyes's and the provider's call; no medical advice\n• Verify Crescent's network status with Peach State directly\n• With Janelle Brooks, Lakeside's referral coordinator, send the referral to Crescent Pain & Spine; book with John on the line\n• Every follow-up task done or delegated, with an owner and due date"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in the CMS: cancel the Millbrook slot on the Calendar\n• Add Crescent under Parties, and open one task for each follow-up with an owner and a due date\n• Step 2: Write a short Case Note for Atty. Thorne saying what changed and why, with no medical advice"
     },
-    "model": {
-      "say": "• Done looks like a CMS task list: each row done with a date, or delegated with a name and due date\n• Done 04/22/2026: call back, read the referral, verify Crescent, book 05/15/2026 with John on the line\n• Also done: calendar, Parties, Peach State billing, Lien Tracker flag, transport, GIRP note, report\n• Janelle Brooks cancels Millbrook by 04/23/2026; records team requests Crescent records and itemized bill by 05/29/2026\n• Attendance check 05/18/2026 stays with the Case Manager; no row says \"someone should\""
+    "case": {
+      "say": "• Assuming John Doe has refused Millbrook and Crescent Pain & Spine is booked for 05/15/2026, the follow-up tasks still need logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a CMS task list: every task Done by me or Delegated, owner and date"
     },
     "check": {
-      "say": "• Call returned 04/22/2026; his reasons recorded in his own words\n• Verified with Peach State: Crescent Pain & Spine, Dr. Omar Haddad, in network for member PSH-55017742\n• 05/15/2026 booked, a day after the Millbrook slot it replaces; evening therapy continues, so no new gap\n• Millbrook slot cancelled; reminder call 05/13/2026, attendance check 05/18/2026; every task dated or owned\n• No advice: saying one place gives better care fails",
-      "ask": "If Crescent's first opening were weeks away, who should be told, and asked what?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Crescent verified in network with Peach State, not hearsay; Crescent's 05/15/2026 slot: no new Treatment Gap; Millbrook cancelled\n• Calendar and reminders updated; Records request delegated with an owner and due date; No medical advice; no talk of claim value\n• The one thing to watch for: Telling John Doe which facility is better medically"
     }
   },
   "d2m3-a2": {
-    "case": {
-      "say": "• 06/22/2026: MMI reached 06/12/2026; Dr. Alana Reyes's Causation Letter of 06/19/2026 is in\n• Delayed presentation is clinically consistent with a disc injury whose nerve symptoms build over days to weeks\n• Injury more likely than not caused by the collision: a late start to treatment makes medical sense here\n• Atty. Thorne wants the Gap Explanation Record before the pre-demand session; a second gap runs 04/02 to 04/21/2026\n• Adjuster arguments, not serious, recovered early, unnecessary, another cause: answer each with a document"
-    },
     "task": {
-      "say": "• Build the Gap Explanation Record in the CMS Case File\n• Exact dates: 14-day gap 02/06 to 02/20/2026; 19-day disruption 04/02 to 04/21/2026\n• Each reason beside its dated document; no independent document means \"account only,\" his word alone\n• Cite complaints before and after each, and the firm's follow-up; no argument, valuation or privileged call content\n• Defense-eye pass, then route to Atty. Thorne through Tasks"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case File › Gap Explanation Record\n• Enter the 14-day gap and the 19-day disruption with exact dates, each reason beside its dated document\n• Step 2: Log it as routed to Atty. Thorne, and file the non-economic damages records in the CMS"
+    },
+    "case": {
+      "say": "• Assuming Dr. Reyes's 06/19/2026 Causation Letter and her 04/20 note are in, Atty. Thorne needs the Gap Explanation Record before the pre-demand session\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a routed record of both interruptions, every reason sourced"
     },
     "model": {
-      "say": "• One CMS card, Gap Explanation Record, John Doe, in two equal bands\n• Top: 14-day gap 02/06 to 02/20/2026; bottom: 19-day disruption 04/02 to 04/21/2026, anxiety after the crash\n• Columns: reason, corroborating document, date; grey \"account only\" tag where only his word stands\n• Route-to-Atty. Thorne control in the corner; the second interruption gets equal room on purpose"
+      "say": "• See It: the finished work, for reference only; this side exercise asks for the logged entry\n• Point to it on the model: 14 days, 02/06/2026 to 02/20/2026; 19 days, 04/02 to 04/21/2026"
     },
     "check": {
-      "say": "• 14-day gap 02/06 to 02/20/2026; 19-day disruption 04/02 to 04/21/2026, missed 04/03, 04/07, 04/09, 04/14\n• No February transport: tow record, Keystone's rental from 02/18/2026; expected it to pass: 02/07/2026 Riverton Drug receipt\n• April: crash anxiety after the 04/02 panic; Dr. Reyes's 04/20 note, counselor's 06/10 summary; his statement account only\n• Rental and carpool are background, not cause; filed in CMS and Drive; privileged calls kept out",
-      "ask": "How does this internal record differ from a gap timeline sent to Keystone?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: 14 days, 02/06/2026 to 02/20/2026; 19 days, 04/02 to 04/21/2026\n• Continuity: EMS report, call-outs, 06/19/2026 Causation Letter; Nothing argues or values the claim\n• The one thing to watch for: Documenting the 14-day gap and forgetting the 19-day disruption"
     }
   },
   "d2m2-kc": {
@@ -319,27 +306,25 @@
     }
   },
   "d2m4-a1": {
-    "case": {
-      "say": "• 07/01/2026: Special Damages Audit due on LSH-2026-MVA-770412; MMI 06/12/2026, Causation Letter 06/19/2026\n• Riverton Urgent Care $685.00; Riverton Spine & Rehab 34 lines at $185.00, $6,290.00, with visit notes\n• Lakeside Orthopedics three visits at $640.00; Summit Imaging $2,395.00; Riverton Drug $312.40\n• Crescent Pain & Spine $3,400.00, of which Peach State paid $1,860.00\n• Northgate HR letter 06/30/2026: 9 missed shifts at 8 hours times $22.00; bills given, not totals"
-    },
     "task": {
-      "say": "• Build the audited Specials ledger in the CMS Financial Ledger: charges, dates, billed amount, who paid\n• Match Riverton Spine & Rehab's lines to its visit notes; remove any line no visit supports\n• Total medical, add verified wages, show billed beside paid; future medical in the narrative only\n• List every lien in Liens and the Lien Tracker; re-verify the three limits in order on the Insurance tab\n• Part of the grade: what gets flagged rather than decided"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Specials, remove the duplicate and total the medical at $14,817.40 plus the wages, showing billed beside paid\n• Step 2: Log the liens in CMS › Liens and flag the billed-versus-paid choice to Atty. Thorne"
+    },
+    "case": {
+      "say": "• Assuming Riverton Spine & Rehab's 05/04/2026 duplicate line is confirmed and Northgate verified $1,584.00 in wages, the Specials now need totalling\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an audited ledger at $16,401.40, liens listed, choice routed"
     },
     "check": {
-      "say": "• Riverton notes: 33 visits, 34 lines; remove the 05/04/2026 duplicate, $6,290.00 to $6,105.00, request a corrected statement\n• Medical total $14,817.40, down from $15,002.40; wages 9 shifts at 8 hours and $22.00, $1,584.00\n• Total Specials $16,401.40\n• Five shifts, 02/09 to 02/13/2026, came before any provider visit: flag with Northgate's Attendance Record, never drop\n• Billed beside paid for Atty. Thorne; future medical in narrative; targets $10,000, $20,000, $10,000",
-      "ask": "Why flag those five early shifts instead of dropping them?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: 05/04/2026 duplicate removed: $6,290.00 › $6,105.00; Specials $16,401.40: medical plus wages; Billed-vs-paid choice routed to Atty. Thorne\n• The one thing to watch for: Totaling the statement instead of auditing it"
     }
   },
   "d2m4-a2": {
-    "case": {
-      "say": "• 07/08/2026: Atty. Thorne has read the audit; strategy session today at 2:00 p.m. in his office\n• Bottom line first; expect pushback on low speed, the 14 days, and the \"degenerative\" read, meaning age wear\n• Bring facts, documents and operational options; demand decisions are his\n• Audit: MMI 06/12/2026, Specials $16,401.40, liens $1,860.00 and $6,105.00\n• Targets: $10,000 BI, $20,000 Host UM, $10,000 Relative UM"
-    },
     "task": {
-      "say": "• Strategy session with AI Atty. Elijah Thorne in the Call Simulator\n• Brief in order: bottom line, audited facts, risks with documents, decisions needed, operational consequences\n• Meet every challenge with dated documents, not adjectives\n• Recommend only on operations; get decisions on the demand, the gap, UM consents and billed versus paid\n• Read each decision back; record in Case Notes, a task for each, re-route the Case Plan"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log each decision in CMS › Case Notes, attributed to Atty. Thorne, with the date it was made\n• Step 2: In CMS › Tasks, open a task with an owner for each decision, and propose no demand figure"
+    },
+    "case": {
+      "say": "• Assuming Atty. Thorne has decided on a time-limited BI demand, served 07/20/2026, his strategy decisions now need recording on the file\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a dated decision record, attributed to Atty. Thorne, tasked"
     },
     "check": {
-      "say": "• Bottom line first, figures exact\n• Low speed met with facts: Smith ran the stop sign and was cited, door struck about 28 mph, $2,315.00 A-pillar supplement\n• C5-C6 herniation, a neck disc injury, on the 03/13/2026 MRI; gap met with documents; 2021 and \"degenerative\" raised unprompted\n• Recorded: time-limited BI demand to Dana Whitfield, served 07/20/2026; gap up front; UM consent plan; billed versus paid\n• Asked for a demand figure: hand the question back to Atty. Thorne",
-      "ask": "When AI Atty. Thorne asked what to demand, what was the answer?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Decision recorded: time-limited BI demand, 07/20/2026; UM plan: no UM demand before the BI tender; No demand figure proposed\n• The one thing to watch for: Apologizing for the gap instead of explaining it"
     }
   },
   "d2m4-kc": {
@@ -398,18 +383,17 @@
     }
   },
   "d2m4-wage": {
-    "case": {
-      "say": "• 06/22/2026, ten days after MMI: John Doe signed Northgate Distribution's employee authorization this morning\n• A draft wage worksheet, built from his own account by phone, claims $1,760.00; nothing comes from a record\n• Angela Ruiz runs HR at Northgate; the Special Damages Audit is due 07/01/2026\n• Every missed shift must hold up against payroll and the medical chart"
-    },
     "task": {
-      "say": "• Employer Verification email to Angela Ruiz from the Email Workspace, with the authorization\n• Request the Wage Loss Verification Form, payroll, W-2; confirm rate, shift hours, missed dates, overtime, physical demands\n• She'll ask for his MRI and whether the settlement repays Northgate: send no records, say nothing on the claim\n• Match each missed shift to a provider record; flag the five February shifts to Atty. Thorne\n• Audit the draft to the verified total; enter it in the Specials and the Net Sheet"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Specials, correct the draft worksheet from $1,760.00 to the verified $1,584.00\n• Step 2: Log it by filing Northgate's letters in CMS › Documents\n• Flag the 02/09–02/13 shifts to Atty. Thorne, and send no medical records to the employer"
+    },
+    "case": {
+      "say": "• Assuming Northgate HR has sent the employer's verification and every missed shift matches a provider's note, the wage loss now needs entering\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: $1,584.00 verified in the Specials, Northgate's letters filed"
     },
     "audit": {
-      "say": "• Check every draft row against Northgate's records and the doctors' notes; five errors\n• 02/18 and 02/19 claimed, but he worked both; the MRI written as 03/12, actually 03/13\n• 05/18 rests on memory, but Crescent's work note covers 05/15 through 05/18; light duty and overtime never happened\n• The 02/09 to 02/13 call-outs left out for lack of a doctor's note: keep them, flagged\n• Employers can take weeks, so the request goes out the day MMI is declared"
+      "say": "• The finished set, for reference: the side exercise asks only for the two steps, not the whole audit\n• Have them check theirs for this: Northgate's verification filed in the CMS"
     },
     "check": {
-      "say": "• Northgate confirmed rate, hours, no overtime, job demands: lifting to 50 pounds, forklift, on his feet all shift\n• 03/05, 03/13, 05/15 and 05/18 shifts each matched to a provider record\n• 02/09 to 02/13 kept and flagged with the call-out record, EMS report and 02/07 receipt\n• Draft $1,760.00 down to $1,584.00, nine shifts, eight hours, $22.00; no medical records sent to the employer",
-      "ask": "If Keystone asked how he is known to have missed 03/13, what proves it?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Draft corrected: $1,760.00 › $1,584.00; Northgate's verification filed in the CMS\n• No medical records sent to the employer; 02/09–02/13 shifts flagged to Atty. Thorne\n• The one thing to watch for: Dropping shifts with no doctor's note"
     }
   },
   "d2m1-liab": {

@@ -63,18 +63,17 @@
     }
   },
   "d3m1-a2": {
+    "task": {
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor's UM demand templates\n• Put the exhaustion proof on page one of each draft, and claim only damages above what was collected\n• Step 2: Log both drafts in CMS › Tasks › Escalate for Atty. Thorne, with the response deadline left blank"
+    },
     "case": {
-      "say": "• Monday 08/31/2026; Keystone's check has not arrived\n• BI done: Smith's affidavit 08/10, Keystone's $10,000 tender 08/12\n• Consents: Harbor Point 08/24, Cardinal State 08/26; Limited Release of Smith and Keystone signed 08/28\n• Atty. Thorne wants Host UM to Harbor Point for $20,000 and Relative UM to Cardinal State for $10,000, as excess\n• Exhaustion on page one, deadline left blank; expect Keystone's 08/05 arguments: the 14-day gap, a “degenerative” MRI"
+      "say": "• Assuming Keystone's $10,000 tender, both consents and the signed Limited Release are on file, the desk's two UM demand drafts need a quick QC\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Two QC'd UM drafts, exhaustion proof first, routed"
     },
     "grade": {
-      "say": "• Two separate packages for two carriers, never the BI demand readdressed\n• Each opens with exhaustion proof: Keystone's tender, Dec Page, Smith's affidavit, both consents, signed Limited Release\n• Then coverage, liability, damages; Cardinal State framed as excess, damages above $30,000\n• A two-page treatment summary, not a stack of records; response deadline blank for Atty. Thorne\n• Build from the training Drive, tie each figure to its source, upload to the CMS with follow-up tasks"
-    },
-    "task": {
-      "say": "• The Demand Desk's drafts are in the file; this activity is QC, quality control\n• Host UM: Marcus Bell, Harbor Point, HP-26-7741, $20,000 limit\n• Relative UM: Teresa Okafor, Cardinal State, CS-26-20355, $10,000 as excess over Host UM\n• Page one of each: tender, consents, signed Limited Release, check copy to follow\n• Check figures against the audit; answer gap and “degenerative” with the MRI; route both drafts to Atty. Thorne"
+      "say": "• The Grade-A standard, for this side exercise: Two packages, HP-26-7741 and CS-26-20355\n• And Exhaustion on page one of each\n• Only the logged entry is graded, under the assumption on the slide"
     },
     "check": {
-      "say": "• Impairment rating: the doctor's percentage of permanent lost function; only a doctor gives one\n• Two complete packages; Cardinal State gets the whole file, Relative UM claimed above $30,000\n• Page one: 08/12 tender, 03/20 Dec Page, 08/10 affidavit, consents, 08/28 release, check-copy task; 03/02 and 03/09 coverage letters in\n• Gap section quotes the radiologist: “no significant degenerative change at the adjacent levels”\n• Two-page treatment summary; response deadline a marked blank; nothing served",
-      "ask": "Does Dr. Reyes's MMI note carry an impairment rating, and if not, what do you ask Atty. Thorne?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Two packages, HP-26-7741 and CS-26-20355; Exhaustion on page one of each; Response deadline left blank; nothing served\n• The one thing to watch for: Re-sending the BI demand with new addressees"
     }
   },
   "d3m1-kc": {
@@ -126,30 +125,25 @@
     }
   },
   "d3m2-a1": {
-    "case": {
-      "say": "• 08/05/2026, Dana Whitfield, KM-26-440871: Keystone offers $3,500.00 on the bodily injury claim\n• Against $16,401.40 in Specials\n• Her reasons: he waited two weeks to treat; MRI findings “degenerative in nature”; she calls this afternoon\n• Keystone received the $10,000 Time-Limited Demand 07/22; acceptance runs to 08/21/2026\n• Atty. Thorne's written authority: restate the Limits Demand and deadline, present the record, no counter, report same day"
-    },
     "task": {
-      "say": "• Run the call in the Call Simulator; log it in the Communications Log; draft the follow-up in the Email Workspace\n• Before dialing, math check on $3,500: fee, costs, unreduced liens, John's net\n• Pause after her number, ask what data supports it, name each stall\n• Gap: EMS report, Gap Explanation Record, Dr. Reyes's Causation Letter; degenerative: Dr. Park's MRI language\n• Restate $10,000 and 08/21/2026; log her words, report today, draft the 08/06/2026 rebuttal for approval"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log her exact words in CMS › Communications Log, and report the offer to Atty. Thorne the same day\n• Step 2: In the Email Workspace, draft the 08/06/2026 rebuttal for his approval, answering the gap from the record"
     },
-    "model": {
-      "say": "• Header: Keystone Mutual, Dana Whitfield, KM-26-440871; her two attacks in red, gap and degenerative\n• Evidence cards: Summit MRI 03/13/2026, Causation Letter 06/19/2026, EMS Run Report, Gap Explanation Record\n• Authority bar: hold the $10,000 limits, deadline 08/21/2026, no counter\n• Offer log: 08/05/2026, $3,500, reasons quoted, reported to Atty. Thorne\n• Read Dr. Park's words exactly: “no significant degenerative change at the adjacent levels”"
+    "case": {
+      "say": "• Assuming Dana Whitfield has offered $3,500 citing the gap and a degenerative MRI, and Atty. Thorne's authority is no counter, the offer needs logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a logged offer, a same-day report, a drafted rebuttal"
     },
     "check": {
-      "say": "• Math before dialing: $3,500 minus $1,166.67 fee and $486.75 costs leaves $1,846.58 against $7,965.00 liens; net $0.00\n• Paused and asked for her data; gap answered with dated documents, degenerative with Dr. Park's sentence\n• Restated $10,000 and 08/21/2026 with no new figure; naming a number or “let me see what I can do” fails\n• Offer logged in her exact words, reported 08/05, rebuttal drafted for 08/06",
-      "ask": "If Dana Whitfield raises the April break, which record answers the 19-day disruption?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: $3,500 nets John Doe $0.00; Offer logged in her exact words; No counter; 08/21/2026 deadline unchanged\n• The one thing to watch for: Answering “degenerative” with an opinion, not the radiologist's sentence"
     }
   },
   "d3m2-a2": {
-    "case": {
-      "say": "• 09/14/2026, Marcus Bell, HP-26-7741: Harbor Point offers $8,000.00 on the Host UM claim\n• Reasons: no treatment for two weeks; the BI payment already compensated much of the loss\n• The second argument is new; compare it with Harbor Point's own 03/02/2026 letter before drafting\n• Context: Keystone's $10,000 in trust since 09/04; both UM demands sent 08/31"
-    },
     "task": {
-      "say": "• Work both UM claims to resolution in the Negotiation Log, the CMS record of every offer, counter, reason and date\n• Log Harbor Point's $8,000 with its reasons; report to Atty. Thorne same day\n• 09/16 counter-package for approval: 03/02/2026 letter, MRI, Dr. Reyes's Causation Letter, MMI residuals, future care\n• Any offer or tender: record John's informed decision through Atty. Thorne; draft the confirming email for approval\n• Finish: prove $40,000.00 gross on the Recovery Ledger, every dollar recovered before fees and bills"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log each acceptance in CMS › Insurance › Negotiation Log, with a confirming email drafted for Atty. Thorne's approval\n• Step 2: Show $40,000.00 gross on the CMS Recovery Ledger, each check deposited only after its release is signed"
+    },
+    "case": {
+      "say": "• Assuming John Doe has accepted through Atty. Thorne and both UM layers settled at their limits, the recovery now needs logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a complete Negotiation Log and $40,000.00 gross recorded"
     },
     "check": {
-      "say": "• Harbor Point's 09/14 offer logged with both reasons, reported same day\n• Counter: offset answered by the 03/02/2026 letter, damages by medical proof, MMI residuals, future care $3,400 to $6,800\n• Sent 09/16 with no figure below limits from you\n• Harbor Point $20,000 on 09/29, Cardinal State $10,000 tender 10/06: each John's decision through Atty. Thorne, who and when\n• Recovery Ledger reads $40,000.00 only; no PIP $5,000 or Keystone Property Damage payments",
-      "ask": "Was each UM release signed before its check arrived on 10/05 and 10/13?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Each confirming email: coverage, release, liens, payee; Recovery Ledger $40,000.00 gross\n• PIP and Keystone PD excluded from the gross; Each UM release signed before its check\n• The one thing to watch for: Adding PIP or property-damage payments to the gross"
     }
   },
   "d3m2-kc": {
@@ -198,18 +192,14 @@
     }
   },
   "d3m3-a1": {
-    "case": {
-      "say": "• 10/06/2026, PSH-55017742: Peach State Health Plan asserts a $1,860.00 reimbursement right\n• Paid for the 05/15/2026 epidural injection at Crescent Pain & Spine; asks that its claim be protected\n• Attached: notice of rights and the EOB, the plan's statement of what it paid\n• Cardinal State just tendered $10,000; gross is $40,000.00\n• Both liens on the Lien Tracker since the pre-demand audit; Atty. Thorne held the Reduction Requests until gross was known"
-    },
     "task": {
-      "say": "• In the Lien Tracker on the Net Sheet: match the plan's payments to the treatment record; classify the lien\n• Record funding status; escalate the governing-law question to Atty. Thorne through CMS Tasks\n• Draft the Reduction Request in Documents, Outgoing: name the doctrine, show one-third math to $1,240.00, cite the MRI\n• Flag made whole as his to argue; record every absent claimant as a verified none with source\n• Hand in: request for signature, cleared Lien Tracker, 10/09/2026 acceptance at $1,240.00 once confirmed in writing"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Net Sheet › Lien Tracker, show the math, $1,860.00 – $620.00 = $1,240.00, and record each absent claimant as a verified none\n• Step 2: Log the 10/09/2026 acceptance only once Peach State confirms it in writing"
     },
-    "model": {
-      "say": "• Left: Lien Tracker, Peach State $1,860.00 to $1,240.00; $1,860.00 times one-third is $620.00\n• Hollow rows stamped none, verified, each with source: BCRC (Medicare's recovery office), Medicaid, Harbor Point's 03/02/2026 letter, intake\n• Right: draft Reduction Request for Atty. Thorne's signature with a red hold tag\n• Between them: escalation to Atty. Elijah Thorne on governing law and doctrine\n• The Case Manager builds the request; counsel decides when it goes"
+    "case": {
+      "say": "• Assuming Peach State asserts $1,860.00 and Atty. Thorne has signed off on the one-third reduction, the lien needs recording\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: $1,240.00 recorded once confirmed in writing"
     },
     "check": {
-      "say": "• Ledger matched to the one accident-related charge: 05/15/2026 injection, $3,400.00 billed, $1,860.00 paid; lien is what was paid\n• Crescent's $1,540.00 write-off recorded as not owed\n• Lien classified contractual, fully insured per plan documents, governing law Atty. Thorne's; common-fund math cites MRI and 06/19/2026 Causation Letter\n• Absences complete with date and source; prior attorney none known to John Doe; PIP not a lien\n• $1,240.00 final only with Peach State's written confirmation and Atty. Thorne's approval",
-      "ask": "Who checked Summit Imaging, which asked for an LOP on 03/11/2026?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Lien is what the plan paid: $1,860.00; Math shown: $1,860.00 – $620.00 = $1,240.00; Acceptance logged only with written confirmation\n• The one thing to watch for: Arguing a doctrine Atty. Thorne hasn't chosen"
     }
   },
   "d3m3-l3": {
@@ -224,15 +214,14 @@
     }
   },
   "d3m3-a2": {
-    "case": {
-      "say": "• 10/09/2026: Peach State accepted $1,240.00 in writing\n• Riverton Spine & Rehab's Final Itemized Ledger under the 02/23/2026 LOP: 34 visits at $185.00, balance $6,290.00\n• Riverton asks when to expect payment in full; visit notes attached\n• Atty. Thorne set a written target; the Reduction Request is yours to draft\n• Expect pushback: “We gave him 33 visits on a promise of payment”; answer with the audit and true facts"
-    },
     "task": {
-      "say": "• Audit Riverton's ledger against visit records; request a written correction first\n• Draft the Reduction Request for Atty. Thorne; send once approved\n• Call Simulator with Tammy Greer, billing manager: audited balance $6,105.00, 05/04/2026 duplicate removed\n• Explain the coverage-capped recovery as fact; she agrees to $4,580.00; accept nothing, route to Atty. Thorne\n• Hand in: logged call, signed 10/12/2026 Payoff Letter, recomputed Net Sheet at $20,359.92"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Net Sheet › Lien Tracker, enter $4,580.00 with the signed Payoff Letter as its source\n• Step 2: Log the call and the letter in CMS › Documents, and recompute the Net Sheet"
+    },
+    "case": {
+      "say": "• Assuming Riverton's ledger is corrected to $6,105.00 and its billing manager agreed to $4,580.00 in a signed Payoff Letter, the Net Sheet needs updating\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a signed $4,580.00 Payoff Letter logged, the Net Sheet recomputed"
     },
     "check": {
-      "say": "• 34 billed lines against 33 documented visits, 16 before the disruption, 17 after\n• Written correction of the 05/04/2026 duplicate first, $6,290.00 to $6,105.00; nothing 04/02 to 04/21/2026\n• Request approved and sent before the call; only true facts, recovery capped at $40,000 of coverage\n• At $4,580.00: “goes to Atty. Thorne, confirmed in writing”; Payoff Letter full-and-final, no balance billing\n• Net Sheet shows $20,359.92, clearing the 10/22/2026 disbursement",
-      "ask": "Opening with a discount on $6,290.00, how much error would you have negotiated around?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Correction first: $6,290.00 – $185.00 = $6,105.00; Signed Payoff Letter: full and final; Net Sheet recomputed: net $20,359.92\n• The one thing to watch for: Agreeing on the phone because it sounds good"
     }
   },
   "d3m3-kc": {
@@ -283,27 +272,25 @@
     }
   },
   "d3m4-a1": {
-    "case": {
-      "say": "• 10/13/2026: Cardinal State Mutual's $10,000.00 deposited to IOLTA on CS-26-20355, not yet cleared\n• Joins Keystone's check of 09/04 and Harbor Point's of 10/05, each deposited after its release; trust received $40,000.00\n• Peach State accepted $1,240.00 on 10/09, Riverton Spine & Rehab $4,580.00 on 10/12, both in writing; costs $486.75\n• Both Net Sheet tabs half-built; finish before the Settlement Statement is drafted\n• Two lines look owed but aren't: PIP's $5,000.00 and Crescent's write-off"
-    },
     "task": {
-      "say": "• Complete both tabs of John Doe's Net Sheet\n• Recovery Ledger: each check by carrier and stream, 33⅓% fee per stream, five costs, costs and liens split 25% and 75%\n• Lien Tracker: every provider and payer with charges, payments, adjustments, balance; asserted, audited, reduced figures; payoff status\n• Tie both tabs to the Trust Ledger; reach $20,359.92 down both streams and in total\n• Route to Atty. Thorne; one future cost belongs on the flag list before John signs"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: On the CMS Net Sheet's Recovery Ledger\n• Post each check by stream with the 33⅓% fee, and split the costs and liens 25% and 75%\n• Step 2: Log each lien's figures and payoff status in the Lien Tracker\n• Tie both tabs to the Trust Ledger, and flag future ESIs to Atty. Thorne"
+    },
+    "case": {
+      "say": "• Assuming $40,000.00 is received, Peach State accepted $1,240.00 and Riverton $4,580.00, with costs of $486.75, the final Net Sheet needs finishing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a two-tab Net Sheet reaching $20,359.92 both ways"
     },
     "check": {
-      "say": "• Gross: Keystone $10,000.00 to Stream 1; Harbor Point and Cardinal State $30,000.00 to Stream 2\n• Fee $3,333.33 plus $10,000.00, $13,333.33; costs $486.75, split $121.69 and $365.06, charged once\n• Liens 25%/75%: Peach State $310.00 and $930.00, Riverton $1,145.00 and $3,435.00\n• Net $5,089.98 plus $15,269.94 is $20,359.92; $40,000.00 minus $19,640.08 matches; zero-balance lines off payables\n• Payoff status recorded, none final on a phone call; up to $6,800 possible repeat injections flagged to Atty. Thorne",
-      "ask": "Why does the future-injection flag go to Atty. Thorne rather than straight to John Doe?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Pre-suit fee: $13,333.33; Costs $486.75, charged once; Net: $5,089.98 + $15,269.94 = $20,359.92; Future ESIs flagged to Atty. Thorne\n• The one thing to watch for: Marking a lien final from an email or phone call"
     }
   },
   "d3m4-a2": {
-    "case": {
-      "say": "• 10/21/2026, the day before disbursement: all three checks, $40,000.00, cleared trust by 10/20\n• John Doe signed the Settlement Statement this morning; both Payoff Letters in Documents\n• Monday 10/19: Vance & Kettering withdrew its lien in writing; Atty. Thorne released the hold\n• Today: confirm every gate is closed, then line up five commands taking the ledger to zero"
-    },
     "task": {
-      "say": "• Check each condition precedent against its document, not memory\n• Keystone's executed Limited Release and both UM releases; cleared funds; the signed statement; the Payoff Letters\n• Prior-attorney lien withdrawn, hold released by Atty. Thorne\n• Queue one Trust Ledger command per Net Sheet line for his approval: fee and costs, Peach State, Riverton, John Doe\n• Show the ledger at $0.00; request lien satisfactions and John's receipt; take John's call about his check"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Trust, queue one disbursement per Net Sheet line for Atty. Thorne's approval, taking the ledger to $0.00\n• Step 2: Log your requests for the lien satisfactions and John Doe's receipt in CMS › Documents"
+    },
+    "case": {
+      "say": "• Assuming every condition is met, the funds cleared and the lien hold released by Atty. Thorne, the 10/22 disbursement needs queuing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Five commands to $0.00, queued for approval"
     },
     "check": {
-      "say": "• Executed Limited Release and both UM releases on file; funds cleared by 10/20; statement signed 10/21\n• The 10/19 withdrawal on file; hold release recorded as Atty. Thorne's\n• Commands: $13,333.33 fee, $486.75 costs, $1,240.00 Peach State, $4,580.00 Riverton, $20,359.92 John Doe\n• Total $40,000.00, leaving $0.00; every packet complete, every command awaiting his signature",
-      "ask": "What would you do if the hold had not been released by 10/21?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Five commands match the Net Sheet exactly; None released by the CM; Lien satisfactions requested in writing\n• The one thing to watch for: Queuing a command before the funds clear"
     }
   },
   "d3m4-kc": {
@@ -330,27 +317,25 @@
     }
   },
   "d3m2-bins": {
-    "case": {
-      "say": "• Wednesday 08/12/2026: Dana Whitfield tendered Keystone's $10,000 BI limits, inside the 08/21 window\n• Tendered means offered, not received: no check issued, no release signed, UM not yet demanded\n• Atty. Thorne wants the BI Net Sheet: Stream 1 on his 25% working allocation, and Stream 1 standing alone\n• Liens as of 08/05: Peach State $1,860.00, Riverton Spine & Rehab $6,105.00 audited, nothing reduced"
-    },
     "task": {
-      "say": "• Build Stream 1 in the LSH Net Sheet; $10,000.00 gross as tendered, not received\n• Fee at the retainer's pre-suit 33⅓%, $3,333.33; five receipted costs, $486.75; liens as they stand, reduction column blank\n• 25% allocation: $121.69 costs, $1,991.25 liens, projected net $4,553.73, labeled a projection with its assumptions\n• BI-alone pattern: $6,179.92 against $7,965.00, shared pro rata; John at $0.00\n• Route to Atty. Thorne today with the trust-hold flag; allocation and value are his"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the LSH Net Sheet, enter the $10,000.00 gross, the 33⅓% fee\n• The receipted costs and both liens, with the 25% projection labelled as a projection\n• Step 2: Log it to Atty. Thorne in CMS › Tasks › Escalate, flagging that the money stays in trust"
+    },
+    "case": {
+      "say": "• Assuming Keystone tendered the $10,000 BI limits today and the liens are still unreduced, Atty. Thorne needs Stream 1's Net Sheet\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Stream 1 Net Sheet, the projection labelled, routed"
     },
     "check": {
-      "say": "• Fee $3,333.33, not $3,333.00 from typing 33.33%\n• Liens $1,860.00 and $6,105.00, nothing reduced; Stream 2 open and empty\n• $4,553.73 marked a projection, with the allocation and open UM layers noted\n• BI alone: $6,179.92 against $7,965.00, $1,785.08 short; Peach State $1,443.15, Riverton $4,736.77, John $0.00\n• Flagged as fact: money stays in trust until liens resolve; the rest is Atty. Thorne's",
-      "ask": "You posted Keystone's $10,000 to the Trust Ledger today; what's wrong with that entry?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Fee $3,333.33, not $3,333.00; Projection labelled: Stream 1 net $4,553.73; Trust-hold flag routed to Atty. Thorne\n• The one thing to watch for: Quoting John Doe a BI figure before Atty. Thorne"
     }
   },
   "d3m2-umns": {
-    "case": {
-      "say": "• 10/06: Teresa Okafor tendered Cardinal State's $10,000 Relative UM limits; John accepted through Atty. Thorne\n• Relative UM: coverage John reaches through a relative's policy when the at-fault driver's isn't enough\n• In trust: Harbor Point's $20,000 since yesterday, Keystone's $10,000 since 09/04; stack closed at $40,000, $30,000 in the account\n• Liens unchanged: Peach State asserts $1,860.00, Riverton Spine & Rehab $6,105.00 audited\n• Atty. Thorne wants the UM Net Sheet before reviewing it with John; one number looks firm and isn't"
-    },
     "task": {
-      "say": "• Build Stream 2: post Harbor Point and Cardinal State to the Recovery Ledger, the running list of every dollar recovered\n• Show which check is in trust and which only tendered; take the pre-suit one-third fee\n• Allocate costs and liens 75% to Stream 2, pro rata to gross: $30,000 of $40,000 came from UM\n• Liens at asserted or audited figures, not hoped-for reductions; mark what can change and why\n• Tie to Stream 1 and the Trust Ledger; write questions for Atty. Thorne; sheet goes to him, not John"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: On the CMS Recovery Ledger, post the $30,000.00 UM gross to Stream 2\n• Apply the 33⅓% fee, costs and liens, and mark the net as a projection\n• Step 2: Log it to Atty. Thorne in CMS › Tasks › Escalate"
+    },
+    "case": {
+      "say": "• Assuming Cardinal State has tendered its $10,000 limits and Harbor Point's $20,000 is in trust, Stream 2's Net Sheet is due\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Stream 2 Net Sheet projecting $13,661.19, routed"
     },
     "check": {
-      "say": "• Gross $30,000; fee $10,000.00; costs $365.06, the remainder after Stream 1's $121.69\n• Peach State $1,395.00; Riverton Spine & Rehab $4,578.75 on the audited figure; projected net $13,661.19, labeled\n• Plus Stream 1's $4,553.73 equals $18,214.92: $40,000 less fee, costs and unreduced liens\n• Harbor Point PIP at zero, citing its 03/02 letter; Cardinal State receivable, not received\n• Four questions written and routed to Atty. Thorne today",
-      "ask": "John asks tomorrow if he's getting thirteen thousand; what do you tell him?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Fee: $30,000.00 ÷ 3 = $10,000.00; Projected net $13,661.19, labelled projection; Streams tie: $18,214.92 in total\n• The one thing to watch for: Charging all costs and liens to the UM stream"
     }
   },
   "d3m2-umw": {
@@ -367,45 +352,42 @@
     }
   },
   "d3m2-rel": {
-    "case": {
-      "say": "• Friday 08/14/2026: Keystone tendered Wednesday; consent requests went to Harbor Point and Cardinal State yesterday\n• Dana Whitfield sends Keystone's own release for John Doe's notarized signature\n• Her cover letter: no check until both UM consents and subrogation waivers arrive\n• The demand asked for a Limited Release of Smith and Keystone only; this is a Release of All Claims\n• Read every clause against what was promised and what's still open before John sees it"
-    },
     "task": {
-      "say": "• In the audit workbench, call every clause: keep, replace, pull, add, or flag for Atty. Thorne\n• For each, write what it would do on this file and the amendment proposed\n• Email the review to Atty. Thorne for approval, his clauses flagged; never send the draft to John Doe\n• Dana asks if John can just sign the standard form: route it, don't answer\n• Convert the exchange into a memorandum; file it in the CMS and the Backup Drive"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents › Release audit, replace the catch-all insurers clause, reserve the UM claims, and flag the rest for Atty. Thorne\n• Step 2: Log your review by email to Atty. Thorne for approval, and send nothing to John Doe"
+    },
+    "case": {
+      "say": "• Assuming Keystone's Release of All Claims has arrived for John Doe's signature, its clauses need checking against the approved terms\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an audited release sent for Atty. Thorne's approval"
     },
     "audit": {
-      "say": "• Fifteen items; easy keeps: parties, the $10,000.00, non-admission, notary block\n• Catch-all reaching all other insurers would release Harbor Point and Cardinal State, $30,000\n• Property Damage and Loss of Use reaches the Civic's claim, Margaret's, still open with Leah Moran\n• Also wrong: no UM reservation, unagreed confidentiality, indemnity with no ceiling, no payment date\n• Flag for Atty. Thorne: unknown injuries, the Medicare representation, governing law"
+      "say": "• The finished set, for reference: the side exercise asks only for the two steps, not the whole audit\n• Have them check theirs for this: Property Damage cut; UM claims reserved"
     },
     "check": {
-      "say": "• Catch-all replaced, with exactly what it would have released\n• Claims cut back to bodily injury; both UM claims reserved by claim number\n• Confidentiality pulled; indemnity limited to the file's liens paid from trust; payment date left for Atty. Thorne\n• Unknown injuries, Medicare and governing law flagged, Medicare facts verified from the file\n• Atty. Thorne's 08/17 approval filed; draft kept from John Doe throughout",
-      "ask": "Why can't the release stay confidential on this file?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Catch-all “all other … insurers” replaced; Property Damage cut; UM claims reserved; Nothing sent to John Doe\n• The one thing to watch for: Agreeing release wording with the adjuster"
     }
   },
   "d3m2-exec": {
-    "case": {
-      "say": "• Wednesday 08/26/2026: Cardinal State's consent and waiver arrived, joining Harbor Point's from Monday\n• Keystone issued its Limited Release 08/19, exactly as Atty. Thorne approved\n• Before paying, Keystone needs a notarized wet-ink original, both waivers and the firm's W-9; then pays within 14 days\n• John Doe hasn't seen the release yet; this stage is logistics, every legal question goes to Atty. Thorne"
-    },
     "task": {
-      "say": "• Call John Doe: signing Friday 08/28 at the office\n• He brings government photo ID as John Doe, signs only before the notary; Atty. Thorne reviews the release with him first\n• Questions about meaning go to Atty. Thorne\n• After signing: confirm execution requirements; upload to the CMS and his portal\n• Email Dana Whitfield the packet, ask for receipt and check date; route her payee question; deposit 09/04; file the record"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Email Workspace, send Dana Whitfield the executed release with both waivers and the W-9, asking for the check date\n• Step 2: Log the check into trust in CMS › Financial Ledger › Trust, and route any payee question to Atty. Thorne"
+    },
+    "case": {
+      "say": "• Assuming John Doe signed the Limited Release before the notary on 08/28/2026 and both UM waivers are in, the packet needs sending\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an executed release sent and the check in trust"
     },
     "check": {
-      "say": "• Signing scheduled only after both consents were in writing\n• Call covered date, place, ID and notary only; every meaning question routed\n• ID matches John Doe exactly; wet-ink original, notarized, every page initialed\n• Packet to Keystone 08/28 with both waivers and W-9; written receipt and check date requested\n• Peach State payee question to Atty. Thorne, no promise; check 0048213 in trust 09/04/2026, record filed",
-      "ask": "Why isn't this release going out for e-signature?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Packet sent 08/28 with both waivers and W-9; Payee question routed; no lien assurance; Check 0048213 into IOLTA 09/04/2026\n• The one thing to watch for: Explaining what a paragraph means to John Doe"
     }
   },
   "d3m4-pal": {
-    "case": {
-      "say": "• Wednesday 10/14/2026: $40,000.00 in trust, both liens reduced in writing, disbursement set for 10/22\n• Email from Vance & Kettering Injury Law: says it was retained 07/27/2026 and claims a charging lien\n• Charging lien: a lawyer's claim to be paid from the settlement\n• Wants half the fee, $6,666.67, a hold on the whole settlement, and the case manager's confirmation by Friday\n• No one on the file has mentioned another lawyer; log it, route it, send nothing back"
-    },
     "task": {
-      "say": "• Log the notice on arrival; route to Atty. Thorne same day; send nothing to Vance & Kettering\n• On his instruction, hold the disputed $6,666.67 in the CMS; Action Plan shows 10/22 depends on it\n• Investigate: pull their agreement, compare signatures with John's, check its date against the firm's engagement, audit claimed work\n• Ask John neutrally whether he hired them, with no hints\n• Deliver the packet to Atty. Thorne; archive in the CMS and Drive"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the notice in CMS › Communications Log, routed to Atty. Thorne, and send nothing to Vance & Kettering\n• Step 2: In CMS › Financial Ledger › Trust, hold $6,666.67 on his instruction"
+    },
+    "case": {
+      "say": "• Assuming Vance & Kettering's charging lien notice for $6,666.67 has arrived and Atty. Thorne has ordered a hold, the file needs securing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: the notice logged and $6,666.67 held"
     },
     "audit": {
-      "say": "• Test each claim in the notice against the file; keep their agreement whole as the key exhibit\n• Only signature: Margaret Doe's, as mother; John's line is blank\n• Add: John's own 02/09/2026 signatures, a timeline showing engagement and the demand served before 07/27, his account, the hold record\n• Replace their claimed services and carrier notice with the record: 0.6 hours with Margaret, no carrier contact\n• Flag the fee, the lien and their request for confirmation"
+      "say": "• The finished set, for reference: the side exercise asks only for the two steps, not the whole audit\n• Have them check theirs for this: $6,666.67 held on Atty. Thorne's instruction"
     },
     "check": {
-      "say": "• Notice logged and routed 10/14, nothing sent to the firm\n• $6,666.67 hold in place on Atty. Thorne's instruction, shown in the Action Plan\n• Signatures compared; dates checked against 02/09 and 07/20; their time record quoted, not characterized\n• John Doe's account in his own words, no view on the lien\n• Every sentence a fact tied to a document; validity, quantum meruit and any reply left to Atty. Thorne",
-      "ask": "Who answers Vance & Kettering, and why not the Case Manager?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Logged and routed 10/14; nothing sent to the firm; $6,666.67 held on Atty. Thorne's instruction; Validity left to Atty. Thorne\n• The one thing to watch for: Replying to the claiming lawyer yourself"
     }
   },
   "d3-drive": {

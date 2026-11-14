@@ -6,6 +6,10 @@
           Case Profile with what changed on the file since yesterday (the day's fileState, js/cm-case-flow-data.js)
        3. 🎯 ONE Skill Building: the day's `main` activity (CF.sequence), AI graded (js/cm-ai-grader.js) from its Your
           Task (js/cm-sb-task.js); on Day 5, a build day, the Full Application Practice (the companion case)
+       ➕ 📁 Backup File Maintenance (CF.sequence `drive`: d1m1-drive … d5-drive), REQUIRED every day, right after the
+          Skill Building (Day 5: after the build) and before the Action Plan: a full activity, AI graded from its Your
+          Task and graded from the Drive itself; its slides say REQUIRED · BACKUP FILE MAINTENANCE on their top line
+          (stepOf: "drive", between steps 3 and 4)
        4. 📝 Update Your Action Plan ("actionPlan"): Day 1 step by step, the template's sections in order; the days after
           lighter each day (progressive autonomy), Day 5 a close-out
        5. 🎯 the Knowledge Check, after the Ready check
@@ -28,6 +32,7 @@ const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;
 const isCf = d => !!(d && d.cf && Array.isArray(d.lessons));
 const seqOf = d => (CF.sequence || []).find(s => s.n === d.cf.n) || {};
 const mainId = d => seqOf(d).main || "";
+const driveId = d => seqOf(d).drive || "";   // 📁 Backup File Maintenance: required every day
 const isSide = id => !!((window.CM_CF_SLIDES || {})[id] || {}).side;
 const trainer = () => !!(state.isAdmin || state.adminPreview);
 const PROFILE = "profileCheck", PLAN = "actionPlan", STEP2 = new Set(["meetJohnDoe", PROFILE]);
@@ -35,12 +40,37 @@ const stripDay = d => String(d.title || "").replace(/^Case Flow Day \d+ · /, ""
 const mainLesson = d => { const id = mainId(d); return id ? d.lessons.find(l => l.cf.block.id === id) : null; };
 const cut = (t, max) => { t = String(t || ""); const c = t.split(/:\s| — /)[0]; return t.length > max && c.length >= 12 ? c : t; };
 
+/* ---------- the topics' numbers, in the loop's order ----------
+   A topic's number (l.h "3.9 …", js/cm-case-flow.js) was its place in the sequence; the loop moves the Skill Building
+   and the Backup File Maintenance ahead of the other activities, so every Case Flow topic is numbered once here, in the
+   order the deck and the 🗺 Roadmap show it: the lessons, the Skill Building, the Backup File Maintenance, the side
+   exercises in the sequence's order, the Learning Checks. The slide titles, NEXT UP, the slide picker, Presenter view's
+   jump list, "Practises: N.M" and the Roadmap all read l.h, so they agree. The lessons' indices (d.lessons) and the
+   saved places (block ids, js/cm-slide-keys.js) do not change; the number a topic had is kept (l.cf.h0) for what was
+   stored under it (a published lesson expansion, lessonExpansion). */
+function renumber(d){
+  const mid = mainId(d), did = driveId(d), kind = l => l.cf.block.kind, id = l => l.cf.block.id;
+  const cfL = d.lessons.filter(l => l && l.cf && l.cf.block);
+  const acts = cfL.filter(l => kind(l) === "activity");
+  const order = cfL.filter(l => kind(l) === "lesson").concat(acts.filter(l => id(l) === mid), acts.filter(l => did && id(l) === did),
+    acts.filter(l => id(l) !== mid && id(l) !== did), cfL.filter(l => kind(l) !== "lesson" && kind(l) !== "activity"));
+  order.forEach((l, k) => { const m = /^(\d+)\.\d+(\s)/.exec(String(l.h || "")); if(!m) return;
+    if(l.cf.h0 == null) l.cf.h0 = l.h;
+    l.h = `${m[1]}.${k + 1}${m[2]}${String(l.h).slice(m[0].length)}`; });
+}
+DAYS.filter(isCf).forEach(renumber);
+if(typeof lessonExpansion === "function"){
+  const __exp = lessonExpansion;
+  const exp = function(d, l){ const r = __exp.apply(this, arguments); return r || !(l && l.cf && l.cf.h0 && l.cf.h0 !== l.h) ? r : __exp.call(this, d, Object.assign({}, l, {h: l.cf.h0})); };
+  try{ lessonExpansion = exp; }catch(e){}
+}
+
 /* ---------- the deck, in the loop's order ---------- */
 const before = buildDaySlides;   // as js/cm-case-flow.js, js/cm-case-profile.js and js/cm-deck-pages.js left it (layout 8's order)
 buildDaySlides = function(d){
   const s = before.apply(this, arguments);
   if(!isCf(d)) return s;
-  const mid = mainId(d), head = [], lessons = [], step2 = [], main = [], build = [], labHead = [], sides = [], ready = [], tail = [];
+  const mid = mainId(d), did = driveId(d), head = [], lessons = [], step2 = [], main = [], build = [], drive = [], labHead = [], sides = [], ready = [], tail = [];
   let started = false;
   s.forEach(sl => {
     if(sl.type === "topic"){
@@ -48,6 +78,7 @@ buildDaySlides = function(d){
       const b = d.lessons[sl.lessonIndex].cf.block;
       if(b.kind === "lesson") return lessons.push(sl);
       if(b.id === mid) return main.push(sl);
+      if(did && b.id === did) return drive.push(sl);
       return sides.push(Object.assign({}, sl, {side: true}));
     }
     if(sl.type === "deckPage"){ started = true; return lessons.push(sl); }
@@ -61,7 +92,7 @@ buildDaySlides = function(d){
   if(!main.length && !build.length) return s;   // a day without its Skill Building (not this course's data): as it was
   if(!step2.length) step2.push({type: PROFILE});
   const lab = sides.length ? (labHead.length ? labHead.slice(0, 1) : [{type: "practiceLab"}]).concat(sides) : [];
-  return head.concat(lessons, step2, main, build, [{type: PLAN}], lab, ready, tail);
+  return head.concat(lessons, step2, main, build, drive, [{type: PLAN}], lab, ready, tail);
 };
 
 /* ---------- a place saved before the loop (js/cm-slide-keys.js: window.CM_SLIDE_KEY_RULES) ----------
@@ -85,11 +116,12 @@ function placeRule(d, r, to, keys){
 }
 (window.CM_SLIDE_KEY_RULES = window.CM_SLIDE_KEY_RULES || []).push({id: RULE, place: placeRule});
 
-/* the step of the loop a slide is in: 1 lessons, 2 the Case Profile, 3 the Skill Building, 4 the Action Plan,
-   "side" the optional side exercises, 5 the Ready check and the Knowledge Check, 0 the Training Agenda */
+/* the step of the loop a slide is in: 1 lessons, 2 the Case Profile, 3 the Skill Building, "drive" the required Backup
+   File Maintenance, 4 the Action Plan, "side" the optional side exercises, 5 the Ready check and the Knowledge Check,
+   0 the Training Agenda */
 function stepOf(d, sl){
   if(!sl) return 0;
-  if(sl.type === "topic"){ const b = d.lessons[sl.lessonIndex].cf.block; return b.kind === "lesson" ? 1 : b.id === mainId(d) ? 3 : "side"; }
+  if(sl.type === "topic"){ const b = d.lessons[sl.lessonIndex].cf.block; return b.kind === "lesson" ? 1 : b.id === mainId(d) ? 3 : b.id === driveId(d) ? "drive" : "side"; }
   if(sl.type === "deckPage") return 1;
   if(STEP2.has(sl.type)) return 2;
   if(sl.type === "companionBuild" || sl.type === "companionBuild2") return 3;
@@ -103,7 +135,7 @@ function stepOf(d, sl){
    One row for the loop's three steps (the agenda's grid keeps the three rows Part 2 had: label, the loop, the Knowledge
    Check, so the slide is not scaled down further), the label saying how many optional side exercises follow. Day 1's
    Intake (d1m1-open, opening John Doe's file in the CMS) IS the day's Skill Building: one practical, not two. */
-const sideCount = d => d.lessons.filter(x => x.cf.block.kind === "activity" && x.cf.block.id !== mainId(d)).length;
+const sideCount = d => d.lessons.filter(x => x.cf.block.kind === "activity" && x.cf.block.id !== mainId(d) && x.cf.block.id !== driveId(d)).length;
 function mainName(d, sc){
   const l = mainLesson(d);
   if(sc && sc.build || d.cf.build) return "Build Your Companion Case";
@@ -115,15 +147,16 @@ function agendaRows(d, sc){
   const n = d.cf.n, sides = sideCount(d), side = sides ? `then ${sides} skill activit${sides === 1 ? "y" : "ies"}` : "";
   // (the Skill Building's own name only where the row has room for it: Day 1's Intake, Day 5's build; on Days 2–4 the
   // name made the row wrap and the whole agenda scale down, so it is on the Objectives page and the slides instead)
-  const chain = n === 1 ? "👋 Meet John Doe → 🎯 Skill Building: the Intake → 📝 Action Plan"
-    : `📇 Case Profile → 🎯 Skill Building${sc && sc.build || d.cf.build ? ": Build Your Companion Case" : ""} → 📝 ${n === 5 ? "Close Out " : ""}Action Plan`;
-  return {label: "Part 2 · 🔁 The Daily Loop", side, sides, main: mainName(d, sc),
-    sub: `${n === 1 ? "Meet John Doe" : "Case Profile"} → Skill Building → Action Plan${side ? ", " + side : ""}`,   // js/cm-flow-parts.js labels
+  const drv = !!driveId(d);   // 📁 Backup File Maintenance, required every day, between the Skill Building and the Action Plan
+  const chain = n === 1 ? `👋 Meet John Doe → 🎯 Skill Building: the Intake${drv ? " → 📁 Backup Files" : ""} → 📝 Action Plan`
+    : `📇 Case Profile → 🎯 Skill Building${sc && sc.build || d.cf.build ? ": Build Your Companion Case" : ""}${drv ? " → 📁 Backup Files" : ""} → 📝 ${n === 5 ? "Close Out " : ""}Action Plan`;
+  return {label: "Part 2 · 🔁 The Daily Loop", side, sides, main: mainName(d, sc), drive: drv,
+    sub: `${n === 1 ? "Meet John Doe" : "Case Profile"} → Skill Building${drv ? " → Backup File Maintenance (required)" : ""} → Action Plan${side ? ", " + side : ""}`,   // js/cm-flow-parts.js labels
     rows: [chain],
     // the loop's steps one by one (the day's Objectives page, the Speaker Notes)
     steps: [n === 1 ? "👋 Meet John Doe (his Case Profile)" : "📇 Case Profile Check-In",
-      `🎯 Skill Building: ${n === 1 ? "the Intake, Opening John Doe's File in the CMS" : mainName(d, sc)}`,
-      n === 5 ? "📝 Close Out Your Action Plan" : "📝 Update Your Action Plan"]};
+      `🎯 Skill Building: ${n === 1 ? "the Intake, Opening John Doe's File in the CMS" : mainName(d, sc)}`]
+      .concat(drv ? ["📁 Backup File Maintenance (required)"] : [], [n === 5 ? "📝 Close Out Your Action Plan" : "📝 Update Your Action Plan"])};
 }
 
 /* ---------- the slides ---------- */
@@ -180,7 +213,7 @@ function planSlide(d){
 /* the optional side exercises: one short Practice Lab, ⏭ past it to the Ready check */
 function sideLab(d){
   const mid = mainId(d), sc = (() => { try{ return window.cmCaseFlow.schedule ? window.cmCaseFlow.schedule(d) : null; }catch(e){ return null; } })();
-  const acts = d.lessons.map((l, li) => [l, li]).filter(([l]) => l.cf.block.kind === "activity" && l.cf.block.id !== mid);
+  const acts = d.lessons.map((l, li) => [l, li]).filter(([l]) => l.cf.block.kind === "activity" && l.cf.block.id !== mid && l.cf.block.id !== driveId(d));
   const mins = sc && sc.side ? `about ${sc.side} minutes` : "short";
   // the minutes hold about sc.sidePick of them (js/cm-case-flow-schedule.js SIDE): said plainly when there are more
   const pick = sc && sc.sidePick && sc.sidePick < acts.length ? sc.sidePick : 0;
@@ -201,7 +234,7 @@ function sideLab(d){
 const backTo = d => { state.cfReturn = {dayId: d.id, n: d.cf.n, slide: typeof state.lessonSlide === "number" ? state.lessonSlide : null, view: "day"}; };
 window.cmDayLoop = {
   layout8: d => before(d),   // the deck before the loop's order (layout 8's: placeRule, .github/scripts/slide-places.cjs)
-  stepOf, mainId, isSide, agendaRows,
+  stepOf, mainId, driveId, isSide, agendaRows,
   profile(){ const d = DAYS.find(x => x.id === state.dayId && isCf(x)); if(d && state.view === "day") backTo(d);
     state.cfFileTab = "now"; if(typeof goto === "function") goto("clientprofile"); window.scrollTo(0, 0); },
   plan(dayId){ const d = DAYS.find(x => x.id === dayId && isCf(x)); if(!d) return;
@@ -237,11 +270,12 @@ if(typeof window.renderLessonCard === "function"){
   window.renderLessonCard = function(l, i, d){
     const html = __card.apply(this, arguments);
     const b = l && l.cf && l.cf.block; if(!b || b.kind !== "activity" || !isCf(d)) return html;
-    const tag = b.id === mainId(d) ? "STEP 3 &middot; THE DAY'S SKILL BUILDING" : "SKILL ACTIVITY";
+    const role = b.id === mainId(d) ? "main" : b.id === driveId(d) ? "drive" : "side";
+    const tag = {main: "STEP 3 &middot; THE DAY'S SKILL BUILDING", drive: "REQUIRED &middot; BACKUP FILE MAINTENANCE", side: "SKILL ACTIVITY"}[role];
     return String(html).replace(/(<div class="topic-separator cfx-sepline">[^<]*)(<\/div>)/, `$1 &middot; ${tag}$2`)
-      .replace(/(class="card lesson-card cf-card cfx )/, `$1${b.id === mainId(d) ? "dl-main " : "dl-side-ex "}`)
+      .replace(/(class="card lesson-card cf-card cfx )/, `$1${{main: "dl-main ", drive: "dl-main dl-drive ", side: "dl-side-ex "}[role]}`)
       // the band's label: "Practice Lab" now names only the optional block after the Action Plan
-      .replace(/(<i class="cfx-what-k">)Practice Lab(<\/i>)/, `$1${b.id === mainId(d) ? "Skill Building" : "Skill Activity"}$2`)
+      .replace(/(<i class="cfx-what-k">)Practice Lab(<\/i>)/, `$1${{main: "Skill Building", drive: "Required: Backup File Maintenance", side: "Skill Activity"}[role]}$2`)
       // the materials of a voicemail are transcribed: the slide says so (not "Your Case")
       .replace(/(<b class="cfx-what-v">)Your Case(<\/b>)/, `$1${vmOf(b.id) ? "Transcription Exercise" : "Your Case"}$2`)
       // 🧠 a critical-thinking banner opens the materials, tied to the lesson it practises and its plain-English terms

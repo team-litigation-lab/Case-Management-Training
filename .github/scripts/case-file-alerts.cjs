@@ -107,8 +107,10 @@ const DATA = {
             openOnly: keys({ 'case-flow': { reached: { 'd1m1-open': 1 } } }),
             caseIdMissing: keys({ 'case-flow': { reached: { 'd1m1-open': 3, 'd1m2-a1': 1 }, ticks: { 'd1m1-open': [true] } }, 'drive-setup': { ok: true } }),
             driveNone: keys({ 'case-flow': { reached: { 'd1m1-open': 3, 'd1m1-drive': 1, 'd1m2-a1': 1 }, ticks: { 'd1m1-open': [true] }, work: { 'd1m1-open': { ref: 'CM-1', tool: 'cms' } } } }),
-            // the Backup Drive is an optional side exercise on Day 1's daily loop: skipped, it raises nothing
+            // 📁 Backup File Maintenance is a required step of Day 1's daily loop (js/cm-day-loop.js): moved past the opening
+            // work with no folders submitted is R3, whether or not its slides were opened; once they are submitted it is not
             driveSkipped: keys({ 'case-flow': { reached: { 'd1m1-open': 3, 'd1m2-a1': 1 }, ticks: { 'd1m1-open': [true] }, work: { 'd1m1-open': { ref: 'CM-1', tool: 'cms' } } } }),
+            driveDone: keys({ 'case-flow': { reached: { 'd1m1-open': 3, 'd1m2-a1': 1 }, ticks: { 'd1m1-open': [true] }, work: { 'd1m1-open': { ref: 'CM-1', tool: 'cms' } } }, 'drive-setup': { ok: true, score: 90, attempts: 1, at: ago(1), firstAt: ago(1) } }),
             aiGraded: keys({ 'case-flow': { reached: { 'd1m1-open': 4, 'd1m2-a1': 2 }, revealed: { 'd1m1-open': ago(1) }, work: { 'd1m1-open': { ref: 'JD-1', tool: 'cms' } } }, 'cf-ai-grades': { blocks: { 'd1m1-open': { score: 95 } } }, 'drive-setup': { ok: true } }),
             noTicks: keys({ 'case-flow': { reached: { 'd1m1-open': 4, 'd1m2-a1': 2 }, work: { 'd1m1-open': { ref: 'JD-1', tool: 'cms' } } }, 'drive-setup': { ok: true } }),
             driveFail: keys({ 'drive-setup': { ok: false, score: 40, attempts: 1, at: ago(1), firstAt: ago(1), left: 2 } }),
@@ -135,7 +137,8 @@ const DATA = {
     if (!rules.caseIdMissing.includes('caseid') || rules.caseIdMissing.includes('conflict')) fail(`moved on with no CMS Case ID and the Conflict Check ticked: only R4: ${JSON.stringify(rules.caseIdMissing)}`);
     if (rules.aiGraded.includes('conflict') || rules.noTicks.includes('conflict')) fail(`R6 reads only a self-tick record: an activity the AI Grader took the place of the ticks for raises no Conflict Check alert: ${JSON.stringify([rules.aiGraded, rules.noTicks])}`);
     if (!rules.driveNone.includes('drive:none')) fail(`Day 1's Backup Drive started and left with no folders submitted should be R3: ${JSON.stringify(rules.driveNone)}`);
-    if (rules.driveSkipped.includes('drive:none')) fail(`Day 1's Backup Drive is an optional side exercise: skipping it should raise no R3 alert: ${JSON.stringify(rules.driveSkipped)}`);
+    if (!rules.driveSkipped.includes('drive:none')) fail(`Day 1's Backup File Maintenance is required: moved past the opening work with no folders submitted should be R3 drive:none: ${JSON.stringify(rules.driveSkipped)}`);
+    if (rules.driveDone.some(k => /^drive:/.test(k))) fail(`Day 1's folders submitted and passing should raise no R3 alert: ${JSON.stringify(rules.driveDone)}`);
     if (JSON.stringify(rules.driveFail) !== JSON.stringify(['drive:setup'])) fail(`Day 1's folders failing their check is R3: ${JSON.stringify(rules.driveFail)}`);
     const stuckRule = await page.evaluate(({ H }) => cmCaseAlerts.compute({ 'drive-setup': { ok: false, attempts: 3, at: new Date(Date.now() - H).toISOString(), firstAt: new Date(Date.now() - 30 * H).toISOString(), left: 2 } }, {})[0].rule, { H });
     if (stuckRule !== 'stuck') fail(`Day 1's folders still failing 30 h after the first try is R8 (stuck): ${stuckRule}`);

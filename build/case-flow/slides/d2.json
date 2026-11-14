@@ -975,17 +975,20 @@
   },
   "d2-drive": {
     "image": "medical-visit",
-    "situation": "Assuming the four **treatment documents** are filed in the CMS, a Summit Imaging invoice still sits in your records folder.",
-    "side": true,
+    "situation": "04/24/2026, 3:30 p.m. Four **treatment documents** are filed in the CMS, and a **bill sits in the records folder**.",
     "steps": [
-      "In Google Drive, move the Summit invoice from 03 Medical Records to **04 Bills & Invoices**, rename it the firm's way, and run ✓ Check my drive.",
-      "Log the records-versus-bills rule in two sentences in CMS → Case Notes."
+      "File each of the four documents in the CMS from 📁 Source Files, so each copy reaches its **folder on your Drive**.",
+      "In Google Drive, find the Summit Imaging invoice in 03 Medical Records, move it to 04 Bills & Invoices, and rename it the firm's way.",
+      "Open 📂 My Backup Drive and run ✓ Check my drive.",
+      "In CMS → Case Notes, write in two sentences what goes in each folder and why a bill in the records folder is a damages problem."
     ],
     "deliver": "Records and bills **each in their own folder**, checked",
     "purpose": "The Specials audit reads **the bills folder only**",
     "principle": "Records say what was done; **bills say what it cost**",
     "checks": [
-      "Summit invoice in **04 Bills & Invoices**, renamed",
+      "Visit notes, evaluation, consult in **03 Medical Records**",
+      "Summit invoice in **04 Bills & Invoices**, renamed, not twice",
+      "**Backed up equals filed** on the dashboard",
       "**✓ Check my drive**: no folder missing",
       "The **rule in two sentences** in Case Notes"
     ],
