@@ -150,7 +150,7 @@ window.CM_CASE_FLOW_DAYS = MODULES;
 /* ---------- the course is the Case Flow: its five days are the engine's DAYS ----------
    (the earlier John Doe v. Apex version is removed; a record's old progress on Days 1–5 stays stored, unshown) */
 Array.prototype.splice.call(DAYS, 0, DAYS.length, ...MODULES);
-if(typeof DAY_ICONS !== "undefined") MODULES.forEach((m, i) => { if(!DAY_ICONS[m.id]) DAY_ICONS[m.id] = ["🗂", "📨", "🩺", "⚖️", "🤝"][i] || "📘"; });
+if(typeof DAY_ICONS !== "undefined") MODULES.forEach((m, i) => { if(!DAY_ICONS[m.id]) DAY_ICONS[m.id] = ["🗂", "📨", "💵", "⚖️", "🏛"][i] || "📘"; });
 
 const isTrainer = () => !!(state.isAdmin || state.adminPreview);
 let FB = {id: null, p: null};
