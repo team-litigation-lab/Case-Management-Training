@@ -213,7 +213,7 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     await page.evaluate((b) => cmCaseFlow.service(b), BLOCK);
     check((await page.locator('#cf-sv').count()) === 1, 'and pressing the button again does not either');
     await page.evaluate((b) => cmCaseFlow.svConvert(b), BLOCK);
-    await page.waitForSelector('#cf-sv .sv-ok', { timeout: 20000 });
+    await page.waitForSelector('#cf-sv .sv-ok', { timeout: 60000 });   // building the memorandum's PDF is slow on a busy CI machine (three lanes share it)
     check(/page[s]? built/.test(await page.locator('#cf-sv').innerText()), 'the thread is converted into a memorandum');
     const frame = page.frames().find(f => /trainingcrm/.test(f.url()));
     // a name that does not follow the convention files nothing
