@@ -131,13 +131,13 @@ window.CM_DECK_SLIDES = {
    "page": 21,
    "title": "Case Example: Coverage Analysis",
    "img": "/decks/day1/21.webp",
-   "notes": "Let's apply this to our case, John Doe versus Apex. The snapshot: our client is John Doe. The defendant is Apex, a commercial trucking company. The incident is a rear-end motor vehicle collision involving a commercial vehicle, during a highway traffic slowdown, and the date of loss is pending verification. Now the coverage sources. Apex's commercial auto liability is assumed active, and it is the primary source. The employer umbrella is unknown and must be verified. The client's PIP and MedPay require insurance details from the client. And UM/UIM coverage is pending, depending on the Apex policy. Because Apex is a commercial carrier, substantial liability coverage is likely, with limits higher than a standard auto policy. The insight: coverage looks strong on the defendant's side, but it must be confirmed before the projection can be finalized."
+   "notes": "Let's apply this to our case, John Doe versus Robert Smith. The snapshot: our client is John Doe, the front-seat passenger in Kevin Alvarez's 2020 Ford Escape, not a driver. The defendant is Robert Smith, driving a 2017 Chevrolet Silverado. Smith ran the all-way stop at Maple Hollow Road and Birch Avenue and struck the passenger door, on February 6th, 2026, at about 7:10 in the morning. The statute of limitations is docketed for February 6th, 2028. Now the coverage sources, in the order they pay. First, Robert Smith's bodily injury coverage with Keystone Mutual: a 10,000 dollar limit, which you confirm. Second, the host vehicle's uninsured motorist coverage: Harbor Point, the policy on the Escape, 20,000 dollars, which opens only once the bodily injury limit is exhausted. Third, relative uninsured motorist coverage: Cardinal State Mutual, 10,000 dollars, because John lives with his mother, Margaret Doe. That is a 40,000 dollar recovery stack. Margaret's Bluewater policy rejected that coverage, so it adds no layer. The insight: never settle or release the bodily injury claim without the other carriers' written consent, because that can forfeit the stack."
   },
   {
    "page": 22,
    "title": "Case Example: Liability Determination",
    "img": "/decks/day1/22.webp",
-   "notes": "Now liability. The fact pattern: a rear-end collision with a commercial vehicle, in a traffic slowdown. Our client was struck from behind. The defendant may have been following too closely, or failed to brake. And there is no police report yet. Rear-end collisions involving commercial vehicles generally create a strong presumption of negligence. The Apex driver may be liable for negligent operation and failure to keep a safe distance, and Apex itself may carry vicarious liability as the employer. But note the risk: liability is strong, not final. It still needs confirmation from the police report, the driver's statement, and dashcam or other evidence. So, liability is likely favorable, but still in the pre-confirmation stage."
+   "notes": "Now liability. The fact pattern: a side-impact collision at an all-way stop, at Maple Hollow Road and Birch Avenue in Riverton. John was the restrained front-seat passenger in the host vehicle. Kevin Alvarez, the host driver, stopped eastbound and then proceeded. Robert Smith, northbound on Birch Avenue, didn't stop, and struck the front passenger door at about 28 miles per hour. The evidence: the Riverton police report, which cites Smith for failure to stop; an independent witness, Ruth Calloway; and a doorbell-camera video. A citation, a witness and video all point to Robert Smith, and John was a passenger, so none of the driving was his. The risk note: confirm each piece against the police report, and secure the video before it is overwritten. And remember: fault and value are Attorney Thorne's call. You document the facts; you never predict the outcome."
   },
   {
    "page": 23,
@@ -421,147 +421,147 @@ window.CM_DAY_VIDEOS = {
     "title": "Case Example: Coverage Analysis"
    },
    {
-    "t": 718.2,
+    "t": 742,
     "page": 22,
     "title": "Case Example: Liability Determination"
    },
    {
-    "t": 767.1,
+    "t": 798.9,
     "page": 23,
     "title": "Case Planning Framework: Regulatory Triple-Check"
    },
    {
-    "t": 826.2,
+    "t": 858,
     "page": 24,
     "title": "The Three-Pillar Case Plan"
    },
    {
-    "t": 857.4,
+    "t": 889.2,
     "page": 25,
     "title": "Mandatory Disclosure & Compliance Tracking"
    },
    {
-    "t": 897.8,
+    "t": 929.6,
     "page": 26,
     "title": "The Golden Rule of US Claim Set-Up"
    },
    {
-    "t": 921.3,
+    "t": 953.1,
     "page": 27,
     "title": "The Treatment Phase: Core Objectives"
    },
    {
-    "t": 962.2,
+    "t": 994,
     "page": 28,
     "title": "Key Responsibilities & Skills"
    },
    {
-    "t": 1014.3,
+    "t": 1046.1,
     "page": 29,
     "title": "Essential Client Communication Strategies"
    },
    {
-    "t": 1057.4,
+    "t": 1089.2,
     "page": 30,
     "title": "Handling the Treatment Phase: Documentation"
    },
    {
-    "t": 1107.4,
+    "t": 1139.2,
     "page": 31,
     "title": "Handling the Treatment Phase: Coordination & Boundaries"
    },
    {
-    "t": 1160.4,
+    "t": 1192.2,
     "page": 32,
     "title": "Red Flags: Physical Therapy & Surgery"
    },
    {
-    "t": 1220.5,
+    "t": 1252.3,
     "page": 33,
     "title": "Red Flags: Pain Management & Behavioral Health"
    },
    {
-    "t": 1277.1,
+    "t": 1308.9,
     "page": 34,
     "title": "Case Planning: The Assessment Phase"
    },
    {
-    "t": 1312.9,
+    "t": 1344.7,
     "page": 35,
     "title": "SMART Goal Setting"
    },
    {
-    "t": 1347.3,
+    "t": 1379.1,
     "page": 36,
     "title": "The Care Coordination Strategy"
    },
    {
-    "t": 1383.4,
+    "t": 1415.2,
     "page": 37,
     "title": "The Standard Treatment Map"
    },
    {
-    "t": 1418.2,
+    "t": 1450,
     "page": 38,
     "title": "Treatment Road Map Mastery"
    },
    {
-    "t": 1476.4,
+    "t": 1508.2,
     "page": 39,
     "title": "Variance Analysis: Why the Map Fails"
    },
    {
-    "t": 1508.1,
+    "t": 1539.9,
     "page": 40,
     "title": "Communication Loops: The Stakeholder Triad"
    },
    {
-    "t": 1552.7,
+    "t": 1584.5,
     "page": 41,
     "title": "The Golden Standard: Reasonable and Necessary"
    },
    {
-    "t": 1589.4,
+    "t": 1621.2,
     "page": 42,
     "title": "Immediate Action Protocol: A-C-T"
    },
    {
-    "t": 1627,
+    "t": 1658.8,
     "page": 43,
     "title": "Illustration: The Clinical Pathway Flowchart"
    },
    {
-    "t": 1685,
+    "t": 1716.8,
     "page": 44,
     "title": "Using the Map for Course Correction"
    },
    {
-    "t": 1740.7,
+    "t": 1772.5,
     "page": 45,
     "title": "The Yellow Flag Warning System"
    },
    {
-    "t": 1789.7,
+    "t": 1821.5,
     "page": 46,
     "title": "Handling Treatment Gaps"
    },
    {
-    "t": 1820.8,
+    "t": 1852.6,
     "page": 47,
     "title": "Treatment Gaps: Case Manager Responsibilities"
    },
    {
-    "t": 1867,
+    "t": 1898.8,
     "page": 48,
     "title": "Bottlenecks: The Escalation Protocol"
    },
    {
-    "t": 1898.2,
+    "t": 1930,
     "page": 49,
     "title": "Resolve: The Escalation Ladder"
    },
    {
-    "t": 1932.7,
+    "t": 1964.5,
     "page": 50,
     "title": "Thank You!"
    }
