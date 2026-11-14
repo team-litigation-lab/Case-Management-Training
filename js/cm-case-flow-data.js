@@ -422,7 +422,7 @@ window.CM_CASE_FLOW = {
   {
     n: 1, id: 11,
     title: "Case Flow Day 1 · Fundamentals, Intake & Treatment",
-    phase: "Fundamentals, intake & treatment",
+    phase: "Fundamentals, Intake & Treatment",
     objective: "Know the Case Manager's role and the case phases; meet John Doe and open his matter in the CMS with the Conflict Check first; work the intake and its bottlenecks; set up the claim: coverage and liability, the Policy Stack, the LORs and the Case Plan; sort the Property Damage side and keep John Doe reachable (the No Contact Protocol); then follow his treatment: who pays each bill, the LOPs, the 14-Day Gap and the Standard Treatment Map, to MMI.",
     gate: "Matter opened in the CMS with the Conflict Check documented · acceptance decision recorded · the claims the file carries identified · onboarding directions delivered and assigned in the system · the Property Damage items sorted: severity evidence indexed on John Doe's file, Margaret Doe's PD questions referred · outreach to John Doe logged across channels, and the Final Warning Letter drafted · Policy Stack built in the CMS · LORs and notices out and logged · carrier correspondence received and the Coverage Matrix audited · 14-Day Gap flagged · Case Plan routed to Atty. Thorne · bills routed in Payer Order, LOPs out · Peach State's reimbursement right flagged and the Regulatory Triple-Check cleared · treatment documented to MMI",
     discussion: "Robert Smith's carrier has already called John Doe, and he needs a car to get to work. What do you tell him today, in what order, and what has to be on the file before the claims are set up?",
@@ -510,9 +510,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["A new matter is assigned", "Read the raw file end to end before contacting anyone", "CMS → Case File", "Every party, date and carrier noted before the first call"],
-          ["The client asks a legal question", "Log it and route it to Atty. Thorne the same day", "CMS → Communications Log · Tasks", "Question routed with the facts; no opinion given"],
-          ["A deadline or risk appears", "Docket it, flag it and recommend a next step", "CMS → Calendar · Case File → Risk Flags", "Nothing lives only in an email or in memory"]
+          ["A new matter is assigned", "Read the raw file end to end before contacting anyone", "CMS → Profile", "Every party, date and carrier noted before the first call"],
+          ["The client asks a legal question", "Log it and route it to Atty. Thorne the same day", "CMS → Notes → Case Notes · Tasks", "Question routed with the facts; no opinion given"],
+          ["A deadline or risk appears", "Docket it, flag it and recommend a next step", "CMS → Calendar · Notes → Case Notes", "Nothing lives only in an email or in memory"]
         ],
         best: [
           "Own the next step: no file sits without a dated task.",
@@ -585,19 +585,19 @@ window.CM_CASE_FLOW = {
           [
             "John Doe asks what his case is worth",
             "Say it is Atty. Thorne's question; log his words exactly",
-            "CMS → Case Notes · Tasks",
+            "CMS → Notes → Case Notes · Tasks",
             "Routed the same day; no figure given"
           ],
           [
             "John Doe asks what happens next",
             "Explain the next step of the process in plain words",
-            "CMS → Case Notes",
+            "CMS → Notes → Case Notes",
             "Process explained; no prediction of the outcome"
           ],
           [
             "An adjuster or provider asks your view of the case",
             "Decline politely; share only facts the firm has approved",
-            "CMS → Communications Log",
+            "CMS → Notes → Case Notes",
             "Nothing said beyond the record; contact logged"
           ]
         ],
@@ -688,10 +688,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Raw file received from “On the Records”", "Run and document the Conflict Check, then verify DOL, parties and signatures against the source documents", "CMS → New Case", "Conflict Check logged before the file exists; DOL matches the Police Report"],
-          ["Matter created", "Docket the SOL and log the retainer and the claim-specific HIPAA authorization", "CMS → Calendar · Documents", "SOL 02/06/2028 on the calendar; both signatures logged"],
-          ["Parties identified", "Map all six roles and record the client's position in the vehicle", "CMS → Parties", "No party left “unknown”; position recorded from the Police Report"],
-          ["Documents arrive", "Name each to the firm's convention and file it under its CMS category", "CMS → Documents", "Every document findable by its convention name"]
+          ["Raw file received from “On the Records”", "Run and document the Conflict Check, then verify DOL, parties and signatures against the source documents", "CMS → 📝 New Intake", "Conflict Check logged before the file exists; DOL matches the Police Report"],
+          ["Matter created", "Docket the SOL and log the retainer and the claim-specific HIPAA authorization", "CMS → Calendar · Doc Hub", "SOL 02/06/2028 on the calendar; both signatures logged"],
+          ["Parties identified", "Map all six roles and record the client's position in the vehicle", "CMS → Parties Involved", "No party left “unknown”; position recorded from the Police Report"],
+          ["Documents arrive", "Name each to the firm's convention and file it under its CMS category", "CMS → Doc Hub", "Every document findable by its convention name"]
         ],
         best: [
           "Record the source of every coverage fact (Dec Page, adjuster letter, Police Report).",
@@ -732,7 +732,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "02/09/2026. The raw file from “On the Records” is in: the New Client Intake Sheet, the intake supplement, the signed retainer and claim-specific HIPAA authorization, and the Riverton PD crash report. A colleague keyed a draft intake record into the CMS. Atty. Thorne wants the matter active today.",
           prompt: "Open John Doe's matter in the CMS. Run and document the Conflict Check on every party's full legal name before anything else. Verify the draft intake record field by field against the source documents (date of loss, names and roles, John Doe's position, date of birth, report number) and correct each error with its source, never silently. Docket the SOL (02/06/2028) with reminders, map all six roles, log the retainer and the HIPAA authorization, and file every intake document under its CMS category, named to the firm's convention. Route a short note of what you corrected to Atty. Thorne.",
-          tool: "CMS → New Case · Parties · Calendar · Documents · Case Notes",
+          tool: "CMS → 📝 New Intake · Parties Involved · Calendar · Doc Hub · Notes → Case Notes",
           output: "An active matter: Conflict Check logged first, every field verified against its source, six roles mapped, SOL docketed, intake documents filed, corrections noted to Atty. Thorne.",
           checkpoints: [
             "Conflict Check documented before the matter was created, on full legal names",
@@ -746,9 +746,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Raw file received", "Run and document the Conflict Check on full legal names", "CMS → New Case", "Conflict Check logged before the matter exists"],
-          ["Draft record keyed", "Verify every field against its source document and correct with the source", "CMS → Case File · Documents", "No field accepted from the draft unchecked"],
-          ["Matter active", "Docket the SOL, map the parties, file the intake documents", "CMS → Calendar · Parties · Documents", "SOL 02/06/2028 with reminders; six roles; every document filed"]
+          ["Raw file received", "Run and document the Conflict Check on full legal names", "CMS → 📝 New Intake", "Conflict Check logged before the matter exists"],
+          ["Draft record keyed", "Verify every field against its source document and correct with the source", "CMS → Doc Hub → Case Files · Doc Hub", "No field accepted from the draft unchecked"],
+          ["Matter active", "Docket the SOL, map the parties, file the intake documents", "CMS → Calendar · Parties Involved · Doc Hub", "SOL 02/06/2028 with reminders; six roles; every document filed"]
         ],
         best: [
           "Verify against the Police Report and signed documents, not the draft.",
@@ -786,7 +786,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "02/09/2026, 4:30 p.m. John Doe's matter went active in the CMS this afternoon, and his intake documents are filed there. The firm keeps every case file on a backup drive as well, built to one standard, so that whoever covers the file can put a hand on any document in seconds: a Case Manager out sick, a colleague taking the call, Atty. Thorne in a hearing. Nothing is on the backup for John Doe yet.",
           prompt: "Link your Google Drive to the platform with 🔗 Link my Google Drive on the Backup File Maintenance slide, then build the firm's backup hierarchy exactly to the firm standard, by hand: every folder named and numbered as the standard has it, nested where it belongs and in order. The target is 01 Clients, holding the client folder Doe-John (last name first) with its nine folders, 01 Intake & Retainer, 02 Police, Witness & Video, 03 Medical Records, 04 Bills & Invoices, 05 Insurance, Demands & Negotiation, 06 Liens & Reimbursement, 07 Wages & Costs, 08 Property Damage and 09 Litigation & ADR; then 02 Firm Administration, holding 01 Policies & SOPs and 02 Compliance & CLE; then 03 Templates and 04 Closed Files. Submit it for grading, fix anything it returns, and confirm it with ✓ Check my drive. Then record in Case Notes where three of today's documents belong and why: the signed retainer, the Police Report and the HIPAA authorization.",
-          tool: "Backup Drive · CMS → Case Notes",
+          tool: "Backup Drive · CMS → Notes → Case Notes",
           output: "A linked Google Drive holding the firm's hierarchy for John Doe's case, graded and confirmed by a clean drive check, and a Case Note placing the retainer, the Police Report and the HIPAA authorization in their folders.",
           checkpoints: [
             "A Google Drive folder of your own shared with the platform as Editor and linked",
@@ -802,7 +802,7 @@ window.CM_CASE_FLOW = {
           ["Matter active in the CMS", "Link your Google Drive folder to the platform", "Backup Drive", "Shared as Editor and linked"],
           ["Drive linked, no structure yet", "Build the firm's hierarchy, named, numbered, nested and in order", "Backup Drive", "Graded as built, nothing invented"],
           ["Structure built", "Confirm it with ✓ Check my drive; put back anything missing", "Backup Drive", "No folder missing"],
-          ["Documents filed in the CMS", "Record where each belongs on the backup", "CMS → Case Notes", "Retainer, HIPAA, Police Report placed with reasons"]
+          ["Documents filed in the CMS", "Record where each belongs on the backup", "CMS → Notes → Case Notes", "Retainer, HIPAA, Police Report placed with reasons"]
         ],
         best: [
           "Build to the standard, not to taste: a covering Case Manager finds a document because every file is laid out the same way.",
@@ -939,9 +939,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Client misses a scheduled contact or appointment", "Step 1: review case status, deadlines and the last contact date", "CMS → Case Summary", "Live deadlines identified before outreach begins"],
-          ["Internal review complete", "Step 2: work the channel ladder; log each attempt", "CMS → Communications Log", "2+ phone attempts, then email and text, each with date, time, channel, outcome"],
-          ["Channel ladder exhausted", "Step 3: notify Atty. Thorne and assess deadline impact on John Doe's file", "CMS → Tasks → Escalate", "Escalation documented; SOL (02/06/2028) and any hearing dates assessed"]
+          ["Client misses a scheduled contact or appointment", "Step 1: review case status, deadlines and the last contact date", "CMS → Profile → Case Narrative", "Live deadlines identified before outreach begins"],
+          ["Internal review complete", "Step 2: work the channel ladder; log each attempt", "CMS → Notes → Case Notes", "2+ phone attempts, then email and text, each with date, time, channel, outcome"],
+          ["Channel ladder exhausted", "Step 3: notify Atty. Thorne and assess deadline impact on John Doe's file", "CMS → Tasks → + Add Task", "Escalation documented; SOL (02/06/2028) and any hearing dates assessed"]
         ],
         best: [
           "Set follow-up reminders the moment a request goes out.",
@@ -978,7 +978,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "John Doe has not responded for six days. He missed a scheduled check-in call and his treatment has not begun. Two voicemails have been left on his mobile. Nothing has been logged. An emergency contact was collected at intake.",
           prompt: "Run the No Contact Protocol on John Doe's file. Start with the Step 1 internal review: name the deadlines that are live right now. Reconstruct the attempts already made, then carry the Step 2 channel ladder forward. Log every attempt with date, time, channel and outcome, and record the next action with its due date. Finally, state whether Step 3 team notification is warranted and what case impact you would report.",
-          tool: "CMS → Case Summary · CMS → Communications Log",
+          tool: "CMS → Profile → Case Narrative · CMS → Notes → Case Notes",
           output: "A completed Step 1 review and an unbroken, contemporaneous Step 2 outreach log.",
           checkpoints: [
             "Step 1 done: case status, live deadlines and the date of last contact reviewed before any outreach",
@@ -993,9 +993,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Six days without contact", "Step 1 internal review", "CMS → Case Summary", "Live deadlines listed"],
-          ["Review complete", "Reconstruct and continue the log", "CMS → Communications Log", "Unbroken log, distinct channels"],
-          ["Ladder cleared, no answer", "Step 3 escalation with case impact", "CMS → Tasks → Escalate", "Atty. Thorne notified; impact recorded"]
+          ["Six days without contact", "Step 1 internal review", "CMS → Profile → Case Narrative", "Live deadlines listed"],
+          ["Review complete", "Reconstruct and continue the log", "CMS → Notes → Case Notes", "Unbroken log, distinct channels"],
+          ["Ladder cleared, no answer", "Step 3 escalation with case impact", "CMS → Tasks → + Add Task", "Atty. Thorne notified; impact recorded"]
         ],
         best: [
           "Write each entry as if a supervisor will audit it six months from now.",
@@ -1056,8 +1056,8 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Step 3 escalation made, still no response", "Draft the Final Warning Letter with a 7–14 day deadline", "Action Plan Editor → Warning letter template", "Earlier attempts itemized; deadline and withdrawal notice present"],
-          ["Letter ready", "Confirm the current address; send by certified mail AND email", "CMS → Documents → Outgoing", "Both channels used and logged; certified receipt kept"],
-          ["Response deadline expires", "Verify all three criteria; escalate to Atty. Thorne for Skip-Trace authority and the Step 5 decision", "CMS → Tasks → Escalate", "All three criteria evidenced in the log first"]
+          ["Letter ready", "Confirm the current address; send by certified mail AND email", "CMS → Doc Hub → Others", "Both channels used and logged; certified receipt kept"],
+          ["Response deadline expires", "Verify all three criteria; escalate to Atty. Thorne for Skip-Trace authority and the Step 5 decision", "CMS → Tasks → + Add Task", "All three criteria evidenced in the log first"]
         ],
         best: [
           "Itemize the attempts with dates; “we have tried several times” is not evidence.",
@@ -1110,7 +1110,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Eleven days, Step 3 made", "Draft the letter", "Action Plan Editor", "Four elements present"],
-          ["Draft complete", "Send by certified mail and email", "CMS → Documents → Outgoing", "Both logged"],
+          ["Draft complete", "Send by certified mail and email", "CMS → Doc Hub → Others", "Both logged"],
           ["Letter sent", "Calendar the response deadline", "CMS → Calendar", "Deadline date on the calendar"]
         ],
         best: [
@@ -1274,9 +1274,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Retainer signed", "Deliver the standing instructions and log delivery", "CMS → Onboarding", "Delivery logged with date and method"],
-          ["Client mentions an accident-related expense", "Tell him to keep the receipt; log the expense", "CMS → Case Notes", "Receipt requested; expense logged"],
-          ["Adverse carrier calls the client directly", "Instruct the client to route it to the firm; log the contact", "CMS → Communications Log", "No Recorded Statement; contact logged"]
+          ["Retainer signed", "Deliver the standing instructions and log delivery", "CMS → Notes → Case Notes", "Delivery logged with date and method"],
+          ["Client mentions an accident-related expense", "Tell him to keep the receipt; log the expense", "CMS → Notes → Case Notes", "Receipt requested; expense logged"],
+          ["Adverse carrier calls the client directly", "Instruct the client to route it to the firm; log the contact", "CMS → Notes → Case Notes", "No Recorded Statement; contact logged"]
         ],
         best: [
           "Educate the client on why consistent treatment matters, not just that it does.",
@@ -1313,7 +1313,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "02/09/2026, 8:47 a.m.: a voicemail from John Doe. Dana from Keystone Mutual, Robert Smith's carrier, called him last night and asked to record what happened; he said he'd think about it, and she is calling back today. His neck is still stiff and he hasn't seen anyone. Nothing has reached him from the firm yet.",
           prompt: "Work the voicemail in your Notes & Action Plan: transcribe it, then write your action plan (graded, with the answer key once handed in). Work the plan: email Dana Whitfield that the firm represents John Doe, that she is not to contact him directly and that any Recorded Statement request comes through the firm, with nothing about his injuries; call John Doe back to check on his neck and his treatment status, outline the next steps and have him repeat the instruction (no Recorded Statement, no talk about the case with anyone outside the firm); and coordinate his first visit with Riverton Urgent Care. Then assemble his onboarding Direction Packet (all six sections, the Property Damage section specific to this file: from the records, whose vehicle and claim it is), deliver it and log every contact.",
-          tool: "Notes & Action Plan · Email Workspace · Call Simulator → AI John Doe · CMS → Onboarding → Direction Packet · CMS → Communications Log",
+          tool: "Notes & Action Plan · Email Workspace · Call Simulator → AI John Doe · CMS → Notes → Case Notes · CMS → Notes → Case Notes",
           output: "A graded transcript and action plan, the emails to Keystone and the facility sent, the check-in call taken, and a delivered, logged Direction Packet specific to John Doe's file.",
           checkpoints: [
             "Voicemail transcribed and the action plan handed in",
@@ -1327,10 +1327,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Voicemail: the carrier asked to record the client", "Transcribe it; write the action plan; tell Atty. Thorne", "Notes & Action Plan · CMS → Communications Log", "Plan graded; attorney told the same day"],
-          ["Adverse carrier has called a represented client", "Email the adjuster: no direct contact; statements through the firm", "Email Workspace · CMS → Communications Log", "Sent and logged; nothing about injuries"],
+          ["Voicemail: the carrier asked to record the client", "Transcribe it; write the action plan; tell Atty. Thorne", "Notes & Action Plan · CMS → Notes → Case Notes", "Plan graded; attorney told the same day"],
+          ["Adverse carrier has called a represented client", "Email the adjuster: no direct contact; statements through the firm", "Email Workspace · CMS → Notes → Case Notes", "Sent and logged; nothing about injuries"],
           ["Client sore, not yet seen", "Check in; outline next steps; coordinate with the facility", "Call Simulator → AI John Doe · Email Workspace", "Instruction repeated back; first visit arranged"],
-          ["Packet ready", "Deliver and log", "CMS → Onboarding", "Date and method recorded"]
+          ["Packet ready", "Deliver and log", "CMS → Notes → Case Notes", "Date and method recorded"]
         ],
         best: [
           "A confirmation step means more than sending: ask how you will know he read it.",
@@ -1394,8 +1394,8 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["A PD document arrives (photos, estimate, supplement)", "Index it on John Doe's file as severity evidence", "CMS → Documents", "Filed as BI evidence, not opened as a PD claim"],
-          ["Anyone asks about the Civic's rental, Loss of Use or repair figure", "Log the question and refer it to Atty. Thorne", "CMS → Case Notes · CMS → Tasks", "Referred the same day; no advice given"],
+          ["A PD document arrives (photos, estimate, supplement)", "Index it on John Doe's file as severity evidence", "CMS → Doc Hub", "Filed as BI evidence, not opened as a PD claim"],
+          ["Anyone asks about the Civic's rental, Loss of Use or repair figure", "Log the question and refer it to Atty. Thorne", "CMS → Notes → Case Notes · CMS → Tasks", "Referred the same day; no advice given"],
           ["A PD date touches John Doe's care", "Calendar it as a treatment risk; plan his rides", "Calendar · CMS → Tasks", "Rides planned before the date"]
         ],
         best: [
@@ -1482,7 +1482,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "02/11/2026. Keystone PD (Leah Moran) emails the firm to confirm the Civic's claimant and a rental contact, so a rental can be set up once its liability decision is made. Five more items sit in the firm's PD tray: the scene and damage photos, the tow record from the scene, the Police Report, Margaret Doe's question about Loss of Use, and her request that the firm push Keystone for a higher repair figure. John Doe calls asking whether the rental can be his.",
           prompt: "Sort each item: does it feed John Doe's bodily-injury claim, stay on Margaret Doe's separate PD claim, or touch his care and need coordinating? Mark each refer, coordinate or handle, and record the sort in one CMS Case Note that cites the Police Report's units. Index what feeds the BI claim on John Doe's file, set the follow-up that puts the rental's last covered day on his calendar as a treatment risk, refer Margaret's items and Leah Moran's claimant question to Atty. Thorne, and answer John Doe's call within the UPL line. End the note with one line: does Property Damage touch our case, and how?",
-          tool: "CMS → Case Notes · CMS → Documents · Calendar · Call Simulator → AI John Doe",
+          tool: "CMS → Notes → Case Notes · CMS → Doc Hub · Calendar · Call Simulator → AI John Doe",
           output: "A sorted, sourced Case Note ending in its one-line answer, the BI evidence indexed, the rental follow-up set, Margaret Doe's items referred and the call logged.",
           checkpoints: [
             "Positions taken from the Police Report's units: John Doe the Escape's passenger, the Civic Margaret Doe's",
@@ -1496,8 +1496,8 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["PD items reach the file", "Sort each one: BI evidence, coordinate, or Margaret's claim", "CMS → Case Notes", "Sort recorded with the Police Report cited"],
-          ["Severity evidence identified", "Index it on John Doe's file", "CMS → Documents", "Photos and estimate indexed as BI evidence"],
+          ["PD items reach the file", "Sort each one: BI evidence, coordinate, or Margaret's claim", "CMS → Notes → Case Notes", "Sort recorded with the Police Report cited"],
+          ["Severity evidence identified", "Index it on John Doe's file", "CMS → Doc Hub", "Photos and estimate indexed as BI evidence"],
           ["Margaret Doe asks about her PD claim", "Refer to Atty. Thorne; plan John Doe's rides", "CMS → Tasks · Calendar", "Referred the same day; rental follow-up dated"]
         ],
         best: [
@@ -1671,7 +1671,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Verification call complete", "Record the acceptance decision with its reason", "CMS → Case Notes", "Accepted / Escalated / Declined, with a reason a colleague can follow"],
+          ["Verification call complete", "Record the acceptance decision with its reason", "CMS → Notes → Case Notes", "Accepted / Escalated / Declined, with a reason a colleague can follow"],
           ["Coverage verified in writing", "Draft the plan across all five bands", "Action Plan Editor", "All five bands present; risks band populated"],
           ["Plan drafted", "Docket the filing window and route to Atty. Thorne", "Action Plan Editor → Route for review · CMS → Calendar", "Routed before any position-committing action; due date on the calendar"]
         ],
@@ -1766,13 +1766,13 @@ window.CM_CASE_FLOW = {
            [
              "Intake call complete (02/09/2026)",
              "Record the four-domain assessment: symptoms in his words, home and transport, prior injuries, the job's demands",
-             "CMS → Case Notes",
+             "CMS → Notes → Case Notes",
              "All four domains dated; anything unknown listed as an open question"
            ],
            [
              "A prior injury or prior care disclosed",
              "Request the prior records and record the baseline as facts: body region, dates, provider, outcome",
-             "Medical Records Requests · CMS → Case Notes",
+             "Medical Records Requests · CMS → Notes → Case Notes",
              "Request sent; baseline note in facts only, copied to Atty. Thorne"
            ],
            [
@@ -1784,7 +1784,7 @@ window.CM_CASE_FLOW = {
            [
              "A social risk found (no ride, a cost worry, a handoff)",
              "Calendar it as a treatment risk and flag it",
-             "CMS → Calendar · Case File → Risk Flags",
+             "CMS → Calendar · Notes → Case Notes",
              "Dated task on the calendar before it becomes a gap"
            ]
          ],
@@ -1888,13 +1888,13 @@ window.CM_CASE_FLOW = {
            [
              "Every check-in with John Doe or a provider",
              "Locate him on the map (phase, week from the DOL, week of care) and ask “Is he improving?”",
-             "CMS → Case File → Treatment timeline",
+             "CMS → Treatment → Medical Chronology",
              "Phase, week, answer and date recorded"
            ],
            [
              "The answer is no, or a stop is skipped",
              "Classify the variance and ask the provider's office what is planned",
-             "Medical Records Requests · CMS → Case Notes",
+             "Medical Records Requests · CMS → Notes → Case Notes",
              "Variance type named; the provider's answer on file with its date"
            ],
            [
@@ -1906,7 +1906,7 @@ window.CM_CASE_FLOW = {
            [
              "A variance that can cost the claim",
              "Report the facts to Atty. Thorne in the map's language: phase, variance type, the provider's plan",
-             "CMS → Case File → Risk Flags",
+             "CMS → Notes → Case Notes",
              "Flag routed the same day, facts only"
            ]
          ],
@@ -2035,25 +2035,25 @@ window.CM_CASE_FLOW = {
            [
              "A treatment record, prescription record or bill arrives",
              "Read it against the red flags by specialty; log any flag with its source record and the date first seen",
-             "Medical Records Requests · CMS → Case File → Risk Flags",
+             "Medical Records Requests · CMS → Notes → Case Notes",
              "Every flag logged with its record, specialty and date"
            ],
            [
              "A medical-danger flag (fever or sharp pain after surgery, a medication concern)",
              "Report the fact to the provider's office the same day, then run A-C-T and tell Atty. Thorne",
-             "Phone · CMS → Case Notes",
+             "Phone · CMS → Notes → Case Notes",
              "Provider told the same day; the call note dated"
            ],
            [
              "Each client check-in, once care starts",
              "Run OARS: specific questions on visits, pain and function; note any yellow flag in his words",
-             "Call Simulator → AI John Doe · CMS → Case Notes",
+             "Call Simulator → AI John Doe · CMS → Notes → Case Notes",
              "GIRP note the same day: his words, no labels, no advice"
            ],
            [
              "A yellow flag or a plateau heard",
              "Report it to the provider with a plan and a question (is a screen or a plan change indicated?); flag anything putting his mental health in the record to Atty. Thorne",
-             "Email Workspace · CMS → Case File → Risk Flags",
+             "Email Workspace · CMS → Notes → Case Notes",
              "The provider's answer and its date on file"
            ]
          ],
@@ -2158,13 +2158,13 @@ window.CM_CASE_FLOW = {
            [
              "A Florida PIP file is opened at intake",
              "Calendar the 14-day initial-care deadline from the date of loss; tell the client the deadline and where and when care is available (facts and logistics only)",
-             "CMS → Calendar · CMS → Communications Log",
+             "CMS → Calendar · CMS → Notes → Case Notes",
              "Deadline docketed the same day; the call logged with no medical recommendation"
            ],
            [
              "The first treatment record arrives",
              "Check the visit date against day 14, who saw the client (MD, DO, dentist, PA, APRN or chiropractor), and whether an EMC determination is documented",
-             "Medical Records Requests · CMS → Case File → Risk Flags",
+             "Medical Records Requests · CMS → Notes → Case Notes",
              "Date, provider type and EMC status logged with the source record"
            ],
            [
@@ -2176,7 +2176,7 @@ window.CM_CASE_FLOW = {
            [
              "A PIP payment posts, or a gap is found",
              "Update the $2,500 or $10,000 bucket in the PIP Log; flag a missing EMC or a late first visit to Atty. Thorne",
-             "CMS → Insurance tab → PIP Log · CMS → Tasks → Escalate",
+             "CMS → Insurance → PIP / UM/UIM Coverage Stack · CMS → Tasks → + Add Task",
              "Bucket current; the flag routed the same day"
            ]
          ],
@@ -2229,7 +2229,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "John Doe's first treatment records have arrived. The date of loss is 02/06/2026. The first treatment record is dated 02/20/2026; chiropractic care at Riverton Spine & Rehab began on 02/24/2026.",
           prompt: "Identify and flag the Treatment Gap in John Doe's file. Compute it exactly, record the initial gap, set the file to catch any later break in care, and record in the risks band the facts only: its dates, its length, and that John Doe's own explanation and its documents are still to be gathered. What the gap means for the claim is Atty. Thorne's to assess. List the documents you will ask John Doe for, and the steps needed before the gap can be explained. Then route the flag to Atty. Thorne.",
-          tool: "CMS → Case File → Risk Flags · Action Plan Editor → Risks",
+          tool: "CMS → Notes → Case Notes · Action Plan Editor → Risks",
           output: "A precisely computed, prominently flagged and routed treatment-gap record.",
           checkpoints: [
             "Gap computed as 14 days, 02/06/2026 to 02/20/2026",
@@ -2242,7 +2242,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Treatment records received", "Compute the gap from DOL to first treatment", "CMS → Case File → Treatment timeline", "14 days, both dates recorded"],
+          ["Treatment records received", "Compute the gap from DOL to first treatment", "CMS → Treatment → Medical Chronology", "14 days, both dates recorded"],
           ["Gap confirmed", "Flag it with its defense uses and likely causes", "Action Plan Editor → Risks", "Prominent flag with consequences"],
           ["Flag recorded", "Route to Atty. Thorne; schedule the Day 3 investigation", "CMS → Tasks", "Routed and scheduled"]
         ],
@@ -2457,7 +2457,7 @@ window.CM_CASE_FLOW = {
   {
     n: 2, id: 12,
     title: "Case Flow Day 2 · Pre-Demand, the BI Demand & BI Settlement",
-    phase: "Pre-demand, the BI demand & BI settlement",
+    phase: "Pre-Demand, the BI Demand & BI Settlement",
     objective: "Probe the 14-Day Gap with John Doe on a recorded call, inside the UPL line, and complete the Gap Explanation Record from his own documented facts; audit the file to MMI and $16,401.40 in Specials; brief Atty. Thorne in the pre-demand strategy session; serve a time-limited BI demand that holds up; structure the Host UM and Relative UM demands behind it; then negotiate Track A to a $40,000 gross recovery with both UM consents. Then execute the BI settlement: the release, the disclosure and the settlement statement.",
     gate: "Gap Explanation Record complete, from John Doe's own documented facts · Specials audited at $16,401.40 · demand strategy approved by Atty. Thorne · BI Time-Limited Demand served with proof of delivery · Host UM and Relative UM demands drafted · Track A negotiated to $40,000 gross, both UM consents in hand",
     discussion: "It is 07/20/2026. The Specials are audited and Atty. Thorne has approved a policy-limits demand to Keystone. What must be true before the Time-Limited Demand goes out, and what would let Keystone say it never had a fair chance to settle?",
@@ -2561,10 +2561,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Claims opened by phone 02/16–02/17/2026", "Log each claim number, adjuster (or “none yet”) and preferred delivery method", "CMS → Insurance tab · Communications Log", "Every claim has a number, an adjuster or “none yet”, and a method"],
-          ["LOR set drafted", "Route all five letters for Atty. Thorne's signature", "CMS → Documents → Outgoing · Tasks", "Signed by counsel before sending; none signed by the CM"],
-          ["Letters served 02/17/2026", "Log method and time; calendar the acknowledgement check", "CMS → Communications Log · Calendar", "Follow-up dated 02/20/2026 for any carrier still silent"],
-          ["Acknowledgement arrives", "File it; record any disclosure, coverage statement or limit with its source", "CMS → Documents · Insurance tab", "Source and date on every coverage fact"]
+          ["Claims opened by phone 02/16–02/17/2026", "Log each claim number, adjuster (or “none yet”) and preferred delivery method", "CMS → Insurance · Notes → Case Notes", "Every claim has a number, an adjuster or “none yet”, and a method"],
+          ["LOR set drafted", "Route all five letters for Atty. Thorne's signature", "CMS → Doc Hub → Others · Tasks", "Signed by counsel before sending; none signed by the CM"],
+          ["Letters served 02/17/2026", "Log method and time; calendar the acknowledgement check", "CMS → Notes → Case Notes · Calendar", "Follow-up dated 02/20/2026 for any carrier still silent"],
+          ["Acknowledgement arrives", "File it; record any disclosure, coverage statement or limit with its source", "CMS → Doc Hub · Insurance", "Source and date on every coverage fact"]
         ],
         best: [
           "Confirm on every claim call: claim number, the adjuster's name and spelling, direct phone, fax, email and preferred method. A claim not opened on the call gets a follow-up within 24–48 hours.",
@@ -2606,7 +2606,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 02/17/2026, before the letters go out. All three carriers opened claims by phone on 02/16–02/17/2026 and reported their limits on the set-up calls. Nothing is confirmed in writing: today's LORs will request each Declaration Page, and Keystone, the third-party carrier, will want authorizations first. Nothing has been entered in the CMS Insurance tab.",
           prompt: "Build the complete Policy Stack for John Doe VS Robert Smith. Enter all three layers in the CMS in their order of operations, with carrier, policy number, claim number, limit and adjuster for each. Classify each layer as first-party or third-party. In the Comments box record the carrier's actual name, the driver's name where it differs from the owner, and the adjuster's details, or state expressly that none is assigned yet. Then verify the total, record the order the layers must be pursued in, and mark the projection preliminary until each limit is confirmed in writing.",
-          tool: "CMS → Insurance tab",
+          tool: "CMS → Insurance",
           output: "A three-layer Coverage Matrix totalling $40,000, each layer classified, ordered and fully attributed.",
           checkpoints: [
             "All three layers present: BI, Host UM, Relative UM",
@@ -2622,9 +2622,9 @@ window.CM_CASE_FLOW = {
         },
         show: {caption: "The stack, and the order it must be worked in", type: "stack"},
         ops: [
-          ["Limits reported on the set-up calls", "Enter each layer with its limits and identifiers", "CMS → Insurance tab", "Three layers, each with policy number, claim number and adjuster (or “none yet”)"],
-          ["All layers entered", "Verify the total and record the order of operations", "CMS → Insurance tab → Comments", "$40,000; BI → Host UM → Relative UM"],
-          ["A limit is unconfirmed", "Hold the projection as preliminary", "CMS → Case Notes", "No limit quoted to the client before written confirmation"]
+          ["Limits reported on the set-up calls", "Enter each layer with its limits and identifiers", "CMS → Insurance", "Three layers, each with policy number, claim number and adjuster (or “none yet”)"],
+          ["All layers entered", "Verify the total and record the order of operations", "CMS → Insurance", "$40,000; BI → Host UM → Relative UM"],
+          ["A limit is unconfirmed", "Hold the projection as preliminary", "CMS → Notes → Case Notes", "No limit quoted to the client before written confirmation"]
         ],
         best: [
           "Record where each limit came from, so anyone can check it.",
@@ -2661,7 +2661,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 02/17/2026. Claims were opened by phone 02/16–02/17/2026: Keystone Mutual BI KM-26-440871 (Dana Whitfield) and PD (Leah Moran; PD liability accepted today), Harbor Point HP-26-7741 (Marcus Bell; Host UM and PIP), Cardinal State Mutual CS-26-20355 (no adjuster assigned). Each carrier's preferred delivery method is in the Communications Log. John Doe has not started treatment.",
           prompt: "Generate John Doe's letter set on the firm template: LORs to Keystone (BI, with the PD carve-out), Harbor Point (Host UM and PIP) and Cardinal State (Relative UM), and notices to Bluewater and Peach State Health Plan. Give each the right Attn line, insured, claim, policy or member number and date of loss, and the requests for limits, Declaration Pages, additional coverage and preservation. Route the set to Atty. Thorne for signature, send each by its preferred method, and calendar the acknowledgement checks. Graded judgment: what Keystone's letter leaves out, and why no UM letter asks for payment.",
-          tool: "CMS → Documents → Outgoing · Email Workspace · CMS → Calendar",
+          tool: "CMS → Doc Hub → Others · Email Workspace · CMS → Calendar",
           output: "Five signed, sent and logged letters, each correctly addressed, with the acknowledgement follow-ups on the calendar.",
           checkpoints: [
             "Five letters: LORs to Keystone, Harbor Point and Cardinal State; notices to Bluewater and Peach State",
@@ -2678,9 +2678,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Claim numbers and delivery methods logged", "Generate the five letters from the template", "CMS → Documents → Outgoing", "Five drafts, each with Attn line, insured, number and DOL"],
+          ["Claim numbers and delivery methods logged", "Generate the five letters from the template", "CMS → Doc Hub → Others", "Five drafts, each with Attn line, insured, number and DOL"],
           ["Drafts complete", "Route the set for signature", "CMS → Tasks", "Atty. Thorne's signature on all five before any is sent"],
-          ["Letters sent 02/17/2026", "Log method and time; calendar the acknowledgement checks", "CMS → Communications Log · Calendar", "Acknowledgement due 02/19/2026; follow-up 02/20/2026 for any carrier still silent"]
+          ["Letters sent 02/17/2026", "Log method and time; calendar the acknowledgement checks", "CMS → Notes → Case Notes · Calendar", "Acknowledgement due 02/19/2026; follow-up 02/20/2026 for any carrier still silent"]
         ],
         best: [
           "Read each letter against the claim-call log before it goes for signature.",
@@ -2746,10 +2746,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Written coverage confirmation arrives", "Enter limit, form and terms with source and date; update the status", "CMS → Insurance tab → Coverage Matrix", "“Confirmed in writing” only with the document attached"],
-          ["Adjuster assigned (Teresa Okafor, 03/03/2026)", "Replace “not yet assigned” with name and direct contact; re-address correspondence", "CMS → Insurance tab · Parties", "No “not yet assigned” entry after the assignment date"],
-          ["A follow-up date arrives with the item still open", "Follow up, log the result, set the next date", "CMS → Calendar · Communications Log", "No open item carries a past follow-up date"],
-          ["Regulatory or policy deadline identified", "Have Atty. Thorne confirm the rule, then docket it", "CMS → Tasks → Escalate · Calendar", "Each deadline docketed with its source, marked confirmed by counsel"]
+          ["Written coverage confirmation arrives", "Enter limit, form and terms with source and date; update the status", "CMS → Insurance", "“Confirmed in writing” only with the document attached"],
+          ["Adjuster assigned (Teresa Okafor, 03/03/2026)", "Replace “not yet assigned” with name and direct contact; re-address correspondence", "CMS → Insurance · Parties Involved", "No “not yet assigned” entry after the assignment date"],
+          ["A follow-up date arrives with the item still open", "Follow up, log the result, set the next date", "CMS → Calendar · Notes → Case Notes", "No open item carries a past follow-up date"],
+          ["Regulatory or policy deadline identified", "Have Atty. Thorne confirm the rule, then docket it", "CMS → Tasks → + Add Task · Calendar", "Each deadline docketed with its source, marked confirmed by counsel"]
         ],
         best: [
           "Record a verbal limit the moment it is given, marked verbal: an early baseline, not a confirmation.",
@@ -2860,7 +2860,7 @@ window.CM_CASE_FLOW = {
           [
             "An affidavit arrives",
             "Check affiant, numbers, dates, signature, jurat and seal; route any defect",
-            "CMS → Documents · CMS → Tasks → Escalate",
+            "CMS → Doc Hub · CMS → Tasks → + Add Task",
             "Filed where it will be used; defects logged and returned"
           ]
         ],
@@ -2950,9 +2950,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Claim set-up opens", "Request the Police Report; read every field", "CMS → Police tab", "Report logged; citation and witness recorded"],
+          ["Claim set-up opens", "Request the Police Report; read every field", "CMS → Police Report", "Report logged; citation and witness recorded"],
           ["Video or vehicle data exists", "Draft preservation requests for Atty. Thorne", "Email Workspace", "Request signed and sent; chain of custody logged"],
-          ["A carrier states its liability position", "Record it with its date and source", "CMS → Insurance tab", "Each carrier's position on file in writing"]
+          ["A carrier states its liability position", "Record it with its date and source", "CMS → Insurance", "Each carrier's position on file in writing"]
         ],
         best: [
           "Read the Police Report line by line, and reconcile it against the Declaration Pages.",
@@ -3053,7 +3053,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 03/11/2026. A colleague kept John Doe's Coverage Matrix. In the file: Harbor Point's written confirmation (03/02/2026), Cardinal State's assignment of Teresa Okafor (03/03/2026) and Coverage Letter (03/09/2026), and Keystone's written request with authorizations, sent, with no Declaration Page yet. This morning Summit Imaging asked for an LOP; declined, because PIP applies first.",
           prompt: "Audit the staged Coverage Matrix against the documents in the file. Find every error, correct it, and cite the document and date that prove each correction. Restore the stack total, clear every past-due follow-up by acting on it and setting a new date, and leave correct rows alone. Then route a three-line audit note to Atty. Thorne: confirmed in writing, still preliminary, escalated. Graded judgment: the BI status, and what you may and may not mark confirmed today.",
-          tool: "CMS → Insurance tab → Coverage Matrix · CMS → Documents · Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual",
+          tool: "CMS → Insurance · CMS → Doc Hub · Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual",
           output: "A corrected Coverage Matrix totalling $40,000, every status sourced and every open item dated, with an audit note routed to Atty. Thorne.",
           checkpoints: [
             "BI: “Confirmed · Police Report” corrected to “Preliminary · verbal, set-up call; written request with authorizations sent”; Keystone has confirmed nothing in writing, and its Declaration Page does not arrive until 03/20/2026",
@@ -3084,9 +3084,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Coverage Matrix audit (03/11/2026)", "Check every row against the document that should prove it", "CMS → Insurance tab → Coverage Matrix · Documents", "Each correction cites a document and its date"],
+          ["Coverage Matrix audit (03/11/2026)", "Check every row against the document that should prove it", "CMS → Insurance · Doc Hub", "Each correction cites a document and its date"],
           ["Past-due follow-up found", "Follow up with Dana Whitfield today; log it; set the next date", "Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual · CMS → Calendar", "Logged 03/11/2026; next date by 03/13/2026"],
-          ["Audit complete", "Route the audit note", "CMS → Tasks → Escalate", "Note separates confirmed, preliminary and escalated items"]
+          ["Audit complete", "Route the audit note", "CMS → Tasks → + Add Task", "Note separates confirmed, preliminary and escalated items"]
         ],
         best: [
           "Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).",
@@ -3226,7 +3226,7 @@ window.CM_CASE_FLOW = {
          opts: ["The rate the governing state's rules allow, confirmed by Atty. Thorne", "Always the IRS business rate", "Whatever rate John Doe asks for", "The rental company's daily rate"],
          a: 0, r: "The IRS standard rates are a reference only. The governing state's rules set the rate, and Atty. Thorne confirms it before anything is claimed."},
         {q: "Harbor Point's check for Lakeside Orthopedics' 06/12/2026 visit is paid on 06/26/2026. Where do you post it?",
-         opts: ["In Case Notes only", "In the Lien Tracker, as a PIP lien", "Nowhere: PIP is outside the stack", "In the PIP Log (CMS → Insurance tab → PIP Log): the check, the date of service and the limit remaining, reconciled to Harbor Point's payment history"],
+         opts: ["In Case Notes only", "In the Lien Tracker, as a PIP lien", "Nowhere: PIP is outside the stack", "In the PIP Log (CMS → Insurance → PIP / UM/UIM Coverage Stack): the check, the date of service and the limit remaining, reconciled to Harbor Point's payment history"],
          a: 3, r: "The PIP Log (RS71) is the firm's record of John Doe's Harbor Point PIP. It ties to Harbor Point's payment history (RS31) line for line: five payments, $5,000.00, $0.00 left after 06/26/2026. Harbor Point has no reimbursement right, so PIP is never a lien."},
         {q: "Checking the PIP Log against the providers' statements: suppose Lakeside Orthopedics' statement still showed $640.00 owed for the 03/27/2026 visit that Harbor Point PIP paid on 04/10/2026. What is it, and what do you do?",
          opts: ["A lien: add $640.00 to the Lien Tracker", "A billing error: the PIP payment is a credit Lakeside hasn't posted, so send it the payment proof in writing and ask it to correct the account", "A debt: tell John Doe to pay Lakeside", "A reason to ask Harbor Point to pay the visit again"],
@@ -3288,11 +3288,11 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Each claim is opened", "List every coverage, its carrier and what it pays", "CMS → Insurance tab", "Each tagged third-party, first-party or health"],
-          ["Coverage confirmed in writing", "Place it: Recovery Stack, Payer Order or outside both", "CMS → Insurance tab → Coverage Matrix", "Stack $40,000; PIP, PD and collision outside it"],
-          ["A provider asks whom to bill", "Route it by the Payer-First order", "CMS → Insurance tab → PIP Log", "PIP first, Peach State next, an LOP last"],
-          ["A provider asks for an LOP", "Check PIP and network status first", "CMS → Liens → LOP register", "Payer check recorded; Atty. Thorne approves any LOP"],
-          ["A payer pays a bill", "Post payer, bill and amount on its ledger", "CMS → Insurance tab → PIP Log · CMS → Liens", "Every ledger current; no paid claim re-routed"]
+          ["Each claim is opened", "List every coverage, its carrier and what it pays", "CMS → Insurance", "Each tagged third-party, first-party or health"],
+          ["Coverage confirmed in writing", "Place it: Recovery Stack, Payer Order or outside both", "CMS → Insurance", "Stack $40,000; PIP, PD and collision outside it"],
+          ["A provider asks whom to bill", "Route it by the Payer-First order", "CMS → Insurance → PIP / UM/UIM Coverage Stack", "PIP first, Peach State next, an LOP last"],
+          ["A provider asks for an LOP", "Check PIP and network status first", "CMS → Liens → Outstanding Case Liens", "Payer check recorded; Atty. Thorne approves any LOP"],
+          ["A payer pays a bill", "Post payer, bill and amount on its ledger", "CMS → Insurance → PIP / UM/UIM Coverage Stack · CMS → Liens", "Every ledger current; no paid claim re-routed"]
         ],
         best: [
           "Verify every coverage in writing: a dated Declaration Page or Coverage Letter.",
@@ -3361,10 +3361,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["A provider asks for an LOP", "Run the Payer Order; prepare the LOP on counsel's template only for care PIP and Peach State can't carry", "CMS → Documents → Outgoing → Route for approval", "Payer check recorded before routing; nothing sent without Atty. Thorne's approval"],
-          ["PIP pays a bill", "Post the payment, the running total and the balance left", "CMS → Insurance tab → PIP Log", "Running total ties to Harbor Point's payments; $5,000.00 reached on the 06/12/2026 visit, $0.00 left"],
-          ["An LOP provider's itemized statement arrives", "Update the balance and check every line against the visits you tracked", "CMS → Liens → LOP register", "Balance current (through 04/02/2026: 16 visits × $185.00 = $2,960.00); every billed date is an attended visit"],
-          ["A new referral or provider", "Warm handoff: book it with John Doe on the line and confirm the payer before the first visit", "Call Simulator → AI John Doe · CMS → Case File → Treatment timeline", "Appointment and payer recorded before the visit date"]
+          ["A provider asks for an LOP", "Run the Payer Order; prepare the LOP on counsel's template only for care PIP and Peach State can't carry", "CMS → Doc Hub → Others (routed to Atty. Thorne for approval)", "Payer check recorded before routing; nothing sent without Atty. Thorne's approval"],
+          ["PIP pays a bill", "Post the payment, the running total and the balance left", "CMS → Insurance → PIP / UM/UIM Coverage Stack", "Running total ties to Harbor Point's payments; $5,000.00 reached on the 06/12/2026 visit, $0.00 left"],
+          ["An LOP provider's itemized statement arrives", "Update the balance and check every line against the visits you tracked", "CMS → Liens → Outstanding Case Liens", "Balance current (through 04/02/2026: 16 visits × $185.00 = $2,960.00); every billed date is an attended visit"],
+          ["A new referral or provider", "Warm handoff: book it with John Doe on the line and confirm the payer before the first visit", "Call Simulator → AI John Doe · CMS → Treatment → Medical Chronology", "Appointment and payer recorded before the visit date"]
         ],
         best: [
           "Ask “Is the plan working?” at every treatment-phase contact.",
@@ -3412,7 +3412,7 @@ window.CM_CASE_FLOW = {
             "A plan's reimbursement claim is what it paid, never what was billed: Peach State's claim on Crescent's bill starts at $1,860.00. When its itemized lien arrives, match every line to an EOB; a line no EOB supports, or one unrelated to the collision, goes to Atty. Thorne.",
             "The EOB's AC1 remark asks for the plan's accident questionnaire. Route it to Atty. Thorne before John Doe returns it: what it says about the accident and the other insurance is a statement on the file.",
             "PIP sends no EOB, but Harbor Point reports its payments the same way: its payment history (RS31) lists each check by date of service, payee, amount billed, amount paid and the limit remaining. It paid every bill at the amount billed, in the order received.",
-            "Keep the firm's PIP Log (CMS → Insurance tab → PIP Log, printed as RS71) as each PIP event happens: the application and the claim opened, each check with its date of service and the limit remaining, the wage benefit, and the care billed elsewhere. Reconcile it to Harbor Point's payment history line by line.",
+            "Keep the firm's PIP Log (CMS → Insurance → PIP / UM/UIM Coverage Stack, printed as RS71) as each PIP event happens: the application and the claim opened, each check with its date of service and the limit remaining, the wage benefit, and the care billed elsewhere. Reconcile it to Harbor Point's payment history line by line.",
             "Harbor Point's five checks: $685.00 (Riverton Urgent Care), $640.00, $640.00 and $640.00 (Lakeside Orthopedics) and $2,395.00 (Summit Imaging) = $5,000.00, exhausted 06/26/2026. Bills it receives after that come back with a notice of exhaustion: send the next one to the next payer in the Payer Order.",
             "Reconcile every provider to its payers: each statement must show the PIP check or the plan's payment as a credit. A provider still showing a balance on a paid date of service has a billing error, not a lien. Medical Specials keep the billed amounts the audit holds ($14,817.40); the lien register carries only what each payer can claim back."
           ],
@@ -3434,10 +3434,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["An EOB arrives", "Post billed, allowed, adjustment, paid and member share against the visit", "CMS → Liens · CMS → Documents", "Plan paid $1,860.00 logged; claim PS-2605-449021 linked to the visit"],
-          ["A PIP check clears", "Post the check, the date of service and the limit remaining", "CMS → Insurance tab → PIP Log", "Ledger ties to Harbor Point's payment history, $0.00 left after 06/26/2026"],
+          ["An EOB arrives", "Post billed, allowed, adjustment, paid and member share against the visit", "CMS → Liens · CMS → Doc Hub", "Plan paid $1,860.00 logged; claim PS-2605-449021 linked to the visit"],
+          ["A PIP check clears", "Post the check, the date of service and the limit remaining", "CMS → Insurance → PIP / UM/UIM Coverage Stack", "Ledger ties to Harbor Point's payment history, $0.00 left after 06/26/2026"],
           ["A patient statement shows a balance", "Compare it with the EOB's member responsibility; route any balance bill", "CMS → Liens · Email Workspace", "$1,540.00 flagged; Atty. Thorne told the same day; correction request drafted"],
-          ["The plan's itemized lien arrives", "Match each line to an EOB and to the collision", "CMS → Liens → Peach State", "Only EOB-backed, accident-related lines stand"]
+          ["The plan's itemized lien arrives", "Match each line to an EOB and to the collision", "CMS → Liens → Outstanding Case Liens", "Only EOB-backed, accident-related lines stand"]
         ],
         best: [
           "Read every EOB down to the member-responsibility line before you answer a balance question.",
@@ -3478,7 +3478,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "02/23/2026: John Doe's first treatment was at Riverton Urgent Care on 02/20/2026 ($685.00, to Harbor Point PIP). Chiropractic and PT at Riverton Spine & Rehab begin 02/24/2026; it is out of network for Peach State. Atty. Thorne has approved the firm's LOP template. John Doe had three chiropractic visits in 2021, for low-back stiffness. 03/11/2026: Summit Imaging Center, booked for the cervical MRI Dr. Reyes ordered on 03/05/2026, asks for an LOP.",
           prompt: "Work both dates. First run the Payer Order for each provider and record the result. On 02/23/2026, prepare Riverton Spine & Rehab's LOP on the approved template, route it to Atty. Thorne for approval and signature, transmit it with the claim-specific HIPAA authorization, and ask for itemized statements and a missed-visit alert; confirm receipt and open the LOP register entry. Then take the live call with Tammy Greer, the office manager, before the 02/24/2026 evaluation: introduce John Doe's case, confirm the clinic accepts the LOP, secure the endorsed appointment, and answer her questions on insurance status, treatment cadence and medical records and billing inside your lane. After the call, convert it into a dated case note, open the follow-up tasks (the 30-day itemized statement, the missed-visit alert, the records request on the HIPAA authorization), and file the LOP and the call note in the CMS so a copy is kept on the Backup Drive. Record John Doe's assessment, including his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing, naming Harbor Point PIP as the payer, with the ledger to prove it. Graded: no payment promised to either provider.",
-          tool: "CMS → Liens → LOP register · CMS → Documents → Outgoing · Email Workspace · Call Simulator · CMS → Case Notes · CMS → Tasks · CMS → Insurance tab → PIP Log",
+          tool: "CMS → Liens → Outstanding Case Liens · CMS → Doc Hub → Others · Email Workspace · Call Simulator · CMS → Notes → Case Notes · CMS → Tasks · CMS → Insurance → PIP / UM/UIM Coverage Stack",
           output: "One counsel-approved LOP transmitted, confirmed and endorsed by call with the appointment secured, one LOP request declined with the payer named, a current PIP Log, and a documented pre-morbid baseline.",
           checkpoints: [
             "Payer Order run and recorded for each provider: PIP → Peach State → LOP",
@@ -3497,10 +3497,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["02/23/2026: Riverton Spine & Rehab needs an LOP before the 02/24/2026 visit", "Run the Payer Order, prepare the LOP on the approved template, route it for approval", "CMS → Documents → Outgoing → Route for approval", "Approved and signed before the first visit"],
-          ["LOP signed", "Transmit it with the HIPAA authorization; confirm receipt; open the register entry", "Email Workspace · CMS → Liens → LOP register", "Receipt confirmed and dated in the Communications Log"],
-          ["LOP received by the clinic", "Call the office manager: confirm acceptance, secure the evaluation, set the billing protocol; then note, task and file it", "Call Simulator · CMS → Case Notes · CMS → Tasks", "Appointment confirmed; note dated; tasks owned and dated; nothing promised"],
-          ["03/11/2026: Summit Imaging asks for an LOP", "Decline in writing, naming Harbor Point PIP as the payer; post the ledger", "Email Workspace · CMS → Insurance tab → PIP Log", "Reason stated; ledger shows $3,675.00 left before the MRI"]
+          ["02/23/2026: Riverton Spine & Rehab needs an LOP before the 02/24/2026 visit", "Run the Payer Order, prepare the LOP on the approved template, route it for approval", "CMS → Doc Hub → Others (routed to Atty. Thorne for approval)", "Approved and signed before the first visit"],
+          ["LOP signed", "Transmit it with the HIPAA authorization; confirm receipt; open the register entry", "Email Workspace · CMS → Liens → Outstanding Case Liens", "Receipt confirmed and dated in the Communications Log"],
+          ["LOP received by the clinic", "Call the office manager: confirm acceptance, secure the evaluation, set the billing protocol; then note, task and file it", "Call Simulator · CMS → Notes → Case Notes · CMS → Tasks", "Appointment confirmed; note dated; tasks owned and dated; nothing promised"],
+          ["03/11/2026: Summit Imaging asks for an LOP", "Decline in writing, naming Harbor Point PIP as the payer; post the ledger", "Email Workspace · CMS → Insurance → PIP / UM/UIM Coverage Stack", "Reason stated; ledger shows $3,675.00 left before the MRI"]
         ],
         best: [
           "Run the Payer Order before you open the LOP template, every time.",
@@ -3568,9 +3568,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["No payer will cover a provider John Doe needs", "Check every payer first; record why an LOP is needed; route to Atty. Thorne to approve", "CMS → Insurance · Case Notes", "Payer check on file; attorney approval logged"],
-          ["The LOP is signed", "File it; set a 30-day ledger request", "CMS → Documents · Liens · Tasks", "LOP on file; ledger task recurring"],
-          ["John Doe asks where he should go for treatment", "Give the list with network status; book his choice; disclose any firm relationship", "CMS → Parties · Calendar · Case Notes", "Options given, his choice recorded, no recommendation"]
+          ["No payer will cover a provider John Doe needs", "Check every payer first; record why an LOP is needed; route to Atty. Thorne to approve", "CMS → Insurance · Notes → Case Notes", "Payer check on file; attorney approval logged"],
+          ["The LOP is signed", "File it; set a 30-day ledger request", "CMS → Doc Hub · Liens · Tasks", "LOP on file; ledger task recurring"],
+          ["John Doe asks where he should go for treatment", "Give the list with network status; book his choice; disclose any firm relationship", "CMS → Parties Involved · Calendar · Notes → Case Notes", "Options given, his choice recorded, no recommendation"]
         ],
         best: [
           "Check every payer before an LOP: the LOP is the last resort, not the first.",
@@ -3615,7 +3615,7 @@ window.CM_CASE_FLOW = {
             "A rental the carrier did not pay (days past the cutoff, a rate above the cap, an upgrade's difference) is the owner's out-of-pocket cost: keep the rental company's receipt and route it to Atty. Thorne with the Property Damage claim.",
             "When the rental ends and the client has no car, transport becomes a barrier to care: plan the rides before a visit is missed, and log what each ride costs.",
             "Check every payer first: PIP or MedPay may reimburse some costs. Record what was paid and by whom, so nothing is claimed twice.",
-            "Enter each cost the day its receipt arrives, in CMS → Financial Ledger → Specials, with the receipt filed in CMS → Documents.",
+            "Enter each cost the day its receipt arrives, in CMS → Treatment → Total Medical Specials, with the receipt filed in CMS → Doc Hub.",
             "Before the demand, total the log and route it to Atty. Thorne. He decides what the demand claims, and at what rate."
           ],
           upl: [
@@ -3637,8 +3637,8 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Treatment starts", "Open the trip log; tell the client what to keep", "CMS → Case Notes · Tasks", "Log open; client told what to keep"],
-          ["A receipt comes in", "Enter the cost; file the receipt", "CMS → Financial Ledger → Specials · Documents", "Entered with its receipt"],
+          ["Treatment starts", "Open the trip log; tell the client what to keep", "CMS → Notes → Case Notes · Tasks", "Log open; client told what to keep"],
+          ["A receipt comes in", "Enter the cost; file the receipt", "CMS → Treatment → Total Medical Specials · Doc Hub", "Entered with its receipt"],
           ["MMI is reached; the demand is next", "Total the log; route it to Atty. Thorne", "CMS → Tasks", "Totals routed; the rate confirmed by counsel"]
         ],
         best: [
@@ -3706,10 +3706,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Provider's missed-visit alert", "Run A-C-T the same day: reach John Doe (the No Contact Protocol if he is silent), classify the variance, record it", "Call Simulator → AI John Doe · CMS → Communications Log · CMS → Case Notes", "First attempt and note dated the day the alert arrives"],
-          ["Week 6 of care (04/07/2026)", "Ask the provider for the re-evaluation measures: range of motion, pain score, disability index. Whether a PHQ-9/GAD-7 screen is indicated is the provider's call; anything putting John Doe's mental health in the record is flagged to Atty. Thorne", "Medical Records Requests · CMS → Case File → Treatment timeline", "Measures on file, or the missed re-evaluation flagged"],
-          ["Barrier not fixed at the clinical rung", "Climb one rung: written notice to the carrier causing it, copied to Atty. Thorne (Keystone PD: property facts only)", "Email Workspace · CMS → Tasks → Escalate", "Each rung dated in the Communications Log"],
-          ["A red flag that can cost the claim (missed visits, generic notes, passive-only care)", "Report it to Atty. Thorne with the fix attempted", "CMS → Case File → Risk Flags", "Flag routed with the GIRP note attached"]
+          ["Provider's missed-visit alert", "Run A-C-T the same day: reach John Doe (the No Contact Protocol if he is silent), classify the variance, record it", "Call Simulator → AI John Doe · CMS → Notes → Case Notes", "First attempt and note dated the day the alert arrives"],
+          ["Week 6 of care (04/07/2026)", "Ask the provider for the re-evaluation measures: range of motion, pain score, disability index. Whether a PHQ-9/GAD-7 screen is indicated is the provider's call; anything putting John Doe's mental health in the record is flagged to Atty. Thorne", "Medical Records Requests · CMS → Treatment → Medical Chronology", "Measures on file, or the missed re-evaluation flagged"],
+          ["Barrier not fixed at the clinical rung", "Climb one rung: written notice to the carrier causing it, copied to Atty. Thorne (Keystone PD: property facts only)", "Email Workspace · CMS → Tasks → + Add Task", "Each rung dated in the Communications Log"],
+          ["A red flag that can cost the claim (missed visits, generic notes, passive-only care)", "Report it to Atty. Thorne with the fix attempted", "CMS → Notes → Case Notes", "Flag routed with the GIRP note attached"]
         ],
         best: [
           "Red flags to raise with the provider: more than 12 sessions with no gain and no specialist or imaging suggested; passive-only care (heat, TENS, massage) with no active exercise; two or more missed visits, which the defense reads as an injury not serious enough to treat.",
@@ -3807,7 +3807,7 @@ window.CM_CASE_FLOW = {
           [
             "A PIP check clears",
             "Record the limit left, the bills still coming and the wage claim",
-            "CMS → Insurance tab → PIP Log",
+            "CMS → Insurance → PIP / UM/UIM Coverage Stack",
             "Forecast shows when PIP runs out"
           ],
           [
@@ -3819,13 +3819,13 @@ window.CM_CASE_FLOW = {
           [
             "First treating records arrive (EMC states)",
             "Check the PIP rule and the records for an EMC finding",
-            "Medical Records Requests · CMS → Insurance tab",
+            "Medical Records Requests · CMS → Insurance",
             "Finding, or its absence, flagged to Atty. Thorne"
           ],
           [
             "PIP is exhausted",
             "Post what PIP paid by bill beside the billed Specials",
-            "CMS → Insurance tab → PIP Log · CMS → Liens",
+            "CMS → Insurance → PIP / UM/UIM Coverage Stack · CMS → Liens",
             "PIP-paid bills at $0.00 owed; billed totals kept"
           ]
         ],
@@ -3879,7 +3879,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "04/08/2026: Riverton Spine & Rehab's missed-visit alert. John Doe missed 04/03 and 04/07 with no call and answers no one; his last visit was 04/02/2026, his last contact with you 03/31. As you work, the file moves: no reply to your notices on 04/08 and 04/09, Margaret Doe says on 04/10 he is safe but “keeping to himself”, he misses 04/09 and 04/14, the CMS 14-day no-visit trigger fires 04/16, and on 04/17 at 4:48 p.m. John calls you.",
           prompt: "Run A-C-T on a client who has gone silent. Assess: do the Step 1 review, then send progressive notices (call and text, then call and email, then the emergency contact), escalate to Atty. Thorne, send the 10-day Final Warning Letter by certified mail AND email, and set the Drop Warning status. When John calls on 04/17, run a trauma-informed, UPL-compliant interview: record his own words, his distress and what has changed in his days, without diagnosing or advising. Coordinate, with his consent: a telephone appointment with Dr. Reyes (scheduling only) and evening visits under the existing LOP. Track: the GIRP note, the report to Atty. Thorne, the file restored, attendance on 04/21 and 04/23/2026.",
-          tool: "Call Simulator → AI John Doe · Email Workspace · CMS → Communications Log · CMS → Case Notes · CMS → Case Status · CMS → Calendar",
+          tool: "Call Simulator → AI John Doe · Email Workspace · CMS → Notes → Case Notes · CMS → Case Status · CMS → Calendar",
           output: "A complete near-drop record: dated notices, the Final Warning Letter, the interview's GIRP note in his words, the file restored and attendance confirmed 04/21 and 04/23/2026.",
           checkpoints: [
             "Step 1 review dated 04/08/2026, before any outreach: SOL 02/06/2028, care stopped since 04/02, week-6 re-evaluation missed 04/07, last contact 03/31",
@@ -3905,9 +3905,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["04/08/2026: missed-visit alert, client silent", "Step 1 review; Notices 1 and 2 by different channels", "CMS → Case Summary · Call Simulator · Email Workspace · CMS → Communications Log", "Each notice logged with date, time, channel, outcome"],
-          ["04/10/2026: emergency contact reached, still no word", "Escalate; send the 10-day Final Warning Letter; set Drop Warning", "CMS → Tasks → Escalate · CMS → Documents → Outgoing · CMS → Case Status", "Certified mail and email logged; 04/20 calendared"],
-          ["04/17/2026: John calls", "Trauma-informed interview; coordinate with his consent; restore the file", "Call Simulator → AI John Doe · CMS → Case Notes · CMS → Calendar", "GIRP note same day; Drop Warning cleared 04/20; visits 04/21 and 04/23 confirmed"]
+          ["04/08/2026: missed-visit alert, client silent", "Step 1 review; Notices 1 and 2 by different channels", "CMS → Profile → Case Narrative · Call Simulator · Email Workspace · CMS → Notes → Case Notes", "Each notice logged with date, time, channel, outcome"],
+          ["04/10/2026: emergency contact reached, still no word", "Escalate; send the 10-day Final Warning Letter; set Drop Warning", "CMS → Tasks → + Add Task · CMS → Doc Hub → Others · CMS → Case Status", "Certified mail and email logged; 04/20 calendared"],
+          ["04/17/2026: John calls", "Trauma-informed interview; coordinate with his consent; restore the file", "Call Simulator → AI John Doe · CMS → Notes → Case Notes · CMS → Calendar", "GIRP note same day; Drop Warning cleared 04/20; visits 04/21 and 04/23 confirmed"]
         ],
         best: [
           "Silence is a symptom until you know otherwise: look for the cause before you write the client off.",
@@ -3949,7 +3949,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "04/22/2026, 12:18 p.m.: a voicemail from John Doe. Care resumed at Riverton Spine & Rehab on 04/21/2026 on evening slots, with Margaret Doe driving after her shift; the Civic is still in the shop. Yesterday Lakeside Orthopedics' scheduling desk booked the pain-management injection Dr. Alana Reyes referred him for on 03/27/2026 at Millbrook Interventional Pain Center, in Millbrook, for 05/14/2026. John Doe won't go: it is far out in Millbrook, he has no reliable ride there, and he heard it is out of network with Peach State. Dr. Reyes's 03/27/2026 note names Crescent Pain & Spine (Dr. Omar Haddad, 41 Crescent Ct, Riverton). Lakeside's referral coordinator is Janelle Brooks.",
           prompt: "Call John Doe back and listen. Where he goes, among the options his doctors find appropriate, is his choice; what care he gets is for Dr. Reyes and the treating provider to decide, so give no medical advice. Verify Crescent's network status with Peach State yourself. Work with Janelle Brooks to redirect the referral to Crescent Pain & Spine, and book its first opening while John Doe is on the line, so no new gap opens. Then handle every task that follows, or delegate it with an owner and a due date: cancel the Millbrook slot; update the CMS Calendar; add Crescent to Parties with its billing details; set up the Peach State billing and note its reimbursement interest; request Crescent's records and bills under the HIPAA authorization; agree a transport plan; write the GIRP note; report to Atty. Thorne; and confirm attendance after 05/15/2026. Graded: exact names and dates, no treatment advice, nothing said about the claim's value.",
-          tool: "Call Simulator → AI John Doe · CMS → Tasks · CMS → Calendar · CMS → Parties · CMS → Liens · ChartSwap · CMS → Case Notes · Email Workspace",
+          tool: "Call Simulator → AI John Doe · CMS → Tasks · CMS → Calendar · CMS → Parties Involved · CMS → Liens · ChartSwap · CMS → Notes → Case Notes · Email Workspace",
           output: "A CMS task list for the redirect, each task Done by me (dated) or Delegated to a named owner with a due date; the 05/15/2026 Crescent appointment on the calendar; a GIRP note and the report to Atty. Thorne.",
           checkpoints: [
             "Voicemail returned on 04/22/2026; John Doe's reasons recorded in his own words: Millbrook is far, he has no reliable ride there (the Civic in the shop, Margaret Doe working days), and he heard it is out of network",
@@ -3986,8 +3986,8 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["04/22/2026: John Doe's voicemail refuses Millbrook", "Call back; read Dr. Reyes's referral; verify Crescent with Peach State", "Call Simulator → AI John Doe · CMS → Case Notes", "Reasons logged; Crescent verified in network"],
-          ["Facility chosen by John Doe", "Redirect with Janelle Brooks; book 05/15/2026 with him on the line; cancel Millbrook", "CMS → Calendar · CMS → Parties", "Old slot off; new slot, reminder and attendance check on"],
+          ["04/22/2026: John Doe's voicemail refuses Millbrook", "Call back; read Dr. Reyes's referral; verify Crescent with Peach State", "Call Simulator → AI John Doe · CMS → Notes → Case Notes", "Reasons logged; Crescent verified in network"],
+          ["Facility chosen by John Doe", "Redirect with Janelle Brooks; book 05/15/2026 with him on the line; cancel Millbrook", "CMS → Calendar · CMS → Parties Involved", "Old slot off; new slot, reminder and attendance check on"],
           ["Downstream work", "Do each task or delegate it with an owner and a due date; report to Atty. Thorne", "CMS → Tasks · ChartSwap · CMS → Liens · Email Workspace", "Every task Done or Delegated; none without an owner"]
         ],
         best: [
@@ -4063,10 +4063,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Retainer signed", "Obtain the claim-specific HIPAA authorization naming the incident date", "CMS → Documents", "Authorization names 02/06/2026 and permits legal and insurance contact"],
-          ["Client's age and benefits known", "Verify SSDI status; report to the BCRC if 65+ or on SSDI", "CMS → Case Notes", "BCRC answer logged with its date"],
+          ["Retainer signed", "Obtain the claim-specific HIPAA authorization naming the incident date", "CMS → Doc Hub", "Authorization names 02/06/2026 and permits legal and insurance contact"],
+          ["Client's age and benefits known", "Verify SSDI status; report to the BCRC if 65+ or on SSDI", "CMS → Notes → Case Notes", "BCRC answer logged with its date"],
           ["Health Plan identified", "Record carrier, member ID and group; record the Payer Order", "CMS → Liens", "Lien record exists and is dated; Payer Order noted"],
-          ["Plan pays an accident-related bill", "Flag the reimbursement right against the matter", "CMS → Liens → Flag", "Flag set before any demand is drafted"]
+          ["Plan pays an accident-related bill", "Flag the reimbursement right against the matter", "CMS → Liens → Outstanding Case Liens", "Flag set before any demand is drafted"]
         ],
         best: [
           "Clear the triple-check before any clinical planning.",
@@ -4108,9 +4108,9 @@ window.CM_CASE_FLOW = {
             "Route every bill by the Payer-First Principle: Harbor Point PIP first (no reimbursement right, confirmed 03/02/2026), Peach State next at the contract rate, a Letter of Protection last and only for care the earlier payers can't carry.",
             "Clear the Regulatory Triple-Check before clinical planning: the claim-specific HIPAA authorization, the BCRC answer (John Doe is 34: his SSDI status verified and recorded) and the Payer Order.",
             "A Health Plan claims back only what it paid, for the collision's care. Peach State's interim itemization (06/10/2026) asserted $3,618.00; audited line by line, its claim is $1,860.00, confirmed in writing on 06/24/2026.",
-            "Lien flag, the exact rule: flag the subrogation lien in CMS → Liens → Flag the day a reimbursement right is first known (Peach State's notice, 02/27/2026), or the day a plan's first accident-related payment posts if no notice came first, and always before the first demand is drafted. Record carrier, member ID, group number, Payer Order position, the basis asserted and the date of the flag.",
+            "Lien flag, the exact rule: flag the subrogation lien in CMS → Liens → Outstanding Case Liens the day a reimbursement right is first known (Peach State's notice, 02/27/2026), or the day a plan's first accident-related payment posts if no notice came first, and always before the first demand is drafted. Record carrier, member ID, group number, Payer Order position, the basis asserted and the date of the flag.",
             "Re-verify the lien when its itemization arrives: audit each line against the treatment record and the payers' ledgers, dispute unrelated, pre-existing and pre-loss lines and any amount above what was paid, and change the register only to a figure the plan confirms in writing.",
-            "Gap flag, the exact rule: flag the initial Treatment Gap the day the records show it (date of loss 02/06/2026, first treatment 02/20/2026: 14 days, counted exactly) in CMS → Case File → Risk Flags and the Case Plan's risks band, in facts only (the dates, the count, explanation pending), route it to Atty. Thorne, and set a watch for any later break in care.",
+            "Gap flag, the exact rule: flag the initial Treatment Gap the day the records show it (date of loss 02/06/2026, first treatment 02/20/2026: 14 days, counted exactly) in CMS → Notes → Case Notes and the Case Plan's risks band, in facts only (the dates, the count, explanation pending), route it to Atty. Thorne, and set a watch for any later break in care.",
             "Flag every later break in care the day you learn of it, from the provider's missed-visit alert: its exact dates and count (04/02 → 04/21/2026, 19 days), then run A-C-T the same day.",
             "Neither flag is a judgment. You record and route the facts; what a lien or a gap means for the claim is Atty. Thorne's."
           ],
@@ -4123,16 +4123,16 @@ window.CM_CASE_FLOW = {
           type: "table",
           head: ["Flag", "When it goes up", "Where in the CMS", "What it records"],
           rows: [
-            ["Subrogation lien", "The day a reimbursement right is first known (02/27/2026), or a plan's first accident payment posts; always before the first demand", "CMS → Liens → Flag", "Carrier, member ID, group, Payer Order position, basis, flag date"],
+            ["Subrogation lien", "The day a reimbursement right is first known (02/27/2026), or a plan's first accident payment posts; always before the first demand", "CMS → Liens → Outstanding Case Liens", "Carrier, member ID, group, Payer Order position, basis, flag date"],
             ["Lien re-verified", "The day the plan's itemization arrives (06/10/2026)", "CMS → Liens", "Each line audited; only the figure confirmed in writing ($1,860.00, 06/24/2026)"],
-            ["14-Day Gap", "The day the records show first care 14 days after the loss (02/06 → 02/20/2026)", "CMS → Case File → Risk Flags · Action Plan Editor → Risks", "Dates, count, explanation pending; routed to Atty. Thorne; watch set"],
-            ["Later break in care", "The day a missed-visit alert arrives (04/08/2026)", "CMS → Case File → Treatment timeline", "04/02 → 04/21/2026, 19 days; A-C-T the same day"]
+            ["14-Day Gap", "The day the records show first care 14 days after the loss (02/06 → 02/20/2026)", "CMS → Notes → Case Notes · Action Plan Editor → Risks", "Dates, count, explanation pending; routed to Atty. Thorne; watch set"],
+            ["Later break in care", "The day a missed-visit alert arrives (04/08/2026)", "CMS → Treatment → Medical Chronology", "04/02 → 04/21/2026, 19 days; A-C-T the same day"]
           ]
         },
         ops: [
-          ["A reimbursement right is first noticed", "Flag the lien and record its identifiers", "CMS → Liens → Flag", "Flag dated before any demand is drafted"],
+          ["A reimbursement right is first noticed", "Flag the lien and record its identifiers", "CMS → Liens → Outstanding Case Liens", "Flag dated before any demand is drafted"],
           ["The plan's itemized ledger arrives", "Audit each line; dispute in writing", "CMS → Liens · Email Workspace", "Register changed only to the figure confirmed in writing"],
-          ["Records show first care 02/20/2026", "Flag the 14-Day Gap in facts only; route it; set the watch", "CMS → Case File → Risk Flags · Action Plan Editor → Risks", "Dates and count recorded; routed to Atty. Thorne"]
+          ["Records show first care 02/20/2026", "Flag the 14-Day Gap in facts only; route it; set the watch", "CMS → Notes → Case Notes · Action Plan Editor → Risks", "Dates and count recorded; routed to Atty. Thorne"]
         ],
         best: [
           "Flag a reimbursement right the day it is known, and before the first demand.",
@@ -4169,7 +4169,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "03/12/2026: Dion Carver at Peach State Health Plan (recovery file SRU-26-03318) writes that accident-related claims are in process; the plan asserted its reimbursement right on 02/27/2026. No lien record exists on the matter yet. 06/10/2026: Peach State's interim itemization arrives, asserting $3,618.00 across five claim lines. The pre-demand audit is still ahead.",
           prompt: "Work both dates. On 03/12/2026, register Peach State Health Plan's reimbursement claim in John Doe's lien register and flag it against the matter: the carrier, member ID and group number, its position in the Payer Order, the basis on which reimbursement is asserted, and the date of the flag, with the Regulatory Triple-Check results beside it. Answer Dion Carver in the Email Workspace: the claim is noted, and the firm asks for an itemized ledger of accident-related claims once any are paid. On 06/10/2026, audit the interim itemization line by line in the audit workbench against the treatment record and the PIP Log: what is the collision's care, what is unrelated, pre-existing or before the loss, and what is claimed above what the plan paid. Then send the dispute, get the corrected balance confirmed in writing, convert the exchange into a memorandum, file it in the CMS and on the Backup Drive, and change the lien register only to the confirmed figure. State in one line what must happen before this lien can be compromised.",
-          tool: "CMS → Liens · Email Workspace · CMS → Case Notes · CMS → Insurance tab → PIP Log",
+          tool: "CMS → Liens · Email Workspace · CMS → Notes → Case Notes · CMS → Insurance → PIP / UM/UIM Coverage Stack",
           output: "A dated, flagged lien record; an audited itemization; $1,860.00 confirmed in writing and filed.",
           checkpoints: [
             "Lien record created against the John Doe matter, carrier recorded as Peach State Health Plan",
@@ -4188,9 +4188,9 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Plan's notice or first payment", "Create and flag the lien record", "CMS → Liens", "Record dated; flag set"],
-          ["Lien record created", "Attach the Triple-Check results; request the itemized ledger", "CMS → Case Notes · Email Workspace", "HIPAA, BCRC and Payer Order recorded; request logged"],
+          ["Lien record created", "Attach the Triple-Check results; request the itemized ledger", "CMS → Notes → Case Notes · Email Workspace", "HIPAA, BCRC and Payer Order recorded; request logged"],
           ["Interim itemization arrives", "Audit each line; dispute in writing; get the corrected figure confirmed", "CMS → Liens · Email Workspace", "Register shows only the figure confirmed in writing"],
-          ["Any request to compromise or to commit to repayment", "Route to Atty. Thorne", "CMS → Tasks → Escalate", "Nothing agreed without counsel's authority"]
+          ["Any request to compromise or to commit to repayment", "Route to Atty. Thorne", "CMS → Tasks → + Add Task", "Nothing agreed without counsel's authority"]
         ],
         best: [
           "Registering a lien is not conceding it; the lien stage is where it gets reduced.",
@@ -4222,7 +4222,7 @@ window.CM_CASE_FLOW = {
         ]
       },
 
-        {"kind":"activity","id":"d2-drive","transition":"The treatment file is filling up: records, an LOP, the first bills. Before the day closes, the backup catches up with the CMS.","title":"Backup File Maintenance: Records and Bills in Their Folders","topic":"Skill Activity — back up the treatment documents and keep the records apart from the bills","visual":"The Doe-John folder tree on the left, opened at 03 Medical Records and 04 Bills & Invoices side by side. Into 03 drop the Urgent Care visit note, the Spine & Rehab evaluation with its LOP and the Lakeside consult; into 04 drops the Summit Imaging invoice. One chip, SUMMIT IMAGING INVOICE, sits in 03 with a red MISFILED tag and an orange arrow lifting it across into 04. On the right, a green ✓ CHECK MY DRIVE stamp over a counter: FILED IN THE CMS 4 · ON THE DRIVE 4.","act":{"scenario":"04/24/2026, 3:30 p.m. John Doe is back in care at Riverton Spine & Rehab, and the treatment documents of the last two months are filed in the CMS: Riverton Urgent Care's first visit note (02/20/2026), Riverton Spine & Rehab's initial evaluation with the Letter of Protection (02/23–02/24/2026), Lakeside Orthopedics' consult and follow-up (03/05 and 03/27/2026) and Summit Imaging Center's invoice for the 03/13/2026 cervical MRI ($2,395.00). A colleague who helped with the backup last week saved the Summit Imaging invoice into 03 Medical Records.","prompt":"File each of the four documents in the CMS from 📁 Work From if it isn't filed yet, so the copy lands on your Backup Drive in the folder its kind belongs in: the visit notes, the evaluation and the consult in 03 Medical Records, the invoice in 04 Bills & Invoices. Open your Google Drive and find the Summit Imaging invoice your colleague put in 03 Medical Records; move it into 04 Bills & Invoices and rename it by the firm's naming convention, because your colleague saved it under a name of their own. Then open 📂 My Backup Drive and run ✓ Check my drive. Last, write the records-vs-bills rule in Case Notes in two sentences: what goes in each folder, and why a bill in the records folder is a damages problem.","tool":"Backup Drive · CMS → Documents · CMS → Case Notes","output":"Four treatment documents filed in the CMS and backed up in their folders, the misfiled invoice moved to 04 Bills & Invoices, a clean drive check, and the records-vs-bills rule in Case Notes.","checkpoints":["Riverton Urgent Care's visit note, Riverton Spine & Rehab's evaluation with the LOP and Lakeside Orthopedics' consult in 03 Medical Records","Summit Imaging Center's $2,395.00 invoice in 04 Bills & Invoices, moved out of 03 Medical Records, not copied twice, and renamed by the firm's naming convention","Every document filed in the CMS today is on the drive: the dashboard count of backed-up documents matches what you filed","✓ Check my drive run with no folder missing","The records-vs-bills rule in Case Notes: records say what was done to John Doe, bills say what it cost"]},"ops":[["Treatment documents arrive","File each in the CMS so its copy reaches the drive","CMS → Documents","Each in its folder on the backup"],["A bill found among the records","Move it to 04 Bills & Invoices","Backup Drive","One copy, in the bills folder"],["Backup brought up to date","Run ✓ Check my drive","Backup Drive","No folder missing"],["The rule applied","Record the records-vs-bills rule","CMS → Case Notes","Two sentences, in your own words"]],"best":["Back up the day you file, not at the end of the month; the backup is only as good as its last day.","Records hold what the provider wrote about the body; bills hold what it charged. The Specials audit reads the bills folder.","Pitfall: a second copy of the invoice left behind in 03 Medical Records, so the file holds two answers.","Pitfall: filing the LOP under bills because it is about money; it travels with the provider's evaluation."],"sources":["D1#12","D1#13","LSH firm standard: backup drive folder hierarchy"],"rubric":{"ai":[["Documents backed up",20,"All four filed in the CMS and on the drive in 03 Medical Records or 04 Bills & Invoices"],["Misfile corrected",16,"The Summit Imaging invoice moved to 04 Bills & Invoices, with no copy left in 03"],["Drive confirmed",12,"✓ Check my drive run with no folder missing"],["File names",12,"Every file on the drive named by the firm's naming convention, the colleague's invoice included"]],"trainer":[["Records-vs-bills rule",25,"Explains the rule and why a misfiled bill drops out of the Specials"],["Findability",15,"Finds the Lakeside consult and the Summit invoice on the drive in seconds"]]},"notes":["Ask the room before they move anything: “Where would the Specials audit look for the Summit invoice?” The answer is the rule.","Watch for trainees who copy the invoice into 04 and leave the original in 03. Two copies in two folders is a second misfile.","Point at the dashboard count: documents filed in the CMS and documents on the drive should be the same number at the end of every day."]},
+        {"kind":"activity","id":"d2-drive","transition":"The treatment file is filling up: records, an LOP, the first bills. Before the day closes, the backup catches up with the CMS.","title":"Backup File Maintenance: Records and Bills in Their Folders","topic":"Skill Activity — back up the treatment documents and keep the records apart from the bills","visual":"The Doe-John folder tree on the left, opened at 03 Medical Records and 04 Bills & Invoices side by side. Into 03 drop the Urgent Care visit note, the Spine & Rehab evaluation with its LOP and the Lakeside consult; into 04 drops the Summit Imaging invoice. One chip, SUMMIT IMAGING INVOICE, sits in 03 with a red MISFILED tag and an orange arrow lifting it across into 04. On the right, a green ✓ CHECK MY DRIVE stamp over a counter: FILED IN THE CMS 4 · ON THE DRIVE 4.","act":{"scenario":"04/24/2026, 3:30 p.m. John Doe is back in care at Riverton Spine & Rehab, and the treatment documents of the last two months are filed in the CMS: Riverton Urgent Care's first visit note (02/20/2026), Riverton Spine & Rehab's initial evaluation with the Letter of Protection (02/23–02/24/2026), Lakeside Orthopedics' consult and follow-up (03/05 and 03/27/2026) and Summit Imaging Center's invoice for the 03/13/2026 cervical MRI ($2,395.00). A colleague who helped with the backup last week saved the Summit Imaging invoice into 03 Medical Records.","prompt":"File each of the four documents in the CMS from 📁 Work From if it isn't filed yet, so the copy lands on your Backup Drive in the folder its kind belongs in: the visit notes, the evaluation and the consult in 03 Medical Records, the invoice in 04 Bills & Invoices. Open your Google Drive and find the Summit Imaging invoice your colleague put in 03 Medical Records; move it into 04 Bills & Invoices and rename it by the firm's naming convention, because your colleague saved it under a name of their own. Then open 📂 My Backup Drive and run ✓ Check my drive. Last, write the records-vs-bills rule in Case Notes in two sentences: what goes in each folder, and why a bill in the records folder is a damages problem.","tool":"Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes","output":"Four treatment documents filed in the CMS and backed up in their folders, the misfiled invoice moved to 04 Bills & Invoices, a clean drive check, and the records-vs-bills rule in Case Notes.","checkpoints":["Riverton Urgent Care's visit note, Riverton Spine & Rehab's evaluation with the LOP and Lakeside Orthopedics' consult in 03 Medical Records","Summit Imaging Center's $2,395.00 invoice in 04 Bills & Invoices, moved out of 03 Medical Records, not copied twice, and renamed by the firm's naming convention","Every document filed in the CMS today is on the drive: the dashboard count of backed-up documents matches what you filed","✓ Check my drive run with no folder missing","The records-vs-bills rule in Case Notes: records say what was done to John Doe, bills say what it cost"]},"ops":[["Treatment documents arrive","File each in the CMS so its copy reaches the drive","CMS → Doc Hub","Each in its folder on the backup"],["A bill found among the records","Move it to 04 Bills & Invoices","Backup Drive","One copy, in the bills folder"],["Backup brought up to date","Run ✓ Check my drive","Backup Drive","No folder missing"],["The rule applied","Record the records-vs-bills rule","CMS → Notes → Case Notes","Two sentences, in your own words"]],"best":["Back up the day you file, not at the end of the month; the backup is only as good as its last day.","Records hold what the provider wrote about the body; bills hold what it charged. The Specials audit reads the bills folder.","Pitfall: a second copy of the invoice left behind in 03 Medical Records, so the file holds two answers.","Pitfall: filing the LOP under bills because it is about money; it travels with the provider's evaluation."],"sources":["D1#12","D1#13","LSH firm standard: backup drive folder hierarchy"],"rubric":{"ai":[["Documents backed up",20,"All four filed in the CMS and on the drive in 03 Medical Records or 04 Bills & Invoices"],["Misfile corrected",16,"The Summit Imaging invoice moved to 04 Bills & Invoices, with no copy left in 03"],["Drive confirmed",12,"✓ Check my drive run with no folder missing"],["File names",12,"Every file on the drive named by the firm's naming convention, the colleague's invoice included"]],"trainer":[["Records-vs-bills rule",25,"Explains the rule and why a misfiled bill drops out of the Specials"],["Findability",15,"Finds the Lakeside consult and the Summit invoice on the drive in seconds"]]},"notes":["Ask the room before they move anything: “Where would the Specials audit look for the Summit invoice?” The answer is the rule.","Watch for trainees who copy the invoice into 04 and leave the original in 03. Two copies in two folders is a second misfile.","Point at the dashboard count: documents filed in the CMS and documents on the drive should be the same number at the end of every day."]},
 
       {
         kind: "check", id: "d2m2-kc",
@@ -4363,10 +4363,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Records show the 14-day gap", "Read the EMS report, the urgent-care history and the timeline; write the question plan", "CMS → Case File → Treatment timeline · Case Notes", "Plan saved before the call; no question in it names a reason"],
+          ["Records show the 14-day gap", "Read the EMS report, the urgent-care history and the timeline; write the question plan", "CMS → Treatment → Medical Chronology · Notes → Case Notes", "Plan saved before the call; no question in it names a reason"],
           ["Call connects", "State date, participants and recording; get consent; confirm privacy", "Call Simulator → AI John Doe (recorded call)", "Consent and privacy on the recording before the first substantive question"],
-          ["John Doe asks what the gap does to his case", "Give no opinion; log the question and route it", "CMS → Tasks → Escalate", "Escalated to Atty. Thorne the same day; no opinion on the recording"],
-          ["A carrier asks John Doe for a Recorded Statement", "Remind him to route it to the firm; log it; tell Atty. Thorne", "CMS → Communications Log", "No statement given without Atty. Thorne; request logged and escalated the same day"]
+          ["John Doe asks what the gap does to his case", "Give no opinion; log the question and route it", "CMS → Tasks → + Add Task", "Escalated to Atty. Thorne the same day; no opinion on the recording"],
+          ["A carrier asks John Doe for a Recorded Statement", "Remind him to route it to the firm; log it; tell Atty. Thorne", "CMS → Notes → Case Notes", "No statement given without Atty. Thorne; request logged and escalated the same day"]
         ],
         best: [
           "Ask open, follow his words, close last.",
@@ -4405,7 +4405,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "03/04/2026. The first records are in. Riverton Urgent Care's note of 02/20/2026 reads: “onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18.” The EMS Run Report records neck stiffness on 02/06/2026. John Doe has been at Riverton Spine & Rehab since 02/24/2026; Margaret's rental runs to 03/19/2026. Nobody has asked him why he waited 14 days.",
           prompt: "Run a recorded call with AI John Doe to learn why he first treated on 02/20/2026, 14 days after the collision. Open on the record: the date, who is on the call, his consent to recording, and that he can talk privately. Ask open questions, follow his words, and keep closed questions for pinning dates and documents. Find out who he told and what he kept; read his account back. Close with the standing instruction and his next appointment, then file a privileged GIRP note. Graded failures: any leading question or suggested reason, and telling him the gap “won't matter” or “will hurt the case”.",
-          tool: "Call Simulator → AI John Doe (recorded call) · CMS → Case Notes · Tasks",
+          tool: "Call Simulator → AI John Doe (recorded call) · CMS → Notes → Case Notes · Tasks",
           output: "A consented, privileged recording with all four reasons in John Doe's own words, a same-day GIRP note, and a dated task for every corroborating document.",
           checkpoints: [
             "Recording opens with 03/04/2026, everyone on the call, the CM's role, John Doe's spoken consent, and confirmation he can talk privately",
@@ -4436,7 +4436,7 @@ window.CM_CASE_FLOW = {
         ops: [
           ["Call connects", "Open on the record: role, consent, privacy, purpose", "Call Simulator → AI John Doe (recorded call)", "Consent audible before the first substantive question"],
           ["John Doe raises a reason or names someone he told", "Follow up open, then pin the date and the document", "Call Simulator → AI John Doe (recorded call)", "Each reason tied to a date and a source he named"],
-          ["Call ends", "File the GIRP note; open a task per document", "CMS → Case Notes · Tasks", "Note dated 03/04/2026; every task with an owner and a due date"]
+          ["Call ends", "File the GIRP note; open a task per document", "CMS → Notes → Case Notes · Tasks", "Note dated 03/04/2026; every task with an owner and a due date"]
         ],
         best: [
           "Let a pause run; clients fill silence with the detail you need.",
@@ -4513,10 +4513,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["A provider record arrives", "Compare mechanism, onset date and body region with the other histories", "CMS → Case File → Treatment timeline", "Each history logged consistent, or flagged with the conflicting line quoted"],
-          ["A history conflicts with another provider's", "Flag it to Atty. Thorne; change and request nothing", "CMS → Tasks → Escalate", "Escalated the day it is found; no contact with the provider about wording"],
+          ["A provider record arrives", "Compare mechanism, onset date and body region with the other histories", "CMS → Treatment → Medical Chronology", "Each history logged consistent, or flagged with the conflicting line quoted"],
+          ["A history conflicts with another provider's", "Flag it to Atty. Thorne; change and request nothing", "CMS → Tasks → + Add Task", "Escalated the day it is found; no contact with the provider about wording"],
           ["Atty. Thorne decides to seek a causation opinion", "Assemble the records for his request letter; docket the follow-up", "Medical Records Requests · CMS → Calendar", "Request goes under his signature; follow-up date on the calendar"],
-          ["A work or excuse note arrives", "Check signer, date and covered days against the visit record", "CMS → Documents", "Every covered day matches a visit or a restriction given at one; mismatches flagged"]
+          ["A work or excuse note arrives", "Check signer, date and covered days against the visit record", "CMS → Doc Hub", "Every covered day matches a visit or a restriction given at one; mismatches flagged"]
         ],
         best: [
           "Collect what already exists before asking anyone for anything new.",
@@ -4560,7 +4560,7 @@ window.CM_CASE_FLOW = {
             "A letter that holds up names the records reviewed, ties each injury to the mechanism, answers the other causes the defense will raise, and addresses treatment and future care. Dr. Reyes's covers all four: the delayed presentation is clinically consistent; the C5-C6 herniation was more likely than not caused by the 02/06/2026 collision; the 2021 care is unrelated; the treatment was reasonable and necessary, and future injections are reasonably anticipated.",
             "Atty. Thorne requests it, in his letter, with John Doe's written authorization. You assemble the record set the doctor needs, the prior records included (EMS report, the 02/20/2026 urgent-care note, Riverton Spine & Rehab's notes, the 03/13/2026 MRI report, Crescent's 05/15/2026 procedure note, Birch Avenue Chiropractic's 2021 records), docket the follow-up and track the reply.",
             "Check it against the file the day it arrives: the date of loss (02/06/2026), the injury level and side (C5-C6, right), the visit dates, the records listed, the prior history. A mismatch, like the 02/16/2026 injury date in the MRI's history line, goes to Atty. Thorne; only its author corrects a record, by a dated addendum.",
-            "File it in CMS → Documents (Medical) as received, dated 06/19/2026, and cite it where the file needs it: the 14-day band of the Gap Explanation Record, the risks in the pre-demand audit, the Demand Package that went to Keystone on 07/20/2026, and the 08/06/2026 rebuttal Atty. Thorne approved.",
+            "File it in CMS → Doc Hub → Medical Records as received, dated 06/19/2026, and cite it where the file needs it: the 14-day band of the Gap Explanation Record, the risks in the pre-demand audit, the Demand Package that went to Keystone on 07/20/2026, and the 08/06/2026 rebuttal Atty. Thorne approved.",
             "It is an opinion, not a business record: a records custodian does not certify it the way a provider's chart is certified. How it is used beyond the demand, as an exhibit or an expert's disclosure, is Atty. Thorne's call.",
             "You never draft, edit or suggest its words, never coach the doctor toward a conclusion, and never tell John Doe what causation means for his claim or its value."
           ],
@@ -4581,9 +4581,9 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Atty. Thorne decides to request a causation opinion", "Assemble the record set, prior records included, for his letter; docket the follow-up", "Medical Records Requests · CMS → Calendar", "Request goes under his signature with John Doe's authorization; follow-up dated"],
-          ["The Causation Letter arrives (06/19/2026)", "Check the date of loss, injury level and side, visit dates and records listed against the file", "CMS → Documents → Medical", "Each item logged as matching, or the mismatch quoted and flagged to Atty. Thorne"],
-          ["The letter is checked", "File it and cite it on the Gap Explanation Record and in the audit's risks", "CMS → Case File → Gap Explanation Record · CMS → Tasks", "Cited on the 14-day band; routed to Atty. Thorne"],
-          ["The Demand Package is assembled", "Place the letter with the MRI report and the EMS report", "Action Plan Editor · CMS → Documents → Outgoing", "The letter is in the package served on 07/20/2026"]
+          ["The Causation Letter arrives (06/19/2026)", "Check the date of loss, injury level and side, visit dates and records listed against the file", "CMS → Doc Hub → Medical Records", "Each item logged as matching, or the mismatch quoted and flagged to Atty. Thorne"],
+          ["The letter is checked", "File it and cite it on the Gap Explanation Record and in the audit's risks", "CMS → Treatment → Other Treatment Notes · CMS → Tasks", "Cited on the 14-day band; routed to Atty. Thorne"],
+          ["The Demand Package is assembled", "Place the letter with the MRI report and the EMS report", "Action Plan Editor · CMS → Doc Hub → Others", "The letter is in the package served on 07/20/2026"]
         ],
         best: [
           "Treat causation as half the case: check that every injury and expense claimed has a medical link on paper.",
@@ -4622,7 +4622,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "06/22/2026. John Doe reached MMI on 06/12/2026. Dr. Alana Reyes's Causation Letter of 06/19/2026 is in: delayed presentation is clinically consistent with a disc injury whose radicular symptoms evolve over days to weeks, and the injury was more likely than not caused by the collision. The 03/04 call note, the near-drop record of 04/08–04/21 (the outreach log, the Final Warning Letter, the 04/17 interview note), Dr. Reyes's 04/20 telephone note, the counselor's 06/10 summary and John Doe's 06/15 Personal Impact Statement are in. Atty. Thorne wants the record before the pre-demand strategy session.",
           prompt: "Build John Doe's Gap Explanation Record in the CMS. Cover both interruptions, the 14-day gap (02/06–02/20/2026) and the 19-day disruption (04/02–04/21/2026), with exact dates. Pair every reason with the dated document that corroborates it; mark a reason with no independent document “account only”. Cite the complaints before and after each interruption, and the firm's follow-up during the disruption. Write facts and citations only: no argument, no valuation, nothing quoted from the privileged calls. Run a defense-eye pass, then route it to Atty. Thorne. Then file the non-economic damages records (the referral, the counseling summary, his statement) in the CMS and the Drive folder, logged for his demand decision.",
-          tool: "CMS → Case File → Gap Explanation Record · Tasks",
+          tool: "CMS → Treatment → Other Treatment Notes · Tasks",
           output: "A routed record covering both interruptions, every reason beside a dated document, and the non-economic damages records filed and logged for Atty. Thorne's demand decision.",
           checkpoints: [
             "Initial gap: 14 days, 02/06/2026 → 02/20/2026. Disruption: 19 days, 04/02/2026 → 04/21/2026, missed visits 04/03, 04/07, 04/09 and 04/14",
@@ -4650,10 +4650,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Causation Letter received", "Log it; cite it beside the expected-to-pass and escalation reasons", "CMS → Documents · Case File → Gap Explanation Record", "Letter dated 06/19/2026 cited on the 14-day band"],
-          ["Record drafted", "Pair every reason with a dated document; mark account-only reasons", "CMS → Case File → Gap Explanation Record", "No reason without a document or an “account only” tag"],
+          ["Causation Letter received", "Log it; cite it beside the expected-to-pass and escalation reasons", "CMS → Doc Hub · Treatment → Other Treatment Notes", "Letter dated 06/19/2026 cited on the 14-day band"],
+          ["Record drafted", "Pair every reason with a dated document; mark account-only reasons", "CMS → Treatment → Other Treatment Notes", "No reason without a document or an “account only” tag"],
           ["Record complete", "Run the defense-eye pass and route to Atty. Thorne", "CMS → Tasks", "Routed with a timestamp before the pre-demand strategy session"],
-          ["Mental-anguish records received", "File and log the referral, the counseling summary and his statement for the demand", "CMS → Documents · Drive → Medical Records", "Each filed under the naming convention and flagged for Atty. Thorne"]
+          ["Mental-anguish records received", "File and log the referral, the counseling summary and his statement for the demand", "CMS → Doc Hub · Drive → Medical Records", "Each filed under the naming convention and flagged for Atty. Thorne"]
         ],
         best: [
           "One reason per row, one dated document per reason.",
@@ -4827,10 +4827,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["MMI note received (06/12/2026)", "Record MMI and the future-care plan; open the pre-demand audit", "CMS → Case File → Treatment timeline · CMS → Tasks", "MMI dated from the provider's note; audit task has an owner and a date"],
-          ["Final bills and records in", "Build the Specials ledger and reconcile it to the chronology", "CMS → Financial Ledger → Specials", "Every billed date matches a visit; medical total $14,817.40"],
-          ["Ledger reconciled", "Register every lien; record billed beside paid", "CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker", "$1,860.00 and $6,105.00 listed; billed-vs-paid routed to Atty. Thorne"],
-          ["Before the ask", "Re-verify each limit and record the targets in order", "CMS → Insurance tab → Coverage Matrix", "$10,000 → $20,000 → $10,000 = $40,000, each with its written source"]
+          ["MMI note received (06/12/2026)", "Record MMI and the future-care plan; open the pre-demand audit", "CMS → Treatment → Medical Chronology · CMS → Tasks", "MMI dated from the provider's note; audit task has an owner and a date"],
+          ["Final bills and records in", "Build the Specials ledger and reconcile it to the chronology", "CMS → Treatment → Total Medical Specials", "Every billed date matches a visit; medical total $14,817.40"],
+          ["Ledger reconciled", "Register every lien; record billed beside paid", "CMS → Liens · CMS → Settlement (BI/UM) → Medical Liens / Payoffs", "$1,860.00 and $6,105.00 listed; billed-vs-paid routed to Atty. Thorne"],
+          ["Before the ask", "Re-verify each limit and record the targets in order", "CMS → Insurance", "$10,000 → $20,000 → $10,000 = $40,000, each with its written source"]
         ],
         best: [
           "Stress-test the file before the defense gets its hands on it.",
@@ -4869,8 +4869,8 @@ window.CM_CASE_FLOW = {
         visual: "A two-column reconciliation board. Left column, NORTHGATE'S RECORD: nine shift tiles in mono type (02/09 · 02/10 · 02/11 · 02/12 · 02/13 · 03/05 · 03/13 · 05/15 · 05/18), each with its reason code. Right column, THE MEDICAL RECORD: a provider chip joined to each tile by an orange leader line — LAKESIDE CONSULT, SUMMIT MRI, CRESCENT ESI, CRESCENT WORK NOTE 05/15–05/18. The first five tiles have no chip; they carry an orange FLAGGED · ATTY. THORNE tag and three small corroboration chips: EMS 02/06 · RECEIPT 02/07 · CALL-OUT, NECK PAIN. Top-right, an envelope icon marked EMPLOYER VERIFICATION · 06/22 → 06/30/2026. Bottom, a totals rail: $1,760.00 DRAFT struck through in grey, then 9 × 8 h × $22.00 = $1,584.00 in large type. The flagged tiles are the focal point: kept, never dropped.",
         act: {
           scenario: "06/22/2026, ten days after MMI (06/12/2026). John Doe signed Northgate Distribution's employee authorization this morning. A draft wage worksheet built from his own account by telephone claims $1,760.00 and is unverified. Northgate's HR manager is Angela Ruiz. The Specials audit is due 07/01/2026.",
-          prompt: "Verify John Doe's lost wages before they reach the Specials. First write the Employer Verification email to Angela Ruiz at Northgate HR in the Email Workspace, with his signed authorization: ask for the Wage Loss Verification Form, the payroll records for the pay periods with missed shifts and his W-2, and the employer's confirmation of his hourly rate, his shift hours, each missed shift, any overtime lost and the physical demands of his job. When Northgate replies, answer its follow-up inside the line. Then reconcile every missed date against the treating providers' visit and off-work notes in the audit workbench, so no absence is left unexcused, and audit the draft worksheet into the Lost Wage Verification Record. Flag any shift with no provider note to Atty. Thorne: never drop it or hide it. Record the verified total in CMS → Financial Ledger → Specials and the Net Sheet, update the Case Plan's financial pillar in the Action Plan Editor, and file the employer correspondence in the CMS so it is kept on the Backup Drive.",
-          tool: "Email Workspace · CMS → Financial Ledger → Specials · CMS → Financial Ledger → Net Sheet · Action Plan Editor · CMS → Documents",
+          prompt: "Verify John Doe's lost wages before they reach the Specials. First write the Employer Verification email to Angela Ruiz at Northgate HR in the Email Workspace, with his signed authorization: ask for the Wage Loss Verification Form, the payroll records for the pay periods with missed shifts and his W-2, and the employer's confirmation of his hourly rate, his shift hours, each missed shift, any overtime lost and the physical demands of his job. When Northgate replies, answer its follow-up inside the line. Then reconcile every missed date against the treating providers' visit and off-work notes in the audit workbench, so no absence is left unexcused, and audit the draft worksheet into the Lost Wage Verification Record. Flag any shift with no provider note to Atty. Thorne: never drop it or hide it. Record the verified total in CMS → Treatment → Total Medical Specials and the Net Sheet, update the Case Plan's financial pillar in the Action Plan Editor, and file the employer correspondence in the CMS so it is kept on the Backup Drive.",
+          tool: "Email Workspace · CMS → Treatment → Total Medical Specials · CMS → Settlement (BI/UM) · Action Plan Editor · CMS → Doc Hub",
           output: "Northgate's verification on file, every missed shift matched to its record, and $1,584.00 verified in the Specials.",
           checkpoints: [
             "Employer Verification email sent 06/22/2026 with John Doe's signed authorization: rate, shift hours, the nine dates, overtime and physical demands asked; the Wage Loss Verification Form, payroll records and W-2 requested",
@@ -4887,8 +4887,8 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["MMI declared; authorization signed", "Request the employer's verification and records in writing", "Email Workspace", "Request dated; authorization attached; the six items asked"],
-          ["Northgate replies", "Match each missed shift to a provider record; flag the rest", "Audit workbench · CMS → Case Notes", "No unexcused absence; 02/09–02/13 flagged to Atty. Thorne"],
-          ["Verified total reached", "Enter it; update the plan; file the correspondence", "CMS → Financial Ledger → Specials · Action Plan Editor · CMS → Documents", "$1,584.00 entered; correspondence filed and kept on the Backup Drive"]
+          ["Northgate replies", "Match each missed shift to a provider record; flag the rest", "Audit workbench · CMS → Notes → Case Notes", "No unexcused absence; 02/09–02/13 flagged to Atty. Thorne"],
+          ["Verified total reached", "Enter it; update the plan; file the correspondence", "CMS → Treatment → Total Medical Specials · Action Plan Editor · CMS → Doc Hub", "$1,584.00 entered; correspondence filed and kept on the Backup Drive"]
         ],
         best: [
           "Ask the employer for records, not recollection: the form, the payroll records and the letter.",
@@ -4927,7 +4927,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date: early July 2026. Lakeside Orthopedics declared MMI on 06/12/2026; Dr. Reyes's Causation Letter arrived 06/19/2026. Every bill is in: Riverton Urgent Care $685.00; Riverton Spine & Rehab's statement, 34 lines × $185.00 = $6,290.00, with its visit notes; Lakeside Orthopedics three visits at $640.00; Summit Imaging $2,395.00; Crescent Pain & Spine $3,400.00 (Peach State paid $1,860.00); Riverton Drug $312.40. Your Lost Wage Verification Record (07/01/2026) verifies 9 missed shifts at 8 h × $22.00 from Northgate's records.",
           prompt: "Build John Doe's audited Specials ledger in the CMS. Start with the first-party medical-payment ledger, here Harbor Point's PIP ledger: match each payment to its bill and confirm whether the limit is exhausted. Enter each provider's charges with dates, billed amount and who paid. Reconcile Riverton Spine & Rehab's billed lines against its visit notes and remove any line no visit supports. Total the medical, add the verified wages, and show billed beside paid. Put future medical in the narrative, not the ledger. List every lien with its amount, and re-verify the three policy-limits targets in order. Graded judgment: what you flag for Atty. Thorne instead of deciding it yourself.",
-          tool: "CMS → Financial Ledger → Specials · CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Insurance tab",
+          tool: "CMS → Treatment → Total Medical Specials · CMS → Liens · CMS → Settlement (BI/UM) → Medical Liens / Payoffs · CMS → Insurance",
           output: "An audited Specials ledger at $16,401.40 with billed and paid side by side, a lien list, the targets in order, and a flag list routed to Atty. Thorne.",
           checkpoints: [
             "First-party ledger audited (Harbor Point's PIP ledger): five payments matched to five bills ($685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00), the limit exhausted by the payment for the 06/12/2026 visit (paid 06/26/2026), nothing billed to PIP after exhaustion, and the 80% wage benefit unpaid because the limit ran out before Northgate's 06/30/2026 letter, so the full $1,584.00 stays in the Specials",
@@ -4946,9 +4946,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["All bills in after MMI", "Enter and reconcile every provider's charges", "CMS → Financial Ledger → Specials", "Medical total $14,817.40; the 05/04/2026 duplicate removed and noted"],
-          ["Ledger totals", "Show billed beside paid; route the choice and the wage flag", "CMS → Tasks → Escalate", "Both columns shown; routed to Atty. Thorne with the five pre-treatment shifts named"],
-          ["Audit complete", "Register liens and re-verify the targets", "CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Insurance tab", "$1,860.00 + $6,105.00 = $7,965.00 in liens listed; $40,000 in order"]
+          ["All bills in after MMI", "Enter and reconcile every provider's charges", "CMS → Treatment → Total Medical Specials", "Medical total $14,817.40; the 05/04/2026 duplicate removed and noted"],
+          ["Ledger totals", "Show billed beside paid; route the choice and the wage flag", "CMS → Tasks → + Add Task", "Both columns shown; routed to Atty. Thorne with the five pre-treatment shifts named"],
+          ["Audit complete", "Register liens and re-verify the targets", "CMS → Liens · CMS → Settlement (BI/UM) → Medical Liens / Payoffs · CMS → Insurance", "$1,860.00 + $6,105.00 = $7,965.00 in liens listed; $40,000 in order"]
         ],
         best: [
           "Count the visits in the notes before you add up a provider's lines.",
@@ -5017,7 +5017,7 @@ window.CM_CASE_FLOW = {
         ops: [
           ["Audit complete", "Draft the one-page summary memo and the exhibit index", "Action Plan Editor → Pre-demand brief", "Five sections in protocol order; every exhibit label matches its page"],
           ["Brief ready", "Book the strategy session and send the memo ahead", "CMS → Calendar · Email Workspace", "Session held before any demand is drafted; memo and index attached"],
-          ["Session held", "Record each decision in counsel's words and open its tasks", "CMS → Case Notes · CMS → Tasks", "Every decision dated, attributed to Atty. Thorne, with an owner and a due date"],
+          ["Session held", "Record each decision in counsel's words and open its tasks", "CMS → Notes → Case Notes · CMS → Tasks", "Every decision dated, attributed to Atty. Thorne, with an owner and a due date"],
           ["Decisions change the plan", "Mark the Case Plan superseded and re-route it", "Action Plan Editor → Version", "Approved version kept; new version routed the same day"]
         ],
         best: [
@@ -5060,7 +5060,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date: early July 2026, before any demand is drafted. Your audit is done: MMI 06/12/2026; Specials $16,401.40 ($14,817.40 medical after the duplicate came out + $1,584.00 wages); liens $1,860.00 (Peach State) and $6,105.00 (the LOP); targets $10,000 BI → $20,000 Host UM → $10,000 Relative UM. The Gap Explanation Record (06/22/2026) and Dr. Reyes's 06/19/2026 Causation Letter are in the file. Atty. Thorne has called the pre-demand strategy session.",
           prompt: "Run the pre-demand strategy session with AI Atty. Elijah Thorne. Brief him in protocol order: bottom line, audited facts, risks with their answering documents, the decisions he must make, and each option's operational consequences. Answer his challenges with objective facts, not adjectives. Recommend only on operations; ask for his decision on everything legal. Read back each decision before you close. Then record the decisions in the CMS, open a task for each, and re-route the Case Plan.",
-          tool: "Call Simulator → AI Atty. Elijah Thorne (strategy session) · CMS → Case Notes · CMS → Tasks",
+          tool: "Call Simulator → AI Atty. Elijah Thorne (strategy session) · CMS → Notes → Case Notes · CMS → Tasks",
           output: "A recorded strategy session and a dated decision record, each decision attributed to Atty. Thorne with its tasks and owners.",
           checkpoints: [
             "Opens with the bottom line: MMI 06/12/2026, $16,401.40 in Specials against the $10,000 BI limit, decisions needed",
@@ -5079,7 +5079,7 @@ window.CM_CASE_FLOW = {
         ops: [
           ["Strategy session called", "Send the one-page memo and the exhibit index ahead", "Email Workspace", "Memo and index sent before the session"],
           ["Session under way", "Brief in protocol order; answer each challenge with a document", "Call Simulator → AI Atty. Elijah Thorne (strategy session)", "Bottom line first; every challenge met with a sourced fact"],
-          ["Decisions made", "Record, read back and task each decision", "CMS → Case Notes · CMS → Tasks", "Each decision dated and attributed; demand-service task due 07/20/2026"],
+          ["Decisions made", "Record, read back and task each decision", "CMS → Notes → Case Notes · CMS → Tasks", "Each decision dated and attributed; demand-service task due 07/20/2026"],
           ["Plan changed", "Mark the plan superseded and re-route it", "Action Plan Editor → Version", "New version routed the same day"]
         ],
         best: [
@@ -5176,7 +5176,7 @@ window.CM_CASE_FLOW = {
   {
     n: 3, id: 13,
     title: "Case Flow Day 3 · Lien Negotiation & Disbursement",
-    phase: "Lien negotiation & disbursement",
+    phase: "Lien Negotiation & Disbursement",
     objective: "With Track A settled at $40,000 gross (Day 2), negotiate and reduce the liens and the provider balances, hold the prior attorney's charging lien, finish the dual-stream Net Sheet, disburse a reconciled $20,359.92 net to John Doe and close the file: the final reconciliation, the closing memo and the retention schedule.",
     gate: "Liens resolved at $1,240.00 and $4,580.00 · the prior-attorney lien held and cleared · Net Sheet and Trust Ledger reconciled to $0.00 · disbursement started with the release signed · closing memo filed",
     discussion: "It is 10/21/2026. John Doe's check reads $20,359.92, and he expected about $26,000: “Forty grand, lawyers take a third.” How do you walk him through his Net Sheet, and what is Atty. Thorne's call, not yours?",
@@ -5269,9 +5269,9 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["MMI declared (06/12/2026)", "Docket MMI + 30 and open the Demand Package task", "Court E-Filing · CMS → Tasks", "07/12/2026 falls on a Sunday. It is an internal target, so the firm works it early, on Fri 07/10; legal deadlines counted forward roll to the next business day (Day 4); a later service date recorded as Atty. Thorne's, with the reason"],
-          ["Atty. Thorne approves the terms", "Record them exactly before drafting", "CMS → Case Notes", "$10,000; Limited Release of Smith and Keystone only, BI claim only (the PD claim excluded); Smith's affidavit; 30 days to accept, from the adjuster's written acknowledgement of receipt; payment due as he sets it"],
+          ["Atty. Thorne approves the terms", "Record them exactly before drafting", "CMS → Notes → Case Notes", "$10,000; Limited Release of Smith and Keystone only, BI claim only (the PD claim excluded); Smith's affidavit; 30 days to accept, from the adjuster's written acknowledgement of receipt; payment due as he sets it"],
           ["Dana Whitfield confirms receipt in writing (07/22/2026)", "Compute and docket the acceptance deadline with reminders", "Court E-Filing", "08/21/2026 docketed from her written acknowledgement, not the send date; if none comes, follow up with her the same day and escalate to Atty. Thorne"],
-          ["Keystone writes or calls before the deadline", "Log it word for word and route it to Atty. Thorne", "CMS → Communications Log · CMS → Tasks → Escalate", "Routed the same day; the CM changes nothing on terms or time, and restates the approved terms only where Atty. Thorne's written authority says so"]
+          ["Keystone writes or calls before the deadline", "Log it word for word and route it to Atty. Thorne", "CMS → Notes → Case Notes · CMS → Tasks → + Add Task", "Routed the same day; the CM changes nothing on terms or time, and restates the approved terms only where Atty. Thorne's written authority says so"]
         ],
         best: [
           "Know which value-drivers the demand leads with: the MRI herniation, the injection, the residual right-arm paresthesia at MMI, clear liability.",
@@ -5311,7 +5311,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) and the Gap Explanation Record are on file; the pre-demand audit put the Specials at $16,401.40. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from Dana Whitfield's written acknowledgement of receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.",
           prompt: "Audit the draft against the Big Four and the Final Scrub, log each deficiency as an assigned CMS task, and assemble the package with the gap answered on page one of the timeline. Once Atty. Thorne has signed, email it to Dana Whitfield from the Email Workspace with the Demand Package attached, ask her to confirm receipt in writing, and log it. When her written acknowledgement arrives on 07/22/2026, docket the acceptance deadline from it, with reminders. Graded judgment: what starts the clock, and what you do if Keystone asks for more time.",
-          tool: "Action Plan Editor → Demand Package · CMS → Documents → Outgoing · Email Workspace · Court E-Filing",
+          tool: "Action Plan Editor → Demand Package · CMS → Doc Hub → Others · Email Workspace · Court E-Filing",
           output: "An audited, served Time-Limited Demand with proof of delivery on file and 08/21/2026 docketed.",
           checkpoints: [
             "Amount $10,000, Keystone's BI limit per its Dec Page (03/20/2026); nothing demanded above limits",
@@ -5329,9 +5329,9 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Draft package on file", "Audit against the Big Four and the Final Scrub; assign each fix", "CMS → Tasks", "Every deficiency is a dated, assigned task"],
-          ["Atty. Thorne signs", "Email the demand to Dana Whitfield with the Demand Package attached; ask for written acknowledgement of receipt", "CMS → Documents → Outgoing · Email Workspace", "Sent and logged 07/20/2026"],
+          ["Atty. Thorne signs", "Email the demand to Dana Whitfield with the Demand Package attached; ask for written acknowledgement of receipt", "CMS → Doc Hub → Others · Email Workspace", "Sent and logged 07/20/2026"],
           ["Dana Whitfield acknowledges receipt in writing (07/22/2026)", "Docket the acceptance deadline and reminders", "Court E-Filing", "08/21/2026 on the docket, counted from her acknowledgement"],
-          ["No written acknowledgement", "Follow up with Dana Whitfield the same day; escalate to Atty. Thorne", "Email Workspace · CMS → Tasks → Escalate", "Nothing docketed from the send date or a guess"]
+          ["No written acknowledgement", "Follow up with Dana Whitfield the same day; escalate to Atty. Thorne", "Email Workspace · CMS → Tasks → + Add Task", "Nothing docketed from the send date or a guess"]
         ],
         best: [
           "Order the package the way the adjuster should read it: the terms, the gap answered, then the proof.",
@@ -5401,7 +5401,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Keystone tenders the $10,000 (08/12/2026)", "Prepare the 30-Day Letters (consent-to-settle requests) to both UM carriers for Atty. Thorne's signature; docket each window", "Action Plan Editor → Consent-to-settle template · Court E-Filing", "Both sent 08/13/2026 with the tender, Dec Page and affidavit; both 30-day windows docketed"],
-          ["Keystone's draft release arrives (08/14/2026)", "Compare who and what it releases with the approved terms; flag overbreadth", "CMS → Documents · CMS → Tasks → Escalate", "“All other … insurers” flagged to Atty. Thorne; nothing sent to John Doe to sign"],
+          ["Keystone's draft release arrives (08/14/2026)", "Compare who and what it releases with the approved terms; flag overbreadth", "CMS → Doc Hub · CMS → Tasks → + Add Task", "“All other … insurers” flagged to Atty. Thorne; nothing sent to John Doe to sign"],
           ["Both consents in writing; Limited Release signed (08/28/2026)", "Open the Host UM and Relative UM demands as tracked tasks", "CMS → Tasks", "Two tasks, each with carrier, claim number and adjuster"]
         ],
         best: [
@@ -5481,19 +5481,19 @@ window.CM_CASE_FLOW = {
            [
              "The week of service",
              "Run the Final Scrub: overlaps, the prior disclosed, every final balance by phone",
-             "CMS → Financial Ledger → Specials · CMS → Case Notes",
+             "CMS → Treatment → Total Medical Specials · CMS → Notes → Case Notes",
              "Each balance confirmed with a name and date; $16,401.40 ties out"
            ],
            [
              "Draft package assembled",
              "Index every exhibit by function; route the package and the narrative to Atty. Thorne",
-             "Action Plan Editor → Demand Package · CMS → Tasks → Escalate",
+             "Action Plan Editor → Demand Package · CMS → Tasks → + Add Task",
              "Every exhibit indexed to a part; narrative marked draft for review"
            ],
            [
              "Limited Release signed (08/28/2026)",
              "Rebuild each UM package by function; route the impairment-rating question",
-             "Action Plan Editor → UM demand templates · CMS → Tasks → Escalate",
+             "Action Plan Editor → UM demand templates · CMS → Tasks → + Add Task",
              "Two complete packages; the rating question with Atty. Thorne"
            ]
          ],
@@ -5563,7 +5563,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 08/31/2026 (Mon). Keystone tendered the $10,000 limits on 08/12/2026, after Smith's affidavit of no other insurance (08/10). Harbor Point consented 08/24, Cardinal State 08/26; the Limited Release of Robert Smith and Keystone was signed 08/28. Keystone's check has not arrived. On 08/05 Keystone had leaned on the 14-day gap and called the MRI degenerative.",
           prompt: "The pre-demand audit closed 07/15/2026 and Atty. Thorne assigned the UM demands to the Demand Desk (CMS Task Log, RS64); its drafts are in the file (RS61). Do not start from a blank page: QC both drafts against the records and fix every error before they reach Atty. Thorne, so that they become two demands: Host UM to Harbor Point (Marcus Bell, HP-26-7741) for the $20,000 limit, and Relative UM to Cardinal State (Teresa Okafor, CS-26-20355) for the $10,000 limit as excess over Host UM. Put the exhaustion proof on page one of each. Organize the evidence by function, audit each package as you audited the BI demand, show damages above what has been collected, and answer the gap and “degenerative” with the MRI. Leave the response deadline for Atty. Thorne to set. Graded judgment: what proves exhaustion before the check arrives.",
-          tool: "Action Plan Editor → UM demand templates · CMS → Tasks → Escalate",
+          tool: "Action Plan Editor → UM demand templates · CMS → Tasks → + Add Task",
           output: "Two QC'd, attorney-ready UM demand drafts, exhaustion proof first, each planted error in the desk's draft fixed and noted, routed for review with tracked follow-up tasks.",
           checkpoints: [
             "Two separate packages: Host UM $20,000 (Harbor Point, Marcus Bell, HP-26-7741) and Relative UM $10,000 (Cardinal State, Teresa Okafor, CS-26-20355)",
@@ -5580,8 +5580,8 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Limited Release signed (08/28/2026)", "Draft both UM demands with exhaustion proof on page one", "Action Plan Editor → UM demand templates", "Tender, Dec Page, affidavit, consents and Limited Release present in each"],
-          ["Drafts complete", "Route both to Atty. Thorne for review, deadline and signature", "CMS → Tasks → Escalate · Court E-Filing", "Nothing sent before his sign-off; then each emailed to its adjuster (Marcus Bell, Teresa Okafor), logged, written acknowledgement requested; the deadline he sets docketed from it"],
-          ["Keystone's check received", "Send its copy to Marcus Bell and Teresa Okafor as a supplemental exhibit", "CMS → Documents → Outgoing", "Check copy logged in both UM files the day it reaches trust"]
+          ["Drafts complete", "Route both to Atty. Thorne for review, deadline and signature", "CMS → Tasks → + Add Task · Court E-Filing", "Nothing sent before his sign-off; then each emailed to its adjuster (Marcus Bell, Teresa Okafor), logged, written acknowledgement requested; the deadline he sets docketed from it"],
+          ["Keystone's check received", "Send its copy to Marcus Bell and Teresa Okafor as a supplemental exhibit", "CMS → Doc Hub → Others", "Check copy logged in both UM files the day it reaches trust"]
         ],
         best: [
           "One complete package per carrier; Cardinal State gets the whole file, not a cross-reference to Harbor Point's.",
@@ -5614,7 +5614,7 @@ window.CM_CASE_FLOW = {
         ]
       },
 
-        {"kind":"activity","id":"d3-drive","transition":"The demand goes out on Monday. Before it does, the backup is audited against the CMS, one document at a time.","title":"Backup File Maintenance: the Pre-Demand Backup Audit","topic":"Skill Activity — audit the backup against the CMS before the demand goes out","visual":"A two-column audit sheet: CMS on the left, BACKUP DRIVE on the right, rows linked by green ticks, one row with a red gap. Below it a counter reads 18 OF 18 BACKED UP. In the 03, 04 and 07 folder chips, a current document sits on top of a greyed copy stamped SUPERSEDED. On the right, the Demand Package chip drops into 05 Insurance, Demands & Negotiation with an orange DRAFT FOR AUDIT tag.","act":{"scenario":"07/17/2026, 3:00 p.m. The pre-demand audit closed on 07/15/2026 and the BI Time-Limited Demand is served on 07/20/2026. Since the last backup, corrected documents have replaced earlier ones: Summit Imaging's corrected-history addendum to the MRI report (07/15/2026), Crescent Pain & Spine's corrected $0.00 patient statement (07/10/2026, replacing the 07/01/2026 statement) and the final Lost Wage Verification Record (07/01/2026, replacing the 06/23/2026 draft worksheet). The demand specialist's draft demand and exhibit packet are on the file for audit.","prompt":"Audit your Backup Drive against the CMS before the demand goes out. Open 📂 My Backup Drive and compare its count of backed-up documents with the documents filed in the CMS; for any filed document not on the drive, back it up from 📁 Work From. For each corrected document, put the current version in its folder and keep the version it replaces beside it, renamed with SUPERSEDED and the date of the version that replaced it as the last part of its name: the MRI addendum in 03 Medical Records, Crescent's corrected statement in 04 Bills & Invoices, the final wage record in 07 Wages & Costs. File the draft demand and the exhibit packet so they land in 05 Insurance, Demands & Negotiation, labeled DRAFT as the last part of their names. Run ✓ Check my drive, and record the audit in Case Notes: X of Y backed up, what you replaced and what you labeled.","tool":"Backup Drive · CMS → Documents · CMS → Case Notes","output":"A backup that matches the CMS document for document, superseded versions kept and labeled, the demand drafts in 05 Insurance, Demands & Negotiation, a clean drive check and the audit recorded in Case Notes.","checkpoints":["Every document filed in the CMS is on the drive: X of Y backed up, with X equal to Y","The MRI addendum, Crescent's corrected $0.00 statement and the final wage record each in its folder as the current version","The 07/01/2026 Crescent statement and the 06/23/2026 wage worksheet kept, renamed SUPERSEDED with the replacing version's date; nothing deleted","The draft demand and the exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT","✓ Check my drive run with no folder missing","The audit in Case Notes: the count, what was replaced and what was labeled"]},"ops":[["Demand about to be served","Compare the drive with the CMS","Backup Drive","X of Y backed up, X equal to Y"],["Corrected versions on file","Put the current version in its folder, label the superseded one","Backup Drive","Both kept, the old one marked SUPERSEDED"],["Draft Demand Package on file","File it so it lands in 05 Insurance, Demands & Negotiation","CMS → Documents","Labeled DRAFT"],["Audit done","Run ✓ Check my drive and record the audit","CMS → Case Notes","Clean check, count recorded"]],"best":["Audit the backup before every outgoing package: what the adjuster receives must be on the firm's own drive first.","Supersede, never delete: the old version explains why the new one exists.","Pitfall: two files with the same name in one folder and no way to tell which is current.","Pitfall: leaving the draft demand in 01 Intake & Retainer because it was opened from the Case Files tab."],"sources":["D1#12","D1#13","LSH firm standard: backup drive folder hierarchy"],"rubric":{"ai":[["Backup matches the CMS",20,"Every filed document backed up: X of Y with X equal to Y"],["Superseded versions",16,"Current versions in their folders; superseded versions kept and labeled with the replacing date"],["Demand Package placed",12,"Draft demand and exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT; drive check clean"],["File names",12,"Every file on the drive named by the firm's naming convention, with DRAFT or SUPERSEDED and its date as the last part of the name"]],"trainer":[["Audit discipline",25,"Works the CMS list one document at a time rather than eyeballing folders"],["Explaining the audit",15,"Case Note states the count and the changes plainly for Atty. Thorne"]]},"notes":["Before anyone opens the drive, ask: “If Keystone says it never got the corrected statement, where do we prove which version was current on 07/20?” The labeled backup is the answer.","Check the labels: SUPERSEDED with the replacing version's date. A label without a date doesn't tell a colleague which is current.","Have two trainees read out their X of Y. A gap is a document the firm can't put its hand on if the CMS is down."]},
+        {"kind":"activity","id":"d3-drive","transition":"The demand goes out on Monday. Before it does, the backup is audited against the CMS, one document at a time.","title":"Backup File Maintenance: the Pre-Demand Backup Audit","topic":"Skill Activity — audit the backup against the CMS before the demand goes out","visual":"A two-column audit sheet: CMS on the left, BACKUP DRIVE on the right, rows linked by green ticks, one row with a red gap. Below it a counter reads 18 OF 18 BACKED UP. In the 03, 04 and 07 folder chips, a current document sits on top of a greyed copy stamped SUPERSEDED. On the right, the Demand Package chip drops into 05 Insurance, Demands & Negotiation with an orange DRAFT FOR AUDIT tag.","act":{"scenario":"07/17/2026, 3:00 p.m. The pre-demand audit closed on 07/15/2026 and the BI Time-Limited Demand is served on 07/20/2026. Since the last backup, corrected documents have replaced earlier ones: Summit Imaging's corrected-history addendum to the MRI report (07/15/2026), Crescent Pain & Spine's corrected $0.00 patient statement (07/10/2026, replacing the 07/01/2026 statement) and the final Lost Wage Verification Record (07/01/2026, replacing the 06/23/2026 draft worksheet). The demand specialist's draft demand and exhibit packet are on the file for audit.","prompt":"Audit your Backup Drive against the CMS before the demand goes out. Open 📂 My Backup Drive and compare its count of backed-up documents with the documents filed in the CMS; for any filed document not on the drive, back it up from 📁 Work From. For each corrected document, put the current version in its folder and keep the version it replaces beside it, renamed with SUPERSEDED and the date of the version that replaced it as the last part of its name: the MRI addendum in 03 Medical Records, Crescent's corrected statement in 04 Bills & Invoices, the final wage record in 07 Wages & Costs. File the draft demand and the exhibit packet so they land in 05 Insurance, Demands & Negotiation, labeled DRAFT as the last part of their names. Run ✓ Check my drive, and record the audit in Case Notes: X of Y backed up, what you replaced and what you labeled.","tool":"Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes","output":"A backup that matches the CMS document for document, superseded versions kept and labeled, the demand drafts in 05 Insurance, Demands & Negotiation, a clean drive check and the audit recorded in Case Notes.","checkpoints":["Every document filed in the CMS is on the drive: X of Y backed up, with X equal to Y","The MRI addendum, Crescent's corrected $0.00 statement and the final wage record each in its folder as the current version","The 07/01/2026 Crescent statement and the 06/23/2026 wage worksheet kept, renamed SUPERSEDED with the replacing version's date; nothing deleted","The draft demand and the exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT","✓ Check my drive run with no folder missing","The audit in Case Notes: the count, what was replaced and what was labeled"]},"ops":[["Demand about to be served","Compare the drive with the CMS","Backup Drive","X of Y backed up, X equal to Y"],["Corrected versions on file","Put the current version in its folder, label the superseded one","Backup Drive","Both kept, the old one marked SUPERSEDED"],["Draft Demand Package on file","File it so it lands in 05 Insurance, Demands & Negotiation","CMS → Doc Hub","Labeled DRAFT"],["Audit done","Run ✓ Check my drive and record the audit","CMS → Notes → Case Notes","Clean check, count recorded"]],"best":["Audit the backup before every outgoing package: what the adjuster receives must be on the firm's own drive first.","Supersede, never delete: the old version explains why the new one exists.","Pitfall: two files with the same name in one folder and no way to tell which is current.","Pitfall: leaving the draft demand in 01 Intake & Retainer because it was opened from the Case Files tab."],"sources":["D1#12","D1#13","LSH firm standard: backup drive folder hierarchy"],"rubric":{"ai":[["Backup matches the CMS",20,"Every filed document backed up: X of Y with X equal to Y"],["Superseded versions",16,"Current versions in their folders; superseded versions kept and labeled with the replacing date"],["Demand Package placed",12,"Draft demand and exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT; drive check clean"],["File names",12,"Every file on the drive named by the firm's naming convention, with DRAFT or SUPERSEDED and its date as the last part of the name"]],"trainer":[["Audit discipline",25,"Works the CMS list one document at a time rather than eyeballing folders"],["Explaining the audit",15,"Case Note states the count and the changes plainly for Atty. Thorne"]]},"notes":["Before anyone opens the drive, ask: “If Keystone says it never got the corrected statement, where do we prove which version was current on 07/20?” The labeled backup is the answer.","Check the labels: SUPERSEDED with the replacing version's date. A label without a date doesn't tell a colleague which is current.","Have two trainees read out their X of Y. A gap is a document the firm can't put its hand on if the CMS is down."]},
 
       {
         kind: "check", id: "d3m1-kc",
@@ -5754,9 +5754,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Dana Whitfield acknowledges the demand in writing (07/22/2026)", "Build the battle map and compute the net floor", "CMS → Financial Ledger → Net Sheet · CMS → Case Notes", "Floor $12,677.63 gross on unreduced liens ($12,677.63 – $4,225.88 fee = $8,451.75); each attack matched to a dated document"],
+          ["Dana Whitfield acknowledges the demand in writing (07/22/2026)", "Build the battle map and compute the net floor", "CMS → Settlement (BI/UM) · CMS → Notes → Case Notes", "Floor $12,677.63 gross on unreduced liens ($12,677.63 – $4,225.88 fee = $8,451.75); each attack matched to a dated document"],
           ["Adjuster calls with an offer", "Soft lead, professional pause, ask for her data; restate the approved demand", "Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual", "No counter; terms and the 08/21/2026 deadline unchanged"],
-          ["Call ends", "Log the offer and the adjuster's exact words; report to Atty. Thorne", "CMS → Communications Log · CMS → Tasks → Escalate", "Logged and reported the same day, reasons quoted verbatim"],
+          ["Call ends", "Log the offer and the adjuster's exact words; report to Atty. Thorne", "CMS → Notes → Case Notes · CMS → Tasks → + Add Task", "Logged and reported the same day, reasons quoted verbatim"],
           ["Adjuster stalls (“waiting on authority”)", "Name it and tie it to the deadline in writing", "Email Workspace", "Same-day email cites 08/21/2026; no open-ended callback accepted"]
         ],
         best: [
@@ -5799,7 +5799,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 08/05/2026. Dana Whitfield acknowledged the $10,000 time-limited BI demand in writing on 07/22; acceptance runs to 08/21/2026. Dana Whitfield calls with $3,500: John Doe “waited two weeks,” and the MRI is “degenerative.” Atty. Thorne's written authority: restate the Limits Demand and deadline, present the record, no counter, report any offer to him the same day.",
           prompt: "Run the call with Dana Whitfield in the Call Simulator. Before dialing, do the math check on $3,500: fee, costs, unreduced liens and John Doe's net. On the call, pause after her number and ask what data supports it; name each stall; on the gap, point only to the record: the EMS report, the Gap Explanation Record and Dr. Reyes's Causation Letter, and “degenerative” with Dr. Park's MRI language. Stay inside the written authority. Log the offer with her exact words, report it to Atty. Thorne the same day for him to convey to John Doe, and draft the 08/06 written rebuttal for his approval.",
-          tool: "Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual · CMS → Communications Log · Email Workspace",
+          tool: "Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual · CMS → Notes → Case Notes · Email Workspace",
           output: "A recorded call held inside Atty. Thorne's authority, a math check on $3,500, a logged offer in the adjuster's own words, a same-day report to Atty. Thorne, and the 08/06/2026 rebuttal drafted for his approval.",
           checkpoints: [
             "Math check before dialing: $3,500 – $1,166.67 fee – $486.75 costs = $1,846.58 against $7,965.00 of unreduced liens → $0.00 to John Doe",
@@ -5827,9 +5827,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Offer made on the call (08/05/2026)", "Log it in the adjuster's words; report to Atty. Thorne", "CMS → Communications Log · CMS → Tasks → Escalate", "Logged and reported 08/05/2026; reasons quoted verbatim"],
-          ["Atty. Thorne approves the rebuttal", "Send it with the MRI report, Causation Letter, EMS report and Gap Explanation Record", "Email Workspace · CMS → Documents → Outgoing", "Sent 08/06/2026, inside the 08/21/2026 window; delivery logged"],
-          ["Keystone tenders the $10,000 limits (08/12/2026)", "Log the tender and route it to Atty. Thorne the same day; draft, for his signature, the written confirmation that it is BI only (the Civic's property-damage claim stays open), on the demand's terms: Limited Release, Smith's 08/10 affidavit of no other insurance", "CMS → Insurance tab → Negotiation Log · Email Workspace", "Tender dated inside the 08/21/2026 window; no release signed before the UM consent-to-settle requests (08/13/2026) are answered"]
+          ["Offer made on the call (08/05/2026)", "Log it in the adjuster's words; report to Atty. Thorne", "CMS → Notes → Case Notes · CMS → Tasks → + Add Task", "Logged and reported 08/05/2026; reasons quoted verbatim"],
+          ["Atty. Thorne approves the rebuttal", "Send it with the MRI report, Causation Letter, EMS report and Gap Explanation Record", "Email Workspace · CMS → Doc Hub → Others", "Sent 08/06/2026, inside the 08/21/2026 window; delivery logged"],
+          ["Keystone tenders the $10,000 limits (08/12/2026)", "Log the tender and route it to Atty. Thorne the same day; draft, for his signature, the written confirmation that it is BI only (the Civic's property-damage claim stays open), on the demand's terms: Limited Release, Smith's 08/10 affidavit of no other insurance", "CMS → Settlement (BI/UM) → Offer & Counter History · Email Workspace", "Tender dated inside the 08/21/2026 window; no release signed before the UM consent-to-settle requests (08/13/2026) are answered"]
         ],
         best: [
           "Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).",
@@ -5868,8 +5868,8 @@ window.CM_CASE_FLOW = {
          visual: "The LSH Net Sheet across the left half, headed STREAM 1 · BI · KEYSTONE KM-26-440871 with a grey status chip TENDERED 08/12/2026 · NOT RECEIVED. Rows in mono: Gross $10,000.00, Fee 33⅓% $3,333.33, Costs (25%) $121.69, Peach State $465.00, Riverton Spine & Rehab $1,526.25, ending on a dashed orange box PROJECTION $4,553.73. Beside it a greyed Stream 2 column, HOST UM $20,000 · RELATIVE UM $10,000, stamped OPEN · NOT YET DEMANDED. The right third is a red-bordered card, BI STANDING ALONE: a $6,179.92 bar set against a longer $7,965.00 bar, the $1,785.08 gap hatched red, the shares $1,443.15 and $4,736.77 beneath, ending NET TO JOHN DOE $0.00. A navy footer strip: HELD IN TRUST UNTIL THE LIENS RESOLVE · ATTY. THORNE REVIEWS IT WITH JOHN DOE.",
          act: {
            scenario: "File date 08/12/2026 (Wed), Track A. This morning Dana Whitfield tendered Keystone's $10,000 BI limits (KM-26-440871) on the Time-Limited Demand's terms, inside the 08/21/2026 window; Robert Smith's affidavit of no other insurance came in on 08/10. No check has issued, no release is signed, and the consent-to-settle requests to Harbor Point and Cardinal State have not gone out. The UM layers (Host UM $20,000, Relative UM $10,000) are not yet demanded. Liens as they stand today: Peach State $1,860.00 asserted; Riverton Spine & Rehab $6,105.00 audited (billed $6,290.00); no reduction requested. Costs receipted: $486.75. Atty. Thorne's memo asks for the BI settlement Net Sheet before he reviews the tender with John Doe: Stream 1 on his 25% / 75% working allocation (BI's share of the $40,000 Recovery Stack), and BI standing alone.",
-           prompt: "Build the settlement-stage Net Sheet for Stream 1 in the LSH Net Sheet. Enter the $10,000.00 gross as tendered, not received, with the 33⅓% pre-suit fee from the Contingency Fee Agreement and the five receipted costs. Enter both liens as they stand on 08/12/2026, asserted or audited, with the reduction column left blank. Leave Stream 2 open, with no recovery entered. Run Atty. Thorne's 25% allocation of costs and liens down to a Stream 1 net, labelled as a projection with what it assumes. Beside it, run the BI-alone fact pattern: what the fee and costs leave, set against the unreduced liens, shared pro rata. Route the sheet to Atty. Thorne through CMS → Tasks → Escalate. Graded judgment: what you lay in front of him as fact (the BI money cannot be paid out on its own and is held in trust until the liens resolve), and what you leave to him: the allocation, any lien strategy and everything said to John Doe about value.",
-           tool: "LSH Net Sheet · CMS → Financial Ledger → Trust · CMS → Tasks → Escalate",
+           prompt: "Build the settlement-stage Net Sheet for Stream 1 in the LSH Net Sheet. Enter the $10,000.00 gross as tendered, not received, with the 33⅓% pre-suit fee from the Contingency Fee Agreement and the five receipted costs. Enter both liens as they stand on 08/12/2026, asserted or audited, with the reduction column left blank. Leave Stream 2 open, with no recovery entered. Run Atty. Thorne's 25% allocation of costs and liens down to a Stream 1 net, labelled as a projection with what it assumes. Beside it, run the BI-alone fact pattern: what the fee and costs leave, set against the unreduced liens, shared pro rata. Route the sheet to Atty. Thorne through CMS → Tasks → + Add Task. Graded judgment: what you lay in front of him as fact (the BI money cannot be paid out on its own and is held in trust until the liens resolve), and what you leave to him: the allocation, any lien strategy and everything said to John Doe about value.",
+           tool: "LSH Net Sheet · CMS → Settlement (BI/UM) → Check Received / Disbursed · CMS → Tasks → + Add Task",
            output: "A Stream 1 settlement Net Sheet at the 08/12/2026 tender: a labelled 25% projection ($4,553.73) beside the BI-alone fact pattern ($0.00 to John Doe), routed to Atty. Thorne with the trust-hold flag.",
            checkpoints: [
              "Status on the sheet: Keystone tender 08/12/2026 (Wed), inside the 08/21/2026 window; marked tendered, not received; no release signed; nothing posted to the Trust Ledger",
@@ -5898,11 +5898,11 @@ window.CM_CASE_FLOW = {
              "LSH Net Sheet",
              "$4,553.73 projected; alone, $6,179.92 against $7,965.00 → $0.00"
            ],
-           ["Sheet complete", "Route it with the trust-hold flag", "CMS → Tasks → Escalate", "Routed 08/12/2026, before John Doe signs anything"],
+           ["Sheet complete", "Route it with the trust-hold flag", "CMS → Tasks → + Add Task", "Routed 08/12/2026, before John Doe signs anything"],
            [
              "Keystone's check arrives, after the Limited Release is signed",
              "Post the deposit; hold it",
-             "CMS → Financial Ledger → Trust",
+             "CMS → Settlement (BI/UM) → Check Received / Disbursed",
              "Deposited to IOLTA; nothing disbursed until the liens resolve"
            ]
          ],
@@ -5976,8 +5976,8 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Keystone tenders the $10,000 (08/12/2026)", "Prepare both consent-and-waiver requests for Atty. Thorne's signature; docket each window", "Action Plan Editor → Consent-to-settle template · Docket System", "Sent 08/13/2026 to Marcus Bell and Teresa Okafor; Bluewater not asked, with the reason recorded"],
-          ["Keystone's cover letter conditions payment on the waivers (08/14/2026)", "Log the condition; tie it to the signing task", "CMS → Case Notes · CMS → Tasks", "Signing task held until both waivers are in writing"],
-          ["Each consent arrives (08/24, 08/26/2026)", "Match its scope to the release; route anything wider, or a substitution, to Atty. Thorne", "CMS → Documents · CMS → Tasks → Escalate", "Both cover Smith and Keystone only; filed for the UM packages and the transmittal"]
+          ["Keystone's cover letter conditions payment on the waivers (08/14/2026)", "Log the condition; tie it to the signing task", "CMS → Notes → Case Notes · CMS → Tasks", "Signing task held until both waivers are in writing"],
+          ["Each consent arrives (08/24, 08/26/2026)", "Match its scope to the release; route anything wider, or a substitution, to Atty. Thorne", "CMS → Doc Hub · CMS → Tasks → + Add Task", "Both cover Smith and Keystone only; filed for the UM packages and the transmittal"]
         ],
         best: [
           "Name the UM layers from the Coverage Matrix before you write a single request; a request to the wrong carrier wastes the window.",
@@ -6015,7 +6015,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 08/14/2026 (Fri). Keystone tendered its $10,000 BI limits on 08/12; the consent-and-waiver requests went to Harbor Point and Cardinal State on 08/13. Today Dana Whitfield sends Keystone's Release of All Claims for John Doe's notarized signature, and her cover letter says no check issues until each UM carrier's written consent and subrogation waiver arrives. The demand's terms were a Limited Release of Robert Smith and Keystone only.",
           prompt: "Audit Keystone's draft release clause by clause in the audit workbench against the demand's approved terms and the open claims on the file: who is released, which claims, what is missing, and what John Doe would promise. Call each clause keep, replace, pull, add or flag, and write the proposed amendment. Then email your clause review to Atty. Thorne for his approval, with the clauses he must decide flagged. Do not send the draft to John Doe. When the adjuster asks to have the standard form signed first, route it. Convert the exchange into a memorandum and file it in the CMS and on your Backup Drive.",
-          tool: "CMS → Documents → Release audit · Email Workspace · CMS → Tasks → Escalate",
+          tool: "CMS → Doc Hub → Case Files · Email Workspace · CMS → Tasks → + Add Task",
           output: "An audited release with proposed amendments, Atty. Thorne's written approval on file, and the review memorandum filed in the CMS and Drive.",
           checkpoints: [
             "The catch-all “all other … insurers” quoted and replaced: it would release Harbor Point ($20,000) and Cardinal State ($10,000)",
@@ -6032,9 +6032,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Keystone's draft release arrives (08/14/2026)", "Audit every clause against the demand's terms and the open claims", "CMS → Documents → Release audit", "Every clause called with a reason; amendments drafted"],
-          ["Audit complete", "Email the clause review to Atty. Thorne for approval", "Email Workspace · CMS → Tasks → Escalate", "Sent 08/14/2026; three clauses flagged for his decision"],
-          ["Atty. Thorne approves (08/17/2026)", "File the approval; hold the signing task until Keystone reissues and both consents arrive", "CMS → Documents · CMS → Tasks", "Limited Release issued 08/19/2026; signing scheduled only after 08/26"]
+          ["Keystone's draft release arrives (08/14/2026)", "Audit every clause against the demand's terms and the open claims", "CMS → Doc Hub → Case Files", "Every clause called with a reason; amendments drafted"],
+          ["Audit complete", "Email the clause review to Atty. Thorne for approval", "Email Workspace · CMS → Tasks → + Add Task", "Sent 08/14/2026; three clauses flagged for his decision"],
+          ["Atty. Thorne approves (08/17/2026)", "File the approval; hold the signing task until Keystone reissues and both consents arrive", "CMS → Doc Hub · CMS → Tasks", "Limited Release issued 08/19/2026; signing scheduled only after 08/26"]
         ],
         best: [
           "Quote every over-broad word exactly; a paraphrase hides the problem.",
@@ -6071,7 +6071,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 08/26/2026 (Wed). Cardinal State's consent and waiver arrived today, joining Harbor Point's of 08/24. Keystone issued its Limited Release on 08/19, as Atty. Thorne approved it. Keystone wants a notarized wet-ink original, both waivers and the firm's W-9 before its check issues, within 14 days of receipt. John Doe has not seen the release yet.",
           prompt: "Call John Doe in the Call Simulator and schedule the signing session for 08/28/2026 at the office: what to bring (government photo ID in the name “John Doe”), that he signs only before the notary, and that Atty. Thorne will go through the release with him first. Answer logistics; route every question about what a clause means to Atty. Thorne. After the session, confirm the execution requirements, upload the executed release to the CMS and his portal copy, then email the executed packet to Dana Whitfield and ask her to confirm receipt and the check date. Route her payee question. Confirm the check into trust on 09/04 and file the settlement record in the CMS and Drive.",
-          tool: "Call Simulator → AI Client: John Doe · Email Workspace · CMS → Documents · CMS → Financial Ledger → Trust",
+          tool: "Call Simulator → AI Client: John Doe · Email Workspace · CMS → Doc Hub · CMS → Settlement (BI/UM) → Check Received / Disbursed",
           output: "An executed, notarized Limited Release sent with both waivers and the W-9, the check confirmed into trust, and the settlement record filed in the CMS and Drive.",
           checkpoints: [
             "Signing scheduled only after both consents are in writing (08/24, 08/26/2026) and Atty. Thorne approved the release",
@@ -6088,9 +6088,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Both consents in writing (08/26/2026)", "Call John Doe to schedule the signing; log the call", "Call Simulator → AI Client: John Doe · CMS → Communications Log", "Session set for 08/28/2026; logistics only"],
-          ["Release executed (08/28/2026)", "Confirm execution, upload it, and email the packet to Keystone", "CMS → Documents · Email Workspace", "Release, both waivers and the W-9 sent 08/28; original by courier"],
-          ["Keystone's check arrives (09/04/2026)", "Deposit to trust the same day; file the settlement record", "CMS → Financial Ledger → Trust · CMS → Documents", "$10,000.00 in IOLTA; record in the CMS and Drive"]
+          ["Both consents in writing (08/26/2026)", "Call John Doe to schedule the signing; log the call", "Call Simulator → AI Client: John Doe · CMS → Notes → Case Notes", "Session set for 08/28/2026; logistics only"],
+          ["Release executed (08/28/2026)", "Confirm execution, upload it, and email the packet to Keystone", "CMS → Doc Hub · Email Workspace", "Release, both waivers and the W-9 sent 08/28; original by courier"],
+          ["Keystone's check arrives (09/04/2026)", "Deposit to trust the same day; file the settlement record", "CMS → Settlement (BI/UM) → Check Received / Disbursed · CMS → Doc Hub", "$10,000.00 in IOLTA; record in the CMS and Drive"]
         ],
         best: [
           "Check the name on the ID, the release and the claim before the notary arrives.",
@@ -6152,10 +6152,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["UM offer received (Harbor Point, 09/14/2026)", "Log the offer and its stated reasons; report to Atty. Thorne", "CMS → Insurance tab → Negotiation Log · CMS → Tasks → Escalate", "Offer, date and quoted reasons logged and reported 09/14/2026"],
-          ["Offer cites the BI payment or the gap", "Assemble the counter-package for approval: the 03/02/2026 letter, MRI read, Causation Letter, MMI residuals, future care", "Action Plan Editor · CMS → Documents → Outgoing", "Approved by Atty. Thorne and sent 09/16/2026"],
-          ["Carrier offers its limits", "Confirm scope, release, liens, payee and check date without accepting; report to Atty. Thorne; draft the acceptance email", "Email Workspace · CMS → Case Notes", "Acceptance email sent only after John Doe's decision is logged and Atty. Thorne approves it"],
-          ["UM check arrives", "Confirm its UM release is signed, then deposit to trust the same day; if not, secure the check and route it to Atty. Thorne", "CMS → Financial Ledger → Trust", "Each UM release signed before its check; deposited the day received (10/05 and 10/13/2026)"]
+          ["UM offer received (Harbor Point, 09/14/2026)", "Log the offer and its stated reasons; report to Atty. Thorne", "CMS → Settlement (BI/UM) → Offer & Counter History · CMS → Tasks → + Add Task", "Offer, date and quoted reasons logged and reported 09/14/2026"],
+          ["Offer cites the BI payment or the gap", "Assemble the counter-package for approval: the 03/02/2026 letter, MRI read, Causation Letter, MMI residuals, future care", "Action Plan Editor · CMS → Doc Hub → Others", "Approved by Atty. Thorne and sent 09/16/2026"],
+          ["Carrier offers its limits", "Confirm scope, release, liens, payee and check date without accepting; report to Atty. Thorne; draft the acceptance email", "Email Workspace · CMS → Notes → Case Notes", "Acceptance email sent only after John Doe's decision is logged and Atty. Thorne approves it"],
+          ["UM check arrives", "Confirm its UM release is signed, then deposit to trust the same day; if not, secure the check and route it to Atty. Thorne", "CMS → Settlement (BI/UM) → Check Received / Disbursed", "Each UM release signed before its check; deposited the day received (10/05 and 10/13/2026)"]
         ],
         best: [
           "Look for every stacking and resident-relative policy; it is why this file reaches $40,000.",
@@ -6196,7 +6196,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 09/14/2026. Keystone's $10,000 is in trust (received 09/04). The Host UM ($20,000) and Relative UM ($10,000) demands went out 08/31. Today Marcus Bell offers $8,000 for Harbor Point, citing the gap and “BI already compensated him.” Ahead: counter-package 09/16; Harbor Point pays its $20,000 limits 09/29; Cardinal State (Teresa Okafor) offers $6,000 on 10/01 and tenders its $10,000 limits 10/06.",
           prompt: "Work both UM claims to resolution in the Negotiation Log. Log Harbor Point's $8,000 with its stated reasons and report it to Atty. Thorne the same day. Assemble the 09/16 counter-package for his approval: Harbor Point's 03/02/2026 letter, the MRI read, Dr. Reyes's Causation Letter, the MMI residuals and future care. Log every later move. For each acceptance, record John Doe's informed decision through Atty. Thorne, then draft the acceptance email for his approval, sent that day: coverage, release, liens, payee, check date. Close by proving $40,000 gross.",
-          tool: "CMS → Insurance tab → Negotiation Log · Email Workspace · CMS → Financial Ledger → Net Sheet → Recovery Ledger",
+          tool: "CMS → Settlement (BI/UM) → Offer & Counter History · Email Workspace · CMS → Settlement (BI/UM) → Gross Settlement",
           output: "A complete Negotiation Log for both UM layers, an approved counter-package, a confirming email for each acceptance, and a Recovery Ledger at $40,000.00 gross.",
           checkpoints: [
             "Harbor Point's 09/14/2026 offer logged: $8,000, both stated reasons quoted, reported to Atty. Thorne the same day",
@@ -6212,9 +6212,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Each carrier offer or tender", "Log date, amount and the carrier's words; report to Atty. Thorne", "CMS → Insurance tab → Negotiation Log", "Four carrier entries (09/14, 09/29, 10/01, 10/06/2026) plus the 09/16 counter-package, each reported the same day"],
-          ["John Doe decides, through Atty. Thorne", "Record the decision; draft the acceptance email for his approval", "Email Workspace · CMS → Case Notes", "Decision attributed to John Doe; email sent the same day"],
-          ["Last layer closes (10/06/2026)", "Post all three layers to the Recovery Ledger", "CMS → Financial Ledger → Net Sheet → Recovery Ledger", "Gross = $40,000.00 exactly; nothing outside the stack added"]
+          ["Each carrier offer or tender", "Log date, amount and the carrier's words; report to Atty. Thorne", "CMS → Settlement (BI/UM) → Offer & Counter History", "Four carrier entries (09/14, 09/29, 10/01, 10/06/2026) plus the 09/16 counter-package, each reported the same day"],
+          ["John Doe decides, through Atty. Thorne", "Record the decision; draft the acceptance email for his approval", "Email Workspace · CMS → Notes → Case Notes", "Decision attributed to John Doe; email sent the same day"],
+          ["Last layer closes (10/06/2026)", "Post all three layers to the Recovery Ledger", "CMS → Settlement (BI/UM) → Gross Settlement", "Gross = $40,000.00 exactly; nothing outside the stack added"]
         ],
         best: [
           "Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).",
@@ -6255,7 +6255,7 @@ window.CM_CASE_FLOW = {
          act: {
            scenario: "File date 10/06/2026 (Tue), Track A. Today Teresa Okafor tendered Cardinal State's $10,000 Relative UM limits (CS-26-20355), and John Doe accepted through Atty. Thorne. Harbor Point paid its $20,000 Host UM limits (HP-26-7741) on 09/29; the check was received and deposited 10/05 after the release was signed. Keystone's $10,000 BI has been in trust since 09/04. Trust holds $30,000.00; Cardinal State's check has not arrived. Peach State asserts $1,860.00, and its Reduction Request is drafted and held for Atty. Thorne's approval. Riverton Spine & Rehab's LOP account stands at $6,290.00 billed, $6,105.00 after the audit removed the 05/04/2026 duplicate. No lien reduction is agreed. Costs to date: $486.75. At 4:20 p.m. Atty. Thorne asks for the UM settlement Net Sheet for his review before he goes through it with John Doe.",
            prompt: "Build the Stream 2 (UM) column of John Doe's LSH Net Sheet as it stands today. Post both UM layers to the Recovery Ledger and show which check is in trust and which is only tendered. Apply the pre-suit 33⅓% fee, then allocate costs and liens to Stream 2 at 75%, pro rata to gross, with each lien at its asserted or audited figure, not a hoped-for reduction. Mark every figure that will still change as a projection and say what will change it. Tie Stream 2 to Stream 1 and to the Trust Ledger. Graded judgment: write the questions Atty. Thorne must answer before John Doe sees this sheet, and route it to him, not to John.",
-           tool: "CMS → Financial Ledger → Net Sheet → Recovery Ledger · CMS → Financial Ledger → Trust · CMS → Tasks → Escalate",
+           tool: "CMS → Settlement (BI/UM) → Gross Settlement · CMS → Settlement (BI/UM) → Check Received / Disbursed · CMS → Tasks → + Add Task",
            output: "A Stream 2 Net Sheet projecting $13,661.19 to John Doe, every moving figure marked, tied to Stream 1 and the Trust Ledger, routed to Atty. Thorne with four written questions.",
            checkpoints: [
              "Stream 2 gross from the two UM layers only: Harbor Point $20,000.00 (paid 09/29, received 10/05/2026) + Cardinal State $10,000.00 (tendered 10/06/2026) = $30,000.00, 75% of the $40,000.00 stack; Keystone's $10,000.00 stays in Stream 1",
@@ -6269,32 +6269,32 @@ window.CM_CASE_FLOW = {
              "Tied to the Trust Ledger: $30,000.00 on deposit (Keystone $10,000.00 since 09/04, Harbor Point $20,000.00 since 10/05/2026); Cardinal State's $10,000.00 shown as receivable, not received; nothing disbursed from either stream",
              "What moves the projection stated on the sheet: every $1.00 cut from a lien adds $0.75 to Stream 2 and $0.25 to Stream 1; no reduced figure is entered before a written acceptance",
              "Four questions to Atty. Thorne in writing: (1) the 33⅓% tier on both UM layers; (2) the 25% / 75% pro-rata allocation of costs and liens; (3) authority and timing for both Reduction Requests, including raising the $185.00 duplicate with Tammy Greer; (4) when and in what form John Doe sees a projected sheet",
-             "Routed to Atty. Thorne the same day through CMS → Tasks → Escalate; the sheet is not sent to John Doe and no net figure is quoted to him by the CM"
+             "Routed to Atty. Thorne the same day through CMS → Tasks → + Add Task; the sheet is not sent to John Doe and no net figure is quoted to him by the CM"
            ]
          },
          ops: [
            [
              "Atty. Thorne's memo, 10/06/2026",
              "Post both UM layers and the fee to Stream 2",
-             "CMS → Financial Ledger → Net Sheet → Recovery Ledger",
+             "CMS → Settlement (BI/UM) → Gross Settlement",
              "Gross $30,000.00; fee $10,000.00; Cardinal State marked tendered, not received"
            ],
            [
              "Liens as they stand on 10/06/2026",
              "Allocate costs and liens at 75% and mark each a projection",
-             "CMS → Financial Ledger → Net Sheet → Recovery Ledger",
+             "CMS → Settlement (BI/UM) → Gross Settlement",
              "$365.06 · $1,395.00 · $4,578.75; projected net $13,661.19"
            ],
            [
              "Stream 2 complete",
              "Tie to Stream 1 and the Trust Ledger",
-             "CMS → Financial Ledger → Trust",
+             "CMS → Settlement (BI/UM) → Check Received / Disbursed",
              "$13,661.19 + $4,553.73 = $18,214.92; $30,000.00 in trust, $10,000.00 receivable"
            ],
            [
              "Sheet ties",
              "Route the sheet with four written questions",
-             "CMS → Tasks → Escalate",
+             "CMS → Tasks → + Add Task",
              "Routed to Atty. Thorne the same day; nothing sent to John Doe"
            ]
          ],
@@ -6466,10 +6466,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Gross recovery reaches $40,000.00 (10/06/2026)", "Run the final inventory, re-verifying the Day 2 lien register, asserted and absent, and classify each as statutory or contractual", "CMS → Financial Ledger → Net Sheet → Lien Tracker", "Two liens open; Medicare, Medicaid, hospital, workers' comp, prior attorney and PIP each recorded “none” with a source"],
-          ["Health Plan lien classified", "Obtain the plan documents and route the funding status to Atty. Thorne", "CMS → Tasks → Escalate", "Fully insured status on file; the governing-law call recorded as his"],
-          ["Atty. Thorne chooses the reduction basis", "Draft the request naming the doctrine, with the math", "CMS → Documents → Outgoing", "Doctrine named; $1,860.00 – $620.00 = $1,240.00 shown; held for his approval"],
-          ["Prior-attorney question open", "Ask John Doe and check the intake record; record the answer", "CMS → Case Notes", "“No other lawyer known to John Doe” logged with its date and source"]
+          ["Gross recovery reaches $40,000.00 (10/06/2026)", "Run the final inventory, re-verifying the Day 2 lien register, asserted and absent, and classify each as statutory or contractual", "CMS → Settlement (BI/UM) → Medical Liens / Payoffs", "Two liens open; Medicare, Medicaid, hospital, workers' comp, prior attorney and PIP each recorded “none” with a source"],
+          ["Health Plan lien classified", "Obtain the plan documents and route the funding status to Atty. Thorne", "CMS → Tasks → + Add Task", "Fully insured status on file; the governing-law call recorded as his"],
+          ["Atty. Thorne chooses the reduction basis", "Draft the request naming the doctrine, with the math", "CMS → Doc Hub → Others", "Doctrine named; $1,860.00 – $620.00 = $1,240.00 shown; held for his approval"],
+          ["Prior-attorney question open", "Ask John Doe and check the intake record; record the answer", "CMS → Notes → Case Notes", "“No other lawyer known to John Doe” logged with its date and source"]
         ],
         best: [
           "Work the most negotiable lien first to build momentum, but resolve every one in writing before disbursement.",
@@ -6509,7 +6509,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 10/06/2026. Cardinal State has tendered its $10,000 limits: gross $40,000.00. Both liens have been on the Lien Tracker (the CMS → Liens record from Day 2, shown on the Net Sheet) since the pre-demand audit and were kept current through the UM negotiation; Atty. Thorne held Reduction Requests until the gross was known. Peach State Health Plan asserts $1,860.00, its contract-rate payment for the 05/15/2026 epidural injection at Crescent Pain & Spine. The plan documents show a fully insured group plan.",
           prompt: "Work Peach State's claim and the statutory clearance in the Lien Tracker. Match the plan's itemized payments to the treatment record, classify the lien, record its funding status and escalate the governing-law question to Atty. Thorne. Draft the Reduction Request for his signature: name the doctrine, show the one-third math to $1,240.00, cite the work that built the fund (the 14-Day Gap defense beaten with the MRI) and flag made whole as his to argue. Record every absent claimant as a verified none with its source. The graded call: what you hold until he approves, and what makes the 10/09/2026 acceptance final.",
-          tool: "CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Documents → Outgoing · CMS → Tasks → Escalate",
+          tool: "CMS → Settlement (BI/UM) → Medical Liens / Payoffs · CMS → Doc Hub → Others · CMS → Tasks → + Add Task",
           output: "A Peach State Reduction Request ready for Atty. Thorne's signature, a Lien Tracker with every absent claimant cleared and sourced, and the 10/09/2026 acceptance recorded at $1,240.00 once confirmed in writing.",
           checkpoints: [
             "Plan ledger matched to one accident-related charge: the 05/15/2026 injection, $3,400.00 billed, $1,860.00 paid; the lien is what the plan paid, not what was billed",
@@ -6537,9 +6537,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Peach State's itemized ledger received", "Match each payment to the treatment record", "Medical Records Requests · CMS → Financial Ledger → Net Sheet → Lien Tracker", "One line, 05/15/2026, $1,860.00, accident-related"],
-          ["Reduction Request drafted", "Route to Atty. Thorne for approval and signature", "CMS → Tasks → Escalate", "Nothing sent before his written approval is logged"],
-          ["Plan's written acceptance arrives", "Record the reduced figure and attach the confirmation", "CMS → Financial Ledger → Net Sheet → Lien Tracker", "$1,240.00 dated 10/09/2026; confirmation attached"]
+          ["Peach State's itemized ledger received", "Match each payment to the treatment record", "Medical Records Requests · CMS → Settlement (BI/UM) → Medical Liens / Payoffs", "One line, 05/15/2026, $1,860.00, accident-related"],
+          ["Reduction Request drafted", "Route to Atty. Thorne for approval and signature", "CMS → Tasks → + Add Task", "Nothing sent before his written approval is logged"],
+          ["Plan's written acceptance arrives", "Record the reduced figure and attach the confirmation", "CMS → Settlement (BI/UM) → Medical Liens / Payoffs", "$1,240.00 dated 10/09/2026; confirmation attached"]
         ],
         best: [
           "Audit the Health Plan's claim too: a plan's ledger can carry charges unrelated to the collision.",
@@ -6603,9 +6603,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Provider's Final Ledger received", "Audit each line against the visit records; request a written correction of any error", "Medical Records Requests · CMS → Financial Ledger → Net Sheet → Lien Tracker", "33 visits matched; 05/04/2026 duplicate removed; $6,105.00"],
-          ["Audited balance confirmed", "Draft the Reduction Request with the math and obtain Atty. Thorne's written authority", "CMS → Documents → Outgoing · CMS → Tasks → Escalate", "Authority logged before the request goes or any call is made"],
-          ["Reduction agreed", "Obtain the signed Payoff Letter; update the Lien Tracker and the Net Sheet", "CMS → Financial Ledger → Net Sheet", "Full-and-final language on file; net recomputed the same day"]
+          ["Provider's Final Ledger received", "Audit each line against the visit records; request a written correction of any error", "Medical Records Requests · CMS → Settlement (BI/UM) → Medical Liens / Payoffs", "33 visits matched; 05/04/2026 duplicate removed; $6,105.00"],
+          ["Audited balance confirmed", "Draft the Reduction Request with the math and obtain Atty. Thorne's written authority", "CMS → Doc Hub → Others · CMS → Tasks → + Add Task", "Authority logged before the request goes or any call is made"],
+          ["Reduction agreed", "Obtain the signed Payoff Letter; update the Lien Tracker and the Net Sheet", "CMS → Settlement (BI/UM)", "Full-and-final language on file; net recomputed the same day"]
         ],
         best: [
           "Corrections first, reductions second.",
@@ -6667,9 +6667,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Audited balance confirmed", "Draft the Reduction Request with the math; get Atty. Thorne's written authority", "CMS → Documents → Outgoing · CMS → Tasks → Escalate", "Authority logged before the request goes"],
-          ["Lienholder responds", "Call with the authorized ask; log the name, date and figures", "CMS → Case Notes · CMS → Liens", "Counter outside authority routed the same day"],
-          ["Reduction agreed", "Obtain the signed Payoff Letter; update the Lien Tracker and Net Sheet", "CMS → Financial Ledger → Net Sheet", "Full-and-final language on file"]
+          ["Audited balance confirmed", "Draft the Reduction Request with the math; get Atty. Thorne's written authority", "CMS → Doc Hub → Others · CMS → Tasks → + Add Task", "Authority logged before the request goes"],
+          ["Lienholder responds", "Call with the authorized ask; log the name, date and figures", "CMS → Notes → Case Notes · CMS → Liens", "Counter outside authority routed the same day"],
+          ["Reduction agreed", "Obtain the signed Payoff Letter; update the Lien Tracker and Net Sheet", "CMS → Settlement (BI/UM)", "Full-and-final language on file"]
         ],
         best: [
           "Paper first, phone second.",
@@ -6696,7 +6696,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "It is 10/09/2026. Peach State has accepted $1,240.00 in writing. Riverton Spine & Rehab's final LOP ledger shows 34 lines × $185.00 = $6,290.00 for chiropractic and PT 02/24–06/05/2026. Atty. Thorne has set a target for Riverton in writing; the Reduction Request is yours to draft for his approval. No lien can be paid until it is resolved in writing.",
           prompt: "Audit Riverton Spine & Rehab's ledger against the visit records and request a written correction before asking for anything. Draft the Reduction Request for Atty. Thorne's approval, send it once approved, then make the follow-up call to the billing manager in the Call Simulator inside his written authority: state the audited balance, the coverage-capped recovery and the math, and ask for payment in full in the interest of global resolution. The manager agrees to $4,580.00 on the call. The graded call: what you say next, and what must exist before that figure is final and the Net Sheet shows $20,359.92.",
-          tool: "Call Simulator → AI Billing Manager: Riverton Spine & Rehab · Email Workspace · CMS → Financial Ledger → Net Sheet → Lien Tracker",
+          tool: "Call Simulator → AI Billing Manager: Riverton Spine & Rehab · Email Workspace · CMS → Settlement (BI/UM) → Medical Liens / Payoffs",
           output: "An audited Riverton balance of $6,105.00, an approved written request and a logged call, a signed Payoff Letter accepting $4,580.00 dated 10/12/2026, and a recomputed Net Sheet.",
           checkpoints: [
             "Ledger audited line by line: 34 billed lines against 33 documented visits (16 from 02/24 to 04/02/2026, 17 from 04/21 to 06/05/2026)",
@@ -6714,8 +6714,8 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Final LOP ledger received", "Audit it and request the written correction", "Medical Records Requests · Email Workspace", "$6,105.00 confirmed in writing before any reduction is asked"],
-          ["Request approved and sent", "Make the follow-up call and log it", "Call Simulator → AI Billing Manager: Riverton Spine & Rehab · CMS → Communications Log", "Call logged with the ask and the answer; no figure accepted on the call"],
-          ["Provider agrees to a figure", "Route it for approval, obtain the signed Payoff Letter, update both tabs", "CMS → Tasks → Escalate · CMS → Financial Ledger → Net Sheet", "Payoff Letter on file; net $20,359.92"]
+          ["Request approved and sent", "Make the follow-up call and log it", "Call Simulator → AI Billing Manager: Riverton Spine & Rehab · CMS → Notes → Case Notes", "Call logged with the ask and the answer; no figure accepted on the call"],
+          ["Provider agrees to a figure", "Route it for approval, obtain the signed Payoff Letter, update both tabs", "CMS → Tasks → + Add Task · CMS → Settlement (BI/UM)", "Payoff Letter on file; net $20,359.92"]
         ],
         best: [
           "Script the call before you dial: the audited balance, the recovery, the math, the ask.",
@@ -6878,10 +6878,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Each settlement check received", "Post it to its stream with carrier and check reference", "CMS → Financial Ledger → Net Sheet → Recovery Ledger", "BI $10,000.00 · UM $20,000.00 + $10,000.00 · total $40,000.00"],
-          ["Cost incurred", "Attach the receipt and post it once", "CMS → Financial Ledger → Net Sheet → Recovery Ledger", "Five receipts = $486.75; no cost charged to both streams in full"],
-          ["Lien reduction accepted", "Record asserted, audited and reduced figures and the Payoff Letter", "CMS → Financial Ledger → Net Sheet → Lien Tracker", "Peach State $1,240.00 · Riverton Spine & Rehab $4,580.00 · letters dated"],
-          ["Both tabs complete", "Tie the Net Sheet to the Trust Ledger and route it to Atty. Thorne", "CMS → Financial Ledger → Trust · CMS → Tasks → Escalate", "Net $20,359.92 on both; routed before John Doe sees it"]
+          ["Each settlement check received", "Post it to its stream with carrier and check reference", "CMS → Settlement (BI/UM) → Gross Settlement", "BI $10,000.00 · UM $20,000.00 + $10,000.00 · total $40,000.00"],
+          ["Cost incurred", "Attach the receipt and post it once", "CMS → Settlement (BI/UM) → Gross Settlement", "Five receipts = $486.75; no cost charged to both streams in full"],
+          ["Lien reduction accepted", "Record asserted, audited and reduced figures and the Payoff Letter", "CMS → Settlement (BI/UM) → Medical Liens / Payoffs", "Peach State $1,240.00 · Riverton Spine & Rehab $4,580.00 · letters dated"],
+          ["Both tabs complete", "Tie the Net Sheet to the Trust Ledger and route it to Atty. Thorne", "CMS → Settlement (BI/UM) → Check Received / Disbursed · CMS → Tasks → + Add Task", "Net $20,359.92 on both; routed before John Doe sees it"]
         ],
         best: [
           "One Net Sheet, two clearly separated streams.",
@@ -6924,7 +6924,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 10/13/2026. Cardinal State's $10,000 check arrived today, joining Keystone's (received 09/04) and Harbor Point's (10/05) in the IOLTA trust account, each deposited only after its release was signed (Keystone 08/28; each UM release before its check): $40,000.00 received; the last check has not cleared. Peach State accepted $1,240.00 on 10/09 and Riverton Spine & Rehab accepted $4,580.00 on 10/12; both written acceptances are in Documents. Costs stand at $486.75. Both Net Sheet tabs are half-built from the demand phase.",
           prompt: "Complete John Doe's Net Sheet in both tabs. Recovery Ledger: each check by carrier and stream, the 33⅓% fee per stream, the five receipted costs, and costs and liens split 25% / 75%, down to the net per stream and in total. Lien Tracker: every provider and payer with charges, payments, adjustments and balance owed, then each lien's asserted, audited and reduced figure, the basis of each reduction and its payoff-letter status. Tie both tabs to the Trust Ledger. Graded judgment: what stays off the payables, and what you flag for Atty. Thorne before John signs.",
-          tool: "CMS → Financial Ledger → Net Sheet (Recovery Ledger · Lien Tracker)",
+          tool: "CMS → Settlement (BI/UM) → Gross Settlement · Medical Liens / Payoffs",
           output: "A two-tab Net Sheet that reaches $20,359.92 down both streams and across the total, with every lien figure proved and routed to Atty. Thorne.",
           checkpoints: [
             "Gross by check: Keystone $10,000.00 to Stream 1; Harbor Point $20,000.00 + Cardinal State $10,000.00 = $30,000.00 to Stream 2",
@@ -6941,9 +6941,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Last UM check received (10/13/2026)", "Post the deposit and complete the Recovery Ledger by stream", "CMS → Financial Ledger → Net Sheet → Recovery Ledger", "Streams $10,000.00 / $30,000.00; net $20,359.92"],
-          ["Lien reduction accepted in writing", "Complete the Lien Tracker row and log the Payoff Letter", "CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Documents", "Peach State $1,240.00 (10/09); Riverton Spine & Rehab $4,580.00 (10/12)"],
-          ["Both tabs tie to the Trust Ledger", "Route the draft Settlement Statement with the future-medical flag", "CMS → Tasks → Escalate", "Routed to Atty. Thorne before John Doe sees the statement"]
+          ["Last UM check received (10/13/2026)", "Post the deposit and complete the Recovery Ledger by stream", "CMS → Settlement (BI/UM) → Gross Settlement", "Streams $10,000.00 / $30,000.00; net $20,359.92"],
+          ["Lien reduction accepted in writing", "Complete the Lien Tracker row and log the Payoff Letter", "CMS → Settlement (BI/UM) → Medical Liens / Payoffs · CMS → Doc Hub", "Peach State $1,240.00 (10/09); Riverton Spine & Rehab $4,580.00 (10/12)"],
+          ["Both tabs tie to the Trust Ledger", "Route the draft Settlement Statement with the future-medical flag", "CMS → Tasks → + Add Task", "Routed to Atty. Thorne before John Doe sees the statement"]
         ],
         best: [
           "Every reduction needs a named basis or an audit finding, written on its line.",
@@ -7008,9 +7008,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Settlement agreed or tendered", "Request the payee's W-9 the same day and send it with the signed release", "CMS → Documents → Outgoing", "W-9 travels with the release; no accounting hold on the check"],
-          ["Carrier's draft release arrives", "Audit parties, claims, indemnity, Medicare and confidentiality terms; route a redline memo", "CMS → Documents → Release audit · CMS → Tasks → Escalate", "Every over-broad line quoted and flagged before John Doe sees the draft"],
-          ["Settlement check received", "Confirm its release is signed, then deposit to IOLTA the same day and log the clearance date", "CMS → Financial Ledger → Trust", "Deposits 09/04, 10/05, 10/13 = $40,000.00; all funds cleared by 10/20"],
+          ["Settlement agreed or tendered", "Request the payee's W-9 the same day and send it with the signed release", "CMS → Doc Hub → Others", "W-9 travels with the release; no accounting hold on the check"],
+          ["Carrier's draft release arrives", "Audit parties, claims, indemnity, Medicare and confidentiality terms; route a redline memo", "CMS → Doc Hub → Case Files · CMS → Tasks → + Add Task", "Every over-broad line quoted and flagged before John Doe sees the draft"],
+          ["Settlement check received", "Confirm its release is signed, then deposit to IOLTA the same day and log the clearance date", "CMS → Settlement (BI/UM) → Check Received / Disbursed", "Deposits 09/04, 10/05, 10/13 = $40,000.00; all funds cleared by 10/20"],
           ["Suit pending at settlement (not on Track A)", "Prepare the stipulation of dismissal with prejudice for the attorneys' signatures", "Court E-Filing · CMS → Calendar", "“With prejudice” verified; court entry confirmed and docketed"]
         ],
         best: [
@@ -7096,25 +7096,25 @@ window.CM_CASE_FLOW = {
            [
              "Ledger at $0.00 (10/22/2026)",
              "Build the money trail: three deposits, five disbursements, confirmation numbers and the zero-balance report",
-             "CMS → Financial Ledger → Trust",
+             "CMS → Settlement (BI/UM) → Check Received / Disbursed",
              "Bank statement, trust journal and client ledger agree at $0.00 once all five checks clear"
            ],
            [
              "Satisfactions and John Doe's receipt returned",
              "File proof of delivery, the payer-disclosure statement and a current W-9; draft the closing letter",
-             "CMS → Documents · CMS → Documents → Outgoing",
+             "CMS → Doc Hub → Others",
              "All four sets present; letter signed by Atty. Thorne and sent before archive"
            ],
            [
              "Closing memo written (10/30/2026)",
              "Tag every document by type and docket each disposition date",
-             "CMS → Case Summary · CMS → Calendar",
+             "CMS → Profile → Case Narrative · CMS → Calendar",
              "Discrepancies explained; disposition review 7 years from closing"
            ],
            [
              "A bill arrives after the closing letter",
              "Verify and classify it, route it to Atty. Thorne, and tell John Doe the same day",
-             "CMS → Tasks → Escalate · Email Workspace",
+             "CMS → Tasks → + Add Task · Email Workspace",
              "Routed and John Doe told the day it arrives; correction request drafted"
            ]
          ],
@@ -7189,7 +7189,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 10/14/2026 (Wed). $40,000.00 is in trust; both liens are reduced in writing and disbursement is set for 10/22. Vance & Kettering Injury Law emails a notice of attorney's charging lien: retained 07/27/2026, it demands one-half of the fee, $6,666.67, asks the firm to hold the whole settlement, and wants the case manager to confirm the split by 10/16.",
           prompt: "Log the notice on receipt and route it to Atty. Thorne the same day; send nothing to Vance & Kettering. On his instruction, place a temporary administrative hold on the disputed $6,666.67 in the CMS and update the Action Plan. Then investigate the facts in the audit workbench: retrieve the fee agreement, compare its signatures with John Doe's, cross-reference its date against the firm's engagement milestones, and audit what work the firm claims against the record. Call John Doe in the Call Simulator to ask, without opinion, whether he ever retained the firm. Deliver an objective evidentiary packet to Atty. Thorne and archive every piece of correspondence in the CMS and Drive.",
-          tool: "Call Simulator → AI Client: John Doe · CMS → Communications Log · CMS → Financial Ledger → Trust · Action Plan Editor · CMS → Tasks → Escalate",
+          tool: "Call Simulator → AI Client: John Doe · CMS → Notes → Case Notes · CMS → Settlement (BI/UM) → Check Received / Disbursed · Action Plan Editor · CMS → Tasks → + Add Task",
           output: "A logged and routed notice, a $6,666.67 hold, an evidentiary packet on Atty. Thorne's desk, and the correspondence archived in the CMS and Drive.",
           checkpoints: [
             "Notice logged 10/14/2026 on receipt and routed to Atty. Thorne the same day; nothing sent to Vance & Kettering",
@@ -7204,9 +7204,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["A notice of charging lien arrives (10/14/2026)", "Log it on receipt; route to Atty. Thorne; on his instruction, hold the disputed amount", "CMS → Communications Log · CMS → Tasks → Escalate · CMS → Financial Ledger → Trust", "Routed the same day; $6,666.67 on hold; nothing sent to the claiming firm"],
-          ["Investigation (10/15/2026)", "Compare signatures, cross-reference dates, audit the work, take John Doe's account", "CMS → Documents · Call Simulator → AI Client: John Doe", "Each finding tied to a document on the file"],
-          ["Packet delivered", "Deliver the evidentiary packet; update the Action Plan; archive everything", "CMS → Tasks → Escalate · Action Plan Editor · CMS → Documents", "Atty. Thorne repudiates 10/16; withdrawal 10/19; hold released by him"]
+          ["A notice of charging lien arrives (10/14/2026)", "Log it on receipt; route to Atty. Thorne; on his instruction, hold the disputed amount", "CMS → Notes → Case Notes · CMS → Tasks → + Add Task · CMS → Settlement (BI/UM) → Check Received / Disbursed", "Routed the same day; $6,666.67 on hold; nothing sent to the claiming firm"],
+          ["Investigation (10/15/2026)", "Compare signatures, cross-reference dates, audit the work, take John Doe's account", "CMS → Doc Hub · Call Simulator → AI Client: John Doe", "Each finding tied to a document on the file"],
+          ["Packet delivered", "Deliver the evidentiary packet; update the Action Plan; archive everything", "CMS → Tasks → + Add Task · Action Plan Editor · CMS → Doc Hub", "Atty. Thorne repudiates 10/16; withdrawal 10/19; hold released by him"]
         ],
         best: [
           "Write the packet so Atty. Thorne could send it unedited: dates, documents, quotations, no adjectives.",
@@ -7242,7 +7242,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 10/21/2026. All three checks ($40,000.00) had cleared in the IOLTA trust account by 10/20 (the last, Cardinal State's, deposited 10/13); John Doe signed the Settlement Statement this morning; the Peach State and Riverton Spine & Rehab Payoff Letters are in Documents; Vance & Kettering withdrew its lien in writing on 10/19 and Atty. Thorne released the hold; disbursement is set for 10/22.",
           prompt: "Confirm every condition precedent against the documents: Keystone's executed Limited Release and both UM releases, cleared funds, the signed statement, the Payoff Letters, and the prior-attorney lien withdrawn with the hold released by Atty. Thorne. Then queue one disbursement command per Net Sheet line in the Trust Ledger for Atty. Thorne's approval, each matching its line, and show the ledger reaching $0.00.",
-          tool: "CMS → Documents · CMS → Financial Ledger → Trust",
+          tool: "CMS → Doc Hub · CMS → Settlement (BI/UM) → Check Received / Disbursed",
           output: "A confirmed checklist of conditions precedent and five approval-ready disbursement commands that take the Trust Ledger from $40,000.00 to $0.00.",
           checkpoints: [
             "Keystone's Limited Release executed 08/28/2026 on file (Smith and Keystone only, the UM claims and the Civic's claim reserved), with both UM consents and waivers",
@@ -7258,9 +7258,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Funds cleared (10/20) and statement signed (10/21)", "Confirm every condition precedent, the lien hold's release included", "CMS → Documents · CMS → Financial Ledger → Trust", "Each condition tied to its document; nothing assumed"],
-          ["Conditions confirmed", "Queue five disbursement commands with their packets", "CMS → Financial Ledger → Trust", "Commands total $40,000.00; ledger projects to $0.00"],
-          ["Atty. Thorne approves and signs (10/22/2026)", "Post each disbursement; request lien satisfactions and John Doe's receipt", "CMS → Financial Ledger → Trust · Email Workspace", "Ledger reads $0.00; file marked Paid only once receipt is confirmed"]
+          ["Funds cleared (10/20) and statement signed (10/21)", "Confirm every condition precedent, the lien hold's release included", "CMS → Doc Hub · CMS → Settlement (BI/UM) → Check Received / Disbursed", "Each condition tied to its document; nothing assumed"],
+          ["Conditions confirmed", "Queue five disbursement commands with their packets", "CMS → Settlement (BI/UM) → Check Received / Disbursed", "Commands total $40,000.00; ledger projects to $0.00"],
+          ["Atty. Thorne approves and signs (10/22/2026)", "Post each disbursement; request lien satisfactions and John Doe's receipt", "CMS → Settlement (BI/UM) → Check Received / Disbursed · Email Workspace", "Ledger reads $0.00; file marked Paid only once receipt is confirmed"]
         ],
         best: [
           "Tick each condition against its document, not against memory.",
@@ -7290,7 +7290,7 @@ window.CM_CASE_FLOW = {
         ]
       },
 
-        {"kind":"activity","id":"d4-drive","transition":"Track A's money is out. The liens are closed, and every paper that proves it belongs on the backup, in folders that are still there.","title":"Backup File Maintenance: Liens, Costs and a Missing Folder","topic":"Skill Activity — back up the lien and cost papers, and find and restore a deleted folder","visual":"The Doe-John folder tree with a dashed, empty gap where 06 Liens & Reimbursement should be, a red ✕ beside it and a red banner: 1 FOLDER MISSING. An orange 🔁 PUT THE MISSING FOLDERS BACK button restores it, and lien chips drop into it: PEACH STATE $1,240.00 ACCEPTED, RIVERTON LOP PAYOFF $4,580.00, PRIOR-ATTORNEY LIEN WITHDRAWN. Below, the cost ledger and the closing letter drop into 07 Wages & Costs.","act":{"scenario":"10/23/2026, 2:00 p.m. Track A disbursed on 10/22/2026, and the closing letter to John Doe goes out today. The lien file is complete: Peach State's written acceptance of $1,240.00 (10/09/2026), Riverton Spine & Rehab's LOP Payoff Letter at $4,580.00 (10/12/2026), and the Vance & Kettering charging lien with the firm's evidentiary packet, Atty. Thorne's repudiation and its withdrawal (10/13–10/19/2026). The firm's Case Cost Ledger stands at $486.75. A colleague tidying shared folders this week deleted a lien folder from a case backup; for this drill, delete 06 Liens & Reimbursement from your own Doe-John folder in Google Drive before you start.","prompt":"In Google Drive, delete 06 Liens & Reimbursement from Doe-John (the drill). Open 📂 My Backup Drive and run ✓ Check my drive: read what it reports missing and why that folder matters. Use 🔁 Put the missing folders back, then run ✓ Check my drive again until nothing is missing. Then back up the day's papers from 📁 Work From by filing them in the CMS: Peach State's reduction acceptance, Riverton Spine & Rehab's Payoff Letter and the three prior-attorney lien documents into 06 Liens & Reimbursement; the Case Cost Ledger and the closing letter into 07 Wages & Costs. Record in Case Notes which folder was missing, how you found it, what you restored, and what is now on the drive.","tool":"Backup Drive · CMS → Documents · CMS → Case Notes","output":"A drive check that found the missing folder, the folder put back, the lien and cost papers backed up in 06 and 07, and a clean final check recorded in Case Notes.","checkpoints":["✓ Check my drive run after the deletion, reporting 06 Liens & Reimbursement missing","🔁 Put the missing folders back used, and a second ✓ Check my drive with no folder missing","Peach State's acceptance, Riverton Spine & Rehab's Payoff Letter and the three prior-attorney lien documents in 06 Liens & Reimbursement","The Case Cost Ledger and the closing letter in 07 Wages & Costs","Every document filed in the CMS is on the drive","Case Notes: the missing folder, how it was found, what was restored, what is now backed up"]},"ops":[["A folder deleted from the backup","Run ✓ Check my drive","Backup Drive","The missing folder named"],["Folder reported missing","🔁 Put the missing folders back, then check again","Backup Drive","No folder missing"],["Liens resolved in writing","File the acceptances, payoff and lien papers","CMS → Documents","In 06 Liens & Reimbursement"],["Costs and closing letter final","File the cost ledger and closing letter","CMS → Documents","In 07 Wages & Costs"]],"best":["Run ✓ Check my drive before you file into a folder, not after; a copy sent to a deleted folder is lost.","A lien is only closed when its written acceptance or withdrawal is on the file and on the backup.","Pitfall: rebuilding a deleted folder by hand with a slightly different name, which the check will never match.","Pitfall: filing the prior-attorney lien papers with the fee documents in 01 Intake & Retainer."],"sources":["D1#12","D1#13","D3#21","LSH firm standard: backup drive folder hierarchy"],"rubric":{"ai":[["Missing folder found",12,"A drive check after the deletion names 06 Liens & Reimbursement"],["Folder restored",16,"Put back with 🔁, confirmed by a clean second check"],["Papers backed up",20,"Five lien documents in 06; cost ledger and closing letter in 07; backed up equals filed"],["File names",12,"Every file on the drive named by the firm's naming convention, and every folder named as the standard has it"]],"trainer":[["Recovery explained",25,"Case Note says what was missing, how it was found and what was restored"],["Lien-file completeness",15,"Can show each lien's written resolution on the drive"]]},"notes":["Delete a folder in your own demo drive first and show the room the red banner; then let them do the drill on theirs.","If a trainee recreates the folder by hand, have them run the check: a name one character off is still missing.","Ask: “Which document proves Vance & Kettering has no claim on the fee?” The withdrawal, in 06, on the backup."]},
+        {"kind":"activity","id":"d4-drive","transition":"Track A's money is out. The liens are closed, and every paper that proves it belongs on the backup, in folders that are still there.","title":"Backup File Maintenance: Liens, Costs and a Missing Folder","topic":"Skill Activity — back up the lien and cost papers, and find and restore a deleted folder","visual":"The Doe-John folder tree with a dashed, empty gap where 06 Liens & Reimbursement should be, a red ✕ beside it and a red banner: 1 FOLDER MISSING. An orange 🔁 PUT THE MISSING FOLDERS BACK button restores it, and lien chips drop into it: PEACH STATE $1,240.00 ACCEPTED, RIVERTON LOP PAYOFF $4,580.00, PRIOR-ATTORNEY LIEN WITHDRAWN. Below, the cost ledger and the closing letter drop into 07 Wages & Costs.","act":{"scenario":"10/23/2026, 2:00 p.m. Track A disbursed on 10/22/2026, and the closing letter to John Doe goes out today. The lien file is complete: Peach State's written acceptance of $1,240.00 (10/09/2026), Riverton Spine & Rehab's LOP Payoff Letter at $4,580.00 (10/12/2026), and the Vance & Kettering charging lien with the firm's evidentiary packet, Atty. Thorne's repudiation and its withdrawal (10/13–10/19/2026). The firm's Case Cost Ledger stands at $486.75. A colleague tidying shared folders this week deleted a lien folder from a case backup; for this drill, delete 06 Liens & Reimbursement from your own Doe-John folder in Google Drive before you start.","prompt":"In Google Drive, delete 06 Liens & Reimbursement from Doe-John (the drill). Open 📂 My Backup Drive and run ✓ Check my drive: read what it reports missing and why that folder matters. Use 🔁 Put the missing folders back, then run ✓ Check my drive again until nothing is missing. Then back up the day's papers from 📁 Work From by filing them in the CMS: Peach State's reduction acceptance, Riverton Spine & Rehab's Payoff Letter and the three prior-attorney lien documents into 06 Liens & Reimbursement; the Case Cost Ledger and the closing letter into 07 Wages & Costs. Record in Case Notes which folder was missing, how you found it, what you restored, and what is now on the drive.","tool":"Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes","output":"A drive check that found the missing folder, the folder put back, the lien and cost papers backed up in 06 and 07, and a clean final check recorded in Case Notes.","checkpoints":["✓ Check my drive run after the deletion, reporting 06 Liens & Reimbursement missing","🔁 Put the missing folders back used, and a second ✓ Check my drive with no folder missing","Peach State's acceptance, Riverton Spine & Rehab's Payoff Letter and the three prior-attorney lien documents in 06 Liens & Reimbursement","The Case Cost Ledger and the closing letter in 07 Wages & Costs","Every document filed in the CMS is on the drive","Case Notes: the missing folder, how it was found, what was restored, what is now backed up"]},"ops":[["A folder deleted from the backup","Run ✓ Check my drive","Backup Drive","The missing folder named"],["Folder reported missing","🔁 Put the missing folders back, then check again","Backup Drive","No folder missing"],["Liens resolved in writing","File the acceptances, payoff and lien papers","CMS → Doc Hub","In 06 Liens & Reimbursement"],["Costs and closing letter final","File the cost ledger and closing letter","CMS → Doc Hub","In 07 Wages & Costs"]],"best":["Run ✓ Check my drive before you file into a folder, not after; a copy sent to a deleted folder is lost.","A lien is only closed when its written acceptance or withdrawal is on the file and on the backup.","Pitfall: rebuilding a deleted folder by hand with a slightly different name, which the check will never match.","Pitfall: filing the prior-attorney lien papers with the fee documents in 01 Intake & Retainer."],"sources":["D1#12","D1#13","D3#21","LSH firm standard: backup drive folder hierarchy"],"rubric":{"ai":[["Missing folder found",12,"A drive check after the deletion names 06 Liens & Reimbursement"],["Folder restored",16,"Put back with 🔁, confirmed by a clean second check"],["Papers backed up",20,"Five lien documents in 06; cost ledger and closing letter in 07; backed up equals filed"],["File names",12,"Every file on the drive named by the firm's naming convention, and every folder named as the standard has it"]],"trainer":[["Recovery explained",25,"Case Note says what was missing, how it was found and what was restored"],["Lien-file completeness",15,"Can show each lien's written resolution on the drive"]]},"notes":["Delete a folder in your own demo drive first and show the room the red banner; then let them do the drill on theirs.","If a trainee recreates the folder by hand, have them run the check: a name one character off is still missing.","Ask: “Which document proves Vance & Kettering has no claim on the fee?” The withdrawal, in 06, on the backup."]},
 
       {
         kind: "check", id: "d3m4-kc",
@@ -7318,10 +7318,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Ledger at $0.00 (10/22/2026)", "Assemble the money trail: every check itemized with its transaction ID, and the zero-balance report", "CMS → Financial Ledger → Trust", "Bank statement, trust journal and client ledger agree at $0.00, only after all five checks clear"],
-          ["Satisfactions and receipt returned", "File proof of delivery, the payer-disclosure confirmation and a current W-9", "CMS → Documents", "All four sets present before archive"],
-          ["Disbursement posted and satisfactions in", "Draft the closing letter to John Doe for Atty. Thorne's signature: what was paid, to whom, and the satisfactions received", "CMS → Documents → Outgoing", "Signed by Atty. Thorne and sent before the file is archived"],
-          ["Closing memo written (10/30/2026)", "Tag every document by type and docket the disposition date", "CMS → Case Summary · CMS → Calendar", "Disposition review set 7 years from closing"]
+          ["Ledger at $0.00 (10/22/2026)", "Assemble the money trail: every check itemized with its transaction ID, and the zero-balance report", "CMS → Settlement (BI/UM) → Check Received / Disbursed", "Bank statement, trust journal and client ledger agree at $0.00, only after all five checks clear"],
+          ["Satisfactions and receipt returned", "File proof of delivery, the payer-disclosure confirmation and a current W-9", "CMS → Doc Hub", "All four sets present before archive"],
+          ["Disbursement posted and satisfactions in", "Draft the closing letter to John Doe for Atty. Thorne's signature: what was paid, to whom, and the satisfactions received", "CMS → Doc Hub → Others", "Signed by Atty. Thorne and sent before the file is archived"],
+          ["Closing memo written (10/30/2026)", "Tag every document by type and docket the disposition date", "CMS → Profile → Case Narrative · CMS → Calendar", "Disposition review set 7 years from closing"]
         ],
         best: [
           "The four sets before archive: the money trail (itemized checks, transaction IDs, zero balance); proof of delivery (John Doe's signed receipt, lien satisfactions); compliance and identity (a current W-9, not the intake copy, for any 1099 reporting; the payer-disclosure confirmation); the closing memo.",
@@ -7368,7 +7368,7 @@ window.CM_CASE_FLOW = {
   {
     n: 4, id: 14,
     title: "Case Flow Day 4 · Mediation & Arbitration",
-    phase: "Mediation & arbitration",
+    phase: "Mediation & Arbitration",
     objective: "Where the file does not settle (Track B), run the alternative dispute resolution side: the neutral and how one is picked, the mediation and arbitration rules and hard dates, the UPL line at hearings, the mediation and arbitration binders, and the bottlenecks that stall them.",
     gate: "ADR: hard-rule calendar set for the mediation and the arbitration · ADR rules matrix complete · Mediation Binder and arbitration exhibits assembled · the bottleneck countermeasures set in the CMS",
     discussion: "Track B: the mediation is set for 03/18/2027. Opposing counsel's paralegal calls to ask what number John Doe will take. What may you say, and what goes to Atty. Thorne the same day?",
@@ -7443,9 +7443,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Offer repeated or a demand deadline passes unaccepted", "Log the trigger with its date and proof", "CMS → Communications Log", "Every trigger dated and tied to a document"],
-          ["Follow-ups unanswered", "Escalate to the adjuster's supervisor; send no new number", "Email Workspace · CMS → Communications Log", "Escalation dated; asks for Keystone's written position and evidence; restates no offer and reopens no deadline unless Atty. Thorne approved the wording"],
-          ["Escalation window closes unanswered", "Assemble the impasse record and the filing inputs for counsel", "CMS → Tasks → Escalate", "Routed to Atty. Thorne with the SOL and internal dates"]
+          ["Offer repeated or a demand deadline passes unaccepted", "Log the trigger with its date and proof", "CMS → Notes → Case Notes", "Every trigger dated and tied to a document"],
+          ["Follow-ups unanswered", "Escalate to the adjuster's supervisor; send no new number", "Email Workspace · CMS → Notes → Case Notes", "Escalation dated; asks for Keystone's written position and evidence; restates no offer and reopens no deadline unless Atty. Thorne approved the wording"],
+          ["Escalation window closes unanswered", "Assemble the impasse record and the filing inputs for counsel", "CMS → Tasks → + Add Task", "Routed to Atty. Thorne with the SOL and internal dates"]
         ],
         best: [
           "Date every contact the day it happens; an impasse is proved by the record, not by memory.",
@@ -7485,7 +7485,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 09/08/2026, Track B. Keystone Mutual (Dana Whitfield, KM-26-440871) offered $3,500 on 08/05, citing the 14-Day Gap and a “degenerative” MRI. The 08/06 rebuttal changed nothing: on 08/12 Keystone called $3,500 “final”. The 07/20 Time-Limited Demand (acknowledged in writing 07/22) lapsed on 08/21. Follow-ups on 08/24 and 08/31 asked for a response and the evidence Keystone relies on; neither was answered. The 48-Hour Mandate escalation to Keystone's claims supervisor on 09/02 drew nothing by 09/04. Harbor Point and Cardinal State are waiting on BI. The 08/06 rebuttal sent Dr. Helen Park's MRI read (“no significant degenerative change at the adjacent levels”), Dr. Reyes's 06/19/2026 Causation Letter, the EMS report and the Gap Explanation Record. Documented specials: $14,817.40 medical + $1,584.00 lost wages. SOL 02/06/2028 (a Sunday); firm internal hard date 02/04/2028; internal filing cutoff 11/05/2027.",
           prompt: "Draft the impasse memo to Atty. Elijah Thorne. Build a dated chronology of every event from the 07/20/2026 demand to 09/04, each tied to its proof in the Communications Log. State Keystone's grounds and the rebuttal evidence it has not answered. Show the frozen stack layer by layer with the documented Specials, then the SOL and internal dates. End with the decision you need from him, framed as questions. Graded judgment: the memo documents and asks; it recommends nothing legal, because filing is his decision.",
-          tool: "CMS → Documents → Memo · CMS → Communications Log · CMS → Tasks → Escalate",
+          tool: "CMS → Doc Hub → Case Files · CMS → Notes → Case Notes · CMS → Tasks → + Add Task",
           output: "A dated, sourced impasse memo routed to Atty. Thorne, asking for a decision and recommending none.",
           checkpoints: [
             "Chronology complete and in order: 07/20 demand (acknowledged in writing 07/22), 08/05 offer $3,500, 08/06 rebuttal, 08/12 “final”, 08/21 lapse, 08/24 and 08/31 follow-ups, 09/02 escalation, 09/04 no response",
@@ -7501,9 +7501,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["09/04/2026: the 48-Hour Mandate window (09/02 → 09/04) closes unanswered", "Stop waiting: open the escalation task to Atty. Thorne; pull every contact and verify each date against its proof", "CMS → Communications Log", "Nine events, 07/20 to 09/04, each matched to a receipt, email or log entry"],
-          ["Chronology verified", "Draft the memo: record, grounds, frozen stack, clock, decision requested", "CMS → Documents → Memo", "All three layers shown; SOL and internal dates correct"],
-          ["Memo complete", "Route it to Atty. Thorne for decision", "CMS → Tasks → Escalate", "Routed Tue 09/08/2026, the first business day after Labor Day; no recommendation in the text"]
+          ["09/04/2026: the 48-Hour Mandate window (09/02 → 09/04) closes unanswered", "Stop waiting: open the escalation task to Atty. Thorne; pull every contact and verify each date against its proof", "CMS → Notes → Case Notes", "Nine events, 07/20 to 09/04, each matched to a receipt, email or log entry"],
+          ["Chronology verified", "Draft the memo: record, grounds, frozen stack, clock, decision requested", "CMS → Doc Hub → Case Files", "All three layers shown; SOL and internal dates correct"],
+          ["Memo complete", "Route it to Atty. Thorne for decision", "CMS → Tasks → + Add Task", "Routed Tue 09/08/2026, the first business day after Labor Day; no recommendation in the text"]
         ],
         best: [
           "Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).",
@@ -7568,10 +7568,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Atty. Thorne authorizes suit", "Change status and open the court fields", "CMS → Case Summary · CMS → Litigation", "Status change cites the dated authorization; case number “Pending”"],
-          ["Status changed", "Build the master directory and the five sub-folders", "CMS → Documents → Litigation folders", "All five sub-folders, named to the standard"],
+          ["Atty. Thorne authorizes suit", "Change status and open the court fields", "CMS → Profile → Case Narrative · CMS → Litigation", "Status change cites the dated authorization; case number “Pending”"],
+          ["Status changed", "Build the master directory and the five sub-folders", "CMS → Doc Hub → Litigation Documents", "All five sub-folders, named to the standard"],
           ["Folders built", "Seed the Litigation Calendar with 48-hour audits", "CMS → Calendar · Court E-Filing", "SOL, internal hard date, cutoff and audits all on the calendar"],
-          ["A panel list or proposed neutral arrives", "Pull resumes and prior-award history for Atty. Thorne; docket any strike deadline", "CMS → Litigation → ADR · CMS → Calendar", "Deadline docketed the day the list arrives; strikes approved by counsel"]
+          ["A panel list or proposed neutral arrives", "Pull resumes and prior-award history for Atty. Thorne; docket any strike deadline", "CMS → ADR · CMS → Calendar", "Deadline docketed the day the list arrives; strikes approved by counsel"]
         ],
         best: [
           "Change status, fields, folders and calendar in one sitting, as soon as the authorization is on file.",
@@ -7612,7 +7612,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 09/10/2026, Track B. On 09/09 Atty. Thorne authorized suit against Robert Smith in the State Court of Riverton County, set a filing target of 09/24/2026, and discussed the fee tier with John Doe (33⅓% pre-suit, 40% once suit is filed, per the retainer). He directs notice of the impasse and the intended suit to Harbor Point (Marcus Bell, HP-26-7741) and Cardinal State (Teresa Okafor, CS-26-20355). Harbor Point's UM policy has an arbitration clause. The doorbell video copy was secured 02/19/2026; the 2020 Ford Escape is Kevin Alvarez's. SOL 02/06/2028; internal dates 02/04/2028 and 11/05/2027.",
           prompt: "Transition John Doe's file to Litigation in the CMS. Set the status on the 09/09 authorization; open the court fields without guessing a case number; record the fee tier exactly as the retainer sets it; build the five litigation folders to the firm standard; draft both UM notices and the preservation requests (doorbell video, the Escape's event data recorder) for his approval; open the ADR fields; seed the Litigation Calendar with 48-hour audits. Graded judgment: what the UM notices may and may not say.",
-          tool: "CMS → Case Summary · CMS → Litigation · CMS → Documents → Outgoing · CMS → Calendar",
+          tool: "CMS → Profile → Case Narrative · CMS → Litigation · CMS → Doc Hub → Others · CMS → Calendar",
           output: "A file in Litigation status with every field, folder, notice, preservation step and calendar date set on Atty. Thorne's authority.",
           checkpoints: [
             "Status → Litigation dated 09/10/2026, citing Atty. Thorne's 09/09/2026 authorization",
@@ -7629,9 +7629,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["09/09/2026: suit authorized; fee tier discussed with John Doe", "Change status and court fields; note the fee tier", "CMS → Case Summary · CMS → Financial Ledger → Fee tier", "Litigation dated 09/10/2026; 40% effective on filing"],
-          ["Status changed", "Build the folders; draft UM notices and preservation letters for approval", "CMS → Documents → Outgoing", "Drafts routed before sending; no UM figure"],
-          ["Approvals received", "Send as directed; seed the Litigation Calendar", "CMS → Communications Log · CMS → Calendar", "Delivery logged; filing target, audit and SOL dates on the calendar"]
+          ["09/09/2026: suit authorized; fee tier discussed with John Doe", "Change status and court fields; note the fee tier", "CMS → Profile → Case Narrative · CMS → Settlement (BI/UM) → Attorney Fee %", "Litigation dated 09/10/2026; 40% effective on filing"],
+          ["Status changed", "Build the folders; draft UM notices and preservation letters for approval", "CMS → Doc Hub → Others", "Drafts routed before sending; no UM figure"],
+          ["Approvals received", "Send as directed; seed the Litigation Calendar", "CMS → Notes → Case Notes · CMS → Calendar", "Delivery logged; filing target, audit and SOL dates on the calendar"]
         ],
         best: [
           "Say the authority aloud with each change: who approved it, and when.",
@@ -7672,7 +7672,7 @@ window.CM_CASE_FLOW = {
          act: {
            scenario: "File date 09/22/2026, Track B. The file went to Litigation status on 09/10/2026 on Atty. Thorne's 09/09 authorization; the filing target is 09/24/2026 and today is its 48-hour audit. This morning Atty. Thorne approved his Complaint for John Doe VS Robert Smith in the State Court of Riverton County: negligence and negligence per se; medical Specials, lost wages, future medical and pain and suffering; jury demanded; Smith at 118 Larkspur Ln, Riverton. The CMS also holds his 09/15/2026 draft, stamped NOT FOR FILING, unsigned, with no case number. The civil cover sheet and summons have not been drafted. The fee tier moves from 33⅓% to 40% on the filing date (per the retainer). Pre-suit costs on the ledger: $486.75. Atty. Thorne's 09/10 question on notifying the UM carriers of the filed Complaint is still open.",
            prompt: "Tag the Litigation Desk paralegal, Nadia Brooks, with a CMS task precise enough to need no follow-up question: which documents, from which approved Complaint, due when, routed to Atty. Thorne for signature. After he signs on 09/23, submit the e-filing envelope in Court E-Filing on 09/24 (caption, court, case type, filing attorney, document types, filing fee), and check every page is signed before it goes in. Record the accepted filing: the civil action number, the filing date, the stamped Complaint, the issued summons and the Notice of Case Management Conference in 01_PLEADINGS, the fee receipt to the costs ledger. Then calendar from the filing: the service deadline with warning alerts, the hand-off to Allied Process Services, the Case Management Conference with Atty. Thorne as attendee, and the answer deadline held until service. Graded judgment: which date can be calendared today and which cannot.",
-           tool: "CMS → Tasks · Court E-Filing · CMS → Litigation → Pleadings Log · CMS → Documents · CMS → Financial Ledger · CMS → Calendar · Court E-Filing",
+           tool: "CMS → Tasks · Court E-Filing · CMS → Litigation → Discovery & Filing Tracker · CMS → Doc Hub · CMS → Case Costs · CMS → Calendar · Court E-Filing",
            output: "A signed filing set e-filed and accepted as No. 26-CV-04417, recorded in the CMS, and a calendar that runs from the 09/24/2026 filing date.",
            checkpoints: [
              "CMS task to Nadia Brooks dated 09/22/2026: civil cover sheet and summons, built from the Complaint Atty. Thorne approved that morning (not the 09/15/2026 draft), due end of day 09/22/2026, routed to Atty. Thorne for signature",
@@ -7705,7 +7705,7 @@ window.CM_CASE_FLOW = {
            [
              "Envelope accepted, 09/24/2026",
              "Record the number, the documents and the fee",
-             "CMS → Litigation → Pleadings Log · CMS → Documents · CMS → Financial Ledger",
+             "CMS → Litigation → Discovery & Filing Tracker · CMS → Doc Hub · CMS → Case Costs",
              "26-CV-04417 entered; three PDFs in 01_PLEADINGS; costs $704.75"
            ],
            [
@@ -7909,7 +7909,7 @@ window.CM_CASE_FLOW = {
           ["Scheduling Order entered 12/10/2026", "Enter every date with its trigger, rule, owner and alerts; read each verb", "Court E-Filing", "All six order dates entered that day; “completed by” entered as a deadline"],
           ["Discovery served by mail 12/01/2026", "Count 30 + 3, move the Sunday forward, enter the RFAs separately", "Case Docket & Calendar Conflict Resolver", "Responses and RFAs both at 01/04/2027; deemed-admitted flag set"],
           ["SOL review", "Set the internal hard date and the internal filing cutoff", "CMS → Calendar", "02/04/2028 and 11/05/2027 docketed; nothing relies on 02/06/2028"],
-          ["Arbitration invoked 04/05/2027", "Hard-code the hearing, exhibit-exchange and brief dates", "CMS → Calendar → Master calendar", "06/02, 06/11 and 06/22/2027 entered with alerts the same day"]
+          ["Arbitration invoked 04/05/2027", "Hard-code the hearing, exhibit-exchange and brief dates", "CMS → 📅 Firm Calendar", "06/02, 06/11 and 06/22/2027 entered with alerts the same day"]
         ],
         best: [
           "Record the trigger, the rule and the arithmetic on every entry, so anyone can re-check it.",
@@ -7948,7 +7948,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "It is 12/10/2026. The Scheduling Order in No. 26-CV-04417 was entered today. The defendant's Interrogatories (25), Requests for Production (30) and Requests for Admission (15), served on his counsel, Atty. Thorne, by U.S. mail on 12/01/2026, are in the file. The order reads: plaintiff's expert disclosure 03/15/2027; defense expert disclosure 04/15/2027; mediation to be completed by 03/31/2027; discovery closes 05/28/2027; pretrial conference 08/12/2027; trial calendar 09/13/2027. While you were out, a covering colleague re-keyed the calendar from the paper file instead of carrying over the 09/10/2026 transition entries: unverified; no alerts.",
           prompt: "Audit John Doe's calendar in the Case Docket & Calendar Conflict Resolver against the 12/10/2026 Scheduling Order, the discovery mailed 12/01/2026 and the 02/06/2028 SOL. Recompute every entry from its trigger document: trigger day out, 3 mail days in, forward counts to the next business day, backward to the earlier. Correct errors, add missing entries, leave correct ones alone. Give every entry its trigger, rule, arithmetic, owner and alerts. Mirror every corrected entry to John Doe's CMS Calendar. Rank errors by risk; log the corrections in CMS Case Notes and route them to Atty. Thorne.",
-          tool: "Case Docket & Calendar Conflict Resolver · Court E-Filing · CMS → Calendar · Case Notes",
+          tool: "Case Docket & Calendar Conflict Resolver · Court E-Filing · CMS → Calendar · Notes → Case Notes",
           output: "A verified Litigation Calendar with every planted error corrected, the missing entries added, and a ranked correction log routed to Atty. Thorne.",
           checkpoints: [
             "Responses corrected to 01/04/2027 (Mon): 12/01/2026 + 30 = 12/31/2026, + 3 for mail = 01/03/2027, a Sunday → next business day",
@@ -7982,7 +7982,7 @@ window.CM_CASE_FLOW = {
         ops: [
           ["Scheduling Order entered 12/10/2026", "Audit every entry against its trigger document", "Case Docket & Calendar Conflict Resolver", "Every planted error found; correct entries untouched"],
           ["Errors corrected", "Give each entry its trigger, rule, owner and alerts", "Court E-Filing", "No entry without a trigger document and alerts"],
-          ["Audit complete", "Route the ranked correction log, rule questions flagged", "CMS → Tasks → Escalate", "Routed to Atty. Thorne the same day"]
+          ["Audit complete", "Route the ranked correction log, rule questions flagged", "CMS → Tasks → + Add Task", "Routed to Atty. Thorne the same day"]
         ],
         best: [
           "Recompute from the trigger document, never from the entry you are checking.",
@@ -8020,7 +8020,7 @@ window.CM_CASE_FLOW = {
          act: {
            scenario: "File date 01/08/2027 (Fri), Track B. Today the Notice of Mediation was filed in No. 26-CV-04417: court-ordered mediation before Hon. Carla Benton (Ret.), selected by Atty. Thorne from the four windows collected 12/17/2026, on 03/18/2027 (Thu) at 9:30 a.m. at her office. The confidential statement and binder are due 7 days before; client attendance is required. The Order of Referral entered 12/10/2026 with the Scheduling Order requires mediation completed by 03/31/2027, a notice of the mediator and session date within 30 days, attendance by each party, lead counsel and an insurer's representative with full authority to settle, the mediator's report within 7 days after the session, and the mediator's fees divided equally between the sides; the plaintiff's half is $1,200.00. The 12/10/2026 calendar audit already entered “completed by 03/31/2027” and a task to collect the windows. Harbor Point's and Cardinal State's policies each require their written consent before any settlement with Keystone. On the master calendar: Robert Smith's responses to our discovery due 01/13/2027; plaintiff's expert disclosure 03/15/2027; discovery closes 05/28/2027.",
            prompt: "Calendar the mediation in the Calendaring Simulators and mirror every entry to John Doe's CMS → Calendar. Verify the trigger first: the notice against the order's 30-day selection rule, and the session date against the 03/31/2027 completion deadline, linking to the existing deadline and closing the windows task rather than re-entering either. Enter the session with its attendees and its location. Count the statement-and-binder deadline back from the session, then the internal dates back from that deadline, then the mediator's report forward from the session. Calendar the client's written confirmation, his prep meeting request and his reminders. Track the $1,200.00 fee as a case cost. Flag the UM carriers' consent-to-settle requirement for Atty. Thorne with the 30-day arithmetic. Conflict-check every new date against the master calendar and route the summary to Atty. Thorne the same day, ranking what needs his decision.",
-           tool: "Calendaring Simulators · CMS → Calendar · Court E-Filing · CMS → Tasks · CMS → Case Notes",
+           tool: "Calendaring Simulators · CMS → Calendar · Court E-Filing · CMS → Tasks · CMS → Notes → Case Notes",
            output: "A mediation calendar of verified, trigger-counted entries mirrored to the CMS, a cost task for the fee, a client-confirmation task, and a same-day summary to Atty. Thorne with the UM consent flag and the one conflict.",
            checkpoints: [
              "The trigger is verified: the Notice of Mediation filed 01/08/2027 (Fri) meets the order's 30-day rule (12/10/2026 + 30 = 01/09/2027, a Saturday); the 12/10/2026 windows task closed with the notice attached, not re-created",
@@ -8053,13 +8053,13 @@ window.CM_CASE_FLOW = {
            [
              "Order divides the mediator's fees equally",
              "Open the cost task for the plaintiff's $1,200.00 half",
-             "CMS → Tasks → Accounting",
+             "CMS → Tasks → + Add Task",
              "Posted to the Case Cost Ledger only on the receipted invoice"
            ],
            [
              "Calendar built",
              "Route the summary: the UM consent flag and the 03/15/2027 overlap",
-             "CMS → Tasks → Escalate",
+             "CMS → Tasks → + Add Task",
              "Routed to Atty. Thorne the same day"
            ]
          ],
@@ -8138,10 +8138,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["UM offers come back low (03/31 and 04/02/2027)", "Write the impasse memo; pull Harbor Point's and Cardinal State's dispute-resolution clauses from the certified policies", "CMS → Case Notes · CMS → Insurance tab → Coverage Matrix", "Memo to Atty. Thorne the same day, with both clauses attached and neither interpreted"],
-          ["Clauses and the governing statute in hand", "Lay the route options before Atty. Thorne as findings, with each layer's own filing or demand deadline as a question", "CMS → Tasks → Atty. Thorne", "Both layers presented separately; no route recommended; every deadline asked, not assumed"],
-          ["Route decided in writing", "Record it, set the case status and open the ADR entry", "CMS → ADR tab · CMS → Case Status", "ADR Type UM / UIM arbitration; How It Was Set Required by the policy or contract; status matches the route"],
-          ["Arbitration invoked 04/05/2027", "Docket the hearing and its backward-counted dates; tell John Doe what happens procedurally", "CMS → Calendar → Master calendar", "06/02, 06/11 and 06/22/2027 entered with alerts; John Doe told the date, place and what to bring, and nothing about value"]
+          ["UM offers come back low (03/31 and 04/02/2027)", "Write the impasse memo; pull Harbor Point's and Cardinal State's dispute-resolution clauses from the certified policies", "CMS → Notes → Case Notes · CMS → Insurance", "Memo to Atty. Thorne the same day, with both clauses attached and neither interpreted"],
+          ["Clauses and the governing statute in hand", "Lay the route options before Atty. Thorne as findings, with each layer's own filing or demand deadline as a question", "CMS → Tasks → + Add Task", "Both layers presented separately; no route recommended; every deadline asked, not assumed"],
+          ["Route decided in writing", "Record it, set the case status and open the ADR entry", "CMS → ADR · CMS → Case Status", "ADR Type UM / UIM arbitration; How It Was Set Required by the policy or contract; status matches the route"],
+          ["Arbitration invoked 04/05/2027", "Docket the hearing and its backward-counted dates; tell John Doe what happens procedurally", "CMS → 📅 Firm Calendar", "06/02, 06/11 and 06/22/2027 entered with alerts; John Doe told the date, place and what to bring, and nothing about value"]
         ],
         best: [
           "Say which kind of claim you are on before you say anything else about it: first party or third party decides everything that follows.",
@@ -8221,9 +8221,9 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Order requires mediation by 03/31/2027", "Collect 3–4 windows from Atty. Thorne, John Doe and opposing counsel, then contact the mediator's office", "Calendaring Simulators", "Windows logged before the mediator is contacted; session inside 03/31/2027"],
-          ["Opposing counsel rejects every window", "Log the pushback; escalate for an attorney-to-attorney call", "CMS → Tasks → Escalate", "Logged and escalated the same day"],
-          ["Arbitrator's fee schedule and retainer request received", "Confirm the schedule; route the retainer to accounting; send internal invites", "CMS → Tasks → Accounting · CMS → Calendar", "Payment confirmed in writing before the hearing"],
-          ["Directive from the bench", "Log it as given; calendar it; memo Atty. Thorne", "CMS → Case Notes · CMS → Calendar", "Directive dated and calendared the same day"]
+          ["Opposing counsel rejects every window", "Log the pushback; escalate for an attorney-to-attorney call", "CMS → Tasks → + Add Task", "Logged and escalated the same day"],
+          ["Arbitrator's fee schedule and retainer request received", "Confirm the schedule; route the retainer to accounting; send internal invites", "CMS → Tasks → + Add Task · CMS → Calendar", "Payment confirmed in writing before the hearing"],
+          ["Directive from the bench", "Log it as given; calendar it; memo Atty. Thorne", "CMS → Notes → Case Notes · CMS → Calendar", "Directive dated and calendared the same day"]
         ],
         best: [
           "Your hearing notes become Atty. Thorne's post-hearing roadmap.",
@@ -8292,8 +8292,8 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Arbitration invoked 04/05/2027", "Hard-code the hearing, exhibit-exchange and brief dates with alerts", "CMS → Calendar → Master calendar", "06/02, 06/11 and 06/22/2027 entered the same day; nothing on 06/14/2027"],
-          ["Arbitrator's fee schedule and retainer request received", "Confirm the schedule; route the retainer; file the payment confirmation", "CMS → Tasks → Accounting", "Written payment confirmation filed before the hearing"],
+          ["Arbitration invoked 04/05/2027", "Hard-code the hearing, exhibit-exchange and brief dates with alerts", "CMS → 📅 Firm Calendar", "06/02, 06/11 and 06/22/2027 entered the same day; nothing on 06/14/2027"],
+          ["Arbitrator's fee schedule and retainer request received", "Confirm the schedule; route the retainer; file the payment confirmation", "CMS → Tasks → + Add Task", "Written payment confirmation filed before the hearing"],
           ["Matrix and UPL map drafted", "Route to Atty. Thorne before the team works from them", "Action Plan Editor → Route for review", "Routed with timestamp; approved version recorded"]
         ],
         best: [
@@ -8366,13 +8366,13 @@ window.CM_CASE_FLOW = {
            [
              "Arbitrator's invoice for the plaintiff's share",
              "Route $900.00 to accounting as a case cost",
-             "CMS → Tasks → Accounting",
+             "CMS → Tasks → + Add Task",
              "Payment confirmation on file by 05/17/2027"
            ],
            [
              "Master calendar checked",
              "Ask Atty. Thorne which court dates stay live",
-             "CMS → Tasks → Escalate",
+             "CMS → Tasks → + Add Task",
              "Court entries kept and marked until he answers"
            ]
          ],
@@ -8420,7 +8420,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 04/05/2027, Track B. Keystone tendered its $10,000 BI limits at the 03/18/2027 mediation; both UM carriers consented in writing, the Limited Release was signed and Robert Smith was dismissed. The UM demands went out 03/22/2027. Harbor Point's Marcus Bell (HP-26-7741) offered $8,000 on 03/31/2027 against a $20,000 Host UM limit, calling the 14-Day Gap a causation problem. Cardinal State's Teresa Okafor (CS-26-20355) offered $6,000 on 04/02/2027 against a $10,000 Relative UM limit. Today both refuse to move. Harbor Point's UM policy contains a binding arbitration clause; Cardinal State's certified policy has been requested and has not arrived. The suit against Robert Smith, filed 09/24/2026, ended with his dismissal after the mediation; the tort SOL is 02/06/2028.",
           prompt: "Route the UM impasse. Write the impasse memo to Atty. Thorne: the offers against the limits, Harbor Point's stated reason, and the dispute-resolution clause of each layer quoted, not paraphrased, with Cardinal State's marked as outstanding. Lay out both resolution routes and what each would require operationally, and ask him, in writing, for the governing route on each layer, each layer's own suit or arbitration-demand deadline, and whether the two should be heard together. Then set up the CMS to carry the answer: the ADR entry, the case status, a task per open question, and the calendar entries you will make once he answers. Finally, draft what you will say to John Doe when he calls to ask what happens now.",
-          tool: "CMS → Case Notes · CMS → Insurance tab → Coverage Matrix · CMS → ADR tab · CMS → Tasks · CMS → Calendar",
+          tool: "CMS → Notes → Case Notes · CMS → Insurance · CMS → ADR · CMS → Tasks · CMS → Calendar",
           output: "An impasse memo with both clauses quoted and three written questions to Atty. Thorne, a CMS file that shows the route, and a procedural explanation for John Doe with no opinion in it.",
           checkpoints: [
             "Both claims named as first-party claims under John Doe's own contract, distinct from the Keystone third-party claim that closed at the 03/18/2027 mediation",
@@ -8437,10 +8437,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Both UM carriers hold at their offers, 04/05/2027", "Write the impasse memo with both clauses quoted", "CMS → Case Notes", "Memo dated 04/05/2027; Cardinal State's clause marked outstanding"],
+          ["Both UM carriers hold at their offers, 04/05/2027", "Write the impasse memo with both clauses quoted", "CMS → Notes → Case Notes", "Memo dated 04/05/2027; Cardinal State's clause marked outstanding"],
           ["Certified policy outstanding", "Chase it and log the request", "CMS → Tasks", "Chase task with an owner and a date; the gap stated in the memo, not filled in"],
           ["Questions sent to Atty. Thorne", "Hold every date; draft the entries without saving them", "CMS → Calendar", "Nothing docketed; the drafts wait on his written answer"],
-          ["John Doe calls to ask what happens now", "Explain the procedure; route value and conduct to Atty. Thorne", "CMS → Case Notes → Client Communications", "Call logged the same day with what was said and what was routed"]
+          ["John Doe calls to ask what happens now", "Explain the procedure; route value and conduct to Atty. Thorne", "CMS → Notes → Case Notes", "Call logged the same day with what was said and what was routed"]
         ],
         best: [
           "Quote the clause and stop; the memo's job is to put the words in front of counsel.",
@@ -8600,9 +8600,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Mediation set for 03/18/2027", "Open the master index and seat each document in one section", "CMS → Documents → Master index", "Every entry has section, exhibit number, Bates range and source"],
-          ["Pleadings and evidence indexed", "Check each defense pleaded in the answer against Sections 4 and 5", "CMS → Litigation → Pleadings Log", "Each pleaded defense has an answering exhibit, or a flag to Atty. Thorne"],
-          ["Binder assembled", "OCR, bookmark and QA against the index; route for approval", "CMS → Documents → Mediation Binder", "Text-searchable; approved, then delivered by 03/11/2027"]
+          ["Mediation set for 03/18/2027", "Open the master index and seat each document in one section", "CMS → Doc Hub → Case Files", "Every entry has section, exhibit number, Bates range and source"],
+          ["Pleadings and evidence indexed", "Check each defense pleaded in the answer against Sections 4 and 5", "CMS → Litigation → Discovery & Filing Tracker", "Each pleaded defense has an answering exhibit, or a flag to Atty. Thorne"],
+          ["Binder assembled", "OCR, bookmark and QA against the index; route for approval", "CMS → Doc Hub → Litigation Documents", "Text-searchable; approved, then delivered by 03/11/2027"]
         ],
         best: [
           "Start from the 07/20/2026 Demand Package: most of Sections 4 and 5 already exist there.",
@@ -8640,7 +8640,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "It is 03/04/2027 on Track B. John Doe was deposed on 02/18/2027 and the certified transcript is in the file. The confidential statement and binder are due to Hon. Carla Benton (Ret.) on 03/11/2027 for the 03/18/2027 mediation. The draft binder, built from the providers' original bills instead of the audited demand ledger, carries Riverton Spine & Rehab at $6,290.00 and lists Crescent Pain & Spine's $3,400.00 as an open balance, and Atty. Grant Mercer has written that Keystone “will not put a real number on the table” while the medical ledger is unverified. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027 (second request 02/22, red-flagged 03/01), is still outstanding. The Litigation Desk's draft index is in the file (RS62), assigned on the 07/15/2026 task log (RS64): QC it, do not rebuild it from nothing.",
           prompt: "Assemble the six-section Mediation Binder from the master index, starting from the 07/20/2026 Demand Package. Seat each document in one section with its exhibit number and Bates range, and map every allegation in the 11/12/2026 answer to the exhibit that answers it. Run the pre-mediation audit: rebuild the ledger from the certified bills in hand to $16,401.40, and cross-check each provider balance against what PIP and Peach State already paid. Add the Negotiation Log, a draft Limited Release and the UM consent requests, then route it all to Atty. Thorne before delivery.",
-          tool: "CMS → Documents → Mediation Binder · CMS → Documents → Master index · Medical Records Requests",
+          tool: "CMS → Doc Hub → Litigation Documents · CMS → Doc Hub → Case Files · Medical Records Requests",
           output: "A six-section, indexed, OCR-searchable Mediation Binder with an audited ledger, a lien summary and a short audit memo on both landmines, routed to Atty. Thorne and ready for delivery to the mediator by 03/11/2027.",
           checkpoints: [
             "Section 1: snapshot sheet with LSH-2026-MVA-770412, No. 26-CV-04417 and Atty. Grant Mercer's verified contacts; session 03/18/2027 before Hon. Carla Benton (Ret.), with start time and location (or video link) taken from the order; fee split read from the mediation order or stipulation, not assumed",
@@ -8657,9 +8657,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Binder due 03/11/2027", "Build the six sections from the master index", "CMS → Documents → Mediation Binder", "Every document in one section, numbered and Bates-ranged"],
+          ["Binder due 03/11/2027", "Build the six sections from the master index", "CMS → Doc Hub → Litigation Documents", "Every document in one section, numbered and Bates-ranged"],
           ["Opposing counsel calls the ledger unverified", "Chase the outstanding certified ledger and rebuild from what is certified", "Medical Records Requests", "Ledger ties to invoices and the Northgate HR letter: $14,817.40 + $1,584.00 = $16,401.40"],
-          ["Binder audited", "Route binder and statement to Atty. Thorne; deliver on approval", "CMS → Tasks → Escalate · Email Workspace", "Approved before delivery; delivery to the mediator logged by 03/11/2027"]
+          ["Binder audited", "Route binder and statement to Atty. Thorne; deliver on approval", "CMS → Tasks → + Add Task · Email Workspace", "Approved before delivery; delivery to the mediator logged by 03/11/2027"]
         ],
         best: [
           "Answer every pleaded defense with a page, not a sentence.",
@@ -8727,9 +8727,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Arbitration invoked 04/05/2027", "Open the claimant exhibit index and calendar the exchange and the brief", "CMS → Litigation → Exhibit index · Court E-Filing", "06/02/2027 exchange and 06/11/2027 brief on the calendar"],
+          ["Arbitration invoked 04/05/2027", "Open the claimant exhibit index and calendar the exchange and the brief", "CMS → Litigation → Discovery & Filing Tracker · Court E-Filing", "06/02/2027 exchange and 06/11/2027 brief on the calendar"],
           ["Provider records gathered", "Request each custodian's business-records certification", "Medical Records Requests", "One certification per provider covering every date exhibited"],
-          ["Exchange set assembled", "Route the set and every flagged item to Atty. Thorne", "CMS → Tasks → Escalate", "Approved before 06/02/2027; no privileged item in the set"]
+          ["Exchange set assembled", "Route the set and every flagged item to Atty. Thorne", "CMS → Tasks → + Add Task", "Approved before 06/02/2027; no privileged item in the set"]
         ],
         best: [
           "Build to the strict evidence standard even where the forum relaxes it.",
@@ -8822,19 +8822,19 @@ window.CM_CASE_FLOW = {
            [
              "Prior chart received",
              "Build the side-by-side comparison from the certified records, quoting their words",
-             "CMS → Litigation → Exhibit index",
+             "CMS → Litigation → Discovery & Filing Tracker",
              "Every cell cites a record and page"
            ],
            [
              "A history mismatch, or a Causation Letter silent on 2021",
              "Flag it to Atty. Thorne with the records attached; he decides on a supplemental declaration",
-             "CMS → Tasks → Escalate",
+             "CMS → Tasks → + Add Task",
              "Flag dated; no record or testimony altered"
            ],
            [
              "Tab 5 assembled",
              "Check every claimed harm against the dated treatment timeline; route the tab for approval",
-             "CMS → Case File → Treatment timeline",
+             "CMS → Treatment → Medical Chronology",
              "Approved before the 06/02/2027 exchange"
            ]
          ],
@@ -8926,9 +8926,9 @@ window.CM_CASE_FLOW = {
            ]
          },
          ops: [
-           ["MMI is declared", "Close the chronology and audit the Specials", "CMS → Medical · Net Sheet", "Every bill tied to a dated record"],
-           ["A gap or missed visit is on the record", "Pair it with its documented reason", "CMS → Case Notes · Gap Explanation Record", "No break left unanswered before the demand"],
-           ["The demand or a binder is assembled", "Map each claim to the record that proves it", "CMS → Documents (the packet built by hand)", "No figure or finding without its source"]
+           ["MMI is declared", "Close the chronology and audit the Specials", "CMS → Treatment · Net Sheet", "Every bill tied to a dated record"],
+           ["A gap or missed visit is on the record", "Pair it with its documented reason", "CMS → Notes → Case Notes · Gap Explanation Record", "No break left unanswered before the demand"],
+           ["The demand or a binder is assembled", "Map each claim to the record that proves it", "CMS → Doc Hub (the packet built by hand)", "No figure or finding without its source"]
          ],
          best: [
            "Watch treatment with the demand in mind: every visit is a future exhibit.",
@@ -8967,7 +8967,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "It is 05/17/2027. Keystone tendered the $10,000 BI limits at the 03/18/2027 mediation and Robert Smith was dismissed. On 04/05/2027 Harbor Point and Cardinal State disputed damages, citing the gap; Laura Whitcomb, Esq. hears the consolidated arbitration on 06/22/2027, with exhibits exchanged 06/02/2027. The unsorted exhibit folder holds a pre-filing draft of the Complaint, grayscale doorbell stills, the 09/08/2026 impasse memo, and a Lien Sheet listing Harbor Point PIP at $5,000.00 and Summit Imaging at $2,395.00. The Litigation Desk's draft exhibit index is in the file (RS63), assigned on the 07/15/2026 task log (RS64): QC it, do not rebuild it from nothing.",
           prompt: "Sort the folder into the six-tab Arbitration Binder and apply each tab's QC rule as you go. Lead with the BI exhaustion record, number every exhibit C-1 onward with its Bates range, and log each record's authentication. Defuse both landmines: build Tab 5's prior medical shield against the prior-injury line defense counsel pressed at the 02/18/2027 deposition (the 2021 low-back visits) and the “degenerative” MRI reading Keystone first raised on 08/05/2026, and strip the attorney's-set Lien Sheet to what is actually owed. Flag every privileged or settlement item for Atty. Thorne; nothing is exchanged until he approves the set.",
-          tool: "CMS → Litigation → Exhibit index · Medical Records Requests · CMS → Financial Ledger → Net Sheet → Lien Tracker",
+          tool: "CMS → Litigation → Discovery & Filing Tracker · Medical Records Requests · CMS → Settlement (BI/UM) → Medical Liens / Payoffs",
           output: "A six-tab, C-numbered, Bates-ranged Arbitration Binder with an authentication log, plus an audited Lien Sheet for the attorney's set, routed to Atty. Thorne for the 06/02/2027 exchange.",
           checkpoints: [
             "Tab 1: snapshot sheet (claimant John Doe; Harbor Point HP-26-7741, Cardinal State CS-26-20355, each carrier's current contact verified; arbitrator Laura Whitcomb, Esq.; hearing 06/22/2027); fee disclosures with retainer deposits confirmed paid; slot held for the final brief of 06/11/2027, never a draft",
@@ -8983,9 +8983,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Exchange on 06/02/2027, 16 days out", "Sort into six tabs, apply QC, number and Bates-range", "CMS → Litigation → Exhibit index", "C-1 onward; ranges match page counts; all four traps handled"],
-          ["Lien Sheet lists PIP and Summit Imaging", "Reconcile against the PIP payment log, Peach State's EOB and Harbor Point's 03/02/2026 letter", "CMS → Financial Ledger → Net Sheet → Lien Tracker", "Liens $1,860.00 + $6,105.00 = $7,965.00"],
-          ["Set audited", "Route the set and the flagged items to Atty. Thorne", "CMS → Tasks → Escalate", "Approved, then exchanged by 06/02/2027"]
+          ["Exchange on 06/02/2027, 16 days out", "Sort into six tabs, apply QC, number and Bates-range", "CMS → Litigation → Discovery & Filing Tracker", "C-1 onward; ranges match page counts; all four traps handled"],
+          ["Lien Sheet lists PIP and Summit Imaging", "Reconcile against the PIP payment log, Peach State's EOB and Harbor Point's 03/02/2026 letter", "CMS → Settlement (BI/UM) → Medical Liens / Payoffs", "Liens $1,860.00 + $6,105.00 = $7,965.00"],
+          ["Set audited", "Route the set and the flagged items to Atty. Thorne", "CMS → Tasks → + Add Task", "Approved, then exchanged by 06/02/2027"]
         ],
         best: [
           "Apply the QC rule the moment a document lands in its tab.",
@@ -9130,10 +9130,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["A follow-up goes unanswered", "Log it and date the next follow-up on the 5-business-day cadence", "CMS → Communications Log", "Date, time, method and outcome logged; next follow-up dated"],
-          ["The second follow-up goes unanswered", "Open a bottleneck entry: blocker, start date, hard date threatened", "CMS → Case File → Bottleneck Log", "Start date is the first unanswered request (Keystone: 08/24/2026)"],
+          ["A follow-up goes unanswered", "Log it and date the next follow-up on the 5-business-day cadence", "CMS → Notes → Case Notes", "Date, time, method and outcome logged; next follow-up dated"],
+          ["The second follow-up goes unanswered", "Open a bottleneck entry: blocker, start date, hard date threatened", "CMS → Notes → Case Notes", "Start date is the first unanswered request (Keystone: 08/24/2026)"],
           ["A proposed ADR date arrives", "Check it against every party's window and the hard-date calendar before anyone accepts it", "Case Docket & Calendar Conflict Resolver", "No mediation date after 03/31/2027 reaches Atty. Thorne as available"],
-          ["A binder or exhibit dependency is open 10 days out", "Red-flag it and tell Atty. Thorne", "CMS → Case File → Risk Flags", "Flag dated 03/01/2027 for the 03/11/2027 binder"]
+          ["A binder or exhibit dependency is open 10 days out", "Red-flag it and tell Atty. Thorne", "CMS → Notes → Case Notes", "Flag dated 03/01/2027 for the 03/11/2027 binder"]
         ],
         best: [
           "Anticipate and eliminate: a bottleneck found at the deadline was found too late.",
@@ -9172,7 +9172,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 02/22/2027 (Track B, in suit). Mediation with Hon. Carla Benton (Ret.) is 03/18/2027; the confidential statement and binder are due to her 03/11/2027. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027 for the binder, has not arrived. Keystone's representative and authority for the session are unconfirmed. Calibration record: Keystone follow-ups 08/24 and 08/31/2026 unanswered; supervisor escalation 09/02; silence on 09/04. The demand-stage audit holds Riverton at $6,105.00 (33 visits × $185.00); Peach State's EOB shows $1,860.00 paid on Crescent Pain & Spine's $3,400.00 bill.",
           prompt: "Configure four countermeasure rules in the CMS: (1) silence: follow-ups every 5 business days; 48 h after the second unanswered → supervisor; 48 h more → Atty. Thorne; (2) a record not received 14 days after request → second request and a subpoena flag for Atty. Thorne; (3) a hard date 10 days out with an open dependency → red flag; (4) the 48-Hour Mandate audit before every hard date, with its contents (ledger against EOBs, binder, OCR) and the fallback if a record is still missing. Calibrate Rule 1 on the Keystone record, then fire all four on the mediation calendar: date, action, owner. Graded: the dates, and what you own versus what is his.",
-          tool: "CMS → Tasks → Countermeasure rules · CMS → Calendar · CMS → Case File → Risk Flags",
+          tool: "CMS → Tasks → Action Item Log · CMS → Calendar · CMS → Notes → Case Notes",
           output: "Four configured rules, calibrated on the Keystone record, with every firing on the mediation calendar dated, actioned and owned.",
           checkpoints: [
             "Rule 1 set: follow-ups every 5 business days; supervisor escalation 48 hours after the second unanswered follow-up; Atty. Thorne 48 hours after an unanswered escalation",
@@ -9188,8 +9188,8 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["A request needs an answer", "Stamp it with its rule and response-due date", "CMS → Tasks → Countermeasure rules", "No open request without a rule and a due date"],
-          ["A rule fires", "Execute its action the same day and log it", "CMS → Tasks → Escalate · CMS → Communications Log", "Firing logged and its task opened the same day"],
+          ["A request needs an answer", "Stamp it with its rule and response-due date", "CMS → Tasks → Action Item Log", "No open request without a rule and a due date"],
+          ["A rule fires", "Execute its action the same day and log it", "CMS → Tasks → + Add Task · CMS → Notes → Case Notes", "Firing logged and its task opened the same day"],
           ["A hard date is docketed", "Attach the 10-day red-flag check and the 48-hour audit to it", "CMS → Calendar", "Both tasks present for 03/11/2027 and 03/18/2027"],
           ["Atty. Thorne issues a records subpoena", "Put it on a recurring 10-day compliance review", "CMS → Calendar", "Review recurs every 10 days until compliance is logged"]
         ],
@@ -9257,10 +9257,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Rung 1 unanswered on its cadence", "Send a written Notice of Delay to the supervisor or office manager", "Email Workspace · CMS → Communications Log", "Notice names the item, start date and hard date; date, time and method logged"],
-          ["Rung 2 unanswered for 48 hours", "Escalate to Atty. Thorne with the five-field report", "CMS → Tasks → Escalate", "All five fields complete; one ask per blocker"],
-          ["Weekly reporting day", "Send the Bottleneck Log with each item's age and days to its hard date", "CMS → Case File → Bottleneck Log", "No open item without an owner, an age and a hard date"],
-          ["A hard date arrives with the blocker open", "Prepare the filing or exchange with what you have, marked “Pending Final Verification”, for Atty. Thorne's sign-off, or confirm his extension, in the form the rule requires, is docketed", "CMS → Calendar · CMS → Documents → Outgoing", "Zero defaults: every hard date met or covered by an extension in the form the rule requires"]
+          ["Rung 1 unanswered on its cadence", "Send a written Notice of Delay to the supervisor or office manager", "Email Workspace · CMS → Notes → Case Notes", "Notice names the item, start date and hard date; date, time and method logged"],
+          ["Rung 2 unanswered for 48 hours", "Escalate to Atty. Thorne with the five-field report", "CMS → Tasks → + Add Task", "All five fields complete; one ask per blocker"],
+          ["Weekly reporting day", "Send the Bottleneck Log with each item's age and days to its hard date", "CMS → Notes → Case Notes", "No open item without an owner, an age and a hard date"],
+          ["A hard date arrives with the blocker open", "Prepare the filing or exchange with what you have, marked “Pending Final Verification”, for Atty. Thorne's sign-off, or confirm his extension, in the form the rule requires, is docketed", "CMS → Calendar · CMS → Doc Hub → Others", "Zero defaults: every hard date met or covered by an extension in the form the rule requires"]
         ],
         best: [
           "Climb one rung at a time and document each attempt.",
@@ -9296,16 +9296,16 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 2 — five problems, nine days, one order",
         visual: "A triage board fills the slide: five problem cards in a column on the left, each a cream card with an orange numbered badge and a mono pill for the hard date it threatens. The centre is a three-lane sequencing track — SEND TO ATTY. THORNE · FIX TODAY · VERIFY AT 48-HOUR AUDIT — that the trainee drags cards into, with slot numbers 1–5 along the top. Above the track, a red countdown chip: EXHIBIT EXCHANGE 06/02/2027 · 9 DAYS. Right edge, a slim white memo card titled BOTTLENECK REPORT fills field by field as escalated cards land. The argument: the easiest fix is rarely the first move.",
         act: {
-          scenario: "File date 05/24/2027 (Mon). Consolidated UM arbitration, Laura Whitcomb, Esq.: exhibit exchange 06/02/2027, brief 06/11/2027, hearing 06/22/2027. (1) Crescent Pain & Spine's certified records and bill for the 05/15/2026 injection: requested 05/05/2027; second request and subpoena flag 05/19; nothing received. (2) Dr. Reyes's declaration shielding the 2021 low-back visits: Lakeside says she is away until 06/01/2027. (3) Cardinal State (Teresa Okafor) has not confirmed the hearing format or exhibit-exchange method; Harbor Point confirmed 05/20; the Case Manager escalated to Okafor's supervisor in writing 05/21; no answer. CMS → Parties shows neither carrier has appeared through counsel in the arbitration. (4) Riverton Spine & Rehab's refreshed ledger (05/21) restores the 05/04/2026 duplicate: $6,290.00 against the audited $6,105.00. (5) The copy vendor's draft set prints the doorbell-video stills in grayscale; the PDFs are not OCR-searchable.",
+          scenario: "File date 05/24/2027 (Mon). Consolidated UM arbitration, Laura Whitcomb, Esq.: exhibit exchange 06/02/2027, brief 06/11/2027, hearing 06/22/2027. (1) Crescent Pain & Spine's certified records and bill for the 05/15/2026 injection: requested 05/05/2027; second request and subpoena flag 05/19; nothing received. (2) Dr. Reyes's declaration shielding the 2021 low-back visits: Lakeside says she is away until 06/01/2027. (3) Cardinal State (Teresa Okafor) has not confirmed the hearing format or exhibit-exchange method; Harbor Point confirmed 05/20; the Case Manager escalated to Okafor's supervisor in writing 05/21; no answer. CMS → Parties Involved shows neither carrier has appeared through counsel in the arbitration. (4) Riverton Spine & Rehab's refreshed ledger (05/21) restores the 05/04/2026 duplicate: $6,290.00 against the audited $6,105.00. (5) The copy vendor's draft set prints the doorbell-video stills in grayscale; the PDFs are not OCR-searchable.",
           prompt: "Triage all five problems in the CMS. For each, name the hard date it threatens, the rung it has reached and the countermeasure that applies. Sequence them: what goes to Atty. Thorne first, what you fix yourself today, what the 48-hour audit verifies and on which date. Then write one bottleneck report carrying every item that needs his decision, five fields and one ask each. Graded: the order and its reasons, the rung for each item, and keeping every legal choice with Atty. Thorne.",
-          tool: "Case Docket & Calendar Conflict Resolver · CMS → Case File → Bottleneck Log · CMS → Tasks → Escalate",
+          tool: "Case Docket & Calendar Conflict Resolver · CMS → Notes → Case Notes · CMS → Tasks → + Add Task",
           output: "A sequenced triage of all five problems and one five-field bottleneck report to Atty. Thorne, sent 05/24/2027.",
           checkpoints: [
             "Every item mapped to the 06/02/2027 exchange (05/24 + 9 days, inside the 10-day red-flag window); item 3 also to the 06/22/2027 hearing",
             "Items 1, 2 and 3 escalated first, in one report sent 05/24/2027, nearest hard date first: each needs Atty. Thorne's decision",
             "Item 1's ask leaves the route to him: with the bodily-injury claims against Robert Smith dismissed, a records subpoena for the arbitration would issue under the arbitration's rules, if they allow it; confirm with Atty. Thorne what, if anything, remains pending in No. 26-CV-04417. Item 1 also asks, as a question for his decision, whether to exchange the uncertified copies already on file marked “Pending Final Verification”",
             "Item 2 reported as a gap in the prior-medical shield (Dr. Reyes back 06/01/2027, one day before the 06/02/2027 exchange), with the options framed as questions",
-            "Before any rung on item 3, CMS → Parties checked: had either carrier appeared through counsel, logistics would go to that counsel as Atty. Thorne directs, and the ladder would run opposing counsel → Atty. Thorne",
+            "Before any rung on item 3, CMS → Parties Involved checked: had either carrier appeared through counsel, logistics would go to that counsel as Atty. Thorne directs, and the ladder would run opposing counsel → Atty. Thorne",
             "Item 3: the 48 hours after the 05/21/2027 (Fri) escalation ran out 05/23/2027, a Sunday, so it reaches Atty. Thorne today at Rung 3; no direct contact with the arbitrator",
             "Item 4 fixed at Rung 1 the same day: audit returned to Riverton's billing office; the exhibit set keeps $6,105.00 with the 05/04/2026 duplicate documented; medical Specials stay $14,817.40",
             "Item 5 fixed without escalation: stills reprinted in color, the digital set OCR-scanned, the index re-checked",
@@ -9316,8 +9316,8 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Several bottlenecks open at once", "Triage each by hard date, reversibility and owner", "Case Docket & Calendar Conflict Resolver", "Every item has a hard date, a rung and an owner"],
-          ["Items need counsel's decision", "Send one five-field report, nearest hard date first", "CMS → Tasks → Escalate", "Report sent 05/24/2027, the day the cluster is triaged"],
-          ["Items the Case Manager owns", "Fix and log them the same day; set the pre-exchange audit", "CMS → Documents · CMS → Calendar", "Ledger and exhibit-set fixes logged 05/24/2027; audit on the calendar for 05/28/2027"]
+          ["Items need counsel's decision", "Send one five-field report, nearest hard date first", "CMS → Tasks → + Add Task", "Report sent 05/24/2027, the day the cluster is triaged"],
+          ["Items the Case Manager owns", "Fix and log them the same day; set the pre-exchange audit", "CMS → Doc Hub · CMS → Calendar", "Ledger and exhibit-set fixes logged 05/24/2027; audit on the calendar for 05/28/2027"]
         ],
         best: [
           "Longest lead first: send what needs someone else's decision before you fix what you own.",
@@ -9485,9 +9485,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Atty. Thorne authorizes suit", "Verify the filing date against the SOL and Robert Smith's exact legal name and address before signature", "CMS → Litigation → Pleadings Log", "Filed 09/24/2026, inside the 02/04/2028 internal hard date; Robert Smith's legal name confirmed from an independent record (for example, the Declaration Page or property or DMV records), not the Police Report alone"],
-          ["Complaint filed", "File the stamped complaint in 01_PLEADINGS and log the filing", "CMS → Documents", "Filed the same day; no pre-lit correspondence in the sub-folders"],
-          ["A service attempt fails", "Log it; still unserved at day 14 (here 10/08/2026, the third failed attempt), escalate to Atty. Thorne for Skip-Trace authority with the attempt log attached, run it on his approval (result 10/09/2026), and send him the status update; alternative service is his call", "CMS → Tasks → Escalate", "Each attempt logged with date and address; status update dated"],
+          ["Atty. Thorne authorizes suit", "Verify the filing date against the SOL and Robert Smith's exact legal name and address before signature", "CMS → Litigation → Discovery & Filing Tracker", "Filed 09/24/2026, inside the 02/04/2028 internal hard date; Robert Smith's legal name confirmed from an independent record (for example, the Declaration Page or property or DMV records), not the Police Report alone"],
+          ["Complaint filed", "File the stamped complaint in 01_PLEADINGS and log the filing", "CMS → Doc Hub", "Filed the same day; no pre-lit correspondence in the sub-folders"],
+          ["A service attempt fails", "Log it; still unserved at day 14 (here 10/08/2026, the third failed attempt), escalate to Atty. Thorne for Skip-Trace authority with the attempt log attached, run it on his approval (result 10/09/2026), and send him the status update; alternative service is his call", "CMS → Tasks → + Add Task", "Each attempt logged with date and address; status update dated"],
           ["Discovery or RFAs land", "Calendar the response date with its arithmetic; alert Atty. Thorne the hour RFAs arrive", "CMS → Calendar · Court E-Filing", "Due date = trigger + 30 (+ 3 for mail), weekend rolled; RFA alert time-stamped"]
         ],
         best: [
@@ -9529,9 +9529,9 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 1 — repair the log before it costs the case",
         visual: "A CMS Pleadings Log screen fills the left two-thirds: a white card with a navy header bar and eight rows in mono type (Event · Trigger · Method · Due · Filed · Source). Three rows carry orange numbered badges in the left margin: ① a dashed empty slot where the affidavit-of-service row should be; ② a due date, 12/31/2026, struck through in red with 01/04/2027 in a mono pill beside it and the arithmetic under it; ③ an empty RFA slot carrying a red flag. Right third: the file tree DOE, JOHN - CASE FILE with its five numbered sub-folders, and a scan_1210.pdf chip being renamed and dropped into 01_PLEADINGS. Bottom: a red callout, “Passed and unproven = escalate today.” The argument: the row nobody added is the deadline nobody kept.",
         act: {
-          scenario: "01/05/2027 · Track B. Civil Action No. 26-CV-04417 is three months old, and the docket calendar was audited and corrected on 12/10/2026, but the CMS Pleadings Log was never reconciled to it. As found: complaint 09/24/2026; service 10/14/2026, but no affidavit row (the executed affidavit, filed 10/16/2026, sits in an Allied Process Services email); Answer due 11/13/2026, filed 11/12/2026; Defendant's First Interrogatories (25) and RFPs (30), mailed 12/01/2026, logged as one row still carrying the pre-audit “due 12/31/2026”; no separate row for the 15 RFAs served with them; the 12/10/2026 Scheduling Order still saved as scan_1210.pdf with no log rows; our set e-served on Smith 12/14/2026, due 01/13/2027. CMS → Documents holds a Certificate of Service dated 01/04/2027 for John Doe's verified responses to the Interrogatories, RFPs and RFAs, served by mail on Atty. Mercer; no log row was ever made for it.",
+          scenario: "01/05/2027 · Track B. Civil Action No. 26-CV-04417 is three months old, and the docket calendar was audited and corrected on 12/10/2026, but the CMS Pleadings Log was never reconciled to it. As found: complaint 09/24/2026; service 10/14/2026, but no affidavit row (the executed affidavit, filed 10/16/2026, sits in an Allied Process Services email); Answer due 11/13/2026, filed 11/12/2026; Defendant's First Interrogatories (25) and RFPs (30), mailed 12/01/2026, logged as one row still carrying the pre-audit “due 12/31/2026”; no separate row for the 15 RFAs served with them; the 12/10/2026 Scheduling Order still saved as scan_1210.pdf with no log rows; our set e-served on Smith 12/14/2026, due 01/13/2027. CMS → Doc Hub holds a Certificate of Service dated 01/04/2027 for John Doe's verified responses to the Interrogatories, RFPs and RFAs, served by mail on Atty. Mercer; no log row was ever made for it.",
           prompt: "Repair the Pleadings Log and Discovery Calendar for 26-CV-04417. Add every missing row, recompute each response date from its trigger and method of service, and write the arithmetic into the row. File each document in its numbered sub-folder under the naming convention, and calendar the Scheduling Order's six dates. Then make the graded call: the RFA deadline never had its own log row and has passed. Prove compliance from that Certificate of Service, record the RFA Priority Check and 48-Hour Docket misses honestly, and report both to Atty. Thorne today. Do not contact opposing counsel.",
-          tool: "CMS → Litigation → Pleadings Log · CMS → Calendar · CMS → Documents",
+          tool: "CMS → Litigation → Discovery & Filing Tracker · CMS → Calendar · CMS → Doc Hub",
           output: "A corrected, source-linked Pleadings Log and Discovery Calendar, every document in its sub-folder, and RFA compliance proved from the certificate and the misses reported the same day.",
           checkpoints: [
             "Affidavit-of-service row added: personal service 10/14/2026 by Allied Process Services at 4410 Quarry Ridge Ct, Millbrook; affidavit filed 10/16/2026; saved to 02_SERVICE_DOCS as Affidavit_of_Service_Executed.pdf",
@@ -9539,7 +9539,7 @@ window.CM_CASE_FLOW = {
             "Interrogatories (25) and RFPs (30) corrected from 12/31/2026 to 01/04/2027: 12/01/2026 + 30 = 12/31/2026; + 3 for mail = 01/03/2027, a Sunday → Monday 01/04/2027",
             "RFA row (15) added as its own entry with the same 01/04/2027 deadline and a red deemed-admission flag",
             "Certificate of Service for John Doe's responses (dated 01/04/2027, by mail on Atty. Mercer) logged and filed to 04_DISCOVERY_DEFENDANT_TO_PLAINTIFF as Final_Verified_Responses_Served.pdf, its date checked against 01/04/2027 and the signed verification page confirmed attached",
-            "Report to Atty. Thorne through CMS → Tasks → Escalate on 01/05/2027: compliance proved by the 01/04/2027 certificate, and the RFA Priority Check and 48-Hour Docket misses named; no call to Atty. Mercer",
+            "Report to Atty. Thorne through CMS → Tasks → + Add Task on 01/05/2027: compliance proved by the 01/04/2027 certificate, and the RFA Priority Check and 48-Hour Docket misses named; no call to Atty. Mercer",
             "Smith's responses calendared for 01/13/2027 (12/14/2026 + 30; e-service by consent adds no days on this file's rule set) with a follow-up task for the day after",
             "Scheduling Order renamed Scheduling_Order_Entered.pdf, saved to 01_PLEADINGS, and its six dates logged and reconciled to the audited calendar: 03/15/2027, 04/15/2027, 03/31/2027, 05/28/2027, 08/12/2027, 09/13/2027",
             "No scan names left; every document filed in one of the five numbered sub-folders under DOE, JOHN - CASE FILE",
@@ -9547,9 +9547,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Anything arrives from the court, opposing counsel or the process server", "File it in its numbered sub-folder under the convention and add or update its log row", "CMS → Documents · Pleadings Log", "Filed and docketed within 48 hours; source document linked to the row"],
+          ["Anything arrives from the court, opposing counsel or the process server", "File it in its numbered sub-folder under the convention and add or update its log row", "CMS → Doc Hub · Pleadings Log", "Filed and docketed within 48 hours; source document linked to the row"],
           ["Discovery served on John Doe", "Log each set as its own row and compute its response date", "CMS → Calendar", "12/01/2026 by mail → 01/04/2027, arithmetic in the row; RFA row flagged red"],
-          ["A deadline found passed without proof of compliance", "Escalate to Atty. Thorne the same day; contact no one on the other side", "CMS → Tasks → Escalate", "Escalation dated 01/05/2027 and names the missing document"]
+          ["A deadline found passed without proof of compliance", "Escalate to Atty. Thorne the same day; contact no one on the other side", "CMS → Tasks → + Add Task", "Escalation dated 01/05/2027 and names the missing document"]
         ],
         best: [
           "Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).",
@@ -9617,8 +9617,8 @@ window.CM_CASE_FLOW = {
         ops: [
           ["Scheduling Order entered 12/10/2026", "Pin it to the front of the file; calendar all six dates with three alerts each", "CMS → Calendar · Court E-Filing", "Six dates exact; 18 alerts set; order filed in 01_PLEADINGS"],
           ["An extension is agreed by phone", "Confirm Atty. Thorne's approval, draft the written confirmation for his signature, recalendar", "Email Workspace · CMS → Calendar", "Confirmation sent the same day over Atty. Thorne's name; no scheduling-order date moved without a court order"],
-          ["Deposition noticed", "Book the reporter, the link and the technology check; send the attorney-approved packet a week out", "CMS → Calendar · Communications Log", "Packet sent by 02/11/2027; receipt confirmed with John Doe and logged"],
-          ["Weekly docket audit", "Take every KPI reading from the log and route each miss", "CMS → Litigation → KPI tracker · Tasks → Escalate", "Each KPI shows its formula, target and a dated reading"]
+          ["Deposition noticed", "Book the reporter, the link and the technology check; send the attorney-approved packet a week out", "CMS → Calendar · Notes → Case Notes", "Packet sent by 02/11/2027; receipt confirmed with John Doe and logged"],
+          ["Weekly docket audit", "Take every KPI reading from the log and route each miss", "CMS → Litigation → Discovery & Filing Tracker · Tasks → Escalate", "Each KPI shows its formula, target and a dated reading"]
         ],
         best: [
           "Every scheduling-order date gets three alerts: 30, 14 and 7 days out.",
@@ -9705,25 +9705,25 @@ window.CM_CASE_FLOW = {
            [
              "A records request is refused or ignored, or a record must come from its custodian",
              "Flag it to Atty. Thorne as a question: “Do you want a records subpoena?”",
-             "CMS → Tasks → Escalate",
+             "CMS → Tasks → + Add Task",
              "Question routed with the refused request attached; nothing drafted until he decides"
            ],
            [
              "Atty. Thorne approves a Subpoena Duces Tecum",
              "Draft on the court-approved form with a narrow Exhibit A; serve notice on Atty. Mercer, then arrange service on the custodian",
-             "CMS → Documents → Subpoena template · Court E-Filing",
+             "CMS → Doc Hub → Litigation Documents · Court E-Filing",
              "Exhibit A names one subject, exact dates and record types; notice dated before service"
            ],
            [
              "Every 10 days while a subpoena is open",
              "Review each row; compliance call 5 days before production; pay the invoice",
-             "CMS → Litigation → Subpoena log · CMS → Calendar",
+             "CMS → Litigation → Discovery & Filing Tracker · CMS → Calendar",
              "Every open row has a dated reading; each miss routed to Atty. Thorne"
            ],
            [
              "Atty. Thorne names his trial witnesses",
              "Draft the trial subpoenas; arrange service under the court's rules; log the proof",
-             "CMS → Documents → Subpoena template · CMS → Calendar",
+             "CMS → Doc Hub → Litigation Documents · CMS → Calendar",
              "Tasked against 08/12/2027 and 09/13/2027; proof of service in 05_SUBPOENAS"
            ]
          ],
@@ -9786,7 +9786,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "01/20/2027 · Track B. John Doe's deposition notice just arrived: 02/18/2027, 10:00 a.m., by videoconference, Riverton Court Reporting. The trial-prep checklist was drafted from the calendar as first keyed, before the 12/10/2026 audit, and never reconciled. It shows our expert disclosure on 04/15/2027, “mediation 03/31/2027” as the session date, records subpoenas planned for June 2027, the final records run sourced from the pre-lit Demand Package, no alerts and no deposition tasks. Smith's responses arrived 01/13/2027, never docketed. There is no KPI tracker.",
           prompt: "Audit the checklist line by line against the 12/10/2026 Scheduling Order in the CMS: every date right, each with an owner and 30-, 14- and 7-day alerts, and the 02/18/2027 deposition logistics and prep document set added. Then build the KPI tracker: define all nine KPIs, each with its formula and target, enter this file's reading with its source, and mark each met, missed or open. Close with one task each for the three review lenses: coverage, treatment, liability. The graded call: name the two items you route to Atty. Thorne first, and why those two.",
-          tool: "CMS → Calendar · CMS → Litigation → KPI tracker",
+          tool: "CMS → Calendar · CMS → Litigation → Discovery & Filing Tracker",
           output: "A trial-prep checklist that matches the Scheduling Order date for date, and a KPI tracker with a formula, target, sourced reading and status for every KPI.",
           checkpoints: [
             "Our expert disclosure corrected from 04/15/2027 to 03/15/2027; 04/15/2027 kept as the defense date, with a task to docket their disclosure within 48 hours and route it to Atty. Thorne",
@@ -9797,7 +9797,7 @@ window.CM_CASE_FLOW = {
             "Gap Record assembled for Atty. Thorne's prep: EMS report, Northgate attendance 02/09–02/13/2026, texts to Margaret 02/07–02/15, receipt 02/07/2026, urgent-care history 02/20/2026, the Summit MRI read, Causation Letter 06/19/2026, the 2021 chiropractic records; nothing scripted for John Doe",
             "Final records run re-sourced from Riverton Urgent Care, Riverton Spine & Rehab, Lakeside Orthopedics, Summit Imaging Center, Crescent Pain & Spine and Riverton Drug, scheduled before 03/15/2027 and again before 08/12/2027",
             "All nine KPIs present, each with a formula, a target, a reading with its source, and a status",
-            "Readings from this file right: RFA Priority Check and 48-Hour Docket Rule missed (the 01/05/2027 audit); Discovery Countdown measured against 12/28/2026 (7 days before 01/04/2027); Subpoena Audit: the Riverton Fire EMS records subpoena drafted 11/12/2026, status taken from CMS → Litigation → Subpoena log (served and reviewed every 10 days, or still awaiting Atty. Thorne's approval); records subpoenas for the remaining providers still planned for June, the staged error",
+            "Readings from this file right: RFA Priority Check and 48-Hour Docket Rule missed (the 01/05/2027 audit); Discovery Countdown measured against 12/28/2026 (7 days before 01/04/2027); Subpoena Audit: the Riverton Fire EMS records subpoena drafted 11/12/2026, status taken from CMS → Litigation → Discovery & Filing Tracker (served and reviewed every 10 days, or still awaiting Atty. Thorne's approval); records subpoenas for the remaining providers still planned for June, the staged error",
             "Smith's responses (due 01/13/2027) docketed as received 01/13/2027, logged as a 48-Hour Docket miss and routed to Atty. Thorne for review; no extension agreed by the Case Manager",
             "Review lenses applied. Coverage: Smith's insurance answers routed to Atty. Thorne, and a UM consent-to-settle task set before mediation (Harbor Point and Cardinal State, on notice since 09/10/2026). Treatment: the Gap Record and the A-C-T record mapped to causation and failure to mitigate. Liability: doorbell video, Ruth Calloway, the RPD-26-018842 citation, the EMS report and the EDR mapped to comparative negligence"
           ]
@@ -9813,8 +9813,8 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Scheduling Order on file", "Load all six dates into the checklist with an owner and three alerts each", "CMS → Calendar", "Dates match the 12/10/2026 order exactly; 18 alerts set"],
-          ["Deposition notice received 01/20/2027", "Docket it; book the reporter, the link and the technology check; calendar the packet", "CMS → Calendar · Communications Log", "Docketed by 01/22/2027; packet due 02/11/2027"],
-          ["Weekly docket audit", "Update every KPI reading and route each miss", "CMS → Litigation → KPI tracker · Tasks → Escalate", "Nine KPIs with formula, target, sourced reading and status; misses escalated with a date"]
+          ["Deposition notice received 01/20/2027", "Docket it; book the reporter, the link and the technology check; calendar the packet", "CMS → Calendar · Notes → Case Notes", "Docketed by 01/22/2027; packet due 02/11/2027"],
+          ["Weekly docket audit", "Update every KPI reading and route each miss", "CMS → Litigation → Discovery & Filing Tracker · Tasks → Escalate", "Nine KPIs with formula, target, sourced reading and status; misses escalated with a date"]
         ],
         best: [
           "Read the checklist against the order line by line, never from memory.",
@@ -9960,9 +9960,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Keystone PD sends a release", "Check its scope and claim number; hold it; route it to Atty. Thorne", "CMS → Tasks → Escalate", "Routed the same day; nobody asked to sign"],
-          ["Keystone restates a PD figure", "Log it on Margaret Doe's PD file, not in John Doe's figures", "CMS → Communications Log", "John Doe's Net Sheet unchanged"],
-          ["Discovery asks for the PD documents", "Confirm the severity set and the rental dates match the PD file", "CMS → Documents", "Photos, estimate, supplement and dates identical"]
+          ["Keystone PD sends a release", "Check its scope and claim number; hold it; route it to Atty. Thorne", "CMS → Tasks → + Add Task", "Routed the same day; nobody asked to sign"],
+          ["Keystone restates a PD figure", "Log it on Margaret Doe's PD file, not in John Doe's figures", "CMS → Notes → Case Notes", "John Doe's Net Sheet unchanged"],
+          ["Discovery asks for the PD documents", "Confirm the severity set and the rental dates match the PD file", "CMS → Doc Hub", "Photos, estimate, supplement and dates identical"]
         ],
         best: [
           "Read every PD release for its scope and claim number before anything else.",
@@ -9999,7 +9999,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 12/10/2026. Leah Moran (Keystone PD) emails Keystone's final position on the Civic: $792.00 for Diminished Value and $0 for Loss of Use. Her attached release covers “all claims arising from the 02/06/2026 accident” and asks “Mr. Doe” to sign so payment can issue; she will call this afternoon. John Doe's suit is in discovery, and Atty. Thorne wants to know what, if anything, this changes for John.",
           prompt: "Sort Keystone's position item by item: the release, the Diminished Value figure, the Loss of Use figure, the photos and estimates already in John Doe's severity set, and the rental dates. For each, decide whether it reaches John Doe's settlement or stays on Margaret Doe's PD file, and say why in one line. Check the release's scope and claim number, hold it and route it to Atty. Thorne. Confirm the severity set and the rental dates match the PD file. Take Leah Moran's call without accepting, rejecting or countering anything. Close with a short memo to Atty. Thorne that ends in one line: does this PD outcome touch John Doe's case, and how?",
-          tool: "CMS → Case Notes · CMS → Documents · Call Simulator → AI Adjuster: Leah Moran, Keystone Mutual (PD) · CMS → Tasks → Escalate",
+          tool: "CMS → Notes → Case Notes · CMS → Doc Hub · Call Simulator → AI Adjuster: Leah Moran, Keystone Mutual (PD) · CMS → Tasks → + Add Task",
           output: "A short memo to Atty. Thorne sorting each PD outcome, the release held and routed, the severity set confirmed, and the call logged.",
           checkpoints: [
             "Release flagged: “all claims arising from the 02/06/2026 accident” could reach John Doe's BI claim; routed to Atty. Thorne the same day",
@@ -10014,9 +10014,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Keystone's final PD position arrives with a release", "Sort each outcome; hold the release", "CMS → Case Notes", "Each outcome sorted with its reason"],
-          ["Release language reaches “all claims”", "Route it to Atty. Thorne the same day", "CMS → Tasks → Escalate", "Escalated; nobody asked to sign"],
-          ["Leah Moran calls for an answer", "Log her words; say it is with Atty. Thorne", "Call Simulator · CMS → Communications Log", "No figure accepted, rejected or countered"]
+          ["Keystone's final PD position arrives with a release", "Sort each outcome; hold the release", "CMS → Notes → Case Notes", "Each outcome sorted with its reason"],
+          ["Release language reaches “all claims”", "Route it to Atty. Thorne the same day", "CMS → Tasks → + Add Task", "Escalated; nobody asked to sign"],
+          ["Leah Moran calls for an answer", "Log her words; say it is with Atty. Thorne", "Call Simulator · CMS → Notes → Case Notes", "No figure accepted, rejected or countered"]
         ],
         best: [
           "Lead the memo to Atty. Thorne with the decision he must make, then the sort (Decision First).",
@@ -10155,9 +10155,9 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Notice of deposition served 01/20/2027", "Calendar the deposition, both prep sessions, the 02/11/2027 prep packet and the day-before checklist; start the pre-deposition audit", "Court E-Filing · CMS → Calendar", "02/04, 02/11 (packet), 02/16, 02/17 and 02/18/2027 (10:00 a.m.) on the calendar for Atty. Thorne and John"],
-          ["Audit complete", "Route the landmine list and any discovery mismatch to Atty. Thorne", "CMS → Tasks → Escalate", "Routed before 02/04/2027; every landmine tied to its source record"],
-          ["Test call, 02/16/2027", "Run the technology check on John's device, in the room he will use", "CMS → Case Notes", "Camera, audio, link, lighting, room and backup number each logged pass or fail"],
-          ["Day before, 02/17/2027", "Confirm logistics with all three; finalize the exhibit set", "Email Workspace · CMS → Documents", "Three confirmations logged; exhibit set approved by Atty. Thorne"]
+          ["Audit complete", "Route the landmine list and any discovery mismatch to Atty. Thorne", "CMS → Tasks → + Add Task", "Routed before 02/04/2027; every landmine tied to its source record"],
+          ["Test call, 02/16/2027", "Run the technology check on John's device, in the room he will use", "CMS → Notes → Case Notes", "Camera, audio, link, lighting, room and backup number each logged pass or fail"],
+          ["Day before, 02/17/2027", "Confirm logistics with all three; finalize the exhibit set", "Email Workspace · CMS → Doc Hub", "Three confirmations logged; exhibit set approved by Atty. Thorne"]
         ],
         best: [
           "Consistency is credibility: the records, the written answers and the testimony agree because all three are true.",
@@ -10197,10 +10197,10 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 02/04/2027, Track B. John Doe was reached through Margaret yesterday after going dark on 01/22/2027; he has a new phone number. His deposition is noticed for 02/18/2027, 10:00 a.m., by videoconference with Riverton Court Reporting. He is anxious and expects a TV cross-examination. Atty. Thorne opens the prep session, hands you the first segment while he listens, and takes the substance after you.",
           prompt: "Run your segment of John's first prep session in the Call Simulator. Confirm his new number with Margaret as backup, the deposition logistics, and a 02/16/2027 test call on the device and in the room he will use. Deliver the three pillars and the in-room rules in plain words; drill the pause on neutral questions. AI John will ask what to say about the gap, the missed April therapy, the seatbelt, his 2021 chiropractor visits and the MRI: recognise each as substance, answer none, and log each in his words for Atty. Thorne. Have Atty. Thorne's chosen gap set ready to share for his segment. Calm John with the process, never a prediction.",
-          tool: "Call Simulator → AI John Doe (deposition prep session) · CMS → Tasks → Escalate",
+          tool: "Call Simulator → AI John Doe (deposition prep session) · CMS → Tasks → + Add Task",
           output: "A delivered prep segment, a logistics record, and John's substantive questions routed to Atty. Thorne in John's own words.",
           checkpoints: [
-            "New phone number updated in CMS → Parties; Margaret Doe confirmed as the backup contact",
+            "New phone number updated in CMS → Parties Involved; Margaret Doe confirmed as the backup contact",
             "Logistics stated exactly: 02/18/2027, 10:00 a.m., by videoconference, Riverton Court Reporting",
             "Test call set for 02/16/2027 on the device and in the room John will use on the day",
             "Pillar 1: the setting explained (not a courtroom; no judge or jury; under oath, with a court reporter); no outcome predicted",
@@ -10229,9 +10229,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["John reached through Margaret, 02/03/2027", "Update his new number; confirm the 02/04/2027 session", "CMS → Parties · CMS → Calendar", "New number on file before the session; Margaret recorded as backup"],
-          ["Substantive question raised", "Log it in John's words and route it", "CMS → Tasks → Escalate", "Every question routed before the segment ends; none answered"],
-          ["Segment complete", "Record what was delivered; calendar the test call", "CMS → Case Notes · CMS → Calendar", "Pillars and in-room rules marked delivered; 02/16/2027 test call on the calendar"]
+          ["John reached through Margaret, 02/03/2027", "Update his new number; confirm the 02/04/2027 session", "CMS → Parties Involved · CMS → Calendar", "New number on file before the session; Margaret recorded as backup"],
+          ["Substantive question raised", "Log it in John's words and route it", "CMS → Tasks → + Add Task", "Every question routed before the segment ends; none answered"],
+          ["Segment complete", "Record what was delivered; calendar the test call", "CMS → Notes → Case Notes · CMS → Calendar", "Pillars and in-room rules marked delivered; 02/16/2027 test call on the calendar"]
         ],
         best: [
           "Answer the process; route the substance.",
@@ -10298,9 +10298,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Answer served 11/12/2026", "Map each pleaded defense to the questions it predicts", "CMS → Litigation → Deposition prep log", "Comparative fault, causation and failure to mitigate each mapped to at least one trap"],
-          ["Trap map complete", "Confirm the record that meets each trap is in Atty. Thorne's set", "CMS → Documents", "EMS report, MRI report (03/13/2026), Causation Letter (06/19/2026), EDR download and Northgate Attendance Record all present"],
-          ["John asks how to answer a trap", "Log it in his words and route it", "CMS → Tasks → Escalate", "Routed the same day; no wording offered"]
+          ["Answer served 11/12/2026", "Map each pleaded defense to the questions it predicts", "CMS → Litigation → Discovery & Filing Tracker", "Comparative fault, causation and failure to mitigate each mapped to at least one trap"],
+          ["Trap map complete", "Confirm the record that meets each trap is in Atty. Thorne's set", "CMS → Doc Hub", "EMS report, MRI report (03/13/2026), Causation Letter (06/19/2026), EDR download and Northgate Attendance Record all present"],
+          ["John asks how to answer a trap", "Log it in his words and route it", "CMS → Tasks → + Add Task", "Routed the same day; no wording offered"]
         ],
         best: [
           "A deposition is information gathering; the records win the argument later.",
@@ -10338,7 +10338,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 02/16/2027, Track B, the second prep session. Atty. Thorne runs a mock cross-examination: AI defense counsel, playing Atty. Grant Mercer, questions AI John Doe while Atty. Thorne defends and objects. Your microphone is muted. Atty. Thorne debriefs John from your log when the mock ends.",
           prompt: "Keep the Trap Log for Atty. Thorne's debrief while the mock runs. For each trap, log the timestamp, the question in AI Mercer's words, its category (background, crash, medical history, daily life), the trap type (the “Is that all?” trap, a compound question, “degenerative”, the gap mischaracterised, the seatbelt, the 2021 prior, the silent stare) and the Golden Rules John kept or broke. Beside every mischaracterisation, put the record fact and its source. Log each objection and whether John stopped talking. Coach nothing, during the mock or after it: route the log to Atty. Thorne. The log is for Atty. Thorne alone; nothing in it goes to John.",
-          tool: "Call Simulator → AI defense counsel: Atty. Grant Mercer (mock cross-examination, led by Atty. Thorne) · CMS → Litigation → Deposition prep log",
+          tool: "Call Simulator → AI defense counsel: Atty. Grant Mercer (mock cross-examination, led by Atty. Thorne) · CMS → Litigation → Discovery & Filing Tracker",
           output: "A timestamped Trap Log, scored against the seven Golden Rules, routed to Atty. Thorne before his debrief.",
           checkpoints: [
             "All six assigned traps logged: “Is that all?”, compound, “degenerative”, gap mischaracterised, seatbelt, 2021 prior (and the silent stare, if AI Mercer uses it)",
@@ -10364,9 +10364,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Prep session 2 opens, 02/16/2027", "Open the Trap Log and start the clock at the first question", "CMS → Litigation → Deposition prep log", "Log opened before the first question; timestamps run from it"],
-          ["Trap or objection observed", "Log the time, the words, the category, the trap type and the rules tested", "CMS → Litigation → Deposition prep log", "All six assigned trap types covered; record fact beside every mischaracterisation"],
-          ["Mock ends", "Route the log to Atty. Thorne for the debrief", "CMS → Tasks → Escalate", "Routed before the debrief; no comment made to John"]
+          ["Prep session 2 opens, 02/16/2027", "Open the Trap Log and start the clock at the first question", "CMS → Litigation → Discovery & Filing Tracker", "Log opened before the first question; timestamps run from it"],
+          ["Trap or objection observed", "Log the time, the words, the category, the trap type and the rules tested", "CMS → Litigation → Discovery & Filing Tracker", "All six assigned trap types covered; record fact beside every mischaracterisation"],
+          ["Mock ends", "Route the log to Atty. Thorne for the debrief", "CMS → Tasks → + Add Task", "Routed before the debrief; no comment made to John"]
         ],
         best: [
           "Log the question in the questioner's exact words; a paraphrase hides the trap.",
@@ -10502,10 +10502,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Answer filed 11/12/2026 pleading comparative fault, causation and failure to mitigate", "Log each defense as its own line and confirm the filing on the docket", "CMS → Litigation → Pleadings Log · Court E-Filing", "Three defenses logged separately, each dated 11/12/2026"],
-          ["Defenses logged", "Map the file's evidence to each allegation with source, witness and custody", "CMS → Litigation → Liability counter-package", "No item without a source document and a named authenticating witness"],
-          ["An item lacks foundation or a holder won't produce", "Flag it for a Subpoena Duces Tecum and route to Atty. Thorne", "CMS → Tasks → Escalate", "Foundation gap named, with the record holder"],
-          ["Deposition prep set for 02/04 and 02/16/2027", "Deliver the counter-package and the Gap Record to Atty. Thorne's prep set", "CMS → Documents · CMS → Tasks", "Both in the prep set before 02/04/2027"]
+          ["Answer filed 11/12/2026 pleading comparative fault, causation and failure to mitigate", "Log each defense as its own line and confirm the filing on the docket", "CMS → Litigation → Discovery & Filing Tracker · Court E-Filing", "Three defenses logged separately, each dated 11/12/2026"],
+          ["Defenses logged", "Map the file's evidence to each allegation with source, witness and custody", "CMS → Litigation → Discovery & Filing Tracker", "No item without a source document and a named authenticating witness"],
+          ["An item lacks foundation or a holder won't produce", "Flag it for a Subpoena Duces Tecum and route to Atty. Thorne", "CMS → Tasks → + Add Task", "Foundation gap named, with the record holder"],
+          ["Deposition prep set for 02/04 and 02/16/2027", "Deliver the counter-package and the Gap Record to Atty. Thorne's prep set", "CMS → Doc Hub · CMS → Tasks", "Both in the prep set before 02/04/2027"]
         ],
         best: [
           "Answer each allegation with a document, not an argument: the record speaks, counsel argues.",
@@ -10544,7 +10544,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 11/12/2026, Track B. Atty. Grant Mercer of Mercer & Hale LLP has filed Robert Smith's Answer in Civil Action No. 26-CV-04417. It denies liability and pleads comparative negligence (the Escape entered the all-way stop out of turn; John was unbelted), causation (the gap; a “degenerative” MRI) and failure to mitigate. In the file: report RPD-26-018842, Ruth Calloway's details, the doorbell video, the 10/2026 EDR download, the EMS Run Report and the A-C-T record.",
           prompt: "Build the liability counter-package for Atty. Thorne. For each of the three allegations, list the file evidence that answers it, its source document, the witness who can authenticate it, its chain of custody, and any gap in its foundation. Write out the doorbell video's chain from the 02/17/2026 preservation request to the 02/19/2026 copy. For any record that will need a custodian, draft a narrow Exhibit A for a Subpoena Duces Tecum, for his review. Close with the questions only he can answer: the governing fault rule, seatbelt and citation admissibility, and whether fault on Kevin Alvarez touches coverage.",
-          tool: "CMS → Litigation → Liability counter-package · CMS → Documents → Subpoena template",
+          tool: "CMS → Litigation → Discovery & Filing Tracker · CMS → Doc Hub → Litigation Documents",
           output: "An allegation-by-allegation counter-package with foundation for every item, a draft Exhibit A, and the open legal questions routed to Atty. Thorne.",
           checkpoints: [
             "Two comparative-fault allegations and the failure-to-mitigate defense listed as separate rows: out of turn, unbelted, failure to mitigate",
@@ -10560,9 +10560,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Answer received 11/12/2026", "Open the counter-package, one row per allegation", "CMS → Litigation → Liability counter-package", "Three rows, each with evidence, source, witness and custody"],
-          ["A record will need a custodian", "Draft the Subpoena Duces Tecum with a narrow Exhibit A", "CMS → Documents → Subpoena template", "Exhibit A names John Doe, 02/06/2026 and specific record types"],
-          ["Package complete", "Route to Atty. Thorne with the open legal questions", "CMS → Tasks → Escalate", "Every question listed; no conclusion drafted as advice"]
+          ["Answer received 11/12/2026", "Open the counter-package, one row per allegation", "CMS → Litigation → Discovery & Filing Tracker", "Three rows, each with evidence, source, witness and custody"],
+          ["A record will need a custodian", "Draft the Subpoena Duces Tecum with a narrow Exhibit A", "CMS → Doc Hub → Litigation Documents", "Exhibit A names John Doe, 02/06/2026 and specific record types"],
+          ["Package complete", "Route to Atty. Thorne with the open legal questions", "CMS → Tasks → + Add Task", "Every question listed; no conclusion drafted as advice"]
         ],
         best: [
           "One allegation, one row: a reviewer should find the answer to each in seconds.",
@@ -10634,10 +10634,10 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Third failed attempt, 10/08/2026; neighbor says Smith moved", "Escalate for Skip-Trace authority; send the result to the process server", "CMS → Tasks → Escalate · Email Workspace", "Skip-Trace result logged 10/09/2026; server re-assigned to 4410 Quarry Ridge Ct"],
+          ["Third failed attempt, 10/08/2026; neighbor says Smith moved", "Escalate for Skip-Trace authority; send the result to the process server", "CMS → Tasks → + Add Task · Email Workspace", "Skip-Trace result logged 10/09/2026; server re-assigned to 4410 Quarry Ridge Ct"],
           ["Affidavit of service filed 10/16/2026", "Docket the answer date and set the weekly docket check", "Court E-Filing · CMS → Calendar", "Answer due 11/13/2026 on the calendar; weekly check recurring"],
-          ["Subpoena Duces Tecum approved by Atty. Thorne", "Notice opposing counsel, then serve the custodian by process server", "Court E-Filing · CMS → Litigation → Subpoena log", "Notice to Atty. Grant Mercer dated before service; compliance call 5 days before production"],
-          ["Client unreachable with a deposition noticed (from 01/22/2027)", "Run Steps 1–3; draft the Step 4 notice for Atty. Thorne's signature", "CMS → Communications Log", "Response date before 02/04/2027; certified mail AND email both logged"]
+          ["Subpoena Duces Tecum approved by Atty. Thorne", "Notice opposing counsel, then serve the custodian by process server", "Court E-Filing · CMS → Litigation → Discovery & Filing Tracker", "Notice to Atty. Grant Mercer dated before service; compliance call 5 days before production"],
+          ["Client unreachable with a deposition noticed (from 01/22/2027)", "Run Steps 1–3; draft the Step 4 notice for Atty. Thorne's signature", "CMS → Notes → Case Notes", "Response date before 02/04/2027; certified mail AND email both logged"]
         ],
         best: [
           "Follow up with the process server every 5 days, and ask for the date and time of each attempt, not just the result.",
@@ -10676,7 +10676,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "Two episodes, one file. Part 1, file date 10/08/2026: Allied Process Services reports a third failed attempt at 118 Larkspur Ln (after 10/01 and 10/05), and a neighbor says Robert Smith moved in August. The 10/09 Skip-Trace return (module-local) lists 118 Larkspur Ln (utilities closed 08/2026), 4410 Quarry Ridge Ct, Millbrook (utility opened 08/2026; matches his vehicle registration) and a 2019 address. Part 2, file date 01/22/2027: calls to John Doe go unanswered two days after his deposition was noticed for 02/18/2027, 10:00 a.m., by videoconference. Atty. Thorne has set prep sessions for 02/04 and 02/16/2027.",
           prompt: "Part 1: escalate for Skip-Trace authority; evaluate the 10/09 return, choosing the address on recency and two corroborating sources, and record why; re-instruct Allied Process Services; log service 10/14 and the affidavit 10/16, and docket the answer date. Part 2: run Steps 1–3 of the No Contact Protocol with the litigation impact, then draft the Step 4 certified notice for Atty. Thorne's signature: attempts itemized, a 7–14 day response date before 02/04/2027, how to respond. Send it by certified mail AND email to a confirmed address. Graded call: assess John's Skip-Trace gate on Day 2's three criteria, and say why his case is unlike Smith's.",
-          tool: "CMS → Tasks → Escalate · Court E-Filing · CMS → Communications Log · CMS → Documents → Warning letter template · CMS → Documents → Outgoing",
+          tool: "CMS → Tasks → + Add Task · Court E-Filing · CMS → Notes → Case Notes · CMS → Doc Hub → Others",
           output: "A service record from Skip-Trace to answer date, and a dispatched certified notice with both deliveries logged and John's Skip-Trace gate assessed.",
           checkpoints: [
             "Skip-Trace escalated for authority after the 10/08/2026 attempt, not a fourth knock at 118 Larkspur Ln",
@@ -10693,9 +10693,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Third failed attempt, 10/08/2026", "Escalate for Skip-Trace authority; re-assign the server to the new address", "CMS → Tasks → Escalate · Email Workspace", "Skip-Trace result 10/09/2026 logged; varied windows instructed"],
+          ["Third failed attempt, 10/08/2026", "Escalate for Skip-Trace authority; re-assign the server to the new address", "CMS → Tasks → + Add Task · Email Workspace", "Skip-Trace result 10/09/2026 logged; varied windows instructed"],
           ["Affidavit of service filed 10/16/2026", "Docket the answer date", "Court E-Filing", "11/13/2026 on the calendar with a reminder"],
-          ["John unreachable from 01/22/2027", "Run Steps 1–3, then dispatch the Step 4 notice", "CMS → Communications Log · CMS → Documents → Outgoing", "Both deliveries logged; response date before 02/04/2027"]
+          ["John unreachable from 01/22/2027", "Run Steps 1–3, then dispatch the Step 4 notice", "CMS → Notes → Case Notes · CMS → Doc Hub → Others", "Both deliveries logged; response date before 02/04/2027"]
         ],
         best: [
           "Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).",
@@ -10788,9 +10788,9 @@ window.CM_CASE_FLOW = {
       about: "Track B closes: the 07/06/2027 award, the liens reduced against a litigated fund, and the LSH Net Sheet that takes $40,000.00 to John Doe at the 40% tier.",
       quiz: [{"q": "Track B recovers the same $40,000.00 gross as Track A. Why does John Doe net $14,713.75 instead of $20,359.92?", "opts": ["The arbitrator reduced the award for the 14-Day Gap", "Suit was filed: the fee moved to 40% ($16,000.00) and costs rose to $3,895.25", "The UM carriers paid less than their limits", "Peach State's lien grew with interest"], "a": 1, "r": "Same gross, different deductions: 40% once suit was filed ($16,000.00 against $13,333.33), $3,895.25 in receipted costs against $486.75, and liens of $5,391.00 against $5,820.00. $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75."}, {"q": "Peach State asserts $1,860.00 against the litigated fund. What does the procurement-cost reduction at this file's fee produce?", "opts": ["$1,240.00", "$1,116.00", "$744.00", "$1,860.00"], "a": 1, "r": "The reduction follows the fee actually charged: 40% of $1,860.00 is $744.00, so $1,860.00 – $744.00 = $1,116.00, accepted in writing 07/14/2027. Track A's $1,240.00 reflected the 33⅓% pre-suit fee."}],
       blocks: [
-        {"kind": "lesson", "id": "d5m5-l1", "brief": true, "title": "Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund", "topic": "Same $40,000.00, a different net: what suit cost the client, line by line", "visual": "Two tall ledger cards side by side on cream: TRACK A (navy header) and TRACK B (orange header), with the same five rows (Gross, Fee, Costs, Liens, Net). Both gross rows read $40,000.00; on Track B the fee, costs and liens rows are highlighted in orange; the net rows read $20,359.92 and $14,713.75 in large mono type. Between the cards, a slim arrow labelled SUIT FILED 09/24/2026 · 40% TIER. At the foot, a red chip: “No Payoff Letter, no payment.”", "tell": {"why": "Keystone's stonewall turned a $40,000.00 settlement into a lawsuit, a mediation and an arbitration. The 07/06/2027 award brings in the same $40,000.00 gross as Track A, yet John Doe nets $14,713.75, not $20,359.92. The Net Sheet shows him exactly why, line by line, before he signs.", "rules": ["The award ends the case, not the work. Laura Whitcomb's 07/06/2027 award finds John Doe's damages exceed the UM limits and awards Harbor Point's $20,000.00 and Cardinal State's $10,000.00; with Keystone's $10,000.00 BI tendered at the 03/18/2027 mediation, the gross is $40,000.00.", "The fee follows the retainer, not the outcome. Suit was filed 09/24/2026, so the 40% tier applies: $16,000.00. Atty. Thorne confirms the fee on each stream from the retainer before the Net Sheet is drafted.", "Litigation costs need the same receipts as pre-suit costs: filing fee and summons $218.00, Allied Process Services $285.00, mediation (Hon. Carla Benton, plaintiff's half) $1,200.00, arbitration (plaintiff's share of Laura Whitcomb's fee) $900.00, Riverton Court Reporting $645.50 and certified records for the binder $160.00, plus the pre-suit $486.75: $3,895.25.", "A litigated fund still pays only what is owed. The liens are Peach State's $1,860.00 and Riverton Spine & Rehab's audited $6,105.00; PIP, Crescent's write-off and the PIP-paid providers stay at zero.", "Reduce against the fund the litigation built. Peach State's procurement-cost reduction follows the fee actually charged: 40% of $1,860.00 is $744.00, accepted at $1,116.00 on 07/14/2027. Riverton Spine & Rehab accepts $4,275.00 in a signed Payoff Letter dated 07/16/2027.", "Net: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75. Nothing leaves trust until both UM checks have cleared, every Payoff Letter is in Documents and John Doe has signed the Settlement Statement."], "upl": ["You build and explain the arithmetic and the documents. Whether suing was worth it, whether the fee tier was fair and whether John should sign are Atty. Thorne's to discuss with him."]}, "show": {"caption": "Same gross, two nets: what the litigation cost John Doe", "type": "compare", "boxes": [{"head": "TRACK A — settled before suit (10/22/2026)", "items": ["Gross $40,000.00", "Fee 33⅓%: $13,333.33", "Costs: $486.75", "Liens: $1,240.00 + $4,580.00 = $5,820.00", "Net to John Doe: $20,359.92"]}, {"head": "TRACK B — won at arbitration (07/30/2027)", "items": ["Gross $40,000.00", "Fee 40% (suit filed 09/24/2026): $16,000.00", "Costs: $3,895.25", "Liens: $1,116.00 + $4,275.00 = $5,391.00", "Net to John Doe: $14,713.75"]}]}, "ops": [["Award received (07/06/2027)", "Log it and diary each carrier's payment", "CMS → Litigation · CMS → Calendar", "Harbor Point $20,000.00 · Cardinal State $10,000.00"], ["The fund is known", "Send the Reduction Requests for Atty. Thorne's approval", "LSH Net Sheet · CMS → Liens", "Peach State $1,116.00 · Riverton Spine & Rehab $4,275.00"], ["Last UM check cleared", "Complete the Net Sheet and route the Settlement Statement", "LSH Net Sheet · CMS → Tasks → Escalate", "Net $14,713.75, routed before John Doe signs"]], "best": ["Show John the fee tier from his own retainer: 40% once suit was filed.", "Attach a receipt to every litigation cost before it reaches the Net Sheet.", "Reduce liens against the litigated fund at the fee actually charged.", "Pitfall: carrying Track A's 33⅓% fee or its $1,240.00 reduction into the litigated file.", "Pitfall: disbursing Keystone's check, held in trust since 03/29/2027, before the liens are resolved."], "sources": ["D3#21", "D3#23", "D3#24", "D3#25", "D3#27", "Newly authored: the Track B close-out (the 07/06/2027 award and the litigated Net Sheet)"], "rubric": {"ai": [["Fee tier", 15, "The 40% tier applied once suit was filed: $16,000.00"], ["Litigation costs", 15, "Seven receipted items = $3,895.25, each with its source"], ["Lien reductions", 15, "Peach State at the 40% rate to $1,116.00; Riverton Spine & Rehab $4,275.00 with its Payoff Letter"], ["Net", 15, "$14,713.75, reconciled to the trust deposits"]], "trainer": [["Client explanation", 20, "Explains the difference from a pre-suit settlement as plain arithmetic, without opinion"], ["UPL boundary", 20, "Leaves the worth of the lawsuit and the fee's fairness to Atty. Thorne"]]}, "notes": ["Open with the two nets side by side and ask the room what changed. Not the gross: the fee tier, the costs and the lien math.", "Ask: “Peach State's reduction was $620.00 on Track A. Why $744.00 now?” The reduction follows the fee actually charged.", "Stop anyone who reaches for an opinion on whether the lawsuit was worth it. That is Atty. Thorne's conversation with John."]},
-        {"kind": "activity", "id": "d5m5-a1", "transition": "The arbitrator has ruled and every check is in: the case is won. We reduce the liens and disburse the award.", "title": "The Litigation Net Sheet: Disbursing the Award", "topic": "Skill Activity — take the award to $14,713.75 on the LSH Net Sheet", "visual": "The LSH Net Sheet fills the slide in its four navy-headed sections. Section 1 reads Gross $40,000.00 with three carrier chips (Keystone, Harbor Point, Cardinal State); Section 2 shows Attorney Fees at 40% = $16,000.00 with an orange SUIT FILED tag and seven receipt rows totalling $3,895.25; Section 3 lists the providers with Peach State reduced to $1,116.00 and Riverton Spine & Rehab to $4,275.00, the zero-balance rows greyed with NOT PAYABLE chips; Section 4 ends on a large orange NET CLIENT DISBURSEMENT $14,713.75.", "act": {"scenario": "File date 07/22/2027. Laura Whitcomb's 07/06/2027 award gave Harbor Point's $20,000.00 and Cardinal State's $10,000.00; their checks arrived 07/20 and today, joining Keystone's $10,000.00 held in trust since 03/29/2027: $40,000.00. Peach State accepted $1,116.00 (07/14) and Riverton Spine & Rehab $4,275.00 (07/16), both in writing. Every litigation cost is receipted.", "prompt": "Complete John Doe's LSH Net Sheet for the litigated recovery. Section 1: the gross by carrier. Section 2: the 40% fee the retainer sets once suit is filed, and every receipted cost, pre-suit and litigation, on its row. Section 3: every provider and payer with charges, payments, adjustments and balance owed, and each lien's reduced figure with its Payoff Letter. Section 4: the net to John Doe. Tie it to the Trust Ledger and route the Settlement Statement to Atty. Thorne. Graded judgment: what you explain to John about the difference from a pre-suit settlement, and what you leave to Atty. Thorne.", "tool": "LSH Net Sheet · CMS → Financial Ledger → Trust · CMS → Tasks → Escalate", "output": "A Net Sheet reaching $14,713.75, every cost and lien proved, routed to Atty. Thorne before John Doe signs.", "checkpoints": ["Gross: Keystone $10,000.00 (mediation, 03/18/2027) + Harbor Point $20,000.00 + Cardinal State $10,000.00 (award, 07/06/2027) = $40,000.00", "Fee at the 40% tier (suit filed 09/24/2026): $16,000.00, confirmed by Atty. Thorne from the retainer", "Costs receipted: $486.75 pre-suit + $218.00 filing + $285.00 service + $1,200.00 mediation + $900.00 arbitration + $645.50 court reporter + $160.00 certified records = $3,895.25", "Liens: Peach State $1,860.00 → $1,116.00 (40% procurement-cost reduction, $744.00, 07/14/2027); Riverton Spine & Rehab $6,290.00 → audited $6,105.00 → $4,275.00 (Payoff Letter 07/16/2027); total $5,391.00", "Zero-balance lines kept off the payables with their source: PIP $5,000.00, Crescent's $1,540.00 write-off, the PIP-paid providers", "Net: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75; the trust deposits of $40,000.00 tie to the gross", "Nothing disbursed until both UM checks clear and John Doe signs the Settlement Statement (07/29/2027); disbursement 07/30/2027", "The difference from a pre-suit settlement explained to John Doe as arithmetic; whether suing was worth it routed to Atty. Thorne"]}, "ops": [["Last UM check received (07/22/2027)", "Post it and complete the Net Sheet", "LSH Net Sheet", "Gross $40,000.00 · net $14,713.75"], ["Liens accepted in writing", "Log the reduced figures and Payoff Letters", "LSH Net Sheet · CMS → Documents", "Peach State $1,116.00 · Riverton Spine & Rehab $4,275.00"], ["Net Sheet ties to trust", "Route the Settlement Statement", "CMS → Tasks → Escalate", "Routed before John Doe signs"]], "best": ["Enter every cost from its receipt, on its row.", "Write each reduction's basis on its line.", "Pitfall: carrying Track A's 33⅓% fee into the litigated file.", "Pitfall: paying a lien from a phone call instead of a Payoff Letter."], "sources": ["D3#21", "D3#25", "D3#27", "D3#28", "Newly authored: the Track B close-out"], "rubric": {"ai": [["Gross and fee", 15, "$40,000.00 by carrier; 40% = $16,000.00"], ["Costs", 15, "$3,895.25 from seven receipted items"], ["Liens", 15, "$1,116.00 and $4,275.00 with their Payoff Letters; zero-balance lines off the payables"], ["Net", 15, "$14,713.75, tied to the trust deposits"]], "trainer": [["Explaining the difference", 20, "Plain arithmetic to John Doe: fee tier, costs, liens"], ["UPL boundary", 20, "No opinion on the lawsuit's worth or the fee; routed to Atty. Thorne"]]}, "notes": ["Have each trainee open the Net Sheet beside the slide and check it at the Track B stage. The trap is the fee: 33⅓% from habit instead of 40%.", "Ask: “John says a friend kept more from his settlement. What do you say?” Only arithmetic, and a route to Atty. Thorne."]},
-        {"kind":"activity","id":"d5-drive","transition":"The award is disbursed and John Doe's case is won. One job remains before the file closes: a backup that is complete, checked and ready to move to Closed Files.","title":"Backup File Maintenance: the Final Audit and the Close-Out","topic":"Skill Activity — back up the litigation file, run the final audit and prepare the case for Closed Files","visual":"The Doe-John folder tree with every folder ticked green and 09 Litigation & ADR opened: the Complaint, the affidavit of service, the Answer, the Scheduling Order, the mediation term sheet and both binders. Beside it a closing checklist card with every line ticked, ending ATTY. THORNE SIGN-OFF. A dashed orange arrow runs from Doe-John to 04 Closed Files, labeled AFTER SIGN-OFF, THE FIRM'S WAY.","act":{"scenario":"07/30/2027, 3:00 p.m. The award was disbursed today: John Doe signed the Settlement Statement on 07/29/2027 and every lien is paid on its Payoff Letter. The litigation file is on the CMS: the Complaint (filed 09/24/2026), the service of process and affidavit of service, Atty. Grant Mercer's Answer (11/12/2026), the Scheduling Order (12/10/2026), the mediated settlement term sheet (03/18/2027) and the Mediation and Arbitration Binders as delivered. Atty. Thorne will sign off the close once the file is complete, on the CMS and on the backup.","prompt":"File the litigation and ADR documents from 📁 Work From in the CMS, so each lands in 09 Litigation & ADR on your Backup Drive. Then run the final backup audit: open 📂 My Backup Drive, run ✓ Check my drive, and confirm the count of backed-up documents equals the documents filed in the CMS across all nine folders, with every superseded version labeled and no draft left unlabeled. Then write the closing checklist in Case Notes for Atty. Thorne's sign-off: every folder complete; every lien's Payoff Letter and the Settlement Statement on the drive; the closing letter sent and backed up; the last drive check clean; and the close-out step the firm takes after sign-off: the whole Doe-John folder moves, unchanged inside, under 04 Closed Files, with the closing date logged. Do not move the folder in your training drive; the course checks it where it is.","tool":"Backup Drive · CMS → Documents · CMS → Case Notes","output":"The litigation and ADR documents backed up in 09 Litigation & ADR, a final audit with every filed document on the drive and a clean check, and a closing checklist in Case Notes ready for Atty. Thorne's sign-off.","checkpoints":["The Complaint, the service papers, the Answer, the Scheduling Order and the mediation term sheet in 09 Litigation & ADR","The final count: every document filed in the CMS backed up in its folder","Superseded versions labeled and drafts marked as drafts across all nine folders","✓ Check my drive run with no folder missing","The closing checklist in Case Notes, ending with Atty. Thorne's sign-off and the move to 04 Closed Files","The client folder left in place in the training drive"]},"ops":[["Litigation documents filed","File each so its copy lands in 09 Litigation & ADR","CMS → Documents","All on the backup"],["Award disbursed","Run the final backup audit","Backup Drive","Backed up equals filed; check clean"],["File complete","Write the closing checklist for sign-off","CMS → Case Notes","Every line answered"],["Atty. Thorne signs off","The firm moves Doe-John under 04 Closed Files","Backup Drive","Moved whole, closing date logged"]],"best":["Close the backup the way you opened it: by the standard, checked, with nothing left in a folder of its own making.","A file is closed when the attorney signs off, not when the money goes out.","Pitfall: moving the client folder before sign-off, then filing a late document into a case nobody can find.","Pitfall: unlabeled drafts in a closed file; a reader years later can't tell which complaint was filed."],"sources":["D1#12","D1#13","D3#28","LSH firm standard: backup drive folder hierarchy"],"rubric":{"ai":[["Litigation file backed up",16,"Litigation and ADR documents in 09 Litigation & ADR"],["Final audit",20,"Backed up equals filed across every folder; superseded and draft versions labeled; drive check clean"],["Closing checklist",12,"Every closing line in Case Notes, ending with sign-off and the move to 04 Closed Files"],["File names",12,"Every file on the drive named by the firm's naming convention, labels included, from intake to award"]],"trainer":[["Close-out judgment",25,"Knows the folder moves only after Atty. Thorne's sign-off, and why"],["Findability",15,"Finds any named document from intake to award on the drive in seconds"]]},"notes":["This is the last backup job of the course. Call out a Day 1 document (the HIPAA authorization) and a Day 5 one (the Answer); time how long each takes to open.","Ask: “Why not move it to Closed Files today?” Because a late document, a lien refund or a client call can still arrive, and the file stays open until Atty. Thorne signs off.","Show the trainer report in the Trainee Audit: Proficient means built, nothing missing and every filed document backed up."]},
+        {"kind": "lesson", "id": "d5m5-l1", "brief": true, "title": "Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund", "topic": "Same $40,000.00, a different net: what suit cost the client, line by line", "visual": "Two tall ledger cards side by side on cream: TRACK A (navy header) and TRACK B (orange header), with the same five rows (Gross, Fee, Costs, Liens, Net). Both gross rows read $40,000.00; on Track B the fee, costs and liens rows are highlighted in orange; the net rows read $20,359.92 and $14,713.75 in large mono type. Between the cards, a slim arrow labelled SUIT FILED 09/24/2026 · 40% TIER. At the foot, a red chip: “No Payoff Letter, no payment.”", "tell": {"why": "Keystone's stonewall turned a $40,000.00 settlement into a lawsuit, a mediation and an arbitration. The 07/06/2027 award brings in the same $40,000.00 gross as Track A, yet John Doe nets $14,713.75, not $20,359.92. The Net Sheet shows him exactly why, line by line, before he signs.", "rules": ["The award ends the case, not the work. Laura Whitcomb's 07/06/2027 award finds John Doe's damages exceed the UM limits and awards Harbor Point's $20,000.00 and Cardinal State's $10,000.00; with Keystone's $10,000.00 BI tendered at the 03/18/2027 mediation, the gross is $40,000.00.", "The fee follows the retainer, not the outcome. Suit was filed 09/24/2026, so the 40% tier applies: $16,000.00. Atty. Thorne confirms the fee on each stream from the retainer before the Net Sheet is drafted.", "Litigation costs need the same receipts as pre-suit costs: filing fee and summons $218.00, Allied Process Services $285.00, mediation (Hon. Carla Benton, plaintiff's half) $1,200.00, arbitration (plaintiff's share of Laura Whitcomb's fee) $900.00, Riverton Court Reporting $645.50 and certified records for the binder $160.00, plus the pre-suit $486.75: $3,895.25.", "A litigated fund still pays only what is owed. The liens are Peach State's $1,860.00 and Riverton Spine & Rehab's audited $6,105.00; PIP, Crescent's write-off and the PIP-paid providers stay at zero.", "Reduce against the fund the litigation built. Peach State's procurement-cost reduction follows the fee actually charged: 40% of $1,860.00 is $744.00, accepted at $1,116.00 on 07/14/2027. Riverton Spine & Rehab accepts $4,275.00 in a signed Payoff Letter dated 07/16/2027.", "Net: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75. Nothing leaves trust until both UM checks have cleared, every Payoff Letter is in Documents and John Doe has signed the Settlement Statement."], "upl": ["You build and explain the arithmetic and the documents. Whether suing was worth it, whether the fee tier was fair and whether John should sign are Atty. Thorne's to discuss with him."]}, "show": {"caption": "Same gross, two nets: what the litigation cost John Doe", "type": "compare", "boxes": [{"head": "TRACK A — settled before suit (10/22/2026)", "items": ["Gross $40,000.00", "Fee 33⅓%: $13,333.33", "Costs: $486.75", "Liens: $1,240.00 + $4,580.00 = $5,820.00", "Net to John Doe: $20,359.92"]}, {"head": "TRACK B — won at arbitration (07/30/2027)", "items": ["Gross $40,000.00", "Fee 40% (suit filed 09/24/2026): $16,000.00", "Costs: $3,895.25", "Liens: $1,116.00 + $4,275.00 = $5,391.00", "Net to John Doe: $14,713.75"]}]}, "ops": [["Award received (07/06/2027)", "Log it and diary each carrier's payment", "CMS → Litigation · CMS → Calendar", "Harbor Point $20,000.00 · Cardinal State $10,000.00"], ["The fund is known", "Send the Reduction Requests for Atty. Thorne's approval", "LSH Net Sheet · CMS → Liens", "Peach State $1,116.00 · Riverton Spine & Rehab $4,275.00"], ["Last UM check cleared", "Complete the Net Sheet and route the Settlement Statement", "LSH Net Sheet · CMS → Tasks → + Add Task", "Net $14,713.75, routed before John Doe signs"]], "best": ["Show John the fee tier from his own retainer: 40% once suit was filed.", "Attach a receipt to every litigation cost before it reaches the Net Sheet.", "Reduce liens against the litigated fund at the fee actually charged.", "Pitfall: carrying Track A's 33⅓% fee or its $1,240.00 reduction into the litigated file.", "Pitfall: disbursing Keystone's check, held in trust since 03/29/2027, before the liens are resolved."], "sources": ["D3#21", "D3#23", "D3#24", "D3#25", "D3#27", "Newly authored: the Track B close-out (the 07/06/2027 award and the litigated Net Sheet)"], "rubric": {"ai": [["Fee tier", 15, "The 40% tier applied once suit was filed: $16,000.00"], ["Litigation costs", 15, "Seven receipted items = $3,895.25, each with its source"], ["Lien reductions", 15, "Peach State at the 40% rate to $1,116.00; Riverton Spine & Rehab $4,275.00 with its Payoff Letter"], ["Net", 15, "$14,713.75, reconciled to the trust deposits"]], "trainer": [["Client explanation", 20, "Explains the difference from a pre-suit settlement as plain arithmetic, without opinion"], ["UPL boundary", 20, "Leaves the worth of the lawsuit and the fee's fairness to Atty. Thorne"]]}, "notes": ["Open with the two nets side by side and ask the room what changed. Not the gross: the fee tier, the costs and the lien math.", "Ask: “Peach State's reduction was $620.00 on Track A. Why $744.00 now?” The reduction follows the fee actually charged.", "Stop anyone who reaches for an opinion on whether the lawsuit was worth it. That is Atty. Thorne's conversation with John."]},
+        {"kind": "activity", "id": "d5m5-a1", "transition": "The arbitrator has ruled and every check is in: the case is won. We reduce the liens and disburse the award.", "title": "The Litigation Net Sheet: Disbursing the Award", "topic": "Skill Activity — take the award to $14,713.75 on the LSH Net Sheet", "visual": "The LSH Net Sheet fills the slide in its four navy-headed sections. Section 1 reads Gross $40,000.00 with three carrier chips (Keystone, Harbor Point, Cardinal State); Section 2 shows Attorney Fees at 40% = $16,000.00 with an orange SUIT FILED tag and seven receipt rows totalling $3,895.25; Section 3 lists the providers with Peach State reduced to $1,116.00 and Riverton Spine & Rehab to $4,275.00, the zero-balance rows greyed with NOT PAYABLE chips; Section 4 ends on a large orange NET CLIENT DISBURSEMENT $14,713.75.", "act": {"scenario": "File date 07/22/2027. Laura Whitcomb's 07/06/2027 award gave Harbor Point's $20,000.00 and Cardinal State's $10,000.00; their checks arrived 07/20 and today, joining Keystone's $10,000.00 held in trust since 03/29/2027: $40,000.00. Peach State accepted $1,116.00 (07/14) and Riverton Spine & Rehab $4,275.00 (07/16), both in writing. Every litigation cost is receipted.", "prompt": "Complete John Doe's LSH Net Sheet for the litigated recovery. Section 1: the gross by carrier. Section 2: the 40% fee the retainer sets once suit is filed, and every receipted cost, pre-suit and litigation, on its row. Section 3: every provider and payer with charges, payments, adjustments and balance owed, and each lien's reduced figure with its Payoff Letter. Section 4: the net to John Doe. Tie it to the Trust Ledger and route the Settlement Statement to Atty. Thorne. Graded judgment: what you explain to John about the difference from a pre-suit settlement, and what you leave to Atty. Thorne.", "tool": "LSH Net Sheet · CMS → Settlement (BI/UM) → Check Received / Disbursed · CMS → Tasks → + Add Task", "output": "A Net Sheet reaching $14,713.75, every cost and lien proved, routed to Atty. Thorne before John Doe signs.", "checkpoints": ["Gross: Keystone $10,000.00 (mediation, 03/18/2027) + Harbor Point $20,000.00 + Cardinal State $10,000.00 (award, 07/06/2027) = $40,000.00", "Fee at the 40% tier (suit filed 09/24/2026): $16,000.00, confirmed by Atty. Thorne from the retainer", "Costs receipted: $486.75 pre-suit + $218.00 filing + $285.00 service + $1,200.00 mediation + $900.00 arbitration + $645.50 court reporter + $160.00 certified records = $3,895.25", "Liens: Peach State $1,860.00 → $1,116.00 (40% procurement-cost reduction, $744.00, 07/14/2027); Riverton Spine & Rehab $6,290.00 → audited $6,105.00 → $4,275.00 (Payoff Letter 07/16/2027); total $5,391.00", "Zero-balance lines kept off the payables with their source: PIP $5,000.00, Crescent's $1,540.00 write-off, the PIP-paid providers", "Net: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75; the trust deposits of $40,000.00 tie to the gross", "Nothing disbursed until both UM checks clear and John Doe signs the Settlement Statement (07/29/2027); disbursement 07/30/2027", "The difference from a pre-suit settlement explained to John Doe as arithmetic; whether suing was worth it routed to Atty. Thorne"]}, "ops": [["Last UM check received (07/22/2027)", "Post it and complete the Net Sheet", "LSH Net Sheet", "Gross $40,000.00 · net $14,713.75"], ["Liens accepted in writing", "Log the reduced figures and Payoff Letters", "LSH Net Sheet · CMS → Doc Hub", "Peach State $1,116.00 · Riverton Spine & Rehab $4,275.00"], ["Net Sheet ties to trust", "Route the Settlement Statement", "CMS → Tasks → + Add Task", "Routed before John Doe signs"]], "best": ["Enter every cost from its receipt, on its row.", "Write each reduction's basis on its line.", "Pitfall: carrying Track A's 33⅓% fee into the litigated file.", "Pitfall: paying a lien from a phone call instead of a Payoff Letter."], "sources": ["D3#21", "D3#25", "D3#27", "D3#28", "Newly authored: the Track B close-out"], "rubric": {"ai": [["Gross and fee", 15, "$40,000.00 by carrier; 40% = $16,000.00"], ["Costs", 15, "$3,895.25 from seven receipted items"], ["Liens", 15, "$1,116.00 and $4,275.00 with their Payoff Letters; zero-balance lines off the payables"], ["Net", 15, "$14,713.75, tied to the trust deposits"]], "trainer": [["Explaining the difference", 20, "Plain arithmetic to John Doe: fee tier, costs, liens"], ["UPL boundary", 20, "No opinion on the lawsuit's worth or the fee; routed to Atty. Thorne"]]}, "notes": ["Have each trainee open the Net Sheet beside the slide and check it at the Track B stage. The trap is the fee: 33⅓% from habit instead of 40%.", "Ask: “John says a friend kept more from his settlement. What do you say?” Only arithmetic, and a route to Atty. Thorne."]},
+        {"kind":"activity","id":"d5-drive","transition":"The award is disbursed and John Doe's case is won. One job remains before the file closes: a backup that is complete, checked and ready to move to Closed Files.","title":"Backup File Maintenance: the Final Audit and the Close-Out","topic":"Skill Activity — back up the litigation file, run the final audit and prepare the case for Closed Files","visual":"The Doe-John folder tree with every folder ticked green and 09 Litigation & ADR opened: the Complaint, the affidavit of service, the Answer, the Scheduling Order, the mediation term sheet and both binders. Beside it a closing checklist card with every line ticked, ending ATTY. THORNE SIGN-OFF. A dashed orange arrow runs from Doe-John to 04 Closed Files, labeled AFTER SIGN-OFF, THE FIRM'S WAY.","act":{"scenario":"07/30/2027, 3:00 p.m. The award was disbursed today: John Doe signed the Settlement Statement on 07/29/2027 and every lien is paid on its Payoff Letter. The litigation file is on the CMS: the Complaint (filed 09/24/2026), the service of process and affidavit of service, Atty. Grant Mercer's Answer (11/12/2026), the Scheduling Order (12/10/2026), the mediated settlement term sheet (03/18/2027) and the Mediation and Arbitration Binders as delivered. Atty. Thorne will sign off the close once the file is complete, on the CMS and on the backup.","prompt":"File the litigation and ADR documents from 📁 Work From in the CMS, so each lands in 09 Litigation & ADR on your Backup Drive. Then run the final backup audit: open 📂 My Backup Drive, run ✓ Check my drive, and confirm the count of backed-up documents equals the documents filed in the CMS across all nine folders, with every superseded version labeled and no draft left unlabeled. Then write the closing checklist in Case Notes for Atty. Thorne's sign-off: every folder complete; every lien's Payoff Letter and the Settlement Statement on the drive; the closing letter sent and backed up; the last drive check clean; and the close-out step the firm takes after sign-off: the whole Doe-John folder moves, unchanged inside, under 04 Closed Files, with the closing date logged. Do not move the folder in your training drive; the course checks it where it is.","tool":"Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes","output":"The litigation and ADR documents backed up in 09 Litigation & ADR, a final audit with every filed document on the drive and a clean check, and a closing checklist in Case Notes ready for Atty. Thorne's sign-off.","checkpoints":["The Complaint, the service papers, the Answer, the Scheduling Order and the mediation term sheet in 09 Litigation & ADR","The final count: every document filed in the CMS backed up in its folder","Superseded versions labeled and drafts marked as drafts across all nine folders","✓ Check my drive run with no folder missing","The closing checklist in Case Notes, ending with Atty. Thorne's sign-off and the move to 04 Closed Files","The client folder left in place in the training drive"]},"ops":[["Litigation documents filed","File each so its copy lands in 09 Litigation & ADR","CMS → Doc Hub","All on the backup"],["Award disbursed","Run the final backup audit","Backup Drive","Backed up equals filed; check clean"],["File complete","Write the closing checklist for sign-off","CMS → Notes → Case Notes","Every line answered"],["Atty. Thorne signs off","The firm moves Doe-John under 04 Closed Files","Backup Drive","Moved whole, closing date logged"]],"best":["Close the backup the way you opened it: by the standard, checked, with nothing left in a folder of its own making.","A file is closed when the attorney signs off, not when the money goes out.","Pitfall: moving the client folder before sign-off, then filing a late document into a case nobody can find.","Pitfall: unlabeled drafts in a closed file; a reader years later can't tell which complaint was filed."],"sources":["D1#12","D1#13","D3#28","LSH firm standard: backup drive folder hierarchy"],"rubric":{"ai":[["Litigation file backed up",16,"Litigation and ADR documents in 09 Litigation & ADR"],["Final audit",20,"Backed up equals filed across every folder; superseded and draft versions labeled; drive check clean"],["Closing checklist",12,"Every closing line in Case Notes, ending with sign-off and the move to 04 Closed Files"],["File names",12,"Every file on the drive named by the firm's naming convention, labels included, from intake to award"]],"trainer":[["Close-out judgment",25,"Knows the folder moves only after Atty. Thorne's sign-off, and why"],["Findability",15,"Finds any named document from intake to award on the drive in seconds"]]},"notes":["This is the last backup job of the course. Call out a Day 1 document (the HIPAA authorization) and a Day 5 one (the Answer); time how long each takes to open.","Ask: “Why not move it to Closed Files today?” Because a late document, a lien refund or a client call can still arrive, and the file stays open until Atty. Thorne signs off.","Show the trainer report in the Trainee Audit: Proficient means built, nothing missing and every filed document backed up."]},
 
         {"kind": "check", "id": "d5m5-kc", "title": "Track B Close-Out Check", "topic": "Knowledge Check + Case Manager Self-Summary & Skill Scale", "visual": "Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange; beside it, the two nets stacked as chips, TRACK A $20,359.92 and TRACK B $14,713.75. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, beside the 1–5 SKILL SCALE as a five-step horizontal ladder. Far right, the 60/40 split as a stacked bar, with UPL as a separate red gate chip below it.", "check": {"questions": ["Take the $40,000.00 award to John Doe's $14,713.75: name every deduction with its figure and its source.", "Why is the fee 40% on this file, and which document says so? Who confirms it before the Net Sheet is drafted?", "Peach State accepted $1,240.00 on Track A and $1,116.00 on Track B. Show both reductions and why they differ."], "summary": ["Summarize, in your own words, what you learned closing Track B: the principles behind a litigated Net Sheet, not the clicks.", "Articulate your strategy: the award is in and both UM checks are in trust. What is your next action before the 07/30/2027 disbursement, and why is it the right one rather than something else?", "Identify the one thing in this module you are least confident about, and what you would need in order to be confident."], "scale": ["Applying the retainer's fee tier to a litigated recovery", "Proving litigation costs with receipts", "Reducing liens against a litigated fund", "Explaining a Net Sheet to a client without advice"]}, "best": ["Answer from the file: names, dates and figures, not general rules."], "sources": ["D3#23", "D3#24", "D3#27", "Newly authored: the Track B close-out"], "rubric": {"ai": [["Net Sheet arithmetic", 20, "$40,000.00 → $14,713.75 with every deduction and its source"], ["Fee and lien doctrine", 20, "The 40% tier from the retainer; reductions at the fee actually charged"], ["Completeness", 20, "Every question answered substantively"]], "trainer": [["Strategic articulation", 20, "The stated next action is the right one and the reasoning holds"], ["UPL boundary", 20, "No opinion on the worth of the suit, the fee or the award"]]}, "notes": ["This is the last check of the Case Flow: the file is closed from intake to award.", "Question 5 is the UPL gate: arithmetic yes, opinion no. A trainee who says the lawsuit was or wasn't worth it has crossed the line."]}
       ]
@@ -10803,8 +10803,8 @@ window.CM_CASE_FLOW = {
       about: "When Atty. Thorne decides the firm will stop representing a client: the Case Manager's six-step close-out, from the Pending Drop gate to the Withdrawal Letters, their dispatch and proof, and the Dropped status. Worked on a practice matter; John Doe's case is never dropped.",
       quiz: [{"q": "A practice file shows status “Pending Drop”, but no note from Atty. Thorne or the Case Manager says the client has been told. What happens before any Withdrawal Letter goes out?", "opts": ["The client's letter goes by Certified Mail, so it serves as the notice", "Every letter is held until Atty. Thorne confirms, in a note on the file, that the client was told", "The Case Manager calls the client to explain why the firm is dropping the case", "The carrier's and provider's letters go now; the client's waits"], "a": 1, "r": "Two gates come first: the status is Pending Drop AND a note shows the client was told, so the letter is never the client's first news. Telling the client is Atty. Thorne's conversation; nothing goes to any party until both gates are met."}, {"q": "Denise Harlow's three Withdrawal Letters are signed. Which dispatch plan follows the firm's close-out?", "opts": ["Denise by text and email, her preferred methods, plus Certified Mail with return receipt; Granite Shield by email and Brookside Physical Therapy by fax, as the CRM notes say; each dispatch logged, every letter saved in Word and PDF", "Everyone by Certified Mail only, and the status switched to “Dropped” the same day", "Denise by text only; Granite Shield and Brookside by phone, logged afterwards", "Denise by email, with Granite Shield and Brookside copied, so everyone sees the reason"], "a": 0, "r": "The client gets her preferred method plus Certified Mail for proof of receipt; carriers and providers get email or fax as the CRM notes say. The reason stays in the client's letter. The status moves to Dropped only once every letter is sent, logged and followed up."}, {"q": "Denise Harlow calls after her letter arrives: “So my case was worthless?” Which answer stays inside the Case Manager's role?", "opts": ["“Without treatment there was nothing to claim, so yes.”", "“If you find a clinic and restart treatment, the firm may take the case back.”", "“I can't speak to the value of your claim. Atty. Thorne made this decision and will call you to talk it through. Your letter also explains that time limits apply and suggests you speak to another attorney promptly.”", "“The firm thinks your case is too weak, but another lawyer might disagree.”"], "a": 2, "r": "The Case Manager never values the claim, never re-argues or explains the decision and never advises on next steps. She points Denise only to what Atty. Thorne approved: his call back and the letter's direction to seek other counsel promptly, then logs the call and routes it."}],
       blocks: [
-        {"kind": "lesson", "id": "d5m6-l1", "brief": true, "title": "Dropped Cases: the Case Manager's Close-Out", "topic": "From “Pending Drop” to “Dropped”: the gate, three Withdrawal Letters, their dispatch and the proof", "visual": "A six-step horizontal process rail on cream, each step a navy card with an orange numbered badge: ① GATE (two ticks: PENDING DROP · CLIENT TOLD) → ② PREPARE (three letter icons: CLIENT · CARRIER · PROVIDER, with WORD + PDF chips) → ③ SEND (CLIENT: TEXT/EMAIL + CERTIFIED MAIL; CARRIER: EMAIL; PROVIDER: FAX) → ④ ANNOTATE & SAVE → ⑤ FOLLOW UP (a return-receipt card) → ⑥ CLOSE (a status pill flipping from PENDING DROP to DROPPED). Above the rail, a slim strip lists the six common reasons, the last, NO HEALTH PLAN, in orange. Below it, a red gate chip: “Atty. Thorne decides. You close out.”", "tell": {"why": "A Dropped Case is a claim the firm stops pursuing before it resolves. Atty. Thorne makes that decision; the Case Manager closes it out, so the client, every carrier and every provider knows the representation has ended, and the file proves it. John Doe's case is never dropped: Day 5's Skip-Trace found the people his file needed. This phase covers the cases that end another way.", "rules": ["Common reasons: the client becomes unresponsive or withdraws; liability can't be established; coverage is denied or the limits are insufficient; the client can't complete treatment, for example with no Health Plan to pay for care; fraudulent or conflicting information comes to light. Whether any of them ends a case is Atty. Thorne's decision.", "An unresponsive client reaches this point only through the No Contact Protocol taught in Client Communications: its Final Warning Letter, then Atty. Thorne's choice of a Notice of Withdrawal or, in a filed suit, a Motion to Withdraw (confirm the court's rule). This phase starts where that one ends.", "Step 1, the gate: the status reads “Pending Drop” AND a note from Atty. Thorne or the Case Manager shows the client was told. Missing either, nothing goes out: the letter must never be the client's first news.", "Step 2, prepare: a Withdrawal Letter for the client and for every carrier and provider on the file, from the firm's template, over Atty. Thorne's signature, each with the date, client name, date of loss and claim number, saved in Word and PDF. Only the client's carries the reason, in his words, and the next step he approves: seek other counsel promptly.", "Step 3, send: the client by her preferred method (email, text or both; the active email, a subject such as “Notice of Withdrawal of Representation”, the PDF attached and a brief description) plus Certified Mail with return receipt to a confirmed current address. Carriers and providers by email or fax, as the CRM notes say.", "Step 4, annotate and save: each dispatch logged with party, method and date, and every sent letter saved to the client's file.", "Step 5, follow up: the return receipt, the carrier's acknowledgement, the fax confirmation. A time-sensitive party gets a call.", "Step 6, close: once every party has its letter and the receipts are followed up, switch the status to “Dropped” (or the firm's equivalent) and retain the proof: the letters, receipts, logs and Atty. Thorne's note."], "upl": ["You may prepare, send, log and follow up every Withdrawal Letter. You may not decide or announce a drop, tell the client the case is worthless or weak, advise on deadlines or next steps, or point the client anywhere Atty. Thorne hasn't approved."]}, "show": {"caption": "The close-out: six steps, in order", "type": "process", "steps": [["1 · Gate", "Status “Pending Drop” and a note that the client was told"], ["2 · Prepare", "Client, carrier and provider letters; Word and PDF"], ["3 · Send", "Client: preferred method plus Certified Mail; carriers and providers: email or fax per the CRM"], ["4 · Annotate", "Party, method and date logged; each sent letter in the file"], ["5 · Follow up", "Return receipt, acknowledgement, fax confirmation"], ["6 · Close", "Status “Dropped”; proof retained"]]}, "ops": [["Status “Pending Drop”, with Atty. Thorne's note that the client was told", "Prepare each party's Withdrawal Letter for his signature", "CMS → Documents → Withdrawal Letter template", "Client, carrier and provider letters, each saved in Word and PDF"], ["Letters signed", "Send each by its method and log the dispatch", "Email Workspace · CMS → Communications Log", "Party, method and date logged for every letter"], ["Receipts followed up", "Switch the status and file the proof", "CMS → Case Status · CMS → Documents", "Status “Dropped”; receipts, logs and the attorney's note filed"]], "best": ["Check the gate before you open the template: no note, no letter.", "Send the client's letter two ways: her preferred method, and Certified Mail for proof.", "Read the CRM notes for each carrier's and provider's preferred method.", "Pitfall: putting the reason for the drop in a carrier's or provider's letter.", "Pitfall: switching to “Dropped” before every letter is sent and logged.", "Pitfall: telling the client the case is worthless, or what to do next."], "sources": ["LSH Claims Specialist: Dropped Cases — definition, common reasons, the Pending Drop check, Withdrawal Letters to clients, carriers and medical providers, annotating and saving them, and switching the status to Dropped", "LSH Claims Specialist: No Contact Protocol — the decision point (Notice of Withdrawal or Motion to Withdraw) and file closure", "Newly authored: no health insurance as a drop reason; the reason kept to the client's letter; the six-step close-out in order"], "rubric": {"ai": [["Close-out sequence", 20, "The six steps in order, from the Pending Drop gate to the Dropped status"], ["Letter contents", 15, "Date, client, date of loss and claim number on every letter; reason and next step only in the client's"], ["Send methods", 15, "Client by preferred method plus Certified Mail; carriers and providers by email or fax per the CRM"], ["Proof", 10, "Word and PDF saved, each dispatch logged, receipts followed up, proof retained"]], "trainer": [["Judgment", 20, "Holds the letters when the gate isn't met; keeps the reason out of third-party letters"], ["UPL boundary", 20, "Leaves the decision and its explanation to Atty. Thorne; no opinion on the claim's worth or the client's next steps"]]}, "notes": ["Start with why this phase exists: John Doe's case is never dropped, but a new Case Manager closes a dropped file early on. Ask the room for the common reasons, then add the one the activity uses: a client with no Health Plan who cannot continue care.", "Ask: “The status says Pending Drop. Can the letters go?” Not until a note shows the client was told.", "Ask which letter carries the reason. Only the client's: a carrier or a provider learns only that the firm no longer represents her.", "UPL gate: the drop is Atty. Thorne's decision and his explanation. A trainee who would tell a client the case is worthless, or suggest restarting treatment to save it, has crossed the line."]},
-        {"kind": "activity", "id": "d5m6-a1", "transition": "Denise Harlow's case is being dropped. We close it out the right way, with the Withdrawal Letters and the close-out log.", "otherMatter": true, "title": "Closing a Dropped Case: Withdrawal Letters & the Close-Out Log", "topic": "Skill Activity — a practice matter: three Withdrawal Letters, their dispatch and the Dropped status", "visual": "A PRACTICE MATTER banner in orange across the top: DENISE HARLOW · LSH-2026-MVA-781205 · NOT JOHN DOE'S FILE. Left half, three stacked letter cards, each with a navy header (CLIENT · GRANITE SHIELD · BROOKSIDE PT) and a method chip (TEXT + EMAIL + CERTIFIED MAIL · EMAIL · FAX); only the client card carries an orange REASON line. Right half, the close-out log as a checklist: gate ✓ 12/08/2026, letters saved WORD + PDF, dispatch 12/09/2026, follow-up 12/16/2026, and a status pill turning from PENDING DROP to DROPPED. Bottom-right, a red chip: “Worthless? Not yours to say.”", "act": {"scenario": "A practice matter, not John Doe's file: do not open or create it in the CMS. File date 12/09/2026. Denise Harlow (LSH-2026-MVA-781205) was rear-ended at a red light on 09/19/2026. Granite Shield Insurance holds the BI claim, GS-26-48213 (adjuster Paul Ostrander; CRM note: email only). She treated at Brookside Physical Therapy (CRM note: fax only) from 09/24 to 10/29/2026, then stopped: she has no Health Plan to pay for care, and Brookside declined a Letter of Protection. Atty. Thorne has decided to drop the case. Status: Pending Drop. His note, 12/08/2026, 2:10 p.m.: called Denise, told her the firm will close its representation; she understood; address 87 Alder Creek Dr, Riverton confirmed; she prefers text and email (denise.harlow@mail.example). RS05 shows the firm's standard retainer, with the withdrawal terms every client signs.", "prompt": "Close out the drop in the CMS. Record the gate you checked. Draft three Withdrawal Letters for Atty. Thorne's signature: to Denise (date, name, date of loss, the reason in his note's words, and the next step he approves: speak to another attorney promptly, because time limits apply), and one each to Granite Shield and to Brookside (date, client, date of loss, claim number, that the firm no longer represents her; nothing about why). Name each send method and why. Then write the close-out log: Word and PDF saved, each dispatch annotated, the follow-up, the switch to Dropped and the proof retained. Graded judgment: what you say if Denise calls to ask whether her case was worthless.", "tool": "CMS → Documents → Withdrawal Letter template", "output": "Three Withdrawal Letters ready for Atty. Thorne's signature, a send method for each, and a close-out log from Pending Drop to Dropped.", "checkpoints": ["Gate recorded: status “Pending Drop” and Atty. Thorne's 12/08/2026 note that Denise Harlow was told; nothing prepared to send before both were confirmed", "Client letter: 12/09/2026, Denise Harlow, date of loss 09/19/2026, the reason in Atty. Thorne's words (treatment ended 10/29/2026, so the firm cannot continue the claim), the approved next step (speak to another attorney promptly; time limits apply), signed by Atty. Thorne", "Granite Shield letter: client, claim GS-26-48213, date of loss 09/19/2026, the firm no longer represents her; Brookside letter: patient, date of loss, the firm no longer represents her, please update your records; neither gives the reason", "Every letter saved in Word and PDF", "Methods: Denise by text and email (subject “Notice of Withdrawal of Representation”, PDF attached, a brief description) plus Certified Mail with return receipt to 87 Alder Creek Dr; Granite Shield by email and Brookside by fax, per the CRM notes", "Each dispatch annotated with party, method and date (12/09/2026); each sent letter saved to the file", "Follow-up on 12/16/2026: the return receipt, Granite Shield's acknowledgement and Brookside's fax confirmation", "Status switched to “Dropped” only after all three letters are sent, logged and followed up; proof retained: letters, receipts, logs and Atty. Thorne's note", "If Denise asks whether her case was worthless: no view on its value or on restarting treatment; Atty. Thorne made the decision and will call her; the call logged and routed"]}, "ops": [["Pending Drop with Atty. Thorne's 12/08/2026 note", "Confirm the gate; draft the three letters", "CMS → Documents → Withdrawal Letter template", "Client, Granite Shield and Brookside letters, Word and PDF"], ["Letters signed, 12/09/2026", "Send each by its method and annotate it", "CMS → Documents → close-out log", "Text, email and Certified Mail; email; fax"], ["Follow-up, 12/16/2026", "Confirm receipt, then switch the status", "CMS → Documents → close-out log", "Dropped; proof retained"]], "best": ["Quote Atty. Thorne's reason; never write your own.", "Confirm the mailing address before Certified Mail goes out.", "Pitfall: a carrier letter that says she stopped treating.", "Pitfall: offering Denise a way to “save” the case."], "sources": ["LSH Claims Specialist: Dropped Cases — sending Withdrawal Letters to clients, carriers and medical providers; the sample letters by email, by text, to a carrier and to a provider", "Newly authored: the Denise Harlow practice matter (no health insurance, treatment ended, Pending Drop)"], "rubric": {"ai": [["Gate", 10, "Pending Drop and the 12/08/2026 note both confirmed before anything is prepared to send"], ["Client letter", 15, "12/09/2026, Denise Harlow, 09/19/2026, the reason in Atty. Thorne's words, the approved next step, his signature"], ["Carrier and provider letters", 15, "GS-26-48213 and the date of loss on each; no reason given; “please update your records” to Brookside"], ["Methods and close-out log", 20, "Text, email and Certified Mail; email; fax; Word and PDF; dispatch logged; follow-up 12/16/2026; Dropped with proof"]], "trainer": [["Judgment", 20, "Keeps the reason to the client's letter and the status change behind the follow-up"], ["UPL boundary", 20, "No view on the claim's worth or on restarting treatment; Denise routed to Atty. Thorne"]]}, "notes": ["Say it before anyone starts: this is a practice matter. John Doe's case is never dropped, and nothing here goes into his file or the CMS.", "Read three carrier letters aloud. Any that mentions treatment, insurance or the reason goes back: Granite Shield learns only that the firm no longer represents Denise.", "Ask: “Denise calls and asks if her case was worthless. What do you say?” Only Atty. Thorne's decision, his call back and the letter's direction to seek other counsel."]},
+        {"kind": "lesson", "id": "d5m6-l1", "brief": true, "title": "Dropped Cases: the Case Manager's Close-Out", "topic": "From “Pending Drop” to “Dropped”: the gate, three Withdrawal Letters, their dispatch and the proof", "visual": "A six-step horizontal process rail on cream, each step a navy card with an orange numbered badge: ① GATE (two ticks: PENDING DROP · CLIENT TOLD) → ② PREPARE (three letter icons: CLIENT · CARRIER · PROVIDER, with WORD + PDF chips) → ③ SEND (CLIENT: TEXT/EMAIL + CERTIFIED MAIL; CARRIER: EMAIL; PROVIDER: FAX) → ④ ANNOTATE & SAVE → ⑤ FOLLOW UP (a return-receipt card) → ⑥ CLOSE (a status pill flipping from PENDING DROP to DROPPED). Above the rail, a slim strip lists the six common reasons, the last, NO HEALTH PLAN, in orange. Below it, a red gate chip: “Atty. Thorne decides. You close out.”", "tell": {"why": "A Dropped Case is a claim the firm stops pursuing before it resolves. Atty. Thorne makes that decision; the Case Manager closes it out, so the client, every carrier and every provider knows the representation has ended, and the file proves it. John Doe's case is never dropped: Day 5's Skip-Trace found the people his file needed. This phase covers the cases that end another way.", "rules": ["Common reasons: the client becomes unresponsive or withdraws; liability can't be established; coverage is denied or the limits are insufficient; the client can't complete treatment, for example with no Health Plan to pay for care; fraudulent or conflicting information comes to light. Whether any of them ends a case is Atty. Thorne's decision.", "An unresponsive client reaches this point only through the No Contact Protocol taught in Client Communications: its Final Warning Letter, then Atty. Thorne's choice of a Notice of Withdrawal or, in a filed suit, a Motion to Withdraw (confirm the court's rule). This phase starts where that one ends.", "Step 1, the gate: the status reads “Pending Drop” AND a note from Atty. Thorne or the Case Manager shows the client was told. Missing either, nothing goes out: the letter must never be the client's first news.", "Step 2, prepare: a Withdrawal Letter for the client and for every carrier and provider on the file, from the firm's template, over Atty. Thorne's signature, each with the date, client name, date of loss and claim number, saved in Word and PDF. Only the client's carries the reason, in his words, and the next step he approves: seek other counsel promptly.", "Step 3, send: the client by her preferred method (email, text or both; the active email, a subject such as “Notice of Withdrawal of Representation”, the PDF attached and a brief description) plus Certified Mail with return receipt to a confirmed current address. Carriers and providers by email or fax, as the CRM notes say.", "Step 4, annotate and save: each dispatch logged with party, method and date, and every sent letter saved to the client's file.", "Step 5, follow up: the return receipt, the carrier's acknowledgement, the fax confirmation. A time-sensitive party gets a call.", "Step 6, close: once every party has its letter and the receipts are followed up, switch the status to “Dropped” (or the firm's equivalent) and retain the proof: the letters, receipts, logs and Atty. Thorne's note."], "upl": ["You may prepare, send, log and follow up every Withdrawal Letter. You may not decide or announce a drop, tell the client the case is worthless or weak, advise on deadlines or next steps, or point the client anywhere Atty. Thorne hasn't approved."]}, "show": {"caption": "The close-out: six steps, in order", "type": "process", "steps": [["1 · Gate", "Status “Pending Drop” and a note that the client was told"], ["2 · Prepare", "Client, carrier and provider letters; Word and PDF"], ["3 · Send", "Client: preferred method plus Certified Mail; carriers and providers: email or fax per the CRM"], ["4 · Annotate", "Party, method and date logged; each sent letter in the file"], ["5 · Follow up", "Return receipt, acknowledgement, fax confirmation"], ["6 · Close", "Status “Dropped”; proof retained"]]}, "ops": [["Status “Pending Drop”, with Atty. Thorne's note that the client was told", "Prepare each party's Withdrawal Letter for his signature", "CMS → Doc Hub → Others", "Client, carrier and provider letters, each saved in Word and PDF"], ["Letters signed", "Send each by its method and log the dispatch", "Email Workspace · CMS → Notes → Case Notes", "Party, method and date logged for every letter"], ["Receipts followed up", "Switch the status and file the proof", "CMS → Case Status · CMS → Doc Hub", "Status “Dropped”; receipts, logs and the attorney's note filed"]], "best": ["Check the gate before you open the template: no note, no letter.", "Send the client's letter two ways: her preferred method, and Certified Mail for proof.", "Read the CRM notes for each carrier's and provider's preferred method.", "Pitfall: putting the reason for the drop in a carrier's or provider's letter.", "Pitfall: switching to “Dropped” before every letter is sent and logged.", "Pitfall: telling the client the case is worthless, or what to do next."], "sources": ["LSH Claims Specialist: Dropped Cases — definition, common reasons, the Pending Drop check, Withdrawal Letters to clients, carriers and medical providers, annotating and saving them, and switching the status to Dropped", "LSH Claims Specialist: No Contact Protocol — the decision point (Notice of Withdrawal or Motion to Withdraw) and file closure", "Newly authored: no health insurance as a drop reason; the reason kept to the client's letter; the six-step close-out in order"], "rubric": {"ai": [["Close-out sequence", 20, "The six steps in order, from the Pending Drop gate to the Dropped status"], ["Letter contents", 15, "Date, client, date of loss and claim number on every letter; reason and next step only in the client's"], ["Send methods", 15, "Client by preferred method plus Certified Mail; carriers and providers by email or fax per the CRM"], ["Proof", 10, "Word and PDF saved, each dispatch logged, receipts followed up, proof retained"]], "trainer": [["Judgment", 20, "Holds the letters when the gate isn't met; keeps the reason out of third-party letters"], ["UPL boundary", 20, "Leaves the decision and its explanation to Atty. Thorne; no opinion on the claim's worth or the client's next steps"]]}, "notes": ["Start with why this phase exists: John Doe's case is never dropped, but a new Case Manager closes a dropped file early on. Ask the room for the common reasons, then add the one the activity uses: a client with no Health Plan who cannot continue care.", "Ask: “The status says Pending Drop. Can the letters go?” Not until a note shows the client was told.", "Ask which letter carries the reason. Only the client's: a carrier or a provider learns only that the firm no longer represents her.", "UPL gate: the drop is Atty. Thorne's decision and his explanation. A trainee who would tell a client the case is worthless, or suggest restarting treatment to save it, has crossed the line."]},
+        {"kind": "activity", "id": "d5m6-a1", "transition": "Denise Harlow's case is being dropped. We close it out the right way, with the Withdrawal Letters and the close-out log.", "otherMatter": true, "title": "Closing a Dropped Case: Withdrawal Letters & the Close-Out Log", "topic": "Skill Activity — a practice matter: three Withdrawal Letters, their dispatch and the Dropped status", "visual": "A PRACTICE MATTER banner in orange across the top: DENISE HARLOW · LSH-2026-MVA-781205 · NOT JOHN DOE'S FILE. Left half, three stacked letter cards, each with a navy header (CLIENT · GRANITE SHIELD · BROOKSIDE PT) and a method chip (TEXT + EMAIL + CERTIFIED MAIL · EMAIL · FAX); only the client card carries an orange REASON line. Right half, the close-out log as a checklist: gate ✓ 12/08/2026, letters saved WORD + PDF, dispatch 12/09/2026, follow-up 12/16/2026, and a status pill turning from PENDING DROP to DROPPED. Bottom-right, a red chip: “Worthless? Not yours to say.”", "act": {"scenario": "A practice matter, not John Doe's file: do not open or create it in the CMS. File date 12/09/2026. Denise Harlow (LSH-2026-MVA-781205) was rear-ended at a red light on 09/19/2026. Granite Shield Insurance holds the BI claim, GS-26-48213 (adjuster Paul Ostrander; CRM note: email only). She treated at Brookside Physical Therapy (CRM note: fax only) from 09/24 to 10/29/2026, then stopped: she has no Health Plan to pay for care, and Brookside declined a Letter of Protection. Atty. Thorne has decided to drop the case. Status: Pending Drop. His note, 12/08/2026, 2:10 p.m.: called Denise, told her the firm will close its representation; she understood; address 87 Alder Creek Dr, Riverton confirmed; she prefers text and email (denise.harlow@mail.example). RS05 shows the firm's standard retainer, with the withdrawal terms every client signs.", "prompt": "Close out the drop in the CMS. Record the gate you checked. Draft three Withdrawal Letters for Atty. Thorne's signature: to Denise (date, name, date of loss, the reason in his note's words, and the next step he approves: speak to another attorney promptly, because time limits apply), and one each to Granite Shield and to Brookside (date, client, date of loss, claim number, that the firm no longer represents her; nothing about why). Name each send method and why. Then write the close-out log: Word and PDF saved, each dispatch annotated, the follow-up, the switch to Dropped and the proof retained. Graded judgment: what you say if Denise calls to ask whether her case was worthless.", "tool": "CMS → Doc Hub → Others", "output": "Three Withdrawal Letters ready for Atty. Thorne's signature, a send method for each, and a close-out log from Pending Drop to Dropped.", "checkpoints": ["Gate recorded: status “Pending Drop” and Atty. Thorne's 12/08/2026 note that Denise Harlow was told; nothing prepared to send before both were confirmed", "Client letter: 12/09/2026, Denise Harlow, date of loss 09/19/2026, the reason in Atty. Thorne's words (treatment ended 10/29/2026, so the firm cannot continue the claim), the approved next step (speak to another attorney promptly; time limits apply), signed by Atty. Thorne", "Granite Shield letter: client, claim GS-26-48213, date of loss 09/19/2026, the firm no longer represents her; Brookside letter: patient, date of loss, the firm no longer represents her, please update your records; neither gives the reason", "Every letter saved in Word and PDF", "Methods: Denise by text and email (subject “Notice of Withdrawal of Representation”, PDF attached, a brief description) plus Certified Mail with return receipt to 87 Alder Creek Dr; Granite Shield by email and Brookside by fax, per the CRM notes", "Each dispatch annotated with party, method and date (12/09/2026); each sent letter saved to the file", "Follow-up on 12/16/2026: the return receipt, Granite Shield's acknowledgement and Brookside's fax confirmation", "Status switched to “Dropped” only after all three letters are sent, logged and followed up; proof retained: letters, receipts, logs and Atty. Thorne's note", "If Denise asks whether her case was worthless: no view on its value or on restarting treatment; Atty. Thorne made the decision and will call her; the call logged and routed"]}, "ops": [["Pending Drop with Atty. Thorne's 12/08/2026 note", "Confirm the gate; draft the three letters", "CMS → Doc Hub → Others", "Client, Granite Shield and Brookside letters, Word and PDF"], ["Letters signed, 12/09/2026", "Send each by its method and annotate it", "CMS → Doc Hub → Case Files", "Text, email and Certified Mail; email; fax"], ["Follow-up, 12/16/2026", "Confirm receipt, then switch the status", "CMS → Doc Hub → Case Files", "Dropped; proof retained"]], "best": ["Quote Atty. Thorne's reason; never write your own.", "Confirm the mailing address before Certified Mail goes out.", "Pitfall: a carrier letter that says she stopped treating.", "Pitfall: offering Denise a way to “save” the case."], "sources": ["LSH Claims Specialist: Dropped Cases — sending Withdrawal Letters to clients, carriers and medical providers; the sample letters by email, by text, to a carrier and to a provider", "Newly authored: the Denise Harlow practice matter (no health insurance, treatment ended, Pending Drop)"], "rubric": {"ai": [["Gate", 10, "Pending Drop and the 12/08/2026 note both confirmed before anything is prepared to send"], ["Client letter", 15, "12/09/2026, Denise Harlow, 09/19/2026, the reason in Atty. Thorne's words, the approved next step, his signature"], ["Carrier and provider letters", 15, "GS-26-48213 and the date of loss on each; no reason given; “please update your records” to Brookside"], ["Methods and close-out log", 20, "Text, email and Certified Mail; email; fax; Word and PDF; dispatch logged; follow-up 12/16/2026; Dropped with proof"]], "trainer": [["Judgment", 20, "Keeps the reason to the client's letter and the status change behind the follow-up"], ["UPL boundary", 20, "No view on the claim's worth or on restarting treatment; Denise routed to Atty. Thorne"]]}, "notes": ["Say it before anyone starts: this is a practice matter. John Doe's case is never dropped, and nothing here goes into his file or the CMS.", "Read three carrier letters aloud. Any that mentions treatment, insurance or the reason goes back: Granite Shield learns only that the firm no longer represents Denise.", "Ask: “Denise calls and asks if her case was worthless. What do you say?” Only Atty. Thorne's decision, his call back and the letter's direction to seek other counsel."]},
         {"kind": "check", "id": "d5m6-kc", "title": "Dropped Case Close-Out Check", "topic": "Knowledge Check + Case Manager Self-Summary & Skill Scale", "visual": "The standard knowledge-check split. Upper half: the cream question panel with orange numbered badges, beside a status pill rail PENDING DROP → DROPPED with six small step ticks. Lower half, below the orange hairline: the navy CM SELF-SUMMARY card with three prompts beside the 1–5 SKILL SCALE ladder. Far right, the 60/40 stacked bar with UPL as a separate red gate chip below it.", "check": {"questions": ["Name the two things you confirm before any Withdrawal Letter goes out, and why both matter.", "What goes in Denise Harlow's letter that does not go in Granite Shield's or Brookside's, and why?", "Denise's three letters went out 12/09/2026. What must be true before her status becomes “Dropped”, and what proof stays in the file?"], "summary": ["Summarize, in your own words, what you learned closing a Dropped Case: the principles behind the close-out, not the clicks.", "Articulate your strategy: Denise's letters are out and her return receipt hasn't come back by 12/16/2026. What is your next action, and why is it the right one rather than something else?", "Identify the one thing in this module you are least confident about, and what you would need in order to be confident."], "scale": ["Confirming the Pending Drop gate before anything goes out", "Drafting a Withdrawal Letter for each party", "Choosing and logging each send method", "Closing the file with proof, without advice"]}, "best": ["Answer from the practice matter: names, dates and methods, not general rules."], "sources": ["LSH Claims Specialist: Dropped Cases — Withdrawal Letters and closing the file", "Newly authored: the Denise Harlow practice matter"], "rubric": {"ai": [["Close-out sequence", 20, "Gate, letters, methods, log, follow-up and status in order"], ["Letter contents and methods", 20, "The reason only in the client's letter; each party's method correct"], ["Completeness", 20, "Every question answered substantively"]], "trainer": [["Strategic articulation", 20, "The stated next action is the right one and the reasoning holds"], ["UPL boundary", 20, "No view on the claim's worth; the decision left with Atty. Thorne"]]}, "notes": ["Answers come from the practice matter: Denise Harlow, 12/08 and 12/09/2026, Granite Shield by email, Brookside by fax.", "The UPL gate: a trainee who explains the drop to Denise, or tells her what to do next, has crossed the line, whatever the rest of the answer."]}
       ]
     }
@@ -10948,7 +10948,7 @@ window.CM_CASE_FLOW = {
     ],
     "d2m2-cost": [
       "Treatment costs the client money that no provider's bill shows: the drive to every appointment, the ride when there is no car, the prescription, the brace, the rental the owner paid for past the cutoff. Every one is a cost of the collision, and every one is recoverable only if it was documented when it happened. Out-of-pocket costs are part of the Specials, beside the Medical Bills and the lost wages.",
-      "The tool is a trip log kept from the first visit: the date, the provider and the round-trip miles, one line per visit, never rebuilt from memory at the demand. Mileage is claimed at the rate the governing state's rules allow, and Atty. Thorne confirms it; the IRS standard rates are a reference only. Each receipt is entered in CMS → Financial Ledger → Specials the day it arrives and filed in Documents, and every payer is checked first, so nothing PIP or the Health Plan paid is claimed twice.",
+      "The tool is a trip log kept from the first visit: the date, the provider and the round-trip miles, one line per visit, never rebuilt from memory at the demand. Mileage is claimed at the rate the governing state's rules allow, and Atty. Thorne confirms it; the IRS standard rates are a reference only. Each receipt is entered in CMS → Treatment → Total Medical Specials the day it arrives and filed in Documents, and every payer is checked first, so nothing PIP or the Health Plan paid is claimed twice.",
       "On John Doe's file the costs start with the rental cutoff. Keystone's rental on Margaret Doe's Civic ended on 03/19/2026, and with it his rides to treatment; from then on, transport is both a barrier to care and a cost to log. A rental day the carrier did not pay, or a rate above the cap, is the owner's out-of-pocket cost, routed to Atty. Thorne with the Property Damage claim. His audited Specials stay as they are; the log and its receipts go to Atty. Thorne before the demand.",
       "Done well, every dollar the collision cost the client is on the file with its proof, and the demand can carry it. Done badly, the costs are guessed at the end, or never claimed at all. Your lane is to collect and log; you never tell the client what a cost is worth or promise he will be repaid, and what the demand claims, and at what rate, is Atty. Thorne's call. Ask the room: what is John Doe paying out of his own pocket this week?"
     ],
@@ -10964,7 +10964,7 @@ window.CM_CASE_FLOW = {
       "**Every coverage, sorted.** Each policy is sorted twice: whose it is and what it pays. Robert Smith's Keystone BI ($10,000) and PD ($25,000) are third-party; Harbor Point's Host UM ($20,000) and PIP ($5,000), Cardinal State's Relative UM ($10,000) and Margaret Doe's Bluewater collision are first-party; Peach State is John's own Health Plan. Only BI, Host UM and Relative UM pay the claim, and only they make the $40,000 Recovery Stack. Margaret rejected UM on her Bluewater policy in writing on 03/14/2024, so it adds nothing.",
       "**The Payer-First Principle.** Each bill goes first to the payer that must pay it. Harbor Point PIP pays regardless of fault and confirmed in writing on 03/02/2026 that it has no reimbursement right, so every PIP dollar is a bill that never becomes a lien. Peach State comes next, paying in-network providers at the contract rate: Crescent Pain & Spine billed $3,400.00 and the plan paid $1,860.00. A Letter of Protection comes last, only for care the earlier payers can't carry: Riverton Spine & Rehab, out of network. Summit Imaging's 03/11/2026 request was declined because PIP had $3,675.00 left.",
       "**Health subrogation.** A plan that pays accident bills claims them back from the recovery, but only what it paid, and only for the collision's care. The Regulatory Triple-Check comes first: the claim-specific HIPAA authorization, the BCRC answer (John is 34, so his SSDI status is verified and recorded) and the Payer Order. Peach State's interim itemization of 06/10/2026 asserted $3,618.00; audited line by line, three lines were not the collision's and the Crescent line was claimed at billed, and on 06/24/2026 the plan confirmed $1,860.00 in writing. Peach State is a fully insured plan, so any reduction turns on state law: Atty. Thorne's call, at the lien stage.",
-      "**The two CMS flags, exactly.** The lien is flagged in CMS → Liens → Flag the day a reimbursement right is first known (Peach State's notice, 02/27/2026), or the day a plan's first accident payment posts if no notice came first, and always before the first demand, with the carrier, member ID PSH-55017742, group GRP-41208, Payer Order position, basis and flag date. The 14-Day Gap is flagged the day the records show it: date of loss 02/06/2026, first treatment 02/20/2026, 14 days counted exactly, in the risks band in facts only, routed to Atty. Thorne, with a watch for any later break. The 19-day break (04/02 → 04/21/2026) was flagged the day the missed-visit alert arrived, 04/08/2026. Neither flag is a judgment: what a lien or a gap means for the claim is Atty. Thorne's."
+      "**The two CMS flags, exactly.** The lien is flagged in CMS → Liens → Outstanding Case Liens the day a reimbursement right is first known (Peach State's notice, 02/27/2026), or the day a plan's first accident payment posts if no notice came first, and always before the first demand, with the carrier, member ID PSH-55017742, group GRP-41208, Payer Order position, basis and flag date. The 14-Day Gap is flagged the day the records show it: date of loss 02/06/2026, first treatment 02/20/2026, 14 days counted exactly, in the risks band in facts only, routed to Atty. Thorne, with a watch for any later break. The 19-day break (04/02 → 04/21/2026) was flagged the day the missed-visit alert arrived, 04/08/2026. Neither flag is a judgment: what a lien or a gap means for the claim is Atty. Thorne's."
     ],
     "d2m2-l2": [
       "On a Letter of Protection, nobody reviews John Doe's care in real time. A Health Plan or PIP carrier might question a visit as it is billed, but under an LOP the first real review happens at the demand, when Keystone looks back over the whole course of treatment and argues that the care was unnecessary or the injury minor. Missed visits, a plateau and unexplained gaps all become material for that argument. That makes the Case Manager the only **real-time check** that the plan is working, and the person who acts on the day it stops. Monitoring outcomes, not attendance alone, is how you do that job.",

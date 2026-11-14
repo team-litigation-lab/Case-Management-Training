@@ -33,7 +33,7 @@ function labels(d){
   if(loop) return {lessons: ["Part 1 · 📘 Lessons", `${nL} lesson${nL === 1 ? "" : "s"}, all together`], lab: [loop.label, loop.sub], kc: ["🎯 Knowledge Check", "after the Ready check, the day's last slide"]};
   return {
     lessons: ["Part 1 · 📘 Lessons", `${nL} lesson${nL === 1 ? "" : "s"}, all together`],
-    lab: build ? ["Part 2 · 🏗 Full Application Practice", `build your companion case; then ${nA} optional extra activities`]
+    lab: build ? ["Part 2 · 🏗 Full Application Practice", `build your companion case; then ${nA} extra activities on John Doe's file`]
       : ["Part 2 · 🧪 Practice Lab", `all ${nA} Skill Activit${nA === 1 ? "y" : "ies"}, in one place`],
     kc: ["🎯 Knowledge Check", "after the Ready check, the day's last slide"]
   };
@@ -104,7 +104,7 @@ function labelRoadmap(){
     if(sidesI.length){
       const g = document.createElement("li"); g.className = "rmx-sides";
       const inside = sidesI.some(li => lis[li].querySelector(".rmx-topic.on")), onLab = hereType === "practiceLab" || hereType === "extraPractice";
-      // (on the Practice Lab's own slide, or Day 5's Optional Extra Practice, the group itself is "● here")
+      // (on the Practice Lab's own slide, or Day 5's Extra Practice, the group itself is "● here")
       g.innerHTML = `<details${inside || onLab ? " open" : ""}><summary${onLab ? ` class="on"` : ""}><span class="rmx-si" aria-hidden="true">🧪</span><span>Skill activities (${sidesI.length})</span>${onLab ? `<span class="rmx-here">● here</span>` : ""}</summary><ol class="rmx-subtopics"></ol></details>`;
       const sub = g.querySelector(".rmx-subtopics"); sidesI.forEach(li => sub.appendChild(lis[li]));
       out.push(g);

@@ -119,7 +119,7 @@
   },
   "d1m3-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Email Workspace, tell Dana Whitfield the firm represents John Doe: no direct contact, and any Recorded Statement goes through the firm\n• Step 2: Log it in CMS › Communications Log, with a task in CMS › Tasks to set up his first visit at Riverton Urgent Care"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Email Workspace, tell Dana Whitfield the firm represents John Doe: no direct contact, and any Recorded Statement goes through the firm\n• Step 2: Log it in CMS › Notes › Case Notes, with a task in CMS › Tasks to set up his first visit at Riverton Urgent Care"
     },
     "case": {
       "say": "• Assuming John Doe's voicemail is transcribed and Keystone has asked to record him, the firm's instruction and his first visit now need logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Keystone told in writing, every contact logged, the first visit tasked"
@@ -141,7 +141,7 @@
   },
   "d1m3-a3": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents, index the photos, the tow record and the Police Report as evidence for John Doe's injury claim\n• Step 2: Log one Case Note in CMS › Case Notes: the rental and Loss of Use stay on Margaret's claim\n• Referred to Atty. Thorne. Does PD touch our case?"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub, index the photos, the tow record and the Police Report as evidence for John Doe's injury claim\n• Step 2: Log one Case Note in CMS › Notes › Case Notes: the rental and Loss of Use stay on Margaret's claim\n• Referred to Atty. Thorne. Does PD touch our case?"
     },
     "case": {
       "say": "• Assuming the Police Report shows Margaret Doe owns the Civic and John Doe rode as a passenger\n• Keystone PD's six items need sorting on the file\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: BI evidence indexed and the one-line PD answer logged"
@@ -274,7 +274,7 @@
   },
   "d2m1-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents › Outgoing, draft three letters of representation and two notices\n• Each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages\n• Step 2: Route the set to Atty. Thorne for signature, send each by the carrier's preferred method, and calendar a check for each acknowledgement"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub › Others, draft three letters of representation and two notices\n• Each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages\n• Step 2: Route the set to Atty. Thorne for signature, send each by the carrier's preferred method, and calendar a check for each acknowledgement"
     },
     "case": {
       "say": "• Assuming claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, no adjuster assigned\n• Five letters must go out on 02/17/2026\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: five letters signed, sent and logged, follow-ups calendared"
@@ -296,7 +296,7 @@
   },
   "d2m1-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance › Coverage Matrix, take PIP out of the stack and correct the total to $40,000, citing the document behind each fix\n• Step 2: Log a three-line audit note to Atty. Thorne in CMS › Case Notes: what is confirmed in writing\n• What is still preliminary, and what you escalated"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance, take PIP out of the stack and correct the total to $40,000, citing the document behind each fix\n• Step 2: Log a three-line audit note to Atty. Thorne in CMS › Notes › Case Notes: what is confirmed in writing\n• What is still preliminary, and what you escalated"
     },
     "case": {
       "say": "• Assuming a colleague's Coverage Matrix totals $45,000 and the file holds Harbor Point's and Cardinal State's letters but no Keystone Declaration Page\n• The matrix needs correcting\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a corrected matrix totalling $40,000, its audit note routed"
@@ -321,7 +321,7 @@
   },
   "d1m4-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case File › Risk Flags, record the exact gap in days from the date of loss\n• And set a watch for later breaks in care\n• Step 2: Log the facts only in the Action Plan's risks band, and route the flag to Atty. Thorne in the CMS"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Notes › Case Notes, record the exact gap in days from the date of loss\n• And set a watch for later breaks in care\n• Step 2: Log the facts only in the Action Plan's risks band, and route the flag to Atty. Thorne in the CMS"
     },
     "case": {
       "say": "• Assuming John Doe's first treatment record is in the CMS, dated 02/20/2026, the gap from the date of loss now needs flagging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a precisely computed gap flag, routed to Atty. Thorne"

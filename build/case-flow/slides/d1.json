@@ -68,7 +68,7 @@
       "In Google Drive, build 01 Clients by hand, holding Doe-John with its nine numbered folders.",
       "Add 02 Firm Administration with its two folders, then 03 Templates and 04 Closed Files, named as the standard shows.",
       "In 📂 My Backup Drive, submit the folders, fix what it returns, and run **✓ Check my drive** until clean.",
-      "In CMS → Case Notes, write where the retainer, the Police Report and the HIPAA authorization belong, and why."
+      "In CMS → Notes → Case Notes, write where the retainer, the Police Report and the HIPAA authorization belong, and why."
     ],
     "deliver": "A linked drive **built to standard**, confirmed by a clean check",
     "purpose": "A covering Case Manager must **find any document in seconds**",
@@ -270,7 +270,7 @@
     "situation": "Assuming John Doe has been **silent six days** and the Step 1 review is done, his outreach attempts now need logging in order.",
     "side": true,
     "steps": [
-      "Log it in CMS → Communications Log: the two earlier voicemails, then an email, a text and the **emergency contact**, each with date, time, channel and outcome.",
+      "Log it in CMS → Notes → Case Notes: the two earlier voicemails, then an email, a text and the **emergency contact**, each with date, time, channel and outcome.",
       "Record the next action and its due date in the Communications Log."
     ],
     "deliver": "An **unbroken, contemporaneous** outreach log, the next action dated",
@@ -332,7 +332,7 @@
     "situation": "Assuming the **No Contact Protocol has been maxed** (phone, email, texts and emergency contact all tried and logged), John Doe's Step 4 Final Warning Letter is due today.",
     "side": true,
     "steps": [
-      "In CMS → Documents, fill in the Final Warning Letter template: list the earlier attempts with their dates and set a reply date **7 to 14 days** from today.",
+      "In CMS → Doc Hub, fill in the Final Warning Letter template: list the earlier attempts with their dates and set a reply date **7 to 14 days** from today.",
       "Log it in the CMS Communications Log: the letter went by certified mail and by email, and Atty. Thorne decides any next step."
     ],
     "deliver": "A **send-ready Final Warning Letter**, both deliveries logged, escalation recorded",
@@ -408,7 +408,7 @@
     "side": true,
     "steps": [
       "In the Email Workspace, tell Dana Whitfield the firm represents John Doe: no direct contact, and any Recorded Statement goes **through the firm**.",
-      "Log it in CMS → Communications Log, with a task in CMS → Tasks to set up his first visit at Riverton Urgent Care."
+      "Log it in CMS → Notes → Case Notes, with a task in CMS → Tasks to set up his first visit at Riverton Urgent Care."
     ],
     "deliver": "Keystone told in writing, **every contact logged**, the first visit tasked",
     "purpose": "The other side **has already called him**: today's plan stops the next call",
@@ -479,8 +479,8 @@
     "situation": "Assuming the Police Report shows **Margaret Doe owns the Civic** and John Doe rode as a passenger, Keystone PD's six items need sorting on the file.",
     "side": true,
     "steps": [
-      "In CMS → Documents, index the photos, the tow record and the Police Report as evidence for **John Doe's injury claim**.",
-      "Log one Case Note in CMS → Case Notes: the rental and Loss of Use stay on Margaret's claim, referred to Atty. Thorne. Does PD touch our case?"
+      "In CMS → Doc Hub, index the photos, the tow record and the Police Report as evidence for **John Doe's injury claim**.",
+      "Log one Case Note in CMS → Notes → Case Notes: the rental and Loss of Use stay on Margaret's claim, referred to Atty. Thorne. Does PD touch our case?"
     ],
     "deliver": "BI evidence indexed and **the one-line PD answer** logged",
     "purpose": "Sorting first keeps **Margaret's PD claim** off John Doe's file",
@@ -543,7 +543,7 @@
     "situation": "Assuming John Doe's first treatment record is in the CMS, dated **02/20/2026**, the gap from the date of loss now needs flagging.",
     "side": true,
     "steps": [
-      "In CMS → Case File → Risk Flags, record **the exact gap** in days from the date of loss, and set a watch for later breaks in care.",
+      "In CMS → Notes → Case Notes, record **the exact gap** in days from the date of loss, and set a watch for later breaks in care.",
       "Log the facts only in the Action Plan's risks band, and route the flag to Atty. Thorne in the CMS."
     ],
     "deliver": "A **precisely computed** gap flag, routed to Atty. Thorne",

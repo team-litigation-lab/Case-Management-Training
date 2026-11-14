@@ -50,7 +50,7 @@ you do; the assembler refuses the build without it. Only a brief lesson still ha
 Training Agenda: Part 1 the lessons, Part 2 the Practice Lab), `lab` (the one Practice Lab slide, after ALL of the
 day's lessons and before its first Skill Activity) and `wrap` (the End-of-Day Discussion: shown beside the day's
 last slide, 🎯 Ready for the Knowledge Check?; its say puts the day's discussion question to the room). A build day
-(Day 5) has `build`, `build2` (the two Full Application Practice slides) and `extra` (Optional Extra Practice)
+(Day 5) has `build`, `build2` (the two Full Application Practice slides) and `extra` (Extra Practice)
 where the other days have the Practice Lab. Same voice and limits as a block's slides. A day without them keeps the
 generic notes.
 

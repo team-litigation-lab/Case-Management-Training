@@ -1,5 +1,5 @@
 /* The LSH Net Sheet, in the course (net-sheet.html): the firm's own template (documents/templates/
-   LSH_Net_Sheet_v2_FIXED.xlsx, "LSH Net Sheet") with its four sections, rows and formulas, the Medical Provider Ledger
+   LSH_Net_Sheet.xlsx, "LSH Net Sheet") with its four sections, rows and formulas, the Medical Provider Ledger
    left blank for the trainee to build from the bills, so a trainee works John Doe's settlement math where the Case Flow asks for it, side
    by side with the slide (or on a second screen):
      1. Settlement Recovery Summary     L7 gross

@@ -55,7 +55,7 @@
   },
   "d1m2-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in CMS › Communications Log: the two earlier voicemails, then an email\n• A text and the emergency contact, each with date, time, channel and outcome\n• Step 2: Record the next action and its due date in the Communications Log"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in CMS › Notes › Case Notes: the two earlier voicemails, then an email\n• A text and the emergency contact, each with date, time, channel and outcome\n• Step 2: Record the next action and its due date in the Communications Log"
     },
     "case": {
       "say": "• Assuming John Doe has been silent six days and the Step 1 review is done, his outreach attempts now need logging in order\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an unbroken, contemporaneous outreach log, the next action dated"
@@ -66,7 +66,7 @@
   },
   "d1m2-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents\n• Fill in the Final Warning Letter template: list the earlier attempts with their dates and set a reply date 7 to 14 days from today\n• Step 2: Log it in the CMS Communications Log: the letter went by certified mail and by email, and Atty. Thorne decides any next step"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub\n• Fill in the Final Warning Letter template: list the earlier attempts with their dates and set a reply date 7 to 14 days from today\n• Step 2: Log it in the CMS Communications Log: the letter went by certified mail and by email, and Atty. Thorne decides any next step"
     },
     "case": {
       "say": "• Assuming the No Contact Protocol has been maxed (phone, email\n• Texts and emergency contact all tried and logged), John Doe's Step 4 Final Warning Letter is due today\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a send-ready Final Warning Letter, both deliveries logged, escalation recorded"
@@ -186,7 +186,7 @@
   },
   "d2m2-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Liens › LOP register, record Riverton's LOP signed by John Doe and Atty. Thorne\n• And send it with the HIPAA authorization from the Email Workspace\n• Step 2: Log Summit Imaging's declined LOP request in CMS › Case Notes, naming Harbor Point PIP as the payer, and calendar the rental's 03/19/2026 end"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Liens › Outstanding Case Liens, record Riverton's LOP signed by John Doe and Atty. Thorne\n• And send it with the HIPAA authorization from the Email Workspace\n• Step 2: Log Summit Imaging's declined LOP request in CMS › Notes › Case Notes, naming Harbor Point PIP as payer, and calendar the rental's 03/19/2026 end"
     },
     "case": {
       "say": "• Assuming Riverton Spine & Rehab is out of network for Peach State and Atty. Thorne has approved its LOP, the LOP now needs sending and logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: One counsel-approved LOP sent, one declined, both logged"
@@ -197,7 +197,7 @@
   },
   "d2m3-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Take the recorded call below: state the date and his consent, ask open questions only, and read his account back to him\n• Step 2: Log a privileged GIRP note in CMS › Case Notes the same day, with a dated task for each corroborating document"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Take the recorded call below: state the date and his consent, ask open questions only, and read his account back to him\n• Step 2: Log a privileged GIRP note in CMS › Notes › Case Notes the same day, with a dated task for each corroborating document"
     },
     "case": {
       "say": "• Assuming John Doe has agreed to a recorded call about why he waited 14 days, his four reasons now need capturing in his own words\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: All four reasons in his words, the GIRP note filed"
@@ -211,7 +211,7 @@
   },
   "d2m2-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the call in CMS › Case Notes in his own words, with no diagnosis or advice\n• Step 2: In CMS › Calendar, book his 04/21 and 04/23 visits, then restore the file's status in CMS › Case Status"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the call in CMS › Notes › Case Notes in his own words, with no diagnosis or advice\n• Step 2: In CMS › Calendar, book his 04/21 and 04/23 visits, then restore the file's status in CMS › Case Status"
     },
     "case": {
       "say": "• Assuming the No Contact Protocol has been maxed and John Doe calls back on 04/17, his re-engagement now needs logging before the letter's date\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: His words logged, visits booked, the file restored"
@@ -233,7 +233,7 @@
   },
   "d2m3-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case File › Gap Explanation Record\n• Enter the 14-day gap and the 19-day disruption with exact dates, each reason beside its dated document\n• Step 2: Log it as routed to Atty. Thorne, and file the non-economic damages records in the CMS"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Treatment › Other Treatment Notes\n• Enter the 14-day gap and the 19-day disruption with exact dates, each reason beside its dated document\n• Step 2: Log it as routed to Atty. Thorne, and file the non-economic damages records in the CMS"
     },
     "case": {
       "say": "• Assuming Dr. Reyes's 06/19/2026 Causation Letter and her 04/20 note are in, Atty. Thorne needs the Gap Explanation Record before the pre-demand session\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a routed record of both interruptions, every reason sourced"
@@ -307,7 +307,7 @@
   },
   "d2m4-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Specials, remove the duplicate and total the medical at $14,817.40 plus the wages, showing billed beside paid\n• Step 2: Log the liens in CMS › Liens and flag the billed-versus-paid choice to Atty. Thorne"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Treatment › Total Medical Specials, remove the duplicate and total the medical at $14,817.40 plus the wages, showing billed beside paid\n• Step 2: Log the liens in CMS › Liens and flag the billed-versus-paid choice to Atty. Thorne"
     },
     "case": {
       "say": "• Assuming Riverton Spine & Rehab's 05/04/2026 duplicate line is confirmed and Northgate verified $1,584.00 in wages, the Specials now need totalling\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an audited ledger at $16,401.40, liens listed, choice routed"
@@ -318,7 +318,7 @@
   },
   "d2m4-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log each decision in CMS › Case Notes, attributed to Atty. Thorne, with the date it was made\n• Step 2: In CMS › Tasks, open a task with an owner for each decision, and propose no demand figure"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log each decision in CMS › Notes › Case Notes, attributed to Atty. Thorne, with the date it was made\n• Step 2: In CMS › Tasks, open a task with an owner for each decision, and propose no demand figure"
     },
     "case": {
       "say": "• Assuming Atty. Thorne has decided on a time-limited BI demand, served 07/20/2026, his strategy decisions now need recording on the file\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a dated decision record, attributed to Atty. Thorne, tasked"
@@ -384,7 +384,7 @@
   },
   "d2m4-wage": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Specials, correct the draft worksheet from $1,760.00 to the verified $1,584.00\n• Step 2: Log it by filing Northgate's letters in CMS › Documents\n• Flag the 02/09–02/13 shifts to Atty. Thorne, and send no medical records to the employer"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Treatment › Total Medical Specials, correct the draft worksheet from $1,760.00 to the verified $1,584.00\n• Step 2: Log it by filing Northgate's letters in CMS › Doc Hub\n• Flag the 02/09–02/13 shifts to Atty. Thorne, and send no medical records to the employer"
     },
     "case": {
       "say": "• Assuming Northgate HR has sent the employer's verification and every missed shift matches a provider's note, the wage loss now needs entering\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: $1,584.00 verified in the Specials, Northgate's letters filed"

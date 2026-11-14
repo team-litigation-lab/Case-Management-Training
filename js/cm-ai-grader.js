@@ -197,6 +197,8 @@ window.CMAIGrader = {
   prefill,
   grow,
   result: id => { const r = G.blocks[id]; return r && typeof r.score === "number" ? r : null; },
+  // the slide shows the grade (not the form): what sits under it is then read-only (js/cm-case-flow.js workLog)
+  showing: id => { const r = G.blocks[id]; return !!(r && typeof r.score === "number" && !editing[id]); },
   all: () => G,
   draft(id, v){ recOf(id).draft = String(v || "").slice(0, 12000); clearTimeout(draftT); draftT = setTimeout(save, 700); },
   refill(id){ const el = document.getElementById("cfaig_" + id); const t = prefill(id); if(el) el.value = t; recOf(id).draft = t; save(); },
@@ -301,13 +303,15 @@ css.textContent = `
 .aig-score b{font:800 46px/1 var(--font-ui);}
 .aig-score span{font:800 16px var(--font-ui);color:#F3C99E;}
 .aig-score em{margin-top:6px;font:800 16px var(--font-ui);font-style:normal;color:#fff;background:#DB8437;border-radius:999px;padding:3px 10px;text-align:center;}
-.aig-fb{max-height:38vh;overflow:auto;}
+.aig-fb{max-height:26vh;overflow:auto;}   /* scrolls inside: with a handoff's ⚖️ Litigation note above it the result still fits at 16px */
 .aig-fb h4,.aig-key h4{margin:0 0 6px;font:800 17px/1.3 var(--font-ui);color:#1E2340;}
 .aig-fb ul{margin:0 0 10px;padding-left:20px;}
 .aig-fb li,.aig-key li{font:700 16px/1.4 var(--font-ui);color:#141A2E;margin:0 0 4px;}
 .aig-key{background:#fff;border:2px solid #E3E6EF;border-radius:14px;padding:12px 14px;max-height:52vh;overflow:auto;}
 .aig-key ol{margin:0;padding-left:22px;}
 .aig-note{margin:8px 0 0;font:700 16px/1.35 var(--font-ui);color:#4A5068;}
+/* the final result with the answer key beside it: both columns scroll inside, so a long key never scales the slide below 16px */
+.aig.aig-2 .aig-key{max-height:40vh;}
 @media (max-width:760px){ .aig.aig-2{grid-template-columns:minmax(0,1fr);} .aig-res{grid-template-columns:minmax(0,1fr);} }
 `;
 document.head.appendChild(css);

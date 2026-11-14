@@ -117,6 +117,8 @@ body .cfx .cfx-task1 .cfx-docs-pop button,body .cfx .cfx-task1 .cfx-docs-pop a,b
 .cfx-task1 .cfx-yc-k{flex:none;font:800 16px/1.3 var(--font-ui);color:#1E2340;background:#DB8437;border-radius:999px;padding:3px 12px;white-space:nowrap;}
 .cfx-task1 .cfx-yc-t{font:700 clamp(18px,2.4vh,21px)/1.38 var(--font-ui);color:#fff;}
 .cfx-task1 .cfx-yc mark.cfx-hl{background:none;color:#FFC98F;padding:0;font-weight:800;}
+.cfx-task1 .cfx-yc .cfx-vm-link{font:800 inherit;font-weight:800;color:#FFC98F;text-decoration:underline;text-underline-offset:3px;cursor:pointer;white-space:nowrap;}   /* 🎧 Listen, in the sentence (js/cm-case-flow.js) */
+.cfx-task1 .cfx-yc .cfx-vm-link:hover,.cfx-task1 .cfx-yc .cfx-vm-link:focus-visible{color:#fff;outline:2px solid #DB8437;outline-offset:2px;border-radius:4px;}
 .cfx-task1 .cfx-tools-pop .cfx-of-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:#FFF6EC;}
 .cfx-task1 .cfx-tools-pop .cfx-of-row .cfx-of{font:800 16px/1.3 var(--font-ui);color:#A4470F;}
 .cfx-task1 .cfx-tools-menu{position:relative;}

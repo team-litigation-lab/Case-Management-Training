@@ -1361,7 +1361,7 @@ window.sopForDay = function(id){
   const tl = relatedTools(id);
   out.objectives = [ (DAYS.find(x=>x.id===id)||{}).objective || out.objectives[0], out.objectives[1],
     tl.length ? `Complete the day's Skill Builders to a professional standard: ${tl.map(t=>t.title).join("; ")}.` : "Apply the day's learning in a live discussion."];
-  out.discussionInfo = Object.assign({}, out.discussionInfo, {video:`Video Discussion — CM Day ${id}`});
+  out.discussionInfo = Object.assign({}, out.discussionInfo, {video:`Video Discussion — CM Day ${typeof dayNo === "function" ? dayNo(id) : id}`});
   return out;
 };
 window.renderMeetClientTrainerGuide = function(){

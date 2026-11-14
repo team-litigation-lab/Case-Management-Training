@@ -4,7 +4,7 @@
 //   · the deck opens with the Training Agenda and ends on 🎯 Ready for the Knowledge Check?;
 //   · no lesson slide after the day's first practice slide (the daily loop's Case Profile slide, js/cm-day-loop.js: Day 1's
 //     👋 Meet John Doe, later days' 📇 Case Profile Check-In), and no Skill Activity slide before it; exactly one Practice
-//     Lab slide (the other skill activities) on a day with a Skill Building (Day 5's are behind Optional Extra Practice);
+//     Lab slide (the other skill activities) on a day with a Skill Building (Day 5's are behind Extra Practice);
 //   · a block's slides sit together: a drawn lesson is one slide, The Rules; an activity is one slide, Your Task (its
 //     Submit opens the AI Grader on it), with a second only for the day's Skill Building's document audit (Audit & the
 //     Finished Set) or Day 1's Backup Drive set-up (Your Case); and what each slide draws is that view of that block
@@ -23,7 +23,7 @@
 //   · in Presenter view the forward button does the same, and on the last slide it reads "Continue to Knowledge Check";
 //   · an activity drafted in the Action Plan Editor has a plain 📝 Open the Action Plan Editor button on its Your Task (in its 🧰 Tools);
 //     it opens the editor, and Back returns to the slide the trainee left;
-//   · Day 5's ⏭ on Optional Extra Practice goes to the Ready check (and says so);
+//   · Day 5's ⏭ on Extra Practice goes to the Ready check (and says so);
 //   · the two parts (Part 1 · Lessons, Part 2 · 🔁 The Daily Loop) are labelled on the Training Agenda, the Roadmap and
 //     the slide picker.
 // Usage: node .github/scripts/flow-order.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs playwright)
@@ -57,7 +57,7 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
       // the practice starts with the daily loop's Case Profile slide (js/cm-day-loop.js)
       const lab = at.findIndex(x => x.type === 'meetJohnDoe' || x.type === 'profileCheck');
       if (lab < 0) out.push(`${L}: no Case Profile slide after the lessons (the daily loop's step 2)`);
-      if (at.filter(x => x.type === 'practiceLab').length !== (d.cf.build ? 0 : 1)) out.push(`${L}: ${at.filter(x => x.type === 'practiceLab').length} Practice Lab slides; a day has one, of its side exercises (a build day none: they are its Optional Extra Practice)`);
+      if (at.filter(x => x.type === 'practiceLab').length !== (d.cf.build ? 0 : 1)) out.push(`${L}: ${at.filter(x => x.type === 'practiceLab').length} Practice Lab slides; a day has one, of its side exercises (a build day none: they are its Extra Practice)`);
       at.forEach((x, k) => {
         if (x.kind === 'lesson' && lab >= 0 && k > lab) out.push(`${L} slide ${k + 1}: a lesson slide (${x.id} ${x.view}) after the day's first practice slide (slide ${lab + 1})`);
         if (x.kind === 'activity' && (lab < 0 || k < lab)) out.push(`${L} slide ${k + 1}: a Skill Activity slide (${x.id} ${x.view}) before the Practice Lab`);
@@ -218,22 +218,22 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
     if (r.view !== 'day' || r.slide !== p.from || r.mode !== 'slides') fail(`Day ${p.n} ${p.id}: Back from the editor should return to the slide the trainee left (${p.from + 1}); it went to ${r.view} slide ${r.slide + 1} (${r.mode})`);
   }
 
-  // 4. Day 5's ⏭ on Optional Extra Practice goes to the Ready check, and says so
+  // 4. Day 5's ⏭ on Extra Practice goes to the Ready check, and says so
   const skip = await page.evaluate(async () => {
     const d = DAYS.find(x => x.cf && x.cf.build); if (!d) return null;
     const deck = buildDaySlides(d), ex = deck.findIndex(x => x.type === 'extraPractice'), ready = deck.findIndex(x => x.type === 'readyCheck');
     state.isAdmin = false; state.slideProgress = state.slideProgress || {}; state.slideProgress[d.id] = Math.max(1, state.slideProgress[d.id] || 0); goto('day', d.id);
     if (state.view !== 'day' || state.dayId !== d.id) return { err: 'the day did not open for the trainee' }; state.dayViewMode = 'slides'; state.maxSlideReached = ex; state.lessonSlide = ex; render(); await new Promise(r => setTimeout(r, 30));
-    const btn = document.querySelector('#lessonSlideWrap .cfx-ex-go button'); if (!btn) return { err: 'no ⏭ button on Optional Extra Practice' };
+    const btn = document.querySelector('#lessonSlideWrap .cfx-ex-go button'); if (!btn) return { err: 'no ⏭ button on Extra Practice' };
     const label = btn.textContent.trim(); btn.click(); await new Promise(r => setTimeout(r, 60));
     return { label, at: state.lessonSlide, ready, view: state.view, mode: state.dayViewMode, last: deck.length - 1, reached: state.maxSlideReached };
   });
   if (!skip) fail('no build day (Day 5) found');
   else if (skip.err) fail(`Day 5: ${skip.err}`);
   else {
-    if (!/Ready for the Knowledge Check/.test(skip.label) || /Skip to the Knowledge Check/.test(skip.label)) fail(`Day 5: the ⏭ button on Optional Extra Practice should say it goes to the Ready check: "${skip.label}"`);
+    if (!/Ready for the Knowledge Check/.test(skip.label) || /Skip to the Knowledge Check/.test(skip.label)) fail(`Day 5: the ⏭ button on Extra Practice should say it goes to the Ready check: "${skip.label}"`);
     if (skip.view !== 'day' || skip.mode !== 'slides' || skip.at !== skip.ready || skip.ready !== skip.last) fail(`Day 5: ⏭ should open the Ready check, the last slide (${skip.last + 1}); it opened ${skip.view} slide ${skip.at + 1} (${skip.mode})`);
-    if (skip.reached < skip.ready) fail('Day 5: skipping the optional practice should count the Ready check as reached');
+    if (skip.reached < skip.ready) fail('Day 5: going on past the extra practice should count the Ready check as reached');
   }
 
   // 5. the two parts on the Roadmap and the slide picker

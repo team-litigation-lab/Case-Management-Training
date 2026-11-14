@@ -2,7 +2,8 @@
 // The owner: practice slides as minimal as they can be, and no slide that overwhelms or strains the eye. CLAUDE.md: type
 // on the slides is bold and at least 16px on a laptop. At 1366x768, as a trainer sees them (every day open, the trainer's
 // ⚡ Inject drawn), every slide of every Case Flow day is walked, and with it each Skill Activity's Your Task turned into
-// the 🤖 AI Grader (Submit) and a side exercise's document audit: every piece of text on the slide (in #lessonSlideWrap,
+// the 🤖 AI Grader (Submit), the grader's result once a grade comes back (after an attempt, and the final one with its
+// answer key, as the trainee sees them) and a side exercise's document audit: every piece of text on the slide (in #lessonSlideWrap,
 // shown: not inside a closed menu or a folded box) is at least 16px once the slide is scaled to fit and weighs 600 or
 // more. A Trainer's deck page is a picture (no text to measure). On a Skill Activity's slide at most 3 buttons are in
 // view (🚀 Launch, 🧰 Tools ▾, Submit →: the rest of its tools are in the menu).
@@ -29,7 +30,7 @@ const MIN_PX = 16, MIN_WEIGHT = 600, MAX_BUTTONS = 3;
         if (cs.display === 'none' || cs.visibility === 'hidden' || +cs.opacity === 0 || x.getAttribute('aria-hidden') === 'true' || x.hidden) return false;
         if (x.tagName === 'DETAILS' && !x.open && !(el.closest('summary') && el.closest('summary').parentElement === x)) return false; }
       const r = el.getBoundingClientRect(); return r.width > 1 && r.height > 1; };
-    const out = [], count = { slides: 0, modes: 0, texts: 0, acts: 0 };
+    const out = [], count = { slides: 0, modes: 0, texts: 0, acts: 0, results: 0 };
     const measure = (where, act) => {
       const wrap = document.getElementById('lessonSlideWrap'); if (!wrap) return;
       for (const el of wrap.querySelectorAll('*')) {
@@ -59,6 +60,23 @@ const MIN_PX = 16, MIN_WEIGHT = 600, MAX_BUTTONS = 3;
         if (b && b.kind === 'activity' && cmCaseFlow.viewsOf(b)[s.part - 1] === 'task') {
           const modes = ['check'].concat((window.CM_CF_EXHIBITS || {}).audits && CM_CF_EXHIBITS.audits[b.id] && !cmCaseFlow.viewsOf(b).includes('audit') ? ['audit'] : []);
           for (const m of modes) { cmCaseFlow.mode(b.id, m); await sleep(30); count.modes++; measure(`${at} → ${m}`, true); }
+          // …and the AI Grader's result, once a grade comes back: as the trainee sees it after an attempt (the score, what went
+          // well, what to work on, ↻ Check again and 🔑 I'm done), then the final one with the answer key beside it
+          const G = window.CMAIGrader && CMAIGrader.all ? CMAIGrader.all() : null;
+          if (G && G.blocks && !G.blocks[b.id]) {
+            const long = 'a full sentence of feedback the grader writes about this file, as long as a real one usually runs';
+            for (const [k, rec] of [['graded', { tries: 1 }], ['final', { tries: CMAIGrader.MAX_TRIES || 3, done: true }]]) {
+              G.blocks[b.id] = Object.assign({ score: 72, tier: 'Developing', at: new Date().toISOString(), strengths: ['Strength: ' + long, 'Strength: ' + long],
+                gaps: ['Gap: ' + long, 'Gap: ' + long], growth: ['Next: ' + long] }, rec);
+              // the trainee's result (a trainer sees no ↻ / 🔑 buttons), on any day: every day open, every slide reached
+              const was = state.isAdmin, du = window.dayUnlocked, mx = state.maxSlideReached; state.isAdmin = false; window.dayUnlocked = () => true; state.maxSlideReached = 9999;
+              cmCaseFlow.clearModes(); cmCaseFlow.mode(b.id, 'check'); await sleep(30); count.modes++; count.results++;
+              if (!document.querySelector(`#lessonSlideWrap [data-aig-result="${b.id}"]`)) out.push(`${at} → the AI Grader's ${k} result did not show`);
+              measure(`${at} → AI Grader result (${k})`, true);
+              state.isAdmin = was; window.dayUnlocked = du; state.maxSlideReached = mx; cmCaseFlow.clearModes();
+            }
+            delete G.blocks[b.id];
+          }
           cmCaseFlow.clearModes();
         }
       }
@@ -68,5 +86,5 @@ const MIN_PX = 16, MIN_WEIGHT = 600, MAX_BUTTONS = 3;
   failures.push(...r.out);
   await browser.close();
   if (failures.length) { console.log(`${failures.length} problem(s):`); failures.slice(0, process.env.SLIDE_TYPE_ALL ? 2000 : 80).forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-  console.log(`Slide type: ${r.count.slides} Case Flow slides and ${r.count.modes} AI Grader and audit views at 1366x768, ${r.count.texts} pieces of text, every one bold and at least ${MIN_PX}px after fit-to-screen scaling; each of the ${r.count.acts} Skill Activity slides shows at most ${MAX_BUTTONS} buttons.`);
+  console.log(`Slide type: ${r.count.slides} Case Flow slides and ${r.count.modes} AI Grader, grader result (${r.count.results}) and audit views at 1366x768, ${r.count.texts} pieces of text, every one bold and at least ${MIN_PX}px after fit-to-screen scaling; each of the ${r.count.acts} Skill Activity slides shows at most ${MAX_BUTTONS} buttons.`);
 })();

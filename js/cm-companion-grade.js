@@ -21,7 +21,7 @@ if(typeof document === "undefined" || typeof state === "undefined") return;
 const ID = "companion-build";
 const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
 const buildDay = () => (typeof DAYS !== "undefined" ? DAYS : []).find(d => d.cf && d.cf.build) || null;
-const trainer = () => !!(state.isAdmin || state.adminPreview);
+const trainer = () => !!(state.isAdmin && !state.adminPreview);   // never in 👁 Trainee view: an admin there sees what a trainee sees
 
 /* the rubric: the Day 1–4 deliverables a companion file is built from (AI 60, trainer 40, as every activity's) */
 const RUBRIC = {
