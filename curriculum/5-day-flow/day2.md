@@ -1,6 +1,6 @@
-# Case Flow Day 2 — Claim Set Up & Treatment
+# Case Flow Day 2 — Claim Set Up, Treatment & the Bodily Injury Claim
 
-**Phase:** Claim set up & treatment · **Focus case:** John Doe VS Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
+**Phase:** Claim set up, treatment & the bodily injury claim · **Focus case:** John Doe VS Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
 
 **Objective.** Build John Doe's three-layer Policy Stack in the CMS; draft, transmit and log the LORs and notices; receive the carriers' claim correspondence and verify the $40,000 stack in writing; investigate liability and lead every note to Atty. Thorne with the decision needed; plan John Doe's treatment, flag the 14-Day Gap and route the Case Plan; then carry the file through treatment: route every bill in Payer Order, flag the Health Plan's reimbursement right and clear the Regulatory Triple-Check, and keep care moving through the disruption, to MMI.
 
@@ -31,7 +31,7 @@
 
 The day is one module, on John Doe's one file, in two parts: first ALL of its lessons, in teaching order under their section headings; then ONE Practice Lab that holds all of its Skill Activities (on the file in the CMS, each Your Task first, then Your Case), in the order their lessons were taught, with a short brainstorm after each Skill Building group; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
 
-**Module 2 — Claim Set Up & Treatment**
+**Module 2 — Claim Set Up, Treatment & the Bodily Injury Claim**
 
 1. *Lesson* — Coverage Verification Tracking & Follow-Up Deadlines
 2. *Lesson* — Affidavits on the File: No Other Insurance, Residency, Records & Service
@@ -45,38 +45,37 @@ The day is one module, on John Doe's one file, in two parts: first ALL of its le
 10. *Lesson* — Coverages & the Payer-First Principle
 11. *Lesson* — LOP Issuance Guidelines, Provider Coordination & PIP Limits (condensed)
 12. *Lesson* — Explanation of Benefits (EOB) & PIP
-13. *Lesson* — PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement (condensed)
-14. *Lesson* — The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000 (condensed)
-15. *Lesson* — Letters of Protection & the Case Manager's Part in Provider Referrals (condensed)
-16. *Lesson* — Rental & Reimbursement of Costs (condensed)
-17. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check (condensed)
-18. *Lesson* — Coverage & Subrogation: the Treatment Phase Summary
-19. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
-20. *Skill Activity* — Policy Stack & Coverage Verification (practises: Coverage Verification Tracking & Follow-Up Deadlines)
-21. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers (practises: LOR Drafting Mechanics & Three-Carrier Notification)
-22. *Skill Activity* — CMS Coverage Matrix Audit (practises: Coverage Verification Tracking & Follow-Up Deadlines)
-23. *Skill Activity* — Identifying & Flagging the 14-Day Gap (practises: Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing)
-24. *Skill Activity* — Live Case Plan Draft — John Doe VS Robert Smith (practises: The Action Plan Editor & Attorney Review Routing)
-25. *Skill Activity* — Transmitting LOPs to Medical Providers (practises: LOP Issuance Guidelines, Provider Coordination & PIP Limits)
-26. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It (practises: Letters of Protection & the Case Manager's Part in Provider Referrals)
-27. *Skill Activity* — Health Plan Subrogation: Flag, Request & Audit the Lien (practises: Health Subrogation, Payer Order & the Regulatory Triple-Check)
-28. *Skill Activity* — The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol (practises: A-C-T Crisis Protocol & Treatment Monitoring Principles)
-29. *Skill Activity* — Backup File Maintenance: Records and Bills in Their Folders (practises: A-C-T Crisis Protocol & Treatment Monitoring Principles)
-30. *Knowledge Check* — Coverage Setup Verification Check
-31. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
-32. *Knowledge Check* — Treatment Monitoring Review
+13. *Lesson* — The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000 (condensed)
+14. *Lesson* — Letters of Protection & the Case Manager's Part in Provider Referrals (condensed)
+15. *Lesson* — Rental & Reimbursement of Costs (condensed)
+16. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check (condensed)
+17. *Lesson* — Coverage & Subrogation: the Treatment Phase Summary
+18. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
+19. *Skill Activity* — Policy Stack & Coverage Verification (practises: Coverage Verification Tracking & Follow-Up Deadlines)
+20. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers (practises: LOR Drafting Mechanics & Three-Carrier Notification)
+21. *Skill Activity* — CMS Coverage Matrix Audit (practises: Coverage Verification Tracking & Follow-Up Deadlines)
+22. *Skill Activity* — Identifying & Flagging the 14-Day Gap (practises: Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing)
+23. *Skill Activity* — Live Case Plan Draft — John Doe VS Robert Smith (practises: The Action Plan Editor & Attorney Review Routing)
+24. *Skill Activity* — Transmitting LOPs to Medical Providers (practises: LOP Issuance Guidelines, Provider Coordination & PIP Limits)
+25. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It (practises: Letters of Protection & the Case Manager's Part in Provider Referrals)
+26. *Skill Activity* — Health Plan Subrogation: Flag, Request & Audit the Lien (practises: Health Subrogation, Payer Order & the Regulatory Triple-Check)
+27. *Skill Activity* — The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol (practises: A-C-T Crisis Protocol & Treatment Monitoring Principles)
+28. *Skill Activity* — Backup File Maintenance: Records and Bills in Their Folders (practises: A-C-T Crisis Protocol & Treatment Monitoring Principles)
+29. *Knowledge Check* — Coverage Setup Verification Check
+30. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
+31. *Knowledge Check* — Treatment Monitoring Review
 
 **End-of-day discussion (trainer):** It is 04/08/2026. Keystone confirmed its limit in writing on 03/20, Riverton Spine & Rehab reports John Doe has missed two visits, and Dana Whitfield has asked John for a Recorded Statement. What do you do first, second and third, and what does each protect?
 
 ---
 
-## Module 2 — Claim Set Up & Treatment
+## Module 2 — Claim Set Up, Treatment & the Bodily Injury Claim
 
-**Order:** Lessons (19) ➔ Practice Lab (10 Skill Activities) ➔ Knowledge Check (3 Learning Checks)
+**Order:** Lessons (18) ➔ Practice Lab (10 Skill Activities) ➔ Knowledge Check (3 Learning Checks)
 
 ### 2.1.1 Coverage Verification Tracking & Follow-Up Deadlines
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** From “reported” to “confirmed in writing”, with a date on every open item  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#19` Claim Set-Up: Case Projection — Why the Three Work Together · `D1#20` Case Study: John Doe v. Apex — Coverage Analysis · LSH Claims Specialist: Declaration Pages, certified copy of policy, policy limits and limit types · LSH Claims Specialist: follow-up cadence, LOR acknowledgement, statement of insurance disclosure · Newly authored: verifying the UM form and PIP terms at set-up; the regulatory and policy deadline backstop
@@ -151,7 +150,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ### 2.1.2 Affidavits on the File: No Other Insurance, Residency, Records & Service
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Which sworn statements John Doe's file relies on, who swears each one, and where each is used  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** Newly authored: the affidavits a personal injury file relies on (no other insurance, residency and no owned vehicle, records and billing custodian, wage verification, service) and the Case Manager's request-and-check role
@@ -222,7 +221,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ### 2.1.3 Liability Investigation: the Police Report, the Witness, the Video & Comparative Fault
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim (condensed) · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Proving who caused the collision while the evidence is fresh  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D3#13` Documents that Matter: Liability & Causation Documents · Newly authored: liability investigation at claim set-up — evidence, preservation and anticipating comparative fault
@@ -296,7 +295,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ### 2.1.4 Decision First: Lead Every Note to Atty. Thorne with the Decision Needed
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim (condensed) · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Open with the decision or action needed, then the facts  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#15` Bottleneck: Communication Gaps · `D1#39` Communication Loops: The “Stakeholder Triad” · Newly authored: decision first — leading every note, email and brief to the attorney with the decision or action needed
@@ -368,7 +367,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ### 2.1.5 LOR Drafting Mechanics & Three-Carrier Notification
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** One template, five letters, and the rules that make each one different  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#21` Case Study: John Doe v. Apex — Liability Determination · LSH Claims Specialist: LOR purpose, recipients, drafting components and delivery · LSH Claims Specialist: claim set-up call, information protection on third-party claims, LOR acknowledgement and limits disclosure · Newly authored: UM notice at set-up (notice, not demand)
@@ -445,7 +444,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ### 2.1.6 The Treatment Assessment, SMART Goals & the Care Coordination Plan
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Know the whole person before you plan the care  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#33` Case Planning — Treatment: The Assessment Phase · `D1#34` Case Planning — Treatment: SMART Goal Setting · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · Newly authored: John Doe's intake assessment and the draft SMART goal
@@ -521,7 +520,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ### 2.1.7 The Standard Treatment Map: Phases, Timelines & Course Correction
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Where he should be on the map, and what you do when he isn't  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#36` The Standard Treatment Map · `D1#37` Treatment Road Map Mastery & the Clinical Pathway Flowchart · `D1#38` Variance Analysis: Why the Map Fails · `D1#39` Communication Loops: The “Stakeholder Triad” · `D1#40` The “Golden Standard”: Reasonable and Necessary · `D1#42` Illustration & Course Correction: The 6-Week Rule and Objective Metrics · `D1#43` The “Yellow Flag” Warning System
@@ -598,7 +597,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ### 2.1.8 Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** What you watch for in the records, what you listen for on the phone, and how you keep him in his plan  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#31` Treatment Red Flags: PT & Conservative Care, Surgical Protocols · `D1#32` Treatment Red Flags: Pain Management, Medication & Behavioral Health / TBI · `D1#43` The “Yellow Flag” Warning System
@@ -678,7 +677,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ### 2.1.9 The Action Plan Editor & Attorney Review Routing
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim (condensed) · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Drafting, routing, and the review loop  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · `D1#25` The “Golden Rule” of US Claim Set-Up · `D1#2` The General Case Management Process
@@ -748,7 +747,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ### 2.1.10 Coverages & the Payer-First Principle
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Every policy on John Doe's file, what it pays, and who pays first  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D2#20` The Valuation Baseline: PIP Set-Off (The Credit) · `D2#23` The Valuation Baseline: Subrogation vs. Non-Subrogation · `D2#24` The Valuation Baseline: Strategic PIP “Exhaustion” · D1 Task Overview: Billing, Resolution & Closing
@@ -827,7 +826,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 2.1.11 LOP Issuance Guidelines, Provider Coordination & PIP Limits
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays which bill, and what only counsel may promise  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · `D1#26` The Treatment Phase — Core Objectives · `D1#30` Handling the Treatment Phase: Proactive Resource Coordination · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · `D1#39` Communication Loops: The “Stakeholder Triad” · LSH Claims Specialist: MedPay vs. PIP (Medical Bills regardless of fault, no lost wages) · Newly authored: LOP issuance guidelines and the PIP exhaustion ledger
@@ -903,7 +902,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 2.1.12 Explanation of Benefits (EOB) & PIP
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Reading what each payer paid, and what is still owed  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#26` Arbitration Binders: Section 6 — Economic Losses & Lien Reconciliations · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D1#23` Case Planning Framework: The Three-Pillar Case Plan
@@ -979,86 +978,9 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.13 PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement
+### 2.1.13 The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
-> **Topic:** Where PIP's $5,000 lands, and what that means for the settlement later  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D2#20` The Valuation Baseline: PIP Set-Off (The Credit) · `D2#21` The Valuation Baseline: PIP as a Severity Signal · `D2#22` The Valuation Baseline: The EMC and the Benefit Ceiling · `D2#23` The Valuation Baseline: Subrogation vs. Non-Subrogation · `D2#24` The Valuation Baseline: Strategic PIP “Exhaustion”
-
-#### 1 · Visual Layout Description
-
-A single horizontal bar labelled HARBOR POINT PIP · $5,000 · ONE LIMIT, filled left to right in date order by five navy segments: Riverton Urgent Care $685.00 · Lakeside $640.00 · Summit Imaging MRI $2,395.00 · Lakeside $640.00 · Lakeside $640.00, ending at a red marker EXHAUSTED 06/26/2026. Just past the marker, a greyed-out wage chip, WAGE BENEFIT 80% · $1,267.20 · NEVER PAID, with a small calendar tag WAGE LETTER 06/30/2026. Below the bar, two lanes of bills: an upper lane tagged FIXED COSTS (urgent care, orthopedics, imaging) with arrows up into the bar, and a lower orange lane tagged LOP · NEGOTIABLE AT THE END (Riverton Spine & Rehab, chiropractic and PT) running beneath it. To the right, four small question cards stacked, each with a green or grey answer chip for this file: SET-OFF? — add-on, doesn't reduce BI or UM · PAYBACK? — none (03/02/2026 letter) · EMC CEILING? — none on this PIP · SEVERITY SIGNAL? — slow spend, read the Specials. Bottom, a thin navy rule: “Forecast it; Atty. Thorne decides the routing.”
-
-#### 2 · Slide Body — Tell Them
-
-*Why:* PIP is spent once, and only once. Where its dollars land decides which bills are left for the Health Plan, a Letter of Protection and, at the end, John Doe's recovery. The same ledger tells a BI adjuster how serious the case is, and in some states whether the defendant gets a credit for it. A Case Manager who forecasts the PIP limit, checks for the conditions that cap it and keeps its ledger exact protects the client's net long before the demand.
-
-1. Strategic exhaustion: on a typical file, PIP does the most good on the hard, fixed costs (ER, EMS, imaging, specialist visits). Hospitals and imaging centers rarely reduce at the end of a case; LOP providers often will, so continuing chiropractic and PT under an LOP leaves more of the BI money for the client.
-2. John Doe's file shows the pattern: PIP paid Riverton Urgent Care ($685.00), Lakeside Orthopedics ($640.00 three times) and Summit Imaging's MRI ($2,395.00); his chiropractic and PT ran under Riverton Spine & Rehab's LOP (signed 02/23/2026), and Summit's 03/11/2026 LOP request was declined because PIP applies first.
-3. Your part is the forecast, not the choice. After every PIP check, record the limit left, the bills still coming and the wage claim. When a bill could go to PIP or an LOP, lay out both routes with the figures for Atty. Thorne: routing outside the default Payer Order and every LOP's terms are his. Never re-route a claim another payer has paid.
-4. The limit is shared. Medical Bills and the 80% wage benefit draw on one $5,000, paid in the order Harbor Point receives them. John Doe's bills used it by 06/26/2026; Northgate's wage-and-attendance letter came 06/30/2026, so the $1,267.20 wage benefit was never paid. Send wage proof the day you have it. The full $1,584.00 stays in the Specials.
-5. The EMC ceiling, on a typical file in a state that uses it: PIP pays its full limit only if a treating physician documents an Emergency Medical Condition. Without the finding, benefits are capped lower (for example, $2,500 of a $10,000 limit), and every bill above the cap falls to the Health Plan, an LOP and, in the end, the BI settlement.
-6. Where an EMC rule applies, check the first treating records for the finding early in treatment. If it isn't there, ask the provider whether an EMC was assessed and documented: the finding is the physician's clinical judgment, never yours to suggest. Then flag to Atty. Thorne how many bills will move down the Payer Order. John Doe's Harbor Point PIP has no EMC ceiling: it paid its full $5,000.00.
-7. The set-off: the law generally prevents double recovery, so where set-off applies the defendant's carrier takes credit for what PIP paid. Gross Settlement Value − PIP Paid = Defendant's Remaining Liability: on a typical file, $60,000 − $10,000 = $50,000. A subrogated PIP carrier liens the settlement instead; you log the lien and Atty. Thorne negotiates it.
-8. Riverton is add-on, not no-fault: PIP does not reduce BI or UM, and Riverton bars a PIP carrier from recovering what it paid out of its insured's settlement. Harbor Point confirmed in writing on 03/02/2026: no reimbursement right and no PIP non-duplication reduction. Keep each carrier's written position on the file; whether any set-off is argued is Atty. Thorne's call.
-9. PIP as a severity signal: BI adjusters read how fast the limit was spent, and a limit gone in days on ER and imaging bills reads as a serious case. John Doe's PIP ran from 02/20/2026 to 06/26/2026 because most of his care was billed to the LOP and Peach State, so the PIP figure understates the file. The measure is the Specials ($14,817.40 medical, $16,401.40 with wages), never PIP's $5,000; how severity is argued is Atty. Thorne's.
-10. Keep every PIP-paid bill at its billed amount in the Specials and at $0.00 owed in the balances, and tie the PIP Log to Harbor Point's payment history line by line. A PIP-paid bill counted as unpaid, or Specials quoted without what PIP paid, is the error an adjuster uses to cut a demand's credibility.
-
-> ⚠️ **UPL boundary.** You may forecast the PIP limit, keep its ledger, ask a provider whether an EMC finding was documented and record each carrier's written position. Routing outside the default Payer Order, LOP terms, set-off and severity arguments are Atty. Thorne's calls; the EMC finding is the physician's.
-
-#### 2 · Slide Body — Show Them
-
-*PIP's weight at settlement: a typical file, and John Doe's*
-
-| Question | On a typical file | John Doe's Harbor Point PIP |
-|---|---|---|
-| What did PIP pay for? | Fixed costs first (ER, EMS, imaging); soft-tissue care under LOPs | Urgent care, Lakeside three times, Summit's MRI: $5,000.00; chiropractic and PT under the LOP |
-| How fast was it spent? | A limit gone in days on ER bills signals a serious case | 02/20/2026 to 06/26/2026: slow, because most care was billed elsewhere |
-| Was an EMC finding needed? | In EMC states, no finding can cap PIP (for example, $2,500 of $10,000) | No EMC ceiling: the full $5,000.00 paid |
-| Does the BI carrier get a set-off? | Where set-off applies: Gross Settlement Value − PIP Paid = Defendant's Remaining Liability | Add-on: PIP does not reduce BI or UM; any argument is Atty. Thorne's |
-| Does PIP want its money back? | A subrogated carrier liens the settlement: log it | No: Harbor Point, 03/02/2026, no reimbursement right |
-| Was the wage benefit used? | Medical Bills and wages share one limit | No: bills used it by 06/26/2026; $1,267.20 never paid; $1,584.00 stays in the Specials |
-
-**Best practices & pitfalls**
-
-- Read each PIP check as a forecast: what's left, and what's still coming.
-- Get each carrier's set-off and reimbursement position in writing, as Harbor Point's 03/02/2026 letter does.
-- Check early whether the governing PIP rule has an EMC condition, and whether the records carry the finding.
-- Keep billed and PIP-paid on the same line, so the Specials and the balances both reconcile.
-- ⚠️ Pitfall: counting a PIP-paid bill as unpaid.
-- ⚠️ Pitfall: quoting the Specials without the PIP Log beside them.
-- ⚠️ Pitfall: spending PIP on negotiable care while fixed-cost bills wait.
-- ⚠️ Pitfall: asking a provider to make an EMC finding.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Strategic exhaustion | Explains why PIP on fixed costs, with later care under an LOP, protects the net, and shows it on John Doe's PIP Log |
-| 🤖 AI | **20%** | EMC and set-off | States the EMC ceiling and the set-off formula as general doctrine, and John Doe's add-on position from the 03/02/2026 letter |
-| 🤖 AI | **20%** | Ledger kept exact | PIP-paid bills at billed in the Specials and $0.00 owed; the shared limit and the unpaid $1,267.20 wage benefit explained |
-| 🧑‍🏫 Trainer | **25%** | Grasps the consequence | Explains how where PIP lands changes what falls to the Health Plan, the LOP and the client's net |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | Routing choices, set-off and severity arguments left to Atty. Thorne; the EMC finding left to the physician |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Draw one bar on the board, $5,000, and fill it with Harbor Point's five checks. Ask what John Doe's bills would look like if PIP had paid chiropractic visits instead of the MRI.
-- Keep the EMC rule clearly general: John Doe's Harbor Point PIP has no EMC ceiling. The skill is checking for the rule and the finding, never asking a doctor to make one.
-- Work the set-off formula with the typical numbers ($60,000 − $10,000 = $50,000), then ask why it doesn't apply here: Riverton is add-on, and Harbor Point's 03/02/2026 letter is on the file.
-- Close on the boundary: you forecast and keep the ledger; how PIP is argued to an adjuster is Atty. Thorne's.
-
----
-
-### 2.1.14 The Emergency Medical Condition (EMC) Rule: Florida PIP's 14 Days and $2,500 vs $10,000
-
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim (condensed) · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** A state-specific PIP rule: what Florida requires, who can make the finding, and why Riverton's file has no such rule  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#22` The Valuation Baseline: The EMC and the Benefit Ceiling · `D1#36` The Standard Treatment Map · `D1#37` Treatment Road Map Mastery & the Clinical Pathway Flowchart · `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · Newly authored: Florida's EMC rule stated explicitly (Fla. Stat. § 627.736(1)(a): 14-day initial care, EMC by MD, DO, dentist, PA or APRN, $2,500 vs $10,000, 80% medical and 60% lost income, chiropractor cannot determine EMC, no massage or acupuncture) and contrasted with Riverton's add-on PIP, which has no EMC rule
@@ -1134,9 +1056,9 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.15 Letters of Protection & the Case Manager's Part in Provider Referrals
+### 2.1.14 Letters of Protection & the Case Manager's Part in Provider Referrals
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** What an LOP is, when it is used, and how you help John Doe reach care without steering it  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** Case file: Riverton Spine & Rehab, chiro and PT under an LOP signed 02/23/2026 (RS23, the itemized LOP ledger) · Newly authored: Letters of Protection, and the Case Manager's part in client-provider referrals within the UPL line
@@ -1203,9 +1125,9 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.16 Rental & Reimbursement of Costs
+### 2.1.15 Rental & Reimbursement of Costs
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** What treatment costs the client out of pocket, and how each dollar is documented for the demand  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** Case file: Keystone Mutual's rental cutoff (RS32) and John Doe's transport to treatment · IRS IR-2025-128: the standard mileage rates when this course was written, 20.5 cents medical and 72.5 cents business · Newly authored: reimbursement of out-of-pocket treatment costs and the trip log
@@ -1269,9 +1191,9 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.17 Health Subrogation, Payer Order & the Regulatory Triple-Check
+### 2.1.16 Health Subrogation, Payer Order & the Regulatory Triple-Check
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays the bills now, and who gets paid back later  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#23` Case Planning Framework: The Three-Pillar Case Plan · D1 Task Overview: Billing, Resolution & Closing
@@ -1339,9 +1261,9 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.18 Coverage & Subrogation: the Treatment Phase Summary
+### 2.1.17 Coverage & Subrogation: the Treatment Phase Summary
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Every coverage, the Payer-First Principle, health subrogation, and exactly when the CMS flags go up  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#23` Case Planning Framework: The Three-Pillar Case Plan · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#44` Handling Treatment Gaps During the Treatment Phase · Newly authored: the Treatment Phase's coverage and subrogation summary, with the exact CMS flag rules for subrogation liens and Treatment Gaps
@@ -1410,9 +1332,9 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.19 A-C-T Crisis Protocol & Treatment Monitoring Principles
+### 2.1.18 A-C-T Crisis Protocol & Treatment Monitoring Principles
 
-> **Lesson** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Is the plan working, and what you do the day it isn't  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#27` Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention · `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#31` Treatment Red Flags: PT & Conservative Care, Surgical Protocols · `D1#36` The Standard Treatment Map · `D1#37` Treatment Road Map Mastery & the Clinical Pathway Flowchart · `D1#38` Variance Analysis: Why the Map Fails · `D1#40` The “Golden Standard”: Reasonable and Necessary · `D1#41` Immediate Action Protocol: A-C-T for Red Flags · `D1#42` Illustration & Course Correction: The 6-Week Rule and Objective Metrics · `D1#43` The “Yellow Flag” Warning System · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder
@@ -1486,9 +1408,9 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.20 Policy Stack & Coverage Verification
+### 2.1.19 Policy Stack & Coverage Verification
 
-> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Skill Activity** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — build the ladder to $40,000  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#19` Claim Set-Up: Case Projection — Why the Three Work Together · `D1#20` Case Study: John Doe v. Apex — Coverage Analysis · LSH Claims Specialist: CMS Insurance tab SOP, first- and third-party coverage
@@ -1566,9 +1488,9 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.21 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+### 2.1.20 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
 
-> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Skill Activity** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — five letters, each one right  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#21` Case Study: John Doe v. Apex — Liability Determination · LSH Claims Specialist: LOR drafting, contents, recipients and delivery · LSH Claims Specialist: information protection on third-party claims, LOR acknowledgement · Newly authored: UM notice at set-up (notice, not demand)
@@ -1635,9 +1557,9 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.22 CMS Coverage Matrix Audit
+### 2.1.21 CMS Coverage Matrix Audit
 
-> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Skill Activity** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 2 — find what the matrix gets wrong  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#20` Case Study: John Doe v. Apex — Coverage Analysis · LSH Claims Specialist: Declaration Pages, coverage verification and follow-up · Newly authored: verifying the UM form and PIP terms at set-up
@@ -1720,9 +1642,9 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 2) and th
 
 ---
 
-### 2.1.23 Identifying & Flagging the 14-Day Gap
+### 2.1.22 Identifying & Flagging the 14-Day Gap
 
-> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Skill Activity** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 1 — find the fact that will decide this case  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#44` Handling Treatment Gaps During the Treatment Phase · `D2#13` Treatment Gaps in the Demand Phase
@@ -1785,9 +1707,9 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.24 Live Case Plan Draft — John Doe VS Robert Smith
+### 2.1.23 Live Case Plan Draft — John Doe VS Robert Smith
 
-> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Skill Activity** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 2 — the full plan, routed for review  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#8` Case Acceptance Determination · `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#19` Claim Set-Up: Case Projection — Why the Three Work Together · `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#23` Case Planning Framework: The Three-Pillar Case Plan · `D1#44` Handling Treatment Gaps During the Treatment Phase
@@ -1853,9 +1775,9 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 2.1.25 Transmitting LOPs to Medical Providers
+### 2.1.24 Transmitting LOPs to Medical Providers
 
-> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Skill Activity** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 1 — one LOP issued, one declined  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · `D1#33` Case Planning — Treatment: The Assessment Phase · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · `D1#46` Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain · Newly authored: LOP issuance guidelines and the PIP exhaustion ledger
@@ -1926,9 +1848,9 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.26 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
+### 2.1.25 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
 
-> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Skill Activity** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 3 — the Millbrook booking, 04/22/2026  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#26` The Treatment Phase — Core Objectives · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#30` Handling the Treatment Phase: Proactive Resource Coordination · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · `D1#39` Communication Loops: The “Stakeholder Triad” · `D1#44` Handling Treatment Gaps During the Treatment Phase · Newly authored: redirecting a referral to the client's choice of facility, and the downstream task list (each task done or delegated with an owner and a due date)
@@ -2020,9 +1942,9 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.27 Health Plan Subrogation: Flag, Request & Audit the Lien
+### 2.1.26 Health Plan Subrogation: Flag, Request & Audit the Lien
 
-> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Skill Activity** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — register the claim before it can hurt you, then audit what the plan asserts  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · Newly authored: the Health Plan's itemized lien audited line by line (unrelated, pre-existing and pre-loss lines; amounts claimed above what was paid) and confirmed in writing before the demand
@@ -2093,9 +2015,9 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.28 The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol
+### 2.1.27 The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol
 
-> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Skill Activity** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — the silent client and the trauma-informed interview, 04/08–04/21/2026  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#26` The Treatment Phase — Core Objectives · `D1#27` Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#38` Variance Analysis: Why the Map Fails · `D1#41` Immediate Action Protocol: A-C-T for Red Flags · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder · `D1#47` Skill Building: Handling Client Treatment — “The Transportation Wall” · LSH Claims Specialist: No Contact Protocol, Steps 1–4; Final Warning Letter · Newly authored: the near-drop (the No Contact Protocol inside A-C-T's Assess), the trauma-informed client interview within the UPL line, and restoring a file from Drop Warning
@@ -2175,9 +2097,9 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.29 Backup File Maintenance: Records and Bills in Their Folders
+### 2.1.28 Backup File Maintenance: Records and Bills in Their Folders
 
-> **Skill Activity** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Skill Activity** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity — back up the treatment documents and keep the records apart from the bills  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · LSH firm standard: backup drive folder hierarchy
@@ -2237,9 +2159,9 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.30 Coverage Setup Verification Check
+### 2.1.29 Coverage Setup Verification Check
 
-> **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Knowledge Check** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#20` Case Study: John Doe v. Apex — Coverage Analysis · LSH Claims Specialist: LOR components, information protection, acknowledgement and limits disclosure
@@ -2360,9 +2282,9 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 ---
 
-### 2.1.31 Case Plan Audit & the Claim Set Up Gate
+### 2.1.30 Case Plan Audit & the Claim Set Up Gate
 
-> **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Knowledge Check** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#8` Case Acceptance Determination · `D1#23` Case Planning Framework: The Three-Pillar Case Plan · `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · `D1#25` The “Golden Rule” of US Claim Set-Up · `D1#44` Handling Treatment Gaps During the Treatment Phase · `D2#13` Treatment Gaps in the Demand Phase
@@ -2479,9 +2401,9 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 ---
 
-### 2.1.32 Treatment Monitoring Review
+### 2.1.31 Treatment Monitoring Review
 
-> **Knowledge Check** · Day 2 — Claim set up & treatment · Module 2: Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Knowledge Check** · Day 2 — Claim set up, treatment & the bodily injury claim · Module 2: Claim Set Up, Treatment & the Bodily Injury Claim · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#32` Treatment Red Flags: Pain Management, Medication & Behavioral Health / TBI · `D1#33` Case Planning — Treatment: The Assessment Phase · `D1#34` Case Planning — Treatment: SMART Goal Setting · `D1#36` The Standard Treatment Map · `D1#37` Treatment Road Map Mastery & the Clinical Pathway Flowchart · `D1#40` The “Golden Standard”: Reasonable and Necessary · `D1#42` Illustration & Course Correction: The 6-Week Rule and Objective Metrics · `D1#46` Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain
