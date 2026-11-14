@@ -1,0 +1,122 @@
+# Opens a pull request for every pushed claude/* branch and merges it once its Checks pass, so finished work
+# reaches main without anyone pressing a button.
+#
+# 1. A push to a claude/* branch: if the branch has commits main doesn't and no open pull request, one is opened
+#    into main (title: the branch's first commit; body: its commits). Checks are then started for it by hand,
+#    because a pull request opened with this workflow's GITHUB_TOKEN starts no workflows of its own.
+# 2. When Checks finishes (and every 15 minutes, in case a finish was missed), each open claude/* pull request is
+#    merged if all of these hold:
+#      - it is from this repository, into main, not a draft, without the "hold" label;
+#      - GitHub says it can merge (no conflict);
+#      - on its head commit, "Syntax, files and build" and "Smoke test in a browser" both passed, and no other
+#        check failed except Cloudflare's "Workers Builds" preview (the account's Preview limit, not the code).
+#    A merge made with GITHUB_TOKEN starts no workflows either, so main's own follow-ups are started by hand:
+#    Checks on main, Update PR branches (brings the new main into the other open PRs) and, when decks/ or
+#    documents/ changed, R2 documents. Cloudflare deploys main from its own Git integration as usual.
+#
+# To keep a branch from merging: open its pull request as a draft, or add the label "hold". A pull request a
+# person or session opened is merged the same way once its checks pass.
+# Setup: Settings → Actions → General → Workflow permissions → tick "Allow GitHub Actions to create and approve
+# pull requests". Until it is ticked, step 1 prints GitHub's refusal and opens nothing (step 2 still merges).
+name: Auto PR and merge
+
+on:
+  push:
+    branches: ['claude/**']
+  workflow_run:
+    workflows: [Checks]
+    types: [completed]
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+  checks: read
+
+concurrency:
+  group: auto-pr-${{ github.event_name == 'push' && github.ref || 'merge' }}
+  cancel-in-progress: false
+
+jobs:
+  open:
+    name: Open a pull request for the branch
+    if: github.event_name == 'push' && github.event.deleted != true
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+      BRANCH: ${{ github.ref_name }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Open it if there is none
+        run: |
+          set -euo pipefail
+          git fetch -q origin main
+          ahead=$(git rev-list --count "origin/main..HEAD")
+          if [ "$ahead" = "0" ]; then echo "$BRANCH has nothing main doesn't; no pull request."; exit 0; fi
+          open=$(gh api "repos/$REPO/pulls?state=open&head=${REPO%%/*}:$BRANCH" --jq 'length')
+          if [ "$open" != "0" ]; then echo "$BRANCH already has an open pull request."; exit 0; fi
+          title=$(git log --reverse --format=%s "origin/main..HEAD" | head -n 1 || true)
+          [ -n "$title" ] || title="$BRANCH"
+          {
+            echo "Opened automatically for \`$BRANCH\` (.github/workflows/auto-pr.yml). It merges by itself once its Checks pass, unless it is a draft or has the label \`hold\`."
+            echo
+            echo "## Commits"
+            git log --reverse --format='- %s' "origin/main..HEAD" | head -n 60
+          } > "$RUNNER_TEMP/body.md"
+          if gh pr create --repo "$REPO" --base main --head "$BRANCH" --title "$title" --body-file "$RUNNER_TEMP/body.md"; then
+            # opened with GITHUB_TOKEN: GitHub starts no Checks for it, so start them on the branch
+            gh workflow run checks.yml --repo "$REPO" --ref "$BRANCH" || echo "::warning::Couldn't start Checks for $BRANCH"
+          else
+            echo "::warning::GitHub refused to open the pull request. Tick Settings → Actions → General → 'Allow GitHub Actions to create and approve pull requests'."
+          fi
+
+  merge:
+    name: Merge the pull requests whose Checks passed
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+    steps:
+      - name: Merge each one that is ready
+        run: |
+          set -uo pipefail
+          merged=0; docs=0
+          prs=$(gh api "repos/$REPO/pulls?state=open&base=main&per_page=100" --paginate \
+            --jq '.[] | select(.head.repo.full_name == "'"$REPO"'") | select(.head.ref | startswith("claude/")) | select(.draft | not) | select([.labels[].name] | index("hold") | not) | "\(.number) \(.head.sha) \(.head.ref)"')
+          while read -r num sha ref; do
+            [ -n "${num:-}" ] || continue
+            # GitHub works out mergeability lazily: ask, and wait a moment if it hasn't yet
+            m=null
+            for i in 1 2 3; do
+              m=$(gh api "repos/$REPO/pulls/$num" --jq '.mergeable')
+              [ "$m" != "null" ] && break; sleep 5
+            done
+            if [ "$m" != "true" ]; then echo "#$num ($ref): not mergeable now ($m)."; continue; fi
+            runs=$(gh api "repos/$REPO/commits/$sha/check-runs?per_page=100" --jq '.check_runs[] | "\(.name)\t\(.status)\t\(.conclusion)"')
+            ok() { printf '%s\n' "$runs" | awk -F'\t' -v n="$1" '$1==n && $2=="completed" && $3=="success" {f=1} END {exit !f}'; }
+            if ! ok "Syntax, files and build" || ! ok "Smoke test in a browser"; then echo "#$num ($ref): Checks not passed yet on ${sha:0:7}."; continue; fi
+            bad=$(printf '%s\n' "$runs" | awk -F'\t' '$2=="completed" && $3!="success" && $3!="skipped" && $3!="neutral" && $1 !~ /^Workers Builds/' | cut -f1 | paste -sd, -)
+            if [ -n "$bad" ]; then echo "#$num ($ref): failing: $bad."; continue; fi
+            changed=$(gh api "repos/$REPO/pulls/$num/files?per_page=100" --paginate --jq '.[].filename' | grep -cE '^(decks|documents)/' || true)
+            if gh pr merge "$num" --repo "$REPO" --merge --match-head-commit "$sha"; then
+              echo "#$num ($ref): merged."; merged=$((merged+1)); [ "${changed:-0}" != "0" ] && docs=1
+            else
+              echo "::warning::#$num ($ref): the merge was refused."
+            fi
+          done <<< "$prs"
+          # merged with GITHUB_TOKEN: main's push workflows don't start by themselves
+          if [ "$merged" != "0" ]; then
+            gh workflow run checks.yml --repo "$REPO" --ref main || true
+            gh workflow run update-branches.yml --repo "$REPO" --ref main || true
+            [ "$docs" = "1" ] && { gh workflow run r2-docs.yml --repo "$REPO" --ref main || true; }
+          fi
+          echo "$merged pull request(s) merged."
