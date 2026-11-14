@@ -104,7 +104,7 @@ None.
 
 `/api/ai` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (21)
+## Node checks (22)
 
 | Check | What it covers |
 |---|---|
@@ -123,6 +123,7 @@ None.
 | `drive-trainer-access.cjs` | A trainee's linked Google Drive opens at their case folders, for them and for a trainer (rootUrl/caseUrl, GDRIVE_TRAINER_EMAILS added to the folder without an email) |
 | `inventory.cjs` | The code inventory (docs/INVENTORY.md) is in step with the files: run node build/inventory.cjs after adding, removing or renaming one |
 | `kc-on-slides.cjs` | Every Knowledge Check answer is taught on the slides (its key words are on the revised deck or the slide sources) |
+| `kc-once-worker.cjs` | The Worker holds the one-attempt Knowledge Check: a trainee's own write can't drop or replace an attempt on their record |
 | `r2-docs.mjs` | Documents served from R2 (ranges, 304s, static assets as the fallback) |
 | `rubric-guards.cjs` | 📐 Rubric guards (a rubric score is the trainer's; a trainee's own auto-scored results go on their own progress record only) |
 | `run-checks.mjs` | What it checks                    (run as: node <file>) |

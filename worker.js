@@ -379,6 +379,29 @@ function forTrainee(tok, key, raw) {
     return JSON.stringify(v);
   } catch (e) { return raw; }
 }
+// ✍️ One attempt per Knowledge Check (js/cm-kc-once.js), held here too: on a trainee's own write to trainee:<id>, a day
+// that already has an attempt on the stored record keeps it. Its first attempt (history[0]), and the score, done and
+// date the record holds, stay as stored; the history never gets shorter. A trainer's write (an admin) isn't limited.
+function keepKcAttempts(existing, merged) {
+  const was = existing && existing.dayProgress;
+  if (!was || typeof was !== "object") return;
+  const now = merged.dayProgress && typeof merged.dayProgress === "object" ? Object.assign({}, merged.dayProgress) : {};
+  for (const [d, p] of Object.entries(was)) {
+    if (!p || typeof p !== "object") continue;
+    const prevH = Array.isArray(p.history) ? p.history : [];
+    if (!prevH.length && typeof p.score !== "number") continue;   // no attempt yet: the trainee's write stands
+    const n = now[d] && typeof now[d] === "object" ? Object.assign({}, now[d]) : {};
+    let h = Array.isArray(n.history) ? n.history.slice() : [];
+    if (h.length < prevH.length) h = prevH.slice();
+    // (the first attempt's own picks, for its Answer Review, may be added once: they change no score)
+    const ans = h[0] && Array.isArray(h[0].answers) && h[0].answers.length <= 200 && h[0].answers.every((x) => x === null || Number.isInteger(x)) ? h[0].answers : null;
+    if (prevH.length) h[0] = prevH[0] && typeof prevH[0] === "object" && !prevH[0].answers && ans ? Object.assign({}, prevH[0], { answers: ans }) : prevH[0];
+    n.history = h;
+    ["score", "done", "date"].forEach((f) => { if (f in p) n[f] = p[f]; else delete n[f]; });
+    now[d] = n;
+  }
+  merged.dayProgress = now;
+}
 async function traineeWrite(env, tok, key, value) {
   const kv = kvOf(env);
   const id = tok.id;
@@ -396,6 +419,7 @@ async function traineeWrite(env, tok, key, value) {
     // themselves could otherwise sign in elsewhere as someone else.
     if (existing) IDENTITY_TRAINEE_FIELDS.forEach((f) => { if (f in existing) merged[f] = existing[f]; else delete merged[f]; });
     if (!existing) { merged.approved = false; merged.registeredAt = new Date().toISOString(); }
+    if (existing) keepKcAttempts(existing, merged);
     merged.id = id;
     await kv.put(key, JSON.stringify(merged)); return null;
   }
