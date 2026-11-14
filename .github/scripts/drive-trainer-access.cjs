@@ -9,7 +9,8 @@
 //      linked LSH Case Backups folder; caseUrl waits until the structure is built.
 //   2. Built: caseUrl is the case folder (01 Clients/Doe-John) the Worker made in it, in the status and both reports.
 //   3. GDRIVE_TRAINER_EMAILS: each address (and a group:…) is added to the linked folder as a Commenter, never with a
-//      Google email; an address that isn't one is skipped; a list changed later is added on the next ✓ Check.
+//      Google email; an address that isn't one is skipped; a list changed later is added on the next ✓ Check (a trainer's
+//      Check for the trainee too); a share Google refuses is tried again; an address taken off loses its access.
 //   4. /version says whether GDRIVE_TRAINER_EMAILS is set (a count, never the addresses). Not linked: no address at all.
 //   5. The page links them: js/cm-drive.js (📁 Open my Drive, 📁 My case folder, CMDrive.launch) and js/cm-drive-admin.js
 //      (📁 Open Drive ↗ per trainee) use the Worker's rootUrl/caseUrl and only a drive.google.com address.
@@ -21,6 +22,8 @@ const ok = (m) => console.log('ok  ' + m);
 
 const FOLDER = SA.FOLDER;
 const files = new Map(); let next = 0; const perms = [];
+const granted = new Map();   // fid → Map(email → permission id): what Google holds
+const refuse = new Set(); const deleted = [];   // addresses Google refuses to share with (403); permissions deleted
 const make = (name, mimeType, parent, extra) => { const id = 'gd' + (++next) + 'xYz'; files.set(id, Object.assign({ name, mimeType, parents: parent ? [parent] : [], trashed: false }, extra || {})); return id; };
 const reply = (o, status = 200) => new Response(JSON.stringify(o), { status, headers: { 'Content-Type': 'application/json' } });
 const realFetch = global.fetch;
@@ -29,7 +32,12 @@ global.fetch = async (url, init = {}) => {
   if (u.href === 'https://oauth2.googleapis.com/token') return reply({ access_token: 'AT-sa', expires_in: 3600 });
   if (u.host !== 'www.googleapis.com') return realFetch(url, init);
   const perm = u.pathname.match(/^\/drive\/v3\/files\/([^/]+)\/permissions$/);
-  if (perm) { perms.push({ fid: perm[1], body: JSON.parse(init.body), notify: u.searchParams.get('sendNotificationEmail') }); return reply({ id: 'p' }); }
+  if (perm && method === 'GET') return reply({ permissions: [...(granted.get(perm[1]) || new Map())].map(([emailAddress, id]) => ({ id, emailAddress })) });
+  if (perm) { const body = JSON.parse(init.body); perms.push({ fid: perm[1], body, notify: u.searchParams.get('sendNotificationEmail') });
+    if (refuse.has(body.emailAddress)) return reply({ error: { message: 'The user does not have sufficient permissions' } }, 403);
+    const g = granted.get(perm[1]) || new Map(); granted.set(perm[1], g); const id = 'p' + (++next); g.set(body.emailAddress, id); return reply({ id }); }
+  const permOne = u.pathname.match(/^\/drive\/v3\/files\/([^/]+)\/permissions\/([^/]+)$/);
+  if (permOne && method === 'DELETE') { const g = granted.get(permOne[1]) || new Map(); const e = [...g].find(([, id]) => id === permOne[2]); if (e) { g.delete(e[0]); deleted.push(e[0]); } return new Response(null, { status: 204 }); }
   if (u.pathname === '/drive/v3/files' && method === 'POST') { const b = JSON.parse(init.body); return reply({ id: make(b.name, b.mimeType, (b.parents || [])[0]) }); }
   if (u.pathname === '/drive/v3/files' && method === 'GET') {
     const match = SA.qMatch(u.searchParams.get('q'));
@@ -109,6 +117,30 @@ global.fetch = async (url, init = {}) => {
   await call(env2, '/api/drive', { action: 'check' }, t);
   if (perms.length !== after) fail('the trainers should be added once, not on every ✓ Check');
   ok('a trainer added to the list later is added on the next ✓ Check, once');
+
+  /* 3c: Google refuses a share: it isn't recorded as shared, and the next ✓ Check tries it again */
+  const env3 = Object.assign({}, env2, { GDRIVE_TRAINER_EMAILS: env2.GDRIVE_TRAINER_EMAILS + ', coach.three@lsh.example' });
+  refuse.add('coach.three@lsh.example');
+  await call(env3, '/api/drive', { action: 'check' }, t);
+  const recOf = () => JSON.parse(store.get([...store.keys()].find((k) => k.startsWith('cm:drive:'))));
+  if (/coach\.three/.test(recOf().trainers || '')) fail(`a share Google refused should not be recorded as done: ${recOf().trainers}`);
+  refuse.clear(); const b3 = perms.length;
+  await call(env3, '/api/drive', { action: 'check' }, t);
+  if (!perms.slice(b3).some((p) => p.body.emailAddress === 'coach.three@lsh.example') || !/coach\.three/.test(recOf().trainers || '')) fail('a refused share should be tried again on the next ✓ Check');
+  ok('a share Google refuses is not recorded, and the next ✓ Check tries it again');
+
+  /* 3d: a trainer taken off the list loses their access to the folder */
+  const env4 = Object.assign({}, env3, { GDRIVE_TRAINER_EMAILS: env3.GDRIVE_TRAINER_EMAILS.replace(', coach.two@lsh.example', '') });
+  await call(env4, '/api/drive', { action: 'check' }, t);
+  if (!deleted.includes('coach.two@lsh.example') || (granted.get(root) || new Map()).has('coach.two@lsh.example')) fail(`a trainer taken off GDRIVE_TRAINER_EMAILS should lose access to the folder: ${JSON.stringify(deleted)}`);
+  if (/coach\.two/.test(recOf().trainers || '')) fail('the record should no longer list a trainer taken off');
+  ok('a trainer taken off the list has their access to the folder taken away');
+
+  /* 3e: a trainer's Check for a trainee shares the folder too (a folder linked before the list was set) */
+  const env5 = Object.assign({}, env4, { GDRIVE_TRAINER_EMAILS: env4.GDRIVE_TRAINER_EMAILS + ', coach.four@lsh.example' }); const b5 = perms.length;
+  await call(env5, '/api/drive', { action: 'checkFor', traineeId }, a);
+  if (!perms.slice(b5).some((p) => p.body.emailAddress === 'coach.four@lsh.example')) fail('a trainer\'s Check for a trainee should share the folder with the current trainer list');
+  ok('a trainer\'s Check for a trainee shares the folder with the trainers');
 
   /* 5: the page */
   const drive = fs.readFileSync(path.join(process.cwd(), 'js/cm-drive.js'), 'utf8'), admin = fs.readFileSync(path.join(process.cwd(), 'js/cm-drive-admin.js'), 'utf8');

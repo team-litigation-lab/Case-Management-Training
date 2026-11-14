@@ -6365,8 +6365,7 @@ window.CM_CF_SLIDES = {
   "purpose": "An unsigned page or an uncalendared date can **sink the suit**",
   "principle": "Nothing is filed **until Atty. Thorne signs**",
   "checks": [
-   "Task names documents, source, **due date** and signer",
-   "The **09/15/2026 draft** never uploaded",
+   "**26-CV-04417** in the Pleadings Log; stamped set filed",
    "Costs **$486.75 + $218.00 = $704.75**",
    "Service deadline **01/22/2027 (Fri)** with alerts",
    "CMC **12/10/2026, 9:00 a.m.**, Atty. Thorne attending"
@@ -6527,10 +6526,9 @@ window.CM_CF_SLIDES = {
   "principle": "Count every date **from its own trigger**",
   "checks": [
    "Statement and binder **due 03/11/2027 (Thu)**",
-   "Binder QC 03/04; approval **by 03/09/2027**",
    "Mediator's report watched **on 03/25/2027**",
    "Fee **$1,200.00**, half of $2,400.00",
-   "**03/15/2027 overlap** flagged to Atty. Thorne"
+   "Fee task opened; **UM consent question** flagged to Atty. Thorne"
   ],
   "dos": [
    "Link to **the 12/10/2026 entries**, never re-key them"
@@ -6837,7 +6835,7 @@ window.CM_CF_SLIDES = {
   "checks": [
    "Brief **06/11/2027 (Fri)**, exhibits 06/02/2027, from the letter",
    "Records requests out by **05/03/2027 (Mon)**",
-   "Binder QC opens **05/17/2027 (Mon)**; draft index 05/14/2027",
+   "Hearing **06/22/2027, 9:00 a.m.** on the Calendar",
    "**$900.00 fee share** logged as a case cost",
    "Court dates kept, **flagged for Atty. Thorne**; SOL dates unchanged"
   ],

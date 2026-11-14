@@ -111,6 +111,22 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
     if (all.head.length > 15) fail(`🏅 Scores on screen should stay short (${all.head.length - 1} columns): ${JSON.stringify(all.head)}`);
     const tidy = await page.evaluate(() => ({ how: [...document.querySelectorAll('.sc-how')].filter(p => !p.closest('details')).length, model: [...document.querySelectorAll('.bs-pt-s-model')].filter(t => !t.closest('details.bs-pt-how')).length }));
     if (tidy.how || tidy.model) fail(`the long "how it is scored" text and the model table should sit under the card's "How this is scored" toggle: ${JSON.stringify(tidy)}`);
+    // a network blip on the background reload (sharedList answers [], get-many nulls): the cards and state.adminData stay;
+    // a reload that changes nothing leaves an open "How this is scored" open
+    const blip = await page.evaluate(async () => {
+        const before = document.querySelectorAll('.bs-pt').length, admin = (state.adminData || []).length;
+        const d = document.querySelector('.bs-pt details'); if (d) d.open = true;
+        const sl = window.sharedList; window.sharedList = async () => [];
+        try { await cmScorecard.reload(); } finally { window.sharedList = sl; }
+        const gm = window.sharedGetMany; window.sharedGetMany = async (ks) => (ks || []).map(() => null);
+        try { await cmScorecard.reload(); } finally { window.sharedGetMany = gm; }
+        const mid = { cards: document.querySelectorAll('.bs-pt').length, admin: (state.adminData || []).length };
+        await cmScorecard.reload();
+        const d2 = document.querySelector('.bs-pt details');
+        return { before, admin, mid, open: !d || !!(d2 && d2.open) };
+    });
+    if (!blip.before || blip.mid.cards !== blip.before || blip.mid.admin !== blip.admin) fail(`a failed background reload should keep the cards and state.adminData: ${JSON.stringify(blip)}`);
+    if (!blip.open) fail('a background reload should not close the <details> a trainer has open');
     await page.selectOption('select[onchange^="cmScorecard.only"]', id); await page.waitForTimeout(400);
     const one = await page.evaluate(() => document.querySelectorAll('.bs-pt').length);
     if (one !== 1) fail(`🔎 one trainee should show one card: ${one}`);

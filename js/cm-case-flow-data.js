@@ -53,6 +53,8 @@ window.CM_CASE_FLOW = {
     no: "LSH-2026-MVA-770412",
     type: "MVA — passenger injury",
     dol: "02/06/2026",
+    // the collision as 👋 Meet John Doe (js/cm-case-profile.js) tells it
+    time: "about 7:10 a.m.", scene: "the all-way stop at Maple Hollow Rd & Birch Ave",
     sol: "02/06/2028",
     solNote: "Docketed on a two-year limitation for this training file. Confirm the governing state's statute before relying on it.",
     counsel: "Atty. Elijah Thorne",
@@ -64,6 +66,7 @@ window.CM_CASE_FLOW = {
       dob: "08/14/1991", phone: "(555) 010-2288",
       email: "john.doe@example.com",
       address: "2214 Maple Hollow Rd, Riverton",
+      job: "a warehouse shift lead at Northgate Distribution",
       position: "Front-seat passenger in the host vehicle"
     },
     parties: [
@@ -373,10 +376,10 @@ window.CM_CASE_FLOW = {
   /* ---------- theory written for this flow (in neither the course nor the firm curriculum) ----------
      Listed in traceability.md so it can be reviewed: [what, where]. */
   authored: [
-    ["A dedicated UPL lesson: fact sharing vs. legal advice, the hear-log-route habit, and reassurance about the process, never the outcome", "Day 1 · Module 1 — after Meet Your Case, before the first task"],
+    ["A dedicated UPL lesson: fact sharing vs. legal advice, the hear-log-route habit, and reassurance about the process, never the outcome", "Day 1 · Module 1 — after the Case Manager's Role (the client is met on the 📇 Case Profile, 👋 Meet John Doe), before the first task"],
     ["The gap doctrine: the only gap explanation that holds up is the client's own factual explanation, supported by verifiable written documentation; the Case Manager records it without interpreting, defending or judging its effect on value", "Day 3 · Pre-Demand Audit & the Demand — the gap interview and the Gap Explanation Record"],
     ["Plain English for every legal term and abbreviation (CF.plain), shown on the first block that uses it", "Every day — the In plain English box on a lesson's Rules slide or an activity's Your Task slide"],
-    ["The Case Manager's Role, Meet Your Case, and Opening John Doe's File in the CMS", "Case Flow Day 1 · Case Phase 1 — written for the case-lifecycle sequence, from D1#1–#7, D1#12–#13 and the case file"],
+    ["The Case Manager's Role and Opening John Doe's File in the CMS (the client, 👋 Meet John Doe, is on the 📇 Case Profile, where Day 1's slide sends the room)", "Case Flow Day 1 · Case Phase 1 — written for the case-lifecycle sequence, from D1#1–#7, D1#12–#13 and the case file"],
     ["The $40,000 host-passenger stack and its order of operations", "Day 1 · Module 1 — the case facts the brief specifies (Host UM and Relative UM behind a $10,000 BI)"],
     ["Recovery Stack vs. Payer Order as two separate questions", "Day 1 · Module 1, Lesson 2 — built on the Regulatory Triple-Check's Payer Order"],
     ["The three-criteria Skip-Trace gate", "Day 1 · Module 2 — the No Contact Protocol has the steps; the trigger rule is new"],
@@ -10804,7 +10807,7 @@ window.CM_CASE_FLOW = {
   /* The order the course teaches the blocks in, day by day. Each day is ONE module of the five (Intake & Property Damage, Claim Set Up, the Treatment Phase, Pre-Demand Audit & the Demand, Closing & Settlement), all on John Doe's
      one file, and every module runs the same lifecycle: ALL of its Lessons → ONE Practice Lab (all of its Skill
      Activities, in the order their lessons were taught) → Knowledge Check (see `sequence` below). Day 1 opens with the Case Manager's
-     introduction, then the client (Meet Your Case), then the lessons proper; Days 2–5 go straight into lessons
+     introduction, then the client (👋 Meet John Doe, on the 📇 Case Profile: Day 1's slide sends the room there and back), then the lessons proper; Days 2–5 go straight into lessons
      anchored on where the file stands. Claim Set Up runs CMS case file setup → draft the LORs and notices →
      transmit and log them → receive the carriers' claim correspondence. The advanced theory (the Payer-First
      Principle, Health Subrogation, the Payer Order and the Regulatory Triple-Check) is taught in the Treatment

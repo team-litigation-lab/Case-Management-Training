@@ -78,7 +78,7 @@ function adminPage(){
   const ppl = people(), withCase = ppl.filter(r => caseOf(r.assignedCase && r.assignedCase.id)).length;
   return `<p class="eyebrow">Admin</p><h1>Companion Cases</h1>
     <div class="card cc-adm">
-      <p class="cc-adm-help">Each trainee gets a second, shorter file beside John Doe VS Robert Smith: a new problem on it every Case Flow day, and an Attorney–CM brainstorm at the end of the day, with you as Atty. Thorne. Pick a case in a trainee's row; they see it on their Case File page.</p>
+      <p class="cc-adm-help">Each trainee gets a second, shorter file beside John Doe VS Robert Smith: a new problem on it every Case Flow day, and an Attorney–CM brainstorm at the end of the day, with you as Atty. Thorne. Pick a case in a trainee's row; they see it on their Case Profile page.</p>
       <div class="cc-adm-bar"><label>Batch <select onchange="setAdminBatchFilter(this.value)"><option value="">All batches</option>${keys.map(k => `<option value="${E(k)}" ${k === state.adminBatchFilter ? "selected" : ""}>${E(labelOfKey(k))}</option>`).join("")}</select></label>
         <span class="cc-adm-count"><b>${withCase}</b> of ${ppl.length} trainee${ppl.length === 1 ? "" : "s"} have a case</span></div>
       ${tableHtml()}

@@ -5,7 +5,8 @@
    done in another tool (the live call, the service confirmation, the Amendment Requests, the Notes & Action Plan), and
    one bar at its foot (📁 Source Files on the left, Submit to AI Grader → on the right, js/cm-ai-grader.js). This file:
      • 🚀 Launch CMS & Google Drive: the one button at the top of the card. It opens the CMS beside the slide (the course's
-       tool frame) and the trainee's own Backup Drive folder in a new tab (Google Drive can't be framed). A trainee whose
+       tool frame) and the trainee's own Backup Drive in a new tab, at their case folder once it is built (CMDrive.launch;
+       Google Drive can't be framed). A trainee whose
        Drive isn't linked yet gets the 📂 Backup Drive panel, where it is linked. Anyone else gets Google Drive itself.
      • 📋 Rules & Naming Guide: the activity's purpose, principle and what to hand in, and on a Backup File Maintenance
        activity the firm's naming convention (its pattern, an example with 📋 Copy, its parts and the labels that go last),
@@ -41,6 +42,8 @@ window.CMSbTask = {
     const D = drive();
     let link = false;
     if(!trainee()) openTab(GDRIVE);
+    // their linked Drive at the case folder (01 Clients/Doe-John) once it is built, else the linked folder: CMDrive.launch
+    else if(D && D.connected && (D.caseUrl || D.rootUrl) && window.CMDrive && typeof CMDrive.launch === "function") CMDrive.launch();
     else if(D && /^https:\/\//.test(D.rootUrl || "")) openTab(D.rootUrl);
     else if(D && D.configured === false) openTab(GDRIVE);
     else link = true;

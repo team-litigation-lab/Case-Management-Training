@@ -4,8 +4,9 @@
    each taking a slot in the top bar, the way the Training Portal's
    admin bar keeps everything else under ⚙ System Management:
      • 📁 Case File   one tab for the course's case material: the Case File
-                      (Claim File), 📁 Documents and 🗂 Workspace share a row of
-                      tabs at the top of their pages instead of a slot each
+                      (Claim File; 📇 Case Profile in Case Management), 📁 Documents
+                      and 🗂 Workspace share a row of tabs at the top of their pages
+                      instead of a slot each
      • 📚 Guides ▾    Notes, Handouts, Orientation, Facilitator Guide,
                       Platform Blueprint (whichever this page has)
      • 📋 My Sheets ▾ Task Tracker and Monitoring Sheet
@@ -38,7 +39,8 @@ var GROUPS = [
 ];
 function viewOf(b){ var m = /goto\('([a-z]+)'/.exec(b.getAttribute("onclick") || ""); return m ? m[1] : ""; }
 
-// 📁 Case File: one tab in the bar; its pages share a row of tabs (Case File · Documents · Workspace) at the top.
+// 📁 Case File (📇 Case Profile in Case Management): one tab in the bar; its pages share a row of tabs (Case File or
+// Case Profile · Documents · Workspace) at the top.
 var CASE_VIEWS = ["clientprofile", "casedocs", "workspace"];
 function mergeCase(nav){
   var tabs = CASE_VIEWS.map(function(v){ return [].find.call(nav.children, function(b){ return b.tagName === "BUTTON" && viewOf(b) === v; }); }).filter(Boolean);
@@ -48,7 +50,7 @@ function mergeCase(nav){
   var cur = (typeof state !== "undefined" && state) ? state.view : null;
   var on = tabs.filter(function(b){ return cur ? viewOf(b) === cur : b.classList.contains("active"); })[0];
   var main = tabs[0], word = main.getAttribute("data-lsh-label").replace(/^[^A-Za-z<]+/, "");
-  var html = "📁 " + word;
+  var html = (/Case Profile/.test(word) ? "📇 " : "📁 ") + word;   // 📁 is also Documents' icon: the Case Profile keeps its own
   if(main.innerHTML !== html) main.innerHTML = html;
   main.title = tabs.map(function(b){ return b.textContent.replace(/^[^A-Za-z]+/, "").trim(); }).join(" · ");
   main.classList.toggle("active", !!on);
