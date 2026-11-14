@@ -64,7 +64,7 @@
   },
   "d3m1-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor's UM demand templates\n• Put the exhaustion proof on page one of each draft, and claim only damages above what was collected\n• Step 2: Log both drafts in CMS › Tasks › Escalate for Atty. Thorne, with the response deadline left blank"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor's UM demand templates\n• Put the exhaustion proof on page one of each draft, and claim only damages above what was collected\n• Step 2: Log both drafts in CMS › Tasks › + Add Task for Atty. Thorne, with the response deadline left blank"
     },
     "case": {
       "say": "• Assuming Keystone's $10,000 tender, both consents and the signed Limited Release are on file, the desk's two UM demand drafts need a quick QC\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Two QC'd UM drafts, exhaustion proof first, routed"
@@ -126,7 +126,7 @@
   },
   "d3m2-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log her exact words in CMS › Communications Log, and report the offer to Atty. Thorne the same day\n• Step 2: In the Email Workspace, draft the 08/06/2026 rebuttal for his approval, answering the gap from the record"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log her exact words in CMS › Notes › Case Notes, and report the offer to Atty. Thorne the same day\n• Step 2: In the Email Workspace, draft the 08/06/2026 rebuttal for his approval, answering the gap from the record"
     },
     "case": {
       "say": "• Assuming Dana Whitfield has offered $3,500 citing the gap and a degenerative MRI, and Atty. Thorne's authority is no counter, the offer needs logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a logged offer, a same-day report, a drafted rebuttal"
@@ -137,7 +137,7 @@
   },
   "d3m2-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log each acceptance in CMS › Insurance › Negotiation Log, with a confirming email drafted for Atty. Thorne's approval\n• Step 2: Show $40,000.00 gross on the CMS Recovery Ledger, each check deposited only after its release is signed"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log each acceptance in CMS › Settlement (BI/UM) › Offer & Counter History, with a confirming email drafted for Atty. Thorne's approval\n• Step 2: Show $40,000.00 gross on the CMS Recovery Ledger, each check deposited only after its release is signed"
     },
     "case": {
       "say": "• Assuming John Doe has accepted through Atty. Thorne and both UM layers settled at their limits, the recovery now needs logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a complete Negotiation Log and $40,000.00 gross recorded"
@@ -193,7 +193,7 @@
   },
   "d3m3-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Net Sheet › Lien Tracker, show the math, $1,860.00 – $620.00 = $1,240.00, and record each absent claimant as a verified none\n• Step 2: Log the 10/09/2026 acceptance only once Peach State confirms it in writing"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Settlement (BI/UM) › Medical Liens / Payoffs, show the math, $1,860.00 – $620.00 = $1,240.00, and record each absent claimant as a verified none\n• Step 2: Log the 10/09/2026 acceptance only once Peach State confirms it in writing"
     },
     "case": {
       "say": "• Assuming Peach State asserts $1,860.00 and Atty. Thorne has signed off on the one-third reduction, the lien needs recording\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: $1,240.00 recorded once confirmed in writing"
@@ -215,7 +215,7 @@
   },
   "d3m3-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Net Sheet › Lien Tracker, enter $4,580.00 with the signed Payoff Letter as its source\n• Step 2: Log the call and the letter in CMS › Documents, and recompute the Net Sheet"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Settlement (BI/UM) › Medical Liens / Payoffs, enter $4,580.00 with the signed Payoff Letter as its source\n• Step 2: Log the call and the letter in CMS › Doc Hub, and recompute the Net Sheet"
     },
     "case": {
       "say": "• Assuming Riverton's ledger is corrected to $6,105.00 and its billing manager agreed to $4,580.00 in a signed Payoff Letter, the Net Sheet needs updating\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a signed $4,580.00 Payoff Letter logged, the Net Sheet recomputed"
@@ -285,7 +285,7 @@
   },
   "d3m4-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Financial Ledger › Trust, queue one disbursement per Net Sheet line for Atty. Thorne's approval, taking the ledger to $0.00\n• Step 2: Log your requests for the lien satisfactions and John Doe's receipt in CMS › Documents"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Settlement (BI/UM) › Check Received / Disbursed, queue one disbursement per Net Sheet line for Atty. Thorne's approval, taking the ledger to $0.00\n• Step 2: Log your requests for the lien satisfactions and John Doe's receipt in CMS › Doc Hub"
     },
     "case": {
       "say": "• Assuming every condition is met, the funds cleared and the lien hold released by Atty. Thorne, the 10/22 disbursement needs queuing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Five commands to $0.00, queued for approval"
@@ -319,7 +319,7 @@
   },
   "d3m2-bins": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the LSH Net Sheet, enter the $10,000.00 gross, the 33⅓% fee\n• The receipted costs and both liens, with the 25% projection labelled as a projection\n• Step 2: Log it to Atty. Thorne in CMS › Tasks › Escalate, flagging that the money stays in trust"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the LSH Net Sheet, enter the $10,000.00 gross, the 33⅓% fee\n• The receipted costs and both liens, with the 25% projection labelled as a projection\n• Step 2: Log it to Atty. Thorne in CMS › Tasks › + Add Task, flagging that the money stays in trust"
     },
     "case": {
       "say": "• Assuming Keystone tendered the $10,000 BI limits today and the liens are still unreduced, Atty. Thorne needs Stream 1's Net Sheet\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Stream 1 Net Sheet, the projection labelled, routed"
@@ -330,7 +330,7 @@
   },
   "d3m2-umns": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: On the CMS Recovery Ledger, post the $30,000.00 UM gross to Stream 2\n• Apply the 33⅓% fee, costs and liens, and mark the net as a projection\n• Step 2: Log it to Atty. Thorne in CMS › Tasks › Escalate"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: On the CMS Recovery Ledger, post the $30,000.00 UM gross to Stream 2\n• Apply the 33⅓% fee, costs and liens, and mark the net as a projection\n• Step 2: Log it to Atty. Thorne in CMS › Tasks › + Add Task"
     },
     "case": {
       "say": "• Assuming Cardinal State has tendered its $10,000 limits and Harbor Point's $20,000 is in trust, Stream 2's Net Sheet is due\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Stream 2 Net Sheet projecting $13,661.19, routed"
@@ -354,7 +354,7 @@
   },
   "d3m2-rel": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents › Release audit, replace the catch-all insurers clause, reserve the UM claims, and flag the rest for Atty. Thorne\n• Step 2: Log your review by email to Atty. Thorne for approval, and send nothing to John Doe"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub › Case Files, replace the catch-all insurers clause, reserve the UM claims, and flag the rest for Atty. Thorne\n• Step 2: Log your review by email to Atty. Thorne for approval, and send nothing to John Doe"
     },
     "case": {
       "say": "• Assuming Keystone's Release of All Claims has arrived for John Doe's signature, its clauses need checking against the approved terms\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an audited release sent for Atty. Thorne's approval"
@@ -368,7 +368,7 @@
   },
   "d3m2-exec": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Email Workspace, send Dana Whitfield the executed release with both waivers and the W-9, asking for the check date\n• Step 2: Log the check into trust in CMS › Financial Ledger › Trust, and route any payee question to Atty. Thorne"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Email Workspace, send Dana Whitfield the executed release with both waivers and the W-9, asking for the check date\n• Step 2: Log the check into trust in CMS › Settlement (BI/UM) › Check Received / Disbursed, and route any payee question to Atty. Thorne"
     },
     "case": {
       "say": "• Assuming John Doe signed the Limited Release before the notary on 08/28/2026 and both UM waivers are in, the packet needs sending\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an executed release sent and the check in trust"
@@ -379,7 +379,7 @@
   },
   "d3m4-pal": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the notice in CMS › Communications Log, routed to Atty. Thorne, and send nothing to Vance & Kettering\n• Step 2: In CMS › Financial Ledger › Trust, hold $6,666.67 on his instruction"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the notice in CMS › Notes › Case Notes, routed to Atty. Thorne, and send nothing to Vance & Kettering\n• Step 2: In CMS › Settlement (BI/UM) › Check Received / Disbursed, hold $6,666.67 on his instruction"
     },
     "case": {
       "say": "• Assuming Vance & Kettering's charging lien notice for $6,666.67 has arrived and Atty. Thorne has ordered a hold, the file needs securing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: the notice logged and $6,666.67 held"

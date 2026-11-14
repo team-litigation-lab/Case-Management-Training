@@ -43,7 +43,7 @@
   },
   "d4m1-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents › Memo, log a dated chronology from the 07/20/2026 demand, each event tied to its proof\n• Step 2: End the memo with the decision you need, as questions, and route it in CMS › Tasks › Escalate"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub › Case Files, log a dated chronology from the 07/20/2026 demand, each event tied to its proof\n• Step 2: End the memo with the decision you need, as questions, and route it in CMS › Tasks › + Add Task"
     },
     "case": {
       "say": "• Assuming Keystone called $3,500 “final” and the demand lapsed 08/21 with no answer since, the impasse needs logging for Atty. Thorne\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a sourced memo that asks for a decision, recommends none"
@@ -54,7 +54,7 @@
   },
   "d4m1-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case Summary, set the status to Litigation, citing the 09/09 authorization, with the case number reading “Pending — assigned on filing”\n• Step 2: Log the 40% fee tier from the filing date, and the 48-hour audit on 09/22/2026 in CMS › Calendar"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case Status, set the status to Litigation, citing the 09/09 authorization, with the case number reading “Pending — assigned on filing”\n• Step 2: Log the 40% fee tier from the filing date, and the 48-hour audit on 09/22/2026 in CMS › Calendar"
     },
     "case": {
       "say": "• Assuming Atty. Thorne authorized suit on 09/09 with a filing target of 09/24/2026, the file needs switching to Litigation\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Litigation status set on Atty. Thorne's authority"
@@ -156,7 +156,7 @@
   },
   "d4m2-a3": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the impasse memo to Atty. Thorne in CMS › Case Notes, with each layer's dispute clause quoted word for word\n• Step 2: Ask him in writing for the route and the deadline, and docket nothing before his answer"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the impasse memo to Atty. Thorne in CMS › Notes › Case Notes, with each layer's dispute clause quoted word for word\n• Step 2: Ask him in writing for the route and the deadline, and docket nothing before his answer"
     },
     "case": {
       "say": "• Assuming Harbor Point offers $8,000 of $20,000, Cardinal State $6,000 of $10,000, and neither will move, the impasse needs routing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an impasse memo routed to Atty. Thorne, nothing docketed"
@@ -239,7 +239,7 @@
   },
   "d4m3-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Litigation › Exhibit index, number the exhibits C-1 onward with their Bates ranges, leading with the BI exhaustion record\n• Step 2: Log the audited Lien Sheet at $7,965.00, and route the binder to Atty. Thorne"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Litigation › Discovery & Filing Tracker, number the exhibits C-1 onward with their Bates ranges, leading with the BI exhaustion record\n• Step 2: Log the audited Lien Sheet at $7,965.00, and route the binder to Atty. Thorne"
     },
     "case": {
       "say": "• Assuming the Mediation Binder is built and the 06/02/2027 exchange is close, the Arbitration Binder's exhibits need numbering\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a C-numbered binder and an audited Lien Sheet, routed"
@@ -310,7 +310,7 @@
   },
   "d4m4-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Tasks › Countermeasure rules\n• Set a second request for the late record and the 48-hour audit, each with a date and an owner\n• Step 2: Log the red flags for 03/01/2027 and 03/08/2027 in CMS › Case File › Risk Flags"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Tasks › Action Item Log\n• Set a second request for the late record and the 48-hour audit, each with a date and an owner\n• Step 2: Log the red flags for 03/01/2027 and 03/08/2027 in CMS › Notes › Case Notes"
     },
     "case": {
       "say": "• Assuming the binder is due 03/11/2027 and Riverton's ledger, requested 02/08/2027, hasn't arrived, the countermeasure rules need setting\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Countermeasures set, every firing dated and owned"
@@ -321,7 +321,7 @@
   },
   "d4m4-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log one bottleneck report in CMS › Case File › Bottleneck Log, nearest hard date first, with one ask per item\n• Step 2: Send it in CMS › Tasks › Escalate, and date the 48-hour audit"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log one bottleneck report in CMS › Notes › Case Notes, nearest hard date first, with one ask per item\n• Step 2: Send it in CMS › Tasks › + Add Task, and date the 48-hour audit"
     },
     "case": {
       "say": "• Assuming five problems threaten the 06/02/2027 exhibit exchange and Atty. Thorne must decide three of them, one report needs sending\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: One five-field report, sent 05/24/2027"

@@ -2553,6 +2553,11 @@ body::before{opacity:.40;}
 
 
 const DAYS = [];   // the course's days are the Case Flow's: js/cm-case-flow.js fills DAYS
+// a day as people know it: Day 1 … Day 5 (the Case Flow day), never its internal id (11–15): dayNo(11) is 1, and
+// dayText("Day 11 · Case Flow Day 1 · Intake — Skill Building") is "Day 1 · Intake — Skill Building". A stored label keeps
+// the id (workDayFromContext files a graded attempt by it): only what is shown is rewritten.
+function dayNo(id){ const d = DAYS.find(x => String(x.id) === String(id)); return d && d.cf ? d.cf.n : id; }
+function dayText(t){ return String(t == null ? "" : t).replace(/\bDay \d+ · Case Flow Day (\d) · /g, "Day $1 · ").replace(/\bDay (\d+)\b/g, (m, n) => "Day " + dayNo(n)); }
 
 /* ============================================================
    PRACTICE LAB DATA — Legal-field focused
@@ -3949,7 +3954,7 @@ function trainerInline(){ return false; }
    ============================================================ */
 function orientSlides(){
   const topics = DAYS.reduce((a,d)=>a+d.lessons.length,0);
-  const dayTile = (d)=>`<div class="or-day"><span>Day ${d.id}</span><b>${esc(d.title)}</b><em>${d.lessons.length} topics${relatedTools(d.id)[0]?` · Lab: ${esc(relatedTools(d.id)[0].title)}`:""}</em></div>`;
+  const dayTile = (d)=>`<div class="or-day"><span>Day ${dayNo(d.id)}</span><b>${esc(d.title)}</b><em>${d.lessons.length} topics${relatedTools(d.id)[0]?` · Lab: ${esc(relatedTools(d.id)[0].title)}`:""}</em></div>`;
   const step = (n, icon, t, d)=>`<div class="or-step"><div class="or-step-n">${n}</div><div class="or-step-i">${icon}</div><b>${t}</b><span>${d}</span></div>`;
   const pill = (i,t,d)=>`<div class="or-pill"><div>${i}</div><b>${t}</b><span>${d}</span></div>`;
   return [
@@ -5124,7 +5129,7 @@ function workOnNextItems(){
   const fbDays = Object.entries(state.myFeedback||{}).sort((a,b)=>(b[1].sentAt||"").localeCompare(a[1].sentAt||""));
   if(fbDays.length){ (fbDays[0][1].areasToBuild||[]).slice(0,2).forEach(x=>items.push({src:`Trainer · Day ${fbDays[0][0]}`, text:x, action:`openDayFeedback(${fbDays[0][0]})`})); }
   // 2) Knowledge Checks not yet passed
-  DAYS.forEach(d=>{ const p = (state.progress||{})[d.id]; if(p && typeof p.score==="number" && !p.done) items.push({src:`Day ${d.id} Knowledge Check`, text:`Not yet at 70% (best ${p.score}%) — review and retake when ready.`, action:`goto('day',${d.id})`}); });
+  DAYS.forEach(d=>{ const p = (state.progress||{})[d.id]; if(p && typeof p.score==="number" && !p.done) items.push({src:`Day ${dayNo(d.id)} Knowledge Check`, text:`Not yet at 70% (best ${p.score}%) — review and retake when ready.`, action:`goto('day',${d.id})`}); });
   // 3) latest graded-work gaps
   const recent = (state.workLog||[]).filter(e=>e.kind!=="quiz" && (e.growth||e.gaps||[]).length).slice(-3).reverse();
   recent.forEach(e=>{ const t = (e.growth && e.growth[0]) || (e.gaps && e.gaps[0]); if(t) items.push({src:e.label, text:t}); });
@@ -5203,7 +5208,7 @@ function renderFocusAdmin(rec){
         <button class="btn btn-ghost btn-sm" onclick="adminRemoveFocus('${rec.id}','${x.id}')">Remove</button></li>`).join("")}</ul>` : ""}
     <div class="focus-admin-form">
       <textarea id="focusText_${sid}" rows="2" placeholder="e.g. Practise BLUF: rewrite your last two status updates so the decision needed is in the first line."></textarea>
-      <select id="focusDay_${sid}"><option value="0">Any day</option>${DAYS.map(d=>`<option value="${d.id}">Day ${d.id}</option>`).join("")}</select>
+      <select id="focusDay_${sid}"><option value="0">Any day</option>${DAYS.map(d=>`<option value="${d.id}">Day ${dayNo(d.id)}</option>`).join("")}</select>
       <select id="focusPri_${sid}"><option value="normal">Normal</option><option value="high">High priority</option><option value="low">Low</option></select>
       <button class="btn btn-navy btn-sm" onclick="adminAddFocus('${rec.id}')">➕ Add to Focus</button>
     </div>
@@ -5283,8 +5288,8 @@ function renderWorkOnNextPanel(){
   if(!next.length && !fbDays.length && !trainerCards) return "";
   const chips = (fbDays.length || DAYS.some(d=>dayHasActivity(d.id))) ? `<div class="won-fbrow"><span class="won-fblbl">Trainer feedback:</span>
       ${DAYS.map(d=>{ const f = fb[d.id]; return f
-        ? `<button type="button" class="won-chip ${f.readAt?"":"new"}" onclick="openDayFeedback(${d.id})" title="${esc(f.rating||"")}">Day ${d.id}${f.readAt?"":" •"}</button>`
-        : `<span class="won-chip off" title="${dayHasActivity(d.id)?"Your trainer hasn't added feedback for this day yet":"Available once you complete this day"}">Day ${d.id}</span>`; }).join("")}
+        ? `<button type="button" class="won-chip ${f.readAt?"":"new"}" onclick="openDayFeedback(${d.id})" title="${esc(f.rating||"")}">Day ${dayNo(d.id)}${f.readAt?"":" •"}</button>`
+        : `<span class="won-chip off" title="${dayHasActivity(d.id)?"Your trainer hasn't added feedback for this day yet":"Available once you complete this day"}">Day ${dayNo(d.id)}</span>`; }).join("")}
     </div>
     <div class="focus-reviews-row"><span class="muted">Your trainer adds written feedback after reviewing each day's work — days light up here when it's ready.</span></div>` : "";
   return `<section class="won-panel">
@@ -5503,7 +5508,7 @@ function renderTasksPage(){
     const live = e.status==="new"||e.status==="progress";
     const left = e.expiresAt ? new Date(e.expiresAt).getTime()-Date.now() : 0;
     return `<div class="card tk-card ${e.status}" id="tk_${cssId(e.id)}">
-      <div class="tk-head"><div><span class="tk-day">Day ${e.dayId}</span> ${taskStatusChip(e)}${!live ? ` <button class="tk-arch-btn" onclick="taskArchive('${esc(e.id)}', ${e.archived?"false":"true"})" title="${e.archived?"Move back to the list":"Hide from the list — it still counts in your scores"}">${e.archived?"↩ Unarchive":"🗄 Archive"}</button>` : ""}</div>
+      <div class="tk-head"><div><span class="tk-day">Day ${dayNo(e.dayId)}</span> ${taskStatusChip(e)}${!live ? ` <button class="tk-arch-btn" onclick="taskArchive('${esc(e.id)}', ${e.archived?"false":"true"})" title="${e.archived?"Move back to the list":"Hide from the list — it still counts in your scores"}">${e.archived?"↩ Unarchive":"🗄 Archive"}</button>` : ""}</div>
         <div class="tk-times">Received ${fmtDate(e.receivedAt)}${live && e.expiresAt ? ` · <b class="tk-left" data-exp="${esc(e.expiresAt)}">${fmtLeft(left)}</b>` : ""}${e.submittedAt ? ` · Resolved in ${Math.max(1,Math.round((new Date(e.submittedAt)-new Date(e.receivedAt))/60000))} min` : ""}</div></div>
       <p class="tk-task">${esc(e.task)}</p>
       ${live ? `
@@ -5556,10 +5561,10 @@ async function submitTask(id){
   try{
     const day = DAYS.find(d=>d.id===e.dayId);
     const report = await runRubricEvaluation(
-      `Random Task — Day ${e.dayId}`,
-      `Unannounced task dropped mid-session to test real-time handling of Day ${e.dayId} (${day.title}).\nTASK: ${e.task}\nTIMING: acknowledged after ${ackMins===null?"n/a":ackMins+" min"}; resolved after ${totalMins} min${windowMins?` of a ${windowMins}-minute window`:""}.\nTRAINEE'S WORKING NOTES: ${(e.notes||"(none)").slice(0,800)}`,
+      `Random Task — Day ${dayNo(e.dayId)}`,
+      `Unannounced task dropped mid-session to test real-time handling of Day ${dayNo(e.dayId)} (${day.title}).\nTASK: ${e.task}\nTIMING: acknowledged after ${ackMins===null?"n/a":ackMins+" min"}; resolved after ${totalMins} min${windowMins?` of a ${windowMins}-minute window`:""}.\nTRAINEE'S WORKING NOTES: ${(e.notes||"(none)").slice(0,800)}`,
       val,
-      `Assess on five criteria: (1) Timeliness — fast acknowledgement and resolution inside the window; (2) Prioritisation — correct first move, deadlines, who to involve; (3) Application of Day ${e.dayId}'s actual lesson content; (4) Communication — clear, bottom-line-first, ready to send; (5) Risk & confidentiality — safe handling and correct escalation. Be decisive about vague or hedging answers.`
+      `Assess on five criteria: (1) Timeliness — fast acknowledgement and resolution inside the window; (2) Prioritisation — correct first move, deadlines, who to involve; (3) Application of Day ${dayNo(e.dayId)}'s actual lesson content; (4) Communication — clear, bottom-line-first, ready to send; (5) Risk & confidentiality — safe handling and correct escalation. Be decisive about vague or hedging answers.`
     );
     Object.assign(e, {status:"resolved", submittedAt:new Date(now).toISOString(), score:report.totalScore, tier:report.gradeTier||report.tier||"", reportHtml:renderEvaluationReport(report)});
     await saveTaskLog();
@@ -5597,7 +5602,7 @@ function renderSurpriseTaskCard(){
     return `
     <div class="card" style="padding:18px 20px;margin-bottom:20px;background:rgba(255,244,232,.62);border:1.5px solid var(--orange);">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
-        <div style="font-size:11px;color:var(--orange-deep);font-weight:700;text-transform:uppercase;letter-spacing:.03em;">🎲 Surprise Task — Day ${r.dayId} · Graded</div>
+        <div style="font-size:11px;color:var(--orange-deep);font-weight:700;text-transform:uppercase;letter-spacing:.03em;">🎲 Surprise Task — Day ${dayNo(r.dayId)} · Graded</div>
         <button class="btn btn-ghost btn-sm" onclick="closeSurpriseResult()">Close ✕</button>
       </div>
       <p style="font-size:13px;color:var(--ink-soft);margin:6px 0 10px;">${esc(r.task)}</p>
@@ -5610,13 +5615,13 @@ function renderSurpriseTaskCard(){
   if(le && (le.status==="resolved" || le.status==="missed")) return "";
   return `
     <div class="card tk-dash">
-      <div><div class="tk-dash-k">🎲 Random Task — Day ${t.dayId} · <b class="tk-left" data-exp="${esc(t.expiresAt||"")}">${t.expiresAt?fmtLeft(new Date(t.expiresAt).getTime()-Date.now()):""}</b></div>
+      <div><div class="tk-dash-k">🎲 Random Task — Day ${dayNo(t.dayId)} · <b class="tk-left" data-exp="${esc(t.expiresAt||"")}">${t.expiresAt?fmtLeft(new Date(t.expiresAt).getTime()-Date.now()):""}</b></div>
       <p>${esc(t.task)}</p></div>
       <button class="btn btn-primary" onclick="goto('tasks')">${le && le.status==="progress" ? "Continue in 🎲 Tasks →" : "Handle it in 🎲 Tasks →"}</button>
     </div>`;
   return `
     <div class="card" style="padding:18px 20px;margin-bottom:20px;background:rgba(255,244,232,.62);border:1.5px solid var(--orange);">
-      <div style="font-size:11px;color:var(--orange-deep);font-weight:700;text-transform:uppercase;letter-spacing:.03em;">🎲 Surprise Task — Day ${t.dayId}</div>
+      <div style="font-size:11px;color:var(--orange-deep);font-weight:700;text-transform:uppercase;letter-spacing:.03em;">🎲 Surprise Task — Day ${dayNo(t.dayId)}</div>
       <p style="font-size:14px;color:var(--navy);font-weight:600;margin:6px 0 10px;">${esc(t.task)}</p>
       <textarea id="surpriseTaskInput" placeholder="Handle it — right now, using what you learned today..." style="width:100%;min-height:90px;padding:10px 12px;border-radius:8px;border:1px solid var(--line);font-size:13px;font-family:inherit;resize:vertical;">${esc(state.surpriseDraft||"")}</textarea>
       <button type="button" class="btn btn-navy btn-sm" id="surpriseSubmitBtn" style="margin-top:10px;" onclick="submitSurpriseTask(event)">Submit for Grading</button>
@@ -5691,8 +5696,8 @@ async function submitSurpriseTask(ev){
   try{
     const day = DAYS.find(d=>d.id===t.dayId);
     const report = await runRubricEvaluation(
-      `Surprise Task — Day ${t.dayId}`,
-      `The trainee was handed this task unannounced, mid-session, specifically to test real-time critical thinking, prioritization, and application of Day ${t.dayId}'s material (${day.title}) — not a rehearsed Skill Builders exercise. The task: ${t.task}`,
+      `Surprise Task — Day ${dayNo(t.dayId)}`,
+      `The trainee was handed this task unannounced, mid-session, specifically to test real-time critical thinking, prioritization, and application of Day ${dayNo(t.dayId)}'s material (${day.title}) — not a rehearsed Skill Builders exercise. The task: ${t.task}`,
       val,
       `Did they correctly apply today's actual lesson content, not just general common sense? Did they prioritize correctly given it was dropped on them unannounced? Is the response decisive and realistic, not vague or hedging?`
     );
@@ -5741,7 +5746,7 @@ function moduleCard(d){
   return `
   <div class="module-card mc-${status}" id="module-${d.id}">
     <div class="module-head">
-      <div class="mh-day">Day ${d.id}${status==='done'?' &middot; Completed':(status==='locked'?' &middot; 🔒 Locked':'')}</div>
+      <div class="mh-day">Day ${dayNo(d.id)}${status==='done'?' &middot; Completed':(status==='locked'?' &middot; 🔒 Locked':'')}</div>
       <div class="mh-title">${esc(d.title)}</div>
     </div>
     <div class="module-body">
@@ -5770,9 +5775,9 @@ function showDayTopics(dayId){
   const overlay = document.createElement("div");
   overlay.className = "overlay topics-overlay";
   overlay.innerHTML = `
-    <div class="card topics-modal" role="dialog" aria-modal="true" aria-label="Day ${d.id} topics">
+    <div class="card topics-modal" role="dialog" aria-modal="true" aria-label="Day ${dayNo(d.id)} topics">
       <div class="module-head topics-modal-head">
-        <div class="mh-day">Day ${d.id} &middot; ${d.lessons.length} topics${status==='done'?' &middot; Completed':(status==='locked'?' &middot; 🔒 Locked':'')}</div>
+        <div class="mh-day">Day ${dayNo(d.id)} &middot; ${d.lessons.length} topics${status==='done'?' &middot; Completed':(status==='locked'?' &middot; 🔒 Locked':'')}</div>
         <div class="mh-title">${icon} ${esc(d.title)}</div>
         <button type="button" class="topics-close" aria-label="Close" onclick="this.closest('.overlay').remove()">✕</button>
       </div>
@@ -6175,7 +6180,7 @@ window.addEventListener("storage", (e)=>{
 window.openRouteInNewTab = openRouteInNewTab;
 function resumeLabel(){
   const lv = state.lastView; if(!lv) return "";
-  if(lv.view==="day" && lv.dayId){ const idx = resumeSlideFor(lv.dayId); const d = DAYS.find(x=>x.id===lv.dayId); if(!d) return ""; const sl = buildDaySlides(d)[idx]; return `Day ${lv.dayId} · ${sl ? daySlideTitle(d, sl) : "Lesson"}`; }
+  if(lv.view==="day" && lv.dayId){ const idx = resumeSlideFor(lv.dayId); const d = DAYS.find(x=>x.id===lv.dayId); if(!d) return ""; const sl = buildDaySlides(d)[idx]; return `Day ${dayNo(lv.dayId)} · ${sl ? daySlideTitle(d, sl) : "Lesson"}`; }
   if(lv.view==="tool" && lv.toolId){ const t = PRACTICE_TOOLS.find(x=>x.id===lv.toolId); return t ? `Skill Builders · ${t.title}` : ""; }
   return "";
 }
@@ -6888,7 +6893,7 @@ function renderDay(id){
       <a class="back-link" onclick="goto('dashboard')">&larr; Back to roadmap</a>
       <div class="card" style="padding:40px;text-align:center;">
         <div style="font-size:34px;margin-bottom:10px;">🔒</div>
-        <h2 style="color:var(--navy);margin:0 0 8px;">Day ${id} is locked</h2>
+        <h2 style="color:var(--navy);margin:0 0 8px;">Day ${dayNo(id)} is locked</h2>
         <p style="color:var(--ink-soft);font-size:14px;">${esc(dayLockReason(id))}</p>
         ${(()=>{ const t = relatedTools(id-1)[0]; return t && dayUnlocked(id-1)
             ? `<button class="btn btn-primary" style="margin-top:14px;" onclick="goto('tool','${t.id}')">Open Day ${id-1} Skill Builders</button>`
@@ -6898,7 +6903,7 @@ function renderDay(id){
   const prog = state.progress[id];
   const compactHead = `
     <div class="day-head-compact">
-      <span class="dhc-eyebrow">Day ${d.id} of ${DAYS.length}</span>
+      <span class="dhc-eyebrow">Day ${dayNo(d.id)} of ${DAYS.length}</span>
       <span class="dhc-title">${esc(d.title)}</span>
     </div>`;
 
@@ -7010,7 +7015,7 @@ function renderTopicDivider(d, i){
   const l = d.lessons[i];
   return `
     <div class="topic-divider">
-      <div class="td-kicker">Day ${d.id}${l.section ? ` &middot; ${esc(l.section)}` : ""}</div>
+      <div class="td-kicker">Day ${dayNo(d.id)}${l.section ? ` &middot; ${esc(l.section)}` : ""}</div>
       <div class="td-num">Topic ${i+1} of ${d.lessons.length}</div>
       <h2 class="td-title">${esc(l.h)}</h2>
     </div>`;
@@ -7056,7 +7061,7 @@ function renderVideoPlaceholder(d){
     <div class="video-placeholder">
       <div class="vp-play">🔗</div>
       <div class="vp-label">VIDEO LINK — TO BE ADDED</div>
-      <div class="vp-title">Day ${d.id}: ${esc(d.title)}</div>
+      <div class="vp-title">Day ${dayNo(d.id)}: ${esc(d.title)}</div>
       <p class="vp-note">This is a placeholder for a recorded video recap of today's material — the actual video link will be added here once it's ready. It sits after today's lessons, right before the Skill Builders, so it can serve as a wrap-up before you move into applying what you just covered.</p>
     </div>
   `;
@@ -7106,7 +7111,7 @@ function renderDayIntro(d){
   return `
     <div class="lesson-stage day-intro">
       <div class="lesson-slide"><div class="card lesson-card">
-        <div class="di-kicker">Day ${d.id} of ${DAYS.length} · Before you start</div>
+        <div class="di-kicker">Day ${dayNo(d.id)} of ${DAYS.length} · Before you start</div>
         <h2>${esc(d.title)}</h2>
         ${d.theme ? `<p class="di-theme">${esc(d.theme)}</p>` : ""}
         <div class="di-grid">
@@ -7122,7 +7127,7 @@ function renderDayIntro(d){
         ${warm.length ? `<div class="di-warm"><b>🧠 Warm-up — what do you already know?</b> <span>Not graded. Just notice what you're unsure about.</span>
           ${warm.map((q,k)=>warmupQuestionHtml(d.id,q,k)).join("")}</div>` : ""}
       </div></div>
-      <div class="slide-nav"><button class="btn btn-ghost" onclick="goto('dashboard')">← Dashboard</button><span class="slide-counter">Objectives</span><button class="btn btn-primary" onclick="startDayFromIntro(${d.id})">Start Day ${d.id} →</button></div>
+      <div class="slide-nav"><button class="btn btn-ghost" onclick="goto('dashboard')">← Dashboard</button><span class="slide-counter">Objectives</span><button class="btn btn-primary" onclick="startDayFromIntro(${d.id})">Start Day ${dayNo(d.id)} →</button></div>
     </div>`;
 }
 /* Warm-up: the trainee picks an answer first; only then do we show whether it was right
@@ -7179,7 +7184,7 @@ function renderDaySlideshow(d){
         <button type="button" class="btn btn-ghost btn-sm nav-fs" onclick="lessonFullscreen()" title="${state.isAdmin ? "Present the slides full screen" : "Full screen"}">⛶ Full screen</button>
         ${(state.isAdmin || state.adminPreview) && typeof presenterStart==="function" ? `<button type="button" class="btn btn-navy btn-sm nav-pv" onclick="presenterStart()" title="Your speaker notes beside the slide; share only the slides window in Google Meet">🖥 Presenter view</button>` : ""}
       </span>
-      <button type="button" class="slide-counter sm-counter" onclick="openSlideMap()" title="Every slide of Day ${d.id}: jump back to any one you've reached">Step ${idx+1} of ${total} ▾</button>
+      <button type="button" class="slide-counter sm-counter" onclick="openSlideMap()" title="Every slide of Day ${dayNo(d.id)}: jump back to any one you've reached">Step ${idx+1} of ${total} ▾</button>
       ${isLast && slide.type==="closing"
         ? `<button class="btn btn-primary" onclick="goto('dashboard')">🏠 Back to Dashboard</button>`
         : isLast
@@ -7187,7 +7192,7 @@ function renderDaySlideshow(d){
         : `<span class="np-wrap">${slides[idx+1] ? `<span class="nav-nextup" title="Next up: ${esc(daySlideTitle(d, slides[idx+1]))}"><b>Next up</b><span>${esc(daySlideTitle(d, slides[idx+1]))}</span></span>` : ""}<button type="button" class="btn btn-ghost btn-sm rm-next" onclick="openRoadmap()" title="Every day and its topics, and where you are">🗺 Roadmap</button><button class="btn btn-primary" onclick="nextSlide()"${peekTrainer() ? ` onmouseenter="showSlidePeek(this)" onmouseleave="hideSlidePeek()" onfocus="showSlidePeek(this)" onblur="hideSlidePeek()"` : ""}>Next &rarr;</button></span>`}
     </div>
 
-    ${isLast && slide.type==="closing" ? `<div class="slide-done-banner">🎓 Training complete. Congratulations!</div>` : isLast ? `<div class="slide-done-banner">🎉 That's everything for Day ${d.id} — the Knowledge Check is the last step to mark this day complete.</div>` : ""}
+    ${isLast && slide.type==="closing" ? `<div class="slide-done-banner">🎓 Training complete. Congratulations!</div>` : isLast ? `<div class="slide-done-banner">🎉 That's everything for Day ${dayNo(d.id)} — the Knowledge Check is the last step to mark this day complete.</div>` : ""}
   `;
   if(state.stageInnerOnly){ state.stageInnerOnly = false; return inner; }
   if(state.dayViewMode==="intro") return renderDayIntro(d);
@@ -7675,22 +7680,22 @@ function renderQuizNextStep(d, passed){
   let tone, title, lines = [];
   if(passed){
     tone = "ok";
-    title = isLast ? "Program complete — you passed the final Knowledge Check." : `Passed — Day ${d.id} is marked complete ✓`;
+    title = isLast ? "Program complete — you passed the final Knowledge Check." : `Passed — Day ${dayNo(d.id)} is marked complete ✓`;
     if(!isLast) lines.push(cleared ? `<b>Next step:</b> you're cleared to proceed to <b>Day ${nextId}</b>.`
-                                   : `<b>Next step:</b> complete the <b>Day ${d.id} Skill Builders</b>${labTool?` (“${esc(labTool.title)}”)`:""} — that unlocks Day ${nextId}. Any score counts.`);
+                                   : `<b>Next step:</b> complete the <b>Day ${dayNo(d.id)} Skill Builders</b>${labTool?` (“${esc(labTool.title)}”)`:""} — that unlocks Day ${nextId}. Any score counts.`);
     else lines.push(certData().eligible ? `<b>Next step:</b> view and download your Certificate of Completion below. 🎓` : `<b>Next step:</b> pass the remaining Knowledge Checks (${certData().passed}/10 so far) to unlock your certificate.`);
   }else{
     tone = cleared ? "warn" : "stop";
-    title = `Not yet passing — 70% is required to mark Day ${d.id} complete.`;
+    title = `Not yet passing — 70% is required to mark Day ${dayNo(d.id)} complete.`;
     if(isLast){
-      lines.push(`<b>Required:</b> retake this Knowledge Check. A pass on Day ${d.id} is needed for your completion certificate.`);
+      lines.push(`<b>Required:</b> retake this Knowledge Check. A pass on Day ${dayNo(d.id)} is needed for your completion certificate.`);
     }else if(cleared){
       lines.push(`<b>You are cleared to proceed to Day ${nextId}.</b> A retake is <b>not required</b> to continue.`);
       lines.push(everPassed ? `You already passed this check earlier — your best score is kept.`
-                            : `Day ${d.id} will stay <i>unchecked</i> until you pass. You can come back and retake it any time; only your best score is kept.`);
+                            : `Day ${dayNo(d.id)} will stay <i>unchecked</i> until you pass. You can come back and retake it any time; only your best score is kept.`);
     }else{
-      lines.push(`<b>Required next step:</b> complete the <b>Day ${d.id} Skill Builders</b>${labTool?` (“${esc(labTool.title)}”)`:""} to unlock Day ${nextId}. Any score counts.`);
-      lines.push(`Retaking this Knowledge Check is <b>optional</b> — it isn't needed to move on, but you'll need a pass to mark Day ${d.id} complete.`);
+      lines.push(`<b>Required next step:</b> complete the <b>Day ${dayNo(d.id)} Skill Builders</b>${labTool?` (“${esc(labTool.title)}”)`:""} to unlock Day ${nextId}. Any score counts.`);
+      lines.push(`Retaking this Knowledge Check is <b>optional</b> — it isn't needed to move on, but you'll need a pass to mark Day ${dayNo(d.id)} complete.`);
     }
   }
   return `<div class="quiz-next-step qns-${tone}"><div class="qns-title">${title}</div>${lines.map(x=>`<p>${x}</p>`).join("")}</div>`;
@@ -7713,8 +7718,8 @@ function renderQuizResult(d){
         <button class="btn btn-ghost" onclick="downloadQuizResultPdf(${d.id})">⬇ Download PDF</button>
         <button class="btn btn-ghost" onclick="returnToLessonCard(${d.id})">Return to Progress</button>
         ${d.id<DAYS.length ? (dayUnlocked(d.id+1)
-            ? `<button class="btn btn-primary" onclick="goToNextDay(${d.id})">Continue to Day ${d.id+1} &rarr;</button>`
-            : `<button class="btn btn-primary" onclick="goToNextDay(${d.id})">Do the Day ${d.id} Skill Builders to unlock Day ${d.id+1} &rarr;</button>`) : ""}
+            ? `<button class="btn btn-primary" onclick="goToNextDay(${d.id})">Continue to Day ${dayNo(d.id+1)} &rarr;</button>`
+            : `<button class="btn btn-primary" onclick="goToNextDay(${d.id})">Do the Day ${dayNo(d.id)} Skill Builders to unlock Day ${dayNo(d.id+1)} &rarr;</button>`) : ""}
         ${certData().eligible ? `<button class="btn btn-primary" onclick="openCertificate()">🎓 View Certificate of Completion</button>` : (d.id===DAYS.length && lastPassed ? `<button class="btn btn-ghost" onclick="openCertificate()">🎓 Certificate (${certData().passed}/10 passed)</button>` : "")}
       </div>
       ${history.length ? `
@@ -7753,7 +7758,7 @@ async function downloadQuizResultPdf(dayId){
       lines.push(`   Why: ${q.r}`);
     }
   });
-  buildAndSavePdf("LSH Case Management Training", `Day ${dayId} Knowledge Check — Results`, lines, `LSH_Day${dayId}_Knowledge_Check`);
+  buildAndSavePdf("LSH Case Management Training", `Day ${dayNo(dayId)} Knowledge Check — Results`, lines, `LSH_Day${dayNo(dayId)}_Knowledge_Check`);
 }
 window.downloadQuizResultPdf = downloadQuizResultPdf;
 function goToNextDay(dayId){
@@ -8057,7 +8062,7 @@ async function useLabAttempt(dayId, actionId){
   state.lastLabAttempt = {actionId, dayId, wasRepeat:isRepeat, at:Date.now()};
   if(isRepeat){
     if(labAttemptsRemaining(dayId) <= 0){
-      toast(`No repeat attempts left for Day ${dayId} (all ${LAB_ATTEMPT_CAP} used). Use 🙋 Ask for more attempts, or ask your trainer to reset your Skill Builders attempts.`);
+      toast(`No repeat attempts left for Day ${dayNo(dayId)} (all ${LAB_ATTEMPT_CAP} used). Use 🙋 Ask for more attempts, or ask your trainer to reset your Skill Builders attempts.`);
       return false;
     }
     const b = Object.assign({}, state.labAttemptsByDay||{}); b[dayId] = (b[dayId]||0) + 1;
@@ -8341,7 +8346,7 @@ function renderEvaluationReport(report, dayId){
       </div>` : ""}
       ${dayId ? `
       <div class="eval-action-row">
-        <button class="btn btn-ghost btn-sm" onclick="repeatActivity()" ${labAttemptsRemaining(dayId)<=0 ? `disabled title="No repeat attempts left for Day ${dayId} — ask your trainer to reset them"` : ''}>🔁 Repeat Activity${labAttemptsRemaining(dayId)<=0 ? "" : ` (${labAttemptsRemaining(dayId)} left)`}</button>${labAttemptsRemaining(dayId)<=0 ? `<button class="btn btn-ghost btn-sm" onclick="requestMoreLabAttempts(${dayId})" title="Your trainer sees the request in Trainee Audit and can give you a fresh set">🙋 ${state.labResetRequestedAt ? "Asked for more attempts ✓" : "Ask for more attempts"}</button>` : ''}
+        <button class="btn btn-ghost btn-sm" onclick="repeatActivity()" ${labAttemptsRemaining(dayId)<=0 ? `disabled title="No repeat attempts left for Day ${dayNo(dayId)} — ask your trainer to reset them"` : ''}>🔁 Repeat Activity${labAttemptsRemaining(dayId)<=0 ? "" : ` (${labAttemptsRemaining(dayId)} left)`}</button>${labAttemptsRemaining(dayId)<=0 ? `<button class="btn btn-ghost btn-sm" onclick="requestMoreLabAttempts(${dayId})" title="Your trainer sees the request in Trainee Audit and can give you a fresh set">🙋 ${state.labResetRequestedAt ? "Asked for more attempts ✓" : "Ask for more attempts"}</button>` : ''}
         <button class="btn btn-navy btn-sm" onclick="retainScoreAndAdvance()">✅ Retain Score &amp; Advance</button>
       </div>
       <div class="eval-action-row" style="border-top:none;padding-top:0;margin-top:8px;">
@@ -8378,7 +8383,7 @@ async function downloadEvaluationReportPdf(){
     lines.push("Growth Suggestions:");
     report.growthSuggestions.forEach(s=>lines.push("   • "+s));
   }
-  buildAndSavePdf("LSH Case Management Training", `Day ${dayId} — Evaluation Report`, lines, `LSH_Day${dayId}_Evaluation_Report`);
+  buildAndSavePdf("LSH Case Management Training", `Day ${dayNo(dayId)} — Evaluation Report`, lines, `LSH_Day${dayNo(dayId)}_Evaluation_Report`);
 }
 window.downloadEvaluationReportPdf = downloadEvaluationReportPdf;
 function repeatActivity(){
@@ -10114,7 +10119,7 @@ function renderIntakeCallEvaluationReport(report){
    file instead (Admin → Handouts link override, "handouts:links").
    ============================================================ */
 const HANDOUT_CONTENT = {};   // the course's days have no written handout yet: each gets its generic card
-function handoutList(){ return DAYS.map(d=>Object.assign({day:d.id, dayTitle:d.title}, HANDOUT_CONTENT[d.id]||{title:`Day ${d.id} handout`, icon:"📄", blocks:[]})); }
+function handoutList(){ return DAYS.map(d=>Object.assign({day:d.id, dayTitle:d.title}, HANDOUT_CONTENT[d.id]||{title:`Day ${dayNo(d.id)} handout`, icon:"📄", blocks:[]})); }
 function handoutLink(day){ return ((state.handoutLinks||{})[day]||"").trim(); }
 async function loadHandoutLinks(){ const v = await sharedGet("handouts:links").catch(()=>null); state.handoutLinks = v||{}; state.handoutLinksLoaded = true; if(state.view==="handouts") render(); }
 function handoutHtml(h){
@@ -11065,11 +11070,11 @@ function sopForDay(id){
   if(hand) return Object.assign({}, hand, {sections: hand.sections.concat(sopLiveSections(d)), handWritten:true});
   const lessons = d.lessons;
   return {id, title:d.title, handWritten:false,
-    introduction:`Welcome to LSH Case Management Training Day ${id}. My name is ___ and I am your upskill coach. Today is about ${d.title}.`,
-    objectives:[d.objective || `Apply the Day ${id} concepts to the John Doe VS Robert Smith case file.`,
+    introduction:`Welcome to LSH Case Management Training Day ${dayNo(id)}. My name is ___ and I am your upskill coach. Today is about ${d.title}.`,
+    objectives:[d.objective || `Apply the Day ${dayNo(id)} concepts to the John Doe VS Robert Smith case file.`,
       `Work through ${lessons.length} topics, from ${lessons[0].h} to ${lessons[lessons.length-1].h}.`,
       relatedTools(id).length ? `Complete the ${relatedTools(id)[0].title} Skill Builders to a professional standard.` : "Apply the day's learning in a live discussion."],
-    discussionInfo:{duration:`Approximately ${Math.max(1, Math.round((lessons.length*2.5+60)/60))}–${Math.max(2, Math.round((lessons.length*2.5+90)/60))} hours`, ppt:`Revised CM Training Day ${id}`, canvaLabel:`CM Day ${id}`, video:`Video Discussion EA PA Day ${id}`},
+    discussionInfo:{duration:`Approximately ${Math.max(1, Math.round((lessons.length*2.5+60)/60))}–${Math.max(2, Math.round((lessons.length*2.5+90)/60))} hours`, ppt:`Revised CM Training Day ${dayNo(id)}`, canvaLabel:`CM Day ${dayNo(id)}`, video:`Video Discussion EA PA Day ${dayNo(id)}`},
     topics: lessons.slice(0,8).map(l=>l.h).concat(lessons.length>8?[`…and ${lessons.length-8} more (see the table below)`]:[]),
     sections: sopLiveSections(d)};
 }
@@ -11106,7 +11111,7 @@ function openTraineeFeedback(dayId, presetStars){
     <div class="tfb-body">
       <p class="tfb-intro">Rate any area you have an opinion on — skip the rest. Honest feedback helps us fix what isn't working.</p>
       <label class="tfb-field">About which day?
-        <select id="tfbDay"><option value="">The program overall</option>${DAYS.map(d=>`<option value="${d.id}" ${dayId===d.id?"selected":""}>Day ${d.id} — ${esc(d.title)}</option>`).join("")}</select></label>
+        <select id="tfbDay"><option value="">The program overall</option>${DAYS.map(d=>`<option value="${d.id}" ${dayId===d.id?"selected":""}>Day ${dayNo(d.id)} — ${esc(d.title)}</option>`).join("")}</select></label>
       <div class="tfb-grid">${TFB_AREAS.map(a=>`<div class="tfb-row"><span>${a.icon} ${esc(a.label)}</span>${tfbStars(a.id, (state.tfbDraft.ratings||{})[a.id]||0)}</div>`).join("")}</div>
       <label class="tfb-field">What worked well?<textarea id="tfbGood" rows="2" placeholder="e.g. The voice-call roleplays felt realistic."></textarea></label>
       <label class="tfb-field">What should we improve?<textarea id="tfbImprove" rows="3" placeholder="e.g. Day 3 slides were long; the inbox tool was slow to load."></textarea></label>
@@ -11173,9 +11178,9 @@ function renderFeedbackDashCard(){
 }
 function renderQuickDayFeedback(dayId){
   if(!state.traineeId || state.isAdmin) return "";
-  if((state.tfbGivenDays||{})[dayId]) return `<div class="tfb-inline done">🙏 Thanks for your feedback on Day ${dayId}.</div>`;
-  return `<div class="tfb-inline"><span>How was <b>Day ${dayId}</b> for you? Your feedback shapes the program.</span>
-    <button class="btn btn-ghost btn-sm" onclick="openTraineeFeedback(${dayId})">💬 Rate Day ${dayId}</button></div>`;
+  if((state.tfbGivenDays||{})[dayId]) return `<div class="tfb-inline done">🙏 Thanks for your feedback on Day ${dayNo(dayId)}.</div>`;
+  return `<div class="tfb-inline"><span>How was <b>Day ${dayNo(dayId)}</b> for you? Your feedback shapes the program.</span>
+    <button class="btn btn-ghost btn-sm" onclick="openTraineeFeedback(${dayId})">💬 Rate Day ${dayNo(dayId)}</button></div>`;
 }
 /* ---------- Admin → Trainee Feedback ---------- */
 async function loadTraineeFeedbackAdmin(){
@@ -11234,7 +11239,7 @@ function renderAdminTraineeFeedback(){
     <div class="card" style="padding:14px 16px;margin:12px 0;"><b style="font-size:13px;color:var(--navy);">By day</b>
       <div class="tfb-days">${perDay.map(p=>`<span class="${p.avg!==null && p.avg<3.5?"low":""}">Day ${p.d.id}: <b>${stars(p.avg)}</b> <em>(${p.n})</em></span>`).join("")}</div></div>
     <div class="tfb-filters">
-      <select onchange="state.tfbFilter=Object.assign(state.tfbFilter||{},{day:this.value});render()"><option value="">All days</option><option value="overall" ${f.day==="overall"?"selected":""}>Program overall</option>${DAYS.map(d=>`<option value="${d.id}" ${f.day===String(d.id)?"selected":""}>Day ${d.id}</option>`).join("")}</select>
+      <select onchange="state.tfbFilter=Object.assign(state.tfbFilter||{},{day:this.value});render()"><option value="">All days</option><option value="overall" ${f.day==="overall"?"selected":""}>Program overall</option>${DAYS.map(d=>`<option value="${d.id}" ${f.day===String(d.id)?"selected":""}>Day ${dayNo(d.id)}</option>`).join("")}</select>
       <select onchange="state.tfbFilter=Object.assign(state.tfbFilter||{},{area:this.value});render()"><option value="">All areas</option>${TFB_AREAS.map(a=>`<option value="${a.id}" ${f.area===a.id?"selected":""}>${esc(a.label)}</option>`).join("")}</select>
       <select onchange="state.tfbFilter=Object.assign(state.tfbFilter||{},{status:this.value});render()"><option value="">Any status</option>${["new","acknowledged","actioned"].map(s=>`<option ${f.status===s?"selected":""}>${s}</option>`).join("")}</select>
       <button class="btn btn-ghost btn-sm" onclick="loadTraineeFeedbackAdmin()">↻ Refresh</button>
@@ -11366,7 +11371,7 @@ function renderAdminRandomTasks(){
       <p style="font-size:12.5px;color:#5A4A32;margin:6px 0 12px;">Generates one unscripted task grounded in that day's actual lesson material and broadcasts it to every trainee currently on that day — an unannounced, real-time test of what they just learned. Timing is up to you; trigger it whenever fits the live session.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
         <select id="surpriseTaskDaySelect" style="padding:7px 10px;border-radius:8px;border:1px solid var(--line);font-size:12.5px;">
-          ${DAYS.map(d=>`<option value="${d.id}">Day ${d.id} — ${esc(d.title)}</option>`).join("")}
+          ${DAYS.map(d=>`<option value="${d.id}">Day ${dayNo(d.id)} — ${esc(d.title)}</option>`).join("")}
         </select>
         <select id="surpriseTaskDuration" style="padding:7px 10px;border-radius:8px;border:1px solid var(--line);font-size:12.5px;" title="How long the task stays live for trainees">
           <option value="15">Live for 15 min</option>
@@ -11654,7 +11659,7 @@ function renderAuditStrip(rec){
   if(!a.loaded) return `<div class="audit-strip loading">Loading exact progress…</div>`;
   const cell = (d)=>{
     const cls = d.passed ? "ok" : (d.score!==null ? "low" : (d.reached>0 ? "wip" : "none"));
-    const tip = `Day ${d.id}: ${d.reached}/${d.n} slides · ${d.score!==null ? `Knowledge Check ${d.score}%${d.passed?" ✓":" (below 70%)"}` : "Knowledge Check not taken"} · Skill Builders ${d.labDone?"done":"not done"}`;
+    const tip = `Day ${dayNo(d.id)}: ${d.reached}/${d.n} slides · ${d.score!==null ? `Knowledge Check ${d.score}%${d.passed?" ✓":" (below 70%)"}` : "Knowledge Check not taken"} · Skill Builders ${d.labDone?"done":"not done"}`;
     return `<span class="ad-cell ${cls}" title="${esc(tip)}">${d.id}${d.labDone?`<i></i>`:""}</span>`;
   };
   return `<div class="audit-strip">
@@ -11699,7 +11704,7 @@ function renderUnlockDaysControl(rec){
   const top = cur.length ? Math.max(...cur) : 0;
   return `<select class="btn btn-sm btn-ghost" style="padding:4px 8px;" title="Open days for a trainee who missed a session" onchange="adminUnlockDays('${rec.id}', this.value); this.selectedIndex=0;">
       <option value="">🔓 ${top ? `Unlocked to Day ${top}` : "Unlock days"}</option>
-      ${DAYS.filter(d=>d.id>1).map(d=>`<option value="${d.id}">Unlock up to Day ${d.id}</option>`).join("")}
+      ${DAYS.filter(d=>d.id>1).map(d=>`<option value="${d.id}">Unlock up to Day ${dayNo(d.id)}</option>`).join("")}
       ${top ? `<option value="0">Remove manual unlocks</option>` : ""}
     </select>`;
 }
@@ -11794,7 +11799,7 @@ async function generateAiReview(traineeId){
   const pp = rec.practiceProgress||{};
   const dayLines = DAYS.map(d=>{
     const p = dp[d.id];
-    return `Day ${d.id} (${d.title}): ${p ? (p.done?`${p.score}% — completed`:`${p.score}% — not yet passing`) : "not started"}`;
+    return `Day ${dayNo(d.id)} (${d.title}): ${p ? (p.done?`${p.score}% — completed`:`${p.score}% — not yet passing`) : "not started"}`;
   }).join("\n");
   const practiceLines = PRACTICE_TOOLS.map(t=>{
     const p = pp[t.id];
@@ -11920,14 +11925,14 @@ async function draftDayFeedback(id, dayId, silent){
   const work = state.traineeWork[id];
   if(!work || work.loading || !work.feedback) throw new Error("couldn't load this trainee's work — click ↻ Refresh work and try again");
   const ev = dayEvidence(rec, work, dayId);
-  if(!ev.active){ if(!silent) toast(`No Day ${dayId} activity to review yet.`); return; }
+  if(!ev.active){ if(!silent) toast(`No Day ${dayNo(dayId)} activity to review yet.`); return; }
   const prompt = feedbackPrompt(rec, ev, dayId);
   const fb = await callAIJson(prompt, 1600, 120000, "trainer");
   if(!fb || typeof fb!=="object" || !fb.summary) throw new Error("the reply didn't include a summary — try again");
   return finishDraft(id, work, dayId, fb, silent);
 }
 function feedbackPrompt(rec, ev, dayId){
-  return `You are an experienced trainer at Legal Support Help (LSH) reviewing one trainee's work for Day ${dayId} ("${ev.d.title}") of the 5-day LSH Case Management program. Write specific, encouraging, honest feedback based ONLY on the evidence below — do not invent work they didn't do. If evidence is thin, say what's missing.
+  return `You are an experienced trainer at Legal Support Help (LSH) reviewing one trainee's work for Day ${dayNo(dayId)} ("${ev.d.title}") of the 5-day LSH Case Management program. Write specific, encouraging, honest feedback based ONLY on the evidence below — do not invent work they didn't do. If evidence is thin, say what's missing.
 
 TRAINEE: ${rec.name}
 EVIDENCE:
@@ -11947,7 +11952,7 @@ async function finishDraft(id, work, dayId, fb, silent){
   const ok = await sharedSet("feedback:"+id, work.feedback);
   if(!ok) throw new Error("the draft was written but couldn't be saved to the server");
   const wrap = document.getElementById("adminRowsWrap"); if(wrap) wrap.innerHTML = renderAdminRows();
-  if(!silent) toast(`Day ${dayId} feedback drafted — review it below.`);
+  if(!silent) toast(`Day ${dayNo(dayId)} feedback drafted — review it below.`);
 }
 async function draftAllFeedback(id){
   const rec = (state.adminData||[]).find(r=>r.id===id); if(!rec) return;
@@ -11976,7 +11981,7 @@ async function saveDayFeedback(id, dayId, send){
   else if(!upd.status) upd.status = "draft";
   work.feedback.days[dayId] = upd;
   await sharedSet("feedback:"+id, work.feedback);
-  toast(send ? `Day ${dayId} feedback sent to the trainee.` : "Draft saved.");
+  toast(send ? `Day ${dayNo(dayId)} feedback sent to the trainee.` : "Draft saved.");
   const wrap = document.getElementById("adminRowsWrap"); if(wrap) wrap.innerHTML = renderAdminRows();
 }
 function startManualFeedback(id, dayId){
@@ -12059,7 +12064,7 @@ function renderFeedbackComposer(rec){
   return `<div class="fb-composer" id="fbComposer_${sid}">
     <div class="fbc-head"><b>✍ Write feedback</b><span>Type it yourself and send — the trainee sees it on their day card and in 🎯 Focus.</span></div>
     <div class="fbc-row">
-      <label>Day<select id="fbc_${sid}_day" onchange="fbcLoad('${rec.id}')">${DAYS.map(d=>`<option value="${d.id}" ${d.id===pick?"selected":""}>Day ${d.id}${fbDays[d.id]?(fbDays[d.id].status==="sent"?" · sent":" · draft"):(worked.includes(d.id)?" · to write":"")}</option>`).join("")}</select></label>
+      <label>Day<select id="fbc_${sid}_day" onchange="fbcLoad('${rec.id}')">${DAYS.map(d=>`<option value="${d.id}" ${d.id===pick?"selected":""}>Day ${dayNo(d.id)}${fbDays[d.id]?(fbDays[d.id].status==="sent"?" · sent":" · draft"):(worked.includes(d.id)?" · to write":"")}</option>`).join("")}</select></label>
       <label>Overall<select id="fbc_${sid}_rating"><option>Strong</option><option selected>On Track</option><option>Needs Support</option></select></label>
     </div>
     <label class="fbc-full">Your feedback<textarea id="fbc_${sid}_summary" rows="3" placeholder="What went well today, and what to work on next…"></textarea></label>
@@ -12128,7 +12133,7 @@ function renderFeedbackAdmin(rec){
     const f = fb || {};
     const ta = (k, v, rows)=>`<textarea id="fb_${sid}_${d.id}_${k}" rows="${rows}">${esc(v)}</textarea>`;
     return `<details class="fb-day" ${fb && st!=="sent" ? "open" : ""}>
-      <summary><b>Day ${d.id}</b> — ${esc(d.title)} ${chip}${ev.active?"":` <span class="fb-chip none">no work yet</span>`}</summary>
+      <summary><b>Day ${dayNo(d.id)}</b> — ${esc(d.title)} ${chip}${ev.active?"":` <span class="fb-chip none">no work yet</span>`}</summary>
       ${ev.active ? `<div class="fb-evidence"><b>Their work this day:</b>${esc(evidenceText(ev)).split("\n").map(x=>`<div>• ${x}</div>`).join("")}</div>` : ""}
       ${fb ? `<div class="fb-form">
         <label>Overall<select id="fb_${sid}_${d.id}_rating">${["Strong","On Track","Needs Support"].map(o=>`<option ${f.rating===o?"selected":""}>${o}</option>`).join("")}</select></label>
@@ -12196,7 +12201,7 @@ async function openDayFeedback(dayId){
   const cls = f.rating==="Strong" ? "ok" : f.rating==="Needs Support" ? "stop" : "warn";
   const overlay = document.createElement("div"); overlay.className = "overlay topics-overlay";
   overlay.innerHTML = `<div class="card topics-modal fb-modal" role="dialog" aria-modal="true">
-    <div class="module-head topics-modal-head"><div class="mh-day">Day ${dayId} · Trainer feedback</div><div class="mh-title">${esc(d.title)}</div>
+    <div class="module-head topics-modal-head"><div class="mh-day">Day ${dayNo(dayId)} · Trainer feedback</div><div class="mh-title">${esc(d.title)}</div>
       <button type="button" class="topics-close" onclick="this.closest('.overlay').remove()">✕</button></div>
     <div class="fb-modal-body">
       <span class="fb-rating qns-${cls}">${esc(f.rating||"On Track")}</span>
@@ -12233,7 +12238,7 @@ function renderAdminDetail(rec){
           ${DAYS.map(d=>{
             const p = dp[d.id];
             return `<div style="display:flex;justify-content:space-between;font-size:12.5px;padding:4px 0;border-bottom:1px dashed var(--line);">
-              <span>Day ${d.id} — ${esc(d.title)}</span>
+              <span>Day ${dayNo(d.id)} — ${esc(d.title)}</span>
               <span style="color:${p&&p.done?'var(--success)':'var(--ink-soft)'};">${p?(p.done?`${esc(p.score)}% ✓`:`${esc(p.score)}% (retry needed)`):"Not started"}</span>
             </div>`;
           }).join("")}
@@ -12537,10 +12542,10 @@ async function injectSurpriseTask(){
   const dayId = parseInt(document.getElementById("surpriseTaskDaySelect").value, 10);
   const day = DAYS.find(d=>d.id===dayId);
   const resultEl = document.getElementById("surpriseTaskInjectResult");
-  resultEl.innerHTML = `<div class="ai-loading">Generating a task grounded in Day ${dayId}'s material…</div>`;
+  resultEl.innerHTML = `<div class="ai-loading">Generating a task grounded in Day ${dayNo(dayId)}'s material…</div>`;
   const topicList = day.lessons.map(l=>l.h).join("; ");
   const prompt = `Generate one unscripted, realistic case-handling task for a personal-injury Case Manager trainee, to be dropped on them unannounced mid-session during live training. It must be answerable correctly ONLY by someone who has actually absorbed today's specific lesson material — not generic advice.
-TODAY'S LESSON TOPICS (Day ${dayId}: ${day.title}):
+TODAY'S LESSON TOPICS (Day ${dayNo(dayId)}: ${day.title}):
 ${topicList}
 CASE FILE CONTEXT:
 ${CLIENT_DOSSIER_MD}
@@ -12553,7 +12558,7 @@ Write a short (2-4 sentence), realistic incoming request or situation — the ki
     const record = {task: task.trim(), dayId, generatedAt: new Date(now).toISOString(), expiresAt: new Date(now + mins*60000).toISOString(), active: true, history: surpriseTaskHistory(prev, false)};
     await sharedSet("surprise-task-day"+dayId, record);
     resultEl.innerHTML = `<div class="card" style="padding:10px 14px;background:#fff;border-color:var(--line);font-size:12.5px;color:#37394A;"><b style="color:var(--navy);">Broadcast live:</b> ${esc(task.trim())}</div>`;
-    toast(`Surprise task broadcast to Day ${dayId} trainees.`);
+    toast(`Surprise task broadcast to Day ${dayNo(dayId)} trainees.`);
   }catch(e){
     resultEl.innerHTML = renderAiErrorBlock(e, "Couldn't generate a task");
   }
@@ -12573,14 +12578,14 @@ function surpriseTaskHistory(prev, endedNow){
 async function clearSurpriseTask(dayId){
   const prev = await sharedGet("surprise-task-day"+dayId).catch(()=>null);
   await sharedSet("surprise-task-day"+dayId, {active:false, dayId, history: surpriseTaskHistory(prev, true)});
-  toast(`Surprise task cleared for Day ${dayId}.`);
+  toast(`Surprise task cleared for Day ${dayNo(dayId)}.`);
 }
 window.clearSurpriseTask = clearSurpriseTask;
 async function endSurpriseTaskFromAdmin(){
   const dayId = parseInt(document.getElementById("surpriseTaskDaySelect").value, 10);
   await clearSurpriseTask(dayId);
   const el = document.getElementById("surpriseTaskInjectResult");
-  if(el) el.innerHTML = `<div class="card" style="padding:10px 14px;background:#fff;font-size:12.5px;">Day ${dayId} surprise task ended — it's gone from every trainee's dashboard on their next refresh check.</div>`;
+  if(el) el.innerHTML = `<div class="card" style="padding:10px 14px;background:#fff;font-size:12.5px;">Day ${dayNo(dayId)} surprise task ended — it's gone from every trainee's dashboard on their next refresh check.</div>`;
 }
 window.endSurpriseTaskFromAdmin = endSurpriseTaskFromAdmin;
 function renderAiReviewBlock(rec){
@@ -12966,7 +12971,7 @@ function renderPresenterNote(d, l, part, secs, allSecs, pg){
   </div>`;
 }
 function buildDayScriptLines(d){
-  const lines = [`## Day ${d.id} — ${d.title}: Trainer Speaker Notes`];
+  const lines = [`## Day ${dayNo(d.id)} — ${d.title}: Trainer Speaker Notes`];
   d.lessons.forEach((l,i)=>{
     const parts = l.singleSlide ? [1] : [1,2];
     lines.push(`## ${String(i+1).padStart(2,"0")}. ${l.h}  ·  ${slideLabel(d, i)}`);
@@ -12981,12 +12986,12 @@ function buildDayScriptLines(d){
     });
     lines.push("---");
   });
-  if(d.discussionQuestion){ lines.push("## End-of-Day Discussion"); lines.push(`SAY: "Before we close Day ${d.id}, let's step back and talk about this together."`); lines.push(`ASK: "${d.discussionQuestion}"`); lines.push(`WRAP: "Thank you — hold onto those examples; we'll build on them tomorrow."`); }
+  if(d.discussionQuestion){ lines.push("## End-of-Day Discussion"); lines.push(`SAY: "Before we close Day ${dayNo(d.id)}, let's step back and talk about this together."`); lines.push(`ASK: "${d.discussionQuestion}"`); lines.push(`WRAP: "Thank you — hold onto those examples; we'll build on them tomorrow."`); }
   return lines;
 }
 function downloadDayScriptsPdf(dayId){
   const d = DAYS.find(x=>x.id===dayId);
-  buildAndSavePdf("LSH Case Management Training", `Day ${d.id} — Trainer Speaker Notes`, buildDayScriptLines(d), `LSH_Day${d.id}_Speaker_Notes`);
+  buildAndSavePdf("LSH Case Management Training", `Day ${dayNo(d.id)} — Trainer Speaker Notes`, buildDayScriptLines(d), `LSH_Day${dayNo(d.id)}_Speaker_Notes`);
 }
 window.downloadDayScriptsPdf = downloadDayScriptsPdf;
 /* ============================================================
@@ -13033,7 +13038,7 @@ function renderExpansionPanel(sec, open){
     ${sec.scenario ? blk("Scenario", `<p><i>${esc(sec.scenario.situation||"")}</i></p>${sec.scenario.whatToDo?`<p><b>What a strong Case Manager does:</b> ${esc(sec.scenario.whatToDo)}</p>`:""}`) : ""}
   </details>`;
 }
-function studioContext(d){ return `Program: LSH (Legal Support Help) 5-day Case Management Training for personal-injury Case Managers (many are remote VAs supporting US law firms). Running case: John Doe VS Robert Smith (a passenger injury: C5-C6 herniation, the 14-Day Treatment Gap, a $40,000 BI + Host UM + Relative UM stack). Day ${d.id}: ${d.title}. Day objective: ${d.objective||""}`; }
+function studioContext(d){ return `Program: LSH (Legal Support Help) 5-day Case Management Training for personal-injury Case Managers (many are remote VAs supporting US law firms). Running case: John Doe VS Robert Smith (a passenger injury: C5-C6 herniation, the 14-Day Treatment Gap, a $40,000 BI + Host UM + Relative UM stack). Day ${dayNo(d.id)}: ${d.title}. Day objective: ${d.objective||""}`; }
 function expansionPrompt(d, l){
   const {principles, steps} = lessonParts(l);
   return `${studioContext(d)}
@@ -13133,7 +13138,7 @@ async function studioRegenerateExpansion(dayId, title){
 async function studioProposeTopics(dayId){
   const d = DAYS.find(x=>x.id===dayId);
   const n = TARGET_TOPICS - d.lessons.length - (state.extraLessons[dayId]||[]).filter(l=>l.status!=="published").length;
-  if(n <= 0){ toast(`Day ${dayId} already has ${TARGET_TOPICS} topics (including drafts).`); return; }
+  if(n <= 0){ toast(`Day ${dayNo(dayId)} already has ${TARGET_TOPICS} topics (including drafts).`); return; }
   studioProgress(`Proposing ${n} new topics…`);
   try{
     const list = await callAIJson(proposeTopicsPrompt(d, n), 2000, 90000, "trainer");
@@ -13233,7 +13238,7 @@ function renderAdminStudio(){
       <li><b>Confidentiality:</b> no real client names or matters.</li>
       <li><b>Knowledge Check:</b> exactly one correct answer; the rationale explains why.</li>
     </ul></details>
-    <div class="cues-day-tabs">${DAYS.map(x=>`<button class="${x.id===dayId?'active':''}" onclick="setStudioDay(${x.id})">Day ${x.id}</button>`).join("")}</div>
+    <div class="cues-day-tabs">${DAYS.map(x=>`<button class="${x.id===dayId?'active':''}" onclick="setStudioDay(${x.id})">Day ${dayNo(x.id)}</button>`).join("")}</div>
     <div class="studio-stats">
       <div class="card stat"><div class="num">${pubTopics} / ${TARGET_TOPICS}</div><div class="lbl">Published topics${pendingNew?` · ${pendingNew} in review`:""}</div></div>
       <div class="card stat"><div class="num">${expPub} / ${pubTopics}</div><div class="lbl">Explanations live${expDraft?` · ${expDraft} in review`:""}</div></div>
@@ -13243,7 +13248,7 @@ function renderAdminStudio(){
     <div id="studioProgress" class="studio-progress">${esc(state.studioMsg||"")}</div>
     <div class="card studio-card">
       <h3>1 · Topics</h3>
-      <p>Propose new topics that fill real gaps for Day ${dayId}, tick the ones you want, and the AI drafts full lessons as <b>drafts</b> for you to review and publish.</p>
+      <p>Propose new topics that fill real gaps for Day ${dayNo(dayId)}, tick the ones you want, and the AI drafts full lessons as <b>drafts</b> for you to review and publish.</p>
       <button class="btn btn-navy btn-sm" onclick="studioProposeTopics(${dayId})" ${gap<=0?"disabled":""}>✨ Propose ${gap} new topic${gap===1?"":"s"}</button>
       ${props ? `<div class="studio-props">${props.map(p=>`<label><input type="checkbox" class="studio-prop" value="${esc(p.h)}" checked> <div><b>${esc(p.h)}</b><span>${esc(p.why||"")}</span></div></label>`).join("")}
         <button class="btn btn-primary btn-sm" onclick="studioDraftSelectedTopics(${dayId})">Draft the selected lessons</button></div>` : ""}
@@ -15801,6 +15806,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <!-- 💡 the rules of the lesson cards the decks replaced, as a Tip pop-up on the Skill Activity that practised each one -->
 <script src="/js/cm-lesson-tips.js"></script>
 <script src="/js/cm-one-slide.js"></script>
+<!-- ⭐ one Overall score on every page that shows one: the dashboard's My Score Card too (cmScorecard.overall) -->
+<script src="/js/cm-overall.js"></script>
 <!-- 🎯 Your Task: the one Launch CMS & Google Drive button, and the Rules & Naming Guide in 📖 Reference -->
 <script src="/js/cm-sb-task.js"></script>
 <!-- 🔎 a slide uses its card: content that does not fill it is enlarged, and what is left sits in the middle (called by fitSlideZoom) -->

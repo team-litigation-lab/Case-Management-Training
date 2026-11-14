@@ -74,7 +74,7 @@
       "Download the case documents from 📁 Source Files, check the draft against the Big Four and the Final Scrub, and log each fix as a CMS task.",
       "Build the packet by hand, in this order: cover letter, index, demand letter, PIP Log, then the **bills and records** by provider and date.",
       "Combine them into one PDF, make it searchable (OCR), bookmark each section, and Bates-number every page once.",
-      "Name it by the firm's convention, ending in _DRAFT, and file it in CMS → Documents so it reaches folder 05 Insurance.",
+      "Name it by the firm's convention, ending in _DRAFT, and file it in CMS → Doc Hub so it reaches folder 05 Insurance.",
       "Once Atty. Thorne signs, email it to Dana Whitfield, and docket 08/21/2026 from her 07/22/2026 written acknowledgement."
     ],
     "deliver": "An audited, emailed demand with **written acknowledgement** and 08/21/2026 docketed",
@@ -168,7 +168,7 @@
     "side": true,
     "steps": [
       "In the Action Plan Editor's UM demand templates, put the **exhaustion proof** on page one of each draft, and claim only damages above what was collected.",
-      "Log both drafts in CMS → Tasks → Escalate for Atty. Thorne, with the response deadline left blank."
+      "Log both drafts in CMS → Tasks → + Add Task for Atty. Thorne, with the response deadline left blank."
     ],
     "deliver": "Two QC'd UM drafts, **exhaustion proof first**, routed",
     "purpose": "Each draft reaches a carrier as written: **one missed error** travels with it",
@@ -257,7 +257,7 @@
     "situation": "Assuming Dana Whitfield has **offered $3,500** citing the gap and a degenerative MRI, and Atty. Thorne's authority is no counter, the offer needs logging.",
     "side": true,
     "steps": [
-      "Log her exact words in CMS → Communications Log, and report the offer to **Atty. Thorne** the same day.",
+      "Log her exact words in CMS → Notes → Case Notes, and report the offer to **Atty. Thorne** the same day.",
       "In the Email Workspace, draft the 08/06/2026 rebuttal for his approval, answering the gap from the record."
     ],
     "deliver": "A logged offer, **a same-day report**, a drafted rebuttal",
@@ -319,7 +319,7 @@
     "situation": "Assuming Keystone's **Release of All Claims** has arrived for John Doe's signature, its clauses need checking against the approved terms.",
     "side": true,
     "steps": [
-      "In CMS → Documents → Release audit, replace the catch-all insurers clause, reserve **the UM claims**, and flag the rest for Atty. Thorne.",
+      "In CMS → Doc Hub → Case Files, replace the catch-all insurers clause, reserve **the UM claims**, and flag the rest for Atty. Thorne.",
       "Log your review by email to Atty. Thorne for approval, and send nothing to John Doe."
     ],
     "deliver": "An audited release sent **for Atty. Thorne's approval**",
@@ -344,7 +344,7 @@
     "side": true,
     "steps": [
       "In the Email Workspace, send Dana Whitfield the executed release with both waivers and the W-9, asking for **the check date**.",
-      "Log the check into trust in CMS → Financial Ledger → Trust, and route any payee question to Atty. Thorne."
+      "Log the check into trust in CMS → Settlement (BI/UM) → Check Received / Disbursed, and route any payee question to Atty. Thorne."
     ],
     "deliver": "An executed release sent and **the check in trust**",
     "purpose": "Keystone pays only on **a complete, executed packet**",
@@ -400,7 +400,7 @@
     "situation": "Assuming John Doe has accepted through Atty. Thorne and **both UM layers settled** at their limits, the recovery now needs logging.",
     "side": true,
     "steps": [
-      "Log each acceptance in CMS → Insurance → Negotiation Log, with a confirming email drafted for Atty. Thorne's approval.",
+      "Log each acceptance in CMS → Settlement (BI/UM) → Offer & Counter History, with a confirming email drafted for Atty. Thorne's approval.",
       "Show **$40,000.00 gross** on the CMS Recovery Ledger, each check deposited only after its release is signed."
     ],
     "deliver": "A complete Negotiation Log and **$40,000.00 gross** recorded",
@@ -466,7 +466,7 @@
     "situation": "Assuming Peach State **asserts $1,860.00** and Atty. Thorne has signed off on the one-third reduction, the lien needs recording.",
     "side": true,
     "steps": [
-      "In CMS → Financial Ledger → Net Sheet → Lien Tracker, show the math, **$1,860.00 – $620.00 = $1,240.00**, and record each absent claimant as a verified none.",
+      "In CMS → Settlement (BI/UM) → Medical Liens / Payoffs, show the math, **$1,860.00 – $620.00 = $1,240.00**, and record each absent claimant as a verified none.",
       "Log the 10/09/2026 acceptance only once Peach State confirms it in writing."
     ],
     "deliver": "$1,240.00 recorded **once confirmed in writing**",
@@ -582,8 +582,8 @@
     "situation": "Assuming Riverton's ledger is corrected to **$6,105.00** and its billing manager agreed to $4,580.00 in a signed Payoff Letter, the Net Sheet needs updating.",
     "side": true,
     "steps": [
-      "In CMS → Financial Ledger → Net Sheet → Lien Tracker, enter $4,580.00 with the **signed Payoff Letter** as its source.",
-      "Log the call and the letter in CMS → Documents, and recompute the Net Sheet."
+      "In CMS → Settlement (BI/UM) → Medical Liens / Payoffs, enter $4,580.00 with the **signed Payoff Letter** as its source.",
+      "Log the call and the letter in CMS → Doc Hub, and recompute the Net Sheet."
     ],
     "deliver": "**A signed $4,580.00 Payoff Letter** logged, the Net Sheet recomputed",
     "purpose": "Without a signed Payoff Letter, **balance billing can follow** John Doe",
@@ -719,8 +719,8 @@
     "situation": "Assuming Vance & Kettering's **charging lien notice** for $6,666.67 has arrived and Atty. Thorne has ordered a hold, the file needs securing.",
     "side": true,
     "steps": [
-      "Log the notice in CMS → Communications Log, routed to Atty. Thorne, and send nothing to Vance & Kettering.",
-      "In CMS → Financial Ledger → Trust, hold **$6,666.67** on his instruction."
+      "Log the notice in CMS → Notes → Case Notes, routed to Atty. Thorne, and send nothing to Vance & Kettering.",
+      "In CMS → Settlement (BI/UM) → Check Received / Disbursed, hold **$6,666.67** on his instruction."
     ],
     "deliver": "The notice logged and **$6,666.67 held**",
     "purpose": "The disbursement waits on **a dispute only counsel resolves**",
@@ -743,8 +743,8 @@
     "situation": "Assuming every condition is met, the funds cleared and **the lien hold released** by Atty. Thorne, the 10/22 disbursement needs queuing.",
     "side": true,
     "steps": [
-      "In CMS → Financial Ledger → Trust, queue one disbursement per Net Sheet line for Atty. Thorne's approval, taking the ledger to **$0.00**.",
-      "Log your requests for the lien satisfactions and John Doe's receipt in CMS → Documents."
+      "In CMS → Settlement (BI/UM) → Check Received / Disbursed, queue one disbursement per Net Sheet line for Atty. Thorne's approval, taking the ledger to **$0.00**.",
+      "Log your requests for the lien satisfactions and John Doe's receipt in CMS → Doc Hub."
     ],
     "deliver": "**Five commands to $0.00**, queued for approval",
     "purpose": "Money moves only when **every gate behind it** is closed",
@@ -816,7 +816,7 @@
     "side": true,
     "steps": [
       "In the LSH Net Sheet, enter the $10,000.00 gross, the 33⅓% fee, the receipted costs and both liens, with the 25% projection **labelled as a projection**.",
-      "Log it to Atty. Thorne in CMS → Tasks → Escalate, flagging that the money stays in trust."
+      "Log it to Atty. Thorne in CMS → Tasks → + Add Task, flagging that the money stays in trust."
     ],
     "deliver": "A Stream 1 Net Sheet, **the projection labelled**, routed",
     "purpose": "Alone, the BI money **nets John Doe $0.00**; Atty. Thorne must see why",
@@ -839,7 +839,7 @@
     "side": true,
     "steps": [
       "On the CMS Recovery Ledger, post the $30,000.00 UM gross to Stream 2, apply the 33⅓% fee, costs and liens, and mark the net **as a projection**.",
-      "Log it to Atty. Thorne in CMS → Tasks → Escalate."
+      "Log it to Atty. Thorne in CMS → Tasks → + Add Task."
     ],
     "deliver": "A Stream 2 Net Sheet projecting **$13,661.19**, routed",
     "purpose": "John Doe hears this from Atty. Thorne: **no projection may read as final**",

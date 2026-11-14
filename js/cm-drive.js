@@ -789,7 +789,7 @@ css.textContent = `
 .drv-c-h{font-weight:800;color:var(--navy,#1B2240);font-size:16px;margin-bottom:5px;}
 .drv-card .btn{font-size:14px;font-weight:800;margin:0 6px 6px 0;}
 .drv-card p{font-size:14px;line-height:1.55;color:var(--ink,#1B1E2E);margin:0 0 12px;max-width:80ch;}
-.drv-wrap{position:fixed;inset:0;z-index:4000;background:rgba(15,20,40,.55);display:flex;align-items:center;justify-content:center;padding:24px;}
+.drv-wrap{position:fixed;inset:0;z-index:9500;background:rgba(15,20,40,.55);display:flex;align-items:center;justify-content:center;padding:24px;}
 .drv-cardw{width:min(800px,100%);max-height:100%;display:flex;flex-direction:column;background:#fff;border-radius:14px;box-shadow:0 20px 60px rgba(10,15,35,.35);}
 .drv-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:18px 20px 12px;border-bottom:1px solid var(--line,#E3E6EF);}
 .drv-head h3{margin:2px 0 0;font-size:18px;color:var(--navy,#1B2240);}
@@ -825,7 +825,9 @@ css.textContent = `
 .drv-nm-jump{border:2px solid #C0392B;background:#FDF2F2;color:#8A2B2B;border-radius:9px;padding:7px 12px;font:800 14px/1.4 'Inter',sans-serif;cursor:pointer;white-space:nowrap;}
 .drv-nm-jump:hover,.drv-nm-jump:focus-visible{background:#C0392B;color:#fff;outline:none;}
 .drv-nm-jump.drv-nm-top{margin-left:auto;align-self:center;padding:4px 10px;white-space:normal;text-align:left;}
-body:has(#cmDriveHost) #toast{z-index:4100;}   /* what is said while the panel is open (names to fix, after ✓ Check my drive) is said over it, not behind it */
+body:has(#cmDriveHost) #toast{z-index:9600;}   /* what is said while the panel is open (names to fix, after ✓ Check my drive) is said over it, not behind it */
+/* the panel sits over the CMS frame (#cm-toolframe 9000, the lifted #app 9001: js/cm-skillbuilders.js): 🚀 Launch CMS & Google Drive
+   opens the CMS, then this panel for a trainee with no linked Drive; a modal (.cfx-modal 9999) still opens over it */
 .drv-foot{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:12px 20px;border-top:1px solid var(--line,#E3E6EF);background:#F8F9FC;}
 .drv-btn{border:1px solid var(--line,#E3E6EF);background:#fff;color:var(--navy,#1B2240);border-radius:8px;padding:7px 12px;font:inherit;font-size:12px;font-weight:800;cursor:pointer;text-decoration:none;}
 .drv-btn:hover:not(:disabled){border-color:var(--orange,#DB8437);}

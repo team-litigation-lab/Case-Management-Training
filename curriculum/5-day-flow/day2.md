@@ -1,6 +1,6 @@
 # Case Flow Day 2 — Pre-Demand, the BI Demand & BI Settlement
 
-**Phase:** Pre-demand, the BI demand & BI settlement · **Focus case:** John Doe VS Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
+**Phase:** Pre-Demand, the BI Demand & BI Settlement · **Focus case:** John Doe VS Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
 
 **Objective.** Probe the 14-Day Gap with John Doe on a recorded call, inside the UPL line, and complete the Gap Explanation Record from his own documented facts; audit the file to MMI and $16,401.40 in Specials; brief Atty. Thorne in the pre-demand strategy session; serve a time-limited BI demand that holds up; structure the Host UM and Relative UM demands behind it; then negotiate Track A to a $40,000 gross recovery with both UM consents. Then execute the BI settlement: the release, the disclosure and the settlement statement.
 
@@ -65,7 +65,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 ### 2.1.1 Pre-Demand Case Auditing
 
-> **Lesson** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
+> **Lesson** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** The audit that decides what the demand can claim  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#1` Training Agenda: From Pre-Demand to Settlement · `D2#2` Pre-Demand Case Auditing: Core Objectives · `D2#4` Master Audit Checklist: Financial & Lien Verification · `D2#7` Master Audit Checklist: Medical & Billing Audit · `D2#9` Pre-Demand: Final Package Readiness · `D2#12` Demand: The Policy Limit Mindset · `D1#40` The “Golden Standard”: Reasonable and Necessary · LSH Claims Specialist: policy limits (per person vs. per accident) · Newly authored: billed vs. paid and the collateral-source routing; future medical kept out of the Specials total
@@ -139,7 +139,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 2) and that d
 
 ### 2.1.2 Interview Techniques & UPL Boundaries in Client Investigation
 
-> **Lesson** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with UPL & Investigation Review (`d2m3`)  
+> **Lesson** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Asking so that the answer is his, not yours  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#44` Handling Treatment Gaps During the Treatment Phase · `D1#28` Treatment Phase: Essential Client Communication Strategies · LSH Claims Specialist: communication skills and professionalism — clarity without jargon, empathy, active listening, paraphrasing, calm reassurance · LSH Claims Specialist: LOR — all carrier communication through the firm · Newly authored: non-leading investigative interview technique (the funnel); recording consent and privilege on a client call; reassurance about process, never outcome
@@ -218,7 +218,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 2) and that day'
 
 ### 2.1.3 The Causation Letter: Proving the Collision Caused the Harm
 
-> **Lesson** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with UPL & Investigation Review (`d2m3`)  
+> **Lesson** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Negligence is only half the battle: what a Causation Letter is, what it proves, and how you request, check, file and track Dr. Reyes's  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#13` Documents that Matter: Liability & Causation Documents · `D3#15` Documents that Matter: General Damages Documents (Non-Economic Value) · `D2#13` Treatment Gaps in the Demand Phase · `D1#46` Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain · Case file: Dr. Alana Reyes's Causation Letter, 06/19/2026 (RS19) · Newly authored: negligence and causation as the two halves of a personal injury claim; the Causation Letter's definition, legal purpose, evidentiary role and the Case Manager's handling of it
@@ -237,7 +237,7 @@ The slide is split into two halves of one case. Left, a navy card headed NEGLIGE
 4. A letter that holds up names the records reviewed, ties each injury to the mechanism, answers the other causes the defense will raise, and addresses treatment and future care. Dr. Reyes's covers all four: the delayed presentation is clinically consistent; the C5-C6 herniation was more likely than not caused by the 02/06/2026 collision; the 2021 care is unrelated; the treatment was reasonable and necessary, and future injections are reasonably anticipated.
 5. Atty. Thorne requests it, in his letter, with John Doe's written authorization. You assemble the record set the doctor needs, the prior records included (EMS report, the 02/20/2026 urgent-care note, Riverton Spine & Rehab's notes, the 03/13/2026 MRI report, Crescent's 05/15/2026 procedure note, Birch Avenue Chiropractic's 2021 records), docket the follow-up and track the reply.
 6. Check it against the file the day it arrives: the date of loss (02/06/2026), the injury level and side (C5-C6, right), the visit dates, the records listed, the prior history. A mismatch, like the 02/16/2026 injury date in the MRI's history line, goes to Atty. Thorne; only its author corrects a record, by a dated addendum.
-7. File it in CMS → Documents (Medical) as received, dated 06/19/2026, and cite it where the file needs it: the 14-day band of the Gap Explanation Record, the risks in the pre-demand audit, the Demand Package that went to Keystone on 07/20/2026, and the 08/06/2026 rebuttal Atty. Thorne approved.
+7. File it in CMS → Doc Hub → Medical Records as received, dated 06/19/2026, and cite it where the file needs it: the 14-day band of the Gap Explanation Record, the risks in the pre-demand audit, the Demand Package that went to Keystone on 07/20/2026, and the 08/06/2026 rebuttal Atty. Thorne approved.
 8. It is an opinion, not a business record: a records custodian does not certify it the way a provider's chart is certified. How it is used beyond the demand, as an exhibit or an expert's disclosure, is Atty. Thorne's call.
 9. You never draft, edit or suggest its words, never coach the doctor toward a conclusion, and never tell John Doe what causation means for his claim or its value.
 
@@ -291,7 +291,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 2) and that day'
 
 ### 2.1.4 Case Phase: Demand
 
-> **Lesson** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Demand Execution Audit (`d3m1`)  
+> **Lesson** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** What makes a $10,000 demand one Keystone has to answer  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#11` Case Phase: Demand — The Legal & Procedural Foundation · `D2#12` Demand: The Policy Limit Mindset · `D2#13` Treatment Gaps in the Demand Phase · `D2#17` Demand: Best Practices · Newly authored: the elements of a Time-Limited Demand that can support a later failure-to-settle claim (within limits, clear and reasonable terms, sufficient documentation, a stated window with proof of delivery)
@@ -366,7 +366,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ### 2.1.5 Settlement Negotiations & the BI Settlement
 
-> **Lesson** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Negotiation Mastery Check (`d3m2`)  
+> **Lesson** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** The UM gap, the reductions that don't apply, and closing at limits  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#20` The Valuation Baseline: PIP Set-Off (The Credit) · `D2#22` The Valuation Baseline: The EMC and the Benefit Ceiling · `D2#23` The Valuation Baseline: Subrogation vs. Non-Subrogation · `D2#26` Settlement Negotiations: The Bracketing Technique · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D3#7` UM Settlement: How the Settlement Is Calculated · `D3#8` UM Settlement: Negotiation & Settlement · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#10` UM Settlement: Challenges · `D3#11` UM Settlement: The Final Payout Process · `D3#17` Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit
@@ -442,7 +442,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 2.1.6 BI Settlement: the UM/UIM Safety Check & Key Laws
 
-> **Lesson** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Demand Execution Audit (`d3m1`)  
+> **Lesson** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Locking the escape hatches before Host UM and Relative UM open  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#31` BI Settlement — Phase II: The UM/UIM “Safety Check” · `D2#32` BI Settlement: Key Laws & Doctrines · `D3#1` Training Agenda & Why the UM Phase Matters · `D3#2` Beyond Organization: The UM Demand Strategy · `D3#3` BI Exhaustion & Consent — Mechanic 1: Locking the Escape Hatches · `D3#4` The UM Demand Package: Turning Risk Management Against the Insurer · `D3#5` UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#12` Documents that Matter: Threshold & Coverage Documents · Newly authored: the UM carrier's right to substitute its own check for the BI tender; a General Release (“all other … insurers”) as a threat to the UM claims; Relative UM as excess over Host UM
@@ -517,7 +517,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ### 2.1.7 Serving the $10,000 BI Time-Limit Demand Package
 
-> **Skill Activity** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Demand Execution Audit (`d3m1`)  
+> **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 1 — audit it, serve it, prove it  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#13` Treatment Gaps in the Demand Phase · `D2#14` The Demand Packet Checklist: The “Big Four” · `D2#15` Demand: Quality Control — The “Final Scrub” · `D2#17` Demand: Best Practices · `D2#18` Skill Building: Demand Phase Challenge — Real-Time Demand Audit
@@ -534,7 +534,7 @@ A three-column assembly board. Left: the Demand Package as five tabbed cream fol
 
 | | |
 |---|---|
-| **Tool / interface** | Action Plan Editor → Demand Package · CMS → Documents → Outgoing · Email Workspace · Court E-Filing |
+| **Tool / interface** | Action Plan Editor → Demand Package · CMS → Doc Hub → Others · Email Workspace · Court E-Filing |
 | **Expected output** | An audited, served Time-Limited Demand with proof of delivery on file and 08/21/2026 docketed. |
 
 **Verification checkpoints**
@@ -590,7 +590,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ### 2.1.8 Wage Loss Verification & the Medical Nexus
 
-> **Skill Activity** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
+> **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity — verify every missed shift with the employer and the treating providers  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#4` Master Audit Checklist: Financial & Lien Verification · `D2#7` Master Audit Checklist: Medical & Billing Audit · `D1#40` The “Golden Standard”: Reasonable and Necessary · LSH Claims Specialist: attention to detail — cross-reference documents, double-check calculations and dates · Newly authored: employer wage verification and the medical-nexus reconciliation of every missed shift before the BI demand
@@ -603,11 +603,11 @@ A two-column reconciliation board. Left column, NORTHGATE'S RECORD: nine shift t
 
 **Scenario.** 06/22/2026, ten days after MMI (06/12/2026). John Doe signed Northgate Distribution's employee authorization this morning. A draft wage worksheet built from his own account by telephone claims $1,760.00 and is unverified. Northgate's HR manager is Angela Ruiz. The Specials audit is due 07/01/2026.
 
-**Execution prompt.** Verify John Doe's lost wages before they reach the Specials. First write the Employer Verification email to Angela Ruiz at Northgate HR in the Email Workspace, with his signed authorization: ask for the Wage Loss Verification Form, the payroll records for the pay periods with missed shifts and his W-2, and the employer's confirmation of his hourly rate, his shift hours, each missed shift, any overtime lost and the physical demands of his job. When Northgate replies, answer its follow-up inside the line. Then reconcile every missed date against the treating providers' visit and off-work notes in the audit workbench, so no absence is left unexcused, and audit the draft worksheet into the Lost Wage Verification Record. Flag any shift with no provider note to Atty. Thorne: never drop it or hide it. Record the verified total in CMS → Financial Ledger → Specials and the Net Sheet, update the Case Plan's financial pillar in the Action Plan Editor, and file the employer correspondence in the CMS so it is kept on the Backup Drive.
+**Execution prompt.** Verify John Doe's lost wages before they reach the Specials. First write the Employer Verification email to Angela Ruiz at Northgate HR in the Email Workspace, with his signed authorization: ask for the Wage Loss Verification Form, the payroll records for the pay periods with missed shifts and his W-2, and the employer's confirmation of his hourly rate, his shift hours, each missed shift, any overtime lost and the physical demands of his job. When Northgate replies, answer its follow-up inside the line. Then reconcile every missed date against the treating providers' visit and off-work notes in the audit workbench, so no absence is left unexcused, and audit the draft worksheet into the Lost Wage Verification Record. Flag any shift with no provider note to Atty. Thorne: never drop it or hide it. Record the verified total in CMS → Treatment → Total Medical Specials and the Net Sheet, update the Case Plan's financial pillar in the Action Plan Editor, and file the employer correspondence in the CMS so it is kept on the Backup Drive.
 
 | | |
 |---|---|
-| **Tool / interface** | Email Workspace · CMS → Financial Ledger → Specials · CMS → Financial Ledger → Net Sheet · Action Plan Editor · CMS → Documents |
+| **Tool / interface** | Email Workspace · CMS → Treatment → Total Medical Specials · CMS → Settlement (BI/UM) · Action Plan Editor · CMS → Doc Hub |
 | **Expected output** | Northgate's verification on file, every missed shift matched to its record, and $1,584.00 verified in the Specials. |
 
 **Verification checkpoints**
@@ -659,7 +659,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 2) and that d
 
 ### 2.1.9 Calculating Total Specials & the Special Damages Audit
 
-> **Skill Activity** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
+> **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity 1 — audit $15,002.40 down to the number that holds  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#4` Master Audit Checklist: Financial & Lien Verification · `D2#7` Master Audit Checklist: Medical & Billing Audit · `D2#9` Pre-Demand: Final Package Readiness · `D1#40` The “Golden Standard”: Reasonable and Necessary · LSH Claims Specialist: attention to detail — cross-reference documents, double-check calculations and dates
@@ -676,7 +676,7 @@ A full-width Specials ledger on a cream card, provider rows in mono under five c
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Financial Ledger → Specials · CMS → Liens · CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Insurance tab |
+| **Tool / interface** | CMS → Treatment → Total Medical Specials · CMS → Liens · CMS → Settlement (BI/UM) → Medical Liens / Payoffs · CMS → Insurance |
 | **Expected output** | An audited Specials ledger at $16,401.40 with billed and paid side by side, a lien list, the targets in order, and a flag list routed to Atty. Thorne. |
 
 **Verification checkpoints**
@@ -732,7 +732,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 2) and that d
 
 ### 2.1.10 Probe the 14-Day Treatment Gap with AI John Doe
 
-> **Skill Activity** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with UPL & Investigation Review (`d2m3`)  
+> **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 1 — Call Simulator: the 14-Day Gap, in his words  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#44` Handling Treatment Gaps During the Treatment Phase · `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · LSH Claims Specialist: communication skills and professionalism — clarity without jargon, empathy, active listening, paraphrasing, calm reassurance · Newly authored: non-leading investigative interview technique (the funnel); recording consent and privilege on a client call
@@ -749,7 +749,7 @@ A call-simulator screen across the left two-thirds: a navy header bar reading AI
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI John Doe (recorded call) · CMS → Case Notes · Tasks |
+| **Tool / interface** | Call Simulator → AI John Doe (recorded call) · CMS → Notes → Case Notes · Tasks |
 | **Expected output** | A consented, privileged recording with all four reasons in John Doe's own words, a same-day GIRP note, and a dated task for every corroborating document. |
 
 **Show Them — reference model**
@@ -813,7 +813,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 2) and that day'
 
 ### 2.1.11 Gap Explanation Record Creation
 
-> **Skill Activity** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with UPL & Investigation Review (`d2m3`)  
+> **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 2 — every reason beside its proof, for both interruptions  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#44` Handling Treatment Gaps During the Treatment Phase · `D2#13` Treatment Gaps in the Demand Phase · `D2#8` The “Defense-Eye” Audit (Red Flag Detection) · LSH Claims Specialist: attention to detail — cross-referencing facts and dates across documents
@@ -830,7 +830,7 @@ A white CMS record card with a navy header, GAP EXPLANATION RECORD · JOHN DOE, 
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Case File → Gap Explanation Record · Tasks |
+| **Tool / interface** | CMS → Treatment → Other Treatment Notes · Tasks |
 | **Expected output** | A routed record covering both interruptions, every reason beside a dated document, and the non-economic damages records filed and logged for Atty. Thorne's demand decision. |
 
 **Show Them — reference model**
@@ -898,7 +898,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 2) and that day'
 
 ### 2.1.12 Pre-Demand Strategy Session with AI Atty. Elijah Thorne
 
-> **Skill Activity** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
+> **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity 2 — present the audit; record his decisions  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#3` The Auditing Checklist: The Trinity of Case Alignment · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · `D2#8` The “Defense-Eye” Audit (Red Flag Detection) · `D2#9` Pre-Demand: Final Package Readiness · `D2#10` Skill Building: Pre-Demand Audit Challenges (John Doe File) · `D2#12` Demand: The Policy Limit Mindset
@@ -915,7 +915,7 @@ A two-pane Call Simulator screen. Left pane: the session transcript as alternati
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI Atty. Elijah Thorne (strategy session) · CMS → Case Notes · CMS → Tasks |
+| **Tool / interface** | Call Simulator → AI Atty. Elijah Thorne (strategy session) · CMS → Notes → Case Notes · CMS → Tasks |
 | **Expected output** | A recorded strategy session and a dated decision record, each decision attributed to Atty. Thorne with its tasks and owners. |
 
 **Verification checkpoints**
@@ -970,7 +970,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 2) and that d
 
 ### 2.1.13 Backup File Maintenance: Records and Bills in Their Folders
 
-> **Skill Activity** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Treatment Monitoring Review (`d2m2`)  
+> **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity — back up the treatment documents and keep the records apart from the bills  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · LSH firm standard: backup drive folder hierarchy
@@ -987,7 +987,7 @@ The Doe-John folder tree on the left, opened at 03 Medical Records and 04 Bills 
 
 | | |
 |---|---|
-| **Tool / interface** | Backup Drive · CMS → Documents · CMS → Case Notes |
+| **Tool / interface** | Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes |
 | **Expected output** | Four treatment documents filed in the CMS and backed up in their folders, the misfiled invoice moved to 04 Bills & Invoices, a clean drive check, and the records-vs-bills rule in Case Notes. |
 
 **Verification checkpoints**
@@ -1032,7 +1032,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 2.1.14 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
 
-> **Skill Activity** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Negotiation Mastery Check (`d3m2`)  
+> **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 1 — hold the Limits Demand on a recorded call  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#16` Negotiating the “First Call” (For Senior CMs) · `D2#25` Negotiations Initiated: The “Battle” — First Call to Low-Ball · `D2#27` Common Adjuster “Stall Tactics” and Rebuttals · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D2#29` Settlement Negotiations: The “Never” Rule · `D2#30` Skill Building: The Math Check — Your Slam-Dunk Liability Case · LSH Claims Specialist: review the case reference sheet before any adjuster call; no backdoor contact with the client
@@ -1049,7 +1049,7 @@ A call-simulator screen across two-thirds of the slide: a navy header bar readin
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual · CMS → Communications Log · Email Workspace |
+| **Tool / interface** | Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual · CMS → Notes → Case Notes · Email Workspace |
 | **Expected output** | A recorded call held inside Atty. Thorne's authority, a math check on $3,500, a logged offer in the adjuster's own words, a same-day report to Atty. Thorne, and the 08/06/2026 rebuttal drafted for his approval. |
 
 **Show Them — reference model**
@@ -1114,7 +1114,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 2.1.15 Closing the $40,000 Gross Recovery
 
-> **Skill Activity** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Negotiation Mastery Check (`d3m2`)  
+> **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 4 — work both UM layers to limits, on the record  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#26` Settlement Negotiations: The Bracketing Technique · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D3#7` UM Settlement: How the Settlement Is Calculated · `D3#8` UM Settlement: Negotiation & Settlement · `D3#10` UM Settlement: Challenges · `D3#11` UM Settlement: The Final Payout Process · `D3#17` Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit
@@ -1131,7 +1131,7 @@ A Negotiation Log fills the slide: two carrier swimlanes on a shared date axis f
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Insurance tab → Negotiation Log · Email Workspace · CMS → Financial Ledger → Net Sheet → Recovery Ledger |
+| **Tool / interface** | CMS → Settlement (BI/UM) → Offer & Counter History · Email Workspace · CMS → Settlement (BI/UM) → Gross Settlement |
 | **Expected output** | A complete Negotiation Log for both UM layers, an approved counter-package, a confirming email for each acceptance, and a Recovery Ledger at $40,000.00 gross. |
 
 **Verification checkpoints**
@@ -1185,7 +1185,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 2.1.16 QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
 
-> **Skill Activity** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Demand Execution Audit (`d3m1`)  
+> **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 2 — two packages, exhaustion proof on page one  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#4` The UM Demand Package: Turning Risk Management Against the Insurer · `D3#5` UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap · `D3#6` UM Demand: The Demand Packet — Document Inclusions · `D3#12` Documents that Matter: Threshold & Coverage Documents · `D3#13` Documents that Matter: Liability & Causation Documents · `D3#14` Documents that Matter: Special Damages Documents (Economic Hard Costs) · `D3#15` Documents that Matter: General Damages Documents (Non-Economic Value) · `D3#16` Documents that Matter: Final Pleading & Release Documents (Closing Phase)
@@ -1202,7 +1202,7 @@ Two demand letters side by side on white letterhead: left HOST UM · HARBOR POIN
 
 | | |
 |---|---|
-| **Tool / interface** | Action Plan Editor → UM demand templates · CMS → Tasks → Escalate |
+| **Tool / interface** | Action Plan Editor → UM demand templates · CMS → Tasks → + Add Task |
 | **Expected output** | Two QC'd, attorney-ready UM demand drafts, exhaustion proof first, each planted error in the desk's draft fixed and noted, routed for review with tracked follow-up tasks. |
 
 **Verification checkpoints**
@@ -1257,7 +1257,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ### 2.1.17 Settlement Release Clause Review & Attorney Approval
 
-> **Skill Activity** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Negotiation Mastery Check (`d3m2`)  
+> **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 2 — audit Keystone's release clause by clause, then route it  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#31` BI Settlement — Phase II: The UM/UIM “Safety Check” · `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D3#16` Documents that Matter: Final Pleading & Release Documents (Closing Phase) · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · Newly authored: the clause-by-clause release audit as a keep, replace, pull, add or flag call, with proposed amendments routed to the attorney before the client sees the release
@@ -1274,7 +1274,7 @@ Left two-thirds: Keystone's Release of All Claims as a white page with margin fl
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Documents → Release audit · Email Workspace · CMS → Tasks → Escalate |
+| **Tool / interface** | CMS → Doc Hub → Case Files · Email Workspace · CMS → Tasks → + Add Task |
 | **Expected output** | An audited release with proposed amendments, Atty. Thorne's written approval on file, and the review memorandum filed in the CMS and Drive. |
 
 **Verification checkpoints**
@@ -1325,7 +1325,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 2.1.18 Client Execution, Transmittal to Keystone & Check Confirmation
 
-> **Skill Activity** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Negotiation Mastery Check (`d3m2`)  
+> **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 3 — the signing session, the executed packet and the money into trust  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#31` BI Settlement — Phase II: The UM/UIM “Safety Check” · `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D2#38` The Execution: W-9 & Comparison of Key Post-Settlement Documents · `D2#39` Finalized Settlement: Boots-on-the-Ground Tasks — Administrative Document Control · `D3#11` UM Settlement: The Final Payout Process · Newly authored: the client signing session within the UPL line (signatures, notary and ID requirements, never a clause), and the executed packet transmitted with the UM waivers Keystone made a payment condition
@@ -1342,7 +1342,7 @@ A five-station horizontal workflow on a navy rail, each station a cream card wit
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI Client: John Doe · Email Workspace · CMS → Documents · CMS → Financial Ledger → Trust |
+| **Tool / interface** | Call Simulator → AI Client: John Doe · Email Workspace · CMS → Doc Hub · CMS → Settlement (BI/UM) → Check Received / Disbursed |
 | **Expected output** | An executed, notarized Limited Release sent with both waivers and the W-9, the check confirmed into trust, and the settlement record filed in the CMS and Drive. |
 
 **Verification checkpoints**
@@ -1392,7 +1392,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 2.1.19 Treatment Monitoring Review
 
-> **Knowledge Check** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Treatment Monitoring Review (`d2m2`)  
+> **Knowledge Check** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#32` Treatment Red Flags: Pain Management, Medication & Behavioral Health / TBI · `D1#33` Case Planning — Treatment: The Assessment Phase · `D1#34` Case Planning — Treatment: SMART Goal Setting · `D1#36` The Standard Treatment Map · `D1#37` Treatment Road Map Mastery & the Clinical Pathway Flowchart · `D1#40` The “Golden Standard”: Reasonable and Necessary · `D1#42` Illustration & Course Correction: The 6-Week Rule and Objective Metrics · `D1#46` Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain
@@ -1483,7 +1483,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
    **✓ The rate the governing state's rules allow, confirmed by Atty. Thorne** · Always the IRS business rate · Whatever rate John Doe asks for · The rental company's daily rate  
    *The IRS standard rates are a reference only. The governing state's rules set the rate, and Atty. Thorne confirms it before anything is claimed.*
 16. Harbor Point's check for Lakeside Orthopedics' 06/12/2026 visit is paid on 06/26/2026. Where do you post it?  
-   In Case Notes only · In the Lien Tracker, as a PIP lien · Nowhere: PIP is outside the stack · **✓ In the PIP Log (CMS → Insurance tab → PIP Log): the check, the date of service and the limit remaining, reconciled to Harbor Point's payment history**  
+   In Case Notes only · In the Lien Tracker, as a PIP lien · Nowhere: PIP is outside the stack · **✓ In the PIP Log (CMS → Insurance → PIP / UM/UIM Coverage Stack): the check, the date of service and the limit remaining, reconciled to Harbor Point's payment history**  
    *The PIP Log (RS71) is the firm's record of John Doe's Harbor Point PIP. It ties to Harbor Point's payment history (RS31) line for line: five payments, $5,000.00, $0.00 left after 06/26/2026. Harbor Point has no reimbursement right, so PIP is never a lien.*
 17. Checking the PIP Log against the providers' statements: suppose Lakeside Orthopedics' statement still showed $640.00 owed for the 03/27/2026 visit that Harbor Point PIP paid on 04/10/2026. What is it, and what do you do?  
    A lien: add $640.00 to the Lien Tracker · **✓ A billing error: the PIP payment is a credit Lakeside hasn't posted, so send it the payment proof in writing and ask it to correct the account** · A debt: tell John Doe to pay Lakeside · A reason to ask Harbor Point to pay the visit again  
@@ -1530,7 +1530,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 
 ### 2.1.20 UPL & Investigation Review
 
-> **Knowledge Check** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with UPL & Investigation Review (`d2m3`)  
+> **Knowledge Check** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#44` Handling Treatment Gaps During the Treatment Phase · `D2#13` Treatment Gaps in the Demand Phase · `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP)
@@ -1629,7 +1629,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 ### 2.1.21 Pre-Demand Audit & Day 3 Gate
 
-> **Knowledge Check** · Day 2 — Pre-demand, the BI demand & BI settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
+> **Knowledge Check** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#2` Pre-Demand Case Auditing: Core Objectives · `D2#4` Master Audit Checklist: Financial & Lien Verification · `D2#7` Master Audit Checklist: Medical & Billing Audit · `D2#8` The “Defense-Eye” Audit (Red Flag Detection) · `D2#9` Pre-Demand: Final Package Readiness · `D2#12` Demand: The Policy Limit Mindset

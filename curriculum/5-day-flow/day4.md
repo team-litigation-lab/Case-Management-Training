@@ -1,6 +1,6 @@
 # Case Flow Day 4 — Mediation & Arbitration
 
-**Phase:** Mediation & arbitration · **Focus case:** John Doe VS Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
+**Phase:** Mediation & Arbitration · **Focus case:** John Doe VS Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
 
 **Objective.** Where the file does not settle (Track B), run the alternative dispute resolution side: the neutral and how one is picked, the mediation and arbitration rules and hard dates, the UPL line at hearings, the mediation and arbitration binders, and the bottlenecks that stall them.
 
@@ -61,7 +61,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 ### 4.1.1 Introducing the Neutral, Mediation Logistics & the Arbitration Hearing
 
-> **Lesson** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
+> **Lesson** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Two neutrals, two standards, one boundary  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#5` Mediation Protocols for CMs: Logistics & Scheduling · `D4#16` Case Phase: Arbitration — The Anatomy of a PI Arbitration · `D4#17` Arbitration: Operational Mindset — From Compromise to Trial-Ready · `D4#19` Arbitration Operational Track 2: Logistics & Setup Protocols · `D4#20` Ethics & Boundaries: What You Can and Cannot Do at Hearings (UPL) · Newly authored: court-ordered mediation compels attendance, not agreement · Newly authored: where ADR lands on the timeline — pre-litigation and post-filing mediation, contractual pre-filing arbitration and agreed post-filing arbitration, and the Standard Case Progression Roadmap
@@ -142,7 +142,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ### 4.1.2 Court Hard Rules, SOL Cutoffs & the Master Calendar
 
-> **Lesson** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
+> **Lesson** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** The dates the law sets, and the earlier dates the firm dockets  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#28` Master Timeline & Deadline Calculations · `D4#18` Arbitration Operational Track 1: Critical Timelines & Calendar Hard Rules · Newly authored: weekend roll direction (forward count → next business day; backward count → earlier business day) · Newly authored: SOL internal hard date and 90-day internal filing cutoff (firm rule configured for this training file), kept live after filing until Atty. Thorne releases them · Newly authored: scheduling-order entry (read each verb) and RFAs docketed separately for the deemed-admission risk · Newly authored: calendar-error risk (later or missing costs rights; earlier costs time)
@@ -217,7 +217,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ### 4.1.3 UM/UIM Disputes & Resolution Routes
 
-> **Lesson** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
+> **Lesson** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** A claim against your own client's carrier, and the two roads out of an impasse  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D3#5` UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap · `D3#19` Key Legal Doctrines Used for Reduction · `D4#2` Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background · `D4#19` Arbitration Operational Track 2: Logistics & Setup Protocols · LSH Claims Specialist: UM/UIM coverage and exhaustion · Newly authored: the first-party vs. third-party mindset shift stated as the CM's opening question on a UM dispute · Newly authored: the three-step UM dispute flow (claim submission → impasse → resolution route) with the route read from state law and the policy clause, never chosen · Newly authored: bad faith kept off the route fork as a separate suit above the limits, reserved to counsel; each UM layer read and docketed on its own clause
@@ -294,7 +294,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ### 4.1.4 Preparing the Mediation Binder
 
-> **Lesson** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
+> **Lesson** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Six sections, one master index, and the five-second rule  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#6` Preparing Mediation Binders: Organized Case Summaries · `D4#7` Mediation Binder Section 1: Executive Summary & Administrative Details · `D4#8` Mediation Binder Section 2: The Mediation Briefs · `D4#9` Mediation Binder Section 3: Core Pleadings (The Legal Framework) · `D4#10` Mediation Binder Section 4: Key Evidence & Liability Exhibits · `D4#11` Mediation Binder Section 5: Damages, Financials & Expert Reports · `D4#12` Mediation Binder Section 6: Settlement History & Draft Agreements · `D4#13` Mediation: Quality Assurance & Logistics Auditor · Newly authored: exhibit numbering, Bates ranges and the master index as the one source of truth
@@ -367,7 +367,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ### 4.1.5 Arbitration Binder Section 5: the Prior Medical Shield
 
-> **Lesson** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
+> **Lesson** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Tab 5: the 2021 baseline, laid beside the injury, before the carriers raise it  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#25` Arbitration Binders: Section 5 — The Prior Medical Shield · `D4#27` Skill Building: The PI Critical Thinking Audit Challenge (Arbitration) · `D4#30` Common Bottlenecks: Arbitration (The Trial-Ready Landmines) · `D1#33` Case Planning — Treatment: The Assessment Phase · `D1#46` Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain · `D2#7` Master Audit Checklist: Medical & Billing Audit · Newly authored: the five-component shield on this file, the body-region side-by-side, the consistency audit and the harm-to-timeline check
@@ -446,7 +446,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ### 4.1.6 The Arbitration Binder & the Common Bottlenecks
 
-> **Lesson** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
+> **Lesson** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** From a binder that persuades to the record a binding award rests on  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#21` Arbitration Binders: Section 1 — The Arbitration Submissions · `D4#22` Arbitration Binders: Section 2 — Core Litigation Pleadings · `D4#23` Arbitration Binders: Section 3 — Liabilities & Biomechanical Evidence · `D4#24` Arbitration Binders: Section 4 — Proving Bodily Accident Medical Damages · `D4#25` Arbitration Binders: Section 5 — The Prior Medical Shield · `D4#26` Arbitration Binders: Section 6 — Economic Losses & Lien Reconciliations · Newly authored: authentication, business-records certifications, relaxed evidence rules in arbitration, and mediation confidentiality at the hand-off
@@ -520,7 +520,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ### 4.1.7 Assembling the 6-Section Mediation Binder
 
-> **Skill Activity** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
+> **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Skill Activity 1 — build it, audit it, route it before 03/11/2027  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#14` Skill Building: Create Your Mediation Binders · `D4#15` Skill Building: The LSH Critical Thinking Challenge — The Pre-Mediation Audit · `D4#7` Mediation Binder Section 1: Executive Summary & Administrative Details · `D4#8` Mediation Binder Section 2: The Mediation Briefs · `D4#9` Mediation Binder Section 3: Core Pleadings (The Legal Framework) · `D4#10` Mediation Binder Section 4: Key Evidence & Liability Exhibits · `D4#11` Mediation Binder Section 5: Damages, Financials & Expert Reports · `D4#12` Mediation Binder Section 6: Settlement History & Draft Agreements · `D4#13` Mediation: Quality Assurance & Logistics Auditor
@@ -537,7 +537,7 @@ A three-column workbench. Left: the draft binder as a grey stack topped by two r
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Documents → Mediation Binder · CMS → Documents → Master index · Medical Records Requests |
+| **Tool / interface** | CMS → Doc Hub → Litigation Documents · CMS → Doc Hub → Case Files · Medical Records Requests |
 | **Expected output** | A six-section, indexed, OCR-searchable Mediation Binder with an audited ledger, a lien summary and a short audit memo on both landmines, routed to Atty. Thorne and ready for delivery to the mediator by 03/11/2027. |
 
 **Verification checkpoints**
@@ -592,7 +592,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ### 4.1.8 Routing the UM Impasse: Arbitration or Court
 
-> **Skill Activity** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
+> **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 3 — read the clause, route the dispute, track it in the CMS  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D3#5` UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap · `D3#19` Key Legal Doctrines Used for Reduction · `D4#2` Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background · Newly authored: the impasse memo that quotes each layer's clause and asks the route, the per-layer deadline and consolidation as three written questions
@@ -609,7 +609,7 @@ A two-pane working screen. Left, two stacked policy cards with a highlighted cla
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Case Notes · CMS → Insurance tab → Coverage Matrix · CMS → ADR tab · CMS → Tasks · CMS → Calendar |
+| **Tool / interface** | CMS → Notes → Case Notes · CMS → Insurance · CMS → ADR · CMS → Tasks · CMS → Calendar |
 | **Expected output** | An impasse memo with both clauses quoted and three written questions to Atty. Thorne, a CMS file that shows the route, and a procedural explanation for John Doe with no opinion in it. |
 
 **Verification checkpoints**
@@ -664,7 +664,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ### 4.1.9 Auditing Court Hard Rules & Setting Calendar Cutoffs
 
-> **Skill Activity** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
+> **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 1 — find the dates that would cost the file  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#28` Master Timeline & Deadline Calculations · `D4#18` Arbitration Operational Track 1: Critical Timelines & Calendar Hard Rules · `D4#5` Mediation Protocols for CMs: Logistics & Scheduling · Newly authored: calendar-error risk (later or missing costs rights; earlier costs time)
@@ -681,7 +681,7 @@ The Case Docket & Calendar Conflict Resolver fills the slide: a white table card
 
 | | |
 |---|---|
-| **Tool / interface** | Case Docket & Calendar Conflict Resolver · Court E-Filing · CMS → Calendar · Case Notes |
+| **Tool / interface** | Case Docket & Calendar Conflict Resolver · Court E-Filing · CMS → Calendar · Notes → Case Notes |
 | **Expected output** | A verified Litigation Calendar with every planted error corrected, the missing entries added, and a ranked correction log routed to Atty. Thorne. |
 
 **Show Them — reference model**
@@ -748,7 +748,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ### 4.1.10 Calendaring the Mediation: the Session and Every Date That Hangs Off It
 
-> **Skill Activity** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
+> **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity — calendar the 03/18/2027 mediation from its triggers  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#5` Mediation Protocols for CMs: Logistics & Scheduling · `D5#28` Master Timeline & Deadline Calculations · `D4#18` Arbitration Operational Track 1: Critical Timelines & Calendar Hard Rules · Newly authored: calendaring a Notice of Mediation from its triggers — the session, the statement-and-binder deadline, backward internal dates, the mediator's report, the client's confirmation, the fee as a cost, and the UM consent-to-settle flag
@@ -765,7 +765,7 @@ A horizontal date rail across the slide from 01/08/2027 to 03/31/2027, the Notic
 
 | | |
 |---|---|
-| **Tool / interface** | Calendaring Simulators · CMS → Calendar · Court E-Filing · CMS → Tasks · CMS → Case Notes |
+| **Tool / interface** | Calendaring Simulators · CMS → Calendar · Court E-Filing · CMS → Tasks · CMS → Notes → Case Notes |
 | **Expected output** | A mediation calendar of verified, trigger-counted entries mirrored to the CMS, a cost task for the fee, a client-confirmation task, and a same-day summary to Atty. Thorne with the UM consent flag and the one conflict. |
 
 **Verification checkpoints**
@@ -822,7 +822,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ### 4.1.11 ADR Rules Matrix & UPL Boundary Mapping
 
-> **Skill Activity** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
+> **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity 2 — what changes from compromise to decision  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#16` Case Phase: Arbitration — The Anatomy of a PI Arbitration · `D4#17` Arbitration: Operational Mindset — From Compromise to Trial-Ready · `D4#18` Arbitration Operational Track 1: Critical Timelines & Calendar Hard Rules · `D4#19` Arbitration Operational Track 2: Logistics & Setup Protocols · `D4#20` Ethics & Boundaries: What You Can and Cannot Do at Hearings (UPL)
@@ -900,7 +900,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ### 4.1.12 Calendaring the Arbitration from the Scheduling Letter
 
-> **Skill Activity** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
+> **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity — every date that hangs off the hearing  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#18` Arbitration Operational Track 1: Critical Timelines & Calendar Hard Rules · `D4#19` Arbitration Operational Track 2: Logistics & Setup Protocols · `D5#28` Master Timeline & Deadline Calculations · Newly authored: the arbitration calendar computed from the arbitrator's scheduling letter, with internal lead times counted back from the step that needs each item
@@ -973,7 +973,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ### 4.1.13 Assembling the 6-Tab Arbitration Binder
 
-> **Skill Activity** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
+> **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Skill Activity 2 — sort, QC and defuse two landmines before 06/02/2027  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#27` Skill Building: The PI Critical Thinking Audit Challenge (Arbitration) · `D4#28` Skill Building: The Arbitration Audit & Binder Build · `D4#21` Arbitration Binders: Section 1 — The Arbitration Submissions · `D4#22` Arbitration Binders: Section 2 — Core Litigation Pleadings · `D4#23` Arbitration Binders: Section 3 — Liabilities & Biomechanical Evidence · `D4#24` Arbitration Binders: Section 4 — Proving Bodily Accident Medical Damages · `D4#25` Arbitration Binders: Section 5 — The Prior Medical Shield · `D4#26` Arbitration Binders: Section 6 — Economic Losses & Lien Reconciliations
@@ -990,7 +990,7 @@ A sorting board. Left column: the unsorted folder as a pile of white document ca
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Litigation → Exhibit index · Medical Records Requests · CMS → Financial Ledger → Net Sheet → Lien Tracker |
+| **Tool / interface** | CMS → Litigation → Discovery & Filing Tracker · Medical Records Requests · CMS → Settlement (BI/UM) → Medical Liens / Payoffs |
 | **Expected output** | A six-tab, C-numbered, Bates-ranged Arbitration Binder with an authentication log, plus an audited Lien Sheet for the attorney's set, routed to Atty. Thorne for the 06/02/2027 exchange. |
 
 **Verification checkpoints**
@@ -1042,7 +1042,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 
 ### 4.1.14 Setting Automated Countermeasures in CMS
 
-> **Skill Activity** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Countermeasure Operational Audit (`d4m4`)  
+> **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Skill Activity 1 — rules that fire before the deadline does  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · LSH Claims Specialist: BI liability follow-ups and the escalation protocol
@@ -1059,7 +1059,7 @@ A CMS rules panel fills the left two-thirds: four rule rows on cream cards, each
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Tasks → Countermeasure rules · CMS → Calendar · CMS → Case File → Risk Flags |
+| **Tool / interface** | CMS → Tasks → Action Item Log · CMS → Calendar · CMS → Notes → Case Notes |
 | **Expected output** | Four configured rules, calibrated on the Keystone record, with every firing on the mediation calendar dated, actioned and owned. |
 
 **Verification checkpoints**
@@ -1111,7 +1111,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 4) and tha
 
 ### 4.1.15 Bottleneck Resolution Simulation
 
-> **Skill Activity** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Countermeasure Operational Audit (`d4m4`)  
+> **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Skill Activity 2 — five problems, nine days, one order  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#30` Common Bottlenecks: Arbitration (The Trial-Ready Landmines) · `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder
@@ -1122,13 +1122,13 @@ A triage board fills the slide: five problem cards in a column on the left, each
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** File date 05/24/2027 (Mon). Consolidated UM arbitration, Laura Whitcomb, Esq.: exhibit exchange 06/02/2027, brief 06/11/2027, hearing 06/22/2027. (1) Crescent Pain & Spine's certified records and bill for the 05/15/2026 injection: requested 05/05/2027; second request and subpoena flag 05/19; nothing received. (2) Dr. Reyes's declaration shielding the 2021 low-back visits: Lakeside says she is away until 06/01/2027. (3) Cardinal State (Teresa Okafor) has not confirmed the hearing format or exhibit-exchange method; Harbor Point confirmed 05/20; the Case Manager escalated to Okafor's supervisor in writing 05/21; no answer. CMS → Parties shows neither carrier has appeared through counsel in the arbitration. (4) Riverton Spine & Rehab's refreshed ledger (05/21) restores the 05/04/2026 duplicate: $6,290.00 against the audited $6,105.00. (5) The copy vendor's draft set prints the doorbell-video stills in grayscale; the PDFs are not OCR-searchable.
+**Scenario.** File date 05/24/2027 (Mon). Consolidated UM arbitration, Laura Whitcomb, Esq.: exhibit exchange 06/02/2027, brief 06/11/2027, hearing 06/22/2027. (1) Crescent Pain & Spine's certified records and bill for the 05/15/2026 injection: requested 05/05/2027; second request and subpoena flag 05/19; nothing received. (2) Dr. Reyes's declaration shielding the 2021 low-back visits: Lakeside says she is away until 06/01/2027. (3) Cardinal State (Teresa Okafor) has not confirmed the hearing format or exhibit-exchange method; Harbor Point confirmed 05/20; the Case Manager escalated to Okafor's supervisor in writing 05/21; no answer. CMS → Parties Involved shows neither carrier has appeared through counsel in the arbitration. (4) Riverton Spine & Rehab's refreshed ledger (05/21) restores the 05/04/2026 duplicate: $6,290.00 against the audited $6,105.00. (5) The copy vendor's draft set prints the doorbell-video stills in grayscale; the PDFs are not OCR-searchable.
 
 **Execution prompt.** Triage all five problems in the CMS. For each, name the hard date it threatens, the rung it has reached and the countermeasure that applies. Sequence them: what goes to Atty. Thorne first, what you fix yourself today, what the 48-hour audit verifies and on which date. Then write one bottleneck report carrying every item that needs his decision, five fields and one ask each. Graded: the order and its reasons, the rung for each item, and keeping every legal choice with Atty. Thorne.
 
 | | |
 |---|---|
-| **Tool / interface** | Case Docket & Calendar Conflict Resolver · CMS → Case File → Bottleneck Log · CMS → Tasks → Escalate |
+| **Tool / interface** | Case Docket & Calendar Conflict Resolver · CMS → Notes → Case Notes · CMS → Tasks → + Add Task |
 | **Expected output** | A sequenced triage of all five problems and one five-field bottleneck report to Atty. Thorne, sent 05/24/2027. |
 
 **Verification checkpoints**
@@ -1137,7 +1137,7 @@ A triage board fills the slide: five problem cards in a column on the left, each
 - [ ] Items 1, 2 and 3 escalated first, in one report sent 05/24/2027, nearest hard date first: each needs Atty. Thorne's decision
 - [ ] Item 1's ask leaves the route to him: with the bodily-injury claims against Robert Smith dismissed, a records subpoena for the arbitration would issue under the arbitration's rules, if they allow it; confirm with Atty. Thorne what, if anything, remains pending in No. 26-CV-04417. Item 1 also asks, as a question for his decision, whether to exchange the uncertified copies already on file marked “Pending Final Verification”
 - [ ] Item 2 reported as a gap in the prior-medical shield (Dr. Reyes back 06/01/2027, one day before the 06/02/2027 exchange), with the options framed as questions
-- [ ] Before any rung on item 3, CMS → Parties checked: had either carrier appeared through counsel, logistics would go to that counsel as Atty. Thorne directs, and the ladder would run opposing counsel → Atty. Thorne
+- [ ] Before any rung on item 3, CMS → Parties Involved checked: had either carrier appeared through counsel, logistics would go to that counsel as Atty. Thorne directs, and the ladder would run opposing counsel → Atty. Thorne
 - [ ] Item 3: the 48 hours after the 05/21/2027 (Fri) escalation ran out 05/23/2027, a Sunday, so it reaches Atty. Thorne today at Rung 3; no direct contact with the arbitrator
 - [ ] Item 4 fixed at Rung 1 the same day: audit returned to Riverton's billing office; the exhibit set keeps $6,105.00 with the 05/04/2026 duplicate documented; medical Specials stay $14,817.40
 - [ ] Item 5 fixed without escalation: stills reprinted in color, the digital set OCR-scanned, the index re-checked
@@ -1181,7 +1181,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 4) and tha
 
 ### 4.1.16 Backup File Maintenance: Liens, Costs and a Missing Folder
 
-> **Skill Activity** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Final Accounting Check (`d3m4`)  
+> **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity — back up the lien and cost papers, and find and restore a deleted folder  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · `D3#21` Increasing the Client's Net · LSH firm standard: backup drive folder hierarchy
@@ -1198,7 +1198,7 @@ The Doe-John folder tree with a dashed, empty gap where 06 Liens & Reimbursement
 
 | | |
 |---|---|
-| **Tool / interface** | Backup Drive · CMS → Documents · CMS → Case Notes |
+| **Tool / interface** | Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes |
 | **Expected output** | A drive check that found the missing folder, the folder put back, the lien and cost papers backed up in 06 and 07, and a clean final check recorded in Case Notes. |
 
 **Verification checkpoints**
@@ -1244,7 +1244,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ### 4.1.17 Final Accounting Check
 
-> **Knowledge Check** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Final Accounting Check (`d3m4`)  
+> **Knowledge Check** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#37` The Execution: The Dismissal (The “Court” Filing) · `D2#41` Skill Building: BI Settlement — Caught in an Operational Pincer Movement · `D3#23` The Net Sheet: Purpose of a Combined BI/UM Net Sheet · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D3#27` Key Takeaway — The Value of a Case Manager · `D3#33` Final Case Reconciliation Checklist: Net Sheet (The “Money Trail”) · `D3#34` Final Case Reconciliation Checklist: Proof of Delivery/Completion · `D3#35` Final Case Reconciliation Checklist: Compliance & Identity Verification · `D3#36` Final Case Reconciliation Checklist: The Internal “Closing Memo” · `D3#37` Final Case Reconciliation: Retention & Disposition Schedule · `D3#38` Skill Building: Closing a Case — John Doe v. Apex Delivery Final Tasks
@@ -1347,7 +1347,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ### 4.1.18 ADR & Calendar Compliance Check
 
-> **Knowledge Check** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
+> **Knowledge Check** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#28` Master Timeline & Deadline Calculations · `D4#18` Arbitration Operational Track 1: Critical Timelines & Calendar Hard Rules · `D4#17` Arbitration: Operational Mindset — From Compromise to Trial-Ready · `D4#16` Case Phase: Arbitration — The Anatomy of a PI Arbitration · `D4#20` Ethics & Boundaries: What You Can and Cannot Do at Hearings (UPL) · `D4#5` Mediation Protocols for CMs: Logistics & Scheduling · `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D3#19` Key Legal Doctrines Used for Reduction
@@ -1463,7 +1463,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ### 4.1.19 Binder Assembly Verification
 
-> **Knowledge Check** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
+> **Knowledge Check** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#7` Mediation Binder Section 1: Executive Summary & Administrative Details · `D4#9` Mediation Binder Section 3: Core Pleadings (The Legal Framework) · `D4#10` Mediation Binder Section 4: Key Evidence & Liability Exhibits · `D4#13` Mediation: Quality Assurance & Logistics Auditor · `D4#15` Skill Building: The LSH Critical Thinking Challenge — The Pre-Mediation Audit · `D4#21` Arbitration Binders: Section 1 — The Arbitration Submissions · `D4#24` Arbitration Binders: Section 4 — Proving Bodily Accident Medical Damages · `D4#26` Arbitration Binders: Section 6 — Economic Losses & Lien Reconciliations · Newly authored: exhibit numbering, Bates ranges and the master index as the one source of truth · Newly authored: authentication, business-records certifications, relaxed evidence rules in arbitration, and mediation confidentiality at the hand-off
@@ -1557,7 +1557,7 @@ The standard knowledge-check split: the question panel on the warm cream card wi
 
 ### 4.1.20 Countermeasure Operational Audit
 
-> **Knowledge Check** · Day 4 — Mediation & arbitration · Module 4: Mediation & Arbitration · scored with Countermeasure Operational Audit (`d4m4`)  
+> **Knowledge Check** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · `D4#30` Common Bottlenecks: Arbitration (The Trial-Ready Landmines) · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder

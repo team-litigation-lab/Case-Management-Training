@@ -976,7 +976,7 @@ A single memo page on white letterhead, a navy header band reading IMPASSE MEMO 
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Documents → Memo · CMS → Communications Log · CMS → Tasks → Escalate |
+| **Tool / interface** | CMS → Doc Hub → Case Files · CMS → Notes → Case Notes · CMS → Tasks → + Add Task |
 | **Expected output** | A dated, sourced impasse memo routed to Atty. Thorne, asking for a decision and recommending none. |
 
 **Verification checkpoints**
@@ -1046,7 +1046,7 @@ A full-slide CMS screen, white with a navy header showing LSH-2026-MVA-770412 an
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Case Summary · CMS → Litigation · CMS → Documents → Outgoing · CMS → Calendar |
+| **Tool / interface** | CMS → Profile → Case Narrative · CMS → Litigation · CMS → Doc Hub → Others · CMS → Calendar |
 | **Expected output** | A file in Litigation status with every field, folder, notice, preservation step and calendar date set on Atty. Thorne's authority. |
 
 **Verification checkpoints**
@@ -1118,7 +1118,7 @@ A left-to-right relay of four cards on a thin navy rail, each with an orange num
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Tasks · Court E-Filing · CMS → Litigation → Pleadings Log · CMS → Documents · CMS → Financial Ledger · CMS → Calendar · Court E-Filing |
+| **Tool / interface** | CMS → Tasks · Court E-Filing · CMS → Litigation → Discovery & Filing Tracker · CMS → Doc Hub · CMS → Case Costs · CMS → Calendar · Court E-Filing |
 | **Expected output** | A signed filing set e-filed and accepted as No. 26-CV-04417, recorded in the CMS, and a calendar that runs from the 09/24/2026 filing date. |
 
 **Verification checkpoints**
@@ -1185,13 +1185,13 @@ A CMS Pleadings Log screen fills the left two-thirds: a white card with a navy h
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** 01/05/2027 · Track B. Civil Action No. 26-CV-04417 is three months old, and the docket calendar was audited and corrected on 12/10/2026, but the CMS Pleadings Log was never reconciled to it. As found: complaint 09/24/2026; service 10/14/2026, but no affidavit row (the executed affidavit, filed 10/16/2026, sits in an Allied Process Services email); Answer due 11/13/2026, filed 11/12/2026; Defendant's First Interrogatories (25) and RFPs (30), mailed 12/01/2026, logged as one row still carrying the pre-audit “due 12/31/2026”; no separate row for the 15 RFAs served with them; the 12/10/2026 Scheduling Order still saved as scan_1210.pdf with no log rows; our set e-served on Smith 12/14/2026, due 01/13/2027. CMS → Documents holds a Certificate of Service dated 01/04/2027 for John Doe's verified responses to the Interrogatories, RFPs and RFAs, served by mail on Atty. Mercer; no log row was ever made for it.
+**Scenario.** 01/05/2027 · Track B. Civil Action No. 26-CV-04417 is three months old, and the docket calendar was audited and corrected on 12/10/2026, but the CMS Pleadings Log was never reconciled to it. As found: complaint 09/24/2026; service 10/14/2026, but no affidavit row (the executed affidavit, filed 10/16/2026, sits in an Allied Process Services email); Answer due 11/13/2026, filed 11/12/2026; Defendant's First Interrogatories (25) and RFPs (30), mailed 12/01/2026, logged as one row still carrying the pre-audit “due 12/31/2026”; no separate row for the 15 RFAs served with them; the 12/10/2026 Scheduling Order still saved as scan_1210.pdf with no log rows; our set e-served on Smith 12/14/2026, due 01/13/2027. CMS → Doc Hub holds a Certificate of Service dated 01/04/2027 for John Doe's verified responses to the Interrogatories, RFPs and RFAs, served by mail on Atty. Mercer; no log row was ever made for it.
 
 **Execution prompt.** Repair the Pleadings Log and Discovery Calendar for 26-CV-04417. Add every missing row, recompute each response date from its trigger and method of service, and write the arithmetic into the row. File each document in its numbered sub-folder under the naming convention, and calendar the Scheduling Order's six dates. Then make the graded call: the RFA deadline never had its own log row and has passed. Prove compliance from that Certificate of Service, record the RFA Priority Check and 48-Hour Docket misses honestly, and report both to Atty. Thorne today. Do not contact opposing counsel.
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Litigation → Pleadings Log · CMS → Calendar · CMS → Documents |
+| **Tool / interface** | CMS → Litigation → Discovery & Filing Tracker · CMS → Calendar · CMS → Doc Hub |
 | **Expected output** | A corrected, source-linked Pleadings Log and Discovery Calendar, every document in its sub-folder, and RFA compliance proved from the certificate and the misses reported the same day. |
 
 **Verification checkpoints**
@@ -1201,7 +1201,7 @@ A CMS Pleadings Log screen fills the left two-thirds: a white card with a navy h
 - [ ] Interrogatories (25) and RFPs (30) corrected from 12/31/2026 to 01/04/2027: 12/01/2026 + 30 = 12/31/2026; + 3 for mail = 01/03/2027, a Sunday → Monday 01/04/2027
 - [ ] RFA row (15) added as its own entry with the same 01/04/2027 deadline and a red deemed-admission flag
 - [ ] Certificate of Service for John Doe's responses (dated 01/04/2027, by mail on Atty. Mercer) logged and filed to 04_DISCOVERY_DEFENDANT_TO_PLAINTIFF as Final_Verified_Responses_Served.pdf, its date checked against 01/04/2027 and the signed verification page confirmed attached
-- [ ] Report to Atty. Thorne through CMS → Tasks → Escalate on 01/05/2027: compliance proved by the 01/04/2027 certificate, and the RFA Priority Check and 48-Hour Docket misses named; no call to Atty. Mercer
+- [ ] Report to Atty. Thorne through CMS → Tasks → + Add Task on 01/05/2027: compliance proved by the 01/04/2027 certificate, and the RFA Priority Check and 48-Hour Docket misses named; no call to Atty. Mercer
 - [ ] Smith's responses calendared for 01/13/2027 (12/14/2026 + 30; e-service by consent adds no days on this file's rule set) with a follow-up task for the day after
 - [ ] Scheduling Order renamed Scheduling_Order_Entered.pdf, saved to 01_PLEADINGS, and its six dates logged and reconciled to the audited calendar: 03/15/2027, 04/15/2027, 03/31/2027, 05/28/2027, 08/12/2027, 09/13/2027
 - [ ] No scan names left; every document filed in one of the five numbered sub-folders under DOE, JOHN - CASE FILE
@@ -1263,7 +1263,7 @@ Split slide. Left 55%: the trial-prep checklist as a cream clipboard card with o
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Calendar · CMS → Litigation → KPI tracker |
+| **Tool / interface** | CMS → Calendar · CMS → Litigation → Discovery & Filing Tracker |
 | **Expected output** | A trial-prep checklist that matches the Scheduling Order date for date, and a KPI tracker with a formula, target, sourced reading and status for every KPI. |
 
 **Show Them — reference model**
@@ -1285,7 +1285,7 @@ Split slide. Left 55%: the trial-prep checklist as a cream clipboard card with o
 - [ ] Gap Record assembled for Atty. Thorne's prep: EMS report, Northgate attendance 02/09–02/13/2026, texts to Margaret 02/07–02/15, receipt 02/07/2026, urgent-care history 02/20/2026, the Summit MRI read, Causation Letter 06/19/2026, the 2021 chiropractic records; nothing scripted for John Doe
 - [ ] Final records run re-sourced from Riverton Urgent Care, Riverton Spine & Rehab, Lakeside Orthopedics, Summit Imaging Center, Crescent Pain & Spine and Riverton Drug, scheduled before 03/15/2027 and again before 08/12/2027
 - [ ] All nine KPIs present, each with a formula, a target, a reading with its source, and a status
-- [ ] Readings from this file right: RFA Priority Check and 48-Hour Docket Rule missed (the 01/05/2027 audit); Discovery Countdown measured against 12/28/2026 (7 days before 01/04/2027); Subpoena Audit: the Riverton Fire EMS records subpoena drafted 11/12/2026, status taken from CMS → Litigation → Subpoena log (served and reviewed every 10 days, or still awaiting Atty. Thorne's approval); records subpoenas for the remaining providers still planned for June, the staged error
+- [ ] Readings from this file right: RFA Priority Check and 48-Hour Docket Rule missed (the 01/05/2027 audit); Discovery Countdown measured against 12/28/2026 (7 days before 01/04/2027); Subpoena Audit: the Riverton Fire EMS records subpoena drafted 11/12/2026, status taken from CMS → Litigation → Discovery & Filing Tracker (served and reviewed every 10 days, or still awaiting Atty. Thorne's approval); records subpoenas for the remaining providers still planned for June, the staged error
 - [ ] Smith's responses (due 01/13/2027) docketed as received 01/13/2027, logged as a 48-Hour Docket miss and routed to Atty. Thorne for review; no extension agreed by the Case Manager
 - [ ] Review lenses applied. Coverage: Smith's insurance answers routed to Atty. Thorne, and a UM consent-to-settle task set before mediation (Harbor Point and Cardinal State, on notice since 09/10/2026). Treatment: the Gap Record and the A-C-T record mapped to causation and failure to mitigate. Liability: doorbell video, Ruth Calloway, the RPD-26-018842 citation, the EMS report and the EDR mapped to comparative negligence
 
@@ -1345,7 +1345,7 @@ A memo on the left two-thirds, headed TO ATTY. THORNE — DOES IT TOUCH JOHN'S C
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Case Notes · CMS → Documents · Call Simulator → AI Adjuster: Leah Moran, Keystone Mutual (PD) · CMS → Tasks → Escalate |
+| **Tool / interface** | CMS → Notes → Case Notes · CMS → Doc Hub · Call Simulator → AI Adjuster: Leah Moran, Keystone Mutual (PD) · CMS → Tasks → + Add Task |
 | **Expected output** | A short memo to Atty. Thorne sorting each PD outcome, the release held and routed, the severity set confirmed, and the call logged. |
 
 **Verification checkpoints**
@@ -1410,7 +1410,7 @@ A video-call frame fills the left two-thirds: AI John Doe's tile large, the trai
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI John Doe (deposition prep session) · CMS → Tasks → Escalate |
+| **Tool / interface** | Call Simulator → AI John Doe (deposition prep session) · CMS → Tasks → + Add Task |
 | **Expected output** | A delivered prep segment, a logistics record, and John's substantive questions routed to Atty. Thorne in John's own words. |
 
 **Show Them — reference model**
@@ -1426,7 +1426,7 @@ A video-call frame fills the left two-thirds: AI John Doe's tile large, the trai
 
 **Verification checkpoints**
 
-- [ ] New phone number updated in CMS → Parties; Margaret Doe confirmed as the backup contact
+- [ ] New phone number updated in CMS → Parties Involved; Margaret Doe confirmed as the backup contact
 - [ ] Logistics stated exactly: 02/18/2027, 10:00 a.m., by videoconference, Riverton Court Reporting
 - [ ] Test call set for 02/16/2027 on the device and in the room John will use on the day
 - [ ] Pillar 1: the setting explained (not a courtroom; no judge or jury; under oath, with a court reporter); no outcome predicted
@@ -1491,7 +1491,7 @@ Split screen. Left 60%: a mock video deposition — AI ATTY. GRANT MERCER questi
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI defense counsel: Atty. Grant Mercer (mock cross-examination, led by Atty. Thorne) · CMS → Litigation → Deposition prep log |
+| **Tool / interface** | Call Simulator → AI defense counsel: Atty. Grant Mercer (mock cross-examination, led by Atty. Thorne) · CMS → Litigation → Discovery & Filing Tracker |
 | **Expected output** | A timestamped Trap Log, scored against the seven Golden Rules, routed to Atty. Thorne before his debrief. |
 
 **Show Them — reference model**
@@ -1569,7 +1569,7 @@ A three-row counter-package matrix across the full slide width on a white card w
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Litigation → Liability counter-package · CMS → Documents → Subpoena template |
+| **Tool / interface** | CMS → Litigation → Discovery & Filing Tracker · CMS → Doc Hub → Litigation Documents |
 | **Expected output** | An allegation-by-allegation counter-package with foundation for every item, a draft Exhibit A, and the open legal questions routed to Atty. Thorne. |
 
 **Verification checkpoints**
@@ -1638,7 +1638,7 @@ Split slide. Left half, PART 1 — SERVICE: a vertical log card (date · time ·
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Tasks → Escalate · Court E-Filing · CMS → Communications Log · CMS → Documents → Warning letter template · CMS → Documents → Outgoing |
+| **Tool / interface** | CMS → Tasks → + Add Task · Court E-Filing · CMS → Notes → Case Notes · CMS → Doc Hub → Others |
 | **Expected output** | A service record from Skip-Trace to answer date, and a dispatched certified notice with both deliveries logged and John's Skip-Trace gate assessed. |
 
 **Verification checkpoints**
@@ -1710,7 +1710,7 @@ The LSH Net Sheet fills the slide in its four navy-headed sections. Section 1 re
 
 | | |
 |---|---|
-| **Tool / interface** | LSH Net Sheet · CMS → Financial Ledger → Trust · CMS → Tasks → Escalate |
+| **Tool / interface** | LSH Net Sheet · CMS → Settlement (BI/UM) → Check Received / Disbursed · CMS → Tasks → + Add Task |
 | **Expected output** | A Net Sheet reaching $14,713.75, every cost and lien proved, routed to Atty. Thorne before John Doe signs. |
 
 **Verification checkpoints**
@@ -1774,7 +1774,7 @@ The Doe-John folder tree with every folder ticked green and 09 Litigation & ADR 
 
 | | |
 |---|---|
-| **Tool / interface** | Backup Drive · CMS → Documents · CMS → Case Notes |
+| **Tool / interface** | Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes |
 | **Expected output** | The litigation and ADR documents backed up in 09 Litigation & ADR, a final audit with every filed document on the drive and a clean check, and a closing checklist in Case Notes ready for Atty. Thorne's sign-off. |
 
 **Verification checkpoints**
@@ -1837,7 +1837,7 @@ A PRACTICE MATTER banner in orange across the top: DENISE HARLOW · LSH-2026-MVA
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Documents → Withdrawal Letter template |
+| **Tool / interface** | CMS → Doc Hub → Others |
 | **Expected output** | Three Withdrawal Letters ready for Atty. Thorne's signature, a send method for each, and a close-out log from Pending Drop to Dropped. |
 
 **Verification checkpoints**

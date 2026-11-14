@@ -147,7 +147,7 @@ function loopSchedule(items, opts){
   const labs = [];
   if(main) labs.push({title: String(main.heading || "").replace(/^Skill Building:\s*/, "") || "Skill Building", main: true, acts: [main], extra: [], skill: act, brainstorm, mins: act + brainstorm});
   if(driveAct) labs.push({title: "Backup File Maintenance", drive: true, acts: [driveAct], extra: [], skill: drive, brainstorm: 0, mins: drive});
-  if(sides.length) labs.push({title: "Side exercises (optional)", side: true, acts: [], extra: sides, skill: side, brainstorm: 0, mins: side});
+  if(sides.length) labs.push({title: "Side exercises", side: true, acts: [], extra: sides, skill: side, brainstorm: 0, mins: side});
   const used = lessonBudget + kc + profile + plan + drive + side + brainstorm + act + build, total = BREAK_MIN + used, n = base.full, m = base.briefs;
   // the side exercises' minutes hold about SIDE.each each: sidePick of them fit, the rest are there to choose from
   const sidePick = side ? Math.min(sides.length, Math.max(1, Math.floor(side / SIDE.each))) : 0;

@@ -8,16 +8,16 @@
      🗂 Case opened & verified       Day 1: the CMS Case ID logged on Check Your Work, the CMS reporting the case open
                                      (course-bridge.js), the client John Doe, the Date of Loss entered, the ID logged
                                      being the case in the CMS
-     👥 Parties & Conflict Check     the Check Your Work items of the activities worked in CMS → New Case / Parties
-     🛡 Insurance stack & claims     … in CMS → Insurance tab (the stack, its limits, policy and claim numbers)
+     👥 Parties & Conflict Check     the Check Your Work items of the activities worked in CMS → 📝 New Intake / Parties Involved
+     🛡 Insurance stack & claims     … in CMS → Insurance / Demand (the stack, its limits, policy and claim numbers, the offers)
      📅 SOL, calendar & tasks        … in CMS → Calendar / Tasks (the SOL and every deadline docketed, tasks owned and dated)
-     🗒 Case notes & logs            … in CMS → Case Notes / Communications Log / Case Summary / Case File
-     💵 Liens & ledger               … in CMS → Liens / Financial Ledger
+     🗒 Case notes & logs            … in CMS → Notes / Case Status / Profile / Treatment (its chronology and notes)
+     💵 Liens & ledger               … in CMS → Liens / Case Costs / Settlement (BI/UM) / Treatment → Total Medical Specials
      ⚖️ Litigation record            … in CMS → Litigation / ADR
      📤 Documents filed              every case document of the day filed under its CMS category and named to the firm's
                                      convention (doc-filing: 100% first time right, then 100% ÷ the attempts it took)
 
-   An activity's area is the CMS screen it is worked in first (its act.tool, "CMS → Insurance tab · …"). Its items
+   An activity's area is the CMS screen it is worked in first (its act.tool, "CMS → Insurance · …"). Its items
    are its Check Your Work list (the slide's checks, the ones the trainee ticks): ticked 100%, not ticked 0% once the
    activity is worked (answers revealed, a tick, or its work logged). An activity not worked, or a document not filed,
    is still to do while the day is open and counts 0 once the day's Knowledge Check is passed (the day is closed with
@@ -34,13 +34,15 @@ const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;
 const mean = a => a.length ? Math.round(a.reduce((n, x) => n + x, 0) / a.length) : null;
 const AREAS = [
   {id: "open", icon: "🗂", label: "Case opened & verified", dim: "pc"},
-  {id: "parties", icon: "👥", label: "Parties & Conflict Check", dim: "pc", re: /New Case|Parties/},
-  {id: "ins", icon: "🛡", label: "Insurance stack & claim numbers", dim: "na", re: /Insurance/},
-  {id: "cal", icon: "📅", label: "SOL, calendar & tasks", dim: "pc", re: /Calendar|Tasks/},
-  {id: "notes", icon: "🗒", label: "Case notes & logs", dim: "cd", re: /Case Notes|Communications Log|Case Summary|Case Status|Case File|Onboarding/},
-  {id: "liens", icon: "💵", label: "Liens & ledger", dim: "cp", re: /Liens|Financial Ledger/},
-  {id: "lit", icon: "⚖️", label: "Litigation record", dim: "cp", re: /Litigation|ADR/},
-  {id: "docs", icon: "📤", label: "Documents filed (category & name)", dim: "pc", re: /Documents/}];
+  // (each area by the CMS's own menu: its tab, and a section where one tab serves two areas; .github/scripts/cms-paths.cjs
+  //  keeps every "CMS → …" in the course on a real tab and section)
+  {id: "parties", icon: "👥", label: "Parties & Conflict Check", dim: "pc", re: /^CMS → (📝 New Intake|Parties Involved)\b/},
+  {id: "ins", icon: "🛡", label: "Insurance stack & claim numbers", dim: "na", re: /^CMS → (Insurance|Demand\b|Settlement \(BI\/UM\) → Offer & Counter History)/},
+  {id: "cal", icon: "📅", label: "SOL, calendar & tasks", dim: "pc", re: /^CMS → (Calendar|📅 Firm Calendar|Tasks)\b/},
+  {id: "notes", icon: "🗒", label: "Case notes & logs", dim: "cd", re: /^CMS → (Notes|Case Status|Profile|Treatment → (Medical Chronology|Other Treatment Notes))\b/},
+  {id: "liens", icon: "💵", label: "Liens & ledger", dim: "cp", re: /^CMS → (Liens|Case Costs|Settlement \(BI\/UM\)|Treatment → Total Medical Specials)/},
+  {id: "lit", icon: "⚖️", label: "Litigation record", dim: "cp", re: /^CMS → (Litigation|ADR)\b/},
+  {id: "docs", icon: "📤", label: "Documents filed (category & name)", dim: "pc", re: /^CMS → Doc Hub\b/}];
 const AREA = Object.fromEntries(AREAS.map(a => [a.id, a]));
 const cfDays = () => (typeof DAYS !== "undefined" ? DAYS : []).filter(d => d.cf);
 const strip = t => String(t || "").replace(/\*\*(.+?)\*\*/g, "$1");

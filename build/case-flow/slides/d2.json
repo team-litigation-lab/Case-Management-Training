@@ -92,7 +92,7 @@
     "situation": "Assuming claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, **no adjuster assigned**, **five letters** must go out on 02/17/2026.",
     "side": true,
     "steps": [
-      "In CMS → Documents → Outgoing, draft three letters of representation and **two notices**: each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages.",
+      "In CMS → Doc Hub → Others, draft three letters of representation and **two notices**: each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages.",
       "Route the set to Atty. Thorne for signature, send each by the carrier's preferred method, and calendar a check for each acknowledgement."
     ],
     "deliver": "Five letters **signed, sent and logged**, each correctly addressed, follow-ups calendared",
@@ -146,8 +146,8 @@
     "situation": "Assuming a colleague's Coverage Matrix **totals $45,000** and the file holds Harbor Point's and Cardinal State's letters but no Keystone Declaration Page, the matrix needs correcting.",
     "side": true,
     "steps": [
-      "In CMS → Insurance → Coverage Matrix, take PIP out of the stack and correct the total to **$40,000**, citing the document behind each fix.",
-      "Log a three-line audit note to Atty. Thorne in CMS → Case Notes: what is confirmed in writing, what is still preliminary, and what you escalated."
+      "In CMS → Insurance, take PIP out of the stack and correct the total to **$40,000**, citing the document behind each fix.",
+      "Log a three-line audit note to Atty. Thorne in CMS → Notes → Case Notes: what is confirmed in writing, what is still preliminary, and what you escalated."
     ],
     "deliver": "A corrected matrix **totalling $40,000**, its audit note routed",
     "purpose": "Every later decision reads this matrix: **one unsourced cell** misstates the $40,000 stack",
@@ -239,8 +239,8 @@
     "situation": "Assuming Riverton Spine & Rehab is **out of network** for Peach State and Atty. Thorne has approved its LOP, the LOP now needs sending and logging.",
     "side": true,
     "steps": [
-      "In CMS → Liens → LOP register, record Riverton's LOP signed by John Doe and Atty. Thorne, and send it with the **HIPAA authorization** from the Email Workspace.",
-      "Log Summit Imaging's declined LOP request in CMS → Case Notes, naming Harbor Point PIP as the payer, and calendar the rental's 03/19/2026 end."
+      "In CMS → Liens → Outstanding Case Liens, record Riverton's LOP signed by John Doe and Atty. Thorne, and send it with the **HIPAA authorization** from the Email Workspace.",
+      "Log Summit Imaging's declined LOP request in CMS → Notes → Case Notes, naming Harbor Point PIP as the payer, and calendar the rental's 03/19/2026 end."
     ],
     "deliver": "One **counsel-approved LOP** sent, one declined, both logged",
     "purpose": "A needless LOP makes **a bill PIP would pay** a lien on his recovery",
@@ -323,7 +323,7 @@
     "situation": "Assuming the No Contact Protocol has been maxed and John Doe **calls back on 04/17**, his re-engagement now needs logging before the letter's date.",
     "side": true,
     "steps": [
-      "Log the call in CMS → Case Notes in **his own words**, with no diagnosis or advice.",
+      "Log the call in CMS → Notes → Case Notes in **his own words**, with no diagnosis or advice.",
       "In CMS → Calendar, book his 04/21 and 04/23 visits, then restore the file's status in CMS → Case Status."
     ],
     "deliver": "His words logged, visits booked, **the file restored**",
@@ -448,7 +448,7 @@
     "side": true,
     "steps": [
       "Take the recorded call below: state the date and his consent, ask open questions only, and read his account back to him.",
-      "Log a privileged GIRP note in CMS → Case Notes **the same day**, with a dated task for each corroborating document."
+      "Log a privileged GIRP note in CMS → Notes → Case Notes **the same day**, with a dated task for each corroborating document."
     ],
     "deliver": "**All four reasons** in his words, the GIRP note filed",
     "purpose": "A suggested reason proves nothing: **only his own words**, backed by documents, hold up",
@@ -545,7 +545,7 @@
     "situation": "Assuming Dr. Reyes's **06/19/2026 Causation Letter** and her 04/20 note are in, Atty. Thorne needs the Gap Explanation Record before the pre-demand session.",
     "side": true,
     "steps": [
-      "In CMS → Case File → Gap Explanation Record, enter the 14-day gap and the **19-day disruption** with exact dates, each reason beside its dated document.",
+      "In CMS → Treatment → Other Treatment Notes, enter the 14-day gap and the **19-day disruption** with exact dates, each reason beside its dated document.",
       "Log it as routed to Atty. Thorne, and file the non-economic damages records in the CMS."
     ],
     "deliver": "A routed record of **both interruptions**, every reason sourced",
@@ -612,7 +612,7 @@
     "situation": "Assuming Riverton Spine & Rehab's **05/04/2026 duplicate line** is confirmed and Northgate verified $1,584.00 in wages, the Specials now need totalling.",
     "side": true,
     "steps": [
-      "In CMS → Financial Ledger → Specials, remove the duplicate and total the medical at $14,817.40 plus the wages, showing **billed beside paid**.",
+      "In CMS → Treatment → Total Medical Specials, remove the duplicate and total the medical at $14,817.40 plus the wages, showing **billed beside paid**.",
       "Log the liens in CMS → Liens and flag the billed-versus-paid choice to Atty. Thorne."
     ],
     "deliver": "An **audited ledger at $16,401.40**, liens listed, choice routed",
@@ -664,7 +664,7 @@
     "situation": "Assuming Atty. Thorne has decided on a **time-limited BI demand**, served 07/20/2026, his strategy decisions now need recording on the file.",
     "side": true,
     "steps": [
-      "Log each decision in CMS → Case Notes, **attributed to Atty. Thorne**, with the date it was made.",
+      "Log each decision in CMS → Notes → Case Notes, **attributed to Atty. Thorne**, with the date it was made.",
       "In CMS → Tasks, open a task with an owner for each decision, and propose no demand figure."
     ],
     "deliver": "A dated decision record, **attributed to Atty. Thorne**, tasked",
@@ -834,8 +834,8 @@
     "situation": "Assuming Northgate HR has sent the employer's verification and **every missed shift** matches a provider's note, the wage loss now needs entering.",
     "side": true,
     "steps": [
-      "In CMS → Financial Ledger → Specials, correct the draft worksheet from $1,760.00 to the **verified $1,584.00**.",
-      "Log it by filing Northgate's letters in CMS → Documents, flag the 02/09–02/13 shifts to Atty. Thorne, and send no medical records to the employer."
+      "In CMS → Treatment → Total Medical Specials, correct the draft worksheet from $1,760.00 to the **verified $1,584.00**.",
+      "Log it by filing Northgate's letters in CMS → Doc Hub, flag the 02/09–02/13 shifts to Atty. Thorne, and send no medical records to the employer."
     ],
     "deliver": "**$1,584.00 verified** in the Specials, Northgate's letters filed",
     "purpose": "An unexcused absence is **the line an adjuster attacks** first",
@@ -982,7 +982,7 @@
       "File each of the four documents in the CMS from 📁 Source Files, so each copy reaches its **folder on your Drive**.",
       "In Google Drive, find the Summit Imaging invoice in 03 Medical Records, move it to 04 Bills & Invoices, and rename it the firm's way.",
       "Open 📂 My Backup Drive and run ✓ Check my drive.",
-      "In CMS → Case Notes, write in two sentences what goes in each folder and why a bill in the records folder is a damages problem."
+      "In CMS → Notes → Case Notes, write in two sentences what goes in each folder and why a bill in the records folder is a damages problem."
     ],
     "deliver": "Records and bills **each in their own folder**, checked",
     "purpose": "The Specials audit reads **the bills folder only**",

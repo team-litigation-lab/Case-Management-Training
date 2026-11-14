@@ -31,8 +31,8 @@
     "situation": "Assuming the **15 RFAs** have no row in the Pleadings Log and their 01/04/2027 Certificate of Service sits unlogged, the log needs fixing.",
     "side": true,
     "steps": [
-      "In CMS → Litigation → Pleadings Log, add the RFA row with a **deemed-admission flag**, and log the Certificate of Service with its date.",
-      "Report any miss to Atty. Thorne today in CMS → Tasks → Escalate, without back-dating."
+      "In CMS → Litigation → Discovery & Filing Tracker, add the RFA row with a **deemed-admission flag**, and log the Certificate of Service with its date.",
+      "Report any miss to Atty. Thorne today in CMS → Tasks → + Add Task, without back-dating."
     ],
     "deliver": "**A corrected, source-linked log**, misses reported the same day",
     "purpose": "A missed RFA deadline can mean **deemed admissions** against John Doe",
@@ -78,7 +78,7 @@
     "side": true,
     "steps": [
       "In CMS → Calendar, correct our expert disclosure to **03/15/2027**, and record mediation as completed by 03/31/2027.",
-      "Log both changes in CMS → Litigation → KPI tracker."
+      "Log both changes in CMS → Litigation → Discovery & Filing Tracker."
     ],
     "deliver": "A checklist matching **the order date for date**",
     "purpose": "A checklist that drifts from the order lets **a court date pass** unprepared",
@@ -135,7 +135,7 @@
     "situation": "Assuming Keystone PD's final position is **$792.00 and $0** with an all-claims release for Mr. Doe, the release needs holding.",
     "side": true,
     "steps": [
-      "Log the release in CMS → Documents as held, and route it to Atty. Thorne in CMS → Tasks → Escalate **the same day**.",
+      "Log the release in CMS → Doc Hub as held, and route it to Atty. Thorne in CMS → Tasks → + Add Task **the same day**.",
       "Log one Case Note: Diminished Value and Loss of Use stay on Margaret's file. Does this touch John Doe's case?"
     ],
     "deliver": "**The release routed**, each PD outcome sorted",
@@ -238,7 +238,7 @@
     "situation": "Assuming Atty. Thorne's mock cross-examination ran on 02/16/2027 with **your microphone muted**, the Trap Log needs finishing for his debrief.",
     "side": true,
     "steps": [
-      "In CMS → Litigation → Deposition prep log, put the record fact and its source beside each trap, such as the gap: **14 days**, 02/06 to 02/20/2026.",
+      "In CMS → Litigation → Discovery & Filing Tracker, put the record fact and its source beside each trap, such as the gap: **14 days**, 02/06 to 02/20/2026.",
       "Route the log to Atty. Thorne before his debrief."
     ],
     "deliver": "**A timestamped Trap Log**, routed before the debrief",
@@ -289,7 +289,7 @@
     "situation": "Assuming Atty. Mercer's Answer pleads **comparative negligence** and failure to mitigate, the counter-package needs its evidence logged.",
     "side": true,
     "steps": [
-      "In CMS → Litigation → Liability counter-package, give each allegation its own row with the evidence, its source and **chain of custody**.",
+      "In CMS → Litigation → Discovery & Filing Tracker, give each allegation its own row with the evidence, its source and **chain of custody**.",
       "Log the questions only Atty. Thorne can answer at the end."
     ],
     "deliver": "**An allegation-by-allegation counter-package**, questions routed",
@@ -341,8 +341,8 @@
     "situation": "Assuming Robert Smith's new address is **confirmed on two sources**, his service and the answer date need logging.",
     "side": true,
     "steps": [
-      "In CMS → Communications Log, log service at 4410 Quarry Ridge Ct, Millbrook, and docket **the answer date** in CMS → Calendar.",
-      "Log why John Doe's Skip-Trace gate is not met yet in CMS → Case Notes."
+      "In CMS → Notes → Case Notes, log service at 4410 Quarry Ridge Ct, Millbrook, and docket **the answer date** in CMS → Calendar.",
+      "Log why John Doe's Skip-Trace gate is not met yet in CMS → Notes → Case Notes."
     ],
     "deliver": "A service record through **the answer date**",
     "purpose": "An unserved defendant stalls the case; **an unreachable client** imperils his deposition",
@@ -399,7 +399,7 @@
     "situation": "Assuming Atty. Thorne dropped Denise Harlow's case and told her on 12/08, with the status at **Pending Drop**, the close-out needs logging.",
     "side": true,
     "steps": [
-      "In CMS → Documents → Withdrawal Letter template, draft the three letters for his signature, with **his reason** only in Denise's.",
+      "In CMS → Doc Hub → Others, draft the three letters for his signature, with **his reason** only in Denise's.",
       "Log each send and the 12/16/2026 follow-up, then switch the case to Dropped."
     ],
     "deliver": "Three letters for signature and **a close-out log**",
@@ -445,7 +445,7 @@
     "side": true,
     "steps": [
       "In the LSH Net Sheet, enter the gross by carrier, the **40% fee** after suit, the receipted costs and each reduced lien.",
-      "Log the Settlement Statement to Atty. Thorne in CMS → Tasks → Escalate."
+      "Log the Settlement Statement to Atty. Thorne in CMS → Tasks → + Add Task."
     ],
     "deliver": "A Net Sheet reaching **$14,713.75**",
     "purpose": "The client's money moves on this sheet: **one wrong line** shortchanges John Doe",

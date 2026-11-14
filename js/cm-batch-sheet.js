@@ -35,6 +35,8 @@ const ago = v => { const d = T0(v); if(!d) return ""; const m = Math.round((Date
 const letter = i => { let s = ""; i++; while(i > 0){ const m = (i - 1) % 26; s = String.fromCharCode(65 + m) + s; i = Math.floor((i - 1) / 26); } return s; };
 const days = () => (typeof DAYS !== "undefined" ? DAYS : []);
 const dayLabel = d => d.cf ? `Day ${d.cf.n}` : `Day ${d.id}`;
+// a stored label as shown: "Day 11 · Case Flow Day 1 · …" → "Day 1 · …" (index.html dayText: the Case Flow day, never the internal id)
+const shown = t => typeof dayText === "function" ? dayText(t) : String(t == null ? "" : t);
 const tools = () => (typeof PRACTICE_TOOLS !== "undefined" ? PRACTICE_TOOLS : []);
 const keyOf = r => typeof batchKey === "function" ? batchKey(r) : (r.batch || "");
 const labelOf = k => typeof folderLabel === "function" ? folderLabel(k) : k;
@@ -94,6 +96,19 @@ function scoreOf(r){
   const c = {rec: r, cf: r.caseFlow || {days: {}}, data: dataOf(r), callsim: x.callsim, sim: x.sim, fb: fbRecOf(r)};
   try{ return window.cmScorecard.compute(c); }catch(e){ return null; }
 }
+// ⭐ THE Overall and each day's score: js/cm-scorecard.js cmScorecard.overall, the one function the trainee's card and 🏅 Scores
+// call too, so every table here shows the same number they do (read once per trainee per repaint)
+const OV = {at: 0, m: new Map()};
+function ovOf(r){
+  if(Date.now() - OV.at > 1500){ OV.m = new Map(); OV.at = Date.now(); }
+  if(OV.m.has(r)) return OV.m.get(r);
+  let v = null; try{ v = window.cmScorecard && cmScorecard.overall ? cmScorecard.overall(ctxFor(r)) : null; }catch(e){ v = null; }
+  OV.m.set(r, v); return v;
+}
+const ovPct = r => { const o = ovOf(r); return o ? o.pct : null; };
+const ovTip = r => { const o = ovOf(r); return o ? o.why : "Nothing scored yet"; };
+const dayS = (r, d) => { const o = ovOf(r), x = o && o.days.find(y => y.id === d.id); return x ? x.S : null; };
+const daySTip = (r, d) => { const v = dayS(r, d); return v == null ? `${dayLabel(d)}: nothing scored yet` : `${dayLabel(d)} score (the 100-point model's day score, as on the trainee's card) = ${v}%`; };
 const summaryOf = r => { try{ return typeof auditSummary === "function" ? auditSummary(r) : null; }catch(e){ return null; } };
 
 /* ---------- the tables: {id, title, note, head, rows: [[{v, f, cls}]], onRow, rowCls} ---------- */
@@ -177,14 +192,16 @@ function lessonsTable(ppl){
 function scoresTable(ppl){
   const S = (window.cmScorecard && cmScorecard.sources) || [];
   const rows = ppl.filter(r => r.approved === true).map(r => ({r, sc: scoreOf(r)})).filter(x => x.sc);
-  const order = rows.filter(x => x.sc.overall != null).slice().sort((a, b) => b.sc.overall - a.sc.overall);
-  order.forEach((x, i) => { x.rank = i && order[i - 1].sc.overall === x.sc.overall ? order[i - 1].rank : i + 1; });
+  rows.forEach(x => { x.ov = ovPct(x.r); });
+  const order = rows.filter(x => x.ov != null).slice().sort((a, b) => b.ov - a.ov);
+  order.forEach((x, i) => { x.rank = i && order[i - 1].ov === x.ov ? order[i - 1].rank : i + 1; });
   return {id: "scores", rowsRaw: rows, title: "🏅 Scores", 
-    head: ["Trainee", "Overall %", "Rank", "Days passed"].concat(S.map(s => `${s.icon} ${s.label}`)),
+    head: ["Trainee", "Overall %", "Rank", "Days passed", "Grading systems average %"].concat(S.map(s => `${s.icon} ${s.label}`)),
     rows: rows.map(x => [{v: nameOf(x.r), f: nameOf(x.r), cls: "gs-name"},
-        {v: pct(x.sc.overall), f: x.sc.overall == null ? "Nothing graded yet" : `The average of ${x.sc.systems} grading systems = ${x.sc.overall}%`, cls: "gs-num gs-calc gs-bold " + tone(x.sc.overall)},
+        {v: pct(x.ov), f: ovTip(x.r), cls: "gs-num gs-calc gs-bold " + tone(x.ov)},
         {v: x.rank == null ? "" : String(x.rank), f: x.rank == null ? "Not ranked: nothing graded yet" : `Rank ${x.rank} of ${order.length}`, cls: "gs-rank"},
-        {v: `${x.sc.done} / ${x.sc.total}`, f: `${x.sc.done} of the ${x.sc.total} days passed`, cls: "gs-num"}]
+        {v: `${x.sc.done} / ${x.sc.total}`, f: `${x.sc.done} of the ${x.sc.total} days passed`, cls: "gs-num"},
+        {v: pct(x.sc.overall), f: x.sc.overall == null ? "Nothing graded yet" : `A sub-score, not the Overall: the average of ${x.sc.systems} grading systems = ${x.sc.overall}%`, cls: "gs-num " + tone(x.sc.overall)}]
       .concat(x.sc.rows.map(y => ({v: pct(y.avg), f: y.avg == null ? `${y.s.label}: nothing graded yet` : `${y.s.label}: average of ${y.items.length} = ${y.avg}%`, cls: "gs-num " + tone(y.avg)})))),
     onRow: rows.map(x => `cmBatchSheet.pick('${E(x.r.id)}')`), rowCls: rows.map(x => B.pick === x.r.id ? "gs-picked" : ""),
     empty: "No approved trainee here yet."};
@@ -195,7 +212,7 @@ function detailTable(x){
     rows.push([{v: `${r.s.icon} ${r.s.label}`, f: r.s.about, cls: "gs-name"}, {v: r.s.about, f: r.s.about, cls: "gs-txt"}, {v: "", f: ""}, {v: pct(r.avg), f: r.avg == null ? "Nothing graded yet" : `Average of ${r.items.length}`, cls: "gs-num gs-calc gs-bold " + tone(r.avg)}]); cls.push("gs-sys");
     r.items.forEach(i => { rows.push([{v: "", f: r.s.label}, {v: i.name, f: i.name, cls: "gs-txt"}, {v: i.note || "", f: i.note || "", cls: "gs-txt gs-det"}, {v: pct(i.pct), f: `${i.name}: ${pct(i.pct)}`, cls: "gs-num " + tone(i.pct)}]); cls.push(""); });
   });
-  rows.push([{v: "Overall", f: "", cls: "gs-name"}, {v: sc.overall == null ? "Nothing graded yet" : `The average of ${sc.systems} grading systems`, f: "", cls: "gs-txt"}, {v: `${sc.graded} graded items`, f: ""}, {v: pct(sc.overall), f: "", cls: "gs-num gs-bold"}]); cls.push("gs-total");
+  rows.push([{v: "Grading systems average", f: "A sub-score, not the Overall", cls: "gs-name"}, {v: sc.overall == null ? "Nothing graded yet" : `The average of ${sc.systems} grading systems (the Overall is the 100-point model's Final: ${pct(ovPct(x.r)) || "—"})`, f: "", cls: "gs-txt"}, {v: `${sc.graded} graded items`, f: ""}, {v: pct(sc.overall), f: "", cls: "gs-num gs-bold"}]); cls.push("gs-total");
   return {id: "detail", title: `🔎 Grades in detail: ${nameOf(x.r)}`, note: "Each grading system's row has its average; its graded items are under it.", head: ["Grading system", "Item", "Detail", "Score"], rows, rowCls: cls};
 }
 function recentTable(ppl){
@@ -218,10 +235,10 @@ function recentTable(ppl){
       const d = days().find(x => String(x.id) === String(dayId)), rb = window.cmRubric && cmRubric.counts && cmRubric.counts(f) ? cmRubric.total(f.rubric) : null;
       push(r, f.sentAt, "Trainer feedback sent", `${d ? dayLabel(d) : "Day " + dayId}${f.rating ? " · " + f.rating : ""}`, rb); });
     (data["work-log"] || []).forEach(w => { if(!w || w.kind === "quiz") return;
-      push(r, w.at, w.kind === "lab" ? "Skill Activity" : w.kind === "roleplay" ? "Call practice" : w.kind === "task" ? "Random task" : "Practice", w.label, typeof w.score === "number" ? w.score : null); });
+      push(r, w.at, w.kind === "lab" ? "Skill Activity" : w.kind === "roleplay" ? "Call practice" : w.kind === "task" ? "Random task" : "Practice", shown(w.label), typeof w.score === "number" ? w.score : null); });
     const tname = t => clip(typeof t.task === "string" ? t.task : (t.task && (t.task.title || t.task.name)) || "", 120);
     (data["task-log"] || []).forEach(t => { if(t && t.status === "resolved") push(r, t.submittedAt || t.resolvedAt, "Random task resolved", tname(t), t.score); else if(t && t.status === "missed") push(r, t.expiresAt, "Random task missed", tname(t), 0); });
-    const lv = data["last-view"]; if(lv && lv.at) push(r, lv.at, "Opened", lv.view === "day" ? `Day ${lv.dayId}` : lv.view === "tool" ? `Skill Builder ${lv.toolId || ""}` : String(lv.view || ""));
+    const lv = data["last-view"]; if(lv && lv.at) push(r, lv.at, "Opened", lv.view === "day" ? `Day ${typeof dayNo === "function" ? dayNo(lv.dayId) : lv.dayId}` : lv.view === "tool" ? `Skill Builder ${lv.toolId || ""}` : String(lv.view || ""));
   });
   out.sort((a, b) => b.at - a.at);
   return {id: "recent", title: "🕒 Recent progress", note: `Everything they did${B.recent ? ` in the last ${B.recent} days` : ""}, newest first: Knowledge Check attempts, Skill Activities and calls, documents filed in the CMS, the Backup Drive, random tasks and the feedback sent, each with its score.`,
@@ -270,7 +287,7 @@ function dayParts(r, d){
   const latest = {}; wl.filter(w => w && (w.kind === "lab" || w.kind === "roleplay") && Number(w.dayId) === Number(d.id) && typeof w.score === "number")
     .forEach(w => { const k = w.kind + "|" + (w.label || w.toolId); if(!latest[k] || String(w.at) > String(latest[k].at)) latest[k] = w; });
   Object.values(latest).forEach(w => { const subs = Object.entries(w.subs || {}).map(([k, v]) => `${k} ${v}%`).join(", ");
-    out.push({grp: w.kind === "lab" ? "sa" : "call", name: `${w.kind === "lab" ? "🧪" : "📞"} ${clip(w.label || "Skill Activity", 90)}`, pct: num(w.score), status: w.tier || "",
+    out.push({grp: w.kind === "lab" ? "sa" : "call", name: `${w.kind === "lab" ? "🧪" : "📞"} ${clip(shown(w.label || "Skill Activity"), 90)}`, pct: num(w.score), status: w.tier || "",
       why: [w.tier, subs ? "rubric: " + subs : "", w.at ? "graded " + dTime(w.at) : ""].filter(Boolean).join(" · "),
       best: (w.strengths || []).map(x => clip(x, 200)), improve: (w.gaps || []).concat(w.growth || []).map(x => clip(x, 200))}); });
   // 🎲 random tasks of the day (a missed one counts 0)
@@ -316,16 +333,16 @@ const dayAvg = xs => avgOf(xs.map(x => x.pct));
 const SC_COLS = [["kc", "✍️ Knowledge Check"], ["lc", "🧩 Learning Checks"], ["tk", "📝 Takeaways"], ["sa,call", "🧪 Activities & calls"], ["rt", "🎲 Random tasks"], ["bd", "📂 Backup Drive"], ["cmsf", "🗂 CMS file"], ["fb", "📐 Trainer rubric"]];
 function scoreCardTable(ppl, day){
   // (one day at a time on the page, the trainer picks it: a table of every day side by side scrolled sideways; ⬇ Download has each day)
-  const ALL = cfDaysL(), L = day ? [day] : ALL, P = SC_COLS.map(c => c[1]).concat(["Average", "💬 Remarks"]);
+  const ALL = cfDaysL(), L = day ? [day] : ALL, P = SC_COLS.map(c => c[1]).concat(["Day score", "💬 Remarks"]);
   return {id: day ? "scorecard-d" + day.id : "scorecard", title: day ? `🏅 Score Card · ${dayLabel(day)}` : "🏅 Score Card", 
     groups: [{label: "", span: 2}].concat(L.map(d => ({label: `${dayLabel(d)} · ${String(d.title).replace(/^Case Flow Day \d+ · /, "")}`, span: P.length}))),
     head: ["Trainee", "Overall"].concat(...L.map(() => P)),
-    rows: ppl.map(r => { const SA = ALL.map(d => dayParts(r, d)), all = avgOf(SA.map(dayAvg)), S = L.map(d => SA[ALL.indexOf(d)]), avgs = S.map(dayAvg);
-      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, {v: pct(all), f: all == null ? "Nothing scored yet" : `The average of the days' averages = ${all}%`, cls: "gs-num gs-calc gs-bold " + tone(all)}]
+    rows: ppl.map(r => { const SA = ALL.map(d => dayParts(r, d)), all = ovPct(r), S = L.map(d => SA[ALL.indexOf(d)]), avgs = L.map(d => dayS(r, d));
+      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, {v: pct(all), f: ovTip(r), cls: "gs-num gs-calc gs-bold " + tone(all)}]
         .concat(...S.map((xs, i) => { const nm = dayLabel(L[i]), f = fbOf(r, L[i]);
           return SC_COLS.map(([g, l]) => { const gs = g.split(","), its = xs.filter(x => gs.includes(x.grp) && x.pct != null), a = avgOf(its.map(x => x.pct));
               return {v: pct(a), f: a == null ? `${nm} · ${l}: nothing scored yet` : `${nm} · ${l}: ${its.map(x => `${x.name.replace(/^\S+\s/, "")} ${x.pct}%`).join("; ")}${its.length > 1 ? ` = ${a}%` : ""}`, cls: "gs-num " + tone(a)}; })
-            .concat([{v: pct(avgs[i]), f: avgs[i] == null ? `${nm}: nothing to average yet` : `${nm} · Average of ${xs.filter(x => x.pct != null).length} scored deliverables = ${avgs[i]}%`, cls: "gs-num gs-calc gs-bold " + tone(avgs[i])},
+            .concat([{v: pct(avgs[i]), f: daySTip(r, L[i]), cls: "gs-num gs-calc gs-bold " + tone(avgs[i])},
               {v: f ? (f.rating || "Sent") : "", f: f ? `${nm} · Trainer: ${f.rating || ""}${f.summary ? " — " + clip(f.summary, 400) : ""}` : `${nm}: no feedback sent yet`, cls: "gs-txt " + (f ? ratingTone(f.rating) : "")}]); }));
     })};
 }
@@ -339,12 +356,12 @@ function scoreCardHtml(ppl){
 }
 function dayTable(ppl){
   const L = cfDaysL();
-  return {id: "days", title: "📅 Day by Day", note: "Each trainee's score for each Case Flow day: the average of the day's scored deliverables. A day with work but nothing scored yet shows how many are done. Hover a cell for each deliverable; click a trainee to open their score card just below, with every deliverable's score, why, what they did best and what to improve.",
-    head: ["Trainee", "Average"].concat(L.map(d => `${dayLabel(d)}. ${String(d.title).replace(/^Case Flow Day \d+ · /, "")}`)),
-    rows: ppl.map(r => { const per = L.map(d => dayParts(r, d)), avgs = per.map(dayAvg), a = avgOf(avgs);
-      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, {v: pct(a), f: a == null ? "Nothing scored yet" : `The average of the days = ${a}%`, cls: "gs-num gs-calc gs-bold " + tone(a)}]
+  return {id: "days", title: "📅 Day by Day", note: "Each trainee's Overall and score for each Case Flow day: the 100-point model's, the same numbers as their card and 🏅 Scores. A day with work but nothing scored yet shows how many are done. Hover a cell for each deliverable; click a trainee to open their score card just below, with every deliverable's score, why, what they did best and what to improve.",
+    head: ["Trainee", "Overall"].concat(L.map(d => `${dayLabel(d)}. ${String(d.title).replace(/^Case Flow Day \d+ · /, "")}`)),
+    rows: ppl.map(r => { const per = L.map(d => dayParts(r, d)), avgs = L.map(d => dayS(r, d)), a = ovPct(r);
+      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, {v: pct(a), f: ovTip(r), cls: "gs-num gs-calc gs-bold " + tone(a)}]
         .concat(L.map((d, i) => { const xs = per[i], sc = xs.filter(x => x.pct != null);
-          return {v: avgs[i] != null ? `${avgs[i]}% · ${sc.length} scored` : "", f: `${dayLabel(d)}: ` + (xs.length ? xs.map(x => `${x.name.replace(/^\S+\s/, "")} ${x.pct != null ? x.pct + "%" : x.status || "—"}`).join(" · ") : "nothing yet"), cls: "gs-num " + tone(avgs[i])}; }));
+          return {v: avgs[i] != null ? `${avgs[i]}% · ${sc.length} scored` : sc.length ? `${sc.length} scored` : "", f: `${daySTip(r, d)} · its deliverables: ` + (xs.length ? xs.map(x => `${x.name.replace(/^\S+\s/, "")} ${x.pct != null ? x.pct + "%" : x.status || "—"}`).join(" · ") : "nothing yet"), cls: "gs-num " + tone(avgs[i])}; }));
     }),
     onRow: ppl.map(r => `cmBatchSheet.dsWho('${E(r.id)}')`), rowCls: ppl.map(r => B.ds === r.id ? "gs-picked" : "")};
 }
@@ -354,9 +371,9 @@ function dayDetailHtml(ppl){
   // 🔎 a card per trainee (each trainee's own score card, apart from the others), its days inside; the one picked in 📅 Day by Day opens
   return `<section class="bs-sec bs-ds" id="bs-dsdetail"><h3 class="bs-h">🔎 Each trainee's score card <span>${ppl.length} trainee${ppl.length === 1 ? "" : "s"}</span></h3>
     <p class="bs-note">One card per trainee: each Case Flow day's graded items with why each was scored that way, what they did best and what needs to be improved. Click a trainee's row in 📅 Day by Day to open their card.</p>
-    ${ppl.map(r => { const per = cfDaysL().map(d => dayParts(r, d)), all = avgOf(per.map(dayAvg)), tOpen = B.trOpen[r.id] != null ? B.trOpen[r.id] : B.ds === r.id;
+    ${ppl.map(r => { const per = cfDaysL().map(d => dayParts(r, d)), all = ovPct(r), tOpen = B.trOpen[r.id] != null ? B.trOpen[r.id] : B.ds === r.id;
       return `<details class="bs-ds-tr" id="bs-ds-${E(r.id)}"${tOpen ? " open" : ""} ontoggle="cmBatchSheet.trOpen('${E(r.id)}', this.open)"><summary><b>${E(nameOf(r))}</b><span>${E(labelOf(keyOf(r)))}</span><em class="${tone(all)}">${all != null ? "Overall " + all + "%" : "Nothing scored yet"}</em></summary>
-      <div class="bs-ds-days">${cfDaysL().map((d, i) => { const xs = per[i], a = dayAvg(xs), k = r.id + "|" + d.id, open = B.dsOpen[k] != null ? B.dsOpen[k] : a != null;
+      <div class="bs-ds-days">${cfDaysL().map((d, i) => { const xs = per[i], a = dayS(r, d), k = r.id + "|" + d.id, open = B.dsOpen[k] != null ? B.dsOpen[k] : a != null;
         return `<details class="bs-ds-day"${open ? " open" : ""} ontoggle="cmBatchSheet.dsOpen('${E(k)}', this.open)"><summary><b>${dayLabel(d)}</b> <span>${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</span><em class="${tone(a)}">${a != null ? a + "%" : `${xs.filter(x => x.pct != null || /Passed|Sent|Resolved/.test(x.status)).length}/${xs.length} done`}</em></summary>
           ${xs.map(x => { const rich = x.pct != null || x.best.length || x.improve.length;
             return `<div class="bs-ds-it"><div class="bs-ds-h"><span>${E(x.name)}</span><small>${E(x.status || "")}</small><b class="${x.pct != null ? tone(x.pct) : ratingTone(x.grp === "fb" ? x.status : "")}">${x.pct != null ? x.pct + "%" : "—"}</b></div>
@@ -506,7 +523,9 @@ function myScoreCardHtml(){
   if(!isTraineeView()) return "";
   loadMine();
   const r = myRec(), L = cfDaysL(); if(!L.length) return "";
-  const per = L.map(d => dayParts(r, d)), avgs = per.map(dayAvg), all = avgOf(avgs);
+  // the Overall and each day's score: the same function and records as their 🏅 My Performance card (cmScorecard.myOverall)
+  let mo = null; try{ mo = window.cmScorecard && cmScorecard.myOverall ? cmScorecard.myOverall() : null; }catch(e){ mo = null; }
+  const per = L.map(d => dayParts(r, d)), avgs = L.map(d => { const x = mo && mo.days.find(y => y.id === d.id); return x ? x.S : null; }), all = mo ? mo.pct : null;
   // (only the kinds of score this trainee has: a column nobody can fill yet would only be noise)
   const cols = SC_COLS.filter(([g]) => per.some(xs => xs.some(x => g.split(",").includes(x.grp) && x.pct != null)));
   const cell = (xs, g) => { const gs = g.split(","), its = xs.filter(x => gs.includes(x.grp) && x.pct != null), a = avgOf(its.map(x => x.pct));
@@ -514,9 +533,9 @@ function myScoreCardHtml(){
   const li = (h, xs, cls) => xs.length ? `<div class="bs-ctx ${cls}"><b>${h}</b><ul>${xs.map(x => `<li>${E(x)}</li>`).join("")}</ul></div>` : "";
   const open = L.find(d => d.id === MY.open);
   return `<section class="card my-sc"><div class="my-sc-h"><h2>🏅 My Scores <span>day by day</span></h2>
-      <span class="my-sc-all ${tone(all)}">${all == null ? "Nothing scored yet" : `Average ${all}%`}</span></div>
+      <span class="my-sc-all ${tone(all)}">${all == null ? "Nothing scored yet" : `Overall ${all}%`}</span></div>
     <p class="my-sc-sub">Only your own scores, the same ones your trainer sees. Click a day for each graded item: why it scored that way, what you did best and what to improve.</p>
-    <div class="my-sc-wrap"><table class="my-sc-t"><thead><tr><th>Day</th>${cols.map(([, l]) => `<th>${E(l)}</th>`).join("")}<th>Day average</th><th>💬 Trainer</th></tr></thead><tbody>
+    <div class="my-sc-wrap"><table class="my-sc-t"><thead><tr><th>Day</th>${cols.map(([, l]) => `<th>${E(l)}</th>`).join("")}<th>Day score</th><th>💬 Trainer</th></tr></thead><tbody>
       ${L.map((d, i) => { const f = fbOf(r, d);
         return `<tr class="${MY.open === d.id ? "on" : ""}" onclick="cmBatchSheet.myOpen(${d.id})"><td class="my-sc-day"><b>${dayLabel(d)}</b><span>${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</span></td>
           ${cols.map(([g]) => cell(per[i], g)).join("")}<td class="my-sc-avg ${tone(avgs[i])}">${avgs[i] == null ? "—" : avgs[i] + "%"}</td>

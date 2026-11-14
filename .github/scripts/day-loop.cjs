@@ -1,4 +1,4 @@
-// @check browser — Every Case Flow day runs the daily loop: lessons → Case Profile (Day 1: Meet John Doe & Intake) → ONE Skill Building → required Backup File Maintenance → Update Your Action Plan → optional side exercises → Knowledge Check
+// @check browser — Every Case Flow day runs the daily loop: lessons → Case Profile (Day 1: Meet John Doe & Intake) → ONE Skill Building → required Backup File Maintenance → Update Your Action Plan → side exercises (none of them optional) → Knowledge Check
 // The owner's standard flow (js/cm-day-loop.js, CF.sequence `main` in js/cm-case-flow-data.js), walked on all five days
 // in a real browser:
 //   · the deck runs the loop's steps in order and never goes back: the Training Agenda, ALL the lessons (Day 2's deck
@@ -23,7 +23,7 @@
 //   · the band under an activity's title says Skill Building on the day's main, Skill Activity on the others (Required: Backup File Maintenance on the drive step);
 //   · the day's other pages tell the same loop: the Objectives page's Part 2, the trainer's Run of Show (no "Practice Lab
 //     (all of the day's Skill Activities)"), the Trainer Speaker Notes in the deck's order (lessons → Case Profile →
-//     Skill Building → Action Plan → the optional side exercises), the Practice page's tiles (🎯 Skill Building, the
+//     Skill Building → Action Plan → the side exercises), the Practice page's tiles (🎯 Skill Building, the
 //     rest Skill activity);
 //   · a place saved on the old Practice Lab slide (layout 8) does not land past the Skill Building and the Action Plan;
 //   · nothing on the loop's own slides is under 16px or scaled down at 1366×768.
@@ -117,6 +117,8 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
       const ag = [...w.querySelectorAll('.cfx-ag-label b')].map(e => norm(e.textContent)), agRows = [...w.querySelectorAll('.cfx-ag-lab b')].map(e => norm(e.textContent));
       if (ag.length !== 2 || !/Part 2 · 🔁 The Daily Loop/.test(ag[1])) out.push(`${L}: the Training Agenda should label Part 2 · 🔁 The Daily Loop (${JSON.stringify(ag)})`);
       if (agRows.length !== 1 || !/(Case Profile|Meet John Doe).*Skill Building.*📁 Backup Files.*Action Plan/.test(agRows[0])) out.push(`${L}: the agenda's loop should be one row, Case Profile → Skill Building → 📁 Backup Files → Action Plan (${JSON.stringify(agRows)})`);
+      // Part 2's "then N skill activities" counts the day's own side exercises (Day 5: its Extra Practice), no more, no fewer
+      if (sideActs.length && !new RegExp('then ' + sideActs.length + ' skill activit').test(norm(w.textContent))) out.push(`${L}: the Training Agenda's Part 2 should say "then ${sideActs.length} skill activities" (${norm(w.textContent).match(/then \d+ skill activit\w+/) || 'none'})`);
       if (n === 1 && !/Meet John Doe → 🎯 Skill Building: the Intake/.test(agRows[0] || '')) out.push(`${L}: Day 1's loop row should say the Intake is the Skill Building (${agRows[0]})`);
       // the Objectives page, the Run of Show, the Speaker Notes
       const intro = window.renderDayIntro(d);
@@ -128,10 +130,10 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
       const rS = ros.indexOf('🎯 Skill Building'), rB = ros.indexOf('📁 Required: Backup File Maintenance'), rP = ros.search(/📝 (Update|Close Out) Your Action Plan/), rF = ros.indexOf('Full Application Practice: Build');
       if (!(rB > Math.max(rS, rF) && rB < rP)) out.push(`${L}: the Run of Show should run the Skill Building, then 📁 Required: Backup File Maintenance, then the Action Plan (${rS}, ${rF}, ${rB}, ${rP})`);
       const notes = window.buildDayScriptLines(d).filter(x => /^## /.test(x)), at = re => notes.findIndex(x => re.test(x));
-      const nP = at(/^## (Case Profile Check-In|Meet John Doe)/), nS = d.cf.build ? at(/^## Full Application Practice/) : at(/^## Skill Building$/), nA = at(/^## (Update|Close Out) Your Action Plan/), nL = at(/^## (Practice Lab: Skill Activities|Optional Extra Practice)/);
+      const nP = at(/^## (Case Profile Check-In|Meet John Doe)/), nS = d.cf.build ? at(/^## Full Application Practice/) : at(/^## Skill Building$/), nA = at(/^## (Update|Close Out) Your Action Plan/), nL = at(/^## (Practice Lab: Skill Activities|Extra Practice)/);
       const firstAct = notes.findIndex(x => /^## \d\d\. /.test(x) && d.lessons[Number(x.slice(3, 5)) - 1] && d.lessons[Number(x.slice(3, 5)) - 1].cf.block.kind === 'activity');
       const nB = at(/^## Required: Backup File Maintenance$/);
-      if (!(nP > 0 && nP < nS && nS < nB && nB < nA && (!sideActs.length || nA < nL))) out.push(`${L}: the Speaker Notes should run Case Profile (${nP}) → Skill Building (${nS}) → Backup File Maintenance (${nB}) → Action Plan (${nA}) → optional side exercises (${nL})`);
+      if (!(nP > 0 && nP < nS && nS < nB && nB < nA && (!sideActs.length || nA < nL))) out.push(`${L}: the Speaker Notes should run Case Profile (${nP}) → Skill Building (${nS}) → Backup File Maintenance (${nB}) → Action Plan (${nA}) → the side exercises (${nL})`);
       if (!d.cf.build && (firstAct < 0 || d.lessons[Number(notes[firstAct].slice(3, 5)) - 1].cf.block.id !== main)) out.push(`${L}: the Speaker Notes' first activity should be the Skill Building ${main} (${notes[firstAct]})`);
       // a place saved before the loop (no keys: a position in layout 8's deck) on the old Practice Lab slide stays ahead
       // of the loop's steps (js/cm-day-loop.js placeRule; the key-saved cases are in slide-places.cjs)
@@ -196,10 +198,11 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
         if (!d.cf.build) {
           const rows = w.querySelectorAll('.cfx-lab-list > li').length;
           if (rows !== sideActs.length) out.push(`${L}: the Practice Lab slide lists ${rows} side exercises; the day has ${sideActs.length}`);
-          if (!/Optional/i.test(w.textContent)) out.push(`${L}: the Practice Lab slide should say the side exercises are optional`);
+          // none of it optional (the owner's rule): the slide never calls them optional, never says to pick some of them
+          const said = norm(w.textContent).match(/optional|choose any \d|pick any \d|the ones you have time for|there is time for about/i);
+          if (said) out.push(`${L}: the Practice Lab slide should not call the side exercises optional or say to pick some ("${said[0]}"): every activity on the day counts`);
+          if (!new RegExp('Work all ' + sideActs.length).test(norm(w.textContent))) out.push(`${L}: the Practice Lab slide should say to work all ${sideActs.length}`);
           if (tiny(w).length) out.push(`${L}: type under 16px on the Practice Lab slide: ${tiny(w).join(' | ')}`);
-          const sc2 = cmCaseFlow.schedule(d);
-          if (sc2.sidePick < sideActs.length && !new RegExp('choose any ' + sc2.sidePick + ' of the ' + sideActs.length).test(norm(w.textContent))) out.push(`${L}: ${sideActs.length} side exercises in ${sc2.side} minutes: the Practice Lab slide should say to choose any ${sc2.sidePick}`);
         }
         const skip = [...w.querySelectorAll('button')].find(b => /Ready for the Knowledge Check/.test(b.textContent));
         if (!skip) out.push(`${L}: the side exercises' slide has no ⏭ to the Ready check`);

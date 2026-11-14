@@ -1,6 +1,6 @@
 # Case Flow Day 3 — Lien Negotiation & Disbursement
 
-**Phase:** Lien negotiation & disbursement · **Focus case:** John Doe VS Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
+**Phase:** Lien Negotiation & Disbursement · **Focus case:** John Doe VS Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
 
 **Objective.** With Track A settled at $40,000 gross (Day 2), negotiate and reduce the liens and the provider balances, hold the prior attorney's charging lien, finish the dual-stream Net Sheet, disburse a reconciled $20,359.92 net to John Doe and close the file: the final reconciliation, the closing memo and the retention schedule.
 
@@ -59,7 +59,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 ### 3.1.1 Lien Negotiations: Key Legal Doctrines & Prior-Attorney Liens
 
-> **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Lien Reduction Verification (`d3m3`)  
+> **Lesson** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Not all liens are created equal: classify before you negotiate  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#18` Lien Negotiations/Reduction: Common Types of Liens · `D3#19` Key Legal Doctrines Used for Reduction · `D3#20` Quantum Meruit Principle — Prior Attorney Liens · Newly authored: plan funding status (self-funded vs. fully insured) decides the law that governs a health-plan reduction; the verified-none inventory of absent lienholders
@@ -136,7 +136,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 3) and that day
 
 ### 3.1.2 Increasing the Client's Net: Auditing the Billing
 
-> **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Lien Reduction Verification (`d3m3`)  
+> **Lesson** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Audit first, then show the lienholder the math  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#21` Increasing the Client's Net · `D3#22` Auditing the Billing Before Asking for a Discount · `D2#40` Finalized Settlement: Final Lien Mitigation (The “Reduction”) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · Newly authored: the pro-rata distribution rule worked on the BI-only illustration; the pro-rata argument restated on true facts for a fund that covers every lien
@@ -210,7 +210,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 3) and that day
 
 ### 3.1.3 The Net Sheet: Two Recovery Streams & the Master Ledger
 
-> **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Final Accounting Check (`d3m4`)  
+> **Lesson** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** One Net Sheet, two streams, every dollar's origin visible  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · `D2#36` The Execution: The Settlement Statement (The “Net” Sheet) · `D3#23` The Net Sheet: Purpose of a Combined BI/UM Net Sheet · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · `D3#27` Key Takeaway — The Value of a Case Manager
@@ -287,7 +287,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ### 3.1.4 Disbursement: the Workflow & the Documentation
 
-> **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Final Accounting Check (`d3m4`)  
+> **Lesson** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** No money moves until every gate behind it is closed  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D2#34` The Execution: Settlement Disclosure Statement (The “Truth” Document) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · `D2#36` The Execution: The Settlement Statement (The “Net” Sheet) · `D2#37` The Execution: The Dismissal (The “Court” Filing) · `D2#38` The Execution: W-9 & Comparison of Key Post-Settlement Documents · `D2#39` Finalized Settlement: Boots-on-the-Ground Tasks — Administrative Document Control · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · `D3#29` Case Phase: Disbursement — Core Objectives · `D3#30` Disbursement: The Workflow · `D3#32` Disbursement: Common Challenges & Mitigation · Newly authored: trust-account handling (same-day IOLTA deposit once the release is signed, client endorsement, no disbursement against uncleared funds, disputed shares held in trust); the contingent-fee Settlement Statement (ABA Model Rule 1.5(c) as an example); the UM release's Medicare and confidentiality terms
@@ -361,7 +361,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ### 3.1.5 Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention
 
-> **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Final Accounting Check (`d3m4`)  
+> **Lesson** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** After $0.00: the four document sets that let a file be archived, and the bill that comes after  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#29` Case Phase: Disbursement — Core Objectives · `D3#33` Final Case Reconciliation Checklist: Net Sheet (The “Money Trail”) · `D3#34` Final Case Reconciliation Checklist: Proof of Delivery/Completion · `D3#35` Final Case Reconciliation Checklist: Compliance & Identity Verification · `D3#36` Final Case Reconciliation Checklist: The Internal “Closing Memo” · `D3#37` Final Case Reconciliation: Retention & Disposition Schedule · `D3#38` Skill Building: Closing a Case — John Doe v. Apex Delivery Final Tasks · Newly authored: the closing letter's contents; the three-way zero-balance proof (bank statement, trust journal, client ledger); the post-closing late-bill drill on Crescent Pain & Spine's contractual write-off
@@ -440,7 +440,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ### 3.1.6 Completing the Final Dual-Tab Net Sheet
 
-> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Final Accounting Check (`d3m4`)  
+> **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity 1 — take $40,000.00 to $20,359.92, and prove every line  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · `D2#36` The Execution: The Settlement Statement (The “Net” Sheet) · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D3#27` Key Takeaway — The Value of a Case Manager · `D3#28` Skill Building: The “Doe v. Apex” Final Net Challenge
@@ -457,7 +457,7 @@ Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns A
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Financial Ledger → Net Sheet (Recovery Ledger · Lien Tracker) |
+| **Tool / interface** | CMS → Settlement (BI/UM) → Gross Settlement · Medical Liens / Payoffs |
 | **Expected output** | A two-tab Net Sheet that reaches $20,359.92 down both streams and across the total, with every lien figure proved and routed to Atty. Thorne. |
 
 **Verification checkpoints**
@@ -511,7 +511,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ### 3.1.7 Health Subrogation & Statutory Lien Reduction Lab
 
-> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Lien Reduction Verification (`d3m3`)  
+> **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Skill Activity 1 — reduce Peach State, clear the statutory side  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#18` Lien Negotiations/Reduction: Common Types of Liens · `D3#19` Key Legal Doctrines Used for Reduction · `D2#40` Finalized Settlement: Final Lien Mitigation (The “Reduction”) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork)
@@ -528,7 +528,7 @@ A two-panel lab bench. Left panel: a white CMS Lien Tracker card with a navy hea
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Financial Ledger → Net Sheet → Lien Tracker · CMS → Documents → Outgoing · CMS → Tasks → Escalate |
+| **Tool / interface** | CMS → Settlement (BI/UM) → Medical Liens / Payoffs · CMS → Doc Hub → Others · CMS → Tasks → + Add Task |
 | **Expected output** | A Peach State Reduction Request ready for Atty. Thorne's signature, a Lien Tracker with every absent claimant cleared and sourced, and the 10/09/2026 acceptance recorded at $1,240.00 once confirmed in writing. |
 
 **Show Them — reference model**
@@ -590,7 +590,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 3) and that day
 
 ### 3.1.8 Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold
 
-> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Final Accounting Check (`d3m4`)  
+> **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity 2 — the lien you didn't see coming, worked as evidence  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#20` Quantum Meruit Principle — Prior Attorney Liens · `D2#38` The Execution: W-9 & Comparison of Key Post-Settlement Documents · `D3#29` Case Phase: Disbursement — Core Objectives · Newly authored: the prior-attorney charging lien worked as a factual investigation (signature comparison, engagement timeline, work-product audit, client statement), a temporary administrative hold on the disputed amount, and escalation to the attorney
@@ -607,7 +607,7 @@ Centre: Vance & Kettering's notice as a cream letter with a red stamp, CHARGING 
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI Client: John Doe · CMS → Communications Log · CMS → Financial Ledger → Trust · Action Plan Editor · CMS → Tasks → Escalate |
+| **Tool / interface** | Call Simulator → AI Client: John Doe · CMS → Notes → Case Notes · CMS → Settlement (BI/UM) → Check Received / Disbursed · Action Plan Editor · CMS → Tasks → + Add Task |
 | **Expected output** | A logged and routed notice, a $6,666.67 hold, an evidentiary packet on Atty. Thorne's desk, and the correspondence archived in the CMS and Drive. |
 
 **Verification checkpoints**
@@ -656,7 +656,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ### 3.1.9 Provider Balance Negotiation Exercises
 
-> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Lien Reduction Verification (`d3m3`)  
+> **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Skill Activity 2 — the reduction call to the chiropractor  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#21` Increasing the Client's Net · `D3#22` Auditing the Billing Before Asking for a Discount · `D2#40` Finalized Settlement: Final Lien Mitigation (The “Reduction”) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork)
@@ -673,7 +673,7 @@ A phone-call storyboard in three frames across the slide, each a cream card with
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI Billing Manager: Riverton Spine & Rehab · Email Workspace · CMS → Financial Ledger → Net Sheet → Lien Tracker |
+| **Tool / interface** | Call Simulator → AI Billing Manager: Riverton Spine & Rehab · Email Workspace · CMS → Settlement (BI/UM) → Medical Liens / Payoffs |
 | **Expected output** | An audited Riverton balance of $6,105.00, an approved written request and a logged call, a signed Payoff Letter accepting $4,580.00 dated 10/12/2026, and a recomputed Net Sheet. |
 
 **Verification checkpoints**
@@ -725,7 +725,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 3) and that day
 
 ### 3.1.10 The BI Settlement Net Sheet: Stream 1 at the Tender
 
-> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
+> **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity — what Keystone's $10,000 does, and doesn't, do on its own  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#30` Skill Building: The Math Check — Your Slam-Dunk Liability Case · `D3#23` The Net Sheet: Purpose of a Combined BI/UM Net Sheet · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · Newly authored: the settlement-stage BI Net Sheet (Stream 1 at the tender, liens unreduced, projections labelled) and the BI-alone pro-rata fact pattern laid before Atty. Thorne
@@ -738,11 +738,11 @@ The LSH Net Sheet across the left half, headed STREAM 1 · BI · KEYSTONE KM-26-
 
 **Scenario.** File date 08/12/2026 (Wed), Track A. This morning Dana Whitfield tendered Keystone's $10,000 BI limits (KM-26-440871) on the Time-Limited Demand's terms, inside the 08/21/2026 window; Robert Smith's affidavit of no other insurance came in on 08/10. No check has issued, no release is signed, and the consent-to-settle requests to Harbor Point and Cardinal State have not gone out. The UM layers (Host UM $20,000, Relative UM $10,000) are not yet demanded. Liens as they stand today: Peach State $1,860.00 asserted; Riverton Spine & Rehab $6,105.00 audited (billed $6,290.00); no reduction requested. Costs receipted: $486.75. Atty. Thorne's memo asks for the BI settlement Net Sheet before he reviews the tender with John Doe: Stream 1 on his 25% / 75% working allocation (BI's share of the $40,000 Recovery Stack), and BI standing alone.
 
-**Execution prompt.** Build the settlement-stage Net Sheet for Stream 1 in the LSH Net Sheet. Enter the $10,000.00 gross as tendered, not received, with the 33⅓% pre-suit fee from the Contingency Fee Agreement and the five receipted costs. Enter both liens as they stand on 08/12/2026, asserted or audited, with the reduction column left blank. Leave Stream 2 open, with no recovery entered. Run Atty. Thorne's 25% allocation of costs and liens down to a Stream 1 net, labelled as a projection with what it assumes. Beside it, run the BI-alone fact pattern: what the fee and costs leave, set against the unreduced liens, shared pro rata. Route the sheet to Atty. Thorne through CMS → Tasks → Escalate. Graded judgment: what you lay in front of him as fact (the BI money cannot be paid out on its own and is held in trust until the liens resolve), and what you leave to him: the allocation, any lien strategy and everything said to John Doe about value.
+**Execution prompt.** Build the settlement-stage Net Sheet for Stream 1 in the LSH Net Sheet. Enter the $10,000.00 gross as tendered, not received, with the 33⅓% pre-suit fee from the Contingency Fee Agreement and the five receipted costs. Enter both liens as they stand on 08/12/2026, asserted or audited, with the reduction column left blank. Leave Stream 2 open, with no recovery entered. Run Atty. Thorne's 25% allocation of costs and liens down to a Stream 1 net, labelled as a projection with what it assumes. Beside it, run the BI-alone fact pattern: what the fee and costs leave, set against the unreduced liens, shared pro rata. Route the sheet to Atty. Thorne through CMS → Tasks → + Add Task. Graded judgment: what you lay in front of him as fact (the BI money cannot be paid out on its own and is held in trust until the liens resolve), and what you leave to him: the allocation, any lien strategy and everything said to John Doe about value.
 
 | | |
 |---|---|
-| **Tool / interface** | LSH Net Sheet · CMS → Financial Ledger → Trust · CMS → Tasks → Escalate |
+| **Tool / interface** | LSH Net Sheet · CMS → Settlement (BI/UM) → Check Received / Disbursed · CMS → Tasks → + Add Task |
 | **Expected output** | A Stream 1 settlement Net Sheet at the 08/12/2026 tender: a labelled 25% projection ($4,553.73) beside the BI-alone fact pattern ($0.00 to John Doe), routed to Atty. Thorne with the trust-hold flag. |
 
 **Verification checkpoints**
@@ -796,7 +796,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 3.1.11 The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
 
-> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
+> **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity — project the UM stream to the cent, mark what will move, ask Atty. Thorne  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#23` The Net Sheet: Purpose of a Combined BI/UM Net Sheet · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · `D2#36` The Execution: The Settlement Statement (The “Net” Sheet) · Newly authored: the settlement-stage Stream 2 Net Sheet on 10/06/2026, liens unreduced, every moving figure marked as a projection, and the written questions for Atty. Thorne
@@ -813,7 +813,7 @@ The LSH Net Sheet's Recovery Ledger on a white card, with the Stream 2 — UM co
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Financial Ledger → Net Sheet → Recovery Ledger · CMS → Financial Ledger → Trust · CMS → Tasks → Escalate |
+| **Tool / interface** | CMS → Settlement (BI/UM) → Gross Settlement · CMS → Settlement (BI/UM) → Check Received / Disbursed · CMS → Tasks → + Add Task |
 | **Expected output** | A Stream 2 Net Sheet projecting $13,661.19 to John Doe, every moving figure marked, tied to Stream 1 and the Trust Ledger, routed to Atty. Thorne with four written questions. |
 
 **Verification checkpoints**
@@ -829,7 +829,7 @@ The LSH Net Sheet's Recovery Ledger on a white card, with the Stream 2 — UM co
 - [ ] Tied to the Trust Ledger: $30,000.00 on deposit (Keystone $10,000.00 since 09/04, Harbor Point $20,000.00 since 10/05/2026); Cardinal State's $10,000.00 shown as receivable, not received; nothing disbursed from either stream
 - [ ] What moves the projection stated on the sheet: every $1.00 cut from a lien adds $0.75 to Stream 2 and $0.25 to Stream 1; no reduced figure is entered before a written acceptance
 - [ ] Four questions to Atty. Thorne in writing: (1) the 33⅓% tier on both UM layers; (2) the 25% / 75% pro-rata allocation of costs and liens; (3) authority and timing for both Reduction Requests, including raising the $185.00 duplicate with Tammy Greer; (4) when and in what form John Doe sees a projected sheet
-- [ ] Routed to Atty. Thorne the same day through CMS → Tasks → Escalate; the sheet is not sent to John Doe and no net figure is quoted to him by the CM
+- [ ] Routed to Atty. Thorne the same day through CMS → Tasks → + Add Task; the sheet is not sent to John Doe and no net figure is quoted to him by the CM
 
 **Best practices & pitfalls**
 
@@ -868,7 +868,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 3.1.12 Starting the Disbursement Command: Releases, Hold Cleared, Money Out
 
-> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Final Accounting Check (`d3m4`)  
+> **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity 3 — confirm every gate, then move the money to $0.00  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · `D2#38` The Execution: W-9 & Comparison of Key Post-Settlement Documents · `D2#41` Skill Building: BI Settlement — Caught in an Operational Pincer Movement · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · `D3#29` Case Phase: Disbursement — Core Objectives · `D3#30` Disbursement: The Workflow · `D3#31` Disbursement: Documentation Checklist · `D3#32` Disbursement: Common Challenges & Mitigation · `D3#34` Final Case Reconciliation Checklist: Proof of Delivery/Completion
@@ -885,7 +885,7 @@ Two panels joined by an orange arrow dated 10/21 → 10/22. Left: a navy-header 
 
 | | |
 |---|---|
-| **Tool / interface** | CMS → Documents · CMS → Financial Ledger → Trust |
+| **Tool / interface** | CMS → Doc Hub · CMS → Settlement (BI/UM) → Check Received / Disbursed |
 | **Expected output** | A confirmed checklist of conditions precedent and five approval-ready disbursement commands that take the Trust Ledger from $40,000.00 to $0.00. |
 
 **Verification checkpoints**
@@ -937,7 +937,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ### 3.1.13 Backup File Maintenance: the Pre-Demand Backup Audit
 
-> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Demand Execution Audit (`d3m1`)  
+> **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity — audit the backup against the CMS before the demand goes out  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · LSH firm standard: backup drive folder hierarchy
@@ -954,7 +954,7 @@ A two-column audit sheet: CMS on the left, BACKUP DRIVE on the right, rows linke
 
 | | |
 |---|---|
-| **Tool / interface** | Backup Drive · CMS → Documents · CMS → Case Notes |
+| **Tool / interface** | Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes |
 | **Expected output** | A backup that matches the CMS document for document, superseded versions kept and labeled, the demand drafts in 05 Insurance, Demands & Negotiation, a clean drive check and the audit recorded in Case Notes. |
 
 **Verification checkpoints**
@@ -1000,7 +1000,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ### 3.1.14 Demand Execution Audit
 
-> **Knowledge Check** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Demand Execution Audit (`d3m1`)  
+> **Knowledge Check** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Demand Execution Audit + CM Learning Summary & Self-Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#13` Treatment Gaps in the Demand Phase · `D2#15` Demand: Quality Control — The “Final Scrub” · `D2#18` Skill Building: Demand Phase Challenge — Real-Time Demand Audit · `D2#31` BI Settlement — Phase II: The UM/UIM “Safety Check” · `D3#3` BI Exhaustion & Consent — Mechanic 1: Locking the Escape Hatches · `D3#6` UM Demand: The Demand Packet — Document Inclusions · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#12` Documents that Matter: Threshold & Coverage Documents · `D3#15` Documents that Matter: General Damages Documents (Non-Economic Value)
@@ -1106,7 +1106,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ### 3.1.15 Negotiation Mastery Check
 
-> **Knowledge Check** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
+> **Knowledge Check** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Knowledge Check + CM Learning Summary & Self-Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#19` Settlement Negotiations: The Pitch & the Negotiation Battle Map · `D2#20` The Valuation Baseline: PIP Set-Off (The Credit) · `D2#23` The Valuation Baseline: Subrogation vs. Non-Subrogation · `D2#27` Common Adjuster “Stall Tactics” and Rebuttals · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D2#29` Settlement Negotiations: The “Never” Rule · `D2#30` Skill Building: The Math Check — Your Slam-Dunk Liability Case · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#11` UM Settlement: The Final Payout Process · `D3#17` Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit
@@ -1215,7 +1215,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ### 3.1.16 Lien Reduction Verification
 
-> **Knowledge Check** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Lien Reduction Verification (`d3m3`)  
+> **Knowledge Check** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#18` Lien Negotiations/Reduction: Common Types of Liens · `D3#19` Key Legal Doctrines Used for Reduction · `D3#20` Quantum Meruit Principle — Prior Attorney Liens · `D3#21` Increasing the Client's Net · `D3#22` Auditing the Billing Before Asking for a Discount · `D2#40` Finalized Settlement: Final Lien Mitigation (The “Reduction”)

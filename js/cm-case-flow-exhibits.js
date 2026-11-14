@@ -1936,7 +1936,7 @@ window.CM_CF_EXHIBITS = {
       "h": "6 · Where this memorandum is filed",
       "lines": [
        "CMS → Doc Hub → Others, named the firm's way, with both emails reproduced in full.",
-       "CMS → Insurance tab → Demand: Time-Limited Demand yes, served 07/20/2026, received 07/22/2026, acceptance 08/21/2026.",
+       "CMS → Demand: Time-Limited Demand yes, served 07/20/2026, received 07/22/2026, acceptance 08/21/2026.",
        "Your Backup Drive → 05 Insurance, Demands & Negotiation — the same copy, kept with the filing."
       ]
      }
