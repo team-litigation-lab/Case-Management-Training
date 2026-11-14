@@ -5,7 +5,7 @@
 // ⛶ Full screen in its Previous / Next bar; on a narrower window (under 1000px) the controls stay above it, and the slide still never scrolls inside
 // (the page itself may: the site's top bar alone wraps to three rows there).
 // It also looks inside the frame (was slide-clip.cjs): every piece of text on a slide is inside every box it sits in, and no
-// box inside a slide scrolls. Animations are switched off for the walk, so nothing has to wait for a row to slide in.
+// box inside a slide scrolls (a text box the trainee types in may, past its cap). Animations are switched off for the walk, so nothing has to wait for a row to slide in.
 // Usage: node .github/scripts/fit.cjs [baseUrl] [days]   (with .github/scripts/server.mjs running; needs `npm i playwright`;
 //        days: e.g. 1,4,7 — default every day)
 const { chromium } = require('playwright');
@@ -34,6 +34,9 @@ const SIZES = [[1366, 768], [1920, 1080]];
                 const seen = new Set();
                 // a box inside the slide that scrolls
                 for (const el of wrap.querySelectorAll('*')) {
+                    // (a box the trainee types in, such as the AI Grader's, scrolls past its cap like any text box, so
+                    // a long prefill never pushes Submit off the slide: it is the trainee's own text, not the slide's)
+                    if (el.tagName === 'TEXTAREA') continue;
                     const cs = getComputedStyle(el);
                     if (/(auto|scroll)/.test(cs.overflowY) && el.scrollHeight - el.clientHeight > 3 && el.clientHeight > 0 && shown(el)) {
                         const k = 'scroll' + name(el); if (!seen.has(k)) { seen.add(k); out.push(`${where}: ${name(el)} scrolls (${el.scrollHeight - el.clientHeight}px more than it shows)`); }
