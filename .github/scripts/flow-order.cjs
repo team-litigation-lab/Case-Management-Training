@@ -32,7 +32,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
 const LESSON = ['map', 'theory', 'theory2', 'frame', 'why', 'doc', 'rules', 'model', 'dodont'];
 const ACTIVITY = ['task', 'case', 'grade', 'audit', 'model', 'check'];
 const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, Continued', frame: 'The Framework', why: 'Why It Matters', doc: 'The Document', rules: 'The Rules', model: 'See It', dodont: "Do & Don't",
-  task: 'Your Task', case: 'Your Case', grade: 'The Grade-A Standard', audit: 'Audit & the Finished Set', check: 'AI Grader' };
+  task: 'Your Task', case: 'Your Case', grade: 'The Grade-A Standard', audit: 'Audit & the Finished Set', check: 'Submit' };
 (async () => {
   const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
   const page = await browser.newPage({ viewport: { width: 1366, height: 768 } });

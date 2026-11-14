@@ -39,9 +39,10 @@ const failures = []; const fail = (m) => failures.push(m);
   await page.waitForTimeout(500);
   const s = await page.evaluate(() => { const c = document.querySelector('#app .cf-card.cfx-check'); const box = c && c.querySelector('textarea.aig-box');
     return { card: !!c, label: c ? (c.querySelector('.cfx-what-v') || {}).textContent : '', legacy: c ? c.querySelectorAll('.cfx-tick, .cfx-reveal, .cfx-blank, input[type=checkbox]').length : -1,
-      box: box ? box.value : null, go: !!(c && c.querySelector('.aig-go')), key: !!(c && c.querySelector('.aig-key')), pts: c ? /\bpoints\b/i.test(c.textContent) : true }; });
+      box: box ? box.value : null, go: !!(c && c.querySelector('.aig-go')), key: !!(c && c.querySelector('.aig-key')), pts: c ? /\bpoints\b/i.test(c.textContent) : true, said: c ? /AI Grader/.test(c.textContent + ' ' + ((document.querySelector('#app .cfx-ribbon, #app .cfx-what') || {}).textContent || '')) : false }; });
   if (!s.card) fail('the AI Grader slide is not drawn');
-  if (!/AI Grader/.test(s.label || '')) fail(`the activity's last slide should be labelled AI Grader: "${s.label}"`);
+  if (!/^Submit$/.test(String(s.label || '').trim())) fail(`the activity's last slide should be labelled Submit (never "AI Grader"): "${s.label}"`);
+  if (s.said) fail('the slide says "AI Grader": trainees only ever see Submit');
   if (s.legacy) fail(`the old self-tick Check Your Work is still on the slide (${s.legacy} ticks or blurred answers)`);
   if (s.box == null || !/JD-24017/.test(s.box) || !/Conflict Check/.test(s.box)) fail(`the box should be filled in with the logged Case ID and the task's steps: ${JSON.stringify((s.box || '').slice(0, 300))}`);
   if (!s.go) fail('the slide has no Submit to AI Grader → button');
@@ -67,7 +68,7 @@ const failures = []; const fail = (m) => failures.push(m);
   await page.click('#app .aig-go'); await page.waitForTimeout(600);
   const st = await page.locator('#app .aig-st').innerText();
   if (!asked) fail('the trainee\'s work was not sent to the AI');
-  if (!/couldn't be reached/.test(st) || !/Try again/.test(st)) fail(`the AI not answering should say so and offer Try again: "${st}"`);
+  if (!/couldn't be graded just now/.test(st) || /AI Grader/.test(st) || !/Try again/.test(st)) fail(`the AI not answering should say so and offer Try again: "${st}"`);
   if (await page.evaluate(() => (CMAIGrader.all().blocks['d1m1-open'] || {}).draft) !== work) fail('the work should be kept when the AI does not answer');
 
   // Try again: the AI answers

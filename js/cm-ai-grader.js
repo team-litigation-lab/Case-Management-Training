@@ -139,7 +139,7 @@ function view(id){
         <textarea id="cfaig_${E(id)}" class="aig-box" rows="9" oninput="CMAIGrader.draft('${E(id)}',this.value);CMAIGrader.grow(this)" aria-label="What you did on this activity">${E(draft)}</textarea>
         <div class="aig-row"><span class="aig-st" id="cfaig_st_${E(id)}" role="status" aria-live="polite">${busy[id] ? "⏳ Grading… this takes a few seconds." : ""}</span>
           <button type="button" class="btn btn-ghost btn-sm" onclick="CMAIGrader.refill('${E(id)}')" title="Fill the box again from what the platform holds now">↺ Refill</button>
-          <button type="button" class="btn aig-go" onclick="CMAIGrader.submit('${E(id)}')"${busy[id] ? " disabled" : ""}>Submit to AI Grader →</button></div>
+          <button type="button" class="btn aig-go" onclick="CMAIGrader.submit('${E(id)}')"${busy[id] ? " disabled" : ""}>Submit →</button></div>
       </div>`;
   const key = showKey && (c.checks || []).length ? `<aside class="aig-key"><h4>🔑 Answer key: what your file should hold</h4><ol>${c.checks.map(x => `<li>${hl(x)}</li>`).join("")}</ol>
       ${isTrainer() && !final && !audience() ? `<p class="aig-note">Trainer view: trainees see this once their last attempt is graded.</p>` : ""}</aside>` : "";
@@ -205,7 +205,7 @@ window.CMAIGrader = {
     const own = text.split("\n").filter(l => !stepLines.has(l.trim()) && !filled.has(l.trim()) && !/^(What I did, step by step|From the platform:)/.test(l.trim())).join(" ").replace(/→/g, " ");
     if(own.split(/\s+/).filter(w => /[A-Za-z]/.test(w)).length < 8){ status(id, "Write what you did after each arrow (→) first, then submit."); return; }
     if(typeof runRubricEvaluation !== "function"){
-      status(id, `The AI Grader isn't available on this page right now. Your work is saved. <button type="button" class="btn btn-ghost btn-sm" onclick="CMAIGrader.submit('${E(id)}')">Try again</button>`);
+      status(id, `Submitting isn't available on this page right now. Your work is saved. <button type="button" class="btn btn-ghost btn-sm" onclick="CMAIGrader.submit('${E(id)}')">Try again</button>`);
       return;
     }
     busy[id] = true;
@@ -232,7 +232,7 @@ window.CMAIGrader = {
         gaps: (rep.blindspots || []).slice(0, 3), growth: (rep.growthSuggestions || []).slice(0, 2), at: new Date().toISOString(), tries: (r.tries || 0) + 1});
       busy[id] = false; editing[id] = false;
       await save();
-      if(typeof toast === "function") toast(`AI Grader: ${r.score}/100. Your trainer sees it on your Scorecard.`);
+      if(typeof toast === "function") toast(`Graded: ${r.score}/100. Your trainer sees it on your Scorecard.`);
       // the answer key opens once this was the last attempt (as it did when a trainee finished the old self-check)
       if(r.tries >= MAX_TRIES && window.cmCaseFlow && typeof cmCaseFlow.reveal === "function" && !isTrainer()) cmCaseFlow.reveal(id); else repaint();
     }catch(e){
@@ -240,7 +240,7 @@ window.CMAIGrader = {
       if(btn) btn.disabled = false;
       const again = `<button type="button" class="btn btn-ghost btn-sm" onclick="CMAIGrader.submit('${E(id)}')">Try again</button>`;
       status(id, e && e.invalidInput ? `${E(e.message || "Add more detail about what you did, then submit again.")}`
-        : `The AI Grader couldn't be reached just now. Your work is saved. Wait a minute, then ${again}`);
+        : `Your work couldn't be graded just now. Your work is saved. Wait a minute, then ${again}`);
     }
   }
 };
