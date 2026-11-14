@@ -2,6 +2,12 @@
   "title": "Case Management Training — Day 2",
   "deck": "Revised Case Management Training Day 2 (Canva, 44 pages; the Skill Building pages 11, 12, 20, 32 and 43 are left out of the video)",
   "voice": "en_US-lessac-high",
+  "day": 12,
+  "video": {
+    "src": "/decks/day2/day2-narrated.mp4",
+    "captions": "/decks/day2/day2-narrated.vtt",
+    "starts": [0.0, 24.9, 48.9, 100.4, 144.0, 186.8, 215.4, 246.6, 281.6, 321.3, 356.3, 386.1, 425.8, 475.4, 511.5, 538.0, 562.5, 598.5, 654.6, 699.8, 739.6, 772.9, 807.5, 858.5, 908.2, 947.5, 997.0, 1036.0, 1058.7, 1104.1, 1149.8, 1198.0, 1230.5, 1271.2, 1303.2, 1332.7, 1374.4, 1420.1, 1459.7]
+  },
   "say": {
     "UM/UIM": "U M and U I M",
     "PIP": "P I P",
