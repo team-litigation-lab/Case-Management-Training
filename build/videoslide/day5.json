@@ -1,0 +1,279 @@
+{
+  "title": "Case Management Training — Day 5",
+  "deck": "Revised Case Management Training Day 5 (Canva, 42 pages; the Skill Building page 38 is left out of the video)",
+  "voice": "en_US-lessac-high, converted to the trainer's own voice (revoice.py)",
+  "day": 15,
+  "video": {
+    "src": "/decks/day5/day5-narrated.mp4",
+    "captions": "/decks/day5/day5-narrated.vtt",
+    "starts": [
+      0.0,
+      51.4,
+      94.2,
+      161.6,
+      232.6,
+      297.5,
+      362.3,
+      428.8,
+      498.6,
+      565.4,
+      629.5,
+      695.6,
+      751.9,
+      807.8,
+      857.6,
+      922.3,
+      984.3,
+      1046.8,
+      1100.2,
+      1152.0,
+      1216.9,
+      1277.0,
+      1343.7,
+      1411.4,
+      1459.8,
+      1505.2,
+      1555.9,
+      1621.3,
+      1679.6,
+      1749.7,
+      1805.0,
+      1881.2,
+      1949.4,
+      2020.7,
+      2090.6,
+      2155.0,
+      2216.7,
+      2275.6,
+      2348.5,
+      2413.0,
+      2473.0
+    ]
+  },
+  "say": {
+    "SOL": "S O L",
+    "PD": "P D",
+    "RFAs": "R F As",
+    "RFA": "R F A",
+    "KPIs": "K P Is",
+    "LLC": "L L C",
+    "MIA": "M I A",
+    "pre-lit": "pre lit",
+    "Duces": "doo sees",
+    "Tecum": "tee kum",
+    "CMS": "C M S",
+    "26-CV-04417": "26 C V 0 4 4 1 7",
+    "17c": "seventeen C",
+    "BI": "B I",
+    "UM": "U M",
+    "MRI": "M R I",
+    "MMI": "M M I"
+  },
+  "slides": [
+    {
+      "page": 1,
+      "title": "Case Management Training — Day 5",
+      "notes": "Welcome to Day 5 of Case Management Training with Legal Support Help. Up to now, most of our work has happened outside the courthouse. Today the case goes inside it. When a claim can't be resolved through negotiation, it becomes a lawsuit, and your job changes in some important ways. Deadlines get stricter, documents become evidence, and the client needs more support than ever. Our sample case is still John Doe versus Robert Smith, the same file you're working on in the platform. Today we follow its litigation road, the one where Keystone wouldn't move and we filed suit. We'll walk through litigation step by step, spend real time on getting John ready for his deposition, and build out your toolkit of documents and deadlines. Then we'll look at how property damage is valued, using Margaret Doe's Civic. Let's get started."
+    },
+    {
+      "page": 2,
+      "title": "Training Agenda",
+      "notes": "Here's the road map for today. The first and biggest block is the litigation phase itself, meaning what happens once a lawsuit is filed and where you fit in. The second block takes a topic you already know from pre-lit, property damage, and asks how it plays out once a case is in litigation. The third item on the agenda is liability disputes and MIA clients. On our file, you'll see both along the way. The liability dispute is defense counsel's claim that John shares the blame for the crash, and the MIA client is the stretch when John himself couldn't be reached, right before his deposition. Keep that list in mind, because each part builds on the one before it."
+    },
+    {
+      "page": 3,
+      "title": "Case Phases: Litigation — Your Tactical Role",
+      "notes": "So what actually changes when negotiations break down and we file suit? Look at how it happened on our file. Keystone held at its offer, the Time-Limited Demand lapsed on August 21st, 2026, and while the BI claim sat unresolved, the whole UM stack behind it was frozen too. Attorney Thorne authorized suit, and on September 10th, 2026, the file's status in the CMS changed to Litigation. From that point on, we're dealing with a court, not an adjuster, and the court runs on a structured, mandatory process. Miss a deadline or misfile a document, and the case can be thrown out entirely. Notice the point about property damage, too. PD can prove the client was really hurt, or it can become a defense weapon. On our file, the PD is Margaret's Civic, a separate claim we'll come back to at the end of the day. Now the lifecycle: pleadings, then discovery, then trial prep. You track service and draft the first files, then gather discovery and prepare the client, then coordinate schedules and bring the medicals up to date."
+    },
+    {
+      "page": 4,
+      "title": "Phase 1: Pleadings & Service",
+      "notes": "Phase one is about getting the lawsuit started the right way. Think of it as two jobs: file on time, and make sure the defendant is truly notified. The filing piece comes down to the Statute of Limitations. On our file, the SOL is docketed for February 6th, 2028, and because that's a Sunday, the firm sets its own hard date two days earlier, February 4th, 2028. We filed on September 24th, 2026, well ahead of either date. That's the habit to build: never file at the edge. Next comes service. Once the Complaint is filed, the defendant has to be personally served, and you coordinate the process server. For Robert Smith, that was Allied Process Services. Then close the loop. Get the signed Affidavit of Service back and filed. Smith was served on October 14th, and the affidavit was filed on October 16th, 2026. That document is what stops a defendant from claiming he never knew. And if a defendant is dodging service, don't sit on it. Flag it for your attorney, who can ask the court for alternative service."
+    },
+    {
+      "page": 5,
+      "title": "Phase 2: Discovery — Interrogatories & RFPs",
+      "notes": "Discovery is where each side has to show its cards, and it's where you'll spend most of your litigation time, about 80 percent of it. It starts with paperwork from the defense. Interrogatories are written questions. Requests for Production are demands for actual documents. On our file, that packet arrived on December 1st, 2026: 25 interrogatories, 30 Requests for Production, and 15 Requests for Admission, all served on John by mail. Here's the big lesson. It's tempting to forward a packet like that to John and ask him to fill it out. Don't. Clients get these wrong, leave things blank, or answer in ways that hurt them. Instead, set up a dedicated Discovery Intake Meeting, in person or on Zoom. Go through every question together, put the answers into the formal template, and gather the documents the defense asked for. Finally, the client signs a Verification Page under oath. That signature means the answers follow John for the rest of the case, which is exactly why we take the time to get them right."
+    },
+    {
+      "page": 6,
+      "title": "Phase 2: Deposition Coordination & Preparation",
+      "notes": "The other half of discovery is the deposition. This is an oral interview under oath, with a court reporter taking down every word, and the defense attorney may question your client for hours looking for something to trip them up. On our file, the notice went out on January 20th, 2027, setting John's deposition for February 18th, 2027, at 10 in the morning, by videoconference, with Riverton Court Reporting. Your work here falls into two parts. The first is logistics. The slide mentions the court reporter, a videographer, and a room or a Zoom link. For John, it's a video deposition, so the technology has to work, and the calendars of your attorney, defense counsel, and the client all have to line up. The second part is the human side. Most clients are scared of depositions. So a week ahead, send a preparation packet, and keep the basics in front of them: listen carefully, pause before answering, never guess, and always tell the truth. We'll go much deeper on deposition prep in a few slides."
+    },
+    {
+      "page": 7,
+      "title": "Phase 3: Trial & Mediation Preparation",
+      "notes": "As the case gets close to mediation or trial, your job is to hand your attorney a complete picture. On our file, the court ordered mediation, and it's set for March 18th, 2027, with the mediation statement and binder due a week earlier, on March 11th. Start with the medicals. Litigation can run anywhere from 1 to 3 years, and a lot can change for a client in that time. New doctors, new procedures, new bills. If the file still shows only the treatment from when we filed, the jury sees only part of the injury. So do a final run and bring every record and bill up to date. Next, subpoenas. Witnesses, treating physicians, and police officers don't appear just because we hope they will. A trial subpoena makes it a legal requirement, and you draft and issue them. Finally, the binders. Every exhibit, from medical records to scene photos to property damage estimates, should be indexed and tabbed so your attorney can find it instantly. Whether it's the mediation binder or a trial binder, nobody has time to go looking for paper."
+    },
+    {
+      "page": 8,
+      "title": "The Litigation Mindset: Traps & KPIs",
+      "notes": "Moving into litigation also means changing some habits. Two traps catch new case managers. The first is treating a court deadline like an adjuster's deadline. With an adjuster, a polite request often buys you time. A court doesn't work that way. Miss a discovery deadline, and the judge can bar the client from using key medical evidence at trial. The second trap is letting the client keep talking to the adjuster. Once suit is filed, every contact with the defense goes through the lawyers. On our file, Keystone hired defense counsel, Attorney Grant Mercer of Mercer and Hale, L L P. If a Keystone adjuster or a defense investigator reaches out to John, step in, stop it, and tell Attorney Thorne. To stay on top of it all, audit your files weekly against three measures: a process server confirmed within 48 hours of filing, draft discovery responses to your attorney at least 7 days before the court deadline, and a call to every litigation client at least once every 30 days. That last one matters. A client who feels forgotten is a client who drifts, and you'll see later today how fast a client can go quiet."
+    },
+    {
+      "page": 9,
+      "title": "Deposition Prep: The Pre-Deposition Audit",
+      "notes": "Let's go deeper on depositions, because a client's testimony can shape the outcome of the case. Before any prep meeting, the file gets a careful audit. What you're hunting for are landmines, anything the defense can use to make the client look dishonest, so counsel sees them first. Start with prior medical history. The slide's example is a back injury from 2018. On our file, it's real: John had three chiropractic visits in 2021 for low-back stiffness, which resolved. The defense will ask about them, and John's answers have to be open and accurate so it never looks like he hid them. Next, re-read the interrogatory answers the client already signed. What John says out loud has to match what he swore to in writing in his discovery responses, because consistency is what makes a witness believable. And check the client's public social media. If a client claims a serious injury but posts photos of a hike or a night of dancing, your attorney needs to know right away. Your job is to find these things and flag them, not to decide what to do about them."
+    },
+    {
+      "page": 10,
+      "title": "Discovery Intake Meeting: Pillar 1, De-escalating Anxiety",
+      "notes": "Once the audit is done, the client comes in, or joins by video, for the prep meeting. The slide organizes that meeting around three pillars. On our file, Attorney Thorne leads the deposition prep sessions, on February 4th and February 16th, 2027, and you run the logistics, the technology check and the document set. Keep that division in mind as we go through the pillars. The first pillar is calming the client down. Why does that matter so much? Because most people's picture of the legal system comes from television, with angry judges and shouting lawyers, and a nervous witness makes more mistakes. The slide's script uses a general name. For our client, it goes like this: Mr. Doe, this is not a courtroom drama. There's no judge, no jury, and no shouting. It's a business meeting where the other side hears your story, and for John, that meeting happens by video. And the line that tends to land best: you can't lose your case today, but you can protect it by staying composed."
+    },
+    {
+      "page": 11,
+      "title": "Pillar 2: Essential Testimony Guidelines",
+      "notes": "The second pillar is the core of deposition prep: practicing three testifying habits until they're automatic, with mock questions to check whether the client really does them. On our file, that practice belongs to Attorney Thorne. The case manager never coaches testimony. What you need is to understand the habits, so you can support the sessions and recognize the problems. The first habit is the two-second pause. After every question, the client silently counts one, two, then answers. That breaks the defense attorney's rhythm and gives our attorney a moment to object. The second is understanding the liar's trap. When the defense asks about prior injuries, they usually already know the answer from insurance databases. They're testing honesty. For John, that's exactly why the 2021 low-back visits get handled openly. The third is to stop talking. Short, literal answers only. Asked whether he knows what time it was, the answer is yes or no, not the time itself. Each habit protects the client's credibility."
+    },
+    {
+      "page": 12,
+      "title": "Pillar 3: Dress Code & Professional Demeanor",
+      "notes": "The third pillar is how the client looks and carries themselves, and it matters more than people expect. After the deposition, the defense attorney writes an Evaluation Report on the client. Think of it as a review of John as a witness, and the insurance company leans on it when it decides what the case is worth. On our file, that report would come from Attorney Mercer to Keystone. The guidance is simple. Dress as you would for a job interview or a funeral: neat, clean, and respectful. And John's deposition is by videoconference, so he's still on camera the whole time. How he presents himself still counts. Be clear about what to leave out, too: flashy jewelry, expensive watches, and clothing with political or graphic slogans. Here's why. If a client describes money trouble or serious pain, and shows up in designer labels, the story and the appearance don't match, and the defense will notice."
+    },
+    {
+      "page": 13,
+      "title": "Silent Traps — Drill A: The “Is That All?” Trap",
+      "notes": "Now two traps the defense likes to set. The slide frames them as mock drills for the prep session. On our file, Attorney Thorne runs those, and your job is to understand them. The first is the is-that-all trap. It sounds harmless. The defense attorney lists an injury or two and asks, so you only hurt your neck, correct? A nervous client says yes just to agree. But that yes can lock them in, and later they can be barred from raising anything else. Think about how that could land on our file. John's main injury is his neck, but his care also documented numbness into his right hand, and he had residual right-arm symptoms at MMI. A quick yes could leave that out. The better answer is honest and keeps the record open, something like: these are the main injuries that come to mind right now, but my complete medical records detail everything I've discussed with my doctors."
+    },
+    {
+      "page": 14,
+      "title": "Silent Traps — Drill B: The Thoughtful Silence",
+      "notes": "The second drill is about silence. After the client answers, the defense attorney simply says nothing and lets the quiet drag on. Why? Because most people can't stand an awkward pause, and they start filling it with more words. Those extra words are often exactly what the defense was hoping for. Picture John finishing a short answer about his gap in treatment, and then hearing nothing. The urge to keep explaining is strong, and every extra sentence is something new for Attorney Mercer to question. So the habit is the opposite. Once he's answered, he looks at the attorney, or in John's case, at the camera, and waits. The phrase on the slide says it well: embrace the awkwardness, that's their problem, not yours. This one feels strange the first time, which is why it gets practiced out loud."
+    },
+    {
+      "page": 15,
+      "title": "Checklist: The Day Before the Deposition",
+      "notes": "The day before the deposition is about removing surprises, and there are three things to lock down. First, logistics. Confirm the date, the time and the video link with everyone involved: John, Attorney Thorne, and Riverton Court Reporting. Second, exhibits. Your attorney should have the final medical records, invoices, and photos organized and ready. Third, a backup way to reach the client. This is where our file shows why it matters, and it's the MIA client from today's agenda. From January 22nd to February 3rd, 2027, John went unreachable. He'd lost his phone and had a new number. The No Contact Protocol ran, and he was finally reached through his mother, Margaret, his emergency contact, on February 3rd, 2027. That was just before the first prep session and about two weeks before the deposition. So the day before, make sure you have the client's current number and a working backup. None of this is complicated, but skipping it is how good preparation falls apart at the last minute."
+    },
+    {
+      "page": 16,
+      "title": "What Will the Defense Attorney Ask Me?",
+      "notes": "This is probably the first question every client asks: what are they going to ask me? Clients feel calmer when they know what's coming. The defense can ask about a broad range of things, but the questions usually fall into four buckets. The first is personal background, like work history, where they've lived, and any past lawsuits. The second is how the crash happened, meaning the lane, the speed, the weather, what they saw, and how the impact felt. The third is medical history, before and after the accident. The fourth is how the injury has changed daily life, work, hobbies and family. Now look at our file. Attorney Mercer's questions to John focused on four things: the gap before his first treatment, the disruption in his care, the 2021 low-back visits, and the seatbelt. You can see how those map onto the buckets: the seatbelt falls under the crash itself, and the other three under medical history. None of them should surprise John on the day, and none of them should surprise you either."
+    },
+    {
+      "page": 17,
+      "title": "The 7 Golden Rules for Testifying: Rules 1–3",
+      "notes": "These next slides are the seven golden rules for testifying, written for the client. Start with the why. The defense is trying to get the client to contradict themselves, lose their temper, or exaggerate, because any of those damages credibility. Rule one is the foundation: always tell the truth. A case with weak spots can be saved. A case built on a lie usually can't. Prior accidents and prior injuries show up in insurance databases, and once a jury catches a plaintiff lying, the case is effectively over. For John, that means the 2021 low-back visits are simply part of the truth, told plainly. Rule two is to pause before answering, the same two seconds we talked about. It gives time to think, keeps the record clean, and gives Attorney Thorne room to object. Rule three is to answer out loud. A court reporter can't write down a nod, a shrug, or an uh-huh, and that's just as true over video. So the answer is yes or no, in words."
+    },
+    {
+      "page": 18,
+      "title": "Golden Rules 4 & 5",
+      "notes": "Rule four is never guess. The key is the difference between an estimate and a guess. An estimate rests on what the client actually saw or felt. A guess claims something they couldn't know. Think about John. He was the front-seat passenger, and Robert Smith's truck came at the Escape from the side. If he's asked how fast Smith was going, he can only describe what he experienced. Claiming a number he couldn't have seen is a guess, and the defense will pick it apart. Teach clients that I don't know and I don't recall are complete, honest answers. Rule five is to keep it short. Answer just the question asked, then stop. Asked what day of the week it happened, the slide's answer is a single word, not a story about why you remember. Every extra detail is something new the defense can question. The goal is to give them the smallest target possible."
+    },
+    {
+      "page": 19,
+      "title": "Golden Rules 6 & 7",
+      "notes": "Rule six should sound familiar: the silent trap, the same tactic from the drill. The defense attorney gets a short answer and then just waits, hoping the client starts rambling. Once the question is answered, the client sits quietly and waits for the next one. Rule seven is about mindset. Many clients walk in hoping to prove the other driver was a bad person, or to finally hear an apology. On our file, John might feel that strongly. Robert Smith was cited for failing to stop at the stop sign. But the deposition isn't the place to argue that. It's the defense gathering information. Trying to win the case there will only make John look combative. The proof of what happened lives in the evidence, and arguing it is Attorney Thorne's job. John's job is to be polite and calm, and to leave the legal battling to his attorney."
+    },
+    {
+      "page": 20,
+      "title": "Professional Presentation: Dress Code & Demeanor",
+      "notes": "Here's the client-facing version of the dress code, plus tone and body language. The reason behind it is the same as before. The insurance company uses the deposition to predict how a real jury will react to this person. On clothing, the target is business casual: clean, respectful, and serious about the claim. For men, a collared shirt, slacks or neat jeans without holes, and closed-toe shoes. For women, a professional blouse, slacks, a modest dress, or a neat skirt. And leave out sweatpants, graphic tees, heavy jewelry, hats, and athletic wear. Even on a video deposition like John's, what's on camera counts. On demeanor, there are two points. First, stay calm. If the defense gets under the client's skin and they snap, the report will say they're easily rattled and will look aggressive to a jury. Second, describe the pain honestly. Don't downplay it, and don't inflate it. A plain, factual account of what the client can and can't do is what sounds credible."
+    },
+    {
+      "page": 21,
+      "title": "What Happens When Your Lawyer Objects?",
+      "notes": "One more thing to prepare the client for, because it catches people off guard: objections. In the middle of a question, the client's attorney may suddenly say objection, followed by a short legal term like form or speculation. Clients often think something has gone wrong. It's routine. It's simply the lawyer putting a formal flag on the record to protect the witness. On our file, that's Attorney Thorne protecting John while Attorney Mercer asks the questions. The key instruction is to stop talking the instant the attorney speaks, even mid-sentence. Then listen. Most of the time, in about 95 percent of cases, the lawyer states the objection and then says the client can go ahead and answer. Occasionally, if a question intrudes on private medical or legal rights, the attorney will instruct the witness not to answer. Then the client stays quiet and waits for the next question. That wraps up deposition prep. Next, the documents that drive a lawsuit."
+    },
+    {
+      "page": 22,
+      "title": "Litigation Toolkit: The Complaint / Petition",
+      "notes": "Let's open the litigation toolkit. Here's the mindset shift. In pre-lit, documents are mostly something we track. In litigation, they're evidence, and a missing or misfiled one can put a trial at risk. So you need to know the five core documents well enough to spot each one in a file instantly. We'll take them one per slide. First is the Complaint, which some courts call a Petition. The attorney drafts it. It tells what happened, says the defendant was negligent, and formally asks for damages. On our file, Attorney Thorne drafted and approved the complaint. On September 22nd, 2026, you tagged the Litigation Desk paralegal, Nadia Brooks, to prepare the filing set around it, Attorney Thorne signed the set on September 23rd, and it was e-filed on September 24th, 2026, in the State Court of Riverton County, Civil Action Number 26-CV-04417. Why do you care about that filing date? Because it's the kickoff of the whole lawsuit, and it's the date that proves we beat the Statute of Limitations."
+    },
+    {
+      "page": 23,
+      "title": "Core Document: The Answer",
+      "notes": "Second is the Answer, the defense's formal response to our Complaint. Don't be surprised by what's in it. The defense will almost always deny liability and list affirmative defenses, often claiming our client was at fault. Our file shows exactly that, and this is the liability dispute from today's agenda. On November 12th, 2026, Attorney Grant Mercer filed Robert Smith's Answer. It denies the claim and pleads three defenses. Comparative negligence: the Escape entered the all-way stop out of turn, and John was unbelted. Causation: the gap in treatment, and an MRI the defense calls degenerative. And failure to mitigate: the disruption in John's care. Read the Answer as a road map. It tells you what the defense will fight about, so you know what evidence to gather. Here, the file already points the way: the doorbell video showing the Escape stopped and Smith rolling through, the Escape's event data recorder showing John's belt buckled, and the MRI reading of no significant degenerative change at the adjacent levels."
+    },
+    {
+      "page": 24,
+      "title": "Core Document: Interrogatories",
+      "notes": "Third are Interrogatories, and you've already met them in the discovery phase. They're written questions from one side to the other, answered under oath, with a strict deadline, usually 30 days. That's why the slide calls them the deadline clock, and the clock starts the moment they arrive. On our file, Robert Smith's defense served 25 interrogatories on John on December 1st, 2026. Because they came by mail, the responses are due on January 4th, 2027. We'll walk through that math when we get to deadline calculations. So the right move isn't to set the set aside for later. As soon as it arrives, get John scheduled to work through the answers in a Discovery Intake Meeting. The earlier you start, the more time there is to get the answers right."
+    },
+    {
+      "page": 25,
+      "title": "Core Document: Requests for Production",
+      "notes": "Fourth are Requests for Production. Where interrogatories ask questions, these ask for things: medical records, payroll logs, photos, even social media downloads. This one lands squarely on you. You're responsible for gathering every single item requested. On our file, the same December 1st packet carried 30 of them. In practice, that means working through the requests line by line, checking what the file already holds from the pre-lit work, and chasing down the rest, so nothing gets missed. And remember, these documents become evidence in the case. What we hand over, and how completely, matters just as much as the client's written answers, and it's all due on the same date."
+    },
+    {
+      "page": 26,
+      "title": "Core Document: Requests for Admission",
+      "notes": "The fifth document is the one to fear the most: Requests for Admission, or RFAs. These are statements the other side has to either admit or deny, something like, admit that you were speeding. Here's the danger. If RFAs aren't answered by the deadline, they can be deemed admitted, meaning the court treats them as true. Our file has 15 of them, served December 1st, 2026, and due January 4th, 2027. Now think about the defenses in Smith's Answer, like the claim that John was unbelted. If a statement along those lines went unanswered, John could be treated as having admitted it simply because a response was late. That can end a case. It's why RFAs get special priority in the KPIs coming up. When you see one, treat it as urgent."
+    },
+    {
+      "page": 27,
+      "title": "Critical Processes 1 & 2: Service and Docketing",
+      "notes": "Now that you know the documents, let's look at the processes you'll run every week. Court procedures are rigid, so these have to become routine. Process one is service of process. Filing means nothing until the defendant is legally notified, so you manage service like a pipeline. The flowchart shows the steps: get the summons issued and signed by the clerk, assign a process server and send the papers, follow up every few days while watching for a defendant who's dodging, and file proof of service once the affidavit comes back. On our file, the clerk issued the summons when the complaint was filed on September 24th, Allied Process Services took the papers, and the affidavit was filed on October 16th, 2026. As you'll see shortly, Smith didn't make it easy. Process two is docketing. Every filing in the case, from either side, creates a docket entry. Check the docket yourself every week, and don't rely only on email. If a Motion to Dismiss notice lands in your spam folder, the clock is still running against you."
+    },
+    {
+      "page": 28,
+      "title": "Critical Process 3: Third-Party Subpoenas",
+      "notes": "The third weekly process is subpoenas to third parties. Sometimes a hospital, a phone company, or an employer simply won't release records voluntarily. A subpoena gives us the power to require it. The flow has four steps. First, you draft the court-approved form, the Subpoena Duces Tecum, a command to produce documents. Second, before it goes to the third party, a copy goes to the defense attorney. Most states require advance notice, typically 5 to 10 days. On our file, that copy would go to Attorney Mercer. Third, a process server formally delivers it to the facility's Registered Agent. And fourth, don't just wait for the records. Call the facility's legal or records department about 5 days before the deadline to make sure the records are really being pulled together. That follow-up call is often what makes the difference between records that arrive on time and a deadline that slips."
+    },
+    {
+      "page": 29,
+      "title": "The 3 Golden Rules of File Maintenance",
+      "notes": "Good litigation work depends on a clean file, and these three rules keep it that way. Rule one: once suit is filed, keep pre-lit and lit separate. Give the litigation side its own folders for pleadings, discovery sent and received, motions, and subpoenas. On our file, that split belongs at the moment the status changed to Litigation, so months of pre-lit letters with Keystone never get mixed in with court filings. Rule two: treat the Scheduling Order like the Bible. Ours was entered on December 10th, 2026, at the Case Management Conference. It sets the plaintiff's expert disclosure for March 15th, 2027, mediation completed by March 31st, discovery closing on May 28th, and a trial calendar of September 13th, 2027. Print it, put it on the front of the file, and enter every date on the master calendar with warnings at 30, 14, and 7 days out. Rule three: get every extension in writing. If your attorney agrees on a call to give the defense another week, a phone agreement means nothing to the court. Send a short confirming email with the new date."
+    },
+    {
+      "page": 30,
+      "title": "KPIs for Document Management",
+      "notes": "Here's how you'll measure your document management, with three habits. First, the 48-hour docket rule. Anything that comes in from the court or opposing counsel gets saved into our system and put on the calendar within 48 hours, so no deadline sits unnoticed in a pile. Think of the discovery packet that arrived on our file in December. It carried a response date that could cost John the case if it slipped. Second, treat Requests for Admission like a structural fire, and you just saw why. The moment an RFA lands on your desk, the assigned attorney hears about it, that same hour. On our file, that's Attorney Thorne, and those 15 RFAs. Third, review every outstanding subpoena every 10 days. That's your built-in check that third parties are actually complying. Together, these three habits turn the rules we just covered into a routine you can run without thinking."
+    },
+    {
+      "page": 31,
+      "title": "Deep-Dive: The Complaint / Petition",
+      "notes": "Now we go one level deeper. It's not enough to know a document's name. A strong litigation case manager knows how each one is built and what can go wrong with it. So let's take the Complaint apart. The attorney handles the legal arguments, and you make sure the facts underneath are solid. The table shows five sections. The caption names the court, the parties, and the case number, which for us is the State Court of Riverton County, John Doe versus Robert Smith, Civil Action Number 26-CV-04417. Jurisdiction explains why the court can decide the case. The factual allegations tell the story of the crash. The causes of action name the legal claims. And the prayer for relief is the demand for compensation. Before it goes for signature, run three checks. Is the filing date safely inside the Statute of Limitations? Is the defendant's legal name verified through the Secretary of State or property records? In John Doe versus Robert Smith, for example, is the defendant Robert Smith himself, or a business like Robert Smith Enterprises, LLC? Getting that wrong is a costly mistake. And if the defendant is a business, have you found their Registered Agent for service?"
+    },
+    {
+      "page": 32,
+      "title": "Written Discovery: Interrogatories, RFPs, and RFAs",
+      "notes": "Let's revisit written discovery, from both directions. When a discovery packet arrives from the defense, it can't sit in the inbox. It gets broken down and calendared right away. The flow shows two things happening at once. You calculate the due date, typically 30 days from service, and you pull the client file to see what we already gathered in pre-lit, so we don't start from zero. Then you bring the client in for a discovery intake conference, about an hour, to answer the questions together. That's the path John's December 1st packet takes. Now flip it around. On our file, we served our own discovery on Smith on December 14th, 2026, by email, with both sides' consent, so his responses are due January 13th, 2027. When we draft our own interrogatories, the slide names three baseline topics. Insurance coverage, including excess and umbrella limits, so we know what money is really available. Whether the defendant was working or running an errand for an employer at the time of the crash. And whether they've hired an investigator to follow or film our client."
+    },
+    {
+      "page": 33,
+      "title": "Master Timeline & Deadline Calculations",
+      "notes": "This slide is about something that sounds simple but isn't: counting days. In litigation, being one day late can get a case dismissed with prejudice, meaning it can never be filed again. The general rule is that you don't count the day of the event that starts the clock, but you do count the last day. Then watch for the mailbox trap. When something is served by mail or electronic portal, many states add 3 days, so always confirm your local rules. The matrix shows the chain: filing starts the clock on service, service starts the clock on the Answer, discovery starts the clock on responses, and a motion starts the clock on the opposition. The ranges vary by court. Here's how our file's configured dates work out. Filed September 24th, 2026, with service due within 120 days, by January 22nd, 2027. Smith served October 14th, Answer due November 13th, 2026. And discovery mailed December 1st: 30 days plus 3 for mail lands on Sunday, January 3rd, so the responses are due Monday, January 4th, 2027."
+    },
+    {
+      "page": 34,
+      "title": "The Process Server & Evading Defendant Protocol",
+      "notes": "What happens when a defendant doesn't want to be found? It's common. Some people hide, stop answering the door, or even quit their jobs to avoid service. And if they aren't served by the court's deadline, the judge can dismiss the case for Want of Prosecution. Our file is the example. Allied Process Services tried Robert Smith at the address on the police report, 118 Larkspur Lane, on October 1st, 5th and 8th, 2026, and all three attempts failed. A neighbor said he had moved in August. So the protocol kicked in. Step one on the flowchart is a skip trace, a background search to find where someone actually lives now. TraceLine Investigations ran it on October 9th and found Smith at 4410 Quarry Ridge Court, Millbrook. Allied served him personally on October 14th, 2026. Because the skip trace worked, we never needed the later steps: varying the server's hours to early morning, evening and weekends, and finally asking the court to allow alternative service, like social media, posting on the door, or mail."
+    },
+    {
+      "page": 35,
+      "title": "Subpoena Duces Tecum: Execution Strategy",
+      "notes": "Let's take a closer look at the Subpoena Duces Tecum, our tool for making reluctant third parties hand over evidence. The biggest mistake is asking for too much. A subpoena demanding all records of any kind invites a Motion to Quash, with the other side calling it a fishing expedition. The fix is to be narrow: exactly which records, about which person, for which dates. The slide's sample wording, limited to emergency room records, triage notes and imaging for the accident date only, is the model. On our file, the accident date in a request like that would be February 6th, 2026. The workflow ties back to what we covered earlier. Draft the form with the precise list attached as Exhibit A. Give the defense its copy before the third party gets theirs. Have the process server personally deliver it to the records custodian or Registered Agent. And don't forget the invoice check. Facilities charge for copies, so track, pay and process those invoices right away to keep the request moving."
+    },
+    {
+      "page": 36,
+      "title": "Litigation File Architecture",
+      "notes": "Remember the rule about separating pre-lit from lit? This slide shows what that looks like. The point is uniformity. If every litigation file across the firm is set up the same way, anyone can open any file and find what they need in seconds. And this structure goes in place the moment a lawsuit is filed. The master folder carries the client's name, so for us, Doe, John. Under it are five sub-folders that follow the life of the case. Pleadings holds the filed Complaint, the summons, and Smith's Answer and affirmative defenses. Service documents holds Allied's Affidavit of Service. Then discovery gets two folders, one for what we sent the defense, like our December 14th set, and one for what they sent us, like the December 1st packet, along with John's verified responses. And subpoenas holds each subpoena with its proof of service. Notice how the folders mirror the processes we've discussed. File as you go, and the structure does a lot of the organizing for you."
+    },
+    {
+      "page": 37,
+      "title": "Advanced KPIs for Litigation Case Managers",
+      "notes": "Let's wrap up the litigation section with three advanced KPIs, the standards that separate a solid litigation case manager from a great one. The first is zero defaults. No discovery or motion deadline ever passes without either a filed response or a signed, written extension from opposing counsel. On our file, that means January 4th, 2027 is not negotiable unless Attorney Mercer signs off on more time in writing. The second is the 14-day service milestone. If a defendant still hasn't been served 14 days after the process server received the packet, don't keep waiting. Run a skip trace and update your attorney. That's the same move that found Robert Smith in Millbrook. The third is the clean discovery check. Before a draft response goes to your attorney, every blank is filled in and a signature-ready verification page is attached. Your attorney's review time should go to substance, not to chasing missing pieces."
+    },
+    {
+      "page": 39,
+      "title": "Property Damage: Types of Damages You Can Recover",
+      "notes": "Now the second part of today, property damage in litigation. When someone's negligence damages a house or a car, the law tries to make the owner whole again financially. That's the key idea. The goal isn't a windfall. It's putting the person back where they were before the incident. The table sorts recoverable damages into three kinds. Economic, or special, damages are losses you can put a number on, like medical bills, lost wages, lost earning capacity and rehab costs. Non-economic, or general, damages are real but harder to measure, like pain and suffering, emotional distress, and loss of consortium, the strain on relationships. And punitive damages exist to punish especially reckless or intentional conduct and deter it. Now our file. John's suit pleads medical specials, lost wages, future medical, and pain and suffering. But no property damage is pleaded, because John owns no car. The damaged car is his mother Margaret's 2019 Honda Civic, parked at the curb when the Escape was pushed into it. That's her own claim with Keystone, separate from John's lawsuit, and it's the one we'll value next."
+    },
+    {
+      "page": 40,
+      "title": "Calculating the Value: The “Lesser Of” Rule",
+      "notes": "Knowing the categories is one thing. The real fight in a property damage case is usually over the number. Courts use set formulas, and the first is the lesser-of rule. For personal property like a car, compare two figures: the cost to repair, and the drop in value, meaning what it was worth before minus what it's worth after. The award is usually the smaller of the two. The slide's example is a general one: a car worth five thousand dollars with seven thousand dollars in repairs gets capped at its value and treated as totaled. On Margaret's Civic, the question was repair or total. Keystone valued it at 17,600 dollars. The final repair, including a structural supplement, came to 9,255 dollars, which is 52.6 percent of that value. Our file uses 75 percent of value as the total-loss line, so the Civic was repairable, not a total loss, and Keystone paid the shop for the repair. That's the make-whole principle at work: the owner is restored, not enriched."
+    },
+    {
+      "page": 41,
+      "title": "Calculating the Value: Sentimental or Special Value",
+      "notes": "What about something that means far more to the owner than its market price? Standard law looks at fair market value, so sentimental value usually doesn't move the number. There's a narrow exception. Some jurisdictions allow extra recovery when an item has a unique, special value to its owner, but you have to show the defendant knew about that value before the incident, or acted intentionally. On Margaret's Civic, the open fight isn't sentimental value. It's two other lines. Loss of Use, 2,016 dollars for the days she had no car and no paid rental, which Keystone disputes. And Diminished Value, the value a car still loses after a proper repair: an independent appraisal says 3,600 dollars, and Keystone's 17c formula offers 792 dollars. Remember, this is Margaret's claim, not part of John's suit, and its outcome is still open. Whatever you'd propose to resolve it needs Attorney Thorne's authority."
+    },
+    {
+      "page": 42,
+      "title": "Thank You!",
+      "notes": "That brings us to the end of Day 5. Today we took John Doe's case into litigation. We saw how the rules change once suit is filed, how Robert Smith was found and served, and how the Answer turned into a liability dispute over the stop sign and the seatbelt. We prepared for John's deposition, including the stretch when he went missing, and built your toolkit of core documents, processes, and deadlines. Then we saw how the property damage on Margaret's Civic is valued. If there's one idea to take away, it's this: in litigation, the calendar is everything. Review your notes on John Doe versus Robert Smith, and thank you for your work today."
+    }
+  ]
+}

@@ -267,8 +267,6 @@ renderAuditBatchView = window.renderAuditBatchView = function(){
   }
   return `<div class="at-wrap" id="cmAuditTable">${toolbarHtml()}${fbPanel}<div class="at-scroll" id="atScroll"><div id="adminRowsWrap">${renderAdminRows()}</div></div></div>`;
 };
-// the pending registrations are rows of the table now (pinned on top, Approve / Reject in their Status cell)
-renderPendingApprovalsPanel = window.renderPendingApprovalsPanel = function(){ return ""; };
 
 /* The page: the head (its h1 becomes the navy banner), 👥 duplicate accounts, the toolbar and the table */
 function headHtml(){

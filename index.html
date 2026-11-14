@@ -905,8 +905,6 @@ rect.svg-callout-badge{animation:none;}
 .btn:not([disabled]):active{transform:translateY(0);box-shadow:none;}
 .nav button{transition:background .15s ease, color .15s ease, transform .12s ease;}
 .quiz-opt{transition:transform .1s ease;}
-.drill-btn{transition:transform .1s ease, background .15s ease;}
-.drill-btn:not([disabled]):hover{transform:translateY(-1px);}
 
 .tab-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
 .tab-btn{
@@ -1083,22 +1081,6 @@ rect.svg-callout-badge{animation:none;}
 .esim-fail-banner li{font-size:var(--font-body);color:#7a352c;margin-bottom:4px;}
 .esim-progress{font-family:'IBM Plex Mono';font-size:var(--font-sub);color:var(--ink-soft);margin-bottom:12px;}
 
-/* differences drill */
-.drill-row{
-  display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;
-  padding:14px 16px;border:1px solid var(--line);border-radius:10px;margin-bottom:9px;
-}
-.drill-row .dtext{font-size:var(--font-body);color:var(--ink);}
-.drill-btns{display:flex;gap:6px;}
-.drill-btn{
-  border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 14px;
-  font-size:var(--font-sub);font-weight:700;letter-spacing:.02em;
-}
-.drill-btn.correct{background:var(--success-bg);border-color:var(--success);color:var(--success);}
-.drill-btn.incorrect{background:var(--danger-bg);border-color:var(--danger);color:var(--danger);}
-.drill-progress{
-  font-family:'IBM Plex Mono';font-size:var(--font-sub);color:var(--ink-soft);margin-bottom:14px;
-}
 
 /* calendar tool */
 .cal-grid{display:grid;grid-template-columns:70px 1fr;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;}
@@ -2583,22 +2565,6 @@ const PRACTICE_TOOLS = [
    desc:"A case manager's week across John Doe VS Robert Smith and three other matters — depositions, mediation, IMEs, a brief deadline and an SOL — with overlapping commitments to resolve, hard deadlines to calculate, and an AI-drafted docket briefing for the handling attorney."}
 ];
 
-
-/* ---------- 0. EA vs PA Differences Drill (Day 1) ---------- */
-const ROLE_DRILL_ITEMS = [
-  {text:"Prepares confidential merger documents and board materials for the managing partner.", role:"EA"},
-  {text:"Books flights and a hotel for the attorney's family vacation.", role:"PA"},
-  {text:"Screens a persistent caller demanding to speak with the attorney immediately.", role:"EA"},
-  {text:"Coordinates contractor visits for the attorney's home renovation.", role:"PA"},
-  {text:"Tracks CLE compliance hours and court filing deadlines.", role:"EA"},
-  {text:"Manages the attorney's personal medical appointments.", role:"PA"},
-  {text:"Drafts a client response under a Draft & Review email policy, for the attorney's approval.", role:"EA"},
-  {text:"Organizes a birthday event for the attorney's spouse.", role:"PA"},
-  {text:"Escalates a data-security incident involving client case files.", role:"EA"},
-  {text:"Arranges grocery delivery and household staff scheduling for the attorney's residence.", role:"PA"},
-  {text:"Reviews a motion and confirms it's filed before the court deadline.", role:"EA"},
-  {text:"Manages the attorney's personal social calendar and event RSVPs.", role:"PA"}
-];
 
 /* ---------- 1. Inbox Sweep: Label & Color-Code ---------- */
 const LABEL_LEGEND = [
@@ -8499,71 +8465,6 @@ function wizardNavHtml(i){
               : `<button class="btn btn-primary" onclick="${dayId ? `returnToLessonCard(${dayId})` : `goto('practice')`}">✓ Return to Progress</button>`}
     `;
 }
-/* ============================================================
-   0. EA vs. PA DIFFERENCES DRILL
-   ============================================================ */
-function initRoleDrill(body){
-  toolState.drill = {answered:0, correct:0, items:[]};
-  body.innerHTML = `
-    <p style="font-size:13px;color:var(--ink-soft);margin-bottom:6px;">For each responsibility, decide which track it belongs to in a law-firm setting. Click your answer — feedback is instant.</p>
-    <div class="drill-progress" id="drillProgress">0 / ${ROLE_DRILL_ITEMS.length} answered · 0 correct</div>
-    <div id="drillList">
-      ${ROLE_DRILL_ITEMS.map((it,i)=>`
-        <div class="drill-row" id="drillRow${i}">
-          <div class="dtext">${esc(it.text)}</div>
-          <div class="drill-btns">
-            <button class="drill-btn" onclick="answerDrill(${i},'EA')">EA</button>
-            <button class="drill-btn" onclick="answerDrill(${i},'PA')">PA</button>
-          </div>
-        </div>`).join("")}
-    </div>
-    <div id="drillResult"></div>
-  `;
-}
-async function answerDrill(i, choice){
-  const row = document.getElementById(`drillRow${i}`);
-  if(row.dataset.answered) return;
-  row.dataset.answered = "1";
-  const correctRole = ROLE_DRILL_ITEMS[i].role;
-  const ok = choice===correctRole;
-  const btns = row.querySelectorAll(".drill-btn");
-  btns.forEach(b=>{
-    b.disabled = true;
-    if(b.textContent===correctRole) b.classList.add("correct");
-    else if(b.textContent===choice && !ok) b.classList.add("incorrect");
-  });
-  toolState.drill.answered++;
-  if(ok) toolState.drill.correct++;
-  toolState.drill.items[i] = {text:ROLE_DRILL_ITEMS[i].text, choice, correctRole, ok};
-  document.getElementById("drillProgress").textContent = `${toolState.drill.answered} / ${ROLE_DRILL_ITEMS.length} answered · ${toolState.drill.correct} correct`;
-  if(toolState.drill.answered===ROLE_DRILL_ITEMS.length){
-    const score = Math.round((toolState.drill.correct/ROLE_DRILL_ITEMS.length)*100);
-    document.getElementById("drillResult").innerHTML = `
-      <div class="card" style="padding:18px 20px;margin-top:16px;">
-        <b style="color:var(--navy);">Drill complete — ${toolState.drill.correct}/${ROLE_DRILL_ITEMS.length} correct (${score}%)</b>
-        <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;">
-          <button class="btn btn-ghost btn-sm" onclick="initRoleDrill(document.getElementById('toolBody'))">Run It Again</button>
-          <button class="btn btn-navy btn-sm" onclick="downloadDrillPdf()">⬇ Download My Work</button>
-        </div>
-      </div>`;
-    await bumpPracticeProgress("roledrill", score);
-    if(score>=80) burstConfetti();
-  }
-}
-window.answerDrill = answerDrill;
-async function downloadDrillPdf(){
-  await ensureTraineeName();
-  const d = toolState.drill;
-  const score = Math.round((d.correct/ROLE_DRILL_ITEMS.length)*100);
-  const lines = [`## EA vs. PA Differences Drill`, `Score: ${d.correct} / ${ROLE_DRILL_ITEMS.length} (${score}%)`, "---"];
-  d.items.forEach((it,i)=>{
-    if(!it) return;
-    lines.push(`${i+1}. ${it.text}`);
-    lines.push(`   Your answer: ${it.choice}  |  Correct: ${it.correctRole}  ${it.ok?"✓":"✗"}`);
-  });
-  buildAndSavePdf("LSH Case Management Training", "EA vs. PA Differences Drill — Results", lines, "LSH_Drill_Results");
-}
-window.downloadDrillPdf = downloadDrillPdf;
 
 /* ============================================================
    2. LEGAL CALENDAR CONFLICT RESOLVER (week view, draggable, colorable)
@@ -11098,26 +10999,6 @@ function adminPracticeStats(rec){
   return {runs, avg};
 }
 
-function renderPendingApprovalsPanel(){
-  const pending = state.adminData.filter(r => r.approved!==true && !r.rejected);
-  if(!pending.length) return "";
-  return `
-    <div class="card" style="padding:18px 20px;margin-bottom:20px;border-left:4px solid var(--orange-deep);">
-      <b style="font-size:14px;color:var(--navy);">⏳ Pending Approvals (${pending.length})</b>
-      <p style="font-size:12.5px;color:var(--ink-soft);margin:6px 0 14px;">These people have registered but can't access the training until approved. Confirm they're legitimate trainees before approving.</p>
-      ${pending.map(r=>`
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line);">
-          <div>
-            <b style="font-size:13.5px;color:var(--navy);">${esc(r.name)}</b>
-            <div style="font-size:11.5px;color:var(--ink-soft);">Registered ${r.registeredAt ? new Date(r.registeredAt).toLocaleString() : "recently"}</div>
-          </div>
-          <div style="display:flex;gap:8px;">
-            <button class="btn btn-ghost btn-sm" style="color:var(--danger);" onclick="rejectTrainee('${r.id}')">Reject</button>
-            <button class="btn btn-navy btn-sm" onclick="approveTrainee('${r.id}')">Approve</button>
-          </div>
-        </div>`).join("")}
-    </div>`;
-}
 async function approveTrainee(traineeId){
   const rec = await sharedGet("trainee:"+traineeId);
   if(!rec) return;
@@ -13904,12 +13785,6 @@ async function finishEmailSim(){
     return `--- Client Email ---\nFrom: ${m.from}\nSubject: ${m.subj}\nOriginal message:\n${m.body}\n\nTrainee's reply:\n${reply || "(No reply was sent — this client email was archived without a response.)"}`;
   }).filter(Boolean).join("\n\n");
 
-  const phishingSummary = phishingMsgs.map(({m,i})=>{
-    const outcome = e.reported[i]
-      ? "Correctly reported as phishing; did not click the link or share sensitive info."
-      : "Did not fall for it (no link clicked, no sensitive info shared), but did not proactively report it either.";
-    return `- "${m.subj}": ${outcome}`;
-  }).join("\n");
 
   const prompt = `Evaluate strictly under these two headers, in this order, using short bullet points under each:
 

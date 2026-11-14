@@ -768,5 +768,481 @@ window.CM_DAY_VIDEOS = {
     "title": "Thank You!"
    }
   ]
+ },
+ "13": {
+  "title": "Case Management Training — Day 3",
+  "src": "/decks/day3/day3-narrated.mp4",
+  "captions": "/decks/day3/day3-narrated.vtt",
+  "chapters": [
+   {
+    "t": 0,
+    "page": 1,
+    "title": "Lien Negotiations: Key Legal Doctrines"
+   },
+   {
+    "t": 72.5,
+    "page": 2,
+    "title": "Quantum Meruit: Prior Attorney Liens"
+   },
+   {
+    "t": 145.2,
+    "page": 3,
+    "title": "Increasing the Client's Net"
+   },
+   {
+    "t": 216.5,
+    "page": 4,
+    "title": "Auditing the Billing"
+   },
+   {
+    "t": 289.8,
+    "page": 5,
+    "title": "The Net Sheet: Purpose of a Combined BI/UM Net Sheet"
+   },
+   {
+    "t": 360.3,
+    "page": 6,
+    "title": "The Net Sheet: Two Recovery Streams"
+   },
+   {
+    "t": 433.7,
+    "page": 7,
+    "title": "The BI/UM Master Financial Ledger"
+   },
+   {
+    "t": 515.2,
+    "page": 8,
+    "title": "Case Manager Protocols for Dual Settlements"
+   },
+   {
+    "t": 586.9,
+    "page": 9,
+    "title": "Key Takeaway: The Value of a CM"
+   },
+   {
+    "t": 658.2,
+    "page": 11,
+    "title": "Disbursement: Core Objectives"
+   },
+   {
+    "t": 726.5,
+    "page": 12,
+    "title": "Disbursement: The Workflow"
+   },
+   {
+    "t": 797.2,
+    "page": 13,
+    "title": "Disbursement: Documentation Checklist"
+   },
+   {
+    "t": 861.8,
+    "page": 14,
+    "title": "Disbursement: Common Challenges and Mitigation"
+   },
+   {
+    "t": 921.7,
+    "page": 15,
+    "title": "Final Case Reconciliation: The Net Sheet"
+   },
+   {
+    "t": 988.9,
+    "page": 16,
+    "title": "Final Case Reconciliation: Proof of Delivery"
+   },
+   {
+    "t": 1060.7,
+    "page": 17,
+    "title": "Final Case Reconciliation: Compliance and Identity"
+   },
+   {
+    "t": 1121,
+    "page": 18,
+    "title": "Final Case Reconciliation: The Closing Memo"
+   },
+   {
+    "t": 1188.3,
+    "page": 19,
+    "title": "Final Case Reconciliation: Retention Schedule"
+   },
+   {
+    "t": 1246.3,
+    "page": 20,
+    "title": "Thank You!"
+   }
+  ]
+ },
+ "14": {
+  "title": "Case Management Training — Day 4",
+  "src": "/decks/day4/day4-narrated.mp4",
+  "captions": "/decks/day4/day4-narrated.vtt",
+  "chapters": [
+   {
+    "t": 0,
+    "page": 1,
+    "title": "Case Management Training — Day 4"
+   },
+   {
+    "t": 53.1,
+    "page": 2,
+    "title": "Training Agenda"
+   },
+   {
+    "t": 96,
+    "page": 3,
+    "title": "Introducing the Neutral: Expertise & Background"
+   },
+   {
+    "t": 154.3,
+    "page": 4,
+    "title": "Introducing the Neutral: Assignment & Selection"
+   },
+   {
+    "t": 221,
+    "page": 5,
+    "title": "Introducing the Neutral: Decision-Making Power"
+   },
+   {
+    "t": 279,
+    "page": 6,
+    "title": "Mediation Logistics & Scheduling"
+   },
+   {
+    "t": 340.3,
+    "page": 7,
+    "title": "Preparing Mediation Binders: What a Binder Is"
+   },
+   {
+    "t": 392.7,
+    "page": 8,
+    "title": "Preparing Mediation Binders: The Roadmap for Settlement"
+   },
+   {
+    "t": 446.9,
+    "page": 9,
+    "title": "Mediation Binder Section 1: Executive Summary"
+   },
+   {
+    "t": 501.6,
+    "page": 10,
+    "title": "Mediation Binder Section 2: The Mediation Briefs"
+   },
+   {
+    "t": 555.8,
+    "page": 11,
+    "title": "Mediation Binder Section 3: Core Pleadings"
+   },
+   {
+    "t": 617.3,
+    "page": 12,
+    "title": "Mediation Binder Section 4: Key Evidence & Liability Exhibits"
+   },
+   {
+    "t": 676.9,
+    "page": 13,
+    "title": "Mediation Binder Section 5: Damages, Financials & Experts"
+   },
+   {
+    "t": 732.9,
+    "page": 14,
+    "title": "Mediation Binder Section 6: Settlement History & Draft Agreements"
+   },
+   {
+    "t": 798.3,
+    "page": 15,
+    "title": "Quality Assurance and Logistics Auditor"
+   },
+   {
+    "t": 852.6,
+    "page": 19,
+    "title": "The Anatomy of a Personal Injury Arbitration"
+   },
+   {
+    "t": 913.2,
+    "page": 20,
+    "title": "Arbitration: Operational Mindset"
+   },
+   {
+    "t": 970.4,
+    "page": 21,
+    "title": "Arbitration Track 1: Critical Timelines"
+   },
+   {
+    "t": 1040,
+    "page": 22,
+    "title": "Arbitration Track 2: Logistics & Setup Protocols"
+   },
+   {
+    "t": 1101.2,
+    "page": 23,
+    "title": "Boundaries at Hearings: The Golden Rule"
+   },
+   {
+    "t": 1157.1,
+    "page": 24,
+    "title": "Boundaries at Hearings: The UPL Policy"
+   },
+   {
+    "t": 1216.6,
+    "page": 25,
+    "title": "Arbitration Binder Section 1: The Arbitration Submissions"
+   },
+   {
+    "t": 1281.6,
+    "page": 26,
+    "title": "Arbitration Binder Section 2: Core Litigation Pleadings"
+   },
+   {
+    "t": 1329.7,
+    "page": 27,
+    "title": "Arbitration Binder Section 3: Liability & Biomechanical Evidence"
+   },
+   {
+    "t": 1386.1,
+    "page": 28,
+    "title": "Arbitration Binder Section 4: Medical Damages"
+   },
+   {
+    "t": 1453.1,
+    "page": 29,
+    "title": "Arbitration Binder Section 5: The Prior Medical Shield"
+   },
+   {
+    "t": 1520.8,
+    "page": 30,
+    "title": "Arbitration Binder Section 6: Economic Losses & Liens"
+   },
+   {
+    "t": 1581.2,
+    "page": 33,
+    "title": "Mediation Bottlenecks: The Compromise Traps"
+   },
+   {
+    "t": 1641.9,
+    "page": 34,
+    "title": "Arbitration Bottlenecks: The Trial-Ready Landmines"
+   },
+   {
+    "t": 1700,
+    "page": 35,
+    "title": "Case Manager Operational Countermeasures"
+   },
+   {
+    "t": 1753.4,
+    "page": 36,
+    "title": "Thank You!"
+   }
+  ]
+ },
+ "15": {
+  "title": "Case Management Training — Day 5",
+  "src": "/decks/day5/day5-narrated.mp4",
+  "captions": "/decks/day5/day5-narrated.vtt",
+  "chapters": [
+   {
+    "t": 0,
+    "page": 1,
+    "title": "Case Management Training — Day 5"
+   },
+   {
+    "t": 51.4,
+    "page": 2,
+    "title": "Training Agenda"
+   },
+   {
+    "t": 94.2,
+    "page": 3,
+    "title": "Case Phases: Litigation — Your Tactical Role"
+   },
+   {
+    "t": 161.6,
+    "page": 4,
+    "title": "Phase 1: Pleadings & Service"
+   },
+   {
+    "t": 232.6,
+    "page": 5,
+    "title": "Phase 2: Discovery — Interrogatories & RFPs"
+   },
+   {
+    "t": 297.5,
+    "page": 6,
+    "title": "Phase 2: Deposition Coordination & Preparation"
+   },
+   {
+    "t": 362.3,
+    "page": 7,
+    "title": "Phase 3: Trial & Mediation Preparation"
+   },
+   {
+    "t": 428.8,
+    "page": 8,
+    "title": "The Litigation Mindset: Traps & KPIs"
+   },
+   {
+    "t": 498.6,
+    "page": 9,
+    "title": "Deposition Prep: The Pre-Deposition Audit"
+   },
+   {
+    "t": 565.4,
+    "page": 10,
+    "title": "Discovery Intake Meeting: Pillar 1, De-escalating Anxiety"
+   },
+   {
+    "t": 629.5,
+    "page": 11,
+    "title": "Pillar 2: Essential Testimony Guidelines"
+   },
+   {
+    "t": 695.6,
+    "page": 12,
+    "title": "Pillar 3: Dress Code & Professional Demeanor"
+   },
+   {
+    "t": 751.9,
+    "page": 13,
+    "title": "Silent Traps — Drill A: The “Is That All?” Trap"
+   },
+   {
+    "t": 807.8,
+    "page": 14,
+    "title": "Silent Traps — Drill B: The Thoughtful Silence"
+   },
+   {
+    "t": 857.6,
+    "page": 15,
+    "title": "Checklist: The Day Before the Deposition"
+   },
+   {
+    "t": 922.3,
+    "page": 16,
+    "title": "What Will the Defense Attorney Ask Me?"
+   },
+   {
+    "t": 984.3,
+    "page": 17,
+    "title": "The 7 Golden Rules for Testifying: Rules 1–3"
+   },
+   {
+    "t": 1046.8,
+    "page": 18,
+    "title": "Golden Rules 4 & 5"
+   },
+   {
+    "t": 1100.2,
+    "page": 19,
+    "title": "Golden Rules 6 & 7"
+   },
+   {
+    "t": 1152,
+    "page": 20,
+    "title": "Professional Presentation: Dress Code & Demeanor"
+   },
+   {
+    "t": 1216.9,
+    "page": 21,
+    "title": "What Happens When Your Lawyer Objects?"
+   },
+   {
+    "t": 1277,
+    "page": 22,
+    "title": "Litigation Toolkit: The Complaint / Petition"
+   },
+   {
+    "t": 1343.7,
+    "page": 23,
+    "title": "Core Document: The Answer"
+   },
+   {
+    "t": 1411.4,
+    "page": 24,
+    "title": "Core Document: Interrogatories"
+   },
+   {
+    "t": 1459.8,
+    "page": 25,
+    "title": "Core Document: Requests for Production"
+   },
+   {
+    "t": 1505.2,
+    "page": 26,
+    "title": "Core Document: Requests for Admission"
+   },
+   {
+    "t": 1555.9,
+    "page": 27,
+    "title": "Critical Processes 1 & 2: Service and Docketing"
+   },
+   {
+    "t": 1621.3,
+    "page": 28,
+    "title": "Critical Process 3: Third-Party Subpoenas"
+   },
+   {
+    "t": 1679.6,
+    "page": 29,
+    "title": "The 3 Golden Rules of File Maintenance"
+   },
+   {
+    "t": 1749.7,
+    "page": 30,
+    "title": "KPIs for Document Management"
+   },
+   {
+    "t": 1805,
+    "page": 31,
+    "title": "Deep-Dive: The Complaint / Petition"
+   },
+   {
+    "t": 1881.2,
+    "page": 32,
+    "title": "Written Discovery: Interrogatories, RFPs, and RFAs"
+   },
+   {
+    "t": 1949.4,
+    "page": 33,
+    "title": "Master Timeline & Deadline Calculations"
+   },
+   {
+    "t": 2020.7,
+    "page": 34,
+    "title": "The Process Server & Evading Defendant Protocol"
+   },
+   {
+    "t": 2090.6,
+    "page": 35,
+    "title": "Subpoena Duces Tecum: Execution Strategy"
+   },
+   {
+    "t": 2155,
+    "page": 36,
+    "title": "Litigation File Architecture"
+   },
+   {
+    "t": 2216.7,
+    "page": 37,
+    "title": "Advanced KPIs for Litigation Case Managers"
+   },
+   {
+    "t": 2275.6,
+    "page": 39,
+    "title": "Property Damage: Types of Damages You Can Recover"
+   },
+   {
+    "t": 2348.5,
+    "page": 40,
+    "title": "Calculating the Value: The “Lesser Of” Rule"
+   },
+   {
+    "t": 2413,
+    "page": 41,
+    "title": "Calculating the Value: Sentimental or Special Value"
+   },
+   {
+    "t": 2473,
+    "page": 42,
+    "title": "Thank You!"
+   }
+  ]
  }
 };
