@@ -56,7 +56,7 @@ const D3 = [
     if (s.dock) fail(`${id}: the floating CMS · Drive card (#cm-sb-dock) is still on the page`);
     if (s.launch !== 1 || !s.launchTop) fail(`${id}: want one 🚀 Launch CMS & Google Drive button at the top of the card, found ${s.launch}`);
     if (s.pts) fail(`${id}: a point counter shows before anything is submitted`);
-    if (!s.foot || !/Submit to AI Grader/.test(s.footText)) fail(`${id}: the foot bar should end in Submit to AI Grader →: "${s.footText}"`);
+    if (!s.foot || !/Submit →/.test(s.footText) || /AI Grader/.test(s.footText)) fail(`${id}: the foot bar should end in Submit → (never "AI Grader"): "${s.footText}"`);
     if (!s.footInside) fail(`${id}: the foot bar is not on screen at 1366×768`);
     if (s.small.length) fail(`${id}: type under 16px bold: ${JSON.stringify(s.small)}`);
     if (s.steps.some(t => /\bX of Y\b/.test(t) || !/[.?!]$/.test(t))) fail(`${id}: every step should be a full sentence: ${JSON.stringify(s.steps)}`);
@@ -110,5 +110,5 @@ const D3 = [
 
   await browser.close();
   if (failures.length) { console.log('✗ Your Task slide:\n  ' + failures.join('\n  ')); process.exit(1); }
-  console.log('Your Task slide: one column, one Launch CMS & Google Drive button, steps in full sentences, the rules in Reference, one foot bar with Source Files and Submit to AI Grader.');
+  console.log('Your Task slide: one column, one Launch CMS & Google Drive button, steps in full sentences, the rules in Reference, one foot bar with Source Files and Submit.');
 })().catch(e => { console.log('✗ ' + (e && e.stack || e)); process.exit(1); });
