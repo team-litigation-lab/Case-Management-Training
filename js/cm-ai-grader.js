@@ -181,7 +181,7 @@ window.CMAIGrader = {
     status(id, "⏳ Grading… this takes a few seconds.");
     const {b, n, dayId} = f, cs = CF().case || {}, sl = SLIDES()[id] || {};
     const label = `Day ${dayId} · Case Flow Day ${n} · ${b.title} — Skill Building`;
-    const ctx = `Case: ${cs.style || "John Doe v. Robert Smith"}${cs.type ? ", " + cs.type : ""}. ${cs.counsel ? "Lead Counsel " + cs.counsel + ". " : ""}${cs.dol ? "DOL " + cs.dol + "; " : ""}${cs.sol ? "SOL " + cs.sol + ". " : ""}\n`
+    const ctx = `Case: ${cs.style || "John Doe VS Robert Smith"}${cs.type ? ", " + cs.type : ""}. ${cs.counsel ? "Lead Counsel " + cs.counsel + ". " : ""}${cs.dol ? "DOL " + cs.dol + "; " : ""}${cs.sol ? "SOL " + cs.sol + ". " : ""}\n`
       + `Activity (Case Flow Day ${n}): ${b.title}\nScenario: ${(b.act || {}).scenario || plain(sl.situation)}\n`
       + `What the trainee was asked to do: ${(b.act || {}).prompt || ""}\nSteps on the slide:\n${(sl.steps || []).map((s, i) => `${i + 1}. ${plain(s)}`).join("\n")}\n`
       + `Where it is done: ${(b.act || {}).tool || ""}\nExpected output: ${(b.act || {}).output || plain(sl.deliver)}\n`
