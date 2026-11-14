@@ -22,15 +22,10 @@ const all = Object.values(DECKS).flat();
 const pageOf = sl => { const g = sl && sl.type === "deckPage" && all.find(x => x.key === sl.deck); return g && g.pages[sl.page] ? {g, p: g.pages[sl.page]} : null; };
 const slidesOf = n => (DECKS[n] || []).flatMap(g => g.pages.map((p, i) => ({type: "deckPage", deck: g.key, page: i})));
 
-/* The trainer's deck IS the day's lessons on Days 2-5, as on Day 1: the day's own drawn lesson slides come off the deck
-   (its activities, Learning Checks and Knowledge Check stay), and the deck's pages are Part 1. Day 2's are drawn by
-   js/cm-deck-pages.js; Days 3-5's here. */
-const replaces = n => !!(DECKS[n] && DECKS[n].length) || !!(window.CM_DECK_PAGES && window.CM_DECK_PAGES.DAY === n);
-const isLessonSlide = (d, sl) => sl && sl.type === "topic" && d.lessons[sl.lessonIndex] && d.lessons[sl.lessonIndex].cf && d.lessons[sl.lessonIndex].cf.block.kind === "lesson";
+/* the pages go after the day's own lessons, before its Practice Lab (none: before Ready for the Knowledge Check) */
 const __build = buildDaySlides;
 buildDaySlides = function(d){
-  const s0 = __build.apply(this, arguments);
-  const s = d && d.cf && Array.isArray(s0) && replaces(d.cf.n) ? s0.filter(sl => !isLessonSlide(d, sl)) : s0;
+  const s = __build.apply(this, arguments);
   if(!d || !d.cf || !DECKS[d.cf.n] || !Array.isArray(s)) return s;
   const lab = s.findIndex(x => x.type === "practiceLab"), at = lab >= 0 ? lab : s.findIndex(x => x.type === "readyCheck");
   s.splice(at >= 0 ? at : s.length, 0, ...slidesOf(d.cf.n));
@@ -78,16 +73,10 @@ function roadmapDecks(){
       const k = slides.findIndex(x => x.type === "deckPage" && x.deck === t.key), ok = open && k >= 0 && k <= reached;
       return `<li class="rmx-dk"><button type="button" class="rmx-topic" ${ok ? `onclick="roadmapGo(${d.id}, ${k})"` : "disabled"} title="${E(t.topic)}: ${t.pages} deck page${t.pages === 1 ? "" : "s"}${ok ? "" : open ? " (reach it in the slides first)" : " (opens when this day does)"}"><span class="rmx-tn">📑</span><span class="rmx-tt">${E(t.topic)} <small class="dl-rm-tag">${t.pages} page${t.pages === 1 ? "" : "s"}</small></span>${ok ? "" : `<span class="rmx-lock">🔒</span>`}</button></li>`;
     }).join("");
+    const head = `<li class="rmx-part rmx-part-deck rmx-dk" role="presentation"><b>📑 Deck pages</b><span>${ts.length} topic${ts.length === 1 ? "" : "s"}, after the lessons</span></li>`;
     const list = sec.querySelector(".rmx-topics"); if(!list) return;
-    // the day's own lessons are off its deck: their rows go, and Part 1's label counts the deck's topics
-    const names = new Set(d.lessons.filter(l => l.cf && l.cf.block.kind === "lesson").map(l => String(l.cf.block.title).trim()));
-    [...list.querySelectorAll(":scope > li:not(.rmx-part)")].forEach(li => { const b = li.querySelector(".rmx-topic"), t = b && (b.getAttribute("title") || "");
-      if([...names].some(n => t === n || t.indexOf(n + " (") === 0)) li.remove(); });
-    const p1 = list.querySelector(".rmx-part-lesson");
-    if(p1){ const sp = p1.querySelector("span"); if(sp) sp.textContent = `${ts.length} topic${ts.length === 1 ? "" : "s"} from the trainer's deck`; }
-    const head = p1 ? "" : `<li class="rmx-part rmx-part-lesson rmx-dk" role="presentation"><b>Part 1 · 📘 Lessons</b><span>${ts.length} topic${ts.length === 1 ? "" : "s"} from the trainer's deck</span></li>`;
     const lab = list.querySelector(".rmx-part-activity");
-    if(lab) lab.insertAdjacentHTML("beforebegin", head + rows); else list.insertAdjacentHTML("afterbegin", head + rows);
+    if(lab) lab.insertAdjacentHTML("beforebegin", head + rows); else list.insertAdjacentHTML("beforeend", head + rows);
   });
 }
 if(typeof window.openRoadmap === "function"){
@@ -103,5 +92,5 @@ css.textContent = `.cfx-dpk{justify-content:center !important;align-items:center
 .cm-dd-talk p{white-space:normal;line-height:1.5}
 .rmx-topics > li.rmx-part-deck{background:#2F3760;}`;
 document.head.appendChild(css);
-window.cmDayDecks = {pageOf, slidesOf, deckTopics, replaces};   // .github/scripts/day-decks.cjs
+window.cmDayDecks = {pageOf, slidesOf, deckTopics};   // .github/scripts/day-decks.cjs
 })();
