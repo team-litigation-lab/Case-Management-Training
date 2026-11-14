@@ -3,6 +3,60 @@
   "deck": "Revised Case Management Training Day 4 (Canva, 36 pages; the Skill Building pages 16, 17, 18, 31 and 32 are left out of the video)",
   "voice": "en_US-lessac-high, converted to the trainer's own voice (revoice.py)",
   "day": 14,
+  "onDeck": [
+    {
+      "key": "neutral",
+      "topic": "Introducing the Neutral",
+      "pages": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "key": "mediation",
+      "topic": "Mediation",
+      "pages": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "key": "arbitration",
+      "topic": "Arbitration",
+      "pages": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ]
+    },
+    {
+      "key": "bottlenecks",
+      "topic": "Common Bottlenecks in Mediation & Arbitration",
+      "pages": [
+        33,
+        34,
+        35
+      ]
+    }
+  ],
   "video": {
     "src": "/decks/day4/day4-narrated.mp4",
     "captions": "/decks/day4/day4-narrated.vtt",

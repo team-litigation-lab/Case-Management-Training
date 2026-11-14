@@ -1177,8 +1177,8 @@ function agendaSlide(d){
   // (all of the day's Skill Activities; on a build day, the Full Application Practice); the Knowledge Check last
   const nActs = d.lessons.filter(l => l.cf.block.kind === "activity").length, nLessons = d.lessons.filter(l => l.cf.block.kind === "lesson").length;
   const label = (k, t) => `<li class="cfx-ag-label"><b>${k}</b><span>${E(t)}</span></li>`;
-  // the trainers' deck pages a day shows after its lessons (js/cm-deck-pages.js) are lesson sections too, by their topic
-  const dp = window.CM_DECK_PAGES, deckTopics = dp && dp.DAY === d.cf.n ? dp.DECK.map(g => g.topic) : [], n1 = parts.length + deckTopics.length;
+  // the trainers' deck pages a day shows after its lessons (js/cm-deck-pages.js Day 2, js/cm-day-decks.js Days 3-5) are lesson sections too, by their topic
+  const dp = window.CM_DECK_PAGES, dd = (window.CM_DAY_DECKS || {})[d.cf.n], deckTopics = dp && dp.DAY === d.cf.n ? dp.DECK.map(g => g.topic) : dd ? dd.map(g => g.topic) : [], n1 = parts.length + deckTopics.length;
   // Part 2 is the daily loop (js/cm-day-loop.js): the Case Profile → the Skill Building → the Action Plan, then the Knowledge Check
   const loop = sc.loop && window.cmDayLoop ? window.cmDayLoop.agendaRows(d, sc) : null;
   const rows = label("Part 1 · 📘 Lessons", `${nLessons} lessons${deckTopics.length ? ` and ${deckTopics.length} deck topics` : ""}, all together`) + parts.map((p, i) => row(i + 1, p.title)).join("")

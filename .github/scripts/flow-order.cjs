@@ -226,7 +226,7 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
     state.isAdmin = true; const d = DAYS.find(x => x.cf && x.cf.n === 2); goto('day', d.id); state.dayViewMode = 'slides'; state.lessonSlide = 0; render();
     openRoadmap(); await new Promise(r => setTimeout(r, 80));
     const rm = [...document.querySelectorAll('#rmModal .rmx-day')].map(sec => { const lis = [...sec.querySelectorAll('.rmx-topics > li')];
-      return lis.map((li, i) => li.classList.contains('rmx-part') ? 'P:' + li.textContent.replace(/\s+/g, ' ').trim() : (li.querySelector('.rmx-tt em') ? 'A' : 'L')).join('|'); });
+      return lis.map((li, i) => li.classList.contains('rmx-dk') ? 'D' : li.classList.contains('rmx-part') ? 'P:' + li.textContent.replace(/\s+/g, ' ').trim() : (li.querySelector('.rmx-tt em') ? 'A' : 'L')).join('|'); });
     closeRoadmap();
     openSlideMap(); await new Promise(r => setTimeout(r, 80));
     const sm = [...document.querySelectorAll('#slideMap .sm-part')].map(e => e.textContent.replace(/\s+/g, ' ').trim());
@@ -238,7 +238,8 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
     const parts = row.split('|'), p1 = parts.findIndex(x => /^P:Part 1/.test(x)), p2 = parts.findIndex(x => /^P:Part 2/.test(x));
     if (p1 !== 0) fail(`Roadmap, Day ${i + 1}: "Part 1 · Lessons" should head the day's topics`);
     if (p2 < 0) fail(`Roadmap, Day ${i + 1}: no "Part 2 · 🔁 The Daily Loop" label`);
-    else if (parts.slice(p1 + 1, p2).some(x => x !== 'L') || parts[p2 + 1] !== 'A') fail(`Roadmap, Day ${i + 1}: "Part 2" should sit after the last lesson and before the first Skill Activity`);
+    // the day's deck topics (📑 Deck pages, js/cm-day-decks.js) come after its lessons, before Part 2
+    else if (parts.slice(p1 + 1, p2).some(x => x !== 'L' && x !== 'D') || /D.*L/.test(parts.slice(p1 + 1, p2).join('')) || parts[p2 + 1] !== 'A') fail(`Roadmap, Day ${i + 1}: "Part 2" should sit after the last lesson and before the first Skill Activity`);
   });
   if (lists.sm.length !== 3 || !/^Part 1.*Lessons/.test(lists.sm[0]) || !/^Part 2.*Daily Loop/.test(lists.sm[1]) || !/Knowledge Check/.test(lists.sm[2])) fail(`the slide picker of Day 2 should label Part 1 · Lessons, Part 2 · 🔁 The Daily Loop and the Knowledge Check: ${JSON.stringify(lists.sm)}`);
   if (!/Case Profile/.test(lists.firstLab)) fail('the slide picker\'s "Part 2 · 🔁 The Daily Loop" label should sit above the Case Profile slide, the loop\'s first');
