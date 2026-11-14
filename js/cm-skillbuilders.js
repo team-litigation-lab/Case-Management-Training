@@ -468,7 +468,7 @@ window.renderCalendarBody = function(body){
   // dates as the trainee's case year has them (js/cm-case-dates.js rolls the file forward)
   const cd = iso => window.CM_CASE_DATES ? CM_CASE_DATES.text(iso) : iso;
   screens[3].innerHTML = part("Hard-Code the Scheduling Order Dates",
-    "John Doe v. Robert Smith is in suit, and the Court's Scheduling Order (RS55, entered 12/10/2026) sets the dates that govern it. Read it and enter each deadline.",
+    "John Doe VS Robert Smith is in suit, and the Court's Scheduling Order (RS55, entered 12/10/2026) sets the dates that govern it. Read it and enter each deadline.",
     `<p class="cm-intro"><a href="case-doc.html?id=RS55" onclick="return window.cmCaseFlow && cmCaseFlow.doc ? cmCaseFlow.doc(event,'RS55') : true">📄 RS55 · Scheduling Order</a></p>` + calc("calendar:sched", [
       {type:"date", label:"Plaintiff's expert disclosure due", answer:cd("2027-03-15")},
       {type:"date", label:"Mediation completed by", answer:cd("2027-03-31")},
@@ -566,7 +566,7 @@ window.renderCallSimulator = function(){
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🛠 Simulators</h1>
     <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">The <b>Call Simulator</b> is in the LSH CMS (it opens already signed in, on the Case Management lines; pick a line below for its graded calls). Email, calendar, docketing, medical records and court e-filing practice live on the <b>LSH Training Portal</b>, shared by every program. They open here already set to <b>Case Management</b> and carrying your name and batch, so your scores reach your trainer. On calls the caller speaks: answer by voice (Chrome or Edge, allow the microphone) or by typing. Most calls end with the note the call requires, graded with the call.</p>
     <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span role="button" tabindex="0" style="cursor:pointer" title="Open this line's graded calls" onclick="openTool('calls',null,'line=${encodeURIComponent(l)}&mode=graded')">${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(mail)}${card(replies)}${card(cal, state.isAdmin ? `<p style="font-size:12.5px;margin:6px 0 0"><button class="btn btn-navy btn-sm" onclick="openTool('calendaring','tab','view=scores')">📊 Calendar Scores (Litigation Week) ↗</button> Grade and give feedback there; scores also show on the Portal's Progress page under this program.</p>` : "")}${card(rec)}${card(ef)}</div>
-    <div class="card" style="padding:14px 18px;font-size:12.8px;color:var(--ink-soft)">Want more? Live Roleplay (🔥) has every call on John Doe v. Robert Smith, and the Calendar Conflict Resolver (Case Flow Day 4) has the John Doe docket and the Court's Scheduling Order.${state.isAdmin?` <b>Admin:</b> results appear on the Training Portal's Simulators page when you're signed in there as admin. Addresses are set in 🧰 Tools.`:""}</div>`;
+    <div class="card" style="padding:14px 18px;font-size:12.8px;color:var(--ink-soft)">Want more? Live Roleplay (🔥) has every call on John Doe VS Robert Smith, and the Calendar Conflict Resolver (Case Flow Day 4) has the John Doe docket and the Court's Scheduling Order.${state.isAdmin?` <b>Admin:</b> results appear on the Training Portal's Simulators page when you're signed in there as admin. Addresses are set in 🧰 Tools.`:""}</div>`;
 };
 window.saveToolSettings = async function(){
   const out = {};

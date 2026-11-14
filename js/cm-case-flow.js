@@ -1,6 +1,6 @@
 /* ============================================================
    5-DAY LEGAL CASE MANAGEMENT FLOW — the track's days, slides and wiring
-   Focus case: John Doe v. Robert Smith · Lead Counsel: Atty. Elijah Thorne
+   Focus case: John Doe VS Robert Smith · Lead Counsel: Atty. Elijah Thorne
 
    Content: js/cm-case-flow-data.js (window.CM_CASE_FLOW), the single source of
    truth. This file only turns it into this course's own day and lesson objects
@@ -336,7 +336,7 @@ function followCmsDol(c){
   if(n == null || n === dolWanted()) return;
   REC.dolOffset = n; REC.dolYear = DATES.year; REC.dolFrom = c.dol; delete REC.dolIgnore;
   DATES.setDolOffset(n, DATES.year); persist();
-  if(typeof toast === "function") toast(`Your CMS Date of Loss is ${c.dol}: the case's dates move ${n > 0 ? "+" : ""}${n} day${Math.abs(n) === 1 ? "" : "s"}. Update them from 📂 Case File.`);
+  if(typeof toast === "function") toast(`Your CMS Date of Loss is ${c.dol}: the case's dates move ${n > 0 ? "+" : ""}${n} day${Math.abs(n) === 1 ? "" : "s"}. Update them from 📇 Case Profile.`);
   if(typeof render === "function" && state && state.view === "clientprofile") render();
 }
 window.addEventListener("load", () => { if(window.CMCase){ CMCase.onChange(followCmsDol); const c = CMCase.get(); if(c) followCmsDol(c); } });
@@ -418,7 +418,7 @@ function fullText(l, d){
     + S(2 + n, showLabel(b, "Show Them"), visual(l, b))
     + S(3 + n, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
   }
-  if(b.kind === "activity") return S(1, "The scenario", `<div class="scenario-card"><div class="stag">John Doe v. Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
+  if(b.kind === "activity") return S(1, "The scenario", `<div class="scenario-card"><div class="stag">John Doe VS Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
     + S(2, "Execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
     + S(3, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once you finish the activity and reveal the answers on its Check Your Work slide.</p>`)
     + S(4, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
@@ -618,7 +618,7 @@ const TOOLKIT = [
   {id: "calendaring", icon: "🗓", short: "Calendaring", name: "the Calendaring Simulators", re: /Calendaring Simulators?/},
   {id: "plan", icon: "📝", short: "Action Plan", name: "your Action Plan", re: /Action Plan Editor|action plan/i},
   {id: "docs", icon: "📁", short: "Documents", name: "the Case Documents", re: /Case Documents/},
-  {id: "lor", icon: "📄", short: "LOR Drafting", name: "LOR Drafting (John Doe v. Robert Smith)", re: /\bLORs?\b|Letters? of Representation/},
+  {id: "lor", icon: "📄", short: "LOR Drafting", name: "LOR Drafting (John Doe VS Robert Smith)", re: /\bLORs?\b|Letters? of Representation/},
   {id: "packet", icon: "📚", short: "Packet Builder", name: "the Packet Builder (Demand Packets & Binders)", re: /Packet Builder/},
   {id: "drive", icon: "📂", short: "Backup Drive", name: "My Backup Drive (your linked Google Drive)", re: /Backup Drive/},
 ];
@@ -1150,12 +1150,6 @@ if(typeof buildDaySlides === "function"){
       viewsOf(b).forEach((v, j) => out.push({type: "topic", lessonIndex: sl.lessonIndex, part: j + 1}));
     });
     const lab = extra => acts.forEach(li => viewsOf(d.lessons[li].cf.block).forEach((v, j) => out.push(Object.assign({type: "topic", lessonIndex: li, part: j + 1}, extra ? {extra: true} : {}))));
-    // Day 1's introduction: after Meet Your Case, the file's life at a glance and its coverage against the injury
-    if(d.cf.n === 1){
-      const li = d.lessons.findIndex(l => l.cf.block.id === "d1m1-case");
-      let at = -1; out.forEach((x, k) => { if(x.type === "topic" && x.lessonIndex === li) at = k; });
-      if(at >= 0) out.splice(at + 1, 0, {type: "caseMap"}, {type: "coverageMap"});
-    }
     if(build){
       // a build day (Day 5): 🏗 the build is the practical; then the optional extra practice (John Doe's activities,
       // untimed: ⏭ on its opening slide skips them to the Ready check)
@@ -1235,7 +1229,7 @@ function agendaSlide(d){
    each day; the run of the day is read from the slide itself (its parts, minutes, activities and questions), so the
    notes and the slide can never disagree. Shown in Presenter view and in the Speaker Notes PDF. */
 const AGENDA_NOTES = {
-  1: {open: "Welcome, everyone, and thanks for being here on time. For the next five days you're the Case Manager on one file, John Doe v. Robert Smith, Atty. Elijah Thorne's case, and everything we do this week happens on that file. Right now it's a raw file: nothing is in the CMS yet, John Doe hasn't started treatment, and there's a damaged car on it that nobody has sorted out.",
+  1: {open: "Welcome, everyone, and thanks for being here on time. For the next five days you're the Case Manager on one file, John Doe VS Robert Smith, Atty. Elijah Thorne's case, and everything we do this week happens on that file. Right now it's a raw file: nothing is in the CMS yet, John Doe hasn't started treatment, and there's a damaged car on it that nobody has sorted out.",
       ask: "Before we start, who has worked on a personal injury file before, and which part of it did you handle?"},
   2: {open: "Morning, everyone. Yesterday we opened John Doe's matter in the CMS, ran the Conflict Check and got the Property Damage side moving. Today the three claims are reported by phone, but nothing is confirmed in writing yet, and John Doe is about to start treatment. So today is about setting the claims up properly and then carrying him through treatment without losing him.",
       ask: "Think about the file as we left it yesterday: what's the one thing on it you'd want confirmed in writing before anything else today?"},
@@ -1260,7 +1254,7 @@ function agendaNotes(d){
   return {say, ask: w.ask || "", run: say.split("\n").slice(1).join(" ")};   // run: the run of the day alone (the Speaker Notes print it under the day's own opening)
 }
 
-/* ---------- the live call: the course's own roleplay engine, on John Doe v. Robert Smith ---------- */
+/* ---------- the live call: the course's own roleplay engine, on John Doe VS Robert Smith ---------- */
 function caseDossier(){
   const c = CF.case;
   return [`CASE: ${c.style} (${c.no}) — ${c.type}. Lead Counsel: ${c.counsel}. The Case Manager is the trainee.`,
@@ -1911,7 +1905,7 @@ async function svBuild(blockId){
   const navy = [38, 43, 69], orange = [219, 132, 55], ink = [40, 42, 58], soft = [110, 116, 140];
   let y = 0, page = 0;
   const foot = () => { doc.setFont("helvetica", "normal"); doc.setFontSize(8); doc.setTextColor.apply(doc, soft);
-    doc.text(`LSH CASE MANAGEMENT TRAINING — SIMULATED DOCUMENT — FICTIONAL PARTIES · John Doe v. Robert Smith · page ${page}`, W / 2, H - 24, {align: "center"}); };
+    doc.text(`LSH CASE MANAGEMENT TRAINING — SIMULATED DOCUMENT — FICTIONAL PARTIES · John Doe VS Robert Smith · page ${page}`, W / 2, H - 24, {align: "center"}); };
   const head = (first) => { page++; if(typeof drawPdfHeader === "function") drawPdfHeader(doc, e.convert.title, `${(window.CMCase && CMCase.id()) || "LSH-2026-MVA-770412"} · prepared by ${state.traineeName || "the Case Manager"}${first ? "" : " (continued)"}`); y = 112; };
   const need = n => { if(y + n > H - 54){ foot(); doc.addPage(); head(false); } };
   const para = (t, opt) => { const o = opt || {};
@@ -2560,14 +2554,14 @@ window.cmCaseFlow.logWork = function(blockId, tool){
   const ok = document.getElementById("cflogok_" + blockId); if(ok) ok.textContent = "✓ Logged " + new Date().toLocaleDateString();
   if(typeof toast === "function") toast("Logged. Your trainer sees it with this module's Learning Check.");
 };
-/* while a Case Flow call is live, the caller and the reviewer know John Doe v. Robert Smith, never the earlier Apex file */
+/* while a Case Flow call is live, the caller and the reviewer know John Doe VS Robert Smith, never the earlier Apex file */
 if(typeof window.callAIText === "function"){
   const __ai = window.callAIText;
   window.callAIText = function(prompt){
     const s = typeof state !== "undefined" && state.rpSession;
     if(s && s.cf && typeof prompt === "string"){
       let p = typeof CLIENT_DOSSIER_MD === "string" ? prompt.split(CLIENT_DOSSIER_MD).join(caseDossier()) : prompt;
-      p = p.replace(/John Doe v\. Apex[^\n)]*/g, "John Doe v. Robert Smith");
+      p = p.replace(/John Doe v\. Apex[^\n)]*/g, "John Doe VS Robert Smith");
       arguments[0] = p;
     }
     return __ai.apply(this, arguments);
@@ -2972,9 +2966,9 @@ if(typeof window.sopRunOfShow === "function"){
     add(15, {pre: true, title: "Before trainees join", do: [
       `Admin → <b>Trainee Audit</b>: approve anyone new and check everyone has Case Flow Day ${n} open (yesterday's Knowledge Check submitted).`,
       `Open Case Flow Day ${n} → slides → <b>🖥 Presenter view</b>, allow pop-ups, and in Google Meet share <b>“LSH Slides — share this window”</b>. Every slide has its read-aloud script in the console.`,
-      `Keep John Doe's 📂 Case File and the CMS open in another tab: the room will ask where things are on the file.`]});
-    add(5, {title: "Welcome and the Training Agenda", do: [`Put the Training Agenda slide up: it lists today's two parts in order, Part 1 the Lessons (all of them, section by section) and Part 2 ${sc.build ? "the Full Application Practice" : "the Practice Lab (all of the day's Skill Activities)"}, then the Knowledge Check.`, n > 1 ? `Recap yesterday in a minute: where John Doe's file stood when we stopped, and the one thing most people found hard (check the Knowledge Check scores).` : `Introduce the file: John Doe v. Robert Smith, Atty. Elijah Thorne's case, the one file the whole week works.`],
-      say: n === 1 ? `“Welcome, everyone. For the next five days you're the Case Manager on one real-looking file, John Doe v. Robert Smith. Today we work through ${andList(titles)}. By the end of the day you'll ${firstAim(d)}, and you'll have done it on the file yourselves.”`
+      `Keep John Doe's 📇 Case Profile and the CMS open in another tab: the room will ask where things are on the file.`]});
+    add(5, {title: "Welcome and the Training Agenda", do: [`Put the Training Agenda slide up: it lists today's two parts in order, Part 1 the Lessons (all of them, section by section) and Part 2 ${sc.build ? "the Full Application Practice" : "the Practice Lab (all of the day's Skill Activities)"}, then the Knowledge Check.`, n > 1 ? `Recap yesterday in a minute: where John Doe's file stood when we stopped, and the one thing most people found hard (check the Knowledge Check scores).` : `Introduce the file: John Doe VS Robert Smith, Atty. Elijah Thorne's case, the one file the whole week works.`],
+      say: n === 1 ? `“Welcome, everyone. For the next five days you're the Case Manager on one real-looking file, John Doe VS Robert Smith. Today we work through ${andList(titles)}. By the end of the day you'll ${firstAim(d)}, and you'll have done it on the file yourselves.”`
         : `“Morning, everyone. Let's pick John Doe's file up where we left it. Today it's ${andList(titles)}. By the time we finish you'll ${firstAim(d)}.”`,
       watch: "Anyone who hasn't opened today's day yet: ask them to open it now so they can follow along."});
     // the day in two parts: ALL of the lessons, section by section; the break (inside the 20 minutes kept for the
@@ -3568,7 +3562,7 @@ Object.assign(window.cmCaseFlow = window.cmCaseFlow || {}, {
     const fallback = `Think back to ${mod.title ? `“${mod.title}”` : "this Case Phase's lesson"}: the rule taught there decides it, and so does what John Doe's file actually shows.`;
     let text = "";
     try{
-      if(typeof callAIText === "function") text = String(await callAIText(`You are a senior personal-injury Case Manager helping a trainee colleague on a training quiz about the John Doe v. Robert Smith file. Give a nudge in at most two short sentences: name the principle, rule or fact on the file that decides the question. Never say which option is right, never quote or paraphrase any option, never use option letters, and never say "the answer is".\n\nQuestion: ${q.q}\nOptions:\n${q.opts.map(o => "- " + o).join("\n")}`, 120, undefined, "tracker") || "").trim();
+      if(typeof callAIText === "function") text = String(await callAIText(`You are a senior personal-injury Case Manager helping a trainee colleague on a training quiz about the John Doe VS Robert Smith file. Give a nudge in at most two short sentences: name the principle, rule or fact on the file that decides the question. Never say which option is right, never quote or paraphrase any option, never use option letters, and never say "the answer is".\n\nQuestion: ${q.q}\nOptions:\n${q.opts.map(o => "- " + o).join("\n")}`, 120, undefined, "tracker") || "").trim();
     }catch(e){ text = ""; }
     const right = String(q.opts[q.a] || "").toLowerCase().slice(0, 28);
     if(!text || /answer is|option [a-d]\b|\b[a-d]\)|choose|correct (one|option)/i.test(text) || (right.length > 12 && text.toLowerCase().includes(right))) text = fallback;
@@ -3946,7 +3940,7 @@ if(typeof renderFeedbackAdmin === "function"){
   };
 }
 
-/* ---------- the Case File page: John Doe v. Robert Smith ----------
+/* ---------- the Case Profile page: John Doe VS Robert Smith ----------
    The Client Profile is this file's (CF.profile), for every trainee and trainer. Each section opens with its Case Flow day (`opens`) or once that day is passed (`passed`),
    so the profile never gives away a day's answers; trainers see every section. */
 const cfIdOf = n => (cfDayByN(n) || {}).id;
@@ -4036,28 +4030,32 @@ function caseTimeline(n){
 function caseFlowProfile(){
   const c = CF.case, secs = CF.profile || [], shown = secs.filter(profileOpen);
   const pos = dayUnlocked(cfIdOf(5)) ? 5 : [4, 3, 2, 1].find(n => dayUnlocked(cfIdOf(n))) || 1;
-  // one card: the page's title and the client together (applyPageHero leaves an h1 that's already in a hero alone)
+  // one card: the page's title and the client together (applyPageHero leaves an h1 that's already in a hero alone);
+  // js/cm-case-profile.js draws the client and the claim's facts in it (cmCaseFlow.profileExt.head)
+  const ext = window.cmCaseFlow.profileExt || {};
   return `<div class="cf-file-page"><section class="page-hero cf-file-hero">
       <div class="cf-file-head">
-        <div class="cf-file-who"><p class="eyebrow">Case File</p><h1>📂 ${E(c.style)}</h1>
-          <div class="cf-client"><span class="cf-client-k">📌 Your Client</span><b>${E(c.client.name)}</b><span>Matter ${E(c.no)} · Lead Counsel ${E(c.counsel)}</span></div></div>
+        <div class="cf-file-who"><p class="eyebrow">Case Profile</p><h1>📇 ${E(c.style)}</h1>
+          ${ext.head ? ext.head() : `<div class="cf-client"><span class="cf-client-k">📌 Your Client</span><b>${E(c.client.name)}</b><span>Matter ${E(c.no)} · Lead Counsel ${E(c.counsel)}</span></div>`}</div>
       </div>
-      <p class="cf-note">${isTrainer() ? `The whole file, as you know it: the key tabs are the answers, and trainees never see them.${DATES ? ` 📅 Case year ${E(DATES.year)} (collision ${E(DATES.dol())}); each trainee keeps the year they started on.${DATES.preview ? ` <b>Preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end it</a>.` : ""}` : ""}` : "Your case so far is below. The file itself is in 📁 Case Documents, and the case you build is in the 🗂 CMS."}</p>${dolNote()}</section>
+      <p class="cf-note">${isTrainer() ? `The whole file, as you know it: the key tabs are the answers, and trainees never see them.${DATES ? ` 📅 Case year ${E(DATES.year)} (collision ${E(DATES.dol())}); each trainee keeps the year they started on.${DATES.preview ? ` <b>Preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end it</a>.` : ""}` : ""}` : "Meet John Doe first, then follow your case in 📅 So Far. The file itself is in 📁 Case Documents, and the case you build is in the 🗂 CMS."}</p>${dolNote()}</section>
     ${fileTabs(shown, pos)}
 </div>`;
 }
 /* The page in tabs: one screenful each, laid out across the width instead of down a long column.
-   Everyone gets 📅 The Case So Far; the fact tabs are the trainer's and are marked as such. */
+   Everyone gets 📅 The Case So Far, and first the tabs js/cm-case-profile.js adds (👋 Meet John Doe); the fact tabs
+   are the trainer's and are marked as such. */
 function fileTabs(shown, pos){
-  const tabs = CF_FILE_TABS.filter(t => t.id === "now" || shown.some(x => (x.group || "file") === t.id));
-  const cur = tabs.some(t => t.id === state.cfFileTab) ? state.cfFileTab : "now";
+  const own = (window.cmCaseFlow.profileExt || {}).tabs || [], mine = t => t.id === "now" || own.includes(t);
+  const tabs = own.concat(CF_FILE_TABS.filter(t => t.id === "now" || shown.some(x => (x.group || "file") === t.id)));
+  const cur = tabs.some(t => t.id === state.cfFileTab) ? state.cfFileTab : tabs[0].id, ownCur = own.find(t => t.id === cur);
   const secs = shown.filter(x => (x.group || "file") === cur);
   // the file's tabs (the trainer's) and, on the same line, the Case File | Documents switch
   const strip = `<div class="cf-file-tabs" role="tablist">
-      ${tabs.length > 1 ? tabs.map(t => `<button type="button" role="tab" aria-selected="${t.id === cur}" title="${E(t.title)}${t.id === "now" ? "" : " — trainer only: trainees never see this tab"}" class="cf-file-tab${t.id === cur ? " on" : ""}${t.id === "now" ? "" : " key"}" onclick="cmCaseFlow.fileTab('${t.id}')">${E(t.label)}</button>`).join("") : ""}
-      <div class="lsh-subtabs cf-docs-switch cf-file-switch"><button type="button" class="on" aria-selected="true">Case File</button><button type="button" onclick="goto('casedocs')">📁 Documents</button></div></div>`;
+      ${tabs.length > 1 ? tabs.map(t => `<button type="button" role="tab" aria-selected="${t.id === cur}" title="${E(t.title)}${mine(t) ? "" : " — trainer only: trainees never see this tab"}" class="cf-file-tab${t.id === cur ? " on" : ""}${mine(t) ? "" : " key"}" onclick="cmCaseFlow.fileTab('${t.id}')">${E(t.label)}</button>`).join("") : ""}
+      <div class="lsh-subtabs cf-docs-switch cf-file-switch"><button type="button" class="on" aria-selected="true">Case Profile</button><button type="button" onclick="goto('casedocs')">📁 Documents</button></div></div>`;
   return `<div class="cf-file-facts">${strip}
-    ${cur === "now" ? caseTimeline(pos) : `<div class="cf-file-cols">${secs.map(x => `<div class="cf-file-sec"><h3>${E(x.title)}</h3><ul>${x.items.map(i => `<li>${E(i)}</li>`).join("")}</ul></div>`).join("")}</div>`}</div>`;
+    ${ownCur ? ownCur.html() : cur === "now" ? caseTimeline(pos) : `<div class="cf-file-cols">${secs.map(x => `<div class="cf-file-sec"><h3>${E(x.title)}</h3><ul>${x.items.map(i => `<li>${E(i)}</li>`).join("")}</ul></div>`).join("")}</div>`}</div>`;
 }
 /* the file's text at the largest size that still fits the screen (15px down to 11px) */
 function fitFileCols(again){
@@ -4123,7 +4121,7 @@ if(typeof window.renderClientProfile === "function" && Array.isArray(CF.profile)
    trainee writes the plan rather than wondering what goes in it. An empty Action Plan gets it again; 📝 Use the
    template puts it back on demand (below what is already written). */
 const PLAN_TEMPLATE = [
-  "ACTION PLAN · John Doe v. Robert Smith",
+  "ACTION PLAN · John Doe VS Robert Smith",
   "Date: ____________    Case Flow Day / phase: ____________",
   "",
   "1. SITUATION (facts from the file only, with the document each comes from)",
@@ -4185,7 +4183,7 @@ if(typeof window.renderNotes === "function" && typeof window.renderNoteCard === 
   };
 }
 
-/* ---------- the case documents: John Doe v. Robert Smith (js/cm-case-flow-docs.js) ----------
+/* ---------- the case documents: John Doe VS Robert Smith (js/cm-case-flow-docs.js) ----------
    The Documents page is this file's document set, each document
    opening with its Case Flow day (trainers see them all). Each Skill Activity names the documents it works from. */
 const CF_DOCS = window.CM_CF_DOCS || [], CF_FOLDERS = window.CM_CF_DOC_FOLDERS || [], CF_PACKETS = window.CM_CF_DOC_PACKETS || {};
@@ -4251,8 +4249,8 @@ function caseFlowDocuments(){
   const folders = CF_FOLDERS.map(fo => ({fo, items: shown.filter(d => d.folder === fo.id), later: locked.filter(d => d.folder === fo.id && !heldBy(d)).length, held: locked.filter(d => d.folder === fo.id && heldBy(d)).length})).filter(x => x.items.length || x.later || x.held);
   return `<p class="eyebrow">Case Documents</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">📁 Case Documents: ${E(CF.case.style)}</h1>
-    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 14px">The working file for John Doe v. Robert Smith: intake, police and video, Medical Records and bills, the carriers' policies and letters, liens, the Civic's Property Damage, and (Track B) the lawsuit. Each document opens with its Case Flow day, and each Skill Activity lists the ones it works from. Each shows the <b>CMS upload category</b> to use when you add it to the case in the CMS. Read them the way a Case Manager does: verify every fact against its source, and flag what doesn't match.</p>
-    <div class="cf-docs-switch-row"><div class="lsh-subtabs cf-docs-switch" role="tablist"><button type="button" role="tab" onclick="goto('clientprofile')">Case File</button><button type="button" role="tab" class="on" aria-selected="true">📁 Documents</button></div></div>
+    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 14px">The working file for John Doe VS Robert Smith: intake, police and video, Medical Records and bills, the carriers' policies and letters, liens, the Civic's Property Damage, and (Track B) the lawsuit. Each document opens with its Case Flow day, and each Skill Activity lists the ones it works from. Each shows the <b>CMS upload category</b> to use when you add it to the case in the CMS. Read them the way a Case Manager does: verify every fact against its source, and flag what doesn't match.</p>
+    <div class="cf-docs-switch-row"><div class="lsh-subtabs cf-docs-switch" role="tablist"><button type="button" role="tab" onclick="goto('clientprofile')">Case Profile</button><button type="button" role="tab" class="on" aria-selected="true">📁 Documents</button></div></div>
     ${state.isAdmin ? `<div class="card" style="padding:12px 16px;margin-bottom:16px;border-left:4px solid var(--danger);font-size:12.8px">🔑 <b>Trainer view:</b> the red notes under each document are the audit key: planted discrepancies and what a strong trainee should catch. Trainees don't see them. Every document's plants are listed in build/case-flow/documents/SPEC.md.</div>` : ""}
     ${folders.map(({fo, items, later, held}) => `<div class="card cm-lib-folder" style="padding:14px 18px"><h3>${fo.icon} ${E(fo.label)} <span style="font-weight:500;color:var(--ink-soft);font-size:12px">(${items.length})</span></h3>
       ${items.map(row).join("")}${later ? `<div class="cf-note">🔒 ${later} more open with later Case Flow days.</div>` : ""}${held ? `<div class="cf-note">🔒 ${held} corrected cop${held === 1 ? "y opens" : "ies open"} once your trainer unlocks ${held === 1 ? "it" : "them"} (send your Amendment Request first: Pre-Demand Case Auditing → 📝 Amendment Requests).</div>` : ""}</div>`).join("")}

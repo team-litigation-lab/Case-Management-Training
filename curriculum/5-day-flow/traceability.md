@@ -25,10 +25,10 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 | `D1#13` | Bottleneck: Intake Form Errors | ✅ BUILT | d1m1-l1, d1m1-open, d1m1-drive, d2-drive, d3-drive, d4-drive, d5-drive |
 | `D1#14` | Bottleneck: Case Eligibility Uncertainty | ✅ BUILT | d1m4-l1 |
 | `D1#15` | Bottleneck: Communication Gaps | ✅ BUILT | d1m1-l1, d2m1-first |
-| `D1#16` | Tools for Case Planning & the PI Case Lifecycle Strategy | ✅ BUILT | d1m1-case, d1m1-l1, d1m1-kc, d1m3-a2, d1m4-a1, d2m2-sum |
+| `D1#16` | Tools for Case Planning & the PI Case Lifecycle Strategy | ✅ BUILT | d1m1-l1, d1m1-kc, d1m3-a2, d1m4-a1, d2m2-sum |
 | `D1#17` | Skill Building: Intake Decision Challenge & Applied Case Manager Actions | ✅ BUILT | d1m4-l1 |
 | `D1#18` | Claim Set-Up: Coverage Determination & Liability Assessment | ✅ BUILT | d1m1-l1, d1m4-a2, d1m1-a1, d2m1-l2, d2m1-liab, d2m1-a2, d2m1-kc, d2m1-cov, d5m4-kc |
-| `D1#19` | Claim Set-Up: Case Projection — Why the Three Work Together | ✅ BUILT | d1m1-case, d1m4-l1, d1m4-a2, d1m1-a1, d2m1-l2 |
+| `D1#19` | Claim Set-Up: Case Projection — Why the Three Work Together | ✅ BUILT | d1m4-l1, d1m4-a2, d1m1-a1, d2m1-l2 |
 | `D1#20` | Case Study: John Doe v. Apex — Coverage Analysis | ✅ BUILT | d1m1-a1, d2m1-l2, d2m1-a2, d2m1-kc |
 | `D1#21` | Case Study: John Doe v. Apex — Liability Determination | ✅ BUILT | d1m4-l1, d2m1-l1, d2m1-a1 |
 | `D1#22` | Case Planning Framework: Regulatory Intake & Verification | ✅ BUILT | d1m4-l1, d1m4-a2, d1m1-l2, d2m2-sum, d1m1-a2, d5m4-kc |
@@ -227,7 +227,6 @@ Every topic of the existing *Case Management Training (5-Day)* course, and where
 
 Theory the course does not carry, taken from the LSH firm curriculum and cited on the blocks that use it:
 
-- curriculum/5-day-flow/case-file.md §1–2: the file at intake, people and vehicles, the collision
 - LSH Claims Specialist: communication skills and professionalism — clarity without jargon, calm reassurance
 - Newly authored: a dedicated, practical UPL lesson: fact sharing vs. legal advice, and the hear-log-route habit
 - LSH Claims Specialist: pre-claim data set, Declaration Page, coverage asymmetry

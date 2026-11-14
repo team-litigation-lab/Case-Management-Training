@@ -21,25 +21,6 @@ window.CM_CF_SCRIPTS = {
    "say": "• Case lifecycle, eight stations: Intake, Claim Set-Up, Treatment, Pre-Demand, Demand, Settlement and Liens, Disbursement, Litigation\n• Liens: bills paid out of the settlement before the client gets their share\n• Litigation is dashed: the path only taken if the case doesn't settle\n• Navy band: Case Manager owns the movement; orange band: Atty. Thorne owns every legal judgment\n• The CMS sits under station one because the whole track runs on it"
   }
  },
- "d1m1-case": {
-  "theory": {
-   "say": "• Every new file raises the same questions: who was hurt, when, who is insured, for how much, what could go wrong\n• All week every lesson works one file, John Doe v. Robert Smith: know its facts cold; one detail changes how much money he can reach\n• Case Snapshot: the file's ID card with parties, date of loss, statute of limitations (the legal deadline to sue), client position and insurance\n• Facts of Loss: how, where and when, backed by the Police Report and witnesses\n• Critical Case Event: the one fact the defense builds on; spot it early for Atty. Thorne\n• Sources: intake sheet, supplement, Police Report; quote the document, never memory"
-  },
-  "frame": {
-   "say": "• Answer the five intake questions from the documents, not from memory\n• Who: John Doe, client; Robert Smith, defendant (the person the claim is against); seating is in the Police Report\n• What: a collision; the Run Report (ambulance crew's report) shows what EMS found\n• When and where: 02/06/2026, about 7:10 a.m., all-way stop at Maple Hollow Rd and Birch Ave\n• How, and any ticket: Police Report"
-  },
-  "rules": {
-   "say": "• Crash: 02/06/2026, about 7:10 a.m., all-way stop at Maple Hollow Rd and Birch Ave\n• Client: John Doe, 34, warehouse shift lead at Northgate Distribution; Atty. Elijah Thorne is Lead Counsel\n• Recovery Stack: every policy that could pay, in payment order; $40,000 across BI, Host UM, Relative UM\n• Where he sat decides which layers he reaches; trainees find it in the Police Report\n• Trainees also find the gap between the ambulance date and first doctor visit",
-   "ask": "What are the three layers of the stack, in order?"
-  },
-  "model": {
-   "say": "• Walk the file at a glance: John Doe v. Robert Smith, matter LSH-2026-MVA-770412\n• Scene: all-way stop at Maple Hollow Rd and Birch Ave\n• Stack bars: BI $10,000, Host UM $20,000, Relative UM $10,000 = $40,000\n• Orange strip: date of loss to first treatment; trainees work out its length\n• Missing on purpose: where he sat and who got the ticket; passenger status can open an extra layer"
-  },
-  "dodont": {
-   "say": "• Do: trace every fact to its document, e.g. date of loss 02/06/2026 is on the Police Report\n• Do: say the stack in order: Keystone Mutual BI, Harbor Point Host UM, Cardinal State Mutual Relative UM, $40,000\n• Don't: repeat facts from memory alone\n• Don't: treat the gap as the client's fault; record the dates, 02/06/2026 to 02/20/2026, for Atty. Thorne\n• Red flag: any snapshot field with no document behind it isn't verified, even John's seat; name the document or mark it not yet verified",
-   "ask": "Which document tells you where John Doe was sitting, and why does it matter?"
-  }
- },
  "d1m1-upl": {
   "theory": {
    "say": "• UPL: unauthorized practice of law, giving legal advice without a law license\n• It usually happens by accident, when a Case Manager tries to help a worried client\n• Fact sharing: telling John Doe what a record says, like a date, an amount, an appointment time, when a letter was sent\n• Process explanation: what happens next, what a form is for, who decides, never how it ends\n• Legal advice: any opinion on what his facts mean for rights, money or choices; Atty. Thorne only\n• Hear, log, route: write his question word for word, send to Atty. Thorne same day, give a time frame"
@@ -347,7 +328,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m4-a2": {
   "task": {
-   "say": "• Draft the Case Plan for John Doe v. Robert Smith in the Action Plan Editor, all five bands\n• Acceptance decision and reason; coverage stack in payment order; liability, meaning who's at fault; early projection\n• Triple-check on privacy, Medicare and who pays first, held open until the Treatment Phase\n• Clinical, Functional and Financial pillars with measurable goals; every task has an owner and date\n• Risks band leads with the 14-day gap; docket the filing window, then route"
+   "say": "• Draft the Case Plan for John Doe VS Robert Smith in the Action Plan Editor, all five bands\n• Acceptance decision and reason; coverage stack in payment order; liability, meaning who's at fault; early projection\n• Triple-check on privacy, Medicare and who pays first, held open until the Treatment Phase\n• Clinical, Functional and Financial pillars with measurable goals; every task has an owner and date\n• Risks band leads with the 14-day gap; docket the filing window, then route"
   },
   "case": {
    "say": "• On the file, this Case Plan is the gate out of Claim Set Up: once Atty. Thorne has it, treatment follows\n• In the file: parties mapped, $40,000 stack verified, onboarding packet tracked, 14-day Treatment Gap flagged\n• Stack: the layers of insurance that pay this claim, in order\n• On 03/16/2026 Atty. Thorne asks for the full five-band Case Plan by end of day\n• Goal: a plan he can act on without asking a single question"
@@ -383,7 +364,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m1-a1": {
   "task": {
-   "say": "• Build the Policy Stack for John Doe v. Robert Smith in the CMS Insurance tab\n• Enter three layers in paying order: insurer, policy number, claim number, limit, adjuster; mark first- or third-party\n• Comments: insurer's real name, driver if different from owner, adjuster details or \"none assigned yet\"\n• Check the total, record pursuit order, mark projection preliminary: a forecast until limits confirmed in writing\n• Not three equal claims: UM owes nothing until BI is used up"
+   "say": "• Build the Policy Stack for John Doe VS Robert Smith in the CMS Insurance tab\n• Enter three layers in paying order: insurer, policy number, claim number, limit, adjuster; mark first- or third-party\n• Comments: insurer's real name, driver if different from owner, adjuster details or \"none assigned yet\"\n• Check the total, record pursuit order, mark projection preliminary: a forecast until limits confirmed in writing\n• Not three equal claims: UM owes nothing until BI is used up"
   },
   "case": {
    "say": "• Morning of 02/17/2026; letters not sent yet\n• Keystone Mutual BI, Harbor Point Host UM, Cardinal State Relative UM gave limits on 02/16 and 02/17 set-up calls\n• Nothing confirmed in writing; Cardinal State has no adjuster yet; Keystone wants signed authorizations first\n• Insurance tab is empty; letters can't pull details until it's filled\n• BI pays first; Host UM opens only once BI is used up"

@@ -8,7 +8,7 @@
    topic's; the other three topics' Skill Building is drawn here (`skill`), on John Doe's file.
    (Day 3 still teaches the same topics as lessons, with their Skill Activities in the CMS.)
    A page that names the old practice file's facts (Apex Delivery, Dr. Sarah Spine, the $41,400 in specials, a PIP
-   limit gone in 48 hours) carries `old`: the Presenter view tells the trainer what John Doe v. Robert Smith says.
+   limit gone in 48 hours) carries `old`: the Presenter view tells the trainer what John Doe VS Robert Smith says.
    Saved places in a day move with the pages (js/cm-slide-places.js, layout 5).
    Checked by .github/scripts/deck-pages.cjs (every page's file is there) and .github/scripts/fit.cjs (each page fits).
    ============================================================ */
@@ -43,12 +43,12 @@ const DECK = [
     {title: "Negotiating the First Call"},
     {title: "Best Practices"}]},
   {key: "demand-skill", topic: "Skill Building: Demand", pages: [
-    {title: "Demand Phase Challenge: Real-Time Demand Audit", old: "The page names the old practice file, John Doe v. Apex Delivery. Run the audit on John Doe v. Robert Smith's file in the CMS instead: the Big Four, the Final Scrub, and the 14-day gap explained in the timeline."}]},
+    {title: "Demand Phase Challenge: Real-Time Demand Audit", old: "The page names the old practice file, John Doe v. Apex Delivery. Run the audit on John Doe VS Robert Smith's file in the CMS instead: the Big Four, the Final Scrub, and the 14-day gap explained in the timeline."}]},
   {key: "negotiation", topic: "Settlement Negotiations", pages: [
     {title: "The Pitch: the Negotiation Battle Map"},
     {title: "The Valuation Baseline: the Set-Off"},
-    {title: "The Valuation Baseline: PIP as a Valuation Baseline", old: "The page's example (a $10,000 PIP limit gone in 48 hours, $41,400 in specials) is the old practice file's. Use John Doe v. Robert Smith's own PIP history and Specials from the CMS."},
-    {title: "The Valuation Baseline: the EMC and the Benefit Ceiling", old: "The page names Dr. Sarah Spine, from the old practice file. On John Doe v. Robert Smith, take the EMC finding and its provider from the CMS."},
+    {title: "The Valuation Baseline: PIP as a Valuation Baseline", old: "The page's example (a $10,000 PIP limit gone in 48 hours, $41,400 in specials) is the old practice file's. Use John Doe VS Robert Smith's own PIP history and Specials from the CMS."},
+    {title: "The Valuation Baseline: the EMC and the Benefit Ceiling", old: "The page names Dr. Sarah Spine, from the old practice file. On John Doe VS Robert Smith, take the EMC finding and its provider from the CMS."},
     {title: "The Valuation Baseline: Subrogation vs. Non-Subrogation"},
     {title: "The Valuation Baseline: Strategic Exhaustion"},
     {title: "Negotiations Initiated: the First Call"},
@@ -106,7 +106,7 @@ buildDaySlides = function(d){
 
 function skillSlide(g){
   const k = g.skill;
-  return `<div class="cfx-deck cfx-dpk"><div class="cfx-dsk"><div class="cfx-dsk-band"><span>🧩 ${E(g.topic)}</span><span>John Doe v. Robert Smith</span></div>
+  return `<div class="cfx-deck cfx-dpk"><div class="cfx-dsk"><div class="cfx-dsk-band"><span>🧩 ${E(g.topic)}</span><span>John Doe VS Robert Smith</span></div>
     <h2>${E(k.title)}</h2><p class="cfx-dsk-lead">${E(k.lead)}</p>
     <ol>${k.steps.map(x => `<li>${E(x)}</li>`).join("")}</ol>
     <p class="cfx-dsk-out"><b>Deliver</b>${E(k.deliver)}</p></div></div>`;

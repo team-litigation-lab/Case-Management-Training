@@ -66,7 +66,7 @@
       "channel": "memo",
       "from": "Atty. Elijah Thorne",
       "to": "Case Manager",
-      "subject": "Doe v. Smith: Complaint approved, file it",
+      "subject": "John Doe VS Robert Smith: Complaint approved, file it",
       "body": "The Complaint against Robert Smith is final and approved; it's in Documents under today's date. Have Nadia Brooks prepare the civil cover sheet and summons around it today. I'll review and sign the set tomorrow. File on the 24th, and nothing goes in the envelope that I haven't signed. Calendar everything the filing starts."
     },
     "d3m2-umns": {
@@ -398,7 +398,7 @@
       "channel": "email",
       "from": "Atty. Grant Mercer <gmercer@mercerhale.example>",
       "to": "Atty. Elijah Thorne; cc: Case Manager",
-      "subject": "Doe v. Smith, 26-CV-04417: Notice of Deposition of Plaintiff",
+      "subject": "John Doe VS Robert Smith, 26-CV-04417: Notice of Deposition of Plaintiff",
       "body": "Please see the attached Notice of Videoconference Deposition of Plaintiff John Doe, set for 02/18/2027 at 10:00 a.m. with Riverton Court Reporting. The link will issue from the reporter. Please confirm your client's attendance.",
       "attachments": [
         "RS56"
@@ -473,7 +473,7 @@
       "channel": "email",
       "from": "Miguel Santos, Allied Process Services <msantos@alliedprocess.example>",
       "to": "Case Manager, LSH Law Group",
-      "subject": "Doe v. Smith, 26-CV-04417: non-service at 118 Larkspur Ln",
+      "subject": "John Doe VS Robert Smith, 26-CV-04417: non-service at 118 Larkspur Ln",
       "body": "Third attempt at 118 Larkspur Ln, Riverton, tonight at 6:40 p.m.: no answer, no vehicle. Prior attempts 10/01 and 10/05. A neighbor says Robert Smith moved out in August and left no forwarding address. Affidavit of non-service attached. Please advise how you want to proceed.",
       "attachments": [
         "RS52"

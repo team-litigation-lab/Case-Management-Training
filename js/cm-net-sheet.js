@@ -196,7 +196,7 @@ function showCheck(fresh){
 function download(){
   if(!window.XLSX){ alert("The download needs a moment to load. Try again."); return; }
   const ws = {}, c = SHEET.cells, set = (k, v) => { if(v === "" || v == null) return; ws[k] = typeof v === "number" ? {t: "n", v, z: "$#,##0.00"} : {t: "s", v: T(String(v))}; }, f = (k, fx) => { ws[k] = {t: "n", f: fx, z: "$#,##0.00"}; };
-  set("C1", "LSH Net Sheet — John Doe v. Robert Smith (from the course)");
+  set("C1", "LSH Net Sheet — John Doe VS Robert Smith (from the course)");
   set("B5", "1. SETTLEMENT RECOVERY SUMMARY"); set("B6", "Description"); set("C6", "Reference"); set("L6", "Amount");
   set("B7", "Gross Settlement"); set("C7", c.C7); set("L7", num(c.L7));
   set("B9", "2. ATTORNEY FEES & ADVANCED CASE EXPENSES"); set("B10", "Expense Type"); set("C10", "Details"); set("L10", "Amount");

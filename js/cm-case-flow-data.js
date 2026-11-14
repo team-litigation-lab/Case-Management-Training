@@ -1,6 +1,6 @@
 /* ============================================================
    5-DAY LEGAL CASE MANAGEMENT FLOW — curriculum data
-   Focus case: John Doe v. Robert Smith · Lead Counsel: Atty. Elijah Thorne
+   Focus case: John Doe VS Robert Smith · Lead Counsel: Atty. Elijah Thorne
 
    The SINGLE SOURCE OF TRUTH for the Case Flow track. Generated from it,
    never written separately:
@@ -48,7 +48,7 @@ window.CM_CASE_FLOW = {
 
   /* ---------- the persistent Case File ---------- */
   case: {
-    style: "John Doe v. Robert Smith",
+    style: "John Doe VS Robert Smith",
     no: "LSH-2026-MVA-770412",
     type: "MVA — passenger injury",
     dol: "02/06/2026",
@@ -99,7 +99,7 @@ window.CM_CASE_FLOW = {
      Every fact comes from curriculum/5-day-flow/case-file.md. */
   /* The Case File's sections. Each opens once the trainee has done the Skill Activity that establishes it (`after`):
      the file fills in as they work it, so they work each fact out from the documents first. Trainers see them all. */
-  /* The case file as the trainer knows it: every fact of John Doe v. Robert Smith, including the outcomes
+  /* The case file as the trainer knows it: every fact of John Doe VS Robert Smith, including the outcomes
      (the audited specials, the fork, Track A's Net Sheet, how the suit ends). It is the answer key, so the
      course shows it to trainers only — a trainee builds the file from the documents and their own work.
      `group` is the tab it sits under on the Case File page (js/cm-case-flow.js CF_FILE_TABS), so the page
@@ -108,7 +108,7 @@ window.CM_CASE_FLOW = {
      order and for anything that wants to know where a fact is established. */
   profile: [
     {after: "d1m1-open", title: "Case Snapshot", group: "file", items: [
-      "Case: John Doe v. Robert Smith · LSH-2026-MVA-770412 · motor vehicle collision, passenger injury",
+      "Case: John Doe VS Robert Smith · LSH-2026-MVA-770412 · motor vehicle collision, passenger injury",
       "Lead Counsel: Atty. Elijah Thorne, who approves all strategy, demands, filings, lien compromises and settlement authority · Case Manager: you",
       "Client: John Doe · DOB 08/14/1991 · 2214 Maple Hollow Rd, Riverton · (555) 010-2288 · john.doe@example.com",
       "Position: front-seat passenger in the host vehicle, not a driver",
@@ -222,7 +222,7 @@ window.CM_CASE_FLOW = {
     ]},
     {after: "d4m2-a1", title: "Track B: From Impasse to Suit", group: "suit", items: [
       "09/08 impasse memo to Atty. Thorne · 09/09 suit authorized, 40% fee tier discussed with John · 09/10 CMS status → Litigation; Harbor Point and Cardinal State notified",
-      "09/24/2026 complaint filed: John Doe v. Robert Smith, State Court of Riverton County, Civil Action No. 26-CV-04417 (medical Specials, wages, future medical, pain and suffering; no Property Damage is pleaded: the Civic's Loss of Use and Diminished Value stay on Margaret's own PD claim)",
+      "09/24/2026 complaint filed: John Doe VS Robert Smith, State Court of Riverton County, Civil Action No. 26-CV-04417 (medical Specials, wages, future medical, pain and suffering; no Property Damage is pleaded: the Civic's Loss of Use and Diminished Value stay on Margaret's own PD claim)",
       "Mediation 03/18/2027, Hon. Carla Benton (Ret.) · statement and binder due 03/11 · consolidated binding UM arbitration 06/22/2027, Laura Whitcomb, Esq. (exhibits 06/02, brief docketed 06/11)",
       "SOL: 02/06/2028 is a Sunday; never rely on a weekend roll-forward. Internal hard date 02/04/2028; internal filing cutoff 11/05/2027"
     ]},
@@ -535,71 +535,6 @@ window.CM_CASE_FLOW = {
           "Walk the lifecycle track once, left to right. Every day of this course sits on one or two of these stations.",
           "Name the UPL line now and keep naming it. The fastest way to hurt a case is a well-meant guess about its value.",
           "Point at the CMS icon: from today, everything the trainees do on John Doe's file happens in the CMS."
-        ]
-      },
-
-      {
-        kind: "lesson", id: "d1m1-case",
-        title: "Meet Your Case: John Doe v. Robert Smith",
-        topic: "The one file you will work for five days",
-        visual: "A case card filling the slide like a file folder: top-left the style JOHN DOE v. ROBERT SMITH in Fraunces with the matter number LSH-2026-MVA-770412 in mono beneath. Left column: a small diagram of the all-way stop at Maple Hollow Rd & Birch Ave, the pickup's arrow running the stop into the Escape's passenger door. Right column: three stacked navy-to-orange bars for the $40,000 stack (BI $10,000, Host UM $20,000, Relative UM $10,000). Along the bottom, an orange timeline strip from DOL 02/06/2026 to first treatment 02/20/2026, labelled 14-DAY TREATMENT GAP.",
-        tell: {
-          why: "Every lesson, activity and Learning Check in this course works one file: John Doe v. Robert Smith. Knowing its facts cold (who, when, which policies, what is at risk) is what makes every step you take in the CMS make sense.",
-          rules: [
-            "The collision: 02/06/2026, about 7:10 a.m., at the all-way stop at Maple Hollow Rd & Birch Ave. Who ran the stop, which vehicles were involved and who was cited are in the Police Report: read it, don't assume.",
-            "Your client: John Doe, 34, a warehouse shift lead at Northgate Distribution. Lead Counsel: Atty. Elijah Thorne. Case Manager: you. Where John Doe was sitting is a fact you find in the records, not one you are given.",
-            "The Recovery Stack is $40,000, worked in order: $10,000 BI (Keystone Mutual) → $20,000 Host UM (Harbor Point) → $10,000 Relative UM (Cardinal State Mutual).",
-            "His position in the vehicle decides which of those layers he can reach. Work it out from the Police Report and the policies before you name a single carrier.",
-            "Health: Peach State Health Plan asserted a reimbursement right on first notice; Harbor Point carries $5,000 PIP on the Escape.",
-            "The critical fact: compare the EMS Run Report's date with the first treatment record. The days between them are a Treatment Gap: you record its dates and, later, John Doe's own documented explanation. You never judge it.",
-            "The statute of limitations is docketed for 02/06/2028. Every deadline on the file counts from the date of loss."
-          ],
-          upl: [
-            "You may share facts and explain the process to John Doe. You may not tell him what his case is worth or what the gap does to his claim. That is Atty. Thorne's call."
-          ]
-        },
-        show: {
-          type: "table",
-          head: ["", "John Doe's file at a glance"],
-          rows: [
-            ["Case", "John Doe v. Robert Smith · LSH-2026-MVA-770412 · motor vehicle collision"],
-            ["Date of loss / SOL", "02/06/2026 · SOL 02/06/2028"],
-            ["Client", "John Doe, 34 · his position in the vehicle: find it in the Police Report"],
-            ["Defendant", "Robert Smith · what happened, and any citation: the Police Report"],
-            ["Lead Counsel", "Atty. Elijah Thorne"],
-            ["Recovery Stack", "$10,000 BI → $20,000 Host UM → $10,000 Relative UM = $40,000"],
-            ["Health Plan", "Peach State · reimbursement right asserted"],
-            ["Critical fact", "A Treatment Gap: compare the EMS Run Report with the first treatment record"]
-          ]
-        },
-        ops: [
-          ["The course begins", "Read the Case File profile and the intake documents", "Case File · Case Documents", "Can state the DOL, the stack and the critical fact from memory"],
-          ["The matter opens in the CMS", "Check every case fact against its source document", "CMS → Case File · Documents", "Each fact traced to a document, none to memory"],
-          ["A fact changes", "Update the CMS and tell the team the same day", "CMS → Case Notes", "The CMS matches the file, always"]
-        ],
-        best: [
-          "Know the stack, the dates and the critical fact before the first call.",
-          "Trace every fact to its document: Police Report, Declaration Page, medical record.",
-          "Pitfall: repeating a fact from memory that the documents don't support.",
-          "Pitfall: treating a gap in treatment as the client's fault rather than a fact to document."
-        ],
-        sources: ["D1#16", "D1#19", "curriculum/5-day-flow/case-file.md §1–2: the file at intake, people and vehicles, the collision"],
-        rubric: {
-          ai: [
-            ["Case facts", 25, "DOL, SOL, parties and John Doe's position stated correctly"],
-            ["Recovery Stack", 20, "$40,000 in the order BI → Host UM → Relative UM"],
-            ["Critical fact", 15, "Finds the Treatment Gap in the records and states its dates, without judging it"]
-          ],
-          trainer: [
-            ["Fact discipline", 25, "Traces facts to documents rather than memory"],
-            ["UPL boundary", 15, "Shares facts, never value or merits"]
-          ]
-        },
-        notes: [
-          "Hand out nothing yet. Ask the room what they would want to know about a new file in the first five minutes, then show the case card.",
-          "Say the stack out loud in order, twice: BI, Host UM, Relative UM. It is the spine of Days 1 to 3.",
-          "Land the critical fact without blame: a 14-day gap is ordinary life (work, waiting it out), and the Case Manager's job is to document it, not judge it.",
-          "Close: “From the next slide on, every fact you use comes from a document in the file, not from this card.”"
         ]
       },
 
@@ -2396,12 +2331,12 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "activity", id: "d1m4-a2",
-        title: "Live Case Plan Draft — John Doe v. Robert Smith",
+        title: "Live Case Plan Draft — John Doe VS Robert Smith",
         topic: "Skill Activity 2 — the full plan, routed for review",
         visual: "A full-slide editor canvas showing the live plan with all five bands stubbed and their required fields outlined in orange. A completion meter runs across the top in five segments that fill as each band is completed. The risks band carries a red required marker so it can't be skipped silently. Bottom-right, the ROUTE FOR REVIEW control is greyed out and locked until all five segments are filled, with a label: “all five bands required.” The lock is the argument: the tool won't let an incomplete plan reach counsel.",
         act: {
           scenario: "Everything from Day 1 and Claim Set Up is in the file: parties mapped, the $40,000 stack verified, the onboarding packet delivered and tracked, and the 14-Day Treatment Gap identified. The Regulatory Triple-Check is still open: it clears in the Treatment Phase, before the first bill is routed. Atty. Thorne is waiting on the Case Plan.",
-          prompt: "Draft the complete Case Plan for John Doe v. Robert Smith. Fill all five bands from today's work: the acceptance decision with its reason; coverage as a stack with its order of operations, liability, and a preliminary projection; the Regulatory Triple-Check, held open until the Treatment Phase; Clinical, Functional and Financial pillars with measurable goals, each action item with an owner and a date; and the risks band with the 14-Day Gap and the risk of a later break in care, prominently, with their consequences. Docket the filing window, then route the plan to Atty. Thorne.",
+          prompt: "Draft the complete Case Plan for John Doe VS Robert Smith. Fill all five bands from today's work: the acceptance decision with its reason; coverage as a stack with its order of operations, liability, and a preliminary projection; the Regulatory Triple-Check, held open until the Treatment Phase; Clinical, Functional and Financial pillars with measurable goals, each action item with an owner and a date; and the risks band with the 14-Day Gap and the risk of a later break in care, prominently, with their consequences. Docket the filing window, then route the plan to Atty. Thorne.",
           tool: "Action Plan Editor",
           output: "A complete, routed Case Plan that counsel could set strategy from without asking a follow-up question.",
           checkpoints: [
@@ -2537,7 +2472,7 @@ window.CM_CASE_FLOW = {
         {q: "Which coverages make up John Doe's $40,000 Recovery Stack?",
          opts: ["Keystone BI, Harbor Point Host UM and Cardinal State Relative UM", "Keystone BI, Host UM, Relative UM and Harbor Point PIP", "Keystone BI, Keystone PD and Host UM", "Host UM, Relative UM and Margaret Doe's Bluewater UM"],
          a: 0, r: "Only the coverages that pay the claim stack: $10,000 BI + $20,000 Host UM + $10,000 Relative UM. PIP pays bills now (Payer Order), PD pays for the car, and Margaret Doe rejected UM on her Bluewater policy in writing on 03/14/2024."},
-        {q: "On John Doe v. Robert Smith, in what order must the coverage layers be pursued?",
+        {q: "On John Doe VS Robert Smith, in what order must the coverage layers be pursued?",
          opts: ["Host UM → BI → Relative UM", "BI → Host UM → Relative UM", "Relative UM → Host UM → BI", "All three at once, in parallel"],
          a: 1, r: "BI pays first. Host UM opens once BI is exhausted or tendered, and Relative UM stacks behind Host UM."},
         {q: "Why can John Doe reach the $20,000 Host UM layer?",
@@ -2662,7 +2597,7 @@ window.CM_CASE_FLOW = {
         visual: "A vertical three-rung ladder in the centre of the slide, built bottom-up so the stacking order reads physically. Rung 1 (bottom, navy): BI $10,000. Rung 2 (navy-soft): HOST UM $20,000. Rung 3 (top, orange): RELATIVE UM $10,000. Each rung is a rounded bar carrying its carrier, claim number and adjuster in small mono type on the right. To the right, a vertical orange brace spans all three rungs with the total, $40,000, set large in Fraunces. Below, one empty verification checkbox per layer in an orange-bordered card headed VERIFY EACH LAYER. The rungs are numbered 1-2-3 bottom to top and never reordered.",
         act: {
           scenario: "File date 02/17/2026, before the letters go out. All three carriers opened claims by phone on 02/16–02/17/2026 and reported their limits on the set-up calls. Nothing is confirmed in writing: today's LORs will request each Declaration Page, and Keystone, the third-party carrier, will want authorizations first. Nothing has been entered in the CMS Insurance tab.",
-          prompt: "Build the complete Policy Stack for John Doe v. Robert Smith. Enter all three layers in the CMS in their order of operations, with carrier, policy number, claim number, limit and adjuster for each. Classify each layer as first-party or third-party. In the Comments box record the carrier's actual name, the driver's name where it differs from the owner, and the adjuster's details, or state expressly that none is assigned yet. Then verify the total, record the order the layers must be pursued in, and mark the projection preliminary until each limit is confirmed in writing.",
+          prompt: "Build the complete Policy Stack for John Doe VS Robert Smith. Enter all three layers in the CMS in their order of operations, with carrier, policy number, claim number, limit and adjuster for each. Classify each layer as first-party or third-party. In the Comments box record the carrier's actual name, the driver's name where it differs from the owner, and the adjuster's details, or state expressly that none is assigned yet. Then verify the total, record the order the layers must be pursued in, and mark the projection preliminary until each limit is confirmed in writing.",
           tool: "CMS → Insurance tab",
           output: "A three-layer Coverage Matrix totalling $40,000, each layer classified, ordered and fully attributed.",
           checkpoints: [
@@ -3051,7 +2986,7 @@ window.CM_CASE_FLOW = {
             "Then why, in one or two lines: the rule or fact that drives it. Then the facts he needs to decide, each with its source and date. The story of how you found it comes last, or not at all.",
             "Give him the options and what follows from each: “If yes, I send the decline and route the bill to PIP today; if no, I draft the LOP for your signature.” Never decide for him by leaving one option out.",
             "One note, one decision. Two decisions are two notes, or two numbered items, each with its own deadline, so neither is lost in the other.",
-            "The subject line carries the decision too: “DECISION by 03/12 — Summit LOP request (John Doe v. Robert Smith)”. A subject line of “Update” or “Question” tells him nothing.",
+            "The subject line carries the decision too: “DECISION by 03/12 — Summit LOP request (John Doe VS Robert Smith)”. A subject line of “Update” or “Question” tells him nothing.",
             "Facts, not adjectives. Quote figures and dates exactly as the documents give them, and mark anything unconfirmed as unconfirmed. Your recommendation, if you give one, is labelled as yours.",
             "Log the note and his answer in the CMS the same day, and act on the answer. A decision that is not logged has to be asked for again."
           ],
@@ -7717,7 +7652,7 @@ window.CM_CASE_FLOW = {
          topic: "Skill Activity — from approved Complaint to accepted filing and a calendar that runs from it",
          visual: "A left-to-right relay of four cards on a thin navy rail, each with an orange numbered badge. ① CMS TASK · NADIA BROOKS · LITIGATION DESK: a task card listing CIVIL COVER SHEET · SUMMONS, a due chip 09/22/2026 and a routing arrow to ② ATTY. THORNE · SIGNS 09/23: a signature line with a padlock chip, NOTHING FILES UNSIGNED. ③ COURT E-FILING: an envelope card reading STATE COURT OF RIVERTON COUNTY · COMPLAINT · CIVIL COVER SHEET · SUMMONS · $218.00, and a green ACCEPTED stamp over 26-CV-04417 · 09/24/2026. ④ CALENDAR: three mono date pills, CMC 12/10/2026 9:00 A.M. · SERVICE DEADLINE 01/22/2027 · ANSWER: SET ON SERVICE, the last one dashed and empty. Off the rail, under card ①, a grey draft sheet stamped NOT FOR FILING with a red strike through it: the 09/15/2026 draft that never reaches the envelope.",
          act: {
-           scenario: "File date 09/22/2026, Track B. The file went to Litigation status on 09/10/2026 on Atty. Thorne's 09/09 authorization; the filing target is 09/24/2026 and today is its 48-hour audit. This morning Atty. Thorne approved his Complaint for John Doe v. Robert Smith in the State Court of Riverton County: negligence and negligence per se; medical Specials, lost wages, future medical and pain and suffering; jury demanded; Smith at 118 Larkspur Ln, Riverton. The CMS also holds his 09/15/2026 draft, stamped NOT FOR FILING, unsigned, with no case number. The civil cover sheet and summons have not been drafted. The fee tier moves from 33⅓% to 40% on the filing date (per the retainer). Pre-suit costs on the ledger: $486.75. Atty. Thorne's 09/10 question on notifying the UM carriers of the filed Complaint is still open.",
+           scenario: "File date 09/22/2026, Track B. The file went to Litigation status on 09/10/2026 on Atty. Thorne's 09/09 authorization; the filing target is 09/24/2026 and today is its 48-hour audit. This morning Atty. Thorne approved his Complaint for John Doe VS Robert Smith in the State Court of Riverton County: negligence and negligence per se; medical Specials, lost wages, future medical and pain and suffering; jury demanded; Smith at 118 Larkspur Ln, Riverton. The CMS also holds his 09/15/2026 draft, stamped NOT FOR FILING, unsigned, with no case number. The civil cover sheet and summons have not been drafted. The fee tier moves from 33⅓% to 40% on the filing date (per the retainer). Pre-suit costs on the ledger: $486.75. Atty. Thorne's 09/10 question on notifying the UM carriers of the filed Complaint is still open.",
            prompt: "Tag the Litigation Desk paralegal, Nadia Brooks, with a CMS task precise enough to need no follow-up question: which documents, from which approved Complaint, due when, routed to Atty. Thorne for signature. After he signs on 09/23, submit the e-filing envelope in Court E-Filing on 09/24 (caption, court, case type, filing attorney, document types, filing fee), and check every page is signed before it goes in. Record the accepted filing: the civil action number, the filing date, the stamped Complaint, the issued summons and the Notice of Case Management Conference in 01_PLEADINGS, the fee receipt to the costs ledger. Then calendar from the filing: the service deadline with warning alerts, the hand-off to Allied Process Services, the Case Management Conference with Atty. Thorne as attendee, and the answer deadline held until service. Graded judgment: which date can be calendared today and which cannot.",
            tool: "CMS → Tasks · Court E-Filing · CMS → Litigation → Pleadings Log · CMS → Documents · CMS → Financial Ledger · CMS → Calendar · Court E-Filing",
            output: "A signed filing set e-filed and accepted as No. 26-CV-04417, recorded in the CMS, and a calendar that runs from the 09/24/2026 filing date.",
@@ -7725,7 +7660,7 @@ window.CM_CASE_FLOW = {
              "CMS task to Nadia Brooks dated 09/22/2026: civil cover sheet and summons, built from the Complaint Atty. Thorne approved that morning (not the 09/15/2026 draft), due end of day 09/22/2026, routed to Atty. Thorne for signature",
              "The summons in the task: directed to Robert Smith at 118 Larkspur Ln, Riverton, the address pleaded in the Complaint; the cover sheet: motor vehicle personal injury, jury demanded",
              "Signature check before upload: Complaint, cover sheet and summons signed by Atty. Thorne on 09/23/2026; the 09/15/2026 draft never uploaded",
-             "Envelope in Court E-Filing: John Doe v. Robert Smith, State Court of Riverton County, new civil case; Complaint (lead), civil cover sheet, summons for issuance; filing attorney Atty. Elijah Thorne, State Bar No. 418207; filing fee and summons $218.00",
+             "Envelope in Court E-Filing: John Doe VS Robert Smith, State Court of Riverton County, new civil case; Complaint (lead), civil cover sheet, summons for issuance; filing attorney Atty. Elijah Thorne, State Bar No. 418207; filing fee and summons $218.00",
              "Envelope accepted 09/24/2026; court fields updated: Civil Action No. 26-CV-04417 replaces “Pending”, filing date 09/24/2026, service status “Summons issued, not served”",
              "Pleadings Log row: Complaint filed 09/24/2026, e-file stamp 10:42 a.m., source document linked",
              "01_PLEADINGS holds Complaint_Filed_Stamped.pdf, Summons_Issued.pdf and Notice_of_Case_Management_Conference.pdf; no scan names",
@@ -9705,7 +9640,7 @@ window.CM_CASE_FLOW = {
            rules: [
              "Two subpoenas, two jobs. A Subpoena Duces Tecum commands a non-party to produce documents; a trial subpoena commands a witness (a fact witness, a treating physician, a police officer) to appear and testify, so they legally show up. Robert Smith's own documents come through Requests for Production, not a subpoena.",
              "The trigger is a refusal or a custodian need: a hospital, cell phone provider or employer ignores or refuses a request made with John Doe's authorization, or Atty. Thorne needs a record produced by its custodian. Flag it as a question (“Do you want a records subpoena?”); he decides, signs and issues it.",
-             "Draft on the court-approved Subpoena Duces Tecum form only: the case style (John Doe v. Robert Smith, State Court of Riverton County, Civil Action No. 26-CV-04417), the named custodian, the production date and place, and Exhibit A. Route the draft to Atty. Thorne for review and signature.",
+             "Draft on the court-approved Subpoena Duces Tecum form only: the case style (John Doe VS Robert Smith, State Court of Riverton County, Civil Action No. 26-CV-04417), the named custodian, the production date and place, and Exhibit A. Route the draft to Atty. Thorne for review and signature.",
              "Write Exhibit A narrow: one subject, an exact date range, named record types. The deck's model: “Any and all emergency room records, triage notes, and radiological imaging regarding [Client] for the treatment date of [Accident Date] only.” Never “all records of any kind”: that is an overly broad fishing expedition, and the defense or the third party can move to quash it.",
              "Notice before service, always. A copy goes to opposing counsel, here Atty. Grant Mercer of Mercer & Hale LLP, before the third party is served; most states set a notice period, often 5 to 10 days. Confirm the governing rule and calendar the earliest service date from it.",
              "Formal service by process server on the facility's Registered Agent or records custodian; on this file, Allied Process Services. The signed subpoena and the proof of service are filed in 05_SUBPOENAS.",
@@ -10893,13 +10828,6 @@ window.CM_CASE_FLOW = {
       "Cause and effect runs fast on an injury file. A risk flagged the day you see it, with the facts and a recommended next step, gives counsel the widest set of options while time is still on the file's side. The same risk found weeks later, or held back while you try to fix it yourself, leaves fewer options and sometimes none. A silent client, a missed deadline or a break in treatment rarely improves on its own; each day it sits unreported, the cost of dealing with it grows.",
       "Your lane is clear: you explain the process and confirm facts, and you recommend operational next steps to counsel. You never tell John Doe what his case is worth, whether to settle, or what the law means for him, because those answers carry legal consequences only a licensed attorney may weigh. When a question crosses that line, you log it and route it to Atty. Thorne the same day. To open the discussion, ask the room: whose file is this, really, and what exactly does each person on it own?"
     ],
-    "d1m1-case": [
-      "Insurance claims are paid on proof, not on stories. A carrier pays for what the documents establish: who was at fault, which policies apply, what injuries were treated and when. That is why this course runs one file for five days, and why every fact you use must trace back to a document in it. Knowing John Doe's file cold is not memorisation for its own sake; it is what lets you see, at every later step, which document proves which point and what is still missing.",
-      "The core facts are these. The collision happened on 02/06/2026 at about 7:10 a.m., at the all-way stop at Maple Hollow Rd & Birch Ave. Your client is John Doe, 34, a warehouse shift lead at Northgate Distribution; the matter is John Doe v. Robert Smith, LSH-2026-MVA-770412, with Atty. Elijah Thorne as Lead Counsel. Who ran the stop, which vehicles were involved and who was cited are in the Police Report. Read it rather than assume it, because an intake summary is a starting point, not a source.",
-      "The **Recovery Stack** is $40,000, worked in a fixed order: $10,000 BI from Keystone Mutual, then $20,000 Host UM from Harbor Point, then $10,000 Relative UM from Cardinal State Mutual. The order exists because uninsured and underinsured motorist coverage is designed to fill the shortfall left after the at-fault driver's liability coverage is used up, so the UM layers wait behind BI. Which layers a person can reach depends on how the policies define who is covered: the driver, an occupant, a household relative. That is why John Doe's position in the vehicle matters so much, and why you find it in the records before naming any carrier.",
-      "Two more facts shape the file early. Peach State Health Plan asserted a reimbursement right on first notice, because a plan that pays accident-related care expects to be repaid from any recovery; and Harbor Point carries $5,000 of PIP on the Escape. Then there is the **Treatment Gap**: compare the EMS Run Report's date with the first treatment record and count the days between them. Gaps matter because carriers routinely argue that an injury untreated for days may have come from somewhere else. Your job is to record the exact dates and, later, John Doe's own documented explanation, without judgment.",
-      "Get these facts right and every later step lands on solid ground: the right carriers notified in the right order, deadlines counted from the right date, the gap documented before anyone else raises it. Get one wrong and the error travels into letters, demands and the Case Plan. Your lane is to share facts and explain the process. What the gap does to the claim, or what the case is worth, is Atty. Thorne's call. Ask the room: which single fact on this card would you most want confirmed by a document before your first call, and why?"
-    ],
     "d1m1-upl": [
       "Every state limits the practice of law to licensed attorneys, and the reason is protection of the public. A lawyer is trained to apply the law to a person's facts, is bound by professional duties, answers to the bar and carries responsibility for the advice given. **Unauthorized Practice of Law** is giving that kind of advice without a license. When a Case Manager crosses the line, the client may act on an answer nobody qualified gave, the firm takes on the risk, and the supervising attorney answers for it. Good intentions do not change any of that.",
       "The line itself is simple once you see it. Facts are what is: “The Police Report lists the date of loss as 02/06/2026.” Process is how things work: “The next step is a letter to each carrier saying we represent you.” Legal advice is any opinion about what John Doe's facts mean for his rights, his money or his choices: what his case is worth, whether to settle, how a gap in treatment, a prior injury or a missed visit changes the outcome. The first two are yours. The third is Atty. Thorne's, always.",
@@ -11350,9 +11278,9 @@ window.CM_CASE_FLOW = {
      build/case-flow/curriculum.cjs refuses a lesson after an activity and an activity without its lesson. */
   sequence: [
     {n: 1, phases: [
-      {title: "Intake, Claims & Property Damage", lead: "Module 1", blocks: ["d1m1-case", "d1m1-role", "d1m1-upl", "d1m1-l1", "d1m4-l1", "d1m3-l1", "d1m3-l2", "d1m2-l1", "d1m2-l2", "d1m1-open", "d1m1-drive", "d1m3-a1", "d1m3-a2", "d1m3-a3", "d1m2-a1", "d1m2-a2", "d1m1-kc", "d1m3-kc", "d1m2-kc"],
+      {title: "Intake, Claims & Property Damage", lead: "Module 1", blocks: ["d1m1-role", "d1m1-upl", "d1m1-l1", "d1m4-l1", "d1m3-l1", "d1m3-l2", "d1m2-l1", "d1m2-l2", "d1m1-open", "d1m1-drive", "d1m3-a1", "d1m3-a2", "d1m3-a3", "d1m2-a1", "d1m2-a2", "d1m1-kc", "d1m3-kc", "d1m2-kc"],
        practises: {"d1m1-open": "d1m1-l1", "d1m1-drive": "d1m1-l1", "d1m3-a1": "d1m3-l1", "d1m3-a2": "d1m3-l1", "d1m3-a3": "d1m3-l2", "d1m2-a1": "d1m2-l1", "d1m2-a2": "d1m2-l2"},
-       headings: {"d1m1-case": "Meet Your Client: John Doe", "d1m1-role": "Case Management Fundamentals", "d1m1-upl": "The UPL Line: Fact Sharing vs. Legal Advice", "d1m1-l1": "Intake", "d1m4-l1": "Intake", "d1m3-l1": "Client Directions", "d1m3-l2": "Property Damage: Does It Touch Our Case?", "d1m1-open": "Skill Building: Opening the File in the CMS", "d1m1-drive": "Skill Building: Backup File Maintenance", "d1m3-a1": "Skill Building: Client Directions", "d1m3-a2": "Skill Building: Client Directions", "d1m3-a3": "Skill Building: Does PD Touch Our Case?", "d1m2-l1": "Client Communications", "d1m2-l2": "Client Communications", "d1m2-a1": "Skill Building: Client Communications", "d1m2-a2": "Skill Building: Client Communications"}}
+       headings: {"d1m1-role": "Case Management Fundamentals", "d1m1-upl": "The UPL Line: Fact Sharing vs. Legal Advice", "d1m1-l1": "Intake", "d1m4-l1": "Intake", "d1m3-l1": "Client Directions", "d1m3-l2": "Property Damage: Does It Touch Our Case?", "d1m1-open": "Skill Building: Opening the File in the CMS", "d1m1-drive": "Skill Building: Backup File Maintenance", "d1m3-a1": "Skill Building: Client Directions", "d1m3-a2": "Skill Building: Client Directions", "d1m3-a3": "Skill Building: Does PD Touch Our Case?", "d1m2-l1": "Client Communications", "d1m2-l2": "Client Communications", "d1m2-a1": "Skill Building: Client Communications", "d1m2-a2": "Skill Building: Client Communications"}}
     ]},
     {n: 2, phases: [
       {title: "Claim Set Up & Treatment", lead: "Module 2", lanes: {"d2-drive": "care", "d2m1-l1": "claims", "d2m1-l2": "claims", "d2m1-afd": "claims", "d2m1-liab": "claims", "d2m1-first": "claims", "d1m4-l2": "claims", "d1m1-a1": "claims", "d2m1-a1": "claims", "d2m1-a2": "claims", "d1m4-a1": "claims", "d1m4-a2": "claims", "d2m1-kc": "claims", "d1m4-kc": "claims", "d2m1-cov": "care", "d2m2-l1": "care", "d2m2-eob": "care", "d2m2-pip": "care", "d2m2-lop": "care", "d2m2-cost": "care", "d1m1-l2": "care", "d2m2-l2": "care", "d2m2-a1": "care", "d1m1-a2": "care", "d2m2-sum": "care", "d2m2-a2": "care", "d2m2-a3": "care", "d2m2-kc": "care", "d1m4-tplan": "claims", "d1m4-tmap": "claims", "d1m4-tcare": "claims", "d1m4-emc": "care"}, blocks: ["d2m1-l2", "d2m1-afd", "d2m1-liab", "d2m1-first", "d2m1-l1", "d1m4-tplan", "d1m4-tmap", "d1m4-tcare", "d1m4-l2", "d2m1-cov", "d2m2-l1", "d2m2-eob", "d2m2-pip", "d1m4-emc", "d2m2-lop", "d2m2-cost", "d1m1-l2", "d2m2-sum", "d2m2-l2", "d1m1-a1", "d2m1-a1", "d2m1-a2", "d1m4-a1", "d1m4-a2", "d2m2-a1", "d2m2-a3", "d1m1-a2", "d2m2-a2", "d2-drive", "d2m1-kc", "d1m4-kc", "d2m2-kc"],

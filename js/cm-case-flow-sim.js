@@ -195,7 +195,7 @@ window.CM_CF_SIM = {
    "channel": "memo",
    "from": "Atty. Elijah Thorne",
    "to": "Case Manager",
-   "subject": "Doe v. Smith: Case Plan to me today",
+   "subject": "John Doe VS Robert Smith: Case Plan to me today",
    "body": "I need the full Case Plan on John Doe, all five bands, routed to me by end of day: the acceptance decision and why, the stack in order with a preliminary projection, liability, the triple-check, the three pillars with owners and dates, and the risks band. Docket the filing window. If I have to ask a question, it isn't finished.",
    "attachments": [
     "RS04",
@@ -439,7 +439,7 @@ window.CM_CF_SIM = {
    "channel": "email",
    "from": "Atty. Elijah Thorne (ethorne@lshlawgroup.example)",
    "to": "Case Manager",
-   "subject": "Doe v. Smith: pre-demand strategy session, 2:00 p.m. today",
+   "subject": "John Doe VS Robert Smith: pre-demand strategy session, 2:00 p.m. today",
    "body": "I've read your audit. Strategy session on John Doe today at 2:00 p.m., my office. Bottom line first. Expect me to push the way Keystone will: low speed, the 14 days, the “degenerative” read. Bring the facts, the documents and the operational options. The decisions on the demand are mine.",
    "attachments": [
     "RS04",
@@ -514,7 +514,7 @@ window.CM_CF_SIM = {
    "channel": "memo",
    "from": "Atty. Elijah Thorne",
    "to": "Case Manager",
-   "subject": "Doe v. Smith: Complaint approved, file it",
+   "subject": "John Doe VS Robert Smith: Complaint approved, file it",
    "body": "The Complaint against Robert Smith is final and approved; it's in Documents under today's date. Have Nadia Brooks prepare the civil cover sheet and summons around it today. I'll review and sign the set tomorrow. File on the 24th, and nothing goes in the envelope that I haven't signed. Calendar everything the filing starts."
   },
   "d3m2-umns": {
@@ -846,7 +846,7 @@ window.CM_CF_SIM = {
    "channel": "email",
    "from": "Atty. Grant Mercer <gmercer@mercerhale.example>",
    "to": "Atty. Elijah Thorne; cc: Case Manager",
-   "subject": "Doe v. Smith, 26-CV-04417: Notice of Deposition of Plaintiff",
+   "subject": "John Doe VS Robert Smith, 26-CV-04417: Notice of Deposition of Plaintiff",
    "body": "Please see the attached Notice of Videoconference Deposition of Plaintiff John Doe, set for 02/18/2027 at 10:00 a.m. with Riverton Court Reporting. The link will issue from the reporter. Please confirm your client's attendance.",
    "attachments": [
     "RS56"
@@ -921,7 +921,7 @@ window.CM_CF_SIM = {
    "channel": "email",
    "from": "Miguel Santos, Allied Process Services <msantos@alliedprocess.example>",
    "to": "Case Manager, LSH Law Group",
-   "subject": "Doe v. Smith, 26-CV-04417: non-service at 118 Larkspur Ln",
+   "subject": "John Doe VS Robert Smith, 26-CV-04417: non-service at 118 Larkspur Ln",
    "body": "Third attempt at 118 Larkspur Ln, Riverton, tonight at 6:40 p.m.: no answer, no vehicle. Prior attempts 10/01 and 10/05. A neighbor says Robert Smith moved out in August and left no forwarding address. Affidavit of non-service attached. Please advise how you want to proceed.",
    "attachments": [
     "RS52"

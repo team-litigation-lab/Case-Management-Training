@@ -32,32 +32,6 @@
       "owner": "Case Manager"
     }
   },
-  "d1m1-case": {
-    "image": "property-damage",
-    "hook": "One file for five days: know **its facts cold** before you touch the CMS.",
-    "points": [
-      "Who ran the stop, and where John sat: **the Police Report**",
-      "The stack, in order: **BI → Host UM → Relative UM**, $40,000",
-      "His seat in the vehicle decides **which layers he reaches**",
-      "EMS date vs. first treatment record: **find the gap yourself**"
-    ],
-    "upl": "Share facts and the process; never value, or what the gap does",
-    "dos": [
-      "Trace every fact **to its document**",
-      "Say the stack **in order**, every time"
-    ],
-    "donts": [
-      "Repeating facts **from memory** alone",
-      "Treating the gap as **the client's fault**"
-    ],
-    "redFlag": {
-      "on": "dodont",
-      "see": "A Case Snapshot field with no named source document, even **the client's seat**",
-      "costs": "An unverified field becomes the file's fact, and a wrong seat reaches the wrong policies",
-      "do": "Name each field's document (RS01, RS07); mark the rest **not yet verified**",
-      "owner": "Case Manager"
-    }
-  },
   "d1m1-open": {
     "image": "data-entry",
     "situation": "02/09/2026. The raw file is in and a colleague keyed **a draft intake record** into the CMS. Atty. Thorne wants the matter **active today**.",
