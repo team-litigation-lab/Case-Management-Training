@@ -75,7 +75,8 @@ async function workerChecks() {
             });
             return out;
         });
-        if (deck.bad.length || deck.lessons < 6 || deck.slides < 53) fail(`deck slides: ${JSON.stringify(deck)}`);
+        const wantSlides = Object.values(notes.lessons).flat().length;   // every page the notes give a lesson
+        if (deck.bad.length || deck.lessons < Object.keys(notes.lessons).length || deck.slides !== wantSlides) fail(`deck slides: ${JSON.stringify(deck)}`);
         await page.evaluate(() => { goto('day', 11); }); await page.waitForTimeout(600);
         const shown = await page.evaluate(async () => {
             const d = DAYS.find(x => x.id === 11), li = d.lessons.findIndex(x => x.cf && x.cf.block.id === 'd1m1-role');
