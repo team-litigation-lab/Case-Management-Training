@@ -316,7 +316,34 @@ function candidateIds(name, batch) {
   let slug = slugPart(name).slice(0, 40);
   if (!slug) { let h = 0; for (const c of String(name || "")) h = (h * 31 + c.codePointAt(0)) >>> 0; slug = "trainee-" + h.toString(36); }
   const b = slugPart(canonicalBatch(batch) || batch).slice(0, 20), raw = slugPart(batch).slice(0, 20);
-  return { newId: b ? `${slug}--${b}` : slug, rawId: raw ? `${slug}--${raw}` : slug, legacyId: slugPart(name).slice(0, 40) || "trainee" };
+  return { newId: b ? `${slug}--${b}` : slug, rawId: raw ? `${slug}--${raw}` : slug, legacyId: slugPart(name).slice(0, 40) || "trainee", slug };
+}
+// The records of this trainee (the same name) under another batch that started within BATCH_FIX_DAYS of `who.batch`:
+// what a Batch ID corrected on the Portal looks like (/api/auth/portal). Archived or rejected ones don't count.
+const BATCH_FIX_DAYS = 31;
+function batchDay(b) {
+  const m = /^B(\d{2})(\d{2})(\d{2})$/.exec(canonicalBatch(b) || "");
+  if (!m) return null;
+  const at = (mm, dd) => batchRealDay(mm, dd, +m[3]) ? Date.UTC(2000 + +m[3], mm - 1, dd) : null;
+  return at(+m[1], +m[2]) || at(+m[2], +m[1]);
+}
+async function sameTraineeOtherBatch(kv, who, newId) {
+  const { slug } = candidateIds(who.name, who.batch), day = batchDay(who.batch);
+  if (!slug || day == null) return [];
+  const keys = []; let cursor;
+  do { const r = await kv.list({ prefix: `trainee:${slug}--`, cursor }); r.keys.forEach((k) => keys.push(k.name)); cursor = r.list_complete ? null : r.cursor; } while (cursor && keys.length < 200);
+  const out = [];
+  for (const k of keys) {
+    const id = k.slice("trainee:".length);
+    if (id === newId || id.slice(slug.length + 2).includes("--")) continue;   // another name that starts with this one
+    let r = null; try { r = JSON.parse((await kv.get(k)) || "null"); } catch (e) { r = null; }
+    if (!r || r.archived || r.rejected || slugPart(r.name) !== slugPart(who.name)) continue;
+    if (batchKey(r.batch || "") === batchKey(who.batch)) continue;
+    const d = batchDay(r.batch);
+    if (d == null || Math.abs(d - day) > BATCH_FIX_DAYS * 86400000) continue;
+    out.push({ id, rec: r });
+  }
+  return out;
 }
 
 /* ---------- what a trainee may touch ---------- */
@@ -1780,9 +1807,23 @@ export default {
           if (!(await useTicketOnce(env, kv, ticket))) return json({ error: "This sign-in link was already used. Open the program again from the LSH Training Portal.", code: "used" }, 401);
           return json({ admin: true, name: who.name, token: await makeToken(env, "a", "admin", 12) });
         }
-        const res = await traineeSession(who.name, who.batch, "");
+        let res = await traineeSession(who.name, who.batch, "");
         if (res.status !== 200) return res;   // 🚫 (blocked: access-offboarded)
-        const out = await res.json();
+        let out = await res.json();
+        // 🏷 A Batch ID corrected on the Portal: no record under the new batch yet, but this trainee's record is here under the
+        // batch they first had. The sign-in opens that one (leaving merged:<new id> = {into}, as a trainer's merge does) rather
+        // than starting a new, empty account. Only the same name, under a batch that started within BATCH_FIX_DAYS of the new
+        // one (a correction, not another cohort's namesake); two such records are refused, for a trainer to merge.
+        if (!out.existing) {
+          const found = await sameTraineeOtherBatch(kv, who, out.id);
+          if (found.length > 1) return json({ error: "We found more than one account under your name in a nearby batch, so we can't tell which is yours. Please ask your trainer to merge them (📋 Batch Sheet → 👥 Duplicate accounts), then open the program again from the LSH Training Portal.", code: "batch-ambiguous" }, 409);
+          if (found.length === 1) {
+            await kv.put(`merged:${out.id}`, JSON.stringify({ into: found[0].id, at: new Date().toISOString(), by: "portal-batch" }));
+            res = await traineeSession(who.name, who.batch, "");
+            if (res.status !== 200) return res;
+            out = await res.json();
+          }
+        }
         // The Portal's approval is the only trainee approval: a trainee it signs in is approved here too
         // (unless an admin here rejected them), so this program never shows "Registration Pending Approval".
         const cur = out.existing;
