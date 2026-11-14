@@ -106,9 +106,12 @@ function prefill(id){
     if(g && typeof g.score === "number") add("Backup Drive auto-grade", `${g.score}%${g.passed ? ", passed" : ", not passed yet"}`);
     else if(day === 1 && D.built) add("Backup Drive", "folders built" + (D.checkedAt ? ", checked with Check my drive" : ""));
   }
-  const steps = (SLIDES()[id] || {}).steps || [];
-  return (out.length ? `From the platform:\n${out.join("\n")}\n\n` : "")
-    + `What I did, step by step (write after each arrow):\n${steps.map((s, i) => `${i + 1}. ${plain(s)}\n   → `).join("\n")}`;
+  return out.length ? `From the platform:\n${out.join("\n")}` : "";
+}
+/* the evidence as short lines for the slide: what is checked, without the long transcripts */
+function evidenceLines(id){
+  return prefill(id).split("\n").slice(1).map(l => { const i = l.indexOf(": "); return i > 0 ? [l.slice(0, i), l.slice(i + 2)] : [l, ""]; })
+    .map(([h, t]) => ({h, t: t.length > 90 ? t.slice(0, 90) + "…" : t}));
 }
 
 /* ---------- the slide ---------- */
@@ -122,25 +125,30 @@ function resultHtml(id, r){
         ${(r.gaps || []).concat(r.growth || []).length ? `<h4>🎯 What to work on next</h4>${list((r.gaps || []).concat(r.growth || []), "aig-next")}` : ""}
       </div>
       <div class="aig-row"><small>Graded ${E(new Date(r.at).toLocaleString())} · attempt ${E(r.tries)} of ${MAX_TRIES}. Your trainer sees this score on your Scorecard.</small>
-        ${left > 0 && !isTrainer() ? `<button type="button" class="btn btn-ghost btn-sm" onclick="CMAIGrader.edit('${E(id)}')">✏️ Improve it and resubmit (${left} left)</button>
+        ${left > 0 && !isTrainer() ? `<button type="button" class="btn btn-ghost btn-sm" onclick="CMAIGrader.again('${E(id)}')" title="Fix your file first: it is checked again from what the platform holds">↻ Check again (${left} left)</button>
           <button type="button" class="btn btn-ghost btn-sm" onclick="CMAIGrader.finish('${E(id)}')" title="Keep this score and see the answer key. No more attempts after this.">🔑 I'm done: show the answer key</button>` : ""}</div>
     </div>`;
 }
+/* checked automatically: once per page visit, on the trainee's own screen, when the platform holds something for it */
+const autoDone = {};
+const autoOk = id => !autoDone[id] && !isTrainer() && !audience() && typeof state === "object" && !!state.traineeId;
+function auto(id){ if(!autoOk(id) || !document.querySelector(`[data-aig="${id}"]`)) return; autoDone[id] = true; window.CMAIGrader.submit(id); }
 function view(id){
   const f = find(id); if(!f) return "";
   const r = G.blocks[id] || {}, graded = typeof r.score === "number", c = SLIDES()[id] || {};
   // the key opens on the final result only (no attempt left, or the trainee stopped): never beside a resubmission
   const final = graded && !editing[id] && (r.done || (r.tries || 0) >= MAX_TRIES);
   const showKey = final || (isTrainer() && !audience());
-  const draft = typeof r.draft === "string" && r.draft.trim() ? r.draft : prefill(id);
+  const ev = evidenceLines(id);
   const box = graded && !editing[id] ? resultHtml(id, r)
-    : `<div class="aig-form">
-        <label class="aig-lab" for="cfaig_${E(id)}">Tell the grader what you did. We filled in what the platform already has: check it, add what's missing, then submit.</label>
-        <textarea id="cfaig_${E(id)}" class="aig-box" rows="9" oninput="CMAIGrader.draft('${E(id)}',this.value);CMAIGrader.grow(this)" aria-label="What you did on this activity">${E(draft)}</textarea>
-        <div class="aig-row"><span class="aig-st" id="cfaig_st_${E(id)}" role="status" aria-live="polite">${busy[id] ? "⏳ Grading… this takes a few seconds." : ""}</span>
-          <button type="button" class="btn btn-ghost btn-sm" onclick="CMAIGrader.refill('${E(id)}')" title="Fill the box again from what the platform holds now">↺ Refill</button>
+    : `<div class="aig-form aig-auto">
+        <p class="aig-lab">Your work is checked automatically against the answer key: John Doe's file in the CMS, the reference you log below, the documents you filed, and your calls and notes.</p>
+        ${ev.length ? `<ul class="aig-ev">${ev.map(x => `<li><b>${E(x.h)}</b>${x.t ? `<span>${E(x.t)}</span>` : ""}</li>`).join("")}</ul>`
+          : `<p class="aig-empty">Nothing is recorded for this activity yet. Do the task, log your work below, then press Submit.</p>`}
+        <div class="aig-row"><span class="aig-st" id="cfaig_st_${E(id)}" role="status" aria-live="polite">${busy[id] ? "⏳ Checking your work… this takes a few seconds." : ""}</span>
           <button type="button" class="btn aig-go" onclick="CMAIGrader.submit('${E(id)}')"${busy[id] ? " disabled" : ""}>Submit →</button></div>
       </div>`;
+  if(!graded && !busy[id] && ev.length && autoOk(id)) setTimeout(() => auto(id), 0);
   const key = showKey && (c.checks || []).length ? `<aside class="aig-key"><h4>🔑 Answer key: what your file should hold</h4><ol>${c.checks.map(x => `<li>${hl(x)}</li>`).join("")}</ol>
       ${isTrainer() && !final && !audience() ? `<p class="aig-note">Trainer view: trainees see this once their last attempt is graded.</p>` : ""}</aside>` : "";
   return `<div class="aig${key ? " aig-2" : ""}" data-aig="${E(id)}"><div class="aig-main">${box}</div>${key}</div>`;
@@ -187,6 +195,7 @@ window.CMAIGrader = {
   draft(id, v){ recOf(id).draft = String(v || "").slice(0, 12000); clearTimeout(draftT); draftT = setTimeout(save, 700); },
   refill(id){ const el = document.getElementById("cfaig_" + id); const t = prefill(id); if(el) el.value = t; recOf(id).draft = t; save(); },
   edit(id){ if((G.blocks[id] || {}).done) return; editing[id] = true; repaint(); },
+  again(id){ if((G.blocks[id] || {}).done) return; editing[id] = true; repaint(); setTimeout(() => window.CMAIGrader.submit(id), 0); },
   // the trainee keeps this score: no more attempts, and the answer key opens
   async finish(id){
     const r = G.blocks[id]; if(!r || typeof r.score !== "number") return;
@@ -195,22 +204,16 @@ window.CMAIGrader = {
   },
   async submit(id){
     const f = find(id); if(!f || busy[id]) return;
-    const el = document.getElementById("cfaig_" + id), text = String(el ? el.value : (recOf(id).draft || "")).trim();
+    const text = prefill(id) || "Nothing was recorded on the platform for this activity.";
     const r = recOf(id); r.draft = text; await save();
     if(((r.tries || 0) >= MAX_TRIES || r.done) && !isTrainer()){ status(id, "You've used all " + MAX_TRIES + " graded attempts on this activity. Your last score counts."); return; }
-    // the box as it was filled in, with nothing of the trainee's own: not sent (it would grade the task's own steps, or
-    // only what the platform filled in)
-    const stepLines = new Set(((SLIDES()[id] || {}).steps || []).map((s, i) => `${i + 1}. ${plain(s)}`));
-    const filled = new Set(prefill(id).split("\n").map(l => l.trim()).filter(l => l && l !== "→"));
-    const own = text.split("\n").filter(l => !stepLines.has(l.trim()) && !filled.has(l.trim()) && !/^(What I did, step by step|From the platform:)/.test(l.trim())).join(" ").replace(/→/g, " ");
-    if(own.split(/\s+/).filter(w => /[A-Za-z]/.test(w)).length < 8){ status(id, "Write what you did after each arrow (→) first, then submit."); return; }
     if(typeof runRubricEvaluation !== "function"){
       status(id, `Submitting isn't available on this page right now. Your work is saved. <button type="button" class="btn btn-ghost btn-sm" onclick="CMAIGrader.submit('${E(id)}')">Try again</button>`);
       return;
     }
     busy[id] = true;
     const btn = document.querySelector(`[data-aig="${id}"] .aig-go`); if(btn) btn.disabled = true;
-    status(id, "⏳ Grading… this takes a few seconds.");
+    status(id, "⏳ Checking your work… this takes a few seconds.");
     const {b, n, dayId} = f, cs = CF().case || {}, sl = SLIDES()[id] || {};
     const label = `Day ${dayId} · Case Flow Day ${n} · ${b.title} — Skill Building`;
     const ctx = `Case: ${cs.style || "John Doe VS Robert Smith"}${cs.type ? ", " + cs.type : ""}. ${cs.counsel ? "Lead Counsel " + cs.counsel + ". " : ""}${cs.dol ? "DOL " + cs.dol + "; " : ""}${cs.sol ? "SOL " + cs.sol + ". " : ""}\n`
@@ -220,14 +223,20 @@ window.CMAIGrader = {
       + `${sl.side ? "" : `What the trainee was asked to do: ${(b.act || {}).prompt || ""}\n`}Steps on the slide:\n${(sl.steps || []).map((s, i) => `${i + 1}. ${plain(s)}`).join("\n")}\n`
       + `Where it is done: ${(b.act || {}).tool || ""}\nExpected output: ${(!sl.side && (b.act || {}).output) || plain(sl.deliver)}\n`
       + `Answer key (what a correct file holds): ${(sl.side ? [] : ((b.act || {}).checkpoints || [])).concat((sl.checks || []).map(plain)).join(" | ")}`;
-    const notes = `This is a Skill Building activity worked in the CMS and the course's tools; the submission is the trainee's account of what they did, with what the platform recorded. `
-      + `Lines that start with a number are the task's own steps: grade what the trainee wrote after each arrow and the platform records, not the step text. `
+    const notes = `This is a Skill Building activity worked in the CMS and the course's tools; the submission is what the platform recorded of the trainee's work (checked automatically: the trainee writes nothing). `
+      + `Grade each answer-key item from that record; an item with no evidence in it is not met. `
       + `${sl.side ? "This is a short side activity: the task is only to log the entry in the CMS under the stated assumptions; do not mark down for leaving out work it did not ask for. " : ""}`
       + `Grade against this activity's rubric. AI criteria: ${(((b.rubric || {}).ai) || []).map(x => `${x[0]} (${x[1]}%): ${x[2]}`).join("; ")}. `
       + `UPL is a gate: if the trainee gives the client legal advice (case value, merits, legal consequences), score Risk Mitigation 0 and say so. `
       + `Write strengths and next steps as a coach teaching a new Case Manager: plain words, one concrete action each.`;
     try{
-      const rep = await runRubricEvaluation(label, ctx, text, notes);
+      // what is sent is the platform's own record, not typed words: the typed-answer guard (assessSubmissionQuality,
+      // index.html: too short, repeated words) is not for it. It runs before runRubricEvaluation's first await, so it is
+      // set aside for this one call only and put back at once.
+      const guard = window.assessSubmissionQuality;
+      if(typeof guard === "function") window.assessSubmissionQuality = () => ({ok: true});
+      let pending; try{ pending = runRubricEvaluation(label, ctx, text, notes); } finally{ if(typeof guard === "function") window.assessSubmissionQuality = guard; }
+      const rep = await pending;
       Object.assign(r, {score: Math.round(rep.totalScore), tier: rep.gradeTier || "", strengths: (rep.strengths || []).slice(0, 3),
         gaps: (rep.blindspots || []).slice(0, 3), growth: (rep.growthSuggestions || []).slice(0, 2), at: new Date().toISOString(), tries: (r.tries || 0) + 1});
       busy[id] = false; editing[id] = false;
@@ -269,6 +278,11 @@ css.textContent = `
 .aig-lab{display:block;margin:0 0 8px;font:800 18px/1.35 var(--font-ui);color:#1E2340;}
 .aig-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow-y:auto;resize:none;padding:12px 14px;border:2px solid #C9D3EA;border-radius:12px;font:600 16px/1.45 var(--font-ui);color:#141A2E;background:#fff;}
 .aig-box:focus{outline:3px solid #DB8437;outline-offset:1px;border-color:#DB8437;}
+.aig-ev{list-style:none;margin:0 0 10px;padding:10px 14px;border:2px solid #C9D3EA;border-radius:12px;background:#F7F8FC;max-height:34vh;overflow-y:auto;}
+.aig-ev li{display:flex;gap:8px;flex-wrap:wrap;font:600 15px/1.45 var(--font-ui);color:#141A2E;padding:3px 0;}
+.aig-ev li b{color:#1E2340;font-weight:800;} .aig-ev li b::before{content:"✓ ";color:#2E7D4F;}
+.aig-ev li span{color:#4A5170;}
+.aig-empty{margin:0 0 10px;padding:12px 14px;border:2px dashed #EAD5B4;border-radius:12px;background:#FBF3E7;font:700 15px/1.45 var(--font-ui);color:#7A4A12;}
 .aig-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:10px;}
 .aig-row small{font:700 16px/1.35 var(--font-ui);color:#4A5068;}
 .aig-st{flex:1 1 220px;font:700 16px/1.35 var(--font-ui);color:#A4470F;}
