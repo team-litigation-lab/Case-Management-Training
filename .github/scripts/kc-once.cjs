@@ -5,7 +5,7 @@
 //      "One attempt only — your score is recorded.";
 //   3. the results have no Retake Quiz button and no "retake" wording; ✓ Finish Training, 🔁 Retake and retakeQuiz show the
 //      recorded result instead of a fresh quiz;
-//   4. on the day card, 🔁 Retake stays but is locked ("Ask your trainer about opening the next day"); 👁 Review Score works;
+//   4. on the day card, 🔁 Retake stays but is locked ("Ask your trainer to reset this check"); 👁 Review Score works;
 //   5. a second device (nothing on it yet) can't take it again either: the record on the server is read before a submit;
 //   5b. the record that can't be read refuses the submit; a refused submit and a second device show the recorded picks;
 //   6. a trainer is not limited.
@@ -79,7 +79,7 @@ const failures = []; const fail = (m) => failures.push(m);
         return { retake: rt ? { dis: rt.getAttribute('aria-disabled'), title: rt.title } : null, score: rs ? rs.getAttribute('aria-disabled') : 'missing' }; }, id);
     if (!card) fail('no day card for the first day');
     else {
-        if (!card.retake || card.retake.dis !== 'true' || !/Ask your trainer about opening the next day/.test(card.retake.title)) fail(`🔁 Retake should stay on the card, locked, with "Ask your trainer about opening the next day": ${JSON.stringify(card.retake)}`);
+        if (!card.retake || card.retake.dis !== 'true' || !/Ask your trainer to reset this check/.test(card.retake.title)) fail(`🔁 Retake should stay on the card, locked, with "Ask your trainer to reset this check": ${JSON.stringify(card.retake)}`);
         if (card.score === 'true' || card.score === 'missing') fail(`👁 Review Score should open the recorded score: ${card.score}`);
     }
 

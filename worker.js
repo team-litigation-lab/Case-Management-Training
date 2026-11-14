@@ -354,7 +354,7 @@ const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|
 // {<alert key>: {at, by}}}. Admin-only on purpose, both ways: it is in neither OWN nor PUBLIC_READ, so a trainee can't
 // read it, and traineeWrite refuses it, so a trainee can't mark their own alert resolved.
 const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`, `actsub:${id}`];
-const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt", "portalUid"];
+const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt", "portalUid", "kcReset"];
 const IDENTITY_TRAINEE_FIELDS = ["name", "firstName", "lastName", "batch"];
 const ADMIN_OWNED_TRAINEE_FIELDS = PROTECTED_TRAINEE_FIELDS.concat(IDENTITY_TRAINEE_FIELDS);
 
@@ -379,7 +379,28 @@ function forTrainee(tok, key, raw) {
 }
 // ✍️ One attempt per Knowledge Check (js/cm-kc-once.js), held here too: on a trainee's own write to trainee:<id>, a day
 // that already has an attempt on the stored record keeps it. Its first attempt (history[0]), and the score, done and
-// date the record holds, stay as stored; the history never gets shorter. A trainer's write (an admin) isn't limited.
+// date the record holds, stay as stored; the history stays as stored (never shorter, and a refused attempt isn't added).
+// A trainer's write (an admin) isn't limited.
+// 🔁 A trainer's "Reset Knowledge Check" (js/cm-kc-reset.js) writes kcReset[<dayId>] = {at, by, log} on the record
+// (protected: a trainee can't write it). A reset newer than the day's kept first attempt (history[0]) and not used yet
+// (no attempt after it) allows exactly ONE new attempt: the trainee's write may add one history entry, which the Worker
+// dates; the day then keeps the best score (the old one or the new one, nothing recalculated) and is done if either passed.
+function kcRetake(p, prevH, n, rs) {
+  const rAt = rs && typeof rs === "object" ? Date.parse(rs.at) : NaN;
+  if (!Number.isFinite(rAt)) return null;
+  const first = Date.parse(((prevH[0] || p) && (prevH[0] || p).date) || "");
+  if (Number.isFinite(first) && first >= rAt) return null;   // a reset older than the kept attempt reopens nothing
+  if (prevH.some((x) => x && Date.parse(x.date) > rAt)) return null;   // the reset has been used: one attempt after it already
+  const h = Array.isArray(n.history) ? n.history : [];
+  if (h.length !== prevH.length + 1) return null;   // exactly one new attempt
+  const x = h[h.length - 1];
+  if (!x || typeof x !== "object" || typeof x.score !== "number" || !Number.isFinite(x.score) || x.score < 0 || x.score > 100) return null;
+  // (dated by the Worker's clock, not the trainee's: the next write sees the reset used)
+  const add = { score: Math.round(x.score), passed: x.score >= 70, date: new Date(Math.max(Date.now(), rAt + 1)).toISOString() };
+  if (Array.isArray(x.answers) && x.answers.length <= 200 && x.answers.every((y) => y === null || Number.isInteger(y))) add.answers = x.answers;
+  const best = typeof p.score === "number" ? Math.max(p.score, add.score) : add.score;
+  return { history: prevH.concat([add]), score: best, done: !!p.done || add.passed, date: add.date };
+}
 function keepKcAttempts(existing, merged) {
   const was = existing && existing.dayProgress;
   if (!was || typeof was !== "object") return;
@@ -389,12 +410,15 @@ function keepKcAttempts(existing, merged) {
     const prevH = Array.isArray(p.history) ? p.history : [];
     if (!prevH.length && typeof p.score !== "number") continue;   // no attempt yet: the trainee's write stands
     const n = now[d] && typeof now[d] === "object" ? Object.assign({}, now[d]) : {};
+    const retake = kcRetake(p, prevH, n, existing.kcReset && existing.kcReset[d]);
+    if (retake) { now[d] = Object.assign(n, retake); continue; }
     let h = Array.isArray(n.history) ? n.history.slice() : [];
     if (h.length < prevH.length) h = prevH.slice();
     // (the first attempt's own picks, for its Answer Review, may be added once: they change no score)
     const ans = h[0] && Array.isArray(h[0].answers) && h[0].answers.length <= 200 && h[0].answers.every((x) => x === null || Number.isInteger(x)) ? h[0].answers : null;
     if (prevH.length) h[0] = prevH[0] && typeof prevH[0] === "object" && !prevH[0].answers && ans ? Object.assign({}, prevH[0], { answers: ans }) : prevH[0];
-    n.history = h;
+    // (a refused attempt is not added: the history stays as stored, a reset's one retake comes through kcRetake)
+    n.history = prevH.length ? [h[0]].concat(prevH.slice(1)) : h;
     ["score", "done", "date"].forEach((f) => { if (f in p) n[f] = p[f]; else delete n[f]; });
     now[d] = n;
   }

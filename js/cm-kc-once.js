@@ -7,9 +7,10 @@
    • Opening the Knowledge Check again (the day's last slide, ✓ Finish Training, 🔁 Retake) shows the recorded result.
    • The results page has no Retake Quiz button and no "retake" wording.
    • A trainer (signed in as admin, not previewing) is not limited: they try the checks as often as they like.
-   A day not passed stays closed until the trainer opens the next day for the trainee (🔓 Open Lessons). Nothing reopens a
-   check: the locked 🔁 Retake says to ask the trainer about opening the next day. The Worker holds the rule too (a
-   trainee's own write keeps an attempt already on their record: keepKcAttempts).
+   A day not passed stays closed until the trainer opens the next day for the trainee (🔓 Open Lessons). Only a trainer
+   reopens a check: 🔁 Reset Knowledge Check in Trainee Audit (js/cm-kc-reset.js, trainee:<id>.kcReset) allows ONE new
+   attempt, and the day keeps the best score; the locked 🔁 Retake says "Ask your trainer to reset this check". The Worker
+   holds the rule too (a trainee's own write keeps an attempt already on their record: keepKcAttempts, kcRetake).
    Loaded after js/cm-case-flow.js, whose submitQuiz, retakeQuiz, renderQuiz and renderQuizNextStep it wraps. */
 (function(){
 "use strict";
@@ -22,9 +23,14 @@ const trainer = () => !!state.isAdmin && !state.adminPreview;
 const progOf = id => ((state.progress || {})[id]) || null;
 // how many attempts the record holds: its history, or a score kept from before history was recorded
 const attemptsIn = p => !p ? 0 : Array.isArray(p.history) && p.history.length ? p.history.length : typeof p.score === "number" ? 1 : 0;
-const taken = id => !trainer() && attemptsIn(progOf(id)) >= 1;
-// the official attempt: the first one (a record from before this rule keeps the score it has)
-const official = p => (p && Array.isArray(p.history) && p.history[0]) || (p ? {score: p.score, passed: !!p.done} : null);
+// a trainer's reset not used yet reopens the check (js/cm-kc-reset.js)
+const reopened = (id, rec) => !!(window.cmKcReset && window.cmKcReset.reopened(id, rec));
+const taken = id => !trainer() && attemptsIn(progOf(id)) >= 1 && !reopened(id);
+// the official attempt: the first one (a record from before this rule keeps the score it has); after a trainer's reset,
+// the best of the first and the attempts since (the old score is never recalculated)
+const official = p => { const h = p && Array.isArray(p.history) ? p.history : [], first = h[0] || (p ? {score: p.score, passed: !!p.done} : null);
+  const since = window.cmKcReset && p ? window.cmKcReset.since(p) : [];
+  return since.reduce((b, x) => x && typeof x.score === "number" && x.score > (b && typeof b.score === "number" ? b.score : -1) ? x : b, first); };
 
 /* the recorded result, read-only, in place of a fresh quiz */
 function showRecorded(id){
@@ -60,7 +66,7 @@ if(typeof window.downloadQuizResultPdf === "function"){
     buildAndSavePdf("LSH Case Management Training", `Day ${id} Knowledge Check — Results`, lines, `LSH_Day${id}_Knowledge_Check`);
   };
 }
-window.cmKcOnce = {taken, official: id => official(progOf(id)), ONCE};
+window.cmKcOnce = {taken, official: id => official(progOf(id)), ONCE, attemptsIn};
 
 /* ✓ Finish Training / 🔁 Retake on a day card, and Retake Quiz: the recorded result */
 if(typeof window.finishTrainingForDay === "function"){
@@ -83,7 +89,8 @@ const __submit = window.submitQuiz;
 const FAILED = {failed: true};
 async function onServer(id){
   if(!state.traineeId) return null;
-  const pick = rec => { const p = rec && rec.dayProgress && rec.dayProgress[id]; return attemptsIn(p) ? p : null; };
+  const pick = rec => { if(window.cmKcReset && rec) window.cmKcReset.take(rec);
+    const p = rec && rec.dayProgress && rec.dayProgress[id]; return attemptsIn(p) && !reopened(id, p) ? p : null; };
   try{
     if(!window.storage && typeof authFetch === "function"){
       const res = await authFetch("/api/storage/get", {key: "trainee:" + state.traineeId});
@@ -134,7 +141,7 @@ try{ submitQuiz = submit; }catch(e){}
 
 /* The results: no Retake Quiz button, no retake wording; a day already taken opens on its recorded result */
 const STRIP = [
-  [/<button[^>]*onclick="retakeQuiz\(\d+\)"[^>]*>[^<]*<\/button>/g, `<span class="kc-once-note" title="${E(ONCE)}">🔒 ${E(ONCE)}</span>`],
+  [/<button[^>]*onclick="retakeQuiz\(\d+\)"[^>]*>[^<]*<\/button>/g, `<span class="kc-once-note" title="Ask your trainer to reset this check">🔒 ${E(ONCE)}</span>`],
   [/,? ?then retake when you(?:'|&#39;|’)re ready\./g, ". Your score is recorded."],
   [/, retake if you like, or keep going\./g, ". Your score is recorded."],
   [/ A retake is optional\./g, " Your score is recorded."],

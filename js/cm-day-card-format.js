@@ -5,7 +5,8 @@
        [ ▶ Video ]                            full width, bigger than the small buttons
    • 👁 Review Score opens the recorded Knowledge Check result; with no score yet it says how to get one.
    • 🔁 Retake: Knowledge Checks take one attempt (js/cm-kc-once.js), so for a trainee it stays on the card but locked:
-     "Ask your trainer about opening the next day". A trainer may retake freely.
+     "Ask your trainer to reset this check". After a trainer's 🔁 Reset Knowledge Check (js/cm-kc-reset.js) it unlocks
+     for the one new attempt. A trainer may retake freely.
    • ▶ Video is js/cm-day-video.js's button (▶ Video, or 🔒 Video until the trainer unlocks it). A day with no video yet
      shows "🔒 Video · coming soon".
    • ✓ Finish Training leaves the card: the Knowledge Check opens from the day's last slide.
@@ -16,7 +17,7 @@
 if(typeof moduleCard !== "function") return;
 const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
 const trainer = () => !!state.isAdmin && !state.adminPreview;
-const RETAKE_LOCKED = "Ask your trainer about opening the next day";
+const RETAKE_LOCKED = "Ask your trainer to reset this check";
 const NO_SCORE = "No score yet: take the Knowledge Check at the end of the day's slides";
 const SOON = "Video · coming soon";
 
@@ -34,6 +35,7 @@ function scoreBtn(d, prog){
 function retakeBtn(d, prog){
   const has = prog && (typeof prog.score === "number" || (Array.isArray(prog.history) && prog.history.length));
   if(trainer()) return `<button type="button" class="btn btn-ghost btn-sm cm-dcf-retake" onclick="event.stopPropagation(); finishTrainingForDay(${d.id})" title="Take the Knowledge Check (trainers aren't limited to one attempt)">🔁 Retake</button>`;
+  if(has && window.cmKcReset && window.cmKcReset.reopened(d.id)) return `<button type="button" class="btn btn-ghost btn-sm cm-dcf-retake cm-dcf-reopened" onclick="event.stopPropagation(); finishTrainingForDay(${d.id})" title="Your trainer reset this check: one new attempt (your best score is kept)">🔁 Retake</button>`;
   return `<button type="button" class="btn btn-ghost btn-sm cm-dcf-retake cm-dcf-off" aria-disabled="true" onclick="event.stopPropagation(); cmDayCard.why('${has ? "locked" : "first"}')" title="${E(has ? RETAKE_LOCKED : SAY.first)}">🔁 Retake</button>`;
 }
 const soonBtn = d => `<button type="button" class="btn btn-ghost btn-sm module-finish-btn cm-dcf-video cm-dcf-soon cm-dcf-off" aria-disabled="true" onclick="event.stopPropagation(); cmDayCard.why('soon')" title="${E(SOON)}">🔒 ${E(SOON)}</button>`;

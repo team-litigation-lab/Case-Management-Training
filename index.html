@@ -15883,6 +15883,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-batch-sheet.js"></script>
 <!-- ✍️ Knowledge Checks take one attempt: the first score is the one recorded (wraps cm-case-flow.js's submitQuiz and results) -->
 <script src="/js/cm-kc-once.js"></script>
+<!-- 🔁 a trainer reopens one day's Knowledge Check for one trainee (Trainee Audit → a trainee's detail): one new attempt, the best score kept -->
+<script src="/js/cm-kc-reset.js"></script>
 <script src="/js/cm-know-tools.js"></script>
 <!-- ⚖️ the Litigation note: verify the assigned Case Manager before a handoff (the Litigation section's start and its handoff steps) -->
 <script src="/js/cm-litigation-note.js"></script>
