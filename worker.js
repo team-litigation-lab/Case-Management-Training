@@ -19,6 +19,8 @@
  * Without MASTER_ADMIN_PASSWORD the Worker runs in the old open mode so nothing breaks
  * before you've configured it (the Admin screen shows a warning).
  */
+// ✍ the trainee's written work on their Backup Drive, AI-graded nightly, and a trainer's override (worker-drive-work.js)
+import { DRIVE_WORK_ACTIONS, driveWorkApi, driveWorkNightly, workBrief, workView, withDayOverrides } from "./worker-drive-work.js";
 /* ---------- KV with the "cm:" namespace prefix ---------- */
 const KV_PREFIX = "cm:";
 /* ---------- what the trainer owns in a trainee's records ----------
@@ -844,7 +846,14 @@ async function driveRead(env, id) {
   const legacy = await env.LSH_KV.get(LEGACY_DRIVE_PREFIX + id);
   return legacy ? JSON.parse(legacy) : null;
 }
-async function driveWrite(env, id, rec) { await kvOf(env).put(driveKey(id), JSON.stringify(rec)); return rec; }
+async function driveWrite(env, id, rec, opt) {
+  // ✍ a trainer's overrides are written by the "override" action only: every other write keeps them as they are stored
+  if (rec && !(opt && opt.overrides)) { let cur = null; try { cur = JSON.parse((await kvOf(env).get(driveKey(id))) || "null"); } catch (e) { cur = null; } if (cur && cur.overrides) rec.overrides = cur.overrides; else delete rec.overrides; }
+  await kvOf(env).put(driveKey(id), JSON.stringify(rec)); return rec;
+}
+// ✍ what worker-drive-work.js uses of the Backup Drive and the AI
+const driveWorkDeps = () => ({ json, kvOf, listAll, driveRead, driveWrite, driveLinked, driveConfigured, drive, driveMessage, saToken, callGemini, geminiKeyNames, gatewayOn,
+  nameCheck, nameHint, fileType, driveCaseId, driveSnapshot, driveNaming, gradeDay, dayStarted, filedFromProgress, FOLDER_STANDARD, DRIVE_HOMES, DRIVE_HOME_CATEGORY });
 /* Linked: a folder of the trainee's own, shared with the service account and pasted in ("link"). A record from the old
    Google sign-in (a sealed refresh token, no linkedAt) is not linked: the trainee shares and pastes once. */
 const driveLinked = (rec) => !!(rec && rec.rootId && rec.linkedAt);
@@ -852,7 +861,7 @@ const driveLinked = (rec) => !!(rec && rec.rootId && rec.linkedAt);
    folder and everything in it stay in their Drive too (re-linking the same folder finds the structure again). */
 async function driveUnlink(env, id, rec) {
   const kept = {};
-  if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt", "grades", "gradedAt", "checkLog", "restoreLog", "drills", "naming", "rootId", "folders", "nameRule"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
+  if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt", "grades", "gradedAt", "checkLog", "restoreLog", "drills", "naming", "rootId", "folders", "nameRule", "overrides"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
   if (Object.keys(kept).length) return driveWrite(env, id, kept);
   await kvOf(env).put(driveKey(id), "null");
   return null;
@@ -984,9 +993,10 @@ function driveStatus(env, rec) {
     builtAt: (rec && rec.builtAt) || null,
     checkedAt: (rec && rec.checkedAt) || null,
     lastMissing: (rec && rec.lastMissing) || [],
-    setup: (rec && rec.setup) || null,
+    // ✍ a trainer's override is the grade (with the auto grade and the comment beside it): worker-drive-work.js withDayOverrides
+    setup: withDayOverrides(rec, null, (rec && rec.setup) || null, DRIVE_PASS).setup,
     saved: (rec && rec.saved) || [],
-    grades: (rec && rec.grades) || {},
+    grades: withDayOverrides(rec, (rec && rec.grades) || {}, null, DRIVE_PASS).grades,
     gradedAt: (rec && rec.gradedAt) || null,
     drills: Object.keys((rec && rec.drills) || {}),
     naming: Object.assign(namingRule(rec), { report: (rec && rec.naming) || null }),   // 🏷 the convention, and the last check of the names
@@ -1023,7 +1033,9 @@ function driveReport(id, rec, brief) {
     perFolder,
     lastCopyAt,
     standard: FOLDER_STANDARD.length,
-    grades: (rec && rec.grades) || {},
+    grades: withDayOverrides(rec, (rec && rec.grades) || {}, null, DRIVE_PASS).grades,   // ✍ a trainer's override is the grade
+    setupScore: (withDayOverrides(rec, null, setup, DRIVE_PASS).setup || {}).score ?? null,
+    overrides: (rec && rec.overrides) || null,
     // 🏷 the last check of the names: how many files, how many wrong, and each wrong one. A list of trainees
     // (`brief`, reportAll) carries the counts and the time only; each wrong name is read in the trainee's own report.
     naming: brief ? namingCounts(rec && rec.naming) : (rec && rec.naming) || null,
@@ -1856,6 +1868,7 @@ export default {
         const b = await request.json().catch(() => ({}));
         const action = String(b.action || "status");
         const mine = tok.role === "t" ? tok.id : "";
+        if (DRIVE_WORK_ACTIONS.includes(action)) return await driveWorkApi(env, driveWorkDeps(), tok, b);   // ✍ written work, AI grades, overrides
         const adminOnly = ["report", "reportAll", "checkFor", "gradeFor"].includes(action);
         if (adminOnly && tok.role !== "a") return json({ error: "Only a trainer can read the Backup Drive report." }, 403);
         if (action === "reportAll") {
@@ -1870,7 +1883,9 @@ export default {
             ids = [...own].slice(0, 2000);
           }
           const reports = {};
-          await Promise.all(ids.map(async (id) => { reports[id] = driveReport(id, await driveRead(env, id), true); }));
+          await Promise.all(ids.map(async (id) => { reports[id] = driveReport(id, await driveRead(env, id), true);
+            // ✍ the written work's grades, short (worker-drive-work.js workBrief): the Scorecard and the Batch Sheet read them
+            try { const w = JSON.parse((await kvOf(env).get(`drivework:${id}`)) || "null"); const o = reports[id].overrides; if (w || o) reports[id].work = workBrief(workView(w, { overrides: o }, {}, DRIVE_HOMES)); } catch (e) { /* no work grades */ } }));
           return json({ reports });
         }
         if (action === "standard") {
@@ -2093,5 +2108,9 @@ export default {
       console.error(e);   // the stack goes to the Worker's logs, not to the browser
       return json({ error: "Unhandled Worker exception." }, 500);   // the detail is in the Worker's logs
     }
+  },
+  /* ✍ Every night (wrangler.json "triggers"): every linked Backup Drive graded, its written work by the AI (worker-drive-work.js) */
+  async scheduled(event, env, ctx) {
+    try { await driveWorkNightly(env, driveWorkDeps()); } catch (e) { console.error(e); }   // the run's outcome is kept in cm:drivework-run
   }
 };
