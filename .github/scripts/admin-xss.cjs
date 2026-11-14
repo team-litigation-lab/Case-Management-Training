@@ -47,6 +47,11 @@ const failures = []; const fail = (m) => failures.push(m);
         Object.entries(EXH.amendments || {}).forEach(([a, x]) => { const req = {};
             (x.requests || []).forEach(q => { req[q.doc] = { sent: true, tries: 2, choice: 0, body: 'x', log: [{ tripped: [X('am.tripped')], missing: [X('am.missing')] }] }; });
             amend[a] = { screened: true, marks: {}, req }; });
+        // the page is still signed in as this trainee: any setting it saves schedules a full cloud save of its own
+        // progress 4 s later (scheduleCloudSave), which would overwrite the record planted here. Stop it, so the
+        // trainer's view below reads what was planted (on CI's busy runners that save landed after the plant).
+        try { clearTimeout(cloudSaveTimer); } catch (e) {}
+        window.scheduleCloudSave = () => {}; window.cloudSaveNow = async () => true;
         await set('progress:' + state.traineeId, { savedAt: '2026-01-04T00:00:00Z', data: { 'drive-setup': { score: X('ds.score'), attempts: X('ds.attempts') }, 'doc-filing': filing, 'case-flow': { v: 1, modules: {}, amend } } });
         // a review the trainee wrote for themselves as "sent" (the Worker stores what a trainee writes as the auto-review)
         await set('feedback:' + state.traineeId, { days: { [cfDays[0]]: { status: 'sent', auto: true, rating: 'Strong', summary: 'FORGED-BY-TRAINEE outstanding' } } });

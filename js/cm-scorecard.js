@@ -570,20 +570,41 @@ const ALL = {rows: null, loading: false, batch: "", pick: "", only: "", at: 0};
 // The trainee records are read fresh every time (not the Admin screen's copy, which can be minutes old), so a change made
 // to a trainee's record, such as a corrected Batch ID, shows here on the next load; an open page reloads them once a minute.
 const FRESH_MS = 60000;
+// sharedList and sharedGetMany don't throw on a network blip (they answer [] or null), so a read with no keys, or fewer
+// records than keys, is a failed read: the rows already shown and state.adminData (the Admin screen's, Open Lessons' and
+// the Batch Sheet's copy) stay as they were; state.adminData is only ever set from a complete read. A background reload
+// that changed nothing doesn't redraw, and one that did keeps every open <details> open.
 async function loadAll(){
   ALL.loading = true; ALL.at = Date.now();
+  const had = ALL.rows, bg = !!(had && had.length);
+  let rows = null;
   try{
     let people = null;
-    try{ const keys = await sharedList("trainee:"); people = (await sharedGetMany(keys)).filter(Boolean); state.adminData = people; }catch(e){ people = state.adminData; }
+    try{
+      const keys = await sharedList("trainee:"), got = keys.length ? await sharedGetMany(keys) : [];
+      const recs = (got || []).filter(Boolean);
+      if(keys.length && recs.length === keys.length){ people = recs; state.adminData = recs; }
+      else if(!bg && !keys.length && !(state.adminData || []).length) people = [];   // nobody yet
+      else people = bg ? null : (recs.length ? recs : state.adminData);
+    }catch(e){ people = bg ? null : state.adminData; }
     if(!people) throw new Error("no records");
     people = people.filter(r => r && r.approved === true && !r.archived);
     const want = []; people.forEach(r => want.push("progress:" + r.id, "callsim:" + r.id, "simresults:" + r.id, "feedback:" + r.id));
     const vals = await sharedGetMany(want);
-    ALL.rows = people.map((r, i) => rowOf(r.id, r.name || r.id, r.batch, ctxOf(r, vals[i * 4], vals[i * 4 + 1], vals[i * 4 + 2], vals[i * 4 + 3])))
+    rows = people.map((r, i) => rowOf(r.id, r.name || r.id, r.batch, ctxOf(r, vals[i * 4], vals[i * 4 + 1], vals[i * 4 + 2], vals[i * 4 + 3])))
       .sort((a, b) => a.batch.localeCompare(b.batch) || a.name.localeCompare(b.name));
-  }catch(e){ ALL.rows = []; }
+  }catch(e){ rows = null; }
   ALL.loading = false;
-  if(state.view === "scorecard" && typeof render === "function") render();
+  // what the page would show for these rows (the sheet and the cards)
+  const sig = rs => { try{ return sheetHtml(scoresSheet(rs, false)) + rs.map(r => cardHtml(r, false)).join(""); }catch(e){ return String(Math.random()); } };
+  if(!rows){ if(!had) ALL.rows = []; else return; }   // a failed background read: what is shown stays
+  else if(had && sig(rows) === sig(had)){ ALL.rows = rows; return; }   // nothing changed: no redraw
+  else ALL.rows = rows;
+  if(state.view === "scorecard" && typeof render === "function"){
+    const open = [...document.querySelectorAll(".scx-page details[open] > summary")].map(s => s.textContent);
+    render();
+    if(open.length) document.querySelectorAll(".scx-page details > summary").forEach(s => { if(open.includes(s.textContent)) s.parentElement.open = true; });
+  }
 }
 const batchOf = b => typeof batchShow === "function" ? (batchShow(b) || b) : typeof cleanBatch === "function" ? (cleanBatch(b) || b) : b;
 const shownRows = () => (ALL.rows || []).filter(r => !ALL.batch || batchOf(r.batch) === ALL.batch);
@@ -614,6 +635,7 @@ window.cmScorecard = {
   only(id){ ALL.only = id || ""; ALL.pick = id || ""; render(); },
   refresh(){ ALL.rows = null; state.adminData = null; render(); },
   invalidate(){ ALL.rows = null; },
+  reload: () => loadAll(),   // the background reload, now (the once-a-minute one)
   // a row of 🏅 Scores: that trainee's card (shown if only another one was), scrolled to
   pick(id){ ALL.pick = id; if(ALL.only && ALL.only !== id) ALL.only = id; render();
     setTimeout(() => { const d = document.getElementById("bs-pt-" + domId(id)); if(d) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },

@@ -1176,15 +1176,18 @@ function agendaSlide(d){
   // (all of the day's Skill Activities; on a build day, the Full Application Practice); the Knowledge Check last
   const nActs = d.lessons.filter(l => l.cf.block.kind === "activity").length, nLessons = d.lessons.filter(l => l.cf.block.kind === "lesson").length;
   const label = (k, t) => `<li class="cfx-ag-label"><b>${k}</b><span>${E(t)}</span></li>`;
-  const rows = label("Part 1 · 📘 Lessons", `${nLessons} lessons, all together`) + parts.map((p, i) => row(i + 1, p.title)).join("")
+  // the trainers' deck pages a day shows after its lessons (js/cm-deck-pages.js) are lesson sections too, by their topic
+  const dp = window.CM_DECK_PAGES, deckTopics = dp && dp.DAY === d.cf.n ? dp.DECK.map(g => g.topic) : [], n1 = parts.length + deckTopics.length;
+  const rows = label("Part 1 · 📘 Lessons", `${nLessons} lessons${deckTopics.length ? ` and ${deckTopics.length} deck topics` : ""}, all together`) + parts.map((p, i) => row(i + 1, p.title)).join("")
+    + deckTopics.map((t, i) => row(parts.length + i + 1, t)).join("")
     + label(sc.build ? "Part 2 · 🏗 Full Application Practice" : "Part 2 · 🧪 Practice Lab", sc.build ? "then optional extra practice" : `all ${nActs} Skill Activities, in one place`)
-    + (sc.build ? row(parts.length + 1, "Build Your Companion Case", "lab") : row(parts.length + 1, `Practice Lab: ${nActs} Skill Activities`, "lab"))
-    + row(parts.length + 2, "Knowledge Check", "kc");
+    + (sc.build ? row(n1 + 1, "Build Your Companion Case", "lab") : row(n1 + 1, `Practice Lab: ${nActs} Skill Activities`, "lab"))
+    + row(n1 + 2, "Knowledge Check", "kc");
   return `<div class="card lesson-card cf-card cfx cfx-deck cfx-agenda">
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">Training Agenda</h2></div>
       <div class="cfx-ribbon"><span>Case Management Training · Day ${d.cf.n}</span></div>
       <div class="cfx-body cfx-body-navy cfx-ag-body"><div class="cfx-ag"><div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div>
-        <ol class="cfx-ag-list cfx-ag-two" style="--ag-rows:${Math.max(3, Math.ceil(parts.length / 2) + 1)}">${rows}</ol>${agendaFile(d)}</div></div>
+        <ol class="cfx-ag-list cfx-ag-two" style="--ag-rows:${Math.max(3, Math.ceil(n1 / 2) + 1)}">${rows}</ol>${agendaFile(d)}</div></div>
     </div>`;
 }
 /* ---------- the Training Agenda's speaker notes ----------
@@ -2662,7 +2665,9 @@ function extraPractice(d){
       </div></div>
     </div>`;
 }
-/* ---------- Day 1's introduction, drawn: the life of John Doe's file, and his coverage against his injury ---------- */
+/* ---------- Day 1's introduction, drawn: the life of John Doe's file, and his coverage against his injury ----------
+   Kept on purpose, though no deck inserts these two slides any more: the Case Profile's 🗺 File Map (js/cm-case-profile.js
+   fileMap) shows the same, and a change to one should be made to the other. */
 function introFrame(d, icon, title, ribbon, body){
   return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; INTRODUCTION</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-intro">

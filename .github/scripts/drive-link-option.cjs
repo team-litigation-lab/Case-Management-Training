@@ -72,6 +72,26 @@ const ROOT = 'https://drive.google.com/drive/folders/ci-root', CASE = 'https://d
         ok('not switched on: the card is there, says to ask the trainer, and opens the panel with the four steps to come');
     }
 
+    /* ---------- 1b. switched on, but the Worker doesn't take this page for a trainee (DRIVE_NOT_A_TRAINEE) ---------- */
+    {
+        const ctx = await browser.newContext({ viewport: { width: 1366, height: 768 } });
+        await ctx.route('**/api/drive', (route) => { let b = {}; try { b = JSON.parse(route.request().postData() || '{}'); } catch (e) { /* no body */ }
+            if (b.action === 'standard') return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ standard: { configured: true, root: 'LSH Case Backups', standard: [], why: {}, naming: null } }) });
+            return route.fulfill({ status: 403, contentType: 'application/json', body: JSON.stringify({ error: 'Sign in as a trainee to use the Backup Drive.', code: 'DRIVE_NOT_A_TRAINEE' }) }); });
+        const page = await ctx.newPage();
+        page.on('pageerror', e => fail(`page error (not a trainee): ${e.message}`));
+        await page.goto(BASE, { waitUntil: 'load' }); await page.waitForTimeout(800);
+        await page.addStyleTag({ content: '#ktLogin{display:none!important}' });
+        await signIn(page, 'Lina', last + 'n', 'B100926');
+        await page.evaluate(() => CMDrive.reload());
+        await dashboard(page); await page.waitForTimeout(600); await dashboard(page);
+        await page.waitForSelector('#drvCardSlot .drv-card', { timeout: 10000 }).catch(() => {});
+        const c = await cardOf(page);
+        if (!c || !/Sign in as a trainee/.test(c.text) || /isn't switched on/.test(c.text)) fail(`switched on, a page the Worker doesn't take for a trainee should be told to sign in as a trainee, not that linking is off: "${c && c.text.slice(0, 200)}"`);
+        await ctx.close();
+        ok('not taken for a trainee: the card says to sign in as a trainee, not that linking is off');
+    }
+
     /* ---------- 2 + 3. switched on: /api/drive answered by the test ---------- */
     {
         const ctx = await browser.newContext({ viewport: { width: 1366, height: 768 } });

@@ -98,6 +98,13 @@ const D3 = [
       if (!l.cms) fail('🚀 Launch (a trainee) did not open the CMS beside the slide');
       if (!l.panel) fail(`🚀 Launch (a trainee with no linked Drive) did not open the Backup Drive panel to link it: ${JSON.stringify(l)}`);
       await page.evaluate(() => { if (window.CMDrive && CMDrive.close) CMDrive.close(); });
+      // 🚀 Launch, with a linked and built Drive: the Drive opens at the trainee's case folder (CMDrive.launch)
+      const at = await page.evaluate(() => { const st = CMDrive.status; const CASE = 'https://drive.google.com/drive/folders/ci-case';
+        CMDrive.status = () => ({ configured: true, connected: true, built: true, rootUrl: 'https://drive.google.com/drive/folders/ci-root', caseUrl: CASE });
+        const la = CMDrive.launch; let used = false; CMDrive.launch = function () { used = true; window.open(CASE, '_blank', 'noopener'); return true; };
+        window.__opened = []; try { CMSbTask.go('d1m3-a3'); } finally { CMDrive.status = st; CMDrive.launch = la; }
+        return { used, opened: window.__opened.slice() }; });
+      if (!at.used || !at.opened.includes('https://drive.google.com/drive/folders/ci-case')) fail(`🚀 Launch with a linked Drive should open it at the case folder through CMDrive.launch: ${JSON.stringify(at)}`);
     }
   }
 

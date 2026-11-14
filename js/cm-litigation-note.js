@@ -8,7 +8,9 @@
      it away for good; the callout on the slide stays). A trainer, Presenter view and the room's screen get no pop-up:
      the callout is on the slide, and Presenter view's notes say to read it aloud.
    The pop-up's "seen" marks are the trainee's progress ("litigation-note-seen", registered below, so they follow the
-   trainee to another device). Nothing here changes a slide's content; the callout is added to the slide as drawn.
+   trainee to another device): read again after sign-in (loadAll) and when another tab saves them, merged with what is
+   stored before each save, and cleared on log-out. The pop-up takes the keyboard's focus (Got it); Esc puts it away too.
+   Nothing here changes a slide's content; the callout is added to the slide as drawn.
    ============================================================ */
 (function(){
 "use strict";
@@ -53,19 +55,39 @@ if(typeof presenterCues === "function"){   // Presenter view: read the note alou
 let seen = null;
 const loadSeen = () => typeof storeGet === "function" ? storeGet(KEY).then(v => { seen = v && typeof v === "object" ? v : {}; }).catch(() => { seen = {}; }) : Promise.resolve(seen = {});
 loadSeen();
-function popClose(){ const p = document.getElementById("lgnPop"); if(p) p.remove(); }
+// sign-in restores the trainee's progress from their account: their marks are read again (not the signed-out copy)
+if(typeof loadAll === "function"){
+  const __loadAll = loadAll;
+  loadAll = async function(){ const r = await __loadAll.apply(this, arguments); try{ await loadSeen(); }catch(e){} return r; };
+}
+if(typeof window.logout === "function"){
+  const __logout = window.logout;
+  window.logout = async function(){ const r = await __logout.apply(this, arguments); seen = null; popClose(); return r; };
+}
+window.addEventListener("storage", ev => { if(ev.key === "lsh_" + KEY) loadSeen(); });
+// a step put away: added to what is stored now (another device or tab may have added its own), never over it
+async function markSeen(id){
+  seen = seen || {}; seen[id] = Date.now();
+  if(typeof storeSet !== "function") return;
+  let cur = null; try{ cur = typeof storeGet === "function" ? await storeGet(KEY) : null; }catch(e){}
+  seen = Object.assign({}, cur && typeof cur === "object" ? cur : {}, seen);
+  try{ await storeSet(KEY, seen); }catch(e){}
+}
+let popFrom = null;   // where the keyboard was before the pop-up took it
+function popClose(){ const p = document.getElementById("lgnPop"); if(!p) return; p.remove(); document.removeEventListener("keydown", popKey, true);
+  if(popFrom && document.contains(popFrom)){ try{ popFrom.focus(); }catch(e){} } popFrom = null; }
+function popKey(ev){ const p = document.getElementById("lgnPop"); if(ev.key !== "Escape" || !p) return; ev.stopPropagation(); ev.preventDefault(); markSeen(p.dataset.block); popClose(); }
 function pop(id){
   if(document.getElementById("lgnPop")) return;
   const o = document.createElement("div"); o.id = "lgnPop"; o.className = "lgn-pop"; o.setAttribute("role", "alertdialog"); o.setAttribute("aria-label", "Litigation note"); o.dataset.block = id;
   o.innerHTML = `<div class="lgn-pop-h"><b>⚖️ Before you hand off this file</b><span>${E(id === START ? "The Litigation section" : HANDOFF[id] || "Litigation")}</span></div>
     <p>${noteHtml()}</p>
     <div class="lgn-pop-go"><button type="button" class="btn btn-primary btn-sm" data-lgn-ok>Got it</button></div>`;
-  o.querySelector("[data-lgn-ok]").addEventListener("click", () => {
-    seen = seen || {}; seen[id] = Date.now();
-    if(typeof storeSet === "function") storeSet(KEY, seen);
-    popClose();
-  });
+  o.querySelector("[data-lgn-ok]").addEventListener("click", () => { markSeen(id); popClose(); });
+  popFrom = document.activeElement;
   document.body.appendChild(o);
+  document.addEventListener("keydown", popKey, true);
+  try{ o.querySelector("[data-lgn-ok]").focus(); }catch(e){}
 }
 function sync(){
   // the slide on screen (not the trainer's miniature of the next one)

@@ -250,7 +250,9 @@ async function readPortalTicket(env, ticket, why = {}) {
   if (t.r === "a") return { admin: true, name: String(t.n || "").trim().slice(0, 60) };   // an administrator signed in on the Portal (their own admin account)
   const first = String(t.first || "").trim(), last = String(t.last || "").trim(), batch = String(t.b || "").trim();
   if (!first || !last || !batch) return null;
-  return { name: `${first} ${last}`, first, last, batch };
+  // u: the Portal's own id for the trainee, when the ticket carries one (it stays the same when their Batch ID is corrected)
+  const uid = String(t.u || "").trim().slice(0, 80);
+  return { name: `${first} ${last}`, first, last, batch, uid };
 }
 // Like readToken, but an expired token still counts for a while (same signature, same trainee), so a trainee
 // midway through the course whose 30 days run out isn't sent back to the portal in the middle of a lesson.
@@ -318,7 +320,28 @@ function candidateIds(name, batch) {
   let slug = slugPart(name).slice(0, 40);
   if (!slug) { let h = 0; for (const c of String(name || "")) h = (h * 31 + c.codePointAt(0)) >>> 0; slug = "trainee-" + h.toString(36); }
   const b = slugPart(canonicalBatch(batch) || batch).slice(0, 20), raw = slugPart(batch).slice(0, 20);
-  return { newId: b ? `${slug}--${b}` : slug, rawId: raw ? `${slug}--${raw}` : slug, legacyId: slugPart(name).slice(0, 40) || "trainee" };
+  return { newId: b ? `${slug}--${b}` : slug, rawId: raw ? `${slug}--${raw}` : slug, legacyId: slugPart(name).slice(0, 40) || "trainee", slug };
+}
+// This trainee's own record under another batch: what a Batch ID corrected on the Portal looks like (/api/auth/portal).
+// A name alone can't tell a correction from a namesake in another batch (two John Does are two trainees), so a record
+// is theirs only when it carries the Portal's own id for them (portalUid, from the ticket's "u"), the same one this
+// ticket carries. With no "u" in the ticket nothing is found, and the sign-in opens a new account as before (a trainer
+// merges it: 👥 Duplicate accounts). Archived or rejected records don't count.
+async function sameTraineeOtherBatch(kv, who, newId) {
+  const { slug } = candidateIds(who.name, who.batch);
+  if (!slug || !who.uid) return [];
+  const keys = []; let cursor;
+  do { const r = await kv.list({ prefix: `trainee:${slug}--`, cursor }); r.keys.forEach((k) => keys.push(k.name)); cursor = r.list_complete ? null : r.cursor; } while (cursor && keys.length < 200);
+  const out = [];
+  for (const k of keys) {
+    const id = k.slice("trainee:".length);
+    if (id === newId || id.slice(slug.length + 2).includes("--")) continue;   // another name that starts with this one
+    let r = null; try { r = JSON.parse((await kv.get(k)) || "null"); } catch (e) { r = null; }
+    if (!r || r.archived || r.rejected || r.portalUid !== who.uid) continue;
+    if (batchKey(r.batch || "") === batchKey(who.batch)) continue;
+    out.push({ id, rec: r });
+  }
+  return out;
 }
 
 /* ---------- what a trainee may touch ---------- */
@@ -331,7 +354,7 @@ const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|
 // {<alert key>: {at, by}}}. Admin-only on purpose, both ways: it is in neither OWN nor PUBLIC_READ, so a trainee can't
 // read it, and traineeWrite refuses it, so a trainee can't mark their own alert resolved.
 const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`, `actsub:${id}`];
-const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt"];
+const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt", "portalUid"];
 const IDENTITY_TRAINEE_FIELDS = ["name", "firstName", "lastName", "batch"];
 const ADMIN_OWNED_TRAINEE_FIELDS = PROTECTED_TRAINEE_FIELDS.concat(IDENTITY_TRAINEE_FIELDS);
 
@@ -354,6 +377,29 @@ function forTrainee(tok, key, raw) {
     return JSON.stringify(v);
   } catch (e) { return raw; }
 }
+// ✍️ One attempt per Knowledge Check (js/cm-kc-once.js), held here too: on a trainee's own write to trainee:<id>, a day
+// that already has an attempt on the stored record keeps it. Its first attempt (history[0]), and the score, done and
+// date the record holds, stay as stored; the history never gets shorter. A trainer's write (an admin) isn't limited.
+function keepKcAttempts(existing, merged) {
+  const was = existing && existing.dayProgress;
+  if (!was || typeof was !== "object") return;
+  const now = merged.dayProgress && typeof merged.dayProgress === "object" ? Object.assign({}, merged.dayProgress) : {};
+  for (const [d, p] of Object.entries(was)) {
+    if (!p || typeof p !== "object") continue;
+    const prevH = Array.isArray(p.history) ? p.history : [];
+    if (!prevH.length && typeof p.score !== "number") continue;   // no attempt yet: the trainee's write stands
+    const n = now[d] && typeof now[d] === "object" ? Object.assign({}, now[d]) : {};
+    let h = Array.isArray(n.history) ? n.history.slice() : [];
+    if (h.length < prevH.length) h = prevH.slice();
+    // (the first attempt's own picks, for its Answer Review, may be added once: they change no score)
+    const ans = h[0] && Array.isArray(h[0].answers) && h[0].answers.length <= 200 && h[0].answers.every((x) => x === null || Number.isInteger(x)) ? h[0].answers : null;
+    if (prevH.length) h[0] = prevH[0] && typeof prevH[0] === "object" && !prevH[0].answers && ans ? Object.assign({}, prevH[0], { answers: ans }) : prevH[0];
+    n.history = h;
+    ["score", "done", "date"].forEach((f) => { if (f in p) n[f] = p[f]; else delete n[f]; });
+    now[d] = n;
+  }
+  merged.dayProgress = now;
+}
 async function traineeWrite(env, tok, key, value) {
   const kv = kvOf(env);
   const id = tok.id;
@@ -371,6 +417,7 @@ async function traineeWrite(env, tok, key, value) {
     // themselves could otherwise sign in elsewhere as someone else.
     if (existing) IDENTITY_TRAINEE_FIELDS.forEach((f) => { if (f in existing) merged[f] = existing[f]; else delete merged[f]; });
     if (!existing) { merged.approved = false; merged.registeredAt = new Date().toISOString(); }
+    if (existing) keepKcAttempts(existing, merged);
     merged.id = id;
     await kv.put(key, JSON.stringify(merged)); return null;
   }
@@ -818,17 +865,34 @@ async function addSubject(env, fid) {
 }
 /* 📁 The trainers, so they can open a trainee's Backup Drive from 🔗 Trainee Drives and check the day's work:
    GDRIVE_TRAINER_EMAILS (a plain variable: addresses split by commas or spaces; a Google Group as group:team@…) are added
-   to the trainee's folder as Commenters, without an email. Best effort, on each link, and on a ✓ Check when the list has
-   changed since. A trainer not on the list is asked by Google to request access. Returns the list it shared with. */
+   to the trainee's folder as Commenters, without an email. On each link, and on a ✓ Check (the trainee's, or a trainer's
+   Check for them) when the list differs from what the folder was shared with: an address added since is shared, one taken
+   off the list loses its access (its permission is deleted). Returns, in the list's order, only the addresses Google
+   accepted (plus any it refused to take away), so a refused share (403, 400, 429, 5xx) differs from the list and the next
+   Check tries it again. A trainer not on the list is asked by Google to request access. */
 const trainerEmails = (env) => String((env && env.GDRIVE_TRAINER_EMAILS) || "").split(/[\s,;]+/).map((s) => s.trim().toLowerCase()).filter((s) => /^(group:)?[^@\s:]+@[^@\s]+\.[^@\s]+$/.test(s)).slice(0, 20);
-async function addTrainers(env, fid) {
-  const list = trainerEmails(env);
-  if (!list.length || !fid) return "";
-  let token; try { token = await saToken(env, false); } catch (e) { return ""; }
-  await Promise.all(list.map((a) => fetch(`${DRIVE_API}/files/${encodeURIComponent(fid)}/permissions?sendNotificationEmail=false&supportsAllDrives=true`, { method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
-    body: JSON.stringify({ role: "commenter", type: a.startsWith("group:") ? "group" : "user", emailAddress: a.replace(/^group:/, "") }) }).catch(() => null)));
-  return list.join(",");
+async function addTrainers(env, fid, prev = "") {
+  const list = trainerEmails(env), had = String(prev || "").split(",").filter(Boolean);
+  if (!fid || (!list.length && !had.length)) return "";
+  let token; try { token = await saToken(env, false); } catch (e) { return had.join(","); }
+  const H = { "Content-Type": "application/json", Authorization: "Bearer " + token }, base = `${DRIVE_API}/files/${encodeURIComponent(fid)}/permissions`;
+  const add = list.filter((a) => !had.includes(a)), gone = had.filter((a) => !list.includes(a));
+  const ok = new Set((await Promise.all(add.map((a) => fetch(`${base}?sendNotificationEmail=false&supportsAllDrives=true`, { method: "POST", headers: H,
+    body: JSON.stringify({ role: "commenter", type: a.startsWith("group:") ? "group" : "user", emailAddress: a.replace(/^group:/, "") }) }).then((r) => r.ok ? a : "").catch(() => "")))).filter(Boolean));
+  // a trainer taken off the list: their permission on this folder is deleted (one Google refuses to remove stays listed)
+  const kept = [];
+  if (gone.length) {
+    let perms = null;
+    try { const r = await fetch(`${base}?supportsAllDrives=true&fields=permissions(id,emailAddress)`, { headers: H }); perms = r.ok ? ((await r.json()).permissions || []) : null; } catch (e) { perms = null; }
+    for (const a of gone) {
+      const p = perms && perms.find((x) => String(x.emailAddress || "").toLowerCase() === a.replace(/^group:/, ""));
+      if (!perms) { kept.push(a); continue; }
+      if (!p) continue;   // already gone
+      const r = await fetch(`${base}/${encodeURIComponent(p.id)}?supportsAllDrives=true`, { method: "DELETE", headers: H }).catch(() => null);
+      if (!r || !(r.ok || r.status === 404)) kept.push(a);
+    }
+  }
+  return list.filter((a) => had.includes(a) || ok.has(a)).concat(kept).join(",");
 }
 const folderUrl = (fid) => fid ? `https://drive.google.com/drive/folders/${encodeURIComponent(fid)}` : "";
 /* A trainee's drive record is cm:drive:<id>, under this program's "cm:" prefix like every other record. It was once
@@ -1790,9 +1854,23 @@ export default {
           if (!(await useTicketOnce(env, kv, ticket))) return json({ error: "This sign-in link was already used. Open the program again from the LSH Training Portal.", code: "used" }, 401);
           return json({ admin: true, name: who.name, token: await makeToken(env, "a", "admin", 12) });
         }
-        const res = await traineeSession(who.name, who.batch, "");
+        let res = await traineeSession(who.name, who.batch, "");
         if (res.status !== 200) return res;   // 🚫 (blocked: access-offboarded)
-        const out = await res.json();
+        let out = await res.json();
+        // 🏷 A Batch ID corrected on the Portal: no record under the new batch yet, but this trainee's record is here under the
+        // batch they first had. The sign-in opens that one (leaving merged:<new id> = {into}, as a trainer's merge does) rather
+        // than starting a new, empty account. Only a record with this trainee's Portal id (sameTraineeOtherBatch: never by name
+        // alone, a namesake in another batch is someone else); two such records are refused, for a trainer to merge.
+        if (!out.existing) {
+          const found = await sameTraineeOtherBatch(kv, who, out.id);
+          if (found.length > 1) return json({ error: "We found more than one account of yours under other Batch IDs, so we can't tell which to open. Please ask your trainer to merge them (📋 Batch Sheet → 👥 Duplicate accounts), then open the program again from the LSH Training Portal.", code: "batch-ambiguous" }, 409);
+          if (found.length === 1) {
+            await kv.put(`merged:${out.id}`, JSON.stringify({ into: found[0].id, at: new Date().toISOString(), by: "portal-batch" }));
+            res = await traineeSession(who.name, who.batch, "");
+            if (res.status !== 200) return res;
+            out = await res.json();
+          }
+        }
         // The Portal's approval is the only trainee approval: a trainee it signs in is approved here too
         // (unless an admin here rejected them), so this program never shows "Registration Pending Approval".
         const cur = out.existing;
@@ -1803,8 +1881,11 @@ export default {
         }
         // 🏷 A Batch ID corrected on the Portal reaches the record the sign-in opened (its id stays; only the batch it shows
         // changes), e.g. an account a trainer merged (👥) into the one kept: the Portal's signed ticket is who the trainee is
-        if (out.existing && who.batch && batchKey(out.existing.batch || "") !== batchKey(who.batch)) {
-          const rec = Object.assign({}, out.existing, { batch: canonicalBatch(who.batch) || who.batch });
+        // (and the record keeps the Portal's id for the trainee, set once, so a later correction finds it: portalUid)
+        const uidNew = !!(out.existing && who.uid && !out.existing.portalUid);
+        const batchNew = !!(out.existing && who.batch && batchKey(out.existing.batch || "") !== batchKey(who.batch));
+        if (batchNew || uidNew) {
+          const rec = Object.assign({}, out.existing, batchNew ? { batch: canonicalBatch(who.batch) || who.batch } : {}, uidNew ? { portalUid: who.uid } : {});
           await ownerPut(kv, `trainee:${out.id}`, JSON.stringify(rec));
           out.existing = rec;
         }
@@ -1923,8 +2004,8 @@ export default {
             if (f.trashed) return json({ error: "That folder is in your Google Drive's trash. Restore it, or make a new one, then link it.", code: "DRIVE_LINK_BAD" }, 400);
             if (!(f.capabilities || {}).canAddChildren) return json({ error: `The folder is shared with the platform as a Viewer. Change ${shareAddr(env)} to Editor on it, then link it again.`, code: "DRIVE_NOT_SHARED" }, 400);
             await addSubject(env, fid);   // so the copies written as GDRIVE_SA_SUBJECT land in it (no email is sent)
-            const trainers = await addTrainers(env, fid);   // 📁 and the trainers can open it (GDRIVE_TRAINER_EMAILS; no email is sent)
             const same = rec && rec.rootId === fid;
+            const trainers = await addTrainers(env, fid, same ? rec.trainers : "");   // 📁 and the trainers can open it (GDRIVE_TRAINER_EMAILS; no email is sent)
             rec = Object.assign({}, rec, {
               rootId: fid, rootName: clip(f.name || "", 120), linkedAt: new Date().toISOString(),
               email: clip(((f.owners || [])[0] || {}).emailAddress || "", 120),
@@ -1961,13 +2042,15 @@ export default {
           }
           if (action === "checkFor") {
             // A trainer refreshes the last check with the trainee's own (sealed) access: read-only, nothing is made again.
+            // A folder linked before the trainer list was set (or changed) is shared with the trainers now, so 📁 Open Drive opens.
+            if (trainerEmails(env).join(",") !== (rec.trainers || "")) { rec.trainers = await addTrainers(env, rec.rootId, rec.trainers); await driveWrite(env, who, rec); }
             if (!rec.builtAt) return json({ error: "This trainee hasn't built the structure yet.", report: driveReport(who, rec) }, 400);
             const out = await driveVerify(env, who, rec);
             return json({ verified: out, report: driveReport(who, rec) });
           }
           if (action === "check") {
             // a trainer list changed since the folder was linked: the trainers are added to it now
-            if (trainerEmails(env).join(",") !== (rec.trainers || "")) { rec.trainers = await addTrainers(env, rec.rootId); await driveWrite(env, who, rec); }
+            if (trainerEmails(env).join(",") !== (rec.trainers || "")) { rec.trainers = await addTrainers(env, rec.rootId, rec.trainers); await driveWrite(env, who, rec); }
             const out = await driveVerify(env, who, rec);
             return json({ verified: out, drive: driveStatus(env, rec) });
           }

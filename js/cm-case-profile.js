@@ -40,15 +40,16 @@ function head(){
     <dl class="cpx-facts">${facts.map(([k, v]) => `<div><dt>${E(k)}</dt><dd>${E(v)}</dd></div>`).join("")}</dl></div>`;
 }
 
-/* ---------- 👋 Meet John Doe: the facts of the old Meet Your Case lesson ---------- */
+/* ---------- 👋 Meet John Doe: the facts of the old Meet Your Case lesson, from the case data (CF.case: time, scene,
+   client.job), the one source every page reads ---------- */
 const back = () => state.cfReturn && state.cfReturn.view === "day"
   ? `<button type="button" class="btn btn-primary btn-sm cpx-back" onclick="cmCaseFlow.back()">← Back to Case Flow Day ${E(state.cfReturn.n)}</button>` : "";
 function meet(){
   const c = CF.case, ls = layers(), max = Math.max(1, ...ls.map(l => l.limit));
   const pip = ls.find(l => /host/i.test(l.tag));
   const facts = [
-    ["🚗", "The collision", `${c.dol}, about 7:10 a.m., at the all-way stop at Maple Hollow Rd & Birch Ave. Who ran the stop, which vehicles were involved and who was cited: read the Police Report, don't assume.`],
-    ["👤", "Your client", `${c.client.name}, born ${c.client.dob}, a warehouse shift lead at Northgate Distribution. Where he was sitting is a fact you find in the records.`],
+    ["🚗", "The collision", `${c.dol}${c.time ? ", " + c.time : ""}${c.scene ? ", at " + c.scene : ""}. Who ran the stop, which vehicles were involved and who was cited: read the Police Report, don't assume.`],
+    ["👤", "Your client", `${c.client.name}, born ${c.client.dob}${c.client.job ? ", " + c.client.job : ""}. Where he was sitting is a fact you find in the records.`],
     ["⚖️", "The team", `Lead Counsel: ${c.counsel}. Case Manager: you.`],
     ["🩺", "Health", `${c.health ? c.health.carrier : "The Health Plan"} asserted a reimbursement right on first notice.${pip ? ` ${pip.carrier.replace(/ Insurance$/, "")} carries $5,000 PIP on the Escape.` : ""}`],
     ["⚠️", "The critical fact", "Compare the EMS Run Report's date with the first treatment record. The days between them are a Treatment Gap: record the dates and, later, John Doe's own explanation. Never judge it."],
@@ -67,7 +68,8 @@ function meet(){
   </div>`;
 }
 
-/* ---------- 🗺 His File, Day by Day: the file's life and the strategy against its coverage ---------- */
+/* ---------- 🗺 His File, Day by Day: the file's life and the strategy against its coverage (the same as js/cm-case-flow.js
+   caseMap and coverageMap, the old Day 1 introduction slides, kept there: change both together) ---------- */
 function fileMap(){
   const c = CF.case, ls = layers(), days = DAYS.filter(d => d.cf).sort((a, b) => a.cf.n - b.cf.n);
   const marks = {1: [`Loss ${c.dol}`, `SOL ${c.sol} docketed`, "Matter opened in the CMS"],

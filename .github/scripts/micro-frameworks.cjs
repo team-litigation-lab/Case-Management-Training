@@ -161,7 +161,8 @@ const SPOKEN = {
           if (!vs.includes('why')) {   // and nothing on that slide is covered by the flag or pushed off the slide by it
             const rb = x.getBoundingClientRect(), sb = (wrap.querySelector('.cfx-sheet') || wrap).getBoundingClientRect();
             for (const el of (wrap.querySelector('.cfx-sheet') || wrap).querySelectorAll('*')) {
-              // (the folded-away text of a closed In plain English box is not on the slide, so it cannot be pushed off it)
+              // (the folded-away text of a closed In plain English box is not on the slide, so it cannot be pushed off it; Chromium
+              // still gives it boxes: without this, d2m1-l2's Rules slide reads its folded "Reimbursement right" as pushed off)
               if (x.contains(el) || el.contains(x) || el.closest('svg') || (el.closest('details:not([open])') && !el.closest('summary')) || !el.getClientRects().length || ![...el.childNodes].some(t => t.nodeType === 3 && t.textContent.trim())) continue;
               const r = el.getBoundingClientRect(), under = r.right > rb.left + 1 && r.left < rb.right - 1 ? Math.min(r.bottom, rb.bottom) - Math.max(r.top, rb.top) : 0;
               if (under > 4 || r.bottom > sb.bottom + 2) { out.push(`${where}: on ${view}, "${el.textContent.trim().slice(0, 30)}" is ${under > 4 ? 'covered by the CM Red Flag' : 'pushed off the slide'} (the slide has no room for the flag at full size)`); break; }
@@ -236,16 +237,19 @@ const SPOKEN = {
     if (!/\brf\b/.test(SPEC[id] || '')) failures.push(`${id}: listed as Red Flag spoken, not drawn, but the spec gives it no Red Flag`);
   }
   for (const id of Object.keys(r.spoken)) if (!SPOKEN[id]) failures.push(`${id}: its copy says the CM Red Flag is spoken, not drawn; list it in SPOKEN with the measurements that forced it`);
+  // a lesson the trainers' decks replaced (retired: out of the course, its rules a 💡 Tip, js/cm-lesson-tips.js) is on no slide
+  const RETIRED = (() => { const sb = { window: {} }; require('vm').runInNewContext(require('fs').readFileSync(require('path').join(__dirname, '../../js/cm-case-flow-data.js'), 'utf8'), sb);
+    return new Set(sb.window.CM_CASE_FLOW.days.flatMap(d => (d.modules || []).flatMap(m => m.blocks || [])).filter(b => b.retired).map(b => b.id)); })();
   let n = 0;
   for (const [id, want] of Object.entries(SPEC)) {
-    if (deckLessons.has(id)) continue;   // its micro-frameworks stay in 📖 Additional Reference
+    if (deckLessons.has(id) || RETIRED.has(id)) continue;   // its micro-frameworks stay in 📖 Additional Reference; a retired lesson's are in its 💡 Tip
     const got = r.seen[id];
     if (!got) { failures.push(`${id}: not on any slide`); continue; }
     for (const k of want.split(' ')) { if (k === 'rf' && SPOKEN[id]) { n++; continue; }   // spoken, not drawn (checked above)
       if (!got[k]) failures.push(`${id}: its ${{ rf: 'CM Red Flag', rx: 'Rule vs. Exception', ms: 'Milestone Steps' }[k]} isn't drawn`); else n++; }
   }
   await browser.close();
-  const railsWant = Object.values(SPEC).filter(v => /\bms\b/.test(v)).length;
+  const railsWant = Object.entries(SPEC).filter(([id, v]) => /\bms\b/.test(v) && !RETIRED.has(id)).length;
   if (r.count.rails !== railsWant) failures.push(`${r.count.rails} Milestone rails are drawn; the spec gives ${railsWant} lessons one`);
   if (failures.length) { console.log(`${failures.length} problem(s):`); failures.slice(0, 80).forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
   const homes = {}; Object.entries(r.seen).forEach(([id, g]) => { if (g.rfOn) homes[g.rfOn] = (homes[g.rfOn] || 0) + 1; });

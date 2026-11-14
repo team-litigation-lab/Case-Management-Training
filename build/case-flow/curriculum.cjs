@@ -133,7 +133,7 @@ else {
         if(runOf[of] < far) errors.push(`${at}: ${id} practises ${of}, taught before the lessons of the activity ahead of it; the Practice Lab follows the order of the lessons`);
         far = Math.max(far, runOf[of]); }); }
   }));
-  Object.keys(STORED).forEach(id => { if(!TAUGHT[id]) errors.push(`sequence: ${id} is never taught`); });
+  Object.keys(STORED).forEach(id => { if(!TAUGHT[id] && !STORED[id].b.retired) errors.push(`sequence: ${id} is never taught`); });
   // the slides of a block (its views): the same as viewsOf() in js/cm-case-flow.js and build/case-flow/scripts/assemble.cjs
   const SLIDES = (() => { require(path.join(ROOT, "js/cm-case-flow-slides.js")); return global.window.CM_CF_SLIDES || {}; })();
   // an activity that audits a document set draws one more slide (build/case-flow/exhibits), so it counts here too
