@@ -112,7 +112,7 @@ function mainName(d, sc){
 }
 
 function agendaRows(d, sc){
-  const n = d.cf.n, sides = sideCount(d), side = sides ? `then ${sides} optional side exercise${sides === 1 ? "" : "s"}` : "";
+  const n = d.cf.n, sides = sideCount(d), side = sides ? `then ${sides} skill activit${sides === 1 ? "y" : "ies"}` : "";
   // (the Skill Building's own name only where the row has room for it: Day 1's Intake, Day 5's build; on Days 2–4 the
   // name made the row wrap and the whole agenda scale down, so it is on the Objectives page and the slides instead)
   const chain = n === 1 ? "👋 Meet John Doe → 🎯 Skill Building: the Intake → 📝 Action Plan"
@@ -184,9 +184,9 @@ function sideLab(d){
   const mins = sc && sc.side ? `about ${sc.side} minutes` : "short";
   // the minutes hold about sc.sidePick of them (js/cm-case-flow-schedule.js SIDE): said plainly when there are more
   const pick = sc && sc.sidePick && sc.sidePick < acts.length ? sc.sidePick : 0;
-  return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; OPTIONAL SIDE EXERCISES &middot; PRACTICE LAB</div>
+  return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; SKILL ACTIVITIES &middot; PRACTICE LAB</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-lab dl-side">
-      <div class="cfx-deck-head"><h2 class="cfx-deck-title">🧪 Practice Lab: Optional Side Exercises</h2></div>
+      <div class="cfx-deck-head"><h2 class="cfx-deck-title">🧪 Practice Lab: Skill Activities</h2></div>
       <div class="cfx-ribbon"><span>Optional · ${mins}${pick ? ` · choose any ${pick} of the ${acts.length}` : " · each one: an assumption, then log it in the CMS"}</span></div>
       <div class="cfx-body"><div class="cfx-sheet">
         <p class="dl-side-lead">Each one starts from an assumption (“Assuming …”): log one entry in the CMS. ${pick ? `There is time for about ${pick}: pick the ones closest to your own desk work, not all ${acts.length}.` : "Do the ones you have time for."}</p>
@@ -226,7 +226,7 @@ if(typeof daySlideTitle === "function"){
     if(slide && isCf(d)){
       if(slide.type === PROFILE) return "Case Profile Check-In";
       if(slide.type === PLAN) return d.cf.n === 5 ? "Close Out Your Action Plan" : "Update Your Action Plan";
-      if(slide.type === "practiceLab" && mainId(d)) return "Practice Lab: Optional Side Exercises";
+      if(slide.type === "practiceLab" && mainId(d)) return "Practice Lab: Skill Activities";
     }
     return __title.apply(this, arguments);
   };
@@ -237,12 +237,37 @@ if(typeof window.renderLessonCard === "function"){
   window.renderLessonCard = function(l, i, d){
     const html = __card.apply(this, arguments);
     const b = l && l.cf && l.cf.block; if(!b || b.kind !== "activity" || !isCf(d)) return html;
-    const tag = b.id === mainId(d) ? "STEP 3 &middot; THE DAY'S SKILL BUILDING" : "OPTIONAL SIDE EXERCISE";
+    const tag = b.id === mainId(d) ? "STEP 3 &middot; THE DAY'S SKILL BUILDING" : "SKILL ACTIVITY";
     return String(html).replace(/(<div class="topic-separator cfx-sepline">[^<]*)(<\/div>)/, `$1 &middot; ${tag}$2`)
       .replace(/(class="card lesson-card cf-card cfx )/, `$1${b.id === mainId(d) ? "dl-main " : "dl-side-ex "}`)
       // the band's label: "Practice Lab" now names only the optional block after the Action Plan
-      .replace(/(<i class="cfx-what-k">)Practice Lab(<\/i>)/, `$1${b.id === mainId(d) ? "Skill Building" : "Optional Side Exercise"}$2`);
+      .replace(/(<i class="cfx-what-k">)Practice Lab(<\/i>)/, `$1${b.id === mainId(d) ? "Skill Building" : "Skill Activity"}$2`)
+      // the materials of a voicemail are transcribed: the slide says so (not "Your Case")
+      .replace(/(<b class="cfx-what-v">)Your Case(<\/b>)/, `$1${vmOf(b.id) ? "Transcription Exercise" : "Your Case"}$2`)
+      // 🧠 a critical-thinking banner opens the materials, tied to the lesson it practises and its plain-English terms
+      .replace(/(<div class="cfx-sb(?: [^"]*)?">)/, m => m + thinkBanner(l, b));
   };
+}
+const vmOf = id => { const ev = ((window.CM_CF_SIM || {}).events || {})[id]; return !!(ev && ev.channel === "voicemail"); };
+// the first real sentence of a text: not a date or a "File date …" line, at least a few words
+const firstS = t => (String(t || "").replace(/\*\*/g, "").match(/[^.!?]*[.!?](?=\s|$)/g) || []).map(x => x.trim()).find(x => x.split(/\s+/).length >= 6 && !/^(File date\b|\d{2}\/\d{2}\/\d{4})/.test(x)) || "";
+function thinkBanner(l, b){
+  const sl = (window.CM_CF_SLIDES || {})[b.id] || {}, of = l && l.cf && l.cf.of;
+  const plainOf = id => window.cmCaseFlow && typeof cmCaseFlow.plainOf === "function" ? cmCaseFlow.plainOf(id) : [];
+  const seen = new Set(), terms = plainOf(b.id).concat(of ? plainOf(of.cf.block.id) : []).filter(x => !seen.has(x.t) && seen.add(x.t)).slice(0, 4);
+  const what = firstS(sl.situation) || firstS((b.act || {}).scenario);
+  const ask = vmOf(b.id) ? "Transcribe it word for word, then decide what it changes, what you log, and what is Atty. Thorne's call."
+    : "Before you open the CMS, decide: what does the file need from you, in what order, and what is Atty. Thorne's call?";
+  // one compact block (the materials under it must still fit one laptop screen at full size): the question, then the
+  // lesson and its terms on the same lines
+  // a voicemail's materials are tall (the player, the transcript): its banner is the question alone, its terms one chip
+  const vm = vmOf(b.id);
+  const chips = !terms.length ? "" : vm || terms.length > 2
+    ? ` <details class="dl-think-t"><summary>📖 Terms (${terms.length})</summary><span>${terms.map(x => `<b>${E(x.t)}</b>: ${E(x.d)}`).join("<br>")}</span></details>`
+    : terms.map(x => ` <details class="dl-think-t"><summary>📖 ${E(x.t)}</summary><span>${E(x.d)}</span></details>`).join("");
+  return `<div class="dl-think" role="note"><b class="dl-think-h">🧠 Think it through:</b> ${what && !vm ? E(what) + " " : ""}${E(ask)}`
+    + (of && !vm ? ` <span class="dl-think-of">Use <b>${E(String(of.h || "").split(" ")[0])} ${E(of.cf.block.title)}</b></span>` : "")
+    + chips + `</div>`;
 }
 // Presenter view: what to say on the loop's own slides (build/case-flow/scripts/days.json "profile", "plan", "lab")
 const said = (n, k) => (((window.CM_CF_SCRIPTS || {})._days || {})[n] || {})[k];
@@ -258,7 +283,7 @@ if(typeof presenterCues === "function"){
       ? "Step 4, guided: walk the room through the template section by section on the shared screen (📝 Open my Action Plan), about 15 minutes. Every fact has its document; anything only Atty. Thorne decides is routed."
       : "Step 4, lighter each day: about 10 minutes, the trainees update the plan on their own. Spot-check two plans: every action item has an owner and a date.");
     if(slide.type === "practiceLab" && mainId(d)) { const sc = (() => { try{ return window.cmCaseFlow.schedule(d); }catch(e){ return null; } })(), pick = sc && sc.sidePick && sc.sidePick < sc.sides ? sc.sidePick : 0;
-      return cue("Practice Lab: Optional Side Exercises", said(n, "lab"), `Optional and short: each side exercise is an assumption and an entry to log in the CMS, a few minutes each.${pick ? ` The ${sc.side} minutes hold about ${pick} of the ${sc.sides}: trainees choose any ${pick}, not all of them.` : ""} Give the room the time that is left before the Knowledge Check, then ⏭ on the slide goes to the Ready check.`); }
+      return cue("Practice Lab: Skill Activities", said(n, "lab"), `Short: each skill activity is an assumption and an entry to log in the CMS, a few minutes each.${pick ? ` The ${sc.side} minutes hold about ${pick} of the ${sc.sides}: trainees choose any ${pick}, not all of them.` : ""} Give the room the time that is left before the Knowledge Check, then ⏭ on the slide goes to the Ready check.`); }
     return __cues.apply(this, arguments);
   };
 }
@@ -274,6 +299,11 @@ if(!document.getElementById("dl-css")){
 .dl-plan li::before{display:none !important;content:none !important;}
 .dl-plan .dl-n{flex:none;display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#1E2340;color:#fff;font:800 16px/1 var(--font-ui,'Inter',sans-serif);}
 .dl-plan-at{font:700 16px/1.3 var(--font-ui,'Inter',sans-serif);color:#1F7A4D;}
+.dl-think{margin:0 0 6px;padding:6px 12px;border-radius:10px;background:#FFF6EA;border:2px solid #DB8437;color:#1E2340;font:700 16px/1.35 var(--font-ui,'Inter',sans-serif);}
+.dl-think-h{font-weight:900;color:#A4470F;} .dl-think-of{white-space:nowrap;}
+.dl-think-t{display:inline-block;position:relative;} .dl-think-t summary{cursor:pointer;list-style:none;padding:1px 8px;border-radius:7px;background:#1E2340;color:#fff;font-weight:800;}
+.dl-think-t summary::-webkit-details-marker{display:none;}
+.dl-think-t[open] span{position:absolute;z-index:5;left:0;top:calc(100% + 4px);width:min(420px,70vw);padding:8px 10px;border-radius:8px;background:#fff;border:2px solid #1E2340;box-shadow:0 6px 18px rgba(30,35,64,.2);font-weight:700;}
 .dl-side-lead{margin:0 0 10px;font:700 17px/1.4 var(--font-ui,'Inter',sans-serif);color:#2B3147;}
 .dl-side-go{margin-top:6px !important;}
 `;
