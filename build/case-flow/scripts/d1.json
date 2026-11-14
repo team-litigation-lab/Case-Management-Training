@@ -107,50 +107,47 @@
   },
   "d1m1-drive": {
     "case": {
-      "say": "• 02/09/2026, 4:30 p.m.: John Doe's matter is active in the CMS, nothing on the backup drive yet\n• Every file is built to one standard so a covering colleague finds any document in seconds\n• Four steps: link your Google Drive here in step one, build the folders by hand (graded), run Check my drive, file documents as they arrive\n• Standard: 01 Clients, client folder last name first, nine numbered folders intake to litigation, then firm folders"
+      "say": "• 02/09/2026, 4:30 p.m.: John Doe's matter is active in the CMS, nothing on the backup drive yet\n• Every file is built to one standard so a covering colleague finds any document in seconds\n• Standard: 01 Clients, client folder last name first, nine numbered folders intake to litigation, then firm folders\n• It is graded twice: the AI Grader reads their Case Notes, and the drive itself is checked folder by folder"
     },
     "task": {
-      "say": "• On the next slide, Your Case, press Link my Google Drive in step one; it only sees folders and files it creates\n• Build 01 Clients with Doe-John inside and its nine numbered folders, intake and retainer through litigation\n• Add the firm folders: administration, templates, closed files\n• Submit; read each graded problem as a firm rule; then run Check my drive\n• In Case Notes, place the signed retainer, Police Report and HIPAA authorization, with reasons"
+      "say": "• Required every day, straight after the Skill Building: today it builds John Doe's backup drive\n• Press Launch CMS & Google Drive; not linked yet, paste your shared folder's link in the Backup Drive panel\n• Build 01 Clients with Doe-John inside and its nine numbered folders, intake and retainer through litigation\n• Add the firm folders: administration, templates, closed files\n• Submit in My Backup Drive, fix what it returns, then run Check my drive until clean\n• In Case Notes, place the signed retainer, Police Report and HIPAA authorization, with reasons"
     },
     "check": {
-      "say": "• Drive linked with the one narrow permission\n• Every folder named and numbered exactly to the standard, nothing invented or renamed\n• Doe-John under 01 Clients with all nine folders in order; Check my drive shows nothing missing\n• Case Notes: retainer and HIPAA authorization in Intake and Retainer, Police Report in Police, Witness and Video",
+      "say": "• Drive folder shared as Editor and linked\n• Every folder named and numbered exactly to the standard, nothing invented or renamed\n• Doe-John under 01 Clients with all nine folders in order; Check my drive shows nothing missing\n• Case Notes: retainer and HIPAA authorization in Intake and Retainer, Police Report in Police, Witness and Video",
       "ask": "If a folder goes missing next week, how will you know and what do you do?"
     }
   },
   "d1m3-a1": {
-    "case": {
-      "say": "• Morning of 02/09/2026: John Doe signs his retainer later today, the file isn't open yet, and nothing from the firm has reached him\n• Voicemail at 8:47 a.m.: Keystone asked to record his account; his neck is stiff; he hasn't seen anyone\n• Transcribe the voicemail word for word, not a summary\n• Then write the action plan in the order to work it today; both are graded against an answer key"
-    },
     "task": {
-      "say": "• First, email Dana Whitfield at Keystone, the other driver's adjuster: firm represents John Doe, no direct contact\n• Any Recorded Statement request, the insurer taping his version, comes through the firm; nothing about his injuries\n• Call John: ask about his neck and treatment; give next steps; have him repeat the instruction back\n• Coordinate his first visit with Riverton Urgent Care\n• Deliver the six-section Direction Packet; log every contact"
+      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Email Workspace, tell Dana Whitfield the firm represents John Doe: no direct contact, and any Recorded Statement goes through the firm\n• Step 2: Log it in CMS › Communications Log, with a task in CMS › Tasks to set up his first visit at Riverton Urgent Care"
+    },
+    "case": {
+      "say": "• Assuming John Doe's voicemail is transcribed and Keystone has asked to record him, the firm's instruction and his first visit now need logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Keystone told in writing, every contact logged, the first visit tasked"
     },
     "check": {
-      "say": "• Dana told in writing: firm represents him, no direct contact, statements through the firm, nothing about injuries\n• Call covered his neck, treatment status, next steps; he repeated the instruction back\n• Riverton Urgent Care knows he is coming and where records go\n• Packet has all six sections; Property Damage section names the Civic's owner; every contact logged\n• Atty. Thorne told today that Keystone contacted a represented client",
-      "ask": "How will you know John Doe understood the instruction, not just heard it?"
+      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Dana told in writing: no direct contact; Recorded Statement routed through the firm; First visit tasked with a date\n• The one thing to watch for: Telling Dana anything about his injuries"
     }
   },
   "d1m3-a2": {
-    "case": {
-      "say": "• Date: 02/11/2026, CMS notice on file LSH-2026-MVA-770412\n• John Doe's Direction Packet was delivered and logged on 02/10/2026\n• Its directions are now draft task cards to review before they go live\n• Task card: a to-do that needs an owner, a due date and a way to verify it\n• Gaps: no treatment start recorded, no follow-up on the calendar; one card has the wrong owner"
-    },
     "task": {
-      "say": "• Turn each onboarding direction into a tracked task in CMS Tasks\n• Set owner, due date and verification method for every task\n• Find the card wrongly assigned to the client, reassign it to the firm, and record why\n• Schedule the follow-up that confirms treatment has started\n• Strong example: confirm first therapy visit, owner Case Manager, due in three days, verify by calling the clinic"
+      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Tasks, add one task for each direction, with an owner\n• A due date and how it will be checked. Give the firm any task that was wrongly assigned to John\n• Step 2: Log a follow-up task that confirms he has started treatment"
+    },
+    "case": {
+      "say": "• Assuming John Doe's onboarding packet is delivered and logged, his directions now need to become tracked tasks in the CMS\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a tracked task set with correct owners, dates and verification"
     },
     "check": {
-      "say": "• Every direction has an owner, every task a due date and a verification method\n• Mis-assigned card reassigned to the firm, with the reason recorded\n• Treatment-start follow-up scheduled; nothing left undated\n• This follow-up is what catches a Treatment Gap early, which Day 2 picks up",
-      "ask": "If his first appointment slipped, which task would tell you, and when?"
+      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Every task has an owner and due date; Verification method recorded for each task\n• Mis-assigned card reassigned to the firm; Reason for reassignment recorded; Treatment-start follow-up scheduled\n• The one thing to watch for: Tracking tasks without confirming they were done"
     }
   },
   "d1m3-a3": {
     "task": {
-      "say": "• Read the Police Report's unit boxes before sorting anything\n• Sort each tray item into three lanes: John's injury evidence, coordinate for his care, or Margaret's Property Damage claim\n• Index evidence in CMS Documents; refer Margaret's and Leah Moran's questions to Atty. Thorne in Tasks\n• Set a follow-up for the rental's last day and take John's call\n• End the Case Note with one line: does Property Damage touch our case, and how"
+      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents, index the photos, the tow record and the Police Report as evidence for John Doe's injury claim\n• Step 2: Log one Case Note in CMS › Case Notes: the rental and Loss of Use stay on Margaret's claim\n• Referred to Atty. Thorne. Does PD touch our case?"
     },
     "case": {
-      "say": "• 02/11/2026: six Property Damage items wait in the tray\n• Leah Moran at Keystone asks who the Civic's claimant is, to set up a rental once liability is decided\n• Items: scene and damage photos, tow record, Police Report, Margaret's Loss of Use question, Margaret's request for a higher repair figure\n• John calls needing a ride to his first appointment, asking if the rental can be his"
+      "say": "• Assuming the Police Report shows Margaret Doe owns the Civic and John Doe rode as a passenger\n• Keystone PD's six items need sorting on the file\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: BI evidence indexed and the one-line PD answer logged"
     },
     "check": {
-      "say": "• Who rode and who owns comes from the Police Report\n• Photos, tow record and Police Report indexed on John's file as evidence\n• Rental, Loss of Use and repair figure left on Margaret's claim and referred, no advice\n• Rental's last day set as a treatment risk with rides planned; John told kindly the rental isn't his\n• Case Note ends with the answer, not \"sorted\"",
-      "ask": "If Margaret calls about her repair figure, what is yours to do and what isn't?"
+      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Photos, tow record, Police Report indexed as BI evidence\n• Rental, Loss of Use left on Margaret's claim; Note ends with the one-line answer\n• The one thing to watch for: Handling Margaret's Loss of Use on John Doe's file"
     }
   },
   "d1m3-kc": {
@@ -288,72 +285,61 @@
     }
   },
   "d1m1-a1": {
-    "case": {
-      "say": "• Morning of 02/17/2026; letters not sent yet\n• Keystone Mutual BI, Harbor Point Host UM, Cardinal State Relative UM gave limits on 02/16 and 02/17 set-up calls\n• Nothing confirmed in writing; Cardinal State has no adjuster yet; Keystone wants signed authorizations first\n• Insurance tab is empty; letters can't pull details until it's filled\n• BI pays first; Host UM opens only once BI is used up"
-    },
     "task": {
-      "say": "• Build the Policy Stack for John Doe VS Robert Smith in the CMS Insurance tab\n• Enter three layers in paying order: insurer, policy number, claim number, limit, adjuster; mark first- or third-party\n• Comments: insurer's real name, driver if different from owner, adjuster details or \"none assigned yet\"\n• Check the total, record pursuit order, mark projection preliminary: a forecast until limits confirmed in writing\n• Not three equal claims: UM owes nothing until BI is used up"
+      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance, enter the three layers in pursuit order, BI, Host UM, Relative UM, each marked first-party or third-party\n• Step 2: Log the $40,000 total in the Comments box and mark the projection preliminary until every limit is confirmed in writing"
     },
-    "model": {
-      "say": "• The stack as a ladder, bottom up: BI $10,000, Host UM $20,000, Relative UM $10,000\n• Each rung shows insurer, claim number and adjuster\n• Total: $40,000, with a checkbox to verify each layer\n• Rungs are never reordered; order matters more than size"
+    "case": {
+      "say": "• Assuming all three carriers reported their limits on the set-up calls and no Declaration Page has arrived, the stack now needs entering in the CMS\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a three-layer matrix totalling $40,000, ordered and marked preliminary"
     },
     "check": {
-      "say": "• All three layers: $10,000, $20,000, $10,000, total $40,000\n• Order recorded: BI, then Host UM, then Relative UM; BI third-party, both UM layers first-party\n• Policy and claim numbers for every layer; Relative UM adjuster \"No adjuster assigned yet\", not blank\n• Source of each limit noted: set-up call now, Declaration Page requested in the LOR; projection preliminary\n• Never quote a likely limit to the client",
-      "ask": "If your total isn't $40,000, how would you find the wrong layer?"
+      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Limits $10,000 / $20,000 / $10,000; total $40,000; Order recorded: BI › Host UM › Relative UM\n• BI third-party; both UM layers first-party; Projection marked preliminary until confirmed in writing\n• The one thing to watch for: Quoting a likely limit before written confirmation"
     }
   },
   "d2m1-a2": {
-    "case": {
-      "say": "• Date 03/11/2026: CMS flagged a colleague's Coverage Matrix for John Doe\n• Keystone BI Declaration Page follow-up was due 03/05/2026, nothing logged\n• Matrix total reads $45,000; the Case Plan says $40,000\n• New documents: Harbor Point letter 03/02/2026, Cardinal State adjuster 03/03/2026, Cardinal State Coverage Letter 03/09/2026\n• Summit Imaging's Letter of Protection request was declined because PIP pays first"
-    },
     "task": {
-      "say": "• Audit the matrix against CMS Documents; fix each error and cite the document and date\n• Restore the $40,000 total, clear overdue follow-ups, leave correct rows alone\n• Call Dana Whitfield at Keystone: confirm the request and authorizations, get a Declaration Page date in writing\n• Share no treatment details or demand figure; log the call, next follow-up by 03/13/2026\n• Send Atty. Thorne a three-line note: confirmed in writing, still preliminary, escalated"
+      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance › Coverage Matrix, take PIP out of the stack and correct the total to $40,000, citing the document behind each fix\n• Step 2: Log a three-line audit note to Atty. Thorne in CMS › Case Notes: what is confirmed in writing\n• What is still preliminary, and what you escalated"
     },
-    "model": {
-      "say": "• Matrix as found on 03/11/2026: six rows, deliberately imperfect\n• Navy rail marks stack rows; PIP wrongly sits inside it as row four\n• Grey divider separates rows outside the stack; total shows $45,000\n• Reveal: errors ringed, total corrected to $40,000, PIP moved below the divider\n• Audit-note card to Atty. Elijah Thorne: confirmed in writing, preliminary, escalated"
+    "case": {
+      "say": "• Assuming a colleague's Coverage Matrix totals $45,000 and the file holds Harbor Point's and Cardinal State's letters but no Keystone Declaration Page\n• The matrix needs correcting\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a corrected matrix totalling $40,000, its audit note routed"
     },
     "check": {
-      "say": "• BI stays preliminary; Keystone's Declaration Page doesn't arrive until 03/20/2026\n• Overdue 03/05/2026 follow-up: Dana Whitfield called 03/11/2026, logged, next by 03/13/2026\n• Host UM is add-on per Harbor Point's 03/02/2026 letter; Teresa Okafor replaces not yet assigned\n• PIP out of the stack, total $40,000; chase Bluewater's signed rejection form from 03/14/2024\n• Keystone PD stays outside the stack, preliminary; every fix cites a document",
-      "ask": "Does your audit note tell Atty. Thorne what he must decide?"
+      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: PIP out of the stack: it pays bills; Stack total $45,000 corrected to $40,000; BI still preliminary until the Declaration Page\n• The one thing to watch for: Marking BI confirmed because $10,000 is expected"
     }
   },
   "d1m1-a2": {
-    "case": {
-      "say": "• 03/12/2026: Dion Carver at Peach State Health Plan writes about member PSH-55017742, recovery file SRU-26-03318\n• The plan is processing accident claims after the 02/27/2026 notice and will seek reimbursement; no lien record exists yet\n• 06/10/2026: interim itemization asserts $3,618.00 across five claim lines\n• Whatever figure is accepted now carries into the demand and Net Sheet; audit it, don't accept it"
-    },
     "task": {
-      "say": "• 03/12/2026: register and flag Peach State's claim in CMS Liens\n• Record carrier, member ID, group number, Payer Order position, asserted basis, flag date and Triple-Check results\n• Reply to Dion Carver in the Email Workspace, requesting an itemized ledger once anything is paid\n• 06/10/2026: audit the ledger line by line, dispute, get the corrected balance in writing, file in the CMS and Backup Drive"
+      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Liens, register Peach State's claim with the member number, its Payer Order position and today's date\n• Step 2: Log your email asking Dion Carver for an itemized ledger, sent from the Email Workspace, and file it in the CMS"
+    },
+    "case": {
+      "say": "• Assuming Peach State has written that claims are in process and no lien record exists yet, its reimbursement claim now needs registering\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a flagged lien record and the itemized ledger requested"
     },
     "audit": {
-      "say": "• Recovery vendors pull every claim from the coverage date, related or not\n• Unrelated: 02/03/2026 eye exam before the crash, 03/18/2026 sinus infection, 05/06/2026 allergy visit for an existing condition\n• Crescent injection: plan paid $1,860.00 but claims the billed $3,400.00\n• Summit MRI at $0.00 is fine, PIP paid it; the full-repayment demand goes to Atty. Thorne",
-      "ask": "Which number on the Crescent line may the Health Plan claim, and why?"
+      "say": "• The finished set, for reference: the side exercise asks only for the two steps, not the whole audit\n• Have them check theirs for this: Position: after PIP/MedPay, before LOP"
     },
     "check": {
-      "say": "• Peach State entered with PSH-55017742 and GRP-41208\n• Position: after PIP/MedPay, before LOP and provider liens\n• Three unrelated lines disputed; Crescent at the $1,860.00 the plan paid\n• Flag dated before any demand; $1,860.00 confirmed in writing 06/24/2026; any compromise is Atty. Thorne's\n• Registering a lien is not conceding it"
+      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: PSH-55017742 and GRP-41208 entered for Peach State; Position: after PIP/MedPay, before LOP; Flag dated before any demand is drafted\n• The one thing to watch for: Finding the lien at disbursement"
     }
   },
   "d1m4-a1": {
-    "case": {
-      "say": "• 03/13/2026 CMS notice: Riverton Urgent Care's 02/20/2026 note and Riverton Spine & Rehab visits since 02/24/2026 added\n• Compare with the crash date, 02/06/2026, and the EMS Run Report\n• First seen 14 days later: a Treatment Gap, meaning days an injured person got no care\n• Notice shows Risk Flags: none recorded; nobody has caught it\n• Days 3 to 5 depend on this flag being right"
-    },
     "task": {
-      "say": "• Flag the gap in two places: Risk Flags in the Case File and the Action Plan Editor's risks band\n• Use exact dates: 02/06/2026 to 02/20/2026, 14 days, not \"about two weeks\"\n• Set a watch for any later break in care\n• List likely causes to look into and the documents needed to explain the gap\n• Route the flag to Atty. Thorne"
+      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case File › Risk Flags, record the exact gap in days from the date of loss\n• And set a watch for later breaks in care\n• Step 2: Log the facts only in the Action Plan's risks band, and route the flag to Atty. Thorne in the CMS"
+    },
+    "case": {
+      "say": "• Assuming John Doe's first treatment record is in the CMS, dated 02/20/2026, the gap from the date of loss now needs flagging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a precisely computed gap flag, routed to Atty. Thorne"
     },
     "check": {
-      "say": "• Gap reads 14 days, 02/06/2026 to 02/20/2026; watch set for the next break in care\n• Risks band holds facts only: dates, length, explanation still pending; impact on the claim is Atty. Thorne's call\n• Investigation steps listed: John Doe's own account, then work schedules, appointment records, documents\n• Flag routed to Atty. Thorne\n• A gap flagged and explained early hurts less than one the adjuster finds",
-      "ask": "Did you set a watch for the next break in care, and where will it show?"
+      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Gap: 14 days, 02/06/2026 to 02/20/2026; Risks band: facts only, explanation pending; Flag routed to Atty. Thorne\n• The one thing to watch for: Writing “about two weeks” instead of exact dates"
     }
   },
   "d1m4-a2": {
-    "case": {
-      "say": "• On the file, this Case Plan is the gate out of Claim Set Up: once Atty. Thorne has it, treatment follows\n• In the file: parties mapped, $40,000 stack verified, onboarding packet tracked, 14-day Treatment Gap flagged\n• Stack: the layers of insurance that pay this claim, in order\n• On 03/16/2026 Atty. Thorne asks for the full five-band Case Plan by end of day\n• Goal: a plan he can act on without asking a single question"
-    },
     "task": {
-      "say": "• Draft the Case Plan for John Doe VS Robert Smith in the Action Plan Editor, all five bands\n• Acceptance decision and reason; coverage stack in payment order; liability, meaning who's at fault; early projection\n• Triple-check on privacy, Medicare and who pays first, held open until the Treatment Phase\n• Clinical, Functional and Financial pillars with measurable goals; every task has an owner and date\n• Risks band leads with the 14-day gap; docket the filing window, then route"
+      "say": "• Optional side exercise, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, record the stack in order with a preliminary projection\n• And put the 14-Day Gap at the top of the risks band\n• Step 2: Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne"
+    },
+    "case": {
+      "say": "• Assuming the set-up is in, the $40,000 stack verified and the 14-Day Treatment Gap flagged, Atty. Thorne now needs the Case Plan\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Case Plan routed to Atty. Thorne, the filing window docketed"
     },
     "check": {
-      "say": "• Snapshot: date of loss 02/06/2026, statute of limitations 02/06/2028, client a passenger\n• Coverage $10,000, $20,000, $10,000, total $40,000, in order: BI, Host UM, Relative UM\n• Projection and liability preliminary until coverage, Police Report and driver statements confirm\n• Triple-check held open; every task owned and dated; gap up front; plan routed with timestamp\n• Gate: LORs logged, stack verified, gap flagged, plan routed, or Treatment Phase doesn't start",
-      "ask": "What question could Atty. Thorne still have after reading your plan?"
+      "say": "• AI Grader: they submit the entry they logged; it grades the two steps under the assumption, not work the exercise didn't ask for\n• It looks for: Order BI › Host UM › Relative UM; projection preliminary; Risks band: the 14-Day Gap first; Plan routed to Atty. Elijah Thorne\n• The one thing to watch for: a projection stated as a number before coverage is confirmed"
     }
   },
   "d1m1-kc": {

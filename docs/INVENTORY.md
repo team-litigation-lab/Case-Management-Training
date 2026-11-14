@@ -109,7 +109,7 @@ None.
 
 `/api/ai` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (25)
+## Node checks (26)
 
 | Check | What it covers |
 |---|---|
@@ -135,6 +135,7 @@ None.
 | `r2-docs.mjs` | Documents served from R2 (ranges, 304s, static assets as the fallback) |
 | `rubric-guards.cjs` | 📐 Rubric guards (a rubric score is the trainer's; a trainee's own auto-scored results go on their own progress record only) |
 | `run-checks.mjs` | What it checks                    (run as: node <file>) |
+| `side-notes.cjs` | Every optional side exercise's speaker notes tell its own short exercise: the steps on Your Task, the "Assuming …" scenario on Your Case, the AI Grader and the one thing to watch for on the AI Grader slide |
 | `sso.cjs` | Single sign-on (the Portal is the only way a trainee gets in; a missing PORTAL_SSO_SECRET says so) |
 | `tool-links.cjs` | Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's) |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
