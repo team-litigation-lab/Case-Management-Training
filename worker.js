@@ -990,6 +990,8 @@ function driveReport(id, rec, brief) {
     traineeId: id,
     connected: driveLinked(rec),
     email: (driveLinked(rec) && rec.email) || "",
+    folder: (driveLinked(rec) && rec.rootName) || "",
+    linkedBy: (driveLinked(rec) && rec.linkedBy) || "",
     connectedAt: (rec && rec.connectedAt) || null,
     attempts: (setup && setup.attempts) || 0,
     passed: !!(setup && setup.ok),
