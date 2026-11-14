@@ -82,7 +82,7 @@ async function workerChecks() {
         await page.evaluate(() => { goto('day', 11); }); await page.waitForTimeout(600);
         const shown = await page.evaluate(async () => {
             const d = DAYS.find(x => x.id === 11), li = d.lessons.findIndex(x => x.cf && x.cf.block.id === 'd1m1-role');
-            const i = buildDaySlides(d).findIndex(sl => sl.type === 'topic' && sl.lessonIndex === li && 'deck4' === cmCaseFlow.viewsOf(d.lessons[li].cf.block)[sl.part - 1]);   // page 4, The General Process (its title and agenda pages are not slides: the day has its own)
+            const i = buildDaySlides(d).findIndex(sl => sl.type === 'topic' && sl.lessonIndex === li && 'deck4' === cmCaseFlow.viewsOf(d.lessons[li].cf.block)[sl.part - 1]);   // page 4, The General Process
             state.dayViewMode = 'slides'; state.maxSlide = Object.assign({}, state.maxSlide, { 11: 999 }); goToSlide(i);
             await new Promise(r => setTimeout(r, 900));
             const img = document.querySelector('.cfx-deckpage img'), card = document.querySelector('.cf-card');
@@ -92,7 +92,7 @@ async function workerChecks() {
         if (!shown || shown.src !== '/decks/day1/04.webp' || !shown.ok) fail(`the deck page isn't on the slide: ${JSON.stringify(shown)}`);
         else if (shown.w < 700 || shown.bottom > shown.vh) fail(`the deck page doesn't fit one screen at a readable size: ${JSON.stringify(shown)}`);
         if (shown && !/The General Process/.test(shown.pill || '')) fail(`the slide isn't named after its deck page: ${JSON.stringify(shown)}`);
-        if (shown && shown.first !== 'deck3') fail(`d1m1-role should open on What is Case Management? (page 3): the deck's title page and its Training Agenda repeat the day's own opening and Training Agenda (${shown.first})`);
+        if (shown && shown.first !== 'deck1') fail(`d1m1-role should open on the deck's own title page (page 1): every Canva page stays on the platform (${shown.first})`);
 
         // 3. locked for the trainee until the trainer unlocks it for the batch
         await page.evaluate(() => goto('dashboard')); await page.waitForTimeout(900);

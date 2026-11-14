@@ -85,6 +85,9 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
           if (r.views[r.views.length - 1] !== (r.views.includes('dodont') ? 'dodont' : r.views.includes('model') ? 'model' : 'rules')) out.push(`${L}: ${r.id} should end on The Rules, See It or Do & Don't (${r.views.join(' → ')})`);
         } else if (r.views[0] !== 'task' || r.views[1] !== 'case' || r.views[r.views.length - 1] !== 'check') out.push(`${L}: ${r.id} should run Your Task → Your Case → … → AI Grader (${r.views.join(' → ')})`);
       });
+      // the blocks are numbered in the order their slides come (2.20 never before 2.19), and so is the 🧪 Practice page
+      const nums = runs.map(r => Number(String((d.lessons.find(l => l.cf.block.id === r.id) || {}).h || '').split(' ')[0].split('.')[1]));
+      nums.forEach((x, i) => { if (i && !(x > nums[i - 1])) out.push(`${L}: ${runs[i].id} is numbered ${n}.${x}, after ${n}.${nums[i - 1]} on the slides: number the blocks in the order the slides show them`); });
       d.lessons.forEach(l => { if (l.cf.block.kind !== 'check' && !seen[l.cf.block.id]) out.push(`${L}: ${l.cf.block.id} (${l.cf.block.kind}) has no slide in the deck`); });
       // the lessons in the order the sequence lists them, the activities too
       // (the activities: the day's one Skill Building first, then the side exercises in the sequence's order)
@@ -119,9 +122,10 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
       let far = -1;
       acts.forEach(r => { const l = d.lessons.find(x => x.cf.block.id === r.id), of = l.cf.of;
         if (!of || of.cf.block.kind !== 'lesson') return out.push(`${L}: ${r.id} names no lesson it practises`);
-        const lr = lessonRuns.find(x => x.id === of.cf.block.id);
-        if (!lr || lr.from > r.from) out.push(`${L}: ${r.id} practises ${of.cf.block.id}, which is not taught before it`);
-        const s = sectionOf(of.cf.block.id); if (r.id !== main && s < far) out.push(`${L}: ${r.id} practises a lesson (${of.cf.block.id}) of a section taught before the lessons of the activity ahead of it: the lab follows the lessons' order`); if (r.id !== main) far = Math.max(far, s);
+        // taught before it on this day, or on an earlier day (each deck is taught on its own day: Day N's on Case Flow Day N)
+        const lr = lessonRuns.find(x => x.id === of.cf.block.id), dayOfOf = DAYS.findIndex(x => x.cf && x.lessons.includes(of)), earlier = !lr && dayOfOf >= 0 && dayOfOf < DAYS.indexOf(d);
+        if (!earlier && (!lr || lr.from > r.from)) out.push(`${L}: ${r.id} practises ${of.cf.block.id}, which is not taught before it (on this day or an earlier one)`);
+        const s = sectionOf(of.cf.block.id); if (!earlier && r.id !== main && s < far) out.push(`${L}: ${r.id} practises a lesson (${of.cf.block.id}) of a section taught before the lessons of the activity ahead of it: the lab follows the lessons' order`); if (r.id !== main && !earlier) far = Math.max(far, s);
         // its own first slide says it
         state.lessonSlide = r.from; render();
         const line = norm((document.querySelector('#lessonSlideWrap .cfx-of') /* in the Practice Lab line; under the steps on a Backup File Maintenance task */ || {}).textContent), num = of.h.split(' ')[0];

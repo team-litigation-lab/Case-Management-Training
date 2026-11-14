@@ -4,10 +4,10 @@
   "voice": "en_US-lessac-high, converted to the trainer's own voice (revoice.py)",
   "day": 14,
   "lessons": {
-    "d4m2-l2": [3, 4, 5, 6, 19, 20, 21, 22, 23, 24],
+    "d4m2-l2": [1, 2, 3, 4, 5, 6, 19, 20, 21, 22, 23, 24],
     "d4m3-l1": [7, 8, 9, 10, 11, 12, 13, 14, 15],
-    "d4m3-l2": [25, 26, 27, 28, 30, 33, 34, 35],
-    "d4m3-prior": [29]
+    "d4m3-prior": [29],
+    "d4m3-l2": [25, 26, 27, 28, 30, 33, 34, 35, 36]
   },
   "video": {
     "src": "/decks/day4/day4-narrated.mp4",

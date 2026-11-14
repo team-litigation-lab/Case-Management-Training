@@ -129,7 +129,7 @@ export function docOfName(name, docs) {
    folder (its spelling, when it isn't the firm's, is said and costs a little); a misplaced one is half; a missing one
    none. Day 1's course documents on the drive weigh a fifth, when there are any: each in its folder. */
 export function gradeFound(F, ctx) {
-  const { standard, why = {}, pass = 70, docs = {}, homes = {}, hand = [], names = {} } = ctx;
+  const { standard, why = {}, pass = 70, docs = {}, homes = {}, hand = [], names = {}, later = {} } = ctx;
   const problems = [], spelled = [], gone = standard.filter((p) => F.names[p] == null);
   let pts = 0;
   // a few folders missing are said one by one, with why each is there; many, in one line (so the rest is still read)
@@ -144,7 +144,9 @@ export function gradeFound(F, ctx) {
   spelled.forEach((p) => { const got = F.names[p], want = leaf(p);
     problems.push(F.rank[p] === 2 ? `"${got}" is the firm's "${want}": the spaces, the hyphen and the capitals count, because a drive everybody shares is spelled one way.`
       : `"${got}" is read as the firm's "${want}"${/^\d/.test(want) ? ": the number in front is part of the name, it is what keeps the case in order" : ": the client folder is last name first, so a drive of clients sorts by surname"}.`); });
-  const filing = hand.filter((h) => docs[h.docId] && docs[h.docId].day === 1).map((h) => {
+  // Day 1's documents: those that open on Day 1, but not one a later day's backup drill files (DRIVE_DAY_DOCS: Day 1 now
+  // teaches through treatment, so a few of Day 2's drive documents open on Day 1 and are still graded on Day 2)
+  const filing = hand.filter((h) => docs[h.docId] && docs[h.docId].day === 1 && !later[h.docId]).map((h) => {
     const ok = h.path === h.home, n = names[h.id] || null;
     return { docId: h.docId, title: (docs[h.docId] || {}).title || h.docId, name: h.name, folder: h.path == null ? "outside the firm's folders" : F.names[h.path] || leaf(h.path) || "the top folder",
       home: leaf(h.home), ok, nameOk: !n || n.ok, nameWant: n && !n.ok ? n.want : "", hint: n && !n.ok ? n.hint : "" };
@@ -200,7 +202,8 @@ export function applyFound(rec, listing, docs, D) {
   if (F && rec.foundAt) {
     const names = {};
     rec.handFiled.forEach((h) => { const c = D.nameCheck(h.name, { type: h.type, date: String(h.at || "").slice(0, 10), caseId: D.driveCaseId(rec) }); names[h.id] = { ok: c.ok, want: c.want, hint: D.nameHint(c) }; });
-    rec.foundSetup = gradeFound(F, { standard, why: D.FOLDER_WHY, pass: D.DRIVE_PASS, docs, homes: D.DRIVE_HOMES, hand: rec.handFiled, names });
+    const later = {}; Object.values(D.DRIVE_DAY_DOCS || {}).flat().forEach((d) => { later[d] = true; });
+    rec.foundSetup = gradeFound(F, { standard, why: D.FOLDER_WHY, pass: D.DRIVE_PASS, docs, homes: D.DRIVE_HOMES, hand: rec.handFiled, names, later });
   } else if (F) delete rec.foundSetup;
   return rec;
 }

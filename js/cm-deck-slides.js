@@ -5,6 +5,18 @@
 window.CM_DECK_SLIDES = {
  "d1m1-role": [
   {
+   "page": 1,
+   "title": "Case Management Training — Day 1",
+   "img": "/decks/day1/01.webp",
+   "notes": "Welcome to Day 1 of Case Management Training with Legal Support Help. Over the next session, we will build the foundation for everything that follows this week: what a Case Manager actually owns, how a case moves from its very first call to its final resolution, and how you keep that movement clean, compliant, and on time. Take notes as we go. Every idea on these slides comes back in your practice work."
+  },
+  {
+   "page": 2,
+   "title": "Training Agenda",
+   "img": "/decks/day1/02.webp",
+   "notes": "Here is our agenda for today. Part one: we understand the fundamentals of case management. Part two: we work through intake, case evaluation, and the decision to approve representation. Part three: we move into the Treatment Phase, where most of a personal injury case's value is built or lost."
+  },
+  {
    "page": 3,
    "title": "What is Case Management?",
    "img": "/decks/day1/03.webp",
@@ -27,12 +39,6 @@ window.CM_DECK_SLIDES = {
    "title": "Understanding Case Phases",
    "img": "/decks/day1/06.webp",
    "notes": "Case management is divided into structured phases that guide how a case is handled from start to finish. Each phase has its own goals, responsibilities, and deliverables, and together they keep the case progressing efficiently and accurately. The phases are: intake; investigation, also called claim set up; treatment; pre-demand; demand; settlement and lien negotiations; disbursement; and, when a case does not settle, litigation. Today we focus on the first three."
-  },
-  {
-   "page": 17,
-   "title": "Tools for Case Planning",
-   "img": "/decks/day1/17.webp",
-   "notes": "Inside a legal framework, case management shifts from best efforts to strict compliance. Your tools make that possible: case management software, task trackers and calendars, document management systems, and workflow automation tools. System equals efficiency plus accountability. And here is the strategy behind the personal injury case lifecycle: every case is a race against the Statute of Limitations, and against the gap in treatment defense that insurance companies use. In intake and investigation, the focus is liability: confirm insurance coverage, including PIP/MedPay, bodily injury, and UM/UIM; order police reports and 911 transcripts; and identify every potential defendant. In treatment, the focus is damages: track client compliance, make sure there are no gaps in treatment, and gather diagnostic imaging like MRI/CT results right away, to make the injury objective. In the demand phase, the focus is value maximization: compile a special damages summary of medical bills and lost wages, and request final narratives from surgeons to establish permanent impairment. And in litigation, the focus is evidence preservation: manage the discovery calendar, coordinate depositions, and facilitate expert witness reviews."
   }
  ],
  "d1m1-l1": [
@@ -95,6 +101,12 @@ window.CM_DECK_SLIDES = {
    "title": "Bottleneck: Case Eligibility Uncertainty",
    "img": "/decks/day1/16.webp",
    "notes": "The fifth bottleneck is case eligibility uncertainty. An intake may be submitted without a clear legal assessment. The case may need attorney review before a decision can be made. Or the facts of loss, or of liability, may be ambiguous. When eligibility is unclear, don't guess. Escalate the file for attorney review, and document why."
+  },
+  {
+   "page": 17,
+   "title": "Tools for Case Planning",
+   "img": "/decks/day1/17.webp",
+   "notes": "Inside a legal framework, case management shifts from best efforts to strict compliance. Your tools make that possible: case management software, task trackers and calendars, document management systems, and workflow automation tools. System equals efficiency plus accountability. And here is the strategy behind the personal injury case lifecycle: every case is a race against the Statute of Limitations, and against the gap in treatment defense that insurance companies use. In intake and investigation, the focus is liability: confirm insurance coverage, including PIP/MedPay, bodily injury, and UM/UIM; order police reports and 911 transcripts; and identify every potential defendant. In treatment, the focus is damages: track client compliance, make sure there are no gaps in treatment, and gather diagnostic imaging like MRI/CT results right away, to make the injury objective. In the demand phase, the focus is value maximization: compile a special damages summary of medical bills and lost wages, and request final narratives from surgeons to establish permanent impairment. And in litigation, the focus is evidence preservation: manage the discovery calendar, coordinate depositions, and facilitate expert witness reviews."
   },
   {
    "page": 18,
@@ -295,9 +307,27 @@ window.CM_DECK_SLIDES = {
    "title": "Treatment Gaps: Case Manager Responsibilities",
    "img": "/decks/day1/47.webp",
    "notes": "Your responsibilities with treatment gaps: monitor treatment frequency and appointment compliance. Follow up immediately after a missed appointment. Educate the client on why consistent treatment matters. Help coordinate transportation, scheduling, or referrals. Communicate with providers about interruptions in care. And document every client explanation and every follow-up effort. As best practice, keep treatment timelines updated, track referrals and pending appointments, encourage clients to report worsening symptoms promptly, and escalate prolonged or unexplained gaps to supervising staff or the attorney. Consistent treatment documentation strengthens both the medical support and the future negotiating position."
+  },
+  {
+   "page": 50,
+   "title": "Thank You!",
+   "img": "/decks/day1/50.webp",
+   "notes": "That completes Day 1. Today you learned what a Case Manager owns, how to run a clean intake and acceptance decision, how to set up a claim, and how to keep the treatment phase on track. Thank you for your attention. Bring your questions to the next session."
   }
  ],
  "d2m4-l1": [
+  {
+   "page": 1,
+   "title": "Case Management Training — Day 2",
+   "img": "/decks/day2/01.webp",
+   "notes": "Welcome to Day 2 of Case Management Training with Legal Support Help. Yesterday we carried a case from intake through the Treatment Phase. Today we follow it to the money: how we audit the file before the demand, how we build and send the Bodily Injury demand, and how we negotiate and close the settlement. Keep John Doe's file in mind as we go, because every phase today comes back to it."
+  },
+  {
+   "page": 2,
+   "title": "Training Agenda",
+   "img": "/decks/day2/02.webp",
+   "notes": "Here is our agenda for today, in three parts. Part one: the Pre-Demand phase, where we audit the whole file before anything goes to the adjuster. Part two: the Bodily Injury Demand, where we build the demand packet and present the case. Part three: the BI Settlement, where we negotiate, finalize the paperwork, and move the file from settled to paid."
+  },
   {
    "page": 3,
    "title": "Pre-Demand Case Auditing: Core Objectives",
@@ -391,20 +421,6 @@ window.CM_DECK_SLIDES = {
    "notes": "Here are the best practices for the demand. The 30-day rule: once a client reaches MMI, the demand must be out the door within 30 days. Photo impact: always lead the demand with the most graphic photo, of the property damage or the injury, to set the tone. The why factor: every medical bill in the demand needs a corresponding why, the reason that treatment was necessary for the client's recovery. And a pro tip to remember: a demand is not a request for money. It is a presentation of a debt owed. Treat the insurance company like a bank that has not paid its bill."
   }
  ],
- "d3m1-l2": [
-  {
-   "page": 33,
-   "title": "BI Settlement: The UM/UIM Safety Check",
-   "img": "/decks/day2/33.webp",
-   "notes": "Now we reach the BI Settlement phase, and the UM/UIM safety check. If the at-fault driver has low or no insurance, you must tap into the client's own Uninsured or Underinsured Motorist coverage. That makes the subrogation waiver your green light. If you settle with the at-fault driver and sign their release without a waiver from your client's own insurer, you may destroy your client's right to collect UM/UIM benefits. So, first, send the 30-day letter: a formal notice to the UM carrier about the offer. Then secure the waiver document: a written Waiver of Subrogation from the UM carrier. It proves they have given up their right to sue the driver, which lets you settle the liability claim and proceed with the UM claim."
-  },
-  {
-   "page": 34,
-   "title": "BI Settlement: Key Laws & Doctrines",
-   "img": "/decks/day2/34.webp",
-   "notes": "Before a settlement can be discussed, the file must be bulletproof, and that rests on three key laws and doctrines. The Made Whole Doctrine says a health insurer, the subrogated carrier, cannot claim from a settlement unless the client is fully compensated. It can help persuade lienholders to waive their claims when the settlement is small next to significant injuries. The Common Fund Doctrine requires lienholders to reduce their bill by the attorney's fee percentage, usually 33.3%. The logic: they should not get a free ride on the work the firm did to recover the money. And the Statute of Limitations is the death date for a case. Case Managers must track it religiously, because missing it is an automatic malpractice event."
-  }
- ],
  "d3m2-l2": [
   {
    "page": 21,
@@ -471,6 +487,20 @@ window.CM_DECK_SLIDES = {
    "title": "The Never Rule",
    "img": "/decks/day2/31.webp",
    "notes": "Finally, the never rule. Never apologize for a high demand. It is based on the client's suffering. Never bid against yourself. If you drop your price, the adjuster must raise theirs before you move again. And never accept that's all I have as the final answer on the first day. Every adjuster has a supervisor with a bigger checkbook."
+  }
+ ],
+ "d3m1-l2": [
+  {
+   "page": 33,
+   "title": "BI Settlement: The UM/UIM Safety Check",
+   "img": "/decks/day2/33.webp",
+   "notes": "Now we reach the BI Settlement phase, and the UM/UIM safety check. If the at-fault driver has low or no insurance, you must tap into the client's own Uninsured or Underinsured Motorist coverage. That makes the subrogation waiver your green light. If you settle with the at-fault driver and sign their release without a waiver from your client's own insurer, you may destroy your client's right to collect UM/UIM benefits. So, first, send the 30-day letter: a formal notice to the UM carrier about the offer. Then secure the waiver document: a written Waiver of Subrogation from the UM carrier. It proves they have given up their right to sue the driver, which lets you settle the liability claim and proceed with the UM claim."
+  },
+  {
+   "page": 34,
+   "title": "BI Settlement: Key Laws & Doctrines",
+   "img": "/decks/day2/34.webp",
+   "notes": "Before a settlement can be discussed, the file must be bulletproof, and that rests on three key laws and doctrines. The Made Whole Doctrine says a health insurer, the subrogated carrier, cannot claim from a settlement unless the client is fully compensated. It can help persuade lienholders to waive their claims when the settlement is small next to significant injuries. The Common Fund Doctrine requires lienholders to reduce their bill by the attorney's fee percentage, usually 33.3%. The logic: they should not get a free ride on the work the firm did to recover the money. And the Statute of Limitations is the death date for a case. Case Managers must track it religiously, because missing it is an automatic malpractice event."
   },
   {
    "page": 35,
@@ -519,6 +549,12 @@ window.CM_DECK_SLIDES = {
    "title": "Finalized Settlement: Final Lien Mitigation",
    "img": "/decks/day2/42.webp",
    "notes": "The second set of closing tasks is final lien mitigation, the reduction. For provider negotiation, call the billing department of every lienholder. The script: The settlement was lower than expected. In the interest of global resolution, will you accept 50% of the balance as payment in full? Then update the ledger. Reflect every saving or reduction in the Settlement Statement right away, so the client can see their net recovery increasing. And for Medicare and Medicaid finalization, log into the MSPRP, the Medicare Secondary Payer Recovery Portal, and make sure the final demand matches your internal ledger."
+  },
+  {
+   "page": 44,
+   "title": "Thank You!",
+   "img": "/decks/day2/44.webp",
+   "notes": "That brings us to the end of Day 2. Today we audited the file before the demand, built and presented the Bodily Injury demand, and negotiated and closed the settlement, all the way from settled to paid and archived. Review your notes on John Doe's file tonight, because we build on every one of these steps in the days ahead. Thank you."
   }
  ],
  "d3m3-l1": [
@@ -527,38 +563,12 @@ window.CM_DECK_SLIDES = {
    "title": "Lien Negotiations: Key Legal Doctrines",
    "img": "/decks/day3/01.webp",
    "notes": "Welcome to Day 3 of Case Management Training with Legal Support Help. Today we cover two phases of the case: first lien negotiations and reduction, and then disbursement. Throughout the day, our sample case is John Doe versus Robert Smith, the same file you're working on in the platform. Let's start with liens. Once a case settles, lienholders want to be paid in full. But the attorney has legal arguments that can push them to accept less, and every dollar saved goes back to the client. The Common Fund Doctrine says a lienholder collecting from money our attorney worked to recover should share the cost of recovering it. That's exactly what happened on our file. Peach State Health Plan asserted 1,860 dollars and accepted 1,240 dollars, a one third procurement cost reduction. The Made Whole Doctrine says that in many jurisdictions, a lienholder collects nothing until the client is fully compensated, pain and suffering included. And comparative fault cuts a lien by the same share the client's recovery was cut, the slide's example being 20 percent. You can name these doctrines. Which one to argue is always Atty. Thorne's call."
-  }
- ],
- "d3m4-l2": [
+  },
   {
    "page": 2,
    "title": "Quantum Meruit: Prior Attorney Liens",
    "img": "/decks/day3/02.webp",
    "notes": "Not every lien comes from a medical provider. Sometimes a lawyer who came before us wants to be paid. Quantum Meruit means as much as he has deserved. It's how the law values work when there's no valid contract, typically when a lawyer is dismissed before the case settles. Personal injury fees are usually contingent, a percentage of the win, so a dismissed lawyer can't claim that percentage. Instead, they file a lien for the work actually done. The law balances two rights: the client can fire their lawyer at any time, and the lawyer deserves pay for the value they added. Our file shows why you check the facts behind any such claim. On October 14th, 2026, Vance and Kettering Injury Law sent a charging lien demanding half the fee, 6,666 dollars and 67 cents. But the agreement was signed by John's mother, not John, and their own time record showed an intake call and a welcome letter, nothing more. It was logged and routed to Atty. Thorne the same day, and on his instruction those funds were put on hold. On October 19th, 2026, they withdrew the lien in writing and claimed no fee."
-  },
-  {
-   "page": 11,
-   "title": "Disbursement: Core Objectives",
-   "img": "/decks/day3/11.webp",
-   "notes": "Which brings us to our second phase, disbursement. This is where money leaves the trust account, so mistakes are hard to undo. On our file, disbursement happened on October 22nd, 2026. Keep four objectives in mind. Accuracy means every payment matches what was approved, the figures on the net sheet you just built. Compliance means following every local, state and federal regulation that applies. Fraud prevention means spotting red flags before funds go out, not after. Remember the Vance and Kettering lien. A claim that didn't add up arrived days before disbursement, and the funds it targeted were held until Atty. Thorne resolved it. The slide then lists compliance a second time, about meeting statutory requirements like the Statute of Limitations before the demand went out. On John's file, the demand went to Keystone on July 20th, 2026, well ahead of the limitation date docketed for February 6th, 2028. Disbursement is your last checkpoint, so confirm that everything that should have been done earlier is actually in the file."
-  },
-  {
-   "page": 12,
-   "title": "Disbursement: The Workflow",
-   "img": "/decks/day3/12.webp",
-   "notes": "So how does a payment actually move through the office? Think of four stages, each feeding the next. Verification comes first. You pull files marked Ready for Payment and confirm every condition precedent is met, meaning everything that must happen before money moves has happened. On our file, that meant all three carrier checks had been received and every lien was resolved, including the Vance and Kettering hold released on October 19th, 2026. Next is documentation. Gather invoices and receipts and make sure they're readable and match the claim. Then authorization. The release of funds is signed off, and the packet goes to finance and accounting. Our funds cleared on October 20th, and John signed his Settlement Statement on October 21st. Finally, reconciliation. Once you confirm the funds were received, update the case file to show Paid. After John's disbursement on October 22nd, 2026, the trust ledger went to zero. That last step keeps the whole team looking at the same accurate picture of the case. Next, let's look at what goes into that documentation packet."
-  },
-  {
-   "page": 13,
-   "title": "Disbursement: Documentation Checklist",
-   "img": "/decks/day3/13.webp",
-   "notes": "Here's what belongs in the packet before money is released. Each item answers a simple question. Who's getting paid? That's proof of identity, a valid ID for the payee. Who asked for the payment? That's the payment request form, signed by the beneficiary or an authorized representative. What exactly are we paying for? That's the verified invoices, with dates, service descriptions and tax IDs. On our file, Riverton Spine and Rehab's invoice has to match what was audited and agreed, not the 6,290 dollars it first billed. Where is the money going? That's the banking information, and the slide pairs it with updating the case file to Paid once the payment goes through. And finally, W-9 and other tax forms where they apply, which is for vendor payments. If any one of these is missing, the packet isn't ready. It's far easier to hold a payment for a missing document than to pull back money that already went to the wrong place. Which brings us to the challenges you'll run into."
-  },
-  {
-   "page": 14,
-   "title": "Disbursement: Common Challenges and Mitigation",
-   "img": "/decks/day3/14.webp",
-   "notes": "Even with a good checklist, a few problems come up again and again. The first is incomplete paperwork. Use a Kickback Protocol. Tell the client exactly what's missing and give a deadline. A vague request just leaves the file sitting while the client waits for money that's already been won. The second is a change of circumstance, when something about the payment changes along the way, like a new address or payee name. Per the slide, that needs a signature from the beneficiary or an authorized representative. On our file, Keystone's adjuster asked whether Peach State should be added as a payee on the BI check. That went to Atty. Thorne, and the payee stayed unchanged. Changes like that are never yours to decide alone. The third is duplicate payments. Before you click Approve, cross reference the invoice number in the system. It's the same discipline that caught Riverton Spine and Rehab's double billed May 4th visit. A few seconds of checking can save hours of clawing money back."
   }
  ],
  "d3m3-l2": [
@@ -607,6 +617,32 @@ window.CM_DECK_SLIDES = {
    "notes": "If you take one thing from this section, take this. Your job isn't data entry, it's financial engineering. When you pair a third party BI recovery with first party UM coverage, you grow the pool the client can recover from. The slide calls it doubling. On John's file, two UM layers added 30,000 dollars on top of a 10,000 dollar BI limit. Tracking those streams cleanly on one dual net sheet protects the firm, keeps the medical liens clear, and gets the client every dollar he's legally entitled to. Then there are firm costs. The slide lists police report fees, medical records retrieval and expert witness retainers as examples. John's costs were 486 dollars and 75 cents, including a 25 dollar police report and 214 dollars and 75 cents for medical records and billing. Costs are totaled for the whole case, then taken out as one line or split proportionally. We split ours by share of gross: 121 dollars and 69 cents to BI, and 365 dollars and 6 cents to UM. Now, with the money calculated, let's get it out the door."
   }
  ],
+ "d3m4-l2": [
+  {
+   "page": 11,
+   "title": "Disbursement: Core Objectives",
+   "img": "/decks/day3/11.webp",
+   "notes": "Which brings us to our second phase, disbursement. This is where money leaves the trust account, so mistakes are hard to undo. On our file, disbursement happened on October 22nd, 2026. Keep four objectives in mind. Accuracy means every payment matches what was approved, the figures on the net sheet you just built. Compliance means following every local, state and federal regulation that applies. Fraud prevention means spotting red flags before funds go out, not after. Remember the Vance and Kettering lien. A claim that didn't add up arrived days before disbursement, and the funds it targeted were held until Atty. Thorne resolved it. The slide then lists compliance a second time, about meeting statutory requirements like the Statute of Limitations before the demand went out. On John's file, the demand went to Keystone on July 20th, 2026, well ahead of the limitation date docketed for February 6th, 2028. Disbursement is your last checkpoint, so confirm that everything that should have been done earlier is actually in the file."
+  },
+  {
+   "page": 12,
+   "title": "Disbursement: The Workflow",
+   "img": "/decks/day3/12.webp",
+   "notes": "So how does a payment actually move through the office? Think of four stages, each feeding the next. Verification comes first. You pull files marked Ready for Payment and confirm every condition precedent is met, meaning everything that must happen before money moves has happened. On our file, that meant all three carrier checks had been received and every lien was resolved, including the Vance and Kettering hold released on October 19th, 2026. Next is documentation. Gather invoices and receipts and make sure they're readable and match the claim. Then authorization. The release of funds is signed off, and the packet goes to finance and accounting. Our funds cleared on October 20th, and John signed his Settlement Statement on October 21st. Finally, reconciliation. Once you confirm the funds were received, update the case file to show Paid. After John's disbursement on October 22nd, 2026, the trust ledger went to zero. That last step keeps the whole team looking at the same accurate picture of the case. Next, let's look at what goes into that documentation packet."
+  },
+  {
+   "page": 13,
+   "title": "Disbursement: Documentation Checklist",
+   "img": "/decks/day3/13.webp",
+   "notes": "Here's what belongs in the packet before money is released. Each item answers a simple question. Who's getting paid? That's proof of identity, a valid ID for the payee. Who asked for the payment? That's the payment request form, signed by the beneficiary or an authorized representative. What exactly are we paying for? That's the verified invoices, with dates, service descriptions and tax IDs. On our file, Riverton Spine and Rehab's invoice has to match what was audited and agreed, not the 6,290 dollars it first billed. Where is the money going? That's the banking information, and the slide pairs it with updating the case file to Paid once the payment goes through. And finally, W-9 and other tax forms where they apply, which is for vendor payments. If any one of these is missing, the packet isn't ready. It's far easier to hold a payment for a missing document than to pull back money that already went to the wrong place. Which brings us to the challenges you'll run into."
+  },
+  {
+   "page": 14,
+   "title": "Disbursement: Common Challenges and Mitigation",
+   "img": "/decks/day3/14.webp",
+   "notes": "Even with a good checklist, a few problems come up again and again. The first is incomplete paperwork. Use a Kickback Protocol. Tell the client exactly what's missing and give a deadline. A vague request just leaves the file sitting while the client waits for money that's already been won. The second is a change of circumstance, when something about the payment changes along the way, like a new address or payee name. Per the slide, that needs a signature from the beneficiary or an authorized representative. On our file, Keystone's adjuster asked whether Peach State should be added as a payee on the BI check. That went to Atty. Thorne, and the payee stayed unchanged. Changes like that are never yours to decide alone. The third is duplicate payments. Before you click Approve, cross reference the invoice number in the system. It's the same discipline that caught Riverton Spine and Rehab's double billed May 4th visit. A few seconds of checking can save hours of clawing money back."
+  }
+ ],
  "d3m4-close": [
   {
    "page": 15,
@@ -637,9 +673,27 @@ window.CM_DECK_SLIDES = {
    "title": "Final Case Reconciliation: Retention Schedule",
    "img": "/decks/day3/19.webp",
    "notes": "The last piece of reconciliation is the retention and disposition schedule. Once a case closes, the paperwork doesn't just sit forever. It's organized under a retention policy, and each document type has its own timeline and its own end step. The slide's table is a general example. Financial records are kept 7 years as the standard and then digitally deleted. Eligibility documents are kept 3 to 5 years and then archived or moved off site. Correspondence is kept 3 years and then purged from the active server. Our training file follows the firm's schedule: the closed file is kept 7 years from closing, so don't apply the slide's shorter periods to John's file. Why does this matter to you? Because how you file things at closing decides whether the right documents can be found while they must be kept, and cleared out properly once they don't. Filing it right at closing is the final step in handling a case well."
+  },
+  {
+   "page": 20,
+   "title": "Thank You!",
+   "img": "/decks/day3/20.webp",
+   "notes": "That brings us to the end of Day 3. Today we learned how to protect the client's settlement through lien negotiations, using legal doctrines, billing audits, and a combined BI and UM net sheet. Then we followed that money through disbursement, from the workflow and the documentation packet to the final reconciliation that lets a case be archived. Review your notes on John Doe versus Robert Smith tonight, because these are the steps that make sure the client keeps every dollar they're entitled to. Thank you."
   }
  ],
  "d4m2-l2": [
+  {
+   "page": 1,
+   "title": "Case Management Training — Day 4",
+   "img": "/decks/day4/01.webp",
+   "notes": "Welcome to Day 4 of Case Management Training with Legal Support Help. We'll keep using our sample case, John Doe versus Robert Smith, the same file you're working on in the platform. Today we take the other road from the demand. Keystone held at three thousand five hundred dollars, and our Time-Limited Demand lapsed on August 21st, 2026. Because Keystone's ten thousand dollar Bodily Injury limit was never paid, the whole forty thousand dollar recovery stack sat frozen behind it, and Attorney Thorne authorized suit. So what happens when two sides still can't agree? First comes mediation, where everyone works toward a compromise. Then, if that isn't enough, arbitration, where someone else makes the call. You'll see how your scheduling, your binders and your eye for detail decide how ready the attorney is when it counts. Let's dive in."
+  },
+  {
+   "page": 2,
+   "title": "Training Agenda",
+   "img": "/decks/day4/02.webp",
+   "notes": "Today has three parts, and they follow the order our file moves in. First, the Mediation phase, where the goal is a deal both sides can live with, and where your job is mostly scheduling, logistics and the binder. On our file, that's the court-ordered mediation on March 18th, 2027. Second, the Arbitration phase, where the case is decided for the parties instead. For John Doe, that's the binding UM arbitration that follows. Here the stakes rise, because the decision is final. And third, the common bottlenecks in both, the places where cases like John's tend to stall, so you can spot trouble early and keep your files moving."
+  },
   {
    "page": 3,
    "title": "Introducing the Neutral: Expertise & Background",
@@ -757,6 +811,14 @@ window.CM_DECK_SLIDES = {
    "notes": "Once the binder is built, you shift into a quality assurance role, the final check that the attorney walks in fully prepared. Three things to confirm. First, multiple sets: three identical physical copies for the handling attorney, the mediator and the client, or one shared digital setup they can all use. Our session is in person at Judge Benton's office, so think three physical copies. Second, searchability. If any version is digital, run a full OCR text-recognition scan so evidence can be found with Control F. Third, indexing: six numbered divider tabs that match the firm's master index. See how that lines up with the six sections we just covered? And remember the calendar. On our file, all of this has to be finished before the binder goes to Judge Benton on March 11th, 2027, not on the morning of March 18th."
   }
  ],
+ "d4m3-prior": [
+  {
+   "page": 29,
+   "title": "Arbitration Binder Section 5: The Prior Medical Shield",
+   "img": "/decks/day4/29.webp",
+   "notes": "Section five is defensive, and you build it on purpose. Defense attorneys like to take a client's old records and argue that the current injury is just a pre-existing degenerative condition. This section is your shield, ready before they make the argument. It holds the prior injury records and work history, documenting past injuries honestly. The slide's example, a 2018 strain, is a general one. Here's what our file actually shows. In John Doe versus Robert Smith, our client's only prior care was three chiropractic visits in 2021 at Birch Avenue Chiropractic, for low-back stiffness. It resolved, and he had no prior neck complaints. His injury in this case is in his neck. The section also holds the medical opinions that answer the defense. Against the word degenerative, the radiologist, Doctor Helen Park, found no significant degenerative change at the adjacent levels, and Doctor Reyes's Causation Letter ties the injury to the collision. The lesson: don't hide old injuries. Document them so they can't be used against the client."
+  }
+ ],
  "d4m3-l2": [
   {
    "page": 25,
@@ -805,17 +867,27 @@ window.CM_DECK_SLIDES = {
    "title": "Case Manager Operational Countermeasures",
    "img": "/decks/day4/35.webp",
    "notes": "So how do you stay ahead of all this? Two habits make a big difference. First, the 48-hour pre-session audit. Build in a mandatory file review 48 hours before any deadline to check the ledgers and confirm the binder is complete. On our file, that means auditing before the mediation binder goes to Judge Benton on March 11th, 2027, and before the arbitration brief on June 11th. That buffer gives you time to fix a problem instead of discovering it in the room. Second, reconcile liens early. Review the health insurance Explanation of Benefits, the EOBs, well in advance, so you can catch double-dipping hospital and provider liens. Crescent's injection, paid by Peach State at the contract rate, is exactly the kind of line that check protects. One habit protects the evidence, and the other protects the client's recovery."
-  }
- ],
- "d4m3-prior": [
+  },
   {
-   "page": 29,
-   "title": "Arbitration Binder Section 5: The Prior Medical Shield",
-   "img": "/decks/day4/29.webp",
-   "notes": "Section five is defensive, and you build it on purpose. Defense attorneys like to take a client's old records and argue that the current injury is just a pre-existing degenerative condition. This section is your shield, ready before they make the argument. It holds the prior injury records and work history, documenting past injuries honestly. The slide's example, a 2018 strain, is a general one. Here's what our file actually shows. In John Doe versus Robert Smith, our client's only prior care was three chiropractic visits in 2021 at Birch Avenue Chiropractic, for low-back stiffness. It resolved, and he had no prior neck complaints. His injury in this case is in his neck. The section also holds the medical opinions that answer the defense. Against the word degenerative, the radiologist, Doctor Helen Park, found no significant degenerative change at the adjacent levels, and Doctor Reyes's Causation Letter ties the injury to the collision. The lesson: don't hide old injuries. Document them so they can't be used against the client."
+   "page": 36,
+   "title": "Thank You!",
+   "img": "/decks/day4/36.webp",
+   "notes": "That brings us to the end of Day 4. Today we met the neutrals and saw why a mediator and an arbitrator call for such different preparation. We built the mediation binder, and watched John Doe's mediation before Judge Benton end with Keystone tendering its limits under a Limited Release. Then we moved into a trial-ready mindset for arbitration, drew a clear line around what you can and can't do at a hearing, and built the six-section arbitration binder that carried John's UM claims to an award of twenty thousand dollars plus ten thousand dollars. Finally, we looked at the traps that stall these cases and the habits that prevent them. Take some time to review the John Doe versus Robert Smith file, because the precision you bring here protects the client's recovery. Thank you."
   }
  ],
  "d5m1-l1": [
+  {
+   "page": 1,
+   "title": "Case Management Training — Day 5",
+   "img": "/decks/day5/01.webp",
+   "notes": "Welcome to Day 5 of Case Management Training with Legal Support Help. Up to now, most of our work has happened outside the courthouse. Today the case goes inside it. When a claim can't be resolved through negotiation, it becomes a lawsuit, and your job changes in some important ways. Deadlines get stricter, documents become evidence, and the client needs more support than ever. Our sample case is still John Doe versus Robert Smith, the same file you're working on in the platform. Today we follow its litigation road, the one where Keystone wouldn't move and we filed suit. We'll walk through litigation step by step, spend real time on getting John ready for his deposition, and build out your toolkit of documents and deadlines. Then we'll look at how property damage is valued, using Margaret Doe's Civic. Let's get started."
+  },
+  {
+   "page": 2,
+   "title": "Training Agenda",
+   "img": "/decks/day5/02.webp",
+   "notes": "Here's the road map for today. The first and biggest block is the litigation phase itself, meaning what happens once a lawsuit is filed and where you fit in. The second block takes a topic you already know from pre-lit, property damage, and asks how it plays out once a case is in litigation. The third item on the agenda is liability disputes and MIA clients. On our file, you'll see both along the way. The liability dispute is defense counsel's claim that John shares the blame for the crash, and the MIA client is the stretch when John himself couldn't be reached, right before his deposition. Keep that list in mind, because each part builds on the one before it."
+  },
   {
    "page": 3,
    "title": "Case Phases: Litigation — Your Tactical Role",
@@ -1035,6 +1107,12 @@ window.CM_DECK_SLIDES = {
    "title": "The Process Server & Evading Defendant Protocol",
    "img": "/decks/day5/34.webp",
    "notes": "What happens when a defendant doesn't want to be found? It's common. Some people hide, stop answering the door, or even quit their jobs to avoid service. And if they aren't served by the court's deadline, the judge can dismiss the case for Want of Prosecution. Our file is the example. Allied Process Services tried Robert Smith at the address on the police report, 118 Larkspur Lane, on October 1st, 5th and 8th, 2026, and all three attempts failed. A neighbor said he had moved in August. So the protocol kicked in. Step one on the flowchart is a skip trace, a background search to find where someone actually lives now. TraceLine Investigations ran it on October 9th and found Smith at 4410 Quarry Ridge Court, Millbrook. Allied served him personally on October 14th, 2026. Because the skip trace worked, we never needed the later steps: varying the server's hours to early morning, evening and weekends, and finally asking the court to allow alternative service, like social media, posting on the door, or mail."
+  },
+  {
+   "page": 42,
+   "title": "Thank You!",
+   "img": "/decks/day5/42.webp",
+   "notes": "That brings us to the end of Day 5. Today we took John Doe's case into litigation. We saw how the rules change once suit is filed, how Robert Smith was found and served, and how the Answer turned into a liability dispute over the stop sign and the seatbelt. We prepared for John's deposition, including the stretch when he went missing, and built your toolkit of core documents, processes, and deadlines. Then we saw how the property damage on Margaret's Civic is valued. If there's one idea to take away, it's this: in litigation, the calendar is everything. Review your notes on John Doe versus Robert Smith, and thank you for your work today."
   }
  ],
  "d5m2-l1": [

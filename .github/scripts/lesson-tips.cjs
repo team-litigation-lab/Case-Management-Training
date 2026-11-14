@@ -25,6 +25,8 @@ for (const [act, lessons] of Object.entries(TIPS)) {
 }
 // every lesson the decks replaced has a tip somewhere
 const GONE = ['d1m1-upl', 'd1m3-l1', 'd1m2-l2', 'd2m2-pip', 'd3m1-pkg', 'd3m2-l1', 'd3m2-umw'];
+// and every lesson retired since (each block's own `retired`): none leaves the course without a Tip
+CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { if (b.kind === 'lesson' && b.retired && !GONE.includes(b.id)) GONE.push(b.id); })));
 const tipped = new Set(Object.values(TIPS).flat());
 // a lesson whose slides are the trainers' deck pages shows none of its own rules: each activity that practises it carries them
 CF.sequence.forEach(sd => sd.phases.forEach(ph => Object.entries(ph.practises || {}).forEach(([a, l]) => {

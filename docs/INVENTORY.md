@@ -108,7 +108,7 @@ None.
 
 `/api/ai` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (26)
+## Node checks (27)
 
 | Check | What it covers |
 |---|---|
@@ -120,7 +120,7 @@ None.
 | `check-data.mjs` | Case documents and handouts exist, document references resolve |
 | `check-site.mjs` | JavaScript syntax, local files, JSON |
 | `cm-drive.cjs` | The trainee's Backup Drive (the firm's folder structure, where a filed document lands, and the Day 1 grading) |
-| `day-decks.cjs` | The Day 2, 3, 4 and 5 decks are lessons, as Day 1's: every teaching page is one lesson's slide, with its picture and talking points; no page is shown beside the lessons, and none is a Skill Building, title, agenda or Thank You page |
+| `day-decks.cjs` | Every Canva deck page, Days 1-5, is on the platform on its own day: each page of Day N's deck (title, agenda and Thank You pages too) is one Case Flow Day N lesson's slide, with its picture and talking points; nothing beside the lessons, no picture unused |
 | `drive-connect.cjs` | Linking a trainee's Google Drive folder (shared with the service account and pasted, as Foundational links a Drive; every refusal says why; Google answered by the test) |
 | `drive-daily.cjs` | The Backup Drive is scored every day: each day a trainee has reached is graded (nothing on the drive yet scores 0), every night too, in four measures (compliance, attention to detail, organization, naming convention) |
 | `drive-grades.cjs` | The Backup Drive is auto-graded day by day from the Drive itself (Days 2–5, against an in-memory Google Drive) |
@@ -132,6 +132,7 @@ None.
 | `kc-once-worker.cjs` | The Worker holds the one-attempt Knowledge Check: a trainee's own write can't drop or replace an attempt on their record |
 | `lesson-tips.cjs` | every 💡 Tip (js/cm-lesson-tips.js) sits on an activity still in the course and quotes a lesson that is not |
 | `merge-main-generated.mjs` | Every generated file is one merge-main.mjs rebuilds: each build output and each file headed "generated" is in its GENERATED list, each file-writing build script is a BUILD step or says why not |
+| `practises-order.cjs` | Every Skill Activity practises a lesson the course still teaches, on its own day before it or on an earlier day (never a later one), and the lesson's skill is on its slides (its deck pages, or its drawn slides) |
 | `r2-docs.mjs` | Documents served from R2 (ranges, 304s, static assets as the fallback) |
 | `rubric-guards.cjs` | 📐 Rubric guards (a rubric score is the trainer's; a trainee's own auto-scored results go on their own progress record only) |
 | `run-checks.mjs` | What it checks                    (run as: node <file>) |

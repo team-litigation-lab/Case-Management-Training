@@ -4,11 +4,11 @@
   "voice": "en_US-lessac-high, converted to the trainer's own voice (revoice.py)",
   "day": 13,
   "lessons": {
-    "d3m3-l1": [1],
-    "d3m4-l2": [2, 11, 12, 13, 14],
+    "d3m3-l1": [1, 2],
     "d3m3-l2": [3, 4],
     "d3m4-l1": [5, 6, 7, 8, 9],
-    "d3m4-close": [15, 16, 17, 18, 19]
+    "d3m4-l2": [11, 12, 13, 14],
+    "d3m4-close": [15, 16, 17, 18, 19, 20]
   },
   "video": {
     "src": "/decks/day3/day3-narrated.mp4",

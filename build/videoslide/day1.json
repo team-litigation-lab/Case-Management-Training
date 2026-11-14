@@ -4,12 +4,12 @@
   "voice": "en_US-lessac-high, converted to the trainer's own voice (revoice.py)",
   "day": 11,
   "lessons": {
-    "d1m1-role": [3, 4, 5, 6, 17],
-    "d1m1-l1": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18],
+    "d1m1-role": [1, 2, 3, 4, 5, 6],
+    "d1m1-l1": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
     "d1m4-l1": [19, 20, 21, 22, 23, 24, 25, 26],
     "d1m4-tplan": [27, 28, 29, 30, 31, 34, 35, 36],
     "d1m4-tmap": [37, 38, 39, 40, 41, 42, 43, 44, 48, 49],
-    "d1m4-tcare": [32, 33, 45, 46, 47]
+    "d1m4-tcare": [32, 33, 45, 46, 47, 50]
   },
   "video": {
     "src": "/decks/day1/day1-narrated.mp4",

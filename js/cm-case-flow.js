@@ -109,6 +109,8 @@ SEQUENCE.forEach(seq => {
   // a Skill Activity's lesson (the sequence's `practises`; without one, the last lesson of its own module taught before it)
   lessons.forEach((l, i) => { if(l.cf.block.kind !== "activity") return;
     l.cf.of = lessons.find(x => x.cf.block.kind === "lesson" && x.cf.block.id === l.cf.practises)
+      // or taught on an earlier day: a deck's lessons are on the deck's own day (Day N's deck on Case Flow Day N)
+      || MODULES.flatMap(m => m.lessons).find(x => x.cf.block.kind === "lesson" && x.cf.block.id === l.cf.practises)
       || lessons.slice(0, i).filter(x => x.cf.block.kind === "lesson" && x.cf.mod === l.cf.mod).pop() || null; });
   // every day's Knowledge Check: 20 questions. A day with more takes them in turn from each module it checks (so every
   // module a day checks is asked about), kept in the order they are taught
@@ -4354,7 +4356,7 @@ function caseFlowPractice(){
       const tool = String(b.act.tool || "").split("·")[0].split("→")[0].trim(), docs = (CF_PACKETS[b.id] || []).length;
       const tag = mid ? (b.id === mid ? `<span class="cf-px-loop cf-px-main">🎯 Skill Building</span>` : `<span class="cf-px-loop">Skill activity</span>`) : "";
       return `<div class="cf-px-tile${mid && b.id === mid ? " cf-px-tile-main" : ""}${open ? "" : " locked"}"${open ? ` role="button" tabindex="0" onclick="cmCaseFlow.openBlock(${d.id},${li})" onkeydown="if(event.key==='Enter')cmCaseFlow.openBlock(${d.id},${li})"` : ""} title="${E("Deliver: " + b.act.output)}">
-          <span class="cf-px-k">${d.cf.n}.${gi + 1} · ${E(title)}${SIM.calls[b.id] ? " · 📞" : ""}</span>
+          <span class="cf-px-k">${E(String(d.lessons[li].h).split(" ")[0])} · ${E(title)}${SIM.calls[b.id] ? " · 📞" : ""}</span>
           <b>${E(b.title)}</b>${tag}
           <span class="cf-px-m"><span>🛠 ${E(tool)}</span>${docs ? `<span>📁 ${docs}</span>` : ""}${!isTrainer() && actDone(b.id) ? `<span class="ok">✓ Worked</span>` : ""}<span class="go">${open ? "Open →" : "🔒"}</span></span>
         </div>`; }).join("")).join("");

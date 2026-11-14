@@ -89,12 +89,11 @@
   },
   "d2m1-a1": {
     "image": "email-outreach",
-    "situation": "File date 02/17/2026. Claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, **no adjuster assigned**. **Five letters** must go out today.",
+    "situation": "Assuming claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, **no adjuster assigned**, **five letters** must go out on 02/17/2026.",
+    "side": true,
     "steps": [
-      "In CMS → Documents → Outgoing, draft the five letters on the firm template: three letters of representation and **two notices**.",
-      "Give each letter its Attn line, insured, claim, policy or member number and date of loss, and ask for limits, Declaration Pages and preservation.",
-      "Route the set to Atty. Thorne for signature, then send each letter by the carrier's preferred method.",
-      "Calendar a check for each acknowledgement on the CMS Calendar."
+      "In CMS → Documents → Outgoing, draft three letters of representation and **two notices**: each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages.",
+      "Route the set to Atty. Thorne for signature, send each by the carrier's preferred method, and calendar a check for each acknowledgement."
     ],
     "deliver": "Five letters **signed, sent and logged**, each correctly addressed, follow-ups calendared",
     "purpose": "One wrong letter risks **the UM coverage** or hands Keystone his private details",
