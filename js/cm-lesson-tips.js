@@ -7,7 +7,7 @@
      Day 3  the Demand Package (d3m1-pkg), Adjuster Delay Tactics (d3m2-l1), the UM Consent & Waiver (d3m2-umw): Day 2's
             Demand, Settlement Negotiations and BI Settlement pages
    Their rules are not lost: each one is a 💡 Tip pop-up on the Skill Activity that practised it, on the activity's
-   first slide. The button opens a small panel (why it matters and the rules), and ✕ or Esc closes it.
+   first slide, beside its "Practises:" line. The button opens a small panel (why it matters and the rules), and ✕ or Esc closes it.
    Checked by .github/scripts/lesson-tips.cjs. */
 (function(){
 "use strict";
@@ -44,13 +44,20 @@ renderDaySlideContent = function(d, slide){
   const l = slide && slide.type === "topic" && slide.part === 1 && d && d.lessons && d.lessons[slide.lessonIndex];
   const ids = l && l.cf && l.cf.block && TIPS[l.cf.block.id];
   if(!ids || typeof html !== "string") return html;
-  return html + `<button type="button" class="cm-lt-btn" data-tips="${E(ids.join(","))}" onclick="cmLessonTips.open(this)" title="Tips from the lesson">💡 Tip</button>`;
+  const btn = `<button type="button" class="cm-lt-btn" data-tips="${E(ids.join(","))}" onclick="cmLessonTips.open(this)" title="Tips from the lesson">💡 Tip</button>`;
+  // beside the activity's "Practises: …" line (in the flow of the slide, so it covers nothing); a slide without one: at its end
+  const at = html.search(/<b class="cfx-of"[^>]*>[\s\S]*?<\/b>/);
+  if(at < 0) return html + `<div class="cm-lt-row">${btn}</div>`;
+  const end = html.indexOf("</b>", at) + 4;
+  return html.slice(0, end) + btn + html.slice(end);
 };
 
 const css = document.createElement("style");
-css.textContent = `.cm-lt-btn{position:fixed;right:22px;bottom:86px;z-index:40;border:1px solid #f0c94a;background:#fff8dc;color:#5b4500;font:600 13px/1 inherit;padding:8px 12px;border-radius:999px;cursor:pointer;box-shadow:0 2px 8px rgba(30,35,64,.15)}
-.cm-lt-btn:hover{background:#ffefb0}
-.cm-lt-pop{position:fixed;right:22px;bottom:130px;z-index:1000;width:min(440px,calc(100vw - 32px));max-height:min(60vh,520px);overflow:auto;background:#fff;color:#1e2340;border:1px solid #e3d6a3;border-radius:12px;padding:16px 18px 12px;box-shadow:0 10px 30px rgba(30,35,64,.25);font-size:14px;line-height:1.45}
+css.textContent = `/* a small pill beside the Practises line (the slide's own button rules would restyle it: hence !important) */
+.cm-lt-btn{display:inline-flex !important;align-items:center;width:auto !important;min-width:0 !important;height:auto !important;margin:0 0 0 8px !important;vertical-align:middle;border:1px solid #f0c94a !important;background:#fff8dc !important;color:#5b4500 !important;font:700 12px/1 inherit;padding:4px 10px !important;border-radius:999px !important;cursor:pointer;box-shadow:none !important}
+.cm-lt-row{display:flex;justify-content:flex-end;margin-top:6px}
+.cm-lt-btn:hover{background:#ffefb0 !important}
+.cm-lt-pop{position:fixed;right:22px;top:120px;z-index:1000;width:min(440px,calc(100vw - 32px));max-height:min(60vh,520px);overflow:auto;background:#fff;color:#1e2340;border:1px solid #e3d6a3;border-radius:12px;padding:16px 18px 12px;box-shadow:0 10px 30px rgba(30,35,64,.25);font-size:14px;line-height:1.45}
 .cm-lt-pop h4{margin:0 26px 6px 0;font-size:15px}.cm-lt-pop section+section{margin-top:12px;border-top:1px solid #eee;padding-top:10px}
 .cm-lt-pop .cm-lt-why{margin:0 0 6px;color:#4a4f6a}.cm-lt-pop ul{margin:0;padding-left:18px}.cm-lt-pop li{margin:3px 0}
 .cm-lt-x{position:absolute;top:8px;right:10px;border:0;background:none;font-size:16px;cursor:pointer;color:#666}`;
