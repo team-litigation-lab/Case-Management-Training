@@ -18,7 +18,10 @@ const STEPS = [
   ["Slides", "build/case-flow/slides/assemble.cjs"],
   ["Trainer scripts", "build/case-flow/scripts/assemble.cjs"],
   ["Simulation", "build/case-flow/sim/assemble.cjs"],
-  ["Curriculum documents", "build/case-flow/curriculum.cjs"]
+  ["Exhibits (audits, Amendment Requests, Service Confirmations)", "build/case-flow/exhibits/assemble.cjs"],   // CI checks it in step too
+  ["Companion cases", "build/case-flow/cases/assemble.cjs"],
+  ["Curriculum documents", "build/case-flow/curriculum.cjs"],
+  ["Document inventory", "build/case-flow/documents/inventory.cjs"]   // reads the exhibits, so after them
 ];
 
 const quiet = process.argv.includes("--quiet");
@@ -32,4 +35,4 @@ for (const [what, script] of STEPS) {
   }
   if(!quiet) process.stdout.write(out);
 }
-if(!quiet) console.log("\nCase Flow rebuilt: slides, trainer scripts, simulation and curriculum documents are in step with the lesson data.");
+if(!quiet) console.log("\nCase Flow rebuilt: slides, trainer scripts, simulation, exhibits, companion cases, curriculum documents and the document inventory are in step with the lesson data.");
