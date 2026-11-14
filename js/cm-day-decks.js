@@ -52,12 +52,45 @@ if(typeof presenterCues === "function"){   // Presenter view: what the page is, 
   };
 }
 
+/* ---------- 🗺 Roadmap: each day's deck topics (Day 2: js/cm-deck-pages.js; Days 3-5: these), under its lessons ----------
+   A "📑 Deck" group after the day's last lesson (before Part 2's label, js/cm-flow-parts.js), one row per topic; a click
+   opens the topic's first page, once it has been reached (a trainer: any). Drawn after cm-flow-parts.js has labelled
+   the list (this file loads after it), and marked rmx-dk so the lesson rows it counts are left as they are. */
+function deckTopics(n){
+  const dp = window.CM_DECK_PAGES;
+  if(dp && dp.DAY === n) return dp.DECK.map(g => ({key: g.key, topic: g.topic, pages: g.pages.length}));
+  return (DECKS[n] || []).map(g => ({key: g.key, topic: g.topic, pages: g.pages.length}));
+}
+function roadmapDecks(){
+  const o = document.getElementById("rmModal"); if(!o) return;
+  [...o.querySelectorAll(".rmx-day")].forEach((sec, i) => {
+    const d = DAYS[i]; if(!d || !d.cf || sec.querySelector(".rmx-dk")) return;
+    const ts = deckTopics(d.cf.n); if(!ts.length) return;
+    const slides = buildDaySlides(d), p = state.progress[d.id] || {}, open = state.isAdmin || (typeof dayUnlocked === "function" && dayUnlocked(d.id));
+    const sp = (state.slideProgress || {})[d.id];
+    const reached = state.isAdmin || p.done ? Infinity : Math.max(typeof sp === "number" ? sp : 0, d.id === state.dayId ? (state.maxSlideReached || 0) : 0);
+    const rows = ts.map((t, j) => {
+      const k = slides.findIndex(x => x.type === "deckPage" && x.deck === t.key), ok = open && k >= 0 && k <= reached;
+      return `<li class="rmx-dk"><button type="button" class="rmx-topic" ${ok ? `onclick="roadmapGo(${d.id}, ${k})"` : "disabled"} title="${E(t.topic)}: ${t.pages} deck page${t.pages === 1 ? "" : "s"}${ok ? "" : open ? " (reach it in the slides first)" : " (opens when this day does)"}"><span class="rmx-tn">📑</span><span class="rmx-tt">${E(t.topic)} <small class="dl-rm-tag">${t.pages} page${t.pages === 1 ? "" : "s"}</small></span>${ok ? "" : `<span class="rmx-lock">🔒</span>`}</button></li>`;
+    }).join("");
+    const head = `<li class="rmx-part rmx-part-deck rmx-dk" role="presentation"><b>📑 Deck pages</b><span>${ts.length} topic${ts.length === 1 ? "" : "s"}, after the lessons</span></li>`;
+    const list = sec.querySelector(".rmx-topics"); if(!list) return;
+    const lab = list.querySelector(".rmx-part-activity");
+    if(lab) lab.insertAdjacentHTML("beforebegin", head + rows); else list.insertAdjacentHTML("beforeend", head + rows);
+  });
+}
+if(typeof window.openRoadmap === "function"){
+  const __open = window.openRoadmap;
+  window.openRoadmap = function(){ const r = __open.apply(this, arguments); try{ roadmapDecks(); }catch(e){ console.warn("[day-decks]", e); } return r; };
+}
+
 /* the page itself is laid out by js/cm-deck-pages.js's rules (cfx-dpk, cfx-dp); these stand in if it isn't loaded */
 const css = document.createElement("style");
 css.textContent = `.cfx-dpk{justify-content:center !important;align-items:center}
 .cfx-dp{display:flex;align-items:center;justify-content:center;width:100%;height:100%;min-height:0}
 .cfx-dp img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;aspect-ratio:16/9;object-fit:contain;border-radius:10px;box-shadow:0 4px 18px rgba(30,35,64,.18)}
-.cm-dd-talk p{white-space:normal;line-height:1.5}`;
+.cm-dd-talk p{white-space:normal;line-height:1.5}
+.rmx-topics > li.rmx-part-deck{background:#2F3760;}`;
 document.head.appendChild(css);
-window.cmDayDecks = {pageOf, slidesOf};   // .github/scripts/day-decks.cjs
+window.cmDayDecks = {pageOf, slidesOf, deckTopics};   // .github/scripts/day-decks.cjs
 })();
