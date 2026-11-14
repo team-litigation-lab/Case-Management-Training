@@ -125,6 +125,7 @@ None.
 | `day-decks.cjs` | The Day 3, 4 and 5 decks' pages on Case Flow Days 3–5: every page has its picture and talking points, and none is a Skill Building, title, agenda or Thank You page |
 | `deck-pages.cjs` | The revised Day 2 deck's pages: every page js/cm-deck-pages.js puts on the Case Flow deck has its picture, and no Skill Building slide is among them |
 | `drive-connect.cjs` | Linking a trainee's Google Drive folder (shared with the service account and pasted, as Foundational links a Drive; every refusal says why; Google answered by the test) |
+| `drive-daily.cjs` | The Backup Drive is scored every day: each day a trainee has reached is graded (nothing on the drive yet scores 0), every night too, in four measures (compliance, attention to detail, organization, naming convention) |
 | `drive-grades.cjs` | The Backup Drive is auto-graded day by day from the Drive itself (Days 2–5, against an in-memory Google Drive) |
 | `drive-naming.cjs` | The firm's file naming convention on the Backup Drive (one rule with the CMS filing; every name checked, each wrong one with the name it should have) |
 | `drive-trainer-access.cjs` | A trainee's linked Google Drive opens at their case folders, for them and for a trainer (rootUrl/caseUrl, GDRIVE_TRAINER_EMAILS added to the folder without an email) |

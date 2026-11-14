@@ -56,6 +56,9 @@ const fbRecOf = r => { const x = extraOf(r) || {}; return x.fbRec || {days: x.fb
 
 /* ---------- loading: the rows' cache (progress, feedback, focus) and, for the Scores, callsim / simresults ---------- */
 async function loadScores(ppl){
+  // 📂 every trainee's Backup Drive as the Worker last graded it (nightly): read with the rest, at most once a minute
+  if(typeof loadDriveReports === "function" && state.isAdmin && !state.driveReportsLoading && (!state.driveReportsAt || Date.now() - state.driveReportsAt > 60000))
+    loadDriveReports().then(repaint).catch(() => {});
   const due = ppl.filter(r => !B.extra[r.id] || Date.now() - B.extra[r.id].at > 60000);
   if(!due.length || B.loading) return;
   B.loading = true;
@@ -277,12 +280,25 @@ function dayParts(r, d){
     out.push({grp: "rt", name: `🎲 Random task: ${clip(typeof t.task === "string" ? t.task : (t.task && (t.task.title || t.task.name)) || "", 70)}`, pct: sc,
       status: t.status === "resolved" ? (t.tier || "Resolved") : missed ? "Missed" : "Open", why: t.status === "resolved" ? `Resolved ${dTime(t.submittedAt || t.resolvedAt)}${t.tier ? " · " + t.tier : ""}` : missed ? "Not resolved before the timer ended: counts 0" : "Still open", best: [], improve: []}); });
   // 📂 Backup Drive
-  const bd = n === 1 ? data["drive-setup"] : (data["drive-grades"] || {})[n];
+  // the trainee's saved grade, or else the nightly one the Worker keeps on their drive (📂 the trainer's drive reports,
+  // state.driveReports): a Backup Drive is scored every night whether or not the trainee has opened it since
+  const rep = (typeof state === "object" && state.driveReports || {})[r.id] || null;
+  const saved = n === 1 ? data["drive-setup"] : (data["drive-grades"] || {})[n];
+  const night = rep && (n === 1 ? (typeof rep.setupScore === "number" ? {score: rep.setupScore, ok: rep.passed, attempts: rep.attempts} : null) : (rep.grades || {})[n]);
+  const bd = saved && typeof saved.score === "number" && !(night && night.at && saved.at && night.at > saved.at) ? Object.assign({}, night && night.dims && !saved.dims ? {dims: night.dims} : {}, saved) : night || saved;
+  const DIMW = {compliance: "Compliance", detail: "Attention to detail", organization: "Organization", naming: "Naming convention"};
+  const bdDims = bd && bd.dims ? Object.entries(DIMW).filter(([k]) => typeof bd.dims[k] === "number").map(([k, w]) => `${w} ${bd.dims[k]}%`).join(" · ") : "";
   // 🏷 the day's File names row (names: {got, max, wrong}, kept with the grade by js/cm-drive.js) leads the list when it cost points, so the cause is named
   const bdNames = bd && bd.names && typeof bd.names.got === "number" && typeof bd.names.max === "number" && (bd.names.got < bd.names.max || bd.names.wrong > 0)
     ? [`🏷 File names ${bd.names.got}/${bd.names.max}${bd.names.wrong > 0 ? ` · ${bd.names.wrong} name${bd.names.wrong === 1 ? "" : "s"} wrong` : ""}`] : [];
   if(bd && typeof bd.score === "number") out.push({grp: "bd", name: n === 1 ? "📂 Backup Drive: the firm's folders" : "📂 Backup File Maintenance", pct: num(bd.score),
-    status: (n === 1 ? bd.ok : bd.passed) ? "Passed" : "Below 70%", why: `Read from the trainee's Drive${bd.attempts ? ` · attempt ${bd.attempts}` : ""}${bd.at ? " · " + dTime(bd.at) : ""}`, best: [], improve: bdNames.concat((bd.issues || bd.problems || []).slice ? (bd.issues || bd.problems || []).slice(0, 4).map(x => clip(typeof x === "string" ? x : JSON.stringify(x), 200)) : [])});
+    status: (n === 1 ? bd.ok : bd.passed) ? "Passed" : "Below 70%", why: `${bdDims ? bdDims + " · " : ""}Read from the trainee's Drive${bd.attempts ? ` · attempt ${bd.attempts}` : ""}${bd.at ? " · " + dTime(bd.at) : ""}`, best: [], improve: bdNames.concat((bd.issues || bd.problems || []).slice ? (bd.issues || bd.problems || []).slice(0, 4).map(x => clip(typeof x === "string" ? x : JSON.stringify(x), 200)) : [])});
+  // a day reached with no Backup Drive grade at all (no drive linked, or Day 1's folders never submitted) scores 0 and says
+  // why, once the drive reports have been read: the column is never left blank for a day the trainee has been on
+  else if(n && (data["day-progress"] || r.dayProgress || {})[d.id] && typeof state === "object" && state.driveReportsAt && !state.driveReportsLoading)
+    out.push({grp: "bd", name: n === 1 ? "📂 Backup Drive: the firm's folders" : "📂 Backup File Maintenance", pct: 0, status: "Not done",
+      why: !rep || !rep.connected ? "No Backup Drive linked yet: counts 0" : n === 1 ? "The firm's folders haven't been submitted yet: counts 0" : "Nothing of this day is on the drive yet: counts 0",
+      best: [], improve: [!rep || !rep.connected ? "Link the Google Drive folder (🔗 Link my Google Drive, Day 1's Backup File Maintenance)." : n === 1 ? "Build the firm's folders and submit them." : "File the day's documents in the CMS so their copies land in their folders."]});
   // ✍ the written work on the Backup Drive, AI-graded, and a trainer's override of the day's Drive grade (js/cm-drive-work.js)
   try{ if(window.cmDriveWork) cmDriveWork.dayParts(r, n, data, out); }catch(e){}
   // 🗂 the CMS case file (js/cm-cms-file.js): the day's file, graded against what a correct CMS file holds by then
