@@ -51,7 +51,7 @@ const NS_STAGES = {recovery: "Track A · Settlement: the gross and the fee", bi:
   liens: "Track A · Lien negotiations", final: "Track A · Disbursement: the final Net Sheet", litigation: "Track B · Case won: the litigated Net Sheet"};
 /* ---------- the grading systems: each returns its items, {name, pct, note, auto} ---------- */
 const SOURCES = [
-  {id: "kc", icon: "✍️", label: "Knowledge Checks", about: "Each Case Flow day's Knowledge Check. 70% passes the day.", dims: ["pc"], how: "Auto-scored quiz: the best score of the day's attempts.",
+  {id: "kc", icon: "✍️", label: "Knowledge Checks", about: "Each Case Flow day's Knowledge Check. 70% passes the day.", dims: ["pc"], how: "Auto-scored quiz: one attempt, and its score is the one recorded.",
     items: c => cfDays().map(d => { const s = ((c.cf.days || {})[d.cf.n] || {}), p = (c.rec.dayProgress || {})[d.id] || {};
       const pct = num(s.kc != null ? s.kc : p.score); if(pct == null) return null;
       return {name: dayName(d), pct, note: pct >= 70 ? "Passed" : "Below 70%: not passed yet"}; })},
@@ -228,7 +228,7 @@ const MODEL = (function(){
     // ⏱ Procedural Compliance & Timeliness
     cfDays().forEach(d => { const p = dp[d.id] || {}, s = cfd[d.cf.n] || {}, kc = typeof p.score === "number" ? p.score : s.kc;
       if(typeof kc !== "number") return;
-      add("pc", "✍️ Knowledge Check", d.cf.n, `Day ${d.cf.n} Knowledge Check`, kc, kc >= 70 ? "Passed (best score)" : "Below 70%: the day isn't passed yet");
+      add("pc", "✍️ Knowledge Check", d.cf.n, `Day ${d.cf.n} Knowledge Check`, kc, kc >= 70 ? "Passed (one attempt)" : "Below 70%: the day isn't passed yet");
       add("pc", "📂 Case folder & backup", d.cf.n, "The day's case-folder upload", ups[d.id] ? 100 : 0, ups[d.id] ? "Uploaded" : "Not marked uploaded"); });
     const ds = data["drive-setup"]; if(ds && typeof ds.score === "number") add("pc", "📂 Case folder & backup", 1, "Backup Drive set-up", ds.score, `${ds.attempts || 1} attempt${(ds.attempts || 1) === 1 ? "" : "s"}`);
     Object.entries(data["doc-filing"] || {}).forEach(([id, r]) => { if(!r || !(r.attempts > 0)) return; const doc = DOCS.find(x => x.id === id) || {};
@@ -347,9 +347,33 @@ function sheetHtml(T){
       <tbody>${T.rows.map((r, ri) => `<tr${T.rowCls && T.rowCls[ri] ? ` class="${T.rowCls[ri]}"` : ""}${T.onRow && T.onRow[ri] ? ` onclick="${T.onRow[ri]}"` : ""}><th class="gs-rn">${ri + 2}</th>${r.map((c, ci) => `<td tabindex="0" class="${c.cls || ""}${ci === 0 ? " gs-frz" : ""}"${c.f ? ` title="${E(c.f)}"` : ""}>${E(c.v)}</td>`).join("")}</tr>`).join("")}
       ${T.rows.length ? "" : `<tr class="gs-empty"><th class="gs-rn">2</th><td colspan="${n}" class="bs-none">${E(T.empty || "Nothing yet.")}</td></tr>`}</tbody></table></div></section>`;
 }
-// 🏅 Scores: a row per trainee: the 100-point model (its four dimensions, the Final, the tier, the safety gate and the
+// 🏅 Scores, as shown: a short row per trainee, easy to read: the days passed, each Case Flow day's score, the Knowledge
+// Checks, the AI-graded activities, the Total (the 100-point model's Final) and the Result. Hover a cell for how it's made.
+// The CSV (⬇ Download) keeps every column: scoresSheet(rows, me, true).
+function dayKc(c, d){ const p = (c.rec.dayProgress || {})[d.id] || {}, s = (c.cf.days || {})[d.cf.n] || {}; return num(typeof p.score === "number" ? p.score : s.kc); }
+function shortSheet(rows, me){
+  const mc = (v, f, extra) => ({v: v == null ? "" : v + "%", f, cls: "gs-num " + MODEL.mtone(v) + (extra ? " " + extra : "")});
+  const avgOf = (r, id) => (r.sc.rows.find(x => x.s.id === id) || {}).avg;
+  return {id: "scores", title: "🏅 Scores",
+    note: me ? "" : "Click a trainee for their card. Hover a score to see how it is made.",
+    head: ["Trainee"].concat(me ? [] : ["Batch"], ["Days passed"], cfDays().map(d => `Day ${d.cf.n} %`), ["✍️ Knowledge Checks %", "🧪 Activities (AI-graded) %", "Total %", "Result"]),
+    rows: rows.map(r => { const m = r.m, kc = avgOf(r, "kc"), sa = avgOf(r, "sa");
+      return [{v: r.name, f: r.name, cls: "gs-name"}].concat(me ? [] : [{v: batchOf(r.batch), f: r.batch, cls: "gs-batch"}],
+        [{v: `${r.sc.done} / ${r.sc.total}`, f: `${r.sc.done} of the ${r.sc.total} Case Flow days passed (70% on the Knowledge Check passes a day)`, cls: "gs-num"}],
+        cfDays().map(d => { const x = m.days.find(y => y.n === d.cf.n) || {}, k = dayKc(r.c, d);
+          return mc(x.S, x.S == null ? `Day ${d.cf.n}: nothing scored yet` : `Day ${d.cf.n}: ${x.S}%${k == null ? "" : ` · Knowledge Check ${k}%`}`); }),
+        [pcell(kc, kc == null ? "No Knowledge Check taken yet" : "The average of the days' Knowledge Checks (one attempt each)"),
+         pcell(sa, sa == null ? "No activity graded yet" : "The average of the graded activities (the AI grader's score, latest attempt of each)"),
+         mc(m.final, m.final == null ? "Nothing scored yet" : `Total = the 100-point model's Final: each day's score, weighted by the day's complexity = ${m.final}%`, "gs-calc gs-bold"),
+         {v: MODEL.STATUS[m.status], f: `Pass = Total ≥ ${MODEL.PASS}% and the safety gate at 100%`, cls: m.status === "pass" ? "gs-hi" : m.status === "none" ? "" : m.status === "pending" ? "gs-mid" : "gs-lo"}]); }),
+    rowCls: rows.map(r => !me && ALL.pick === r.id ? "gs-picked" : ""),
+    onRow: me ? null : rows.map(r => `cmScorecard.pick('${E(r.id)}')`),
+    empty: me ? "Collecting your grades…" : "No approved trainee in this batch yet."};
+}
+// 🏅 Scores in full (the CSV): the 100-point model (its four dimensions, the Final, the tier, the safety gate and the
 // result), the Daily compliance and the Overall, then each grading system (blank: nothing graded yet) and their average
-function scoresSheet(rows, me){
+function scoresSheet(rows, me, full){
+  if(!full) return shortSheet(rows, me);
   const mc = (v, f, extra) => ({v: v == null ? "" : v + "%", f, cls: "gs-num " + MODEL.mtone(v) + (extra ? " " + extra : "")});
   return {id: "scores", title: "🏅 Scores",
     note: me ? "Your 100-point model scores, then every grade the course gives you averaged per grading system (blank: nothing graded yet)."
@@ -434,7 +458,20 @@ function modelTable(m){
       `<b>${E(MODEL.STATUS[m.status])}.</b> Pass = Final ≥ ${MODEL.PASS}% and the safety gate at 100%. The rubric: ${T.map(t => `<b>${t.n} ${E(t.label)}</b> ${E(t.band)}`).join(" · ")}; a safety-gate breach is Needs Improvement whatever the score.`)}
   </tbody></table>`;
 }
-function daysTable(m){
+// a day's graded activities: the AI grader's score, the latest attempt of each (as 🧪 Skill Activities counts them)
+function dayActs(c, n){
+  const seen = {}, dayOf = e => { const m = /Case Flow Day (\d)/.exec(e.label || ""); if(m) return +m[1]; const v = parseInt(e.dayId, 10); return v >= 11 && v <= 15 ? v - 10 : v; };
+  ((c.data || {})["work-log"] || []).filter(e => e && e.kind === "lab" && typeof e.score === "number" && dayOf(e) === n)
+    .forEach(e => { const key = e.label || e.toolId || "Skill Activity"; if(!seen[key] || String(e.at || "") > String(seen[key].at || "")) seen[key] = e; });
+  const v = Object.values(seen).map(e => num(e.score)).filter(x => x != null);
+  return v.length ? Math.round(v.reduce((t, x) => t + x, 0) / v.length) : null;
+}
+function dayLine(x, c){
+  const k = c ? dayKc(c, x.d) : null, a = c ? dayActs(c, x.n) : null;
+  const bits = [k == null ? "✍️ Knowledge Check: not taken" : `✍️ Knowledge Check <b>${k}%</b>`, a == null ? "" : `🧪 Activities <b>${a}%</b>`, x.comp ? `✅ Daily compliance <b>${x.comp.pct}%</b>` : ""].filter(Boolean);
+  return `<div class="bs-pt-line">${bits.join(" · ")}</div>`;
+}
+function daysTable(m, c){
   const rows = m.days.map(x => {
     const parts = [];
     if(x.comp) x.comp.parts.forEach(p => parts.push({group: "✅ Daily compliance", groupV: x.comp.pct + "%", top: true, name: p.label, v: p.v ? "Done" : "Not yet", tone: p.v ? "gs-hi" : "gs-lo"}));
@@ -443,7 +480,8 @@ function daysTable(m){
       dm.groups.forEach(gr => gr.items.forEach(it => parts.push({group: gr.name, groupV: gr.v + "%", name: it.name, v: it.pct + "%", tone: MODEL.mtone(it.pct), text: it.note}))); });
     if(x.crit.length) x.crit.forEach(cr => parts.push({group: "⛔ Safety gate: critical items", top: true, crit: true, name: cr.name, v: cr.met ? "Met" : "Breach", tone: cr.met ? "gs-hi" : "gs-lo", text: cr.note}));
     const label = `${E(dayName(x.d))}<small class="bs-pt-mult">× ${mx(x.mult)} complexity${x.provisional ? " · provisional: not every dimension has evidence yet" : ""}</small>`;
-    return `<tr><td class="bs-pt-m">${label}</td><td class="bs-pt-v ${MODEL.mtone(x.S)}">${x.S == null ? "—" : x.S + "%"}</td><td class="bs-pt-f">${partsTable(parts) || `<span class="bs-none">Nothing scored on this day yet.</span>`}</td></tr>`; }).join("");
+    const pt = partsTable(parts);
+    return `<tr><td class="bs-pt-m">${label}</td><td class="bs-pt-v ${MODEL.mtone(x.S)}">${x.S == null ? "—" : x.S + "%"}</td><td class="bs-pt-f">${x.S == null && !pt ? `<span class="bs-none">Nothing scored on this day yet.</span>` : dayLine(x, c)}${pt ? `<details class="bs-pt-parts"><summary>▸ What makes up this score</summary>${pt}</details>` : ""}</td></tr>`; }).join("");
   return `<table class="bs-pt-t bs-pt-s-days"><colgroup><col class="bs-pt-c1"><col class="bs-pt-c2"><col></colgroup><tbody>
     <tr class="bs-pt-sec"><th colspan="3">📅 Day scores</th></tr>
     <tr><td class="bs-pt-m">Final</td><td class="bs-pt-v ${MODEL.mtone(m.final)}">${mpct(m.final)}</td><td class="bs-pt-f">${m.scored.length ? `The ${m.scored.length} scored day${m.scored.length === 1 ? "" : "s"}, weighted by complexity` : "No day scored yet"}${m.comp != null ? ` · Daily compliance ${m.comp}% over ${m.compDays} day${m.compDays === 1 ? "" : "s"} reached` : ""}</td></tr>
@@ -483,8 +521,11 @@ function cardHtml(r, me){
       ${pills.map(([l, v, f]) => `<span class="bs-pt-k ${MODEL.mtone(v)}" title="${E(f)}">${E(l)} <b>${mpct(v)}</b></span>`).join("")}
       <span class="bs-pt-k bs-pt-r ${rtone}" title="Pass = Final ≥ ${MODEL.PASS}% and the safety gate at 100%">${m.tier ? E(m.tier.label) + " · " : ""}<b>${E(MODEL.STATUS[m.status])}</b></span></div>
     ${focusHtml(m)}
-    <div class="bs-pt-wrap">${modelTable(m)}${window.cmCmsFile ? cmCmsFile.html(cmCmsFile.compute(r.c), me) : ""}${window.cmRubric ? profileTable(r.sc) : ""}${daysTable(m)}
-      <details class="bs-pt-src"><summary>▸ The grading systems behind it (every graded item, as recorded)</summary>${sheetHtml(Object.assign(detailSheet(r.sc, me ? "" : r.name), {id: "detail-" + domId(r.id)}))}</details>
+    <div class="bs-pt-wrap">${daysTable(m, r.c)}
+      <details class="bs-pt-src bs-pt-how"><summary>▸ How this is scored (the 100-point model, the CMS case file, every graded item)</summary>
+        ${modelTable(m)}${window.cmCmsFile ? cmCmsFile.html(cmCmsFile.compute(r.c), me) : ""}${window.cmRubric ? profileTable(r.sc) : ""}
+        ${sheetHtml(Object.assign(detailSheet(r.sc, me ? "" : r.name), {id: "detail-" + domId(r.id)}))}
+        <p class="sc-how">${E(HOW_MODEL)}</p></details>
     </div></div>`;
 }
 const HOW_MODEL = `How the score is worked out: the client's 100-point model. Four dimensions — Procedural Compliance & Timeliness 25%, Needs Assessment & Risk Identification 25%, Care/Action Plan Quality 30%, Communication & Documentation 20% — scored per Case Flow day from the work CM records (each number feeds one dimension), then weighted by the day's complexity (Day 1 × 1.0, Days 2–3 × 1.15, Days 4–5 × 1.3): Final = Σ(day score × multiplier) ÷ Σ multipliers. Tiers: Exemplary 90–100 · Proficient 80–89 · Developing 65–79 · Needs Improvement below 65 (the 📐 Feedback Rubric's tiers). Pass = Final ≥ 80% and 100% on the safety gate's critical items (UPL in the takeaway, the audits' privilege and hard-date items, the trust-money Net Sheet stages). Overall = the average of the Scorecard (Final) and the Daily compliance. Not in the model: Skill Builders, the Call Simulator and Portal simulator bests, the Learning Check composites and takeaway totals (their parts are counted), and the self-ratings.`;
@@ -521,17 +562,20 @@ function renderMine(){
   const r = rowOf(state.traineeId, name, state.traineeBatch, myCtx());
   return `<div class="scx-page scx-wide">${sheetTop("My Performance", `${E(name)}${state.traineeBatch ? ` · Batch <b>${E(batchOf(state.traineeBatch))}</b>` : ""}`, `${window.cmRubric ? `<button onclick="state.scxRubric=true;render()">📐 Feedback Rubric</button>` : ""}<button onclick="window.print()">🖨 Print</button>`, loaded ? `<span>${E(MODEL.STATUS[r.m.status])}</span><span>${r.sc.done} / ${r.sc.total} days passed</span>` : "")}
     <div class="card gs-card scx-card">
-    ${loaded ? `<div class="bs-pts">${cardHtml(r, true)}</div><details class="bs-pt-src scx-pad"><summary>▸ My row in the scores table</summary>${sheetHtml(scoresSheet([r], true))}</details>` : `<p class="bs-none scx-pad">Collecting your grades…</p>`}
-    <p class="sc-how">${E(HOW_MODEL)}</p></div></div>`;
+    ${loaded ? `<div class="bs-pts">${cardHtml(r, true)}</div>` : `<p class="bs-none scx-pad">Collecting your grades…</p>`}</div></div>`;
 }
 
 /* ---------- 🏅 Scorecards: every approved trainee's card, for the trainer ---------- */
-const ALL = {rows: null, loading: false, batch: "", pick: "", only: ""};
+const ALL = {rows: null, loading: false, batch: "", pick: "", only: "", at: 0};
+// The trainee records are read fresh every time (not the Admin screen's copy, which can be minutes old), so a change made
+// to a trainee's record, such as a corrected Batch ID, shows here on the next load; an open page reloads them once a minute.
+const FRESH_MS = 60000;
 async function loadAll(){
-  ALL.loading = true;
+  ALL.loading = true; ALL.at = Date.now();
   try{
-    let people = state.adminData;
-    if(!people){ const keys = await sharedList("trainee:"); people = (await sharedGetMany(keys)).filter(Boolean); state.adminData = people; }
+    let people = null;
+    try{ const keys = await sharedList("trainee:"); people = (await sharedGetMany(keys)).filter(Boolean); state.adminData = people; }catch(e){ people = state.adminData; }
+    if(!people) throw new Error("no records");
     people = people.filter(r => r && r.approved === true && !r.archived);
     const want = []; people.forEach(r => want.push("progress:" + r.id, "callsim:" + r.id, "simresults:" + r.id, "feedback:" + r.id));
     const vals = await sharedGetMany(want);
@@ -544,6 +588,7 @@ async function loadAll(){
 const batchOf = b => typeof batchShow === "function" ? (batchShow(b) || b) : typeof cleanBatch === "function" ? (cleanBatch(b) || b) : b;
 const shownRows = () => (ALL.rows || []).filter(r => !ALL.batch || batchOf(r.batch) === ALL.batch);
 function renderAll(){
+  if(ALL.rows && !ALL.loading && Date.now() - ALL.at > FRESH_MS && !(typeof isTyping === "function" && isTyping())) loadAll();   // in the background: the rows shown stay until the fresh ones come
   if(!ALL.rows){ if(!ALL.loading) loadAll(); return `<div class="scx-page scx-wide"><div class="card gs-card scx-card"><p class="bs-none scx-pad">Collecting every trainee's grades…</p></div></div>`; }
   const batches = [...new Set(ALL.rows.map(r => batchOf(r.batch)).filter(Boolean))].sort();
   const rows = shownRows(), cards = ALL.only ? rows.filter(r => r.id === ALL.only) : rows, passed = rows.filter(r => r.m.pass).length;
@@ -551,11 +596,10 @@ function renderAll(){
   return `<div class="scx-page scx-wide">${sheetTop("Scorecards", ALL.batch ? `Batch <b>${E(ALL.batch)}</b>` : "All batches", `<label class="scx-bpick">Batch <select onchange="cmScorecard.batch(this.value)"><option value="">All batches</option>${batches.map(b => `<option ${b === ALL.batch ? "selected" : ""}>${E(b)}</option>`).join("")}</select></label>${who}<button onclick="cmScorecard.csv()">⬇ Download</button><button onclick="window.print()">🖨 Print</button><button onclick="cmScorecard.refresh()">↻ Refresh</button>`, `<span>${rows.length} trainee${rows.length === 1 ? "" : "s"}</span><span>${passed} passing</span>`)}
     <div class="card gs-card scx-card">
     ${sheetHtml(scoresSheet(rows, false))}
-    ${cards.length ? `<div class="bs-pts scx-pad">${cards.map(r => cardHtml(r, false)).join("")}</div>` : ""}
-    <p class="sc-how">${E(HOW_MODEL)}</p></div></div>`;
+    ${cards.length ? `<div class="bs-pts scx-pad">${cards.map(r => cardHtml(r, false)).join("")}</div>` : ""}</div></div>`;
 }
 function csv(){
-  const rows = shownRows(), T = scoresSheet(rows, false);
+  const rows = shownRows(), T = scoresSheet(rows, false, true);
   const q = v => { const t = String(v == null ? "" : v); return `"${(/^[=+\-@\t\r]/.test(t) ? "'" + t : t).replace(/"/g, '""')}"`; };
   const lines = [T.head.map(q).join(",")].concat(T.rows.map(r => r.map(c => q(c.csv != null ? c.csv : c.v)).join(",")));
   const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob(["﻿" + lines.join("\r\n")], {type: "text/csv"}));
@@ -664,6 +708,12 @@ css.textContent = `
 .bs-parts-n{width:38%;font-weight:600;color:#1F2433;} .bs-parts-v{width:96px;white-space:nowrap;} .bs-parts-t{color:#3C4043;}
 .bs-sbox{display:inline-block;min-width:44px;text-align:center;border:1px solid #DADCE0;border-radius:6px;padding:2px 5px;font:700 14px 'Inter',Arial,sans-serif;background:#F8F9FA;color:#202124;}
 .bs-sbox.gs-hi{background:#E6F4EA;border-color:#B7DFC2;color:#137333;} .bs-sbox.gs-mid{background:#FEF7E0;border-color:#F3DC8F;color:#8A5A00;} .bs-sbox.gs-lo{background:#FCE8E6;border-color:#F5C2BC;color:#B3261E;}
+/* the short 🏅 Scores sheet fits the page at 1366 wide: narrower score columns */
+.scx-card #scx-scores .gs-letters th,.scx-card #scx-scores .gs-head th{min-width:74px;} .scx-card #scx-scores .gs-head th{font-size:14.5px;}
+.scx-card #scx-scores td.gs-name{min-width:170px;}
+.bs-pt-line{font:600 15px Arial,sans-serif;color:#1E2340;line-height:1.5;} .bs-pt-line b{font-weight:800;}
+.bs-pt-parts{margin-top:4px;} .bs-pt-parts > summary{cursor:pointer;font:700 14px Arial,sans-serif;color:#46508A;list-style:none;} .bs-pt-parts > summary::-webkit-details-marker{display:none;}
+.bs-pt-how .bs-pt-t{margin-top:10px;}
 .bs-pt-src{margin-top:14px;} .bs-pt-src > summary{cursor:pointer;font:800 15.5px 'Poppins','Inter',Arial,sans-serif;color:#1E2340;padding:8px 12px;border:2px solid #C9D1E6;border-radius:8px;background:#F4F6FB;list-style:none;}
 .bs-pt-src > summary::-webkit-details-marker{display:none;} .bs-pt-src[open] > summary{border-color:#DB8437;}
 .bs-pt-src .bs-sec{padding:10px 0 0 !important;border-top:0 !important;}

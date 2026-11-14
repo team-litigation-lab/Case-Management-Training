@@ -21,10 +21,22 @@ async function shareAddr(){
 }
 function redraw(){ if(state.view === "admin" && state.adminTab === "tdrives"){ if(typeof render === "function") render(); return; }
   const w = document.getElementById("adminRowsWrap"); if(w && typeof renderAdminRows === "function" && state.view === "admin") w.innerHTML = renderAdminRows(); }
+/* 📁 Open Drive ↗ (the trainee's LSH Case Backups folder) and 📁 Case folder ↗ (01 Clients/Doe-John in it), so a trainer
+   checks the day's work where the trainee keeps it. The Worker sends the addresses (driveReport rootUrl / caseUrl); only a
+   Google Drive address is linked. A trainer opens them when their Google account is on GDRIVE_TRAINER_EMAILS (the Worker
+   adds those to each folder) or the trainee shared the folder with them. */
+const gd = (u)=> /^https:\/\/drive\.google\.com\//.test(String(u || "")) ? String(u) : "";
+function openDrive(rep){
+  if(!rep || !rep.connected) return "";
+  const root = gd(rep.rootUrl), kase = gd(rep.caseUrl);
+  if(!root && !kase) return "";
+  return `<div class="cmda-open">${root ? `<a class="cmda-go" data-cmda-open href="${E(root)}" target="_blank" rel="noopener noreferrer">📁 Open Drive ↗</a>` : ""}${kase ? `<a class="cmda-go" data-cmda-case href="${E(kase)}" target="_blank" rel="noopener noreferrer">📁 Case folder ↗</a>` : ""}</div>`;
+}
 function box(rec){
   const rep = (state.driveReports || {})[rec.id] || {}, linked = !!rep.connected, m = msg[rec.id];
   if(!SHARE && !asked) shareAddr().then(a => { if(a) redraw(); });
   return `<div class="cmda" data-id="${E(rec.id)}">
+    ${openDrive(rep)}
     <div class="cmda-h">🔗 ${linked ? "Link a different Drive folder for this trainee" : "Link this trainee's Drive folder"}</div>
     <p class="cmda-p">The trainee shares their folder in Google Drive with ${SHARE ? `<b class="cmda-addr">${E(SHARE)}</b> <button type="button" class="cmda-mini" onclick="cmDriveAdmin.copy()">📋 Copy</button>` : "the platform's service account"} as <b>Editor</b>; paste the folder's link here.</p>
     <div class="cmda-row"><input type="url" class="cmda-in" id="cmdaIn-${E(rec.id)}" placeholder="https://drive.google.com/drive/folders/…" aria-label="The trainee's Drive folder link">
@@ -66,12 +78,12 @@ function page(){
   const reps = state.driveReports || {}, linked = rows.filter(r => (reps[r.id] || {}).connected).length;
   return `<div class="cmda-page" id="cmdaPage">
     <p class="cmda-lead">Link a trainee's Backup Drive folder for them. The trainee shares their folder in Google Drive with ${SHARE ? `<b class="cmda-addr">${E(SHARE)}</b> <button type="button" class="cmda-mini" onclick="cmDriveAdmin.copy()">📋 Copy</button>` : "the platform's service account"} as <b>Editor</b>; paste the folder's link on their row and press 🔗 Link.
-      <b>${linked} of ${rows.length}</b> linked${bf ? ` in ${E(bf)}` : ""}.</p>
+      <b>${linked} of ${rows.length}</b> linked${bf ? ` in ${E(bf)}` : ""}. Press <b>📁 Open Drive</b> on a row to check that trainee's day-to-day work in their case folders.</p>
     ${state.driveReportsLoading && !state.driveReportsAt ? `<p class="cmda-lead">Reading every trainee's Backup Drive…</p>` : ""}
     <table class="cmda-t"><thead><tr><th>Trainee</th><th>Batch</th><th>Backup Drive</th><th>Link a folder</th></tr></thead><tbody>
     ${rows.map(r => { const rep = reps[r.id] || {}, m = msg[r.id];
       return `<tr><td><b>${E(r.name || r.id)}</b></td><td>${E(batchOf(r))}</td>
-        <td>${rep.connected ? `<span class="cmda-on">✓ Linked</span>${rep.folder ? ` · ${E(rep.folder)}` : ""}${rep.email ? `<div class="cmda-dim">${E(rep.email)}${rep.linkedBy === "trainer" ? " · linked by a trainer" : ""}</div>` : ""}` : `<span class="cmda-off">Not linked</span>`}</td>
+        <td>${rep.connected ? `<span class="cmda-on">✓ Linked</span>${rep.folder ? ` · ${E(rep.folder)}` : ""}${rep.email ? `<div class="cmda-dim">${E(rep.email)}${rep.linkedBy === "trainer" ? " · linked by a trainer" : ""}</div>` : ""}` : `<span class="cmda-off">Not linked</span>`}${openDrive(rep)}</td>
         <td><div class="cmda-row"><input type="url" class="cmda-in" id="cmdaIn-${E(r.id)}" placeholder="https://drive.google.com/drive/folders/…" aria-label="${E(r.name || r.id)}'s Drive folder link">
           <button type="button" class="btn btn-navy btn-sm" onclick="cmDriveAdmin.link('${J(r.id)}')">🔗 Link</button>
           ${rep.connected ? `<button type="button" class="btn btn-ghost btn-sm" onclick="cmDriveAdmin.unlink('${J(r.id)}')">✕ Unlink</button>` : ""}</div>
@@ -103,6 +115,7 @@ css.textContent = `.cmda{margin-top:12px;padding:12px 14px;border:2px solid #DDE
 .cmda-page{max-width:1400px;} .cmda-title{color:#1E2340;font-size:26px;margin:6px 0 10px;} .cmda-lead{font:600 15px/1.5 'Inter',sans-serif;color:#2E3245;margin:0 0 14px;}
 .cmda-t{width:100%;border-collapse:collapse;background:#fff;font:600 14.5px 'Inter',sans-serif;} .cmda-t th{background:#1E2340;color:#fff;text-align:left;padding:10px 12px;font-weight:800;} .cmda-t td{border-bottom:1px solid #DDE1EA;padding:10px 12px;vertical-align:top;}
 .cmda-on{color:#1E7A3A;font-weight:800;} .cmda-off{color:#A50E0E;font-weight:800;} .cmda-dim{color:#5F6577;font-size:13px;margin-top:2px;}
+.cmda-open{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 8px;} .cmda-go{display:inline-block;padding:5px 12px;border:2px solid #1E2340;border-radius:8px;background:#fff;color:#1E2340;font:800 14px 'Inter',sans-serif;text-decoration:none;} .cmda-go:hover{background:#1E2340;color:#fff;}
 .cmda-msg{margin-top:8px;font:700 14px/1.4 'Inter',sans-serif;} .cmda-msg.ok{color:#1E7A3A;} .cmda-msg.no{color:#A50E0E;}`;
 document.head.appendChild(css);
 })();

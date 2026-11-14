@@ -36,11 +36,12 @@
     "image": "data-entry",
     "situation": "02/09/2026. The raw file is in and a colleague keyed **a draft intake record** into the CMS. Atty. Thorne wants the matter **active today**.",
     "steps": [
-      "Run and log **the Conflict Check** on full legal names",
-      "Verify every draft field **against its source document**",
-      "Correct each error **with its source**, never silently",
-      "Docket **SOL 02/06/2028**, map six roles, file intake documents",
-      "Route **a correction note** to Atty. Thorne in Case Notes"
+      "Press 🚀 Launch CMS & Google Drive, then open John Doe's matter in the CMS under New Case.",
+      "Before anything else, run the **Conflict Check** on every party's full legal name and log the result in the CMS.",
+      "Check each field of the draft intake record against its source document: date of loss, names and roles, John Doe's position, date of birth and report number.",
+      "Correct every error you find and write in Case Notes which document proves it. Never change a field silently.",
+      "On the CMS Calendar, docket the SOL of **02/06/2028** with reminders, then map all six roles under Parties.",
+      "Log the retainer and the HIPAA authorization, file each intake document under its CMS category, and send Atty. Thorne a short note of your corrections in Case Notes."
     ],
     "deliver": "An active matter, **every field verified**, corrections noted to Atty. Thorne",
     "purpose": "A file opened wrong stays wrong: **every later step** trusts this record",
@@ -63,11 +64,11 @@
     "image": "documents-audit",
     "situation": "02/09/2026, 4:30 p.m. John Doe's matter is **active in the CMS**, and nothing is on **the firm's backup drive** yet.",
     "steps": [
-      "Press **🔗 Link my Google Drive** on the Backup File Maintenance slide",
-      "Build the hierarchy **to the firm standard**, by hand",
-      "Name, number, nest and order **the whole hierarchy**",
-      "Confirm it with **✓ Check my drive**",
-      "Place **retainer, Police Report, HIPAA** in Case Notes"
+      "Press 🚀 Launch CMS & Google Drive. Not linked yet? Paste your folder's link in the **Backup Drive panel**.",
+      "In Google Drive, build 01 Clients by hand, holding Doe-John with its nine numbered folders.",
+      "Add 02 Firm Administration with its two folders, then 03 Templates and 04 Closed Files, named as the standard shows.",
+      "In 📂 My Backup Drive, submit the folders, fix what it returns, and run **✓ Check my drive** until clean.",
+      "In CMS → Case Notes, write where the retainer, the Police Report and the HIPAA authorization belong, and why."
     ],
     "deliver": "A linked drive **built to standard**, confirmed by a clean check",
     "purpose": "A covering Case Manager must **find any document in seconds**",
@@ -135,11 +136,10 @@
     "image": "insurance-stack",
     "situation": "All three carriers reported limits **on the set-up calls**. **No Declaration Page** has arrived yet; Keystone wants authorizations first. Nothing is in the CMS Insurance tab.",
     "steps": [
-      "Enter all three layers in **order of operations**",
-      "Record carrier, policy and claim numbers, limit and **adjuster for each**",
-      "Classify each layer as **first-party or third-party**",
-      "In Comments: carrier's name, differing driver, adjuster or **“none assigned yet”**",
-      "Verify the total, record the pursuit order, **mark the projection preliminary**"
+      "In CMS → Insurance, enter all three coverage layers in the order they are pursued, with carrier, policy number, claim number, limit and adjuster.",
+      "Mark each layer as **first-party or third-party**.",
+      "In the Comments box, record the carrier's real name, the driver if not the owner, and the adjuster, or write that none is assigned yet.",
+      "Check that the total is $40,000, record the pursuit order, and mark the projection preliminary until every limit is confirmed in writing."
     ],
     "deliver": "A three-layer Coverage Matrix **totalling $40,000**, each layer classified, ordered and attributed",
     "purpose": "Every projection rests on this stack: **one unconfirmed limit** misleads them all",
@@ -202,11 +202,10 @@
     "image": "lien-scale",
     "situation": "03/12/2026: Peach State says claims are in process; **no lien record exists**. 06/10/2026: its interim itemization asserts **$3,618.00** across five lines.",
     "steps": [
-      "Register and **flag Peach State's claim** in CMS → Liens",
-      "Reply to Dion Carver: **request the itemized ledger**",
-      "Audit the 06/10/2026 itemization **line by line**",
-      "Dispute it in the Email Workspace; **get $1,860.00 in writing**",
-      "File the exchange; **route any compromise** to Atty. Thorne"
+      "In CMS → Liens, register Peach State's reimbursement claim and flag it with the member number, Payer Order position and date.",
+      "Reply to Dion Carver below: the claim is noted, and the firm asks for an **itemized ledger**.",
+      "On 06/10/2026, audit the itemization line by line against the treatment record and the PIP Log.",
+      "Dispute the unrelated lines by email, get $1,860.00 confirmed in writing, file the exchange in the CMS, and send any compromise to Atty. Thorne."
     ],
     "deliver": "A **flagged lien record**, an audited ledger and $1,860.00 confirmed in writing",
     "purpose": "An unflagged lien surfaces at disbursement, **too late to negotiate** from strength",
@@ -275,11 +274,11 @@
     "image": "data-entry",
     "situation": "John Doe has been silent **six days**: a missed check-in, no treatment yet, two unlogged voicemails. **An emergency contact** is on file.",
     "steps": [
-      "Step 1: **name the live deadlines** before any outreach",
-      "Log the two earlier voicemails with **date, time, channel**",
-      "Carry the ladder forward: email, SMS, **emergency contact**",
-      "Record **the next action** with its due date",
-      "Decide whether **Step 3 notification** is warranted, and the impact"
+      "Open John Doe's case in the CMS and, in the Case Summary, write down the deadlines that are live right now (Step 1 of the protocol).",
+      "In CMS → Communications Log, log the two earlier voicemails with the date, time, channel and outcome of each.",
+      "Take the live call below, then carry the outreach forward in order: email, text message, then the **emergency contact**, logging each attempt as you make it.",
+      "Record the next action and its due date in the Communications Log.",
+      "In Case Notes, say whether the Step 3 team notification is needed and what impact on the case you would report."
     ],
     "deliver": "A Step 1 review and an **unbroken, contemporaneous** Step 2 outreach log",
     "purpose": "With the SOL running and treatment unstarted, **an unlogged attempt** never happened",
@@ -339,13 +338,11 @@
   },
   "d1m2-a2": {
     "image": "email-outreach",
-    "situation": "John Doe, unreachable **eleven days**: phone, email, texts and emergency contact all tried, logged. Step 3 escalation made to Atty. Thorne. **Treatment still hasn't begun**.",
+    "situation": "Assuming the **No Contact Protocol has been maxed** (phone, email, texts and emergency contact all tried and logged), John Doe's Step 4 Final Warning Letter is due today.",
+    "side": true,
     "steps": [
-      "Itemize **the earlier attempts** with dates",
-      "Set a response deadline **inside 7–14 days**, as a date",
-      "Give **notice of potential withdrawal** and how to respond",
-      "Keep every line **inside the UPL boundary**",
-      "Record the Skip-Trace criteria and **Atty. Thorne's Step 5 authority**"
+      "In CMS → Documents, fill in the Final Warning Letter template: list the earlier attempts with their dates and set a reply date **7 to 14 days** from today.",
+      "Log it in the CMS Communications Log: the letter went by certified mail and by email, and Atty. Thorne decides any next step."
     ],
     "deliver": "A **send-ready Final Warning Letter**, both deliveries logged, escalation recorded",
     "purpose": "This letter is **the last notice** before Atty. Thorne decides on withdrawal",
@@ -418,11 +415,11 @@
     "image": "client-call",
     "situation": "John Doe's voicemail: **Keystone asked to record him**, his neck is stiff, and **nothing has reached him** from the firm.",
     "steps": [
-      "**Transcribe the voicemail**, then write your action plan",
-      "Email Dana Whitfield: **no direct contact**; statements through the firm",
-      "Call John: his neck, **treatment status**, next steps, no outside talk",
-      "Coordinate his first visit **with Riverton Urgent Care**",
-      "Send the **Direction Packet**; log every contact in the CMS"
+      "Press 📝 Open below, transcribe John Doe's voicemail, then write your **action plan** in the Notes & Action Plan.",
+      "From the Notes & Action Plan, email Dana Whitfield: the firm represents John Doe, she must not contact him directly, and any Recorded Statement goes through the firm.",
+      "Press 📞 Take the call and call John back: ask about his neck and his treatment, explain the next steps, and have him repeat the instruction.",
+      "Email Riverton Urgent Care to set up his first visit.",
+      "In CMS → Onboarding, send the six-section Direction Packet, then log every contact in the Communications Log."
     ],
     "deliver": "A graded plan, both emails sent, the call taken, **the packet logged**",
     "purpose": "The other side **has already called him**: today's plan stops the next call",
@@ -471,13 +468,11 @@
   },
   "d1m3-a2": {
     "image": "checklist-qa",
-    "situation": "John Doe's onboarding packet is **delivered and logged**. The directions must now become **tracked obligations**, not a document sent once.",
+    "situation": "Assuming John Doe's onboarding packet is **delivered and logged**, his directions now need to become tracked tasks in the CMS.",
+    "side": true,
     "steps": [
-      "Turn each direction into **a tracked task**",
-      "Set **owner, due date and verification** for each",
-      "Find **the mis-assigned card** and reassign it",
-      "Record why it **could never be the client's**",
-      "Schedule the **treatment-start follow-up**"
+      "In CMS → Tasks, add one task for each direction, with an owner, a due date and how it will be checked. Give the firm any task that was wrongly assigned to John.",
+      "Log a follow-up task that confirms he has **started treatment**."
     ],
     "deliver": "A tracked task set with **correct owners, dates and verification**",
     "purpose": "Untracked directions are hopes; **tracked tasks** expose a Treatment Gap the day it starts",
@@ -496,11 +491,11 @@
     "image": "documents-audit",
     "situation": "02/11/2026: Keystone PD asks **who the Civic's claimant is**. Six PD items wait in the tray, and John Doe asks **if the rental is his**.",
     "steps": [
-      "Read **the Police Report's units** before sorting anything",
-      "Sort each item: **BI evidence, coordinate, or Margaret's**",
-      "Index the evidence on John Doe's file in **CMS → Documents**",
-      "Refer Margaret's questions to **Atty. Thorne** in CMS → Tasks",
-      "End the Case Note with **the one-line answer**"
+      "Read the Police Report's list of units first, so you know whose vehicle and whose claim each item belongs to.",
+      "Sort each item into one of three groups: evidence for John Doe's injury claim, something to coordinate for his care, or **Margaret's own claim**.",
+      "In CMS → Documents, index the evidence that feeds John Doe's claim on his file.",
+      "In CMS → Tasks, refer Margaret's items and Leah Moran's question to Atty. Thorne, and put the rental's last covered day on John's calendar.",
+      "Take John Doe's call below, then write one Case Note that ends with a single line: does Property Damage touch our case, and how?"
     ],
     "deliver": "A sorted Case Note ending in **one line: does PD touch our case?**",
     "purpose": "Sorting first keeps **Margaret's PD claim** off John Doe's file",
@@ -564,11 +559,11 @@
     "image": "calendar-gap",
     "situation": "John Doe's first treatment records have arrived in the CMS. Find the first treatment date yourself and compare it with **the date of loss**.",
     "steps": [
-      "Compute **the gap exactly** from DOL to first treatment",
-      "Record the gap; **watch for a later break** in care",
-      "In the risks band, record **the facts only**: dates and length",
-      "List **the documents to request** from John Doe",
-      "**Route the flag** to Atty. Thorne"
+      "Count the days from the date of loss to John Doe's first treatment, so you have **the exact gap**.",
+      "In CMS → Case File → Risk Flags, record the gap and set the file to catch any later break in care.",
+      "In the Action Plan's risks band, write the facts only: the dates and the length. What the gap means for the claim is for Atty. Thorne.",
+      "List the documents you will ask John Doe for to explain the gap.",
+      "Route the flag to Atty. Thorne in the CMS."
     ],
     "deliver": "A **precisely computed, prominently flagged** and routed treatment-gap record",
     "purpose": "Everything after turns on this flag; **an unexplained gap** does more damage",
@@ -622,11 +617,11 @@
     "image": "cms-screen",
     "situation": "The set-up is in: parties mapped, **$40,000 stack verified**, packet tracked, **14-Day Treatment Gap** identified. Atty. Thorne awaits the Case Plan.",
     "steps": [
-      "Snapshot: record **the acceptance decision** and its reason",
-      "Coverage stack and order, liability, **preliminary projection**; triple-check held open",
-      "Pillars: **measurable goals**; each action item with owner and date",
-      "Risks: **14-Day Gap and later breaks in care**, prominently, with consequences",
-      "Docket the filing window, then **route to Atty. Thorne**"
+      "Open the Action Plan Editor and, in the snapshot, record the acceptance decision and the reason for it.",
+      "In the coverage band, set out the policy stack in order, the liability facts and a **preliminary projection**, and hold the triple-check open until treatment.",
+      "In the pillars, write measurable goals and give every action item an owner and a date.",
+      "In the risks band, put the 14-Day Gap and the risk of a later break in care at the top, with what each could cost the case.",
+      "Docket the filing window on the CMS Calendar, then route the plan to Atty. Thorne."
     ],
     "deliver": "A complete, routed plan counsel could **set strategy from** without a follow-up question",
     "purpose": "This plan is **the gate**: the Treatment Phase doesn't begin until it's routed",

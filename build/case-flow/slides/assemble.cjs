@@ -15,6 +15,9 @@ const DOC_IDS = new Set((window.CM_CF_DOCS || []).map(x => x.id));
 const DECKS = JSON.parse(fs.readFileSync(path.join(__dirname, "deck-pages.json"), "utf8"));
 const CATALOG = fs.readFileSync(path.join(__dirname, "SLIDESPEC.md"), "utf8").split("## Image catalog")[1].split("\n").slice(1).join(" ").split("·").map(s => s.trim()).filter(Boolean);
 const out = {}, errors = [];
+// the day each block is taught on (the sequence), which can differ from the day its data sits under
+const TAUGHT = {};
+(CF.sequence || []).forEach(sd => (sd.phases || []).forEach(ph => (ph.blocks || []).forEach(id => { TAUGHT[id] = sd.n; })));
 const wc = s => String(s).replace(/\*\*/g, "").trim().split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)).length;   // a symbol alone (→, ·, …, &) is not a word
 const marks = s => (String(s).match(/\*\*/g) || []).length / 2;
 const line = (id, f, s, max, hl = [1, 1]) => {
@@ -176,13 +179,24 @@ for (const day of CF.days) {
       if((b.best || []).length){ list(b.id, "dos", c.dos, 2, 3, 10); list(b.id, "donts", c.donts, 2, 3, 10); }
       const t = theory(b); if(t) out[b.id] = Object.assign({}, c, {theory: t});
     } else if(b.kind === "activity"){
-      line(b.id, "situation", c.situation, 32, [1, 2]); list(b.id, "steps", c.steps, 3, 5, 12); line(b.id, "deliver", c.deliver, 14); list(b.id, "checks", c.checks, 3, 5, 10);
+      line(b.id, "situation", c.situation, 32, [1, 2]); line(b.id, "deliver", c.deliver, 14); list(b.id, "checks", c.checks, 3, 5, 10);
+      /* Your Task's steps: one numbered block of full, plain sentences that say where each step is done (no "X of Y" shorthand),
+         at most one highlight each. Day 1 is fully guided (4–6 steps); the days after give less (Days 4–5: 3–4 steps).
+         A side skill builder ("side": true) is short: its situation states the assumption ("Assuming …") and it has 2–3 steps. */
+      const taught = TAUGHT[b.id] || 0, side = c.side === true;
+      if(c.side !== undefined && c.side !== true) errors.push(`${b.id}.side: true (a short side skill builder) or omit`);
+      if(side && !/^Assuming\b/.test(String(c.situation || ""))) errors.push(`${b.id}.situation: a side skill builder opens with its assumption ("Assuming …")`);
+      const [s0, s1] = side ? [2, 3] : taught === 1 ? [4, 6] : taught >= 4 ? [3, 4] : [3, 5];
+      if(!Array.isArray(c.steps) || c.steps.length < s0 || c.steps.length > s1) errors.push(`${b.id}.steps: ${Array.isArray(c.steps) ? c.steps.length : "no"} steps (want ${s0}–${s1} on Day ${taught}${side ? ", a side skill builder" : ""})`);
+      else c.steps.forEach((s, i) => { line(b.id, `steps[${i}]`, s, 32, [0, 1]);
+        if(!/[.?!]$/.test(String(s).replace(/\*\*/g, "").trim())) errors.push(`${b.id}.steps[${i}]: write it as a full sentence, ending in a full stop: ${s}`);
+        if(/\bX of Y\b/.test(s)) errors.push(`${b.id}.steps[${i}]: no shorthand ("X of Y"): ${s}`); });
       if(c.purpose !== undefined) line(b.id, "purpose", c.purpose, 14); if(c.principle !== undefined) line(b.id, "principle", c.principle, 12);
       if(c.dos) list(b.id, "dos", c.dos, 1, 2, 10); if(c.donts) list(b.id, "donts", c.donts, 1, 2, 10);
       if(c.grade !== undefined){   // the Grade-A Standard slide before Your Task: a packet or binder's guidelines, inclusions and steps
         const g = c.grade || {};
         if(typeof g.title !== "string" || !g.title.trim() || wc(g.title) > 8 || marks(g.title)) errors.push(`${b.id}.grade.title: want ≤ 8 words, no highlight`);
-        list(b.id, "grade.guide", g.guide, 3, 4, 12); list(b.id, "grade.include", g.include, 5, 8, 10); list(b.id, "grade.steps", g.steps, 4, 6, 12);
+        list(b.id, "grade.guide", g.guide, 3, 4, 12); list(b.id, "grade.include", g.include, 5, 8, 10); list(b.id, "grade.steps", g.steps, 4, 6, 13);
       }
     } else {
       list(b.id, "questions", c.questions, b.check.questions.length, b.check.questions.length, 18);

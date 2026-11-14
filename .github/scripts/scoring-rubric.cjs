@@ -126,6 +126,9 @@ const PARAPHRASE = 'John Doe called. Someone from an insurance company phoned hi
 
     // 5. the trainee's own card: the CMS Case File, the rubric profile, the rubric itself
     await page.evaluate(async () => { state.progress = { 11: { score: 90, done: true, takeaway: 85 } }; await storeSet('day-progress', state.progress); await cloudSaveNow(); goto('scorecard'); });
+    // (the CMS Case File, the rubric profile and the grading systems sit under the card's "▸ How this is scored" toggle: opened here)
+    await page.waitForSelector('.bs-pt details.bs-pt-how', { timeout: 15000 }).catch(() => {});
+    await page.evaluate(() => document.querySelectorAll('.bs-pt details.bs-pt-how').forEach(d => { d.open = true; }));
     await page.waitForSelector('.bs-pt .cmf-sec', { timeout: 15000 }).catch(() => fail('My Performance shows no CMS Case File section'));
     await page.waitForTimeout(600);
     const mine = await page.evaluate(() => { const c = document.querySelector('.bs-pt'); if (!c) return null;
@@ -193,7 +196,7 @@ const PARAPHRASE = 'John Doe called. Someone from an insurance company phoned hi
     // the trainer's Scorecards card and the Batch Sheet carry it
     await page.evaluate(() => { cmScorecard.refresh(); goto('scorecard'); });
     await page.waitForFunction((id) => !!document.getElementById('bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_')), id, { timeout: 20000 }).catch(() => fail('the trainer\'s Scorecards shows no card for the trainee'));
-    const card = await page.evaluate((id) => { const c = document.getElementById('bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_')); return c ? c.innerText : ''; }, id);
+    const card = await page.evaluate((id) => { const c = document.getElementById('bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_')); if (c) c.querySelectorAll('details').forEach(d => { d.open = true; }); return c ? c.innerText : ''; }, id);
     check(/Trainer's rubric/.test(card) && /CMS Case File/.test(card) && !/▢▢▢/.test(card), 'the trainer\'s card shows the trainer rubric in the day\'s dimensions and the CMS Case File with its answers');
     await page.evaluate(() => { goto('admin'); setAdminTab('audit'); });
     await page.waitForSelector('#bs-scores', { timeout: 30000 }).catch(() => fail('the Batch Sheet shows no 🏅 Scores'));

@@ -38,7 +38,7 @@
 //   · the furthest slide reached becomes the furthest, in today's order, of the slides the trainee had seen: never
 //     behind the place the trainee was on, no slide seen is locked again, and it is the day's last slide only for a
 //     trainee who had reached the Ready check or the end of the old deck;
-//   · a place saved in layout 3 inside the Practice Lab (Day 2, an activity's Check Your Work) opens that same slide
+//   · a place saved in layout 3 inside the Practice Lab (Day 2, an activity's AI Grader slide) opens that same slide
 //     in the one Practice Lab, moved once;
 //   · a trainee on slide 40 of Day 1 (layout 1) lands on that lesson when the saved progress is read and the day
 //     opened, after a real reload of the page too, and is moved once only; a place past the end lands on the last slide;
@@ -424,13 +424,13 @@ const DECK7 = { 1: '74:1d3nxnu', 2: '135:1c0ub5w', 3: '89:1en7hyz', 4: '97:1v909
     }
   }
   // a place saved in layout 3 (the deck before the lessons were put together) in the Practice Lab: Day 2, the first
-  // activity's Check Your Work, which sat after five lessons and now sits after all twenty
+  // activity's AI Grader slide (once Check Your Work), which sat after five lessons and now sits after all twenty
   if (deck7[2]) {
     lab3 = await put('d1m1-a1 check', 3, 2);
-    if (lab3.i < 0) fail('Day 2 of layout 3 has no d1m1-a1 Check Your Work slide (the check wants one to stand on)');
+    if (lab3.i < 0) fail('Day 2 of layout 3 has no d1m1-a1 AI Grader slide (the check wants one to stand on)');
     else {
       inLab = await open(lab3.dayId);
-      if (lab3.want === lab3.i) fail(`Day 2's d1m1-a1 Check Your Work sits where it sat in layout 3 (slide ${lab3.i + 1}): the check proves nothing about the reordering`);
+      if (lab3.want === lab3.i) fail(`Day 2's d1m1-a1 AI Grader slide sits where it sat in layout 3 (slide ${lab3.i + 1}): the check proves nothing about the reordering`);
       if (inLab.at !== lab3.want || inLab.is !== 'd1m1-a1 check') fail(`a trainee on ${lab3.was} (layout 3 slide ${lab3.i + 1} of Day 2) should open that same slide, now slide ${lab3.want + 1}; opened ${inLab.at + 1} (${inLab.is})`);
       if (inLab.far !== lab3.far || inLab.far < inLab.at) fail(`the furthest slide reached, saved on ${lab3.was} in layout 3, should be slide ${lab3.far + 1}; it is ${inLab.far + 1}`);
       if (inLab.stored !== `${lab3.want}/${LAYOUT} ${lab3.far}/${LAYOUT}`) fail(`the places moved from layout 3 should be saved with cfLayout ${LAYOUT} (${lab3.want}/${LAYOUT} ${lab3.far}/${LAYOUT}): ${inLab.stored}`);

@@ -36,8 +36,12 @@
 
    The server side is /api/drive in worker.js (every action, the grading and the Google tokens, which are
    sealed and never leave it). This file is the page: the dashboard card, the setup panel and the Drive
-   copy of a filed document. Until GDRIVE_SA_EMAIL and GDRIVE_SA_KEY are set on the Worker, the card stays
-   away and nothing else is blocked.
+   copy of a filed document. Until GDRIVE_SA_EMAIL and GDRIVE_SA_KEY are set on the Worker, the card is still
+   there (🔗 Link my Google Drive) and says linking isn't switched on yet, ask your trainer; nothing else is blocked.
+   CMDrive.show() opens the panel from anywhere (a Skill Building activity's button); CMDrive.launch() opens the linked
+   Drive at the trainee's case folder in a new tab, or the panel when nothing is linked yet. Once linked, the card and
+   the panel link to 📁 the Drive (LSH Case Backups) and 📁 the case folder (01 Clients/Doe-John); a trainer opens the
+   same from 🔗 Trainee Drives (js/cm-drive-admin.js).
    ============================================================ */
 (function(){
 const esc = (s)=> String(s == null ? "" : s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -99,15 +103,22 @@ function fillSlot(){
 /* ---------- the dashboard card: Day 1's first job, then a status line ---------- */
 function card(){
   if(!signedTrainee()) return "";
-  if(!D){ load(); return ""; }
-  if(!D.configured) return "";                     // not switched on for this site: say nothing
+  if(!D && !settled){ load(); return ""; }
+  // 🔗 Always there for a trainee: when linking isn't switched on (or the status couldn't be read), the card says so
+  // and its button opens the panel, which says what to do and shows the steps to come.
+  if(!D || !D.configured) return `<div class="drv-card drv-todo" data-drv-off>
+    <div class="drv-c-h">🔗 Link my Google Drive</div>
+    <p>${D ? OFF_LINE : "Your Google Drive link couldn't be checked just now."} Once it is linked, your case work is kept in your own Google Drive, in your case folders, where your trainer can check it.</p>
+    <button type="button" class="btn btn-navy btn-sm" onclick="CMDrive.show()">🔗 Link my Google Drive</button>
+  </div>`;
   const n = (D.standard || []).length;
   if(!D.built) return `<div class="drv-card drv-todo">
-    <div class="drv-c-h">📂 Day 1 · Set up your Backup Drive</div>
+    <div class="drv-c-h">${D.connected ? "📂 Day 1 · Build your case folders" : "🔗 Day 1 · Link your Google Drive"}</div>
     <p>Every document you file in the CMS is also kept on the firm's backup drive, in the same case file you work from here — intake, records, bills, liens, litigation. Before Day 1's first block, link a folder of your own Google Drive and lay the firm's ${n}-folder structure out in it yourself. It is graded, and it is where your work goes for the rest of the programme.</p>
     ${steps()}
     ${namingBox({day:1, compact:true})}
-    <button type="button" class="btn btn-navy btn-sm" onclick="CMDrive.show()">📂 Set up my Backup Drive</button>
+    <button type="button" class="btn btn-navy btn-sm" onclick="CMDrive.show()">${D.connected ? "📂 Build my folders" : "🔗 Link my Google Drive"}</button>
+    ${openLinks()}
   </div>`;
   const missing = (D.lastMissing || []).length, W = wrongOf((rule() || {}).report), misnamed = W.n;
   return `<div class="drv-card ${missing || misnamed ? "drv-warn" : "drv-ok"}">
@@ -118,7 +129,25 @@ function card(){
     ${namingBox({day:0, compact:true})}
     ${gradeLine()}
     <button type="button" class="btn ${missing ? "btn-navy" : "btn-ghost"} btn-sm" onclick="CMDrive.show()">📂 Open my Backup Drive</button>
+    ${openLinks()}
   </div>`;
+}
+/* Said wherever linking isn't switched on for this site (the card, the panel, Day 1's slide). */
+const OFF_LINE = "Google Drive linking isn't switched on for this site yet — ask your trainer.";
+/* 📁 Open my Drive ↗ (the LSH Case Backups folder, the firm's structure in it) and, once built, 📁 my case folder ↗
+   (01 Clients/Doe-John), each in a new tab. Only the Worker's own Drive addresses are linked. */
+const driveHref = (u)=> /^https:\/\/drive\.google\.com\//.test(String(u || "")) ? String(u) : "";
+function openLinks(){
+  if(!D || !D.connected) return "";
+  const root = driveHref(D.rootUrl), kase = driveHref(D.caseUrl);
+  return `${root ? `<a class="btn btn-ghost btn-sm drv-open" data-drv-open href="${esc(root)}" target="_blank" rel="noopener noreferrer">📁 Open my Drive ↗</a>` : ""}${kase ? ` <a class="btn btn-ghost btn-sm drv-open" data-drv-case href="${esc(kase)}" target="_blank" rel="noopener noreferrer">📁 My case folder ↗</a>` : ""}`;
+}
+/* 🔗 Launch Google Drive (for a Skill Building activity's button): the trainee's linked Drive, at their case folders, in a
+   new tab; or, not linked yet (or linking isn't switched on), the panel with the steps. Returns whether a tab opened. */
+function launch(){
+  const u = D && D.connected ? driveHref(D.caseUrl) || driveHref(D.rootUrl) : "";
+  if(u && signedTrainee()){ try{ window.open(u, "_blank", "noopener"); return true; }catch(e){} }
+  show(); return false;
 }
 function gradeLine(){
   const g = (D && D.grades) || {}, parts = [];
@@ -196,6 +225,16 @@ function rowsHTML(nodes, addr, depth){
   }).join("");
 }
 
+/* 🔗 How to link, step by step: make the folder, share it as Editor with the address shown, copy its link, paste and Link.
+   With no address (linking not switched on yet) the steps are shown as what is to come. */
+function linkSteps(root, sa){
+  return `<ol class="drv-link-steps" data-drv-steps>
+    <li>Open <a href="https://drive.google.com/drive/my-drive" target="_blank" rel="noopener noreferrer">Google Drive ↗</a> and make a new folder named <b>${esc(root)}</b> (New → New folder).</li>
+    <li>Right-click the folder → <b>Share</b>. Paste ${sa ? `this address: <code class="drv-sa">${esc(sa)}</code> <button type="button" class="drv-mini" data-copy="${esc(sa)}" onclick="CMDrive.copy(this)">📋 Copy</button>` : "the platform's address (it is shown here once linking is switched on)"}. Give it access as <b>Editor</b>, then press <b>Send</b>.</li>
+    <li>Open the folder and copy its link from your browser's address bar.</li>
+    <li>Paste the link ${sa ? "in the box below" : "here"} and press <b>🔗 Link my folder</b>.</li>
+  </ol>`;
+}
 function paint(){
   let host = document.getElementById("cmDriveHost");
   if(!open){ if(host) host.remove(); return; }
@@ -205,16 +244,14 @@ function paint(){
   if(!D && !signedTrainee()) body = `<p class="drv-p">Each trainee opens their own Backup Drive, signed in as themselves. A trainer sees every trainee's drive and grades in the 📋 Batch Sheet and the Trainee Audit.</p>`;
   else if(!D && settled) body = `<p class="drv-p">Your Backup Drive couldn't be checked just now.</p><button type="button" class="drv-btn drv-go" onclick="CMDrive.retry()">↻ Try again</button>`;
   else if(!D) body = `<p class="drv-p">Checking your Backup Drive…</p>`;
-  else if(!D.configured) body = `<p class="drv-p">The Backup Drive isn't switched on for this site yet — a trainer sets it up once (README → 📂 The trainee's Backup Drive). Nothing else in the programme is blocked.</p>`;
+  else if(!D.configured) body = `<div class="drv-bad drv-off" data-drv-off><b>${OFF_LINE}</b> Nothing else in the course is blocked.</div>
+      <p class="drv-p">When it is switched on, linking takes two minutes:</p>
+      ${linkSteps(D.root || "LSH Case Backups", "")}`;
   else if(!D.connected){
     const sa = D.shareWith || "";
-    body = `<p class="drv-p">Your Backup Drive is one folder in your own Google Drive — a personal Gmail account is fine. Share it with the platform and it reads and writes in that folder only, nothing else in your Drive. Everything in it stays yours.</p>
-      ${D.relink ? `<div class="drv-bad">The Backup Drive no longer uses a Google sign-in. Share your <b>${esc(D.root)}</b> folder with the platform (step 2) and paste its link (step 3): your folders and grades are kept.</div>` : ""}
-      <ol class="drv-link-steps">
-        <li>In <a href="https://drive.google.com/drive/my-drive" target="_blank" rel="noopener noreferrer">Google Drive ↗</a>, make a folder named <b>${esc(D.root)}</b> (New → New folder).</li>
-        <li>Share it with <code class="drv-sa">${esc(sa)}</code> <button type="button" class="drv-mini" data-copy="${esc(sa)}" onclick="CMDrive.copy(this)">📋 Copy</button> as <b>Editor</b> (Share → paste the address → Editor → Send).</li>
-        <li>Open the folder, copy its link from the address bar, and paste it here.</li>
-      </ol>
+    body = `<p class="drv-p">Your Backup Drive is one folder in your own Google Drive — a personal Gmail account is fine. Share it with the platform and it reads and writes in that folder only, nothing else in your Drive. Everything in it stays yours, and your trainer can check your case work there.</p>
+      ${D.relink ? `<div class="drv-bad">The Backup Drive no longer uses a Google sign-in. Share your <b>${esc(D.root)}</b> folder with the platform (step 2) and paste its link (steps 3 and 4): your folders and grades are kept.</div>` : ""}
+      ${linkSteps(D.root, sa)}
       <div class="drv-link-row"><input id="drvLinkUrl" class="drv-in" type="url" placeholder="https://drive.google.com/drive/folders/…" value="${esc(linkUrl)}" oninput="CMDrive.linkInput(this.value)" onkeydown="if(event.key==='Enter')CMDrive.linkFolder()">
         <button type="button" class="drv-btn drv-go" onclick="CMDrive.linkFolder()" ${connecting ? "disabled" : ""}>${GLOGO}${connecting ? "Linking…" : "🔗 Link my folder"}</button></div>`;
   } else if(!D.built){
@@ -250,7 +287,8 @@ function paint(){
     : `<button type="button" class="drv-btn" onclick="CMDrive.check()" ${busy ? "disabled" : ""}>${busy ? "Checking…" : "↻ Check my drive"}</button>
        <button type="button" class="drv-btn" onclick="CMDrive.grade(true)" ${grading ? "disabled" : ""}>${grading ? "Grading…" : "🏅 Grade my backup"}</button>
        ${((verified ? verified.missing : D.lastMissing) || []).length ? `<button type="button" class="drv-btn drv-go" onclick="CMDrive.rebuild()" ${busy ? "disabled" : ""}>🔁 Put the missing folders back</button>` : ""}
-       ${D.rootUrl ? `<a class="drv-btn" href="${esc(D.rootUrl)}" target="_blank" rel="noopener noreferrer">Open in Drive ↗</a>` : ""}
+       ${driveHref(D.rootUrl) ? `<a class="drv-btn" data-drv-open href="${esc(D.rootUrl)}" target="_blank" rel="noopener noreferrer">📁 Open my Drive ↗</a>` : ""}
+       ${driveHref(D.caseUrl) ? `<a class="drv-btn" data-drv-case href="${esc(D.caseUrl)}" target="_blank" rel="noopener noreferrer">📁 My case folder ↗</a>` : ""}
        <button type="button" class="drv-btn" onclick="CMDrive.disconnect()">Unlink folder</button>`;
 
   host.innerHTML = `<div class="drv-wrap" role="dialog" aria-modal="true" aria-label="My Backup Drive">
@@ -523,7 +561,7 @@ function slide(){
   return `<div class="drv-slide" data-drv-slide>
     <div class="drv-s-col"><div class="drv-s-top"><h3>📋 Your Task: The Case Backup</h3>${!off && mine ? `<button type="button" class="btn btn-navy btn-sm" onclick="CMDrive.show()">📂 Open My Backup Drive</button>` : ""}</div>
       <ol class="drv-s-steps${showErr ? " is-tight" : ""}">${steps.map(([h, t, done, extra], i)=>`<li class="${done ? "is-done" : ""}"><span class="drv-s-n">${done ? "✓" : i + 1}</span><div><b>${h}</b><span>${t}</span>${extra}</div></li>`).join("")}</ol>
-      ${off ? `<p class="drv-s-note">The Backup Drive isn't switched on for this site yet: a trainer adds the platform's Google service account once (README → 📂 The trainee's Backup Drive).</p>` : ""}
+      ${off ? `<p class="drv-s-note" data-drv-off>${OFF_LINE}</p>` : ""}
       ${mine && fixLine() ? `<div class="drv-s-act drv-s-fix">${fixLine()}</div>` : ""}
     </div>
     <div class="drv-s-col"><h3>🗂 The Firm's Standard</h3>${tree}</div>
@@ -731,7 +769,7 @@ function namingReport(){
   </div>`;
 }
 
-window.CMDrive = {card, slot, show, close, retry(){ err = ""; settled = false; paint(); load(true); }, link, linkFolder, linkInput, disconnect, submit, check, rebuild, saveFiled, slide, grade, dayOpened,
+window.CMDrive = {card, slot, show, launch, close, retry(){ err = ""; settled = false; paint(); load(true); }, link, linkFolder, linkInput, disconnect, submit, check, rebuild, saveFiled, slide, grade, dayOpened,
   namingBox, namingReport, nameFor, copy, naming:rule, toNames, nameLines, wrongOf,
   name:setName, addSub, addTop, remove, move, status:()=>D, reload:()=>load(true)};
 
@@ -742,8 +780,9 @@ css.textContent = `
 .drv-card.drv-todo{border-color:#EAD5B4;background:#FBF3E7;}
 .drv-card.drv-warn{border-color:#F0CFCF;background:#FDF2F2;}
 .drv-card.drv-ok{border-color:#CBE6CF;background:#F6FBF7;}
-.drv-c-h{font-weight:800;color:var(--navy,#1B2240);font-size:15px;margin-bottom:5px;}
-.drv-card p{font-size:13px;line-height:1.55;color:var(--ink,#1B1E2E);margin:0 0 12px;max-width:80ch;}
+.drv-c-h{font-weight:800;color:var(--navy,#1B2240);font-size:16px;margin-bottom:5px;}
+.drv-card .btn{font-size:14px;font-weight:800;margin:0 6px 6px 0;}
+.drv-card p{font-size:14px;line-height:1.55;color:var(--ink,#1B1E2E);margin:0 0 12px;max-width:80ch;}
 .drv-wrap{position:fixed;inset:0;z-index:4000;background:rgba(15,20,40,.55);display:flex;align-items:center;justify-content:center;padding:24px;}
 .drv-cardw{width:min(800px,100%);max-height:100%;display:flex;flex-direction:column;background:#fff;border-radius:14px;box-shadow:0 20px 60px rgba(10,15,35,.35);}
 .drv-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:18px 20px 12px;border-bottom:1px solid var(--line,#E3E6EF);}
@@ -753,7 +792,8 @@ css.textContent = `
 .drv-x:hover{background:#EEF0F6;}
 .drv-body{padding:16px 20px;overflow:auto;}
 .drv-p{font-size:13px;line-height:1.6;color:var(--ink,#1B1E2E);margin:0 0 14px;}
-.drv-link-steps{margin:0 0 12px;padding-left:20px;font-size:13px;line-height:1.7;}
+.drv-link-steps{margin:0 0 12px;padding-left:22px;font-size:14px;line-height:1.7;}
+.drv-link-steps li{margin-bottom:4px;}
 .drv-link-steps code.drv-sa{background:#F3F4F8;border-radius:5px;padding:1px 6px;font-weight:700;word-break:break-all;}
 .drv-link-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
 .drv-link-row .drv-in{flex:1 1 260px;min-width:0;}

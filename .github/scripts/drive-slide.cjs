@@ -4,9 +4,9 @@
 //    firm's standard as the Worker keeps it;
 // 2. the retired link-based case folder (a trainer's Drive Links tab, the trainee's My Case Folder card) stays gone,
 //    so a trainee is never given two different folder tasks.
-// 3. 🏷 the firm's naming convention is shown where the drive is worked on: Day 1's slide and each later day's Backup File
-//    Maintenance task carry the box (the Worker's pattern, a filled example to copy, the labels from Day 3, what the names
-//    count for), and the Backup Drive panel lists each wrongly named file with its folder, the name it should have, the
+// 3. 🏷 the firm's naming convention is shown where the drive is worked on: Day 1's slide carries the box, and each later
+//    day's Backup File Maintenance task has it in 📖 Reference (the 📋 Rules & Naming Guide; off the slide itself: the Worker's
+//    pattern, a filled example to copy, the labels from Day 3, what the names count for), and the Backup Drive panel lists each wrongly named file with its folder, the name it should have, the
 //    differing part marked and what the check can't see, in type no smaller than 14px bold. The box never stays on
 //    "Loading…": a trainee whose own status was refused gets the rule from the Worker's "standard", and is told when neither
 //    could be loaded. With names to fix (the Worker's report: files and folders counted apart, every differing piece
@@ -77,23 +77,26 @@ const failures = []; const fail = (m) => failures.push(m);
         if (!NAME.test(box.copy)) fail(`Day 1's 🏷 box should carry a filled example of John Doe's file to copy: "${box.copy}"`);
         if (box.small.length) fail(`Day 1's 🏷 box has type under 14px bold: ${JSON.stringify(box.small.slice(0, 4))}`);
     }
-    // 🏷 and each later day's Backup File Maintenance task (every day open, as a trainer presents it)
+    // 🏷 each later day's Backup File Maintenance task (every day open, as a trainer presents it): the slide shows only what to
+    // do, and the box (pattern, example to copy, the labels from Day 3, what the names count for) is in 📖 Reference, its
+    // 📋 Rules & Naming Guide (js/cm-sb-task.js)
     for (const n of [2, 3, 4, 5]) {
         const shown = await page.evaluate((n) => { state.isAdmin = true; const d = DAYS.find(d => d.cf && d.cf.n === n); goto('day', d.id); state.dayViewMode = 'slides';
             const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === `d${n}-drive` && cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === 'task');
             if (k < 0) return false; goToSlide(k); return true; }, n);
         if (!shown) { fail(`Day ${n} has no Your Task slide for Backup File Maintenance`); continue; }
-        await page.waitForFunction(() => /Case ID/.test((document.querySelector('#lessonSlideWrap .drv-nc') || {}).innerText || ''), null, { timeout: 10000 }).catch(() => {});
-        box = await boxOf('#lessonSlideWrap .drv-nc');
-        if (!box) { fail(`Day ${n}'s Backup File Maintenance task has no 🏷 naming convention box`); continue; }
+        await page.waitForTimeout(300);
+        const onSlide = await page.evaluate(() => document.querySelectorAll('#lessonSlideWrap .cfx-task [data-drv-naming], #lessonSlideWrap .cfx-do-now .drv-nc-lb, #lessonSlideWrap .drv-nc-pts').length);
+        if (onSlide) fail(`Day ${n}'s Your Task slide still carries the 🏷 naming convention (bar, labels or points): it belongs in 📖 Reference`);
+        await page.evaluate(() => document.querySelector('#lessonSlideWrap .cfx-ref-open').click());
+        await page.waitForFunction(() => /Case ID/.test((document.querySelector('.cfx-ref .cfx-guide .drv-nc') || {}).innerText || ''), null, { timeout: 10000 }).catch(() => {});
+        box = await boxOf('.cfx-ref .cfx-guide .drv-nc');
+        if (!box) { fail(`Day ${n}'s Backup File Maintenance Reference has no 🏷 naming convention box`); await page.evaluate(() => cmCaseFlow.fullClose()); continue; }
         if (box.pattern !== PATTERN || !NAME.test(box.copy)) fail(`Day ${n}'s 🏷 box should show the pattern and an example to copy: "${box.pattern}" / "${box.copy}"`);
-        // of the points the Worker grades that day (its `ofDay`): 60 on Days 2, 3 and 4, 48 on Day 5
-        if (!(n === 5 ? /12 of the 48 points/ : /12 of the 60 points/).test(box.text)) fail(`Day ${n}'s 🏷 box should say what the names count for (12 of the ${n === 5 ? 48 : 60} points the Worker grades that day): "${box.text.slice(0, 200)}"`);
-        // the labels that go last: from Day 3, at the end of the Practice Lab line (the row has the room for them)
-        const labels = await page.evaluate(() => { const e = document.querySelector('#lessonSlideWrap .cfx-do-now .drv-nc-lb'); return e && !e.hidden ? e.innerText : ''; });
-        if (n >= 3 && (!/_DRAFT\.pdf/.test(labels) || !/_SUPERSEDED-<YYYY-MM-DD>\.pdf/.test(labels) || !/label goes last/.test(labels))) fail(`Day ${n}'s task should show the DRAFT and SUPERSEDED labels, in its Practice Lab line: "${labels.slice(0, 300)}"`);
-        if (n < 3 && labels) fail(`Day ${n}'s task shows the labels before Day 3 teaches them: "${labels.slice(0, 120)}"`);
+        if (!/12 of the 60 points/.test(box.text)) fail(`Day ${n}'s 🏷 box should say what the names count for (12 of the 60 points the Worker grades each day): "${box.text.slice(0, 200)}"`);
+        if (n >= 3 && (!/_DRAFT\.pdf/.test(box.text) || !/_SUPERSEDED-<YYYY-MM-DD>\.pdf/.test(box.text))) fail(`Day ${n}'s 🏷 box should show the DRAFT and SUPERSEDED labels: "${box.text.slice(0, 300)}"`);
         if (box.small.length) fail(`Day ${n}'s 🏷 box has type under 14px bold: ${JSON.stringify(box.small.slice(0, 4))}`);
+        await page.evaluate(() => cmCaseFlow.fullClose());
     }
     await page.evaluate(() => { state.isAdmin = false; goto('dashboard'); render(); });
     // 🏷 the panel: a connected, built drive whose last check found a name turned round (the Worker's report, as it sends it)
@@ -424,20 +427,17 @@ const failures = []; const fail = (m) => failures.push(m);
         f = await sized(p2, "Day 1's slide, a trainee with names to fix");
         if (!/^✗ 4 names to fix · 📂 Open My Backup Drive$/.test((f.fix || '').trim())) fail(`with names wrong, Day 1's slide should carry "✗ 4 names to fix · 📂 Open My Backup Drive": "${f.fix}"`);
         for (const n of [2, 3, 4, 5]) {
-            // a trainee (the day is opened as a trainer opens it, then drawn again as the trainee's own)
+            // a trainee (the day is opened as a trainer opens it, then drawn again as the trainee's own): the task slide fits
+            // whole, with the convention in 📖 Reference rather than on the slide, whether or not names are to fix
             report = CLEAN;
             if (!(await openTask(p2, n, 'task'))) { fail(`Day ${n} has no Your Task slide for Backup File Maintenance`); continue; }
-            await asTrainee(p2);
-            await p2.waitForFunction(() => /Case ID/.test((document.querySelector('#lessonSlideWrap .drv-nc') || {}).innerText || ''), null, { timeout: 10000 }).catch(() => {});
+            await asTrainee(p2); await p2.waitForTimeout(300);
             f = await sized(p2, `Day ${n}'s task, a trainee`);
-            if (!f.box) fail(`Day ${n}'s task has no 🏷 naming row for a trainee`);
-            report = WRONG; await asTrainee(p2);
-            await p2.waitForSelector('#lessonSlideWrap [data-drv-fix]', { timeout: 10000 }).catch(() => {});
+            if (f.box) fail(`Day ${n}'s task still carries the 🏷 naming row on the slide: it belongs in 📖 Reference`);
+            report = WRONG; await asTrainee(p2); await p2.waitForTimeout(300);
             f = await sized(p2, `Day ${n}'s task, a trainee with names to fix`);
-            if (!/^✗ 4 names to fix · 📂 Open My Backup Drive$/.test((f.fix || '').trim())) fail(`with names wrong, Day ${n}'s task should carry "✗ 4 names to fix · 📂 Open My Backup Drive": "${f.fix}"`);
             // a trainer
-            await openTask(p2, n, 'task');
-            await p2.waitForFunction(() => /Case ID/.test((document.querySelector('#lessonSlideWrap .drv-nc') || {}).innerText || ''), null, { timeout: 10000 }).catch(() => {});
+            await openTask(p2, n, 'task'); await p2.waitForTimeout(300);
             f = await sized(p2, `Day ${n}'s task, a trainer`);
             if (f.fix) fail(`a trainer's slide should not show a trainee's names to fix (Day ${n}): "${f.fix}"`);
         }
