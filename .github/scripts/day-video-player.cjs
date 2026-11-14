@@ -6,7 +6,9 @@
 // 3. keeps the trainee's place (personal progress key "day-video"): closed at 2:05, it opens at 2:05 with
 //    "Resumed at 2:05 · Start over"; Start over goes back to 0:00; the chapters still jump to their slide;
 // 4. draws the captions in a black strip under the video, not over the slide: the track is "hidden" and its cue text fills
-//    the strip; CC turns the strip off and on, and that is remembered.
+//    the strip; CC turns the strip off and on, and that is remembered; a long caption at phone width isn't cut off; a video
+//    with no captions file has no strip and no CC button;
+// 5. closing the viewer before the trainee's saved places were read saves nothing over them.
 // The open-source Chromium the checks run in can't play H.264: nothing here needs playback. Times are set with currentTime
 // (before the video loads, that is where it will start) and the strip is filled from the track's own cues.
 // Usage: node .github/scripts/day-video-player.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
@@ -148,6 +150,36 @@ const failures = []; const fail = (m) => failures.push(m);
         const big = await page.evaluate(() => { const cc = document.querySelector('#cm-dv .cm-dv-cc').getBoundingClientRect(); return cc.bottom <= innerHeight + 1 && document.querySelector('#cm-dv .cm-dv-box').getBoundingClientRect().bottom <= innerHeight + 1; });
         if (!big) fail('the viewer and its caption strip don\'t fit the screen at 1920×1080');
         await page.evaluate(() => { cmDayVideo.close(); try { localStorage.removeItem('lsh_day-video'); } catch (e) {} });
+        await page.setViewportSize({ width: 1366, height: 768 });
+
+        // 5. closed before the trainee's saved places were read: nothing is saved over them
+        const early = await page.evaluate(async (id) => {
+            const saved = { pos: { [id]: 300, 99: 42 }, rate: 1.5, cc: true, at: Date.now() };
+            await storeSet('day-video', saved); localStorage.setItem('lsh_day-video', JSON.stringify(saved));
+            const sg = window.storeGet; window.storeGet = async (k) => { await new Promise(r => setTimeout(r, 400)); return sg(k); };
+            try { cmDayVideo.open(id); const v = document.querySelector('#cm-dv video'); v.currentTime = 10; v.dispatchEvent(new Event('timeupdate')); cmDayVideo.close(); await new Promise(r => setTimeout(r, 600)); }
+            finally { window.storeGet = sg; }
+            const now = (await storeGet('day-video')) || {}, loc = JSON.parse(localStorage.getItem('lsh_day-video') || '{}');
+            return { cloud: (now.pos || {})[99], local: (loc.pos || {})[99], rate: now.rate };
+        }, days[0]);
+        if (early.cloud !== 42 || early.local !== 42 || early.rate !== 1.5) fail(`closing the viewer before the saved places were read should save nothing over them: ${JSON.stringify(early)}`);
+
+        // 6. a long caption at phone width: the strip grows, nothing is cut off
+        await page.setViewportSize({ width: 390, height: 840 });
+        await page.evaluate((id) => cmDayVideo.open(id), days[0]); await page.waitForTimeout(400);
+        const wrap = await page.evaluate(() => { const cc = document.querySelector('#cm-dv .cm-dv-cc'); cc.innerHTML = 'The Case Manager logs the Conflict Check before the matter is ever created in the CMS.<br>Second line'; return { sh: cc.scrollHeight, ch: cc.clientHeight }; });
+        if (wrap.sh > wrap.ch + 1) fail(`a long caption at phone width is cut off (${wrap.sh}px of text in a ${wrap.ch}px strip)`);
+        await page.evaluate(() => cmDayVideo.close());
+        await page.setViewportSize({ width: 1366, height: 768 });
+
+        // 7. a video with no captions file: no caption strip and no CC button
+        const nocc = await page.evaluate((id) => {
+            const V = window.CM_DAY_VIDEOS, keep = state.cmOpenVideos; V[98] = Object.assign({}, V[id], { captions: '' }); state.cmOpenVideos = { all: (keep.all || []).concat([98]), batches: {} };
+            try { cmDayVideo.open(98); const o = document.getElementById('cm-dv'); return o ? { cc: !!o.querySelector('.cm-dv-cc'), btn: !!o.querySelector('.cm-dv-ccbtn'), track: !!o.querySelector('track') } : null; }
+            finally { cmDayVideo.close(); delete V[98]; state.cmOpenVideos = keep; }
+        }, days[0]);
+        if (!nocc || nocc.cc || nocc.btn || nocc.track) fail(`a video with no captions should have no caption strip and no CC button: ${JSON.stringify(nocc)}`);
+        await page.evaluate(async () => { localStorage.removeItem('lsh_day-video'); await storeSet('day-video', null); });
     } catch (e) { fail(`the check stopped: ${e.message}`); }
     await browser.close();
     if (failures.length) { console.error('🎬 Day video player check FAILED:\n - ' + failures.join('\n - ')); process.exit(1); }

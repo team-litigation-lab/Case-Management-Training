@@ -68,6 +68,10 @@ if(typeof moduleCard === "function"){
 const PREF = "day-video", RATES = [0.75, 1, 1.25, 1.5, 1.75, 2];
 if(typeof registerPersonalKeys === "function") registerPersonalKeys([PREF]);
 let prefs = {pos: {}, rate: 1, cc: true, at: 0}, curId = null, lastLocal = 0, lastCloud = 0;
+// loaded: this viewer has read the trainee's saved prefs (readPrefs). Until then nothing is saved, so the defaults never
+// replace their places in every day's video, their speed or their CC choice; a speed or CC chosen meanwhile is kept (early)
+let loaded = false, early = {};
+let nativeFs = false;   // iPhone: the video alone is in the system's full screen (the strip isn't), so its own captions show
 const clean = p => { p = p && typeof p === "object" ? p : {};
   return {pos: p.pos && typeof p.pos === "object" ? Object.assign({}, p.pos) : {}, rate: RATES.includes(Number(p.rate)) ? Number(p.rate) : 1, cc: p.cc !== false, at: Number(p.at) || 0}; };
 const readLocal = () => { try{ return JSON.parse(localStorage.getItem("lsh_" + PREF) || "null"); }catch(e){ return null; } };
@@ -80,7 +84,7 @@ function saveLocal(){ prefs.at = Date.now(); lastLocal = prefs.at; try{ localSto
 function saveCloud(){ saveLocal(); lastCloud = Date.now(); if(typeof storeSet === "function") Promise.resolve(storeSet(PREF, prefs)).catch(() => {}); }
 const vEl = () => { const o = document.getElementById("cm-dv"); return o && o.querySelector("video"); };
 function keepPlace(force){
-  const v = vEl(); if(!v || curId == null) return;
+  const v = vEl(); if(!v || curId == null || !loaded) return;
   const t = v.currentTime || 0, d = v.duration;
   if(t < 5 || (d > 0 && t > d - 10)) delete prefs.pos[curId]; else prefs.pos[curId] = Math.floor(t);
   if(force || Date.now() - lastCloud > 60000) saveCloud(); else if(Date.now() - lastLocal > 5000) saveLocal();
@@ -127,11 +131,11 @@ function showCc(){
   if(box.innerHTML !== html) box.innerHTML = html;
 }
 function ccUi(o){
-  o.classList.toggle("cm-dv-nocc", !prefs.cc);
+  o.classList.toggle("cm-dv-nocc", !prefs.cc || !o.querySelector(".cm-dv-cc"));   // a video with no captions file: no strip, no CC
   const b = o.querySelector(".cm-dv-ccbtn"); if(b){ b.setAttribute("aria-pressed", prefs.cc ? "true" : "false"); b.title = prefs.cc ? "Hide the captions" : "Show the captions"; }
 }
 function setCc(on){
-  prefs.cc = !!on; saveCloud();
+  prefs.cc = !!on; if(loaded) saveCloud(); else early.cc = prefs.cc;
   const o = document.getElementById("cm-dv"); if(o) ccUi(o);
 }
 function rateUi(o){
@@ -140,12 +144,12 @@ function rateUi(o){
 }
 function setRate(r){
   r = Number(r); if(!RATES.includes(r)) return;
-  prefs.rate = r; saveCloud();
+  prefs.rate = r; if(loaded) saveCloud(); else early.rate = r;
   const o = document.getElementById("cm-dv"); if(o) rateUi(o);
 }
 function startOver(){
   const o = document.getElementById("cm-dv"), v = vEl(); if(!v) return;
-  v.currentTime = 0; if(curId != null) delete prefs.pos[curId]; saveCloud();
+  v.currentTime = 0; if(curId != null) delete prefs.pos[curId]; if(loaded) saveCloud();
   const n = o.querySelector(".cm-dv-resume"); if(n) n.hidden = true;
   if(o._mark) o._mark(); showCc();
   const p = v.play(); if(p && p.catch) p.catch(() => {});
@@ -154,19 +158,19 @@ function open(id){
   const vid = VIDEOS[id]; if(!vid) return;
   if(!unlocked(id)) return why();
   close();
-  curId = Number(id);
+  curId = Number(id); loaded = false; early = {}; nativeFs = false;
   const o = document.createElement("div");
   o.id = "cm-dv"; o.className = "overlay cm-dv"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", vid.title + ": Video Presentation");
   o.innerHTML = `<div class="cm-dv-box">
     <div class="cm-dv-head"><h2>🎬 ${E(vid.title)} <span>Video Presentation</span></h2>
       <span class="cm-dv-resume" hidden>Resumed at <b></b> · <button type="button" onclick="cmDayVideo.startOver()">↺ Start over</button></span>
       <label class="cm-dv-ctl cm-dv-speed">Speed <select class="cm-dv-rate" aria-label="Playback speed" onchange="cmDayVideo.setRate(this.value)">${RATES.map(r => `<option value="${r}">${r}×</option>`).join("")}</select></label>
-      <button type="button" class="cm-dv-ctl cm-dv-ccbtn" aria-pressed="true" onclick="cmDayVideo.setCc(!cmDayVideo.prefs().cc)">CC</button>
+      ${vid.captions ? `<button type="button" class="cm-dv-ctl cm-dv-ccbtn" aria-pressed="true" onclick="cmDayVideo.setCc(!cmDayVideo.prefs().cc)">CC</button>` : ""}
       <button type="button" class="cm-dv-ctl cm-dv-fs" aria-pressed="false" onclick="cmDayVideo.fullscreen()" title="Fill the screen with the video, its captions and the slide list">⛶ Full screen</button>
       <button type="button" class="cm-dv-x" onclick="cmDayVideo.close()" aria-label="Close the video">✕</button></div>
     <div class="cm-dv-main">
       <div class="cm-dv-stage"><video controls playsinline preload="metadata" controlslist="nofullscreen" disablepictureinpicture src="${E(vid.src)}">${vid.captions ? `<track kind="captions" srclang="en" label="English" src="${E(vid.captions)}" default>` : ""}</video>
-        <div class="cm-dv-cc"></div></div>
+        ${vid.captions ? `<div class="cm-dv-cc"></div>` : ""}</div>
       <nav class="cm-dv-chapters" aria-label="Slides"><h3>Slides</h3><ol>${vid.chapters.map((c, i) => `<li><button type="button" data-i="${i}" onclick="cmDayVideo.seek(${i})"><b>${c.page}</b><span>${E(c.title)}</span><i>${mmss(c.t)}</i></button></li>`).join("")}</ol></nav>
     </div></div>`;
   o.addEventListener("mousedown", ev => { if(ev.target === o) close(); });
@@ -184,7 +188,7 @@ function open(id){
   v.addEventListener("timeupdate", () => { mark(); keepPlace(false); });
   v.addEventListener("seeked", () => { mark(); showCc(); });
   v.addEventListener("pause", () => keepPlace(true));
-  v.addEventListener("ended", () => { if(curId != null){ delete prefs.pos[curId]; saveCloud(); } });
+  v.addEventListener("ended", () => { if(curId != null && loaded){ delete prefs.pos[curId]; saveCloud(); } });
   v.addEventListener("loadedmetadata", () => rateUi(o));
   v.addEventListener("dblclick", ev => { ev.preventDefault(); fullscreen(); });
   // the captions: never drawn on the picture; the strip under it shows them
@@ -195,16 +199,22 @@ function open(id){
     const el = v.querySelector("track"); if(el) el.addEventListener("load", () => { if(tr.mode !== "hidden") tr.mode = "hidden"; showCc(); });
     // the browser's own CC menu: "showing" means the trainee wants captions (in the strip), "disabled" means none
     v.textTracks.addEventListener("change", () => {
+      if(nativeFs){ if(tr.mode === "showing" && !prefs.cc) setCc(true); else if(tr.mode !== "showing" && prefs.cc) setCc(false); return; }
       if(tr.mode === "showing"){ tr.mode = "hidden"; if(!prefs.cc) setCc(true); }
       else if(tr.mode === "disabled"){ tr.mode = "hidden"; if(prefs.cc) setCc(false); }
     });
+    // iPhone's full screen shows the video alone: its own captions are drawn there (the strip can't go with it), and back
+    // in the strip when it ends
+    v.addEventListener("webkitbeginfullscreen", () => { nativeFs = true; v.classList.add("cm-dv-native"); if(prefs.cc) tr.mode = "showing"; });
+    v.addEventListener("webkitendfullscreen", () => { nativeFs = false; v.classList.remove("cm-dv-native"); tr.mode = "hidden"; showCc(); });
   }
   document.addEventListener("keydown", onKey, true);
   o.querySelector(".cm-dv-x").focus();
   // where this trainee left off, with their speed and CC choice (read fresh: their progress may have come from another device)
   readPrefs().then(p => {
     if(!document.body.contains(o)) return;
-    prefs = p; ccUi(o); rateUi(o);
+    prefs = Object.assign(p, early); loaded = true; ccUi(o); rateUi(o);
+    if(Object.keys(early).length) saveCloud();
     const at = Number(prefs.pos[id]) || 0;
     if(at >= 5 && v.currentTime < 1){
       v.currentTime = at;
@@ -283,7 +293,8 @@ css.textContent = `
 .cm-dv-stage{background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;}
 .cm-dv-stage video{display:block;width:100%;max-height:calc(100vh - 110px - 76px);aspect-ratio:16/9;background:#000;}
 .cm-dv-stage video::cue{color:transparent;background:transparent;}
-.cm-dv-cc{box-sizing:border-box;width:100%;height:76px;flex:0 0 76px;display:flex;align-items:center;justify-content:center;padding:6px 18px;background:#000;color:#fff;text-align:center;font:700 19px/1.3 'Inter',sans-serif;overflow:hidden;}
+.cm-dv-stage video.cm-dv-native::cue{color:#fff;background:rgba(0,0,0,.8);}
+.cm-dv-cc{box-sizing:border-box;width:100%;min-height:76px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:6px 18px;background:#000;color:#fff;text-align:center;font:700 19px/1.3 'Inter',sans-serif;overflow:hidden;}
 .cm-dv-nocc .cm-dv-cc{display:none;}
 .cm-dv-nocc .cm-dv-stage video{max-height:calc(100vh - 110px);}
 .cm-dv-head h2{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
@@ -318,8 +329,11 @@ button.cm-dv-ctl:hover,button.cm-dv-ctl:focus-visible{background:#DB8437;}
 .cm-dv-day.via{cursor:default;}
 .cm-dv-day b{display:block;color:var(--navy);font-weight:800;font-size:16px;}
 .cm-dv-day small{display:block;margin-top:4px;font-size:14px;font-weight:700;color:#A4470F;}
+/* the header's title and its controls (Resumed at · Speed · CC · Full screen · ✕) share one line only on a wide screen */
+@media (max-width:1100px){ .cm-dv-head{flex-wrap:wrap;} .cm-dv-head h2{flex-basis:100%;order:-1;white-space:normal;}
+  .cm-dv-stage video{max-height:calc(100vh - 160px - 76px);} .cm-dv-nocc .cm-dv-stage video{max-height:calc(100vh - 160px);} }
 @media (max-width:900px){ .cm-dv-main{grid-template-columns:minmax(0,1fr);} .cm-dv-chapters{max-height:34vh;} .cm-dv-stage video{max-height:52vh;}
-  .cm-dv-head{flex-wrap:wrap;} .cm-dv-head h2{flex-basis:100%;order:-1;white-space:normal;} .cm-dv-cc{height:64px;flex-basis:64px;font-size:16px;} }
+  .cm-dv-cc{min-height:64px;font-size:16px;} }
 `;
 document.head.appendChild(css);
 })();
