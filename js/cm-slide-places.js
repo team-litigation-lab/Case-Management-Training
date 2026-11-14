@@ -47,17 +47,25 @@
    the trainee there. A place saved on one of the slides that are gone lands on the slide before them (the Training
    Agenda); every other place keeps its slide. The new slide is in no older deck: no older place lands on it, and it
    counts as seen for a trainee who was past it.
+   Then the lesson cards the trainers' decks replaced left the course (layout 8): Day 1's UPL Line, Client Directions and
+   Final Warning Letter, Day 2's PIP Strategy, Day 3's Demand Package, Adjuster Delay Tactics and UM Consent & Waiver
+   (GONE8: each with the lesson it followed). Their rules are 💡 Tips on the activities that practised them
+   (js/cm-lesson-tips.js). A place saved on one of their slides lands on the slide before them; every other place keeps
+   its slide.
    The layouts: 1, the deck with On the Job (no layout on the saved place); 2, without On the Job (the deck with the
    Milestone Steps slides and every Why It Matters slide); 3, without those, in the old order; 4, in today's order,
    every lesson on its own drawn slides; 5, with the deck pages, Day 1's and Day 2's Skill Building pages and Meet
-   Your Case; 6, without the Skill Building pages, still with Meet Your Case; 7, today's. A place saved in any older
+   Your Case; 6, without the Skill Building pages, still with Meet Your Case; 7, without Meet Your Case, still with the
+   lesson cards the decks replaced; 8, today's. A place saved in any older
    layout is moved through every change in one go (a place saved in 5 loses the Skill Building pages and Meet Your
    Case together; one saved in 6, only Meet Your Case).
-   Layout 7 is the last numbered layout; from now on places are saved by slide key: a deck change needs no migration
-   and no edit here (js/cm-slide-keys.js). The records below (ORDER3, GONE6, GONE6_DECK, GONE, NEW7) are frozen, and so
-   is layout 7's deck itself (js/cm-slide-keys7.js, window.CM_SLIDE_KEYS7): an older place is moved into THAT deck, never
-   into today's, so the moves stay right whatever later decks add, take away or reorder. A place moved here is a
-   position in layout 7's deck; js/cm-slide-keys.js (from7) then puts it on the same slide of today's deck by its key.
+   Layout 8 is the last numbered layout; from now on places are saved by slide key: a deck change needs no migration
+   and no edit here (js/cm-slide-keys.js). The records below (ORDER3, GONE6, GONE6_DECK, GONE, NEW7, GONE8) are frozen,
+   and so is layout 7's deck itself (js/cm-slide-keys7.js, window.CM_SLIDE_KEYS7), and layout 8's with it (layout 7's
+   without the lesson cards GONE8 names, keys8): an older place is moved into layout 7's deck (oldDeck), then by key
+   into layout 8's (to8: a lesson card's slide on the slide before it), never into today's, so the moves stay right
+   whatever later decks add, take away or reorder. A place moved here is a position in layout 8's deck;
+   js/cm-slide-keys.js (from8) then puts it on the same slide of today's deck by its key.
    Each saved object carries the layout it was written in (cfLayout), so the move happens once, on whichever device
    or tab reads it first, and a place saved since is left alone. The reload after an update says which layout its
    slide was saved in the same way (lsh_resume_layout): a page still running the old deck doesn't, and is moved.
@@ -65,7 +73,7 @@
 (function(){
 "use strict";
 if(typeof state === "undefined" || typeof DAYS === "undefined" || typeof buildDaySlides !== "function") return;
-const LAYOUT = 7, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
+const LAYOUT = 8, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
 const build = buildDaySlides;   // as js/cm-case-flow.js and js/cm-deck-pages.js left it: a Case Flow block is one slide per view
 const K7 = window.CM_SLIDE_KEYS7 || null;   // layout 7's deck, frozen (js/cm-slide-keys7.js)
 const cfDay = d => !!(d && d.cf && Array.isArray(d.lessons));
@@ -92,6 +100,12 @@ const GONE6_DECK = {"predemand": 1, "demand": 1, "negotiation": 1, "bisettlement
    itself). And the day's own slides that layout 7 added, in no older deck. */
 const GONE = {"d1m1-case": {day: 1, after: "taskOverview", views: ["theory", "frame", "rules", "model", "dodont"], ops: true, with: ["caseMap", "coverageMap"]}};
 const NEW7 = new Set(["meetJohnDoe"]);
+/* Layout 8: the lesson cards the trainers' decks replaced left the course's order (their block keeps `retired`; its
+   rules are a 💡 Tip, js/cm-lesson-tips.js). Each sat right after the lesson named here, in every layout from 4 to 7
+   (several after one lesson sit in this order); in layouts 1 to 3 they are in ORDER3. A place on one lands on the
+   slide before it. A record of the deck of layout 7; never edit it to match a later one. */
+const GONE8 = {"d1m1-upl": "d1m1-role", "d1m3-l1": "d1m4-l1", "d1m2-l2": "d1m2-l1", "d2m2-pip": "d2m2-eob",
+  "d3m1-pkg": "d3m1-l2", "d3m2-l1": "d3m1-l2", "d3m2-umw": "d3m1-l2"};
 const goneRun = (id, from) => { const g = GONE[id]; return viewsWere({id, kind: "lesson", ops: g.ops ? [1] : []}, g.views.slice(), from).length; };
 /* a lesson drawn from the trainer's deck pages in layout 7 (since layout 5): its slides before were its own drawn ones */
 const deckLesson = b => !!(b && b.kind === "lesson" && Array.isArray(b.drawn));
@@ -202,10 +216,26 @@ function oldDeck(d, from){
   let far = 0; out.forEach(x => { far = Math.max(far, x[1], x[0]); x[1] = far; });
   return out;
 }
+/* layout 8's deck of a day, frozen, as slide keys: layout 7's record without the lesson cards GONE8 names (null for a
+   day with no record) */
+const blockKey = k => String(k).replace(/#\d+$/, "").split(":")[0];
+function keys8(d){
+  const row = K7 && K7.days && d && d.cf && K7.days[d.cf.n];
+  return Array.isArray(row) ? row.filter(k => !GONE8[blockKey(k)]) : null;
+}
+/* a position in layout 7's deck, in layout 8's: its slide, or (a lesson card that left) the nearest slide before it */
+function to8(d, j){
+  const row = K7 && K7.days && d && d.cf && K7.days[d.cf.n], k8 = keys8(d);
+  if(!Array.isArray(row) || !k8) return j;
+  for(let t = Math.min(j, row.length - 1); t >= 0; t--){ const x = k8.indexOf(row[t]); if(x >= 0) return x; }
+  return 0;
+}
 const layoutOf = from => { const n = Math.round(Number(from)) || 1; return n < 1 ? 1 : n; };
-const placeMap = (d, from) => oldDeck(d, layoutOf(from)).map(x => x[0]);   // where each old position's slide is in layout 7's deck
-const reachMap = (d, from) => oldDeck(d, layoutOf(from)).map(x => x[1]);   // how far each old position had reached, in layout 7's deck
-/* a place saved in layout `from`, as a position in layout 7's deck (js/cm-slide-keys.js from7 takes it on to today's) */
+const placeMap7 = (d, from) => oldDeck(d, layoutOf(from)).map(x => x[0]);   // where each old position's slide is in layout 7's deck
+const reachMap7 = (d, from) => oldDeck(d, layoutOf(from)).map(x => x[1]);   // how far each old position had reached, in layout 7's deck
+const placeMap = (d, from) => placeMap7(d, from).map(j => to8(d, j));   // ... in layout 8's deck
+const reachMap = (d, from) => reachMap7(d, from).map(j => to8(d, j));
+/* a place saved in layout `from`, as a position in layout 8's deck (js/cm-slide-keys.js from8 takes it on to today's) */
 function moved(d, i, from, far){
   if(layoutOf(from) >= LAYOUT) return Math.max(0, Math.round(Number(i) || 0));
   const m = far ? reachMap(d, from) : placeMap(d, from); if(!m.length) return 0;
@@ -261,12 +291,12 @@ if(typeof window.restoreAfterUpdate === "function"){
       const st = JSON.parse(sessionStorage.getItem(RESUME) || "null"), d = st && st.view === "day" ? DAYS.find(x => x.id === st.dayId) : null;
       if(d && cfDay(d) && typeof st.lessonSlide === "number" && wrote < LAYOUT){
         st.lessonSlide = moved(d, st.lessonSlide, wrote);   // the layout the page that kept it was running (none said: the first)
-        if(window.cmSlideKeys && typeof window.cmSlideKeys.from7 === "function") st.lessonSlide = window.cmSlideKeys.from7(d, st.lessonSlide);   // and on, by key, to today's deck
+        if(window.cmSlideKeys && typeof window.cmSlideKeys.from8 === "function") st.lessonSlide = window.cmSlideKeys.from8(d, st.lessonSlide);   // and on, by key, to today's deck
         sessionStorage.setItem(RESUME, JSON.stringify(st));
       }
     }catch(e){ console.warn("[slide-places]", e); }
     return __restore.apply(this, arguments);
   };
 }
-window.cmSlidePlaces = {LAYOUT, placeMap, reachMap, moved, deck7};   // .github/scripts/slide-places.cjs
+window.cmSlidePlaces = {LAYOUT, placeMap, reachMap, placeMap7, reachMap7, moved, deck7, keys8, to8, GONE8};   // .github/scripts/slide-places.cjs
 })();

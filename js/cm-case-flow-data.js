@@ -24,6 +24,7 @@
      act:      {scenario, prompt, tool, output, checkpoints[]} activity
      check:    {questions[], summary[], scale[]}             check
      show:     the visual model — see SHOW TYPES
+     retired:  set on a lesson the trainers' decks replaced: out of the sequence, its rules a 💡 Tip (js/cm-lesson-tips.js)
      ops:      [[what starts it, task, tool, checkpoint]]   (drawn nowhere now; the tools and terms a lesson teaches are still read from it)
      best:     practices, and pitfalls written "Pitfall: …"
      sources:  where the theory came from
@@ -417,8 +418,8 @@ window.CM_CASE_FLOW = {
      ========================================================== */
   {
     n: 1, id: 11,
-    title: "Case Flow Day 1 · Intake, Claims & Property Damage",
-    phase: "Intake, claims & Property Damage",
+    title: "Case Flow Day 1 · Fundamentals, Intake & Claim Set Up",
+    phase: "Fundamentals, intake & claim set up",
     objective: "Know the Case Manager's role and the six stages of a file; meet John Doe and his case; hold the UPL line; read the raw file, make the acceptance decision and see which claims the file will carry; open the matter correctly in the CMS with the Conflict Check first; deliver the client's do's and don'ts and onboarding directions; sort the Property Damage side to see what touches John Doe's case (the severity evidence, the rental's last day for his rides) and what stays on Margaret Doe's separate claim; and keep John Doe reachable from the first week (the No Contact Protocol and the Final Warning Letter).",
     gate: "Matter opened in the CMS with the Conflict Check documented · acceptance decision recorded · the claims the file carries identified · onboarding directions delivered and assigned in the system · the Property Damage items sorted: severity evidence indexed on John Doe's file, Margaret Doe's PD questions referred · outreach to John Doe logged across channels, and the Final Warning Letter drafted",
     discussion: "Robert Smith's carrier has already called John Doe, and he needs a car to get to work. What do you tell him today, in what order, and what has to be on the file before tomorrow's claim set-up?",
@@ -540,6 +541,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d1m1-upl",
+        retired: "Replaced by Day 1's decks; its rules are a 💡 Tip on the activity that practised it (js/cm-lesson-tips.js)",
         title: "Fact Sharing vs. Legal Advice: the UPL Line",
         topic: "What you may say, and what only Atty. Thorne says",
         visual: "A two-column board split by a red vertical line labelled THE UPL LINE. Left, a green-bordered column headed FACT SHARING · YOU, five speech bubbles in plain words: a date read from a document, the next step in the process, who decides, when an answer is due, what was sent and when. Right, a red-bordered column headed LEGAL ADVICE · ATTY. THORNE, five struck-through bubbles: what the case is worth, whether to settle, what the gap does to the claim, what the law means for him, what to tell an adjuster. Along the bottom, three mono pills: HEAR IT · LOG IT · ROUTE IT TO ATTY. THORNE, THE SAME DAY.",
@@ -1020,6 +1022,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d1m2-l2",
+        retired: "Replaced by Day 1's decks; its rules are a 💡 Tip on the activity that practised it (js/cm-lesson-tips.js)",
         title: "Final Warning Letter & When a Skip-Trace Starts",
         topic: "No Contact Protocol Steps 4 to 6, and when the search begins",
         visual: "Two panels. Left: the Final Warning Letter on white letterhead with a navy band, four required elements called out by orange numbered badges — ① the earlier attempts, itemized ② a response deadline of 7–14 days ③ notice of potential withdrawal ④ how to respond. Above the letter, a chip pair reads CERTIFIED MAIL + EMAIL, joined by a bold AND, because both are required. Right: the Step 5 decision fork on a pale ground. Root, navy: “Response within the deadline?” Yes (green) → RESUME FILE. No (orange) → a three-chip AND gate (ladder exhausted · letter sent · deadline expired) ending in two outcomes: TRIGGER SKIP-TRACE and ATTORNEY DECISION POINT. Draw the gate as a gate, never as a bullet list.",
@@ -1229,6 +1232,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d1m3-l1",
+        retired: "Replaced by Day 1's decks; its rules are a 💡 Tip on the activity that practised it (js/cm-lesson-tips.js)",
         title: "Client Do's and Don'ts",
         topic: "Protecting the claim from the client's own good intentions",
         visual: "A balanced two-column DO / DON'T board on the upper two-thirds, green-bordered left and red-bordered right, with matched pairs on the same line so each DON'T sits opposite the DO it replaces. Each row carries a small icon in the gutter. Lower third: a strip of three orange tags — NO RECORDED STATEMENT · KEEP EVERY RECEIPT · PROPERTY DAMAGE ONLY — the three instructions clients most often break in week one.",
@@ -2448,8 +2452,8 @@ window.CM_CASE_FLOW = {
      ========================================================== */
   {
     n: 2, id: 12,
-    title: "Case Flow Day 2 · Claim Set Up & Treatment",
-    phase: "Claim set up & treatment",
+    title: "Case Flow Day 2 · Claim Set Up, Treatment & the Bodily Injury Claim",
+    phase: "Claim set up, treatment & the bodily injury claim",
     objective: "Build John Doe's three-layer Policy Stack in the CMS; draft, transmit and log the LORs and notices; receive the carriers' claim correspondence and verify the $40,000 stack in writing; investigate liability and lead every note to Atty. Thorne with the decision needed; plan John Doe's treatment, flag the 14-Day Gap and route the Case Plan; then carry the file through treatment: route every bill in Payer Order, flag the Health Plan's reimbursement right and clear the Regulatory Triple-Check, and keep care moving through the disruption, to MMI.",
     gate: "Policy Stack built in the CMS · LORs and notices out and logged · carrier correspondence received and the Coverage Matrix audited · 14-Day Gap flagged · Case Plan routed to Atty. Thorne · bills routed in Payer Order, LOPs out · Peach State's reimbursement right flagged and the Regulatory Triple-Check cleared · treatment documented to MMI",
     discussion: "It is 04/08/2026. Keystone confirmed its limit in writing on 03/20, Riverton Spine & Rehab reports John Doe has missed two visits, and Dana Whitfield has asked John for a Recorded Statement. What do you do first, second and third, and what does each protect?",
@@ -3731,6 +3735,7 @@ window.CM_CASE_FLOW = {
       },
       {
         kind: "lesson", id: "d2m2-pip",
+        retired: "Replaced by Day 2's deck pages (Valuation Baseline); its rules are a 💡 Tip on the activity that practised it (js/cm-lesson-tips.js)",
         brief: true,
         title: "PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement",
         topic: "Where PIP's $5,000 lands, and what that means for the settlement later",
@@ -5419,6 +5424,7 @@ window.CM_CASE_FLOW = {
       },
        {
          kind: "lesson", id: "d3m1-pkg",
+         retired: "Replaced by Day 2's deck pages (Demand); its rules are a 💡 Tip on the activity that practised it (js/cm-lesson-tips.js)",
          compact: true,
          title: "Building the Demand Package: the Big Four, the Human Story & the Final Scrub",
          topic: "What each part of the package proves, and the adjuster trap each one shuts",
@@ -5703,7 +5709,8 @@ window.CM_CASE_FLOW = {
       blocks: [
 
       {
-        kind: "lesson", id: "d3m2-l1", compact: true,
+        kind: "lesson", id: "d3m2-l1",
+        retired: "Replaced by Day 2's deck pages (Demand, Settlement Negotiations); its rules are a 💡 Tip on the activity that practised it (js/cm-lesson-tips.js)", compact: true,
         title: "Countering Adjuster Delay Tactics & Gap Pushback",
         topic: "The battle map, the first call, and the stall rebuttals",
         visual: "A battle map across the full slide width: four orange-numbered stations on a navy rail, left to right — ① NET FLOOR ② VALUE DRIVERS ③ THEIR TOP TWO ④ REBUTTAL READY. Station ① carries a mono pill, $12,677.63 GROSS, with a small red note: KEYSTONE LIMIT $10,000. Under station ③ hang two red-bordered danger cards, 14-DAY GAP and “DEGENERATIVE” MRI; under station ④, two cream cards answer them, each with mono source pills: EMS REPORT · CAUSATION LETTER 06/19/2026, and SUMMIT MRI 03/13/2026. Top-right, a navy chip: DEMAND EXPIRES 08/21/2026. The argument: every attack on this file is answered before the phone rings.",
@@ -5924,7 +5931,8 @@ window.CM_CASE_FLOW = {
        },
 
       {
-        kind: "lesson", id: "d3m2-umw", compact: true,
+        kind: "lesson", id: "d3m2-umw",
+        retired: "Replaced by Day 2's deck pages (BI Settlement); its rules are a 💡 Tip on the activity that practised it (js/cm-lesson-tips.js)", compact: true,
         title: "The BI Settlement and the UM Consent to Settle & Subrogation Waiver",
         topic: "Why Keystone's $10,000 can't close until Harbor Point and Cardinal State sign off",
         visual: "Three linked cards across the slide on a navy rail. Left: KEYSTONE · BI $10,000 · TENDERED 08/12, with a red padlock chip CHECK HELD UNTIL WAIVERS. Centre: two stacked cream cards, HARBOR POINT · HOST UM · CONSENT + WAIVER 08/24 and CARDINAL STATE · RELATIVE UM · CONSENT + WAIVER 08/26, each with an orange tick and a mono pill SUBROGATION AGAINST SMITH WAIVED. Right: a signature card, LIMITED RELEASE · SIGNED 08/28, unlocked only once both centre cards are ticked. Far left, greyed and struck through: BLUEWATER · UM REJECTED 03/14/2024 · NOT A UM LAYER. The argument: the BI money and the UM claims are tied together, and the waiver is the knot.",
@@ -11278,19 +11286,19 @@ window.CM_CASE_FLOW = {
      build/case-flow/curriculum.cjs refuses a lesson after an activity and an activity without its lesson. */
   sequence: [
     {n: 1, phases: [
-      {title: "Intake, Claims & Property Damage", lead: "Module 1", blocks: ["d1m1-role", "d1m1-upl", "d1m1-l1", "d1m4-l1", "d1m3-l1", "d1m3-l2", "d1m2-l1", "d1m2-l2", "d1m1-open", "d1m1-drive", "d1m3-a1", "d1m3-a2", "d1m3-a3", "d1m2-a1", "d1m2-a2", "d1m1-kc", "d1m3-kc", "d1m2-kc"],
-       practises: {"d1m1-open": "d1m1-l1", "d1m1-drive": "d1m1-l1", "d1m3-a1": "d1m3-l1", "d1m3-a2": "d1m3-l1", "d1m3-a3": "d1m3-l2", "d1m2-a1": "d1m2-l1", "d1m2-a2": "d1m2-l2"},
-       headings: {"d1m1-role": "Case Management Fundamentals", "d1m1-upl": "The UPL Line: Fact Sharing vs. Legal Advice", "d1m1-l1": "Intake", "d1m4-l1": "Intake", "d1m3-l1": "Client Directions", "d1m3-l2": "Property Damage: Does It Touch Our Case?", "d1m1-open": "Skill Building: Opening the File in the CMS", "d1m1-drive": "Skill Building: Backup File Maintenance", "d1m3-a1": "Skill Building: Client Directions", "d1m3-a2": "Skill Building: Client Directions", "d1m3-a3": "Skill Building: Does PD Touch Our Case?", "d1m2-l1": "Client Communications", "d1m2-l2": "Client Communications", "d1m2-a1": "Skill Building: Client Communications", "d1m2-a2": "Skill Building: Client Communications"}}
+      {title: "Fundamentals, Intake & Claim Set Up", lead: "Module 1", blocks: ["d1m1-role", "d1m1-l1", "d1m4-l1", "d1m3-l2", "d1m2-l1", "d1m1-open", "d1m1-drive", "d1m3-a1", "d1m3-a2", "d1m3-a3", "d1m2-a1", "d1m2-a2", "d1m1-kc", "d1m3-kc", "d1m2-kc"],
+       practises: {"d1m1-open": "d1m1-l1", "d1m1-drive": "d1m1-l1", "d1m3-a1": "d1m1-l1", "d1m3-a2": "d1m1-l1", "d1m3-a3": "d1m3-l2", "d1m2-a1": "d1m2-l1", "d1m2-a2": "d1m2-l1"},
+       headings: {"d1m1-role": "Case Management Fundamentals", "d1m1-l1": "Intake & Case Acceptance", "d1m4-l1": "Claim Set Up & the Case Plan", "d1m3-l2": "Property Damage: Does It Touch Our Case?", "d1m1-open": "Skill Building: Opening the File in the CMS", "d1m1-drive": "Skill Building: Backup File Maintenance", "d1m3-a1": "Skill Building: Intake & Case Acceptance", "d1m3-a2": "Skill Building: Intake & Case Acceptance", "d1m3-a3": "Skill Building: Does PD Touch Our Case?", "d1m2-l1": "Client Communications: the No Contact Protocol", "d1m2-a1": "Skill Building: the No Contact Protocol", "d1m2-a2": "Skill Building: the No Contact Protocol"}}
     ]},
     {n: 2, phases: [
-      {title: "Claim Set Up & Treatment", lead: "Module 2", lanes: {"d2-drive": "care", "d2m1-l1": "claims", "d2m1-l2": "claims", "d2m1-afd": "claims", "d2m1-liab": "claims", "d2m1-first": "claims", "d1m4-l2": "claims", "d1m1-a1": "claims", "d2m1-a1": "claims", "d2m1-a2": "claims", "d1m4-a1": "claims", "d1m4-a2": "claims", "d2m1-kc": "claims", "d1m4-kc": "claims", "d2m1-cov": "care", "d2m2-l1": "care", "d2m2-eob": "care", "d2m2-pip": "care", "d2m2-lop": "care", "d2m2-cost": "care", "d1m1-l2": "care", "d2m2-l2": "care", "d2m2-a1": "care", "d1m1-a2": "care", "d2m2-sum": "care", "d2m2-a2": "care", "d2m2-a3": "care", "d2m2-kc": "care", "d1m4-tplan": "claims", "d1m4-tmap": "claims", "d1m4-tcare": "claims", "d1m4-emc": "care"}, blocks: ["d2m1-l2", "d2m1-afd", "d2m1-liab", "d2m1-first", "d2m1-l1", "d1m4-tplan", "d1m4-tmap", "d1m4-tcare", "d1m4-l2", "d2m1-cov", "d2m2-l1", "d2m2-eob", "d2m2-pip", "d1m4-emc", "d2m2-lop", "d2m2-cost", "d1m1-l2", "d2m2-sum", "d2m2-l2", "d1m1-a1", "d2m1-a1", "d2m1-a2", "d1m4-a1", "d1m4-a2", "d2m2-a1", "d2m2-a3", "d1m1-a2", "d2m2-a2", "d2-drive", "d2m1-kc", "d1m4-kc", "d2m2-kc"],
+      {title: "Claim Set Up, Treatment & the Bodily Injury Claim", lead: "Module 2", lanes: {"d2-drive": "care", "d2m1-l1": "claims", "d2m1-l2": "claims", "d2m1-afd": "claims", "d2m1-liab": "claims", "d2m1-first": "claims", "d1m4-l2": "claims", "d1m1-a1": "claims", "d2m1-a1": "claims", "d2m1-a2": "claims", "d1m4-a1": "claims", "d1m4-a2": "claims", "d2m1-kc": "claims", "d1m4-kc": "claims", "d2m1-cov": "care", "d2m2-l1": "care", "d2m2-eob": "care", "d2m2-lop": "care", "d2m2-cost": "care", "d1m1-l2": "care", "d2m2-a1": "care", "d1m1-a2": "care", "d2m2-sum": "care", "d2m2-l2": "care", "d2m2-a2": "care", "d2m2-a3": "care", "d2m2-kc": "care", "d1m4-tplan": "claims", "d1m4-tmap": "claims", "d1m4-tcare": "claims", "d1m4-emc": "care"}, blocks: ["d2m1-l2", "d2m1-afd", "d2m1-liab", "d2m1-first", "d2m1-l1", "d1m4-tplan", "d1m4-tmap", "d1m4-tcare", "d1m4-l2", "d2m1-cov", "d2m2-l1", "d2m2-eob", "d1m4-emc", "d2m2-lop", "d2m2-cost", "d1m1-l2", "d2m2-sum", "d2m2-l2", "d1m1-a1", "d2m1-a1", "d2m1-a2", "d1m4-a1", "d1m4-a2", "d2m2-a1", "d2m2-a3", "d1m1-a2", "d2m2-a2", "d2-drive", "d2m1-kc", "d1m4-kc", "d2m2-kc"],
        practises: {"d1m1-a1": "d2m1-l2", "d2m1-a1": "d2m1-l1", "d2m1-a2": "d2m1-l2", "d1m4-a1": "d1m4-tcare", "d1m4-a2": "d1m4-l2", "d2m2-a1": "d2m2-l1", "d2m2-a3": "d2m2-lop", "d1m1-a2": "d1m1-l2", "d2m2-a2": "d2m2-l2", "d2-drive": "d2m2-l2"},
-       headings: {"d2-drive": "Skill Building: Backup File Maintenance", "d2m1-l1": "Claim Set Up", "d2m1-l2": "Claim Set Up", "d2m1-afd": "Claim Set Up", "d2m1-liab": "Claim Set Up", "d2m1-first": "Claim Set Up", "d1m4-tplan": "Case Planning & Strategy", "d1m4-tmap": "Case Planning & Strategy", "d1m4-tcare": "Case Planning & Strategy", "d1m4-l2": "Case Planning & Strategy", "d2m1-cov": "Treatment: Who Pays the Bills", "d2m2-l1": "Treatment: Who Pays the Bills", "d2m2-eob": "Treatment: Who Pays the Bills", "d2m2-pip": "Treatment: Who Pays the Bills", "d1m4-emc": "Treatment: Who Pays the Bills", "d2m2-lop": "Treatment: Who Pays the Bills", "d2m2-cost": "Treatment: Who Pays the Bills", "d1m1-l2": "Treatment: Liens & the Regulatory Triple-Check", "d2m2-sum": "Treatment: Coverage & Subrogation Summary", "d2m2-l2": "Treatment: Monitoring the Care", "d1m1-a1": "Skill Building: CMS Case File Setup", "d2m1-a1": "Skill Building: Draft, Transmit & Log the LORs", "d2m1-a2": "Skill Building: Receive Carrier Claim Correspondence", "d1m4-a1": "Skill Building: Case Planning & Strategy", "d1m4-a2": "Skill Building: Case Planning & Strategy", "d2m2-a1": "Skill Building: Who Pays the Bills", "d1m1-a2": "Skill Building: Liens", "d2m2-a2": "Skill Building: Monitoring the Care", "d2m2-a3": "Skill Building: Who Pays the Bills"}}
+       headings: {"d2-drive": "Skill Building: Backup File Maintenance", "d2m1-l1": "Claim Set Up", "d2m1-l2": "Claim Set Up", "d2m1-afd": "Claim Set Up", "d2m1-liab": "Claim Set Up", "d2m1-first": "Claim Set Up", "d1m4-tplan": "The Treatment Phase", "d1m4-tmap": "The Treatment Phase", "d1m4-tcare": "The Treatment Phase", "d1m4-l2": "The Treatment Phase", "d2m1-cov": "Treatment: Who Pays the Bills", "d2m2-l1": "Treatment: Who Pays the Bills", "d2m2-eob": "Treatment: Who Pays the Bills", "d1m4-emc": "Treatment: Who Pays the Bills", "d2m2-lop": "Treatment: Who Pays the Bills", "d2m2-cost": "Treatment: Who Pays the Bills", "d1m1-l2": "Treatment: Liens & the Regulatory Triple-Check", "d2m2-sum": "Treatment: Coverage & Subrogation Summary", "d2m2-l2": "Treatment: Monitoring the Care", "d1m1-a1": "Skill Building: CMS Case File Setup", "d2m1-a1": "Skill Building: Draft, Transmit & Log the LORs", "d2m1-a2": "Skill Building: Receive Carrier Claim Correspondence", "d1m4-a1": "Skill Building: the Treatment Phase", "d1m4-a2": "Skill Building: the Treatment Phase", "d2m2-a1": "Skill Building: Who Pays the Bills", "d1m1-a2": "Skill Building: Liens", "d2m2-a2": "Skill Building: Monitoring the Care", "d2m2-a3": "Skill Building: Who Pays the Bills"}}
     ]},
     {n: 3, phases: [
-      {title: "Pre-Demand Audit, the Demand & Settlement Negotiation", lead: "Module 3", lanes: {"d2m3-l1": "care", "d2m3-l2": "care", "d2m3-cause": "care", "d2m3-a1": "care", "d2m3-a2": "care", "d2m3-kc": "care"}, blocks: ["d2m3-l1", "d2m3-l2", "d2m3-cause", "d2m4-l1", "d2m4-l2", "d3m1-l1", "d3m1-l2", "d3m1-pkg", "d3m2-l1", "d3m2-umw", "d3m2-l2", "d2m3-a1", "d2m3-a2", "d2m4-wage", "d2m4-a1", "d2m4-a2", "d3-drive", "d3m1-a1", "d3m1-a2", "d3m2-a1", "d3m2-rel", "d3m2-exec", "d3m2-bins", "d3m2-a2", "d3m2-umns", "d2m3-kc", "d2m4-kc", "d3m1-kc", "d3m2-kc"],
-       practises: {"d2m3-a1": "d2m3-l1", "d2m3-a2": "d2m3-l2", "d2m4-wage": "d2m4-l1", "d2m4-a1": "d2m4-l1", "d2m4-a2": "d2m4-l2", "d3-drive": "d3m1-pkg", "d3m1-a1": "d3m1-l1", "d3m1-a2": "d3m1-l2", "d3m2-a1": "d3m2-l1", "d3m2-rel": "d3m2-umw", "d3m2-exec": "d3m2-umw", "d3m2-bins": "d3m2-l2", "d3m2-a2": "d3m2-l2", "d3m2-umns": "d3m2-l2"},
-       headings: {"d3-drive": "Skill Building: Backup File Maintenance", "d2m3-l1": "Pre-Demand: the Gap Explanation Record", "d2m3-l2": "Pre-Demand: the Gap Explanation Record", "d2m3-a1": "Skill Building: the Gap Explanation Record", "d2m3-a2": "Skill Building: the Gap Explanation Record", "d2m3-cause": "Pre-Demand Case Auditing", "d2m4-l1": "Pre-Demand Case Auditing", "d2m4-l2": "Pre-Demand Case Auditing", "d3m1-l1": "Demand", "d3m1-l2": "Demand", "d3m1-pkg": "Demand", "d2m4-wage": "Skill Building: Pre-Demand Case Auditing", "d2m4-a1": "Skill Building: Pre-Demand Case Auditing", "d2m4-a2": "Skill Building: Pre-Demand Case Auditing", "d3m1-a1": "Skill Building: Demand", "d3m1-a2": "Skill Building: Demand", "d3m2-l1": "Settlement Negotiations", "d3m2-umw": "Settlement Negotiations: the UM Consent & Waiver", "d3m2-l2": "Settlement Negotiations", "d3m2-rel": "Skill Building: the Settlement Release", "d3m2-exec": "Skill Building: the Settlement Release", "d3m2-a1": "Skill Building: Settlement Negotiations", "d3m2-bins": "Skill Building: Settlement Negotiations", "d3m2-a2": "Skill Building: Settlement Negotiations", "d3m2-umns": "Skill Building: Settlement Negotiations"}}
+      {title: "Pre-Demand Audit, the Demand & Settlement Negotiation", lead: "Module 3", lanes: {"d2m3-l1": "care", "d2m3-l2": "care", "d2m3-cause": "care", "d2m3-a1": "care", "d2m3-a2": "care", "d2m3-kc": "care"}, blocks: ["d2m3-l1", "d2m3-l2", "d2m3-cause", "d2m4-l1", "d2m4-l2", "d3m1-l1", "d3m1-l2", "d3m2-l2", "d2m3-a1", "d2m3-a2", "d2m4-wage", "d2m4-a1", "d2m4-a2", "d3-drive", "d3m1-a1", "d3m1-a2", "d3m2-a1", "d3m2-rel", "d3m2-exec", "d3m2-bins", "d3m2-a2", "d3m2-umns", "d2m3-kc", "d2m4-kc", "d3m1-kc", "d3m2-kc"],
+       practises: {"d2m3-a1": "d2m3-l1", "d2m3-a2": "d2m3-l2", "d2m4-wage": "d2m4-l1", "d2m4-a1": "d2m4-l1", "d2m4-a2": "d2m4-l2", "d3-drive": "d3m1-l1", "d3m1-a1": "d3m1-l1", "d3m1-a2": "d3m1-l2", "d3m2-a1": "d3m2-l2", "d3m2-rel": "d3m2-l2", "d3m2-exec": "d3m2-l2", "d3m2-bins": "d3m2-l2", "d3m2-a2": "d3m2-l2", "d3m2-umns": "d3m2-l2"},
+       headings: {"d3-drive": "Skill Building: Backup File Maintenance", "d2m3-l1": "Pre-Demand: the Gap Explanation Record", "d2m3-l2": "Pre-Demand: the Gap Explanation Record", "d2m3-a1": "Skill Building: the Gap Explanation Record", "d2m3-a2": "Skill Building: the Gap Explanation Record", "d2m3-cause": "Pre-Demand Case Auditing", "d2m4-l1": "Pre-Demand Case Auditing", "d2m4-l2": "Pre-Demand Case Auditing", "d3m1-l1": "Demand", "d3m1-l2": "Demand", "d2m4-wage": "Skill Building: Pre-Demand Case Auditing", "d2m4-a1": "Skill Building: Pre-Demand Case Auditing", "d2m4-a2": "Skill Building: Pre-Demand Case Auditing", "d3m1-a1": "Skill Building: Demand", "d3m1-a2": "Skill Building: Demand", "d3m2-l2": "Settlement Negotiations", "d3m2-rel": "Skill Building: Settlement Negotiations", "d3m2-exec": "Skill Building: Settlement Negotiations", "d3m2-a1": "Skill Building: Settlement Negotiations", "d3m2-bins": "Skill Building: Settlement Negotiations", "d3m2-a2": "Skill Building: Settlement Negotiations", "d3m2-umns": "Skill Building: Settlement Negotiations"}}
     ]},
     {n: 4, phases: [
       {title: "Reductions, Lien Negotiation & ADR", lead: "Module 4", blocks: ["d3m3-l1", "d3m3-l2", "d3m3-l3", "d3m4-l1", "d3m4-l2", "d3m4-close", "d4m2-l1", "d4m2-um", "d4m2-l2", "d4m3-l1", "d4m3-l2", "d4m3-prior", "d4m3-tx", "d3m3-a1", "d3m3-a2", "d3m4-a1", "d3m4-pal", "d3m4-a2", "d4-drive", "d4m2-a3", "d4m2-a1", "d4m2-medcal", "d4m2-a2", "d4m2-arbcal", "d4m3-a1", "d4m3-a2", "d3m3-kc", "d3m4-kc", "d4m2-kc", "d4m3-kc"],

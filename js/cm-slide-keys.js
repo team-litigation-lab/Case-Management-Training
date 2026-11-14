@@ -3,7 +3,7 @@
    A trainee's place in a day is a slide position: "last-slide" (where they were) and "slide-progress" (the furthest
    slide reached), both slide INDICES. An index is only right for the deck it was saved in: a slide added, taken away
    or moved before it, and the place opens on another slide. js/cm-slide-places.js moved places through numbered
-   layouts (1 to 7), one per deck change; layout 7 was the last. From layout 7 on, every place is also saved by the
+   layouts (1 to 8), one per deck change; layout 8 was the last. From layout 8 on, every place is also saved by the
    identity of its slide, its KEY, here:
      · a lesson's or activity's slide: its block id and view ("d1m1-role:theory", "d2m1-l1:deck3");
      · one of the day's own slides: its type ("~taskOverview", "~practiceLab", "~readyCheck", "~meetJohnDoe" …), a
@@ -16,11 +16,11 @@
    slide gone, it lands on the nearest slide before it that still exists (every slide it was saved with gone: the same
    index, never past the end, with keys afresh). The furthest slide reached is never below
    the place the trainee is on. A place saved without keys (an older page, another device, or keys that no longer
-   match the index) was saved in layout 7's deck (js/cm-slide-places.js has moved it there if it was older): it is put
-   on the same slide of today's deck by the key that position has in layout 7's frozen record (js/cm-slide-keys7.js,
-   from7; its slide gone, the nearest slide before it that is still there), and gets its keys. The reload after an
-   update keeps its slide's keys too (lsh_resume_keys); one kept by a page that saved none is taken from layout 7 the
-   same way.
+   match the index) was saved in layout 8's deck (js/cm-slide-places.js has moved it there if it was older): it is put
+   on the same slide of today's deck by the key that position has in layout 8's frozen record (layout 7's,
+   js/cm-slide-keys7.js, without the lesson cards that left in layout 8: cmSlidePlaces.keys8; from8: its slide gone,
+   the nearest slide before it that is still there), and gets its keys. The reload after an update keeps its slide's
+   keys too (lsh_resume_keys); one kept by a page that saved none is taken from layout 8 the same way.
    A deck change needs nothing here, nor in js/cm-slide-places.js.
    ============================================================ */
 (function(){
@@ -67,13 +67,13 @@ const num = i => typeof i === "number" && i >= 0 && isFinite(i);
 /* a trail none of whose keys is in today's deck: the same index, never past the end */
 const near = (keys, i) => Math.max(0, Math.min(i, keys.length - 1));
 const keysValid = r => !!(r && typeof r === "object" && Array.isArray(r.k) && r.k.length && num(r.i));
-/* a position in layout 7's deck (a place saved without keys), in today's deck: its slide by the key layout 7's frozen
+/* a position in layout 8's deck (a place saved without keys), in today's deck: its slide by the key layout 8's frozen
    record gives it, or the nearest slide before it that is still there (every slide before it is tried, nearest first) */
-function from7(d, i, keys){
-  const k7 = window.CM_SLIDE_KEYS7 && window.CM_SLIDE_KEYS7.days && d && d.cf && window.CM_SLIDE_KEYS7.days[d.cf.n];
-  if(!num(i) || !Array.isArray(k7) || !k7.length) return i;
+function from8(d, i, keys){
+  const P = window.cmSlidePlaces, k8 = P && typeof P.keys8 === "function" ? P.keys8(d) : null;
+  if(!num(i) || !Array.isArray(k8) || !k8.length) return i;
   keys = keys || keysOf(d);
-  const to = resolve(keys, k7.slice(0, Math.min(i, k7.length - 1) + 1).reverse());
+  const to = resolve(keys, k8.slice(0, Math.min(i, k8.length - 1) + 1).reverse());
   return to >= 0 ? to : 0;
 }
 
@@ -121,8 +121,8 @@ function follow(){
         r.i = to; r.k = trail(keys, to); out.keys = true;
         if(to === i) return;
       } else {
-        // saved without keys, or since by a page that saved none: a position in layout 7's deck (see from7)
-        to = from7(d, i, keys); if(to === i) return;
+        // saved without keys, or since by a page that saved none: a position in layout 8's deck (see from8)
+        to = from8(d, i, keys); if(to === i) return;
         if(rec) delete rec[PART[field]];   // its old keys (another index) are not this place's: record() writes them afresh
       }
       state[field][d.id] = to; out[field] = true;
@@ -188,7 +188,7 @@ if(typeof window.loadAll === "function"){
   window.loadAll = async function(){ ready = false; loading = true; try{ return await __load.apply(this, arguments); }finally{ loading = false; await settle(); } };
 }
 /* another tab's keys, as they arrive; and its places (index.html's listener has put them in state, js/cm-slide-places.js's
-   has moved an older layout's into layout 7's deck): followed by key, or from layout 7 if that tab saved no keys */
+   has moved an older layout's into layout 8's deck): followed by key, or from layout 8 if that tab saved no keys */
 window.addEventListener("storage", e => {
   if(!e.key || e.newValue === null) return;
   if(e.key === "lsh_" + KEY){
@@ -229,10 +229,10 @@ if(typeof window.restoreAfterUpdate === "function"){
         let to = resolve(keys, kept.k);
         if(to < 0 && num(st.lessonSlide) && keys.length) to = near(keys, st.lessonSlide);   // every slide of its trail gone
         if(to >= 0){ st.lessonSlide = to; sessionStorage.setItem(RESUME, JSON.stringify(st)); }
-      } else if(d && cfDay(d) && num(st.lessonSlide) && Number(sessionStorage.getItem("lsh_resume_layout")) >= 7){
-        // kept by a page running layout 7's deck that saved no keys: from layout 7, by key (an older layout's slide is
-        // moved by js/cm-slide-places.js, which runs after this and takes it on through from7 itself)
-        st.lessonSlide = from7(d, st.lessonSlide); sessionStorage.setItem(RESUME, JSON.stringify(st));
+      } else if(d && cfDay(d) && num(st.lessonSlide) && Number(sessionStorage.getItem("lsh_resume_layout")) >= 8){
+        // kept by a page running layout 8's deck that saved no keys: from layout 8, by key (an older layout's slide is
+        // moved by js/cm-slide-places.js, which runs after this and takes it on through from8 itself)
+        st.lessonSlide = from8(d, st.lessonSlide); sessionStorage.setItem(RESUME, JSON.stringify(st));
       }
     }catch(e){ console.warn("[slide-keys]", e); }
     return __restore.apply(this, arguments);
@@ -240,5 +240,5 @@ if(typeof window.restoreAfterUpdate === "function"){
 }
 
 settle();   // what was loaded before this file ran (the first loadAll)
-window.cmSlideKeys = {keyOf, keysOf, trail, resolve, from7, settle, BACK};   // .github/scripts/slide-places.cjs
+window.cmSlideKeys = {keyOf, keysOf, trail, resolve, from8, settle, BACK};   // .github/scripts/slide-places.cjs
 })();
