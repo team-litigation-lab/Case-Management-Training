@@ -15875,7 +15875,11 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <!-- 📐 the Feedback Rubric: one rubric (four dimensions, four tiers, the safety gate) for every graded piece of work -->
 <script src="/js/cm-rubric.js"></script>
 <script src="/js/cm-scorecard.js"></script>
+<!-- 🏷 the trainee's Batch ID follows their record: a corrected one shows within a minute -->
+<script src="/js/cm-batch-live.js"></script>
 <script src="/js/cm-batch-sheet.js"></script>
+<!-- ✍️ Knowledge Checks take one attempt: the first score is the one recorded (wraps cm-case-flow.js's submitQuiz and results) -->
+<script src="/js/cm-kc-once.js"></script>
 <script src="/js/cm-know-tools.js"></script>
 <!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
 <script src="/js/cm-companion-cases.js"></script>
@@ -15883,6 +15887,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-open-lessons.js"></script>
 <!-- 🎬 a day's narrated video on its day card, locked until the trainer unlocks it (wraps cmOpenLessons, so it follows it) -->
 <script src="/js/cm-day-video.js"></script>
+<!-- 🗂 every day card in Day 1's format: Review · 👁 Review Score | 🔁 Retake · ▶ Video (after cm-day-video.js, before lsh-card-frame.js) -->
+<script src="/js/cm-day-card-format.js"></script>
 <script src="/js/show-password.js"></script>
 <script src="/js/lsh-card-frame.js"></script>
 <script src="/js/lsh-tool-links.js"></script>

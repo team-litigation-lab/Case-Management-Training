@@ -1,7 +1,7 @@
-// @check browser — Day cards say where the trainee is (Start, Resume, Retake with the best score, Review)
+// @check browser — Day cards say where the trainee is (Start, Resume, Review; the one Knowledge Check attempt is the score kept)
 // What a day card tells a trainee about their own progress (moduleCard in index.html, and the wrapper
-// in js/cm-updates.js that rewrites it). A Knowledge Check under the pass mark is recorded —
-// progress[day].score keeps the best of every attempt and .history keeps them all — so a day the
+// in js/cm-updates.js that rewrites it). A Knowledge Check under the pass mark is recorded — it takes one
+// attempt (js/cm-kc-once.js): progress[day].score is that attempt's and .history keeps it — so a day the
 // trainee has worked through must never invite them to "Start" it again. Checks each state of a day:
 //     not begun                 → Start
 //     slides worked             → Continue (how far the deck was clicked through is NOT shown: the dashboard tracks
@@ -9,7 +9,7 @@
 //     Knowledge Check under 70% → Continue, with the score and the 70% pass mark on the card
 //     the whole deck seen       → Review
 //     passed                    → Review (back into the day's slides), with Review Score and Retake under it
-// and that a failing attempt is kept on the record at all (the best score is never lowered).
+// and that a failing attempt is kept on the record, and a second attempt is refused (the first score stands).
 // Usage: node .github/scripts/day-progress.cjs [baseUrl]   (needs `npm i playwright` and a browser)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -59,9 +59,9 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
     if (/Slides\s*\d+\s*%/i.test(started.card)) fail(`a day card should not show deck utilization ("Slides N%"): "${started.card.slice(0, 120)}"`);
 
     // 13 of 20 is 65%: recorded, but not the 70% that completes the day
-    const under = await card({ done: false, score: 65, date: new Date().toISOString(), history: [{ score: 55, passed: false }, { score: 65, passed: false }] }, 12);
+    const under = await card({ done: false, score: 65, date: new Date().toISOString(), history: [{ score: 65, passed: false }] }, 12);
     if (under.cta !== 'Continue') fail(`a day taken but under the pass mark should say "Continue", says "${under.cta}"`);
-    if (!/Knowledge Check 65%/.test(under.card)) fail(`the card should show the best score of a day not yet passed: "${under.card.slice(0, 160)}"`);
+    if (!/Knowledge Check 65%/.test(under.card)) fail(`the card should show the recorded score of a day not yet passed: "${under.card.slice(0, 160)}"`);
     if (!/70% to pass/.test(under.card)) fail(`the card should say what the pass mark is: "${under.card.slice(0, 160)}"`);
     if (/Slides\s*\d+\s*%/i.test(under.card)) fail(`a day card should not show deck utilization: "${under.card.slice(0, 160)}"`);
 
@@ -76,22 +76,22 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
     if (!/Completed/i.test(passed.card)) fail(`a day passed should say Completed: "${passed.card.slice(0, 120)}"`);
     if (!/Knowledge Check 85%/.test(passed.card) || /Slides/i.test(passed.card)) fail(`a day passed shows its Knowledge Check score, not the slides: "${passed.card.slice(0, 160)}"`);
 
-    // a failing attempt is kept on the record, with the best score, and never lowers it
-    const kept = await page.evaluate(() => {
-        const dayId = DAYS[0].id;
-        state.progress = {}; state.progress[dayId] = { done: false, score: 65, history: [{ score: 65, passed: false }] };
-        const prevBest = state.progress[dayId]?.score || 0, prevHistory = state.progress[dayId]?.history || [];
-        const score = 50, passed = false;   // a worse retake
-        state.progress[dayId] = { done: passed || (state.progress[dayId]?.done || false), score: Math.max(score, prevBest),
-            date: new Date().toISOString(), history: [...prevHistory, { score, passed, date: new Date().toISOString() }] };
-        return state.progress[dayId];
+    // a failing attempt is kept on the record, and a second attempt is refused: the first score stands (js/cm-kc-once.js)
+    const kept = await page.evaluate(async () => {
+        const d = DAYS[0];
+        state.isAdmin = false;   // the one-attempt rule is a trainee's (a trainer may retake)
+        state.progress = {}; state.progress[d.id] = { done: false, score: 65, date: new Date().toISOString(), history: [{ score: 65, passed: false, date: new Date().toISOString() }] };
+        finishTrainingForDay(d.id);   // shows the recorded result, not a fresh quiz
+        state.quizAnswers = {}; d.quiz.forEach((q, i) => { state.quizAnswers[i] = q.a; });   // a perfect second try
+        await window.submitQuiz(d.id);
+        return state.progress[d.id];
     });
-    if (kept.score !== 65) fail(`a worse retake lowered the best score to ${kept.score}`);
-    if (kept.history.length !== 2) fail(`a failing attempt was not kept on the record (${kept.history.length} attempt(s))`);
-    if (kept.done !== false) fail('a failing attempt marked the day complete');
+    if (kept.score !== 65) fail(`a second attempt changed the recorded score to ${kept.score}`);
+    if ((kept.history || []).length !== 1) fail(`a second attempt was recorded (${(kept.history || []).length} attempt(s))`);
+    if (kept.done !== false) fail('a refused second attempt marked the day complete');
 
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-    console.log('Day cards tell the trainee where they are: Start, Continue (no deck utilization shown) with the Knowledge Check score beside the 70% pass mark, or Review once the deck is finished or the day passed (with Review Score and Retake); a failing attempt is kept and never lowers the best score.');
+    console.log('Day cards tell the trainee where they are: Start, Continue (no deck utilization shown) with the Knowledge Check score beside the 70% pass mark, or Review once the deck is finished or the day passed (with Review Score and Retake); a failing attempt is kept and a second attempt is refused (one attempt only).');
     console.log('All good.');
 })().catch(e => { console.error(e); process.exit(1); });

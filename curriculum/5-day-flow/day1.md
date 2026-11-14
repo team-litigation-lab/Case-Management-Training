@@ -1218,9 +1218,9 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 7. A call with John Doe was never logged in the CMS. For the file, that call:  
    Counts, as long as you remember it · **✓ Didn't happen: the CMS is the single source of truth** · Belongs in an email to yourself · Gets logged at the end of the month  
    *Every contact, document, deadline and decision is logged in the CMS the same day. If it isn't in the CMS, it didn't happen.*
-8. Where was John Doe in the collision on 02/06/2026?  
-   Driving Margaret Doe's Civic · **✓ The front-seat passenger in Kevin Alvarez's 2020 Ford Escape** · A pedestrian at the crossing · A passenger in Margaret Doe's Civic  
-   *He was the front-seat passenger in the host vehicle; Robert Smith ran the all-way stop and struck the passenger door.*
+8. John Doe's Case Snapshot records where he was in the collision. What does it say, and where is it confirmed?  
+   A driver, from what he said on the intake call · **✓ A passenger, confirmed from the Police Report** · A pedestrian, from his own account · The Civic's owner, from Keystone's file  
+   *The Snapshot reads DOL 02/06/2026, SOL 02/06/2028, client a passenger. Who rode and who owns comes from the Police Report, and a wrong position is corrected from it.*
 9. Which statute of limitations is docketed on John Doe's file?  
    02/06/2027 · 02/20/2028 · **✓ 02/06/2028** · 02/09/2028  
    *Every deadline counts from the date of loss, 02/06/2026, and the SOL is docketed on day one: 02/06/2028.*
@@ -1312,7 +1312,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 2. Keystone Mutual's adjuster asks John Doe for a Recorded Statement about the crash. What has the firm told him to do?  
    Give it, briefly · Give it, but only about the Civic · **✓ Give no Recorded Statement: all adverse contact routes through the firm** · Give it if the adjuster promises a quick settlement  
    *The client gives no Recorded Statement to the adverse carrier. Only the Property Damage claim is carved out; injuries and the facts of the loss route to the firm.*
-3. Keystone asks the firm to confirm the claimant on the parked 2019 Honda Civic. From the records, whose Property Damage and rental claim is it?  
+3. Keystone asks the firm to confirm the claimant on the Civic. From the records, whose Property Damage and rental claim is it?  
    John Doe's: he called about the rental first · **✓ The owner's, as the Police Report and the intake records show; John Doe, a passenger who owns no car, has none** · Kevin Alvarez's, as host driver · Robert Smith's carrier decides whose it is  
    *The claim belongs to the vehicle's owner, found in the Police Report's Unit 3 box and the Intake Supplement. A passenger who owns no car has no PD or rental claim; the CM records the finding and tells the attorney.*
 4. Which of these from the Property Damage side belongs in John Doe's bodily-injury file?  
