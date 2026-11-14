@@ -3,7 +3,7 @@
 
    The Case Flow draws the Your Task slide (js/cm-case-flow.js, slideBody "task"): the steps in full sentences, what is
    done in another tool (the live call, the service confirmation, the Amendment Requests, the Notes & Action Plan), and
-   one bar at its foot (📁 Source Files on the left, Submit to AI Grader → on the right, js/cm-ai-grader.js). This file:
+   one bar at its foot (📁 Source Files on the left, Submit → on the right, js/cm-ai-grader.js). This file:
      • 🚀 Launch CMS & Google Drive: the one button at the top of the card. It opens the CMS beside the slide (the course's
        tool frame) and the trainee's own Backup Drive in a new tab, at their case folder once it is built (CMDrive.launch;
        Google Drive can't be framed). A trainee whose

@@ -1,6 +1,6 @@
-# Case Flow Day 5 — Litigation & Dropped Cases
+# Case Flow Day 5 — Litigation & Property Damage
 
-**Phase:** Litigation & Dropped Cases · **Focus case:** John Doe VS Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
+**Phase:** Litigation & Property Damage · **Focus case:** John Doe VS Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
 
 **Objective.** On Track B, document the impasse and move the file into litigation without losing a deadline; keep the pleadings and discovery logs, the trial-prep checklist moving; sort which Property Damage outcomes on Margaret Doe's separate claim reach John Doe's settlement (a release that must not reach his BI claim) and which stay on her file; prepare John Doe for his deposition; handle a comparative-negligence defense and a client who goes missing; disburse the arbitration award on the Litigation Net Sheet; and close out a dropped practice matter with its Withdrawal Letters.
 
@@ -30,7 +30,7 @@
 
 The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
 
-**Module 5 — Litigation & Dropped Cases**
+**Module 5 — Litigation & Property Damage**
 
 1. *Lesson* — Signs of Impasse & Filing Criteria (condensed)
 2. *Lesson* — From Pre-Lit to Litigation & ADR (condensed)
@@ -74,13 +74,13 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 ---
 
-## Module 5 — Litigation & Dropped Cases
+## Module 5 — Litigation & Property Damage
 
 **Order:** Lessons (14) ➔ Case Profile ➔ Skill Building (the Full Application Practice) ➔ Update Your Action Plan ➔ Practice Lab (15 optional side exercises) ➔ Knowledge Check (8 Learning Checks)
 
 ### 5.1.1 Signs of Impasse & Filing Criteria
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Fork Transition Check (`d4m1`)  
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Where Track B leaves Track A, and when a stall becomes an impasse  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#1` Welcome to Day 4: When Pre-Suit Negotiations Stall · `D2#29` Settlement Negotiations: The “Never” Rule · LSH Claims Specialist: liability denial and disputes — the dispute path to litigation; duty, breach, causation and damages; ask for the denial's reasons and evidence in writing · Newly authored: the five impasse triggers, each proved from the file
@@ -156,7 +156,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 ### 5.1.2 From Pre-Lit to Litigation & ADR
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Fork Transition Check (`d4m1`)  
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Status, court fields, litigation folders, the Litigation Calendar and the neutral  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#31` Litigation File Architecture · `D4#1` Welcome to Day 4: When Pre-Suit Negotiations Stall · `D4#2` Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background · `D4#3` Introducing the Neutral: Assignment & Selection Workflows · `D4#4` Introducing the Neutral: Extent of Decision-Making Power · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · LSH Claims Specialist: Letter for Preservation of Evidence · Newly authored: a UM notice is not a demand; status, fields, folders and calendar changed together
@@ -231,7 +231,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 ### 5.1.3 Identifying Non-Responsive Adjusters, Delayed Records & Scheduling Bottlenecks
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Countermeasure Operational Audit (`d4m4`)  
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Name the bottleneck by the date it threatens  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · `D4#30` Common Bottlenecks: Arbitration (The Trial-Ready Landmines) · LSH Claims Specialist: BI liability follow-ups (every 5 business days) and the escalation protocol
@@ -304,7 +304,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 ### 5.1.4 Escalation Workflows & Supervisory Reporting Guidelines
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Countermeasure Operational Audit (`d4m4`)  
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** The ladder decides who hears; the report decides whether they can act  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D5#32` Advanced KPIs for Litigation Case Managers · LSH Claims Specialist: escalation protocol (supervisor review, internal flag, certified request for a written position)
@@ -377,7 +377,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 ### 5.1.5 Litigation Tracking: the Pleadings Log & the Discovery Calendar
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Support Assessment (`d5m1`)  
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Managing litigation tracking systems, pleadings logs & discovery calendars  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#1` Welcome to Day 5: Stepping into Litigation · `D5#2` The Case Manager's Tactical Role in Litigation: The Litigation Lifecycle · `D5#3` Phase 1: The Pleadings & Service Stage · `D5#4` Phase 2: Discovery — A. Interrogatories & Requests for Production · `D5#21` The Litigation Toolkit: The Litigation Document Index · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#26` Advanced Workflow Deep-Dive: The Complaint / Petition · `D5#27` Written Discovery: Interrogatories, RFPs & RFAs · `D5#28` Master Timeline & Deadline Calculations · `D5#31` Litigation File Architecture · Newly authored: whether e-service adds days (none on this file's rule set; the federal example)
@@ -455,7 +455,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ### 5.1.6 Trial Preparation Checklists & Litigation KPIs
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Support Assessment (`d5m1`)  
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Trial preparation checklists & tracking litigation KPIs  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#2` The Case Manager's Tactical Role in Litigation: The Litigation Lifecycle · `D5#5` Phase 2: Discovery — B. Deposition Coordination & Preparation · `D5#6` Phase 3: The Trial & Mediation Preparation Stage · `D5#7` The Litigation Mindset: Critical Traps & KPIs · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#32` Advanced KPIs for Litigation Case Managers · LSH Claims Specialist: liability acceptance post-lawsuit (the defense pivots to causation and damages) · Newly authored: a scheduling-order date moves only by court order
@@ -528,7 +528,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ### 5.1.7 Subpoena Management: Records Subpoenas (Duces Tecum) & Trial Subpoenas
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Litigation Support Assessment (`d5m1`)  
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Commanding evidence from outside the suit: in order, narrow and on time  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#6` Phase 3: The Trial & Mediation Preparation Stage · `D5#23` Critical Litigation Process 3: Third-Party Evidence Subpoenas · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#30` Subpoena Duces Tecum: Execution Strategy · `D5#31` Litigation File Architecture · Newly authored: trial subpoenas tasked against the pretrial and trial-calendar dates; service rules and witness fees confirmed with the court's rules · Newly authored: a subpoena noticed by the defense is docketed and routed to Atty. Thorne
@@ -604,7 +604,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ### 5.1.8 Property Damage at Settlement: Does It Touch Our Case?
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with PD Transition Check (`d5m2`)  
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with PD Transition Check (`d5m2`)  
 > **Topic:** Which Property Damage outcomes reach John Doe's settlement, and which stay on Margaret Doe's file  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · `D5#35` Property Damage: Calculating the Value of the Claim · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · LSH Claims Specialist: Property Damage coverage outside the BI stack · Newly authored: the PD-only release, and the transition between the PD and BI files
@@ -673,7 +673,7 @@ Verified in PD Transition Check (taught on Case Flow Day 5) and that day's auto-
 
 ### 5.1.9 Client Prep for a Virtual Deposition & Injury Narrative Alignment
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Deposition Readiness Audit (`d5m3`)  
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The audit, the three pillars, and the room John testifies from  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#8` Preparing Your Client for a Deposition: The Pre-Deposition Audit · `D5#9` Discovery Intake Meeting — Pillar 1: De-escalating Anxiety · `D5#10` Discovery Intake Meeting — Pillar 2: The Essential Testimony Guidelines · `D5#11` Discovery Intake Meeting — Pillar 3: Dress Code & Professional Demeanor · `D5#14` Case Manager Checklist: The Day Before the Deposition · `D5#19` Professional Presentation: Dress Code & Demeanor · Newly authored: remote-deposition room protocol; refreshed-memory documents; social-media preservation
@@ -748,7 +748,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ### 5.1.10 Opposing Counsel's Traps & Defending Key Testimony
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Deposition Readiness Audit (`d5m3`)  
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The four categories, the seven Golden Rules, and what an objection means  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#10` Discovery Intake Meeting — Pillar 2: The Essential Testimony Guidelines · `D5#12` Navigating the Silent Traps — Drill A: The “Is That All?” Trap · `D5#13` Navigating the Silent Traps — Drill B: The Thoughtful Silence · `D5#15` What Will the Defense Attorney Ask Me? The Four Categories · `D5#16` The 7 Golden Rules for Testifying (Rules 1–3) · `D5#17` The 7 Golden Rules for Testifying (Rules 4–5) · `D5#18` The 7 Golden Rules for Testifying (Rules 6–7) · `D5#20` What Happens When Your Lawyer Objects? · Newly authored: compound and loaded-question traps
@@ -823,7 +823,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ### 5.1.11 Comparative Negligence & the Liability Counter-Package
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Three allegations in the 11/12/2026 Answer, and the evidence that answers each  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: liability determination — accepted, partial, denied; written confirmation; pure and modified comparative negligence · LSH Claims Specialist: liability disputes — strengthening the evidence, damage patterns, the post-suit pivot to causation and damages · Newly authored: seatbelt-evidence and citation admissibility as state-variable questions; authentication and chain of custody in the counter-package
@@ -895,7 +895,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ### 5.1.12 Skip-Tracing, Process Servers & Certified Notice
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Finding the defendant who moved and the client who went quiet  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#22` Critical Litigation Processes: Service of Process & E-Filing/Docketing · `D5#23` Critical Litigation Process 3: Third-Party Evidence Subpoenas · `D5#29` The Process Server & Evading Defendant Protocol · `D5#30` Subpoena Duces Tecum: Execution Strategy · LSH Claims Specialist: No Contact Protocol, Steps 1–6; Final Warning Letter; Withdrawal Letters · Newly authored: the No Contact Protocol compressed against a deposition date; the emergency contact gets the request, never the case
@@ -969,7 +969,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ### 5.1.13 Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Track B Close-Out Check (`d5m5`)  
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Same $40,000.00, a different net: what suit cost the client, line by line  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#21` Increasing the Client's Net · `D3#23` The Net Sheet: Purpose of a Combined BI/UM Net Sheet · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D3#27` Key Takeaway — The Value of a Case Manager · Newly authored: the Track B close-out (the 07/06/2027 award and the litigated Net Sheet)
@@ -1038,7 +1038,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 ### 5.1.14 Dropped Cases: the Case Manager's Close-Out
 
-> **Lesson** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases (condensed) · scored with Dropped Case Close-Out Check (`d5m6`)  
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** From “Pending Drop” to “Dropped”: the gate, three Withdrawal Letters, their dispatch and the proof  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: Dropped Cases — definition, common reasons, the Pending Drop check, Withdrawal Letters to clients, carriers and medical providers, annotating and saving them, and switching the status to Dropped · LSH Claims Specialist: No Contact Protocol — the decision point (Notice of Withdrawal or Motion to Withdraw) and file closure · Newly authored: no health insurance as a drop reason; the reason kept to the client's letter; the six-step close-out in order
@@ -1110,7 +1110,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 ### 5.1.15 Taking the Litigation Fork
 
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
+> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Skill Activity 1 — the impasse memo: Keystone's stonewall on the 14-Day Gap  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#29` Settlement Negotiations: The “Never” Rule · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · LSH Claims Specialist: liability decisions — the escalation protocol: supervisor, dated contact, file flagged for legal review · Newly authored: the impasse memo that frames a decision without recommending one
@@ -1180,7 +1180,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 ### 5.1.16 Transition the File to Litigation Status
 
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
+> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Skill Activity 2 — re-architect John Doe's file in the CMS  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#31` Litigation File Architecture · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D4#3` Introducing the Neutral: Assignment & Selection Workflows · LSH Claims Specialist: Letter for Preservation of Evidence
@@ -1252,7 +1252,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 ### 5.1.17 E-Filing the Complaint & Calendaring Service
 
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
+> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Skill Activity — from approved Complaint to accepted filing and a calendar that runs from it  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#3` Phase 1: The Pleadings & Service Stage · `D5#22` Critical Litigation Processes: Service of Process & E-Filing/Docketing · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#31` Litigation File Architecture · Newly authored: the filing set tasked to the Litigation Desk, signed by counsel, e-filed and calendared from the accepted filing (09/22–09/24/2026)
@@ -1325,7 +1325,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 ### 5.1.18 Setting Automated Countermeasures in CMS
 
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
+> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Skill Activity 1 — rules that fire before the deadline does  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · LSH Claims Specialist: BI liability follow-ups and the escalation protocol
@@ -1394,7 +1394,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 ### 5.1.19 Bottleneck Resolution Simulation
 
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
+> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Skill Activity 2 — five problems, nine days, one order  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#30` Common Bottlenecks: Arbitration (The Trial-Ready Landmines) · `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder
@@ -1464,7 +1464,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 5) and tha
 
 ### 5.1.20 Pleadings & Discovery Log Maintenance
 
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
+> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Skill Activity 1 — repair the log before it costs the case  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#3` Phase 1: The Pleadings & Service Stage · `D5#4` Phase 2: Discovery — A. Interrogatories & Requests for Production · `D5#21` The Litigation Toolkit: The Litigation Document Index · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#27` Written Discovery: Interrogatories, RFPs & RFAs · `D5#28` Master Timeline & Deadline Calculations · `D5#31` Litigation File Architecture · `D5#32` Advanced KPIs for Litigation Case Managers
@@ -1536,7 +1536,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ### 5.1.21 Trial Prep Checklist Audit & KPI Update
 
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
+> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Skill Activity 2 — audit against the order, measure against the target  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#5` Phase 2: Discovery — B. Deposition Coordination & Preparation · `D5#6` Phase 3: The Trial & Mediation Preparation Stage · `D5#7` The Litigation Mindset: Critical Traps & KPIs · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#28` Master Timeline & Deadline Calculations · `D5#32` Advanced KPIs for Litigation Case Managers · `D5#33` Skill Building: The Ultimate Case Management — Jordan Davies · LSH Claims Specialist: liability acceptance post-lawsuit (the defense pivots to causation and damages) · Newly authored: the last day to serve written discovery, counted back from the discovery cutoff
@@ -1618,7 +1618,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ### 5.1.22 Does It Touch Our Settlement? Keystone's Final PD Position
 
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Transition Check (`d5m2`)  
+> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with PD Transition Check (`d5m2`)  
 > **Topic:** Skill Activity 1 — sort Keystone's final PD position between John Doe's case and Margaret Doe's file  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#35` Property Damage: Calculating the Value of the Claim · `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · LSH Claims Specialist: liability disputes — written basis, escalation to the attorney · Newly authored: the PD-only release, and the transition between the PD and BI files
@@ -1683,7 +1683,7 @@ Verified in PD Transition Check (taught on Case Flow Day 5) and that day's auto-
 
 ### 5.1.23 Virtual Deposition Prep Roleplay
 
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
+> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 1 — client injury & 14-Day Gap defense: your segment, his substance  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#9` Discovery Intake Meeting — Pillar 1: De-escalating Anxiety · `D5#10` Discovery Intake Meeting — Pillar 2: The Essential Testimony Guidelines · `D5#11` Discovery Intake Meeting — Pillar 3: Dress Code & Professional Demeanor · `D5#14` Case Manager Checklist: The Day Before the Deposition · `D5#19` Professional Presentation: Dress Code & Demeanor · Newly authored: remote-deposition room protocol
@@ -1764,7 +1764,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ### 5.1.24 Mock Deposition Cross-Examination Handling
 
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
+> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 2 — observe, log and route; never coach  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#12` Navigating the Silent Traps — Drill A: The “Is That All?” Trap · `D5#13` Navigating the Silent Traps — Drill B: The Thoughtful Silence · `D5#15` What Will the Defense Attorney Ask Me? The Four Categories · `D5#16` The 7 Golden Rules for Testifying (Rules 1–3) · `D5#17` The 7 Golden Rules for Testifying (Rules 4–5) · `D5#18` The 7 Golden Rules for Testifying (Rules 6–7) · `D5#20` What Happens When Your Lawyer Objects? · Newly authored: compound and loaded-question traps
@@ -1842,7 +1842,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ### 5.1.25 Building the Comparative Liability Counter-Package
 
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
+> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 1 — answer each allegation from the file  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#23` Critical Litigation Process 3: Third-Party Evidence Subpoenas · `D5#30` Subpoena Duces Tecum: Execution Strategy · LSH Claims Specialist: handling liability disputes — written basis, stronger evidence, witness statements, escalation to the legal team · Newly authored: authentication and chain of custody in the counter-package
@@ -1911,7 +1911,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ### 5.1.26 Skip-Tracing Execution & Certified Notice Dispatch
 
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
+> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 2 — find the defendant, reach the client, prove both  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#22` Critical Litigation Processes: Service of Process & E-Filing/Docketing · `D5#29` The Process Server & Evading Defendant Protocol · LSH Claims Specialist: No Contact Protocol; Final Warning Letter; sending Withdrawal Letters (current address, certified mail, dispatch recorded)
@@ -1983,7 +1983,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ### 5.1.27 The Litigation Net Sheet: Disbursing the Award
 
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
+> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Skill Activity — take the award to $14,713.75 on the LSH Net Sheet  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#21` Increasing the Client's Net · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D3#27` Key Takeaway — The Value of a Case Manager · `D3#28` Skill Building: The “Doe v. Apex” Final Net Challenge · Newly authored: the Track B close-out
@@ -2047,7 +2047,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 ### 5.1.28 Backup File Maintenance: the Final Audit and the Close-Out
 
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
+> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Skill Activity — back up the litigation file, run the final audit and prepare the case for Closed Files  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · `D3#28` Skill Building: The “Doe v. Apex” Final Net Challenge · LSH firm standard: backup drive folder hierarchy
@@ -2110,7 +2110,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 ### 5.1.29 Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
 
-> **Skill Activity** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Dropped Case Close-Out Check (`d5m6`)  
+> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Skill Activity — a practice matter: three Withdrawal Letters, their dispatch and the Dropped status  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: Dropped Cases — sending Withdrawal Letters to clients, carriers and medical providers; the sample letters by email, by text, to a carrier and to a provider · Newly authored: the Denise Harlow practice matter (no health insurance, treatment ended, Pending Drop)
@@ -2176,7 +2176,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 ### 5.1.30 Litigation Fork Transition Check
 
-> **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Fork Transition Check (`d4m1`)  
+> **Knowledge Check** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#1` Welcome to Day 4: When Pre-Suit Negotiations Stall · `D4#2` Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background · `D4#3` Introducing the Neutral: Assignment & Selection Workflows · `D4#4` Introducing the Neutral: Extent of Decision-Making Power · `D2#29` Settlement Negotiations: The “Never” Rule · `D5#31` Litigation File Architecture
@@ -2268,7 +2268,7 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 
 ### 5.1.31 Countermeasure Operational Audit
 
-> **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Countermeasure Operational Audit (`d4m4`)  
+> **Knowledge Check** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · `D4#30` Common Bottlenecks: Arbitration (The Trial-Ready Landmines) · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder
@@ -2353,7 +2353,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ### 5.1.32 Litigation Support Assessment
 
-> **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Litigation Support Assessment (`d5m1`)  
+> **Knowledge Check** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#7` The Litigation Mindset: Critical Traps & KPIs · `D5#21` The Litigation Toolkit: The Litigation Document Index · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#28` Master Timeline & Deadline Calculations · `D5#31` Litigation File Architecture · `D5#32` Advanced KPIs for Litigation Case Managers · `D5#33` Skill Building: The Ultimate Case Management — Jordan Davies
@@ -2442,7 +2442,7 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 
 ### 5.1.33 PD Transition Check
 
-> **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with PD Transition Check (`d5m2`)  
+> **Knowledge Check** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with PD Transition Check (`d5m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · `D5#35` Property Damage: Calculating the Value of the Claim · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive
@@ -2525,7 +2525,7 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 
 ### 5.1.34 Deposition Readiness Audit
 
-> **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Deposition Readiness Audit (`d5m3`)  
+> **Knowledge Check** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D5#8` Preparing Your Client for a Deposition: The Pre-Deposition Audit · `D5#14` Case Manager Checklist: The Day Before the Deposition · `D5#15` What Will the Defense Attorney Ask Me? The Four Categories · `D5#16` The 7 Golden Rules for Testifying (Rules 1–3) · `D5#17` The 7 Golden Rules for Testifying (Rules 4–5) · `D5#18` The 7 Golden Rules for Testifying (Rules 6–7) · `D5#20` What Happens When Your Lawyer Objects?
@@ -2607,7 +2607,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ### 5.1.35 Final Comprehensive Knowledge Check
 
-> **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Final Comprehensive Knowledge Check (`d5m4`)  
+> **Knowledge Check** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Knowledge Check (all five days) + CM Learning Summary & Self-Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#44` Handling Treatment Gaps During the Treatment Phase · `D3#3` BI Exhaustion & Consent — Mechanic 1: Locking the Escape Hatches · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D4#1` Welcome to Day 4: When Pre-Suit Negotiations Stall · `D5#15` What Will the Defense Attorney Ask Me? The Four Categories · LSH Claims Specialist: liability determination and disputes
@@ -2687,7 +2687,7 @@ The standard knowledge-check split, extended for the final check. Above the crea
 
 ### 5.1.36 Track B Close-Out Check
 
-> **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Track B Close-Out Check (`d5m5`)  
+> **Knowledge Check** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#23` The Net Sheet: Purpose of a Combined BI/UM Net Sheet · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D3#27` Key Takeaway — The Value of a Case Manager · Newly authored: the Track B close-out
@@ -2755,7 +2755,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ### 5.1.37 Dropped Case Close-Out Check
 
-> **Knowledge Check** · Day 5 — Litigation & Dropped Cases · Module 5: Litigation & Dropped Cases · scored with Dropped Case Close-Out Check (`d5m6`)  
+> **Knowledge Check** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: Dropped Cases — Withdrawal Letters and closing the file · Newly authored: the Denise Harlow practice matter

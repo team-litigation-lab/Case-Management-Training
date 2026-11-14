@@ -62,7 +62,7 @@ function labelRoadmap(){
     const mid = window.cmDayLoop && window.cmDayLoop.mainId ? window.cmDayLoop.mainId(d) : "", mi = mid ? d.lessons.findIndex(l => l.cf.block.id === mid) : -1;
     if(mid){
       d.lessons.forEach((l, li) => { if(kindAt(d, li) !== "activity" || lis[li].querySelector(".dl-rm-tag")) return;
-        (lis[li].querySelector(".rmx-tt") || lis[li]).insertAdjacentHTML("beforeend", li === mi ? `<small class="dl-rm-tag dl-rm-main">🎯 Skill Building</small>` : `<small class="dl-rm-tag">optional side exercise</small>`); });
+        (lis[li].querySelector(".rmx-tt") || lis[li]).insertAdjacentHTML("beforeend", li === mi ? `<small class="dl-rm-tag dl-rm-main">🎯 Skill Building</small>` : `<small class="dl-rm-tag">skill activity</small>`); });
       if(mi >= 0 && first.activity != null && mi !== first.activity){ lis[first.activity].parentNode.insertBefore(lis[mi], lis[first.activity]); first.activity = mi; }
     }
     [["lesson", L.lessons], ["activity", L.lab], ["check", L.kc]].forEach(([k, x]) => {
@@ -78,10 +78,14 @@ function labelSlideMap(){
   const parts = partsOf(d), L = labels(d), secs = [...o.querySelectorAll(".sm-groups > section")];
   let at = 0, last = "";
   secs.forEach(sec => {
-    const n = sec.querySelectorAll(".sm-item").length, part = parts[at] || ""; at += n;
-    if(!part || part === last) return; last = part;
-    const h = document.createElement("p"); h.className = "sm-part sm-part-" + part; h.innerHTML = labelHtml("", L[part]);
-    sec.insertBefore(h, sec.firstChild);
+    // a part can begin inside a group (with no side exercises the Ready check follows the Action Plan in one): the label
+    // goes before the slide it begins on, or atop the group when that is its first
+    [...sec.querySelectorAll(".sm-item")].forEach((it, j) => {
+      const part = parts[at + j] || ""; if(!part || part === last) return; last = part;
+      const h = document.createElement("p"); h.className = "sm-part sm-part-" + part; h.innerHTML = labelHtml("", L[part]);
+      if(j === 0) sec.insertBefore(h, sec.firstChild); else it.parentNode.insertBefore(h, it);
+    });
+    at += sec.querySelectorAll(".sm-item").length;
   });
 }
 /* ---------- Presenter view: on the day's last slide the forward button opens the Knowledge Check, and says so ---------- */

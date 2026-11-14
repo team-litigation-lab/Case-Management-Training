@@ -420,7 +420,7 @@ function fullText(l, d){
   }
   if(b.kind === "activity") return S(1, "The scenario", `<div class="scenario-card"><div class="stag">John Doe VS Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
     + S(2, "Execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
-    + S(3, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once the AI Grader has scored your work on this activity.</p>`)
+    + S(3, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once your work on this activity has been submitted and graded.</p>`)
     + S(4, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
   return S(1, "Knowledge verification", `<ol class="cf-q">${b.check.questions.map(q => `<li>${E(q)}</li>`).join("")}</ol>`)
     + S(2, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
@@ -473,7 +473,7 @@ function falloutFor(blockId){
   }).filter(x => isTrainer() || !x.done);
 }
 const VIEW_LABEL = {grade: "The Grade-A Standard", audit: "Audit & the Finished Set", why: "Why It Matters", doc: "The Document", theory: "The Theory", theory2: "The Theory, Continued", frame: "The Framework", rules: "The Rules", map: "The Roadmap", model: "See It", dodont: "Do & Don't",
-  case: "Your Case", task: "Your Task", check: "AI Grader", questions: "Knowledge Check", questions2: "Knowledge Check, Continued", summary: "Self-Summary", scale: "Skill Scale"};
+  case: "Your Case", task: "Your Task", check: "Submit", questions: "Knowledge Check", questions2: "Knowledge Check, Continued", summary: "Self-Summary", scale: "Skill Scale"};
 const VIEW_ICON = {grade: "🏅", audit: "🔍", why: "💡", doc: "📄", theory: "📚", theory2: "📚", frame: "🧭", rules: "📏", map: "🗺", model: "🔍", dodont: "✅", case: "📂", task: "🎯", check: "🤖", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
 const KC_PER = 4;   // Knowledge Check questions on one slide
 /* The Theory: the lesson's concepts from the original Canva decks (build/case-flow/slides/theory-dN.json), four to a
@@ -543,7 +543,9 @@ function viewsOf(b, drawn){   // drawn: the lesson's own slides, as before its d
   if(b.kind === "lesson" && b.brief) return ["why"].concat(docView(b), ["rules"]);   // brief: a condensed overview (Day 5's litigation); no Theory slide, so Why It Matters stays
   if(b.kind === "lesson" && b.compact) return mapView(b).concat(theoryViews(b).slice(0, 1), whyView(b), docView(b), ["rules"]);   // compact: a full topic on fewer slides
   if(b.kind === "lesson") return mapView(b).concat(theoryViews(b), whyView(b), docView(b), ["rules"], b.show ? ["model"] : [], (b.best || []).length && !b.noGame ? ["dodont"] : []);   // The Theory opens with why it matters; noGame: the CM introduction
-  if(b.kind === "activity") return ["task", "case"].concat((SLIDES[b.id] || {}).grade ? ["grade"] : [], EX.audits[b.id] ? ["audit"] : [], b.show && !b.compact ? ["model"] : [], ["check"]);   // Your Task first: what to do, then the file it's done on   // compact: no See It slide (the worked model stays in 📖 Full text)
+  // one page of instructions (Your Task), its materials (Your Case, with the 🧠 banner), the work itself where there is
+  // some (the exhibit audit), then Submit: the Grade-A Standard and See It slides are in 📖 Reference, not on the deck
+  if(b.kind === "activity") return ["task", "case"].concat(EX.audits[b.id] ? ["audit"] : [], ["check"]);   // Your Task first: what to do, then the file it's done on   // compact: no See It slide (the worked model stays in 📖 Full text)
   return (copyOf(b).questions.length > KC_PER ? ["questions", "questions2"] : ["questions"]).concat(["summary", "scale"]);
 }
 const SMALL = new Set(["a", "an", "the", "and", "or", "but", "nor", "of", "to", "in", "on", "for", "at", "by", "with", "from", "as", "per", "vs.", "v.", "via", "into"]);
@@ -893,9 +895,9 @@ function slideBody(view, l, d){
         <ol class="cfx-points cfx-steps">${c.steps.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>
         ${acts ? `<div class="cfx-task-acts">${acts}</div>` : ""}
         <div class="cfx-task-foot">${docLine(b.id) ? `<details class="cfx-docs"><summary>📁 Source Files (${n} Document${n === 1 ? "" : "s"})</summary><div class="cfx-docs-pop">${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</div></details>` : "<span></span>"}
-          <button type="button" class="btn cfx-grade-go" onclick="cmCaseFlow.toView('${b.id}','check')" title="Hand in what you did: the AI Grader scores it and says what to improve">Submit to AI Grader →</button></div></div>`; }
+          <button type="button" class="btn cfx-grade-go" onclick="cmCaseFlow.toView('${b.id}','check')" title="Hand in what you did: it is scored and you see what to improve">Submit →</button></div></div>`; }
     case "check":   // 🤖 the AI Grader (js/cm-ai-grader.js) in place of the old self-tick list, then the reference of the work
-      return (window.CMAIGrader ? CMAIGrader.view(b.id) : `<p class="cf-note">The AI Grader is loading…</p>`) + workLog(b);
+      return (window.CMAIGrader ? CMAIGrader.view(b.id) : `<p class="cf-note">Loading…</p>`) + workLog(b);
     case "questions": case "questions2": {   // each question with its answer box; answers save as they're typed
       const from = view === "questions2" ? KC_PER : 0, m = rec(mod.id), last = from + KC_PER >= c.questions.length;
       return `<ol class="cfx-points cfx-qs cfx-qs-2 cfx-kc" style="counter-reset:cfx ${from}">${c.questions.slice(from, from + KC_PER).map((q, j) => `<li><span><span class="cfx-kc-q">${hl(q)}</span>
@@ -1146,6 +1148,7 @@ function daySchedule(d){
   return sc;
 }
 function lectureParts(d){ return daySchedule(d).parts; }   // the lessons' parts: a run of lessons under one section heading
+window.cmCaseFlow.plainOf = id => (plainFirst()[id] || []).map(t => ({t, d: (CF.plain || {})[t] || ""}));   // js/cm-day-loop.js: the terms a Skill Building's banner names
 window.cmCaseFlow.schedule = daySchedule;   // js/cm-day-loop.js: the side exercises' minutes
 /* "2.3 Liability Investigation": a lesson by its number and its title up to the first colon (the Practice Lab's list and
    an activity's first slide name the lesson an activity practises this way) */
@@ -1177,8 +1180,8 @@ function agendaSlide(d){
   // (all of the day's Skill Activities; on a build day, the Full Application Practice); the Knowledge Check last
   const nActs = d.lessons.filter(l => l.cf.block.kind === "activity").length, nLessons = d.lessons.filter(l => l.cf.block.kind === "lesson").length;
   const label = (k, t) => `<li class="cfx-ag-label"><b>${k}</b><span>${E(t)}</span></li>`;
-  // the trainers' deck pages a day shows after its lessons (js/cm-deck-pages.js) are lesson sections too, by their topic
-  const dp = window.CM_DECK_PAGES, deckTopics = dp && dp.DAY === d.cf.n ? dp.DECK.map(g => g.topic) : [], n1 = parts.length + deckTopics.length;
+  // the trainers' deck pages a day shows after its lessons (js/cm-deck-pages.js Day 2, js/cm-day-decks.js Days 3-5) are lesson sections too, by their topic
+  const dp = window.CM_DECK_PAGES, dd = (window.CM_DAY_DECKS || {})[d.cf.n], deckTopics = dp && dp.DAY === d.cf.n ? dp.DECK.map(g => g.topic) : dd ? dd.map(g => g.topic) : [], n1 = parts.length + deckTopics.length;
   // Part 2 is the daily loop (js/cm-day-loop.js): the Case Profile → the Skill Building → the Action Plan, then the Knowledge Check
   const loop = sc.loop && window.cmDayLoop ? window.cmDayLoop.agendaRows(d, sc) : null;
   const rows = label("Part 1 · 📘 Lessons", `${nLessons} lessons${deckTopics.length ? ` and ${deckTopics.length} deck topics` : ""}, all together`) + parts.map((p, i) => row(i + 1, p.title)).join("")
@@ -1218,7 +1221,7 @@ function agendaNotes(d){
   const say = [w.open || `Welcome, everyone. Let's pick John Doe's file up where we left it.`,
     `Here's how today runs, and it's all on the slide, in two parts. You've met all of this before, so it's a refresher. Part one is the lessons, all of them together, about ${sc.lessonMin} minutes: ${andList(lectures)}.`
       + (sc.acts ? " We'll take a ten-minute break when the lessons are done." : ""),
-    sc.loop ? `Part two is the loop we run every day. First John Doe's Case Profile${n === 1 ? ", where you meet him" : ", to see what changed on his file"}, then ${sc.build ? `the big one: ${sc.build} minutes building your companion case, start to finish, the way you worked John Doe's file` : `today's one Skill Building${n === 1 ? ", his Intake: opening his file in the CMS" : ""}, about ${sc.act} minutes on his file, graded by the AI Grader, with ${sc.brainstorm} minutes after it to brainstorm what the file showed us`}. Then you ${n === 5 ? "close out" : "update"} your Action Plan, about ${sc.plan} minutes.${sc.sides ? ` After that there are ${sc.sides} short side exercises, optional${sc.side ? `, in about ${sc.side} minutes${sc.sidePick && sc.sidePick < sc.sides ? `: pick any ${sc.sidePick}` : ""}` : ""}: each one is an assumption and an entry to log in the CMS.` : ""}` : "",
+    sc.loop ? `Part two is the loop we run every day. First John Doe's Case Profile${n === 1 ? ", where you meet him" : ", to see what changed on his file"}, then ${sc.build ? `the big one: ${sc.build} minutes building your companion case, start to finish, the way you worked John Doe's file` : `today's one Skill Building${n === 1 ? ", his Intake: opening his file in the CMS" : ""}, about ${sc.act} minutes on his file, submitted and graded, with ${sc.brainstorm} minutes after it to brainstorm what the file showed us`}. Then you ${n === 5 ? "close out" : "update"} your Action Plan, about ${sc.plan} minutes.${sc.sides ? ` After that there are ${sc.sides} short side exercises, optional${sc.side ? `, in about ${sc.side} minutes${sc.sidePick && sc.sidePick < sc.sides ? `: pick any ${sc.sidePick}` : ""}` : ""}: each one is an assumption and an entry to log in the CMS.` : ""}` : "",
     sc.loop ? "" : sc.build ? `Part two is the big one: ${sc.build} minutes building your companion case, start to finish, the way you worked John Doe's file.` : "",
     sc.acts && !sc.loop ? `Part two is the Practice Lab, all ${sc.acts} Skill Activities in one place, in the same order as the lessons: you do each one on John Doe's file, in the CMS and the tools, about ${sc.act} minutes an activity, and each one names the lesson it practises. After each group we take ${sc.brainstorm} minutes to brainstorm what the file just showed us.` : "",
     `We finish with the Knowledge Check, ${q} question${q === 1 ? "" : "s"} in about ${sc.kc} minutes, and you need 70% ${next || n < 5 ? `to open Day ${n + 1}` : "to finish the Case Flow"}.`,
@@ -2786,7 +2789,7 @@ if(typeof presenterCues === "function"){   // Presenter view: the trainer's note
       return x ? `<h3>Training Agenda</h3>${dayScriptHtml(x)}<div class="pn-on pn-cue"><b>The run of the day, from the slide</b>${sayHtml(a.say.split("\n").slice(1).join("\n"))}</div>`
         : `<h3>Training Agenda</h3><div class="pn-part">🎙 Script — read aloud</div>${sayHtml(a.say)}${a.ask ? `<p><b>Ask:</b> ${E(a.ask)}</p>` : ""}`; }
     const n = d.lessons.filter(l => l.cf.block.kind === "activity").length, x = dayScript(d, "lab");
-    const how = `<p>The lessons are done: every slide from here to the Ready check is practice. Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. All ${n} of today's Skill Activities follow, in the order their lessons were taught; the slide names the lesson each one practises, and so does each activity's first slide. Each runs Your Task, then Your Case, then the AI Grader. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
+    const how = `<p>The lessons are done: every slide from here to the Ready check is practice. Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. All ${n} of today's Skill Activities follow, in the order their lessons were taught; the slide names the lesson each one practises, and so does each activity's first slide. Each runs Your Task, then Your Case, then Submit. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
     return x ? `<h3>Practice Lab</h3>${dayScriptHtml(x)}<div class="pn-on pn-cue"><b>Trainer note — not read aloud</b>${how}</div>` : `<h3>Practice Lab</h3>${how}`;
   };
 }
@@ -3000,7 +3003,7 @@ if(typeof window.sopRunOfShow === "function"){
       add(sc.plan, {title: n === 5 ? "📝 Close Out Your Action Plan" : "📝 Update Your Action Plan", do: [
         n === 1 ? `Guided, step by step: the slide's six steps are the template's sections in order. Do the first one together on the shared screen (📝 Open my Action Plan), then walk the room.`
           : `Lighter each day: the trainees update the plan on their own from the slide's prompts. Spot-check two plans: every action item has an owner and a date.`]});
-      if(sc.side) add(sc.side, {title: `🧪 Practice Lab: ${sc.sides} Optional Side Exercises`, do: [
+      if(sc.side) add(sc.side, {title: `🧪 Practice Lab: ${sc.sides} Skill Activities`, do: [
         `Optional and short: each one is an assumption (“Assuming …”) and an entry to log in the CMS. ${sc.sidePick < sc.sides ? `${sc.side} minutes is time for about ${sc.sidePick} of the ${sc.sides}, about ${sc.sideEach} minutes each: trainees choose any ${sc.sidePick} (the ones closest to their own desk work), not all of them.` : `Trainees pick the ones they have time for.`} ⏭ on the slide goes to the Ready check.`]});
     }
     const lastSb = sc.build || sc.loop ? null : steps.filter(x => /Skill Building/.test(x.title)).pop();
@@ -3152,7 +3155,7 @@ if(typeof window.buildDayScriptLines === "function"){
       if(plan) lines.push(`## ${planT}`, ...dayScriptLines(plan, planT), "---");
       const sides = all.filter(([l]) => l.cf.block.kind === "activity" && l.cf.block.id !== mid);
       if(sides.length){
-        const x = d.cf.build ? dayScript(d, "extra") : lab, t = d.cf.build ? "Optional Extra Practice" : "Practice Lab: Optional Side Exercises";
+        const x = d.cf.build ? dayScript(d, "extra") : lab, t = d.cf.build ? "Optional Extra Practice" : "Practice Lab: Skill Activities";
         lines.push(`## ${t}`, ...(x ? dayScriptLines(x, t) : []), "---");
         sides.forEach(([l, i]) => block(l, i));
       }
@@ -4127,7 +4130,7 @@ if(typeof window.renderDayIntro === "function"){
     // the daily loop (js/cm-day-loop.js): Part 2 is its steps, one under another, then the optional side exercises
     const sc = daySchedule(d), loop = sc.loop && window.cmDayLoop ? window.cmDayLoop.agendaRows(d, sc) : null;
     const loopPart = loop ? {name: loop.label, groups: [{title: "", html: loop.steps.map(t => { const m = String(t).match(/^(\S+)\s+(.*)$/) || ["", "", t]; return `<li><span aria-hidden="true">${m[1]}</span> <strong>${E(m[2])}</strong></li>`; }).join("")},
-      loop.sides ? {title: `Optional side exercises (${loop.sides})`, html: `<li><span aria-hidden="true">🧪</span> ${build ? `${loop.sides} activities on John Doe's file, untimed` : `${loop.sides} short ones, each an assumption logged in the CMS${sc.sidePick && sc.sidePick < loop.sides ? `: choose about ${sc.sidePick}` : ""}`}</li>`} : null].filter(Boolean)} : null;
+      loop.sides ? {title: `Skill activities (${loop.sides})`, html: `<li><span aria-hidden="true">🧪</span> ${build ? `${loop.sides} activities on John Doe's file, untimed` : `${loop.sides} short ones, each an assumption logged in the CMS${sc.sidePick && sc.sidePick < loop.sides ? `: choose about ${sc.sidePick}` : ""}`}</li>`} : null].filter(Boolean)} : null;
     const cols = [
       [{name: `Part 1 · 📘 Lessons (${les.reduce((a, p) => a + p.topics.length, 0)}, all together)`, groups: [{title: "", html: les.map(liL).join("")}]}],
       [loopPart ? loopPart : build ? {name: "Part 2 · 🏗 Full Application Practice", groups: [{title: "", html: `<li><span aria-hidden="true">🏗</span> <strong>Build Your Companion Case</strong></li><li><span aria-hidden="true">➕</span> Optional extra practice <small>${nA} activities on John Doe's file, untimed</small></li>`}]}
@@ -4330,7 +4333,7 @@ function caseFlowPractice(){
     const mid = window.cmDayLoop && window.cmDayLoop.mainId ? window.cmDayLoop.mainId(d) : "";
     const mods = groups.map(({title, acts}, gi) => acts.map(({b, li}) => {
       const tool = String(b.act.tool || "").split("·")[0].split("→")[0].trim(), docs = (CF_PACKETS[b.id] || []).length;
-      const tag = mid ? (b.id === mid ? `<span class="cf-px-loop cf-px-main">🎯 Skill Building</span>` : `<span class="cf-px-loop">Optional side exercise</span>`) : "";
+      const tag = mid ? (b.id === mid ? `<span class="cf-px-loop cf-px-main">🎯 Skill Building</span>` : `<span class="cf-px-loop">Skill activity</span>`) : "";
       return `<div class="cf-px-tile${mid && b.id === mid ? " cf-px-tile-main" : ""}${open ? "" : " locked"}"${open ? ` role="button" tabindex="0" onclick="cmCaseFlow.openBlock(${d.id},${li})" onkeydown="if(event.key==='Enter')cmCaseFlow.openBlock(${d.id},${li})"` : ""} title="${E("Deliver: " + b.act.output)}">
           <span class="cf-px-k">${d.cf.n}.${gi + 1} · ${E(title)}${SIM.calls[b.id] ? " · 📞" : ""}</span>
           <b>${E(b.title)}</b>${tag}
