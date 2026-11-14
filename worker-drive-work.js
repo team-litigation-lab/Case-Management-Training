@@ -521,6 +521,17 @@ export function withDayOverrides(rec, grades, setup, pass) {
   return { grades: g, setup: s };
 }
 
+/* Each day's structure grade, the auto one and the final one (Day 1: the folders; Days 2–5: Backup File Maintenance). */
+export function structureView(rec) {
+  const ov = OV(rec).days || {}, out = {};
+  for (let n = 1; n <= 5; n++) {
+    const g = n === 1 ? (rec && rec.setup) : ((rec && rec.grades) || {})[n], o = ov[n] || null;
+    const auto = g && typeof g.score === "number" ? g.score : null;
+    out[n] = { auto, final: o ? o.score : auto, override: o, at: (o && o.at) || (g && g.at) || null };
+  }
+  return out;
+}
+
 /* ---------- /api/drive: "work", "workFor", "workGradeFor", "override" ---------- */
 const reply = (D, body, status) => D.json(body, status);
 export async function driveWorkApi(env, D, tok, b) {
@@ -535,7 +546,8 @@ export async function driveWorkApi(env, D, tok, b) {
     const rec = await D.driveRead(env, who);
     let catalog = {}; try { catalog = await courseActivities(env); } catch (e) { /* listed without titles */ }
     const v = workView(await readJson(kv, WORK_KEY(who)), rec, catalog, D.DRIVE_HOMES);
-    return reply(D, Object.assign({ work: v, brief: workBrief(v), guide: workGuide(catalog, D.DRIVE_HOMES), linked: D.driveLinked(rec), configured: D.driveConfigured(env), ai: aiOn(env, D), maxChars: MAX_CHARS }, extra || {}));
+    return reply(D, Object.assign({ work: v, brief: workBrief(v), structure: structureView(rec), guide: workGuide(catalog, D.DRIVE_HOMES), linked: D.driveLinked(rec),
+      configured: D.driveConfigured(env), ai: aiOn(env, D), maxChars: MAX_CHARS }, extra || {}));
   };
   if (action === "work" || action === "workFor") return view();
   if (action === "override") {
