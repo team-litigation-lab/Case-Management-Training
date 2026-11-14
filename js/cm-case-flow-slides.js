@@ -860,7 +860,7 @@ window.CM_CF_SLIDES = {
    "concepts": [
     {
      "term": "Whose Claim It Is",
-     "text": "PD follows the vehicle: it belongs to **the owner's claim**, not to a passenger who owns no car"
+     "text": "PD follows the vehicle: **the owner's claim**, outside the $40,000 stack: it neither adds to nor reduces his recovery"
     },
     {
      "term": "PD as Evidence",
@@ -1961,12 +1961,11 @@ window.CM_CF_SLIDES = {
  },
  "d2m1-a1": {
   "image": "email-outreach",
-  "situation": "File date 02/17/2026. Claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, **no adjuster assigned**. **Five letters** must go out today.",
+  "situation": "Assuming claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, **no adjuster assigned**, **five letters** must go out on 02/17/2026.",
+  "side": true,
   "steps": [
-   "In CMS → Documents → Outgoing, draft the five letters on the firm template: three letters of representation and **two notices**.",
-   "Give each letter its Attn line, insured, claim, policy or member number and date of loss, and ask for limits, Declaration Pages and preservation.",
-   "Route the set to Atty. Thorne for signature, then send each letter by the carrier's preferred method.",
-   "Calendar a check for each acknowledgement on the CMS Calendar."
+   "In CMS → Documents → Outgoing, draft three letters of representation and **two notices**: each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages.",
+   "Route the set to Atty. Thorne for signature, send each by the carrier's preferred method, and calendar a check for each acknowledgement."
   ],
   "deliver": "Five letters **signed, sent and logged**, each correctly addressed, follow-ups calendared",
   "purpose": "One wrong letter risks **the UM coverage** or hands Keystone his private details",
@@ -5680,11 +5679,12 @@ window.CM_CF_SLIDES = {
  },
  "d3m4-a1": {
   "image": "money-ledger",
-  "situation": "Assuming **$40,000.00 is received**, Peach State accepted $1,240.00 and Riverton $4,580.00, with costs of $486.75, the final Net Sheet needs finishing.",
-  "side": true,
+  "situation": "File date 10/13/2026. **$40,000.00 is received** in two streams; Peach State accepted $1,240.00 and Riverton $4,580.00; costs are $486.75. The final Net Sheet needs finishing before John Doe signs.",
   "steps": [
-   "On the CMS Net Sheet's Recovery Ledger, post each check by stream with the 33⅓% fee, and split the costs and liens **25% and 75%**.",
-   "Log each lien's figures and payoff status in the Lien Tracker, tie both tabs to the Trust Ledger, and flag future ESIs to Atty. Thorne."
+   "On the CMS Net Sheet's Recovery Ledger, post each check **by stream** (Stream 1 the $10,000 BI, Stream 2 the $30,000 UM stack) with the 33⅓% fee.",
+   "Split the costs and liens **25% and 75%** between the streams, the UM share as the remainder of each split.",
+   "Log each lien's figures and payoff status in the Lien Tracker, and tie both tabs to the **BI/UM Master Financial Ledger** and the Trust Ledger.",
+   "Flag future ESIs to Atty. Thorne and route the Net Sheet to him for approval before John Doe signs."
   ],
   "deliver": "A two-tab Net Sheet reaching **$20,359.92 both ways**",
   "purpose": "John Doe signs on this Net Sheet: **one wrong cent** misstates his net",

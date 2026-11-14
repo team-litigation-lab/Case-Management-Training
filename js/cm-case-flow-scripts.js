@@ -368,14 +368,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m1-a1": {
   "task": {
-   "say": "• Generate the full letter set on the firm template in CMS Documents, under Outgoing\n• LORs: Keystone BI with PD carve-out, Harbor Point Host UM and PIP, Cardinal State Relative UM; notices to Bluewater, Peach State\n• Each: Attn line, insured, claim/policy/member number, date of loss; request limits, Dec Pages, other coverage, preservation\n• Route to Atty. Thorne for signature, send by preferred method from the Email Workspace, calendar acknowledgement checks\n• Keystone gets only what it needs; no UM letter asks for money"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents › Outgoing, draft three letters of representation and two notices\n• Each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages\n• Step 2: Route the set to Atty. Thorne for signature, send each by the carrier's preferred method, and calendar a check for each acknowledgement"
   },
   "case": {
-   "say": "• 02/17/2026: Atty. Thorne wants letters of representation (LORs) out today\n• Keystone BI, KM-26-440871, Dana Whitfield; Keystone PD, Leah Moran, who accepted PD liability this morning\n• Harbor Point, HP-26-7741, Marcus Bell, Host UM and PIP; Cardinal State, CS-26-20355, no adjuster yet\n• Three LORs plus notices to Bluewater and Peach State, for signature today; delivery methods in the Communications Log"
+   "say": "• Assuming claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, no adjuster assigned\n• Five letters must go out on 02/17/2026\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: five letters signed, sent and logged, follow-ups calendared"
   },
   "check": {
-   "say": "• Five letters: LORs to Keystone, Harbor Point, Cardinal State; notices to Bluewater and Peach State\n• Attn: Dana Whitfield, Marcus Bell, \"Attn: Claims Department\" for Cardinal State\n• Insured: Robert Smith, Kevin Alvarez, Margaret Doe, and Margaret Doe on Bluewater; Peach State shows PSH-55017742 and GRP-41208\n• Keystone: John Doe's name only, carve-out limited to the Civic, 5 business days to inspect; Bluewater asks for the 03/14/2024 rejection form\n• All signed by Atty. Thorne, sent 02/17/2026, follow-up 02/20/2026",
-   "ask": "Whose name goes in the insured line on the Harbor Point and Cardinal State letters, and why?"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Cardinal State: “Attn: Claims Department”; Correct insured on each; Keystone: John Doe's name only\n• And: No UM letter asks for payment; All signed and sent 02/17/2026\n• The one thing to watch for: One letter copied five times, insured left as Robert Smith"
   }
  },
  "d2m1-l2": {
@@ -1064,13 +1063,14 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m4-a1": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: On the CMS Net Sheet's Recovery Ledger\n• Post each check by stream with the 33⅓% fee, and split the costs and liens 25% and 75%\n• Step 2: Log each lien's figures and payoff status in the Lien Tracker\n• Tie both tabs to the Trust Ledger, and flag future ESIs to Atty. Thorne"
+   "say": "• Post each check by stream on the Recovery Ledger with the 33⅓% fee\n• Split the costs and liens 25% and 75% between the streams, the UM share as the remainder\n• Log each lien's figures and payoff status in the Lien Tracker\n• Tie both tabs to the BI/UM Master Financial Ledger and the Trust Ledger\n• Route it to Atty. Thorne before John Doe signs"
   },
   "case": {
-   "say": "• Assuming $40,000.00 is received, Peach State accepted $1,240.00 and Riverton $4,580.00, with costs of $486.75, the final Net Sheet needs finishing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a two-tab Net Sheet reaching $20,359.92 both ways"
+   "say": "• 10/13/2026: $40,000.00 is received in two streams, the $10,000 BI and the $30,000 UM stack\n• Peach State accepted $1,240.00; Riverton Spine & Rehab accepted $4,580.00; case costs are $486.75\n• The final Net Sheet must tie to the Trust Ledger before John Doe signs it\n• Atty. Thorne approves it; future ESIs are flagged to him"
   },
   "check": {
-   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Pre-suit fee: $13,333.33; Costs $486.75, charged once; Net: $5,089.98 + $15,269.94 = $20,359.92; Future ESIs flagged to Atty. Thorne\n• The one thing to watch for: Marking a lien final from an email or phone call"
+   "say": "• Pre-suit fee: $13,333.33\n• Costs: $486.75, charged once\n• Net: $5,089.98 + $15,269.94 = $20,359.92, both ways\n• Future ESIs flagged to Atty. Thorne\n• Never mark a lien final from an email or a phone call",
+   "ask": "Why is the UM share of each split worked out as the remainder?"
   }
  },
  "d3m4-l2": {
@@ -1739,10 +1739,10 @@ window.CM_CF_SCRIPTS = {
  "_days": {
   "1": {
    "agenda": {
-    "say": "• Welcome; today starts John Doe's case from the beginning\n• Part 1, all the lessons: the case, your role, facts vs. legal advice, reading the file, Case Plan, client directions, the car, client communications\n• Part 2, the daily loop: meet John Doe on his Case Profile and do his Intake, our Skill Building\n• Then 📁 Backup File Maintenance, required: the firm's folders on his Backup Drive; then write the Action Plan\n• Then 5 short skill activities in a 20-minute Practice Lab: time for about 4\n• Knowledge Check: 70% opens Day 2"
+    "say": "• Welcome; today starts John Doe's case from the beginning, on the Day 1 deck\n• Part 1, the lessons: fundamentals, intake, claim set-up and the Case Plan, the car, client communications, who pays the bills, treatment\n• Part 2, the daily loop: meet John Doe on his Case Profile and do his Intake, our Skill Building\n• Then 📁 Backup File Maintenance, required: the firm's folders on his Backup Drive; then write the Action Plan\n• Then 14 short skill activities in a 20-minute Practice Lab: time for about 4\n• Knowledge Check: 70% opens Day 2"
    },
    "lab": {
-    "say": "• Practice Lab: 5 short skill activities, each one an assumption and one entry to log in the CMS\n• The Recorded Statement instruction, the direction assignment, the PD file, the outreach log, the warning letter\n• About 20 minutes, about five minutes each: time for about 4, so each trainee chooses 4; then the Ready check\n• The backup folders are not here: Backup File Maintenance is required, done before the Action Plan"
+    "say": "• Practice Lab: 14 short skill activities, each one an assumption and one entry to log in the CMS\n• Intake and claim set-up: the Recorded Statement, the tasks, the stack, the LORs, the matrix, the PD file\n• Client and treatment: outreach, the warning letter, the LOPs, the referral, the lien, the gap flag, the Case Plan, the near-drop\n• About 20 minutes: time for about 4 of them, so each trainee chooses 4; then the Ready check"
    },
    "plan": {
     "say": "• Step 4 of the loop, guided: the Action Plan template, section by section, on the shared screen\n• Every fact from the Intake with the document it comes from; every action item with an owner, a date and a tool\n• Anything only Atty. Thorne decides is routed to him, with the date"
@@ -1762,31 +1762,13 @@ window.CM_CF_SCRIPTS = {
   },
   "2": {
    "agenda": {
-    "say": "• Welcome back; today covers John Doe's claim set-up and treatment\n• Lessons: claim set-up (coverage, affidavits, liability, notes, LORs, the Case Plan), then treatment (payers, LOPs, EOBs, PIP, EMC, costs, subrogation, A-C-T)\n• Part 2, the daily loop: the Case Profile, then one Skill Building, the LORs to all three carriers\n• Then 📁 Backup File Maintenance, required: today's documents filed the firm's way; then update the Action Plan\n• Then 8 short skill activities in a 20-minute Practice Lab: time for about 4\n• Knowledge Check: 70% opens Day 3"
-   },
-   "profile": {
-    "say": "• Step 2 of the loop: a minute on John Doe's Case Profile, The Case So Far\n• Since yesterday: the matter is open and three claims were reported by phone, nothing in writing yet\n• Ask what has to be confirmed in writing first, then straight into the Skill Building"
-   },
-   "lab": {
-    "say": "• Practice Lab: 8 short skill activities, each one an assumption and one entry to log in the CMS\n• The policy stack, the matrix audit, the gap flag, the Case Plan, the LOPs, the redirected referral, the lien, the near-drop\n• About 20 minutes: time for about 4 of them, so each trainee chooses 4; then the Ready check"
-   },
-   "plan": {
-    "say": "• Step 4: update the Action Plan on your own, about ten minutes\n• Every claim now open, with its carrier and claim number; the next action items with owners and dates"
-   },
-   "wrap": {
-    "say": "• Scenario 04/08/2026: Keystone confirmed its limit in writing 03/20; Riverton Spine & Rehab reports two missed visits\n• Dana Whitfield has asked John Doe for a Recorded Statement\n• Discuss first, second and third steps and what each protects\n• Cover: stop the recorded call through the firm that day; reach John on every approved channel and log it\n• Missed visits go to Atty. Thorne with facts and a plan; ask why before assuming",
-    "ask": "Which of those three moves comes first, and what does it protect?"
-   }
-  },
-  "3": {
-   "agenda": {
-    "say": "• Welcome back; from Day 2: when John's ride ended, ask the clinic about transportation help, log it, tell Atty. Thorne\n• Lessons: the Gap Explanation Record, pre-demand case auditing, the demand, settlement negotiations, the UM consent and waiver, the settlement release\n• Part 2, the daily loop: the Case Profile, then one Skill Building, serving the BI demand\n• Then 📁 Backup File Maintenance, required; then update the Action Plan\n• Then 12 short skill activities in a 20-minute Practice Lab: time for about 4\n• Knowledge Check: 70% opens Day 4"
+    "say": "• Welcome back; today is the Day 2 deck: pre-demand, the BI demand and the BI settlement\n• Lessons: the pre-demand audit, the gap record and causation, the demand, negotiations, the UM/UIM safety check, the settlement documents\n• Part 2, the daily loop: the Case Profile, then one Skill Building, serving the BI demand\n• Then 📁 Backup File Maintenance, required: today's documents filed the firm's way; then update the Action Plan\n• Then 10 short skill activities in a 20-minute Practice Lab: time for about 4\n• Knowledge Check: 70% opens Day 3"
    },
    "profile": {
     "say": "• Step 2 of the loop: John Doe's Case Profile, The Case So Far\n• Treatment is complete: MMI 06/12/2026, Specials $16,401.40, the gap still to be explained from his documents\n• Then straight into the Skill Building: the BI demand"
    },
    "lab": {
-    "say": "• Practice Lab: 12 short skill activities, each one an assumption and one entry to log in the CMS\n• The gap call and record, wages and Specials, the strategy session, the UM demands\n• The offer, the release, the execution, both Net Sheets, the gross recovery\n• About 20 minutes: time for about 4 of them, so each trainee chooses 4; then the Ready check"
+    "say": "• Practice Lab: 10 short skill activities, each one an assumption and one entry to log in the CMS\n• Wages and Specials, the gap call and record, the strategy session, the offer, the gross recovery\n• The UM demands, the release, the execution\n• About 20 minutes: time for about 4 of them, so each trainee chooses 4; then the Ready check"
    },
    "plan": {
     "say": "• Step 4: update the Action Plan: where the demand stands and the next deadline\n• A lighter touch today: the trainees write it, you spot-check two plans"
@@ -1796,33 +1778,51 @@ window.CM_CF_SCRIPTS = {
     "ask": "What must be true before the Time-Limited Demand goes out to Keystone?"
    }
   },
-  "4": {
+  "3": {
    "agenda": {
-    "say": "• Welcome back; today covers the money side of Track A, the settled file, then Track B, where it doesn't settle\n• Lessons: liens and provider balances, reductions, the Net Sheet, the release audit, disbursement and closing, court rules, mediation and arbitration, the binders\n• Part 2, the daily loop: the Case Profile, then one Skill Building, the Mediation Binder\n• Then 📁 Backup File Maintenance, required; then update the Action Plan\n• Then 11 short skill activities in a 20-minute Practice Lab: time for about 4\n• Knowledge Check: 70% opens Day 5"
+    "say": "• Welcome back; today is the Day 3 deck: lien negotiation and disbursement\n• Lessons: the lien doctrines and prior-attorney liens, increasing the client's net, the Net Sheet, disbursement, final reconciliation\n• Part 2, the daily loop: the Case Profile, then one Skill Building, the final Net Sheet\n• Then 📁 Backup File Maintenance, required; then update the Action Plan\n• Then 6 short skill activities in a 56-minute Practice Lab: time for all 6\n• Knowledge Check: 70% opens Day 4"
    },
    "profile": {
-    "say": "• Step 2 of the loop: John Doe's Case Profile, The Case So Far\n• Track A settled at $40,000 gross; liens still to resolve; Track B heads to mediation and arbitration\n• Then straight into the Skill Building: the Mediation Binder"
+    "say": "• Step 2 of the loop: John Doe's Case Profile, The Case So Far\n• Track A settled at $40,000 gross; the liens and the provider balance still to resolve\n• Then straight into the Skill Building: the final Net Sheet"
    },
    "lab": {
-    "say": "• Practice Lab: 11 short skill activities, each one an assumption and one entry to log in the CMS\n• The two lien reductions, the final Net Sheet, the prior-attorney lien, the disbursement\n• The impasse, the court rules, the calendars, the ADR matrix, the Arbitration Binder\n• About 20 minutes: time for about 4 of them, so each trainee chooses 4; then the Ready check"
+    "say": "• Practice Lab: 6 short skill activities, each one an assumption and one entry to log in the CMS\n• The two lien reductions, the prior-attorney lien, both stream Net Sheets, the disbursement\n• About 56 minutes: time for all 6, about nine minutes each; then the Ready check"
+   },
+   "plan": {
+    "say": "• Step 4: update the Action Plan: each lien's status, the Net Sheet and the disbursement date\n• A lighter touch today: the trainees write it, you spot-check two plans"
+   },
+   "wrap": {
+    "say": "• 10/21/2026: John Doe's check reads $20,359.92; he expected about $26,000\n• Discuss how you walk him through his Net Sheet, line by line\n• Cover: the 33⅓% fee, the $486.75 in costs, both liens after their reductions, the two streams\n• You explain the figures; the fee and any change to them are Atty. Thorne's call\n• Nothing leaves trust before the release is signed and the funds clear",
+    "ask": "How do you walk John through his Net Sheet, and what is Atty. Thorne's call, not yours?"
+   }
+  },
+  "4": {
+   "agenda": {
+    "say": "• Welcome back; today is the Day 4 deck: mediation and arbitration, on Track B, where the file doesn't settle\n• Lessons: the neutral, mediation logistics, the hearing and its UPL line, court rules and UM disputes, both binders\n• Part 2, the daily loop: the Case Profile, then one Skill Building, the Mediation Binder\n• Then 📁 Backup File Maintenance, required; then update the Action Plan\n• Then 8 short skill activities in a 20-minute Practice Lab: time for about 4\n• Knowledge Check: 70% opens Day 5"
+   },
+   "profile": {
+    "say": "• Step 2 of the loop: John Doe's Case Profile, The Case So Far\n• Track B: the same file, where Keystone let the demand lapse; mediation and UM arbitration ahead\n• Then straight into the Skill Building: the Mediation Binder"
+   },
+   "lab": {
+    "say": "• Practice Lab: 8 short skill activities, each one an assumption and one entry to log in the CMS\n• The impasse, the court cutoffs, both calendars, the ADR matrix, the Arbitration Binder, the countermeasures, a bottleneck\n• About 20 minutes: time for about 4 of them, so each trainee chooses 4; then the Ready check"
    },
    "plan": {
     "say": "• Step 4: update the Action Plan: the binder's exchange date and what Atty. Thorne still decides\n• The trainees work alone; spot-check that every item has an owner and a date"
    },
    "wrap": {
-    "say": "• John Doe's net from the $40,000 is $20,359.92\n• Scenario: Keystone's draft release arrives 08/14/2026, releasing \"all other persons, firms, corporations and insurers\"\n• Harbor Point hasn't answered the consent request; Atty. Thorne is out until Monday\n• Flag that language, since it could release the UM insurers; chase Harbor Point's consent in writing; log everything\n• Nothing gets signed until Atty. Thorne reviews it",
-    "ask": "What must not happen before Atty. Thorne is back, and why?"
+    "say": "• Track B: the mediation is set for 03/18/2027\n• Opposing counsel's paralegal calls to ask what number John Doe will take\n• Discuss what you may say and what goes to Atty. Thorne\n• Cover: no settlement position and no legal advice from you; log the call; route it the same day\n• Every binder exhibit indexed and numbered before the exchange",
+    "ask": "What may you say to the paralegal, and what goes to Atty. Thorne the same day?"
    }
   },
   "5": {
    "agenda": {
-    "say": "• Welcome back to the last day: Litigation and Dropped Cases on John Doe's file\n• Lessons, about 30 minutes: the litigation fork and filing, bottlenecks, litigation tracking, trial prep, depositions, the award, Dropped Cases\n• Part 2, the daily loop: the Case Profile, then the Full Application Practice, about 150 minutes on the assigned companion case\n• The build is submitted and graded on what Days 1–4 taught\n• Then 📁 Backup File Maintenance, required: the final backup audit; then close out the Action Plan; John's 14 other Skill Activities are extra practice\n• Knowledge Check: 70% finishes the Case Flow"
+    "say": "• Welcome back to the last day: Litigation and Dropped Cases on John Doe's file\n• Lessons, about 30 minutes: the litigation fork and filing, litigation tracking, trial prep, depositions, the award, Dropped Cases\n• Part 2, the daily loop: the Case Profile, then the Full Application Practice, about 150 minutes on the assigned companion case\n• The build is submitted and graded on what Days 1–4 taught\n• Then 📁 Backup File Maintenance, required: the final backup audit; then close out the Action Plan; John's 12 other Skill Activities are extra practice\n• Knowledge Check: 70% finishes the Case Flow"
    },
    "profile": {
     "say": "• Step 2 of the loop: John Doe's Case Profile, The Case So Far\n• Track B: the demand lapsed, suit filed 09/24/2026, discovery and the deposition ahead\n• Then straight into the Full Application Practice"
    },
    "lab": {
-    "say": "• Practice Lab: 14 Skill Activities on John Doe's file in the CMS, extra practice today\n• Litigation fork and litigation status, e-filing the Complaint and calendaring service, CMS countermeasures, a bottleneck\n• Pleadings and discovery logs, trial-prep checklist audit, Keystone's final Property Damage position, deposition prep, mock cross-examination\n• Liability counter-package, skip-tracing, Litigation Net Sheet, Denise Harlow's Dropped Case (the final backup audit is the required Backup File Maintenance)\n• Calendar everything each task starts; in litigation a missed date can end the claim"
+    "say": "• Practice Lab: 12 Skill Activities on John Doe's file in the CMS, extra practice today\n• Litigation fork and litigation status, e-filing the Complaint and calendaring service\n• Pleadings and discovery logs, trial-prep checklist audit, Keystone's final Property Damage position, deposition prep, mock cross-examination\n• Liability counter-package, skip-tracing, Litigation Net Sheet, Denise Harlow's Dropped Case (the final backup audit is the required Backup File Maintenance)\n• Calendar everything each task starts; in litigation a missed date can end the claim"
    },
    "plan": {
     "say": "• Step 4: close out the Action Plan: the litigation handoff, what is still open, the sign-off\n• A few minutes, on their own"
@@ -1840,7 +1840,7 @@ window.CM_CF_SCRIPTS = {
     "ask": "What decision does the note to Atty. Thorne lead with?"
    },
    "extra": {
-    "say": "• Extra practice: John Doe's 14 other Day 5 Skill Activities, untimed (the final backup audit was the required Backup File Maintenance)\n• Today's practical was the companion case\n• Worth coming back to soon: the deposition prep and the Dropped Case close-out\n• Most rooms skip these: the skip button goes to the Ready check, then the Knowledge Check"
+    "say": "• Extra practice: John Doe's 12 other Day 5 Skill Activities, untimed (the final backup audit was the required Backup File Maintenance)\n• Today's practical was the companion case\n• Worth coming back to soon: the deposition prep and the Dropped Case close-out\n• Most rooms skip these: the skip button goes to the Ready check, then the Knowledge Check"
    }
   }
  }

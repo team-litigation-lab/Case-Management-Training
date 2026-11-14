@@ -75,21 +75,24 @@ async function workerChecks() {
             });
             return out;
         });
-        const wantSlides = Object.values(notes.lessons).flat().length;   // every page the notes give a lesson
-        if (deck.bad.length || deck.lessons < Object.keys(notes.lessons).length || deck.slides !== wantSlides) fail(`deck slides: ${JSON.stringify(deck)}`);
+        // every page the decks' notes give a lesson (Day 1's, and Days 2-5's, which are lessons the same way now)
+        const allLessons = [1, 2, 3, 4, 5].map(n => JSON.parse(fs.readFileSync(path.join(process.cwd(), `build/videoslide/day${n}.json`), 'utf8')).lessons || {});
+        const wantSlides = allLessons.reduce((a, l) => a + Object.values(l).flat().length, 0), wantLessons = allLessons.reduce((a, l) => a + Object.keys(l).length, 0);
+        if (deck.bad.length || deck.lessons !== wantLessons || deck.slides !== wantSlides) fail(`deck slides: ${JSON.stringify(deck)}`);
         await page.evaluate(() => { goto('day', 11); }); await page.waitForTimeout(600);
         const shown = await page.evaluate(async () => {
             const d = DAYS.find(x => x.id === 11), li = d.lessons.findIndex(x => x.cf && x.cf.block.id === 'd1m1-role');
-            const i = buildDaySlides(d).findIndex(sl => sl.type === 'topic' && sl.lessonIndex === li && sl.part === 4);
+            const i = buildDaySlides(d).findIndex(sl => sl.type === 'topic' && sl.lessonIndex === li && 'deck4' === cmCaseFlow.viewsOf(d.lessons[li].cf.block)[sl.part - 1]);   // page 4, The General Process
             state.dayViewMode = 'slides'; state.maxSlide = Object.assign({}, state.maxSlide, { 11: 999 }); goToSlide(i);
             await new Promise(r => setTimeout(r, 900));
             const img = document.querySelector('.cfx-deckpage img'), card = document.querySelector('.cf-card');
             const r = img && img.getBoundingClientRect();
-            return img ? { src: img.getAttribute('src'), ok: img.complete && img.naturalWidth > 0, w: Math.round(r.width), bottom: Math.round(r.bottom), vh: innerHeight, pill: (card.querySelector('.cfx-pill') || {}).textContent } : null;
+            return img ? { src: img.getAttribute('src'), ok: img.complete && img.naturalWidth > 0, w: Math.round(r.width), bottom: Math.round(r.bottom), vh: innerHeight, pill: (card.querySelector('.cfx-what-v') || {}).textContent, title: d.lessons[li].cf.block.id, first: cmCaseFlow.viewsOf(d.lessons[li].cf.block)[0] } : null;
         });
         if (!shown || shown.src !== '/decks/day1/04.webp' || !shown.ok) fail(`the deck page isn't on the slide: ${JSON.stringify(shown)}`);
         else if (shown.w < 700 || shown.bottom > shown.vh) fail(`the deck page doesn't fit one screen at a readable size: ${JSON.stringify(shown)}`);
         if (shown && !/The General Process/.test(shown.pill || '')) fail(`the slide isn't named after its deck page: ${JSON.stringify(shown)}`);
+        if (shown && shown.first !== 'deck1') fail(`d1m1-role should open on the deck's own title page (page 1): every Canva page stays on the platform (${shown.first})`);
 
         // 3. locked for the trainee until the trainer unlocks it for the batch
         await page.evaluate(() => goto('dashboard')); await page.waitForTimeout(900);

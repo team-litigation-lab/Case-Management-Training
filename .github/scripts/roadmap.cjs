@@ -57,7 +57,8 @@ const failures = []; const fail = (m) => failures.push(m);
             const deck = buildDaySlides(d), hs = order.map(li => String(d.lessons[li].h || '').split(' ')[0]);
             const slideNums = order.map(li => { const k = deck.findIndex(sl => sl.type === 'topic' && sl.lessonIndex === li); if (k < 0) return null;
                 const m = /(\d+\.\d+) /.exec(String(daySlideTitle(d, deck[k]))); return m ? m[1] : '?'; });
-            return { head: s.querySelector('.rmx-dayh').innerText, topics, rows, order, titles: order.map(li => title(d.lessons[li])), hs, slideNums,
+            // (the trainers' deck pages are lessons' own slides: no 📑 deck-topic row, rmx-dk, beside the lessons)
+            return { deckRows: s.querySelectorAll('.rmx-dk').length, head: s.querySelector('.rmx-dayh').innerText, topics, rows, order, titles: order.map(li => title(d.lessons[li])), hs, slideNums,
                 n: d.cf.n, count: d.lessons.length, build: !!d.cf.build, main: mi >= 0 ? title(d.lessons[mi]) : '', drive: di >= 0 ? title(d.lessons[di]) : '', sides: acts.length - (mi >= 0) - (di >= 0) };
         });
         const slides = buildDaySlides(DAYS[0]), firsts = {}; slides.forEach((x, k) => { if (x.lessonIndex != null && firsts[x.lessonIndex] == null) firsts[x.lessonIndex] = k; });
@@ -65,6 +66,7 @@ const failures = []; const fail = (m) => failures.push(m);
     });
     if (map.days.length !== 5) fail(`the roadmap shows ${map.days.length} days, the course has 5`);
     map.days.forEach(d => { const L = `Day ${d.n}`;
+        if (d.deckRows) fail(`${L}: ${d.deckRows} 📑 deck-topic row(s) in the roadmap; the deck pages are the lessons' own slides`);
         if (!new RegExp(`Day ${d.n}\\b`).test(d.head)) fail(`the roadmap's day should be Day ${d.n}: "${d.head}"`);
         if (d.topics.length !== d.count) fail(`${L}: ${d.topics.length} topics in the roadmap, ${d.count} in the day`);
         // numbered in the order shown, 1 to N, no gaps
@@ -89,6 +91,7 @@ const failures = []; const fail = (m) => failures.push(m);
         if (r.slice(pk + 1)[0] !== 'S:✅' || r.slice(pk + 2).some(x => !/^T::/.test(x))) fail(`${L}: after the Knowledge Check band, ✅ Ready for the Knowledge Check? then the Learning Checks: ${r.slice(pk + 1).join(' | ')}`);
         if (!/✅ Ready check · ✍️ Knowledge Check/.test(r[pk] || '')) fail(`${L}: the last band should be ✅ Ready check · ✍️ Knowledge Check: ${r[pk]}`);
     });
+
     // reached (first slide ≤ 40) opens; not reached is locked; other days (locked for this trainee) are locked
     const d1 = map.days[0];
     if (d1) d1.order.forEach((li, k) => { const at = map.firsts[li], t = d1.topics[k]; if (!t) return;

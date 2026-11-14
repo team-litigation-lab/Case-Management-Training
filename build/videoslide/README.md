@@ -38,13 +38,16 @@ Canva instead). It needs `pdftoppm` (poppler) and `ffmpeg`.
 
 The deck and its video are embedded in the course from the same `dayN.json`:
 
-- `lessons` names the deck pages that stand in for a lesson's drawn slides (`"d1m1-role": [1, 2, 3, …]`). Each page is
-  one slide, and its `notes` are the slide's script in 🖥 Presenter view. A lesson that isn't listed keeps its own slides.
-  A lesson's pages show on the day the course teaches that lesson (the treatment lessons are on Case Flow Day 2).
-- `onDeck` (Days 3–5): the deck's teaching pages shown on the Case Flow day itself, topic by topic, after the day's
-  lessons and before its Practice Lab (`js/cm-day-decks.js`, the way `js/cm-deck-pages.js` shows the Day 2 deck), each
-  page with its notes as the talking points in 🖥 Presenter view. No title, agenda, Thank You or Skill Building page.
-  Pictures are `decks/dayN/NN.webp` (1600×900); `.github/scripts/day-decks.cjs` checks them.
+- `lessons` names the deck pages that ARE a lesson's slides (`"d1m1-role": [1, 2, 3, …]`), on every day's deck. Each
+  page is one slide, and its `notes` are the slide's script in 🖥 Presenter view. Day N's deck is taught on Case Flow
+  Day N (as its narrated video and the day's title), so its lessons are on that day; a Skill Activity on a later day
+  may practise one (the demand Skill Building on Day 3 practises Day 2's BI Demand pages). Nothing of the Canva decks
+  is left off: EVERY page in the notes, the title, Training Agenda and Thank You pages too, is one lesson's slide
+  (the title and agenda open the day's first deck lesson, the Thank You page closes its last), and every picture in
+  `decks/dayN/` is on a slide (`.github/scripts/day-decks.cjs`). A lesson that isn't listed keeps its own drawn
+  slides, at most three (js/cm-case-flow.js `lean`); a listed lesson's own rules are a 💡 Tip on the activities that
+  practise it (js/cm-lesson-tips.js). Pictures are `decks/dayN/NN.webp` (1600×900), named by page number; the title,
+  agenda and Thank You pages of Days 2–5, missing from the exports, were taken from the narrated videos' frames.
 - `video` is the day's narrated video (`decks/dayN/dayN-narrated.mp4`, its captions, and the start time of each page in
   it). The day card shows ▶ Video once a trainer unlocks it (Admin → 🔓 Open Lessons → 🎬 Unlock Videos), 🔒 Video until then.
 - The page images are `decks/dayN/NN.webp` (1600×900). The video must stay under 25 MB to be served by the site.

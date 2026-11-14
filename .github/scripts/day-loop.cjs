@@ -100,7 +100,9 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
       const sc = cmCaseFlow.schedule(d);
       if (!sc.loop || !sc.fits) out.push(`${L}: the day's schedule should run the loop and fit four hours (loop ${sc.loop}, ${sc.total} minutes)`);
       if (!(sc.drive > 0) || sc.driveId !== drive) out.push(`${L}: the schedule should time the required Backup File Maintenance (${sc.drive} minutes, ${sc.driveId})`);
-      if (sc.lessonShare > 30 || sc.lessonMin < (d.cf.build ? 0 : 66)) out.push(`${L}: lessons should stay at 30% (${sc.lessonMin} minutes, ${sc.lessonShare}%)`);
+      // at most 30%, and as many minutes as the lessons' slides take (PER_SLIDE each, js/cm-case-flow-schedule.js), up to it: less is fine
+      { const SC = window.CM_CF_SCHEDULE, ls = d.lessons.filter(l => l.cf.block.kind === 'lesson'), need = Math.ceil(ls.reduce((t, l) => t + cmCaseFlow.viewsOf(l.cf.block).length * (l.cf.block.thorough ? SC.THOROUGH_WEIGHT : 1), 0) * SC.PER_SLIDE);
+        if (sc.lessonShare > 30 || sc.lessonMin > SC.LESSON_MIN || (!d.cf.build && sc.lessonMin < Math.min(SC.LESSON_MIN, need) - 2)) out.push(`${L}: lessons should take their slides' minutes, at most 30% (${sc.lessonMin} minutes, ${sc.lessonShare}%; the slides want ${need})`); }
       if (sc.lessonMin > 66) out.push(`${L}: ${sc.lessonMin} minutes of lessons, over the 30%`);
 
       // what the slides draw

@@ -20,6 +20,8 @@ const KIND = {}; CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b 
 // the build's minutes, as the curriculum's own schedule prints them
 const out = execFileSync(process.execPath, [path.join(ROOT, 'build/case-flow/curriculum.cjs'), '--check'], { cwd: ROOT, encoding: 'utf8' });
 const buildMin = {}; out.split('\n').forEach(l => { const m = /^Day (\d+):.*companion-case build (\d+)/.exec(l); if (m) buildMin[m[1]] = Number(m[2]); });
+// the Practice Lab's minutes, as the same schedule gives them (SIDE.max, more on a day whose lessons leave the Skill Building full)
+const labMin = {}; out.split('\n').forEach(l => { const m = /^Day (\d+):.* in a (\d+)-minute Practice Lab/.exec(l); if (m) labMin[m[1]] = Number(m[2]); });
 const failures = [], fail = m => failures.push(m);
 const has = (s, n) => new RegExp(`(^|\\D)${n}(\\D|$)`).test(s);
 CF.sequence.forEach(sd => {
@@ -42,9 +44,9 @@ CF.sequence.forEach(sd => {
     if (!has(ex, sides) || /final backup audit, /.test(ex) || /^• Optional/.test(ex)) fail(`${L}: the extra-practice note should count the ${sides} other Skill Activities (the backup audit is the required step): "${ex}"`);
     return;
   }
-  const lab = say('lab'), mins = Math.min(SCHED.SIDE.max, SCHED.SIDE.each * sides), pick = Math.min(sides, Math.floor(mins / SCHED.SIDE.each));
+  const lab = say('lab'), mins = labMin[n] || Math.min(SCHED.SIDE.max, SCHED.SIDE.each * sides), pick = Math.min(sides, Math.floor(mins / SCHED.SIDE.each));
   if (!has(lab, sides)) fail(`${L}: the Practice Lab note should count its ${sides} side exercises: "${lab}"`);
-  if (!new RegExp(`About ${mins} minutes`).test(lab) || /About 30 minutes/.test(lab)) fail(`${L}: the Practice Lab note should say about ${mins} minutes (SIDE): "${lab}"`);
+  if (!new RegExp(`About ${mins} minutes`).test(lab) || /About 30 minutes/.test(lab)) fail(`${L}: the Practice Lab note should say about ${mins} minutes (the schedule's Practice Lab): "${lab}"`);
   if (pick < sides && !new RegExp(`chooses ${pick}\\b`).test(lab)) fail(`${L}: the Practice Lab note should say each trainee chooses ${pick}: "${lab}"`);
   if (/^• Optional/.test(lab) || /(the backup folders|the backup audit|, the backup\b)/i.test(lab.split('\n')[1] || '')) fail(`${L}: the Practice Lab note should not call it optional nor list the backup among the side exercises: "${lab}"`);
 });

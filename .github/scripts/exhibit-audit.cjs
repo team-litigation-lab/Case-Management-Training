@@ -21,7 +21,7 @@ const signIn = require('./sign-in.cjs');
 const BASE = process.argv[2] || 'http://localhost:8787/';
 const CMS = 'lshcasemanagementtraining-trainingcrm.pages.dev';
 const CASE_ID = 'LSH-2026-MVA-000041';
-const BLOCK = 'd3m1-a1';          // Case Flow Day 3: serving the BI Time-Limited Demand
+const BLOCK = 'd3m1-a1';          // serving the BI Time-Limited Demand (Case Flow Day 2, with the Day 2 deck's BI Demand pages)
 const CATEGORY = 'Others';        // what the service confirmation's convert.category says
 
 const failures = [];
@@ -98,18 +98,18 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     // 1. the audit is a slide of the activity, in the day the course teaches it
     const slide = await page.evaluate(async (block) => {
         const sleep = ms => new Promise(r => setTimeout(r, ms));
-        const d = DAYS.find(x => x.cf && x.cf.n === 3);
+        const d = DAYS.find(x => x.cf && x.lessons.some(l => l.cf && l.cf.block.id === block));   // the day the course teaches it
         goto('day', d.id); state.dayViewMode = 'slides'; await sleep(80);
         const slides = buildDaySlides(d);
         for (let i = 0; i < slides.length; i++) {
             state.lessonSlide = i; render(); await sleep(0);
             const aud = document.querySelector('.cfx-aud');
-            // Day 3 carries more than one audit (the wage worksheet comes before the demand): find this activity's
+            // the day carries more than one audit (the wage worksheet comes before the demand): find this activity's
             if (aud && aud.textContent.includes(CM_CF_EXHIBITS.audits[block].title)) return { slide: i, of: slides.length, text: aud.textContent.replace(/\s+/g, ' ').trim().slice(0, 200), sim: !!aud.querySelector('.cfx-simnote') && /generated in real time/.test(aud.textContent) };
         }
         return null;
     }, BLOCK);
-    check(!!slide, `the audit is one of Case Flow Day 3's slides: ${JSON.stringify(slide && slide.slide)} of ${slide && slide.of}`);
+    check(!!slide, `the audit is one of its day's slides: ${JSON.stringify(slide && slide.slide)} of ${slide && slide.of}`);
     check(!!slide && /Exhibit Packet Audit/.test(slide.text), `and it names the set being audited: ${slide && slide.text.slice(0, 90)}`);
     check(!!slide && !/FINAL as served/.test(slide.text), 'and does not give the completed package away before the audit is handed in');
     check(!!slide && slide.sim, 'and says plainly that its results are generated in real time for accelerated training');

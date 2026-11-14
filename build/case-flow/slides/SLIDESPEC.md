@@ -103,8 +103,9 @@ context the decks gave, not only the rules. Take it from the deck pages that tea
   or figures, and nothing that contradicts this course's block or `curriculum/5-day-flow/case-file.md`.
 - `framework` (optional, but give one wherever the deck page carries a structure) — the deck page's own table,
   flowchart or checklist, **rebuilt as data** so the course draws it in its own design (a block's slides never show the
-  deck's page images; the one exception is the trainers' revised deck, whose pages, topic by topic with their Skill
-  Building, close Day 2's lessons as slides of their own, outside any block: `js/cm-deck-pages.js`). Drawn as its own slide after The theory, titled by `title`.
+  deck's page images, except a lesson whose slides ARE the trainers' deck pages, build/videoslide/dayN.json `lessons`:
+  then its copy here is drawn nowhere). Drawn as its own slide after The theory, titled by `title`. A lesson the decks
+  don't teach shows at most three slides (js/cm-case-flow.js `lean`: The Theory, The Rules, then The Document or this).
   - `title` — the deck's name for it, **≤ 8 words**, no highlight ("The Standard Treatment Map").
   - `kind` — `"table"`: `head` (2–4 column headings, ≤ 4 words) and `rows` (2–6 rows of that many cells, ≤ 12 words
     each); or `"flow"` (a sequence, drawn with arrows) / `"list"` (cards): `steps`, 3–6 of `{label ≤ 5 words, text ≤ 16

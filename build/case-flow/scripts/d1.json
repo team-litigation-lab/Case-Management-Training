@@ -273,15 +273,14 @@
     }
   },
   "d2m1-a1": {
-    "case": {
-      "say": "• 02/17/2026: Atty. Thorne wants letters of representation (LORs) out today\n• Keystone BI, KM-26-440871, Dana Whitfield; Keystone PD, Leah Moran, who accepted PD liability this morning\n• Harbor Point, HP-26-7741, Marcus Bell, Host UM and PIP; Cardinal State, CS-26-20355, no adjuster yet\n• Three LORs plus notices to Bluewater and Peach State, for signature today; delivery methods in the Communications Log"
-    },
     "task": {
-      "say": "• Generate the full letter set on the firm template in CMS Documents, under Outgoing\n• LORs: Keystone BI with PD carve-out, Harbor Point Host UM and PIP, Cardinal State Relative UM; notices to Bluewater, Peach State\n• Each: Attn line, insured, claim/policy/member number, date of loss; request limits, Dec Pages, other coverage, preservation\n• Route to Atty. Thorne for signature, send by preferred method from the Email Workspace, calendar acknowledgement checks\n• Keystone gets only what it needs; no UM letter asks for money"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents › Outgoing, draft three letters of representation and two notices\n• Each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages\n• Step 2: Route the set to Atty. Thorne for signature, send each by the carrier's preferred method, and calendar a check for each acknowledgement"
+    },
+    "case": {
+      "say": "• Assuming claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, no adjuster assigned\n• Five letters must go out on 02/17/2026\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: five letters signed, sent and logged, follow-ups calendared"
     },
     "check": {
-      "say": "• Five letters: LORs to Keystone, Harbor Point, Cardinal State; notices to Bluewater and Peach State\n• Attn: Dana Whitfield, Marcus Bell, \"Attn: Claims Department\" for Cardinal State\n• Insured: Robert Smith, Kevin Alvarez, Margaret Doe, and Margaret Doe on Bluewater; Peach State shows PSH-55017742 and GRP-41208\n• Keystone: John Doe's name only, carve-out limited to the Civic, 5 business days to inspect; Bluewater asks for the 03/14/2024 rejection form\n• All signed by Atty. Thorne, sent 02/17/2026, follow-up 02/20/2026",
-      "ask": "Whose name goes in the insured line on the Harbor Point and Cardinal State letters, and why?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Cardinal State: “Attn: Claims Department”; Correct insured on each; Keystone: John Doe's name only\n• And: No UM letter asks for payment; All signed and sent 02/17/2026\n• The one thing to watch for: One letter copied five times, insured left as Robert Smith"
     }
   },
   "d1m1-a1": {

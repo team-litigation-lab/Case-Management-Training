@@ -38,8 +38,8 @@ export const GENERATED = [
 // slides, scripts, sim and curriculum) reads them; the document inventory reads the exhibits too; build/inventory.cjs
 // lists every file, so it goes last.
 export const BUILD = [
-  'build/case-flow/exhibits/assemble.cjs', 'build/case-flow/cases/assemble.cjs', 'build/case-flow/build.cjs',
-  'build/case-flow/documents/inventory.cjs', 'build/videoslide/deck-slides.cjs', 'build/inventory.cjs'
+  'build/case-flow/exhibits/assemble.cjs', 'build/case-flow/cases/assemble.cjs', 'build/videoslide/deck-slides.cjs', 'build/case-flow/build.cjs',
+  'build/case-flow/documents/inventory.cjs', 'build/inventory.cjs'
 ];
 // Scripts under build/ that write files but are not rebuilt here, and why (merge-main-generated.mjs checks this list).
 export const NOT_REBUILT = {

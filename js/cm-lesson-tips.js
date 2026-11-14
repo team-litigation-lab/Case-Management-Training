@@ -1,24 +1,38 @@
 /* 💡 TIPS FROM THE LESSONS THE DECKS REPLACED
-   The trainers' Canva decks (js/cm-deck-slides.js, js/cm-deck-pages.js) now teach most of Days 1 and 2. The drawn lesson
+   The trainers' Canva decks (js/cm-deck-slides.js: a deck page is a lesson's slide) now teach most lessons. The drawn lesson
    cards that only repeated a deck's pages were taken out of the course's order (CF.sequence in js/cm-case-flow-data.js):
      Day 1  the UPL Line (d1m1-upl), Client Directions (d1m3-l1), the Final Warning Letter (d1m2-l2): the day keeps its
             three deck lessons plus two of its own, Property Damage (d1m3-l2) and the No Contact Protocol (d1m2-l1)
      Day 2  PIP Strategy (d2m2-pip: the deck's Valuation Baseline pages)
      Day 3  the Demand Package (d3m1-pkg), Adjuster Delay Tactics (d3m2-l1), the UM Consent & Waiver (d3m2-umw): Day 2's
             Demand, Settlement Negotiations and BI Settlement pages
+     Then every drawn lesson whose topic a Canva page teaches (each block's `retired` names the pages): Coverage Verification
+     (d2m1-l2), Coverages & Payer-First (d2m1-cov), Liability Investigation (d2m1-liab), Health Subrogation & the Triple-Check
+     (d1m1-l2), the EMC Rule (d1m4-emc), the Treatment Phase Summary (d2m2-sum), A-C-T & Treatment Monitoring (d2m2-l2),
+     Medical Excuse Notes (d2m3-l2), Strategy Briefing (d2m4-l2), Lien Negotiation Calls (d3m3-l3), Treatment to Demand
+     (d4m3-tx), Non-Responsive Adjusters (d4m4-l1) and Escalation Workflows (d4m4-l2)
    Their rules are not lost: each one is a 💡 Tip pop-up on the Skill Activity that practised it, on the activity's
-   first slide, beside its "Practises:" line. The button opens a small panel (why it matters and the rules), and ✕ or Esc closes it.
+   first slide, beside its "Practises:" line.
+   The same goes for a lesson whose slides ARE the trainers' deck pages (js/cm-deck-slides.js, every day now): its own
+   drawn slides are not shown, so its rules are a 💡 Tip on each activity that practises it (DECK_TIPS, read from the
+   course's order, CF.sequence `practises`). The button opens a small panel (why it matters and the rules), and ✕ or Esc closes it.
    Checked by .github/scripts/lesson-tips.cjs. */
 (function(){
 "use strict";
 const TIPS = {
   "d1m2-a1": ["d1m1-upl"], "d1m3-a1": ["d1m3-l1"], "d1m3-a2": ["d1m3-l1"], "d1m2-a2": ["d1m2-l2"],
-  "d2m2-a1": ["d2m2-pip"],
-  "d3-drive": ["d3m1-pkg"], "d3m2-a1": ["d3m2-l1"], "d3m2-rel": ["d3m2-umw"], "d3m2-exec": ["d3m2-umw"]
+  "d3-drive": ["d3m1-pkg"], "d3m2-a1": ["d3m2-l1"], "d3m2-rel": ["d3m2-umw"], "d3m2-exec": ["d3m2-umw"],
+  // the drawn lessons whose topic is on the Canva decks' pages (the owner: no lesson repeats a deck), retired:
+  "d1m1-a1": ["d2m1-l2", "d2m1-cov"], "d2m1-a2": ["d2m1-l2", "d2m1-liab"], "d1m1-a2": ["d1m1-l2", "d2m2-sum"], "d2m2-a1": ["d2m2-pip", "d1m4-emc"],
+  "d2m2-a2": ["d2m2-l2"], "d2-drive": ["d2m2-l2"], "d2m3-a2": ["d2m3-l2"], "d2m4-a2": ["d2m4-l2"], "d3m3-a2": ["d3m3-l3"],
+  "d4m3-a1": ["d4m3-tx"], "d4m4-a1": ["d4m4-l1"], "d4m4-a2": ["d4m4-l2"]
 };
-const CF = window.CM_CASE_FLOW;
+const CF = window.CM_CASE_FLOW, DECK = window.CM_DECK_SLIDES || {};
+const DECK_TIPS = {};
+((CF && CF.sequence) || []).forEach(sd => (sd.phases || []).forEach(ph => Object.entries(ph.practises || {}).forEach(([a, l]) => { if(DECK[l]) DECK_TIPS[a] = (DECK_TIPS[a] || []).concat(l); })));
+Object.entries(DECK_TIPS).forEach(([a, ls]) => { TIPS[a] = (TIPS[a] || []).concat(ls.filter(l => !(TIPS[a] || []).includes(l))); });
 const blockOf = id => { for(const d of (CF && CF.days) || []) for(const m of d.modules || []) for(const b of m.blocks || []) if(b.id === id) return b; return null; };
-window.CM_LESSON_TIPS = {TIPS, blockOf};   // .github/scripts/lesson-tips.cjs
+window.CM_LESSON_TIPS = {TIPS, DECK_TIPS, blockOf};   // .github/scripts/lesson-tips.cjs
 if(typeof renderDaySlideContent !== "function" || !CF) return;
 
 const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);

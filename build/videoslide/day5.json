@@ -3,58 +3,15 @@
   "deck": "Revised Case Management Training Day 5 (Canva, 42 pages; the Skill Building page 38 is left out of the video)",
   "voice": "en_US-lessac-high, converted to the trainer's own voice (revoice.py)",
   "day": 15,
-  "onDeck": [
-    {
-      "key": "litigation",
-      "topic": "Litigation",
-      "pages": [
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30,
-        31,
-        32,
-        33,
-        34,
-        35,
-        36,
-        37
-      ]
-    },
-    {
-      "key": "pd",
-      "topic": "Property Damage in Litigation",
-      "pages": [
-        39,
-        40,
-        41
-      ]
-    }
-  ],
+  "lessons": {
+    "d5m1-l1": [1, 2, 3, 4, 5, 22, 23, 24, 25, 26, 27, 29, 31, 32, 33, 36],
+    "d5m1-l2": [7, 8, 30, 37],
+    "d5m1-subp": [28, 35],
+    "d5m3-l1": [6, 9, 10, 11, 12, 15, 16, 20],
+    "d5m3-l2": [13, 14, 17, 18, 19, 21],
+    "d5m4-l2": [34, 42],
+    "d5m2-l1": [39, 40, 41]
+  },
   "video": {
     "src": "/decks/day5/day5-narrated.mp4",
     "captions": "/decks/day5/day5-narrated.vtt",

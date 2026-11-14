@@ -86,6 +86,9 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
           if (r.views[r.views.length - 1] !== (r.views.includes('dodont') ? 'dodont' : r.views.includes('model') ? 'model' : 'rules')) out.push(`${L}: ${r.id} should end on The Rules, See It or Do & Don't (${r.views.join(' → ')})`);
         } else if (r.views[0] !== 'task' || r.views[1] !== 'case' || r.views[r.views.length - 1] !== 'check') out.push(`${L}: ${r.id} should run Your Task → Your Case → … → AI Grader (${r.views.join(' → ')})`);
       });
+      // the blocks are numbered in the order their slides come (2.20 never before 2.19), and so is the 🧪 Practice page
+      const nums = runs.map(r => Number(String((d.lessons.find(l => l.cf.block.id === r.id) || {}).h || '').split(' ')[0].split('.')[1]));
+      nums.forEach((x, i) => { if (i && !(x > nums[i - 1])) out.push(`${L}: ${runs[i].id} is numbered ${n}.${x}, after ${n}.${nums[i - 1]} on the slides: number the blocks in the order the slides show them`); });
       d.lessons.forEach(l => { if (l.cf.block.kind !== 'check' && !seen[l.cf.block.id]) out.push(`${L}: ${l.cf.block.id} (${l.cf.block.kind}) has no slide in the deck`); });
       // the lessons in the order the sequence lists them, the activities too
       // (the activities: the day's one Skill Building first, then the required Backup File Maintenance, then the side
@@ -104,9 +107,13 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
         if (x.id) {
           const dp = x.kind === 'lesson' && ((window.CM_DECK_SLIDES || {})[x.id] || []).find(p => 'deck' + p.page === x.view), LABEL = dp ? Object.assign({}, LABELS, { [x.view]: dp.title }) : LABELS;
           if (dp && !w.querySelector('.cfx-deckpage img[src="' + dp.img + '"]')) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): the slide doesn't draw its deck page (${dp.img})`);
-          if (dp && w.querySelectorAll('.cfx-title').length !== 1) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): a deck page should have one band that names it; it has ${w.querySelectorAll('.cfx-title').length}`);
-          const pill = norm((w.querySelector('.cfx-title') || {}).textContent), text = norm(w.textContent);
-          if (!pill.includes(norm(LABEL[x.view]))) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): the slide drawn is labelled "${pill}", not ${LABEL[x.view]}`);
+          if (dp && w.querySelectorAll('.cfx-what-v').length !== 1) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): a deck page should have one band that names it; it has ${w.querySelectorAll('.cfx-what-v').length}`);
+          // no hidden leftovers above the card: the view pill, its dots, the kicker and the title ribbon were CSS-hidden, so they are not drawn at all
+          const left = w.querySelectorAll('.cfx-pill, .cfx-dots, .cfx-kicker, .cfx-top-rib, .cfx-full').length + (x.kind === 'lesson' ? w.querySelectorAll('.cfx-sepline').length : 0);
+          if (left) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): ${left} hidden leftover(s) drawn (the view pill, dots, kicker, title ribbon, Additional Reference row or a lesson's separator line)`);
+          const pill = norm((w.querySelector('.cfx-what-v') || {}).textContent), text = norm(w.textContent);
+          // (the band is what the room sees: a voicemail activity's Your Case reads Transcription Exercise there, js/cm-day-loop.js)
+          if (!pill.includes(norm(LABEL[x.view])) && !(x.view === 'case' && pill === 'transcription exercise' && w.querySelector('.cfx-sb-vmw'))) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): the slide drawn is labelled "${pill}", not ${LABEL[x.view]}`);
           if (!text.includes(norm(x.b.title).slice(0, 40))) out.push(`${L} slide ${k + 1} (${x.id} ${x.view}): the slide drawn doesn't carry its block's title (${x.b.title})`);
           const title = String(daySlideTitle(d, deck[k]));
           if (!title.includes(LABEL[x.view]) || !title.includes(x.l.h)) out.push(`${L} slide ${k + 1}: its name in the slide picker is "${title}", not ${x.l.h} — ${LABEL[x.view]}`);
@@ -118,9 +125,10 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
       let far = -1;
       acts.forEach(r => { const l = d.lessons.find(x => x.cf.block.id === r.id), of = l.cf.of;
         if (!of || of.cf.block.kind !== 'lesson') return out.push(`${L}: ${r.id} names no lesson it practises`);
-        const lr = lessonRuns.find(x => x.id === of.cf.block.id);
-        if (!lr || lr.from > r.from) out.push(`${L}: ${r.id} practises ${of.cf.block.id}, which is not taught before it`);
-        const s = sectionOf(of.cf.block.id), lab = r.id !== main && r.id !== drive; if (lab && s < far) out.push(`${L}: ${r.id} practises a lesson (${of.cf.block.id}) of a section taught before the lessons of the activity ahead of it: the lab follows the lessons' order`); if (lab) far = Math.max(far, s);
+        // taught before it on this day, or on an earlier day (each deck is taught on its own day: Day N's on Case Flow Day N)
+        const lr = lessonRuns.find(x => x.id === of.cf.block.id), dayOfOf = DAYS.findIndex(x => x.cf && x.lessons.includes(of)), earlier = !lr && dayOfOf >= 0 && dayOfOf < DAYS.indexOf(d);
+        if (!earlier && (!lr || lr.from > r.from)) out.push(`${L}: ${r.id} practises ${of.cf.block.id}, which is not taught before it (on this day or an earlier one)`);
+        const s = sectionOf(of.cf.block.id), lab = r.id !== main && r.id !== drive && !earlier; if (lab && s < far) out.push(`${L}: ${r.id} practises a lesson (${of.cf.block.id}) of a section taught before the lessons of the activity ahead of it: the lab follows the lessons' order`); if (lab) far = Math.max(far, s);
         // its own first slide says it
         state.lessonSlide = r.from; render();
         const line = norm((document.querySelector('#lessonSlideWrap .cfx-of') /* in the Practice Lab line; under the steps on a Backup File Maintenance task */ || {}).textContent), num = of.h.split(' ')[0];
@@ -239,10 +247,11 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
   });
   lists.rm.forEach((row, i) => {
     const parts = row.split('|'), p1 = parts.findIndex(x => /^P:Part 1/.test(x)), p2 = parts.findIndex(x => /^P:Part 2/.test(x));
+    if (parts.includes('D')) fail(`Roadmap, Day ${i + 1}: a 📑 deck-topic row beside the lessons; the deck pages are the lessons' own slides`);
     if (p1 !== 0) fail(`Roadmap, Day ${i + 1}: "Part 1 · Lessons" should head the day's topics`);
     if (p2 < 0) fail(`Roadmap, Day ${i + 1}: no "Part 2 · 🔁 The Daily Loop" label`);
-    // the day's deck topics (📑 Deck pages, js/cm-day-decks.js) come after its lessons, before Part 2
-    else if (parts.slice(p1 + 1, p2).some(x => x !== 'L' && x !== 'D') || /D.*L/.test(parts.slice(p1 + 1, p2).join('')) || parts[p2 + 1] !== 'S') fail(`Roadmap, Day ${i + 1}: "Part 2" should sit after the last lesson and open on the loop's first step, the Case Profile (roadmap.cjs checks the rest of the loop)`);
+    // the deck pages are the lessons' own slides: no row of the roadmap is a deck topic beside the lessons (rmx-dk)
+    else if (parts.slice(p1 + 1, p2).some(x => x !== 'L') || parts[p2 + 1] !== 'S') fail(`Roadmap, Day ${i + 1}: "Part 2" should sit after the last lesson and open on the loop's first step, the Case Profile (roadmap.cjs checks the rest of the loop)`);
   });
   if (lists.sm.length !== 3 || !/^Part 1.*Lessons/.test(lists.sm[0]) || !/^Part 2.*Daily Loop/.test(lists.sm[1]) || !/Knowledge Check/.test(lists.sm[2])) fail(`the slide picker of Day 2 should label Part 1 · Lessons, Part 2 · 🔁 The Daily Loop and the Knowledge Check: ${JSON.stringify(lists.sm)}`);
   if (!/Case Profile/.test(lists.firstLab)) fail('the slide picker\'s "Part 2 · 🔁 The Daily Loop" label should sit above the Case Profile slide, the loop\'s first');

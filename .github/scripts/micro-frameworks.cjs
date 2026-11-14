@@ -249,7 +249,7 @@ const SPOKEN = {
       if (!got[k]) failures.push(`${id}: its ${{ rf: 'CM Red Flag', rx: 'Rule vs. Exception', ms: 'Milestone Steps' }[k]} isn't drawn`); else n++; }
   }
   await browser.close();
-  const railsWant = Object.entries(SPEC).filter(([id, v]) => /\bms\b/.test(v) && !RETIRED.has(id)).length;
+  const railsWant = Object.entries(SPEC).filter(([id, v]) => /\bms\b/.test(v) && !RETIRED.has(id) && !deckLessons.has(id)).length;   // (a deck lesson draws its pages, not a rail)
   if (r.count.rails !== railsWant) failures.push(`${r.count.rails} Milestone rails are drawn; the spec gives ${railsWant} lessons one`);
   if (failures.length) { console.log(`${failures.length} problem(s):`); failures.slice(0, 80).forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
   const homes = {}; Object.entries(r.seen).forEach(([id, g]) => { if (g.rfOn) homes[g.rfOn] = (homes[g.rfOn] || 0) + 1; });
