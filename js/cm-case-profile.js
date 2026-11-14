@@ -142,9 +142,9 @@ function meetSlide(d){
   return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; MEET JOHN DOE</div>
     <div class="card lesson-card cf-card cfx cfx-deck cpx-slide">
       <div class="cfx-deck-head"><h2 class="cfx-deck-title">👋 Meet John Doe</h2></div>
-      <div class="cfx-ribbon"><span>Lessons done · next, meet your client on his Case Profile</span></div>
+      <div class="cfx-ribbon"><span>Lessons done · Step 2: meet your client on his Case Profile, then do his Intake</span></div>
       <div class="cfx-body"><div class="cfx-sheet">
-        <p class="cpx-s-lead">You've finished today's lessons. Before the Practice Lab, meet your client, <b>${E(c.client.name)}</b>, on his Case Profile: <b>${E(c.style)}</b>.</p>
+        <p class="cpx-s-lead">You've finished today's lessons. Meet your client, <b>${E(c.client.name)}</b>, on his Case Profile: <b>${E(c.style)}</b>. Then do his Intake: the next slide, today's Skill Building, opens his file in the CMS.</p>
         <ul class="cpx-s-list">
           <li><span aria-hidden="true">🚗</span>What happened, and where to check it</li>
           <li><span aria-hidden="true">🧱</span>Who pays, and in what order: ${money(c.total)}</li>
@@ -171,7 +171,7 @@ if(typeof presenterCues === "function"){   // Presenter view: what to do on the 
       <p class="script-say script-pt">• The lessons are done: now meet the client, on his Case Profile, not on a slide</p>
       <p class="script-say script-pt">• Open 📇 Case Profile → 👋 Meet John Doe on the shared screen and walk it: the collision, the team, who pays in order, the critical fact</p>
       <p class="script-say script-pt">• Say the stack out loud in order, twice: BI, Host UM, Relative UM</p>
-      <p class="script-say script-pt">• Where he sat, who ran the stop and the gap's dates: they find them in the documents, in the Practice Lab</p>
+      <p class="script-say script-pt">• Where he sat, who ran the stop and the gap's dates: they find them in the documents, at the Intake (the next slide, today's Skill Building)</p>
       <p class="script-say script-ask">Which fact on his profile would you want confirmed by a document before your first call, and why?</p></div></div>`;
   };
 }

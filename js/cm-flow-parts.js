@@ -2,8 +2,9 @@
    A day's two parts, plainly labelled wherever a day is listed.
    Every Case Flow day runs in one order (js/cm-case-flow.js buildDaySlides, CF.sequence in js/cm-case-flow-data.js):
        the Training Agenda → Part 1 · Lessons (ALL of the day's lessons, section by section)
-       → Part 2 · Practice Lab (ONE lab that holds ALL of the day's Skill Activities, in the order their lessons were
-         taught; on a build day, Day 5, the Full Application Practice and then its optional extra practice)
+       → Part 2 · 🔁 The Daily Loop (js/cm-day-loop.js): 📇 the Case Profile (Day 1: 👋 Meet John Doe and his Intake) →
+         the day's ONE Skill Building (Day 5: the Full Application Practice) → 📝 Update Your Action Plan → the
+         optional side exercises, in one short 🧪 Practice Lab
        → 🎯 Ready for the Knowledge Check? (the last slide) → the Knowledge Check.
    The Training Agenda and the day's Objectives page say so themselves (js/cm-case-flow.js). This file puts the same
    labels on the three lists the page already draws, without changing what they list or what a click does:
@@ -26,6 +27,8 @@ const count = (d, kind) => d.lessons.filter(l => l.cf && l.cf.block.kind === kin
 /* the three labels of a day: [icon + name, what it holds] */
 function labels(d){
   const nL = count(d, "lesson"), nA = count(d, "activity"), build = !!d.cf.build;
+  const loop = window.cmDayLoop ? window.cmDayLoop.agendaRows(d, {build}) : null;   // the daily loop: the same words as the Training Agenda
+  if(loop) return {lessons: ["Part 1 · 📘 Lessons", `${nL} lesson${nL === 1 ? "" : "s"}, all together`], lab: [loop.label, loop.sub], kc: ["🎯 Knowledge Check", "after the Ready check, the day's last slide"]};
   return {
     lessons: ["Part 1 · 📘 Lessons", `${nL} lesson${nL === 1 ? "" : "s"}, all together`],
     lab: build ? ["Part 2 · 🏗 Full Application Practice", `build your companion case; then ${nA} optional extra activities`]
@@ -37,7 +40,7 @@ function labels(d){
 function partsOf(d){
   let part = "";
   return buildDaySlides(d).map(sl => {
-    if(sl.type === "practiceLab" || sl.type === "companionBuild") part = "lab";
+    if(sl.type === "practiceLab" || sl.type === "companionBuild" || sl.type === "meetJohnDoe" || sl.type === "profileCheck" || sl.type === "actionPlan") part = part === "kc" ? part : "lab";
     else if(sl.type === "readyCheck" || sl.type === "closing") part = "kc";
     else if(sl.type === "topic"){ const k = kindAt(d, sl.lessonIndex); if(k === "lesson" && part === "") part = "lessons"; else if(k === "activity" && part !== "kc") part = "lab"; }
     return part;
@@ -126,8 +129,8 @@ css.textContent = `
 .cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-label b{display:inline;font:800 18px/1.2 'Poppins','Inter',sans-serif !important;color:#F4B77A;letter-spacing:.03em;text-transform:uppercase;}
 .cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-label span{font:700 16px/1.2 'Inter',sans-serif;color:#E8EBF3;}
 .cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-label ~ li.cfx-ag-label{grid-column:3;}   /* Part 2: the third column */
-.cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-lab{grid-column:3;grid-row:2;background:rgba(219,132,55,.24);border-color:#DB8437;}
-.cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-kc{grid-column:3;grid-row:3;}
+.cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-lab{grid-column:3;background:rgba(219,132,55,.24);border-color:#DB8437;}   /* the daily loop's steps, one under another */
+.cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-kc{grid-column:3;}
 `;
 document.head.appendChild(css);
 window.cmFlowParts = {partsOf, labels};   // .github/scripts/flow-order.cjs

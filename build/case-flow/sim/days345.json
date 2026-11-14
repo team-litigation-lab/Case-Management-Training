@@ -757,7 +757,7 @@
     {
       "if": {
         "activity": "d3m2-a2",
-        "check": 4
+        "check": 3
       },
       "then": {
         "activity": "d3m4-a1",
@@ -772,7 +772,7 @@
     {
       "if": {
         "activity": "d3m3-a2",
-        "check": 3
+        "check": 1
       },
       "then": {
         "activity": "d3m4-a2",
@@ -787,7 +787,7 @@
     {
       "if": {
         "activity": "d3m4-a1",
-        "check": 4
+        "check": 3
       },
       "then": {
         "activity": "d3m4-a2",
@@ -832,7 +832,7 @@
     {
       "if": {
         "activity": "d4m3-a2",
-        "check": 3
+        "check": 1
       },
       "then": {
         "activity": "d4m4-a2",
@@ -847,7 +847,7 @@
     {
       "if": {
         "activity": "d5m3-a1",
-        "check": 4
+        "check": 3
       },
       "then": {
         "activity": "d5m3-a2",

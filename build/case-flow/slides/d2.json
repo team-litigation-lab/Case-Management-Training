@@ -144,22 +144,19 @@
   },
   "d2m1-a2": {
     "image": "insurance-stack",
-    "situation": "File date 03/11/2026. A colleague's Coverage Matrix **totals $45,000**. The file holds Harbor Point's 03/02/2026 confirmation, Cardinal State's 03/09/2026 letter and **no Keystone Declaration Page** yet.",
+    "situation": "Assuming a colleague's Coverage Matrix **totals $45,000** and the file holds Harbor Point's and Cardinal State's letters but no Keystone Declaration Page, the matrix needs correcting.",
+    "side": true,
     "steps": [
-      "In CMS → Insurance → Coverage Matrix, check every row against its document and correct each error, citing the **document and date** that prove it.",
-      "Bring the stack total back to $40,000 and leave the correct rows alone.",
-      "For each past-due follow-up, take the action now and set a new date. Take the adjuster's call below if it comes.",
-      "Route a three-line audit note to Atty. Thorne: what is confirmed in writing, what is still preliminary, and what you escalated."
+      "In CMS → Insurance → Coverage Matrix, take PIP out of the stack and correct the total to **$40,000**, citing the document behind each fix.",
+      "Log a three-line audit note to Atty. Thorne in CMS → Case Notes: what is confirmed in writing, what is still preliminary, and what you escalated."
     ],
-    "deliver": "A corrected matrix **totalling $40,000**, every status sourced, open items dated, note routed",
+    "deliver": "A corrected matrix **totalling $40,000**, its audit note routed",
     "purpose": "Every later decision reads this matrix: **one unsourced cell** misstates the $40,000 stack",
     "principle": "Nothing is confirmed **without a document behind it**",
     "checks": [
-      "BI: **still preliminary**; Declaration Page not until 03/20/2026",
-      "**PIP out** of the stack: it pays bills, not claims",
+      "**PIP out** of the stack: it pays bills",
       "Stack total **$45,000 corrected to $40,000**",
-      "BI follow-up **logged 03/11/2026**; next by 03/13/2026",
-      "Bluewater's “UM: none” chased: **signed rejection form** (03/14/2024)"
+      "BI **still preliminary** until the Declaration Page"
     ],
     "dos": [
       "Open the letter **before you change the cell**"
@@ -240,23 +237,20 @@
   },
   "d2m2-a1": {
     "image": "medical-visit",
-    "situation": "02/23/2026. Urgent care's $685.00 went to PIP. Riverton Spine & Rehab, **out of network** for Peach State, starts care 02/24/2026. On 03/11/2026 Summit Imaging asks for **an LOP for the MRI**.",
+    "situation": "Assuming Riverton Spine & Rehab is **out of network** for Peach State and Atty. Thorne has approved its LOP, the LOP now needs sending and logging.",
+    "side": true,
     "steps": [
-      "Run the Payer Order for each provider and record the result in the CMS.",
-      "Prepare Riverton Spine & Rehab's LOP on the approved template, route it to Atty. Thorne for signature, and send it with the **HIPAA authorization**.",
-      "Take the call below with Tammy Greer: confirm the clinic accepts the LOP and secure the 02/24/2026 appointment, promising no payment.",
-      "Write the call up as a dated Case Note, open the follow-up tasks, and file the LOP and the note in the CMS.",
-      "On 03/11/2026, decline Summit's request in writing, naming Harbor Point PIP as the payer."
+      "In CMS → Liens → LOP register, record Riverton's LOP signed by John Doe and Atty. Thorne, and send it with the **HIPAA authorization** from the Email Workspace.",
+      "Log Summit Imaging's declined LOP request in CMS → Case Notes, naming Harbor Point PIP as the payer, and calendar the rental's 03/19/2026 end."
     ],
-    "deliver": "One **counsel-approved LOP** sent and endorsed by call, one declined, all logged",
+    "deliver": "One **counsel-approved LOP** sent, one declined, both logged",
     "purpose": "A needless LOP makes **a bill PIP would pay** a lien on his recovery",
     "principle": "**An LOP comes last**, after PIP and Peach State",
     "checks": [
       "Signed by John Doe and Atty. Thorne **before 02/24/2026**",
-      "Baseline: 2021 visits **low back, resolved**; no prior neck",
-      "Rental end 03/19/2026 calendared: after it, **out of pocket**",
-      "Decline proved: **$3,675.00 left**, enough for the $2,395.00 MRI",
-      "Call logged and tasked; **no payment promised** to any provider"
+      "Decline names **Harbor Point PIP** as payer",
+      "**No payment promised** to any provider",
+      "Rental end **03/19/2026 calendared**"
     ],
     "dos": [
       "Run the Payer Order **before the LOP template**, every time",
@@ -327,22 +321,19 @@
   },
   "d2m2-a2": {
     "image": "phone-call",
-    "situation": "04/08/2026: John Doe missed 04/03 and 04/07 and **answers no one**; last visit 04/02/2026. Notices go unanswered until he calls on **04/17, three days before** the letter's date.",
+    "situation": "Assuming the No Contact Protocol has been maxed and John Doe **calls back on 04/17**, his re-engagement now needs logging before the letter's date.",
+    "side": true,
     "steps": [
-      "Do the Step 1 review, then send notices on an escalating channel and log each one in the CMS Communications Log.",
-      "Escalate to Atty. Thorne and send the 10-day Final Warning Letter by certified mail and by email.",
-      "Take John's call below on 04/17: listen, record **his own words**, and give no diagnosis or advice.",
-      "With his consent, book Dr. Reyes and the evening visits on the CMS Calendar, then restore the file's status and confirm 04/21 and 04/23."
+      "Log the call in CMS → Case Notes in **his own words**, with no diagnosis or advice.",
+      "In CMS → Calendar, book his 04/21 and 04/23 visits, then restore the file's status in CMS → Case Status."
     ],
-    "deliver": "A near-drop record: notices, the letter, **his words**, the file restored",
+    "deliver": "His words logged, visits booked, **the file restored**",
     "purpose": "**Silence is a symptom**: find the cause before anyone calls it non-compliance",
     "principle": "Record his words; **never diagnose, advise or value**",
     "checks": [
-      "Notices by channel: **04/08, 04/09, 04/10**, each logged",
-      "Letter by **certified mail AND email**, respond by 04/20/2026",
       "His words quoted; **no label, no counseling advice**",
-      "**Drop Warning cleared** 04/20; 14-day trigger reset",
-      "04/02 → 04/21/2026 = **19 days**; attended 04/21 and 04/23"
+      "Visits **04/21 and 04/23** on the calendar",
+      "**Drop Warning cleared**; 14-day trigger reset"
     ],
     "dos": [
       "Lead with **“I'm glad you called”**, not the deadline",
@@ -454,22 +445,20 @@
   },
   "d2m3-a1": {
     "image": "client-call",
-    "situation": "03/04/2026. EMS recorded neck stiffness on 02/06/2026; urgent care on 02/20/2026 noted **onset at the MVA** and right-hand numbness since 02/18. Nobody has asked **why he waited 14 days**.",
+    "situation": "Assuming John Doe has agreed to a **recorded call** about why he waited 14 days, his four reasons now need capturing in his own words.",
+    "side": true,
     "steps": [
-      "Take the recorded call below. Open on the record: the date, who is on the call, his **consent to recording**, and that he can talk privately.",
-      "Ask open questions first, and use closed questions only to pin down dates and documents. Ask who he told and what he kept.",
-      "Read his account back to him and restate the standing instruction.",
-      "File a privileged GIRP note in CMS → Case Notes the same day."
+      "Take the recorded call below: state the date and his consent, ask open questions only, and read his account back to him.",
+      "Log a privileged GIRP note in CMS → Case Notes **the same day**, with a dated task for each corroborating document."
     ],
-    "deliver": "**All four reasons**, in his words, on a consented, privileged recording; GIRP note filed",
+    "deliver": "**All four reasons** in his words, the GIRP note filed",
     "purpose": "A suggested reason proves nothing: **only his own words**, backed by documents, hold up",
     "principle": "**Investigate, don't advocate**: never put a reason in his mouth",
     "checks": [
       "**Zero leading questions**; no reason introduced first",
       "**Four reasons in his words**: transport, soreness, coverage, numbness",
-      "Corroboration: texts, **02/09–02/13 call-outs**, 02/07/2026 receipt",
-      "**No opinion** on what the gap does",
-      "GIRP note **filed 03/04/2026**, labelled privileged"
+      "GIRP note **filed 03/04/2026**, labelled privileged",
+      "Corroboration **requested with a dated task**"
     ],
     "dos": [
       "**Let a pause run**; silence draws out detail",
@@ -554,22 +543,19 @@
   },
   "d2m3-a2": {
     "image": "calendar-gap",
-    "situation": "06/22/2026. MMI 06/12/2026; Dr. Reyes's **06/19/2026 Causation Letter**, her 04/20 note and the counseling summary are in. Atty. Thorne wants **the Gap Explanation Record** before the pre-demand session.",
+    "situation": "Assuming Dr. Reyes's **06/19/2026 Causation Letter** and her 04/20 note are in, Atty. Thorne needs the Gap Explanation Record before the pre-demand session.",
+    "side": true,
     "steps": [
-      "In CMS → Case File → Gap Explanation Record, cover both the 14-day gap and the **19-day disruption**, with exact dates.",
-      "Put each reason beside the dated document that proves it, and mark a reason with no document as account only.",
-      "Read it as the defense would, fix anything that argues or values the claim, then route it to Atty. Thorne.",
-      "File the non-economic damages records in the CMS so they are backed up to your Drive."
+      "In CMS → Case File → Gap Explanation Record, enter the 14-day gap and the **19-day disruption** with exact dates, each reason beside its dated document.",
+      "Log it as routed to Atty. Thorne, and file the non-economic damages records in the CMS."
     ],
-    "deliver": "A routed record of **both interruptions**, every reason beside a dated document",
+    "deliver": "A routed record of **both interruptions**, every reason sourced",
     "purpose": "The defense will test every reason: **an undocumented one** must say so",
     "principle": "**One dated document** per reason, or it's marked “account only”",
     "checks": [
-      "14 days, 02/06/2026 → 02/20/2026; **19 days**, 04/02/2026 → 04/21/2026",
-      "Escalation quoted exactly: **“onset at MVA 02/06/2026”**",
+      "14 days, 02/06/2026 → 02/20/2026; **19 days**, 04/02 → 04/21/2026",
       "Continuity: EMS report, call-outs, **06/19/2026 Causation Letter**",
-      "Disruption: **Dr. Reyes's 04/20 note**, 06/10 counseling summary",
-      "Social media checked; **nothing deleted or advised deleted**"
+      "Nothing argues or **values the claim**"
     ],
     "dos": [
       "**One reason per row**, one dated document per reason",
@@ -624,22 +610,19 @@
   },
   "d2m4-a1": {
     "image": "money-ledger",
-    "situation": "Early July 2026, after MMI 06/12/2026. Medical Bills **total $15,002.40**; Riverton Spine & Rehab bills **34 lines × $185.00**; Northgate verifies 9 missed shifts at 8 h × $22.00.",
+    "situation": "Assuming Riverton Spine & Rehab's **05/04/2026 duplicate line** is confirmed and Northgate verified $1,584.00 in wages, the Specials now need totalling.",
+    "side": true,
     "steps": [
-      "In CMS → Financial Ledger → Specials, enter each provider's charges with dates, amount billed and who paid.",
-      "Check Riverton Spine & Rehab's lines against its visit notes and remove any line no visit supports. Use the Amendment Requests below.",
-      "Total the medical, add the verified wages, show billed beside paid, and put future care in the narrative, not the ledger.",
-      "List every lien, re-check the three policy limits in order, and **flag for Atty. Thorne** anything that is his to decide."
+      "In CMS → Financial Ledger → Specials, remove the duplicate and total the medical at $14,817.40 plus the wages, showing **billed beside paid**.",
+      "Log the liens in CMS → Liens and flag the billed-versus-paid choice to Atty. Thorne."
     ],
-    "deliver": "An **audited ledger at $16,401.40**, billed beside paid, liens, targets, flags routed",
+    "deliver": "An **audited ledger at $16,401.40**, liens listed, choice routed",
     "purpose": "One unproved line hands the defense **a reason to doubt** every figure",
     "principle": "**Audit, don't total**: every line needs its visit or source",
     "checks": [
       "**05/04/2026 duplicate removed**: $6,290.00 → $6,105.00",
-      "**Specials $16,401.40**: $14,817.40 medical + $1,584.00 wages",
-      "**Five pre-treatment shifts flagged**, with Northgate's Attendance Record",
-      "Billed-vs-paid choice **routed to Atty. Thorne**",
-      "**Liens listed**: Peach State $1,860.00, LOP $6,105.00"
+      "**Specials $16,401.40**: medical plus wages",
+      "Billed-vs-paid choice **routed to Atty. Thorne**"
     ],
     "dos": [
       "**Count the visits** before adding a provider's lines",
@@ -679,21 +662,19 @@
   },
   "d2m4-a2": {
     "image": "strategy-session",
-    "situation": "Early July 2026, before any demand. Your audit: MMI 06/12/2026, **Specials $16,401.40**, liens $1,860.00 and $6,105.00, targets **$10,000 → $20,000 → $10,000**. Atty. Thorne has called the strategy session.",
+    "situation": "Assuming Atty. Thorne has decided on a **time-limited BI demand**, served 07/20/2026, his strategy decisions now need recording on the file.",
+    "side": true,
     "steps": [
-      "Take the strategy session below. Brief Atty. Thorne in order: the **bottom line** first, then the audited facts, the risks, the decisions and the options.",
-      "Answer his challenges with facts from the file, not adjectives, and recommend only on operations.",
-      "Read back each decision he makes, then record it in CMS → Case Notes with a task for each and re-route the Case Plan."
+      "Log each decision in CMS → Case Notes, **attributed to Atty. Thorne**, with the date it was made.",
+      "In CMS → Tasks, open a task with an owner for each decision, and propose no demand figure."
     ],
-    "deliver": "A recorded session and dated decision record, each **attributed to Atty. Thorne**, tasked",
+    "deliver": "A dated decision record, **attributed to Atty. Thorne**, tasked",
     "purpose": "The demand follows this session: **an unrecorded decision** leaves the file adrift",
     "principle": "**Operations are yours to recommend**; every legal decision is Atty. Thorne's",
     "checks": [
-      "Low-speed challenge: **about 28 mph**, $2,315.00 A-pillar supplement, C5-C6 herniation",
-      "Gap met **with documents, not apology**",
-      "Decision recorded: **time-limited BI demand**, served 07/20/2026",
-      "UM plan: **no UM demand** before a documented BI tender",
-      "**No demand figure proposed**; recommendations stay operational"
+      "Decision recorded: **time-limited BI demand**, 07/20/2026",
+      "UM plan: **no UM demand** before the BI tender",
+      "**No demand figure proposed**"
     ],
     "dos": [
       "**Read back every decision** before the session ends"
@@ -849,22 +830,20 @@
   },
   "d2m4-wage": {
     "image": "documents-audit",
-    "situation": "06/22/2026, after MMI. John Doe signed Northgate's authorization. A **draft worksheet claims $1,760.00** from his memory; **nothing is verified** yet.",
+    "situation": "Assuming Northgate HR has sent the employer's verification and **every missed shift** matches a provider's note, the wage loss now needs entering.",
+    "side": true,
     "steps": [
-      "Email Angela Ruiz at Northgate HR below, with his signed authorization, asking for the **employer's verification** and payroll records.",
-      "Match each missed shift to a provider's visit or off-work note, and flag any shift with no note to Atty. Thorne instead of dropping it.",
-      "Audit the draft worksheet to the verified total.",
-      "Enter $1,584.00 in CMS → Financial Ledger → Specials and file the employer letters in the CMS."
+      "In CMS → Financial Ledger → Specials, correct the draft worksheet from $1,760.00 to the **verified $1,584.00**.",
+      "Log it by filing Northgate's letters in CMS → Documents, flag the 02/09–02/13 shifts to Atty. Thorne, and send no medical records to the employer."
     ],
-    "deliver": "Northgate's verification filed and **$1,584.00 verified**, every shift matched",
+    "deliver": "**$1,584.00 verified** in the Specials, Northgate's letters filed",
     "purpose": "An unexcused absence is **the line an adjuster attacks** first",
     "principle": "**The employer's records**, not memory, fix the wage claim",
     "checks": [
-      "Rate, hours, overtime and job demands **confirmed by Northgate**",
-      "03/05, 03/13, 05/15, 05/18 **matched to provider records**",
-      "**02/09–02/13 flagged**, kept, with Northgate's call-out record",
       "Draft corrected: **$1,760.00 → $1,584.00**",
-      "**No medical records** sent to the employer"
+      "Northgate's verification **filed in the CMS**",
+      "**No medical records** sent to the employer",
+      "**02/09–02/13 shifts flagged** to Atty. Thorne"
     ],
     "dos": [
       "Ask the employer for **records, not recollection**"
@@ -996,20 +975,17 @@
   },
   "d2-drive": {
     "image": "medical-visit",
-    "situation": "04/24/2026, 3:30 p.m. Four **treatment documents** are filed in the CMS, and a **bill sits in the records folder**.",
+    "situation": "Assuming the four **treatment documents** are filed in the CMS, a Summit Imaging invoice still sits in your records folder.",
+    "side": true,
     "steps": [
-      "File each of the four documents in the CMS from 📁 Source Files, so each copy reaches its **folder on your Drive**.",
-      "In Google Drive, find the Summit Imaging invoice in 03 Medical Records, move it to 04 Bills & Invoices, and rename it the firm's way.",
-      "Open 📂 My Backup Drive and run ✓ Check my drive.",
-      "In CMS → Case Notes, write in two sentences what goes in each folder and why a bill in the records folder is a damages problem."
+      "In Google Drive, move the Summit invoice from 03 Medical Records to **04 Bills & Invoices**, rename it the firm's way, and run ✓ Check my drive.",
+      "Log the records-versus-bills rule in two sentences in CMS → Case Notes."
     ],
     "deliver": "Records and bills **each in their own folder**, checked",
     "purpose": "The Specials audit reads **the bills folder only**",
     "principle": "Records say what was done; **bills say what it cost**",
     "checks": [
-      "Visit notes, evaluation, consult in **03 Medical Records**",
-      "Summit invoice in **04 Bills & Invoices**, renamed, not twice",
-      "**Backed up equals filed** on the dashboard",
+      "Summit invoice in **04 Bills & Invoices**, renamed",
       "**✓ Check my drive**: no folder missing",
       "The **rule in two sentences** in Case Notes"
     ],

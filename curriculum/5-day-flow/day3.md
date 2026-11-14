@@ -29,7 +29,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file, in two parts: first ALL of its lessons, in teaching order under their section headings; then ONE Practice Lab that holds all of its Skill Activities (on the file in the CMS, each Your Task first, then Your Case), in the order their lessons were taught, with a short brainstorm after each Skill Building group; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
 
 **Module 3 — Pre-Demand Audit, the Demand & Settlement Negotiation**
 
@@ -41,20 +41,20 @@ The day is one module, on John Doe's one file, in two parts: first ALL of its le
 6. *Lesson* — Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup
 7. *Lesson* — Secondary UM Demand Structuring & Policy Stacking Rules
 8. *Lesson* — Securing Maximum Gross Policy-Limit Settlements
-9. *Skill Activity* — Probe the 14-Day Treatment Gap with AI John Doe (practises: Interview Techniques & UPL Boundaries in Client Investigation)
-10. *Skill Activity* — Gap Explanation Record Creation (practises: Medical Excuse Notes & Continuous-Care Documentation Rules)
-11. *Skill Activity* — Wage Loss Verification & the Medical Nexus (practises: MMI, Special Damages & Policy-Limits Targets)
-12. *Skill Activity* — Calculating Total Specials & the Special Damages Audit (practises: MMI, Special Damages & Policy-Limits Targets)
-13. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne (practises: Strategy Briefing Protocols with Lead Counsel)
-14. *Skill Activity* — Backup File Maintenance: the Pre-Demand Backup Audit (practises: Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup)
-15. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package (practises: Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup)
-16. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands (practises: Secondary UM Demand Structuring & Policy Stacking Rules)
-17. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap (practises: Securing Maximum Gross Policy-Limit Settlements)
-18. *Skill Activity* — Settlement Release Clause Review & Attorney Approval (practises: Securing Maximum Gross Policy-Limit Settlements)
-19. *Skill Activity* — Client Execution, Transmittal to Keystone & Check Confirmation (practises: Securing Maximum Gross Policy-Limit Settlements)
-20. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender (practises: Securing Maximum Gross Policy-Limit Settlements)
-21. *Skill Activity* — Closing the $40,000 Gross Recovery (practises: Securing Maximum Gross Policy-Limit Settlements)
-22. *Skill Activity* — The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes (practises: Securing Maximum Gross Policy-Limit Settlements)
+9. *Skill Activity* — Probe the 14-Day Treatment Gap with AI John Doe (practises: Interview Techniques & UPL Boundaries in Client Investigation) — *side*
+10. *Skill Activity* — Gap Explanation Record Creation (practises: Medical Excuse Notes & Continuous-Care Documentation Rules) — *side*
+11. *Skill Activity* — Wage Loss Verification & the Medical Nexus (practises: MMI, Special Damages & Policy-Limits Targets) — *side*
+12. *Skill Activity* — Calculating Total Specials & the Special Damages Audit (practises: MMI, Special Damages & Policy-Limits Targets) — *side*
+13. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne (practises: Strategy Briefing Protocols with Lead Counsel) — *side*
+14. *Skill Activity* — Backup File Maintenance: the Pre-Demand Backup Audit (practises: Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup) — *side*
+15. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package (practises: Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup) — **Skill Building**
+16. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands (practises: Secondary UM Demand Structuring & Policy Stacking Rules) — *side*
+17. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap (practises: Securing Maximum Gross Policy-Limit Settlements) — *side*
+18. *Skill Activity* — Settlement Release Clause Review & Attorney Approval (practises: Securing Maximum Gross Policy-Limit Settlements) — *side*
+19. *Skill Activity* — Client Execution, Transmittal to Keystone & Check Confirmation (practises: Securing Maximum Gross Policy-Limit Settlements) — *side*
+20. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender (practises: Securing Maximum Gross Policy-Limit Settlements) — *side*
+21. *Skill Activity* — Closing the $40,000 Gross Recovery (practises: Securing Maximum Gross Policy-Limit Settlements) — *side*
+22. *Skill Activity* — The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes (practises: Securing Maximum Gross Policy-Limit Settlements) — *side*
 23. *Knowledge Check* — UPL & Investigation Review
 24. *Knowledge Check* — Pre-Demand Audit & Day 3 Gate
 25. *Knowledge Check* — Demand Execution Audit
@@ -66,7 +66,7 @@ The day is one module, on John Doe's one file, in two parts: first ALL of its le
 
 ## Module 3 — Pre-Demand Audit, the Demand & Settlement Negotiation
 
-**Order:** Lessons (8) ➔ Practice Lab (14 Skill Activities) ➔ Knowledge Check (4 Learning Checks)
+**Order:** Lessons (8) ➔ Case Profile ➔ Skill Building (Serving the $10,000 BI Time-Limit Demand Package) ➔ Update Your Action Plan ➔ Practice Lab (13 optional side exercises) ➔ Knowledge Check (4 Learning Checks)
 
 ### 3.1.1 Interview Techniques & UPL Boundaries in Client Investigation
 

@@ -52,11 +52,19 @@
    (GONE8: each with the lesson it followed). Their rules are 💡 Tips on the activities that practised them
    (js/cm-lesson-tips.js). A place saved on one of their slides lands on the slide before them; every other place keeps
    its slide.
+   Then every day took the daily loop (layout 9, js/cm-day-loop.js): the lessons → the Case Profile (Day 1's Meet John
+   Doe slide; Days 2–5 a new Case Profile check-in) → the day's ONE Skill Building (its activity's slides, out of the
+   Practice Lab; Day 5, the companion-case build) → a new Update Your Action Plan slide → the Practice Lab, now the
+   optional side exercises (every other activity) → the Ready check. No slide went: a place saved in layout 8 (or
+   carried there from an older layout, as below) lands on the same slide, wherever the loop put it; the furthest slide
+   reached becomes the furthest, in today's order, of the slides seen. The two new slides are in no older deck: no
+   older place lands on one, and each counts as seen for a trainee who had seen a slide past it.
    The layouts: 1, the deck with On the Job (no layout on the saved place); 2, without On the Job (the deck with the
    Milestone Steps slides and every Why It Matters slide); 3, without those, in the old order; 4, in today's order,
    every lesson on its own drawn slides; 5, with the deck pages, Day 1's and Day 2's Skill Building pages and Meet
    Your Case; 6, without the Skill Building pages, still with Meet Your Case; 7, without Meet Your Case, still with the
-   lesson cards the decks replaced; 8, today's. A place saved in any older
+   lesson cards the decks replaced; 8, without them, in the order of one Practice Lab of every activity; 9, today's,
+   the daily loop. A place saved in any older
    layout is moved through every change in one go (a place saved in 5 loses the Skill Building pages and Meet Your
    Case together; one saved in 6, only Meet Your Case).
    Each saved object carries the layout it was written in (cfLayout), so the move happens once, on whichever device
@@ -66,8 +74,18 @@
 (function(){
 "use strict";
 if(typeof state === "undefined" || typeof DAYS === "undefined" || typeof buildDaySlides !== "function") return;
-const LAYOUT = 8, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
-const build = buildDaySlides;   // as js/cm-case-flow.js and js/cm-deck-pages.js left it: a Case Flow block is one slide per view
+const LAYOUT = 9, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
+// layout 8's deck (js/cm-day-loop.js keeps it: the order before the daily loop), where every older place is carried
+// first; then each slide is found again in today's deck (deckNow), by what it is
+const build = window.cmDayLoop && window.cmDayLoop.layout8 ? window.cmDayLoop.layout8 : buildDaySlides;
+const deckNow = d => buildDaySlides(d);
+/* a slide by what it is, the same in every order: a block's slide (its lesson and part), a deck page, or the day's own slide */
+const slideKey = sl => !sl ? "" : sl.type === "topic" ? `t:${sl.lessonIndex}:${sl.part}` : sl.type === "deckPage" ? `p:${sl.deck}:${sl.page}` : "~" + sl.type;
+/* layout 8's positions in today's deck (layout 9): each slide where the loop put it */
+function to9(d){
+  const now = deckNow(d), at = new Map(now.map((sl, k) => [slideKey(sl), k]));
+  return build(d).map((sl, k) => at.has(slideKey(sl)) ? at.get(slideKey(sl)) : Math.min(k, now.length - 1));
+}
 const cfDay = d => !!(d && d.cf && Array.isArray(d.lessons));
 
 /* Layout 3's deck, day by day (the deck before the lessons were put together and the Skill Activities into one
@@ -148,7 +166,7 @@ function runWas(d, li, deck, views, from){
 }
 /* the day's deck as it was in layout `from`: for each of its positions, [today's slide for it, today's slide for
    "the furthest reached" when it was that position] */
-function oldDeck(d, from){
+function oldDeck(d, from, at8){   // at8: in layout 8's deck, before the daily loop (.github/scripts/slide-places.cjs checks both)
   const views = window.cmCaseFlow && window.cmCaseFlow.viewsOf, out = [], deck = build(d);
   if(!views) return deck.map((sl, k) => [k, k]);
   const row = from < 4 ? ORDER3[d.cf && d.cf.n] : null;
@@ -189,6 +207,8 @@ function oldDeck(d, from){
   }
   // a slide that is gone lands on the one before it
   out.forEach((x, i) => { if(x[0] < 0){ const p = i ? out[i - 1] : [0, 0]; x[0] = p[0]; x[1] = p[1]; } });
+  // layout 9: each of layout 8's slides where the daily loop put it in today's deck
+  const nine = at8 ? [] : to9(d); out.forEach(x => { x[0] = nine[x[0]] != null ? nine[x[0]] : x[0]; x[1] = nine[x[1]] != null ? nine[x[1]] : x[1]; });
   // the furthest slide reached: the furthest, in today's order, of every slide up to that position
   let far = 0; out.forEach(x => { far = Math.max(far, x[1], x[0]); x[1] = far; });
   return out;
@@ -196,6 +216,8 @@ function oldDeck(d, from){
 const layoutOf = from => { const n = Math.round(Number(from)) || 1; return n < 1 ? 1 : n; };
 const placeMap = (d, from) => oldDeck(d, layoutOf(from)).map(x => x[0]);   // where each old position's slide is today
 const reachMap = (d, from) => oldDeck(d, layoutOf(from)).map(x => x[1]);   // how far each old position had reached, in today's deck
+const placeMap8 = (d, from) => oldDeck(d, layoutOf(from), true).map(x => x[0]);   // the same two, in layout 8's deck
+const reachMap8 = (d, from) => oldDeck(d, layoutOf(from), true).map(x => x[1]);
 function moved(d, i, from, far){
   if(layoutOf(from) >= LAYOUT) return Math.max(0, Math.round(Number(i) || 0));
   const m = far ? reachMap(d, from) : placeMap(d, from); if(!m.length) return 0;
@@ -257,5 +279,5 @@ if(typeof window.restoreAfterUpdate === "function"){
     return __restore.apply(this, arguments);
   };
 }
-window.cmSlidePlaces = {LAYOUT, placeMap, reachMap, moved};   // .github/scripts/slide-places.cjs
+window.cmSlidePlaces = {LAYOUT, placeMap, reachMap, placeMap8, reachMap8, moved, to9};   // .github/scripts/slide-places.cjs
 })();

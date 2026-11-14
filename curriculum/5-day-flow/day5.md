@@ -28,7 +28,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file, in two parts: first ALL of its lessons, in teaching order under their section headings; then ONE Practice Lab that holds all of its Skill Activities (on the file in the CMS, each Your Task first, then Your Case), in the order their lessons were taught, with a short brainstorm after each Skill Building group; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
 
 **Module 5 — Litigation & Dropped Cases**
 
@@ -46,21 +46,21 @@ The day is one module, on John Doe's one file, in two parts: first ALL of its le
 12. *Lesson* — Skip-Tracing, Process Servers & Certified Notice (condensed)
 13. *Lesson* — Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund (condensed)
 14. *Lesson* — Dropped Cases: the Case Manager's Close-Out (condensed)
-15. *Skill Activity* — Taking the Litigation Fork (practises: Signs of Impasse & Filing Criteria)
-16. *Skill Activity* — Transition the File to Litigation Status (practises: From Pre-Lit to Litigation & ADR)
-17. *Skill Activity* — E-Filing the Complaint & Calendaring Service (practises: From Pre-Lit to Litigation & ADR)
-18. *Skill Activity* — Setting Automated Countermeasures in CMS (practises: Identifying Non-Responsive Adjusters, Delayed Records & Scheduling Bottlenecks)
-19. *Skill Activity* — Bottleneck Resolution Simulation (practises: Escalation Workflows & Supervisory Reporting Guidelines)
-20. *Skill Activity* — Pleadings & Discovery Log Maintenance (practises: Litigation Tracking: the Pleadings Log & the Discovery Calendar)
-21. *Skill Activity* — Trial Prep Checklist Audit & KPI Update (practises: Trial Preparation Checklists & Litigation KPIs)
-22. *Skill Activity* — Does It Touch Our Settlement? Keystone's Final PD Position (practises: Property Damage at Settlement: Does It Touch Our Case?)
-23. *Skill Activity* — Virtual Deposition Prep Roleplay (practises: Client Prep for a Virtual Deposition & Injury Narrative Alignment)
-24. *Skill Activity* — Mock Deposition Cross-Examination Handling (practises: Opposing Counsel's Traps & Defending Key Testimony)
-25. *Skill Activity* — Building the Comparative Liability Counter-Package (practises: Comparative Negligence & the Liability Counter-Package)
-26. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch (practises: Skip-Tracing, Process Servers & Certified Notice)
-27. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award (practises: Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund)
-28. *Skill Activity* — Backup File Maintenance: the Final Audit and the Close-Out (practises: Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund)
-29. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log (practises: Dropped Cases: the Case Manager's Close-Out)
+15. *Skill Activity* — Taking the Litigation Fork (practises: Signs of Impasse & Filing Criteria) — *side*
+16. *Skill Activity* — Transition the File to Litigation Status (practises: From Pre-Lit to Litigation & ADR) — *side*
+17. *Skill Activity* — E-Filing the Complaint & Calendaring Service (practises: From Pre-Lit to Litigation & ADR) — *side*
+18. *Skill Activity* — Setting Automated Countermeasures in CMS (practises: Identifying Non-Responsive Adjusters, Delayed Records & Scheduling Bottlenecks) — *side*
+19. *Skill Activity* — Bottleneck Resolution Simulation (practises: Escalation Workflows & Supervisory Reporting Guidelines) — *side*
+20. *Skill Activity* — Pleadings & Discovery Log Maintenance (practises: Litigation Tracking: the Pleadings Log & the Discovery Calendar) — *side*
+21. *Skill Activity* — Trial Prep Checklist Audit & KPI Update (practises: Trial Preparation Checklists & Litigation KPIs) — *side*
+22. *Skill Activity* — Does It Touch Our Settlement? Keystone's Final PD Position (practises: Property Damage at Settlement: Does It Touch Our Case?) — *side*
+23. *Skill Activity* — Virtual Deposition Prep Roleplay (practises: Client Prep for a Virtual Deposition & Injury Narrative Alignment) — *side*
+24. *Skill Activity* — Mock Deposition Cross-Examination Handling (practises: Opposing Counsel's Traps & Defending Key Testimony) — *side*
+25. *Skill Activity* — Building the Comparative Liability Counter-Package (practises: Comparative Negligence & the Liability Counter-Package) — *side*
+26. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch (practises: Skip-Tracing, Process Servers & Certified Notice) — *side*
+27. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award (practises: Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund) — *side*
+28. *Skill Activity* — Backup File Maintenance: the Final Audit and the Close-Out (practises: Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund) — *side*
+29. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log (practises: Dropped Cases: the Case Manager's Close-Out) — *side*
 30. *Knowledge Check* — Litigation Fork Transition Check
 31. *Knowledge Check* — Countermeasure Operational Audit
 32. *Knowledge Check* — Litigation Support Assessment
@@ -76,7 +76,7 @@ The day is one module, on John Doe's one file, in two parts: first ALL of its le
 
 ## Module 5 — Litigation & Dropped Cases
 
-**Order:** Lessons (14) ➔ Practice Lab (15 Skill Activities) ➔ Knowledge Check (8 Learning Checks)
+**Order:** Lessons (14) ➔ Case Profile ➔ Skill Building (the Full Application Practice) ➔ Update Your Action Plan ➔ Practice Lab (15 optional side exercises) ➔ Knowledge Check (8 Learning Checks)
 
 ### 5.1.1 Signs of Impasse & Filing Criteria
 

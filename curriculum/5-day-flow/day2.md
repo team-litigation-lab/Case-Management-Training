@@ -29,7 +29,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file, in two parts: first ALL of its lessons, in teaching order under their section headings; then ONE Practice Lab that holds all of its Skill Activities (on the file in the CMS, each Your Task first, then Your Case), in the order their lessons were taught, with a short brainstorm after each Skill Building group; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
 
 **Module 2 — Claim Set Up, Treatment & the Bodily Injury Claim**
 
@@ -51,16 +51,16 @@ The day is one module, on John Doe's one file, in two parts: first ALL of its le
 16. *Lesson* — Health Subrogation, Payer Order & the Regulatory Triple-Check (condensed)
 17. *Lesson* — Coverage & Subrogation: the Treatment Phase Summary
 18. *Lesson* — A-C-T Crisis Protocol & Treatment Monitoring Principles
-19. *Skill Activity* — Policy Stack & Coverage Verification (practises: Coverage Verification Tracking & Follow-Up Deadlines)
-20. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers (practises: LOR Drafting Mechanics & Three-Carrier Notification)
-21. *Skill Activity* — CMS Coverage Matrix Audit (practises: Coverage Verification Tracking & Follow-Up Deadlines)
-22. *Skill Activity* — Identifying & Flagging the 14-Day Gap (practises: Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing)
-23. *Skill Activity* — Live Case Plan Draft — John Doe VS Robert Smith (practises: The Action Plan Editor & Attorney Review Routing)
-24. *Skill Activity* — Transmitting LOPs to Medical Providers (practises: LOP Issuance Guidelines, Provider Coordination & PIP Limits)
-25. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It (practises: Letters of Protection & the Case Manager's Part in Provider Referrals)
-26. *Skill Activity* — Health Plan Subrogation: Flag, Request & Audit the Lien (practises: Health Subrogation, Payer Order & the Regulatory Triple-Check)
-27. *Skill Activity* — The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol (practises: A-C-T Crisis Protocol & Treatment Monitoring Principles)
-28. *Skill Activity* — Backup File Maintenance: Records and Bills in Their Folders (practises: A-C-T Crisis Protocol & Treatment Monitoring Principles)
+19. *Skill Activity* — Policy Stack & Coverage Verification (practises: Coverage Verification Tracking & Follow-Up Deadlines) — *side*
+20. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers (practises: LOR Drafting Mechanics & Three-Carrier Notification) — **Skill Building**
+21. *Skill Activity* — CMS Coverage Matrix Audit (practises: Coverage Verification Tracking & Follow-Up Deadlines) — *side*
+22. *Skill Activity* — Identifying & Flagging the 14-Day Gap (practises: Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing) — *side*
+23. *Skill Activity* — Live Case Plan Draft — John Doe VS Robert Smith (practises: The Action Plan Editor & Attorney Review Routing) — *side*
+24. *Skill Activity* — Transmitting LOPs to Medical Providers (practises: LOP Issuance Guidelines, Provider Coordination & PIP Limits) — *side*
+25. *Skill Activity* — Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It (practises: Letters of Protection & the Case Manager's Part in Provider Referrals) — *side*
+26. *Skill Activity* — Health Plan Subrogation: Flag, Request & Audit the Lien (practises: Health Subrogation, Payer Order & the Regulatory Triple-Check) — *side*
+27. *Skill Activity* — The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol (practises: A-C-T Crisis Protocol & Treatment Monitoring Principles) — *side*
+28. *Skill Activity* — Backup File Maintenance: Records and Bills in Their Folders (practises: A-C-T Crisis Protocol & Treatment Monitoring Principles) — *side*
 29. *Knowledge Check* — Coverage Setup Verification Check
 30. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
 31. *Knowledge Check* — Treatment Monitoring Review
@@ -71,7 +71,7 @@ The day is one module, on John Doe's one file, in two parts: first ALL of its le
 
 ## Module 2 — Claim Set Up, Treatment & the Bodily Injury Claim
 
-**Order:** Lessons (18) ➔ Practice Lab (10 Skill Activities) ➔ Knowledge Check (3 Learning Checks)
+**Order:** Lessons (18) ➔ Case Profile ➔ Skill Building (Generating Formal LORs to BI, Host UM, and Relative UM Carriers) ➔ Update Your Action Plan ➔ Practice Lab (9 optional side exercises) ➔ Knowledge Check (3 Learning Checks)
 
 ### 2.1.1 Coverage Verification Tracking & Follow-Up Deadlines
 
