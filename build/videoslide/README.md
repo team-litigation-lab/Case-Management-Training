@@ -7,9 +7,13 @@ per slide.
 - `day1.json`: the speaker notes for *Revised Case Management Training Day 1* (50 pages, exported from Canva in two
   parts: join them with `pdfunite "Day 1_1.pdf" "Day 1_2.pdf" "Day 1.pdf"`).
   `day2.json`: the speaker notes for *Revised Case Management Training Day 2* (44 pages).
+  `day3.json`, `day4.json`, `day5.json`: the notes for the Day 3 (20 pages), Day 4 (36) and Day 5 (42) decks, on Case Flow
+  Days 3–5. They discuss each slide rather than read it, and tie it to *John Doe VS Robert Smith*
+  (`curriculum/5-day-flow/case-file.md`): where a slide shows another example, the narrator says so and gives the file's facts.
   Canva leaves notes out of a PDF export, so these notes were written from what each page says. They add no new
   facts. Edit a slide's `notes` and build again.
-- The Skill Building pages are not in the videos (the Day 1 deck no longer has them; Day 2 pages 11, 12, 20, 32, 43): the
+- The Skill Building pages are not in the videos (the Day 1 deck no longer has them; Day 2 pages 11, 12, 20, 32, 43; Day 3 page 10;
+  Day 4 pages 16, 17, 18, 31, 32; Day 5 page 38): the
   trainees work those in the room. A page with no entry in the notes file is left out of the video.
   `say` sets how the voice says a term (PIP → "P I P"). The captions keep the term as it is written.
 - The voice is [Piper](https://github.com/rhasspy/piper) `en_US-lessac-high`. It is free and runs offline, so nothing is
@@ -37,6 +41,10 @@ The deck and its video are embedded in the course from the same `dayN.json`:
 - `lessons` names the deck pages that stand in for a lesson's drawn slides (`"d1m1-role": [1, 2, 3, …]`). Each page is
   one slide, and its `notes` are the slide's script in 🖥 Presenter view. A lesson that isn't listed keeps its own slides.
   A lesson's pages show on the day the course teaches that lesson (the treatment lessons are on Case Flow Day 2).
+- `onDeck` (Days 3–5): the deck's teaching pages shown on the Case Flow day itself, topic by topic, after the day's
+  lessons and before its Practice Lab (`js/cm-day-decks.js`, the way `js/cm-deck-pages.js` shows the Day 2 deck), each
+  page with its notes as the talking points in 🖥 Presenter view. No title, agenda, Thank You or Skill Building page.
+  Pictures are `decks/dayN/NN.webp` (1600×900); `.github/scripts/day-decks.cjs` checks them.
 - `video` is the day's narrated video (`decks/dayN/dayN-narrated.mp4`, its captions, and the start time of each page in
   it). The day card shows ▶ Video once a trainer unlocks it (Admin → 🔓 Open Lessons → 🎬 Unlock Videos), 🔒 Video until then.
 - The page images are `decks/dayN/NN.webp` (1600×900). The video must stay under 25 MB to be served by the site.
