@@ -20,7 +20,7 @@
  * before you've configured it (the Admin screen shows a warning).
  */
 // ✍ the trainee's written work on their Backup Drive, AI-graded nightly, and a trainer's override (worker-drive-work.js)
-import { DRIVE_WORK_ACTIONS, driveWorkApi, driveWorkNightly, workBrief, workView, withDayOverrides } from "./worker-drive-work.js";
+import { DRIVE_WORK_ACTIONS, driveWorkApi, driveWorkNightly, workBrief, workView, withDayOverrides, withOverrides, OV_KEY } from "./worker-drive-work.js";
 /* ---------- KV with the "cm:" namespace prefix ---------- */
 const KV_PREFIX = "cm:";
 /* ---------- what the trainer owns in a trainee's records ----------
@@ -840,17 +840,15 @@ const driveKey = (id) => `drive:${id}`;
 const LEGACY_DRIVE_PREFIX = "drive:";
 async function driveRead(env, id) {
   const kv = kvOf(env);
-  const raw = await kv.get(driveKey(id));
-  if (raw != null) return JSON.parse(raw);
+  // ✍ a trainer's overrides are in a key of their own, only the admin writes it, laid over the record (worker-drive-work.js)
+  const [raw, ov] = await Promise.all([kv.get(driveKey(id)), kv.get(OV_KEY(id))]);
+  if (raw != null) return withOverrides(JSON.parse(raw), ov);
   if (!(await kv.get(`trainee:${id}`))) return null;   // not one of this program's trainees: never Foundations' record
   const legacy = await env.LSH_KV.get(LEGACY_DRIVE_PREFIX + id);
-  return legacy ? JSON.parse(legacy) : null;
+  return legacy ? withOverrides(JSON.parse(legacy), ov) : null;
 }
-async function driveWrite(env, id, rec, opt) {
-  // ✍ a trainer's overrides are written by the "override" action only: every other write keeps them as they are stored
-  if (rec && !(opt && opt.overrides)) { let cur = null; try { cur = JSON.parse((await kvOf(env).get(driveKey(id))) || "null"); } catch (e) { cur = null; } if (cur && cur.overrides) rec.overrides = cur.overrides; else delete rec.overrides; }
-  await kvOf(env).put(driveKey(id), JSON.stringify(rec)); return rec;
-}
+// (✍ never the overrides read with it: they stay in their own key)
+async function driveWrite(env, id, rec) { await kvOf(env).put(driveKey(id), JSON.stringify(rec && typeof rec === "object" ? Object.assign({}, rec, { overrides: undefined }) : rec)); return rec; }
 // ✍ what worker-drive-work.js uses of the Backup Drive and the AI
 const driveWorkDeps = () => ({ json, kvOf, listAll, driveRead, driveWrite, driveLinked, driveConfigured, drive, driveMessage, saToken, callGemini, geminiKeyNames, gatewayOn,
   nameCheck, nameHint, fileType, driveCaseId, driveSnapshot, driveNaming, gradeDay, dayStarted, filedFromProgress, FOLDER_STANDARD, DRIVE_HOMES, DRIVE_HOME_CATEGORY });
@@ -861,7 +859,7 @@ const driveLinked = (rec) => !!(rec && rec.rootId && rec.linkedAt);
    folder and everything in it stay in their Drive too (re-linking the same folder finds the structure again). */
 async function driveUnlink(env, id, rec) {
   const kept = {};
-  if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt", "grades", "gradedAt", "checkLog", "restoreLog", "drills", "naming", "rootId", "folders", "nameRule", "overrides"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
+  if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt", "grades", "gradedAt", "checkLog", "restoreLog", "drills", "naming", "rootId", "folders", "nameRule"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
   if (Object.keys(kept).length) return driveWrite(env, id, kept);
   await kvOf(env).put(driveKey(id), "null");
   return null;
@@ -1022,7 +1020,7 @@ function driveReport(id, rec, brief) {
     caseUrl: (driveLinked(rec) && rec.builtAt && folderUrl((rec.folders || {})[CLIENT_FOLDER])) || "",
     connectedAt: (rec && rec.connectedAt) || null,
     attempts: (setup && setup.attempts) || 0,
-    passed: !!(setup && setup.ok),
+    passed: !!((withDayOverrides(rec, null, setup, DRIVE_PASS).setup || {}).ok),   // ✍ a trainer's Day 1 override decides it
     tries,
     problems: (setup && setup.problems) || [],
     builtAt: (rec && rec.builtAt) || null,
@@ -1885,7 +1883,9 @@ export default {
           const reports = {};
           await Promise.all(ids.map(async (id) => { reports[id] = driveReport(id, await driveRead(env, id), true);
             // ✍ the written work's grades, short (worker-drive-work.js workBrief): the Scorecard and the Batch Sheet read them
-            try { const w = JSON.parse((await kvOf(env).get(`drivework:${id}`)) || "null"); const o = reports[id].overrides; if (w || o) reports[id].work = workBrief(workView(w, { overrides: o }, {}, DRIVE_HOMES)); } catch (e) { /* no work grades */ } }));
+            // (always there, empty when there are none: a page never looks for them anywhere else)
+            let w = null; try { w = JSON.parse((await kvOf(env).get(`drivework:${id}`)) || "null"); } catch (e) { /* no work grades */ }
+            reports[id].work = workBrief(workView(w, { overrides: reports[id].overrides }, {}, DRIVE_HOMES)); }));
           return json({ reports });
         }
         if (action === "standard") {

@@ -7,10 +7,10 @@
 //      the trainer's grade. 🏅 Grade now sends "workGradeFor" and says what it did. Every file name and every line of a grade
 //      is escaped (a name with markup in it stays text).
 //   2. The 🏅 Scorecard's 📂 Backup Drive reads the final grades: the written work, and a day's override in place of its
-//      auto grade.
+//      auto grade, from the Worker's report only: a "trainer's grade" a trainee put in their own progress shows nowhere.
 //   3. The trainee: 📂 My Backup Drive shows ✍ Your written work, graded: the trainer's grade with the AI's beside it, the
 //      comment, the feedback as what your work shows / the standard / why it matters / your next step, and where each
-//      activity's work goes; the short form rides their progress ("drive-work").
+//      activity's work goes. Nothing of it is kept in their progress (which they could write).
 // Usage: node .github/scripts/drive-work-ui.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -119,7 +119,12 @@ async function answer(route) {
   if (!w || w.pct !== 74 || !/AI 82%/.test(w.note)) fail(`the Scorecard should carry the written work's final grade, the AI's beside it: ${JSON.stringify(w)}`);
   const bs = await page.evaluate((TID) => { const out = [{ grp: 'bd', name: '📂 Backup File Maintenance', pct: 70 }]; cmDriveWork.dayParts({ id: TID }, 3, {}, out); return out; }, TID);
   if (bs[0].pct !== 65 || !bs.some((x) => /✍/.test(x.name) && x.pct === 74)) fail(`the Batch Sheet's day should carry the override and the written work: ${JSON.stringify(bs)}`);
-  ok('the 🏅 Scorecard and the 📋 Batch Sheet read the final grades (a day\'s override, the written work)');
+  // a trainee's own progress can't carry a grade: a forged "trainer's grade" there is never read
+  const forged = { items: [{ a: 'd3m1-a1', d: 3, t: 'Time-Limit Demand', s: 100, ov: true, c: 'Excellent' }], days: { 1: { s: 100, c: 'ok' }, 3: { s: 100, c: 'ok' } } };
+  const fz = await page.evaluate((forged) => { const src = cmScorecard.sources.find((s) => s.id === 'bd'); const data = { 'drive-work': forged, 'drive-grades': { 3: { score: 40, passed: false } } };
+    const items = src.items({ rec: { id: 'forger-zz' }, data, cf: { days: {} } }); const out = [{ grp: 'bd', name: '📂 Backup File Maintenance', pct: 40 }]; cmDriveWork.dayParts({ id: 'forger-zz' }, 3, data, out); return { items, out }; }, forged);
+  if (JSON.stringify(fz).includes('Excellent') || fz.items.some((x) => /✍/.test(x.name) || x.pct === 100) || fz.out.length !== 1 || fz.out[0].pct !== 40) fail(`a grade the trainee wrote in their own progress must not show as the trainer's: ${JSON.stringify(fz)}`);
+  ok('the 🏅 Scorecard and the 📋 Batch Sheet read the final grades (a day\'s override, the written work), from the Worker only, never the trainee\'s progress');
 
   /* 3: the trainee */
   const p2 = await browser.newPage({ viewport: { width: 1366, height: 768 } });
@@ -140,10 +145,10 @@ async function answer(route) {
     if (mine.img || !/<b>the reply<\/b>/.test(mine.text)) fail('a grade\'s text is drawn as text, never markup');
   }
   const kept = await p2.evaluate(async () => { try { return await storeGet('drive-work'); } catch (e) { return null; } });
-  if (!kept || !Array.isArray(kept.items) || kept.items[0].s !== 74) fail(`the short form should ride the trainee's progress ("drive-work"): ${JSON.stringify(kept)}`);
-  if (!(await p2.evaluate(() => PERSONAL_KEYS.includes('drive-work')))) fail('"drive-work" should be one of the trainee\'s progress keys (registerPersonalKeys)');
+  if (kept) fail(`the grades must not be kept in the trainee's progress, where the trainee could change them: ${JSON.stringify(kept)}`);
+  if (await p2.evaluate(() => typeof PERSONAL_KEYS !== 'undefined' && PERSONAL_KEYS.includes('drive-work'))) fail('"drive-work" must not be a progress key of the trainee\'s');
   if (calls.some((c) => c.action === 'work' && c.traineeId)) fail('the trainee\'s page should ask for its own grades only');
-  ok('the trainee sees the final grade, the AI\'s beside it, the trainer\'s comments, feedback that teaches, and where the work goes; the short form rides their progress');
+  ok('the trainee sees the final grade, the AI\'s beside it, the trainer\'s comments, feedback that teaches, and where the work goes; none of it kept in their progress');
 
   await page.evaluate(async (TID) => { try { await sharedDelete('trainee:' + TID); } catch (e) {} }, TID);
   await browser.close();

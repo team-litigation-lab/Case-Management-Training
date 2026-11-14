@@ -6,17 +6,17 @@
        where there is one, the AI's beside it), the trainer's comment, the rubric's points, and what to fix taught the
        way the Progress Log's ⚠ Needs fixing is (what your work shows, the standard, why it matters, your next step);
        the files not matched, and why; and where each activity's work goes (its folder and the heading to start it
-       with). Their dashboard's Backup Drive card says how many are graded. The short form rides their progress
-       ("drive-work"), so the Scorecard and the Batch Sheet read it with the rest.
+       with). Their dashboard's Backup Drive card says how many are graded. The grades are only ever read from the
+       Worker, never kept in the trainee's progress (which the trainee can write): a grade or a "trainer's grade"
+       there would be theirs to forge.
      • a trainer: 🛡 Admin Master Control → 🔗 Trainee Drives gains ✍ Graded work: per trainee, each day's structure grade
        and each activity's AI grade, a box to change any of them with a comment (✓ Save, ✕ Clear), 🏅 Grade now, and
-       the files not matched. The 🏅 Scorecard's 📂 Backup Drive and the 📋 Batch Sheet's 📂 column carry the final grades.
+       the files not matched. The 🏅 Scorecard's 📂 Backup Drive and the 📋 Batch Sheet's 📂 column carry the final grades,
+       read from the Worker's report of every drive (reportAll `work`) and nothing else: until it is read, none.
    Every name and every line of a document's grade is escaped; only a Google Drive / Docs address is ever linked.
    ============================================================ */
 (function(){
 "use strict";
-const KEY = "drive-work";
-if(typeof registerPersonalKeys === "function") registerPersonalKeys([KEY]);
 const E = (s)=> String(s == null ? "" : s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const J = (s)=> String(s == null ? "" : s).replace(/[\\'"<>&]/g, c => "\\x" + c.charCodeAt(0).toString(16).padStart(2, "0"));
 const gd = (u)=> /^https:\/\/(drive|docs)\.google\.com\//.test(String(u || "")) ? String(u) : "";
@@ -49,6 +49,7 @@ function itemHtml(x, forTrainer){
   if(x.truncated) notes.push(`✂ Only the first ${E((x.maxChars || 20000).toLocaleString())} characters (of ${E((x.chars || 0).toLocaleString())}) were read.`);
   if(x.error) notes.push(`⏳ ${x.auto == null ? "Not graded yet" : "The last grade stands"}: ${E(x.error)} It is tried again tonight.`);
   else if(x.waiting) notes.push("⏳ Waiting for tonight's grading.");
+  if(x.gradedFile && x.auto != null) notes.push(`📌 The grade shown is the one your earlier version (${E(x.gradedFile)}) was given: it stands until this file is graded.`);
   return `<div class="cmdw-item" data-cmdw-act="${E(x.id)}">
     <div class="cmdw-ih"><b>Day ${E(x.day)} · ${E(x.title)}</b>${pill(x.final)}</div>
     <div class="cmdw-meta">${x.file ? `${url ? `<a href="${E(url)}" target="_blank" rel="noopener noreferrer">📄 ${E(x.file)} ↗</a>` : `📄 ${E(x.file)}`}` : "No file on the drive now"}${x.gradedAt ? ` · graded ${E(when(x.gradedAt))}` : ""}</div>
@@ -65,21 +66,14 @@ function listHtml(head, xs, lead){
 }
 
 /* ---------- 🧑‍🎓 the trainee ---------- */
-let MINE = null, mineAt = 0, mineBusy = false, lastMirror = "";
+let MINE = null, mineAt = 0, mineBusy = false;
 async function loadMine(force){
   if(!isTrainee() || mineBusy || (!force && mineAt && Date.now() - mineAt < 60000)) return;
   mineBusy = true; mineAt = Date.now();
-  try{ MINE = await api({action:"work"}); mirror(MINE.brief); }
+  try{ MINE = await api({action:"work"}); }
   catch(e){ MINE = MINE || {failed: e.message}; }
   mineBusy = false; inject(true);
   if(state.view === "dashboard" && typeof render === "function" && MINE && MINE.brief && MINE.brief.items && MINE.brief.items.length && !(typeof isTyping === "function" && isTyping())) render();
-}
-/* the short form on the trainee's progress, where the Scorecard and the Batch Sheet read it (only when it changed) */
-function mirror(brief){
-  if(!brief) return;
-  const s = JSON.stringify([brief.items, brief.days]);
-  if(s === lastMirror) return; lastMirror = s;
-  try{ if(typeof storeSet === "function") storeSet(KEY, brief); }catch(e){}
 }
 function guideHtml(guide){
   if(!(guide || []).length) return "";
@@ -174,7 +168,7 @@ function trainerBody(id){
 }
 function trainerSection(rows){
   const reps = state.driveReports || {};
-  const list = rows.filter(r=>{ const p = reps[r.id] || {}; return p.connected || p.work || p.overrides; });
+  const list = rows.filter(r=>{ const p = reps[r.id] || {}; return p.connected || (p.work && (p.work.items || []).length) || p.overrides; });
   return `<section class="cmdw-adm" id="cmdwAdm"><h3>✍ Graded work · the AI's grades and yours</h3>
     <p class="cmdw-p">Each trainee's written work on their Backup Drive is graded by the AI every night against its activity's rubric, and each day's folders and filing automatically. Change any grade and leave a comment: your grade is the one the trainee, the Scorecard and the Batch Sheet see, and the nightly grading never overwrites it. <b>🏅 Grade now</b> runs the same grading for one trainee straight away.</p>
     ${list.length ? list.map(r=>{ const p = reps[r.id] || {}, w = p.work || {}, xs = w.items || [], avg = xs.length ? Math.round(xs.reduce((t, x)=>t + (Number(x.s) || 0), 0) / xs.length) : null, m = MSG[r.id];
@@ -244,13 +238,15 @@ if(typeof renderAdmin === "function"){
 }
 
 /* ---------- the grades wherever a Drive grade is read: 🏅 Scorecard, 📋 Batch Sheet ---------- */
+/* Only ever what the Worker says: the trainee's own answer ("work"), or a trainer's report of every drive (reportAll
+   `work`). Never the trainee's progress (`data`), which the trainee writes. Not read yet: no grade (and it is read). */
 function briefFor(id, data){
-  if(isTrainee() && id === state.traineeId){ if(!MINE) loadMine(); if(MINE && MINE.brief) return MINE.brief; }
+  if(isTrainee() && id === state.traineeId){ if(!MINE) loadMine(); return (MINE && MINE.brief) || null; }
   const rep = (state.driveReports || {})[id];
   if(rep && rep.work) return rep.work;
   if(isAdmin() && typeof loadDriveReports === "function" && state.adminData && !state.driveReportsAt && !state.driveReportsLoading)
     loadDriveReports().then(()=>{ if(window.cmScorecard && cmScorecard.invalidate) cmScorecard.invalidate(); if(["scorecard", "admin"].includes(state.view) && typeof render === "function" && !(typeof isTyping === "function" && isTyping())) render(); });
-  return (data && data[KEY]) || null;
+  return null;
 }
 const ovNote = (d)=> `Your trainer's grade${d.c ? `: ${d.c}` : ""}`;
 /* 🏅 Scorecard → 📂 Backup Drive: a day's override in place of the auto grade, and each activity's written work */
