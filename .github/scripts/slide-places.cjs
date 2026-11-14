@@ -107,6 +107,8 @@ const OLD3 = {
 const LAYOUT = 6;
 // Layout 5's Day 1 Skill Building pages, gone in layout 6: how many each lesson ended on (its last deck pages)
 const GONE6 = { 'd1m1-l1': 2, 'd1m4-tcare': 2 };
+// and Day 2's Skill Building slides on its deck pages (js/cm-deck-pages.js), one after each topic's last page
+const GONE6_DECK = { predemand: 1, demand: 1, negotiation: 1, bisettlement: 1 };
 (async () => {
   const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
   const page = await browser.newPage({ viewport: { width: 1366, height: 768 } });
@@ -217,27 +219,28 @@ const GONE6 = { 'd1m1-l1': 2, 'd1m4-tcare': 2 };
     if (x.deckLessons.some(l => l.m < 1 || l.n < 1)) fail(`Day ${x.n}: a lesson drawn from the deck has no drawn slides on record, or no deck page: ${JSON.stringify(x.deckLessons)}`);
     if (x.deckLessons.length && !(x.deck > 0)) fail(`Day ${x.n}: no position of an older layout stood in a lesson drawn from the deck`); });
   if (maps.days.length && !maps.days.some(x => x.deckLessons.length)) fail('no lesson is drawn from the deck (window.CM_DECK_SLIDES): layout 5 describes nothing');
-  // layout 5 → 6: today's deck, with the Skill Building pages two lessons ended on; a place on one lands on the
-  // lesson's last page now, every other on the same slide, and the furthest reached is the furthest seen
-  const six = await page.evaluate((GONE6) => {
+  // layout 5 → 6: today's deck, with the Skill Building pages two Day 1 lessons ended on and the one after each of Day 2's
+  // deck topics; a place on one lands on the lesson's (or topic's) last page now, every other on the same slide, and the furthest reached is the furthest seen
+  const six = await page.evaluate(([GONE6, GONE6_DECK]) => {
     const out = [], counts = {};
     for (const d of DAYS) {
       if (!d.cf) continue;
       const now = buildDaySlides(d), old = [];
       now.forEach((sl, k) => { old.push({ place: k, gone: false });
         const b = sl.type === 'topic' ? d.lessons[sl.lessonIndex].cf.block : null, nx = now[k + 1];
-        if (b && GONE6[b.id] && !(nx && nx.type === 'topic' && nx.lessonIndex === sl.lessonIndex)) for (let g = 0; g < GONE6[b.id]; g++) old.push({ place: k, gone: true, id: b.id }); });
+        if (b && GONE6[b.id] && !(nx && nx.type === 'topic' && nx.lessonIndex === sl.lessonIndex)) for (let g = 0; g < GONE6[b.id]; g++) old.push({ place: k, gone: true, id: b.id });
+        if (sl.type === 'deckPage' && GONE6_DECK[sl.deck] && !(nx && nx.type === 'deckPage' && nx.deck === sl.deck)) for (let g = 0; g < GONE6_DECK[sl.deck]; g++) old.push({ place: k, gone: true, id: sl.deck }); });
       let far = 0; old.forEach(x => { far = Math.max(far, x.place); x.reach = far; });
       const place = cmSlidePlaces.placeMap(d, 5), reach = cmSlidePlaces.reachMap(d, 5);
       counts[d.cf.n] = old.length - now.length;
       if (place.length !== old.length) { out.push(`Day ${d.cf.n}, layout 5: the place map covers ${place.length} positions, the deck had ${old.length}`); continue; }
-      old.forEach((x, i) => { if (place[i] !== x.place) out.push(`Day ${d.cf.n}, layout 5 slide ${i + 1}${x.gone ? ` (a Skill Building page of ${x.id})` : ''}: should land on ${x.place + 1}, lands on ${place[i] + 1}`);
+      old.forEach((x, i) => { if (place[i] !== x.place) out.push(`Day ${d.cf.n}, layout 5 slide ${i + 1}${x.gone ? ` (a Skill Building slide of ${x.id})` : ''}: should land on ${x.place + 1}, lands on ${place[i] + 1}`);
         if (reach[i] !== x.reach) out.push(`Day ${d.cf.n}, layout 5 slide ${i + 1}: the furthest reached should be ${x.reach + 1}, is ${reach[i] + 1}`); });
     }
     return { out, counts };
-  }, GONE6);
+  }, [GONE6, GONE6_DECK]);
   six.out.forEach(fail);
-  if (Object.values(six.counts).reduce((a, n) => a + n, 0) !== 4) fail(`layout 5 had Day 1's 4 Skill Building pages; the record finds ${JSON.stringify(six.counts)} slides gone`);
+  if (Object.values(six.counts).reduce((a, n) => a + n, 0) !== 8) fail(`layout 5 had the Day 1 deck's 4 Skill Building pages (d1m4-tcare is taught on Day 2) and Day 2's 4 Skill Building slides; the record finds ${JSON.stringify(six.counts)} slides gone`);
   if (maps.days.length && maps.days.reduce((a, x) => a + x.steps2, 0) !== 26) fail(`the record should hold the 26 Milestone Steps slides of the live deck, all gone: it holds ${maps.days.reduce((a, x) => a + x.steps2, 0)} that are gone`);
 
   // 2. slide 40 of Day 1, saved in layout 1 (no layout on it): opened, reloaded, opened again

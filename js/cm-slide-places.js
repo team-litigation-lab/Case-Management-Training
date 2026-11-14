@@ -39,6 +39,8 @@
    Then Day 1's four Skill Building pages went (layout 6): they were from another case than John Doe v. Robert Smith.
    They were the last two deck pages of two lessons (GONE6); a place on one becomes the lesson's last page now, and
    every slide after them moved up.
+   In the same change Day 2's four Skill Building slides went from its deck pages (js/cm-deck-pages.js), one after each
+   topic's pages (GONE6_DECK): a place on one becomes that topic's last page, and every slide after it moved up.
    The layouts: 1, the deck with On the Job (no layout on the saved place); 2, without On the Job (the deck with the
    Milestone Steps slides and every Why It Matters slide); 3, without those, in the old order; 4, in today's order,
    every lesson on its own drawn slides; 5, with Day 1's Skill Building pages; 6, today's. A place saved in any older
@@ -68,6 +70,8 @@ const ORDER3 = {
 /* layout 5's Skill Building pages, gone in layout 6: how many each lesson ended on (they were its last deck pages).
    A record of that deck; never edit it to match a later one. */
 const GONE6 = {"d1m1-l1": 2, "d1m4-tcare": 2};
+/* layout 5's Skill Building slides on Day 2's deck pages, gone in layout 6: how many followed each topic's last page. */
+const GONE6_DECK = {"predemand": 1, "demand": 1, "negotiation": 1, "bisettlement": 1};
 /* a lesson drawn from the trainer's deck pages now (layout 5): its slides before were its own drawn ones */
 const deckLesson = b => !!(b && b.kind === "lesson" && (window.CM_DECK_SLIDES || {})[b.id] && window.cmCaseFlow && window.cmCaseFlow.drawnViewsOf);
 /* the 26 lessons that had a Milestone Steps slide of their own in layouts 1 and 2 (the copy's "slide": true, which is
@@ -133,7 +137,13 @@ function oldDeck(d, from){
     // layout 4 (and a day whose order was never recorded): today's order, each block's run where its first slide is
     deck.forEach((sl, k) => {
       if(sl.type === "deckPage" && from < 5) return;   // the revised deck's pages came in with layout 5 (ORDER3 has none either)
-      if(sl.type !== "topic"){ out.push([k, k]); return; }
+      if(sl.type !== "topic"){
+        out.push([k, k]);
+        // layout 5: the topic's Skill Building slide followed its last deck page; gone, a place on it lands on that page
+        const n = sl.type === "deckPage" && from === 5 ? GONE6_DECK[sl.deck] || 0 : 0, nx = deck[k + 1];
+        if(n && !(nx && nx.type === "deckPage" && nx.deck === sl.deck)) for(let g = 0; g < n; g++) out.push([-1, -1]);
+        return;
+      }
       if(sl.part === 1) runWas(d, sl.lessonIndex, deck, views, from).forEach(x => out.push(x));
     });
   }
