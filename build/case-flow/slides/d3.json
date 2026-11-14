@@ -164,14 +164,13 @@
   },
   "d3m1-a2": {
     "image": "binder-exhibits",
-    "situation": "File date 08/31/2026. Keystone tendered $10,000 limits 08/12; consents came 08/24 and 08/26; the **Limited Release was signed** 08/28. Keystone's **check hasn't arrived**. Keystone had called the MRI “degenerative.”",
+    "situation": "Assuming Keystone's $10,000 tender, both consents and the **signed Limited Release** are on file, the desk's two UM demand drafts need a quick QC.",
+    "side": true,
     "steps": [
-      "Check the desk's Host UM draft to Harbor Point and the Relative UM draft to Cardinal State line by line against the records, and fix each error.",
-      "Put the **exhaustion proof** on page one of each, and show damages above what has been collected.",
-      "Answer the gap and the word degenerative with the MRI.",
-      "Leave the response deadline blank for Atty. Thorne and route both drafts to him."
+      "In the Action Plan Editor's UM demand templates, put the **exhaustion proof** on page one of each draft, and claim only damages above what was collected.",
+      "Log both drafts in CMS → Tasks → Escalate for Atty. Thorne, with the response deadline left blank."
     ],
-    "deliver": "Two QC'd UM drafts, **exhaustion proof first**, routed for review",
+    "deliver": "Two QC'd UM drafts, **exhaustion proof first**, routed",
     "purpose": "Each draft reaches a carrier as written: **one missed error** travels with it",
     "principle": "Prove the BI layer is spent **before asking UM** for more",
     "grade": {
@@ -200,10 +199,8 @@
       ]
     },
     "checks": [
-      "Two separate packages, **HP-26-7741 and CS-26-20355**",
-      "Relative UM claimed for **damages above $30,000**",
-      "**Exhaustion on page one**: tender, Dec Page, affidavit, consents, release",
-      "Check copy listed **to follow, with a task**",
+      "Two packages, **HP-26-7741 and CS-26-20355**",
+      "**Exhaustion on page one** of each",
       "**Response deadline left blank**; nothing served"
     ],
     "dos": [
@@ -257,22 +254,19 @@
   },
   "d3m2-a1": {
     "image": "phone-call",
-    "situation": "File date 08/05/2026. Acceptance runs to 08/21/2026. Dana Whitfield **calls with $3,500**: John Doe “waited two weeks,” the MRI is “degenerative.” Atty. Thorne's authority: restate the demand, **no counter**.",
+    "situation": "Assuming Dana Whitfield has **offered $3,500** citing the gap and a degenerative MRI, and Atty. Thorne's authority is no counter, the offer needs logging.",
+    "side": true,
     "steps": [
-      "Before the call, work out what $3,500 leaves John Doe after the fee, costs and liens.",
-      "Take the call below with Dana Whitfield: pause after her number, ask **what data supports it**, and answer the gap only from the record.",
-      "Log her exact words in the Communications Log and report the offer to Atty. Thorne the same day.",
-      "Draft the 08/06/2026 written rebuttal for his approval."
+      "Log her exact words in CMS → Communications Log, and report the offer to **Atty. Thorne** the same day.",
+      "In the Email Workspace, draft the 08/06/2026 rebuttal for his approval, answering the gap from the record."
     ],
-    "deliver": "A call **held inside Atty. Thorne's authority**, logged offer, same-day report, drafted rebuttal",
+    "deliver": "A logged offer, **a same-day report**, a drafted rebuttal",
     "purpose": "A careless word on this call **cracks the demand** before 08/21/2026",
     "principle": "Hold **inside the written authority**; the record answers every stall",
     "checks": [
-      "$3,500 **nets John Doe $0.00** after fee, costs and liens",
-      "Pause used; **asked what data supports $3,500**",
-      "Gap answered with **the Gap Explanation Record** and dated documents",
-      "“Degenerative” answered **with Dr. Park's words**",
-      "**No counter**; terms and 08/21/2026 deadline unchanged"
+      "$3,500 **nets John Doe $0.00**",
+      "Offer logged **in her exact words**",
+      "**No counter**; 08/21/2026 deadline unchanged"
     ],
     "dos": [
       "Have every document open; **read quotes, don't paraphrase**"
@@ -322,22 +316,19 @@
   },
   "d3m2-rel": {
     "image": "release-signature",
-    "situation": "File date 08/14/2026. Keystone sends its **Release of All Claims** for John Doe's notarized signature, and holds its check until **both UM waivers** arrive.",
+    "situation": "Assuming Keystone's **Release of All Claims** has arrived for John Doe's signature, its clauses need checking against the approved terms.",
+    "side": true,
     "steps": [
-      "Audit Keystone's draft release clause by clause in the workbench below, against the demand's approved terms.",
-      "Mark each clause keep, replace, pull, add or flag, and write the **proposed amendment**.",
-      "Email your review to Atty. Thorne for approval, route the adjuster's request to him, and send nothing to John Doe.",
-      "File the memorandum in the CMS so it is backed up to your Drive."
+      "In CMS → Documents → Release audit, replace the catch-all insurers clause, reserve **the UM claims**, and flag the rest for Atty. Thorne.",
+      "Log your review by email to Atty. Thorne for approval, and send nothing to John Doe."
     ],
-    "deliver": "An audited release, **Atty. Thorne's written approval**, the memo filed",
+    "deliver": "An audited release sent **for Atty. Thorne's approval**",
     "purpose": "One unread line would **cost John Doe $30,000** of UM",
     "principle": "You propose the fixes; **Atty. Thorne decides** every term",
     "checks": [
       "Catch-all **“all other … insurers”** replaced",
       "Property Damage cut; **UM claims reserved**",
-      "Confidentiality pulled; **indemnity narrowed**; payment date added",
-      "Unknown injuries, Medicare, governing law **flagged for Atty. Thorne**",
-      "Approved 08/17; **nothing sent to John Doe**"
+      "**Nothing sent** to John Doe"
     ],
     "dos": [
       "**Quote the over-broad words** exactly in the review"
@@ -349,20 +340,18 @@
   },
   "d3m2-exec": {
     "image": "client-call",
-    "situation": "File date 08/26/2026. **Both consents are in** and Keystone's Limited Release is approved. Keystone wants a notarized original, both waivers and **a W-9 before paying**.",
+    "situation": "Assuming John Doe signed the Limited Release before the notary on 08/28/2026 and **both UM waivers** are in, the packet needs sending.",
+    "side": true,
     "steps": [
-      "Take the call below and book John Doe's 08/28/2026 signing: photo ID, signing before the notary, and Atty. Thorne explains the release first.",
-      "Email the executed packet to Dana Whitfield and ask her to confirm receipt and the **check date**.",
-      "Route her payee question to Atty. Thorne, record the check into trust, and file the settlement record in the CMS."
+      "In the Email Workspace, send Dana Whitfield the executed release with both waivers and the W-9, asking for **the check date**.",
+      "Log the check into trust in CMS → Financial Ledger → Trust, and route any payee question to Atty. Thorne."
     ],
-    "deliver": "An executed release sent, **the check in trust**, the record filed",
+    "deliver": "An executed release sent and **the check in trust**",
     "purpose": "Keystone pays only on **a complete, executed packet**",
     "principle": "You confirm signatures; **Atty. Thorne explains** the release",
     "checks": [
-      "Signing scheduled **after both consents**",
-      "ID matches **“John Doe”**; notarized wet-ink original",
       "Packet sent 08/28 **with both waivers** and W-9",
-      "**Payee question routed**; no lien assurance given",
+      "**Payee question routed**; no lien assurance",
       "Check 0048213 **into IOLTA 09/04/2026**"
     ],
     "dos": [
@@ -408,22 +397,20 @@
   },
   "d3m2-a2": {
     "image": "settlement-check",
-    "situation": "File date 09/14/2026. Keystone's $10,000 is in trust; UM demands went out 08/31. Marcus Bell offers **$8,000 for Harbor Point**, citing the gap and **“BI already compensated him.”**",
+    "situation": "Assuming John Doe has accepted through Atty. Thorne and **both UM layers settled** at their limits, the recovery now needs logging.",
+    "side": true,
     "steps": [
-      "In CMS → Insurance → Negotiation Log, log Harbor Point's $8,000 with its reasons and report it to Atty. Thorne the same day.",
-      "Assemble the 09/16 counter-package for his approval and log every later move.",
-      "Record John Doe's decision through Atty. Thorne, then draft each acceptance email for his approval.",
-      "Show **$40,000 gross** on the Recovery Ledger."
+      "Log each acceptance in CMS → Insurance → Negotiation Log, with a confirming email drafted for Atty. Thorne's approval.",
+      "Show **$40,000.00 gross** on the CMS Recovery Ledger, each check deposited only after its release is signed."
     ],
-    "deliver": "A complete Negotiation Log, approved counter-package, confirming emails, Recovery Ledger at **$40,000.00 gross**",
+    "deliver": "A complete Negotiation Log and **$40,000.00 gross** recorded",
     "purpose": "The gross sets every later number: **one wrong entry** skews John Doe's net",
     "principle": "John Doe decides **through Atty. Thorne**; you log and confirm",
     "checks": [
-      "Offset answered with **the 03/02/2026 add-on letter**",
-      "Counter-package approved, sent 09/16/2026; **no figure below limits**",
-      "**Each confirming email**: coverage, release, liens, payee, check date",
-      "Recovery Ledger **$40,000.00 gross**; PIP, Keystone PD, Bluewater excluded",
-      "Each UM release signed **before its check**; deposited same day"
+      "**Each confirming email**: coverage, release, liens, payee",
+      "Recovery Ledger **$40,000.00 gross**",
+      "PIP and Keystone PD **excluded from the gross**",
+      "Each UM release **signed before its check**"
     ],
     "dos": [
       "**Quote the carrier**; never paraphrase its reasons"
@@ -476,21 +463,19 @@
   },
   "d3m3-a1": {
     "image": "documents-audit",
-    "situation": "File date 10/06/2026; **gross is $40,000.00**. Peach State **asserts $1,860.00**, its payment for the 05/15/2026 injection at Crescent Pain & Spine. Plan documents show a fully insured group plan.",
+    "situation": "Assuming Peach State **asserts $1,860.00** and Atty. Thorne has signed off on the one-third reduction, the lien needs recording.",
+    "side": true,
     "steps": [
-      "In the Lien Tracker, match the Health Plan's payments to the treatment record, classify the lien, and escalate the governing law to Atty. Thorne.",
-      "Draft the Reduction Request for his signature, showing the **one-third math** to $1,240.00, and flag made whole for him to argue.",
-      "Record every absent claimant as a verified none, with its source."
+      "In CMS → Financial Ledger → Net Sheet → Lien Tracker, show the math, **$1,860.00 – $620.00 = $1,240.00**, and record each absent claimant as a verified none.",
+      "Log the 10/09/2026 acceptance only once Peach State confirms it in writing."
     ],
-    "deliver": "A signature-ready request, absent claimants cleared, $1,240.00 recorded **once confirmed in writing**",
+    "deliver": "$1,240.00 recorded **once confirmed in writing**",
     "purpose": "Every lien dollar left unproved comes out of **John Doe's net**",
     "principle": "A lien is **what the plan paid**, never what was billed",
     "checks": [
-      "Lien is **what the plan paid**: $1,860.00, not $3,400.00 billed",
-      "Classified **contractual, not statutory**; fully insured recorded",
+      "Lien is **what the plan paid**: $1,860.00",
       "Math shown: **$1,860.00 – $620.00 = $1,240.00**",
-      "Request held **until Atty. Thorne's written approval**",
-      "Acceptance logged 10/09/2026 **only with written confirmation**"
+      "Acceptance logged **only with written confirmation**"
     ],
     "dos": [
       "Audit the plan's ledger: it can carry **unrelated charges**",
@@ -594,21 +579,18 @@
   },
   "d3m3-a2": {
     "image": "negotiation",
-    "situation": "10/09/2026: Peach State accepted $1,240.00. Riverton Spine & Rehab's ledger bills **34 lines × $185.00 = $6,290.00**. Atty. Thorne set a written target; **no lien is paid** until resolved in writing.",
+    "situation": "Assuming Riverton's ledger is corrected to **$6,105.00** and its billing manager agreed to $4,580.00 in a signed Payoff Letter, the Net Sheet needs updating.",
+    "side": true,
     "steps": [
-      "Audit Riverton Spine & Rehab's ledger and ask for a written correction first.",
-      "Draft the Reduction Request for Atty. Thorne and send it once he approves.",
-      "Take the call below with the billing manager, inside his written authority, and ask for **payment in full**.",
-      "When the manager agrees to $4,580.00, say it goes to Atty. Thorne, and update the Net Sheet only once the Payoff Letter is signed."
+      "In CMS → Financial Ledger → Net Sheet → Lien Tracker, enter $4,580.00 with the **signed Payoff Letter** as its source.",
+      "Log the call and the letter in CMS → Documents, and recompute the Net Sheet."
     ],
-    "deliver": "Audited $6,105.00, a logged call, **a signed $4,580.00 Payoff Letter**, recomputed Net Sheet",
+    "deliver": "**A signed $4,580.00 Payoff Letter** logged, the Net Sheet recomputed",
     "purpose": "Without a signed Payoff Letter, **balance billing can follow** John Doe",
     "principle": "Nothing is settled **until it's signed in writing**",
     "checks": [
-      "34 billed lines **against 33 documented visits**",
       "Correction first: **$6,290.00 – $185.00 = $6,105.00**",
-      "**$4,580.00 not accepted** on the call",
-      "**Signed Payoff Letter**: full and final, no balance billing",
+      "**Signed Payoff Letter**: full and final",
       "Net Sheet recomputed: **net $20,359.92**"
     ],
     "dos": [
@@ -657,21 +639,20 @@
   },
   "d3m4-a1": {
     "image": "money-ledger",
-    "situation": "File date 10/13/2026. Cardinal State's check arrived today: **$40,000.00 received**, the last hasn't cleared. Peach State accepted $1,240.00, Riverton Spine & Rehab $4,580.00. Costs $486.75. **Both tabs are half-built**.",
+    "situation": "Assuming **$40,000.00 is received**, Peach State accepted $1,240.00 and Riverton $4,580.00, with costs of $486.75, the final Net Sheet needs finishing.",
+    "side": true,
     "steps": [
-      "On the Net Sheet's Recovery Ledger, post each check by carrier and stream, the 33⅓% fee per stream and the receipted costs.",
-      "Split costs and liens 25% and 75% down to the net per stream and in total.",
-      "In the Lien Tracker, enter each lien's asserted, audited and reduced figure with its **payoff status**, then tie both tabs to the Trust Ledger."
+      "On the CMS Net Sheet's Recovery Ledger, post each check by stream with the 33⅓% fee, and split the costs and liens **25% and 75%**.",
+      "Log each lien's figures and payoff status in the Lien Tracker, tie both tabs to the Trust Ledger, and flag future ESIs to Atty. Thorne."
     ],
-    "deliver": "A two-tab Net Sheet reaching **$20,359.92 both ways**, routed to Atty. Thorne",
+    "deliver": "A two-tab Net Sheet reaching **$20,359.92 both ways**",
     "purpose": "John Doe signs on this Net Sheet: **one wrong cent** misstates his net",
     "principle": "Every figure must **tie to the Trust Ledger**, both ways",
     "checks": [
-      "Pre-suit fee: **$3,333.33 + $10,000.00 = $13,333.33**",
-      "Costs **$486.75, split $121.69 / $365.06**, charged once",
+      "Pre-suit fee: **$13,333.33**",
+      "Costs **$486.75**, charged once",
       "Net: **$5,089.98 + $15,269.94 = $20,359.92**",
-      "PIP and Crescent's write-off **kept off the payables**",
-      "**Future ESIs flagged** to Atty. Thorne before John Doe signs"
+      "**Future ESIs flagged** to Atty. Thorne"
     ],
     "dos": [
       "Compute the UM share **as the remainder** of each split"
@@ -734,22 +715,19 @@
   },
   "d3m4-pal": {
     "image": "escalation-alert",
-    "situation": "File date 10/14/2026. $40,000.00 sits in trust. Vance & Kettering claims **a charging lien** and demands **$6,666.67** of the fee.",
+    "situation": "Assuming Vance & Kettering's **charging lien notice** for $6,666.67 has arrived and Atty. Thorne has ordered a hold, the file needs securing.",
+    "side": true,
     "steps": [
-      "Log the prior attorney's notice and route it to Atty. Thorne today. Send nothing to Vance & Kettering.",
-      "On his instruction, hold $6,666.67 in the CMS and update the Action Plan.",
-      "In the workbench below, compare signatures and dates, then take the call and ask John Doe, **without opinion**, whether he hired them.",
-      "Send Atty. Thorne the factual packet and file every letter in the CMS."
+      "Log the notice in CMS → Communications Log, routed to Atty. Thorne, and send nothing to Vance & Kettering.",
+      "In CMS → Financial Ledger → Trust, hold **$6,666.67** on his instruction."
     ],
-    "deliver": "A held amount and **a factual packet** on Atty. Thorne's desk",
+    "deliver": "The notice logged and **$6,666.67 held**",
     "purpose": "The disbursement waits on **a dispute only counsel resolves**",
     "principle": "You build the record; **the attorney answers** the lawyer",
     "checks": [
       "Logged and routed 10/14; **nothing sent** to the firm",
       "**$6,666.67 held** on Atty. Thorne's instruction",
-      "Agreement signed **only by Margaret Doe**",
-      "**0.6 hours** of work; no carrier notice",
-      "Packet states facts; **validity left to Atty. Thorne**"
+      "Validity **left to Atty. Thorne**"
     ],
     "dos": [
       "Tie **every finding to a document** on the file"
@@ -761,21 +739,19 @@
   },
   "d3m4-a2": {
     "image": "settlement-check",
-    "situation": "File date 10/21/2026. $40,000.00 cleared by 10/20, statement signed, Payoff Letters in, **lien withdrawn 10/19**. **Disbursement is 10/22**.",
+    "situation": "Assuming every condition is met, the funds cleared and **the lien hold released** by Atty. Thorne, the 10/22 disbursement needs queuing.",
+    "side": true,
     "steps": [
-      "Confirm every condition before money moves against its document, including the lien hold **released by Atty. Thorne**.",
-      "In the Trust Ledger, queue one disbursement for each Net Sheet line, for his approval, and show the ledger reaching $0.00.",
-      "Request the lien satisfactions and John Doe's receipt."
+      "In CMS → Financial Ledger → Trust, queue one disbursement per Net Sheet line for Atty. Thorne's approval, taking the ledger to **$0.00**.",
+      "Log your requests for the lien satisfactions and John Doe's receipt in CMS → Documents."
     ],
-    "deliver": "A confirmed checklist and **five commands to $0.00**",
+    "deliver": "**Five commands to $0.00**, queued for approval",
     "purpose": "Money moves only when **every gate behind it** is closed",
     "principle": "No command until **every condition precedent clears**",
     "checks": [
-      "Executed **Limited Release and UM releases** on file",
-      "Funds cleared; **statement signed 10/21**",
-      "**Hold released** after the 10/19 withdrawal",
       "Five commands **match the Net Sheet** exactly",
-      "**None released by the CM**; all for Atty. Thorne"
+      "**None released by the CM**",
+      "Lien satisfactions **requested in writing**"
     ],
     "dos": [
       "Tick each condition **against its document**"
@@ -835,22 +811,19 @@
   },
   "d3m2-bins": {
     "image": "money-ledger",
-    "situation": "File date 08/12/2026. Keystone **tendered the $10,000 BI limits** today. Atty. Thorne wants the BI settlement Net Sheet **before John Doe signs** anything; liens are still unreduced.",
+    "situation": "Assuming Keystone **tendered the $10,000 BI limits** today and the liens are still unreduced, Atty. Thorne needs Stream 1's Net Sheet.",
+    "side": true,
     "steps": [
-      "In the LSH Net Sheet, enter Stream 1: the $10,000.00 gross as tendered, the 33⅓% fee and the five receipted costs.",
-      "Enter both liens as they stand today and run the 25% projection, labelled as a projection.",
-      "Beside it, run the BI-alone math: what the fee and costs leave against the **unreduced liens**.",
-      "Route the sheet to Atty. Thorne through CMS → Tasks → Escalate, flagging that the money stays in trust until the liens resolve."
+      "In the LSH Net Sheet, enter the $10,000.00 gross, the 33⅓% fee, the receipted costs and both liens, with the 25% projection **labelled as a projection**.",
+      "Log it to Atty. Thorne in CMS → Tasks → Escalate, flagging that the money stays in trust."
     ],
-    "deliver": "A Stream 1 Net Sheet, **projections labelled**, routed to Atty. Thorne on 08/12/2026",
+    "deliver": "A Stream 1 Net Sheet, **the projection labelled**, routed",
     "purpose": "Alone, the BI money **nets John Doe $0.00**; Atty. Thorne must see why",
     "principle": "Today's liens, **labelled projections**; value and strategy stay with Atty. Thorne",
     "checks": [
-      "Fee **$3,333.33**, not $3,333.00 from 33.33%",
-      "Liens **$7,965.00 unreduced**; reduction column left blank",
+      "Fee **$3,333.33**, not $3,333.00",
       "Projection labelled: **Stream 1 net $4,553.73**",
-      "BI alone: **$6,179.92 against $7,965.00**, net $0.00",
-      "**Trust-hold flag** routed to Atty. Thorne 08/12/2026"
+      "**Trust-hold flag** routed to Atty. Thorne"
     ],
     "dos": [
       "Label **every projection** with what it assumes"
@@ -861,21 +834,19 @@
   },
   "d3m2-umns": {
     "image": "money-ledger",
-    "situation": "10/06/2026. Cardinal State tenders **$10,000 limits**; Harbor Point's $20,000 is in trust. Liens unreduced. Atty. Thorne wants the UM Net Sheet before he meets John Doe.",
+    "situation": "Assuming Cardinal State has **tendered its $10,000 limits** and Harbor Point's $20,000 is in trust, Stream 2's Net Sheet is due.",
+    "side": true,
     "steps": [
-      "On the Recovery Ledger, post the $30,000.00 UM gross to Stream 2 and show which check is in trust.",
-      "Apply the 33⅓% fee, then costs and liens at 75%, each lien at its asserted or audited figure and **marked as a projection**.",
-      "Tie Stream 2 to Stream 1 and the Trust Ledger, then escalate it with your questions to Atty. Thorne."
+      "On the CMS Recovery Ledger, post the $30,000.00 UM gross to Stream 2, apply the 33⅓% fee, costs and liens, and mark the net **as a projection**.",
+      "Log it to Atty. Thorne in CMS → Tasks → Escalate."
     ],
-    "deliver": "A Stream 2 Net Sheet projecting **$13,661.19**, flagged and routed to Atty. Thorne",
+    "deliver": "A Stream 2 Net Sheet projecting **$13,661.19**, routed",
     "purpose": "John Doe hears this from Atty. Thorne: **no projection may read as final**",
     "principle": "Mark **every moving figure**; quote no net to John Doe",
     "checks": [
       "Fee: **$30,000.00 ÷ 3 = $10,000.00**",
-      "Costs $365.06; liens **$1,395.00 + $4,578.75**",
       "Projected net **$13,661.19**, labelled projection",
-      "Streams tie: **$13,661.19 + $4,553.73 = $18,214.92**",
-      "Trust **$30,000.00**; Cardinal State $10,000.00 receivable"
+      "Streams tie: **$18,214.92** in total"
     ],
     "dos": [
       "Take Stream 2's share **as the remainder**"
@@ -886,7 +857,9 @@
   },
   "d3-drive": {
     "image": "documents-audit",
-    "situation": "07/17/2026, 3:00 p.m. The demand is served **on 07/20/2026**, and **three corrected versions** have arrived.",
+    "situation": "Assuming **three corrected versions** have arrived before the 07/20/2026 demand, your backup must match the CMS before anything goes out.",
+    "side": true,
+    "ownerSteps": true,
     "steps": [
       "Compare the files in your Backup Drive against the CMS to see what is missing.",
       "Upload any missing filed documents from the CMS into your Backup Drive.",
@@ -894,7 +867,7 @@
       "Move the draft demand and packet into folder 05 Insurance.",
       "Run the Check My Drive audit tool and record your completion."
     ],
-    "deliver": "A backup that **matches the CMS** before the demand goes out",
+    "deliver": "A backup that **matches the CMS** before the demand",
     "purpose": "What the adjuster gets must be **on our drive first**",
     "principle": "**Supersede, never delete**: label the old version",
     "checks": [

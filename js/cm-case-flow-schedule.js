@@ -15,6 +15,15 @@
    A day with a build (Day 5's Full Application Practice: the trainees build their companion case) spends its practical on
    it: its own Skill Activities are optional extra practice, untimed. Day 5's lessons are condensed and capped at 30
    minutes (lessonMax), and the build takes every minute the lessons and the Knowledge Check leave (build: "rest").
+   THE DAILY LOOP (opts.main: the day's one Skill Building, CF.sequence `main`; or a build day): the practical is
+     📇 the Case Profile (Day 1: 👋 Meet John Doe and the Intake, 10 minutes; later days a 5-minute check-in)
+     → the ONE Skill Building (main), which takes what the rest leaves, up to MAIN.max, with one brainstorm after it
+       (on a build day the build is the Skill Building)
+     → 📝 Update Your Action Plan (Day 1, guided step by step: 15 minutes; later days 10)
+     → the side exercises (every other activity: optional, short), one 🧪 Practice Lab of SIDE.each minutes an
+       exercise, SIDE.max at most: a day with more than SIDE.max / SIDE.each of them says so (sidePick: trainees choose
+       any that many, not all of them); a build day's are untimed extra practice, as before
+     → the Knowledge Check. Whatever is left is Q&A.
    ============================================================ */
 (function(root){
 "use strict";
@@ -22,6 +31,8 @@ const DAY_MIN = 240, BREAK_MIN = 20, TEACH_MIN = DAY_MIN - BREAK_MIN, LESSON_SHA
 const LESSON_MIN = Math.round(TEACH_MIN * LESSON_SHARE);   // 66
 const THOROUGH_WEIGHT = 1.5, LESSON_FLOOR = 2, BRIEF_MIN = 4;
 const TOPIC = {base: 15, min: 2, max: 30}, ACT = {base: 10, min: 5, max: 30}, STORM = {each: 5, min: 3, day: 30};
+// the daily loop: the Case Profile and the Action Plan (Day 1's guided, later days' lighter), the one Skill Building, the side exercises
+const LOOP = {profile: [10, 5], plan: [15, 10]}, MAIN = {min: 30, max: 90}, SIDE = {each: 5, max: 30};
 /* split `total` whole minutes over weights, largest remainder first, each at least `floor` (when it can be) */
 function share(total, weights, floor){
   const n = weights.length; if(!n) return [];
@@ -38,6 +49,7 @@ function share(total, weights, floor){
    opts: {build: minutes} for a day whose practical is a build (Day 5's companion case). */
 function schedule(items, opts){
   opts = opts || {};
+  if(opts.main || opts.build === "rest" || Number(opts.build) > 0) return loopSchedule(items, opts);
   // build: minutes of practical spent on the build, or "rest" (whatever the lessons and the Knowledge Check leave)
   const fill = opts.build === "rest", lessonMax = Math.max(0, Number(opts.lessonMax) || LESSON_MIN);
   let build = fill ? 1 : Math.max(0, Number(opts.build) || 0);
@@ -96,7 +108,42 @@ function schedule(items, opts){
     lessonMin: lessonBudget, practicalMin: TEACH_MIN - lessonBudget, lessonShare: Math.round(lessonBudget / TEACH_MIN * 100),
     DAY_MIN, BREAK_MIN, TEACH_MIN, LESSON_SHARE};
 }
-const api = {schedule, share, DAY_MIN, BREAK_MIN, TEACH_MIN, LESSON_SHARE, LESSON_MIN, THOROUGH_WEIGHT, BRIEF_MIN, TOPIC, ACT, STORM};
+/* the daily loop's day (see the head of this file): the lessons' parts as schedule() draws them, then the practical in
+   the loop's order. labs: [the Skill Building (its one activity, a brainstorm after it), the side exercises (extra,
+   optional: `side` minutes on a day with a Skill Building, untimed on a build day)]. */
+function loopSchedule(items, opts){
+  const fill = opts.build === "rest", first = Number(opts.day) === 1;
+  const main = items.find(x => x.kind === "activity" && x.id && x.id === opts.main) || null;
+  // the lessons, their parts and the Knowledge Check: schedule()'s own arithmetic, on the lessons alone
+  const lessons = items.filter(x => x.kind === "lesson");
+  const base = schedule(lessons, {lessonMax: opts.lessonMax});
+  const profile = LOOP.profile[first ? 0 : 1], plan = LOOP.plan[first ? 0 : 1];
+  const sides = items.filter(x => x.kind === "activity" && x !== main);
+  const side = fill || !sides.length ? 0 : Math.min(SIDE.max, SIDE.each * sides.length);
+  const brainstorm = main ? STORM.each : 0, kc = base.kc;
+  // the lessons keep their 30% (less only when the loop's fixed steps and the Skill Building's least would not fit)
+  const lessonBudget = Math.max(0, Math.min(base.lessonMin, TEACH_MIN - kc - profile - plan - side - brainstorm - (main ? MAIN.min : 0)));
+  if(lessonBudget !== base.lessonMin){
+    const mins = share(lessonBudget, lessons.map(x => Math.max(1, Number(x.slides) || 1) * (x.thorough ? THOROUGH_WEIGHT : 1)), LESSON_FLOOR);
+    lessons.forEach((x, i) => { x.mins = mins[i]; });
+    base.parts.forEach(p => { p.lecture = p.mins = p.topics.reduce((t, x) => t + (x.mins || 0), 0); });
+  }
+  const room = TEACH_MIN - lessonBudget - kc - profile - plan - side - brainstorm;
+  const build = fill ? Math.max(0, room) : Math.max(0, Number(opts.build) || 0);
+  const act = main ? Math.max(MAIN.min, Math.min(MAIN.max, room - build)) : 0;
+  const labs = [];
+  if(main) labs.push({title: String(main.heading || "").replace(/^Skill Building:\s*/, "") || "Skill Building", main: true, acts: [main], extra: [], skill: act, brainstorm, mins: act + brainstorm});
+  if(sides.length) labs.push({title: "Side exercises (optional)", side: true, acts: [], extra: sides, skill: side, brainstorm: 0, mins: side});
+  const used = lessonBudget + kc + profile + plan + side + brainstorm + act + build, total = BREAK_MIN + used, n = base.full, m = base.briefs;
+  // the side exercises' minutes hold about SIDE.each each: sidePick of them fit, the rest are there to choose from
+  const sidePick = side ? Math.min(sides.length, Math.max(1, Math.floor(side / SIDE.each))) : 0;
+  return {per: base.per, brief: base.brief, act, brainstorm, kc, build, profile, plan, side, sides: sides.length, sidePick, sideEach: SIDE.each, main: main ? main.id : "", loop: true,
+    parts: base.parts, labs, labMin: act + brainstorm + side, room: TEACH_MIN, used, buffer: Math.max(0, TEACH_MIN - used), fits: total <= DAY_MIN,
+    total, topics: n + m, full: n, briefs: m, acts: main ? 1 : 0, extras: sides.length, skillParts: main ? 1 : 0,
+    lessonMin: lessonBudget, practicalMin: TEACH_MIN - lessonBudget, lessonShare: Math.round(lessonBudget / TEACH_MIN * 100),
+    DAY_MIN, BREAK_MIN, TEACH_MIN, LESSON_SHARE};
+}
+const api = {schedule, share, DAY_MIN, BREAK_MIN, TEACH_MIN, LESSON_SHARE, LESSON_MIN, THOROUGH_WEIGHT, BRIEF_MIN, TOPIC, ACT, STORM, LOOP, MAIN, SIDE};
 if(typeof module === "object" && module.exports) module.exports = api;
 root.CM_CF_SCHEDULE = api;
 })(typeof window !== "undefined" ? window : globalThis);

@@ -196,9 +196,12 @@ function compute(data, ctx){
     add({key: `drive:day${n}`, rule: "drive", sev: g.score < 50 ? "high" : "medium", at: g.at, fixable: true,
       title: `Day ${n} Backup File Maintenance: ${g.score}%`, detail: `R3: below the ${T.DRIVE_PASS}% pass mark, graded from the Drive itself.`,
       fix: `Open Day ${n}'s Backup File Maintenance, move each document to its folder and name it the firm's way, then ✓ Check my drive.`}); });
-  if(!ds && movedOn && (openWorked || t.has("d1m1-drive"))){
+  // Day 1's Backup Drive is an optional side exercise in the daily loop (js/cm-day-loop.js, "side" in its slide copy):
+  // skipping it is no alert; one started and left without its folders submitted is
+  const driveSide = !!((window.CM_CF_SLIDES || {})["d1m1-drive"] || {}).side;
+  if(!ds && movedOn && (driveSide ? t.has("d1m1-drive") : (openWorked || t.has("d1m1-drive")))){
     add({key: "drive:none", rule: "drive", sev: "high", at: (kc1 && kc1.date) || cf.updatedAt || null, fixable: true,
-      title: "No Backup Drive set up", detail: "R3: Day 1's opening work is done but the Backup Drive's folders were never submitted.",
+      title: "No Backup Drive set up", detail: driveSide ? "R3: Day 1's Backup Drive exercise was started but its folders were never submitted." : "R3: Day 1's opening work is done but the Backup Drive's folders were never submitted.",
       fix: "Do Day 1's 📂 Backup Drive: link your Google Drive folder, build the firm's folders and submit them."});
   }
 

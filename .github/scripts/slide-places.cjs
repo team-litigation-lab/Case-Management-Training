@@ -60,6 +60,10 @@
 // opens the slide layout 8 had there (layout 7's record, js/cm-slide-keys7.js, without GONE8) and gets its keys; so does
 // one another tab of such a page writes; a run of slides that takes every key a place was saved with leaves it on its
 // index, never past the end; after a real reload, and after the reload of an update.
+// Checked (6), by key: a deck change's own rule for the places saved before it (window.CM_SLIDE_KEY_RULES). The daily
+// loop (js/cm-day-loop.js) put the old Practice Lab's opening slide and the side exercises after the day's Skill
+// Building and Action Plan: a place saved before the loop (keys without its mark, or none) on that opening slide or on
+// a side exercise ahead of the Skill Building lands on the loop's start, the furthest reached too; one saved since does not move.
 // The tests above of the older layouts describe moves into layout 7's deck, and js/cm-slide-places.js moves an older
 // place into THAT deck, frozen in js/cm-slide-keys7.js (window.CM_SLIDE_KEYS7: each day's slide keys), then by key into
 // layout 8's, never into today's: so every position of every older layout is checked against layout 7's deck rebuilt
@@ -502,9 +506,12 @@ const DECK7 = { 1: '74:1d3nxnu', 2: '135:1c0ub5w', 3: '89:1en7hyz', 4: '97:1v909
     // it opens that lesson's deck page ⌊j·n/m⌋, moved once
   }
   let inDeck = null;
+  const anyDay = Object.fromEntries(Object.keys(DECK7).map(n => [n, true]));   // (every day, live deck or not: is there one to stand on at all?)
   for (const layout of [3, 4]) {
-    const pick = await page.evaluate(([layout, deck8]) => { for (const d of DAYS.filter(x => x.cf && deck8[x.cf.n])) { const old = __oldDeck(d, layout, true), x = old.filter(o => o.deck && o.j === o.m - 1 && o.m > 1)[0]; if (x) return { n: d.cf.n, at: x.id + ' ' + x.view, j: x.j, m: x.m, pages: x.n, first: x.first }; } return null; }, [layout, deck8]);
+    const pickOn = days => page.evaluate(([layout, deck8]) => { for (const d of DAYS.filter(x => x.cf && deck8[x.cf.n])) { const old = __oldDeck(d, layout, true), x = old.filter(o => o.deck && o.j === o.m - 1 && o.m > 1)[0]; if (x) return { n: d.cf.n, at: x.id + ' ' + x.view, j: x.j, m: x.m, pages: x.n, first: x.first }; } return null; }, [layout, days]);
+    const pick = await pickOn(deck8);
     if (!pick && !all7) continue;
+    if (!pick && await pickOn(anyDay)) continue;   // there is one, on a day whose live deck is no longer layout 8's: stands aside
     if (!pick) { fail(`no lesson drawn from the deck had more than one slide in layout ${layout} (the check wants one to stand on)`); continue; }
     const p = await put(pick.at, layout, pick.n), g = await open(p.dayId), want = pick.first + Math.min(pick.pages - 1, Math.floor(pick.j * pick.pages / pick.m));
     if (p.want !== want) fail(`the record puts ${p.was} (layout ${layout}) on slide ${p.want + 1}; page ⌊j·n/m⌋ of its lesson is slide ${want + 1}`);
@@ -520,9 +527,10 @@ const DECK7 = { 1: '74:1d3nxnu', 2: '135:1c0ub5w', 3: '89:1en7hyz', 4: '97:1v909
   // Lab) opens that slide, further on by their number, with the pages counted as seen; one saved on the slide before
   // them stays put, and the pages are still ahead of the trainee
   let overPages = null;
-  const pg = await page.evaluate((deck8) => { for (const d of DAYS.filter(x => x.cf && deck8[x.cf.n])) { const now = buildDaySlides(d), a = now.findIndex(sl => sl.type === 'deckPage'); if (a > 0) { const n = now.filter(sl => sl.type === 'deckPage').length, old = __oldDeck(d, 4, true);
-    return { n: d.cf.n, first: a, pages: n, after: old.findIndex(o => o.place === a + n), before: old.map(o => o.place).lastIndexOf(a - 1), afterIs: now[a + n] ? now[a + n].type : 'the end' }; } } return null; }, deck8);
-  if (!pg && all7) fail("no day has the revised deck's pages (js/cm-deck-pages.js): layout 5 describes none");
+  const pgOn = days => page.evaluate((deck8) => { for (const d of DAYS.filter(x => x.cf && deck8[x.cf.n])) { const now = buildDaySlides(d), a = now.findIndex(sl => sl.type === 'deckPage'); if (a > 0) { const n = now.filter(sl => sl.type === 'deckPage').length, old = __oldDeck(d, 4, true);
+    return { n: d.cf.n, first: a, pages: n, after: old.findIndex(o => o.place === a + n), before: old.map(o => o.place).lastIndexOf(a - 1), afterIs: now[a + n] ? now[a + n].type : 'the end' }; } } return null; }, days);
+  const pg = await pgOn(deck8);
+  if (!pg && all7 && !(await pgOn(anyDay))) fail("no day has the revised deck's pages (js/cm-deck-pages.js): layout 5 describes none");
   else if (!pg) { /* the day with the revised deck's pages is no longer layout 7's deck */ }
   else if (pg.after < 0 || pg.before < 0) fail(`Day ${pg.n}: layout 4 has no slide just before or just after the revised deck's pages (the check wants both to stand on)`);
   else {
@@ -765,9 +773,98 @@ const DECK7 = { 1: '74:1d3nxnu', 2: '135:1c0ub5w', 3: '89:1en7hyz', 4: '97:1v909
     if (!updated) fail(`slide keys: the reload after an update should reopen slide ${keyed.a + 1} of Day ${keyed.n}: ${await page.evaluate(() => typeof state === 'undefined' ? 'no page' : `${state.view} ${state.dayId} ${state.lessonSlide}`).catch(e => e.message)}`);
   }
 
+  // 6. a deck change's own rule for places saved before it (window.CM_SLIDE_KEY_RULES): the daily loop (js/cm-day-loop.js)
+  // put the old Practice Lab's opening slide and every side exercise after the day's Skill Building and Action Plan. A
+  // place saved before the loop (keys without the loop's mark, or no keys) on the old lab's opening slide or on a side
+  // exercise that sat before the day's Skill Building there lands on the loop's start (the Case Profile slide, right
+  // before the Skill Building), the place and the furthest reached alike; one saved since the loop follows its slide.
+  // Nothing here names a slide or counts a deck: the old order is cmDayLoop.layout8, the marks are the rules' ids.
+  const loopRule = await page.evaluate(async () => {
+    const out = [], log = [];
+    if (!window.cmDayLoop || !window.cmSlideKeys) return { out: window.cmDayLoop ? ['js/cm-slide-keys.js is not loaded'] : [], log, none: !window.cmDayLoop };
+    const K = cmSlideKeys, rule = (window.CM_SLIDE_KEY_RULES || []).find(x => x && x.id && typeof x.place === 'function');
+    if (!rule) return { out: ['js/cm-day-loop.js gives no rule in window.CM_SLIDE_KEY_RULES for the places saved before the loop'], log };
+    state.isAdmin = true;
+    const stored = k => JSON.parse(localStorage.getItem('lsh_' + k) || 'null');
+    const keep = { last: localStorage.getItem('lsh_last-slide'), far: localStorage.getItem('lsh_slide-progress'), keys: localStorage.getItem('lsh_slide-keys') };
+    const dedupe = (d, deck) => { const n = {}; return deck.map(sl => { const k = K.keyOf(d, sl); n[k] = (n[k] || 0) + 1; return n[k] > 1 ? k + '#' + n[k] : k; }); };
+    const block = k => String(k).replace(/#\d+$/, '').split(':')[0];
+    let days = 0;
+    try {
+      for (const d of DAYS.filter(x => x.cf)) {
+        const main = cmDayLoop.mainId(d); if (!main) continue;
+        const old = dedupe(d, cmDayLoop.layout8(d)), now = K.keysOf(d), L = `Day ${d.cf.n}`;
+        const lab8 = old.indexOf('~practiceLab'), main8 = old.findIndex(k => block(k) === main), mainNow = now.findIndex(k => block(k) === main);
+        const s2 = now.findIndex(k => k === '~meetJohnDoe' || k === '~profileCheck');
+        if (lab8 < 0 || main8 < 0) continue;
+        days++;
+        if (s2 < 0 || s2 !== mainNow - 1) { out.push(`${L}: the loop's Case Profile slide should sit right before the Skill Building (${s2 + 1}, ${mainNow + 1})`); continue; }
+        const isAct = k => d.lessons.some(l => l.cf && l.cf.block.id === block(k) && l.cf.block.kind === 'activity');
+        const early = old.findIndex((k, i) => i > lab8 && i < main8 && isAct(k));   // a side exercise ahead of the Skill Building in the old lab
+        const late = old.findIndex((k, i) => i > main8 && isAct(k) && block(k) !== main);   // one after it
+        const lesson = old.findIndex((k, i) => i < lab8 && d.lessons.some(l => l.cf && l.cf.block.id === block(k) && l.cf.block.kind === 'lesson'));
+        // the progress read, as at start-up: saved in the deck before the loop (old keys, no mark), or saved since (this page's keys)
+        const read = async (what, last, far, want, opt) => {
+          if (opt && opt.since) {
+            state.lastSlide[d.id] = last; state.slideProgress[d.id] = far;
+            await storeSet('slide-progress', state.slideProgress); await storeSet('last-slide', state.lastSlide);
+          } else {
+            const all = stored('slide-keys') || {};
+            if (opt && opt.keyless) delete all[d.id];
+            else all[d.id] = { last: { i: last, k: K.trail(old, last) }, far: { i: far, k: K.trail(old, far) } };
+            localStorage.setItem('lsh_slide-keys', JSON.stringify(all));
+            const o = stored('last-slide') || {}, f = stored('slide-progress') || {}; o[d.id] = last; f[d.id] = far; o.cfLayout = 8; f.cfLayout = 8;
+            localStorage.setItem('lsh_last-slide', JSON.stringify(o)); localStorage.setItem('lsh_slide-progress', JSON.stringify(f));
+          }
+          await loadAll(); state.isAdmin = true;
+          const gl = state.lastSlide[d.id], gf = state.slideProgress[d.id], r = (stored('slide-keys') || {})[d.id] || {};
+          log.push(`${L} ${what}: ${gl + 1}/${gf + 1}`);
+          if (gl !== want.last || gf !== want.far) out.push(`${L}, ${what}: the place should be on slide ${want.last + 1} (${now[want.last]}) and the furthest reached ${want.far + 1} (${now[want.far]}); they are ${gl + 1} (${now[gl]}) and ${gf + 1} (${now[gf]})`);
+          // (keys saved for where it is now; moved, or saved since, they carry the loop's mark, so the rule never moves it again)
+          if (!r.last || r.last.i !== gl || r.last.k[0] !== now[gl] || ((gl !== last || (opt && opt.since)) && !(Array.isArray(r.last.m) && r.last.m.includes(rule.id)))) out.push(`${L}, ${what}: the place's keys should be saved for where it is now${gl !== last ? ', with the loop\'s mark' : ''}: ${JSON.stringify(r.last)}`);
+          if (!(opt && opt.since) && want.last === s2 && (gl >= mainNow || gf >= mainNow)) out.push(`${L}, ${what}: a place saved before the loop is past the Skill Building it has not done`);
+          return { gl, gf };
+        };
+        // the old lab's opening slide, saved before the loop: the loop's start, nothing past it reached
+        await read("the old Practice Lab's opening slide, saved before the loop", lab8, lab8, { last: s2, far: s2 });
+        // ... and saved before keys (a position in layout 8's deck), where layout 8's record has the lab
+        const k8 = window.cmSlidePlaces && cmSlidePlaces.keys8 ? cmSlidePlaces.keys8(d) || [] : [], lab8k = k8.indexOf('~practiceLab'), main8k = k8.findIndex(k => block(k) === main);
+        if (lab8k >= 0 && main8k > lab8k) await read("the old Practice Lab's opening slide, saved without keys", lab8k, lab8k, { last: s2, far: s2 }, { keyless: true });
+        // a side exercise ahead of the Skill Building in the old lab: the place and the furthest reached on the loop's start
+        if (early >= 0) await read(`a side exercise before the Skill Building (${old[early]}), saved before the loop`, early, early, { last: s2, far: s2 });
+        // the place on a lesson, the furthest reached on that side exercise: the furthest is held before the Skill Building
+        if (early >= 0 && lesson >= 0) await read(`a lesson, the furthest reached on ${old[early]}, saved before the loop`, lesson, early, { last: now.indexOf(old[lesson]), far: s2 });
+        // a side exercise after the Skill Building in the old lab (the trainee had done it): it follows its slide
+        if (late >= 0) await read(`a side exercise after the Skill Building (${old[late]}), saved before the loop`, late, late, { last: now.indexOf(old[late]), far: now.indexOf(old[late]) });
+        // the side exercises' lab, saved since the loop (this page's keys, with the loop's mark): it stays on its slide
+        const labNow = now.indexOf('~practiceLab');
+        if (labNow >= 0) { await read("the Practice Lab, saved since the loop", labNow, labNow, { last: labNow, far: labNow }, { since: true });
+          await read("the Practice Lab saved since the loop, read again", labNow, labNow, { last: labNow, far: labNow }, { since: true }); }
+        // the reload after an update kept by a page before the loop (keys without the mark) on the old lab: the loop's start
+        if (typeof window.restoreAfterUpdate === 'function') {
+          sessionStorage.setItem('lsh_resume_keys', JSON.stringify({ dayId: d.id, k: K.trail(old, lab8) }));
+          sessionStorage.setItem('lsh_resume_after_update', JSON.stringify({ view: 'day', dayId: d.id, lessonSlide: lab8 }));
+          sessionStorage.setItem('lsh_resume_layout', '8');
+          try { window.restoreAfterUpdate(); } catch (e) { out.push(`${L}: restoreAfterUpdate threw: ${e.message}`); }
+          const at = state.view === 'day' && state.dayId === d.id ? state.lessonSlide : null;
+          log.push(`${L} the reload after an update on the old lab: ${at + 1}`);
+          if (at !== s2) out.push(`${L}: the reload after an update kept by a page before the loop on the old Practice Lab should open the loop's start, slide ${s2 + 1}; it opened ${at == null ? 'nothing' : at + 1}`);
+          sessionStorage.removeItem('lsh_resume_keys'); sessionStorage.removeItem('lsh_resume_after_update'); sessionStorage.removeItem('lsh_resume_layout');
+        }
+      }
+    } finally {
+      ['last', 'far', 'keys'].forEach(x => { const k = { last: 'lsh_last-slide', far: 'lsh_slide-progress', keys: 'lsh_slide-keys' }[x]; if (keep[x] === null) localStorage.removeItem(k); else localStorage.setItem(k, keep[x]); });
+      await loadAll(); state.isAdmin = true;
+    }
+    if (!days) out.push('no Case Flow day has a Skill Building and an old Practice Lab to check the rule on');
+    return { out, log, days };
+  });
+  loopRule.out.forEach(m => fail(`places saved before the daily loop: ${m}`));
+
   await browser.close();
   if (failures.length) { console.log(`${failures.length} problem(s):`); failures.slice(0, 60).forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
   const sum = k => maps.days.reduce((a, x) => a + x[k], 0);
+  if (loopRule.days) console.log(`Places saved before the daily loop (js/cm-day-loop.js's rule, by key) stay ahead of its Skill Building and Action Plan on ${loopRule.days} days: ${loopRule.log.join('; ')}.`);
   console.log(`A saved place follows its slide by key (js/cm-slide-keys.js): on Day ${keyed.n} (${keyed.keys} slides, the place on ${keyed.placeKey}) ${keyed.log.join('; ')}${reloaded ? `; after a reload too (slide ${reloaded})` : ''}${updated ? `; and after an update (slide ${updated})` : ''}.`);
   if (Object.keys(DECK7).some(n => !deck8[n])) console.log(`The live decks of Day ${Object.keys(DECK7).filter(n => !deck8[n]).join(', Day ')} have changed since layout 8: the older layouts' moves were checked against layout 7's frozen deck (js/cm-slide-keys7.js) and layout 8's made from it; the tests that open those days on a given slide stood aside.`);
   if (all7 && s40) console.log(`A saved place follows its slide: ${maps.days.map(x => `Day ${x.n} ${x.was1}→${x.was2}→${x.was3}→${x.was4}→${x.was5}→${x.was6}→${x.now} slides`).join(', ')} (layout 1→2→3→4→5→6→7: ${sum('job1')} On the Job slides gone, then ${sum('steps2')} Milestone Steps slides gone and ${sum('why2')} Why It Matters slides now the opening of The Theory, then every day reordered to all its lessons and one Practice Lab: ${sum('moved3')} of layout 3's ${sum('was3')} positions sit elsewhere, then ${maps.days.reduce((a, x) => a + x.deckLessons.length, 0)} lessons drawn from the trainer's deck pages: a place in one opens page ⌊j·n/m⌋ of its lesson, and ${sum('pages')} pages of the revised deck as slides of their own, which no older place opens, then ${sum('sb5')} Skill Building slides gone, then Meet Your Case and its two slides out of Day 1 for Meet John Doe on the Case Profile${meet6 ? ` (a place on Meet Your Case opens slide ${meet6.caseTo}; the Practice Lab, slide ${meet6.from} in layout 5, opens as ${meet6.to})` : ""}); every position of all six older decks lands on the same slide of its own block and never past the end; slide 40 of Day 1 (${s40.was}) opens on slide ${s40.want + 1}, after a reload and after an update too, and is moved once${inDeck ? `; ${inDeck.was} (layout ${inDeck.layout}) opens ${inDeck.to}, slide ${inDeck.slide}` : ''}${overPages ? `; the slide after Day ${overPages.n}'s ${overPages.pages} deck pages (layout 4 slide ${overPages.from}) opens as slide ${overPages.to}` : ''}${inLab ? `; a layout-3 place in Day 2's lab (${lab3.was}, slide ${lab3.i + 1}) opens the same slide, now ${lab3.want + 1}` : ''}${why2 ? `; a Why It Matters place (${w2.was}) opens The Theory, slide ${w2.want + 1}` : ''}${steps2 ? `; a Milestone Steps place (${st2.was}) opens The Rules, slide ${st2.want + 1}` : ''}.`);

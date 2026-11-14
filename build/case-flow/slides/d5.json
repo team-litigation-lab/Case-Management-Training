@@ -28,20 +28,18 @@
   },
   "d5m1-a1": {
     "image": "data-entry",
-    "situation": "01/05/2027: the Pleadings Log for 26-CV-04417 was never reconciled to the calendar. The **15 RFAs** have no row; **their 01/04/2027 deadline** passed. A 01/04/2027 Certificate of Service sits unlogged.",
+    "situation": "Assuming the **15 RFAs** have no row in the Pleadings Log and their 01/04/2027 Certificate of Service sits unlogged, the log needs fixing.",
+    "side": true,
     "steps": [
-      "In the Pleadings Log, add every missing row and recompute each response date, **showing the arithmetic**.",
-      "File each document in its numbered folder and calendar the Scheduling Order's six dates.",
-      "Prove the RFA response from its Certificate of Service, record both misses honestly, and report them to Atty. Thorne today."
+      "In CMS → Litigation → Pleadings Log, add the RFA row with a **deemed-admission flag**, and log the Certificate of Service with its date.",
+      "Report any miss to Atty. Thorne today in CMS → Tasks → Escalate, without back-dating."
     ],
-    "deliver": "A **corrected, source-linked log** and calendar, RFA compliance proved, misses reported the same day",
+    "deliver": "**A corrected, source-linked log**, misses reported the same day",
     "purpose": "A missed RFA deadline can mean **deemed admissions** against John Doe",
     "principle": "A miss is logged and reported, **never quietly fixed**",
     "checks": [
-      "Interrogatories and RFPs corrected **from 12/31/2026 to 01/04/2027**",
-      "RFA row (15) added with a **red deemed-admission flag**",
-      "**Certificate of Service** logged, its 01/04/2027 date checked",
-      "Escalated to Atty. Thorne 01/05/2027; **no call to Atty. Mercer**",
+      "RFA row (15) added with a **deemed-admission flag**",
+      "**Certificate of Service** logged",
       "Late filings **logged as misses**, not back-dated"
     ],
     "dos": [
@@ -76,21 +74,19 @@
   },
   "d5m1-a2": {
     "image": "calendar-gap",
-    "situation": "01/20/2027: John Doe's **deposition notice** arrived for 02/18/2027. The trial-prep checklist was never reconciled to **the 12/10/2026 order**; there is no KPI tracker.",
+    "situation": "Assuming John Doe's **deposition notice** for 02/18/2027 has arrived and the checklist was never reconciled to the order, two dates need fixing.",
+    "side": true,
     "steps": [
-      "Audit the trial checklist line by line against the Scheduling Order: the right date, an owner and **three alerts** each.",
-      "Build the KPI tracker with all nine KPIs and set one task for each review lens.",
-      "Name the two items you route to Atty. Thorne first, and why."
+      "In CMS → Calendar, correct our expert disclosure to **03/15/2027**, and record mediation as completed by 03/31/2027.",
+      "Log both changes in CMS → Litigation → KPI tracker."
     ],
-    "deliver": "A checklist matching **the order date for date**, and a complete KPI tracker",
+    "deliver": "A checklist matching **the order date for date**",
     "purpose": "A checklist that drifts from the order lets **a court date pass** unprepared",
     "principle": "**The Scheduling Order governs**; read the checklist against it, never from memory",
     "checks": [
-      "Our expert disclosure corrected **from 04/15/2027 to 03/15/2027**",
-      "Mediation recorded as **completed by 03/31/2027**",
-      "Records subpoena returns land **before discovery closes 05/28/2027**",
-      "Final records run **re-sourced from every provider**",
-      "RFA Priority Check and 48-Hour Docket Rule: **both missed**"
+      "Expert disclosure corrected **to 03/15/2027**",
+      "Mediation **completed by 03/31/2027**",
+      "KPI tracker **updated with both changes**"
     ],
     "dos": [
       "Every KPI is **a formula with a target**",
@@ -136,21 +132,19 @@
   },
   "d5m2-a1": {
     "image": "phone-call",
-    "situation": "12/10/2026: Keystone PD's final position is **$792.00 and $0**, with a release of **“all claims”** for “Mr. Doe” to sign. Leah Moran calls this afternoon.",
+    "situation": "Assuming Keystone PD's final position is **$792.00 and $0** with an all-claims release for Mr. Doe, the release needs holding.",
+    "side": true,
     "steps": [
-      "Read Keystone's release for its scope and claim number, hold it, and route it to Atty. Thorne.",
-      "Sort each PD outcome into John's case or Margaret's file, and take Leah Moran's call **without accepting or countering**.",
-      "Write the memo ending in one line: does this touch John Doe's case, and how?"
+      "Log the release in CMS → Documents as held, and route it to Atty. Thorne in CMS → Tasks → Escalate **the same day**.",
+      "Log one Case Note: Diminished Value and Loss of Use stay on Margaret's file. Does this touch John Doe's case?"
     ],
-    "deliver": "A memo sorting each PD outcome, **the release routed**, the call logged",
+    "deliver": "**The release routed**, each PD outcome sorted",
     "purpose": "One signature on a wide release could **reach John's BI claim**",
     "principle": "PD reaches John's settlement **through the release, never its figures**",
     "checks": [
       "“All claims” release **routed the same day**",
       "**Nobody asked to sign** before Atty. Thorne's review",
-      "Diminished Value and Loss of Use **on Margaret's file**",
-      "John's liens and Net Sheet **unchanged**",
-      "Leah Moran told only **it is with Atty. Thorne**"
+      "Diminished Value and Loss of Use **on Margaret's file**"
     ],
     "dos": [
       "Read **the release before the numbers**"
@@ -190,21 +184,20 @@
   },
   "d5m3-a1": {
     "image": "client-call",
-    "situation": "02/04/2027: John, reached through Margaret yesterday, has **a new number**. He's anxious about his **02/18/2027 video deposition**, expecting a TV cross-examination. You run the first segment; Atty. Thorne takes the substance after.",
+    "situation": "Assuming John Doe has **a new number** and his video deposition is 02/18/2027, the prep logistics and his questions need logging.",
+    "side": true,
     "steps": [
-      "Take the prep session below: confirm his new number and the 02/16/2027 test call.",
-      "Teach the three pillars and the room rules, and drill the pause.",
-      "Answer no questions about the case: log each one **in his words** for Atty. Thorne."
+      "Log his new number, the **02/16/2027 test call** and the 10:00 a.m. deposition at Riverton Court Reporting in CMS → Tasks.",
+      "Route each question he asked about his case to Atty. Thorne in his own words, answering none and giving him no script."
     ],
-    "deliver": "A delivered segment, a logistics record, and **substantive questions routed** in John's words",
+    "deliver": "Logistics logged and **his questions routed** in his words",
     "purpose": "A calm, prepared John gives **shorter, more accurate answers** on 02/18/2027",
     "principle": "Calm John with **the process, never a prediction**",
     "checks": [
-      "Logistics exact: **02/18/2027, 10:00 a.m.**, Riverton Court Reporting",
-      "Pause drilled **on neutral questions only**",
-      "All five substantive questions **routed, not answered**",
-      "Pillar 1 explained; **no outcome predicted**",
-      "**No script** or suggested wording given to John"
+      "Logistics exact: **02/18/2027, 10:00 a.m.**",
+      "All questions **routed, not answered**",
+      "**No outcome predicted** to John",
+      "**No script** or wording given to John"
     ],
     "dos": [
       "**Answer the process**; route the substance"
@@ -242,21 +235,19 @@
   },
   "d5m3-a2": {
     "image": "checklist-qa",
-    "situation": "02/16/2027, the second prep session: Atty. Thorne runs a mock cross-examination. AI Mercer questions AI John; **your microphone is muted**. Atty. Thorne **debriefs from your log**.",
+    "situation": "Assuming Atty. Thorne's mock cross-examination ran on 02/16/2027 with **your microphone muted**, the Trap Log needs finishing for his debrief.",
+    "side": true,
     "steps": [
-      "Keep the Trap Log from the first question: time, **exact words**, category, trap type and the rules kept or broken.",
-      "Beside each mischaracterisation, put the record fact and its source, and log each objection.",
-      "Coach nothing, and route the log to Atty. Thorne."
+      "In CMS → Litigation → Deposition prep log, put the record fact and its source beside each trap, such as the gap: **14 days**, 02/06 to 02/20/2026.",
+      "Route the log to Atty. Thorne before his debrief."
     ],
-    "deliver": "A **timestamped Trap Log**, scored against the seven Golden Rules, routed before the debrief",
+    "deliver": "**A timestamped Trap Log**, routed before the debrief",
     "purpose": "Atty. Thorne's debrief is only as good as **the log you keep**",
     "principle": "Observe and record; **any signal to John** is coaching",
     "checks": [
-      "All **six assigned traps** logged",
       "Gap entry: **14 days**, 02/06/2026 to 02/20/2026",
-      "“Degenerative” entry cites **the 03/13/2026 MRI** report",
-      "Seatbelt entry cites **the EMS report and EDR**",
-      "**No coaching**: no signal, chat or comment to John"
+      "“Degenerative” entry cites **the 03/13/2026 MRI**",
+      "**No coaching**: no signal to John"
     ],
     "dos": [
       "Log the question in **the questioner's exact words**"
@@ -295,21 +286,19 @@
   },
   "d5m4-a1": {
     "image": "documents-audit",
-    "situation": "11/12/2026: Atty. Grant Mercer's Answer pleads **comparative negligence** (out of turn; unbelted), causation and **failure to mitigate**. The file holds RPD-26-018842, Ruth Calloway, the doorbell video, EDR, EMS report, A-C-T record.",
+    "situation": "Assuming Atty. Mercer's Answer pleads **comparative negligence** and failure to mitigate, the counter-package needs its evidence logged.",
+    "side": true,
     "steps": [
-      "For each of the three allegations, list the evidence that answers it with its source, witness and **chain of custody**.",
-      "Write the doorbell video's chain from 02/17/2026 to 02/19/2026, and draft a narrow Exhibit A for any custodian needed.",
-      "Close with the questions only Atty. Thorne can answer."
+      "In CMS → Litigation → Liability counter-package, give each allegation its own row with the evidence, its source and **chain of custody**.",
+      "Log the questions only Atty. Thorne can answer at the end."
     ],
-    "deliver": "An **allegation-by-allegation counter-package** with full foundation, a draft Exhibit A, questions routed",
+    "deliver": "**An allegation-by-allegation counter-package**, questions routed",
     "purpose": "Each of Mercer's three defenses needs **a documented, authenticated answer**",
     "principle": "Evidence without foundation **may never reach the jury**",
     "checks": [
-      "**Three separate rows**: out of turn, unbelted, failure to mitigate",
-      "EDR's 11 mph used **as corroboration only**",
-      "Video chain: **native file unaltered**, each transfer logged",
-      "Exhibit A limited to **the 02/06/2026 EMS run**",
-      "Stack stated as **$40,000; no layer added**"
+      "**Three separate rows**: out of turn, unbelted, mitigate",
+      "EDR's 11 mph **used as corroboration only**",
+      "Video chain: **native file unaltered**"
     ],
     "dos": [
       "**One allegation, one row**",
@@ -349,21 +338,19 @@
   },
   "d5m4-a2": {
     "image": "email-outreach",
-    "situation": "10/08/2026: **a third failed attempt** at 118 Larkspur Ln; a neighbor says Smith moved in August. 01/22/2027: calls to John Doe go unanswered, **deposition 02/18/2027**, prep 02/04 and 02/16/2027.",
+    "situation": "Assuming Robert Smith's new address is **confirmed on two sources**, his service and the answer date need logging.",
+    "side": true,
     "steps": [
-      "Escalate for Skip-Trace authority, choose the address on recency and two sources, and log service and the **answer date**.",
-      "Run Steps 1 to 3, then draft the Step 4 certified notice for Atty. Thorne's signature and send it by certified mail and email.",
-      "Assess John's Skip-Trace gate on Day 2's three criteria."
+      "In CMS → Communications Log, log service at 4410 Quarry Ridge Ct, Millbrook, and docket **the answer date** in CMS → Calendar.",
+      "Log why John Doe's Skip-Trace gate is not met yet in CMS → Case Notes."
     ],
-    "deliver": "A service record through the answer date; **a certified notice dispatched**, both deliveries logged",
+    "deliver": "A service record through **the answer date**",
     "purpose": "An unserved defendant stalls the case; **an unreachable client** imperils his deposition",
     "principle": "**Proof of delivery** isn't proof he read it: send both ways",
     "checks": [
-      "4410 Quarry Ridge Ct, Millbrook chosen on **two current sources**",
-      "**Answer due 11/13/2026** docketed (10/14 + 30)",
-      "Response date before 02/04/2027: **sent by 01/27/2027**",
-      "**Certified mail AND email**, signed by Atty. Thorne",
-      "**Gate not met**: deadline not expired; no Skip-Trace"
+      "4410 Quarry Ridge Ct **on two current sources**",
+      "**Answer due 11/13/2026** docketed",
+      "**Gate not met**: no Skip-Trace for John"
     ],
     "dos": [
       "Calendar the response date **beside the deposition**"
@@ -409,21 +396,19 @@
   },
   "d5m6-a1": {
     "image": "email-outreach",
-    "situation": "Practice matter, 12/09/2026: Denise Harlow has **no Health Plan** and stopped treatment 10/29/2026. Atty. Thorne dropped the case and told her 12/08. Status: **Pending Drop**.",
+    "situation": "Assuming Atty. Thorne dropped Denise Harlow's case and told her on 12/08, with the status at **Pending Drop**, the close-out needs logging.",
+    "side": true,
     "steps": [
-      "Record the gate: Pending Drop and Atty. Thorne's note.",
-      "Draft the three Withdrawal Letters for his signature: Denise's with **his reason** and next step, the two carriers' with no reason given.",
-      "Send each by its method, log it, follow up on 12/16/2026, then switch the case to Dropped."
+      "In CMS → Documents → Withdrawal Letter template, draft the three letters for his signature, with **his reason** only in Denise's.",
+      "Log each send and the 12/16/2026 follow-up, then switch the case to Dropped."
     ],
-    "deliver": "Three letters for his signature and **a close-out log to Dropped**",
+    "deliver": "Three letters for signature and **a close-out log**",
     "purpose": "Denise must learn **time limits apply**; carriers must learn only that we're out",
     "principle": "The reason goes **only to the client**, in Atty. Thorne's words",
     "checks": [
       "Gate confirmed **before any letter goes out**",
       "The reason **only in Denise's letter**",
-      "Claim GS-26-48213 and DOL **on the carrier letter**",
-      "Every letter saved **in Word and PDF**",
-      "Dropped only **after the follow-up**; proof retained"
+      "Dropped only **after the follow-up**"
     ],
     "dos": [
       "Quote **Atty. Thorne's reason**; never write your own"
@@ -456,21 +441,19 @@
   },
   "d5m5-a1": {
     "image": "money-ledger",
-    "situation": "File date 07/22/2027. The award gave **Harbor Point $20,000.00 and Cardinal State $10,000.00**; with Keystone's $10,000.00, **$40,000.00 is in trust**. Peach State accepted $1,116.00, Riverton $4,275.00.",
+    "situation": "Assuming **$40,000.00 is in trust** after the award, with Peach State at $1,116.00 and Riverton at $4,275.00, the Litigation Net Sheet is due.",
+    "side": true,
     "steps": [
-      "In the LSH Net Sheet, enter the gross by carrier, the **40% fee** after suit, and every receipted cost.",
-      "Enter each lien's reduced figure with its Payoff Letter and tie the sheet to the Trust Ledger.",
-      "Route the Settlement Statement to Atty. Thorne."
+      "In the LSH Net Sheet, enter the gross by carrier, the **40% fee** after suit, the receipted costs and each reduced lien.",
+      "Log the Settlement Statement to Atty. Thorne in CMS → Tasks → Escalate."
     ],
-    "deliver": "A Net Sheet reaching **$14,713.75**, every cost and lien proved",
+    "deliver": "A Net Sheet reaching **$14,713.75**",
     "purpose": "The client's money moves on this sheet: **one wrong line** shortchanges John Doe",
     "principle": "**No document, no payment**: receipts for costs, Payoff Letters for liens",
     "checks": [
       "Fee at 40%: **$16,000.00**",
-      "Costs receipted: **$3,895.25**",
-      "Liens: **$1,116.00 + $4,275.00** = $5,391.00",
-      "Net: **$14,713.75**, tied to trust",
-      "Nothing paid **until John Doe signs**"
+      "Liens: **$1,116.00 + $4,275.00**",
+      "Net: **$14,713.75**, tied to trust"
     ],
     "dos": [
       "Write **each reduction's basis** on its line"
@@ -540,21 +523,19 @@
   },
   "d5-drive": {
     "image": "checklist-qa",
-    "situation": "07/30/2027, 3:00 p.m. The award is **disbursed**, and the file waits on **Atty. Thorne's sign-off**.",
+    "situation": "Assuming the award is **disbursed** and the file waits on Atty. Thorne's sign-off, the backup needs its final audit.",
+    "side": true,
     "steps": [
-      "File the litigation and ADR papers in the CMS so they reach **09 Litigation & ADR**.",
-      "Run ✓ Check my drive and confirm the drive holds every document filed in the CMS, across all nine folders.",
-      "Write the closing checklist in Case Notes for Atty. Thorne's sign-off. Do not move the folder in your training drive."
+      "File the litigation and ADR papers in the CMS so they reach **09 Litigation & ADR**, then run ✓ Check my drive.",
+      "Log the closing checklist in CMS → Case Notes for Atty. Thorne's sign-off."
     ],
     "deliver": "A complete, checked backup **ready to close**",
     "purpose": "Years later, **anyone can find any page**",
     "principle": "A file closes on **sign-off, not on payment**",
     "checks": [
       "Litigation papers in **09 Litigation & ADR**",
-      "**Every filed document** backed up",
-      "Drafts and superseded versions **labeled**",
       "**✓ Check my drive**: no folder missing",
-      "Closing checklist ends in **sign-off and the move**"
+      "Closing checklist ends in **sign-off**"
     ],
     "dos": [
       "Close the backup **by the standard**"

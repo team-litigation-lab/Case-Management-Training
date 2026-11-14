@@ -51,11 +51,13 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
                 return { gone: blocks.some(b => b.id === 'd1m1-case'), meetLesson: blocks.filter(b => /^Meet (Your (Case|Client)|John Doe)/i.test(b.title)).map(b => b.id),
                     first: firstLesson && firstLesson.id, meet: s.findIndex(sl => sl.type === 'meetJohnDoe'), meets: s.filter(sl => sl.type === 'meetJohnDoe').length,
                     lab: s.findIndex(sl => sl.type === 'practiceLab'), lastLesson, dayId: d.id,
+                    // the daily loop (js/cm-day-loop.js): the next slide is the Intake, the day's Skill Building's first
+                    next: (() => { const k = s.findIndex(sl => sl.type === 'meetJohnDoe') + 1, sl = s[k]; return sl && sl.type === 'topic' ? d.lessons[sl.lessonIndex].cf.block.id + ':' + sl.part : sl ? sl.type : ''; })(),
                     others: DAYS.filter(x => x.cf && x.cf.n !== 1).some(x => buildDaySlides(x).some(sl => sl.type === 'meetJohnDoe')) };
             });
             check(!deck.gone && !deck.meetLesson.length, `Meet John Doe is not a lesson (d1m1-case ${deck.gone ? 'still there' : 'gone'}${deck.meetLesson.length ? '; lessons: ' + deck.meetLesson.join(', ') : ''})`);
             check(deck.first === 'd1m1-role', `Day 1's lessons open with Case Management Fundamentals (d1m1-role): ${deck.first}`);
-            check(deck.meets === 1 && deck.meet === deck.lastLesson + 1 && deck.lab === deck.meet + 1 && !deck.others, `Day 1 has one Meet John Doe slide, right after its last lesson and before the Practice Lab (slide ${deck.meet + 1}; last lesson ${deck.lastLesson + 1}; Practice Lab ${deck.lab + 1})`);
+            check(deck.meets === 1 && deck.meet === deck.lastLesson + 1 && deck.next === 'd1m1-open:1' && deck.lab > deck.meet && !deck.others, `Day 1 has one Meet John Doe slide, right after its last lesson, then the Intake (d1m1-open, the day's Skill Building) and later the Practice Lab (slide ${deck.meet + 1}; last lesson ${deck.lastLesson + 1}; next ${deck.next}; Practice Lab ${deck.lab + 1})`);
             const slide = await page.evaluate(async (deck) => {
                 goto('day', deck.dayId); state.dayViewMode = 'slides'; state.lessonSlide = deck.meet; render(); await new Promise(r => setTimeout(r, 400));
                 const w = document.getElementById('lessonSlideWrap'), btn = w && [...w.querySelectorAll('button')].find(b => /Open the Case Profile: Meet John Doe/.test(b.textContent));

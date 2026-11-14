@@ -28,7 +28,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file, in two parts: first ALL of its lessons, in teaching order under their section headings; then ONE Practice Lab that holds all of its Skill Activities (on the file in the CMS, each Your Task first, then Your Case), in the order their lessons were taught, with a short brainstorm after each Skill Building group; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
 
 **Module 4 — Reductions, Lien Negotiation & ADR**
 
@@ -45,19 +45,19 @@ The day is one module, on John Doe's one file, in two parts: first ALL of its le
 11. *Lesson* — Arbitration Exhibits & Evidentiary Rules
 12. *Lesson* — The Prior Medical Shield: Answering the Pre-Existing-Condition Defense from the Record
 13. *Lesson* — From Treatment to Demand: How the Treatment Record Becomes the Claim (condensed)
-14. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab (practises: Statutory Liens, Health Subrogation & Provider Balances)
-15. *Skill Activity* — Provider Balance Negotiation Exercises (practises: Lien Negotiation Calls: the Reduction Request, the Ask and the Payoff Letter)
-16. *Skill Activity* — Completing the Final Dual-Tab Net Sheet (practises: The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker)
-17. *Skill Activity* — Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold (practises: Release Audits, Trust Accounting & Disbursement Commands)
-18. *Skill Activity* — Starting the Disbursement Command: Releases, Hold Cleared, Money Out (practises: Release Audits, Trust Accounting & Disbursement Commands)
-19. *Skill Activity* — Backup File Maintenance: Liens, Costs and a Missing Folder (practises: Closing the File: Final Reconciliation, the Closing Memo, the Closing Letter & Retention)
-20. *Skill Activity* — Routing the UM Impasse: Arbitration or Court (practises: UM/UIM Disputes & Resolution Routes)
-21. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs (practises: Court Hard Rules, SOL Cutoffs & the Master Calendar)
-22. *Skill Activity* — Calendaring the Mediation: the Session and Every Date That Hangs Off It (practises: Mediation vs. Binding Arbitration & the UPL Line at Hearings)
-23. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping (practises: Mediation vs. Binding Arbitration & the UPL Line at Hearings)
-24. *Skill Activity* — Calendaring the Arbitration from the Scheduling Letter (practises: Mediation vs. Binding Arbitration & the UPL Line at Hearings)
-25. *Skill Activity* — Assembling the 6-Section Mediation Binder (practises: The Mediation Binder & Exhibit Indexing)
-26. *Skill Activity* — Assembling the 6-Tab Arbitration Binder (practises: Arbitration Exhibits & Evidentiary Rules)
+14. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab (practises: Statutory Liens, Health Subrogation & Provider Balances) — *side*
+15. *Skill Activity* — Provider Balance Negotiation Exercises (practises: Lien Negotiation Calls: the Reduction Request, the Ask and the Payoff Letter) — *side*
+16. *Skill Activity* — Completing the Final Dual-Tab Net Sheet (practises: The Dual-Tab Net Sheet: Recovery Ledger + Lien Tracker) — *side*
+17. *Skill Activity* — Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold (practises: Release Audits, Trust Accounting & Disbursement Commands) — *side*
+18. *Skill Activity* — Starting the Disbursement Command: Releases, Hold Cleared, Money Out (practises: Release Audits, Trust Accounting & Disbursement Commands) — *side*
+19. *Skill Activity* — Backup File Maintenance: Liens, Costs and a Missing Folder (practises: Closing the File: Final Reconciliation, the Closing Memo, the Closing Letter & Retention) — *side*
+20. *Skill Activity* — Routing the UM Impasse: Arbitration or Court (practises: UM/UIM Disputes & Resolution Routes) — *side*
+21. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs (practises: Court Hard Rules, SOL Cutoffs & the Master Calendar) — *side*
+22. *Skill Activity* — Calendaring the Mediation: the Session and Every Date That Hangs Off It (practises: Mediation vs. Binding Arbitration & the UPL Line at Hearings) — *side*
+23. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping (practises: Mediation vs. Binding Arbitration & the UPL Line at Hearings) — *side*
+24. *Skill Activity* — Calendaring the Arbitration from the Scheduling Letter (practises: Mediation vs. Binding Arbitration & the UPL Line at Hearings) — *side*
+25. *Skill Activity* — Assembling the 6-Section Mediation Binder (practises: The Mediation Binder & Exhibit Indexing) — **Skill Building**
+26. *Skill Activity* — Assembling the 6-Tab Arbitration Binder (practises: Arbitration Exhibits & Evidentiary Rules) — *side*
 27. *Knowledge Check* — Lien Reduction Verification
 28. *Knowledge Check* — Final Accounting Check
 29. *Knowledge Check* — ADR & Calendar Compliance Check
@@ -69,7 +69,7 @@ The day is one module, on John Doe's one file, in two parts: first ALL of its le
 
 ## Module 4 — Reductions, Lien Negotiation & ADR
 
-**Order:** Lessons (13) ➔ Practice Lab (13 Skill Activities) ➔ Knowledge Check (4 Learning Checks)
+**Order:** Lessons (13) ➔ Case Profile ➔ Skill Building (Assembling the 6-Section Mediation Binder) ➔ Update Your Action Plan ➔ Practice Lab (12 optional side exercises) ➔ Knowledge Check (4 Learning Checks)
 
 ### 4.1.1 Statutory Liens, Health Subrogation & Provider Balances
 

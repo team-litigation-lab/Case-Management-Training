@@ -159,7 +159,16 @@ else {
     const heads = Object.assign({}, ...(sd.phases || []).map(ph => ph.headings || {}));
     const pract = Object.assign({}, ...(sd.phases || []).map(ph => ph.practises || {}));
     const sc = SCHED.schedule(ids.filter(id => STORED[id].b.kind !== "check").map(id => ({kind: STORED[id].b.kind, brief: !!STORED[id].b.brief, thorough: !!STORED[id].b.thorough, id, of: pract[id] || "",
-      slides: STORED[id].b.kind === "lesson" ? viewsOf(STORED[id].b).length : 1, heading: heads[id] || "", mod: STORED[id].mod.id, modTitle: STORED[id].mod.title})), {build: sd.build, lessonMax: sd.lessonMax});
+      slides: STORED[id].b.kind === "lesson" ? viewsOf(STORED[id].b).length : 1, heading: heads[id] || "", mod: STORED[id].mod.id, modTitle: STORED[id].mod.title})), {build: sd.build, lessonMax: sd.lessonMax, main: sd.main, day: sd.n});
+    /* the daily loop (js/cm-day-loop.js): the lessons → the Case Profile → ONE Skill Building (`main`, AI graded; a
+       build day's is its Full Application Practice) → Update Your Action Plan → the optional side exercises (every
+       other activity, a short "Assuming …" task logged in the CMS: "side": true in its slide copy) → the Knowledge Check */
+    const acts = ids.filter(id => STORED[id].b.kind === "activity");
+    if(sd.build && sd.main) errors.push(`sequence Day ${sd.n}: a build day's Skill Building is its Full Application Practice; take main out`);
+    if(!sd.build && !acts.includes(sd.main)) errors.push(`sequence Day ${sd.n}: main must name the day's one Skill Building, an activity taught that day (it is ${sd.main || "missing"})`);
+    acts.forEach(id => { const side = (SLIDES[id] || {}).side === true;
+      if(id === sd.main && side) errors.push(`sequence Day ${sd.n}: ${id} is the day's Skill Building and can't be a side exercise ("side": true in its slide copy)`);
+      if(id !== sd.main && !side) errors.push(`sequence Day ${sd.n}: ${id} is not the day's Skill Building (${sd.main || "the build"}), so it is a short side exercise: "side": true in its slide copy`); });
     SCHEDULES[sd.n] = sc;
     if(!sc.fits) errors.push(`Day ${sd.n}: ${sc.total} minutes (${sc.lessonMin} of lessons, ${sc.acts} Skill Activities at ${sc.act}, ${sc.skillParts} brainstorms, ${sc.build ? sc.build + " of companion-case build, " : ""}the Knowledge Check and 20 minutes for the welcome, a break and the close) is over the 4-hour day`);
     // a refresher: lessons are at most 30% of the 220 teaching minutes, the practical the rest
@@ -353,17 +362,18 @@ function dayMd(day){
     `| **Policy stack** | ${stack().map(l => `${money(l.limit)} ${l.tag}`).join(" / ")} = **${money(c.total)}** |`,
     `| **Health plan** | ${c.health.carrier} · ${c.health.memberId} · ${c.health.group} |`, `| **Critical fact** | ${c.critical} |`, "",
     "## This day's module", "",
-    "The day is one module, on John Doe's one file, in two parts: first ALL of its lessons, in teaching order under their section headings; then ONE Practice Lab that holds all of its Skill Activities (on the file in the CMS, each Your Task first, then Your Case), in the order their lessons were taught, with a short brainstorm after each Skill Building group; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.", ""];
+    "The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.", ""];
   const pract = Object.assign({}, ...CF.sequence.find(x => x.n === day.n).phases.map(ph => ph.practises || {}));
   const practises = x => x.b.kind === "activity" && pract[x.b.id] && STORED[pract[x.b.id]] ? ` (practises: ${STORED[pract[x.b.id]].b.title})` : "";
+  const SEQ = CF.sequence.find(x => x.n === day.n), loopTag = x => x.b.kind !== "activity" ? "" : x.b.id === SEQ.main ? " — **Skill Building**" : " — *side*";
   const phases = CF.sequence.find(x => x.n === day.n).phases.map((ph, i) => ({n: i + 1, title: ph.title, lead: ph.lead || `Case Phase ${i + 1}`, blocks: ph.blocks.map(id => STORED[id])}));
   phases.forEach(ph => {
-    L.push(`**${ph.lead} — ${ph.title}**`, "", ...ph.blocks.map((x, i) => `${i + 1}. *${KIND[x.b.kind]}* — ${x.b.title}${x.b.brief ? " (condensed)" : ""}${practises(x)}`), "");
+    L.push(`**${ph.lead} — ${ph.title}**`, "", ...ph.blocks.map((x, i) => `${i + 1}. *${KIND[x.b.kind]}* — ${x.b.title}${x.b.brief ? " (condensed)" : ""}${practises(x)}${loopTag(x)}`), "");
   });
   L.push(`**End-of-day discussion (trainer):** ${day.discussion}`, "", "---", "");
   phases.forEach(ph => {
     const count = k => ph.blocks.filter(x => x.b.kind === k).length;
-    L.push(`## ${ph.lead} — ${ph.title}`, "", `**Order:** Lessons (${count("lesson")}) ➔ Practice Lab (${count("activity")} Skill Activities) ➔ Knowledge Check (${count("check")} Learning Checks)`, "");
+    L.push(`## ${ph.lead} — ${ph.title}`, "", `**Order:** Lessons (${count("lesson")}) ➔ Case Profile${day.n === 1 ? " (Meet John Doe & Intake)" : ""} ➔ Skill Building (${SEQ.main ? STORED[SEQ.main].b.title : "the Full Application Practice"}) ➔ Update Your Action Plan ➔ Practice Lab (${count("activity") - (SEQ.main ? 1 : 0)} optional side exercises) ➔ Knowledge Check (${count("check")} Learning Checks)`, "");
     ph.blocks.forEach((x, k) => L.push(blockMd(x.b, day, ph, k, x.mod)));
   });
   return L.join("\n");
@@ -412,5 +422,5 @@ if(!CHECK_ONLY){
   console.log("wrote curriculum/5-day-flow/traceability.md");
 }
 if(CHECK_ONLY) Object.keys(SCHEDULES).forEach(n => { const sc = SCHEDULES[n];
-  console.log(`Day ${n}: ${sc.total} of ${sc.DAY_MIN} minutes = ${sc.BREAK_MIN} (welcome, break, close) + lessons ${sc.lessonMin} (${sc.lessonShare}%: ${sc.topics} lessons) + practical ${sc.used - sc.lessonMin} (${sc.build ? `companion-case build ${sc.build}` : `Practice Lab ${sc.labMin}: ${sc.acts} Skill Activities at ${sc.act}, ${sc.skillParts} brainstorms at ${sc.brainstorm}`}, Knowledge Check ${sc.kc})${sc.buffer ? `, ${sc.buffer} spare for Q&A` : ""}`); });
+  console.log(`Day ${n}: ${sc.total} of ${sc.DAY_MIN} minutes = ${sc.BREAK_MIN} (welcome, break, close) + lessons ${sc.lessonMin} (${sc.lessonShare}%: ${sc.topics} lessons) + practical ${sc.used - sc.lessonMin} (Case Profile ${sc.profile}, ${sc.build ? `Skill Building: the companion-case build ${sc.build}` : `Skill Building ${sc.act} (${sc.main}) and its brainstorm ${sc.brainstorm}`}, Action Plan ${sc.plan}, ${sc.sides} side exercises ${sc.side ? `in a ${sc.side}-minute Practice Lab` : "untimed"}, Knowledge Check ${sc.kc})${sc.buffer ? `, ${sc.buffer} spare for Q&A` : ""}`); });
 console.log(`Case Flow: ${CF.days.length} of 5 days · ${blocks} blocks · sequence, six components, 60/40 rubrics, quizzes and sources verified · ${Object.keys(LEGACY).length} existing topics, 0 unplaced · slides a day ${DECK.map(x => x.slides).join(" / ")}`);

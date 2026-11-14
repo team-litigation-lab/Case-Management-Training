@@ -1288,7 +1288,7 @@ window.CM_CF_SIM = {
   {
    "if": {
     "activity": "d2m4-wage",
-    "check": 2
+    "check": 3
    },
    "then": {
     "activity": "d2m4-a2",
@@ -1318,7 +1318,7 @@ window.CM_CF_SIM = {
   {
    "if": {
     "activity": "d1m3-a1",
-    "check": 4
+    "check": 1
    },
    "then": {
     "activity": "d2m1-a2",
@@ -1333,7 +1333,7 @@ window.CM_CF_SIM = {
   {
    "if": {
     "activity": "d1m1-a1",
-    "check": 4
+    "check": 3
    },
    "then": {
     "activity": "d1m4-a2",
@@ -1378,7 +1378,7 @@ window.CM_CF_SIM = {
   {
    "if": {
     "activity": "d2m2-a1",
-    "check": 2
+    "check": 3
    },
    "then": {
     "activity": "d2m2-a2",
@@ -1393,7 +1393,7 @@ window.CM_CF_SIM = {
   {
    "if": {
     "activity": "d2m3-a1",
-    "check": 2
+    "check": 3
    },
    "then": {
     "activity": "d2m3-a2",
@@ -1408,7 +1408,7 @@ window.CM_CF_SIM = {
   {
    "if": {
     "activity": "d1m1-a2",
-    "check": 3
+    "check": 2
    },
    "then": {
     "activity": "d2m4-a1",
@@ -1438,7 +1438,7 @@ window.CM_CF_SIM = {
   {
    "if": {
     "activity": "d3m2-a2",
-    "check": 4
+    "check": 3
    },
    "then": {
     "activity": "d3m4-a1",
@@ -1453,7 +1453,7 @@ window.CM_CF_SIM = {
   {
    "if": {
     "activity": "d3m3-a2",
-    "check": 3
+    "check": 1
    },
    "then": {
     "activity": "d3m4-a2",
@@ -1468,7 +1468,7 @@ window.CM_CF_SIM = {
   {
    "if": {
     "activity": "d3m4-a1",
-    "check": 4
+    "check": 3
    },
    "then": {
     "activity": "d3m4-a2",
@@ -1513,7 +1513,7 @@ window.CM_CF_SIM = {
   {
    "if": {
     "activity": "d4m3-a2",
-    "check": 3
+    "check": 1
    },
    "then": {
     "activity": "d4m4-a2",
@@ -1528,7 +1528,7 @@ window.CM_CF_SIM = {
   {
    "if": {
     "activity": "d5m3-a1",
-    "check": 4
+    "check": 3
    },
    "then": {
     "activity": "d5m3-a2",

@@ -29,7 +29,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file, in two parts: first ALL of its lessons, in teaching order under their section headings; then ONE Practice Lab that holds all of its Skill Activities (on the file in the CMS, each Your Task first, then Your Case), in the order their lessons were taught, with a short brainstorm after each Skill Building group; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
 
 **Module 1 — Fundamentals, Intake & Claim Set Up**
 
@@ -38,13 +38,13 @@ The day is one module, on John Doe's one file, in two parts: first ALL of its le
 3. *Lesson* — The Acceptance Decision & the Three-Pillar Case Plan
 4. *Lesson* — Property Damage: Does It Touch Our Case?
 5. *Lesson* — The No Contact Protocol — Steps 1 to 3
-6. *Skill Activity* — Opening John Doe's File in the CMS (practises: Ingesting the Raw File)
-7. *Skill Activity* — Backup File Maintenance: the Firm's Folders and Hierarchy (practises: Ingesting the Raw File)
-8. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet (practises: Ingesting the Raw File)
-9. *Skill Activity* — Onboarding Direction Assignment in System (practises: Ingesting the Raw File)
-10. *Skill Activity* — Does It Touch Our Case? Sorting the PD File (practises: Property Damage: Does It Touch Our Case?)
-11. *Skill Activity* — Multi-Channel Outreach Logging (practises: The No Contact Protocol — Steps 1 to 3)
-12. *Skill Activity* — Final Warning Letter Drafting (practises: The No Contact Protocol — Steps 1 to 3)
+6. *Skill Activity* — Opening John Doe's File in the CMS (practises: Ingesting the Raw File) — **Skill Building**
+7. *Skill Activity* — Backup File Maintenance: the Firm's Folders and Hierarchy (practises: Ingesting the Raw File) — *side*
+8. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet (practises: Ingesting the Raw File) — *side*
+9. *Skill Activity* — Onboarding Direction Assignment in System (practises: Ingesting the Raw File) — *side*
+10. *Skill Activity* — Does It Touch Our Case? Sorting the PD File (practises: Property Damage: Does It Touch Our Case?) — *side*
+11. *Skill Activity* — Multi-Channel Outreach Logging (practises: The No Contact Protocol — Steps 1 to 3) — *side*
+12. *Skill Activity* — Final Warning Letter Drafting (practises: The No Contact Protocol — Steps 1 to 3) — *side*
 13. *Knowledge Check* — CM Fundamentals Knowledge Check
 14. *Knowledge Check* — Onboarding & Property Damage Check
 15. *Knowledge Check* — MIA Escalation Knowledge Check
@@ -55,7 +55,7 @@ The day is one module, on John Doe's one file, in two parts: first ALL of its le
 
 ## Module 1 — Fundamentals, Intake & Claim Set Up
 
-**Order:** Lessons (5) ➔ Practice Lab (7 Skill Activities) ➔ Knowledge Check (3 Learning Checks)
+**Order:** Lessons (5) ➔ Case Profile (Meet John Doe & Intake) ➔ Skill Building (Opening John Doe's File in the CMS) ➔ Update Your Action Plan ➔ Practice Lab (6 optional side exercises) ➔ Knowledge Check (3 Learning Checks)
 
 ### 1.1.1 The Case Manager's Role
 

@@ -21,7 +21,10 @@
    js/cm-slide-keys7.js, without the lesson cards that left in layout 8: cmSlidePlaces.keys8; from8: its slide gone,
    the nearest slide before it that is still there), and gets its keys. The reload after an update keeps its slide's
    keys too (lsh_resume_keys); one kept by a page that saved none is taken from layout 8 the same way.
-   A deck change needs nothing here, nor in js/cm-slide-places.js.
+   A deck change needs nothing here, nor in js/cm-slide-places.js. One that moves slides a place saved before it should
+   not land on (js/cm-day-loop.js) gives its own rule in window.CM_SLIDE_KEY_RULES ({id, place(d, r, to, keys)}: r the
+   saved keys or null, to where they land; it returns the index to use); the keys saved carry the ids of the rules in
+   force (m), so a rule tells a place saved since it (its id in r.m) from one saved before (no keys, or not its id).
    ============================================================ */
 (function(){
 "use strict";
@@ -67,6 +70,13 @@ const num = i => typeof i === "number" && i >= 0 && isFinite(i);
 /* a trail none of whose keys is in today's deck: the same index, never past the end */
 const near = (keys, i) => Math.max(0, Math.min(i, keys.length - 1));
 const keysValid = r => !!(r && typeof r === "object" && Array.isArray(r.k) && r.k.length && num(r.i));
+/* a deck change's own rule for places saved before it (see the top): read when used, whatever file loads first */
+const rules = () => Array.isArray(window.CM_SLIDE_KEY_RULES) ? window.CM_SLIDE_KEY_RULES.filter(x => x && x.id && typeof x.place === "function") : [];
+const marks = () => rules().map(x => x.id);
+function ruled(d, r, to, keys){
+  for(const x of rules()){ try{ const t = x.place(d, r || null, to, keys); if(num(t) && t < keys.length) to = t; }catch(e){ console.warn("[slide-keys]", e); } }
+  return to;
+}
 /* a position in layout 8's deck (a place saved without keys), in today's deck: its slide by the key layout 8's frozen
    record gives it, or the nearest slide before it that is still there (every slide before it is tried, nearest first) */
 function from8(d, i, keys){
@@ -74,7 +84,7 @@ function from8(d, i, keys){
   if(!num(i) || !Array.isArray(k8) || !k8.length) return i;
   keys = keys || keysOf(d);
   const to = resolve(keys, k8.slice(0, Math.min(i, k8.length - 1) + 1).reverse());
-  return to >= 0 ? to : 0;
+  return ruled(d, null, to >= 0 ? to : 0, keys);   // (saved before keys: before every rule)
 }
 
 /* record the keys of every place the page holds whose keys are missing or were saved for another index (skip(day id,
@@ -93,7 +103,7 @@ function record(skip){
       keys = keys || keysOf(d);
       if(!keys.length) return;
       rec = state.slideKeys[d.id] = rec && typeof rec === "object" ? rec : {};
-      rec[part] = {i, k: trail(keys, Math.min(i, keys.length - 1))};
+      rec[part] = {i, k: trail(keys, Math.min(i, keys.length - 1)), m: marks()};
       changed = true;
     });
     if(rec && !Object.keys(rec).length){ delete state.slideKeys[d.id]; changed = true; }
@@ -115,10 +125,11 @@ function follow(){
       if(!keys.length) return;
       let to;
       if(keysValid(r) && r.i === i){
-        if(keys[i] === r.k[0]) return;   // still on its slide
-        to = resolve(keys, r.k);
+        to = keys[i] === r.k[0] ? i : resolve(keys, r.k);
         if(to < 0) to = near(keys, i);   // every slide of its trail gone: the same index (never past the end), with keys afresh
-        r.i = to; r.k = trail(keys, to); out.keys = true;
+        to = ruled(d, r, to, keys);
+        if(to === i && keys[i] === r.k[0]) return;   // still on its slide
+        r.i = to; r.k = trail(keys, to); r.m = marks(); out.keys = true;
         if(to === i) return;
       } else {
         // saved without keys, or since by a page that saved none: a position in layout 8's deck (see from8)
@@ -212,7 +223,7 @@ if(typeof window.applyUpdate === "function"){
   window.applyUpdate = function(){
     try{
       const d = state.view === "day" ? DAYS.find(x => x.id === state.dayId) : null;
-      if(d && cfDay(d) && num(state.lessonSlide)) sessionStorage.setItem(RESUME_KEYS, JSON.stringify({dayId: d.id, k: trail(keysOf(d), state.lessonSlide)}));
+      if(d && cfDay(d) && num(state.lessonSlide)) sessionStorage.setItem(RESUME_KEYS, JSON.stringify({dayId: d.id, k: trail(keysOf(d), state.lessonSlide), m: marks()}));
       else sessionStorage.removeItem(RESUME_KEYS);
     }catch(e){}
     return __apply.apply(this, arguments);
@@ -228,6 +239,7 @@ if(typeof window.restoreAfterUpdate === "function"){
         const keys = keysOf(d);
         let to = resolve(keys, kept.k);
         if(to < 0 && num(st.lessonSlide) && keys.length) to = near(keys, st.lessonSlide);   // every slide of its trail gone
+        if(to >= 0) to = ruled(d, kept, to, keys);
         if(to >= 0){ st.lessonSlide = to; sessionStorage.setItem(RESUME, JSON.stringify(st)); }
       } else if(d && cfDay(d) && num(st.lessonSlide) && Number(sessionStorage.getItem("lsh_resume_layout")) >= 8){
         // kept by a page running layout 8's deck that saved no keys: from layout 8, by key (an older layout's slide is
@@ -240,5 +252,5 @@ if(typeof window.restoreAfterUpdate === "function"){
 }
 
 settle();   // what was loaded before this file ran (the first loadAll)
-window.cmSlideKeys = {keyOf, keysOf, trail, resolve, from8, settle, BACK};   // .github/scripts/slide-places.cjs
+window.cmSlideKeys = {keyOf, keysOf, trail, resolve, from8, settle, BACK, ruled};   // .github/scripts/slide-places.cjs
 })();
