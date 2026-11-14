@@ -7,7 +7,9 @@
    • Opening the Knowledge Check again (the day's last slide, ✓ Finish Training, 🔁 Retake) shows the recorded result.
    • The results page has no Retake Quiz button and no "retake" wording.
    • A trainer (signed in as admin, not previewing) is not limited: they try the checks as often as they like.
-   A day not passed stays closed until the trainer opens the next day for the trainee (🔓 Open Lessons).
+   A day not passed stays closed until the trainer opens the next day for the trainee (🔓 Open Lessons). Nothing reopens a
+   check: the locked 🔁 Retake says to ask the trainer about opening the next day. The Worker holds the rule too (a
+   trainee's own write keeps an attempt already on their record: keepKcAttempts).
    Loaded after js/cm-case-flow.js, whose submitQuiz, retakeQuiz, renderQuiz and renderQuizNextStep it wraps. */
 (function(){
 "use strict";
@@ -31,6 +33,32 @@ function showRecorded(id){
   state.view = "day"; state.dayId = d.id; state.dayViewMode = "knowledgeCheck";
   state.quizSubmitted = true; state.slideInterstitial = null;
   state.lastScore = o.score; state.lastCorrect = Math.round(o.score / 100 * n); state.lastTotal = n; state.lastPassed = !!p.done;
+  // the Answer Review shows the recorded attempt's own picks (saved with it), never this device's leftovers or a refused
+  // second play-through; a record from before the picks were saved has no per-question review
+  const picks = o && Array.isArray(o.answers) ? o.answers : null;
+  state.quizAnswers = {};
+  if(picks) picks.forEach((v, i) => { if(typeof v === "number") state.quizAnswers[i] = v; });
+  state.kcNoReview = picks ? null : d.id;
+}
+const noReview = d => !!d && state.kcNoReview === d.id && !trainer();
+const NO_REVIEW = "The question-by-question review of this recorded attempt isn't available (it was taken before answers were kept with the score). Your score is recorded.";
+if(typeof window.renderAnswerFeedback === "function"){
+  const __af = window.renderAnswerFeedback;
+  window.renderAnswerFeedback = function(d){
+    if(!noReview(d)) return __af.apply(this, arguments);
+    const el = document.getElementById("answerFeedback"); if(!el) return;
+    el.innerHTML = `<h2 class="cf-ans-h">Answer Review</h2><p class="kc-once-note">${E(NO_REVIEW)}</p>`;
+  };
+}
+if(typeof window.downloadQuizResultPdf === "function"){
+  const __pdf = window.downloadQuizResultPdf;
+  window.downloadQuizResultPdf = async function(id){
+    const d = dayOf(id);
+    if(!noReview(d) || typeof buildAndSavePdf !== "function") return __pdf.apply(this, arguments);
+    if(typeof ensureTraineeName === "function") await ensureTraineeName();
+    const lines = [`Result: ${state.lastCorrect} / ${state.lastTotal} correct (${state.lastScore}%) — ${state.lastPassed ? "PASSED" : "Not yet passing (70% required)"}`, "---", NO_REVIEW];
+    buildAndSavePdf("LSH Case Management Training", `Day ${id} Knowledge Check — Results`, lines, `LSH_Day${id}_Knowledge_Check`);
+  };
 }
 window.cmKcOnce = {taken, official: id => official(progOf(id)), ONCE};
 
@@ -50,14 +78,33 @@ if(typeof window.retakeQuiz === "function"){
 
 /* Submit: refused once the day has an attempt (here or on the trainee's record on the server) */
 const __submit = window.submitQuiz;
+// the day's record on the server: its progress when it has an attempt, null when it has none, FAILED when it couldn't be
+// read (sharedGet can't tell a failed read from an empty one, so the Worker is asked directly where there is one)
+const FAILED = {failed: true};
 async function onServer(id){
-  if(!state.traineeId || typeof sharedGet !== "function") return null;
-  try{ const rec = await sharedGet("trainee:" + state.traineeId); const p = rec && rec.dayProgress && rec.dayProgress[id]; return attemptsIn(p) ? p : null; }catch(e){ return null; }
+  if(!state.traineeId) return null;
+  const pick = rec => { const p = rec && rec.dayProgress && rec.dayProgress[id]; return attemptsIn(p) ? p : null; };
+  try{
+    if(!window.storage && typeof authFetch === "function"){
+      const res = await authFetch("/api/storage/get", {key: "trainee:" + state.traineeId});
+      if(!res || !res.ok) return FAILED;
+      const j = await res.json();
+      return pick(j && j.value ? JSON.parse(j.value) : null);
+    }
+    if(typeof sharedGet !== "function") return null;
+    return pick(await sharedGet("trainee:" + state.traineeId));
+  }catch(e){ return FAILED; }
 }
+let pending = false;   // a submit waiting on the server read: a second click does nothing
 const submit = async function(id){
-  if(state.quizSubmitting) return;
+  if(state.quizSubmitting || pending) return;
+  const picks = Object.assign({}, state.quizAnswers || {});
   if(!trainer()){
-    let p = taken(id) ? progOf(id) : await onServer(id);
+    let p;
+    pending = true;
+    try{ p = taken(id) ? progOf(id) : await onServer(id); }finally{ pending = false; }
+    if(p === FAILED){ say("Couldn't check your record, try again."); return; }
+    if(!p && taken(id)) p = progOf(id);   // taken here while the read was out
     if(p){
       if(!taken(id)){ state.progress = state.progress || {}; state.progress[id] = p; try{ await storeSet("day-progress", state.progress); }catch(e){} }
       say(`You've already taken this Knowledge Check. ${ONCE}`);
@@ -70,9 +117,13 @@ const submit = async function(id){
   // and this keeps it so whatever is on the record)
   const p = progOf(id);
   if(p && !trainer()){
-    const o = official(p);
-    if(o && typeof o.score === "number" && (p.score !== o.score || !!p.done !== !!o.passed)){
-      p.score = o.score; p.done = !!o.passed;
+    const o = official(p), d = dayOf(id);
+    // the first attempt keeps its own picks, so its Answer Review reads the same on any device later
+    const keep = o && Array.isArray(p.history) && p.history[0] === o && !o.answers && p.history.length === 1 && d && (d.quiz || []).length;
+    if(keep) o.answers = d.quiz.map((q, i) => typeof picks[i] === "number" ? picks[i] : null);
+    if(keep || (o && typeof o.score === "number" && (p.score !== o.score || !!p.done !== !!o.passed))){
+      if(o && typeof o.score === "number"){ p.score = o.score; p.done = !!o.passed; }
+      state.kcNoReview = null;
       try{ await storeSet("day-progress", state.progress); if(typeof syncToLedger === "function") await syncToLedger(); }catch(e){}
     }
   }

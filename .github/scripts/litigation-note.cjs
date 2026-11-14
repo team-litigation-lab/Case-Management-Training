@@ -60,6 +60,15 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
                 const again = await go(id, false);
                 check(!again.pop && again.text === NOTE, `${L} ${id}: back on the step, no pop-up again, and the callout is still on the slide`);
             }
+            if (id === 'd4m1-efile') {
+                // the keyboard: Got it has the focus, Esc puts it away; the save adds to marks another device stored meanwhile
+                const f = await page.evaluate(async () => { const s = (await storeGet('litigation-note-seen')) || {}; s['from-other-device'] = 1; await storeSet('litigation-note-seen', s);
+                    const a = document.activeElement; return !!a && a.hasAttribute('data-lgn-ok'); });
+                check(f, `${L} ${id}: the pop-up's Got it takes the keyboard's focus`);
+                await page.keyboard.press('Escape'); await sleep(300);
+                const esc = await page.evaluate(async () => ({ pop: !!document.getElementById('lgnPop'), saved: (await storeGet('litigation-note-seen')) || {} }));
+                check(!esc.pop && esc.saved['d4m1-efile'] > 0 && esc.saved['from-other-device'] === 1, `${L} ${id}: Esc puts the pop-up away, saved with the marks already stored (${JSON.stringify(esc)})`);
+            }
             await page.evaluate(() => { const p = document.getElementById('lgnPop'); if (p) p.remove(); });
         }
         // a trainer: no pop-up; Presenter view says to read it aloud

@@ -5,8 +5,9 @@
 //      "One attempt only — your score is recorded.";
 //   3. the results have no Retake Quiz button and no "retake" wording; ✓ Finish Training, 🔁 Retake and retakeQuiz show the
 //      recorded result instead of a fresh quiz;
-//   4. on the day card, 🔁 Retake stays but is locked ("Ask your trainer to reopen this check"); 👁 Review Score works;
+//   4. on the day card, 🔁 Retake stays but is locked ("Ask your trainer about opening the next day"); 👁 Review Score works;
 //   5. a second device (nothing on it yet) can't take it again either: the record on the server is read before a submit;
+//   5b. the record that can't be read refuses the submit; a refused submit and a second device show the recorded picks;
 //   6. a trainer is not limited.
 // Usage: node .github/scripts/kc-once.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
@@ -56,6 +57,8 @@ const failures = []; const fail = (m) => failures.push(m);
     const second = await page.evaluate((id) => ({ p: state.progress[id], text: document.body.innerText, submitted: state.quizSubmitted, score: state.lastScore }), id);
     if (!second.p || second.p.score !== want || (second.p.history || []).length !== 1) fail(`a second submit should be refused, the first score kept: ${JSON.stringify(second.p)}`);
     if (!second.submitted || second.score !== want) fail(`a refused submit should show the recorded result (${want}%): ${second.score}`);
+    const rightIn = () => page.evaluate((id) => { const d = DAYS.find(x => x.id === id); return d.quiz.filter((q, i) => state.quizAnswers[i] === q.a).length; }, id);
+    if (await rightIn() !== 13) fail(`a refused submit's Answer Review should show the recorded attempt's picks (13 right), not the refused play-through: ${await rightIn()}`);
     const onServer = await page.evaluate(async () => { const r = await fetch('/api/storage/get', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key: 'trainee:' + state.traineeId }) }).then(r => r.json()); return JSON.parse(r.value || '{}').dayProgress || {}; });
     const sp = onServer[id] || {};
     if (sp.score !== want || (sp.history || []).length !== 1) fail(`the trainee's record should hold the one attempt (${want}%): ${JSON.stringify(sp)}`);
@@ -76,7 +79,7 @@ const failures = []; const fail = (m) => failures.push(m);
         return { retake: rt ? { dis: rt.getAttribute('aria-disabled'), title: rt.title } : null, score: rs ? rs.getAttribute('aria-disabled') : 'missing' }; }, id);
     if (!card) fail('no day card for the first day');
     else {
-        if (!card.retake || card.retake.dis !== 'true' || !/Ask your trainer to reopen this check/.test(card.retake.title)) fail(`🔁 Retake should stay on the card, locked, with "Ask your trainer to reopen this check": ${JSON.stringify(card.retake)}`);
+        if (!card.retake || card.retake.dis !== 'true' || !/Ask your trainer about opening the next day/.test(card.retake.title)) fail(`🔁 Retake should stay on the card, locked, with "Ask your trainer about opening the next day": ${JSON.stringify(card.retake)}`);
         if (card.score === 'true' || card.score === 'missing') fail(`👁 Review Score should open the recorded score: ${card.score}`);
     }
 
@@ -88,6 +91,15 @@ const failures = []; const fail = (m) => failures.push(m);
     await page.waitForTimeout(1200);
     const dev2 = await page.evaluate((id) => state.progress[id], id);
     if (!dev2 || dev2.score !== want || (dev2.history || []).length !== 1) fail(`a second device should be refused too (the record already has the attempt): ${JSON.stringify(dev2)}`);
+    if (await rightIn() !== 13) fail(`on a second device the Answer Review should show the recorded attempt's picks (13 right): ${await rightIn()}`);
+
+    // 5b. the record can't be read: the submit is refused (not let through), and nothing is recorded
+    const id2 = await page.evaluate(() => DAYS[1].id);
+    const fr = await page.evaluate(async (id2) => { state.progress = {}; const d = DAYS.find(x => x.id === id2); state.quizAnswers = {}; d.quiz.forEach((q, i) => { state.quizAnswers[i] = q.a; });
+        const af = window.authFetch; window.authFetch = async () => ({ ok: false, status: 503, json: async () => ({}) });
+        try { await window.submitQuiz(id2); } finally { window.authFetch = af; }
+        return { p: state.progress[id2] || null, toast: (document.querySelector('#toast, .toast') || {}).textContent || '' }; }, id2);
+    if (fr.p) fail(`a submit whose record read failed should be refused, not recorded: ${JSON.stringify(fr.p)}`);
 
     // 6. a trainer is not limited
     const tr = await page.evaluate((id) => { state.isAdmin = true; const t = cmKcOnce.taken(id); state.isAdmin = false; return t; }, id);

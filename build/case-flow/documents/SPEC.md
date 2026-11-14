@@ -1,4 +1,4 @@
-# John Doe v. Robert Smith — the case documents (spec)
+# John Doe VS Robert Smith — the case documents (spec)
 
 The document set every Case Flow day works from: `documents/case-flow/<folder>/RS_NN_<Name>.pdf`, built from
 `documents/case-flow/html/RSNN.html` by `node build/case-flow/documents/render.cjs` (headless Chromium).
@@ -10,7 +10,7 @@ overrides it**. A fact a document needs that is in neither is added to case-file
 
 - **Fictional, simulated, training-only.** No real carrier, provider, court, firm or person. The renderer prints
   the footer on every page: `LSH CASE MANAGEMENT TRAINING — SIMULATED DOCUMENT — FICTIONAL PARTIES — NOT A REAL
-  RECORD · John Doe v. Robert Smith · RSNN · page x of y`. Do not repeat it in the body.
+  RECORD · John Doe VS Robert Smith · RSNN · page x of y`. Do not repeat it in the body.
 - **Real-world look.** Each document looks like what its sender would really produce: a carrier's declarations
   page, a hospital-style clinical note, a court caption, a firm letter on LSH Law Group letterhead, a provider
   ledger. Use the classes in `documents/case-flow/html/doc.css` (letterhead, caption, form grid, ledger table, signature block, stamps).
