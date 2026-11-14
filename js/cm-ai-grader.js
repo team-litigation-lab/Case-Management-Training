@@ -12,11 +12,14 @@
      • then each step of the task, with room to say what was done.
    Submit to AI Grader → sends it to runRubricEvaluation (index.html), the way the Knowledge Check takeaways are graded,
    with the activity's own rubric (rubric.ai in js/cm-case-flow-data.js), its scenario, instructions, expected output and
-   checkpoints as the answer key. The result shows as a score, what went well and what to work on next; the answer key
-   (the slide's checks) opens with it. Up to MAX_TRIES graded attempts per activity; the last one counts.
+   checkpoints as the answer key. The result shows as a score, what went well and what to work on next. Up to MAX_TRIES
+   graded attempts per activity; the last one counts. The answer key (the slide's checks) opens only once no attempt is
+   left, or when the trainee chooses 🔑 I'm done (after which no more attempts), so it can't be copied into a resubmission.
 
    Saved in the trainee's own record, "cf-ai-grades" (registered here as a personal key, so it syncs with their progress):
-     {v:1, blocks:{<blockId>:{draft, score, tier, strengths, gaps, growth, at, tries}}, calls:{<blockId>:{at, text}}}
+     {v:1, blocks:{<blockId>:{draft, score, tier, strengths, gaps, growth, at, tries, done}}, calls:{<blockId>:{at, text}}}
+   A sign-in that finds no grades for this trainee starts empty, and logging out clears them, so a shared device never
+   carries one trainee's grades (or used attempts) into the next one's record.
    runRubricEvaluation also writes each graded attempt to the work log (index.html wrapEvaluators: kind "lab", labelled
    "Day <id> · … — Skill Building"), which is where the Scorecard's 🧪 Skill Activities and the trainer read activity scores;
    js/cm-cms-file.js reads the grade for the CMS Case File areas.
@@ -36,13 +39,14 @@ const isTrainer = () => typeof state === "object" && !!(state.isAdmin || state.a
 const audience = () => !!document.body && document.body.classList.contains("audience-mode");
 const DRIVE_DAY = {"d1m1-drive": 1, "d2-drive": 2, "d3-drive": 3, "d4-drive": 4, "d5-drive": 5};
 
-let G = {v: 1, blocks: {}, calls: {}}, loaded = false;
+const fresh = () => ({v: 1, blocks: {}, calls: {}});
+let G = fresh(), loaded = false;
 const busy = {};   // blockId → grading now
 const editing = {};   // blockId → the trainee chose to edit and resubmit
 async function load(force){
   if((loaded && !force) || typeof storeGet !== "function") return;
   loaded = true;
-  try{ const v = await storeGet(KEY); if(v && typeof v === "object") G = Object.assign({v: 1, blocks: {}, calls: {}}, v); }catch(e){}
+  try{ const v = await storeGet(KEY); G = v && typeof v === "object" ? Object.assign(fresh(), v) : fresh(); }catch(e){}
 }
 const save = () => typeof storeSet === "function" ? storeSet(KEY, G) : Promise.resolve();
 const recOf = id => (G.blocks[id] = G.blocks[id] || {tries: 0});
@@ -51,6 +55,16 @@ load().then(() => { if(document.querySelector("[data-aig]")) repaint(); });
 if(typeof loadAll === "function"){
   const __loadAll = loadAll;
   loadAll = async function(){ const r = await __loadAll.apply(this, arguments); await load(true); return r; };
+}
+// logging out leaves nothing of this trainee's grades on the device for the next one to sign in
+if(typeof window.logout === "function"){
+  const __logout = window.logout;
+  window.logout = async function(){
+    const r = await __logout.apply(this, arguments);
+    G = fresh(); Object.keys(busy).forEach(k => delete busy[k]); Object.keys(editing).forEach(k => delete editing[k]);
+    try{ if(typeof storeSet === "function") await storeSet(KEY, null); }catch(e){}
+    return r;
+  };
 }
 
 /* the block, the day it's taught on (the sequence) and that day's id in the app */
@@ -100,7 +114,7 @@ function prefill(id){
 /* ---------- the slide ---------- */
 function resultHtml(id, r){
   const list = (xs, cls) => (xs || []).length ? `<ul class="${cls}">${xs.map(x => `<li>${E(x)}</li>`).join("")}</ul>` : "";
-  const left = MAX_TRIES - (r.tries || 0);
+  const left = r.done ? 0 : MAX_TRIES - (r.tries || 0);
   return `<div class="aig-res" data-aig-result="${E(id)}">
       <div class="aig-score"><b>${E(r.score)}</b><span>/100</span>${r.tier ? `<em>${E(r.tier)}</em>` : ""}</div>
       <div class="aig-fb">
@@ -108,13 +122,16 @@ function resultHtml(id, r){
         ${(r.gaps || []).concat(r.growth || []).length ? `<h4>🎯 What to work on next</h4>${list((r.gaps || []).concat(r.growth || []), "aig-next")}` : ""}
       </div>
       <div class="aig-row"><small>Graded ${E(new Date(r.at).toLocaleString())} · attempt ${E(r.tries)} of ${MAX_TRIES}. Your trainer sees this score on your Scorecard.</small>
-        ${left > 0 && !isTrainer() ? `<button type="button" class="btn btn-ghost btn-sm" onclick="CMAIGrader.edit('${E(id)}')">✏️ Improve it and resubmit (${left} left)</button>` : ""}</div>
+        ${left > 0 && !isTrainer() ? `<button type="button" class="btn btn-ghost btn-sm" onclick="CMAIGrader.edit('${E(id)}')">✏️ Improve it and resubmit (${left} left)</button>
+          <button type="button" class="btn btn-ghost btn-sm" onclick="CMAIGrader.finish('${E(id)}')" title="Keep this score and see the answer key. No more attempts after this.">🔑 I'm done: show the answer key</button>` : ""}</div>
     </div>`;
 }
 function view(id){
   const f = find(id); if(!f) return "";
   const r = G.blocks[id] || {}, graded = typeof r.score === "number", c = SLIDES()[id] || {};
-  const showKey = graded || (isTrainer() && !audience());
+  // the key opens on the final result only (no attempt left, or the trainee stopped): never beside a resubmission
+  const final = graded && !editing[id] && (r.done || (r.tries || 0) >= MAX_TRIES);
+  const showKey = final || (isTrainer() && !audience());
   const draft = typeof r.draft === "string" && r.draft.trim() ? r.draft : prefill(id);
   const box = graded && !editing[id] ? resultHtml(id, r)
     : `<div class="aig-form">
@@ -125,7 +142,7 @@ function view(id){
           <button type="button" class="btn aig-go" onclick="CMAIGrader.submit('${E(id)}')"${busy[id] ? " disabled" : ""}>Submit to AI Grader →</button></div>
       </div>`;
   const key = showKey && (c.checks || []).length ? `<aside class="aig-key"><h4>🔑 Answer key: what your file should hold</h4><ol>${c.checks.map(x => `<li>${hl(x)}</li>`).join("")}</ol>
-      ${isTrainer() && !graded && !audience() ? `<p class="aig-note">Trainer view: trainees see this once their work is graded.</p>` : ""}</aside>` : "";
+      ${isTrainer() && !final && !audience() ? `<p class="aig-note">Trainer view: trainees see this once their last attempt is graded.</p>` : ""}</aside>` : "";
   return `<div class="aig${key ? " aig-2" : ""}" data-aig="${E(id)}"><div class="aig-main">${box}</div>${key}</div>`;
 }
 
@@ -134,8 +151,15 @@ function repaint(){
 }
 function status(id, html){ const el = document.getElementById("cfaig_st_" + id); if(el) el.innerHTML = html; }
 
-/* the box is as tall as what is in it (a box on a slide never scrolls): grown when drawn and as it is typed in */
-function grow(el){ if(!el) return; el.style.height = "auto"; el.style.height = (el.scrollHeight + 4) + "px"; }
+/* the box grows with what is in it, up to a cap (BOX_CAP of the window): past that it scrolls inside, so a long prefill
+   (a live call's transcript, emails) never pushes Submit off a slide whose cards don't scroll */
+const BOX_CAP = 0.38;
+function grow(el){
+  if(!el) return;
+  const cap = Math.max(160, Math.round((window.innerHeight || 768) * BOX_CAP));
+  el.style.height = "auto";
+  el.style.height = Math.min(el.scrollHeight + 4, cap) + "px";
+}
 function growAll(){
   const xs = [...document.querySelectorAll("textarea.aig-box")]; if(!xs.length) return;
   xs.forEach(grow);
@@ -162,15 +186,23 @@ window.CMAIGrader = {
   all: () => G,
   draft(id, v){ recOf(id).draft = String(v || "").slice(0, 12000); clearTimeout(draftT); draftT = setTimeout(save, 700); },
   refill(id){ const el = document.getElementById("cfaig_" + id); const t = prefill(id); if(el) el.value = t; recOf(id).draft = t; save(); },
-  edit(id){ editing[id] = true; repaint(); },
+  edit(id){ if((G.blocks[id] || {}).done) return; editing[id] = true; repaint(); },
+  // the trainee keeps this score: no more attempts, and the answer key opens
+  async finish(id){
+    const r = G.blocks[id]; if(!r || typeof r.score !== "number") return;
+    r.done = true; editing[id] = false; await save();
+    if(window.cmCaseFlow && typeof cmCaseFlow.reveal === "function" && !isTrainer()) cmCaseFlow.reveal(id); else repaint();
+  },
   async submit(id){
     const f = find(id); if(!f || busy[id]) return;
     const el = document.getElementById("cfaig_" + id), text = String(el ? el.value : (recOf(id).draft || "")).trim();
     const r = recOf(id); r.draft = text; await save();
-    if((r.tries || 0) >= MAX_TRIES && !isTrainer()){ status(id, "You've used all " + MAX_TRIES + " graded attempts on this activity. Your last score counts."); return; }
-    // the box as it was filled in, with nothing of the trainee's own: not sent (it would grade the task's own steps)
+    if(((r.tries || 0) >= MAX_TRIES || r.done) && !isTrainer()){ status(id, "You've used all " + MAX_TRIES + " graded attempts on this activity. Your last score counts."); return; }
+    // the box as it was filled in, with nothing of the trainee's own: not sent (it would grade the task's own steps, or
+    // only what the platform filled in)
     const stepLines = new Set(((SLIDES()[id] || {}).steps || []).map((s, i) => `${i + 1}. ${plain(s)}`));
-    const own = text.split("\n").filter(l => !stepLines.has(l.trim()) && !/^(What I did, step by step|From the platform:)/.test(l.trim())).join(" ").replace(/→/g, " ");
+    const filled = new Set(prefill(id).split("\n").map(l => l.trim()).filter(l => l && l !== "→"));
+    const own = text.split("\n").filter(l => !stepLines.has(l.trim()) && !filled.has(l.trim()) && !/^(What I did, step by step|From the platform:)/.test(l.trim())).join(" ").replace(/→/g, " ");
     if(own.split(/\s+/).filter(w => /[A-Za-z]/.test(w)).length < 8){ status(id, "Write what you did after each arrow (→) first, then submit."); return; }
     if(typeof runRubricEvaluation !== "function"){
       status(id, `The AI Grader isn't available on this page right now. Your work is saved. <button type="button" class="btn btn-ghost btn-sm" onclick="CMAIGrader.submit('${E(id)}')">Try again</button>`);
@@ -199,8 +231,8 @@ window.CMAIGrader = {
       busy[id] = false; editing[id] = false;
       await save();
       if(typeof toast === "function") toast(`AI Grader: ${r.score}/100. Your trainer sees it on your Scorecard.`);
-      // the answer key opens, as it did when a trainee finished the old self-check
-      if(window.cmCaseFlow && typeof cmCaseFlow.reveal === "function" && !isTrainer()) cmCaseFlow.reveal(id); else repaint();
+      // the answer key opens once this was the last attempt (as it did when a trainee finished the old self-check)
+      if(r.tries >= MAX_TRIES && window.cmCaseFlow && typeof cmCaseFlow.reveal === "function" && !isTrainer()) cmCaseFlow.reveal(id); else repaint();
     }catch(e){
       busy[id] = false;
       if(btn) btn.disabled = false;
@@ -233,7 +265,7 @@ css.textContent = `
 .aig{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;text-align:left;}
 .aig.aig-2{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);}
 .aig-lab{display:block;margin:0 0 8px;font:800 18px/1.35 var(--font-ui);color:#1E2340;}
-.aig-box{width:100%;box-sizing:border-box;min-height:120px;overflow-y:hidden;resize:none;padding:12px 14px;border:2px solid #C9D3EA;border-radius:12px;font:600 16px/1.45 var(--font-ui);color:#141A2E;background:#fff;}
+.aig-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow-y:auto;resize:none;padding:12px 14px;border:2px solid #C9D3EA;border-radius:12px;font:600 16px/1.45 var(--font-ui);color:#141A2E;background:#fff;}
 .aig-box:focus{outline:3px solid #DB8437;outline-offset:1px;border-color:#DB8437;}
 .aig-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:10px;}
 .aig-row small{font:700 16px/1.35 var(--font-ui);color:#4A5068;}
