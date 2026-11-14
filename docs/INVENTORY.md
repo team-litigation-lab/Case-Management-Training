@@ -104,7 +104,7 @@ None.
 
 `/api/ai` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (20)
+## Node checks (21)
 
 | Check | What it covers |
 |---|---|
@@ -120,6 +120,7 @@ None.
 | `drive-connect.cjs` | Linking a trainee's Google Drive folder (shared with the service account and pasted, as Foundational links a Drive; every refusal says why; Google answered by the test) |
 | `drive-grades.cjs` | The Backup Drive is auto-graded day by day from the Drive itself (Days 2–5, against an in-memory Google Drive) |
 | `drive-naming.cjs` | The firm's file naming convention on the Backup Drive (one rule with the CMS filing; every name checked, each wrong one with the name it should have) |
+| `drive-trainer-access.cjs` | A trainee's linked Google Drive opens at their case folders, for them and for a trainer (rootUrl/caseUrl, GDRIVE_TRAINER_EMAILS added to the folder without an email) |
 | `inventory.cjs` | The code inventory (docs/INVENTORY.md) is in step with the files: run node build/inventory.cjs after adding, removing or renaming one |
 | `kc-on-slides.cjs` | Every Knowledge Check answer is taught on the slides (its key words are on the revised deck or the slide sources) |
 | `r2-docs.mjs` | Documents served from R2 (ranges, 304s, static assets as the fallback) |
@@ -129,7 +130,7 @@ None.
 | `tool-links.cjs` | Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's) |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
-## Browser checks (50)
+## Browser checks (51)
 
 | Check | What it covers |
 |---|---|
@@ -154,6 +155,7 @@ None.
 | `doc-filing.cjs` | Filing the case documents into the CMS, named the firm's way (the CMS answered by the test) |
 | `doc-relay.cjs` | Relaying a Portal simulator's document to the CMS (the records simulator's records and bills reach the CMS beside the lesson; only the Portal may ask) |
 | `doc-viewer-file.cjs` | The document viewer offers Download PDF only, and it downloads the PDF |
+| `drive-link-option.cjs` | 🔗 Link my Google Drive is always there for a trainee (says to ask the trainer when linking isn't switched on), its steps are clear, and a linked Drive opens at the case folders for the trainee and the trainer |
 | `drive-slide.cjs` | Day 1's Backup File Maintenance slide is the Backup Drive task, the retired case folder stays gone, and the 🏷 naming convention box is where the drive is worked on without costing a slide its size |
 | `drive-trainer-names.cjs` | A trainer's Backup Drive view reads the names as the Worker sends them: only the names a grade is lower for are an issue, and each wrong name is read from the trainee's own report when their detail opens |
 | `exhibit-audit.cjs` | The exhibit audit, the completed package and the Service Confirmation (the set audited, the finished set revealed, the service confirmation filed and backed up; the CMS answered by the test) |

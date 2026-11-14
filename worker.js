@@ -748,7 +748,7 @@ function unb64url(str) {
 const driveConfigured = (env) => !!(env && env.GDRIVE_SA_EMAIL && env.GDRIVE_SA_KEY);
 /* For /version: whether trainees can link their Drive, and if not which half is missing. Names only, never a value. */
 const driveConfigNote = (env) => driveConfigured(env)
-  ? `ON (GDRIVE_SA_EMAIL and GDRIVE_SA_KEY are set${env.GDRIVE_SA_SUBJECT ? "; GDRIVE_SA_SUBJECT is set" : "; GDRIVE_SA_SUBJECT not set: folders only on a personal My Drive, no copies"})`
+  ? `ON (GDRIVE_SA_EMAIL and GDRIVE_SA_KEY are set${env.GDRIVE_SA_SUBJECT ? "; GDRIVE_SA_SUBJECT is set" : "; GDRIVE_SA_SUBJECT not set: folders only on a personal My Drive, no copies"}${trainerEmails(env).length ? `; GDRIVE_TRAINER_EMAILS: ${trainerEmails(env).length} trainer address(es) added to each folder` : "; GDRIVE_TRAINER_EMAILS not set: trainers can't open a trainee's folder"})`
   : `OFF (missing ${["GDRIVE_SA_EMAIL", "GDRIVE_SA_KEY"].filter((k) => !env[k]).join(" and ")})`;
 function saKey(env) {
   let raw = String(env.GDRIVE_SA_KEY || "").trim(), email = "";
@@ -814,6 +814,21 @@ async function addSubject(env, fid) {
     return r.ok;
   } catch (e) { return false; }
 }
+/* 📁 The trainers, so they can open a trainee's Backup Drive from 🔗 Trainee Drives and check the day's work:
+   GDRIVE_TRAINER_EMAILS (a plain variable: addresses split by commas or spaces; a Google Group as group:team@…) are added
+   to the trainee's folder as Commenters, without an email. Best effort, on each link, and on a ✓ Check when the list has
+   changed since. A trainer not on the list is asked by Google to request access. Returns the list it shared with. */
+const trainerEmails = (env) => String((env && env.GDRIVE_TRAINER_EMAILS) || "").split(/[\s,;]+/).map((s) => s.trim().toLowerCase()).filter((s) => /^(group:)?[^@\s:]+@[^@\s]+\.[^@\s]+$/.test(s)).slice(0, 20);
+async function addTrainers(env, fid) {
+  const list = trainerEmails(env);
+  if (!list.length || !fid) return "";
+  let token; try { token = await saToken(env, false); } catch (e) { return ""; }
+  await Promise.all(list.map((a) => fetch(`${DRIVE_API}/files/${encodeURIComponent(fid)}/permissions?sendNotificationEmail=false&supportsAllDrives=true`, { method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+    body: JSON.stringify({ role: "commenter", type: a.startsWith("group:") ? "group" : "user", emailAddress: a.replace(/^group:/, "") }) }).catch(() => null)));
+  return list.join(",");
+}
+const folderUrl = (fid) => fid ? `https://drive.google.com/drive/folders/${encodeURIComponent(fid)}` : "";
 /* A trainee's drive record is cm:drive:<id>, under this program's "cm:" prefix like every other record. It was once
    drive:<id> with no prefix, a key the Foundations training's own Backup Drive also uses for the same trainee ids,
    so the two programs overwrote each other's link, tokens and grades. That old key is read once, as a fallback, for
@@ -964,6 +979,7 @@ function driveStatus(env, rec) {
     email: (rec && rec.email) || "",
     folderName: (rec && rec.rootName) || "",
     rootUrl: rec && rec.rootId ? `https://drive.google.com/drive/folders/${encodeURIComponent(rec.rootId)}` : "",
+    caseUrl: rec && rec.rootId && rec.builtAt ? folderUrl((rec.folders || {})[CLIENT_FOLDER]) : "",   // 📁 John Doe's case folder in it
     built: !!(rec && rec.builtAt),
     builtAt: (rec && rec.builtAt) || null,
     checkedAt: (rec && rec.checkedAt) || null,
@@ -992,6 +1008,8 @@ function driveReport(id, rec, brief) {
     email: (driveLinked(rec) && rec.email) || "",
     folder: (driveLinked(rec) && rec.rootName) || "",
     linkedBy: (driveLinked(rec) && rec.linkedBy) || "",
+    rootUrl: (driveLinked(rec) && folderUrl(rec.rootId)) || "",   // 📁 Open Drive, for a trainer (js/cm-drive-admin.js)
+    caseUrl: (driveLinked(rec) && rec.builtAt && folderUrl((rec.folders || {})[CLIENT_FOLDER])) || "",
     connectedAt: (rec && rec.connectedAt) || null,
     attempts: (setup && setup.attempts) || 0,
     passed: !!(setup && setup.ok),
@@ -1890,12 +1908,14 @@ export default {
             if (f.trashed) return json({ error: "That folder is in your Google Drive's trash. Restore it, or make a new one, then link it.", code: "DRIVE_LINK_BAD" }, 400);
             if (!(f.capabilities || {}).canAddChildren) return json({ error: `The folder is shared with the platform as a Viewer. Change ${shareAddr(env)} to Editor on it, then link it again.`, code: "DRIVE_NOT_SHARED" }, 400);
             await addSubject(env, fid);   // so the copies written as GDRIVE_SA_SUBJECT land in it (no email is sent)
+            const trainers = await addTrainers(env, fid);   // 📁 and the trainers can open it (GDRIVE_TRAINER_EMAILS; no email is sent)
             const same = rec && rec.rootId === fid;
             rec = Object.assign({}, rec, {
               rootId: fid, rootName: clip(f.name || "", 120), linkedAt: new Date().toISOString(),
               email: clip(((f.owners || [])[0] || {}).emailAddress || "", 120),
               connectedAt: (rec && rec.connectedAt) || new Date().toISOString(),
               linkedBy: byTrainer ? "trainer" : "trainee",
+              trainers,
             });
             ["refresh", "access", "exp"].forEach((k) => delete rec[k]);   // the old Google sign-in's tokens, no longer used
             if (!same) { rec.folders = {}; delete rec.builtAt; delete rec.lastMissing; }   // another folder: its structure is made in it
@@ -1931,6 +1951,8 @@ export default {
             return json({ verified: out, report: driveReport(who, rec) });
           }
           if (action === "check") {
+            // a trainer list changed since the folder was linked: the trainers are added to it now
+            if (trainerEmails(env).join(",") !== (rec.trainers || "")) { rec.trainers = await addTrainers(env, rec.rootId); await driveWrite(env, who, rec); }
             const out = await driveVerify(env, who, rec);
             return json({ verified: out, drive: driveStatus(env, rec) });
           }
