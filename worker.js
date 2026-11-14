@@ -1773,6 +1773,13 @@ export default {
           await ownerPut(kv, `trainee:${out.id}`, JSON.stringify(rec));
           out.existing = rec;
         }
+        // 🏷 A Batch ID corrected on the Portal reaches the record the sign-in opened (its id stays; only the batch it shows
+        // changes), e.g. an account a trainer merged (👥) into the one kept: the Portal's signed ticket is who the trainee is
+        if (out.existing && who.batch && batchKey(out.existing.batch || "") !== batchKey(who.batch)) {
+          const rec = Object.assign({}, out.existing, { batch: canonicalBatch(who.batch) || who.batch });
+          await ownerPut(kv, `trainee:${out.id}`, JSON.stringify(rec));
+          out.existing = rec;
+        }
         return json(Object.assign(out, { name: who.name, first: who.first, last: who.last, batch: who.batch }));
       }
 

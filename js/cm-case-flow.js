@@ -2985,7 +2985,7 @@ if(typeof window.sopRunOfShow === "function"){
     if(d.discussionQuestion && spare >= 18) add(8, {title: "End-of-day discussion", say: `“Before the Knowledge Check, let's step back and talk about this together: ${E(d.discussionQuestion)}”`, do: ["Take two or three answers and connect each one to a moment on John Doe's file from today."]});
     add(sc.kc, {title: `Knowledge Check · ${game.icon} ${E(game.name)}`, do: [
       `Trainees open the Knowledge Check from the last slide: ① today's game, ${E(game.name)}, then ② the module's takeaway, and one Submit.`,
-      `70% marks the day complete. Below that it's a “not yet”: they can move on and retake it, and their best score counts.`],
+      `70% marks the day complete. One attempt only: the first score is the one recorded. Below 70%, open the next day for them in 🔓 Open Lessons.`],
       say: `“Last stretch for today. The Knowledge Check is a game, ${game.name}, and then a short takeaway, a few lines in your own words about what you will do differently. No looking at each other's screens.”`,
       watch: "Stop presenting while they answer, so nobody reads answers off the shared screen."});
     add(5, {title: "Close", do: [`Ask everyone to send quick feedback with the 💬 Feedback button.`, `Click <b>■ End</b> in Presenter view.`],
