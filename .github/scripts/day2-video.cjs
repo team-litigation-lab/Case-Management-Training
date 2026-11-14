@@ -54,13 +54,14 @@ const spec = JSON.parse(fs.readFileSync(path.join(__dirname, '../../build/videos
                 const v = document.querySelector('video'); if (!v) return null;
                 const ch = [...document.querySelectorAll('.cm-dv-chapters button')]; if (ch[5]) ch[5].click();
                 await new Promise(r => setTimeout(r, 1200));
-                return { h264: !!v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"'), src: v.currentSrc || v.getAttribute('src') || (v.querySelector('source') || {}).src || '', ready: v.readyState, dur: v.duration, t: v.currentTime, tracks: v.textTracks.length, chapters: ch.length };
+                return { h264: !!v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"'), src: v.currentSrc || v.getAttribute('src') || (v.querySelector('source') || {}).src || '', ready: v.readyState, dur: v.duration, t: v.currentTime, tracks: v.textTracks.length, cc: !!document.querySelector('#cm-dv .cm-dv-cc') && (v.textTracks[0] || {}).mode === 'hidden', chapters: ch.length };
             });
             if (!v) fail('▶ Video should open the viewer with the video');
             else {
                 if (!/\/decks\/day2\/day2-narrated\.mp4$/.test(v.src)) fail(`the viewer should play decks/day2/day2-narrated.mp4: ${v.src}`);
                 if (v.h264 && (v.ready < 1 || !(v.dur > 60))) fail(`the Day 2 video doesn't load: readyState ${v.ready}, duration ${v.dur}`);   // CI's Chromium has no H.264: playback is checked only where the browser can play it (CLAUDE.md)
                 if (!v.tracks) fail('the Day 2 video has no captions track');
+                else if (!v.cc) fail('the Day 2 captions should be in the strip under the video (the track hidden), as on Day 1');
                 if (v.chapters !== inVideo) fail(`the viewer should list ${inVideo} slides as chapters: ${v.chapters}`);
                 if (Math.abs(v.t - spec.video.starts[5]) > 3) fail(`the 6th chapter should seek to ${spec.video.starts[5]}s: ${v.t}`);
             }

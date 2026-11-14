@@ -990,6 +990,8 @@ function driveReport(id, rec, brief) {
     traineeId: id,
     connected: driveLinked(rec),
     email: (driveLinked(rec) && rec.email) || "",
+    folder: (driveLinked(rec) && rec.rootName) || "",
+    linkedBy: (driveLinked(rec) && rec.linkedBy) || "",
     connectedAt: (rec && rec.connectedAt) || null,
     attempts: (setup && setup.attempts) || 0,
     passed: !!(setup && setup.ok),
@@ -1656,7 +1658,7 @@ export default {
         const m = html.match(/APP_BUILD = "([^"]+)"/);
         // Changes on every Cloudflare deploy; open pages use it to pick up a new version.
         const deployment = (env.CF_VERSION_METADATA && env.CF_VERSION_METADATA.id) || "unknown";
-        return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nDeployment: ${deployment}\nWorker: secure-mode worker.js\nSecure mode: ${adminPass(env) ? "ON" : "OFF"}\nAdmin password: ${adminPassStatus(env)}\nBackup Drive (Google): ${driveConfigNote(env)}\nAI provider: ${geminiKeyNames(env).length ? "Google Gemini" : (gatewayOn(env) ? "Google Gemini via the Portal's AI gateway" : "none — add GEMINI_API_KEY")}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
+        return new Response(`Portal build deployed: ${m ? m[1] : "unknown (old index.html — no build tag)"}\nDeployment: ${deployment}\nWorker: secure-mode worker.js\nSecure mode: ${adminPass(env) ? "ON" : "OFF"}\nAdmin password: ${adminPassStatus(env)}\nBackup Drive (Google): ${driveConfigNote(env)}\nAI provider: ${gatewayOn(env) ? "the Main Portal's AI gateway (AI_GATEWAY_SECRET is set: every AI call goes there, Claude first)" : geminiKeyNames(env).length ? "Google Gemini (this Worker's own keys; set AI_GATEWAY_SECRET to use the Portal's gateway)" : "none — add GEMINI_API_KEY or AI_GATEWAY_SECRET"}\n`, { headers: { "Content-Type": "text/plain", "Cache-Control": "no-store" } });
       }
       if (!path.startsWith("/api/")) {
         // (asked without the browser's validators, so a page comes back whole, to be stamped, never as a bare 304)
@@ -1857,7 +1859,11 @@ export default {
         // admin here and nobody has a drive. The page reads the code and simply shows nothing.
         if (!who) return json({ error: "Sign in as a trainee to use the Backup Drive.", code: "DRIVE_NOT_A_TRAINEE" }, 403);
         if (action === "report") return json({ report: driveReport(who, await driveRead(env, who)) });
-        if (!mine && action !== "status" && action !== "checkFor" && action !== "gradeFor") return json({ error: "A trainer can read a trainee's Backup Drive, not change it." }, 403);
+        // A trainer may link (or unlink) a trainee's Drive folder for them from 🛡 Admin Master Control → Trainee Audit
+        // (the trainee shares the folder with the platform's service account first); every other change is the trainee's.
+        const byTrainer = !mine && tok.role === "a" && !!who && (action === "link" || action === "disconnect");
+        if (byTrainer && !(await kvOf(env).get(`trainee:${who}`))) return json({ error: "No trainee with that id." }, 404);
+        if (!mine && !byTrainer && action !== "status" && action !== "checkFor" && action !== "gradeFor") return json({ error: "A trainer can read a trainee's Backup Drive, and link or unlink its folder, not change anything else." }, 403);
         if (!driveConfigured(env)) return json({ drive: driveStatus(env, null) });
         let rec = await driveRead(env, who);
         try {
@@ -1882,6 +1888,7 @@ export default {
               rootId: fid, rootName: clip(f.name || "", 120), linkedAt: new Date().toISOString(),
               email: clip(((f.owners || [])[0] || {}).emailAddress || "", 120),
               connectedAt: (rec && rec.connectedAt) || new Date().toISOString(),
+              linkedBy: byTrainer ? "trainer" : "trainee",
             });
             ["refresh", "access", "exp"].forEach((k) => delete rec[k]);   // the old Google sign-in's tokens, no longer used
             if (!same) { rec.folders = {}; delete rec.builtAt; delete rec.lastMissing; }   // another folder: its structure is made in it
