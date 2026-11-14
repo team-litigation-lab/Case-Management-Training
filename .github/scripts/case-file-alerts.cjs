@@ -107,6 +107,8 @@ const DATA = {
             openOnly: keys({ 'case-flow': { reached: { 'd1m1-open': 1 } } }),
             caseIdMissing: keys({ 'case-flow': { reached: { 'd1m1-open': 3, 'd1m2-a1': 1 }, ticks: { 'd1m1-open': [true] } }, 'drive-setup': { ok: true } }),
             driveNone: keys({ 'case-flow': { reached: { 'd1m1-open': 3, 'd1m2-a1': 1 }, ticks: { 'd1m1-open': [true] }, work: { 'd1m1-open': { ref: 'CM-1', tool: 'cms' } } } }),
+            aiGraded: keys({ 'case-flow': { reached: { 'd1m1-open': 4, 'd1m2-a1': 2 }, revealed: { 'd1m1-open': ago(1) }, work: { 'd1m1-open': { ref: 'JD-1', tool: 'cms' } } }, 'cf-ai-grades': { blocks: { 'd1m1-open': { score: 95 } } }, 'drive-setup': { ok: true } }),
+            noTicks: keys({ 'case-flow': { reached: { 'd1m1-open': 4, 'd1m2-a1': 2 }, work: { 'd1m1-open': { ref: 'JD-1', tool: 'cms' } } }, 'drive-setup': { ok: true } }),
             driveFail: keys({ 'drive-setup': { ok: false, score: 40, attempts: 1, at: ago(1), firstAt: ago(1), left: 2 } }),
             driveStuck: keys({ 'drive-setup': { ok: false, score: 40, attempts: 3, at: ago(1), firstAt: ago(30), left: 2 } })
         };
@@ -129,6 +131,7 @@ const DATA = {
     if (rules.notWorked.length) fail(`no opening activity worked: no case-file alert yet: ${JSON.stringify(rules.notWorked)}`);
     if (rules.openOnly.length) fail(`the opening activity in progress (not moved on) raises nothing yet: ${JSON.stringify(rules.openOnly)}`);
     if (!rules.caseIdMissing.includes('caseid') || rules.caseIdMissing.includes('conflict')) fail(`moved on with no CMS Case ID and the Conflict Check ticked: only R4: ${JSON.stringify(rules.caseIdMissing)}`);
+    if (rules.aiGraded.includes('conflict') || rules.noTicks.includes('conflict')) fail(`R6 reads only a self-tick record: an activity the AI Grader took the place of the ticks for raises no Conflict Check alert: ${JSON.stringify([rules.aiGraded, rules.noTicks])}`);
     if (!rules.driveNone.includes('drive:none')) fail(`moved past Day 1's opening with no Backup Drive should be R3: ${JSON.stringify(rules.driveNone)}`);
     if (JSON.stringify(rules.driveFail) !== JSON.stringify(['drive:setup'])) fail(`Day 1's folders failing their check is R3: ${JSON.stringify(rules.driveFail)}`);
     const stuckRule = await page.evaluate(({ H }) => cmCaseAlerts.compute({ 'drive-setup': { ok: false, attempts: 3, at: new Date(Date.now() - H).toISOString(), firstAt: new Date(Date.now() - 30 * H).toISOString(), left: 2 } }, {})[0].rule, { H });

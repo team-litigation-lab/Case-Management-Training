@@ -40,7 +40,9 @@
                     trainee worked it and moved on, but logged no CMS Case ID and filed no document into a case.
      R5 lowskill    a Skill Activity's latest graded attempt below 50%.
      R6 conflict    the Conflict Check not done: Day 1's opening activity worked and moved past, its first checkpoint
-                    ("Conflict Check documented before the matter was created") never ticked.
+                    ("Conflict Check documented before the matter was created") never ticked. Only a record from the
+                    self-tick Check Your Work (it has ticks) can raise it: once the AI Grader has graded the activity
+                    (cf-ai-grades), its score and R5 speak for the work instead.
      R7 kcfail      a Knowledge Check failed twice or more (each below 70%) and still not passed.
      R8 stuck       stuck on a step for long: a document still unfiled 24 h after its first attempt, Day 1's folders still
                     not built 24 h after the first try, or a Knowledge Check not passed 48 h after the first attempt.
@@ -211,10 +213,12 @@ function compute(data, ctx){
   // R6 — the Conflict Check (the opening activity's first checkpoint)
   const ticks = ((cf.ticks || {})[OPEN_ACT]) || [], nChecks = (blocks()[OPEN_ACT] && blocks()[OPEN_ACT].checks.length) || 8;
   const othersTicked = ticks.slice(1).filter(Boolean).length;
-  if(openWorked && !ticks[0] && (movedOn || othersTicked >= nChecks - 1)){
+  // the ticks are gone (the AI Grader took the self-check's place): only a record from before it, with ticks and no AI grade, is judged
+  const aiGrade = (((data["cf-ai-grades"] || {}).blocks || {})[OPEN_ACT] || {}).score;
+  if(openWorked && typeof aiGrade !== "number" && ticks.some(t => t != null) && !ticks[0] && (movedOn || othersTicked >= nChecks - 1)){
     add({key: "conflict", rule: "conflict", sev: "high", at: (cf.tickAt || {})[OPEN_ACT] || cf.updatedAt || null, fixable: true,
       title: "Conflict Check not documented", detail: `R6: "${blockTitle(OPEN_ACT)}" was left with its first checkpoint (Conflict Check documented before the matter was created) unticked${othersTicked ? `, ${othersTicked} other checkpoint${othersTicked === 1 ? "" : "s"} ticked` : ""}.`,
-      fix: "In CMS → New Case, run and document the Conflict Check on every party's full legal name, then hand the activity in to the AI Grader."});
+      fix: `In CMS → New Case, run and document the Conflict Check on every party's full legal name, then hand "${blockTitle(OPEN_ACT)}" in to the 🤖 AI Grader on its last slide.`});
   }
 
   // R5 — a Skill Activity's latest graded attempt below 50%
