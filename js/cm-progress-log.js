@@ -61,6 +61,35 @@ const RULES = {
   kcfail:   {icon: "✍️", name: `Knowledge Check failed ${T.KC_FAILS}+ times`, why: `A Knowledge Check was failed ${T.KC_FAILS} or more times (under ${T.KC_PASS}%) and is not passed yet.`},
   stuck:    {icon: "⏳", name: "Stuck on a step", why: `The same step is still open ${T.STUCK_H} h or more after the first attempt (${T.KC_STUCK_H} h for a Knowledge Check).`}
 };
+/* What each item teaches. A trainee is not only told what is missing: they see the standard the firm holds the work to,
+   why it matters on John Doe's file, the next step, and the lesson that teaches it (📖 Learn it opens its slide). */
+const TEACH = {
+  refused:  {standard: "Every document goes into the CMS under the firm's name: <Case ID>_<Last-First>_<Type>_<YYYY-MM-DD>.<ext>, the Type being the category it is filed under.",
+             why: "A colleague covering John Doe's file finds the Police Report or a bill by its name alone. A name the CMS refuses is a document the file doesn't have yet.",
+             learn: ["d1m1-drive", "task"]},
+  wrongcat: {standard: "A document is filed under the category the firm keeps it in: records with Medical Records, bills with Bills, the retainer with Intake.",
+             why: "Requests from Atty. Thorne and the adjuster are answered from the categories. A bill filed under Medical Records is a bill nobody counts in the specials.",
+             learn: ["d1m1-drive", "task"]},
+  drive:    {standard: "The Backup Drive holds the firm's folders exactly: named, numbered and nested as the standard on Day 1's slide, every one still there.",
+             why: "The backup is the copy the firm works from when the CMS is down. A missing folder is a place a filed document can't land.",
+             learn: ["d1m1-drive", "task"]},
+  caseid:   {standard: "The matter is opened in the CMS and saved, so it has its Case ID, before any document is filed or any contact is logged.",
+             why: "Every name, note and filing on John Doe's file carries that Case ID. Without it, nothing you do can be tied to his case.",
+             learn: ["d1m1-open", "task"]},
+  conflict: {standard: "The Conflict Check is run and documented on every party's full legal name before the matter is created.",
+             why: "If the firm already acts for Robert Smith or his carrier, it cannot take John Doe's case. Checking after the matter exists is too late.",
+             learn: ["d1m1-open", "task"]},
+  lowskill: {standard: "A Skill Activity is graded against its rubric: every step done, in order, with the record the step asks for.",
+             why: "Each activity is a piece of John Doe's case. A gap left here is a gap the next step of the case builds on.",
+             learn: null},
+  kcfail:   {standard: "A Knowledge Check is passed at 70%: the day's rules, in your own words, applied to John Doe's file.",
+             why: "The Knowledge Check is the day's rules in use. A rule you can't apply in the check is one you'll miss on a live file.",
+             learn: null},
+  stuck:    {standard: "A step that is started is finished, or raised with your trainer, the same day.",
+             why: "An unfinished step on a live case is a deadline or a document left waiting. Asking early is part of the job.",
+             learn: null}
+};
+
 
 /* ---------- small helpers ---------- */
 const ms = at => { const t = at ? Date.parse(at) : NaN; return isFinite(t) ? t : 0; };
@@ -193,7 +222,7 @@ function compute(data, ctx){
   (data["work-log"] || []).filter(e => e && e.kind === "lab" && typeof e.score === "number" && !/Self-Summary/.test(e.label || "") && !/^Random Task/.test(e.label || ""))
     .forEach(e => { const k = e.label || e.toolId || "Skill Activity"; if(!latest[k] || ms(e.at) >= ms(latest[k].at)) latest[k] = e; });
   Object.entries(latest).forEach(([k, e]) => { if(e.score >= T.LOW_SKILL) return;
-    add({key: `lowskill:${k}`, rule: "lowskill", sev: e.score < 30 ? "high" : "medium", at: e.at || null, fixable: true,
+    add({key: `lowskill:${k}`, rule: "lowskill", block: e.blockId || e.block || null, sev: e.score < 30 ? "high" : "medium", at: e.at || null, fixable: true,
       title: `${label(k)}: ${e.score}%`, detail: `R5: the latest graded attempt is under ${T.LOW_SKILL}%${(e.gaps || []).length ? `. Gaps: ${(e.gaps || []).slice(0, 2).join("; ")}` : ""}.`,
       fix: "Re-read the activity's task and rubric, redo it and submit it again."}); });
 
@@ -328,10 +357,35 @@ function myLog(){
   const fix = compute(data, {rec: {dayProgress: state.progress || {}}}).filter(a => a.fixable);
   return {list, fix};
 }
+/* 📖 Learn it: the slide that teaches the item, on its day (a low score: the activity's own task) */
+function learnOf(a){
+  const t = TEACH[a.rule] || {};
+  if(t.learn) return t.learn;
+  if(a.rule === "lowskill" && a.block) return [a.block, "task"];
+  return null;
+}
+function lessonAt(id){ try{ for(const d of DAYS){ const l = (d.lessons || []).find(x => x.cf && x.cf.block.id === id); if(l) return {day: d, title: l.cf.block.title}; } }catch(e){} return null; }
+function teachHtml(a, cls){
+  const t = TEACH[a.rule] || {}, lr = learnOf(a), at = lr && lessonAt(lr[0]);
+  const detail = String(a.detail || "").replace(/^R\d+:\s*/, "");   // the rule's code is for the trainer
+  return `<b>${E(a.icon)} ${E(a.title)}</b>`
+    + (detail ? `<span class="${cls}-d"><i>What your work shows:</i> ${E(detail)}</span>` : "")
+    + (t.standard ? `<span class="${cls}-std"><i>📏 The standard:</i> ${E(t.standard)}</span>` : "")
+    + (t.why ? `<span class="${cls}-why"><i>💡 Why it matters:</i> ${E(t.why)}</span>` : "")
+    + (a.fix ? `<span class="${cls}-do"><i>🛠 Your next step:</i> ${E(a.fix)}</span>` : "")
+    + (at ? `<button type="button" class="plog-learn" onclick="cmProgressLog.learn('${E(lr[0])}','${E(lr[1])}')">📖 Learn it: ${E(at.title)} →</button>` : "");
+}
+function learnGo(id, view){
+  const at = lessonAt(id); if(!at) return;
+  if(typeof closeMissing === "function") closeMissing();
+  if(typeof goto === "function") goto("day", at.day.id);
+  setTimeout(() => { state.dayViewMode = "slides"; if(typeof render === "function") render();
+    setTimeout(() => { if(window.cmCaseFlow && cmCaseFlow.toView) cmCaseFlow.toView(id, view); }, 0); }, 0);
+}
 function needsHtml(fix){
   if(!fix.length) return "";
   return `<div class="plog-fix" role="region" aria-label="Needs fixing"><div class="plog-fix-h">⚠ Needs fixing <span>${fix.length}</span><small>Your trainer sees these too.</small></div>
-    <ul>${fix.map(a => `<li class="sev-${a.sev}"><b>${E(a.icon)} ${E(a.title)}</b><span class="plog-fix-d">${E(a.detail)}</span><span class="plog-fix-do"><i>What to do:</i> ${E(a.fix)}</span></li>`).join("")}</ul></div>`;
+    <ul>${fix.map(a => `<li class="sev-${a.sev}">${teachHtml(a, "plog-fix")}</li>`).join("")}</ul></div>`;
 }
 function rowHtml(e){
   return `<li class="plog-row tone-${e.tone || "info"}" data-at="${E(e.at)}" data-kind="${E(e.kind || "")}"><span class="plog-time">${E(fmtTime(e.at))}</span><span class="plog-ic" aria-hidden="true">${E(e.icon)}</span>
@@ -485,8 +539,8 @@ function openMissing(btn){
   const fix = myLog().fix; if(!fix.length) return window.cmProgressLog.jump();
   const box = document.createElement("div"); box.id = "plogMissing"; box.className = "plog-missing"; box.setAttribute("role", "dialog"); box.setAttribute("aria-label", "What you need to fix");
   box.innerHTML = `<div class="plog-missing-h"><b>⚠ ${fix.length} thing${fix.length === 1 ? "" : "s"} to fix</b><button type="button" aria-label="Close" onclick="cmProgressLog.close()">✕</button></div>
-    <p class="plog-missing-sub">What is missing from your case file, and what to do about it. Your trainer sees these too.</p>
-    <ol>${fix.map(a => `<li class="sev-${a.sev}"><b>${E(a.icon)} ${E(a.title)}</b>${a.detail ? `<span>${E(a.detail)}</span>` : ""}<span class="plog-missing-do"><i>What to do:</i> ${E(a.fix)}</span></li>`).join("")}</ol>
+    <p class="plog-missing-sub">For each one: what your work shows, the standard the firm holds it to, why it matters on John Doe's file, your next step, and the lesson that teaches it. Your trainer sees these too.</p>
+    <ol>${fix.map(a => `<li class="sev-${a.sev}">${teachHtml(a, "plog-missing")}</li>`).join("")}</ol>
     <button type="button" class="btn btn-navy btn-sm" onclick="cmProgressLog.close(); cmProgressLog.jump()">📒 Open my Progress Log</button>`;
   document.body.appendChild(box);
   const r = btn.getBoundingClientRect(), w = box.offsetWidth;
@@ -496,6 +550,7 @@ function openMissing(btn){
 }
 
 window.cmProgressLog = {
+  learn: learnGo,
   entries, compute, RULES, T, ownData,
   html: logHtml,
   open: openMissing, close: closeMissing,
@@ -536,6 +591,12 @@ const st = document.createElement("style"); st.id = "cm-progress-log"; st.textCo
 .plog-missing li span{display:block;font-size:14px;color:#3c4160;}
 .plog-missing li.sev-high::marker{color:#C0392B;}
 .plog-missing .plog-missing-do{color:#1E2340;}
+.plog-missing li > span, .plog-fix li > span{display:block;margin-top:4px;}
+.plog-missing-std, .plog-fix-std{color:#1E2340;font-weight:700;} .plog-missing-why, .plog-fix-why{color:#2E3245;font-weight:600;}
+.plog-missing li i, .plog-fix li i{font-style:normal;color:#B4581A;font-weight:800;}
+.plog-learn{display:inline-block;margin-top:8px;border:2px solid #1E2340;background:#fff;color:#1E2340;border-radius:8px;padding:5px 12px;font:800 14px 'Inter',sans-serif;cursor:pointer;}
+.plog-learn:hover{border-color:#DB8437;color:#B4581A;}
+
 .plog-missing .plog-missing-do i{font-style:normal;color:#B4581A;font-weight:800;}
 .plog{margin-top:18px;padding:18px 20px !important;font-family:'Inter',system-ui,sans-serif;color:#141A2E;background:#fff !important;scroll-margin-top:12px;}
 .plog-h{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;border-bottom:3px solid #DB8437;padding-bottom:10px;margin-bottom:12px;}

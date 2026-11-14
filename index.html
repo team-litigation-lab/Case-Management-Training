@@ -6210,7 +6210,7 @@ window.addEventListener("storage", (e)=>{
 window.openRouteInNewTab = openRouteInNewTab;
 function resumeLabel(){
   const lv = state.lastView; if(!lv) return "";
-  if(lv.view==="day" && lv.dayId){ const idx = resumeSlideFor(lv.dayId); const d = DAYS.find(x=>x.id===lv.dayId); const sl = buildDaySlides(d)[idx]; return `Day ${lv.dayId} · ${sl ? daySlideTitle(d, sl) : "Lesson"}`; }
+  if(lv.view==="day" && lv.dayId){ const idx = resumeSlideFor(lv.dayId); const d = DAYS.find(x=>x.id===lv.dayId); if(!d) return ""; const sl = buildDaySlides(d)[idx]; return `Day ${lv.dayId} · ${sl ? daySlideTitle(d, sl) : "Lesson"}`; }
   if(lv.view==="tool" && lv.toolId){ const t = PRACTICE_TOOLS.find(x=>x.id===lv.toolId); return t ? `Skill Builders · ${t.title}` : ""; }
   return "";
 }
@@ -6964,6 +6964,7 @@ window.backToSlidesFromKnowledgeCheck = backToSlidesFromKnowledgeCheck;
 /* ---------- unified day slideshow: Task Overview -> Topics -> Skill Builders -> Discussion -> Knowledge Check ---------- */
 function buildDaySlides(d){
   const slides = [];
+  if(!d || !Array.isArray(d.lessons)) return slides;   // a day that no longer exists (a place saved under an old day's id): no slides, not a crash
   if(d.taskOverview) slides.push({type:"taskOverview"});
   if(d.id===1) slides.push({type:"meetClient"});
   d.lessons.forEach((l,i)=>{
@@ -11751,7 +11752,7 @@ function auditSummary(rec){
   let where = "Not started";
   if(lv && lv.view==="tool" && lv.toolId){ const t = PRACTICE_TOOLS.find(y=>y.id===lv.toolId); where = t ? `Skill Builders · ${t.title}` : "Skill Builders"; }
   else { const cand = lv && lv.view==="day" && lv.dayId ? lv.dayId : (DAYS.filter(d=>sp[d.id]||dp[d.id]).map(d=>d.id).pop()||null);
-    if(cand){ const d = DAYS.find(z=>z.id===cand); const n = buildDaySlides(d).length; const at = (typeof ls[cand]==="number" ? ls[cand] : (sp[cand]||0)) + 1; where = `Day ${cand} · Step ${Math.min(at,n)} of ${n}`; } }
+    if(cand && DAYS.some(z=>z.id===cand)){ const d = DAYS.find(z=>z.id===cand); const n = buildDaySlides(d).length; const at = (typeof ls[cand]==="number" ? ls[cand] : (sp[cand]||0)) + 1; where = `Day ${cand} · Step ${Math.min(at,n)} of ${n}`; } }
   const fb = (x && x.fb) || {};
   const worked = days.filter(d=>d.reached>0 || d.score!==null || d.labDone).map(d=>d.id);
   const sent = Object.values(fb).filter(v=>v && v.status==="sent" && (!v.auto || v.editedByTrainer));
@@ -15891,6 +15892,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-cms-upload.js"></script>
 <!-- 🗂 the CMS Case File grade: John Doe's file in the CMS, graded day by day against what a correct file holds -->
 <script src="/js/cm-cms-file.js"></script>
+<!-- 🔗 a trainer links a trainee's Backup Drive folder for them (Admin Master Control → Trainee Audit) -->
+<script src="/js/cm-drive-admin.js"></script>
 <!-- 📂 the trainee's own Backup Drive: the firm's folder structure, built and graded on Day 1 -->
 <script src="/js/cm-drive.js"></script>
 <!-- 🧭 a day's two parts, labelled wherever a day is listed: Part 1 · Lessons, Part 2 · Practice Lab (the Roadmap, the slide picker, Presenter view's jump list) -->
