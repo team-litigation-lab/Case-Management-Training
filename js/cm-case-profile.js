@@ -183,6 +183,8 @@ if(!document.getElementById("cpx-css")){
 .cpx-who b{font:700 22px 'Fraunces',Georgia,serif;color:#fff;}
 .cpx-who .cpx-role{color:#C9CFE0;font:600 13px var(--font-ui,'Inter',sans-serif);}
 .cpx-facts{display:flex;flex-wrap:wrap;gap:6px;margin:0;}
+/* on the trainer's fact tabs the columns carry the facts: the header's chips would only push them off a laptop screen */
+.cf-file-page:has(.cf-file-cols) .cpx-facts{display:none;}
 .cpx-facts > div{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:3px 10px;}
 .cpx-facts dt{font:700 10.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:#F4B77A;}
 .cpx-facts dd{margin:0;font:700 13.5px/1.3 var(--font-ui,'Inter',sans-serif);color:#fff;}
