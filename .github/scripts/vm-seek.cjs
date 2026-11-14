@@ -17,7 +17,7 @@
 //     pause and resume; the count is what is kept on the trainee's record;
 //  8. the Notes & Action Plan and the Listening Check show the same player in the same state, and repaint with it;
 //  9. the hiss never runs twice and never after a pause or the end; a hidden tab pauses; the end of the message stops;
-// 10. Day 2's voicemail slide has the player too, at full size.
+// 10. The second voicemail (d2m2-a3, the redirected referral, on Day 1 with the treatment it belongs to) has the player too, at full size.
 // Usage: node .github/scripts/vm-seek.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -213,9 +213,10 @@ const STUB = () => {
     const kept2 = await page.evaluate(async (b) => { await new Promise(r => setTimeout(r, 900)); return (((await storeGet('case-flow')) || {}).listen || {})[b]; }, BLOCK);
     check(kept2 && kept2.plays === 3, `the count is what is on the trainee's record (${kept2 && kept2.plays})`);
 
-    // 10. Day 2's voicemail, as a trainer presents it
+    // 10. the second voicemail (d2m2-a3), as a trainer presents it, on the day the course teaches it
     await page.evaluate(() => { state.isAdmin = true; });
-    check(await toCase(2, 'd2m2-a3'), "Day 2 has its voicemail activity's Your Case slide"); await wait(1200);
+    const vmDay = await page.evaluate(() => (CM_CASE_FLOW.sequence.find(s => s.phases.some(p => p.blocks.includes('d2m2-a3'))) || {}).n);
+    check(await toCase(vmDay, 'd2m2-a3'), `Day ${vmDay} has its second voicemail activity's Your Case slide`); await wait(1200);
     const s2 = await slideOf('d2m2-a3');
     check(!!s2 && s2.parts.play && s2.parts.bar && s2.parts.back && s2.parts.over, 'with the player');
     check(!!s2 && !s2.small.length, `nothing on it under 16px or less than bold: ${JSON.stringify(s2 ? s2.small.slice(0, 4) : [])}`);

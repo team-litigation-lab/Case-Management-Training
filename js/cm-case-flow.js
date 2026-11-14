@@ -792,7 +792,8 @@ function plainFirst(){
 function plainBox(b){
   const ts = plainFirst()[b.id] || [];
   if(!ts.length) return "";
-  return `<details class="cfx-plain"${ts.length <= 3 ? " open" : ""}><summary>📖 <b>In plain English</b> · ${ts.map(E).join(" · ")}</summary><dl>${ts.map(t => `<div><dt>${E(t)}</dt><dd>${E(CF.plain[t])}</dd></div>`).join("")}</dl></details>`;
+  // (closed, its terms still named on the line, where The Rules also carries a Milestone rail: the slide keeps full size)
+  return `<details class="cfx-plain"${ts.length <= 3 && !(mfOf(b).milestones && msView(b) === "rules") ? " open" : ""}><summary>📖 <b>In plain English</b> · ${ts.map(E).join(" · ")}</summary><dl>${ts.map(t => `<div><dt>${E(t)}</dt><dd>${E(CF.plain[t])}</dd></div>`).join("")}</dl></details>`;
 }
 /* Time on the file. The course is five days; John Doe's case runs from the collision to the award over a year and a
    half, and its Skill Activities are taught by topic, not in date order. So each one's Your Case opens by saying how
