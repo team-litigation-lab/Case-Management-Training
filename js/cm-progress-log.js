@@ -196,8 +196,9 @@ function compute(data, ctx){
     add({key: `drive:day${n}`, rule: "drive", sev: g.score < 50 ? "high" : "medium", at: g.at, fixable: true,
       title: `Day ${n} Backup File Maintenance: ${g.score}%`, detail: `R3: below the ${T.DRIVE_PASS}% pass mark, graded from the Drive itself.`,
       fix: `Open Day ${n}'s Backup File Maintenance, move each document to its folder and name it the firm's way, then ✓ Check my drive.`}); });
-  // Day 1's Backup Drive is an optional side exercise in the daily loop (js/cm-day-loop.js, "side" in its slide copy):
-  // skipping it is no alert; one started and left without its folders submitted is
+  // Day 1's Backup Drive is a REQUIRED step of the daily loop again (js/cm-day-loop.js, CF.sequence `drive`): a trainee
+  // past Day 1's opening work with no folders submitted is flagged. (Were it ever a side exercise again, "side" in its
+  // slide copy, skipping it would be no alert; only one started and left without its folders submitted.)
   const driveSide = !!((window.CM_CF_SLIDES || {})["d1m1-drive"] || {}).side;
   if(!ds && movedOn && (driveSide ? t.has("d1m1-drive") : (openWorked || t.has("d1m1-drive")))){
     add({key: "drive:none", rule: "drive", sev: "high", at: (kc1 && kc1.date) || cf.updatedAt || null, fixable: true,

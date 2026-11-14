@@ -157,7 +157,7 @@ None.
 | `cms-case.cjs` | Log Your Work takes the CMS Case ID from the CMS (the CMS answered by the test) |
 | `cms-upload.cjs` | Uploading a drafted letter in the CMS, under the right tab and the firm's convention (the CMS answered by the test) |
 | `day-card-format.cjs` | Every day card in Day 1's format: Start/Continue/Review, then 👁 Review Score \| 🔁 Retake, then a bigger ▶ Video |
-| `day-loop.cjs` | Every Case Flow day runs the daily loop: lessons → Case Profile (Day 1: Meet John Doe & Intake) → ONE Skill Building → Update Your Action Plan → optional side exercises → Knowledge Check |
+| `day-loop.cjs` | Every Case Flow day runs the daily loop: lessons → Case Profile (Day 1: Meet John Doe & Intake) → ONE Skill Building → required Backup File Maintenance → Update Your Action Plan → optional side exercises → Knowledge Check |
 | `day-progress.cjs` | Day cards say where the trainee is (Start, Resume, Review; the one Knowledge Check attempt is the score kept) |
 | `day-video-player.cjs` | 🎬 The day video player: ⛶ Full screen, speed 0.75×–2× (remembered), resume where you left off, captions in a strip under the picture |
 | `day-video.cjs` | 🎬 The Day 1 deck and its narrated video (deck pages are the lesson's slides with their notes in Presenter; the video is 🔒 until a trainer unlocks it) |
@@ -187,7 +187,7 @@ None.
 | `reference-panel.cjs` | 📖 Additional Reference opens in a panel over the slide, in the same window (no new tab), scrolls inside, and ✕ or Esc goes back |
 | `requests.cjs` | Server requests (sparing, batched, none in the background) |
 | `ring-inject.cjs` | The trainer's injected call rings every trainee; answered or missed, it counts under Case Calls |
-| `roadmap.cjs` | 🗺 Roadmap lists every day and its topics (in place of the day cards' ☰ Topics), and opens a reached topic |
+| `roadmap.cjs` | 🗺 Roadmap lists every day and its topics (in place of the day cards' ☰ Topics), Part 2 as the daily loop's steps in order, numbered as shown, and opens a reached topic |
 | `sb-task.cjs` | 🎯 Your Task on a Skill Building activity: one column, one 🚀 Launch CMS & Google Drive button (no per-step tool pills, no floating CMS · Drive card), steps in full sentences, one foot bar (📁 Source Files · Submit to AI Grader →), the rules in 📖 Reference |
 | `scorecard-card.cjs` | The Scorecard as the trainee card (the 100-point model, its day multipliers, pass at 80% with the safety gate; the trainee's own card, every card for the trainer, the CSV) |
 | `scoring-rubric.cjs` | 📐 The Feedback Rubric, the CMS Case File grade, graded transcription and every simulator on the scorecard (the composer's rubric counts once sent; the Batch Sheet and its CSV carry every system) |

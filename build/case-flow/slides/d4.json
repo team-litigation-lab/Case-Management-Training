@@ -738,18 +738,21 @@
   },
   "d4-drive": {
     "image": "escalation-alert",
-    "situation": "Assuming Track A has disbursed and **a lien folder was deleted** from your drive, the backup needs restoring.",
-    "side": true,
+    "situation": "10/23/2026, 2:00 p.m. Track A has disbursed, the liens are closed, and **a lien folder has been deleted**.",
     "steps": [
-      "In 📂 My Backup Drive, run ✓ Check my drive, use 🔁 Put the missing folders back, and check again until **nothing is missing**.",
-      "Log what was lost and what you restored in CMS → Case Notes."
+      "In Google Drive, delete 06 Liens & Reimbursement from Doe-John as the drill, then run ✓ Check my drive and read what it reports.",
+      "Use 🔁 Put the missing folders back and check again until **nothing is missing**.",
+      "File the day's lien papers in the CMS so they reach 06, and the cost ledger and closing letter so they reach 07.",
+      "In CMS → Case Notes, record what was lost, how you found it and what you restored."
     ],
-    "deliver": "A restored folder and **a clean check**",
+    "deliver": "A restored folder and **every lien paper backed up**",
     "purpose": "A copy filed into a **deleted folder is lost**",
     "principle": "**Check before you file**, not after",
     "checks": [
       "First check **names the missing folder**",
       "Folder **put back**; second check clean",
+      "**Five lien documents** in 06",
+      "Cost ledger and closing letter in **07**",
       "Recovery **recorded** in Case Notes"
     ],
     "dos": [

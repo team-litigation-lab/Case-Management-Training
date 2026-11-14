@@ -19,6 +19,8 @@
      📇 the Case Profile (Day 1: 👋 Meet John Doe and the Intake, 10 minutes; later days a 5-minute check-in)
      → the ONE Skill Building (main), which takes what the rest leaves, up to MAIN.max, with one brainstorm after it
        (on a build day the build is the Skill Building)
+     → 📁 Backup File Maintenance (opts.drive, CF.sequence `drive`): REQUIRED every day, right after the Skill Building
+       (Day 1, building the firm's folders: 20 minutes; later days 15)
      → 📝 Update Your Action Plan (Day 1, guided step by step: 15 minutes; later days 10)
      → the side exercises (every other activity: optional, short), one 🧪 Practice Lab of SIDE.each minutes an
        exercise, SIDE.max at most: a day with more than SIDE.max / SIDE.each of them says so (sidePick: trainees choose
@@ -32,7 +34,8 @@ const LESSON_MIN = Math.round(TEACH_MIN * LESSON_SHARE);   // 66
 const THOROUGH_WEIGHT = 1.5, LESSON_FLOOR = 2, BRIEF_MIN = 4;
 const TOPIC = {base: 15, min: 2, max: 30}, ACT = {base: 10, min: 5, max: 30}, STORM = {each: 5, min: 3, day: 30};
 // the daily loop: the Case Profile and the Action Plan (Day 1's guided, later days' lighter), the one Skill Building, the side exercises
-const LOOP = {profile: [10, 5], plan: [15, 10]}, MAIN = {min: 30, max: 90}, SIDE = {each: 5, max: 30};
+// (SIDE.max 20 since the Backup File Maintenance became a required step: the day still fits its four hours, 30/70)
+const LOOP = {profile: [10, 5], plan: [15, 10], drive: [20, 15]}, MAIN = {min: 30, max: 90}, SIDE = {each: 5, max: 20};
 /* split `total` whole minutes over weights, largest remainder first, each at least `floor` (when it can be) */
 function share(total, weights, floor){
   const n = weights.length; if(!n) return [];
@@ -114,31 +117,33 @@ function schedule(items, opts){
 function loopSchedule(items, opts){
   const fill = opts.build === "rest", first = Number(opts.day) === 1;
   const main = items.find(x => x.kind === "activity" && x.id && x.id === opts.main) || null;
+  const driveAct = items.find(x => x.kind === "activity" && x.id && x.id === opts.drive && x !== main) || null;   // 📁 Backup File Maintenance: required
   // the lessons, their parts and the Knowledge Check: schedule()'s own arithmetic, on the lessons alone
   const lessons = items.filter(x => x.kind === "lesson");
   const base = schedule(lessons, {lessonMax: opts.lessonMax});
-  const profile = LOOP.profile[first ? 0 : 1], plan = LOOP.plan[first ? 0 : 1];
-  const sides = items.filter(x => x.kind === "activity" && x !== main);
+  const profile = LOOP.profile[first ? 0 : 1], plan = LOOP.plan[first ? 0 : 1], drive = driveAct ? LOOP.drive[first ? 0 : 1] : 0;
+  const sides = items.filter(x => x.kind === "activity" && x !== main && x !== driveAct);
   const side = fill || !sides.length ? 0 : Math.min(SIDE.max, SIDE.each * sides.length);
   const brainstorm = main ? STORM.each : 0, kc = base.kc;
   // the lessons keep their 30% (less only when the loop's fixed steps and the Skill Building's least would not fit)
-  const lessonBudget = Math.max(0, Math.min(base.lessonMin, TEACH_MIN - kc - profile - plan - side - brainstorm - (main ? MAIN.min : 0)));
+  const lessonBudget = Math.max(0, Math.min(base.lessonMin, TEACH_MIN - kc - profile - plan - drive - side - brainstorm - (main ? MAIN.min : 0)));
   if(lessonBudget !== base.lessonMin){
     const mins = share(lessonBudget, lessons.map(x => Math.max(1, Number(x.slides) || 1) * (x.thorough ? THOROUGH_WEIGHT : 1)), LESSON_FLOOR);
     lessons.forEach((x, i) => { x.mins = mins[i]; });
     base.parts.forEach(p => { p.lecture = p.mins = p.topics.reduce((t, x) => t + (x.mins || 0), 0); });
   }
-  const room = TEACH_MIN - lessonBudget - kc - profile - plan - side - brainstorm;
+  const room = TEACH_MIN - lessonBudget - kc - profile - plan - drive - side - brainstorm;
   const build = fill ? Math.max(0, room) : Math.max(0, Number(opts.build) || 0);
   const act = main ? Math.max(MAIN.min, Math.min(MAIN.max, room - build)) : 0;
   const labs = [];
   if(main) labs.push({title: String(main.heading || "").replace(/^Skill Building:\s*/, "") || "Skill Building", main: true, acts: [main], extra: [], skill: act, brainstorm, mins: act + brainstorm});
+  if(driveAct) labs.push({title: "Backup File Maintenance", drive: true, acts: [driveAct], extra: [], skill: drive, brainstorm: 0, mins: drive});
   if(sides.length) labs.push({title: "Side exercises (optional)", side: true, acts: [], extra: sides, skill: side, brainstorm: 0, mins: side});
-  const used = lessonBudget + kc + profile + plan + side + brainstorm + act + build, total = BREAK_MIN + used, n = base.full, m = base.briefs;
+  const used = lessonBudget + kc + profile + plan + drive + side + brainstorm + act + build, total = BREAK_MIN + used, n = base.full, m = base.briefs;
   // the side exercises' minutes hold about SIDE.each each: sidePick of them fit, the rest are there to choose from
   const sidePick = side ? Math.min(sides.length, Math.max(1, Math.floor(side / SIDE.each))) : 0;
-  return {per: base.per, brief: base.brief, act, brainstorm, kc, build, profile, plan, side, sides: sides.length, sidePick, sideEach: SIDE.each, main: main ? main.id : "", loop: true,
-    parts: base.parts, labs, labMin: act + brainstorm + side, room: TEACH_MIN, used, buffer: Math.max(0, TEACH_MIN - used), fits: total <= DAY_MIN,
+  return {per: base.per, brief: base.brief, act, brainstorm, kc, build, profile, plan, drive, driveId: driveAct ? driveAct.id : "", side, sides: sides.length, sidePick, sideEach: SIDE.each, main: main ? main.id : "", loop: true,
+    parts: base.parts, labs, labMin: act + brainstorm + drive + side, room: TEACH_MIN, used, buffer: Math.max(0, TEACH_MIN - used), fits: total <= DAY_MIN,
     total, topics: n + m, full: n, briefs: m, acts: main ? 1 : 0, extras: sides.length, skillParts: main ? 1 : 0,
     lessonMin: lessonBudget, practicalMin: TEACH_MIN - lessonBudget, lessonShare: Math.round(lessonBudget / TEACH_MIN * 100),
     DAY_MIN, BREAK_MIN, TEACH_MIN, LESSON_SHARE};

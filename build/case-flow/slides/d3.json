@@ -857,8 +857,7 @@
   },
   "d3-drive": {
     "image": "documents-audit",
-    "situation": "Assuming **three corrected versions** have arrived before the 07/20/2026 demand, your backup must match the CMS before anything goes out.",
-    "side": true,
+    "situation": "07/17/2026, 3:00 p.m. The demand is served **on 07/20/2026**, and **three corrected versions** have arrived.",
     "ownerSteps": true,
     "steps": [
       "Compare the files in your Backup Drive against the CMS to see what is missing.",
@@ -867,7 +866,7 @@
       "Move the draft demand and packet into folder 05 Insurance.",
       "Run the Check My Drive audit tool and record your completion."
     ],
-    "deliver": "A backup that **matches the CMS** before the demand",
+    "deliver": "A backup that **matches the CMS** before the demand goes out",
     "purpose": "What the adjuster gets must be **on our drive first**",
     "principle": "**Supersede, never delete**: label the old version",
     "checks": [
