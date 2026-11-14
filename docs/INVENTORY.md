@@ -139,7 +139,7 @@ None.
 | `tool-links.cjs` | Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's) |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
-## Browser checks (53)
+## Browser checks (54)
 
 | Check | What it covers |
 |---|---|
@@ -162,6 +162,7 @@ None.
 | `day-video-player.cjs` | 🎬 The day video player: ⛶ Full screen, speed 0.75×–2× (remembered), resume where you left off, captions in a strip under the picture |
 | `day-video.cjs` | 🎬 The Day 1 deck and its narrated video (deck pages are the lesson's slides with their notes in Presenter; the video is 🔒 until a trainer unlocks it) |
 | `day2-video.cjs` | 🎬 Case Flow Day 2's Video Presentation (🔒 until a trainer unlocks it in 🎬 Unlock Videos; then it plays with captions and a chapter per slide) |
+| `day345-video.cjs` | 🎬 Case Flow Days 3, 4 and 5's Video Presentations (🔒 until a trainer unlocks each in 🎬 Unlock Videos; then it plays with captions and a chapter per slide) |
 | `doc-filing.cjs` | Filing the case documents into the CMS, named the firm's way (the CMS answered by the test) |
 | `doc-relay.cjs` | Relaying a Portal simulator's document to the CMS (the records simulator's records and bills reach the CMS beside the lesson; only the Portal may ask) |
 | `doc-viewer-file.cjs` | The document viewer offers Download PDF only, and it downloads the PDF |
