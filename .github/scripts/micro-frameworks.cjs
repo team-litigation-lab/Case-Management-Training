@@ -161,7 +161,8 @@ const SPOKEN = {
           if (!vs.includes('why')) {   // and nothing on that slide is covered by the flag or pushed off the slide by it
             const rb = x.getBoundingClientRect(), sb = (wrap.querySelector('.cfx-sheet') || wrap).getBoundingClientRect();
             for (const el of (wrap.querySelector('.cfx-sheet') || wrap).querySelectorAll('*')) {
-              // (the folded-away text of a closed In plain English box is not on the slide, so it cannot be pushed off it)
+              // (the folded-away text of a closed In plain English box is not on the slide, so it cannot be pushed off it; Chromium
+              // still gives it boxes: without this, d2m1-l2's Rules slide reads its folded "Reimbursement right" as pushed off)
               if (x.contains(el) || el.contains(x) || el.closest('svg') || (el.closest('details:not([open])') && !el.closest('summary')) || !el.getClientRects().length || ![...el.childNodes].some(t => t.nodeType === 3 && t.textContent.trim())) continue;
               const r = el.getBoundingClientRect(), under = r.right > rb.left + 1 && r.left < rb.right - 1 ? Math.min(r.bottom, rb.bottom) - Math.max(r.top, rb.top) : 0;
               if (under > 4 || r.bottom > sb.bottom + 2) { out.push(`${where}: on ${view}, "${el.textContent.trim().slice(0, 30)}" is ${under > 4 ? 'covered by the CM Red Flag' : 'pushed off the slide'} (the slide has no room for the flag at full size)`); break; }

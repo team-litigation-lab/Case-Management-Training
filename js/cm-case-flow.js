@@ -2662,7 +2662,9 @@ function extraPractice(d){
       </div></div>
     </div>`;
 }
-/* ---------- Day 1's introduction, drawn: the life of John Doe's file, and his coverage against his injury ---------- */
+/* ---------- Day 1's introduction, drawn: the life of John Doe's file, and his coverage against his injury ----------
+   Kept on purpose, though no deck inserts these two slides any more: the Case Profile's 🗺 File Map (js/cm-case-profile.js
+   fileMap) shows the same, and a change to one should be made to the other. */
 function introFrame(d, icon, title, ribbon, body){
   return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; INTRODUCTION</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-intro">
