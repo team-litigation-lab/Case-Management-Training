@@ -1,7 +1,7 @@
 // @check browser — 🎬 Case Flow Days 3, 4 and 5's Video Presentations (🔒 until a trainer unlocks each in 🎬 Unlock Videos; then it plays with captions and a chapter per slide)
 // The Day 3, 4 and 5 decks' narrated videos (build/videoslide/day3.json, day4.json, day5.json → js/cm-deck-slides.js, js/cm-day-video.js):
 // 1. the files: each video and its captions are in the repository, under the site's 25 MB limit, one start time per slide,
-//    no Skill Building page, and the narration is about John Doe v. Robert Smith (not the decks' other sample cases);
+//    no Skill Building page, and the narration is about John Doe VS Robert Smith (not the decks' other sample cases);
 // 2. each day's card shows 🔒 Video to a trainee; Admin → 🔓 Open Lessons → 🎬 Unlock Videos has a tile for it;
 // 3. ticking it saves settings:openvideos, and the trainee's card becomes ▶ Video within the once-a-minute check;
 // 4. the viewer plays decks/dayN/dayN-narrated.mp4 with its captions, one chapter per slide, and a chapter seeks to its slide.
@@ -82,6 +82,6 @@ function fileChecks({ n, id, spec }) {
         for (const { n, id } of DAYS) if (after && (after.all || []).includes(id)) fail(`locking Case Flow Day ${n} again should take it out of settings:openvideos: ${JSON.stringify(after)}`);
     } finally { await browser.close(); }
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-    console.log(`🎬 Case Flow Days 3, 4 and 5's videos: 🔒 until a trainer ticks each in 🎬 Unlock Videos, then ▶ Video plays it with captions and ${DAYS.map(d => d.spec.slides.length).join(', ')} chapters (no Skill Building pages, John Doe v. Robert Smith throughout).`);
+    console.log(`🎬 Case Flow Days 3, 4 and 5's videos: 🔒 until a trainer ticks each in 🎬 Unlock Videos, then ▶ Video plays it with captions and ${DAYS.map(d => d.spec.slides.length).join(', ')} chapters (no Skill Building pages, John Doe VS Robert Smith throughout).`);
     console.log('All good.');
 })().catch(e => { console.error(e); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); });
