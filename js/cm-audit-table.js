@@ -38,7 +38,8 @@ function driveState(r){
   if(!rep) return {k: "", label: "—", issue: false};
   if(rep.checking) return {k: "chk", label: "Checking…", issue: false};
   if(!rep.connected) return {k: "off", label: "Not connected", issue: true};
-  if(!rep.builtAt) return {k: "on", label: "Connected", issue: false};
+  // 🔎 a structure made by hand is found in the drive (worker-drive-found.js): read like a built one
+  if(!rep.builtAt && !rep.foundAt) return {k: "on", label: rep.found && rep.found.why ? "Connected · no folders found" : "Connected", issue: false};
   if((rep.missing || []).length) return {k: "bad", label: `${rep.missing.length} folder${rep.missing.length === 1 ? "" : "s"} missing`, issue: true};
   // 🏷 the names on the drive, from the Worker's last check of them (driveNaming in worker.js): a wrongly named file is a Drive issue
   // (the ones it charges: `unscored` of `wrong` are a copy the platform named itself, or made before names were graded,

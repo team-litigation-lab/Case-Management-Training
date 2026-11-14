@@ -8,10 +8,14 @@
    night without anyone pressing a button. A trainer can change any Drive grade and leave a comment.
 
    WHAT IS READ. Only the trainee's own linked folder: its top folder and the firm's folders in it (FOLDER_STANDARD), in
-   one Drive query per trainee (`'<id>' in parents or …`), with each file's modifiedTime. Never graded:
+   one Drive query per trainee (`'<id>' in parents or …`), with each file's modifiedTime. The firm's folders are the ones the
+   platform built, or, on a drive made by hand (or linked by a trainer) that it never built, the ones found in it
+   (worker-drive-found.js: Grade now and the nightly run look for them first). Never graded:
      - the platform's own copies (the course's case documents a trainee files in the CMS: every id in the drive record's
        `saved` and its `was`, the Day 2 drill, a file whose description is the platform's, a file owned by the service
        account or GDRIVE_SA_SUBJECT);
+     - the course's case documents the trainee uploaded by hand (RS01… in the name, worker-drive-found.js): filing
+       evidence, graded with the structure and listed with it (filingView), never written work or "not matched";
      - folders, and anything the Drive can't give as text (images, audio, a scanned PDF): listed for the trainer as
        "not readable", with why.
 
@@ -70,6 +74,8 @@
 
 /* Each activity whose deliverable is written work: [id, Case Flow day, the DRIVE_HOMES folder its work is kept in, key terms].
    The day and the title are the course's (.github/scripts/drive-work.cjs checks every id against js/cm-case-flow-data.js). */
+import { courseDocs, docOfName, driveFind, keepFound, listedOf, setupOf, whyUngraded } from "./worker-drive-found.js";
+
 export const WORK = [
   ["d1m1-open", 1, "intake", ["opening", "conflict check", "corrections note", "field verification", "intake documents"]],
   ["d1m2-a1", 1, "intake", ["outreach", "outreach log", "multi-channel", "step 1", "step 2", "ladder"]],
@@ -465,11 +471,15 @@ export async function gradeTraineeWork(env, D, id, rec, budget, opts = {}) {
   try { listed = await listWork(env, D, id, rec, budget); } catch (x) { if (mustStop(x)) throw await stop(x); throw x; }
   const pathOf = {}; Object.entries(rec.folders || {}).forEach(([p, fid]) => { pathOf[fid] = p; }); pathOf[rec.rootId] = "";
   const isPlatform = platformTest(env, rec), caseId = D.driveCaseId(rec);
+  // 🔎 a course document the trainee filed by hand (RS01…, worker-drive-found.js) is filing evidence, graded with the
+  // structure: never written work, and never "not matched"
+  const docs = await courseDocs(env, D), handIds = new Set((rec.handFiled || []).map((h) => h.id));
+  const courseDoc = (f) => handIds.has(f.id) || (!/^application\/vnd\.google-apps\./.test(String(f.mimeType || "")) && !!docOfName(f.name, docs));
   const seen = new Set();
   // 1. every file of the trainee's, read (when it changed) and matched
   for (const f of listed) {
     if (String(f.modifiedTime || "") > out.newestAll) out.newestAll = String(f.modifiedTime || "");
-    if (f.mimeType === MIME.folder || isPlatform(f)) continue;
+    if (f.mimeType === MIME.folder || isPlatform(f) || courseDoc(f)) continue;
     seen.add(f.id);
     if (String(f.modifiedTime || "") > out.newest) out.newest = String(f.modifiedTime || "");
     const parent = (f.parents || [])[0], path = parent in pathOf ? pathOf[parent] : null;
@@ -619,14 +629,25 @@ export function withDayOverrides(rec, grades, setup, pass) {
 }
 
 /* Each day's structure grade, the auto one and the final one (Day 1: the folders; Days 2–5: Backup File Maintenance). */
-export function structureView(rec) {
+export function structureView(rec, dayDocs) {
   const ov = OV(rec).days || {}, out = {};
   for (let n = 1; n <= 5; n++) {
-    const g = n === 1 ? (rec && rec.setup) : ((rec && rec.grades) || {})[n], o = ov[n] || null;
+    // (🔎 Day 1: the setup typed on the platform, else the structure found in a drive made by hand)
+    const g = n === 1 ? setupOf(rec) : ((rec && rec.grades) || {})[n], o = ov[n] || null;
     const auto = g && typeof g.score === "number" ? g.score : null;
-    out[n] = { auto, final: o ? o.score : auto, override: o, at: (o && o.at) || (g && g.at) || null };
+    out[n] = { auto, final: o ? o.score : auto, override: o, at: (o && o.at) || (g && g.at) || null,
+      // what to put right, and why there is no grade: a trainer never reads a bare "—"
+      notes: ((n === 1 ? g && g.problems : g && g.issues) || []).slice(0, 12).map((x) => clip(x, 600)),
+      from: n === 1 && g && g.from === "drive" ? "drive" : "",
+      why: auto == null ? whyUngraded(n, rec, dayDocs) : "" };
   }
   return out;
+}
+/* The course documents on the drive, filed by hand: filing evidence, listed with the structure grade (never written work). */
+export function filingView(rec) {
+  const as = (rec && rec.found && rec.found.names) || {};   // a folder as it is named in the drive, when that isn't the firm's name
+  return ((rec && rec.handFiled) || []).slice(0, 60).map((h) => ({ docId: h.docId, name: h.name, folder: h.path == null ? "outside the firm's folders" : as[h.path] || String(h.path).split("/").pop() || "the top folder",
+    home: String(h.home || "").split("/").pop(), ok: h.path === h.home }));
 }
 
 /* ---------- /api/drive: "work", "workFor", "workGradeFor", "override" ---------- */
@@ -643,7 +664,7 @@ export async function driveWorkApi(env, D, tok, b) {
     const rec = await D.driveRead(env, who);
     let catalog = {}; try { catalog = await courseActivities(env); } catch (e) { /* listed without titles */ }
     const v = workView(await readJson(kv, WORK_KEY(who)), rec, catalog, D.DRIVE_HOMES);
-    return reply(D, Object.assign({ work: v, brief: workBrief(v), structure: structureView(rec), guide: workGuide(catalog, D.DRIVE_HOMES), linked: D.driveLinked(rec),
+    return reply(D, Object.assign({ work: v, brief: workBrief(v), structure: structureView(rec, D.DRIVE_DAY_DOCS), filing: filingView(rec), found: (rec && rec.found) || null, guide: workGuide(catalog, D.DRIVE_HOMES), linked: D.driveLinked(rec),
       configured: D.driveConfigured(env), ai: aiOn(env, D), maxChars: MAX_CHARS }, extra || {}));
   };
   if (action === "work" || action === "workFor") return view();
@@ -673,15 +694,18 @@ export async function driveWorkApi(env, D, tok, b) {
     const budget = budgetOf(env);
     try {
       await runBudgeted(env, budget, async (envC) => {
+        // 🔎 the drive read first: the firm's folders made by hand (or in a folder a trainer linked) and the documents
+        // filed by hand are found in it, so the written work is listed from them and the structure graded as it is
+        await D.driveFind(envC, who, rec);
         res = await gradeTraineeWork(envC, D, who, rec, budget, { maxGrades: NOW_FILES });
-        if (rec.builtAt && await gradeStructure(envC, D, who, rec, budget)) structure = true;
+        if (await gradeStructure(envC, D, who, rec, budget)) structure = true;
       });
     } catch (e) {
       // a stop at the budget or the platform's limit keeps what was done: say so, and that the rest follows
       if (mustStop(e)) return view({ ran: { graded: 0, failed: 0, pending: 1, structure, stopped: true, progress: e.progress || 0 } });
       return reply(D, { error: clip((e && e.message) || "Grading failed.", 300) }, 502);
     }
-    return view({ ran: Object.assign(res, { structure }) });
+    return view({ ran: Object.assign(res, { structure, built: !!rec.builtAt, found: rec.found || null, filing: (rec.handFiled || []).length }) });
   }
   return reply(D, { error: "Unknown action." }, 400);
 }
@@ -690,16 +714,24 @@ export async function driveWorkApi(env, D, tok, b) {
    so a document the trainee filed meanwhile isn't lost. */
 const DAILY = 20 * 3600 * 1000;   // a drive's structure is graded again at least this often (the run is nightly)
 async function gradeStructure(env, D, id, rec, budget) {
+  // 🔎 the listing driveFind took for this record (Grade now), or one taken now: what was made and filed by hand is in it
+  let listed = listedOf(rec);
+  if (!listed) { if (!budget.take(2 + D.FOLDER_STANDARD.length)) return false; listed = await D.driveFind(env, id, rec); }
+  // a day counts once it has started on the drive or the trainee has reached it (daysReached)
   const reached = D.daysReached ? await D.daysReached(env, id) : [];
-  const days = [2, 3, 4, 5].filter((n) => D.dayStarted(n, rec) || reached.includes(n));
-  if (!days.length && !(rec.saved || []).some((s) => s.id)) return false;
-  if (!budget.take(2 + D.FOLDER_STANDARD.length)) return false;
-  const filed = await D.filedFromProgress(env, id);
-  const S = await D.driveSnapshot(env, id, rec), N = D.driveNaming(rec, S, days), grades = {};
-  days.forEach((n) => { grades[n] = D.gradeDay(n, rec, S, filed, N); });
+  const days = [2, 3, 4, 5].filter((n) => D.dayStarted(n, rec) || reached.includes(n)), grades = {};
+  let N = null;
+  if ((rec.builtAt || rec.foundAt) && (days.length || (rec.saved || []).some((s) => s.id) || (rec.handFiled || []).length)) {
+    if (!budget.take(1)) return false;
+    const filed = await D.filedFromProgress(env, id);
+    const S = await D.driveSnapshot(env, id, rec, listed);
+    N = D.driveNaming(rec, S, days);
+    days.forEach((n) => { grades[n] = D.gradeDay(n, rec, S, filed, N); });
+  }
   const fresh = await D.driveRead(env, id);
   if (!fresh || fresh.rootId !== rec.rootId) return false;
-  fresh.grades = Object.assign({}, fresh.grades, grades); fresh.naming = N.report; fresh.gradedAt = nowIso();
+  keepFound(fresh, rec);   // the folders found, Day 1 from the drive, the documents filed by hand (never over a platform build)
+  fresh.grades = Object.assign({}, fresh.grades, grades); if (N) fresh.naming = N.report; fresh.gradedAt = nowIso();
   await D.driveWrite(env, id, fresh);
   return true;
 }
@@ -735,6 +767,9 @@ async function nightlyRun(env, D, budget) {
     // a drive the run could do nothing on with its whole budget is passed over, so it can't hold up everyone after it
     const passOver = (progress, why) => { if (wasFirst && !progress) { out.cursor = id; out.passedOver.push(`${id}: ${why}`); } };
     try {
+      // 🔎 a drive the platform never built, not yet found: its folders are looked for first, so its work is listed from them
+      const unfound = !rec.builtAt && !rec.foundAt;
+      if (unfound) { if (!budget.take(2 + D.FOLDER_STANDARD.length)) { out.stopped = "budget"; break; } await D.driveFind(env, id, rec); }
       // the written work first; a failure there (one that needn't stop the run) leaves the structure's daily grade to run
       let r;
       try { r = await gradeTraineeWork(env, D, id, rec, budget); }
@@ -743,7 +778,7 @@ async function nightlyRun(env, D, budget) {
       if (!r.changed && !r.graded && !r.pending) out.skipped++;
       // the structure too, when anything on the drive changed since it was last graded (or it never was)
       // and at least once a day, so a day reached with nothing on the drive yet is scored too (DAILY)
-      if (rec.builtAt && (!rec.gradedAt || Date.now() - Date.parse(rec.gradedAt) > DAILY || (r.newestAll && r.newestAll > rec.gradedAt) || r.prevNewest !== (r.newestAll || ""))) {
+      if (unfound || ((rec.builtAt || rec.foundAt) && (!rec.gradedAt || Date.now() - Date.parse(rec.gradedAt) > DAILY || (r.newestAll && r.newestAll > rec.gradedAt) || r.prevNewest !== (r.newestAll || "")))) {
         if (await gradeStructure(env, D, id, rec, budget)) out.structure++;
       }
       if (r.pending) { out.stopped = out.stopped || "budget"; passOver(r.progress, "nothing could be read or graded within the run's budget"); break; }   // finished first next time
