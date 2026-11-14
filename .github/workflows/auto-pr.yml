@@ -5,7 +5,7 @@
 #    into main (title: the branch's first commit; body: its commits). Checks are then started for it by hand,
 #    because a pull request opened with this workflow's GITHUB_TOKEN starts no workflows of its own.
 # 2. When Checks finishes (and every 15 minutes, in case a finish was missed), each open claude/* pull request is
-#    merged if all of these hold:
+#    merged if all of these hold (one whose head has no Checks at all, a lost event, gets them started instead):
 #      - it is from this repository, into main, not a draft, without the label "hold" or "no-auto-merge";
 #      - GitHub says it can merge (no conflict);
 #      - on its head commit, "Syntax, files and build" and "Smoke test in a browser" both passed, and no other
@@ -103,6 +103,10 @@ jobs:
             if [ "$m" != "true" ]; then echo "#$num ($ref): not mergeable now ($m)."; continue; fi
             runs=$(gh api "repos/$REPO/commits/$sha/check-runs?per_page=100" --jq '.check_runs[] | "\(.name)\t\(.status)\t\(.conclusion)"')
             ok() { printf '%s\n' "$runs" | awk -F'\t' -v n="$1" '$1==n && $2=="completed" && $3=="success" {f=1} END {exit !f}'; }
+            # a pull request whose Checks never started on its head (a lost event): start them now
+            if ! printf '%s\n' "$runs" | awk -F'\t' '$1=="Syntax, files and build" {f=1} END {exit !f}'; then
+              echo "#$num ($ref): no Checks on ${sha:0:7}; starting them."; gh workflow run checks.yml --repo "$REPO" --ref "$ref" || true; continue
+            fi
             if ! ok "Syntax, files and build" || ! ok "Smoke test in a browser"; then echo "#$num ($ref): Checks not passed yet on ${sha:0:7}."; continue; fi
             bad=$(printf '%s\n' "$runs" | awk -F'\t' '$2=="completed" && $3!="success" && $3!="skipped" && $3!="neutral" && $1 !~ /^Workers Builds/' | cut -f1 | paste -sd, -)
             if [ -n "$bad" ]; then echo "#$num ($ref): failing: $bad."; continue; fi
