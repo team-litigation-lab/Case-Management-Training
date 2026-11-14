@@ -38,7 +38,8 @@
    sealed and never leave it). This file is the page: the dashboard card, the setup panel and the Drive
    copy of a filed document. Until GDRIVE_SA_EMAIL and GDRIVE_SA_KEY are set on the Worker, the card is still
    there (🔗 Link my Google Drive) and says linking isn't switched on yet, ask your trainer; nothing else is blocked.
-   CMDrive.show() opens the panel from anywhere (a Skill Building activity's button); CMDrive.launch() opens the linked
+   A page the Worker doesn't take for a trainee (DRIVE_NOT_A_TRAINEE) is told to sign in as a trainee instead.
+   CMDrive.show() opens the panel from anywhere; CMDrive.launch() (🚀 Launch CMS & Google Drive, js/cm-sb-task.js) opens the linked
    Drive at the trainee's case folder in a new tab, or the panel when nothing is linked yet. Once linked, the card and
    the panel link to 📁 the Drive (LSH Case Backups) and 📁 the case folder (01 Clients/Doe-John); a trainer opens the
    same from 🔗 Trainee Drives (js/cm-drive-admin.js).
@@ -86,7 +87,8 @@ async function load(force){
   catch(e){
     // 403: this page isn't a trainee as far as the Worker is concerned (an open-mode Worker has no
     // trainee tokens at all). Nothing to show and nothing to report — the program carries on.
-    if(e.code === "DRIVE_NOT_A_TRAINEE"){ D = {configured:false}; }
+    // (said so: it is the sign-in to fix, not a switch for the trainer)
+    if(e.code === "DRIVE_NOT_A_TRAINEE"){ D = {configured:false, notTrainee:true}; try{ await loadStandard(); }catch(x){} }
     else err = e.message;
   }
   settled = true;
@@ -108,7 +110,7 @@ function card(){
   // and its button opens the panel, which says what to do and shows the steps to come.
   if(!D || !D.configured) return `<div class="drv-card drv-todo" data-drv-off>
     <div class="drv-c-h">🔗 Link my Google Drive</div>
-    <p>${D ? OFF_LINE : "Your Google Drive link couldn't be checked just now."} Once it is linked, your case work is kept in your own Google Drive, in your case folders, where your trainer can check it.</p>
+    <p>${D ? offLine() : "Your Google Drive link couldn't be checked just now."} Once it is linked, your case work is kept in your own Google Drive, in your case folders, where your trainer can check it.</p>
     <button type="button" class="btn btn-navy btn-sm" onclick="CMDrive.show()">🔗 Link my Google Drive</button>
   </div>`;
   const n = (D.standard || []).length;
@@ -134,6 +136,11 @@ function card(){
 }
 /* Said wherever linking isn't switched on for this site (the card, the panel, Day 1's slide). */
 const OFF_LINE = "Google Drive linking isn't switched on for this site yet — ask your trainer.";
+/* ...and where the Worker doesn't take this page for a trainee (DRIVE_NOT_A_TRAINEE): the sign-in is what to fix. */
+const NOT_TRAINEE_LINE = "Sign in as a trainee to link your Google Drive: open the program from the LSH Training Portal, signed in as yourself.";
+// (only where linking IS switched on, as the Worker's standard says: an open-mode test site without the keys is just "off")
+const notTrainee = () => !!(D && D.notTrainee && STD && STD.configured === true);
+const offLine = () => notTrainee() ? NOT_TRAINEE_LINE : OFF_LINE;
 /* 📁 Open my Drive ↗ (the LSH Case Backups folder, the firm's structure in it) and, once built, 📁 my case folder ↗
    (01 Clients/Doe-John), each in a new tab. Only the Worker's own Drive addresses are linked. */
 const driveHref = (u)=> /^https:\/\/drive\.google\.com\//.test(String(u || "")) ? String(u) : "";
@@ -244,8 +251,8 @@ function paint(){
   if(!D && !signedTrainee()) body = `<p class="drv-p">Each trainee opens their own Backup Drive, signed in as themselves. A trainer sees every trainee's drive and grades in the 📋 Batch Sheet and the Trainee Audit.</p>`;
   else if(!D && settled) body = `<p class="drv-p">Your Backup Drive couldn't be checked just now.</p><button type="button" class="drv-btn drv-go" onclick="CMDrive.retry()">↻ Try again</button>`;
   else if(!D) body = `<p class="drv-p">Checking your Backup Drive…</p>`;
-  else if(!D.configured) body = `<div class="drv-bad drv-off" data-drv-off><b>${OFF_LINE}</b> Nothing else in the course is blocked.</div>
-      <p class="drv-p">When it is switched on, linking takes two minutes:</p>
+  else if(!D.configured) body = `<div class="drv-bad drv-off" data-drv-off><b>${offLine()}</b> Nothing else in the course is blocked.</div>
+      <p class="drv-p">${notTrainee() ? "Once you're signed in as a trainee" : "When it is switched on"}, linking takes two minutes:</p>
       ${linkSteps(D.root || "LSH Case Backups", "")}`;
   else if(!D.connected){
     const sa = D.shareWith || "";
@@ -561,7 +568,7 @@ function slide(){
   return `<div class="drv-slide" data-drv-slide>
     <div class="drv-s-col"><div class="drv-s-top"><h3>📋 Your Task: The Case Backup</h3>${!off && mine ? `<button type="button" class="btn btn-navy btn-sm" onclick="CMDrive.show()">📂 Open My Backup Drive</button>` : ""}</div>
       <ol class="drv-s-steps${showErr ? " is-tight" : ""}">${steps.map(([h, t, done, extra], i)=>`<li class="${done ? "is-done" : ""}"><span class="drv-s-n">${done ? "✓" : i + 1}</span><div><b>${h}</b><span>${t}</span>${extra}</div></li>`).join("")}</ol>
-      ${off ? `<p class="drv-s-note" data-drv-off>${OFF_LINE}</p>` : ""}
+      ${off ? `<p class="drv-s-note" data-drv-off>${mine ? offLine() : OFF_LINE}</p>` : ""}
       ${mine && fixLine() ? `<div class="drv-s-act drv-s-fix">${fixLine()}</div>` : ""}
     </div>
     <div class="drv-s-col"><h3>🗂 The Firm's Standard</h3>${tree}</div>
