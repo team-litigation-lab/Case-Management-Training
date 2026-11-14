@@ -12,7 +12,12 @@
 //   node .github/scripts/merge-main.mjs          merge origin/main (fetched first)
 //   node .github/scripts/merge-main.mjs --ci     non-interactive (the auto-update workflow): never prompts; on real
 //                                                conflicts prints "CONFLICTS: a,b,c" and exits 3
-//   MERGE_MAIN_REF=<ref> node .github/scripts/merge-main.mjs    merge a local ref instead of origin/main (no fetch)
+//   MERGE_MAIN_REF=<ref> node .github/scripts/merge-main.mjs    merge <ref> instead (fetched only when it is
+//                                                origin/main; e.g. origin/<your-branch> after a rejected push, or the
+//                                                exact commit of main the auto-update workflow pinned)
+//   MERGE_MAIN_NAME=<name>                       what the merge commit calls the ref ("Merge <name> into <branch>")
+// The merge is never a fast-forward (--no-ff), so there is always a merge commit to put the rebuilt files in; when the
+// ref is already in the branch and only the rebuild changed something, that is committed on its own.
 // Exit codes: 0 merged (or already up to date) · 1 a build or check failed · 2 the working tree has edits · 3 real conflicts.
 //
 // GENERATED and BUILD are also read by .github/scripts/merge-main-generated.mjs, which fails when a generator writes a
@@ -29,10 +34,11 @@ export const GENERATED = [
   /^curriculum\/5-day-flow\/(day\d+|traceability|document-inventory)\.md$/,
   /^docs\/INVENTORY\.md$/
 ];
-// The builders, in the order they depend on each other. build.cjs runs terms, slides, scripts, sim and curriculum;
-// the document inventory reads the exhibits; build/inventory.cjs lists every file, so it goes last.
+// The builders, in the order they depend on each other. The exhibits come from the sources alone, and build.cjs (terms,
+// slides, scripts, sim and curriculum) reads them; the document inventory reads the exhibits too; build/inventory.cjs
+// lists every file, so it goes last.
 export const BUILD = [
-  'build/case-flow/build.cjs', 'build/case-flow/cases/assemble.cjs', 'build/case-flow/exhibits/assemble.cjs',
+  'build/case-flow/exhibits/assemble.cjs', 'build/case-flow/cases/assemble.cjs', 'build/case-flow/build.cjs',
   'build/case-flow/documents/inventory.cjs', 'build/videoslide/deck-slides.cjs', 'build/inventory.cjs'
 ];
 // Scripts under build/ that write files but are not rebuilt here, and why (merge-main-generated.mjs checks this list).
@@ -48,13 +54,14 @@ export const NOT_REBUILT = {
   'build/videoslide/revoice.py': 'the narration audio: needs Python and a voice service, run locally',
   'build/case-flow/documents/handouts/render-handout.cjs': 'a handout PDF: needs Playwright, run locally',
   'build/lor/make_lor_data.py': 'js/cm-lor-data.js from the trainers\' .docx files: needs Python, run by hand; not committed here',
-  'build/medprov/make_medprov_data.py': 'js/cm-medprov-data.js from the trainers\' .docx files: needs Python, run by hand; not committed here'
+  'build/medprov/make_medprov_data.py': 'js/cm-medprov-data.js from the trainers\' .docx files: needs Python, run by hand; not committed here',
+  'build/slide-keys7.cjs': 'js/cm-slide-keys7.js, layout 7\'s deck: a frozen record, written once and never again (it refuses to)'
 };
 export const isGenerated = (f) => GENERATED.some((re) => re.test(f));
 
 function main(){
   const CI = process.argv.includes('--ci');
-  const REF = process.env.MERGE_MAIN_REF || 'origin/main';
+  const REF = process.env.MERGE_MAIN_REF || 'origin/main', NAME = process.env.MERGE_MAIN_NAME || REF;   // NAME: in the commit message
   const env = { ...process.env, GIT_EDITOR: 'true', GIT_MERGE_AUTOEDIT: 'no', GIT_TERMINAL_PROMPT: '0' };
   const git = (...a) => execFileSync('git', a, { encoding: 'utf8', env }).trim();
   const tryGit = (...a) => spawnSync('git', a, { encoding: 'utf8', env }).status === 0;
@@ -62,18 +69,21 @@ function main(){
   const fail = (code, msg) => { console.error(msg); process.exit(code); };
 
   if (git('status', '--porcelain', '--untracked-files=no')) fail(2, 'Commit or stash your changes first: the working tree has edits.');
-  if (!process.env.MERGE_MAIN_REF) { console.log('Fetching main…'); git('fetch', 'origin', 'main'); }
+  if (REF === 'origin/main') { console.log('Fetching main…'); git('fetch', 'origin', 'main'); }
+  const BRANCH = git('rev-parse', '--abbrev-ref', 'HEAD');
   console.log(`Merging ${REF}…`);
-  const merge = spawnSync('git', ['merge', '--no-edit', '--no-commit', REF], { encoding: 'utf8', env });
+  const merge = spawnSync('git', ['merge', '--no-ff', '--no-edit', '--no-commit', REF], { encoding: 'utf8', env });
   process.stdout.write(merge.stdout || ''); process.stderr.write(merge.stderr || '');
   const conflicted = () => git('diff', '--name-only', '--diff-filter=U').split('\n').filter(Boolean);
   if (merge.status !== 0 && !conflicted().length) fail(1, `git merge ${REF} failed (above), and not on a conflict.`);
 
-  // 1. generated files: take main's copy for now (or ours, or nothing, when one side deleted it); the rebuild below
-  //    writes the right one from the merged sources
+  // 1. generated files: take main's copy for now; the rebuild below writes the right one from the merged sources. One
+  //    side deleted it (its generator retired, or the file renamed): it is removed, and the rebuild writes it again
+  //    only if a builder still does (never a stale copy brought back)
   for (const f of conflicted().filter(isGenerated)) {
-    if (tryGit('checkout', '--theirs', '--', f) || tryGit('checkout', '--ours', '--', f)) git('add', '--', f);
-    else git('rm', '-q', '--cached', '--ignore-unmatch', '--', f);
+    const stages = new Set(git('ls-files', '-u', '--', f).split('\n').filter(Boolean).map((l) => l.split(/\s+/)[2]));
+    if (stages.has('2') && stages.has('3') && tryGit('checkout', '--theirs', '--', f)) git('add', '--', f);
+    else git('rm', '-q', '-f', '--ignore-unmatch', '--', f);
     console.log(`  ↻ ${f}: rebuilt from the merged sources`);
   }
   // 2. pages: a conflict made only of ?v= versions settles itself; versions are dropped everywhere
@@ -109,8 +119,9 @@ function main(){
   console.log('\nRunning the node checks…');
   if (!run(process.execPath, ['.github/scripts/run-checks.mjs', 'node'])) fail(1, '\nA check failed: fix it, then commit the merge (git commit).');
   const merging = tryGit('rev-parse', '-q', '--verify', 'MERGE_HEAD');
-  if (!git('diff', '--cached', '--name-only') && !merging) { console.log('Already up to date with main.'); process.exit(0); }
-  git('commit', '--no-edit');
+  if (!git('diff', '--cached', '--name-only') && !merging) { console.log(`Already up to date with ${REF}.`); process.exit(0); }
+  // (git's own message names a remote-tracking ref "remote-tracking branch"; this says what was merged into what)
+  git('commit', '-m', merging ? `Merge ${NAME} into ${BRANCH}` : `Rebuild the generated files after merging ${NAME}`);
   console.log(`\n✓ ${REF} merged and committed. Push when ready: git push`);
 }
 

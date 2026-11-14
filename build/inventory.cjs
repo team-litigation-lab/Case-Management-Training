@@ -6,6 +6,13 @@
 const fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '..'), rd = (f) => fs.readFileSync(path.join(ROOT, f), 'utf8');
 // No line counts: a count changes with every edit, so two branches editing neighbouring files would collide here.
+// Only files git knows (committed, or added to the index) are listed: an untracked scratch file in js/ would be in the
+// inventory here and missing on every other checkout. (Outside a git checkout, a copy of one: every file there.)
+function filesIn(dir){
+  const r = require('child_process').spawnSync('git', ['ls-files', '-z', '--', dir], { cwd: ROOT, encoding: 'utf8' });
+  if (r.status === 0 && r.stdout) return r.stdout.split('\0').filter(Boolean).filter(f => path.dirname(f) === dir && fs.existsSync(path.join(ROOT, f))).map(f => path.basename(f)).sort();
+  return fs.readdirSync(path.join(ROOT, dir)).sort();
+}
 // a file's own description: the first lines of its header comment that say something
 function about(f){
   const t = rd(f).split('\n').slice(0, 60).join('\n');
@@ -33,12 +40,12 @@ for (const page of ['index.html', 'case-doc.html', 'net-sheet.html']) {
   out.push('');
 }
 const loaded = new Set(['index.html', 'case-doc.html', 'net-sheet.html'].filter(p => fs.existsSync(path.join(ROOT, p))).flatMap(p => [...rd(p).matchAll(/\/js\/([^"?]+)"/g)].map(m => 'js/' + m[1])));
-const loose = fs.readdirSync(path.join(ROOT, 'js')).filter(f => f.endsWith('.js')).map(f => 'js/' + f).filter(f => !loaded.has(f));
+const loose = filesIn('js').filter(f => f.endsWith('.js')).map(f => 'js/' + f).filter(f => !loaded.has(f));
 out.push('## Scripts in js/ that no page loads', '', loose.length ? loose.map(f => `- \`${f}\` — ${about(f)}`).join('\n') : 'None.', '');
 out.push('## Generated files (never edit by hand)', '', '| File | Built from |', '|---|---|', ...Object.entries(GENERATED).map(([f, s]) => `| \`${f}\` | ${s} |`), '');
 const w = rd('worker.js'), routes = [...new Set([...w.matchAll(/path === "(\/[^"]+)"/g)].map(m => m[1]))].sort();
 out.push(`## The Worker (worker.js): routes`, '', routes.map(r => `\`${r}\``).join(' · '), '');
-const dir = '.github/scripts', checks = fs.readdirSync(path.join(ROOT, dir)).filter(f => /\.(c|m)?js$/.test(f)).sort();
+const dir = '.github/scripts', checks = filesIn(dir).filter(f => /\.(c|m)?js$/.test(f)).sort();
 const decl = checks.map(f => ({ f, m: rd(`${dir}/${f}`).split('\n').slice(0, 15).join('\n').match(/@check\s+(node|browser(?:-noarg)?)[^—\n]*—\s*(.+)/) }));
 for (const kind of ['node', 'browser']) {
   const list = decl.filter(x => x.m && x.m[1].startsWith(kind));

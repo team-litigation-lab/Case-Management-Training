@@ -6,8 +6,10 @@
 //   1. every BUILD step and every NOT_REBUILT script exists;
 //   2. every script under build/ that writes files is a BUILD step or in NOT_REBUILT (with the reason);
 //   3. every file whose header says it is generated / not to be edited by hand matches GENERATED;
-//   4. the BUILD steps, run in a scratch copy of the repository, write only files GENERATED lists (and the sources the
-//      terms pass recapitalizes), and every GENERATED pattern is written by one of them.
+//   4. the BUILD steps, run in a scratch copy of the repository with every generated file deleted first, write every
+//      one of them again (none is left with no builder) and only files GENERATED lists (and the sources the terms pass
+//      recapitalizes); every GENERATED pattern is written by one of them. (Deleted first, so a builder that skips writing
+//      an output that has not changed is still seen to write it: what counts is that the file is there again.)
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -57,12 +59,19 @@ try {
   };
   const past = Date.now() - 60000;
   for (const f of files) fs.utimesSync(path.join(TMP, f), past / 1000, past / 1000);
+  // every generated file goes first: the builds must write each one again
+  const outputs = files.filter(isGenerated);
+  for (const f of outputs) fs.rmSync(path.join(TMP, f), { force: true });
   const before = stamp();
   for (const s of BUILD) {
     try { execFileSync(process.execPath, [path.join(TMP, s)], { cwd: TMP, encoding: 'utf8', stdio: 'pipe' }); }
     catch (e) { problems.push(`${s} failed in a scratch copy of the repository: ${(e.stderr || e.message).trim().split('\n').slice(-3).join(' ')}`); }
   }
+  // written: every file that is new (a generated file deleted above and written again, or one that was not there) or
+  // whose time changed
   const written = [...stamp()].filter(([f, t]) => before.get(f) !== t).map(([f]) => f);
+  for (const f of outputs) if (!fs.existsSync(path.join(TMP, f)))
+    problems.push(`${f} matches GENERATED, but no BUILD step writes it any more: delete it (its generator is gone), or add the builder to BUILD`);
   // the terms pass rewrites the sources themselves (only when a spelling is off, which terms.cjs --check reports)
   const TERMS_SOURCES = /^js\/cm-case-flow-(data|docs)\.js$|^curriculum\/5-day-flow\/case-file\.md$|^build\/case-flow\/[^/]+\/[^/]+\.json$/;
   for (const f of written) if (!isGenerated(f) && !TERMS_SOURCES.test(f) && !/(^|\/)\.tmp\//.test(f))
