@@ -632,6 +632,13 @@ const DECK7 = { 1: '74:1d3nxnu', 2: '135:1c0ub5w', 3: '89:1en7hyz', 4: '97:1v909
         const f = s.find(sl => K.keyOf(d, sl) === farKey), t = s.filter((sl, i) => i !== 2 && sl !== f); t.splice(1, 0, f); return t; },
       now => ({ last: now.indexOf(placeKey), far: now.indexOf(placeKey) }));
     await read('the furthest back in order', base, now => ({ last: now.indexOf(placeKey), far: now.indexOf(placeKey) }));
+    // a run of BACK+1 slides ending at the place taken out (every key it was saved with gone, its block's start too): the
+    // place keeps its index, never past the end, and gets keys afresh; the furthest reached is never behind it
+    await put(a, a + 1);
+    const gone = new Set(keys0.slice(Math.max(0, a - K.BACK), a + 1));
+    const run = await read(`a run of ${K.BACK + 1} slides ending at the place taken out`, x => base(x).filter(sl => !(x === d && gone.has(K.keyOf(d, sl)))),
+      now => ({ last: Math.min(a, now.length - 1), far: Math.max(now.indexOf(farKey), Math.min(a, now.length - 1)) }));
+    await read('the run back', base, now => ({ last: now.indexOf(run.lastKey), far: now.indexOf(run.farKey) }));
     // a place saved without keys (every place saved before keys, an older page, another device) is a position in layout
     // 7's deck (js/cm-slide-keys7.js): on a changed deck it opens the slide that position had in layout 7 (that slide
     // gone: the nearest slide before it that is still there), and gets its keys
@@ -652,6 +659,23 @@ const DECK7 = { 1: '74:1d3nxnu', 2: '135:1c0ub5w', 3: '89:1en7hyz', 4: '97:1v909
     // is a layout-7 position too, while the furthest reached, saved with its keys, still follows its slide
     await put(a, a + 1); localStorage.setItem('lsh_last-slide', JSON.stringify({ [d.id]: L7, cfLayout: 7 }));
     await read('a place saved since without keys', x => { const s = base(x); if (x === d) s.splice(1, 0, { type: 'keyCheckNew' }); return s; }, now => ({ last: at7(now, L7), far: Math.max(now.indexOf(farKey), at7(now, L7)) }));
+    // a place another tab of the previous page (no keys, layout 7) writes while this page runs a changed deck: it is taken
+    // on from layout 7 as it arrives, and a save this page makes next never gives it today's keys as it stands
+    await put(a, a + 1);
+    buildDaySlides = x => { const s = base(x); if (x === d) s.splice(1, 0, { type: 'keyCheckNew' }); return s; };
+    try {
+      await loadAll(); state.isAdmin = true;
+      const v = JSON.stringify({ [d.id]: L7, cfLayout: 7 });
+      localStorage.setItem('lsh_last-slide', v);
+      window.dispatchEvent(new StorageEvent('storage', { key: 'lsh_last-slide', newValue: v }));
+      await storeSet('slide-progress', state.slideProgress);   // the page's next save, as the settle runs
+      await K.settle();
+      const now = K.keysOf(d), w = at7(now, L7), last = state.lastSlide[d.id], r = (stored('slide-keys') || {})[d.id] || {};
+      log.push(`another tab's place without keys: ${last + 1}`);
+      if (last !== w) out.push(`a place another tab wrote without keys (layout 7 slide ${L7 + 1}) should open slide ${w + 1} (${now[w]}) of the changed deck: ${last + 1} (${now[last]})`);
+      if (!r.last || r.last.i !== last || r.last.k[0] !== now[last]) out.push(`another tab's place, taken on from layout 7, should get the keys of where it is now: ${JSON.stringify(r.last)}`);
+    } finally { buildDaySlides = base; }
+    await put(a, a + 1); await loadAll(); state.isAdmin = true;
     return { out, log, dayId: d.id, n: d.cf.n, a, keys: keys0.length, placeKey };
   });
   keyed.out.forEach(m => fail(`slide keys: ${m}`));

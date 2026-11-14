@@ -133,7 +133,7 @@ None.
 | `tool-links.cjs` | Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's) |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
-## Browser checks (53)
+## Browser checks (51)
 
 | Check | What it covers |
 |---|---|
@@ -183,8 +183,6 @@ None.
 | `sb-task.cjs` | 🎯 Your Task on a Skill Building activity: one column, one 🚀 Launch CMS & Google Drive button (no per-step tool pills, no floating CMS · Drive card), steps in full sentences, one foot bar (📁 Source Files · Submit to AI Grader →), the rules in 📖 Reference |
 | `scorecard-card.cjs` | The Scorecard as the trainee card (the 100-point model, its day multipliers, pass at 80% with the safety gate; the trainee's own card, every card for the trainer, the CSV) |
 | `scoring-rubric.cjs` | 📐 The Feedback Rubric, the CMS Case File grade, graded transcription and every simulator on the scorecard (the composer's rubric counts once sent; the Batch Sheet and its CSV carry every system) |
-| `slide-places.cjs` | A saved place follows its slide (On the Job and Milestone Steps are gone, Why It Matters opens The Theory, and a day is now all its lessons and then one Practice Lab, and six Day 1 lessons are drawn from the deck pages, and Meet Your Case left Day 1 for the Case Profile: a place saved in any older deck lands on the same slide of the same block, or on its lesson's deck page, never past the end; and since layout 7, a place is saved by slide key and follows its slide through any deck change) |
-| `slide-places.cjs` | A saved place follows its slide (On the Job and Milestone Steps are gone, Why It Matters opens The Theory, and a day is now all its lessons and then one Practice Lab, and six Day 1 lessons are drawn from the deck pages, and Meet Your Case left Day 1 for the Case Profile: a place saved in any older deck lands on the same slide of the same block, or on its lesson's deck page, never past the end; and since layout 7, a place is saved by slide key and follows its slide through any deck change) |
 | `slide-places.cjs` | A saved place follows its slide (On the Job and Milestone Steps are gone, Why It Matters opens The Theory, and a day is now all its lessons and then one Practice Lab, and six Day 1 lessons are drawn from the deck pages, and Meet Your Case left Day 1 for the Case Profile: a place saved in any older deck lands on the same slide of the same block, or on its lesson's deck page, never past the end; and since layout 7, a place is saved by slide key and follows its slide through any deck change) |
 | `smoke.cjs` | Sign in, render every day, page and tool (desktop and phone) |
 | `trainee-audit.cjs` | The Trainee Audit is one table (the name opens the detail, Reset beside it, Approve / Reject / Revoke as buttons; Companion Cases its own table) |

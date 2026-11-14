@@ -62,7 +62,8 @@ export const isGenerated = (f) => GENERATED.some((re) => re.test(f));
 function main(){
   const CI = process.argv.includes('--ci');
   const REF = process.env.MERGE_MAIN_REF || 'origin/main', NAME = process.env.MERGE_MAIN_NAME || REF;   // NAME: in the commit message
-  const env = { ...process.env, GIT_EDITOR: 'true', GIT_MERGE_AUTOEDIT: 'no', GIT_TERMINAL_PROMPT: '0' };
+  // (INVENTORY_TRACKED_ONLY: docs/INVENTORY.md lists only what this commits, never untracked scratch; build/inventory.cjs)
+  const env = { ...process.env, GIT_EDITOR: 'true', GIT_MERGE_AUTOEDIT: 'no', GIT_TERMINAL_PROMPT: '0', INVENTORY_TRACKED_ONLY: '1' };
   const git = (...a) => execFileSync('git', a, { encoding: 'utf8', env }).trim();
   const tryGit = (...a) => spawnSync('git', a, { encoding: 'utf8', env }).status === 0;
   const run = (cmd, args) => spawnSync(cmd, args, { stdio: 'inherit', env }).status === 0;
@@ -72,7 +73,9 @@ function main(){
   if (REF === 'origin/main') { console.log('Fetching main…'); git('fetch', 'origin', 'main'); }
   const BRANCH = git('rev-parse', '--abbrev-ref', 'HEAD');
   console.log(`Merging ${REF}…`);
-  const merge = spawnSync('git', ['merge', '--no-ff', '--no-edit', '--no-commit', REF], { encoding: 'utf8', env });
+  // (the plain conflict style, whatever merge.conflictStyle says: a diff3/zdiff3 block's base section would hide a
+  // script-list conflict from the settling below)
+  const merge = spawnSync('git', ['-c', 'merge.conflictStyle=merge', 'merge', '--no-ff', '--no-edit', '--no-commit', REF], { encoding: 'utf8', env });
   process.stdout.write(merge.stdout || ''); process.stderr.write(merge.stderr || '');
   const conflicted = () => git('diff', '--name-only', '--diff-filter=U').split('\n').filter(Boolean);
   if (merge.status !== 0 && !conflicted().length) fail(1, `git merge ${REF} failed (above), and not on a conflict.`);
@@ -92,6 +95,7 @@ function main(){
     let s = fs.readFileSync(f, 'utf8').replace(VER, '$1$2');
     let real = false;
     s = s.replace(/^<<<<<<< [^\n]*\n([\s\S]*?)^=======\n([\s\S]*?)^>>>>>>> [^\n]*\n/gm, (all, ours, theirs) => {
+      ours = ours.replace(/^\|{7}(?: [^\n]*)?\n[\s\S]*$/m, '');   // a base section, should one be there all the same
       if (ours === theirs) return ours;
       // both sides only list scripts/stylesheets: keep every line either side has, in order, once
       const tag = /^\s*<(script|link)\b[^>]*>(<\/script>)?\s*$|^\s*<!--.*-->\s*$/;
@@ -115,7 +119,14 @@ function main(){
   // stage the merge: tracked changes, and any generated file a build newly wrote; never untracked scratch
   git('add', '-u');
   const fresh = git('ls-files', '-o', '--exclude-standard').split('\n').filter((f) => f && isGenerated(f));
-  if (fresh.length) git('add', '--', ...fresh);
+  if (fresh.length){
+    git('add', '--', ...fresh);
+    // the inventory again, now that the newly written files are added (it lists only what git tracks here)
+    if (BUILD.includes('build/inventory.cjs') && fs.existsSync('build/inventory.cjs')){
+      if (!run(process.execPath, ['build/inventory.cjs'])) fail(1, 'build/inventory.cjs failed: fix it, then commit.');
+      git('add', '-u');
+    }
+  }
   console.log('\nRunning the node checks…');
   if (!run(process.execPath, ['.github/scripts/run-checks.mjs', 'node'])) fail(1, '\nA check failed: fix it, then commit the merge (git commit).');
   const merging = tryGit('rev-parse', '-q', '--verify', 'MERGE_HEAD');

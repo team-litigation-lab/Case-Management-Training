@@ -6,11 +6,14 @@
 const fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '..'), rd = (f) => fs.readFileSync(path.join(ROOT, f), 'utf8');
 // No line counts: a count changes with every edit, so two branches editing neighbouring files would collide here.
-// Only files git knows (committed, or added to the index) are listed: an untracked scratch file in js/ would be in the
-// inventory here and missing on every other checkout. (Outside a git checkout, a copy of one: every file there.)
+// The files git sees: committed, added, or new and not ignored (a new js/ file or check is listed before it is added,
+// as run-checks.mjs finds it; .claude/worktrees and other scratch are ignored). merge-main.mjs, which commits what it
+// builds and never untracked files, sets INVENTORY_TRACKED_ONLY=1: then only files committed or added are listed.
+// (Outside a git checkout, a copy of one: every file there.)
 function filesIn(dir){
-  const r = require('child_process').spawnSync('git', ['ls-files', '-z', '--', dir], { cwd: ROOT, encoding: 'utf8' });
-  if (r.status === 0 && r.stdout) return r.stdout.split('\0').filter(Boolean).filter(f => path.dirname(f) === dir && fs.existsSync(path.join(ROOT, f))).map(f => path.basename(f)).sort();
+  const which = process.env.INVENTORY_TRACKED_ONLY === '1' ? ['-c'] : ['-c', '-o', '--exclude-standard'];
+  const r = require('child_process').spawnSync('git', ['ls-files', '-z', ...which, '--', dir], { cwd: ROOT, encoding: 'utf8' });
+  if (r.status === 0 && r.stdout) return r.stdout.split('\0').filter(Boolean).filter(f => path.dirname(f) === dir && fs.existsSync(path.join(ROOT, f))).map(f => path.basename(f)).filter((f, i, a) => a.indexOf(f) === i).sort();   // (once: a file in conflict is listed per stage)
   return fs.readdirSync(path.join(ROOT, dir)).sort();
 }
 // a file's own description: the first lines of its header comment that say something

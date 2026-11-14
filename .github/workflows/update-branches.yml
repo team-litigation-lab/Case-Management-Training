@@ -99,7 +99,12 @@ jobs:
             # tried already, on this same head and this same main (a re-run): the comment stands
             ID=$(ours "$PR" || true)
             if [ -n "$ID" ] && case "$(gh api "repos/$REPO/issues/comments/$ID" --jq .body || true)" in *"<!-- head:$HEAD_SHA main:$MAIN_SHA -->"*) true;; *) false;; esac; then echo "#$PR: tried on this head and main already"; continue; fi
-            git switch -q -C "$BRANCH" "$HEAD_SHA"
+            # (a checkout that fails must not end the run: every PR after this one would be skipped unseen)
+            if ! git switch -q -C "$BRANCH" "$HEAD_SHA"; then
+              echo "::warning::#$PR: could not check out $BRANCH"
+              git reset -q --hard; git clean -qfd; git switch -q --detach "$MAIN_SHA" || true
+              continue
+            fi
             set +e
             node "$HELPER" --ci < /dev/null > "$RUNNER_TEMP/out.txt" 2>&1
             CODE=$?
@@ -118,10 +123,15 @@ jobs:
               elif grep -qiE 'workflows? permission|refusing to allow' "$RUNNER_TEMP/push.txt"; then
                 cat "$RUNNER_TEMP/push.txt"
                 tell "$PR" "$BRANCH" "the merge changes a workflow file, which GitHub does not let this workflow push (its token has no workflows permission)." "$HEAD_SHA"
-              elif grep -qiE 'non-fast-forward|fetch first|rejected' "$RUNNER_TEMP/push.txt"; then
+              elif grep -qE '\[rejected\].*(non-fast-forward|fetch first)' "$RUNNER_TEMP/push.txt"; then
                 echo "#$PR: the branch moved while merging; left for the next run"
               else
+                # refused for another reason (branch protection, a pre-receive hook …): the PR is told, with git's words
                 cat "$RUNNER_TEMP/push.txt"; echo "::warning::#$PR: the push failed"
+                tell "$PR" "$BRANCH" "the merge was made but the push was refused:
+          \`\`\`
+          $(head -c 1500 "$RUNNER_TEMP/push.txt")
+          \`\`\`" "$HEAD_SHA"
               fi
             else
               git merge --abort 2>/dev/null || true
@@ -140,5 +150,7 @@ jobs:
                 *) tell "$PR" "$BRANCH" "merge-main.mjs stopped with exit $CODE (see the run log)." "$HEAD_SHA" ;;
               esac
             fi
-            git switch -q --detach "$MAIN_SHA"
+            git merge --abort 2>/dev/null || true
+            git reset -q --hard; git clean -qfd
+            git switch -q --detach "$MAIN_SHA" || echo "::warning::#$PR: could not go back to main"
           done 3< "$RUNNER_TEMP/prs.tsv"
