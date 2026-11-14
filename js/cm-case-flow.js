@@ -150,7 +150,7 @@ window.CM_CASE_FLOW_DAYS = MODULES;
 /* ---------- the course is the Case Flow: its five days are the engine's DAYS ----------
    (the earlier John Doe v. Apex version is removed; a record's old progress on Days 1–5 stays stored, unshown) */
 Array.prototype.splice.call(DAYS, 0, DAYS.length, ...MODULES);
-if(typeof DAY_ICONS !== "undefined") MODULES.forEach((m, i) => { if(!DAY_ICONS[m.id]) DAY_ICONS[m.id] = ["🗂", "📨", "🩺", "⚖️", "🤝"][i] || "📘"; });
+if(typeof DAY_ICONS !== "undefined") MODULES.forEach((m, i) => { if(!DAY_ICONS[m.id]) DAY_ICONS[m.id] = ["🗂", "📨", "💵", "⚖️", "🏛"][i] || "📘"; });
 
 const isTrainer = () => !!(state.isAdmin || state.adminPreview);
 let FB = {id: null, p: null};
@@ -1174,17 +1174,21 @@ function daySegments(d){
 function agendaSlide(d){
   const logo = "";
   const src = CF.days.find(x => x.n === d.cf.n) || {};
-  const sc = daySchedule(d), parts = sc.parts;
+  const sc = daySchedule(d), parts = sc.parts.slice();   // a copy: a deck-only day empties it below
   const row = (n, title, part) => `<li${part ? ` class="cfx-ag-part cfx-ag-${part}"` : ""}><span class="cfx-ag-n">${String(n).padStart(2, "0")}</span><div><b>${E(title)}</b></div></li>`;   // the title only: no "1 topic · 2 Skill Activities" line
   // the day's two parts, in order and plainly labelled: Lessons (every section of them), then the Practice Lab
   // (all of the day's Skill Activities; on a build day, the Full Application Practice); the Knowledge Check last
   const nActs = d.lessons.filter(l => l.cf.block.kind === "activity").length, nLessons = d.lessons.filter(l => l.cf.block.kind === "lesson").length;
   const label = (k, t) => `<li class="cfx-ag-label"><b>${k}</b><span>${E(t)}</span></li>`;
   // the trainers' deck pages a day shows after its lessons (js/cm-deck-pages.js Day 2, js/cm-day-decks.js Days 3-5) are lesson sections too, by their topic
-  const dp = window.CM_DECK_PAGES, dd = (window.CM_DAY_DECKS || {})[d.cf.n], deckTopics = dp && dp.DAY === d.cf.n ? dp.DECK.map(g => g.topic) : dd ? dd.map(g => g.topic) : [], n1 = parts.length + deckTopics.length;
+  const dp = window.CM_DECK_PAGES, dd = (window.CM_DAY_DECKS || {})[d.cf.n], deckTopics = dp && dp.DAY === d.cf.n ? dp.DECK.map(g => g.topic) : dd ? dd.map(g => g.topic) : [];
+  // a day whose deck is its lessons (js/cm-day-decks.js, Days 2-5): Part 1 is the deck's topics alone
+  const deckOnly = deckTopics.length && window.cmDayDecks && cmDayDecks.replaces && cmDayDecks.replaces(d.cf.n);
+  if(deckOnly) parts.length = 0;
+  const n1 = parts.length + deckTopics.length;
   // Part 2 is the daily loop (js/cm-day-loop.js): the Case Profile → the Skill Building → the Action Plan, then the Knowledge Check
   const loop = sc.loop && window.cmDayLoop ? window.cmDayLoop.agendaRows(d, sc) : null;
-  const rows = label("Part 1 · 📘 Lessons", `${nLessons} lessons${deckTopics.length ? ` and ${deckTopics.length} deck topics` : ""}, all together`) + parts.map((p, i) => row(i + 1, p.title)).join("")
+  const rows = label("Part 1 · 📘 Lessons", deckOnly ? `${deckTopics.length} topics from the trainer's deck` : `${nLessons} lessons${deckTopics.length ? ` and ${deckTopics.length} deck topics` : ""}, all together`) + parts.map((p, i) => row(i + 1, p.title)).join("")
     + deckTopics.map((t, i) => row(parts.length + i + 1, t)).join("")
     + (loop ? label(loop.label, loop.side) + loop.rows.map((t, i) => row(n1 + i + 1, t, "lab")).join("") + row(n1 + loop.rows.length + 1, "Knowledge Check", "kc")
     : label(sc.build ? "Part 2 · 🏗 Full Application Practice" : "Part 2 · 🧪 Practice Lab", sc.build ? "then optional extra practice" : `all ${nActs} Skill Activities, in one place`)
