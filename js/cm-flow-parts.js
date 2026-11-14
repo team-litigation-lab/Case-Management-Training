@@ -57,6 +57,14 @@ function labelRoadmap(){
     if(lis.length !== d.lessons.length) return;   // not the list this file knows: leave it as it is
     const L = labels(d), first = {};
     d.lessons.forEach((l, li) => { const k = kindAt(d, li); if(first[k] == null) first[k] = li; });
+    // the daily loop (js/cm-day-loop.js): the day's one Skill Building first of the activities, marked; every other
+    // activity marked as an optional side exercise
+    const mid = window.cmDayLoop && window.cmDayLoop.mainId ? window.cmDayLoop.mainId(d) : "", mi = mid ? d.lessons.findIndex(l => l.cf.block.id === mid) : -1;
+    if(mid){
+      d.lessons.forEach((l, li) => { if(kindAt(d, li) !== "activity" || lis[li].querySelector(".dl-rm-tag")) return;
+        (lis[li].querySelector(".rmx-tt") || lis[li]).insertAdjacentHTML("beforeend", li === mi ? `<small class="dl-rm-tag dl-rm-main">🎯 Skill Building</small>` : `<small class="dl-rm-tag">optional side exercise</small>`); });
+      if(mi >= 0 && first.activity != null && mi !== first.activity){ lis[first.activity].parentNode.insertBefore(lis[mi], lis[first.activity]); first.activity = mi; }
+    }
     [["lesson", L.lessons], ["activity", L.lab], ["check", L.kc]].forEach(([k, x]) => {
       if(first[k] == null) return;
       const li = document.createElement("li"); li.className = "rmx-part rmx-part-" + k; li.setAttribute("role", "presentation"); li.innerHTML = labelHtml("", x);
@@ -116,6 +124,8 @@ css.textContent = `
 .rmx-topics > li.rmx-part span{font:600 12px/1.3 'Inter',sans-serif;color:#F4C89A;}
 .rmx-topics > li.rmx-part-activity{background:#DB8437;} .rmx-topics > li.rmx-part-activity span{color:#fff;}
 .rmx-topics > li.rmx-part-check{background:#EEF0F6;color:#1E2340;} .rmx-topics > li.rmx-part-check span{color:#4A5170;}
+.rmx-topics .dl-rm-tag{margin-left:6px;padding:1px 6px;border-radius:6px;background:#EEF0F6;color:#4A5170;font:700 11px/1.3 'Inter',sans-serif;white-space:nowrap;}
+.rmx-topics .dl-rm-tag.dl-rm-main{background:#DB8437;color:#fff;}
 /* the slide picker: the same labels */
 .sm-groups .sm-part{margin:2px 0 8px;padding:6px 10px;border-radius:8px;background:#1E2340;color:#fff;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;break-after:avoid;}
 .sm-groups .sm-part b{font:800 15px/1.3 var(--font-ui,'Inter',sans-serif);} .sm-groups .sm-part span{font:600 13px/1.3 var(--font-ui,'Inter',sans-serif);color:#F4C89A;}

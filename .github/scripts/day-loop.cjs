@@ -15,8 +15,15 @@
 //     the Action Plan slide's opens My Notes & Action Plan; "← Back to Case Flow Day N" returns to the slide;
 //   · progressive autonomy: Day 1's Action Plan slide is numbered, step by step (at least five steps); each later day
 //     has fewer prompts than Day 1 and never more than the day before;
-//   · the Training Agenda shows the loop (Part 2 · 🔁 The Daily Loop: the Case Profile, the Skill Building, the Action
-//     Plan, then the Knowledge Check) and the day fits its four hours (js/cm-case-flow-schedule.js);
+//   · the Training Agenda shows the loop (Part 2 · 🔁 The Daily Loop: one row, Case Profile → Skill Building → Action
+//     Plan, then the Knowledge Check: Part 2 keeps its three grid rows) and the day fits its four hours
+//     (js/cm-case-flow-schedule.js);
+//   · the band under an activity's title says Skill Building on the day's main, Optional Side Exercise on the others;
+//   · the day's other pages tell the same loop: the Objectives page's Part 2, the trainer's Run of Show (no "Practice Lab
+//     (all of the day's Skill Activities)"), the Trainer Speaker Notes in the deck's order (lessons → Case Profile →
+//     Skill Building → Action Plan → the optional side exercises), the Practice page's tiles (🎯 Skill Building, the
+//     rest Optional side exercise);
+//   · a place saved on the old Practice Lab slide (layout 8) does not land past the Skill Building and the Action Plan;
 //   · nothing on the loop's own slides is under 16px or scaled down at 1366×768.
 // Usage: node .github/scripts/day-loop.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs playwright)
 const { chromium } = require('playwright');
@@ -90,7 +97,24 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
       let w = await show(0);
       const ag = [...w.querySelectorAll('.cfx-ag-label b')].map(e => norm(e.textContent)), agRows = [...w.querySelectorAll('.cfx-ag-lab b')].map(e => norm(e.textContent));
       if (ag.length !== 2 || !/Part 2 · 🔁 The Daily Loop/.test(ag[1])) out.push(`${L}: the Training Agenda should label Part 2 · 🔁 The Daily Loop (${JSON.stringify(ag)})`);
-      if (agRows.length !== 3 || !/Case Profile|Meet John Doe/.test(agRows[0]) || !/Skill Building/.test(agRows[1]) || !/Action Plan/.test(agRows[2])) out.push(`${L}: the agenda's loop should read Case Profile, Skill Building, Action Plan (${JSON.stringify(agRows)})`);
+      if (agRows.length !== 1 || !/(Case Profile|Meet John Doe).*Skill Building.*Action Plan/.test(agRows[0])) out.push(`${L}: the agenda's loop should be one row, Case Profile → Skill Building → Action Plan (${JSON.stringify(agRows)})`);
+      if (n === 1 && !/Meet John Doe → 🎯 Skill Building: the Intake/.test(agRows[0] || '')) out.push(`${L}: Day 1's loop row should say the Intake is the Skill Building (${agRows[0]})`);
+      // the Objectives page, the Run of Show, the Speaker Notes
+      const intro = window.renderDayIntro(d);
+      if (!/The Daily Loop/.test(intro) || /Practice Lab \(all/.test(intro) || !/Skill Building/.test(intro) || !/Action Plan/.test(intro) || (sideActs.length && !/Optional side exercises/.test(intro))) out.push(`${L}: the Objectives page's Part 2 should be the daily loop (Case Profile, Skill Building, Action Plan, optional side exercises)`);
+      const ros = window.sopRunOfShow(d);
+      if (/the Practice Lab \(all of the day's Skill Activities\)|in the Practice Lab you'll do this on it|between the lessons and the Practice Lab/.test(ros)) out.push(`${L}: the Run of Show still describes the old Practice Lab day`);
+      if (!/the Daily Loop/.test(ros)) out.push(`${L}: the Run of Show's welcome should name the Daily Loop`);
+      if (n === 5 && !/After the build, <b>Close Out Your Action Plan<\/b>/.test(ros)) out.push(`${L}: the Run of Show should send the build to Close Out Your Action Plan`);
+      const notes = window.buildDayScriptLines(d).filter(x => /^## /.test(x)), at = re => notes.findIndex(x => re.test(x));
+      const nP = at(/^## (Case Profile Check-In|Meet John Doe)/), nS = d.cf.build ? at(/^## Full Application Practice/) : at(/^## Skill Building$/), nA = at(/^## (Update|Close Out) Your Action Plan/), nL = at(/^## (Practice Lab: Optional Side Exercises|Optional Extra Practice)/);
+      const firstAct = notes.findIndex(x => /^## \d\d\. /.test(x) && d.lessons[Number(x.slice(3, 5)) - 1] && d.lessons[Number(x.slice(3, 5)) - 1].cf.block.kind === 'activity');
+      if (!(nP > 0 && nP < nS && nS < nA && (!sideActs.length || nA < nL))) out.push(`${L}: the Speaker Notes should run Case Profile (${nP}) → Skill Building (${nS}) → Action Plan (${nA}) → optional side exercises (${nL})`);
+      if (!d.cf.build && (firstAct < 0 || d.lessons[Number(notes[firstAct].slice(3, 5)) - 1].cf.block.id !== main)) out.push(`${L}: the Speaker Notes' first activity should be the Skill Building ${main} (${notes[firstAct]})`);
+      // a layout-8 place on the old Practice Lab slide stays ahead of the loop's steps
+      if (window.cmSlidePlaces && main) { const old = cmDayLoop.layout8(d), i8 = old.findIndex(sl => sl.type === 'practiceLab'), m9 = deck.findIndex(sl => sl.type === 'topic' && d.lessons[sl.lessonIndex].cf.block.id === main);
+        const p = cmSlidePlaces.placeMap(d, 8)[i8], f = cmSlidePlaces.reachMap(d, 8)[i8];
+        if (i8 >= 0 && (p > m9 || f > m9)) out.push(`${L}: a layout-8 place on the old Practice Lab (slide ${i8 + 1}) lands on ${p + 1}, reached ${f + 1}: past the Skill Building (slide ${m9 + 1}) and the Action Plan`); }
       // step 2 and its way back
       const k2 = deck.findIndex(sl => sl.type === want2);
       if (k2 >= 0) {
@@ -131,12 +155,14 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
       if (!d.cf.build && sbK >= 0) {
         w = await show(sbK);
         if (!/THE DAY'S SKILL BUILDING/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: the Skill Building's top line should say THE DAY'S SKILL BUILDING`);
+        if (norm((w.querySelector('.cfx-what-k') || {}).textContent) !== 'Skill Building') out.push(`${L}: the Skill Building's band should say Skill Building (${norm((w.querySelector('.cfx-what-k') || {}).textContent)})`);
         if (!w.querySelector('[data-launch]')) out.push(`${L}: the Skill Building's Your Task has no 🚀 Launch CMS & Google Drive`);
         w = await show(sb[sb.length - 1][1]);
         if (!/Submit to AI Grader/.test(w.textContent)) out.push(`${L}: the Skill Building's last slide has no "Submit to AI Grader"`);
       }
       const sideK = deck.findIndex((sl, k) => steps[k] === 'side' && sl.type === 'topic');
-      if (sideK >= 0) { w = await show(sideK); if (!/OPTIONAL SIDE EXERCISE/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: a side exercise's top line should say OPTIONAL SIDE EXERCISE`); }
+      if (sideK >= 0) { w = await show(sideK); if (!/OPTIONAL SIDE EXERCISE/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: a side exercise's top line should say OPTIONAL SIDE EXERCISE`);
+        if (norm((w.querySelector('.cfx-what-k') || {}).textContent) !== 'Optional Side Exercise') out.push(`${L}: a side exercise's band should say Optional Side Exercise (${norm((w.querySelector('.cfx-what-k') || {}).textContent)})`); }
       // the Practice Lab slide of side exercises, and its ⏭
       const kl = deck.findIndex((sl, k) => steps[k] === 'side' && sl.type !== 'topic');
       if (kl >= 0) {
@@ -146,11 +172,17 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
           if (rows !== sideActs.length) out.push(`${L}: the Practice Lab slide lists ${rows} side exercises; the day has ${sideActs.length}`);
           if (!/Optional/i.test(w.textContent)) out.push(`${L}: the Practice Lab slide should say the side exercises are optional`);
           if (tiny(w).length) out.push(`${L}: type under 16px on the Practice Lab slide: ${tiny(w).join(' | ')}`);
+          const sc2 = cmCaseFlow.schedule(d);
+          if (sc2.sidePick < sideActs.length && !new RegExp('choose any ' + sc2.sidePick + ' of the ' + sideActs.length).test(norm(w.textContent))) out.push(`${L}: ${sideActs.length} side exercises in ${sc2.side} minutes: the Practice Lab slide should say to choose any ${sc2.sidePick}`);
         }
         const skip = [...w.querySelectorAll('button')].find(b => /Ready for the Knowledge Check/.test(b.textContent));
         if (!skip) out.push(`${L}: the side exercises' slide has no ⏭ to the Ready check`);
         else { skip.click(); await sleep(60); if (state.lessonSlide !== deck.length - 1) out.push(`${L}: ⏭ should go to the Ready check (slide ${deck.length}); it went to ${state.lessonSlide + 1}`); }
       }
+      if (!d.cf.build) { state.cfPxDay = n; goto('practice'); await sleep(40);
+        const tiles = [...document.querySelectorAll('.cf-px-tile')], mainT = tiles.filter(t => /🎯 Skill Building/.test(t.textContent)), sideT = tiles.filter(t => /Optional side exercise/.test(t.textContent));
+        if (tiles.length && (mainT.length !== 1 || sideT.length !== sideActs.length)) out.push(`${L}: the Practice page should mark one tile 🎯 Skill Building (${mainT.length}) and the rest Optional side exercise (${sideT.length} of ${sideActs.length})`);
+        goto('day', d.id); state.dayViewMode = 'slides'; }
       days.push({ n, slides: deck.length, main: main || 'Full Application Practice', sides: sideActs.length, planSteps, guided,
         order: ['agenda', `${steps.filter(s => s === 1).length} lesson slides`, two.map(x => x.type).join(''), `${sb.length} Skill Building slides`, 'actionPlan', `${steps.filter(s => s === 'side').length} side slides`, 'readyCheck'].join(' → ') });
     }

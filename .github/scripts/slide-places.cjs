@@ -151,7 +151,16 @@ const LAYOUT = 9, OLDER = [1, 2, 3, 4, 5, 6, 7, 8];
     window.__retiredRow = id => { for (const x of CM_CASE_FLOW.days) for (const m of x.modules || []) for (const b of m.blocks || []) if (b.id === id) return id + ' ' + cmCaseFlow.viewsOf(b).join(' '); return id; };
     window.__deck8 = d => (window.cmDayLoop && cmDayLoop.layout8 ? cmDayLoop.layout8(d) : buildDaySlides(d));
     window.__key = sl => !sl ? '' : sl.type === 'topic' ? 't' + sl.lessonIndex + ':' + sl.part : sl.type === 'deckPage' ? 'p' + sl.deck + ':' + sl.page : '~' + sl.type;
-    window.__to9 = d => { const now = buildDaySlides(d), at = new Map(now.map((sl, k) => [__key(sl), k])); return __deck8(d).map(sl => at.has(__key(sl)) ? at.get(__key(sl)) : -1); };
+    // (the old Practice Lab's opening slide and every activity before the day's main one in layout 8 come after the
+    // Skill Building and the Action Plan in the loop: they land on step 2, the Case Profile check-in, or, for a trainee
+    // already past Day 1's Meet John Doe in layout 8, on the Skill Building's first slide, so the loop's steps stay ahead)
+    window.__isAt = (n, k) => { const d = DAYS.find(x => x.cf && x.cf.n === n), sl = buildDaySlides(d)[k], b = sl && sl.type === 'topic' ? d.lessons[sl.lessonIndex].cf.block : null; return b ? b.id + ' ' + cmCaseFlow.viewsOf(b)[sl.part - 1] : sl ? sl.type : 'nothing'; };
+    window.__mainOf = d => { const s = CM_CASE_FLOW.sequence.find(x => x.n === d.cf.n); return s && s.main || ''; };
+    window.__to9 = d => { const now = buildDaySlides(d), at = new Map(now.map((sl, k) => [__key(sl), k])), old = __deck8(d), mid = __mainOf(d);
+      const isMain = sl => sl.type === 'topic' && d.lessons[sl.lessonIndex].cf.block.id === mid;
+      const m8 = mid ? old.findIndex(isMain) : -1, mNow = now.findIndex(isMain), s2 = now.findIndex(sl => sl.type === 'meetJohnDoe' || sl.type === 'profileCheck'), meet8 = old.findIndex(sl => sl.type === 'meetJohnDoe');
+      return old.map((sl, k) => (m8 >= 0 && k < m8 && (sl.type === 'practiceLab' || (sl.type === 'topic' && d.lessons[sl.lessonIndex].cf.block.kind === 'activity'))) ? (meet8 >= 0 && meet8 < k ? mNow : s2)
+        : at.has(__key(sl)) ? at.get(__key(sl)) : -1); };
     window.__oldDeck = (d, layout) => { const out = [], bad = [], seen = new Set();
       const now = __deck8(d).map(sl => { const b = sl.type === 'topic' ? d.lessons[sl.lessonIndex].cf.block : null; return b ? { id: b.id, view: cmCaseFlow.viewsOf(b)[sl.part - 1], li: sl.lessonIndex } : { id: '~' + sl.type, view: sl.type === 'deckPage' ? sl.deck + ':' + sl.page : '', li: -1 }; });
       // layouts 4 to 6: today's order. Layout 4: a lesson drawn from the deck now on the slides layout 3 records for it,
@@ -231,7 +240,9 @@ const LAYOUT = 9, OLDER = [1, 2, 3, 4, 5, 6, 7, 8];
         old.forEach((x, i) => { const sl = today[p9[i]];
           if (p9[i] !== x.place9) out.push(`${L} slide ${i + 1} (${x.id} ${x.view || 'slide'}): in today's deck (the daily loop) that slide is ${x.place9 + 1}, the place lands on ${p9[i] + 1}`);
           if (r9[i] !== x.reach9) out.push(`${L} slide ${i + 1} (${x.id} ${x.view || 'slide'}): in today's deck the furthest reached should be ${x.reach9 + 1} (the furthest of the slides seen), it is ${r9[i] + 1}`);
-          if (sl && (sl.type === 'profileCheck' || sl.type === 'actionPlan')) out.push(`${L} slide ${i + 1}: lands on the daily loop's ${sl.type} slide, which no older deck had`);
+          // the Action Plan is in no older deck; the Case Profile check-in only takes the old lab's places before the day's main activity
+          const labPlace = x.id === '~practiceLab' || d.lessons.some(l => l.cf && l.cf.block.id === x.id && l.cf.block.kind === 'activity');
+          if (sl && (sl.type === 'actionPlan' || (sl.type === 'profileCheck' && !labPlace))) out.push(`${L} slide ${i + 1}: lands on the daily loop's ${sl.type} slide, which no older deck had`);
           if (p9[i] > r9[i]) out.push(`${L} slide ${i + 1}: in today's deck the place lands further on than the furthest slide reached`); });
         if (r9.length && r9[r9.length - 1] !== today.length - 1) out.push(`${L}: a trainee who had reached the deck's last slide has not reached the last of today's daily loop`);
         old.bad.forEach(m => out.push(`${L}: ${m}`));
@@ -405,13 +416,16 @@ const LAYOUT = 9, OLDER = [1, 2, 3, 4, 5, 6, 7, 8];
       if (gc.stored !== `0/${LAYOUT} 0/${LAYOUT}`) fail(`the places moved off Meet Your Case should be saved with cfLayout ${LAYOUT}: ${gc.stored}`);
     }
     const lab5 = await page.evaluate((from) => { const d = DAYS.find(x => x.cf && x.cf.n === 1), old = __oldDeck(d, from), now = buildDaySlides(d);
-      return { i: old.findIndex(x => x.id === '~practiceLab'), lab: now.findIndex(sl => sl.type === 'practiceLab'), meet: now.findIndex(sl => sl.type === 'meetJohnDoe') }; }, from);
+      return { i: old.findIndex(x => x.id === '~practiceLab'), lab: now.findIndex(sl => sl.type === 'practiceLab'), meet: now.findIndex(sl => sl.type === 'meetJohnDoe'), main: now.findIndex(sl => sl.type === 'topic' && d.lessons[sl.lessonIndex].cf.block.id === __mainOf(d)) }; }, from);
     if (lab5.i < 0 || lab5.meet < 0 || !(lab5.meet < lab5.lab)) fail(`Day 1: Meet John Doe's slide should sit before the Practice Lab (Meet John Doe ${lab5.meet + 1}, Practice Lab ${lab5.lab + 1})`);
     else {
       const pl = await put(lab5.i, from), gl = await open(pl.dayId);
       if (lab5.i === lab5.lab) fail(`the Practice Lab sits where it sat in layout ${from}: the check proves nothing about layout 7`);
-      if (gl.at !== lab5.lab || gl.is !== 'practiceLab') fail(`a trainee on the Practice Lab in layout ${from} (slide ${lab5.i + 1}) should open it, now slide ${lab5.lab + 1}; opened ${gl.at + 1} (${gl.is})`);
-      if (!(gl.far >= lab5.lab)) fail(`for a trainee on the Practice Lab, Meet John Doe's slide before it counts as seen: furthest ${gl.far + 1}, Meet John Doe is ${lab5.meet + 1}`);
+      // the daily loop (layout 9): the old Practice Lab's opening slide is now the optional side exercises' lab, after the
+      // Skill Building and the Action Plan; a trainee who was on it has done neither, so it opens the day's Skill Building
+      // (Day 1: the Intake, right after Meet John Doe), with Meet John Doe counted as seen and nothing past it
+      if (gl.at !== lab5.main || !/^d1m1-open /.test(gl.is)) fail(`a trainee on the Practice Lab in layout ${from} (slide ${lab5.i + 1}) should open the day's Skill Building, slide ${lab5.main + 1} (not the side exercises' lab, slide ${lab5.lab + 1}, past the Action Plan); opened ${gl.at + 1} (${gl.is})`);
+      if (!(gl.far >= lab5.meet) || gl.far > lab5.main) fail(`for a trainee on the Practice Lab, Meet John Doe's slide counts as seen and nothing past the Skill Building's first slide: furthest ${gl.far + 1}, Meet John Doe is ${lab5.meet + 1}, the Skill Building ${lab5.main + 1}`);
       if (from === 5) meet6 = { from: lab5.i + 1, to: gl.at + 1, caseTo: gc.at + 1 };
     }
   }
@@ -431,7 +445,10 @@ const LAYOUT = 9, OLDER = [1, 2, 3, 4, 5, 6, 7, 8];
   else {
     inLab = await open(lab3.dayId);
     if (lab3.want === lab3.i) fail(`Day 2's d1m1-a1 AI Grader slide sits where it sat in layout 3 (slide ${lab3.i + 1}): the check proves nothing about the reordering`);
-    if (inLab.at !== lab3.want || inLab.is !== 'd1m1-a1 check') fail(`a trainee on ${lab3.was} (layout 3 slide ${lab3.i + 1} of Day 2) should open that same slide, now slide ${lab3.want + 1}; opened ${inLab.at + 1} (${inLab.is})`);
+    // (d1m1-a1 is a side exercise now, before Day 2's main activity in layout 8: the place waits on the Case Profile check-in)
+    const want3 = await page.evaluate(k => __isAt(2, k), lab3.want);
+    if (want3 !== 'profileCheck') fail(`a layout-3 place on Day 2's d1m1-a1 AI Grader (a side exercise that sat before the day's Skill Building) should land on the Case Profile check-in, ahead of the loop's steps; the oracle says ${want3}`);
+    if (inLab.at !== lab3.want || inLab.is !== want3) fail(`a trainee on ${lab3.was} (layout 3 slide ${lab3.i + 1} of Day 2) should open that same slide, now slide ${lab3.want + 1}; opened ${inLab.at + 1} (${inLab.is})`);
     if (inLab.far !== lab3.far || inLab.far < inLab.at) fail(`the furthest slide reached, saved on ${lab3.was} in layout 3, should be slide ${lab3.far + 1}; it is ${inLab.far + 1}`);
     if (inLab.stored !== `${lab3.want}/${LAYOUT} ${lab3.far}/${LAYOUT}`) fail(`the places moved from layout 3 should be saved with cfLayout ${LAYOUT} (${lab3.want}/${LAYOUT} ${lab3.far}/${LAYOUT}): ${inLab.stored}`);
     await page.evaluate(async () => { await loadAll(); state.isAdmin = true; });
@@ -464,7 +481,8 @@ const LAYOUT = 9, OLDER = [1, 2, 3, 4, 5, 6, 7, 8];
   else if (pg.after < 0 || pg.before < 0) fail(`Day ${pg.n}: layout 4 has no slide just before or just after the revised deck's pages (the check wants both to stand on)`);
   else {
     const pa = await put(pg.after, 4, pg.n), ga = await open(pa.dayId);
-    if (ga.is !== pg.afterIs || ga.at !== pa.want || !(ga.at >= pg.first + pg.pages)) fail(`a trainee on the slide after Day ${pg.n}'s lessons in layout 4 (${pa.was}, slide ${pg.after + 1}) should open that same slide, now slide ${pg.first + pg.pages + 1} (past the ${pg.pages} deck pages); opened ${ga.at + 1} (${ga.is})`);
+    const afterNow = await page.evaluate(([n, k]) => __isAt(n, k), [pg.n, pa.want]);
+    if (ga.is !== afterNow || ga.at !== pa.want || !(ga.at >= pg.first + pg.pages)) fail(`a trainee on the slide after Day ${pg.n}'s lessons in layout 4 (${pa.was}, slide ${pg.after + 1}) should open that same slide, now slide ${pg.first + pg.pages + 1} (past the ${pg.pages} deck pages); opened ${ga.at + 1} (${ga.is})`);
     if (ga.far !== pa.far || ga.far < pg.first + pg.pages) fail(`for a trainee past the revised deck's pages they count as seen: the furthest slide reached should be ${pa.far + 1}; it is ${ga.far + 1}`);
     if (ga.stored !== `${pa.want}/${LAYOUT} ${pa.far}/${LAYOUT}`) fail(`a place moved past the revised deck's pages should be saved with cfLayout ${LAYOUT}: ${ga.stored}`);
     await page.evaluate(async () => { await loadAll(); state.isAdmin = true; });

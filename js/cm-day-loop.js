@@ -76,13 +76,30 @@ function stepOf(d, sl){
   return 0;
 }
 
-/* ---------- the Training Agenda's Part 2 (js/cm-case-flow.js agendaSlide reads these) ---------- */
+/* ---------- the Training Agenda's Part 2 (js/cm-case-flow.js agendaSlide reads these) ----------
+   One row for the loop's three steps (the agenda's grid keeps the three rows Part 2 had: label, the loop, the Knowledge
+   Check, so the slide is not scaled down further), the label saying how many optional side exercises follow. Day 1's
+   Intake (d1m1-open, opening John Doe's file in the CMS) IS the day's Skill Building: one practical, not two. */
+const sideCount = d => d.lessons.filter(x => x.cf.block.kind === "activity" && x.cf.block.id !== mainId(d)).length;
+function mainName(d, sc){
+  const l = mainLesson(d);
+  if(sc && sc.build || d.cf.build) return "Build Your Companion Case";
+  if(d.cf.n === 1) return "the Intake";
+  return l && /^Skill Building: /.test(l.cf.heading || "") ? l.cf.heading.replace(/^Skill Building: /, "") : cut(l ? l.cf.block.title : "", 40);   // its section heading, short (the title is on its own slides)
+}
+
 function agendaRows(d, sc){
-  const l = mainLesson(d), n = d.cf.n, sides = d.lessons.filter(x => x.cf.block.kind === "activity" && x.cf.block.id !== mainId(d)).length;
-  return {label: "Part 2 · 🔁 The Daily Loop",
-    sub: `${n === 1 ? "Meet John Doe" : "Case Profile"} → Skill Building → Action Plan${sides ? `, then ${sides} optional side exercises` : ""}`,
-    rows: [n === 1 ? "👋 Meet John Doe & Intake" : "📇 Case Profile Check-In",
-      sc && sc.build ? "🎯 Skill Building: Build Your Companion Case" : `🎯 ${l && /^Skill Building: /.test(l.cf.heading || "") ? l.cf.heading : "Skill Building: " + cut(l ? l.cf.block.title : "", 40)}`,   // its section heading, short (the title is on its own slides)
+  const n = d.cf.n, sides = sideCount(d), side = sides ? `then ${sides} optional side exercise${sides === 1 ? "" : "s"}` : "";
+  // (the Skill Building's own name only where the row has room for it: Day 1's Intake, Day 5's build; on Days 2–4 the
+  // name made the row wrap and the whole agenda scale down, so it is on the Objectives page and the slides instead)
+  const chain = n === 1 ? "👋 Meet John Doe → 🎯 Skill Building: the Intake → 📝 Action Plan"
+    : `📇 Case Profile → 🎯 Skill Building${sc && sc.build || d.cf.build ? ": Build Your Companion Case" : ""} → 📝 ${n === 5 ? "Close Out " : ""}Action Plan`;
+  return {label: "Part 2 · 🔁 The Daily Loop", side, sides, main: mainName(d, sc),
+    sub: `${n === 1 ? "Meet John Doe" : "Case Profile"} → Skill Building → Action Plan${side ? ", " + side : ""}`,   // js/cm-flow-parts.js labels
+    rows: [chain],
+    // the loop's steps one by one (the day's Objectives page, the Speaker Notes)
+    steps: [n === 1 ? "👋 Meet John Doe (his Case Profile)" : "📇 Case Profile Check-In",
+      `🎯 Skill Building: ${n === 1 ? "the Intake, Opening John Doe's File in the CMS" : mainName(d, sc)}`,
       n === 5 ? "📝 Close Out Your Action Plan" : "📝 Update Your Action Plan"]};
 }
 
@@ -96,8 +113,8 @@ const frame = (d, kicker, icon, title, ribbon, body, cls) => `<div class="topic-
 // Days 2–5: the file as it stands today, on the Case Profile
 function profileSlide(d){
   const c = CF.case, src = CF.days.find(x => x.n === d.cf.n) || {}, l = mainLesson(d);
-  // where the file stands as the day opens, each line up to its first full stop or semicolon (the whole is on 📅 The Case So Far)
-  const items = (src.fileState || []).slice(0, 3).map(x => String(x).split(/;\s|(?<!\b(?:Atty|Dr|Hon|Mr|Ms))\.\s(?=[A-Z])/)[0].replace(/\.$/, ""));
+  // where the file stands as the day opens: each line whole (cut short, a line dropped the open lien or the track's dates)
+  const items = (src.fileState || []).slice(0, 3).map(x => String(x).replace(/\.$/, ""));
   return frame(d, "STEP 2 &middot; CASE PROFILE CHECK-IN", "📇", "Case Profile Check-In", "Lessons done · Step 2: what changed on the file since yesterday", `
     <p class="cpx-s-lead">Before today's Skill Building${l ? `, <b>${E(cut(l.cf.block.title, 60))}</b>` : ""}, open <b>${E(c.client.name)}</b>'s Case Profile and check where <b>${E(c.style)}</b> stands today.</p>
     <ul class="cpx-s-list dl-state">${items.map(x => `<li><span aria-hidden="true">📌</span>${E(x)}</li>`).join("")}</ul>
@@ -142,12 +159,14 @@ function sideLab(d){
   const mid = mainId(d), sc = (() => { try{ return window.cmCaseFlow.schedule ? window.cmCaseFlow.schedule(d) : null; }catch(e){ return null; } })();
   const acts = d.lessons.map((l, li) => [l, li]).filter(([l]) => l.cf.block.kind === "activity" && l.cf.block.id !== mid);
   const mins = sc && sc.side ? `about ${sc.side} minutes` : "short";
+  // the minutes hold about sc.sidePick of them (js/cm-case-flow-schedule.js SIDE): said plainly when there are more
+  const pick = sc && sc.sidePick && sc.sidePick < acts.length ? sc.sidePick : 0;
   return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; OPTIONAL SIDE EXERCISES &middot; PRACTICE LAB</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-lab dl-side">
       <div class="cfx-deck-head"><h2 class="cfx-deck-title">🧪 Practice Lab: Optional Side Exercises</h2></div>
-      <div class="cfx-ribbon"><span>Optional · ${mins} · each one: an assumption, then log it in the CMS</span></div>
+      <div class="cfx-ribbon"><span>Optional · ${mins}${pick ? ` · choose any ${pick} of the ${acts.length}` : " · each one: an assumption, then log it in the CMS"}</span></div>
       <div class="cfx-body"><div class="cfx-sheet">
-        <p class="dl-side-lead">Each one starts from an assumption (“Assuming …”): log one entry in the CMS. Do the ones you have time for.</p>
+        <p class="dl-side-lead">Each one starts from an assumption (“Assuming …”): log one entry in the CMS. ${pick ? `There is time for about ${pick}: pick the ones closest to your own desk work, not all ${acts.length}.` : "Do the ones you have time for."}</p>
         <ol class="cfx-lab-list cfx-lab-of">${acts.map(([l, li], k) => { const b = l.cf.block, of = l.cf.of, ref = of ? `Practises: ${of.h.split(" ")[0]} ${cut(of.cf.block.title, 40)}` : "";
           return `<li><button type="button" onclick="cmCaseFlow.labGo(${d.id},${li})" title="${E(b.title)}: go to this side exercise"><span class="n">${k + 1}</span><span class="tt"><span class="t">${E(cut(b.title, 54))}</span>${ref ? `<span class="of">${E(ref)}</span>` : ""}</span></button></li>`; }).join("")}</ol>
         <div class="cfx-ex-go dl-side-go"><button type="button" class="btn btn-primary" onclick="cmCaseFlow.toReady(${d.id})">⏭ Skip to 🎯 Ready for the Knowledge Check?</button></div>
@@ -197,7 +216,9 @@ if(typeof window.renderLessonCard === "function"){
     const b = l && l.cf && l.cf.block; if(!b || b.kind !== "activity" || !isCf(d)) return html;
     const tag = b.id === mainId(d) ? "STEP 3 &middot; THE DAY'S SKILL BUILDING" : "OPTIONAL SIDE EXERCISE";
     return String(html).replace(/(<div class="topic-separator cfx-sepline">[^<]*)(<\/div>)/, `$1 &middot; ${tag}$2`)
-      .replace(/(class="card lesson-card cf-card cfx )/, `$1${b.id === mainId(d) ? "dl-main " : "dl-side-ex "}`);
+      .replace(/(class="card lesson-card cf-card cfx )/, `$1${b.id === mainId(d) ? "dl-main " : "dl-side-ex "}`)
+      // the band's label: "Practice Lab" now names only the optional block after the Action Plan
+      .replace(/(<i class="cfx-what-k">)Practice Lab(<\/i>)/, `$1${b.id === mainId(d) ? "Skill Building" : "Optional Side Exercise"}$2`);
   };
 }
 // Presenter view: what to say on the loop's own slides (build/case-flow/scripts/days.json "profile", "plan", "lab")
@@ -213,7 +234,8 @@ if(typeof presenterCues === "function"){
     if(slide.type === PLAN) return cue(n === 5 ? "Close Out Your Action Plan" : "Update Your Action Plan", said(n, "plan"), n === 1
       ? "Step 4, guided: walk the room through the template section by section on the shared screen (📝 Open my Action Plan), about 15 minutes. Every fact has its document; anything only Atty. Thorne decides is routed."
       : "Step 4, lighter each day: about 10 minutes, the trainees update the plan on their own. Spot-check two plans: every action item has an owner and a date.");
-    if(slide.type === "practiceLab" && mainId(d)) return cue("Practice Lab: Optional Side Exercises", said(n, "lab"), "Optional and short: each side exercise is an assumption and an entry to log in the CMS, a few minutes each. Give the room the time that is left before the Knowledge Check, then ⏭ on the slide goes to the Ready check.");
+    if(slide.type === "practiceLab" && mainId(d)) { const sc = (() => { try{ return window.cmCaseFlow.schedule(d); }catch(e){ return null; } })(), pick = sc && sc.sidePick && sc.sidePick < sc.sides ? sc.sidePick : 0;
+      return cue("Practice Lab: Optional Side Exercises", said(n, "lab"), `Optional and short: each side exercise is an assumption and an entry to log in the CMS, a few minutes each.${pick ? ` The ${sc.side} minutes hold about ${pick} of the ${sc.sides}: trainees choose any ${pick}, not all of them.` : ""} Give the room the time that is left before the Knowledge Check, then ⏭ on the slide goes to the Ready check.`); }
     return __cues.apply(this, arguments);
   };
 }

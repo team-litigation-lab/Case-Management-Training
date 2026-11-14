@@ -81,10 +81,20 @@ const build = window.cmDayLoop && window.cmDayLoop.layout8 ? window.cmDayLoop.la
 const deckNow = d => buildDaySlides(d);
 /* a slide by what it is, the same in every order: a block's slide (its lesson and part), a deck page, or the day's own slide */
 const slideKey = sl => !sl ? "" : sl.type === "topic" ? `t:${sl.lessonIndex}:${sl.part}` : sl.type === "deckPage" ? `p:${sl.deck}:${sl.page}` : "~" + sl.type;
-/* layout 8's positions in today's deck (layout 9): each slide where the loop put it */
+/* layout 8's positions in today's deck (layout 9): each slide where the loop put it. Except the old Practice Lab's
+   opening slide and every side exercise that sat before the day's main activity in it: the loop put those after the
+   Skill Building and the Action Plan, which that trainee has not done yet, so they land on the loop's step 2 (the
+   Case Profile check-in, or Meet John Doe), or on the Skill Building's first slide for a trainee already past Meet
+   John Doe in layout 8 (Day 1) */
 function to9(d){
-  const now = deckNow(d), at = new Map(now.map((sl, k) => [slideKey(sl), k]));
-  return build(d).map((sl, k) => at.has(slideKey(sl)) ? at.get(slideKey(sl)) : Math.min(k, now.length - 1));
+  const now = deckNow(d), at = new Map(now.map((sl, k) => [slideKey(sl), k])), old = build(d);
+  const loop = window.cmDayLoop, mid = loop && loop.mainId ? loop.mainId(d) : "";
+  const isMain = sl => sl && sl.type === "topic" && d.lessons[sl.lessonIndex] && d.lessons[sl.lessonIndex].cf.block.id === mid;
+  const main8 = mid ? old.findIndex(isMain) : -1, mainNow = mid ? now.findIndex(isMain) : -1;
+  const step2Now = now.findIndex(sl => sl.type === "meetJohnDoe" || sl.type === "profileCheck"), meet8 = old.findIndex(sl => sl.type === "meetJohnDoe");
+  const early = (sl, k) => main8 >= 0 && k < main8 && (sl.type === "practiceLab" || (sl.type === "topic" && d.lessons[sl.lessonIndex].cf.block.kind === "activity"));
+  return old.map((sl, k) => early(sl, k) && mainNow >= 0 ? (meet8 >= 0 && meet8 < k || step2Now < 0 ? mainNow : step2Now)
+    : at.has(slideKey(sl)) ? at.get(slideKey(sl)) : Math.min(k, now.length - 1));
 }
 const cfDay = d => !!(d && d.cf && Array.isArray(d.lessons));
 

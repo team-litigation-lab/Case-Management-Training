@@ -1792,7 +1792,7 @@ window.CM_CF_SCRIPTS = {
     "say": "• Welcome; today starts John Doe's case from the beginning\n• Part 1, all the lessons: the case, your role, facts vs. legal advice, reading the file, Case Plan, client directions, the car, client communications\n• Part 2, the daily loop: meet John Doe on his Case Profile and do his Intake, our Skill Building, then write the Action Plan\n• Six short side exercises after it are optional\n• Knowledge Check: 70% opens Day 2"
    },
    "lab": {
-    "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The backup folders, the Recorded Statement instruction, the PD file, the outreach log, the task set, the warning letter\n• Give the time that is left, then the Ready check"
+    "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The backup folders, the Recorded Statement instruction, the PD file, the outreach log, the task set, the warning letter\n• About 30 minutes, about five minutes each; then the Ready check"
    },
    "plan": {
     "say": "• Step 4 of the loop, guided: the Action Plan template, section by section, on the shared screen\n• Every fact from the Intake with the document it comes from; every action item with an owner, a date and a tool\n• Anything only Atty. Thorne decides is routed to him, with the date"
@@ -1818,7 +1818,7 @@ window.CM_CF_SCRIPTS = {
     "say": "• Step 2 of the loop: a minute on John Doe's Case Profile, The Case So Far\n• Since yesterday: the matter is open and three claims were reported by phone, nothing in writing yet\n• Ask what has to be confirmed in writing first, then straight into the Skill Building"
    },
    "lab": {
-    "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The policy stack, the matrix audit, the gap flag, the Case Plan, the LOPs, the redirected referral, the lien, the near-drop, the backup\n• Give the time that is left, then the Ready check"
+    "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The policy stack, the matrix audit, the gap flag, the Case Plan, the LOPs, the redirected referral, the lien, the near-drop, the backup\n• About 30 minutes: time for about six of them, so each trainee chooses six; then the Ready check"
    },
    "plan": {
     "say": "• Step 4: update the Action Plan on your own, about ten minutes\n• Every claim now open, with its carrier and claim number; the next action items with owners and dates"
@@ -1836,7 +1836,7 @@ window.CM_CF_SCRIPTS = {
     "say": "• Step 2 of the loop: John Doe's Case Profile, The Case So Far\n• Treatment is complete: MMI 06/12/2026, Specials $16,401.40, the gap still to be explained from his documents\n• Then straight into the Skill Building: the BI demand"
    },
    "lab": {
-    "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The gap call and record, wages and Specials, the strategy decisions, the backup audit, the UM demands, the offer, the release, both Net Sheets\n• Give the time that is left, then the Ready check"
+    "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The gap call and record, wages and Specials, the strategy decisions, the backup audit, the UM demands, the offer, the release, both Net Sheets\n• About 30 minutes: time for about six of them, so each trainee chooses six; then the Ready check"
    },
    "plan": {
     "say": "• Step 4: update the Action Plan: where the demand stands and the next deadline\n• A lighter touch today: the trainees write it, you spot-check two plans"
@@ -1854,7 +1854,7 @@ window.CM_CF_SCRIPTS = {
     "say": "• Step 2 of the loop: John Doe's Case Profile, The Case So Far\n• Track A settled at $40,000 gross; liens still to resolve; Track B heads to mediation and arbitration\n• Then straight into the Skill Building: the Mediation Binder"
    },
    "lab": {
-    "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The two lien reductions, the final Net Sheet, the prior-attorney lien, the disbursement, the backup, the impasse, the calendars, the ADR matrix, the Arbitration Binder\n• Give the time that is left, then the Ready check"
+    "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The two lien reductions, the final Net Sheet, the prior-attorney lien, the disbursement, the backup, the impasse, the calendars, the ADR matrix, the Arbitration Binder\n• About 30 minutes: time for about six of them, so each trainee chooses six; then the Ready check"
    },
    "plan": {
     "say": "• Step 4: update the Action Plan: the binder's exchange date and what Atty. Thorne still decides\n• The trainees work alone; spot-check that every item has an owner and a date"

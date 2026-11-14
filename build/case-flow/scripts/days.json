@@ -4,7 +4,7 @@
       "say": "• Welcome; today starts John Doe's case from the beginning\n• Part 1, all the lessons: the case, your role, facts vs. legal advice, reading the file, Case Plan, client directions, the car, client communications\n• Part 2, the daily loop: meet John Doe on his Case Profile and do his Intake, our Skill Building, then write the Action Plan\n• Six short side exercises after it are optional\n• Knowledge Check: 70% opens Day 2"
     },
     "lab": {
-      "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The backup folders, the Recorded Statement instruction, the PD file, the outreach log, the task set, the warning letter\n• Give the time that is left, then the Ready check"
+      "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The backup folders, the Recorded Statement instruction, the PD file, the outreach log, the task set, the warning letter\n• About 30 minutes, about five minutes each; then the Ready check"
     },
     "wrap": {
       "say": "• Robert Smith's insurer has already called John Doe, and he needs a car for work\n• Discuss what to tell him today, in what order\n• Cover: the do's and don'ts in plain words and the rental path\n• Log every step the same day; route anything legal to Atty. Thorne\n• What John says this week stays in the adjuster's notes for the life of the case",
@@ -27,7 +27,7 @@
       "say": "• Welcome back; today covers John Doe's claim set-up and treatment\n• Claim set-up lessons: coverage tracking, affidavits, liability, decision-first notes, LORs; then the treatment plan and Case Plan\n• Treatment lessons: payers, LOPs, EOBs, PIP strategy, the EMC rule, costs, health subrogation, A-C-T monitoring\n• Part 2, the daily loop: the Case Profile, then one Skill Building, the LORs to all three carriers, then update the Action Plan\n• Nine short side exercises after it are optional\n• Knowledge Check: 70% opens Day 3"
     },
     "lab": {
-      "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The policy stack, the matrix audit, the gap flag, the Case Plan, the LOPs, the redirected referral, the lien, the near-drop, the backup\n• Give the time that is left, then the Ready check"
+      "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The policy stack, the matrix audit, the gap flag, the Case Plan, the LOPs, the redirected referral, the lien, the near-drop, the backup\n• About 30 minutes: time for about six of them, so each trainee chooses six; then the Ready check"
     },
     "wrap": {
       "say": "• Scenario 04/08/2026: Keystone confirmed its limit in writing 03/20; Riverton Spine & Rehab reports two missed visits\n• Dana Whitfield has asked John Doe for a Recorded Statement\n• Discuss first, second and third steps and what each protects\n• Cover: stop the recorded call through the firm that day; reach John on every approved channel and log it\n• Missed visits go to Atty. Thorne with facts and a plan; ask why before assuming",
@@ -45,7 +45,7 @@
       "say": "• Welcome back; from Day 2: when John's ride ended, ask the clinic about transportation help, log it, tell Atty. Thorne\n• Lessons: the Gap Explanation Record, pre-demand case auditing, the demand, settlement negotiations, the UM consent and waiver, the settlement release\n• Part 2, the daily loop: the Case Profile, then one Skill Building, serving the BI demand, then update the Action Plan\n• Thirteen short side exercises after it are optional\n• Knowledge Check: 70% opens Day 4"
     },
     "lab": {
-      "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The gap call and record, wages and Specials, the strategy decisions, the backup audit, the UM demands, the offer, the release, both Net Sheets\n• Give the time that is left, then the Ready check"
+      "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The gap call and record, wages and Specials, the strategy decisions, the backup audit, the UM demands, the offer, the release, both Net Sheets\n• About 30 minutes: time for about six of them, so each trainee chooses six; then the Ready check"
     },
     "wrap": {
       "say": "• 07/20/2026: Specials audited; Atty. Thorne approved a policy-limits demand to Keystone\n• Discuss what must be true before the Time-Limited Demand goes out\n• Cover: every record and bill included, numbers matching the audit, a clear reasonable deadline, proof of receipt, Atty. Thorne's sign-off\n• One missing page lets Keystone argue it never had a fair chance to settle\n• Next: the $40,000 gross meets the bills, and how it gets split",
@@ -63,7 +63,7 @@
       "say": "• Welcome back; today covers the money side of Track A, the settled file, then Track B, where it doesn't settle\n• Lessons: liens and provider balances, reductions, the Net Sheet, the release audit, disbursement and closing, court rules, mediation and arbitration, the binders\n• Part 2, the daily loop: the Case Profile, then one Skill Building, the Mediation Binder, then update the Action Plan\n• Twelve short side exercises after it are optional\n• Knowledge Check: 70% opens Day 5"
     },
     "lab": {
-      "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The two lien reductions, the final Net Sheet, the prior-attorney lien, the disbursement, the backup, the impasse, the calendars, the ADR matrix, the Arbitration Binder\n• Give the time that is left, then the Ready check"
+      "say": "• Optional side exercises: each one an assumption and one entry to log in the CMS\n• The two lien reductions, the final Net Sheet, the prior-attorney lien, the disbursement, the backup, the impasse, the calendars, the ADR matrix, the Arbitration Binder\n• About 30 minutes: time for about six of them, so each trainee chooses six; then the Ready check"
     },
     "wrap": {
       "say": "• John Doe's net from the $40,000 is $20,359.92\n• Scenario: Keystone's draft release arrives 08/14/2026, releasing \"all other persons, firms, corporations and insurers\"\n• Harbor Point hasn't answered the consent request; Atty. Thorne is out until Monday\n• Flag that language, since it could release the UM insurers; chase Harbor Point's consent in writing; log everything\n• Nothing gets signed until Atty. Thorne reviews it",

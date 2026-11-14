@@ -21,7 +21,8 @@
        (on a build day the build is the Skill Building)
      → 📝 Update Your Action Plan (Day 1, guided step by step: 15 minutes; later days 10)
      → the side exercises (every other activity: optional, short), one 🧪 Practice Lab of SIDE.each minutes an
-       exercise, SIDE.max at most (a build day's are untimed extra practice, as before)
+       exercise, SIDE.max at most: a day with more than SIDE.max / SIDE.each of them says so (sidePick: trainees choose
+       any that many, not all of them); a build day's are untimed extra practice, as before
      → the Knowledge Check. Whatever is left is Q&A.
    ============================================================ */
 (function(root){
@@ -134,7 +135,9 @@ function loopSchedule(items, opts){
   if(main) labs.push({title: String(main.heading || "").replace(/^Skill Building:\s*/, "") || "Skill Building", main: true, acts: [main], extra: [], skill: act, brainstorm, mins: act + brainstorm});
   if(sides.length) labs.push({title: "Side exercises (optional)", side: true, acts: [], extra: sides, skill: side, brainstorm: 0, mins: side});
   const used = lessonBudget + kc + profile + plan + side + brainstorm + act + build, total = BREAK_MIN + used, n = base.full, m = base.briefs;
-  return {per: base.per, brief: base.brief, act, brainstorm, kc, build, profile, plan, side, sides: sides.length, main: main ? main.id : "", loop: true,
+  // the side exercises' minutes hold about SIDE.each each: sidePick of them fit, the rest are there to choose from
+  const sidePick = side ? Math.min(sides.length, Math.max(1, Math.floor(side / SIDE.each))) : 0;
+  return {per: base.per, brief: base.brief, act, brainstorm, kc, build, profile, plan, side, sides: sides.length, sidePick, sideEach: SIDE.each, main: main ? main.id : "", loop: true,
     parts: base.parts, labs, labMin: act + brainstorm + side, room: TEACH_MIN, used, buffer: Math.max(0, TEACH_MIN - used), fits: total <= DAY_MIN,
     total, topics: n + m, full: n, briefs: m, acts: main ? 1 : 0, extras: sides.length, skillParts: main ? 1 : 0,
     lessonMin: lessonBudget, practicalMin: TEACH_MIN - lessonBudget, lessonShare: Math.round(lessonBudget / TEACH_MIN * 100),
