@@ -186,7 +186,9 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     // on the record directly and reload, which also proves the whole exchange survives a reload.
     await page.evaluate(() => { const o = document.getElementById('cf-sv'); if (o) o.remove(); });
     await page.evaluate(async (a) => {
-        const r = (await storeGet('case-flow')) || {};
+        // the answer goes on the page's own record (cmCaseFlow.record(), the object it saves): a change made to a copy
+        // read from storage was saved over by the page's older record before the reload, about half the time
+        const r = cmCaseFlow.record();
         if (r.service && r.service[a.b]) { r.service[a.b].choice = a.i; await storeSet('case-flow', r); }
         // storeSet only schedules the cloud copy (4 s later); a reload before it lands brings the older copy back from
         // the server, so the answer would be the wrong one again. Save it now, as the page does on leaving.
