@@ -1,4 +1,5 @@
 build/case-flow/documents/.tmp/
+.claude/worktrees/
 http:/
 https:/
 __pycache__/

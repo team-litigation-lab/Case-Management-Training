@@ -15904,6 +15904,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-cms-file.js"></script>
 <!-- 🔗 a trainer links a trainee's Backup Drive folder for them (Admin Master Control → Trainee Audit) -->
 <script src="/js/cm-drive-admin.js"></script>
+<!-- ✍ the written work on a trainee's Backup Drive, AI-graded nightly, and a trainer's override of any Drive grade (Trainee Drives) -->
+<script src="/js/cm-drive-work.js"></script>
 <!-- 📂 the trainee's own Backup Drive: the firm's folder structure, built and graded on Day 1 -->
 <script src="/js/cm-drive.js"></script>
 <!-- 🧭 a day's two parts, labelled wherever a day is listed: Part 1 · Lessons, Part 2 · Practice Lab (the Roadmap, the slide picker, Presenter view's jump list) -->
@@ -15918,7 +15920,7 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-progress-log.js"></script>
 <!-- 🖼 the revised deck's pages on the Case Flow deck, topic by topic (before cm-slide-places.js, which moves saved places past them) -->
 <script src="/js/cm-deck-pages.js"></script>
-<!-- 🔁 the daily loop: lessons → Case Profile → the one Skill Building → Action Plan → optional side exercises → Knowledge Check (after cm-deck-pages.js, whose pages it keeps with the lessons; before cm-slide-places.js, which carries saved places into it) -->
+<!-- 🔁 the daily loop: lessons → Case Profile → the one Skill Building → Action Plan → optional side exercises → Knowledge Check (after cm-deck-pages.js, whose pages it keeps with the lessons; saved places follow their slides by key, cm-slide-keys.js) -->
 <script src="/js/cm-day-loop.js"></script>
 <!-- 💡 the rules of the lesson cards the decks replaced, as a Tip pop-up on the Skill Activity that practised each one -->
 <script src="/js/cm-lesson-tips.js"></script>
@@ -15926,8 +15928,12 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-sb-task.js"></script>
 <!-- 🔎 a slide uses its card: content that does not fill it is enlarged, and what is left sits in the middle (called by fitSlideZoom) -->
 <script src="/js/cm-slide-layout.js"></script>
+<!-- 🧊 layout 7's deck as slide keys, frozen (read by cm-slide-places.js and cm-slide-keys.js) -->
+<script src="/js/cm-slide-keys7.js"></script>
 <!-- 📍 a saved place follows its slide when the deck changes (the lessons' On the Job slide is gone): moved once, never past the end -->
 <script src="/js/cm-slide-places.js"></script>
+<!-- 🔑 a saved place is saved by slide key too: a deck change moves no one (right after cm-slide-places.js, which it builds on) -->
+<script src="/js/cm-slide-keys.js"></script>
 <script src="/js/lsh-topbar.js"></script>
 <script src="/js/lsh-one-screen.js"></script>
 </body>

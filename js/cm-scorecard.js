@@ -634,7 +634,9 @@ window.cmScorecard = {
   batch(b){ ALL.batch = b || ""; ALL.pick = ""; ALL.only = ""; render(); },
   only(id){ ALL.only = id || ""; ALL.pick = id || ""; render(); },
   refresh(){ ALL.rows = null; state.adminData = null; render(); },
-  invalidate(){ ALL.rows = null; },
+  // something the cards read changed (e.g. the Drive reports came in): read again in the background, keeping the cards
+  // on screen until the fresh ones come (clearing them blanked the trainer's page mid-read)
+  invalidate(){ if(ALL.rows) ALL.at = 0; else ALL.rows = null; },
   reload: () => loadAll(),   // the background reload, now (the once-a-minute one)
   // a row of 🏅 Scores: that trainee's card (shown if only another one was), scrolled to
   pick(id){ ALL.pick = id; if(ALL.only && ALL.only !== id) ALL.only = id; render();

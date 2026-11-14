@@ -111,10 +111,11 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
       const firstAct = notes.findIndex(x => /^## \d\d\. /.test(x) && d.lessons[Number(x.slice(3, 5)) - 1] && d.lessons[Number(x.slice(3, 5)) - 1].cf.block.kind === 'activity');
       if (!(nP > 0 && nP < nS && nS < nA && (!sideActs.length || nA < nL))) out.push(`${L}: the Speaker Notes should run Case Profile (${nP}) → Skill Building (${nS}) → Action Plan (${nA}) → optional side exercises (${nL})`);
       if (!d.cf.build && (firstAct < 0 || d.lessons[Number(notes[firstAct].slice(3, 5)) - 1].cf.block.id !== main)) out.push(`${L}: the Speaker Notes' first activity should be the Skill Building ${main} (${notes[firstAct]})`);
-      // a layout-8 place on the old Practice Lab slide stays ahead of the loop's steps
-      if (window.cmSlidePlaces && main) { const old = cmDayLoop.layout8(d), i8 = old.findIndex(sl => sl.type === 'practiceLab'), m9 = deck.findIndex(sl => sl.type === 'topic' && d.lessons[sl.lessonIndex].cf.block.id === main);
-        const p = cmSlidePlaces.placeMap(d, 8)[i8], f = cmSlidePlaces.reachMap(d, 8)[i8];
-        if (i8 >= 0 && (p > m9 || f > m9)) out.push(`${L}: a layout-8 place on the old Practice Lab (slide ${i8 + 1}) lands on ${p + 1}, reached ${f + 1}: past the Skill Building (slide ${m9 + 1}) and the Action Plan`); }
+      // a place saved before the loop (no keys: a position in layout 8's deck) on the old Practice Lab slide stays ahead
+      // of the loop's steps (js/cm-day-loop.js placeRule; the key-saved cases are in slide-places.cjs)
+      if (window.cmSlideKeys && window.cmSlidePlaces && main) { const i8 = (cmSlidePlaces.keys8(d) || []).indexOf('~practiceLab'), m9 = deck.findIndex(sl => sl.type === 'topic' && d.lessons[sl.lessonIndex].cf.block.id === main);
+        const p = i8 >= 0 ? cmSlideKeys.from8(d, i8) : -1;
+        if (i8 >= 0 && !(p >= 0 && p < m9)) out.push(`${L}: a layout-8 place on the old Practice Lab (slide ${i8 + 1}) lands on ${p + 1}: past the Skill Building (slide ${m9 + 1}) and the Action Plan`); }
       // step 2 and its way back
       const k2 = deck.findIndex(sl => sl.type === want2);
       if (k2 >= 0) {

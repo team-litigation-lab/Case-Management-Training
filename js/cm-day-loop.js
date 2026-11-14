@@ -14,9 +14,11 @@
    before the Ready check, where ⏭ skips them: the loop's four steps run without a detour, the plan is written while
    the Skill Building is fresh, and the optional work is the one block a trainee or a trainer can pass over. Each side
    exercise's slides say OPTIONAL SIDE EXERCISE on their top line; the Skill Building's say so too.
-   This file wraps buildDaySlides after js/cm-case-flow.js, js/cm-case-profile.js and js/cm-deck-pages.js and before
-   js/cm-slide-places.js, which reads the deck before this order (cmDayLoop.layout8) to carry saved places into it
-   (layout 9). The minutes are js/cm-case-flow-schedule.js (the loop's own steps).
+   This file wraps buildDaySlides after js/cm-case-flow.js, js/cm-case-profile.js and js/cm-deck-pages.js. A saved place
+   follows its slide by key (js/cm-slide-keys.js), wherever the loop put it, with one rule of the loop's own (placeRule):
+   a place saved before the loop on the old Practice Lab's opening slide, or on a side exercise that sat before the day's
+   Skill Building in that lab, would land after the Skill Building and the Action Plan the trainee has not done; it lands
+   on the loop's start instead (step 2, the Case Profile). The minutes are js/cm-case-flow-schedule.js (the loop's own steps).
    ============================================================ */
 (function(){
 "use strict";
@@ -61,6 +63,27 @@ buildDaySlides = function(d){
   const lab = sides.length ? (labHead.length ? labHead.slice(0, 1) : [{type: "practiceLab"}]).concat(sides) : [];
   return head.concat(lessons, step2, main, build, [{type: PLAN}], lab, ready, tail);
 };
+
+/* ---------- a place saved before the loop (js/cm-slide-keys.js: window.CM_SLIDE_KEY_RULES) ----------
+   Keys saved since the loop carry RULE in their marks (m) and are left as they are. A place saved before it (keys
+   without RULE, or no keys at all: a position in layout 8's deck) whose slide, in the deck before the loop (before(d),
+   cmDayLoop.layout8), was the Practice Lab's opening slide or a side exercise ahead of the day's Skill Building, lands on
+   step 2 (Meet John Doe, or the Case Profile Check-In): the slide right before the Skill Building. For the place and
+   the furthest slide reached alike: nothing past the Skill Building and the Action Plan is unlocked by it. */
+const RULE = "dayLoop";
+function placeRule(d, r, to, keys){
+  if(!isCf(d) || (r && Array.isArray(r.m) && r.m.indexOf(RULE) >= 0) || !window.cmSlideKeys) return to;
+  const mid = mainId(d), k = keys[to]; if(!mid || !k) return to;
+  const id = x => String(x).replace(/#\d+$/, "").split(":")[0];
+  const l = d.lessons.find(x => x.cf && x.cf.block.id === id(k)), side = !!(l && l.cf.block.kind === "activity" && l.cf.block.id !== mid);
+  if(!(id(k) === "~practiceLab" || side)) return to;
+  const seen = {}, old = before(d).map(sl => { const x = window.cmSlideKeys.keyOf(d, sl); seen[x] = (seen[x] || 0) + 1; return seen[x] > 1 ? x + "#" + seen[x] : x; });
+  const o = old.indexOf(k), main8 = old.findIndex(x => id(x) === mid);
+  if(!(o >= 0 && main8 >= 0 && o < main8)) return to;
+  const s2 = keys.findIndex(x => STEP2.has(String(x).slice(1)));
+  return s2 >= 0 && s2 < to ? s2 : to;
+}
+(window.CM_SLIDE_KEY_RULES = window.CM_SLIDE_KEY_RULES || []).push({id: RULE, place: placeRule});
 
 /* the step of the loop a slide is in: 1 lessons, 2 the Case Profile, 3 the Skill Building, 4 the Action Plan,
    "side" the optional side exercises, 5 the Ready check and the Knowledge Check, 0 the Training Agenda */
@@ -177,7 +200,7 @@ function sideLab(d){
 /* ---------- where the buttons go ---------- */
 const backTo = d => { state.cfReturn = {dayId: d.id, n: d.cf.n, slide: typeof state.lessonSlide === "number" ? state.lessonSlide : null, view: "day"}; };
 window.cmDayLoop = {
-  layout8: d => before(d),   // the deck before the loop's order (js/cm-slide-places.js: layout 8)
+  layout8: d => before(d),   // the deck before the loop's order (layout 8's: placeRule, .github/scripts/slide-places.cjs)
   stepOf, mainId, isSide, agendaRows,
   profile(){ const d = DAYS.find(x => x.id === state.dayId && isCf(x)); if(d && state.view === "day") backTo(d);
     state.cfFileTab = "now"; if(typeof goto === "function") goto("clientprofile"); window.scrollTo(0, 0); },
