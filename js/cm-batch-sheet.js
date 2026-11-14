@@ -283,6 +283,8 @@ function dayParts(r, d){
     ? [`🏷 File names ${bd.names.got}/${bd.names.max}${bd.names.wrong > 0 ? ` · ${bd.names.wrong} name${bd.names.wrong === 1 ? "" : "s"} wrong` : ""}`] : [];
   if(bd && typeof bd.score === "number") out.push({grp: "bd", name: n === 1 ? "📂 Backup Drive: the firm's folders" : "📂 Backup File Maintenance", pct: num(bd.score),
     status: (n === 1 ? bd.ok : bd.passed) ? "Passed" : "Below 70%", why: `Read from the trainee's Drive${bd.attempts ? ` · attempt ${bd.attempts}` : ""}${bd.at ? " · " + dTime(bd.at) : ""}`, best: [], improve: bdNames.concat((bd.issues || bd.problems || []).slice ? (bd.issues || bd.problems || []).slice(0, 4).map(x => clip(typeof x === "string" ? x : JSON.stringify(x), 200)) : [])});
+  // ✍ the written work on the Backup Drive, AI-graded, and a trainer's override of the day's Drive grade (js/cm-drive-work.js)
+  try{ if(window.cmDriveWork) cmDriveWork.dayParts(r, n, data, out); }catch(e){}
   // 🗂 the CMS case file (js/cm-cms-file.js): the day's file, graded against what a correct CMS file holds by then
   try{ if(window.cmCmsFile){ const x = cmCmsFile.compute({rec: r, cf: r.caseFlow || {days: {}}, data}).days.find(y => y.n === n);
     if(x && x.pct != null){ const miss = []; x.areas.forEach(a => a.items.filter(i => i.pending || i.pct === 0).forEach(i => miss.push(`${a.a.label}: ${clip(i.name || String(i.text || "").replace(/\*\*/g, ""), 120)}`)));
