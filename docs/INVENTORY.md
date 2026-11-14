@@ -100,7 +100,7 @@ None.
 
 `/api/ai` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (18)
+## Node checks (19)
 
 | Check | What it covers |
 |---|---|
@@ -116,6 +116,7 @@ None.
 | `drive-grades.cjs` | The Backup Drive is auto-graded day by day from the Drive itself (Days 2–5, against an in-memory Google Drive) |
 | `drive-naming.cjs` | The firm's file naming convention on the Backup Drive (one rule with the CMS filing; every name checked, each wrong one with the name it should have) |
 | `inventory.cjs` | The code inventory (docs/INVENTORY.md) is in step with the files: run node build/inventory.cjs after adding, removing or renaming one |
+| `merge-main-generated.mjs` | Every generated file is one merge-main.mjs rebuilds: each build output and each file headed "generated" is in its GENERATED list, each file-writing build script is a BUILD step or says why not |
 | `r2-docs.mjs` | Documents served from R2 (ranges, 304s, static assets as the fallback) |
 | `rubric-guards.cjs` | 📐 Rubric guards (a rubric score is the trainer's; a trainee's own auto-scored results go on their own progress record only) |
 | `run-checks.mjs` | What it checks                    (run as: node <file>) |
@@ -177,7 +178,7 @@ None.
 ## Check helpers (not checks themselves)
 
 - `.github/scripts/drive-sa-fake.cjs` — GDRIVE_SA_EMAIL and GDRIVE_SA_KEY (a real PKCS#8 key, made once: the Worker signs its token request with it)
-- `.github/scripts/merge-main.mjs` — Bring main into the current branch, and settle by itself what two branches used to collide on: • the generated files (the assembled slides, trainer scripts, simulation, companion cases, exhibits and curriculum
+- `.github/scripts/merge-main.mjs` — Bring main into the current branch, and settle by itself what two branches used to collide on: • every generated file (the assembled slides, trainer scripts, simulation, companion cases, exhibits, the deck
 - `.github/scripts/r2-sync.mjs` — Applies a list of changed document files to R2 (used by .github/workflows/r2-docs.yml): each line is "<status>\t<path>" from git diff --name-status; D removes <PREFIX>/<path> from the bucket, anything else
 - `.github/scripts/server.mjs` — Local stand-in for Cloudflare: serves the site through worker.js with an in-memory KV store, so the smoke test runs without an account.
 - `.github/scripts/sign-in.cjs` — A trainee signs in, in the browser tests. The name + batch form is gone: trainees arrive from the LSH Training Portal with a ticket (js/portal-gate.js), and the test server has no Portal secret. So the test puts the form
