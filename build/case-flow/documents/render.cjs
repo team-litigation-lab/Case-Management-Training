@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* Renders the John Doe v. Robert Smith case documents: documents/case-flow/html/RSNN.html (an HTML fragment) →
+/* Renders the John Doe VS Robert Smith case documents: documents/case-flow/html/RSNN.html (an HTML fragment) →
    the PDF the manifest names, under documents/case-flow/, with documents/case-flow/html/doc.css and the training footer on every page; RS03 (the editable CMS
    record) also goes to .docx through LibreOffice. The manifest is js/cm-case-flow-docs.js (window.CM_CF_DOCS).
      node build/case-flow/documents/render.cjs            render every document that has a source
@@ -14,7 +14,7 @@ const DOCS = window.CM_CF_DOCS;
 const css = fs.readFileSync(path.join(SRC, "doc.css"), "utf8");
 const want = process.argv.slice(2);
 const footer = id => `<div style="width:100%;font:7px Arial,sans-serif;color:#555;padding:0 0.75in;display:flex;justify-content:space-between;">
-  <span>LSH CASE MANAGEMENT TRAINING — SIMULATED DOCUMENT — FICTIONAL PARTIES — NOT A REAL RECORD · John Doe v. Robert Smith · ${id}</span>
+  <span>LSH CASE MANAGEMENT TRAINING — SIMULATED DOCUMENT — FICTIONAL PARTIES — NOT A REAL RECORD · John Doe VS Robert Smith · ${id}</span>
   <span>page <span class="pageNumber"></span> of <span class="totalPages"></span></span></div>`;
 
 (async () => {

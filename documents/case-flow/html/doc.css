@@ -1,4 +1,4 @@
-/* The case documents' shared look (John Doe v. Robert Smith). Letter size; the renderer adds the
+/* The case documents' shared look (John Doe VS Robert Smith). Letter size; the renderer adds the
    training footer on every page. Classes:
    .letterhead (.lh-name, .lh-sub, .lh-right)  · .title · .subtitle · .meta (key: value rows)
    .caption (court caption: .court, .parties, .caseno)  · .grid (form fields: .f > label + .v)

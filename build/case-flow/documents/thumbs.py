@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The first-page thumbnails of the John Doe v. Robert Smith case documents: documents/<file>.pdf (from render.cjs) ->
+"""The first-page thumbnails of the John Doe VS Robert Smith case documents: documents/<file>.pdf (from render.cjs) ->
 decks/cf-docs/RSNN.webp, 600 x 776 (US Letter at 600 px wide), the image a Skill Activity's Your Case slide shows
 for each document it works from.
   python3 build/case-flow/documents/thumbs.py            make every thumbnail that is missing
