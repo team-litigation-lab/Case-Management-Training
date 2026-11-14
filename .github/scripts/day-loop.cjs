@@ -159,7 +159,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
         if (norm((w.querySelector('.cfx-what-k') || {}).textContent) !== 'Skill Building') out.push(`${L}: the Skill Building's band should say Skill Building (${norm((w.querySelector('.cfx-what-k') || {}).textContent)})`);
         if (!w.querySelector('[data-launch]')) out.push(`${L}: the Skill Building's Your Task has no 🚀 Launch CMS & Google Drive`);
         w = await show(sb[sb.length - 1][1]);
-        if (!/Submit to AI Grader/.test(w.textContent)) out.push(`${L}: the Skill Building's last slide has no "Submit to AI Grader"`);
+        if (!/Submit →/.test(w.textContent) || /AI Grader/.test(w.textContent)) out.push(`${L}: the Skill Building's last slide should have "Submit →" and never say "AI Grader"`);
       }
       const sideK = deck.findIndex((sl, k) => steps[k] === 'side' && sl.type === 'topic');
       if (sideK >= 0) { w = await show(sideK); if (!/OPTIONAL SIDE EXERCISE/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: a side exercise's top line should say OPTIONAL SIDE EXERCISE`);

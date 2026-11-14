@@ -221,7 +221,7 @@ function compute(data, ctx){
   if(openWorked && typeof aiGrade !== "number" && ticks.some(t => t != null) && !ticks[0] && (movedOn || othersTicked >= nChecks - 1)){
     add({key: "conflict", rule: "conflict", sev: "high", at: (cf.tickAt || {})[OPEN_ACT] || cf.updatedAt || null, fixable: true,
       title: "Conflict Check not documented", detail: `R6: "${blockTitle(OPEN_ACT)}" was left with its first checkpoint (Conflict Check documented before the matter was created) unticked${othersTicked ? `, ${othersTicked} other checkpoint${othersTicked === 1 ? "" : "s"} ticked` : ""}.`,
-      fix: `In CMS → New Case, run and document the Conflict Check on every party's full legal name, then hand "${blockTitle(OPEN_ACT)}" in to the 🤖 AI Grader on its last slide.`});
+      fix: `In CMS → New Case, run and document the Conflict Check on every party's full legal name, then submit "${blockTitle(OPEN_ACT)}" on its last slide.`});
   }
 
   // R5 — a Skill Activity's latest graded attempt below 50%

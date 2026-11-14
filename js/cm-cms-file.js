@@ -85,7 +85,7 @@ function compute(c){
       const id = String(cms.caseId || "").trim(), client = String(cms.client || "");
       const item = (name, ok, yes, no, pend) => put("open", ok == null ? {name, pct: null, pending: true, note: pend} : {name, pct: ok ? 100 : 0, note: ok ? yes : no});
       const due = shut || worked("d1m1-open");
-      item("CMS Case ID logged on the AI Grader slide", ref ? true : due ? false : null, `Logged: ${ref}`, "No CMS Case ID logged", "Log it on the first CMS activity's AI Grader slide");
+      item("CMS Case ID logged on the Submit slide", ref ? true : due ? false : null, `Logged: ${ref}`, "No CMS Case ID logged", "Log it on the first CMS activity's Submit slide");
       item("The CMS reported your case open", id ? true : due ? false : null, `${id}${cms.at ? " · last heard " + new Date(cms.at).toLocaleDateString() : ""}`, "The CMS never reported a case: open your own case in 🗂 Open CMS", "Open your own case in the CMS beside the lesson");
       if(id){
         item("Client recorded as John Doe", /\bjohn\b/i.test(client) && /\bdoe\b/i.test(client), `Client: ${client}`, `The CMS has the client as "${client || "blank"}"`);
@@ -96,7 +96,7 @@ function compute(c){
     pl.acts.forEach(a => { const w = worked(a.id), t = ticks[a.id] || [];
       a.checks.forEach((ck, j) => {
         const base = {block: a.id, act: a.title, screen: a.screen, text: ck, revealed: !!rev[a.id]};
-        if(w && !t.some(Boolean) && aiScore(a.id) != null) put(a.area, Object.assign(base, {pct: aiScore(a.id), note: `AI Grader: ${aiScore(a.id)}/100`}));
+        if(w && !t.some(Boolean) && aiScore(a.id) != null) put(a.area, Object.assign(base, {pct: aiScore(a.id), note: `Graded: ${aiScore(a.id)}/100`}));
         else if(w) put(a.area, Object.assign(base, {pct: t[j] ? 100 : 0, note: t[j] ? "Checked off on Check Your Work" : "Not checked off: the file doesn't hold it yet"}));
         else if(shut) put(a.area, Object.assign(base, {pct: 0, unworked: true, note: "Activity not worked: the day closed without this entry"}));
         else put(a.area, Object.assign(base, {pct: null, pending: true, note: "Still to do"}));
