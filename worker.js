@@ -867,17 +867,34 @@ async function addSubject(env, fid) {
 }
 /* 📁 The trainers, so they can open a trainee's Backup Drive from 🔗 Trainee Drives and check the day's work:
    GDRIVE_TRAINER_EMAILS (a plain variable: addresses split by commas or spaces; a Google Group as group:team@…) are added
-   to the trainee's folder as Commenters, without an email. Best effort, on each link, and on a ✓ Check when the list has
-   changed since. A trainer not on the list is asked by Google to request access. Returns the list it shared with. */
+   to the trainee's folder as Commenters, without an email. On each link, and on a ✓ Check (the trainee's, or a trainer's
+   Check for them) when the list differs from what the folder was shared with: an address added since is shared, one taken
+   off the list loses its access (its permission is deleted). Returns, in the list's order, only the addresses Google
+   accepted (plus any it refused to take away), so a refused share (403, 400, 429, 5xx) differs from the list and the next
+   Check tries it again. A trainer not on the list is asked by Google to request access. */
 const trainerEmails = (env) => String((env && env.GDRIVE_TRAINER_EMAILS) || "").split(/[\s,;]+/).map((s) => s.trim().toLowerCase()).filter((s) => /^(group:)?[^@\s:]+@[^@\s]+\.[^@\s]+$/.test(s)).slice(0, 20);
-async function addTrainers(env, fid) {
-  const list = trainerEmails(env);
-  if (!list.length || !fid) return "";
-  let token; try { token = await saToken(env, false); } catch (e) { return ""; }
-  await Promise.all(list.map((a) => fetch(`${DRIVE_API}/files/${encodeURIComponent(fid)}/permissions?sendNotificationEmail=false&supportsAllDrives=true`, { method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
-    body: JSON.stringify({ role: "commenter", type: a.startsWith("group:") ? "group" : "user", emailAddress: a.replace(/^group:/, "") }) }).catch(() => null)));
-  return list.join(",");
+async function addTrainers(env, fid, prev = "") {
+  const list = trainerEmails(env), had = String(prev || "").split(",").filter(Boolean);
+  if (!fid || (!list.length && !had.length)) return "";
+  let token; try { token = await saToken(env, false); } catch (e) { return had.join(","); }
+  const H = { "Content-Type": "application/json", Authorization: "Bearer " + token }, base = `${DRIVE_API}/files/${encodeURIComponent(fid)}/permissions`;
+  const add = list.filter((a) => !had.includes(a)), gone = had.filter((a) => !list.includes(a));
+  const ok = new Set((await Promise.all(add.map((a) => fetch(`${base}?sendNotificationEmail=false&supportsAllDrives=true`, { method: "POST", headers: H,
+    body: JSON.stringify({ role: "commenter", type: a.startsWith("group:") ? "group" : "user", emailAddress: a.replace(/^group:/, "") }) }).then((r) => r.ok ? a : "").catch(() => "")))).filter(Boolean));
+  // a trainer taken off the list: their permission on this folder is deleted (one Google refuses to remove stays listed)
+  const kept = [];
+  if (gone.length) {
+    let perms = null;
+    try { const r = await fetch(`${base}?supportsAllDrives=true&fields=permissions(id,emailAddress)`, { headers: H }); perms = r.ok ? ((await r.json()).permissions || []) : null; } catch (e) { perms = null; }
+    for (const a of gone) {
+      const p = perms && perms.find((x) => String(x.emailAddress || "").toLowerCase() === a.replace(/^group:/, ""));
+      if (!perms) { kept.push(a); continue; }
+      if (!p) continue;   // already gone
+      const r = await fetch(`${base}/${encodeURIComponent(p.id)}?supportsAllDrives=true`, { method: "DELETE", headers: H }).catch(() => null);
+      if (!r || !(r.ok || r.status === 404)) kept.push(a);
+    }
+  }
+  return list.filter((a) => had.includes(a) || ok.has(a)).concat(kept).join(",");
 }
 const folderUrl = (fid) => fid ? `https://drive.google.com/drive/folders/${encodeURIComponent(fid)}` : "";
 /* A trainee's drive record is cm:drive:<id>, under this program's "cm:" prefix like every other record. It was once
@@ -1973,8 +1990,8 @@ export default {
             if (f.trashed) return json({ error: "That folder is in your Google Drive's trash. Restore it, or make a new one, then link it.", code: "DRIVE_LINK_BAD" }, 400);
             if (!(f.capabilities || {}).canAddChildren) return json({ error: `The folder is shared with the platform as a Viewer. Change ${shareAddr(env)} to Editor on it, then link it again.`, code: "DRIVE_NOT_SHARED" }, 400);
             await addSubject(env, fid);   // so the copies written as GDRIVE_SA_SUBJECT land in it (no email is sent)
-            const trainers = await addTrainers(env, fid);   // 📁 and the trainers can open it (GDRIVE_TRAINER_EMAILS; no email is sent)
             const same = rec && rec.rootId === fid;
+            const trainers = await addTrainers(env, fid, same ? rec.trainers : "");   // 📁 and the trainers can open it (GDRIVE_TRAINER_EMAILS; no email is sent)
             rec = Object.assign({}, rec, {
               rootId: fid, rootName: clip(f.name || "", 120), linkedAt: new Date().toISOString(),
               email: clip(((f.owners || [])[0] || {}).emailAddress || "", 120),
@@ -2011,13 +2028,15 @@ export default {
           }
           if (action === "checkFor") {
             // A trainer refreshes the last check with the trainee's own (sealed) access: read-only, nothing is made again.
+            // A folder linked before the trainer list was set (or changed) is shared with the trainers now, so 📁 Open Drive opens.
+            if (trainerEmails(env).join(",") !== (rec.trainers || "")) { rec.trainers = await addTrainers(env, rec.rootId, rec.trainers); await driveWrite(env, who, rec); }
             if (!rec.builtAt) return json({ error: "This trainee hasn't built the structure yet.", report: driveReport(who, rec) }, 400);
             const out = await driveVerify(env, who, rec);
             return json({ verified: out, report: driveReport(who, rec) });
           }
           if (action === "check") {
             // a trainer list changed since the folder was linked: the trainers are added to it now
-            if (trainerEmails(env).join(",") !== (rec.trainers || "")) { rec.trainers = await addTrainers(env, rec.rootId); await driveWrite(env, who, rec); }
+            if (trainerEmails(env).join(",") !== (rec.trainers || "")) { rec.trainers = await addTrainers(env, rec.rootId, rec.trainers); await driveWrite(env, who, rec); }
             const out = await driveVerify(env, who, rec);
             return json({ verified: out, drive: driveStatus(env, rec) });
           }
