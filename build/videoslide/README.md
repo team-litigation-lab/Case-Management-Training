@@ -7,9 +7,13 @@ per slide.
 - `day1.json`: the speaker notes for *Revised Case Management Training Day 1* (50 pages, exported from Canva in two
   parts: join them with `pdfunite "Day 1_1.pdf" "Day 1_2.pdf" "Day 1.pdf"`).
   `day2.json`: the speaker notes for *Revised Case Management Training Day 2* (44 pages).
+  `day3.json`, `day4.json`, `day5.json`: the notes for the Day 3 (20 pages), Day 4 (36) and Day 5 (42) decks, on Case Flow
+  Days 3–5. They discuss each slide rather than read it, and tie it to *John Doe v. Robert Smith*
+  (`curriculum/5-day-flow/case-file.md`): where a slide shows another example, the narrator says so and gives the file's facts.
   Canva leaves notes out of a PDF export, so these notes were written from what each page says. They add no new
   facts. Edit a slide's `notes` and build again.
-- The Skill Building pages are not in the videos (the Day 1 deck no longer has them; Day 2 pages 11, 12, 20, 32, 43): the
+- The Skill Building pages are not in the videos (the Day 1 deck no longer has them; Day 2 pages 11, 12, 20, 32, 43; Day 3 page 10;
+  Day 4 pages 16, 17, 18, 31, 32; Day 5 page 38): the
   trainees work those in the room. A page with no entry in the notes file is left out of the video.
   `say` sets how the voice says a term (PIP → "P I P"). The captions keep the term as it is written.
 - The voice is [Piper](https://github.com/rhasspy/piper) `en_US-lessac-high`. It is free and runs offline, so nothing is
