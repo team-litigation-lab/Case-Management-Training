@@ -159,10 +159,11 @@ async function dupMerge(key){
 }
 function lessonsTable(ppl){
   const L = days();
-  return {id: "lessons", title: "📚 Lessons", note: "One column per day: the slides (✓ finished, or how far in) and the Knowledge Check score (70% passes). Blank: not opened yet.",
-    head: ["Trainee"].concat(L.map(d => `${dayLabel(d)}. ${String(d.title).replace(/^Case Flow Day \d+ · /, "")}`)),
+  return {id: "lessons", title: "📚 Lessons", 
+    head: ["Trainee", "Registered"].concat(L.map(d => `${dayLabel(d)}. ${String(d.title).replace(/^Case Flow Day \d+ · /, "")}`)),
     rows: ppl.map(r => { const a = summaryOf(r) || {days: []};
-      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}].concat(L.map(d => {
+      const reg = T0(r.registeredAt), regV = [reg ? dTime(r.registeredAt) : "", labelOf(keyOf(r))].filter(Boolean).join(" · ");   // (no longer a row of its own in 🕒 Recent progress)
+      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, {v: regV, f: reg ? `Registered ${reg.toLocaleString()} in ${labelOf(keyOf(r))}` : "", cls: "bs-reg"}].concat(L.map(d => {
         const x = a.days.find(z => z.id === d.id) || {n: 0, reached: 0, score: null};
         const fin = x.n && x.reached >= x.n, deck = fin ? "Slides ✓" : x.reached ? `Slides ${x.reached}/${x.n}` : "";
         const check = x.score == null ? "" : `Check ${x.score}%`;
@@ -175,7 +176,7 @@ function scoresTable(ppl){
   const rows = ppl.filter(r => r.approved === true).map(r => ({r, sc: scoreOf(r)})).filter(x => x.sc);
   const order = rows.filter(x => x.sc.overall != null).slice().sort((a, b) => b.sc.overall - a.sc.overall);
   order.forEach((x, i) => { x.rank = i && order[i - 1].sc.overall === x.sc.overall ? order[i - 1].rank : i + 1; });
-  return {id: "scores", rowsRaw: rows, title: "🏅 Scores", note: "Every grade, averaged per grading system (blank: nothing graded yet), then the Overall % (the average of the systems with a score, so each counts the same), ranked. Click a trainee for their grades in detail.",
+  return {id: "scores", rowsRaw: rows, title: "🏅 Scores", 
     head: ["Trainee", "Overall %", "Rank", "Days passed"].concat(S.map(s => `${s.icon} ${s.label}`)),
     rows: rows.map(x => [{v: nameOf(x.r), f: nameOf(x.r), cls: "gs-name"},
         {v: pct(x.sc.overall), f: x.sc.overall == null ? "Nothing graded yet" : `The average of ${x.sc.systems} grading systems = ${x.sc.overall}%`, cls: "gs-num gs-calc gs-bold " + tone(x.sc.overall)},
@@ -198,7 +199,6 @@ function recentTable(ppl){
   const out = [], since = B.recent ? Date.now() - B.recent * 864e5 : 0;
   const push = (r, at, what, detail, score) => { const d = T0(at); if(d && (!since || +d >= since)) out.push({r, at: d, what, detail: detail || "", score: num(score)}); };
   ppl.forEach(r => {
-    push(r, r.registeredAt, "Registered", labelOf(keyOf(r)));
     const data = dataOf(r), dp = data["day-progress"] || r.dayProgress || {};
     // every Knowledge Check attempt (its history), not only the best one
     days().forEach(d => { const p = dp[d.id] || {}, h = Array.isArray(p.history) ? p.history : [];
@@ -299,7 +299,7 @@ const SC_COLS = [["kc", "✍️ Knowledge Check"], ["lc", "🧩 Learning Checks"
 function scoreCardTable(ppl, day){
   // (one day at a time on the page, the trainer picks it: a table of every day side by side scrolled sideways; ⬇ Download has each day)
   const ALL = cfDaysL(), L = day ? [day] : ALL, P = SC_COLS.map(c => c[1]).concat(["Average", "💬 Remarks"]);
-  return {id: day ? "scorecard-d" + day.id : "scorecard", title: day ? `🏅 Score Card · ${dayLabel(day)}` : "🏅 Score Card", note: "Each trainee's scores, day by day: the Knowledge Check, the Learning Checks, the Takeaways, the graded Skill Activities and calls, the random tasks and the Backup Drive, the day's Average, and the trainer's remarks. Hover a cell for how it was worked out. Blank: nothing scored yet.",
+  return {id: day ? "scorecard-d" + day.id : "scorecard", title: day ? `🏅 Score Card · ${dayLabel(day)}` : "🏅 Score Card", 
     groups: [{label: "", span: 2}].concat(L.map(d => ({label: `${dayLabel(d)} · ${String(d.title).replace(/^Case Flow Day \d+ · /, "")}`, span: P.length}))),
     head: ["Trainee", "Overall"].concat(...L.map(() => P)),
     rows: ppl.map(r => { const SA = ALL.map(d => dayParts(r, d)), all = avgOf(SA.map(dayAvg)), S = L.map(d => SA[ALL.indexOf(d)]), avgs = S.map(dayAvg);
@@ -379,7 +379,7 @@ function systemTable(ppl, s){
   const cols = []; per.forEach(p => p.items.forEach(i => { if(!cols.includes(i.name)) cols.push(i.name); }));
   if(/^(kc|tk|bd)$/.test(s.id)) cols.sort((a, b) => (parseInt(a.replace(/\D+/, ""), 10) || 0) - (parseInt(b.replace(/\D+/, ""), 10) || 0));
   const X = EXTRA[s.id] || {head: [], cells: () => []};
-  return {id: "sys", title: `${s.icon} ${s.label}`, note: s.about + " Each trainee's Average and how many are graded, this system's own counts, then a column per item (hover for its detail). Blank: not graded yet.",
+  return {id: "sys", title: `${s.icon} ${s.label}`, 
     head: ["Trainee", "Average", "Graded"].concat(X.head, cols),
     rows: per.map(({r, c, items}) => { const a = avgOf(items.map(i => i.pct));
       return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, {v: pct(a), f: a == null ? "Nothing graded yet" : `The average of ${items.length} = ${a}%`, cls: "gs-num gs-calc gs-bold " + tone(a)}, cnt(items.length || "", `${items.length} graded`)]
@@ -525,6 +525,9 @@ css.textContent = `
 .bs-page .bs-wait-pill{background:#F6C08F !important;color:#1E2340 !important;border-color:#F6C08F !important;}
 button.bs-wait-pill{cursor:pointer;font:800 14px Arial,sans-serif;border:1px solid;border-radius:999px;padding:4px 12px;}
 .bs-page .gs-wrap{max-height:62vh;}
+/* a sheet is as wide as the page: its columns share the room (a sheet wider than the page still scrolls sideways) */
+.scx-card .gs{min-width:100%;}
+.scx-card td.bs-reg{color:#3E4560;}
 .scx-card td.bs-lesson{font-size:14px;}
 /* headers wrap between words only (main's overflow-wrap:anywhere broke "Knowledg-e"); a column is as wide as its words */
 .scx-card .gs th, .scx-card .gs td{overflow-wrap:normal !important;word-break:normal !important;hyphens:none;}

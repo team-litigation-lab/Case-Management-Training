@@ -465,7 +465,7 @@ window.CM_CF_SLIDES = {
   "purpose": "A covering Case Manager must **find any document in seconds**",
   "principle": "Every file is laid out **the same way, every time**",
   "checks": [
-   "Drive linked with **drive.file only**",
+   "Drive folder **shared as Editor** and linked",
    "Every folder **named and numbered** to the standard",
    "**Doe-John** under 01 Clients, nine folders inside",
    "**✓ Check my drive**: no folder missing",
@@ -5840,7 +5840,7 @@ window.CM_CF_SLIDES = {
      [
       "Stream 2: First-Party UM/UIM",
       "First-party coverage: a host vehicle's or resident relative's policy",
-      "Triggers only once BI is exhausted or the tortfeasor uninsured",
+      "Applies only once BI is exhausted or the tortfeasor uninsured",
       "Harbor Point $20,000 + Cardinal State $10,000"
      ]
     ],
@@ -7439,7 +7439,7 @@ window.CM_CF_SLIDES = {
    "lead": "A claim is proved **visit by visit**: the treatment record decides the Specials, causation and every question an adjuster asks.",
    "concepts": [
     {
-     "term": "MMI as the Trigger",
+     "term": "MMI Starts the Demand",
      "text": "Value needs an end point: at MMI the bills stop growing and **the prognosis is known**"
     },
     {

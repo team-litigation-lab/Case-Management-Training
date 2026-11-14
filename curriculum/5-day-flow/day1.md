@@ -29,7 +29,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file, run topic by topic: a topic's lessons, then its Skill Building (its Skill Activities on the file in the CMS, Your Task first, then Your Case), then a short brainstorm, then the next topic; the Knowledge Check closes the day. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, in two parts: first ALL of its lessons, in teaching order under their section headings; then ONE Practice Lab that holds all of its Skill Activities (on the file in the CMS, each Your Task first, then Your Case), in the order their lessons were taught, with a short brainstorm after each Skill Building group; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
 
 **Module 1 — Intake, Claims & Property Damage**
 
@@ -38,17 +38,17 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 3. *Lesson* — Fact Sharing vs. Legal Advice: the UPL Line
 4. *Lesson* — Ingesting the Raw File
 5. *Lesson* — The Acceptance Decision & the Three-Pillar Case Plan
-6. *Skill Activity* — Opening John Doe's File in the CMS
-7. *Skill Activity* — Backup File Maintenance: the Firm's Folders and Hierarchy
-8. *Lesson* — Client Do's and Don'ts
-9. *Lesson* — Property Damage: Does It Touch Our Case?
-10. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet
-11. *Skill Activity* — Onboarding Direction Assignment in System
-12. *Skill Activity* — Does It Touch Our Case? Sorting the PD File
-13. *Lesson* — The No Contact Protocol — Steps 1 to 3
-14. *Lesson* — Final Warning Letter & the Skip-Trace Trigger
-15. *Skill Activity* — Multi-Channel Outreach Logging
-16. *Skill Activity* — Final Warning Letter Drafting
+6. *Lesson* — Client Do's and Don'ts
+7. *Lesson* — Property Damage: Does It Touch Our Case?
+8. *Lesson* — The No Contact Protocol — Steps 1 to 3
+9. *Lesson* — Final Warning Letter & When a Skip-Trace Starts
+10. *Skill Activity* — Opening John Doe's File in the CMS (practises: Ingesting the Raw File)
+11. *Skill Activity* — Backup File Maintenance: the Firm's Folders and Hierarchy (practises: Ingesting the Raw File)
+12. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet (practises: Client Do's and Don'ts)
+13. *Skill Activity* — Onboarding Direction Assignment in System (practises: Client Do's and Don'ts)
+14. *Skill Activity* — Does It Touch Our Case? Sorting the PD File (practises: Property Damage: Does It Touch Our Case?)
+15. *Skill Activity* — Multi-Channel Outreach Logging (practises: The No Contact Protocol — Steps 1 to 3)
+16. *Skill Activity* — Final Warning Letter Drafting (practises: Final Warning Letter & When a Skip-Trace Starts)
 17. *Knowledge Check* — CM Fundamentals Knowledge Check
 18. *Knowledge Check* — Onboarding & Property Damage Check
 19. *Knowledge Check* — MIA Escalation Knowledge Check
@@ -59,7 +59,7 @@ The day is one module, on John Doe's one file, run topic by topic: a topic's les
 
 ## Module 1 — Intake, Claims & Property Damage
 
-**Order:** Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Skill Activity ➔ Lesson ➔ Lesson ➔ Skill Activity ➔ Skill Activity ➔ Knowledge Check ➔ Knowledge Check ➔ Knowledge Check
+**Order:** Lessons (9) ➔ Practice Lab (7 Skill Activities) ➔ Knowledge Check (3 Learning Checks)
 
 ### 1.1.1 Meet Your Case: John Doe v. Robert Smith
 
@@ -98,14 +98,6 @@ A case card filling the slide like a file folder: top-left the style JOHN DOE v.
 | Recovery Stack | $10,000 BI → $20,000 Host UM → $10,000 Relative UM = $40,000 |
 | Health Plan | Peach State · reimbursement right asserted |
 | Critical fact | A Treatment Gap: compare the EMS Run Report with the first treatment record |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| The course begins | Read the Case File profile and the intake documents | Case File · Case Documents | Can state the DOL, the stack and the critical fact from memory |
-| The matter opens in the CMS | Check every case fact against its source document | CMS → Case File · Documents | Each fact traced to a document, none to memory |
-| A fact changes | Update the CMS and tell the team the same day | CMS → Case Notes | The CMS matches the file, always |
 
 **Best practices & pitfalls**
 
@@ -175,14 +167,6 @@ A single horizontal case-lifecycle track across the slide: eight rounded station
 | Documents requested, named and filed | Settlement authority |
 | The Case Plan draft and its risk flags | Lien compromises |
 | Recommendations to counsel | Every filing and court decision |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A new matter is assigned | Read the raw file end to end before contacting anyone | CMS → Case File | Every party, date and carrier noted before the first call |
-| The client asks a legal question | Log it and route it to Atty. Thorne the same day | CMS → Communications Log · Tasks | Question routed with the facts; no opinion given |
-| A deadline or risk appears | Docket it, flag it and recommend a next step | CMS → Calendar · Case File → Risk Flags | Nothing lives only in an email or in memory |
 
 **Best practices & pitfalls**
 
@@ -254,14 +238,6 @@ A two-column board split by a red vertical line labelled THE UPL LINE. Left, a g
 | “That's a question for Atty. Thorne. I've logged it, and he'll call you by Friday.” | “The gap in your treatment will hurt your case.” |
 | “Carriers usually answer within a few weeks; I'll follow up and update you.” | “Don't worry, that won't matter.” |
 | “I'll write down exactly what you told me, and the document that shows it.” | “Tell the adjuster it was the other driver's fault.” |
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| John Doe asks what his case is worth | Say it is Atty. Thorne's question; log his words exactly | CMS → Case Notes · Tasks | Routed the same day; no figure given |
-| John Doe asks what happens next | Explain the next step of the process in plain words | CMS → Case Notes | Process explained; no prediction of the outcome |
-| An adjuster or provider asks your view of the case | Decline politely; share only facts the firm has approved | CMS → Communications Log | Nothing said beyond the record; contact logged |
 
 **Best practices & pitfalls**
 
@@ -340,15 +316,6 @@ Left-to-right intake pipeline across the full slide width. Left third: a muted g
 | Host driver | Operator of the vehicle John Doe rode in | Source of the $20,000 Host UM layer. |
 | Resident relative | John Doe's household relative | Source of the $10,000 Relative UM layer. |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Raw file received from “On the Records” | Run and document the Conflict Check, then verify DOL, parties and signatures against the source documents | CMS → New Case | Conflict Check logged before the file exists; DOL matches the Police Report |
-| Matter created | Docket the SOL and log the retainer and the claim-specific HIPAA authorization | CMS → Calendar · Documents | SOL 02/06/2028 on the calendar; both signatures logged |
-| Parties identified | Map all six roles and record the client's position in the vehicle | CMS → Parties | No party left “unknown”; position recorded from the Police Report |
-| Documents arrive | Name each to the firm's convention and file it under its CMS category | CMS → Documents | Every document findable by its convention name |
-
 **Best practices & pitfalls**
 
 - Record the source of every coverage fact (Dec Page, adjuster letter, Police Report).
@@ -424,14 +391,6 @@ A five-band vertical architecture, each band a full-width navy or navy-soft bar 
 4. **Three-Pillar Plan** — Clinical, Functional, Financial goals, each with an owner and a date.
 5. **Risks & flags** — Adverse facts stated plainly: here, the 14-Day Treatment Gap. Routed to Atty. Thorne.
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Verification call complete | Record the acceptance decision with its reason | CMS → Case Notes | Accepted / Escalated / Declined, with a reason a colleague can follow |
-| Coverage verified in writing | Draft the plan across all five bands | Action Plan Editor | All five bands present; risks band populated |
-| Plan drafted | Docket the filing window and route to Atty. Thorne | Action Plan Editor → Route for review · CMS → Calendar | Routed before any position-committing action; due date on the calendar |
-
 **Best practices & pitfalls**
 
 - Each pillar should have measurable goals.
@@ -466,153 +425,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 2) 
 
 ---
 
-### 1.1.6 Opening John Doe's File in the CMS
-
-> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
-> **Topic:** Skill Activity — from raw file to an active matter  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D1#5` Case Phase: Intake — Establishing Control · `D1#6` The Real Intake Workflow · `D1#7` Intake & Initial Client Contact — Gatekeepers of Case Quality · `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors
-
-#### 1 · Visual Layout Description
-
-The CMS New Case screen as a large mock-up on the left two-thirds: a Conflict Check panel at the top with a green LOGGED stamp, then the matter fields (DOL, SOL, client position) with two fields outlined in orange where the draft was wrong. On the right, a vertical checklist of the intake documents (intake sheet, supplement, CMS record, retainer, HIPAA, Police Report), each with a filed tick and its CMS category in mono type.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** 02/09/2026. The raw file from “On the Records” is in: the New Client Intake Sheet, the intake supplement, the signed retainer and claim-specific HIPAA authorization, and the Riverton PD crash report. A colleague keyed a draft intake record into the CMS. Atty. Thorne wants the matter active today.
-
-**Execution prompt.** Open John Doe's matter in the CMS. Run and document the Conflict Check on every party's full legal name before anything else. Verify the draft intake record field by field against the source documents (date of loss, names and roles, John Doe's position, date of birth, report number) and correct each error with its source, never silently. Docket the SOL (02/06/2028) with reminders, map all six roles, log the retainer and the HIPAA authorization, and file every intake document under its CMS category, named to the firm's convention. Route a short note of what you corrected to Atty. Thorne.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → New Case · Parties · Calendar · Documents · Case Notes |
-| **Expected output** | An active matter: Conflict Check logged first, every field verified against its source, six roles mapped, SOL docketed, intake documents filed, corrections noted to Atty. Thorne. |
-
-**Verification checkpoints**
-
-- [ ] Conflict Check documented before the matter was created, on full legal names
-- [ ] Date of loss 02/06/2026 confirmed against the Police Report; SOL 02/06/2028 docketed with reminders
-- [ ] John Doe recorded as the front-seat passenger, not the driver
-- [ ] Errors caught and corrected with their source: the position and the date of birth in the draft record, the transposed report number on the intake sheet
-- [ ] All six roles mapped; none left “unknown”
-- [ ] Retainer and HIPAA authorization logged with their signing date (02/09/2026)
-- [ ] Every intake document filed under its CMS category and named to convention
-- [ ] Corrections summarized to Atty. Thorne in Case Notes
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Raw file received | Run and document the Conflict Check on full legal names | CMS → New Case | Conflict Check logged before the matter exists |
-| Draft record keyed | Verify every field against its source document and correct with the source | CMS → Case File · Documents | No field accepted from the draft unchecked |
-| Matter active | Docket the SOL, map the parties, file the intake documents | CMS → Calendar · Parties · Documents | SOL 02/06/2028 with reminders; six roles; every document filed |
-
-**Best practices & pitfalls**
-
-- Verify against the Police Report and signed documents, not the draft.
-- Note every correction and its source in Case Notes.
-- ⚠️ Pitfall: accepting “Driver” in the position field because it was pre-filled.
-- ⚠️ Pitfall: filing documents before naming them to the convention.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **15%** | Conflict Check first | Documented before the matter was created, on full legal names |
-| 🤖 AI | **25%** | Field verification | Position, date of birth and report number corrected with their sources |
-| 🤖 AI | **20%** | Matter set-up | SOL docketed with reminders, six roles mapped, intake documents filed by category |
-| 🧑‍🏫 Trainer | **25%** | Verification discipline | Checked every field against a document rather than the draft |
-| 🧑‍🏫 Trainer | **15%** | Communication | Corrections routed to Atty. Thorne in a short, factual note |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Give the room ten minutes in the CMS before you say anything about the planted errors.
-- Ask who changed the position field and on what evidence. The answer must be a document: the Police Report and the intake sheet.
-- If someone corrects the date of birth without noting the source, stop them: an unexplained change is a new error.
-- Close by opening the Case Notes: the note to Atty. Thorne is part of the work, not an extra.
-
----
-
-### 1.1.7 Backup File Maintenance: the Firm's Folders and Hierarchy
-
-> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
-> **Topic:** Skill Activity — link the drive and build the backup the way the firm keeps it  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · LSH firm standard: backup drive folder hierarchy
-
-#### 1 · Visual Layout Description
-
-A Google Drive folder tree as a large mock-up on the left two-thirds: LSH Case Backups at the root, then 01 Clients opened to Doe-John with its nine numbered sub-folders stacked in order, and below it 02 Firm Administration, 03 Templates and 04 Closed Files. Three document chips on orange leader lines drop into their folders: the signed retainer and the HIPAA authorization into 01 Intake & Retainer, the Police Report into 02 Police, Witness & Video. On the right, a stopwatch card reads FOUND IN SECONDS and a green ✓ CHECK MY DRIVE stamp.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** 02/09/2026, 4:30 p.m. John Doe's matter went active in the CMS this afternoon, and his intake documents are filed there. The firm keeps every case file on a backup drive as well, built to one standard, so that whoever covers the file can put a hand on any document in seconds: a Case Manager out sick, a colleague taking the call, Atty. Thorne in a hearing. Nothing is on the backup for John Doe yet.
-
-**Execution prompt.** Link your Google Drive to the platform with 🔗 Link my Google Drive on the Backup File Maintenance slide, then build the firm's backup hierarchy exactly to the firm standard, by hand: every folder named and numbered as the standard has it, nested where it belongs and in order. The target is 01 Clients, holding the client folder Doe-John (last name first) with its nine folders, 01 Intake & Retainer, 02 Police, Witness & Video, 03 Medical Records, 04 Bills & Invoices, 05 Insurance, Demands & Negotiation, 06 Liens & Reimbursement, 07 Wages & Costs, 08 Property Damage and 09 Litigation & ADR; then 02 Firm Administration, holding 01 Policies & SOPs and 02 Compliance & CLE; then 03 Templates and 04 Closed Files. Submit it for grading, fix anything it returns, and confirm it with ✓ Check my drive. Then record in Case Notes where three of today's documents belong and why: the signed retainer, the Police Report and the HIPAA authorization.
-
-| | |
-|---|---|
-| **Tool / interface** | Backup Drive · CMS → Case Notes |
-| **Expected output** | A linked Google Drive holding the firm's hierarchy for John Doe's case, graded and confirmed by a clean drive check, and a Case Note placing the retainer, the Police Report and the HIPAA authorization in their folders. |
-
-**Verification checkpoints**
-
-- [ ] Google Drive linked to the platform, with the drive.file permission only
-- [ ] Every folder named and numbered exactly as the firm standard has it, nothing invented
-- [ ] The client folder named last name first (Doe-John) and nested under 01 Clients, its nine folders inside it
-- [ ] Folders in the standard's order, 01 to 09 and 01 to 04, with the firm folders after the client work
-- [ ] The hierarchy submitted and graded as built
-- [ ] ✓ Check my drive run with no folder missing
-- [ ] The signed retainer and the HIPAA authorization placed in 01 Intake & Retainer, the Police Report in 02 Police, Witness & Video, each with its reason in Case Notes
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Matter active in the CMS | Link your Google Drive to the platform | Backup Drive | Connected with drive.file only |
-| Drive linked, no structure yet | Build the firm's hierarchy, named, numbered, nested and in order | Backup Drive | Graded as built, nothing invented |
-| Structure built | Confirm it with ✓ Check my drive; put back anything missing | Backup Drive | No folder missing |
-| Documents filed in the CMS | Record where each belongs on the backup | CMS → Case Notes | Retainer, HIPAA, Police Report placed with reasons |
-
-**Best practices & pitfalls**
-
-- Build to the standard, not to taste: a covering Case Manager finds a document because every file is laid out the same way.
-- Run ✓ Check my drive whenever you file; a deleted folder is a document the firm has lost.
-- ⚠️ Pitfall: a folder named “Misc” or “New Folder”, which no colleague will ever look in.
-- ⚠️ Pitfall: keeping the medical records and the bills in one folder; liability reads the records and damages read the bills.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **10%** | Drive linked | Google Drive connected to the platform with the drive.file permission |
-| 🤖 AI | **30%** | Hierarchy to standard | Every folder named, numbered, nested and ordered as the firm standard has it; graded as built |
-| 🤖 AI | **20%** | Drive confirmed | ✓ Check my drive run with no folder missing |
-| 🧑‍🏫 Trainer | **25%** | Document placement | Retainer, HIPAA authorization and Police Report each placed in the right folder, with the reason |
-| 🧑‍🏫 Trainer | **15%** | Findability | Can find any named document on the backup in seconds when asked |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Show the target on the slide and let the room build it by hand. The panel does not prefill it; typing it is the skill.
-- When the grade comes back with problems, have them read the reasons aloud. Each one is a firm rule, not a typo.
-- The test is speed: call out a document (the HIPAA authorization, the Police Report) and time how long it takes to open its folder.
-- Delete a folder in your own demo drive and run ✓ Check my drive, so the room sees what a lost folder looks like and how to put it back.
-
----
-
-### 1.1.8 Client Do's and Don'ts
+### 1.1.6 Client Do's and Don'ts
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Protecting the claim from the client's own good intentions  
@@ -651,14 +464,6 @@ A balanced two-column DO / DON'T board on the upper two-thirds, green-bordered l
 | Bring every carrier document to the firm before signing. | Sign a carrier's release or medical authorization yourself. |
 | Report any change of address, phone or provider at once. | Post about the collision, the injuries or your activities. |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Retainer signed | Deliver the standing instructions and log delivery | CMS → Onboarding | Delivery logged with date and method |
-| Client mentions an accident-related expense | Tell him to keep the receipt; log the expense | CMS → Case Notes | Receipt requested; expense logged |
-| Adverse carrier calls the client directly | Instruct the client to route it to the firm; log the contact | CMS → Communications Log | No Recorded Statement; contact logged |
-
 **Best practices & pitfalls**
 
 - Educate the client on why consistent treatment matters, not just that it does.
@@ -690,7 +495,7 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 ---
 
-### 1.1.9 Property Damage: Does It Touch Our Case?
+### 1.1.7 Property Damage: Does It Touch Our Case?
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** What from the PD side feeds John Doe's injury claim, and what stays on Margaret Doe's  
@@ -729,14 +534,6 @@ A two-lane sorting board fills the upper two-thirds. Left lane, navy-bordered, h
 | Loss of Use, Diminished Value | No: Margaret Doe's PD claim | Refer to Atty. Thorne |
 | Repair or total-loss negotiation | No: Margaret Doe's PD claim | Refer; never negotiate it |
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| A PD document arrives (photos, estimate, supplement) | Index it on John Doe's file as severity evidence | CMS → Documents | Filed as BI evidence, not opened as a PD claim |
-| Anyone asks about the Civic's rental, Loss of Use or repair figure | Log the question and refer it to Atty. Thorne | CMS → Case Notes · CMS → Tasks | Referred the same day; no advice given |
-| A PD date touches John Doe's care | Calendar it as a treatment risk; plan his rides | Calendar · CMS → Tasks | Rides planned before the date |
-
 **Best practices & pitfalls**
 
 - Ask of every PD fact: does it prove the impact, or reach his care? If neither, it stays on Margaret Doe's claim.
@@ -769,222 +566,7 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 ---
 
-### 1.1.10 Voicemails & Recorded Statements: the Action Plan and Direction Packet
-
-> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
-> **Topic:** Skill Activity 1 — work the voicemail, then send what the client gets on day one  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#44` Handling Treatment Gaps During the Treatment Phase · LSH Claims Specialist: client communication protocol
-
-#### 1 · Visual Layout Description
-
-An exploded packet: a central navy folder with six document cards fanned around it in a semicircle, each numbered with an orange badge — ① Do's and Don'ts ② Treatment directions ③ Property Damage and rental ④ Communication protocol ⑤ Document retention ⑥ Firm contacts and escalation path — each showing two or three bullet previews in small type. Beneath the fan, a delivery bar of three chips: PREPARED → DELIVERED → LOGGED, the third noting the required date and method.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** 02/10/2026, 8:47 a.m.: a voicemail from John Doe. Dana from Keystone Mutual, Robert Smith's carrier, called him last night and asked to record what happened; he said he'd think about it, and she is calling back today. His neck is still stiff and he hasn't seen anyone. Nothing has reached him from the firm yet.
-
-**Execution prompt.** Work the voicemail in your Notes & Action Plan: transcribe it, then write your action plan (graded, with the answer key once handed in). Work the plan: email Dana Whitfield that the firm represents John Doe, that she is not to contact him directly and that any Recorded Statement request comes through the firm, with nothing about his injuries; call John Doe back to check on his neck and his treatment status, outline the next steps and have him repeat the instruction (no Recorded Statement, no talk about the case with anyone outside the firm); and coordinate his first visit with Riverton Urgent Care. Then assemble his onboarding Direction Packet (all six sections, the Property Damage section specific to this file: from the records, whose vehicle and claim it is), deliver it and log every contact.
-
-| | |
-|---|---|
-| **Tool / interface** | Notes & Action Plan · Email Workspace · Call Simulator → AI John Doe · CMS → Onboarding → Direction Packet · CMS → Communications Log |
-| **Expected output** | A graded transcript and action plan, the emails to Keystone and the facility sent, the check-in call taken, and a delivered, logged Direction Packet specific to John Doe's file. |
-
-**Verification checkpoints**
-
-- [ ] Voicemail transcribed and the action plan handed in
-- [ ] Dana Whitfield told in writing: the firm represents John Doe, no direct contact, any Recorded Statement request through the firm; nothing about his injuries
-- [ ] Check-in call: his stiff neck and treatment status asked about, next steps outlined
-- [ ] Riverton Urgent Care contacted about his first visit, billing and records
-- [ ] All six packet sections present and populated, the Property Damage section stating from the records that the PD and rental claim belong to the Civic's owner, not the client
-- [ ] Delivery and every contact logged with date and method in the CMS
-- [ ] Atty. Thorne told the same day that the adverse carrier contacted a represented client
-- [ ] The adverse-contact instruction named as the urgent one, and John Doe repeated it back
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Voicemail: the carrier asked to record the client | Transcribe it; write the action plan; tell Atty. Thorne | Notes & Action Plan · CMS → Communications Log | Plan graded; attorney told the same day |
-| Adverse carrier has called a represented client | Email the adjuster: no direct contact; statements through the firm | Email Workspace · CMS → Communications Log | Sent and logged; nothing about injuries |
-| Client sore, not yet seen | Check in; outline next steps; coordinate with the facility | Call Simulator → AI John Doe · Email Workspace | Instruction repeated back; first visit arranged |
-| Packet ready | Deliver and log | CMS → Onboarding | Date and method recorded |
-
-**Best practices & pitfalls**
-
-- A confirmation step means more than sending: ask how you will know he read it.
-- Put the no-contact instruction in writing to the carrier as well as to the client.
-- ⚠️ Pitfall: telling the adverse adjuster anything about his injuries or treatment while asking her to stop calling.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **15%** | Transcript and action plan | Voicemail facts caught; the plan holds every step of the answer key |
-| 🤖 AI | **15%** | Carrier and facility emails | No direct contact and statements through the firm, nothing about injuries; the facility asked about status, billing and records |
-| 🤖 AI | **20%** | Packet completeness | All six sections and every standing instruction; Atty. Elijah Thorne as Lead Counsel |
-| 🤖 AI | **10%** | Everything logged | Voicemail, call, emails and delivery logged with date and method |
-| 🧑‍🏫 Trainer | **25%** | Prioritisation | Named the adverse-contact instruction as urgent, put it in writing to the carrier, and had John Doe repeat it back |
-| 🧑‍🏫 Trainer | **15%** | Client usability | The call and the packet are usable by a layperson under stress |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- The scenario detail, that the carrier has already called, is the graded judgment. A generic packet misses the point.
-- Run the Notes & Action Plan before anything else: the transcript and the plan are graded, and the answer key opens once each is handed in. Ask who wrote the email to Dana first and who called John first, and why.
-- Have them read their treatment direction aloud. If it doesn't create urgency about starting care, it won't prevent the gap.
-- Role-play receiving one packet as John Doe: confused, in pain, and already contacted by the other side.
-
----
-
-### 1.1.11 Onboarding Direction Assignment in System
-
-> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
-> **Topic:** Skill Activity 2 — turn directions into tracked tasks  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D1#3` Key Duties of a Case Manager · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#44` Handling Treatment Gaps During the Treatment Phase
-
-#### 1 · Visual Layout Description
-
-A CMS task board in three columns — ASSIGNED · DUE · VERIFIED — with direction cards moving across them. Each card carries an owner chip (Client or CM), a due date and a small verification icon. Four cards are placed as examples; four wait in the left column for the trainee's owners and dates. One card is deliberately mis-assigned, with the client as owner of a task only the firm can do, and carries a red overdue flag; trainees must catch and reassign it. A slim legend in the right margin maps chip colour to owner.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** John Doe's onboarding packet has been delivered and logged. The directions now need to become tracked obligations, not a document he was sent once.
-
-**Execution prompt.** Assign John Doe's onboarding directions in the system as tracked tasks. For each, set the owner, the due date and how it will be verified. One staged card has the wrong owner: find it, reassign it, and record why it could never have been the client's task. Then schedule the follow-up that confirms he has started treatment.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Tasks |
-| **Expected output** | A tracked task set with correct owners, dates and verification methods. |
-
-**Verification checkpoints**
-
-- [ ] Every direction has an owner
-- [ ] Every task has a due date
-- [ ] A verification method recorded for each task
-- [ ] The mis-assigned card found and reassigned to the firm
-- [ ] The reason for reassignment recorded
-- [ ] Treatment-start follow-up scheduled
-- [ ] No task left without a date
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Packet delivered | Turn each direction into a task | CMS → Tasks | Owner, date, verification on each |
-| Mis-assigned task found | Reassign to the firm with the reason | CMS → Tasks | Reason recorded |
-| Treatment not yet started | Schedule the treatment-start follow-up | CMS → Tasks · Calendar | Follow-up dated |
-
-**Best practices & pitfalls**
-
-- Use task trackers so a gap in treatment is visible the day it starts.
-- Ask of every task: how will you know this happened?
-- ⚠️ Pitfall: tracking tasks without confirming they were done correctly.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Assignment completeness | Owner, due date and verification method on every task |
-| 🤖 AI | **25%** | Mis-assignment caught | The wrongly owned card found and reassigned |
-| 🤖 AI | **15%** | Follow-up scheduled | Treatment-start confirmation task with a date |
-| 🧑‍🏫 Trainer | **25%** | Ownership judgment | Knows which obligations can never be handed to the client |
-| 🧑‍🏫 Trainer | **15%** | Tracking discipline | Dates are realistic and verification methods are actually verifiable |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- The planted mis-assignment is the graded element. Don't hint at which card it is.
-- Press on verification: “How will you know this happened?” A task with no verification is a hope, not a task.
-- The treatment follow-up is the hinge into Day 2. John Doe's gap becomes undeniable there; this task is what would have caught it.
-
----
-
-### 1.1.12 Does It Touch Our Case? Sorting the PD File
-
-> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
-> **Topic:** Skill Activity 3 — sort the Property Damage items, decide refer, coordinate or handle, and say whether PD touches John Doe's case  
-> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · LSH Claims Specialist: LOR Property Damage carve-out, Property Damage severity as evidence for the injury claim
-
-#### 1 · Visual Layout Description
-
-A sorting tray: six item cards (damage photos, the tow record, the Police Report, Leah Moran's rental email, Margaret Doe's Loss of Use question, her request for a higher repair figure) above three drop zones: navy JOHN DOE'S BI FILE, orange COORDINATE, cream MARGARET DOE'S PD CLAIM. Each card carries a blank tag for REFER, COORDINATE or HANDLE. A bottom bar holds an empty line headed THE ANSWER, which the trainee completes.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** 02/11/2026. Keystone PD (Leah Moran) emails the firm to confirm the Civic's claimant and a rental contact, so a rental can be set up once its liability decision is made. Five more items sit in the firm's PD tray: the scene and damage photos, the tow record from the scene, the Police Report, Margaret Doe's question about Loss of Use, and her request that the firm push Keystone for a higher repair figure. John Doe calls asking whether the rental can be his.
-
-**Execution prompt.** Sort each item: does it feed John Doe's bodily-injury claim, stay on Margaret Doe's separate PD claim, or touch his care and need coordinating? Mark each refer, coordinate or handle, and record the sort in one CMS Case Note that cites the Police Report's units. Index what feeds the BI claim on John Doe's file, set the follow-up that puts the rental's last covered day on his calendar as a treatment risk, refer Margaret's items and Leah Moran's claimant question to Atty. Thorne, and answer John Doe's call within the UPL line. End the note with one line: does Property Damage touch our case, and how?
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Case Notes · CMS → Documents · Calendar · Call Simulator → AI John Doe |
-| **Expected output** | A sorted, sourced Case Note ending in its one-line answer, the BI evidence indexed, the rental follow-up set, Margaret Doe's items referred and the call logged. |
-
-**Verification checkpoints**
-
-- [ ] Positions taken from the Police Report's units: John Doe the Escape's passenger, the Civic Margaret Doe's
-- [ ] The photos, the tow record and the Police Report sorted as BI evidence and indexed on John Doe's file
-- [ ] The rental, Loss of Use and the repair figure sorted to Margaret Doe's PD claim, not handled on John Doe's file; the claimant question referred, not answered for her
-- [ ] Each item marked refer, coordinate or handle
-- [ ] A follow-up set to calendar the rental's last covered day as a treatment risk once Keystone authorizes it, with John Doe's rides planned before it
-- [ ] Margaret Doe's two questions referred to Atty. Thorne the same day, with no advice on her claim
-- [ ] John Doe told the rental is not his, and his ride to treatment solved
-- [ ] The note ends with the answer: PD touches John Doe's case as evidence of the impact and through his rides, never as a claim of his
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| PD items reach the file | Sort each one: BI evidence, coordinate, or Margaret's claim | CMS → Case Notes | Sort recorded with the Police Report cited |
-| Severity evidence identified | Index it on John Doe's file | CMS → Documents | Photos and estimate indexed as BI evidence |
-| Margaret Doe asks about her PD claim | Refer to Atty. Thorne; plan John Doe's rides | CMS → Tasks · Calendar | Referred the same day; rental follow-up dated |
-
-**Best practices & pitfalls**
-
-- Sort before you act: the records say whose each item is.
-- End every PD note with the answer to “does it touch our case?”
-- ⚠️ Pitfall: handling Margaret Doe's Loss of Use or repair figure on John Doe's file.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **25%** | Sort | Every item placed correctly: BI evidence, coordinate, or Margaret Doe's claim |
-| 🤖 AI | **20%** | Evidence and follow-up | Severity items indexed; the rental's last day set to be calendared as a treatment risk |
-| 🤖 AI | **15%** | The answer | One line saying whether and how PD touches John Doe's case |
-| 🧑‍🏫 Trainer | **25%** | Refer or handle | Knows what the CM handles on John Doe's file and what goes to Atty. Thorne |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | No advice to John Doe or Margaret Doe on the PD claim or its value |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Don't sort the first card for them. The Police Report settles who rode and who owns; make them find it.
-- Leah Moran's rental email is the card to watch: the rental is Margaret Doe's, but its last day will take away John Doe's ride to treatment. Trainees who file it as “not ours” miss the coordinate lane.
-- Read the closing lines aloud. The answer you want: PD touches our case as evidence and through his rides, never as his claim.
-
----
-
-### 1.1.13 The No Contact Protocol — Steps 1 to 3
+### 1.1.8 The No Contact Protocol — Steps 1 to 3
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Internal review, escalating contact attempts, team notification  
@@ -1020,14 +602,6 @@ A six-station vertical protocol spine down the left third, stations numbered 1�
 5. **Decision Point** — The attorney may file a Notice of Withdrawal or a Motion to Withdraw. (Next lesson.)
 6. **File Closure** — “No response – withdrew per protocol”; all proof of attempts retained. (Next lesson.)
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Client misses a scheduled contact or appointment | Step 1: review case status, deadlines and the last contact date | CMS → Case Summary | Live deadlines identified before outreach begins |
-| Internal review complete | Step 2: work the channel ladder; log each attempt | CMS → Communications Log | 2+ phone attempts, then email and text, each with date, time, channel, outcome |
-| Channel ladder exhausted | Step 3: notify Atty. Thorne and assess deadline impact on John Doe's file | CMS → Tasks → Escalate | Escalation documented; SOL (02/06/2028) and any hearing dates assessed |
-
 **Best practices & pitfalls**
 
 - Set follow-up reminders the moment a request goes out.
@@ -1060,7 +634,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ---
 
-### 1.1.14 Final Warning Letter & the Skip-Trace Trigger
+### 1.1.9 Final Warning Letter & When a Skip-Trace Starts
 
 > **Lesson** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** No Contact Protocol Steps 4 to 6, and when the search begins  
@@ -1094,14 +668,6 @@ Two panels. Left: the Final Warning Letter on white letterhead with a navy band,
 2. **Final Warning Letter sent** — Certified mail AND email, to a confirmed address, stating the 7–14 day deadline.
 3. **Deadline expired** — The response window has passed with no contact from the client.
 
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Step 3 escalation made, still no response | Draft the Final Warning Letter with a 7–14 day deadline | Action Plan Editor → Warning letter template | Earlier attempts itemized; deadline and withdrawal notice present |
-| Letter ready | Confirm the current address; send by certified mail AND email | CMS → Documents → Outgoing | Both channels used and logged; certified receipt kept |
-| Response deadline expires | Verify all three criteria; escalate to Atty. Thorne for Skip-Trace authority and the Step 5 decision | CMS → Tasks → Escalate | All three criteria evidenced in the log first |
-
 **Best practices & pitfalls**
 
 - Itemize the attempts with dates; “we have tried several times” is not evidence.
@@ -1131,6 +697,325 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 - Both delivery channels are required. Ask why: certified mail proves delivery, email gets a response.
 - Draw the Step 5 line hard: the CM assembles the record, the attorney decides to withdraw.
 - Day 5 returns to this with advanced skip-tracing, process servers and certified notice. Today is the trigger; Day 5 is the execution.
+
+---
+
+### 1.1.10 Opening John Doe's File in the CMS
+
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Topic:** Skill Activity — from raw file to an active matter  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#5` Case Phase: Intake — Establishing Control · `D1#6` The Real Intake Workflow · `D1#7` Intake & Initial Client Contact — Gatekeepers of Case Quality · `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors
+
+#### 1 · Visual Layout Description
+
+The CMS New Case screen as a large mock-up on the left two-thirds: a Conflict Check panel at the top with a green LOGGED stamp, then the matter fields (DOL, SOL, client position) with two fields outlined in orange where the draft was wrong. On the right, a vertical checklist of the intake documents (intake sheet, supplement, CMS record, retainer, HIPAA, Police Report), each with a filed tick and its CMS category in mono type.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** 02/09/2026. The raw file from “On the Records” is in: the New Client Intake Sheet, the intake supplement, the signed retainer and claim-specific HIPAA authorization, and the Riverton PD crash report. A colleague keyed a draft intake record into the CMS. Atty. Thorne wants the matter active today.
+
+**Execution prompt.** Open John Doe's matter in the CMS. Run and document the Conflict Check on every party's full legal name before anything else. Verify the draft intake record field by field against the source documents (date of loss, names and roles, John Doe's position, date of birth, report number) and correct each error with its source, never silently. Docket the SOL (02/06/2028) with reminders, map all six roles, log the retainer and the HIPAA authorization, and file every intake document under its CMS category, named to the firm's convention. Route a short note of what you corrected to Atty. Thorne.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → New Case · Parties · Calendar · Documents · Case Notes |
+| **Expected output** | An active matter: Conflict Check logged first, every field verified against its source, six roles mapped, SOL docketed, intake documents filed, corrections noted to Atty. Thorne. |
+
+**Verification checkpoints**
+
+- [ ] Conflict Check documented before the matter was created, on full legal names
+- [ ] Date of loss 02/06/2026 confirmed against the Police Report; SOL 02/06/2028 docketed with reminders
+- [ ] John Doe recorded as the front-seat passenger, not the driver
+- [ ] Errors caught and corrected with their source: the position and the date of birth in the draft record, the transposed report number on the intake sheet
+- [ ] All six roles mapped; none left “unknown”
+- [ ] Retainer and HIPAA authorization logged with their signing date (02/09/2026)
+- [ ] Every intake document filed under its CMS category and named to convention
+- [ ] Corrections summarized to Atty. Thorne in Case Notes
+
+**Best practices & pitfalls**
+
+- Verify against the Police Report and signed documents, not the draft.
+- Note every correction and its source in Case Notes.
+- ⚠️ Pitfall: accepting “Driver” in the position field because it was pre-filled.
+- ⚠️ Pitfall: filing documents before naming them to the convention.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Conflict Check first | Documented before the matter was created, on full legal names |
+| 🤖 AI | **25%** | Field verification | Position, date of birth and report number corrected with their sources |
+| 🤖 AI | **20%** | Matter set-up | SOL docketed with reminders, six roles mapped, intake documents filed by category |
+| 🧑‍🏫 Trainer | **25%** | Verification discipline | Checked every field against a document rather than the draft |
+| 🧑‍🏫 Trainer | **15%** | Communication | Corrections routed to Atty. Thorne in a short, factual note |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Give the room ten minutes in the CMS before you say anything about the planted errors.
+- Ask who changed the position field and on what evidence. The answer must be a document: the Police Report and the intake sheet.
+- If someone corrects the date of birth without noting the source, stop them: an unexplained change is a new error.
+- Close by opening the Case Notes: the note to Atty. Thorne is part of the work, not an extra.
+
+---
+
+### 1.1.11 Backup File Maintenance: the Firm's Folders and Hierarchy
+
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Topic:** Skill Activity — link the drive and build the backup the way the firm keeps it  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · LSH firm standard: backup drive folder hierarchy
+
+#### 1 · Visual Layout Description
+
+A Google Drive folder tree as a large mock-up on the left two-thirds: LSH Case Backups at the root, then 01 Clients opened to Doe-John with its nine numbered sub-folders stacked in order, and below it 02 Firm Administration, 03 Templates and 04 Closed Files. Three document chips on orange leader lines drop into their folders: the signed retainer and the HIPAA authorization into 01 Intake & Retainer, the Police Report into 02 Police, Witness & Video. On the right, a stopwatch card reads FOUND IN SECONDS and a green ✓ CHECK MY DRIVE stamp.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** 02/09/2026, 4:30 p.m. John Doe's matter went active in the CMS this afternoon, and his intake documents are filed there. The firm keeps every case file on a backup drive as well, built to one standard, so that whoever covers the file can put a hand on any document in seconds: a Case Manager out sick, a colleague taking the call, Atty. Thorne in a hearing. Nothing is on the backup for John Doe yet.
+
+**Execution prompt.** Link your Google Drive to the platform with 🔗 Link my Google Drive on the Backup File Maintenance slide, then build the firm's backup hierarchy exactly to the firm standard, by hand: every folder named and numbered as the standard has it, nested where it belongs and in order. The target is 01 Clients, holding the client folder Doe-John (last name first) with its nine folders, 01 Intake & Retainer, 02 Police, Witness & Video, 03 Medical Records, 04 Bills & Invoices, 05 Insurance, Demands & Negotiation, 06 Liens & Reimbursement, 07 Wages & Costs, 08 Property Damage and 09 Litigation & ADR; then 02 Firm Administration, holding 01 Policies & SOPs and 02 Compliance & CLE; then 03 Templates and 04 Closed Files. Submit it for grading, fix anything it returns, and confirm it with ✓ Check my drive. Then record in Case Notes where three of today's documents belong and why: the signed retainer, the Police Report and the HIPAA authorization.
+
+| | |
+|---|---|
+| **Tool / interface** | Backup Drive · CMS → Case Notes |
+| **Expected output** | A linked Google Drive holding the firm's hierarchy for John Doe's case, graded and confirmed by a clean drive check, and a Case Note placing the retainer, the Police Report and the HIPAA authorization in their folders. |
+
+**Verification checkpoints**
+
+- [ ] A Google Drive folder of your own shared with the platform as Editor and linked
+- [ ] Every folder named and numbered exactly as the firm standard has it, nothing invented
+- [ ] The client folder named last name first (Doe-John) and nested under 01 Clients, its nine folders inside it
+- [ ] Folders in the standard's order, 01 to 09 and 01 to 04, with the firm folders after the client work
+- [ ] The hierarchy submitted and graded as built
+- [ ] ✓ Check my drive run with no folder missing
+- [ ] The signed retainer and the HIPAA authorization placed in 01 Intake & Retainer, the Police Report in 02 Police, Witness & Video, each with its reason in Case Notes
+
+**Best practices & pitfalls**
+
+- Build to the standard, not to taste: a covering Case Manager finds a document because every file is laid out the same way.
+- Run ✓ Check my drive whenever you file; a deleted folder is a document the firm has lost.
+- ⚠️ Pitfall: a folder named “Misc” or “New Folder”, which no colleague will ever look in.
+- ⚠️ Pitfall: keeping the medical records and the bills in one folder; liability reads the records and damages read the bills.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **10%** | Drive linked | A Google Drive folder of the trainee's own shared with the platform as Editor and linked |
+| 🤖 AI | **30%** | Hierarchy to standard | Every folder named, numbered, nested and ordered as the firm standard has it; graded as built |
+| 🤖 AI | **20%** | Drive confirmed | ✓ Check my drive run with no folder missing |
+| 🧑‍🏫 Trainer | **25%** | Document placement | Retainer, HIPAA authorization and Police Report each placed in the right folder, with the reason |
+| 🧑‍🏫 Trainer | **15%** | Findability | Can find any named document on the backup in seconds when asked |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Show the target on the slide and let the room build it by hand. The panel does not prefill it; typing it is the skill.
+- When the grade comes back with problems, have them read the reasons aloud. Each one is a firm rule, not a typo.
+- The test is speed: call out a document (the HIPAA authorization, the Police Report) and time how long it takes to open its folder.
+- Delete a folder in your own demo drive and run ✓ Check my drive, so the room sees what a lost folder looks like and how to put it back.
+
+---
+
+### 1.1.12 Voicemails & Recorded Statements: the Action Plan and Direction Packet
+
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
+> **Topic:** Skill Activity 1 — work the voicemail, then send what the client gets on day one  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#44` Handling Treatment Gaps During the Treatment Phase · LSH Claims Specialist: client communication protocol
+
+#### 1 · Visual Layout Description
+
+An exploded packet: a central navy folder with six document cards fanned around it in a semicircle, each numbered with an orange badge — ① Do's and Don'ts ② Treatment directions ③ Property Damage and rental ④ Communication protocol ⑤ Document retention ⑥ Firm contacts and escalation path — each showing two or three bullet previews in small type. Beneath the fan, a delivery bar of three chips: PREPARED → DELIVERED → LOGGED, the third noting the required date and method.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** 02/10/2026, 8:47 a.m.: a voicemail from John Doe. Dana from Keystone Mutual, Robert Smith's carrier, called him last night and asked to record what happened; he said he'd think about it, and she is calling back today. His neck is still stiff and he hasn't seen anyone. Nothing has reached him from the firm yet.
+
+**Execution prompt.** Work the voicemail in your Notes & Action Plan: transcribe it, then write your action plan (graded, with the answer key once handed in). Work the plan: email Dana Whitfield that the firm represents John Doe, that she is not to contact him directly and that any Recorded Statement request comes through the firm, with nothing about his injuries; call John Doe back to check on his neck and his treatment status, outline the next steps and have him repeat the instruction (no Recorded Statement, no talk about the case with anyone outside the firm); and coordinate his first visit with Riverton Urgent Care. Then assemble his onboarding Direction Packet (all six sections, the Property Damage section specific to this file: from the records, whose vehicle and claim it is), deliver it and log every contact.
+
+| | |
+|---|---|
+| **Tool / interface** | Notes & Action Plan · Email Workspace · Call Simulator → AI John Doe · CMS → Onboarding → Direction Packet · CMS → Communications Log |
+| **Expected output** | A graded transcript and action plan, the emails to Keystone and the facility sent, the check-in call taken, and a delivered, logged Direction Packet specific to John Doe's file. |
+
+**Verification checkpoints**
+
+- [ ] Voicemail transcribed and the action plan handed in
+- [ ] Dana Whitfield told in writing: the firm represents John Doe, no direct contact, any Recorded Statement request through the firm; nothing about his injuries
+- [ ] Check-in call: his stiff neck and treatment status asked about, next steps outlined
+- [ ] Riverton Urgent Care contacted about his first visit, billing and records
+- [ ] All six packet sections present and populated, the Property Damage section stating from the records that the PD and rental claim belong to the Civic's owner, not the client
+- [ ] Delivery and every contact logged with date and method in the CMS
+- [ ] Atty. Thorne told the same day that the adverse carrier contacted a represented client
+- [ ] The adverse-contact instruction named as the urgent one, and John Doe repeated it back
+
+**Best practices & pitfalls**
+
+- A confirmation step means more than sending: ask how you will know he read it.
+- Put the no-contact instruction in writing to the carrier as well as to the client.
+- ⚠️ Pitfall: telling the adverse adjuster anything about his injuries or treatment while asking her to stop calling.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Transcript and action plan | Voicemail facts caught; the plan holds every step of the answer key |
+| 🤖 AI | **15%** | Carrier and facility emails | No direct contact and statements through the firm, nothing about injuries; the facility asked about status, billing and records |
+| 🤖 AI | **20%** | Packet completeness | All six sections and every standing instruction; Atty. Elijah Thorne as Lead Counsel |
+| 🤖 AI | **10%** | Everything logged | Voicemail, call, emails and delivery logged with date and method |
+| 🧑‍🏫 Trainer | **25%** | Prioritisation | Named the adverse-contact instruction as urgent, put it in writing to the carrier, and had John Doe repeat it back |
+| 🧑‍🏫 Trainer | **15%** | Client usability | The call and the packet are usable by a layperson under stress |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- The scenario detail, that the carrier has already called, is the graded judgment. A generic packet misses the point.
+- Run the Notes & Action Plan before anything else: the transcript and the plan are graded, and the answer key opens once each is handed in. Ask who wrote the email to Dana first and who called John first, and why.
+- Have them read their treatment direction aloud. If it doesn't create urgency about starting care, it won't prevent the gap.
+- Role-play receiving one packet as John Doe: confused, in pain, and already contacted by the other side.
+
+---
+
+### 1.1.13 Onboarding Direction Assignment in System
+
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
+> **Topic:** Skill Activity 2 — turn directions into tracked tasks  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#3` Key Duties of a Case Manager · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#44` Handling Treatment Gaps During the Treatment Phase
+
+#### 1 · Visual Layout Description
+
+A CMS task board in three columns — ASSIGNED · DUE · VERIFIED — with direction cards moving across them. Each card carries an owner chip (Client or CM), a due date and a small verification icon. Four cards are placed as examples; four wait in the left column for the trainee's owners and dates. One card is deliberately mis-assigned, with the client as owner of a task only the firm can do, and carries a red overdue flag; trainees must catch and reassign it. A slim legend in the right margin maps chip colour to owner.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** John Doe's onboarding packet has been delivered and logged. The directions now need to become tracked obligations, not a document he was sent once.
+
+**Execution prompt.** Assign John Doe's onboarding directions in the system as tracked tasks. For each, set the owner, the due date and how it will be verified. One staged card has the wrong owner: find it, reassign it, and record why it could never have been the client's task. Then schedule the follow-up that confirms he has started treatment.
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → Tasks |
+| **Expected output** | A tracked task set with correct owners, dates and verification methods. |
+
+**Verification checkpoints**
+
+- [ ] Every direction has an owner
+- [ ] Every task has a due date
+- [ ] A verification method recorded for each task
+- [ ] The mis-assigned card found and reassigned to the firm
+- [ ] The reason for reassignment recorded
+- [ ] Treatment-start follow-up scheduled
+- [ ] No task left without a date
+
+**Best practices & pitfalls**
+
+- Use task trackers so a gap in treatment is visible the day it starts.
+- Ask of every task: how will you know this happened?
+- ⚠️ Pitfall: tracking tasks without confirming they were done correctly.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Assignment completeness | Owner, due date and verification method on every task |
+| 🤖 AI | **25%** | Mis-assignment caught | The wrongly owned card found and reassigned |
+| 🤖 AI | **15%** | Follow-up scheduled | Treatment-start confirmation task with a date |
+| 🧑‍🏫 Trainer | **25%** | Ownership judgment | Knows which obligations can never be handed to the client |
+| 🧑‍🏫 Trainer | **15%** | Tracking discipline | Dates are realistic and verification methods are actually verifiable |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- The planted mis-assignment is the graded element. Don't hint at which card it is.
+- Press on verification: “How will you know this happened?” A task with no verification is a hope, not a task.
+- The treatment follow-up is the hinge into Day 2. John Doe's gap becomes undeniable there; this task is what would have caught it.
+
+---
+
+### 1.1.14 Does It Touch Our Case? Sorting the PD File
+
+> **Skill Activity** · Day 1 — Intake, claims & Property Damage · Module 1: Intake, Claims & Property Damage · scored with Onboarding & Property Damage Check (`d1m3`)  
+> **Topic:** Skill Activity 3 — sort the Property Damage items, decide refer, coordinate or handle, and say whether PD touches John Doe's case  
+> **Continuity:** John Doe v. Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · LSH Claims Specialist: LOR Property Damage carve-out, Property Damage severity as evidence for the injury claim
+
+#### 1 · Visual Layout Description
+
+A sorting tray: six item cards (damage photos, the tow record, the Police Report, Leah Moran's rental email, Margaret Doe's Loss of Use question, her request for a higher repair figure) above three drop zones: navy JOHN DOE'S BI FILE, orange COORDINATE, cream MARGARET DOE'S PD CLAIM. Each card carries a blank tag for REFER, COORDINATE or HANDLE. A bottom bar holds an empty line headed THE ANSWER, which the trainee completes.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** 02/11/2026. Keystone PD (Leah Moran) emails the firm to confirm the Civic's claimant and a rental contact, so a rental can be set up once its liability decision is made. Five more items sit in the firm's PD tray: the scene and damage photos, the tow record from the scene, the Police Report, Margaret Doe's question about Loss of Use, and her request that the firm push Keystone for a higher repair figure. John Doe calls asking whether the rental can be his.
+
+**Execution prompt.** Sort each item: does it feed John Doe's bodily-injury claim, stay on Margaret Doe's separate PD claim, or touch his care and need coordinating? Mark each refer, coordinate or handle, and record the sort in one CMS Case Note that cites the Police Report's units. Index what feeds the BI claim on John Doe's file, set the follow-up that puts the rental's last covered day on his calendar as a treatment risk, refer Margaret's items and Leah Moran's claimant question to Atty. Thorne, and answer John Doe's call within the UPL line. End the note with one line: does Property Damage touch our case, and how?
+
+| | |
+|---|---|
+| **Tool / interface** | CMS → Case Notes · CMS → Documents · Calendar · Call Simulator → AI John Doe |
+| **Expected output** | A sorted, sourced Case Note ending in its one-line answer, the BI evidence indexed, the rental follow-up set, Margaret Doe's items referred and the call logged. |
+
+**Verification checkpoints**
+
+- [ ] Positions taken from the Police Report's units: John Doe the Escape's passenger, the Civic Margaret Doe's
+- [ ] The photos, the tow record and the Police Report sorted as BI evidence and indexed on John Doe's file
+- [ ] The rental, Loss of Use and the repair figure sorted to Margaret Doe's PD claim, not handled on John Doe's file; the claimant question referred, not answered for her
+- [ ] Each item marked refer, coordinate or handle
+- [ ] A follow-up set to calendar the rental's last covered day as a treatment risk once Keystone authorizes it, with John Doe's rides planned before it
+- [ ] Margaret Doe's two questions referred to Atty. Thorne the same day, with no advice on her claim
+- [ ] John Doe told the rental is not his, and his ride to treatment solved
+- [ ] The note ends with the answer: PD touches John Doe's case as evidence of the impact and through his rides, never as a claim of his
+
+**Best practices & pitfalls**
+
+- Sort before you act: the records say whose each item is.
+- End every PD note with the answer to “does it touch our case?”
+- ⚠️ Pitfall: handling Margaret Doe's Loss of Use or repair figure on John Doe's file.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **25%** | Sort | Every item placed correctly: BI evidence, coordinate, or Margaret Doe's claim |
+| 🤖 AI | **20%** | Evidence and follow-up | Severity items indexed; the rental's last day set to be calendared as a treatment risk |
+| 🤖 AI | **15%** | The answer | One line saying whether and how PD touches John Doe's case |
+| 🧑‍🏫 Trainer | **25%** | Refer or handle | Knows what the CM handles on John Doe's file and what goes to Atty. Thorne |
+| 🧑‍🏫 Trainer | **15%** | UPL boundary | No advice to John Doe or Margaret Doe on the PD claim or its value |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Don't sort the first card for them. The Police Report settles who rode and who owns; make them find it.
+- Leah Moran's rental email is the card to watch: the rental is Margaret Doe's, but its last day will take away John Doe's ride to treatment. Trainees who file it as “not ours” miss the coordinate lane.
+- Read the closing lines aloud. The answer you want: PD touches our case as evidence and through his rides, never as his claim.
 
 ---
 
@@ -1167,14 +1052,6 @@ A CMS Communications Log as a table across the full slide width, four rows pre-f
 - [ ] Next action recorded with a due date
 - [ ] Step 3 impact names the running SOL (02/06/2028) and the treatment that has not started
 - [ ] No entry threatens withdrawal or case closure
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Six days without contact | Step 1 internal review | CMS → Case Summary | Live deadlines listed |
-| Review complete | Reconstruct and continue the log | CMS → Communications Log | Unbroken log, distinct channels |
-| Ladder cleared, no answer | Step 3 escalation with case impact | CMS → Tasks → Escalate | Atty. Thorne notified; impact recorded |
 
 **Best practices & pitfalls**
 
@@ -1242,14 +1119,6 @@ A split drafting view. Left two-thirds: the live letter draft on white letterhea
 - [ ] Current address confirmed before sending
 - [ ] No statement about claim value, legal consequences or settled representation status
 - [ ] Skip-Trace criteria recorded; Step 5 authority noted as Atty. Thorne's
-
-**Operational mapping**
-
-| Trigger Event | ➔ Case Manager Task | ➔ Tool/Interface | ➔ Verification Checkpoint |
-|---|---|---|---|
-| Eleven days, Step 3 made | Draft the letter | Action Plan Editor | Four elements present |
-| Draft complete | Send by certified mail and email | CMS → Documents → Outgoing | Both logged |
-| Letter sent | Calendar the response deadline | CMS → Calendar | Deadline date on the calendar |
 
 **Best practices & pitfalls**
 

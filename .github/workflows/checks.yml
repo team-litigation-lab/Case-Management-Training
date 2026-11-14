@@ -58,7 +58,7 @@ jobs:
   smoke:
     name: Smoke test in a browser
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 50
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5

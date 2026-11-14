@@ -168,7 +168,7 @@ function compute(data, ctx){
   if(!ds && movedOn && (openWorked || t.has("d1m1-drive"))){
     add({key: "drive:none", rule: "drive", sev: "high", at: (kc1 && kc1.date) || cf.updatedAt || null, fixable: true,
       title: "No Backup Drive set up", detail: "R3: Day 1's opening work is done but the Backup Drive's folders were never submitted.",
-      fix: "Do Day 1's 📂 Backup Drive: connect Google Drive, build the firm's folders and submit them."});
+      fix: "Do Day 1's 📂 Backup Drive: link your Google Drive folder, build the firm's folders and submit them."});
   }
 
   // R4 — the CMS Case ID after Day 1's opening activity

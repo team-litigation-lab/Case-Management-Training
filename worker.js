@@ -323,7 +323,8 @@ function candidateIds(name, batch) {
 // Daily Activities: activities:dayN and their attachments (actfile:*) are published by admins for everyone;
 // settings:feedback-style is the facilitator voice the portal's AI feedback is written in;
 // settings:opendays is which Case Flow days trainers have opened (Admin → 🔓 Open Lessons, js/cm-open-lessons.js).
-const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|feedback-style|opendays)$/, /^activities:day\d+$/, /^actfile:[a-z0-9]{1,40}$/, /^surprise-task-day\d+$/, /^call-inject-day\d+$/, /^extralessons:day\d+$/, /^lessonx:day\d+$/, /^extraquiz:day\d+$/, /^handouts:links$/];
+// settings:openvideos is which days' narrated videos trainers have unlocked (Admin → 🔓 Open Lessons → 🎬 Unlock Videos, js/cm-day-video.js).
+const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|feedback-style|opendays|openvideos)$/, /^activities:day\d+$/, /^actfile:[a-z0-9]{1,40}$/, /^surprise-task-day\d+$/, /^call-inject-day\d+$/, /^extralessons:day\d+$/, /^lessonx:day\d+$/, /^extraquiz:day\d+$/, /^handouts:links$/];
 // case-alerts:resolved: the trainers' ✓ Resolved marks on the case-file alerts (js/cm-progress-log.js), {<traineeId>:
 // {<alert key>: {at, by}}}. Admin-only on purpose, both ways: it is in neither OWN nor PUBLIC_READ, so a trainee can't
 // read it, and traineeWrite refuses it, so a trainee can't mark their own alert resolved.
@@ -611,7 +612,35 @@ async function listAll(env, prefix) {
   const kv = kvOf(env);
   const keys = []; let cursor;
   do { const r = await kv.list({ prefix, cursor }); r.keys.forEach((k) => keys.push(k.name)); cursor = r.list_complete ? null : r.cursor; } while (cursor);
-  return keys;
+  return withoutBlocked(env, keys);
+}
+
+/* ---------- 🚫 trainees whose access the LSH Training Portal closed ----------
+   access:blocked = {ids: {"<trainee id>": {why: "offboarded", name, batch, at, by: "portal", reason, portalUser}}}, written by the
+   Portal (its functions/_ft-block.js programBlock / programUnblock): a trainer revokes or suspends this program for a trainee on the
+   Portal's Program Access, and it is taken off again when the access is granted or restored. The same list Standard Foundational
+   Training keeps. A trainee on it leaves every list here: listAll drops every key of theirs, so every roster, Batch Sheet, ranking,
+   Trainee Audit and scorecard leaves them out; a Portal ticket doesn't sign them in; and a session they already hold reads only their
+   own record, shown not approved (rejected), so the page closes. The list is read at most once a minute per Worker instance.
+   The same code is in every LSH course, and every new course keeps it: the contract is COURSE-PROGRAMS.md in the Training-Portal repo. */
+const BLOCK_KEY = "access:blocked";
+const BLOCK_MSG = "Your access to this program has been revoked. Contact your trainer if you believe this is a mistake.";
+let BLOCKED = { at: 0, ids: {} };
+async function blockedIds(env, fresh) {
+  const kv = kvOf(env);
+  if (!kv) return {};
+  if (fresh || Date.now() - BLOCKED.at > 60000) {
+    let v = null; try { v = JSON.parse((await kv.get(BLOCK_KEY)) || "null"); } catch (e) { v = null; }
+    BLOCKED = { at: Date.now(), ids: (v && v.ids && typeof v.ids === "object") ? v.ids : {} };
+  }
+  return BLOCKED.ids;
+}
+// the trainee id a key belongs to (trainee:<id>, progress:<id>, checkin:<day>:<id>…): its last part
+const keyTrainee = (k) => String(k).slice(String(k).lastIndexOf(":") + 1);
+// (listAll's keys, without any of a blocked trainee's)
+async function withoutBlocked(env, keys) {
+  const b = await blockedIds(env);
+  return Object.keys(b).length ? keys.filter((k) => k === BLOCK_KEY || !b[keyTrainee(k)]) : keys;
 }
 
 /* ============================================================
@@ -620,7 +649,7 @@ async function listAll(env, prefix) {
    A firm keeps a backup drive of every case document, in one folder structure everybody knows by heart: a
    Case Manager covering someone else's file still finds the executed retainer, the demand package and the
    lien correspondence where they always are. A trainee practises that here on their own Google Drive:
-   they connect it once, lay the firm's structure out on Day 1 — graded, folder by folder — and every
+   they link a folder of it once, lay the firm's structure out on Day 1 — graded, folder by folder — and every
    document they file in the CMS is kept in its folder on the drive as well.
 
    THE STRUCTURE IS THE CASE FILE THIS COURSE ALREADY TEACHES. `CM_CF_DOC_FOLDERS` in
@@ -634,18 +663,21 @@ async function listAll(env, prefix) {
    and the folder check reads from it. Paths are "/"-separated and in order; a trainee's layout is right
    when it is the same list, in the same order, spelled the same way.
 
-   Google: only drive.file, so this can see and change the folders and files it made and nothing else in
-   the trainee's Drive. Tokens are sealed with a key derived from SESSION_SECRET and kept in
-   cm:drive:<trainee id>. Needs GOOGLE_CLIENT_ID (a plain variable) and GOOGLE_CLIENT_SECRET (a secret) on
-   this Worker, with the Google Drive API turned on in that Google Cloud project and this site among the
-   OAuth client's authorized JavaScript origins; until both are set, /api/drive says so and the page says
-   the Backup Drive isn't switched on yet. Nothing else is blocked either way.
+   Google, the way the Foundations training does it (its worker.js, GDRIVE_SA_*): through the program's service
+   account, with no Google sign-in for the trainee. The trainee makes one folder in their own Google Drive
+   (LSH Case Backups), shares it with the platform's address as Editor and pastes its link ("link"); from then
+   on the Worker works in that folder and nothing else in their Drive. Needs GDRIVE_SA_EMAIL (a plain variable)
+   and GDRIVE_SA_KEY (a secret: the service account's JSON key, or its private_key) on this Worker, with the
+   Google Drive API turned on in the service account's Google Cloud project. A service account has no storage
+   of its own, so a copy written into a personal My Drive also needs GDRIVE_SA_SUBJECT: a Workspace user the
+   account acts as by domain-wide delegation (the platform adds that user to the trainee's folder itself). The
+   folders are made either way. Until the first two are set, /api/drive says so and the page says the Backup
+   Drive isn't switched on yet. Nothing else is blocked either way. The link is kept in cm:drive:<trainee id>.
    ============================================================ */
 const DRIVE_ROOT = "LSH Case Backups";
-const DRIVE_SCOPES = "openid email https://www.googleapis.com/auth/drive.file";  // = openid email + DRIVE_FILE_SCOPE
 const FOLDER_MIME = "application/vnd.google-apps.folder";
 const DRIVE_API = "https://www.googleapis.com/drive/v3";
-const DRIVE_UPLOAD = "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id,name,webViewLink";
+const DRIVE_UPLOAD = "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&supportsAllDrives=true&fields=id,name,webViewLink";
 const DRIVE_MAX_BYTES = 4 * 1024 * 1024;
 
 /* The firm's structure, in the order it is read. The client folder is the case this course runs (John
@@ -709,33 +741,78 @@ function unb64url(str) {
   for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
   return out;
 }
-async function driveSealKey(env) {
-  const s = env.SESSION_SECRET || adminPass(env);
-  if (!s) throw new Error("SESSION_SECRET is not configured, so Google tokens can't be stored safely.");
-  const raw = await crypto.subtle.digest("SHA-256", enc.encode("lsh-cm-drive-token|" + s));
-  return crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["encrypt", "decrypt"]);
-}
-async function seal(env, text) {
-  const iv = crypto.getRandomValues(new Uint8Array(12));
-  const ct = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, await driveSealKey(env), enc.encode(String(text)));
-  return `${b64url(iv)}.${b64url(new Uint8Array(ct))}`;
-}
-async function unseal(env, sealed) {
-  const [iv, ct] = String(sealed || "").split(".");
-  const pt = await crypto.subtle.decrypt({ name: "AES-GCM", iv: unb64url(iv) }, await driveSealKey(env), unb64url(ct));
-  return new TextDecoder().decode(pt);
-}
-
-const driveConfigured = (env) => !!(env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET);
+/* ---------- 🔑 the program's Google service account (as the Foundations training's worker.js) ----------
+   GDRIVE_SA_KEY, however it was pasted into Cloudflare: the PEM itself (with real line breaks or "\n"), the private_key
+   value copied from the JSON file with its quotes, the "private_key": "…" line, or the whole JSON key file (whose
+   client_email then signs in). Returns {der, email} or {why}: why it isn't a key, said plainly. */
+const driveConfigured = (env) => !!(env && env.GDRIVE_SA_EMAIL && env.GDRIVE_SA_KEY);
 /* For /version: whether trainees can link their Drive, and if not which half is missing. Names only, never a value. */
-const driveConfigNote = (env) => driveConfigured(env) ? "ON (GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET are set)"
-  : `OFF (missing ${["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET"].filter((k) => !env[k]).join(" and ")})`;
-const DRIVE_FILE_SCOPE = "https://www.googleapis.com/auth/drive.file";
-/* Give a grant back to Google (best effort). Revoking any token of a grant ends the whole grant, so the next
-   Connect is a first consent again: every box shown, and a refresh token sent. */
-async function googleRevoke(token) {
-  if (!token) return;
-  try { await fetch("https://oauth2.googleapis.com/revoke", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ token }).toString() }); } catch (e) { /* best effort */ }
+const driveConfigNote = (env) => driveConfigured(env)
+  ? `ON (GDRIVE_SA_EMAIL and GDRIVE_SA_KEY are set${env.GDRIVE_SA_SUBJECT ? "; GDRIVE_SA_SUBJECT is set" : "; GDRIVE_SA_SUBJECT not set: folders only on a personal My Drive, no copies"})`
+  : `OFF (missing ${["GDRIVE_SA_EMAIL", "GDRIVE_SA_KEY"].filter((k) => !env[k]).join(" and ")})`;
+function saKey(env) {
+  let raw = String(env.GDRIVE_SA_KEY || "").trim(), email = "";
+  if (raw.startsWith("{")) {
+    let j = null; try { j = JSON.parse(raw); } catch (e) { j = null; }
+    if (!j && !/"private_key"\s*:\s*"[^"]+"/.test(raw)) return { why: "GDRIVE_SA_KEY looks like the JSON key file but isn't complete JSON: paste the whole file, from { to }, or only its private_key" };
+    if (j && !j.private_key) return { why: "GDRIVE_SA_KEY is a JSON file with no private_key in it: download a new JSON key for the service account" };
+    if (j) { raw = String(j.private_key); email = String(j.client_email || ""); }
+  }
+  if (!email) {
+    const line = raw.match(/"private_key"\s*:\s*"([^"]+)"/); if (line) raw = line[1];
+    raw = raw.replace(/,\s*$/, "").replace(/^["']|["']$/g, "");
+  }
+  raw = raw.replace(/\\r\\n|\\n|\\r/g, "\n");
+  if (/BEGIN RSA PRIVATE KEY/.test(raw)) return { why: "GDRIVE_SA_KEY is an RSA (PKCS#1) key; the platform needs the service account's JSON key: its private_key starts -----BEGIN PRIVATE KEY-----" };
+  const body = raw.replace(/-----(BEGIN|END) PRIVATE KEY-----/g, "").replace(/\s+/g, "");
+  if (/^[0-9a-f]{40}$/i.test(body)) return { why: "GDRIVE_SA_KEY holds the private_key_id, not the private_key: paste the private_key from the JSON file" };
+  if (/[^A-Za-z0-9+/=]/.test(body)) return { why: "GDRIVE_SA_KEY has characters a key can't have: paste only the private_key, -----BEGIN PRIVATE KEY----- to -----END PRIVATE KEY-----" };
+  let der; try { der = Uint8Array.from(atob(body), (c) => c.charCodeAt(0)); } catch (e) { der = null; }
+  if (!der || body.length < 1500) return { why: `GDRIVE_SA_KEY is cut short (${body.length} characters of key; a service account's is about 1,600): paste the whole private_key` };
+  return { der, email };
+}
+// one token per identity: the service account itself ("self"), and GDRIVE_SA_SUBJECT acting through it ("sub")
+const SA_TOKENS = {};
+async function saToken(env, asSub) {
+  const slot = asSub ? "sub" : "self", held = SA_TOKENS[slot];
+  if (held && Date.now() < held.exp) return held.token;
+  const sk = saKey(env);
+  if (sk.why) throw Object.assign(new Error(sk.why), { code: "DRIVE_SA_AUTH" });
+  let key;
+  try { key = await crypto.subtle.importKey("pkcs8", sk.der, { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" }, false, ["sign"]); }
+  catch (e) { throw Object.assign(new Error("GDRIVE_SA_KEY isn't a valid private key: paste the whole private_key from the service account's JSON file."), { code: "DRIVE_SA_AUTH" }); }
+  const now = Math.floor(Date.now() / 1000), text = (t) => b64url(enc.encode(t));
+  const unsigned = text(JSON.stringify({ alg: "RS256", typ: "JWT" })) + "." + text(JSON.stringify(Object.assign(
+    { iss: sk.email || env.GDRIVE_SA_EMAIL, scope: "https://www.googleapis.com/auth/drive", aud: "https://oauth2.googleapis.com/token", iat: now, exp: now + 3600 },
+    asSub ? { sub: env.GDRIVE_SA_SUBJECT } : {})));
+  const sig = new Uint8Array(await crypto.subtle.sign("RSASSA-PKCS1-v1_5", key, enc.encode(unsigned)));
+  const res = await fetch("https://oauth2.googleapis.com/token", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: "grant_type=" + encodeURIComponent("urn:ietf:params:oauth:grant-type:jwt-bearer") + "&assertion=" + unsigned + "." + b64url(sig) });
+  const j = await res.json().catch(() => ({}));
+  if (!res.ok || !j.access_token) throw Object.assign(new Error(`The program's Google service account couldn't sign in${asSub ? ` as ${env.GDRIVE_SA_SUBJECT}` : ""}: ${j.error || "HTTP " + res.status}${j.error_description ? " (" + j.error_description + ")" : ""}`.slice(0, 300)), { code: "DRIVE_SA_AUTH", refused: !!j.error });
+  SA_TOKENS[slot] = { token: j.access_token, exp: Date.now() + 50 * 60 * 1000 };
+  return j.access_token;
+}
+/* GDRIVE_SA_SUBJECT refused by Google (the domain-wide delegation not authorized): remembered for 2 minutes, and meanwhile
+   the platform works as the service account itself (folders are made; a new file needs storage it doesn't have). */
+const SUB_DOWN = { until: 0 };
+async function subjectToken(env) {
+  if (!env.GDRIVE_SA_SUBJECT || Date.now() < SUB_DOWN.until) return null;
+  try { return await saToken(env, true); }
+  catch (e) { if (e.refused) SUB_DOWN.until = Date.now() + 2 * 60 * 1000; return null; }
+}
+// the address a trainee shares their folder with: the service account (every read and the link check use it)
+const shareAddr = (env) => String(env.GDRIVE_SA_EMAIL || "");
+/* GDRIVE_SA_SUBJECT on the trainee's folder as an Editor, added by the service account without an email (it is an Editor
+   there itself), so the files the platform writes as that user land in the folder. Best effort: once per folder. */
+async function addSubject(env, fid) {
+  if (!env.GDRIVE_SA_SUBJECT || !fid) return false;
+  try {
+    const r = await fetch(`${DRIVE_API}/files/${encodeURIComponent(fid)}/permissions?sendNotificationEmail=false&supportsAllDrives=true`, { method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: "Bearer " + await saToken(env, false) },
+      body: JSON.stringify({ role: "writer", type: "user", emailAddress: env.GDRIVE_SA_SUBJECT }) });
+    return r.ok;
+  } catch (e) { return false; }
 }
 /* A trainee's drive record is cm:drive:<id>, under this program's "cm:" prefix like every other record. It was once
    drive:<id> with no prefix, a key the Foundations training's own Backup Drive also uses for the same trainee ids,
@@ -753,53 +830,45 @@ async function driveRead(env, id) {
   return legacy ? JSON.parse(legacy) : null;
 }
 async function driveWrite(env, id, rec) { await kvOf(env).put(driveKey(id), JSON.stringify(rec)); return rec; }
-/* The Google link goes; the Day 1 setup, its grade and the record of what was backed up are the trainee's and
-   stay. Used by Disconnect and when Google says the link has expired or was taken back, so neither loses a grade. */
+/* Linked: a folder of the trainee's own, shared with the service account and pasted in ("link"). A record from the old
+   Google sign-in (a sealed refresh token, no linkedAt) is not linked: the trainee shares and pastes once. */
+const driveLinked = (rec) => !!(rec && rec.rootId && rec.linkedAt);
+/* The link goes; the Day 1 setup, its grade and the record of what was backed up are the trainee's and stay. Their
+   folder and everything in it stay in their Drive too (re-linking the same folder finds the structure again). */
 async function driveUnlink(env, id, rec) {
   const kept = {};
-  if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt", "grades", "gradedAt", "checkLog", "restoreLog", "drills", "naming"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
+  if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt", "grades", "gradedAt", "checkLog", "restoreLog", "drills", "naming", "rootId", "folders", "nameRule"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
   if (Object.keys(kept).length) return driveWrite(env, id, kept);
   await kvOf(env).put(driveKey(id), "null");
   return null;
 }
-
-async function googleToken(params) {
-  const r = await fetch("https://oauth2.googleapis.com/token", {
-    method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(params).toString(),
-  });
-  return { ok: r.ok, data: await r.json().catch(() => ({})) };
-}
-/* A live access token for this trainee, refreshed and saved when it is about to run out. */
-async function driveAccess(env, id, rec, force = false) {
-  if (!force && rec.access && Number(rec.exp) > Date.now() + 60000) return unseal(env, rec.access);
-  const { ok, data } = await googleToken({
-    client_id: env.GOOGLE_CLIENT_ID, client_secret: env.GOOGLE_CLIENT_SECRET,
-    refresh_token: await unseal(env, rec.refresh), grant_type: "refresh_token",
-  });
-  if (!ok) {
-    if (data.error === "invalid_grant") { await driveUnlink(env, id, rec); const e = new Error("The Google Drive connection has expired or was taken back. Connect the Backup Drive again."); e.code = "DRIVE_RECONNECT"; throw e; }
-    throw new Error(`Google refused to refresh access: ${data.error_description || data.error || "unknown error"}`);
-  }
-  rec.access = await seal(env, data.access_token);
-  rec.exp = Date.now() + (Number(data.expires_in) || 3600) * 1000;
-  await driveWrite(env, id, rec);
-  return data.access_token;
-}
-/* One Drive call, tried again once with a fresh token if Google says this one is stale. */
+/* One Drive call: as GDRIVE_SA_SUBJECT when the platform can work as it (a file it writes then has storage), else as the
+   service account; a call the subject can't make in the trainee's folder (not on it yet) is tried as the account. */
 async function drive(env, id, rec, method, url, body) {
-  for (let attempt = 0; attempt < 2; attempt++) {
-    const token = await driveAccess(env, id, rec, attempt > 0);
-    const headers = { Authorization: `Bearer ${token}` };
+  const sub = await subjectToken(env);
+  const tokens = sub ? [sub, null] : [null];
+  let last = null;
+  for (let tk of tokens) {
+    if (!tk) tk = await saToken(env, false);
+    const headers = { Authorization: `Bearer ${tk}` };
     let payload;
     if (body && body.raw !== undefined) { headers["Content-Type"] = body.type; payload = body.raw; }
     else if (body) { headers["Content-Type"] = "application/json"; payload = JSON.stringify(body); }
-    const r = await fetch(url.startsWith("https://") ? url : DRIVE_API + url, { method, headers, body: payload });
-    if (r.status === 401 && attempt === 0) continue;
-    return { ok: r.ok, status: r.status, data: r.status === 204 ? {} : await r.json().catch(() => ({})) };
+    let u = url.startsWith("https://") ? url : DRIVE_API + url;
+    if (!/[?&]supportsAllDrives=/.test(u)) u += (u.includes("?") ? "&" : "?") + "supportsAllDrives=true";
+    const r = await fetch(u, { method, headers, body: payload });
+    last = { ok: r.ok, status: r.status, data: r.status === 204 ? {} : await r.json().catch(() => ({})) };
+    if (r.ok || (r.status !== 403 && r.status !== 404)) return last;
+    if (/storageQuota/i.test(JSON.stringify(last.data || {}))) return last;
   }
+  return last;
 }
-const driveMessage = (res) => (res && res.data && res.data.error && res.data.error.message) || `Google Drive error ${res ? res.status : ""}`.trim();
+const driveMessage = (res) => /storageQuota/i.test(JSON.stringify((res && res.data) || {}))
+  ? "Google Drive refused the file: the platform's service account has no storage of its own. A trainer sets GDRIVE_SA_SUBJECT on the Worker (or the folder is on a Shared Drive)."
+  : (res && (res.status === 403 || res.status === 404)) ? "The platform can't open your Backup Drive folder. Check it is still shared with the platform as Editor, then try again."
+  : (res && res.data && res.data.error && res.data.error.message) || `Google Drive error ${res ? res.status : ""}`.trim();
+/* The folder id in a Drive folder link (…/drive/folders/<id>, …?id=<id>), or a bare id. */
+const folderIdOf = (u) => { u = String(u || "").trim(); return (u.match(/folders\/([a-zA-Z0-9_-]+)/) || u.match(/[?&]id=([a-zA-Z0-9_-]+)/) || u.match(/^([a-zA-Z0-9_-]{20,})$/) || [])[1] || ""; };
 
 async function folderLives(env, id, rec, fid) {
   if (!fid) return false;
@@ -807,7 +876,11 @@ async function folderLives(env, id, rec, fid) {
   return !!(res.ok && !res.data.trashed);
 }
 async function makeFolder(env, id, rec, name, parent) {
-  const res = await drive(env, id, rec, "POST", "/files?fields=id", { name, mimeType: FOLDER_MIME, parents: parent ? [parent] : undefined });
+  // a folder of that name already in its place (made by hand, or before the drive was linked again) is taken, not doubled
+  const q = encodeURIComponent(`'${parent}' in parents and name = '${String(name).replace(/\\/g, "\\\\").replace(/'/g, "\\'")}' and mimeType = '${FOLDER_MIME}' and trashed = false`);
+  const found = await drive(env, id, rec, "GET", `/files?q=${q}&fields=files(id)&includeItemsFromAllDrives=true`);
+  if (found.ok && (found.data.files || [])[0]) return found.data.files[0].id;
+  const res = await drive(env, id, rec, "POST", "/files?fields=id", { name, mimeType: FOLDER_MIME, parents: [parent] });
   if (!res.ok || !res.data.id) throw new Error(driveMessage(res));
   return res.data.id;
 }
@@ -816,12 +889,9 @@ async function makeFolder(env, id, rec, name, parent) {
 async function driveBuild(env, id, rec) {
   rec.folders = rec.folders || {};
   const made = [], restored = [];
-  if (!(await folderLives(env, id, rec, rec.rootId))) {
-    rec.rootId = await makeFolder(env, id, rec, DRIVE_ROOT);
-    rec.folders = {};                                  // a new root means every folder under it is new
-    rec.nameRule = NAME_RULE;                          // 🏷 built once names are graded: a folder retyped in it is charged
-    made.push(DRIVE_ROOT);
-  }
+  // the root is the trainee's own folder, linked by its link: the platform never makes it, and can't when it is gone
+  if (!(await folderLives(env, id, rec, rec.rootId))) { const e = new Error("The platform can't open your Backup Drive folder. Check it is still in your Drive and shared with the platform as Editor, or link it again."); e.code = "DRIVE_RECONNECT"; throw e; }
+  if (!rec.builtAt) rec.nameRule = NAME_RULE;          // 🏷 built once names are graded: a folder retyped in it is charged
   for (const path of FOLDER_STANDARD) {
     const had = rec.folders[path];
     if (had && (await folderLives(env, id, rec, had))) continue;
@@ -884,14 +954,15 @@ function driveStatus(env, rec) {
   const configured = driveConfigured(env);
   return {
     configured,
-    clientId: configured ? env.GOOGLE_CLIENT_ID : "",
-    scopes: DRIVE_SCOPES,
+    shareWith: configured ? shareAddr(env) : "",       // the address the trainee shares their folder with, as Editor
     standard: FOLDER_STANDARD,
     why: FOLDER_WHY,
     homes: DRIVE_HOMES,
     root: DRIVE_ROOT,
-    connected: !!(rec && rec.refresh),
+    connected: driveLinked(rec),
+    relink: !!(rec && rec.refresh && !rec.linkedAt),   // linked once by the old Google sign-in: share the folder and paste it
     email: (rec && rec.email) || "",
+    folderName: (rec && rec.rootName) || "",
     rootUrl: rec && rec.rootId ? `https://drive.google.com/drive/folders/${encodeURIComponent(rec.rootId)}` : "",
     built: !!(rec && rec.builtAt),
     builtAt: (rec && rec.builtAt) || null,
@@ -917,8 +988,8 @@ function driveReport(id, rec, brief) {
   const tries = (rec && rec.tries) || (setup ? [{ at: setup.at, ok: !!setup.ok, n: (setup.problems || []).length }] : []);
   return {
     traineeId: id,
-    connected: !!(rec && rec.refresh),
-    email: (rec && rec.refresh && rec.email) || "",
+    connected: driveLinked(rec),
+    email: (driveLinked(rec) && rec.email) || "",
     connectedAt: (rec && rec.connectedAt) || null,
     attempts: (setup && setup.attempts) || 0,
     passed: !!(setup && setup.ok),
@@ -948,8 +1019,8 @@ function driveReport(id, rec, brief) {
    is now, what it is called, whether the colleague's misfile was moved, whether a deleted folder was found and
    put back. The trainee's own written work (Case Notes) is the rubric's other rows, graded where it always was.
 
-   One read of the Drive per grade: every file and folder this platform made (drive.file sees only those), each
-   with its name and folder, in two list calls. A copy knows which course document it is because the page sends
+   One read of the Drive per grade: every file and folder in the trainee's linked folder (the only part of their Drive the platform reads), each
+   with its name and folder, with one list call per folder of the linked folder. A copy knows which course document it is because the page sends
    the document's id with it (`docId` on "put"); a copy the trainee moved or renamed in Drive is still found.
    ============================================================ */
 /* Each day's documents (CF_PACKETS["dN-drive"] in js/cm-case-flow-docs.js) and the course folder each belongs
@@ -1039,8 +1110,9 @@ const clip = (s, n = 200) => { s = String(s == null ? "" : s); return s.length >
        and 4, and 12 of 48 on Day 5, where the rubric's fourth automated row (the closing checklist) is read
        from the trainee's Case Notes and not from the drive.
 
-   What it cannot see: drive.file shows this platform only the files and folders it made. A file the trainee
-   uploads or copies into a folder by hand in Google Drive is invisible here, and the page says so.
+   What it cannot see: anything outside the folder the trainee linked (the only part of their Drive shared with the
+   platform). A file uploaded by hand into one of the firm's folders is read like any other and listed when its name
+   is wrong, but never charged: no copy record carries it.
    What it cannot know: the real CMS's caseFileName is not in this repository. Wherever that matters the reading
    here is the lenient one (a Type the CMS chose, a counter after the date written _2 or -2, an extension in the
    case the CMS left it).
@@ -1269,7 +1341,8 @@ function driveNaming(rec, S, started) {
     const f = fid && S.folders[fid];
     if (!f || f.name === wantName) return;
     const cut = p ? p.lastIndexOf("/") : -1, parent = p == null ? "your Drive" : cut < 0 ? DRIVE_ROOT : shortPath(p.slice(0, cut));
-    rows.push({ kind: "folder", ok: false, scored: rec.nameRule === NAME_RULE, day: latest, path: p == null ? "" : cut < 0 ? "" : p.slice(0, cut), folder: parent, name: f.name, want: wantName,
+    // (the root is the trainee's own folder, named by them as the panel asks: listed when it differs, never charged)
+    rows.push({ kind: "folder", ok: false, scored: rec.nameRule === NAME_RULE && p != null, day: latest, path: p == null ? "" : cut < 0 ? "" : p.slice(0, cut), folder: parent, name: f.name, want: wantName,
       issues: [{ n: 0, part: "folder", got: f.name, should: wantName }],
       hint: `This folder is "${wantName}" in the firm's structure${looseKey(f.name) === looseKey(wantName) ? ": the number, the spaces and the capitals count" : ""}. A folder everybody shares is spelled one way.` });
   });
@@ -1311,8 +1384,8 @@ function namingRule(rec) {
     labels: NAME_LABELS, exampleCase: NAME_EXAMPLE_CASE, caseId: rec ? driveCaseId(rec) : "",
     points: NAMING_POINTS, of: NAMING_OF,
     ofDay: NAMING_OF_DAY,   // what the Worker itself grades each day: on Day 5 the names are 12 of 48, not of 60
-    sees: "Every file this platform put on your drive (the copies of what you file in the CMS, ☁️ Add to GDrive copies, the colleague's invoice) and the firm's folders, wherever you have moved or renamed them.",
-    blind: "Files you upload, copy or create by hand in Google Drive: Google shows this platform only the files it made (drive.file). Name those the same way; your trainer checks them by eye.",
+    sees: "Every file in your Backup Drive folder (the copies of what you file in the CMS, ☁️ Add to GDrive copies, the colleague's invoice, anything you put there yourself) and the firm's folders, wherever in it you have moved or renamed them.",
+    blind: "Anything outside your Backup Drive folder: the platform reads only the folder you linked. Keep every case document in it, named the same way.",
   };
 }
 
@@ -1346,24 +1419,32 @@ async function driveUpload(env, id, rec, parentId, name, mime, bytes, descriptio
   return drive(env, id, rec, "POST", DRIVE_UPLOAD, { raw, type: `multipart/related; boundary=${boundary}` });
 }
 
-/* Everything this platform made in the trainee's Drive and not trashed: {id: {name, parent}} for files and folders. */
-async function driveList(env, id, rec, folders) {
-  const out = {};
-  let token = "";
-  for (let page = 0; page < 5; page++) {
-    const q = encodeURIComponent(`mimeType ${folders ? "=" : "!="} '${FOLDER_MIME}' and trashed = false`);
-    const res = await drive(env, id, rec, "GET", `/files?q=${q}&pageSize=1000&fields=nextPageToken,files(id,name,parents,createdTime)${token ? "&pageToken=" + encodeURIComponent(token) : ""}`);
-    if (!res.ok) throw new Error(driveMessage(res));
-    (res.data.files || []).forEach((f) => { out[f.id] = { name: f.name, parent: (f.parents || [])[0] || "", created: f.createdTime || "" }; });
-    if (!res.data.nextPageToken) break;
-    token = res.data.nextPageToken;
+/* Everything in the trainee's linked folder and not trashed, folder by folder from the root: {files, folders}, each
+   {id: {name, parent, created}}. (The service account sees only what is shared with it, and this reads only that folder.) */
+async function driveList(env, id, rec) {
+  const files = {}, folders = {}, queue = [rec.rootId];
+  for (let n = 0; queue.length && n < 80; n++) {
+    const parent = queue.shift();
+    let token = "";
+    for (let page = 0; page < 5; page++) {
+      const q = encodeURIComponent(`'${parent}' in parents and trashed = false`);
+      const res = await drive(env, id, rec, "GET", `/files?q=${q}&pageSize=1000&includeItemsFromAllDrives=true&fields=nextPageToken,files(id,name,mimeType,parents,createdTime)${token ? "&pageToken=" + encodeURIComponent(token) : ""}`);
+      if (!res.ok) throw new Error(driveMessage(res));
+      (res.data.files || []).forEach((f) => {
+        const x = { name: f.name, parent: (f.parents || [])[0] || parent, created: f.createdTime || "" };
+        if (f.mimeType === FOLDER_MIME) { folders[f.id] = x; queue.push(f.id); } else files[f.id] = x;
+      });
+      if (!res.data.nextPageToken) break;
+      token = res.data.nextPageToken;
+    }
   }
-  return out;
+  if (rec.rootId) folders[rec.rootId] = folders[rec.rootId] || { name: rec.rootName || DRIVE_ROOT, parent: "", created: "" };
+  return { files, folders };
 }
 
 /* The Drive as it is now: where each course document's copy sits, and the folders. */
 async function driveSnapshot(env, id, rec) {
-  const [files, folders] = [await driveList(env, id, rec, false), await driveList(env, id, rec, true)];
+  const { files, folders } = await driveList(env, id, rec);
   const pathOf = {};
   Object.entries(rec.folders || {}).forEach(([p, fid]) => { if (folders[fid]) pathOf[fid] = p; });
   const where = (fid) => (files[fid] ? { name: files[fid].name, created: files[fid].created, path: pathOf[files[fid].parent] || (files[fid].parent === rec.rootId ? "" : null) } : null);
@@ -1634,6 +1715,7 @@ export default {
           const into = m && m.into ? await kv.get(`trainee:${m.into}`) : null;
           if (into) { chosen = m.into; existing = into; }
         }
+        if ((await blockedIds(env, true))[chosen]) return json({ error: BLOCK_MSG, code: "access-offboarded" }, 403);
         return json({ id: chosen, token: await makeToken(env, "t", chosen, 24 * 30), existing: existing ? JSON.parse(existing) : null, batch: canonicalBatch(batch) || String(batch || "").trim() });
       };
       if (path === "/api/auth/trainee") {
@@ -1679,6 +1761,7 @@ export default {
           return json({ admin: true, name: who.name, token: await makeToken(env, "a", "admin", 12) });
         }
         const res = await traineeSession(who.name, who.batch, "");
+        if (res.status !== 200) return res;   // 🚫 (blocked: access-offboarded)
         const out = await res.json();
         // The Portal's approval is the only trainee approval: a trainee it signs in is approved here too
         // (unless an admin here rejected them), so this program never shows "Registration Pending Approval".
@@ -1693,6 +1776,15 @@ export default {
 
       const tok = secure ? await readToken(env, request) : { role: "a", id: "open-mode" };
       if (!tok) return json({ error: "Sign-in required" }, 401);
+      // 🚫 a trainee whose access the Portal closed: their own record only, shown not approved, so the page closes; nothing else
+      if (tok.role === "t" && (await blockedIds(env))[tok.id]) {
+        const b = await request.clone().json().catch(() => ({}));
+        if (path === "/api/storage/get" && b.key === `trainee:${tok.id}`) {
+          const rec = JSON.parse((await kvOf(env).get(b.key)) || "null");
+          return json({ value: rec ? JSON.stringify(Object.assign({}, rec, { approved: false, rejected: true })) : null });
+        }
+        return json({ error: BLOCK_MSG, code: "access-offboarded" }, 403);
+      }
 
       /* ---------- a session that is still in use is renewed before it runs out ----------
          The page asks for a fresh token in the last hours of a valid one (an admin's lasts 12 hours, a trainee's
@@ -1772,52 +1864,39 @@ export default {
           if (action === "status") {
             return json({ drive: driveStatus(env, rec) });
           }
-          if (action === "connect") {
-            const code = String(b.code || "");
-            if (!code) return json({ error: "Google sign-in didn't finish." }, 400);
-            const { ok, data } = await googleToken({
-              code, client_id: env.GOOGLE_CLIENT_ID, client_secret: env.GOOGLE_CLIENT_SECRET,
-              redirect_uri: "postmessage", grant_type: "authorization_code",
-            });
-            if (!ok) return json({ error: `Google sign-in failed: ${data.error_description || data.error || "unknown error"}` }, 400);
-            // Google's consent screen lets each permission be unticked. Without drive.file every folder call would
-            // fail later with a 403 the trainee can't read, so the sign-in is turned away now, and the half grant
-            // is given back so the next Connect shows the Drive box again.
-            // (Google lists what was granted in `scope`; a reply without the list is taken at its word.)
-            const granted = String(data.scope || "").split(/\s+/).filter(Boolean);
-            if (granted.length && !granted.includes(DRIVE_FILE_SCOPE)) {
-              await googleRevoke(data.refresh_token || data.access_token);
-              if (rec && rec.refresh) await driveUnlink(env, who, rec);   // that grant was this one: the held token is dead too
-              return json({ error: "Google Drive access wasn't ticked on Google's screen. Press Connect again and tick the box that lets this site see and change the files it makes.", code: "DRIVE_SCOPE_MISSING" }, 400);
-            }
-            let email = "";
-            try { email = JSON.parse(new TextDecoder().decode(unb64url(String(data.id_token || "").split(".")[1] || ""))).email || ""; } catch (e) { /* no id token */ }
-            // Google sends a refresh token only the first time an account says yes; keep the one we hold otherwise.
-            const refresh = data.refresh_token ? await seal(env, data.refresh_token) : (rec && rec.refresh);
-            if (!refresh) {
-              // This Google account said yes before (an earlier connection, or one this platform no longer holds), so
-              // Google sent no refresh token. Give that old grant back: the next Connect is a first consent again and
-              // brings one. The trainee only presses Connect once more; nothing in their Google account to clean up.
-              await googleRevoke(data.access_token);
-              return json({ error: "Google remembered an earlier connection and didn't send lasting access. That old connection has been cleared: press Connect my Google Drive once more and approve.", code: "DRIVE_CONSENT_AGAIN" }, 400);
-            }
+          if (action === "link") {
+            // 🔗 The trainee's own folder, shared with the platform's service account as Editor, by its link (as the
+            // Foundations training links a trainee's Drive folders). Opened now as the account, so a link that isn't
+            // shared, isn't a folder or is shared as Viewer is told why at once, not on the first copy.
+            const fid = folderIdOf(b.url);
+            if (!fid) return json({ error: "That isn't a Google Drive folder link. Open the folder in Google Drive and copy its address (…/drive/folders/…).", code: "DRIVE_LINK_BAD" }, 400);
+            const r = await fetch(`${DRIVE_API}/files/${encodeURIComponent(fid)}?supportsAllDrives=true&fields=id,name,mimeType,trashed,capabilities(canAddChildren),owners(emailAddress)`, { headers: { Authorization: "Bearer " + await saToken(env, false) } });
+            const f = await r.json().catch(() => ({}));
+            if (!r.ok) return json({ error: `The platform can't open that folder yet. In Google Drive, share it with ${shareAddr(env)} as Editor (Share → paste the address → Editor → Send), then link it again.`, code: "DRIVE_NOT_SHARED" }, 400);
+            if (f.mimeType !== FOLDER_MIME) return json({ error: "That link is a file, not a folder. Link the folder itself (…/drive/folders/…).", code: "DRIVE_LINK_BAD" }, 400);
+            if (f.trashed) return json({ error: "That folder is in your Google Drive's trash. Restore it, or make a new one, then link it.", code: "DRIVE_LINK_BAD" }, 400);
+            if (!(f.capabilities || {}).canAddChildren) return json({ error: `The folder is shared with the platform as a Viewer. Change ${shareAddr(env)} to Editor on it, then link it again.`, code: "DRIVE_NOT_SHARED" }, 400);
+            await addSubject(env, fid);   // so the copies written as GDRIVE_SA_SUBJECT land in it (no email is sent)
+            const same = rec && rec.rootId === fid;
             rec = Object.assign({}, rec, {
-              email, refresh, access: data.access_token ? await seal(env, data.access_token) : null,
-              exp: Date.now() + (Number(data.expires_in) || 3600) * 1000,
+              rootId: fid, rootName: clip(f.name || "", 120), linkedAt: new Date().toISOString(),
+              email: clip(((f.owners || [])[0] || {}).emailAddress || "", 120),
               connectedAt: (rec && rec.connectedAt) || new Date().toISOString(),
             });
+            ["refresh", "access", "exp"].forEach((k) => delete rec[k]);   // the old Google sign-in's tokens, no longer used
+            if (!same) { rec.folders = {}; delete rec.builtAt; delete rec.lastMissing; }   // another folder: its structure is made in it
             await driveWrite(env, who, rec);
-            return json({ drive: driveStatus(env, rec) });
+            // a structure already passed (Day 1, before this folder was linked) is made in it now, without typing it again
+            let built = null;
+            if (rec.setup && rec.setup.ok) { try { built = await driveBuild(env, who, rec); } catch (e) { /* the panel offers 🔁 Put the missing folders back */ } }
+            return json({ built, drive: driveStatus(env, rec) });
           }
           if (action === "disconnect") {
-            if (rec && rec.refresh) {
-              // best effort: give the access back. The copies already in their Drive stay there.
-              try { await googleRevoke(await unseal(env, rec.refresh)); } catch (e) { /* best effort */ }
-            }
+            // the link goes; the folder and everything in it stay in their Drive, and the grades are kept
             rec = await driveUnlink(env, who, rec);
             return json({ drive: driveStatus(env, rec) });
           }
-          if (!rec || !rec.refresh) return json({ error: "No Backup Drive is connected yet.", code: "DRIVE_NOT_CONNECTED" }, 400);
+          if (!driveLinked(rec)) return json({ error: "No Backup Drive folder is linked yet.", code: "DRIVE_NOT_CONNECTED" }, 400);
 
           if (action === "setup") {
             // Day 1: the structure the trainee laid out, graded against the firm's standard, then made in their Drive.

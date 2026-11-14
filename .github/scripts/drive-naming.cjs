@@ -13,7 +13,7 @@
 //      copy the CMS named passes, a hand rename, a copy that never went through the CMS, the colleague's invoice, a
 //      missing or misspelled label and a retyped folder are each reported with folder, name, the name it should have
 //      and the differing part; names that repeat by design keep one record each.
-//   4. What drive.file hides stays out of the report, and the page is told to say so.
+//   4. A file put in the linked folder by hand is listed (never charged); one outside it is never read; the page says so.
 //   5. It counts: File names is a row of every graded day, 12 points, the same in the lesson's rubric (12 of the 60 the
 //      Worker grades on Days 2, 3 and 4; 12 of the 48 it grades on Day 5).
 //   6. It is the Worker's: a trainee can't send their own result, a trainer reads it in the report and the audit list
@@ -28,10 +28,11 @@ const fs = require('fs'); const path = require('path'); const { pathToFileURL } 
 const ROOT = process.cwd();
 const failures = []; const fail = (m) => failures.push(m);
 const ok = (m) => console.log('ok  ' + m);
+const SA = require('./drive-sa-fake.cjs');
 const read = (f) => fs.readFileSync(path.join(ROOT, f), 'utf8');
 
 /* ---------- an in-memory Google Drive: only what worker.js asks of it ----------
-   `mine: false` is a file the trainee put there by hand: under drive.file Google doesn't show it to this platform. */
+   The service account reads the trainee's linked folder, so a file they put there by hand is read too. */
 const FOLDER = 'application/vnd.google-apps.folder';
 const files = new Map(); let next = 0; const asked = [];
 const make = (name, mimeType, parent, mine = true) => { const id = 'g' + (++next); files.set(id, { name, mimeType, parents: parent ? [parent] : [], trashed: false, mine, createdTime: '2026-07-01T15:00:00.000Z' }); return id; };
@@ -40,8 +41,7 @@ const reply = (o, status = 200) => new Response(JSON.stringify(o), { status, hea
 const realFetch = global.fetch;
 global.fetch = async (url, init = {}) => {
   const u = new URL(String(url)), method = init.method || 'GET';
-  if (u.href === 'https://oauth2.googleapis.com/token') return reply({ access_token: 'AT', refresh_token: 'RT', expires_in: 3600, scope: 'openid email https://www.googleapis.com/auth/drive.file', id_token: 'x.' + Buffer.from('{"email":"ana@example.com"}').toString('base64url') + '.x' });
-  if (u.href === 'https://oauth2.googleapis.com/revoke') return reply({});
+  if (u.href === 'https://oauth2.googleapis.com/token') return reply({ access_token: 'AT', expires_in: 3600 });   // the service account's token
   if (u.host !== 'www.googleapis.com') return realFetch(url, init);
   asked.push(method + ' ' + u.pathname + (u.searchParams.get('q') ? '?q' : ''));
   if (u.pathname === '/upload/drive/v3/files') {
@@ -51,11 +51,12 @@ global.fetch = async (url, init = {}) => {
   }
   if (u.pathname === '/drive/v3/files' && method === 'POST') { const b = JSON.parse(init.body); return reply({ id: make(b.name, b.mimeType, (b.parents || [])[0]) }); }
   if (u.pathname === '/drive/v3/files' && method === 'GET') {
-    const q = u.searchParams.get('q') || '', folders = /mimeType = /.test(q);
-    return reply({ files: [...files].filter(([, f]) => !f.trashed && f.mine && (f.mimeType === FOLDER) === folders).map(([id, f]) => ({ id, name: f.name, parents: f.parents, createdTime: f.createdTime })) });
+    const match = SA.qMatch(u.searchParams.get('q'));
+    return reply({ files: [...files].filter(([, f]) => match(f)).map(([id, f]) => ({ id, name: f.name, mimeType: f.mimeType, parents: f.parents, createdTime: f.createdTime })) });
   }
+  if (/^\/drive\/v3\/files\/[^/]+\/permissions$/.test(u.pathname)) return reply({ id: 'p' });
   const m = u.pathname.match(/^\/drive\/v3\/files\/([^/]+)$/);
-  if (m) { const f = files.get(m[1]); return f ? reply({ id: m[1], trashed: f.trashed }) : reply({ error: { message: 'File not found' } }, 404); }
+  if (m) { const f = files.get(m[1]); return f ? reply(SA.fileMeta(m[1], f)) : reply({ error: { message: 'File not found' } }, 404); }
   return reply({ error: { message: 'not in this test: ' + u.pathname } }, 500);
 };
 
@@ -196,14 +197,14 @@ global.fetch = async (url, init = {}) => {
   /* ---------- the Worker, a trainee with a built drive ---------- */
   const worker = (await import(pathToFileURL(path.join(ROOT, 'worker.js')).href)).default;
   const store = new Map();
-  const env = { MASTER_ADMIN_PASSWORD: 'ci-pass', SESSION_SECRET: 'ci-secret', PORTAL_ONLY: 'off', GOOGLE_CLIENT_ID: 'cid', GOOGLE_CLIENT_SECRET: 'cs',
+  const env = { MASTER_ADMIN_PASSWORD: 'ci-pass', SESSION_SECRET: 'ci-secret', PORTAL_ONLY: 'off', ...SA.saEnv(),
     LSH_KV: { get: async (k) => store.has(k) ? store.get(k) : null, put: async (k, v) => store.set(k, v), delete: async (k) => store.delete(k),
       list: async ({ prefix = '' } = {}) => ({ keys: [...store.keys()].filter((k) => k.startsWith(prefix)).map((name) => ({ name })), list_complete: true }) } };
   const call = async (body, token) => { const res = await worker.fetch(new Request('http://x/api/drive', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify(body) }), env, { waitUntil() {} }); return { status: res.status, body: await res.json().catch(() => null) }; };
   const auth = async (p, b) => (await (await worker.fetch(new Request('http://x' + p, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b) }), env, { waitUntil() {} })).json());
   const { token: t, id: tid } = await auth('/api/auth/trainee', { name: 'Ana Cruz', batch: 'B100926' });
   const admin = (await auth('/api/auth/admin', { passphrase: 'ci-pass' })).token;
-  await call({ action: 'connect', code: 'c' }, t);
+  await call({ action: 'link', url: SA.folderUrl(make('LSH Case Backups', FOLDER, '')) }, t);
   const std = (await call({ action: 'status' }, t)).body.drive;
   const built = await call({ action: 'setup', layout: std.standard }, t);
   if (!built.body || !built.body.built) { console.log('Could not build the drive: ' + JSON.stringify(built.body)); process.exit(1); }
@@ -230,15 +231,16 @@ global.fetch = async (url, init = {}) => {
   await put('RS05', 'intake', nameOf('Case-Files'));   // the same document, filed again under the same name: its record is replaced, not doubled
   if (rec().saved.filter((s) => s.docId === 'RS05').length !== 1) fail('a document filed again under the same name should replace its own record');
   byName(nameOf('Case-Files'))[1].trashed = true;       // (the first RS05 copy, replaced by the second)
-  // the names are read before any later day starts, in the grade's own two list calls
+  // the names are read before any later day starts, in the grade's own list calls: one per folder of the linked folder
   asked.length = 0;
   let rep = await naming();
-  if (asked.length !== 2 || !asked.every((a) => a === 'GET /drive/v3/files?q')) fail(`reading the names should cost the grade's two list calls and nothing more: ${JSON.stringify(asked)}`);
+  const tree = 1 + Object.keys(rec().folders).length;
+  if (asked.length !== tree || !asked.every((a) => a === 'GET /drive/v3/files?q')) fail(`reading the names should cost the grade's list calls (one per folder, ${tree}) and nothing more: ${JSON.stringify(asked)}`);
   if (!rep || rep.checked !== 3 || rep.named !== 3 || rep.wrong !== 0 || (rep.list || []).length) fail(`three documents the CMS named should all pass, read on Day 1: ${JSON.stringify(rep)}`);
   if ((await grade()).drive.naming.caseId !== CASE) fail('the trainee\'s Case ID should be read from their filed copies');
   asked.length = 0; await call({ action: 'check' }, t);
   if (asked.length !== 17) fail(`✓ Check my drive should still cost 17 folder reads: ${asked.length}`);
-  ok('names the CMS filed pass, read on Day 1 in the two list calls the grade already makes; names that repeat keep a record each');
+  ok('names the CMS filed pass, read on Day 1 in the list calls the grade already makes; names that repeat keep a record each');
 
   // a hand rename in Drive
   fileOf('RS06').name = `${CASE}_John-Doe_Police-Report_${DAY}.pdf`;
@@ -304,15 +306,17 @@ global.fetch = async (url, init = {}) => {
   [...files].filter(([, f]) => f.parents[0] === folderId(`${C}/01 Intake & Retainer`) && /release|Release/.test(f.name)).forEach(([, f]) => { f.trashed = true; });
   ok('"as filed" is this trainee\'s case and client only; an extension as the CMS left it stands; a copy whose record was replaced or lost is still read as filed');
 
-  /* ---------- 4: what drive.file hides, and what isn't this drive's ---------- */
-  make('scan0001.pdf', 'application/pdf', folderId(`${C}/03 Medical Records`), false);    // uploaded by hand: Google doesn't show it
-  make('Notes from another LSH site.pdf', 'application/pdf', make('Some other app folder', FOLDER, ''));   // visible, but not in this drive
+  /* ---------- 4: a file put in by hand, and what isn't this drive's ---------- */
+  const scan = make('scan0001.pdf', 'application/pdf', folderId(`${C}/03 Medical Records`));    // uploaded by hand into the linked folder: read, never charged
+  make('Notes from another LSH site.pdf', 'application/pdf', make('Some other app folder', FOLDER, ''));   // outside the linked folder: never read
   rep = await naming();
-  if (rep.wrong !== 0 || rep.checked !== 4) fail(`a file uploaded by hand (invisible under drive.file) and a file outside the firm's folders should stay out of the report: ${JSON.stringify(rep)}`);
+  x = wrongOf(rep, 'scan0001.pdf');
+  if (rep.wrong !== 1 || rep.checked !== 5 || !x || x.scored !== false || x.folder !== '03 Medical Records') fail(`a file uploaded by hand should be listed, not charged, and a file outside the linked folder never read: ${JSON.stringify(rep)}`);
+  files.get(scan).trashed = true;
   const rule = (await call({ action: 'status' }, t)).body.drive.naming;
-  if (!/by hand/.test(rule.blind || '') || !/drive\.file/.test(rule.blind || '') || !/wherever you have moved or renamed/.test(rule.sees || '')) fail(`the page should be told what the check reads and what it can't see: ${JSON.stringify([rule.sees, rule.blind])}`);
+  if (!/outside your Backup Drive folder/.test(rule.blind || '') || !/wherever in it you have moved or renamed/.test(rule.sees || '')) fail(`the page should be told what the check reads and what it can't see: ${JSON.stringify([rule.sees, rule.blind])}`);
   if (!/\.sees/.test(drivePage) || !/\.blind/.test(drivePage)) fail('js/cm-drive.js should show what the check reads and what it can\'t see');
-  ok("a file uploaded by hand stays invisible (drive.file) and the page is told to say so; another app's files aren't this drive's");
+  ok("a file put in the linked folder by hand is listed and never charged; a file outside the linked folder isn't this drive's");
 
   /* ---------- 5: it counts ---------- */
   // Day 2: the colleague's invoice arrives named off the convention
@@ -427,15 +431,15 @@ global.fetch = async (url, init = {}) => {
   if (!pres.naming || pres.naming.pattern !== PATTERN || pres.naming.caseId !== '' || pres.naming.report !== undefined) fail(`a presenter should get the rule and nobody's drive: ${JSON.stringify(pres.naming).slice(0, 200)}`);
   await call({ action: 'disconnect' }, t);
   const after = (await call({ action: 'report', traineeId: tid }, admin)).body.report;
-  if (!after || !after.naming || after.naming.wrong !== 1) fail('Disconnect dropped the last check of the names');
-  ok("the result is the Worker's: a trainee can't send one, a trainer reads each wrong name, a presenter gets the rule only, Disconnect keeps it");
+  if (!after || !after.naming || after.naming.wrong !== 1) fail('Unlinking dropped the last check of the names');
+  ok("the result is the Worker's: a trainee can't send one, a trainer reads each wrong name, a presenter gets the rule only, unlinking keeps it");
 
   /* ---------- 7: never marked down for a name the platform gave, or for a rule that came afterwards ---------- */
   // A trainee from before names were graded, as main left their record: copies under the manifest names the old
   // ☁️ Add to GDrive uploaded, the colleague's invoice moved and not renamed (Day 2 as it was taught), labels the way
   // the old grader accepted them, and no stamp on anything.
   const { token: t2, id: id2 } = await auth('/api/auth/trainee', { name: 'Ben Old', batch: 'B100926' });
-  await call({ action: 'connect', code: 'c' }, t2);
+  await call({ action: 'link', url: SA.folderUrl(make('LSH Case Backups', FOLDER, '')) }, t2);
   await call({ action: 'setup', layout: std.standard }, t2);
   const filed2 = [];
   const put2 = async (docId, kind, name) => { const r = await call({ action: 'put', docFolder: kind, name, b64: Buffer.from('%PDF-1.4 ' + docId).toString('base64url'), docId }, t2); if (r.status !== 200) fail(`filing ${docId} failed: ${JSON.stringify(r.body)}`); filed2.push(docId); };

@@ -13,9 +13,11 @@
    the copy kept here needs no second decision from the trainee.
 
    What the trainee does:
-     1. Links their own Google account once, with 🔗 Link my Google Drive in step 1 of Day 1's Backup File
-        Maintenance slide (or Connect in this panel: the same sign-in). drive.file only: the platform can see
-        and change the folders and files it makes and nothing else in their Drive.
+     1. Links one folder of their own Google Drive once, the way the Foundations training links a trainee's Drive
+        (no Google sign-in): they make a folder named LSH Case Backups, share it with the platform's address (its
+        service account, which the Worker gives as `shareWith`) as Editor, and paste the folder's link in this panel
+        (🔗 Link my Google Drive in step 1 of Day 1's Backup File Maintenance slide opens it). The platform reads and
+        writes in that folder and nothing else in their Drive.
      2. Lays the firm's structure out themselves — adds each folder, names it, nests it, puts it in order.
         Nothing is prefilled: the structure is the thing being learned, so it is typed, not accepted.
      3. Submits it, and the Worker grades it against the firm's standard (FOLDER_STANDARD in worker.js,
@@ -34,8 +36,8 @@
 
    The server side is /api/drive in worker.js (every action, the grading and the Google tokens, which are
    sealed and never leave it). This file is the page: the dashboard card, the setup panel and the Drive
-   copy of a filed document. Until GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET are set on the Worker, the
-   card stays away and nothing else is blocked.
+   copy of a filed document. Until GDRIVE_SA_EMAIL and GDRIVE_SA_KEY are set on the Worker, the card stays
+   away and nothing else is blocked.
    ============================================================ */
 (function(){
 const esc = (s)=> String(s == null ? "" : s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -44,11 +46,10 @@ const GLOGO = '<svg width="13" height="13" viewBox="0 0 87.3 78" aria-hidden="tr
 
 let D = null;                  // the drive, as the Worker reports it
 let asked = false, settled = false, busy = false, connecting = false, err = "", open = false;   // settled: the status call has answered (or failed)
-let waiting = false, linkErr = "";   // Google's sign-in window is open; and why the last try to link didn't finish (shown in step 1 of the slide)
+let linkErr = "", linkUrl = "";      // why the last try to link didn't finish (shown in step 1 of the slide), and the link typed
 let linkHeld = false;                // the keyboard was on the slide's link button when it was last drawn
 let graded = null, verified = null;
 let tree = null;               // the layout the trainee is building: [{name, children:[…]}]
-let gisLoading = false, gisFailed = false;
 
 const signedTrainee = ()=> typeof state === "object" && !!state.traineeId && !state.isAdmin && !state.adminPreview;
 /* A trainee on their own screen: the only place a drive is linked from. Never a trainer, an admin's preview, or the
@@ -103,7 +104,7 @@ function card(){
   const n = (D.standard || []).length;
   if(!D.built) return `<div class="drv-card drv-todo">
     <div class="drv-c-h">📂 Day 1 · Set up your Backup Drive</div>
-    <p>Every document you file in the CMS is also kept on the firm's backup drive, in the same case file you work from here — intake, records, bills, liens, litigation. Before Day 1's first block, connect your own Google Drive and lay the firm's ${n}-folder structure out in it yourself. It is graded, and it is where your work goes for the rest of the programme.</p>
+    <p>Every document you file in the CMS is also kept on the firm's backup drive, in the same case file you work from here — intake, records, bills, liens, litigation. Before Day 1's first block, link a folder of your own Google Drive and lay the firm's ${n}-folder structure out in it yourself. It is graded, and it is where your work goes for the rest of the programme.</p>
     ${steps()}
     ${namingBox({day:1, compact:true})}
     <button type="button" class="btn btn-navy btn-sm" onclick="CMDrive.show()">📂 Set up my Backup Drive</button>
@@ -130,7 +131,7 @@ function steps(){
   const saved = (D.saved || []).length, missing = (D.lastMissing || []).length;
   const li = (done, text)=>`<li style="${done ? "color:var(--success);" : ""}">${done ? "✓" : "○"} ${text}</li>`;
   return `<ol class="drv-steps" style="list-style:none;margin:6px 0 10px;padding:0;font-size:12.5px;line-height:1.7;">
-    ${li(!!D.connected, "Connect your Google Drive")}
+    ${li(!!D.connected, "Link your Google Drive folder")}
     ${li(!!D.built && !missing, "Build the firm's folders" + (missing ? ` — ${missing} missing, put them back` : ""))}
     ${li(saved > 0, "Keep every document you file backed up in its folder, named the firm's way" + (saved ? ` (${saved} so far)` : ""))}
   </ol>`;
@@ -206,9 +207,16 @@ function paint(){
   else if(!D) body = `<p class="drv-p">Checking your Backup Drive…</p>`;
   else if(!D.configured) body = `<p class="drv-p">The Backup Drive isn't switched on for this site yet — a trainer sets it up once (README → 📂 The trainee's Backup Drive). Nothing else in the programme is blocked.</p>`;
   else if(!D.connected){
-    preloadGis();
-    body = `<p class="drv-p">Connect the Google account you want to practise on — a personal Gmail address is fine. The platform asks Google for <b>drive.file</b> only: it can see and change the folders and files it makes here, and nothing else in your Drive. Everything it makes stays yours, and you can disconnect at any time.</p>
-      <button type="button" class="drv-btn drv-go" onclick="CMDrive.connect()" ${connecting || waiting ? "disabled" : ""}>${GLOGO}${connecting || waiting ? "Connecting…" : "Connect my Google Drive"}</button>`;
+    const sa = D.shareWith || "";
+    body = `<p class="drv-p">Your Backup Drive is one folder in your own Google Drive — a personal Gmail account is fine. Share it with the platform and it reads and writes in that folder only, nothing else in your Drive. Everything in it stays yours.</p>
+      ${D.relink ? `<div class="drv-bad">The Backup Drive no longer uses a Google sign-in. Share your <b>${esc(D.root)}</b> folder with the platform (step 2) and paste its link (step 3): your folders and grades are kept.</div>` : ""}
+      <ol class="drv-link-steps">
+        <li>In <a href="https://drive.google.com/drive/my-drive" target="_blank" rel="noopener noreferrer">Google Drive ↗</a>, make a folder named <b>${esc(D.root)}</b> (New → New folder).</li>
+        <li>Share it with <code class="drv-sa">${esc(sa)}</code> <button type="button" class="drv-mini" data-copy="${esc(sa)}" onclick="CMDrive.copy(this)">📋 Copy</button> as <b>Editor</b> (Share → paste the address → Editor → Send).</li>
+        <li>Open the folder, copy its link from the address bar, and paste it here.</li>
+      </ol>
+      <div class="drv-link-row"><input id="drvLinkUrl" class="drv-in" type="url" placeholder="https://drive.google.com/drive/folders/…" value="${esc(linkUrl)}" oninput="CMDrive.linkInput(this.value)" onkeydown="if(event.key==='Enter')CMDrive.linkFolder()">
+        <button type="button" class="drv-btn drv-go" onclick="CMDrive.linkFolder()" ${connecting ? "disabled" : ""}>${GLOGO}${connecting ? "Linking…" : "🔗 Link my folder"}</button></div>`;
   } else if(!D.built){
     body = `<p class="drv-p">Lay the firm's structure out as you would build it in a real practice: ${n} folders, named and nested and in order. It is the case file you already work from here — intake and retainer, the police report, records apart from bills, liens, wages and costs, property damage, litigation — plus the firm's own folders. Nothing is filled in for you. Press <b>Check and build it in my Drive</b> when it is how you would hand it to a colleague.</p>
       <div class="drv-tree">${rowsHTML(tree, "", 0)}</div>
@@ -220,7 +228,7 @@ function paint(){
   } else {
     const missing = (verified ? verified.missing : D.lastMissing) || [];
     const saved = D.saved || [];
-    body = `<p class="drv-p">The firm's ${n} folders are in your Drive${D.email ? `, on ${esc(D.email)}` : ""}. Keeping them there is part of the job: every document you file in the CMS is also saved into its folder here.</p>
+    body = `<p class="drv-p">The firm's ${n} folders are in your Drive${D.folderName ? `, in <b>${esc(D.folderName)}</b>` : ""}${D.email ? ` (${esc(D.email)})` : ""}. Keeping them there is part of the job: every document you file in the CMS is also saved into its folder here.</p>
       <div class="drv-tree drv-read">${(D.standard || []).map(p=>{
         const depth = p.split("/").length - 1, name = p.split("/").pop(), gone = missing.includes(p);
         const held = saved.filter(s=>s.folder === p).length;
@@ -238,12 +246,12 @@ function paint(){
   }
   const foot = !D || !D.configured || !D.connected ? "" :
     !D.built ? `<button type="button" class="drv-btn drv-go" onclick="CMDrive.submit()" ${busy ? "disabled" : ""}>${busy ? "Checking…" : "Check and build it in my Drive"}</button>
-                <button type="button" class="drv-btn" onclick="CMDrive.disconnect()">Disconnect</button>`
+                <button type="button" class="drv-btn" onclick="CMDrive.disconnect()">Unlink folder</button>`
     : `<button type="button" class="drv-btn" onclick="CMDrive.check()" ${busy ? "disabled" : ""}>${busy ? "Checking…" : "↻ Check my drive"}</button>
        <button type="button" class="drv-btn" onclick="CMDrive.grade(true)" ${grading ? "disabled" : ""}>${grading ? "Grading…" : "🏅 Grade my backup"}</button>
        ${((verified ? verified.missing : D.lastMissing) || []).length ? `<button type="button" class="drv-btn drv-go" onclick="CMDrive.rebuild()" ${busy ? "disabled" : ""}>🔁 Put the missing folders back</button>` : ""}
        ${D.rootUrl ? `<a class="drv-btn" href="${esc(D.rootUrl)}" target="_blank" rel="noopener noreferrer">Open in Drive ↗</a>` : ""}
-       <button type="button" class="drv-btn" onclick="CMDrive.disconnect()">Disconnect</button>`;
+       <button type="button" class="drv-btn" onclick="CMDrive.disconnect()">Unlink folder</button>`;
 
   host.innerHTML = `<div class="drv-wrap" role="dialog" aria-modal="true" aria-label="My Backup Drive">
     <div class="drv-cardw">
@@ -257,63 +265,24 @@ function paint(){
     </div></div>`;
 }
 
-/* ---------- Google sign-in (the popup code flow, as the CMS's Drive backup uses) ---------- */
-function preloadGis(){
-  if(gisLoading || gisFailed || (window.google && google.accounts && google.accounts.oauth2)) return;
-  gisLoading = true;
-  const sc = document.createElement("script");
-  sc.src = "https://accounts.google.com/gsi/client"; sc.async = true;
-  sc.onload = ()=>{ gisLoading = false; if(linkErr === GIS_WAIT || linkErr === GIS_GONE){ linkErr = ""; redrawSlides(); } };
-  sc.onerror = ()=>{ gisLoading = false; gisFailed = true; err = "Google sign-in couldn't load. Check that accounts.google.com isn't blocked, then try again."; if(linkErr === GIS_WAIT) linkErr = GIS_GONE; paint(); redrawSlides(); };
-  document.head.appendChild(sc);
-}
-const GIS_WAIT = "Google sign-in is still loading. Press the button again in a moment.";
-const GIS_GONE = "Google sign-in couldn't load. Check that accounts.google.com isn't blocked, then press the button again.";
+/* ---------- 🔗 linking the trainee's folder (as the Foundations training links a trainee's Drive: shared, then pasted) ---------- */
 /* A try to link that didn't finish: said once as a toast, and kept as a line in step 1 of the slide until the next try. */
 function linkFail(m){ linkErr = m; say(m); paint(); redrawSlides(); }
-function connect(){
-  const oauth = window.google && google.accounts && google.accounts.oauth2;
-  if(!D || !D.configured || waiting || connecting) return;
-  linkErr = "";
-  if(!oauth){
-    // not here yet, or it failed to load: fetch it (again), so the next press works
-    const failed = gisFailed; gisFailed = false; preloadGis();
-    linkFail(failed ? GIS_GONE : GIS_WAIT); return;
-  }
-  let client = null;
+function linkInput(v){ linkUrl = String(v || ""); }
+async function linkFolder(){
+  if(!D || !D.configured || connecting) return;
+  const el = document.getElementById("drvLinkUrl"); if(el) linkUrl = el.value;
+  const url = String(linkUrl || "").trim();
+  if(!/^https:\/\/drive\.google\.com\//i.test(url)){ err = "Paste the folder's link from Google Drive (https://drive.google.com/drive/folders/…)."; paint(); return; }
+  connecting = true; err = ""; linkErr = ""; paint(); redrawSlides();
   try{
-    client = oauth.initCodeClient({
-      client_id: D.clientId, scope: D.scopes, ux_mode: "popup", select_account: true,
-      callback: async (resp)=>{
-        waiting = false;
-        if(!resp || resp.error || !resp.code){ linkFail(resp && resp.error === "access_denied" ? "Google access wasn't allowed. Press the button again and choose Allow." : "Google sign-in didn't finish. Press the button again."); return; }
-        connecting = true; err = ""; paint(); redrawSlides();
-        let failed = "";
-        try{ D = (await api({action:"connect", code:resp.code})).drive; tree = [{name:"", children:[]}]; say(`Google Drive linked${D.email ? ` (${D.email})` : ""}.`); }
-        catch(e){
-          // DRIVE_SCOPE_MISSING (the Drive box was unticked) and DRIVE_CONSENT_AGAIN (Google remembered an old
-          // yes and sent no lasting access): the Worker has already cleared that grant, so pressing again works.
-          // Read the status afresh, since a link held before may have gone with it.
-          err = e.message;
-          failed = e.code === "DRIVE_CONSENT_AGAIN" ? "One more step: press the button again and approve."
-            : e.code === "DRIVE_SCOPE_MISSING" ? "Google Drive access wasn't ticked. Press the button again and tick the Drive box on Google's screen."
-            : e.message;
-          if(e.code === "DRIVE_SCOPE_MISSING" || e.code === "DRIVE_CONSENT_AGAIN"){ try{ D = (await api()).drive; }catch(x){} }
-        }
-        connecting = false; fillSlot();
-        if(failed) linkFail(failed); else { paint(); redrawSlides(); }
-      },
-      error_callback: (e)=>{
-        const t = e && e.type;
-        waiting = false;
-        linkFail(t === "popup_closed" ? "Google sign-in was closed before it finished. Press the button again."
-          : t === "popup_failed_to_open" ? "The browser blocked the Google sign-in window. Allow pop-ups for this site, then press the button again."
-          : "Google sign-in failed. Press the button again.");
-      }
-    });
-    waiting = true; paint(); redrawSlides();   // the button reads Linking… while Google's window is open
-    client.requestCode();
-  }catch(e){ waiting = false; linkFail("Google sign-in failed. Press the button again."); }
+    const out = await api({action:"link", url});
+    D = out.drive; linkUrl = ""; if(!tree) tree = [{name:"", children:[]}];
+    say(`Google Drive folder linked${D.folderName ? ` (${D.folderName})` : ""}.${out.built ? " Your Day 1 structure is in it." : ""}`);
+    if(D.folderName && D.root && D.folderName !== D.root) say(`Tip: name the folder “${D.root}” in Google Drive, as the firm does.`);
+  }catch(e){ err = e.message; linkErr = e.message; }
+  connecting = false; paint(); fillSlot(); redrawSlides();
+  if(D && D.connected && D.built) grade();
 }
 /* Said to whoever pressed the sample. The slides window a presenter shares shows nothing but the slide (js/cm-updates.js
    keeps the toast out of it), so there the line is shown the way that window shows its own hint, and fades by itself
@@ -328,24 +297,25 @@ function saySample(m){
   el.addEventListener("click", ()=>el.remove());
   document.body.appendChild(el);
 }
-/* 🔗 Link my Google Drive, in step 1 of Day 1's slide. A trainee on their own screen starts Google's sign-in from the
-   slide itself; for anyone else the button is a sample (a trainer points at it), and pressing it asks nothing of
-   Google or of the Worker. */
+/* 🔗 Link my Google Drive, in step 1 of Day 1's slide. A trainee on their own screen gets the panel, at its three
+   steps (make the folder, share it, paste its link); for anyone else the button is a sample (a trainer points at it),
+   and pressing it asks nothing of Google or of the Worker. */
 async function link(){
   if(!ownScreen()){ saySample("Trainees link their own Google Drive with this button, on their own screen."); return; }
-  if(waiting || connecting) return;
+  if(connecting) return;
   if(!D){
     linkErr = ""; await load(true);
     if(!D){ linkErr = err || "Your Backup Drive couldn't be reached. Press the button again."; redrawSlides(); return; }
   }
   if(!D.configured || D.connected){ redrawSlides(); return; }
-  connect();
+  show();
+  setTimeout(()=>{ const el = document.getElementById("drvLinkUrl"); if(el) try{ el.focus(); }catch(e){} }, 0);
 }
 async function disconnect(){
   if(!D || !D.connected || busy) return;
-  if(!confirm("Disconnect Google Drive? The folders and files already in your Drive stay there, and your Day 1 grade is kept.")) return;
+  if(!confirm("Unlink your Backup Drive folder? The folder and the files in it stay in your Google Drive, and your grades are kept. You can link it again by its link.")) return;
   busy = true; paint();
-  try{ D = (await api({action:"disconnect"})).drive; verified = null; graded = null; err = ""; linkErr = ""; say("Google Drive disconnected."); }
+  try{ D = (await api({action:"disconnect"})).drive; verified = null; graded = null; err = ""; linkErr = ""; say("Backup Drive folder unlinked."); }
   catch(e){ err = e.message; }
   busy = false; paint(); fillSlot(); redrawSlides();
 }
@@ -494,7 +464,7 @@ async function saveFiled(docFolder, name, bytes, docId){
 /* ---------- Day 1's Backup File Maintenance slide: the task in four steps, and the firm's standard ----------
    The structure comes from the Worker (action "standard"), never from a copy here, and a presenter (an admin)
    sees it too. A trainee's steps tick as their own drive gets there, and step 1 is where the drive is linked:
-   🔗 Link my Google Drive starts Google's sign-in from the slide (connect), then shows who is linked. */
+   🔗 Link my Google Drive opens the panel at its three steps (share the folder, paste its link), then shows what is linked. */
 let STD = null, stdAsked = false;
 async function loadStandard(){
   if(stdAsked) return; stdAsked = true;
@@ -526,15 +496,14 @@ function slide(){
   const me = mine && D && D.configured ? D : null, missing = me ? (me.lastMissing || []).length : 0;
   // not switched on for this site: the Worker says so to everybody ("standard"), and to a trainee in their own status
   const off = !!(STD && STD.configured === false) || (mine && !!D && !D.configured);
-  const linked = !!(me && me.connected), linking = mine && (waiting || connecting);
-  if(me && !linked) preloadGis();   // so Google's sign-in is already there at the first press
+  const linked = !!(me && me.connected), linking = mine && connecting;
   const showErr = !off && !linked && mine && !!linkErr && !linking;
   // Step 1 is where the drive is linked: the button (a sample for anyone but a trainee on their own screen), then who is linked
   const linkBox = off ? "" : linked
-    ? `<div class="drv-s-act"><span class="drv-s-ok">Linked${me.email ? `: <b>${esc(me.email)}</b>` : ""}</span>${/^https:\/\//.test(me.rootUrl || "") ? `<a class="drv-s-open" href="${esc(me.rootUrl)}" target="_blank" rel="noopener noreferrer">Open my Drive ↗</a>` : ""}</div>`
+    ? `<div class="drv-s-act"><span class="drv-s-ok">Linked${me.folderName || me.email ? `: <b>${esc(me.folderName || me.email)}</b>` : ""}</span>${/^https:\/\//.test(me.rootUrl || "") ? `<a class="drv-s-open" href="${esc(me.rootUrl)}" target="_blank" rel="noopener noreferrer">Open my Drive ↗</a>` : ""}</div>`
     : `<div class="drv-s-act"><button type="button" class="drv-s-link" data-drv-link onclick="CMDrive.link()" ${linking ? "disabled" : ""}><span class="drv-s-g">${GLOGO}</span>${linking ? "Linking…" : "🔗 Link my Google Drive"}</button></div>${showErr ? `<div class="drv-s-err" role="alert" title="${esc(linkErr)}"><span>⚠ ${esc(linkErr)}</span></div>` : ""}`;
   const build = linked && !me.built ? `<div class="drv-s-act"><button type="button" class="drv-s-link drv-s-build" data-drv-build onclick="CMDrive.show()">📂 Build my folders</button></div>` : "";
-  const scope = "The platform asks for <b>drive.file</b> only: it sees the folders and files it makes, nothing else.";
+  const scope = "Make a folder in your Google Drive, share it with the platform as <b>Editor</b> and paste its link. The platform works in that folder only.";
   const steps = [
     ["Link your Google Drive", (off || linked ? "" : "Press the button here. ") + scope, linked, linkBox],
     ["Build the firm's folders by hand", "Every folder named, numbered, nested and in order, exactly to the standard. Submit it: it is graded folder by folder.", !!(me && me.built), build],
@@ -554,7 +523,7 @@ function slide(){
   return `<div class="drv-slide" data-drv-slide>
     <div class="drv-s-col"><div class="drv-s-top"><h3>📋 Your Task: The Case Backup</h3>${!off && mine ? `<button type="button" class="btn btn-navy btn-sm" onclick="CMDrive.show()">📂 Open My Backup Drive</button>` : ""}</div>
       <ol class="drv-s-steps${showErr ? " is-tight" : ""}">${steps.map(([h, t, done, extra], i)=>`<li class="${done ? "is-done" : ""}"><span class="drv-s-n">${done ? "✓" : i + 1}</span><div><b>${h}</b><span>${t}</span>${extra}</div></li>`).join("")}</ol>
-      ${off ? `<p class="drv-s-note">Google linking isn't switched on for this site yet: a trainer adds it once (README → 📂 The trainee's Backup Drive).</p>` : ""}
+      ${off ? `<p class="drv-s-note">The Backup Drive isn't switched on for this site yet: a trainer adds the platform's Google service account once (README → 📂 The trainee's Backup Drive).</p>` : ""}
       ${mine && fixLine() ? `<div class="drv-s-act drv-s-fix">${fixLine()}</div>` : ""}
     </div>
     <div class="drv-s-col"><h3>🗂 The Firm's Standard</h3>${tree}</div>
@@ -762,7 +731,7 @@ function namingReport(){
   </div>`;
 }
 
-window.CMDrive = {card, slot, show, close, retry(){ err = ""; settled = false; paint(); load(true); }, connect, link, disconnect, submit, check, rebuild, saveFiled, slide, grade, dayOpened,
+window.CMDrive = {card, slot, show, close, retry(){ err = ""; settled = false; paint(); load(true); }, link, linkFolder, linkInput, disconnect, submit, check, rebuild, saveFiled, slide, grade, dayOpened,
   namingBox, namingReport, nameFor, copy, naming:rule, toNames, nameLines, wrongOf,
   name:setName, addSub, addTop, remove, move, status:()=>D, reload:()=>load(true)};
 
@@ -784,6 +753,10 @@ css.textContent = `
 .drv-x:hover{background:#EEF0F6;}
 .drv-body{padding:16px 20px;overflow:auto;}
 .drv-p{font-size:13px;line-height:1.6;color:var(--ink,#1B1E2E);margin:0 0 14px;}
+.drv-link-steps{margin:0 0 12px;padding-left:20px;font-size:13px;line-height:1.7;}
+.drv-link-steps code.drv-sa{background:#F3F4F8;border-radius:5px;padding:1px 6px;font-weight:700;word-break:break-all;}
+.drv-link-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.drv-link-row .drv-in{flex:1 1 260px;min-width:0;}
 .drv-meta{font:700 14px/1.5 'Inter',sans-serif;color:#1E2340;margin:12px 0 0;}
 .drv-tree{border:1px solid var(--line,#E3E6EF);border-radius:10px;padding:10px;background:#FAFBFE;}
 .drv-tree.drv-read{background:#fff;}
@@ -824,17 +797,17 @@ body:has(#cmDriveHost) #toast{z-index:4100;}   /* what is said while the panel i
 .drv-slide,.drv-slide *{text-align:left!important;}
 .drv-slide li::before,.drv-slide li::marker{content:none!important;display:none!important;}
 .drv-s-col{background:#fff;border:1px solid #DDE1EA;border-radius:14px;padding:12px 18px 10px;color:#141A2E;}
-.drv-s-col h3{margin:0 0 6px;font:800 20px 'Poppins','Inter',sans-serif;color:#1E2340;}
+.drv-s-col h3{margin:0 0 8px;font:800 clamp(21px,2.8vh,27px) 'Poppins','Inter',sans-serif;color:#1E2340;}
 .drv-s-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
 .drv-s-steps.is-tight{gap:6px;} .drv-s-steps.is-tight li > div > span{line-height:1.4;}   /* a sign-in that didn't finish adds its line to step 1: the steps close up for it, so the slide is never scaled down */
 .drv-s-steps li{display:flex;gap:12px;align-items:flex-start;margin:0;padding:0;}
-.drv-s-n{flex:0 0 32px;height:32px;border-radius:50%;background:#1E2340;color:#F6C08F;display:flex;align-items:center;justify-content:center;font:800 16px 'Inter',sans-serif;}
+.drv-s-n{flex:0 0 clamp(32px,4.6vh,40px);height:clamp(32px,4.6vh,40px);border-radius:50%;background:#1E2340;color:#F6C08F;display:flex;align-items:center;justify-content:center;font:800 19px 'Inter',sans-serif;}
 .drv-s-steps li.is-done .drv-s-n{background:#1E8E4F;color:#fff;}
-.drv-s-steps li > div > b{display:block;font:800 18px 'Inter',sans-serif;color:#1E2340;}
+.drv-s-steps li > div > b{display:block;font:800 clamp(19px,2.55vh,25px) 'Inter',sans-serif;color:#1E2340;}
 .drv-s-steps span b{font-weight:800;color:#1E2340;}
-.drv-s-steps li > div > span{display:block;font:600 16px/1.45 'Inter',sans-serif;}
+.drv-s-steps li > div > span{display:block;font:700 clamp(17px,2.2vh,21px)/1.4 'Inter',sans-serif;}
 .drv-s-act{display:flex;align-items:center;gap:4px 14px;flex-wrap:wrap;margin-top:5px;}
-.drv-s-link{display:inline-flex;align-items:center;gap:8px;border:2px solid #1E2340;background:#1E2340;color:#fff;border-radius:10px;padding:4px 16px 4px 7px;font:800 17px/1.3 'Inter',sans-serif;cursor:pointer;box-shadow:0 3px 0 #DB8437;margin-bottom:3px;}
+.drv-s-link{display:inline-flex;align-items:center;gap:8px;border:2px solid #1E2340;background:#1E2340;color:#fff;border-radius:10px;padding:5px 18px 5px 8px;font:800 clamp(17px,2.3vh,22px)/1.3 'Inter',sans-serif;cursor:pointer;box-shadow:0 3px 0 #DB8437;margin-bottom:3px;}
 .drv-s-link:hover:not(:disabled){background:#DB8437;border-color:#DB8437;color:#1E2340;box-shadow:0 3px 0 #1E2340;}
 .drv-s-link:focus-visible,.drv-s-open:focus-visible{outline:3px solid #DB8437;outline-offset:3px;}
 .drv-s-link:disabled{opacity:.7;cursor:default;}
@@ -929,8 +902,5 @@ body:has(#cmDriveHost) #toast{z-index:4100;}   /* what is said while the panel i
 document.head.appendChild(css);
 
 document.addEventListener("keydown", (e)=>{ if(e.key === "Escape" && open) close(); });
-// The trainee is back on this window and Google's has said nothing (a browser that hides the window's closing from
-// Google's script): the button works again rather than reading Linking… for good. An answer that follows is still taken.
-window.addEventListener("focus", ()=>{ if(waiting){ waiting = false; paint(); redrawSlides(); } });
 window.addEventListener("load", ()=>{ setTimeout(()=>load(), 500); });
 })();
