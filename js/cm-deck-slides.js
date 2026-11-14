@@ -438,13 +438,13 @@ window.CM_DECK_SLIDES = {
    "page": 23,
    "title": "The Valuation Baseline: PIP as a Valuation Baseline",
    "img": "/decks/day2/23.webp",
-   "notes": "BI adjusters use PIP payments to gauge how serious a claim is during the Demand Phase. Look first at the speed of exhaustion: a PIP limit used up fast signals a high-severity case. The page's example, a ten thousand dollar limit gone in 48 hours and forty-one thousand four hundred dollars in bills, is from another file. On John Doe's file, Harbor Point's PIP was five thousand dollars, paid in date order from his first urgent care visit and exhausted in June 2026, by the visit that declared MMI. Then look at special damages. The total medical bills, the specials, are usually much higher than what PIP pays: John Doe's audited Specials are sixteen thousand four hundred one dollars and forty cents. That total, not the PIP payments, is the anchor the Case Manager hands the attorney for the demand."
+   "notes": "BI adjusters use PIP payments to gauge how serious a claim is during the Demand Phase. Look first at the speed of exhaustion. If a client exhausts a ten thousand dollar PIP limit in 48 hours, as John Doe did with his ER and EMS bills, it signals a high-severity case. Then look at special damages. The total medical bills, the specials, are usually much higher than what PIP pays. Even though PIP covered ten thousand dollars, the Case Manager argues that the total value of the bills, forty-one thousand four hundred dollars in John's case, is the true anchor for the pain and suffering multiplier."
   },
   {
    "page": 24,
    "title": "The Valuation Baseline: The EMC and the Benefit Ceiling",
    "img": "/decks/day2/24.webp",
-   "notes": "The Emergency Medical Condition finding, the EMC, is a negotiation lever in the states that have the rule. Without an EMC, a Florida-style rule caps PIP at two thousand five hundred dollars, which pushes more of the bills onto the BI settlement and eats into the client's net recovery. With an EMC, the full PIP limit is available, which lowers the unpaid medical liens that have to be negotiated down at the end of the case. The page names a doctor from another file. On John Doe's file there is no EMC question: Riverton has no EMC rule, so nothing caps his five thousand dollar Harbor Point PIP. You still check the rule of the governing state, and the finding is always the physician's, never yours to suggest."
+   "notes": "As we saw in John Doe's file with Doctor Sarah Spine, the Emergency Medical Condition finding, the EMC, is a major negotiation lever. Without an EMC, many states cap PIP at two thousand five hundred dollars. That pushes more of the bills onto the BI settlement, often eating up the client's net recovery. With an EMC, the full ten thousand dollars is available. That is better for negotiations, because it lowers the amount of unpaid medical liens that have to be negotiated down at the end of the case."
   },
   {
    "page": 25,

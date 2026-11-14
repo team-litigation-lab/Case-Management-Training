@@ -4,7 +4,7 @@
 
 **Objective.** Know the Case Manager's role and the case phases; meet John Doe and open his matter in the CMS with the Conflict Check first; work the intake and its bottlenecks; set up the claim: coverage and liability, the Policy Stack, the LORs and the Case Plan; sort the Property Damage side and keep John Doe reachable (the No Contact Protocol); then follow his treatment: who pays each bill, the LOPs, the 14-Day Gap and the Standard Treatment Map, to MMI.
 
-**Gate to the next day.** Matter opened in the CMS with the Conflict Check documented · acceptance decision recorded · the claims the file carries identified · onboarding directions delivered and assigned in the system · the Property Damage items sorted: severity evidence indexed on John Doe's file, Margaret Doe's PD questions referred · outreach to John Doe logged across channels, and the Final Warning Letter drafted · Policy Stack built in the CMS · LORs and notices out and logged · carrier correspondence received and the Coverage Matrix audited · 14-Day Gap flagged · Case Plan routed to Atty. Thorne · bills routed in Payer Order, LOPs out · Peach State's reimbursement right flagged and the Regulatory Triple-Check cleared · treatment documented to MMI
+**Gate to the next day.** Matter opened in the CMS with the Conflict Check documented · acceptance decision recorded · the claims the file carries identified · onboarding directions delivered and assigned in the system · the Property Damage items sorted: severity evidence indexed on John Doe's file, Margaret Doe's PD questions referred · outreach to John Doe logged across channels, and the Final Warning Letter drafted · Policy Stack built in the CMS · LORs and notices out and logged · carrier correspondence received and the Coverage Stack audited · 14-Day Gap flagged · Case Plan routed to Atty. Thorne · bills routed in Payer Order, LOPs out · Peach State's reimbursement right flagged and the Regulatory Triple-Check cleared · treatment documented to MMI
 
 **The file as this day opens.**
 
@@ -55,7 +55,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 20. *Skill Activity* — Onboarding Direction Assignment in System (practises: Case Phase: Intake & the Intake Bottlenecks) — *side*
 21. *Skill Activity* — Policy Stack & Coverage Verification (practises: Claim Set Up: Coverage, Liability & the Case Plan) — *side*
 22. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers (practises: LOR Drafting Mechanics & Three-Carrier Notification) — *side*
-23. *Skill Activity* — CMS Coverage Matrix Audit (practises: Claim Set Up: Coverage, Liability & the Case Plan) — *side*
+23. *Skill Activity* — CMS Coverage Stack Audit (practises: Claim Set Up: Coverage, Liability & the Case Plan) — *side*
 24. *Skill Activity* — Does It Touch Our Case? Sorting the PD File (practises: Property Damage: Does It Touch Our Case?) — *side*
 25. *Skill Activity* — Multi-Channel Outreach Logging (practises: The No Contact Protocol — Steps 1 to 3) — *side*
 26. *Skill Activity* — Final Warning Letter Drafting (practises: The No Contact Protocol — Steps 1 to 3) — *side*
@@ -399,8 +399,7 @@ A row of five document cards on a navy rail, each with a notary seal in its corn
 3. Coverage, Residency and No Owned Vehicle: Relative UM depends on John living with Margaret Doe and owning no car. If a carrier asks for sworn proof, John signs an affidavit drafted for Atty. Thorne's review; on this file Cardinal State confirmed coverage in writing on 03/09/2026.
 4. Damages, the Records and Billing Custodian Affidavit: each provider's custodian swears the records and bills are true copies kept in the regular course of business. Ask for it with every certified records request: it is how bills and records get into evidence without calling each provider.
 5. Damages, Wage Verification: Northgate's signed wage-and-attendance letter proves the $1,584.00 in lost wages; once suit is filed, Atty. Thorne may ask for it in sworn form.
-6. Court, the Affidavit of Service: the process server swears when, where and how Robert Smith was served. It is filed with the court and starts the defendant's answer clock (filed 10/16/2026).
-7. Check every affidavit before it is filed or relied on: the affiant's name, the case and claim numbers, dates and figures against the file, the signature, and the jurat with the notary's name, commission and seal. A defect goes back to the sender, logged. You never sign, notarize or change an affiant's words.
+6. Check every affidavit before it is filed or relied on: the affiant's name, the case and claim numbers, dates and figures against the file, the signature, and the jurat with the notary's name, commission and seal. A defect goes back to the sender, logged. You never sign, notarize or change an affiant's words.
 
 > ⚠️ **UPL boundary.** You request, track and check affidavits, and prepare drafts for Atty. Thorne's review. You never tell an affiant what to swear, never sign or notarize for anyone, and never tell John Doe what an affidavit means for his claim.
 
@@ -676,16 +675,12 @@ Centre-right, a cream ledger card with a navy header bar, PIP · HARBOR POINT ·
 
 *Why:* Treatment is the file's engine room, and someone has to pay for it while the claim is open. On John Doe's file three payers stand in a default order: Harbor Point PIP, then Peach State, then a Letter of Protection. An LOP issued out of order turns a bill an earlier payer would have paid into a lien against John Doe's net.
 
-1. The treatment-phase question changes from “What does he need?” to “Is the plan working?” Your three jobs: facilitation (transport, paperwork, scheduling), coordination (every provider on one plan), advocacy (step in when care is denied or stalls).
-2. Run the Payer Order: Harbor Point PIP → Peach State → LOP. John Doe claims the $5,000 PIP as a passenger in Kevin Alvarez's 2020 Ford Escape: a passenger who is not in the owner's household claims PIP on the vehicle he rode in, and no household policy carries PIP (Margaret Doe rejected it in writing).
-3. The order is a default: providers bill whom they bill. PIP pays what it gets, in date order; its wage benefit had nothing left when Northgate's wage letter came on 06/30/2026. Crescent Pain & Spine billed Peach State on 05/15/2026 with $640.00 of PIP left: track both ledgers; never re-route a paid claim. Who is primary (coordination of benefits, governing law) is Atty. Thorne's call.
-4. An LOP is John Doe's signed agreement, acknowledged by the firm on Atty. Thorne's terms, that a provider is paid from any recovery. The firm guarantees nothing; John Doe stays liable whatever the outcome, as Atty. Thorne explains before he signs. Use one only where earlier payers can't: Riverton Spine & Rehab is out of network.
-5. LOP terms are Atty. Thorne's: his approved template, his signature, what happens if there is no recovery. You prepare, route, transmit once approved, and confirm receipt. Never promise a provider a payment amount, a reduction or a date.
-6. Decline an LOP an earlier payer makes unnecessary: Summit Imaging's 03/11/2026 MRI bill goes to PIP. Every needless LOP is a lien on his net.
-7. Keep the LOP provider list current with balances from each itemized statement, so no bill surprises the $40,000 stack.
-8. Be the hub: warm handoffs (book the provider with him on the line), not phone numbers. Refuse mission creep: does this new problem block the treatment goal?
-9. Keep three loops closed: clinical (Riverton's PT notes match Dr. Reyes's orders), legal (his daily function, reported to Atty. Thorne), financial (the payer updated before a referral or authorization lapses).
-10. Cover all four care groups (restorative care, psychological support, equipment, rehab milestones) and guard each handoff (urgent care → chiropractic/PT → orthopedics → imaging → pain management): clients drop out there.
+1. Run the Payer Order: Harbor Point PIP → Peach State → LOP. John Doe claims the $5,000 PIP as a passenger in Kevin Alvarez's 2020 Ford Escape: a passenger who is not in the owner's household claims PIP on the vehicle he rode in, and no household policy carries PIP (Margaret Doe rejected it in writing).
+2. The order is a default: providers bill whom they bill. PIP pays what it gets, in date order; its wage benefit had nothing left when Northgate's wage letter came on 06/30/2026. Crescent Pain & Spine billed Peach State on 05/15/2026 with $640.00 of PIP left: track both ledgers; never re-route a paid claim. Who is primary (coordination of benefits, governing law) is Atty. Thorne's call.
+3. An LOP is John Doe's signed agreement, acknowledged by the firm on Atty. Thorne's terms, that a provider is paid from any recovery. The firm guarantees nothing; John Doe stays liable whatever the outcome, as Atty. Thorne explains before he signs. Use one only where earlier payers can't: Riverton Spine & Rehab is out of network.
+4. LOP terms are Atty. Thorne's: his approved template, his signature, what happens if there is no recovery. You prepare, route, transmit once approved, and confirm receipt. Never promise a provider a payment amount, a reduction or a date.
+5. Decline an LOP an earlier payer makes unnecessary: Summit Imaging's 03/11/2026 MRI bill goes to PIP. Every needless LOP is a lien on his net.
+6. Keep the LOP provider list current with balances from each itemized statement, so no bill surprises the $40,000 stack.
 
 > ⚠️ **UPL boundary.** You may route bills, prepare an LOP on counsel's template, transmit it once Atty. Thorne approves, and tell a provider which payer to bill. You may not set LOP terms, sign for Atty. Thorne, promise any payment or reduction, or explain to John Doe what the LOP makes him liable for: that is counsel's.
 
@@ -831,12 +826,11 @@ A three-party triangle: John Doe at the top, Riverton Spine & Rehab bottom left,
 *Why:* A Letter of Protection (LOP) is the firm's written promise to pay a provider's bill from the settlement, so a client with no way to pay can be treated now. It keeps care going, but it also creates a balance that comes out of John Doe's recovery and a provider who is waiting to be paid. The Case Manager tracks it from the day it is signed; and when a client needs a provider, the Case Manager helps with options and logistics while the choice of care stays with John Doe and his doctors.
 
 1. In plain English, an LOP says: treat the client now, and the firm will pay your bill from the settlement. It is a promise against the recovery, not insurance, and the client still owes the balance.
-2. Use one only when the payers are used up or unavailable: check health insurance, MedPay and PIP first (the Payer-First Principle), and record why the LOP is needed.
-3. Get it signed before the first visit and file it: Riverton Spine & Rehab's LOP was signed 02/23/2026; its ledger shows Financial class LOP / attorney.
-4. Track the LOP balance as it grows: request the itemized ledger every 30 days and enter each update in CMS → Liens, so the Net Sheet never meets a surprise.
-5. Provider referrals: you may share a list of providers who accept LOPs or the client's plan, with their locations, hours and network status, and book the appointment he chooses.
-6. You never recommend one provider over another, promise a result, or say a treatment will help the case. Disclose any relationship the firm has with a provider on the list.
-7. Log every referral and the client's own choice in the CMS: who was offered, who he chose, and why, in his words.
+2. Get it signed before the first visit and file it: Riverton Spine & Rehab's LOP was signed 02/23/2026; its ledger shows Financial class LOP / attorney.
+3. Track the LOP balance as it grows: request the itemized ledger every 30 days and enter each update in CMS → Liens, so the Net Sheet never meets a surprise.
+4. Provider referrals: you may share a list of providers who accept LOPs or the client's plan, with their locations, hours and network status, and book the appointment he chooses.
+5. You never recommend one provider over another, promise a result, or say a treatment will help the case. Disclose any relationship the firm has with a provider on the list.
+6. Log every referral and the client's own choice in the CMS: who was offered, who he chose, and why, in his words.
 
 > ⚠️ **UPL boundary.** Options and logistics only: a list, the network status, the booking. Which care he gets is for John Doe and his doctors; what the LOP means for his recovery is for Atty. Thorne.
 
@@ -1262,7 +1256,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 1) 
 
 #### 1 · Visual Layout Description
 
-The CMS New Case screen as a large mock-up on the left two-thirds: a Conflict Check panel at the top with a green LOGGED stamp, then the matter fields (DOL, SOL, client position) with two fields outlined in orange where the draft was wrong. On the right, a vertical checklist of the intake documents (intake sheet, supplement, CMS record, retainer, HIPAA, Police Report), each with a filed tick and its CMS category in mono type.
+The CMS 📝 New Intake screen as a large mock-up on the left two-thirds: a Conflict Check panel at the top with a green LOGGED stamp, then the matter fields (DOL, SOL, client position) with two fields outlined in orange where the draft was wrong. On the right, a vertical checklist of the intake documents (intake sheet, supplement, CMS record, retainer, HIPAA, Police Report), each with a filed tick and its CMS category in mono type.
 
 #### 2 · Slide Body — the scenario and the task
 
@@ -1529,7 +1523,7 @@ A vertical three-rung ladder in the centre of the slide, built bottom-up so the 
 | | |
 |---|---|
 | **Tool / interface** | CMS → Insurance |
-| **Expected output** | A three-layer Coverage Matrix totalling $40,000, each layer classified, ordered and fully attributed. |
+| **Expected output** | A three-layer Coverage Stack totalling $40,000, each layer classified, ordered and fully attributed. |
 
 **Show Them — reference model**
 
@@ -1598,11 +1592,11 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 #### 1 · Visual Layout Description
 
-A letter-assembly workbench. Centre: the firm-letterhead LOR template as a white page with six orange-badged slots — ① Attn ② Subject line ③ Client and insured ④ Injury notice and demand-to-follow ⑤ Requests: limits, Dec Pages, additional coverage, preservation ⑥ Signature, ATTY. ELIJAH THORNE. Left margin: five tabs, one per letter, the three stack carriers in navy and the two notices in grey. Right margin: a delivery rail of three chips — ROUTED FOR SIGNATURE → SENT BY PREFERRED METHOD → ACK DUE 02/19 · FOLLOW UP 02/20. Two red danger callouts: over slot ③ on the Keystone tab, “Name only”; over slot ④ on both UM tabs, “Notice, not demand.”
+A letter-assembly workbench. Centre: the firm-letterhead LOR template as a white page with six orange-badged slots — ① Attn ② Subject line ③ Client and insured ④ Injury notice and demand-to-follow ⑤ Requests: limits, Dec Pages, additional coverage, preservation ⑥ Signature, ATTY. ELIJAH THORNE. Left margin: five tabs, one per letter, the three stack carriers in navy and the two notices in grey. Right margin: a delivery rail of three chips — ROUTED FOR SIGNATURE → SENT BY PREFERRED METHOD → ACK DUE 02/19 · FOLLOW UP 02/20. Two red danger callouts: over slot ③ on Keystone's letter, “Name only”; over slot ④ on both UM letters, “Notice, not demand.”
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** File date 02/17/2026. Claims were opened by phone 02/16–02/17/2026: Keystone Mutual BI KM-26-440871 (Dana Whitfield) and PD (Leah Moran; PD liability accepted today), Harbor Point HP-26-7741 (Marcus Bell; Host UM and PIP), Cardinal State Mutual CS-26-20355 (no adjuster assigned). Each carrier's preferred delivery method is in the Communications Log. John Doe has not started treatment.
+**Scenario.** File date 02/17/2026. Claims were opened by phone 02/16–02/17/2026: Keystone Mutual BI KM-26-440871 (Dana Whitfield) and PD (Leah Moran; PD liability accepted today), Harbor Point HP-26-7741 (Marcus Bell; Host UM and PIP), Cardinal State Mutual CS-26-20355 (no adjuster assigned). Each carrier's preferred delivery method is in Case Notes. John Doe has not started treatment.
 
 **Execution prompt.** Generate John Doe's letter set on the firm template: LORs to Keystone (BI, with the PD carve-out), Harbor Point (Host UM and PIP) and Cardinal State (Relative UM), and notices to Bluewater and Peach State Health Plan. Give each the right Attn line, insured, claim, policy or member number and date of loss, and the requests for limits, Declaration Pages, additional coverage and preservation. Route the set to Atty. Thorne for signature, send each by its preferred method, and calendar the acknowledgement checks. Graded judgment: what Keystone's letter leaves out, and why no UM letter asks for payment.
 
@@ -1658,7 +1652,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 ---
 
-### 1.1.23 CMS Coverage Matrix Audit
+### 1.1.23 CMS Coverage Stack Audit
 
 > **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 2 — find what the matrix gets wrong  
@@ -1667,18 +1661,18 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 #### 1 · Visual Layout Description
 
-A full-width CMS Coverage Matrix in a white card with a navy header bar: six rows, deliberately imperfect. A navy rail on the left marks the stack rows; PIP sits wrongly inside it as row 4. A thin grey divider separates the outside-the-stack rows on a grey rail. The footer total, $45,000, is set large. On the answer reveal only, hollow red audit rings appear on the planted errors, the footer is struck through in red with $40,000 beside it, and the PIP row drops below the divider. Right margin: an audit-note card addressed to ATTY. ELIJAH THORNE with three headed lines — CONFIRMED IN WRITING · PRELIMINARY · ESCALATED. The argument: the matrix is only as good as the document behind each cell.
+A full-width CMS Coverage Stack in a white card with a navy header bar: six rows, deliberately imperfect. A navy rail on the left marks the stack rows; PIP sits wrongly inside it as row 4. A thin grey divider separates the outside-the-stack rows on a grey rail. The footer total, $45,000, is set large. On the answer reveal only, hollow red audit rings appear on the planted errors, the footer is struck through in red with $40,000 beside it, and the PIP row drops below the divider. Right margin: an audit-note card addressed to ATTY. ELIJAH THORNE with three headed lines — CONFIRMED IN WRITING · PRELIMINARY · ESCALATED. The argument: the matrix is only as good as the document behind each cell.
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** File date 03/11/2026. A colleague kept John Doe's Coverage Matrix. In the file: Harbor Point's written confirmation (03/02/2026), Cardinal State's assignment of Teresa Okafor (03/03/2026) and Coverage Letter (03/09/2026), and Keystone's written request with authorizations, sent, with no Declaration Page yet. This morning Summit Imaging asked for an LOP; declined, because PIP applies first.
+**Scenario.** File date 03/11/2026. A colleague kept John Doe's Coverage Stack. In the file: Harbor Point's written confirmation (03/02/2026), Cardinal State's assignment of Teresa Okafor (03/03/2026) and Coverage Letter (03/09/2026), and Keystone's written request with authorizations, sent, with no Declaration Page yet. This morning Summit Imaging asked for an LOP; declined, because PIP applies first.
 
-**Execution prompt.** Audit the staged Coverage Matrix against the documents in the file. Find every error, correct it, and cite the document and date that prove each correction. Restore the stack total, clear every past-due follow-up by acting on it and setting a new date, and leave correct rows alone. Then route a three-line audit note to Atty. Thorne: confirmed in writing, still preliminary, escalated. Graded judgment: the BI status, and what you may and may not mark confirmed today.
+**Execution prompt.** Audit the staged Coverage Stack against the documents in the file. Find every error, correct it, and cite the document and date that prove each correction. Restore the stack total, clear every past-due follow-up by acting on it and setting a new date, and leave correct rows alone. Then route a three-line audit note to Atty. Thorne: confirmed in writing, still preliminary, escalated. Graded judgment: the BI status, and what you may and may not mark confirmed today.
 
 | | |
 |---|---|
 | **Tool / interface** | CMS → Insurance · CMS → Doc Hub · Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual |
-| **Expected output** | A corrected Coverage Matrix totalling $40,000, every status sourced and every open item dated, with an audit note routed to Atty. Thorne. |
+| **Expected output** | A corrected Coverage Stack totalling $40,000, every status sourced and every open item dated, with an audit note routed to Atty. Thorne. |
 
 **Show Them — reference model**
 
@@ -1815,7 +1809,7 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 #### 1 · Visual Layout Description
 
-A CMS Communications Log as a table across the full slide width, four rows pre-filled as worked examples and four blank rows outlined in orange for the trainee. Columns: Date · Time · Channel · Outcome · Next action. In the right margin, a vertical coverage tracker of four chips (Phone ×2, Email, SMS, Emergency contact), each grey until its rung is cleared, then orange. Bottom strip, in danger red: a BAD entry, “called client, no answer”, with no date, time or channel, annotated with what is missing.
+CMS Case Notes as a table across the full slide width, four rows pre-filled as worked examples and four blank rows outlined in orange for the trainee. Columns: Date · Time · Channel · Outcome · Next action. In the right margin, a vertical coverage tracker of four chips (Phone ×2, Email, SMS, Emergency contact), each grey until its rung is cleared, then orange. Bottom strip, in danger red: a BAD entry, “called client, no answer”, with no date, time or channel, annotated with what is missing.
 
 #### 2 · Slide Body — the scenario and the task
 
@@ -2574,7 +2568,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 8. Keystone Mutual gave a figure on the set-up call but will not confirm Robert Smith's limits in writing or release its Declaration Page without a written request and authorizations. What do you do?  
    **✓ Send the written limits request Atty. Thorne signs, with only the documents or limited authorization he approves, keep BI preliminary, and calendar the follow-up** · Mark BI $10,000 confirmed from the set-up call, so the projection can be finished · Demand Host UM now, so that Harbor Point puts pressure on Keystone · Tell John Doe the limit is probably $10,000, and revisit it later  
    *Expect asymmetry: a third-party BI carrier often wants a written request and documents first. Until its Declaration Page arrives (03/20/2026 on this file), the set-up-call figure is a lead: BI stays preliminary and no limit is quoted to the client. What goes with the request is counsel's call: never a blanket Medical Authorization to an adverse carrier. Some states set what a limits request must contain; confirm the governing rule.*
-9. The Coverage Matrix lists Harbor Point PIP, $5,000, as stack layer 4 and totals the stack at $45,000. What is the correct treatment?  
+9. The Coverage Stack lists Harbor Point PIP, $5,000, as stack layer 4 and totals the stack at $45,000. What is the correct treatment?  
    Leave it: PIP is first-party coverage from a stack carrier · Fold PIP into the Host UM limit, making it $25,000 · **✓ Move PIP out of the stack and restore it to $40,000** · Delete PIP from the file, since it is not part of the stack  
    *PIP pays bills now; it is not part of the Recovery Stack. It stays tracked (Harbor Point confirmed no reimbursement right on 03/02/2026), and the stack is $10,000 + $20,000 + $10,000 = $40,000.*
 10. Which insured does each LOR name?  
@@ -2589,7 +2583,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 13. An LOR has had no acknowledgement. When do you follow up?  
    After 30 days · **✓ By the third business day** · Only when the adjuster calls · At the demand  
    *Expect an acknowledgement in 24–48 hours. None by the third business day: follow up, log it and set the next date.*
-14. Keystone gave its $10,000 limit by phone at set-up. How does the Coverage Matrix record it?  
+14. Keystone gave its $10,000 limit by phone at set-up. How does the Coverage Stack record it?  
    Confirmed · **✓ Preliminary, with the set-up call as its source, until a Declaration Page or Coverage Letter confirms it** · Not at all until the demand · As $40,000  
    *A phone figure is a lead: record its source and keep it preliminary, and never quote it to John Doe.*
 15. Keystone accepted PD liability for Margaret Doe's Civic on 02/17/2026. What does that mean for John Doe's BI claim?  
@@ -2759,7 +2753,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 | Competency | 1 | 2 | 3 | 4 | 5 |
 |---|---|---|---|---|---|
 | Running the No Contact Protocol's channel ladder | ○ | ○ | ○ | ○ | ○ |
-| Keeping a contemporaneous, defensible Communications Log | ○ | ○ | ○ | ○ | ○ |
+| Keeping contemporaneous, defensible Case Notes | ○ | ○ | ○ | ○ | ○ |
 | Drafting a Final Warning Letter that gets a response | ○ | ○ | ○ | ○ | ○ |
 | Applying the three-criteria Skip-Trace gate | ○ | ○ | ○ | ○ | ○ |
 | Keeping the file moving while outreach runs | ○ | ○ | ○ | ○ | ○ |

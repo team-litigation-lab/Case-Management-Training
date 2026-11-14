@@ -583,7 +583,7 @@ The Litigation Desk's draft Mediation Binder index and medical ledger, assembled
 The Litigation Desk's draft Arbitration Binder exhibit index, assembled 05/14/2027, for your QC before the 06/02/2027 exchange.
 *Plants:* (1) the brief docketed 06/12/2027, a Saturday — counting back, it moves to Friday 06/11/2027; (2) the Confidential Mediation Statement in the exchange set; (3) the pre-filing draft Complaint; (4) the public-redacted Police Report and grayscale doorbell stills; (5) the impasse memo in the exchange set; (6) Harbor Point PIP listed as a $5,000.00 lien — no reimbursement right (03/02/2026 letter); (7) the threshold BI exhaustion record, the 2021 records and the authentication log missing.
 
-**RS64 · CMS Task Log — Pre-Demand Audit Closed, Drafting Assigned (07/15/2026)** · Day 3 · Case Files · `RS_64_CMS_Task_Log_Drafting_Assigned.pdf`
+**RS64 · CMS Action Item Log — Pre-Demand Audit Closed, Drafting Assigned (07/15/2026)** · Day 3 · Case Files · `RS_64_CMS_Task_Log_Drafting_Assigned.pdf`
 The CMS task log Atty. Thorne opened when the pre-demand audit closed: the BI and UM demands and the two binders assigned to the drafting desks, each returning to the Case Manager for QC.
 *Key:* Shows the workflow: the desks draft, the CM QCs against the records, Atty. Thorne approves. Note the dependencies: UM opens only once BI is exhausted; the binders are contingent on suit and on a UM dispute.
 
@@ -597,7 +597,7 @@ The April disruption's record (case-file §2, "Why the disruption happened"). No
 Specials stay $16,401.40.
 
 **RS75 · Client Outreach Log & Re-engagement Notices (04/08–04/20/2026)** · Day 2 · Case Files · folder `intake` · `RS_75_Client_Outreach_Log_and_Notices.pdf`
-LSH CMS Communications Log export, printed 04/20/2026: 18 entries from the last contact (03/31 check-in) through the
+LSH CMS Case Notes export, printed 04/20/2026: 18 entries from the last contact (03/31 check-in) through the
 04/08 alert, Step 1 review, Notices 1–3 (call + text 04/08, call + email 04/09, text 04/13), Margaret Doe 04/10, Step 3
 escalation, the Final Warning Letter and Drop Warning status (04/10), the certified receipt (04/13), the 14-day
 no-visit trigger (04/16), John's call 04/17 (declined recording; privileged GIRP note filed separately), Atty.
@@ -670,7 +670,7 @@ The model for the Service Confirmation activity: a memorandum to file dated 07/2
 (both channels and their proof), the Case Manager's confirmation email of 07/20/2026 reproduced in full, Dana
 Whitfield's written acknowledgment of 07/22/2026, what the acknowledgment establishes and what it does not, the
 same-day action taken, and where the memorandum and its thread are filed (CMS → Doc Hub → Others under the firm's
-naming convention, Communications Log, the Insurance tab's Demand record, and the Google Drive backup folder).
+naming convention, Case Notes, the Insurance tab's Demand record, and the Google Drive backup folder).
 *Key:* No plants. The acknowledgment fixes 07/22/2026 from the carrier's own writing and confirms the set is
 complete at 81 pages, Exhibits A–J, closing the "we never got all of it" argument. "I may come back to you about
 the time frame" is a request **flagged for Atty. Thorne**, never an extension the Case Manager grants.

@@ -209,7 +209,7 @@ Confirm: that the firm still relies on this citation for its matters.
 **Quick check:** {name}, when does the Host UM bucket open?
 
 
-### Communications Log
+### Case Notes
 **Plain words:** The CMS record of every contact with anyone on the file: date, time, channel, who, and what happened.
 
 **Say it like this:** "It's the file's diary. Every call, text, email and voicemail goes in, with the time and the outcome. If you called and didn't log it, legally you just thought about calling."
@@ -300,10 +300,10 @@ Confirm: that the firm still relies on this citation for its matters.
 **Quick check:** {name}, why do we disclose John's 2021 low-back visits ourselves instead of hoping nobody asks?
 
 
-### Coverage Matrix / Recovery Ledger / Negotiation Log
-**Plain words:** Three CMS records. The Coverage Matrix tracks every policy from reported to confirmed in writing; the Negotiation Log records every offer, counter and stated reason with dates; the Recovery Ledger (in the Net Sheet) adds up every dollar actually recovered.
+### Coverage Stack / Recovery Ledger / Negotiation Log
+**Plain words:** Three CMS records. The Coverage Stack tracks every policy from reported to confirmed in writing; the Negotiation Log records every offer, counter and stated reason with dates; the Recovery Ledger (in the Net Sheet) adds up every dollar actually recovered.
 
-**Say it like this:** "The Coverage Matrix is the menu: what's available. The Negotiation Log is the receipt tape: every offer and counter, word for word, with a date. The Recovery Ledger is the final bill: $10,000 plus $20,000 plus $10,000, $40,000 gross. If the receipt tape lives in your head, the restaurant is closed."
+**Say it like this:** "The Coverage Stack is the menu: what's available. The Negotiation Log is the receipt tape: every offer and counter, word for word, with a date. The Recovery Ledger is the final bill: $10,000 plus $20,000 plus $10,000, $40,000 gross. If the receipt tape lives in your head, the restaurant is closed."
 
 **Why it matters for the settlement:** If any one of the three is wrong, the Net Sheet is wrong, and the client's check is wrong.
 
@@ -685,7 +685,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Letter of Representation | d1m3-l1 | The letter that tells the other side: from now on, you talk to us, not our client. |
 | Standing instructions | d1m3-l1 | The firm's fixed do's and don'ts every new client gets (no recorded call, no posts, sign nothing, keep receipts, keep appointments). |
 | Barrier to care | d1m3-l1 | Anything that stops a client getting to an appointment, like rides, money or work. |
-| CMS Onboarding / Case Notes / Communications Log | d1m3-l1 | Where you log that instructions were delivered, where costs go, and where every contact goes. |
+| CMS Onboarding / Case Notes / Case Notes | d1m3-l1 | Where you log that instructions were delivered, where costs go, and where every contact goes. |
 | Direction Packet | d1m3-a1 | The welcome package that tells a new client exactly what to do and what not to do. |
 | Property Damage (PD) | d1m3-l2 | The car part of the crash; on this file it is Margaret's claim, not John's. |
 | Bodily injury (BI) claim | d1m3-l2 | John's claim for his injuries: our case. |
@@ -785,7 +785,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Medicare Secondary Payer / BCRC | d2m1-cov, d1m1-l2 | Medicare pays after the other coverage and gets repaid by law; the BCRC is the federal office that tracks it |
 | Resident relative | d2m1-cov | Someone who lives in the policyholder's household |
 | Letter of Protection (LOP) | d2m1-cov, d1m1-l2 | Our written promise to pay a doctor from the settlement |
-| Coverage Matrix | d2m1-cov, d2m1-l2 | One master chart of every policy: one row per insurer |
+| Coverage Stack | d2m1-cov, d2m1-l2 | One master chart of every policy: one row per insurer |
 | Letter of Representation (LOR) | d2m1-l1 | The letter telling an insurer to talk to us, not our client |
 | Insured | d2m1-l1 | The insurance company's own customer on that policy |
 | Declaration Page (Dec Page) | d2m1-l1, d2m1-l2 | The policy's one-page summary of who and what it covers, and for how much |
@@ -1122,7 +1122,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 
 | Term | Block | The plain explanation in the script |
 |---|---|---|
-| Pleadings Log | d5m1-l1 | Our running list of everything filed and served |
+| Discovery & Filing Tracker | d5m1-l1 | Our running list of everything filed and served |
 | Discovery Calendar | d5m1-l1 | Every date the other side owes us something or we owe them |
 | Pleadings | d5m1-l1 | The opening paperwork of a lawsuit |
 | Discovery | d5m1-l1, d5m1-l2 | When both sides have to show their cards |

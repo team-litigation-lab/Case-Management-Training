@@ -201,7 +201,7 @@
     "lead": "Coverage verification turns a reported fact into **a confirmed one in writing**: every limit, form and exclusion traced to the document that proves it.",
     "concepts": [
       {
-        "term": "Coverage Matrix",
+        "term": "Coverage Stack",
         "text": "One row per carrier, the file's single coverage record: **status, source and date** show what is proven"
       },
       {
@@ -1118,7 +1118,7 @@
         ]
       },
       {
-        "term": "The Two CMS Flags",
+        "term": "Two Flags in the CMS",
         "text": "A lien and a gap are flagged **the day you know**, in facts only, and routed",
         "more": [
           "Lien: CMS → Liens → Outstanding Case Liens on first notice (02/27/2026), and **before any demand**",

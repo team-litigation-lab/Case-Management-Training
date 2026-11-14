@@ -259,7 +259,7 @@
     },
     "redFlag": {
       "spoken": true,
-      "see": "Voicemails left **02/11 and 02/13** that never reached the Communications Log",
+      "see": "Voicemails left **02/11 and 02/13** that never reached Case Notes",
       "costs": "An unlogged attempt did not happen: the ladder can't show the attempts were made",
       "do": "Log each attempt now **with date, time, channel and outcome**",
       "owner": "Case Manager"
@@ -271,7 +271,7 @@
     "side": true,
     "steps": [
       "Log it in CMS → Notes → Case Notes: the two earlier voicemails, then an email, a text and the **emergency contact**, each with date, time, channel and outcome.",
-      "Record the next action and its due date in the Communications Log."
+      "Record the next action and its due date in Case Notes."
     ],
     "deliver": "An **unbroken, contemporaneous** outreach log, the next action dated",
     "purpose": "With the SOL running and treatment unstarted, **an unlogged attempt** never happened",
@@ -333,7 +333,7 @@
     "side": true,
     "steps": [
       "In CMS → Doc Hub, fill in the Final Warning Letter template: list the earlier attempts with their dates and set a reply date **7 to 14 days** from today.",
-      "Log it in the CMS Communications Log: the letter went by certified mail and by email, and Atty. Thorne decides any next step."
+      "Log it in CMS Case Notes: the letter went by certified mail and by email, and Atty. Thorne decides any next step."
     ],
     "deliver": "A **send-ready Final Warning Letter**, both deliveries logged, escalation recorded",
     "purpose": "This letter is **the last notice** before Atty. Thorne decides on withdrawal",

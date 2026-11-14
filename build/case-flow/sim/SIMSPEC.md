@@ -45,7 +45,7 @@ What lands on the file and starts the activity: the realistic trigger, as the tr
   set it up (a client calling back, a letter going out), each a full event (date, channel, from, subject, body ≤ 60
   words) dated on or before the activity's event. The slide shows them above the event, smaller.
 - **A log snapshot** (`"log": {"title", "head": [2–5 columns], "rows": [{"cells": […], "mark"?: "call"|"email"|"esc"}], "note"?}`,
-  optional): a CMS log as it stands when the event lands (the Communications Log of the No Contact Protocol, say),
+  optional): a CMS log as it stands when the event lands (Case Notes of the No Contact Protocol, say),
   2–10 rows, ≤ 14 words a cell, a "Date" first column in MM/DD/YYYY. The slide shows it in place of the document
   thumbnails; the activity's documents stay under Your Task's Work From.
 - The date must match the activity's own scenario date where it gives one, and sit in the right place on the

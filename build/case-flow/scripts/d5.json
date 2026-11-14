@@ -1,7 +1,7 @@
 {
   "d5m1-l1": {
     "why": {
-      "say": "• Track B: the 07/20/2026 Time-Limited Demand to Keystone lapsed unaccepted on 08/21/2026; the 48-Hour Mandate got no answer\n• Atty. Thorne filed suit 09/24/2026, Civil Action No. 26-CV-04417; now a judge sets the pace, not an adjuster\n• Pleadings Log: the running list of everything filed and served\n• Discovery Calendar: every date either side owes the other something\n• Red flag: fifteen RFAs lack their own row. An unanswered RFA may be deemed admitted. Give each a row; tell Atty. Thorne within the hour"
+      "say": "• Track B: the 07/20/2026 Time-Limited Demand to Keystone lapsed unaccepted on 08/21/2026; the 48-Hour Mandate got no answer\n• Atty. Thorne filed suit 09/24/2026, Civil Action No. 26-CV-04417; now a judge sets the pace, not an adjuster\n• Discovery & Filing Tracker: the running list of everything filed and served\n• Discovery Calendar: every date either side owes the other something\n• Red flag: fifteen RFAs lack their own row. An unanswered RFA may be deemed admitted. Give each a row; tell Atty. Thorne within the hour"
     },
     "theory": {
       "say": "• A lawsuit is a strict, court-run process; a missed deadline or misfiled document can get the case dismissed\n• Pleadings: track service, set up files; discovery: gather data, prepare the client; trial prep: schedules, final medicals\n• Discovery tools: Interrogatories (written questions under oath), Requests for Production (documents), Requests for Admission, RFAs (admit or deny)\n• Every filing creates a docket entry, a line on the court's record; its clock runs whether or not the email arrived"
@@ -46,7 +46,7 @@
       "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Litigation › Discovery & Filing Tracker, add the RFA row with a deemed-admission flag, and log the Certificate of Service with its date\n• Step 2: Report any miss to Atty. Thorne today in CMS › Tasks › + Add Task, without back-dating"
     },
     "case": {
-      "say": "• Assuming the 15 RFAs have no row in the Pleadings Log and their 01/04/2027 Certificate of Service sits unlogged, the log needs fixing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a corrected, source-linked log, misses reported the same day"
+      "say": "• Assuming the 15 RFAs have no row in the Discovery & Filing Tracker and their 01/04/2027 Certificate of Service sits unlogged, the log needs fixing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a corrected, source-linked log, misses reported the same day"
     },
     "check": {
       "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: RFA row (15) added with a deemed-admission flag; Certificate of Service logged; Late filings logged as misses, not back-dated\n• The one thing to watch for: Quietly fixing a passed deadline instead of telling Atty. Thorne"
@@ -71,7 +71,7 @@
       "say": "• Self-Summary: what was learned supporting John Doe's lawsuit, the principles, not the clicks\n• Strategy: the next action on the file as of 01/20/2027, and why that one\n• Then the one thing least sure of, and what would build confidence\n• Reminder: only Atty. Thorne agrees an extension, in writing, the same day"
     },
     "scale": {
-      "say": "• Skill Scale: rate each skill 1 to 5 honestly, then submit for review\n• Skills include computing court deadlines, the Pleadings Log and Discovery Calendar, the trial-prep audit and KPIs\n• Ratings are compared with scores; wide gaps get discussed\n• UPL, legal advice from a non-lawyer, is a gate: a strong score doesn't survive an ethics breach",
+      "say": "• Skill Scale: rate each skill 1 to 5 honestly, then submit for review\n• Skills include computing court deadlines, the Discovery & Filing Tracker and Discovery Calendar, the trial-prep audit and KPIs\n• Ratings are compared with scores; wide gaps get discussed\n• UPL, legal advice from a non-lawyer, is a gate: a strong score doesn't survive an ethics breach",
       "ask": "Which skill might your self-rating and score disagree on?"
     }
   },
@@ -359,13 +359,13 @@
   },
   "d4m1-efile": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in the CMS: record 26-CV-04417 in the Pleadings Log\n• File the stamped Complaint and summons, and add the $218.00 fee to costs\n• Step 2: On the CMS Calendar, enter the service deadline with alerts and the Case Management Conference, and hold the answer date until service"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in the CMS: record 26-CV-04417 in the Discovery & Filing Tracker\n• File the stamped Complaint and summons, and add the $218.00 fee to costs\n• Step 2: On the CMS Calendar, enter the service deadline with alerts and the Case Management Conference, and hold the answer date until service"
     },
     "case": {
       "say": "• Assuming Atty. Thorne signed the Complaint on 09/23/2026 and the court accepted it on 09/24 as 26-CV-04417, the filing must be logged\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a signed set filed as 26-CV-04417, recorded and calendared"
     },
     "check": {
-      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: 26-CV-04417 in the Pleadings Log; stamped set filed; Costs $486.75 + $218.00 = $704.75\n• Service deadline 01/22/2027 (Fri) with alerts; CMC 12/10/2026, 9:00 a.m., Atty. Thorne attending\n• The one thing to watch for: Docketing an answer date before service"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: 26-CV-04417 in the Discovery & Filing Tracker; stamped set filed; Costs $486.75 + $218.00 = $704.75\n• Service deadline 01/22/2027 (Fri) with alerts; CMC 12/10/2026, 9:00 a.m., Atty. Thorne attending\n• The one thing to watch for: Docketing an answer date before service"
     }
   },
   "d5-drive": {

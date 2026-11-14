@@ -462,7 +462,7 @@ window.CM_CF_SLIDES = {
   },
   "redFlag": {
    "spoken": true,
-   "see": "Voicemails left **02/11 and 02/13** that never reached the Communications Log",
+   "see": "Voicemails left **02/11 and 02/13** that never reached Case Notes",
    "costs": "An unlogged attempt did not happen: the ladder can't show the attempts were made",
    "do": "Log each attempt now **with date, time, channel and outcome**",
    "owner": "Case Manager"
@@ -545,7 +545,7 @@ window.CM_CF_SLIDES = {
   "side": true,
   "steps": [
    "Log it in CMS → Notes → Case Notes: the two earlier voicemails, then an email, a text and the **emergency contact**, each with date, time, channel and outcome.",
-   "Record the next action and its due date in the Communications Log."
+   "Record the next action and its due date in Case Notes."
   ],
   "deliver": "An **unbroken, contemporaneous** outreach log, the next action dated",
   "purpose": "With the SOL running and treatment unstarted, **an unlogged attempt** never happened",
@@ -676,7 +676,7 @@ window.CM_CF_SLIDES = {
   "side": true,
   "steps": [
    "In CMS → Doc Hub, fill in the Final Warning Letter template: list the earlier attempts with their dates and set a reply date **7 to 14 days** from today.",
-   "Log it in the CMS Communications Log: the letter went by certified mail and by email, and Atty. Thorne decides any next step."
+   "Log it in CMS Case Notes: the letter went by certified mail and by email, and Atty. Thorne decides any next step."
   ],
   "deliver": "A **send-ready Final Warning Letter**, both deliveries logged, escalation recorded",
   "purpose": "This letter is **the last notice** before Atty. Thorne decides on withdrawal",
@@ -2017,7 +2017,7 @@ window.CM_CF_SLIDES = {
    "lead": "Coverage verification turns a reported fact into **a confirmed one in writing**: every limit, form and exclusion traced to the document that proves it.",
    "concepts": [
     {
-     "term": "Coverage Matrix",
+     "term": "Coverage Stack",
      "text": "One row per carrier, the file's single coverage record: **status, source and date** show what is proven"
     },
     {
@@ -2157,7 +2157,7 @@ window.CM_CF_SLIDES = {
    "Smith swears **no other insurance**: the condition for the limit",
    "John's **residency** keeps Relative UM; sworn if a carrier asks",
    "Custodian affidavits put **the bills into evidence**",
-   "The **affidavit of service** starts Smith's answer clock"
+   "Check **every jurat**: names, numbers, the notary's seal"
   ],
   "upl": "Request, track and check; **never swear, sign or notarize** for anyone",
   "dos": [
@@ -2361,7 +2361,7 @@ window.CM_CF_SLIDES = {
  },
  "d2m1-a2": {
   "image": "insurance-stack",
-  "situation": "Assuming a colleague's Coverage Matrix **totals $45,000** and the file holds Harbor Point's and Cardinal State's letters but no Keystone Declaration Page, the matrix needs correcting.",
+  "situation": "Assuming a colleague's Coverage Stack **totals $45,000** and the file holds Harbor Point's and Cardinal State's letters but no Keystone Declaration Page, the matrix needs correcting.",
   "side": true,
   "steps": [
    "In CMS → Insurance, take PIP out of the stack and correct the total to **$40,000**, citing the document behind each fix.",
@@ -2539,7 +2539,7 @@ window.CM_CF_SLIDES = {
    "Run the Payer Order: **PIP → Peach State → LOP**",
    "Use an LOP **only where earlier payers can't**",
    "Atty. Thorne sets LOP terms; **never promise payment** amounts, reductions or dates",
-   "Be the hub: **warm handoffs**, not phone numbers"
+   "Decline an LOP **an earlier payer makes needless**"
   ],
   "upl": "You prepare and route LOPs; never set terms, sign, promise payment or explain liability.",
   "dos": [
@@ -2799,7 +2799,7 @@ window.CM_CF_SLIDES = {
   "hook": "An LOP gets John Doe treated now, paid **from the settlement**.",
   "points": [
    "An LOP is **a promise against the recovery**, not insurance",
-   "Use it **only after every payer** is checked",
+   "Sign it **before the first visit**, then file it",
    "Track the balance: **ledger every 30 days**",
    "Referrals: **options and logistics**, never which care"
   ],
@@ -3428,7 +3428,7 @@ window.CM_CF_SLIDES = {
      ]
     },
     {
-     "term": "The Two CMS Flags",
+     "term": "Two Flags in the CMS",
      "text": "A lien and a gap are flagged **the day you know**, in facts only, and routed",
      "more": [
       "Lien: CMS → Liens → Outstanding Case Liens on first notice (02/27/2026), and **before any demand**",
@@ -5148,7 +5148,7 @@ window.CM_CF_SLIDES = {
   "side": true,
   "steps": [
    "Log each acceptance in CMS → Settlement (BI/UM) → Offer & Counter History, with a confirming email drafted for Atty. Thorne's approval.",
-   "Show **$40,000.00 gross** on the CMS Recovery Ledger, each check deposited only after its release is signed."
+   "Show **$40,000.00 gross** on the Net Sheet's Recovery Ledger, each check deposited only after its release is signed."
   ],
   "deliver": "A complete Negotiation Log and **$40,000.00 gross** recorded",
   "purpose": "The gross sets every later number: **one wrong entry** skews John Doe's net",
@@ -5172,7 +5172,7 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming Cardinal State has **tendered its $10,000 limits** and Harbor Point's $20,000 is in trust, Stream 2's Net Sheet is due.",
   "side": true,
   "steps": [
-   "On the CMS Recovery Ledger, post the $30,000.00 UM gross to Stream 2, apply the 33⅓% fee, costs and liens, and mark the net **as a projection**.",
+   "On the Net Sheet's Recovery Ledger, post the $30,000.00 UM gross to Stream 2, apply the 33⅓% fee, costs and liens, and mark the net **as a projection**.",
    "Log it to Atty. Thorne in CMS → Tasks → + Add Task."
   ],
   "deliver": "A Stream 2 Net Sheet projecting **$13,661.19**, routed",
@@ -5685,7 +5685,7 @@ window.CM_CF_SLIDES = {
   "image": "money-ledger",
   "situation": "File date 10/13/2026. **$40,000.00 is received** in two streams; Peach State accepted $1,240.00 and Riverton $4,580.00; costs are $486.75. The final Net Sheet needs finishing before John Doe signs.",
   "steps": [
-   "On the CMS Net Sheet's Recovery Ledger, post each check **by stream** (Stream 1 the $10,000 BI, Stream 2 the $30,000 UM stack) with the 33⅓% fee.",
+   "On the Net Sheet's Recovery Ledger, post each check **by stream** (Stream 1 the $10,000 BI, Stream 2 the $30,000 UM stack) with the 33⅓% fee.",
    "Split the costs and liens **25% and 75%** between the streams, the UM share as the remainder of each split.",
    "Log each lien's figures and payoff status in the Lien Tracker, and tie both tabs to the **BI/UM Master Financial Ledger** and the Trust Ledger.",
    "Flag future ESIs to Atty. Thorne and route the Net Sheet to him for approval before John Doe signs."
@@ -6067,7 +6067,7 @@ window.CM_CF_SLIDES = {
      "term": "The Stall",
      "text": "An adjuster's delay line, such as “waiting on authority”, meant to **wear you down**; log it, never accept it",
      "more": [
-      "Log each stall the day it happens, with its date and proof, in the Communications Log",
+      "Log each stall the day it happens, with its date and proof, in Case Notes",
       "Never accept “that's all I have” as final: every adjuster has **a supervisor**",
       "Escalate a silent adjuster to that supervisor before calling impasse",
       "Impasse rests on its triggers, not frustration; whether the file is there is Atty. Thorne's call"
@@ -6159,7 +6159,7 @@ window.CM_CF_SLIDES = {
   "points": [
    "Change status only on **Atty. Thorne's dated authorization** to sue",
    "Fill court fields from the record; **never guess a number**",
-   "Build the **five litigation sub-folders** before the 09/24/2026 filing",
+   "Notify the UM carriers **as each policy requires**: no figure",
    "Seed the Litigation Calendar **the day status changes**"
   ],
   "upl": "Tell John Doe what happens next; what it means is Atty. Thorne's.",
@@ -6285,14 +6285,14 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming Atty. Thorne **signed the Complaint** on 09/23/2026 and the court accepted it on 09/24 as 26-CV-04417, the filing must be logged.",
   "side": true,
   "steps": [
-   "Log it in the CMS: record 26-CV-04417 in the Pleadings Log, file the stamped Complaint and summons, and add the **$218.00 fee** to costs.",
+   "Log it in the CMS: record 26-CV-04417 in the Discovery & Filing Tracker, file the stamped Complaint and summons, and add the **$218.00 fee** to costs.",
    "On the CMS Calendar, enter the service deadline with alerts and the Case Management Conference, and hold the answer date until service."
   ],
   "deliver": "A signed set filed as **26-CV-04417**, recorded and calendared",
   "purpose": "An unsigned page or an uncalendared date can **sink the suit**",
   "principle": "Nothing is filed **until Atty. Thorne signs**",
   "checks": [
-   "**26-CV-04417** in the Pleadings Log; stamped set filed",
+   "**26-CV-04417** in the Discovery & Filing Tracker; stamped set filed",
    "Costs **$486.75 + $218.00 = $704.75**",
    "Service deadline **01/22/2027 (Fri)** with alerts",
    "CMC **12/10/2026, 9:00 a.m.**, Atty. Thorne attending"
@@ -6817,7 +6817,7 @@ window.CM_CF_SLIDES = {
    "purpose": "Tells the court and Atty. Thorne **what Robert Smith disputes**, and on which defenses he will fight the claim.",
    "evidence": "Filed 11/12/2026 by Atty. Grant Mercer, it is **the defense roadmap**: comparative negligence, causation (the gap, a “degenerative” MRI), failure to mitigate.",
    "handling": [
-    "Log it in the **Pleadings Log**; file it in 01_PLEADINGS",
+    "Log it in the **Discovery & Filing Tracker**; file it in 01_PLEADINGS",
     "Binder Section 3: the **operative pleadings only**, no drafts",
     "Map **each pleaded defense** to an answering exhibit, or flag it",
     "What each defense means for the claim is **Atty. Thorne's to judge**"
@@ -7653,7 +7653,7 @@ window.CM_CF_SLIDES = {
  },
  "d5m1-a1": {
   "image": "data-entry",
-  "situation": "Assuming the **15 RFAs** have no row in the Pleadings Log and their 01/04/2027 Certificate of Service sits unlogged, the log needs fixing.",
+  "situation": "Assuming the **15 RFAs** have no row in the Discovery & Filing Tracker and their 01/04/2027 Certificate of Service sits unlogged, the log needs fixing.",
   "side": true,
   "steps": [
    "In CMS → Litigation → Discovery & Filing Tracker, add the RFA row with a **deemed-admission flag**, and log the Certificate of Service with its date.",

@@ -383,8 +383,8 @@
       "channel": "alert",
       "from": "CMS",
       "to": "Case Manager",
-      "subject": "Pleadings Log does not match the docket: 26-CV-04417",
-      "body": "Reconciliation check, Pleadings Log against Docket Calendar: 5 mismatches. Unlogged: Affidavit of Service (Allied Process Services email, 10/16/2026); Certificate of Service (01/04/2027). Unfiled scan: scan_1210.pdf. Row “Interrogatories/RFPs” shows due 12/31/2026; calendar shows 01/04/2027. No row for Requests for Admission.",
+      "subject": "Discovery & Filing Tracker does not match the docket: 26-CV-04417",
+      "body": "Reconciliation check, Discovery & Filing Tracker against Docket Calendar: 5 mismatches. Unlogged: Affidavit of Service (Allied Process Services email, 10/16/2026); Certificate of Service (01/04/2027). Unfiled scan: scan_1210.pdf. Row “Interrogatories/RFPs” shows due 12/31/2026; calendar shows 01/04/2027. No row for Requests for Admission.",
       "attachments": [
         "RS60",
         "RS52",
