@@ -190,6 +190,7 @@ None.
 
 ## Check helpers (not checks themselves)
 
+- `.github/scripts/cf-previews.mjs` — Cloudflare Worker Previews for case-management-training: list them, and delete the ones no open pull request needs. Every branch's Preview used to keep its own copies of the Worker's Durable Objects (wrangler.json previe
 - `.github/scripts/drive-sa-fake.cjs` — GDRIVE_SA_EMAIL and GDRIVE_SA_KEY (a real PKCS#8 key, made once: the Worker signs its token request with it)
 - `.github/scripts/merge-main.mjs` — Bring main into the current branch, and settle by itself what two branches used to collide on: • the generated files (the assembled slides, trainer scripts, simulation, companion cases, exhibits and curriculum
 - `.github/scripts/r2-sync.mjs` — Applies a list of changed document files to R2 (used by .github/workflows/r2-docs.yml): each line is "<status>\t<path>" from git diff --name-status; D removes <PREFIX>/<path> from the bucket, anything else

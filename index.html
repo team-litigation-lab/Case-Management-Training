@@ -6155,7 +6155,7 @@ function navBackTarget(){
   const prev = routeTrail()[d-1] || "";
   if(!prev || prev===routeHash()) return "";
   // The page already has a link back to this place (Day → roadmap, activity → Skill Builders).
-  if(state.view==="day" && prev==="#/dashboard") return "";
+  if(prev==="#/dashboard") return "";   // the top bar's Dashboard is always there: no "← Back to Dashboard" pill on any page
   if(state.view==="tool" && prev==="#/practice") return "";
   return prev;
 }
