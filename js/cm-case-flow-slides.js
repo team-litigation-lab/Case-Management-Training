@@ -381,17 +381,21 @@ window.CM_CF_SLIDES = {
  },
  "d1m1-drive": {
   "image": "documents-audit",
-  "situation": "Assuming John Doe's matter is **active in the CMS** and your Google Drive is linked (🚀 Launch CMS & Google Drive links it), his backup folders now need building.",
-  "side": true,
+  "situation": "02/09/2026, 4:30 p.m. John Doe's matter is **active in the CMS**, and nothing is on **the firm's backup drive** yet.",
   "steps": [
-   "In 📂 My Backup Drive, press 📂 Build my folders, fix anything it returns, and run **✓ Check my drive** until no folder is missing.",
-   "Log it in CMS → Case Notes: where the retainer, the Police Report and the HIPAA authorization belong, and why."
+   "Press 🚀 Launch CMS & Google Drive. Not linked yet? Paste your folder's link in the **Backup Drive panel**.",
+   "In Google Drive, build 01 Clients by hand, holding Doe-John with its nine numbered folders.",
+   "Add 02 Firm Administration with its two folders, then 03 Templates and 04 Closed Files, named as the standard shows.",
+   "In 📂 My Backup Drive, submit the folders, fix what it returns, and run **✓ Check my drive** until clean.",
+   "In CMS → Case Notes, write where the retainer, the Police Report and the HIPAA authorization belong, and why."
   ],
-  "deliver": "A drive **built to standard**, checked clean, the placements logged",
+  "deliver": "A linked drive **built to standard**, confirmed by a clean check",
   "purpose": "A covering Case Manager must **find any document in seconds**",
   "principle": "Every file is laid out **the same way, every time**",
   "checks": [
+   "Drive folder **shared as Editor** and linked",
    "Every folder **named and numbered** to the standard",
+   "**Doe-John** under 01 Clients, nine folders inside",
    "**✓ Check my drive**: no folder missing",
    "Three documents **placed, with reasons**"
   ],
@@ -3462,17 +3466,20 @@ window.CM_CF_SLIDES = {
  },
  "d2-drive": {
   "image": "medical-visit",
-  "situation": "Assuming the four **treatment documents** are filed in the CMS, a Summit Imaging invoice still sits in your records folder.",
-  "side": true,
+  "situation": "04/24/2026, 3:30 p.m. Four **treatment documents** are filed in the CMS, and a **bill sits in the records folder**.",
   "steps": [
-   "In Google Drive, move the Summit invoice from 03 Medical Records to **04 Bills & Invoices**, rename it the firm's way, and run ✓ Check my drive.",
-   "Log the records-versus-bills rule in two sentences in CMS → Case Notes."
+   "File each of the four documents in the CMS from 📁 Source Files, so each copy reaches its **folder on your Drive**.",
+   "In Google Drive, find the Summit Imaging invoice in 03 Medical Records, move it to 04 Bills & Invoices, and rename it the firm's way.",
+   "Open 📂 My Backup Drive and run ✓ Check my drive.",
+   "In CMS → Case Notes, write in two sentences what goes in each folder and why a bill in the records folder is a damages problem."
   ],
   "deliver": "Records and bills **each in their own folder**, checked",
   "purpose": "The Specials audit reads **the bills folder only**",
   "principle": "Records say what was done; **bills say what it cost**",
   "checks": [
-   "Summit invoice in **04 Bills & Invoices**, renamed",
+   "Visit notes, evaluation, consult in **03 Medical Records**",
+   "Summit invoice in **04 Bills & Invoices**, renamed, not twice",
+   "**Backed up equals filed** on the dashboard",
    "**✓ Check my drive**: no folder missing",
    "The **rule in two sentences** in Case Notes"
   ],
@@ -4716,8 +4723,7 @@ window.CM_CF_SLIDES = {
  },
  "d3-drive": {
   "image": "documents-audit",
-  "situation": "Assuming **three corrected versions** have arrived before the 07/20/2026 demand, your backup must match the CMS before anything goes out.",
-  "side": true,
+  "situation": "07/17/2026, 3:00 p.m. The demand is served **on 07/20/2026**, and **three corrected versions** have arrived.",
   "ownerSteps": true,
   "steps": [
    "Compare the files in your Backup Drive against the CMS to see what is missing.",
@@ -4726,7 +4732,7 @@ window.CM_CF_SLIDES = {
    "Move the draft demand and packet into folder 05 Insurance.",
    "Run the Check My Drive audit tool and record your completion."
   ],
-  "deliver": "A backup that **matches the CMS** before the demand",
+  "deliver": "A backup that **matches the CMS** before the demand goes out",
   "purpose": "What the adjuster gets must be **on our drive first**",
   "principle": "**Supersede, never delete**: label the old version",
   "checks": [
@@ -5992,18 +5998,21 @@ window.CM_CF_SLIDES = {
  },
  "d4-drive": {
   "image": "escalation-alert",
-  "situation": "Assuming Track A has disbursed and **a lien folder was deleted** from your drive, the backup needs restoring.",
-  "side": true,
+  "situation": "10/23/2026, 2:00 p.m. Track A has disbursed, the liens are closed, and **a lien folder has been deleted**.",
   "steps": [
-   "In 📂 My Backup Drive, run ✓ Check my drive, use 🔁 Put the missing folders back, and check again until **nothing is missing**.",
-   "Log what was lost and what you restored in CMS → Case Notes."
+   "In Google Drive, delete 06 Liens & Reimbursement from Doe-John as the drill, then run ✓ Check my drive and read what it reports.",
+   "Use 🔁 Put the missing folders back and check again until **nothing is missing**.",
+   "File the day's lien papers in the CMS so they reach 06, and the cost ledger and closing letter so they reach 07.",
+   "In CMS → Case Notes, record what was lost, how you found it and what you restored."
   ],
-  "deliver": "A restored folder and **a clean check**",
+  "deliver": "A restored folder and **every lien paper backed up**",
   "purpose": "A copy filed into a **deleted folder is lost**",
   "principle": "**Check before you file**, not after",
   "checks": [
    "First check **names the missing folder**",
    "Folder **put back**; second check clean",
+   "**Five lien documents** in 06",
+   "Cost ledger and closing letter in **07**",
    "Recovery **recorded** in Case Notes"
   ],
   "dos": [
@@ -8544,19 +8553,21 @@ window.CM_CF_SLIDES = {
  },
  "d5-drive": {
   "image": "checklist-qa",
-  "situation": "Assuming the award is **disbursed** and the file waits on Atty. Thorne's sign-off, the backup needs its final audit.",
-  "side": true,
+  "situation": "07/30/2027, 3:00 p.m. The award is **disbursed**, and the file waits on **Atty. Thorne's sign-off**.",
   "steps": [
-   "File the litigation and ADR papers in the CMS so they reach **09 Litigation & ADR**, then run ✓ Check my drive.",
-   "Log the closing checklist in CMS → Case Notes for Atty. Thorne's sign-off."
+   "File the litigation and ADR papers in the CMS so they reach **09 Litigation & ADR**.",
+   "Run ✓ Check my drive and confirm the drive holds every document filed in the CMS, across all nine folders.",
+   "Write the closing checklist in Case Notes for Atty. Thorne's sign-off. Do not move the folder in your training drive."
   ],
   "deliver": "A complete, checked backup **ready to close**",
   "purpose": "Years later, **anyone can find any page**",
   "principle": "A file closes on **sign-off, not on payment**",
   "checks": [
    "Litigation papers in **09 Litigation & ADR**",
+   "**Every filed document** backed up",
+   "Drafts and superseded versions **labeled**",
    "**✓ Check my drive**: no folder missing",
-   "Closing checklist ends in **sign-off**"
+   "Closing checklist ends in **sign-off and the move**"
   ],
   "dos": [
    "Close the backup **by the standard**"

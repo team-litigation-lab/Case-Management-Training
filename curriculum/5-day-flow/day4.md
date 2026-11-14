@@ -26,7 +26,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
 
 **Module 4 — Mediation & Arbitration**
 
@@ -45,7 +45,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 13. *Skill Activity* — Assembling the 6-Tab Arbitration Binder (practises: The Arbitration Binder & the Common Bottlenecks) — *side*
 14. *Skill Activity* — Setting Automated Countermeasures in CMS (practises: The Arbitration Binder & the Common Bottlenecks) — *side*
 15. *Skill Activity* — Bottleneck Resolution Simulation (practises: The Arbitration Binder & the Common Bottlenecks) — *side*
-16. *Skill Activity* — Backup File Maintenance: Liens, Costs and a Missing Folder (practises: Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention) — *side*
+16. *Skill Activity* — Backup File Maintenance: Liens, Costs and a Missing Folder (practises: Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention) — **Required: Backup File Maintenance**
 17. *Knowledge Check* — Final Accounting Check
 18. *Knowledge Check* — ADR & Calendar Compliance Check
 19. *Knowledge Check* — Binder Assembly Verification
@@ -57,7 +57,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 ## Module 4 — Mediation & Arbitration
 
-**Order:** Lessons (6) ➔ Case Profile ➔ Skill Building (Assembling the 6-Section Mediation Binder) ➔ Update Your Action Plan ➔ Practice Lab (9 optional side exercises) ➔ Knowledge Check (4 Learning Checks)
+**Order:** Lessons (6) ➔ Case Profile ➔ Skill Building (Assembling the 6-Section Mediation Binder) ➔ Backup File Maintenance (required) ➔ Update Your Action Plan ➔ Practice Lab (8 optional side exercises) ➔ Knowledge Check (4 Learning Checks)
 
 ### 4.1.1 Introducing the Neutral, Mediation Logistics & the Arbitration Hearing
 

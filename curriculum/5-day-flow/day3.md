@@ -28,7 +28,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
 
 **Module 3 — Lien Negotiation & Disbursement**
 
@@ -44,7 +44,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 10. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender (practises: The Net Sheet: Two Recovery Streams & the Master Ledger) — *side*
 11. *Skill Activity* — The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes (practises: The Net Sheet: Two Recovery Streams & the Master Ledger) — *side*
 12. *Skill Activity* — Starting the Disbursement Command: Releases, Hold Cleared, Money Out (practises: Disbursement: the Workflow & the Documentation) — *side*
-13. *Skill Activity* — Backup File Maintenance: the Pre-Demand Backup Audit (practises: Case Phase: Demand) — *side*
+13. *Skill Activity* — Backup File Maintenance: the Pre-Demand Backup Audit (practises: Case Phase: Demand) — **Required: Backup File Maintenance**
 14. *Knowledge Check* — Demand Execution Audit
 15. *Knowledge Check* — Negotiation Mastery Check
 16. *Knowledge Check* — Lien Reduction Verification
@@ -55,7 +55,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 ## Module 3 — Lien Negotiation & Disbursement
 
-**Order:** Lessons (5) ➔ Case Profile ➔ Skill Building (Completing the Final Dual-Tab Net Sheet) ➔ Update Your Action Plan ➔ Practice Lab (7 optional side exercises) ➔ Knowledge Check (3 Learning Checks)
+**Order:** Lessons (5) ➔ Case Profile ➔ Skill Building (Completing the Final Dual-Tab Net Sheet) ➔ Backup File Maintenance (required) ➔ Update Your Action Plan ➔ Practice Lab (6 optional side exercises) ➔ Knowledge Check (3 Learning Checks)
 
 ### 3.1.1 Lien Negotiations: Key Legal Doctrines & Prior-Attorney Liens
 

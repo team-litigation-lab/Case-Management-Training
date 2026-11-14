@@ -4,12 +4,16 @@
    · prominently at the start of the Litigation section: the first slide of its first lesson (d4m1-l1, Case Flow Day 5);
    · as a callout on the first slide of every litigation transition or file-handoff step (HANDOFF: the lesson From
      Pre-Lit to Litigation, and the Skill Activities that take the fork, move the file to Litigation status and task the
-     Litigation Desk with the e-filing), and as a pop-up there the first time a trainee reaches each one ("Got it" puts
+     Litigation Desk with the e-filing; Day 4's court work once suit is filed: the court's hard rules, SOL cutoffs and the
+     master calendar, its calendar-cutoff audit and the court-ordered mediation's calendar; Day 5's litigated
+     disbursement: its lesson and the Litigation Net Sheet), and as a pop-up there the first time a trainee reaches each one ("Got it" puts
      it away for good; the callout on the slide stays). A trainer, Presenter view and the room's screen get no pop-up:
      the callout is on the slide, and Presenter view's notes say to read it aloud.
    The pop-up's "seen" marks are the trainee's progress ("litigation-note-seen", registered below, so they follow the
    trainee to another device): read again after sign-in (loadAll) and when another tab saves them, merged with what is
    stored before each save, and cleared on log-out. The pop-up takes the keyboard's focus (Got it); Esc puts it away too.
+   · in the block's full text (📖 Additional Reference, js/cm-case-flow.js cmCaseFlow.full: the lesson card that is
+     not a slide) of the start and of every handoff step, at its top.
    Nothing here changes a slide's content; the callout is added to the slide as drawn.
    ============================================================ */
 (function(){
@@ -17,7 +21,11 @@
 if(typeof state === "undefined" || typeof DAYS === "undefined" || !window.cmCaseFlow) return;
 const NOTE = "Note: Case Managers handling Litigation and Pre-Litigation are sometimes different individuals. Always verify the assigned Case Manager in the CMS/Case Profile before transferring files, logging updates, or routing communications.";
 const START = "d4m1-l1";
-const HANDOFF = {"d4m1-l2": "From Pre-Lit to Litigation", "d4m1-a1": "Taking the litigation fork", "d4m1-a2": "Moving the file to Litigation status", "d4m1-efile": "Handing the filing to the Litigation Desk"};
+const HANDOFF = {"d4m1-l2": "From Pre-Lit to Litigation", "d4m1-a1": "Taking the litigation fork", "d4m1-a2": "Moving the file to Litigation status", "d4m1-efile": "Handing the filing to the Litigation Desk",
+  // Day 4: the court work once suit is filed (No. 26-CV-04417)
+  "d4m2-l1": "Court hard rules, SOL cutoffs & the master calendar", "d4m2-a1": "Setting the court's calendar cutoffs", "d4m2-medcal": "Calendaring the court-ordered mediation",
+  // Day 5: the litigated recovery, disbursed
+  "d5m5-l1": "Disbursing a litigated recovery", "d5m5-a1": "The Litigation Net Sheet"};
 const KEY = "litigation-note-seen";
 if(typeof registerPersonalKeys === "function") registerPersonalKeys([KEY]);
 const E = v => (typeof esc === "function" ? esc(v) : String(v == null ? "" : v).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])));
@@ -102,13 +110,26 @@ if(typeof window.afterRender === "function"){
   const __after = window.afterRender;
   window.afterRender = function(){ const r = __after.apply(this, arguments); try{ sync(); }catch(e){} return r; };
 }
+/* ---------- the full text (📖 Additional Reference): the note at its top, for the start and every handoff step ---------- */
+if(window.cmCaseFlow && typeof window.cmCaseFlow.full === "function"){
+  const __full = window.cmCaseFlow.full;
+  window.cmCaseFlow.full = function(dayId, i){
+    const r = __full.apply(this, arguments);
+    try{
+      const d = DAYS.find(x => x.id === dayId), l = d && d.lessons[i], id = l && l.cf && l.cf.block.id;
+      const body = document.querySelector(".cfx-ref .cfx-ref-b");
+      if(id && (id === START || HANDOFF[id]) && body && !body.querySelector(".lgn-note")) body.insertAdjacentHTML("afterbegin", callout(id, id === START));
+    }catch(e){ console.warn("[litigation-note]", e); }
+    return r;
+  };
+}
 window.cmLitigationNote = {NOTE, START, HANDOFF: Object.keys(HANDOFF), show: id => pop(id || START), reload: loadSeen};
 
 /* ---------- the look: navy and orange, bold, at least 16px on the slide ---------- */
 if(!document.getElementById("lgn-css")){
   const st = document.createElement("style"); st.id = "lgn-css";
   st.textContent = `
-.lgn-note{display:flex;gap:10px;align-items:center;margin:0 0 8px;padding:6px 14px;background:#FFF4E8;border:2px solid #DB8437;border-left:8px solid #DB8437;border-radius:10px;text-align:left;}
+.lgn-note{display:flex;gap:10px;align-items:center;margin:0 0 5px;padding:3px 12px;background:#FFF4E8;border:2px solid #DB8437;border-left:8px solid #DB8437;border-radius:10px;text-align:left;}
 .lgn-note .lgn-ic{font-size:20px;line-height:1;flex:0 0 auto;}
 .lgn-note p{margin:0;font:700 16px/1.32 'Inter',sans-serif;color:#1E2340;}
 .lgn-note p b{color:#A4470F;}

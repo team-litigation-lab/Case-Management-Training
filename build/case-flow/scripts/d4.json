@@ -42,27 +42,25 @@
     }
   },
   "d4m1-a1": {
-    "case": {
-      "say": "• 09/08/2026, from Atty. Thorne: Keystone silent since the 09/02 escalation; send the full impasse memo today\n• Keystone, Dana Whitfield, KM-26-440871, offered $3,500 on 08/05, citing the 14-Day Gap and a \"degenerative\" MRI\n• 08/06 rebuttal sent Dr. Helen Park's read, Dr. Reyes's 06/19/2026 Causation Letter, the EMS report, the Gap Explanation Record\n• 08/12 \"final\"; demand lapsed 08/21; 08/24, 08/31 follow-ups and 09/02 escalation unanswered\n• Build the chronology first: every event in date order"
-    },
     "task": {
-      "say": "• Draft the impasse memo to Atty. Elijah Thorne from the CMS memo template; proof from the Communications Log; send via Tasks, Escalate\n• Dated chronology, 07/20/2026 demand through 09/04, each event tied to its proof\n• State Keystone's reasons and the rebuttal evidence it never answered\n• Frozen stack: $30,000 of $40,000 locked behind BI; documented Specials; SOL 02/06/2028, hard date 02/04/2028, cutoff 11/05/2027\n• End with decisions needed, written as questions; recommend nothing"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Documents › Memo, log a dated chronology from the 07/20/2026 demand, each event tied to its proof\n• Step 2: End the memo with the decision you need, as questions, and route it in CMS › Tasks › Escalate"
+    },
+    "case": {
+      "say": "• Assuming Keystone called $3,500 “final” and the demand lapsed 08/21 with no answer since, the impasse needs logging for Atty. Thorne\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a sourced memo that asks for a decision, recommends none"
     },
     "check": {
-      "say": "• Nine events, 07/20 to 09/04, in order, each with a receipt, sent email or log entry\n• Keystone's reasons in Keystone's words: 14-Day Gap, \"degenerative\" MRI; unanswered rebuttal listed\n• Stack: $10,000 BI not used up; $20,000 Host UM and $10,000 Relative UM closed\n• Specials $14,817.40 plus $1,584.00 equals $16,401.40; clock dates right, sent Tuesday 09/08 after Labor Day\n• Decisions written as questions; no recommendation, no new number to Keystone",
-      "ask": "Does any sentence in your memo read like advice instead of a question for Atty. Thorne?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Events 07/20 to 09/04, each tied to proof; SOL 02/06/2028, cutoff 11/05/2027; Questions only; no sentence recommends suit\n• The one thing to watch for: Waiting another follow-up cycle instead of escalating"
     }
   },
   "d4m1-a2": {
-    "case": {
-      "say": "• 09/10/2026, from Atty. Thorne: suit authorized 09/09 against Robert Smith, State Court of Riverton County, filing target 09/24/2026\n• He went over the fee tier with John; transition the file today\n• Draft impasse notices to Harbor Point, Marcus Bell, HP-26-7741, and Cardinal State, Teresa Okafor, CS-26-20355\n• Preservation requests, asking that evidence not be destroyed: doorbell video and the Escape's data recorder, its built-in black box\n• Harbor Point's UM policy has an arbitration clause; video copy secured 02/19/2026; the 2020 Ford Escape is Kevin Alvarez's"
-    },
     "task": {
-      "say": "• Work live in the CMS: Case Summary, Litigation, Documents, Outgoing, Calendar\n• Set status on the 09/09 authorization; open court fields, never guessing a case number; fee tier as the retainer sets it\n• Build the five litigation folders to firm standard\n• Draft both UM notices and preservation requests for his approval; open the ADR fields for mediation and arbitration\n• Seed the Litigation Calendar with 48-hour audits; notices state facts and carry no number"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Case Summary, set the status to Litigation, citing the 09/09 authorization, with the case number reading “Pending — assigned on filing”\n• Step 2: Log the 40% fee tier from the filing date, and the 48-hour audit on 09/22/2026 in CMS › Calendar"
+    },
+    "case": {
+      "say": "• Assuming Atty. Thorne authorized suit on 09/09 with a filing target of 09/24/2026, the file needs switching to Litigation\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Litigation status set on Atty. Thorne's authority"
     },
     "check": {
-      "say": "• Status Litigation, dated 09/10/2026, citing the 09/09 authorization; case number \"Pending, assigned on filing\"\n• Fee tier: 33⅓% until filing, 40% from the filing date, not 09/10; note his talk with John without explaining it\n• Five folders named exactly; notices to HP-26-7741 and CS-26-20355 state impasse, no dollar figure, go for approval\n• Ask Margaret Doe to keep what she holds; data recorder request to Kevin Alvarez and Harbor Point; flag the arbitration clause\n• Calendar: 09/24 filing, 09/22 audit, SOL dates",
-      "ask": "What does Margaret Doe still hold today, and who holds the Escape's event data recorder?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Status cites the 09/09/2026 authorization; Case number reads “Pending — assigned on filing”; Filing target 09/24/2026, 48-hour audit 09/22/2026\n• The one thing to watch for: Recording the 40% tier from the status date"
     }
   },
   "d4m1-kc": {
@@ -135,48 +133,36 @@
     }
   },
   "d4m2-a1": {
-    "case": {
-      "say": "• 12/10/2026, from Atty. Thorne: Scheduling Order entered; discovery Mercer mailed 12/01 attached\n• Calendar was re-keyed from paper: nothing verified, no alerts; audit every entry, correct, send the correction log\n• No. 26-CV-04417; discovery: 25 Interrogatories, 30 Requests for Production, 15 RFAs\n• Order: expert disclosure plaintiff 03/15/2027, defense 04/15/2027; mediation by 03/31/2027; discovery closes 05/28/2027\n• Pretrial 08/12/2027, trial 09/13/2027"
-    },
     "task": {
-      "say": "• Audit the calendar in the Case Docket and Calendar Conflict Resolver against the 12/10/2026 order, 12/01/2026 discovery, 02/06/2028 SOL\n• Recompute from each trigger document: trigger day out, 3 mail days in, forward later, backward earlier\n• Fix errors, add what's missing, leave correct entries alone\n• Each entry: trigger, rule, math, owner, alerts, mirrored to the CMS Calendar; rank errors, log in Case Notes, send\n• Jenna Price, Atty. Mercer's paralegal, will call: agree to nothing, log her words exactly"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Calendar, correct the responses to 01/04/2027 (Mon): 30 days plus 3 mail days from the trigger, moved to a business day\n• Step 2: Log the RFA entry, “deemed admitted if unanswered”, and route the change to Atty. Thorne in Case Notes"
     },
-    "model": {
-      "say": "• The staged calendar exactly as keyed: unverified, no alerts\n• Each row: as-keyed date and a blank status chip to set verified, corrected or added\n• One dashed add-entry row at the bottom, with no hint of what or how many are missing\n• Risk gauge: red band, costs rights, for late or missing dates; gray band, costs time, for early ones\n• Rights before time"
+    "case": {
+      "say": "• Assuming the Scheduling Order in No. 26-CV-04417 was entered 12/10/2026 and 15 RFAs were mailed 12/01/2026, the calendar needs two fixes\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a corrected calendar and the RFA entry logged"
     },
     "check": {
-      "say": "• Responses corrected to Monday 01/04/2027: 12/01 plus 30 plus 3 lands Sunday 01/03\n• RFA entry added: all 15 due 01/04/2027, deemed admitted if unanswered; the most missed and most severe\n• Expert disclosures un-swapped; mediation \"completed by 03/31/2027\"; hard date 02/04/2028 added\n• Cutoff corrected from 11/08/2027 to 11/05/2027, rolled earlier; correct entries verified and left alone\n• Errors ranked rights first; no call to opposing counsel about extensions",
-      "ask": "Did you recompute each date from its trigger document, or from the entry you were checking?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Responses corrected to 01/04/2027 (Mon); RFA entry added: “deemed admitted if unanswered”; Correction routed to Atty. Thorne\n• The one thing to watch for: Missing what isn't on the screen, like the RFAs"
     }
   },
   "d4m2-a2": {
-    "case": {
-      "say": "• 04/05/2027: the 03/18/2027 mediation before Hon. Carla Benton (Ret.) produced Keystone's $10,000 BI tender\n• BI used up, UM consents in, Robert Smith dismissed\n• Harbor Point and Cardinal State dispute damages, citing the gap; Harbor Point invoked arbitration, Cardinal State joins\n• One binding arbitration before Laura Whitcomb, Esq., hearing 06/22/2027\n• Exhibits exchanged 20 days before the hearing, brief due 10 days before; docket today"
-    },
     "task": {
-      "say": "• Build the ADR rules matrix in the Action Plan Editor: one column for the 03/18/2027 mediation, one for the 06/22/2027 arbitration\n• ADR: alternative dispute resolution, settling a dispute outside a courtroom\n• Rows: neutral and power, binding and appeal, confidentiality, opposing parties, limits, preparation standard, hard dates, logistics\n• Hard-code arbitration dates on the CMS Calendar, counted back from the hearing, with alerts\n• Map the UPL boundary and script the words if Laura Whitcomb asks about a bill"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor's ADR rules matrix\n• Count back from the hearing: exhibits 20 days before, the brief 10, each on a business day\n• Step 2: Log both dates with alerts on the CMS Calendar, and route the matrix to Atty. Thorne"
     },
-    "model": {
-      "say": "• Two-thirds of the slide: the matrix, row labels down the left\n• Lighter mediation column, solid navy arbitration column; every cell empty, outlined in orange\n• Right third: the hearing table seen from above\n• Atty. Thorne's seat has a speech mark; the Case Manager's seat behind has it struck through in red\n• Orange arrow: hand him the document, even when the answer is known"
+    "case": {
+      "say": "• Assuming Harbor Point has invoked arbitration and the hearing is set for 06/22/2027 (Tue), the arbitration dates need hard-coding\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Arbitration dates hard-coded with alerts, routed"
     },
     "check": {
-      "say": "• Mediation: Hon. Carla Benton facilitates only, non-binding, held 03/18/2027 inside 03/31/2027\n• Arbitration: Laura Whitcomb acts as judge, binding, narrow review, Harbor Point's clause with Cardinal State joined\n• Opposing parties: Robert Smith, then the UM carriers; limits $20,000 plus $10,000, $30,000; exhibits 06/02/2027\n• Brief: 10 days back is Saturday 06/12, so Friday 06/11, never Monday 06/14\n• Deferral line: \"Case Manager providing administrative assistance; Atty. Thorne will address that\"",
-      "ask": "What are the exact words of your deferral line at the hearing?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Exhibits 06/02/2027; Brief 06/11/2027 (Fri), never 06/14/2027; Matrix routed to Atty. Thorne\n• The one thing to watch for: a brief deadline that lives only in an email"
     }
   },
   "d4m2-a3": {
-    "case": {
-      "say": "• 04/05/2027, Track B: UM demands went out 03/22 after Keystone tendered its $10,000 BI limits at mediation\n• Both UM carriers' written consents, a Limited Release, Robert Smith dismissed\n• Marcus Bell, Harbor Point: $8,000 against a $20,000 Host UM limit, calling the 14-day gap a causation problem\n• Teresa Okafor, Cardinal State: $6,000 against $10,000\n• Harbor Point's policy has a binding arbitration clause; Cardinal State's certified policy requested, not arrived"
-    },
     "task": {
-      "say": "• Write the impasse memo to Atty. Thorne: offers against limits, Harbor Point's stated reason\n• Quote each layer's dispute clause word for word; mark Cardinal State's as outstanding\n• Lay out both routes and what each requires operationally\n• Ask in writing: route per layer, each layer's suit or arbitration-demand deadline, whether to hear them together\n• Set up the CMS: ADR entry, status, a task per question; draft calendar entries unsaved; script John's procedural explanation"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the impasse memo to Atty. Thorne in CMS › Case Notes, with each layer's dispute clause quoted word for word\n• Step 2: Ask him in writing for the route and the deadline, and docket nothing before his answer"
     },
-    "model": {
-      "say": "• First line, the numbers: $8,000 of $20,000, $6,000 of $10,000, $14,000 of $30,000, with dates\n• Then exhaustion proven: Keystone's tender at the 03/18 mediation, both consents, the Limited Release, the dismissal order\n• A section per layer: Harbor Point's arbitration paragraph pasted whole, identified as binding, nothing more\n• Cardinal State: certified policy requested, not arrived, with a chase task\n• Then three numbered questions; one page to decide from"
+    "case": {
+      "say": "• Assuming Harbor Point offers $8,000 of $20,000, Cardinal State $6,000 of $10,000, and neither will move, the impasse needs routing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an impasse memo routed to Atty. Thorne, nothing docketed"
     },
     "check": {
-      "say": "• Both named first-party claims, separate from the Keystone claim closed at the March mediation; figures exact, with dates\n• Exhaustion documented; Harbor Point's clause quoted and called binding, no interpretation\n• Cardinal State its own layer, policy outstanding with a chase task, Harbor Point's clause never read onto it\n• Both routes laid out; bad faith only as a question, handling dates as facts; three written questions\n• Nothing docketed; tort SOL not used as a UM deadline; John's explanation procedural only",
-      "ask": "Why are the calendar entries drafted and held instead of docketed today?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: $8,000 / $20,000 and $6,000 / $10,000; Harbor Point's clause quoted, not paraphrased; Nothing docketed before his written answer\n• The one thing to watch for: Docketing an arbitration deadline from the tort SOL"
     }
   },
   "d4m2-kc": {
@@ -252,21 +238,20 @@
     }
   },
   "d4m3-a2": {
+    "task": {
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Litigation › Exhibit index, number the exhibits C-1 onward with their Bates ranges, leading with the BI exhaustion record\n• Step 2: Log the audited Lien Sheet at $7,965.00, and route the binder to Atty. Thorne"
+    },
     "case": {
-      "say": "• 05/17/2027: exhibit exchange in 16 days, Arbitration Binder not started, zero of six tabs\n• Hard date 06/02/2027, before Laura Whitcomb, Esq., on HP-26-7741 and CS-26-20355; carriers dispute damages over the gap\n• Robert Smith dismissed after Keystone tendered $10,000 at the 03/18/2027 mediation\n• Folder: pre-filing draft Complaint, grayscale doorbell stills, 09/08/2026 impasse memo, Lien Sheet with Harbor Point PIP $5,000.00, Summit Imaging $2,395.00\n• Crescent Pain & Spine's certified records, requested 05/05/2027, not in; Memorial Day weekend falls inside"
+      "say": "• Assuming the Mediation Binder is built and the 06/02/2027 exchange is close, the Arbitration Binder's exhibits need numbering\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a C-numbered binder and an audited Lien Sheet, routed"
     },
     "grade": {
-      "say": "• Arbitration standard is stricter: the award rests on these exhibits\n• Threshold first: BI used up, proved with signed documents\n• Every exhibit authenticated by its custodian's certification, logged on arrival; nothing from the confidential mediation crosses over\n• Exhibits C-1 onward, production Bates kept; the set freezes once exchanged 06/02/2027; Lien Sheet stays in Atty. Thorne's set\n• Build from the training Drive documents, send to Atty. Thorne, upload to the CMS for the audit"
-    },
-    "task": {
-      "say": "• Sort the folder into six tabs using the Exhibit index, Medical Records Requests and Lien Tracker, applying each tab's quality rule\n• Lead with the BI exhaustion record; number exhibits C-1 onward with Bates ranges; log authentication\n• Tab five shield: answer the 2021 low-back visits pressed at the 02/18/2027 deposition and the 08/05/2026 \"degenerative\" MRI reading\n• Strip the Lien Sheet to what's actually owed; flag anything privileged for Atty. Thorne\n• Call Lori Banks at Crescent: find the hold-up, get a delivery date in writing, log it"
-    },
-    "check": {
-      "say": "• Tab one: snapshot, 06/11/2027 brief slot; threshold first: $10,000 tender, consents, Limited Release, dismissal, both Coverage Letters\n• Tab two current versions only, draft gone; tab three certified RPD-26-018842, color stills from the original file\n• Tab four ties $14,817.40 to certified bills; tab five pairs the 2021 records with the MRI read and Causation Letter\n• Lien Sheet drops Harbor Point and Summit, leaving $7,965.00; tab six wages, $1,584.00\n• The impasse memo is privileged: flagged, never exchanged; Atty. Thorne decides"
+      "say": "• The Grade-A standard, for this side exercise: Threshold exhibits first, nothing from the Mediation Statement\n• And Liens: $1,860.00 + $6,105.00 = $7,965.00\n• Only the logged entry is graded, under the assumption on the slide"
     },
     "audit": {
-      "say": "• The desk's exhibit index from 05/14/2027; Harbor Point is now the other side\n• For each exhibit: decide its tab or withhold it, applying the quality check while sorting\n• Confidential Mediation Statement sits at C-2; no provider certifications requested; authentication log not started\n• Tab one has no exhaustion record proving BI is gone\n• Lien Sheet claims $5,000 for Harbor Point, which gave up reimbursement in writing in March; at least one more problem remains",
-      "ask": "Harbor Point is the opponent now. What changes about what gets sent?"
+      "say": "• The finished set, for reference: the side exercise asks only for the two steps, not the whole audit\n• Have them check theirs for this: Liens: $1,860.00 + $6,105.00 = $7,965.00"
+    },
+    "check": {
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Threshold exhibits first, nothing from the Mediation Statement; Liens: $1,860.00 + $6,105.00 = $7,965.00; Draft removed; impasse memo flagged\n• The one thing to watch for: Conceding a reimbursement right the carrier gave up"
     }
   },
   "d4m3-kc": {
@@ -324,27 +309,25 @@
     }
   },
   "d4m4-a1": {
-    "case": {
-      "say": "• 02/22/2027: Riverton Spine & Rehab's Final Ledger, its full list of charges, requested 02/08/2027, is 14 days overdue: a bottleneck\n• The Mediation Binder needs it; due to Hon. Carla Benton (Ret.) 03/11/2027, session 03/18/2027\n• Keystone's attendee and authority unconfirmed; the file has no countermeasure rules, automatic alarms for silence\n• Demand-stage audit: Riverton $6,105.00, 33 visits at $185.00; Peach State paid $1,860.00 on Crescent's $3,400.00\n• Calibrate first: enter the Keystone dates and watch Rule 1 fire 09/02 and 09/04"
-    },
     "task": {
-      "say": "• Set four rules in the CMS under Tasks, Countermeasure rules, with the Calendar and Risk Flags\n• Rule 1, silence: follow-ups every 5 business days; 48 hours after the second, supervisor; 48 more, Atty. Thorne\n• Rule 2: record not received 14 days after request gets a second request and a subpoena flag for him\n• Rule 3: a hard date 10 days out with something missing gets a red flag\n• Rule 4: 48-Hour Mandate audit before every hard date, with fallback; holiday moves it earlier; calibrate, then fire all four"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Tasks › Countermeasure rules\n• Set a second request for the late record and the 48-hour audit, each with a date and an owner\n• Step 2: Log the red flags for 03/01/2027 and 03/08/2027 in CMS › Case File › Risk Flags"
+    },
+    "case": {
+      "say": "• Assuming the binder is due 03/11/2027 and Riverton's ledger, requested 02/08/2027, hasn't arrived, the countermeasure rules need setting\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Countermeasures set, every firing dated and owned"
     },
     "check": {
-      "say": "• Calibration: Rule 1 fires 09/02/2026 and 09/04/2026, memo 09/08\n• Rule 2 fires 02/22/2027, 02/08 plus 14: Notice of Delay, second request; subpoena flag is a question for Atty. Thorne\n• Rule 3 red flags 03/01/2027 for the ledger, 03/08/2027 for Keystone's attendee with authority; Rule 4 audits 03/09 and 03/16/2027\n• Peach State's $1,860.00 closes Crescent's bill; the $1,540.00 written off is never a lien\n• Fallback: the $6,105.00 interim ledger until the Final Ledger arrives",
-      "ask": "Which firing date would you double-check first, and why that one?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Rule 2 fires 02/22/2027: Notice of Delay sent; Red flags 03/01/2027 and 03/08/2027; Audits 03/09/2027 and 03/16/2027\n• The one thing to watch for: Waiting for the perfect ledger instead of escalating"
     }
   },
   "d4m4-a2": {
-    "case": {
-      "say": "• Monday 05/24/2027: nine days to the 06/02/2027 exhibit exchange before Laura Whitcomb, Esq.; five open items\n• One: Crescent Pain & Spine's certified records for the 05/15/2026 injection, requested 05/05, second request 05/19, nothing\n• Two: Dr. Reyes's declaration shielding the 2021 low-back visits; Lakeside says she's away until 06/01/2027\n• Three: Teresa Okafor, Cardinal State, hasn't confirmed format or exchange method; 05/21 supervisor escalation unanswered\n• Four: Riverton's refreshed ledger shows the $6,290.00 duplicate again; five: grayscale stills, scans not OCR-searchable"
-    },
     "task": {
-      "say": "• Sort all five in the CMS: Conflict Resolver (calendar checker), Bottleneck Log (stuck items), Tasks, Escalate\n• For each: the hard date threatened, the ladder step reached, the countermeasure that applies\n• Order them: what goes to Atty. Thorne first, what to fix today, what the 48-hour audit checks and when\n• One bottleneck report sent 05/24/2027: five fields and one ask per item needing his decision\n• Call Teresa Okafor: ask if Cardinal State has a lawyer, confirm format and exchange in writing, no gap or value talk"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log one bottleneck report in CMS › Case File › Bottleneck Log, nearest hard date first, with one ask per item\n• Step 2: Send it in CMS › Tasks › Escalate, and date the 48-hour audit"
+    },
+    "case": {
+      "say": "• Assuming five problems threaten the 06/02/2027 exhibit exchange and Atty. Thorne must decide three of them, one report needs sending\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: One five-field report, sent 05/24/2027"
     },
     "check": {
-      "say": "• Every item maps to the 06/02/2027 exchange, inside the red-flag window\n• Items one to three to Atty. Thorne first, one report on 05/24/2027, nearest hard date first\n• Item three: check CMS Parties for a lawyer; never email the arbitrator; 48 hours ran out Sunday, so step three today\n• Item four: keep $6,105.00, duplicate documented; item five: reprint in color, make scans searchable; audit Friday 05/28/2027\n• Item one's real cause: the firm's own late request",
-      "ask": "Why does the 48-hour audit move to Friday 05/28/2027 instead of the following Tuesday?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Items 1–3 in one report, nearest date first; Audit Fri 05/28/2027: Memorial Day moves it; Nothing decided that is Atty. Thorne's\n• The one thing to watch for: Escalating the grayscale reprint while sitting on the certification"
     }
   },
   "d4m4-kc": {
@@ -381,27 +364,25 @@
     }
   },
   "d4m2-medcal": {
-    "case": {
-      "say": "• Friday 01/08/2027: Notice of Mediation filed; mediation is a meeting where a neutral helps both sides try to settle\n• Hon. Carla Benton (Ret.), chosen from four windows collected 12/17, Thursday 03/18/2027 at 9:30 a.m., in person at her office\n• Statement and binder due 7 days before; John Doe must attend\n• 12/10 order of referral: each party and lead counsel attend; Keystone sends someone with full settlement authority\n• Fees split equally, firm's half $1,200.00; \"completed by 03/31/2027\" already calendared"
-    },
     "task": {
-      "say": "• Work in the Calendaring Simulators; mirror everything to the CMS Calendar\n• Verify the trigger, the document a deadline counts from; 03/18 sits 13 days inside 03/31: link it, close the windows task\n• Enter the session with attendees; count back: binder 03/11, approval 03/09, binder QC 03/04, draft index 03/02\n• Count forward to the mediator's report on 03/25; get John's written confirmation and reminders; cost task for $1,200.00\n• Flag: Harbor Point and Cardinal State must consent in writing before any BI settlement"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in the CMS Calendar: the session with its attendees\n• The statement and binder due 03/11/2027, and the mediator's report watch on 03/25/2027\n• Step 2: Open a task for the $1,200.00 fee as a case cost and flag the UM consent question to Atty. Thorne"
+    },
+    "case": {
+      "say": "• Assuming the mediation is set for 03/18/2027 at 9:30 a.m. and the binder is due 7 days before, the dates must be logged\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a trigger-counted mediation calendar and a same-day summary to Atty. Thorne"
     },
     "check": {
-      "say": "• Session once, Thursday 03/18/2027, 9:30 a.m., linked to the 03/31 deadline, not duplicated\n• Statement and binder Thursday 03/11, no roll; approval Tuesday 03/09, QC Thursday 03/04, draft index Tuesday 03/02; report 03/25\n• John's confirmation requested today, tickler 01/15\n• Fee: half of $2,400.00, advanced costs $989.75 to $2,189.75, only once the invoice is receipted\n• UM flag with arithmetic: 30 days from a 03/18 notice runs to Saturday 04/17",
-      "ask": "The 03/15 expert disclosure falls between binder and session. Who needs to hear, and by when?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Statement and binder due 03/11/2027 (Thu); Mediator's report watched on 03/25/2027\n• Fee $1,200.00, half of $2,400.00; Fee task opened; UM consent question flagged to Atty. Thorne\n• The one thing to watch for: Contacting the UM carriers without Atty. Thorne"
     }
   },
   "d4m2-arbcal": {
-    "case": {
-      "say": "• Monday 04/26/2027: Laura Whitcomb's scheduling letter sets the consolidated UM arbitration for Tuesday 06/22/2027, 9:00 a.m.\n• Arbitration: a private hearing where a neutral decides; consolidated: both UM carriers in one hearing\n• Exhibits and witness lists exchanged 20 days before, briefs 10 days before; plaintiff's fee share $900.00\n• Keystone's $10,000 tendered at the 03/18/2027 mediation; Robert Smith out of the case\n• Master calendar still shows the 12/10/2026 Scheduling Order's court dates and the SOL entries"
-    },
     "task": {
-      "say": "• In Court E-Filing, the master deadline calendar, enter the hearing; re-anchor exchange and brief to the letter, not the 04/05 memo\n• In the Calendaring Simulators, count back: draft index, binder QC opening, last day for certified-records requests, their chase\n• Hold John's attendance confirmation, Atty. Thorne's prep session and the tech check on the CMS Calendar\n• Route the $900.00 to accounting as a case cost\n• Check the master calendar: SOL entries stay; court dates go to Atty. Thorne as a question"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in the CMS Calendar: the hearing, exhibits 06/02/2027, the brief 06/11/2027, and records requests out by 05/03/2027\n• Step 2: Route the $900.00 fee share to accounting as a case cost, and ask Atty. Thorne in writing which old court dates stay"
+    },
+    "case": {
+      "say": "• Assuming Laura Whitcomb's letter sets the hearing for 06/22/2027 at 9:00 a.m\n• With exhibits due 20 days before and the brief 10, the dates must be logged\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a letter-anchored calendar, every date with its rule, questions to Atty. Thorne"
     },
     "check": {
-      "say": "• Hearing 06/22/2027, 9:00 a.m.; exchange 06/02/2027; brief Friday 06/11/2027, rolled earlier from Saturday, never Monday 06/14\n• Binder QC opens Monday 05/17/2027; draft index Friday 05/14; records requests out Monday 05/03/2027, 14-day custodian window, chase ticklers\n• John's attendance confirmed in writing by 04/28/2027; prep session proposed 06/15; tech check 06/21\n• $900.00 logged as a case cost\n• SOL hard date 02/04/2028 and cutoff 11/05/2027 untouched; court dates kept, marked, asked about",
-      "ask": "Why is there no calendar entry for the award date?"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Brief 06/11/2027 (Fri), exhibits 06/02/2027, from the letter; Records requests out by 05/03/2027 (Mon)\n• Hearing 06/22/2027, 9:00 a.m. on the Calendar; $900.00 fee share logged as a case cost; Court dates kept, flagged for Atty. Thorne; SOL dates unchanged\n• The one thing to watch for: Deleting a court date without Atty. Thorne's answer"
     }
   },
   "d4m3-tx": {

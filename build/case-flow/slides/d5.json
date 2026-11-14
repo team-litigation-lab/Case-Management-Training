@@ -523,19 +523,21 @@
   },
   "d5-drive": {
     "image": "checklist-qa",
-    "situation": "Assuming the award is **disbursed** and the file waits on Atty. Thorne's sign-off, the backup needs its final audit.",
-    "side": true,
+    "situation": "07/30/2027, 3:00 p.m. The award is **disbursed**, and the file waits on **Atty. Thorne's sign-off**.",
     "steps": [
-      "File the litigation and ADR papers in the CMS so they reach **09 Litigation & ADR**, then run ✓ Check my drive.",
-      "Log the closing checklist in CMS → Case Notes for Atty. Thorne's sign-off."
+      "File the litigation and ADR papers in the CMS so they reach **09 Litigation & ADR**.",
+      "Run ✓ Check my drive and confirm the drive holds every document filed in the CMS, across all nine folders.",
+      "Write the closing checklist in Case Notes for Atty. Thorne's sign-off. Do not move the folder in your training drive."
     ],
     "deliver": "A complete, checked backup **ready to close**",
     "purpose": "Years later, **anyone can find any page**",
     "principle": "A file closes on **sign-off, not on payment**",
     "checks": [
       "Litigation papers in **09 Litigation & ADR**",
+      "**Every filed document** backed up",
+      "Drafts and superseded versions **labeled**",
       "**✓ Check my drive**: no folder missing",
-      "Closing checklist ends in **sign-off**"
+      "Closing checklist ends in **sign-off and the move**"
     ],
     "dos": [
       "Close the backup **by the standard**"

@@ -596,19 +596,19 @@ window.CM_DECK_SLIDES = {
    "page": 6,
    "title": "The Net Sheet: Two Recovery Streams",
    "img": "/decks/day3/06.webp",
-   "notes": "So what are the two streams? Stream one is third party Bodily Injury, or BI, paid by the at fault driver's insurer. The slide names GEICO or Progressive as general examples. On our file, it's Keystone Mutual, Robert Smith's carrier, with a 10,000 dollar limit. Your focus is exhausting that limit first, because that's usually a legal prerequisite before the first party coverage opens. Keystone tendered its limit on August 12th, 2026. Stream two is first party Uninsured or Underinsured Motorist coverage, UM/UIM. The slide points to the client's own policy or a resident relative's household policy. John owns no car and has no policy of his own, so his UM comes from two places. As a passenger, he reaches Harbor Point's 20,000 dollar Host UM on Kevin Alvarez's Escape. And as a resident relative of his mother, Margaret Doe, he reaches Cardinal State's 10,000 dollar Relative UM, which stacks behind Host UM. UM triggers only when BI is exhausted, or when the tortfeasor has no insurance at all. Order matters: BI, then Host UM, then Relative UM."
+   "notes": "So what are the two streams? Stream one is third party Bodily Injury, or BI, paid by the at fault driver's insurer. On our file, that's Keystone Mutual, Robert Smith's carrier, with a 10,000 dollar limit. Your focus is exhausting that limit first, because that's usually a legal prerequisite before the first party coverage opens. Keystone tendered its limit on August 12th, 2026. Stream two is first party Uninsured or Underinsured Motorist coverage, UM/UIM. The slide points to the client's own policy or a resident relative's household policy. John owns no car and has no policy of his own, so his UM comes from two places. As a passenger, he reaches Harbor Point's 20,000 dollar Host UM on Kevin Alvarez's Escape. And as a resident relative of his mother, Margaret Doe, he reaches Cardinal State's 10,000 dollar Relative UM, which stacks behind Host UM. UM triggers only when BI is exhausted, or when the tortfeasor has no insurance at all. Order matters: BI, then Host UM, then Relative UM."
   },
   {
    "page": 7,
    "title": "The BI/UM Master Financial Ledger",
    "img": "/decks/day3/07.webp",
-   "notes": "Here's what the net sheet looks like: our LSH corporate net sheet. It reads top to bottom, the way the money flows. The slide image is a blank template, and Progressive Corporation is just its example reference. Let's fill it in with our file. Section one, the settlement recovery summary: a gross of 40,000 dollars from Keystone, Harbor Point and Cardinal State. Section two, attorney fees and advanced case expenses. The template shows 33.33 percent. John's fee is one third, 13,333 dollars and 33 cents. His case costs total 486 dollars and 75 cents, including the police report, medical records and billing, certified mail, MRI images on disc, and postage and copies. Every line on the template, from filing fees to file storage, gets checked, even if it's empty. Section three, the medical provider ledger, is where your lien work lands. For each provider you track charges, PIP, health and med pay payments, adjustments, balance owed and your max offer. John's MRI and orthopedic visits were paid by PIP, while Riverton Spine and Rehab's chiro and PT, treated under an LOP, carry the balance you negotiated."
+   "notes": "Here's what the net sheet looks like: our LSH corporate net sheet. It reads top to bottom, the way the money flows. The reference is Keystone Mutual Insurance, and the rest of the template we fill in with our file. Section one, the settlement recovery summary: a gross of 40,000 dollars from Keystone, Harbor Point and Cardinal State. Section two, attorney fees and advanced case expenses. The template shows 33.33 percent. John's fee is one third, 13,333 dollars and 33 cents. His case costs total 486 dollars and 75 cents, including the police report, medical records and billing, certified mail, MRI images on disc, and postage and copies. Every line on the template, from filing fees to file storage, gets checked, even if it's empty. Section three, the medical provider ledger, is where your lien work lands. For each provider you track charges, PIP, health and med pay payments, adjustments, balance owed and your max offer. John's MRI and orthopedic visits were paid by PIP, while Riverton Spine and Rehab's chiro and PT, treated under an LOP, carry the balance you negotiated."
   },
   {
    "page": 8,
    "title": "Case Manager Protocols for Dual Settlements",
    "img": "/decks/day3/08.webp",
-   "notes": "When a case has both BI and UM, the order of steps is everything. First, secure the BI tender in writing from the at fault carrier. Keystone tendered its 10,000 dollar limit on August 12th, 2026. Second, before John signs any BI release, send a formal Consent to Settle to the UM carriers, to protect their subrogation rights. We sent requests to Harbor Point and Cardinal State on August 13th, and their consents came in on August 24th and 26th. Only then was the Limited Release signed, on August 28th, 2026. Settling BI without those consents could have cost John the whole UM stack. Third, negotiate medical bills once, against the combined value, not provider by provider for each policy. The slide's 50,000 dollar figure is a general example. Our stack is 40,000 dollars, and that's what Peach State and Riverton Spine and Rehab negotiated against. Fourth, fill out both sides of the net sheet together and confirm the client's net matches our software ledger exactly. On our file, that's 20,359 dollars and 92 cents."
+   "notes": "When a case has both BI and UM, the order of steps is everything. First, secure the BI tender in writing from the at fault carrier. Keystone tendered its 10,000 dollar limit on August 12th, 2026. Second, before John signs any BI release, send a formal Consent to Settle to the UM carriers, to protect their subrogation rights. We sent requests to Harbor Point and Cardinal State on August 13th, and their consents came in on August 24th and 26th. Only then was the Limited Release signed, on August 28th, 2026. Settling BI without those consents could have cost John the whole UM stack. Third, negotiate medical bills once, against the combined value, not provider by provider for each policy. Our combined value is 40,000 dollars, and that's what Peach State and Riverton Spine and Rehab negotiated against. Fourth, fill out both sides of the net sheet together and confirm the client's net matches our software ledger exactly. On our file, that's 20,359 dollars and 92 cents."
   },
   {
    "page": 9,
@@ -816,7 +816,7 @@ window.CM_DECK_SLIDES = {
    "page": 29,
    "title": "Arbitration Binder Section 5: The Prior Medical Shield",
    "img": "/decks/day4/29.webp",
-   "notes": "Section five is defensive, and you build it on purpose. Defense attorneys like to take a client's old records and argue that the current injury is just a pre-existing degenerative condition. This section is your shield, ready before they make the argument. It holds the prior injury records and work history, documenting past injuries honestly. The slide's example, a 2018 strain, is a general one. Here's what our file actually shows. In John Doe versus Robert Smith, our client's only prior care was three chiropractic visits in 2021 at Birch Avenue Chiropractic, for low-back stiffness. It resolved, and he had no prior neck complaints. His injury in this case is in his neck. The section also holds the medical opinions that answer the defense. Against the word degenerative, the radiologist, Doctor Helen Park, found no significant degenerative change at the adjacent levels, and Doctor Reyes's Causation Letter ties the injury to the collision. The lesson: don't hide old injuries. Document them so they can't be used against the client."
+   "notes": "Section five is defensive, and you build it on purpose. Defense attorneys like to take a client's old records and argue that the current injury is just a pre-existing degenerative condition. This section is your shield, ready before they make the argument. It holds the prior injury records and work history, documenting past injuries honestly. In John Doe versus Robert Smith, our client's only prior care was three chiropractic visits in 2021 at Birch Avenue Chiropractic, for low-back stiffness. It resolved, and he had no prior neck complaints. His injury in this case is in his neck. The section also holds the medical opinions that answer the defense. Against the word degenerative, the radiologist, Doctor Helen Park, found no significant degenerative change at the adjacent levels, and Doctor Reyes's Causation Letter ties the injury to the collision. The lesson: don't hide old injuries. Document them so they can't be used against the client."
   }
  ],
  "d4m3-l2": [
@@ -1024,13 +1024,13 @@ window.CM_DECK_SLIDES = {
    "page": 9,
    "title": "Deposition Prep: The Pre-Deposition Audit",
    "img": "/decks/day5/09.webp",
-   "notes": "Let's go deeper on depositions, because a client's testimony can shape the outcome of the case. Before any prep meeting, the file gets a careful audit. What you're hunting for are landmines, anything the defense can use to make the client look dishonest, so counsel sees them first. Start with prior medical history. The slide's example is a back injury from 2018. On our file, it's real: John had three chiropractic visits in 2021 for low-back stiffness, which resolved. The defense will ask about them, and John's answers have to be open and accurate so it never looks like he hid them. Next, re-read the interrogatory answers the client already signed. What John says out loud has to match what he swore to in writing in his discovery responses, because consistency is what makes a witness believable. And check the client's public social media. If a client claims a serious injury but posts photos of a hike or a night of dancing, your attorney needs to know right away. Your job is to find these things and flag them, not to decide what to do about them."
+   "notes": "Let's go deeper on depositions, because a client's testimony can shape the outcome of the case. Before any prep meeting, the file gets a careful audit. What you're hunting for are landmines, anything the defense can use to make the client look dishonest, so counsel sees them first. Start with prior medical history. On our file, John had three chiropractic visits in 2021 for low-back stiffness, which resolved. The defense will ask about them, and John's answers have to be open and accurate so it never looks like he hid them. Next, re-read the interrogatory answers the client already signed. What John says out loud has to match what he swore to in writing in his discovery responses, because consistency is what makes a witness believable. And check the client's public social media. If a client claims a serious injury but posts photos of a hike or a night of dancing, your attorney needs to know right away. Your job is to find these things and flag them, not to decide what to do about them."
   },
   {
    "page": 10,
    "title": "Discovery Intake Meeting: Pillar 1, De-escalating Anxiety",
    "img": "/decks/day5/10.webp",
-   "notes": "Once the audit is done, the client comes in, or joins by video, for the prep meeting. The slide organizes that meeting around three pillars. On our file, Attorney Thorne leads the deposition prep sessions, on February 4th and February 16th, 2027, and you run the logistics, the technology check and the document set. Keep that division in mind as we go through the pillars. The first pillar is calming the client down. Why does that matter so much? Because most people's picture of the legal system comes from television, with angry judges and shouting lawyers, and a nervous witness makes more mistakes. The slide's script uses a general name. For our client, it goes like this: Mr. Doe, this is not a courtroom drama. There's no judge, no jury, and no shouting. It's a business meeting where the other side hears your story, and for John, that meeting happens by video. And the line that tends to land best: you can't lose your case today, but you can protect it by staying composed."
+   "notes": "Once the audit is done, the client comes in, or joins by video, for the prep meeting. The slide organizes that meeting around three pillars. On our file, Attorney Thorne leads the deposition prep sessions, on February 4th and February 16th, 2027, and you run the logistics, the technology check and the document set. Keep that division in mind as we go through the pillars. The first pillar is calming the client down. Why does that matter so much? Because most people's picture of the legal system comes from television, with angry judges and shouting lawyers, and a nervous witness makes more mistakes. The script on the slide goes like this: Mr. Doe, this is not a courtroom drama. There's no judge, no jury, and no shouting. It's a business meeting where the other side hears your story, and for John, that meeting happens by video. And the line that tends to land best: you can't lose your case today, but you can protect it by staying composed."
   },
   {
    "page": 11,
@@ -1632,67 +1632,67 @@ window.CM_DAY_VIDEOS = {
     "title": "The Net Sheet: Two Recovery Streams"
    },
    {
-    "t": 433.7,
+    "t": 429,
     "page": 7,
     "title": "The BI/UM Master Financial Ledger"
    },
    {
-    "t": 515.2,
+    "t": 508.2,
     "page": 8,
     "title": "Case Manager Protocols for Dual Settlements"
    },
    {
-    "t": 586.9,
+    "t": 577.2,
     "page": 9,
     "title": "Key Takeaway: The Value of a CM"
    },
    {
-    "t": 658.2,
+    "t": 648.4,
     "page": 11,
     "title": "Disbursement: Core Objectives"
    },
    {
-    "t": 726.5,
+    "t": 716.7,
     "page": 12,
     "title": "Disbursement: The Workflow"
    },
    {
-    "t": 797.2,
+    "t": 787.5,
     "page": 13,
     "title": "Disbursement: Documentation Checklist"
    },
    {
-    "t": 861.8,
+    "t": 852,
     "page": 14,
     "title": "Disbursement: Common Challenges and Mitigation"
    },
    {
-    "t": 921.7,
+    "t": 911.9,
     "page": 15,
     "title": "Final Case Reconciliation: The Net Sheet"
    },
    {
-    "t": 988.9,
+    "t": 979.2,
     "page": 16,
     "title": "Final Case Reconciliation: Proof of Delivery"
    },
    {
-    "t": 1060.7,
+    "t": 1051,
     "page": 17,
     "title": "Final Case Reconciliation: Compliance and Identity"
    },
    {
-    "t": 1121,
+    "t": 1111.3,
     "page": 18,
     "title": "Final Case Reconciliation: The Closing Memo"
    },
    {
-    "t": 1188.3,
+    "t": 1178.5,
     "page": 19,
     "title": "Final Case Reconciliation: Retention Schedule"
    },
    {
-    "t": 1246.3,
+    "t": 1236.6,
     "page": 20,
     "title": "Thank You!"
    }
@@ -1834,27 +1834,27 @@ window.CM_DAY_VIDEOS = {
     "title": "Arbitration Binder Section 5: The Prior Medical Shield"
    },
    {
-    "t": 1520.8,
+    "t": 1513.8,
     "page": 30,
     "title": "Arbitration Binder Section 6: Economic Losses & Liens"
    },
    {
-    "t": 1581.2,
+    "t": 1574.2,
     "page": 33,
     "title": "Mediation Bottlenecks: The Compromise Traps"
    },
    {
-    "t": 1641.9,
+    "t": 1634.9,
     "page": 34,
     "title": "Arbitration Bottlenecks: The Trial-Ready Landmines"
    },
    {
-    "t": 1700,
+    "t": 1693,
     "page": 35,
     "title": "Case Manager Operational Countermeasures"
    },
    {
-    "t": 1753.4,
+    "t": 1746.4,
     "page": 36,
     "title": "Thank You!"
    }
@@ -1911,162 +1911,162 @@ window.CM_DAY_VIDEOS = {
     "title": "Deposition Prep: The Pre-Deposition Audit"
    },
    {
-    "t": 565.4,
+    "t": 560.1,
     "page": 10,
     "title": "Discovery Intake Meeting: Pillar 1, De-escalating Anxiety"
    },
    {
-    "t": 629.5,
+    "t": 621.1,
     "page": 11,
     "title": "Pillar 2: Essential Testimony Guidelines"
    },
    {
-    "t": 695.6,
+    "t": 687.2,
     "page": 12,
     "title": "Pillar 3: Dress Code & Professional Demeanor"
    },
    {
-    "t": 751.9,
+    "t": 743.5,
     "page": 13,
     "title": "Silent Traps — Drill A: The “Is That All?” Trap"
    },
    {
-    "t": 807.8,
+    "t": 799.4,
     "page": 14,
     "title": "Silent Traps — Drill B: The Thoughtful Silence"
    },
    {
-    "t": 857.6,
+    "t": 849.3,
     "page": 15,
     "title": "Checklist: The Day Before the Deposition"
    },
    {
-    "t": 922.3,
+    "t": 914,
     "page": 16,
     "title": "What Will the Defense Attorney Ask Me?"
    },
    {
-    "t": 984.3,
+    "t": 975.9,
     "page": 17,
     "title": "The 7 Golden Rules for Testifying: Rules 1–3"
    },
    {
-    "t": 1046.8,
+    "t": 1038.4,
     "page": 18,
     "title": "Golden Rules 4 & 5"
    },
    {
-    "t": 1100.2,
+    "t": 1091.9,
     "page": 19,
     "title": "Golden Rules 6 & 7"
    },
    {
-    "t": 1152,
+    "t": 1143.6,
     "page": 20,
     "title": "Professional Presentation: Dress Code & Demeanor"
    },
    {
-    "t": 1216.9,
+    "t": 1208.5,
     "page": 21,
     "title": "What Happens When Your Lawyer Objects?"
    },
    {
-    "t": 1277,
+    "t": 1268.6,
     "page": 22,
     "title": "Litigation Toolkit: The Complaint / Petition"
    },
    {
-    "t": 1343.7,
+    "t": 1335.3,
     "page": 23,
     "title": "Core Document: The Answer"
    },
    {
-    "t": 1411.4,
+    "t": 1403.1,
     "page": 24,
     "title": "Core Document: Interrogatories"
    },
    {
-    "t": 1459.8,
+    "t": 1451.4,
     "page": 25,
     "title": "Core Document: Requests for Production"
    },
    {
-    "t": 1505.2,
+    "t": 1496.8,
     "page": 26,
     "title": "Core Document: Requests for Admission"
    },
    {
-    "t": 1555.9,
+    "t": 1547.5,
     "page": 27,
     "title": "Critical Processes 1 & 2: Service and Docketing"
    },
    {
-    "t": 1621.3,
+    "t": 1613,
     "page": 28,
     "title": "Critical Process 3: Third-Party Subpoenas"
    },
    {
-    "t": 1679.6,
+    "t": 1671.2,
     "page": 29,
     "title": "The 3 Golden Rules of File Maintenance"
    },
    {
-    "t": 1749.7,
+    "t": 1741.3,
     "page": 30,
     "title": "KPIs for Document Management"
    },
    {
-    "t": 1805,
+    "t": 1796.6,
     "page": 31,
     "title": "Deep-Dive: The Complaint / Petition"
    },
    {
-    "t": 1881.2,
+    "t": 1872.8,
     "page": 32,
     "title": "Written Discovery: Interrogatories, RFPs, and RFAs"
    },
    {
-    "t": 1949.4,
+    "t": 1941.1,
     "page": 33,
     "title": "Master Timeline & Deadline Calculations"
    },
    {
-    "t": 2020.7,
+    "t": 2012.3,
     "page": 34,
     "title": "The Process Server & Evading Defendant Protocol"
    },
    {
-    "t": 2090.6,
+    "t": 2082.3,
     "page": 35,
     "title": "Subpoena Duces Tecum: Execution Strategy"
    },
    {
-    "t": 2155,
+    "t": 2146.6,
     "page": 36,
     "title": "Litigation File Architecture"
    },
    {
-    "t": 2216.7,
+    "t": 2208.4,
     "page": 37,
     "title": "Advanced KPIs for Litigation Case Managers"
    },
    {
-    "t": 2275.6,
+    "t": 2267.2,
     "page": 39,
     "title": "Property Damage: Types of Damages You Can Recover"
    },
    {
-    "t": 2348.5,
+    "t": 2340.1,
     "page": 40,
     "title": "Calculating the Value: The “Lesser Of” Rule"
    },
    {
-    "t": 2413,
+    "t": 2404.7,
     "page": 41,
     "title": "Calculating the Value: Sentimental or Special Value"
    },
    {
-    "t": 2473,
+    "t": 2464.6,
     "page": 42,
     "title": "Thank You!"
    }

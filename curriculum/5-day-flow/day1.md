@@ -29,7 +29,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
 
 **Module 1 — Fundamentals, Intake & Treatment**
 
@@ -50,7 +50,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 15. *Lesson* — The Standard Treatment Map: Phases, Timelines & Course Correction
 16. *Lesson* — Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
 17. *Skill Activity* — Opening John Doe's File in the CMS (practises: Case Phase: Intake & the Intake Bottlenecks) — **Skill Building**
-18. *Skill Activity* — Backup File Maintenance: the Firm's Folders and Hierarchy (practises: Case Phase: Intake & the Intake Bottlenecks) — *side*
+18. *Skill Activity* — Backup File Maintenance: the Firm's Folders and Hierarchy (practises: Case Phase: Intake & the Intake Bottlenecks) — **Required: Backup File Maintenance**
 19. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet (practises: Case Phase: Intake & the Intake Bottlenecks) — *side*
 20. *Skill Activity* — Onboarding Direction Assignment in System (practises: Case Phase: Intake & the Intake Bottlenecks) — *side*
 21. *Skill Activity* — Policy Stack & Coverage Verification (practises: Claim Set Up: Coverage, Liability & the Case Plan) — *side*
@@ -77,7 +77,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 ## Module 1 — Fundamentals, Intake & Treatment
 
-**Order:** Lessons (16) ➔ Case Profile (Meet John Doe & Intake) ➔ Skill Building (Opening John Doe's File in the CMS) ➔ Update Your Action Plan ➔ Practice Lab (15 optional side exercises) ➔ Knowledge Check (5 Learning Checks)
+**Order:** Lessons (16) ➔ Case Profile (Meet John Doe & Intake) ➔ Skill Building (Opening John Doe's File in the CMS) ➔ Backup File Maintenance (required) ➔ Update Your Action Plan ➔ Practice Lab (14 optional side exercises) ➔ Knowledge Check (5 Learning Checks)
 
 ### 1.1.1 The Case Manager's Role
 

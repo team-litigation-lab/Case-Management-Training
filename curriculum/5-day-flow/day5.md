@@ -28,7 +28,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
 
 **Module 5 — Litigation & Property Damage**
 
@@ -55,7 +55,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 21. *Skill Activity* — Building the Comparative Liability Counter-Package (practises: Comparative Negligence & the Liability Counter-Package) — *side*
 22. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch (practises: The Process Server & the Evading Defendant) — *side*
 23. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award (practises: Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund) — *side*
-24. *Skill Activity* — Backup File Maintenance: the Final Audit and the Close-Out (practises: Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund) — *side*
+24. *Skill Activity* — Backup File Maintenance: the Final Audit and the Close-Out (practises: Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund) — **Required: Backup File Maintenance**
 25. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log (practises: Dropped Cases: the Case Manager's Close-Out) — *side*
 26. *Knowledge Check* — Litigation Fork Transition Check
 27. *Knowledge Check* — Litigation Support Assessment
@@ -71,7 +71,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 ## Module 5 — Litigation & Property Damage
 
-**Order:** Lessons (12) ➔ Case Profile ➔ Skill Building (the Full Application Practice) ➔ Update Your Action Plan ➔ Practice Lab (13 optional side exercises) ➔ Knowledge Check (7 Learning Checks)
+**Order:** Lessons (12) ➔ Case Profile ➔ Skill Building (the Full Application Practice) ➔ Backup File Maintenance (required) ➔ Update Your Action Plan ➔ Practice Lab (12 optional side exercises) ➔ Knowledge Check (7 Learning Checks)
 
 ### 5.1.1 Litigation: Pleadings, Discovery & File Maintenance
 

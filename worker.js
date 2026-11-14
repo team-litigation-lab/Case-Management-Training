@@ -355,7 +355,7 @@ const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|
 // {<alert key>: {at, by}}}. Admin-only on purpose, both ways: it is in neither OWN nor PUBLIC_READ, so a trainee can't
 // read it, and traineeWrite refuses it, so a trainee can't mark their own alert resolved.
 const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`, `actsub:${id}`];
-const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt", "portalUid"];
+const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt", "portalUid", "kcReset"];
 const IDENTITY_TRAINEE_FIELDS = ["name", "firstName", "lastName", "batch"];
 const ADMIN_OWNED_TRAINEE_FIELDS = PROTECTED_TRAINEE_FIELDS.concat(IDENTITY_TRAINEE_FIELDS);
 
@@ -380,7 +380,72 @@ function forTrainee(tok, key, raw) {
 }
 // ✍️ One attempt per Knowledge Check (js/cm-kc-once.js), held here too: on a trainee's own write to trainee:<id>, a day
 // that already has an attempt on the stored record keeps it. Its first attempt (history[0]), and the score, done and
-// date the record holds, stay as stored; the history never gets shorter. A trainer's write (an admin) isn't limited.
+// date the record holds, stay as stored; the history stays as stored (never shorter, and a refused attempt isn't added).
+// A trainer's write (an admin) isn't limited.
+// 🔁 A trainer's "Reset Knowledge Check" (js/cm-kc-reset.js) is set here, by the Worker (kcResetApi, /api/kc-reset):
+// kcReset[<dayId>] = {at, by, n, log: [{at, by, n}, …]} on the record (protected: a trainee can't write it). `at` is the
+// Worker's clock, `by` the signed-in trainer, and `n` the number of attempts the day held when it was reset. Attempts
+// are counted, never compared by date (a trainee's or a trainer's clock can be off): a reset is open while the day
+// holds exactly `n` attempts, and it then allows exactly ONE new attempt (the trainee's write may add one history
+// entry, which the Worker dates); the day keeps the best score (nothing recalculated) and is done if either passed.
+// (A reset written before `n` was kept is judged by its date, as it was then.)
+const kcAttempts = (p) => !p || typeof p !== "object" ? 0 : Array.isArray(p.history) && p.history.length ? p.history.length : typeof p.score === "number" ? 1 : 0;
+// the stored history, or for a record from before history was kept, its one attempt as the first entry
+const kcHistory = (p) => Array.isArray(p.history) && p.history.length ? p.history : typeof p.score === "number" ? [{ score: p.score, passed: !!p.done, date: p.date || null }] : [];
+function kcResetOpen(rs, p) {
+  if (!rs || typeof rs !== "object" || !kcAttempts(p)) return false;
+  if (Number.isInteger(rs.n)) return kcAttempts(p) === rs.n;
+  const rAt = Date.parse(rs.at); if (!Number.isFinite(rAt)) return false;
+  const h = kcHistory(p), first = Date.parse((h[0] && h[0].date) || "");
+  return !(Number.isFinite(first) && first >= rAt) && !h.some((x) => x && Date.parse(x.date) > rAt);
+}
+function kcRetake(p, prevH, n, rs) {
+  if (!kcResetOpen(rs, p)) return null;
+  const seeded = kcHistory(p);   // (a legacy record's one attempt kept as history[0], so it is never lost)
+  const h = Array.isArray(n.history) ? n.history : [];
+  // exactly one new attempt: the stored ones and one more (a legacy record's page may send the new one alone)
+  const legacyOne = !prevH.length && h.length === 1 && h[0] && h[0].date !== p.date;
+  if (h.length !== seeded.length + 1 && !legacyOne) return null;
+  const x = h[h.length - 1];
+  if (!x || typeof x !== "object" || typeof x.score !== "number" || !Number.isFinite(x.score) || x.score < 0 || x.score > 100) return null;
+  // (dated by the Worker's clock, not the trainee's)
+  const rAt = Date.parse(rs.at), add = { score: Math.round(x.score), passed: x.score >= 70, date: new Date(Math.max(Date.now(), Number.isFinite(rAt) ? rAt + 1 : 0)).toISOString() };
+  if (Array.isArray(x.answers) && x.answers.length <= 200 && x.answers.every((y) => y === null || Number.isInteger(y))) add.answers = x.answers;
+  const best = typeof p.score === "number" ? Math.max(p.score, add.score) : add.score;
+  return { history: seeded.concat([add]), score: best, done: !!p.done || add.passed, date: add.date };
+}
+// who the signed-in trainer is: a trainer from the Portal by name (their token carries it), else the admin password
+const trainerWho = (tok) => tok && /^admin:./.test(tok.id || "") ? String(tok.id).slice(6, 86) : tok && tok.id === "open-mode" ? "Trainer (open mode)" : "Trainer (admin password)";
+// /api/kc-reset {traineeId, dayId}: a trainer's reset, set on the stored record here (read just before the write, and only
+// kcReset changed), so a trainee's save meanwhile is not overwritten by a copy of the record the trainer's page held
+async function kcResetApi(env, tok, b) {
+  if (tok.role !== "a") return { status: 403, body: { error: "Only a trainer can reset a Knowledge Check." } };
+  const id = typeof b.traineeId === "string" ? b.traineeId.slice(0, 120) : "", day = String(parseInt(b.dayId, 10));
+  if (!id || day === "NaN") return { status: 400, body: { error: "traineeId and dayId are required." } };
+  const kv = kvOf(env), key = `trainee:${id}`;
+  let rec = null; try { rec = JSON.parse((await kv.get(key)) || "null"); } catch (e) { rec = null; }
+  if (!rec || typeof rec !== "object") return { status: 404, body: { error: "No trainee with that id." } };
+  const p = (rec.dayProgress || {})[day], n = kcAttempts(p);
+  if (!n) return { status: 400, body: { error: "No Knowledge Check attempt on that day to reset." } };
+  const cur = (rec.kcReset || {})[day];
+  if (kcResetOpen(cur, p)) return { status: 409, body: { error: "Already reopened: waiting for the new attempt.", kcReset: cur } };
+  const entry = { at: new Date().toISOString(), by: trainerWho(tok), n };
+  const log = (cur && Array.isArray(cur.log) ? cur.log : cur ? [{ at: cur.at, by: cur.by }] : []).concat([entry]).slice(-50);
+  rec.kcReset = Object.assign({}, rec.kcReset || {}, { [day]: Object.assign({}, entry, { log }) });
+  await ownerPut(kv, key, JSON.stringify(rec));
+  return { status: 200, body: { ok: true, kcReset: rec.kcReset[day], open: kcResetOpen(rec.kcReset[day], p) } };
+}
+// a trainer's write of a whole trainee record (approving, unlocking …) from a copy loaded earlier keeps the resets the
+// Worker set since: a day's reset log is never shortened by it
+async function keepKcResets(kv, key, value) {
+  let inc, ex; try { inc = JSON.parse(value); ex = JSON.parse((await kv.get(key)) || "null"); } catch (e) { return value; }
+  if (!inc || typeof inc !== "object" || !ex || !ex.kcReset || typeof ex.kcReset !== "object") return value;
+  const len = (r) => r && Array.isArray(r.log) ? r.log.length : r ? 1 : 0;
+  let changed = false; const out = Object.assign({}, inc.kcReset || {});
+  Object.entries(ex.kcReset).forEach(([d, r]) => { if (len(r) > len(out[d])) { out[d] = r; changed = true; } });
+  if (!changed) return value;
+  inc.kcReset = out; return JSON.stringify(inc);
+}
 function keepKcAttempts(existing, merged) {
   const was = existing && existing.dayProgress;
   if (!was || typeof was !== "object") return;
@@ -390,12 +455,15 @@ function keepKcAttempts(existing, merged) {
     const prevH = Array.isArray(p.history) ? p.history : [];
     if (!prevH.length && typeof p.score !== "number") continue;   // no attempt yet: the trainee's write stands
     const n = now[d] && typeof now[d] === "object" ? Object.assign({}, now[d]) : {};
+    const retake = kcRetake(p, prevH, n, existing.kcReset && existing.kcReset[d]);
+    if (retake) { now[d] = Object.assign(n, retake); continue; }
     let h = Array.isArray(n.history) ? n.history.slice() : [];
     if (h.length < prevH.length) h = prevH.slice();
     // (the first attempt's own picks, for its Answer Review, may be added once: they change no score)
     const ans = h[0] && Array.isArray(h[0].answers) && h[0].answers.length <= 200 && h[0].answers.every((x) => x === null || Number.isInteger(x)) ? h[0].answers : null;
     if (prevH.length) h[0] = prevH[0] && typeof prevH[0] === "object" && !prevH[0].answers && ans ? Object.assign({}, prevH[0], { answers: ans }) : prevH[0];
-    n.history = h;
+    // (a refused attempt is not added: the history stays as stored, a reset's one retake comes through kcRetake)
+    n.history = prevH.length ? [h[0]].concat(prevH.slice(1)) : h;
     ["score", "done", "date"].forEach((f) => { if (f in p) n[f] = p[f]; else delete n[f]; });
     now[d] = n;
   }
@@ -1893,7 +1961,7 @@ export default {
           // trainer, with no second password here. Their ticket works once, so a copy of the link (browser history,
           // a forwarded URL) can't sign anyone in again inside its 5 minutes.
           if (!(await useTicketOnce(env, kv, ticket))) return json({ error: "This sign-in link was already used. Open the program again from the LSH Training Portal.", code: "used" }, 401);
-          return json({ admin: true, name: who.name, token: await makeToken(env, "a", "admin", 12) });
+          return json({ admin: true, name: who.name, token: await makeToken(env, "a", who.name ? "admin:" + String(who.name).replace(/[.]/g, " ").slice(0, 80) : "admin", 12) });   // (the token names the trainer: kcReset's `by`)
         }
         let res = await traineeSession(who.name, who.batch, "");
         if (res.status !== 200) return res;   // 🚫 (blocked: access-offboarded)
@@ -2190,6 +2258,9 @@ export default {
         return json({ batch: me ? me.batch : "", trainees: out });
       }
 
+      /* ---------- 🔁 a trainer's Reset Knowledge Check (js/cm-kc-reset.js; kcResetApi) ---------- */
+      if (path === "/api/kc-reset") { const r = await kcResetApi(env, tok, await request.json().catch(() => ({}))); return json(r.body, r.status); }
+
       /* ---------- storage ---------- */
       const body = await request.json().catch(() => ({}));
       const key = String(body.key || "");
@@ -2213,6 +2284,7 @@ export default {
         if (!key) return json({ error: "Missing key" }, 400);
         if (tok.role === "a") {
           if (typeof body.value !== "string") return json({ error: "value must be a string" }, 400);
+          if (/^trainee:/.test(key)) body.value = await keepKcResets(kv, key, body.value);
           await ownerPut(kv, key, body.value);
           return json({ ok: true });
         }

@@ -1159,7 +1159,7 @@ function daySchedule(d){
   const items = d.lessons.filter(l => l.cf.block.kind !== "check").map(l => ({kind: l.cf.block.kind, brief: !!l.cf.block.brief, thorough: !!l.cf.block.thorough,
     id: l.cf.block.id, of: l.cf.of ? l.cf.of.cf.block.id : "",   // an activity's Skill Building group is the section of the lesson it practises
     slides: viewsOf(l.cf.block).length, heading: l.cf.heading, mod: l.cf.mod.id, modTitle: l.cf.mod.title, ref: l}));
-  const sc = window.CM_CF_SCHEDULE.schedule(items, {build: d.cf.build, lessonMax: d.cf.lessonMax, main: (CF.sequence.find(s => s.n === d.cf.n) || {}).main, day: d.cf.n});   // main: the daily loop's one Skill Building (js/cm-day-loop.js)
+  const sc = window.CM_CF_SCHEDULE.schedule(items, {build: d.cf.build, lessonMax: d.cf.lessonMax, main: (CF.sequence.find(s => s.n === d.cf.n) || {}).main, drive: (CF.sequence.find(s => s.n === d.cf.n) || {}).drive, day: d.cf.n});   // main: the daily loop's one Skill Building (js/cm-day-loop.js); drive: its required Backup File Maintenance
   // each lesson's own minutes (a refresher's share of the 30%, a thorough lesson's larger one), by the lesson
   sc.minsOf = new Map(items.filter(x => x.kind === "lesson").map(x => [x.ref, x.mins]));
   sc.parts.concat(sc.labs).forEach(p => { p.topics = (p.topics || []).map(x => x.ref); p.acts = p.acts.map(x => x.ref); p.extra = p.extra.map(x => x.ref); });
@@ -1238,7 +1238,7 @@ function agendaNotes(d){
   const say = [w.open || `Welcome, everyone. Let's pick John Doe's file up where we left it.`,
     `Here's how today runs, and it's all on the slide, in two parts. You've met all of this before, so it's a refresher. Part one is the lessons, all of them together, about ${sc.lessonMin} minutes: ${andList(lectures)}.`
       + (sc.acts ? " We'll take a ten-minute break when the lessons are done." : ""),
-    sc.loop ? `Part two is the loop we run every day. First John Doe's Case Profile${n === 1 ? ", where you meet him" : ", to see what changed on his file"}, then ${sc.build ? `the big one: ${sc.build} minutes building your companion case, start to finish, the way you worked John Doe's file` : `today's one Skill Building${n === 1 ? ", his Intake: opening his file in the CMS" : ""}, about ${sc.act} minutes on his file, submitted and graded, with ${sc.brainstorm} minutes after it to brainstorm what the file showed us`}. Then you ${n === 5 ? "close out" : "update"} your Action Plan, about ${sc.plan} minutes.${sc.sides ? ` After that there are ${sc.sides} short side exercises, optional${sc.side ? `, in about ${sc.side} minutes${sc.sidePick && sc.sidePick < sc.sides ? `: pick any ${sc.sidePick}` : ""}` : ""}: each one is an assumption and an entry to log in the CMS.` : ""}` : "",
+    sc.loop ? `Part two is the loop we run every day. First John Doe's Case Profile${n === 1 ? ", where you meet him" : ", to see what changed on his file"}, then ${sc.build ? `the big one: ${sc.build} minutes building your companion case, start to finish, the way you worked John Doe's file` : `today's one Skill Building${n === 1 ? ", his Intake: opening his file in the CMS" : ""}, about ${sc.act} minutes on his file, submitted and graded, with ${sc.brainstorm} minutes after it to brainstorm what the file showed us`}.${sc.drive ? ` Then Backup File Maintenance, about ${sc.drive} minutes: it's required every day, your Backup Drive brought up to the firm's standard and graded from the Drive itself.` : ""} Then you ${n === 5 ? "close out" : "update"} your Action Plan, about ${sc.plan} minutes.${sc.sides ? ` After that there are ${sc.sides} short side exercises, optional${sc.side ? `, in about ${sc.side} minutes${sc.sidePick && sc.sidePick < sc.sides ? `: pick any ${sc.sidePick}` : ""}` : ""}: each one is an assumption and an entry to log in the CMS.` : ""}` : "",
     sc.loop ? "" : sc.build ? `Part two is the big one: ${sc.build} minutes building your companion case, start to finish, the way you worked John Doe's file.` : "",
     sc.acts && !sc.loop ? `Part two is the Practice Lab, all ${sc.acts} Skill Activities in one place, in the same order as the lessons: you do each one on John Doe's file, in the CMS and the tools, about ${sc.act} minutes an activity, and each one names the lesson it practises. After each group we take ${sc.brainstorm} minutes to brainstorm what the file just showed us.` : "",
     `We finish with the Knowledge Check, ${q} question${q === 1 ? "" : "s"} in about ${sc.kc} minutes, and you need 70% ${next || n < 5 ? `to open Day ${n + 1}` : "to finish the Case Flow"}.`,
@@ -2966,14 +2966,14 @@ if(typeof window.sopRunOfShow === "function"){
       `Admin → <b>Trainee Audit</b>: approve anyone new and check everyone has Case Flow Day ${n} open (yesterday's Knowledge Check submitted).`,
       `Open Case Flow Day ${n} → slides → <b>🖥 Presenter view</b>, allow pop-ups, and in Google Meet share <b>“LSH Slides — share this window”</b>. Every slide has its read-aloud script in the console.`,
       `Keep John Doe's 📇 Case Profile and the CMS open in another tab: the room will ask where things are on the file.`]});
-    add(5, {title: "Welcome and the Training Agenda", do: [`Put the Training Agenda slide up: it lists today's two parts in order, Part 1 the Lessons (all of them, section by section) and Part 2 ${sc.loop ? `the Daily Loop: ${n === 1 ? "👋 Meet John Doe" : "📇 the Case Profile"} → 🎯 ${sc.build ? "the Full Application Practice (the companion case)" : `today's Skill Building${n === 1 ? ", the Intake" : ""}`} → 📝 the Action Plan${sc.sides ? `, then ${sc.sides} optional side exercises` : ""}` : sc.build ? "the Full Application Practice" : "the Practice Lab (all of the day's Skill Activities)"}, then the Knowledge Check.`, n > 1 ? `Recap yesterday in a minute: where John Doe's file stood when we stopped, and the one thing most people found hard (check the Knowledge Check scores).` : `Introduce the file: John Doe VS Robert Smith, Atty. Elijah Thorne's case, the one file the whole week works.`],
+    add(5, {title: "Welcome and the Training Agenda", do: [`Put the Training Agenda slide up: it lists today's two parts in order, Part 1 the Lessons (all of them, section by section) and Part 2 ${sc.loop ? `the Daily Loop: ${n === 1 ? "👋 Meet John Doe" : "📇 the Case Profile"} → 🎯 ${sc.build ? "the Full Application Practice (the companion case)" : `today's Skill Building${n === 1 ? ", the Intake" : ""}`}${sc.drive ? " → 📁 Backup File Maintenance (required)" : ""} → 📝 the Action Plan${sc.sides ? `, then ${sc.sides} optional side exercises` : ""}` : sc.build ? "the Full Application Practice" : "the Practice Lab (all of the day's Skill Activities)"}, then the Knowledge Check.`, n > 1 ? `Recap yesterday in a minute: where John Doe's file stood when we stopped, and the one thing most people found hard (check the Knowledge Check scores).` : `Introduce the file: John Doe VS Robert Smith, Atty. Elijah Thorne's case, the one file the whole week works.`],
       say: n === 1 ? `“Welcome, everyone. For the next five days you're the Case Manager on one real-looking file, John Doe VS Robert Smith. Today we work through ${andList(titles)}. By the end of the day you'll ${firstAim(d)}, and you'll have done it on the file yourselves.”`
         : `“Morning, everyone. Let's pick John Doe's file up where we left it. Today it's ${andList(titles)}. By the time we finish you'll ${firstAim(d)}.”`,
       watch: "Anyone who hasn't opened today's day yet: ask them to open it now so they can follow along."});
     // the day in two parts: ALL of the lessons, section by section; the break (inside the 20 minutes kept for the
     // welcome, the break and the close); then the Practice Lab, one Skill Building group after another, a brainstorm
     // after each; then the Knowledge Check
-    const parts = sc.parts, labs = sc.labs.filter(p => p.acts.length);
+    const parts = sc.parts, labs = sc.labs.filter(p => p.acts.length && !p.drive);   // (the Backup File Maintenance: its own step, after the build)
     let spare = sc.buffer;
     parts.forEach((p, i) => {
       if(p.topics.length) add(p.lecture, {title: `Lessons ${i + 1} of ${parts.length}: ${E(p.title)}`, do: [
@@ -2995,7 +2995,7 @@ if(typeof window.sopRunOfShow === "function"){
         add(p.skill, {title: sc.loop ? `🎯 Skill Building: ${n === 1 ? "the Intake, " : ""}${E(p.title)}` : `Practice Lab ${i + 1} of ${labs.length} · Skill Building: ${E(p.title)}`, do: [
           (i === 0 && !sc.loop ? `Put the <b>🧪 Practice Lab</b> slide up first: everyone opens their tools from it, once, and it lists all ${sc.acts} activities with the lesson each one practises. ` : "")
           + `${p.acts.length} Skill Activit${p.acts.length === 1 ? "y" : "ies"}: ` + p.acts.map(l => `<b>${E(l.cf.block.title)}</b> <span style="color:var(--ink-soft)">(${E(String(l.cf.block.act.tool || "").split("·")[0].trim())}${l.cf.of ? "; practises " + E(lessonRef(l.cf.of)) : ""})</span>`).join(" · "),
-          `About ${sc.act} minutes each (the 🧪 chip counts it down). Your Task first, then Your Case: trainees work it on John Doe's file in the CMS or the tool the step names, beside the slide (⧉ Side by side), then submit it to the AI Grader and log the reference.`,
+          `About ${sc.act} minutes each (the 🧪 chip counts it down). Your Task first, then Your Case: trainees work it on John Doe's file in the CMS or the tool the step names, beside the slide (⧉ Side by side), then press Submit → and log the reference.`,
           calls.length ? `📞 Live call${calls.length > 1 ? "s" : ""}: ${andList(calls.map(c => E(c.who)))}. Each starts from “Take the call” on the Your Task slide; let one trainee take it while the room listens, or everyone takes it at their desk.` : "",
           p.acts.some(l => planAct(l.cf.block)) ? `The Action Plan drafts: <b>📝 Open the Action Plan Editor</b> is on the activity's Your Task slide; “← Back to Case Flow Day ${n}” there returns to the slide. Next on the slide is always the next slide.` : "",
           ...p.acts.flatMap(l => injectsOf(l.cf.block).filter(x => x.kind === "fallout").map(x => `⚡ <b>Inject mid-task</b> on ${E(titleCase(l.cf.block.title))} (the ⚡ pill on its Your Task slide): ${x.html.replace(/^<b>[^<]*<\/b>\s*/, "")}`))].filter(Boolean),
@@ -3014,13 +3014,20 @@ if(typeof window.sopRunOfShow === "function"){
       add(sc.build, {title: `🏗 Full Application Practice: Build Your Companion Case`, do: [
         `The practical: ${sc.build} minutes. Each trainee builds the companion case you assigned (Trainee Audit → 📁), on the slide's steps: ${buildSteps(d).map(([m, h]) => { const t = at; at += m; return `<b>${E(h)}</b> (${Math.floor(t / 60)}:${String(t % 60).padStart(2, "0")}, ${m} min)`; }).join(" · ")}.`,
         `Call time at each step. Walk the room with the 🧠 Brainstorm guide: it has each trainee's case and the trap to watch for.`,
+        `At step 7 each trainee hands the case in with <b>Submit my companion case →</b> on the build's second slide (js/cm-companion-grade.js: a rubric of the Day 1–4 deliverables; the score is on their Scorecard). Your own review at the brainstorm stays as it is.`,
         `John Doe's Day ${n} activities are behind the build as ➕ Optional Extra Practice, untimed: ⏭ on that slide skips them to the Ready check, the day's last slide.`],
         say: `“You've worked John Doe's file all week. Now you build one yourself: the steps and the minutes are on the slide, and I'll call time at each one.”`,
         watch: "Anyone still in the CMS setup at the 45-minute mark: get them to log what they have and move to the folder."});
-      if(labQuestions(d).length) steps[steps.length - 1].do.push(sc.loop ? `After the build, <b>Close Out Your Action Plan</b>; then ⏭ on Optional Extra Practice goes to the day's last slide, <b>Ready for the Knowledge Check?</b>: ${labQuestions(d).length} key concepts from today's lessons, a couple of minutes, nothing locked.`
+      if(labQuestions(d).length) steps[steps.length - 1].do.push(sc.loop ? `After the build, the required <b>Backup File Maintenance</b>, then <b>Close Out Your Action Plan</b>; then ⏭ on Optional Extra Practice goes to the day's last slide, <b>Ready for the Knowledge Check?</b>: ${labQuestions(d).length} key concepts from today's lessons, a couple of minutes, nothing locked.`
         : `After the build, the day's last slide, <b>Ready for the Knowledge Check?</b> (⏭ on Optional Extra Practice goes to it): ${labQuestions(d).length} key concepts from today's lessons, a couple of minutes, nothing locked.`);
     }
     if(sc.loop){
+      const dl = sc.labs.find(p => p.drive);
+      if(dl) add(sc.drive, {title: "📁 Required: Backup File Maintenance", do: [
+        `Required every day, straight after the ${sc.build ? "build" : "Skill Building"}: <b>${E(dl.acts[0].cf.block.title)}</b>. Your Task, then Your Case: trainees bring their Backup Drive up to the firm's standard (📂 My Backup Drive, ✓ Check my drive), log it in CMS → Case Notes and submit it to the AI Grader; the Drive itself is graded too.`,
+        `Nobody moves on to the Action Plan with ✓ Check my drive still showing a missing folder.`],
+        say: `“Before the Action Plan: the backup. Every day, no exceptions. Bring your drive up to the standard and run the check until it's clean.”`,
+        watch: "A trainee whose Drive isn't linked yet: get it linked now (📂 My Backup Drive), or the Progress Log flags it."});
       add(sc.plan, {title: n === 5 ? "📝 Close Out Your Action Plan" : "📝 Update Your Action Plan", do: [
         n === 1 ? `Guided, step by step: the slide's six steps are the template's sections in order. Do the first one together on the shared screen (📝 Open my Action Plan), then walk the room.`
           : `Lighter each day: the trainees update the plan on their own from the slide's prompts. Spot-check two plans: every action item has an owner and a date.`]});
@@ -3032,7 +3039,7 @@ if(typeof window.sopRunOfShow === "function"){
     if(d.discussionQuestion && spare >= 18) add(8, {title: "End-of-day discussion", say: `“Before the Knowledge Check, let's step back and talk about this together: ${E(d.discussionQuestion)}”`, do: ["Take two or three answers and connect each one to a moment on John Doe's file from today."]});
     add(sc.kc, {title: `Knowledge Check · ${game.icon} ${E(game.name)}`, do: [
       `Trainees open the Knowledge Check from the last slide: ① today's game, ${E(game.name)}, then ② the module's takeaway, and one Submit.`,
-      `70% marks the day complete. One attempt only: the first score is the one recorded. Below 70%, open the next day for them in 🔓 Open Lessons.`],
+      `70% marks the day complete. One attempt only: the first score is the one recorded. Below 70%, you can give a trainee one new attempt with <b>🔁 Reset Knowledge Check</b> (👥 Trainee Audit → the trainee's detail; their best score is kept), or open the next day for them in 🔓 Open Lessons.`],
       say: `“Last stretch for today. The Knowledge Check is a game, ${game.name}, and then a short takeaway, a few lines in your own words about what you will do differently. No looking at each other's screens.”`,
       watch: "Stop presenting while they answer, so nobody reads answers off the shared screen."});
     add(5, {title: "Close", do: [`Ask everyone to send quick feedback with the 💬 Feedback button.`, `Click <b>■ End</b> in Presenter view.`],
@@ -3172,9 +3179,11 @@ if(typeof window.buildDayScriptLines === "function"){
       else if(profile) lines.push(n === 1 ? "## Meet John Doe (the Case Profile)" : "## Case Profile Check-In", ...dayScriptLines(profile, n === 1 ? "Meet John Doe" : "Case Profile Check-In"), "---");
       if(d.cf.build) [["build", "Full Application Practice: Build Your Companion Case"], ["build2", "Full Application Practice: the Second Half"]].forEach(([k, t]) => { const x = dayScript(d, k); if(x) lines.push(`## ${t}`, ...dayScriptLines(x, t), "---"); });
       all.filter(([l]) => l.cf.block.kind === "activity" && l.cf.block.id === mid).forEach(([l, i]) => { lines.push("## Skill Building"); block(l, i); });
+      const drv = window.cmDayLoop.driveId ? window.cmDayLoop.driveId(d) : "";
+      all.filter(([l]) => l.cf.block.kind === "activity" && drv && l.cf.block.id === drv).forEach(([l, i]) => { lines.push("## Required: Backup File Maintenance"); block(l, i); });
       const plan = dayScript(d, "plan"), planT = n === 5 ? "Close Out Your Action Plan" : "Update Your Action Plan";
       if(plan) lines.push(`## ${planT}`, ...dayScriptLines(plan, planT), "---");
-      const sides = all.filter(([l]) => l.cf.block.kind === "activity" && l.cf.block.id !== mid);
+      const sides = all.filter(([l]) => l.cf.block.kind === "activity" && l.cf.block.id !== mid && l.cf.block.id !== drv);
       if(sides.length){
         const x = d.cf.build ? dayScript(d, "extra") : lab, t = d.cf.build ? "Optional Extra Practice" : "Practice Lab: Skill Activities";
         lines.push(`## ${t}`, ...(x ? dayScriptLines(x, t) : []), "---");
@@ -4354,7 +4363,8 @@ function caseFlowPractice(){
     const mid = window.cmDayLoop && window.cmDayLoop.mainId ? window.cmDayLoop.mainId(d) : "";
     const mods = groups.map(({title, acts}, gi) => acts.map(({b, li}) => {
       const tool = String(b.act.tool || "").split("·")[0].split("→")[0].trim(), docs = (CF_PACKETS[b.id] || []).length;
-      const tag = mid ? (b.id === mid ? `<span class="cf-px-loop cf-px-main">🎯 Skill Building</span>` : `<span class="cf-px-loop">Skill activity</span>`) : "";
+      const drv = window.cmDayLoop && window.cmDayLoop.driveId ? window.cmDayLoop.driveId(d) : "";
+      const tag = mid ? (b.id === mid ? `<span class="cf-px-loop cf-px-main">🎯 Skill Building</span>` : b.id === drv ? `<span class="cf-px-loop cf-px-main">📁 Required: Backup File Maintenance</span>` : `<span class="cf-px-loop">Skill activity</span>`) : "";
       return `<div class="cf-px-tile${mid && b.id === mid ? " cf-px-tile-main" : ""}${open ? "" : " locked"}"${open ? ` role="button" tabindex="0" onclick="cmCaseFlow.openBlock(${d.id},${li})" onkeydown="if(event.key==='Enter')cmCaseFlow.openBlock(${d.id},${li})"` : ""} title="${E("Deliver: " + b.act.output)}">
           <span class="cf-px-k">${E(String(d.lessons[li].h).split(" ")[0])} · ${E(title)}${SIM.calls[b.id] ? " · 📞" : ""}</span>
           <b>${E(b.title)}</b>${tag}
