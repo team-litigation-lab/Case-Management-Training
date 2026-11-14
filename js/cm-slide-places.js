@@ -53,6 +53,8 @@
    Your Case; 6, without the Skill Building pages, still with Meet Your Case; 7, today's. A place saved in any older
    layout is moved through every change in one go (a place saved in 5 loses the Skill Building pages and Meet Your
    Case together; one saved in 6, only Meet Your Case).
+   Layout 7 is the last numbered layout; from now on places are saved by slide key: a deck change needs no migration
+   and no edit here (js/cm-slide-keys.js). The records below (ORDER3, GONE6, GONE6_DECK, GONE, NEW7) are frozen.
    Each saved object carries the layout it was written in (cfLayout), so the move happens once, on whichever device
    or tab reads it first, and a place saved since is left alone. The reload after an update says which layout its
    slide was saved in the same way (lsh_resume_layout): a page still running the old deck doesn't, and is moved.
