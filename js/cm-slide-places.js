@@ -75,8 +75,11 @@ const deckLesson = b => !!(b && b.kind === "lesson" && (window.CM_DECK_SLIDES ||
 const STEPS_WERE = new Set(("d1m1-upl d1m1-l1 d1m2-l1 d1m4-tplan d1m4-tmap d1m4-tcare d1m4-emc d1m4-l2 d2m1-l2 d2m1-afd d2m1-cov d2m2-l2 d2m2-pip "
   + "d2m3-l1 d2m3-cause d2m4-l1 d2m4-l2 d3m1-l2 d3m2-umw d3m2-l2 d3m3-l1 d3m3-l2 d3m4-l2 d3m4-close d4m2-l2 d4m3-l1").split(" "));
 /* a lesson's slides as they were in an older layout, from the slides it has today */
+/* lessons whose drawn slides changed after layout 4 although no layout counts them now: d1m1-role's Theory cards grew
+   (Case Management Fundamentals: nine duties, seven steps) to two slides, The Theory, Continued; before, it had one */
+const THEORY2_NEW = new Set(["d1m1-role"]);
 function viewsWere(b, vs, from){
-  const old = vs.slice(), tail = () => old.includes("dodont") ? old.indexOf("dodont") : old.length;
+  const old = vs.filter(v => !(v === "theory2" && THEORY2_NEW.has(b.id) && from <= 4)), tail = () => old.includes("dodont") ? old.indexOf("dodont") : old.length;
   // layouts 1 and 2: Why It Matters was a slide of its own, after The Theory's slides
   if(from < 3 && !old.includes("why")) old.splice(Math.max(old.indexOf("theory"), old.indexOf("theory2"), old.indexOf("frame")) + 1, 0, "why");
   // layouts 1 and 2: Milestone Steps, after The Rules or See It, before Do & Don't

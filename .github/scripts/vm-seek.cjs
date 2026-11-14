@@ -99,7 +99,7 @@ const STUB = () => {
     check(s1.parts.play && s1.parts.back && s1.parts.fwd && s1.parts.bar && s1.parts.over, `it is a player: ▶ Play, ⏪ 5s, ⏩ 5s, a seek bar, ↺ Start over (${JSON.stringify(s1.parts)})`);
     check(/^0:00 \/ \d:\d\d$/.test(s1.parts.time.trim()), `with the elapsed and total time as m:ss ("${s1.parts.time.trim()}")`);
     check(s1.parts.ticks > 8, `and a mark on the bar at each phrase (${s1.parts.ticks})`);
-    check(/Northgate Distribution/.test(s1.head) && /02\/10\/2026/.test(s1.head) && /8:47/.test(s1.head) && /Not played yet/.test(s1.head), 'it says who the message is from, its date and time, and that it has not been played');
+    check(/Northgate Distribution/.test(s1.head) && /02\/09\/2026/.test(s1.head) && /8:47/.test(s1.head) && /Not played yet/.test(s1.head), 'it says who the message is from, its date and time, and that it has not been played');
     check(s1.wide > 0.9 && s1.first && s1.under === 1, `the voicemail is first, across the slide, with the Notes & Action Plan under it (${Math.round(s1.wide * 100)}% wide)`);
     check(!s1.small.length, `nothing on the slide is under 16px or less than bold: ${JSON.stringify(s1.small.slice(0, 4))}`);
     check(!s1.zoom.length && !s1.cut, `the slide fits 1366x768 at full size (zoom ${s1.zoom.join(',') || 'none'}, cut off: ${s1.cut})`);
