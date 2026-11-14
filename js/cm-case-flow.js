@@ -420,7 +420,7 @@ function fullText(l, d){
   }
   if(b.kind === "activity") return S(1, "The scenario", `<div class="scenario-card"><div class="stag">John Doe VS Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
     + S(2, "Execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
-    + S(3, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once the AI Grader has scored your work on this activity.</p>`)
+    + S(3, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once your work on this activity has been submitted and graded.</p>`)
     + S(4, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
   return S(1, "Knowledge verification", `<ol class="cf-q">${b.check.questions.map(q => `<li>${E(q)}</li>`).join("")}</ol>`)
     + S(2, "Best Practices & Pitfalls", renderPracticeCards(b.best)) + rubricHtml(b.rubric);
@@ -473,7 +473,7 @@ function falloutFor(blockId){
   }).filter(x => isTrainer() || !x.done);
 }
 const VIEW_LABEL = {grade: "The Grade-A Standard", audit: "Audit & the Finished Set", why: "Why It Matters", doc: "The Document", theory: "The Theory", theory2: "The Theory, Continued", frame: "The Framework", rules: "The Rules", map: "The Roadmap", model: "See It", dodont: "Do & Don't",
-  case: "Your Case", task: "Your Task", check: "AI Grader", questions: "Knowledge Check", questions2: "Knowledge Check, Continued", summary: "Self-Summary", scale: "Skill Scale"};
+  case: "Your Case", task: "Your Task", check: "Submit", questions: "Knowledge Check", questions2: "Knowledge Check, Continued", summary: "Self-Summary", scale: "Skill Scale"};
 const VIEW_ICON = {grade: "🏅", audit: "🔍", why: "💡", doc: "📄", theory: "📚", theory2: "📚", frame: "🧭", rules: "📏", map: "🗺", model: "🔍", dodont: "✅", case: "📂", task: "🎯", check: "🤖", questions: "🧠", questions2: "🧠", summary: "📝", scale: "📊"};
 const KC_PER = 4;   // Knowledge Check questions on one slide
 /* The Theory: the lesson's concepts from the original Canva decks (build/case-flow/slides/theory-dN.json), four to a
@@ -893,9 +893,9 @@ function slideBody(view, l, d){
         <ol class="cfx-points cfx-steps">${c.steps.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>
         ${acts ? `<div class="cfx-task-acts">${acts}</div>` : ""}
         <div class="cfx-task-foot">${docLine(b.id) ? `<details class="cfx-docs"><summary>📁 Source Files (${n} Document${n === 1 ? "" : "s"})</summary><div class="cfx-docs-pop">${docLine(b.id)}${window.cmDocFiling ? cmDocFiling.panel(b.id) : ""}</div></details>` : "<span></span>"}
-          <button type="button" class="btn cfx-grade-go" onclick="cmCaseFlow.toView('${b.id}','check')" title="Hand in what you did: the AI Grader scores it and says what to improve">Submit to AI Grader →</button></div></div>`; }
+          <button type="button" class="btn cfx-grade-go" onclick="cmCaseFlow.toView('${b.id}','check')" title="Hand in what you did: it is scored and you see what to improve">Submit →</button></div></div>`; }
     case "check":   // 🤖 the AI Grader (js/cm-ai-grader.js) in place of the old self-tick list, then the reference of the work
-      return (window.CMAIGrader ? CMAIGrader.view(b.id) : `<p class="cf-note">The AI Grader is loading…</p>`) + workLog(b);
+      return (window.CMAIGrader ? CMAIGrader.view(b.id) : `<p class="cf-note">Loading…</p>`) + workLog(b);
     case "questions": case "questions2": {   // each question with its answer box; answers save as they're typed
       const from = view === "questions2" ? KC_PER : 0, m = rec(mod.id), last = from + KC_PER >= c.questions.length;
       return `<ol class="cfx-points cfx-qs cfx-qs-2 cfx-kc" style="counter-reset:cfx ${from}">${c.questions.slice(from, from + KC_PER).map((q, j) => `<li><span><span class="cfx-kc-q">${hl(q)}</span>
@@ -1218,7 +1218,7 @@ function agendaNotes(d){
   const say = [w.open || `Welcome, everyone. Let's pick John Doe's file up where we left it.`,
     `Here's how today runs, and it's all on the slide, in two parts. You've met all of this before, so it's a refresher. Part one is the lessons, all of them together, about ${sc.lessonMin} minutes: ${andList(lectures)}.`
       + (sc.acts ? " We'll take a ten-minute break when the lessons are done." : ""),
-    sc.loop ? `Part two is the loop we run every day. First John Doe's Case Profile${n === 1 ? ", where you meet him" : ", to see what changed on his file"}, then ${sc.build ? `the big one: ${sc.build} minutes building your companion case, start to finish, the way you worked John Doe's file` : `today's one Skill Building${n === 1 ? ", his Intake: opening his file in the CMS" : ""}, about ${sc.act} minutes on his file, graded by the AI Grader, with ${sc.brainstorm} minutes after it to brainstorm what the file showed us`}. Then you ${n === 5 ? "close out" : "update"} your Action Plan, about ${sc.plan} minutes.${sc.sides ? ` After that there are ${sc.sides} short side exercises, optional${sc.side ? `, in about ${sc.side} minutes${sc.sidePick && sc.sidePick < sc.sides ? `: pick any ${sc.sidePick}` : ""}` : ""}: each one is an assumption and an entry to log in the CMS.` : ""}` : "",
+    sc.loop ? `Part two is the loop we run every day. First John Doe's Case Profile${n === 1 ? ", where you meet him" : ", to see what changed on his file"}, then ${sc.build ? `the big one: ${sc.build} minutes building your companion case, start to finish, the way you worked John Doe's file` : `today's one Skill Building${n === 1 ? ", his Intake: opening his file in the CMS" : ""}, about ${sc.act} minutes on his file, submitted and graded, with ${sc.brainstorm} minutes after it to brainstorm what the file showed us`}. Then you ${n === 5 ? "close out" : "update"} your Action Plan, about ${sc.plan} minutes.${sc.sides ? ` After that there are ${sc.sides} short side exercises, optional${sc.side ? `, in about ${sc.side} minutes${sc.sidePick && sc.sidePick < sc.sides ? `: pick any ${sc.sidePick}` : ""}` : ""}: each one is an assumption and an entry to log in the CMS.` : ""}` : "",
     sc.loop ? "" : sc.build ? `Part two is the big one: ${sc.build} minutes building your companion case, start to finish, the way you worked John Doe's file.` : "",
     sc.acts && !sc.loop ? `Part two is the Practice Lab, all ${sc.acts} Skill Activities in one place, in the same order as the lessons: you do each one on John Doe's file, in the CMS and the tools, about ${sc.act} minutes an activity, and each one names the lesson it practises. After each group we take ${sc.brainstorm} minutes to brainstorm what the file just showed us.` : "",
     `We finish with the Knowledge Check, ${q} question${q === 1 ? "" : "s"} in about ${sc.kc} minutes, and you need 70% ${next || n < 5 ? `to open Day ${n + 1}` : "to finish the Case Flow"}.`,
@@ -2786,7 +2786,7 @@ if(typeof presenterCues === "function"){   // Presenter view: the trainer's note
       return x ? `<h3>Training Agenda</h3>${dayScriptHtml(x)}<div class="pn-on pn-cue"><b>The run of the day, from the slide</b>${sayHtml(a.say.split("\n").slice(1).join("\n"))}</div>`
         : `<h3>Training Agenda</h3><div class="pn-part">🎙 Script — read aloud</div>${sayHtml(a.say)}${a.ask ? `<p><b>Ask:</b> ${E(a.ask)}</p>` : ""}`; }
     const n = d.lessons.filter(l => l.cf.block.kind === "activity").length, x = dayScript(d, "lab");
-    const how = `<p>The lessons are done: every slide from here to the Ready check is practice. Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. All ${n} of today's Skill Activities follow, in the order their lessons were taught; the slide names the lesson each one practises, and so does each activity's first slide. Each runs Your Task, then Your Case, then the AI Grader. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
+    const how = `<p>The lessons are done: every slide from here to the Ready check is practice. Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. All ${n} of today's Skill Activities follow, in the order their lessons were taught; the slide names the lesson each one practises, and so does each activity's first slide. Each runs Your Task, then Your Case, then Submit. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
     return x ? `<h3>Practice Lab</h3>${dayScriptHtml(x)}<div class="pn-on pn-cue"><b>Trainer note — not read aloud</b>${how}</div>` : `<h3>Practice Lab</h3>${how}`;
   };
 }
