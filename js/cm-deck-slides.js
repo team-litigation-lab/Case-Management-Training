@@ -421,147 +421,147 @@ window.CM_DAY_VIDEOS = {
     "title": "Case Example: Coverage Analysis"
    },
    {
-    "t": 718.2,
+    "t": 742,
     "page": 22,
     "title": "Case Example: Liability Determination"
    },
    {
-    "t": 767.1,
+    "t": 798.9,
     "page": 23,
     "title": "Case Planning Framework: Regulatory Triple-Check"
    },
    {
-    "t": 826.2,
+    "t": 858,
     "page": 24,
     "title": "The Three-Pillar Case Plan"
    },
    {
-    "t": 857.4,
+    "t": 889.2,
     "page": 25,
     "title": "Mandatory Disclosure & Compliance Tracking"
    },
    {
-    "t": 897.8,
+    "t": 929.6,
     "page": 26,
     "title": "The Golden Rule of US Claim Set-Up"
    },
    {
-    "t": 921.3,
+    "t": 953.1,
     "page": 27,
     "title": "The Treatment Phase: Core Objectives"
    },
    {
-    "t": 962.2,
+    "t": 994,
     "page": 28,
     "title": "Key Responsibilities & Skills"
    },
    {
-    "t": 1014.3,
+    "t": 1046.1,
     "page": 29,
     "title": "Essential Client Communication Strategies"
    },
    {
-    "t": 1057.4,
+    "t": 1089.2,
     "page": 30,
     "title": "Handling the Treatment Phase: Documentation"
    },
    {
-    "t": 1107.4,
+    "t": 1139.2,
     "page": 31,
     "title": "Handling the Treatment Phase: Coordination & Boundaries"
    },
    {
-    "t": 1160.4,
+    "t": 1192.2,
     "page": 32,
     "title": "Red Flags: Physical Therapy & Surgery"
    },
    {
-    "t": 1220.5,
+    "t": 1252.3,
     "page": 33,
     "title": "Red Flags: Pain Management & Behavioral Health"
    },
    {
-    "t": 1277.1,
+    "t": 1308.9,
     "page": 34,
     "title": "Case Planning: The Assessment Phase"
    },
    {
-    "t": 1312.9,
+    "t": 1344.7,
     "page": 35,
     "title": "SMART Goal Setting"
    },
    {
-    "t": 1347.3,
+    "t": 1379.1,
     "page": 36,
     "title": "The Care Coordination Strategy"
    },
    {
-    "t": 1383.4,
+    "t": 1415.2,
     "page": 37,
     "title": "The Standard Treatment Map"
    },
    {
-    "t": 1418.2,
+    "t": 1450,
     "page": 38,
     "title": "Treatment Road Map Mastery"
    },
    {
-    "t": 1476.4,
+    "t": 1508.2,
     "page": 39,
     "title": "Variance Analysis: Why the Map Fails"
    },
    {
-    "t": 1508.1,
+    "t": 1539.9,
     "page": 40,
     "title": "Communication Loops: The Stakeholder Triad"
    },
    {
-    "t": 1552.7,
+    "t": 1584.5,
     "page": 41,
     "title": "The Golden Standard: Reasonable and Necessary"
    },
    {
-    "t": 1589.4,
+    "t": 1621.2,
     "page": 42,
     "title": "Immediate Action Protocol: A-C-T"
    },
    {
-    "t": 1627,
+    "t": 1658.8,
     "page": 43,
     "title": "Illustration: The Clinical Pathway Flowchart"
    },
    {
-    "t": 1685,
+    "t": 1716.8,
     "page": 44,
     "title": "Using the Map for Course Correction"
    },
    {
-    "t": 1740.7,
+    "t": 1772.5,
     "page": 45,
     "title": "The Yellow Flag Warning System"
    },
    {
-    "t": 1789.7,
+    "t": 1821.5,
     "page": 46,
     "title": "Handling Treatment Gaps"
    },
    {
-    "t": 1820.8,
+    "t": 1852.6,
     "page": 47,
     "title": "Treatment Gaps: Case Manager Responsibilities"
    },
    {
-    "t": 1867,
+    "t": 1898.8,
     "page": 48,
     "title": "Bottlenecks: The Escalation Protocol"
    },
    {
-    "t": 1898.2,
+    "t": 1930,
     "page": 49,
     "title": "Resolve: The Escalation Ladder"
    },
    {
-    "t": 1932.7,
+    "t": 1964.5,
     "page": 50,
     "title": "Thank You!"
    }

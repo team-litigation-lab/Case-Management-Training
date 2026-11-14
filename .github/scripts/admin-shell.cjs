@@ -16,7 +16,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
 const failures = []; const fail = (m) => failures.push(m);
 const PILLS = ['🏅 Scorecard', '🛡 Admin Master Control', '🔓 Open Lessons'];
 const SC = '🏅 Scorecard', AMC = '🛡 Admin Master Control', OL = '🔓 Open Lessons';
-const WHERE = { audit: SC, scorecards: SC, rubric: SC, traineeaudit: AMC, companion: AMC, tfeedback: AMC, rtasks: AMC, settings: AMC, sop: AMC, studio: AMC,
+const WHERE = { audit: SC, scorecards: SC, rubric: SC, traineeaudit: AMC, companion: AMC, tfeedback: AMC, rtasks: AMC, settings: AMC, sop: AMC, studio: AMC, tdrives: AMC,
     openlessons: OL, activities: OL, fbstyle: OL };
 // what a trainer DOES: never on the 🏅 Scorecard pages
 const ACTIONS = /approveTrainee\(|rejectTrainee\(|resetTraineeLabAttempts\(|confirmRevokeTrainee\(|cmAudit\.revoke\(|cmCompanion\.assign\(|openFeedbackFor\(|adminOpenCertificate\(|confirmArchiveBatch\(|confirmUnarchiveBatch\(|adminLogout\(|saveCertSettings\(|saveFeedbackSettings\(|injectSurpriseTask\(|dupMerge\(|cm-ol-chip/;
