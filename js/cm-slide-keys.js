@@ -15,8 +15,11 @@
    on its slide by key in today's deck: a slide added before it or the blocks reordered, it follows its slide; its
    slide gone, it lands on the nearest slide before it that still exists. The furthest slide reached is never below
    the place the trainee is on. A place saved without keys (an older page, another device, or keys that no longer
-   match the index) is taken as it is (js/cm-slide-places.js has moved it into layout 7 if it was older) and gets its
-   keys. The reload after an update keeps its slide's keys too (lsh_resume_keys).
+   match the index) was saved in layout 7's deck (js/cm-slide-places.js has moved it there if it was older): it is put
+   on the same slide of today's deck by the key that position has in layout 7's frozen record (js/cm-slide-keys7.js,
+   from7; its slide gone, the nearest slide before it that is still there), and gets its keys. The reload after an
+   update keeps its slide's keys too (lsh_resume_keys); one kept by a page that saved none is taken from layout 7 the
+   same way.
    A deck change needs nothing here, nor in js/cm-slide-places.js.
    ============================================================ */
 (function(){
@@ -52,6 +55,15 @@ function resolve(keys, k){
 }
 const num = i => typeof i === "number" && i >= 0 && isFinite(i);
 const keysValid = r => !!(r && typeof r === "object" && Array.isArray(r.k) && r.k.length && num(r.i));
+/* a position in layout 7's deck (a place saved without keys), in today's deck: its slide by the key layout 7's frozen
+   record gives it, or the nearest slide before it that is still there (every slide before it is tried, nearest first) */
+function from7(d, i, keys){
+  const k7 = window.CM_SLIDE_KEYS7 && window.CM_SLIDE_KEYS7.days && d && d.cf && window.CM_SLIDE_KEYS7.days[d.cf.n];
+  if(!num(i) || !Array.isArray(k7) || !k7.length) return i;
+  keys = keys || keysOf(d);
+  const to = resolve(keys, k7.slice(0, Math.min(i, k7.length - 1) + 1).reverse());
+  return to >= 0 ? to : 0;
+}
 
 /* record the keys of every place the page holds whose keys are missing or were saved for another index; true if any changed */
 function record(){
@@ -78,25 +90,38 @@ function record(){
 function follow(){
   const out = {lastSlide: false, slideProgress: false}, all = state.slideKeys || {};
   DAYS.forEach(d => {
-    const rec = all[d.id]; if(!cfDay(d) || !rec || typeof rec !== "object") return;
+    if(!cfDay(d)) return;
+    const rec = all[d.id] && typeof all[d.id] === "object" ? all[d.id] : null;
     let keys = null;
     Object.keys(PART).forEach(field => {
-      const r = rec[PART[field]], i = state[field] && state[field][d.id];
-      if(!keysValid(r) || r.i !== i) return;   // saved without keys, or since by a page that saved none: taken as it is
+      const r = rec && rec[PART[field]], i = state[field] && state[field][d.id];
+      if(!num(i)) return;
       keys = keys || keysOf(d);
-      if(keys[i] === r.k[0]) return;   // still on its slide
-      const to = resolve(keys, r.k); if(to < 0) return;
-      state[field][d.id] = to; r.i = to; r.k = trail(keys, to); out[field] = true;
+      let to;
+      if(keysValid(r) && r.i === i){
+        if(keys[i] === r.k[0]) return;   // still on its slide
+        to = resolve(keys, r.k); if(to < 0) return;
+        r.i = to; r.k = trail(keys, to);
+      } else {
+        // saved without keys, or since by a page that saved none: a position in layout 7's deck (see from7)
+        to = from7(d, i, keys); if(to === i) return;
+        if(rec) delete rec[PART[field]];   // its old keys (another index) are not this place's: record() writes them afresh
+      }
+      state[field][d.id] = to; out[field] = true;
     });
-    // the furthest slide reached is never below the place the trainee is on
-    const last = state.lastSlide && state.lastSlide[d.id];
-    if(out.lastSlide && num(last) && state.slideProgress && !((state.slideProgress[d.id] || 0) >= last)){ state.slideProgress[d.id] = last; out.slideProgress = true; }
+    // the furthest slide reached is never below the place the trainee is on (whichever of the two moved, or neither)
+    const last = state.lastSlide && state.lastSlide[d.id], far = state.slideProgress && state.slideProgress[d.id];
+    if(num(last) && state.slideProgress && !(num(far) && far >= last)){ state.slideProgress[d.id] = last; out.slideProgress = true; }
   });
   return out;
 }
 
 let ready = false;   // no keys are recorded until the saved ones have been read (they would be written over)
-async function settle(){
+/* one at a time: two reads of the progress at once (sign-in and a restore from the account) would each take the
+   other's moved place for one saved without keys, and move it twice */
+let queue = Promise.resolve();
+function settle(){ const run = queue.then(settleNow, settleNow); queue = run.catch(() => {}); return run; }
+async function settleNow(){
   ready = false;
   try{
     const saved = await window.storeGet(KEY);
@@ -152,6 +177,10 @@ if(typeof window.restoreAfterUpdate === "function"){
       if(d && cfDay(d) && kept && kept.dayId === d.id && Array.isArray(kept.k)){
         const to = resolve(keysOf(d), kept.k);
         if(to >= 0){ st.lessonSlide = to; sessionStorage.setItem(RESUME, JSON.stringify(st)); }
+      } else if(d && cfDay(d) && num(st.lessonSlide) && Number(sessionStorage.getItem("lsh_resume_layout")) >= 7){
+        // kept by a page running layout 7's deck that saved no keys: from layout 7, by key (an older layout's slide is
+        // moved by js/cm-slide-places.js, which runs after this and takes it on through from7 itself)
+        st.lessonSlide = from7(d, st.lessonSlide); sessionStorage.setItem(RESUME, JSON.stringify(st));
       }
     }catch(e){ console.warn("[slide-keys]", e); }
     return __restore.apply(this, arguments);
@@ -159,5 +188,5 @@ if(typeof window.restoreAfterUpdate === "function"){
 }
 
 settle();   // what was loaded before this file ran (the first loadAll)
-window.cmSlideKeys = {keyOf, keysOf, trail, resolve, settle, BACK};   // .github/scripts/slide-places.cjs
+window.cmSlideKeys = {keyOf, keysOf, trail, resolve, from7, settle, BACK};   // .github/scripts/slide-places.cjs
 })();
