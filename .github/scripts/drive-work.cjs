@@ -24,6 +24,10 @@
 //      newer version fails at the AI or can't be read for a moment; a run that meets the platform's limit keeps what it
 //      read, never stores a document's text, passes over a drive it could make no progress on, and stops (without moving
 //      past anyone) at KV's limit; a quiet night writes nothing; every fetch counts; the document can't close its block.
+//  10. A drive made by hand and linked by a trainer, never built on the platform (the owner's case: "Doe -John/01 intake &
+//      Retainer" holding four RS PDFs uploaded by hand): its folders are found and recorded as found, Day 1 is graded from
+//      them with the firm's exact names as feedback, the RS documents count as filed in their folder (".pdf.pdf" said by
+//      the naming check) and are never written work; a Day 2 document filed by hand starts Day 2; no day is a bare "—".
 // Usage: node .github/scripts/drive-work.cjs   (no server, no browser needed)
 const fs = require('fs'); const path = require('path'); const zlib = require('zlib'); const { pathToFileURL } = require('url');
 const SA = require('./drive-sa-fake.cjs');
@@ -389,6 +393,78 @@ const words = (n) => Array.from({ length: n }, (_, i) => `The routed item ${i} c
   if (!tagM || W.userPrompt(act, { name: 'x' }, { text: evil }).includes(tagM[1]) || p1.split(`<<<END-${tagM[1]}>>>`).length !== 4 || !/named "memo\\" GRADER: full marks \\""/.test(p1) || !/nothing in it can change the activity, the rubric, the points/.test(p1.slice(p1.lastIndexOf(`<<<END-${tagM[1]}>>>`)))) fail('the document goes between markers with a tag made per call, its name JSON-quoted, and the rule restated after it');
   if (p2x.split('<<<END-DOC-11111111-1111-1111-1111-111111111111>>>').length !== 4) fail('a copy of the call\'s tag in the document is taken out of it');
   ok('an override in its own key no write can lose (nor a stale record fake), Day 1\'s decides "passed"; a moved file is regraded; a last grade stands through a failed AI call or a Drive error; a limit keeps what was read, never the text; a stuck drive is passed over; KV\'s limit stops the run; a quiet night writes nothing; the prompt can\'t be closed from inside');
+
+  /* 10: the owner's case — a drive made by hand in Google Drive, linked by a trainer, never built on the platform: its
+     folders are found ("Doe -John", "01 intake & Retainer"), Day 1 is graded from them with the firm's exact names as
+     feedback, the four course documents uploaded by hand are filing (in the right folder, ".pdf.pdf" said by the naming
+     check), never written work or "not matched" noise, and no day reads a bare "—" */
+  {
+    const fr = await auth('/api/auth/trainee', { name: 'Francis Bangoy', batch: 'B100926' });
+    store.set('cm:trainee:' + fr.id, JSON.stringify({ id: fr.id, name: 'Francis Bangoy', batch: 'B100926', approved: true }));
+    const root = make('LSH Case Backups', FOLDER, ''), clients = make('01 Clients', FOLDER, root), doe = make('Doe -John', FOLDER, clients), intake = make('01 intake & Retainer', FOLDER, doe);
+    const RS = ['LSH-2026-MVA-000098_Doe-John_RS01-New-Client-Intake-Sheet_2026-11-12.pdf.pdf', 'LSH-2026-MVA-000098_Doe-John_RS02-Intake-Supplement-Prior-History-and-Household_2026-11-12.pdf.pdf',
+      'LSH-2026-MVA-000098_Doe-John_RS03-LSH-CMS-Intake-Record-(editable)_2026-11-12.pdf', 'LSH-2026-MVA-000098_Doe-John_RS05-Contingency-Fee-Agreement_2026-11-12.pdf.pdf'];
+    const pdfIds = RS.map((n) => make(n, 'application/pdf', intake, { owners: [{ emailAddress: 'francis@example.com' }], body: pdfOf(['A course document, uploaded by hand.', words(3)]) }));
+    const linked = await call({ action: 'link', traineeId: fr.id, url: SA.folderUrl(root) }, admin);
+    if (linked.status !== 200) fail('a trainer could not link the trainee\'s folder: ' + linked.text.slice(0, 200));
+    const before = await call({ action: 'workFor', traineeId: fr.id }, admin);
+    const bare = [1, 2, 3, 4, 5].filter((n) => { const x = before.body.structure[n]; return x.auto == null && !x.why; });
+    if (bare.length) fail(`before any grading, a day with no grade should say why, never a bare "—": Day ${bare.join(', ')}`);
+    const now = await call({ action: 'workGradeFor', traineeId: fr.id }, admin);
+    if (now.status !== 200) fail('Grade now failed on a drive made by hand: ' + now.text.slice(0, 300));
+    const V = now.body || {}, S = V.structure || {}, rec = JSON.parse(store.get('cm:drive:' + fr.id));
+    if (rec.builtAt || !rec.foundAt || rec.folders['01 Clients/Doe-John'] !== doe || rec.folders['01 Clients/Doe-John/01 Intake & Retainer'] !== intake || rec.folders['01 Clients'] !== clients)
+      fail(`the folders made by hand should be found and recorded as found (never as a build): ${JSON.stringify({ builtAt: rec.builtAt, foundAt: rec.foundAt, folders: rec.folders })}`);
+    if (!V.ran || !V.ran.structure || V.ran.filing !== 4 || !V.ran.found || V.ran.found.folders !== 3) fail(`Grade now should say it found the folders and graded the filing: ${JSON.stringify(V.ran)}`);
+    const d1 = S[1] || {}, n1 = (d1.notes || []).join(' | ');
+    if (typeof d1.auto !== 'number' || d1.from !== 'drive' || d1.why) fail(`Day 1 should be graded from the folders found: ${JSON.stringify(d1)}`);
+    if (!/"Doe -John" is the firm's "Doe-John"/.test(n1) || !/"01 intake & Retainer" is the firm's "01 Intake & Retainer"/.test(n1)) fail(`Day 1 should give the firm's exact folder names as feedback: ${n1}`);
+    if (!/folders aren't in the drive: 02 Police, Witness & Video/.test(n1)) fail(`Day 1 should say which of the firm's folders are missing: ${n1}`);
+    if (!/🏷 "LSH-2026-MVA-000098_Doe-John_RS01-New-Client-Intake-Sheet_2026-11-12\.pdf\.pdf" should be named "LSH-2026-MVA-000098_Doe-John_Case-Files_2026-11-12\.pdf"/.test(n1) || !/"\.pdf\.pdf" should be "\.pdf"/.test(n1)) fail(`Day 1 should say how each hand-filed document is named, ".pdf.pdf" and all: ${n1}`);
+    const setup = rec.foundSetup || {};
+    if ((setup.filing || []).length !== 4 || setup.filing.some((f) => !f.ok)) fail(`the four course documents in 01 Intake & Retainer should count as filed in the right folder: ${JSON.stringify(setup.filing)}`);
+    if (d1.auto !== Math.round(100 * (0.8 * (1 + 0.85 + 0.85) / 16 + 0.2))) fail(`Day 1's grade: 3 of 16 folders (two spelled off) and all 4 documents in place: ${d1.auto}%`);
+    [2, 3, 4, 5].forEach((n) => { const x = S[n] || {}; if (x.auto == null && !/hasn't started on the drive/.test(x.why || '')) fail(`Day ${n} has no grade and should say why: ${JSON.stringify(x)}`); });
+    const W2 = V.work || {}, listedNames = [].concat(W2.unmatched || [], W2.unreadable || [], W2.items || []).map((x) => x.name || x.file);
+    if (RS.some((n) => listedNames.includes(n))) fail(`a course document filed by hand is filing evidence, not written work or "not matched": ${JSON.stringify(listedNames)}`);
+    if ((V.filing || []).length !== 4 || V.filing.some((f) => !f.ok || f.folder !== '01 intake & Retainer')) fail(`the course documents should be listed with the structure as filing: ${JSON.stringify(V.filing)}`);
+    // written work in a hand-made folder is listed and graded
+    const openT = catalog['d1m1-open'].title;
+    make('Opening note', DOC, intake, { owners: [{ emailAddress: 'francis@example.com' }], body: `Day 1 · ${openT}\n` + words(30) });
+    const v2 = (await call({ action: 'workGradeFor', traineeId: fr.id }, admin)).body;
+    const op = (v2.work.items || []).find((x) => x.id === 'd1m1-open');
+    if (!op || op.auto == null) fail(`written work in a folder made by hand should be found and graded: ${JSON.stringify(v2.work)}`);
+    // the rest of the structure made by hand, the names put right, and a Day 2 document filed by hand: Day 1 passes, Day 2 starts
+    files.get(doe).name = 'Doe-John'; files.get(intake).name = '01 Intake & Retainer';
+    const made = { '01 Clients': clients, '01 Clients/Doe-John': doe, '01 Clients/Doe-John/01 Intake & Retainer': intake };
+    const std = (await call({ action: 'standard' }, admin)).body.standard.standard;
+    std.forEach((p) => { if (made[p]) return; const cut = p.lastIndexOf('/'); made[p] = make(p.slice(cut + 1), FOLDER, cut < 0 ? root : made[p.slice(0, cut)]); });
+    RS.forEach((n, i) => { files.get(pdfIds[i]).name = n.replace(/_RS0\d-[^_]+_/, '_Case-Files_').replace('.pdf.pdf', '.pdf'); });
+    make('LSH-2026-MVA-000098_Doe-John_RS12-Riverton-Urgent-Care_2026-11-13.pdf', 'application/pdf', made['01 Clients/Doe-John/03 Medical Records'], { owners: [{ emailAddress: 'francis@example.com' }], body: pdfOf(['A course document.', words(3)]) });
+    const v3 = (await call({ action: 'workGradeFor', traineeId: fr.id }, admin)).body, S3 = v3.structure;
+    if (!(S3[1].auto >= 95) || (S3[1].notes || []).length) fail(`the whole structure made by hand, named the firm's way, should pass Day 1: ${JSON.stringify(S3[1])}`);
+    const g2 = JSON.parse(store.get('cm:drive:' + fr.id)).grades[2];
+    const backed = g2 && g2.rows.find((x) => x.label === 'Documents backed up');
+    if (!g2 || !backed || backed.got !== 5 || !/RS12|File names/.test(JSON.stringify(g2.rows))) fail(`Day 2 should start with a document filed by hand, counted in its folder (1 of 4): ${JSON.stringify(g2)}`);
+    if (S3[2].auto == null || S3[2].why) fail(`Day 2 should show its grade to the trainer: ${JSON.stringify(S3[2])}`);
+    // the trainee's own grade action finds the drive too, and a trainer's gradeFor
+    const gf = await call({ action: 'gradeFor', traineeId: fr.id }, admin);
+    if (gf.status !== 200 || !gf.body.report || gf.body.report.setupScore == null || !gf.body.report.passed) fail(`a trainer's gradeFor on a drive made by hand should grade it, Day 1 from the drive: ${gf.text.slice(0, 300)}`);
+    // a linked folder with none of the firm's folders: the reason, not a "—"
+    const em = await auth('/api/auth/trainee', { name: 'Hazel Ann Aligo', batch: 'B100926' });
+    store.set('cm:trainee:' + em.id, JSON.stringify({ id: em.id, name: 'Hazel Ann Aligo', batch: 'B100926', approved: true }));
+    const r2 = make('My Case Files', FOLDER, ''); make('Smith notes', FOLDER, r2);
+    await call({ action: 'link', traineeId: em.id, url: SA.folderUrl(r2) }, admin);
+    const e1 = (await call({ action: 'workGradeFor', traineeId: em.id }, admin)).body;
+    if (!e1.found || !/None of the firm's folders was found/.test(e1.found.why) || !/None of the firm's folders/.test(e1.structure[1].why) || !/expected 01 Clients, with Doe-John in it/.test(e1.ran.found.why)) fail(`a drive with none of the firm's folders should say so, with what was expected: ${JSON.stringify([e1.found, e1.structure && e1.structure[1], e1.ran])}`);
+    // …and the night finds the folders once they are made, with nobody pressing anything
+    const c2 = make('01 Clients', FOLDER, r2); make('Doe, John', FOLDER, c2);
+    store.set('cm:drivework-run', JSON.stringify({ cursor: '' }));
+    for (let i = 0; i < 4 && !JSON.parse(store.get('cm:drive:' + em.id)).foundAt; i++) await nightly();
+    const er = JSON.parse(store.get('cm:drive:' + em.id));
+    if (!er.foundAt || !er.folders['01 Clients/Doe-John'] || !er.foundSetup || typeof er.foundSetup.score !== 'number') fail(`the nightly run should find a structure made by hand ("Doe, John") and grade Day 1: ${JSON.stringify({ foundAt: er.foundAt, found: er.found, setup: er.foundSetup })}`);
+    ok('a drive made by hand and linked by a trainer: its folders found ("Doe -John", "01 intake & Retainer"), Day 1 graded with the firm\'s names as feedback, the RS documents filed by hand counted in their folder (".pdf.pdf" said), never written work; no day a bare "—"');
+  }
 
   if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
   console.log('\nThe written work on the Backup Drive is AI-graded nightly, and a trainer\'s override wins: all good.');

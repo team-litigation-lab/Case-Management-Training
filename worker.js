@@ -21,6 +21,7 @@
  */
 // ✍ the trainee's written work on their Backup Drive, AI-graded nightly, and a trainer's override (worker-drive-work.js)
 import { DRIVE_WORK_ACTIONS, driveWorkApi, driveWorkNightly, workBrief, workView, withDayOverrides, withOverrides, OV_KEY } from "./worker-drive-work.js";
+import { driveFind, listedOf, setupOf } from "./worker-drive-found.js";
 /* ---------- KV with the "cm:" namespace prefix ---------- */
 const KV_PREFIX = "cm:";
 /* ---------- what the trainer owns in a trainee's records ----------
@@ -915,7 +916,8 @@ async function driveRead(env, id) {
 async function driveWrite(env, id, rec) { await kvOf(env).put(driveKey(id), JSON.stringify(rec && typeof rec === "object" ? Object.assign({}, rec, { overrides: undefined }) : rec)); return rec; }
 // ✍ what worker-drive-work.js uses of the Backup Drive and the AI
 const driveWorkDeps = () => ({ json, kvOf, listAll, driveRead, driveWrite, driveLinked, driveConfigured, drive, driveMessage, saToken, callGemini, geminiKeyNames, gatewayOn,
-  nameCheck, nameHint, fileType, driveCaseId, driveSnapshot, driveNaming, gradeDay, dayStarted, filedFromProgress, FOLDER_STANDARD, DRIVE_HOMES, DRIVE_HOME_CATEGORY });
+  nameCheck, nameHint, fileType, driveCaseId, driveSnapshot, driveNaming, gradeDay, dayStarted, filedFromProgress, FOLDER_STANDARD, DRIVE_HOMES, DRIVE_HOME_CATEGORY,
+  driveList, FOLDER_WHY, DRIVE_PASS, DRIVE_DOC, DRIVE_DAY_DOCS, CLIENT_FOLDER, driveFind: (env, id, rec) => driveFind(env, driveWorkDeps(), id, rec) });   // 🔎 and what worker-drive-found.js reads a hand-made drive with
 /* Linked: a folder of the trainee's own, shared with the service account and pasted in ("link"). A record from the old
    Google sign-in (a sealed refresh token, no linkedAt) is not linked: the trainee shares and pastes once. */
 const driveLinked = (rec) => !!(rec && rec.rootId && rec.linkedAt);
@@ -1050,13 +1052,14 @@ function driveStatus(env, rec) {
     email: (rec && rec.email) || "",
     folderName: (rec && rec.rootName) || "",
     rootUrl: rec && rec.rootId ? `https://drive.google.com/drive/folders/${encodeURIComponent(rec.rootId)}` : "",
-    caseUrl: rec && rec.rootId && rec.builtAt ? folderUrl((rec.folders || {})[CLIENT_FOLDER]) : "",   // 📁 John Doe's case folder in it
+    caseUrl: rec && rec.rootId && (rec.builtAt || rec.foundAt) ? folderUrl((rec.folders || {})[CLIENT_FOLDER]) : "",   // 📁 John Doe's case folder in it
     built: !!(rec && rec.builtAt),
     builtAt: (rec && rec.builtAt) || null,
     checkedAt: (rec && rec.checkedAt) || null,
     lastMissing: (rec && rec.lastMissing) || [],
     // ✍ a trainer's override is the grade (with the auto grade and the comment beside it): worker-drive-work.js withDayOverrides
-    setup: withDayOverrides(rec, null, (rec && rec.setup) || null, DRIVE_PASS).setup,
+    setup: withDayOverrides(rec, null, setupOf(rec), DRIVE_PASS).setup,   // 🔎 or Day 1 as found in a drive made by hand
+    found: (rec && rec.found) || null,
     saved: (rec && rec.saved) || [],
     grades: withDayOverrides(rec, (rec && rec.grades) || {}, null, DRIVE_PASS).grades,
     gradedAt: (rec && rec.gradedAt) || null,
@@ -1072,7 +1075,7 @@ function driveReport(id, rec, brief) {
   const perFolder = {};
   let lastCopyAt = null;
   saved.forEach((s) => { perFolder[s.folder] = (perFolder[s.folder] || 0) + 1; if (!lastCopyAt || s.at > lastCopyAt) lastCopyAt = s.at; });
-  const setup = (rec && rec.setup) || null;
+  const setup = setupOf(rec);   // 🔎 the setup typed on the platform, else Day 1 as found in a drive made by hand
   const tries = (rec && rec.tries) || (setup ? [{ at: setup.at, ok: !!setup.ok, n: (setup.problems || []).length }] : []);
   return {
     traineeId: id,
@@ -1081,13 +1084,14 @@ function driveReport(id, rec, brief) {
     folder: (driveLinked(rec) && rec.rootName) || "",
     linkedBy: (driveLinked(rec) && rec.linkedBy) || "",
     rootUrl: (driveLinked(rec) && folderUrl(rec.rootId)) || "",   // 📁 Open Drive, for a trainer (js/cm-drive-admin.js)
-    caseUrl: (driveLinked(rec) && rec.builtAt && folderUrl((rec.folders || {})[CLIENT_FOLDER])) || "",
+    caseUrl: (driveLinked(rec) && (rec.builtAt || rec.foundAt) && folderUrl((rec.folders || {})[CLIENT_FOLDER])) || "",
     connectedAt: (rec && rec.connectedAt) || null,
     attempts: (setup && setup.attempts) || 0,
     passed: !!((withDayOverrides(rec, null, setup, DRIVE_PASS).setup || {}).ok),   // ✍ a trainer's Day 1 override decides it
     tries,
     problems: (setup && setup.problems) || [],
     builtAt: (rec && rec.builtAt) || null,
+    foundAt: (rec && rec.foundAt) || null, found: (rec && rec.found) || null,   // 🔎 a structure made by hand, found in the drive
     checkedAt: (rec && rec.checkedAt) || null,
     missing: (rec && rec.lastMissing) || [],
     restored: Number(rec && rec.restoredCount) || 0,
@@ -1206,7 +1210,9 @@ const clip = (s, n = 200) => { s = String(s == null ? "" : s); return s.length >
 
    What it cannot see: anything outside the folder the trainee linked (the only part of their Drive shared with the
    platform). A file uploaded by hand into one of the firm's folders is read like any other and listed when its name
-   is wrong, but never charged: no copy record carries it.
+   is wrong, but never charged: no copy record carries it. Except a course document filed by hand (its RS code or its
+   title in the name: worker-drive-found.js, rec.handFiled): that is the trainee's own filing, and its name is charged
+   on its day like a copy's.
    What it cannot know: the real CMS's caseFileName is not in this repository. Wherever that matters the reading
    here is the lenient one (a Type the CMS chose, a counter after the date written _2 or -2, an extension in the
    case the CMS left it).
@@ -1305,6 +1311,14 @@ function nameAsFiled(name, caseId) {
    order (n = its place between the underscores, EXT_PART for the extension, 0 for the name as a whole). */
 function nameCheck(name, ctx = {}) {
   name = String(name == null ? "" : name);
+  // 🔎 an extension written twice ("…_2026-11-12.pdf.pdf": a file saved as a PDF and given .pdf again by hand): the rest of
+  // the name is read as if it had one, and the extension is said
+  const dbl = !ctx.once && /^(.+)\.([A-Za-z0-9]{2,5})\.([A-Za-z0-9]{2,5})$/.exec(name);
+  if (dbl && FILE_EXTS.includes(dbl[2].toLowerCase()) && FILE_EXTS.includes(dbl[3].toLowerCase())) {
+    const c = nameCheck(`${dbl[1]}.${dbl[3]}`, Object.assign({}, ctx, { once: true })), one = c.want ? nameSplit(c.want).ext : dbl[3].toLowerCase();
+    c.issues = c.issues.filter((i) => i.part !== "ext").concat([{ n: EXT_PART, part: "ext", got: `${dbl[2]}.${dbl[3]}`, should: one, why: `The extension is written twice (.${dbl[2]}.${dbl[3]}): a file has one, .${one}, after the date.` }]);
+    return Object.assign(c, { ok: false });
+  }
   const filed = ctx.filed ? nameAsFiled(ctx.filed, ctx.caseId) : null;
   const split = nameSplit(name), ext = split.ext, extra = filed ? filed.extra : [];
   // what the CMS itself added after the date stays where it is, and is read past
@@ -1394,6 +1408,7 @@ function driveNaming(rec, S, started) {
   const byId = {};
   (rec.saved || []).forEach((s) => { (s.was || []).forEach((w) => { if (w && !byId[w]) byId[w] = s; }); });
   (rec.saved || []).forEach((s) => { if (s.id) byId[s.id] = s; });
+  const hand = {}; (rec.handFiled || []).forEach((h) => { if (h.id && !byId[h.id]) hand[h.id] = h; });   // 🔎 filed by hand: the trainee's own name, charged
   const drill = (rec.drills && rec.drills[2]) || null, caseId = driveCaseId(rec);
   const typeOfDoc = {};   // the Type a course document was filed under, learned from any copy of it the CMS named
   (rec.saved || []).forEach((s) => { const f = s.docId && nameAsFiled(s.name, caseId); if (f) typeOfDoc[s.docId] = f.type; });
@@ -1412,18 +1427,18 @@ function driveNaming(rec, S, started) {
     // only this drive: the firm's folders, and the platform's own copies wherever they were moved (the same Google
     // account may hold another LSH site's files, which are none of this check's business)
     if (!s && !isDrill && path == null) return;
-    const docId = (s && s.docId) || "";
+    const h = hand[fid] || null, docId = (s && s.docId) || (h && h.docId) || "";
     const by = SUPERSEDED_BY[docId] ? S.copyOf(SUPERSEDED_BY[docId]) : null;   // the version that replaced it, once it is on the drive
     const need = LABEL_DOCS[docId] === "DRAFT" ? "DRAFT" : by ? "SUPERSEDED" : "";
     const made = dayOf(f.created || (s && s.at) || (isDrill && drill.at)) || etNow(new Date()).date;
     // A file in the firm's folders with no record (lost when a record was dropped): this platform made it, under a name
     // nobody can check any more, so its own name is read as the one it was filed under. The lenient reading.
-    const c = nameCheck(f.name, { filed: s ? s.name : isDrill ? "" : f.name, caseId, label: need, date: made,
-      type: isDrill ? typeOfDoc.RS25 || DRILL_TYPE : typeOfDoc[docId] || (DRIVE_DOC[docId] ? fileType(DRIVE_DOC[docId][2]) : "") || (s && homeType[s.folder]) || homeType[path] || "",
+    const c = nameCheck(f.name, { filed: s ? s.name : isDrill || h ? "" : f.name, caseId, label: need, date: made,
+      type: isDrill ? typeOfDoc.RS25 || DRILL_TYPE : typeOfDoc[docId] || (DRIVE_DOC[docId] ? fileType(DRIVE_DOC[docId][2]) : "") || (h && h.type) || (s && homeType[s.folder]) || homeType[path] || "",
       supDate: by ? supersededDate(f.name) || dateIn(by.name) || dayOf(by.created) || made : "", ext: s ? nameSplit(s.name).ext.toLowerCase() : "" });
     // the platform's own name: the copy is still called what it was uploaded as, and that is not the firm's way
     const own = !!s && !nameAsFiled(s.name, caseId) && (f.name === s.name || unlabeled(f.name) === s.name);
-    const scored = isDrill ? drill.rule === NAME_RULE : !!s && !replaced && s.rule === NAME_RULE && !own;
+    const scored = isDrill ? drill.rule === NAME_RULE : h ? true : !!s && !replaced && s.rule === NAME_RULE && !own;
     const tied = isDrill ? 2 : dayOfDoc[docId] || 0;
     const hint = c.ok ? "" : own ? `This copy still has the name the platform uploaded it under, before the firm's convention was kept on the drive. ${c.want ? "Rename it as shown." : `Rename it the firm's way: ${FILE_NAME_PATTERN}`}`
       : isDrill && f.name === DRILL_NAME ? `The colleague's invoice arrived named off the convention. ${c.want ? "Rename it as shown" : "Rename it the firm's way"}: the Case ID, the client, the Type and the date.`
@@ -1525,7 +1540,7 @@ async function driveList(env, id, rec) {
       const res = await drive(env, id, rec, "GET", `/files?q=${q}&pageSize=1000&includeItemsFromAllDrives=true&fields=nextPageToken,files(id,name,mimeType,parents,createdTime)${token ? "&pageToken=" + encodeURIComponent(token) : ""}`);
       if (!res.ok) throw new Error(driveMessage(res));
       (res.data.files || []).forEach((f) => {
-        const x = { name: f.name, parent: (f.parents || [])[0] || parent, created: f.createdTime || "" };
+        const x = { name: f.name, parent: (f.parents || [])[0] || parent, created: f.createdTime || "", mimeType: f.mimeType || "" };
         if (f.mimeType === FOLDER_MIME) { folders[f.id] = x; queue.push(f.id); } else files[f.id] = x;
       });
       if (!res.data.nextPageToken) break;
@@ -1537,14 +1552,15 @@ async function driveList(env, id, rec) {
 }
 
 /* The Drive as it is now: where each course document's copy sits, and the folders. */
-async function driveSnapshot(env, id, rec) {
-  const { files, folders } = await driveList(env, id, rec);
+async function driveSnapshot(env, id, rec, listed) {
+  const { files, folders } = listed || await driveList(env, id, rec);   // (🔎 the listing driveFind just took, when there is one)
   const pathOf = {};
   Object.entries(rec.folders || {}).forEach(([p, fid]) => { if (folders[fid]) pathOf[fid] = p; });
   const where = (fid) => (files[fid] ? { name: files[fid].name, created: files[fid].created, path: pathOf[files[fid].parent] || (files[fid].parent === rec.rootId ? "" : null) } : null);
   // a course document's copies, newest first; the first one still in the Drive is the one that counts
   const copyOf = (docId) => {
-    const all = (rec.saved || []).filter((s) => s.docId === docId && s.id).sort((a, b) => String(b.at).localeCompare(String(a.at)));
+    // (🔎 and the course documents the trainee filed by hand, worker-drive-found.js)
+    const all = (rec.saved || []).concat(rec.handFiled || []).filter((s) => s.docId === docId && s.id).sort((a, b) => String(b.at).localeCompare(String(a.at)));
     for (const s of all) { const w = where(s.id); if (w) return w; }
     return null;
   };
@@ -1636,17 +1652,19 @@ function gradeDay(n, rec, S, filed, N) {
 }
 /* A day is graded once the trainee has started it: one of its documents on the drive, or its drill begun. */
 function dayStarted(n, rec) {
-  if ((rec.saved || []).some((s) => DRIVE_DAY_DOCS[n].includes(s.docId))) return true;
+  if ((rec.saved || []).concat(rec.handFiled || []).some((s) => DRIVE_DAY_DOCS[n].includes(s.docId))) return true;   // (🔎 or filed by hand)
   if (n === 2 && rec.drills && rec.drills[2]) return true;
   if (n === 4 && (rec.checkLog || []).some((c) => (c.missing || []).includes(LIENS_FOLDER))) return true;
   return false;
 }
-async function driveGrade(env, id, rec, filed) {
+async function driveGrade(env, id, rec, filed, listed) {
   rec.grades = rec.grades || {};
+  // 🔎 one listing of the drive: the folders and documents made and filed by hand are found in it (worker-drive-found.js)
+  listed = listed || listedOf(rec) || await driveFind(env, driveWorkDeps(), id, rec);
   const days = [2, 3, 4, 5].filter((n) => dayStarted(n, rec));
   // Day 1's documents are on the drive before any later day starts, and their names are read all the same
-  if (days.length || (rec.saved || []).some((s) => s.id)) {
-    const S = await driveSnapshot(env, id, rec);
+  if (days.length || (rec.saved || []).some((s) => s.id) || (rec.handFiled || []).length) {
+    const S = await driveSnapshot(env, id, rec, listed);
     const N = driveNaming(rec, S, days);   // from the snapshot: no request of its own
     rec.naming = N.report;
     days.forEach((n) => { rec.grades[n] = gradeDay(n, rec, S, filed, N); });
@@ -2014,7 +2032,7 @@ export default {
               trainers,
             });
             ["refresh", "access", "exp"].forEach((k) => delete rec[k]);   // the old Google sign-in's tokens, no longer used
-            if (!same) { rec.folders = {}; delete rec.builtAt; delete rec.lastMissing; }   // another folder: its structure is made in it
+            if (!same) { rec.folders = {}; delete rec.builtAt; delete rec.lastMissing; ["foundAt", "found", "foundSetup", "handFiled"].forEach((k) => delete rec[k]); }   // another folder: its structure is made (or found) in it
             await driveWrite(env, who, rec);
             // a structure already passed (Day 1, before this folder was linked) is made in it now, without typing it again
             let built = null;
@@ -2044,7 +2062,7 @@ export default {
             // A trainer refreshes the last check with the trainee's own (sealed) access: read-only, nothing is made again.
             // A folder linked before the trainer list was set (or changed) is shared with the trainers now, so 📁 Open Drive opens.
             if (trainerEmails(env).join(",") !== (rec.trainers || "")) { rec.trainers = await addTrainers(env, rec.rootId, rec.trainers); await driveWrite(env, who, rec); }
-            if (!rec.builtAt) return json({ error: "This trainee hasn't built the structure yet.", report: driveReport(who, rec) }, 400);
+            if (!rec.builtAt && !rec.foundAt) return json({ error: (rec.found && rec.found.why) || "This trainee hasn't built the structure yet: press 🏅 Grade now to look for one made by hand.", report: driveReport(who, rec) }, 400);
             const out = await driveVerify(env, who, rec);
             return json({ verified: out, report: driveReport(who, rec) });
           }
@@ -2057,7 +2075,7 @@ export default {
           if (action === "drill") {
             // Day 2's drill: a colleague filed Summit Imaging's invoice in 03 Medical Records. Once, and only into a built drive.
             if (Number(b.day) !== 2) return json({ error: "There is no drill for that day." }, 400);
-            if (!rec.builtAt || !rec.folders || !rec.folders[DRIVE_HOMES.medical]) return json({ error: "Build the firm's folders first (Day 1).", code: "DRIVE_NOT_BUILT" }, 400);
+            if (!(rec.builtAt || rec.foundAt) || !rec.folders || !rec.folders[DRIVE_HOMES.medical]) return json({ error: "Build the firm's folders first (Day 1).", code: "DRIVE_NOT_BUILT" }, 400);
             rec.drills = rec.drills || {};
             if (!rec.drills[2]) {
               const pdf = tinyPdf(["Summit Imaging Center - Invoice", "Patient: John Doe", "Cervical MRI, 03/13/2026: $2,395.00",
@@ -2073,9 +2091,11 @@ export default {
           }
           if (action === "grade" || action === "gradeFor") {
             // The automated rows of each started day's rubric, read from the Drive as it is now.
-            if (!rec.builtAt) return json({ error: "The firm's folders aren't built yet (Day 1).", code: "DRIVE_NOT_BUILT", drive: driveStatus(env, rec) }, 400);
+            // 🔎 a structure made by hand (or in a folder a trainer linked) is found in the drive and graded as it is
+            const listed = await driveFind(env, driveWorkDeps(), who, rec);
+            if (!rec.builtAt && !rec.foundAt) { await driveWrite(env, who, rec); return json({ error: (rec.found && rec.found.why) || "The firm's folders aren't built yet (Day 1).", code: "DRIVE_NOT_BUILT", drive: driveStatus(env, rec) }, 400); }
             const filed = action === "grade" ? cleanFiled(b.filed).concat(await filedFromProgress(env, who)).filter((x, i, a) => a.indexOf(x) === i) : await filedFromProgress(env, who);
-            await driveGrade(env, who, rec, filed);
+            await driveGrade(env, who, rec, filed, listed);
             return action === "grade" ? json({ grades: rec.grades, drive: driveStatus(env, rec) }) : json({ grades: rec.grades, report: driveReport(who, rec) });
           }
           if (action === "rebuild") {
