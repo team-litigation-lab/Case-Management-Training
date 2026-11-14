@@ -590,5 +590,207 @@ window.CM_DAY_VIDEOS = {
     "title": "Thank You!"
    }
   ]
+ },
+ "12": {
+  "title": "Case Management Training — Day 2",
+  "src": "/decks/day2/day2-narrated.mp4",
+  "captions": "/decks/day2/day2-narrated.vtt",
+  "chapters": [
+   {
+    "t": 0,
+    "page": 1,
+    "title": "Case Management Training — Day 2"
+   },
+   {
+    "t": 24.9,
+    "page": 2,
+    "title": "Training Agenda"
+   },
+   {
+    "t": 48.9,
+    "page": 3,
+    "title": "Pre-Demand Case Auditing: Core Objectives"
+   },
+   {
+    "t": 100.4,
+    "page": 4,
+    "title": "The Auditing Checklist: The Trinity of Case Alignment"
+   },
+   {
+    "t": 144,
+    "page": 5,
+    "title": "Master Audit Checklist: Financial & Lien Verification"
+   },
+   {
+    "t": 186.8,
+    "page": 6,
+    "title": "Master Audit Checklist: Liability Proof"
+   },
+   {
+    "t": 215.4,
+    "page": 7,
+    "title": "Master Audit Checklist: Property Damage Deep Dive"
+   },
+   {
+    "t": 246.6,
+    "page": 8,
+    "title": "Master Audit Checklist: Medical & Billing Audit"
+   },
+   {
+    "t": 281.6,
+    "page": 9,
+    "title": "The Defense-Eye Audit: Red Flag Detection"
+   },
+   {
+    "t": 321.3,
+    "page": 10,
+    "title": "Final Package Readiness"
+   },
+   {
+    "t": 356.3,
+    "page": 13,
+    "title": "Case Phase: Demand — The Legal & Procedural Foundation"
+   },
+   {
+    "t": 386.1,
+    "page": 14,
+    "title": "Case Phase: Demand — The Policy Limit Mindset"
+   },
+   {
+    "t": 425.8,
+    "page": 15,
+    "title": "Treatment Gaps in the Demand Phase"
+   },
+   {
+    "t": 475.4,
+    "page": 16,
+    "title": "The Demand Packet Checklist"
+   },
+   {
+    "t": 511.5,
+    "page": 17,
+    "title": "Quality Control: The Final Scrub"
+   },
+   {
+    "t": 538,
+    "page": 18,
+    "title": "Negotiating the First Call"
+   },
+   {
+    "t": 562.5,
+    "page": 19,
+    "title": "Demand: Best Practices"
+   },
+   {
+    "t": 598.5,
+    "page": 21,
+    "title": "Settlement Negotiations: The Pitch"
+   },
+   {
+    "t": 654.6,
+    "page": 22,
+    "title": "The Valuation Baseline: The Set-Off"
+   },
+   {
+    "t": 699.8,
+    "page": 23,
+    "title": "The Valuation Baseline: PIP as a Valuation Baseline"
+   },
+   {
+    "t": 739.6,
+    "page": 24,
+    "title": "The Valuation Baseline: The EMC and the Benefit Ceiling"
+   },
+   {
+    "t": 772.9,
+    "page": 25,
+    "title": "The Valuation Baseline: Subrogation vs. Non-Subrogation"
+   },
+   {
+    "t": 807.5,
+    "page": 26,
+    "title": "The Valuation Baseline: Strategic Exhaustion"
+   },
+   {
+    "t": 858.5,
+    "page": 27,
+    "title": "Negotiations Initiated: The Battle"
+   },
+   {
+    "t": 908.2,
+    "page": 28,
+    "title": "The Bracketing Technique"
+   },
+   {
+    "t": 947.5,
+    "page": 29,
+    "title": "Common Adjuster Stall Tactics"
+   },
+   {
+    "t": 997,
+    "page": 30,
+    "title": "Close the Deal: The Final-Final"
+   },
+   {
+    "t": 1036,
+    "page": 31,
+    "title": "The Never Rule"
+   },
+   {
+    "t": 1058.7,
+    "page": 33,
+    "title": "BI Settlement: The UM/UIM Safety Check"
+   },
+   {
+    "t": 1104.1,
+    "page": 34,
+    "title": "BI Settlement: Key Laws & Doctrines"
+   },
+   {
+    "t": 1149.8,
+    "page": 35,
+    "title": "The Execution: The Release of All Claims"
+   },
+   {
+    "t": 1198,
+    "page": 36,
+    "title": "The Execution: The Settlement Disclosure Statement"
+   },
+   {
+    "t": 1230.5,
+    "page": 37,
+    "title": "The Execution: Lien Payoff Letters"
+   },
+   {
+    "t": 1271.2,
+    "page": 38,
+    "title": "The Execution: The Settlement Statement"
+   },
+   {
+    "t": 1303.2,
+    "page": 39,
+    "title": "The Execution: The Dismissal"
+   },
+   {
+    "t": 1332.7,
+    "page": 40,
+    "title": "The Execution: W-9 and Key Post-Settlement Documents"
+   },
+   {
+    "t": 1374.4,
+    "page": 41,
+    "title": "Finalized Settlement: Administrative Document Control"
+   },
+   {
+    "t": 1420.1,
+    "page": 42,
+    "title": "Finalized Settlement: Final Lien Mitigation"
+   },
+   {
+    "t": 1459.7,
+    "page": 44,
+    "title": "Thank You!"
+   }
+  ]
  }
 };
