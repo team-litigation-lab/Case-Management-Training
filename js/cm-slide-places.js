@@ -47,10 +47,16 @@
    the trainee there. A place saved on one of the slides that are gone lands on the slide before them (the Training
    Agenda); every other place keeps its slide. The new slide is in no older deck: no older place lands on it, and it
    counts as seen for a trainee who was past it.
+   Then the lesson cards the trainers' decks replaced left the course (layout 8): Day 1's UPL Line, Client Directions and
+   Final Warning Letter, Day 2's PIP Strategy, Day 3's Demand Package, Adjuster Delay Tactics and UM Consent & Waiver
+   (GONE8: each with the lesson it followed). Their rules are 💡 Tips on the activities that practised them
+   (js/cm-lesson-tips.js). A place saved on one of their slides lands on the slide before them; every other place keeps
+   its slide.
    The layouts: 1, the deck with On the Job (no layout on the saved place); 2, without On the Job (the deck with the
    Milestone Steps slides and every Why It Matters slide); 3, without those, in the old order; 4, in today's order,
    every lesson on its own drawn slides; 5, with the deck pages, Day 1's and Day 2's Skill Building pages and Meet
-   Your Case; 6, without the Skill Building pages, still with Meet Your Case; 7, today's. A place saved in any older
+   Your Case; 6, without the Skill Building pages, still with Meet Your Case; 7, without Meet Your Case, still with the
+   lesson cards the decks replaced; 8, today's. A place saved in any older
    layout is moved through every change in one go (a place saved in 5 loses the Skill Building pages and Meet Your
    Case together; one saved in 6, only Meet Your Case).
    Each saved object carries the layout it was written in (cfLayout), so the move happens once, on whichever device
@@ -60,7 +66,7 @@
 (function(){
 "use strict";
 if(typeof state === "undefined" || typeof DAYS === "undefined" || typeof buildDaySlides !== "function") return;
-const LAYOUT = 7, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
+const LAYOUT = 8, STAMP = "cfLayout", RESUME = "lsh_resume_after_update", RESUME_LAYOUT = "lsh_resume_layout";
 const build = buildDaySlides;   // as js/cm-case-flow.js and js/cm-deck-pages.js left it: a Case Flow block is one slide per view
 const cfDay = d => !!(d && d.cf && Array.isArray(d.lessons));
 
@@ -86,6 +92,14 @@ const GONE6_DECK = {"predemand": 1, "demand": 1, "negotiation": 1, "bisettlement
    itself). And the day's own slides that layout 7 added, in no older deck. */
 const GONE = {"d1m1-case": {day: 1, after: "taskOverview", views: ["theory", "frame", "rules", "model", "dodont"], ops: true, with: ["caseMap", "coverageMap"]}};
 const NEW7 = new Set(["meetJohnDoe"]);
+/* Layout 8: the lesson cards the trainers' decks replaced left the course's order (their block keeps `retired`; its
+   rules are a 💡 Tip, js/cm-lesson-tips.js). Each sat right after the lesson named here, in every layout from 4 to 7
+   (several after one lesson sit in this order); in layouts 1 to 3 they are in ORDER3. A place on one lands on the
+   slide before it. A record of the deck of layout 7; never edit it to match a later one. */
+const GONE8 = {"d1m1-upl": "d1m1-role", "d1m3-l1": "d1m4-l1", "d1m2-l2": "d1m2-l1", "d2m2-pip": "d2m2-eob",
+  "d3m1-pkg": "d3m1-l2", "d3m2-l1": "d3m1-l2", "d3m2-umw": "d3m1-l2"};
+const blockOf = id => { for(const x of ((window.CM_CASE_FLOW || {}).days || [])) for(const m of x.modules || []) for(const b of m.blocks || []) if(b.id === id) return b; return null; };
+const retiredRun = (id, from) => { const b = blockOf(id), views = window.cmCaseFlow && window.cmCaseFlow.viewsOf; return b && views ? viewsWere(b, views(b), from).length : 0; };
 const goneRun = (id, from) => { const g = GONE[id]; return viewsWere({id, kind: "lesson", ops: g.ops ? [1] : []}, g.views.slice(), from).length; };
 /* a lesson drawn from the trainer's deck pages now (layout 5): its slides before were its own drawn ones */
 const deckLesson = b => !!(b && b.kind === "lesson" && (window.CM_DECK_SLIDES || {})[b.id] && window.cmCaseFlow && window.cmCaseFlow.drawnViewsOf);
@@ -145,6 +159,7 @@ function oldDeck(d, from){
       if(tok[0] === "~"){ const k = typeAt(tok.slice(1)); out.push([k, k]); return; }
       const [id, n] = tok.split("/"), li = d.lessons.findIndex(l => l.cf && l.cf.block.id === id);
       if(li < 0 && GONE[id]){ for(let p = goneRun(id, from); p > 0; p--) out.push([-1, -1]); return; }   // left the deck (layout 7): lands on the slide before
+      if(li < 0 && GONE8[id]){ for(let p = retiredRun(id, from); p > 0; p--) out.push([-1, -1]); return; }   // replaced by the decks (layout 8): the same
       if(li < 0) return;
       const run = runWas(d, li, deck, views, from), a = used[id] || 0, z = n ? Math.min(run.length, a + Number(n)) : run.length;
       for(let p = a; p < z; p++) out.push(run[p]);
@@ -165,7 +180,11 @@ function oldDeck(d, from){
         if(n && !(nx && nx.type === "deckPage" && nx.deck === sl.deck)) for(let g = 0; g < n; g++) out.push([-1, -1]);
         return;
       }
-      if(sl.part === 1) runWas(d, sl.lessonIndex, deck, views, from).forEach(x => out.push(x));
+      if(sl.part !== 1) return;
+      runWas(d, sl.lessonIndex, deck, views, from).forEach(x => out.push(x));
+      // the lessons the decks replaced (layout 8) sat right after this one: each lands on the slide before
+      const id = d.lessons[sl.lessonIndex].cf.block.id;
+      if(from < 8) Object.keys(GONE8).filter(g => GONE8[g] === id).forEach(g => { for(let p = retiredRun(g, from); p > 0; p--) out.push([-1, -1]); });
     });
   }
   // a slide that is gone lands on the one before it

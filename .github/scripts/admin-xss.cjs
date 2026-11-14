@@ -91,6 +91,8 @@ const failures = []; const fail = (m) => failures.push(m);
     await page.evaluate((id) => { state.adminExpandedId = id; render(); }, tid);
     await page.waitForTimeout(3500);
     await page.evaluate(() => { render(); document.querySelectorAll('details').forEach(d => { d.open = true; }); }); await page.waitForTimeout(1200);
+    // the Backup Drive report comes from its own request: on a busy runner it can land after the fixed waits above
+    await page.waitForFunction(() => { if (/Drive set up at/.test(document.body.innerText)) return true; render(); document.querySelectorAll('details').forEach(d => { d.open = true; }); return false; }, null, { timeout: 20000, polling: 1000 }).catch(() => {});
     const panels = await page.evaluate(() => ({ work: document.querySelectorAll('.cf-tr-work').length, text: document.body.innerText }));
     if (!/Drive set up at/.test(panels.text)) fail("the trainee's detail should show the Backup Drive set-up line");
     if (!/tripped/.test(panels.text)) fail("the Case Flow trainer panel should show the amendment request's refused attempt");
