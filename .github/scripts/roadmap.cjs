@@ -31,8 +31,9 @@ const failures = []; const fail = (m) => failures.push(m);
     await page.evaluate(() => openRoadmap());
     await page.waitForSelector('.rmx-day', { timeout: 5000 }).catch(() => fail('🗺 Roadmap didn\'t open'));
     const map = await page.evaluate(() => {
-        const days = [...document.querySelectorAll('.rmx-day')].map(s => ({ head: s.querySelector('.rmx-dayh').innerText, nums: [...s.querySelectorAll('.rmx-tn')].map(x => x.textContent),
-            names: [...s.querySelectorAll('.rmx-tt')].map(x => x.textContent.trim()), enabled: [...s.querySelectorAll('.rmx-topic')].map(b => !b.disabled) }));
+        const days = [...document.querySelectorAll('.rmx-day')].map(s => ({ head: s.querySelector('.rmx-dayh').innerText, nums: [...s.querySelectorAll('li:not(.rmx-dk) .rmx-tn')].map(x => x.textContent),
+            // (📑 Deck pages, js/cm-day-decks.js, are the day's deck topics: not lessons of the day)
+            names: [...s.querySelectorAll('li:not(.rmx-dk) .rmx-tt')].map(x => x.textContent.trim()), enabled: [...s.querySelectorAll('li:not(.rmx-dk) .rmx-topic')].map(b => !b.disabled) }));
         const want = DAYS.map((d, i) => ({ n: (d.cf && d.cf.n) || i + 1, count: d.lessons.length, first: d.lessons[0] && (d.lessons[0].cf ? d.lessons[0].cf.block.title : d.lessons[0].h) }));
         const slides = buildDaySlides(DAYS[0]), firsts = {}; slides.forEach((x, k) => { if (x.lessonIndex != null && firsts[x.lessonIndex] == null) firsts[x.lessonIndex] = k; });
         return { days, want, firsts };

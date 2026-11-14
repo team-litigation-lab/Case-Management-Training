@@ -1,6 +1,6 @@
-# Case Flow Day 3 — Pre-Demand Audit, the Demand & Settlement Negotiation
+# Case Flow Day 3 — Lien Negotiation & Disbursement
 
-**Phase:** Pre-demand audit, the demand & settlement negotiation · **Focus case:** John Doe VS Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
+**Phase:** Lien negotiation & disbursement · **Focus case:** John Doe VS Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
 
 **Objective.** Probe the 14-Day Gap with John Doe on a recorded call, inside the UPL line, and complete the Gap Explanation Record from his own documented facts; audit the file to MMI and $16,401.40 in Specials; brief Atty. Thorne in the pre-demand strategy session; serve a time-limited BI demand that holds up; structure the Host UM and Relative UM demands behind it; then negotiate Track A to a $40,000 gross recovery with both UM consents.
 
@@ -31,7 +31,7 @@
 
 The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
 
-**Module 3 — Pre-Demand Audit, the Demand & Settlement Negotiation**
+**Module 3 — Lien Negotiation & Disbursement**
 
 1. *Lesson* — Interview Techniques & UPL Boundaries in Client Investigation
 2. *Lesson* — Medical Excuse Notes & Continuous-Care Documentation Rules
@@ -64,13 +64,13 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 ---
 
-## Module 3 — Pre-Demand Audit, the Demand & Settlement Negotiation
+## Module 3 — Lien Negotiation & Disbursement
 
 **Order:** Lessons (8) ➔ Case Profile ➔ Skill Building (Serving the $10,000 BI Time-Limit Demand Package) ➔ Update Your Action Plan ➔ Practice Lab (13 optional side exercises) ➔ Knowledge Check (4 Learning Checks)
 
 ### 3.1.1 Interview Techniques & UPL Boundaries in Client Investigation
 
-> **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
+> **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Asking so that the answer is his, not yours  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#44` Handling Treatment Gaps During the Treatment Phase · `D1#28` Treatment Phase: Essential Client Communication Strategies · LSH Claims Specialist: communication skills and professionalism — clarity without jargon, empathy, active listening, paraphrasing, calm reassurance · LSH Claims Specialist: LOR — all carrier communication through the firm · Newly authored: non-leading investigative interview technique (the funnel); recording consent and privilege on a client call; reassurance about process, never outcome
@@ -149,7 +149,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 ### 3.1.2 Medical Excuse Notes & Continuous-Care Documentation Rules
 
-> **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
+> **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** What proves the care was continuous, and what never happens  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#44` Handling Treatment Gaps During the Treatment Phase · `D2#13` Treatment Gaps in the Demand Phase · `D1#39` Communication Loops: The “Stakeholder Triad” · LSH Claims Specialist: attention to detail — cross-referencing facts and dates across documents · Newly authored: continuous-care documentation tests and record integrity (no altered, back-dated or to-order records; excuse notes cover only what the author saw)
@@ -224,7 +224,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 ### 3.1.3 The Causation Letter: Proving the Collision Caused the Harm
 
-> **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
+> **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Negligence is only half the battle: what a Causation Letter is, what it proves, and how you request, check, file and track Dr. Reyes's  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#13` Documents that Matter: Liability & Causation Documents · `D3#15` Documents that Matter: General Damages Documents (Non-Economic Value) · `D2#13` Treatment Gaps in the Demand Phase · `D1#46` Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain · Case file: Dr. Alana Reyes's Causation Letter, 06/19/2026 (RS19) · Newly authored: negligence and causation as the two halves of a personal injury claim; the Causation Letter's definition, legal purpose, evidentiary role and the Case Manager's handling of it
@@ -297,7 +297,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 ### 3.1.4 MMI, Special Damages & Policy-Limits Targets
 
-> **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
+> **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** The audit that decides what the demand can claim  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#1` Training Agenda: From Pre-Demand to Settlement · `D2#2` Pre-Demand Case Auditing: Core Objectives · `D2#4` Master Audit Checklist: Financial & Lien Verification · `D2#7` Master Audit Checklist: Medical & Billing Audit · `D2#9` Pre-Demand: Final Package Readiness · `D2#12` Demand: The Policy Limit Mindset · `D1#40` The “Golden Standard”: Reasonable and Necessary · LSH Claims Specialist: policy limits (per person vs. per accident) · Newly authored: billed vs. paid and the collateral-source routing; future medical kept out of the Specials total
@@ -371,7 +371,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ### 3.1.5 Strategy Briefing Protocols with Lead Counsel
 
-> **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
+> **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Briefing Atty. Thorne, live or in the AI strategy session  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#3` The Auditing Checklist: The Trinity of Case Alignment · `D2#5` Master Audit Checklist: Liability & Liability Proof · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · `D2#8` The “Defense-Eye” Audit (Red Flag Detection) · `D2#9` Pre-Demand: Final Package Readiness · LSH Claims Specialist: communication skills — clear, professional, no jargon; well-organized files for attorneys · Newly authored: the strategy briefing protocol (bottom line, facts, risks, decisions, options, record)
@@ -447,7 +447,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ### 3.1.6 Time-Limit Demand Mechanics & the Statutory Bad-Faith Setup
 
-> **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
+> **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** What makes a $10,000 demand one Keystone has to answer  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#11` Case Phase: Demand — The Legal & Procedural Foundation · `D2#12` Demand: The Policy Limit Mindset · `D2#13` Treatment Gaps in the Demand Phase · `D2#17` Demand: Best Practices · Newly authored: the elements of a Time-Limited Demand that can support a later failure-to-settle claim (within limits, clear and reasonable terms, sufficient documentation, a stated window with proof of delivery)
@@ -522,7 +522,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ### 3.1.7 Secondary UM Demand Structuring & Policy Stacking Rules
 
-> **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
+> **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Locking the escape hatches before Host UM and Relative UM open  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#31` BI Settlement — Phase II: The UM/UIM “Safety Check” · `D2#32` BI Settlement: Key Laws & Doctrines · `D3#1` Training Agenda & Why the UM Phase Matters · `D3#2` Beyond Organization: The UM Demand Strategy · `D3#3` BI Exhaustion & Consent — Mechanic 1: Locking the Escape Hatches · `D3#4` The UM Demand Package: Turning Risk Management Against the Insurer · `D3#5` UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#12` Documents that Matter: Threshold & Coverage Documents · Newly authored: the UM carrier's right to substitute its own check for the BI tender; a General Release (“all other … insurers”) as a threat to the UM claims; Relative UM as excess over Host UM
@@ -597,7 +597,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ### 3.1.8 Securing Maximum Gross Policy-Limit Settlements
 
-> **Lesson** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
+> **Lesson** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** The UM gap, the reductions that don't apply, and closing at limits  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#20` The Valuation Baseline: PIP Set-Off (The Credit) · `D2#22` The Valuation Baseline: The EMC and the Benefit Ceiling · `D2#23` The Valuation Baseline: Subrogation vs. Non-Subrogation · `D2#26` Settlement Negotiations: The Bracketing Technique · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D3#7` UM Settlement: How the Settlement Is Calculated · `D3#8` UM Settlement: Negotiation & Settlement · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#10` UM Settlement: Challenges · `D3#11` UM Settlement: The Final Payout Process · `D3#17` Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit
@@ -673,7 +673,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 3.1.9 Probe the 14-Day Treatment Gap with AI John Doe
 
-> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
+> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 1 — Call Simulator: the 14-Day Gap, in his words  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#44` Handling Treatment Gaps During the Treatment Phase · `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · LSH Claims Specialist: communication skills and professionalism — clarity without jargon, empathy, active listening, paraphrasing, calm reassurance · Newly authored: non-leading investigative interview technique (the funnel); recording consent and privilege on a client call
@@ -754,7 +754,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 ### 3.1.10 Gap Explanation Record Creation
 
-> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
+> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 2 — every reason beside its proof, for both interruptions  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#44` Handling Treatment Gaps During the Treatment Phase · `D2#13` Treatment Gaps in the Demand Phase · `D2#8` The “Defense-Eye” Audit (Red Flag Detection) · LSH Claims Specialist: attention to detail — cross-referencing facts and dates across documents
@@ -839,7 +839,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 3) and that day'
 
 ### 3.1.11 Wage Loss Verification & the Medical Nexus
 
-> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
+> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity — verify every missed shift with the employer and the treating providers  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#4` Master Audit Checklist: Financial & Lien Verification · `D2#7` Master Audit Checklist: Medical & Billing Audit · `D1#40` The “Golden Standard”: Reasonable and Necessary · LSH Claims Specialist: attention to detail — cross-reference documents, double-check calculations and dates · Newly authored: employer wage verification and the medical-nexus reconciliation of every missed shift before the BI demand
@@ -908,7 +908,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ### 3.1.12 Calculating Total Specials & the Special Damages Audit
 
-> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
+> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity 1 — audit $15,002.40 down to the number that holds  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#4` Master Audit Checklist: Financial & Lien Verification · `D2#7` Master Audit Checklist: Medical & Billing Audit · `D2#9` Pre-Demand: Final Package Readiness · `D1#40` The “Golden Standard”: Reasonable and Necessary · LSH Claims Specialist: attention to detail — cross-reference documents, double-check calculations and dates
@@ -981,7 +981,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ### 3.1.13 Pre-Demand Strategy Session with AI Atty. Elijah Thorne
 
-> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
+> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity 2 — present the audit; record his decisions  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#3` The Auditing Checklist: The Trinity of Case Alignment · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · `D2#8` The “Defense-Eye” Audit (Red Flag Detection) · `D2#9` Pre-Demand: Final Package Readiness · `D2#10` Skill Building: Pre-Demand Audit Challenges (John Doe File) · `D2#12` Demand: The Policy Limit Mindset
@@ -1053,7 +1053,7 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 3) and that d
 
 ### 3.1.14 Backup File Maintenance: the Pre-Demand Backup Audit
 
-> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
+> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity — audit the backup against the CMS before the demand goes out  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · LSH firm standard: backup drive folder hierarchy
@@ -1116,7 +1116,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ### 3.1.15 Serving the $10,000 BI Time-Limit Demand Package
 
-> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
+> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 1 — audit it, serve it, prove it  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#13` Treatment Gaps in the Demand Phase · `D2#14` The Demand Packet Checklist: The “Big Four” · `D2#15` Demand: Quality Control — The “Final Scrub” · `D2#17` Demand: Best Practices · `D2#18` Skill Building: Demand Phase Challenge — Real-Time Demand Audit
@@ -1189,7 +1189,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ### 3.1.16 QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands
 
-> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
+> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity 2 — two packages, exhaustion proof on page one  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#4` The UM Demand Package: Turning Risk Management Against the Insurer · `D3#5` UM Demand: Investigation & Evaluation — The Weak File vs. The Legal Trap · `D3#6` UM Demand: The Demand Packet — Document Inclusions · `D3#12` Documents that Matter: Threshold & Coverage Documents · `D3#13` Documents that Matter: Liability & Causation Documents · `D3#14` Documents that Matter: Special Damages Documents (Economic Hard Costs) · `D3#15` Documents that Matter: General Damages Documents (Non-Economic Value) · `D3#16` Documents that Matter: Final Pleading & Release Documents (Closing Phase)
@@ -1261,7 +1261,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ### 3.1.17 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
 
-> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
+> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 1 — hold the Limits Demand on a recorded call  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#16` Negotiating the “First Call” (For Senior CMs) · `D2#25` Negotiations Initiated: The “Battle” — First Call to Low-Ball · `D2#27` Common Adjuster “Stall Tactics” and Rebuttals · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D2#29` Settlement Negotiations: The “Never” Rule · `D2#30` Skill Building: The Math Check — Your Slam-Dunk Liability Case · LSH Claims Specialist: review the case reference sheet before any adjuster call; no backdoor contact with the client
@@ -1343,7 +1343,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 3.1.18 Settlement Release Clause Review & Attorney Approval
 
-> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
+> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 2 — audit Keystone's release clause by clause, then route it  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#31` BI Settlement — Phase II: The UM/UIM “Safety Check” · `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D3#16` Documents that Matter: Final Pleading & Release Documents (Closing Phase) · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · Newly authored: the clause-by-clause release audit as a keep, replace, pull, add or flag call, with proposed amendments routed to the attorney before the client sees the release
@@ -1411,7 +1411,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 3.1.19 Client Execution, Transmittal to Keystone & Check Confirmation
 
-> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
+> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 3 — the signing session, the executed packet and the money into trust  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#31` BI Settlement — Phase II: The UM/UIM “Safety Check” · `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D2#38` The Execution: W-9 & Comparison of Key Post-Settlement Documents · `D2#39` Finalized Settlement: Boots-on-the-Ground Tasks — Administrative Document Control · `D3#11` UM Settlement: The Final Payout Process · Newly authored: the client signing session within the UPL line (signatures, notary and ID requirements, never a clause), and the executed packet transmitted with the UM waivers Keystone made a payment condition
@@ -1478,7 +1478,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 3.1.20 The BI Settlement Net Sheet: Stream 1 at the Tender
 
-> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
+> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity — what Keystone's $10,000 does, and doesn't, do on its own  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#30` Skill Building: The Math Check — Your Slam-Dunk Liability Case · `D3#23` The Net Sheet: Purpose of a Combined BI/UM Net Sheet · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · Newly authored: the settlement-stage BI Net Sheet (Stream 1 at the tender, liens unreduced, projections labelled) and the BI-alone pro-rata fact pattern laid before Atty. Thorne
@@ -1549,7 +1549,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 3.1.21 Closing the $40,000 Gross Recovery
 
-> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
+> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 4 — work both UM layers to limits, on the record  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#26` Settlement Negotiations: The Bracketing Technique · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D3#7` UM Settlement: How the Settlement Is Calculated · `D3#8` UM Settlement: Negotiation & Settlement · `D3#10` UM Settlement: Challenges · `D3#11` UM Settlement: The Final Payout Process · `D3#17` Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit
@@ -1620,7 +1620,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 3.1.22 The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
 
-> **Skill Activity** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
+> **Skill Activity** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity — project the UM stream to the cent, mark what will move, ask Atty. Thorne  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D3#23` The Net Sheet: Purpose of a Combined BI/UM Net Sheet · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · `D2#36` The Execution: The Settlement Statement (The “Net” Sheet) · Newly authored: the settlement-stage Stream 2 Net Sheet on 10/06/2026, liens unreduced, every moving figure marked as a projection, and the written questions for Atty. Thorne
@@ -1692,7 +1692,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ### 3.1.23 UPL & Investigation Review
 
-> **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with UPL & Investigation Review (`d2m3`)  
+> **Knowledge Check** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#44` Handling Treatment Gaps During the Treatment Phase · `D2#13` Treatment Gaps in the Demand Phase · `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP)
@@ -1791,7 +1791,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 ### 3.1.24 Pre-Demand Audit & Day 3 Gate
 
-> **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
+> **Knowledge Check** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#2` Pre-Demand Case Auditing: Core Objectives · `D2#4` Master Audit Checklist: Financial & Lien Verification · `D2#7` Master Audit Checklist: Medical & Billing Audit · `D2#8` The “Defense-Eye” Audit (Red Flag Detection) · `D2#9` Pre-Demand: Final Package Readiness · `D2#12` Demand: The Policy Limit Mindset
@@ -1900,7 +1900,7 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 
 ### 3.1.25 Demand Execution Audit
 
-> **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Demand Execution Audit (`d3m1`)  
+> **Knowledge Check** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Demand Execution Audit + CM Learning Summary & Self-Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#13` Treatment Gaps in the Demand Phase · `D2#15` Demand: Quality Control — The “Final Scrub” · `D2#18` Skill Building: Demand Phase Challenge — Real-Time Demand Audit · `D2#31` BI Settlement — Phase II: The UM/UIM “Safety Check” · `D3#3` BI Exhaustion & Consent — Mechanic 1: Locking the Escape Hatches · `D3#6` UM Demand: The Demand Packet — Document Inclusions · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#12` Documents that Matter: Threshold & Coverage Documents · `D3#15` Documents that Matter: General Damages Documents (Non-Economic Value)
@@ -2006,7 +2006,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ### 3.1.26 Negotiation Mastery Check
 
-> **Knowledge Check** · Day 3 — Pre-demand audit, the demand & settlement negotiation · Module 3: Pre-Demand Audit, the Demand & Settlement Negotiation · scored with Negotiation Mastery Check (`d3m2`)  
+> **Knowledge Check** · Day 3 — Lien negotiation & disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Knowledge Check + CM Learning Summary & Self-Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#19` Settlement Negotiations: The Pitch & the Negotiation Battle Map · `D2#20` The Valuation Baseline: PIP Set-Off (The Credit) · `D2#23` The Valuation Baseline: Subrogation vs. Non-Subrogation · `D2#27` Common Adjuster “Stall Tactics” and Rebuttals · `D2#28` Close the Deal: The “Final-Final” and the Paper Trail · `D2#29` Settlement Negotiations: The “Never” Rule · `D2#30` Skill Building: The Math Check — Your Slam-Dunk Liability Case · `D3#9` UM Settlement: The “Offset” Rule & the Timeline · `D3#11` UM Settlement: The Final Payout Process · `D3#17` Skill Building: UM Settlement — The Bad-Faith Arbitrage & the Permanent Deficit

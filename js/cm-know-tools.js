@@ -12,7 +12,7 @@ const TOOLS = [
   {id: "cms", icon: "🗂", name: "LSH Case Management System (CMS)", daily: true,
     what: "The firm's case management system and the file of record. John Doe's matter lives here: parties, the Conflict Check, insurance, the calendar, documents, case notes, tasks, liens and the financial ledger.",
     where: "🧰 Tools → CMS, the Practice Lab slide of each day, or 🗂 on any step that's worked in it. It opens beside the slide and keeps its session.",
-    when: "Every day. Day 1 you open the matter; after that every activity ends in the CMS, and its AI Grader slide logs your CMS Case ID.",
+    when: "Every day. Day 1 you open the matter; after that every activity ends in the CMS, and its Submit slide logs your CMS Case ID.",
     tip: "If it isn't in the CMS, it didn't happen."},
   {id: "call", icon: "☎", name: "LSH Ring Channel (the Call Simulator)", daily: true,
     what: "The training phone. Live calls with John Doe, Margaret Doe, the adjusters, providers' billing offices, defense counsel's paralegal and Atty. Thorne, voiced and graded.",
