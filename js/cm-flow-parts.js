@@ -62,7 +62,7 @@ function labelRoadmap(){
     const mid = window.cmDayLoop && window.cmDayLoop.mainId ? window.cmDayLoop.mainId(d) : "", mi = mid ? d.lessons.findIndex(l => l.cf.block.id === mid) : -1;
     if(mid){
       d.lessons.forEach((l, li) => { if(kindAt(d, li) !== "activity" || lis[li].querySelector(".dl-rm-tag")) return;
-        (lis[li].querySelector(".rmx-tt") || lis[li]).insertAdjacentHTML("beforeend", li === mi ? `<small class="dl-rm-tag dl-rm-main">🎯 Skill Building</small>` : `<small class="dl-rm-tag">optional side exercise</small>`); });
+        (lis[li].querySelector(".rmx-tt") || lis[li]).insertAdjacentHTML("beforeend", li === mi ? `<small class="dl-rm-tag dl-rm-main">🎯 Skill Building</small>` : `<small class="dl-rm-tag">skill activity</small>`); });
       if(mi >= 0 && first.activity != null && mi !== first.activity){ lis[first.activity].parentNode.insertBefore(lis[mi], lis[first.activity]); first.activity = mi; }
     }
     [["lesson", L.lessons], ["activity", L.lab], ["check", L.kc]].forEach(([k, x]) => {
