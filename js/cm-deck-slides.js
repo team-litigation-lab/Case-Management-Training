@@ -112,18 +112,6 @@ window.CM_DECK_SLIDES = {
    "title": "Bottleneck: Communication Gaps",
    "img": "/decks/day1/18.webp",
    "notes": "The last bottleneck is communication gaps. The intake team may not be updating Case Managers. A Case Manager may not receive the complete intake packet. Or departments may simply miscommunicate. Closing these gaps is part of your job: confirm you have the full packet, and log every hand-off."
-  },
-  {
-   "page": "sb-1",
-   "title": "Skill Building: Intake Decision Challenge",
-   "img": "/decks/day1/sb-1.webp",
-   "notes": "Time for your first skill-building exercise: the Intake Decision Challenge. A new potential client, John Doe, submits an inquiry about a case against Apex Delivery Services. Your task is to complete the intake evaluation and decide whether the case should be accepted, escalated, or declined. Accepted means it moves to case opening. Escalated means it goes to an attorney or senior reviewer. Declined means it fails on eligibility or risk factors. Whichever you choose, clearly document the reason for your decision, and communicate the next steps to the intake team or the client."
-  },
-  {
-   "page": "sb-2",
-   "title": "Skill Building: Applied Case Manager Actions",
-   "img": "/decks/day1/sb-2.webp",
-   "notes": "Now apply what you learned about bottlenecks. Identify where intake is breaking down on the file, and what actions will move it forward. Work through four steps. First, identify the areas where intake has slowed. Second, conduct a root cause analysis: why did it slow down? Third, implement immediate actions to get the file moving. And fourth, put a fix in place to prevent it from happening again."
   }
  ],
  "d1m4-l1": [
@@ -143,13 +131,13 @@ window.CM_DECK_SLIDES = {
    "page": 21,
    "title": "Case Example: Coverage Analysis",
    "img": "/decks/day1/21.webp",
-   "notes": "Let's apply this to our case, John Doe versus Apex. The snapshot: our client is John Doe. The defendant is Apex, a commercial trucking company. The incident is a rear-end motor vehicle collision involving a commercial vehicle, during a highway traffic slowdown, and the date of loss is pending verification. Now the coverage sources. Apex's commercial auto liability is assumed active, and it is the primary source. The employer umbrella is unknown and must be verified. The client's PIP and MedPay require insurance details from the client. And UM/UIM coverage is pending, depending on the Apex policy. Because Apex is a commercial carrier, substantial liability coverage is likely, with limits higher than a standard auto policy. The insight: coverage looks strong on the defendant's side, but it must be confirmed before the projection can be finalized."
+   "notes": "Let's apply this to our case, John Doe versus Robert Smith. The snapshot: our client is John Doe, the front-seat passenger in Kevin Alvarez's 2020 Ford Escape, not a driver. The defendant is Robert Smith, driving a 2017 Chevrolet Silverado. Smith ran the all-way stop at Maple Hollow Road and Birch Avenue and struck the passenger door, on February 6th, 2026, at about 7:10 in the morning. The statute of limitations is docketed for February 6th, 2028. Now the coverage sources, in the order they pay. First, Robert Smith's bodily injury coverage with Keystone Mutual: a 10,000 dollar limit, which you confirm. Second, the host vehicle's uninsured motorist coverage: Harbor Point, the policy on the Escape, 20,000 dollars, which opens only once the bodily injury limit is exhausted. Third, relative uninsured motorist coverage: Cardinal State Mutual, 10,000 dollars, because John lives with his mother, Margaret Doe. That is a 40,000 dollar recovery stack. Margaret's Bluewater policy rejected that coverage, so it adds no layer. The insight: never settle or release the bodily injury claim without the other carriers' written consent, because that can forfeit the stack."
   },
   {
    "page": 22,
    "title": "Case Example: Liability Determination",
    "img": "/decks/day1/22.webp",
-   "notes": "Now liability. The fact pattern: a rear-end collision with a commercial vehicle, in a traffic slowdown. Our client was struck from behind. The defendant may have been following too closely, or failed to brake. And there is no police report yet. Rear-end collisions involving commercial vehicles generally create a strong presumption of negligence. The Apex driver may be liable for negligent operation and failure to keep a safe distance, and Apex itself may carry vicarious liability as the employer. But note the risk: liability is strong, not final. It still needs confirmation from the police report, the driver's statement, and dashcam or other evidence. So, liability is likely favorable, but still in the pre-confirmation stage."
+   "notes": "Now liability. The fact pattern: a side-impact collision at an all-way stop, at Maple Hollow Road and Birch Avenue in Riverton. John was the restrained front-seat passenger in the host vehicle. Kevin Alvarez, the host driver, stopped eastbound and then proceeded. Robert Smith, northbound on Birch Avenue, didn't stop, and struck the front passenger door at about 28 miles per hour. The evidence: the Riverton police report, which cites Smith for failure to stop; an independent witness, Ruth Calloway; and a doorbell-camera video. A citation, a witness and video all point to Robert Smith, and John was a passenger, so none of the driving was his. The risk note: confirm each piece against the police report, and secure the video before it is overwritten. And remember: fault and value are Attorney Thorne's call. You document the facts; you never predict the outcome."
   },
   {
    "page": 23,
@@ -318,18 +306,6 @@ window.CM_DECK_SLIDES = {
    "title": "Treatment Gaps: Case Manager Responsibilities",
    "img": "/decks/day1/47.webp",
    "notes": "Your responsibilities with treatment gaps: monitor treatment frequency and appointment compliance. Follow up immediately after a missed appointment. Educate the client on why consistent treatment matters. Help coordinate transportation, scheduling, or referrals. Communicate with providers about interruptions in care. And document every client explanation and every follow-up effort. As best practice, keep treatment timelines updated, track referrals and pending appointments, encourage clients to report worsening symptoms promptly, and escalate prolonged or unexplained gaps to supervising staff or the attorney. Consistent treatment documentation strengthens both the medical support and the future negotiating position."
-  },
-  {
-   "page": "sb-3",
-   "title": "Skill Building: The Eggshell Plaintiff",
-   "img": "/decks/day1/sb-3.webp",
-   "notes": "Skill-building: John Doe versus Apex Delivery Services, with Aggressive Casualty as the carrier. Intake has surfaced a critical complication: the eggshell plaintiff narrative, against a prior lumbar strain from 2018. The carrier has seen the 2018 record. It is stalling the MRI for the L4-L5 protrusion in your intake, claiming it is a pre-existing degenerative condition, not caused by the collision with the Apex truck. Your objective is to support proving aggravation. Under US law, an eggshell plaintiff is entitled to full recovery for the increase in disability, even if they were more vulnerable to injury than a healthy person. Think about how you would document the client's baseline and the change since the accident, and what you would escalate to the attorney."
-  },
-  {
-   "page": "sb-4",
-   "title": "Skill Building: The Transportation Wall",
-   "img": "/decks/day1/sb-4.webp",
-   "notes": "Our final exercise is a flash simulation: the transportation wall. John is in a 12-week intensive chiropractic program, and he has been doing great for four weeks. Then he calls you. His car's transmission just died. He says: I can't get to the clinic anymore. It's a 45-minute drive. I might as well quit the program and try again next year when I have money saved. Your task: decide how you will handle this common treatment-phase obstacle. Think about treatment gaps, warm handoffs, and the barriers we discussed today. Then create a case file in the training interface, and update it with your plan."
   }
  ]
 };

@@ -33,16 +33,13 @@ async function workerChecks() {
     await workerChecks();
     // the files the page points at are in the repository
     const notes = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'build/videoslide/day1.json'), 'utf8'));
-    // the video is the deck, page for page; the Skill Building pages (skillPages) are not in it: they are worked in the platform
-    const inVideo = notes.slides, sb = notes.skillPages || [];
-    if (!sb.length) fail('the Skill Building pages should be kept for the platform (skillPages)');
-    if (notes.slides.some(s => /Skill Building/.test(s.title))) fail('a Skill Building page is in the deck the video is made from');
+    // the video is the deck, page for page. The original deck's Skill Building pages were from another case than
+    // John Doe v. Robert Smith: they are gone, from the video and from the platform's slides alike
+    const inVideo = notes.slides;
+    if (notes.slides.some(s => /Skill Building/.test(s.title)) || notes.skillPages) fail('a Skill Building page from the deck is still in day1.json');
+    if (Object.values(notes.lessons).flat().some(p => typeof p !== 'number' || !notes.slides.some(s => s.page === p))) fail("a lesson names a page that isn't in the deck");
+    if (fs.readdirSync(path.join(process.cwd(), 'decks/day1')).some(f => /^sb-/.test(f))) fail('decks/day1 still has a Skill Building page image');
     if (notes.video.starts.length !== inVideo.length) fail(`video.starts has ${notes.video.starts.length} times for the ${inVideo.length} pages in the video`);
-    for (const x of sb) {
-        if (!/Skill Building/.test(x.title)) fail(`${x.id} is kept apart from the deck but isn't a Skill Building page`);
-        if (!Object.values(notes.lessons).flat().includes(x.id)) fail(`${x.id} should be a slide in the platform (in a lesson's pages)`);
-        if (!fs.existsSync(path.join(process.cwd(), 'decks/day1', x.id + '.webp'))) fail(`decks/day1/${x.id}.webp is missing`);
-    }
     for (const f of [notes.video.src, notes.video.captions]) if (!fs.existsSync(path.join(process.cwd(), f))) fail(`${f} is missing`);
     if (fs.statSync(path.join(process.cwd(), notes.video.src)).size > 25 * 1024 * 1024) fail(`${notes.video.src} is over 25 MB: Cloudflare won't serve it as a static asset`);
 
@@ -78,7 +75,8 @@ async function workerChecks() {
             });
             return out;
         });
-        if (deck.bad.length || deck.lessons < 6 || deck.slides < 53) fail(`deck slides: ${JSON.stringify(deck)}`);
+        const wantSlides = Object.values(notes.lessons).flat().length;   // every page the notes give a lesson
+        if (deck.bad.length || deck.lessons < Object.keys(notes.lessons).length || deck.slides !== wantSlides) fail(`deck slides: ${JSON.stringify(deck)}`);
         await page.evaluate(() => { goto('day', 11); }); await page.waitForTimeout(600);
         const shown = await page.evaluate(async () => {
             const d = DAYS.find(x => x.id === 11), li = d.lessons.findIndex(x => x.cf && x.cf.block.id === 'd1m1-role');
@@ -100,8 +98,9 @@ async function workerChecks() {
         await page.evaluate(() => cmDayVideo.open(11)); await page.waitForTimeout(200);
         if (await page.$('#cm-dv')) fail('a locked video opened for a trainee');
         await page.evaluate((k) => { state.isAdmin = true; state.adminPreview = false; state.cmOpenVideos = null; state.adminData = null; cmOpenLessons.go(k); }, BKEY); await page.waitForTimeout(1200);
-        const tile = await page.$('.cm-dv-admin .cm-dv-day input');
-        if (!tile) fail('Admin → 🔓 Open Lessons has no 🎬 Unlock Videos tile');
+        // (a locator, found afresh each try: the tab redraws as its data arrives)
+        const tile = page.locator('.cm-dv-admin .cm-dv-day input[onchange*="(11,"]');
+        if (!(await tile.count())) fail('Admin → 🔓 Open Lessons has no 🎬 Unlock Videos tile for Case Flow Day 1');
         else { await tile.check(); await page.waitForTimeout(900); }
         const saved = await page.evaluate(async () => sharedGet('settings:openvideos'));
         if (!saved || JSON.stringify(saved.all) !== '[]' || JSON.stringify((saved.batches || {})[BKEY]) !== '[11]') fail(`ticking the tile saved: ${JSON.stringify(saved)}`);
@@ -141,5 +140,5 @@ async function workerChecks() {
     } catch (e) { fail(`the check stopped: ${e.message}`); }
     await browser.close();
     if (failures.length) { console.error('🎬 Day video check FAILED:\n - ' + failures.join('\n - ')); process.exit(1); }
-    console.log('🎬 Day 1 deck and video: the deck pages and its Skill Building pages are the lessons\' slides with their notes as scripts, the video is locked until a trainer unlocks it for the batch, and the viewer plays it with captions and a chapter per page it keeps (the Skill Building pages are slides only).');
+    console.log('🎬 Day 1 deck and video: the deck pages are the lessons\' slides with their notes as scripts, the video is locked until a trainer unlocks it for the batch, and the viewer plays it with captions and a chapter per page it keeps (the Skill Building pages are slides only).');
 })();
