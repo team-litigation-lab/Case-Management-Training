@@ -972,8 +972,9 @@ if(PV_IS_AUDIENCE){
     pvChannel().postMessage({type:"rendered", dayId:d.id, slide, page:state.slidePage||0, pages:state.slidePages||1, w:root.clientWidth, h:root.clientHeight, secs, allSecs, secsByPage});
   };
   // `force`: the window changed size, so lay the slide out again
+  let early = null;   // a "show" that came before js/cm-case-flow.js filled DAYS (the presenter answers our hello at once): drawn when the page has loaded
   const show = (m, force)=>{
-    const d = DAYS.find(x=>x.id===m.dayId); if(!d) return;
+    const d = DAYS.find(x=>x.id===m.dayId); if(!d){ if(document.readyState === "loading") early = m; return; }
     // The slide on screen is never drawn again for the same step (the console re-drawing, its live
     // copy reconnecting): in the shared window a redraw is a visible flash. A page change within
     // the slide happens in place.
@@ -1003,6 +1004,7 @@ if(PV_IS_AUDIENCE){
       if(m.type==="end") root.innerHTML = `<div class="aud-wait"><b>Thanks for joining</b>The presentation has ended.</div>`;
     });
     PV.ch.postMessage({type:"hello"});
+    document.addEventListener("DOMContentLoaded", ()=>{ const m = early; early = null; if(m && !last) show(m); });
   }
   let rt = null;
   const reshow = ()=>{ clearTimeout(rt); rt = setTimeout(()=>{ if(last) show(last, true); }, 200); };
