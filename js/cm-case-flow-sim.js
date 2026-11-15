@@ -131,7 +131,7 @@ window.CM_CF_SIM = {
    "from": "Atty. Elijah Thorne (ethorne@lshlawgroup.example)",
    "to": "Case Manager",
    "subject": "John Doe: letters of representation go out today",
-   "body": "Claims are open: Keystone BI KM-26-440871 (Dana Whitfield) and PD (Leah Moran, who accepted PD liability this morning), Harbor Point HP-26-7741 (Marcus Bell, Host UM and PIP), Cardinal State CS-26-20355, no adjuster yet. I want the three LORs, plus notices to Bluewater and Peach State, on my desk for signature today. Preferred delivery methods are in the Communications Log.",
+   "body": "Claims are open: Keystone BI KM-26-440871 (Dana Whitfield) and PD (Leah Moran, who accepted PD liability this morning), Harbor Point HP-26-7741 (Marcus Bell, Host UM and PIP), Cardinal State CS-26-20355, no adjuster yet. I want the three LORs, plus notices to Bluewater and Peach State, on my desk for signature today. Preferred delivery methods are in Case Notes.",
    "attachments": [
     "RS01",
     "RS07"
@@ -156,8 +156,8 @@ window.CM_CF_SIM = {
    "channel": "alert",
    "from": "CMS",
    "to": "Case Manager",
-   "subject": "Past due: Keystone BI follow-up (03/05/2026) · Coverage Matrix flags",
-   "body": "LSH-2026-MVA-770412. Follow-up “Keystone BI: Declaration Page” was due 03/05/2026; nothing logged. The Coverage Matrix total reads $45,000; the Case Plan target is $40,000. New in Documents since the matrix was last edited: Harbor Point letter 03/02/2026, Cardinal State assignment 03/03/2026 and Coverage Letter 03/09/2026.",
+   "subject": "Past due: Keystone BI follow-up (03/05/2026) · Coverage Stack flags",
+   "body": "LSH-2026-MVA-770412. Follow-up “Keystone BI: Declaration Page” was due 03/05/2026; nothing logged. The Coverage Stack total reads $45,000; the Case Plan target is $40,000. New in Documents since the matrix was last edited: Harbor Point letter 03/02/2026, Cardinal State assignment 03/03/2026 and Coverage Letter 03/09/2026.",
    "attachments": [
     "RS28",
     "RS29",
@@ -209,7 +209,7 @@ window.CM_CF_SIM = {
    "from": "CMS",
    "to": "Case Manager",
    "subject": "No client contact: John Doe, 6 days",
-   "body": "LSH-2026-MVA-770412. Last logged contact with John Doe: 02/10/2026. Check-in call scheduled 02/13/2026: missed. Phone system shows two calls to his mobile ending in voicemail, neither in the Communications Log. No treatment start recorded. Emergency contact on file: Margaret Doe, (555) 010-2291. No Contact Protocol Step 1 due today."
+   "body": "LSH-2026-MVA-770412. Last logged contact with John Doe: 02/10/2026. Check-in call scheduled 02/13/2026: missed. Phone system shows two calls to his mobile ending in voicemail, neither in Case Notes. No treatment start recorded. Emergency contact on file: Margaret Doe, (555) 010-2291. No Contact Protocol Step 1 due today."
   },
   "d1m2-a2": {
    "date": "02/21/2026",
@@ -223,7 +223,7 @@ window.CM_CF_SIM = {
     "RS05"
    ],
    "log": {
-    "title": "Communications Log — John Doe · No Contact Protocol",
+    "title": "Case Notes — John Doe · No Contact Protocol",
     "head": [
      "Date",
      "Time",
@@ -831,8 +831,8 @@ window.CM_CF_SIM = {
    "channel": "alert",
    "from": "CMS",
    "to": "Case Manager",
-   "subject": "Pleadings Log does not match the docket: 26-CV-04417",
-   "body": "Reconciliation check, Pleadings Log against Docket Calendar: 5 mismatches. Unlogged: Affidavit of Service (Allied Process Services email, 10/16/2026); Certificate of Service (01/04/2027). Unfiled scan: scan_1210.pdf. Row “Interrogatories/RFPs” shows due 12/31/2026; calendar shows 01/04/2027. No row for Requests for Admission.",
+   "subject": "Discovery & Filing Tracker does not match the docket: 26-CV-04417",
+   "body": "Reconciliation check, Discovery & Filing Tracker against Docket Calendar: 5 mismatches. Unlogged: Affidavit of Service (Allied Process Services email, 10/16/2026); Certificate of Service (01/04/2027). Unfiled scan: scan_1210.pdf. Row “Interrogatories/RFPs” shows due 12/31/2026; calendar shows 01/04/2027. No row for Requests for Admission.",
    "attachments": [
     "RS60",
     "RS52",

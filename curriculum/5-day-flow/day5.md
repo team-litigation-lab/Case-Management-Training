@@ -86,7 +86,7 @@ A full-width horizontal court timeline on a navy rail runs from 09/24/2026 to 01
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* On 09/24/2026 John Doe's file became Civil Action No. 26-CV-04417. An adjuster's deadline bends; a court's does not. The Pleadings Log and Discovery Calendar prove, every day, that nothing filed, served or owed has slipped.
+*Why:* On 09/24/2026 John Doe's file became Civil Action No. 26-CV-04417. An adjuster's deadline bends; a court's does not. The Discovery & Filing Tracker and Discovery Calendar prove, every day, that nothing filed, served or owed has slipped.
 
 1. Litigation is not a longer negotiation. Our demand lapsed 08/21/2026; from the 09/24/2026 filing on, the court's rules set the pace.
 2. Three phases: pleadings (filing, service, Answer); discovery (calendar, gather, meet the client; most of your time); trial prep (records, subpoenas, binders).
@@ -186,7 +186,7 @@ A fork diagram fills the upper two-thirds. From the left, a single navy trunk la
 
 | Sign of impasse | On this file | Proof |
 |---|---|---|
-| Same offer, no new reason | $3,500 on 08/05; “final” on 08/12 | Communications Log |
+| Same offer, no new reason | $3,500 on 08/05; “final” on 08/12 | Case Notes |
 | Objection kept after rebuttal | The gap and a “degenerative” MRI, answered 08/06 | Rebuttal and delivery proof |
 | Demand deadline passed | Time-Limited Demand lapsed 08/21/2026 | Written acknowledgement (07/22); calendar |
 | Follow-ups unanswered | 08/24 and 08/31 | Sent emails; log |
@@ -244,12 +244,10 @@ A before-and-after split. Left panel, muted gray, titled PRE-LIT FILE: a claim f
 
 1. Status changes to Litigation only on Atty. Thorne's dated authorization to sue, and cites it. The fee tier follows the filing, not the status: 33⅓% pre-suit, 40% once suit is filed, per the retainer.
 2. Open the court fields and fill them only from the record: court, civil action number, filing date, defense counsel, service status. Until the Complaint is filed the number reads “Pending”; never guess one.
-3. Build the litigation directory at transition, so it is ready the moment the Complaint is filed (09/24/2026): DOE, JOHN - CASE FILE with 01_PLEADINGS, 02_SERVICE_DOCS, 03_DISCOVERY_PLAINTIFF_TO_DEFENDANT, 04_DISCOVERY_DEFENDANT_TO_PLAINTIFF, 05_SUBPOENAS.
-4. Name every PDF to the convention (Complaint_Filed_Stamped.pdf, never scan001.pdf). File each incoming litigation document within 48 hours, but docket its deadlines and alert Atty. Thorne the day it arrives (an RFA, the hour it arrives).
-5. Seed the Litigation Calendar the day status changes: counsel's filing target, SOL 02/06/2028 (internal hard date 02/04/2028, cutoff 11/05/2027), 48-hour audits before hard dates. Ask Atty. Thorne each UM policy's suit or arbitration deadline and any duty to notify the carrier of suit; docket only from his answer.
-6. Notify the UM carriers as their policies require and Atty. Thorne directs: the impasse and the intended suit, in writing, with proof of delivery. A notice is not a UM demand and carries no figure.
-7. Preserve before you plead. Keep the doorbell video copy unaltered; what others hold (Margaret Doe's camera account, the Escape's event data recorder) gets a written preservation request Atty. Thorne signs.
-8. Binding means final. A binding award generally can't be appealed on the merits; courts vacate or correct one only on narrow grounds (fraud, partiality, misconduct, an evident miscalculation), on short deadlines. Confirm the policy and the governing statute.
+3. Name every PDF to the convention (Complaint_Filed_Stamped.pdf, never scan001.pdf). File each incoming litigation document within 48 hours, but docket its deadlines and alert Atty. Thorne the day it arrives (an RFA, the hour it arrives).
+4. Seed the Litigation Calendar the day status changes: counsel's filing target, SOL 02/06/2028 (internal hard date 02/04/2028, cutoff 11/05/2027), 48-hour audits before hard dates. Ask Atty. Thorne each UM policy's suit or arbitration deadline and any duty to notify the carrier of suit; docket only from his answer.
+5. Notify the UM carriers as their policies require and Atty. Thorne directs: the impasse and the intended suit, in writing, with proof of delivery. A notice is not a UM demand and carries no figure.
+6. Preserve before you plead. Keep the doorbell video copy unaltered; what others hold (Margaret Doe's camera account, the Escape's event data recorder) gets a written preservation request Atty. Thorne signs.
 
 > ⚠️ **UPL boundary.** You may change fields, build folders, calendar dates, and draft notices and preservation letters for Atty. Thorne's approval. You may tell John Doe what happens next procedurally (dates, logistics, what to bring). What it means for his claim, his fee or the outcome is Atty. Thorne's to explain. Send no notice he has not approved. At mediation or arbitration you run logistics and exhibits; you never speak for John Doe, argue or negotiate.
 
@@ -972,7 +970,7 @@ A single memo page on white letterhead, a navy header band reading IMPASSE MEMO 
 
 **Scenario.** File date 09/08/2026, Track B. Keystone Mutual (Dana Whitfield, KM-26-440871) offered $3,500 on 08/05, citing the 14-Day Gap and a “degenerative” MRI. The 08/06 rebuttal changed nothing: on 08/12 Keystone called $3,500 “final”. The 07/20 Time-Limited Demand (acknowledged in writing 07/22) lapsed on 08/21. Follow-ups on 08/24 and 08/31 asked for a response and the evidence Keystone relies on; neither was answered. The 48-Hour Mandate escalation to Keystone's claims supervisor on 09/02 drew nothing by 09/04. Harbor Point and Cardinal State are waiting on BI. The 08/06 rebuttal sent Dr. Helen Park's MRI read (“no significant degenerative change at the adjacent levels”), Dr. Reyes's 06/19/2026 Causation Letter, the EMS report and the Gap Explanation Record. Documented specials: $14,817.40 medical + $1,584.00 lost wages. SOL 02/06/2028 (a Sunday); firm internal hard date 02/04/2028; internal filing cutoff 11/05/2027.
 
-**Execution prompt.** Draft the impasse memo to Atty. Elijah Thorne. Build a dated chronology of every event from the 07/20/2026 demand to 09/04, each tied to its proof in the Communications Log. State Keystone's grounds and the rebuttal evidence it has not answered. Show the frozen stack layer by layer with the documented Specials, then the SOL and internal dates. End with the decision you need from him, framed as questions. Graded judgment: the memo documents and asks; it recommends nothing legal, because filing is his decision.
+**Execution prompt.** Draft the impasse memo to Atty. Elijah Thorne. Build a dated chronology of every event from the 07/20/2026 demand to 09/04, each tied to its proof in Case Notes. State Keystone's grounds and the rebuttal evidence it has not answered. Show the frozen stack layer by layer with the documented Specials, then the SOL and internal dates. End with the decision you need from him, framed as questions. Graded judgment: the memo documents and asks; it recommends nothing legal, because filing is his decision.
 
 | | |
 |---|---|
@@ -982,7 +980,7 @@ A single memo page on white letterhead, a navy header band reading IMPASSE MEMO 
 **Verification checkpoints**
 
 - [ ] Chronology complete and in order: 07/20 demand (acknowledged in writing 07/22), 08/05 offer $3,500, 08/06 rebuttal, 08/12 “final”, 08/21 lapse, 08/24 and 08/31 follow-ups, 09/02 escalation, 09/04 no response
-- [ ] Every event tied to its proof: the adjuster's written acknowledgement, sent email or Communications Log entry
+- [ ] Every event tied to its proof: the adjuster's written acknowledgement, sent email or Case Notes entry
 - [ ] Keystone's grounds stated as Keystone gave them: the 14-Day Gap and a “degenerative” MRI
 - [ ] Unanswered rebuttal listed: Dr. Helen Park's “no significant degenerative change at the adjacent levels”, Dr. Reyes's 06/19/2026 Causation Letter, the EMS report, the Gap Explanation Record
 - [ ] Frozen stack shown: $10,000 BI unexhausted → $20,000 Host UM and $10,000 Relative UM closed; $40,000 total, $30,000 of it unreachable
@@ -1128,7 +1126,7 @@ A left-to-right relay of four cards on a thin navy rail, each with an orange num
 - [ ] Signature check before upload: Complaint, cover sheet and summons signed by Atty. Thorne on 09/23/2026; the 09/15/2026 draft never uploaded
 - [ ] Envelope in Court E-Filing: John Doe VS Robert Smith, State Court of Riverton County, new civil case; Complaint (lead), civil cover sheet, summons for issuance; filing attorney Atty. Elijah Thorne, State Bar No. 418207; filing fee and summons $218.00
 - [ ] Envelope accepted 09/24/2026; court fields updated: Civil Action No. 26-CV-04417 replaces “Pending”, filing date 09/24/2026, service status “Summons issued, not served”
-- [ ] Pleadings Log row: Complaint filed 09/24/2026, e-file stamp 10:42 a.m., source document linked
+- [ ] Discovery & Filing Tracker row: Complaint filed 09/24/2026, e-file stamp 10:42 a.m., source document linked
 - [ ] 01_PLEADINGS holds Complaint_Filed_Stamped.pdf, Summons_Issued.pdf and Notice_of_Case_Management_Conference.pdf; no scan names
 - [ ] Fee receipt $218.00 posted to the costs ledger with its receipt: $486.75 + $218.00 = $704.75 in case costs
 - [ ] Fee tier: 40% shown effective 09/24/2026, the filing date, per the retainer; no fee explanation by the Case Manager
@@ -1181,18 +1179,18 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 #### 1 · Visual Layout Description
 
-A CMS Pleadings Log screen fills the left two-thirds: a white card with a navy header bar and eight rows in mono type (Event · Trigger · Method · Due · Filed · Source). Three rows carry orange numbered badges in the left margin: ① a dashed empty slot where the affidavit-of-service row should be; ② a due date, 12/31/2026, struck through in red with 01/04/2027 in a mono pill beside it and the arithmetic under it; ③ an empty RFA slot carrying a red flag. Right third: the file tree DOE, JOHN - CASE FILE with its five numbered sub-folders, and a scan_1210.pdf chip being renamed and dropped into 01_PLEADINGS. Bottom: a red callout, “Passed and unproven = escalate today.” The argument: the row nobody added is the deadline nobody kept.
+A CMS Discovery & Filing Tracker screen fills the left two-thirds: a white card with a navy header bar and eight rows in mono type (Event · Trigger · Method · Due · Filed · Source). Three rows carry orange numbered badges in the left margin: ① a dashed empty slot where the affidavit-of-service row should be; ② a due date, 12/31/2026, struck through in red with 01/04/2027 in a mono pill beside it and the arithmetic under it; ③ an empty RFA slot carrying a red flag. Right third: the file tree DOE, JOHN - CASE FILE with its five numbered sub-folders, and a scan_1210.pdf chip being renamed and dropped into 01_PLEADINGS. Bottom: a red callout, “Passed and unproven = escalate today.” The argument: the row nobody added is the deadline nobody kept.
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** 01/05/2027 · Track B. Civil Action No. 26-CV-04417 is three months old, and the docket calendar was audited and corrected on 12/10/2026, but the CMS Pleadings Log was never reconciled to it. As found: complaint 09/24/2026; service 10/14/2026, but no affidavit row (the executed affidavit, filed 10/16/2026, sits in an Allied Process Services email); Answer due 11/13/2026, filed 11/12/2026; Defendant's First Interrogatories (25) and RFPs (30), mailed 12/01/2026, logged as one row still carrying the pre-audit “due 12/31/2026”; no separate row for the 15 RFAs served with them; the 12/10/2026 Scheduling Order still saved as scan_1210.pdf with no log rows; our set e-served on Smith 12/14/2026, due 01/13/2027. CMS → Doc Hub holds a Certificate of Service dated 01/04/2027 for John Doe's verified responses to the Interrogatories, RFPs and RFAs, served by mail on Atty. Mercer; no log row was ever made for it.
+**Scenario.** 01/05/2027 · Track B. Civil Action No. 26-CV-04417 is three months old, and the docket calendar was audited and corrected on 12/10/2026, but the CMS Discovery & Filing Tracker was never reconciled to it. As found: complaint 09/24/2026; service 10/14/2026, but no affidavit row (the executed affidavit, filed 10/16/2026, sits in an Allied Process Services email); Answer due 11/13/2026, filed 11/12/2026; Defendant's First Interrogatories (25) and RFPs (30), mailed 12/01/2026, logged as one row still carrying the pre-audit “due 12/31/2026”; no separate row for the 15 RFAs served with them; the 12/10/2026 Scheduling Order still saved as scan_1210.pdf with no log rows; our set e-served on Smith 12/14/2026, due 01/13/2027. CMS → Doc Hub holds a Certificate of Service dated 01/04/2027 for John Doe's verified responses to the Interrogatories, RFPs and RFAs, served by mail on Atty. Mercer; no log row was ever made for it.
 
-**Execution prompt.** Repair the Pleadings Log and Discovery Calendar for 26-CV-04417. Add every missing row, recompute each response date from its trigger and method of service, and write the arithmetic into the row. File each document in its numbered sub-folder under the naming convention, and calendar the Scheduling Order's six dates. Then make the graded call: the RFA deadline never had its own log row and has passed. Prove compliance from that Certificate of Service, record the RFA Priority Check and 48-Hour Docket misses honestly, and report both to Atty. Thorne today. Do not contact opposing counsel.
+**Execution prompt.** Repair the Discovery & Filing Tracker and Discovery Calendar for 26-CV-04417. Add every missing row, recompute each response date from its trigger and method of service, and write the arithmetic into the row. File each document in its numbered sub-folder under the naming convention, and calendar the Scheduling Order's six dates. Then make the graded call: the RFA deadline never had its own log row and has passed. Prove compliance from that Certificate of Service, record the RFA Priority Check and 48-Hour Docket misses honestly, and report both to Atty. Thorne today. Do not contact opposing counsel.
 
 | | |
 |---|---|
 | **Tool / interface** | CMS → Litigation → Discovery & Filing Tracker · CMS → Calendar · CMS → Doc Hub |
-| **Expected output** | A corrected, source-linked Pleadings Log and Discovery Calendar, every document in its sub-folder, and RFA compliance proved from the certificate and the misses reported the same day. |
+| **Expected output** | A corrected, source-linked Discovery & Filing Tracker and Discovery Calendar, every document in its sub-folder, and RFA compliance proved from the certificate and the misses reported the same day. |
 
 **Verification checkpoints**
 
@@ -1272,7 +1270,7 @@ Split slide. Left 55%: the trial-prep checklist as a cream clipboard card with o
 
 | KPI | Formula | Target | Reading · source | Status |
 |---|---|---|---|---|
-| RFA Priority Check | Time from RFA receipt to Atty. Thorne's logged alert | ≤ 1 hour | 12/01/2026 RFAs: first alert at the 12/10/2026 audit, not within the hour · Pleadings Log | Missed |
+| RFA Priority Check | Time from RFA receipt to Atty. Thorne's logged alert | ≤ 1 hour | 12/01/2026 RFAs: first alert at the 12/10/2026 audit, not within the hour · Discovery & Filing Tracker | Missed |
 | Discovery Countdown | Days from drafts reaching Atty. Thorne to the court deadline | ≥ 7 days, every set | 01/04/2027 set: due to him by 12/28/2026 · task log | Met if on or before 12/28/2026 |
 
 **Verification checkpoints**
@@ -2012,7 +2010,7 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 | Competency | 1 | 2 | 3 | 4 | 5 |
 |---|---|---|---|---|---|
 | Computing court deadlines from a trigger and a method of service | ○ | ○ | ○ | ○ | ○ |
-| Maintaining a Pleadings Log and Discovery Calendar anyone can re-check | ○ | ○ | ○ | ○ | ○ |
+| Maintaining a Discovery & Filing Tracker and Discovery Calendar anyone can re-check | ○ | ○ | ○ | ○ | ○ |
 | Building the litigation file architecture and naming convention | ○ | ○ | ○ | ○ | ○ |
 | Auditing a trial-prep checklist against a Scheduling Order | ○ | ○ | ○ | ○ | ○ |
 | Defining and tracking litigation KPIs as formulas with targets | ○ | ○ | ○ | ○ | ○ |
@@ -2022,7 +2020,7 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 
 **Auto-graded share of the day's Knowledge Check** (6 questions):
 
-1. John Doe's responses to the 12/01/2026 set are docketed for 01/04/2027, as computed in the calendar audit. On 01/05/2027 you reconcile the Pleadings Log to the docket calendar. Which entry proves the file met that deadline?  
+1. John Doe's responses to the 12/01/2026 set are docketed for 01/04/2027, as computed in the calendar audit. On 01/05/2027 you reconcile the Discovery & Filing Tracker to the docket calendar. Which entry proves the file met that deadline?  
    The 01/04/2027 due date in the calendar row · A note that John Doe reviewed the drafts with Atty. Thorne · **✓ The Certificate of Service dated 01/04/2027, logged and filed to 04_DISCOVERY_DEFENDANT_TO_PLAINTIFF** · Atty. Mercer's silence since the responses went out  
    *A due date proves only that the deadline was known; compliance is proved by the Certificate of Service, its date checked against 01/04/2027 and the PDF filed where the set lives. Re-derive nothing: the count was settled in the calendar audit. Log the proof, then report to Atty. Thorne.*
 2. On 01/05/2027 you find that the 15 Requests for Admission served on 12/01/2026 were never given their own log row. What is the danger?  

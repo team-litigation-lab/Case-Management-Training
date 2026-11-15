@@ -143,7 +143,7 @@
   },
   "d2m1-a2": {
     "image": "insurance-stack",
-    "situation": "Assuming a colleague's Coverage Matrix **totals $45,000** and the file holds Harbor Point's and Cardinal State's letters but no Keystone Declaration Page, the matrix needs correcting.",
+    "situation": "Assuming a colleague's Coverage Stack **totals $45,000** and the file holds Harbor Point's and Cardinal State's letters but no Keystone Declaration Page, the matrix needs correcting.",
     "side": true,
     "steps": [
       "In CMS → Insurance, take PIP out of the stack and correct the total to **$40,000**, citing the document behind each fix.",
@@ -180,7 +180,7 @@
       "Run the Payer Order: **PIP → Peach State → LOP**",
       "Use an LOP **only where earlier payers can't**",
       "Atty. Thorne sets LOP terms; **never promise payment** amounts, reductions or dates",
-      "Be the hub: **warm handoffs**, not phone numbers"
+      "Decline an LOP **an earlier payer makes needless**"
     ],
     "upl": "You prepare and route LOPs; never set terms, sign, promise payment or explain liability.",
     "dos": [
@@ -696,7 +696,7 @@
     "hook": "An LOP gets John Doe treated now, paid **from the settlement**.",
     "points": [
       "An LOP is **a promise against the recovery**, not insurance",
-      "Use it **only after every payer** is checked",
+      "Sign it **before the first visit**, then file it",
       "Track the balance: **ledger every 30 days**",
       "Referrals: **options and logistics**, never which care"
     ],
@@ -957,7 +957,7 @@
       "Smith swears **no other insurance**: the condition for the limit",
       "John's **residency** keeps Relative UM; sworn if a carrier asks",
       "Custodian affidavits put **the bills into evidence**",
-      "The **affidavit of service** starts Smith's answer clock"
+      "Check **every jurat**: names, numbers, the notary's seal"
     ],
     "upl": "Request, track and check; **never swear, sign or notarize** for anyone",
     "dos": [

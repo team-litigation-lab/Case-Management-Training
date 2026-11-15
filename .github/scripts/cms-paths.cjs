@@ -5,7 +5,7 @@
 // Library and the calendars. The course's copy once named a CMS of its own ("CMS → Case File → Risk Flags", "CMS →
 // Financial Ledger → Net Sheet → Lien Tracker", "CMS → Tasks → Escalate"): a trainee who looked for those found nothing.
 // This reads every "CMS → …" in the Case Flow's sources (js/cm-case-flow-data.js and build/case-flow/**/*.json, from
-// which the slides, the scripts, the exhibits and the simulations are built) and the generated slides, and fails one whose
+// which the slides, the scripts, the exhibits and the simulations are built), the generated slides and the case documents, and fails one whose
 // first step is not a real CMS item, or whose second step is not a section of that tab. What follows the path (its
 // prose, "· Email Workspace", "(routed to …)") is not read. The trainer's scripts' "CMS › X › Y" are read the same way. When the CMS gains a tab or a section, add it here.
 // Also: the CMS Case File grade's areas (js/cm-cms-file.js AREAS) are matched on these same names.
@@ -47,10 +47,16 @@ else JSON.parse(cats).forEach((c) => { if (!MENU['Doc Hub'].includes(c)) fail(`t
 const files = ['js/cm-case-flow-data.js', 'js/cm-case-flow-slides.js', 'js/cm-case-flow-scripts.js', 'js/cm-case-flow-exhibits.js', 'js/cm-case-flow-sim.js', 'js/cm-progress-log.js'];
 const walk = (d) => fs.readdirSync(path.join(ROOT, d), { withFileTypes: true }).flatMap((e) => e.isDirectory() ? walk(path.join(d, e.name)) : /\.json$/.test(e.name) ? [path.join(d, e.name)] : []);
 files.push(...walk('build/case-flow'));
+// and the case documents themselves (documents/case-flow/html/RSNN.html, rendered to the PDFs): a document's "filed in
+// CMS → …" line is read the same way ("CMS → Documents → Outgoing", "CMS → Financial Ledger → Trust" were there)
+const DOCS = fs.readdirSync(path.join(ROOT, 'documents/case-flow/html')).filter((f) => /\.html$/.test(f)).map((f) => 'documents/case-flow/html/' + f);
+files.push(...DOCS);
 const tabs = Object.keys(MENU).sort((a, b) => b.length - a.length);
 let paths = 0; const seen = {};
 for (const f of files) {
-  const text = fs.readFileSync(path.join(ROOT, f), 'utf8'), lines = text.split('\n');
+  let text = fs.readFileSync(path.join(ROOT, f), 'utf8');
+  if (/\.html$/.test(f)) text = text.replace(/&rarr;/g, '→').replace(/&amp;/g, '&').replace(/<[^>]+>/g, ' ');
+  const lines = text.split('\n');
   lines.forEach((line, i) => {
     let k = -1;
     // (the trainer's scripts write the same path with ›: "CMS › Notes › Case Notes")

@@ -857,7 +857,7 @@ window.CM_CF_EXHIBITS = {
      "verdict": "keep",
      "kind": "calendar",
      "issue": "The notice itself is the trigger: its receipt date starts the file's response and sets what is held before the 10/22/2026 disbursement.",
-     "fix": "Log it on receipt in the Communications Log, route it to Atty. Thorne the same day, and send nothing to the firm.",
+     "fix": "Log it on receipt in Case Notes, route it to Atty. Thorne the same day, and send nothing to the firm.",
      "proof": [
       "RS84"
      ]
@@ -983,7 +983,7 @@ window.CM_CF_EXHIBITS = {
      "verdict": "add",
      "kind": "calendar",
      "issue": "The 10/22/2026 disbursement depends on this dispute. A hold no one recorded is a hold no one releases.",
-     "fix": "Place the hold Atty. Thorne directs, $6,666.67, in the CMS Trust Ledger; update the Action Plan; record who may release it.",
+     "fix": "Place the hold Atty. Thorne directs, $6,666.67, in CMS → Settlement (BI/UM) → Check Received / Disbursed; update the Action Plan; record who may release it.",
      "proof": [
       "RS84",
       "RS44"
@@ -1626,7 +1626,7 @@ window.CM_CF_EXHIBITS = {
       "h": "5 · Filed and updated",
       "lines": [
        "CMS → Liens: $3,618.00 asserted → $1,860.00 confirmed 06/24/2026; flag kept.",
-       "CMS → Doc Hub → Others under the firm's naming convention; Communications Log; a copy on the Backup Drive in Liens & Reimbursement.",
+       "CMS → Doc Hub → Others under the firm's naming convention; CMS → Notes → Case Notes; a copy on the Backup Drive in Liens & Reimbursement.",
        "Repayment and limits questions routed to Atty. Thorne 06/24/2026. Task: request the final amount before disbursement."
       ]
      }
@@ -1776,7 +1776,7 @@ window.CM_CF_EXHIBITS = {
      {
       "h": "5 · Filed and updated",
       "lines": [
-       "CMS → Doc Hub → Others under the firm's naming convention; Communications Log; a copy on the Backup Drive in Wages & Costs.",
+       "CMS → Doc Hub → Others under the firm's naming convention; CMS → Notes → Case Notes; a copy on the Backup Drive in Wages & Costs.",
        "Claim question routed to Atty. Thorne 06/30/2026; no medical records sent.",
        "Tasks: audit the draft wage worksheet (due 07/01/2026); ask John Doe for his 2025 W-2."
       ]
@@ -1927,7 +1927,7 @@ window.CM_CF_EXHIBITS = {
       "h": "5 · Action taken the same day",
       "lines": [
        "Acknowledgment forwarded to Atty. Thorne 07/22/2026, flagged \"adjuster raises time frame — your call\".",
-       "Communications Log updated with both emails, quoted in the adjuster's own words.",
+       "Case Notes updated with both emails, quoted in the adjuster's own words.",
        "Docket entry 08/21/2026 created from the written acknowledgement, not the send date, with reminders at 14 and 7 days and on the day.",
        "No reply sent on the time frame."
       ]
@@ -2727,7 +2727,7 @@ window.CM_CF_EXHIBITS = {
        "thorne|attorney",
        "log|cms|note"
       ],
-      "key": "Tell Atty. Thorne the same day that Keystone contacted a represented client and asked to record him; log the voicemail, call and emails in the CMS Communications Log."
+      "key": "Tell Atty. Thorne the same day that Keystone contacted a represented client and asked to record him; log the voicemail, call and emails in CMS Case Notes."
      }
     ]
    },

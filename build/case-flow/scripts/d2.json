@@ -31,7 +31,7 @@
       "say": "• Six stations: internal review, contact attempts, team notification in colour; Steps 4 to 6 greyed for the next lesson\n• Station two opens into the ladder: phone, email and text, emergency contact, certified mail\n• Each rung is wider: it reaches further and costs more; don't skip rungs or stay on one\n• Red card: the statute of limitations, the legal deadline to file suit, keeps running throughout"
     },
     "dodont": {
-      "say": "• Do: set a follow-up reminder the moment each request goes out\n• Do: make answering easy; as a Northgate shift lead he can't take calls on the floor, so text or upload link\n• Don't: let a file sit unlogged while waiting on the client, or blame the client for a process gap\n• Strong: log every attempt and switch channel instead of a third call to the same phone\n• Red flag: voicemails of 02/11 and 02/13 never reached the Communications Log; an unlogged attempt didn't happen; log each now with date, time, channel, outcome",
+      "say": "• Do: set a follow-up reminder the moment each request goes out\n• Do: make answering easy; as a Northgate shift lead he can't take calls on the floor, so text or upload link\n• Don't: let a file sit unlogged while waiting on the client, or blame the client for a process gap\n• Strong: log every attempt and switch channel instead of a third call to the same phone\n• Red flag: voicemails of 02/11 and 02/13 never reached Case Notes; an unlogged attempt didn't happen; log each now with date, time, channel, outcome",
       "ask": "Why does calling Margaret count as a new channel when a third call to John's mobile doesn't?"
     }
   },
@@ -55,7 +55,7 @@
   },
   "d1m2-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in CMS › Notes › Case Notes: the two earlier voicemails, then an email\n• A text and the emergency contact, each with date, time, channel and outcome\n• Step 2: Record the next action and its due date in the Communications Log"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in CMS › Notes › Case Notes: the two earlier voicemails, then an email\n• A text and the emergency contact, each with date, time, channel and outcome\n• Step 2: Record the next action and its due date in Case Notes"
     },
     "case": {
       "say": "• Assuming John Doe has been silent six days and the Step 1 review is done, his outreach attempts now need logging in order\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an unbroken, contemporaneous outreach log, the next action dated"
@@ -66,7 +66,7 @@
   },
   "d1m2-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub\n• Fill in the Final Warning Letter template: list the earlier attempts with their dates and set a reply date 7 to 14 days from today\n• Step 2: Log it in the CMS Communications Log: the letter went by certified mail and by email, and Atty. Thorne decides any next step"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub\n• Fill in the Final Warning Letter template: list the earlier attempts with their dates and set a reply date 7 to 14 days from today\n• Step 2: Log it in CMS Case Notes: the letter went by certified mail and by email, and Atty. Thorne decides any next step"
     },
     "case": {
       "say": "• Assuming the No Contact Protocol has been maxed (phone, email\n• Texts and emergency contact all tried and logged), John Doe's Step 4 Final Warning Letter is due today\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a send-ready Final Warning Letter, both deliveries logged, escalation recorded"
@@ -283,8 +283,8 @@
       "say": "• MMI is Lakeside Orthopedics' call: its 06/12/2026 note and future care go on the timeline; open the audit task; SOL 02/06/2028 calendared\n• Specials ledger until every billed date matches a visit: Riverton's 34 lines against 33 visits; medical $14,817.40\n• Red flag: Riverton's 05/04/2026 line has no visit note; claiming it inflates the Specials: remove it, $6,105.00, and send the correction in writing\n• The Civic is Keystone PD's; BI Specials are medical plus wages: 9 Northgate shifts, 8 hours, $22.00, $1,584.00; flag five with no note\n• $3,400 to $6,800 future injections stay out; PIP's five payments total $5,000.00; register every lien, billed beside paid, Peach State's $1,860.00 too"
     },
     "model": {
-      "say": "• Gate first: MMI 06/12/2026, ticked; nothing enters the ledger before it\n• Riverton Spine & Rehab: $6,290.00 struck, $6,105.00 instead; a $185.00 duplicate on 05/04/2026\n• $14,817.40 medicals plus $1,584.00 wages, $16,401.40; future medical sits outside the total\n• Targets in order: $10,000 BI, $20,000 Host UM, $10,000 Relative UM, each with its source\n• UM covers when at-fault insurance falls short: Host UM on the car he rode in, Relative UM via a relative\n• Before the ask, re-verify each sourced limit on the Coverage Matrix, $40,000 total; billed versus paid to Atty. Thorne; never value it",
-      "ask": "Why re-verify the limits now, when the Coverage Matrix was confirmed weeks ago?"
+      "say": "• Gate first: MMI 06/12/2026, ticked; nothing enters the ledger before it\n• Riverton Spine & Rehab: $6,290.00 struck, $6,105.00 instead; a $185.00 duplicate on 05/04/2026\n• $14,817.40 medicals plus $1,584.00 wages, $16,401.40; future medical sits outside the total\n• Targets in order: $10,000 BI, $20,000 Host UM, $10,000 Relative UM, each with its source\n• UM covers when at-fault insurance falls short: Host UM on the car he rode in, Relative UM via a relative\n• Before the ask, re-verify each sourced limit on the Coverage Stack, $40,000 total; billed versus paid to Atty. Thorne; never value it",
+      "ask": "Why re-verify the limits now, when the Coverage Stack was confirmed weeks ago?"
     }
   },
   "d2m4-l2": {
@@ -347,7 +347,7 @@
       "say": "• LOP: the firm's signed promise that a provider's reasonable charges are paid from any recovery; not insurance\n• Legal purpose: keep care going when no payer applies; the provider defers collection, its charges protected\n• Evidence role: fixes the lien; Riverton's letter, acknowledged 02/23/2026, keeps John Doe responsible either way\n• Handling: check every payer, sign before visit one, request the ledger every 30 days; its meaning is Atty. Thorne's"
     },
     "rules": {
-      "say": "• Last resort: check health insurance, MedPay and PIP first, and record why none works\n• Signed before the first visit and filed; Riverton's was signed 02/23/2026\n• Request the itemized ledger every 30 days and update the Liens tab\n• John asks where to go: give options with facts, book his pick, log his choice in his words\n• Red flag: recommending a provider 'for the case', or calling the LOP free care; options only, Atty. Thorne explains the LOP"
+      "say": "• Signed before the first visit and filed; Riverton's was signed 02/23/2026\n• Request the itemized ledger every 30 days and update the Liens tab\n• John asks where to go: give options with facts, book his pick, log his choice in his words\n• Red flag: recommending a provider 'for the case', or calling the LOP free care; options only, Atty. Thorne explains the LOP"
     },
     "theory": {
       "say": "• LOP: a written promise to pay a provider from the settlement; a claim on his recovery, not insurance\n• Payer-first: check health insurance, MedPay and PIP before reaching for an LOP\n• The balance grows every visit; the 30-day itemized ledger keeps the Liens tab accurate\n• Referrals are options and logistics only: a list, network status, the booking, his choice",
@@ -418,7 +418,7 @@
       "say": "• A Keystone letter saying Robert Smith has no other insurance won't settle the $10,000 limit; Harbor Point and Cardinal State won't accept it either\n• It takes a word under oath from the person who knows: Smith himself, sworn 08/10/2026\n• Affidavit: written facts sworn before a notary by someone with first-hand knowledge; ends in a jurat; a false one is perjury, which makes it proof\n• Coverage: Smith swears no other insurance; John, if asked, swears he lives with Margaret and owns no car\n• Damages: records custodians swear bills and records are true copies; Northgate verifies wages\n• Court: the process server swears Smith was served, starting his answer clock"
     },
     "rules": {
-      "say": "• Smith swears no other insurance, a condition of settling at the limit: request it through Keystone, docket it; sworn 08/10/2026\n• John swears residency and no owned vehicle only if a carrier asks, on Atty. Thorne's reviewed draft\n• Records requests include the custodian's affidavit, so bills enter evidence without calling each provider\n• Northgate's wage letter proves $1,584.00; affidavit of service filed 10/16/2026; file each where it's used: demand conditions, UM packages, trial binder\n• Jurat check: affiant as named, LSH-2026-MVA-770412 and claim number, dates and figures, signature, jurat and seal; defects routed with a task\n• Red flag: unsigned or un-notarized is only say-so; back it goes; never sign, notarize or reword it",
+      "say": "• Smith swears no other insurance, a condition of settling at the limit: request it through Keystone, docket it; sworn 08/10/2026\n• John swears residency and no owned vehicle only if a carrier asks, on Atty. Thorne's reviewed draft\n• Records requests include the custodian's affidavit, so bills enter evidence without calling each provider\n• Northgate's wage letter proves $1,584.00; file each where it's used: demand conditions, UM packages, trial binder\n• Jurat check: affiant as named, LSH-2026-MVA-770412 and claim number, dates and figures, signature, jurat and seal; defects routed with a task\n• Red flag: unsigned or un-notarized is only say-so; back it goes; never sign, notarize or reword it",
       "ask": "An affidavit arrives signed but with no notary seal. What happens, and who is told?"
     }
   },

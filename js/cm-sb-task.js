@@ -143,4 +143,23 @@ body .cfx .cfx-task1 .cfx-docs-pop button,body .cfx .cfx-task1 .cfx-docs-pop a,b
 @media (max-width:760px){ .cfx-task1 .cfx-task-foot{flex-wrap:wrap;} .cfx-task1 .cfx-grade-go{margin-left:0;width:100%;} .cfx-task1 .cfx-task-foot .cfx-of{margin-left:0;} .cfx-task1 .cfx-tools-pop{width:min(660px,92vw);} }
 `;
 document.head.appendChild(css);
+/* the 🧰 Tools menu opens upward over the steps: on a slide the layout enlarges (cm-slide-layout.js zooms the task), a long
+   menu reached past the card's top, under the deck's head bar, where its first row (Practises, 💡 Tip, 🧠 Think it through)
+   could not be clicked. It is held inside the card: shorter, and it scrolls. */
+function fitTools(menu){
+  const pop = menu && menu.open && menu.querySelector(".cfx-tools-pop"); if(!pop) return;
+  pop.style.maxHeight = "";
+  const box = menu.closest(".cfx-body") || menu.closest(".cf-card"); if(!box) return;
+  const lim = box.getBoundingClientRect().top + 6, r = pop.getBoundingClientRect(), over = lim - r.top;
+  if(over <= 0 || !pop.offsetHeight) return;
+  const ratio = r.height / pop.offsetHeight || 1;   // the enlarged slide's zoom
+  pop.style.maxHeight = Math.max(120, Math.floor((r.height - over) / ratio)) + "px";
+}
+document.addEventListener("toggle", e => { const m = e.target; if(m && m.classList && m.classList.contains("cfx-tools-menu")) requestAnimationFrame(() => fitTools(m)); }, true);
+if(typeof window.afterRender === "function"){
+  const __after = window.afterRender;
+  window.afterRender = function(){ const r = __after.apply(this, arguments);
+    try{ requestAnimationFrame(() => document.querySelectorAll(".cfx-tools-menu[open]").forEach(fitTools)); }catch(e){}
+    return r; };
+}
 })();

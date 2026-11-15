@@ -518,7 +518,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 #### 1 · Visual Layout Description
 
-A two-panel lab bench. Left panel: a white CMS Lien Tracker card with a navy header bar and one live row, PEACH STATE · $1,860.00 → $1,240.00, with the arithmetic beneath in mono ($1,860.00 × ⅓ = $620.00), and hollow rows below it each stamped with a green ✓ NONE — VERIFIED and a small source chip (BCRC · MEDICAID VERIFIED · HARBOR POINT 03/02/2026 · INTAKE). Right panel: a draft letter on cream paper headed REDUCTION REQUEST — FOR ATTY. THORNE'S SIGNATURE, a red HOLD tag across its corner. Between the panels an orange arrow labelled ESCALATE runs to a navy chip: ATTY. ELIJAH THORNE · GOVERNING LAW · DOCTRINE. The argument: the Case Manager builds the request; counsel releases it.
+A two-panel lab bench. Left panel: a white Net Sheet Lien Tracker card with a navy header bar and one live row, PEACH STATE · $1,860.00 → $1,240.00, with the arithmetic beneath in mono ($1,860.00 × ⅓ = $620.00), and hollow rows below it each stamped with a green ✓ NONE — VERIFIED and a small source chip (BCRC · MEDICAID VERIFIED · HARBOR POINT 03/02/2026 · INTAKE). Right panel: a draft letter on cream paper headed REDUCTION REQUEST — FOR ATTY. THORNE'S SIGNATURE, a red HOLD tag across its corner. Between the panels an orange arrow labelled ESCALATE runs to a navy chip: ATTY. ELIJAH THORNE · GOVERNING LAW · DOCTRINE. The argument: the Case Manager builds the request; counsel releases it.
 
 #### 2 · Slide Body — the scenario and the task
 
@@ -549,7 +549,7 @@ A two-panel lab bench. Left panel: a white CMS Lien Tracker card with a navy hea
 - [ ] Governing law (state law, not ERISA preemption) recorded as Atty. Thorne's determination, not the Case Manager's
 - [ ] Common-fund math shown: $1,860.00 × ⅓ = $620.00; $1,860.00 – $620.00 = $1,240.00; the request cites the MRI and Dr. Reyes's 06/19/2026 Causation Letter that beat the gap defense
 - [ ] Made whole flagged for Atty. Thorne; comparative fault recorded as not applicable (no fault reduction on Track A)
-- [ ] Request held in Documents → Outgoing until Atty. Thorne's written approval is logged
+- [ ] Request held as a draft in CMS → Doc Hub → Others until Atty. Thorne's written approval is logged
 - [ ] Medicare recorded as none, citing the Day 2 check (34, not on SSDI), so no MSPRP final demand to reconcile; Medicaid recorded as none, verified separately with John Doe (the BCRC answers for Medicare only)
 - [ ] Hospital and workers' comp each “none — verified” with date and source; prior attorney “none known to John Doe” with date and source; PIP recorded as not a lien: Harbor Point asserted no reimbursement right against John Doe (03/02/2026); whether it reserves PIP subrogation against Robert Smith asked in writing and routed to Atty. Thorne, no outcome recorded
 - [ ] PIP-paid providers (Riverton Urgent Care, Lakeside Orthopedics, Summit Imaging) at a zero balance; Summit's 03/11/2026 LOP request was declined, so it holds no lien
@@ -875,7 +875,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 #### 1 · Visual Layout Description
 
-Two panels joined by an orange arrow dated 10/21 → 10/22. Left: a navy-header checklist card, CONDITIONS PRECEDENT, with green ticks: LIMITED RELEASE EXECUTED 08/28 · UM RELEASES FILED · FUNDS CLEARED 10/20 · STATEMENT SIGNED 10/21 · PAYOFF LETTERS · LIEN HOLD RELEASED 10/19 (a struck-through red chip beneath it reads VANCE & KETTERING $6,666.67 — WITHDRAWN). Right: the CMS Trust screen as a table of five disbursement commands, payee and mono amount on each, each with an empty ATTY. THORNE · APPROVE chip, and a running-balance column ending in a green $0.00. The argument: the checklist on the left is what makes the commands on the right safe.
+Two panels joined by an orange arrow dated 10/21 → 10/22. Left: a navy-header checklist card, CONDITIONS PRECEDENT, with green ticks: LIMITED RELEASE EXECUTED 08/28 · UM RELEASES FILED · FUNDS CLEARED 10/20 · STATEMENT SIGNED 10/21 · PAYOFF LETTERS · LIEN HOLD RELEASED 10/19 (a struck-through red chip beneath it reads VANCE & KETTERING $6,666.67 — WITHDRAWN). Right: the CMS Settlement (BI/UM) tab's Check Received / Disbursed section as a table of five disbursement commands, payee and mono amount on each, each with an empty ATTY. THORNE · APPROVE chip, and a running-balance column ending in a green $0.00. The argument: the checklist on the left is what makes the commands on the right safe.
 
 #### 2 · Slide Body — the scenario and the task
 
@@ -971,7 +971,7 @@ A two-column audit sheet: CMS on the left, BACKUP DRIVE on the right, rows linke
 - Audit the backup before every outgoing package: what the adjuster receives must be on the firm's own drive first.
 - Supersede, never delete: the old version explains why the new one exists.
 - ⚠️ Pitfall: two files with the same name in one folder and no way to tell which is current.
-- ⚠️ Pitfall: leaving the draft demand in 01 Intake & Retainer because it was opened from the Case Files tab.
+- ⚠️ Pitfall: leaving the draft demand in 01 Intake & Retainer because it was opened from the Doc Hub's Case Files section.
 
 #### 3 · Knowledge Check & CM Summary
 
@@ -1268,7 +1268,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
    $6,105.00 · $4,580.00 · $1,443.15 · **✓ $4,736.77**  
    *Riverton holds $6,105.00 of the $7,965.00 in audited liens (about 76.65%), so it takes $6,179.92 × $6,105.00 ÷ $7,965.00 = $4,736.77; Peach State takes $6,179.92 × $1,860.00 ÷ $7,965.00 = $1,443.15. John Doe would net nothing, which is why reductions matter.*
 4. Riverton Spine & Rehab's billing manager agrees on a call to accept $4,580.00. The reduction is final when:  
-   The call ends with a verbal yes · **✓ Atty. Thorne approves it and the provider's signed Payoff Letter accepts $4,580.00 as full and final satisfaction** · The Case Manager logs the call in the Communications Log · John Doe agrees to the figure  
+   The call ends with a verbal yes · **✓ Atty. Thorne approves it and the provider's signed Payoff Letter accepts $4,580.00 as full and final satisfaction** · The Case Manager logs the call in Case Notes · John Doe agrees to the figure  
    *A verbal reduction is not a reduction. No Payoff Letter, no payment: the letter must state full and final satisfaction, and the compromise needs Atty. Thorne's approval.*
 5. Peach State paid $1,860.00 on Crescent Pain & Spine's $3,400.00 bill for the 05/15/2026 injection. Building the lien inventory, who can pursue John Doe for the other $1,540.00?  
    Crescent Pain & Spine, as an unpaid provider balance · Peach State, as part of its reimbursement claim · Harbor Point, through PIP · **✓ Nobody: Crescent took Peach State's contract rate and cannot balance-bill, so the $1,540.00 is recorded as not owed**  

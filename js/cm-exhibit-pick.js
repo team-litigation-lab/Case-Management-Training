@@ -38,7 +38,7 @@ const SET = [
    why: "Replaced by the corrected $0.00 statement: the $1,540.00 was a contractual adjustment Crescent can't bill to the member."},
   {doc: "", what: "Riverton Spine & Rehab 34-line ledger, $6,290.00, as billed", want: OUT,
    why: "05/04/2026 was billed twice. The ledger audited against the attendance log ($6,105.00) goes in instead."},
-  {doc: "RS64", what: "CMS Task Log — Pre-Demand Audit Closed, Drafting Assigned", want: OUT,
+  {doc: "RS64", what: "CMS Action Item Log — Pre-Demand Audit Closed, Drafting Assigned", want: OUT,
    why: "The firm's own internal record of the work. Nothing internal goes in a Demand Package."}
 ];
 // a fixed mix, so the list gives nothing away by its order (the same for everyone)

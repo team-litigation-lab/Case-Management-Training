@@ -58,7 +58,7 @@
     "points": [
       "Change status only on **Atty. Thorne's dated authorization** to sue",
       "Fill court fields from the record; **never guess a number**",
-      "Build the **five litigation sub-folders** before the 09/24/2026 filing",
+      "Notify the UM carriers **as each policy requires**: no figure",
       "Seed the Litigation Calendar **the day status changes**"
     ],
     "upl": "Tell John Doe what happens next; what it means is Atty. Thorne's.",
@@ -330,7 +330,7 @@
       "purpose": "Tells the court and Atty. Thorne **what Robert Smith disputes**, and on which defenses he will fight the claim.",
       "evidence": "Filed 11/12/2026 by Atty. Grant Mercer, it is **the defense roadmap**: comparative negligence, causation (the gap, a “degenerative” MRI), failure to mitigate.",
       "handling": [
-        "Log it in the **Pleadings Log**; file it in 01_PLEADINGS",
+        "Log it in the **Discovery & Filing Tracker**; file it in 01_PLEADINGS",
         "Binder Section 3: the **operative pleadings only**, no drafts",
         "Map **each pleaded defense** to an answering exhibit, or flag it",
         "What each defense means for the claim is **Atty. Thorne's to judge**"

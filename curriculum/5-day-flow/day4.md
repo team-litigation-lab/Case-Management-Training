@@ -163,8 +163,7 @@ A horizontal master-calendar ribbon across the full slide width on a cream groun
 6. Docket the SOL to internal dates. The firm never relies on a weekend roll-forward: the Sunday SOL, 02/06/2028, becomes an internal hard date of 02/04/2028 (Fri) and an internal filing cutoff 90 days before that (11/06/2027, a Saturday → 11/05/2027).
 7. Filing on 09/24/2026 doesn't release the SOL. Whether any claim or party still depends on it is Atty. Thorne's analysis; both internal dates stay live until he releases them in writing.
 8. Enter a Scheduling Order the day it arrives and read each verb: mediation “completed by 03/31/2027” is a deadline for the session to be over, not the session date. Plaintiff's expert disclosure (03/15/2027) is ours.
-9. The moment a matter is routed to a forum, hard-code its dates on the master calendar and monitor them. Give each an owner, its trigger document, the arithmetic and warning alerts. A deadline that lives only in an email isn't calendared.
-10. When a rule is unclear, docket the conservative date and flag it to Atty. Thorne. A date pulled earlier costs time; one pushed later, or left off, costs rights.
+9. When a rule is unclear, docket the conservative date and flag it to Atty. Thorne. A date pulled earlier costs time; one pushed later, or left off, costs rights.
 
 > ⚠️ **UPL boundary.** You compute, docket, verify and flag. You may not decide which rule governs, agree an extension with opposing counsel, or tell John Doe what a missed date would do to his case. Those are Atty. Thorne's.
 

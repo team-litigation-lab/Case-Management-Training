@@ -8,7 +8,9 @@
 //   · EVERY page of the deck's notes is the slide of exactly one lesson, a lesson the course still teaches (in
 //     CF.sequence, not retired) ON THAT CASE FLOW DAY, in rising page order;
 //   · each page has its picture in decks/dayN/ and talking points (40 words or more; a title, agenda or Thank You page
-//     at least a line) that name no other practice file (Dr. Sarah Spine, Apex, Jordan Davies, Mr. Jones);
+//     at least a line) that name no other practice file (Dr. Sarah Spine, Apex, Jordan Davies, Mr. Jones), unless the
+//     page itself shows that example and a 🧠 Think it through challenge (js/cm-think-through.js CM_THINK) sets it
+//     against John Doe's file (the narration says what the page says: narration-captions.cjs);
 //   · every picture in decks/dayN/ is a page in the notes and on a slide: no page is left off.
 // Usage: node .github/scripts/day-decks.cjs
 const fs = require('fs'), path = require('path');
@@ -17,6 +19,8 @@ const fail = [];
 global.window = {};
 require(path.join(ROOT, 'js', 'cm-deck-slides.js'));
 require(path.join(ROOT, 'js', 'cm-case-flow-data.js'));
+require(path.join(ROOT, 'js', 'cm-think-through.js'));
+const THOUGHT = new Set((window.CM_THINK || []).flatMap(t => t.deck.pages.map(p => `${t.deck.day}:${p}`)));
 const CF = window.CM_CASE_FLOW, DECK = window.CM_DECK_SLIDES || {};
 const taught = new Set(CF.sequence.flatMap(d => d.phases.flatMap(p => p.blocks)));
 const dayOf = {}; CF.sequence.forEach(d => d.phases.forEach(p => p.blocks.forEach(id => { dayOf[id] = d.n; })));
@@ -41,7 +45,7 @@ for (const n of [1, 2, 3, 4, 5]) {
       const s = spec.slides.find(x => x.page === p), x = drawn.find(y => y.page === p);
       if (!s) return fail.push(`${id}: page ${p} has no notes in day${n}.json`);
       if (!s.notes || s.notes.split(/\s+/).length < (NOT_TEACHING.test(s.title) ? 8 : 40)) fail.push(`${id}: page ${p} has no talking points`);
-      if (/\bApex\b|Jordan Davies|Mr\. Jones|Sarah Spine/.test(s.notes)) fail.push(`${id}: page ${p}'s talking points name another practice file`);
+      if (/\bApex\b|Jordan Davies|Mr\. Jones|Sarah Spine/.test(s.notes) && !THOUGHT.has(`${n}:${p}`)) fail.push(`${id}: page ${p}'s talking points name another practice file`);
       const img = (x && x.img) || `/decks/day${n}/${String(p).padStart(2, '0')}.webp`; used.add(path.basename(img));
       if (!fs.existsSync(path.join(ROOT, img.replace(/^\//, '')))) fail.push(`${id}: ${img} is missing`);
     });

@@ -41,7 +41,7 @@ the contrast a Case Manager on a Florida file must work to.
 
 ### No contact, then back in touch (Day 1 Module 2 — the No Contact Protocol, 02/10–02/23/2026)
 
-Last logged contact with John Doe: **02/10/2026**. The Communications Log the protocol leaves behind (three phone
+Last logged contact with John Doe: **02/10/2026**. The Case Notes the protocol leaves behind (three phone
 attempts on three different days, then the written warnings, then the emergency contact):
 
 | Date | Time | Channel | Outcome |

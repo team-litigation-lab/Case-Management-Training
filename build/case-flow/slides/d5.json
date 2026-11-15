@@ -28,7 +28,7 @@
   },
   "d5m1-a1": {
     "image": "data-entry",
-    "situation": "Assuming the **15 RFAs** have no row in the Pleadings Log and their 01/04/2027 Certificate of Service sits unlogged, the log needs fixing.",
+    "situation": "Assuming the **15 RFAs** have no row in the Discovery & Filing Tracker and their 01/04/2027 Certificate of Service sits unlogged, the log needs fixing.",
     "side": true,
     "steps": [
       "In CMS → Litigation → Discovery & Filing Tracker, add the RFA row with a **deemed-admission flag**, and log the Certificate of Service with its date.",
@@ -502,14 +502,14 @@
     "situation": "Assuming Atty. Thorne **signed the Complaint** on 09/23/2026 and the court accepted it on 09/24 as 26-CV-04417, the filing must be logged.",
     "side": true,
     "steps": [
-      "Log it in the CMS: record 26-CV-04417 in the Pleadings Log, file the stamped Complaint and summons, and add the **$218.00 fee** to costs.",
+      "Log it in the CMS: record 26-CV-04417 in the Discovery & Filing Tracker, file the stamped Complaint and summons, and add the **$218.00 fee** to costs.",
       "On the CMS Calendar, enter the service deadline with alerts and the Case Management Conference, and hold the answer date until service."
     ],
     "deliver": "A signed set filed as **26-CV-04417**, recorded and calendared",
     "purpose": "An unsigned page or an uncalendared date can **sink the suit**",
     "principle": "Nothing is filed **until Atty. Thorne signs**",
     "checks": [
-      "**26-CV-04417** in the Pleadings Log; stamped set filed",
+      "**26-CV-04417** in the Discovery & Filing Tracker; stamped set filed",
       "Costs **$486.75 + $218.00 = $704.75**",
       "Service deadline **01/22/2027 (Fri)** with alerts",
       "CMC **12/10/2026, 9:00 a.m.**, Atty. Thorne attending"
