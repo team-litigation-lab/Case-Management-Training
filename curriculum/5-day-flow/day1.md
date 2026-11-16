@@ -251,7 +251,7 @@ A five-band vertical architecture, each band a full-width navy or navy-soft bar 
 5. Liability is not final until it is confirmed by the Police Report, the driver statements and any dashcam or other evidence. Never tell the client liability is a sure thing.
 6. Hold a place in the plan for the Regulatory Triple-Check (HIPAA, Medicare/Medicaid reporting, the Payer Order): it is cleared in the Treatment Phase, before the first bill is routed.
 7. File the Three-Pillar Case Plan within the state's window, often 30 to 60 days, and docket the date.
-8. Clinical: the acute interventions that stabilise the client (PT, specialty consults). Functional: activities of daily living and return-to-work status. Financial: how the Medical Bills get paid and what may be owed back from the recovery, worked out in the Treatment Phase.
+8. Clinical: the acute interventions that stabilise the client (PT, specialty consults). Functional: activities of daily living and return-to-work status. Subrogation Management: the Payer Order (PIP or MedPay, then private health insurance, then LOP and provider liens): how the Medical Bills get paid and what may be owed back from the recovery, worked out in the Treatment Phase.
 9. Give every pillar measurable goals, and every action item an owner and a date.
 10. Flag adverse facts prominently. A risk buried in prose has not been disclosed to counsel.
 11. The plan proposes operational steps. It does not set legal strategy; route it to Atty. Thorne before acting on anything that commits the firm's position.
@@ -265,7 +265,7 @@ A five-band vertical architecture, each band a full-width navy or navy-soft bar 
 1. **Snapshot & acceptance** — Parties, DOL, SOL, client position, phase; Accepted / Escalated / Declined with the reason.
 2. **Coverage · Liability · Projection** — The three-layer stack and its order; who is responsible; a preliminary projection.
 3. **Regulatory Triple-Check** — Held open: cleared in the Treatment Phase, before the first bill is routed.
-4. **Three-Pillar Plan** — Clinical, Functional, Financial goals, each with an owner and a date.
+4. **Three-Pillar Plan** — Clinical, Functional, Subrogation Management goals, each with an owner and a date.
 5. **Risks & flags** — Adverse facts stated plainly: here, the 14-Day Treatment Gap. Routed to Atty. Thorne.
 
 **Best practices & pitfalls**
@@ -286,7 +286,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 1) 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **25%** | Band completeness | All five bands present and populated |
-| 🤖 AI | **15%** | Acceptance and pillars | Decision with reason; Clinical, Functional and Financial pillars each with goals |
+| 🤖 AI | **15%** | Acceptance and pillars | Decision with reason; Clinical, Functional and Subrogation Management pillars each with goals |
 | 🤖 AI | **20%** | Risk flagged | The 14-Day Gap appears in the risks band |
 | 🧑‍🏫 Trainer | **20%** | Risk prominence | The gap is genuinely prominent, not technically mentioned |
 | 🧑‍🏫 Trainer | **20%** | Strategy/operations boundary | Proposes operational steps without setting legal strategy |
@@ -727,7 +727,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 - Open on the ledger with the right-hand column covered. Ask how much PIP is left after the 03/27/2026 visit ($640.00), then uncover it. A trainee who can't keep this column can't decide an LOP request.
 - Put to the room: “Riverton Spine & Rehab and Summit Imaging both asked for an LOP. Why did one get it and the other not?” The answer is the Payer Order, not the provider's preference.
-- Watch for trainees who treat an LOP as free. It is a promise the firm keeps out of John Doe's recovery, and every dollar on it is a dollar Day 4 has to negotiate.
+- Watch for trainees who treat an LOP as free. It is a promise the firm keeps out of John Doe's recovery, and every dollar on it is a dollar Day 3 has to negotiate.
 - Legal nuance: how PIP's $5,000 is spent across providers, and what Harbor Point's 03/02/2026 confirmation of no reimbursement right means for the UM claim, are Atty. Thorne's calls. You record the facts and run the ledger.
 
 ---
@@ -1009,7 +1009,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 1) 
 
 - The orange return branch is the point: being sent back is the system working. Trainees who fear it under-flag risks to avoid it.
 - Ask: “Which version is the file running against right now?” It should always have an answer.
-- The superseded state matters on this file: the gap investigation on Day 3 will change the picture and force a re-route.
+- The superseded state matters on this file: the gap investigation on Day 2 will change the picture and force a re-route.
 - Read the Golden Rule pitfall aloud. Defense counsel uses opinions in medical notes to impeach the Case Manager's neutrality.
 
 ---
@@ -1337,7 +1337,7 @@ A Google Drive folder tree as a large mock-up on the left two-thirds: LSH Case B
 **Verification checkpoints**
 
 - [ ] A Google Drive folder of your own shared with the platform as Editor and linked
-- [ ] Every folder named and numbered exactly as the firm standard has it, nothing invented
+- [ ] Every folder named and numbered exactly as the firm standard has it, nothing invented: a properly structured case file, named to the firm's naming convention (Day 1 deck p7–p8)
 - [ ] The client folder named last name first (Doe-John) and nested under 01 Clients, its nine folders inside it
 - [ ] Folders in the standard's order, 01 to 09 and 01 to 04, with the firm folders after the client work
 - [ ] The hierarchy submitted and graded as built
@@ -1348,7 +1348,7 @@ A Google Drive folder tree as a large mock-up on the left two-thirds: LSH Case B
 
 - Build to the standard, not to taste: a covering Case Manager finds a document because every file is laid out the same way.
 - Run ✓ Check my drive whenever you file; a deleted folder is a document the firm has lost.
-- ⚠️ Pitfall: a folder named “Misc” or “New Folder”, which no colleague will ever look in.
+- ⚠️ Pitfall: a folder named “Misc” or “New Folder”, which no colleague will ever look in. A misfiled record is an intake error (Day 1 deck p15) that follows the case to the demand.
 - ⚠️ Pitfall: keeping the medical records and the bills in one folder; liability reads the records and damages read the bills.
 
 #### 3 · Knowledge Check & CM Summary
@@ -1405,7 +1405,7 @@ An exploded packet: a central navy folder with six document cards fanned around 
 - [ ] Check-in call: his stiff neck and treatment status asked about, next steps outlined
 - [ ] Riverton Urgent Care contacted about his first visit, billing and records
 - [ ] All six packet sections present and populated, the Property Damage section stating from the records that the PD and rental claim belong to the Civic's owner, not the client
-- [ ] Delivery and every contact logged with date and method in the CMS
+- [ ] Delivery and every contact logged with date and method in the CMS, and each follow-up dated (Day 1 deck p13: follow up promptly, document every attempt)
 - [ ] Atty. Thorne told the same day that the adverse carrier contacted a represented client
 - [ ] The adverse-contact instruction named as the urgent one, and John Doe repeated it back
 
@@ -2051,7 +2051,7 @@ The CMS Tasks board fills the slide as a white card with a navy header, JOHN DOE
 - [ ] Roles kept straight: John Doe chooses where among appropriate options; Dr. Reyes and the treating provider decide the care; no opinion given on the injection or on either facility's medicine
 - [ ] Dr. Reyes's 03/27/2026 note read first: the referral names Crescent Pain & Spine, Dr. Omar Haddad, 41 Crescent Ct
 - [ ] Network status verified with Peach State, not repeated from what John Doe heard: Crescent Pain & Spine is in network (member PSH-55017742, group GRP-41208)
-- [ ] Referral redirected through Janelle Brooks, Lakeside's referral coordinator; Crescent's first opening, 05/15/2026, booked while John Doe is on the line
+- [ ] Referral redirected through Janelle Brooks, Lakeside's referral coordinator; Crescent's first opening, 05/15/2026, booked while John Doe is on the line (the warm handoff, Day 1 deck p31)
 - [ ] No new gap: 05/15/2026 is one day after the 05/14/2026 slot it replaces, and PT at Riverton Spine & Rehab continues on its evening slots
 - [ ] Millbrook's 05/14/2026 slot cancelled: delegated to Janelle Brooks (Lakeside booked it), due 04/23/2026; the cancellation confirmed and logged
 - [ ] CMS Calendar: the Millbrook slot removed; Crescent 05/15/2026 added; reminder call to John Doe on 05/13/2026; attendance check on 05/18/2026
@@ -2201,6 +2201,7 @@ A horizontal treatment timeline is the whole slide. Far left, a navy node: DOL �
 - [ ] Initial gap recorded, and a watch set for any later break in care
 - [ ] Risks band holds facts only: the dates, the 14 days, and “explanation pending: client's own account and supporting documents”; no view on what the gap does to the claim
 - [ ] Documents to request listed: work schedules, doctor availability notes, travel logs, illness records, receipts and messages
+- [ ] Common causes listed as questions to ask, not answers (Day 1 deck p46): missed appointments, transportation, cost or co-pays, work schedule, stopping after temporary relief, referral or authorization delays
 - [ ] Investigation steps recorded: the client's own explanation, supporting documents, provider confirmation
 - [ ] Flag placed prominently in the Case Plan's risks band
 - [ ] Flag routed to Atty. Thorne
@@ -2222,7 +2223,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 1) 
 |---|---|---|---|
 | 🤖 AI | **25%** | Gap computation | Exactly 14 days, dates correct |
 | 🤖 AI | **15%** | Gap and watch | Initial gap captured and a later break in care watched for |
-| 🤖 AI | **10%** | Defense uses and causes | The adjuster's arguments and the likely causes both named |
+| 🤖 AI | **10%** | Causes to investigate | The deck's common causes (transport, cost, work schedule, relief that faded, referral or authorization delays) listed as questions for John Doe, not conclusions |
 | 🤖 AI | **10%** | Routed | Flag routed to Atty. Thorne |
 | 🧑‍🏫 Trainer | **25%** | Flag prominence | A reviewer sees it within seconds of opening the plan |
 | 🧑‍🏫 Trainer | **15%** | Investigative thinking | The steps would actually produce a defensible explanation |
@@ -2231,10 +2232,10 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 1) 
 
 #### 5 · Speaker Notes
 
-- This is Day 2's most consequential activity. Everything on Days 3 to 5 turns on this flag existing and being accurate.
+- This is Day 1's most consequential activity. Everything on Days 2 to 5 turns on this flag existing and being accurate.
 - Insist on the exact count. “About two weeks” is not a flag; 02/06 to 02/20 is.
-- Ask the room what the adjuster will say when they see this. Their answers become the Day 4 negotiation.
-- Trainees often record the gap but set no watch for the next break in care. It comes in April (the Treatment Phase, later on Case Flow Day 2), and a second break undercuts the “he got better” explanation for the first.
+- Ask the room what the adjuster will say when they see this. Their answers become the Day 2 negotiation.
+- Trainees often record the gap but set no watch for the next break in care. It comes in April (the Treatment Phase, later on Case Flow Day 1), and a second break undercuts the “he got better” explanation for the first.
 
 ---
 
@@ -2253,7 +2254,7 @@ A full-slide editor canvas showing the live plan with all five bands stubbed and
 
 **Scenario.** Everything from Day 1 and Claim Set Up is in the file: parties mapped, the $40,000 stack verified, the onboarding packet delivered and tracked, and the 14-Day Treatment Gap identified. The Regulatory Triple-Check is still open: it clears in the Treatment Phase, before the first bill is routed. Atty. Thorne is waiting on the Case Plan.
 
-**Execution prompt.** Draft the complete Case Plan for John Doe VS Robert Smith. Fill all five bands from today's work: the acceptance decision with its reason; coverage as a stack with its order of operations, liability, and a preliminary projection; the Regulatory Triple-Check, held open until the Treatment Phase; Clinical, Functional and Financial pillars with measurable goals, each action item with an owner and a date; and the risks band with the 14-Day Gap and the risk of a later break in care, prominently, with their consequences. Docket the filing window, then route the plan to Atty. Thorne.
+**Execution prompt.** Draft the complete Case Plan for John Doe VS Robert Smith. Fill all five bands from today's work: the acceptance decision with its reason; coverage as a stack with its order of operations, liability, and a preliminary projection; the Regulatory Triple-Check, held open until the Treatment Phase; Clinical, Functional and Subrogation Management pillars with measurable goals, each action item with an owner and a date; and the risks band with the 14-Day Gap and the risk of a later break in care, prominently, with their consequences. Docket the filing window, then route the plan to Atty. Thorne.
 
 | | |
 |---|---|
@@ -2268,7 +2269,7 @@ A full-slide editor canvas showing the live plan with all five bands stubbed and
 - [ ] Order of operations: BI → Host UM → Relative UM; projection marked preliminary
 - [ ] Liability recorded as preliminary until confirmed by the Police Report and driver statements
 - [ ] Regulatory Triple-Check band held open, to clear in the Treatment Phase
-- [ ] Clinical, Functional and Financial pillars each with a measurable goal
+- [ ] Clinical, Functional and Subrogation Management pillars each with a measurable goal
 - [ ] Every action item has an owner and a date
 - [ ] Risks band: 14-Day Gap and the risk of a later break in care, prominent, with consequences
 - [ ] Filing window docketed
@@ -2311,7 +2312,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 1) 
 > **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — the silent client and the trauma-informed interview, 04/08–04/21/2026  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D1#26` The Treatment Phase — Core Objectives · `D1#27` Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#38` Variance Analysis: Why the Map Fails · `D1#41` Immediate Action Protocol: A-C-T for Red Flags · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder · `D1#47` Skill Building: Handling Client Treatment — “The Transportation Wall” · LSH Claims Specialist: No Contact Protocol, Steps 1–4; Final Warning Letter · Newly authored: the near-drop (the No Contact Protocol inside A-C-T's Assess), the trauma-informed client interview within the UPL line, and restoring a file from Drop Warning
+> **Theory extracted from:** `D1#26` The Treatment Phase — Core Objectives · `D1#27` Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#38` Variance Analysis: Why the Map Fails · `D1#41` Immediate Action Protocol: A-C-T for Red Flags · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder · `D1#47` Skill Building: Handling Client Treatment — “The Transportation Wall” · LSH Claims Specialist: No Contact Protocol, Steps 1–4; Final Warning Letter · Newly authored: the near-drop (the No Contact Protocol inside A-C-T's Clarify), the trauma-informed client interview within the UPL line, and restoring a file from Drop Warning
 
 #### 1 · Visual Layout Description
 
@@ -2321,7 +2322,7 @@ A horizontal treatment timeline from 04/02/2026 to 04/21/2026. A hollow red band
 
 **Scenario.** 04/08/2026: Riverton Spine & Rehab's missed-visit alert. John Doe missed 04/03 and 04/07 with no call and answers no one; his last visit was 04/02/2026, his last contact with you 03/31. As you work, the file moves: no reply to your notices on 04/08 and 04/09, Margaret Doe says on 04/10 he is safe but “keeping to himself”, he misses 04/09 and 04/14, the CMS 14-day no-visit trigger fires 04/16, and on 04/17 at 4:48 p.m. John calls you.
 
-**Execution prompt.** Run A-C-T on a client who has gone silent. Assess: do the Step 1 review, then send progressive notices (call and text, then call and email, then the emergency contact), escalate to Atty. Thorne, send the 10-day Final Warning Letter by certified mail AND email, and set the Drop Warning status. When John calls on 04/17, run a trauma-informed, UPL-compliant interview: record his own words, his distress and what has changed in his days, without diagnosing or advising. Coordinate, with his consent: a telephone appointment with Dr. Reyes (scheduling only) and evening visits under the existing LOP. Track: the GIRP note, the report to Atty. Thorne, the file restored, attendance on 04/21 and 04/23/2026.
+**Execution prompt.** Run A-C-T (Assess, Clarify, Track: the Day 1 deck's Immediate Action Protocol) on a client who has gone silent. Assess: two missed visits with no call are a red flag and a legal danger, a gap in care, not a medical one; do the Step 1 review. Clarify: ask Riverton Spine & Rehab's office directly about the missed visits, then reach John through the No Contact Protocol: progressive notices (call and text, then call and email, then the emergency contact), escalate to Atty. Thorne, send the 10-day Final Warning Letter by certified mail AND email, and set the Drop Warning status. When John calls on 04/17, run a trauma-informed, UPL-compliant interview: record his own words, his distress and what has changed in his days, without diagnosing or advising. Track: document the red flag and every attempt to fix it: what you coordinate with his consent (a telephone appointment with Dr. Reyes, scheduling only, and evening visits under the existing LOP), the GIRP note, the report to Atty. Thorne, the file restored, attendance on 04/21 and 04/23/2026.
 
 | | |
 |---|---|
@@ -2338,15 +2339,15 @@ A horizontal treatment timeline from 04/02/2026 to 04/21/2026. A hollow red band
 
 **Verification checkpoints**
 
-- [ ] Step 1 review dated 04/08/2026, before any outreach: SOL 02/06/2028, care stopped since 04/02, week-6 re-evaluation missed 04/07, last contact 03/31
-- [ ] Notices escalate by channel and are logged with date, time, channel and outcome: call and text 04/08, call and email 04/09, Margaret Doe 04/10 (no case details shared)
+- [ ] Assess: the missed visits classed as a legal danger (a gap in care), not a medical one; Step 1 review dated 04/08/2026, before any outreach: SOL 02/06/2028, care stopped since 04/02, week-6 re-evaluation missed 04/07, last contact 03/31
+- [ ] Clarify: Riverton Spine & Rehab's office asked about the missed visits; notices escalate by channel and are logged with date, time, channel and outcome: call and text 04/08, call and email 04/09, Margaret Doe 04/10 (no case details shared)
 - [ ] Step 3 escalation to Atty. Thorne 04/10; Final Warning Letter by certified mail AND email, response date 04/20/2026, withdrawal possible, not decided, nothing about the claim
 - [ ] The retainer's 30 days of documented attempts (04/08 → 05/08/2026) noted: the 10-day date is a response date, and any withdrawal is Atty. Thorne's decision
 - [ ] Drop Warning status set with 04/20 on the calendar; the 04/16 14-day no-visit trigger logged and flagged
 - [ ] Interview: safety asked first, his pace, choice offered (he declines recording), no “why didn't you” questions, no blame; his account read back and corrected
 - [ ] His words recorded: the 04/02 panic at the Maple Hollow Rd & Birch Ave corner, avoiding car rides, sleep, low mood, why he stopped answering; neck and arm symptoms asked about
 - [ ] No diagnosis or label (never “PTSD” or “depression”), no advice to see a counselor, nothing on what this means for the claim; those questions routed to Atty. Thorne
-- [ ] Coordinated with his consent: Dr. Reyes's office asked for a telephone appointment, scheduling only (he tells her himself); evening slots Tue/Thu from 04/21 under the 02/23/2026 LOP, Margaret driving a route that avoids the corner
+- [ ] Track: each fix coordinated with his consent and documented: Dr. Reyes's office asked for a telephone appointment, scheduling only (he tells her himself); evening slots Tue/Thu from 04/21 under the 02/23/2026 LOP, Margaret driving a route that avoids the corner
 - [ ] Privileged GIRP note filed 04/17/2026; Atty. Thorne told the same day; file restored 04/20: Drop Warning cleared, 14-day trigger reset, Action Plan updated
 - [ ] Missed visits exact (04/03, 04/07, 04/09, 04/14); 04/02 → 04/21/2026 = 19 days; attendance confirmed 04/21 and 04/23/2026
 
@@ -2370,7 +2371,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | Protocol record | Step 1 before outreach; notices by escalating channel 04/08, 04/09, 04/10; escalation; Final Warning Letter by certified mail and email with 04/20/2026; Drop Warning set |
+| 🤖 AI | **20%** | Protocol record | A-C-T in the deck's order; Step 1 before outreach; notices by escalating channel 04/08, 04/09, 04/10; escalation; Final Warning Letter by certified mail and email with 04/20/2026; Drop Warning set |
 | 🤖 AI | **10%** | Dates exact | Missed 04/03, 04/07, 04/09, 04/14; 19 days 04/02 → 04/21/2026; call 04/17; restored 04/20; attendance 04/21 and 04/23 |
 | 🤖 AI | **20%** | Interview record | His words quoted: the 04/02 panic at the corner, avoidance, sleep, mood, why he went silent; symptoms asked; read back |
 | 🤖 AI | **10%** | Restoration | Drop Warning cleared, 14-day trigger reset, Action Plan updated, visits booked under the existing LOP |
@@ -2434,8 +2435,8 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 **Auto-graded share of the day's Knowledge Check** (13 questions):
 
 1. The three pillars of the Case Plan are:  
-   Coverage, Liability, Projection · **✓ Clinical, Functional, Financial** · Intake, Treatment, Demand · HIPAA, BCRC, Payer Order  
-   *Clinical (acute interventions), Functional (ADLs and return to work), Financial (Payer Order, subrogation, MMSEA).*
+   Coverage, Liability, Projection · **✓ Clinical, Functional, Subrogation Management** · Intake, Treatment, Demand · HIPAA, BCRC, Payer Order  
+   *Clinical (acute interventions), Functional (ADLs and return to work), Subrogation Management (the Payer Order: PIP or MedPay, then private health insurance, then LOP and provider liens).*
 2. Which of these is fact sharing, not legal advice?  
    **✓ “The Police Report lists the date of loss as 02/06/2026.”** · “Your case is probably worth the policy limits.” · “The gap in your treatment won't matter.” · “I'd accept the first offer if I were you.”  
    *Reading a fact from a document is fact sharing. Value, settlement and what a fact does to the case are legal advice: Atty. Thorne's alone.*

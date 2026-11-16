@@ -257,7 +257,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Decide acceptance: Accepted, Escalated or Declined, with a reason others can follow; no file left in limbo\n• Projection stays preliminary until coverage is confirmed; liability needs the Police Report, statements, any video\n• Hold a place for the Regulatory Triple-Check, cleared in the Treatment Phase\n• File the plan within the state's window, often 30 to 60 days, and calendar it\n• Every goal gets a measure, owner, date; flag bad facts loudly; value is Atty. Thorne's"
   },
   "model": {
-   "say": "• Band 1: Case Snapshot and acceptance decision\n• Band 2: coverage, liability and projection\n• Band 3: Regulatory Triple-Check, held open until the Treatment Phase\n• Band 4: Three-Pillar Plan in Clinical, Functional and Financial columns\n• Band 5: Risks and Flags, red and largest, holding the 14-Day Treatment Gap; plan routed to Atty. Elijah Thorne"
+   "say": "• Band 1: Case Snapshot and acceptance decision\n• Band 2: coverage, liability and projection\n• Band 3: Regulatory Triple-Check, held open until the Treatment Phase\n• Band 4: Three-Pillar Plan in Clinical, Functional and Subrogation Management columns\n• Band 5: Risks and Flags, red and largest, holding the 14-Day Treatment Gap; plan routed to Atty. Elijah Thorne"
   },
   "dodont": {
    "say": "• Do: give each pillar measurable goals, e.g. return to work at Northgate Distribution with a number and date\n• Do: give every decision a reason a colleague can follow in one read\n• Don't: write a plan covering only clinical care, keep gathering information at acceptance, or let an uncertain file sit for weeks\n• Flagging a risk early makes the case defensible later\n• Red flag: a Risks band that says \"none\" for a client nobody has examined isn't clean, it's buried\n• No treatment yet means the days keep counting; every open risk gets its source and its date",
@@ -333,7 +333,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m4-kc": {
   "questions": {
-   "say": "• Knowledge Check for Claim Set Up; answer from the file in own words under each question\n• Question 1: the Case Plan's five bands and contents, including Clinical, Functional and Financial pillars\n• Question 2: why a bad fact buried in the plan hasn't really been disclosed to Atty. Thorne\n• Question 3: John Doe's coverage as the plan states it: layers, limits, total, paying order, projection status"
+   "say": "• Knowledge Check for Claim Set Up; answer from the file in own words under each question\n• Question 1: the Case Plan's five bands and contents, including Clinical, Functional and Subrogation Management pillars\n• Question 2: why a bad fact buried in the plan hasn't really been disclosed to Atty. Thorne\n• Question 3: John Doe's coverage as the plan states it: layers, limits, total, paying order, projection status"
   },
   "summary": {
    "say": "• Self-Summary in own words, plus one scenario\n• 03/11/2026: Keystone hasn't confirmed its limit in writing; John Doe started treatment 14 days after the crash\n• Cover: three actions for today, in order, and what goes in the risks band\n• Every bill and lien check in the Treatment Phase reads from the stack verified now"
@@ -512,7 +512,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m2-l2": {
   "map": {
-   "say": "• Check in on visits, pain, function and barriers: anything stopping him getting to care\n• Name the variance: clinical (medical), psychosocial (life or mood), or systemic (the system stuck)\n• Assess: medical danger to the provider, legal danger to Atty. Thorne; Coordinate: clarify and remove the barrier\n• Track: every fix in a GIRP note, Goal, Intervention, Response, Plan; facts only\n• On his file: week-6 measures due 04/07/2026; missed visits from 04/03 classified psychosocial; No Contact Protocol 04/08 to 04/17\n• 04/20, with consent: Dr. Reyes by telephone, evening LOP slots; 04/21: GIRP note, attendance 04/21 and 04/23"
+   "say": "• Check in on visits, pain, function and barriers: anything stopping him getting to care\n• Name the variance: clinical (medical), psychosocial (life or mood), or systemic (the system stuck)\n• Assess: medical danger to the provider, legal danger to Atty. Thorne; Clarify: ask the office directly and remove the barrier\n• Track: every fix in a GIRP note, Goal, Intervention, Response, Plan; facts only\n• On his file: week-6 measures due 04/07/2026; missed visits from 04/03 classified psychosocial; No Contact Protocol 04/08 to 04/17\n• 04/20, with consent: Dr. Reyes by telephone, evening LOP slots; 04/21: GIRP note, attendance 04/21 and 04/23"
   },
   "theory": {
    "say": "• On an LOP nobody denies visits in real time; Keystone challenges the care at the demand\n• Week-6 mark, 04/07/2026, six weeks after first therapy on 02/24/2026: doctors check therapy is working; John missed it\n• Care off the Standard Treatment Map triggers denials and IMEs, exams by the insurer's doctor\n• Acute, days 1 to 14: ER, imaging, first therapy, proving the crash caused the injury; sub-acute, weeks 2 to 8: active therapy, specialists, measured gains\n• Restorative, weeks 9 to 24: injections, work hardening; then maintenance; MMI, Maximum Medical Improvement, opens pre-demand\n• You are the only real-time check: off the map, act that day, ask and record why, not \"missed visits\""
@@ -1194,7 +1194,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m1-kc": {
   "questions": {
-   "say": "• Learning Check: answer from John Doe's file, in own words, under each question\n• Q1: what's the same on Track B as Track A, what changes 08/12/2026, why one $10,000 carrier freezes $40,000\n• Q2: John Doe's impasse triggers by 09/04/2026, each with its date and proof\n• Q3: Keystone calls $3,500 \"final\": using the \"Never\" rule, what's next and what needs Atty. Thorne's authority\n• If the freeze can't be explained in plain words, review Day 2's order of operations"
+   "say": "• Learning Check: answer from John Doe's file, in own words, under each question\n• Q1: what's the same on Track B as Track A, what changes 08/12/2026, why one $10,000 carrier freezes $40,000\n• Q2: John Doe's impasse triggers by 09/04/2026, each with its date and proof\n• Q3: Keystone calls $3,500 \"final\": using the \"Never\" rule, what's next and what needs Atty. Thorne's authority\n• If the freeze can't be explained in plain words, review Day 1's order of operations"
   },
   "summary": {
    "say": "• Self-Summary: the principles of recognizing an impasse and moving a file into litigation, in own words, not the clicks\n• Strategy: the file is in Litigation status with a 09/24/2026 filing target; name the next action and why\n• Then the one thing least sure of, and what would build confidence\n• Strong answers cite the file's own dates; any client question on the $3,500 or the fee goes to Atty. Thorne"

@@ -113,10 +113,11 @@ None.
 
 `/api/ai` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (35)
+## Node checks (36)
 
 | Check | What it covers |
 |---|---|
+| `activity-deck-align.cjs` | Every Skill Activity practises what its deck lesson teaches: it uses that lesson's deck terms, names no method, order or step the Canva decks contradict, and dates no lesson to the wrong day |
 | `ai-keys.mjs` | Gemini key pool (every numbered key is used, keys take turns, a key out of credits rests; Google answered by the test) |
 | `batch-fix.cjs` | A Batch ID corrected on the Portal reaches the trainee's record (a merged account), and nothing else changes |
 | `batch-id.cjs` | Batch IDs are B + MMDDYY (the page and the Worker read them the same way; older codes keep working) |

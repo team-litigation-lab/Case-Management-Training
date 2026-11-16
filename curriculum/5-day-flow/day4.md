@@ -1054,7 +1054,7 @@ A CMS rules panel fills the left two-thirds: four rule rows on cream cards, each
 
 **Scenario.** File date 02/22/2027 (Track B, in suit). Mediation with Hon. Carla Benton (Ret.) is 03/18/2027; the confidential statement and binder are due to her 03/11/2027. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027 for the binder, has not arrived. Keystone's representative and authority for the session are unconfirmed. Calibration record: Keystone follow-ups 08/24 and 08/31/2026 unanswered; supervisor escalation 09/02; silence on 09/04. The demand-stage audit holds Riverton at $6,105.00 (33 visits × $185.00); Peach State's EOB shows $1,860.00 paid on Crescent Pain & Spine's $3,400.00 bill.
 
-**Execution prompt.** Configure four countermeasure rules in the CMS: (1) silence: follow-ups every 5 business days; 48 h after the second unanswered → supervisor; 48 h more → Atty. Thorne; (2) a record not received 14 days after request → second request and a subpoena flag for Atty. Thorne; (3) a hard date 10 days out with an open dependency → red flag; (4) the 48-Hour Mandate audit before every hard date, with its contents (ledger against EOBs, binder, OCR) and the fallback if a record is still missing. Calibrate Rule 1 on the Keystone record, then fire all four on the mediation calendar: date, action, owner. Graded: the dates, and what you own versus what is his.
+**Execution prompt.** Configure four countermeasure rules in the CMS: (1) silence: follow-ups every 5 business days; 48 h after the second unanswered → supervisor; 48 h more → Atty. Thorne; (2) a record not received 14 days after request → second request and a subpoena flag for Atty. Thorne; (3) a hard date 10 days out with an open dependency → red flag; (4) the 48-hour pre-session audit before every hard date, with its contents (ledger against EOBs, binder, OCR) and the fallback if a record is still missing. Calibrate Rule 1 on the Keystone record, then fire all four on the mediation calendar: date, action, owner. Graded: the dates, and what you own versus what is his.
 
 | | |
 |---|---|
@@ -1069,7 +1069,7 @@ A CMS rules panel fills the left two-thirds: four rule rows on cream cards, each
 - [ ] Subpoena flagged to Atty. Thorne as a decision for him; any draft is for his review and signature, never served by the Case Manager
 - [ ] Rule 3 red flags dated 03/01/2027 (10 days before 03/11/2027) for the ledger and 03/08/2027 (10 days before 03/18/2027) for Keystone's attendee with settlement authority, for Atty. Thorne to raise with defense counsel
 - [ ] Rule 4 audits set for 03/09/2027 (binder) and 03/16/2027 (session), both weekdays: ledgers verified, binder complete, digital set OCR-searchable
-- [ ] EOB reconciliation run now and re-checked at each audit: Peach State's $1,860.00 is its whole claim on Crescent's $3,400.00 bill; the $1,540.00 written off ($3,400.00 minus $1,860.00) is never carried as a lien
+- [ ] EOB reconciliation run now, reconciling liens early (Day 4 deck p35), and re-checked at each audit: Peach State's $1,860.00 is its whole claim on Crescent's $3,400.00 bill; the $1,540.00 written off ($3,400.00 minus $1,860.00) is never carried as a lien
 - [ ] Fallback recorded if the ledger is still missing at the 03/09/2027 audit: escalate, mark the treatment “Pending Final Verification”, include the audited interim ledger ($6,105.00: 33 visits × $185.00), Atty. Thorne sets expectations
 - [ ] Every firing carries a date, an action and an owner
 - [ ] No rule sends an external message on its own; every firing opens a task or a flag for review
@@ -1140,7 +1140,7 @@ A triage board fills the slide: five problem cards in a column on the left, each
 - [ ] Item 3: the 48 hours after the 05/21/2027 (Fri) escalation ran out 05/23/2027, a Sunday, so it reaches Atty. Thorne today at Rung 3; no direct contact with the arbitrator
 - [ ] Item 4 fixed at Rung 1 the same day: audit returned to Riverton's billing office; the exhibit set keeps $6,105.00 with the 05/04/2026 duplicate documented; medical Specials stay $14,817.40
 - [ ] Item 5 fixed without escalation: stills reprinted in color, the digital set OCR-scanned, the index re-checked
-- [ ] 48-Hour Mandate audit set for Fri 05/28/2027: 48 hours before 06/02/2027 is 05/31/2027, Memorial Day, so the audit moves earlier, never later
+- [ ] 48-hour pre-session audit set for Fri 05/28/2027: 48 hours before 06/02/2027 is 05/31/2027, Memorial Day, so the audit moves earlier, never later
 - [ ] Root cause of item 1 named: Crescent's first request went out 05/05/2027, a month after the 04/05/2027 invocation; the binder rule is to request every certification that week. The bottleneck began with our own delay
 - [ ] Nothing decided that is Atty. Thorne's: no exhibit withheld or substituted, no extension requested, no lien compromised
 
@@ -1207,7 +1207,7 @@ The Doe-John folder tree with a dashed, empty gap where 06 Liens & Reimbursement
 - [ ] Peach State's acceptance, Riverton Spine & Rehab's Payoff Letter and the three prior-attorney lien documents in 06 Liens & Reimbursement
 - [ ] The Case Cost Ledger and the closing letter in 07 Wages & Costs
 - [ ] Every document filed in the CMS is on the drive
-- [ ] Case Notes: the missing folder, how it was found, what was restored, what is now backed up
+- [ ] Case Notes: the missing folder, how it was found, what was restored, what is now backed up: each lien's written resolution, its payoff or lien waiver (Day 3 deck p16), on the backup for the firm's retention, 7 years from closing (p19)
 
 **Best practices & pitfalls**
 
@@ -1229,7 +1229,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 | 🤖 AI | **20%** | Papers backed up | Five lien documents in 06; cost ledger and closing letter in 07; backed up equals filed |
 | 🤖 AI | **12%** | File names | Every file on the drive named by the firm's naming convention, and every folder named as the standard has it |
 | 🧑‍🏫 Trainer | **25%** | Recovery explained | Case Note says what was missing, how it was found and what was restored |
-| 🧑‍🏫 Trainer | **15%** | Lien-file completeness | Can show each lien's written resolution on the drive |
+| 🧑‍🏫 Trainer | **15%** | Lien-file completeness | Can show each lien's written resolution (its payoff or lien waiver) on the drive |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
@@ -1590,7 +1590,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 |---|---|---|---|---|---|
 | Spotting non-responsive parties, delayed records and scheduling conflicts from their early signals | ○ | ○ | ○ | ○ | ○ |
 | Configuring and calibrating CMS countermeasure triggers | ○ | ○ | ○ | ○ | ○ |
-| Running the 48-Hour Mandate audit before a hard date | ○ | ○ | ○ | ○ | ○ |
+| Running the 48-hour pre-session audit before a hard date | ○ | ○ | ○ | ○ | ○ |
 | Climbing the escalation ladder one rung at a time | ○ | ○ | ○ | ○ | ○ |
 | Writing a five-field bottleneck report Atty. Thorne can act on in one read | ○ | ○ | ○ | ○ | ○ |
 | Keeping legal remedies, value and client advice with Atty. Thorne | ○ | ○ | ○ | ○ | ○ |

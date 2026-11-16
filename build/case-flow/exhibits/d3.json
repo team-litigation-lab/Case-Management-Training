@@ -383,7 +383,7 @@
           "verdict": "flag",
           "kind": "gap",
           "issue": "John Doe signs it as a statement of fact. The facts must come from the file, not from assumption: born 08/14/1991, employed at Northgate, no Medicare.",
-          "fix": "Verify the facts from the intake and the Day 2 check, attach them, and flag the clause for Atty. Thorne's approval.",
+          "fix": "Verify the facts from the intake and the Day 1 check, attach them, and flag the clause for Atty. Thorne's approval.",
           "proof": [
             "RS01",
             "RS37"

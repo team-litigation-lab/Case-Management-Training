@@ -73,7 +73,7 @@ A reducibility ladder fills the left two-thirds: horizontal bars stacked from MO
 *Why:* $40,000 is not John Doe's until every claim on it is found, classified and resolved in writing. Liens are not created equal: a statutory lien bends to a formula, a Health Plan's reimbursement right to a doctrine, a provider's balance to a negotiation. Classify one wrong and you overpay it or freeze the disbursement.
 
 1. Statutory liens (Medicare, Medicaid, a statutory hospital lien, workers' comp) arise by law and bend least. Contractual claims (a plan's reimbursement clause, an LOP) rest on an agreement.
-2. Inventory every claimant, absent ones included. Two liens are asserted: Peach State and Riverton Spine & Rehab. Record each “none” with its source: Medicare (the Day 2 SSDI/BCRC check), Medicaid (verified separately: no state-agency interest), hospital (EMS transport declined), workers' comp, prior attorney.
+2. Inventory every claimant, absent ones included. Two liens are asserted: Peach State and Riverton Spine & Rehab. Record each “none” with its source: Medicare (the Day 1 SSDI/BCRC check), Medicaid (verified separately: no state-agency interest), hospital (EMS transport declined), workers' comp, prior attorney.
 3. Not every payer is a lienholder. Harbor Point's PIP has no reimbursement right (03/02/2026); Crescent Pain & Spine took Peach State's contract rate and cannot balance-bill John Doe.
 4. Funding decides the law. A self-funded ERISA plan answers to federal law and its own terms and is very hard to reduce; a fully insured plan is generally subject to state insurance law. Peach State is fully insured: what follows is Atty. Thorne's call.
 5. Common fund: a lienholder repaid from a fund the firm's work and advanced costs created shares the cost of recovery. Atty. Thorne asked for the fee share, one-third: $1,860.00 – $620.00 = $1,240.00 (fee and costs would be $1,860.00 × $13,820.08 ÷ $40,000.00 = $642.63).
@@ -94,7 +94,7 @@ A reducibility ladder fills the left two-thirds: horizontal bars stacked from MO
 |---|---|---|
 | Riverton Spine & Rehab | Contract (LOP) · high | $6,290.00 billed; audit first |
 | Peach State Health Plan | Contract, fully insured · moderate | $1,860.00 asserted |
-| Medicare · Medicaid | Statute · low, formula-bound | Medicare: none (Day 2 SSDI/BCRC check); Medicaid: none (verify, record) |
+| Medicare · Medicaid | Statute · low, formula-bound | Medicare: none (Day 1 SSDI/BCRC check); Medicaid: none (verify, record) |
 | Hospital · workers' comp | Statute | None asserted: verify, record |
 | Prior attorney | Quantum meruit | None known to John Doe at 10/06; Vance & Kettering asserts one 10/14 (worked at closing) |
 | Harbor Point PIP | Not a lien | No reimbursement right |
@@ -453,7 +453,7 @@ Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns A
 
 **Scenario.** File date 10/13/2026. Cardinal State's $10,000 check arrived today, joining Keystone's (received 09/04) and Harbor Point's (10/05) in the IOLTA trust account, each deposited only after its release was signed (Keystone 08/28; each UM release before its check): $40,000.00 received; the last check has not cleared. Peach State accepted $1,240.00 on 10/09 and Riverton Spine & Rehab accepted $4,580.00 on 10/12; both written acceptances are in Documents. Costs stand at $486.75. Both Net Sheet tabs are half-built from the demand phase.
 
-**Execution prompt.** Complete John Doe's Net Sheet in both tabs. Recovery Ledger: each check by carrier and stream, the 33⅓% fee per stream, the five receipted costs, and costs and liens split 25% / 75%, down to the net per stream and in total. Lien Tracker: every provider and payer with charges, payments, adjustments and balance owed, then each lien's asserted, audited and reduced figure, the basis of each reduction and its payoff-letter status. Tie both tabs to the Trust Ledger. Graded judgment: what stays off the payables, and what you flag for Atty. Thorne before John signs.
+**Execution prompt.** Complete John Doe's Net Sheet in both tabs. Recovery Ledger: each check by carrier and stream, the 33⅓% fee per stream, the five receipted costs, and costs and liens split 25% / 75%, down to the net per stream and in total. Lien Tracker: every provider and payer with charges, payments, adjustments, balance owed and max offer (the deck's medical provider ledger, Day 3 deck p7), then each lien's asserted, audited and reduced figure, the basis of each reduction and its payoff-letter status. Tie both tabs to the Trust Ledger. Graded judgment: what stays off the payables, and what you flag for Atty. Thorne before John signs.
 
 | | |
 |---|---|
@@ -550,7 +550,7 @@ A two-panel lab bench. Left panel: a white Net Sheet Lien Tracker card with a na
 - [ ] Common-fund math shown: $1,860.00 × ⅓ = $620.00; $1,860.00 – $620.00 = $1,240.00; the request cites the MRI and Dr. Reyes's 06/19/2026 Causation Letter that beat the gap defense
 - [ ] Made whole flagged for Atty. Thorne; comparative fault recorded as not applicable (no fault reduction on Track A)
 - [ ] Request held as a draft in CMS → Doc Hub → Others until Atty. Thorne's written approval is logged
-- [ ] Medicare recorded as none, citing the Day 2 check (34, not on SSDI), so no MSPRP final demand to reconcile; Medicaid recorded as none, verified separately with John Doe (the BCRC answers for Medicare only)
+- [ ] Medicare recorded as none, citing the Day 1 check (34, not on SSDI), so no MSPRP final demand to reconcile; Medicaid recorded as none, verified separately with John Doe (the BCRC answers for Medicare only)
 - [ ] Hospital and workers' comp each “none — verified” with date and source; prior attorney “none known to John Doe” with date and source; PIP recorded as not a lien: Harbor Point asserted no reimbursement right against John Doe (03/02/2026); whether it reserves PIP subrogation against Robert Smith asked in writing and routed to Atty. Thorne, no outcome recorded
 - [ ] PIP-paid providers (Riverton Urgent Care, Lakeside Orthopedics, Summit Imaging) at a zero balance; Summit's 03/11/2026 LOP request was declined, so it holds no lien
 - [ ] Acceptance logged 10/09/2026 at $1,240.00 only with Peach State's written confirmation and Atty. Thorne's approval attached
@@ -682,7 +682,7 @@ A phone-call storyboard in three frames across the slide, each a cream card with
 - [ ] The 05/04/2026 duplicate, removed from the Specials in the pre-demand audit, is still on Riverton's Final Ledger: written correction requested before any reduction: $6,290.00 – $185.00 = $6,105.00
 - [ ] Each line's code matched to that day's note, upcoding and unbundling checked and recorded; no line in the 04/02 → 04/21/2026 disruption (missed 04/03, 04/07, 04/09, 04/14)
 - [ ] Written Reduction Request approved by Atty. Thorne and sent before the call; his target and authority logged
-- [ ] Argument on true facts: a recovery capped at $40,000 of coverage, fee and costs paid from it; no claim that Riverton would take only a share, or that the client will refuse the settlement
+- [ ] Argument on true facts, the deck's fixed pie (Day 3 deck p3): a recovery capped at $40,000 of coverage, fee and costs paid from it, so every lien dollar comes out of John Doe's net; no claim that Riverton would take only a share, or that the client will refuse the settlement
 - [ ] Ask framed as payment in full in the interest of global resolution; no payment promised
 - [ ] $4,580.00 not accepted on the call: the trainee says it goes to Atty. Thorne and will be confirmed in writing
 - [ ] Signed Payoff Letter on file: $4,580.00 accepted as full and final satisfaction of the LOP; no balance billing or collections against John Doe
@@ -950,7 +950,7 @@ A two-column audit sheet: CMS on the left, BACKUP DRIVE on the right, rows linke
 
 **Scenario.** 07/17/2026, 3:00 p.m. The pre-demand audit closed on 07/15/2026 and the BI Time-Limited Demand is served on 07/20/2026. Since the last backup, corrected documents have replaced earlier ones: Summit Imaging's corrected-history addendum to the MRI report (07/15/2026), Crescent Pain & Spine's corrected $0.00 patient statement (07/10/2026, replacing the 07/01/2026 statement) and the final Lost Wage Verification Record (07/01/2026, replacing the 06/23/2026 draft worksheet). The demand specialist's draft demand and exhibit packet are on the file for audit.
 
-**Execution prompt.** Audit your Backup Drive against the CMS before the demand goes out. Open 📂 My Backup Drive and compare its count of backed-up documents with the documents filed in the CMS; for any filed document not on the drive, back it up from 📁 Work From. For each corrected document, put the current version in its folder and keep the version it replaces beside it, renamed with SUPERSEDED and the date of the version that replaced it as the last part of its name: the MRI addendum in 03 Medical Records, Crescent's corrected statement in 04 Bills & Invoices, the final wage record in 07 Wages & Costs. File the draft demand and the exhibit packet so they land in 05 Insurance, Demands & Negotiation, labeled DRAFT as the last part of their names. Run ✓ Check my drive, and record the audit in Case Notes: X of Y backed up, what you replaced and what you labeled.
+**Execution prompt.** Audit your Backup Drive against the CMS before the demand goes out, as part of the Final Scrub (Day 2 deck p17), so the demand goes out on the final balance and the corrected records. Open 📂 My Backup Drive and compare its count of backed-up documents with the documents filed in the CMS; for any filed document not on the drive, back it up from 📁 Work From. For each corrected document, put the current version in its folder and keep the version it replaces beside it, renamed with SUPERSEDED and the date of the version that replaced it as the last part of its name: the MRI addendum in 03 Medical Records, Crescent's corrected statement in 04 Bills & Invoices, the final wage record in 07 Wages & Costs. File the draft demand and the exhibit packet so they land in 05 Insurance, Demands & Negotiation, labeled DRAFT as the last part of their names. Run ✓ Check my drive, and record the audit in Case Notes: X of Y backed up, what you replaced and what you labeled.
 
 | | |
 |---|---|

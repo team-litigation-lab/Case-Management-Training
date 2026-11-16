@@ -24,7 +24,7 @@ const TIPS = {
   "d3-drive": ["d3m1-pkg"], "d3m2-a1": ["d3m2-l1"], "d3m2-rel": ["d3m2-umw"], "d3m2-exec": ["d3m2-umw"],
   // the drawn lessons whose topic is on the Canva decks' pages (the owner: no lesson repeats a deck), retired:
   "d1m1-a1": ["d2m1-l2", "d2m1-cov"], "d2m1-a2": ["d2m1-l2", "d2m1-liab"], "d1m1-a2": ["d1m1-l2", "d2m2-sum"], "d2m2-a1": ["d2m2-pip", "d1m4-emc"],
-  "d2m2-a2": ["d2m2-l2"], "d2-drive": ["d2m2-l2"], "d2m3-a2": ["d2m3-l2"], "d2m4-a2": ["d2m4-l2"], "d3m3-a2": ["d3m3-l3"],
+  "d2m2-a2": ["d2m2-l2"], "d2m3-a2": ["d2m3-l2"], "d2m4-a2": ["d2m4-l2"], "d3m3-a2": ["d3m3-l3"],
   "d4m3-a1": ["d4m3-tx"], "d4m4-a1": ["d4m4-l1"], "d4m4-a2": ["d4m4-l2"]
 };
 const CF = window.CM_CASE_FLOW, DECK = window.CM_DECK_SLIDES || {};

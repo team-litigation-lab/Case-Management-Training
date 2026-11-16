@@ -52,7 +52,7 @@
       "say": "• Decide acceptance: Accepted, Escalated or Declined, with a reason others can follow; no file left in limbo\n• Projection stays preliminary until coverage is confirmed; liability needs the Police Report, statements, any video\n• Hold a place for the Regulatory Triple-Check, cleared in the Treatment Phase\n• File the plan within the state's window, often 30 to 60 days, and calendar it\n• Every goal gets a measure, owner, date; flag bad facts loudly; value is Atty. Thorne's"
     },
     "model": {
-      "say": "• Band 1: Case Snapshot and acceptance decision\n• Band 2: coverage, liability and projection\n• Band 3: Regulatory Triple-Check, held open until the Treatment Phase\n• Band 4: Three-Pillar Plan in Clinical, Functional and Financial columns\n• Band 5: Risks and Flags, red and largest, holding the 14-Day Treatment Gap; plan routed to Atty. Elijah Thorne"
+      "say": "• Band 1: Case Snapshot and acceptance decision\n• Band 2: coverage, liability and projection\n• Band 3: Regulatory Triple-Check, held open until the Treatment Phase\n• Band 4: Three-Pillar Plan in Clinical, Functional and Subrogation Management columns\n• Band 5: Risks and Flags, red and largest, holding the 14-Day Treatment Gap; plan routed to Atty. Elijah Thorne"
     },
     "dodont": {
       "say": "• Do: give each pillar measurable goals, e.g. return to work at Northgate Distribution with a number and date\n• Do: give every decision a reason a colleague can follow in one read\n• Don't: write a plan covering only clinical care, keep gathering information at acceptance, or let an uncertain file sit for weeks\n• Flagging a risk early makes the case defensible later\n• Red flag: a Risks band that says \"none\" for a client nobody has examined isn't clean, it's buried\n• No treatment yet means the days keep counting; every open risk gets its source and its date",
@@ -367,7 +367,7 @@
   },
   "d1m4-kc": {
     "questions": {
-      "say": "• Knowledge Check for Claim Set Up; answer from the file in own words under each question\n• Question 1: the Case Plan's five bands and contents, including Clinical, Functional and Financial pillars\n• Question 2: why a bad fact buried in the plan hasn't really been disclosed to Atty. Thorne\n• Question 3: John Doe's coverage as the plan states it: layers, limits, total, paying order, projection status"
+      "say": "• Knowledge Check for Claim Set Up; answer from the file in own words under each question\n• Question 1: the Case Plan's five bands and contents, including Clinical, Functional and Subrogation Management pillars\n• Question 2: why a bad fact buried in the plan hasn't really been disclosed to Atty. Thorne\n• Question 3: John Doe's coverage as the plan states it: layers, limits, total, paying order, projection status"
     },
     "summary": {
       "say": "• Self-Summary in own words, plus one scenario\n• 03/11/2026: Keystone hasn't confirmed its limit in writing; John Doe started treatment 14 days after the crash\n• Cover: three actions for today, in order, and what goes in the risks band\n• Every bill and lien check in the Treatment Phase reads from the stack verified now"
