@@ -116,13 +116,13 @@ async function workerChecks() {
         await page.click('#module-11 .cm-dv-btn'); await page.waitForTimeout(1500);
         const v = await page.evaluate(async () => {
             const o = document.getElementById('cm-dv'); if (!o) return null;
-            const vid = o.querySelector('video'), n = o.querySelectorAll('.cm-dv-chapters button').length;
+            const vid = o.querySelector('video'), n = o.querySelectorAll('.cm-dv-slide option').length;
             cmDayVideo.seek(16); await new Promise(r => setTimeout(r, 1200));
-            const on = o.querySelector('.cm-dv-chapters button.on');
+            const sel = o.querySelector('.cm-dv-slide'), on = sel && sel.options[sel.selectedIndex];
             const h264 = !!vid.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');   // Chrome and Edge, as trainees use; the open-source Chromium the checks run in has no H.264
             const head = await fetch(vid.getAttribute('src'), { headers: { Range: 'bytes=0-1023' } }).then(async r => { const b = await r.arrayBuffer(), total = Number(((r.headers.get('content-range') || '').split('/')[1])) || Number(r.headers.get('content-length')) || b.byteLength;
                 return { status: r.status === 206 ? 200 : r.status, type: r.headers.get('content-type') || '', size: total }; }).catch(e => ({ status: 0, err: String(e) }));
-            return { h264, head, src: vid.getAttribute('src'), track: !!vid.querySelector('track[kind=captions]'), cc: !!o.querySelector('.cm-dv-cc') && (vid.textTracks[0] || {}).mode === 'hidden', ready: vid.readyState, dur: Math.round(vid.duration || 0), n, t: Math.round(vid.currentTime), on: on ? on.textContent : null, box: o.querySelector('.cm-dv-box').getBoundingClientRect().bottom <= innerHeight + 1 };
+            return { h264, head, src: vid.getAttribute('src'), track: !!vid.querySelector('track[kind=captions]'), cc: !!o.querySelector('.cm-dv-cc') && (vid.textTracks[0] || {}).mode === 'hidden', ready: vid.readyState, dur: Math.round(vid.duration || 0), n, t: Math.round(vid.currentTime), on: on ? on.textContent : null, side: !!o.querySelector('.cm-dv-chapters, .cm-dv-main > nav'), full: Math.round(o.querySelector('.cm-dv-stage').getBoundingClientRect().width) >= Math.round(o.querySelector('.cm-dv-main').getBoundingClientRect().width) - 1, box: o.querySelector('.cm-dv-box').getBoundingClientRect().bottom <= innerHeight + 1 };
         });
         if (v && !v.cc) fail(`the captions should be in the strip under the video (the track hidden), not drawn over the slide: ${JSON.stringify(v)}`);
         if (!v || v.n !== inVideo.length || !v.track) fail(`the viewer: ${JSON.stringify(v)}`);
@@ -137,6 +137,7 @@ async function workerChecks() {
                 console.log('(this browser has no H.264, as the open-source Chromium in CI: playback itself was not checked, the file, the captions and the chapters were)');
             }
             if (!v.box) fail('the viewer is taller than the screen at 1366×768');
+            if (v.side || !v.full) fail(`the video should fill the viewer's width, with no slide list beside it (the owner): ${JSON.stringify({ side: v.side, full: v.full })}`);
         }
         await page.keyboard.press('Escape'); await page.waitForTimeout(200);
         if (await page.$('#cm-dv')) fail("Esc didn't close the viewer");
