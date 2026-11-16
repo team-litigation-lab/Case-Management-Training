@@ -82,6 +82,7 @@ async function readPrefs(){
 }
 function saveLocal(){ prefs.at = Date.now(); lastLocal = prefs.at; try{ localStorage.setItem("lsh_" + PREF, JSON.stringify(prefs)); }catch(e){} }
 function saveCloud(){ saveLocal(); lastCloud = Date.now(); if(typeof storeSet === "function") Promise.resolve(storeSet(PREF, prefs)).catch(() => {}); }
+function keepNow(o){ keepPlace(false); if(loaded) saveLocal(); clearTimeout(o._kept); o._kept = setTimeout(() => keepPlace(true), 2000); }
 const vEl = () => { const o = document.getElementById("cm-dv"); return o && o.querySelector("video"); };
 function keepPlace(force){
   const v = vEl(); if(!v || curId == null || !loaded) return;
@@ -190,7 +191,7 @@ function open(id){
     if(document.activeElement !== pick) pick.value = String(i);   // not while the trainee is choosing one
   };
   v.addEventListener("timeupdate", () => { mark(); keepPlace(false); });
-  v.addEventListener("seeked", () => { mark(); showCc(); keepPlace(false); if(loaded) saveLocal(); clearTimeout(o._kept); o._kept = setTimeout(() => keepPlace(true), 2000); });   // a drag fires many: this device at once, the account when it settles
+  v.addEventListener("seeked", () => { mark(); showCc(); keepNow(o); });   // a drag on the seek bar (the picker, ⏪ / ⏩ and the keys keep it themselves)
   v.addEventListener("pause", () => keepPlace(true));
   v.addEventListener("ended", () => { if(curId != null && loaded){ delete prefs.pos[curId]; saveCloud(); } });
   v.addEventListener("loadedmetadata", () => rateUi(o));
@@ -230,7 +231,7 @@ function open(id){
 function seek(i){
   const o = document.getElementById("cm-dv"), v = vEl(); if(!v || curId == null) return;
   const c = VIDEOS[curId] && VIDEOS[curId].chapters[i]; if(!c) return;
-  v.currentTime = c.t + 0.05; if(o._mark) o._mark(); showCc();
+  v.currentTime = c.t + 0.05; if(o._mark) o._mark(); showCc(); keepNow(o);
   const n = o.querySelector(".cm-dv-resume"); if(n) n.hidden = true;
   const p = v.play(); if(p && p.catch) p.catch(() => {});
 }
@@ -240,7 +241,7 @@ function skip(sec){
   const o = document.getElementById("cm-dv"), v = vEl(); if(!o || !v || curId == null) return;
   const d = v.duration, to = Math.max(0, (v.currentTime || 0) + sec);
   v.currentTime = d > 0 ? Math.min(to, Math.max(0, d - 0.5)) : to;
-  if(o._mark) o._mark(); showCc();
+  if(o._mark) o._mark(); showCc(); keepNow(o);
   const n = o.querySelector(".cm-dv-resume"); if(n) n.hidden = true;
 }
 window.addEventListener("pagehide", () => keepPlace(true));
