@@ -45,7 +45,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 10. *Skill Activity* — Probe the 14-Day Treatment Gap with AI John Doe (practises: Interview Techniques & UPL Boundaries in Client Investigation) — *side*
 11. *Skill Activity* — Gap Explanation Record Creation (practises: Interview Techniques & UPL Boundaries in Client Investigation) — *side*
 12. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne (practises: Pre-Demand Case Auditing) — *side*
-13. *Skill Activity* — Backup File Maintenance: Records and Bills in Their Folders (practises: The Standard Treatment Map: Phases, Timelines & Course Correction) — **Required: Backup File Maintenance**
+13. *Skill Activity* — Backup File Maintenance: Records and Bills in Their Folders (practises: Pre-Demand Case Auditing) — **Required: Backup File Maintenance**
 14. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap (practises: Settlement Negotiations & the BI Settlement) — *side*
 15. *Skill Activity* — Closing the $40,000 Gross Recovery (practises: Settlement Negotiations & the BI Settlement) — *side*
 16. *Skill Activity* — QC the Pre-Drafted $20,000 Host UM and $10,000 Relative UM Demands (practises: BI Settlement: the UM/UIM Safety Check & Key Laws) — *side*
@@ -603,7 +603,7 @@ A two-column reconciliation board. Left column, NORTHGATE'S RECORD: nine shift t
 
 **Scenario.** 06/22/2026, ten days after MMI (06/12/2026). John Doe signed Northgate Distribution's employee authorization this morning. A draft wage worksheet built from his own account by telephone claims $1,760.00 and is unverified. Northgate's HR manager is Angela Ruiz. The Specials audit is due 07/01/2026.
 
-**Execution prompt.** Verify John Doe's lost wages before they reach the Specials. First write the Employer Verification email to Angela Ruiz at Northgate HR in the Email Workspace, with his signed authorization: ask for the Wage Loss Verification Form, the payroll records for the pay periods with missed shifts and his W-2, and the employer's confirmation of his hourly rate, his shift hours, each missed shift, any overtime lost and the physical demands of his job. When Northgate replies, answer its follow-up inside the line. Then reconcile every missed date against the treating providers' visit and off-work notes in the audit workbench, so no absence is left unexcused, and audit the draft worksheet into the Lost Wage Verification Record. Flag any shift with no provider note to Atty. Thorne: never drop it or hide it. Record the verified total in CMS → Treatment → Total Medical Specials and the Net Sheet, update the Case Plan's financial pillar in the Action Plan Editor, and file the employer correspondence in the CMS so it is kept on the Backup Drive.
+**Execution prompt.** Verify John Doe's lost wages before they reach the Specials. First write the Employer Verification email to Angela Ruiz at Northgate HR in the Email Workspace, with his signed authorization: ask for the Wage Loss Verification Form, the payroll records for the pay periods with missed shifts and his W-2, and the employer's confirmation of his hourly rate, his shift hours, each missed shift, any overtime lost and the physical demands of his job. When Northgate replies, answer its follow-up inside the line. Then reconcile every missed date against the treating providers' visit and off-work notes in the audit workbench, so no absence is left unexcused, and audit the draft worksheet into the Lost Wage Verification Record. Flag any shift with no provider note to Atty. Thorne: never drop it or hide it. Record the verified total in CMS → Treatment → Total Medical Specials and the Net Sheet, update the Case Plan in the Action Plan Editor, and file the employer correspondence in the CMS so it is kept on the Backup Drive.
 
 | | |
 |---|---|
@@ -615,7 +615,7 @@ A two-column reconciliation board. Left column, NORTHGATE'S RECORD: nine shift t
 - [ ] Employer Verification email sent 06/22/2026 with John Doe's signed authorization: rate, shift hours, the nine dates, overtime and physical demands asked; the Wage Loss Verification Form, payroll records and W-2 requested
 - [ ] Northgate's reply of 06/30/2026 logged: $22.00/hour, 8-hour shifts, nine unpaid shifts (72 hours), no overtime scheduled on a missed shift, restrictions worked at full shifts, lifting to 50 lb, forklift, on his feet the full shift
 - [ ] Follow-up answered inside the line: no medical records sent to the employer, nothing said about what the claim recovers; the question routed to Atty. Thorne
-- [ ] Each later shift matched: 03/05 the Lakeside consult, 03/13 the Summit MRI, 05/15 the injection, 05/18 Crescent's off-work note (05/15–05/18/2026)
+- [ ] The deck's two wage proofs (Day 2 deck p5: a signed letter from the employer and a disability slip from the doctor): each later shift matched: 03/05 the Lakeside consult, 03/13 the Summit MRI, 05/15 the injection, 05/18 Crescent's off-work note (05/15–05/18/2026)
 - [ ] 02/09–02/13/2026 (five shifts, before first treatment) kept and flagged to Atty. Thorne with Northgate's call-out record, the EMS report and the 02/07/2026 receipt
 - [ ] Draft corrected: 02/18 and 02/19 removed (he worked them), 03/12 corrected to 03/13, light duty and overtime struck: $1,760.00 → $1,584.00
 - [ ] PIP's 80% wage benefit recorded as not payable (PIP exhausted 06/26/2026); the full $1,584.00 stays in the Specials
@@ -684,7 +684,7 @@ A full-width Specials ledger on a cream card, provider rows in mono under five c
 - [ ] First-party ledger audited (Harbor Point's PIP ledger): five payments matched to five bills ($685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00), the limit exhausted by the payment for the 06/12/2026 visit (paid 06/26/2026), nothing billed to PIP after exhaustion, and the 80% wage benefit unpaid because the limit ran out before Northgate's 06/30/2026 letter, so the full $1,584.00 stays in the Specials
 - [ ] Riverton Spine & Rehab reconciled: 33 visits in the notes (16 from 02/24 to 04/02/2026, 17 from 04/21 to 06/05/2026) against 34 lines; the 05/04/2026 duplicate ($185.00) removed: $6,290.00 → $6,105.00. A corrected itemized statement requested from Riverton Spine & Rehab (a billing correction, not a reduction). Until it arrives, the Lien Tracker shows $6,290.00 claimed and $6,105.00 audited; any reduction is Atty. Thorne's to negotiate.
 - [ ] Medical: $685.00 + $6,105.00 + $640.00 + $2,395.00 + $640.00 + $3,400.00 + $640.00 + $312.40 = $14,817.40 (down from $15,002.40)
-- [ ] Wages: 9 shifts × 8 h × $22.00 = $1,584.00, the Lost Wage Verification Record and Northgate HR letter attached; total Specials $14,817.40 + $1,584.00 = $16,401.40
+- [ ] Wages: 9 shifts × 8 h × $22.00 = $1,584.00, the Lost Wage Verification Record and Northgate HR letter attached; total Specials $14,817.40 + $1,584.00 = $16,401.40. The deck's third line (Day 2 deck p5: Medical Bills + Property Damage + lost wages) is $0.00 here: the Civic's claim is Margaret Doe's
 - [ ] Wage proof: each missed shift matched to a visit record or provider work note; the five shifts 02/09–02/13/2026, before first treatment, flagged with Northgate's Attendance Record (called out citing neck pain) as their support
 - [ ] Billed beside paid: PIP $5,000.00 on its five bills; Peach State $1,860.00 on Crescent's $3,400.00 (write-off $3,400.00 – $1,860.00 = $1,540.00, no balance billing); LOP $6,105.00 owed; $312.40 paid by John Doe; paid-and-owed column $5,000.00 + $1,860.00 + $6,105.00 + $312.40 = $13,277.40 ($14,817.40 – $1,540.00)
 - [ ] Billed-vs-paid choice routed to Atty. Thorne under the governing collateral-source rule, not made in the ledger
@@ -983,7 +983,7 @@ The Doe-John folder tree on the left, opened at 03 Medical Records and 04 Bills 
 
 **Scenario.** 04/24/2026, 3:30 p.m. John Doe is back in care at Riverton Spine & Rehab, and the treatment documents of the last two months are filed in the CMS: Riverton Urgent Care's first visit note (02/20/2026), Riverton Spine & Rehab's initial evaluation with the Letter of Protection (02/23–02/24/2026), Lakeside Orthopedics' consult and follow-up (03/05 and 03/27/2026) and Summit Imaging Center's invoice for the 03/13/2026 cervical MRI ($2,395.00). A colleague who helped with the backup last week saved the Summit Imaging invoice into 03 Medical Records.
 
-**Execution prompt.** File each of the four documents in the CMS from 📁 Work From if it isn't filed yet, so the copy lands on your Backup Drive in the folder its kind belongs in: the visit notes, the evaluation and the consult in 03 Medical Records, the invoice in 04 Bills & Invoices. Open your Google Drive and find the Summit Imaging invoice your colleague put in 03 Medical Records; move it into 04 Bills & Invoices and rename it by the firm's naming convention, because your colleague saved it under a name of their own. Then open 📂 My Backup Drive and run ✓ Check my drive. Last, write the records-vs-bills rule in Case Notes in two sentences: what goes in each folder, and why a bill in the records folder is a damages problem.
+**Execution prompt.** File each of the four documents in the CMS from 📁 Work From if it isn't filed yet, so the copy lands on your Backup Drive in the folder its kind belongs in: the visit notes, the evaluation and the consult in 03 Medical Records, the invoice in 04 Bills & Invoices. Open your Google Drive and find the Summit Imaging invoice your colleague put in 03 Medical Records; move it into 04 Bills & Invoices and rename it by the firm's naming convention, because your colleague saved it under a name of their own. Then open 📂 My Backup Drive and run ✓ Check my drive. Last, write the records-vs-bills rule in Case Notes in two sentences: what each folder feeds in the pre-demand Medical & Billing Audit (Day 2 deck p8: the chronology, the coding audit and the Specials), and why a bill in the records folder is a damages problem.
 
 | | |
 |---|---|
@@ -996,12 +996,12 @@ The Doe-John folder tree on the left, opened at 03 Medical Records and 04 Bills 
 - [ ] Summit Imaging Center's $2,395.00 invoice in 04 Bills & Invoices, moved out of 03 Medical Records, not copied twice, and renamed by the firm's naming convention
 - [ ] Every document filed in the CMS today is on the drive: the dashboard count of backed-up documents matches what you filed
 - [ ] ✓ Check my drive run with no folder missing
-- [ ] The records-vs-bills rule in Case Notes: records say what was done to John Doe, bills say what it cost
+- [ ] The records-vs-bills rule in Case Notes: records say what was done to John Doe and build the treatment chronology; bills say what it cost, face the coding audit and make the Specials
 
 **Best practices & pitfalls**
 
 - Back up the day you file, not at the end of the month; the backup is only as good as its last day.
-- Records hold what the provider wrote about the body; bills hold what it charged. The Specials audit reads the bills folder.
+- Records hold what the provider wrote about the body; bills hold what it charged. The pre-demand audit builds the chronology from the records and runs the coding audit and the Specials from the bills.
 - ⚠️ Pitfall: a second copy of the invoice left behind in 03 Medical Records, so the file holds two answers.
 - ⚠️ Pitfall: filing the LOP under bills because it is about money; it travels with the provider's evaluation.
 
@@ -1198,7 +1198,7 @@ Two demand letters side by side on white letterhead: left HOST UM · HARBOR POIN
 
 **Scenario.** File date 08/31/2026 (Mon). Keystone tendered the $10,000 limits on 08/12/2026, after Smith's affidavit of no other insurance (08/10). Harbor Point consented 08/24, Cardinal State 08/26; the Limited Release of Robert Smith and Keystone was signed 08/28. Keystone's check has not arrived. On 08/05 Keystone had leaned on the 14-day gap and called the MRI degenerative.
 
-**Execution prompt.** The pre-demand audit closed 07/15/2026 and Atty. Thorne assigned the UM demands to the Demand Desk (CMS Action Item Log, RS64); its drafts are in the file (RS61). Do not start from a blank page: QC both drafts against the records and fix every error before they reach Atty. Thorne, so that they become two demands: Host UM to Harbor Point (Marcus Bell, HP-26-7741) for the $20,000 limit, and Relative UM to Cardinal State (Teresa Okafor, CS-26-20355) for the $10,000 limit as excess over Host UM. Put the exhaustion proof on page one of each. Organize the evidence by function, audit each package as you audited the BI demand, show damages above what has been collected, and answer the gap and “degenerative” with the MRI. Leave the response deadline for Atty. Thorne to set. Graded judgment: what proves exhaustion before the check arrives.
+**Execution prompt.** The pre-demand audit closed 07/15/2026 and Atty. Thorne assigned the UM demands to the Demand Desk (CMS Action Item Log, RS64); its drafts are in the file (RS61). Do not start from a blank page: QC both drafts against the records and fix every error before they reach Atty. Thorne, so that they become two demands: Host UM to Harbor Point (Marcus Bell, HP-26-7741) for the $20,000 limit, and Relative UM to Cardinal State (Teresa Okafor, CS-26-20355) for the $10,000 limit as excess over Host UM. Put the exhaustion proof on page one of each: the UM/UIM safety check (Day 2 deck p33), the consents and Waivers of Subrogation in hand before the BI release was signed. Organize the evidence by function, audit each package as you audited the BI demand, show damages above what has been collected, and answer the gap and “degenerative” with the MRI. Leave the response deadline for Atty. Thorne to set. Graded judgment: what proves exhaustion before the check arrives.
 
 | | |
 |---|---|
@@ -1209,7 +1209,7 @@ Two demand letters side by side on white letterhead: left HOST UM · HARBOR POIN
 
 - [ ] Two separate packages: Host UM $20,000 (Harbor Point, Marcus Bell, HP-26-7741) and Relative UM $10,000 (Cardinal State, Teresa Okafor, CS-26-20355)
 - [ ] Relative UM framed as excess: claimed for damages above $30,000 ($10,000 BI + $20,000 Host UM)
-- [ ] Exhaustion on page one of each: Keystone's tender (08/12/2026), its Dec Page (03/20/2026), Smith's affidavit (08/10/2026), the consents (08/24 and 08/26/2026), the signed Limited Release (08/28/2026); the check copy listed to follow, with a task
+- [ ] Exhaustion on page one of each: Keystone's tender (08/12/2026), its Dec Page (03/20/2026), Smith's affidavit (08/10/2026), the consents and Waivers of Subrogation (08/24 and 08/26/2026), the signed Limited Release (08/28/2026); the check copy listed to follow, with a task
 - [ ] Coverage: each UM Dec Page; Harbor Point's add-on letter (03/02/2026); Cardinal State's resident-relative letter (03/09/2026)
 - [ ] Liability still proven: RPD-26-018842 citation, Ruth Calloway, the doorbell video, and the Civic's $9,255.00 repair, including the $2,315.00 A-pillar structural supplement (03/02/2026), as evidence of force, not a claim
 - [ ] Economic: itemized line-item bills, not balance-forward statements ($14,817.40); Northgate wage letter ($1,584.00); future ESIs ($3,400–$6,800); Peach State's $1,860.00 ledger current
@@ -1237,7 +1237,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **15%** | Layer accuracy | $20,000 Harbor Point (Marcus Bell, HP-26-7741); $10,000 Cardinal State (Teresa Okafor, CS-26-20355) as excess |
-| 🤖 AI | **20%** | Exhaustion proof | Tender 08/12, Dec Page 03/20, affidavit 08/10, consents 08/24 and 08/26, release 08/28 on page one; check copy to follow |
+| 🤖 AI | **20%** | Exhaustion proof | Tender 08/12, Dec Page 03/20, affidavit 08/10, consents and waivers 08/24 and 08/26, release 08/28 on page one; check copy to follow |
 | 🤖 AI | **15%** | Document inclusions | Liability, economic, non-economic and exhaustion evidence all populated with this file's documents |
 | 🤖 AI | **10%** | Gap rebuttal | MRI adjacent-level line, Causation Letter, EMS report and Gap Record all cited |
 | 🧑‍🏫 Trainer | **20%** | Strategic structure | Damages shown above what has been collected; Relative UM framed as excess, not a duplicate claim |
@@ -1459,8 +1459,8 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
    **✓ $640.00** · $1,280.00 · $0.00 · $4,360.00  
    *$685.00 + $640.00 + $2,395.00 + $640.00 = $4,360.00; $5,000.00 – $4,360.00 = $640.00. The 06/12/2026 visit uses it, and PIP is exhausted at exactly $5,000.00.*
 8. Riverton Spine & Rehab's missed-visit alert reaches you on 04/08/2026, and John Doe isn't answering anyone. Under A-C-T, what comes first?  
-   Tell Atty. Thorne that John Doe is non-compliant · **✓ Assess: the Step 1 review, then reach him through the No Contact Protocol, one channel after another, logging each attempt** · Send the Final Warning Letter today · Ask the clinic to discharge him until he calls  
-   *Assess comes first, and a silent client is assessed by reaching him: the Step 1 review, then call and text, call and email, the emergency contact, Atty. Thorne, and only then the Final Warning Letter. Silence is a symptom; on this file its cause was crash-related anxiety, which only John could tell you.*
+   Tell Atty. Thorne that John Doe is non-compliant · **✓ Assess: missed visits are a legal danger, so do the Step 1 review; then Clarify: ask the clinic and reach him through the No Contact Protocol, one channel after another, logging each attempt** · Send the Final Warning Letter today · Ask the clinic to discharge him until he calls  
+   *Assess comes first: two missed visits with no call are a legal danger (a gap in care). Clarify next, with the clinic's office and then John himself: the Step 1 review, then call and text, call and email, the emergency contact, Atty. Thorne, and only then the Final Warning Letter. Track every attempt. Silence is a symptom; on this file its cause was crash-related anxiety, which only John could tell you.*
 9. John Doe calls on 04/17/2026 and says he panicked in the car at the corner where the crash happened and hasn't been able to ride to therapy since. What do you say?  
    “That sounds like PTSD. You should see a therapist.” · “That will add to your pain and suffering, so it's good for your case.” · **✓ “I'm glad you told me. Would it help to tell Dr. Reyes about this yourself? I can set up a call with her office.”** · “You need to get back to therapy this week or the file closes.”  
    *Record his words and offer a choice. A label is a diagnosis, “see a therapist” is direction of care, “good for your case” is a value statement, and the deadline is a threat. He tells Dr. Reyes; you schedule. What it means for the claim is Atty. Thorne's.*
@@ -1475,7 +1475,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
    *The Regulatory Triple-Check Payer Order: PIP/MedPay, then private health insurance, then LOP/provider liens.*
 13. Which of these is NOT part of the Regulatory Triple-Check?  
    A claim-specific HIPAA authorization that names the incident date · Medicare/Medicaid (BCRC) reporting where the client is 65+ or on SSDI · Payer Order and subrogation management · **✓ The Time-Limit Demand**  
-   *The triple-check is HIPAA, Medicare/Medicaid reporting, and the Payer Order. Demands come on Day 3.*
+   *The triple-check is HIPAA, Medicare/Medicaid reporting, and the Payer Order. Demands come later, after the pre-demand audit.*
 14. John Doe's rides to treatment ended with the rental cutoff on 03/19/2026. What do you set up so his travel costs can reach the demand?  
    An estimate of his miles, made at MMI · Nothing: travel to treatment is never recoverable · **✓ A trip log from his first visit (date, provider, round-trip miles), each cost entered with its receipt in the Specials ledger** · A reminder to ask him about it at the demand  
    *Only what is documented can be recovered, so the log is kept as treatment happens, never rebuilt from memory. What the demand claims, and at what rate, is Atty. Thorne's call.*

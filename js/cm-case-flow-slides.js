@@ -979,7 +979,7 @@ window.CM_CF_SLIDES = {
   "points": [
    "**Decide acceptance**: Accepted, Escalated or Declined, with a reason",
    "State coverage, liability and projection together; projection **preliminary until coverage confirmed**",
-   "Give Clinical, Functional and Financial pillars **measurable goals**",
+   "Give Clinical, Functional and Subrogation Management pillars **measurable goals**",
    "**Flag adverse facts prominently**; a buried risk isn't disclosed"
   ],
   "upl": "State facts, flag risks; legal conclusions, value and posture are Atty. Thorne's",
@@ -1441,7 +1441,7 @@ window.CM_CF_SLIDES = {
      "more": [
       "Medical danger (fever, hardware failure) goes to the provider **the same day**",
       "Legal danger (missed visits, generic notes) goes to Atty. Thorne",
-      "Once a flag is spotted, A-C-T runs: Assess, Coordinate, Track"
+      "Once a flag is spotted, A-C-T runs: Assess, Clarify, Track"
      ]
     },
     {
@@ -2967,8 +2967,8 @@ window.CM_CF_SLIDES = {
      "text": "Medical danger to the provider; legal danger to Atty. Thorne"
     },
     {
-     "label": "Coordinate",
-     "text": "Clarify with the office; **remove the barrier**"
+     "label": "Clarify",
+     "text": "Ask the office directly; **remove the barrier**"
     },
     {
      "label": "Track",
@@ -3033,7 +3033,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "A-C-T Protocol",
-     "text": "The immediate action for any red flag: Assess the danger, Coordinate the fix, Track it. **Documentation supplies counsel's why**",
+     "text": "The immediate action for any red flag: Assess the danger, Clarify with the provider, Track it. **Documentation supplies counsel's why**",
      "more": [
       "Climb one documented rung at a time",
       "Rung 1, clinical: the provider's office manager",
@@ -3617,8 +3617,8 @@ window.CM_CF_SLIDES = {
       "text": "Medical danger (fever, hardware failure) → the provider today; legal danger (gaps, generic notes) → Atty. Thorne"
      },
      {
-      "label": "Coordinate",
-      "text": "Clarify with the provider's office, then remove the barrier the client names: transport, scheduling, referrals"
+      "label": "Clarify",
+      "text": "Ask the provider's office directly, then remove the barrier the client names: transport, scheduling, referrals"
      },
      {
       "label": "Track",
@@ -5256,7 +5256,7 @@ window.CM_CF_SLIDES = {
      "term": "Medicare and Medicaid",
      "text": "Government payers bound by **strict federal or state formulas**: low negotiability, and slow to process.",
      "more": [
-      "Medicare on this file: none, from the Day 2 SSDI/BCRC check",
+      "Medicare on this file: none, from the Day 1 SSDI/BCRC check",
       "Medicaid: verified separately, no state-agency interest",
       "Record each “none” with its source and date, **the way you record** a lien"
      ]

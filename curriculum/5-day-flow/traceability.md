@@ -266,7 +266,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - IRS IR-2025-128: the standard mileage rates when this course was written, 20.5 cents medical and 72.5 cents business
 - Newly authored: reimbursement of out-of-pocket treatment costs and the trip log
 - LSH Claims Specialist: No Contact Protocol, Steps 1–4; Final Warning Letter
-- Newly authored: the near-drop (the No Contact Protocol inside A-C-T's Assess), the trauma-informed client interview within the UPL line, and restoring a file from Drop Warning
+- Newly authored: the near-drop (the No Contact Protocol inside A-C-T's Clarify), the trauma-informed client interview within the UPL line, and restoring a file from Drop Warning
 - Newly authored: redirecting a referral to the client's choice of facility, and the downstream task list (each task done or delegated with an owner and a due date)
 - Newly authored: the Treatment Phase's coverage and subrogation summary, with the exact CMS flag rules for subrogation liens and Treatment Gaps
 - Newly authored: the Health Plan's itemized lien audited line by line (unrelated, pre-existing and pre-loss lines; amounts claimed above what was paid) and confirmed in writing before the demand

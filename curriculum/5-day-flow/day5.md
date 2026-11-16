@@ -55,7 +55,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 21. *Skill Activity* — Building the Comparative Liability Counter-Package (practises: Comparative Negligence & the Liability Counter-Package) — *side*
 22. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch (practises: The Process Server & the Evading Defendant) — *side*
 23. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award (practises: Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund) — *side*
-24. *Skill Activity* — Backup File Maintenance: the Final Audit and the Close-Out (practises: Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund) — **Required: Backup File Maintenance**
+24. *Skill Activity* — Backup File Maintenance: the Final Audit and the Close-Out (practises: Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention) — **Required: Backup File Maintenance**
 25. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log (practises: Dropped Cases: the Case Manager's Close-Out) — *side*
 26. *Knowledge Check* — Litigation Fork Transition Check
 27. *Knowledge Check* — Litigation Support Assessment
@@ -222,7 +222,7 @@ Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and tha
 
 - Open with the fork itself: “Same file, same 08/05/2026 offer. On Track A Keystone tendered. Here it doesn't.” Then point at the padlock: one carrier with a $10,000 limit is holding $40,000.
 - Ask the room: “Keystone hasn't said no. It has said nothing. When does silence become an impasse, and who decides that it has?” Expect “the Case Manager”; correct it. The Case Manager documents; Atty. Thorne decides.
-- Watch for trainees who want to “just demand the UM limits” while BI stalls. It is Day 2's order-of-operations error in new clothes: a UM demand before BI is exhausted risks the stack.
+- Watch for trainees who want to “just demand the UM limits” while BI stalls. It is Day 1's order-of-operations error in new clothes: a UM demand before BI is exhausted risks the stack.
 - The legal nuance: the 08/21 lapse may matter to Robert Smith's exposure above his limits. Say that it may, and that it is Atty. Thorne's analysis. A trainee who writes it into a memo or says it to John Doe has crossed the line.
 
 ---
@@ -760,10 +760,10 @@ Two parallel swimlanes, left to right. Upper lane, navy, ROBERT SMITH — DEFEND
 3. Right address, still dodging: vary the server's windows (early morning, evenings, weekends where the rules allow; some states bar Sunday service). Then Atty. Thorne may move for alternative service. Unserved in time, a case can be dismissed: confirm the court's rule.
 4. Service starts his clock: answer due 11/13/2026 (30 days on this file's configured rules). Check the docket weekly, never only the e-filing emails; a motion lost in spam still runs.
 5. A Subpoena Duces Tecum compels a non-party's records. Narrow Exhibit A (patient, date, record types); “all records” invites a Motion to Quash. Notice opposing counsel first (often 5–10 days; confirm), then serve the custodian by process server.
-6. An unreachable client in suit runs Day 2's No Contact Protocol. John went quiet 01/22/2027; Step 3 names the 02/18/2027 deposition and the 02/04 and 02/16 prep. Moving anything is Atty. Thorne's call.
+6. An unreachable client in suit runs Day 1's No Contact Protocol. John went quiet 01/22/2027; Step 3 names the 02/18/2027 deposition and the 02/04 and 02/16 prep. Moving anything is Atty. Thorne's call.
 7. The Step 4 Final Warning Letter (certified notice) goes by certified mail AND email over Atty. Thorne's signature: attempts itemized, a 7–14 day response date before 02/04/2027, how to respond. For 02/03/2027, send by 01/27/2027.
-8. Day 2's fourth element, notice of potential withdrawal, goes in only if Atty. Thorne directs it, in his words: in a pending suit withdrawal generally needs the court's leave. Never raise withdrawal anywhere else.
-9. Day 2's gate governs a client skip-trace: ladder exhausted, Step 4 letter sent, its deadline passed, and Atty. Thorne authorizes.
+8. Day 1's fourth element, notice of potential withdrawal, goes in only if Atty. Thorne directs it, in his words: in a pending suit withdrawal generally needs the court's leave. Never raise withdrawal anywhere else.
+9. Day 1's gate governs a client skip-trace: ladder exhausted, Step 4 letter sent, its deadline passed, and Atty. Thorne authorizes.
 10. The emergency contact is an approved channel: John was reached through Margaret Doe on 02/03/2027. Tell her only that the firm needs John to call, and how.
 
 > ⚠️ **UPL boundary.** You may run the Skip-Trace Atty. Thorne authorizes, instruct and track the process server, and draft the notice for his signature. You may not decide on alternative service, threaten or announce withdrawal, or tell John what missing his deposition would do to his case.
@@ -809,7 +809,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 - Open with the two missing people side by side. Ask what they share (no working contact point) and what differs (one is the opponent, one is the client, and the authority lines follow from that).
 - Ask the room: “Three attempts failed at 118 Larkspur Ln. Why is a fourth at 6:00 a.m. the wrong move?” Because the neighbor said he moved: vary the hours only once you have the right address.
-- Watch for trainees who reuse Day 2's letter unchanged. In suit, the letter goes over Atty. Thorne's signature, withdrawal needs the court's leave, and the deposition date sets the pace.
+- Watch for trainees who reuse Day 1's letter unchanged. In suit, the letter goes over Atty. Thorne's signature, withdrawal needs the court's leave, and the deposition date sets the pace.
 - Legal nuance: service deadlines, alternative-service rules and subpoena notice periods all vary by court. Teach the sequence, and say “confirm the governing rule” every time.
 
 ---
@@ -1632,7 +1632,7 @@ Split slide. Left half, PART 1 — SERVICE: a vertical log card (date · time ·
 
 **Scenario.** Two episodes, one file. Part 1, file date 10/08/2026: Allied Process Services reports a third failed attempt at 118 Larkspur Ln (after 10/01 and 10/05), and a neighbor says Robert Smith moved in August. The 10/09 Skip-Trace return (module-local) lists 118 Larkspur Ln (utilities closed 08/2026), 4410 Quarry Ridge Ct, Millbrook (utility opened 08/2026; matches his vehicle registration) and a 2019 address. Part 2, file date 01/22/2027: calls to John Doe go unanswered two days after his deposition was noticed for 02/18/2027, 10:00 a.m., by videoconference. Atty. Thorne has set prep sessions for 02/04 and 02/16/2027.
 
-**Execution prompt.** Part 1: escalate for Skip-Trace authority; evaluate the 10/09 return, choosing the address on recency and two corroborating sources, and record why; re-instruct Allied Process Services; log service 10/14 and the affidavit 10/16, and docket the answer date. Part 2: run Steps 1–3 of the No Contact Protocol with the litigation impact, then draft the Step 4 certified notice for Atty. Thorne's signature: attempts itemized, a 7–14 day response date before 02/04/2027, how to respond. Send it by certified mail AND email to a confirmed address. Graded call: assess John's Skip-Trace gate on Day 2's three criteria, and say why his case is unlike Smith's.
+**Execution prompt.** Part 1: escalate for Skip-Trace authority; evaluate the 10/09 return, choosing the address on recency and two corroborating sources, and record why; re-instruct Allied Process Services; log service 10/14 and the affidavit 10/16, and docket the answer date. Part 2: run Steps 1–3 of the No Contact Protocol with the litigation impact, then draft the Step 4 certified notice for Atty. Thorne's signature: attempts itemized, a 7–14 day response date before 02/04/2027, how to respond. Send it by certified mail AND email to a confirmed address. Graded call: assess John's Skip-Trace gate on Day 1's three criteria, and say why his case is unlike Smith's.
 
 | | |
 |---|---|
@@ -1650,7 +1650,7 @@ Split slide. Left half, PART 1 — SERVICE: a vertical log card (date · time ·
 - [ ] Final Warning Letter: attempts itemized, a 7–14 day response date before 02/04/2027 (sent by 01/27/2027 for 02/03/2027), how to respond, and the withdrawal line left to Atty. Thorne (possible, never decided)
 - [ ] Certified mail with return receipt to 2214 Maple Hollow Rd AND email, both logged; signed by Atty. Thorne, not the CM
 - [ ] Withdrawal language present only as Atty. Thorne directed; none from the CM in any other channel, and nothing on what missing the deposition would do to the case
-- [ ] Gate assessed on Day 2's three criteria: ladder exhausted (yes, logged); letter sent by certified mail AND email (by 01/27/2027); deadline expired (no: Margaret reached John on 02/03/2027, the response date). Gate not met; no Skip-Trace. Unlike Smith, John's address is known; only his phone changed
+- [ ] Gate assessed on Day 1's three criteria: ladder exhausted (yes, logged); letter sent by certified mail AND email (by 01/27/2027); deadline expired (no: Margaret reached John on 02/03/2027, the response date). Gate not met; no Skip-Trace. Unlike Smith, John's address is known; only his phone changed
 - [ ] Margaret Doe told only that the firm needs John to call, and how
 
 **Best practices & pitfalls**
@@ -1683,7 +1683,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 #### 5 · Speaker Notes
 
 - Run Part 1 as a race against a stale address. The graded move after 10/08 is the Skip-Trace escalation, not a fourth knock.
-- Ask the room: “John and Smith both have no working contact point. Why does Smith get a Skip-Trace and John does not?” Day 2's gate: ladder exhausted, letter sent, deadline passed. John was reached on 02/03/2027, the response date, so the deadline never expired; and his address is known, only his phone changed.
+- Ask the room: “John and Smith both have no working contact point. Why does Smith get a Skip-Trace and John does not?” Day 1's gate: ladder exhausted, letter sent, deadline passed. John was reached on 02/03/2027, the response date, so the deadline never expired; and his address is known, only his phone changed.
 - Check every response date against 02/04/2027. A 14-day window from 01/22 lands on 02/05, after the first prep session: the deposition forces the short end of the window.
 - UPL gate: no withdrawal language from the Case Manager, in the notice or anywhere else, and Margaret hears only “please have John call us.”
 
@@ -1768,7 +1768,7 @@ The Doe-John folder tree with every folder ticked green and 09 Litigation & ADR 
 
 **Scenario.** 07/30/2027, 3:00 p.m. The award was disbursed today: John Doe signed the Settlement Statement on 07/29/2027 and every lien is paid on its Payoff Letter. The litigation file is on the CMS: the Complaint (filed 09/24/2026), the service of process and affidavit of service, Atty. Grant Mercer's Answer (11/12/2026), the Scheduling Order (12/10/2026), the mediated settlement term sheet (03/18/2027) and the Mediation and Arbitration Binders as delivered. Atty. Thorne will sign off the close once the file is complete, on the CMS and on the backup.
 
-**Execution prompt.** File the litigation and ADR documents from 📁 Work From in the CMS, so each lands in 09 Litigation & ADR on your Backup Drive. Then run the final backup audit: open 📂 My Backup Drive, run ✓ Check my drive, and confirm the count of backed-up documents equals the documents filed in the CMS across all nine folders, with every superseded version labeled and no draft left unlabeled. Then write the closing checklist in Case Notes for Atty. Thorne's sign-off: every folder complete; every lien's Payoff Letter and the Settlement Statement on the drive; the closing letter sent and backed up; the last drive check clean; and the close-out step the firm takes after sign-off: the whole Doe-John folder moves, unchanged inside, under 04 Closed Files, with the closing date logged. Do not move the folder in your training drive; the course checks it where it is.
+**Execution prompt.** File the litigation and ADR documents from 📁 Work From in the CMS, so each lands in 09 Litigation & ADR on your Backup Drive. Then run the final backup audit: open 📂 My Backup Drive, run ✓ Check my drive, and confirm the count of backed-up documents equals the documents filed in the CMS across all nine folders, with every superseded version labeled and no draft left unlabeled. Then write the closing checklist in Case Notes for Atty. Thorne's sign-off, built on Final Case Reconciliation (Day 3 deck p15–p19): every folder complete; the money trail (the Settlement Statement, the Trust Ledger at a zero balance) and proof of delivery (every lien's Payoff Letter) on the drive; the retention date, 7 years from closing; the closing letter sent and backed up; the last drive check clean; and the close-out step the firm takes after sign-off: the whole Doe-John folder moves, unchanged inside, under 04 Closed Files, with the closing date logged. Do not move the folder in your training drive; the course checks it where it is.
 
 | | |
 |---|---|
@@ -1781,7 +1781,7 @@ The Doe-John folder tree with every folder ticked green and 09 Litigation & ADR 
 - [ ] The final count: every document filed in the CMS backed up in its folder
 - [ ] Superseded versions labeled and drafts marked as drafts across all nine folders
 - [ ] ✓ Check my drive run with no folder missing
-- [ ] The closing checklist in Case Notes, ending with Atty. Thorne's sign-off and the move to 04 Closed Files
+- [ ] The closing checklist in Case Notes, naming the reconciliation sets (the money trail at a zero balance, proof of delivery, the retention date 7 years from closing) and ending with Atty. Thorne's sign-off and the move to 04 Closed Files
 - [ ] The client folder left in place in the training drive
 
 **Best practices & pitfalls**
@@ -1967,7 +1967,7 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 
 #### 5 · Speaker Notes
 
-- Question 1 is the foundation. A trainee who can't explain why $10,000 freezes $40,000 has memorized the stack without understanding it; re-teach Day 2's order of operations before moving on.
+- Question 1 is the foundation. A trainee who can't explain why $10,000 freezes $40,000 has memorized the stack without understanding it; re-teach Day 1's order of operations before moving on.
 - Question 6 is the pressure scenario. The right answer takes the question down, tells John Doe it is going to Atty. Thorne today, and routes it: no view on $3,500, no explanation of the fee.
 - Question 5 separates the neutrals by power, not title. Expect “the mediator decides” from at least one trainee.
 - Compare each self-rating with the score. UPL is a gate: a strong score does not survive an ethics breach.
@@ -2273,13 +2273,13 @@ The standard knowledge-check split, extended for the final check. Above the crea
 
 **Auto-graded share of the day's Knowledge Check** (3 questions):
 
-1. (Day 2 · Day 5) John Doe goes unreachable on 01/22/2027, 27 days before his 02/18/2027 deposition. Running Day 2's No Contact Protocol at litigation speed, which of these is the Case Manager's work?  
+1. (Day 1 · Day 5) John Doe goes unreachable on 01/22/2027, 27 days before his 02/18/2027 deposition. Running Day 1's No Contact Protocol at litigation speed, which of these is the Case Manager's work?  
    Tell Margaret Doe that missing the deposition could end John's case · Decide whether to ask Atty. Mercer to move the deposition · **✓ Run the channel ladder, escalate to Atty. Thorne with the deposition impact, and prepare the certified Final Warning Letter for his signature** · Order a Skip-Trace on John at once, as was done for Robert Smith  
-   *The ladder, the escalation and the letter are the CM's; moving the deposition and any withdrawal are Atty. Thorne's. Margaret is told only that the firm needs John to call. John's address is known (2214 Maple Hollow Rd), so Day 2's Skip-Trace gate is not met; he was reached through Margaret on 02/03/2027.*
-2. (Day 3 · Day 5) At the 02/18/2027 deposition, defense counsel works the 14-Day Gap. Which Day 3 work product lets Atty. Thorne show the gap was explained from the start, not at deposition?  
+   *The ladder, the escalation and the letter are the CM's; moving the deposition and any withdrawal are Atty. Thorne's. Margaret is told only that the firm needs John to call. John's address is known (2214 Maple Hollow Rd), so Day 1's Skip-Trace gate is not met; he was reached through Margaret on 02/03/2027.*
+2. (Day 2 · Day 5) At the 02/18/2027 deposition, defense counsel works the 14-Day Gap. Which Day 2 work product lets Atty. Thorne show the gap was explained from the start, not at deposition?  
    **✓ The Gap Explanation Record from the recorded call, with its corroboration: the EMS report, Northgate's Attendance Record, the texts to Margaret, the 02/07/2026 pharmacy receipt and the urgent-care history** · Dr. Helen Park's MRI read of 03/13/2026 · The A-C-T record for April 2026 · The audited Riverton Spine & Rehab ledger  
    *The MRI answers “degenerative,” and A-C-T answers the 19-day disruption in April; neither explains 02/06–02/20/2026. The Gap Explanation Record does, and Dr. Reyes's Causation Letter (06/19/2026) ties it to the injury. Atty. Thorne prepares the testimony; the CM never scripts it.*
-3. (Day 2 · Day 5) The 11/12/2026 Answer says Kevin Alvarez's Escape entered the all-way stop out of turn. Which evidence, preserved months before suit, shows the order of entry directly?  
+3. (Day 1 · Day 5) The 11/12/2026 Answer says Kevin Alvarez's Escape entered the all-way stop out of turn. Which evidence, preserved months before suit, shows the order of entry directly?  
    The Escape's event data recorder, downloaded 10/2026 · The Riverton Fire EMS Run Report · Dr. Reyes's Causation Letter of 06/19/2026 · **✓ The doorbell-camera video from 2214 Maple Hollow Rd, preserved on 02/17/2026 and copied 02/19/2026**  
    *The video shows the Escape stopped and Smith rolling through; Ruth Calloway and Smith's citation on RPD-26-018842 corroborate it. The EDR speaks to the belt and the 11 mph speed, not the order of entry. How fault would be weighed is Atty. Thorne's call.*
 
