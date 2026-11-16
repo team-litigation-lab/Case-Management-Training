@@ -114,6 +114,9 @@ function close(){
   o.remove(); curId = null; document.removeEventListener("keydown", onKey, true);
 }
 function onKey(ev){
+  const at = ev.target && ev.target.closest ? ev.target : null, inCtl = at && at.closest("select, input, textarea, button, video");
+  if((ev.key === "ArrowLeft" || ev.key === "ArrowRight") && !inCtl && !ev.altKey && !ev.ctrlKey && !ev.metaKey){ ev.preventDefault(); ev.stopPropagation(); skip(ev.key === "ArrowLeft" ? -10 : 10); return; }
+  if(ev.key === " " && !inCtl){ const v = vEl(); if(v){ ev.preventDefault(); ev.stopPropagation(); if(v.paused){ const p = v.play(); if(p && p.catch) p.catch(() => {}); } else v.pause(); } return; }
   if(ev.key !== "Escape") return;
   ev.stopPropagation();
   if(fsEl()){ exitFs(); return; }   // Esc first leaves full screen; a second Esc closes the viewer
@@ -165,6 +168,8 @@ function open(id){
     <div class="cm-dv-head"><h2>🎬 ${E(vid.title)} <span>Video Presentation</span></h2>
       <span class="cm-dv-resume" hidden>Resumed at <b></b> · <button type="button" onclick="cmDayVideo.startOver()">↺ Start over</button></span>
       <label class="cm-dv-ctl cm-dv-jump">Slide <select class="cm-dv-slide" aria-label="Go to a slide" onchange="cmDayVideo.seek(+this.value)">${vid.chapters.map((c, i) => `<option value="${i}">${c.page}. ${E(c.title)}</option>`).join("")}</select></label>
+      <button type="button" class="cm-dv-ctl cm-dv-skip" onclick="cmDayVideo.skip(-10)" title="Back 10 seconds (←)" aria-label="Back 10 seconds">⏪ 10s</button>
+      <button type="button" class="cm-dv-ctl cm-dv-skip" onclick="cmDayVideo.skip(10)" title="Forward 10 seconds (→)" aria-label="Forward 10 seconds">10s ⏩</button>
       <label class="cm-dv-ctl cm-dv-speed">Speed <select class="cm-dv-rate" aria-label="Playback speed" onchange="cmDayVideo.setRate(this.value)">${RATES.map(r => `<option value="${r}">${r}×</option>`).join("")}</select></label>
       ${vid.captions ? `<button type="button" class="cm-dv-ctl cm-dv-ccbtn" aria-pressed="true" onclick="cmDayVideo.setCc(!cmDayVideo.prefs().cc)">CC</button>` : ""}
       <button type="button" class="cm-dv-ctl cm-dv-fs" aria-pressed="false" onclick="cmDayVideo.fullscreen()" title="Fill the screen with the video and its captions">⛶ Full screen</button>
@@ -185,7 +190,7 @@ function open(id){
     if(document.activeElement !== pick) pick.value = String(i);   // not while the trainee is choosing one
   };
   v.addEventListener("timeupdate", () => { mark(); keepPlace(false); });
-  v.addEventListener("seeked", () => { mark(); showCc(); });
+  v.addEventListener("seeked", () => { mark(); showCc(); keepPlace(false); if(loaded) saveLocal(); clearTimeout(o._kept); o._kept = setTimeout(() => keepPlace(true), 2000); });   // a drag fires many: this device at once, the account when it settles
   v.addEventListener("pause", () => keepPlace(true));
   v.addEventListener("ended", () => { if(curId != null && loaded){ delete prefs.pos[curId]; saveCloud(); } });
   v.addEventListener("loadedmetadata", () => rateUi(o));
@@ -229,7 +234,18 @@ function seek(i){
   const n = o.querySelector(".cm-dv-resume"); if(n) n.hidden = true;
   const p = v.play(); if(p && p.catch) p.catch(() => {});
 }
+/* ⏪ / ⏩: back or forward from wherever the video is, playing or paused; the place is kept at once, so going back to the
+   video (closing it, a refresh, another device) opens there and never from the start */
+function skip(sec){
+  const o = document.getElementById("cm-dv"), v = vEl(); if(!o || !v || curId == null) return;
+  const d = v.duration, to = Math.max(0, (v.currentTime || 0) + sec);
+  v.currentTime = d > 0 ? Math.min(to, Math.max(0, d - 0.5)) : to;
+  if(o._mark) o._mark(); showCc();
+  const n = o.querySelector(".cm-dv-resume"); if(n) n.hidden = true;
+}
 window.addEventListener("pagehide", () => keepPlace(true));
+// a hidden tab (another tab, a locked phone, the app switched) keeps the place now: the browser may discard the page there
+document.addEventListener("visibilitychange", () => { if(document.visibilityState === "hidden") keepPlace(true); });
 const why = () => say("🔒 Your trainer unlocks this video for your batch. It opens here within a minute of that.");
 
 /* ---------- Admin → 🔓 Open Lessons → 🎬 Unlock Videos (for the batch picked on that page) ---------- */
@@ -275,7 +291,7 @@ async function toggle(id, on){
   render();
 }
 
-window.cmDayVideo = {KEY, PREF, RATES, open, close, seek, why, toggle, unlocked, shape, fullscreen, setRate, setCc, startOver, showCc, prefs: () => prefs};
+window.cmDayVideo = {KEY, PREF, RATES, open, close, seek, skip, why, toggle, unlocked, shape, fullscreen, setRate, setCc, startOver, showCc, prefs: () => prefs};
 
 const css = document.createElement("style");
 css.textContent = `
@@ -302,6 +318,7 @@ css.textContent = `
 button.cm-dv-ctl:hover,button.cm-dv-ctl:focus-visible{background:#DB8437;}
 .cm-dv-ccbtn[aria-pressed=true]{background:#fff;color:#1E2340;}
 .cm-dv-slide{max-width:min(320px,30vw);font:700 16px/1 'Inter',sans-serif;color:#1E2340;background:#fff;border:0;border-radius:6px;padding:4px 6px;cursor:pointer;}
+.cm-dv-skip{padding:0 10px;white-space:nowrap;}
 .cm-dv-rate{font:700 16px/1 'Inter',sans-serif;color:#1E2340;background:#fff;border:0;border-radius:6px;padding:4px 6px;cursor:pointer;}
 .cm-dv-resume{display:inline-flex;align-items:center;gap:6px;font:700 16px/1.2 'Inter',sans-serif;color:#F0B27A;white-space:nowrap;}
 .cm-dv-resume[hidden]{display:none;}
