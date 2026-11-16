@@ -4,7 +4,7 @@
    • settings:openvideos = {all: [dayIds], batches: {"<batch key>": [dayIds]}}: everyone reads it (worker.js PUBLIC_READ),
      only a trainer writes it: Admin → 🔓 Open Lessons → 🎬 Unlock Videos, for the batch picked there or for all batches.
    • The trainee's page reads it in its once-a-minute check, on the same request as the open days (cmOpenLessons.keys).
-   • The viewer: the video with captions (CC) in a strip under the picture, and the slides as chapters down the side; a chapter
+   • The viewer: the video with captions (CC) in a strip under the picture, and a Slide picker in the header to jump to any slide (no list beside the picture: the video takes the full width); a chapter
      jumps to its slide. It has ⛶ Full screen, a speed choice (0.75× to 2×), and opens where the trainee left off. */
 (function(){
 "use strict";
@@ -82,6 +82,7 @@ async function readPrefs(){
 }
 function saveLocal(){ prefs.at = Date.now(); lastLocal = prefs.at; try{ localStorage.setItem("lsh_" + PREF, JSON.stringify(prefs)); }catch(e){} }
 function saveCloud(){ saveLocal(); lastCloud = Date.now(); if(typeof storeSet === "function") Promise.resolve(storeSet(PREF, prefs)).catch(() => {}); }
+function keepNow(o){ keepPlace(false); if(loaded) saveLocal(); clearTimeout(o._kept); o._kept = setTimeout(() => keepPlace(true), 2000); }
 const vEl = () => { const o = document.getElementById("cm-dv"); return o && o.querySelector("video"); };
 function keepPlace(force){
   const v = vEl(); if(!v || curId == null || !loaded) return;
@@ -114,6 +115,9 @@ function close(){
   o.remove(); curId = null; document.removeEventListener("keydown", onKey, true);
 }
 function onKey(ev){
+  const at = ev.target && ev.target.closest ? ev.target : null, inCtl = at && at.closest("select, input, textarea, button, video");
+  if((ev.key === "ArrowLeft" || ev.key === "ArrowRight") && !inCtl && !ev.altKey && !ev.ctrlKey && !ev.metaKey){ ev.preventDefault(); ev.stopPropagation(); skip(ev.key === "ArrowLeft" ? -10 : 10); return; }
+  if(ev.key === " " && !inCtl){ const v = vEl(); if(v){ ev.preventDefault(); ev.stopPropagation(); if(v.paused){ const p = v.play(); if(p && p.catch) p.catch(() => {}); } else v.pause(); } return; }
   if(ev.key !== "Escape") return;
   ev.stopPropagation();
   if(fsEl()){ exitFs(); return; }   // Esc first leaves full screen; a second Esc closes the viewer
@@ -164,29 +168,30 @@ function open(id){
   o.innerHTML = `<div class="cm-dv-box">
     <div class="cm-dv-head"><h2>🎬 ${E(vid.title)} <span>Video Presentation</span></h2>
       <span class="cm-dv-resume" hidden>Resumed at <b></b> · <button type="button" onclick="cmDayVideo.startOver()">↺ Start over</button></span>
+      <label class="cm-dv-ctl cm-dv-jump">Slide <select class="cm-dv-slide" aria-label="Go to a slide" onchange="cmDayVideo.seek(+this.value)">${vid.chapters.map((c, i) => `<option value="${i}">${c.page}. ${E(c.title)}</option>`).join("")}</select></label>
+      <button type="button" class="cm-dv-ctl cm-dv-skip" onclick="cmDayVideo.skip(-10)" title="Back 10 seconds (←)" aria-label="Back 10 seconds">⏪ 10s</button>
+      <button type="button" class="cm-dv-ctl cm-dv-skip" onclick="cmDayVideo.skip(10)" title="Forward 10 seconds (→)" aria-label="Forward 10 seconds">10s ⏩</button>
       <label class="cm-dv-ctl cm-dv-speed">Speed <select class="cm-dv-rate" aria-label="Playback speed" onchange="cmDayVideo.setRate(this.value)">${RATES.map(r => `<option value="${r}">${r}×</option>`).join("")}</select></label>
       ${vid.captions ? `<button type="button" class="cm-dv-ctl cm-dv-ccbtn" aria-pressed="true" onclick="cmDayVideo.setCc(!cmDayVideo.prefs().cc)">CC</button>` : ""}
-      <button type="button" class="cm-dv-ctl cm-dv-fs" aria-pressed="false" onclick="cmDayVideo.fullscreen()" title="Fill the screen with the video, its captions and the slide list">⛶ Full screen</button>
+      <button type="button" class="cm-dv-ctl cm-dv-fs" aria-pressed="false" onclick="cmDayVideo.fullscreen()" title="Fill the screen with the video and its captions">⛶ Full screen</button>
       <button type="button" class="cm-dv-x" onclick="cmDayVideo.close()" aria-label="Close the video">✕</button></div>
     <div class="cm-dv-main">
       <div class="cm-dv-stage"><video controls playsinline preload="metadata" controlslist="nofullscreen" disablepictureinpicture src="${E(vid.src)}">${vid.captions ? `<track kind="captions" srclang="en" label="English" src="${E(vid.captions)}" default>` : ""}</video>
         ${vid.captions ? `<div class="cm-dv-cc"></div>` : ""}</div>
-      <nav class="cm-dv-chapters" aria-label="Slides"><h3>Slides</h3><ol>${vid.chapters.map((c, i) => `<li><button type="button" data-i="${i}" onclick="cmDayVideo.seek(${i})"><b>${c.page}</b><span>${E(c.title)}</span><i>${mmss(c.t)}</i></button></li>`).join("")}</ol></nav>
+
     </div></div>`;
   o.addEventListener("mousedown", ev => { if(ev.target === o) close(); });
   document.body.appendChild(o);
   ccUi(o); rateUi(o);
-  const v = o.querySelector("video"), btns = [...o.querySelectorAll(".cm-dv-chapters button")];
+  const v = o.querySelector("video"), pick = o.querySelector(".cm-dv-slide");
   let cur = -1;
   const mark = o._mark = () => {
     let i = 0; while(i + 1 < vid.chapters.length && vid.chapters[i + 1].t <= v.currentTime + 0.05) i++;
-    if(i === cur || !btns[i]) return; cur = i;
-    btns.forEach((b, k) => b.classList.toggle("on", k === i));
-    const b = btns[i], list = b.closest("ol").parentElement;
-    if(b.offsetTop < list.scrollTop || b.offsetTop + b.offsetHeight > list.scrollTop + list.clientHeight) list.scrollTop = Math.max(0, b.offsetTop - list.clientHeight / 2);
+    if(i === cur || !pick) return; cur = i;
+    if(document.activeElement !== pick) pick.value = String(i);   // not while the trainee is choosing one
   };
   v.addEventListener("timeupdate", () => { mark(); keepPlace(false); });
-  v.addEventListener("seeked", () => { mark(); showCc(); });
+  v.addEventListener("seeked", () => { mark(); showCc(); keepNow(o); });   // a drag on the seek bar (the picker, ⏪ / ⏩ and the keys keep it themselves)
   v.addEventListener("pause", () => keepPlace(true));
   v.addEventListener("ended", () => { if(curId != null && loaded){ delete prefs.pos[curId]; saveCloud(); } });
   v.addEventListener("loadedmetadata", () => rateUi(o));
@@ -226,11 +231,22 @@ function open(id){
 function seek(i){
   const o = document.getElementById("cm-dv"), v = vEl(); if(!v || curId == null) return;
   const c = VIDEOS[curId] && VIDEOS[curId].chapters[i]; if(!c) return;
-  v.currentTime = c.t + 0.05; if(o._mark) o._mark(); showCc();
+  v.currentTime = c.t + 0.05; if(o._mark) o._mark(); showCc(); keepNow(o);
   const n = o.querySelector(".cm-dv-resume"); if(n) n.hidden = true;
   const p = v.play(); if(p && p.catch) p.catch(() => {});
 }
+/* ⏪ / ⏩: back or forward from wherever the video is, playing or paused; the place is kept at once, so going back to the
+   video (closing it, a refresh, another device) opens there and never from the start */
+function skip(sec){
+  const o = document.getElementById("cm-dv"), v = vEl(); if(!o || !v || curId == null) return;
+  const d = v.duration, to = Math.max(0, (v.currentTime || 0) + sec);
+  v.currentTime = d > 0 ? Math.min(to, Math.max(0, d - 0.5)) : to;
+  if(o._mark) o._mark(); showCc(); keepNow(o);
+  const n = o.querySelector(".cm-dv-resume"); if(n) n.hidden = true;
+}
 window.addEventListener("pagehide", () => keepPlace(true));
+// a hidden tab (another tab, a locked phone, the app switched) keeps the place now: the browser may discard the page there
+document.addEventListener("visibilitychange", () => { if(document.visibilityState === "hidden") keepPlace(true); });
 const why = () => say("🔒 Your trainer unlocks this video for your batch. It opens here within a minute of that.");
 
 /* ---------- Admin → 🔓 Open Lessons → 🎬 Unlock Videos (for the batch picked on that page) ---------- */
@@ -276,7 +292,7 @@ async function toggle(id, on){
   render();
 }
 
-window.cmDayVideo = {KEY, PREF, RATES, open, close, seek, why, toggle, unlocked, shape, fullscreen, setRate, setCc, startOver, showCc, prefs: () => prefs};
+window.cmDayVideo = {KEY, PREF, RATES, open, close, seek, skip, why, toggle, unlocked, shape, fullscreen, setRate, setCc, startOver, showCc, prefs: () => prefs};
 
 const css = document.createElement("style");
 css.textContent = `
@@ -289,7 +305,7 @@ css.textContent = `
 .cm-dv-head h2 span{color:#F0B27A;font-size:16px;margin-left:8px;}
 .cm-dv-x{font:700 18px/1 inherit;width:40px;height:40px;border-radius:50%;border:2px solid #fff;background:transparent;color:#fff;cursor:pointer;}
 .cm-dv-x:hover,.cm-dv-x:focus-visible{background:#DB8437;border-color:#DB8437;outline:none;}
-.cm-dv-main{display:grid;grid-template-columns:minmax(0,1fr) clamp(240px,24%,340px);min-height:0;flex:1;}
+.cm-dv-main{display:grid;grid-template-columns:minmax(0,1fr);min-height:0;flex:1;}   /* the video fills the width: no slide list beside it (the owner); the Slide picker in the header jumps to one */
 .cm-dv-stage{background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;}
 .cm-dv-stage video{display:block;width:100%;max-height:calc(100vh - 110px - 76px);aspect-ratio:16/9;background:#000;}
 .cm-dv-stage video::cue{color:transparent;background:transparent;}
@@ -302,6 +318,8 @@ css.textContent = `
 .cm-dv-ctl:hover,.cm-dv-ctl:focus-visible,.cm-dv-ctl:focus-within{border-color:#DB8437;outline:none;}
 button.cm-dv-ctl:hover,button.cm-dv-ctl:focus-visible{background:#DB8437;}
 .cm-dv-ccbtn[aria-pressed=true]{background:#fff;color:#1E2340;}
+.cm-dv-slide{max-width:min(320px,30vw);font:700 16px/1 'Inter',sans-serif;color:#1E2340;background:#fff;border:0;border-radius:6px;padding:4px 6px;cursor:pointer;}
+.cm-dv-skip{padding:0 10px;white-space:nowrap;}
 .cm-dv-rate{font:700 16px/1 'Inter',sans-serif;color:#1E2340;background:#fff;border:0;border-radius:6px;padding:4px 6px;cursor:pointer;}
 .cm-dv-resume{display:inline-flex;align-items:center;gap:6px;font:700 16px/1.2 'Inter',sans-serif;color:#F0B27A;white-space:nowrap;}
 .cm-dv-resume[hidden]{display:none;}
@@ -311,16 +329,6 @@ button.cm-dv-ctl:hover,button.cm-dv-ctl:focus-visible{background:#DB8437;}
 .cm-dv-box:-webkit-full-screen{width:100%;height:100%;max-height:none;border-radius:0;}
 .cm-dv-isfs .cm-dv-stage video{max-height:calc(100vh - 70px - 76px);}
 .cm-dv-isfs.cm-dv-nocc .cm-dv-stage video{max-height:calc(100vh - 70px);}
-.cm-dv-isfs .cm-dv-chapters{max-height:calc(100vh - 70px);}
-.cm-dv-chapters{position:relative;overflow-y:auto;min-height:0;max-height:calc(100vh - 110px);background:#262C52;}
-.cm-dv-chapters h3{position:sticky;top:0;margin:0;padding:10px 14px;background:#262C52;font:700 16px/1.2 'Poppins','Inter',sans-serif;color:#F0B27A;z-index:1;}
-.cm-dv-chapters ol{list-style:none;margin:0;padding:0 8px 10px;}
-.cm-dv-chapters button{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:8px;align-items:baseline;width:100%;text-align:left;padding:8px;border:0;border-radius:8px;background:transparent;color:#fff;font:700 16px/1.3 'Inter',sans-serif;cursor:pointer;}
-.cm-dv-chapters button b{color:#F0B27A;text-align:right;}
-.cm-dv-chapters button i{font-style:normal;font-weight:600;font-size:14px;color:#C9CEE6;}
-.cm-dv-chapters button:hover,.cm-dv-chapters button:focus-visible{background:#3B4A8C;outline:none;}
-.cm-dv-chapters button.on{background:#DB8437;color:#1E2340;}
-.cm-dv-chapters button.on b,.cm-dv-chapters button.on i{color:#1E2340;}
 .cm-dv-admin{margin-top:0;}
 .cm-dv-days{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;}
 .cm-dv-day{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:12px;padding:14px;font-size:15px;line-height:1.4;color:#262B45;background:#fff;cursor:pointer;min-height:64px;}
@@ -332,7 +340,7 @@ button.cm-dv-ctl:hover,button.cm-dv-ctl:focus-visible{background:#DB8437;}
 /* the header's title and its controls (Resumed at · Speed · CC · Full screen · ✕) share one line only on a wide screen */
 @media (max-width:1100px){ .cm-dv-head{flex-wrap:wrap;} .cm-dv-head h2{flex-basis:100%;order:-1;white-space:normal;}
   .cm-dv-stage video{max-height:calc(100vh - 160px - 76px);} .cm-dv-nocc .cm-dv-stage video{max-height:calc(100vh - 160px);} }
-@media (max-width:900px){ .cm-dv-main{grid-template-columns:minmax(0,1fr);} .cm-dv-chapters{max-height:34vh;} .cm-dv-stage video{max-height:52vh;}
+@media (max-width:900px){ .cm-dv-main{grid-template-columns:minmax(0,1fr);} .cm-dv-stage video{max-height:52vh;}
   .cm-dv-cc{min-height:64px;font-size:16px;} }
 `;
 document.head.appendChild(css);

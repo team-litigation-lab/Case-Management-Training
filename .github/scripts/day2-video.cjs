@@ -52,7 +52,7 @@ const spec = JSON.parse(fs.readFileSync(path.join(__dirname, '../../build/videos
             await page.click(`#module-${DAY} .cm-dv-btn`); await page.waitForTimeout(2500);
             const v = await page.evaluate(async () => {
                 const v = document.querySelector('video'); if (!v) return null;
-                const ch = [...document.querySelectorAll('.cm-dv-chapters button')]; if (ch[5]) ch[5].click();
+                const pick = document.querySelector('.cm-dv-slide'), ch = pick ? [...pick.options] : []; if (ch[5]) { pick.value = '5'; pick.dispatchEvent(new Event('change', { bubbles: true })); }
                 await new Promise(r => setTimeout(r, 1200));
                 return { h264: !!v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"'), src: v.currentSrc || v.getAttribute('src') || (v.querySelector('source') || {}).src || '', ready: v.readyState, dur: v.duration, t: v.currentTime, tracks: v.textTracks.length, cc: !!document.querySelector('#cm-dv .cm-dv-cc') && (v.textTracks[0] || {}).mode === 'hidden', chapters: ch.length };
             });
