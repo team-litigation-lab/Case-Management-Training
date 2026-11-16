@@ -1,6 +1,6 @@
-# Case Flow Day 1 — Fundamentals, Intake & Treatment
+# Case Flow Day 1 — Fundamentals, Intake, Claim Set Up & Treatment
 
-**Phase:** Fundamentals, Intake & Treatment · **Focus case:** John Doe VS Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
+**Phase:** Fundamentals, Intake, Claim Set Up & Treatment · **Focus case:** John Doe VS Robert Smith · **Lead Counsel:** Atty. Elijah Thorne
 
 **Objective.** Know the Case Manager's role and the case phases; meet John Doe and open his matter in the CMS with the Conflict Check first; work the intake and its bottlenecks; set up the claim: coverage and liability, the Policy Stack, the LORs and the Case Plan; sort the Property Damage side and keep John Doe reachable (the No Contact Protocol); then follow his treatment: who pays each bill, the LOPs, the 14-Day Gap and the Standard Treatment Map, to MMI.
 
@@ -31,7 +31,7 @@
 
 The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
 
-**Module 1 — Fundamentals, Intake & Treatment**
+**Module 1 — Fundamentals, Intake, Claim Set Up & Treatment**
 
 1. *Lesson* — The Case Manager's Role
 2. *Lesson* — Case Phase: Intake & the Intake Bottlenecks
@@ -75,13 +75,13 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 ---
 
-## Module 1 — Fundamentals, Intake & Treatment
+## Module 1 — Fundamentals, Intake, Claim Set Up & Treatment
 
 **Order:** Lessons (16) ➔ Case Profile (Meet John Doe & Intake) ➔ Skill Building (Opening John Doe's File in the CMS) ➔ Backup File Maintenance (required) ➔ Update Your Action Plan ➔ Practice Lab (14 optional side exercises) ➔ Knowledge Check (5 Learning Checks)
 
 ### 1.1.1 The Case Manager's Role
 
-> **Lesson** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Lesson** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Owning the file from intake to resolution  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#1` Training Agenda & What Case Management Is · `D1#2` The General Case Management Process · `D1#3` Key Duties of a Case Manager · `D1#4` Understanding Case Phases
@@ -152,7 +152,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ### 1.1.2 Case Phase: Intake & the Intake Bottlenecks
 
-> **Lesson** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Lesson** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** From “On the Records” to a structured matter  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#1` Training Agenda & What Case Management Is · `D1#3` Key Duties of a Case Manager · `D1#4` Understanding Case Phases · `D1#5` Case Phase: Intake — Establishing Control · `D1#6` The Real Intake Workflow · `D1#7` Intake & Initial Client Contact — Gatekeepers of Case Quality · `D1#10` Bottleneck: Incomplete Client Information · `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · `D1#15` Bottleneck: Communication Gaps · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · LSH Claims Specialist: pre-claim data set, Declaration Page, coverage asymmetry
@@ -231,7 +231,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ### 1.1.3 Claim Set Up: Coverage, Liability & the Case Plan
 
-> **Lesson** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Lesson** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** The document that makes the file move  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#8` Case Acceptance Determination · `D1#14` Bottleneck: Case Eligibility Uncertainty · `D1#17` Skill Building: Intake Decision Challenge & Applied Case Manager Actions · `D1#19` Claim Set-Up: Case Projection — Why the Three Work Together · `D1#21` Case Study: John Doe v. Apex — Liability Determination · `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#23` Case Planning Framework: The Three-Pillar Case Plan
@@ -304,7 +304,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 1) 
 
 ### 1.1.4 LOR Drafting Mechanics & Three-Carrier Notification
 
-> **Lesson** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Lesson** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** One template, five letters, and the rules that make each one different  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#21` Case Study: John Doe v. Apex — Liability Determination · LSH Claims Specialist: LOR purpose, recipients, drafting components and delivery · LSH Claims Specialist: claim set-up call, information protection on third-party claims, LOR acknowledgement and limits disclosure · Newly authored: UM notice at set-up (notice, not demand)
@@ -381,7 +381,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 ### 1.1.5 Affidavits on the File: No Other Insurance, Residency, Records & Service
 
-> **Lesson** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Lesson** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Which sworn statements John Doe's file relies on, who swears each one, and where each is used  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** Newly authored: the affidavits a personal injury file relies on (no other insurance, residency and no owned vehicle, records and billing custodian, wage verification, service) and the Case Manager's request-and-check role
@@ -451,7 +451,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 ### 1.1.6 Decision First: Lead Every Note to Atty. Thorne with the Decision Needed
 
-> **Lesson** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment (condensed) · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Lesson** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment (condensed) · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Open with the decision or action needed, then the facts  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#15` Bottleneck: Communication Gaps · `D1#39` Communication Loops: The “Stakeholder Triad” · Newly authored: decision first — leading every note, email and brief to the attorney with the decision or action needed
@@ -523,7 +523,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 ### 1.1.7 Property Damage: Does It Touch Our Case?
 
-> **Lesson** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Onboarding & Property Damage Check (`d1m3`)  
+> **Lesson** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** What from the PD side feeds John Doe's injury claim, and what stays on Margaret Doe's  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · `D5#35` Property Damage: Calculating the Value of the Claim · LSH Claims Specialist: LOR Property Damage carve-out, Property Damage severity as evidence for the injury claim
@@ -594,7 +594,7 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 ### 1.1.8 The No Contact Protocol — Steps 1 to 3
 
-> **Lesson** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
+> **Lesson** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Internal review, escalating contact attempts, team notification  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: No Contact Protocol, Steps 1–3 · `D1#11` Bottleneck: Delayed Client Follow-Up · `D1#9` Common Intake Bottlenecks — Overview · D5 agenda: MIA Clients
@@ -662,7 +662,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ### 1.1.9 LOP Issuance Guidelines, Provider Coordination & PIP Limits
 
-> **Lesson** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Who pays which bill, and what only counsel may promise  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · `D1#26` The Treatment Phase — Core Objectives · `D1#30` Handling the Treatment Phase: Proactive Resource Coordination · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · `D1#39` Communication Loops: The “Stakeholder Triad” · LSH Claims Specialist: MedPay vs. PIP (Medical Bills regardless of fault, no lost wages) · Newly authored: LOP issuance guidelines and the PIP exhaustion ledger
@@ -734,7 +734,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 1.1.10 Explanation of Benefits (EOB) & PIP
 
-> **Lesson** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Reading what each payer paid, and what is still owed  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D4#26` Arbitration Binders: Section 6 — Economic Losses & Lien Reconciliations · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D1#23` Case Planning Framework: The Three-Pillar Case Plan
@@ -812,7 +812,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 1.1.11 Letters of Protection & the Case Manager's Part in Provider Referrals
 
-> **Lesson** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** What an LOP is, when it is used, and how you help John Doe reach care without steering it  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** Case file: Riverton Spine & Rehab, chiro and PT under an LOP signed 02/23/2026 (RS23, the itemized LOP ledger) · Newly authored: Letters of Protection, and the Case Manager's part in client-provider referrals within the UPL line
@@ -880,7 +880,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 1.1.12 Rental & Reimbursement of Costs
 
-> **Lesson** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
+> **Lesson** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment (condensed) · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** What treatment costs the client out of pocket, and how each dollar is documented for the demand  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** Case file: Keystone Mutual's rental cutoff (RS32) and John Doe's transport to treatment · IRS IR-2025-128: the standard mileage rates when this course was written, 20.5 cents medical and 72.5 cents business · Newly authored: reimbursement of out-of-pocket treatment costs and the trip log
@@ -946,7 +946,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 1.1.13 The Action Plan Editor & Attorney Review Routing
 
-> **Lesson** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment (condensed) · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Lesson** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment (condensed) · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Drafting, routing, and the review loop  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · `D1#25` The “Golden Rule” of US Claim Set-Up · `D1#2` The General Case Management Process
@@ -1016,7 +1016,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 1) 
 
 ### 1.1.14 The Treatment Assessment, SMART Goals & the Care Coordination Plan
 
-> **Lesson** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Lesson** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Know the whole person before you plan the care  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#33` Case Planning — Treatment: The Assessment Phase · `D1#34` Case Planning — Treatment: SMART Goal Setting · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · Newly authored: John Doe's intake assessment and the draft SMART goal
@@ -1092,7 +1092,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 1) 
 
 ### 1.1.15 The Standard Treatment Map: Phases, Timelines & Course Correction
 
-> **Lesson** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Lesson** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Where he should be on the map, and what you do when he isn't  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#36` The Standard Treatment Map · `D1#37` Treatment Road Map Mastery & the Clinical Pathway Flowchart · `D1#38` Variance Analysis: Why the Map Fails · `D1#39` Communication Loops: The “Stakeholder Triad” · `D1#40` The “Golden Standard”: Reasonable and Necessary · `D1#42` Illustration & Course Correction: The 6-Week Rule and Objective Metrics · `D1#43` The “Yellow Flag” Warning System
@@ -1169,7 +1169,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 1) 
 
 ### 1.1.16 Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
 
-> **Lesson** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Lesson** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** What you watch for in the records, what you listen for on the phone, and how you keep him in his plan  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#31` Treatment Red Flags: PT & Conservative Care, Surgical Protocols · `D1#32` Treatment Red Flags: Pain Management, Medication & Behavioral Health / TBI · `D1#43` The “Yellow Flag” Warning System
@@ -1249,7 +1249,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 1) 
 
 ### 1.1.17 Opening John Doe's File in the CMS
 
-> **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Skill Activity — from raw file to an active matter  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#5` Case Phase: Intake — Establishing Control · `D1#6` The Real Intake Workflow · `D1#7` Intake & Initial Client Contact — Gatekeepers of Case Quality · `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors
@@ -1314,7 +1314,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ### 1.1.18 Backup File Maintenance: the Firm's Folders and Hierarchy
 
-> **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Skill Activity — link the drive and build the backup the way the firm keeps it  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · LSH firm standard: backup drive folder hierarchy
@@ -1378,7 +1378,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ### 1.1.19 Voicemails & Recorded Statements: the Action Plan and Direction Packet
 
-> **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Onboarding & Property Damage Check (`d1m3`)  
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Skill Activity 1 — work the voicemail, then send what the client gets on day one  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#44` Handling Treatment Gaps During the Treatment Phase · LSH Claims Specialist: client communication protocol
@@ -1443,7 +1443,7 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 ### 1.1.20 Onboarding Direction Assignment in System
 
-> **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Onboarding & Property Damage Check (`d1m3`)  
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Skill Activity 2 — turn directions into tracked tasks  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#3` Key Duties of a Case Manager · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#44` Handling Treatment Gaps During the Treatment Phase
@@ -1505,7 +1505,7 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 ### 1.1.21 Policy Stack & Coverage Verification
 
-> **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — build the ladder to $40,000  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#19` Claim Set-Up: Case Projection — Why the Three Work Together · `D1#20` Case Study: John Doe v. Apex — Coverage Analysis · LSH Claims Specialist: CMS Insurance tab SOP, first- and third-party coverage
@@ -1585,7 +1585,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 ### 1.1.22 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
 
-> **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — five letters, each one right  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#21` Case Study: John Doe v. Apex — Liability Determination · LSH Claims Specialist: LOR drafting, contents, recipients and delivery · LSH Claims Specialist: information protection on third-party claims, LOR acknowledgement · Newly authored: UM notice at set-up (notice, not demand)
@@ -1654,7 +1654,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 ### 1.1.23 CMS Coverage Stack Audit
 
-> **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 2 — find what the matrix gets wrong  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#20` Case Study: John Doe v. Apex — Coverage Analysis · LSH Claims Specialist: Declaration Pages, coverage verification and follow-up · Newly authored: verifying the UM form and PIP terms at set-up
@@ -1739,7 +1739,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 ### 1.1.24 Does It Touch Our Case? Sorting the PD File
 
-> **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Onboarding & Property Damage Check (`d1m3`)  
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Skill Activity 3 — sort the Property Damage items, decide refer, coordinate or handle, and say whether PD touches John Doe's case  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · LSH Claims Specialist: LOR Property Damage carve-out, Property Damage severity as evidence for the injury claim
@@ -1802,7 +1802,7 @@ Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and t
 
 ### 1.1.25 Multi-Channel Outreach Logging
 
-> **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 1 — build a defensible record  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: No Contact Protocol, Step 2 · `D1#11` Bottleneck: Delayed Client Follow-Up
@@ -1868,7 +1868,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ### 1.1.26 Final Warning Letter Drafting
 
-> **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Skill Activity 2 — write the letter that gets answered  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: Final Warning Letter; sample unresponsive-client letters
@@ -1935,7 +1935,7 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 ### 1.1.27 Transmitting LOPs to Medical Providers
 
-> **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 1 — one LOP issued, one declined  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · `D1#33` Case Planning — Treatment: The Assessment Phase · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · `D1#46` Skill Building: The “Eggshell Plaintiff” vs. the 2018 Lumbar Strain · Newly authored: LOP issuance guidelines and the PIP exhaustion ledger
@@ -2008,7 +2008,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 1.1.28 Redirecting a Referral the Client Won't Attend: the Facility Change and Every Task After It
 
-> **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 3 — the Millbrook booking, 04/22/2026  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#26` The Treatment Phase — Core Objectives · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#30` Handling the Treatment Phase: Proactive Resource Coordination · `D1#35` Case Planning — Treatment: The Care Coordination Strategy · `D1#39` Communication Loops: The “Stakeholder Triad” · `D1#44` Handling Treatment Gaps During the Treatment Phase · Newly authored: redirecting a referral to the client's choice of facility, and the downstream task list (each task done or delegated with an owner and a due date)
@@ -2102,7 +2102,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 1.1.29 Health Plan Subrogation: Flag, Request & Audit the Lien
 
-> **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — register the claim before it can hurt you, then audit what the plan asserts  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · Newly authored: the Health Plan's itemized lien audited line by line (unrelated, pre-existing and pre-loss lines; amounts claimed above what was paid) and confirmed in writing before the demand
@@ -2175,7 +2175,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 1.1.30 Identifying & Flagging the 14-Day Gap
 
-> **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 1 — find the fact that will decide this case  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy · `D1#44` Handling Treatment Gaps During the Treatment Phase · `D2#13` Treatment Gaps in the Demand Phase
@@ -2240,7 +2240,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 1) 
 
 ### 1.1.31 Live Case Plan Draft — John Doe VS Robert Smith
 
-> **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 2 — the full plan, routed for review  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#8` Case Acceptance Determination · `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#19` Claim Set-Up: Case Projection — Why the Three Work Together · `D1#22` Case Planning Framework: Regulatory Intake & Verification · `D1#23` Case Planning Framework: The Three-Pillar Case Plan · `D1#44` Handling Treatment Gaps During the Treatment Phase
@@ -2308,7 +2308,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 1) 
 
 ### 1.1.32 The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol
 
-> **Skill Activity** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — the silent client and the trauma-informed interview, 04/08–04/21/2026  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#26` The Treatment Phase — Core Objectives · `D1#27` Treatment Phase: Monitoring Progress, Barriers & Crisis Intervention · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · `D1#38` Variance Analysis: Why the Map Fails · `D1#41` Immediate Action Protocol: A-C-T for Red Flags · `D1#45` Common Bottlenecks: Escalation Protocol & the Escalation Ladder · `D1#47` Skill Building: Handling Client Treatment — “The Transportation Wall” · LSH Claims Specialist: No Contact Protocol, Steps 1–4; Final Warning Letter · Newly authored: the near-drop (the No Contact Protocol inside A-C-T's Assess), the trauma-informed client interview within the UPL line, and restoring a file from Drop Warning
@@ -2390,7 +2390,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ### 1.1.33 CM Fundamentals Knowledge Check
 
-> **Knowledge Check** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with CM Fundamentals Knowledge Check (`d1m1`)  
+> **Knowledge Check** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#1` Training Agenda & What Case Management Is · `D1#5` Case Phase: Intake — Establishing Control · `D1#12` Bottleneck: Conflict Check Delays · `D1#16` Tools for Case Planning & the PI Case Lifecycle Strategy
@@ -2499,7 +2499,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ### 1.1.34 Coverage Setup Verification Check
 
-> **Knowledge Check** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
+> **Knowledge Check** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#18` Claim Set-Up: Coverage Determination & Liability Assessment · `D1#20` Case Study: John Doe v. Apex — Coverage Analysis · LSH Claims Specialist: LOR components, information protection, acknowledgement and limits disclosure
@@ -2622,7 +2622,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 ### 1.1.35 Onboarding & Property Damage Check
 
-> **Knowledge Check** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Onboarding & Property Damage Check (`d1m3`)  
+> **Knowledge Check** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D2#6` Master Audit Checklist: Property Damage (PD) Deep Dive · `D5#35` Property Damage: Calculating the Value of the Claim · `D1#44` Handling Treatment Gaps During the Treatment Phase
@@ -2720,7 +2720,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 ### 1.1.36 MIA Escalation Knowledge Check
 
-> **Knowledge Check** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
+> **Knowledge Check** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** LSH Claims Specialist: No Contact Protocol · `D1#11` Bottleneck: Delayed Client Follow-Up
@@ -2802,7 +2802,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ### 1.1.37 Case Plan Audit & the Claim Set Up Gate
 
-> **Knowledge Check** · Day 1 — Fundamentals, Intake & Treatment · Module 1: Fundamentals, Intake & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
+> **Knowledge Check** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#8` Case Acceptance Determination · `D1#23` Case Planning Framework: The Three-Pillar Case Plan · `D1#24` Case Planning Framework: Mandatory Disclosure & Compliance Tracking · `D1#25` The “Golden Rule” of US Claim Set-Up · `D1#44` Handling Treatment Gaps During the Treatment Phase · `D2#13` Treatment Gaps in the Demand Phase
