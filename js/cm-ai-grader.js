@@ -236,7 +236,7 @@ window.CMAIGrader = {
       + `${sl.side ? "This is a short side activity: the task is only to log the entry in the CMS under the stated assumptions; do not mark down for leaving out work it did not ask for. " : ""}`
       + `Grade against this activity's rubric. AI criteria: ${(((b.rubric || {}).ai) || []).map(x => `${x[0]} (${x[1]}%): ${x[2]}`).join("; ")}. `
       + `UPL is a gate: if the trainee gives the client legal advice (case value, merits, legal consequences), score Risk Mitigation 0 and say so. `
-      + `Write strengths and next steps as a coach teaching a new Case Manager: plain words, one concrete action each.`;
+      + `Write strengths and next steps as a coach teaching a new Case Manager: plain words, one concrete action each. Every blindspot must say what is wrong and then exactly how to correct it on this file (the steps, where in the CMS or which document, and what the corrected entry should read): never only point out the fault.`;
     try{
       // what is sent is the platform's own record, not typed words: the typed-answer guard (assessSubmissionQuality,
       // index.html: too short, repeated words) is not for it. It runs before runRubricEvaluation's first await, so it is
