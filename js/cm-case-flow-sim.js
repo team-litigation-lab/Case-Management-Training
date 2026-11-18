@@ -54,8 +54,8 @@ window.CM_CF_SIM = {
    "from": "Northgate Distribution (555) 010-3950",
    "to": "Case Manager, ext. 214",
    "subject": "Voicemail: John Doe — call from the other driver's insurance",
-   "body": "Hey, it's John Doe. I signed with Mr. Thorne yesterday. Last night Dana from Keystone Mutual, the other guy's insurance, asked what happened and if she could record it. I said I'd think about it; she's calling back today. I haven't gotten anything from you guys. My neck's still stiff. I'm at work, so call my cell: 555-010-2288.",
-   "spoken": "Hey, uh... this is John Doe. I signed with Mr. Thorne yesterday, for the car accident. So, last night, somebody from Keystone Mutual called me. That's the other guy's insurance. A lady... Dana, I think. She was asking what happened, and if she could record it. I didn't know what to tell her, so I said I'd think about it, and she said she'd call me back today. And, um, I haven't gotten anything from you guys yet. No paperwork, nothing. My neck's still stiff. It's worse in the morning. Can you call me back? I'm calling from work, but call my cell. It's five five five, oh one oh, two two eight eight. Okay. Thanks. Bye.",
+   "body": "Hey, it's John Doe. I'm signing with Mr. Thorne later today. Last night Dana from Keystone Mutual, the other guy's insurance, asked what happened and if she could record it. I said I'd think about it; she's calling back today. Nothing from you guys yet. I'm off with my neck; I'm at Northgate telling my supervisor. Call my cell: 555-010-2288.",
+   "spoken": "Hey, uh... this is John Doe. I'm signing with Mr. Thorne later today, for the car accident. So, last night, somebody from Keystone Mutual called me. That's the other guy's insurance. A lady... Dana, I think. She was asking what happened, and if she could record it. I didn't know what to tell her, so I said I'd think about it, and she said she'd call me back today. And, um, I haven't gotten anything from you guys yet. No paperwork, nothing. My neck's still stiff. It's worse in the morning. Can you call me back? I'm calling from work, but call my cell. It's five five five, oh one oh, two two eight eight. Okay. Thanks. Bye.",
    "listen": [
     {
      "q": "Who left the message, and which number does he want you to call back?",
@@ -357,8 +357,8 @@ window.CM_CF_SIM = {
    "from": "John Doe (555) 010-2288",
    "to": "Case Manager, ext. 214",
    "subject": "Voicemail: John Doe — won't go to Millbrook for the injection",
-   "body": "It's John Doe. Lakeside booked my injection at Millbrook Interventional Pain Center, in Millbrook, May 14 at 9:00 a.m. I'm not going. It's way out there and I've got no ride; my car's in the shop and my mom works days. And I heard it's out of network with Peach State. I still want the shot. Call my cell.",
-   "spoken": "Hey, it's John Doe... the car accident. So, uh, Lakeside called me yesterday about the shot. The injection Dr. Reyes wants me to get. They booked me at some place called Millbrook Interventional Pain Center. In Millbrook. May fourteenth, nine in the morning. And... I'm not going there. It's way out in Millbrook, my car's still in the shop, and my mom works days, so I've got no ride out there. And a guy at work said that place isn't in network with Peach State, so I'd get stuck with a bill. I still want to get the shot, okay? Just... not there. Can you help me sort it out? Call me on my cell, it's five five five, oh one oh, two two eight eight. I'm on lunch till one, then I'm on the floor till three thirty. Thanks.",
+   "body": "It's John Doe. Lakeside booked my injection at Millbrook Interventional Pain Center, in Millbrook, May 14 at 9:00 a.m. I'm not going. It's way out there and I've got no ride; Mom's car is in the shop and she works days. And I heard it's out of network with Peach State. I still want the shot. Call my cell.",
+   "spoken": "Hey, it's John Doe... the car accident. So, uh, Lakeside called me yesterday about the shot. The injection Dr. Reyes wants me to get. They booked me at some place called Millbrook Interventional Pain Center. In Millbrook. May fourteenth, nine in the morning. And... I'm not going there. It's way out in Millbrook, my mom's car is still in the shop, and she works days, so I've got no ride out there. And a guy at work said that place isn't in network with Peach State, so I'd get stuck with a bill. I still want to get the shot, okay? Just... not there. Can you help me sort it out? Call me on my cell, it's five five five, oh one oh, two two eight eight. I'm on lunch till one, then I'm on the floor till three thirty. Thanks.",
    "listen": [
     {
      "q": "Who called, and which number does he want you to call back?",
@@ -755,7 +755,7 @@ window.CM_CF_SIM = {
    ]
   },
   "d4m2-a3": {
-   "date": "10/01/2026",
+   "date": "04/02/2027",
    "time": "3:10 p.m.",
    "channel": "letter",
    "from": "Teresa Okafor · Cardinal State Mutual",
@@ -922,7 +922,7 @@ window.CM_CF_SIM = {
    "from": "Miguel Santos, Allied Process Services <msantos@alliedprocess.example>",
    "to": "Case Manager, LSH Law Group",
    "subject": "John Doe VS Robert Smith, 26-CV-04417: non-service at 118 Larkspur Ln",
-   "body": "Third attempt at 118 Larkspur Ln, Riverton, tonight at 6:40 p.m.: no answer, no vehicle. Prior attempts 10/01 and 10/05. A neighbor says Robert Smith moved out in August and left no forwarding address. Affidavit of non-service attached. Please advise how you want to proceed.",
+   "body": "Third attempt at 118 Larkspur Ln, Riverton, today at 12:41 p.m.: no answer, a realtor's lockbox on the front door. Prior attempts 10/01 and 10/05. A neighbor at 120 Larkspur Ln says Robert Smith moved out in August and left no forwarding address. Affidavit of non-service attached. Please advise how you want to proceed.",
    "attachments": [
     "RS52"
    ]
@@ -1521,7 +1521,7 @@ window.CM_CF_SIM = {
      "channel": "alert",
      "from": "CMS",
      "subject": "Exchange set audit: Lien Sheet overstated",
-     "body": "The attorney's-set Lien Sheet still lists Harbor Point PIP $5,000.00 and Summit Imaging $2,395.00, and Crescent as open. Liens actually owed: $7,965.00. A $7,395.00 overstatement sits nine days before the 06/02/2027 exchange."
+     "body": "The attorney's-set Lien Sheet still lists Harbor Point PIP $5,000.00 as a lien: $12,965.00. Liens actually owed: $7,965.00. A $5,000.00 overstatement sits nine days before the 06/02/2027 exchange."
     }
    }
   },
