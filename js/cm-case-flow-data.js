@@ -154,7 +154,7 @@ window.CM_CASE_FLOW = {
       "Riverton Fire EMS Run Report: \"restrained front-seat passenger, complains of neck stiffness, declined transport\""
     ]},
     {after: "d2m4-a1", title: "Injury and Treatment", group: "care", items: [
-      "Injury: cervical strain; C5-C6 right paracentral disc herniation with mild right foraminal narrowing · prior: three chiropractic visits in 2021 for low-back stiffness, resolved; no prior neck complaints",
+      "Injury: cervical strain; C5-C6 right paracentral herniation, mild right foraminal narrowing · prior: 3 chiro visits in 2021 for low-back stiffness, resolved; no prior neck complaints",
       "02/20/2026 Riverton Urgent Care: first treatment, \"onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18\" · $685.00 (MedPay)",
       "02/20/2026 Riverton Fire EMS: ambulance, urgent care to Riverton General · $2,182.60 (PIP paid $1,150.00)",
       "02/20–02/21/2026 Riverton General ED, Dr. Sarah Spine: CT, neuro work-up, overnight observation; EMC documented · $24,400.00 (PIP paid $8,850.00; its $10,000 gone in 48 hours)"
@@ -162,14 +162,14 @@ window.CM_CASE_FLOW = {
     {after: 'd2m4-a1', title: 'The Treatment Record', group: 'care', items: [
       "02/24–04/02/2026 Riverton Spine & Rehab (chiro + PT, out of network for Peach State): 16 visits under an LOP signed 02/23/2026",
       "03/05/2026 Lakeside Orthopedics, Dr. Alana Reyes: initial consult, orders MRI · $640.00 (MedPay)",
-      "03/13/2026 Summit Imaging Center, cervical MRI (Dr. Helen Park): C5-C6 herniation, \"no significant degenerative change at the adjacent levels\" · $2,395.00 (MedPay)",
+      "03/13/2026 Summit Imaging, cervical MRI (Dr. Helen Park): C5-C6 herniation, \"no significant degenerative change at the adjacent levels\" · $2,395.00 (MedPay)",
       "03/27/2026 Lakeside Orthopedics follow-up, referral to pain management · $640.00 (MedPay)",
       "04/02 → 04/21/2026: disrupted care, 19 days with no visits (missed 04/03, 04/07, 04/09, 04/14)",
-      "04/20/2026 Lakeside Orthopedics, Dr. Reyes: telephone encounter, no charge · anxiety and avoidance of car travel after the collision; referral to counseling through Northgate's EAP",
+      "04/20/2026 Lakeside Orthopedics, Dr. Reyes: phone encounter, no charge · anxiety, avoiding car travel since the collision; referred to Northgate's EAP counseling",
       "04/21–06/05/2026 Riverton Spine & Rehab: 17 visits, care resumed (LOP)",
-      "04/24–06/05/2026 Stonebridge EAP Services (Northgate's EAP), Renee Castillo, LPC: six counseling sessions by video, no charge",
-      "05/15/2026 Crescent Pain & Spine, Dr. Omar Haddad: cervical epidural steroid injection · billed $3,400.00, Peach State paid $1,860.00 at contract rate (no balance billing)",
-      "06/12/2026 Lakeside Orthopedics: MMI · residual intermittent right-arm paresthesia · possible 1–2 repeat ESIs within 24 months ($3,400–$6,800 future medical) · $640.00 (MedPay, now exhausted)",
+      "04/24–06/05/2026 Stonebridge EAP (Northgate's), Renee Castillo, LPC: six video counseling sessions, no charge",
+      "05/15/2026 Crescent Pain & Spine, Dr. Omar Haddad: cervical ESI · billed $3,400.00, Peach State paid $1,860.00 at contract rate (no balance billing)",
+      "06/12/2026 Lakeside Orthopedics: MMI · residual intermittent right-arm paresthesia · 1–2 repeat ESIs possible in 24 months ($3,400–$6,800 future medical) · $640.00 (MedPay, exhausted)",
       "02/07–06/2026 Riverton Drug: prescriptions and OTC · $312.40, John out of pocket"]},
     {after: "d2m1-a2", title: "Coverage Confirmations", group: "cover", items: [
       "Harbor Point (03/02/2026, in writing): no reimbursement right on PIP or MedPay; its UM is add-on (excess), not reduced by the BI payment, with no PIP non-duplication reduction",
@@ -177,9 +177,9 @@ window.CM_CASE_FLOW = {
       "Keystone disclosed nothing before a written request with authorizations; BI $10,000 confirmed by its Declaration Page 03/20/2026"
     ]},
     {after: "d2m2-a2", title: "The Disruption", group: "care", items: [
-      "John missed PT from 04/03 and answered no one; the CM learned of it 04/08/2026 from Riverton Spine & Rehab's missed-visit alert and ran the No Contact Protocol: notices 04/08 and 04/09, Margaret Doe 04/10, a 10-day Final Warning Letter 04/10 (respond by 04/20), status Drop Warning.",
-      "John called 04/17, the last business day before the deadline: on 04/02, stopped at the collision corner by his house, he had panicked in the car, and since then he had avoided riding in cars, slept badly and felt low. Not willful non-compliance: crash-related anxiety.",
-      "Background, not the cause: Keystone ended Margaret's rental 03/19/2026 (30-day cap) while the Civic waited for parts; Kevin's shift changed 04/01/2026, ending the carpool."
+      "John missed PT from 04/03 and answered no one; the CM learned 04/08/2026 from the clinic's alert and ran the No Contact Protocol: notices 04/08 and 04/09, Margaret Doe 04/10, a 10-day Final Warning Letter 04/10 (respond by 04/20), status Drop Warning.",
+      "John called 04/17, the last business day before the deadline: on 04/02, stopped at the collision corner, he panicked in the car; since then he avoided cars, slept badly, felt low. Not willful non-compliance: crash-related anxiety.",
+      "Background, not the cause: Keystone ended Margaret's rental 03/19/2026 (30-day cap), Civic awaiting parts; Kevin's shift changed 04/01, ending the carpool."
     ]},
     {after: "d5m2-a1", title: "Property Damage: Margaret's Civic", group: "cover", items: [
       "A separate claim with Keystone PD (adjuster Leah Moran), outside the $40,000 stack · PD liability accepted 02/17/2026",
@@ -196,15 +196,15 @@ window.CM_CASE_FLOW = {
       "Riverton Spine & Rehab billed 34 lines × $185.00 = $6,290.00, but 05/04/2026 is a duplicate: 33 visits = $6,105.00 after audit",
       "PIP paid the 02/20–02/21 emergency care: $8,850.00 + $1,150.00 = $10,000.00 (exhausted 03/04/2026); then MedPay: $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00 (exhausted 06/26/2026)",
       "Medical specials: $41,585.00 billed → $41,400.00 after the audit · lost wages: 9 shifts × 8 h × $22.00 = $1,584.00 (Northgate HR letter) · total Specials $42,984.00",
-      "A-C-T: Assess, missed visits are a legal danger (care stopped after 04/02) · Clarify, the clinic's office, then the No Contact Protocol from 04/08 until John called 04/17 (trauma-informed interview) · Track, every fix logged: Dr. Reyes by phone 04/20 (no charge; referral to Northgate's EAP), evening slots under the LOP with Margaret driving (from 04/21), file restored 04/20 (Drop Warning cleared, 14-day trigger reset, Action Plan updated), attendance confirmed 04/21 and 04/23",
+      "A-C-T: Assess, missed visits are a legal danger (care stopped after 04/02) · Clarify, the clinic, then the No Contact Protocol 04/08 until John called 04/17 (trauma-informed interview) · Track, every fix logged: Dr. Reyes 04/20 (EAP referral), evening LOP slots with Margaret driving (from 04/21), file restored 04/20 (Drop Warning cleared, Action Plan updated), attendance confirmed 04/21 and 04/23",
       "Mental anguish (non-economic damages): Dr. Reyes's 04/20/2026 note; six no-charge EAP sessions 04/24–06/05/2026, summary 06/10/2026; Personal Impact Statement 06/15/2026. No new bills: Specials stay $42,984.00"
     ]},
     {after: "d2m3-a2", title: "Why the 14-Day Gap Happened", group: "care", items: [
-      "No transportation: the Civic was towed from the scene, Kevin's Escape was in the shop, and no rental was authorized until 02/18/2026",
+      "No transportation: the Civic was towed, Kevin's Escape was in the shop, no rental until 02/18/2026",
       "He thought it was soreness that would pass; took OTC ibuprofen and lidocaine patches (receipt 02/07/2026)",
-      "Cost worry: unsure his new Peach State coverage (effective 02/01/2026) was active; didn't know PIP existed",
-      "Symptoms escalated: numbness into his right hand from 02/18; he worked 02/18–02/19 and went to urgent care on his first day off, 02/20/2026",
-      "Corroboration: EMS report (neck complaint on the DOL) · Northgate attendance (called out 02/09–02/13 citing neck pain) · texts to his mother 02/07–02/15 · the pharmacy receipt · the urgent-care history · Dr. Reyes's Causation Letter (06/19/2026)"
+      "Cost worry: unsure his new Peach State plan (effective 02/01/2026) was active; didn't know PIP existed",
+      "Symptoms escalated: right-hand numbness from 02/18; he worked 02/18–02/19 and went to urgent care on his first day off, 02/20/2026",
+      "Corroboration: EMS report (neck complaint on the DOL) · Northgate call-outs 02/09–02/13 citing neck pain · texts to his mother 02/07–02/15 · pharmacy receipt · urgent-care history · Dr. Reyes's Causation Letter (06/19/2026)"
     ]},
     {after: "d3m2-a1", title: "The BI Demand and the Fork", group: "money", items: [
       "07/20/2026 time-limited BI demand to Keystone for the $10,000 limits, emailed to Dana Whitfield with the 81-page Demand Package · receipt acknowledged in writing 07/22 · 30-day window → 08/21/2026",
@@ -213,7 +213,7 @@ window.CM_CASE_FLOW = {
       "This is the fork. Track A (Case Flow Day 4): the file settles. Track B (Day 4's ADR, then Day 5's litigation): Keystone stonewalls and the case goes to suit."
     ]},
     {after: "d3m4-a2", title: "Track A: The File Settles", group: "money", items: [
-      "08/12/2026 Keystone tenders $10,000, its check held until both UM waivers arrive · consents and waivers 08/24 (Harbor Point) and 08/26 (Cardinal State) · Keystone's General Release (08/14) amended on Atty. Thorne's approval to a Limited Release, signed before a notary 08/28 · check no. 0048213 into IOLTA 09/04",
+      "08/12/2026 Keystone tenders $10,000, check held until both UM waivers arrive · waivers 08/24 (Harbor Point), 08/26 (Cardinal State) · Keystone's General Release (08/14) amended, Atty. Thorne approving, to a Limited Release, notarized 08/28 · check no. 0048213 into IOLTA 09/04",
       "08/31 Host UM and Relative UM demands, emailed to Marcus Bell and Teresa Okafor · Harbor Point offers $8,000 (09/14), pays $20,000 limits 09/29 · Cardinal State offers $6,000 (10/01), tenders $10,000 limits 10/06",
       "Gross recovery $40,000.00",
       "Liens: Peach State (fully insured plan) $1,860.00 → $1,240.00 (10/09) · Riverton Spine & Rehab $6,290.00 billed → $6,105.00 audited → $4,580.00 (10/12)",
