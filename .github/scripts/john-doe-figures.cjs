@@ -13,6 +13,8 @@
 //      State → LOP); the 14-day initial-care condition is Florida's, never Riverton's; the draft Lien Sheet is RS63's
 //      C-9 line ($17,965.00, $10,000.00 over the $7,965.00 owed, with no Summit line); a scenario that says "every bill
 //      is in" lists the ER and EMS bills; RS12's transfer is a red flag and its note is signed after the ambulance left.
+//      Between the ED arrival (02/20/2026 10:49) and the discharge (02/21/2026 11:20), no case document but Riverton
+//      General's own puts John anywhere (RS21's prescriptions were filled 02/21/2026 at 12:10 PM, after the discharge).
 //   4. THE SUMS: every "$a + $b − $c = $d" written anywhere in the course adds up to the cent, and every Specials or
 //      total-medical table in the case documents totals its own lines (RS33's planted $42,894.00 typo excepted).
 // Usage: node .github/scripts/john-doe-figures.cjs
@@ -126,6 +128,27 @@ const hm = s => s ? +s.slice(0, 2) * 60 + +s.slice(3) : NaN;
 const left = hm((rs12.match(/departed (\d\d:\d\d)/) || [])[1]), signed = hm((rs12.match(/signed 02\/20\/2026 (\d\d:\d\d)/) || [])[1]), arrived = hm((html('RS97').match(/Arrival<\/label><div class="v">02\/20\/2026 (\d\d:\d\d)/) || [])[1]);
 if (!(signed > left)) fail.push('RS12: the note must be signed after the ambulance departed (it records the departure)');
 if (!(arrived > left)) fail.push('RS97: the ED arrival must follow RS12\'s ambulance departure');
+
+// John is in Riverton General from the ED arrival (02/20/2026 10:49, RS97) to his discharge (02/21/2026 11:20): no case
+// document puts him anywhere else in between (a pharmacy receipt, a visit, a call). A document's own print or fax stamp
+// is not his event; Riverton General's own records (and RS98, its bill) are where he was.
+{
+  const WIN_FROM = 10 * 60 + 49, WIN_TO = 1440 + 11 * 60 + 20;
+  const STAMP = /\b02\/(20|21)(?:\/2026)?\b[^<\n]{0,40}?\b(\d{1,2}):(\d\d)(?:\s*([AaPp])\.?\s*[Mm]\b\.?)?/g;
+  for (const n of fs.readdirSync(path.join(ROOT, 'documents/case-flow/html')).filter(n => /^RS\d+\.html$/.test(n))) {
+    const id = n.slice(0, -5), doc = html(id);
+    if (/RIVERTON GENERAL/i.test((doc.match(/class="lh-name"[^>]*>([^<]*)/) || [])[1] || '') || id === 'RS98') continue;
+    doc.split('\n').forEach((line, i) => {
+      for (const m of line.matchAll(STAMP)) {
+        if (/print|fax|generat|export|run /i.test(line.slice(Math.max(0, m.index - 24), m.index))) continue;
+        let h = +m[2]; const ap = (m[4] || '').toLowerCase();
+        if (ap === 'p' && h < 12) h += 12; if (ap === 'a' && h === 12) h = 0;
+        const at = (m[1] === '21' ? 1440 : 0) + h * 60 + +m[3];
+        if (at > WIN_FROM && at < WIN_TO) fail.push(`${id}:${i + 1}: "${m[0]}" — John was in Riverton General from 02/20/2026 10:49 to 02/21/2026 11:20 (RS97); nothing else happens to him in between`);
+      }
+    });
+  }
+}
 
 // 4. the sums
 const AMT = '\\$\\d{1,3}(?:,\\d{3})*(?:\\.\\d\\d)?', EQ = new RegExp(`${AMT}(?:\\s*[+−–-]\\s*${AMT})+\\s*=\\s*${AMT}`, 'g');

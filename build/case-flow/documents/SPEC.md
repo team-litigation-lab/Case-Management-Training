@@ -37,7 +37,7 @@ overrides it**. A fact a document needs that is in neither is added to case-file
   missed 04/03, 04/07, 04/09, 04/14 (no charge); 04/21, 04/23, 04/28, 04/30, 05/04, 05/05, 05/07, 05/11, 05/12,
   05/14, 05/19, 05/21, 05/26, 05/28, 06/02, 06/04, 06/05 (17). 33 visits = $6,105.00.
 - **Missed shifts (Northgate):** 02/09, 02/10, 02/11, 02/12, 02/13, 03/05, 03/13, 05/15, 05/18/2026 — 9 × 8 h × $22.00 = $1,584.00.
-- **Riverton Drug ($312.40):** 02/07 OTC ibuprofen + lidocaine patches $38.60 · 02/20 Rx cyclobenzaprine + naproxen $64.20 ·
+- **Riverton Drug ($312.40):** 02/07 OTC ibuprofen + lidocaine patches $38.60 · 02/21 Rx cyclobenzaprine + naproxen $64.20 (urgent care's 02/20 scripts, filled after the ED discharge) ·
   03/05 Rx meloxicam $42.80 · 03/27 Rx gabapentin $58.40 · 04/21 OTC lidocaine patches $29.80 · 05/15 Rx methylprednisolone
   $36.20 · 06/12 Rx gabapentin refill $42.40.
 - **PIP (Harbor Point, $10,000.00; EMC by Dr. Sarah Spine 02/20/2026):** 03/04 Riverton Fire EMS $1,150.00 (billed $2,182.60) ·
