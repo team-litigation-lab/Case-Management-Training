@@ -176,13 +176,13 @@
           "as": "Not in the set. The nineteen-day April disruption has no exhibit at all.",
           "verdict": "add",
           "kind": "gap",
-          "issue": "The letter explains the fourteen days, then leaves the April break to be discovered. Keystone will call it failure to mitigate, and the answer — the rental ending 03/19, the carpool ending 04/01, evening visits from 04/21 — is nowhere in the enclosures.",
+          "issue": "The letter explains the fourteen days but not the April break. Keystone will call it failure to mitigate, and the answer — crash-related anxiety after the 04/02/2026 panic episode, in Dr. Reyes's 04/20 note and the counseling summary — is not in the enclosures.",
           "fix": "Add the Gap Explanation Record: every entry with its underlying record, both intervals, and the A-C-T account of the April break with the attendance log behind it.",
           "proof": [
-            "RS14",
             "RS21",
             "RS43",
-            "RS11"
+            "RS77",
+            "RS78"
           ]
         },
         {

@@ -433,9 +433,9 @@
       "confirm": "Atty. Thorne decides what is exchanged"
     },
     "redFlag": {
-      "see": "A Lien Sheet still listing **Harbor Point PIP $5,000.00** and Summit $2,395.00",
-      "costs": "Neither is owed: PIP paid Summit, and Harbor Point has no reimbursement right",
-      "do": "Strike both, re-total, and keep the Lien Sheet **in Atty. Thorne's set**",
+      "see": "A Lien Sheet still listing **Harbor Point PIP $5,000.00** as a lien: $12,965.00",
+      "costs": "PIP is not owed: Harbor Point has no reimbursement right, so $7,965.00 is the true total",
+      "do": "Strike the PIP line, re-total to $7,965.00, keep the Lien Sheet **in Atty. Thorne's set**",
       "owner": "Atty. Thorne"
     }
   },

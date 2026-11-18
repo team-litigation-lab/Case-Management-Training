@@ -578,13 +578,13 @@ window.CM_CF_EXHIBITS = {
      "as": "Not in the set. The nineteen-day April disruption has no exhibit at all.",
      "verdict": "add",
      "kind": "gap",
-     "issue": "The letter explains the fourteen days, then leaves the April break to be discovered. Keystone will call it failure to mitigate, and the answer — the rental ending 03/19, the carpool ending 04/01, evening visits from 04/21 — is nowhere in the enclosures.",
+     "issue": "The letter explains the fourteen days but not the April break. Keystone will call it failure to mitigate, and the answer — crash-related anxiety after the 04/02/2026 panic episode, in Dr. Reyes's 04/20 note and the counseling summary — is not in the enclosures.",
      "fix": "Add the Gap Explanation Record: every entry with its underlying record, both intervals, and the A-C-T account of the April break with the attendance log behind it.",
      "proof": [
-      "RS14",
       "RS21",
       "RS43",
-      "RS11"
+      "RS77",
+      "RS78"
      ]
     },
     {
@@ -1141,8 +1141,8 @@ window.CM_CF_EXHIBITS = {
      "as": "The carrier's letters, February to April 2026, as exhibits M-7 to M-9.",
      "verdict": "keep",
      "kind": "gap",
-     "issue": "Among them is Keystone's acceptance of Property Damage liability on 02/17/2026, and the rental cutoff that begins the April disruption. Both are the carrier's own writing.",
-     "fix": "Confirm the 02/17/2026 letter and the rental cutoff are in the set; what weight the liability acceptance carries is Atty. Thorne's call, not the binder's.",
+     "issue": "Among them is Keystone's acceptance of Property Damage liability on 02/17/2026, the carrier's own writing, and its 03/16/2026 letter ending Margaret's rental: background to the April break, not its cause, which is crash-related anxiety documented by Dr. Reyes and the counselor.",
+     "fix": "Confirm the 02/17/2026 letter and the 03/16/2026 rental letter are in the set; what weight the liability acceptance carries is Atty. Thorne's call, not the binder's.",
      "proof": [
       "RS32"
      ]

@@ -2436,12 +2436,12 @@ window.CM_CF_SLIDES = {
      "text": "Only coverage that pays the claim stacks: BI, then the UM/UIM layers. **Bills and the car** stay outside"
     },
     {
-     "term": "No-Fault Medical Coverage",
+     "term": "First-Party Medical Coverage",
      "text": "MedPay and PIP pay accident Medical Bills **regardless of fault**, fast, while liability is still disputed",
      "more": [
       "MedPay: reasonable accident Medical Bills up to its limit, never wages",
       "PIP, where a state requires it: also a share of lost wages and replacement services",
-      "This file: **$5,000 Harbor Point PIP** on the Escape John Doe rode in",
+      "This file: **$5,000 Harbor Point PIP** on the Escape John Doe rode in; Riverton PIP is add-on",
       "Verify PIP on every file; never assume it"
      ]
     },
@@ -7008,9 +7008,9 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne decides what is exchanged"
   },
   "redFlag": {
-   "see": "A Lien Sheet still listing **Harbor Point PIP $5,000.00** and Summit $2,395.00",
-   "costs": "Neither is owed: PIP paid Summit, and Harbor Point has no reimbursement right",
-   "do": "Strike both, re-total, and keep the Lien Sheet **in Atty. Thorne's set**",
+   "see": "A Lien Sheet still listing **Harbor Point PIP $5,000.00** as a lien: $12,965.00",
+   "costs": "PIP is not owed: Harbor Point has no reimbursement right, so $7,965.00 is the true total",
+   "do": "Strike the PIP line, re-total to $7,965.00, keep the Lien Sheet **in Atty. Thorne's set**",
    "owner": "Atty. Thorne"
   },
   "theory": {
@@ -8519,13 +8519,18 @@ window.CM_CF_SLIDES = {
       "Filing, service, mediation, arbitration, reporter, records, plus pre-suit costs"
      ],
      [
-      "Provider ledger",
-      "Charges, payments, adjustments, balance owed, reduction",
+      "Medical Provider Ledger",
+      "Charges, PIP, health and Med Pay payments, adjustments, balance owed, reduction",
       "Only liens owed; reductions follow the fee actually charged"
      ],
      [
+      "Non-Medical Provider Ledger",
+      "Pharmacy, counseling, equipment, transportation: who paid, what is still owed",
+      "Riverton Drug $312.40 paid by John Doe, Stonebridge EAP $0.00: nothing owed"
+     ],
+     [
       "Net to client",
-      "Gross minus fees, costs and reduced liens",
+      "Gross minus fees, costs, reduced liens and non-medical still owed",
       "Shown line by line before John Doe signs"
      ]
     ],

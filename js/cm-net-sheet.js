@@ -5,7 +5,8 @@
      1. Settlement Recovery Summary     L7 gross
      2. Attorney Fees & Case Expenses   L11 = L7 × C11 (33⅓% pre-suit), L20 = SUM(L12:L19), L21 = L11 + L20
      3. Medical Provider Ledger & Liens I = D – E – F – G – H per row; J, K, L totals in row 44
-     4. Final Client Disbursement       L52 = L7 – L11 – L20 – L44
+     4. Final Client Disbursement       L51 = –(L44 + L66), the reduced liens and the non-medical still owed;
+                                        L52 = L7 – L11 – L20 – L44 – L66
    The trainee's sheet is kept on their record ("net-sheet", one of the personal keys, so it syncs with their
    progress and their trainer sees it), and "Check my sheet" tests it against the file at the stage the step is at.
    It is used where the money is worked, and nowhere else: Track A (settled before suit, Day 3) at Settlement
@@ -246,7 +247,7 @@ function download(){
   COSTS.forEach(([r, l]) => { set("B" + r, l); set("C" + r, c["C" + r]); set("L" + r, num(c["L" + r])); });
   set("B20", "Total Attorney Costs"); f("L20", "SUM(L12:L19)"); set("B21", "Total Fees & Costs"); f("L21", "L11+L20");
   set("B23", "3. MEDICAL PROVIDER LEDGER & LIEN REDUCTIONS");
-  ["Provider Type", "Provider Name", "Total Charges", "PIP Payments", "Health Payments", "PIP", "Adjustments", "Balance Owed", "Max Offer", "Low Offer", "Reduced Bill"].forEach((h, i) => set("BCDEFGHIJKL"[i] + "24", h));
+  ["Provider Type", "Provider Name", "Total Charges", "PIP Payments", "Health Payments", "Med Pay", "Adjustments", "Balance Owed", "Max Offer", "Low Offer", "Reduced Bill"].forEach((h, i) => set("BCDEFGHIJKL"[i] + "24", h));
   LEDGER.forEach(r => { set("B" + r, c["B" + r]); set("C" + r, c["C" + r]); ["D", "E", "F", "G", "H", "J", "K", "L"].forEach(col => { if(c[col + r] !== undefined && c[col + r] !== "") set(col + r, num(c[col + r])); }); f("I" + r, `D${r}-E${r}-F${r}-G${r}-H${r}`); if(ws["L" + r] == null) set("L" + r, 0); });
   set("B44", "Total Liens & Reductions"); ["I", "J", "K", "L"].forEach(col => f(col + "44", `SUM(${col}25:${col}43)`));
   set("B46", "4. FINAL CLIENT DISBURSEMENT CALCULATION"); set("B47", "Calculation"); set("L47", "Amount");
