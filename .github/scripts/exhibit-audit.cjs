@@ -139,7 +139,7 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     check(!(await page.$('#cf-bench .ab-sel')), 'the calls are closed once it is handed in');
     const revealed = await page.locator('#cf-bench .ab-rev').innerText();
     check(/FINAL as served/.test(revealed), `and the completed package is revealed: ${revealed.replace(/\s+/g, ' ').slice(0, 110)}`);
-    check(/16,401\.40/.test(revealed), 'with the figures the finished set carries, to mark the audit against');
+    check(/42,984\.00/.test(revealed), 'with the figures the finished set carries, to mark the audit against');
     check(/would have cost|Fix:/.test(await benchText()), 'and every item now says what it would have cost, and the fix');
     await page.evaluate(() => document.getElementById('cf-bench').remove());
     await page.waitForTimeout(600);

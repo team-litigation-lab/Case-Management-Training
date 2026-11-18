@@ -587,7 +587,7 @@
       "who": "Atty. Elijah Thorne",
       "role": "attorney",
       "persona": "Lead counsel, sharp and short on time; wants the chronology cold; will test whether the Case Manager tries to recommend suit.",
-      "context": "09/08/2026, Track B. Keystone offered $3,500 on 08/05 and called it “final” 08/12; the demand lapsed 08/21; follow-ups 08/24 and 08/31 and the 09/02 supervisor escalation went unanswered through 09/04. Unexhausted BI freezes $20,000 Host UM and $10,000 Relative UM. Specials $16,401.40. SOL 02/06/2028 (Sunday); hard date 02/04/2028; cutoff 11/05/2027. Thorne asks “So, do we sue?” and “What's Smith worth above his limits?” He wants facts and questions, not advice.",
+      "context": "09/08/2026, Track B. Keystone offered $3,500 on 08/05 and called it “final” 08/12; the demand lapsed 08/21; follow-ups 08/24 and 08/31 and the 09/02 supervisor escalation went unanswered through 09/04. Unexhausted BI freezes $20,000 Host UM and $10,000 Relative UM. Specials $42,984.00. SOL 02/06/2028 (Sunday); hard date 02/04/2028; cutoff 11/05/2027. Thorne asks “So, do we sue?” and “What's Smith worth above his limits?” He wants facts and questions, not advice.",
       "opening": "Okay, I've got ten minutes. Walk me through Keystone from the demand to today, and then tell me: do we file?",
       "goals": [
         "Give the dated chronology, 07/20 to 09/04, each event with its proof",
@@ -825,7 +825,7 @@
           "channel": "alert",
           "from": "CMS",
           "subject": "Binder audit: Riverton Spine & Rehab still at $6,290.00",
-          "body": "Mediation Binder Section 4 still carries Riverton Spine & Rehab at $6,290.00, the 05/04/2026 duplicate included: medical $15,002.40 against the audited $14,817.40. The binder is due 03/11/2027, and Keystone already calls the ledger unverified."
+          "body": "Mediation Binder Section 4 still carries Riverton Spine & Rehab at $6,290.00, the 05/04/2026 duplicate included: medical $41,585.00 against the audited $41,400.00. The binder is due 03/11/2027, and Keystone already calls the ledger unverified."
         }
       }
     },
@@ -840,7 +840,7 @@
           "channel": "alert",
           "from": "CMS",
           "subject": "Exchange set audit: Lien Sheet overstated",
-          "body": "The attorney's-set Lien Sheet still lists Harbor Point PIP $5,000.00 and Summit Imaging $2,395.00, and Crescent as open. Liens actually owed: $7,965.00. A $7,395.00 overstatement sits nine days before the 06/02/2027 exchange."
+          "body": "The attorney's-set Lien Sheet still lists Harbor Point PIP $10,000.00 and Summit Imaging $2,395.00, and Crescent as open. Liens actually owed: $7,965.00. A $12,395.00 overstatement sits nine days before the 06/02/2027 exchange."
         }
       }
     },

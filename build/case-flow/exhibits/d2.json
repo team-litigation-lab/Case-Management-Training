@@ -67,8 +67,8 @@
      "as": "Billed $2,395.00; denied 03/27/2026, other coverage primary (PIP); claimed $0.00",
      "verdict": "keep",
      "kind": "qc",
-     "issue": "Correct as stated: Harbor Point PIP paid the MRI in full on 03/25/2026, so the plan paid nothing and claims nothing.",
-     "fix": "Confirm against the PIP Log and Summit's invoice; note in the register that the line stays at $0.00.",
+     "issue": "Correct as stated: Harbor Point MedPay paid the MRI in full on 03/25/2026, so the plan paid nothing and claims nothing.",
+     "fix": "Confirm against the PIP Log (MedPay rows) and Summit's invoice; note in the register that the line stays at $0.00.",
      "proof": [
       "RS31",
       "RS25"
@@ -179,7 +179,7 @@
     "Reimbursement claim confirmed in writing: $1,860.00 as of 06/24/2026",
     "Three lines removed: 02/03/2026 before the loss; 03/18/2026 and 05/06/2026 unrelated",
     "Crescent Pain & Spine corrected from the billed $3,400.00 to the $1,860.00 paid",
-    "Summit Imaging stays at $0.00: denied, PIP primary",
+    "Summit Imaging stays at $0.00: denied, MedPay primary",
     "No other accident-related claims in process; the certificate's Section 11 enclosed",
     "Any reduction is Atty. Thorne's, at the lien stage"
    ]
@@ -345,7 +345,7 @@
      "as": "80% of $1,760.00 = $1,408.00, to be claimed from Harbor Point",
      "verdict": "replace",
      "kind": "gap",
-     "issue": "PIP was exhausted on 06/26/2026, so the 80% benefit was never payable. Recording a pending PIP payment would net money out of the Specials that will never come.",
+     "issue": "PIP was exhausted on 03/04/2026 by the emergency bills, so the 80% benefit was never payable. Recording a pending PIP payment would net money out of the Specials that will never come.",
      "fix": "Record the benefit as not payable; the full $1,584.00 stays in the Specials.",
      "proof": [
       "RS31"
@@ -396,7 +396,7 @@
     "02/09–02/13/2026 kept and flagged to Atty. Thorne, with the call-out record",
     "03/05, 03/13, 05/15 and 05/18/2026 each matched to a provider record",
     "No overtime and no light-duty hours lost; the draft's $1,760.00 struck",
-    "PIP's 80% wage benefit not payable: exhausted 06/26/2026"
+    "PIP's 80% wage benefit not payable: exhausted 03/04/2026"
    ]
   }
  },

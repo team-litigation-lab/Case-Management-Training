@@ -70,8 +70,8 @@ window.CM_CF_EXHIBITS = {
      "as": "Billed $2,395.00; denied 03/27/2026, other coverage primary (PIP); claimed $0.00",
      "verdict": "keep",
      "kind": "qc",
-     "issue": "Correct as stated: Harbor Point PIP paid the MRI in full on 03/25/2026, so the plan paid nothing and claims nothing.",
-     "fix": "Confirm against the PIP Log and Summit's invoice; note in the register that the line stays at $0.00.",
+     "issue": "Correct as stated: Harbor Point MedPay paid the MRI in full on 03/25/2026, so the plan paid nothing and claims nothing.",
+     "fix": "Confirm against the PIP Log (MedPay rows) and Summit's invoice; note in the register that the line stays at $0.00.",
      "proof": [
       "RS31",
       "RS25"
@@ -182,7 +182,7 @@ window.CM_CF_EXHIBITS = {
     "Reimbursement claim confirmed in writing: $1,860.00 as of 06/24/2026",
     "Three lines removed: 02/03/2026 before the loss; 03/18/2026 and 05/06/2026 unrelated",
     "Crescent Pain & Spine corrected from the billed $3,400.00 to the $1,860.00 paid",
-    "Summit Imaging stays at $0.00: denied, PIP primary",
+    "Summit Imaging stays at $0.00: denied, MedPay primary",
     "No other accident-related claims in process; the certificate's Section 11 enclosed",
     "Any reduction is Atty. Thorne's, at the lien stage"
    ]
@@ -348,7 +348,7 @@ window.CM_CF_EXHIBITS = {
      "as": "80% of $1,760.00 = $1,408.00, to be claimed from Harbor Point",
      "verdict": "replace",
      "kind": "gap",
-     "issue": "PIP was exhausted on 06/26/2026, so the 80% benefit was never payable. Recording a pending PIP payment would net money out of the Specials that will never come.",
+     "issue": "PIP was exhausted on 03/04/2026 by the emergency bills, so the 80% benefit was never payable. Recording a pending PIP payment would net money out of the Specials that will never come.",
      "fix": "Record the benefit as not payable; the full $1,584.00 stays in the Specials.",
      "proof": [
       "RS31"
@@ -399,7 +399,7 @@ window.CM_CF_EXHIBITS = {
     "02/09–02/13/2026 kept and flagged to Atty. Thorne, with the call-out record",
     "03/05, 03/13, 05/15 and 05/18/2026 each matched to a provider record",
     "No overtime and no light-duty hours lost; the draft's $1,760.00 struck",
-    "PIP's 80% wage benefit not payable: exhausted 06/26/2026"
+    "PIP's 80% wage benefit not payable: exhausted 03/04/2026"
    ]
   },
   "d3m1-a1": {
@@ -615,7 +615,7 @@ window.CM_CF_EXHIBITS = {
    ],
    "revealNote": "The Demand Package as Atty. Thorne signed and served it on 07/20/2026: the letter with its four faults corrected and the Exhibit Index as served, 81 pages. Every later activity on this file works from this set.",
    "revealPoints": [
-    "Specials $14,817.40 medical + $1,584.00 wages = $16,401.40, every line tied to a certified bill.",
+    "Specials $41,400.00 medical + $1,584.00 wages = $42,984.00, every line tied to a certified bill.",
     "Acceptance runs 30 days from the adjuster's written acknowledgement of receipt, not from the date of the letter.",
     "A Limited Release of Robert Smith and Keystone Mutual only, preserving every UM/UIM claim and the Property Damage claim.",
     "Robert Smith's affidavit of no other insurance added as condition 3.",
@@ -1162,11 +1162,11 @@ window.CM_CF_EXHIBITS = {
     {
      "ref": "§5",
      "what": "The medical ledger",
-     "as": "Assembled from the providers' original bills: Riverton Spine & Rehab 34 lines at $6,290.00, medical total $15,002.40.",
+     "as": "Assembled from the providers' original bills: Riverton Spine & Rehab 34 lines at $6,290.00, medical total $41,585.00.",
      "verdict": "replace",
      "kind": "arithmetic",
-     "issue": "The Demand Package served 07/20/2026 put the medical specials at $14,817.40. Two numbers for one file is exactly the unverified ledger Atty. Mercer named, and the difference is the 05/04/2026 duplicate.",
-     "fix": "Rebuild the ledger line by line from the certified bills in hand: 33 attended visits × $185.00 = $6,105.00, medical $14,817.40, with wages $1,584.00 the same $16,401.40 that was served.",
+     "issue": "The Demand Package served 07/20/2026 put the medical specials at $41,400.00. Two numbers for one file is exactly the unverified ledger Atty. Mercer named, and the difference is the 05/04/2026 duplicate.",
+     "fix": "Rebuild the ledger line by line from the certified bills in hand: 33 attended visits × $185.00 = $6,105.00, medical $41,400.00, with wages $1,584.00 the same $42,984.00 that was served.",
      "proof": [
       "RS23",
       "RS14",
@@ -1265,7 +1265,7 @@ window.CM_CF_EXHIBITS = {
    ],
    "revealNote": "The Mediation Binder as Atty. Thorne approved it on 03/10/2027 and the firm delivered it on 03/11/2027: six sections, 141 pages, with the defense map and the rebuilt ledger. The arbitration exhibits and Day 5 both start from it.",
    "revealPoints": [
-    "Medical specials rebuilt to $14,817.40, with wages the $16,401.40 that was served on 07/20/2026.",
+    "Medical specials rebuilt to $41,400.00, with wages the $42,984.00 that was served on 07/20/2026.",
     "Open liens $7,965.00: Peach State $1,860.00 and Riverton Spine & Rehab $6,105.00; Crescent $0.00.",
     "Riverton Spine & Rehab marked \"Pending Final Verification\" until its certified ledger arrives.",
     "All five pleaded allegations mapped to answering exhibits; two legal questions flagged, not answered.",
@@ -1364,7 +1364,7 @@ window.CM_CF_EXHIBITS = {
     },
     {
      "ref": "C-6",
-     "what": "The medical ledger at $14,817.40",
+     "what": "The medical ledger at $41,400.00",
      "as": "Tab 4, with the records and bills, at the audited figure.",
      "verdict": "keep",
      "kind": "arithmetic",
@@ -1439,11 +1439,11 @@ window.CM_CF_EXHIBITS = {
     },
     {
      "ref": "C-9",
-     "what": "Lien Sheet — Harbor Point PIP, $5,000.00",
-     "as": "Listed as a lien because PIP paid $5,000.00 of the bills.",
+     "what": "Lien Sheet — Harbor Point PIP, $10,000.00",
+     "as": "Listed as a lien because PIP paid $10,000.00 of the bills.",
      "verdict": "pull",
      "kind": "loophole",
-     "issue": "Riverton's add-on PIP carries no reimbursement from the recovery, as Harbor Point's own letter of 03/02/2026 confirms, and Harbor Point is the carrier on the other side of this hearing. Working John Doe's net from a lien it does not hold costs him $5,000.00.",
+     "issue": "Riverton's add-on PIP carries no reimbursement from the recovery, as Harbor Point's own letter of 03/02/2026 confirms, and Harbor Point is the carrier on the other side of this hearing. Working John Doe's net from a lien it does not hold costs him $10,000.00.",
      "fix": "Strike it, citing the 03/02/2026 letter in the threshold record. PIP paying a bill does not create a lien.",
      "proof": [
       "RS28",
@@ -1505,7 +1505,7 @@ window.CM_CF_EXHIBITS = {
     "Threshold exhibits lead: the BI tender, both UM consents, the Limited Release and the dismissal.",
     "Every record certified and authenticated; Crescent's certification chased with a subpoena flag.",
     "Tab 5 pairs the 2021 low-back records and the deposition testimony with the MRI read and the Causation Letter.",
-    "Lien Sheet audited from $12,965.00 to $7,965.00: PIP, Summit and Crescent all at $0.00.",
+    "Lien Sheet audited from $17,965.00 to $7,965.00: PIP, Summit and Crescent all at $0.00.",
     "Brief docketed 06/11/2027; exchange 06/02/2027; hearing 06/22/2027.",
     "Six items withheld on Atty. Thorne's recorded decision, each with its reason on the file."
    ]
@@ -2272,25 +2272,33 @@ window.CM_CF_EXHIBITS = {
     },
     {
      "doc": "RS22",
-     "why": "$685.00, paid in full by Harbor Point PIP. Nothing owed and nothing wrong."
+     "why": "$685.00, paid in full by Harbor Point MedPay. Nothing owed and nothing wrong."
+    },
+    {
+     "doc": "RS98",
+     "why": "The ER and EMS bills of 02/20–02/21/2026, $26,582.60, paid by PIP at the fee schedule, $10,000.00, the rest written off. Nothing owed and nothing wrong."
+    },
+    {
+     "doc": "RS97",
+     "why": "Dr. Sarah Spine's emergency department record with her EMC determination: the reason PIP paid its full $10,000.00. Fit to use as written."
     },
     {
      "doc": "RS23"
     },
     {
      "doc": "RS24",
-     "why": "Three visits at $640.00, all paid by PIP. It ties to the PIP ledger."
+     "why": "Three visits at $640.00, all paid by MedPay. It ties to the MedPay rows of the PIP Log."
     },
     {
      "doc": "RS25",
-     "why": "$2,395.00 paid by PIP. The invoice is right; it is the MRI report's history line that is wrong."
+     "why": "$2,395.00 paid by MedPay. The invoice is right; it is the MRI report's history line that is wrong."
     },
     {
      "doc": "RS26"
     },
     {
      "doc": "RS31",
-     "why": "Five payments matched to five bills, $5,000.00, the limit exhausted. It reconciles."
+     "why": "PIP's two payments matched to the ER and EMS bills, $10,000.00, and MedPay's five to five bills, $5,000.00, both limits exhausted. It reconciles."
     },
     {
      "doc": "RS43",

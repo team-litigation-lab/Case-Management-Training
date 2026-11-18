@@ -34,10 +34,20 @@ BI must be exhausted (paid or tendered at limits) before Host UM opens; Relative
 A UM demand before the BI tender is premature; settling or releasing BI without the UM carriers' written consent can forfeit the stack. **Payer Order** (who pays the Medical Bills
 while the claim is open) is a different question: PIP/MedPay → private health insurance → LOP/provider liens.
 
-**PIP (Riverton's rule).** Riverton is an **add-on PIP state**: every auto policy carries $5,000 of Personal Injury Protection unless the named insured rejects it in writing. PIP pays **100% of reasonable accident medical expenses and 80% of lost income**, regardless of fault, with no deductible. It is add-on, not no-fault: it does not reduce BI or UM, and Riverton bars a PIP carrier from recovering what it paid out of its insured's settlement. **Whose PIP:** John owns no car, so he claims PIP as a passenger on the vehicle he rode in: **Harbor Point's PIP on Kevin Alvarez's Escape, $5,000** (claim HP-26-7741). PIP application signed 02/17/2026 and sent with the Harbor Point LOR; Harbor Point acknowledged it and opened PIP on 02/24/2026 (RS65).
-**Riverton has no Emergency Medical Condition (EMC) rule**: no treat-within-14-days condition and no EMC
-determination caps John's PIP. EMC is a Florida PIP rule (Fla. Stat. § 627.736(1)(a)); the course teaches it as
-the contrast a Case Manager on a Florida file must work to.
+**PIP (Riverton's rule).** Riverton is an **add-on PIP state**: every auto policy carries $10,000 of Personal Injury Protection unless the named insured rejects it in writing. PIP pays **100% of reasonable accident medical expenses and 80% of lost income**, regardless of fault, with no deductible; a provider that bills PIP is paid at Riverton's PIP fee schedule and may not balance-bill the injured person for the difference. It is add-on, not no-fault: it does not reduce BI or UM, and Riverton bars a PIP carrier from recovering what it paid out of its insured's settlement. **Whose PIP:** John owns no car, so he claims PIP as a passenger on the vehicle he rode in: **Harbor Point's PIP on Kevin Alvarez's Escape, $10,000** (claim HP-26-7741). The same policy carries **Medical Payments (MedPay), $5,000 each person**, which pays reasonable medical expenses at the billed amount once PIP is exhausted, also with no reimbursement right. PIP application signed 02/17/2026 and sent with the Harbor Point LOR; Harbor Point acknowledged it and opened PIP on 02/24/2026 (RS65).
+**The Emergency Medical Condition (EMC) rule.** Riverton's PIP pays its full $10,000 of medical benefits only when a
+physician documents an **Emergency Medical Condition**; without that finding, medical benefits stop at **$2,500**
+(the rule Florida also uses, Fla. Stat. § 627.736(1)(a); Riverton has no treat-within-14-days condition). On John's
+file the finding is **Dr. Sarah Spine's**, the emergency physician at Riverton General Hospital, documented on
+02/20/2026 (RS97), so the full $10,000 was available.
+
+**Where the decks' figures sit.** The Day 2 deck (p23–24) gives John's PIP, bills and EMC, and this file follows it:
+PIP $10,000 gone in the first 48 hours of care on the ER and EMS bills, $41,400.00 of Medical Bills, Dr. Sarah Spine's EMC.
+The Day 1 deck (p21) gives the $40,000 recovery stack, and Days 3–4 settle on it; Day 2 p30's "settled the John Doe matter
+for $45,000" is that page's split-the-baby illustration ($47k / $43k → $45k), not this file's settlement, which no BI limit
+here could reach. Four recorded narrations still give the earlier figures (Day 3 p7 and p17: PIP paid the MRI, Lakeside and
+$5,000 of bills, which on this file is Harbor Point's MedPay; Day 4 p8 and p28: the earlier Specials, and the EMC rule
+called Florida's alone): the trainer corrects them from this file when presenting.
 
 ### No contact, then back in touch (Day 1 Module 2 — the No Contact Protocol, 02/10–02/23/2026)
 
@@ -59,7 +69,8 @@ The two early voicemails (02/11, 02/13) were left but never logged; the CMS flag
 Skill Activity 1). On **02/21/2026** Atty. Thorne asks for the Final Warning Letter for his review on Monday.
 **02/23/2026 (Mon)**: he approves it and it goes out at 8:10 a.m. by email and certified mail, response date
 **03/05/2026**. **John Doe calls back at 8:31 a.m.**: he read the email; he went to Riverton Urgent Care on
-02/20/2026 and is booked at Riverton Spine & Rehab for 02/24/2026. The No Contact Protocol closes; treatment
+02/20/2026, was taken from there by ambulance to Riverton General Hospital's emergency department and kept overnight,
+and is booked at Riverton Spine & Rehab for 02/24/2026. The No Contact Protocol closes; treatment
 continues. (Why he waited is asked on the recorded call of 03/04/2026, not on this one.)
 
 ## 2. The file from Day 2 on
@@ -68,7 +79,7 @@ continues. (Why he waited is asked on the recorded call of 03/04/2026, not on th
 
 | | |
 |---|---|
-| Host driver | **Kevin Alvarez**, John's coworker (separate household). They carpool to work on alternate weeks; 02/06/2026 was Kevin's week. Owns the host vehicle, a **2020 Ford Escape**, insured by Harbor Point (Host UM $20,000; **PIP $5,000**). |
+| Host driver | **Kevin Alvarez**, John's coworker (separate household). They carpool to work on alternate weeks; 02/06/2026 was Kevin's week. Owns the host vehicle, a **2020 Ford Escape**, insured by Harbor Point (Host UM $20,000; **PIP $10,000; MedPay $5,000**). |
 | Resident relative | **Margaret Doe**, John's mother. John lives with her at 2214 Maple Hollow Rd. Her own car is insured by Cardinal State Mutual (UM $10,000). Emergency contact on the file. |
 | The parked car | **Margaret Doe's 2019 Honda Civic LX**, 52,300 miles, owned outright, insured on her policy by **Bluewater Auto Insurance** (liability + collision, $500 deductible). **UM/UIM rejected in writing by Margaret** (signed rejection form, 03/14/2024). **John owns no car and has no auto policy.** |
 | Why passenger status matters | As a passenger in a car he does not own, John reaches Host UM (occupant of the host vehicle) and Relative UM (resident relative in a non-owned vehicle). He owns no car, so no policy of his own applies; Margaret's Bluewater policy on the Civic has no UM, so it adds no layer. The Civic, its PD claim and its rental are Margaret's, never John's: the firm handles her PD under a separate PD-only engagement. |
@@ -94,28 +105,35 @@ passenger door at about 28 mph; the Escape was pushed into Margaret's Civic, par
 
 | Date | Provider | Event | Billed | Paid by |
 |---|---|---|---|---|
-| 02/20/2026 | Riverton Urgent Care | First treatment. Note: "onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18." | $685.00 | Harbor Point PIP |
+| 02/20/2026 | Riverton Urgent Care | First treatment (his day off). Note: "onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18." Progressive numbness: sent to the emergency department by ambulance | $685.00 | Harbor Point MedPay (its paper bill reached Harbor Point after PIP was exhausted: notice of exhaustion) |
+| 02/20/2026 | **Riverton Fire EMS** | Advanced life support transport, Riverton Urgent Care → Riverton General Hospital | $2,182.60 | **Harbor Point PIP $1,150.00** (fee schedule; $1,032.60 written off, no balance billing) |
+| 02/20–02/21/2026 | **Riverton General Hospital, Emergency Department, Dr. Sarah Spine** | CT cervical spine (no fracture), neurological work-up, overnight observation; **EMC documented 02/20/2026**; discharged 02/21 with a referral to orthopedics | $24,400.00 | **Harbor Point PIP $8,850.00** (fee schedule; $15,550.00 written off, no balance billing) |
 | 02/24–04/02/2026 | **Riverton Spine & Rehab** (chiropractic + PT; out of network for Peach State) | 16 visits under an **LOP signed 02/23/2026** | — | LOP |
-| 03/05/2026 | **Lakeside Orthopedics, Dr. Alana Reyes** | Initial consult; orders MRI | $640.00 | PIP |
-| 03/13/2026 | **Summit Imaging Center** | Cervical MRI (read by Dr. Helen Park): C5-C6 herniation; "no significant degenerative change at the adjacent levels" | $2,395.00 | PIP (Summit asked for an LOP on 03/11; declined because PIP applies first) |
-| 03/27/2026 | Lakeside Orthopedics | Follow-up; refers to pain management | $640.00 | PIP |
+| 03/05/2026 | **Lakeside Orthopedics, Dr. Alana Reyes** | Initial consult; orders MRI | $640.00 | MedPay |
+| 03/13/2026 | **Summit Imaging Center** | Cervical MRI (read by Dr. Helen Park): C5-C6 herniation; "no significant degenerative change at the adjacent levels" | $2,395.00 | MedPay (Summit asked for an LOP on 03/11; declined because MedPay applies first) |
+| 03/27/2026 | Lakeside Orthopedics | Follow-up; refers to pain management | $640.00 | MedPay |
 | 04/02 → 04/21/2026 | — | **Disrupted care: 19 days with no visits** (missed 04/03, 04/07, 04/09, 04/14): the near-drop, driven by crash-related anxiety (below) | — | — |
 | 04/20/2026 | Lakeside Orthopedics, Dr. Reyes | Telephone encounter: anxiety and avoidance after the collision; referral for counseling through Northgate's EAP | $0.00 (no charge) | — |
 | 04/24–06/05/2026 | **Stonebridge EAP Services, Renee Castillo, LPC** (Northgate's EAP) | Six counseling sessions by video | $0.00 (employer-paid) | — |
 | 04/21–06/05/2026 | Riverton Spine & Rehab | 17 visits; care resumed | — | LOP |
 | 05/15/2026 | **Crescent Pain & Spine, Dr. Omar Haddad** | Cervical epidural steroid injection | $3,400.00 | **Peach State paid $1,860.00** (contract rate; provider wrote off the rest and cannot balance-bill) |
-| 06/12/2026 | Lakeside Orthopedics | **MMI** declared; residual intermittent right-arm paresthesia; future care: possibly 1–2 repeat ESIs within 24 months at $3,400 each (future medical $3,400–$6,800; narrative, not Specials) | $640.00 | PIP (PIP exhausted at $5,000.00) |
+| 06/12/2026 | Lakeside Orthopedics | **MMI** declared; residual intermittent right-arm paresthesia; future care: possibly 1–2 repeat ESIs within 24 months at $3,400 each (future medical $3,400–$6,800; narrative, not Specials) | $640.00 | MedPay (MedPay exhausted at $5,000.00) |
 | 02/07–06/2026 | Riverton Drug | Prescriptions and OTC (receipt 02/07/2026 for ibuprofen and lidocaine patches) | $312.40 | John, out of pocket |
 
 - Riverton Spine & Rehab bills **34 lines × $185.00 = $6,290.00**, but one is a **duplicate (05/04/2026)**:
   33 real visits = **$6,105.00** after audit.
-- PIP paid in date order: $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = **$5,000.00** (exhausted 06/2026).
-  Crescent Pain & Spine is in network with Peach State and billed the plan directly at its contract rate; PIP pays
+- **PIP: $10,000.00, exhausted by the bills of the first 48 hours of care.** Riverton General Hospital and Riverton
+  Fire EMS billed Harbor Point electronically on 02/25/2026; PIP paid both at the fee schedule on **03/04/2026**:
+  $8,850.00 + $1,150.00 = **$10,000.00**. Without Dr. Sarah Spine's EMC finding, PIP would have stopped at $2,500.00.
+- **MedPay: $5,000.00**, paid in date order: $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = **$5,000.00**
+  (exhausted 06/26/2026). Riverton Urgent Care's paper bill reached Harbor Point on 03/05/2026, after PIP was
+  exhausted, and was paid under MedPay on 03/09/2026.
+  Crescent Pain & Spine is in network with Peach State and billed the plan directly at its contract rate; MedPay pays
   the bills submitted to it, and its last $640.00 paid Lakeside's 06/12/2026 visit. The Payer Order is the default;
   providers bill whom they bill, and the CM tracks both ledgers rather than re-routing a paid claim.
-  Harbor Point confirmed in writing (03/02/2026): **no reimbursement right** on PIP against John's recovery;
+  Harbor Point confirmed in writing (03/02/2026): **no reimbursement right** on PIP or MedPay against John's recovery;
   its UM is **add-on (excess)** — not reduced by the BI payment — and has **no PIP non-duplication reduction**.
-- PIP's 80% wage benefit (9 shifts, $1,584.00 × 80% = $1,267.20) was never paid: the Medical Bills used the $5,000 limit by 06/26/2026, and Northgate's wage-and-attendance letter came 06/30/2026. The full $1,584.00 stays in the Specials.
+- PIP's 80% wage benefit (9 shifts, $1,584.00 × 80% = $1,267.20) was never paid: the emergency department and EMS bills used the $10,000 limit on 03/04/2026, and Northgate's wage-and-attendance letter came 06/30/2026 (MedPay pays medical expenses only). The full $1,584.00 stays in the Specials.
 - Cardinal State confirmed in writing (03/09/2026) that John is covered as a resident relative occupying a non-owned vehicle.
 - **Peach State's lien, itemized and audited (Day 2).** The plan's notice (02/27/2026, RS40) was flagged the day it
   arrived; Dion Carver's 03/12/2026 email (recovery file **SRU-26-03318**) said accident-related claims were in process,
@@ -125,7 +143,7 @@ passenger door at about 28 mph; the Escape was pushed into Margaret's Civic, par
   the collision's: 02/03/2026 Riverton Vision Center, routine eye exam (Z01.00), $95.00, before the DOL; 03/18/2026 Peach
   State Virtual Care, acute sinusitis (J01.90), $49.00; 05/06/2026 Riverton Allergy & Asthma Clinic, established-patient
   allergic rhinitis visit (J30.2), a pre-existing condition, $74.00. Summit Imaging's 03/13/2026 MRI claim is on it at
-  $0.00 (denied: other coverage primary, PIP). The ledger is marked "interim", and its cover letter asks the firm to remit
+  $0.00 (denied: other coverage primary, MedPay). The ledger is marked "interim", and its cover letter asks the firm to remit
   the full amount within 30 days of any settlement, without reduction. The CM's line-by-line dispute went to Dion Carver
   by email on **06/12/2026**; Peach State's **corrected itemization (06/24/2026, RS91)** confirms the reimbursement claim
   at **$1,860.00** in writing, removes the three unrelated lines, keeps Summit at $0.00, reports no other accident-related
@@ -133,7 +151,7 @@ passenger door at about 28 mph; the Escape was pushed into Margaret's Civic, par
   the lien stage, on Atty. Thorne's authority (§3). The exchange is filed as a memorandum (RS92).
 - **The LOP endorsement call (02/23/2026).** After Riverton Spine & Rehab's email, the CM calls Tammy Greer, its office
   manager, before the 02/24/2026 evaluation: the LOP signed 02/23/2026 is accepted, the evaluation is confirmed, and her
-  questions are answered inside the line (insurance status: Harbor Point PIP HP-26-7741 is open and paid urgent care, the
+  questions are answered inside the line (insurance status: Harbor Point HP-26-7741 is open, its PIP is spent on the emergency care and MedPay applies next, the
   clinic is out of network for Peach State; treatment cadence: the plan of care is the provider's, 2–3 visits a week for
   12 weeks per RS13; records and billing: itemized statements every 30 days to the firm, a missed-visit alert, records on
   the claim-specific HIPAA authorization). Payment amounts, reductions and dates are never promised; those questions go
@@ -158,9 +176,9 @@ passenger door at about 28 mph; the Escape was pushed into Margaret's Civic, par
   filed as a memorandum (RS96).
 - Keystone gave its $10,000 BI limit verbally on the set-up call but would not confirm it in writing (no Declaration Page) before a written request with signed authorizations; BI limit $10,000 confirmed in writing by Keystone's Declaration Page on 03/20/2026.
 
-**Medical Specials** billed: $15,002.40 before audit → **$14,817.40** after removing the duplicate.
+**Medical Specials** billed: $41,585.00 before audit → **$41,400.00** after removing the duplicate.
 **Lost wages**: 9 missed shifts (02/09–02/13, 03/05, 03/13, 05/15, 05/18) × 8 h × $22.00 = **$1,584.00**,
-verified by Northgate HR wage-and-attendance letter. **Total specials: $16,401.40.**
+verified by Northgate HR wage-and-attendance letter. **Total specials: $42,984.00.**
 
 ### Why the 14-day gap happened (surfaces only when probed properly — Day 2 Module 3)
 
@@ -212,7 +230,7 @@ city bus, whose route does not pass the corner.
 | 06/15/2026 (Mon) | John's signed Personal Impact Statement, in his own words (RS79) |
 
 **No new bills.** The 04/20 telephone encounter and the EAP sessions cost nothing: the Medical Specials stay
-$14,817.40, total Specials $16,401.40, and the PIP and LOP ledgers are unchanged. The mental anguish is non-economic
+$41,400.00, total Specials $42,984.00, and the PIP, MedPay and LOP ledgers are unchanged. The mental anguish is non-economic
 damages (pain and suffering), documented for the BI demand; whether and how it is presented is Atty. Thorne's call.
 
 **Corroboration (the Gap Explanation Record's disruption band):** the attendance log and missed-visit alert (RS14),
@@ -429,7 +447,7 @@ before any negotiated reduction, leaving John Doe nothing — which is why the l
   (John's deposition, videoconference) $645.50 + certified records for the arbitration binder $160.00.
 - **Liens:** Peach State $1,860.00 reduced at the fee actually charged (40% = $744.00) → **$1,116.00**, accepted in
   writing **07/14/2027 (Wed)**; Riverton Spine & Rehab audited $6,105.00 → **$4,275.00**, signed Payoff Letter
-  **07/16/2027 (Fri)**; total **$5,391.00**. PIP, Crescent's write-off and the PIP-paid providers stay at $0.00.
+  **07/16/2027 (Fri)**; total **$5,391.00**. PIP, MedPay, the write-offs and the providers they paid stay at $0.00.
 - Harbor Point's check **07/20/2027 (Tue)**, Cardinal State's **07/22/2027 (Thu)**; John signs the Settlement
   Statement **07/29/2027 (Thu)**; **disbursement 07/30/2027 (Fri)**.
 - **Net to John Doe: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75** (Track A: $20,359.92; the
@@ -457,7 +475,7 @@ the facts above. Fictional throughout; no real carrier, provider or firm.
 | Firm | **LSH Law Group**, 500 Commerce St, Suite 1200, Riverton · (555) 010-4000 · Case Manager line ext. 214 · file LSH-2026-MVA-770412 |
 | Intake | Intake call **02/09/2026 (Mon)**; retainer and HIPAA authorization signed in the office the same day |
 | Keystone Mutual Insurance | Claims, P.O. Box 4100, Riverton · Robert Smith's policy **KMI-PA-7731045** · BI claim KM-26-440871 (Dana Whitfield, BI adjuster; **Greg Holloway**, claims supervisor) · PD claim KM-26-440871-PD (Leah Moran) |
-| Harbor Point Insurance | 77 Harbor Point Blvd, Riverton · Kevin Alvarez's policy **HPA-4402917** (2020 Ford Escape) · claim HP-26-7741 (Marcus Bell) · UM $20,000 / $40,000; PIP $5,000 |
+| Harbor Point Insurance | 77 Harbor Point Blvd, Riverton · Kevin Alvarez's policy **HPA-4402917** (2020 Ford Escape) · claim HP-26-7741 (Marcus Bell) · UM $20,000 / $40,000; PIP $10,000; MedPay $5,000 |
 | Cardinal State Mutual | 1200 Cardinal Way, Millbrook · Margaret Doe's policy **CSM-AU-5580213** (2018 Toyota Camry) · claim CS-26-20355 (Teresa Okafor) · UM $10,000 / $20,000 |
 | Bluewater Auto Insurance | Margaret Doe's policy **BWA-209-66184** (2019 Honda Civic LX) · liability 25/50/25 + collision ($500 deductible) · UM/UIM rejected in writing by Margaret 03/14/2024 |
 | Peach State Health Plan | Subrogation & Recovery Unit, P.O. Box 2210, Riverton · member PSH-55017742 · group GRP-41208 (Northgate Distribution; **fully insured** group plan) · recovery analyst **Dion Carver** · first notice of reimbursement rights **02/27/2026** · recovery file **SRU-26-03318** · dcarver@peachstatehealth.example |
@@ -465,6 +483,7 @@ the facts above. Fictional throughout; no real carrier, provider or firm.
 | Riverton PD | Officer **Thomas Garner #2217** · report RPD-26-018842 |
 | Riverton Fire EMS | Medic 7 · run RF-26-0206-114 · paramedic **J. Ortiz** · on scene 07:18 |
 | Riverton Urgent Care | 1450 Birch Ave · **Nina Patel, PA-C** |
+| Riverton General Hospital | 900 Hospital Dr · Emergency Department · **Dr. Sarah Spine, MD** (emergency medicine; EMC determination 02/20/2026) · patient financial services: PIP billed 02/25/2026 |
 | Riverton Spine & Rehab | 300 Mill St · **Dr. Mark Ellison, DC** (chiropractic) · **Sara Lin, DPT** (PT) · billing and LOP: **Tammy Greer**, office manager (tgreer@rivertonspinerehab.example) · $185.00 per visit (chiro + PT, one line per visit date) |
 | Lakeside Orthopedics | 2 Lakeside Dr · **Dr. Alana Reyes, MD** · $640.00 per visit (03/05, 03/27, 06/12/2026) |
 | Summit Imaging Center | 88 Summit Pkwy · radiologist **Dr. Helen Park, MD** · $2,395.00 cervical MRI without contrast · records and amendments: Health Information Management, **Marisol Ortega**, HIM Supervisor (him@summitimaging.example) |

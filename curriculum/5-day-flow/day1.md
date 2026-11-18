@@ -458,7 +458,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 #### 1 · Visual Layout Description
 
-A single email card fills the slide, addressed TO: Atty. Elijah Thorne. Its first line is boxed in orange and labelled THE DECISION: “Decision needed by 03/12/2026: approve declining Summit Imaging's LOP request; the MRI goes to Harbor Point PIP.” Beneath, three navy bands in order, each with a small label on the left: WHY (PIP applies first; $3,675.00 left) · THE FACTS (Summit's request of 03/11/2026; the $2,395.00 MRI) · IF YES / IF NO (what you will do either way). To the right, a faded second email with the same facts in story order and its decision buried in the last paragraph, struck through in grey. Bottom, a thin navy rule: “Decision first. Then the facts.”
+A single email card fills the slide, addressed TO: Atty. Elijah Thorne. Its first line is boxed in orange and labelled THE DECISION: “Decision needed by 03/12/2026: approve declining Summit Imaging's LOP request; the MRI goes to Harbor Point MedPay.” Beneath, three navy bands in order, each with a small label on the left: WHY (MedPay applies first; $3,675.00 left) · THE FACTS (Summit's request of 03/11/2026; the $2,395.00 MRI) · IF YES / IF NO (what you will do either way). To the right, a faded second email with the same facts in story order and its decision buried in the last paragraph, struck through in grey. Bottom, a thin navy rule: “Decision first. Then the facts.”
 
 #### 2 · Slide Body — Tell Them
 
@@ -466,7 +466,7 @@ A single email card fills the slide, addressed TO: Atty. Elijah Thorne. Its firs
 
 1. The first line is the decision or action needed, with its deadline: “Decision needed by 03/12/2026: approve declining Summit Imaging's LOP request.” If nothing is needed, say so first: “For your information, no action needed.”
 2. Then why, in one or two lines: the rule or fact that drives it. Then the facts he needs to decide, each with its source and date. The story of how you found it comes last, or not at all.
-3. Give him the options and what follows from each: “If yes, I send the decline and route the bill to PIP today; if no, I draft the LOP for your signature.” Never decide for him by leaving one option out.
+3. Give him the options and what follows from each: “If yes, I send the decline and route the bill to MedPay today; if no, I draft the LOP for your signature.” Never decide for him by leaving one option out.
 4. One note, one decision. Two decisions are two notes, or two numbered items, each with its own deadline, so neither is lost in the other.
 5. The subject line carries the decision too: “DECISION by 03/12 — Summit LOP request (John Doe VS Robert Smith)”. A subject line of “Update” or “Question” tells him nothing.
 6. Facts, not adjectives. Quote figures and dates exactly as the documents give them, and mark anything unconfirmed as unconfirmed. Your recommendation, if you give one, is labelled as yours.
@@ -481,9 +481,9 @@ A single email card fills the slide, addressed TO: Atty. Elijah Thorne. Its firs
 |  | Story first | Decision first |
 |---|---|---|
 | First line | “Summit Imaging called yesterday about John Doe's MRI…” | “Decision needed by 03/12/2026: approve declining Summit's LOP request.” |
-| Why | Buried in the third paragraph | PIP applies first, and Harbor Point PIP has $3,675.00 left |
+| Why | Buried in the third paragraph | MedPay applies first (PIP was spent on the emergency care), and Harbor Point MedPay has $3,675.00 left |
 | Facts | In the order they happened | Summit's request of 03/11/2026; the $2,395.00 MRI |
-| Options | Missing | If yes: decline sent, bill to PIP today. If no: LOP drafted for signature |
+| Options | Missing | If yes: decline sent, bill to MedPay today. If no: LOP drafted for signature |
 | Subject line | “Update” | “DECISION by 03/12 — Summit LOP request” |
 
 **Best practices & pitfalls**
@@ -669,32 +669,34 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 #### 1 · Visual Layout Description
 
-Centre-right, a cream ledger card with a navy header bar, PIP · HARBOR POINT · $5,000, its five rows in mono type. Above it a horizontal fuel gauge drains from navy to empty in five orange-numbered steps, the last landing on $0.00 at 06/12/2026 in a red danger chip. Left third, a vertical payer rail with orange badges ① PIP ② PEACH STATE ③ LOP; the LOP step is a navy card stamped COUNSEL-APPROVED TERMS. Bottom strip, two provider chips side by side: RIVERTON SPINE & REHAB · LOP ✓ and SUMMIT IMAGING · LOP ✗ → PIP. The argument: an LOP is the last rung of the Payer Order, not the first answer to a provider who asks.
+Centre-right, a cream ledger card with a navy header bar, HARBOR POINT · PIP $10,000 · MEDPAY $5,000, its seven rows in mono type: two PIP rows (ED $8,850.00, EMS $1,150.00) that empty PIP in one step on 03/04/2026, then five MedPay rows. Above it a horizontal fuel gauge drains MedPay from navy to empty in five orange-numbered steps, the last landing on $0.00 at 06/12/2026 in a red danger chip. Left third, a vertical payer rail with orange badges ① PIP ② MEDPAY ③ PEACH STATE ④ LOP; the LOP step is a navy card stamped COUNSEL-APPROVED TERMS. Bottom strip, two provider chips side by side: RIVERTON SPINE & REHAB · LOP ✓ and SUMMIT IMAGING · LOP ✗ → MEDPAY. The argument: an LOP is the last rung of the Payer Order, not the first answer to a provider who asks.
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* Treatment is the file's engine room, and someone has to pay for it while the claim is open. On John Doe's file three payers stand in a default order: Harbor Point PIP, then Peach State, then a Letter of Protection. An LOP issued out of order turns a bill an earlier payer would have paid into a lien against John Doe's net.
+*Why:* Treatment is the file's engine room, and someone has to pay for it while the claim is open. On John Doe's file four payers stand in a default order: Harbor Point PIP, then Harbor Point MedPay, then Peach State, then a Letter of Protection. An LOP issued out of order turns a bill an earlier payer would have paid into a lien against John Doe's net.
 
-1. Run the Payer Order: Harbor Point PIP → Peach State → LOP. John Doe claims the $5,000 PIP as a passenger in Kevin Alvarez's 2020 Ford Escape: a passenger who is not in the owner's household claims PIP on the vehicle he rode in, and no household policy carries PIP (Margaret Doe rejected it in writing).
-2. The order is a default: providers bill whom they bill. PIP pays what it gets, in date order; its wage benefit had nothing left when Northgate's wage letter came on 06/30/2026. Crescent Pain & Spine billed Peach State on 05/15/2026 with $640.00 of PIP left: track both ledgers; never re-route a paid claim. Who is primary (coordination of benefits, governing law) is Atty. Thorne's call.
+1. Run the Payer Order: Harbor Point PIP → Harbor Point MedPay → Peach State → LOP. John Doe claims the $10,000 PIP and the $5,000 MedPay as a passenger in Kevin Alvarez's 2020 Ford Escape: a passenger who is not in the owner's household claims PIP on the vehicle he rode in, and no household policy carries PIP (Margaret Doe rejected it in writing).
+2. The order is a default: providers bill whom they bill. PIP pays what it gets, in the order received: Riverton General's and Riverton Fire EMS's bills from the first 48 hours of care used all $10,000 on 03/04/2026, so its wage benefit had nothing left when Northgate's wage letter came on 06/30/2026. Crescent Pain & Spine billed Peach State on 05/15/2026 with $640.00 of MedPay left: track both ledgers; never re-route a paid claim. Who is primary (coordination of benefits, governing law) is Atty. Thorne's call.
 3. An LOP is John Doe's signed agreement, acknowledged by the firm on Atty. Thorne's terms, that a provider is paid from any recovery. The firm guarantees nothing; John Doe stays liable whatever the outcome, as Atty. Thorne explains before he signs. Use one only where earlier payers can't: Riverton Spine & Rehab is out of network.
 4. LOP terms are Atty. Thorne's: his approved template, his signature, what happens if there is no recovery. You prepare, route, transmit once approved, and confirm receipt. Never promise a provider a payment amount, a reduction or a date.
-5. Decline an LOP an earlier payer makes unnecessary: Summit Imaging's 03/11/2026 MRI bill goes to PIP. Every needless LOP is a lien on his net.
+5. Decline an LOP an earlier payer makes unnecessary: Summit Imaging's 03/11/2026 MRI bill goes to MedPay. Every needless LOP is a lien on his net.
 6. Keep the LOP provider list current with balances from each itemized statement, so no bill surprises the $40,000 stack.
 
 > ⚠️ **UPL boundary.** You may route bills, prepare an LOP on counsel's template, transmit it once Atty. Thorne approves, and tell a provider which payer to bill. You may not set LOP terms, sign for Atty. Thorne, promise any payment or reduction, or explain to John Doe what the LOP makes him liable for: that is counsel's.
 
 #### 2 · Slide Body — Show Them
 
-*The PIP Log: paid in date order until $5,000.00 is gone*
+*The PIP Log: PIP's $10,000.00 gone with the first 48 hours of care, then MedPay paid in date order until $5,000.00 is gone*
 
-| Date | Provider | PIP paid | Running total | Left of $5,000 |
+| Date of service | Provider | Paid by | Paid | Left |
 |---|---|---|---|---|
-| 02/20/2026 | Riverton Urgent Care | $685.00 | $685.00 | $4,315.00 |
-| 03/05/2026 | Lakeside Orthopedics | $640.00 | $1,325.00 | $3,675.00 |
-| 03/13/2026 | Summit Imaging Center | $2,395.00 | $3,720.00 | $1,280.00 |
-| 03/27/2026 | Lakeside Orthopedics | $640.00 | $4,360.00 | $640.00 |
-| 06/12/2026 | Lakeside Orthopedics (MMI) | $640.00 | $5,000.00 | $0.00 — exhausted |
+| 02/20/2026 | Riverton Fire EMS (ambulance) | PIP | $1,150.00 | PIP $8,850.00 |
+| 02/20–02/21/2026 | Riverton General Hospital ED (Dr. Sarah Spine, EMC) | PIP | $8,850.00 | PIP $0.00 — exhausted 03/04/2026 |
+| 02/20/2026 | Riverton Urgent Care | MedPay | $685.00 | MedPay $4,315.00 |
+| 03/05/2026 | Lakeside Orthopedics | MedPay | $640.00 | MedPay $3,675.00 |
+| 03/13/2026 | Summit Imaging Center | MedPay | $2,395.00 | MedPay $1,280.00 |
+| 03/27/2026 | Lakeside Orthopedics | MedPay | $640.00 | MedPay $640.00 |
+| 06/12/2026 | Lakeside Orthopedics (MMI) | MedPay | $640.00 | MedPay $0.00 — exhausted 06/26/2026 |
 
 **Best practices & pitfalls**
 
@@ -702,7 +704,7 @@ Centre-right, a cream ledger card with a navy header bar, PIP · HARBOR POINT ·
 - End every contact with John Doe: “What is the one thing that might get in the way of your treatment this week?”
 - Reconcile conflicting provider statements at once. A PT note and an orthopedic note that disagree on John Doe's function are a documentation crisis.
 - Tell John Doe which payer is handling which bill, as fact. Cost worry left unanswered is how a client stops going.
-- ⚠️ Pitfall: issuing an LOP because a provider asked, before checking whether PIP or Peach State pays first.
+- ⚠️ Pitfall: issuing an LOP because a provider asked, before checking whether PIP, MedPay or Peach State pays first.
 - ⚠️ Pitfall: telling a provider “you'll be paid in full at settlement.”
 - ⚠️ Pitfall: mission creep, taking on every problem John Doe raises instead of the ones that block his treatment.
 - ⚠️ Pitfall: sending Atty. Thorne raw records with no functional summary.
@@ -715,9 +717,9 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | Payer Order | PIP → Peach State → LOP applied to each bill; PIP's 80% wage benefit noted |
-| 🤖 AI | **20%** | PIP Log | Five payments in date order; running total reaches $5,000.00 on the 06/12/2026 visit; $0.00 left |
-| 🤖 AI | **20%** | LOP decisions | LOP to Riverton Spine & Rehab (out of network); Summit Imaging's request declined because PIP applies first |
+| 🤖 AI | **20%** | Payer Order | PIP → MedPay → Peach State → LOP applied to each bill; PIP's 80% wage benefit noted |
+| 🤖 AI | **20%** | PIP Log | PIP's two payments reach $10,000.00 on 03/04/2026; MedPay's five in date order reach $5,000.00 on the 06/12/2026 visit; $0.00 left on each |
+| 🤖 AI | **20%** | LOP decisions | LOP to Riverton Spine & Rehab (out of network); Summit Imaging's request declined because MedPay applies first |
 | 🧑‍🏫 Trainer | **20%** | Coordination judgment | Sees the hub role (warm handoffs, three closed loops, guarded transitions) and avoids mission creep |
 | 🧑‍🏫 Trainer | **20%** | UPL boundary | No LOP terms set, no payment promised to a provider, no interpretation of the LOP for John Doe |
 
@@ -725,10 +727,10 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 #### 5 · Speaker Notes
 
-- Open on the ledger with the right-hand column covered. Ask how much PIP is left after the 03/27/2026 visit ($640.00), then uncover it. A trainee who can't keep this column can't decide an LOP request.
+- Open on the ledger with the right-hand column covered. Ask how much MedPay is left after the 03/27/2026 visit ($640.00), then uncover it. A trainee who can't keep this column can't decide an LOP request.
 - Put to the room: “Riverton Spine & Rehab and Summit Imaging both asked for an LOP. Why did one get it and the other not?” The answer is the Payer Order, not the provider's preference.
 - Watch for trainees who treat an LOP as free. It is a promise the firm keeps out of John Doe's recovery, and every dollar on it is a dollar Day 3 has to negotiate.
-- Legal nuance: how PIP's $5,000 is spent across providers, and what Harbor Point's 03/02/2026 confirmation of no reimbursement right means for the UM claim, are Atty. Thorne's calls. You record the facts and run the ledger.
+- Legal nuance: how PIP's $10,000 and MedPay's $5,000 are spent across providers, and what Harbor Point's 03/02/2026 confirmation of no reimbursement right means for the UM claim, are Atty. Thorne's calls. You record the facts and run the ledger.
 
 ---
 
@@ -741,11 +743,11 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 #### 1 · Visual Layout Description
 
-Two documents side by side, each read line by line. Left, Peach State's Explanation of Benefits for claim PS-2605-449021, with a red stamp THIS IS NOT A BILL: six rows (Billed $3,400.00 · Allowed $1,860.00 · Contractual adjustment $1,540.00 · Deductible/copay $0.00 · Plan paid $1,860.00 · Member responsibility $0.00), each with an orange callout tag naming where it goes on the file (Specials · write-off, owed by nobody · Peach State's reimbursement claim · the most Crescent may bill). Right, Harbor Point's PIP payment history: five checks in date order with a falling limit bar, $5,000.00 → $0.00, stamped EXHAUSTED 06/26/2026. Below, Crescent's 07/01/2026 patient statement for $1,540.00 with a red question mark, joined by a dashed line to the EOB's $0.00 member-responsibility row and labelled BALANCE BILL?
+Two documents side by side, each read line by line. Left, Peach State's Explanation of Benefits for claim PS-2605-449021, with a red stamp THIS IS NOT A BILL: six rows (Billed $3,400.00 · Allowed $1,860.00 · Contractual adjustment $1,540.00 · Deductible/copay $0.00 · Plan paid $1,860.00 · Member responsibility $0.00), each with an orange callout tag naming where it goes on the file (Specials · write-off, owed by nobody · Peach State's reimbursement claim · the most Crescent may bill). Right, Harbor Point's PIP and MedPay payment history: two PIP checks that empty $10,000.00 on 03/04/2026, then five MedPay checks in date order with a falling limit bar, $5,000.00 → $0.00, stamped EXHAUSTED 06/26/2026. Below, Crescent's 07/01/2026 patient statement for $1,540.00 with a red question mark, joined by a dashed line to the EOB's $0.00 member-responsibility row and labelled BALANCE BILL?
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* Every payer reports what it did with a bill: Peach State in an Explanation of Benefits, Harbor Point in its PIP payment history. Read line by line, they say what was billed, what was paid, what was written off and what John Doe may still owe. They are the proof behind the Medical Specials, every lien amount, and every answer you give a provider or John Doe about a balance.
+*Why:* Every payer reports what it did with a bill: Peach State in an Explanation of Benefits, Harbor Point in its PIP and MedPay payment history. Read line by line, they say what was billed, what was paid, what was written off and what John Doe may still owe. They are the proof behind the Medical Specials, every lien amount, and every answer you give a provider or John Doe about a balance.
 
 1. An EOB is a Health Plan's statement to its member of how it processed one claim, and it says so: THIS IS NOT A BILL. Peach State's EOB of 06/03/2026 (claim PS-2605-449021) covers Crescent Pain & Spine's 05/15/2026 cervical epidural injection.
 2. Read its columns in order: amount billed ($3,400.00) → plan allowed ($1,860.00) → contractual adjustment ($1,540.00, the provider's write-off) → deductible, copay or coinsurance ($0.00) → plan paid ($1,860.00, EFT PSH-EFT-0603-77815) → member responsibility ($0.00).
@@ -754,10 +756,10 @@ Two documents side by side, each read line by line. Left, Peach State's Explanat
 5. On a balance bill: document it beside the EOB, route it to Atty. Thorne the same day, draft the written request that Crescent correct its account, and tell John Doe what you are doing and when he will hear back. Whether he owes anything is counsel's call.
 6. A plan's reimbursement claim is what it paid, never what was billed: Peach State's claim on Crescent's bill starts at $1,860.00. When its itemized lien arrives, match every line to an EOB; a line no EOB supports, or one unrelated to the collision, goes to Atty. Thorne.
 7. The EOB's AC1 remark asks for the plan's accident questionnaire. Route it to Atty. Thorne before John Doe returns it: what it says about the accident and the other insurance is a statement on the file.
-8. PIP sends no EOB, but Harbor Point reports its payments the same way: its payment history (RS31) lists each check by date of service, payee, amount billed, amount paid and the limit remaining. It paid every bill at the amount billed, in the order received.
-9. Keep the firm's PIP Log (CMS → Insurance → PIP / UM/UIM Coverage Stack, printed as RS71) as each PIP event happens: the application and the claim opened, each check with its date of service and the limit remaining, the wage benefit, and the care billed elsewhere. Reconcile it to Harbor Point's payment history line by line.
-10. Harbor Point's five checks: $685.00 (Riverton Urgent Care), $640.00, $640.00 and $640.00 (Lakeside Orthopedics) and $2,395.00 (Summit Imaging) = $5,000.00, exhausted 06/26/2026. Bills it receives after that come back with a notice of exhaustion: send the next one to the next payer in the Payer Order.
-11. Reconcile every provider to its payers: each statement must show the PIP check or the plan's payment as a credit. A provider still showing a balance on a paid date of service has a billing error, not a lien. Medical Specials keep the billed amounts the audit holds ($14,817.40); the lien register carries only what each payer can claim back.
+8. PIP sends no EOB, but Harbor Point reports its payments the same way: its payment history (RS31) lists each check by date of service, payee, amount billed, amount paid and the limit remaining. PIP paid the emergency department and the ambulance at Riverton's PIP fee schedule (the rest written off, no balance billing); MedPay paid every later bill at the amount billed, in the order received.
+9. Keep the firm's PIP Log (CMS → Insurance → PIP / UM/UIM Coverage Stack, printed as RS71) as each PIP event happens: the application and the claim opened, each PIP and MedPay check with its date of service and the limit remaining, the wage benefit, and the care billed elsewhere. Reconcile it to Harbor Point's payment history line by line.
+10. Harbor Point's PIP checks: $8,850.00 (Riverton General Hospital) and $1,150.00 (Riverton Fire EMS) = $10,000.00, exhausted 03/04/2026. Its five MedPay checks: $685.00 (Riverton Urgent Care), $640.00, $640.00 and $640.00 (Lakeside Orthopedics) and $2,395.00 (Summit Imaging) = $5,000.00, exhausted 06/26/2026. Bills it receives after that come back with a notice of exhaustion: send the next one to the next payer in the Payer Order.
+11. Reconcile every provider to its payers: each statement must show the PIP or MedPay check or the plan's payment as a credit. A provider still showing a balance on a paid date of service has a billing error, not a lien. Medical Specials keep the billed amounts the audit holds ($41,400.00); the lien register carries only what each payer can claim back.
 
 > ⚠️ **UPL boundary.** You may read, reconcile and report what an EOB or a payment history shows, and ask a provider in writing to correct an account. Whether a balance is owed, whether a write-off may be billed, and how to answer the plan's accident questionnaire are Atty. Thorne's calls.
 
@@ -782,7 +784,7 @@ Two documents side by side, each read line by line. Left, Peach State's Explanat
 - Tell John Doe what you are doing about a bill, and when he will hear back.
 - ⚠️ Pitfall: logging a lien at the billed amount instead of what the plan paid.
 - ⚠️ Pitfall: treating a contractual write-off as a balance the client owes.
-- ⚠️ Pitfall: sending a bill to PIP after its 06/26/2026 exhaustion.
+- ⚠️ Pitfall: sending a bill to PIP after its 03/04/2026 exhaustion, or to MedPay after 06/26/2026.
 
 #### 3 · Knowledge Check & CM Summary
 
@@ -793,7 +795,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Reads the EOB | Each line read correctly: billed, allowed, adjustment, member share, plan paid, and the CO-45 and AC1 remarks |
-| 🤖 AI | **20%** | PIP reconciled | Five checks to $5,000.00, exhausted 06/26/2026, each tied to its provider's statement |
+| 🤖 AI | **20%** | PIP reconciled | PIP's two checks to $10,000.00 (03/04/2026) and MedPay's five to $5,000.00 (06/26/2026), each tied to its provider's statement |
 | 🤖 AI | **20%** | Balance bill handled | Crescent's $1,540.00 identified as the write-off, routed to Atty. Thorne, correction requested in writing |
 | 🧑‍🏫 Trainer | **25%** | Grasps the consequence | Explains how a misread EOB inflates a lien or leaves the client paying a bill he may not owe |
 | 🧑‍🏫 Trainer | **15%** | UPL boundary | No answer to whether John Doe owes the balance; the questionnaire goes to counsel |
@@ -1124,7 +1126,7 @@ A horizontal treatment map across the slide: five phase pills on a navy track, A
 
 | Phase | On a typical file | On John Doe's file: what you watch | Who decides |
 |---|---|---|---|
-| Acute · days 1–14 from the DOL, 02/06/2026 | A first evaluation (ER or urgent care); imaging, bracing or initial PT if the provider orders them | EMS Run Report 02/06/2026: neck stiffness, declined transport, so no ER stop. No care yet: each day without an evaluation is a fact on the timeline. Causation facts on file; Harbor Point's $5,000 PIP verified in writing | The provider decides the care; you record facts and tell Atty. Thorne of any gap |
+| Acute · days 1–14 from the DOL, 02/06/2026 | A first evaluation (ER or urgent care); imaging, bracing or initial PT if the provider orders them | EMS Run Report 02/06/2026: neck stiffness, declined transport, so no ER stop. No care yet: each day without an evaluation is a fact on the timeline. Causation facts on file; Harbor Point's $10,000 PIP verified in writing | The provider decides the care; you record facts and tell Atty. Thorne of any gap |
 | Sub-acute · weeks 2–8 | Active PT 2–3 times a week; specialist follow-up | Attendance; “Is he improving?” at every contact; range of motion and pain score at week 6 of care | The provider orders the measures; you request and file them |
 | Restorative · weeks 9–24 | Work hardening, injections or psychological support, if ordered | Barriers to return to work; a disability index unchanged after 12 weeks of PT | The provider decides any referral; you ask and record the answer |
 | Maintenance · 6 months+ | Home exercise program; as-needed visits | Whether the provider is approaching MMI | The provider |
@@ -1661,11 +1663,11 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 #### 1 · Visual Layout Description
 
-A full-width CMS Coverage Stack in a white card with a navy header bar: six rows, deliberately imperfect. A navy rail on the left marks the stack rows; PIP sits wrongly inside it as row 4. A thin grey divider separates the outside-the-stack rows on a grey rail. The footer total, $45,000, is set large. On the answer reveal only, hollow red audit rings appear on the planted errors, the footer is struck through in red with $40,000 beside it, and the PIP row drops below the divider. Right margin: an audit-note card addressed to ATTY. ELIJAH THORNE with three headed lines — CONFIRMED IN WRITING · PRELIMINARY · ESCALATED. The argument: the matrix is only as good as the document behind each cell.
+A full-width CMS Coverage Stack in a white card with a navy header bar: six rows, deliberately imperfect. A navy rail on the left marks the stack rows; PIP sits wrongly inside it as row 4. A thin grey divider separates the outside-the-stack rows on a grey rail. The footer total, $50,000, is set large. On the answer reveal only, hollow red audit rings appear on the planted errors, the footer is struck through in red with $40,000 beside it, and the PIP row drops below the divider. Right margin: an audit-note card addressed to ATTY. ELIJAH THORNE with three headed lines — CONFIRMED IN WRITING · PRELIMINARY · ESCALATED. The argument: the matrix is only as good as the document behind each cell.
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** File date 03/11/2026. A colleague kept John Doe's Coverage Stack. In the file: Harbor Point's written confirmation (03/02/2026), Cardinal State's assignment of Teresa Okafor (03/03/2026) and Coverage Letter (03/09/2026), and Keystone's written request with authorizations, sent, with no Declaration Page yet. This morning Summit Imaging asked for an LOP; declined, because PIP applies first.
+**Scenario.** File date 03/11/2026. A colleague kept John Doe's Coverage Stack. In the file: Harbor Point's written confirmation (03/02/2026), Cardinal State's assignment of Teresa Okafor (03/03/2026) and Coverage Letter (03/09/2026), and Keystone's written request with authorizations, sent, with no Declaration Page yet. This morning Summit Imaging asked for an LOP; declined, because MedPay applies first.
 
 **Execution prompt.** Audit the staged Coverage Stack against the documents in the file. Find every error, correct it, and cite the document and date that prove each correction. Restore the stack total, clear every past-due follow-up by acting on it and setting a new date, and leave correct rows alone. Then route a three-line audit note to Atty. Thorne: confirmed in writing, still preliminary, escalated. Graded judgment: the BI status, and what you may and may not mark confirmed today.
 
@@ -1676,14 +1678,14 @@ A full-width CMS Coverage Stack in a white card with a navy header bar: six rows
 
 **Show Them — reference model**
 
-*The staged matrix as found on 03/11/2026 · footer: “Stack total $45,000”*
+*The staged matrix as found on 03/11/2026 · footer: “Stack total $50,000”*
 
 | Row | Carrier · claim · adjuster | Limit · status · source | Next follow-up |
 |---|---|---|---|
 | 1 · BI | Keystone · KM-26-440871 · Dana Whitfield | $10,000 · Confirmed · Police Report | 03/05/2026 (limits request) |
 | 2 · Host UM | Harbor Point · HP-26-7741 · Marcus Bell | $20,000 · Confirmed 03/02/2026 · UM form: — | None |
 | 3 · Relative UM | Cardinal State · CS-26-20355 · Not yet assigned | $10,000 · Confirmed 03/09/2026 | None |
-| 4 · PIP | Harbor Point · PIP | $5,000 · Confirmed 03/02/2026 | None |
+| 4 · PIP | Harbor Point · PIP | $10,000 · Confirmed 03/02/2026 | None |
 | Outside · PD | Keystone · Leah Moran | $25,000 · PD liability accepted 02/17/2026 | Per PD file |
 | Outside · Bluewater | Bluewater Auto · Margaret Doe's policy | UM: none · source: — | None |
 
@@ -1693,8 +1695,8 @@ A full-width CMS Coverage Stack in a white card with a navy header bar: six rows
 - [ ] BI follow-up 03/05/2026 is past due with nothing logged: followed up with Dana Whitfield on 03/11/2026, the call logged, the next date set within the firm's cadence (by 03/13/2026, two business days)
 - [ ] Host UM form recorded: add-on (excess), not reduced by the BI payment, no PIP non-duplication; source Harbor Point's letter of 03/02/2026
 - [ ] Relative UM adjuster “Not yet assigned” replaced with Teresa Okafor, assigned 03/03/2026
-- [ ] PIP moved out of the stack: it pays Medical Bills, not the claim (Harbor Point, $5,000, no reimbursement right per 03/02/2026)
-- [ ] Stack total corrected from $45,000 ($40,000 + $5,000 PIP) to $40,000 ($10,000 + $20,000 + $10,000)
+- [ ] PIP moved out of the stack: it pays Medical Bills, not the claim (Harbor Point, $10,000, no reimbursement right per 03/02/2026)
+- [ ] Stack total corrected from $50,000 ($40,000 + $10,000 PIP) to $40,000 ($10,000 + $20,000 + $10,000)
 - [ ] Bluewater: “UM: none” has no source; the signed UM rejection form (03/14/2024) chased from Bluewater, filed as the source when it arrives, with a dated follow-up until then
 - [ ] Keystone PD row kept outside the stack, neither moved in nor deleted: Leah Moran, PD liability accepted 02/17/2026; its $25,000 limit marked preliminary until Keystone's Declaration Page (03/20/2026)
 - [ ] Every correction cites its document and date; no row reads “confirmed” without one
@@ -1730,7 +1732,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 #### 5 · Speaker Notes
 
-- Give them the staged matrix and the file documents and nothing else. Don't say how many errors there are; finding all six is the grade. The six: BI marked confirmed; the past-due BI follow-up; the blank Host UM form; Cardinal State's adjuster; PIP in the stack ($45,000); the missing Bluewater rejection form. A seventh, unplanted finding, Cardinal State's unstated UM form (its 03/09/2026 letter confirms the excess clause but not whether the coverage is add-on or reduced by the BI payment), is correct: credit it outside the six. So is an eighth: the Police Report's 2021 Escape against Harbor Point's 2020 on the Declaration Page, the reconciliation taught in Liability Investigation.
+- Give them the staged matrix and the file documents and nothing else. Don't say how many errors there are; finding all six is the grade. The six: BI marked confirmed; the past-due BI follow-up; the blank Host UM form; Cardinal State's adjuster; PIP in the stack ($50,000); the missing Bluewater rejection form. A seventh, unplanted finding, Cardinal State's unstated UM form (its 03/09/2026 letter confirms the excess clause but not whether the coverage is add-on or reduced by the BI payment), is correct: credit it outside the six. So is an eighth: the Police Report's 2021 Escape against Harbor Point's 2020 on the Declaration Page, the reconciliation taught in Liability Investigation.
 - The BI row is the graded judgment. On 03/11/2026 the only defensible status is preliminary: Keystone's Declaration Page arrives 03/20/2026.
 - Watch for false positives. The Keystone PD row belongs outside the stack: marking its $25,000 preliminary is correct; moving it into the stack or deleting it is the false positive, and confuses “tracked” with “stacked”.
 - Read one audit note aloud as Atty. Thorne would. In ten seconds he should know what is confirmed, what is not, and what he must decide.
@@ -1942,13 +1944,13 @@ Verified in MIA Escalation Knowledge Check (taught on Case Flow Day 1) and that 
 
 #### 1 · Visual Layout Description
 
-Two dated envelopes side by side, each a white card with a navy header. Left, 02/23/2026 → RIVERTON SPINE & REHAB: an outgoing LOP with three orange numbered badges, ① payer check: out of network ② Atty. Thorne's approval and signature ③ receipt confirmed, and a green ✓ transmit stamp. Right, 03/11/2026 → SUMMIT IMAGING CENTER: a decline letter carrying a mono pill PIP LEFT $3,675.00 ≥ MRI $2,395.00 and an orange arrow routing the bill to Harbor Point. Beneath both, a slim cream baseline card: 2021 · LOW BACK · RESOLVED beside 2026 · NECK, two separate outlined zones. A red callout bottom-right: “No amount promised.”
+Two dated envelopes side by side, each a white card with a navy header. Left, 02/23/2026 → RIVERTON SPINE & REHAB: an outgoing LOP with three orange numbered badges, ① payer check: out of network ② Atty. Thorne's approval and signature ③ receipt confirmed, and a green ✓ transmit stamp. Right, 03/11/2026 → SUMMIT IMAGING CENTER: a decline letter carrying a mono pill MEDPAY LEFT $3,675.00 ≥ MRI $2,395.00 and an orange arrow routing the bill to Harbor Point. Beneath both, a slim cream baseline card: 2021 · LOW BACK · RESOLVED beside 2026 · NECK, two separate outlined zones. A red callout bottom-right: “No amount promised.”
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** 02/23/2026: John Doe's first treatment was at Riverton Urgent Care on 02/20/2026 ($685.00, to Harbor Point PIP). Chiropractic and PT at Riverton Spine & Rehab begin 02/24/2026; it is out of network for Peach State. Atty. Thorne has approved the firm's LOP template. John Doe had three chiropractic visits in 2021, for low-back stiffness. 03/11/2026: Summit Imaging Center, booked for the cervical MRI Dr. Reyes ordered on 03/05/2026, asks for an LOP.
+**Scenario.** 02/23/2026: John Doe's first treatment was at Riverton Urgent Care on 02/20/2026 ($685.00), which sent him by ambulance to Riverton General Hospital's emergency department overnight; Harbor Point's $10,000 PIP will go to those emergency bills, and its $5,000 MedPay comes next. Chiropractic and PT at Riverton Spine & Rehab begin 02/24/2026; it is out of network for Peach State. Atty. Thorne has approved the firm's LOP template. John Doe had three chiropractic visits in 2021, for low-back stiffness. 03/11/2026: Summit Imaging Center, booked for the cervical MRI Dr. Reyes ordered on 03/05/2026, asks for an LOP.
 
-**Execution prompt.** Work both dates. First run the Payer Order for each provider and record the result. On 02/23/2026, prepare Riverton Spine & Rehab's LOP on the approved template, route it to Atty. Thorne for approval and signature, transmit it with the claim-specific HIPAA authorization, and ask for itemized statements and a missed-visit alert; confirm receipt and open the LOP register entry. Then take the live call with Tammy Greer, the office manager, before the 02/24/2026 evaluation: introduce John Doe's case, confirm the clinic accepts the LOP, secure the endorsed appointment, and answer her questions on insurance status, treatment cadence and medical records and billing inside your lane. After the call, convert it into a dated case note, open the follow-up tasks (the 30-day itemized statement, the missed-visit alert, the records request on the HIPAA authorization), and file the LOP and the call note in the CMS so a copy is kept on the Backup Drive. Record John Doe's assessment, including his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing, naming Harbor Point PIP as the payer, with the ledger to prove it. Graded: no payment promised to either provider.
+**Execution prompt.** Work both dates. First run the Payer Order for each provider and record the result. On 02/23/2026, prepare Riverton Spine & Rehab's LOP on the approved template, route it to Atty. Thorne for approval and signature, transmit it with the claim-specific HIPAA authorization, and ask for itemized statements and a missed-visit alert; confirm receipt and open the LOP register entry. Then take the live call with Tammy Greer, the office manager, before the 02/24/2026 evaluation: introduce John Doe's case, confirm the clinic accepts the LOP, secure the endorsed appointment, and answer her questions on insurance status, treatment cadence and medical records and billing inside your lane. After the call, convert it into a dated case note, open the follow-up tasks (the 30-day itemized statement, the missed-visit alert, the records request on the HIPAA authorization), and file the LOP and the call note in the CMS so a copy is kept on the Backup Drive. Record John Doe's assessment, including his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing, naming Harbor Point MedPay as the payer, with the ledger to prove it. Graded: no payment promised to either provider.
 
 | | |
 |---|---|
@@ -1957,18 +1959,18 @@ Two dated envelopes side by side, each a white card with a navy header. Left, 02
 
 **Verification checkpoints**
 
-- [ ] Payer Order run and recorded for each provider: PIP → Peach State → LOP
-- [ ] Riverton Spine & Rehab's LOP justified: out of network for Peach State, and a full course of care PIP's balance can't carry
+- [ ] Payer Order run and recorded for each provider: PIP → MedPay → Peach State → LOP
+- [ ] Riverton Spine & Rehab's LOP justified: out of network for Peach State, and a full course of care PIP and MedPay can't carry
 - [ ] LOP explained to John Doe by Atty. Thorne and signed by John Doe and by Atty. Thorne on 02/23/2026, before the first visit on 02/24/2026, so the handoff from urgent care opens no new gap; nothing signed by the CM on his behalf
 - [ ] Transmittal carries the claim-specific HIPAA authorization and asks for itemized statements and a missed-visit alert; receipt confirmed and logged
 - [ ] LOP register entry: provider, date signed, out-of-network status, a running balance field
-- [ ] Endorsement call with Tammy Greer: John Doe's case introduced (LSH-2026-MVA-770412, DOL 02/06/2026), LOP acceptance confirmed and the 02/24/2026 evaluation secured; insurance status answered with facts (Harbor Point PIP HP-26-7741 open; out of network for Peach State); cadence left to the provider's plan of care; itemized statements every 30 days, a missed-visit alert and records on the HIPAA authorization agreed
+- [ ] Endorsement call with Tammy Greer: John Doe's case introduced (LSH-2026-MVA-770412, DOL 02/06/2026), LOP acceptance confirmed and the 02/24/2026 evaluation secured; insurance status answered with facts (Harbor Point HP-26-7741 open, its PIP going to the emergency care and MedPay next; out of network for Peach State); cadence left to the provider's plan of care; itemized statements every 30 days, a missed-visit alert and records on the HIPAA authorization agreed
 - [ ] Call converted into a dated case note; follow-up tasks opened with an owner and a date (30-day itemized statement, missed-visit alert, records request); the LOP and the call note filed in the CMS and kept on the Backup Drive (Medical Records)
 - [ ] Assessment recorded: clinical (neck pain; right-hand numbness since 02/18; the urgent-care note puts onset at the 02/06/2026 MVA), social (rental authorized 02/18/2026, capped at 30 days, so it ends 03/19/2026: calendared as a treatment risk), vocational (Northgate Distribution shift lead)
 - [ ] Pre-morbid baseline: three 2021 chiropractic visits for low-back stiffness, resolved; no prior neck complaints; body region distinguished, records requested
 - [ ] Our own intake supplement (RS02) records the 2021 care as “neck and back”; John Doe describes low back only: the discrepancy flagged to Atty. Thorne, nothing corrected until the 2021 records arrive (credited)
-- [ ] Summit Imaging's 03/11/2026 request declined in writing with the reason stated (PIP applies first) and Harbor Point PIP named as the payer
-- [ ] Decline proved from the ledger: $5,000.00 – $685.00 – $640.00 = $3,675.00 left, enough for the $2,395.00 MRI, leaving $1,280.00
+- [ ] Summit Imaging's 03/11/2026 request declined in writing with the reason stated (MedPay applies first) and Harbor Point MedPay named as the payer
+- [ ] Decline proved from the ledger: PIP's $10,000.00 spent on the emergency care; MedPay $5,000.00 – $685.00 – $640.00 = $3,675.00 left, enough for the $2,395.00 MRI, leaving $1,280.00
 - [ ] No payment amount, reduction or payment date promised to either provider; Atty. Thorne copied on the decline
 
 **Best practices & pitfalls**
@@ -1976,7 +1978,7 @@ Two dated envelopes side by side, each a white card with a navy header. Left, 02
 - Run the Payer Order before you open the LOP template, every time.
 - Ask every LOP provider for itemized statements and a missed-visit alert. The alert is your early warning that care is slipping.
 - Highlight the prior history, never hide it. The eggshell rule (generally, a defendant takes the plaintiff as he finds him and is liable for the full harm even if John Doe was more susceptible; where a prior condition is aggravated, the aggravation, not the prior condition itself, is compensable. Confirm the governing rule.) is Atty. Thorne's to argue; your job is the record: the 2021 visits were low back, resolved, a different region from the neck.
-- ⚠️ Pitfall: issuing an LOP to a provider PIP would have paid. That bill becomes a lien on John Doe's net.
+- ⚠️ Pitfall: issuing an LOP to a provider PIP or MedPay would have paid. That bill becomes a lien on John Doe's net.
 - ⚠️ Pitfall: answering a provider's “will we be paid in full?” with anything but the LOP's own terms and a referral to Atty. Thorne.
 
 #### 3 · Knowledge Check & CM Summary
@@ -1987,8 +1989,8 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | Payer-order decisions | LOP to Riverton Spine & Rehab (out of network for Peach State); Summit declined because PIP applies first |
-| 🤖 AI | **15%** | Ledger arithmetic | $3,675.00 left on 03/11/2026; $1,280.00 after the $2,395.00 MRI |
+| 🤖 AI | **20%** | Payer-order decisions | LOP to Riverton Spine & Rehab (out of network for Peach State); Summit declined because MedPay applies first |
+| 🤖 AI | **15%** | Ledger arithmetic | $3,675.00 of MedPay left on 03/11/2026; $1,280.00 after the $2,395.00 MRI |
 | 🤖 AI | **15%** | LOP file completeness | Signed 02/23/2026, transmitted with the HIPAA authorization, receipt confirmed, register entry opened; the endorsement call noted, tasked and filed |
 | 🤖 AI | **10%** | Assessment and baseline | Clinical, social, vocational and pre-morbid fields recorded; 03/19/2026 rental end calendared; 2021 low back distinguished from the neck |
 | 🧑‍🏫 Trainer | **15%** | Provider communication | A clear, courteous, firm decline that names the payer and invites no dispute |
@@ -1999,7 +2001,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 #### 5 · Speaker Notes
 
 - Run it in two passes, one per date. On 02/23/2026 the trainee must say why Riverton gets an LOP before opening the template.
-- Put to the room: “Summit says it won't do the MRI without an LOP. What do you say, and who do you tell?” Give the PIP details; if Summit still refuses, Atty. Thorne hears before the 03/13/2026 appointment, so the MRI doesn't slip.
+- Put to the room: “Summit says it won't do the MRI without an LOP. What do you say, and who do you tell?” Give the MedPay details; if Summit still refuses, Atty. Thorne hears before the 03/13/2026 appointment, so the MRI doesn't slip.
 - The call with Tammy Greer is the provider endorsement: she will ask why not Peach State, how often he will come, and whether the firm guarantees payment. Facts and logistics pass; cadence is the provider's, payment terms are Atty. Thorne's. Then check the note, the tasks and the filing: a call nobody can find is a call that never happened.
 - Grade the language. “Your bill is protected on the LOP's terms; for anything beyond them I'll put you in touch with Atty. Thorne” passes. “Don't worry, you'll be paid in full” fails, however friendly.
 - The baseline checkpoint is the eggshell skill in miniature: the trainee records the prior and the difference in body region. Whether aggravation law matters at all is Atty. Thorne's call.
@@ -2132,7 +2134,7 @@ Left half: a CMS Liens screen on a white card with a navy header bar, five field
 - [ ] Triple-Check recorded: HIPAA authorization, BCRC answer, Payer Order
 - [ ] 03/12/2026 reply to Dion Carver: the claim noted, an itemized ledger of accident-related claims requested once any are paid
 - [ ] Interim itemization audited: 02/03/2026 Riverton Vision Center ($95.00, before the loss), 03/18/2026 Peach State Virtual Care ($49.00) and 05/06/2026 Riverton Allergy & Asthma Clinic ($74.00, pre-existing) disputed as unrelated
-- [ ] Crescent Pain & Spine (PS-2605-449021) corrected from the billed $3,400.00 to the $1,860.00 the plan paid; Summit Imaging confirmed at $0.00 (denied, PIP primary)
+- [ ] Crescent Pain & Spine (PS-2605-449021) corrected from the billed $3,400.00 to the $1,860.00 the plan paid; Summit Imaging confirmed at $0.00 (denied, MedPay primary)
 - [ ] Dispute emailed 06/12/2026; Peach State's corrected itemization of 06/24/2026 confirms $1,860.00 in writing; the register shows $3,618.00 asserted → $1,860.00 confirmed
 - [ ] Exchange converted into a memorandum, filed in the CMS under the naming convention and kept on the Backup Drive (Liens & Reimbursement)
 - [ ] Escalation noted: any compromise, the plan's “without reduction” demand and any disclosure of limits need Atty. Thorne's authority
@@ -2569,8 +2571,8 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 8. Keystone Mutual gave a figure on the set-up call but will not confirm Robert Smith's limits in writing or release its Declaration Page without a written request and authorizations. What do you do?  
    **✓ Send the written limits request Atty. Thorne signs, with only the documents or limited authorization he approves, keep BI preliminary, and calendar the follow-up** · Mark BI $10,000 confirmed from the set-up call, so the projection can be finished · Demand Host UM now, so that Harbor Point puts pressure on Keystone · Tell John Doe the limit is probably $10,000, and revisit it later  
    *Expect asymmetry: a third-party BI carrier often wants a written request and documents first. Until its Declaration Page arrives (03/20/2026 on this file), the set-up-call figure is a lead: BI stays preliminary and no limit is quoted to the client. What goes with the request is counsel's call: never a blanket Medical Authorization to an adverse carrier. Some states set what a limits request must contain; confirm the governing rule.*
-9. The Coverage Stack lists Harbor Point PIP, $5,000, as stack layer 4 and totals the stack at $45,000. What is the correct treatment?  
-   Leave it: PIP is first-party coverage from a stack carrier · Fold PIP into the Host UM limit, making it $25,000 · **✓ Move PIP out of the stack and restore it to $40,000** · Delete PIP from the file, since it is not part of the stack  
+9. The Coverage Stack lists Harbor Point PIP, $10,000, as stack layer 4 and totals the stack at $50,000. What is the correct treatment?  
+   Leave it: PIP is first-party coverage from a stack carrier · Fold PIP into the Host UM limit, making it $30,000 · **✓ Move PIP out of the stack and restore it to $40,000** · Delete PIP from the file, since it is not part of the stack  
    *PIP pays bills now; it is not part of the Recovery Stack. It stays tracked (Harbor Point confirmed no reimbursement right on 03/02/2026), and the stack is $10,000 + $20,000 + $10,000 = $40,000.*
 10. Which insured does each LOR name?  
    John Doe on all three · Robert Smith on all three · **✓ Robert Smith (Keystone), Kevin Alvarez (Harbor Point), Margaret Doe (Cardinal State)** · Kevin Alvarez on all three  
@@ -2616,7 +2618,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 - Question 6 is the pressure scenario. The right answer gives Dana Whitfield nothing on the gap, holds the written limits request as it stands, logs the call and tells Atty. Thorne. The gap is explained once, in the demand he approves, through the Medical Records and the documents the client call identified; the recorded call itself is privileged and never goes to a carrier.
 - Question 4 separates trainees who know the dates from those who know the sources. Push for the document behind each “confirmed”.
-- Compare each self-rating with the score. A 5 next to a $45,000 stack is a coaching conversation.
+- Compare each self-rating with the score. A 5 next to a $50,000 stack is a coaching conversation.
 - UPL is a gate: a strong score does not survive a letter signed for the attorney or a coverage opinion given to a carrier or the client.
 
 ---
@@ -2891,9 +2893,9 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 15. On a Florida PIP file, who can make the Emergency Medical Condition (EMC) determination that opens the full $10,000 medical benefit?  
    Any treating provider, including a chiropractor · **✓ An MD or DO, a dentist, a physician assistant or an advanced practice registered nurse** · The Case Manager, from the intake call · The PIP adjuster  
    *Under Fla. Stat. § 627.736(1)(a), only an MD, DO, dentist, PA or APRN can determine an EMC. A chiropractor may give initial care but cannot make the finding; without it, medical benefits stop at $2,500.*
-16. John Doe's PIP claim is under Harbor Point's $5,000 PIP in Riverton. How does the EMC rule apply to it?  
-   His PIP is capped at $2,500 until a physician finds an EMC · He lost PIP medical benefits because he first treated on day 14 · **✓ It does not apply: Riverton is an add-on PIP state with no EMC rule** · Only his chiropractic bills are capped  
-   *The EMC rule is Florida's. Riverton has no EMC rule and no 14-day condition; John's 02/20/2026 visit falling on day 14 matters only as a Florida hypothetical.*
+16. John Doe's PIP claim is under Harbor Point's $10,000 PIP in Riverton. How does the EMC rule apply to it?  
+   **✓ Dr. Sarah Spine's Emergency Medical Condition finding in Riverton General's emergency department on 02/20/2026 opened the full $10,000** · He lost PIP medical benefits because he first treated on day 14 · It does not apply: Riverton is an add-on PIP state, not a no-fault one · Riverton Spine & Rehab's chiropractic evaluation made the EMC finding  
+   *Riverton uses the EMC rule: without a qualifying provider's finding, PIP medical benefits stop at $2,500. Dr. Sarah Spine, the emergency physician, documented the EMC on 02/20/2026, so the full $10,000 paid the emergency department and EMS bills. Riverton has no 14-day condition, and a chiropractor cannot make the finding.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 

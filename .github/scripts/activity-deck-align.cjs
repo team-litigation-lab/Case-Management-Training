@@ -9,7 +9,9 @@
 //      something else. An activity that practises a drawn lesson must practise one the course still teaches.
 //   2. CONTRADICTIONS: a method, order or name the decks state one way, written another way anywhere the trainee or the
 //      grader reads it (activities, Knowledge Checks, the lessons and the 💡 Tips' rules, their slide copy and scripts).
-//      Each rule first proves the deck still says it, so a rule can't outlive the page it rests on.
+//      Each rule first proves the deck still says it, so a rule can't outlive the page it rests on. Eight rules, the
+//      eighth the escalation ladder: a Notice of Delay goes to the adjuster and the plaintiff's attorney, never to an office
+//      manager or supervisor, who are Level 1 (Day 1 deck p48).
 //   3. DAYS: "Day N's No Contact Protocol" and the like must name the day that piece is taught on now (activities moved
 //      to their deck's day; a reference to the old day sends the trainee to the wrong day).
 // Usage: node .github/scripts/activity-deck-align.cjs
@@ -125,7 +127,10 @@ const CONTRA = [
     'each binder has six sections (Day 4 deck p9, p15, p25)'],
   ['the 48-hour pre-session audit', 'd4m3-l2', /48-hour pre-session audit/i,
     [/48-Hour Mandate audit/i],
-    'the deck names it the 48-hour pre-session audit (Day 4 deck p35)']
+    'the deck names it the 48-hour pre-session audit (Day 4 deck p35)'],
+  ['the escalation ladder', 'd1m4-tmap', /Level one, clinical: contact the provider's office manager[\s\S]{0,120}Level two, administrative: send a notice of delay to the adjuster and the plaintiff's attorney[\s\S]{0,160}Level three, legal/i,
+    [/Notice of Delay[^.;"]{0,60}\b(to|for)\b[^.;"]{0,30}\b(office manager|supervisor)/i, /\b(office manager|supervisor)\b[^.;"]{0,30}\b(with|as) (a |the )?(written )?Notice of Delay/i, /Rung 2:? (is )?its supervisor/i],
+    'the levels are 1, clinical, the provider\'s office manager; 2, administrative, a Notice of Delay to the adjuster and the plaintiff\'s attorney; 3, legal, the attorney\'s motion to compel or LOP (Day 1 deck p48)']
 ];
 for (const [name, l, must, bad, why] of CONTRA) {
   if (!must.test(deckText(l))) { fail.push(`CONTRA "${name}": ${l}'s deck pages no longer say what this rule rests on: update the rule`); continue; }

@@ -241,7 +241,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: client communication protocol
 - LSH Claims Specialist: LOR Property Damage carve-out, Property Damage severity as evidence for the injury claim
 - Newly authored: John Doe's intake assessment and the draft SMART goal
-- Newly authored: Florida's EMC rule stated explicitly (Fla. Stat. § 627.736(1)(a): 14-day initial care, EMC by MD, DO, dentist, PA or APRN, $2,500 vs $10,000, 80% medical and 60% lost income, chiropractor cannot determine EMC, no massage or acupuncture) and contrasted with Riverton's add-on PIP, which has no EMC rule
+- Newly authored: the EMC rule stated explicitly (EMC by MD, DO, dentist, PA or APRN, $2,500 vs $10,000, a chiropractor cannot determine EMC), applied to John Doe's Riverton file (Dr. Sarah Spine's finding, Day 2 deck p24) with Florida's version (Fla. Stat. § 627.736(1)(a), 14-day initial care, 80% medical and 60% lost income) beside it
 - LSH Claims Specialist: LOR purpose, recipients, drafting components and delivery
 - LSH Claims Specialist: claim set-up call, information protection on third-party claims, LOR acknowledgement and limits disclosure
 - Newly authored: UM notice at set-up (notice, not demand)

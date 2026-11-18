@@ -307,7 +307,7 @@ Confirm: that the firm still relies on this citation for its matters.
 
 **Why it matters for the settlement:** If any one of the three is wrong, the Net Sheet is wrong, and the client's check is wrong.
 
-**Quick check:** {name}, does Harbor Point's $5,000 PIP belong in the $40,000 on the Recovery Ledger? Why or why not?
+**Quick check:** {name}, does Harbor Point's $10,000 PIP belong in the $40,000 on the Recovery Ledger? Why or why not?
 
 
 ### Fully insured plan
