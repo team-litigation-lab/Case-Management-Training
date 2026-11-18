@@ -1,6 +1,6 @@
 // @check node — Every 🧠 Think it through challenge (js/cm-think-through.js) sits on a Skill Activity, taught on its deck's day, that practises the deck pages it is about; it is graded (AI 60, trainer 40, an answer key that reasons past the slide), and its figures are the ones the case file and those pages agree on
-// Day 2's Valuation Baseline pages give John Doe's own figures (his $10,000 PIP gone in 48 hours on ER and EMS bills,
-// $41,400 of bills, Dr. Sarah Spine's EMC), and the case file follows them. The challenge is critical thinking: the
+// Day 2's Valuation Baseline pages show a $10,000 PIP gone in 48 hours on ER and EMS bills, $41,400 of bills and
+// Dr. Sarah Spine's EMC, and the case file follows them; the narration leaves John's own figures to this challenge. The challenge is critical thinking: the
 // trainee reasons from those figures to their consequences on his file. Checked for each challenge in window.CM_THINK:
 //   · its activity is an activity in the course's order, taught on the deck's day, whose `practises` is the lesson whose
 //     slides are those deck pages (build/videoslide/dayN.json `lessons`);
@@ -45,11 +45,10 @@ THINK.forEach((t) => {
   if (/not John Doe's file|isn't John Doe's|page's example/i.test(q + key)) fails.push(`${at}: the slides' figures are John Doe's now; the challenge still treats them as another file's`);
   const file = fs.readFileSync(path.join(ROOT, 'curriculum/5-day-flow/case-file.md'), 'utf8');
   ['$10,000', '$41,400.00', '$42,984.00', '$8,850.00', '$1,150.00', '$2,500', 'Sarah Spine'].forEach((f) => { if (!file.includes(f)) fails.push(`${at}: the case file (case-file.md) does not carry ${f}`); });
-  t.deck.pages.forEach((p) => {
-    const s = spec.slides.find((x) => x.page === p);
-    if (!s) return fails.push(`${at}: Day ${t.deck.day} page ${p} has no notes`);
-    if (!/John Doe/.test(s.notes)) fails.push(`${at}: Day ${t.deck.day} page ${p}'s notes no longer name John Doe's file`);
-  });
+  // the recorded narration (the trainer's voice) keeps John's own figures off these pages and hands them to the
+  // challenge: at least one of its pages must send the trainee to it, on John Doe's file
+  const notes = t.deck.pages.map((p) => { const s = spec.slides.find((x) => x.page === p); if (!s) fails.push(`${at}: Day ${t.deck.day} page ${p} has no notes`); return s ? s.notes : ''; });
+  if (!notes.some((n) => /Think it through/i.test(n) && /John Doe/.test(n))) fails.push(`${at}: none of Day ${t.deck.day} pages ${t.deck.pages.join('–')}'s narration sends the trainee to the Think it through challenge on John Doe's file`);
 });
 if (fails.length) { console.log(`✗ Think it through (${fails.length}):\n  ` + fails.join('\n  ')); process.exit(1); }
 console.log(`🧠 Think it through: ${THINK.length} challenge(s) (${THINK.map((t) => `Day ${t.deck.day} pages ${t.deck.pages.join('–')} on ${t.activity}`).join('; ')}), each on the activity that practises its pages, graded 60/40, its key reasoning from the slides' figures (the case file's) to their consequences.`);

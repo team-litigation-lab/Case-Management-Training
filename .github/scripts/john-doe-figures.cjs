@@ -59,7 +59,10 @@ let checked = 0;
 for (const f of FILES) {
   const t = fs.readFileSync(path.join(ROOT, f), 'utf8'); if (!/John Doe|Harbor Point|Riverton|RS\d\d/.test(t) && !/^\.github\//.test(f)) continue;
   checked++;
-  t.split('\n').forEach((line, i) => RETIRED.forEach(([re, why]) => { const m = line.match(re); if (m) fail.push(`${f}:${i + 1}: "${m[0]}" — ${why}`); }));
+  // the one place an old figure may stand: case-file.md's list of recorded narrations the trainer corrects live
+  // (a line "- Day N pX narration: …", which quotes the recording and then gives this file's figure)
+  const quoted = (line) => f === 'curriculum/5-day-flow/case-file.md' && /^- Day \d p\d+(?: and p\d+)? narration: /.test(line) && /On this file/.test(line);
+  t.split('\n').forEach((line, i) => { if (quoted(line)) return; RETIRED.forEach(([re, why]) => { const m = line.match(re); if (m) fail.push(`${f}:${i + 1}: "${m[0]}" — ${why}`); }); });
 }
 
 // 2. the money trail
