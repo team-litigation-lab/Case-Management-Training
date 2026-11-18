@@ -64,7 +64,7 @@
     {
      "ref": "#2",
      "what": "Summit Imaging Center MRI, 03/13/2026",
-     "as": "Billed $2,395.00; denied 03/27/2026, other coverage primary (PIP); claimed $0.00",
+     "as": "Billed $2,395.00; denied 03/27/2026, other coverage primary (MedPay); claimed $0.00",
      "verdict": "keep",
      "kind": "qc",
      "issue": "Correct as stated: Harbor Point MedPay paid the MRI in full on 03/25/2026, so the plan paid nothing and claims nothing.",

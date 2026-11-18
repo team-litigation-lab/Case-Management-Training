@@ -840,7 +840,7 @@
           "channel": "alert",
           "from": "CMS",
           "subject": "Exchange set audit: Lien Sheet overstated",
-          "body": "The attorney's-set Lien Sheet still lists Harbor Point PIP $10,000.00 and Summit Imaging $2,395.00, and Crescent as open. Liens actually owed: $7,965.00. A $12,395.00 overstatement sits nine days before the 06/02/2027 exchange."
+          "body": "The attorney's-set Lien Sheet still lists Harbor Point PIP $10,000.00 beside Peach State and Riverton Spine & Rehab: $17,965.00. Liens actually owed: $7,965.00. A $10,000.00 overstatement sits nine days before the 06/02/2027 exchange."
         }
       }
     },

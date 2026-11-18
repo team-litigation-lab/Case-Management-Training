@@ -151,7 +151,7 @@ passenger door at about 28 mph; the Escape was pushed into Margaret's Civic, par
   the lien stage, on Atty. Thorne's authority (§3). The exchange is filed as a memorandum (RS92).
 - **The LOP endorsement call (02/23/2026).** After Riverton Spine & Rehab's email, the CM calls Tammy Greer, its office
   manager, before the 02/24/2026 evaluation: the LOP signed 02/23/2026 is accepted, the evaluation is confirmed, and her
-  questions are answered inside the line (insurance status: Harbor Point HP-26-7741 is open, its PIP is spent on the emergency care and MedPay applies next, the
+  questions are answered inside the line (insurance status: Harbor Point HP-26-7741 is open, its PIP going to the emergency care and MedPay next (PIP is exhausted only on 03/04/2026), the
   clinic is out of network for Peach State; treatment cadence: the plan of care is the provider's, 2–3 visits a week for
   12 weeks per RS13; records and billing: itemized statements every 30 days to the firm, a missed-visit alert, records on
   the claim-specific HIPAA authorization). Payment amounts, reductions and dates are never promised; those questions go

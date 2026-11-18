@@ -951,7 +951,7 @@ window.CM_CF_SIM = {
    "who": "Tammy Greer",
    "role": "provider",
    "persona": "Brisk, friendly office manager at a busy clinic. Wants the LOP squared away before the first visit; pushes on insurance, visit cadence and whether the firm guarantees payment.",
-   "context": "02/23/2026, afternoon. Riverton Spine & Rehab (chiropractic and PT, out of network for Peach State) has John Doe booked for his evaluation 02/24/2026. The LOP signed today by John Doe and Atty. Thorne was emailed with the HIPAA authorization. Harbor Point's PIP (HP-26-7741) is paying his ER and ambulance bills. Tammy asks why not bill Peach State or PIP, how often he will come, where records and statements go, and whether the firm guarantees full payment and when. Answered with facts, she confirms the LOP and the appointment.",
+   "context": "02/23/2026, afternoon. Riverton Spine & Rehab (chiropractic and PT, out of network for Peach State) has John Doe booked for his evaluation 02/24/2026. The LOP signed today by John Doe and Atty. Thorne was emailed with the HIPAA authorization. Harbor Point's PIP (HP-26-7741) will go to his ER and ambulance bills. Tammy asks why not bill Peach State or PIP, how often he will come, where records and statements go, and whether the firm guarantees full payment and when. Answered with facts, she confirms the LOP and the appointment.",
    "opening": "Riverton Spine and Rehab, this is Tammy. I've got the LOP you emailed. Before I put Mr. Doe on tomorrow's schedule, I have a few questions about how we're getting paid.",
    "goals": [
     "Introduce John Doe's case; confirm LOP acceptance and the 02/24/2026 evaluation",
@@ -1521,7 +1521,7 @@ window.CM_CF_SIM = {
      "channel": "alert",
      "from": "CMS",
      "subject": "Exchange set audit: Lien Sheet overstated",
-     "body": "The attorney's-set Lien Sheet still lists Harbor Point PIP $10,000.00 and Summit Imaging $2,395.00, and Crescent as open. Liens actually owed: $7,965.00. A $12,395.00 overstatement sits nine days before the 06/02/2027 exchange."
+     "body": "The attorney's-set Lien Sheet still lists Harbor Point PIP $10,000.00 beside Peach State and Riverton Spine & Rehab: $17,965.00. Liens actually owed: $7,965.00. A $10,000.00 overstatement sits nine days before the 06/02/2027 exchange."
     }
    }
   },

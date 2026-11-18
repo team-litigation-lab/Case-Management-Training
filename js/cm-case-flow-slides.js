@@ -1565,14 +1565,14 @@ window.CM_CF_SLIDES = {
   "hook": "On John Doe's Riverton file, **the EMC rule** decided whether PIP paid $2,500 or $10,000.",
   "points": [
    "Riverton PIP: **$10,000**, 100% medical at the fee schedule, 80% lost income",
-   "Initial care **within 14 days** of the accident, or no medical benefits",
+   "Florida only: initial care **within 14 days**; Riverton has no 14-day rule",
    "Only MD, DO, dentist, PA or APRN finds **an EMC**",
    "No EMC: **capped at $2,500**; John's EMC is Dr. Sarah Spine's"
   ],
   "upl": "The provider decides the EMC; Atty. Thorne decides what it means",
   "dos": [
    "Read **the file's state** before its PIP",
-   "Docket **the 14th day** at intake",
+   "On a Florida file, docket **the 14th day** at intake",
    "Log **each provider's credential** beside every visit"
   ],
   "donts": [
@@ -7008,9 +7008,9 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne decides what is exchanged"
   },
   "redFlag": {
-   "see": "A Lien Sheet still listing **Harbor Point PIP $10,000.00** and Summit $2,395.00",
-   "costs": "Neither is owed: MedPay paid Summit, and Harbor Point has no reimbursement right",
-   "do": "Strike both, re-total, and keep the Lien Sheet **in Atty. Thorne's set**",
+   "see": "A Lien Sheet still listing **Harbor Point PIP $10,000.00**: $17,965.00 in all",
+   "costs": "Not owed: Harbor Point has no reimbursement right; it takes $10,000.00 from John's net",
+   "do": "Strike it, re-total to $7,965.00, and keep the Lien Sheet **in Atty. Thorne's set**",
    "owner": "Atty. Thorne"
   },
   "theory": {
