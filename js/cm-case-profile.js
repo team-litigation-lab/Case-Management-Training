@@ -51,7 +51,7 @@ function meet(){
     ["🚗", "The collision", `${c.dol}${c.time ? ", " + c.time : ""}${c.scene ? ", at " + c.scene : ""}. Who ran the stop, which vehicles were involved and who was cited: read the Police Report, don't assume.`],
     ["👤", "Your client", `${c.client.name}, born ${c.client.dob}${c.client.job ? ", " + c.client.job : ""}. Where he was sitting is a fact you find in the records.`],
     ["⚖️", "The team", `Lead Counsel: ${c.counsel}. Case Manager: you.`],
-    ["🩺", "Health", `${c.health ? c.health.carrier : "The Health Plan"} asserted a reimbursement right on first notice.${pip ? ` ${pip.carrier.replace(/ Insurance$/, "")} carries $5,000 PIP on the Escape.` : ""}`],
+    ["🩺", "Health", `${c.health ? c.health.carrier : "The Health Plan"} asserted a reimbursement right on first notice.${pip ? ` ${pip.carrier.replace(/ Insurance$/, "")} carries $10,000 PIP and $5,000 MedPay on the Escape.` : ""}`],
     ["⚠️", "The critical fact", "Compare the EMS Run Report's date with the first treatment record. The days between them are a Treatment Gap: record the dates and, later, John Doe's own explanation. Never judge it."],
     ["📅", "The deadline", `The statute of limitations is docketed for ${c.sol}. Every deadline counts from the date of loss.`]
   ];

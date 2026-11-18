@@ -776,33 +776,33 @@
   },
   "d1m4-emc": {
     "image": "clock-deadline",
-    "hook": "On a Florida file, **the EMC rule** decides PIP within days of the accident.",
+    "hook": "On John Doe's Riverton file, **the EMC rule** decided whether PIP paid $2,500 or $10,000.",
     "points": [
-      "Florida PIP: **$10,000**, paying 80% medical, 60% lost income",
-      "Initial care **within 14 days** of the accident, or no medical benefits",
+      "Riverton PIP: **$10,000**, 100% medical at the fee schedule, 80% lost income",
+      "Florida only: initial care **within 14 days**; Riverton has no 14-day rule",
       "Only MD, DO, dentist, PA or APRN finds **an EMC**",
-      "No EMC: **capped at $2,500**; Riverton has no EMC rule"
+      "No EMC: **capped at $2,500**; John's EMC is Dr. Sarah Spine's"
     ],
     "upl": "The provider decides the EMC; Atty. Thorne decides what it means",
     "dos": [
       "Read **the file's state** before its PIP",
-      "Docket **the 14th day** at intake",
+      "On a Florida file, docket **the 14th day** at intake",
       "Log **each provider's credential** beside every visit"
     ],
     "donts": [
-      "Applying **a $2,500 cap** to Riverton's PIP",
+      "Logging **$10,000** without the EMC record behind it",
       "Treating a chiropractor's note as **an EMC determination**",
       "Telling a client to see a doctor **for the $10,000**"
     ],
     "ruleEx": {
-      "rule": "Florida (Fla. Stat. § 627.736(1)(a)): **initial care within 14 days**; without an EMC finding, PIP stops at $2,500 of $10,000",
-      "exception": "Riverton, add-on PIP: **no 14-day condition and no EMC cap**",
-      "onFile": "First treatment 02/20/2026; Harbor Point PIP (HP-26-7741) paid its $5,000.00 limit",
+      "rule": "Riverton: without an EMC finding by an MD, DO, dentist, PA or APRN, PIP stops at **$2,500 of $10,000**",
+      "exception": "Florida (Fla. Stat. § 627.736(1)(a)) adds **initial care within 14 days**; Riverton has no 14-day condition",
+      "onFile": "Dr. Sarah Spine's EMC, 02/20/2026: Harbor Point PIP (HP-26-7741) paid its full $10,000.00 on the ER and EMS bills",
       "confirm": "The governing statute, and Atty. Thorne"
     },
     "redFlag": {
-      "see": "Telling a Riverton client his PIP is **capped or forfeited** over the 14 days",
-      "costs": "Riverton has no EMC rule: it's wrong, and it is advice about his benefits",
+      "see": "John Doe's PIP logged at **$10,000** with no EMC record on file",
+      "costs": "Without the record, PIP's $10,000 rests on nothing Harbor Point must honour",
       "do": "Confirm the governing statute on every file; **route the question** to Atty. Thorne",
       "owner": "Atty. Thorne"
     }

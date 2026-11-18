@@ -1,13 +1,15 @@
-// @check node — Every 🧠 Think it through challenge (js/cm-think-through.js) sits on a Skill Activity, taught on its deck's day, that practises the deck pages it is about; it is graded (AI 60, trainer 40, an answer key), and the narration of those pages never says John Doe's figures
-// The owner's Canva pages keep the example they were made with, and their narration says what the page says
-// (narration-captions.cjs). Where the example is not John Doe's file, a 🧠 Think it through challenge on the activity
-// that practises the page has the trainee work the page's method on his own figures: his figures are in its answer key,
-// never in the narrated notes. Checked for each challenge in window.CM_THINK:
+// @check node — Every 🧠 Think it through challenge (js/cm-think-through.js) sits on a Skill Activity, taught on its deck's day, that practises the deck pages it is about; it is graded (AI 60, trainer 40, an answer key that reasons past the slide), and its figures are the ones the case file and those pages agree on
+// Day 2's Valuation Baseline pages show a $10,000 PIP gone in 48 hours on ER and EMS bills, $41,400 of bills and
+// Dr. Sarah Spine's EMC, and the case file follows them; the narration leaves John's own figures to this challenge. The challenge is critical thinking: the
+// trainee reasons from those figures to their consequences on his file. Checked for each challenge in window.CM_THINK:
 //   · its activity is an activity in the course's order, taught on the deck's day, whose `practises` is the lesson whose
 //     slides are those deck pages (build/videoslide/dayN.json `lessons`);
-//   · it is registered with the AI Grader shape (rubric.ai 60, rubric.trainer 40, steps 2–3, an answer key, a question
-//     that names the page's example) and index.html loads it;
-//   · the narrated notes of those pages say none of the answer key's figures (his PIP carrier, his Specials).
+//   · it is registered with the AI Grader shape (rubric.ai 60, rubric.trainer 40, steps 2–3, an answer key of 4+ items)
+//     and index.html loads it;
+//   · it asks for consequences, not a comparison: the question asks what the figures cause on his file; the key reasons
+//     to the adjuster's valuation, the Payer Order after PIP (MedPay, Peach State, the LOP) and the file without the EMC;
+//   · every figure the pages narrate ($10,000, $41,400, Dr. Sarah Spine) is the case file's: case-file.md carries each one,
+//     and the key's own figures ($8,850.00, $1,150.00, $41,400.00, $42,984.00, $2,500, $7,500) are in the case file too.
 // Usage: node .github/scripts/think-through.cjs
 const fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '..', '..');
@@ -35,18 +37,18 @@ THINK.forEach((t) => {
   if (sum(r.ai) !== 60 || sum(r.trainer) !== 40) fails.push(`${at}: rubric AI ${sum(r.ai)} / trainer ${sum(r.trainer)}; the course's rule is 60 / 40`);
   if (!(t.steps || []).length || t.steps.length > 3) fails.push(`${at}: ${(t.steps || []).length} steps (2–3)`);
   if ((t.checks || []).length < 3) fails.push(`${at}: an answer key of ${(t.checks || []).length} items`);
-  if (!/The slide's example uses .+ Work them out on John Doe's file: what changes, and why\?/.test(plain(t.situation))) fails.push(`${at}: the question does not set the slide's example against John Doe's file`);
-  // his figures (in the key, not in the page's own example) are never narrated
-  const theirs = new Set(money(t.situation).concat(money(t.figures)));
-  const his = [...new Set(t.checks.flatMap(money))].filter((m) => !theirs.has(m));
-  if (!his.length) fails.push(`${at}: the answer key gives no figure of John Doe's`);
-  const words = (m) => { const n = Number(m.replace(/[$,]/g, '')); return n >= 1000 ? [m, m.replace(/\.00$/, '')] : [m]; };
-  t.deck.pages.forEach((p) => {
-    const s = spec.slides.find((x) => x.page === p);
-    if (!s) return fails.push(`${at}: Day ${t.deck.day} page ${p} has no notes`);
-    his.forEach((m) => { if (words(m).some((w) => s.notes.includes(w))) fails.push(`${at}: page ${p}'s narrated notes say ${m}, John Doe's figure from the answer key`); });
-    if (/sixteen thousand four hundred|Harbor Point/.test(s.notes)) fails.push(`${at}: page ${p}'s narrated notes give John Doe's own PIP or Specials`);
-  });
+  const q = plain(t.situation), key = plain((t.checks || []).join(' '));
+  if (!/what do they \*?\*?cause\*?\*? on his file|cause on his file/i.test(q) || !/valuation/i.test(q) || !/pays the bills next|Payer Order/i.test(q)) fails.push(`${at}: the question should ask what the slides' figures cause on his file: the valuation and who pays next`);
+  if ((t.checks || []).length < 4) fails.push(`${at}: the answer key should reason through at least four points`);
+  [[/high-severity|severity/i, 'the severity signal'], [/\$41,400\.00/, 'the $41,400.00 anchor'], [/MedPay[\s\S]*Peach State[\s\S]*LOP/, 'the Payer Order after PIP'],
+   [/\$2,500[\s\S]{0,80}\$7,500|without the EMC/i, 'the file without the EMC']].forEach(([re, what]) => { if (!re.test(key)) fails.push(`${at}: the answer key never reasons to ${what}`); });
+  if (/not John Doe's file|isn't John Doe's|page's example/i.test(q + key)) fails.push(`${at}: the slides' figures are John Doe's now; the challenge still treats them as another file's`);
+  const file = fs.readFileSync(path.join(ROOT, 'curriculum/5-day-flow/case-file.md'), 'utf8');
+  ['$10,000', '$41,400.00', '$42,984.00', '$8,850.00', '$1,150.00', '$2,500', 'Sarah Spine'].forEach((f) => { if (!file.includes(f)) fails.push(`${at}: the case file (case-file.md) does not carry ${f}`); });
+  // the recorded narration (the trainer's voice) keeps John's own figures off these pages and hands them to the
+  // challenge: at least one of its pages must send the trainee to it, on John Doe's file
+  const notes = t.deck.pages.map((p) => { const s = spec.slides.find((x) => x.page === p); if (!s) fails.push(`${at}: Day ${t.deck.day} page ${p} has no notes`); return s ? s.notes : ''; });
+  if (!notes.some((n) => /Think it through/i.test(n) && /John Doe/.test(n))) fails.push(`${at}: none of Day ${t.deck.day} pages ${t.deck.pages.join('–')}'s narration sends the trainee to the Think it through challenge on John Doe's file`);
 });
 if (fails.length) { console.log(`✗ Think it through (${fails.length}):\n  ` + fails.join('\n  ')); process.exit(1); }
-console.log(`🧠 Think it through: ${THINK.length} challenge(s) (${THINK.map((t) => `Day ${t.deck.day} pages ${t.deck.pages.join('–')} on ${t.activity}`).join('; ')}), each on the activity that practises its pages, graded 60/40 with an answer key, John Doe's figures never narrated.`);
+console.log(`🧠 Think it through: ${THINK.length} challenge(s) (${THINK.map((t) => `Day ${t.deck.day} pages ${t.deck.pages.join('–')} on ${t.activity}`).join('; ')}), each on the activity that practises its pages, graded 60/40, its key reasoning from the slides' figures (the case file's) to their consequences.`);

@@ -1562,46 +1562,46 @@ window.CM_CF_SLIDES = {
  },
  "d1m4-emc": {
   "image": "clock-deadline",
-  "hook": "On a Florida file, **the EMC rule** decides PIP within days of the accident.",
+  "hook": "On John Doe's Riverton file, **the EMC rule** decided whether PIP paid $2,500 or $10,000.",
   "points": [
-   "Florida PIP: **$10,000**, paying 80% medical, 60% lost income",
-   "Initial care **within 14 days** of the accident, or no medical benefits",
+   "Riverton PIP: **$10,000**, 100% medical at the fee schedule, 80% lost income",
+   "Florida only: initial care **within 14 days**; Riverton has no 14-day rule",
    "Only MD, DO, dentist, PA or APRN finds **an EMC**",
-   "No EMC: **capped at $2,500**; Riverton has no EMC rule"
+   "No EMC: **capped at $2,500**; John's EMC is Dr. Sarah Spine's"
   ],
   "upl": "The provider decides the EMC; Atty. Thorne decides what it means",
   "dos": [
    "Read **the file's state** before its PIP",
-   "Docket **the 14th day** at intake",
+   "On a Florida file, docket **the 14th day** at intake",
    "Log **each provider's credential** beside every visit"
   ],
   "donts": [
-   "Applying **a $2,500 cap** to Riverton's PIP",
+   "Logging **$10,000** without the EMC record behind it",
    "Treating a chiropractor's note as **an EMC determination**",
    "Telling a client to see a doctor **for the $10,000**"
   ],
   "ruleEx": {
-   "rule": "Florida (Fla. Stat. § 627.736(1)(a)): **initial care within 14 days**; without an EMC finding, PIP stops at $2,500 of $10,000",
-   "exception": "Riverton, add-on PIP: **no 14-day condition and no EMC cap**",
-   "onFile": "First treatment 02/20/2026; Harbor Point PIP (HP-26-7741) paid its $5,000.00 limit",
+   "rule": "Riverton: without an EMC finding by an MD, DO, dentist, PA or APRN, PIP stops at **$2,500 of $10,000**",
+   "exception": "Florida (Fla. Stat. § 627.736(1)(a)) adds **initial care within 14 days**; Riverton has no 14-day condition",
+   "onFile": "Dr. Sarah Spine's EMC, 02/20/2026: Harbor Point PIP (HP-26-7741) paid its full $10,000.00 on the ER and EMS bills",
    "confirm": "The governing statute, and Atty. Thorne"
   },
   "redFlag": {
-   "see": "Telling a Riverton client his PIP is **capped or forfeited** over the 14 days",
-   "costs": "Riverton has no EMC rule: it's wrong, and it is advice about his benefits",
+   "see": "John Doe's PIP logged at **$10,000** with no EMC record on file",
+   "costs": "Without the record, PIP's $10,000 rests on nothing Harbor Point must honour",
    "do": "Confirm the governing statute on every file; **route the question** to Atty. Thorne",
    "owner": "Atty. Thorne"
   },
   "theory": {
-   "lead": "PIP is written state by state. **The EMC rule is Florida's**: 14 days to initial care, and an EMC finding decides $2,500 or $10,000",
+   "lead": "PIP is written state by state. **Riverton uses the EMC rule**: an EMC finding decides $2,500 or $10,000; Florida adds 14 days to initial care",
    "concepts": [
     {
      "term": "Personal Injury Protection (PIP)",
      "text": "First-party coverage paid regardless of fault, written **state by state**: limits, percentages and conditions change at the state line",
      "more": [
-      "Florida PIP: $10,000, paying 80% of reasonable medical expenses and 60% of lost income",
-      "Riverton PIP, John Doe's file: Harbor Point $5,000, paying 100% of medical and 80% of lost income",
-      "Riverton has **no EMC rule** and no 14-day condition"
+      "Florida's version: $10,000, paying 80% of reasonable medical expenses and 60% of lost income",
+      "Riverton PIP, John Doe's file: Harbor Point $10,000, paying 100% of medical at the fee schedule and 80% of lost income",
+      "John's EMC: **Dr. Sarah Spine**, Riverton General's emergency department, 02/20/2026; Riverton has no 14-day condition"
      ]
     },
     {
@@ -2309,7 +2309,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "label": "Why",
-     "done": "One rule or fact: **PIP applies first**, $3,675.00 left"
+     "done": "One rule or fact: **MedPay applies first**, $3,675.00 left"
     },
     {
      "label": "Facts",
@@ -2361,7 +2361,7 @@ window.CM_CF_SLIDES = {
  },
  "d2m1-a2": {
   "image": "insurance-stack",
-  "situation": "Assuming a colleague's Coverage Stack **totals $45,000** and the file holds Harbor Point's and Cardinal State's letters but no Keystone Declaration Page, the matrix needs correcting.",
+  "situation": "Assuming a colleague's Coverage Stack **totals $50,000** and the file holds Harbor Point's and Cardinal State's letters but no Keystone Declaration Page, the matrix needs correcting.",
   "side": true,
   "steps": [
    "In CMS → Insurance, take PIP out of the stack and correct the total to **$40,000**, citing the document behind each fix.",
@@ -2372,7 +2372,7 @@ window.CM_CF_SLIDES = {
   "principle": "Nothing is confirmed **without a document behind it**",
   "checks": [
    "**PIP out** of the stack: it pays bills",
-   "Stack total **$45,000 corrected to $40,000**",
+   "Stack total **$50,000 corrected to $40,000**",
    "BI **still preliminary** until the Declaration Page"
   ],
   "dos": [
@@ -2397,7 +2397,7 @@ window.CM_CF_SLIDES = {
   "points": [
    "Sort every coverage: **whose it is**, and what it pays",
    "Only BI and UM are **the $40,000 Recovery Stack**",
-   "Payer-First: **PIP, then Peach State**, an LOP last",
+   "Payer-First: **PIP and MedPay, then Peach State**, an LOP last",
    "Verify PIP and UM in writing; **never assume either**"
   ],
   "upl": "Route bills in the default order; primacy and lien enforceability are Atty. Thorne's",
@@ -2419,7 +2419,7 @@ window.CM_CF_SLIDES = {
   },
   "redFlag": {
    "on": "dodont",
-   "see": "A Recovery Stack **totalling $45,000**",
+   "see": "A Recovery Stack **totalling $50,000**",
    "costs": "PIP was added: PIP pays bills, not the claim, so every figure built on it is wrong",
    "do": "Rebuild it: **BI $10,000, Host UM $20,000, Relative UM $10,000**",
    "owner": "Case Manager"
@@ -2441,7 +2441,7 @@ window.CM_CF_SLIDES = {
      "more": [
       "MedPay: reasonable accident Medical Bills up to its limit, never wages",
       "PIP, where a state requires it: also a share of lost wages and replacement services",
-      "This file: **$5,000 Harbor Point PIP** on the Escape John Doe rode in",
+      "This file: **$10,000 Harbor Point PIP** and $5,000 MedPay on the Escape John Doe rode in",
       "Verify PIP on every file; never assume it"
      ]
     },
@@ -2536,7 +2536,7 @@ window.CM_CF_SLIDES = {
   "image": "treatment-plan",
   "hook": "An LOP **out of Payer Order** turns a payable bill into a lien on his net.",
   "points": [
-   "Run the Payer Order: **PIP → Peach State → LOP**",
+   "Run the Payer Order: **PIP → MedPay → Peach State → LOP**",
    "Use an LOP **only where earlier payers can't**",
    "Atty. Thorne sets LOP terms; **never promise payment** amounts, reductions or dates",
    "Decline an LOP **an earlier payer makes needless**"
@@ -2548,7 +2548,7 @@ window.CM_CF_SLIDES = {
    "Reconcile **conflicting provider statements** at once"
   ],
   "donts": [
-   "An LOP **before checking PIP** and Peach State",
+   "An LOP **before checking PIP, MedPay** and Peach State",
    "Telling a provider **“paid in full at settlement”**",
    "Mission creep: taking on **every problem John Doe raises**"
   ],
@@ -2569,10 +2569,10 @@ window.CM_CF_SLIDES = {
      "term": "MedPay vs. PIP",
      "text": "First-party coverage for Medical Bills regardless of fault, up to its limit; **unlike PIP, no wages**",
      "more": [
-      "John Doe's PIP: **$5,000 at Harbor Point**, as a passenger in the Escape",
-      "Paid in date order: $685.00, $640.00, $2,395.00, $640.00, $640.00",
-      "$640.00 left after the 03/27/2026 visit",
-      "Reaches $5,000.00 on the 06/12/2026 MMI visit: nothing left"
+      "John Doe's PIP: **$10,000 at Harbor Point**, as a passenger in the Escape, with $5,000 of MedPay behind it",
+      "PIP paid the ER and EMS, $10,000.00, in one go; MedPay then paid in date order: $685.00, $640.00, $2,395.00, $640.00, $640.00",
+      "MedPay: $640.00 left after the 03/27/2026 visit",
+      "MedPay reaches $5,000.00 on the 06/12/2026 MMI visit: nothing left"
      ]
     },
     {
@@ -2584,7 +2584,7 @@ window.CM_CF_SLIDES = {
      "text": "The client's signed agreement that a provider is paid from any recovery: **a consensual lien** on his net",
      "more": [
       "Only for care earlier payers can't carry: Riverton Spine & Rehab is out of network",
-      "Summit Imaging's 03/11/2026 request declined: **PIP pays first**",
+      "Summit Imaging's 03/11/2026 request declined: **MedPay pays first**",
       "Terms, template and signature are Atty. Thorne's; you prepare, route and transmit",
       "Never promise a provider an amount, a reduction or a date"
      ]
@@ -2637,7 +2637,7 @@ window.CM_CF_SLIDES = {
       "text": "Last rung, for care earlier payers can't carry: paid from any recovery, on Atty. Thorne's terms"
      }
     ],
-    "note": "On this file: Harbor Point PIP, then Peach State, then an LOP; providers bill whom they bill"
+    "note": "On this file: Harbor Point PIP, then Harbor Point MedPay, then Peach State, then an LOP; providers bill whom they bill"
    }
   }
  },
@@ -2648,7 +2648,7 @@ window.CM_CF_SLIDES = {
    "Read billed, allowed, **write-off, paid**, member share, in order",
    "Member responsibility is **the most a provider may bill**",
    "A plan's lien starts at **what it paid**, never billed",
-   "PIP paid **$5,000.00 in five checks**; exhausted 06/26/2026"
+   "PIP paid $10,000.00 on 03/04/2026; MedPay **$5,000.00 in five checks**, exhausted 06/26/2026"
   ],
   "upl": "Read and report what payers paid; whether a balance is owed is Atty. Thorne's",
   "dos": [
@@ -2659,7 +2659,7 @@ window.CM_CF_SLIDES = {
   "donts": [
    "A lien logged **at the billed amount**",
    "A contractual write-off treated as **the client's debt**",
-   "A bill sent to PIP **after 06/26/2026**"
+   "A bill sent to MedPay **after 06/26/2026**"
   ],
   "ruleEx": {
    "rule": "A plan's reimbursement claim is **what it paid, never what was billed**",
@@ -2669,7 +2669,7 @@ window.CM_CF_SLIDES = {
   },
   "redFlag": {
    "spoken": true,
-   "see": "A lien logged **at the billed amount**, or a bill sent to PIP after 06/26/2026",
+   "see": "A lien logged **at the billed amount**, or a bill sent to MedPay after 06/26/2026",
    "costs": "The lien is overstated by the contractual adjustment, or the bill goes to an exhausted payer",
    "do": "Log the plan-paid **$1,860.00**; check PIP's balance before routing any bill",
    "owner": "Case Manager"
@@ -2719,8 +2719,8 @@ window.CM_CF_SLIDES = {
      "term": "Exhaustion",
      "text": "Once PIP's limit is spent, later bills come back unpaid: **route them to the next payer**",
      "more": [
-      "Harbor Point's five checks: $685.00, $640.00 three times, $2,395.00",
-      "Total $5,000.00: **exhausted 06/26/2026**",
+      "Harbor Point's PIP checks: $8,850.00 and $1,150.00; its five MedPay checks: $685.00, $640.00 three times, $2,395.00",
+      "PIP $10,000.00 exhausted 03/04/2026; MedPay $5,000.00 **exhausted 06/26/2026**",
       "Later bills come back with a notice of exhaustion",
       "The firm's PIP Log (RS71) tracks each check and the limit remaining",
       "Pitfall: sending a bill to PIP after exhaustion"
@@ -2774,14 +2774,14 @@ window.CM_CF_SLIDES = {
   "side": true,
   "steps": [
    "In CMS → Liens → Outstanding Case Liens, record Riverton's LOP signed by John Doe and Atty. Thorne, and send it with the **HIPAA authorization** from the Email Workspace.",
-   "Log Summit Imaging's declined LOP request in CMS → Notes → Case Notes, naming Harbor Point PIP as the payer, and calendar the rental's 03/19/2026 end."
+   "Log Summit Imaging's declined LOP request in CMS → Notes → Case Notes, naming Harbor Point MedPay as the payer, and calendar the rental's 03/19/2026 end."
   ],
   "deliver": "One **counsel-approved LOP** sent, one declined, both logged",
-  "purpose": "A needless LOP makes **a bill PIP would pay** a lien on his recovery",
-  "principle": "**An LOP comes last**, after PIP and Peach State",
+  "purpose": "A needless LOP makes **a bill MedPay would pay** a lien on his recovery",
+  "principle": "**An LOP comes last**, after PIP, MedPay and Peach State",
   "checks": [
    "Signed by John Doe and Atty. Thorne **before 02/24/2026**",
-   "Decline names **Harbor Point PIP** as payer",
+   "Decline names **Harbor Point MedPay** as payer",
    "**No payment promised** to any provider",
    "Rental end **03/19/2026 calendared**"
   ],
@@ -3037,7 +3037,7 @@ window.CM_CF_SLIDES = {
      "more": [
       "Climb one documented rung at a time",
       "Rung 1, clinical: the provider's office manager",
-      "Rung 2, administrative: written notice to the carrier causing it, copied to Atty. Thorne",
+      "Rung 2, administrative: a Notice of Delay to the adjuster and Atty. Thorne, documenting the barrier",
       "Rung 3, legal: **Atty. Thorne's call**, such as an LOP",
       "Write each step as a GIRP note: Goal, Intervention, Response, Plan"
      ]
@@ -3111,7 +3111,7 @@ window.CM_CF_SLIDES = {
  },
  "d2m2-pip": {
   "image": "lien-scale",
-  "hook": "**Where PIP's $5,000 lands** decides what's left for John Doe's net.",
+  "hook": "**Where PIP's $10,000 lands** decides what's left for John Doe's net.",
   "points": [
    "Spend PIP on **fixed costs**; negotiable care runs under LOPs",
    "Forecast the shared limit; **routing choices are Atty. Thorne's**",
@@ -3137,8 +3137,8 @@ window.CM_CF_SLIDES = {
    "contrast": true
   },
   "redFlag": {
-   "see": "A PIP-paid bill counted **as unpaid**, or severity read from PIP's $5,000",
-   "costs": "The Specials go wrong: medical is $14,817.40, and $16,401.40 with wages",
+   "see": "A PIP-paid bill counted **as unpaid**, or severity read from PIP's $10,000 instead of the $41,400.00 of bills",
+   "costs": "The Specials go wrong: medical is $41,400.00, and $42,984.00 with wages",
    "do": "Read severity from **the audited Specials**; log PIP as a payment source",
    "owner": "Case Manager"
   },
@@ -3166,7 +3166,7 @@ window.CM_CF_SLIDES = {
       "The finding is the treating physician's clinical judgment",
       "Check the first treating records for it **early in treatment**",
       "No finding: more bills fall to the Health Plan, LOPs and the BI settlement",
-      "John Doe's Harbor Point PIP has no EMC ceiling"
+      "John Doe's EMC finding is Dr. Sarah Spine's (02/20/2026): his full $10,000 paid"
      ]
     },
     {
@@ -3372,7 +3372,7 @@ window.CM_CF_SLIDES = {
   "hook": "Know who pays, who wants paying back, and **when each flag goes up**",
   "points": [
    "Only BI and UM stack: **$40,000**; PIP and PD sit outside",
-   "Bills go **PIP, then Peach State, then an LOP**",
+   "Bills go **PIP, then MedPay, then Peach State, then an LOP**",
    "Flag the lien **on first notice**, before any demand",
    "Flag the gap **the day records show it**: 14 days, routed"
   ],
@@ -3399,7 +3399,7 @@ window.CM_CF_SLIDES = {
      "text": "Each policy sorted by **whose it is** and what it pays: the claim, the bills or the car",
      "more": [
       "Third-party: Robert Smith's Keystone BI $10,000 and PD $25,000",
-      "First-party: Host UM $20,000, Relative UM $10,000, Harbor Point PIP $5,000, Bluewater collision",
+      "First-party: Host UM $20,000, Relative UM $10,000, Harbor Point PIP $10,000 and MedPay $5,000, Bluewater collision",
       "Health: Peach State Health Plan, through Northgate, effective 02/01/2026",
       "Only **BI, Host UM and Relative UM** make the $40,000 Recovery Stack",
       "Margaret Doe rejected UM on her Bluewater policy in writing on 03/14/2024: it adds nothing"
@@ -3407,12 +3407,12 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "The Payer-First Principle",
-     "text": "Each bill goes first to the payer that must pay it: **PIP, then Peach State, then an LOP**",
+     "text": "Each bill goes first to the payer that must pay it: **PIP and MedPay, then Peach State, then an LOP**",
      "more": [
-      "PIP pays regardless of fault, and Harbor Point has **no reimbursement right** (03/02/2026)",
+      "PIP and MedPay pay regardless of fault, and Harbor Point has **no reimbursement right** (03/02/2026)",
       "Peach State pays at the contract rate: Crescent billed $3,400.00, the plan paid $1,860.00",
       "An LOP last, for care earlier payers can't carry: Riverton Spine & Rehab, out of network",
-      "Summit Imaging's 03/11/2026 LOP request declined: PIP had $3,675.00 left",
+      "Summit Imaging's 03/11/2026 LOP request declined: MedPay had $3,675.00 left",
       "Providers bill whom they bill: track every ledger, never re-route a paid claim"
      ]
     },
@@ -3937,7 +3937,7 @@ window.CM_CF_SLIDES = {
    "Discovering a lien **after the release** is signed"
   ],
   "ruleEx": {
-   "rule": "Specials are **incurred, documented economic losses**: $14,817.40 medical, $16,401.40 with wages",
+   "rule": "Specials are **incurred, documented economic losses**: $41,400.00 medical, $42,984.00 with wages",
    "exception": "Future medical ($3,400–$6,800, possible repeat ESIs) is real but not incurred: **narrative, never the total**",
    "confirm": "Atty. Thorne decides billed versus paid"
   },
@@ -3963,9 +3963,9 @@ window.CM_CF_SLIDES = {
      "term": "Special Damages",
      "text": "Medical Bills + lost wages + Property Damage: the provable dollar loss. **Every line needs a document**",
      "more": [
-      "Medical: **$14,817.40**, every billed date matched to a visit",
+      "Medical: **$41,400.00**, every billed date matched to a visit",
       "Lost wages: 9 shifts × 8 h × $22.00 = $1,584.00, verified by Northgate",
-      "Audited BI Specials: $16,401.40",
+      "Audited BI Specials: $42,984.00",
       "Out-of-pocket costs from the trip log and their receipts",
       "The Civic runs on its own Keystone PD claim, outside the $40,000",
       "Future care stays out of the audited total"
@@ -4082,15 +4082,15 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming Riverton Spine & Rehab's **05/04/2026 duplicate line** is confirmed and Northgate verified $1,584.00 in wages, the Specials now need totalling.",
   "side": true,
   "steps": [
-   "In CMS → Treatment → Total Medical Specials, remove the duplicate and total the medical at $14,817.40 plus the wages, showing **billed beside paid**.",
+   "In CMS → Treatment → Total Medical Specials, remove the duplicate and total the medical at $41,400.00 plus the wages, showing **billed beside paid**.",
    "Log the liens in CMS → Liens and flag the billed-versus-paid choice to Atty. Thorne."
   ],
-  "deliver": "An **audited ledger at $16,401.40**, liens listed, choice routed",
+  "deliver": "An **audited ledger at $42,984.00**, liens listed, choice routed",
   "purpose": "One unproved line hands the defense **a reason to doubt** every figure",
   "principle": "**Audit, don't total**: every line needs its visit or source",
   "checks": [
    "**05/04/2026 duplicate removed**: $6,290.00 → $6,105.00",
-   "**Specials $16,401.40**: medical plus wages",
+   "**Specials $42,984.00**: medical plus wages",
    "Billed-vs-paid choice **routed to Atty. Thorne**"
   ],
   "dos": [
@@ -4353,7 +4353,7 @@ window.CM_CF_SLIDES = {
      "more": [
       "Lead causation with the 03/13/2026 MRI: a C5-C6 herniation, then the injection",
       "Demand at MMI (06/12/2026), with future care narrated",
-      "Specials on John Doe's file: $14,817.40 medical + $1,584.00 wages = **$16,401.40 total**",
+      "Specials on John Doe's file: $41,400.00 medical + $1,584.00 wages = **$42,984.00 total**",
       "Specials also cover documented out-of-pocket costs: trip-log mileage to treatment, rides, prescriptions, equipment",
       "The mileage rate follows the governing state's rules, confirmed by Atty. Thorne"
      ]
@@ -4396,7 +4396,7 @@ window.CM_CF_SLIDES = {
  },
  "d3m1-a1": {
   "image": "checklist-qa",
-  "situation": "File date 07/20/2026. MMI reached; Specials $16,401.40. Atty. Thorne approved **$10,000 limits**, a Limited Release of Smith and Keystone, Smith's affidavit, 30 days from receipt. The draft awaits **your final audit**.",
+  "situation": "File date 07/20/2026. MMI reached; Specials $42,984.00. Atty. Thorne approved **$10,000 limits**, a Limited Release of Smith and Keystone, Smith's affidavit, 30 days from receipt. The draft awaits **your final audit**.",
   "steps": [
    "Download the case documents from 📁 Source Files, check the draft against the Big Four and the Final Scrub, and log each fix as a CMS task.",
    "Build the packet by hand, in this order: cover letter, index, demand letter, PIP Log, then the **bills and records** by provider and date.",
@@ -4418,7 +4418,7 @@ window.CM_CF_SLIDES = {
    "include": [
     "Cover letter: **$10,000 limits**, 30 days from receipt",
     "Liability: **RPD-26-018842**, Ruth Calloway, doorbell video",
-    "Itemized bills and records: **$14,817.40** Specials",
+    "Itemized bills and records: **$41,400.00** Specials",
     "Gap proof: EMS report, onset note, **Causation Letter**",
     "Wages **$1,584.00**: the Northgate HR letter",
     "Narrative: mechanism, pain, **work and life impact**",
@@ -4435,7 +4435,7 @@ window.CM_CF_SLIDES = {
   },
   "checks": [
    "**$10,000 BI limit**; terms match Atty. Thorne's approval exactly",
-   "Big Four complete; **Specials total $16,401.40**",
+   "Big Four complete; **Specials total $42,984.00**",
    "Gap answered **on page one**; each deficiency an assigned task",
    "Emailed and logged; **08/21/2026 docketed** from her acknowledgement",
    "Any extension request **routed to Atty. Thorne** same day"
@@ -4632,7 +4632,7 @@ window.CM_CF_SLIDES = {
      "term": "The Big Four",
      "text": "Medical Specials, the Narrative, Liability Proof, Special Damages: **flawless before attorney review**, each with its document",
      "more": [
-      "Medical Specials: one line per provider and date of service, reconciled to the audit: **$14,817.40**",
+      "Medical Specials: one line per provider and date of service, reconciled to the audit: **$41,400.00**",
       "The Narrative: the Human Story, how the injury changed his work and daily life",
       "Liability Proof: RPD-26-018842, Ruth Calloway's statement, the doorbell clip, the Property Damage photos",
       "Special Damages: Northgate's wage letter ($1,584.00) and out-of-pocket receipts, each tied to a line"
@@ -4699,7 +4699,7 @@ window.CM_CF_SLIDES = {
     "Cover letter per carrier: **claim number and limit**",
     "Exhaustion: tender, Dec Page, affidavit, **consents, Limited Release**",
     "Coverage: each **UM Dec Page** and Coverage Letter",
-    "Itemized bills **$14,817.40**; wage letter $1,584.00",
+    "Itemized bills **$41,400.00**; wage letter $1,584.00",
     "**Two-page treatment summary**: diagnosis, code, treatment",
     "MRI, Causation Letter, MMI note, **Gap Explanation Record**"
    ],
@@ -4767,7 +4767,7 @@ window.CM_CF_SLIDES = {
   "points": [
    "Build **the battle map** first: net floor, value drivers, attacks, rebuttals",
    "Net floor: **$12,677.63 gross**, above Keystone's $10,000 limit",
-   "Anchor on **$16,401.40 total Specials**, not PIP's $5,000",
+   "Anchor on **$42,984.00 total Specials**, not PIP's $10,000",
    "Restate the approved demand and name each stall; **make no moves**"
   ],
   "upl": "Present the record, relay offers; never counter, move number or deadline, or value offers.",
@@ -4807,7 +4807,7 @@ window.CM_CF_SLIDES = {
       "Smith ran the stop sign on video, with an independent witness",
       "An objective C5-C6 herniation on the MRI, and an injection",
       "Residual right-arm paresthesia at MMI (06/12/2026)",
-      "Anchor on **total Specials, $16,401.40**, not PIP's $5,000"
+      "Anchor on **total Specials, $42,984.00**, not PIP's $10,000"
      ]
     },
     {
@@ -5104,7 +5104,7 @@ window.CM_CF_SLIDES = {
       "No-fault: suing the at-fault driver needs a serious-injury or monetary threshold; PIP paid is set off",
       "At-fault state: the at-fault driver's BI pays the injury claim; add-on PIP pays on top",
       "At-fault: the right to sue stays open; PIP is a collateral source, not a credit",
-      "John Doe's Harbor Point PIP is add-on: exhausted at $5,000.00, non-subrogated, **no lien and no UM cut**",
+      "John Doe's Harbor Point PIP is add-on: exhausted at $10,000.00 in 48 hours, non-subrogated, **no lien and no UM cut**",
       "Which rule governs is Atty. Thorne's call; record each carrier's written position"
      ]
     }
@@ -5195,7 +5195,7 @@ window.CM_CF_SLIDES = {
   "questions": [
    "**Math-check Keystone's $3,500**: fee, costs, unreduced liens, net. What does it show, and who tells John Doe?",
    "Dana Whitfield cites the 14-Day Gap and a degenerative MRI. Answer both: **four documents** and the radiologist's words.",
-   "Add-on PIP: what do its $5,000, **exhausted and non-subrogated**, mean for valuation? And in no-fault?"
+   "Add-on PIP: what do its $10,000, **exhausted in 48 hours and non-subrogated**, mean for valuation? And in no-fault?"
   ]
  },
  "d3m3-l1": {
@@ -5601,7 +5601,7 @@ window.CM_CF_SLIDES = {
    "A lien figure **with no Payoff Letter**"
   ],
   "ruleEx": {
-   "rule": "**PIP's $5,000.00 is a payment source** on the Lien Tracker, never recovery",
+   "rule": "**PIP's $10,000.00 and MedPay's $5,000.00 are payment sources** on the Lien Tracker, never recovery",
    "exception": "None. Future care ($3,400–$6,800 repeat ESIs) is **flagged to Atty. Thorne, never netted**",
    "onFile": "$40,000.00 − $13,820.08 − $5,820.00 = $20,359.92: it ties out",
    "confirm": "Atty. Thorne approves the Net Sheet"
@@ -5632,7 +5632,7 @@ window.CM_CF_SLIDES = {
      "term": "The Double-Dipping Trap",
      "text": "Carriers audit files closely; tracing every dollar's source keeps liens paid correctly, **without cross-contaminating funds**.",
      "more": [
-      "Harbor Point's PIP paid $5,000.00 of the bills: a payment source on the Lien Tracker, never recovery",
+      "Harbor Point's PIP and MedPay paid $15,000.00 of the bills: payment sources on the Lien Tracker, never recovery",
       "Charge each cost once, as one line or split pro rata (25% / 75% here)",
       "Every cost needs a receipt: five on this file, $486.75",
       "Never mix BI and UM money on one undifferentiated line"
@@ -5704,7 +5704,7 @@ window.CM_CF_SLIDES = {
   ],
   "donts": [
    "Marking a lien final **from an email or phone call**",
-   "Adding **PIP's $5,000.00** to the payables"
+   "Adding **PIP's $10,000.00 or MedPay's $5,000.00** to the payables"
   ]
  },
  "d3m4-l2": {
@@ -5940,7 +5940,7 @@ window.CM_CF_SLIDES = {
      [
       "Compliance and identity",
       "Duplication-of-benefits statement; updated W-9 for 1099 reporting",
-      "Payer disclosure: PIP, Peach State, his own $312.40"
+      "Payer disclosure: PIP, MedPay, Peach State, his own $312.40"
      ],
      [
       "Closing memo",
@@ -6093,7 +6093,7 @@ window.CM_CF_SLIDES = {
      "more": [
       "Liability (duty and breach): RPD-26-018842, Ruth Calloway, the doorbell video",
       "Causation: the MRI, Dr. Reyes's Causation Letter, the EMS report",
-      "Damages: **$16,401.40 in Specials**, $14,817.40 medical + $1,584.00 wages",
+      "Damages: **$42,984.00 in Specials**, $41,400.00 medical + $1,584.00 wages",
       "Time: SOL 02/06/2028, internal filing cutoff 11/05/2027",
       "Filing is counsel's decision; verifying each input against its document is yours"
      ]
@@ -6327,7 +6327,7 @@ window.CM_CF_SLIDES = {
    "doc": "RS51",
    "definition": "The pleading that **starts the lawsuit**: caption, jurisdiction, facts, causes of action and prayer for relief, drafted and signed by Atty. Thorne.",
    "purpose": "Filed before the SOL, it **preserves the claim** and puts negligence and negligence per se against Robert Smith before the court.",
-   "evidence": "Filed 09/24/2026 as No. 26-CV-04417, it fixes what is pleaded: **bodily-injury damages only**, $14,817.40 medical and $1,584.00 wages; no Property Damage.",
+   "evidence": "Filed 09/24/2026 as No. 26-CV-04417, it fixes what is pleaded: **bodily-injury damages only**, $41,400.00 medical and $1,584.00 wages; no Property Damage.",
    "handling": [
     "Before signature, **verify the filing date** against the SOL",
     "Confirm Robert Smith's **exact legal name** from an independent record",
@@ -6514,7 +6514,7 @@ window.CM_CF_SLIDES = {
      "more": [
       "In plain words: you claim against **the other driver's insurance**, not your own",
       "When it fails, the firm sues the driver at fault, not his carrier",
-      "Same injuries, same records and **the same $16,401.40 in Specials** prove both claims"
+      "Same injuries, same records and **the same $42,984.00 in Specials** prove both claims"
      ]
     },
     {
@@ -6552,7 +6552,7 @@ window.CM_CF_SLIDES = {
       "label": "Claim submission",
       "text": "The UM Demand Package, with proof the at-fault limits were exhausted",
       "more": [
-       "The UM Demand Package: injuries, records, **Specials of $16,401.40** and the wage letter",
+       "The UM Demand Package: injuries, records, **Specials of $42,984.00** and the wage letter",
        "Proof of exhaustion: Keystone's $10,000 tender, both UM consents and the Limited Release",
        "On this file: served 03/22/2027 to Harbor Point and Cardinal State"
       ]
@@ -6835,7 +6835,7 @@ window.CM_CF_SLIDES = {
   "redFlag": {
    "on": "dodont",
    "see": "The binder carrying **Riverton at $6,290.00**",
-   "costs": "Medical then reads $15,002.40, and Keystone already calls the ledger unverified",
+   "costs": "Medical then reads $41,585.00, and Keystone already calls the ledger unverified",
    "do": "Use the audited **$6,105.00** and re-run the Damages totals",
    "owner": "Case Manager"
   },
@@ -6870,7 +6870,7 @@ window.CM_CF_SLIDES = {
      "text": "The section that **justifies counsel's dollar figure**: records, bills, wage proof and expert reports",
      "more": [
       "The ledger ties line by line to the certified invoices and the Northgate HR letter",
-      "$14,817.40 medical + $1,584.00 wages = **$16,401.40 in Specials**",
+      "$41,400.00 medical + $1,584.00 wages = **$42,984.00 in Specials**",
       "Each correction documented: duplicate removed, Riverton Spine & Rehab $6,290.00 → $6,105.00",
       "Future care ($3,400–$6,800) stays narrative, not a ledger line",
       "The dollar figure is Atty. Thorne's; you verify its sources"
@@ -6933,7 +6933,7 @@ window.CM_CF_SLIDES = {
   "situation": "It is 03/04/2027; binder due **03/11/2027** for the 03/18/2027 mediation. The draft carries Riverton Spine & Rehab at **$6,290.00** and Crescent's $3,400.00 as open. Riverton's certified ledger is outstanding.",
   "steps": [
    "Build the six sections from the master index, starting from the 07/20/2026 demand, and give each document **one exhibit number** and Bates range.",
-   "Map every defense in the answer to the exhibit that answers it, and rebuild the ledger from the certified bills to $16,401.40.",
+   "Map every defense in the answer to the exhibit that answers it, and rebuild the ledger from the certified bills to $42,984.00.",
    "Add the Negotiation Log, a draft release and the consent requests, then route the binder to Atty. Thorne."
   ],
   "deliver": "Indexed, OCR-searchable binder with **an audited ledger**, routed to Atty. Thorne, ready by 03/11/2027",
@@ -6954,7 +6954,7 @@ window.CM_CF_SLIDES = {
     "2 **Confidential Mediation Statement**",
     "3 **Complaint and answer**, operative only",
     "4 Liability evidence and **deposition summary**",
-    "5 Ledger **$16,401.40**, MRI, Causation Letter",
+    "5 Ledger **$42,984.00**, MRI, Causation Letter",
     "6 Negotiation Log and **draft Limited Release**"
    ],
    "steps": [
@@ -7008,9 +7008,9 @@ window.CM_CF_SLIDES = {
    "confirm": "Atty. Thorne decides what is exchanged"
   },
   "redFlag": {
-   "see": "A Lien Sheet still listing **Harbor Point PIP $5,000.00** and Summit $2,395.00",
-   "costs": "Neither is owed: PIP paid Summit, and Harbor Point has no reimbursement right",
-   "do": "Strike both, re-total, and keep the Lien Sheet **in Atty. Thorne's set**",
+   "see": "A Lien Sheet still listing **Harbor Point PIP $10,000.00**: $17,965.00 in all",
+   "costs": "Not owed: Harbor Point has no reimbursement right; it takes $10,000.00 from John's net",
+   "do": "Strike it, re-total to $7,965.00, and keep the Lien Sheet **in Atty. Thorne's set**",
    "owner": "Atty. Thorne"
   },
   "theory": {
@@ -7279,7 +7279,7 @@ window.CM_CF_SLIDES = {
     "1 **Exhaustion record**, snapshot sheet, final brief",
     "2 Demand, joinder, **each carrier's position**",
     "3 **Certified Police Report**, color stills, EDR",
-    "4 Treatment chart, **ledger $14,817.40**, records",
+    "4 Treatment chart, **ledger $41,400.00**, records",
     "5 **2021 records** paired with the MRI read",
     "6 **Northgate wage letter** only"
    ],
@@ -7339,7 +7339,7 @@ window.CM_CF_SLIDES = {
      "term": "Compromise Traps",
      "text": "Unverified ledgers, absent authority and late briefs **give the defense a reason** to stall at mediation",
      "more": [
-      "Unverified ledger: Specials $16,401.40; Riverton Spine & Rehab audited to $6,105.00; Peach State asserting $1,860.00",
+      "Unverified ledger: Specials $42,984.00; Riverton Spine & Rehab audited to $6,105.00; Peach State asserting $1,860.00",
       "Missing decision-maker: Keystone's attendee with authority unconfirmed 10 days out",
       "Late brief: statement and binder due to Hon. Carla Benton (Ret.) by **03/11/2027**",
       "Verified ledgers reach Keystone via defense counsel, as Atty. Thorne directs, in time for an authority raise"
@@ -7429,7 +7429,7 @@ window.CM_CF_SLIDES = {
   "purpose": "Riverton's missing ledger **threatens the 03/11/2027 binder** unless rules fire early",
   "principle": "You chase and escalate; **legal tools stay Atty. Thorne's**",
   "checks": [
-   "Rule 2 fires 02/22/2027: **Notice of Delay** sent",
+   "02/22/2027: **Notice of Delay** to adjuster and Atty. Thorne",
    "Red flags **03/01/2027 and 03/08/2027**",
    "Audits **03/09/2027 and 03/16/2027**"
   ],
@@ -7446,8 +7446,8 @@ window.CM_CF_SLIDES = {
   "image": "escalation-alert",
   "hook": "The ladder decides who hears; **the report decides** whether they can act in one read.",
   "points": [
-   "Climb **one rung at a time**: source, supervisor, Atty. Thorne",
-   "A Notice of Delay **states facts**; it never argues bad faith",
+   "**One level at a time**: office manager, Notice of Delay, Atty. Thorne",
+   "A Notice of Delay to **the adjuster and Atty. Thorne** states facts",
    "Every report carries **five fields**, nearest hard date first",
    "Zero defaults: ready by the hard date, marked **“Pending Final Verification”**"
   ],
@@ -7472,9 +7472,9 @@ window.CM_CF_SLIDES = {
      "term": "The Escalation Ladder",
      "text": "Each problem goes to **the lowest capable rung**, so counsel's time is spent on decisions only he can make",
      "more": [
-      "Rung 1: the source, on the follow-up cadence",
-      "Rung 2: its supervisor or office manager, with a written Notice of Delay",
-      "Rung 3: Atty. Thorne, where legal tools live; he decides, signs and sends",
+      "Level 1, clinical: the source and its office manager, to expedite, on the follow-up cadence",
+      "Level 2, administrative: a written Notice of Delay to the adjuster and Atty. Thorne",
+      "Level 3, legal: Atty. Thorne's motion to compel, subpoena or LOP; he decides, signs and sends",
       "48-Hour Mandate: Keystone's 08/31 follow-up → supervisor 09/02 → silence 09/04 → memo 09/08/2026",
       "Hard date 10 days out? Red-flag it and tell him **in parallel**"
      ]
@@ -7503,16 +7503,16 @@ window.CM_CF_SLIDES = {
     "kind": "flow",
     "steps": [
      {
-      "label": "Level 1: The Source",
-      "text": "Follow up with whoever owes the item, on the cadence; log date, method and result"
+      "label": "Level 1: Clinical",
+      "text": "The source's office manager: expedite the notes or a peer-to-peer; log date, method, result"
      },
      {
       "label": "Level 2: Notice of Delay",
-      "text": "Written notice to the supervisor or office manager: what is outstanding, since when, the hard date"
+      "text": "Written notice to the adjuster and Atty. Thorne: what is outstanding, since when, the hard date"
      },
      {
-      "label": "Level 3: Atty. Thorne",
-      "text": "Send the five-field report; a motion to compel or subpoena is **his to choose**"
+      "label": "Level 3: Legal",
+      "text": "The five-field report; a motion to compel, subpoena or LOP is **his to choose**"
      }
     ],
     "note": "Give each rung 48 hours after the second unanswered follow-up. With a hard date 10 days out, tell counsel in parallel."

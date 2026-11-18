@@ -48,7 +48,7 @@ const START_B = Object.assign({}, START, {C11: ""});
 /* what the file says at each stage (build/case-flow: d2m4-a1, d3m3-a2, d3m4-a1) */
 const STAGES = {
   recovery: {file: "A", label: "Track A · Settlement: the gross and the fee", checks: [
-    {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (PIP and PD are not recovery)."},
+    {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (PIP, MedPay and PD are not recovery)."},
     {cell: "L11", want: 13333.33, why: "The fee is 33⅓% pre-suit (no suit filed): one-third of $40,000.00 = $13,333.33. Typing 33.33% gives $13,332.00."},
   ]},
   /* the settlement-stage sheets, one per stream, each its own sheet so the full Track A sheet is never overwritten
@@ -71,7 +71,7 @@ const STAGES = {
     {cell: "I61", want: 0, why: "John paid Riverton Drug himself ($312.40, Paid by Client): nothing is owed from the settlement, so nothing comes off the net. His receipts prove the out-of-pocket specials."},
   ]},
   final: {file: "A", label: "Track A · Disbursement: the final Net Sheet", checks: [
-    {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (PIP and PD are not recovery)."},
+    {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (PIP, MedPay and PD are not recovery)."},
     {cell: "L11", want: 13333.33, why: "The fee is 33⅓% pre-suit (no suit filed): one-third of $40,000.00 = $13,333.33. Typing 33.33% gives $13,332.00."},
     {cell: "L20", want: 486.75, why: "Receipted costs: Police Report $25.00, records and billing $214.75, certified mail $72.00, MRI disc $25.00, postage and copies $150.00 = $486.75."},
     {cell: "L26", want: 4580, why: "Riverton Spine & Rehab: audited $6,105.00, accepted $4,580.00 in its signed Payoff Letter (10/12/2026)."},
@@ -246,7 +246,7 @@ function download(){
   COSTS.forEach(([r, l]) => { set("B" + r, l); set("C" + r, c["C" + r]); set("L" + r, num(c["L" + r])); });
   set("B20", "Total Attorney Costs"); f("L20", "SUM(L12:L19)"); set("B21", "Total Fees & Costs"); f("L21", "L11+L20");
   set("B23", "3. MEDICAL PROVIDER LEDGER & LIEN REDUCTIONS");
-  ["Provider Type", "Provider Name", "Total Charges", "PIP Payments", "Health Payments", "PIP", "Adjustments", "Balance Owed", "Max Offer", "Low Offer", "Reduced Bill"].forEach((h, i) => set("BCDEFGHIJKL"[i] + "24", h));
+  ["Provider Type", "Provider Name", "Total Charges", "PIP Payments", "Health Payments", "Med Pay", "Adjustments", "Balance Owed", "Max Offer", "Low Offer", "Reduced Bill"].forEach((h, i) => set("BCDEFGHIJKL"[i] + "24", h));
   LEDGER.forEach(r => { set("B" + r, c["B" + r]); set("C" + r, c["C" + r]); ["D", "E", "F", "G", "H", "J", "K", "L"].forEach(col => { if(c[col + r] !== undefined && c[col + r] !== "") set(col + r, num(c[col + r])); }); f("I" + r, `D${r}-E${r}-F${r}-G${r}-H${r}`); if(ws["L" + r] == null) set("L" + r, 0); });
   set("B44", "Total Liens & Reductions"); ["I", "J", "K", "L"].forEach(col => f(col + "44", `SUM(${col}25:${col}43)`));
   set("B46", "4. FINAL CLIENT DISBURSEMENT CALCULATION"); set("B47", "Calculation"); set("L47", "Amount");

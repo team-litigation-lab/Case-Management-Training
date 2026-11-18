@@ -131,7 +131,7 @@ window.CM_CF_SIM = {
    "from": "Atty. Elijah Thorne (ethorne@lshlawgroup.example)",
    "to": "Case Manager",
    "subject": "John Doe: letters of representation go out today",
-   "body": "Claims are open: Keystone BI KM-26-440871 (Dana Whitfield) and PD (Leah Moran, who accepted PD liability this morning), Harbor Point HP-26-7741 (Marcus Bell, Host UM and PIP), Cardinal State CS-26-20355, no adjuster yet. I want the three LORs, plus notices to Bluewater and Peach State, on my desk for signature today. Preferred delivery methods are in Case Notes.",
+   "body": "Claims are open: Keystone BI KM-26-440871 (Dana Whitfield) and PD (Leah Moran, who accepted PD liability this morning), Harbor Point HP-26-7741 (Marcus Bell, Host UM, PIP and MedPay), Cardinal State CS-26-20355, no adjuster yet. I want the three LORs, plus notices to Bluewater and Peach State, on my desk for signature today. Preferred delivery methods are in Case Notes.",
    "attachments": [
     "RS01",
     "RS07"
@@ -157,7 +157,7 @@ window.CM_CF_SIM = {
    "from": "CMS",
    "to": "Case Manager",
    "subject": "Past due: Keystone BI follow-up (03/05/2026) · Coverage Stack flags",
-   "body": "LSH-2026-MVA-770412. Follow-up “Keystone BI: Declaration Page” was due 03/05/2026; nothing logged. The Coverage Stack total reads $45,000; the Case Plan target is $40,000. New in Documents since the matrix was last edited: Harbor Point letter 03/02/2026, Cardinal State assignment 03/03/2026 and Coverage Letter 03/09/2026.",
+   "body": "LSH-2026-MVA-770412. Follow-up “Keystone BI: Declaration Page” was due 03/05/2026; nothing logged. The Coverage Stack total reads $50,000; the Case Plan target is $40,000. New in Documents since the matrix was last edited: Harbor Point letter 03/02/2026, Cardinal State assignment 03/03/2026 and Coverage Letter 03/09/2026.",
    "attachments": [
     "RS28",
     "RS29",
@@ -951,7 +951,7 @@ window.CM_CF_SIM = {
    "who": "Tammy Greer",
    "role": "provider",
    "persona": "Brisk, friendly office manager at a busy clinic. Wants the LOP squared away before the first visit; pushes on insurance, visit cadence and whether the firm guarantees payment.",
-   "context": "02/23/2026, afternoon. Riverton Spine & Rehab (chiropractic and PT, out of network for Peach State) has John Doe booked for his evaluation 02/24/2026. The LOP signed today by John Doe and Atty. Thorne was emailed with the HIPAA authorization. Harbor Point PIP (claim HP-26-7741) paid his urgent-care visit. Tammy asks why not bill Peach State or PIP, how often he will come, where records and statements go, and whether the firm guarantees full payment and when. Answered with facts, she confirms the LOP and the appointment.",
+   "context": "02/23/2026, afternoon. Riverton Spine & Rehab (chiropractic and PT, out of network for Peach State) has John Doe booked for his evaluation 02/24/2026. The LOP signed today by John Doe and Atty. Thorne was emailed with the HIPAA authorization. Harbor Point's PIP (HP-26-7741) will go to his ER and ambulance bills. Tammy asks why not bill Peach State or PIP, how often he will come, where records and statements go, and whether the firm guarantees full payment and when. Answered with facts, she confirms the LOP and the appointment.",
    "opening": "Riverton Spine and Rehab, this is Tammy. I've got the LOP you emailed. Before I put Mr. Doe on tomorrow's schedule, I have a few questions about how we're getting paid.",
    "goals": [
     "Introduce John Doe's case; confirm LOP acceptance and the 02/24/2026 evaluation",
@@ -1035,10 +1035,10 @@ window.CM_CF_SIM = {
    "who": "Atty. Elijah Thorne",
    "role": "attorney",
    "persona": "Exacting senior trial lawyer, short on time. Plays the adjuster to test you. Wants facts, not adjectives; bristles at any valuation from staff.",
-   "context": "07/08/2026, before any demand. MMI 06/12; Specials $16,401.40 ($14,817.40 medical after the 05/04 duplicate came out, plus $1,584.00 wages); liens $1,860.00 Peach State and $6,105.00 LOP; targets $10,000 BI, $20,000 Host UM, $10,000 Relative UM. He pushes: low-speed impact, the 14-day gap, the “degenerative” MRI, and asks what the case is worth. Briefed well, he decides: a time-limited BI demand served 07/20/2026, the gap addressed up front, no UM demand before a documented BI tender, billed-vs-paid his call.",
+   "context": "07/08/2026, before any demand. MMI 06/12; Specials $42,984.00 ($41,400.00 medical after the 05/04 duplicate came out, plus $1,584.00 wages); liens $1,860.00 Peach State and $6,105.00 LOP; targets $10,000 BI, $20,000 Host UM, $10,000 Relative UM. He pushes: low-speed impact, the 14-day gap, the “degenerative” MRI, and asks what the case is worth. Briefed well, he decides: a time-limited BI demand served 07/20/2026, the gap addressed up front, no UM demand before a documented BI tender, billed-vs-paid his call.",
    "opening": "I've got twenty minutes. Bottom line first. Then tell me why Keystone shouldn't call this a low-speed bump with a guy who waited two weeks to see a doctor.",
    "goals": [
-    "Lead with the bottom line: MMI, $16,401.40 Specials, $10,000 BI limit",
+    "Lead with the bottom line: MMI, $42,984.00 Specials, $10,000 BI limit",
     "Meet each challenge with dated documents, not adjectives",
     "Get his decisions: demand, the gap, UM consents, billed-vs-paid",
     "Read back each decision; task it with an owner and date"
@@ -1133,7 +1133,7 @@ window.CM_CF_SIM = {
    "who": "Atty. Elijah Thorne",
    "role": "attorney",
    "persona": "Lead counsel, sharp and short on time; wants the chronology cold; will test whether the Case Manager tries to recommend suit.",
-   "context": "09/08/2026, Track B. Keystone offered $3,500 on 08/05 and called it “final” 08/12; the demand lapsed 08/21; follow-ups 08/24 and 08/31 and the 09/02 supervisor escalation went unanswered through 09/04. Unexhausted BI freezes $20,000 Host UM and $10,000 Relative UM. Specials $16,401.40. SOL 02/06/2028 (Sunday); hard date 02/04/2028; cutoff 11/05/2027. Thorne asks “So, do we sue?” and “What's Smith worth above his limits?” He wants facts and questions, not advice.",
+   "context": "09/08/2026, Track B. Keystone offered $3,500 on 08/05 and called it “final” 08/12; the demand lapsed 08/21; follow-ups 08/24 and 08/31 and the 09/02 supervisor escalation went unanswered through 09/04. Unexhausted BI freezes $20,000 Host UM and $10,000 Relative UM. Specials $42,984.00. SOL 02/06/2028 (Sunday); hard date 02/04/2028; cutoff 11/05/2027. Thorne asks “So, do we sue?” and “What's Smith worth above his limits?” He wants facts and questions, not advice.",
    "opening": "Okay, I've got ten minutes. Walk me through Keystone from the demand to today, and then tell me: do we file?",
    "goals": [
     "Give the dated chronology, 07/20 to 09/04, each event with its proof",
@@ -1506,7 +1506,7 @@ window.CM_CF_SIM = {
      "channel": "alert",
      "from": "CMS",
      "subject": "Binder audit: Riverton Spine & Rehab still at $6,290.00",
-     "body": "Mediation Binder Section 4 still carries Riverton Spine & Rehab at $6,290.00, the 05/04/2026 duplicate included: medical $15,002.40 against the audited $14,817.40. The binder is due 03/11/2027, and Keystone already calls the ledger unverified."
+     "body": "Mediation Binder Section 4 still carries Riverton Spine & Rehab at $6,290.00, the 05/04/2026 duplicate included: medical $41,585.00 against the audited $41,400.00. The binder is due 03/11/2027, and Keystone already calls the ledger unverified."
     }
    }
   },
@@ -1521,7 +1521,7 @@ window.CM_CF_SIM = {
      "channel": "alert",
      "from": "CMS",
      "subject": "Exchange set audit: Lien Sheet overstated",
-     "body": "The attorney's-set Lien Sheet still lists Harbor Point PIP $5,000.00 as a lien: $12,965.00. Liens actually owed: $7,965.00. A $5,000.00 overstatement sits nine days before the 06/02/2027 exchange."
+     "body": "The attorney's-set Lien Sheet still lists Harbor Point PIP $10,000.00 as a lien: $17,965.00. Liens actually owed: $7,965.00. A $10,000.00 overstatement sits nine days before the 06/02/2027 exchange."
     }
    }
   },

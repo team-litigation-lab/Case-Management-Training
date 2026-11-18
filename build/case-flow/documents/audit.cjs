@@ -35,7 +35,7 @@ const IDS = [
   [/HP-\d\d-\d{4}\b/g, "HP-26-7741"],
   [/CS-\d\d-\d{5}\b/g, "CS-26-20355"],
   [/KMI-PA-\d+/g, "KMI-PA-7731045"], [/HPA-\d+/g, "HPA-4402917"], [/CSM-AU-\d+/g, "CSM-AU-5580213"], [/BWA-\d+-\d+/g, "BWA-209-66184"],
-  [/PSH-\d+/g, "PSH-55017742"], [/GRP-\d+/g, "GRP-41208"], [/\d\d-CV-\d+/g, "26-CV-04417"], [/RF-26-\d{4}-\d+/g, "RF-26-0206-114"],
+  [/PSH-\d+/g, "PSH-55017742"], [/GRP-\d+/g, "GRP-41208"], [/\d\d-CV-\d+/g, "26-CV-04417"], [/RF-26-\d{4}-\d+/g, ["RF-26-0206-114", "RF-26-0220-031"]],
   [/LSH-2026-MVA-\d+/g, "LSH-2026-MVA-770412"],
 ];
 for (const [id] of Object.entries(text)) for (const [re, ok, plant] of IDS) {
@@ -74,19 +74,21 @@ const NEED = {
   RS19: [/06\/19\/2026|June 19, 2026/, /more likely than not/i],
   RS20: [/2021/, /low.back/i],
   RS21: [/\$312\.40/, /\$38\.60/],
-  RS22: [/\$685\.00/],
+  RS22: [/\$685\.00/, /MedPay/],
+  RS97: [/Sarah Spine/, /Emergency Medical Condition/, /02\/20\/2026/, /02\/21\/2026/],
+  RS98: [/\$24,400\.00/, /\$2,182\.60/, /\$8,850\.00/, /\$1,150\.00/, /\$16,582\.60|\$15,550\.00/],
   RS23: [/\$6,290\.00/],
   RS24: [/\$1,920\.00/],
   RS25: [/\$2,395\.00/],
   RS26: [/\$3,400\.00/, /\$1,860\.00/, /\$1,540\.00/],
   RS27: [/\$10,000/, /\$25,000/, /03\/20\/2026|March 20, 2026/],
-  RS28: [/\$20,000/, /\$5,000/, /03\/02\/2026|March 2, 2026/, /arbitrat/i],
+  RS28: [/\$20,000/, /\$10,000/, /Medical Payments/, /Emergency Medical Condition/, /03\/02\/2026|March 2, 2026/, /arbitrat/i],
   RS29: [/\$10,000/, /03\/09\/2026|March 9, 2026/, /Okafor/],
   RS30: [/03\/14\/2024|March 14, 2024/, /reject/i],
-  RS31: [/\$5,000\.00/, /06\/26\/2026/, /80%/, /\$1,267\.20/],
-  RS65: [/02\/17\/2026/, /02\/24\/2026/, /\$5,000\.00/, /passenger/i, /100%/, /80%/],
+  RS31: [/\$10,000\.00/, /03\/04\/2026/, /\$5,000\.00/, /06\/26\/2026/, /80%/, /\$1,267\.20/, /Sarah Spine/],
+  RS65: [/02\/17\/2026/, /02\/24\/2026/, /\$10,000\.00/, /passenger/i, /100%/, /80%/],
   RS32: [/03\/19\/2026|March 19, 2026/, /\$42\.00/],
-  RS33: [/\$16,410\.40/, /08\/19\/2026|August 19, 2026/, /full and final release of all claims/i],
+  RS33: [/\$42,894\.00/, /08\/19\/2026|August 19, 2026/, /full and final release of all claims/i],
   RS34: [/07\/22\/2026|July 22, 2026/],
   RS35: [/\$3,500/, /degenerative/i],
   RS36: [/08\/10\/2026|August 10, 2026/, /08\/12\/2026|August 12, 2026/],
@@ -139,7 +141,7 @@ const NEED = {
 };
 for (const [id, list] of Object.entries(NEED)) if (text[id] !== undefined) list.forEach(re => { if (!has(id, re)) fails.push(`${id}: missing ${re}`); });
 // plants that must appear ONLY where planted
-const ONLY = [[/\$16,410\.40/, ["RS33"]], [/all other persons, firms, corporations and insurers/i, ["RS37"]], [/neck and back/i, ["RS02"]], [/2021 Ford Escape/i, ["RS07"]]];
+const ONLY = [[/\$42,894\.00/, ["RS33"]], [/all other persons, firms, corporations and insurers/i, ["RS37"]], [/neck and back/i, ["RS02"]], [/2021 Ford Escape/i, ["RS07"]]];
 for (const [re, where] of ONLY) for (const id of Object.keys(text)) if (has(id, re) && !where.includes(id)) fails.push(`${id}: carries ${re}, which is planted only in ${where}`);
 
 // John Doe's complaint pleads no property damage (the Civic is Margaret Doe's claim), in the draft or as filed
@@ -175,10 +177,12 @@ for (const [id, t] of Object.entries(text)) {
 }
 if (text.RS07 !== undefined && !has("RS07", /DOE, Margaret/)) fails.push("RS07: the Police Report should list Margaret Doe as the parked Civic's owner");
 
-// PIP: Riverton is an add-on PIP state and John Doe claims the $5,000 PIP on the Escape he rode in (Harbor Point). No document
-// may still call the first-party medical coverage MedPay / Medical Payments.
-for (const [id] of Object.entries(text)) { const m = T(id).match(/\bMed ?Pay\b|Medical Payments/); if (m) fails.push(`${id}: “${m[0]}”: this file's first-party medical coverage is Harbor Point PIP`); }
-if (text.RS28 !== undefined && !has("RS28", /Personal Injury Protection/i)) fails.push("RS28: Harbor Point's declarations should show Part B Personal Injury Protection ($5,000)");
+// PIP and MedPay: Riverton is an add-on PIP state and John Doe claims the $10,000 PIP on the Escape he rode in (Harbor Point),
+// its full medical benefit opened by Dr. Sarah Spine's EMC finding; the same policy's $5,000 MedPay (Part E) pays once PIP is
+// exhausted. No document may give John Doe's PIP the old $5,000 limit, or put MedPay anywhere but Harbor Point.
+for (const [id] of Object.entries(text)) { const m = T(id).match(/(?:PIP|Personal Injury Protection)[^.]{0,40}\$5,000(?:\.00)? each person/i); if (m) fails.push(`${id}: “${m[0]}”: Harbor Point's PIP is $10,000`); }
+for (const [id] of Object.entries(text)) { const m = T(id).match(/(Keystone|Cardinal State|Bluewater|Peach State)[^.]{0,30}\b(Med ?Pay|Medical Payments)\b/); if (m) fails.push(`${id}: “${m[0]}”: John Doe's MedPay is Harbor Point's`); }
+if (text.RS28 !== undefined && !has("RS28", /Personal Injury Protection/i)) fails.push("RS28: Harbor Point's declarations should show Part B Personal Injury Protection ($10,000)");
 
 console.log(`Audited ${Object.keys(text).length} of ${DOCS.length} documents.`);
 warn.forEach(w => console.log("warn: " + w));

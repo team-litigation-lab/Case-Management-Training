@@ -74,7 +74,7 @@ A reducibility ladder fills the left two-thirds: horizontal bars stacked from MO
 
 1. Statutory liens (Medicare, Medicaid, a statutory hospital lien, workers' comp) arise by law and bend least. Contractual claims (a plan's reimbursement clause, an LOP) rest on an agreement.
 2. Inventory every claimant, absent ones included. Two liens are asserted: Peach State and Riverton Spine & Rehab. Record each “none” with its source: Medicare (the Day 1 SSDI/BCRC check), Medicaid (verified separately: no state-agency interest), hospital (EMS transport declined), workers' comp, prior attorney.
-3. Not every payer is a lienholder. Harbor Point's PIP has no reimbursement right (03/02/2026); Crescent Pain & Spine took Peach State's contract rate and cannot balance-bill John Doe.
+3. Not every payer is a lienholder. Harbor Point's PIP and MedPay have no reimbursement right (03/02/2026); Crescent Pain & Spine took Peach State's contract rate and cannot balance-bill John Doe.
 4. Funding decides the law. A self-funded ERISA plan answers to federal law and its own terms and is very hard to reduce; a fully insured plan is generally subject to state insurance law. Peach State is fully insured: what follows is Atty. Thorne's call.
 5. Common fund: a lienholder repaid from a fund the firm's work and advanced costs created shares the cost of recovery. Atty. Thorne asked for the fee share, one-third: $1,860.00 – $620.00 = $1,240.00 (fee and costs would be $1,860.00 × $13,820.08 ÷ $40,000.00 = $642.63).
 6. That work was real: the carriers used the 14-Day Gap to call the injury unrelated; the MRI and Dr. Reyes's Causation Letter answered it. Peach State did none of it.
@@ -117,7 +117,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 3) and that day
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Classification | Each claimant statutory, contractual or not a lien, and ranked by reducibility |
-| 🤖 AI | **15%** | Inventory of absences | Medicare, Medicaid (sourced separately), hospital, workers' comp, prior attorney and PIP each recorded with a source |
+| 🤖 AI | **15%** | Inventory of absences | Medicare, Medicaid (sourced separately), hospital, workers' comp, prior attorney, PIP and MedPay each recorded with a source |
 | 🤖 AI | **15%** | Doctrine accuracy | Common fund, made whole, comparative fault and quantum meruit each stated correctly |
 | 🤖 AI | **10%** | Common-fund math | $1,860.00 – $620.00 = $1,240.00 |
 | 🧑‍🏫 Trainer | **20%** | Governing-law judgment | Sees that the plan's funding status decides the law, and leaves the call to Atty. Thorne |
@@ -225,7 +225,7 @@ A wide two-tab spreadsheet card fills the slide, cream with a navy header bar ca
 
 1. One Net Sheet, two tabs. The Recovery Ledger carries the money in and every deduction; the Lien Tracker proves each lien figure the ledger uses. Neither is final until the two tie out.
 2. Keep the streams apart. Stream 1, third-party BI: Keystone, $10,000.00. Stream 2, first-party UM: Harbor Point $20,000.00 + Cardinal State (resident relative) $10,000.00 = $30,000.00. Stream 2 opened only because BI was exhausted first.
-3. Show where every dollar came from: carriers audit settlements, and a payment counted twice is double-counting on the ledger. Harbor Point's PIP already paid $5,000.00 of the bills: a payment source on the Lien Tracker, never recovery.
+3. Show where every dollar came from: carriers audit settlements, and a payment counted twice is double-counting on the ledger. Harbor Point's PIP and MedPay already paid $15,000.00 of the bills: payment sources on the Lien Tracker, never recovery.
 4. Price the fee per stream. The retainer sets 33⅓% pre-suit: $3,333.33 on BI + $10,000.00 on UM = $13,333.33. Separate lines matter: fee terms can differ between BI and UM, and the 40% tier applies only once suit is filed.
 5. Every cost needs a receipt: Police Report $25.00, records and billing $214.75, certified mail $72.00, MRI disc $25.00, postage and copies $150.00 = $486.75. Charge it once, as one line or split pro rata; this file splits 25% / 75%: $121.69 / $365.06.
 6. Reduce liens globally against the combined $40,000.00, not provider by provider per policy, then allocate pro rata: Peach State $310.00 / $930.00; Riverton Spine & Rehab $1,145.00 / $3,435.00.
@@ -243,7 +243,7 @@ A wide two-tab spreadsheet card fills the slide, cream with a navy header bar ca
 |---|---|
 | Gross $40,000.00: Stream 1 BI $10,000.00 (Keystone) · Stream 2 UM $30,000.00 (Harbor Point + Cardinal State). | Peach State: asserted $1,860.00 → reduced $1,240.00 (10/09). |
 | Fee 33⅓%: $3,333.33 + $10,000.00 = $13,333.33. | Riverton Spine & Rehab: $6,290.00 → audited $6,105.00 → reduced $4,580.00 (10/12). |
-| Costs, receipted: $121.69 + $365.06 = $486.75. | Harbor Point PIP $5,000.00: no reimbursement right (03/02/2026) → $0.00. |
+| Costs, receipted: $121.69 + $365.06 = $486.75. | Harbor Point PIP $10,000.00 and MedPay $5,000.00: no reimbursement right (03/02/2026) → $0.00. |
 | Liens from the Lien Tracker, 25% / 75%: $1,455.00 + $4,365.00 = $5,820.00. | Crescent Pain & Spine: balance written off, no balance-billing → $0.00. |
 | Net to John Doe: $5,089.98 + $15,269.94 = $20,359.92. | Payoff Letter status on every line. |
 
@@ -266,11 +266,11 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **15%** | Stream separation | BI $10,000.00 and UM $30,000.00 on separate streams; PIP kept out of the gross |
+| 🤖 AI | **15%** | Stream separation | BI $10,000.00 and UM $30,000.00 on separate streams; PIP and MedPay kept out of the gross |
 | 🤖 AI | **15%** | Fee and cost lines | $3,333.33 + $10,000.00 fee; five receipted costs = $486.75, split $121.69 / $365.06, charged once |
 | 🤖 AI | **15%** | Lien Tracker fields | Asserted, audited, reduced and payoff status for each lien; Balance Owed formula applied |
 | 🤖 AI | **15%** | Aggregate math | $20,359.92 reached both down the streams and across the total |
-| 🧑‍🏫 Trainer | **15%** | Double-counting reasoning | Explains why PIP and written-off balances never appear as payables |
+| 🧑‍🏫 Trainer | **15%** | Double-counting reasoning | Explains why PIP, MedPay and written-off balances never appear as payables |
 | 🧑‍🏫 Trainer | **10%** | Future-care judgment | Recognises the full-and-final consequence and flags it rather than resolving it |
 | 🧑‍🏫 Trainer | **15%** | UPL boundary | Explains the arithmetic to John Doe; leaves sufficiency, enforceability and advice to Atty. Thorne |
 
@@ -279,7 +279,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 #### 5 · Speaker Notes
 
 - Open with the why's counterfactual: write $6,179.92 against $7,965.00 on the board and ask what John Doe would have taken home with the BI stream alone. Nothing. Then show $20,359.92.
-- Ask the room: “Why does Harbor Point's PIP appear on the Lien Tracker but not in the gross?” The answer is double-counting on the ledger: it already paid $5,000.00 of the bills, and it has no reimbursement right on this file.
+- Ask the room: “Why do Harbor Point's PIP and MedPay appear on the Lien Tracker but not in the gross?” The answer is double-counting on the ledger: they already paid $15,000.00 of the bills, and Harbor Point has no reimbursement right on this file.
 - Watch the rounding. 25% of $486.75 is 121.6875, so BI carries $121.69 and UM takes the remainder, $365.06. Compute the second stream as the remainder and the total never drifts by a cent.
 - Legal nuance: Peach State is a fully insured plan, so its reduction turned on state law, not ERISA preemption. That was Atty. Thorne's call in the lien negotiation; the CM records the basis and never chooses it.
 
@@ -379,7 +379,7 @@ A tall archive box at the right edge of the slide, navy, with a faded orange ARC
 3. Close the trail with a zero-balance report: approved budget (the signed Settlement Statement, $40,000.00) – total disbursed ($40,000.00) = $0.00. It is proved three ways, the bank statement, the trust journal and John Doe's client ledger agreeing, and only once all five checks have cleared; an uncashed check is followed up and its funds stay in trust.
 4. The trail must also show the controls: a second person reviewed every disbursement against its Net Sheet line, and each payee's payment details were verified by phone to a number already on file. A changed or unverified wiring instruction is a red flag: the payment stops until it is verified, and Atty. Thorne is told.
 5. Set 2, proof of delivery: each lienholder's signed satisfaction (paid in full, no future claim against John Doe or the claim), from Peach State and Riverton Spine & Rehab, and John Doe's signed acknowledgment of receipt. A certificate of completion belongs only to a repair paid from trust: the Civic's $9,255.00 repair was paid by Keystone PD directly to the shop.
-6. Set 3, compliance and identity: John Doe's signed duplication-of-benefits (payer-disclosure) statement naming every payer (Harbor Point PIP $5,000.00, Peach State $1,860.00, his own $312.40), so every reimbursement claim is known; and a current W-9 for any 1099 reporting, never the intake copy.
+6. Set 3, compliance and identity: John Doe's signed duplication-of-benefits (payer-disclosure) statement naming every payer (Harbor Point PIP $10,000.00 and MedPay $5,000.00, Peach State $1,860.00, his own $312.40), so every reimbursement claim is known; and a current W-9 for any 1099 reporting, never the intake copy.
 7. Set 4, the internal closing memo (10/30/2026): one page a stranger understands in two minutes. Case summary, how it started versus how it ended; discrepancy notes for every figure that moved (Riverton Spine & Rehab $6,290.00 → $6,105.00 → $4,580.00; Peach State $1,860.00 → $1,240.00); exception reports for any policy waiver, or “none granted”. Note that Margaret Doe's Property Damage claim runs separately and stays open.
 8. The closing letter goes to John Doe before the file is archived: drafted by you, signed by Atty. Thorne. It states what was received, what was paid and to whom, the satisfactions received, his net and how long the file is kept. It reports facts; anything about what John owes or should do is Atty. Thorne's wording.
 9. Retention: tag every document by type and docket its disposition date. The deck's standard schedule: financial records 7 years, then digital deletion; eligibility documents 3–5 years, then archival or off-site storage; correspondence 3 years, then purged from the active server. The firm's schedule and any stricter rule control: this training file keeps the closed file 7 years from closing.
@@ -394,7 +394,7 @@ A tall archive box at the right edge of the slide, navy, with a faded orange ARC
 1. **Ledger at $0.00** — 10/22/2026: five checks signed by Atty. Thorne; $40,000.00 in, $40,000.00 out.
 2. **Money trail** — Three deposits and five checks, each with its bank confirmation number; zero balance proved by bank statement, trust journal and client ledger once all five clear.
 3. **Proof of delivery** — Peach State and Riverton Spine & Rehab satisfactions; John Doe's signed receipt. No completion certificate: no repair was paid from trust.
-4. **Compliance and identity** — John Doe's signed payer disclosure (PIP $5,000.00, Peach State $1,860.00, his own $312.40); a current W-9.
+4. **Compliance and identity** — John Doe's signed payer disclosure (PIP $10,000.00, MedPay $5,000.00, Peach State $1,860.00, his own $312.40); a current W-9.
 5. **Closing letter** — Drafted by the CM, signed by Atty. Thorne: what was paid, to whom, and the satisfactions received.
 6. **Closing memo** — 10/30/2026: how it started versus how it ended, discrepancy notes, exceptions; the Property Damage claim noted as open.
 7. **Retention, then archive** — Every document tagged by type; disposition review docketed 7 years from closing.
@@ -447,7 +447,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 #### 1 · Visual Layout Description
 
-Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns ASSERTED · AUDITED · REDUCED · PAYOFF LETTER. The Riverton Spine & Rehab row reads $6,290.00 → $6,105.00 → $4,580.00, with an orange strike through the 05/04/2026 duplicate; Peach State reads $1,860.00 → $1,860.00 → $1,240.00. Beneath, three grey zero-balance rows (PIP, Crescent, the PIP-paid providers), each with a NOT PAYABLE chip. Right 40%: a navy stream card with two stacked bars, BI 25% and UM 75%, feeding a large orange NET $20,359.92. A red callout at the foot: “No Payoff Letter, no payment.”
+Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns ASSERTED · AUDITED · REDUCED · PAYOFF LETTER. The Riverton Spine & Rehab row reads $6,290.00 → $6,105.00 → $4,580.00, with an orange strike through the 05/04/2026 duplicate; Peach State reads $1,860.00 → $1,860.00 → $1,240.00. Beneath, three grey zero-balance rows (PIP and MedPay, Crescent, the providers PIP and MedPay paid), each with a NOT PAYABLE chip. Right 40%: a navy stream card with two stacked bars, BI 25% and UM 75%, feeding a large orange NET $20,359.92. A red callout at the foot: “No Payoff Letter, no payment.”
 
 #### 2 · Slide Body — the scenario and the task
 
@@ -469,7 +469,7 @@ Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns A
 - [ ] Net both ways: $5,089.98 + $15,269.94 = $20,359.92, and $40,000.00 – $13,333.33 – $486.75 – $1,240.00 – $4,580.00 = $20,359.92
 - [ ] Peach State row: asserted $1,860.00, audited $1,860.00 (matches its payment for Crescent's 05/15/2026 injection), reduced $1,240.00 (one-third procurement-cost reduction, $620.00), accepted 10/09/2026
 - [ ] Riverton Spine & Rehab row: billed $6,290.00, audited $6,105.00 (duplicate 05/04/2026 line, $185.00), reduced $4,580.00, accepted 10/12/2026
-- [ ] Zero-balance lines kept off the payables with their source: PIP $5,000.00 (no reimbursement right, 03/02/2026); Crescent $3,400.00 – $1,860.00 = $1,540.00 written off; Riverton Urgent Care, Lakeside Orthopedics and Summit Imaging paid in full by PIP
+- [ ] Zero-balance lines kept off the payables with their source: PIP $10,000.00 and MedPay $5,000.00 (no reimbursement right, 03/02/2026); Crescent $3,400.00 – $1,860.00 = $1,540.00 written off; Riverton General Hospital and Riverton Fire EMS paid by PIP at the fee schedule ($16,582.60 written off, no balance billing); Riverton Urgent Care, Lakeside Orthopedics and Summit Imaging paid in full by MedPay
 - [ ] Payoff status recorded per lien: written figure and date logged, satisfaction of lien marked “to obtain at payment”; no line final on a phone call
 - [ ] Future medical ($3,400–$6,800 in possible repeat ESIs) flagged to Atty. Thorne before John Doe signs: the settlement is full and final, and no carrier pays more
 - [ ] Ties out: trust deposits $40,000.00 = Recovery Ledger gross; liens audited $1,860.00 + $6,105.00 = $7,965.00, paid $1,240.00 + $4,580.00 = $5,820.00 ($2,145.00 negotiated, plus the $185.00 duplicate removed at audit)
@@ -480,7 +480,7 @@ Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns A
 - Record zero-balance lines with their source document, so no one later pays what isn't owed.
 - Compute the UM share as the remainder of each split so the streams add back to the cent.
 - ⚠️ Pitfall: marking a lien final from an email or a phone call instead of a written payoff figure.
-- ⚠️ Pitfall: adding PIP's $5,000.00 or Crescent's write-off to the payables and paying John Doe's money away.
+- ⚠️ Pitfall: adding PIP's $10,000.00, MedPay's $5,000.00 or a write-off to the payables and paying John Doe's money away.
 
 #### 3 · Knowledge Check & CM Summary
 
@@ -493,7 +493,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 | 🤖 AI | **20%** | Stream arithmetic | Fee, costs and liens split correctly; $5,089.98 + $15,269.94 = $20,359.92 |
 | 🤖 AI | **15%** | Lien Tracker accuracy | Asserted, audited and reduced figures and dates for Peach State and Riverton Spine & Rehab |
 | 🤖 AI | **10%** | Cost verification | Five receipted costs = $486.75, charged once |
-| 🤖 AI | **15%** | Zero-balance discipline | PIP, Crescent and the PIP-paid providers kept off the payables with sources |
+| 🤖 AI | **15%** | Zero-balance discipline | PIP, MedPay, the write-offs and the providers they paid kept off the payables with sources |
 | 🧑‍🏫 Trainer | **15%** | Judgment on payables | Can explain why each zero-balance line is not owed, citing the document |
 | 🧑‍🏫 Trainer | **10%** | Future-care flag | Flags the full-and-final consequence to Atty. Thorne rather than raising it with John Doe |
 | 🧑‍🏫 Trainer | **15%** | UPL boundary | No view offered to John Doe on sufficiency, enforceability or acceptance |
@@ -502,7 +502,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 #### 5 · Speaker Notes
 
-- Start with the zero-balance rows. Ask why PIP's $5,000.00 isn't paid back and why Crescent's write-off isn't owed. A trainee who adds either to the payables has paid John Doe's money away.
+- Start with the zero-balance rows. Ask why PIP's $10,000.00 and MedPay's $5,000.00 aren't paid back and why the write-offs aren't owed. A trainee who adds either to the payables has paid John Doe's money away.
 - Ask the room: “If Riverton Spine & Rehab had accepted $4,580.00 only on a phone call, could the line be marked final?” No: no Payoff Letter, no payment.
 - Grade the arithmetic both ways, down each stream and across the total: $13,333.33 + $486.75 + $1,240.00 + $4,580.00 = $19,640.08, and $40,000.00 – $19,640.08 = $20,359.92. A one-cent drift means a stream was rounded on its own.
 - The future-medical flag is the judgment call. Up to $6,800 in possible repeat injections lies ahead, and the settlement is full and final; the CM flags it, and Atty. Thorne has that conversation with John Doe.
@@ -538,7 +538,7 @@ A two-panel lab bench. Left panel: a white Net Sheet Lien Tracker card with a na
 1. **Match** — Plan ledger to the treatment record: one charge, 05/15/2026, $1,860.00 paid.
 2. **Classify** — Contractual reimbursement; fully insured plan; governing law to Atty. Thorne.
 3. **Calculate** — $1,860.00 × ⅓ = $620.00 → $1,240.00.
-4. **Clear** — Medicare, Medicaid, hospital, workers' comp, PIP: none; prior attorney: none known. Each sourced.
+4. **Clear** — Medicare, Medicaid, hospital, workers' comp, PIP, MedPay: none; prior attorney: none known. Each sourced.
 5. **Hold, then confirm** — Sent on his approval; final on the plan's written acceptance.
 
 **Verification checkpoints**
@@ -551,8 +551,8 @@ A two-panel lab bench. Left panel: a white Net Sheet Lien Tracker card with a na
 - [ ] Made whole flagged for Atty. Thorne; comparative fault recorded as not applicable (no fault reduction on Track A)
 - [ ] Request held as a draft in CMS → Doc Hub → Others until Atty. Thorne's written approval is logged
 - [ ] Medicare recorded as none, citing the Day 1 check (34, not on SSDI), so no MSPRP final demand to reconcile; Medicaid recorded as none, verified separately with John Doe (the BCRC answers for Medicare only)
-- [ ] Hospital and workers' comp each “none — verified” with date and source; prior attorney “none known to John Doe” with date and source; PIP recorded as not a lien: Harbor Point asserted no reimbursement right against John Doe (03/02/2026); whether it reserves PIP subrogation against Robert Smith asked in writing and routed to Atty. Thorne, no outcome recorded
-- [ ] PIP-paid providers (Riverton Urgent Care, Lakeside Orthopedics, Summit Imaging) at a zero balance; Summit's 03/11/2026 LOP request was declined, so it holds no lien
+- [ ] Hospital and workers' comp each “none — verified” with date and source; prior attorney “none known to John Doe” with date and source; PIP and MedPay recorded as not liens: Harbor Point asserted no reimbursement right against John Doe (03/02/2026); whether it reserves PIP subrogation against Robert Smith asked in writing and routed to Atty. Thorne, no outcome recorded
+- [ ] PIP- and MedPay-paid providers (Riverton General Hospital, Riverton Fire EMS, Riverton Urgent Care, Lakeside Orthopedics, Summit Imaging) at a zero balance, the emergency bills' fee-schedule write-offs not owed; Summit's 03/11/2026 LOP request was declined, so it holds no lien
 - [ ] Acceptance logged 10/09/2026 at $1,240.00 only with Peach State's written confirmation and Atty. Thorne's approval attached
 
 **Best practices & pitfalls**
@@ -571,7 +571,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 3) and that day
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Reduction math | $1,860.00 × ⅓ = $620.00; reduced to $1,240.00 |
-| 🤖 AI | **15%** | Clearance of absent claimants | Medicare, Medicaid (sourced separately), hospital, workers' comp, prior attorney, PIP and the PIP-paid providers each recorded with a source |
+| 🤖 AI | **15%** | Clearance of absent claimants | Medicare, Medicaid (sourced separately), hospital, workers' comp, prior attorney, PIP, MedPay and the providers they paid each recorded with a source |
 | 🤖 AI | **15%** | Classification and audit | Contractual and fully insured; one accident-related charge matched; the $1,540.00 write-off not owed |
 | 🤖 AI | **10%** | Dates and confirmation | Acceptance dated 10/09/2026 with the written confirmation attached |
 | 🧑‍🏫 Trainer | **20%** | Doctrine judgment | Frames common fund and made whole for Atty. Thorne without choosing between them |
@@ -748,7 +748,7 @@ The LSH Net Sheet across the left half, headed STREAM 1 · BI · KEYSTONE KM-26-
 **Verification checkpoints**
 
 - [ ] Status on the sheet: Keystone tender 08/12/2026 (Wed), inside the 08/21/2026 window; marked tendered, not received; no release signed; nothing posted to the Trust Ledger
-- [ ] Stream 1 gross $10,000.00 (Keystone, KM-26-440871); Stream 2 left open with no recovery entered (Host UM $20,000 and Relative UM $10,000 not yet demanded); PIP's $5,000.00 and Keystone's property-damage payments kept off
+- [ ] Stream 1 gross $10,000.00 (Keystone, KM-26-440871); Stream 2 left open with no recovery entered (Host UM $20,000 and Relative UM $10,000 not yet demanded); PIP's $10,000.00, MedPay's $5,000.00 and Keystone's property-damage payments kept off
 - [ ] Fee at the pre-suit 33⅓% (Contingency Fee Agreement): one-third of $10,000.00 = $3,333.33 (typing 33.33% gives $3,333.00)
 - [ ] Costs receipted: $25.00 + $214.75 + $72.00 + $25.00 + $150.00 = $486.75; on the 25% allocation $121.69 to Stream 1, the $365.06 remainder held for Stream 2, charged once
 - [ ] Liens as they stand on 08/12/2026: Peach State $1,860.00 asserted (its payment for Crescent's 05/15/2026 injection); Riverton Spine & Rehab $6,105.00 audited ($6,290.00 billed less the $185.00 duplicate of 05/04/2026); total $7,965.00; reduction column blank, “not yet requested”
@@ -824,7 +824,7 @@ The LSH Net Sheet's Recovery Ledger on a white card, with the Stream 2 — UM co
 - [ ] Peach State at its asserted $1,860.00: Stream 1 $465.00, Stream 2 $1,860.00 – $465.00 = $1,395.00; marked projection: Reduction Request held for Atty. Thorne's approval, nothing agreed
 - [ ] Riverton Spine & Rehab at the audited $6,105.00, not the billed $6,290.00 (the $185.00 duplicate of 05/04/2026): Stream 1 $1,526.25, Stream 2 $6,105.00 – $1,526.25 = $4,578.75; marked projection: no reduction requested or agreed
 - [ ] Projected Stream 2 net: $30,000.00 – $10,000.00 – $365.06 – $1,395.00 – $4,578.75 = $13,661.19, labelled “projection, liens unreduced”
-- [ ] Harbor Point's $5,000.00 PIP shown at $0.00 on Stream 2 with its source: add-on (excess) UM, no PIP non-duplication reduction and no reimbursement right (Harbor Point's 03/02/2026 letter), so the $20,000.00 is not reduced
+- [ ] Harbor Point's $10,000.00 PIP and $5,000.00 MedPay shown at $0.00 on Stream 2 with their source: add-on (excess) UM, no PIP non-duplication reduction and no reimbursement right (Harbor Point's 03/02/2026 letter), so the $20,000.00 is not reduced
 - [ ] Tied to Stream 1: Stream 1 projects $10,000.00 – $3,333.33 – $121.69 – $465.00 – $1,526.25 = $4,553.73, and $13,661.19 + $4,553.73 = $18,214.92 = $40,000.00 – $13,333.33 – $486.75 – $7,965.00
 - [ ] Tied to the Trust Ledger: $30,000.00 on deposit (Keystone $10,000.00 since 09/04, Harbor Point $20,000.00 since 10/05/2026); Cardinal State's $10,000.00 shown as receivable, not received; nothing disbursed from either stream
 - [ ] What moves the projection stated on the sheet: every $1.00 cut from a lien adds $0.75 to Stream 2 and $0.25 to Stream 1; no reduced figure is entered before a written acceptance
@@ -849,7 +849,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Stream 2 arithmetic | $30,000.00 gross, $10,000.00 fee, $365.06 costs, $1,395.00 and $4,578.75 liens, $13,661.19 projected net, each shown |
-| 🤖 AI | **15%** | Lien basis on 10/06/2026 | Peach State at $1,860.00 asserted, Riverton Spine & Rehab at $6,105.00 audited; no reduced figure entered; PIP at $0.00 with its source |
+| 🤖 AI | **15%** | Lien basis on 10/06/2026 | Peach State at $1,860.00 asserted, Riverton Spine & Rehab at $6,105.00 audited; no reduced figure entered; PIP and MedPay at $0.00 with their source |
 | 🤖 AI | **10%** | Projection marking | Every moving line tagged with what will change it; the fee the only firm deduction; Cardinal State shown as receivable |
 | 🤖 AI | **15%** | Tie-out | $13,661.19 + $4,553.73 = $18,214.92 across the file; $30,000.00 in trust agrees with the ledger |
 | 🧑‍🏫 Trainer | **20%** | Questions for Atty. Thorne | Fee tier, allocation, reduction authority and the client presentation asked as questions he can answer from the sheet |
@@ -860,7 +860,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 #### 5 · Speaker Notes
 
 - Put the tempting wrong answers on the board: $11,548.25 (all $486.75 of costs and $7,965.00 of liens charged to the UM stream), $13,522.44 (Riverton Spine & Rehab at its billed $6,290.00) and $15,269.94 (reductions assumed before anyone agreed to them). Only $13,661.19 is true on 10/06/2026.
-- Ask the room: “Harbor Point paid John Doe's PIP and his Host UM. Why isn't the $5,000.00 taken off the $20,000.00?” The answer is Harbor Point's own 03/02/2026 letter: add-on UM, no non-duplication reduction, no reimbursement right.
+- Ask the room: “Harbor Point paid John Doe's PIP, his MedPay and his Host UM. Why isn't the $15,000.00 taken off the $20,000.00?” The answer is Harbor Point's own 03/02/2026 letter: add-on UM, no non-duplication reduction, no reimbursement right.
 - For your debrief only: on 10/13/2026 (d3m4-a1) Stream 2 reaches $15,269.94. The move, $15,269.94 – $13,661.19 = $1,608.75, is 75% of the $2,145.00 negotiated off the liens ($620.00 + $1,525.00): exactly the $0.75-per-dollar rule on the sheet.
 - Stream 1's lines are the BI sheet's work; here they are used only to tie. Grade the client line hard: the CM routes the sheet to Atty. Thorne, and he decides when John Doe sees a projection and explains it.
 
@@ -1047,10 +1047,10 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
    08/19/2026 · **✓ 08/21/2026** · 08/22/2026 · 08/20/2026  
    *The window runs 30 days from her written acknowledgement of receipt: 07/22/2026 + 30 = 08/21/2026, a Friday. 08/19/2026 counts from the 07/20 send date (the wrong trigger), 08/22/2026 adds a calendar month, and 08/20/2026 counts the day of receipt as day one.*
 2. Which of these would let Keystone refuse the Time-Limited Demand safely?  
-   A window of 30 days from receipt · A release limited to Robert Smith and Keystone · **✓ A demand for $16,401.40, the full Specials** · Service by email to Dana Whitfield, with her written acknowledgement of receipt  
+   A window of 30 days from receipt · A release limited to Robert Smith and Keystone · **✓ A demand for $42,984.00, the full Specials** · Service by email to Dana Whitfield, with her written acknowledgement of receipt  
    *Keystone's BI limit is $10,000. A demand above the limit is one Keystone cannot accept within its policy, so refusing it generally sets nothing up (confirm the governing rule). The other three are what make the demand hold.*
 3. Why can John Doe's file still reach the full $20,000 Host UM limit after Keystone pays $10,000?  
-   **✓ Harbor Point confirmed in writing (03/02/2026) that its UM is add-on, so the BI payment does not reduce it** · UM limits are never reduced by a BI payment · PIP's $5,000 covers the BI offset · Cardinal State pays whatever Harbor Point deducts  
+   **✓ Harbor Point confirmed in writing (03/02/2026) that its UM is add-on, so the BI payment does not reduce it** · UM limits are never reduced by a BI payment · PIP's $10,000 covers the BI offset · Cardinal State pays whatever Harbor Point deducts  
    *Add-on UM is not reduced by the BI payment. Under an offset form the $10,000 BI would come off the $20,000 limit, leaving $10,000. Offset rules vary by state and policy, which is why the carrier's written confirmation is the source.*
 4. When must Harbor Point's and Cardinal State's consents to settle be in writing?  
    Only if a UM carrier asks for one · Before Keystone's check clears the trust account · Within 30 days after the BI release is signed · **✓ Before John Doe signs Keystone's release**  
@@ -1119,7 +1119,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 1. Keystone offered $3,500 on 08/05/2026. Run the math check: fee, costs, unreduced liens and John Doe's net. What does the result tell Atty. Thorne, and who tells John Doe?
 2. Dana Whitfield says the 14-Day Gap proves the crash didn't hurt John Doe and the MRI is degenerative. Answer both from the file, naming four documents and quoting the radiologist.
-3. Explain what the $5,000 add-on PIP, exhausted and non-subrogated, means for the valuation baseline, and what would change in a no-fault state.
+3. Explain what the $10,000 add-on PIP, exhausted in 48 hours and non-subrogated, means for the valuation baseline, and what would change in a no-fault state.
 
 **Best practices & pitfalls**
 
@@ -1162,8 +1162,8 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
    The Case Manager, because it is the full limit · **✓ John Doe, on his informed decision, conveyed through Atty. Thorne** · Atty. Thorne alone, without troubling the client · Harbor Point, as the primary UM carrier  
    *Settlement is the client's decision. Atty. Thorne advises him and conveys it; the Case Manager logs the decision and drafts the acceptance email for Atty. Thorne to approve.*
 5. Before the first call with Dana Whitfield, the battle map sets John Doe's net floor. With $7,965.00 in unreduced liens, $486.75 in costs and the one-third fee, what gross does he need just to reach $0.00 net?  
-   $8,451.75 · **✓ $12,677.63** · $10,000.00 · $16,401.40  
-   *Liens + costs = $7,965.00 + $486.75 = $8,451.75; × 1.5 for the one-third fee = $12,677.63 gross. That is above Keystone's $10,000 limit, which is why every UM layer and lien reduction matters. $8,451.75 forgets the fee; $16,401.40 is the Specials.*
+   $8,451.75 · **✓ $12,677.63** · $10,000.00 · $42,984.00  
+   *Liens + costs = $7,965.00 + $486.75 = $8,451.75; × 1.5 for the one-third fee = $12,677.63 gross. That is above Keystone's $10,000 limit, which is why every UM layer and lien reduction matters. $8,451.75 forgets the fee; $42,984.00 is the Specials.*
 6. Keystone tenders its $10,000 BI limits on 08/12/2026. Standing alone, after the one-third fee and $486.75 in costs, what does that money do against $7,965.00 of unreduced liens?  
    Leaves John Doe $6,666.67 to be paid out now · **✓ Leaves $6,179.92 against $7,965.00: shared pro rata, $1,443.15 and $4,736.77, John Doe nets $0.00** · Pays both liens in full and leaves John Doe $2,035.00 · Leaves $4,553.73 for John Doe as soon as the check arrives  
    *$10,000.00 – $3,333.33 – $486.75 = $6,179.92, a $1,785.08 shortfall against $7,965.00. Shared pro rata, Peach State takes $1,443.15 and Riverton Spine & Rehab $4,736.77. $4,553.73 is only a projection on Atty. Thorne's 25% allocation, and it assumes the UM layers are still to come.*
@@ -1226,7 +1226,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Classify each claim against John Doe's $40,000 (Peach State, Riverton Spine & Rehab, Harbor Point PIP, Medicare/Medicaid, a prior attorney) as statutory, contractual or none, and rank the liens by reducibility.
+1. Classify each claim against John Doe's $40,000 (Peach State, Riverton Spine & Rehab, Harbor Point PIP and MedPay, Medicare/Medicaid, a prior attorney) as statutory, contractual or none, and rank the liens by reducibility.
 2. Peach State is a fully insured group plan. Explain why that matters to reducing its $1,860.00 claim, and who decides what follows from it.
 3. Show the math that takes Peach State from $1,860.00 to $1,240.00, name the doctrine behind it, and explain how beating the 14-Day Gap defense with the MRI supports it.
 
@@ -1272,7 +1272,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
    *A verbal reduction is not a reduction. No Payoff Letter, no payment: the letter must state full and final satisfaction, and the compromise needs Atty. Thorne's approval.*
 5. Peach State paid $1,860.00 on Crescent Pain & Spine's $3,400.00 bill for the 05/15/2026 injection. Building the lien inventory, who can pursue John Doe for the other $1,540.00?  
    Crescent Pain & Spine, as an unpaid provider balance · Peach State, as part of its reimbursement claim · Harbor Point, through PIP · **✓ Nobody: Crescent took Peach State's contract rate and cannot balance-bill, so the $1,540.00 is recorded as not owed**  
-   *The lien is what the plan paid, not what was billed: Peach State asserts $1,860.00. Crescent's $1,540.00 write-off ($3,400.00 – $1,860.00) is a contract-rate adjustment, recorded as not owed. Harbor Point's PIP has no reimbursement right (03/02/2026).*
+   *The lien is what the plan paid, not what was billed: Peach State asserts $1,860.00. Crescent's $1,540.00 write-off ($3,400.00 – $1,860.00) is a contract-rate adjustment, recorded as not owed. Harbor Point's PIP and MedPay have no reimbursement right (03/02/2026).*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 

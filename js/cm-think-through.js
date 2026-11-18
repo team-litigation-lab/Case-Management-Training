@@ -1,17 +1,14 @@
 /* ============================================================
-   🧠 Think it through: a deck page's example, worked on John Doe's file
-   The owner's Canva pages and their narrated video keep the example they were made with. Day 2's Valuation Baseline
-   pages (deck pages 23–24, lesson d3m2-l2) say a client "exhausts a $10,000 PIP limit in 48 hours (like John Doe did with
-   his ER and EMS bills)", bills of "$41,400 in John's case" and "Dr. Sarah Spine": none of that is John Doe's file. The
-   owner: "let it be something that tests trainees' critical thinking". So the narration says what the page says
-   (.github/scripts/narration-captions.cjs), and the activity that practises those pages carries a 🧠 Think it through
-   prompt beside its 💡 Tip: the trainee applies the page's method to John Doe's own figures and explains one consequence,
-   in their own words. Nothing narrates John Doe's figures; they are in this prompt's answer key only.
+   🧠 Think it through: from a deck page's figures to a consequence on John Doe's file
+   Day 2's Valuation Baseline pages (deck pages 23–24, lesson d3m2-l2) give John Doe's own figures: his $10,000 PIP limit
+   exhausted in 48 hours with his ER and EMS bills, $41,400 of bills, and Dr. Sarah Spine's Emergency Medical Condition
+   finding. The case file follows them (curriculum/5-day-flow/case-file.md). The challenge is critical thinking, not
+   recall: the trainee reasons from those figures to what they cause on the file, for the BI adjuster's valuation, and for
+   the LOP and the Payer Order that come next, in their own words.
    It is graded the way every Skill Building is (js/cm-ai-grader.js): registered as an extra activity in
    window.CM_AIG_EXTRA[<id>], with its own rubric (AI 60, trainer 40, as every activity's), its steps and its answer key.
    What the trainee writes is saved in their own record ("cf-think", a personal key) and is what the grader reads.
-   Checked by .github/scripts/think-through.cjs; .github/scripts/day-decks.cjs reads THINK for the pages whose narration
-   keeps another file's example because a challenge here sets it against John Doe's file.
+   Checked by .github/scripts/think-through.cjs.
    ============================================================ */
 (function(){
 "use strict";
@@ -20,33 +17,33 @@ const THINK = [{
   activity: "d3m2-a1",            // Day 2's Skill Building that practises the Valuation Baseline pages (d3m2-l2)
   deck: {day: 2, pages: [23, 24]},
   n: 2,
-  title: "Think It Through: the Valuation Baseline on John Doe's File",
-  figures: "a $10,000 PIP limit exhausted in 48 hours on ER and EMS bills, $41,400 in medical bills, and an EMC finding by Dr. Sarah Spine",
-  situation: "The slide's example uses a **$10,000 PIP limit gone in 48 hours**, **$41,400** in bills and **Dr. Sarah Spine's EMC finding**. Work them out on John Doe's file: what changes, and why?",
+  title: "Think It Through: What John Doe's 48 Hours Did to His File",
+  figures: "John Doe's $10,000 PIP limit exhausted in 48 hours on his ER and EMS bills, $41,400 in medical bills, and Dr. Sarah Spine's EMC finding",
+  situation: "The slides say John Doe exhausted a **$10,000 PIP limit in 48 hours** with his ER and EMS bills, his bills total **$41,400**, and **Dr. Sarah Spine** documented an EMC. Reason from those facts: what do they **cause** on his file, for Keystone's valuation and for who pays the bills next?",
   steps: [
-    "From John Doe's file (the Case Documents, the CMS → Insurance and Treatment tabs), find **his** PIP: the carrier, the limit, the first bill it paid and when it ran out; his audited Specials; and whether his state has an EMC rule.",
-    "Apply the page's two tests, **speed of exhaustion** and **Specials as the anchor**, and its EMC point to those figures: say what each one shows on his file.",
-    "Explain **one consequence** for the demand Atty. Thorne sends, in your own words: what the Case Manager hands him as the anchor, and why the page's example would mislead it."
+    "From John Doe's file (the Case Documents, RS31, RS97, RS98, and the CMS → Insurance and Treatment tabs), confirm the facts the slides state: what PIP paid, when it ran out, his audited bills, and the EMC record.",
+    "Reason to the **BI adjuster's valuation**: what does a limit gone in 48 hours signal, and why is the $41,400 of bills, not the $10,000 PIP paid, the anchor Atty. Thorne hands Keystone?",
+    "Reason to **what comes next**: with PIP gone on day two of care, who pays the urgent care, Lakeside and the MRI, and the chiropractic and PT, in the Payer Order? What would the file look like **without** Dr. Spine's EMC finding?"
   ],
   checks: [
-    "Spots that the page's example (**$10,000 PIP in 48 hours**, **$41,400**, **Dr. Sarah Spine**, ER and EMS bills) is **not John Doe's file**",
-    "His PIP: **Harbor Point, $5,000** (HP-26-7741), paid in date order from his **first visit, urgent care 02/20/2026**, exhausted **06/2026** by the 06/12/2026 MMI visit: about four months, not 48 hours, and no ER or EMS bills",
-    "His Specials: **$16,401.40** audited ($14,817.40 medical after the duplicate is removed + $1,584.00 lost wages), the figure handed to Atty. Thorne as the anchor, not the PIP payments",
-    "EMC: Riverton **has no EMC rule**, so nothing caps his $5,000 PIP at $2,500; on a Florida-rule file the finding is the physician's, never the Case Manager's to suggest",
-    "**One consequence explained**: slow exhaustion is no high-severity signal on his file, so the demand rests on the audited $16,401.40 and the records; quoting the page's $41,400 or \"48 hours\" would hand Keystone a figure the file disproves",
-    "Stays in role: gives Atty. Thorne the figures and the reasoning; **no opinion of what the claim is worth**"
+    "Confirms the facts from the file: Harbor Point PIP **$10,000**, paid at the fee schedule to Riverton General ($8,850.00) and Riverton Fire EMS ($1,150.00) for **02/20–02/21/2026**, exhausted 03/04/2026; medical bills **$41,400.00** audited ($42,984.00 with wages); EMC by **Dr. Sarah Spine**, 02/20/2026 (RS97)",
+    "**Valuation**: a limit spent in 48 hours on emergency care reads as a **high-severity** case, an answer to Keystone's \"14-day gap\" and \"minor\" arguments; the anchor is the **total value of the bills, $41,400.00**, because PIP's $10,000 is only what one payer paid (at a fee schedule) and understates the injury",
+    "**Payer Order next**: PIP → **MedPay** ($5,000, paid urgent care, Lakeside and the MRI to 06/26/2026) → **Peach State** (Crescent's injection, $1,860.00) → **LOP** (Riverton Spine & Rehab's chiropractic and PT, $6,105.00 audited); Summit's LOP request declined because MedPay applied first",
+    "**Without the EMC**: PIP stops at **$2,500**; the other **$7,500** of emergency bills falls to MedPay, which is then gone before the urgent care, Lakeside and the MRI, so those bills become Peach State and LOP **liens** against his net; that is why the finding is a negotiation lever",
+    "Non-subrogation: Harbor Point has no reimbursement right (03/02/2026), so neither PIP nor MedPay is ever a lien and neither goes into the $40,000 gross",
+    "Stays in role: gives Atty. Thorne the figures and the reasoning; **no opinion of what the claim is worth**; the EMC finding is the physician's, never the Case Manager's to ask for"
   ],
-  deliver: "John Doe's **own figures** set against the page's example, and **one consequence** explained",
+  deliver: "The slides' figures **confirmed from the file**, and their **consequences reasoned through**: the adjuster's valuation, the Payer Order after PIP, and the file without the EMC",
   rubric: {
     ai: [
-      ["Method applied", 20, "Both of the page's tests (speed of exhaustion; Specials as the anchor) and its EMC point are applied to John Doe's file, each saying what it shows there"],
-      ["John Doe's figures", 15, "Harbor Point PIP $5,000, first bill urgent care 02/20/2026, exhausted 06/2026 by the MMI visit; Specials $16,401.40; Riverton has no EMC rule"],
-      ["Consequence explained", 15, "One consequence for the demand, with its reason: the anchor is the audited $16,401.40 and the records, not PIP speed or the page's $41,400"],
+      ["Facts confirmed from the file", 10, "PIP $10,000 exhausted 03/04/2026 on the ER and EMS bills of 02/20–02/21/2026; medical $41,400.00 ($42,984.00 with wages); Dr. Sarah Spine's EMC, each tied to its document"],
+      ["Valuation reasoned", 20, "Explains why 48-hour exhaustion signals severity and why the $41,400.00 of bills, not PIP's $10,000, is the anchor, with the reason, not a restatement of the slide"],
+      ["Consequence for the Payer Order", 20, "Works what PIP's early exhaustion sends down the line (MedPay, then Peach State, then the LOP) and what losing the EMC would turn into liens ($7,500 more past a $2,500 cap)"],
       ["Role and UPL", 10, "The figures and reasoning go to Atty. Thorne; no valuation of the claim; the EMC finding is the physician's"]
     ],
     trainer: [
-      ["Own reasoning", 25, "Explains the why in their own words at the debrief; not a recall of the page or the key"],
-      ["Critical reading", 15, "Questions a teaching example before using it on a real file"]
+      ["Own reasoning", 25, "Explains each cause and effect in their own words at the debrief; not a recall of the slide or the key"],
+      ["Critical thinking", 15, "Follows a fact past the slide to what it changes on the file, and tests it with the no-EMC case"]
     ]
   }
 }];
@@ -74,9 +71,9 @@ THINK.forEach(t => {
     n: t.n,
     dayId: () => dayIdOf(t.n),
     b: {id: t.id, kind: "activity", title: t.title, rubric: t.rubric,
-      act: {scenario: `The Canva page's example uses ${t.figures}. The trainee works the page's method on John Doe's own file and explains one consequence, in their own words.`,
+      act: {scenario: `The Canva pages give ${t.figures}. The trainee confirms them from the file and reasons, in their own words, to what they cause: the BI adjuster's valuation, the Payer Order after PIP, and the file without the EMC.`,
         prompt: t.steps.map((s, i) => `${i + 1}. ${s.replace(/\*\*/g, "")}`).join(" "),
-        tool: "Case Documents · CMS → Insurance → PIP / UM/UIM Coverage Stack · CMS → Treatment → Total Medical Specials",
+        tool: "Case Documents · CMS → Insurance → PIP / UM/UIM Coverage Stack · CMS → Treatment → Total Medical Specials · CMS → Liens",
         output: t.deliver.replace(/\*\*/g, ""),
         checkpoints: t.rubric.ai.map(x => `${x[0]}: ${x[2]}`)}},
     slide: {steps: t.steps, checks: t.checks, deliver: t.deliver, situation: t.situation},
@@ -96,7 +93,7 @@ function open(id){
     <p class="ctt-q">${hl(t.situation)}</p>
     <ol class="ctt-steps">${t.steps.map(s => `<li>${hl(s)}</li>`).join("")}</ol>
     <label class="ctt-lab" for="ctt_${E(id)}">Your reasoning, in your own words</label>
-    <textarea class="ctt-a" id="ctt_${E(id)}" rows="5" placeholder="His figures, what each test shows on his file, and one consequence for the demand" oninput="cmThink.draft('${E(id)}',this.value)">${E(w.text || "")}</textarea>
+    <textarea class="ctt-a" id="ctt_${E(id)}" rows="5" placeholder="The facts from his file, what they signal to Keystone, and what they send down the Payer Order (and without the EMC)" oninput="cmThink.draft('${E(id)}',this.value)">${E(w.text || "")}</textarea>
     <div class="ctt-g">${graderPart(id)}</div></div>`;
   o.addEventListener("click", e => { if(e.target === o) close(); });
   document.body.appendChild(o);

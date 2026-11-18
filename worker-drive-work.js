@@ -94,7 +94,7 @@ export const WORK = [
   ["d2m3-a1", 2, "medical", ["girp", "four reasons", "recorded call", "gap call", "corroborating"]],
   ["d2m3-a2", 2, "medical", ["gap explanation record", "gap explanation", "both interruptions", "non-economic"]],
   ["d2m4-wage", 2, "settlement", ["wage loss", "lost wage", "northgate", "medical nexus", "$1,584.00", "missed shift"]],
-  ["d2m4-a1", 2, "bills", ["total specials", "special damages", "specials audit", "$16,401.40", "billed and paid"]],
+  ["d2m4-a1", 2, "bills", ["total specials", "special damages", "specials audit", "$42,984.00", "billed and paid"]],
   ["d2m4-a2", 2, "insurance", ["pre-demand strategy", "strategy session", "decision record"]],
   ["d3m1-a1", 3, "insurance", ["time-limit demand", "time-limited demand", "bi demand", "demand package", "proof of delivery"]],
   ["d3m1-a2", 3, "insurance", ["um demand", "host um", "relative um", "qc", "exhaustion"]],
