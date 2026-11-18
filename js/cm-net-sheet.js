@@ -12,6 +12,9 @@
    Negotiations (?stage=recovery), Lien Negotiations (?stage=liens) and Disbursement (?stage=final, $20,359.92); Track B
    (case won at arbitration, Day 5) at its own close-out (?stage=litigation, $14,713.75). Each track is its own sheet,
    and so is each settlement stream's (?stage=bi, ?stage=um: the BI and UM settlement Net Sheets).
+   A Non-Medical Provider Ledger (rows 61–65: pharmacy, counseling, equipment, transportation) sits under section 3; its
+   amounts still owed come off the net with the liens (L51). Checks find a provider's line by its name, in whatever row
+   the trainee put it, and every miss says how to fix it.
    "Download" gives the sheet as an .xlsx, formulas and all, to open in Excel or upload to Google Sheets. */
 (function(){
 "use strict";
@@ -22,6 +25,9 @@ const KEY = "net-sheet";
 const COSTS = [[12, "Filing fees & Summons"], [13, "Process Server"], [14, "Mediation"], [15, "CME Videographer"], [16, "Deposition"], [17, "Postage"], [18, "Medical records/bills req."], [19, "File Storage fee"]];
 const LEDGER = [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 42, 43];
 const MONEY_COLS = ["D", "E", "F", "G", "H", "J", "K", "L"];
+// the Non-Medical Provider Ledger (pharmacy, counseling, equipment, transportation): rows 61-65, kept apart from the
+// medical liens; what is still owed on them comes off the net with the liens (L51); a bill the client paid is not owed
+const NONMED = [61, 62, 63, 64, 65];
 // a blank ledger: the trainee builds the Medical Provider Ledger from the bills, EOBs and payment histories on the file
 // (nothing in section 3 is filled in for them); the fee tier on Track A is the retainer's pre-suit rate
 const START = {
@@ -61,6 +67,8 @@ const STAGES = {
     {cell: "L30", want: 1240, why: "Peach State: $1,860.00 less the one-third procurement-cost reduction ($620.00) = $1,240.00, accepted in writing 10/09/2026."},
     {cell: "L26", want: 4580, why: "Riverton Spine & Rehab: audited $6,105.00, accepted $4,580.00 in its signed Payoff Letter (10/12/2026)."},
     {cell: "L44", want: 5820, why: "Reduced liens: $1,240.00 + $4,580.00 = $5,820.00."},
+    {cell: "D61", want: 312.4, why: "Riverton Drug (prescriptions and over-the-counter, 02/07–06/2026) billed $312.40, a non-medical provider: it goes in the Non-Medical Provider Ledger, not with the medical liens."},
+    {cell: "I61", want: 0, why: "John paid Riverton Drug himself ($312.40, Paid by Client): nothing is owed from the settlement, so nothing comes off the net. His receipts prove the out-of-pocket specials."},
   ]},
   final: {file: "A", label: "Track A · Disbursement: the final Net Sheet", checks: [
     {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (PIP, MedPay and PD are not recovery)."},
@@ -69,6 +77,8 @@ const STAGES = {
     {cell: "L26", want: 4580, why: "Riverton Spine & Rehab: audited $6,105.00, accepted $4,580.00 in its signed Payoff Letter (10/12/2026)."},
     {cell: "L30", want: 1240, why: "Peach State: $1,860.00 less the one-third procurement-cost reduction ($620.00) = $1,240.00, accepted in writing 10/09/2026."},
     {cell: "L44", want: 5820, why: "Reduced liens: $1,240.00 + $4,580.00 = $5,820.00. Zero-balance lines stay off the payables."},
+    {cell: "D61", want: 312.4, why: "Riverton Drug (prescriptions and over-the-counter, 02/07–06/2026) billed $312.40, a non-medical provider: it goes in the Non-Medical Provider Ledger, not with the medical liens."},
+    {cell: "I61", want: 0, why: "John paid Riverton Drug himself ($312.40, Paid by Client): nothing is owed from the settlement, so nothing comes off the net. His receipts prove the out-of-pocket specials."},
     {cell: "L52", want: 20359.92, why: "Net to John Doe: $40,000.00 – $13,333.33 – $486.75 – $5,820.00 = $20,359.92."},
   ]},
   litigation: {file: "B", label: "Track B · Case won: the litigated Net Sheet", checks: [
@@ -79,6 +89,8 @@ const STAGES = {
     {cell: "L26", want: 4275, why: "Riverton Spine & Rehab accepted $4,275.00 in its signed Payoff Letter (07/16/2027)."},
     {cell: "L30", want: 1116, why: "Peach State's reduction follows the fee actually charged: 40% of $1,860.00 = $744.00, so $1,116.00, accepted in writing 07/14/2027."},
     {cell: "L44", want: 5391, why: "Reduced liens: $1,116.00 + $4,275.00 = $5,391.00."},
+    {cell: "D61", want: 312.4, why: "Riverton Drug (prescriptions and over-the-counter, 02/07–06/2026) billed $312.40, a non-medical provider: it goes in the Non-Medical Provider Ledger, not with the medical liens."},
+    {cell: "I61", want: 0, why: "John paid Riverton Drug himself ($312.40, Paid by Client): nothing is owed from the settlement, so nothing comes off the net. His receipts prove the out-of-pocket specials."},
     {cell: "L52", want: 14713.75, why: "Net to John Doe: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75."},
   ]},
 };
@@ -120,7 +132,8 @@ window.addEventListener("pagehide", flush);
 document.addEventListener("visibilitychange", () => { if(document.visibilityState === "hidden") flush(); });
 const setStatus = t => { const el = $("#ns-status"); if(el) el.textContent = t; };
 /* ---------- the math, as the template's formulas ---------- */
-const num = v => { if(typeof v === "number") return v; const s = String(v == null ? "" : v).replace(/[$,\s]/g, ""); if(!s) return 0; const n = Number(s.replace(/[()]/g, "")); return isNaN(n) ? 0 : (/^\(.*\)$/.test(s) ? -n : n); };
+const num = v => { if(typeof v === "string" && /\d\s*\+\s*[\d$]/.test(v)) return r2(v.split("+").reduce((a, x) => a + num1(x), 0)); return num1(v); };
+const num1 = v => { if(typeof v === "number") return v; const s = String(v == null ? "" : v).replace(/[$,\s]/g, ""); if(!s) return 0; const n = Number(s.replace(/[()]/g, "")); return isNaN(n) ? 0 : (/^\(.*\)$/.test(s) ? -n : n); };
 function rate(v){   // "33⅓%", "1/3", "33.3333", "0.333…" → a fraction
   const s = String(v == null ? "" : v).trim();
   if(/⅓|1\/3/.test(s)) return 1 / 3;
@@ -137,7 +150,9 @@ function calc(){
   out.L21 = r2(out.L11 + out.L20);
   LEDGER.forEach(r => { out["I" + r] = r2(g("D" + r) - g("E" + r) - g("F" + r) - g("G" + r) - g("H" + r)); out["L" + r] = g("L" + r); });
   ["I", "J", "K", "L"].forEach(col => { out[col + "44"] = r2(LEDGER.reduce((s, r) => s + (col === "I" ? out["I" + r] : g(col + r)), 0)); });
-  out.L48 = out.L7; out.L49 = -out.L11; out.L50 = -out.L20; out.L51 = -out.L44;
+  NONMED.forEach(r => { out["I" + r] = r2(g("D" + r) - g("E" + r) - g("F" + r) - g("H" + r)); });
+  out.I66 = r2(NONMED.reduce((s, r) => s + out["I" + r], 0)); out.L66 = r2(NONMED.reduce((s, r) => s + g("L" + r), 0));
+  out.L48 = out.L7; out.L49 = -out.L11; out.L50 = -out.L20; out.L51 = -r2(out.L44 + out.L66);
   out.L52 = r2(out.L48 + out.L49 + out.L50 + out.L51);
   return out;
 }
@@ -160,15 +175,20 @@ function render(){
       <div class="ns-scroll"><table class="ns-t ns-ledger"><tr><th>Provider Type</th><th>Provider Name</th><th class="m">Total Charges</th><th class="m">PIP Payments</th><th class="m">Health Payments</th><th class="m">Med Pay</th><th class="m">Adjustments</th><th class="m">Balance Owed</th><th class="m">Max Offer</th><th class="m">Low Offer</th><th class="m">Reduced Bill</th></tr>
         ${LEDGER.map(r => `${r === 42 ? '<tr class="gap"><td colspan="11"></td></tr>' : ""}<tr><td>${inp("B" + r)}</td><td>${inp("C" + r, "wide")}</td>${["D", "E", "F", "G", "H"].map(col => `<td class="m">${inp(col + r, "", true)}</td>`).join("")}<td class="m">${out("I" + r)}</td>${["J", "K", "L"].map(col => `<td class="m">${inp(col + r, "", true)}</td>`).join("")}</tr>`).join("")}
         <tr class="tot"><td colspan="7">Total Liens &amp; Reductions</td><td class="m">${out("I44")}</td><td class="m">${out("J44")}</td><td class="m">${out("K44")}</td><td class="m">${out("L44")}</td></tr></table></div></section>
+    <section class="ns-sec"><h2>Non-Medical Provider Ledger</h2>
+      <p class="ns-note">Providers that are not medical treatment: pharmacy and over-the-counter purchases, counseling (EAP), medical equipment, transportation. List each with who paid it: a bill the client paid himself is proof of his out-of-pocket specials and is not owed from the settlement; only an unpaid balance goes in Amount Owed.</p>
+      <div class="ns-scroll"><table class="ns-t ns-ledger ns-nonmed"><tr><th>Provider Type</th><th>Provider Name</th><th class="m">Total Charges</th><th class="m">Paid by Insurance</th><th class="m">Paid by Client</th><th class="m">Adjustments</th><th class="m">Balance Owed</th><th class="m">Amount Owed</th></tr>
+        ${NONMED.map(r => `<tr><td>${inp("B" + r)}</td><td>${inp("C" + r, "wide")}</td>${["D", "E", "F", "H"].map(col => `<td class="m">${inp(col + r, "", true)}</td>`).join("")}<td class="m">${out("I" + r)}</td><td class="m">${inp("L" + r, "", true)}</td></tr>`).join("")}
+        <tr class="tot"><td colspan="6">Total Non-Medical</td><td class="m">${out("I66")}</td><td class="m">${out("L66")}</td></tr></table></div></section>
     <section class="ns-sec"><h2>4. Final Client Disbursement Calculation</h2>
       <table class="ns-t"><tr><th>Calculation</th><th class="m">Amount</th></tr>
         <tr><td>Gross Settlement</td><td class="m">${out("L48")}</td></tr><tr><td>Less: Attorney Fees</td><td class="m">${out("L49")}</td></tr>
-        <tr><td>Less: Advanced Case Expenses</td><td class="m">${out("L50")}</td></tr><tr><td>Less: Total Liens (Reduced)</td><td class="m">${out("L51")}</td></tr>
+        <tr><td>Less: Advanced Case Expenses</td><td class="m">${out("L50")}</td></tr><tr><td>Less: Total Liens (Reduced) &amp; Non-Medical Owed</td><td class="m">${out("L51")}</td></tr>
         <tr class="net"><td>NET CLIENT DISBURSEMENT</td><td class="m">${out("L52")}</td></tr></table></section>`;
   $("#ns-stage").value = STAGE;
   // an amount reads as money once you leave its cell
   $("#ns").querySelectorAll(".m .ns-in").forEach(el => el.addEventListener("blur", () => { const v = SHEET.cells[el.dataset.k]; if(typeof v === "number") el.value = v.toFixed(2); }));
-  $("#ns").querySelectorAll(".ns-in").forEach(el => el.addEventListener("input", () => { const k = el.dataset.k, m = MONEY_COLS.includes(k[0]) && k !== "C11"; SHEET.cells[k] = m && el.value.trim() !== "" && !isNaN(num(el.value)) ? num(el.value) : el.value; paint(); save(); }));
+  $("#ns").querySelectorAll(".ns-in").forEach(el => el.addEventListener("input", () => { const k = el.dataset.k, m = MONEY_COLS.includes(k[0]) && k !== "C11"; SHEET.cells[k] = m && el.value.trim() !== "" && !/\+/.test(el.value) && !isNaN(num(el.value)) ? num(el.value) : el.value; paint(); save(); }));
   paint(); showCheck();
 }
 function paint(){
@@ -176,7 +196,29 @@ function paint(){
   document.querySelectorAll("[data-o]").forEach(el => { const v = o[el.dataset.o]; el.textContent = money(v || 0); el.classList.toggle("neg", v < 0); });
 }
 /* ---------- Check my sheet ---------- */
-function valueOf(expr, o){ return r2(expr.split("+").reduce((s, k) => s + (o[k] != null ? o[k] : num(SHEET.cells[k])), 0)); }
+// a provider's line is found by its name, in whichever row the trainee put it (the ledger starts blank)
+const PROV = {26: [/riverton\s*spine/i, LEDGER, "Riverton Spine & Rehab"], 30: [/peach\s*state/i, LEDGER, "Peach State Health Plan"], 61: [/riverton\s*drug/i, NONMED, "Riverton Drug"]};
+const rowOf = (want) => { const p = PROV[want]; if(!p) return want; const c = SHEET.cells, hit = p[1].find(r => p[0].test(String(c["C" + r] || "") + " " + String(c["B" + r] || ""))); return hit || null; };
+const COL = {D: "Total Charges", E: "PIP Payments", F: "Health Payments", G: "Med Pay", H: "Adjustments", I: "Balance Owed", L: "Reduced Bill"};
+const NONCOL = {D: "Total Charges", E: "Paid by Insurance", F: "Paid by Client", H: "Adjustments", I: "Balance Owed", L: "Amount Owed"};
+const NAME = {L7: "Gross Settlement", L11: "Attorney Fees", L20: "Total Attorney Costs", I44: "Total Liens · Balance Owed", L44: "Total Liens · Reduced Bill", L52: "Net Client Disbursement"};
+function nameOf(cell){
+  const m = /^([A-Z])(\d+)$/.exec(cell); if(!m) return cell;
+  if(PROV[m[2]]) return `${PROV[m[2]][2]} · ${(PROV[m[2]][1] === NONMED ? NONCOL : COL)[m[1]] || m[1]}`;
+  return NAME[cell] || cell;
+}
+const WHERE = {L7: "Section 1: type the gross in Gross Settlement's Amount, the BI and UM checks only.", L11: "Section 2: type 33⅓% (or 1/3) in Attorney Fees' Details before suit, 40% once suit is filed. 33.33% is not one-third.",
+  L20: "Section 2: put each receipted cost in a cost row's Amount (several receipts in one row may be typed as a sum, e.g. 25 + 150) and write what it is in Details.",
+  I44: "Section 3: fix the provider lines above: each line's Total Charges less what PIP, the health plan, Med Pay and Adjustments covered. A bill the client paid himself goes in the Non-Medical Provider Ledger, not here.",
+  L44: "Section 3: type each lien's accepted amount in Reduced Bill on its own line; lines with no balance stay 0.", L52: "Section 4 adds itself up: correct the lines above that are marked ✗ and this follows."};
+function fixOf(cell){
+  const m = /^([A-Z])(\d+)$/.exec(cell); if(!m) return "";
+  const p = PROV[m[2]]; if(!p) return WHERE[cell] || "";
+  const sec = p[1] === NONMED ? "the Non-Medical Provider Ledger" : "Section 3, the Medical Provider Ledger";
+  if(!rowOf(+m[2])) return `Add a line for ${p[2]} in ${sec} (its name in Provider Name)${p[1] === NONMED ? "; if it is in the Medical Provider Ledger, clear that line and enter it here" : ""}.`;
+  return `On ${p[2]}'s line in ${sec}: ${m[1] === "I" ? "Balance Owed is Total Charges less the payments and Adjustments; enter the missing payment or adjustment" : m[1] === "L" ? "type the accepted amount in " + (p[1] === NONMED ? "Amount Owed" : "Reduced Bill") : "type the amount from the bill in " + ((p[1] === NONMED ? NONCOL : COL)[m[1]] || m[1])}.`;
+}
+function valueOf(expr, o){ return r2(expr.split("+").reduce((s, k) => { const m = /^([A-Z])(\d+)$/.exec(k); if(m && PROV[m[2]]){ const r = rowOf(+m[2]); if(!r) return s; k = m[1] + r; } return s + (o[k] != null ? o[k] : num(SHEET.cells[k])); }, 0)); }
 function check(){
   const stage = $("#ns-stage").value, st = STAGES[stage], o = calc();
   const items = st.checks.map(c => { const got = valueOf(c.cell, o); return {cell: c.cell, ok: Math.abs(got - c.want) < 0.005, got, want: c.want}; });
@@ -189,7 +231,7 @@ function showCheck(fresh){
   if(!r){ box.hidden = true; return; }
   box.hidden = false;
   box.innerHTML = `<b>${r.passed === r.total ? "✓ Your sheet ties out" : `${r.passed} of ${r.total} tie out`}</b> · ${E(st.label)} · checked ${E(new Date(r.at).toLocaleString())}
-    <ul>${st.checks.map((c, j) => { const it = r.items[j] || {}; return `<li class="${it.ok ? "ok" : "miss"}">${it.ok ? "✓" : "✗"} <code>${E(c.cell)}</code> ${it.ok ? money(c.want) : `is ${money(it.got || 0)}, the file says ${money(c.want)}`}${it.ok ? "" : `<br><span>${E(T(c.why))}</span>`}</li>`; }).join("")}</ul>`;
+    <ul>${st.checks.map((c, j) => { const it = r.items[j] || {}; return `<li class="${it.ok ? "ok" : "miss"}">${it.ok ? "✓" : "✗"} <b>${E(nameOf(c.cell))}</b> ${it.ok ? money(c.want) : `is ${money(it.got || 0)}, the file says ${money(c.want)}`}${it.ok ? "" : `<br><span>${E(T(c.why))}</span><br><span class="fix">🛠 How to fix: ${E(fixOf(c.cell))}</span>`}</li>`; }).join("")}</ul>`;
   if(fresh) box.scrollIntoView({block: "nearest", behavior: "smooth"});
 }
 /* ---------- Download: the same sheet, formulas and all ---------- */
@@ -209,8 +251,11 @@ function download(){
   set("B44", "Total Liens & Reductions"); ["I", "J", "K", "L"].forEach(col => f(col + "44", `SUM(${col}25:${col}43)`));
   set("B46", "4. FINAL CLIENT DISBURSEMENT CALCULATION"); set("B47", "Calculation"); set("L47", "Amount");
   set("B48", "Gross Settlement"); f("L48", "L7"); set("B49", "Less: Attorney Fees"); f("L49", "-L11"); set("B50", "Less: Advanced Case Expenses"); f("L50", "-L20");
-  set("B51", "Less: Total Liens (Reduced)"); f("L51", "-L44"); set("B52", "NET CLIENT DISBURSEMENT"); f("L52", "SUM(L48:L51)");
-  ws["!ref"] = "A1:L52"; ws["!cols"] = [{wch: 2}, {wch: 26}, {wch: 44}, ...Array(9).fill({wch: 14})];
+  set("B51", "Less: Total Liens (Reduced) & Non-Medical Owed"); f("L51", "-(L44+L66)"); set("B52", "NET CLIENT DISBURSEMENT"); f("L52", "SUM(L48:L51)");
+  set("B59", "NON-MEDICAL PROVIDER LEDGER"); ["Provider Type", "Provider Name", "Total Charges", "Paid by Insurance", "Paid by Client", "", "Adjustments", "Balance Owed", "", "", "Amount Owed"].forEach((h, i) => { if(h) set("BCDEFGHIJKL"[i] + "60", h); });
+  NONMED.forEach(r => { set("B" + r, c["B" + r]); set("C" + r, c["C" + r]); ["D", "E", "F", "H", "L"].forEach(col => { if(c[col + r] !== undefined && c[col + r] !== "") set(col + r, num(c[col + r])); }); f("I" + r, `D${r}-E${r}-F${r}-H${r}`); if(ws["L" + r] == null) set("L" + r, 0); });
+  set("B66", "Total Non-Medical"); f("I66", "SUM(I61:I65)"); f("L66", "SUM(L61:L65)");
+  ws["!ref"] = "A1:L66"; ws["!cols"] = [{wch: 2}, {wch: 26}, {wch: 44}, ...Array(9).fill({wch: 14})];
   const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, "LSH Net Sheet");
   XLSX.writeFile(wb, `LSH_Net_Sheet_John_Doe_Track_${FILE}.xlsx`);
 }

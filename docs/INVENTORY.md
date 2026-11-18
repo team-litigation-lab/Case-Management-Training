@@ -155,7 +155,7 @@ None.
 | `tool-links.cjs` | Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's) |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
-## Browser checks (65)
+## Browser checks (66)
 
 | Check | What it covers |
 |---|---|
@@ -198,6 +198,7 @@ None.
 | `links.cjs` | Every link and button resolves: on every Case Flow slide, its 📖 Reference panel and the 🧪 Practice page, an in-app route exists, a /decks/ /documents/ /js/ file is served (200), a button's onclick calls a function that exists, and no href="#" is a dead end (an external link, Canva or Google, is a well-formed URL) |
 | `litigation-note.cjs` | The Litigation note ("Case Managers handling Litigation and Pre-Litigation are sometimes different individuals…"): word for word at the start of the Litigation section and on every handoff step, a pop-up there once for a trainee, and the slides still fit |
 | `micro-frameworks.cjs` | Micro-frameworks on the lessons (Milestone Steps, Rule vs. Exception, one CM Red Flag a slide with its owner; type ≥ 16px; no Trigger ➔ Task ➔ Tool ➔ Checkpoint cards or table and the word "Trigger" on no slide, title or 📖 Additional Reference; no Milestone Steps slide) and Why It Matters as the opening of a drawn lesson's one slide |
+| `net-sheet.cjs` | 📊 the LSH Net Sheet ties out when filled from the case file: providers found by name in any row, a Non-Medical Provider Ledger (Riverton Drug, paid by John, owes nothing), costs typed as sums, and every miss says how to fix it |
 | `no-page-errors.cjs` | No page errors (every page and Admin tab, every slide and Knowledge Check, Presenter view; trainee and trainer, 1366x768) |
 | `notes-plan.cjs` | Notes & Action Plan (the voicemail transcribed and graded, every attempt, and the plan graded with their answer keys; the plan worked in the Email Simulator) |
 | `one-overall.cjs` | One Overall score: a seeded trainee's Overall is the same number on their card, 🏅 Scores, the Batch Sheet (Scores, Score Card, Day by Day, their card) and their dashboard, with the best Knowledge Check kept |

@@ -8134,6 +8134,8 @@ Score this submission on a 100-point rubric across these four weighted categorie
 
 A generic, vague, or minimal-effort submission should score well below 70 overall. A submission with real errors or contradictions of the reference material should score well below 50 on Accuracy specifically. Reserve 85+ overall for submissions that are genuinely strong across all four categories, not just adequate.
 
+Feedback rule: every item in "blindspots" names what is wrong AND tells the trainee exactly how to correct it — the steps to take, where (which CMS screen, form or document) and what the corrected entry or wording should be (for example: "The Case ID is missing from your note → open the CMS Case File, copy the Case ID from the header and add it as the note's first line."). Never just point out the fault. Each "growthSuggestions" item is one concrete action to practice next.
+
 Return ONLY a JSON object with this exact shape, no other text:
 {
   "accuracyScore": <integer 0-35>,
@@ -8141,7 +8143,7 @@ Return ONLY a JSON object with this exact shape, no other text:
   "riskScore": <integer 0-20>,
   "efficiencyScore": <integer 0-15>,
   "strengths": ["...", "..."],
-  "blindspots": ["...", "..."],
+  "blindspots": ["<what is wrong> → <how to correct it: the exact steps>", "..."],
   "growthSuggestions": ["...", "..."]
 }`;
   const raw = await callAIJson(prompt, 900, undefined, "grading");
@@ -8250,6 +8252,8 @@ Score this performance on a 100-point rubric across these four EQUALLY weighted 
 
 A generic or minimal-effort performance should score well below 70 overall. Reserve 85+ for genuinely strong performance across all four categories, not just adequate.
 
+Feedback rule: every item in "blindspots" names what is wrong AND tells the trainee exactly how to correct it — the steps to take, where (which CMS screen, form or document) and what the corrected entry or wording should be (for example: "The Case ID is missing from your note → open the CMS Case File, copy the Case ID from the header and add it as the note's first line."). Never just point out the fault. Each "growthSuggestions" item is one concrete action to practice next.
+
 Return ONLY a JSON object with this exact shape, no other text:
 {
   "blufScore": <integer 0-25>,
@@ -8257,7 +8261,7 @@ Return ONLY a JSON object with this exact shape, no other text:
   "composureScore": <integer 0-25>,
   "actProtocolScore": <integer 0-25>,
   "strengths": ["...", "..."],
-  "blindspots": ["...", "..."],
+  "blindspots": ["<what is wrong> → <how to correct it: the exact steps>", "..."],
   "growthSuggestions": ["...", "..."]
 }`;
   const raw = await callAIJson(prompt, 900, undefined, "grading");
@@ -10048,6 +10052,8 @@ Score this performance on a 100-point rubric across these four EQUALLY weighted 
 
 A generic or minimal-effort performance should score well below 70 overall. Reserve 85+ for genuinely strong performance across all four categories, not just adequate.
 
+Feedback rule: every item in "blindspots" names what is wrong AND tells the trainee exactly how to correct it — the steps to take, where (which CMS screen, form or document) and what the corrected entry or wording should be (for example: "The Case ID is missing from your note → open the CMS Case File, copy the Case ID from the header and add it as the note's first line."). Never just point out the fault. Each "growthSuggestions" item is one concrete action to practice next.
+
 Return ONLY a JSON object with this exact shape, no other text:
 {
   "boundaryScore": <integer 0-25>,
@@ -10055,7 +10061,7 @@ Return ONLY a JSON object with this exact shape, no other text:
   "taskScore": <integer 0-25>,
   "strategicScore": <integer 0-25>,
   "strengths": ["...", "..."],
-  "blindspots": ["...", "..."],
+  "blindspots": ["<what is wrong> → <how to correct it: the exact steps>", "..."],
   "growthSuggestions": ["...", "..."]
 }`;
   const raw = await callAIJson(prompt, 900, undefined, "grading");
