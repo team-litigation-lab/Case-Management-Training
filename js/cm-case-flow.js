@@ -1339,6 +1339,8 @@ const vmWords = t => String(t || "").split(/\s+/).filter(Boolean).length;
 const VM_SYS = 6;   // seconds for the system voice and the tone, around the caller
 const vmTotal = e => Math.round(vmWords(e.spoken) / 2.3 + VM_SYS);
 const vmClock = s => { s = Math.max(0, Math.floor(s + 1e-6)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
+// the bar's place, cut (not rounded) to the tenth, so it never runs ahead of the clock: 28.96 s reads 0:28 and 28.9
+const vmTenth = s => (Math.floor(Math.max(0, s) * 10 + 1e-6) / 10).toFixed(1);
 const vmLength = e => vmClock(vmTotal(e));
 const vmRec = id => { REC.listen = REC.listen || {}; return (REC.listen[id] = REC.listen[id] || {plays: 0, answers: []}); };
 const canSpeak = () => typeof speechSynthesis !== "undefined" && typeof SpeechSynthesisUtterance !== "undefined";
@@ -1463,7 +1465,7 @@ function vmTime(blockId){
   const at = vmAt(blockId), label = vmClock(at), f = (Math.min(1, at / p.total)).toFixed(4);
   document.querySelectorAll(`[data-vm="${blockId}"]`).forEach(el => {
     el.querySelectorAll(".vmp-el").forEach(x => { if(x.textContent !== label) x.textContent = label; });
-    el.querySelectorAll(".vmp-seek").forEach(x => { x.value = at.toFixed(1); x.style.setProperty("--f", f); if(x.dataset.at !== label){ x.dataset.at = label; x.setAttribute("aria-valuetext", `${label} of ${vmClock(p.total)}`); } });
+    el.querySelectorAll(".vmp-seek").forEach(x => { x.value = vmTenth(at); x.style.setProperty("--f", f); if(x.dataset.at !== label){ x.dataset.at = label; x.setAttribute("aria-valuetext", `${label} of ${vmClock(p.total)}`); } });
   });
 }
 function vmPaint(blockId){
@@ -1496,7 +1498,7 @@ function vmPlayer(blockId, cls){
       <button type="button" class="vmp-b vmp-back" onclick="cmCaseFlow.vmSkip('${blockId}',-5)" title="Back 5 seconds" aria-label="Back 5 seconds">⏪ 5s</button>
       <button type="button" class="vmp-b vmp-fwd" onclick="cmCaseFlow.vmSkip('${blockId}',5)" title="Forward 5 seconds" aria-label="Forward 5 seconds">5s ⏩</button>
       <span class="vmp-track"><span class="vmp-ticks" aria-hidden="true">${p.segs.filter(s => s.kind === "caller").map(s => `<i style="left:${(100 * s.t / p.total).toFixed(2)}%"></i>`).join("")}</span>
-        <input type="range" class="vmp-seek" min="0" max="${p.total}" step="0.1" value="${at.toFixed(1)}" style="--f:${(Math.min(1, at / p.total)).toFixed(4)}" aria-label="Place in the voicemail" aria-valuetext="${vmClock(at)} of ${tot}"
+        <input type="range" class="vmp-seek" min="0" max="${p.total}" step="0.1" value="${vmTenth(at)}" style="--f:${(Math.min(1, at / p.total)).toFixed(4)}" aria-label="Place in the voicemail" aria-valuetext="${vmClock(at)} of ${tot}"
           oninput="cmCaseFlow.vmSeek('${blockId}',this.value)" onkeydown="cmCaseFlow.vmKey(event,'${blockId}')"></span>
       <span class="vmp-time"><b class="vmp-el">${vmClock(at)}</b> / <span class="vmp-tot">${tot}</span></span>
       <button type="button" class="vmp-b vmp-over" onclick="cmCaseFlow.vmOver('${blockId}')" title="Back to the beginning">↺ Start over</button>

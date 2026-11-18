@@ -30,7 +30,7 @@ const FIELDS = ['Date of Loss', 'Training Library'];
 const SHORT = [...SECTIONS].flatMap((x) => { const w = x.split(' '); return w.slice(1).map((_, k) => w.slice(k + 1).join(' ')).filter((t) => t.split(' ').length >= 2 && /^[A-Z]/.test(t)); });
 const PLACES = [...TABS, ...SECTIONS, ...FIELDS, ...SHORT].sort((a, b) => b.length - a.length);
 // the LSH Net Sheet (the course's own workbook, LSH_Net_Sheet.xlsx): its tabs and ledgers
-const NET_SHEET = ['Recovery Ledger', 'Lien Tracker', 'Medical Provider Ledger', 'Master Financial Ledger', 'BI/UM Master Financial Ledger'];
+const NET_SHEET = ['Recovery Ledger', 'Lien Tracker', 'Medical Provider Ledger', 'Master Financial Ledger', 'BI/UM Master Financial Ledger', 'Non-Medical Provider Ledger'];
 // titles that say "CMS" but name no screen
 const NOT_A_PLACE = ['CMS Initialization', 'CMS Countermeasures', 'CMS Intake Record', 'CMS Case Flow', 'CMS Case File', 'CMS Onboarding'];
 // records outside the CMS that the course names: the case documents, the firm's and the providers' own ledgers and logs,
