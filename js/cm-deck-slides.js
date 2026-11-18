@@ -320,61 +320,61 @@ window.CM_DECK_SLIDES = {
    "page": 1,
    "title": "Case Management Training — Day 2",
    "img": "/decks/day2/01.webp",
-   "notes": "Welcome to Day 2 of Case Management Training with Legal Support Help. Yesterday we carried a case from intake through the Treatment Phase. Today we follow it to the money: how we audit the file before the demand, how we build and send the Bodily Injury demand, and how we negotiate and close the settlement. Keep John Doe's file in mind as we go, because every phase today comes back to it."
+   "notes": "Welcome to Day 2 of Case Management Training. Yesterday we opened John Doe versus Robert Smith and carried it through intake and treatment, including the fourteen-day gap and the near-drop in April. Today we follow that same file to the money. We audit it before anything leaves the office, we build and serve the Bodily Injury demand to Keystone, we work the negotiation, and we close the BI settlement properly. Keep John's file open in your mind, because every lesson today lands on it."
   },
   {
    "page": 2,
    "title": "Training Agenda",
    "img": "/decks/day2/02.webp",
-   "notes": "Here is our agenda for today, in three parts. Part one: the Pre-Demand phase, where we audit the whole file before anything goes to the adjuster. Part two: the Bodily Injury Demand, where we build the demand packet and present the case. Part three: the BI Settlement, where we negotiate, finalize the paperwork, and move the file from settled to paid."
+   "notes": "Today has three parts. First, the pre-demand audit, where we test the whole file the way an adjuster would before a single page goes out. Second, the Bodily Injury demand itself, which on our file is the Time-Limited Demand to Keystone for the ten thousand dollar limits. Third, the BI settlement, where we negotiate, handle the consents and the release, and move the file from settled to paid. Each part builds on the one before it, so the quality of your audit decides how the rest of the day goes."
   },
   {
    "page": 3,
    "title": "Pre-Demand Case Auditing: Core Objectives",
    "img": "/decks/day2/03.webp",
-   "notes": "Pre-demand case auditing, often called a Forensic Case Audit or a Pre-Litigation Audit, is the rigorous process of vetting a claim's evidence and value before a formal demand letter goes out. It has four core objectives. Verification: do the facts in the demand letter match the physical evidence, for example, do the photos of the crash match the police report? Valuation: are the damages calculated accurately, with the medical bills, lost wages, and future care costs audited so every expense is justified? Risk assessment: where are the weak spots where the defense may argue comparative negligence, meaning partial fault on the client's part? And compliance: does the case meet statutory requirements, like the Statute of Limitations, before the demand is issued? The audit is a sanity check that makes the claim bulletproof."
+   "notes": "Let's talk about why the audit comes first. Some firms call it a forensic case audit or a pre-litigation audit, but the idea is the same: you vet the evidence and the value before the demand letter exists. The slide gives four objectives. Verification asks whether what we say matches what the records show. Valuation asks whether every dollar is justified. Risk assessment asks where the defense will push back, such as comparative fault. Compliance asks whether we are inside every deadline. On our file, the audit earns its keep. Summit Imaging's MRI history gave the injury date as February 16th instead of February 6th, Riverton Spine and Rehab billed May 4th twice, and Crescent's statement wrongly billed John the contractual adjustment. Those were caught here, and three Amendment Requests went out on July 6th, 2026. And the statute of limitations, docketed for February 6th, 2028, was confirmed. That's the sanity check doing its job."
   },
   {
    "page": 4,
    "title": "The Auditing Checklist: The Trinity of Case Alignment",
    "img": "/decks/day2/04.webp",
-   "notes": "The goal of this audit is simple: when the demand letter lands on an adjuster's desk, there are zero easy outs for the defense. A successful audit keeps three pillars perfectly synchronized. The Narrative: the client's story of how the incident happened. The Physicality: the property damage, and the biomechanics, meaning the force of the impact. And the Medicals: the clinical proof of injury. If one pillar is out of alignment, the case value collapses. So the audit question is this: do the property damage photos support the mechanism of injury described in the medical records? A full pre-demand audit is the final stress test of a file. It is the move from collecting information to weaponizing it."
+   "notes": "This slide is about alignment. The goal is that when the demand lands on the adjuster's desk, there is no easy out. Three pillars have to tell the same story. The narrative is the client's account of what happened. The physicality is the property damage and the force of the impact. The medicals are the clinical proof. If one pillar contradicts the others, value collapses, because the adjuster will pull on that thread. So let's test our file. The narrative: John was the front-seat passenger, and Robert Smith rolled through the all-way stop and struck the Escape's front passenger door at about twenty-eight miles an hour, pushing it into Margaret's parked Civic. The physicality matches: a door-side impact on John's side. And the medicals match: EMS noted neck stiffness on the day of the crash, and the MRI found a C5-C6 disc herniation. Three pillars, one story. That's what the audit is checking."
   },
   {
    "page": 5,
    "title": "Master Audit Checklist: Financial & Lien Verification",
    "img": "/decks/day2/05.webp",
-   "notes": "The Master Audit Checklist starts with financial and lien verification. This is the math portion of the audit. Special damages are the sum of all medical bills, plus property damage, plus lost wages. For lost wages, make sure you have a signed letter from the employer and a disability slip from the doctor. Without both, adjusters usually reject the lost wage claim. Then lien resolution: identify every subrogation interest, both statutory, like Medicare, Medicaid, ERISA, and the VA, and consensual, like medical provider liens under LOPs. Mistakes here lead to short-funded settlements where the client takes home nothing."
+   "notes": "Now the math. The checklist starts with financial and lien verification. Special damages are the hard numbers: medical bills and lost wages. The slide's general definition also folds in property damage, but on our file the Civic is Margaret's, handled on her own claim, so it stays out of John's specials. Our numbers are medical specials of fourteen thousand eight hundred seventeen dollars and forty cents after the audit, plus lost wages of one thousand five hundred eighty-four dollars, for total specials of sixteen thousand four hundred one dollars and forty cents. The slide warns that wages need an employer letter and a doctor's note. We have Northgate's wage-and-attendance letter, and each missed shift is tied to a record, except five shifts in February that predate treatment. Those were flagged to Atty. Thorne and kept in the claim, never hidden. Then liens. Peach State first asserted three thousand six hundred eighteen dollars, and the line-by-line dispute brought it to one thousand eight hundred sixty. Riverton Spine and Rehab's LOP is the other. Miss a lien, and the client can walk away with nothing."
   },
   {
    "page": 6,
    "title": "Master Audit Checklist: Liability Proof",
    "img": "/decks/day2/06.webp",
-   "notes": "Next on the checklist is liability proof. For the police or incident report, verify the final version, not just the exchange of information, and check it for citations or contributory negligence notes. For witness statements, confirm the contact information is still valid, and audit for statement drift: did the witness's story change? Then the scene audit: review Google Earth or dashcam footage to make sure the physics of the claim are possible."
+   "notes": "Next is liability proof. The point here is that liability is never assumed just because someone got a ticket. You verify the final police report, not just the exchange of information, and you read it for citations and any note of contributory fault. On our file, Riverton PD report R P D 26 018842 cites Robert Smith for failure to stop at a stop sign. For witnesses, the slide says confirm the contact details still work and watch for statement drift, meaning a story that changes over time. Our independent witness is Ruth Calloway, who lives at 2209 Maple Hollow Road and gave a signed statement to the officer at the scene. Then the scene audit, checking that the physics make sense. The slide mentions Google Earth or dashcam footage as general tools. We have something better: Margaret's doorbell camera, which shows the Escape stopped and Smith rolling through. That copy was secured on February 19th, 2026."
   },
   {
    "page": 7,
    "title": "Master Audit Checklist: Property Damage Deep Dive",
    "img": "/decks/day2/07.webp",
-   "notes": "Third, the property damage deep dive. Audit the photos for a clear point of impact. Are there photos of the undercarriage or the frame? Those are crucial in high-value injury claims. Compare the insurance estimate with the final body shop bill, and look for supplementals that prove hidden structural damage. And if the vehicle was totaled, verify the CCC One or other valuation report, and make sure the client is not being lowballed on the value of the vehicle."
+   "notes": "Third, the property damage deep dive. You audit the photos for a clear point of impact, look for frame or undercarriage damage, compare the first estimate with the final shop bill, and look for supplements that reveal hidden structural damage. If a car is totaled, you check the valuation report so the owner isn't lowballed. On our file there's a twist worth understanding. The damaged car in the property claim is Margaret's 2019 Civic, not John's, and the firm handles it under a separate PD-only engagement. Still, it tells the force story. The first estimate was six thousand nine hundred forty dollars, and the teardown supplement added two thousand three hundred fifteen for the A-pillar, which is structural. The final repair was nine thousand two hundred fifty-five dollars. Against an actual cash value of seventeen thousand six hundred, that's about fifty-three percent, so the Civic was repairable, not a total loss."
   },
   {
    "page": 8,
    "title": "Master Audit Checklist: Medical & Billing Audit",
    "img": "/decks/day2/08.webp",
-   "notes": "Fourth, the medical and billing audit. Build a chronology, a timeline of treatment, and audit it for gaps in treatment. If there is a 14-day gap, you must have a documented reason, for example, the client was waiting for MRI authorization. Run a coding audit: scan the bills for unbundling or duplicate CPT codes that could make a bill look inflated, or even fraudulent, to an adjuster. And review the client's prior history, the past 5–10 years of medical records, so you find any pre-existing conditions before the defense does."
+   "notes": "Fourth, the medical and billing audit, and this is where our file is tested hardest. Build the chronology and read it for gaps. The slide's rule is that a fourteen-day gap needs a documented reason. Ours is exactly that: the crash was February 6th, and John's first treatment was February 20th. The reasons were no transportation, thinking it was soreness, worry about cost, and then numbness into his hand, and they're corroborated by the EMS report, his work call-outs, his texts to his mother and the pharmacy receipt. There's also the nineteen-day disruption in April, explained by crash-related anxiety. Next, the coding audit for unbundling or duplicates. Riverton Spine and Rehab billed thirty-four lines against thirty-three visits, with May 4th billed twice, so the audited figure is six thousand one hundred five dollars. Finally, prior history. John had three chiropractic visits in 2021 for low-back stiffness, resolved, and no prior neck complaints. You find that before the defense does."
   },
   {
    "page": 9,
    "title": "The Defense-Eye Audit: Red Flag Detection",
    "img": "/decks/day2/09.webp",
-   "notes": "Before finalizing the demand, audit the file the way the defense will, for these value killers. Social media presence: if the client claims loss of enjoyment of life but posted vacation photos during treatment, adjust the demand or warn the client. MIST designation: if the property damage is under one to two thousand dollars, the case is classified as Minor Impact Soft Tissue, so provide stronger medical narratives to counter the bias that low damage means no injury. And the venue audit: confirm where a suit would be filed, and whether the jury pool is conservative or liberal, because that affects the multiplier for pain and suffering."
+   "notes": "Before you finalize, audit the file through the defense's eyes. The slide names three value killers. Social media: if a client claims loss of enjoyment but posts vacation photos, the demand has to be adjusted or the client warned. That's a general check you run on every file. Then the MIST label, minor impact soft tissue, which adjusters attach when the damage is small, on the theory that low damage means no injury. Our file doesn't fit that box. Smith hit the passenger door at about twenty-eight miles an hour, the Civic it was pushed into needed structural repair, and John's injury is a disc herniation documented on MRI, not just soft tissue. Still, expect the argument, and answer it with the medical narrative. Finally, the venue audit: where would suit be filed, and how does that jury pool tend to value pain and suffering? On our file that's Riverton County, and that read belongs to Atty. Thorne."
   },
   {
    "page": 10,
    "title": "Final Package Readiness",
    "img": "/decks/day2/10.webp",
-   "notes": "An audited file is organized for the attorney's final review in three parts. A summary memo: a one-page cheat sheet of the audit findings. An exhibit index: all bills, records, and property damage photos, labeled. And the Ask: a calculated demand range, based on the policy limits and the total specials. A pro tip: always audit the policy limits one last time. There is nothing worse than sending a one hundred thousand dollar demand, only to learn mid-negotiation that the defendant has a twenty-five thousand dollar step-down policy."
+   "notes": "Here is what an audited file looks like when it goes to the attorney. Three pieces. A one-page summary memo of what the audit found. An exhibit index, with every bill, record and photo labeled. And the Ask, the demand figure, calculated from the policy limits and the specials. On our file, the Ask is simple to state: Keystone's ten thousand dollar BI limit, against total specials of sixteen thousand four hundred one dollars and forty cents. The specials alone exceed the limit, before pain and suffering is even counted. Now the pro tip on the slide: audit the policy limits one more time. The slide's example of a hundred thousand dollar demand against a twenty-five thousand dollar policy is general, but the lesson fits us. Keystone gave its limit verbally at first and wouldn't confirm it in writing until it had signed authorizations. The Declaration Page confirming ten thousand dollars arrived March 20th, 2026. Never build a demand on a verbal number."
   }
  ],
  "d3m1-l1": [
@@ -382,43 +382,43 @@ window.CM_DECK_SLIDES = {
    "page": 13,
    "title": "Case Phase: Demand — The Legal & Procedural Foundation",
    "img": "/decks/day2/13.webp",
-   "notes": "Now we move into the Demand phase. Bodily Injury demand workflows bring together legal expertise, medical understanding, and negotiation skills. Case Managers must understand the why behind the paperwork, and that rests on three foundations: the Statute of Limitations, the liability framework, and the coverage analysis. Your job is to progress cases efficiently from intake to disbursement, meeting every deadline and identifying the key value drivers."
+   "notes": "Now we move into the Demand phase. A Bodily Injury demand pulls together legal, medical and negotiation skills, and the slide's point is that a Case Manager has to understand the why behind the paperwork. Three foundations hold it up. The statute of limitations: ours is docketed for February 6th, 2028, so we're well inside it, but it's on the calendar from day one. The liability framework: Robert Smith was cited for running the stop sign, we have an independent witness and video. And the coverage analysis: our recovery stack is forty thousand dollars, Keystone's ten thousand in BI first, then Harbor Point's twenty thousand in Host UM, then Cardinal State's ten thousand in Relative UM. That order matters, because the UM layers can't open until BI is exhausted. So the demand to Keystone is the key that unlocks everything behind it."
   },
   {
    "page": 14,
    "title": "Case Phase: Demand — The Policy Limit Mindset",
    "img": "/decks/day2/14.webp",
-   "notes": "In this phase, a Case Manager shifts from a reactive mindset to a proactive, strategic one. It is all about identifying needs, quantifying requirements, and setting the stage. Think in terms of the policy limit mindset. The goal is not just to send a packet of records. It is to present the case in a way that makes the insurance adjuster afraid of a jury. Two checks come first. Maximum Medical Improvement, or MMI: make sure the client has completed treatment, or has a clear future care plan. And the gap check: identify and explain any gaps in treatment before the adjuster uses them to devalue the case."
+   "notes": "This slide is about mindset. In the Demand phase you stop reacting and start setting the stage. Think in terms of the policy limit. The goal isn't to mail a stack of records, it's to present the case so the adjuster sees real risk in front of a jury. Two checks come first. Maximum Medical Improvement: make sure treatment is complete, or there's a clear future care plan. On our file, Dr. Reyes declared MMI on June 12th, 2026, with residual tingling in the right arm and possibly one or two repeat injections within two years. That future care is described in the narrative, not counted in the specials. Then the gap check: identify and explain every gap before the adjuster uses it. For us that means the fourteen-day initial gap and the nineteen-day disruption in April, both explained and corroborated, and addressed up front in the demand package."
   },
   {
    "page": 15,
    "title": "Treatment Gaps in the Demand Phase",
    "img": "/decks/day2/15.webp",
-   "notes": "Let's look closer at treatment gaps. Adjusters use them to argue that the injuries were not serious, that the treatment was unnecessary or excessive, that the client recovered earlier than claimed, or that other unrelated factors caused the condition. Unexplained gaps can reduce settlement value. So the Case Manager's strategy is to identify gaps early during record review, document the reason for every interruption in treatment, obtain supporting documents when available, and include the explanations directly in the demand package timeline. When you address a gap in the demand, acknowledge it clearly, give the context and supporting facts, connect continued symptoms to ongoing treatment, and show the complaints were consistent before and after the gap. A well-explained treatment gap is less damaging than an unexplained one."
+   "notes": "Let's look closer at treatment gaps, because ours will be the adjuster's main weapon. Adjusters use gaps to argue the injury wasn't serious, the treatment wasn't needed, the client recovered early, or something else caused the problem. An unexplained gap costs real money. So your strategy is to find gaps early, document the reason for each, gather the support, and put the explanation right into the demand timeline. When you address it, acknowledge it plainly, give the context, and show the complaints were consistent before and after. On our file, the demand handles the gap up front. The EMS report shows neck stiffness on the day of the crash, and Dr. Reyes's Causation Letter of June 19th, 2026 explains that delayed presentation is clinically consistent with a disc injury whose symptoms evolve over days to weeks. A well-explained gap does far less damage than one the adjuster discovers."
   },
   {
    "page": 16,
    "title": "The Demand Packet Checklist",
    "img": "/decks/day2/16.webp",
-   "notes": "Before the attorney reviews the demand letter, the Case Manager makes sure the Big Four components are flawless. Medical specials: a clean, itemized spreadsheet of every provider, date of service, and total bill. The narrative: drafting the human story, how the injury affected the client's job, their parenting, or their hobbies. Liability proof: the police report, witness statements, and clear photos of the property damage. And special damages: lost wage verifications, such as W-2s or employer letters, and out-of-pocket receipts."
+   "notes": "Before the attorney reviews the demand letter, the Case Manager makes sure the Big Four are flawless. Medical specials: a clean, itemized list of every provider, date and amount, which for us totals fourteen thousand eight hundred seventeen dollars and forty cents after the audit. The narrative: the human story of how the injury changed the client's life. John's signed Personal Impact Statement tells it in his own words, including the panic attack at his own corner, the nightmares and giving up pickup basketball, and whether that's presented is Atty. Thorne's call. Liability proof: the police report citing Smith, Ruth Calloway's statement, and the doorbell video. And special damages: wage verification and out-of-pocket receipts. We have Northgate's letter supporting one thousand five hundred eighty-four dollars in lost wages, and Riverton Drug receipts of three hundred twelve dollars and forty cents. All four pieces have to agree with each other."
   },
   {
    "page": 17,
    "title": "Quality Control: The Final Scrub",
    "img": "/decks/day2/17.webp",
-   "notes": "Before a demand is sent, the Case Manager performs a final scrub to catch the common adjuster traps. Billing overlaps: make sure there is no double billing for the same date of service. Pre-existing conditions: highlight how the accident aggravated a previous injury, rather than trying to hide it. And balance verification: call every provider to get the final balance, so the demand amount is 100% accurate."
+   "notes": "Then the final scrub, which catches the traps adjusters look for. Billing overlaps first: no double billing for the same date. That's the May 4th duplicate on Riverton Spine and Rehab's ledger. The clinic said it would only reissue the ledger when the LOP account closes, so the demand went out on the audited six thousand one hundred five dollars, supported by the attendance log. Second, pre-existing conditions. The slide's advice is to show aggravation rather than hide history. On our file the history is low back in 2021, resolved, and the injury now is in the neck, so you present it openly as unrelated. Third, balance verification: confirm every provider's balance so the numbers are exact. Crescent's statement wrongly billed John one thousand five hundred forty dollars it couldn't legally charge him, and the corrected statement of July 10th, 2026 shows zero. That's the scrub catching a real error."
   },
   {
    "page": 18,
    "title": "Negotiating the First Call",
    "img": "/decks/day2/18.webp",
-   "notes": "For senior Case Managers who handle the first call with the adjuster, there are two things you need to know. The anchor technique: never apologize for a high demand, and stay firm on the value drivers. And note-taking: document every excuse the adjuster gives, such as low impact or delayed treatment. Those notes are the ammunition the attorney needs if the case goes to litigation."
+   "notes": "This slide is for senior Case Managers who handle the first call with the adjuster. Two skills. The anchor technique: never apologize for a high demand, and stay firm on what drives value. And note-taking: write down every reason the adjuster gives, such as low impact or delayed treatment, because those notes become the attorney's ammunition if the case goes to suit. On our file, you can see why that second point matters. When Keystone made its offer on August 5th, 2026, it cited two things: the fourteen-day gap and a claim that the MRI findings were degenerative. Those are the excuses you log word for word. They told us exactly what the rebuttal had to answer, and the next day the rebuttal Atty. Thorne approved went out addressing both. Remember that strategy and settlement figures are the attorney's; your job is accuracy and a clean record."
   },
   {
    "page": 19,
    "title": "Demand: Best Practices",
    "img": "/decks/day2/19.webp",
-   "notes": "Here are the best practices for the demand. The 30-day rule: once a client reaches MMI, the demand must be out the door within 30 days. Photo impact: always lead the demand with the most graphic photo, of the property damage or the injury, to set the tone. The why factor: every medical bill in the demand needs a corresponding why, the reason that treatment was necessary for the client's recovery. And a pro tip to remember: a demand is not a request for money. It is a presentation of a debt owed. Treat the insurance company like a bank that has not paid its bill."
+   "notes": "Here are the best practices for the demand. The thirty-day rule says that once a client reaches MMI, the demand should be out within thirty days. On our file, MMI was June 12th, 2026, and the Time-Limited Demand went out July 20th, after the Causation Letter, the wage verification and the corrected records were in hand. So treat the thirty days as a target, and document why a file needs longer. Photo impact: lead with the strongest image to set the tone. The why factor: every bill needs a reason the treatment was necessary, which for us runs from urgent care, to the orthopedic consult, to the MRI, to the injection. And the pro tip is a mindset: a demand isn't a request for money, it's the presentation of a debt owed. Our demand asked for the limits, with a Limited Release of Robert Smith and Keystone only, and Smith's affidavit of no other insurance."
   }
  ],
  "d3m2-l2": [
@@ -426,67 +426,67 @@ window.CM_DECK_SLIDES = {
    "page": 21,
    "title": "Settlement Negotiations: The Pitch",
    "img": "/decks/day2/21.webp",
-   "notes": "Now we turn to settlement negotiations. In personal injury law, the demand letter is your opening move. If it looks like a template, the adjuster will treat it like one. Here is the negotiation battle map. First, create a net sheet: calculate the total medical liens, costs, and attorney fees. Anything below that total means the client receives nothing, and the aim is to maximize the net settlement. Second, identify the value drivers: list three facts that would scare a jury, such as the defendant was on his phone, or the client missed his daughter's wedding because of surgery. Third, anticipate the adjuster's response: name your top two weaknesses and prepare to justify them, ideally with documentation. And fourth, prepare the rebuttal, so the argument is ready before they bring it up. Adjusters protect insurance companies by undervaluing claims, so come prepared."
+   "notes": "Now settlement negotiations. The demand letter is your opening move, and if it reads like a template, the adjuster treats it like one. The slide's battle map has four steps. First, the net sheet: add up liens, costs and fees, so you know the floor below which the client gets nothing. On our file, costs are four hundred eighty-six dollars and seventy-five cents and the fee is one-third pre-suit, before the liens. Second, value drivers, the facts that would move a jury. The slide's examples are general. Ours are a defendant cited for running a stop sign, an independent witness, video of him rolling through, and a disc herniation on MRI. Third, anticipate the adjuster: name your two weaknesses. Ours are the fourteen-day gap and the April disruption. Fourth, prepare the rebuttal before they raise it. That's why the Causation Letter and the gap explanation were already in the package."
   },
   {
    "page": 22,
    "title": "The Valuation Baseline: The Set-Off",
    "img": "/decks/day2/22.webp",
-   "notes": "Next, the valuation baseline. In Bodily Injury settlements, PIP benefits are paid regardless of fault, and that complicates the claim against the at-fault party. Case Managers need to understand how these coverages relate, to make sure the client does not end up with zero. In most jurisdictions, the defendant's insurance carrier is entitled to a set-off, a credit, for payments made by PIP. The logic is that the law generally prevents double recovery. If PIP already paid the hospital ten thousand dollars, the defendant should not have to pay that same ten thousand dollars again. So the calculation is: the gross settlement value, minus the PIP paid amount, equals the defendant's remaining liability."
+   "notes": "This slide introduces the set-off. In many jurisdictions, PIP pays regardless of fault, and the defendant's carrier gets a credit for what PIP paid, on the theory that the law prevents double recovery. So gross settlement value minus the PIP paid equals the defendant's remaining exposure. That's general information worth knowing, and you'll meet it on other files. But our file runs on Riverton's rule, and it's different. Riverton is an add-on PIP state. PIP does not reduce BI or UM, and the PIP carrier can't recover what it paid out of its insured's settlement. Harbor Point paid five thousand dollars in PIP for John, and confirmed in writing on March 2nd, 2026 that it has no reimbursement right against his recovery. So on our file there's no set-off against Keystone. Always check which rule your jurisdiction follows before you do this math."
   },
   {
    "page": 23,
    "title": "The Valuation Baseline: PIP as a Valuation Baseline",
    "img": "/decks/day2/23.webp",
-   "notes": "BI adjusters use PIP payments to gauge how serious a claim is during the Demand Phase. Look first at the speed of exhaustion. If a client exhausts a ten thousand dollar PIP limit in 48 hours, as John Doe did with his ER and EMS bills, it signals a high-severity case. Then look at special damages. The total medical bills, the specials, are usually much higher than what PIP pays. Even though PIP covered ten thousand dollars, the Case Manager argues that the total value of the bills, forty-one thousand four hundred dollars in John's case, is the true anchor for the pain and suffering multiplier."
+   "notes": "Adjusters look at PIP payments to gauge how serious a claim is, and this slide shows why that can mislead. Its example is a ten thousand dollar PIP limit used up in forty-eight hours on emergency room and E M S bills, with the specials running far above it. The lesson is in the gap: how fast PIP ran out tells you about the bills, not about the injury. What PIP paid is never the measure of the case; the full specials are what anchor the value of the claim for pain and suffering. When you reach the Think it through challenge, you will work this out on John Doe's own file: whose PIP he claims, what it paid and when it ran out, and how his total specials compare. Keep the slide's method in mind and bring the file's documents, not the example's numbers."
   },
   {
    "page": 24,
    "title": "The Valuation Baseline: The EMC and the Benefit Ceiling",
    "img": "/decks/day2/24.webp",
-   "notes": "As we saw in John Doe's file with Doctor Sarah Spine, the Emergency Medical Condition finding, the EMC, is a major negotiation lever. Without an EMC, many states cap PIP at two thousand five hundred dollars. That pushes more of the bills onto the BI settlement, often eating up the client's net recovery. With an EMC, the full ten thousand dollars is available. That is better for negotiations, because it lowers the amount of unpaid medical liens that have to be negotiated down at the end of the case."
+   "notes": "This slide talks about the Emergency Medical Condition finding, the EMC, as a negotiating lever. In a state with an EMC rule, such as Florida, PIP benefits are capped at a lower amount unless a qualifying provider makes that finding, which pushes more bills onto the BI settlement. The slide's example, including its doctor, is general and not from our file. Here's what matters for John. Riverton has no EMC rule. There's no treat-within-fourteen-days condition and no EMC determination capping his PIP, so his full five thousand dollars was available despite the fourteen-day gap. That's why we teach EMC as a contrast. If you work a Florida file, you'll have to chase that finding. On ours, the gap matters for causation arguments with Keystone, not for PIP benefits. Knowing the difference keeps you from making an argument that doesn't apply."
   },
   {
    "page": 25,
    "title": "The Valuation Baseline: Subrogation vs. Non-Subrogation",
    "img": "/decks/day2/25.webp",
-   "notes": "This is the most critical technical detail in a BI negotiation: subrogation versus non-subrogation. Under non-subrogation, which is the common case, the PIP carrier cannot ask for its ten thousand dollars back from the BI settlement. That is a win for the client, because that money stays in their pocket, through the bills it already paid. Under subrogation, the PIP carrier places a lien on the BI settlement. The Case Manager must then negotiate with the PIP adjuster to reduce that lien, so the client keeps more of the final check."
+   "notes": "Here's a technical point that changes the client's net: subrogation versus non-subrogation. Under non-subrogation, the PIP carrier can't take back what it paid from the BI settlement, and that money effectively stays with the client. Under subrogation, the carrier places a lien on the settlement, and the Case Manager has to negotiate it down. The slide's ten thousand dollar figure is a general example. On our file, Harbor Point's PIP falls on the non-subrogation side: it confirmed in writing that it has no reimbursement right on the five thousand dollars it paid. But don't stop there. A health plan can be a different story. Peach State asserted a reimbursement right on its first notice and paid one thousand eight hundred sixty dollars for the injection. That one is a real lien, and it's the one we have to resolve before John is paid."
   },
   {
    "page": 26,
    "title": "The Valuation Baseline: Strategic Exhaustion",
    "img": "/decks/day2/26.webp",
-   "notes": "A savvy Case Manager often wants PIP exhausted as quickly as possible on the hard costs, like the ER and imaging. Why? Once PIP is exhausted, the client can move to Letters of Protection, or LOPs, for later treatment like chiropractic care and physical therapy. And that gives you negotiation leverage. LOP providers are often more willing to reduce their bills at the end of a case than a hospital is. By spending the PIP money on the non-negotiable hospital bills, you preserve the BI settlement funds for the client. One tip: always verify the PIP ledger before you begin BI negotiations. If you tell an adjuster the specials are forty thousand dollars but forget that PIP already paid ten thousand of that, your credibility, and your demand, will be cut down instantly."
+   "notes": "The slide describes strategic exhaustion: spend PIP on the hard costs like imaging, then move later care to Letters of Protection, because LOP providers are often more willing to reduce their bills at the end. On our file, it worked a little differently but the logic is the same. PIP paid the urgent care visit, Dr. Reyes's visits and the twenty-three hundred ninety-five dollar MRI. Riverton Spine and Rehab was out of network for Peach State, so John treated there under an LOP signed February 23rd, 2026, from the start. And that LOP balance is the one that came down at the end, from the audited six thousand one hundred five dollars to four thousand five hundred eighty. Now the tip: verify the PIP ledger before you negotiate. Ours shows five payments totaling exactly five thousand dollars. Quote the specials accurately and you protect your credibility."
   },
   {
    "page": 27,
    "title": "Negotiations Initiated: The Battle",
    "img": "/decks/day2/27.webp",
-   "notes": "Negotiations officially begin once the demand packet is sent to the adjuster. Start with the soft lead, the first call. Confirm they received the demand and all the records. For example: Hi, I'm calling about the John Doe demand. I want to make sure you saw the MRI report on page 14 specifically. Then set the tone: state that the file is litigation ready. Next, the ask. If they have not made an offer, ask: Based on the clear liability and the forty thousand dollars in specials, what is your opening evaluation? And when the low-ball comes, never get angry. Use the professional pause. Count to five after they give a low number, then say: I'm struggling to see how that number accounts for the permanent nature of the injury. What data are you using to get there?"
+   "notes": "Negotiations begin once the demand is in the adjuster's hands. Start with the soft lead: confirm they received the demand and every record, and point them to the evidence that matters. On our file, Dana Whitfield at Keystone confirmed receipt in writing on July 22nd, 2026, and that acknowledgement started the thirty-day clock, so the acceptance window ran to August 21st. Then set the tone: the file is litigation ready. Next, the ask. The slide's script mentions forty thousand dollars in specials, which is a general example. On ours, you'd say clear liability and sixteen thousand four hundred one dollars and forty cents in specials, against a ten thousand dollar limit. And when the lowball comes, stay calm and use the professional pause. Keystone's offer of three thousand five hundred dollars on August 5th was exactly that moment. Ask what data supports the number, and log the answer."
   },
   {
    "page": 28,
    "title": "The Bracketing Technique",
    "img": "/decks/day2/28.webp",
-   "notes": "When you are at one hundred thousand dollars and they are at thirty thousand, the gap feels impossible. Bracketing builds a bridge. First, propose the logic: We are seventy thousand dollars apart. If I can move my attorney into the eighty thousand range, can you get into the fifty thousand range? Second, check authority. If they say they don't have that much, ask: Who does? Because if we can't get into the fifties, we are wasting each other's time and should just file the complaint. Third, close the bracket. Once you are both between fifty and eighty thousand dollars, you negotiate the middle, for example, sixty-five thousand."
+   "notes": "Bracketing is a technique for when the two sides seem impossibly far apart. The slide's numbers, a hundred thousand against thirty thousand, are a general example. You propose a logic: if I can move my side into one range, can you move into another? You check authority: if the adjuster says they can't go that high, you ask who can. And once you're both inside the bracket, you negotiate toward the middle. It's a useful tool on files with room to move. On our file, though, notice why it doesn't really apply. John's specials alone exceed Keystone's ten thousand dollar limit, so the demand was for the limits, and there's nowhere above the limit for the carrier to go. Keystone's three thousand five hundred offer was answered with a rebuttal, not a split. Any move off the limits would be Atty. Thorne's decision, never the Case Manager's."
   },
   {
    "page": 29,
    "title": "Common Adjuster Stall Tactics",
    "img": "/decks/day2/29.webp",
-   "notes": "Adjusters use stalls to wear you down, so you accept a lower end-of-month settlement. Here are three, with the rebuttal for each. The stall: I'm waiting on my manager's authority. The rebuttal: Understood. I'll give you until Thursday at 4 PM. If I don't hear back, I've been instructed to send the file to our litigation department. The stall: We need more records from five years ago. The rebuttal: Those aren't relevant to this acute injury. However, if you want them, I expect an in-good-faith offer on the current undisputed injuries today. And the stall: The property damage was too low for this injury. The rebuttal: Physics doesn't work that way. Low-velocity impacts often cause high-torque injuries to the spine, and we have the MRI to prove it."
+   "notes": "Adjusters use stall tactics to wear you down, so you'll accept less. The slide gives three, each with a rebuttal. The first is waiting on a manager's authority: answer with a clear, polite deadline. The second is asking for old records: say they're not relevant to this acute injury, and ask for a good-faith offer on what's undisputed. The third is that the damage was too low for the injury: answer that low-speed impacts can still injure the spine, and the MRI proves it. On our file, Keystone's argument was close to that third one. It called the MRI findings degenerative. And our rebuttal came straight from the record. The radiologist, Dr. Helen Park, wrote that there was no significant degenerative change at the adjacent levels. Pair that with Dr. Reyes's Causation Letter and the EMS report, and the stall has an answer on paper."
   },
   {
    "page": 30,
    "title": "Close the Deal: The Final-Final",
    "img": "/decks/day2/30.webp",
-   "notes": "The last two thousand five hundred dollars is often the hardest to get. Use the split the baby move: We are at forty-seven thousand, you're at forty-three. Let's meet at forty-five thousand, and I'll get the release signed within the hour. Before you hang up, confirm the terms. Is this for Bodily Injury only? Save property damage for later if it is not settled. Does it include all liens? And when will the check be mailed? Then create the paper trail. Immediately email the adjuster: Per our conversation, we have settled the John Doe matter for forty-five thousand dollars. Please send the release."
+   "notes": "The last stretch of a negotiation is often the hardest. The slide's split-the-difference script, with its forty-five thousand dollar figures, is a general example of closing the final gap. What applies to every file is what you do before you hang up. Confirm the terms. Is this Bodily Injury only? Is any property damage claim still open? What about liens? When will the check issue? Then create the paper trail with a confirming email right away. On our file, each of those questions had a real answer. Keystone tendered its ten thousand dollar limits on August 12th, 2026. It was BI only, because Margaret's Civic claim stayed open on its own. The liens stayed with the firm to resolve from trust. And the release terms had to protect the UM claims behind it. Getting those terms in writing is what keeps the forty thousand dollar stack intact."
   },
   {
    "page": 31,
    "title": "The Never Rule",
    "img": "/decks/day2/31.webp",
-   "notes": "Finally, the never rule. Never apologize for a high demand. It is based on the client's suffering. Never bid against yourself. If you drop your price, the adjuster must raise theirs before you move again. And never accept that's all I have as the final answer on the first day. Every adjuster has a supervisor with a bigger checkbook."
+   "notes": "Finally, the never rule, three of them. Never apologize for a high demand, because it's based on the client's real losses. Never bid against yourself: once you've moved, the adjuster has to move before you move again. And never accept that's all I have as the final answer on the first day, because every adjuster has a supervisor with more authority. On our file you can see all three at work. The demand asked for Keystone's limits, and the specials justified it. When Keystone offered three thousand five hundred dollars, the response wasn't a lower counter, it was the approved rebuttal with the radiologist's words, the Causation Letter and the EMS report. And Keystone did move, tendering the full ten thousand dollars on August 12th, 2026. Holding your position with evidence is what got there."
   }
  ],
  "d3m1-l2": [
@@ -494,67 +494,67 @@ window.CM_DECK_SLIDES = {
    "page": 33,
    "title": "BI Settlement: The UM/UIM Safety Check",
    "img": "/decks/day2/33.webp",
-   "notes": "Now we reach the BI Settlement phase, and the UM/UIM safety check. If the at-fault driver has low or no insurance, you must tap into the client's own Uninsured or Underinsured Motorist coverage. That makes the subrogation waiver your green light. If you settle with the at-fault driver and sign their release without a waiver from your client's own insurer, you may destroy your client's right to collect UM/UIM benefits. So, first, send the 30-day letter: a formal notice to the UM carrier about the offer. Then secure the waiver document: a written Waiver of Subrogation from the UM carrier. It proves they have given up their right to sue the driver, which lets you settle the liability claim and proceed with the UM claim."
+   "notes": "Now we reach the BI settlement, and the UM safety check. When the at-fault driver has low or no coverage, the client looks to Uninsured or Underinsured Motorist coverage. The danger the slide warns about is real: settle with the at-fault driver and sign a release without the UM carrier's consent, and you can forfeit the UM claim. So you notify the UM carrier of the offer and get its written consent and waiver of subrogation. On our file this protects thirty thousand dollars. After Keystone tendered, consent-to-settle requests went to Harbor Point and Cardinal State on August 13th, 2026, each with a thirty-day window and the option to substitute its own check to preserve subrogation. Harbor Point consented August 24th and Cardinal State August 26th. Bluewater wasn't asked, because Margaret's Civic policy has no UM. Only with both consents in hand did the signing go ahead."
   },
   {
    "page": 34,
    "title": "BI Settlement: Key Laws & Doctrines",
    "img": "/decks/day2/34.webp",
-   "notes": "Before a settlement can be discussed, the file must be bulletproof, and that rests on three key laws and doctrines. The Made Whole Doctrine says a health insurer, the subrogated carrier, cannot claim from a settlement unless the client is fully compensated. It can help persuade lienholders to waive their claims when the settlement is small next to significant injuries. The Common Fund Doctrine requires lienholders to reduce their bill by the attorney's fee percentage, usually 33.3%. The logic: they should not get a free ride on the work the firm did to recover the money. And the Statute of Limitations is the death date for a case. Case Managers must track it religiously, because missing it is an automatic malpractice event."
+   "notes": "Three legal doctrines shape how a settlement and its liens resolve. The made whole doctrine says a health insurer can't take from a settlement unless the client has been fully compensated, which can help persuade a lienholder to reduce when the recovery is small. The common fund doctrine says a lienholder should reduce its claim by the attorney's fee share, since it benefits from the firm's work. And the statute of limitations is the deadline that can end a case, so you track it constantly. On our file, Peach State is a fully insured group plan, so state law governs any reduction, not ERISA preemption, and that's Atty. Thorne's call. Its one thousand eight hundred sixty dollar lien was accepted at one thousand two hundred forty, a one-third procurement-cost reduction, which is the common fund idea at work. And our statute date stays docketed for February 6th, 2028."
   },
   {
    "page": 35,
    "title": "The Execution: The Release of All Claims",
    "img": "/decks/day2/35.webp",
-   "notes": "Now the execution. The Release of All Claims is the exit document, and the most critical document in the file. It is the contract that legally ends the dispute. In a release of Bodily Injury, make sure the client is not accidentally signing away a property damage or PIP claim that is still being negotiated separately. Know the non-admission of liability: standard releases state the insurer is paying to avoid further litigation, not because it admits its driver was at fault. And know the indemnity and hold harmless clause: the claimant, and their Case Manager and attorney, are responsible for paying all medical liens. If a hospital later sues the insurer over an unpaid bill, the claimant must indemnify, or pay back, the insurer for those costs."
+   "notes": "Now the execution, starting with the release, the document that legally ends the claim. The slide calls it a Release of All Claims, and it's the most important document in the file. Make sure the client isn't signing away something still open. Know the non-admission of liability language, and read the indemnity and hold harmless clause carefully. Our file shows exactly why. Keystone's draft of August 14th, 2026 released all other persons and insurers, which would have released Harbor Point and Cardinal State, thirty thousand dollars of the stack. It also released property damage, though Margaret's Civic claim was open, and it carried a confidentiality clause and a lien indemnity with attorney's fees. The Case Manager flagged each clause to Atty. Thorne. His amendments were accepted, and Keystone issued a Limited Release covering Robert Smith and Keystone only, BI only, with the UM and Civic claims expressly reserved. John signed it August 28th."
   },
   {
    "page": 36,
    "title": "The Execution: The Settlement Disclosure Statement",
    "img": "/decks/day2/36.webp",
-   "notes": "The Settlement Disclosure Statement is the truth document. It is often required by state law or internal compliance, and it makes sure the claimant understands exactly what is happening. It states that the settlement is full and final: even if the claimant's back starts hurting again next year, they cannot come back for more money. And some states have a cooling-off period, a rescission period of a few business days, when the claimant can change their mind after signing. The Case Manager must track that date before cutting any checks."
+   "notes": "The Settlement Disclosure Statement is the truth document. It may be required by state law or by the firm's compliance rules, and its job is to make sure the client understands exactly what is happening. It explains that the settlement is full and final, so even if symptoms flare later, there's no coming back for more. And in some states there's a cooling-off period, a few business days when the client can change their mind, and the Case Manager tracks that date before any check is cut. On our file, this connects to John's future care. Dr. Reyes said he may need one or two more injections within two years. That's exactly the kind of thing the client has to understand before the file closes. John signed his Settlement Statement on October 21st, 2026, and disbursement followed on October 22nd. Whether a rescission period applies is something Atty. Thorne confirms."
   },
   {
    "page": 37,
    "title": "The Execution: Lien Payoff Letters",
    "img": "/decks/day2/37.webp",
-   "notes": "Lien payoff letters are the verification paperwork. A Case Manager cannot rely on a medical bill alone. You need a formal final demand, or payoff letter. If the claimant is 65+ or on SSDI, CMS, the Centers for Medicare and Medicaid Services, will issue a Medicare final demand. Be warned: it can take 60+ days to arrive, and the file must stay pended until it is in hand. And once a provider, like a chiropractor or a surgeon, is paid, obtain a signed letter stating the lien is satisfied. That satisfaction of lien keeps the provider from sending the client to collections later."
+   "notes": "Lien payoff letters are your verification. You never pay a lien off a bill alone; you need a formal final demand or payoff letter in writing. The slide's Medicare example is important general knowledge. For a client who is sixty-five or older or on disability, Medicare issues a final demand that can take more than sixty days, and the file waits until it arrives. On our file, that check was run on Day 2, and John is not a Medicare beneficiary. Our liens are Peach State and Riverton Spine and Rehab. Peach State accepted one thousand two hundred forty dollars in writing on October 9th, 2026, and Riverton Spine and Rehab accepted four thousand five hundred eighty dollars on October 12th. Once each is paid, get a signed letter confirming the lien is satisfied, so no provider ever sends John to collections."
   },
   {
    "page": 38,
    "title": "The Execution: The Settlement Statement",
    "img": "/decks/day2/38.webp",
-   "notes": "The Settlement Statement is the net sheet: the ledger that breaks the settlement down from gross to net, and as a Case Manager you audit it for accuracy. Start with cost verification. Make sure every case cost, such as fifty dollars for a police report or two hundred dollars for medical records, is backed by a receipt. Then check the net to client, the final number the client actually receives. Your goal is to make sure that number is enough to cover any future medical needs discussed during the treatment phase."
+   "notes": "The Settlement Statement is the net sheet, the ledger that takes the settlement from gross to net, and you audit it line by line. First, every case cost needs a receipt. On our file, costs through settlement were four hundred eighty-six dollars and seventy-five cents, including twenty-five dollars for the police report and two hundred fourteen dollars and seventy-five cents for medical records and billing. Then the net to client. On Track A, the gross was forty thousand dollars across BI and both UM layers. Less the one-third fee of thirteen thousand three hundred thirty-three dollars and thirty-three cents, the costs, and the reduced liens of one thousand two hundred forty and four thousand five hundred eighty, John's net was twenty thousand three hundred fifty-nine dollars and ninety-two cents. The slide asks you to check that the net covers future care, and Dr. Reyes put that between three thousand four hundred and six thousand eight hundred dollars."
   },
   {
    "page": 39,
    "title": "The Execution: The Dismissal",
    "img": "/decks/day2/39.webp",
-   "notes": "The dismissal is the court filing. If the case was already in litigation, meaning a lawsuit was filed, the settlement is not over until the court is notified. A dismissal with prejudice means the case is closed and cannot be refiled. A dismissal without prejudice, which is rare in settlements, allows the case to be refiled under specific conditions. So the Case Manager verifies that with prejudice is the language used, to make sure the file is fully closed."
+   "notes": "The dismissal is the court filing that ends a lawsuit. If suit was filed, the settlement isn't finished until the court is told. Dismissal with prejudice means the case is closed and can't be refiled. Dismissal without prejudice, which is rare in settlements, leaves the door open. So the Case Manager checks that with prejudice is the language used. On our file, this depends on the track. On Track A, the case settled before any suit was filed, so there was nothing to dismiss. On Track B, which we follow on Days 4 and 5, suit was filed in Riverton County, and after Keystone tendered its limits at mediation, Robert Smith was dismissed. That's when this slide becomes your checklist: confirm the dismissal language before the file closes."
   },
   {
    "page": 40,
    "title": "The Execution: W-9 and Key Post-Settlement Documents",
    "img": "/decks/day2/40.webp",
-   "notes": "Many insurance carriers will not issue a settlement check until they have a W-9 form from the law firm or the claimant. If the Case Manager does not request it the moment the verbal agreement is made, the check will be delayed by at least a week. Here is how the key post-settlement documents compare. The release is signed by the claimant, and it ends the right to sue. The final demand comes from the lienholder, such as Medicare or a hospital, and it states the exact amount needed to clear the debt. The W-9 is signed by the payee, the law firm or the claimant, for tax reporting to the IRS. And the stipulation to dismiss is signed by the attorneys, and it notifies the court that the case is over."
+   "notes": "Many carriers won't issue a check until they have a W-9 from the firm or the payee. If you don't request it the moment terms are agreed, expect a delay. The slide compares the key documents. The release is signed by the claimant and ends the right to sue. The final demand comes from the lienholder and states exactly what clears the debt. The W-9 is signed by the payee for tax reporting to the IRS. And the stipulation to dismiss is signed by the attorneys and tells the court the case is over. On our file, the timing shows how these fit. Keystone's Limited Release promised payment within fourteen days of receiving the executed release and the firm's W-9. On August 28th, 2026, the Case Manager emailed Dana Whitfield the signed release, both UM consents and the W-9. Keystone's check issued September 1st and was deposited to trust on September 4th."
   },
   {
    "page": 41,
    "title": "Finalized Settlement: Administrative Document Control",
    "img": "/decks/day2/41.webp",
-   "notes": "Once the settlement is finalized and the paperwork is understood, the Case Manager enters the technical closing stage. Your mission is to move the file from settled to paid and archived, with total compliance. These are the boots-on-the-ground tasks, starting with administrative document control. The signature chase: send the Release of All Claims to the claimant by secure e-signature, like DocuSign, or schedule an in-person signing. Notary coordination: if the release needs a notary, which is common for high-value BI claims, verify that the notary's stamp is current and the ID matches the claimant exactly. And W-9 procurement: collect a W-9 from the claimant or the firm right away, so the carrier's accounting department does not flag the payment."
+   "notes": "Once the terms are settled, the Case Manager moves into the technical closing stage: from settled to paid and archived, with full compliance. Start with document control. The signature chase: the slide mentions secure e-signature or an in-person signing. On our file, Keystone required a notarized wet-ink original, so the release could not be e-signed. The Case Manager called John on August 26th, 2026 to schedule it, logistics only: the date, the place, a government photo ID in the name John Doe, and sign only in front of the notary. On August 28th, at the firm, Atty. Thorne went through the release with John first. Notary coordination: the slide says verify the stamp is current and the ID matches exactly. Our notary, Renee Castillo, checked John's Riverton driver's license against the name on the release. And the W-9 was sent the same day."
   },
   {
    "page": 42,
    "title": "Finalized Settlement: Final Lien Mitigation",
    "img": "/decks/day2/42.webp",
-   "notes": "The second set of closing tasks is final lien mitigation, the reduction. For provider negotiation, call the billing department of every lienholder. The script: The settlement was lower than expected. In the interest of global resolution, will you accept 50% of the balance as payment in full? Then update the ledger. Reflect every saving or reduction in the Settlement Statement right away, so the client can see their net recovery increasing. And for Medicare and Medicaid finalization, log into the MSPRP, the Medicare Secondary Payer Recovery Portal, and make sure the final demand matches your internal ledger."
+   "notes": "The second set of closing tasks is final lien mitigation, the reduction. Call the billing department of every lienholder. The slide's script asks a provider to accept fifty percent as payment in full in the interest of a global resolution. That percentage is a general example, and every reduction needs Atty. Thorne's authority. On our file, Riverton Spine and Rehab's audited six thousand one hundred five dollars came down to four thousand five hundred eighty, and Peach State's one thousand eight hundred sixty came down to one thousand two hundred forty. Then update the ledger as each saving lands, so the client can see the net rising. The last item, Medicare finalization through the MSPRP portal, is general knowledge for Medicare files. John isn't a Medicare beneficiary, so on ours that step doesn't apply. The funds cleared October 20th, 2026, and the trust ledger went to zero after disbursement."
   },
   {
    "page": 44,
    "title": "Thank You!",
    "img": "/decks/day2/44.webp",
-   "notes": "That brings us to the end of Day 2. Today we audited the file before the demand, built and presented the Bodily Injury demand, and negotiated and closed the settlement, all the way from settled to paid and archived. Review your notes on John Doe's file tonight, because we build on every one of these steps in the days ahead. Thank you."
+   "notes": "That brings us to the end of Day 2. Today we audited John Doe's file before the demand, served the Time-Limited Demand to Keystone, answered the three thousand five hundred dollar offer with evidence, and walked the BI settlement through the consents, the Limited Release and the net sheet. Review your notes tonight, because tomorrow we pick the file up at the demands and carry the settlement all the way to the UM layers. Thank you."
   }
  ],
  "d3m3-l1": [
@@ -1405,192 +1405,192 @@ window.CM_DAY_VIDEOS = {
     "title": "Case Management Training — Day 2"
    },
    {
-    "t": 24.9,
+    "t": 31.1,
     "page": 2,
     "title": "Training Agenda"
    },
    {
-    "t": 48.9,
+    "t": 62.9,
     "page": 3,
     "title": "Pre-Demand Case Auditing: Core Objectives"
    },
    {
-    "t": 100.4,
+    "t": 128.2,
     "page": 4,
     "title": "The Auditing Checklist: The Trinity of Case Alignment"
    },
    {
-    "t": 144,
+    "t": 184.9,
     "page": 5,
     "title": "Master Audit Checklist: Financial & Lien Verification"
    },
    {
-    "t": 186.8,
+    "t": 252.5,
     "page": 6,
     "title": "Master Audit Checklist: Liability Proof"
    },
    {
-    "t": 215.4,
+    "t": 313.3,
     "page": 7,
     "title": "Master Audit Checklist: Property Damage Deep Dive"
    },
    {
-    "t": 246.6,
+    "t": 369.8,
     "page": 8,
     "title": "Master Audit Checklist: Medical & Billing Audit"
    },
    {
-    "t": 281.6,
+    "t": 434.6,
     "page": 9,
     "title": "The Defense-Eye Audit: Red Flag Detection"
    },
    {
-    "t": 321.3,
+    "t": 492.2,
     "page": 10,
     "title": "Final Package Readiness"
    },
    {
-    "t": 356.3,
+    "t": 552.7,
     "page": 13,
     "title": "Case Phase: Demand — The Legal & Procedural Foundation"
    },
    {
-    "t": 386.1,
+    "t": 608.2,
     "page": 14,
     "title": "Case Phase: Demand — The Policy Limit Mindset"
    },
    {
-    "t": 425.8,
+    "t": 662.9,
     "page": 15,
     "title": "Treatment Gaps in the Demand Phase"
    },
    {
-    "t": 475.4,
+    "t": 720.5,
     "page": 16,
     "title": "The Demand Packet Checklist"
    },
    {
-    "t": 511.5,
+    "t": 777.4,
     "page": 17,
     "title": "Quality Control: The Final Scrub"
    },
    {
-    "t": 538,
+    "t": 835.3,
     "page": 18,
     "title": "Negotiating the First Call"
    },
    {
-    "t": 562.5,
+    "t": 889.4,
     "page": 19,
     "title": "Demand: Best Practices"
    },
    {
-    "t": 598.5,
+    "t": 945.8,
     "page": 21,
     "title": "Settlement Negotiations: The Pitch"
    },
    {
-    "t": 654.6,
+    "t": 1004.3,
     "page": 22,
     "title": "The Valuation Baseline: The Set-Off"
    },
    {
-    "t": 699.8,
+    "t": 1061.3,
     "page": 23,
     "title": "The Valuation Baseline: PIP as a Valuation Baseline"
    },
    {
-    "t": 739.6,
+    "t": 1109.2,
     "page": 24,
     "title": "The Valuation Baseline: The EMC and the Benefit Ceiling"
    },
    {
-    "t": 772.9,
+    "t": 1165,
     "page": 25,
     "title": "The Valuation Baseline: Subrogation vs. Non-Subrogation"
    },
    {
-    "t": 807.5,
+    "t": 1216.4,
     "page": 26,
     "title": "The Valuation Baseline: Strategic Exhaustion"
    },
    {
-    "t": 858.5,
+    "t": 1273.4,
     "page": 27,
     "title": "Negotiations Initiated: The Battle"
    },
    {
-    "t": 908.2,
+    "t": 1332.4,
     "page": 28,
     "title": "The Bracketing Technique"
    },
    {
-    "t": 947.5,
+    "t": 1384.5,
     "page": 29,
     "title": "Common Adjuster Stall Tactics"
    },
    {
-    "t": 997,
+    "t": 1440.3,
     "page": 30,
     "title": "Close the Deal: The Final-Final"
    },
    {
-    "t": 1036,
+    "t": 1495.6,
     "page": 31,
     "title": "The Never Rule"
    },
    {
-    "t": 1058.7,
+    "t": 1546.2,
     "page": 33,
     "title": "BI Settlement: The UM/UIM Safety Check"
    },
    {
-    "t": 1104.1,
+    "t": 1603.7,
     "page": 34,
     "title": "BI Settlement: Key Laws & Doctrines"
    },
    {
-    "t": 1149.8,
+    "t": 1657.4,
     "page": 35,
     "title": "The Execution: The Release of All Claims"
    },
    {
-    "t": 1198,
+    "t": 1717.9,
     "page": 36,
     "title": "The Execution: The Settlement Disclosure Statement"
    },
    {
-    "t": 1230.5,
+    "t": 1774.1,
     "page": 37,
     "title": "The Execution: Lien Payoff Letters"
    },
    {
-    "t": 1271.2,
+    "t": 1825.4,
     "page": 38,
     "title": "The Execution: The Settlement Statement"
    },
    {
-    "t": 1303.2,
+    "t": 1880,
     "page": 39,
     "title": "The Execution: The Dismissal"
    },
    {
-    "t": 1332.7,
+    "t": 1927.1,
     "page": 40,
     "title": "The Execution: W-9 and Key Post-Settlement Documents"
    },
    {
-    "t": 1374.4,
+    "t": 1983.2,
     "page": 41,
     "title": "Finalized Settlement: Administrative Document Control"
    },
    {
-    "t": 1420.1,
+    "t": 2040.3,
     "page": 42,
     "title": "Finalized Settlement: Final Lien Mitigation"
    },
    {
-    "t": 1459.7,
+    "t": 2097.5,
     "page": 44,
     "title": "Thank You!"
    }
