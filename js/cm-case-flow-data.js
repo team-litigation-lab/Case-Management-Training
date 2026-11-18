@@ -156,8 +156,8 @@ window.CM_CASE_FLOW = {
     {after: "d2m4-a1", title: "Injury and Treatment", group: "care", items: [
       "Injury: cervical strain; C5-C6 right paracentral disc herniation with mild right foraminal narrowing · prior: three chiropractic visits in 2021 for low-back stiffness, resolved; no prior neck complaints",
       "02/20/2026 Riverton Urgent Care: first treatment, \"onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18\" · $685.00 (MedPay)",
-      "02/20/2026 Riverton Fire EMS: ambulance from Riverton Urgent Care to Riverton General Hospital · $2,182.60 (PIP paid $1,150.00 at the fee schedule)",
-      "02/20–02/21/2026 Riverton General Hospital emergency department, Dr. Sarah Spine: CT, neurological work-up, overnight observation; Emergency Medical Condition (EMC) documented · $24,400.00 (PIP paid $8,850.00 at the fee schedule; PIP's $10,000 exhausted by the bills of the first 48 hours)"
+      "02/20/2026 Riverton Fire EMS: ambulance, urgent care to Riverton General · $2,182.60 (PIP paid $1,150.00)",
+      "02/20–02/21/2026 Riverton General ED, Dr. Sarah Spine: CT, neuro work-up, overnight observation; EMC documented · $24,400.00 (PIP paid $8,850.00; its $10,000 gone in 48 hours)"
     ]},
     {after: 'd2m4-a1', title: 'The Treatment Record', group: 'care', items: [
       "02/24–04/02/2026 Riverton Spine & Rehab (chiro + PT, out of network for Peach State): 16 visits under an LOP signed 02/23/2026",
@@ -194,10 +194,10 @@ window.CM_CASE_FLOW = {
     ]},
     {after: "d2m4-a1", title: "Treatment & Pre-Demand: Specials and the A-C-T Response", group: "money", items: [
       "Riverton Spine & Rehab billed 34 lines × $185.00 = $6,290.00, but 05/04/2026 is a duplicate: 33 visits = $6,105.00 after audit",
-      "PIP paid the emergency care of 02/20–02/21 at the fee schedule: $8,850.00 + $1,150.00 = $10,000.00 (exhausted 03/04/2026); MedPay then paid in date order $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00 (exhausted 06/26/2026)",
+      "PIP paid the 02/20–02/21 emergency care: $8,850.00 + $1,150.00 = $10,000.00 (exhausted 03/04/2026); then MedPay: $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00 (exhausted 06/26/2026)",
       "Medical specials: $41,585.00 billed → $41,400.00 after the audit · lost wages: 9 shifts × 8 h × $22.00 = $1,584.00 (Northgate HR letter) · total Specials $42,984.00",
       "A-C-T: Assess, missed visits are a legal danger (care stopped after 04/02) · Clarify, the clinic's office, then the No Contact Protocol from 04/08 until John called 04/17 (trauma-informed interview) · Track, every fix logged: Dr. Reyes by phone 04/20 (no charge; referral to Northgate's EAP), evening slots under the LOP with Margaret driving (from 04/21), file restored 04/20 (Drop Warning cleared, 14-day trigger reset, Action Plan updated), attendance confirmed 04/21 and 04/23",
-      "Mental anguish, documented for the non-economic damages: Dr. Reyes's 04/20/2026 note; six EAP counseling sessions 04/24–06/05/2026 at no charge, summary 06/10/2026; John's Personal Impact Statement 06/15/2026. No new bills: Specials stay $42,984.00"
+      "Mental anguish (non-economic damages): Dr. Reyes's 04/20/2026 note; six no-charge EAP sessions 04/24–06/05/2026, summary 06/10/2026; Personal Impact Statement 06/15/2026. No new bills: Specials stay $42,984.00"
     ]},
     {after: "d2m3-a2", title: "Why the 14-Day Gap Happened", group: "care", items: [
       "No transportation: the Civic was towed from the scene, Kevin's Escape was in the shop, and no rental was authorized until 02/18/2026",

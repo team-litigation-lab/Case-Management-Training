@@ -59,7 +59,11 @@ const check = (ok, m) => { console.log((ok ? 'PASS ' : 'FAIL ') + m); if (!ok) f
             const bad = [];
             for (const b of Array.from(document.querySelectorAll('.cf-file-tab'))) {
                 const label = b.textContent.trim();
+                // the page fits the text to the screen at the click, a frame later and once more at 180 ms
+                // (js/cm-case-flow.js fitFileCols): measure once its size has stopped changing, not mid-fit
                 b.click(); await new Promise(r => setTimeout(r, 260));
+                for (let k = 0, last = ''; k < 20; k++) { const c = document.querySelector('.cf-file-cols'), now = c ? getComputedStyle(c).fontSize + ':' + c.scrollHeight : '';
+                    if (now === last) break; last = now; await new Promise(r => setTimeout(r, 120)); }
                 const main = document.querySelector('#app > main');
                 const w = document.documentElement.scrollHeight - innerHeight, y = main.scrollHeight - main.clientHeight;
                 const cols = document.querySelector('.cf-file-cols');
