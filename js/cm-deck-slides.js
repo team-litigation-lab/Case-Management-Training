@@ -438,7 +438,7 @@ window.CM_DECK_SLIDES = {
    "page": 23,
    "title": "The Valuation Baseline: PIP as a Valuation Baseline",
    "img": "/decks/day2/23.webp",
-   "notes": "Adjusters look at PIP payments to gauge how serious a claim is. The slide uses a general example, a ten thousand dollar PIP limit exhausted in forty-eight hours on ER and EMS bills, with specials far above it. Our file looks different, so let's use our real numbers. John's PIP limit was five thousand dollars through Harbor Point, and it paid urgent care, Dr. Reyes's visits and the MRI, reaching its limit in June 2026. There was no ER bill, because John declined transport at the scene. The principle still holds, though: what PIP paid is not the measure of the case. Our total specials are sixteen thousand four hundred one dollars and forty cents, more than three times the PIP limit, and that full figure, not the PIP payments, is what anchors the value of the claim for pain and suffering."
+   "notes": "Adjusters look at PIP payments to gauge how serious a claim is, and this slide shows why that can mislead. Its example is a ten thousand dollar PIP limit used up in forty-eight hours on emergency room and E M S bills, with the specials running far above it. The lesson is in the gap: how fast PIP ran out tells you about the bills, not about the injury. What PIP paid is never the measure of the case; the full specials are what anchor the value of the claim for pain and suffering. When you reach the Think it through challenge, you will work this out on John Doe's own file: whose PIP he claims, what it paid and when it ran out, and how his total specials compare. Keep the slide's method in mind and bring the file's documents, not the example's numbers."
   },
   {
    "page": 24,
@@ -1500,97 +1500,97 @@ window.CM_DAY_VIDEOS = {
     "title": "The Valuation Baseline: PIP as a Valuation Baseline"
    },
    {
-    "t": 1114.5,
+    "t": 1109.2,
     "page": 24,
     "title": "The Valuation Baseline: The EMC and the Benefit Ceiling"
    },
    {
-    "t": 1170.3,
+    "t": 1165,
     "page": 25,
     "title": "The Valuation Baseline: Subrogation vs. Non-Subrogation"
    },
    {
-    "t": 1221.7,
+    "t": 1216.4,
     "page": 26,
     "title": "The Valuation Baseline: Strategic Exhaustion"
    },
    {
-    "t": 1278.7,
+    "t": 1273.4,
     "page": 27,
     "title": "Negotiations Initiated: The Battle"
    },
    {
-    "t": 1337.7,
+    "t": 1332.4,
     "page": 28,
     "title": "The Bracketing Technique"
    },
    {
-    "t": 1389.8,
+    "t": 1384.5,
     "page": 29,
     "title": "Common Adjuster Stall Tactics"
    },
    {
-    "t": 1445.6,
+    "t": 1440.3,
     "page": 30,
     "title": "Close the Deal: The Final-Final"
    },
    {
-    "t": 1500.9,
+    "t": 1495.6,
     "page": 31,
     "title": "The Never Rule"
    },
    {
-    "t": 1551.5,
+    "t": 1546.2,
     "page": 33,
     "title": "BI Settlement: The UM/UIM Safety Check"
    },
    {
-    "t": 1609,
+    "t": 1603.7,
     "page": 34,
     "title": "BI Settlement: Key Laws & Doctrines"
    },
    {
-    "t": 1662.7,
+    "t": 1657.4,
     "page": 35,
     "title": "The Execution: The Release of All Claims"
    },
    {
-    "t": 1723.2,
+    "t": 1717.9,
     "page": 36,
     "title": "The Execution: The Settlement Disclosure Statement"
    },
    {
-    "t": 1779.3,
+    "t": 1774.1,
     "page": 37,
     "title": "The Execution: Lien Payoff Letters"
    },
    {
-    "t": 1830.7,
+    "t": 1825.4,
     "page": 38,
     "title": "The Execution: The Settlement Statement"
    },
    {
-    "t": 1885.3,
+    "t": 1880,
     "page": 39,
     "title": "The Execution: The Dismissal"
    },
    {
-    "t": 1932.4,
+    "t": 1927.1,
     "page": 40,
     "title": "The Execution: W-9 and Key Post-Settlement Documents"
    },
    {
-    "t": 1988.5,
+    "t": 1983.2,
     "page": 41,
     "title": "Finalized Settlement: Administrative Document Control"
    },
    {
-    "t": 2045.6,
+    "t": 2040.3,
     "page": 42,
     "title": "Finalized Settlement: Final Lien Mitigation"
    },
    {
-    "t": 2102.7,
+    "t": 2097.5,
     "page": 44,
     "title": "Thank You!"
    }
