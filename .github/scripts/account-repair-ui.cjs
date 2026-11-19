@@ -9,7 +9,9 @@
 //   4. before the merge, Anne's 🏅 Scorecard card has no Day 2 Knowledge Check;
 //   5. ✔ Merge: the kept id is Anne's (the Portal's current one); Day 1 keeps both attempts (60 and 90), Day 2 (85) and
 //      Day 3 (75) are on it; Ann's record stays until the merge is run again once merged:<Ann> → Anne is 2 minutes old,
-//      and is gone then; backups of both are kept;
+//      and is gone then; backups of both are kept; in between, Ann's sign-in reads "Merge not finished" (not "Locked out"),
+//      with 🔁 Finish the merge (its dry run in 👥, Merge into Anne, nothing changed before the confirm) and no 🔓 Remove
+//      redirect, and the 👥 card says the merge has run once;
 //   6. Anne's 🏅 Scorecard card shows the Day 2 Knowledge Check at 85%;
 //   7. Restore missing KC scores for Cara: the dry run changes nothing; confirmed, trainee:<Cara> has Day 1 at 88% and a backup;
 //   8. a merged:<id> left on a live record is flagged, and 🔓 Remove redirect deletes it (backed up) once confirmed;
@@ -164,6 +166,25 @@ const T = (d, h = 10) => `2026-09-${String(d).padStart(2, '0')}T${String(h).padS
     if (!Object.keys(after).some(k => k.startsWith(`backup:${A}:`)) || !Object.keys(after).some(k => k.startsWith(`backup:${B}:`))) fail(`backups of both accounts should be kept: ${Object.keys(after).filter(k => k.startsWith('backup:'))}`);
     const pb = after['progress:' + B] ? JSON.parse(after['progress:' + B]) : {};
     if (!(Date.parse(pb.savedAt || '') > Date.parse(T(8)))) fail(`progress:${B}.savedAt should be the server's now, so the kept device restores it: ${pb.savedAt}`);
+
+    // 5b. the merge has run once: Ann's sign-in is a merge to finish, never a lock-out whose redirect is removed
+    await repair();
+    const AB = [A, B].sort().join('|');
+    const pend = await page.evaluate(([A, AB]) => {
+        const row = document.querySelector(`[data-locked="${A}"]`), g = document.querySelector(`[data-group="${AB}"]`);
+        return { text: row ? row.innerText : '', finish: !!(row && row.querySelector('[data-ar="finish"]')), remove: !!(row && row.querySelector('[data-ar="unredirect"]')), hint: g ? (g.querySelector(`[data-pending="${A}"]`) || {}).textContent || '' : '' };
+    }, [A, AB]);
+    if (!/Merge not finished/.test(pend.text) || /Locked out/.test(pend.text) || !pend.finish || pend.remove) fail(`a merge that has run once should read "Merge not finished", with 🔁 Finish the merge and no 🔓 Remove redirect: ${JSON.stringify(pend)}`);
+    if (!pend.hint.includes(B)) fail(`the 👥 card of ${A} and ${B} should say the merge into ${B} has run once and how to finish it: "${pend.hint}"`);
+    if (pend.finish) {
+        const beforeFinish = JSON.stringify(await mine());
+        await page.click(`[data-locked="${A}"] [data-ar="finish"]`);
+        await page.waitForSelector(`[data-dry="${AB}"] [data-ar="merge"]`, { timeout: 15000 }).catch(() => fail('🔁 Finish the merge showed no dry run in 👥'));
+        const finishBtn = await page.evaluate((AB) => { const b = document.querySelector(`[data-dry="${AB}"] [data-ar="merge"]`); return b ? b.textContent : ''; }, AB);
+        if (!finishBtn.includes(B)) fail(`🔁 Finish the merge should offer ✔ Merge into ${B}: "${finishBtn}"`);
+        await sleep(300);
+        if (JSON.stringify(await mine()) !== beforeFinish) fail('🔁 Finish the merge changed a record before its confirm');
+    }
 
     const fin = await finish([B, A], B);
     if (!fin.ok || (await get('trainee:' + A)) != null) fail(`run again once the redirect settled, the merge should delete the merged-away record: ${JSON.stringify(fin)}`);
