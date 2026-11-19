@@ -104,6 +104,9 @@ const SOURCES = [
   {id: "bd", icon: "📂", label: "Backup Drive", about: "Your Backup Drive, graded automatically: Day 1's folder structure, then each day's Backup File Maintenance, read from your Drive itself (where each document is, whether every file is named by the firm's naming convention, what was moved and put back). File names are 12 of the 60 points graded each day. 70% passes.", dims: ["pc"], how: "Read from the Drive by the Worker: the share of the day's checks that pass.",
     items: c => { const out = [], s = c.data["drive-setup"], g = c.data["drive-grades"] || {};
       if(s && typeof s.score === "number") out.push({name: "Day 1: the firm's folders", pct: num(s.score), note: s.ok ? `Built on attempt ${s.attempts || 1}` : "Not built yet"});
+      // (📂 built on the Training Portal's Backup Drive instead — /simulators/drive.html?program=CM, saved there as the "Backup Drive
+      // Setup" simulator result, simresults:<id>: Day 1 from it, and not counted again under 🧰 Portal Simulators)
+      else { const p = portalSetup(c); if(p) out.push({name: "Day 1: the firm's folders", pct: num(p.score), note: `Built on the Training Portal's 📂 Backup Drive · best of ${p.count || 1} attempt${(p.count || 1) === 1 ? "" : "s"}${p.at ? " · " + fmt(p.at) : ""}`}); }
       // 🏷 the day's File names row is named in the note (js/cm-drive.js keeps it with the grade), so a lower score says why
       const names = x => { const m = x && x.names; if(!m || typeof m.got !== "number" || typeof m.max !== "number") return "";
         return `🏷 File names ${m.got}/${m.max}${m.wrong > 0 ? ` · ${m.wrong} name${m.wrong === 1 ? "" : "s"} wrong` : ""}`; };
@@ -174,7 +177,10 @@ const SOURCES = [
       return t == null ? null : {name: `Day ${dn(d) || d}: the trainer's rubric`, pct: num(t), note: [x && x.label, v.sentBy, fmt(v.sentAt)].filter(Boolean).join(" · ")}; }).filter(Boolean)}
 ];
 // what a Portal simulator's result is: an email simulator, a calendaring simulator, or another
-const simKind = k => /e-?mail|repl/i.test(k) ? "email" : /calend|calsim|litigation week/i.test(k) ? "calendar" : "other";
+const simKind = k => /e-?mail|repl/i.test(k) ? "email" : /calend|calsim|litigation week/i.test(k) ? "calendar" : PORTAL_SETUP.test(k) ? "drive" : "other";
+// 📂 the Portal's Backup Drive (the firm's folders, Day 1): its best result, for 📂 Backup Drive when the course has no setup of its own
+const PORTAL_SETUP = /^Backup Drive Setup$/i;
+const portalSetup = c => { const b = Object.entries((c.sim && c.sim.best) || {}).find(([k, v]) => PORTAL_SETUP.test(k) && v && typeof v.score === "number"); return b ? b[1] : null; };
 const CX_GROUPS = new Set(["🔎 Exhibit audits", "🎧 Listening Checks", "🧾 Records screening", "⚖️ Judgement calls", "📝 Action Plan"]);
 const dn = v => { v = parseInt(v, 10); return v >= 11 && v <= 15 ? v - 10 : v >= 1 && v <= 5 ? v : null; };
 function compute(c){
