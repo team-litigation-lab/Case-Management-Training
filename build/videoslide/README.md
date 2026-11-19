@@ -94,3 +94,16 @@ python3 build/videoslide/revoice.py --build out/day1 --sample my-voice.wav
 ```bash
 python3 build/videoslide/make_video.py --deck "Day 1.pdf" --notes build/videoslide/day1.json --voice en_US-lessac-high.onnx --out out/day1 --audio-from out/day1/audio-revoiced --web
 ```
+
+The five day videos now on the site were recorded the other way, in one run: `--turbo` speaks each slide's notes
+with Chatterbox Turbo in the voice of the sample itself (natural intonation, no Piper step and no `revoice.py`; about
+2 s of compute per 1 s of speech on a CPU). Each slide's audio is kept in `out/dayN/audio`, keyed by its notes, so a
+run after a narration change speaks only the slides that changed:
+
+```bash
+python3 build/videoslide/make_video.py --deck "Day 1.pdf" --notes build/videoslide/day1.json --turbo my-voice.wav --out out/day1 --name day1-narrated --web
+```
+
+Copy `out/day1/day1-narrated-web.mp4` to `decks/day1/day1-narrated.mp4` and `day1-narrated.vtt` beside it, put the
+`start` of each slide in `out/day1/slides.json` into the notes file's `video.starts`, and run
+`node build/videoslide/deck-slides.cjs`.
