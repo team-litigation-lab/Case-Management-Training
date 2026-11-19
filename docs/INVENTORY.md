@@ -174,7 +174,7 @@ None.
 | `trainee-identity.cjs` | A renamed or re-batched Portal ticket with the same uid opens the trainee's existing record (the uid index), and B250926 / B092526 (the same day, as batchShow shows it) resolve to one id |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
-## Browser checks (72)
+## Browser checks (73)
 
 | Check | What it covers |
 |---|---|
@@ -237,7 +237,8 @@ None.
 | `roadmap.cjs` | 🗺 Roadmap lists every day and its topics (in place of the day cards' ☰ Topics), Part 2 as the daily loop's steps in order, numbered as shown, and opens a reached topic |
 | `safe-logout.cjs` | Logging out never loses work: a failed save keeps the device's data (backed up, uploaded to orphan:<id>:<ms>), a confirmed save clears every personal key, a merged account is sent back to the Portal unwiped |
 | `sb-task.cjs` | 🎯 Your Task on a Skill Building activity: one column, steps in full sentences, one foot bar (🚀 Launch CMS & Google Drive · 🧰 Tools ▾ with 📁 Source Files · Submit →; no per-step tool pills, no floating CMS · Drive card), the rules in 📖 Reference |
-| `score-roster.cjs` | Every score table lists the same trainees (approved, not archived, not merged away), the duplicate marker pairs only same-batch accounts, a pending merge isn't "locked", and the Score Card's 📂 Backup Drive is what the day score counts |
+| `score-roster.cjs` | Every score table lists the same trainees (approved, not archived, not merged away), the duplicate marker pairs only same-batch accounts, a pending merge isn't "locked", and the Score Card's 📂 Backup Drive is the Worker's nightly grade the day score counts |
+| `score-sources.cjs` | Each score is read where it is written: the nightly Drive grade, the takeaway, the AI Grader's Skill Activities and the Action Plan show with the same numbers on the Score Card, the trainee detail, 🏅 Scores and the trainee's own card; Random tasks are gone |
 | `scorecard-card.cjs` | The Scorecard as the trainee card (the 100-point model, its day multipliers, pass at 80% with the safety gate; the trainee's own card, every card for the trainer, the CSV) |
 | `scoring-rubric.cjs` | 📐 The Feedback Rubric, the CMS Case File grade, graded transcription and every simulator on the scorecard (the composer's rubric counts once sent; the Batch Sheet and its CSV carry every system) |
 | `slide-places.cjs` | A saved place follows its slide (On the Job and Milestone Steps are gone, Why It Matters opens The Theory, and a day is now all its lessons and then one Practice Lab, and six Day 1 lessons are drawn from the deck pages, and Meet Your Case left Day 1 for the Case Profile: a place saved in any older deck lands on the same slide of the same block, or on its lesson's deck page, never past the end; and since layout 7, a place is saved by slide key and follows its slide through any deck change) |
