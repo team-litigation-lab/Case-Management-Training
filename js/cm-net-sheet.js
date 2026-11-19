@@ -114,7 +114,8 @@ async function load(){
   }
   return v;
 }
-let RECORD = null, SHEET = null, saveT = null;
+let RECORD = null, SHEET = null, saveT = null, FRESH = false;   // FRESH: started over, not checked since (no stale result shown)
+const KEEP = window.cmCreditKept && window.cmCreditKept.keepStage;
 function write(){
   saveT = null;
   try{ localStorage.setItem("lsh_" + KEY, JSON.stringify(RECORD)); }catch(e){}
@@ -224,14 +225,19 @@ function check(){
   const stage = $("#ns-stage").value, st = STAGES[stage], o = calc();
   const items = st.checks.map(c => { const got = valueOf(c.cell, o); return {cell: c.cell, ok: Math.abs(got - c.want) < 0.005, got, want: c.want}; });
   SHEET.checks = SHEET.checks || {};
-  SHEET.checks[stage] = {passed: items.filter(x => x.ok).length, total: items.length, at: new Date().toISOString(), items: items.map(x => ({cell: x.cell, ok: x.ok, got: x.got}))};
-  save(); showCheck(true);
+  const now = {passed: items.filter(x => x.ok).length, total: items.length, at: new Date().toISOString(), items: items.map(x => ({cell: x.cell, ok: x.ok, got: x.got}))};
+  // 🛡 a stage that tied out stays tied out: a lower check is kept beside it as .last (js/cm-credit-kept.js keepStage)
+  SHEET.checks[stage] = KEEP ? KEEP(SHEET.checks[stage], now) : now;
+  FRESH = false; save(); showCheck(true);
 }
 function showCheck(fresh){
-  const stage = $("#ns-stage").value, st = STAGES[stage], r = (SHEET.checks || {})[stage], box = $("#ns-check");
-  if(!r){ box.hidden = true; return; }
+  const stage = $("#ns-stage").value, st = STAGES[stage], kept = (SHEET.checks || {})[stage], box = $("#ns-check");
+  if(!kept || FRESH){ box.hidden = true; return; }
   box.hidden = false;
-  box.innerHTML = `<b>${r.passed === r.total ? "✓ Your sheet ties out" : `${r.passed} of ${r.total} tie out`}</b> · ${E(st.label)} · checked ${E(new Date(r.at).toLocaleString())}
+  // the latest check is shown line by line; a stage that tied out says so, and that result is the one credited
+  const r = kept.last && String(kept.last.at || "") > String(kept.at || "") ? kept.last : kept;
+  const tied = kept.tiedAt || (kept.passed === kept.total ? kept.at : "");
+  box.innerHTML = `<b>${r.passed === r.total ? "✓ Your sheet ties out" : `${r.passed} of ${r.total} tie out`}</b> · ${E(st.label)} · checked ${E(new Date(r.at).toLocaleString())}${tied ? ` <span class="ns-tied">✓ tied out on ${E(new Date(tied).toLocaleDateString())}${r !== kept ? ": that result is kept" : ""}</span>` : ""}
     <ul>${st.checks.map((c, j) => { const it = r.items[j] || {}; return `<li class="${it.ok ? "ok" : "miss"}">${it.ok ? "✓" : "✗"} <b>${E(nameOf(c.cell))}</b> ${it.ok ? money(c.want) : `is ${money(it.got || 0)}, the file says ${money(c.want)}`}${it.ok ? "" : `<br><span>${E(T(c.why))}</span><br><span class="fix">🛠 How to fix: ${E(fixOf(c.cell))}</span>`}</li>`; }).join("")}</ul>`;
   if(fresh) box.scrollIntoView({block: "nearest", behavior: "smooth"});
 }
@@ -270,7 +276,8 @@ window.addEventListener("DOMContentLoaded", async () => {
   $("#ns-stage").addEventListener("change", () => showCheck());
   $("#ns-check-btn").addEventListener("click", check);
   $("#ns-dl").addEventListener("click", download);
-  $("#ns-reset").addEventListener("click", () => { if(confirm("Start over with a blank sheet? Your entries on this track's sheet will be cleared.")){ SHEET.cells = Object.assign({}, FILE === "B" ? START_B : START); SHEET.checks = {}; save(); render(); } });
+  // the cells only: a stage's results stay (🛡 credit kept), and the check box stays hidden until the next Check my sheet
+  $("#ns-reset").addEventListener("click", () => { if(confirm("Start over with a blank sheet? Your entries on this track's sheet will be cleared. The results of your earlier checks are kept: a stage that tied out stays tied out.")){ SHEET.cells = Object.assign({}, FILE === "B" ? START_B : START); FRESH = true; save(); render(); } });
   render(); setStatus(host ? "Saved with your progress" : "Saved on this device");
 });
 window.CMNetSheet = {calc: () => calc(), check, STAGES, FILE, get sheet(){ return SHEET; }, get record(){ return RECORD; }};

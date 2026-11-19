@@ -14,10 +14,11 @@ const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
 const BASE = process.argv[2] || 'http://localhost:8787/';
 const failures = []; const fail = (m) => failures.push(m);
-const PILLS = ['🏅 Scorecard', '🛡 Admin Master Control', '🔓 Open Lessons'];
-const SC = '🏅 Scorecard', AMC = '🛡 Admin Master Control', OL = '🔓 Open Lessons';
+const PILLS = ['🏅 Scorecard', '🛡 Admin Master Control', '🔓 Open Lessons', '🛠 Account Repair'];   // (🛠 Account Repair: js/cm-account-repair.js adds its own)
+const SC = '🏅 Scorecard', AMC = '🛡 Admin Master Control', OL = '🔓 Open Lessons', AR = '🛠 Account Repair';
 const WHERE = { audit: SC, scorecards: SC, rubric: SC, traineeaudit: AMC, companion: AMC, tfeedback: AMC, rtasks: AMC, settings: AMC, sop: AMC, studio: AMC, tdrives: AMC,
-    openlessons: OL, activities: OL, fbstyle: OL };
+    openlessons: OL, activities: OL, fbstyle: OL,
+    accountrepair: AR };
 // what a trainer DOES: never on the 🏅 Scorecard pages
 const ACTIONS = /approveTrainee\(|rejectTrainee\(|resetTraineeLabAttempts\(|confirmRevokeTrainee\(|cmAudit\.revoke\(|cmCompanion\.assign\(|openFeedbackFor\(|adminOpenCertificate\(|confirmArchiveBatch\(|confirmUnarchiveBatch\(|adminLogout\(|saveCertSettings\(|saveFeedbackSettings\(|injectSurpriseTask\(|dupMerge\(|cm-ol-chip/;
 const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);

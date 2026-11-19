@@ -15773,6 +15773,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <!-- 🔁 a trainer reopens one day's Knowledge Check for one trainee (Trainee Audit → a trainee's detail): one new attempt, the best score kept -->
 <script src="/js/cm-kc-reset.js"></script>
 <script src="/js/cm-know-tools.js"></script>
+<!-- ☁ syncToLedger retried until trainee:<id> has the Knowledge Check: a failed read is never "no record" -->
+<script src="/js/cm-ledger-retry.js"></script>
 <!-- ⚖️ the Litigation note: verify the assigned Case Manager before a handoff (the Litigation section's start and its handoff steps) -->
 <script src="/js/cm-litigation-note.js"></script>
 <!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
@@ -15780,6 +15782,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <!-- 🤖 Day 5's companion-case build, AI graded on a rubric of the Day 1–4 deliverables (registers with cm-ai-grader.js) -->
 <script src="/js/cm-companion-grade.js"></script>
 <script src="/js/cm-companion.js"></script>
+<!-- 🛡 credit kept: a Net Sheet stage that tied out stays tied out, case exercises keep the score they were handed in with -->
+<script src="/js/cm-credit-kept.js"></script>
 <script src="/js/cm-open-lessons.js"></script>
 <!-- 🎬 a day's narrated video on its day card, locked until the trainer unlocks it (wraps cmOpenLessons, so it follows it) -->
 <script src="/js/cm-day-video.js"></script>
@@ -15803,6 +15807,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-flow-parts.js"></script>
 <!-- 🔤 the standard font: League Spartan across the site -->
 <script src="/js/cm-font.js"></script>
+<!-- 🛠 Account Repair (its own Admin section): duplicate accounts, redirected sign-ins and missing KC scores, each repaired by the Worker after a dry run and the trainer's confirm -->
+<script src="/js/cm-account-repair.js"></script>
 <!-- 🛡 the Admin screen in sections, as Foundational Training: the section pills, their tabs, a navy banner (wraps renderAdmin last) -->
 <script src="/js/cm-admin-shell.js"></script>
 <!-- 🤖 the AI Grader on every Skill Building activity (its last slide), in place of the self-tick Check Your Work -->
@@ -15816,6 +15822,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-one-slide.js"></script>
 <!-- ⭐ one Overall score on every page that shows one: the dashboard's My Score Card too (cmScorecard.overall) -->
 <script src="/js/cm-overall.js"></script>
+<!-- 🧳 logging out wipes the device only after a confirmed save; otherwise its work is backed up (orphan:<id>:<ms>) -->
+<script src="/js/cm-safe-logout.js"></script>
 <!-- 🎯 Your Task: the one Launch CMS & Google Drive button, and the Rules & Naming Guide in 📖 Reference -->
 <script src="/js/cm-sb-task.js"></script>
 <!-- 🔎 a slide uses its card: content that does not fill it is enlarged, and what is left sits in the middle (called by fitSlideZoom) -->
