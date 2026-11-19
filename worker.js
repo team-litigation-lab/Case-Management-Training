@@ -22,6 +22,7 @@
 // ✍ the trainee's written work on their Backup Drive, AI-graded nightly, and a trainer's override (worker-drive-work.js)
 import { DRIVE_WORK_ACTIONS, driveWorkApi, driveWorkNightly, workBrief, workView, withDayOverrides, withOverrides, OV_KEY } from "./worker-drive-work.js";
 import { driveFind, listedOf, setupOf } from "./worker-drive-found.js";
+import { driveToProgress, keepNewerDriveGrades } from "./worker-drive-progress.js";   // 📂 the drive grades onto the trainee's progress, where the Scorecard reads them
 import { accountMergeApi, kcRestoreApi } from "./worker-account-repair.js";   // 👥 two accounts of one trainee merged on the Worker (/api/account-merge); 🛠 one account's missing KC scores restored (/api/kc-restore)
 import { identity, uidKey, afterMerge, afterMergeProgress, keepMergeStored, orphanWrite } from "./worker-identity.js";   // 🪪 who a sign-in opens (the uid index, merged: redirects) and what keeps a trainee's records whole
 /* ---------- KV with the "cm:" namespace prefix ---------- */
@@ -514,7 +515,7 @@ async function traineeWrite(env, tok, key, value) {
   if (key === `progress:${id}`) {
     if (String(value).length > 2000000) return "Too large";
     const fold = incoming && typeof incoming === "object" && !Array.isArray(incoming) ? await afterMergeProgress(kv, id, existing, incoming) : { value: incoming, pending: "" };
-    const kept = incoming && typeof incoming === "object" && !Array.isArray(incoming) ? keepProgressAttempts(existing, fold.value) : incoming;
+    const kept = incoming && typeof incoming === "object" && !Array.isArray(incoming) ? keepNewerDriveGrades(existing, keepProgressAttempts(existing, fold.value)) : incoming;
     await kv.put(key, kept && typeof kept === "object" && !Array.isArray(kept) ? JSON.stringify(Object.assign({}, kept, { serverAt: new Date().toISOString() })) : value); return fold.pending ? { ok: true, mergePending: fold.pending } : fold.skipped ? { ok: true, mergeFoldSkipped: fold.skipped } : null;
   }
   if (key === `feedback:${id}`) {
@@ -1028,7 +1029,8 @@ async function driveWrite(env, id, rec) { await kvOf(env).put(driveKey(id), JSON
 // ✍ what worker-drive-work.js uses of the Backup Drive and the AI
 const driveWorkDeps = () => ({ json, kvOf, listAll, driveRead, driveWrite, driveLinked, driveConfigured, drive, driveMessage, saToken, callGemini, geminiKeyNames, gatewayOn,
   nameCheck, nameHint, fileType, driveCaseId, driveSnapshot, driveNaming, gradeDay, dayStarted, daysReached, filedFromProgress, FOLDER_STANDARD, DRIVE_HOMES, DRIVE_HOME_CATEGORY,
-  driveList, FOLDER_WHY, DRIVE_PASS, DRIVE_DOC, DRIVE_DAY_DOCS, CLIENT_FOLDER, driveFind: (env, id, rec) => driveFind(env, driveWorkDeps(), id, rec) });   // 🔎 and what worker-drive-found.js read
+  driveList, FOLDER_WHY, DRIVE_PASS, DRIVE_DOC, DRIVE_DAY_DOCS, CLIENT_FOLDER, driveFind: (env, id, rec) => driveFind(env, driveWorkDeps(), id, rec),
+  driveToProgress: (env, id, rec) => driveToProgress(kvOf(env), id, rec, withDayOverrides, DRIVE_PASS) });   // 🔎 and what worker-drive-found.js read
 /* Linked: a folder of the trainee's own, shared with the service account and pasted in ("link"). A record from the old
    Google sign-in (a sealed refresh token, no linkedAt) is not linked: the trainee shares and pastes once. */
 const driveLinked = (rec) => !!(rec && rec.rootId && rec.linkedAt);
