@@ -87,7 +87,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m1-kc": {
   "questions": {
-   "say": "• Answer from John Doe's file, in your own words, typed under each question\n• Q1: the six stages in order, and what the Case Manager owns at Intake and Case Opening\n• Q2: John asks his case's worth and if waiting hurt it: exact words, who answers, what to record and route\n• Q3: what must happen before the matter is created in the CMS, on whose names, and why order matters"
+   "say": "• Answer from John Doe's file, in your own words, typed under each question\n• Q1: the seven stages in order, and what the Case Manager owns at Intake and Case Opening\n• Q2: John asks his case's worth and if waiting hurt it: exact words, who answers, what to record and route\n• Q3: what must happen before the matter is created in the CMS, on whose names, and why order matters"
   },
   "summary": {
    "say": "• Write the principles in your own words, not the clicks\n• Scenario: Robert Smith's insurer called John Doe, and he needs a car for work\n• Cover what to tell him today, in what order, and what must be on file before claim set-up\n• Recorded Statement: a taped interview the adjuster can quote forever\n• Strong answers put things on the record and send value or fault questions to Atty. Thorne"
@@ -178,7 +178,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Board layout: green Do column on the left, red Don't column on the right\n• Each Don't lines up with the Do that replaces it\n• Examples: no Recorded Statement, no posts, bring any insurer release to the firm instead of signing it\n• Ask family not to tag the client in posts either\n• Three orange tags most broken in week one: no Recorded Statement, keep every receipt, car only"
   },
   "dodont": {
-   "say": "• Do: ask about barriers to care at every check-in; John Doe owns no car, so rides matter\n• Do: listen actively, for example when he worries about missed shifts at Northgate Distribution\n• Don't: explain why a Keystone Mutual Recorded Statement could hurt him; that is legal advice for Atty. Thorne\n• Don't: let a Property Damage call drift into questions about his injuries\n• Social media rule covers vacations and activities too\n• Red flag: Keystone's Dana Whitfield asked John to record his account (voicemail, 02/10/2026, 8:47 a.m.); written notice today, statements through the firm; Atty. Thorne's call",
+   "say": "• Do: ask about barriers to care at every check-in; John Doe owns no car, so rides matter\n• Do: listen actively, for example when he worries about missed shifts at Northgate Distribution\n• Don't: explain why a Keystone Mutual Recorded Statement could hurt him; that is legal advice for Atty. Thorne\n• Don't: let a Property Damage call drift into questions about his injuries\n• Social media rule covers vacations and activities too\n• Red flag: Keystone's Dana Whitfield asked John to record his account (voicemail, 02/09/2026, 8:47 a.m.); written notice today, statements through the firm; Atty. Thorne's call",
    "ask": "Which of these rules is John Doe closest to breaking right now?"
   }
  },
@@ -225,13 +225,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m3-a3": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub, index the photos, the tow record and the Police Report as evidence for John Doe's injury claim\n• Step 2: Log one Case Note in CMS › Notes › Case Notes: the rental and Loss of Use stay on Margaret's claim\n• Referred to Atty. Thorne. Does PD touch our case?"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub, index the Police Report as evidence for John Doe's injury claim, and request the photos and the tow record\n• Step 2: Log one Case Note in CMS › Notes › Case Notes: the rental and Loss of Use stay on Margaret's claim\n• Referred to Atty. Thorne. Does PD touch our case?"
   },
   "case": {
    "say": "• Assuming the Police Report shows Margaret Doe owns the Civic and John Doe rode as a passenger\n• Keystone PD's six items need sorting on the file\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: BI evidence indexed and the one-line PD answer logged"
   },
   "check": {
-   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Photos, tow record, Police Report indexed as BI evidence\n• Rental, Loss of Use left on Margaret's claim; Note ends with the one-line answer\n• The one thing to watch for: Handling Margaret's Loss of Use on John Doe's file"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Police Report indexed as BI evidence; photos and tow record requested\n• Rental, Loss of Use left on Margaret's claim; Note ends with the one-line answer\n• The one thing to watch for: Handling Margaret's Loss of Use on John Doe's file"
   }
  },
  "d1m3-kc": {
@@ -282,7 +282,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m4-tcare": {
   "map": {
-   "say": "• Read records for red flags, warning signs, by specialty: physical therapy, surgery, medication, mental health\n• Listen on calls for yellow flags: life and mood problems blocking recovery, written in his words\n• Talk using OARS: open questions, affirmations, reflections, summaries\n• At the plateau, when progress and interest drop, bring him back to his own goal\n• Route it: medical danger to the doctor, legal to Atty. Thorne; then A-C-T: Assess, Coordinate, Track"
+   "say": "• Read records for red flags, warning signs, by specialty: physical therapy, surgery, medication, mental health\n• Listen on calls for yellow flags: life and mood problems blocking recovery, written in his words\n• Talk using OARS: open questions, affirmations, reflections, summaries\n• At the plateau, when progress and interest drop, bring him back to his own goal\n• Route it: medical danger to the doctor, legal to Atty. Thorne; then A-C-T: Assess, Clarify, Track"
   },
   "theory": {
    "say": "• A silent client is a risk; at intake John Doe had no treatment, only the 02/06/2026 EMS report: neck stiffness, declined transport\n• Once care begins, you read every record and hear from him between visits; missed flags or stalls pull him off plan, leaving Atty. Thorne factless\n• Know standard treatment patterns; a red flag is a departure signaling medical danger, a stuck case, or billing-driven over-treatment\n• Physical therapy flags show stalling or over-treatment; surgery flags concern safety and standard of care\n• Pain management and medication get the most scrutiny, due to opioid rules and necessity audits\n• Medical danger goes to the doctor same day; legal danger to Atty. Thorne"
@@ -688,7 +688,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m4-l1": {
   "theory": {
-   "say": "• $7,965.00 in liens sits behind a $10,000 BI limit, leaving $2,035.00 of that layer for John Doe\n• Lien: a bill paid from the settlement before his share; BI: the at-fault driver's bodily injury coverage\n• What the demand can claim is decided in this pre-demand audit, the final stress test; one duplicate line gives Keystone an easy out\n• Trinity of case alignment: story, physical evidence and medical records agree; MMI: as good as he'll get, bills complete, the audit begins\n• Specials: provable dollar loss, Medical Bills plus lost wages plus Property Damage; every line needs a document\n• Three audit passes: dates for gaps, codes for duplicates, prior history for old injuries"
+   "say": "• $10,000 BI less fee and costs is $6,179.92, against $7,965.00 of liens: on BI alone he nets $0.00\n• Lien: a bill paid from the settlement before his share; BI: the at-fault driver's bodily injury coverage\n• What the demand can claim is decided in this pre-demand audit, the final stress test; one duplicate gives Keystone an out\n• Trinity of case alignment: story, physical evidence and medical records agree; MMI: as good as he'll get, bills complete, the audit begins\n• Specials: provable dollar loss, Medical Bills plus lost wages plus Property Damage; every line needs a document\n• Three audit passes: dates for gaps, codes for duplicates, prior history for old injuries"
   },
   "theory2": {
    "say": "• Subrogation: a payer's right to repayment from the recovery; Health Plans, government payers, LOP providers; each lien shrinks his net\n• Property Damage deep dive: impact photos, estimate versus final bill, supplements; the car proves the force\n• Defense-eye audit: read the file as the adjuster will, social media, minor-impact label, venue (where it'd be tried)\n• Policy-limits targets: verified limits in opening order; what a policy can pay isn't what the claim is worth\n• This file: chronology, both gaps reasoned, 14 and 19 days; coding, one line per date; prior history, three resolved 2021 low-back visits, no neck complaint"
@@ -1536,7 +1536,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Day 1's question returns: does Property Damage touch John Doe's case, now with money on the table\n• Keystone's $792.00 offer on Margaret's Civic does not lower John's settlement\n• Her Loss of Use and Diminished Value come from Keystone's $25,000 Property Damage limit, outside John's $40,000 stack\n• Three things can reach John: a too-wide release, the photos and estimates in his severity set, the rental dates behind his gap\n• Red flag: Keystone's release, \"all claims arising from\" the 02/06/2026 accident, can reach John's BI suit. Accept, reject, counter nothing; Atty. Thorne gets it"
   },
   "rules": {
-   "say": "• Read the release before the numbers: Keystone's 12/10/2026 release covers all claims from the 02/06/2026 accident, for Mr. Doe to sign\n• A Property Damage release must never release the injury claim\n• Check the claim number: KM-26-440871-PD for the car, KM-26-440871 for John; hold it, route to Atty. Thorne same day\n• John signs nothing; photos, estimate, $2,315.00 supplement and rental dates stay identical on both files\n• Never accept, reject, counter or value a car figure"
+   "say": "• Read the release before the numbers: Keystone's 12/10/2026 release covers all claims from the 02/06/2026 accident, for Margaret Doe to sign\n• A Property Damage release must be limited to Property Damage\n• Check the claim number: KM-26-440871-PD for the car, KM-26-440871 for John; hold it, route to Atty. Thorne same day\n• John signs nothing; photos, estimate, $2,315.00 supplement and rental dates stay identical on both files\n• Never accept, reject, counter or value a car figure"
   }
  },
  "d5m2-a1": {
@@ -1544,7 +1544,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the release in CMS › Doc Hub as held, and route it to Atty. Thorne in CMS › Tasks › + Add Task the same day\n• Step 2: Log one Case Note: Diminished Value and Loss of Use stay on Margaret's file. Does this touch John Doe's case?"
   },
   "case": {
-   "say": "• Assuming Keystone PD's final position is $792.00 and $0 with an all-claims release for Mr. Doe, the release needs holding\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: the release routed, each PD outcome sorted"
+   "say": "• Assuming Keystone PD's final position is $792.00 and $0 with an all-claims release for Margaret Doe, the release needs holding\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: the release routed, each PD outcome sorted"
   },
   "check": {
    "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: “All claims” release routed the same day\n• Nobody asked to sign before Atty. Thorne's review; Diminished Value and Loss of Use on Margaret's file\n• The one thing to watch for: Telling Leah Moran “we'd probably take” any figure"
@@ -1752,7 +1752,7 @@ window.CM_CF_SCRIPTS = {
     "ask": "What would you tell John Doe first, and why first?"
    },
    "lifemap": {
-    "say": "• The whole of John Doe's file on one slide, in the order we work it this week\n• Across the top: the six stages you carry on every file\n• Day 1 it's raw: the loss, the SOL docketed, the matter opened in the CMS\n• Then claims and care, the demand, liens and ADR, and litigation to the close\n• Each day picks the file up where the last one left it",
+    "say": "• The whole of John Doe's file on one slide, in the order we work it this week\n• Across the top: the seven stages you carry on every file\n• Day 1 it's raw: the loss, the SOL docketed, the matter opened in the CMS\n• Then claims and care, the demand, liens and ADR, and litigation to the close\n• Each day picks the file up where the last one left it",
     "ask": "Which one date on this track would you protect first, and why?"
    },
    "coverage": {

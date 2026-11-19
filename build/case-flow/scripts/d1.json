@@ -70,7 +70,7 @@
       "say": "• Board layout: green Do column on the left, red Don't column on the right\n• Each Don't lines up with the Do that replaces it\n• Examples: no Recorded Statement, no posts, bring any insurer release to the firm instead of signing it\n• Ask family not to tag the client in posts either\n• Three orange tags most broken in week one: no Recorded Statement, keep every receipt, car only"
     },
     "dodont": {
-      "say": "• Do: ask about barriers to care at every check-in; John Doe owns no car, so rides matter\n• Do: listen actively, for example when he worries about missed shifts at Northgate Distribution\n• Don't: explain why a Keystone Mutual Recorded Statement could hurt him; that is legal advice for Atty. Thorne\n• Don't: let a Property Damage call drift into questions about his injuries\n• Social media rule covers vacations and activities too\n• Red flag: Keystone's Dana Whitfield asked John to record his account (voicemail, 02/10/2026, 8:47 a.m.); written notice today, statements through the firm; Atty. Thorne's call",
+      "say": "• Do: ask about barriers to care at every check-in; John Doe owns no car, so rides matter\n• Do: listen actively, for example when he worries about missed shifts at Northgate Distribution\n• Don't: explain why a Keystone Mutual Recorded Statement could hurt him; that is legal advice for Atty. Thorne\n• Don't: let a Property Damage call drift into questions about his injuries\n• Social media rule covers vacations and activities too\n• Red flag: Keystone's Dana Whitfield asked John to record his account (voicemail, 02/09/2026, 8:47 a.m.); written notice today, statements through the firm; Atty. Thorne's call",
       "ask": "Which of these rules is John Doe closest to breaking right now?"
     }
   },
@@ -141,13 +141,13 @@
   },
   "d1m3-a3": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub, index the photos, the tow record and the Police Report as evidence for John Doe's injury claim\n• Step 2: Log one Case Note in CMS › Notes › Case Notes: the rental and Loss of Use stay on Margaret's claim\n• Referred to Atty. Thorne. Does PD touch our case?"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub, index the Police Report as evidence for John Doe's injury claim, and request the photos and the tow record\n• Step 2: Log one Case Note in CMS › Notes › Case Notes: the rental and Loss of Use stay on Margaret's claim\n• Referred to Atty. Thorne. Does PD touch our case?"
     },
     "case": {
       "say": "• Assuming the Police Report shows Margaret Doe owns the Civic and John Doe rode as a passenger\n• Keystone PD's six items need sorting on the file\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: BI evidence indexed and the one-line PD answer logged"
     },
     "check": {
-      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Photos, tow record, Police Report indexed as BI evidence\n• Rental, Loss of Use left on Margaret's claim; Note ends with the one-line answer\n• The one thing to watch for: Handling Margaret's Loss of Use on John Doe's file"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Police Report indexed as BI evidence; photos and tow record requested\n• Rental, Loss of Use left on Margaret's claim; Note ends with the one-line answer\n• The one thing to watch for: Handling Margaret's Loss of Use on John Doe's file"
     }
   },
   "d1m3-kc": {
@@ -269,7 +269,7 @@
       "say": "• Left: the editor with four callouts: section templates, risks band, owner and date fields, route-for-review button\n• Right: the routing loop: draft, route, review, approved, run\n• Orange branch: returned with comment, back to draft; drawn as bold as approval because returns are normal\n• Grey bar underneath: the audit trail, every saved version"
     },
     "dodont": {
-      "say": "• Do: assume defense counsel, such as Robert Smith's lawyer, reads every note\n• Do: keep medical notes factual and clinical, e.g. PT: range of motion and pain scores only\n• Don't: break the audit trail; fix an old typo with a dated correction, never an overwrite\n• Don't: write opinions like \"this will help the case\" in treatment notes\n• The Day 3 gap investigation will force a re-route on John Doe's file"
+      "say": "• Do: assume defense counsel, such as Robert Smith's lawyer, reads every note\n• Do: keep medical notes factual and clinical, e.g. PT: range of motion and pain scores only\n• Don't: break the audit trail; fix an old typo with a dated correction, never an overwrite\n• Don't: write opinions like \"this will help the case\" in treatment notes\n• The Day 2 gap investigation will force a re-route on John Doe's file"
     }
   },
   "d2m1-a1": {
@@ -343,7 +343,7 @@
   },
   "d1m1-kc": {
     "questions": {
-      "say": "• Answer from John Doe's file, in your own words, typed under each question\n• Q1: the six stages in order, and what the Case Manager owns at Intake and Case Opening\n• Q2: John asks his case's worth and if waiting hurt it: exact words, who answers, what to record and route\n• Q3: what must happen before the matter is created in the CMS, on whose names, and why order matters"
+      "say": "• Answer from John Doe's file, in your own words, typed under each question\n• Q1: the seven stages in order, and what the Case Manager owns at Intake and Case Opening\n• Q2: John asks his case's worth and if waiting hurt it: exact words, who answers, what to record and route\n• Q3: what must happen before the matter is created in the CMS, on whose names, and why order matters"
     },
     "summary": {
       "say": "• Write the principles in your own words, not the clicks\n• Scenario: Robert Smith's insurer called John Doe, and he needs a car for work\n• Cover what to tell him today, in what order, and what must be on file before claim set-up\n• Recorded Statement: a taped interview the adjuster can quote forever\n• Strong answers put things on the record and send value or fault questions to Atty. Thorne"
@@ -437,7 +437,7 @@
   },
   "d1m4-tcare": {
     "map": {
-      "say": "• Read records for red flags, warning signs, by specialty: physical therapy, surgery, medication, mental health\n• Listen on calls for yellow flags: life and mood problems blocking recovery, written in his words\n• Talk using OARS: open questions, affirmations, reflections, summaries\n• At the plateau, when progress and interest drop, bring him back to his own goal\n• Route it: medical danger to the doctor, legal to Atty. Thorne; then A-C-T: Assess, Coordinate, Track"
+      "say": "• Read records for red flags, warning signs, by specialty: physical therapy, surgery, medication, mental health\n• Listen on calls for yellow flags: life and mood problems blocking recovery, written in his words\n• Talk using OARS: open questions, affirmations, reflections, summaries\n• At the plateau, when progress and interest drop, bring him back to his own goal\n• Route it: medical danger to the doctor, legal to Atty. Thorne; then A-C-T: Assess, Clarify, Track"
     },
     "theory": {
       "say": "• A silent client is a risk; at intake John Doe had no treatment, only the 02/06/2026 EMS report: neck stiffness, declined transport\n• Once care begins, you read every record and hear from him between visits; missed flags or stalls pull him off plan, leaving Atty. Thorne factless\n• Know standard treatment patterns; a red flag is a departure signaling medical danger, a stuck case, or billing-driven over-treatment\n• Physical therapy flags show stalling or over-treatment; surgery flags concern safety and standard of care\n• Pain management and medication get the most scrutiny, due to opioid rules and necessity audits\n• Medical danger goes to the doctor same day; legal danger to Atty. Thorne"

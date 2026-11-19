@@ -6,7 +6,7 @@
       "source": "RS66",
       "reveal": "RS67",
       "due": "07/20/2026",
-      "intro": "The demand specialist built the enclosure set and typed the Specials from it. Nothing has been re-verified since the pre-demand audit and no corrected record has been chased. Work the set item by item: every loophole here is one Dana Whitfield can use, and every gap is one she will find.",
+      "intro": "The demand specialist built the enclosure set and typed the Specials from it. The corrected records from the Amendment Requests (07/10, 07/15) are on file, but the set was built without them. Work the set item by item: every loophole here is one Dana Whitfield can use, and every gap is one she will find.",
       "columns": {
         "ref": "Exhibit",
         "as": "As drafted"
@@ -31,7 +31,7 @@
           "as": "Scene original, scanned; signed and dated 02/06/2026.",
           "verdict": "keep",
           "kind": "qc",
-          "issue": "An independent witness who signed at the scene is the answer to the comparative-negligence line defense counsel pressed later. The copy is the signed original.",
+          "issue": "An independent witness who signed at the scene is the liability proof that does not depend on John Doe or Robert Smith: she saw the Escape stop and the pickup run the sign. The copy is the signed original.",
           "fix": "Confirm the signature and date are legible on the scan, and that a signed follow-up statement has been requested before memories fade.",
           "proof": [
             "RS08"
@@ -68,7 +68,7 @@
           "verdict": "replace",
           "kind": "arithmetic",
           "issue": "05/04/2026 is billed twice. The attendance log shows 33 attended visits, so the audited figure is 33 × $185.00 = $6,105.00. A demand built on a duplicate is a demand the carrier can discredit line by line.",
-          "fix": "Request the Final Itemized Ledger with the duplicate removed, re-verify the balance with the provider in the week of service, and update the Specials.",
+          "fix": "Present the audited $6,105.00 with the attendance log, the duplicate 05/04/2026 line struck and annotated: the provider reissues the ledger only when the LOP closes (07/09/2026). Update the Specials.",
           "proof": [
             "RS23",
             "RS14"
@@ -81,9 +81,10 @@
           "verdict": "replace",
           "kind": "loophole",
           "issue": "The $1,540.00 is the contractual adjustment. Crescent is in network, was paid $1,860.00 at the contract rate, and cannot balance-bill the member. Enclosing it asserts a balance that does not exist and invites a lien that does not exist.",
-          "fix": "Ask Crescent for a corrected $0.00 patient statement, enclose it with Peach State's EOB, and never list Crescent as an open balance.",
+          "fix": "Replace it with Crescent's corrected $0.00 statement of 07/10/2026, already on file from the Amendment Request, enclosed with Peach State's EOB; never list Crescent as an open balance.",
           "proof": [
-            "RS26"
+            "RS26",
+            "RS73"
           ]
         },
         {
@@ -93,9 +94,10 @@
           "verdict": "replace",
           "kind": "loophole",
           "issue": "The date of loss is 02/06/2026. A ten-day error inside our own causation exhibit is exactly what an adjuster uses to argue the herniation came from something else, and it sits on the one document that answers \"degenerative\".",
-          "fix": "Request a corrected history addendum from Summit Imaging and enclose the report with it; keep Dr. Park's impression quoted word for word in the letter.",
+          "fix": "Enclose the report with Summit's corrected history addendum of 07/15/2026, already on file from the Amendment Request; keep Dr. Park's impression quoted word for word in the letter.",
           "proof": [
-            "RS16"
+            "RS16",
+            "RS72"
           ]
         },
         {
@@ -442,7 +444,7 @@
       "source": "RS84",
       "reveal": "RS85",
       "due": "10/15/2026",
-      "intro": "Six days before disbursement an outside firm claims a charging lien and $6,666.67 of the fee, on an agreement dated 07/27/2026. Work its notice, agreement and time record item by item against the file, decide what goes into the evidentiary packet for Atty. Thorne, and what is his alone to decide.",
+      "intro": "Eight days before disbursement an outside firm claims a charging lien and $6,666.67 of the fee, on an agreement dated 07/27/2026. Work its notice, agreement and time record item by item against the file, decide what goes into the evidentiary packet for Atty. Thorne, and what is his alone to decide.",
       "columns": {
         "ref": "Claim",
         "as": "As Vance & Kettering puts it"

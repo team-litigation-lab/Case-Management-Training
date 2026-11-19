@@ -218,7 +218,7 @@
   "d1m1-kc": {
     "image": "knowledge-check",
     "questions": [
-      "Name the **six stages** in order. What does the CM own at Intake & Case Opening?",
+      "Name the **seven stages** in order. What does the CM own at Intake & Case Opening?",
       "John Doe asks his case's **worth**, and if waiting hurt it. Your exact words, and what you log?",
       "What must happen **before the matter is created** in the CMS, and on whose names?"
     ]
@@ -479,14 +479,14 @@
     "situation": "Assuming the Police Report shows **Margaret Doe owns the Civic** and John Doe rode as a passenger, Keystone PD's six items need sorting on the file.",
     "side": true,
     "steps": [
-      "In CMS → Doc Hub, index the photos, the tow record and the Police Report as evidence for **John Doe's injury claim**.",
+      "In CMS → Doc Hub, index the Police Report as evidence for **John Doe's injury claim**, and set a request task for the photos and the tow record.",
       "Log one Case Note in CMS → Notes → Case Notes: the rental and Loss of Use stay on Margaret's claim, referred to Atty. Thorne. Does PD touch our case?"
     ],
     "deliver": "BI evidence indexed and **the one-line PD answer** logged",
     "purpose": "Sorting first keeps **Margaret's PD claim** off John Doe's file",
     "principle": "PD touches our case **as evidence, never as his claim**",
     "checks": [
-      "Photos, tow record, Police Report **indexed as BI evidence**",
+      "Police Report **indexed as BI evidence**; photos, tow record requested",
       "Rental, Loss of Use **left on Margaret's claim**",
       "Note ends with **the one-line answer**"
     ],

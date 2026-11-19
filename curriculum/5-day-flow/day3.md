@@ -949,7 +949,7 @@ A two-column audit sheet: CMS on the left, BACKUP DRIVE on the right, rows linke
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** 07/17/2026, 3:00 p.m. The pre-demand audit closed on 07/15/2026 and the BI Time-Limited Demand is served on 07/20/2026. Since the last backup, corrected documents have replaced earlier ones: Summit Imaging's corrected-history addendum to the MRI report (07/15/2026), Crescent Pain & Spine's corrected $0.00 patient statement (07/10/2026, replacing the 07/01/2026 statement) and the final Lost Wage Verification Record (07/01/2026, replacing the 06/23/2026 draft worksheet). The demand specialist's draft demand and exhibit packet are on the file for audit.
+**Scenario.** 07/17/2026, 3:00 p.m. The pre-demand audit closed on 07/15/2026 and the BI Time-Limited Demand is served on 07/20/2026. Since the last backup, corrected documents have replaced earlier ones: Summit Imaging's corrected-history addendum to the MRI report (07/15/2026), Crescent Pain & Spine's corrected $0.00 patient statement (07/10/2026, replacing the 07/01/2026 statement) and the final Lost Wage Verification Record (07/01/2026, replacing the 06/22/2026 draft worksheet). The demand specialist's draft demand and exhibit packet are on the file for audit.
 
 **Execution prompt.** Audit your Backup Drive against the CMS before the demand goes out, as part of the Final Scrub (Day 2 deck p17), so the demand goes out on the final balance and the corrected records. Open 📂 My Backup Drive and compare its count of backed-up documents with the documents filed in the CMS; for any filed document not on the drive, back it up from 📁 Work From. For each corrected document, put the current version in its folder and keep the version it replaces beside it, renamed with SUPERSEDED and the date of the version that replaced it as the last part of its name: the MRI addendum in 03 Medical Records, Crescent's corrected statement in 04 Bills & Invoices, the final wage record in 07 Wages & Costs. File the draft demand and the exhibit packet so they land in 05 Insurance, Demands & Negotiation, labeled DRAFT as the last part of their names. Run ✓ Check my drive, and record the audit in Case Notes: X of Y backed up, what you replaced and what you labeled.
 
@@ -962,7 +962,7 @@ A two-column audit sheet: CMS on the left, BACKUP DRIVE on the right, rows linke
 
 - [ ] Every document filed in the CMS is on the drive: X of Y backed up, with X equal to Y
 - [ ] The MRI addendum, Crescent's corrected $0.00 statement and the final wage record each in its folder as the current version
-- [ ] The 07/01/2026 Crescent statement and the 06/23/2026 wage worksheet kept, renamed SUPERSEDED with the replacing version's date; nothing deleted
+- [ ] The 07/01/2026 Crescent statement and the 06/22/2026 wage worksheet kept, renamed SUPERSEDED with the replacing version's date; nothing deleted
 - [ ] The draft demand and the exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT
 - [ ] ✓ Check my drive run with no folder missing
 - [ ] The audit in Case Notes: the count, what was replaced and what was labeled
@@ -1070,7 +1070,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
    *That MRI line answers “degenerative”. The gap is answered first, with records made at the time.*
 9. When may the UM demands go out?  
    With the BI demand · **✓ Once Keystone's $10,000 tender is documented and the Limited Release is signed** · Any time after the LORs · Before the BI demand, to pressure Keystone  
-   *BI exhaustion first: notice of both UM claims went out in 03/2026, but the demands wait. They went out 08/31/2026.*
+   *BI exhaustion first: notice of both UM claims went out 02/17/2026 with the letters of representation, but the demands wait. They went out 08/31/2026.*
 10. Keystone's 08/14 draft release frees “all other persons, firms, corporations and insurers.” What do you do?  
    Send it to John Doe to sign · **✓ Flag it to Atty. Thorne: it would release both UM carriers** · Sign it for the firm · Ignore the wording  
    *Limit the release to Robert Smith and Keystone, and to the BI claim. The Limited Release was signed 08/28/2026.*
@@ -1085,8 +1085,8 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **15%** | Terms and deadline | $10,000; Limited Release of Smith and Keystone only; Smith's affidavit; 07/22/2026 + 30 = 08/21/2026 |
-| 🤖 AI | **15%** | Stack and exhaustion | $40,000 via Harbor Point's add-on form and Cardinal State's stacking terms, each confirmed in writing; offset would leave $10,000 on Host UM; consents before the release; exhibits named |
+| 🤖 AI | **15%** | Terms and deadline | $10,000; Limited Release of Smith and Keystone only; Smith's affidavit; emailed to Dana Whitfield 07/20/2026, receipt acknowledged in writing 07/22/2026; 07/22/2026 + 30 = 08/21/2026 |
+| 🤖 AI | **15%** | Five elements | Within limits, clear, reasonable, documented and timed, each with this file's example; whether a refusal is bad faith is Atty. Thorne's analysis, never the CM's |
 | 🤖 AI | **15%** | Gap rebuttal | MRI adjacent-level line, Causation Letter and EMS report named and placed up front |
 | 🤖 AI | **15%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
@@ -1098,8 +1098,8 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 #### 5 · Speaker Notes
 
-- Question 4 is the keystone and a pressure test. The right answer explains the process, not the law: nothing is signed until both consents are in and Atty. Thorne has gone through the release with him; log the call and route it the same day. A trainee who can't say what the consent protects has memorised the dates without the reason.
-- Put Question 6 to the room before anyone writes. The right answer logs the auto-reply, which is not a written acknowledgement of receipt; follows up the same day and asks Keystone in writing for the covering adjuster; tells Atty. Thorne; and dockets nothing from the send date. Any change to timing or terms is his, not the CM's.
+- Question 1 is the counting test: the 30 days run from Dana Whitfield's written acknowledgement of 07/22/2026, not from the 07/20 email, so the window closes 08/21/2026. A trainee who counts from the send date has docketed the wrong day.
+- Question 2: a refusal of a demand missing any of the five elements is a safe refusal. Whether Keystone's refusal is bad faith is Atty. Thorne's analysis; a Case Manager who calls it bad faith has crossed the line.
 - Compare each self-rating with the score. A 5 on a block scored at 60 is a coaching conversation, and so is a 2 on a block they aced.
 - UPL is a gate: a strong score does not survive an ethics breach.
 
@@ -1200,7 +1200,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slide |
-| 🧑‍🏫 Trainer | **10%** | UPL boundary | No verbal acceptance under pressure; every number and decision routed through Atty. Thorne |
+| 🧑‍🏫 Trainer | **10%** | UPL boundary | Atty. Thorne tells John Doe about the offer; every number and decision routed through him |
 | 🧑‍🏫 Trainer | **5%** | Self-rating calibration | Self-score is defensible against demonstrated performance |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
@@ -1208,7 +1208,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 #### 5 · Speaker Notes
 
 - Question 1 is the keystone. A trainee who can't show that $3,500 nets John Doe $0.00 has been negotiating without a floor; re-teach the battle map before moving on.
-- Put question 6 to the room aloud before anyone writes: “The offer dies at 5:00 p.m. and Atty. Thorne is unreachable. What do you say?” The right answer refuses a verbal yes without rejecting the offer, asks for the offer and its deadline in writing, logs the words, and reaches Atty. Thorne. It never accepts or rejects for John Doe.
+- Question 2 is the rebuttal test: four dated documents and Dr. Park's sentence quoted word for word. A paraphrase of the radiologist is an argument; the quote is proof.
 - On question 3, listen for the difference between “no set-off here” and “no reduction anywhere.” The file is clean because Harbor Point said so in writing on 03/02/2026, not because the doctrine doesn't exist.
 - UPL is a gate: a strong score does not survive an ethics breach.
 
@@ -1279,9 +1279,9 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **15%** | Classification and doctrine | Liens classified and ranked; fully insured status tied to state law; doctrines named correctly |
-| 🤖 AI | **20%** | Lien math | $1,860.00 – $620.00 = $1,240.00; $1,443.15 + $4,736.77 = $6,179.92; $6,105.00 after the audit |
-| 🤖 AI | **15%** | Written-confirmation steps | Atty. Thorne's approval, the signed Payoff Letter and the ledger update all named |
+| 🤖 AI | **15%** | Classification and ranking | Each claim classified as statutory, contractual or none, and the liens ranked by reducibility |
+| 🤖 AI | **15%** | Fully insured status | Fully insured, so state law governs the reduction, not ERISA preemption; which argument follows is Atty. Thorne's call |
+| 🤖 AI | **20%** | Lien math | $1,860.00 × ⅓ = $620.00; $1,860.00 – $620.00 = $1,240.00; the common-fund doctrine named; the MRI that beat the gap defense is what created the fund the plan is asked to share |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slide |
@@ -1293,7 +1293,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 #### 5 · Speaker Notes
 
 - Question 2 is the keystone. A trainee who answers “state law applies, so we argue made whole” has made Atty. Thorne's decision for him; re-teach the line before moving on.
-- Question 6 is the pressure scenario. The right answer escalates to Atty. Thorne before any check issues, re-checks how “no prior attorney” was verified, on Atty. Thorne's instruction requests the lawyer's engagement terms and time records in writing, and never treats “one-third” as owed: a discharged lawyer is generally owed the reasonable value of his work, if anything. The disputed amount stays in trust until the claim is resolved (confirm the governing trust rule); the undisputed shares go out only on Atty. Thorne's approval.
+- Question 3 is the arithmetic and the reason together: $1,860.00 – $620.00 = $1,240.00 is the plan sharing the cost of a recovery the firm's work created, and that work includes beating the 14-Day Gap defense with the MRI.
 - Compare each self-rating with the score. A 5 on a block scored at 60 is a coaching conversation, and so is a 2 on a block they aced.
 - UPL is a gate: a strong score does not survive an ethics breach.
 

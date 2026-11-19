@@ -72,7 +72,7 @@
     "situation": "File date 07/20/2026. MMI reached; Specials $42,984.00. Atty. Thorne approved **$10,000 limits**, a Limited Release of Smith and Keystone, Smith's affidavit, 30 days from receipt. The draft awaits **your final audit**.",
     "steps": [
       "Download the case documents from 📁 Source Files, check the draft against the Big Four and the Final Scrub, and log each fix as a CMS task.",
-      "Build the packet by hand, in this order: cover letter, index, demand letter, PIP Log, then the **bills and records** by provider and date.",
+      "Build the packet by hand: demand letter, exhibit index, then Exhibits A–J, **liability first** (A–D), then records and bills, MRI, Causation Letter, wages, Gap Record, Dec Page.",
       "Combine them into one PDF, make it searchable (OCR), bookmark each section, and Bates-number every page once.",
       "Name it by the firm's convention, ending in _DRAFT, and file it in CMS → Doc Hub so it reaches folder 05 Insurance.",
       "Once Atty. Thorne signs, email it to Dana Whitfield, and docket 08/21/2026 from her 07/22/2026 written acknowledgement."
@@ -100,7 +100,7 @@
       "steps": [
         "Download the case documents from 📁 Source Files into **your training Drive**",
         "Audit the draft against **the Big Four and Final Scrub**",
-        "Order it by hand: cover letter, index, demand, PIP Log, **bills, records**",
+        "Order it by hand: demand letter, index, then Exhibits A–J, **liability first**",
         "Combine into one PDF; **OCR, bookmark** and Bates-number every page",
         "Name it by the convention, ending **_DRAFT**; route to Atty. Thorne",
         "Once signed, upload the served set to **the CMS for the audit**"

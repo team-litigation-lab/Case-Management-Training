@@ -408,7 +408,7 @@ window.CM_CF_EXHIBITS = {
    "source": "RS66",
    "reveal": "RS67",
    "due": "07/20/2026",
-   "intro": "The demand specialist built the enclosure set and typed the Specials from it. Nothing has been re-verified since the pre-demand audit and no corrected record has been chased. Work the set item by item: every loophole here is one Dana Whitfield can use, and every gap is one she will find.",
+   "intro": "The demand specialist built the enclosure set and typed the Specials from it. The corrected records from the Amendment Requests (07/10, 07/15) are on file, but the set was built without them. Work the set item by item: every loophole here is one Dana Whitfield can use, and every gap is one she will find.",
    "columns": {
     "ref": "Exhibit",
     "as": "As drafted"
@@ -433,7 +433,7 @@ window.CM_CF_EXHIBITS = {
      "as": "Scene original, scanned; signed and dated 02/06/2026.",
      "verdict": "keep",
      "kind": "qc",
-     "issue": "An independent witness who signed at the scene is the answer to the comparative-negligence line defense counsel pressed later. The copy is the signed original.",
+     "issue": "An independent witness who signed at the scene is the liability proof that does not depend on John Doe or Robert Smith: she saw the Escape stop and the pickup run the sign. The copy is the signed original.",
      "fix": "Confirm the signature and date are legible on the scan, and that a signed follow-up statement has been requested before memories fade.",
      "proof": [
       "RS08"
@@ -470,7 +470,7 @@ window.CM_CF_EXHIBITS = {
      "verdict": "replace",
      "kind": "arithmetic",
      "issue": "05/04/2026 is billed twice. The attendance log shows 33 attended visits, so the audited figure is 33 × $185.00 = $6,105.00. A demand built on a duplicate is a demand the carrier can discredit line by line.",
-     "fix": "Request the Final Itemized Ledger with the duplicate removed, re-verify the balance with the provider in the week of service, and update the Specials.",
+     "fix": "Present the audited $6,105.00 with the attendance log, the duplicate 05/04/2026 line struck and annotated: the provider reissues the ledger only when the LOP closes (07/09/2026). Update the Specials.",
      "proof": [
       "RS23",
       "RS14"
@@ -483,9 +483,10 @@ window.CM_CF_EXHIBITS = {
      "verdict": "replace",
      "kind": "loophole",
      "issue": "The $1,540.00 is the contractual adjustment. Crescent is in network, was paid $1,860.00 at the contract rate, and cannot balance-bill the member. Enclosing it asserts a balance that does not exist and invites a lien that does not exist.",
-     "fix": "Ask Crescent for a corrected $0.00 patient statement, enclose it with Peach State's EOB, and never list Crescent as an open balance.",
+     "fix": "Replace it with Crescent's corrected $0.00 statement of 07/10/2026, already on file from the Amendment Request, enclosed with Peach State's EOB; never list Crescent as an open balance.",
      "proof": [
-      "RS26"
+      "RS26",
+      "RS73"
      ]
     },
     {
@@ -495,9 +496,10 @@ window.CM_CF_EXHIBITS = {
      "verdict": "replace",
      "kind": "loophole",
      "issue": "The date of loss is 02/06/2026. A ten-day error inside our own causation exhibit is exactly what an adjuster uses to argue the herniation came from something else, and it sits on the one document that answers \"degenerative\".",
-     "fix": "Request a corrected history addendum from Summit Imaging and enclose the report with it; keep Dr. Park's impression quoted word for word in the letter.",
+     "fix": "Enclose the report with Summit's corrected history addendum of 07/15/2026, already on file from the Amendment Request; keep Dr. Park's impression quoted word for word in the letter.",
      "proof": [
-      "RS16"
+      "RS16",
+      "RS72"
      ]
     },
     {
@@ -844,7 +846,7 @@ window.CM_CF_EXHIBITS = {
    "source": "RS84",
    "reveal": "RS85",
    "due": "10/15/2026",
-   "intro": "Six days before disbursement an outside firm claims a charging lien and $6,666.67 of the fee, on an agreement dated 07/27/2026. Work its notice, agreement and time record item by item against the file, decide what goes into the evidentiary packet for Atty. Thorne, and what is his alone to decide.",
+   "intro": "Eight days before disbursement an outside firm claims a charging lien and $6,666.67 of the fee, on an agreement dated 07/27/2026. Work its notice, agreement and time record item by item against the file, decide what goes into the evidentiary packet for Atty. Thorne, and what is his alone to decide.",
    "columns": {
     "ref": "Claim",
     "as": "As Vance & Kettering puts it"
@@ -1053,7 +1055,7 @@ window.CM_CF_EXHIBITS = {
      "as": "Parties, counsel and the session date; start time and location \"to be confirmed\"; mediator's fee \"split 50/50 (assumed)\".",
      "verdict": "replace",
      "kind": "gap",
-     "issue": "On the morning of 03/18/2027 nobody can tell from the binder where to be or when. And a fee split the firm never agreed to is a bill it did not expect: the order says how the mediator is paid.",
+     "issue": "On the morning of 03/18/2027 nobody can tell from the binder where to be or when. And a fee split marked \"assumed\" is one nobody can stand behind: 50/50 is right, but only the order says so.",
      "fix": "Take the start time, location and the carrier's video link from the mediator's confirmation and the fee split from the mediation order; verify every contact and date it.",
      "proof": [
       "RS57"
@@ -1093,7 +1095,7 @@ window.CM_CF_EXHIBITS = {
      "issue": "The operative answer is what the mediator needs: it is the list of everything the other side intends to argue, and this file can answer all of it.",
      "fix": "Confirm it is the served copy, and that every allegation in it appears in the defense map below.",
      "proof": [
-      "RS51"
+      "RS53"
      ]
     },
     {
@@ -1105,7 +1107,7 @@ window.CM_CF_EXHIBITS = {
      "issue": "Every allegation in the answer is already answerable from documents on this file. Without the map the mediator hears each one answered by a sentence instead of a page, and Atty. Thorne has to find the exhibit himself.",
      "fix": "Add the map: each pleaded allegation against the exhibit that answers it, by exhibit number. Flag the two legal questions for Atty. Thorne rather than answering them.",
      "proof": [
-      "RS51",
+      "RS53",
       "RS09",
       "RS11"
      ]
@@ -1318,10 +1320,11 @@ window.CM_CF_EXHIBITS = {
      "verdict": "pull",
      "kind": "loophole",
      "issue": "The draft is unsigned, carries no case number and omits pleaded counts. And the tort pleadings belong to a case that has been dismissed as to Robert Smith: whether they are exchanged here at all is not the Case Manager's call.",
-     "fix": "Take the draft out of the file set, move the filed pleadings to the attorney's set, and put the exchange question to Atty. Thorne.",
+     "fix": "Remove the draft. The filed Complaint and Answer stay at Tab 2, as the deck's Section 2 places them; whether they are exchanged goes to Atty. Thorne.",
      "proof": [
       "RS50",
-      "RS51"
+      "RS51",
+      "RS53"
      ]
     },
     {
@@ -1378,11 +1381,11 @@ window.CM_CF_EXHIBITS = {
     {
      "ref": "C-6",
      "what": "Provider certifications",
-     "as": "None requested from any provider or record-holder.",
+     "as": "Requested from Crescent Pain & Spine only (05/05/2027, not received); none from any other provider or record-holder.",
      "verdict": "add",
      "kind": "gap",
-     "issue": "An uncertified record is a record a carrier can object to, and the whole ledger rests on them. Nineteen days before the exchange, nothing has been asked for.",
-     "fix": "Request a certification from every provider and from Riverton Fire, Riverton PD and Northgate HR, and log each receipt. Nothing back in 14 days means a second request and a subpoena flag for Atty. Thorne.",
+     "issue": "An uncertified record is a record a carrier can object to, and the whole ledger rests on them. Sixteen days before the exchange, only Crescent's has been asked for.",
+     "fix": "Request a certification from every other provider and from Riverton Fire, Riverton PD and Northgate HR, and log each receipt. Nothing back in 14 days means a second request and a subpoena flag.",
      "proof": [
       "RS63"
      ]
@@ -1420,7 +1423,7 @@ window.CM_CF_EXHIBITS = {
      "verdict": "pull",
      "kind": "privilege",
      "issue": "The memo is work product and a record of settlement communications. Filed because it explains the history, it puts our strategy and every number we discussed in front of the carriers.",
-     "fix": "Pull the memo to the attorney's set for Atty. Thorne's privilege decision and leave Tab 6 to wage proof alone. Nothing is exchanged, and nothing withheld, on the Case Manager's own decision.",
+     "fix": "Pull the memo to the attorney's set for Atty. Thorne's privilege decision. Tab 6 keeps the wage proof, negotiation ledger and audited lien sheet, the last two flagged for his exchange decision.",
      "proof": [
       "RS63"
      ]

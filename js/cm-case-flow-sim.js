@@ -54,8 +54,8 @@ window.CM_CF_SIM = {
    "from": "Northgate Distribution (555) 010-3950",
    "to": "Case Manager, ext. 214",
    "subject": "Voicemail: John Doe — call from the other driver's insurance",
-   "body": "Hey, it's John Doe. I'm signing with Mr. Thorne later today. Last night Dana from Keystone Mutual, the other guy's insurance, asked what happened and if she could record it. I said I'd think about it; she's calling back today. Nothing from you guys yet. I'm off with my neck; I'm at Northgate telling my supervisor. Call my cell: 555-010-2288.",
-   "spoken": "Hey, uh... this is John Doe. I'm signing with Mr. Thorne later today, for the car accident. So, last night, somebody from Keystone Mutual called me. That's the other guy's insurance. A lady... Dana, I think. She was asking what happened, and if she could record it. I didn't know what to tell her, so I said I'd think about it, and she said she'd call me back today. And, um, I haven't gotten anything from you guys yet. No paperwork, nothing. My neck's still stiff. It's worse in the morning. I'm off work with my neck, I'm just at Northgate telling my supervisor. Can you call me back? This is the work phone, so call my cell. It's five five five, oh one oh, two two eight eight. Okay. Thanks. Bye.",
+   "body": "Hey, it's John Doe. I'm signing with Mr. Thorne later today. On Saturday Dana from Keystone Mutual, the other guy's insurance, asked what happened and if she could record it. I said I'd think about it; she's calling back today. Nothing from you guys yet. I'm off with my neck; I'm at Northgate telling my supervisor. Call my cell: 555-010-2288.",
+   "spoken": "Hey, uh... this is John Doe. I'm signing with Mr. Thorne later today, for the car accident. So, on Saturday, somebody from Keystone Mutual called me. That's the other guy's insurance. A lady... Dana, I think. She was asking what happened, and if she could record it. I didn't know what to tell her, so I said I'd think about it, and she said she'd call me back today. And, um, I haven't gotten anything from you guys yet. No paperwork, nothing. My neck's still stiff. It's worse in the morning. I'm off work with my neck, I'm just at Northgate telling my supervisor. Can you call me back? This is the work phone, so call my cell. It's five five five, oh one oh, two two eight eight. Okay. Thanks. Bye.",
    "listen": [
     {
      "q": "Who left the message, and which number does he want you to call back?",
@@ -116,13 +116,13 @@ window.CM_CF_SIM = {
    "body": "LSH-2026-MVA-770412. John Doe's Direction Packet was delivered and logged 02/10/2026. Its directions are staged as draft task cards; a card cannot activate without an owner, a due date and a verification method. No treatment start is recorded, and no follow-up is on the calendar."
   },
   "d1m3-a3": {
-   "date": "02/11/2026",
+   "date": "02/23/2026",
    "time": "9:40 a.m.",
    "channel": "email",
    "from": "Leah Moran, Keystone Mutual PD (leah.moran@keystonemutual.example)",
    "to": "LSH Law Group",
-   "subject": "KM-26-440871-PD: claimant and rental contact, 2019 Honda Civic LX",
-   "body": "We are opening the property-damage claim for the 2019 Honda Civic LX struck on 02/06/2026. Please confirm the vehicle owner and claimant, and a contact number for the rental, so that a rental can be set up with Rivergate Rentals once our liability decision is made."
+   "subject": "KM-26-440871-PD: rental contact, 2019 Honda Civic LX",
+   "body": "Following our acceptance of property-damage liability on 02/17/2026, a rental for the 2019 Honda Civic LX was authorized with Rivergate Rentals on 02/18/2026 for the vehicle's owner and claimant, Margaret Doe. Please confirm the best contact number for the rental pick-up."
   },
   "d2m1-a1": {
    "date": "02/17/2026",
@@ -177,7 +177,7 @@ window.CM_CF_SIM = {
    ]
   },
   "d1m4-a1": {
-   "date": "03/13/2026",
+   "date": "03/03/2026",
    "time": "2:15 p.m.",
    "channel": "alert",
    "from": "CMS",
@@ -740,13 +740,13 @@ window.CM_CF_SIM = {
    ]
   },
   "d4m2-a2": {
-   "date": "04/05/2027",
+   "date": "04/26/2027",
    "time": "4:30 p.m.",
    "channel": "memo",
    "from": "Atty. Elijah Thorne",
    "to": "Case Manager",
    "subject": "UM arbitration invoked: rules matrix and your role",
-   "body": "Harbor Point and Cardinal State dispute damages, citing the gap. Harbor Point has invoked its UM arbitration clause and Cardinal State joins: one binding arbitration before Laura Whitcomb, Esq., hearing 06/22/2027. Build me the ADR rules matrix, mediation against arbitration, docket the exhibit and brief dates today, and map what you do at the hearing.",
+   "body": "Harbor Point and Cardinal State dispute damages, citing the gap. Harbor Point invoked arbitration 04/05; Cardinal State joined 04/12. Laura Whitcomb's Notice of Hearing came this morning: hearing 06/22/2027. Build me the ADR rules matrix, mediation against arbitration, docket the exhibit and brief dates from her notice today, and map what you do at the hearing.",
    "attachments": [
     "RS58",
     "RS59",
@@ -859,7 +859,7 @@ window.CM_CF_SIM = {
    "from": "Leah Moran <leah.moran@keystonemutual.example>",
    "to": "Case Manager, LSH Law Group",
    "subject": "KM-26-440871-PD / John Doe: final Property Damage position",
-   "body": "Keystone's position is final: $792.00 for Diminished Value under our valuation formula and $0 for Loss of Use. The attached release covers all claims arising from the 02/06/2026 accident; please have Mr. Doe sign and return it and I'll issue payment. I'll call this afternoon to see if he'll take it.",
+   "body": "Keystone's position is final: $792.00 for Diminished Value under our valuation formula and $0 for Loss of Use. The attached release covers all claims arising from the 02/06/2026 accident; please have Ms. Doe sign and return it and I'll issue payment. I'll call this afternoon to see if she'll take it.",
    "attachments": [
     "RS48"
    ]
@@ -871,7 +871,7 @@ window.CM_CF_SIM = {
    "from": "Atty. Elijah Thorne",
    "to": "Case Manager",
    "subject": "John Doe prep session 1 today: you open",
-   "body": "John's first prep session is at 1:00 p.m. You take the first segment: his new number, the 02/18 logistics, the test call, the three pillars and the room rules. I'll listen, then take the substance. Have my gap set ready to share on screen. He's nervous; calm him with the process, not predictions.",
+   "body": "John's first prep session is at 1:00 p.m. You take the first segment: his new number, the 02/18 logistics, the test call, what the day looks like, dress and the room rules. I'll listen, then take testimony and the substance. Have my gap set ready to share on screen. He's nervous; calm him with the process, not predictions.",
    "attachments": [
     "RS56",
     "RS11",
@@ -965,8 +965,8 @@ window.CM_CF_SIM = {
    "who": "John Doe",
    "role": "client",
    "persona": "Polite, tired and sore; rattled by the Keystone call. Wants plain answers. Will ask whether to talk to Keystone, whose fault it was, and what his case is worth.",
-   "context": "02/09/2026, the morning John signs the retainer; the matter is not opened yet and no onboarding packet has reached him. John, 34, a Northgate warehouse shift lead, was the front-seat passenger in coworker Kevin Alvarez's Escape on 02/06. Last night a Keystone Mutual caller asked to record his account; he said he'd think about it, and she said she'd call back. His neck is stiff; he hasn't seen anyone. Margaret's Civic was towed from the scene and he has no car. Calms with clear steps; repeats instructions back if asked.",
-   "opening": "Hey, it's John Doe, returning your call. So the other guy's insurance called me last night, a lady from Keystone, wanting to record what happened. She said she'd call back. What do I tell her?",
+   "context": "02/09/2026, afternoon: retainer signed this morning, matter opened at 1:12 p.m., no onboarding packet yet. John, 34, a Northgate warehouse shift lead, was the front-seat passenger in coworker Kevin Alvarez's Escape on 02/06. On Saturday (02/07) a Keystone Mutual caller asked to record his account; he said he'd think about it, and she said she'd call back. His neck is stiff; he hasn't seen anyone. Margaret's Civic was towed from the scene and he has no car. Calms with clear steps; repeats instructions back if asked.",
+   "opening": "Hey, it's John Doe, returning your call. So the other guy's insurance called me on Saturday, a lady from Keystone, wanting to record what happened. She said she'd call back. What do I tell her?",
    "goals": [
     "Ask about the stiff neck and whether he has seen anyone yet",
     "Outline next steps: get evaluated this week; the packet is on its way",
@@ -1203,8 +1203,8 @@ window.CM_CF_SIM = {
    "who": "Leah Moran",
    "role": "adjuster",
    "persona": "Cheerful, efficient PD adjuster closing files before year-end; calls the formula “company standard”; wants a yes and a signature today.",
-   "context": "12/10/2026. KM-26-440871-PD, Margaret Doe's 2019 Honda Civic LX, on her separate PD file; John Doe's BI suit (26-CV-04417) is in discovery. Keystone's final PD position: $792.00 Diminished Value and $0 Loss of Use. Her emailed release covers “all claims arising from the 02/06/2026 accident” and asks “Mr. Doe” to sign. She asks whether he'll take it and sign, and insists it is final.",
-   "opening": "Hi, Leah Moran with Keystone, Property Damage, following up my email. Seven ninety-two on the Diminished Value is final. Will Mr. Doe sign so I can get the check out before the holidays?",
+   "context": "12/10/2026. KM-26-440871-PD, Margaret Doe's 2019 Honda Civic LX, on her separate PD file; John Doe's BI suit (26-CV-04417) is in discovery. Keystone's final PD position: $792.00 Diminished Value and $0 Loss of Use. Her emailed release, for Margaret Doe to sign, covers “all claims arising from the 02/06/2026 accident”. She asks whether Ms. Doe will take it and sign, and insists it is final.",
+   "opening": "Hi, Leah Moran with Keystone, Property Damage, following up my email. Seven ninety-two on the Diminished Value is final. Will Ms. Doe sign so I can get the check out before the holidays?",
    "goals": [
     "Tell her the position is with Atty. Thorne; nothing accepted or rejected",
     "Make no counter and quote no figure",
@@ -1222,7 +1222,7 @@ window.CM_CF_SIM = {
    "goals": [
     "Confirm his new number, with Margaret as backup contact",
     "State the logistics exactly; set the 02/16/2027 test call",
-    "Explain the setting and the pause; drill neutral questions only",
+    "Explain the setting and room rules; leave testimony practice to Atty. Thorne",
     "Route each substantive question to Atty. Thorne in John's words"
    ],
    "line": "The CM never scripts testimony, answers substance or predicts the outcome; Atty. Thorne handles the substance."
@@ -1501,12 +1501,12 @@ window.CM_CF_SIM = {
     "check": 0
    },
    "then": {
-    "activity": "d4m4-a1",
+    "activity": "d4m3-a2",
     "event": {
      "channel": "alert",
      "from": "CMS",
      "subject": "Binder audit: Riverton Spine & Rehab still at $6,290.00",
-     "body": "Mediation Binder Section 4 still carries Riverton Spine & Rehab at $6,290.00, the 05/04/2026 duplicate included: medical $41,585.00 against the audited $41,400.00. The binder is due 03/11/2027, and Keystone already calls the ledger unverified."
+     "body": "The Mediation Binder delivered 03/11/2027 carried Riverton Spine & Rehab at $6,290.00 in Section 5, the 05/04/2026 duplicate included: medical $41,585.00 against the audited $41,400.00. The arbitration set is being built from that binder: Tab 4 must carry the audited figure before the 06/02/2027 exchange."
     }
    }
   },

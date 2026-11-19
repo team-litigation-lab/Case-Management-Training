@@ -150,7 +150,7 @@ window.CM_CASE_FLOW = {
       "All-way stop at Maple Hollow Rd & Birch Ave. Kevin stopped eastbound and proceeded; Robert Smith, northbound on Birch Ave, didn't stop and struck the Escape's front passenger door at about 28 mph, pushing it into Margaret's parked Civic.",
       "Riverton PD report RPD-26-018842: Smith cited for failure to stop at a stop sign",
       "Independent witness: Ruth Calloway, 2209 Maple Hollow Rd",
-      "Doorbell-camera video (Margaret's camera at 2214 Maple Hollow Rd) shows the Escape stopped and Smith rolling through · preservation told to John 02/17, copy secured 02/19/2026",
+      "Doorbell-camera video (Margaret's camera at 2214 Maple Hollow Rd) shows the Escape stopped and Smith rolling through · preservation raised with John at intake 02/09, written request to Margaret 02/17, copy secured 02/19/2026",
       "Riverton Fire EMS Run Report: \"restrained front-seat passenger, complains of neck stiffness, declined transport\""
     ]},
     {after: "d2m4-a1", title: "Injury and Treatment", group: "care", items: [
@@ -196,7 +196,7 @@ window.CM_CASE_FLOW = {
       "Riverton Spine & Rehab billed 34 lines × $185.00 = $6,290.00, but 05/04/2026 is a duplicate: 33 visits = $6,105.00 after audit",
       "PIP paid the 02/20–02/21 emergency care: $8,850.00 + $1,150.00 = $10,000.00 (exhausted 03/04/2026); then MedPay: $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00 (exhausted 06/26/2026)",
       "Medical specials: $41,585.00 billed → $41,400.00 after the audit · lost wages: 9 shifts × 8 h × $22.00 = $1,584.00 (Northgate HR letter) · total Specials $42,984.00",
-      "A-C-T: Assess, missed visits are a legal danger (care stopped after 04/02) · Clarify, the clinic, then the No Contact Protocol 04/08 until John called 04/17 (trauma-informed interview) · Track, every fix logged: Dr. Reyes 04/20 (EAP referral), evening LOP slots with Margaret driving (from 04/21), file restored 04/20 (Drop Warning cleared, Action Plan updated), attendance confirmed 04/21 and 04/23",
+      "A-C-T: Assess, missed visits are a legal danger (care stopped after 04/02), the Step 1 review 04/08 · Clarify, the clinic, then the No Contact Protocol's outreach 04/08 until John called 04/17 (trauma-informed interview) · Track, every fix logged: Dr. Reyes 04/20 (EAP referral), evening LOP slots with Margaret driving (from 04/21), file restored 04/20 (Drop Warning cleared, Action Plan updated), attendance confirmed 04/21 and 04/23",
       "Mental anguish (non-economic damages): Dr. Reyes's 04/20/2026 note; six no-charge EAP sessions 04/24–06/05/2026, summary 06/10/2026; Personal Impact Statement 06/15/2026. No new bills: Specials stay $42,984.00"
     ]},
     {after: "d2m3-a2", title: "Why the 14-Day Gap Happened", group: "care", items: [
@@ -210,7 +210,7 @@ window.CM_CASE_FLOW = {
       "07/20/2026 time-limited BI demand to Keystone for the $10,000 limits, emailed to Dana Whitfield with the 81-page Demand Package · receipt acknowledged in writing 07/22 · 30-day window → 08/21/2026",
       "Conditions: payment of limits, a Limited Release of Robert Smith and Keystone only, and Smith's affidavit of no other insurance",
       "08/05/2026 Keystone offers $3,500, citing the gap and calling the MRI degenerative · 08/06 rebuttal (Atty. Thorne approved): the radiologist's finding, the Causation Letter, the EMS report, the Gap Explanation Record",
-      "This is the fork. Track A (Case Flow Day 4): the file settles. Track B (Day 4's ADR, then Day 5's litigation): Keystone stonewalls and the case goes to suit."
+      "This is the fork. Track A (Case Flow Days 2–3: the BI settlement on Day 2, liens and disbursement on Day 3): the file settles. Track B (Day 4's ADR, then Day 5's litigation): Keystone stonewalls and the case goes to suit."
     ]},
     {after: "d3m4-a2", title: "Track A: The File Settles", group: "money", items: [
       "08/12/2026 Keystone tenders $10,000, check held until both UM waivers arrive · waivers 08/24 (Harbor Point), 08/26 (Cardinal State) · Keystone's General Release (08/14) amended, Atty. Thorne approving, to a Limited Release, notarized 08/28 · check no. 0048213 into IOLTA 09/04",
@@ -440,7 +440,7 @@ window.CM_CASE_FLOW = {
     {
       n: 1, id: "d1m1",
       title: "CM Fundamentals & CMS Initialization",
-      about: "Day 1's foundations: the Case Manager's role and the six stages, meeting John Doe and his case, the UPL line between sharing facts and giving legal advice, reading the raw file, and opening the matter in the CMS with the Conflict Check first.",
+      about: "Day 1's foundations: the Case Manager's role and the seven stages, meeting John Doe and his case, the UPL line between sharing facts and giving legal advice, reading the raw file, and opening the matter in the CMS with the Conflict Check first.",
       quiz: [
         {q: "The three pillars of the Case Plan are:",
          opts: ["Coverage, Liability, Projection", "Clinical, Functional, Subrogation Management", "Intake, Treatment, Demand", "HIPAA, BCRC, Payer Order"],
@@ -839,7 +839,7 @@ window.CM_CASE_FLOW = {
         visual: "Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, and beside it the 1–5 SKILL SCALE as a five-step horizontal ladder with the competency rows beneath. Far right, a slim vertical strip shows the 60/40 split as a stacked bar, 60% AI in navy and 40% Trainer in orange, with UPL as a separate red gate chip below and outside the bar, to show it is not part of the weighting.",
         check: {
           questions: [
-            "Name the six stages of John Doe's file in order, and say what the Case Manager owns at Intake & Case Opening that nobody else will.",
+            "Name the seven stages of John Doe's file in order, and say what the Case Manager owns at Intake & Case Opening that nobody else will.",
             "John Doe asks you two things on the same call: what his case is worth, and whether waiting to see a doctor hurt it. Say word for word what you tell him on each, who answers them if you do not, and what you record and route in the CMS.",
             "You are opening John Doe's matter in the CMS. What must happen before the matter is created, on whose names, and why does the order matter?"
           ],
@@ -849,7 +849,7 @@ window.CM_CASE_FLOW = {
             "Identify the one thing in this module you are least confident about, and what you would need in order to be confident."
           ],
           scale: [
-            "Explaining the Case Manager's role across the six stages",
+            "Explaining the Case Manager's role across the seven stages",
             "Mapping party roles from a raw intake file",
             "Reading the raw file for what it proves and what it lacks",
             "Running and documenting the Conflict Check before a matter is opened",
@@ -864,7 +864,7 @@ window.CM_CASE_FLOW = {
         sources: ["D1#1", "D1#5", "D1#12", "D1#16"],
         rubric: {
           ai: [
-            ["Stages and role", 20, "Six stages in order; what the Case Manager owns at opening stated correctly"],
+            ["Stages and role", 20, "Seven stages in order; what the Case Manager owns at opening stated correctly"],
             ["UPL routing", 15, "The value question goes to Atty. Thorne the same day and is logged; nothing on worth is said to the client"],
             ["Opening sequence", 15, "The Conflict Check comes first, on every party's full legal name, documented before the matter is created"],
             ["Completeness", 10, "Every question answered substantively"]
@@ -1174,21 +1174,21 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Protocol accuracy", 20, "All six steps in order with the right actions"],
-            ["Criteria accuracy", 15, "All three Skip-Trace criteria stated as an AND gate"],
-            ["Letter requirements", 15, "Certified mail and email; 7–14 day window"],
+            ["Purposes", 15, "All three purposes stated; protection of the firm from liability named as the one that protects the firm, and why the record is built for it"],
+            ["Contact ladder", 15, "Three voicemails to one number clear only the phone rung: escalate by channel, not volume (email, text, the emergency contact), each attempt logged with its date, time, channel and result"],
             ["Completeness", 10, "Every question answered substantively"]
           ],
           trainer: [
-            ["Risk identification", 15, "Names the running SOL, the hardening Treatment Gap and the stalled claims work"],
+            ["Risk identification", 15, "The strategy answer names the running SOL, the hardening Treatment Gap and the stalled claims work"],
             ["Role boundary", 10, "Reserves the withdrawal decision to counsel"],
-            ["UPL rewrite quality", 5, "The rewrite is compliant and still useful"],
+            ["UPL boundary", 5, "No answer tells the client, or implies, the legal consequence of his silence"],
             ["Self-Summary & calibration", 10, "Specific, honest, and defensible against the score"]
           ]
         },
         notes: [
           "Question 2 is easy to answer shallowly. Protection from liability is the purpose trainees omit, and it is why the record is built the way it is.",
-          "Question 5 is the integration question: the running SOL, the hardening Treatment Gap, and the claims work that must go on anyway.",
-          "Question 7 is the UPL gate in miniature. A trainee who can't rewrite it compliantly isn't ready for client contact.",
+          "Question 3 is the volume trap: three voicemails to one mobile clear the phone rung and nothing else. Escalate by channel, not by volume, and log every attempt.",
+          "The strategy answer is the integration question: the running SOL, the hardening Treatment Gap, and the claims work that must go on anyway.",
           "The gap they are watching build here is the same 14 days defense counsel will ask John Doe about in deposition on Day 5."
         ]
       }
@@ -1202,9 +1202,9 @@ window.CM_CASE_FLOW = {
       title: "Onboarding Directions & the Property Damage Question",
       about: "The client's standing instructions and the packet that sets expectations on day one, then the question every Property Damage fact must answer: does it touch John Doe's bodily-injury case, or does it stay on Margaret Doe's separate PD claim?",
       quiz: [
-        {q: "The Property Damage carve-out in the LOR lets the adverse carrier talk to the client about:",
-         opts: ["Injuries and treatment", "The Property Damage claim only", "Anything except settlement figures", "A Recorded Statement"],
-         a: 1, r: "Only the resolution of the Property Damage claim. Anything else routes to the firm."},
+        {q: "The Property Damage carve-out in the LOR lets the adverse carrier talk directly about:",
+         opts: ["Injuries and treatment", "The Property Damage claim only, with the vehicle's owner", "Anything except settlement figures", "A Recorded Statement"],
+         a: 1, r: "Only the resolution of the Property Damage claim, with the Civic's owner, Margaret Doe: John Doe owns no car and has no PD claim. Anything else routes to the firm."},
         {q: "Keystone Mutual's adjuster asks John Doe for a Recorded Statement about the crash. What has the firm told him to do?",
          opts: ["Give it, briefly", "Give it, but only about the Civic", "Give no Recorded Statement: all adverse contact routes through the firm", "Give it if the adjuster promises a quick settlement"],
          a: 2, r: "The client gives no Recorded Statement to the adverse carrier. Only the Property Damage claim is carved out; injuries and the facts of the loss route to the firm."},
@@ -1223,7 +1223,7 @@ window.CM_CASE_FLOW = {
         {q: "The Police Report lists three units. Why does the Case Manager read them on a Property Damage question?",
          opts: ["To find the repair shop", "The unit boxes show who drove, who rode and who owns each vehicle, which decides whose claim each PD item is", "To value the Civic", "They don't matter on a PD question"],
          a: 1, r: "Records first: the units show John Doe rode in the Escape and Margaret Doe owns the Civic, so the PD and rental claim is hers, and his case is the injury claim."},
-        {q: "On 02/18/2026 Keystone authorizes a rental on the Civic. John Doe calls: he needs a car to get to treatment and asks to pick it up. What do you do?",
+        {q: "Keystone authorized a rental on the Civic on 02/18/2026. On 02/23/2026 John Doe finally calls back and books Riverton Spine & Rehab for 02/24: he needs a car to get to treatment and asks to pick the rental up. What do you do?",
          opts: ["Set the rental up in his name: he was in the crash and he is the client", "Ask Keystone to open a second rental for him under the BI claim", "Explain that the rental belongs to the Civic's owner, Margaret Doe; as a passenger who owns no car he has no PD or rental claim. Then solve his real problem: his rides to treatment", "Tell him to use his mother's rental as his own until she needs it"],
          a: 2, r: "Rental follows the vehicle. The Police Report's Unit 3 box names Margaret Doe as the Civic's owner, and John Doe was the Escape's front-seat passenger who owns no car, so the PD and rental claim is hers. Record the finding, tell Atty. Thorne, and treat his need as what it is: transport to care, planned and logged."},
         {q: "Margaret Doe's rental from Keystone starts 02/18/2026, and her Dec Page sets no longer period. John Doe rides with her to treatment. What goes on his calendar, and why?",
@@ -1313,7 +1313,7 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 1 — work the voicemail, then send what the client gets on day one",
         visual: "An exploded packet: a central navy folder with six document cards fanned around it in a semicircle, each numbered with an orange badge — ① Do's and Don'ts ② Treatment directions ③ Property Damage and rental ④ Communication protocol ⑤ Document retention ⑥ Firm contacts and escalation path — each showing two or three bullet previews in small type. Beneath the fan, a delivery bar of three chips: PREPARED → DELIVERED → LOGGED, the third noting the required date and method.",
         act: {
-          scenario: "02/09/2026, 8:47 a.m.: a voicemail from John Doe. Dana from Keystone Mutual, Robert Smith's carrier, called him last night and asked to record what happened; he said he'd think about it, and she is calling back today. His neck is still stiff and he hasn't seen anyone. Nothing has reached him from the firm yet.",
+          scenario: "02/09/2026, 8:47 a.m.: a voicemail from John Doe. Dana from Keystone Mutual, Robert Smith's carrier, called him on Saturday (02/07) and asked to record what happened; he said he'd think about it, and she is calling back today. His neck is still stiff and he hasn't seen anyone. Nothing has reached him from the firm yet. You work it that afternoon, once he has signed the retainer and the matter is open in the CMS (1:12 p.m.), after the Conflict Check.",
           prompt: "Work the voicemail in your Notes & Action Plan: transcribe it, then write your action plan (graded, with the answer key once handed in). Work the plan: email Dana Whitfield that the firm represents John Doe, that she is not to contact him directly and that any Recorded Statement request comes through the firm, with nothing about his injuries; call John Doe back to check on his neck and his treatment status, outline the next steps and have him repeat the instruction (no Recorded Statement, no talk about the case with anyone outside the firm); and coordinate his first visit with Riverton Urgent Care. Then assemble his onboarding Direction Packet (all six sections, the Property Damage section specific to this file: from the records, whose vehicle and claim it is), deliver it and log every contact.",
           tool: "Notes & Action Plan · Email Workspace · Call Simulator → AI John Doe · CMS → Notes → Case Notes · CMS → Notes → Case Notes",
           output: "A graded transcript and action plan, the emails to Keystone and the facility sent, the check-in call taken, and a delivered, logged Direction Packet specific to John Doe's file.",
@@ -1482,16 +1482,16 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 3 — sort the Property Damage items, decide refer, coordinate or handle, and say whether PD touches John Doe's case",
         visual: "A sorting tray: six item cards (damage photos, the tow record, the Police Report, Leah Moran's rental email, Margaret Doe's Loss of Use question, her request for a higher repair figure) above three drop zones: navy JOHN DOE'S BI FILE, orange COORDINATE, cream MARGARET DOE'S PD CLAIM. Each card carries a blank tag for REFER, COORDINATE or HANDLE. A bottom bar holds an empty line headed THE ANSWER, which the trainee completes.",
         act: {
-          scenario: "02/11/2026. Keystone PD (Leah Moran) emails the firm to confirm the Civic's claimant and a rental contact, so a rental can be set up once its liability decision is made. Five more items sit in the firm's PD tray: the scene and damage photos, the tow record from the scene, the Police Report, Margaret Doe's question about Loss of Use, and her request that the firm push Keystone for a higher repair figure. John Doe calls asking whether the rental can be his.",
-          prompt: "Sort each item: does it feed John Doe's bodily-injury claim, stay on Margaret Doe's separate PD claim, or touch his care and need coordinating? Mark each refer, coordinate or handle, and record the sort in one CMS Case Note that cites the Police Report's units. Index what feeds the BI claim on John Doe's file, set the follow-up that puts the rental's last covered day on his calendar as a treatment risk, refer Margaret's items and Leah Moran's claimant question to Atty. Thorne, and answer John Doe's call within the UPL line. End the note with one line: does Property Damage touch our case, and how?",
+          scenario: "02/23/2026. Keystone PD (Leah Moran), which accepted Property Damage liability on 02/17 and authorized a rental for the Civic on 02/18, emails the firm for a rental contact. Five more items sit in the firm's PD tray: the certified Police Report (issued 02/18), a note that Margaret Doe holds the scene and damage photos on her phone, a note that the tow record is with Riverton Towing, Margaret Doe's question about Loss of Use, and her request that the firm push Keystone for a higher repair figure. John Doe, back in touch this morning after two weeks of silence, calls asking whether the rental can be his.",
+          prompt: "Sort each item: does it feed John Doe's bodily-injury claim, stay on Margaret Doe's separate PD claim, or touch his care and need coordinating? Mark each refer, coordinate or handle, and record the sort in one CMS Case Note that cites the Police Report's units. Index what feeds the BI claim on John Doe's file, set the follow-up that puts the rental's last covered day on his calendar as a treatment risk, refer Margaret's items and Leah Moran's rental-contact request to Atty. Thorne, and answer John Doe's call within the UPL line. End the note with one line: does Property Damage touch our case, and how?",
           tool: "CMS → Notes → Case Notes · CMS → Doc Hub · Calendar · Call Simulator → AI John Doe",
           output: "A sorted, sourced Case Note ending in its one-line answer, the BI evidence indexed, the rental follow-up set, Margaret Doe's items referred and the call logged.",
           checkpoints: [
             "Positions taken from the Police Report's units: John Doe the Escape's passenger, the Civic Margaret Doe's",
-            "The photos, the tow record and the Police Report sorted as BI evidence and indexed on John Doe's file",
-            "The rental, Loss of Use and the repair figure sorted to Margaret Doe's PD claim, not handled on John Doe's file; the claimant question referred, not answered for her",
+            "The Police Report (RS07) sorted as BI evidence and indexed on John Doe's file; the photos and the tow record sorted as BI evidence still to be obtained, with a dated request task for each",
+            "The rental, Loss of Use and the repair figure sorted to Margaret Doe's PD claim, not handled on John Doe's file; Leah Moran's rental-contact request referred, not answered for her",
             "Each item marked refer, coordinate or handle",
-            "A follow-up set to calendar the rental's last covered day as a treatment risk once Keystone authorizes it, with John Doe's rides planned before it",
+            "A follow-up set to calendar the rental's last covered day (Keystone's 02/18 authorization) as a treatment risk, with John Doe's rides planned before it",
             "Margaret Doe's two questions referred to Atty. Thorne the same day, with no advice on her claim",
             "John Doe told the rental is not his, and his ride to treatment solved",
             "The note ends with the answer: PD touches John Doe's case as evidence of the impact and through his rides, never as a claim of his"
@@ -1499,7 +1499,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["PD items reach the file", "Sort each one: BI evidence, coordinate, or Margaret's claim", "CMS → Notes → Case Notes", "Sort recorded with the Police Report cited"],
-          ["Severity evidence identified", "Index it on John Doe's file", "CMS → Doc Hub", "Photos and estimate indexed as BI evidence"],
+          ["Severity evidence identified", "Index what is on file; request what is not", "CMS → Doc Hub · CMS → Tasks", "Police Report indexed as BI evidence; photos and tow record requested"],
           ["Margaret Doe asks about her PD claim", "Refer to Atty. Thorne; plan John Doe's rides", "CMS → Tasks · Calendar", "Referred the same day; rental follow-up dated"]
         ],
         best: [
@@ -2343,8 +2343,8 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 2 — the full plan, routed for review",
         visual: "A full-slide editor canvas showing the live plan with all five bands stubbed and their required fields outlined in orange. A completion meter runs across the top in five segments that fill as each band is completed. The risks band carries a red required marker so it can't be skipped silently. Bottom-right, the ROUTE FOR REVIEW control is greyed out and locked until all five segments are filled, with a label: “all five bands required.” The lock is the argument: the tool won't let an incomplete plan reach counsel.",
         act: {
-          scenario: "Everything from Day 1 and Claim Set Up is in the file: parties mapped, the $40,000 stack verified, the onboarding packet delivered and tracked, and the 14-Day Treatment Gap identified. The Regulatory Triple-Check is still open: it clears in the Treatment Phase, before the first bill is routed. Atty. Thorne is waiting on the Case Plan.",
-          prompt: "Draft the complete Case Plan for John Doe VS Robert Smith. Fill all five bands from today's work: the acceptance decision with its reason; coverage as a stack with its order of operations, liability, and a preliminary projection; the Regulatory Triple-Check, held open until the Treatment Phase; Clinical, Functional and Subrogation Management pillars with measurable goals, each action item with an owner and a date; and the risks band with the 14-Day Gap and the risk of a later break in care, prominently, with their consequences. Docket the filing window, then route the plan to Atty. Thorne.",
+          scenario: "Everything from Day 1 and Claim Set Up is in the file: parties mapped, the $40,000 stack verified, the onboarding packet delivered and tracked, and the 14-Day Treatment Gap identified. Treatment began 02/20/2026, and the Regulatory Triple-Check was cleared and recorded on 03/12/2026 (HIPAA authorization, BCRC/SSDI answer, Payer Order). Atty. Thorne is waiting on the Case Plan.",
+          prompt: "Draft the complete Case Plan for John Doe VS Robert Smith. Fill all five bands from today's work: the acceptance decision with its reason; coverage as a stack with its order of operations, liability, and a preliminary projection; the Regulatory Triple-Check, shown cleared with its date and each of its three results; Clinical, Functional and Subrogation Management pillars with measurable goals, each action item with an owner and a date; and the risks band with the 14-Day Gap and the risk of a later break in care, prominently, with their consequences. Docket the filing window, then route the plan to Atty. Thorne.",
           tool: "Action Plan Editor",
           output: "A complete, routed Case Plan that counsel could set strategy from without asking a follow-up question.",
           checkpoints: [
@@ -2353,7 +2353,7 @@ window.CM_CASE_FLOW = {
             "Coverage: $10,000 BI / $20,000 Host UM / $10,000 Relative UM, total $40,000",
             "Order of operations: BI → Host UM → Relative UM; projection marked preliminary",
             "Liability recorded as preliminary until confirmed by the Police Report and driver statements",
-            "Regulatory Triple-Check band held open, to clear in the Treatment Phase",
+            "Regulatory Triple-Check band shown cleared, dated 03/12/2026: HIPAA authorization, BCRC/SSDI answer, Payer Order",
             "Clinical, Functional and Subrogation Management pillars each with a measurable goal",
             "Every action item has an owner and a date",
             "Risks band: 14-Day Gap and the risk of a later break in care, prominent, with consequences",
@@ -2388,7 +2388,7 @@ window.CM_CASE_FLOW = {
           "This is Claim Set Up's capstone. Give it real time; it is the gate, not a wrap-up.",
           "The locked route control is deliberate. If a trainee can't route, ask which band is incomplete.",
           "Grade it as Atty. Thorne would read it. If you need to ask a question to set strategy, the plan isn't finished.",
-          "Close Claim Set Up by stating the gate: LORs out and logged, stack verified at $40,000, the 14-Day Gap flagged, plan routed. The Treatment Phase doesn't begin until all four are true."
+          "Close Claim Set Up by stating the gate: LORs out and logged, stack verified at $40,000, the 14-Day Gap flagged, plan routed. Care is already under way on this file, so the plan records what is in place and what Atty. Thorne still has to decide."
         ]
       },
 
@@ -2424,21 +2424,20 @@ window.CM_CASE_FLOW = {
         sources: ["D1#8", "D1#23", "D1#24", "D1#25", "D1#44", "D2#13"],
         rubric: {
           ai: [
-            ["Band recall", 15, "All five bands and all three pillars named with correct contents"],
-            ["Coverage accuracy", 15, "Limits, total, order of operations; projection preliminary"],
-            ["Gap computation", 15, "14 days, correct dates, the adjuster's arguments named"],
-            ["Gate conditions", 10, "All four Claim Set Up gate conditions listed"],
+            ["Band recall", 20, "All five bands and all three pillars named with correct contents"],
+            ["Disclosure discipline", 15, "An adverse fact is disclosed only when it sits in the plan's risks band, stated plainly with its date and consequence (the 14-day gap, 02/06 → 02/20/2026, recorded as facts only), not buried in the body"],
+            ["Coverage accuracy", 20, "BI $10,000 → Host UM $20,000 → Relative UM $10,000 = $40,000, in that order; PIP and MedPay outside the stack; the projection marked preliminary"],
             ["Completeness", 5, "Every question answered substantively"]
           ],
           trainer: [
-            ["Version reasoning", 15, "Recognises the approval is superseded and the plan must be re-routed"],
-            ["Boundary judgment", 10, "The examples are genuinely on the right sides of the line"],
+            ["Version reasoning", 15, "The strategy answer ties Atty. Thorne's approval to the version he saw: a later change re-routes the plan, never a quiet edit"],
+            ["Boundary judgment", 10, "The plan states facts for counsel and evaluates nothing: no view on the gap's effect or the claim's value"],
             ["Self-Summary quality", 10, "Specific and honest across the whole day"],
             ["Self-rating calibration", 5, "Defensible against the score"]
           ]
         },
         notes: [
-          "Question 5 tests version discipline and is the most often failed: the approval is superseded, and the plan must be re-routed, not quietly edited.",
+          "Question 2 is the most often failed: an adverse fact counts as told to counsel only when it sits in the risks band with its date and consequence, not in a paragraph he may never reach.",
           "Question 3 enforces sequential integrity: with an unverified stack, every later demand and lien check reads the wrong numbers.",
           "This check closes Claim Set Up. Confirm the gate aloud with the room before releasing anyone to the Treatment Phase.",
           "Compare scores with self-ratings across Day 1 and Claim Set Up, not just this check."
@@ -2490,7 +2489,7 @@ window.CM_CASE_FLOW = {
          opts: ["“Attn: Teresa Okafor”, to save re-addressing it later", "“Attn: Claims Department”, with the claim number in the subject line", "To Margaret Doe, the insured, to forward to her carrier", "Held back until Cardinal State assigns an adjuster"],
          a: 1, r: "With no adjuster assigned, the address line reads “Attn: Claims Department”. Teresa Okafor is not assigned until 03/03/2026, and holding the letter delays the UM notice."},
         {q: "Harbor Point's LOR goes out on 02/17/2026, long before BI can be exhausted. What should it do?",
-         opts: ["Demand the $20,000 Host UM limits now, so the response clock starts running", "Wait until Keystone tenders its $10,000 before writing to Harbor Point at all", "Ask Harbor Point to pay the BI layer too, since Keystone is slow", "Give notice of the Host UM claim, open the PIP claim with John Doe's signed PIP application and ask for its claim forms and proof-of-loss requirements, and ask for written confirmation of coverage, with no UM payment demand"],
+         opts: ["Demand the $20,000 Host UM limits now, so the response clock starts running", "Wait until Keystone tenders its $10,000 before writing to Harbor Point at all", "Ask Harbor Point to pay the BI layer too, since Keystone is slow", "Give notice of the Host UM claim, open the PIP claim with the PIP application John Doe signed at intake and ask for its claim forms and proof-of-loss requirements, and ask for written confirmation of coverage, with no UM payment demand"],
          a: 3, r: "UM policies carry notice conditions, so the carrier is noticed at set-up. Notice is not a demand: the UM layers owe nothing until BI is exhausted, so a UM payment demand now is premature. What puts the stack at risk is settling or releasing BI without the UM carriers' consent. PIP is different: it pays bills as they are submitted."},
         {q: "Keystone Mutual gave a figure on the set-up call but will not confirm Robert Smith's limits in writing or release its Declaration Page without a written request and authorizations. What do you do?",
          opts: ["Send the written limits request Atty. Thorne signs, with only the documents or limited authorization he approves, keep BI preliminary, and calendar the follow-up", "Mark BI $10,000 confirmed from the set-up call, so the projection can be finished", "Demand Host UM now, so that Harbor Point puts pressure on Keystone", "Tell John Doe the limit is probably $10,000, and revisit it later"],
@@ -2505,7 +2504,7 @@ window.CM_CASE_FLOW = {
          opts: ["His name only: never his phone, address, date of birth or employer", "His full contact details, so the adjuster can call him", "His employer, for the wage claim", "His medical providers"],
          a: 0, r: "Third-party correspondence protects the client's information; the first-party carriers may verify his details."},
         {q: "Which LOR carries the Property Damage carve-out?",
-         opts: ["All three", "Keystone's only: Leah Moran may discuss the Civic's damage claim with John Doe, nothing else", "Harbor Point's", "None: the client handles Property Damage alone"],
+         opts: ["All three", "Keystone's only: Leah Moran may discuss the Civic's damage claim with its owner, Margaret Doe, nothing else", "Harbor Point's", "None: the client handles Property Damage alone"],
          a: 1, r: "The carve-out goes only in Keystone's letter, which gives the PD adjuster 5 business days from the letter to inspect the Civic."},
         {q: "An LOR has had no acknowledgement. When do you follow up?",
          opts: ["After 30 days", "By the third business day", "Only when the adjuster calls", "At the demand"],
@@ -2540,7 +2539,7 @@ window.CM_CASE_FLOW = {
             "Request the limits and any additional coverage, the Declaration Page for every applicable policy, and preservation of photos, statements, video, the insured vehicle and its event data recorder (airbag control module) data: liability is not final until the Police Report, statements and video confirm it.",
             "Notify all three stack carriers now. UM policies carry notice conditions, and late notice hands a carrier a defense. Notice is not a demand: no UM letter asks for payment before the BI tender is documented.",
             "The third-party letter gives Keystone nothing that reaches the client: his name, never his phone, address, date of birth or employer. First-party carriers (Harbor Point, Cardinal State) may verify his details.",
-            "The Property Damage carve-out goes only in Keystone's letter: its PD adjuster, Leah Moran, may discuss the Civic's damage claim with John Doe, nothing else, and gets 5 business days from the date of the letter to inspect the Civic.",
+            "The Property Damage carve-out goes only in Keystone's letter: its PD adjuster, Leah Moran, may discuss the Civic's damage claim with its owner, Margaret Doe (John Doe owns no car and has no PD claim), nothing else, and gets 5 business days from the date of the letter to inspect the Civic.",
             "Send by each entity's preferred method, with the claim number (without one, the policy number) and the date of loss in the subject line. Atty. Thorne signs; you log the delivery.",
             "Expect an acknowledgement in 24–48 hours; it may state coverage and the limit. None by the third business day: follow up. Keystone may withhold written confirmation of its limits until it has a written request with the authorizations Atty. Thorne approves."
           ],
@@ -2671,9 +2670,9 @@ window.CM_CASE_FLOW = {
             "Keystone's letter gives John Doe's name only (no DOB, phone, address, employer or treatment detail) and confines the PD carve-out to the Civic, with 5 business days from the date of the letter to inspect the Civic",
             "Every LOR requests limits, any additional coverage, Declaration Pages and preservation; Keystone's names the photos, statements, the Silverado and its EDR data, and any video; Harbor Point's asks that the Escape and its EDR data be preserved before any repair or salvage",
             "Neither UM letter asks for payment: each gives notice and asks for written confirmation of coverage and limits",
-            "John Doe's signed PIP application (02/17/2026) sent with the Harbor Point letter; Harbor Point's letter covers the PIP claim as well as Host UM; PIP recorded outside the stack, and its claim details given to John Doe the same day for his first provider, with no promise of what it pays",
+            "John Doe's PIP application (signed at intake, 02/09/2026) sent with the Harbor Point letter; Harbor Point's letter covers the PIP claim as well as Host UM; PIP recorded outside the stack, and its claim details logged for his first provider and given to John Doe when he next makes contact, with no promise of what it pays",
             "Bluewater notice requests the Declaration Page and the signed UM rejection form (03/14/2024), and records the collision option ($500 deductible) for the Civic",
-            "Same day: John Doe told to preserve the doorbell-camera video from 2214 Maple Hollow Rd",
+            "Same day: a written preservation request to Margaret Doe, the camera's owner, for the doorbell-camera video from 2214 Maple Hollow Rd (John Doe was asked at intake, 02/09)",
             "All five routed for Atty. Thorne's signature and sent 02/17/2026 by preferred method; acknowledgement due by 02/19/2026, follow-up calendared for 02/20/2026 if none"
           ]
         },
@@ -2684,7 +2683,7 @@ window.CM_CASE_FLOW = {
         ],
         best: [
           "Read each letter against the claim-call log before it goes for signature.",
-          "Tell the client what the carve-out allows: the PD adjuster may call him about the Civic, and about nothing else.",
+          "Tell the client what the carve-out allows: the PD adjuster deals with Margaret Doe, the Civic's owner, about the Civic and nothing else; a Keystone call to him about anything routes to the firm.",
           "Pitfall: one letter copied five times with the insured left as Robert Smith.",
           "Pitfall: sending before signature because a carrier asked for the LOR “today”."
         ],
@@ -2926,7 +2925,7 @@ window.CM_CASE_FLOW = {
             "The Police Report comes first: Riverton PD report RPD-26-018842, Officer Thomas Garner #2217. Read it line by line: the narrative, the diagram, each unit's driver, vehicle and insurer, citations issued and witnesses named. Robert Smith was cited for failure to stop at a stop sign; whether the citation itself can be used later varies by state, and that is Atty. Thorne's call.",
             "Reconcile the report against the file, never the other way round. The report lists the Escape as a 2021; Harbor Point's Declaration Page shows a 2020. Record the discrepancy with both sources; correct our own record from the Declaration Page.",
             "An independent witness is the strongest answer to a disputed version. Ruth Calloway, 2209 Maple Hollow Rd, gave Officer Garner a signed statement on scene. Log her contact details, and flag a follow-up statement to Atty. Thorne while her memory is fresh.",
-            "Preserve video before it is lost. Margaret Doe's doorbell camera at 2214 Maple Hollow Rd recorded the collision (07:09:41–07:10:26). John Doe was told to preserve it on 02/17/2026; the firm secured a copy on 02/19/2026, with its SHA-256 hash logged. Keep the original unaltered and record the chain of custody.",
+            "Preserve video before it is lost. Margaret Doe's doorbell camera at 2214 Maple Hollow Rd recorded the collision (07:09:41–07:10:26). John Doe was asked at intake (02/09/2026) to have it kept, and Margaret Doe, the camera's owner, was asked in writing to preserve it on 02/17/2026; the firm secured a copy on 02/19/2026, with its SHA-256 hash logged. Keep the original unaltered and record the chain of custody.",
             "Vehicle data needs a written preservation request. The Escape's event data recorder belongs to Kevin Alvarez's vehicle; a preservation request to him and Harbor Point goes out for Atty. Thorne's signature. Never ask anyone to download or alter it.",
             "Anticipate comparative fault. Expect the defense to argue the Escape entered the all-way stop out of turn, or that John Doe was unbelted. Note what already answers each: the citation, Ms. Calloway's statement, the video, and the EMS report's “restrained front-seat passenger”.",
             "PD acceptance is not BI acceptance. Keystone accepted PD liability on 02/17/2026 for Margaret Doe's Civic; that does not bind its BI adjuster on John Doe's claim. Record each carrier's liability position in writing, with its date."
@@ -3009,7 +3008,7 @@ window.CM_CASE_FLOW = {
           head: ["", "Story first", "Decision first"],
           rows: [
             ["First line", "“Summit Imaging called yesterday about John Doe's MRI…”", "“Decision needed by 03/12/2026: approve declining Summit's LOP request.”"],
-            ["Why", "Buried in the third paragraph", "MedPay applies first (PIP was spent on the emergency care), and Harbor Point MedPay has $3,675.00 left"],
+            ["Why", "Buried in the third paragraph", "MedPay applies first (PIP was spent on the emergency care), and Harbor Point MedPay has $3,675.00 left once Lakeside's pending $640.00 is paid"],
             ["Facts", "In the order they happened", "Summit's request of 03/11/2026; the $2,395.00 MRI"],
             ["Options", "Missing", "If yes: decline sent, bill to MedPay today. If no: LOP drafted for signature"],
             ["Subject line", "“Update”", "“DECISION by 03/12 — Summit LOP request”"]
@@ -3150,21 +3149,21 @@ window.CM_CASE_FLOW = {
         sources: ["D1#18", "D1#20", "LSH Claims Specialist: LOR components, information protection, acknowledgement and limits disclosure"],
         rubric: {
           ai: [
+            ["Stack discipline", 15, "Every coverage named with whose it is and what it pays; the $40,000 stack (BI, Host UM, Relative UM); PIP, MedPay, Keystone PD and Bluewater tracked outside it; add-on effect stated correctly"],
+            ["Policy Stack", 20, "BI: Keystone KM-26-440871, $10,000, third-party; Host UM: Harbor Point HP-26-7741, $20,000, and Relative UM: Cardinal State CS-26-20355, $10,000, first-party as an insured; pursued BI → Host UM → Relative UM"],
             ["LOR mechanics", 15, "Five letters, insureds and Attn lines correct; third-party letter limited to the client's name"],
-            ["Verification status", 20, "Host UM 03/02/2026 and Relative UM 03/09/2026 confirmed in writing; BI preliminary until 03/20/2026"],
-            ["Stack discipline", 15, "$40,000 stack; PIP and Keystone PD tracked outside it; add-on effect stated correctly"],
             ["Completeness", 10, "Every question answered substantively"]
           ],
           trainer: [
             ["Strategic articulation", 15, "The stated next action is the right one and the reasoning holds"],
             ["Self-Summary quality", 10, "Honest and specific, not a restatement of the slide"],
-            ["UPL boundary", 10, "Gives the adjuster nothing on the gap; escalates to Atty. Thorne where authority is required"],
+            ["UPL boundary", 10, "No coverage opinion to a carrier or the client; every letter signed by Atty. Thorne"],
             ["Self-rating calibration", 5, "Self-score is defensible against demonstrated performance"]
           ]
         },
         notes: [
-          "Question 6 is the pressure scenario. The right answer gives Dana Whitfield nothing on the gap, holds the written limits request as it stands, logs the call and tells Atty. Thorne. The gap is explained once, in the demand he approves, through the Medical Records and the documents the client call identified; the recorded call itself is privileged and never goes to a carrier.",
-          "Question 4 separates trainees who know the dates from those who know the sources. Push for the document behind each “confirmed”.",
+          "Question 2 separates trainees who know the layers from those who know the sources: push for the claim number, and the letter that confirmed each limit, behind every layer.",
+          "Question 3: Keystone's letter gives John Doe's name only; the first-party carriers may verify his details. Cardinal State's reads “Attn: Claims Department”, because Teresa Okafor is not assigned until 03/03/2026.",
           "Compare each self-rating with the score. A 5 next to a $50,000 stack is a coaching conversation.",
           "UPL is a gate: a strong score does not survive a letter signed for the attorney or a coverage opinion given to a carrier or the client."
         ]
@@ -3179,7 +3178,7 @@ window.CM_CASE_FLOW = {
       title: "Treatment Phase Operations, LOP Issuance & Provider Oversight",
       about: "Keeping John Doe's treatment moving and paid for: every coverage and the Payer-First Principle, the Health Plan's reimbursement right and the Regulatory Triple-Check, LOPs on counsel's terms, the PIP Log, and the A-C-T protocol the day care breaks down.",
       quiz: [
-        {q: "On 03/11/2026 Summit Imaging asks for an LOP for John Doe's $2,395.00 MRI. Harbor Point's PIP was spent on the emergency care; its MedPay has $3,675.00 left. What do you do?",
+        {q: "On 03/11/2026 Summit Imaging asks for an LOP for John Doe's $2,395.00 MRI. Harbor Point's PIP was spent on the emergency care; its MedPay has $3,675.00 left once Lakeside's billed $640.00 consult is paid. What do you do?",
          opts: ["Prepare the LOP for Atty. Thorne's approval, since the provider asked for one", "Decline the LOP and route the bill to MedPay, which applies first", "Send the bill to Peach State first, to save MedPay for later", "Tell Summit it will be paid in full at settlement"],
          a: 1, r: "The Payer-First Principle: MedPay pays regardless of fault, and Harbor Point confirmed it has no reimbursement right, so the MRI is paid with nothing to repay. An LOP would have turned it into a $2,395.00 lien against John Doe's net. Never promise a provider payment at settlement."},
         {q: "Crescent Pain & Spine billed $3,400.00 for the 05/15/2026 injection, and Peach State paid $1,860.00. Why does Peach State's reimbursement claim start at $1,860.00?",
@@ -3196,13 +3195,13 @@ window.CM_CASE_FLOW = {
          a: 1, r: "Harbor Point's payment history (RS31) shows PIP's two checks totalling $10,000.00 (03/04/2026) and MedPay's five totalling $5,000.00, the last on 06/26/2026, and says bills received after exhaustion are returned with a notice of exhaustion. PIP and MedPay payments don't reduce the UM limit, Harbor Point asserts no reimbursement right, and neither is ever part of the stack."},
         {q: "On 03/11/2026 Summit Imaging Center asks for an LOP before John Doe's cervical MRI. What do you do?",
          opts: ["Issue the LOP on the firm's template so the MRI isn't delayed", "Ask Peach State to pre-authorize the MRI, and issue an LOP for anything it won't pay", "Decline: MedPay pays first, so give Summit the Harbor Point MedPay billing details and log the decline", "Tell Summit the firm will guarantee its bill at settlement"],
-         a: 2, r: "Payer Order: PIP → MedPay → Peach State → LOP. PIP was exhausted by the emergency care; MedPay had $3,675.00 left, enough for the $2,395.00 MRI. An unnecessary LOP turns a bill an earlier payer would cover into a lien on John Doe's net, and only Atty. Thorne sets LOP terms or commits the firm to anything."},
+         a: 2, r: "Payer Order: PIP → MedPay → Peach State → LOP. PIP was exhausted by the emergency care; MedPay had $3,675.00 left after Lakeside's pending $640.00 ($4,315.00 before it), enough for the $2,395.00 MRI. An unnecessary LOP turns a bill an earlier payer would cover into a lien on John Doe's net, and only Atty. Thorne sets LOP terms or commits the firm to anything."},
         {q: "Harbor Point MedPay has paid $685.00, $640.00, $2,395.00 and $640.00 in date order. How much is left for Lakeside Orthopedics' 06/12/2026 MMI visit?",
          opts: ["$640.00", "$1,280.00", "$0.00", "$4,360.00"],
          a: 0, r: "$685.00 + $640.00 + $2,395.00 + $640.00 = $4,360.00; $5,000.00 – $4,360.00 = $640.00. The 06/12/2026 visit uses it, and MedPay is exhausted at exactly $5,000.00 (PIP's $10,000.00 went to the emergency care in March)."},
         {q: "Riverton Spine & Rehab's missed-visit alert reaches you on 04/08/2026, and John Doe isn't answering anyone. Under A-C-T, what comes first?",
          opts: ["Tell Atty. Thorne that John Doe is non-compliant", "Assess: missed visits are a legal danger, so do the Step 1 review; then Clarify: ask the clinic and reach him through the No Contact Protocol, one channel after another, logging each attempt", "Send the Final Warning Letter today", "Ask the clinic to discharge him until he calls"],
-         a: 1, r: "Assess comes first: two missed visits with no call are a legal danger (a gap in care). Clarify next, with the clinic's office and then John himself: the Step 1 review, then call and text, call and email, the emergency contact, Atty. Thorne, and only then the Final Warning Letter. Track every attempt. Silence is a symptom; on this file its cause was crash-related anxiety, which only John could tell you."},
+         a: 1, r: "Assess comes first: two missed visits with no call are a legal danger (a gap in care), so the Step 1 internal review is done before any outreach. Clarify next, with the clinic's office and then John himself: call and text, call and email, the emergency contact, Atty. Thorne, and only then the Final Warning Letter. Track every attempt. Silence is a symptom; on this file its cause was crash-related anxiety, which only John could tell you."},
         {q: "John Doe calls on 04/17/2026 and says he panicked in the car at the corner where the crash happened and hasn't been able to ride to therapy since. What do you say?",
          opts: ["“That sounds like PTSD. You should see a therapist.”", "“That will add to your pain and suffering, so it's good for your case.”", "“I'm glad you told me. Would it help to tell Dr. Reyes about this yourself? I can set up a call with her office.”", "“You need to get back to therapy this week or the file closes.”"],
          a: 2, r: "Record his words and offer a choice. A label is a diagnosis, “see a therapist” is direction of care, “good for your case” is a value statement, and the deadline is a threat. He tells Dr. Reyes; you schedule. What it means for the claim is Atty. Thorne's."},
@@ -3218,7 +3217,7 @@ window.CM_CASE_FLOW = {
         {q: "Which of these is NOT part of the Regulatory Triple-Check?",
          opts: ["A claim-specific HIPAA authorization that names the incident date", "Medicare/Medicaid (BCRC) reporting where the client is 65+ or on SSDI", "Payer Order and subrogation management", "The Time-Limit Demand"],
          a: 3, r: "The triple-check is HIPAA, Medicare/Medicaid reporting, and the Payer Order. Demands come later, after the pre-demand audit."},
-        {q: "John Doe's rides to treatment ended with the rental cutoff on 03/19/2026. What do you set up so his travel costs can reach the demand?",
+        {q: "Keystone ended Margaret Doe's rental on 03/19/2026; John Doe now rides to PT with his coworker Kevin Alvarez after work. What do you set up so his travel costs can reach the demand?",
          opts: ["An estimate of his miles, made at MMI", "Nothing: travel to treatment is never recoverable", "A trip log from his first visit (date, provider, round-trip miles), each cost entered with its receipt in the Specials ledger", "A reminder to ask him about it at the demand"],
          a: 2, r: "Only what is documented can be recovered, so the log is kept as treatment happens, never rebuilt from memory. What the demand claims, and at what rate, is Atty. Thorne's call."},
         {q: "Which rate applies to John Doe's treatment mileage?",
@@ -3337,7 +3336,7 @@ window.CM_CASE_FLOW = {
             "The order is a default: providers bill whom they bill. PIP pays what it gets, in the order received: Riverton General's and Riverton Fire EMS's bills from the first 48 hours of care used all $10,000 on 03/04/2026, so its wage benefit had nothing left when Northgate's wage letter came on 06/30/2026. Crescent Pain & Spine billed Peach State on 05/15/2026 with $640.00 of MedPay left: track both ledgers; never re-route a paid claim. Who is primary (coordination of benefits, governing law) is Atty. Thorne's call.",
             "An LOP is John Doe's signed agreement, acknowledged by the firm on Atty. Thorne's terms, that a provider is paid from any recovery. The firm guarantees nothing; John Doe stays liable whatever the outcome, as Atty. Thorne explains before he signs. Use one only where earlier payers can't: Riverton Spine & Rehab is out of network.",
             "LOP terms are Atty. Thorne's: his approved template, his signature, what happens if there is no recovery. You prepare, route, transmit once approved, and confirm receipt. Never promise a provider a payment amount, a reduction or a date.",
-            "Decline an LOP an earlier payer makes unnecessary: Summit Imaging's 03/11/2026 MRI bill goes to MedPay. Every needless LOP is a lien on his net.",
+            "Decline an LOP an earlier payer makes unnecessary: Summit Imaging asked for an LOP on 03/11/2026; it is declined, and the 03/13/2026 MRI bill ($2,395.00) goes to MedPay. Every needless LOP is a lien on his net.",
             "Keep the LOP provider list current with balances from each itemized statement, so no bill surprises the $40,000 stack.",
           ],
           upl: [
@@ -3594,7 +3593,7 @@ window.CM_CASE_FLOW = {
         },
         notes: [
           "Ask: “John Doe has no health insurance that covers chiropractic. How does he get treated next week?” Let the room reach the LOP.",
-          "Open RS23 and point to Financial class: LOP / attorney, and the LOP signed date. That is the document they will reconcile on Day 3.",
+          "Open RS23 and point to Financial class: LOP / attorney, and the LOP signed date. That is the document they will reconcile on Day 2.",
           "Role-play the referral: John Doe asks “Where should I go?” Model the answer: options, facts, his choice, logged."
         ]
       },
@@ -3879,7 +3878,7 @@ window.CM_CASE_FLOW = {
           tool: "Call Simulator → AI John Doe · Email Workspace · CMS → Notes → Case Notes · CMS → Case Status · CMS → Calendar",
           output: "A complete near-drop record: dated notices, the Final Warning Letter, the interview's GIRP note in his words, the file restored and attendance confirmed 04/21 and 04/23/2026.",
           checkpoints: [
-            "Assess: the missed visits classed as a legal danger (a gap in care), not a medical one; Step 1 review dated 04/08/2026, before any outreach: SOL 02/06/2028, care stopped since 04/02, week-6 re-evaluation missed 04/07, last contact 03/31",
+            "Assess: the missed visits classed as a legal danger (a gap in care), not a medical one; Step 1 review dated 04/08/2026, before any outreach: SOL 02/06/2028, care stopped since 04/02, visits of 04/03 and 04/07 missed (the Case Plan's week-6 measures, due 04/07, not taken), last contact 03/31",
             "Clarify: Riverton Spine & Rehab's office asked about the missed visits; notices escalate by channel and are logged with date, time, channel and outcome: call and text 04/08, call and email 04/09, Margaret Doe 04/10 (no case details shared)",
             "Step 3 escalation to Atty. Thorne 04/10; Final Warning Letter by certified mail AND email, response date 04/20/2026, withdrawal possible, not decided, nothing about the claim",
             "The retainer's 30 days of documented attempts (04/08 → 05/08/2026) noted: the 10-day date is a response date, and any withdrawal is Atty. Thorne's decision",
@@ -3957,7 +3956,7 @@ window.CM_CASE_FLOW = {
             "No new gap: 05/15/2026 is one day after the 05/14/2026 slot it replaces, and PT at Riverton Spine & Rehab continues on its evening slots",
             "Millbrook's 05/14/2026 slot cancelled: delegated to Janelle Brooks (Lakeside booked it), due 04/23/2026; the cancellation confirmed and logged",
             "CMS Calendar: the Millbrook slot removed; Crescent 05/15/2026 added; reminder call to John Doe on 05/13/2026; attendance check on 05/18/2026",
-            "Crescent added to Parties as a treating provider: Dr. Omar Haddad, 41 Crescent Ct, Riverton, (555) 010-6900, billing (555) 010-6912; bills Peach State in network; no LOP",
+            "Crescent added to Parties as a treating provider: Dr. Omar Haddad, 41 Crescent Ct, Riverton (as Dr. Reyes's referral gives it; phone and billing numbers to be added from its first record); bills Peach State in network; no LOP",
             "Lien Tracker: Peach State's reimbursement interest (Dion Carver, asserted 02/27/2026) flagged to expect Crescent's claim, at what the plan pays as its EOB shows, never the bill",
             "Crescent's records and itemized bill for 05/15/2026 requested under the HIPAA authorization signed 02/09/2026: delegated to the records team, due 05/29/2026",
             "The HIPAA authorization's expiry, 02/06/2027, docketed with a renewal reminder: it lapses before records are needed in litigation (credited)",
@@ -4164,16 +4163,16 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 2 — register the claim before it can hurt you, then audit what the plan asserts",
         visual: "Left half: a CMS Liens screen on a white card with a navy header bar, five fields called out with orange numbered badges — ① Plan carrier ② Member ID ③ Group number ④ Payer Order position ⑤ Reimbursement flag, dated 03/12/2026. Right half: Peach State's interim itemization as a five-row ledger strip, each row stamped with the trainee's call — three rows struck through in red (02/03 · 03/18 · 05/06), the Crescent row's $3,400.00 crossed out and replaced by $1,860.00, the Summit row ticked at $0.00. Beneath the strip, a mono pill: $3,618.00 ASSERTED → $1,860.00 CONFIRMED IN WRITING 06/24/2026. Bottom, a slim two-state timeline: a green node, FLAGGED AND AUDITED · before demand, and a red node, FOUND AT DISBURSEMENT · client's net is hit, crossed out.",
         act: {
-          scenario: "03/12/2026: Dion Carver at Peach State Health Plan (recovery file SRU-26-03318) writes that accident-related claims are in process; the plan asserted its reimbursement right on 02/27/2026. No lien record exists on the matter yet. 06/10/2026: Peach State's interim itemization arrives, asserting $3,618.00 across five claim lines. The pre-demand audit is still ahead.",
-          prompt: "Work both dates. On 03/12/2026, register Peach State Health Plan's reimbursement claim in John Doe's lien register and flag it against the matter: the carrier, member ID and group number, its position in the Payer Order, the basis on which reimbursement is asserted, and the date of the flag, with the Regulatory Triple-Check results beside it. Answer Dion Carver in the Email Workspace: the claim is noted, and the firm asks for an itemized ledger of accident-related claims once any are paid. On 06/10/2026, audit the interim itemization line by line in the audit workbench against the treatment record and the PIP Log: what is the collision's care, what is unrelated, pre-existing or before the loss, and what is claimed above what the plan paid. Then send the dispute, get the corrected balance confirmed in writing, convert the exchange into a memorandum, file it in the CMS and on the Backup Drive, and change the lien register only to the confirmed figure. State in one line what must happen before this lien can be compromised.",
+          scenario: "03/12/2026: Dion Carver at Peach State Health Plan (recovery file SRU-26-03318) writes that accident-related claims are in process. The plan's notice of its reimbursement right (02/27/2026) was flagged against the matter the day it arrived, but the lien record holds only the carrier's name and that date. 06/10/2026: Peach State's interim itemization arrives, asserting $3,618.00 across five claim lines. The pre-demand audit is still ahead.",
+          prompt: "Work both dates. On 03/12/2026, complete Peach State Health Plan's record in John Doe's lien register: the carrier, member ID and group number, its position in the Payer Order, the basis on which reimbursement is asserted, and the date of the flag (02/27/2026), with the Regulatory Triple-Check results beside it. Answer Dion Carver in the Email Workspace: the claim is noted, and the firm asks for an itemized ledger of accident-related claims once any are paid. On 06/10/2026, audit the interim itemization line by line in the audit workbench against the treatment record and the PIP Log: what is the collision's care, what is unrelated, pre-existing or before the loss, and what is claimed above what the plan paid. Then send the dispute, get the corrected balance confirmed in writing, convert the exchange into a memorandum, file it in the CMS and on the Backup Drive, and change the lien register only to the confirmed figure. State in one line what must happen before this lien can be compromised.",
           tool: "CMS → Liens · Email Workspace · CMS → Notes → Case Notes · CMS → Insurance → PIP / UM/UIM Coverage Stack",
           output: "A dated, flagged lien record; an audited itemization; $1,860.00 confirmed in writing and filed.",
           checkpoints: [
-            "Lien record created against the John Doe matter, carrier recorded as Peach State Health Plan",
+            "Lien record against the John Doe matter completed, carrier recorded as Peach State Health Plan",
             "Member ID PSH-55017742 and group GRP-41208 both entered",
             "Payer-order position recorded: after PIP/MedPay, before LOP/provider liens",
             "Reimbursement basis noted: a fully insured group plan, notice of 02/27/2026",
-            "Flag dated before any demand is drafted",
+            "Flag dated 02/27/2026, the day the notice arrived, well before any demand is drafted",
             "Triple-Check recorded: HIPAA authorization, BCRC answer, Payer Order",
             "03/12/2026 reply to Dion Carver: the claim noted, an itemized ledger of accident-related claims requested once any are paid",
             "Interim itemization audited: 02/03/2026 Riverton Vision Center ($95.00, before the loss), 03/18/2026 Peach State Virtual Care ($49.00) and 05/06/2026 Riverton Allergy & Asthma Clinic ($74.00, pre-existing) disputed as unrelated",
@@ -4199,9 +4198,9 @@ window.CM_CASE_FLOW = {
         sources: ["D1#22", "D1#24", "Newly authored: the Health Plan's itemized lien audited line by line (unrelated, pre-existing and pre-loss lines; amounts claimed above what was paid) and confirmed in writing before the demand"],
         rubric: {
           ai: [
-            ["Record created", 10, "Lien exists against the correct matter"],
+            ["Record complete", 10, "Lien record complete against the correct matter"],
             ["Identifier accuracy", 15, "Member ID and group number entered exactly"],
-            ["Flag timing", 15, "Dated and placed pre-demand"],
+            ["Flag timing", 15, "Flag dated 02/27/2026, the day the notice arrived, well before the demand"],
             ["Ledger audit", 20, "Three unrelated lines disputed, Crescent at the $1,860.00 paid, Summit at $0.00; register changed only to the written confirmation"]
           ],
           trainer: [
@@ -4211,7 +4210,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         notes: [
-          "Run it in two passes, one per date. On 03/12/2026 have trainees say the flag date aloud: timing is the graded element, and the one they will be tempted to defer.",
+          "Run it in two passes, one per date. On 03/12/2026 have trainees say the flag date aloud: 02/27/2026, the day the notice arrived, not the day they completed the record. Timing is the graded element.",
           "On 06/10/2026 the audit is the lesson: a plan's recovery vendor pulls every claim from the coverage date, and the Case Manager's job is to send back everything that isn't the collision's care, in writing.",
           "The Crescent line is the subtle one: the ledger's own paid column says $1,860.00, but the claim column says $3,400.00. Ask the room which number a plan may claim.",
           "Dion Carver's follow-up asks for full repayment and the limits. Grade the answer: acknowledge, honor the notice, route the rest to Atty. Thorne.",
@@ -4219,7 +4218,7 @@ window.CM_CASE_FLOW = {
         ]
       },
 
-        {"kind":"activity","id":"d2-drive","transition":"The treatment file is filling up: records, an LOP, the first bills. Before the day closes, the backup catches up with the CMS.","title":"Backup File Maintenance: Records and Bills in Their Folders","topic":"Skill Activity — back up the treatment documents and keep the records apart from the bills","visual":"The Doe-John folder tree on the left, opened at 03 Medical Records and 04 Bills & Invoices side by side. Into 03 drop the Urgent Care visit note, the Spine & Rehab evaluation with its LOP and the Lakeside consult; into 04 drops the Summit Imaging invoice. One chip, SUMMIT IMAGING INVOICE, sits in 03 with a red MISFILED tag and an orange arrow lifting it across into 04. On the right, a green ✓ CHECK MY DRIVE stamp over a counter: FILED IN THE CMS 4 · ON THE DRIVE 4.","act":{"scenario":"04/24/2026, 3:30 p.m. John Doe is back in care at Riverton Spine & Rehab, and the treatment documents of the last two months are filed in the CMS: Riverton Urgent Care's first visit note (02/20/2026), Riverton Spine & Rehab's initial evaluation with the Letter of Protection (02/23–02/24/2026), Lakeside Orthopedics' consult and follow-up (03/05 and 03/27/2026) and Summit Imaging Center's invoice for the 03/13/2026 cervical MRI ($2,395.00). A colleague who helped with the backup last week saved the Summit Imaging invoice into 03 Medical Records.","prompt":"File each of the four documents in the CMS from 📁 Work From if it isn't filed yet, so the copy lands on your Backup Drive in the folder its kind belongs in: the visit notes, the evaluation and the consult in 03 Medical Records, the invoice in 04 Bills & Invoices. Open your Google Drive and find the Summit Imaging invoice your colleague put in 03 Medical Records; move it into 04 Bills & Invoices and rename it by the firm's naming convention, because your colleague saved it under a name of their own. Then open 📂 My Backup Drive and run ✓ Check my drive. Last, write the records-vs-bills rule in Case Notes in two sentences: what each folder feeds in the pre-demand Medical & Billing Audit (Day 2 deck p8: the chronology, the coding audit and the Specials), and why a bill in the records folder is a damages problem.","tool":"Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes","output":"Four treatment documents filed in the CMS and backed up in their folders, the misfiled invoice moved to 04 Bills & Invoices, a clean drive check, and the records-vs-bills rule in Case Notes.","checkpoints":["Riverton Urgent Care's visit note, Riverton Spine & Rehab's evaluation with the LOP and Lakeside Orthopedics' consult in 03 Medical Records","Summit Imaging Center's $2,395.00 invoice in 04 Bills & Invoices, moved out of 03 Medical Records, not copied twice, and renamed by the firm's naming convention","Every document filed in the CMS today is on the drive: the dashboard count of backed-up documents matches what you filed","✓ Check my drive run with no folder missing","The records-vs-bills rule in Case Notes: records say what was done to John Doe and build the treatment chronology; bills say what it cost, face the coding audit and make the Specials"]},"ops":[["Treatment documents arrive","File each in the CMS so its copy reaches the drive","CMS → Doc Hub","Each in its folder on the backup"],["A bill found among the records","Move it to 04 Bills & Invoices","Backup Drive","One copy, in the bills folder"],["Backup brought up to date","Run ✓ Check my drive","Backup Drive","No folder missing"],["The rule applied","Record the records-vs-bills rule","CMS → Notes → Case Notes","Two sentences, in your own words"]],"best":["Back up the day you file, not at the end of the month; the backup is only as good as its last day.","Records hold what the provider wrote about the body; bills hold what it charged. The pre-demand audit builds the chronology from the records and runs the coding audit and the Specials from the bills.","Pitfall: a second copy of the invoice left behind in 03 Medical Records, so the file holds two answers.","Pitfall: filing the LOP under bills because it is about money; it travels with the provider's evaluation."],"sources":["D1#12","D1#13","LSH firm standard: backup drive folder hierarchy"],"rubric":{"ai":[["Documents backed up",20,"All four filed in the CMS and on the drive in 03 Medical Records or 04 Bills & Invoices"],["Misfile corrected",16,"The Summit Imaging invoice moved to 04 Bills & Invoices, with no copy left in 03"],["Drive confirmed",12,"✓ Check my drive run with no folder missing"],["File names",12,"Every file on the drive named by the firm's naming convention, the colleague's invoice included"]],"trainer":[["Records-vs-bills rule",25,"Explains the rule and why a misfiled bill drops out of the Specials"],["Findability",15,"Finds the Lakeside consult and the Summit invoice on the drive in seconds"]]},"notes":["Ask the room before they move anything: “Where would the Specials audit look for the Summit invoice?” The answer is the rule.","Watch for trainees who copy the invoice into 04 and leave the original in 03. Two copies in two folders is a second misfile.","Point at the dashboard count: documents filed in the CMS and documents on the drive should be the same number at the end of every day."]},
+        {"kind":"activity","id":"d2-drive","transition":"The treatment file is filling up: records, an LOP, the first bills. Before the day closes, the backup catches up with the CMS.","title":"Backup File Maintenance: Records and Bills in Their Folders","topic":"Skill Activity — back up the treatment documents and keep the records apart from the bills","visual":"The Doe-John folder tree on the left, opened at 03 Medical Records and 04 Bills & Invoices side by side. Into 03 drop the Urgent Care visit note, the Spine & Rehab evaluation with its LOP and the Lakeside consult; into 04 drops the Summit Imaging invoice. One chip, SUMMIT IMAGING INVOICE, sits in 03 with a red MISFILED tag and an orange arrow lifting it across into 04. On the right, a green ✓ CHECK MY DRIVE stamp over a counter: FILED IN THE CMS 4 · ON THE DRIVE 4.","act":{"scenario":"04/24/2026, 3:30 p.m. John Doe is back in care at Riverton Spine & Rehab, and the treatment documents of the last two months are filed in the CMS: Riverton Urgent Care's first visit note (02/20/2026), Riverton Spine & Rehab's initial evaluation with the Letter of Protection (02/23–02/24/2026), Lakeside Orthopedics' consult and follow-up (03/05 and 03/27/2026) and Summit Imaging Center's invoice for the 03/13/2026 cervical MRI ($2,395.00). A colleague who helped with the backup last week saved the Summit Imaging invoice into 03 Medical Records.","prompt":"File each of the four documents in the CMS from 📁 Work From if it isn't filed yet, so the copy lands on your Backup Drive in the folder its kind belongs in: the visit notes, the evaluation and the consult in 03 Medical Records, the invoice in 04 Bills & Invoices. Open your Google Drive and find the Summit Imaging invoice your colleague put in 03 Medical Records; move it into 04 Bills & Invoices and rename it by the firm's naming convention, because your colleague saved it under a name of their own. Then open 📂 My Backup Drive and run ✓ Check my drive. Last, write the records-vs-bills rule in Case Notes in two sentences: what each folder feeds in the pre-demand Medical & Billing Audit (Day 2 deck p8: the chronology, the coding audit and the prior history; the Specials, p5), and why a bill in the records folder is a damages problem.","tool":"Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes","output":"Four treatment documents filed in the CMS and backed up in their folders, the misfiled invoice moved to 04 Bills & Invoices, a clean drive check, and the records-vs-bills rule in Case Notes.","checkpoints":["Riverton Urgent Care's visit note, Riverton Spine & Rehab's evaluation with the LOP and Lakeside Orthopedics' consult in 03 Medical Records","Summit Imaging Center's $2,395.00 invoice in 04 Bills & Invoices, moved out of 03 Medical Records, not copied twice, and renamed by the firm's naming convention","Every document filed in the CMS today is on the drive: the dashboard count of backed-up documents matches what you filed","✓ Check my drive run with no folder missing","The records-vs-bills rule in Case Notes: records say what was done to John Doe and build the treatment chronology; bills say what it cost, face the coding audit and make the Specials"]},"ops":[["Treatment documents arrive","File each in the CMS so its copy reaches the drive","CMS → Doc Hub","Each in its folder on the backup"],["A bill found among the records","Move it to 04 Bills & Invoices","Backup Drive","One copy, in the bills folder"],["Backup brought up to date","Run ✓ Check my drive","Backup Drive","No folder missing"],["The rule applied","Record the records-vs-bills rule","CMS → Notes → Case Notes","Two sentences, in your own words"]],"best":["Back up the day you file, not at the end of the month; the backup is only as good as its last day.","Records hold what the provider wrote about the body; bills hold what it charged. The pre-demand audit builds the chronology from the records and runs the coding audit and the Specials from the bills.","Pitfall: a second copy of the invoice left behind in 03 Medical Records, so the file holds two answers.","Pitfall: filing the LOP under bills because it is about money; it travels with the provider's evaluation."],"sources":["D1#12","D1#13","LSH firm standard: backup drive folder hierarchy"],"rubric":{"ai":[["Documents backed up",20,"All four filed in the CMS and on the drive in 03 Medical Records or 04 Bills & Invoices"],["Misfile corrected",16,"The Summit Imaging invoice moved to 04 Bills & Invoices, with no copy left in 03"],["Drive confirmed",12,"✓ Check my drive run with no folder missing"],["File names",12,"Every file on the drive named by the firm's naming convention, the colleague's invoice included"]],"trainer":[["Records-vs-bills rule",25,"Explains the rule and why a misfiled bill drops out of the Specials"],["Findability",15,"Finds the Lakeside consult and the Summit invoice on the drive in seconds"]]},"notes":["Ask the room before they move anything: “Where would the Specials audit look for the Summit invoice?” The answer is the rule.","Watch for trainees who copy the invoice into 04 and leave the original in 03. Two copies in two folders is a second misfile.","Point at the dashboard count: documents filed in the CMS and documents on the drive should be the same number at the end of every day."]},
 
       {
         kind: "check", id: "d2m2-kc",
@@ -4255,22 +4254,22 @@ window.CM_CASE_FLOW = {
         sources: ["D1#32", "D1#33", "D1#34", "D1#36", "D1#37", "D1#40", "D1#42", "D1#46"],
         rubric: {
           ai: [
+            ["EOB reading", 15, "Billed $3,400.00, allowed $1,860.00, contractual adjustment $1,540.00 (CO-45), deductible $0.00, plan paid $1,860.00, member responsibility $0.00, each placed on the file: the Specials, Peach State's claim, owed by nobody"],
+            ["Balance bill handled", 15, "The $1,540.00 identified as the write-off, a balance bill, not a debt or a lien; routed to Atty. Thorne the same day; correction requested in writing; John Doe told what is being done and when he will hear back"],
             ["Payer and LOP accuracy", 15, "PIP → MedPay → Peach State → LOP; both LOP decisions explained; PIP exhausted at $10,000.00 by the emergency care (03/04/2026), MedPay at $5,000.00 on the 06/12/2026 visit"],
-            ["Map and monitoring", 15, "Restorative, week 9, on 04/08/2026; MMI on 06/12/2026, with the pre-demand audit next (final records, bills and lien amounts requested, every lien identified and verified; resolution follows the recovery); SMART goal with an objective measure and a date; ROM, pain and disability-index measures named"],
-            ["Baseline and red flags", 15, "2021 low back, resolved, distinguished from the C5-C6 neck injury and the MRI's “no significant degenerative change at the adjacent levels”; medication and behavioral-health flags routed to the provider or Atty. Thorne"],
             ["Completeness", 15, "Every question answered substantively"]
           ],
           trainer: [
             ["Strategic articulation", 15, "The stated next action is the right one and the reasoning holds"],
             ["Self-Summary quality", 10, "Honest and specific, not a restatement of the slides"],
-            ["UPL boundary", 10, "Pressure scenario: nothing promised beyond the LOP's terms; Atty. Thorne's authority named before the visit"],
+            ["UPL boundary", 10, "Whether John Doe owes Crescent anything left to Atty. Thorne; nothing promised to either provider beyond the LOP's terms"],
             ["Self-rating calibration", 5, "Self-score is defensible against demonstrated performance"]
           ]
         },
         notes: [
-          "Question 6 is the pressure scenario. The right answer promises nothing new, points the office manager to the LOP signed on 02/23/2026, and gets Atty. Thorne on it before the appointment, so the 19-day disruption doesn't grow.",
-          "Question 5 tests the eggshell skill. A trainee who says the 2021 visits “don't matter” has argued; one who documents low back vs. neck, resolved, no prior neck complaints, has proved.",
-          "Question 7: an opioid with a muscle relaxant and a sedative, a drug screen that doesn't match the prescriptions, doses rising with no change in diagnosis, behavioral notes about general stress rather than the crash, head-injury symptoms first reported months later. The provider hears the safety issue; Atty. Thorne hears the legal one; the conversation is documented.",
+          "Question 1 is read, not recalled: have RS26 open and walk the EOB down to the member-responsibility line before anyone writes.",
+          "Question 2 is the balance-bill trap. The EOB says John Doe owes $0.00; the $1,540.00 is Crescent's contractual write-off. A trainee who calls it a lien, or tells John he owes it, has misread the EOB or crossed the line.",
+          "Question 3: Riverton Spine & Rehab's LOP (02/23/2026) and the declined Summit request (03/11/2026; its 03/13 MRI went to MedPay) are the Payer Order at work. Every needless LOP is a lien on his net.",
           "Compare each self-rating with the score. UPL is a gate: a strong score does not survive a payment promise to a provider."
         ]
       }
@@ -4720,19 +4719,19 @@ window.CM_CASE_FLOW = {
           ai: [
             ["Reasons and documents", 20, "All four reasons, each with its corroborating document and date"],
             ["Question discipline", 15, "The rewrite is open and names no reason; the cost of the lead stated"],
-            ["Documentation rules", 15, "Five continuous-care records and two prohibited acts; the disruption dated 04/02–04/21/2026 with its four missed visits"],
+            ["Causation and role", 15, "Causation and damages must be proved beyond fault: Dr. Reyes's 06/19/2026 Causation Letter, with the MRI and the EMS report; the CM requests and routes the records, the opinion is the physician's and its use Atty. Thorne's"],
             ["Completeness", 10, "Every question answered substantively"]
           ],
           trainer: [
             ["Strategic articulation", 15, "The stated next action is the right one and the reasoning holds"],
             ["Self-Summary quality", 10, "Honest and specific, not a restatement of the slides"],
-            ["UPL boundary", 10, "Question 3 answered without reassurance or alarm; question 6 declined and escalated"],
+            ["UPL boundary", 10, "Question 3 answered without reassurance or alarm, and John Doe's question routed to Atty. Thorne"],
             ["Self-rating calibration", 5, "Self-score is defensible against demonstrated performance"]
           ]
         },
         notes: [
           "Run question 3 aloud as a role-play before the written check: you are John Doe, a trainee answers. Stop the room on the first “don't worry”.",
-          "Ask the room about question 6: “Why is the provider's offer more dangerous than a missing note?” A missing note is a weakness; an altered one is a credibility collapse and possibly a fraud question.",
+          "Question 4 tests the line between gathering and opining: the CM requests and routes the records; Dr. Reyes gives the causation opinion, and Atty. Thorne decides how it is used.",
           "Question 2 matters most. A trainee who cannot rewrite the lead has learned the rule, not the skill; send them back to the simulator.",
           "UPL is a gate: a strong score does not survive a coached answer or a requested change to a record."
         ]
@@ -5142,8 +5141,8 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Specials accuracy", 20, "$6,290.00 → $6,105.00; $41,400.00 + $1,584.00 = $42,984.00"],
-            ["Audit doctrine", 15, "Four objectives; MMI gate; future medical outside the Specials; billed vs paid shown"],
-            ["Defense-eye pairing", 15, "Four risks, each with its answering document"],
+            ["MMI and future medical", 15, "MMI is the treating physician's determination (Lakeside Orthopedics, 06/12/2026); the demand waits for it so the damages are complete; the $3,400–$6,800 future medical goes in the narrative, outside the $42,984.00"],
+            ["Audit objectives", 15, "Verification, Valuation, Risk and Compliance, each with a finding from this file (for example the 05/04/2026 duplicate line, the 14-Day Gap, the SOL 02/06/2028 docketed)"],
             ["Completeness", 10, "Every question answered substantively"]
           ],
           trainer: [
@@ -5156,8 +5155,8 @@ window.CM_CASE_FLOW = {
         notes: [
           "Open with the gate bar: this module turns the last two chips green, Specials audited at $42,984.00 and strategy approved by Atty. Thorne. The demand does not go out until all six are.",
           "Ask the room: “Which number on this file would you defend line by line to Dana Whitfield?” It should be $42,984.00, and they should be able to say where every cent comes from.",
-          "Question 6 is the pressure scenario. The right answer stops the package, corrects the exhibit and every total that cites it, tells Atty. Thorne before anything is served, and lets him decide whether the 07/20/2026 service holds. Serving a known error to make the date is the failure.",
-          "Question 5 separates the trainee who knows the rule from the one who would pick a column. An answer that chooses billed or paid for the demand loses the UPL marks."
+          "Question 1 is the arithmetic gate: $6,290.00 less the $185.00 duplicate of 05/04/2026 is $6,105.00; medical $41,400.00 plus wages $1,584.00 is $42,984.00, to the cent.",
+          "Question 2 separates the trainee who knows the rule from the one who would set the date: MMI is the doctor's call, and the future medical stays out of the audited total."
         ]
       }
 
@@ -5216,7 +5215,7 @@ window.CM_CASE_FLOW = {
          a: 0, r: "That MRI line answers “degenerative”. The gap is answered first, with records made at the time."},
         {q: "When may the UM demands go out?",
          opts: ["With the BI demand", "Once Keystone's $10,000 tender is documented and the Limited Release is signed", "Any time after the LORs", "Before the BI demand, to pressure Keystone"],
-         a: 1, r: "BI exhaustion first: notice of both UM claims went out in 03/2026, but the demands wait. They went out 08/31/2026."},
+         a: 1, r: "BI exhaustion first: notice of both UM claims went out 02/17/2026 with the letters of representation, but the demands wait. They went out 08/31/2026."},
         {q: "Keystone's 08/14 draft release frees “all other persons, firms, corporations and insurers.” What do you do?",
          opts: ["Send it to John Doe to sign", "Flag it to Atty. Thorne: it would release both UM carriers", "Sign it for the firm", "Ignore the wording"],
          a: 1, r: "Limit the release to Robert Smith and Keystone, and to the BI claim. The Limited Release was signed 08/28/2026."},
@@ -5369,7 +5368,7 @@ window.CM_CASE_FLOW = {
         tell: {
           why: "BI alone would have left John Doe nothing: $10,000 less fee and costs is $6,179.92 against $7,965.00 in unreduced liens. The UM layers change his net, and a technicality can lose them: a release signed too early, a consent never obtained, a UM demand sent before BI is exhausted.",
           rules: [
-            "BI exhaustion first. Here Host UM opens once Keystone's $10,000 tender (08/12/2026) is documented; exhaustion clauses and their effect vary by policy and state (confirm the governing rule). Notice of both UM claims went out in 03/2026; it's the demand that waits.",
+            "BI exhaustion first. Here Host UM opens once Keystone's $10,000 tender (08/12/2026) is documented; exhaustion clauses and their effect vary by policy and state (confirm the governing rule). Notice of both UM claims went out 02/17/2026 with the letters of representation; it's the demand that waits.",
             "Prove Keystone is all there is: its Dec Page (03/20/2026) and Smith's affidavit of no other insurance (08/10/2026). An underinsured claim needs proof of exhaustion, not of no insurance.",
             "Send the 30-Day Letter the day after the tender (08/13/2026): notice of Keystone's $10,000 offer to Harbor Point and Cardinal State, asking each to consent and waive subrogation, or substitute its own check to keep its claim against Smith. 30-day windows here; confirm the governing rule.",
             "Nothing goes to John Doe for signature until both consents are in writing (08/24 and 08/26/2026) and Atty. Thorne has approved the release. Releasing Smith without them can cost the UM coverage.",
@@ -5611,7 +5610,7 @@ window.CM_CASE_FLOW = {
         ]
       },
 
-        {"kind":"activity","id":"d3-drive","transition":"The demand goes out on Monday. Before it does, the backup is audited against the CMS, one document at a time.","title":"Backup File Maintenance: the Pre-Demand Backup Audit","topic":"Skill Activity — audit the backup against the CMS before the demand goes out","visual":"A two-column audit sheet: CMS on the left, BACKUP DRIVE on the right, rows linked by green ticks, one row with a red gap. Below it a counter reads 18 OF 18 BACKED UP. In the 03, 04 and 07 folder chips, a current document sits on top of a greyed copy stamped SUPERSEDED. On the right, the Demand Package chip drops into 05 Insurance, Demands & Negotiation with an orange DRAFT FOR AUDIT tag.","act":{"scenario":"07/17/2026, 3:00 p.m. The pre-demand audit closed on 07/15/2026 and the BI Time-Limited Demand is served on 07/20/2026. Since the last backup, corrected documents have replaced earlier ones: Summit Imaging's corrected-history addendum to the MRI report (07/15/2026), Crescent Pain & Spine's corrected $0.00 patient statement (07/10/2026, replacing the 07/01/2026 statement) and the final Lost Wage Verification Record (07/01/2026, replacing the 06/23/2026 draft worksheet). The demand specialist's draft demand and exhibit packet are on the file for audit.","prompt":"Audit your Backup Drive against the CMS before the demand goes out, as part of the Final Scrub (Day 2 deck p17), so the demand goes out on the final balance and the corrected records. Open 📂 My Backup Drive and compare its count of backed-up documents with the documents filed in the CMS; for any filed document not on the drive, back it up from 📁 Work From. For each corrected document, put the current version in its folder and keep the version it replaces beside it, renamed with SUPERSEDED and the date of the version that replaced it as the last part of its name: the MRI addendum in 03 Medical Records, Crescent's corrected statement in 04 Bills & Invoices, the final wage record in 07 Wages & Costs. File the draft demand and the exhibit packet so they land in 05 Insurance, Demands & Negotiation, labeled DRAFT as the last part of their names. Run ✓ Check my drive, and record the audit in Case Notes: X of Y backed up, what you replaced and what you labeled.","tool":"Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes","output":"A backup that matches the CMS document for document, superseded versions kept and labeled, the demand drafts in 05 Insurance, Demands & Negotiation, a clean drive check and the audit recorded in Case Notes.","checkpoints":["Every document filed in the CMS is on the drive: X of Y backed up, with X equal to Y","The MRI addendum, Crescent's corrected $0.00 statement and the final wage record each in its folder as the current version","The 07/01/2026 Crescent statement and the 06/23/2026 wage worksheet kept, renamed SUPERSEDED with the replacing version's date; nothing deleted","The draft demand and the exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT","✓ Check my drive run with no folder missing","The audit in Case Notes: the count, what was replaced and what was labeled"]},"ops":[["Demand about to be served","Compare the drive with the CMS","Backup Drive","X of Y backed up, X equal to Y"],["Corrected versions on file","Put the current version in its folder, label the superseded one","Backup Drive","Both kept, the old one marked SUPERSEDED"],["Draft Demand Package on file","File it so it lands in 05 Insurance, Demands & Negotiation","CMS → Doc Hub","Labeled DRAFT"],["Audit done","Run ✓ Check my drive and record the audit","CMS → Notes → Case Notes","Clean check, count recorded"]],"best":["Audit the backup before every outgoing package: what the adjuster receives must be on the firm's own drive first.","Supersede, never delete: the old version explains why the new one exists.","Pitfall: two files with the same name in one folder and no way to tell which is current.","Pitfall: leaving the draft demand in 01 Intake & Retainer because it was opened from the Doc Hub's Case Files section."],"sources":["D1#12","D1#13","LSH firm standard: backup drive folder hierarchy"],"rubric":{"ai":[["Backup matches the CMS",20,"Every filed document backed up: X of Y with X equal to Y"],["Superseded versions",16,"Current versions in their folders; superseded versions kept and labeled with the replacing date"],["Demand Package placed",12,"Draft demand and exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT; drive check clean"],["File names",12,"Every file on the drive named by the firm's naming convention, with DRAFT or SUPERSEDED and its date as the last part of the name"]],"trainer":[["Audit discipline",25,"Works the CMS list one document at a time rather than eyeballing folders"],["Explaining the audit",15,"Case Note states the count and the changes plainly for Atty. Thorne"]]},"notes":["Before anyone opens the drive, ask: “If Keystone says it never got the corrected statement, where do we prove which version was current on 07/20?” The labeled backup is the answer.","Check the labels: SUPERSEDED with the replacing version's date. A label without a date doesn't tell a colleague which is current.","Have two trainees read out their X of Y. A gap is a document the firm can't put its hand on if the CMS is down."]},
+        {"kind":"activity","id":"d3-drive","transition":"The demand goes out on Monday. Before it does, the backup is audited against the CMS, one document at a time.","title":"Backup File Maintenance: the Pre-Demand Backup Audit","topic":"Skill Activity — audit the backup against the CMS before the demand goes out","visual":"A two-column audit sheet: CMS on the left, BACKUP DRIVE on the right, rows linked by green ticks, one row with a red gap. Below it a counter reads 18 OF 18 BACKED UP. In the 03, 04 and 07 folder chips, a current document sits on top of a greyed copy stamped SUPERSEDED. On the right, the Demand Package chip drops into 05 Insurance, Demands & Negotiation with an orange DRAFT FOR AUDIT tag.","act":{"scenario":"07/17/2026, 3:00 p.m. The pre-demand audit closed on 07/15/2026 and the BI Time-Limited Demand is served on 07/20/2026. Since the last backup, corrected documents have replaced earlier ones: Summit Imaging's corrected-history addendum to the MRI report (07/15/2026), Crescent Pain & Spine's corrected $0.00 patient statement (07/10/2026, replacing the 07/01/2026 statement) and the final Lost Wage Verification Record (07/01/2026, replacing the 06/22/2026 draft worksheet). The demand specialist's draft demand and exhibit packet are on the file for audit.","prompt":"Audit your Backup Drive against the CMS before the demand goes out, as part of the Final Scrub (Day 2 deck p17), so the demand goes out on the final balance and the corrected records. Open 📂 My Backup Drive and compare its count of backed-up documents with the documents filed in the CMS; for any filed document not on the drive, back it up from 📁 Work From. For each corrected document, put the current version in its folder and keep the version it replaces beside it, renamed with SUPERSEDED and the date of the version that replaced it as the last part of its name: the MRI addendum in 03 Medical Records, Crescent's corrected statement in 04 Bills & Invoices, the final wage record in 07 Wages & Costs. File the draft demand and the exhibit packet so they land in 05 Insurance, Demands & Negotiation, labeled DRAFT as the last part of their names. Run ✓ Check my drive, and record the audit in Case Notes: X of Y backed up, what you replaced and what you labeled.","tool":"Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes","output":"A backup that matches the CMS document for document, superseded versions kept and labeled, the demand drafts in 05 Insurance, Demands & Negotiation, a clean drive check and the audit recorded in Case Notes.","checkpoints":["Every document filed in the CMS is on the drive: X of Y backed up, with X equal to Y","The MRI addendum, Crescent's corrected $0.00 statement and the final wage record each in its folder as the current version","The 07/01/2026 Crescent statement and the 06/22/2026 wage worksheet kept, renamed SUPERSEDED with the replacing version's date; nothing deleted","The draft demand and the exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT","✓ Check my drive run with no folder missing","The audit in Case Notes: the count, what was replaced and what was labeled"]},"ops":[["Demand about to be served","Compare the drive with the CMS","Backup Drive","X of Y backed up, X equal to Y"],["Corrected versions on file","Put the current version in its folder, label the superseded one","Backup Drive","Both kept, the old one marked SUPERSEDED"],["Draft Demand Package on file","File it so it lands in 05 Insurance, Demands & Negotiation","CMS → Doc Hub","Labeled DRAFT"],["Audit done","Run ✓ Check my drive and record the audit","CMS → Notes → Case Notes","Clean check, count recorded"]],"best":["Audit the backup before every outgoing package: what the adjuster receives must be on the firm's own drive first.","Supersede, never delete: the old version explains why the new one exists.","Pitfall: two files with the same name in one folder and no way to tell which is current.","Pitfall: leaving the draft demand in 01 Intake & Retainer because it was opened from the Doc Hub's Case Files section."],"sources":["D1#12","D1#13","LSH firm standard: backup drive folder hierarchy"],"rubric":{"ai":[["Backup matches the CMS",20,"Every filed document backed up: X of Y with X equal to Y"],["Superseded versions",16,"Current versions in their folders; superseded versions kept and labeled with the replacing date"],["Demand Package placed",12,"Draft demand and exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT; drive check clean"],["File names",12,"Every file on the drive named by the firm's naming convention, with DRAFT or SUPERSEDED and its date as the last part of the name"]],"trainer":[["Audit discipline",25,"Works the CMS list one document at a time rather than eyeballing folders"],["Explaining the audit",15,"Case Note states the count and the changes plainly for Atty. Thorne"]]},"notes":["Before anyone opens the drive, ask: “If Keystone says it never got the corrected statement, where do we prove which version was current on 07/20?” The labeled backup is the answer.","Check the labels: SUPERSEDED with the replacing version's date. A label without a date doesn't tell a colleague which is current.","Have two trainees read out their X of Y. A gap is a document the firm can't put its hand on if the CMS is down."]},
 
       {
         kind: "check", id: "d3m1-kc",
@@ -5645,8 +5644,8 @@ window.CM_CASE_FLOW = {
         sources: ["D2#13", "D2#15", "D2#18", "D2#31", "D3#3", "D3#6", "D3#9", "D3#12", "D3#15"],
         rubric: {
           ai: [
-            ["Terms and deadline", 15, "$10,000; Limited Release of Smith and Keystone only; Smith's affidavit; 07/22/2026 + 30 = 08/21/2026"],
-            ["Stack and exhaustion", 15, "$40,000 via Harbor Point's add-on form and Cardinal State's stacking terms, each confirmed in writing; offset would leave $10,000 on Host UM; consents before the release; exhibits named"],
+            ["Terms and deadline", 15, "$10,000; Limited Release of Smith and Keystone only; Smith's affidavit; emailed to Dana Whitfield 07/20/2026, receipt acknowledged in writing 07/22/2026; 07/22/2026 + 30 = 08/21/2026"],
+            ["Five elements", 15, "Within limits, clear, reasonable, documented and timed, each with this file's example; whether a refusal is bad faith is Atty. Thorne's analysis, never the CM's"],
             ["Gap rebuttal", 15, "MRI adjacent-level line, Causation Letter and EMS report named and placed up front"],
             ["Completeness", 15, "Every question answered substantively"]
           ],
@@ -5658,8 +5657,8 @@ window.CM_CASE_FLOW = {
           ]
         },
         notes: [
-          "Question 4 is the keystone and a pressure test. The right answer explains the process, not the law: nothing is signed until both consents are in and Atty. Thorne has gone through the release with him; log the call and route it the same day. A trainee who can't say what the consent protects has memorised the dates without the reason.",
-          "Put Question 6 to the room before anyone writes. The right answer logs the auto-reply, which is not a written acknowledgement of receipt; follows up the same day and asks Keystone in writing for the covering adjuster; tells Atty. Thorne; and dockets nothing from the send date. Any change to timing or terms is his, not the CM's.",
+          "Question 1 is the counting test: the 30 days run from Dana Whitfield's written acknowledgement of 07/22/2026, not from the 07/20 email, so the window closes 08/21/2026. A trainee who counts from the send date has docketed the wrong day.",
+          "Question 2: a refusal of a demand missing any of the five elements is a safe refusal. Whether Keystone's refusal is bad faith is Atty. Thorne's analysis; a Case Manager who calls it bad faith has crossed the line.",
           "Compare each self-rating with the score. A 5 on a block scored at 60 is a coaching conversation, and so is a 2 on a block they aced.",
           "UPL is a gate: a strong score does not survive an ethics breach."
         ]
@@ -6077,7 +6076,7 @@ window.CM_CASE_FLOW = {
             "Execution confirmed: notarized wet-ink original, notary's commission current, ID matches, every page initialed; the release is not e-signed",
             "Executed release scanned to the CMS and John Doe's portal copy the same day",
             "The BI settlement set complete and filed in the CMS under Others, each named the firm's way: Smith's affidavit of no other insurance (RS36), both UM consents (RS38), both notarized UM Subrogation Waivers (RS83), the executed Limited Release and the W-9",
-            "Transmittal emailed to Dana Whitfield 08/28/2026 enclosing that set: executed release, both waivers, Smith's affidavit and the W-9; original by courier; written acknowledgement and check date requested",
+            "Transmittal emailed to Dana Whitfield 08/28/2026 enclosing that set: executed release, both UM consents and subrogation waivers (08/24, 08/26) and the firm's W-9; original by courier; written acknowledgement and check date requested",
             "Her 08/31/2026 acknowledgement filed; check no. 0048213 issues 09/01, inside the 14 days",
             "Her question about adding Peach State as a payee routed to Atty. Thorne; no lien assurance given",
             "Check of $10,000.00 received and deposited to IOLTA 09/04/2026; copies to Marcus Bell and Teresa Okafor",
@@ -6387,13 +6386,13 @@ window.CM_CASE_FLOW = {
           trainer: [
             ["Strategic articulation", 15, "The stated next action is the right one and the reasoning holds"],
             ["Self-Summary quality", 10, "Honest and specific, not a restatement of the slide"],
-            ["UPL boundary", 10, "No verbal acceptance under pressure; every number and decision routed through Atty. Thorne"],
+            ["UPL boundary", 10, "Atty. Thorne tells John Doe about the offer; every number and decision routed through him"],
             ["Self-rating calibration", 5, "Self-score is defensible against demonstrated performance"]
           ]
         },
         notes: [
           "Question 1 is the keystone. A trainee who can't show that $3,500 nets John Doe $0.00 has been negotiating without a floor; re-teach the battle map before moving on.",
-          "Put question 6 to the room aloud before anyone writes: “The offer dies at 5:00 p.m. and Atty. Thorne is unreachable. What do you say?” The right answer refuses a verbal yes without rejecting the offer, asks for the offer and its deadline in writing, logs the words, and reaches Atty. Thorne. It never accepts or rejects for John Doe.",
+          "Question 2 is the rebuttal test: four dated documents and Dr. Park's sentence quoted word for word. A paraphrase of the radiologist is an argument; the quote is proof.",
           "On question 3, listen for the difference between “no set-off here” and “no reduction anywhere.” The file is clean because Harbor Point said so in writing on 03/02/2026, not because the doctrine doesn't exist.",
           "UPL is a gate: a strong score does not survive an ethics breach."
         ]
@@ -6773,9 +6772,9 @@ window.CM_CASE_FLOW = {
         sources: ["D3#18", "D3#19", "D3#20", "D3#21", "D3#22", "D2#40"],
         rubric: {
           ai: [
-            ["Classification and doctrine", 15, "Liens classified and ranked; fully insured status tied to state law; doctrines named correctly"],
-            ["Lien math", 20, "$1,860.00 – $620.00 = $1,240.00; $1,443.15 + $4,736.77 = $6,179.92; $6,105.00 after the audit"],
-            ["Written-confirmation steps", 15, "Atty. Thorne's approval, the signed Payoff Letter and the ledger update all named"],
+            ["Classification and ranking", 15, "Each claim classified as statutory, contractual or none, and the liens ranked by reducibility"],
+            ["Fully insured status", 15, "Fully insured, so state law governs the reduction, not ERISA preemption; which argument follows is Atty. Thorne's call"],
+            ["Lien math", 20, "$1,860.00 × ⅓ = $620.00; $1,860.00 – $620.00 = $1,240.00; the common-fund doctrine named; the MRI that beat the gap defense is what created the fund the plan is asked to share"],
             ["Completeness", 10, "Every question answered substantively"]
           ],
           trainer: [
@@ -6787,7 +6786,7 @@ window.CM_CASE_FLOW = {
         },
         notes: [
           "Question 2 is the keystone. A trainee who answers “state law applies, so we argue made whole” has made Atty. Thorne's decision for him; re-teach the line before moving on.",
-          "Question 6 is the pressure scenario. The right answer escalates to Atty. Thorne before any check issues, re-checks how “no prior attorney” was verified, on Atty. Thorne's instruction requests the lawyer's engagement terms and time records in writing, and never treats “one-third” as owed: a discharged lawyer is generally owed the reasonable value of his work, if anything. The disputed amount stays in trust until the claim is resolved (confirm the governing trust rule); the undisputed shares go out only on Atty. Thorne's approval.",
+          "Question 3 is the arithmetic and the reason together: $1,860.00 – $620.00 = $1,240.00 is the plan sharing the cost of a recovery the firm's work created, and that work includes beating the 14-Day Gap defense with the MRI.",
           "Compare each self-rating with the score. A 5 on a block scored at 60 is a coaching conversation, and so is a 2 on a block they aced.",
           "UPL is a gate: a strong score does not survive an ethics breach."
         ]
@@ -7180,7 +7179,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "activity", id: "d3m4-pal",
-        transition: "Six days before disbursement, an outside firm claims part of the fee. We investigate the facts, hold the disputed money, and put the file in Atty. Thorne's hands.",
+        transition: "Eight days before disbursement, an outside firm claims part of the fee. We investigate the facts, hold the disputed money, and put the file in Atty. Thorne's hands.",
         title: "Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold",
         topic: "Skill Activity 2 — the lien you didn't see coming, worked as evidence",
         visual: "Centre: Vance & Kettering's notice as a cream letter with a red stamp, CHARGING LIEN · $6,666.67, and beneath it their fee agreement with two signature lines: MARGARET DOE (signed) and JOHN DOE (blank, circled in orange). Left: a vertical timeline in mono pills, 02/09 LSH RETAINED · 07/20 DEMAND SERVED · 07/27 MARGARET SIGNS · 10/14 NOTICE ARRIVES. Right: three evidence cards with orange badges: ① SIGNATURE COMPARISON (RS05 · RS06) ② TIME RECORD 0.6 H ③ NO CARRIER NOTICE. Bottom: a navy CMS strip, TRUST HOLD $6,666.67 · ACTION PLAN UPDATED · DRIVE ARCHIVED, and an arrow to ATTY. THORNE · DECIDES. A red chip by the letter: NO REPLY FROM THE CM. The argument: the Case Manager builds the record; the attorney answers the lawyer.",
@@ -7336,7 +7335,7 @@ window.CM_CASE_FLOW = {
           ai: [
             ["Net Sheet accuracy", 20, "Both streams and the total reach $20,359.92; 25% / 75% explained as pro rata to gross"],
             ["Reconciliation sets", 15, "Four sets named with this file's items; 7-year retention from closing"],
-            ["Closing and dismissal doctrine", 15, "Zero-balance proof; gap answered by the MRI and Dr. Reyes's Causation Letter; dismissal with prejudice only where a suit is pending"],
+            ["Zero-balance proof", 15, "The three-way zero-balance proof (bank statement, trust journal, client ledger) at $0.00; a balance left in trust means a payee unpaid or a figure wrong, found and reported to Atty. Thorne before the file closes"],
             ["Completeness", 10, "Every question answered substantively"]
           ],
           trainer: [
@@ -7348,8 +7347,8 @@ window.CM_CASE_FLOW = {
         },
         notes: [
           "Question 1 is the keystone. A trainee who cannot carry $40,000.00 to $20,359.92 down both streams without notes has not finished the Net Sheet; re-teach before moving on.",
-          "Put question 6 to the room before they write: “Is this a lien we missed, or a bill nobody owes?” Peach State's EOB shows the $1,540.00 ($3,400.00 – $1,860.00) as a contractual write-off Crescent cannot balance-bill. Model answer: verify the bill and its link to the accident against the ledger and the EOB, route it to Atty. Thorne, ask Crescent in writing to correct its account, and tell John Doe today what you are doing and when he will hear back. Whether he owes it is Atty. Thorne's to say.",
-          "Question 7 is the operational pincer. The right answer stops, documents every contact and escalates at once; any request for more time goes to Keystone in writing on Atty. Thorne's instruction. A deadline is never a reason to let John Doe sign a release that reaches $30,000 of UM coverage.",
+          "Question 2: $0.00 starts the close; it does not finish it. The money trail, proof of delivery, compliance and identity, and the closing memo of 10/30/2026 must all be in the file, which is kept 7 years from closing.",
+          "Question 3: the three-way proof is the bank statement, the trust journal and John Doe's client ledger agreeing at $0.00. A balance left over is a payee not paid or a figure wrong, never money to keep.",
           "Compare each self-rating with the score, and remember UPL is a gate: a strong score does not survive an ethics breach."
         ]
       }
@@ -7793,21 +7792,20 @@ window.CM_CASE_FLOW = {
           ai: [
             ["Fork and stack", 20, "Track B from 08/05/2026; BI → Host UM → Relative UM; $40,000 frozen behind $10,000"],
             ["Impasse record", 15, "Triggers named with correct dates and proof"],
-            ["Architecture", 10, "Five sub-folders named; Request for Admission to 04_DISCOVERY_DEFENDANT_TO_PLAINTIFF; fee tier on filing"],
-            ["Neutrals", 10, "Mediator and arbitrator distinguished by background, selection and power; no appeal on the merits"],
+            ["“Never” rule", 20, "Holds the demand: no bid against itself, no apology for the Limits Demand, “final” tested by escalation (follow-ups 08/24 and 08/31, the claims supervisor 09/02/2026); any new number is Atty. Thorne's"],
             ["Completeness", 5, "Every question answered substantively"]
           ],
           trainer: [
             ["Strategic articulation", 15, "The stated next action is the right one and the reasoning holds"],
             ["Self-Summary quality", 10, "Honest and specific, not a restatement of the slide"],
-            ["UPL boundary", 10, "Question 6 answered without a view on the offer or an explanation of the fee; routed to Atty. Thorne"],
+            ["UPL boundary", 10, "No view on the $3,500 offer, or on the fee, given to John Doe; routed to Atty. Thorne"],
             ["Self-rating calibration", 5, "Self-score is defensible against demonstrated performance"]
           ]
         },
         notes: [
           "Question 1 is the foundation. A trainee who can't explain why $10,000 freezes $40,000 has memorized the stack without understanding it; re-teach Day 1's order of operations before moving on.",
-          "Question 6 is the pressure scenario. The right answer takes the question down, tells John Doe it is going to Atty. Thorne today, and routes it: no view on $3,500, no explanation of the fee.",
-          "Question 5 separates the neutrals by power, not title. Expect “the mediator decides” from at least one trainee.",
+          "Question 3 is the pressure point: “final” is a word, not a fact. The right answer holds the demand, escalates to Keystone's claims supervisor, and gives no view on $3,500 to anyone; any new number is Atty. Thorne's.",
+          "Question 2 separates a dated record from an impression: every trigger needs its date and the document that shows it.",
           "Compare each self-rating with the score. UPL is a gate: a strong score does not survive an ethics breach."
         ]
       }
@@ -8259,8 +8257,8 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 2 — what changes from compromise to decision",
         visual: "A matrix canvas across two-thirds of the slide: row labels down the left in navy small caps (NEUTRAL & POWER · BINDING & APPEAL · CONFIDENTIALITY · OPPOSING PARTIES · LIMITS IN PLAY · STANDARD · HARD DATES · LOGISTICS), a navy-soft MEDIATION column and a solid navy ARBITRATION column, every cell empty and outlined in orange for the trainee. The right third holds the UPL boundary map as a plan view of the hearing table: Atty. Thorne's seat at the table edge in navy with a speech mark, the CM's seat behind it in orange with a red-struck speech mark and an orange arrow labelled HAND HIM THE DOCUMENT. The struck speech mark is the slide's argument.",
         act: {
-          scenario: "It is 04/05/2027. The 03/18/2027 mediation before Hon. Carla Benton (Ret.) produced Keystone's $10,000 BI tender: BI is exhausted, the UM consents are in, and Robert Smith is dismissed. Today Harbor Point and Cardinal State dispute damages, citing the gap. Harbor Point invokes its UM arbitration clause; Cardinal State joins one consolidated binding arbitration before Laura Whitcomb, Esq. Hearing: 06/22/2027 (Tue). The forum's schedule, as configured for this training file: exhibits exchanged 20 days before the hearing; the arbitration brief due 10 days before. Confirm the forum's rules.",
-          prompt: "Build the ADR rules matrix for John Doe's file: a column for the 03/18/2027 mediation and one for the 06/22/2027 arbitration, with rows for the neutral and her power, binding effect and appeal, confidentiality, the opposing parties, the limits in play, the preparation standard, the CM's hard dates and the logistics. Hard-code the arbitration dates today, counting back from the hearing. Then map the UPL boundary for the hearing: what you do, what you never do, and your exact words if Laura Whitcomb, Esq. asks you about a bill. Route both to Atty. Thorne.",
+          scenario: "It is 04/26/2027. The 03/18/2027 mediation before Hon. Carla Benton (Ret.) produced Keystone's $10,000 BI tender: BI is exhausted, the UM consents are in, and Robert Smith is dismissed. Harbor Point and Cardinal State dispute damages, citing the gap: Harbor Point invoked its UM arbitration clause on 04/05/2027, proposing Laura Whitcomb, Esq.; Cardinal State joined on 04/12/2027; and after the 04/23 scheduling call her Notice of Hearing, issued today, sets one consolidated binding arbitration. Hearing: 06/22/2027 (Tue). The forum's schedule, as configured for this training file: exhibits exchanged 20 days before the hearing; the arbitration brief due 10 days before. Confirm the forum's rules.",
+          prompt: "Build the ADR rules matrix for John Doe's file: a column for the 03/18/2027 mediation and one for the 06/22/2027 arbitration, with rows for the neutral and her power, binding effect and appeal, confidentiality, the opposing parties, the limits in play, the preparation standard, the CM's hard dates and the logistics. Hard-code the arbitration dates today, from the Notice of Hearing, counting back from the hearing. Then map the UPL boundary for the hearing: what you do, what you never do, and your exact words if Laura Whitcomb, Esq. asks you about a bill. Route both to Atty. Thorne.",
           tool: "Action Plan Editor → ADR rules matrix · CMS → Calendar",
           output: "A two-forum rules matrix, the arbitration dates hard-coded with alerts, and a one-page UPL boundary map for the 06/22/2027 hearing, routed to Atty. Thorne.",
           checkpoints: [
@@ -8287,7 +8285,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Arbitration invoked 04/05/2027", "Hard-code the hearing, exhibit-exchange and brief dates with alerts", "CMS → 📅 Firm Calendar", "06/02, 06/11 and 06/22/2027 entered the same day; nothing on 06/14/2027"],
+          ["Notice of Hearing issued 04/26/2027", "Hard-code the hearing, exhibit-exchange and brief dates with alerts", "CMS → 📅 Firm Calendar", "06/02, 06/11 and 06/22/2027 entered the same day; nothing on 06/14/2027"],
           ["Arbitrator's fee schedule and retainer request received", "Confirm the schedule; route the retainer; file the payment confirmation", "CMS → Tasks → + Add Task", "Written payment confirmation filed before the hearing"],
           ["Matrix and UPL map drafted", "Route to Atty. Thorne before the team works from them", "Action Plan Editor → Route for review", "Routed with timestamp; approved version recorded"]
         ],
@@ -8388,7 +8386,7 @@ window.CM_CASE_FLOW = {
          rubric: {
            ai: [
              ["Anchor dates", 15, "06/22/2027, 06/02/2027 and 06/11/2027 (not 06/14/2027) re-anchored to the 04/26/2027 letter, not entered twice"],
-             ["Dependent dates", 20, "05/03, 05/14, 05/17, 04/21, 06/15 and 06/21/2027, each with its trigger, rule and arithmetic"],
+             ["Dependent dates", 20, "05/03, 05/14, 05/17, 04/28, 06/15 and 06/21/2027, each with its trigger, rule and arithmetic"],
              ["Fee as a cost", 10, "$900.00 plaintiff's share routed to accounting and logged as a case cost; confirmation by 05/17/2027"],
              ["Conflict check", 15, "SOL 02/04/2028 and cutoff 11/05/2027 unchanged; court entries kept and marked; no award date"]
            ],
@@ -8504,21 +8502,21 @@ window.CM_CASE_FLOW = {
           ai: [
             ["Deadline arithmetic", 20, "01/04/2027 with the mail days and the Sunday; brief 06/11/2027 counted backward"],
             ["SOL cutoffs", 10, "02/04/2028 and 11/05/2027, arithmetic shown"],
-            ["Forum logistics", 15, "Windows, fee schedule, retainer and layout owned before 06/22/2027; bench directives logged as given and calendared the same day; each forum placed correctly before or after a filing"],
+            ["Forum placement", 15, "What puts mediation and arbitration before a filing and what puts each after one; John Doe's mediation (03/18/2027, under the court's Order of Referral) and his arbitration (Harbor Point's UM clause, 06/22/2027) placed and explained; one plain sentence each for non-binding and binding"],
             ["UM resolution routes", 10, "Mandatory arbitration vs. a civil suit against the carrier, decided by the state law and the policy clause; bad faith separate and above the limits; why Margaret’s Bluewater policy is no route (no UM: rejected in writing 03/14/2024), John owning no car"],
             ["Completeness", 5, "Every question answered substantively"]
           ],
           trainer: [
             ["Strategic articulation", 15, "The stated next action is the right one and the reasoning holds"],
             ["Self-Summary quality", 10, "Honest and specific, not a restatement of the slide"],
-            ["UPL boundary", 10, "The hearing answer defers to Atty. Thorne on the record; the mediation answer escalates rather than accepts"],
+            ["UPL boundary", 10, "The sentences to John Doe explain the process only, with no view on taking a number; the route and any bad-faith question left to Atty. Thorne"],
             ["Self-rating calibration", 5, "Self-score is defensible against demonstrated performance"]
           ]
         },
         notes: [
-          "Run question 5 live: play Laura Whitcomb, Esq. and put the bill question to a trainee across the table. Grade the first sentence they say.",
+          "Run the end of question 3 live: play John Doe and have a trainee explain non-binding and binding, one sentence each. Grade the plain words.",
           "Ask the room: “Which single date on this file would you check twice, and why?” Expect the RFAs or the SOL cutoffs; push for the reasoning.",
-          "Question 3 is the direction test. A trainee who lands on 06/14/2027 has memorised the weekend rule without its direction; re-teach before the binders, which count back from the same hearing.",
+          "Question 1 is the direction test. A trainee who lands on 06/14/2027 for the brief has memorised the weekend rule without its direction; re-teach before the binders, which count back from the same hearing.",
           "UPL is a gate, as on every day: a strong score does not survive an answer that speaks for John Doe at the hearing or tells him whether to take a number."
         ]
       }
@@ -8960,20 +8958,20 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 2 — sort, QC and defuse two landmines before 06/02/2027",
         visual: "A sorting board. Left column: the unsorted folder as a pile of white document cards, four flagged red: DRAFT COMPLAINT → EXCLUDE · GRAYSCALE STILLS → REPRINT IN COLOR · IMPASSE MEMO → ATTY. THORNE DECIDES · PIP $10,000.00 LIEN → STRIP. Right two-thirds: six navy tab columns ①–⑥, each headed by its QC rule in orange type, with sorted cards carrying C-numbers and Bates ranges as mono pills. Tab 1's first exhibit, C-1 BI EXHAUSTION, carries an orange padlock. A bottom timeline runs 06/02/2027 EXCHANGE → 06/11/2027 BRIEF → 06/22/2027 HEARING. The argument: QC is applied as each card lands, not after the pile is sorted.",
         act: {
-          scenario: "It is 05/17/2027. Keystone tendered the $10,000 BI limits at the 03/18/2027 mediation and Robert Smith was dismissed. On 04/05/2027 Harbor Point and Cardinal State disputed damages, citing the gap; Laura Whitcomb, Esq. hears the consolidated arbitration on 06/22/2027, with exhibits exchanged 06/02/2027. The unsorted exhibit folder holds a pre-filing draft of the Complaint, grayscale doorbell stills, the 09/08/2026 impasse memo, and a Lien Sheet totalling $17,965.00 that lists Harbor Point PIP at $10,000.00. The Litigation Desk's draft exhibit index is in the file (RS63), assigned on the 07/15/2026 task log (RS64): QC it, do not rebuild it from nothing.",
+          scenario: "It is 05/17/2027. Keystone tendered the $10,000 BI limits at the 03/18/2027 mediation and Robert Smith was dismissed. On 04/05/2027 Harbor Point, and on 04/12/2027 Cardinal State, disputed damages, citing the gap; Laura Whitcomb, Esq. hears the consolidated arbitration on 06/22/2027, with exhibits exchanged 06/02/2027. The unsorted exhibit folder holds a pre-filing draft of the Complaint, grayscale doorbell stills, the 09/08/2026 impasse memo, and a Lien Sheet totalling $17,965.00 that lists Harbor Point PIP at $10,000.00. The Litigation Desk's draft exhibit index is in the file (RS63), assigned on the 07/15/2026 task log (RS64): QC it, do not rebuild it from nothing.",
           prompt: "Sort the folder into the six-tab Arbitration Binder and apply each tab's QC rule as you go. Lead with the BI exhaustion record, number every exhibit C-1 onward with its Bates range, and log each record's authentication. Defuse both landmines: build Tab 5's prior medical shield against the prior-injury line defense counsel pressed at the 02/18/2027 deposition (the 2021 low-back visits) and the “degenerative” MRI reading Keystone first raised on 08/05/2026, and strip the attorney's-set Lien Sheet to what is actually owed. Flag every privileged or settlement item for Atty. Thorne; nothing is exchanged until he approves the set.",
           tool: "CMS → Litigation → Discovery & Filing Tracker · Medical Records Requests · CMS → Settlement (BI/UM) → Medical Liens / Payoffs",
           output: "A six-tab, C-numbered, Bates-ranged Arbitration Binder with an authentication log, plus an audited Lien Sheet for the attorney's set, routed to Atty. Thorne for the 06/02/2027 exchange.",
           checkpoints: [
-            "Tab 1: snapshot sheet (claimant John Doe; Harbor Point HP-26-7741, Cardinal State CS-26-20355, each carrier's current contact verified; arbitrator Laura Whitcomb, Esq.; hearing 06/22/2027); fee disclosures with retainer deposits confirmed paid; slot held for the final brief of 06/11/2027, never a draft",
+            "Tab 1 (Day 4 deck p25): snapshot sheet (claimant John Doe; Harbor Point HP-26-7741, Cardinal State CS-26-20355, each carrier's current contact verified; arbitrator Laura Whitcomb, Esq.; hearing 06/22/2027); the governing documents, Harbor Point's UM arbitration clause and Laura Whitcomb's Notice of Hearing of 04/26/2027; fee disclosures with retainer deposits confirmed paid; slot held for the final brief of 06/11/2027, never a draft",
             "Threshold exhibits first: Keystone's $10,000 tender, the UM consents, the Limited Release and Robert Smith's dismissal, with both carriers' Coverage Letters (03/02/2026 and 03/09/2026); nothing from the Confidential Mediation Statement",
-            "Tab 2, arbitration pleadings: the demand under Harbor Point's clause, Cardinal State's joinder, each carrier's 04/05/2027 written position and any Scheduling Order, operative versions only; the tort complaint and answer moved to the attorney's set for Atty. Thorne's exchange decision; the pre-filing draft removed",
+            "Tab 2 (Day 4 deck p26), pleadings, operative versions only: the filed Complaint of 09/24/2026 and the Answer of 11/12/2026, with Harbor Point's demand of 04/05/2027 and Cardinal State's joinder and written position of 04/12/2027; the pre-filing draft removed; whether the dismissed tort case's pleadings are exchanged flagged for Atty. Thorne",
             "Tab 3: the full, certified RPD-26-018842 (not the public-redacted copy), identifiers redacted as the forum requires, the citation's admissibility flagged for Atty. Thorne; doorbell stills reprinted in color from the native file, chain of custody logged (copy secured 02/19/2026); event data recorder (belt buckled, 11 mph)",
             "Tab 4: treatment chart and ledger $41,400.00 tied to certified bills; a certification requested from each provider (Riverton Urgent Care, Riverton General Hospital, Riverton Spine & Rehab, Lakeside Orthopedics, Summit Imaging Center, Crescent Pain & Spine, Riverton Drug) and from Riverton Fire (EMS), Riverton PD and Northgate HR, receipt logged; none in 14 days → second request and subpoena flag (Crescent's, requested 05/05/2027, due 05/19); Causation Letter 06/19/2026 flagged: an opinion, not a business record, admitted per the forum's rules; the gap proved by its underlying records, the Gap Explanation Record's synthesis left for the brief",
             "Landmine 1, Tab 5: the 2021 records (three low-back chiropractic visits, resolved), the treating providers' own histories and John's 02/18/2027 deposition testimony showing no prior neck complaint, paired with the MRI's “no significant degenerative change at the adjacent levels” and the Causation Letter; if the letter is silent on the 2021 visits, flagged to Atty. Thorne to decide whether to seek a supplemental declaration from Dr. Reyes; the firm's intake questionnaire is privileged: a source, never an exhibit",
             "Landmine 2, attorney's set: Lien Sheet stripped of Harbor Point PIP's $10,000.00 ($17,965.00 → $7,965.00; no PIP or MedPay reimbursement right, per the 03/02/2026 letter in the threshold record); liens Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $7,965.00; Summit (MedPay paid its $2,395.00) and Crescent hold none",
-            "Tab 6, wage proof only: Northgate HR letter, 9 shifts × 8 h × $22.00 = $1,584.00; the negotiation ledger (07/20/2026 demand to the executed settlement documents, no session offers) kept in the attorney's set",
-            "Impasse memo, negotiation ledger and Lien Sheet flagged for Atty. Thorne's privilege and exchange decision, none placed in the exchange set by the CM",
+            "Tab 6 (Day 4 deck p30), economic losses and liens: Northgate HR letter, 9 shifts × 8 h × $22.00 = $1,584.00; the negotiation ledger (Harbor Point's $8,000 and Cardinal State's $6,000 offers, no mediation-session offers); the audited lien payout sheet at $7,965.00; the ledger and the lien sheet flagged for Atty. Thorne's exchange decision",
+            "Impasse memo pulled to the attorney's set; the impasse memo, the negotiation ledger and the Lien Sheet flagged for Atty. Thorne's privilege and exchange decision, none placed in the exchange set by the CM",
             "Master index: C-numbers sequential, Bates ranges match page counts, authentication column complete, forum's evidence rule noted as “confirm with Atty. Thorne”; set approved before the 06/02/2027 exchange"
           ]
         },
@@ -9006,7 +9004,7 @@ window.CM_CASE_FLOW = {
           "Put the four red traps on the board, then cover them before anyone sorts. The skill is categorizing, ordering and formatting under pressure, and QC applied while sorting is what is graded.",
           "Ask the room: “Harbor Point is the other side now. Our attorney's-set Lien Sheet says it is owed $10,000.00. What goes wrong?” Atty. Thorne would work John Doe's net from a reimbursement right Harbor Point gave up in writing on 03/02/2026. The sheet never goes to the arbitrator; it still has to be right.",
           "On Tab 5, watch for trainees who start arguing causation. The CM pulls and pairs the records; whether to ask Dr. Reyes for a supplemental opinion on the 2021 visits is Atty. Thorne's decision.",
-          "The impasse memo is the privilege test. A trainee who files it in Tab 6 because it explains the history has misunderstood who decides what is exchanged."
+          "The impasse memo is the privilege test. A trainee who files it in Tab 6 because it explains the history has misunderstood who decides what is exchanged. The deck's Tab 6 does carry the negotiation ledger and the audited lien sheet, but sitting in the binder is not the same as being exchanged: both wait on Atty. Thorne."
         ]
       },
 
@@ -9042,9 +9040,9 @@ window.CM_CASE_FLOW = {
         sources: ["D4#7", "D4#9", "D4#10", "D4#13", "D4#15", "D4#21", "D4#24", "D4#26", "Newly authored: exhibit numbering, Bates ranges and the master index as the one source of truth", "Newly authored: authentication, business-records certifications, relaxed evidence rules in arbitration, and mediation confidentiality at the hand-off"],
         rubric: {
           ai: [
-            ["Section and tab recall", 15, "Six mediation sections and six arbitration tabs in order, with this file's documents"],
+            ["Section recall", 15, "Six mediation sections in order, each with a document from this file"],
             ["Indexing and evidence", 15, "Master index fields, one source of truth, business-records certification, “confirm the forum's rules”"],
-            ["File accuracy", 20, "Pleaded defenses and their exhibits; the $10,000 tender as the threshold; Peach State's $1,860.00 as the only claim on the Crescent bill"],
+            ["File accuracy", 20, "The unbelted defense found in the Answer and its defense map (Section 3), answered in Section 4 by the event data recorder download (belt buckled, 11 mph) and the EMS Run Report (restrained front-seat passenger)"],
             ["Completeness", 10, "Every question answered substantively"]
           ],
           trainer: [
@@ -9057,7 +9055,7 @@ window.CM_CASE_FLOW = {
         notes: [
           "Open by having each trainee put their two master indexes side by side. This check verifies the binders they built, not their memory of the slides.",
           "Ask the room: “Which document would hurt John Doe most if it were missing from these binders, and which would hurt most if it were included?” The usual pair is the Causation Letter and the impasse memo; make them say why.",
-          "Question 7 is the pressure scenario. The right answer requests the missing records and a certification covering all 33 visits at once, tells Atty. Thorne that evening, and leaves to him how the exchange is handled. It never exchanges a ledger that its records no longer support.",
+          "Question 3 ties the binder to the pleadings: the defense is read from the Answer in Section 3, and answered by exhibits, not by argument. A trainee who argues seatbelt law has left the Case Manager's lane.",
           "Compare each self-rating with the score. UPL is a gate: a strong score does not survive a privileged memo in an exchanged set."
         ]
       }
@@ -9172,7 +9170,7 @@ window.CM_CASE_FLOW = {
           checkpoints: [
             "Rule 1 set: follow-ups every 5 business days; supervisor escalation 48 hours after the second unanswered follow-up; Atty. Thorne 48 hours after an unanswered escalation",
             "Calibration reproduces the file: Rule 1 fires 09/02/2026 (supervisor escalation) and 09/04/2026 (escalation task opened to Atty. Thorne that day; the full impasse memo followed on 09/08/2026, the first business day after the Labor Day weekend)",
-            "Rule 2 fires 02/22/2027 (02/08/2027 + 14 days): Level 1, Tammy Greer, Riverton Spine & Rehab's office manager, has not produced it, so the Case Manager sends a written Notice of Delay that day to the adjuster waiting on it (Harbor Point's Marcus Bell) and to Atty. Thorne, documenting the barrier",
+            "Rule 2 fires 02/22/2027 (02/08/2027 + 14 days): Level 1, Tammy Greer, Riverton Spine & Rehab's office manager, has not produced it, so the Case Manager sends a written Notice of Delay that day to Atty. Thorne, and, as he directs, to the side the binder serves (Keystone, through defense counsel Atty. Mercer), documenting the barrier",
             "Subpoena flagged to Atty. Thorne as a decision for him; any draft is for his review and signature, never served by the Case Manager",
             "Rule 3 red flags dated 03/01/2027 (10 days before 03/11/2027) for the ledger and 03/08/2027 (10 days before 03/18/2027) for Keystone's attendee with settlement authority, for Atty. Thorne to raise with defense counsel",
             "Rule 4 audits set for 03/09/2027 (binder) and 03/16/2027 (session), both weekdays: ledgers verified, binder complete, digital set OCR-searchable",
@@ -9374,22 +9372,22 @@ window.CM_CASE_FLOW = {
         sources: ["D4#29", "D4#30", "D4#31", "D1#45"],
         rubric: {
           ai: [
-            ["Date accuracy", 20, "08/24, 08/31, 09/02, 09/04/2026; 03/09, 03/11, 03/18/2027; 06/02/2027"],
+            ["Date accuracy", 20, "08/24, 08/31, 09/02, 09/04/2026; 03/08, 03/09, 03/11, 03/18/2027; 06/02/2027"],
             ["Doctrine recall", 15, "Unverified ledger, missing decision-maker, late brief; exclusion, unshielded prior, missed cutoff; the missing-ledger protocol"],
-            ["Escalation ladder", 15, "Lakeside: Level 1 with its office manager; Level 2 Notice of Delay 05/19/2027 to the adjusters and Atty. Thorne (facts only, no bad-faith argument); Level 3, Atty. Thorne's legal step, 05/21/2027 if unanswered"],
+            ["Rule 1 and the authority flag", 15, "Rule 1 on Keystone: follow-ups 08/24 and 08/31/2026, the 48-Hour Mandate escalation to the claims supervisor 09/02, still silent 09/04 and handed to Atty. Thorne; the missing decision-maker caught by the Rule 3 red flag of 03/08/2027, for Atty. Thorne to raise with defense counsel"],
             ["Completeness", 10, "Every question answered substantively"]
           ],
           trainer: [
             ["Strategic articulation", 15, "The first action on 05/24/2027 is the right one and the reasoning holds"],
             ["Self-Summary quality", 10, "Honest and specific, not a restatement of the slide"],
-            ["UPL boundary", 10, "No value talk or offer response to Teresa Okafor; Atty. Thorne's authority named"],
+            ["UPL boundary", 10, "No value talk or offer response to any carrier; Atty. Thorne's authority named"],
             ["Self-rating calibration", 5, "Self-score is defensible against demonstrated performance"]
           ]
         },
         notes: [
-          "Question 5 is the pressure scenario and the module in one question: escalate, mark “Pending Final Verification”, include the interim ledger, let Atty. Thorne set expectations. A trainee who holds the binder has failed the 48-Hour Mandate.",
-          "Put Question 7 to the room before they write: what do you say to Teresa Okafor? The compliant answer takes the message, says Atty. Thorne will respond, and logs it. It never answers the gap argument or the offer.",
-          "Question 6 tests the ladder: Lakeside's office manager (Level 1) leaves it 14 days unanswered, so on 05/19/2027 a written Notice of Delay goes to the adjusters (Marcus Bell, Teresa Okafor) and Atty. Thorne; 48 hours of silence moves it to Level 3, Atty. Thorne's legal step, on 05/21/2027. The notice states facts and never argues motive.",
+          "Question 2 tests the ladder on the Keystone record: follow-ups 08/24 and 08/31/2026, the 48-Hour Mandate escalation to the claims supervisor 09/02, no answer by 09/04, and the hand-off to Atty. Thorne. Every rung is dated, states facts and never argues motive.",
+          "Question 3 is the missing-decision-maker bottleneck. Its countermeasure was set weeks before the session: the Rule 3 red flag of 03/08/2027, ten days before 03/18, for Atty. Thorne to raise with defense counsel. A trainee who first notices on the morning of the mediation had no countermeasure.",
+          "Question 1: one example per family, each with its hard date. An example with no date is an opinion, not a bottleneck.",
           "Compare each self-rating with the score. UPL is a gate: a strong score does not survive a value conversation with a carrier."
         ]
       }
@@ -9876,21 +9874,21 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Deadline accuracy", 20, "01/04/2027 with the arithmetic shown; e-service counted without mail days on this file's rule set; the order's dates exact"],
-            ["Litigation doctrine", 15, "Answer roadmap, file architecture and naming, KPIs as formula plus target, extensions in writing"],
-            ["File evidence", 15, "Gap and liability evidence named from the file: EMS report, MRI read, Causation Letter, doorbell video, Ruth Calloway, EDR"],
+            ["File architecture", 15, "Affidavit of service, the 12/01/2026 RFAs and the Scheduling Order each in its litigation sub-folder (the RFAs in 04_DISCOVERY_DEFENDANT_TO_PLAINTIFF) under the firm's naming convention; the order's dates docketed the day it arrives"],
+            ["File evidence", 15, "Each of the three defenses named, with the evidence on file against it: EMS report, MRI read, Causation Letter, doorbell video, Ruth Calloway, EDR"],
             ["Completeness", 10, "Every question answered substantively"]
           ],
           trainer: [
             ["Strategic articulation", 15, "The stated next action is the right one and the reasoning holds"],
             ["Self-Summary quality", 10, "Honest and specific, not a restatement of the slide"],
-            ["UPL boundary", 10, "No extension agreed, no testimony scripted; Atty. Thorne named wherever authority is required"],
+            ["UPL boundary", 10, "No legal view on the defenses; the court's rule confirmed, not assumed; Atty. Thorne named wherever authority is required"],
             ["Self-rating calibration", 5, "Self-score is defensible against demonstrated performance"]
           ]
         },
         notes: [
           "Question 1 is the gate. A trainee who answers 12/31/2026 or 01/03/2027 has learned the words without the method; re-teach the count on the board before moving on.",
-          "Put Question 6 to the room before anyone writes: “Opposing counsel wants two weeks at 4:45 p.m. and will paper it later. Who can say yes?” Only Atty. Thorne, and only in writing, the same day.",
-          "Question 7 is Trap 2. The right answer: tell John Doe not to take further calls from the defense side and to refer them to the firm, log what he says was asked and answered, and tell Atty. Thorne the same day; any response to Keystone or Atty. Mercer is his call. Anything that has the CM call the investigator back, or ask John Doe to shade what he said, fails.",
+          "Question 2: the Case Manager pulls the evidence and never argues the defense. Which defense to answer, and how, is Atty. Thorne's.",
+          "Question 3: the Scheduling Order's dates go on the calendar the day it is filed, exactly as ordered; a date paraphrased is a date missed.",
           "Compare each self-rating with the score. UPL is a gate: a strong score does not survive an ethics breach."
         ]
       }
@@ -9904,9 +9902,9 @@ window.CM_CASE_FLOW = {
       title: "Property Damage at Settlement: Does It Touch Our Case?",
       about: "The second Property Damage transition: with John Doe's suit in discovery and Margaret Doe's Civic claim still open on the separate PD-only file the firm opened for her, which PD outcomes reach John Doe's settlement (a release worded too widely, the severity evidence, the rental dates behind his gap) and which stay on Margaret's file (Loss of Use, Diminished Value, her repair figures).",
       quiz: [
-        {q: "Keystone PD's 12/10/2026 release covers “all claims arising from the 02/06/2026 accident” and asks “Mr. Doe” to sign. You:",
-         opts: ["Send it to John Doe to sign, since he was in the crash", "Send it to Margaret Doe to sign, since it is her PD claim", "Hold it, log it and route its language to Atty. Thorne the same day: a release reaching beyond the Civic could reach John Doe's BI claim, and nobody signs until he has reviewed it", "Sign the firm's acknowledgment and return it"],
-         a: 2, r: "A PD-only release must never release the bodily-injury claim. The CM checks the scope and the claim number, holds the release, and routes it; Atty. Thorne decides what is signed, and John Doe signs nothing."},
+        {q: "Keystone PD's 12/10/2026 release, for Margaret Doe to sign as the Civic's owner, covers “all claims arising from the 02/06/2026 accident”. You:",
+         opts: ["Send it to John Doe to sign, since he was in the crash", "Send it to Margaret Doe to sign now, since it is her PD claim", "Hold it, log it and route its language to Atty. Thorne the same day: it is not limited to Property Damage, and nobody signs until he has reviewed it", "Sign the firm's acknowledgment and return it"],
+         a: 2, r: "A PD release must be limited to Property Damage. The CM checks the scope and the claim number, holds the release, and routes it; Atty. Thorne decides what Margaret Doe signs, and John Doe, who has no PD claim, signs nothing."},
         {q: "Keystone's final PD position is $792.00 for Diminished Value and $0 for Loss of Use. What does it change on John Doe's settlement figures?",
          opts: ["His Net Sheet drops by the difference", "Nothing: Loss of Use and Diminished Value are Margaret Doe's PD claim, paid under Keystone's $25,000 PD limit outside the $40,000 stack; his Specials, liens and stack don't move", "His liens rise", "Keystone's BI limit falls by $792.00"],
          a: 1, r: "PD figures stay on Margaret Doe's file. Whatever her Loss of Use or Diminished Value settles for, John Doe's Specials, liens, stack and Net Sheet are unaffected."},
@@ -9916,7 +9914,7 @@ window.CM_CASE_FLOW = {
         {q: "Where does the Civic's rental touch John Doe's case?",
          opts: ["Nowhere: it is Margaret Doe's claim", "In his transportation history: no car until the 02/18/2026 rental and the 03/19/2026 cutoff sit behind his gap and disrupted care, so both records must match date for date", "As a damages item in his suit", "As a lien on his settlement"],
          a: 1, r: "The rental is Margaret Doe's claim, but its dates are part of John Doe's gap record. The CM keeps the two records identical; what the dates mean at deposition is Atty. Thorne's to prepare."},
-        {q: "Leah Moran calls: “Will Mr. Doe take the $792.00 so I can close this?” You:",
+        {q: "Leah Moran calls: “Will Ms. Doe take the $792.00 so I can close this?” You:",
          opts: ["Say yes, since anything beats $0", "Counter at $3,600.00", "Tell her it sounds fair and you'll ask him", "Log her words, tell her the position is with Atty. Thorne, and route it the same day"],
          a: 3, r: "The CM never accepts, rejects, counters or values a PD figure. Log, say it is with Atty. Thorne, and route."}
       ],
@@ -9931,7 +9929,7 @@ window.CM_CASE_FLOW = {
           why: "John Doe's suit is in discovery, and Margaret Doe's Civic claim is still open on the separate PD-only file the firm opened for her: Keystone offers $792.00 for Diminished Value and $0 for Loss of Use. None of that is John Doe's claim. Three PD outcomes can still reach his settlement: a release worded too widely, the severity evidence the PD file produced, and the transportation dates behind his gap. The Case Manager's job is to tell which is which, and route.",
           rules: [
             "Our case is John Doe's BI claim in suit (No. 26-CV-04417). No Property Damage is pleaded: he owns no vehicle, and the Civic's Loss of Use and Diminished Value are Margaret Doe's own claim, on her separate PD file.",
-            "A PD-only release must never release the BI claim. Keystone's 12/10/2026 release reaches “all claims arising from the 02/06/2026 accident” and asks “Mr. Doe” to sign: hold it, route its language to Atty. Thorne the same day, and John Doe signs nothing.",
+            "A PD release must be limited to Property Damage. Keystone's 12/10/2026 release, for Margaret Doe to sign, reaches “all claims arising from the 02/06/2026 accident”, not only the Civic: hold it, route its language to Atty. Thorne the same day. John Doe has no PD claim and signs nothing.",
             "Check the claim number on every PD paper: the PD claim is KM-26-440871-PD; John Doe's BI claim is KM-26-440871. A PD document that names the BI claim, or John Doe, goes to Atty. Thorne before anyone signs.",
             "The PD file's evidence already works for John Doe: the photos, the 02/16/2026 estimate and the $2,315.00 A-pillar supplement (03/02/2026) are in his severity set as proof of impact force. Keep them identical on both files.",
             "The PD dates touch his gap: no car until the 02/18/2026 rental, and the 03/19/2026 cutoff. His gap record and Margaret Doe's PD record must match, date for date.",
@@ -9947,7 +9945,7 @@ window.CM_CASE_FLOW = {
           type: "table",
           head: ["PD outcome", "Reaches John Doe's settlement?", "Where it goes"],
           rows: [
-            ["The “all claims” release", "Yes, if signed: it could reach the BI claim", "Hold; route to Atty. Thorne"],
+            ["The “all claims” release", "Possibly: it is not limited to the Civic, on the same accident", "Hold; route to Atty. Thorne"],
             ["Photos, estimate, $2,315.00 supplement", "Yes: already his severity evidence", "His severity set, kept identical"],
             ["Rental dates 02/18 and 03/19/2026", "Yes: his transportation and gap record", "Match both files"],
             ["Loss of Use, $2,016.00 vs $0", "No: Margaret Doe's PD claim", "Her PD file"],
@@ -9992,12 +9990,12 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 1 — sort Keystone's final PD position between John Doe's case and Margaret Doe's file",
         visual: "A memo on the left two-thirds, headed TO ATTY. THORNE — DOES IT TOUCH JOHN'S CASE?, with five rows each carrying a YES or NO chip and a one-line reason: the release (YES · HOLD), the severity set (YES · MATCH), the rental dates (YES · MATCH), Loss of Use (NO), Diminished Value (NO). On the right, Keystone's release with “all claims arising from the 02/06/2026 accident” circled in red and a red stamp: NOT FOR SIGNATURE · ROUTED. A bottom bar holds the memo's one-line answer.",
         act: {
-          scenario: "File date 12/10/2026. Leah Moran (Keystone PD) emails Keystone's final position on the Civic: $792.00 for Diminished Value and $0 for Loss of Use. Her attached release covers “all claims arising from the 02/06/2026 accident” and asks “Mr. Doe” to sign so payment can issue; she will call this afternoon. John Doe's suit is in discovery, and Atty. Thorne wants to know what, if anything, this changes for John.",
+          scenario: "File date 12/10/2026. Leah Moran (Keystone PD) emails Keystone's final position on the Civic: $792.00 for Diminished Value and $0 for Loss of Use. Her attached release, for Margaret Doe to sign as the Civic's owner, covers “all claims arising from the 02/06/2026 accident” and payment issues once it is signed; she will call this afternoon. John Doe's suit is in discovery, and Atty. Thorne wants to know what, if anything, this changes for John.",
           prompt: "Sort Keystone's position item by item: the release, the Diminished Value figure, the Loss of Use figure, the photos and estimates already in John Doe's severity set, and the rental dates. For each, decide whether it reaches John Doe's settlement or stays on Margaret Doe's PD file, and say why in one line. Check the release's scope and claim number, hold it and route it to Atty. Thorne. Confirm the severity set and the rental dates match the PD file. Take Leah Moran's call without accepting, rejecting or countering anything. Close with a short memo to Atty. Thorne that ends in one line: does this PD outcome touch John Doe's case, and how?",
           tool: "CMS → Notes → Case Notes · CMS → Doc Hub · Call Simulator → AI Adjuster: Leah Moran, Keystone Mutual (PD) · CMS → Tasks → + Add Task",
           output: "A short memo to Atty. Thorne sorting each PD outcome, the release held and routed, the severity set confirmed, and the call logged.",
           checkpoints: [
-            "Release flagged: “all claims arising from the 02/06/2026 accident” could reach John Doe's BI claim; routed to Atty. Thorne the same day",
+            "Release flagged: Margaret Doe's release reaches “all claims arising from the 02/06/2026 accident”, not only Property Damage; routed to Atty. Thorne the same day, and John Doe signs nothing",
             "Nobody asked to sign: not John Doe, and not Margaret Doe before Atty. Thorne has reviewed it",
             "Claim numbers checked: the PD claim is KM-26-440871-PD, the BI claim KM-26-440871",
             "Diminished Value ($792.00 against $3,600.00) and Loss of Use ($0 against $2,016.00) sorted to Margaret Doe's PD file",
@@ -10188,10 +10186,10 @@ window.CM_CASE_FLOW = {
         transition: "John Doe's deposition is two weeks away, and he is anxious. We prepare him for it, inside the UPL line.",
         title: "Virtual Deposition Prep Roleplay",
         topic: "Skill Activity 1 — client injury & 14-Day Gap defense: your segment, his substance",
-        visual: "A video-call frame fills the left two-thirds: AI John Doe's tile large, the trainee's tile beside it, and Atty. Thorne's tile small in the corner with a LISTENING tag. Under the frame, a segment agenda bar of five orange-numbered chips: ① LOGISTICS ② CALM ③ GUIDELINES ④ DRESS & DEMEANOR ⑤ IN-ROOM RULES. Right third: a cream card headed ROUTED TO ATTY. THORNE with five empty lines and mono tags GAP · DISRUPTION · SEATBELT · 2021 VISITS · MRI, which fill as John asks. A red-bordered callout across the bottom: “Answer the process. Route the substance.” The argument: the routing card fills up, and the trainee's answers to it stay empty.",
+        visual: "A video-call frame fills the left two-thirds: AI John Doe's tile large, the trainee's tile beside it, and Atty. Thorne's tile small in the corner with a LISTENING tag. Under the frame, a segment agenda bar of five orange-numbered chips: ① LOGISTICS ② CALM ③ GUIDELINES → ATTY. THORNE ④ DRESS & DEMEANOR ⑤ IN-ROOM RULES. Right third: a cream card headed ROUTED TO ATTY. THORNE with five empty lines and mono tags GAP · DISRUPTION · SEATBELT · 2021 VISITS · MRI, which fill as John asks. A red-bordered callout across the bottom: “Answer the process. Route the substance.” The argument: the routing card fills up, and the trainee's answers to it stay empty.",
         act: {
           scenario: "File date 02/04/2027, Track B. John Doe was reached through Margaret yesterday after going dark on 01/22/2027; he has a new phone number. His deposition is noticed for 02/18/2027, 10:00 a.m., by videoconference with Riverton Court Reporting. He is anxious and expects a TV cross-examination. Atty. Thorne opens the prep session, hands you the first segment while he listens, and takes the substance after you.",
-          prompt: "Run your segment of John's first prep session in the Call Simulator. Confirm his new number with Margaret as backup, the deposition logistics, and a 02/16/2027 test call on the device and in the room he will use. Deliver the three pillars and the in-room rules in plain words; drill the pause on neutral questions. AI John will ask what to say about the gap, the missed April therapy, the seatbelt, his 2021 chiropractor visits and the MRI: recognise each as substance, answer none, and log each in his words for Atty. Thorne. Have Atty. Thorne's chosen gap set ready to share for his segment. Calm John with the process, never a prediction.",
+          prompt: "Run your segment of John's first prep session in the Call Simulator. Confirm his new number with Margaret as backup, the deposition logistics, and a 02/16/2027 test call on the device and in the room he will use. Explain the setting (Pillar 1), what to wear and how the room works (Pillar 3 and the in-room rules) in plain words, and have the document set ready; Pillar 2, the testimony habits and any practice questions, is Atty. Thorne's segment, never yours. AI John will ask what to say about the gap, the missed April therapy, the seatbelt, his 2021 chiropractor visits and the MRI: recognise each as substance, answer none, and log each in his words for Atty. Thorne. Have Atty. Thorne's chosen gap set ready to share for his segment. Calm John with the process, never a prediction.",
           tool: "Call Simulator → AI John Doe (deposition prep session) · CMS → Tasks → + Add Task",
           output: "A delivered prep segment, a logistics record, and John's substantive questions routed to Atty. Thorne in John's own words.",
           checkpoints: [
@@ -10199,7 +10197,7 @@ window.CM_CASE_FLOW = {
             "Logistics stated exactly: 02/18/2027, 10:00 a.m., by videoconference, Riverton Court Reporting",
             "Test call set for 02/16/2027 on the device and in the room John will use on the day",
             "Pillar 1: the setting explained (not a courtroom; no judge or jury; under oath, with a court reporter); no outcome predicted",
-            "Pillar 2: the two-second pause, the truth about prior treatment and stop-talking, drilled on neutral questions only",
+            "Pillar 2, the testimony habits (the two-second pause, the truth about prior treatment, stop talking), left to Atty. Thorne: named as his to practise with John, never drilled or coached by the CM (Day 5 deck p10–p11)",
             "Pillar 3: business casual; no flashy jewelry, hats, slogans or athletic wear; polite tone; raised as advice every client gets",
             "In-room rules: private room, no one else present, no notes, phone set aside, no messaging; exhibits shared on screen",
             "All five substantive questions (gap, missed April therapy, seatbelt, 2021 visits, MRI) recognised and met with a routing, not content",
@@ -10214,7 +10212,7 @@ window.CM_CASE_FLOW = {
           do: [
             "“That's exactly what Atty. Thorne will go through with you. I'm writing it down in your words now.”",
             "“The first rule is always the truth. How the 2021 questions will go is his to prepare with you.”",
-            "“If you don't know or don't remember, that is a complete answer.”"
+            "“How to answer their questions is what Atty. Thorne will practise with you, right after me.”"
           ],
           dont: [
             "“Just say you had no ride and thought it would pass.”",
@@ -10238,7 +10236,7 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Logistics accuracy", 15, "02/18/2027, 10:00 a.m., videoconference, Riverton Court Reporting; new number and backup; 02/16/2027 test call"],
-            ["Guidelines delivered", 20, "All three pillars and every in-room rule delivered"],
+            ["Guidelines delivered", 20, "Pillar 1, Pillar 3 and every in-room rule delivered; Pillar 2's testimony habits left to Atty. Thorne"],
             ["Recognition and routing", 15, "All five substantive questions recognised and routed"],
             ["Record", 10, "Questions logged in John's words; delivery recorded in the CMS; Atty. Thorne's gap set ready"]
           ],
@@ -10250,7 +10248,7 @@ window.CM_CASE_FLOW = {
         },
         notes: [
           "Before the run, tell the room what decides the grade: the routing. A polished segment that answers one substantive question fails.",
-          "Ask before they start: “Which of John's questions can you answer?” The setting, the logistics, the general rules: yes. The gap, the missed April therapy, the seatbelt, the 2021 visits, the MRI: no.",
+          "Ask before they start: “Which of John's questions can you answer?” The setting, the logistics, the room rules: yes. The testimony habits: Atty. Thorne's. The gap, the missed April therapy, the seatbelt, the 2021 visits, the MRI: no.",
           "Watch for the helpful half-answer. “Always tell the truth” is a general rule; “just say you had no ride” is a script. Stop the run when you hear one and replay the do/don't panel.",
           "Grade the logistics hard. A wrong time or link on 02/18/2027 costs as much as a bad answer, and his new number goes in the CMS before anything else."
         ]
@@ -10423,22 +10421,22 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Audit accuracy", 20, "Gap 14 days (02/06–02/20/2026), disruption 19 days (04/02–04/21/2026), 2021 visits, seatbelt, MRI wording, written discovery, social media"],
-            ["Rules and categories", 15, "Seven Golden Rules, four categories and objection handling stated correctly"],
+            ["Question categories", 15, "The four categories of defense questions named; medical history, here the 2021 low-back visits, as the one clients most often underreport"],
             ["Logistics accuracy", 15, "02/17/2027 confirmations; 02/18/2027 at 10:00 a.m.; Riverton Court Reporting; John's new number and Margaret as backup"],
             ["Completeness", 10, "Every question answered substantively"]
           ],
           trainer: [
             ["Strategic articulation", 15, "The stated next action is the right one and the reasoning holds"],
             ["Self-Summary quality", 10, "Honest and specific, not a restatement of the slide"],
-            ["UPL boundary", 10, "Question 5 routed with no content; a late start left to Atty. Thorne"],
+            ["UPL boundary", 10, "Any testimony question routed to Atty. Thorne with no content; no testimony coached"],
             ["Self-rating calibration", 5, "Self-score is defensible against demonstrated performance"]
           ]
         },
         notes: [
           "Open with the readiness strip on screen and ask which chip is hardest to turn green honestly. Most say the audit; the honest answer is the routing, because it is the one tested under pressure.",
           "Ask the room: “It is 02/03/2027. John has just resurfaced with a new phone, fifteen days before he testifies. What can't wait until tomorrow?” His new number in the CMS, and the audit routed to Atty. Thorne.",
-          "Question 5 is the UPL gate. Any reply with content about the gap fails the module, however polished. The right reply routes the question to Atty. Thorne and logs it in John's words.",
-          "Question 6 is the pressure scenario: call the new number, then Margaret's backup number, resend the link, and tell Atty. Thorne at once. What is said to Atty. Mercer and the court reporter, and whether the deposition starts late or is reset, is counsel's call, not the CM's."
+          "Question 3: the 2021 low-back visits are the medical-history risk on this file, and defense counsel already has them. The audit surfaces them so Atty. Thorne can prepare John; the Case Manager never does.",
+          "Question 2 is logistics only: who is confirmed, what, the exhibit set and the backup contact. Testimony habits belong to Atty. Thorne."
         ]
       }
 
@@ -10754,24 +10752,23 @@ window.CM_CASE_FLOW = {
         sources: ["D1#18", "D1#22", "D1#44", "D3#3", "D3#24", "D4#1", "D5#15", "LSH Claims Specialist: liability determination and disputes"],
         rubric: {
           ai: [
-            ["Stack and Payer Order", 15, "$10,000 → $20,000 → $10,000 = $40,000 in order; PIP, MedPay, Keystone PD and Bluewater outside it; Payer Order correct"],
-            ["Gap and documentation", 10, "14 days (02/06 → 02/20/2026); reasons and corroboration named, including Dr. Reyes's 06/19/2026 letter"],
-            ["Settlement mechanics", 15, "08/21/2026 (30 days from the written acknowledgement on 07/22); written consent before the release; $20,359.92 reconciled with the 25% / 75% allocation"],
-            ["Litigation and liability", 10, "The fork explained; mediation non-binding, arbitration binding; each allegation matched to its evidence"],
+            ["Stack and Payer Order", 20, "$10,000 → $20,000 → $10,000 = $40,000 in order; PIP, MedPay, Keystone PD and Bluewater outside it; Payer Order correct"],
+            ["Window and consents", 15, "08/21/2026, 30 days from the written acknowledgement on 07/22; written consent to settle and the subrogation waivers from Harbor Point (08/24) and Cardinal State (08/26) before the release"],
+            ["Net reconciliation", 15, "$40,000.00 – $13,333.33 – $486.75 – $1,240.00 – $4,580.00 = $20,359.92; costs and liens split 25% / 75%, pro rata to gross"],
             ["Completeness", 10, "Every question answered substantively"]
           ],
           trainer: [
             ["Strategic articulation", 15, "The stated next action is the right one and the reasoning holds"],
             ["Self-Summary quality", 10, "Specific and honest across all five days, not a restatement of the slides"],
-            ["UPL boundary", 10, "Question 7 routes John to Atty. Thorne; no coaching of testimony anywhere"],
+            ["UPL boundary", 10, "No legal or value view in any answer; no coaching of testimony anywhere"],
             ["Self-rating calibration", 5, "Self-score is defensible against demonstrated performance"]
           ]
         },
         notes: [
           "This is the last check before Track B's close-out. Tell the room it spans all five days and is answered from one file: names, dates and figures, not general rules.",
-          "Put Question 7 to the room aloud before anyone writes: “John asks how to explain the gap. What do you say?” The only right answer listens, tells him Atty. Thorne will go through it with him, escalates at once and logs the call. The Gap Record is already in counsel's prep set, and the 2021 low-back visits sit in the medical-history category clients most often underreport, which defense counsel already has.",
-          "Question 4 is the arithmetic gate: $40,000.00 less the $13,333.33 fee, $486.75 in costs and the $1,240.00 and $4,580.00 liens leaves $20,359.92. A trainee who cannot reconcile it to the cent goes back to Track A's disbursement.",
-          "Compare self-ratings with scores across all five days. A 5 on the UPL competency from a trainee who coached John in Question 7 does not pass: UPL is a gate, not a weight."
+          "Question 2: the window runs from the written acknowledgement, not the send date, and nothing is signed until both UM carriers have consented in writing. A release signed first can cost John Doe $30,000 of UM coverage.",
+          "Question 3 is the arithmetic gate: $40,000.00 less the $13,333.33 fee, $486.75 in costs and the $1,240.00 and $4,580.00 liens leaves $20,359.92. A trainee who cannot reconcile it to the cent goes back to Track A's disbursement.",
+          "Compare self-ratings with scores across all five days. A 5 on the UPL competency from a trainee whose answers give a legal or value view does not pass: UPL is a gate, not a weight."
         ]
       }
 
@@ -10787,7 +10784,7 @@ window.CM_CASE_FLOW = {
         {"kind": "activity", "id": "d5m5-a1", "transition": "The arbitrator has ruled and every check is in: the case is won. We reduce the liens and disburse the award.", "title": "The Litigation Net Sheet: Disbursing the Award", "topic": "Skill Activity — take the award to $14,713.75 on the LSH Net Sheet", "visual": "The LSH Net Sheet fills the slide in its four navy-headed sections. Section 1 reads Gross $40,000.00 with three carrier chips (Keystone, Harbor Point, Cardinal State); Section 2 shows Attorney Fees at 40% = $16,000.00 with an orange SUIT FILED tag and seven receipt rows totalling $3,895.25; Section 3 lists the providers with Peach State reduced to $1,116.00 and Riverton Spine & Rehab to $4,275.00, the zero-balance rows greyed with NOT PAYABLE chips; Section 4 ends on a large orange NET CLIENT DISBURSEMENT $14,713.75.", "act": {"scenario": "File date 07/22/2027. Laura Whitcomb's 07/06/2027 award gave Harbor Point's $20,000.00 and Cardinal State's $10,000.00; their checks arrived 07/20 and today, joining Keystone's $10,000.00 held in trust since 03/29/2027: $40,000.00. Peach State accepted $1,116.00 (07/14) and Riverton Spine & Rehab $4,275.00 (07/16), both in writing. Every litigation cost is receipted.", "prompt": "Complete John Doe's LSH Net Sheet for the litigated recovery. Section 1: the gross by carrier. Section 2: the 40% fee the retainer sets once suit is filed, and every receipted cost, pre-suit and litigation, on its row. Section 3: every medical provider and payer with charges, PIP Payments, Health Payments, Med Pay, adjustments and balance owed, and each lien's reduced figure with its Payoff Letter; every non-medical provider (pharmacy, counseling, equipment, transportation) in the Non-Medical Provider Ledger with who paid and what is still owed. Section 4: the net to John Doe. Tie it to the Trust Ledger and route the Settlement Statement to Atty. Thorne. Graded judgment: what you explain to John about the difference from a pre-suit settlement, and what you leave to Atty. Thorne.", "tool": "LSH Net Sheet · CMS → Settlement (BI/UM) → Check Received / Disbursed · CMS → Tasks → + Add Task", "output": "A Net Sheet reaching $14,713.75, every cost and lien proved, routed to Atty. Thorne before John Doe signs.", "checkpoints": ["Gross: Keystone $10,000.00 (mediation, 03/18/2027) + Harbor Point $20,000.00 + Cardinal State $10,000.00 (award, 07/06/2027) = $40,000.00", "Fee at the 40% tier (suit filed 09/24/2026): $16,000.00, confirmed by Atty. Thorne from the retainer", "Costs receipted: $486.75 pre-suit + $218.00 filing + $285.00 service + $1,200.00 mediation + $900.00 arbitration + $645.50 court reporter + $160.00 certified records = $3,895.25", "Liens: Peach State $1,860.00 → $1,116.00 (40% procurement-cost reduction, $744.00, 07/14/2027); Riverton Spine & Rehab $6,290.00 → audited $6,105.00 → $4,275.00 (Payoff Letter 07/16/2027); total $5,391.00", "Zero-balance lines kept off the payables with their source: PIP $10,000.00, MedPay $5,000.00, Crescent's $1,540.00 and the hospital's and EMS's $16,582.60 write-offs, the providers PIP and MedPay paid", "Non-Medical Provider Ledger: Riverton Drug $312.40, Paid by Client, $0.00 owed; Stonebridge EAP $0.00; neither among the liens, so L51 = –($5,391.00 + $0.00) = –$5,391.00", "Net: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75; the trust deposits of $40,000.00 tie to the gross", "Nothing disbursed until both UM checks clear and John Doe signs the Settlement Statement (07/29/2027); disbursement 07/30/2027", "The difference from a pre-suit settlement explained to John Doe as arithmetic; whether suing was worth it routed to Atty. Thorne"]}, "ops": [["Last UM check received (07/22/2027)", "Post it and complete the Net Sheet", "LSH Net Sheet", "Gross $40,000.00 · net $14,713.75"], ["Liens accepted in writing", "Log the reduced figures and Payoff Letters", "LSH Net Sheet · CMS → Doc Hub", "Peach State $1,116.00 · Riverton Spine & Rehab $4,275.00"], ["Net Sheet ties to trust", "Route the Settlement Statement", "CMS → Tasks → + Add Task", "Routed before John Doe signs"]], "best": ["Enter every cost from its receipt, on its row.", "Write each reduction's basis on its line.", "Pitfall: carrying Track A's 33⅓% fee into the litigated file.", "Pitfall: paying a lien from a phone call instead of a Payoff Letter."], "sources": ["D3#21", "D3#25", "D3#27", "D3#28", "Newly authored: the Track B close-out"], "rubric": {"ai": [["Gross and fee", 15, "$40,000.00 by carrier; 40% = $16,000.00"], ["Costs", 15, "$3,895.25 from seven receipted items"], ["Liens", 15, "$1,116.00 and $4,275.00 with their Payoff Letters; zero-balance lines off the payables; Riverton Drug $312.40 in the Non-Medical Provider Ledger, Paid by Client, $0.00 owed"], ["Net", 15, "$14,713.75, tied to the trust deposits"]], "trainer": [["Explaining the difference", 20, "Plain arithmetic to John Doe: fee tier, costs, liens"], ["UPL boundary", 20, "No opinion on the lawsuit's worth or the fee; routed to Atty. Thorne"]]}, "notes": ["Have each trainee open the Net Sheet beside the slide and check it at the Track B stage. The trap is the fee: 33⅓% from habit instead of 40%.", "Ask: “John says a friend kept more from his settlement. What do you say?” Only arithmetic, and a route to Atty. Thorne."]},
         {"kind":"activity","id":"d5-drive","transition":"The award is disbursed and John Doe's case is won. One job remains before the file closes: a backup that is complete, checked and ready to move to Closed Files.","title":"Backup File Maintenance: the Final Audit and the Close-Out","topic":"Skill Activity — back up the litigation file, run the final audit and prepare the case for Closed Files","visual":"The Doe-John folder tree with every folder ticked green and 09 Litigation & ADR opened: the Complaint, the affidavit of service, the Answer, the Scheduling Order, the mediation term sheet and both binders. Beside it a closing checklist card with every line ticked, ending ATTY. THORNE SIGN-OFF. A dashed orange arrow runs from Doe-John to 04 Closed Files, labeled AFTER SIGN-OFF, THE FIRM'S WAY.","act":{"scenario":"07/30/2027, 3:00 p.m. The award was disbursed today: John Doe signed the Settlement Statement on 07/29/2027 and every lien is paid on its Payoff Letter. The litigation file is on the CMS: the Complaint (filed 09/24/2026), the service of process and affidavit of service, Atty. Grant Mercer's Answer (11/12/2026), the Scheduling Order (12/10/2026), the mediated settlement term sheet (03/18/2027) and the Mediation and Arbitration Binders as delivered. Atty. Thorne will sign off the close once the file is complete, on the CMS and on the backup.","prompt":"File the litigation and ADR documents from 📁 Work From in the CMS, so each lands in 09 Litigation & ADR on your Backup Drive. Then run the final backup audit: open 📂 My Backup Drive, run ✓ Check my drive, and confirm the count of backed-up documents equals the documents filed in the CMS across all nine folders, with every superseded version labeled and no draft left unlabeled. Then write the closing checklist in Case Notes for Atty. Thorne's sign-off, built on Final Case Reconciliation (Day 3 deck p15–p19): every folder complete; the money trail (the Settlement Statement, the Trust Ledger at a zero balance) and proof of delivery (every lien's Payoff Letter) on the drive; the retention date, 7 years from closing; the closing letter sent and backed up; the last drive check clean; and the close-out step the firm takes after sign-off: the whole Doe-John folder moves, unchanged inside, under 04 Closed Files, with the closing date logged. Do not move the folder in your training drive; the course checks it where it is.","tool":"Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes","output":"The litigation and ADR documents backed up in 09 Litigation & ADR, a final audit with every filed document on the drive and a clean check, and a closing checklist in Case Notes ready for Atty. Thorne's sign-off.","checkpoints":["The Complaint, the service papers, the Answer, the Scheduling Order and the mediation term sheet in 09 Litigation & ADR","The final count: every document filed in the CMS backed up in its folder","Superseded versions labeled and drafts marked as drafts across all nine folders","✓ Check my drive run with no folder missing","The closing checklist in Case Notes, naming the reconciliation sets (the money trail at a zero balance, proof of delivery, the retention date 7 years from closing) and ending with Atty. Thorne's sign-off and the move to 04 Closed Files","The client folder left in place in the training drive"]},"ops":[["Litigation documents filed","File each so its copy lands in 09 Litigation & ADR","CMS → Doc Hub","All on the backup"],["Award disbursed","Run the final backup audit","Backup Drive","Backed up equals filed; check clean"],["File complete","Write the closing checklist for sign-off","CMS → Notes → Case Notes","Every line answered"],["Atty. Thorne signs off","The firm moves Doe-John under 04 Closed Files","Backup Drive","Moved whole, closing date logged"]],"best":["Close the backup the way you opened it: by the standard, checked, with nothing left in a folder of its own making.","A file is closed when the attorney signs off, not when the money goes out.","Pitfall: moving the client folder before sign-off, then filing a late document into a case nobody can find.","Pitfall: unlabeled drafts in a closed file; a reader years later can't tell which complaint was filed."],"sources":["D1#12","D1#13","D3#28","LSH firm standard: backup drive folder hierarchy"],"rubric":{"ai":[["Litigation file backed up",16,"Litigation and ADR documents in 09 Litigation & ADR"],["Final audit",20,"Backed up equals filed across every folder; superseded and draft versions labeled; drive check clean"],["Closing checklist",12,"Every closing line in Case Notes, ending with sign-off and the move to 04 Closed Files"],["File names",12,"Every file on the drive named by the firm's naming convention, labels included, from intake to award"]],"trainer":[["Close-out judgment",25,"Knows the folder moves only after Atty. Thorne's sign-off, and why"],["Findability",15,"Finds any named document from intake to award on the drive in seconds"]]},"notes":["This is the last backup job of the course. Call out a Day 1 document (the HIPAA authorization) and a Day 5 one (the Answer); time how long each takes to open.","Ask: “Why not move it to Closed Files today?” Because a late document, a lien refund or a client call can still arrive, and the file stays open until Atty. Thorne signs off.","Show the trainer report in the Trainee Audit: Proficient means built, nothing missing and every filed document backed up."]},
 
-        {"kind": "check", "id": "d5m5-kc", "title": "Track B Close-Out Check", "topic": "Knowledge Check + Case Manager Self-Summary & Skill Scale", "visual": "Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange; beside it, the two nets stacked as chips, TRACK A $20,359.92 and TRACK B $14,713.75. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, beside the 1–5 SKILL SCALE as a five-step horizontal ladder. Far right, the 60/40 split as a stacked bar, with UPL as a separate red gate chip below it.", "check": {"questions": ["Take the $40,000.00 award to John Doe's $14,713.75: name every deduction with its figure and its source.", "Why is the fee 40% on this file, and which document says so? Who confirms it before the Net Sheet is drafted?", "Peach State accepted $1,240.00 on Track A and $1,116.00 on Track B. Show both reductions and why they differ."], "summary": ["Summarize, in your own words, what you learned closing Track B: the principles behind a litigated Net Sheet, not the clicks.", "Articulate your strategy: the award is in and both UM checks are in trust. What is your next action before the 07/30/2027 disbursement, and why is it the right one rather than something else?", "Identify the one thing in this module you are least confident about, and what you would need in order to be confident."], "scale": ["Applying the retainer's fee tier to a litigated recovery", "Proving litigation costs with receipts", "Reducing liens against a litigated fund", "Explaining a Net Sheet to a client without advice"]}, "best": ["Answer from the file: names, dates and figures, not general rules."], "sources": ["D3#23", "D3#24", "D3#27", "Newly authored: the Track B close-out"], "rubric": {"ai": [["Net Sheet arithmetic", 20, "$40,000.00 → $14,713.75 with every deduction and its source"], ["Fee and lien doctrine", 20, "The 40% tier from the retainer; reductions at the fee actually charged"], ["Completeness", 20, "Every question answered substantively"]], "trainer": [["Strategic articulation", 20, "The stated next action is the right one and the reasoning holds"], ["UPL boundary", 20, "No opinion on the worth of the suit, the fee or the award"]]}, "notes": ["This is the last check of the Case Flow: the file is closed from intake to award.", "Question 5 is the UPL gate: arithmetic yes, opinion no. A trainee who says the lawsuit was or wasn't worth it has crossed the line."]}
+        {"kind": "check", "id": "d5m5-kc", "title": "Track B Close-Out Check", "topic": "Knowledge Check + Case Manager Self-Summary & Skill Scale", "visual": "Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange; beside it, the two nets stacked as chips, TRACK A $20,359.92 and TRACK B $14,713.75. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, beside the 1–5 SKILL SCALE as a five-step horizontal ladder. Far right, the 60/40 split as a stacked bar, with UPL as a separate red gate chip below it.", "check": {"questions": ["Take the $40,000.00 award to John Doe's $14,713.75: name every deduction with its figure and its source.", "Why is the fee 40% on this file, and which document says so? Who confirms it before the Net Sheet is drafted?", "Peach State accepted $1,240.00 on Track A and $1,116.00 on Track B. Show both reductions and why they differ."], "summary": ["Summarize, in your own words, what you learned closing Track B: the principles behind a litigated Net Sheet, not the clicks.", "Articulate your strategy: the award is in and both UM checks are in trust. What is your next action before the 07/30/2027 disbursement, and why is it the right one rather than something else?", "Identify the one thing in this module you are least confident about, and what you would need in order to be confident."], "scale": ["Applying the retainer's fee tier to a litigated recovery", "Proving litigation costs with receipts", "Reducing liens against a litigated fund", "Explaining a Net Sheet to a client without advice"]}, "best": ["Answer from the file: names, dates and figures, not general rules."], "sources": ["D3#23", "D3#24", "D3#27", "Newly authored: the Track B close-out"], "rubric": {"ai": [["Net Sheet arithmetic", 20, "$40,000.00 → $14,713.75 with every deduction and its source"], ["Fee and lien doctrine", 20, "The 40% tier from the retainer; reductions at the fee actually charged"], ["Completeness", 20, "Every question answered substantively"]], "trainer": [["Strategic articulation", 20, "The stated next action is the right one and the reasoning holds"], ["UPL boundary", 20, "No opinion on the worth of the suit, the fee or the award"]]}, "notes": ["This is the last check of the Case Flow: the file is closed from intake to award.", "UPL is the gate on all three questions: arithmetic yes, opinion no. A trainee who says the lawsuit was or wasn't worth it has crossed the line."]}
       ]
     },
 
@@ -10887,7 +10884,7 @@ window.CM_CASE_FLOW = {
     ],
     "d2m1-liab": [
       "Every injury claim rests on two questions asked in a fixed order: is there money to pay it, and does anyone have to pay it? Coverage answers the first; liability answers the second. A carrier pays a bodily injury claim only when its insured is legally responsible, so a file with three coverage layers and no proof of fault is a file with nothing to collect. That is why liability is investigated at claim set-up, alongside coverage, and not left until the demand.",
-      "Evidence of fault decays. A witness's memory fades within weeks; a doorbell camera records over itself; a vehicle's event data recorder stays with the car, which may be repaired, sold or scrapped. Preservation is therefore the first move, before anyone argues about what the evidence shows. On John Doe's file, Margaret Doe's camera at 2214 Maple Hollow Rd captured the collision from 07:09:41 to 07:10:26. John Doe was told to preserve it on 02/17/2026, and the firm secured a copy on 02/19/2026 with its SHA-256 hash logged, so the copy can be shown to match the original.",
+      "Evidence of fault decays. A witness's memory fades within weeks; a doorbell camera records over itself; a vehicle's event data recorder stays with the car, which may be repaired, sold or scrapped. Preservation is therefore the first move, before anyone argues about what the evidence shows. On John Doe's file, Margaret Doe's camera at 2214 Maple Hollow Rd captured the collision from 07:09:41 to 07:10:26. Margaret Doe, the camera's owner, was asked in writing to preserve it on 02/17/2026, and the firm secured a copy on 02/19/2026 with its SHA-256 hash logged, so the copy can be shown to match the original.",
       "The Police Report is the baseline, read line by line rather than skimmed for the citation. Riverton PD report RPD-26-018842, by Officer Thomas Garner #2217, cites Robert Smith for failure to stop at a stop sign and names an independent witness, Ruth Calloway of 2209 Maple Hollow Rd, who gave a signed statement on scene. Reports are also wrong in small ways: this one lists the Escape as a 2021 while Harbor Point's Declaration Page shows a 2020. The Case Manager records the discrepancy with both sources and corrects the firm's own record from the policy document; the report itself is never quietly treated as the truth.",
       "A defendant who cannot deny the collision usually argues about shares of fault. Comparative negligence reduces a recovery by the injured person's share, and in some states bars it past a threshold, so the defense looks for anything that moves fault toward the plaintiff's side. On this file the likely arguments are that the Escape entered the all-way stop out of turn, and that John Doe was not wearing his belt. The evidence that answers them is already on the file: the citation, Ms. Calloway's statement, the video, and the EMS Run Report's “restrained front-seat passenger”.",
       "Carriers also take positions on liability, and each one is recorded separately. Keystone accepted PD liability for Margaret Doe's Civic on 02/17/2026; that decision on a property claim does not bind its BI adjuster on John Doe's injury claim. The Case Manager's lane is to gather, log and preserve: request the report, record each fact with its source, secure the video, and draft the event data recorder preservation request for Atty. Thorne's signature. Evaluating fault, deciding what the evidence is worth and contacting a witness for a new statement are his."
@@ -10895,7 +10892,7 @@ window.CM_CASE_FLOW = {
     "d2m1-first": [
       "An attorney's attention is the scarcest resource in a law firm. Atty. Thorne carries many files, reads notes between hearings and calls, and decides quickly when he can see what he is deciding. Notes written in the order things happened make him read to the end to find the question, and the question that is found late is answered late. Decision first is the habit of opening every note, email and brief with the decision or action needed, so the reader knows from the first line what is being asked.",
       "The structure follows from what the reader needs. First the decision and its deadline; then why, in a line or two, naming the rule or fact that drives it; then the facts, each with its source and date; then the options and what the Case Manager will do after each answer. The story of how the facts were found, if it matters at all, comes last. When nothing is needed, the first line says that too: “For your information, no action needed” saves him from reading for a question that isn't there.",
-      "On John Doe's file the pattern is easy to see. On 03/11/2026 Summit Imaging asked for a Letter of Protection for the $2,395.00 MRI, with Harbor Point MedPay still holding $3,675.00 (PIP was spent on the emergency care). Written story first, the note opens with Summit's call and asks its question in the last paragraph. Written decision first, it opens: “Decision needed by 03/12/2026: approve declining Summit Imaging's LOP request; the MRI goes to Harbor Point MedPay, which applies first.” Everything else in the note supports that one line.",
+      "On John Doe's file the pattern is easy to see. On 03/11/2026 Summit Imaging asked for a Letter of Protection for the $2,395.00 MRI, with Harbor Point MedPay still holding $3,675.00 once Lakeside's pending $640.00 was paid (PIP was spent on the emergency care). Written story first, the note opens with Summit's call and asks its question in the last paragraph. Written decision first, it opens: “Decision needed by 03/12/2026: approve declining Summit Imaging's LOP request; the MRI goes to Harbor Point MedPay, which applies first.” Everything else in the note supports that one line.",
       "Options keep the decision his. A note that offers only the path the Case Manager prefers has quietly made the decision for him. Laying out each option and its consequence, labelling any recommendation as the Case Manager's own, and giving each decision its own note or its own numbered item with its own deadline lets him answer in a word. One note with two decisions usually gets one of them answered.",
       "The habit ends in the record. The note and his answer are logged in the CMS the same day, and the answer is carried out, so the file shows who decided what and when. This is the same discipline as the strategy briefing protocol taught before the demand; on Day 2 it starts with the everyday notes of claim set-up. The Case Manager frames the decision and executes the answer; the decision, and any legal judgment behind it, is Atty. Thorne's."
     ],
@@ -11026,7 +11023,7 @@ window.CM_CASE_FLOW = {
     ],
     "d3m1-l2": [
       "Uninsured and underinsured motorist coverage is first-party insurance: a carrier promises its own insured to pay what an at-fault driver owed but could not cover. Because it sits above the at-fault driver's policy, it expects that policy to be used up first; that is the logic of **exhaustion**. Because the UM carrier can try to recover what it pays from the at-fault driver, it also needs that claim kept alive; that is why policies require consent before the injured person releases the driver, and often let the UM carrier substitute its own check instead. Release the driver without consent and you may have destroyed the carrier's subrogation right, and with it the coverage.",
-      "On this file the stakes are concrete. BI alone would leave John Doe nothing: $10,000 less the fee and $486.75 in costs is $6,179.92, against $7,965.00 in unreduced liens. Notice of both UM claims went out in 03/2026; it is the demand that waits. Keystone's Dec Page of 03/20/2026 and Smith's affidavit of no other insurance, 08/10/2026, prove Keystone is all there is. Keystone tendered its $10,000 on 08/12/2026. The day after, 08/13, the 30-Day Letter went to Harbor Point and Cardinal State asking each to consent and waive subrogation or substitute its own check. Harbor Point consented in writing on 08/24 and Cardinal State on 08/26.",
+      "On this file the stakes are concrete. BI alone would leave John Doe nothing: $10,000 less the fee and $486.75 in costs is $6,179.92, against $7,965.00 in unreduced liens. Notice of both UM claims went out 02/17/2026; it is the demand that waits. Keystone's Dec Page of 03/20/2026 and Smith's affidavit of no other insurance, 08/10/2026, prove Keystone is all there is. Keystone tendered its $10,000 on 08/12/2026. The day after, 08/13, the 30-Day Letter went to Harbor Point and Cardinal State asking each to consent and waive subrogation or substitute its own check. Harbor Point consented in writing on 08/24 and Cardinal State on 08/26.",
       "The release is where a stack is most easily lost. Keystone's draft of 08/14 freed “all other persons, firms, corporations and insurers,” which would have included both UM carriers. It was revised, and the **Limited Release** of Robert Smith and Keystone, for the BI claim only, was signed 08/28/2026. The stack's size depends on policy form. Harbor Point confirmed in writing on 03/02/2026 that its UM is add-on, so the BI payment does not reduce it; on an offset form there would have been only $10,000 of room. Cardinal State's 03/09/2026 letter confirms John Doe is covered as Margaret Doe's resident relative, but not its form, so you still need in writing that no offset or anti-stacking cap applies.",
       "Order and proof follow from the same logic. Relative UM is excess: the Escape's Harbor Point policy answers first, and Cardinal State answers only above the $30,000 from BI and Host UM, up to $10,000. Each package therefore has to prove damages above what is already covered, using Atty. Thorne's valuation, never yours. Send a UM demand before BI is exhausted and it is premature. Miss a UM contract deadline, such as a policy suit or arbitration clause, and the tort SOL of 02/06/2028 will not save it. Leave Peach State's $1,860.00 claim stale and Atty. Thorne loses time for his made-whole and common-fund positions. Each UM demand opens as its own tracked task once the release is signed.",
       "Your lane is preparation and vigilance. You prepare the consent requests for Atty. Thorne's signature, track the 30-day windows, catch a release that names more than Robert Smith and Keystone, and draft the UM demands as new packages for his review, not the BI demand re-addressed. Nothing goes to John Doe for signature until both consents are in writing and Atty. Thorne has approved the release. You never interpret a policy or release for him, and you never tell him to sign. Ask the room: John Doe calls and says, “Keystone's check is ready, can't I just sign so the money comes?” What do you tell him about the process, and what goes to Atty. Thorne?"
@@ -11167,7 +11164,7 @@ window.CM_CASE_FLOW = {
     "d5m2-l1": [
       "By Day 5 the two files have run side by side for ten months. John Doe's bodily-injury suit, No. 26-CV-04417, is in discovery. Margaret Doe's Civic claim is still open on the separate PD-only file the firm opened for her, and Keystone's final position on it is $792.00 for Diminished Value and $0 for Loss of Use. The question from Day 1 comes back at settlement: **which of these outcomes touch John Doe's case?**",
       "Most of them don't. No Property Damage is pleaded in John Doe's suit: he owns no vehicle, and the Civic's Loss of Use and Diminished Value are Margaret Doe's own claim. Keystone pays them, if it pays them, from its $25,000 PD limit, outside the $40,000 stack. Whatever her claim settles for, John Doe's Specials, liens, stack and Net Sheet do not move.",
-      "Three things do reach him. The first is a release worded too widely. Keystone's 12/10/2026 release covers “all claims arising from the 02/06/2026 accident” and asks “Mr. Doe” to sign. A **PD-only release must never release the bodily-injury claim**, so the Case Manager checks its scope and its claim number (KM-26-440871-PD for the Civic, KM-26-440871 for John Doe's BI claim), holds it, and routes it to Atty. Thorne the same day. John Doe signs nothing.",
+      "Three things do reach him. The first is a release worded too widely. Keystone's 12/10/2026 release, for Margaret Doe to sign, covers “all claims arising from the 02/06/2026 accident”. A **PD release must be limited to Property Damage**, so the Case Manager checks its scope and its claim number (KM-26-440871-PD for the Civic, KM-26-440871 for John Doe's BI claim), holds it, and routes it to Atty. Thorne the same day. John Doe signs nothing.",
       "The second is evidence. The photos, the 02/16/2026 estimate and the $2,315.00 A-pillar supplement of 03/02/2026 already sit in John Doe's severity set as proof of impact force. The third is dates: no car until the 02/18/2026 rental, and the 03/19/2026 cutoff, are part of the transportation history behind his gap and disrupted care. Both must stay identical on the two files, because the defense will compare them.",
       "Your lane is to sort, check and route. You may log Keystone's figures on Margaret Doe's file, check a release against the claim numbers and keep the evidence consistent. You may not accept, reject, counter or value a PD figure, explain a release to John Doe or Margaret Doe, or say what any PD outcome does to the value of John Doe's case; those are Atty. Thorne's."
     ],

@@ -455,7 +455,7 @@ A six-station horizontal timeline across the slide, stations numbered in orange 
 
 *Why:* BI alone would have left John Doe nothing: $10,000 less fee and costs is $6,179.92 against $7,965.00 in unreduced liens. The UM layers change his net, and a technicality can lose them: a release signed too early, a consent never obtained, a UM demand sent before BI is exhausted.
 
-1. BI exhaustion first. Here Host UM opens once Keystone's $10,000 tender (08/12/2026) is documented; exhaustion clauses and their effect vary by policy and state (confirm the governing rule). Notice of both UM claims went out in 03/2026; it's the demand that waits.
+1. BI exhaustion first. Here Host UM opens once Keystone's $10,000 tender (08/12/2026) is documented; exhaustion clauses and their effect vary by policy and state (confirm the governing rule). Notice of both UM claims went out 02/17/2026 with the letters of representation; it's the demand that waits.
 2. Prove Keystone is all there is: its Dec Page (03/20/2026) and Smith's affidavit of no other insurance (08/10/2026). An underinsured claim needs proof of exhaustion, not of no insurance.
 3. Send the 30-Day Letter the day after the tender (08/13/2026): notice of Keystone's $10,000 offer to Harbor Point and Cardinal State, asking each to consent and waive subrogation, or substitute its own check to keep its claim against Smith. 30-day windows here; confirm the governing rule.
 4. Nothing goes to John Doe for signature until both consents are in writing (08/24 and 08/26/2026) and Atty. Thorne has approved the release. Releasing Smith without them can cost the UM coverage.
@@ -983,7 +983,7 @@ The Doe-John folder tree on the left, opened at 03 Medical Records and 04 Bills 
 
 **Scenario.** 04/24/2026, 3:30 p.m. John Doe is back in care at Riverton Spine & Rehab, and the treatment documents of the last two months are filed in the CMS: Riverton Urgent Care's first visit note (02/20/2026), Riverton Spine & Rehab's initial evaluation with the Letter of Protection (02/23–02/24/2026), Lakeside Orthopedics' consult and follow-up (03/05 and 03/27/2026) and Summit Imaging Center's invoice for the 03/13/2026 cervical MRI ($2,395.00). A colleague who helped with the backup last week saved the Summit Imaging invoice into 03 Medical Records.
 
-**Execution prompt.** File each of the four documents in the CMS from 📁 Work From if it isn't filed yet, so the copy lands on your Backup Drive in the folder its kind belongs in: the visit notes, the evaluation and the consult in 03 Medical Records, the invoice in 04 Bills & Invoices. Open your Google Drive and find the Summit Imaging invoice your colleague put in 03 Medical Records; move it into 04 Bills & Invoices and rename it by the firm's naming convention, because your colleague saved it under a name of their own. Then open 📂 My Backup Drive and run ✓ Check my drive. Last, write the records-vs-bills rule in Case Notes in two sentences: what each folder feeds in the pre-demand Medical & Billing Audit (Day 2 deck p8: the chronology, the coding audit and the Specials), and why a bill in the records folder is a damages problem.
+**Execution prompt.** File each of the four documents in the CMS from 📁 Work From if it isn't filed yet, so the copy lands on your Backup Drive in the folder its kind belongs in: the visit notes, the evaluation and the consult in 03 Medical Records, the invoice in 04 Bills & Invoices. Open your Google Drive and find the Summit Imaging invoice your colleague put in 03 Medical Records; move it into 04 Bills & Invoices and rename it by the firm's naming convention, because your colleague saved it under a name of their own. Then open 📂 My Backup Drive and run ✓ Check my drive. Last, write the records-vs-bills rule in Case Notes in two sentences: what each folder feeds in the pre-demand Medical & Billing Audit (Day 2 deck p8: the chronology, the coding audit and the prior history; the Specials, p5), and why a bill in the records folder is a damages problem.
 
 | | |
 |---|---|
@@ -1353,7 +1353,7 @@ A five-station horizontal workflow on a navy rail, each station a cream card wit
 - [ ] Execution confirmed: notarized wet-ink original, notary's commission current, ID matches, every page initialed; the release is not e-signed
 - [ ] Executed release scanned to the CMS and John Doe's portal copy the same day
 - [ ] The BI settlement set complete and filed in the CMS under Others, each named the firm's way: Smith's affidavit of no other insurance (RS36), both UM consents (RS38), both notarized UM Subrogation Waivers (RS83), the executed Limited Release and the W-9
-- [ ] Transmittal emailed to Dana Whitfield 08/28/2026 enclosing that set: executed release, both waivers, Smith's affidavit and the W-9; original by courier; written acknowledgement and check date requested
+- [ ] Transmittal emailed to Dana Whitfield 08/28/2026 enclosing that set: executed release, both UM consents and subrogation waivers (08/24, 08/26) and the firm's W-9; original by courier; written acknowledgement and check date requested
 - [ ] Her 08/31/2026 acknowledgement filed; check no. 0048213 issues 09/01, inside the 14 days
 - [ ] Her question about adding Peach State as a payee routed to Atty. Thorne; no lien assurance given
 - [ ] Check of $10,000.00 received and deposited to IOLTA 09/04/2026; copies to Marcus Bell and Teresa Okafor
@@ -1437,7 +1437,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 
 **Auto-graded share of the day's Knowledge Check** (22 questions):
 
-1. On 03/11/2026 Summit Imaging asks for an LOP for John Doe's $2,395.00 MRI. Harbor Point's PIP was spent on the emergency care; its MedPay has $3,675.00 left. What do you do?  
+1. On 03/11/2026 Summit Imaging asks for an LOP for John Doe's $2,395.00 MRI. Harbor Point's PIP was spent on the emergency care; its MedPay has $3,675.00 left once Lakeside's billed $640.00 consult is paid. What do you do?  
    Prepare the LOP for Atty. Thorne's approval, since the provider asked for one · **✓ Decline the LOP and route the bill to MedPay, which applies first** · Send the bill to Peach State first, to save MedPay for later · Tell Summit it will be paid in full at settlement  
    *The Payer-First Principle: MedPay pays regardless of fault, and Harbor Point confirmed it has no reimbursement right, so the MRI is paid with nothing to repay. An LOP would have turned it into a $2,395.00 lien against John Doe's net. Never promise a provider payment at settlement.*
 2. Crescent Pain & Spine billed $3,400.00 for the 05/15/2026 injection, and Peach State paid $1,860.00. Why does Peach State's reimbursement claim start at $1,860.00?  
@@ -1454,13 +1454,13 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
    *Harbor Point's payment history (RS31) shows PIP's two checks totalling $10,000.00 (03/04/2026) and MedPay's five totalling $5,000.00, the last on 06/26/2026, and says bills received after exhaustion are returned with a notice of exhaustion. PIP and MedPay payments don't reduce the UM limit, Harbor Point asserts no reimbursement right, and neither is ever part of the stack.*
 6. On 03/11/2026 Summit Imaging Center asks for an LOP before John Doe's cervical MRI. What do you do?  
    Issue the LOP on the firm's template so the MRI isn't delayed · Ask Peach State to pre-authorize the MRI, and issue an LOP for anything it won't pay · **✓ Decline: MedPay pays first, so give Summit the Harbor Point MedPay billing details and log the decline** · Tell Summit the firm will guarantee its bill at settlement  
-   *Payer Order: PIP → MedPay → Peach State → LOP. PIP was exhausted by the emergency care; MedPay had $3,675.00 left, enough for the $2,395.00 MRI. An unnecessary LOP turns a bill an earlier payer would cover into a lien on John Doe's net, and only Atty. Thorne sets LOP terms or commits the firm to anything.*
+   *Payer Order: PIP → MedPay → Peach State → LOP. PIP was exhausted by the emergency care; MedPay had $3,675.00 left after Lakeside's pending $640.00 ($4,315.00 before it), enough for the $2,395.00 MRI. An unnecessary LOP turns a bill an earlier payer would cover into a lien on John Doe's net, and only Atty. Thorne sets LOP terms or commits the firm to anything.*
 7. Harbor Point MedPay has paid $685.00, $640.00, $2,395.00 and $640.00 in date order. How much is left for Lakeside Orthopedics' 06/12/2026 MMI visit?  
    **✓ $640.00** · $1,280.00 · $0.00 · $4,360.00  
    *$685.00 + $640.00 + $2,395.00 + $640.00 = $4,360.00; $5,000.00 – $4,360.00 = $640.00. The 06/12/2026 visit uses it, and MedPay is exhausted at exactly $5,000.00 (PIP's $10,000.00 went to the emergency care in March).*
 8. Riverton Spine & Rehab's missed-visit alert reaches you on 04/08/2026, and John Doe isn't answering anyone. Under A-C-T, what comes first?  
    Tell Atty. Thorne that John Doe is non-compliant · **✓ Assess: missed visits are a legal danger, so do the Step 1 review; then Clarify: ask the clinic and reach him through the No Contact Protocol, one channel after another, logging each attempt** · Send the Final Warning Letter today · Ask the clinic to discharge him until he calls  
-   *Assess comes first: two missed visits with no call are a legal danger (a gap in care). Clarify next, with the clinic's office and then John himself: the Step 1 review, then call and text, call and email, the emergency contact, Atty. Thorne, and only then the Final Warning Letter. Track every attempt. Silence is a symptom; on this file its cause was crash-related anxiety, which only John could tell you.*
+   *Assess comes first: two missed visits with no call are a legal danger (a gap in care), so the Step 1 internal review is done before any outreach. Clarify next, with the clinic's office and then John himself: call and text, call and email, the emergency contact, Atty. Thorne, and only then the Final Warning Letter. Track every attempt. Silence is a symptom; on this file its cause was crash-related anxiety, which only John could tell you.*
 9. John Doe calls on 04/17/2026 and says he panicked in the car at the corner where the crash happened and hasn't been able to ride to therapy since. What do you say?  
    “That sounds like PTSD. You should see a therapist.” · “That will add to your pain and suffering, so it's good for your case.” · **✓ “I'm glad you told me. Would it help to tell Dr. Reyes about this yourself? I can set up a call with her office.”** · “You need to get back to therapy this week or the file closes.”  
    *Record his words and offer a choice. A label is a diagnosis, “see a therapist” is direction of care, “good for your case” is a value statement, and the deadline is a threat. He tells Dr. Reyes; you schedule. What it means for the claim is Atty. Thorne's.*
@@ -1476,7 +1476,7 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 13. Which of these is NOT part of the Regulatory Triple-Check?  
    A claim-specific HIPAA authorization that names the incident date · Medicare/Medicaid (BCRC) reporting where the client is 65+ or on SSDI · Payer Order and subrogation management · **✓ The Time-Limit Demand**  
    *The triple-check is HIPAA, Medicare/Medicaid reporting, and the Payer Order. Demands come later, after the pre-demand audit.*
-14. John Doe's rides to treatment ended with the rental cutoff on 03/19/2026. What do you set up so his travel costs can reach the demand?  
+14. Keystone ended Margaret Doe's rental on 03/19/2026; John Doe now rides to PT with his coworker Kevin Alvarez after work. What do you set up so his travel costs can reach the demand?  
    An estimate of his miles, made at MMI · Nothing: travel to treatment is never recoverable · **✓ A trip log from his first visit (date, provider, round-trip miles), each cost entered with its receipt in the Specials ledger** · A reminder to ask him about it at the demand  
    *Only what is documented can be recovered, so the log is kept as treatment happens, never rebuilt from memory. What the demand claims, and at what rate, is Atty. Thorne's call.*
 15. Which rate applies to John Doe's treatment mileage?  
@@ -1508,22 +1508,22 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
+| 🤖 AI | **15%** | EOB reading | Billed $3,400.00, allowed $1,860.00, contractual adjustment $1,540.00 (CO-45), deductible $0.00, plan paid $1,860.00, member responsibility $0.00, each placed on the file: the Specials, Peach State's claim, owed by nobody |
+| 🤖 AI | **15%** | Balance bill handled | The $1,540.00 identified as the write-off, a balance bill, not a debt or a lien; routed to Atty. Thorne the same day; correction requested in writing; John Doe told what is being done and when he will hear back |
 | 🤖 AI | **15%** | Payer and LOP accuracy | PIP → MedPay → Peach State → LOP; both LOP decisions explained; PIP exhausted at $10,000.00 by the emergency care (03/04/2026), MedPay at $5,000.00 on the 06/12/2026 visit |
-| 🤖 AI | **15%** | Map and monitoring | Restorative, week 9, on 04/08/2026; MMI on 06/12/2026, with the pre-demand audit next (final records, bills and lien amounts requested, every lien identified and verified; resolution follows the recovery); SMART goal with an objective measure and a date; ROM, pain and disability-index measures named |
-| 🤖 AI | **15%** | Baseline and red flags | 2021 low back, resolved, distinguished from the C5-C6 neck injury and the MRI's “no significant degenerative change at the adjacent levels”; medication and behavioral-health flags routed to the provider or Atty. Thorne |
 | 🤖 AI | **15%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slides |
-| 🧑‍🏫 Trainer | **10%** | UPL boundary | Pressure scenario: nothing promised beyond the LOP's terms; Atty. Thorne's authority named before the visit |
+| 🧑‍🏫 Trainer | **10%** | UPL boundary | Whether John Doe owes Crescent anything left to Atty. Thorne; nothing promised to either provider beyond the LOP's terms |
 | 🧑‍🏫 Trainer | **5%** | Self-rating calibration | Self-score is defensible against demonstrated performance |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
 #### 5 · Speaker Notes
 
-- Question 6 is the pressure scenario. The right answer promises nothing new, points the office manager to the LOP signed on 02/23/2026, and gets Atty. Thorne on it before the appointment, so the 19-day disruption doesn't grow.
-- Question 5 tests the eggshell skill. A trainee who says the 2021 visits “don't matter” has argued; one who documents low back vs. neck, resolved, no prior neck complaints, has proved.
-- Question 7: an opioid with a muscle relaxant and a sedative, a drug screen that doesn't match the prescriptions, doses rising with no change in diagnosis, behavioral notes about general stress rather than the crash, head-injury symptoms first reported months later. The provider hears the safety issue; Atty. Thorne hears the legal one; the conversation is documented.
+- Question 1 is read, not recalled: have RS26 open and walk the EOB down to the member-responsibility line before anyone writes.
+- Question 2 is the balance-bill trap. The EOB says John Doe owes $0.00; the $1,540.00 is Crescent's contractual write-off. A trainee who calls it a lien, or tells John he owes it, has misread the EOB or crossed the line.
+- Question 3: Riverton Spine & Rehab's LOP (02/23/2026) and the declined Summit request (03/11/2026; its 03/13 MRI went to MedPay) are the Payer Order at work. Every needless LOP is a lien on his net.
 - Compare each self-rating with the score. UPL is a gate: a strong score does not survive a payment promise to a provider.
 
 ---
@@ -1609,11 +1609,11 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 |---|---|---|---|
 | 🤖 AI | **20%** | Reasons and documents | All four reasons, each with its corroborating document and date |
 | 🤖 AI | **15%** | Question discipline | The rewrite is open and names no reason; the cost of the lead stated |
-| 🤖 AI | **15%** | Documentation rules | Five continuous-care records and two prohibited acts; the disruption dated 04/02–04/21/2026 with its four missed visits |
+| 🤖 AI | **15%** | Causation and role | Causation and damages must be proved beyond fault: Dr. Reyes's 06/19/2026 Causation Letter, with the MRI and the EMS report; the CM requests and routes the records, the opinion is the physician's and its use Atty. Thorne's |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slides |
-| 🧑‍🏫 Trainer | **10%** | UPL boundary | Question 3 answered without reassurance or alarm; question 6 declined and escalated |
+| 🧑‍🏫 Trainer | **10%** | UPL boundary | Question 3 answered without reassurance or alarm, and John Doe's question routed to Atty. Thorne |
 | 🧑‍🏫 Trainer | **5%** | Self-rating calibration | Self-score is defensible against demonstrated performance |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
@@ -1621,7 +1621,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 #### 5 · Speaker Notes
 
 - Run question 3 aloud as a role-play before the written check: you are John Doe, a trainee answers. Stop the room on the first “don't worry”.
-- Ask the room about question 6: “Why is the provider's offer more dangerous than a missing note?” A missing note is a weakness; an altered one is a credibility collapse and possibly a fraud question.
+- Question 4 tests the line between gathering and opining: the CM requests and routes the records; Dr. Reyes gives the causation opinion, and Atty. Thorne decides how it is used.
 - Question 2 matters most. A trainee who cannot rewrite the lead has learned the rule, not the skill; send them back to the simulator.
 - UPL is a gate: a strong score does not survive a coached answer or a requested change to a record.
 
@@ -1717,8 +1717,8 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Specials accuracy | $6,290.00 → $6,105.00; $41,400.00 + $1,584.00 = $42,984.00 |
-| 🤖 AI | **15%** | Audit doctrine | Four objectives; MMI gate; future medical outside the Specials; billed vs paid shown |
-| 🤖 AI | **15%** | Defense-eye pairing | Four risks, each with its answering document |
+| 🤖 AI | **15%** | MMI and future medical | MMI is the treating physician's determination (Lakeside Orthopedics, 06/12/2026); the demand waits for it so the damages are complete; the $3,400–$6,800 future medical goes in the narrative, outside the $42,984.00 |
+| 🤖 AI | **15%** | Audit objectives | Verification, Valuation, Risk and Compliance, each with a finding from this file (for example the 05/04/2026 duplicate line, the 14-Day Gap, the SOL 02/06/2028 docketed) |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slide |
@@ -1731,7 +1731,7 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 
 - Open with the gate bar: this module turns the last two chips green, Specials audited at $42,984.00 and strategy approved by Atty. Thorne. The demand does not go out until all six are.
 - Ask the room: “Which number on this file would you defend line by line to Dana Whitfield?” It should be $42,984.00, and they should be able to say where every cent comes from.
-- Question 6 is the pressure scenario. The right answer stops the package, corrects the exhibit and every total that cites it, tells Atty. Thorne before anything is served, and lets him decide whether the 07/20/2026 service holds. Serving a known error to make the date is the failure.
-- Question 5 separates the trainee who knows the rule from the one who would pick a column. An answer that chooses billed or paid for the demand loses the UPL marks.
+- Question 1 is the arithmetic gate: $6,290.00 less the $185.00 duplicate of 05/04/2026 is $6,105.00; medical $41,400.00 plus wages $1,584.00 is $42,984.00, to the cent.
+- Question 2 separates the trainee who knows the rule from the one who would set the date: MMI is the doctor's call, and the future medical stays out of the audited total.
 
 ---

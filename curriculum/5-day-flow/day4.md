@@ -832,9 +832,9 @@ A matrix canvas across two-thirds of the slide: row labels down the left in navy
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** It is 04/05/2027. The 03/18/2027 mediation before Hon. Carla Benton (Ret.) produced Keystone's $10,000 BI tender: BI is exhausted, the UM consents are in, and Robert Smith is dismissed. Today Harbor Point and Cardinal State dispute damages, citing the gap. Harbor Point invokes its UM arbitration clause; Cardinal State joins one consolidated binding arbitration before Laura Whitcomb, Esq. Hearing: 06/22/2027 (Tue). The forum's schedule, as configured for this training file: exhibits exchanged 20 days before the hearing; the arbitration brief due 10 days before. Confirm the forum's rules.
+**Scenario.** It is 04/26/2027. The 03/18/2027 mediation before Hon. Carla Benton (Ret.) produced Keystone's $10,000 BI tender: BI is exhausted, the UM consents are in, and Robert Smith is dismissed. Harbor Point and Cardinal State dispute damages, citing the gap: Harbor Point invoked its UM arbitration clause on 04/05/2027, proposing Laura Whitcomb, Esq.; Cardinal State joined on 04/12/2027; and after the 04/23 scheduling call her Notice of Hearing, issued today, sets one consolidated binding arbitration. Hearing: 06/22/2027 (Tue). The forum's schedule, as configured for this training file: exhibits exchanged 20 days before the hearing; the arbitration brief due 10 days before. Confirm the forum's rules.
 
-**Execution prompt.** Build the ADR rules matrix for John Doe's file: a column for the 03/18/2027 mediation and one for the 06/22/2027 arbitration, with rows for the neutral and her power, binding effect and appeal, confidentiality, the opposing parties, the limits in play, the preparation standard, the CM's hard dates and the logistics. Hard-code the arbitration dates today, counting back from the hearing. Then map the UPL boundary for the hearing: what you do, what you never do, and your exact words if Laura Whitcomb, Esq. asks you about a bill. Route both to Atty. Thorne.
+**Execution prompt.** Build the ADR rules matrix for John Doe's file: a column for the 03/18/2027 mediation and one for the 06/22/2027 arbitration, with rows for the neutral and her power, binding effect and appeal, confidentiality, the opposing parties, the limits in play, the preparation standard, the CM's hard dates and the logistics. Hard-code the arbitration dates today, from the Notice of Hearing, counting back from the hearing. Then map the UPL boundary for the hearing: what you do, what you never do, and your exact words if Laura Whitcomb, Esq. asks you about a bill. Route both to Atty. Thorne.
 
 | | |
 |---|---|
@@ -952,7 +952,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **15%** | Anchor dates | 06/22/2027, 06/02/2027 and 06/11/2027 (not 06/14/2027) re-anchored to the 04/26/2027 letter, not entered twice |
-| 🤖 AI | **20%** | Dependent dates | 05/03, 05/14, 05/17, 04/21, 06/15 and 06/21/2027, each with its trigger, rule and arithmetic |
+| 🤖 AI | **20%** | Dependent dates | 05/03, 05/14, 05/17, 04/28, 06/15 and 06/21/2027, each with its trigger, rule and arithmetic |
 | 🤖 AI | **10%** | Fee as a cost | $900.00 plaintiff's share routed to accounting and logged as a case cost; confirmation by 05/17/2027 |
 | 🤖 AI | **15%** | Conflict check | SOL 02/04/2028 and cutoff 11/05/2027 unchanged; court entries kept and marked; no award date |
 | 🧑‍🏫 Trainer | **15%** | Trigger discipline | Can say, for any entry, which document set it and which rule counts from it |
@@ -983,7 +983,7 @@ A sorting board. Left column: the unsorted folder as a pile of white document ca
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** It is 05/17/2027. Keystone tendered the $10,000 BI limits at the 03/18/2027 mediation and Robert Smith was dismissed. On 04/05/2027 Harbor Point and Cardinal State disputed damages, citing the gap; Laura Whitcomb, Esq. hears the consolidated arbitration on 06/22/2027, with exhibits exchanged 06/02/2027. The unsorted exhibit folder holds a pre-filing draft of the Complaint, grayscale doorbell stills, the 09/08/2026 impasse memo, and a Lien Sheet totalling $17,965.00 that lists Harbor Point PIP at $10,000.00. The Litigation Desk's draft exhibit index is in the file (RS63), assigned on the 07/15/2026 task log (RS64): QC it, do not rebuild it from nothing.
+**Scenario.** It is 05/17/2027. Keystone tendered the $10,000 BI limits at the 03/18/2027 mediation and Robert Smith was dismissed. On 04/05/2027 Harbor Point, and on 04/12/2027 Cardinal State, disputed damages, citing the gap; Laura Whitcomb, Esq. hears the consolidated arbitration on 06/22/2027, with exhibits exchanged 06/02/2027. The unsorted exhibit folder holds a pre-filing draft of the Complaint, grayscale doorbell stills, the 09/08/2026 impasse memo, and a Lien Sheet totalling $17,965.00 that lists Harbor Point PIP at $10,000.00. The Litigation Desk's draft exhibit index is in the file (RS63), assigned on the 07/15/2026 task log (RS64): QC it, do not rebuild it from nothing.
 
 **Execution prompt.** Sort the folder into the six-tab Arbitration Binder and apply each tab's QC rule as you go. Lead with the BI exhaustion record, number every exhibit C-1 onward with its Bates range, and log each record's authentication. Defuse both landmines: build Tab 5's prior medical shield against the prior-injury line defense counsel pressed at the 02/18/2027 deposition (the 2021 low-back visits) and the “degenerative” MRI reading Keystone first raised on 08/05/2026, and strip the attorney's-set Lien Sheet to what is actually owed. Flag every privileged or settlement item for Atty. Thorne; nothing is exchanged until he approves the set.
 
@@ -994,15 +994,15 @@ A sorting board. Left column: the unsorted folder as a pile of white document ca
 
 **Verification checkpoints**
 
-- [ ] Tab 1: snapshot sheet (claimant John Doe; Harbor Point HP-26-7741, Cardinal State CS-26-20355, each carrier's current contact verified; arbitrator Laura Whitcomb, Esq.; hearing 06/22/2027); fee disclosures with retainer deposits confirmed paid; slot held for the final brief of 06/11/2027, never a draft
+- [ ] Tab 1 (Day 4 deck p25): snapshot sheet (claimant John Doe; Harbor Point HP-26-7741, Cardinal State CS-26-20355, each carrier's current contact verified; arbitrator Laura Whitcomb, Esq.; hearing 06/22/2027); the governing documents, Harbor Point's UM arbitration clause and Laura Whitcomb's Notice of Hearing of 04/26/2027; fee disclosures with retainer deposits confirmed paid; slot held for the final brief of 06/11/2027, never a draft
 - [ ] Threshold exhibits first: Keystone's $10,000 tender, the UM consents, the Limited Release and Robert Smith's dismissal, with both carriers' Coverage Letters (03/02/2026 and 03/09/2026); nothing from the Confidential Mediation Statement
-- [ ] Tab 2, arbitration pleadings: the demand under Harbor Point's clause, Cardinal State's joinder, each carrier's 04/05/2027 written position and any Scheduling Order, operative versions only; the tort complaint and answer moved to the attorney's set for Atty. Thorne's exchange decision; the pre-filing draft removed
+- [ ] Tab 2 (Day 4 deck p26), pleadings, operative versions only: the filed Complaint of 09/24/2026 and the Answer of 11/12/2026, with Harbor Point's demand of 04/05/2027 and Cardinal State's joinder and written position of 04/12/2027; the pre-filing draft removed; whether the dismissed tort case's pleadings are exchanged flagged for Atty. Thorne
 - [ ] Tab 3: the full, certified RPD-26-018842 (not the public-redacted copy), identifiers redacted as the forum requires, the citation's admissibility flagged for Atty. Thorne; doorbell stills reprinted in color from the native file, chain of custody logged (copy secured 02/19/2026); event data recorder (belt buckled, 11 mph)
 - [ ] Tab 4: treatment chart and ledger $41,400.00 tied to certified bills; a certification requested from each provider (Riverton Urgent Care, Riverton General Hospital, Riverton Spine & Rehab, Lakeside Orthopedics, Summit Imaging Center, Crescent Pain & Spine, Riverton Drug) and from Riverton Fire (EMS), Riverton PD and Northgate HR, receipt logged; none in 14 days → second request and subpoena flag (Crescent's, requested 05/05/2027, due 05/19); Causation Letter 06/19/2026 flagged: an opinion, not a business record, admitted per the forum's rules; the gap proved by its underlying records, the Gap Explanation Record's synthesis left for the brief
 - [ ] Landmine 1, Tab 5: the 2021 records (three low-back chiropractic visits, resolved), the treating providers' own histories and John's 02/18/2027 deposition testimony showing no prior neck complaint, paired with the MRI's “no significant degenerative change at the adjacent levels” and the Causation Letter; if the letter is silent on the 2021 visits, flagged to Atty. Thorne to decide whether to seek a supplemental declaration from Dr. Reyes; the firm's intake questionnaire is privileged: a source, never an exhibit
 - [ ] Landmine 2, attorney's set: Lien Sheet stripped of Harbor Point PIP's $10,000.00 ($17,965.00 → $7,965.00; no PIP or MedPay reimbursement right, per the 03/02/2026 letter in the threshold record); liens Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $7,965.00; Summit (MedPay paid its $2,395.00) and Crescent hold none
-- [ ] Tab 6, wage proof only: Northgate HR letter, 9 shifts × 8 h × $22.00 = $1,584.00; the negotiation ledger (07/20/2026 demand to the executed settlement documents, no session offers) kept in the attorney's set
-- [ ] Impasse memo, negotiation ledger and Lien Sheet flagged for Atty. Thorne's privilege and exchange decision, none placed in the exchange set by the CM
+- [ ] Tab 6 (Day 4 deck p30), economic losses and liens: Northgate HR letter, 9 shifts × 8 h × $22.00 = $1,584.00; the negotiation ledger (Harbor Point's $8,000 and Cardinal State's $6,000 offers, no mediation-session offers); the audited lien payout sheet at $7,965.00; the ledger and the lien sheet flagged for Atty. Thorne's exchange decision
+- [ ] Impasse memo pulled to the attorney's set; the impasse memo, the negotiation ledger and the Lien Sheet flagged for Atty. Thorne's privilege and exchange decision, none placed in the exchange set by the CM
 - [ ] Master index: C-numbers sequential, Bates ranges match page counts, authentication column complete, forum's evidence rule noted as “confirm with Atty. Thorne”; set approved before the 06/02/2027 exchange
 
 **Best practices & pitfalls**
@@ -1035,7 +1035,7 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 - Put the four red traps on the board, then cover them before anyone sorts. The skill is categorizing, ordering and formatting under pressure, and QC applied while sorting is what is graded.
 - Ask the room: “Harbor Point is the other side now. Our attorney's-set Lien Sheet says it is owed $10,000.00. What goes wrong?” Atty. Thorne would work John Doe's net from a reimbursement right Harbor Point gave up in writing on 03/02/2026. The sheet never goes to the arbitrator; it still has to be right.
 - On Tab 5, watch for trainees who start arguing causation. The CM pulls and pairs the records; whether to ask Dr. Reyes for a supplemental opinion on the 2021 visits is Atty. Thorne's decision.
-- The impasse memo is the privilege test. A trainee who files it in Tab 6 because it explains the history has misunderstood who decides what is exchanged.
+- The impasse memo is the privilege test. A trainee who files it in Tab 6 because it explains the history has misunderstood who decides what is exchanged. The deck's Tab 6 does carry the negotiation ledger and the audited lien sheet, but sitting in the binder is not the same as being exchanged: both wait on Atty. Thorne.
 
 ---
 
@@ -1065,7 +1065,7 @@ A CMS rules panel fills the left two-thirds: four rule rows on cream cards, each
 
 - [ ] Rule 1 set: follow-ups every 5 business days; supervisor escalation 48 hours after the second unanswered follow-up; Atty. Thorne 48 hours after an unanswered escalation
 - [ ] Calibration reproduces the file: Rule 1 fires 09/02/2026 (supervisor escalation) and 09/04/2026 (escalation task opened to Atty. Thorne that day; the full impasse memo followed on 09/08/2026, the first business day after the Labor Day weekend)
-- [ ] Rule 2 fires 02/22/2027 (02/08/2027 + 14 days): Level 1, Tammy Greer, Riverton Spine & Rehab's office manager, has not produced it, so the Case Manager sends a written Notice of Delay that day to the adjuster waiting on it (Harbor Point's Marcus Bell) and to Atty. Thorne, documenting the barrier
+- [ ] Rule 2 fires 02/22/2027 (02/08/2027 + 14 days): Level 1, Tammy Greer, Riverton Spine & Rehab's office manager, has not produced it, so the Case Manager sends a written Notice of Delay that day to Atty. Thorne, and, as he directs, to the side the binder serves (Keystone, through defense counsel Atty. Mercer), documenting the barrier
 - [ ] Subpoena flagged to Atty. Thorne as a decision for him; any draft is for his review and signature, never served by the Case Manager
 - [ ] Rule 3 red flags dated 03/01/2027 (10 days before 03/11/2027) for the ledger and 03/08/2027 (10 days before 03/18/2027) for Keystone's attendee with settlement authority, for Atty. Thorne to raise with defense counsel
 - [ ] Rule 4 audits set for 03/09/2027 (binder) and 03/16/2027 (session), both weekdays: ledgers verified, binder complete, digital set OCR-searchable
@@ -1326,7 +1326,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 |---|---|---|---|
 | 🤖 AI | **20%** | Net Sheet accuracy | Both streams and the total reach $20,359.92; 25% / 75% explained as pro rata to gross |
 | 🤖 AI | **15%** | Reconciliation sets | Four sets named with this file's items; 7-year retention from closing |
-| 🤖 AI | **15%** | Closing and dismissal doctrine | Zero-balance proof; gap answered by the MRI and Dr. Reyes's Causation Letter; dismissal with prejudice only where a suit is pending |
+| 🤖 AI | **15%** | Zero-balance proof | The three-way zero-balance proof (bank statement, trust journal, client ledger) at $0.00; a balance left in trust means a payee unpaid or a figure wrong, found and reported to Atty. Thorne before the file closes |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slide |
@@ -1338,8 +1338,8 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 #### 5 · Speaker Notes
 
 - Question 1 is the keystone. A trainee who cannot carry $40,000.00 to $20,359.92 down both streams without notes has not finished the Net Sheet; re-teach before moving on.
-- Put question 6 to the room before they write: “Is this a lien we missed, or a bill nobody owes?” Peach State's EOB shows the $1,540.00 ($3,400.00 – $1,860.00) as a contractual write-off Crescent cannot balance-bill. Model answer: verify the bill and its link to the accident against the ledger and the EOB, route it to Atty. Thorne, ask Crescent in writing to correct its account, and tell John Doe today what you are doing and when he will hear back. Whether he owes it is Atty. Thorne's to say.
-- Question 7 is the operational pincer. The right answer stops, documents every contact and escalates at once; any request for more time goes to Keystone in writing on Atty. Thorne's instruction. A deadline is never a reason to let John Doe sign a release that reaches $30,000 of UM coverage.
+- Question 2: $0.00 starts the close; it does not finish it. The money trail, proof of delivery, compliance and identity, and the closing memo of 10/30/2026 must all be in the file, which is kept 7 years from closing.
+- Question 3: the three-way proof is the bank statement, the trust journal and John Doe's client ledger agreeing at $0.00. A balance left over is a payee not paid or a figure wrong, never money to keep.
 - Compare each self-rating with the score, and remember UPL is a gate: a strong score does not survive an ethics breach.
 
 ---
@@ -1441,21 +1441,21 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 |---|---|---|---|
 | 🤖 AI | **20%** | Deadline arithmetic | 01/04/2027 with the mail days and the Sunday; brief 06/11/2027 counted backward |
 | 🤖 AI | **10%** | SOL cutoffs | 02/04/2028 and 11/05/2027, arithmetic shown |
-| 🤖 AI | **15%** | Forum logistics | Windows, fee schedule, retainer and layout owned before 06/22/2027; bench directives logged as given and calendared the same day; each forum placed correctly before or after a filing |
+| 🤖 AI | **15%** | Forum placement | What puts mediation and arbitration before a filing and what puts each after one; John Doe's mediation (03/18/2027, under the court's Order of Referral) and his arbitration (Harbor Point's UM clause, 06/22/2027) placed and explained; one plain sentence each for non-binding and binding |
 | 🤖 AI | **10%** | UM resolution routes | Mandatory arbitration vs. a civil suit against the carrier, decided by the state law and the policy clause; bad faith separate and above the limits; why Margaret’s Bluewater policy is no route (no UM: rejected in writing 03/14/2024), John owning no car |
 | 🤖 AI | **5%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slide |
-| 🧑‍🏫 Trainer | **10%** | UPL boundary | The hearing answer defers to Atty. Thorne on the record; the mediation answer escalates rather than accepts |
+| 🧑‍🏫 Trainer | **10%** | UPL boundary | The sentences to John Doe explain the process only, with no view on taking a number; the route and any bad-faith question left to Atty. Thorne |
 | 🧑‍🏫 Trainer | **5%** | Self-rating calibration | Self-score is defensible against demonstrated performance |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
 #### 5 · Speaker Notes
 
-- Run question 5 live: play Laura Whitcomb, Esq. and put the bill question to a trainee across the table. Grade the first sentence they say.
+- Run the end of question 3 live: play John Doe and have a trainee explain non-binding and binding, one sentence each. Grade the plain words.
 - Ask the room: “Which single date on this file would you check twice, and why?” Expect the RFAs or the SOL cutoffs; push for the reasoning.
-- Question 3 is the direction test. A trainee who lands on 06/14/2027 has memorised the weekend rule without its direction; re-teach before the binders, which count back from the same hearing.
+- Question 1 is the direction test. A trainee who lands on 06/14/2027 for the brief has memorised the weekend rule without its direction; re-teach before the binders, which count back from the same hearing.
 - UPL is a gate, as on every day: a strong score does not survive an answer that speaks for John Doe at the hearing or tells him whether to take a number.
 
 ---
@@ -1534,9 +1534,9 @@ The standard knowledge-check split: the question panel on the warm cream card wi
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **15%** | Section and tab recall | Six mediation sections and six arbitration tabs in order, with this file's documents |
+| 🤖 AI | **15%** | Section recall | Six mediation sections in order, each with a document from this file |
 | 🤖 AI | **15%** | Indexing and evidence | Master index fields, one source of truth, business-records certification, “confirm the forum's rules” |
-| 🤖 AI | **20%** | File accuracy | Pleaded defenses and their exhibits; the $10,000 tender as the threshold; Peach State's $1,860.00 as the only claim on the Crescent bill |
+| 🤖 AI | **20%** | File accuracy | The unbelted defense found in the Answer and its defense map (Section 3), answered in Section 4 by the event data recorder download (belt buckled, 11 mph) and the EMS Run Report (restrained front-seat passenger) |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slides |
@@ -1549,7 +1549,7 @@ The standard knowledge-check split: the question panel on the warm cream card wi
 
 - Open by having each trainee put their two master indexes side by side. This check verifies the binders they built, not their memory of the slides.
 - Ask the room: “Which document would hurt John Doe most if it were missing from these binders, and which would hurt most if it were included?” The usual pair is the Causation Letter and the impasse memo; make them say why.
-- Question 7 is the pressure scenario. The right answer requests the missing records and a certification covering all 33 visits at once, tells Atty. Thorne that evening, and leaves to him how the exchange is handled. It never exchanges a ledger that its records no longer support.
+- Question 3 ties the binder to the pleadings: the defense is read from the Answer in Section 3, and answered by exhibits, not by argument. A trainee who argues seatbelt law has left the Case Manager's lane.
 - Compare each self-rating with the score. UPL is a gate: a strong score does not survive a privileged memo in an exchanged set.
 
 ---
@@ -1619,22 +1619,22 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | Date accuracy | 08/24, 08/31, 09/02, 09/04/2026; 03/09, 03/11, 03/18/2027; 06/02/2027 |
+| 🤖 AI | **20%** | Date accuracy | 08/24, 08/31, 09/02, 09/04/2026; 03/08, 03/09, 03/11, 03/18/2027; 06/02/2027 |
 | 🤖 AI | **15%** | Doctrine recall | Unverified ledger, missing decision-maker, late brief; exclusion, unshielded prior, missed cutoff; the missing-ledger protocol |
-| 🤖 AI | **15%** | Escalation ladder | Lakeside: Level 1 with its office manager; Level 2 Notice of Delay 05/19/2027 to the adjusters and Atty. Thorne (facts only, no bad-faith argument); Level 3, Atty. Thorne's legal step, 05/21/2027 if unanswered |
+| 🤖 AI | **15%** | Rule 1 and the authority flag | Rule 1 on Keystone: follow-ups 08/24 and 08/31/2026, the 48-Hour Mandate escalation to the claims supervisor 09/02, still silent 09/04 and handed to Atty. Thorne; the missing decision-maker caught by the Rule 3 red flag of 03/08/2027, for Atty. Thorne to raise with defense counsel |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The first action on 05/24/2027 is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slide |
-| 🧑‍🏫 Trainer | **10%** | UPL boundary | No value talk or offer response to Teresa Okafor; Atty. Thorne's authority named |
+| 🧑‍🏫 Trainer | **10%** | UPL boundary | No value talk or offer response to any carrier; Atty. Thorne's authority named |
 | 🧑‍🏫 Trainer | **5%** | Self-rating calibration | Self-score is defensible against demonstrated performance |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 
 #### 5 · Speaker Notes
 
-- Question 5 is the pressure scenario and the module in one question: escalate, mark “Pending Final Verification”, include the interim ledger, let Atty. Thorne set expectations. A trainee who holds the binder has failed the 48-Hour Mandate.
-- Put Question 7 to the room before they write: what do you say to Teresa Okafor? The compliant answer takes the message, says Atty. Thorne will respond, and logs it. It never answers the gap argument or the offer.
-- Question 6 tests the ladder: Lakeside's office manager (Level 1) leaves it 14 days unanswered, so on 05/19/2027 a written Notice of Delay goes to the adjusters (Marcus Bell, Teresa Okafor) and Atty. Thorne; 48 hours of silence moves it to Level 3, Atty. Thorne's legal step, on 05/21/2027. The notice states facts and never argues motive.
+- Question 2 tests the ladder on the Keystone record: follow-ups 08/24 and 08/31/2026, the 48-Hour Mandate escalation to the claims supervisor 09/02, no answer by 09/04, and the hand-off to Atty. Thorne. Every rung is dated, states facts and never argues motive.
+- Question 3 is the missing-decision-maker bottleneck. Its countermeasure was set weeks before the session: the Rule 3 red flag of 03/08/2027, ten days before 03/18, for Atty. Thorne to raise with defense counsel. A trainee who first notices on the morning of the mediation had no countermeasure.
+- Question 1: one example per family, each with its hard date. An example with no date is an opinion, not a bottleneck.
 - Compare each self-rating with the score. UPL is a gate: a strong score does not survive a value conversation with a carrier.
 
 ---

@@ -80,7 +80,7 @@
       "say": "• Day 1's question returns: does Property Damage touch John Doe's case, now with money on the table\n• Keystone's $792.00 offer on Margaret's Civic does not lower John's settlement\n• Her Loss of Use and Diminished Value come from Keystone's $25,000 Property Damage limit, outside John's $40,000 stack\n• Three things can reach John: a too-wide release, the photos and estimates in his severity set, the rental dates behind his gap\n• Red flag: Keystone's release, \"all claims arising from\" the 02/06/2026 accident, can reach John's BI suit. Accept, reject, counter nothing; Atty. Thorne gets it"
     },
     "rules": {
-      "say": "• Read the release before the numbers: Keystone's 12/10/2026 release covers all claims from the 02/06/2026 accident, for Mr. Doe to sign\n• A Property Damage release must never release the injury claim\n• Check the claim number: KM-26-440871-PD for the car, KM-26-440871 for John; hold it, route to Atty. Thorne same day\n• John signs nothing; photos, estimate, $2,315.00 supplement and rental dates stay identical on both files\n• Never accept, reject, counter or value a car figure"
+      "say": "• Read the release before the numbers: Keystone's 12/10/2026 release covers all claims from the 02/06/2026 accident, for Margaret Doe to sign\n• A Property Damage release must be limited to Property Damage\n• Check the claim number: KM-26-440871-PD for the car, KM-26-440871 for John; hold it, route to Atty. Thorne same day\n• John signs nothing; photos, estimate, $2,315.00 supplement and rental dates stay identical on both files\n• Never accept, reject, counter or value a car figure"
     }
   },
   "d5m2-a1": {
@@ -88,7 +88,7 @@
       "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the release in CMS › Doc Hub as held, and route it to Atty. Thorne in CMS › Tasks › + Add Task the same day\n• Step 2: Log one Case Note: Diminished Value and Loss of Use stay on Margaret's file. Does this touch John Doe's case?"
     },
     "case": {
-      "say": "• Assuming Keystone PD's final position is $792.00 and $0 with an all-claims release for Mr. Doe, the release needs holding\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: the release routed, each PD outcome sorted"
+      "say": "• Assuming Keystone PD's final position is $792.00 and $0 with an all-claims release for Margaret Doe, the release needs holding\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: the release routed, each PD outcome sorted"
     },
     "check": {
       "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: “All claims” release routed the same day\n• Nobody asked to sign before Atty. Thorne's review; Diminished Value and Loss of Use on Margaret's file\n• The one thing to watch for: Telling Leah Moran “we'd probably take” any figure"
@@ -114,7 +114,7 @@
       "say": "• A deposition can shape the outcome of a litigated case; Atty. Thorne owns the legal strategy\n• Landmine audit: read the file for anything the defense will seize on, so counsel sees it first\n• Consistency is credibility: testimony is compared with his signed answers and records\n• Defense counsel then reports to the insurer on how John will come across to a jury\n• Calm him with the process, never a prediction like \"you'll do great\""
     },
     "frame": {
-      "say": "• First, the pre-deposition audit: prior medical history, signed answers, public social media; landmines to Atty. Thorne\n• Pillar one, de-escalate: no judge, no jury; calm with how the process works\n• Pillar two, testimony guidelines: pause, tell the truth, stop once answered; practised on neutral questions only\n• Pillar three, dress and demeanor: business casual; limitations described plainly, never shrunk or stretched\n• Tech check: camera at eye level, light in front, private room; day before, confirm date, time, link with all three"
+      "say": "• First, the pre-deposition audit: prior medical history, signed answers, public social media; landmines to Atty. Thorne\n• Pillar one, de-escalate: no judge, no jury; calm with how the process works\n• Pillar two, testimony guidelines: pause, tell the truth, stop once answered; Atty. Thorne practises them with John, the CM never coaches\n• Pillar three, dress and demeanor: business casual; limitations described plainly, never shrunk or stretched\n• Tech check: camera at eye level, light in front, private room; day before, confirm date, time, link with all three"
     },
     "rules": {
       "say": "• Finish the audit before 02/04/2027; route the 14-Day Gap, 19-day disruption, three 2021 low-back chiropractic visits, seatbelt, degenerative MRI\n• Check signed answers and public social media; mismatches go up same day; never tell John to delete a post\n• His account matches the records because he reviewed them with Atty. Thorne, not a memorised script\n• Test the setup with him 02/16/2027; confirm with all three parties 02/17/2027; nobody in the room, no notes, no messages"

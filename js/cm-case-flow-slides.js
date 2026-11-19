@@ -409,7 +409,7 @@ window.CM_CF_SLIDES = {
  "d1m1-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Name the **six stages** in order. What does the CM own at Intake & Case Opening?",
+   "Name the **seven stages** in order. What does the CM own at Intake & Case Opening?",
    "John Doe asks his case's **worth**, and if waiting hurt it. Your exact words, and what you log?",
    "What must happen **before the matter is created** in the CMS, and on whose names?"
   ]
@@ -947,14 +947,14 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming the Police Report shows **Margaret Doe owns the Civic** and John Doe rode as a passenger, Keystone PD's six items need sorting on the file.",
   "side": true,
   "steps": [
-   "In CMS → Doc Hub, index the photos, the tow record and the Police Report as evidence for **John Doe's injury claim**.",
+   "In CMS → Doc Hub, index the Police Report as evidence for **John Doe's injury claim**, and set a request task for the photos and the tow record.",
    "Log one Case Note in CMS → Notes → Case Notes: the rental and Loss of Use stay on Margaret's claim, referred to Atty. Thorne. Does PD touch our case?"
   ],
   "deliver": "BI evidence indexed and **the one-line PD answer** logged",
   "purpose": "Sorting first keeps **Margaret's PD claim** off John Doe's file",
   "principle": "PD touches our case **as evidence, never as his claim**",
   "checks": [
-   "Photos, tow record, Police Report **indexed as BI evidence**",
+   "Police Report **indexed as BI evidence**; photos, tow record requested",
    "Rental, Loss of Use **left on Margaret's claim**",
    "Note ends with **the one-line answer**"
   ],
@@ -4399,7 +4399,7 @@ window.CM_CF_SLIDES = {
   "situation": "File date 07/20/2026. MMI reached; Specials $42,984.00. Atty. Thorne approved **$10,000 limits**, a Limited Release of Smith and Keystone, Smith's affidavit, 30 days from receipt. The draft awaits **your final audit**.",
   "steps": [
    "Download the case documents from 📁 Source Files, check the draft against the Big Four and the Final Scrub, and log each fix as a CMS task.",
-   "Build the packet by hand, in this order: cover letter, index, demand letter, PIP Log, then the **bills and records** by provider and date.",
+   "Build the packet by hand: demand letter, exhibit index, then Exhibits A–J, **liability first** (A–D), then records and bills, MRI, Causation Letter, wages, Gap Record, Dec Page.",
    "Combine them into one PDF, make it searchable (OCR), bookmark each section, and Bates-number every page once.",
    "Name it by the firm's convention, ending in _DRAFT, and file it in CMS → Doc Hub so it reaches folder 05 Insurance.",
    "Once Atty. Thorne signs, email it to Dana Whitfield, and docket 08/21/2026 from her 07/22/2026 written acknowledgement."
@@ -4427,7 +4427,7 @@ window.CM_CF_SLIDES = {
    "steps": [
     "Download the case documents from 📁 Source Files into **your training Drive**",
     "Audit the draft against **the Big Four and Final Scrub**",
-    "Order it by hand: cover letter, index, demand, PIP Log, **bills, records**",
+    "Order it by hand: demand letter, index, then Exhibits A–J, **liability first**",
     "Combine into one PDF; **OCR, bookmark** and Bates-number every page",
     "Name it by the convention, ending **_DRAFT**; route to Atty. Thorne",
     "Once signed, upload the served set to **the CMS for the audit**"
@@ -4501,7 +4501,7 @@ window.CM_CF_SLIDES = {
      "more": [
       "Keystone tendered its $10,000 limit on 08/12/2026",
       "Exhaustion proof: Keystone's Dec Page (03/20/2026) and Smith's affidavit of no other insurance (08/10/2026)",
-      "Notice of both UM claims went out in 03/2026; only the demand waits",
+      "Notice of both UM claims went out 02/17/2026; only the demand waits",
       "Exhaustion clauses vary by policy and state: Atty. Thorne confirms the governing rule"
      ]
     },
@@ -7875,7 +7875,7 @@ window.CM_CF_SLIDES = {
   "image": "release-signature",
   "hook": "Margaret's PD figures never move John's settlement; **a wide release could**.",
   "points": [
-   "A PD-only release **never releases the BI claim**",
+   "A PD release is **limited to Property Damage**",
    "Check **the claim number**: KM-26-440871-PD, not KM-26-440871",
    "Photos, estimate, supplement: **already John's severity set**",
    "$25,000 PD sits **outside the $40,000 stack**"
@@ -7923,14 +7923,14 @@ window.CM_CF_SLIDES = {
  },
  "d5m2-a1": {
   "image": "phone-call",
-  "situation": "Assuming Keystone PD's final position is **$792.00 and $0** with an all-claims release for Mr. Doe, the release needs holding.",
+  "situation": "Assuming Keystone PD's final position is **$792.00 and $0** with an all-claims release for Margaret Doe, the release needs holding.",
   "side": true,
   "steps": [
    "Log the release in CMS → Doc Hub as held, and route it to Atty. Thorne in CMS → Tasks → + Add Task **the same day**.",
    "Log one Case Note: Diminished Value and Loss of Use stay on Margaret's file. Does this touch John Doe's case?"
   ],
   "deliver": "**The release routed**, each PD outcome sorted",
-  "purpose": "One signature on a wide release could **reach John's BI claim**",
+  "purpose": "One signature on a wide release could give up **more than the Civic**",
   "principle": "PD reaches John's settlement **through the release, never its figures**",
   "checks": [
    "“All claims” release **routed the same day**",

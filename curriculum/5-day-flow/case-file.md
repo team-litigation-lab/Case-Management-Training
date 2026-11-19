@@ -34,7 +34,7 @@ BI must be exhausted (paid or tendered at limits) before Host UM opens; Relative
 A UM demand before the BI tender is premature; settling or releasing BI without the UM carriers' written consent can forfeit the stack. **Payer Order** (who pays the Medical Bills
 while the claim is open) is a different question: PIP/MedPay → private health insurance → LOP/provider liens.
 
-**PIP (Riverton's rule).** Riverton is an **add-on PIP state**: every auto policy carries $10,000 of Personal Injury Protection unless the named insured rejects it in writing. PIP pays **100% of reasonable accident medical expenses and 80% of lost income**, regardless of fault, with no deductible; a provider that bills PIP is paid at Riverton's PIP fee schedule and may not balance-bill the injured person for the difference. It is add-on, not no-fault: it does not reduce BI or UM, and Riverton bars a PIP carrier from recovering what it paid out of its insured's settlement. **Whose PIP:** John owns no car, so he claims PIP as a passenger on the vehicle he rode in: **Harbor Point's PIP on Kevin Alvarez's Escape, $10,000** (claim HP-26-7741). The same policy carries **Medical Payments (MedPay), $5,000 each person**, which pays reasonable medical expenses at the billed amount once PIP is exhausted, also with no reimbursement right. PIP application signed 02/17/2026 and sent with the Harbor Point LOR; Harbor Point acknowledged it and opened PIP on 02/24/2026 (RS65).
+**PIP (Riverton's rule).** Riverton is an **add-on PIP state**: every auto policy carries $10,000 of Personal Injury Protection unless the named insured rejects it in writing. PIP pays **100% of reasonable accident medical expenses and 80% of lost income**, regardless of fault, with no deductible; a provider that bills PIP is paid at Riverton's PIP fee schedule and may not balance-bill the injured person for the difference. It is add-on, not no-fault: it does not reduce BI or UM, and Riverton bars a PIP carrier from recovering what it paid out of its insured's settlement. **Whose PIP:** John owns no car, so he claims PIP as a passenger on the vehicle he rode in: **Harbor Point's PIP on Kevin Alvarez's Escape, $10,000** (claim HP-26-7741). The same policy carries **Medical Payments (MedPay), $5,000 each person**, which pays reasonable medical expenses at the billed amount once PIP is exhausted, also with no reimbursement right. PIP application signed by John at intake (02/09/2026, with the retainer and HIPAA authorization) and sent with the Harbor Point LOR on 02/17/2026; Harbor Point acknowledged it and opened PIP on 02/24/2026 (RS65).
 **The Emergency Medical Condition (EMC) rule.** Riverton's PIP pays its full $10,000 of medical benefits only when a
 physician documents an **Emergency Medical Condition**; without that finding, medical benefits stop at **$2,500**
 (the rule Florida also uses, Fla. Stat. § 627.736(1)(a); Riverton has no treat-within-14-days condition). On John's
@@ -93,7 +93,7 @@ passenger door at about 28 mph; the Escape was pushed into Margaret's Civic, par
 - Riverton PD report **RPD-26-018842**: Smith cited for failure to stop at a stop sign.
 - Independent witness: **Ruth Calloway**, 2209 Maple Hollow Rd.
 - **Doorbell-camera video** from 2214 Maple Hollow Rd (Margaret's camera) shows the Escape stopped and Smith
-  rolling through; John was told to preserve it on 02/17/2026 (copy secured 02/19/2026).
+  rolling through; John was asked at intake (02/09) to have it kept, and Margaret was asked in writing to preserve it on 02/17/2026 (copy secured 02/19/2026).
 - Riverton Fire **EMS Run Report**: "restrained front-seat passenger, complains of neck stiffness, declined transport."
 - The Escape's **event data recorder** (downloaded 10/2026 in litigation): front-passenger belt *buckled*; Escape at 11 mph at impact.
 
@@ -168,7 +168,7 @@ passenger door at about 28 mph; the Escape was pushed into Margaret's Civic, par
   05/18 Crescent's work note, off work 05/15–05/18/2026 (RS17). The five shifts 02/09–02/13 predate treatment and carry
   no provider note: Northgate's call-out record (neck pain), the EMS report and the 02/07/2026 pharmacy receipt support
   them, and they are **flagged to Atty. Thorne, kept in the claim, never dropped or hidden**. A draft wage worksheet built
-  from John's own recollection (06/23/2026, RS94: it counted 02/18 and 02/19, which he worked, put the MRI on 03/12, added
+  from John's own recollection (06/22/2026, RS94: it counted 02/18 and 02/19, which he worked, put the MRI on 03/12, added
   overtime and light-duty hours that never happened, and left out 02/09–02/13) was audited to the **Lost Wage
   Verification Record (07/01/2026, RS95)** at $1,584.00. At MMI (06/12/2026) Dr. Reyes released him to full duty; any
   loss-of-earning-capacity claim is Atty. Thorne's to assess with the treating physician. The exchange with Northgate is
@@ -208,13 +208,13 @@ nightmares of the crash, felt low and stayed in his room, stopped playing pickup
 calls because he was ashamed to explain. He kept working his Northgate shifts (no missed shifts in April), riding the
 city bus, whose route does not pass the corner.
 
-**The drop-warning protocol (the No Contact Protocol, run inside A-C-T's Assess):**
+**The drop-warning protocol (the No Contact Protocol: its Step 1 internal review is A-C-T's Assess; its outreach runs inside A-C-T's Clarify):**
 
 | Date | What happened |
 |---|---|
 | 03/31/2026 (Tue) | Last logged contact: the CM's routine check-in call |
 | 04/03 (Fri), 04/07 (Tue) | Missed visits, no call; the clinic's reminder calls unanswered |
-| **04/08/2026 (Wed)** | Riverton Spine & Rehab's missed-visit alert, 10:52 a.m. Step 1 internal review (SOL 02/06/2028; week-6 re-evaluation missed 04/07; last contact 03/31). Notice 1: call to (555) 010-2288, voicemail, 11:20 a.m.; text, 11:24 a.m. |
+| **04/08/2026 (Wed)** | Riverton Spine & Rehab's missed-visit alert, 10:52 a.m. Step 1 internal review (SOL 02/06/2028; visits of 04/03 and 04/07 missed, so the Case Plan's week-6 measures due 04/07 were not taken; last contact 03/31). Notice 1: call to (555) 010-2288, voicemail, 11:20 a.m.; text, 11:24 a.m. |
 | 04/09 (Thu) | Missed visit. Notice 2: second call, voicemail, 9:05 a.m.; re-engagement email to john.doe@example.com, 9:12 a.m. |
 | **04/10/2026 (Fri)** | Emergency contact: Margaret Doe, 12:30 p.m. John is safe and working but "keeping to himself"; she will pass on the message; no case details shared. Step 3: escalated to Atty. Thorne, 1:15 p.m.; he approves the letter. **10-Day Final Warning Letter** (RS76) by certified mail AND email, 4:05 p.m.: respond by **04/20/2026 (Mon)**; withdrawal possible, not decided; nothing about the claim. CMS status flag **Drop Warning**, deadline calendared |
 | 04/13 (Mon) | Certified-mail receipt signed "M. Doe". Notice 3: text that the letter has been sent and the date it asks for |
@@ -357,7 +357,7 @@ the MRI with its addendum) and Riverton Spine & Rehab's ledger audited to 33 vis
     day; all correspondence is filed in the CMS and kept on the Backup Drive. Every later date and figure stands: funds
     cleared 10/20, Settlement Statement 10/21, disbursement 10/22, net $20,359.92.
 - **08/31/2026** Host UM demand to Harbor Point ($20,000) and Relative UM demand to Cardinal State ($10,000, as
-  excess over Host UM), each emailed to its adjuster (Marcus Bell; Teresa Okafor), logged, with written
+  excess over Host UM), each emailed to its adjuster (Marcus Bell; Teresa Okafor), a paper copy following by certified mail (RS44), logged, with written
   acknowledgement of receipt requested.
 - Harbor Point offers $8,000 (09/14; cites the gap and "BI already compensated him"); the CM's counter-package
   goes 09/16; **Harbor Point pays $20,000 limits 09/29/2026** (check received 10/05).

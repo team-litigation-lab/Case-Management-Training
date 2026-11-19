@@ -72,11 +72,11 @@ function meet(){
    caseMap and coverageMap, the old Day 1 introduction slides, kept there: change both together) ---------- */
 function fileMap(){
   const c = CF.case, ls = layers(), days = DAYS.filter(d => d.cf).sort((a, b) => a.cf.n - b.cf.n);
-  const marks = {1: [`Loss ${c.dol}`, `SOL ${c.sol} docketed`, "Matter opened in the CMS"],
-    2: [`Care starts ${c.treatmentStart}`, "The gap to explain", "LORs to every carrier"],
-    3: ["Specials audited", "Demand served", `${money(c.total)} stack negotiated`],
-    4: ["Liens reduced", "Net Sheet to the cent", "Mediation & Arbitration"],
-    5: ["Impasse → suit", "Discovery & deposition", "Award, then close-out"]};
+  const marks = {1: [`Loss ${c.dol} · SOL ${c.sol} docketed`, "LORs to every carrier", `Care starts ${c.treatmentStart}`],
+    2: ["The gap explained", "Specials audited, demand served", "BI settled at limits"],
+    3: [`UM paid: ${money(c.total)} recovered`, "Liens reduced, Net Sheet to the cent", "Disbursed and closed"],
+    4: ["Impasse: the Track B fork", "Mediation & the binders", "UM arbitration"],
+    5: ["Suit filed", "Discovery & deposition", "Award, then close-out"]};
   const plan = [
     [`The stack caps the recovery at ${money(c.total)}`, "Plan the care and the records so the damages prove value through all three layers."],
     ls[0] ? [`${ls[0].tag} pays first: ${money(ls[0].limit)}`, `A tender at limits opens ${ls[1] ? ls[1].tag : "the next layer"}; UM consent to settle and the subrogation waiver come before any release.`] : null,
