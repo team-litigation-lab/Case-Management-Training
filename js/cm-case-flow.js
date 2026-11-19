@@ -705,7 +705,8 @@ const EMAIL_NEED = {
   "d2m3-a2": "cm_records_dob",                // the gap justification record: a records request refused
   "d2m4-a2": "cm_attorney_status",            // the pre-demand strategy session: "where are we?"
   "d3m2-a2": "cm_client_net",                 // closing the gross recovery: "where is my money"
-  "d3m4-a2": "all_wire_phish"                 // release and disbursement: fraudulent wire instructions
+  "d3m4-a2": "all_wire_phish",                // release and disbursement: fraudulent wire instructions
+  "d3m4-a1": "all_wire_phish"                 // the Net Sheet's disbursement gate (d3m4-a2 merged into it): the same wire fraud
 };
 /* The Training Portal's Packet Builder (simulators/demand-packet.html) assembles the packet these steps put together, as
    one PDF (cover letter, index, demand, PIP log, bills, records; or the binders' numbered tabs), and files it into the
@@ -729,7 +730,7 @@ Object.assign(NET_STAGE, {"d3m2-bins": "bi", "d3m2-umns": "um"});   // the settl
    discovery; Court E-Filing for every court date the litigation track sets and for the complaint,
    the First Amended Complaint and alternative service. */
 const WORKED_IN = {
-  "d2m2-a1": ["records"], "d2m2-a2": ["records"], "d2m2-a3": ["records"], "d2m3-a2": ["records"], "d2m4-a1": ["records"], "d3m3-a2": ["records"],
+  "d2m2-a1": ["records"], "d2m2-a2": ["records"], "d2m2-a3": ["records"], "d2m3-a2": ["records"], "d2m4-a1": ["records"], "d3m1-a1": ["records"], "d3m3-a2": ["records"],
   "d4m1-a2": ["efiling"], "d4m2-a2": ["efiling"], "d5m1-a1": ["efiling", "records"], "d5m1-a2": ["efiling"],
   "d5m3-a1": ["efiling"], "d5m4-a2": ["efiling"],
   "d2m2-l1": ["records"], "d2m2-l2": ["records"], "d2m4-l1": ["records"], "d4m1-l2": ["efiling"], "d4m2-l1": ["efiling"], "d5m1-l1": ["efiling"], "d5m1-l2": ["efiling"]};

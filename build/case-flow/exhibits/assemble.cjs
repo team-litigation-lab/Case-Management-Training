@@ -329,6 +329,11 @@ for (const f of fs.readdirSync(HERE).filter(f => /^d\d\.json$/.test(f)).sort()){
       if(gone.length) errors.push(`${at}: ${gone.join(", ")} is in no source the screening draws on. A lesson or case-file change has left it behind.`);
     }
     out.amendments[id] = a;
+    // was: the activity the set lived on before it was merged into this one (retired, mergedInto this id): the set is
+    // kept under that id too, so the requests a trainee screened and sent there still show and still score
+    [].concat(a.was || []).forEach(w => { const wb = BLOCKS[w];
+      if(!wb || !wb.retired || wb.mergedInto !== id) errors.push(`${at}.was: ${w} must be a retired activity merged into ${id}`);
+      else out.amendments[w] = a; });
   }
 }
 if(!Object.keys(out.audits).length) errors.push("no audits found in build/case-flow/exhibits/dN.json");
