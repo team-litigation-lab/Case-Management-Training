@@ -28,7 +28,9 @@ async function sign(payload, secret) {
     const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(payload));
     return btoa(String.fromCharCode(...new Uint8Array(sig))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
-const ticketFor = async (obj, secret) => { const p = b64url(JSON.stringify(obj)); return p + '.' + await sign(p, secret); };
+// A Portal ticket names the program it is for (p, its topic key: the Portal's makeTicket); p: undefined leaves it out.
+const PORTAL_TOPIC = 'CM TRAINING';
+const ticketFor = async (obj, secret) => { const p = b64url(JSON.stringify(Object.assign({ p: PORTAL_TOPIC }, obj))); return p + '.' + await sign(p, secret); };
 
 // ---------- the Training Tools hub's addresses (js/cm-skillbuilders.js) ----------
 function toolAddresses() {

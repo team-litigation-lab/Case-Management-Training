@@ -240,6 +240,15 @@ export class TicketLedger {
   }
   async alarm() { await this.state.storage.deleteAll(); }
 }
+/* 🎯 A Portal ticket names the program it was made for (p: the topic key, functions/api/launch.js makeTicket). This
+   program refuses a ticket whose p is another program, a tool, or a course's tool link (p "tool"): why.r "audience", so
+   Program Access on the Portal stays the one gate. A ticket with no p is still taken, so nobody is locked out whichever
+   side deploys first: tickets are signed by the Portal and the courses only and live 5 minutes, and once the Portal and
+   the courses' tool tickets carry p, no ticket without one is made any more. */
+const PORTAL_TOPIC = "CM TRAINING";
+function ticketAudienceOk(env, t) {
+  return !t || t.p == null || String(t.p) === PORTAL_TOPIC;
+}
 async function readPortalTicket(env, ticket, why = {}) {
   if (!portalSecret(env)) { why.r = "format"; return null; }
   const parts = String(ticket || "").split(".");
@@ -249,13 +258,17 @@ async function readPortalTicket(env, ticket, why = {}) {
   let t; try { t = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(parts[0].replace(/-/g, "+").replace(/_/g, "/")), (c) => c.charCodeAt(0)))); } catch (e) { why.r = "format"; return null; }
   const exp = Number(t && t.exp);
   if (!exp || Date.now() > exp || exp - Date.now() > PORTAL_TICKET_MAX_MS) { why.r = "expired"; return null; }
+  if (!ticketAudienceOk(env, t)) { why.r = "audience"; return null; }
   if (t.r === "s") return { system: true };   // the Portal's own server-side tools (sign-in check, registration import): never given to a person
   if (t.r === "a") return { admin: true, name: String(t.n || "").trim().slice(0, 60) };   // an administrator signed in on the Portal (their own admin account)
   const first = String(t.first || "").trim(), last = String(t.last || "").trim(), batch = String(t.b || "").trim();
   if (!first || !last || !batch) return null;
   // u: the Portal's own id for the trainee, when the ticket carries one (it stays the same when their Batch ID is corrected)
   const uid = String(t.u || "").trim().slice(0, 80);
-  return { name: `${first} ${last}`, first, last, batch, uid };
+  // full: the whole name as registered on the Portal (a middle initial, a suffix), shown as the trainee's fullName; the
+  // ID stays first + last name + batch, so a trainee never gets a second account from it
+  const full = String(t.full || "").replace(/\s+/g, " ").trim().slice(0, 120);
+  return { name: `${first} ${last}`, first, last, batch, uid, full };
 }
 // Like readToken, but an expired token still counts for a while (same signature, same trainee), so a trainee
 // midway through the course whose 30 days run out isn't sent back to the portal in the middle of a lesson.
@@ -1977,13 +1990,15 @@ export default {
         const who = await readPortalTicket(env, ticket, why);
         if (!who) return json({ error: why.r === "signature"
           ? "The LSH Training Portal couldn't be verified (code: bad-signature). Please tell your administrator: the Portal and this program need the same sign-in secret."
+          : why.r === "audience" ? "This sign-in link was made for another program or tool. Open this program from the LSH Training Portal's Training Directory."
           : "This sign-in link has expired. Open the program again from the LSH Training Portal.", code: why.r || "format" }, 401);
+        // Every Portal ticket works once (a trainee's, a trainer's and the Sign-in check's), so a copy of the link (browser
+        // history, a forwarded URL) can't sign anyone in again inside its 5 minutes.
+        if (!(await useTicketOnce(env, kv, ticket))) return json({ error: "This sign-in link was already used. Open the program again from the LSH Training Portal.", code: "used" }, 401);
         if (who.system) return json({ admin: true, token: await makeToken(env, "a", "admin", 12) });
         if (who.admin) {
           // Single sign-on for trainers too: an administrator signed in on the Main Portal opens every program as a
-          // trainer, with no second password here. Their ticket works once, so a copy of the link (browser history,
-          // a forwarded URL) can't sign anyone in again inside its 5 minutes.
-          if (!(await useTicketOnce(env, kv, ticket))) return json({ error: "This sign-in link was already used. Open the program again from the LSH Training Portal.", code: "used" }, 401);
+          // trainer, with no second password here (the ticket was taken once, above).
           return json({ admin: true, name: who.name, token: await makeToken(env, "a", who.name ? "admin:" + String(who.name).replace(/[.]/g, " ").slice(0, 80) : "admin", 12) });   // (the token names the trainer: kcReset's `by`)
         }
         let res = await traineeSession(who.name, who.batch, "", who.uid);
@@ -2023,7 +2038,12 @@ export default {
         }
         // 🪪 the uid index (resolveTrainee looks at it first): this Portal id now opens this record, under whatever name or batch
         if (who.uid && out.existing && (!out.existing.portalUid || out.existing.portalUid === who.uid)) await indexUid(kv, who, out.id);
-        return json(Object.assign(out, { name: who.name, first: who.first, last: who.last, batch: who.batch }));
+        // the full name as registered on the Portal (with a middle name or initial), kept beside the record's name
+        if (out.existing && who.full && who.full !== who.name && out.existing.fullName !== who.full) {
+          out.existing = Object.assign({}, out.existing, { fullName: who.full });
+          await ownerPut(kv, `trainee:${out.id}`, JSON.stringify(out.existing));
+        }
+        return json(Object.assign(out, { name: who.name, first: who.first, last: who.last, batch: who.batch }, who.full ? { fullName: who.full } : {}));
       }
 
       const tok = secure ? await readToken(env, request) : { role: "a", id: "open-mode" };
@@ -2058,7 +2078,8 @@ export default {
         // A trainer signed in here (the admin password, or the Portal's admin sign-in) opens the CMS as a trainer, the
         // same {r: "a"} ticket the Portal gives its administrators: the CMS takes it once (its useTicketOnce), so a
         // fresh one is made for every tool opened. Single sign-on on every platform, for trainers as for trainees.
-        if (tok.role === "a") return json({ ticket: await sign({ r: "a", n: "", exp: Date.now() + 5 * 60 * 1000 }), admin: true });
+        // (p "tool": a tool's ticket; no training program takes it, so it can't open one)
+        if (tok.role === "a") return json({ ticket: await sign({ r: "a", n: "", p: "tool", exp: Date.now() + 5 * 60 * 1000 }), admin: true });
         if (tok.role !== "t") return json({ error: "not-available" }, 403);
         const rec = JSON.parse((await kv.get(`trainee:${tok.id}`)) || "null");
         if (!rec || rec.approved !== true || rec.archived) return json({ error: "not-approved" }, 403);
@@ -2069,7 +2090,7 @@ export default {
         const ids = candidateIds(`${first} ${last}`, rec.batch);
         // (or the record they resolve to: the uid index's, after the Portal changed the name or batch, or a merge's)
         if (![ids.newId, ids.rawId, ids.altId, ids.legacyId].includes(tok.id) && (await resolveTrainee(kv, `${first} ${last}`, rec.batch, rec.portalUid || "")).chosen !== tok.id) return json({ error: "identity-mismatch" }, 403);
-        return json({ ticket: await sign({ first, last, b: String(rec.batch || ""), exp: Date.now() + 5 * 60 * 1000 }) });
+        return json({ ticket: await sign({ first, last, b: String(rec.batch || ""), p: "tool", exp: Date.now() + 5 * 60 * 1000 }) });
       }
 
       /* ---------- 🕘 automatic Time In: a trainee's first visit today (see checkIn) ---------- */
