@@ -1,7 +1,7 @@
 {
   "title": "Case Management Training — Day 2",
   "deck": "Revised Case Management Training Day 2 (Canva, 44 pages; the Skill Building pages 11, 12, 20, 32 and 43 are left out of the video)",
-  "voice": "en_US-lessac-high, converted to the trainer's own voice (revoice.py)",
+  "voice": "the trainer's own voice, spoken by Chatterbox Turbo from voice/sample.wav (make_video.py --turbo)",
   "day": 12,
   "lessons": {
     "d2m4-l1": [
@@ -57,44 +57,44 @@
     "captions": "/decks/day2/day2-narrated.vtt",
     "starts": [
       0.0,
-      31.1,
-      62.9,
-      128.2,
-      184.9,
-      252.5,
-      313.3,
-      369.8,
-      434.6,
-      492.2,
-      552.7,
-      608.2,
-      662.9,
-      720.5,
-      777.4,
-      835.3,
-      889.4,
-      945.8,
-      1004.3,
-      1061.3,
-      1109.2,
-      1165.0,
-      1216.4,
-      1273.4,
-      1332.4,
-      1384.5,
-      1440.3,
-      1495.6,
-      1546.2,
-      1603.7,
-      1657.4,
-      1717.9,
-      1774.1,
-      1825.4,
-      1880.0,
-      1927.1,
-      1983.2,
-      2040.3,
-      2097.5
+      35.0,
+      70.2,
+      136.2,
+      198.3,
+      267.1,
+      330.6,
+      389.3,
+      457.2,
+      518.7,
+      580.5,
+      640.0,
+      698.4,
+      755.9,
+      816.3,
+      876.6,
+      932.4,
+      990.6,
+      1051.4,
+      1110.7,
+      1164.8,
+      1229.8,
+      1286.8,
+      1352.6,
+      1410.9,
+      1464.4,
+      1519.3,
+      1577.5,
+      1629.3,
+      1689.4,
+      1743.4,
+      1807.3,
+      1864.1,
+      1920.7,
+      1978.6,
+      2027.0,
+      2086.6,
+      2145.7,
+      2205.1
     ]
   },
   "say": {
@@ -158,7 +158,7 @@
     {
       "page": 5,
       "title": "Master Audit Checklist: Financial & Lien Verification",
-      "notes": "Now the math. The checklist starts with financial and lien verification. Special damages are the hard numbers: medical bills and lost wages. The slide's general definition also folds in property damage, but on our file the Civic is Margaret's, handled on her own claim, so it stays out of John's specials. Our numbers are medical specials of fourteen thousand eight hundred seventeen dollars and forty cents after the audit, plus lost wages of one thousand five hundred eighty-four dollars, for total specials of sixteen thousand four hundred one dollars and forty cents. The slide warns that wages need an employer letter and a doctor's note. We have Northgate's wage-and-attendance letter, and each missed shift is tied to a record, except five shifts in February that predate treatment. Those were flagged to Atty. Thorne and kept in the claim, never hidden. Then liens. Peach State first asserted three thousand six hundred eighteen dollars, and the line-by-line dispute brought it to one thousand eight hundred sixty. Riverton Spine and Rehab's LOP is the other. Miss a lien, and the client can walk away with nothing."
+      "notes": "Now the math. The checklist starts with financial and lien verification. Special damages are the hard numbers: medical bills and lost wages. The slide's general definition also folds in property damage, but on our file the Civic is Margaret's, handled on her own claim, so it stays out of John's specials. Our numbers are medical specials of forty-one thousand four hundred dollars after the audit, plus lost wages of one thousand five hundred eighty-four dollars, for total specials of forty-two thousand nine hundred eighty-four dollars. The slide warns that wages need an employer letter and a doctor's note. We have Northgate's wage-and-attendance letter, and each missed shift is tied to a record, except five shifts in February that predate treatment. Those were flagged to Atty. Thorne and kept in the claim, never hidden. Then liens. Peach State first asserted three thousand six hundred eighteen dollars, and the line-by-line dispute brought it to one thousand eight hundred sixty. Riverton Spine and Rehab's LOP is the other. Miss a lien, and the client can walk away with nothing."
     },
     {
       "page": 6,
@@ -183,7 +183,7 @@
     {
       "page": 10,
       "title": "Final Package Readiness",
-      "notes": "Here is what an audited file looks like when it goes to the attorney. Three pieces. A one-page summary memo of what the audit found. An exhibit index, with every bill, record and photo labeled. And the Ask, the demand figure, calculated from the policy limits and the specials. On our file, the Ask is simple to state: Keystone's ten thousand dollar BI limit, against total specials of sixteen thousand four hundred one dollars and forty cents. The specials alone exceed the limit, before pain and suffering is even counted. Now the pro tip on the slide: audit the policy limits one more time. The slide's example of a hundred thousand dollar demand against a twenty-five thousand dollar policy is general, but the lesson fits us. Keystone gave its limit verbally at first and wouldn't confirm it in writing until it had signed authorizations. The Declaration Page confirming ten thousand dollars arrived March 20th, 2026. Never build a demand on a verbal number."
+      "notes": "Here is what an audited file looks like when it goes to the attorney. Three pieces. A one-page summary memo of what the audit found. An exhibit index, with every bill, record and photo labeled. And the Ask, the demand figure, calculated from the policy limits and the specials. On our file, the Ask is simple to state: Keystone's ten thousand dollar BI limit, against total specials of forty-two thousand nine hundred eighty-four dollars. The specials alone exceed the limit, before pain and suffering is even counted. Now the pro tip on the slide: audit the policy limits one more time. The slide's example of a hundred thousand dollar demand against a twenty-five thousand dollar policy is general, but the lesson fits us. Keystone gave its limit verbally at first and wouldn't confirm it in writing until it had signed authorizations. The Declaration Page confirming ten thousand dollars arrived March 20th, 2026. Never build a demand on a verbal number."
     },
     {
       "page": 13,
@@ -203,7 +203,7 @@
     {
       "page": 16,
       "title": "The Demand Packet Checklist",
-      "notes": "Before the attorney reviews the demand letter, the Case Manager makes sure the Big Four are flawless. Medical specials: a clean, itemized list of every provider, date and amount, which for us totals fourteen thousand eight hundred seventeen dollars and forty cents after the audit. The narrative: the human story of how the injury changed the client's life. John's signed Personal Impact Statement tells it in his own words, including the panic attack at his own corner, the nightmares and giving up pickup basketball, and whether that's presented is Atty. Thorne's call. Liability proof: the police report citing Smith, Ruth Calloway's statement, and the doorbell video. And special damages: wage verification and out-of-pocket receipts. We have Northgate's letter supporting one thousand five hundred eighty-four dollars in lost wages, and Riverton Drug receipts of three hundred twelve dollars and forty cents. All four pieces have to agree with each other."
+      "notes": "Before the attorney reviews the demand letter, the Case Manager makes sure the Big Four are flawless. Medical specials: a clean, itemized list of every provider, date and amount, which for us totals forty-one thousand four hundred dollars after the audit. The narrative: the human story of how the injury changed the client's life. John's signed Personal Impact Statement tells it in his own words, including the panic attack at his own corner, the nightmares and giving up pickup basketball, and whether that's presented is Atty. Thorne's call. Liability proof: the police report citing Smith, Ruth Calloway's statement, and the doorbell video. And special damages: wage verification and out-of-pocket receipts. We have Northgate's letter supporting one thousand five hundred eighty-four dollars in lost wages, and Riverton Drug receipts of three hundred twelve dollars and forty cents. All four pieces have to agree with each other."
     },
     {
       "page": 17,
@@ -228,32 +228,32 @@
     {
       "page": 22,
       "title": "The Valuation Baseline: The Set-Off",
-      "notes": "This slide introduces the set-off. In many jurisdictions, PIP pays regardless of fault, and the defendant's carrier gets a credit for what PIP paid, on the theory that the law prevents double recovery. So gross settlement value minus the PIP paid equals the defendant's remaining exposure. That's general information worth knowing, and you'll meet it on other files. But our file runs on Riverton's rule, and it's different. Riverton is an add-on PIP state. PIP does not reduce BI or UM, and the PIP carrier can't recover what it paid out of its insured's settlement. Harbor Point paid five thousand dollars in PIP for John, and confirmed in writing on March 2nd, 2026 that it has no reimbursement right against his recovery. So on our file there's no set-off against Keystone. Always check which rule your jurisdiction follows before you do this math."
+      "notes": "This slide introduces the set-off. In many jurisdictions, PIP pays regardless of fault, and the defendant's carrier gets a credit for what PIP paid, on the theory that the law prevents double recovery. So gross settlement value minus the PIP paid equals the defendant's remaining exposure. That's general information worth knowing, and you'll meet it on other files. But our file runs on Riverton's rule, and it's different. Riverton is an add-on PIP state. PIP does not reduce BI or UM, and the PIP carrier can't recover what it paid out of its insured's settlement. Harbor Point paid ten thousand dollars in PIP for John, and confirmed in writing on March 2nd, 2026 that it has no reimbursement right against his recovery. So on our file there's no set-off against Keystone. Always check which rule your jurisdiction follows before you do this math."
     },
     {
       "page": 23,
       "title": "The Valuation Baseline: PIP as a Valuation Baseline",
-      "notes": "Adjusters look at PIP payments to gauge how serious a claim is, and this slide shows why that can mislead. Its example is a ten thousand dollar PIP limit used up in forty-eight hours on emergency room and E M S bills, with the specials running far above it. The lesson is in the gap: how fast PIP ran out tells you about the bills, not about the injury. What PIP paid is never the measure of the case; the full specials are what anchor the value of the claim for pain and suffering. When you reach the Think it through challenge, you will work this out on John Doe's own file: whose PIP he claims, what it paid and when it ran out, and how his total specials compare. Keep the slide's method in mind and bring the file's documents, not the example's numbers."
+      "notes": "Adjusters look at PIP payments to gauge how serious a claim is, and this slide shows why that can mislead. The figures on it are John Doe's own: a ten thousand dollar PIP limit used up in the first forty-eight hours of care on the emergency room and E M S bills, with his medical bills running far above it. The lesson is in the gap: how fast PIP ran out tells you about the bills, not about the injury. What PIP paid is never the measure of the case; the full specials are what anchor the value of the claim for pain and suffering. When you reach the Think it through challenge, you will work this out on John's file: whose PIP he claims, what it paid and when it ran out, and how his total bills compare. Confirm the slide's figures from the file's documents, then reason from them to what they cause."
     },
     {
       "page": 24,
       "title": "The Valuation Baseline: The EMC and the Benefit Ceiling",
-      "notes": "This slide talks about the Emergency Medical Condition finding, the EMC, as a negotiating lever. In a state with an EMC rule, such as Florida, PIP benefits are capped at a lower amount unless a qualifying provider makes that finding, which pushes more bills onto the BI settlement. The slide's example, including its doctor, is general and not from our file. Whether a rule like that applies on John's file, and what it would mean for his PIP, is part of the Think it through challenge. Work it out from the file's own documents, not from the slide's example. If you work a Florida file, you'll have to chase that finding. Knowing when the rule applies keeps you from making an argument that doesn't."
+      "notes": "This slide talks about the Emergency Medical Condition finding, the EMC, as a negotiating lever. In a state with an EMC rule, PIP benefits are capped at a lower amount unless a qualifying physician makes that finding, which pushes more bills onto the other payers and the BI settlement. Riverton has that rule, the same one Florida uses: without an EMC, PIP medical benefits stop at two thousand five hundred dollars, and there is no treat-within-fourteen-days condition. The doctor on this slide is ours. Dr. Sarah Spine, the emergency physician at Riverton General Hospital, documented John Doe's EMC on February 20th, 2026, so his full PIP limit was available. What his file would look like without that finding is part of the Think it through challenge, so work it out from the file's own documents. The finding is the physician's to make, never the Case Manager's to ask for. Knowing when the rule applies keeps your argument on solid ground."
     },
     {
       "page": 25,
       "title": "The Valuation Baseline: Subrogation vs. Non-Subrogation",
-      "notes": "Here's a technical point that changes the client's net: subrogation versus non-subrogation. Under non-subrogation, the PIP carrier can't take back what it paid from the BI settlement, and that money effectively stays with the client. Under subrogation, the carrier places a lien on the settlement, and the Case Manager has to negotiate it down. The slide's ten thousand dollar figure is a general example. On our file, Harbor Point's PIP falls on the non-subrogation side: it confirmed in writing that it has no reimbursement right on the five thousand dollars it paid. But don't stop there. A health plan can be a different story. Peach State asserted a reimbursement right on its first notice and paid one thousand eight hundred sixty dollars for the injection. That one is a real lien, and it's the one we have to resolve before John is paid."
+      "notes": "Here's a technical point that changes the client's net: subrogation versus non-subrogation. Under non-subrogation, the PIP carrier can't take back what it paid from the BI settlement, and that money effectively stays with the client. Under subrogation, the carrier places a lien on the settlement, and the Case Manager has to negotiate it down. The slide's ten thousand dollar figure is also our file's PIP limit. On our file, Harbor Point's PIP falls on the non-subrogation side: it confirmed in writing that it has no reimbursement right on the ten thousand dollars it paid, or on its MedPay. But don't stop there. A health plan can be a different story. Peach State asserted a reimbursement right on its first notice and paid one thousand eight hundred sixty dollars for the injection. That one is a real lien, and it's the one we have to resolve before John is paid."
     },
     {
       "page": 26,
       "title": "The Valuation Baseline: Strategic Exhaustion",
-      "notes": "The slide describes strategic exhaustion: spend PIP on the hard costs like imaging, then move later care to Letters of Protection, because LOP providers are often more willing to reduce their bills at the end. On our file, it worked a little differently but the logic is the same. PIP paid the urgent care visit, Dr. Reyes's visits and the twenty-three hundred ninety-five dollar MRI. Riverton Spine and Rehab was out of network for Peach State, so John treated there under an LOP signed February 23rd, 2026, from the start. And that LOP balance is the one that came down at the end, from the audited six thousand one hundred five dollars to four thousand five hundred eighty. Now the tip: verify the PIP ledger before you negotiate. Ours shows five payments totaling exactly five thousand dollars. Quote the specials accurately and you protect your credibility."
+      "notes": "The slide describes strategic exhaustion: spend PIP on the hard costs like imaging, then move later care to Letters of Protection, because LOP providers are often more willing to reduce their bills at the end. On our file, it worked a little differently but the logic is the same. PIP went to the emergency room and ambulance bills of the first forty-eight hours, and then Harbor Point's MedPay paid the urgent care visit, Dr. Reyes's visits and the twenty-three hundred ninety-five dollar MRI. Riverton Spine and Rehab was out of network for Peach State, so John treated there under an LOP signed February 23rd, 2026, from the start. And that LOP balance is the one that came down at the end, from the audited six thousand one hundred five dollars to four thousand five hundred eighty. Now the tip: verify the PIP and MedPay ledgers before you negotiate. Our MedPay ledger shows five payments totaling exactly five thousand dollars. Quote the specials accurately and you protect your credibility."
     },
     {
       "page": 27,
       "title": "Negotiations Initiated: The Battle",
-      "notes": "Negotiations begin once the demand is in the adjuster's hands. Start with the soft lead: confirm they received the demand and every record, and point them to the evidence that matters. On our file, Dana Whitfield at Keystone confirmed receipt in writing on July 22nd, 2026, and that acknowledgement started the thirty-day clock, so the acceptance window ran to August 21st. Then set the tone: the file is litigation ready. Next, the ask. The slide's script mentions forty thousand dollars in specials, which is a general example. On ours, you'd say clear liability and sixteen thousand four hundred one dollars and forty cents in specials, against a ten thousand dollar limit. And when the lowball comes, stay calm and use the professional pause. Keystone's offer of three thousand five hundred dollars on August 5th was exactly that moment. Ask what data supports the number, and log the answer."
+      "notes": "Negotiations begin once the demand is in the adjuster's hands. Start with the soft lead: confirm they received the demand and every record, and point them to the evidence that matters. On our file, Dana Whitfield at Keystone confirmed receipt in writing on July 22nd, 2026, and that acknowledgement started the thirty-day clock, so the acceptance window ran to August 21st. Then set the tone: the file is litigation ready. Next, the ask. The slide's script mentions forty thousand dollars in specials, which is a general example. On ours, you'd say clear liability and forty-two thousand nine hundred eighty-four dollars in specials, against a ten thousand dollar limit. And when the lowball comes, stay calm and use the professional pause. Keystone's offer of three thousand five hundred dollars on August 5th was exactly that moment. Ask what data supports the number, and log the answer."
     },
     {
       "page": 28,

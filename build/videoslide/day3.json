@@ -1,38 +1,62 @@
 {
   "title": "Case Management Training — Day 3",
   "deck": "Revised Case Management Training Day 3 (Canva, 20 pages; the Skill Building page 10 is left out of the video)",
-  "voice": "en_US-lessac-high, converted to the trainer's own voice (revoice.py)",
+  "voice": "the trainer's own voice, spoken by Chatterbox Turbo from voice/sample.wav (make_video.py --turbo)",
   "day": 13,
   "lessons": {
-    "d3m3-l1": [1, 2],
-    "d3m3-l2": [3, 4],
-    "d3m4-l1": [5, 6, 7, 8, 9],
-    "d3m4-l2": [11, 12, 13, 14],
-    "d3m4-close": [15, 16, 17, 18, 19, 20]
+    "d3m3-l1": [
+      1,
+      2
+    ],
+    "d3m3-l2": [
+      3,
+      4
+    ],
+    "d3m4-l1": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "d3m4-l2": [
+      11,
+      12,
+      13,
+      14
+    ],
+    "d3m4-close": [
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ]
   },
   "video": {
     "src": "/decks/day3/day3-narrated.mp4",
     "captions": "/decks/day3/day3-narrated.vtt",
     "starts": [
       0.0,
-      72.5,
-      145.2,
-      216.5,
-      289.8,
-      360.3,
-      429.0,
-      508.2,
-      577.2,
-      648.4,
-      716.7,
-      787.5,
-      852.0,
-      911.9,
-      979.2,
-      1051.0,
-      1111.3,
-      1178.5,
-      1236.6
+      77.0,
+      152.3,
+      228.7,
+      306.2,
+      382.2,
+      457.8,
+      563.7,
+      633.8,
+      706.5,
+      775.8,
+      850.4,
+      917.2,
+      980.9,
+      1052.7,
+      1125.5,
+      1193.8,
+      1264.1,
+      1321.7
     ]
   },
   "say": {
@@ -87,7 +111,7 @@
     {
       "page": 7,
       "title": "The BI/UM Master Financial Ledger",
-      "notes": "Here's what the net sheet looks like: our LSH corporate net sheet. It reads top to bottom, the way the money flows. The reference is Keystone Mutual Insurance, and the rest of the template we fill in with our file. Section one, the settlement recovery summary: a gross of 40,000 dollars from Keystone, Harbor Point and Cardinal State. Section two, attorney fees and advanced case expenses. The template shows 33.33 percent. John's fee is one third, 13,333 dollars and 33 cents. His case costs total 486 dollars and 75 cents, including the police report, medical records and billing, certified mail, MRI images on disc, and postage and copies. Every line on the template, from filing fees to file storage, gets checked, even if it's empty. Section three, the medical provider ledger, is where your lien work lands. For each medical provider you track charges, PIP, health and med pay payments, adjustments, balance owed and your max offer. John's MRI and orthopedic visits were paid by PIP, while Riverton Spine and Rehab's chiro and PT, treated under an LOP, carry the balance you negotiated. Below it sits the non-medical provider ledger, for pharmacy, counseling, equipment and transportation. That's where Riverton Drug's 312 dollars and 40 cents goes. John paid it himself, so nothing is owed. His E A P counseling with Stonebridge goes there too, at no charge. Neither one is a lien."
+      "notes": "Here's what the net sheet looks like: our LSH corporate net sheet. It reads top to bottom, the way the money flows. The reference is Keystone Mutual Insurance, and the rest of the template we fill in with our file. Section one, the settlement recovery summary: a gross of 40,000 dollars from Keystone, Harbor Point and Cardinal State. Section two, attorney fees and advanced case expenses. The template shows 33.33 percent. John's fee is one third, 13,333 dollars and 33 cents. His case costs total 486 dollars and 75 cents, including the police report, medical records and billing, certified mail, MRI images on disc, and postage and copies. Every line on the template, from filing fees to file storage, gets checked, even if it's empty. Section three, the medical provider ledger, is where your lien work lands. For each medical provider you track charges, PIP, health and med pay payments, adjustments, balance owed and your max offer. John's PIP went to his emergency room and ambulance bills. His urgent care, MRI and orthopedic visits were paid by Harbor Point's med pay, while Riverton Spine and Rehab's chiro and PT, treated under an LOP, carry the balance you negotiated. Below it sits the non-medical provider ledger, for pharmacy, counseling, equipment and transportation. That's where Riverton Drug's 312 dollars and 40 cents goes. John paid it himself, so nothing is owed. His E A P counseling with Stonebridge goes there too, at no charge. Neither one is a lien."
     },
     {
       "page": 8,
@@ -132,7 +156,7 @@
     {
       "page": 17,
       "title": "Final Case Reconciliation: Compliance and Identity",
-      "notes": "The next set is compliance and identity verification. In other words, proving on paper that we paid the right people the right way. It has two items. First, updated W-9 and tax documents, so the most recent tax information is on file for any ten ninety-nine reporting. Check that what's in the file is current before you close it. Second, the duplication of benefits final review. This is a signed statement from the beneficiary confirming he didn't receive double funding from another source, like insurance, after the case started. Why does that matter on John's file? Because his care was paid from several directions. Harbor Point's PIP paid 5,000 dollars of bills, Peach State paid the injection, and Riverton Spine and Rehab treated under an LOP. With that many payers, the file has to show that no expense was paid twice. It's the same principle as the net sheet. Every dollar should come from one clear source, and the file should prove it."
+      "notes": "The next set is compliance and identity verification. In other words, proving on paper that we paid the right people the right way. It has two items. First, updated W-9 and tax documents, so the most recent tax information is on file for any ten ninety-nine reporting. Check that what's in the file is current before you close it. Second, the duplication of benefits final review. This is a signed statement from the beneficiary confirming he didn't receive double funding from another source, like insurance, after the case started. Why does that matter on John's file? Because his care was paid from several directions. Harbor Point's PIP paid 10,000 dollars on the emergency room and ambulance bills, its med pay paid 5,000 dollars more, Peach State paid the injection, and Riverton Spine and Rehab treated under an LOP. With that many payers, the file has to show that no expense was paid twice. It's the same principle as the net sheet. Every dollar should come from one clear source, and the file should prove it."
     },
     {
       "page": 18,
