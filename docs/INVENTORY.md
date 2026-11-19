@@ -119,7 +119,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (48)
+## Node checks (49)
 
 | Check | What it covers |
 |---|---|
@@ -162,6 +162,7 @@ None.
 | `practises-order.cjs` | Every Skill Activity practises a lesson the course still teaches, on its own day before it or on an earlier day (never a later one), and the lesson's skill is on its slides (its deck pages, or its drawn slides) |
 | `progress-merge.cjs` | A progress:<id> write keeps the stored day-progress attempts the incoming snapshot lacks, and is stamped with the Worker's time (serverAt), the device's savedAt untouched |
 | `r2-docs.mjs` | Documents served from R2 (ranges, 304s, static assets as the fallback) |
+| `r2-types.cjs` | Every file the R2 upload sends (decks/, documents/) has its content type in .github/scripts/r2-sync.mjs, so none goes up as application/octet-stream (a caption track or a stylesheet sent as that doesn't load) |
 | `rubric-guards.cjs` | 📐 Rubric guards (a rubric score is the trainer's; a trainee's own auto-scored results go on their own progress record only) |
 | `run-checks.mjs` | What it checks                    (run as: node <file>) |
 | `scorecard-kc-official.cjs` | 🏅 A Knowledge Check's score and pass on the Scorecard and the Batch Sheet come only from trainee:<id> and its Case Flow summary; a score only the trainee's device holds is shown as unconfirmed and never counted |
