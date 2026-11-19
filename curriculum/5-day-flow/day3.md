@@ -42,12 +42,10 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 8. *Skill Activity* — Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold (practises: Lien Negotiations: Key Legal Doctrines & Prior-Attorney Liens) — *side*
 9. *Skill Activity* — Provider Balance Negotiation Exercises (practises: Increasing the Client's Net: Auditing the Billing) — *side*
 10. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender (practises: The Net Sheet: Two Recovery Streams & the Master Ledger) — *side*
-11. *Skill Activity* — The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes (practises: The Net Sheet: Two Recovery Streams & the Master Ledger) — *side*
-12. *Skill Activity* — Starting the Disbursement Command: Releases, Hold Cleared, Money Out (practises: Disbursement: the Workflow & the Documentation) — *side*
-13. *Skill Activity* — Backup File Maintenance: the Pre-Demand Backup Audit (practises: Case Phase: Demand) — **Required: Backup File Maintenance**
-14. *Knowledge Check* — Demand Execution Audit
-15. *Knowledge Check* — Negotiation Mastery Check
-16. *Knowledge Check* — Lien Reduction Verification
+11. *Skill Activity* — Backup File Maintenance: the Pre-Demand Backup Audit (practises: Case Phase: Demand) — **Required: Backup File Maintenance**
+12. *Knowledge Check* — Demand Execution Audit
+13. *Knowledge Check* — Negotiation Mastery Check
+14. *Knowledge Check* — Lien Reduction Verification
 
 **End-of-day discussion (trainer):** It is 10/21/2026. John Doe's check reads $20,359.92, and he expected about $26,000: “Forty grand, lawyers take a third.” How do you walk him through his Net Sheet, and what is Atty. Thorne's call, not yours?
 
@@ -55,7 +53,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 ## Module 3 — Lien Negotiation & Disbursement
 
-**Order:** Lessons (5) ➔ Case Profile ➔ Skill Building (Completing the Final Dual-Tab Net Sheet) ➔ Backup File Maintenance (required) ➔ Update Your Action Plan ➔ Practice Lab (6 optional side exercises) ➔ Knowledge Check (3 Learning Checks)
+**Order:** Lessons (5) ➔ Case Profile ➔ Skill Building (Completing the Final Dual-Tab Net Sheet) ➔ Backup File Maintenance (required) ➔ Update Your Action Plan ➔ Practice Lab (4 optional side exercises) ➔ Knowledge Check (3 Learning Checks)
 
 ### 3.1.1 Lien Negotiations: Key Legal Doctrines & Prior-Attorney Liens
 
@@ -795,148 +793,7 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 
 ---
 
-### 3.1.11 The UM Settlement Net Sheet: Stream 2 on the Day the Stack Closes
-
-> **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
-> **Topic:** Skill Activity — project the UM stream to the cent, mark what will move, ask Atty. Thorne  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D3#23` The Net Sheet: Purpose of a Combined BI/UM Net Sheet · `D3#24` The Net Sheet: Stream 1 (BI) and Stream 2 (UM/UIM) · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · `D2#36` The Execution: The Settlement Statement (The “Net” Sheet) · Newly authored: the settlement-stage Stream 2 Net Sheet on 10/06/2026, liens unreduced, every moving figure marked as a projection, and the written questions for Atty. Thorne
-
-#### 1 · Visual Layout Description
-
-The LSH Net Sheet's Recovery Ledger on a white card, with the Stream 2 — UM column lit in navy and the Stream 1 — BI column greyed beside it. Rows top to bottom: HARBOR POINT $20,000.00 with a green IN TRUST 10/05 chip; CARDINAL STATE $10,000.00 with an amber TENDERED · CHECK NOT RECEIVED chip; FEE 33⅓% $10,000.00; COSTS 75% $365.06; PEACH STATE 75% $1,395.00 and RIVERTON SPINE & REHAB 75% $4,578.75, each with an orange dashed border and a PROJECTION tag. At the foot, a large orange NET (PROJECTED) $13,661.19. A thin tie line runs from the Stream 2 net across to the grey Stream 1 net and into a mono pill: $18,214.92 = $40,000.00 – $13,333.33 – $486.75 – $7,965.00. Pinned at the right edge, a navy memo card with four numbered blanks: QUESTIONS FOR ATTY. THORNE.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** File date 10/06/2026 (Tue), Track A. Today Teresa Okafor tendered Cardinal State's $10,000 Relative UM limits (CS-26-20355), and John Doe accepted through Atty. Thorne. Harbor Point paid its $20,000 Host UM limits (HP-26-7741) on 09/29; the check was received and deposited 10/05 after the release was signed. Keystone's $10,000 BI has been in trust since 09/04. Trust holds $30,000.00; Cardinal State's check has not arrived. Peach State asserts $1,860.00, and its Reduction Request is drafted and held for Atty. Thorne's approval. Riverton Spine & Rehab's LOP account stands at $6,290.00 billed, $6,105.00 after the audit removed the 05/04/2026 duplicate. No lien reduction is agreed. Costs to date: $486.75. At 4:20 p.m. Atty. Thorne asks for the UM settlement Net Sheet for his review before he goes through it with John Doe.
-
-**Execution prompt.** Build the Stream 2 (UM) column of John Doe's LSH Net Sheet as it stands today. Post both UM layers to the Recovery Ledger and show which check is in trust and which is only tendered. Apply the pre-suit 33⅓% fee, then allocate costs and liens to Stream 2 at 75%, pro rata to gross, with each lien at its asserted or audited figure, not a hoped-for reduction. Mark every figure that will still change as a projection and say what will change it. Tie Stream 2 to Stream 1 and to the Trust Ledger. Graded judgment: write the questions Atty. Thorne must answer before John Doe sees this sheet, and route it to him, not to John.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Settlement (BI/UM) → Gross Settlement · CMS → Settlement (BI/UM) → Check Received / Disbursed · CMS → Tasks → + Add Task |
-| **Expected output** | A Stream 2 Net Sheet projecting $13,661.19 to John Doe, every moving figure marked, tied to Stream 1 and the Trust Ledger, routed to Atty. Thorne with four written questions. |
-
-**Verification checkpoints**
-
-- [ ] Stream 2 gross from the two UM layers only: Harbor Point $20,000.00 (paid 09/29, received 10/05/2026) + Cardinal State $10,000.00 (tendered 10/06/2026) = $30,000.00, 75% of the $40,000.00 stack; Keystone's $10,000.00 stays in Stream 1
-- [ ] Fee at the pre-suit 33⅓% (no suit filed; retainer RS05): $30,000.00 ÷ 3 = $10,000.00, the one firm line on the sheet; with Stream 1's $3,333.33 the file's fee is $13,333.33
-- [ ] Costs to date $486.75 allocated pro rata: Stream 1 25% = $121.69 (rounded), Stream 2 the remainder, $486.75 – $121.69 = $365.06; marked projection (costs to date, final at the Settlement Statement)
-- [ ] Peach State at its asserted $1,860.00: Stream 1 $465.00, Stream 2 $1,860.00 – $465.00 = $1,395.00; marked projection: Reduction Request held for Atty. Thorne's approval, nothing agreed
-- [ ] Riverton Spine & Rehab at the audited $6,105.00, not the billed $6,290.00 (the $185.00 duplicate of 05/04/2026): Stream 1 $1,526.25, Stream 2 $6,105.00 – $1,526.25 = $4,578.75; marked projection: no reduction requested or agreed
-- [ ] Projected Stream 2 net: $30,000.00 – $10,000.00 – $365.06 – $1,395.00 – $4,578.75 = $13,661.19, labelled “projection, liens unreduced”
-- [ ] Harbor Point's $10,000.00 PIP and $5,000.00 MedPay shown at $0.00 on Stream 2 with their source: add-on (excess) UM, no PIP non-duplication reduction and no reimbursement right (Harbor Point's 03/02/2026 letter), so the $20,000.00 is not reduced
-- [ ] Tied to Stream 1: Stream 1 projects $10,000.00 – $3,333.33 – $121.69 – $465.00 – $1,526.25 = $4,553.73, and $13,661.19 + $4,553.73 = $18,214.92 = $40,000.00 – $13,333.33 – $486.75 – $7,965.00
-- [ ] Tied to the Trust Ledger: $30,000.00 on deposit (Keystone $10,000.00 since 09/04, Harbor Point $20,000.00 since 10/05/2026); Cardinal State's $10,000.00 shown as receivable, not received; nothing disbursed from either stream
-- [ ] What moves the projection stated on the sheet: every $1.00 cut from a lien adds $0.75 to Stream 2 and $0.25 to Stream 1; no reduced figure is entered before a written acceptance
-- [ ] Four questions to Atty. Thorne in writing: (1) the 33⅓% tier on both UM layers; (2) the 25% / 75% pro-rata allocation of costs and liens; (3) authority and timing for both Reduction Requests, including raising the $185.00 duplicate with Tammy Greer; (4) when and in what form John Doe sees a projected sheet
-- [ ] Routed to Atty. Thorne the same day through CMS → Tasks → + Add Task; the sheet is not sent to John Doe and no net figure is quoted to him by the CM
-
-**Best practices & pitfalls**
-
-- Label every figure that can still move, and write on its line what will move it.
-- Compute Stream 1's share of each split and take Stream 2's as the remainder, so the streams add back to the cent.
-- Keep money in trust and money only tendered on separate lines until the check clears.
-- ⚠️ Pitfall: charging all of the costs and liens to the UM stream because it is the bigger check.
-- ⚠️ Pitfall: entering a lien at the reduction you hope for before a written acceptance.
-- ⚠️ Pitfall: quoting John Doe a net from a projected sheet.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Stream 2 arithmetic | $30,000.00 gross, $10,000.00 fee, $365.06 costs, $1,395.00 and $4,578.75 liens, $13,661.19 projected net, each shown |
-| 🤖 AI | **15%** | Lien basis on 10/06/2026 | Peach State at $1,860.00 asserted, Riverton Spine & Rehab at $6,105.00 audited; no reduced figure entered; PIP and MedPay at $0.00 with their source |
-| 🤖 AI | **10%** | Projection marking | Every moving line tagged with what will change it; the fee the only firm deduction; Cardinal State shown as receivable |
-| 🤖 AI | **15%** | Tie-out | $13,661.19 + $4,553.73 = $18,214.92 across the file; $30,000.00 in trust agrees with the ledger |
-| 🧑‍🏫 Trainer | **20%** | Questions for Atty. Thorne | Fee tier, allocation, reduction authority and the client presentation asked as questions he can answer from the sheet |
-| 🧑‍🏫 Trainer | **20%** | UPL boundary | No net quoted to John Doe, no reduction proposed to a lienholder, no view on whether the sheet is enough |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Put the tempting wrong answers on the board: $11,548.25 (all $486.75 of costs and $7,965.00 of liens charged to the UM stream), $13,522.44 (Riverton Spine & Rehab at its billed $6,290.00) and $15,269.94 (reductions assumed before anyone agreed to them). Only $13,661.19 is true on 10/06/2026.
-- Ask the room: “Harbor Point paid John Doe's PIP, his MedPay and his Host UM. Why isn't the $15,000.00 taken off the $20,000.00?” The answer is Harbor Point's own 03/02/2026 letter: add-on UM, no non-duplication reduction, no reimbursement right.
-- For your debrief only: on 10/13/2026 (d3m4-a1) Stream 2 reaches $15,269.94. The move, $15,269.94 – $13,661.19 = $1,608.75, is 75% of the $2,145.00 negotiated off the liens ($620.00 + $1,525.00): exactly the $0.75-per-dollar rule on the sheet.
-- Stream 1's lines are the BI sheet's work; here they are used only to tie. Grade the client line hard: the CM routes the sheet to Atty. Thorne, and he decides when John Doe sees a projection and explains it.
-
----
-
-### 3.1.12 Starting the Disbursement Command: Releases, Hold Cleared, Money Out
-
-> **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Final Accounting Check (`d3m4`)  
-> **Topic:** Skill Activity 3 — confirm every gate, then move the money to $0.00  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D2#33` The Execution: The Release of All Claims (The “Exit” Document) · `D2#35` The Execution: Lien Payoff Letters (The “Verification” Paperwork) · `D2#38` The Execution: W-9 & Comparison of Key Post-Settlement Documents · `D2#41` Skill Building: BI Settlement — Caught in an Operational Pincer Movement · `D3#26` The Net Sheet: Case Manager Protocols for Dual Settlements · `D3#29` Case Phase: Disbursement — Core Objectives · `D3#30` Disbursement: The Workflow · `D3#31` Disbursement: Documentation Checklist · `D3#32` Disbursement: Common Challenges & Mitigation · `D3#34` Final Case Reconciliation Checklist: Proof of Delivery/Completion
-
-#### 1 · Visual Layout Description
-
-Two panels joined by an orange arrow dated 10/21 → 10/22. Left: a navy-header checklist card, CONDITIONS PRECEDENT, with green ticks: LIMITED RELEASE EXECUTED 08/28 · UM RELEASES FILED · FUNDS CLEARED 10/20 · STATEMENT SIGNED 10/21 · PAYOFF LETTERS · LIEN HOLD RELEASED 10/19 (a struck-through red chip beneath it reads VANCE & KETTERING $6,666.67 — WITHDRAWN). Right: the CMS Settlement (BI/UM) tab's Check Received / Disbursed section as a table of five disbursement commands, payee and mono amount on each, each with an empty ATTY. THORNE · APPROVE chip, and a running-balance column ending in a green $0.00. The argument: the checklist on the left is what makes the commands on the right safe.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** File date 10/21/2026. All three checks ($40,000.00) had cleared in the IOLTA trust account by 10/20 (the last, Cardinal State's, deposited 10/13); John Doe signed the Settlement Statement this morning; the Peach State and Riverton Spine & Rehab Payoff Letters are in Documents; Vance & Kettering withdrew its lien in writing on 10/19 and Atty. Thorne released the hold; disbursement is set for 10/22.
-
-**Execution prompt.** Confirm every condition precedent against the documents: Keystone's executed Limited Release and both UM releases, cleared funds, the signed statement, the Payoff Letters, and the prior-attorney lien withdrawn with the hold released by Atty. Thorne. Then queue one disbursement command per Net Sheet line in the Trust Ledger for Atty. Thorne's approval, each matching its line, and show the ledger reaching $0.00.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Doc Hub · CMS → Settlement (BI/UM) → Check Received / Disbursed |
-| **Expected output** | A confirmed checklist of conditions precedent and five approval-ready disbursement commands that take the Trust Ledger from $40,000.00 to $0.00. |
-
-**Verification checkpoints**
-
-- [ ] Keystone's Limited Release executed 08/28/2026 on file (Smith and Keystone only, the UM claims and the Civic's claim reserved), with both UM consents and waivers
-- [ ] Both UM releases filed as approved; Harbor Point's checked for any line reaching Cardinal State before John Doe signed it
-- [ ] All funds cleared by 10/20; statement signed 10/21; Payoff Letters in hand; no cooling-off period configured for this training file (confirm the governing rule)
-- [ ] Vance & Kettering's written withdrawal (10/19/2026) on file and the $6,666.67 hold released by Atty. Thorne, not by the CM
-- [ ] Five commands matching the Net Sheet: to the firm, fee $13,333.33 and costs reimbursed $486.75; Peach State Health Plan $1,240.00; Riverton Spine & Rehab $4,580.00; John Doe $20,359.92
-- [ ] Ledger arithmetic shown: $40,000.00 – $13,333.33 – $486.75 – $1,240.00 – $4,580.00 – $20,359.92 = $0.00
-- [ ] Each command's packet complete: payee identity, Payoff Letter or receipts with date, description and tax ID, a current W-9, payment details verified by phone to a number on file, and John Doe's signed Settlement Statement as his payment authorization
-- [ ] Each lien check requests a signed satisfaction of lien; John Doe's check goes with an acknowledgment of receipt to sign
-- [ ] Invoice and payoff references cross-checked so no payee is paid twice
-- [ ] Every command marked for Atty. Thorne's approval and signature; none released by the CM
-
-**Best practices & pitfalls**
-
-- Tick each condition against its document, not against memory.
-- A hold is lifted by the attorney who placed it, in writing, before a command is queued.
-- Collect lien satisfactions with the payment, not weeks later.
-- ⚠️ Pitfall: queuing a command before the funds clear because the check “is good”.
-- ⚠️ Pitfall: paying out while a disputed amount is still on hold.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Conditions precedent | Executed releases, consents, cleared funds, signed statement, Payoff Letters and the lien withdrawal all confirmed before 10/22 |
-| 🤖 AI | **20%** | Disbursement accuracy | Five commands at the Net Sheet amounts; ledger shown reaching $0.00 |
-| 🤖 AI | **20%** | Packet completeness | Identity, Payoff Letter or receipts with tax ID, W-9, verified payment details, satisfaction and receipt requests |
-| 🧑‍🏫 Trainer | **15%** | Gate judgment | Treats cleared funds, the signed statement and the released hold as hard gates, not formalities |
-| 🧑‍🏫 Trainer | **10%** | Fraud and duplicate controls | Payment details verified by phone; references cross-checked |
-| 🧑‍🏫 Trainer | **15%** | UPL and authority boundary | No hold lifted, check released or term changed by the CM |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Open on the checklist and ask what would stop the money on 10/22. Make the room name every gate, the 10/19 lien withdrawal included.
-- Ask: “Vance & Kettering withdrew on 10/19. Who lifts the hold?” Atty. Thorne, in writing. The CM records it.
-- Grade the arithmetic: five commands must total $40,000.00 and leave $0.00. A command queued before 10/20, or while the hold stood, fails the block however accurate its amount.
-- The release audit itself happened on 08/14, in Settlement Negotiations; here the Case Manager confirms the executed release is the one Atty. Thorne approved.
-
----
-
-### 3.1.13 Backup File Maintenance: the Pre-Demand Backup Audit
+### 3.1.11 Backup File Maintenance: the Pre-Demand Backup Audit
 
 > **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Skill Activity — audit the backup against the CMS before the demand goes out  
@@ -999,7 +856,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 3.1.14 Demand Execution Audit
+### 3.1.12 Demand Execution Audit
 
 > **Knowledge Check** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Demand Execution Audit (`d3m1`)  
 > **Topic:** Demand Execution Audit + CM Learning Summary & Self-Scale  
@@ -1105,7 +962,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 3.1.15 Negotiation Mastery Check
+### 3.1.13 Negotiation Mastery Check
 
 > **Knowledge Check** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Knowledge Check + CM Learning Summary & Self-Scale  
@@ -1214,7 +1071,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 3.1.16 Lien Reduction Verification
+### 3.1.14 Lien Reduction Verification
 
 > **Knowledge Check** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

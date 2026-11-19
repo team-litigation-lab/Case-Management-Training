@@ -140,12 +140,13 @@ for (const [name, l, must, bad, why] of CONTRA) {
 // ── 3. "Day N's <piece>" must name the day the piece is taught on now
 const AT = [   // [what the text names, the block that teaches it]
   [/\bDay ([1-5])'s No Contact Protocol/, 'd1m2-l1'],
-  [/\bDay ([1-5])'s (?:Skip-Trace )?(?:gate|three criteria)/, 'd1m2-a2'],
-  [/\bDay ([1-5]) (?:SSDI\/BCRC )?check\b/, 'd1m1-a2'],
-  [/\bDay ([1-5])'s order[- ]of[- ]operations/, 'd1m1-a1'],
-  [/\bWhich Day ([1-5]) work product/, 'd2m3-a2'],
-  [/\bDay ([1-5])'s fourth element/, 'd1m2-a2'],
-  [/\bDay ([1-5])'s letter\b/, 'd1m2-a2']
+  // (an activity cut from the course: the one that now does its work, since the owner cut the extra tasks)
+  [/\bDay ([1-5])'s (?:Skip-Trace )?(?:gate|three criteria)/, 'd2m2-a2'],
+  [/\bDay ([1-5]) (?:SSDI\/BCRC )?check\b/, 'd1m4-a2'],
+  [/\bDay ([1-5])'s order[- ]of[- ]operations/, 'd1m1-open'],
+  [/\bWhich Day ([1-5]) work product/, 'd3m1-a1'],
+  [/\bDay ([1-5])'s fourth element/, 'd2m2-a2'],
+  [/\bDay ([1-5])'s letter\b/, 'd2m2-a2']
 ];
 AT.forEach(([re, id]) => {
   if (!DAY[id]) return fail.push(`DAYS: ${id} is not in the course's order: update the table`);

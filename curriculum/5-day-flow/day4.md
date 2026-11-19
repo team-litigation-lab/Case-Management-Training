@@ -39,17 +39,13 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 7. *Skill Activity* — Assembling the 6-Section Mediation Binder (practises: Preparing the Mediation Binder) — **Skill Building**
 8. *Skill Activity* — Routing the UM Impasse: Arbitration or Court (practises: UM/UIM Disputes & Resolution Routes) — *side*
 9. *Skill Activity* — Auditing Court Hard Rules & Setting Calendar Cutoffs (practises: Court Hard Rules, SOL Cutoffs & the Master Calendar) — *side*
-10. *Skill Activity* — Calendaring the Mediation: the Session and Every Date That Hangs Off It (practises: Introducing the Neutral, Mediation Logistics & the Arbitration Hearing) — *side*
-11. *Skill Activity* — ADR Rules Matrix & UPL Boundary Mapping (practises: Introducing the Neutral, Mediation Logistics & the Arbitration Hearing) — *side*
-12. *Skill Activity* — Calendaring the Arbitration from the Scheduling Letter (practises: Introducing the Neutral, Mediation Logistics & the Arbitration Hearing) — *side*
-13. *Skill Activity* — Assembling the 6-Tab Arbitration Binder (practises: The Arbitration Binder & the Common Bottlenecks) — *side*
-14. *Skill Activity* — Setting Automated Countermeasures in CMS (practises: The Arbitration Binder & the Common Bottlenecks) — *side*
-15. *Skill Activity* — Bottleneck Resolution Simulation (practises: The Arbitration Binder & the Common Bottlenecks) — *side*
-16. *Skill Activity* — Backup File Maintenance: Liens, Costs and a Missing Folder (practises: Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention) — **Required: Backup File Maintenance**
-17. *Knowledge Check* — Final Accounting Check
-18. *Knowledge Check* — ADR & Calendar Compliance Check
-19. *Knowledge Check* — Binder Assembly Verification
-20. *Knowledge Check* — Countermeasure Operational Audit
+10. *Skill Activity* — Calendaring the Arbitration from the Scheduling Letter (practises: Introducing the Neutral, Mediation Logistics & the Arbitration Hearing) — *side*
+11. *Skill Activity* — Bottleneck Resolution Simulation (practises: The Arbitration Binder & the Common Bottlenecks) — *side*
+12. *Skill Activity* — Backup File Maintenance: Liens, Costs and a Missing Folder (practises: Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention) — **Required: Backup File Maintenance**
+13. *Knowledge Check* — Final Accounting Check
+14. *Knowledge Check* — ADR & Calendar Compliance Check
+15. *Knowledge Check* — Binder Assembly Verification
+16. *Knowledge Check* — Countermeasure Operational Audit
 
 **End-of-day discussion (trainer):** Track B: the mediation is set for 03/18/2027. Opposing counsel's paralegal calls to ask what number John Doe will take. What may you say, and what goes to Atty. Thorne the same day?
 
@@ -57,7 +53,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 ## Module 4 — Mediation & Arbitration
 
-**Order:** Lessons (6) ➔ Case Profile ➔ Skill Building (Assembling the 6-Section Mediation Binder) ➔ Backup File Maintenance (required) ➔ Update Your Action Plan ➔ Practice Lab (8 optional side exercises) ➔ Knowledge Check (4 Learning Checks)
+**Order:** Lessons (6) ➔ Case Profile ➔ Skill Building (Assembling the 6-Section Mediation Binder) ➔ Backup File Maintenance (required) ➔ Update Your Action Plan ➔ Practice Lab (4 optional side exercises) ➔ Knowledge Check (4 Learning Checks)
 
 ### 4.1.1 Introducing the Neutral, Mediation Logistics & the Arbitration Hearing
 
@@ -745,159 +741,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.10 Calendaring the Mediation: the Session and Every Date That Hangs Off It
-
-> **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
-> **Topic:** Skill Activity — calendar the 03/18/2027 mediation from its triggers  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D4#5` Mediation Protocols for CMs: Logistics & Scheduling · `D5#28` Master Timeline & Deadline Calculations · `D4#18` Arbitration Operational Track 1: Critical Timelines & Calendar Hard Rules · Newly authored: calendaring a Notice of Mediation from its triggers — the session, the statement-and-binder deadline, backward internal dates, the mediator's report, the client's confirmation, the fee as a cost, and the UM consent-to-settle flag
-
-#### 1 · Visual Layout Description
-
-A horizontal date rail across the slide from 01/08/2027 to 03/31/2027, the Notice of Mediation as a navy pin at the left edge and the Scheduling Order's red COMPLETED BY 03/31/2027 flag at the right. One large navy session card sits on 03/18/2027 (Thu) · 9:30 a.m. with four attendee chips (ATTY. THORNE · JOHN DOE · CM — LOGISTICS · KEYSTONE — FULL AUTHORITY?). Orange backward arrows run left from it to 03/11/2027 (STATEMENT + BINDER) and on to 03/09, 03/04 and 03/02/2027, each a blank mono pill for the trainee to fill. Below the rail, a grey conflict lane holds the master calendar's own entries (01/13/2027 · 03/15/2027 · 05/28/2027) with one amber overlap marker between 03/11 and 03/18. In the top-right corner, two small cards: a money card, PLAINTIFF'S HALF $1,200.00 → CASE COST, and a red flag card, UM CONSENT BEFORE ANY BI RELEASE → ATTY. THORNE. The argument: one notice, a dozen dates, each counted from its own trigger.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** File date 01/08/2027 (Fri), Track B. Today the Notice of Mediation was filed in No. 26-CV-04417: court-ordered mediation before Hon. Carla Benton (Ret.), selected by Atty. Thorne from the four windows collected 12/17/2026, on 03/18/2027 (Thu) at 9:30 a.m. at her office. The confidential statement and binder are due 7 days before; client attendance is required. The Order of Referral entered 12/10/2026 with the Scheduling Order requires mediation completed by 03/31/2027, a notice of the mediator and session date within 30 days, attendance by each party, lead counsel and an insurer's representative with full authority to settle, the mediator's report within 7 days after the session, and the mediator's fees divided equally between the sides; the plaintiff's half is $1,200.00. The 12/10/2026 calendar audit already entered “completed by 03/31/2027” and a task to collect the windows. Harbor Point's and Cardinal State's policies each require their written consent before any settlement with Keystone. On the master calendar: Robert Smith's responses to our discovery due 01/13/2027; plaintiff's expert disclosure 03/15/2027; discovery closes 05/28/2027.
-
-**Execution prompt.** Calendar the mediation in the Calendaring Simulators and mirror every entry to John Doe's CMS → Calendar. Verify the trigger first: the notice against the order's 30-day selection rule, and the session date against the 03/31/2027 completion deadline, linking to the existing deadline and closing the windows task rather than re-entering either. Enter the session with its attendees and its location. Count the statement-and-binder deadline back from the session, then the internal dates back from that deadline, then the mediator's report forward from the session. Calendar the client's written confirmation, his prep meeting request and his reminders. Track the $1,200.00 fee as a case cost. Flag the UM carriers' consent-to-settle requirement for Atty. Thorne with the 30-day arithmetic. Conflict-check every new date against the master calendar and route the summary to Atty. Thorne the same day, ranking what needs his decision.
-
-| | |
-|---|---|
-| **Tool / interface** | Calendaring Simulators · CMS → Calendar · Court E-Filing · CMS → Tasks · CMS → Notes → Case Notes |
-| **Expected output** | A mediation calendar of verified, trigger-counted entries mirrored to the CMS, a cost task for the fee, a client-confirmation task, and a same-day summary to Atty. Thorne with the UM consent flag and the one conflict. |
-
-**Verification checkpoints**
-
-- [ ] The trigger is verified: the Notice of Mediation filed 01/08/2027 (Fri) meets the order's 30-day rule (12/10/2026 + 30 = 01/09/2027, a Saturday); the 12/10/2026 windows task closed with the notice attached, not re-created
-- [ ] Session entered once: 03/18/2027 (Thu), 9:30 a.m., in person at Hon. Carla Benton (Ret.)'s office, court-ordered; the day blocked for Atty. Thorne, John Doe and the CM (logistics only)
-- [ ] Attendance read from the order: each party (John Doe; Robert Smith with Atty. Grant Mercer) and a Keystone representative with full authority to settle; the representative's name logged as “to be confirmed by Atty. Mercer”, not guessed
-- [ ] Completion deadline verified, not re-entered: 03/18/2027 is 13 days inside 03/31/2027 (Wed); the 12/10/2026 “completed by” entry linked to the session
-- [ ] Statement and binder: 03/18/2027 − 7 = 03/11/2027 (Thu), a weekday, so no roll; marked confidential, for the mediator only
-- [ ] Internal dates counted back from 03/11/2027: Litigation Desk's draft index 03/02/2027 (Tue); binder QC 03/04/2027 (Thu), 7 days before; routed to Atty. Thorne for approval by 03/09/2027 (Tue), 2 business days before delivery
-- [ ] Mediator's report watched forward from the session: 03/18/2027 + 7 = 03/25/2027 (Thu)
-- [ ] Client: written confirmation of attendance requested 01/08/2027 with a follow-up tickler 01/15/2027 (Fri); prep meeting requested from Atty. Thorne, entered when he sets it; reminders 03/11/2027 and 03/17/2027 (Wed)
-- [ ] Fee tracked as a cost: the order divides fees equally, so $1,200.00 is half of $2,400.00; costs advanced $486.75 + $218.00 + $285.00 = $989.75 → $2,189.75 once paid; routed to accounting, posted only on the receipted invoice
-- [ ] UM flag: Harbor Point and Cardinal State each require written consent before any BI settlement, with 30 days from written notice to consent or advance; a tentative settlement noticed 03/18/2027 runs to 04/17/2027 (Sat); routed to Atty. Thorne as a question, no carrier contacted
-- [ ] Conflict check: plaintiff's expert disclosure 03/15/2027 (Mon) falls between binder delivery and the session, flagged as a workload overlap; 01/13/2027 and 05/28/2027 clear; no conflict on 03/18/2027
-- [ ] Every entry carries its trigger, rule, arithmetic, owner and alerts in the Calendaring Simulators and the CMS → Calendar; the summary routed to Atty. Thorne on 01/08/2027
-
-**Best practices & pitfalls**
-
-- Count each date from its own trigger: the session from the notice, the binder from the session, the QC from the binder.
-- Link to the 12/10/2026 entries instead of keying them again; one date, one entry.
-- Read the attendance paragraph of the order, then calendar the people it names.
-- ⚠️ Pitfall: entering 03/31/2027 as the session or 03/18/2027 as the deadline.
-- ⚠️ Pitfall: rolling a backward internal date forward when it lands on a weekend.
-- ⚠️ Pitfall: posting the $1,200.00 fee before the invoice arrives, or not tracking it at all.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Date accuracy | 03/18, 03/11, 03/09, 03/04, 03/02 and 03/25/2027 exactly, with the arithmetic and weekdays shown |
-| 🤖 AI | **10%** | Trigger verification | 30-day selection rule and 03/31/2027 deadline verified; existing entries linked, not duplicated |
-| 🤖 AI | **10%** | Attendance and client | Attendees read from the order; John Doe's confirmation, tickler and reminders calendared |
-| 🤖 AI | **10%** | Cost tracking | $1,200.00 as half of $2,400.00; $989.75 → $2,189.75; posted only on the invoice |
-| 🤖 AI | **10%** | Conflict check | 03/15/2027 overlap flagged; 01/13 and 05/28/2027 cleared |
-| 🧑‍🏫 Trainer | **15%** | Calendar usability | A colleague could run the mediation from the entries alone: trigger, owner and alerts on each |
-| 🧑‍🏫 Trainer | **10%** | UM consent flag | Both carriers' consent requirement and the 04/17/2027 arithmetic put to Atty. Thorne as a question |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | No carrier contacted, no value or strategy discussed with John Doe or Atty. Mercer; prep and authority left to Atty. Thorne |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Before anyone opens the simulator, ask the room how many dates one notice creates. Most say two; this file has at least eight, and each has a different trigger.
-- Watch for the duplicate. The 12/10/2026 audit already entered “completed by 03/31/2027”; a trainee who keys it again now has two entries that can drift apart. Linking it to the session is the skill.
-- The UM flag is the one that can cost money. If Keystone tenders at the table, nothing can be released without Harbor Point's and Cardinal State's written consent. The CM puts the requirement and the 30-day arithmetic in front of Atty. Thorne; whether and when to notify the carriers is his call.
-- The conflict check is not about the session day, which is clear. It is the Monday in between: plaintiff's expert disclosure on 03/15/2027 lands after the binder goes out and before the session, and the team needs to know that in January.
-
----
-
-### 4.1.11 ADR Rules Matrix & UPL Boundary Mapping
-
-> **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
-> **Topic:** Skill Activity 2 — what changes from compromise to decision  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D4#16` Case Phase: Arbitration — The Anatomy of a PI Arbitration · `D4#17` Arbitration: Operational Mindset — From Compromise to Trial-Ready · `D4#18` Arbitration Operational Track 1: Critical Timelines & Calendar Hard Rules · `D4#19` Arbitration Operational Track 2: Logistics & Setup Protocols · `D4#20` Ethics & Boundaries: What You Can and Cannot Do at Hearings (UPL)
-
-#### 1 · Visual Layout Description
-
-A matrix canvas across two-thirds of the slide: row labels down the left in navy small caps (NEUTRAL & POWER · BINDING & APPEAL · CONFIDENTIALITY · OPPOSING PARTIES · LIMITS IN PLAY · STANDARD · HARD DATES · LOGISTICS), a navy-soft MEDIATION column and a solid navy ARBITRATION column, every cell empty and outlined in orange for the trainee. The right third holds the UPL boundary map as a plan view of the hearing table: Atty. Thorne's seat at the table edge in navy with a speech mark, the CM's seat behind it in orange with a red-struck speech mark and an orange arrow labelled HAND HIM THE DOCUMENT. The struck speech mark is the slide's argument.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** It is 04/26/2027. The 03/18/2027 mediation before Hon. Carla Benton (Ret.) produced Keystone's $10,000 BI tender: BI is exhausted, the UM consents are in, and Robert Smith is dismissed. Harbor Point and Cardinal State dispute damages, citing the gap: Harbor Point invoked its UM arbitration clause on 04/05/2027, proposing Laura Whitcomb, Esq.; Cardinal State joined on 04/12/2027; and after the 04/23 scheduling call her Notice of Hearing, issued today, sets one consolidated binding arbitration. Hearing: 06/22/2027 (Tue). The forum's schedule, as configured for this training file: exhibits exchanged 20 days before the hearing; the arbitration brief due 10 days before. Confirm the forum's rules.
-
-**Execution prompt.** Build the ADR rules matrix for John Doe's file: a column for the 03/18/2027 mediation and one for the 06/22/2027 arbitration, with rows for the neutral and her power, binding effect and appeal, confidentiality, the opposing parties, the limits in play, the preparation standard, the CM's hard dates and the logistics. Hard-code the arbitration dates today, from the Notice of Hearing, counting back from the hearing. Then map the UPL boundary for the hearing: what you do, what you never do, and your exact words if Laura Whitcomb, Esq. asks you about a bill. Route both to Atty. Thorne.
-
-| | |
-|---|---|
-| **Tool / interface** | Action Plan Editor → ADR rules matrix · CMS → Calendar |
-| **Expected output** | A two-forum rules matrix, the arbitration dates hard-coded with alerts, and a one-page UPL boundary map for the 06/22/2027 hearing, routed to Atty. Thorne. |
-
-**Show Them — reference model**
-
-*The arbitration track's three hard dates (fill in this file's)*
-
-1. **Hearing date** — The trial-like date: argument, cross-examination, evidence. Every other date counts back from it.
-2. **Brief deadline** — The cutoff for factual claims, legal arguments, the exhibit index and the witness list.
-3. **Arbitrator selection cutoff** — The deadline to vet and strike names from a panel such as AAA or JAMS; recorded as met once the neutral is named.
-
-**Verification checkpoints**
-
-- [ ] Mediation column: Hon. Carla Benton (Ret.) facilitates only; non-binding; when a deal binds and what stays confidential follow the governing rule (confirm it); court-ordered and held 03/18/2027, inside 03/31/2027
-- [ ] Arbitration column: Laura Whitcomb, Esq. acts as judge; binding award; court review on narrow grounds only; invoked under Harbor Point's UM clause, Cardinal State joined
-- [ ] Opposing parties: Robert Smith (defended by Keystone's counsel) at mediation → Harbor Point and Cardinal State at arbitration
-- [ ] Limits in play: $20,000 Host UM + $10,000 Relative UM = $30,000; the $10,000 BI tender recorded as the exhaustion that opened them
-- [ ] Exhibit exchange docketed 06/02/2027 (Wed), 20 days before the hearing
-- [ ] Brief docketed 06/11/2027 (Fri): 10 days before is Saturday 06/12, so it moves back to the earlier business day, never forward to 06/14/2027
-- [ ] Selection cutoff recorded as met: the neutral, Laura Whitcomb, Esq., is named
-- [ ] Standard row: compromise-ready for mediation; trial-ready for arbitration, every exhibit audited and every deadline locked
-- [ ] Logistics row: fee schedule confirmed, retainer routed to accounting with written payment confirmation, internal invites, room or secure video with breakouts
-- [ ] UPL map: never argue, speak on the record, speak for John Doe, negotiate or advise him on a number; do observe, log directives and update the CMS
-- [ ] Scripted deferral: “I'm the Case Manager providing administrative assistance; Atty. Thorne will address that,” and the document handed to him
-
-**Best practices & pitfalls**
-
-- Build the matrix for the colleague who staffs the hearing with you, not for yourself.
-- Write the deferral script before the hearing, and say it aloud once.
-- ⚠️ Pitfall: a brief deadline that lives only in an email.
-- ⚠️ Pitfall: treating the UM carriers as friendly because the coverage is first-party; on 06/22/2027 they are the other side.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Forum accuracy | Neutral, power, binding effect, appeal and confidentiality correct in each column |
-| 🤖 AI | **10%** | Parties and limits | Opposing parties change correctly; $20,000 + $10,000 = $30,000 in play; BI exhaustion recorded |
-| 🤖 AI | **15%** | Hard-date accuracy | 06/02/2027, 06/11/2027 (not 06/14/2027) and 06/22/2027, each with alerts |
-| 🤖 AI | **15%** | UPL map completeness | Every never and every do item, plus the scripted deferral |
-| 🧑‍🏫 Trainer | **15%** | Mindset shift | Explains what changes operationally from compromise to trial-ready, not just that it changes |
-| 🧑‍🏫 Trainer | **20%** | UPL boundary | The deferral is genuinely deferential; nothing on the map lets the CM speak to the merits |
-| 🧑‍🏫 Trainer | **5%** | Team usability | A colleague could staff the hearing from the matrix cold |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Open with the question, now on this file: “What changes operationally when a file moves from mediation to arbitration?” Write the answers in two columns on the board before anyone opens the editor.
-- Ask the room: “On 03/18/2027 the other side was Robert Smith. Who is it on 06/22/2027, and what are they disputing?” The answer is the UM carriers, and the gap.
-- Watch the brief date. Trainees who learned the forward rule apply it here and land on Monday 06/14/2027, after the deadline.
-- Grade the scripted deferral hardest. A trainee who audited the Riverton Spine & Rehab bill knows the answer and will want to give it; that is exactly the moment the Golden Rule exists for.
-
----
-
-### 4.1.12 Calendaring the Arbitration from the Scheduling Letter
+### 4.1.10 Calendaring the Arbitration from the Scheduling Letter
 
 > **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Skill Activity — every date that hangs off the hearing  
@@ -970,145 +814,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 ---
 
-### 4.1.13 Assembling the 6-Tab Arbitration Binder
-
-> **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
-> **Topic:** Skill Activity 2 — sort, QC and defuse two landmines before 06/02/2027  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D4#27` Skill Building: The PI Critical Thinking Audit Challenge (Arbitration) · `D4#28` Skill Building: The Arbitration Audit & Binder Build · `D4#21` Arbitration Binders: Section 1 — The Arbitration Submissions · `D4#22` Arbitration Binders: Section 2 — Core Litigation Pleadings · `D4#23` Arbitration Binders: Section 3 — Liabilities & Biomechanical Evidence · `D4#24` Arbitration Binders: Section 4 — Proving Bodily Accident Medical Damages · `D4#25` Arbitration Binders: Section 5 — The Prior Medical Shield · `D4#26` Arbitration Binders: Section 6 — Economic Losses & Lien Reconciliations
-
-#### 1 · Visual Layout Description
-
-A sorting board. Left column: the unsorted folder as a pile of white document cards, four flagged red: DRAFT COMPLAINT → EXCLUDE · GRAYSCALE STILLS → REPRINT IN COLOR · IMPASSE MEMO → ATTY. THORNE DECIDES · PIP $10,000.00 LIEN → STRIP. Right two-thirds: six navy tab columns ①–⑥, each headed by its QC rule in orange type, with sorted cards carrying C-numbers and Bates ranges as mono pills. Tab 1's first exhibit, C-1 BI EXHAUSTION, carries an orange padlock. A bottom timeline runs 06/02/2027 EXCHANGE → 06/11/2027 BRIEF → 06/22/2027 HEARING. The argument: QC is applied as each card lands, not after the pile is sorted.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** It is 05/17/2027. Keystone tendered the $10,000 BI limits at the 03/18/2027 mediation and Robert Smith was dismissed. On 04/05/2027 Harbor Point, and on 04/12/2027 Cardinal State, disputed damages, citing the gap; Laura Whitcomb, Esq. hears the consolidated arbitration on 06/22/2027, with exhibits exchanged 06/02/2027. The unsorted exhibit folder holds a pre-filing draft of the Complaint, grayscale doorbell stills, the 09/08/2026 impasse memo, and a Lien Sheet totalling $17,965.00 that lists Harbor Point PIP at $10,000.00. The Litigation Desk's draft exhibit index is in the file (RS63), assigned on the 07/15/2026 task log (RS64): QC it, do not rebuild it from nothing.
-
-**Execution prompt.** Sort the folder into the six-tab Arbitration Binder and apply each tab's QC rule as you go. Lead with the BI exhaustion record, number every exhibit C-1 onward with its Bates range, and log each record's authentication. Defuse both landmines: build Tab 5's prior medical shield against the prior-injury line defense counsel pressed at the 02/18/2027 deposition (the 2021 low-back visits) and the “degenerative” MRI reading Keystone first raised on 08/05/2026, and strip the attorney's-set Lien Sheet to what is actually owed. Flag every privileged or settlement item for Atty. Thorne; nothing is exchanged until he approves the set.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Litigation → Discovery & Filing Tracker · Medical Records Requests · CMS → Settlement (BI/UM) → Medical Liens / Payoffs |
-| **Expected output** | A six-tab, C-numbered, Bates-ranged Arbitration Binder with an authentication log, plus an audited Lien Sheet for the attorney's set, routed to Atty. Thorne for the 06/02/2027 exchange. |
-
-**Verification checkpoints**
-
-- [ ] Tab 1 (Day 4 deck p25): snapshot sheet (claimant John Doe; Harbor Point HP-26-7741, Cardinal State CS-26-20355, each carrier's current contact verified; arbitrator Laura Whitcomb, Esq.; hearing 06/22/2027); the governing documents, Harbor Point's UM arbitration clause and Laura Whitcomb's Notice of Hearing of 04/26/2027; fee disclosures with retainer deposits confirmed paid; slot held for the final brief of 06/11/2027, never a draft
-- [ ] Threshold exhibits first: Keystone's $10,000 tender, the UM consents, the Limited Release and Robert Smith's dismissal, with both carriers' Coverage Letters (03/02/2026 and 03/09/2026); nothing from the Confidential Mediation Statement
-- [ ] Tab 2 (Day 4 deck p26), pleadings, operative versions only: the filed Complaint of 09/24/2026 and the Answer of 11/12/2026, with Harbor Point's demand of 04/05/2027 and Cardinal State's joinder and written position of 04/12/2027; the pre-filing draft removed; whether the dismissed tort case's pleadings are exchanged flagged for Atty. Thorne
-- [ ] Tab 3: the full, certified RPD-26-018842 (not the public-redacted copy), identifiers redacted as the forum requires, the citation's admissibility flagged for Atty. Thorne; doorbell stills reprinted in color from the native file, chain of custody logged (copy secured 02/19/2026); event data recorder (belt buckled, 11 mph)
-- [ ] Tab 4: treatment chart and ledger $41,400.00 tied to certified bills; a certification requested from each provider (Riverton Urgent Care, Riverton General Hospital, Riverton Spine & Rehab, Lakeside Orthopedics, Summit Imaging Center, Crescent Pain & Spine, Riverton Drug) and from Riverton Fire (EMS), Riverton PD and Northgate HR, receipt logged; none in 14 days → second request and subpoena flag (Crescent's, requested 05/05/2027, due 05/19); Causation Letter 06/19/2026 flagged: an opinion, not a business record, admitted per the forum's rules; the gap proved by its underlying records, the Gap Explanation Record's synthesis left for the brief
-- [ ] Landmine 1, Tab 5: the 2021 records (three low-back chiropractic visits, resolved), the treating providers' own histories and John's 02/18/2027 deposition testimony showing no prior neck complaint, paired with the MRI's “no significant degenerative change at the adjacent levels” and the Causation Letter; if the letter is silent on the 2021 visits, flagged to Atty. Thorne to decide whether to seek a supplemental declaration from Dr. Reyes; the firm's intake questionnaire is privileged: a source, never an exhibit
-- [ ] Landmine 2, attorney's set: Lien Sheet stripped of Harbor Point PIP's $10,000.00 ($17,965.00 → $7,965.00; no PIP or MedPay reimbursement right, per the 03/02/2026 letter in the threshold record); liens Peach State $1,860.00 + Riverton Spine & Rehab $6,105.00 = $7,965.00; Summit (MedPay paid its $2,395.00) and Crescent hold none
-- [ ] Tab 6 (Day 4 deck p30), economic losses and liens: Northgate HR letter, 9 shifts × 8 h × $22.00 = $1,584.00; the negotiation ledger (Harbor Point's $8,000 and Cardinal State's $6,000 offers, no mediation-session offers); the audited lien payout sheet at $7,965.00; the ledger and the lien sheet flagged for Atty. Thorne's exchange decision
-- [ ] Impasse memo pulled to the attorney's set; the impasse memo, the negotiation ledger and the Lien Sheet flagged for Atty. Thorne's privilege and exchange decision, none placed in the exchange set by the CM
-- [ ] Master index: C-numbers sequential, Bates ranges match page counts, authentication column complete, forum's evidence rule noted as “confirm with Atty. Thorne”; set approved before the 06/02/2027 exchange
-
-**Best practices & pitfalls**
-
-- Apply the QC rule the moment a document lands in its tab.
-- Pair every damaging record with the record that answers it.
-- ⚠️ Pitfall: sorting the folder first and applying QC later.
-- ⚠️ Pitfall: conceding a reimbursement right the carrier gave up in writing.
-- ⚠️ Pitfall: an internal memo in an exchanged set.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **15%** | Sort accuracy | Every document in its tab; all four traps handled |
-| 🤖 AI | **15%** | Threshold and numbering | Exhaustion record leads; C-numbers sequential; Bates ranges match page counts |
-| 🤖 AI | **15%** | Prior medical shield | 2021 low-back records paired with the MRI read and the Causation Letter |
-| 🤖 AI | **15%** | Lien and wage figures | PIP stripped, $17,965.00 → $7,965.00: $1,860.00 + $6,105.00; Summit and Crescent at $0.00; wages $1,584.00 |
-| 🧑‍🏫 Trainer | **20%** | Landmine reasoning | Explains how each trap would have hurt John Doe at the hearing |
-| 🧑‍🏫 Trainer | **20%** | UPL boundary | Privilege, exchange and argument routed to Atty. Thorne; no expert opinion sought without his decision |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Put the four red traps on the board, then cover them before anyone sorts. The skill is categorizing, ordering and formatting under pressure, and QC applied while sorting is what is graded.
-- Ask the room: “Harbor Point is the other side now. Our attorney's-set Lien Sheet says it is owed $10,000.00. What goes wrong?” Atty. Thorne would work John Doe's net from a reimbursement right Harbor Point gave up in writing on 03/02/2026. The sheet never goes to the arbitrator; it still has to be right.
-- On Tab 5, watch for trainees who start arguing causation. The CM pulls and pairs the records; whether to ask Dr. Reyes for a supplemental opinion on the 2021 visits is Atty. Thorne's decision.
-- The impasse memo is the privilege test. A trainee who files it in Tab 6 because it explains the history has misunderstood who decides what is exchanged. The deck's Tab 6 does carry the negotiation ledger and the audited lien sheet, but sitting in the binder is not the same as being exchanged: both wait on Atty. Thorne.
-
----
-
-### 4.1.14 Setting Automated Countermeasures in CMS
-
-> **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Countermeasure Operational Audit (`d4m4`)  
-> **Topic:** Skill Activity 1 — rules that fire before the deadline does  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D4#29` Common Bottlenecks: Mediation (The Compromise Traps) · LSH Claims Specialist: BI liability follow-ups and the escalation protocol
-
-#### 1 · Visual Layout Description
-
-A CMS rules panel fills the left two-thirds: four rule rows on cream cards, each with an orange numbered badge and a mono threshold pill — ① SILENCE · 48 H ② RECORDS · 14 D ③ RED FLAG · 10 D ④ AUDIT · 48 H — and an IF → THEN → OWNER line in navy type. Right third: a vertical firing log for the mediation calendar, one dated row per firing, the 03/11/2027 and 03/18/2027 hard dates as red pills at the foot. Across the top, a slim grey CALIBRATION strip shows the Keystone record with Rule ① firing on 09/02/2026 and 09/04/2026, ticked green. The argument: a rule is trusted on live dates only after it reproduces a known record.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** File date 02/22/2027 (Track B, in suit). Mediation with Hon. Carla Benton (Ret.) is 03/18/2027; the confidential statement and binder are due to her 03/11/2027. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027 for the binder, has not arrived. Keystone's representative and authority for the session are unconfirmed. Calibration record: Keystone follow-ups 08/24 and 08/31/2026 unanswered; supervisor escalation 09/02; silence on 09/04. The demand-stage audit holds Riverton at $6,105.00 (33 visits × $185.00); Peach State's EOB shows $1,860.00 paid on Crescent Pain & Spine's $3,400.00 bill.
-
-**Execution prompt.** Configure four countermeasure rules in the CMS: (1) silence: follow-ups every 5 business days; 48 h after the second unanswered → supervisor; 48 h more → Atty. Thorne; (2) a record not received 14 days after request → second request and a subpoena flag for Atty. Thorne; (3) a hard date 10 days out with an open dependency → red flag; (4) the 48-hour pre-session audit before every hard date, with its contents (ledger against EOBs, binder, OCR) and the fallback if a record is still missing. Calibrate Rule 1 on the Keystone record, then fire all four on the mediation calendar: date, action, owner. Graded: the dates, and what you own versus what is his.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Tasks → Action Item Log · CMS → Calendar · CMS → Notes → Case Notes |
-| **Expected output** | Four configured rules, calibrated on the Keystone record, with every firing on the mediation calendar dated, actioned and owned. |
-
-**Verification checkpoints**
-
-- [ ] Rule 1 set: follow-ups every 5 business days; supervisor escalation 48 hours after the second unanswered follow-up; Atty. Thorne 48 hours after an unanswered escalation
-- [ ] Calibration reproduces the file: Rule 1 fires 09/02/2026 (supervisor escalation) and 09/04/2026 (escalation task opened to Atty. Thorne that day; the full impasse memo followed on 09/08/2026, the first business day after the Labor Day weekend)
-- [ ] Rule 2 fires 02/22/2027 (02/08/2027 + 14 days): Level 1, Tammy Greer, Riverton Spine & Rehab's office manager, has not produced it, so the Case Manager sends a written Notice of Delay that day to Atty. Thorne, and, as he directs, to the side the binder serves (Keystone, through defense counsel Atty. Mercer), documenting the barrier
-- [ ] Subpoena flagged to Atty. Thorne as a decision for him; any draft is for his review and signature, never served by the Case Manager
-- [ ] Rule 3 red flags dated 03/01/2027 (10 days before 03/11/2027) for the ledger and 03/08/2027 (10 days before 03/18/2027) for Keystone's attendee with settlement authority, for Atty. Thorne to raise with defense counsel
-- [ ] Rule 4 audits set for 03/09/2027 (binder) and 03/16/2027 (session), both weekdays: ledgers verified, binder complete, digital set OCR-searchable
-- [ ] EOB reconciliation run now, reconciling liens early (Day 4 deck p35), and re-checked at each audit: Peach State's $1,860.00 is its whole claim on Crescent's $3,400.00 bill; the $1,540.00 written off ($3,400.00 minus $1,860.00) is never carried as a lien
-- [ ] Fallback recorded if the ledger is still missing at the 03/09/2027 audit: escalate, mark the treatment “Pending Final Verification”, include the audited interim ledger ($6,105.00: 33 visits × $185.00), Atty. Thorne sets expectations
-- [ ] Every firing carries a date, an action and an owner
-- [ ] No rule sends an external message on its own; every firing opens a task or a flag for review
-
-**Best practices & pitfalls**
-
-- Calibrate on a known record before you trust a rule on live dates.
-- When a 48-hour audit lands on a weekend or holiday, move it earlier, never later.
-- Inbound runs faster: anything from the court or opposing counsel is docketed, and Atty. Thorne alerted, the day it arrives (an RFA the hour it arrives). Filing and naming it to the convention can follow within 48 hours.
-- ⚠️ Pitfall: waiting for the perfect ledger instead of escalating.
-- ⚠️ Pitfall: a trigger that fires into an inbox nobody owns.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Countermeasure Operational Audit (taught on Case Flow Day 4) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **15%** | Rule configuration | Four rules with the right thresholds: 5 business days and 48 hours, 14 days, 10 days, 48-hour audit |
-| 🤖 AI | **10%** | Calibration | Rule 1 fires on 09/02/2026 and 09/04/2026 |
-| 🤖 AI | **25%** | Firing dates | 02/22, 03/01, 03/08, 03/09 and 03/16/2027, each with an action and an owner |
-| 🤖 AI | **10%** | Audit and fallback fields | EOB reconciliation run early and re-checked at the audit; “Pending Final Verification”, interim ledger $6,105.00, escalation to Atty. Thorne |
-| 🧑‍🏫 Trainer | **25%** | Ownership judgment | Separates what the CM fixes from what needs Atty. Thorne's decision |
-| 🧑‍🏫 Trainer | **15%** | Authority boundary | Subpoena flagged for decision; no rule contacts defense counsel, the mediator or John Doe unreviewed |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Run the calibration live first: enter the Keystone dates and let the room watch Rule 1 fire on 09/02 and 09/04. A rule that can't reproduce a known record can't be trusted on a live one.
-- Ask: “The ledger is still missing at the 03/09/2027 audit. Do you hold the binder?” No. Escalate, mark the treatment “Pending Final Verification”, send the interim ledger, and let Atty. Thorne set expectations.
-- Watch for subpoena flags written as if the subpoena were decided. The flag asks a question; Atty. Thorne answers it. Rules on records subpoenas to non-parties (notice to the other side, time to comply) vary: confirm the court's rules.
-- Grade the dates hard: every firing date is arithmetic from the file. The authority red flag on 03/08/2027 is the one trainees forget, and it is the missing-decision-maker trap. The EOB line tests whether they know a contract-rate payment closes the bill.
-
----
-
-### 4.1.15 Bottleneck Resolution Simulation
+### 4.1.11 Bottleneck Resolution Simulation
 
 > **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Skill Activity 2 — five problems, nine days, one order  
@@ -1178,7 +884,7 @@ Verified in Countermeasure Operational Audit (taught on Case Flow Day 4) and tha
 
 ---
 
-### 4.1.16 Backup File Maintenance: Liens, Costs and a Missing Folder
+### 4.1.12 Backup File Maintenance: Liens, Costs and a Missing Folder
 
 > **Skill Activity** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity — back up the lien and cost papers, and find and restore a deleted folder  
@@ -1241,7 +947,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 4.1.17 Final Accounting Check
+### 4.1.13 Final Accounting Check
 
 > **Knowledge Check** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1344,7 +1050,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 4.1.18 ADR & Calendar Compliance Check
+### 4.1.14 ADR & Calendar Compliance Check
 
 > **Knowledge Check** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with ADR & Calendar Compliance Check (`d4m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1460,7 +1166,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 4.1.19 Binder Assembly Verification
+### 4.1.15 Binder Assembly Verification
 
 > **Knowledge Check** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Binder Assembly Verification (`d4m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1554,7 +1260,7 @@ The standard knowledge-check split: the question panel on the warm cream card wi
 
 ---
 
-### 4.1.20 Countermeasure Operational Audit
+### 4.1.16 Countermeasure Operational Audit
 
 > **Knowledge Check** · Day 4 — Mediation & Arbitration · Module 4: Mediation & Arbitration · scored with Countermeasure Operational Audit (`d4m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

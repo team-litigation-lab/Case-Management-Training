@@ -2253,7 +2253,7 @@ window.CM_CF_EXHIBITS = {
   }
  },
  "amendments": {
-  "d2m4-a1": {
+  "d3m1-a1": {
    "title": "Amendment Requests: records wrong at their source",
    "kicker": "Screen the records and bills; ask each provider, in writing, to correct its own.",
    "intro": "Every bill is in and MMI is declared. Before the demand is drafted, screen the file's records and bills for anything wrong at its source. You never fix a provider's record: Atty. Thorne approves the request, the provider corrects its own record or statement, and the original stays.",
