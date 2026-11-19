@@ -1113,7 +1113,6 @@ window.afterRender = function(){
 window.toolHead = function(t){
   const d = t.relates ? parseInt(String(t.relates).replace(/[^0-9]/g,""), 10) : null;
   return `
-    <a class="back-link" onclick="goto('practice')">&larr; Back to Practice</a>
     <section class="page-hero lab-hero">
       <div class="lab-hero-top">
         <p class="eyebrow">${(()=>{ const c = window.cmToolCategory ? cmToolCategory(t.id) : null, lab = c ? `${c.icon} ${c.short}` : "Skill Builder"; return d ? `Day ${d} · ${lab}` : lab; })()}</p>
