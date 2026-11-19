@@ -2354,7 +2354,7 @@ window.CM_CASE_FLOW = {
         visual: "A full-slide editor canvas showing the live plan with all five bands stubbed and their required fields outlined in orange. A completion meter runs across the top in five segments that fill as each band is completed. The risks band carries a red required marker so it can't be skipped silently. Bottom-right, the ROUTE FOR REVIEW control is greyed out and locked until all five segments are filled, with a label: “all five bands required.” The lock is the argument: the tool won't let an incomplete plan reach counsel.",
         act: {
           scenario: "Everything from Day 1 and Claim Set Up is in the file: parties mapped, the $40,000 stack verified, the onboarding packet delivered and tracked, and the 14-Day Treatment Gap identified. Treatment began 02/20/2026, and the Regulatory Triple-Check was cleared and recorded on 03/12/2026 (HIPAA authorization, BCRC/SSDI answer, Payer Order). Atty. Thorne is waiting on the Case Plan.",
-          prompt: "Draft the complete Case Plan for John Doe VS Robert Smith. Fill all five bands from today's work: the acceptance decision with its reason; coverage as a stack with its order of operations, liability, and a preliminary projection; the Regulatory Triple-Check, shown cleared with its date and each of its three results; Clinical, Functional and Subrogation Management pillars with measurable goals, each action item with an owner and a date; and the risks band with the 14-Day Gap and the risk of a later break in care, prominently, with their consequences. Docket the filing window, then route the plan to Atty. Thorne.",
+          prompt: "Draft the complete Case Plan for John Doe VS Robert Smith. Fill all five bands from today's work: the acceptance decision with its reason; coverage as a stack with its order of operations, liability, and a preliminary projection; the Regulatory Triple-Check, shown cleared with its date and each of its three results; Clinical, Functional and Subrogation Management pillars with measurable goals, each action item with an owner and a date; and the risks band with the Treatment Gap and the risk of a later break in care, prominently, with their consequences. Count the gap from the dates on the records and write only what they show; under it, list the causes to investigate as questions for John Doe, not answers, and leave what the gap means for the claim to Atty. Thorne. Docket the filing window, then route the plan to Atty. Thorne.",
           tool: "Action Plan Editor",
           output: "A complete, routed Case Plan that counsel could set strategy from without asking a follow-up question.",
           checkpoints: [
@@ -2367,6 +2367,8 @@ window.CM_CASE_FLOW = {
             "Clinical, Functional and Subrogation Management pillars each with a measurable goal",
             "Every action item has an owner and a date",
             "Risks band: 14-Day Gap and the risk of a later break in care, prominent, with consequences",
+            "Gap computed from the records as 14 days, 02/06/2026 to 02/20/2026; facts only, “explanation pending: client's own account and supporting documents”, no view on what it does to the claim",
+            "Causes to investigate listed as questions for John Doe, not answers (Day 1 deck p46): missed appointments, transportation, cost or co-pays, work schedule, stopping after temporary relief, referral or authorization delays",
             "Filing window docketed",
             "Plan routed to Atty. Elijah Thorne with a timestamp"
           ]
@@ -2385,7 +2387,7 @@ window.CM_CASE_FLOW = {
           ai: [
             ["Snapshot accuracy", 15, "Parties, DOL, SOL and client position all correct"],
             ["Coverage accuracy", 15, "Correct limits, total and order of operations"],
-            ["Risk flagging", 15, "The 14-day gap and the risk of a later break recorded with consequences"],
+            ["Risk flagging", 15, "The gap computed from the records (14 days) with its causes to investigate as questions, and the risk of a later break, recorded with consequences"],
             ["Item discipline", 10, "No action item without an owner and a date"],
             ["Routing", 5, "Routed to Atty. Thorne with timestamp"]
           ],

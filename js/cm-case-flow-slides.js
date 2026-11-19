@@ -1762,10 +1762,11 @@ window.CM_CF_SLIDES = {
  },
  "d1m4-a2": {
   "image": "cms-screen",
-  "situation": "Assuming the set-up is in, the **$40,000 stack verified** and the 14-Day Treatment Gap flagged, Atty. Thorne now needs the Case Plan.",
+  "situation": "Assuming the set-up is in, the **$40,000 stack verified** and the first treatment records on file, Atty. Thorne now needs the Case Plan.",
   "side": true,
   "steps": [
-   "In the Action Plan Editor, record the stack in order with a preliminary projection, and put the **14-Day Gap** at the top of the risks band.",
+   "In the Action Plan Editor, record the stack in order with a preliminary projection, and put the **Treatment Gap**, counted from the records, at the top of the risks band.",
+   "Under the gap, list the causes to investigate as questions for John Doe, not answers.",
    "Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne."
   ],
   "deliver": "A Case Plan **routed to Atty. Thorne**, the filing window docketed",
@@ -1773,7 +1774,8 @@ window.CM_CF_SLIDES = {
   "principle": "Report facts and preliminary numbers; **strategy is Atty. Thorne's** to set",
   "checks": [
    "Order **BI → Host UM → Relative UM**; projection preliminary",
-   "Risks band: **the 14-Day Gap** first",
+   "Risks band: **the gap, counted from the records**, first",
+   "Causes to investigate listed **as questions**",
    "Plan **routed to Atty. Elijah Thorne**"
   ],
   "dos": [

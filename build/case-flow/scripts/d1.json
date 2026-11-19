@@ -332,13 +332,13 @@
   },
   "d1m4-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, record the stack in order with a preliminary projection\n• And put the 14-Day Gap at the top of the risks band\n• Step 2: Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne"
+      "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, record the stack in order with a preliminary projection\n• And put the Treatment Gap, counted from the records, at the top of the risks band\n• Step 2: Under the gap, list the causes to investigate as questions for John Doe\n• Step 3: Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne"
     },
     "case": {
-      "say": "• Assuming the set-up is in, the $40,000 stack verified and the 14-Day Treatment Gap flagged, Atty. Thorne now needs the Case Plan\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Case Plan routed to Atty. Thorne, the filing window docketed"
+      "say": "• Assuming the set-up is in, the $40,000 stack verified and the first treatment records on file, Atty. Thorne now needs the Case Plan\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Case Plan routed to Atty. Thorne, the filing window docketed"
     },
     "check": {
-      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Order BI › Host UM › Relative UM; projection preliminary; Risks band: the 14-Day Gap first; Plan routed to Atty. Elijah Thorne\n• The one thing to watch for: a projection stated as a number before coverage is confirmed"
+      "say": "• Submit: they submit the entry they logged; graded on the three steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Order BI › Host UM › Relative UM; projection preliminary; Risks band: the gap, counted from the records, first\n• And: Causes to investigate listed as questions; Plan routed to Atty. Elijah Thorne\n• The one thing to watch for: a projection stated as a number before coverage is confirmed"
     }
   },
   "d1m1-kc": {
