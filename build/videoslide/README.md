@@ -60,6 +60,28 @@ node build/videoslide/deck-slides.cjs
 
 It writes `js/cm-deck-slides.js` (generated: don't edit it by hand). `.github/scripts/day-video.cjs` checks all of it.
 
+## The Case Debrief
+
+The 🎬 Case Debrief tab on the Case Profile (`js/cm-case-debrief.js`, 🔒 for a trainee until Case Flow Day 5 is complete)
+plays a narrated debrief of the whole file. Its deck is not a Canva export: `build/debrief/debrief.json` holds each slide
+and its notes, and `node build/debrief/render.cjs` draws the slides (`decks/debrief/NN.webp`, and
+`build/debrief/out/debrief.pdf`, not committed). Record it from that PDF as the five days are recorded, in the
+trainer's own voice (`--turbo`, below, with the same voice sample), building in `build/debrief/out/video` (not
+committed); then copy the web copy and its captions in as the served video:
+
+```bash
+node build/debrief/render.cjs
+python3 build/videoslide/make_video.py --deck build/debrief/out/debrief.pdf --notes build/debrief/debrief.json --turbo my-voice.wav --out build/debrief/out/video --name debrief-narrated --web
+cp build/debrief/out/video/debrief-narrated-web.mp4 decks/debrief/debrief-narrated.mp4
+cp build/debrief/out/video/debrief-narrated.vtt decks/debrief/debrief-narrated.vtt
+```
+
+Put each slide's `start` from `build/debrief/out/video/slides.json` in `debrief.json`'s `video.starts` (and, in its
+`voice`, how it was spoken, as the days' notes files say) and run `node build/videoslide/deck-slides.cjs`. Until then the
+tab steps through the slides and their script, and `.github/scripts/debrief-narration.cjs` fails, saying it isn't
+recorded. A slide whose notes change is spoken again on the next run (the others' audio is kept in
+`build/debrief/out/video/audio`); its Litigation note (slide 17's `note`) is `js/cm-litigation-note.js`'s, word for word.
+
 ## In the trainer's own voice
 
 `revoice.py` converts the narration to the sound of a recorded voice (Chatterbox voice conversion, offline), keeping
