@@ -1,11 +1,12 @@
 // @check node — The Worker holds the one-attempt Knowledge Check: a trainee's own write can't drop or replace an attempt on their record
 // js/cm-kc-once.js refuses a second attempt in the browser; worker.js keepKcAttempts holds it on the server, so a console
 // edit or a device's stale progress can't rewrite it. On a trainee's own write to trainee:<id>:
-//   1. a day with no attempt yet takes the write as it is (the first attempt is recorded);
+//   1. a day with no attempt yet takes the write's first attempt (dated by the Worker, its score 0–100);
 //   2. a day with an attempt keeps its first attempt (history[0]) and the score, done and date on the record, whatever the
 //      write says; the history never gets shorter (a dayProgress entry deleted, or emptied, comes back);
 //   3. the first attempt's own picks (answers) may be added once, for its Answer Review; they change no score;
-//   4. an admin's write is not limited.
+//   4. an admin's write is not limited by the one-attempt rule, but a copy of the record read earlier keeps the attempts
+//      stored (keepKcStored; admin-kc-keep.cjs): only a deliberate replacement (replaceKc: true) clears a day.
 // Usage: node .github/scripts/kc-once-worker.cjs   (no server, no browser needed)
 const path = require('path');
 const { pathToFileURL } = require('url');
@@ -29,7 +30,7 @@ const fail = (m) => failures.push(m);
     const admin = (await api('/api/auth/admin', { passphrase: 'ci-pass' })).body.token;
     const key = 'trainee:' + t.id;
     const read = async () => { const r = await api('/api/storage/get', { key }, admin); return r.body && r.body.value ? JSON.parse(r.body.value) : null; };
-    const write = (rec, tok = t.token) => api('/api/storage/set', { key, value: JSON.stringify(rec) }, tok);
+    const write = (rec, tok = t.token, extra = {}) => api('/api/storage/set', Object.assign({ key, value: JSON.stringify(rec) }, extra), tok);
 
     await write({ id: t.id, name: 'Kim Once', batch: 'B100926' });
     // 1. the first attempt
@@ -37,12 +38,15 @@ const fail = (m) => failures.push(m);
     await write({ id: t.id, name: 'Kim Once', batch: 'B100926', dayProgress: { 11: { score: 65, done: false, date: first.date, history: [first] } } });
     let r = await read();
     if (!r || !r.dayProgress || !r.dayProgress[11] || r.dayProgress[11].score !== 65) fail(`the first attempt should be recorded: ${JSON.stringify(r && r.dayProgress)}`);
+    // (dated by the Worker's clock, not the device's: worker-identity.js dateFirstAttempts)
+    const firstAt = r && r.dayProgress && r.dayProgress[11] && r.dayProgress[11].date;
+    if (!firstAt || firstAt === first.date || Math.abs(Date.parse(firstAt) - Date.now()) > 60000 || r.dayProgress[11].history[0].date !== firstAt) fail(`the first attempt should be dated by the Worker: ${JSON.stringify(r && r.dayProgress)}`);
 
     // 2. a second "attempt" written over it, and an attempt deleted: the first stands
     await write({ id: t.id, name: 'Kim Once', batch: 'B100926', dayProgress: { 11: { score: 100, done: true, date: '2026-10-02T10:00:00.000Z', history: [{ score: 100, passed: true, date: '2026-10-02T10:00:00.000Z' }] } } });
     r = await read();
     const p = (r.dayProgress || {})[11] || {};
-    if (p.score !== 65 || p.done !== false || p.date !== first.date || !p.history || p.history[0].score !== 65) fail(`a trainee's write should not replace the recorded attempt: ${JSON.stringify(p)}`);
+    if (p.score !== 65 || p.done !== false || p.date !== firstAt || !p.history || p.history[0].score !== 65) fail(`a trainee's write should not replace the recorded attempt: ${JSON.stringify(p)}`);
     await write({ id: t.id, name: 'Kim Once', batch: 'B100926', dayProgress: {} });
     r = await read();
     if (!r.dayProgress || !r.dayProgress[11] || r.dayProgress[11].score !== 65 || r.dayProgress[11].history.length !== 1) fail(`deleting the day's progress should not clear the attempt: ${JSON.stringify(r.dayProgress)}`);
@@ -61,10 +65,13 @@ const fail = (m) => failures.push(m);
     const h0 = r.dayProgress[11].history[0];
     if (!Array.isArray(h0.answers) || h0.answers.length !== 4 || h0.score !== 65) fail(`the first attempt's picks may be added, with its score unchanged: ${JSON.stringify(h0)}`);
 
-    // 4. an admin may reset it
+    // 4. an admin's stale copy (no attempt in it) keeps the stored attempt; a deliberate replacement clears it
     await write({ id: t.id, name: 'Kim Once', batch: 'B100926', dayProgress: {} }, admin);
     r = await read();
-    if (r.dayProgress && r.dayProgress[11]) fail('an admin\'s write should not be limited');
+    if (!(r.dayProgress && r.dayProgress[11] && r.dayProgress[11].score === 65)) fail('an admin\'s copy without the attempt should keep the stored attempt');
+    await write({ id: t.id, name: 'Kim Once', batch: 'B100926', dayProgress: {} }, admin, { replaceKc: true });
+    r = await read();
+    if (r.dayProgress && r.dayProgress[11]) fail('an admin\'s deliberate replacement (replaceKc) should not be limited');
 
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
     console.log('The Worker holds the one-attempt Knowledge Check: a trainee\'s own write keeps the recorded attempt (score, done, date, history), adds only its picks, and an admin is not limited.');

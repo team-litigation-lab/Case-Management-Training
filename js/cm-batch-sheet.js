@@ -115,19 +115,11 @@ const summaryOf = r => { try{ return typeof auditSummary === "function" ? auditS
 /* 👥 DUPLICATE ACCOUNTS, as Foundational's (its dupGroups / dupMerge): one person with two accounts. A trainee's account id is
    their name + batch (worker.js candidateIds), so the same person coming in with the name or Batch ID written another way
    (the Portal's form of it, a retyped batch) gets a second, empty account. Each account shows its id, the batch as saved,
-   when it registered and was last on, and how much it holds; the trainer keeps one and 👥 Merge moves everything of the
-   other into it (each field the kept one lacks is filled from the other; lists joined, without repeats; on a clash the kept
-   one's value stays), deletes the other's records and leaves merged:<other id> = {into}, so a sign-in that would open it
-   opens the kept one, and a page still open on it can't save to it (worker.js traineeSession and traineeWrite). */
+   when it registered and was last on, and how much it holds; the trainer picks one and 👥 Merge has the Worker merge them
+   (js/cm-account-repair.js mergeIds → /api/account-merge, worker-account-repair.js: a dry run the trainer confirms, every
+   account backed up, every Knowledge Check attempt kept, the id the Portal opens kept, copied before anything is deleted,
+   merged:<other id> = {into} left so a sign-in that would open it opens the kept one). */
 const slugOfName = t => String(t || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-const MERGE_KEYS = id => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`, `actsub:${id}`];
-function mergeVals(a, b){
-  if(a === undefined || a === null || a === "") return b === undefined ? a : b;
-  if(b === undefined || b === null || b === "") return a;
-  if(Array.isArray(a) && Array.isArray(b)){ const seen = new Set(a.map(x => JSON.stringify(x))); return a.concat(b.filter(x => !seen.has(JSON.stringify(x)))); }
-  if(typeof a === "object" && typeof b === "object" && !Array.isArray(a) && !Array.isArray(b)){ const out = Object.assign({}, a); Object.keys(b).forEach(k => { out[k] = mergeVals(a[k], b[k]); }); return out; }
-  return a;
-}
 function dupGroups(){
   const live = (state.adminData || []).filter(r => r && r.name && !r.rejected && !r.archived && !r.mergedInto), by = {};
   live.forEach(r => { const k = slugOfName(nameOf(r)); (by[k] = by[k] || []).push(r); });
@@ -141,38 +133,24 @@ function dupHtml(){
   const G = dupGroups(); if(!G.length) return "";
   B.dupKeep = B.dupKeep || {};
   return `<div class="bs-dup"><b>👥 ${G.length === 1 ? `${E(nameOf(G[0].accts[0].r))} has ${G[0].accts.length} accounts` : `${G.length} trainees have more than one account`}</b>
-    <p>The same person came in with their name or Batch ID written another way, so a second account was made. Keep the one with their work; 👥 Merge moves everything of the other into it and deletes it, and a sign-in to the other then opens the one kept.</p>
+    <p>The same person came in with their name or Batch ID written another way, so a second account was made. 👥 Merge shows the Worker's dry run first; it keeps the account the trainee's current Portal sign-in opens (else the one picked here), backs up every account, keeps every Knowledge Check attempt, and a sign-in to the other then opens the one kept.</p>
     ${G.map(g => { const keep = B.dupKeep[g.key] && g.accts.some(a => a.id === B.dupKeep[g.key]) ? B.dupKeep[g.key] : g.accts[0].id;
       return `<table class="bs-dup-t"><thead><tr><th>Keep</th><th>Account id</th><th>Batch as saved</th><th>Registered</th><th>Last on</th><th>Slides seen</th><th>Checks passed</th><th>Status</th></tr></thead><tbody>
         ${g.accts.map(a => `<tr${a.id === keep ? ' class="on"' : ""}><td><input type="radio" name="dup-${E(g.key)}" ${a.id === keep ? "checked" : ""} onchange="cmBatchSheet.dupKeep('${E(g.key)}', '${E(a.id)}')"></td>
           <td><code>${E(a.id)}</code></td><td><code>${E(a.batch)}</code></td><td>${a.reg ? E(dTime(a.reg)) : "—"}</td><td>${a.last ? E(ago(a.last)) : "—"}</td><td>${a.seen}</td><td>${a.kc}</td><td>${a.st}</td></tr>`).join("")}</tbody></table>
-        <button class="btn btn-navy btn-sm" type="button" ${B.dupBusy ? "disabled" : ""} onclick="cmBatchSheet.dupMerge('${E(g.key)}')">${B.dupBusy === g.key ? "Merging…" : `👥 Merge into ${E(keep)}`}</button>`; }).join("")}</div>`;
+        <button class="btn btn-navy btn-sm" type="button" ${B.dupBusy ? "disabled" : ""} onclick="cmBatchSheet.dupMerge('${E(g.key)}')">${B.dupBusy === g.key ? "Merging…" : `👥 Merge (dry run first)`}</button>`; }).join("")}</div>`;
 }
 async function dupMerge(key){
   if(!state.isAdmin || B.dupBusy) return;
   const g = dupGroups().find(x => x.key === key); if(!g) return;
   const keep = B.dupKeep && g.accts.some(a => a.id === B.dupKeep[key]) ? B.dupKeep[key] : g.accts[0].id, others = g.accts.filter(a => a.id !== keep);
-  if(!confirm(`Keep ${nameOf(g.accts[0].r)}'s account ${keep} and merge ${others.map(a => a.id).join(", ")} into it?\n\nEverything the other account holds (progress, Knowledge Checks, feedback, Focus, scores) moves into the one kept, and the other account is deleted. A sign-in to it opens the kept one.`)) return;
-  B.dupBusy = key; redraw(); let ok = 0, err = "";
-  for(const o of others){
-    try{
-      const fromK = MERGE_KEYS(o.id), intoK = MERGE_KEYS(keep), vals = await sharedGetMany(fromK.concat(intoK));
-      // (nothing is deleted unless both accounts were read: a failed read returns nothing, which must never pass for "empty")
-      if(!vals[0] || !vals[fromK.length]) throw new Error("couldn't read both accounts");
-      for(let i = 0; i < fromK.length; i++){
-        const b = vals[i], a = vals[i + fromK.length]; if(b == null) continue;
-        let v = mergeVals(a, b);
-        if(i === 0) v = Object.assign({}, v, {id: keep, name: (a && a.name) || b.name, batch: (a && a.batch) || b.batch, approved: !!((a && a.approved === true) || b.approved === true),
-          registeredAt: [a && a.registeredAt, b.registeredAt].filter(Boolean).sort()[0] || "", lastActive: [a && a.lastActive, b.lastActive].filter(Boolean).sort().pop() || "", mergedFrom: ((a && a.mergedFrom) || []).concat(o.id)});
-        if(await sharedSet(intoK[i], v) === false) throw new Error("save refused");
-      }
-      if(await sharedSet("merged:" + o.id, {into: keep, at: new Date().toISOString()}) === false) throw new Error("save refused");
-      for(const k of fromK) await sharedDelete(k);
-      ok++;
-    }catch(e){ err = e && e.message || "no connection"; }
-  }
+  // 👥 on the Worker (js/cm-account-repair.js mergeIds → /api/account-merge): its dry run, the trainer's confirm, then exactly
+  // that merge (every account backed up, every attempt kept, copied before anything is deleted)
+  if(!window.cmAccountRepair || !cmAccountRepair.mergeIds){ if(typeof toast === "function") toast("Open Admin → 🛠 Account Repair to merge these accounts."); return; }
+  B.dupBusy = key; redraw();
+  let r; try{ r = await cmAccountRepair.mergeIds([keep].concat(others.map(a => a.id)), keep); }catch(e){ r = {ok: false, text: (e && e.message) || "no connection"}; }
   B.dupBusy = null; B.extra = {}; B.rowsAt = 0; if(state.auditExtra) Object.keys(state.auditExtra).forEach(k => delete state.auditExtra[k]);
-  if(typeof toast === "function") toast(ok === others.length ? `✓ Merged: one account for ${nameOf(g.accts[0].r)} (${keep}).` : `Couldn't merge every account (${err}). Try again.`);
+  if(typeof toast === "function" && !r.cancelled) toast(r.ok ? `✓ Merged: one account for ${nameOf(g.accts[0].r)} (${r.keep}).` : `Couldn't merge: ${r.text}`);
   if(typeof refreshAdminData === "function") refreshAdminData(); else render();
 }
 function lessonsTable(ppl){
@@ -266,14 +244,22 @@ const fbOf = (r, d) => { const f = (((extraOf(r) || {}).fb) || {})[d.id]; return
 const ratingTone = s => /strong|excellent|exceed/i.test(s || "") ? "gs-hi" : /need|below|not yet|concern/i.test(s || "") ? "gs-lo" : s ? "gs-mid" : "";
 // the day's deliverables: {grp, name, pct, status, why, best[], improve[]}
 function dayParts(r, d){
-  const data = dataOf(r), n = d.cf.n, out = [], cfd = ((r.caseFlow || {}).days || {})[n] || {};
+  // (🛡 the day's Case Flow summary only when it is this day's: one naming another day's id is not its score, js/cm-scorecard.js cfDay)
+  const data = dataOf(r), n = d.cf.n, out = [], cf0 = ((r.caseFlow || {}).days || {})[n], cfd = cf0 && typeof cf0 === "object" && (cf0.id == null || String(cf0.id) === String(d.id)) ? cf0 : {};
   const dp = (data["day-progress"] || r.dayProgress || {})[d.id] || {}, wl = Array.isArray(data["work-log"]) ? data["work-log"] : [];
   // ✍️ the Knowledge Check (its last attempt's missed questions are what to improve)
-  const kc = num(cfd.kc != null ? cfd.kc : dp.score), quiz = wl.filter(w => w && w.kind === "quiz" && Number(w.dayId) === Number(d.id)).pop();
-  const tries = (dp.history || []).length || dp.kcAttempts || (kc != null ? 1 : 0);
-  if(kc != null || tries) out.push({grp: "kc", name: "✍️ Knowledge Check", pct: kc, status: kc == null ? "Not taken" : kc >= 70 ? "Passed" : "Not passed yet",
-    why: kc == null ? "" : `${kc}% best of ${tries} attempt${tries === 1 ? "" : "s"}${quiz && quiz.total ? ` · last attempt ${quiz.correct}/${quiz.total} correct` : ""}. 70% passes the day.`,
+  // (🛡 the best score of the trainee's record and its Case Flow summary only: js/cm-scorecard.js kcBest / kcPassed. A score
+  // only the device holds is shown as unconfirmed, never counted: kcDevice)
+  const S = window.cmScorecard, rp = (r.dayProgress || {})[d.id] || {}, ctx = ctxFor(r);
+  const kb = S && S.kcBest ? S.kcBest(rp, cfd) : (cfd.kc != null ? cfd.kc : rp.score);
+  const kc = num(kb), quiz = wl.filter(w => w && w.kind === "quiz" && Number(w.dayId) === Number(d.id)).pop();
+  const dev = kc == null && S && S.kcDevice ? num(S.kcDevice(ctx, d)) : null;
+  const passed = S && S.kcPassed ? S.kcPassed(ctx, d) : kc != null && kc >= 70;
+  const tries = (rp.history || []).length || rp.kcAttempts || (kc != null ? 1 : 0);
+  if(kc != null || tries) out.push({grp: "kc", name: "✍️ Knowledge Check", pct: kc, status: kc == null ? "Not taken" : passed ? "Passed" : "Not passed yet",
+    why: kc == null ? "" : `${kc}% best of ${tries} attempt${tries === 1 ? "" : "s"}${quiz && quiz.total ? ` · last attempt ${quiz.correct}/${quiz.total} correct` : ""}. 70% passes the day.${rp.kcUnverified ? " Restored from the trainee's device." : ""}`,
     best: [], improve: ((quiz && quiz.missed) || []).slice(0, 4).map(q => "Missed: " + clip(q, 160))});
+  else if(dev != null) out.push({grp: "kc", name: "✍️ Knowledge Check", pct: null, status: `Unconfirmed: ${dev}% on the trainee's device only`, why: `${dev}% is on the trainee's device but not on their record, so it isn't counted. 🛠 Account Repair can restore it.`, best: [], improve: []});
   else out.push({grp: "kc", name: "✍️ Knowledge Check", pct: null, status: "Not taken", why: "", best: [], improve: []});
   // 🧩 the modules' Learning Checks (AI × 0.60 + trainer × 0.40)
   const names = modNames();
@@ -387,7 +373,7 @@ function dayDetailHtml(ppl){
 function ctxFor(r){ const x = B.extra[r.id] || {}; return {rec: r, cf: r.caseFlow || {days: {}}, data: dataOf(r), callsim: x.callsim, sim: x.sim, fb: fbRecOf(r)}; }
 const cnt = (v, f, cls) => ({v: v == null ? "" : String(v), f: f || "", cls: "gs-num " + (cls || "")});
 const EXTRA = {
-  kc: {head: ["Passed", "Attempts"], cells: (r, c, items) => { const dp = c.rec.dayProgress || {}, n = cfDaysL().length, p = items.filter(i => i.pct >= 70).length;
+  kc: {head: ["Passed", "Attempts"], cells: (r, c, items) => { const dp = c.rec.dayProgress || {}, n = cfDaysL().length, p = items.filter(i => i.pct >= 70 && !i.unconfirmed).length;
     const a = cfDaysL().reduce((s, d) => s + (((dp[d.id] || {}).history || []).length || ((dp[d.id] || {}).score != null ? 1 : 0)), 0);
     return [cnt(`${p} / ${n}`, `${p} of ${n} days passed (70%)`, p === n ? "gs-hi" : ""), cnt(a, `${a} Knowledge Check attempts in all`)]; }},
   lc: {head: ["Trainer-scored", "Awaiting trainer"], cells: (r, c, items) => { const w = items.filter(i => i.auto).length;

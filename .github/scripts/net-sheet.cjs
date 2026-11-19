@@ -4,6 +4,7 @@
 // are theirs): Check my sheet passes every check at the liens and final stages and the net is $20,359.92. Then Riverton
 // Drug is moved into the medical ledger: the checks miss, and each miss carries a 🛠 How to fix line. Track B's
 // litigated sheet ties out at $14,713.75. Column G is the template's Med Pay (documents/templates/LSH_Net_Sheet.xlsx).
+// (A stage keeps its best result once it tied out, js/cm-credit-kept.js; a lower, later check is its .last: what is read here.)
 // Usage: node .github/scripts/net-sheet.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const BASE = process.argv[2] || 'http://localhost:8787/';
@@ -31,7 +32,7 @@ const A = {   // Track A, settled before suit
   const open = async (stage) => { await page.goto(BASE + 'net-sheet.html?stage=' + stage, { waitUntil: 'load' }); await page.waitForSelector('#ns .ns-in'); };
   const fill = (cells) => page.evaluate((cells) => { Object.entries(cells).forEach(([k, v]) => { const el = document.querySelector(`#ns [data-k="${k}"]`); if (!el) throw new Error('no cell ' + k); el.value = v; el.dispatchEvent(new Event('input', { bubbles: true })); }); }, cells);
   const check = (stage) => page.evaluate((stage) => { const s = document.querySelector('#ns-stage'); s.value = stage; s.dispatchEvent(new Event('change')); CMNetSheet.check();
-    const r = CMNetSheet.sheet.checks[stage]; return { passed: r.passed, total: r.total, miss: r.items.filter(x => !x.ok).map(x => x.cell + '=' + x.got), box: document.querySelector('#ns-check').innerText, net: CMNetSheet.calc().L52 }; }, stage);
+    const k = CMNetSheet.sheet.checks[stage], r = k.last && String(k.last.at) > String(k.at) ? k.last : k; return { passed: r.passed, total: r.total, miss: r.items.filter(x => !x.ok).map(x => x.cell + '=' + x.got), box: document.querySelector('#ns-check').innerText, net: CMNetSheet.calc().L52 }; }, stage);
   try {
     await page.goto(BASE + 'net-sheet.html', { waitUntil: 'load' }); await page.evaluate(() => localStorage.clear());
     await open('final');

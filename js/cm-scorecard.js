@@ -37,8 +37,29 @@ const num = v => typeof v === "number" && isFinite(v) ? Math.max(0, Math.min(100
 const pctTxt = p => p == null ? "—" : p + "%";
 // a day's Knowledge Check: its BEST score (the owner's rule: a reset gives one more attempt and the best is kept), whichever
 // record holds it: the day's progress (submitQuiz keeps the best), its attempt history, or the Case Flow summary
-const kcBest = (p, s) => { const v = [p && p.score, s && s.kc].concat(((p && p.history) || []).map(h => h && h.score)).filter(x => typeof x === "number" && isFinite(x));
-  return v.length ? Math.max.apply(null, v) : null; };
+// 🛡 Only the trainee's record and its Case Flow summary count (trainee:<id>: the Worker holds the one-attempt rule there).
+// The device's own copy (progress:<id>.data["day-progress"], the work log's quiz entries) is the trainee's to write: a check
+// held only there is SHOWN, labelled unconfirmed (kcDevice), never counted for the score or the pass, until a trainer
+// restores it to the record (🛠 Account Repair, which marks it kcUnverified).
+const fin = x => typeof x === "number" && isFinite(x);
+const kcScores = p => [p && p.score].concat(((p && p.history) || []).map(h => h && h.score));
+// (the summary's kc counts only for a day the record holds no attempt of: where it does, the record's attempts are the score)
+// 🛡 a Case Flow day's summary (caseFlow.days[n]) counts only when it is this day's: its id is the day's own (or it has none,
+// a summary from before ids were kept). One that names another day's id is not this day's score or pass.
+const cfDay = (c, d) => { const s = (((c.cf || {}).days) || {})[d.cf.n]; return s && typeof s === "object" && (s.id == null || String(s.id) === String(d.id)) ? s : {}; };
+const kcBest = (p, s) => { let v = kcScores(p).filter(fin); if(!v.length) v = [s && s.kc].filter(fin); return v.length ? Math.max.apply(null, v) : null; };
+// the device's score for a day the record has none: the device's day progress, else the work log's quiz entries (unconfirmed)
+const kcDevice = (c, d) => { const p = ((c.rec || {}).dayProgress || {})[d.id], s = cfDay(c, d);
+  if(fin(kcBest(p, s))) return null;
+  let v = kcScores((((c.data || {})["day-progress"]) || {})[d.id]).filter(fin);
+  if(!v.length) v = ((c.data || {})["work-log"] || []).filter(e => e && e.kind === "quiz" && String(e.dayId) === String(d.id)).map(e => e.score).filter(fin);
+  v = v.filter(x => x >= 0 && x <= 100); return v.length ? Math.max.apply(null, v) : null; };
+// 🛡 a day passed stays passed: marked done on the record or its summary, or any of the record's attempts at 70% or more.
+// (the record's "done" counts only with a recorded attempt: a day with no score is never passed by a "done" alone)
+const kcPassed = (c, d) => { const p = ((c.rec || {}).dayProgress || {})[d.id] || {}, s = cfDay(c, d), has = kcScores(p).some(fin);
+  if((p.done && has) || (!has && s.passed)) return true; const b = kcBest(p, s); return fin(b) && b >= 70; };
+// 🛡 a Net Sheet stage is credited with its best stored result (js/cm-credit-kept.js keeps it best; .last is a lower, later check)
+const nsBest = k => window.cmCreditKept ? cmCreditKept.nsBest(k) : k;
 const tier = p => p == null ? "none" : p >= 85 ? "hi" : p >= 70 ? "ok" : "lo";
 const isAdmin = () => typeof state !== "undefined" && !!state.isAdmin && !state.adminPreview;
 const isTrainee = () => typeof state !== "undefined" && !!state.traineeId && !state.isAdmin;
@@ -56,9 +77,11 @@ const NS_STAGES = {recovery: "Track A · Settlement: the gross and the fee", bi:
 /* ---------- the grading systems: each returns its items, {name, pct, note, auto} ---------- */
 const SOURCES = [
   {id: "kc", icon: "✍️", label: "Knowledge Checks", about: "Each Case Flow day's Knowledge Check. 70% passes the day.", dims: ["pc"], how: "Auto-scored quiz: one attempt, and its score is the one recorded.",
-    items: c => cfDays().map(d => { const s = ((c.cf.days || {})[d.cf.n] || {}), p = (c.rec.dayProgress || {})[d.id] || {};
-      const pct = num(kcBest(p, s)); if(pct == null) return null;
-      return {name: dayName(d), pct, note: pct >= 70 ? "Passed (best score kept)" : "Below 70%: not passed yet"}; })},
+    items: c => cfDays().map(d => { const s = cfDay(c, d), p = (c.rec.dayProgress || {})[d.id] || {};
+      const pct = num(kcBest(p, s));
+      // (a score only the trainee's device holds: shown, unconfirmed, not counted)
+      if(pct == null){ const dv = num(kcDevice(c, d)); return dv == null ? null : {name: dayName(d), pct: dv, unconfirmed: true, note: "Unconfirmed: only on the trainee's device, not on their record (not counted). 🛠 Account Repair can restore it."}; }
+      return {name: dayName(d), pct, note: (pct >= 70 ? "Passed (best score kept)" : "Below 70%: not passed yet") + (p.kcUnverified ? " · restored from the trainee's device" : "")}; })},
   {id: "lc", icon: "🧩", label: "Learning Checks", about: "Each module's Learning Check: AI × 0.60 + trainer × 0.40. Until the trainer scores it, the automated half counts.", dims: ["na", "cp"], how: "The AI review × 0.60 + the trainer's score × 0.40.",
     items: c => { const names = moduleNames(), out = [];
       Object.values(c.cf.days || {}).forEach(day => Object.entries(day.modules || {}).forEach(([id, s]) => {
@@ -67,7 +90,7 @@ const SOURCES = [
           note: s.c != null ? `Automated ${pctTxt(num(s.a))} · Trainer ${pctTxt(num(s.t))}` : "Automated only: awaiting the trainer's 40%"}); }));
       return out; }},
   {id: "tk", icon: "📝", label: "Takeaways", about: "Each day's Knowledge Check answers, in your own words, AI-graded.", dims: ["na", "cd"], how: "The AI review's total (Accuracy, Presence, Risk, Efficiency); Risk 0 is the UPL breach.",
-    items: c => cfDays().map(d => { const s = (c.cf.days || {})[d.cf.n] || {}, p = (c.rec.dayProgress || {})[d.id] || {};
+    items: c => cfDays().map(d => { const s = cfDay(c, d), p = (c.rec.dayProgress || {})[d.id] || {};
       const pct = num(s.takeaway != null ? s.takeaway : p.takeaway); return pct == null ? null : {name: dayName(d), pct}; })},
   {id: "sa", icon: "🧪", label: "Skill Activities", about: "Each graded Skill Activity on John Doe's file: the latest attempt of each.", dims: ["na", "cp", "cd"], how: "The AI rubric: Accuracy 35 + Presence 30 (plan quality), Risk 20, Efficiency 15.",
     items: c => { const seen = {}; (c.data["work-log"] || []).filter(e => e && e.kind === "lab" && typeof e.score === "number")
@@ -89,7 +112,7 @@ const SOURCES = [
   {id: "ns", icon: "📊", label: "Net Sheet Checks", about: "Each stage of the LSH Net Sheet, checked automatically with Check my sheet: the share of its checks that passed.", dims: ["cp"], how: "Check my sheet: checks passed ÷ checks; the trust-money stages are critical.",
     items: c => { const out = [], files = (c.data["net-sheet"] && c.data["net-sheet"].files) || {};
       Object.values(files).forEach(f => Object.entries((f && f.checks) || {}).forEach(([stage, k]) => {
-        if(!k || !k.total) return;
+        k = nsBest(k); if(!k || !k.total) return;
         out.push({name: NS_STAGES[stage] || stage, pct: Math.round(100 * k.passed / k.total), note: `${k.passed} of ${k.total} checks · ${fmt(k.at)}`}); }));
       return out; }},
   {id: "tx", icon: "🎙", label: "Transcription", about: "Each voicemail transcribed in the Notes & Action Plan: every attempt graded, the one handed in counts.",
@@ -157,12 +180,13 @@ const dn = v => { v = parseInt(v, 10); return v >= 11 && v <= 15 ? v - 10 : v >=
 function compute(c){
   const rows = SOURCES.map(s => {
     let items = []; try{ items = (s.items(c) || []).filter(x => x && x.pct != null); }catch(e){ items = []; }
-    return {s, items, avg: items.length ? Math.round(items.reduce((n, x) => n + x.pct, 0) / items.length) : null};
+    const counted = items.filter(x => !x.unconfirmed);   // (an unconfirmed item is shown, never averaged)
+    return {s, items, avg: counted.length ? Math.round(counted.reduce((n, x) => n + x.pct, 0) / counted.length) : null};
   });
   const have = rows.filter(r => r.avg != null);
   const overall = have.length ? Math.round(have.reduce((n, r) => n + r.avg, 0) / have.length) : null;
-  const done = cfDays().filter(d => (((c.rec.dayProgress || {})[d.id]) || {}).done || (((c.cf.days || {})[d.cf.n]) || {}).passed).length;
-  return {rows, overall, systems: have.length, graded: have.reduce((n, r) => n + r.items.length, 0), done, total: cfDays().length};
+  const done = cfDays().filter(d => kcPassed(c, d)).length;
+  return {rows, overall, systems: have.length, graded: have.reduce((n, r) => n + r.items.filter(x => !x.unconfirmed).length, 0), done, total: cfDays().length};
 }
 const overallWhy = sc => sc.overall == null ? "Nothing graded yet" : `Grading systems average (not the Overall): the average of ${sc.systems} grading system${sc.systems === 1 ? "" : "s"} = ${sc.overall}%`;
 // how THE Overall is made, said the same on every surface
@@ -234,7 +258,7 @@ const MODEL = (function(){
     const dp = c.rec.dayProgress || {}, cfd = c.cf.days || {}, data = c.data || {}, R = data["case-flow"] || {};
     const EX = window.CM_CF_EXHIBITS || {}, SIM = window.CM_CF_SIM || {}, DOCS = window.CM_CF_DOCS || [], names = moduleNames();
     // ⏱ Procedural Compliance & Timeliness
-    cfDays().forEach(d => { const p = dp[d.id] || {}, s = cfd[d.cf.n] || {}, kc = kcBest(p, s);
+    cfDays().forEach(d => { const p = dp[d.id] || {}, s = cfDay(c, d), kc = kcBest(p, s);
       if(typeof kc !== "number") return;
       add("pc", "✍️ Knowledge Check", d.cf.n, `Day ${d.cf.n} Knowledge Check`, kc, kc >= 70 ? "Passed (best score kept)" : "Below 70%: the day isn't passed yet"); });
     // 📂 the Backup Drive, required every day: Day 1's folders, each later day's Backup File Maintenance and the written work
@@ -242,7 +266,7 @@ const MODEL = (function(){
     const bdItems = backupItems(c);
     bdItems.forEach(x => add("pc", "📂 Backup Drive", x.day, x.name.replace(/^Day \d+: /, ""), x.pct, x.note));
     cfDays().forEach(d => { const n = d.cf.n, p = dp[d.id] || {}, s = cfd[n] || {};
-      if((p.done || s.passed) && !bdItems.some(x => x.day === n)) add("pc", "📂 Backup Drive", n, n === 1 ? "The firm's folders" : "Backup File Maintenance", 0, "Not done: the Backup Drive is required every day"); });
+      if(kcPassed(c, d) && !bdItems.some(x => x.day === n)) add("pc", "📂 Backup Drive", n, n === 1 ? "The firm's folders" : "Backup File Maintenance", 0, "Not done: the Backup Drive is required every day"); });
     Object.entries(data["doc-filing"] || {}).forEach(([id, r]) => { if(!r || !(r.attempts > 0)) return; const doc = DOCS.find(x => x.id === id) || {};
       add("pc", "🗂 CMS filing", doc.day, doc.title || r.name || id, r.filed ? 100 / r.attempts : 0, r.filed ? (r.attempts === 1 ? "Filed first time right" : `Filed in ${r.attempts} attempts`) : "Not filed yet"); });
     (data["task-log"] || []).forEach(e => { if(!e) return; const day = dn(e.dayId), name = (e.task && (e.task.title || e.task.name)) || (typeof e.task === "string" ? e.task.slice(0, 70) : "Random task");
@@ -271,19 +295,21 @@ const MODEL = (function(){
       } });
     // 🔍 Needs Assessment: the exhibit audits handed in (their privilege and calendar items are critical)
     Object.entries(R.audits || {}).forEach(([b, r]) => { const a = (EX.audits || {})[b]; if(!a || !r || !r.at || !Array.isArray(a.items)) return;
-      const marks = r.marks || [], right = a.items.filter((it, i) => marks[i] === it.verdict).length, day = taught(b);
-      add("na", "🔎 Exhibit audits", day, a.title || b, 100 * right / a.items.length, `${right} of ${a.items.length} items called right`);
+      // 🛡 the score it was handed in with (js/cm-credit-kept.js), not one worked out again on a key changed since
+      const marks = r.marks || [], ks = window.cmCreditKept && cmCreditKept.audit(b, r, a), right = ks ? ks.right : a.items.filter((it, i) => marks[i] === it.verdict).length, of = ks ? ks.of : a.items.length, day = taught(b);
+      add("na", "🔎 Exhibit audits", day, a.title || b, 100 * right / of, `${right} of ${of} items called right`);
       a.items.forEach((it, i) => { if(it.kind !== "privilege" && it.kind !== "calendar") return; const ok = marks[i] === it.verdict;
         gate(it.kind === "privilege" ? "priv" : "date", day, `${a.title || b} · ${it.ref ? it.ref + ": " : ""}${it.what || "item " + (i + 1)}`, ok, ok ? `Called right (${it.verdict})` : `Breach: called "${marks[i] || "nothing"}", should be "${it.verdict}"`); }); });
     Object.entries(R.listen || {}).forEach(([b, r]) => { const e = (SIM.events || {})[b]; if(!r || !r.at || !e || !e.listen || !e.listen.length) return;
       add("na", "🎧 Listening Checks", taught(b), `Listening Check (${b})`, 100 * (r.score || 0) / e.listen.length, `${r.score || 0} of ${e.listen.length} caught`); });
     Object.entries(R.amend || {}).forEach(([b, r]) => { const a = (EX.amendments || {})[b]; if(!a || !r) return; const day = taught(b);
-      if(r.screened && Array.isArray(a.screen) && a.screen.length){ const asked = new Set((a.requests || []).map(q => q.doc));
-        const ok = a.screen.filter(s => ((r.marks || {})[s.doc] === "fix") === asked.has(s.doc)).length;
-        add("na", "🧾 Records screening", day, a.title || b, 100 * ok / a.screen.length, `${ok} of ${a.screen.length} records called right`); }
+      if(r.screened && Array.isArray(a.screen) && a.screen.length){ const asked = new Set((a.requests || []).map(q => q.doc)), ks = window.cmCreditKept && cmCreditKept.screen(b, r, a);
+        const ok = ks ? ks.right : a.screen.filter(s => ((r.marks || {})[s.doc] === "fix") === asked.has(s.doc)).length, of = ks ? ks.of : a.screen.length;
+        add("na", "🧾 Records screening", day, a.title || b, 100 * ok / of, `${ok} of ${of} records called right`); }
       Object.entries(r.req || {}).forEach(([doc, x]) => { const v = sentScore(x); if(v != null) add("cd", "✉️ Written communication", day, `Amendment request: ${doc}`, v, sentNote(x)); }); });
     Object.entries(R.service || {}).forEach(([b, r]) => { const e = (EX.emails || {})[b]; if(!e || !r) return; const day = taught(b), title = clean(e.title) || b;
-      if(r.choice != null && e.press && e.press.choices && e.press.choices[r.choice]) add("na", "⚖️ Judgement calls", day, title, e.press.choices[r.choice].ok ? 100 : 0, e.press.choices[r.choice].ok ? "The right call" : "A call that costs the file");
+      const jc = window.cmCreditKept ? cmCreditKept.choice(b, r, e) : (r.choice != null && e.press && e.press.choices && e.press.choices[r.choice] ? {ok: !!e.press.choices[r.choice].ok} : null);
+      if(jc) add("na", "⚖️ Judgement calls", day, title, jc.ok ? 100 : 0, jc.ok ? "The right call" : "A call that costs the file");
       const v = sentScore(r); if(v != null) add("cd", "✉️ Written communication", day, title, v, sentNote(r)); });
     Object.entries(R.notes || {}).forEach(([b, r]) => { const n = (EX.notes || {})[b]; if(!n || !r) return; const day = taught(b);
       const facts = ((n.transcribe || {}).facts || []).length, req = ((n.plan || {}).required || []).length;
@@ -305,7 +331,7 @@ const MODEL = (function(){
       cmRubric.DIMS.forEach(k => { const x = rb.dims[k.id]; if(x && typeof x.pts === "number") add(k.id, "📐 Trainer rubric", day, `Trainer's rubric: ${k.label}`, 100 * Math.min(k.pts, x.pts) / k.pts, `${x.pts} of ${k.pts} points · ${cmRubric.tierOf(100 * x.pts / k.pts).label}`); });
       Object.entries(rb.crit || {}).forEach(([id, m]) => { if(m === "met" || m === "breach") gate(id, day, `Trainer's review, Day ${day}`, m === "met", m === "met" ? "Marked met by the trainer" : "Breach: marked by the trainer on the day's review"); }); });
     const NSD = {recovery: 3, bi: 3, um: 3, liens: 4, final: 4, litigation: 5};
-    Object.values(((data["net-sheet"] || {}).files) || {}).forEach(f => Object.entries((f && f.checks) || {}).forEach(([st, k]) => { if(!k || !k.total) return;
+    Object.values(((data["net-sheet"] || {}).files) || {}).forEach(f => Object.entries((f && f.checks) || {}).forEach(([st, k]) => { k = nsBest(k); if(!k || !k.total) return;
       add("cp", "📊 Net Sheet", NSD[st] || null, NS_STAGES[st] || st, 100 * k.passed / k.total, `${k.passed} of ${k.total} checks`);
       if(st === "final" || st === "litigation") gate("trust", NSD[st], NS_STAGES[st] || st, k.passed === k.total, k.passed === k.total ? "Every check passed" : `Breach: ${k.total - k.passed} check${k.total - k.passed === 1 ? "" : "s"} failed`); }));
     return {items, crit};
@@ -313,10 +339,10 @@ const MODEL = (function(){
   // Daily compliance (a sub-score, shown beside the Overall, not part of it): each day reached, its three deliverables
   // (Knowledge Check passed, takeaways graded, the day's Backup Drive graded)
   function dayComp(c, d){
-    const p = (c.rec.dayProgress || {})[d.id] || {}, s = (c.cf.days || {})[d.cf.n] || {}, bd = backupItems(c).some(x => x.day === d.cf.n);
-    if(!(typeof p.score === "number" || p.done || typeof s.kc === "number" || bd)) return null;
+    const p = (c.rec.dayProgress || {})[d.id] || {}, s = cfDay(c, d), bd = backupItems(c).some(x => x.day === d.cf.n), kc = kcBest(p, s);
+    if(!(fin(kc) || kcPassed(c, d) || bd)) return null;
     const tk = typeof p.takeaway === "number" || typeof s.takeaway === "number";
-    const parts = [{label: "✍️ Knowledge Check passed", v: p.done || s.passed ? 100 : 0}, {label: "📝 Takeaways AI-graded", v: tk ? 100 : 0}, {label: "📂 Backup Drive graded", v: bd ? 100 : 0}];
+    const parts = [{label: "✍️ Knowledge Check passed", v: kcPassed(c, d) ? 100 : 0}, {label: "📝 Takeaways AI-graded", v: tk ? 100 : 0}, {label: "📂 Backup Drive graded", v: bd ? 100 : 0}];
     return {pct: Math.round(mean(parts.map(x => x.v))), parts};
   }
   function compute(c){
@@ -365,7 +391,7 @@ function sheetHtml(T){
 // 🏅 Scores, as shown: a short row per trainee, easy to read: the days passed, each Case Flow day's score, the Knowledge
 // Checks, the AI-graded activities, the Total (the 100-point model's Final) and the Result. Hover a cell for how it's made.
 // The CSV (⬇ Download) keeps every column: scoresSheet(rows, me, true).
-function dayKc(c, d){ const p = (c.rec.dayProgress || {})[d.id] || {}, s = (c.cf.days || {})[d.cf.n] || {}; return num(kcBest(p, s)); }
+function dayKc(c, d){ const p = (c.rec.dayProgress || {})[d.id] || {}, s = cfDay(c, d); return num(kcBest(p, s)); }
 function shortSheet(rows, me){
   const mc = (v, f, extra) => ({v: v == null ? "" : v + "%", f, cls: "gs-num " + MODEL.mtone(v) + (extra ? " " + extra : "")});
   const avgOf = (r, id) => (r.sc.rows.find(x => x.s.id === id) || {}).avg;
@@ -416,7 +442,7 @@ function detailSheet(sc, who){
   const rows = [], cls = [];
   sc.rows.forEach(r => {
     rows.push([{v: `${r.s.icon} ${r.s.label}`, f: r.s.about, cls: "gs-name"}, {v: r.s.about, f: r.s.about, cls: "gs-txt"}, {v: "", f: `${r.items.length} graded item${r.items.length === 1 ? "" : "s"}`}, pcell(r.avg, r.avg == null ? "Nothing graded yet" : `The average of ${r.items.length} = ${r.avg}%`, "gs-calc gs-bold")]); cls.push("gs-sys");
-    r.items.forEach(x => { rows.push([{v: "", f: r.s.label}, {v: x.name, f: x.name, cls: "gs-txt"}, {v: x.note || "", f: x.note || "", cls: "gs-txt gs-det"}, pcell(x.pct, `${x.name}: ${pctTxt(x.pct)}${x.auto ? " (automated only)" : ""}`)]); cls.push(""); });
+    r.items.forEach(x => { rows.push([{v: "", f: r.s.label}, {v: x.name, f: x.name, cls: "gs-txt"}, {v: x.note || "", f: x.note || "", cls: "gs-txt gs-det"}, pcell(x.pct, `${x.name}: ${pctTxt(x.pct)}${x.auto ? " (automated only)" : ""}${x.unconfirmed ? " (unconfirmed: not counted)" : ""}`)]); cls.push(""); });
   });
   rows.push([{v: "Grading systems average", f: overallWhy(sc), cls: "gs-name"}, {v: overallWhy(sc), f: overallWhy(sc), cls: "gs-txt"}, {v: `${sc.graded} graded item${sc.graded === 1 ? "" : "s"}`, f: `${sc.graded} graded items`, cls: "gs-det"}, pcell(sc.overall, overallWhy(sc), "gs-calc gs-bold")]); cls.push("gs-total");
   return {id: "detail", title: `🔎 Grades in detail${who ? ": " + who : ""}`, note: "Each grading system's row has its average; its graded items are under it.",
@@ -655,7 +681,7 @@ window.cmScorecard = {
   // a row of 🏅 Scores: that trainee's card (shown if only another one was), scrolled to
   pick(id){ ALL.pick = id; if(ALL.only && ALL.only !== id) ALL.only = id; render();
     setTimeout(() => { const d = document.getElementById("bs-pt-" + domId(id)); if(d) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
-  csv, compute, sources: SOURCES, model: MODEL,
+  csv, compute, sources: SOURCES, model: MODEL, kcBest, kcPassed, kcDevice, cfDay,
   // ⭐ THE overall score, the one shared function: every surface that shows a trainee's Overall or a day's score calls it
   // (the trainee card, 🏅 Scores, the Batch Sheet's Scores, Score Card, Day by Day and cards, the trainee's My Scores)
   overall: c => { const m = MODEL.compute(c); return {pct: m.overall, comp: m.comp, status: m.status, why: overallTip(m),

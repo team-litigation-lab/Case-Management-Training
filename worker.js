@@ -22,6 +22,8 @@
 // ✍ the trainee's written work on their Backup Drive, AI-graded nightly, and a trainer's override (worker-drive-work.js)
 import { DRIVE_WORK_ACTIONS, driveWorkApi, driveWorkNightly, workBrief, workView, withDayOverrides, withOverrides, OV_KEY } from "./worker-drive-work.js";
 import { driveFind, listedOf, setupOf } from "./worker-drive-found.js";
+import { accountMergeApi, kcRestoreApi } from "./worker-account-repair.js";   // 👥 two accounts of one trainee merged on the Worker (/api/account-merge); 🛠 one account's missing KC scores restored (/api/kc-restore)
+import { identity, uidKey, afterMerge, afterMergeProgress, keepMergeStored, orphanWrite } from "./worker-identity.js";   // 🪪 who a sign-in opens (the uid index, merged: redirects) and what keeps a trainee's records whole
 /* ---------- KV with the "cm:" namespace prefix ---------- */
 const KV_PREFIX = "cm:";
 /* ---------- what the trainer owns in a trainee's records ----------
@@ -320,8 +322,15 @@ const batchKey = (s) => slugPart(canonicalBatch(s) || s);
 function candidateIds(name, batch) {
   let slug = slugPart(name).slice(0, 40);
   if (!slug) { let h = 0; for (const c of String(name || "")) h = (h * 31 + c.codePointAt(0)) >>> 0; slug = "trainee-" + h.toString(36); }
-  const b = slugPart(canonicalBatch(batch) || batch).slice(0, 20), raw = slugPart(batch).slice(0, 20);
-  return { newId: b ? `${slug}--${b}` : slug, rawId: raw ? `${slug}--${raw}` : slug, legacyId: slugPart(name).slice(0, 40) || "trainee", slug };
+  const b = slugPart(canonicalBatch(batch) || batch).slice(0, 20), raw = slugPart(batch).slice(0, 20), alt = slugPart(otherBatchOrder(batch));
+  return { newId: b ? `${slug}--${b}` : slug, rawId: raw ? `${slug}--${raw}` : slug, altId: alt ? `${slug}--${alt}` : (b ? `${slug}--${b}` : slug), legacyId: slugPart(name).slice(0, 40) || "trainee", slug };
+}
+// 🪪 The same day's Batch ID in its other order (altId above): B250926 (DDMMYY) and B092526 (MMDDYY) are both 25 September
+// 2026, and batchShow (index.html) shows both as B092526. Only when the order can't be mistaken (one pair is over 12);
+// B050626 stays as it is (5 June or 6 May are two batches). "" when there is no other order.
+function otherBatchOrder(batch) {
+  const c = canonicalBatch(batch);
+  return !c || (+c.slice(1, 3) <= 12 && +c.slice(3, 5) <= 12) ? "" : "B" + c.slice(3, 5) + c.slice(1, 3) + c.slice(5);
 }
 // This trainee's own record under another batch: what a Batch ID corrected on the Portal looks like (/api/auth/portal).
 // A name alone can't tell a correction from a namesake in another batch (two John Does are two trainees), so a record
@@ -355,7 +364,7 @@ const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|
 // {<alert key>: {at, by}}}. Admin-only on purpose, both ways: it is in neither OWN nor PUBLIC_READ, so a trainee can't
 // read it, and traineeWrite refuses it, so a trainee can't mark their own alert resolved.
 const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`, `actsub:${id}`];
-const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt", "portalUid", "kcReset"];
+const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt", "portalUid", "kcReset", "mergedAt"];
 const IDENTITY_TRAINEE_FIELDS = ["name", "firstName", "lastName", "batch"];
 const ADMIN_OWNED_TRAINEE_FIELDS = PROTECTED_TRAINEE_FIELDS.concat(IDENTITY_TRAINEE_FIELDS);
 
@@ -442,7 +451,9 @@ async function keepKcResets(kv, key, value) {
   if (!inc || typeof inc !== "object" || !ex || !ex.kcReset || typeof ex.kcReset !== "object") return value;
   const len = (r) => r && Array.isArray(r.log) ? r.log.length : r ? 1 : 0;
   let changed = false; const out = Object.assign({}, inc.kcReset || {});
-  Object.entries(ex.kcReset).forEach(([d, r]) => { if (len(r) > len(out[d])) { out[d] = r; changed = true; } });
+  // (a copy read before a 👥 merge, which sets kcReset[d].n again from the merged day: the stored reset stands)
+  const preMerge = !!ex.mergedAt && !(inc.mergedAt && String(inc.mergedAt) >= String(ex.mergedAt));
+  Object.entries(ex.kcReset).forEach(([d, r]) => { if (len(r) > len(out[d]) || (preMerge && len(r) === len(out[d]) && JSON.stringify(r) !== JSON.stringify(out[d]))) { out[d] = r; changed = true; } });
   if (!changed) return value;
   inc.kcReset = out; return JSON.stringify(inc);
 }
@@ -456,6 +467,7 @@ function keepKcAttempts(existing, merged) {
     if (!prevH.length && typeof p.score !== "number") continue;   // no attempt yet: the trainee's write stands
     const n = now[d] && typeof now[d] === "object" ? Object.assign({}, now[d]) : {};
     const retake = kcRetake(p, prevH, n, existing.kcReset && existing.kcReset[d]);
+    if (p.kcUnverified) n.kcUnverified = true; else delete n.kcUnverified;   // (🛠 a score a trainer restored from the device: the label stays the Worker's)
     if (retake) { now[d] = Object.assign(n, retake); continue; }
     let h = Array.isArray(n.history) ? n.history.slice() : [];
     if (h.length < prevH.length) h = prevH.slice();
@@ -469,11 +481,17 @@ function keepKcAttempts(existing, merged) {
   }
   merged.dayProgress = now;
 }
+// 🪪 worker-identity.js: resolveTrainee, mergedInto, the uid index, and keepKcStored / keepProgressAttempts
+const { mergedInto, indexUid, uidOf, resolveTrainee, mergedAway, keepKcStored, keepProgressAttempts, dateFirstAttempts, officialCaseFlow } = identity({ kcHistory, kcAttempts, candidateIds, batchKey });
+// 👥 what worker-account-repair.js uses of the Worker (/api/account-merge)
+const accountMergeDeps = () => ({ kvOf, ownerPut, ownedType, ownerKey, candidateIds, canonicalBatch, resolveTrainee, mergedInto, uidKey, kcHistory, kcResetOpen, trainerWho, isTrainerReview, keepKcStored, keepProgressAttempts });
 async function traineeWrite(env, tok, key, value) {
   const kv = kvOf(env);
   const id = tok.id;
+  // 🧳 orphan:<own id>:<ms>: a device's backup of work its last save never got to the server (js/cm-safe-logout.js), for a trainer to fold back; written once, never overwritten, from a merged-away account too (orphanWrite)
+  if (key.startsWith("orphan:")) return orphanWrite(kv, id, key, value);
   // (a page still open on an account a trainer merged into another can't bring it back by saving: it is signed in again)
-  if ((await kv.get(`merged:${id}`)) != null) return "This account was merged into your current one. Open the program again from the LSH Training Portal.";
+  if (await mergedAway(kv, id)) return "This account was merged into your current one. Open the program again from the LSH Training Portal.";
   let incoming; try { incoming = JSON.parse(value); } catch (e) { return "Invalid JSON"; }
   const existingRaw = await kv.get(key);
   let existing = null; try { existing = existingRaw ? JSON.parse(existingRaw) : null; } catch (e) { /* a damaged record is replaced */ }
@@ -487,12 +505,17 @@ async function traineeWrite(env, tok, key, value) {
     if (existing) IDENTITY_TRAINEE_FIELDS.forEach((f) => { if (f in existing) merged[f] = existing[f]; else delete merged[f]; });
     if (!existing) { merged.approved = false; merged.registeredAt = new Date().toISOString(); }
     if (existing) keepKcAttempts(existing, merged);
+    dateFirstAttempts(existing, merged, new Date());   // (a day's first attempt: dated by the Worker, a score of 0–100)
+    const fold = await afterMerge(kv, id, existing, merged, incoming);   // 👥 a device that hasn't restored a merge yet can't drop what it folded in
+    officialCaseFlow(existing, merged);   // 🏅 caseFlow.days[n].kc / passed from the record's own dayProgress, never the device's
     merged.id = id;
-    await kv.put(key, JSON.stringify(merged)); return null;
+    await kv.put(key, JSON.stringify(merged)); return fold ? { ok: true, mergePending: fold } : null;
   }
   if (key === `progress:${id}`) {
     if (String(value).length > 2000000) return "Too large";
-    await kv.put(key, value); return null;
+    const fold = incoming && typeof incoming === "object" && !Array.isArray(incoming) ? await afterMergeProgress(kv, id, existing, incoming) : { value: incoming, pending: "" };
+    const kept = incoming && typeof incoming === "object" && !Array.isArray(incoming) ? keepProgressAttempts(existing, fold.value) : incoming;
+    await kv.put(key, kept && typeof kept === "object" && !Array.isArray(kept) ? JSON.stringify(Object.assign({}, kept, { serverAt: new Date().toISOString() })) : value); return fold.pending ? { ok: true, mergePending: fold.pending } : fold.skipped ? { ok: true, mergeFoldSkipped: fold.skipped } : null;
   }
   if (key === `feedback:${id}`) {
     // Trainees (auto-review) may add days and mark reviews read — never rewrite a trainer's review.
@@ -1896,27 +1919,20 @@ export default {
         return json({ token: await makeToken(env, "a", "admin", 12) });
       }
       // The trainee's session for a name + batch: their record id (new or legacy form) and token.
-      const traineeSession = async (name, batch, id) => {
-        const { newId, rawId, legacyId } = candidateIds(name, batch);
-        let chosen = newId, existing = await kv.get(`trainee:${newId}`);
-        // a record made before Batch IDs were read in one form: keyed by the batch exactly as it was typed
-        if (!existing && rawId !== newId) {
-          const raw = await kv.get(`trainee:${rawId}`);
-          if (raw) { chosen = rawId; existing = raw; }
-        }
-        if (!existing) {
-          const legacy = await kv.get(`trainee:${legacyId}`);
-          const lrec = legacy ? JSON.parse(legacy) : null;
-          if (lrec && (!lrec.batch || batchKey(lrec.batch) === batchKey(batch))) { chosen = legacyId; existing = legacy; }
-        }
-        if (id && id !== chosen && id !== newId && id !== rawId && id !== legacyId) return json({ error: "Name/batch don't match this session" }, 403);
-        if (id && id !== chosen && (id === newId || id === rawId || id === legacyId)) { chosen = id; existing = await kv.get(`trainee:${id}`); }
-        // 👥 a duplicate account a trainer merged (📋 Batch Sheet → 👥 Duplicate accounts): its records are gone and merged:<id>
-        // = {into} is left, so the sign-in opens the account it was merged into instead of starting a new, empty one
-        if (!existing) {
-          let m = null; try { m = JSON.parse((await kv.get(`merged:${chosen}`)) || "null"); } catch (e) { m = null; }
-          const into = m && m.into ? await kv.get(`trainee:${m.into}`) : null;
-          if (into) { chosen = m.into; existing = into; }
+      // (resolveTrainee: the uid index, the name + batch ids, a merged:<id> redirect; `id` is a session being renewed, which
+      // stays on its own record when the name + batch name it, or when it is the record they resolve to or merged into)
+      const traineeSession = async (name, batch, id, uid) => {
+        const { newId, rawId, altId, legacyId } = candidateIds(name, batch), named = [newId, rawId, altId, legacyId];
+        let { chosen, existing, foreign } = await resolveTrainee(kv, name, batch, uid);
+        // (the only record this name + batch build carries another Portal account's id: never opened for this one)
+        if (foreign && !id) return json({ error: "This name and Batch ID already belong to another LSH Training Portal account here, so we can't open them for yours. Please ask your trainer to check your account (🛠 Account Repair), then open the program again from the LSH Training Portal.", code: "portal-uid-mismatch" }, 409);
+        if (id && id !== chosen) {
+          if (named.includes(id)) {
+            chosen = id; existing = await kv.get(`trainee:${id}`);
+            // 👥 a duplicate account a trainer merged (📋 Batch Sheet → 👥 Duplicate accounts): merged:<id> = {into} is left, so
+            // the sign-in opens the account it was merged into instead of starting a new, empty one (or a recreated stale one)
+            const t = await mergedInto(kv, id); if (t && t.id !== id) { chosen = t.id; existing = t.raw; }
+          } else if (((await mergedInto(kv, id)) || {}).id !== chosen) return json({ error: "Name/batch don't match this session" }, 403);
         }
         if ((await blockedIds(env, true))[chosen]) return json({ error: BLOCK_MSG, code: "access-offboarded" }, 403);
         return json({ id: chosen, token: await makeToken(env, "t", chosen, 24 * 30), existing: existing ? JSON.parse(existing) : null, batch: canonicalBatch(batch) || String(batch || "").trim() });
@@ -1925,23 +1941,30 @@ export default {
         if (!secure) return json({ error: "not-configured" }, 501);
         const { name, batch, id } = await request.json().catch(() => ({}));
         if (!name || !batch) return json({ error: "Name and batch are required" }, 400);
-        const { newId, rawId, legacyId } = candidateIds(name, batch);
-        let own = null;
+        const { newId, rawId, altId, legacyId } = candidateIds(name, batch);
+        let own = null, ownUid = "", redirected = false;
         if (portalOnly(env)) {
           // Trainees come in through the LSH Training Portal (/api/auth/portal). A name + batch typed here is
-          // accepted only to renew the session of a trainee who is already signed in on this device.
+          // accepted only to renew the session of a trainee who is already signed in on this device: the token's own id,
+          // or the id the name + batch resolve to through a merged:<id> or uid:<portalUid> redirect (resolveTrainee), which
+          // is what the Portal's sign-in just opened for a merged or redirected trainee.
           own = await readTraineeTokenGrace(env, request);
-          if (!own || (own.id !== newId && own.id !== rawId && own.id !== legacyId)) return json({ error: "portal-required" }, 403);
+          if (own && ![newId, rawId, altId, legacyId].includes(own.id)) {
+            ownUid = await uidOf(kv, own.id);
+            const r = await resolveTrainee(kv, name, batch, ownUid);
+            if (own.id !== r.chosen && ((await mergedInto(kv, own.id)) || {}).id !== r.chosen) own = null; else redirected = true;
+          }
+          if (!own) return json({ error: "portal-required" }, 403);
         }
         // A new registration has to give the Batch ID in its one form: B + the date the batch started (MMDDYY).
         // Someone whose records are already here keeps signing in with the Batch ID they registered under.
-        if (!canonicalBatch(batch)) {
+        if (!canonicalBatch(batch) && !redirected) {
           const known = (await Promise.all([newId, rawId, legacyId].map(k => kv.get(`trainee:${k}`)))).some(Boolean);
           if (!known) return json({ error: "batch-format" }, 400);
         }
         // Under single sign-on the renewal is for the record the trainee is already signed in to, never a
         // same-named trainee's: the id in the body is ignored.
-        return traineeSession(name, batch, portalOnly(env) ? own.id : id);
+        return traineeSession(name, batch, portalOnly(env) ? own.id : id, ownUid);
       }
       if (path === "/api/auth/portal") {
         // The Main Portal's sign-in: a signed ticket carries who the trainee is (their name and batch as registered there).
@@ -1963,7 +1986,7 @@ export default {
           if (!(await useTicketOnce(env, kv, ticket))) return json({ error: "This sign-in link was already used. Open the program again from the LSH Training Portal.", code: "used" }, 401);
           return json({ admin: true, name: who.name, token: await makeToken(env, "a", who.name ? "admin:" + String(who.name).replace(/[.]/g, " ").slice(0, 80) : "admin", 12) });   // (the token names the trainer: kcReset's `by`)
         }
-        let res = await traineeSession(who.name, who.batch, "");
+        let res = await traineeSession(who.name, who.batch, "", who.uid);
         if (res.status !== 200) return res;   // 🚫 (blocked: access-offboarded)
         let out = await res.json();
         // 🏷 A Batch ID corrected on the Portal: no record under the new batch yet, but this trainee's record is here under the
@@ -1975,7 +1998,7 @@ export default {
           if (found.length > 1) return json({ error: "We found more than one account of yours under other Batch IDs, so we can't tell which to open. Please ask your trainer to merge them (📋 Batch Sheet → 👥 Duplicate accounts), then open the program again from the LSH Training Portal.", code: "batch-ambiguous" }, 409);
           if (found.length === 1) {
             await kv.put(`merged:${out.id}`, JSON.stringify({ into: found[0].id, at: new Date().toISOString(), by: "portal-batch" }));
-            res = await traineeSession(who.name, who.batch, "");
+            res = await traineeSession(who.name, who.batch, "", who.uid);
             if (res.status !== 200) return res;
             out = await res.json();
           }
@@ -1998,6 +2021,8 @@ export default {
           await ownerPut(kv, `trainee:${out.id}`, JSON.stringify(rec));
           out.existing = rec;
         }
+        // 🪪 the uid index (resolveTrainee looks at it first): this Portal id now opens this record, under whatever name or batch
+        if (who.uid && out.existing && (!out.existing.portalUid || out.existing.portalUid === who.uid)) await indexUid(kv, who, out.id);
         return json(Object.assign(out, { name: who.name, first: who.first, last: who.last, batch: who.batch }));
       }
 
@@ -2042,7 +2067,8 @@ export default {
         if (!first || !last) return json({ error: "no-name" }, 400);
         // The ticket names only the trainee this session belongs to: the name and batch must lead back to the token's own id.
         const ids = candidateIds(`${first} ${last}`, rec.batch);
-        if (![ids.newId, ids.rawId, ids.legacyId].includes(tok.id)) return json({ error: "identity-mismatch" }, 403);
+        // (or the record they resolve to: the uid index's, after the Portal changed the name or batch, or a merge's)
+        if (![ids.newId, ids.rawId, ids.altId, ids.legacyId].includes(tok.id) && (await resolveTrainee(kv, `${first} ${last}`, rec.batch, rec.portalUid || "")).chosen !== tok.id) return json({ error: "identity-mismatch" }, 403);
         return json({ ticket: await sign({ first, last, b: String(rec.batch || ""), exp: Date.now() + 5 * 60 * 1000 }) });
       }
 
@@ -2260,6 +2286,10 @@ export default {
 
       /* ---------- 🔁 a trainer's Reset Knowledge Check (js/cm-kc-reset.js; kcResetApi) ---------- */
       if (path === "/api/kc-reset") { const r = await kcResetApi(env, tok, await request.json().catch(() => ({}))); return json(r.body, r.status); }
+      /* ---------- 👥 two accounts of one trainee merged: a dry run unless confirmed (worker-account-repair.js) ---------- */
+      if (path === "/api/account-merge") { const r = await accountMergeApi(env, accountMergeDeps(), tok, await request.json().catch(() => ({}))); return json(r.body, r.status); }
+      /* ---------- 🛠 one account's missing KC scores restored from its own snapshot and work-log: a dry run unless confirmed ---------- */
+      if (path === "/api/kc-restore") { const r = await kcRestoreApi(env, accountMergeDeps(), tok, await request.json().catch(() => ({}))); return json(r.body, r.status); }
 
       /* ---------- storage ---------- */
       const body = await request.json().catch(() => ({}));
@@ -2285,10 +2315,14 @@ export default {
         if (tok.role === "a") {
           if (typeof body.value !== "string") return json({ error: "value must be a string" }, 400);
           if (/^trainee:/.test(key)) body.value = await keepKcResets(kv, key, body.value);
+          // ✍️ a copy read earlier keeps the Knowledge Checks stored since (keepKcStored); replaceKc: true is a deliberate replacement
+          if (/^trainee:[^:]+$/.test(key) && body.replaceKc !== true) body.value = await keepKcStored(kv, key, body.value);
+          if (/^trainee:[^:]+$/.test(key)) body.value = await keepMergeStored(kv, key, body.value);   // 👥 a copy read before a merge keeps its mergedAt and what it joined
           await ownerPut(kv, key, body.value);
           return json({ ok: true });
         }
         const err = await traineeWrite(env, tok, key, body.value);
+        if (err && typeof err === "object") return json(err);   // 👥 saved, folded into a merge the device hasn't restored ({mergePending})
         return err ? json({ error: err }, 403) : json({ ok: true });
       }
       if (path === "/api/storage/list") {
