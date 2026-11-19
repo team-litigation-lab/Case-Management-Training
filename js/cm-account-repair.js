@@ -13,6 +13,9 @@
      2. 🔒 SIGN-INS SENT ELSEWHERE by an earlier merge or redirect (merged:<id> = {into}): a redirect into an account that
         no longer exists (locked out: that sign-in opens a new, empty account), and the trainees whose CURRENT Portal name
         and batch (uid:<portalUid>) build an id that was redirected (before this release such a sign-in was refused).
+        A merge that has run once (merged:<other> {how: "account-merge"} while trainee:<other> is still there, until the
+        merge is run again) is "Merge not finished": 🔁 Finish the merge opens its dry run in 👥, and its redirect is never
+        offered for removal (the person's work would split in two again).
      3. ✍️ KNOWLEDGE CHECKS MISSING from trainee:<id> that its own progress snapshot (progress:<id>.data["day-progress"])
         or work-log quiz entries hold: what the 🏅 Scorecard and the Batch Sheet read is the record.
 
@@ -104,6 +107,12 @@ function findLocked(recs, merged, uids, orphans){
     if(!obj(m) || !m.into) return;
     // a redirect left on a live record (the old Batch Sheet merge never deleted merged:<keep>)
     if(has.has(from)){ const f = follow(from);
+      // ...or a merge run once here: the merged-away account keeps its records (backed up) until the merge is run again, so
+      // it is finished, never undone (removing the redirect would split the person's work in two again)
+      if(f.ok && f.to !== from && m.how === "account-merge"){
+        out.push({from, to: f.to, by: m.by || "", how: m.how, at: m.at || "", level: "pending", live: true, pending: true, orphans: orphans[from] || 0,
+          text: `${m.by || "A trainer"} merged ${from} into ${f.to}${m.at ? ` on ${when(m.at)}` : ""}, and that merge has run once: ${f.to} holds the merged work and ${from}'s sign-in already opens it. ${from}'s own records stay (backed up) only until the merge is run again, two minutes or more after the first run: 🔁 Finish the merge shows its dry run in 👥 above, then ✔ Merge into ${f.to} there. Don't remove this redirect: ${from} would open on its own again and the work would split in two.`});
+        return; }
       out.push({from, to: f.ok && f.to !== from ? f.to : m.into, by: m.by || "", how: m.how || "", at: m.at || "", level: "locked", live: true, orphans: orphans[from] || 0,
         text: f.ok && f.to !== from ? `merged:${from} sends this live account to ${f.to}: its saves are refused and its sign-in opens ${f.to}. If ${from} is the account to keep, merge the two (👥 above) or remove the redirect.`
           : `merged:${from} is left on a live account and leads nowhere else: remove it, so nothing is ever refused on it.`});
@@ -114,7 +123,8 @@ function findLocked(recs, merged, uids, orphans){
     else if(cur) out.push({from, to: f.to, by: m.by || "", how: m.how || "", at: m.at || "", level: "redirected", cur, orphans: orphans[from] || 0,
       text: `${cur.name} (${shown(cur.batch)}), as the Portal names them now, builds ${from}, which ${m.by === "portal-batch" ? "the Worker" : "a merge"} redirected to ${f.to}. Before this release that Portal sign-in was refused (locked out); it now opens ${f.to}. Any work their open tab couldn't save is in orphan:${from}:* (${orphans[from] || 0}).`});
   });
-  return out.sort((a, b) => (a.level === "locked" ? 0 : 1) - (b.level === "locked" ? 0 : 1) || a.from.localeCompare(b.from));
+  const rank = x => x.level === "locked" ? 0 : x.level === "pending" ? 1 : 2;
+  return out.sort((a, b) => rank(a) - rank(b) || a.from.localeCompare(b.from));
 }
 const hist = p => !obj(p) ? [] : Array.isArray(p.history) && p.history.length ? p.history : typeof p.score === "number" ? [{score: p.score, date: p.date || null}] : [];
 function findMissing(recs, prog){
@@ -210,6 +220,20 @@ async function mergeIds(ids, keep){
   if(c.status === 200 && c.body.ok){ S.done.unshift({ok: true, text: doneText(c.body)}); afterChange(); return {ok: true, keep: c.body.keep, text: doneText(c.body)}; }
   return {ok: false, text: (c.body && c.body.error) || `The merge failed (${c.status}).`};
 }
+// 🔁 a merge that has run once, finished: its group's dry run, shown in 👥 where it is confirmed (✔ Merge into …); when its
+// accounts aren't grouped (merged from the 📋 Batch Sheet), the same merge run again with its own dry run and confirm
+async function finishMerge(k, from, to){
+  if(k){
+    await previewMerge(k);
+    const sel = v => (typeof CSS !== "undefined" && CSS.escape ? CSS.escape(v) : v);
+    const el = document.querySelector(`[data-dry="${sel(k)}"]`) || document.querySelector(`[data-group="${sel(k)}"]`);
+    if(el && el.scrollIntoView) el.scrollIntoView({block: "center", behavior: "smooth"});
+    return;
+  }
+  const rk = "rd:" + from; S.busy[rk] = true; S.msg[rk] = null; redraw();
+  const r = await mergeIds([to, from], to);
+  S.busy[rk] = false; if(!r.cancelled) S.msg[rk] = {ok: !!r.ok, text: r.text}; redraw();
+}
 // 🔓 a merged:<id> redirect left on a live account: the Worker's dry run, the trainer's confirm, then its removal
 async function removeRedirect(id){
   const k = "rd:" + id; S.busy[k] = true; S.msg[k] = null; redraw();
@@ -283,9 +307,11 @@ function mergePlan(k, g){
 }
 function groupCard(g){
   const k = g.key, m = S.msg[k];
+  const run = S.locked.find(x => x.pending && g.ids.includes(x.from) && g.ids.includes(x.to));   // a merge of these, run once
   return `<div class="car-card" data-group="${E(k)}">
     <p class="car-h3">${E(g.recs[0].name || g.ids[0])} · ${g.recs.length} accounts</p>
     <p class="car-dim">Why: ${E(g.why.join("; "))}</p>
+    ${run ? `<p class="car-warn" data-pending="${E(run.from)}">⏳ ${E(run.by || "A trainer")} merged ${E(run.from)} into ${E(run.to)}${run.at ? ` on ${E(when(run.at))}` : ""}, and it has run once: 🔍 Preview merge, then ✔ Merge into ${E(run.to)}, to finish it.</p>` : ""}
     <table class="car-t"><thead><tr><th>Account</th><th>Name · Batch</th><th>Portal id</th><th>Registered</th><th>Last active</th><th>Days passed</th></tr></thead><tbody>${g.recs.map(r =>
       `<tr><td><code>${E(r.id)}</code>${r.approved === true ? "" : ` <span class="car-dim">(not approved)</span>`}</td><td>${E(r.name || "")} · ${E(shown(r.batch) || "—")}</td><td>${E(r.portalUid || "—")}</td><td>${E(when(r.registeredAt))}</td><td>${E(when(r.lastActive))}</td><td>${passedOf(r)}</td></tr>`).join("")}</tbody></table>
     <div class="car-btns"><label class="car-p">If the Portal's current name opens none of these, keep:
@@ -293,6 +319,16 @@ function groupCard(g){
       <button type="button" class="btn btn-navy btn-sm" data-ar="preview" data-k="${E(k)}" ${S.busy[k] ? "disabled" : ""}>🔍 Preview merge (dry run)</button></div>
     ${m ? `<p class="car-msg ${m.ok ? "ok" : "no"}">${E(m.text)}</p>` : ""}
     ${mergePlan(k, g)}</div>`;
+}
+// a 🔒 row's status and its one action: a merge that has run once is finished (its group's dry run, or the same merge again
+// when its accounts aren't grouped), never undone; any other redirect left on a live account can be removed
+const lockLabel = x => x.level === "locked" ? `<b class="car-bad">Locked out</b>` : `<b class="car-mid">${x.level === "pending" ? "Merge not finished" : "Redirected"}</b>`;
+function lockAction(x){
+  if(x.pending){
+    const g = S.groups.find(g => g.ids.includes(x.from) && g.ids.includes(x.to));
+    return `<div class="car-btns"><button type="button" class="btn btn-navy btn-sm" data-ar="finish" ${g ? `data-k="${E(g.key)}"` : `data-id="${E(x.from)}" data-to="${E(x.to)}"`} ${S.busy[g ? g.key : "rd:" + x.from] ? "disabled" : ""}>🔁 Finish the merge…</button></div>`;
+  }
+  return x.live ? `<div class="car-btns"><button type="button" class="btn btn-ghost btn-sm" data-ar="unredirect" data-id="${E(x.from)}" ${S.busy["rd:" + x.from] ? "disabled" : ""}>🔓 Remove redirect…</button></div>` : "";
 }
 function kcCard(x){
   const k = "kc:" + x.id, d = S.kcDry[x.id], m = S.msg[k];
@@ -320,9 +356,9 @@ function page(){
       <p class="car-p">One person's accounts, found by the same Portal id, then the same name in any word order, then the same first initial and last name or a name 2 letters apart in an equivalent batch (B250926 and B092526 are one batch). These are suggestions: check them before you merge.</p>
       ${S.groups.length ? S.groups.map(groupCard).join("") : `<p class="car-dim">None found.</p>`}</section>
     <section class="car-sec" id="carLocked"><h2 class="car-h2">🔒 Sign-ins sent elsewhere by a merge or redirect (${S.locked.length})</h2>
-      <p class="car-p">A redirect into an account that no longer exists locks the trainee out of their work. A redirect of the id the Portal's current name builds refused the sign-in before this release.</p>
+      <p class="car-p">A redirect into an account that no longer exists locks the trainee out of their work. A redirect of the id the Portal's current name builds refused the sign-in before this release. A merge that has run once leaves the merged-away account in place until it is run again: finish it, never remove its redirect.</p>
       ${S.locked.length ? `<table class="car-t"><thead><tr><th>Status</th><th>Sign-in id</th><th>Sent to</th><th>By</th><th>What it means</th></tr></thead><tbody>${S.locked.map(x =>
-        `<tr data-locked="${E(x.from)}"><td><b class="${x.level === "locked" ? "car-bad" : "car-mid"}">${x.level === "locked" ? "Locked out" : "Redirected"}</b></td><td><code>${E(x.from)}</code></td><td><code>${E(x.to)}</code></td><td>${E(x.by || x.how || "—")}${x.at ? ` · ${E(when(x.at))}` : ""}</td><td>${E(x.text)}${x.live ? `<div class="car-btns"><button type="button" class="btn btn-ghost btn-sm" data-ar="unredirect" data-id="${E(x.from)}" ${S.busy["rd:" + x.from] ? "disabled" : ""}>🔓 Remove redirect…</button></div>` : ""}${S.msg["rd:" + x.from] ? `<p class="car-msg ${S.msg["rd:" + x.from].ok ? "ok" : "no"}">${E(S.msg["rd:" + x.from].text)}</p>` : ""}</td></tr>`).join("")}</tbody></table>` : `<p class="car-dim">None found.</p>`}</section>
+        `<tr data-locked="${E(x.from)}"><td>${lockLabel(x)}</td><td><code>${E(x.from)}</code></td><td><code>${E(x.to)}</code></td><td>${E(x.by || x.how || "—")}${x.at ? ` · ${E(when(x.at))}` : ""}</td><td>${E(x.text)}${lockAction(x)}${S.msg["rd:" + x.from] ? `<p class="car-msg ${S.msg["rd:" + x.from].ok ? "ok" : "no"}">${E(S.msg["rd:" + x.from].text)}</p>` : ""}</td></tr>`).join("")}</tbody></table>` : `<p class="car-dim">None found.</p>`}</section>
     <section class="car-sec" id="carMissing"><h2 class="car-h2">✍️ Knowledge Checks missing from the record (${S.missing.length})</h2>
       <p class="car-p">Taken (they are in the account's progress snapshot or work-log) but not on trainee:&lt;id&gt;, which the 🏅 Scorecard and the Batch Sheet read.</p>
       ${S.missing.length ? S.missing.map(kcCard).join("") : `<p class="car-dim">None found.</p>`}</section></div>`;
@@ -340,6 +376,7 @@ document.addEventListener("click", e => {
   else if(a === "kcrestore") confirmKc(id);
   else if(a === "kccancel"){ delete S.kcDry[id]; redraw(); }
   else if(a === "unredirect") removeRedirect(id);
+  else if(a === "finish") finishMerge(k, id, b.getAttribute("data-to"));
 });
 document.addEventListener("change", e => {
   const b = e.target && e.target.closest && e.target.closest("[data-ar]"); if(!b) return;
