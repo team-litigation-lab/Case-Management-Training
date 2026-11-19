@@ -178,7 +178,7 @@ None.
 | `trainee-identity.cjs` | A renamed or re-batched Portal ticket with the same uid opens the trainee's existing record (the uid index), and B250926 / B092526 (the same day, as batchShow shows it) resolve to one id |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
-## Browser checks (75)
+## Browser checks (76)
 
 | Check | What it covers |
 |---|---|
@@ -208,6 +208,7 @@ None.
 | `day-video.cjs` | 🎬 The Day 1 deck and its narrated video (deck pages are the lesson's slides with their notes in Presenter; the video is 🔒 until a trainer unlocks it) |
 | `day2-video.cjs` | 🎬 Case Flow Day 2's Video Presentation (🔒 until a trainer unlocks it in 🎬 Unlock Videos; then it plays with captions and a chapter per slide) |
 | `day345-video.cjs` | 🎬 Case Flow Days 3, 4 and 5's Video Presentations (🔒 until a trainer unlocks each in 🎬 Unlock Videos; then it plays with captions and a chapter per slide) |
+| `detailed-scores-all.cjs` | The Batch Sheet's 📅 Day 1–5: Detailed Scores holds every score in one row per trainee: the Overall and day scores, 🏅 Scores' summary, a Score Card group per day and a group per grading system, the same numbers as the tables under ▸ More detail |
 | `doc-filing.cjs` | Filing the case documents into the CMS, named the firm's way (the CMS answered by the test) |
 | `doc-relay.cjs` | Relaying a Portal simulator's document to the CMS (the records simulator's records and bills reach the CMS beside the lesson; only the Portal may ask) |
 | `doc-viewer-file.cjs` | The document viewer offers Download PDF only, and it downloads the PDF |
