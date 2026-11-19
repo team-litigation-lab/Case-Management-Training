@@ -2,7 +2,7 @@
 // js/cm-think-through.js with js/cm-ai-grader.js, in a real browser, as a trainee:
 //   · Day 2's Skill Activity d3m2-a1 (it practises the Valuation Baseline pages, Day 2 pages 23–24) has 🧠 Think it through in its
 //     Your Task 🧰 Tools menu, next to the 💡 Tip; the slide still fits one screen;
-//   · the button opens a panel over the slide: the question (the slide's example against John Doe's file), its 2–3 steps,
+//   · the button opens a panel over the slide: the question (what the slides' figures cause on John Doe's file), its 2–3 steps,
 //     a box to write in, and Submit → (never "AI Grader"); nothing is handed in before the trainee presses Submit;
 //   · submitted (the AI answered by the test, callAIJson: the test server has no AI key), the score shows in the panel, is
 //     saved under "cf-ai-grades" blocks["d2-think-valuation"] with the trainee's own words as what was graded, and the
@@ -37,7 +37,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     if (s.over > 2 || s.below > 1 || s.pages !== 1) fail(`${w}×${h}: the Your Task slide should still fit one screen: ${JSON.stringify(s)}`);
   }
   await page.evaluate(() => { window.callAIJson = async () => ({ accuracyScore: 26, presenceScore: 22, riskScore: 15, efficiencyScore: 11,
-    strengths: ['You set his $5,000 PIP against the page\'s $10,000.'], blindspots: ['Say what the slow exhaustion means for the demand.'], growthSuggestions: ['Lead with the anchor figure.'] }); });
+    strengths: ['You tied the 48-hour exhaustion to severity.'], blindspots: ['Work the file without the EMC.'], growthSuggestions: ['Lead with the anchor figure.'] }); });
   page.setDefaultTimeout(8000);
   await page.click('#app .cfx-task-foot .cfx-tools-menu > summary').catch(() => {});
   await sleep(200);
@@ -49,14 +49,14 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
       go: !!(o && o.querySelector('.ctt-go')), ai: /AI Grader/.test(o ? o.textContent : ''), graded: !!CMAIGrader.result(id) }; }, ID);
   if (!p.panel) fail('🧠 Think it through should open a panel over the slide');
   else {
-    if (!/The slide's example uses .*\$10,000.*John Doe's file: what changes, and why\?/.test(p.q)) fail(`the question should set the slide's example against John Doe's file: "${p.q}"`);
+    if (!/\$10,000 PIP limit in 48 hours.*\$41,400.*Dr\. Sarah Spine.*cause.*on his file/.test(p.q)) fail(`the question should ask what the slides' figures cause on John Doe's file: "${p.q}"`);
     if (p.steps < 2 || p.steps > 3) fail(`the challenge should have 2–3 steps: ${p.steps}`);
     if (!p.box) fail('the panel should have a box for the trainee\'s own reasoning');
     if (!p.go) fail('the panel should offer Submit →');
     if (p.ai) fail('the panel says "AI Grader": trainees only ever see Submit');
     if (p.graded) fail('nothing should be graded before the trainee presses Submit');
   }
-  const mine = 'His PIP was Harbor Point at $5,000, not $10,000, first paid on the 02/20/2026 urgent care visit and used up in June 2026 at the MMI visit: about four months, so its speed says nothing about severity. His audited Specials are $16,401.40, not $41,400, and that is the anchor I hand Atty. Thorne. Riverton has no EMC rule, so nothing caps his PIP.';
+  const mine = 'Harbor Point PIP paid Riverton General and the ambulance $10,000 at the fee schedule for 02/20-02/21/2026, gone by 03/04/2026: a high-severity signal against the gap. The anchor I hand Atty. Thorne is the $41,400.00 of bills, $42,984.00 with wages. Next came MedPay, then Peach State, then the LOP. Without Dr. Spine\'s EMC, PIP stops at $2,500 and $7,500 more becomes liens.';
   await page.fill('#cttPanel textarea.ctt-a', mine).catch(() => {});
   await page.click('#cttPanel .ctt-go').catch(() => {});
   await sleep(1800);
@@ -69,7 +69,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   else {
     if (String(r.shown) !== String(want)) fail(`the panel should show the score ${want}: ${r.shown}`);
     if (r.stored !== want) fail(`the grade should be stored under "cf-ai-grades" blocks["${ID}"]: ${r.stored}`);
-    if (!r.draft.includes('$16,401.40')) fail('what was graded should be the trainee\'s own words');
+    if (!r.draft.includes('$42,984.00')) fail('what was graded should be the trainee\'s own words');
     if (r.kept !== mine) fail('the trainee\'s reasoning should be kept in their record ("cf-think")');
     if (!r.log.some((x) => x.s === want && /Case Flow Day 2/.test(x.l))) fail(`the work log (the Scorecard's Skill Activities) should hold the attempt on Day 2: ${JSON.stringify(r.log)}`);
   }

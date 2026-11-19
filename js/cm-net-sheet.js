@@ -49,7 +49,7 @@ const START_B = Object.assign({}, START, {C11: ""});
 /* what the file says at each stage (build/case-flow: d2m4-a1, d3m3-a2, d3m4-a1) */
 const STAGES = {
   recovery: {file: "A", label: "Track A · Settlement: the gross and the fee", checks: [
-    {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (PIP and PD are not recovery)."},
+    {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (PIP, MedPay and PD are not recovery)."},
     {cell: "L11", want: 13333.33, why: "The fee is 33⅓% pre-suit (no suit filed): one-third of $40,000.00 = $13,333.33. Typing 33.33% gives $13,332.00."},
   ]},
   /* the settlement-stage sheets, one per stream, each its own sheet so the full Track A sheet is never overwritten
@@ -72,7 +72,7 @@ const STAGES = {
     {cell: "I61", want: 0, why: "John paid Riverton Drug himself ($312.40, Paid by Client): nothing is owed from the settlement, so nothing comes off the net. His receipts prove the out-of-pocket specials."},
   ]},
   final: {file: "A", label: "Track A · Disbursement: the final Net Sheet", checks: [
-    {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (PIP and PD are not recovery)."},
+    {cell: "L7", want: 40000, why: "Gross: Keystone BI $10,000.00 + Harbor Point UM $20,000.00 + Cardinal State UM $10,000.00 = $40,000.00 (PIP, MedPay and PD are not recovery)."},
     {cell: "L11", want: 13333.33, why: "The fee is 33⅓% pre-suit (no suit filed): one-third of $40,000.00 = $13,333.33. Typing 33.33% gives $13,332.00."},
     {cell: "L20", want: 486.75, why: "Receipted costs: Police Report $25.00, records and billing $214.75, certified mail $72.00, MRI disc $25.00, postage and copies $150.00 = $486.75."},
     {cell: "L26", want: 4580, why: "Riverton Spine & Rehab: audited $6,105.00, accepted $4,580.00 in its signed Payoff Letter (10/12/2026)."},

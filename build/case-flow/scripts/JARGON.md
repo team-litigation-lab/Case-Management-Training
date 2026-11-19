@@ -307,7 +307,7 @@ Confirm: that the firm still relies on this citation for its matters.
 
 **Why it matters for the settlement:** If any one of the three is wrong, the Net Sheet is wrong, and the client's check is wrong.
 
-**Quick check:** {name}, does Harbor Point's $5,000 PIP belong in the $40,000 on the Recovery Ledger? Why or why not?
+**Quick check:** {name}, does Harbor Point's $10,000 PIP belong in the $40,000 on the Recovery Ledger? Why or why not?
 
 
 ### Fully insured plan
@@ -1070,7 +1070,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Degenerative | d4m3-prior | Wear and tear from age |
 | Pre-morbid baseline | d4m3-prior | John's condition before 02/06/2026, from records |
 | Eggshell idea | d4m3-prior | The at-fault driver takes the injured person as he finds him; making an old problem worse still counts (rule to confirm) |
-| PIP | d4m3-a1 | Add-on medical coverage paying his accident bills regardless of fault: Harbor Point's $5,000 PIP on Kevin Alvarez's Escape, the car John rode in, not a policy of his own |
+| PIP | d4m3-a1 | Add-on medical coverage paying his accident bills regardless of fault: Harbor Point's $10,000 PIP on Kevin Alvarez's Escape, the car John rode in, not a policy of his own |
 | Unbelted defense | d4m3-kc | The argument that John wasn't wearing his seatbelt |
 | Pleading | d4m2-l1 | A formal court paper. |
 | Prayer for relief | d4m2-l1 | The part of the Complaint that asks the court for what we want. |

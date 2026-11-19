@@ -28,10 +28,10 @@ const RUBRIC = {
   ai: [
     ["Intake & the CMS (Day 1)", 12, "The Conflict Check on every party's full legal name before the matter is created; the parties, the insurance and the SOL calendared from the date of loss; the CMS Case ID logged"],
     ["The backup file (Day 1)", 8, "The case folder named to the standard ([Your Full Name] - [Case Name]) with the firm's nine numbered subfolders, the intake documents filed in place"],
-    ["The claims set up (Day 2)", 12, "Every carrier in the stack has its Letter of Representation, a claim number and a verification status confirmed in writing; the coverage matrix complete in the CMS"],
-    ["The care plan (Day 2)", 10, "The treatment map, the 14-day rule and any gap flagged with its exact dates, who pays first, and whether an LOP is needed"],
-    ["Decision first to Atty. Thorne (Days 3–4)", 10, "Case Notes say what is decided, what needs his call and the deadline it hangs on; facts only, no value, merits or strategy opinion (UPL)"],
-    ["The file complete (Days 1–4)", 8, "Every document filed in the CMS and the case folder; nothing living only in an inbox; ready for the brainstorm"]
+    ["The claims set up (Day 1)", 12, "Every carrier has its Letter of Representation, a claim number and a verification status confirmed in writing; the PIP / UM/UIM Coverage Stack complete in the CMS: the recovery stack in its order (BI, then Host UM, then Relative UM), PIP and MedPay tracked outside it"],
+    ["The care plan (Day 1)", 10, "The Standard Treatment Map and the Three-Pillar Case Plan (Clinical, Functional, Subrogation Management); any treatment gap flagged with its exact dates; the Payer Order (PIP/MedPay, then private health insurance, then LOP) and whether an LOP is needed"],
+    ["Decision first to Atty. Thorne (Days 1–2)", 10, "Case Notes say what is decided, what needs his call and the deadline it hangs on; facts only, no value, merits or strategy opinion (UPL)"],
+    ["The file complete (Days 1–4; Day 3's Final Case Reconciliation habit)", 8, "Every document filed in the CMS and the case folder, each figure traceable to its source; nothing living only in an inbox; ready for the brainstorm"]
   ],
   trainer: [
     ["Professional judgment", 25, "At the brainstorm: knows what to do next on the file and what to route to Atty. Thorne"],
@@ -41,15 +41,15 @@ const RUBRIC = {
 const STEPS = ["Read the file: the client, the injuries, the coverage and the facts at intake.",
   "Open the matter in the CMS: the Conflict Check first, then the parties, the insurance and the SOL calendared from the date of loss.",
   "Build its case folder: [Your Full Name] - [Case Name], the firm's nine subfolders, the intake documents uploaded.",
-  "Set up the claims: a Letter of Representation to every carrier, each claim's verification status, the coverage matrix.",
-  "Plan the care: the treatment map, the 14-day rule and any gap, who pays first, whether an LOP is needed.",
+  "Set up the claims: a Letter of Representation to every carrier, each claim's verification status, the PIP / UM/UIM Coverage Stack.",
+  "Plan the care: the Standard Treatment Map, any treatment gap, the Payer Order, whether an LOP is needed.",
   "Note the decision to Atty. Thorne in Case Notes: what's decided, what needs his call, the deadline.",
   "Check your work: every document filed in the CMS and the folder, your CMS Case ID logged."];
 const CHECKS = ["Conflict Check run on **every party's full legal name**, before the matter",
   "SOL **calendared from the date of loss**; CMS Case ID logged",
   "Case folder **named to the standard**, nine subfolders, intake documents in place",
   "**Every carrier** has an LOR, a claim number and a written verification status",
-  "Treatment map with **any gap's exact dates**, the payer order and the LOP decision",
+  "Standard Treatment Map with **any gap's exact dates**, the Payer Order and the LOP decision",
   "Decision-first note: **what's decided, what needs his call, by when**; no value or merits opinion"];
 const caseOf = () => { const a = state.assignedCase; return a && (window.CM_COMPANION_CASES || {})[a.id] ? Object.assign({id: a.id}, window.CM_COMPANION_CASES[a.id]) : null; };
 window.CM_AIG_EXTRA = window.CM_AIG_EXTRA || {};

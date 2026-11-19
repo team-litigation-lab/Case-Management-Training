@@ -13,10 +13,13 @@ const A = {   // Track A, settled before suit
   C12: 'Police Report', L12: '25', C18: 'Records and billing; MRI disc', L18: '214.75 + 25', C17: 'Certified mail; postage and copies', L17: '72 + 150',
   // the ledger in an order of its own: Peach State first, Riverton Spine & Rehab fourth
   B25: 'Health plan lien', C25: 'Peach State Health Plan', D25: '1860', L25: '1240',
-  B26: 'Urgent care', C26: 'Riverton Urgent Care', D26: '685', E26: '685',
-  B27: 'Orthopedics', C27: 'Lakeside Orthopedics', D27: '1920', E27: '1920',
+  B26: 'Urgent care', C26: 'Riverton Urgent Care', D26: '685', G26: '685',
+  B27: 'Orthopedics', C27: 'Lakeside Orthopedics', D27: '1920', G27: '1920',
   B28: 'Chiro / PT (LOP)', C28: 'Riverton Spine & Rehab', D28: '6290', H28: '185', L28: '4580',
-  B29: 'MRI', C29: 'Summit Imaging Center', D29: '2395', E29: '2395',
+  B29: 'MRI', C29: 'Summit Imaging Center', D29: '2395', G29: '2395',
+  // the emergency care of the first 48 hours: PIP's $10,000 at the fee schedule, the rest written off (no balance billing)
+  B30: 'Emergency room', C30: 'Riverton General Hospital', D30: '24400', E30: '8850', H30: '15550',
+  B33: 'Ambulance (EMS)', C33: 'Riverton Fire EMS', D33: '2182.60', E33: '1150', H33: '1032.60',
   B31: 'Pain management', C31: 'Crescent Pain & Spine', D31: '3400', F31: '1860', H31: '1540',
   B61: 'Pharmacy', C61: 'Riverton Drug', D61: '312.40', F61: '312.40',
   B62: 'Counseling (EAP)', C62: 'Stonebridge EAP Services', D62: '0',

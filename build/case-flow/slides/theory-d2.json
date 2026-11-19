@@ -16,7 +16,7 @@
         "more": [
           "MedPay: reasonable accident Medical Bills up to its limit, never wages",
           "PIP, where a state requires it: also a share of lost wages and replacement services",
-          "This file: **$5,000 Harbor Point PIP** on the Escape John Doe rode in; Riverton PIP is add-on",
+          "This file: **$10,000 Harbor Point PIP** and $5,000 MedPay on the Escape John Doe rode in",
           "Verify PIP on every file; never assume it"
         ]
       },
@@ -318,10 +318,10 @@
         "term": "MedPay vs. PIP",
         "text": "First-party coverage for Medical Bills regardless of fault, up to its limit; **unlike PIP, no wages**",
         "more": [
-          "John Doe's PIP: **$5,000 at Harbor Point**, as a passenger in the Escape",
-          "Paid in date order: $685.00, $640.00, $2,395.00, $640.00, $640.00",
-          "$640.00 left after the 03/27/2026 visit",
-          "Reaches $5,000.00 on the 06/12/2026 MMI visit: nothing left"
+          "John Doe's PIP: **$10,000 at Harbor Point**, as a passenger in the Escape, with $5,000 of MedPay behind it",
+          "PIP paid the ER and EMS, $10,000.00, in one go; MedPay then paid in date order: $685.00, $640.00, $2,395.00, $640.00, $640.00",
+          "MedPay: $640.00 left after the 03/27/2026 visit",
+          "MedPay reaches $5,000.00 on the 06/12/2026 MMI visit: nothing left"
         ]
       },
       {
@@ -333,7 +333,7 @@
         "text": "The client's signed agreement that a provider is paid from any recovery: **a consensual lien** on his net",
         "more": [
           "Only for care earlier payers can't carry: Riverton Spine & Rehab is out of network",
-          "Summit Imaging's 03/11/2026 request declined: **PIP pays first**",
+          "Summit Imaging's 03/11/2026 request declined: **MedPay pays first**",
           "Terms, template and signature are Atty. Thorne's; you prepare, route and transmit",
           "Never promise a provider an amount, a reduction or a date"
         ]
@@ -386,7 +386,7 @@
           "text": "Last rung, for care earlier payers can't carry: paid from any recovery, on Atty. Thorne's terms"
         }
       ],
-      "note": "On this file: Harbor Point PIP, then Peach State, then an LOP; providers bill whom they bill"
+      "note": "On this file: Harbor Point PIP, then Harbor Point MedPay, then Peach State, then an LOP; providers bill whom they bill"
     }
   },
   "d2m2-eob": {
@@ -434,8 +434,8 @@
         "term": "Exhaustion",
         "text": "Once PIP's limit is spent, later bills come back unpaid: **route them to the next payer**",
         "more": [
-          "Harbor Point's five checks: $685.00, $640.00 three times, $2,395.00",
-          "Total $5,000.00: **exhausted 06/26/2026**",
+          "Harbor Point's PIP checks: $8,850.00 and $1,150.00; its five MedPay checks: $685.00, $640.00 three times, $2,395.00",
+          "PIP $10,000.00 exhausted 03/04/2026; MedPay $5,000.00 **exhausted 06/26/2026**",
           "Later bills come back with a notice of exhaustion",
           "The firm's PIP Log (RS71) tracks each check and the limit remaining",
           "Pitfall: sending a bill to PIP after exhaustion"
@@ -513,7 +513,7 @@
         "more": [
           "Climb one documented rung at a time",
           "Rung 1, clinical: the provider's office manager",
-          "Rung 2, administrative: written notice to the carrier causing it, copied to Atty. Thorne",
+          "Rung 2, administrative: a Notice of Delay to the adjuster and Atty. Thorne, documenting the barrier",
           "Rung 3, legal: **Atty. Thorne's call**, such as an LOP",
           "Write each step as a GIRP note: Goal, Intervention, Response, Plan"
         ]
@@ -817,9 +817,9 @@
         "term": "Special Damages",
         "text": "Medical Bills + lost wages + Property Damage: the provable dollar loss. **Every line needs a document**",
         "more": [
-          "Medical: **$14,817.40**, every billed date matched to a visit",
+          "Medical: **$41,400.00**, every billed date matched to a visit",
           "Lost wages: 9 shifts × 8 h × $22.00 = $1,584.00, verified by Northgate",
-          "Audited BI Specials: $16,401.40",
+          "Audited BI Specials: $42,984.00",
           "Out-of-pocket costs from the trip log and their receipts",
           "The Civic runs on its own Keystone PD claim, outside the $40,000",
           "Future care stays out of the audited total"
@@ -1068,7 +1068,7 @@
           "The finding is the treating physician's clinical judgment",
           "Check the first treating records for it **early in treatment**",
           "No finding: more bills fall to the Health Plan, LOPs and the BI settlement",
-          "John Doe's Harbor Point PIP has no EMC ceiling"
+          "John Doe's EMC finding is Dr. Sarah Spine's (02/20/2026): his full $10,000 paid"
         ]
       },
       {
@@ -1089,7 +1089,7 @@
         "text": "Each policy sorted by **whose it is** and what it pays: the claim, the bills or the car",
         "more": [
           "Third-party: Robert Smith's Keystone BI $10,000 and PD $25,000",
-          "First-party: Host UM $20,000, Relative UM $10,000, Harbor Point PIP $5,000, Bluewater collision",
+          "First-party: Host UM $20,000, Relative UM $10,000, Harbor Point PIP $10,000 and MedPay $5,000, Bluewater collision",
           "Health: Peach State Health Plan, through Northgate, effective 02/01/2026",
           "Only **BI, Host UM and Relative UM** make the $40,000 Recovery Stack",
           "Margaret Doe rejected UM on her Bluewater policy in writing on 03/14/2024: it adds nothing"
@@ -1097,12 +1097,12 @@
       },
       {
         "term": "The Payer-First Principle",
-        "text": "Each bill goes first to the payer that must pay it: **PIP, then Peach State, then an LOP**",
+        "text": "Each bill goes first to the payer that must pay it: **PIP and MedPay, then Peach State, then an LOP**",
         "more": [
-          "PIP pays regardless of fault, and Harbor Point has **no reimbursement right** (03/02/2026)",
+          "PIP and MedPay pay regardless of fault, and Harbor Point has **no reimbursement right** (03/02/2026)",
           "Peach State pays at the contract rate: Crescent billed $3,400.00, the plan paid $1,860.00",
           "An LOP last, for care earlier payers can't carry: Riverton Spine & Rehab, out of network",
-          "Summit Imaging's 03/11/2026 LOP request declined: PIP had $3,675.00 left",
+          "Summit Imaging's 03/11/2026 LOP request declined: MedPay had $3,675.00 left",
           "Providers bill whom they bill: track every ledger, never re-route a paid claim"
         ]
       },

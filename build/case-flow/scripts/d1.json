@@ -173,13 +173,13 @@
       "say": "• BI liability: at-fault driver's, third-party, pays the injury claim\n• UM/UIM: client's side, through vehicle or household, pays when BI is too small; consent rules apply\n• PIP: from the vehicle the client rode in, pays Medical Bills without proving fault; verify repayment terms in writing\n• Health insurance: client's plan, contract rate, right to be repaid\n• Medicare and Medicaid: last, repaid by law, BCRC report"
     },
     "rules": {
-      "say": "• By whose: Keystone BI and PD are Robert Smith's; Host UM, Relative UM, PIP John's side; Peach State his Health Plan\n• The stack, in order: Keystone BI $10,000, exhausted first; Harbor Point Host UM $20,000, Kevin Alvarez's Escape, add-on; Cardinal State Relative UM $10,000, Margaret Doe's\n• Outside the $40,000: Harbor Point PIP $5,000 for bills; Keystone PD $25,000; Bluewater collision\n• Each claim opened: list coverage, carrier and what it pays in the Insurance tab; once confirmed, on the Coverage Stack: stack, bill order, or neither\n• Who to bill: PIP Log; PIP (no repayment right, confirmed 03/02/2026), Peach State, then an LOP Atty. Thorne approves\n• Post each payment on its ledger"
+      "say": "• By whose: Keystone BI and PD are Robert Smith's; Host UM, Relative UM, PIP John's side; Peach State his Health Plan\n• The stack, in order: Keystone BI $10,000, exhausted first; Harbor Point Host UM $20,000, Kevin Alvarez's Escape, add-on; Cardinal State Relative UM $10,000, Margaret Doe's\n• Outside the $40,000: Harbor Point PIP $10,000 and MedPay $5,000 for bills; Keystone PD $25,000; Bluewater collision\n• Each claim opened: coverage, carrier, what it pays in the Insurance tab; then stack, bill order, or neither\n• Who to bill: PIP Log; PIP and MedPay (no repayment right, confirmed 03/02/2026), Peach State, then an LOP Atty. Thorne approves\n• Post each payment on its ledger"
     },
     "model": {
-      "say": "• Navy, third-party: Keystone BI $10,000, Keystone PD $25,000\n• Orange, first-party: Harbor Point Host UM $20,000, Cardinal State Relative UM $10,000, Harbor Point PIP $5,000, Bluewater collision\n• Green: Peach State Health Plan; grey, crossed out: Bluewater UM, rejected 03/14/2024\n• Only the three claim cards form the $40,000 stack; PD's $25,000 is not in it\n• Bill order staircase: MedPay or PIP, Health Plan, Letter of Protection"
+      "say": "• Navy, third-party: Keystone BI $10,000, Keystone PD $25,000\n• Orange, first-party: Harbor Point Host UM $20,000, Cardinal State Relative UM $10,000, Harbor Point PIP $10,000 and MedPay $5,000, Bluewater collision\n• Green: Peach State Health Plan; grey, crossed out: Bluewater UM, rejected 03/14/2024\n• Only the three claim cards form the $40,000 stack; PD's $25,000 is not in it\n• Bill order staircase: MedPay or PIP, Health Plan, Letter of Protection"
     },
     "dodont": {
-      "say": "• Do: verify every coverage with a dated Declaration Page; confirm Peach State was active (began 02/01/2026)\n• Do: keep the Payer Order and the Recovery Stack separate\n• Don't: send an LOP where PIP pays; PIP paid Summit Imaging's $2,395.00 with nothing to repay\n• Don't: assume PIP or UM on any policy without its Declaration Page; John has no auto policy, and Margaret rejected Bluewater UM 03/14/2024\n• Red flag: a stack that adds up to $45,000 means PIP slipped in; never add PIP, PD or collision: PIP pays bills, not the claim\n• The stack is BI $10,000, Host UM $20,000 and Relative UM $10,000: $40,000, every time",
+      "say": "• Do: verify every coverage with a dated Declaration Page; confirm Peach State was active (began 02/01/2026)\n• Do: keep the Payer Order and the Recovery Stack separate\n• Don't: send an LOP where PIP or MedPay pays; MedPay paid Summit Imaging's $2,395.00 with nothing to repay\n• Don't: assume PIP or UM on any policy without its Declaration Page; John has no auto policy, and Margaret rejected Bluewater UM 03/14/2024\n• Red flag: a stack that adds up to $50,000 means PIP slipped in; never add PIP, PD or collision: PIP pays bills, not the claim\n• The stack is BI $10,000, Host UM $20,000 and Relative UM $10,000: $40,000, every time",
       "ask": "How does John Doe reach $30,000 of UM without an auto policy of his own?"
     }
   },
@@ -299,10 +299,10 @@
       "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance, take PIP out of the stack and correct the total to $40,000, citing the document behind each fix\n• Step 2: Log a three-line audit note to Atty. Thorne in CMS › Notes › Case Notes: what is confirmed in writing\n• What is still preliminary, and what you escalated"
     },
     "case": {
-      "say": "• Assuming a colleague's Coverage Stack totals $45,000 and the file holds Harbor Point's and Cardinal State's letters but no Keystone Declaration Page\n• The matrix needs correcting\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a corrected matrix totalling $40,000, its audit note routed"
+      "say": "• Assuming a colleague's Coverage Stack totals $50,000 and the file holds Harbor Point's and Cardinal State's letters but no Keystone Declaration Page\n• The matrix needs correcting\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a corrected matrix totalling $40,000, its audit note routed"
     },
     "check": {
-      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: PIP out of the stack: it pays bills; Stack total $45,000 corrected to $40,000; BI still preliminary until the Declaration Page\n• The one thing to watch for: Marking BI confirmed because $10,000 is expected"
+      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: PIP out of the stack: it pays bills; Stack total $50,000 corrected to $40,000; BI still preliminary until the Declaration Page\n• The one thing to watch for: Marking BI confirmed because $10,000 is expected"
     }
   },
   "d1m1-a2": {
@@ -361,7 +361,7 @@
       "say": "• Self-Summary: write the principles in your own words\n• Scenario 03/11/2026: Keystone hasn't confirmed its limit in writing; John Doe started treatment fourteen days after the crash\n• Answer: which three actions today, in what order, and what goes in the Case Plan's risks section\n• Tell insurers facts only, and only what they are entitled to"
     },
     "scale": {
-      "say": "• Skill Scale: rate each skill 1 to 5 and submit for review\n• Self-ratings are compared with scores; a 5 beside a wrong $45,000 stack means coaching\n• The legal line is a gate: signing for the attorney or giving coverage opinions fails regardless of score\n• An honest rating helps more than a hopeful one",
+      "say": "• Skill Scale: rate each skill 1 to 5 and submit for review\n• Self-ratings are compared with scores; a 5 beside a wrong $50,000 stack means coaching\n• The legal line is a gate: signing for the attorney or giving coverage opinions fails regardless of score\n• An honest rating helps more than a hopeful one",
       "ask": "Besides coverage, what on this file could make every insurer offer less?"
     }
   },
@@ -428,7 +428,7 @@
       "say": "• John's route: urgent care 02/20/2026, Riverton Spine & Rehab from 02/24; Dr. Reyes 03/05; MRI 03/13, C5-C6 herniation; ESI 05/15; MMI 06/12\n• Every check-in, on the CMS treatment timeline: phase and week from the date of loss, week of care, improving or not\n• Not improving, or a stop skipped: name it clinical, psychosocial or systemic, never his fault; call the doctor's office; the doctor decides care\n• Get the doctor's measurements at week 6 and every 30 days after; raise concerns at the 12-week plateau\n• Red flag: no visit 04/02 to 04/21/2026, nineteen days, no reason on file: A-C-T that day, a same-day Risk Flag, facts only, to Atty. Thorne"
     },
     "model": {
-      "say": "• At intake John Doe had one medical record: the EMS Run Report from 02/06/2026\n• It notes neck stiffness and that he declined transport, so no ER stop\n• He was in the acute phase with no care; every day without evaluation is a fact on the timeline\n• Tell Atty. Thorne about any gap; focus on causation facts and Harbor Point's $5,000 PIP confirmed in writing\n• Later: attendance, week-6 measurements, return-to-work blockers, the doctor's MMI note"
+      "say": "• At intake John Doe had one medical record: the EMS Run Report from 02/06/2026\n• It notes neck stiffness and that he declined transport, so no ER stop\n• He was in the acute phase with no care; every day without evaluation is a fact on the timeline\n• Tell Atty. Thorne about any gap; focus on causation facts and Harbor Point's $10,000 PIP confirmed in writing\n• Later: attendance, week-6 measurements, return-to-work blockers, the doctor's MMI note"
     },
     "dodont": {
       "say": "• Do: write phase and week at the top of every note\n• Do: report what he can't do, not just diagnoses; request objective measures before week 6\n• Don't: let care drift without a reason on file, or call a systemic delay client non-compliance\n• Don't: wait for a denial to course-correct; call the provider that same week\n• The map is a measuring stick; off the map is fine once the doctor explains it",
@@ -461,11 +461,11 @@
   },
   "d1m4-emc": {
     "why": {
-      "say": "• PIP: the client's own insurance paying Medical Bills regardless of fault, written state by state\n• Florida's Emergency Medical Condition (EMC) rule decides early whether PIP pays $2,500, $10,000, or no medical\n• John Doe's file is in Riverton: add-on PIP, no EMC rule, so Harbor Point's $5,000 PIP isn't capped\n• On a Florida file, the clock starts at the date of loss; the Case Manager calendars it\n• Had this file been in Florida, day 14 was 02/20/2026, his first treatment\n• Red flag: telling a Riverton client his PIP is capped over the 14 days; Riverton has no EMC rule"
+      "say": "• PIP: the client's own insurance paying Medical Bills regardless of fault, written state by state\n• The Emergency Medical Condition (EMC) rule decides whether PIP pays $2,500 or $10,000; Florida's version can also mean no medical\n• John Doe's file is in Riverton, which uses the rule: Dr. Sarah Spine's EMC finding (02/20/2026) opened Harbor Point's full $10,000 PIP\n• The finding is the physician's; you check the record and log the bucket\n• His finding is in Riverton General's emergency department record, 02/20/2026; without it PIP stops at $2,500\n• Red flag: John's PIP logged at $10,000 with no EMC record behind it; keep Dr. Spine's finding with the PIP Log"
     },
     "rules": {
-      "say": "• Florida PIP, Fla. Stat. 627.736, always confirm the current statute: $10,000, paying 80% of reasonable medical and 60% of lost income\n• Initial care within 14 days or PIP pays no medical: calendar day 14 at intake; tell the client the deadline and where care is available\n• Full $10,000 only if an MD, DO, dentist, PA or APRN finds an EMC, else $2,500; chiropractors can't; log each provider's credential\n• EMC: going without care could seriously harm health; check the first record's date, provider and written EMC, request it if missing\n• Track the bucket in the PIP Log; a missing EMC or late first visit goes to Atty. Thorne that day",
-      "ask": "A Florida client is first seen on day 14 by a PA. What does PIP pay?"
+      "say": "• Riverton PIP: $10,000, 100% of medical at the fee schedule, 80% of lost income; Florida pays 80% and 60%\n• Florida only: initial care within 14 days or PIP pays no medical; calendar day 14 at intake; Riverton has no 14-day condition\n• Full $10,000 only if an MD, DO, dentist, PA or APRN finds an EMC, else $2,500; chiropractors can't; log each provider's credential\n• EMC: going without care could seriously harm health; check the first record's date, provider and written EMC, request it if missing\n• Track the bucket in the PIP Log; a missing EMC goes to Atty. Thorne that day",
+      "ask": "Without Dr. Spine's EMC finding, how much of John's emergency bills would PIP have paid, and where would the rest go?"
     }
   }
 }

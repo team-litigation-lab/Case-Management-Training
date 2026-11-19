@@ -213,7 +213,7 @@
       ],
       "revealNote": "The Demand Package as Atty. Thorne signed and served it on 07/20/2026: the letter with its four faults corrected and the Exhibit Index as served, 81 pages. Every later activity on this file works from this set.",
       "revealPoints": [
-        "Specials $14,817.40 medical + $1,584.00 wages = $16,401.40, every line tied to a certified bill.",
+        "Specials $41,400.00 medical + $1,584.00 wages = $42,984.00, every line tied to a certified bill.",
         "Acceptance runs 30 days from the adjuster's written acknowledgement of receipt, not from the date of the letter.",
         "A Limited Release of Robert Smith and Keystone Mutual only, preserving every UM/UIM claim and the Property Damage claim.",
         "Robert Smith's affidavit of no other insurance added as condition 3.",
@@ -1103,25 +1103,33 @@
         },
         {
           "doc": "RS22",
-          "why": "$685.00, paid in full by Harbor Point PIP. Nothing owed and nothing wrong."
+          "why": "$685.00, paid in full by Harbor Point MedPay. Nothing owed and nothing wrong."
+        },
+        {
+          "doc": "RS98",
+          "why": "The ER and EMS bills of 02/20–02/21/2026, $26,582.60, paid by PIP at the fee schedule, $10,000.00, the rest written off. Nothing owed and nothing wrong."
+        },
+        {
+          "doc": "RS97",
+          "why": "Dr. Sarah Spine's emergency department record with her EMC determination: the reason PIP paid its full $10,000.00. Fit to use as written."
         },
         {
           "doc": "RS23"
         },
         {
           "doc": "RS24",
-          "why": "Three visits at $640.00, all paid by PIP. It ties to the PIP ledger."
+          "why": "Three visits at $640.00, all paid by MedPay. It ties to the MedPay rows of the PIP Log."
         },
         {
           "doc": "RS25",
-          "why": "$2,395.00 paid by PIP. The invoice is right; it is the MRI report's history line that is wrong."
+          "why": "$2,395.00 paid by MedPay. The invoice is right; it is the MRI report's history line that is wrong."
         },
         {
           "doc": "RS26"
         },
         {
           "doc": "RS31",
-          "why": "Five payments matched to five bills, $5,000.00, the limit exhausted. It reconciles."
+          "why": "PIP's two payments matched to the ER and EMS bills, $10,000.00, and MedPay's five to five bills, $5,000.00, both limits exhausted. It reconciles."
         },
         {
           "doc": "RS43",

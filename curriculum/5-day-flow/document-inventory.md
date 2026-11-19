@@ -6,7 +6,7 @@ packets, the exhibit audits and Amendment Requests (`build/case-flow/exhibits/`)
 document has no route to being caught and fixed, when the documents that prove it open too late for the activity that
 works it, or when a corrected copy has no request behind it.
 
-**93 documents** · **22 plant a challenge** · **2 corrected copies** come back from the trainee's Amendment Requests · D*n* = the Case Flow day.
+**95 documents** · **22 plant a challenge** · **2 corrected copies** come back from the trainee's Amendment Requests · D*n* = the Case Flow day.
 
 ## How the trainee fixes a challenge
 
@@ -95,7 +95,7 @@ with the reason; a complete one brings the provider's answer and the corrected c
 | RS28 | Harbor Point Insurance — Declarations, Coverage Letter & Arbitration Clause | Insurance, Demands & Negotiation | D1 | Others | Carrier correspondence (Email Workspace · mail) | — | d2m1-a2 (D1), d3m1-a2 (D2), d3m2-a2 (D2), d3m2-rel (D2), d3m2-umns (D3), d4m2-a2 (D4), d4m2-a3 (D4), d4m2-medcal (D4), d4m3-a2 (D4), d4m1-a2 (D5) |
 | RS29 | Cardinal State Mutual — Declarations, Assignment & Coverage Letter | Insurance, Demands & Negotiation | D1 | Others | Carrier correspondence (Email Workspace · mail) | — | d2m1-a2 (D1), d3m1-a2 (D2), d3m2-a2 (D2), d3m2-rel (D2), d4m2-a3 (D4), d4m2-medcal (D4) |
 | RS30 | Bluewater Auto — Declarations & UM Rejection | Insurance, Demands & Negotiation | D2 | Others | Carrier correspondence (Email Workspace · mail) | — | d3m2-rel (D2), d4m2-a3 (D4) |
-| RS31 | Harbor Point — PIP Payment Ledger | Insurance, Demands & Negotiation | D1 | Others | Carrier correspondence (Email Workspace · mail) | — | d1m1-a2 (D1), d2m2-a1 (D1), d2m4-a1 (D2), d2m4-wage (D2), d4m3-a2 (D4) |
+| RS31 | Harbor Point — PIP & MedPay Payment Ledger | Insurance, Demands & Negotiation | D1 | Others | Carrier correspondence (Email Workspace · mail) | — | d1m1-a2 (D1), d2m2-a1 (D1), d2m4-a1 (D2), d2m4-wage (D2), d3m2-a1 (D2), d4m3-a2 (D4) |
 | RS32 | Keystone Mutual — Claim Correspondence (Feb–Apr 2026) | Insurance, Demands & Negotiation | D1 | Others | Carrier correspondence (Email Workspace · mail) | — | d2m1-a2 (D1), d3m2-rel (D2), d3m4-pal (D3), d4m3-a1 (D4) |
 | RS33 | BI Time-Limited Demand — DRAFT for audit | Insurance, Demands & Negotiation | D2 | Others | The firm's Demand Desk (draft for QC) | (1) acceptance deadline "30 days from the date of this letter (08/19/2026)" — the window runs 30 days from the adjuster's written acknowledgement of receipt (07… | d3m1-a1 (D2), d3-drive (D3), d4m2-a3 (D4) |
 | RS34 | BI Demand — Proof of Delivery | Insurance, Demands & Negotiation | D2 | Others | Carrier correspondence (Email Workspace · mail) | — | d3m1-a1 (D2), d3m4-pal (D3) |
@@ -126,7 +126,7 @@ with the reason; a complete one brings the provider's answer and the corrected c
 | RS59 | Mediated Settlement Term Sheet (03/18/2027) | Litigation & ADR (Track B) | D4 | Litigation | Court E-Filing, service of process and opposing counsel | — | d4m2-a2 (D4), d4m2-arbcal (D4), d4m3-a2 (D4), d5-drive (D5), d5m5-a1 (D5) |
 | RS60 | Certificate of Service — Plaintiff's Discovery Responses (01/04/2027) | Litigation & ADR (Track B) | D5 | Litigation | Court E-Filing, service of process and opposing counsel | — | d5m1-a1 (D5) |
 | RS61 | Host UM & Relative UM Demands — DRAFT for QC | Insurance, Demands & Negotiation | D2 | Others | The firm's Demand Desk (draft for QC) | (1) exhaustion proof buried in section 3, not on page one; (2) Relative UM demanded "payable now and in addition to any other recovery" — it is excess over BI +… | d3m1-a2 (D2) |
-| RS62 | Mediation Binder — Master Index DRAFT for QC (03/02/2027) | Litigation & ADR (Track B) | D4 | Litigation | The firm's Litigation Desk (draft for QC) | (1) ledger from the original bills — Riverton Spine & Rehab $6,290.00 (34 lines) instead of $6,105.00 after the audit, total $15,002.40 instead of $14,817.40; (… | d4m3-a1 (D4) |
+| RS62 | Mediation Binder — Master Index DRAFT for QC (03/02/2027) | Litigation & ADR (Track B) | D4 | Litigation | The firm's Litigation Desk (draft for QC) | (1) ledger from the original bills — Riverton Spine & Rehab $6,290.00 (34 lines) instead of $6,105.00 after the audit, total $41,585.00 instead of $41,400.00; (… | d4m3-a1 (D4) |
 | RS63 | Arbitration Binder — Exhibit Index DRAFT for QC (05/14/2027) | Litigation & ADR (Track B) | D4 | Litigation | The firm's Litigation Desk (draft for QC) | (1) the brief docketed 06/12/2027, a Saturday — counting back, it moves to Friday 06/11/2027; (2) the Confidential Mediation Statement in the exchange set; (3) … | d4m3-a2 (D4) |
 | RS64 | CMS Action Item Log — Pre-Demand Audit Closed, Drafting Assigned (07/15/2026) | Wages & Costs | D2 | Case Files | The CMS Action Item Log | — | d3m1-a2 (D2), d4m3-a1 (D4), d4m3-a2 (D4) |
 | RS65 | Harbor Point — PIP Application & Claim Acknowledgement | Insurance, Demands & Negotiation | D1 | Others | Carrier correspondence (Email Workspace · mail) | — | d2m1-a2 (D1), d2m2-a1 (D1) |
@@ -135,7 +135,7 @@ with the reason; a complete one brings the provider's answer and the corrected c
 | RS68 | Demand Service & Adjuster Acknowledgment — Memorandum (as filed) | Insurance, Demands & Negotiation | D2 | Others | The Service Confirmation (the trainee's email and the adjuster's reply) | — | d3m2-a1 (D2), d4m2-a2 (D4), d4m1-a1 (D5) |
 | RS69 | Mediation Binder — FINAL as delivered (03/11/2027) | Litigation & ADR (Track B) | D4 | Litigation | Revealed when the Mediation Binder audit is handed in | — | d4m3-a2 (D4), d5-drive (D5), d5m1-a1 (D5) |
 | RS70 | UM Arbitration Binder — FINAL as exchanged (06/02/2027) | Litigation & ADR (Track B) | D4 | Litigation | Revealed when the Arbitration Binder audit is handed in | — | d5-drive (D5), d5m4-a1 (D5), d5m5-a1 (D5) |
-| RS71 | PIP Log — John Doe (Harbor Point PIP) | Insurance, Demands & Negotiation | D2 | Case Files | The firm's own PIP Log (CMS → Insurance → PIP / UM/UIM Coverage Stack) | — | d2m4-a1 (D2) |
+| RS71 | PIP Log — John Doe (Harbor Point PIP & MedPay) | Insurance, Demands & Negotiation | D2 | Case Files | The firm's own PIP Log (CMS → Insurance → PIP / UM/UIM Coverage Stack) | — | d2m4-a1 (D2) |
 | RS72 | Summit Imaging Center — MRI Corrected History Addendum (07/15/2026) | Medical Records | D2 (after d2m4-a1's request) | Medical | Summit's answer to the trainee's Amendment Request (opens when it is sent) | Corrects RS16 | d3m1-a1 (D2), d3-drive (D3), d4m3-a1 (D4) |
 | RS73 | Crescent Pain & Spine — Corrected Patient Statement, $0.00 (07/10/2026) | Bills & Invoices | D2 (after d2m4-a1's request) | Bills | Crescent's answer to the trainee's Amendment Request (opens when it is sent) | Corrects RS26 | d3m1-a1 (D2), d3-drive (D3), d4m3-a1 (D4) |
 | RS74 | LSH Law Group — Closing Letter to John Doe, with Lien Payoff Letters (10/23/2026) | Wages & Costs | D4 | Case Files | The firm's own closing letter (drafted by the Case Manager, signed by Atty. Thorne), with the lienholders' payoff letters | — | d4-drive (D4), d5m5-a1 (D5) |
@@ -158,6 +158,8 @@ with the reason; a complete one brings the provider's answer and the corrected c
 | RS94 | Lost Wage Worksheet — DRAFT for audit (06/23/2026) | Wages & Costs | D2 | Case Files | Employer (Northgate HR) or the firm's own ledger | , the wage audit: 02/18 and 02/19/2026 claimed (he worked them); 02/09–02/13/2026 excluded (flag, never drop); the MRI put on 03/12 (it was 03/13/2026); 05/18 o… | d2m4-wage (D2), d3-drive (D3) |
 | RS95 | Lost Wage Verification Record — FINAL (07/01/2026) | Wages & Costs | D2 | Case Files | Employer (Northgate HR) or the firm's own ledger | — | d2m4-a1 (D2), d3-drive (D3) |
 | RS96 | Employer Wage Verification — Memorandum (as filed) | Wages & Costs | D2 | Others | Employer (Northgate HR) or the firm's own ledger | — | d2m4-a2 (D2) |
+| RS97 | Riverton General Hospital — ED Record & EMC Determination (02/20–02/21/2026) | Medical Records | D1 | Medical | ChartSwap (Medical Records Requests) on the HIPAA authorization (RS06) | — | d1m4-a1 (D1), d2m4-a1 (D2), d3m2-a1 (D2) |
+| RS98 | Riverton General Hospital & Riverton Fire EMS — Statements (PIP) | Bills & Invoices | D2 | Bills | ChartSwap itemized bills, or the provider's billing office | — | d2m4-a1 (D2), d3m2-a1 (D2) |
 
 ## Open sync items (need a decision before they are changed)
 

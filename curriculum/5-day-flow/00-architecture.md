@@ -52,16 +52,16 @@ The existing course teaches the right doctrine on 192 topics, but as slide-by-sl
 
 **Order of operations:** BI exhausts → Host UM opens → Relative UM stacks. The passenger fact is what opens both UM layers: driving his own car, John Doe would reach $10,000 (he rejected UM on his own policy, and the relative policy excludes a car he owns).
 
-**Not to be confused with the payer order** for medical bills while the claim is open (the Regulatory Triple-Check): PIP/MedPay → private health insurance → LOP/provider liens.
+**Not to be confused with the payer order** for medical bills while the claim is open (the Regulatory Triple-Check): PIP → MedPay → private health insurance → LOP/provider liens.
 
 ### Who and what else is on the file
 
 | | |
 |---|---|
-| Host driver | Kevin Alvarez, John's coworker (separate household); owns the host vehicle, insured by Harbor Point (Host UM $20,000 and **MedPay $5,000**) |
+| Host driver | Kevin Alvarez, John's coworker (separate household); owns the host vehicle, insured by Harbor Point (Host UM $20,000, **PIP $10,000** and **MedPay $5,000**) |
 | Resident relative | Margaret Doe, John's mother; her Cardinal State policy carries the $10,000 Relative UM; the file's emergency contact |
 | Margaret Doe's car | A 2019 Honda Civic, parked at the curb and struck when the host vehicle was pushed into it; insured by Bluewater Auto (UM rejected in writing). That rejection, and the relative policy's owned-vehicle exclusion, are why John would reach only $10,000 had he been driving it |
-| Outside the stack | MedPay (pays bills, first in the payer order), Keystone's PD coverage (the Civic's repair, loss of use and diminished value) and John's own policy are never part of the $40,000 |
+| Outside the stack | PIP and MedPay (they pay the bills, PIP and then MedPay once PIP is exhausted), Keystone's PD coverage (the Civic's repair, loss of use and diminished value) and John's own policy are never part of the $40,000 |
 
 The full case file the content is written against (providers, bills, dates, the net sheet, the litigation calendar) is `case-file.md`; every figure on a slide comes from it.
 **Who sees it.** Every trainee: the Case Flow is the course. Its five days are the dashboard's day cards, banner circles, stats and certificate, and the Admin page's Trainee Audit, progress and Day-by-Day Feedback follow them. John Doe v. Apex is archived: off the trainees' dashboard, in an "Archived version" row for trainers, its days still reachable and its case file behind the Case File page's "Archived" link. On the Admin page, in the trainee's panel, **Course version** can put one trainee on the archived version, or give them both. The choice is stored as `track` in the trainee's `feedback:<id>` (the trainer writes it; the Worker keeps it when the trainee writes their own review receipts).
@@ -95,7 +95,7 @@ Case Flow Day N opens when the Day N-1 Knowledge Check is passed (70%), for trai
 | Day | Gate to the next |
 |---|---|
 | 1 Opening the File & the Case Strategy | Matter opened in the CMS · PD onboarding tracked · LORs out and the stack verified at $40,000 · Regulatory Triple-Check cleared · Case Plan routed |
-| 2 Client, Treatment & Pre-Demand | No Contact Protocol run and logged · LOPs out and providers coordinated · treatment documented to MMI · Gap Justification Record · Specials audited at $16,401.40 · demand strategy approved |
+| 2 Client, Treatment & Pre-Demand | No Contact Protocol run and logged · LOPs out and providers coordinated · treatment documented to MMI · Gap Justification Record · Specials audited at $42,984.00 · demand strategy approved |
 | 3 Demands & Settlements (Track A) | BI tender, UM consents and limited release · $40,000 gross · liens resolved · net sheet and trust ledger reconciled · closing memo |
 | 4 Litigation Fork (Track B) | impasse documented and suit authorized · Litigation status · hard-rule calendar audited · mediation and arbitration binders verified · bottleneck log current |
 | 5 Dispute Resolution & Litigation (Track B) | pleadings and discovery log · trial-prep checklist and KPIs · PD recommendation · deposition readiness · liability counter-package |

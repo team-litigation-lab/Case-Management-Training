@@ -574,15 +574,15 @@
     }
   },
   "d1m4-emc": {
-    "lead": "PIP is written state by state. **The EMC rule is Florida's**: 14 days to initial care, and an EMC finding decides $2,500 or $10,000",
+    "lead": "PIP is written state by state. **Riverton uses the EMC rule**: an EMC finding decides $2,500 or $10,000; Florida adds 14 days to initial care",
     "concepts": [
       {
         "term": "Personal Injury Protection (PIP)",
         "text": "First-party coverage paid regardless of fault, written **state by state**: limits, percentages and conditions change at the state line",
         "more": [
-          "Florida PIP: $10,000, paying 80% of reasonable medical expenses and 60% of lost income",
-          "Riverton PIP, John Doe's file: Harbor Point $5,000, paying 100% of medical and 80% of lost income",
-          "Riverton has **no EMC rule** and no 14-day condition"
+          "Florida's version: $10,000, paying 80% of reasonable medical expenses and 60% of lost income",
+          "Riverton PIP, John Doe's file: Harbor Point $10,000, paying 100% of medical at the fee schedule and 80% of lost income",
+          "John's EMC: **Dr. Sarah Spine**, Riverton General's emergency department, 02/20/2026; Riverton has no 14-day condition"
         ]
       },
       {
