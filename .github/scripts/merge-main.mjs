@@ -50,6 +50,7 @@ export const NOT_REBUILT = {
   'build/case-flow/curriculum.cjs': 'run by build.cjs',
   'build/case-flow/documents/render.cjs': 'PDFs and .docx: needs Playwright and LibreOffice, run locally; a conflict in one is real',
   'build/case-flow/documents/thumbs.py': 'image thumbnails: needs Python and Pillow, run locally',
+  'build/debrief/render.cjs': 'the Case Debrief\'s slide pictures (decks/debrief) and the PDF make_video.py records over: needs Playwright and Google Fonts, run locally',
   'build/videoslide/make_video.py': 'the narrated video: needs ffmpeg and Python, run locally',
   'build/videoslide/revoice.py': 'the narration audio: needs Python and a voice service, run locally',
   'build/case-flow/documents/handouts/render-handout.cjs': 'a handout PDF: needs Playwright, run locally',
