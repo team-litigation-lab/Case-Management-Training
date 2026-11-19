@@ -112,22 +112,28 @@ function takeawayOf(c, d){
   return e ? {pct: num(e.score), at: e.at || null, tier: e.tier || "", best: e.strengths || [], improve: (e.gaps || []).concat(e.growth || []), from: "the AI review of the takeaway (work log)"} : null;
 }
 // the Case Flow day of a work-log entry: its label's "Case Flow Day n", else its day id (11–15)
+// one Skill Activity's key in the work log: "<day>|<title>" from "… Case Flow Day <n> · <title> — Skill Building"
+const labKey = e => { const m = /Case Flow Day (\d) · (.+?) — Skill Building\s*$/.exec(e.label || ""); return m ? `${m[1]}|${m[2].trim()}` : String(e.label || e.toolId || "Skill Activity"); };
 const labDayOf = e => { const m = /Case Flow Day (\d)/.exec(e.label || ""); if(m) return +m[1]; const v = parseInt(e.dayId, 10); return v >= 11 && v <= 15 ? v - 10 : v >= 1 && v <= 5 ? v : null; };
 // 🧪 each Skill Activity's latest attempt: the AI Grader's (cf-ai-grades, js/cm-ai-grader.js: {blocks: {<id>: {score, at, …}}})
 // and the work log's "lab" entries (index.html wrapEvaluators: every runRubricEvaluation, the older labs' and the AI Grader's
 // own attempts, "Day <id> · Case Flow Day <n> · <title> — Skill Building"). One activity is one key (its day and title),
 // so an AI Grader attempt and its work-log line are counted once; the takeaway's review (— CM Self-Summary) is 📝 Takeaways'.
 function skillActs(c){
-  const seen = {}, logged = new Set(), keep = (k, x) => { if(!seen[k] || String(x.at || "") >= String(seen[k].at || "")) seen[k] = x; };
+  const seen = {}, lines = {}, keep = (k, x) => { if(!seen[k] || String(x.at || "") >= String(seen[k].at || "")) seen[k] = Object.assign(x, {key: k}); };
   ((c.data || {})["work-log"] || []).forEach(e => { if(!e || e.kind !== "lab" || !fin(e.score) || /Self-Summary/.test(e.label || "")) return;
-    const m = /Case Flow Day (\d) · (.+?) — Skill Building\s*$/.exec(e.label || ""), day = labDayOf(e);
-    const k = m ? `${m[1]}|${m[2].trim()}` : String(e.label || e.toolId || "Skill Activity"); logged.add(k);
+    const m = /Case Flow Day (\d) · (.+?) — Skill Building\s*$/.exec(e.label || ""), day = labDayOf(e), k = labKey(e);
+    if(!lines[k] || String(e.at || "") >= String(lines[k].at || "")) lines[k] = e;
     keep(k, {name: m ? m[2].trim() : (typeof dayText === "function" ? dayText(e.label || e.toolId || "Skill Activity") : (e.label || e.toolId || "Skill Activity")),
       day, pct: num(e.score), at: e.at || "", tier: e.tier || "", subs: e.subs || null, best: e.strengths || [], improve: (e.gaps || []).concat(e.growth || []), from: "work log"}); });
   Object.entries((((c.data || {})["cf-ai-grades"]) || {}).blocks || {}).forEach(([id, r]) => { if(!r || !fin(r.score)) return;
     const f = blockOf(id), t = f && f.b && f.b.title ? String(f.b.title).trim() : id, day = (f && f.n) || taughtOf(id);
     const k = day ? `${day}|${t}` : "aig|" + id;
-    keep(k, {name: t, id, day, logged: logged.has(k), pct: num(r.score), at: r.at || "", tier: r.tier || "", subs: null, best: r.strengths || [], improve: (r.gaps || []).concat(r.growth || []),
+    // logged: this attempt is the work log's latest line of the activity (the grader writes that line as it grades, so the
+    // two share the score, a few minutes apart at most). An older line is another attempt: this one counts by its total.
+    const w = lines[k], ta = Date.parse(r.at || ""), wa = Date.parse((w && w.at) || "");
+    const logged = !!w && (!(ta > 0) || !(wa > 0) || (Math.round(w.score) === Math.round(r.score) && Math.abs(ta - wa) < 15 * 60e3));
+    keep(k, {name: t, id, day, logged, pct: num(r.score), at: r.at || "", tier: r.tier || "", subs: null, best: r.strengths || [], improve: (r.gaps || []).concat(r.growth || []),
       tries: r.tries || 0, from: "the AI Grader"}); });
   return Object.values(seen);
 }
@@ -349,7 +355,10 @@ const MODEL = (function(){
     // the work log: the AI's sub-scores, split by what they measure (the latest of each activity)
     const latest = {}; (data["work-log"] || []).forEach(e => { if(!e || (e.kind !== "lab" && e.kind !== "roleplay")) return; const k = e.kind + "|" + (e.label || e.toolId || "");
       if(!latest[k] || String(e.at || "") >= String(latest[k].at || "")) latest[k] = e; });
+    // (a Skill Activity whose latest attempt is a newer AI Grader grade than this line counts by that grade, below: skillActs)
+    const sa = skillActs(c), newer = new Set(sa.filter(x => x.from === "the AI Grader" && !x.logged).map(x => x.key));
     Object.values(latest).forEach(e => { const day = labDay(e), s = e.subs || {}, name = String(e.label || "Activity").replace(/^Day \d+ · /, "");
+      if(e.kind === "lab" && !/Self-Summary/.test(e.label || "") && newer.has(labKey(e))) return;
       if(e.kind === "lab"){
         if(typeof s.accuracy === "number" && typeof s.presence === "number") add("cp", "🧪 Work quality", day, name, (s.accuracy * 35 + s.presence * 30) / 65, "The AI's Accuracy and Presence");
         else if(typeof e.score === "number") add("cp", "🧪 Work quality", day, name, e.score, "The AI review's total");
@@ -362,9 +371,9 @@ const MODEL = (function(){
         if(typeof s.risk === "number") add("na", "⚠️ Risk identification", day, name, s.risk, "The AI's Risk & Privilege score");
         if(typeof s.bluf === "number" && typeof s.composure === "number") add("cd", "📞 Calls", day, name, (s.bluf + s.composure) / 2, "The AI's BLUF and Composure");
       } });
-    // 🧪 a Skill Activity graded by the AI Grader (cf-ai-grades) whose attempt has no work-log line (its sub-scores aren't
-    // kept): its total, once (skillActs: one activity is one key, its latest attempt)
-    skillActs(c).forEach(x => { if(x.from === "the AI Grader" && !x.logged) add("cp", "🧪 Work quality", x.day, x.name, x.pct, "The AI Grader's total"); });
+    // 🧪 a Skill Activity whose latest attempt is an AI Grader grade (cf-ai-grades) with no work-log line of its own (its
+    // sub-scores aren't kept): its total, once (skillActs: one activity is one key, its latest attempt)
+    sa.forEach(x => { if(x.from === "the AI Grader" && !x.logged) add("cp", "🧪 Work quality", x.day, x.name, x.pct, "The AI Grader's total"); });
     // 📝 a day's takeaway with no AI review in the work log (its parts aren't kept): its total, once
     cfDays().forEach(d => { const n = d.cf.n; if(Object.values(latest).some(e => e.kind === "lab" && /Self-Summary/.test(e.label || "") && labDay(e) === n)) return;
       const t = takeawayOf(c, d); if(t && t.pct != null) add("cp", "📝 Takeaway", n, "The day's takeaway", t.pct, `The AI review's total (${t.from})`); });
@@ -398,9 +407,10 @@ const MODEL = (function(){
       add("cp", "🧑‍🏫 Trainer's Learning Check", modDay(m), (names[m] && names[m].title) || m, x.score, x.comment ? String(x.comment).slice(0, 160) : "Scored by the trainer"); });
     // 🗂 the CMS case file (js/cm-cms-file.js): the Check Your Work items of each CMS activity worked, by area, in the
     // dimension the area belongs to. Its documents are the 🗂 CMS filing above already, and an activity never worked is
-    // the file grade's own (🗂 CMS Case File), so neither is counted twice here.
+    // the file grade's own (🗂 CMS Case File), so neither is counted twice here; nor is an item whose score is the activity's
+    // AI Grader grade (fromAI), which counts once, under 🧪 Work quality.
     try{ if(window.cmCmsFile) cmCmsFile.compute(c).days.forEach(x => x.areas.forEach(a => { if(a.a.id === "docs" || a.a.id === "open") return;
-      const its = a.items.filter(i => i.pct != null && !i.unworked); if(!its.length) return;
+      const its = a.items.filter(i => i.pct != null && !i.unworked && !i.fromAI); if(!its.length) return;
       add(a.a.dim, "🗂 CMS case file", x.n, `CMS file: ${a.a.label}`, mean(its.map(i => i.pct)), `${its.filter(i => i.pct === 100).length} of ${its.length} Check Your Work items in the file`); })); }catch(e){}
     // 📐 the trainer's rubric on a sent day review (feedback:<id>, trainer-owned): its points per dimension, its critical items
     Object.entries((c.fb && c.fb.days) || {}).forEach(([d, v]) => { if(!(window.cmRubric && cmRubric.counts(v))) return; const day = dn(d), rb = v.rubric;
@@ -641,26 +651,37 @@ function cardHtml(r, me){
 const HOW_MODEL = `How the score is worked out: the client's 100-point model. Four dimensions — Procedural Compliance & Timeliness 25%, Needs Assessment & Risk Identification 25%, Care/Action Plan Quality 30%, Communication & Documentation 20% — scored per Case Flow day from the work CM records (each number feeds one dimension), then weighted by the day's complexity (Day 1 × 1.0, Days 2–3 × 1.15, Days 4–5 × 1.3): Final = Σ(day score × multiplier) ÷ Σ multipliers. Tiers: Exemplary 90–100 · Proficient 80–89 · Developing 65–79 · Needs Improvement below 65 (the 📐 Feedback Rubric's tiers). Pass = Final ≥ 80% and 100% on the safety gate's critical items (UPL in the takeaway, the audits' privilege and hard-date items, the trust-money Net Sheet stages). Overall = the Final, the one score every page shows; the Daily compliance (each day's Knowledge Check passed, takeaways graded, Backup Drive graded) is shown beside it as a sub-score. Not in the model: Skill Builders, the Call Simulator and Portal simulator bests, the Learning Check composites and takeaway totals (their parts are counted; where only a total is kept, it counts once), the random tasks, and the self-ratings.`;
 
 /* ---------- 🏅 My Performance: the trainee's own card ---------- */
-const MINE = {id: null, at: 0, loading: null, recs: null};
+const MINE = {id: null, at: 0, loading: null, recs: null, dev: {}};
+// the records this device keeps (storeGet): after a reload index.html's mem holds only what is saved since, so these are read too
+const DEVICE_KEYS = ["case-flow", "net-sheet", "case-folder", "drive-setup", "drive-grades", "doc-filing", "cms-file", "cms-upload", "cf-ai-grades", "day-progress"];
 function loadMine(force){
   if(!isTrainee() || MINE.loading) return;
   const id = state.traineeId;
   if(!force && MINE.id === id && Date.now() - MINE.at < 60000) return;
   MINE.at = Date.now();
-  MINE.loading = sharedGetMany(["trainee:" + id, "progress:" + id, "callsim:" + id, "simresults:" + id, "feedback:" + id]).then(v => { if(state.traineeId === id){ MINE.id = id; MINE.recs = v || []; } })
-    .catch(() => {}).then(() => { MINE.loading = null; if(state.view === "scorecard" && typeof render === "function") render(); });
+  const dev = typeof storeGet === "function" ? Promise.all(DEVICE_KEYS.map(k => Promise.resolve(storeGet(k)).catch(() => null))) : Promise.resolve([]);
+  MINE.loading = Promise.all([sharedGetMany(["trainee:" + id, "progress:" + id, "callsim:" + id, "simresults:" + id, "feedback:" + id]), dev])
+    .then(([v, d]) => { if(state.traineeId === id){ MINE.id = id; MINE.recs = v || []; MINE.dev = {}; DEVICE_KEYS.forEach((k, i) => { if(d[i] && typeof d[i] === "object") MINE.dev[k] = d[i]; }); } })
+    .catch(() => {}).then(() => { MINE.loading = null; if((state.view === "scorecard" || state.view === "dashboard") && typeof render === "function") render(); });
 }
 function myCtx(){
   const [rec, prog, callsim, sim, fb] = MINE.recs || [];
   const c = ctxOf(rec, prog, callsim, sim, fb);
-  // what's on this device is the freshest: the live summary, the day progress, the practice bests and the logs
+  // what's on this device is the freshest: the live summary, the practice bests and the logs
   try{ if(window.cmCaseFlow && cmCaseFlow.scoreSummary) c.cf = cmCaseFlow.scoreSummary(); }catch(e){}
-  c.rec = Object.assign({}, c.rec, {dayProgress: state.progress || c.rec.dayProgress || {}, practiceProgress: state.practiceProgress || c.rec.practiceProgress || {}});
+  // ✍️ the Knowledge Checks count from the record, as the trainer's view counts them; a score only this device holds is
+  // shown unconfirmed (kcDevice reads it from the device's day-progress, below). Until the record is read, the device's.
+  const mine = MINE.id === state.traineeId && rec;
+  c.rec = Object.assign({}, c.rec, {dayProgress: (mine ? rec.dayProgress : state.progress) || c.rec.dayProgress || {}, practiceProgress: state.practiceProgress || c.rec.practiceProgress || {}});
   if(Array.isArray(state.taskLog)) c.data = Object.assign({}, c.data, {"task-log": state.taskLog});
   if(Array.isArray(state.workLog)) c.data = Object.assign({}, c.data, {"work-log": state.workLog});
+  c.data = Object.assign({}, c.data, MINE.dev || {});
   if(state.docFiling && typeof state.docFiling === "object") c.data = Object.assign({}, c.data, {"doc-filing": state.docFiling});
+  if(state.progress && typeof state.progress === "object") c.data = Object.assign({}, c.data, {"day-progress": state.progress});
   // and what this device saved since (storeSet keeps it in index.html's mem): the Case Flow record, the Net Sheet, the folder
-  try{ ["case-flow", "net-sheet", "case-folder", "drive-setup", "drive-grades", "cms-file", "cms-upload", "cf-ai-grades", "day-progress"].forEach(k => { if(typeof mem !== "undefined" && mem[k] && typeof mem[k] === "object") c.data = Object.assign({}, c.data, {[k]: mem[k]}); }); }catch(e){}
+  try{ DEVICE_KEYS.forEach(k => { if(typeof mem !== "undefined" && mem[k] && typeof mem[k] === "object") c.data = Object.assign({}, c.data, {[k]: mem[k]}); }); }catch(e){}
+  // a Knowledge Check on this device that the record doesn't hold yet: read the record again soon (its save may be on its way)
+  try{ if(mine && Date.now() - MINE.at > 8000 && cfDays().some(d => kcDevice(c, d) != null)) loadMine(true); }catch(e){}
   return c;
 }
 const rowOf = (id, name, batch, c) => ({id, name, batch: batch || "", c, sc: compute(c), m: MODEL.compute(c)});
@@ -761,6 +782,7 @@ window.cmScorecard = {
     days: m.days.map(x => ({n: x.n, id: x.d.id, S: x.S, items: x.dims.reduce((t, k) => t + k.groups.reduce((u, g) => u + g.items.length, 0), 0)})), m}; },
   overallTip,
   // the signed-in trainee's Overall, from the same records as their 🏅 My Performance card (the dashboard's 🏅 My Scores shows it)
+  myCtx,   // the trainee's own records, as 🏅 My Performance and the dashboard's 🏅 My Scores read them
   myOverall(){ try{ loadMine(MINE.id !== state.traineeId); }catch(e){} return window.cmScorecard.overall(myCtx()); },
   // the 100-point model for one trainee's records: trainee:<id>, progress:<id>.data, feedback:<id>
   score: (rec, data, fb) => MODEL.compute(ctxOf(rec, {data: data || {}}, null, null, fb))

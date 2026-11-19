@@ -352,12 +352,12 @@ const dayAvg = xs => avgOf(xs.map(x => x.pct));
 const SC_COLS = [["kc", "✍️ Knowledge Check"], ["lc", "🧩 Learning Checks"], ["tk", "📝 Takeaways"], ["sa,call", "🧪 Activities & calls"], ["ap", "📝 Action Plan"], ["bd", "📂 Backup Drive"], ["cmsf", "🗂 CMS file"], ["fb", "📐 Trainer rubric"]];
 // what each column measures: the Score Card's note (the owner's "table that specifies what the metrics were")
 const SC_WHAT = {kc: "the day's Knowledge Check, its best score (70% passes the day)",
-  lc: "each module's Learning Check: the AI review × 0.60 + the trainer's score × 0.40 (the AI half until the trainer scores it)",
+  lc: "each module's Learning Check: the AI review × 0.60 + the trainer's score × 0.40 (the AI half until the trainer scores it). Its AI half includes the module's takeaway review, so until the trainer scores it, it can repeat 📝 Takeaways",
   tk: "the day's takeaway, the trainee's own summary of the day, AI-graded against its module's rubric",
   "sa,call": "each Skill Activity graded by the AI Grader and each graded call of the day, the latest attempt of each, averaged",
   ap: "each action plan written in the day's Notes & Action Plan: the share of the steps it must hold",
   bd: "Day 1's folders, then each day's Backup File Maintenance, graded from the trainee's Drive (the latest of the saved and the Worker's nightly grade, a trainer's grade winning; a passed day with none counts 0)",
-  cmsf: "John Doe's file in the CMS, graded against what a correct file holds by that day",
+  cmsf: "John Doe's file in the CMS, graded against what a correct file holds by that day (a CMS activity with nothing ticked on Check Your Work takes its AI Grader grade here; the day score counts that grade once, under 🧪)",
   fb: "the trainer's 📐 rubric score on the day's sent review"};
 const scNote = () => "What each column measures: " + SC_COLS.map(([g, l]) => `${l}: ${SC_WHAT[g] || ""}`).join(". ") + ". Day score: the 100-point model's score for the day (the four dimensions, 25/25/30/20), the same as the trainee's card. 💬 Remarks: the rating on the trainer's sent review. Hover a cell for the items it averages.";
 function scoreCardTable(ppl, day){
@@ -570,11 +570,18 @@ async function loadMine(){
 // what this device saved (index.html's mem): the Case Flow record (the takeaways' and the action plans' grades) and the AI Grader's
 const memOf = k => { try{ return typeof mem !== "undefined" && mem[k] && typeof mem[k] === "object" ? mem[k] : null; }catch(e){ return null; } };
 function myRec(){
-  let cf = {days: {}}; try{ if(window.cmCaseFlow && cmCaseFlow.scoreSummary) cf = cmCaseFlow.scoreSummary() || cf; }catch(e){}
-  const prog = state.progress || {};
-  return {id: state.traineeId || "me", name: state.traineeName || "Me", approved: true, dayProgress: prog, caseFlow: cf,
-    __extra: {data: {"day-progress": prog, "work-log": Array.isArray(state.workLog) ? state.workLog : [], "task-log": Array.isArray(state.taskLog) ? state.taskLog : [],
-      "drive-setup": MY.setup || null, "drive-grades": MY.grades || {}, "case-flow": memOf("case-flow"), "cf-ai-grades": memOf("cf-ai-grades")}, fb: state.myFeedback || {}}};
+  // 🛡 the same records as 🏅 My Performance (js/cm-scorecard.js myCtx): the cloud record, then this device's store, then
+  // what it saved since, so My Scores and the trainer's Score Card read one trainee's work the same way
+  let c = null; try{ c = window.cmScorecard && cmScorecard.myCtx ? cmScorecard.myCtx() : null; }catch(e){ c = null; }
+  const data = Object.assign({}, c ? c.data : {});
+  if(!data["drive-setup"] && MY.setup) data["drive-setup"] = MY.setup;
+  if(!data["drive-grades"] && MY.grades) data["drive-grades"] = MY.grades;
+  ["case-flow", "cf-ai-grades", "doc-filing", "cms-file"].forEach(k => { const v = memOf(k); if(v) data[k] = v; });
+  if(!c){ data["day-progress"] = state.progress || {}; data["work-log"] = Array.isArray(state.workLog) ? state.workLog : []; data["task-log"] = Array.isArray(state.taskLog) ? state.taskLog : []; }
+  let cf = c ? c.cf : {days: {}}; if(!c) try{ if(window.cmCaseFlow && cmCaseFlow.scoreSummary) cf = cmCaseFlow.scoreSummary() || cf; }catch(e){}
+  const fbRec = c && c.fb && Object.keys(c.fb).length ? c.fb : null;
+  return {id: state.traineeId || "me", name: state.traineeName || "Me", approved: true, dayProgress: c ? c.rec.dayProgress || {} : state.progress || {}, caseFlow: cf,
+    __extra: Object.assign({data, fb: state.myFeedback || (fbRec && fbRec.days) || {}}, fbRec ? {fbRec} : {})};
 }
 function myScoreCardHtml(){
   if(!isTraineeView()) return "";

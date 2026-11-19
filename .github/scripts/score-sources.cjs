@@ -12,6 +12,8 @@
 //   the trainee: 🏅 My Performance's day rows and the dashboard's 🏅 My Scores;
 //   the trainer: the trainee's card on 🏅 Scorecards; the Batch Sheet's 🏅 Score Card (Day 1, Day 2), the trainee's 🔎 card
 //   and 🏅 Scores; and checks 🎲 Random tasks is in none of them (nor in the day score), while Recent progress still lists it.
+// It also checks each grade counts once in the day score (a Skill Activity by its latest attempt; a CMS activity's AI Grader
+// grade under 🧪 only, not again as a 🗂 CMS case file item) and that My Scores reads the same records after a reload.
 // Usage: node .github/scripts/score-sources.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -97,7 +99,17 @@ const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1
     if (model.groups.some(g => /Random|Timeliness/.test(g))) fail(`the 100-point model should hold no random task: ${JSON.stringify(model.groups)}`);
     if (model.bd1 !== 90) fail(`the day score should count the Worker's nightly 90% for Day 1's folders (later than the 40% saved): ${model.bd1}`);
     if (JSON.stringify(model.ap) !== '[50]') fail(`the action plan should count once in the model: ${JSON.stringify(model.ap)}`);
+    // 🧪 the day score counts each Skill Activity's latest attempt, as the 🧪 column shows it: Final Warning Letter Drafting's
+    // AI Grader grade (64, the later attempt), not its older work-log line (40)
+    const wq = await page.evaluate(() => cmScorecard.myOverall().m.items.filter(x => x.day === 1 && /Final Warning Letter/.test(x.name)).map(x => [x.group, Math.round(x.pct)]));
+    if (JSON.stringify(wq) !== JSON.stringify([['🧪 Work quality', 64]])) fail(`the day score should count Final Warning Letter Drafting's latest attempt (the AI Grader's 64) once, as the 🧪 column does: ${JSON.stringify(wq)}`);
+    // 🗂 an AI Grader grade of a CMS activity counts once in the day score (🧪 Work quality), not again as a 🗂 CMS case file item
+    const cmsAI = await page.evaluate(() => { const m = cmScorecard.score({ id: 'probe', dayProgress: {}, caseFlow: { days: {} } }, { 'cf-ai-grades': { v: 1, blocks: { 'd1m1-open': { score: 60, at: new Date().toISOString(), tries: 1 } } } }, {});
+        return m.items.filter(x => x.day === 1 && Math.round(x.pct) === 60).map(x => x.group); });
+    if (JSON.stringify(cmsAI) !== JSON.stringify(['🧪 Work quality'])) fail(`one AI Grader grade of a CMS activity should count once, under 🧪 Work quality: ${JSON.stringify(cmsAI)}`);
 
+    // (after a reload index.html's mem holds only what is saved since: My Scores reads the device's store and the cloud record too)
+    await page.evaluate(() => { delete mem['case-flow']; delete mem['cf-ai-grades']; delete mem['doc-filing']; delete mem['cms-file']; });
     await page.evaluate(() => goto('dashboard')); await page.waitForTimeout(1200); await page.evaluate(() => render()); await page.waitForTimeout(400);
     const my = await page.evaluate(() => { const t = document.querySelector('.my-sc-t'); if (!t) return null;
         const hs = [...t.querySelectorAll('thead th')].map(x => x.textContent.trim());
@@ -109,6 +121,7 @@ const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1
         for (const n of [1, 2]) { const row = my.rows.find(r => r[0].startsWith(`Day ${n}`)) || [];
             for (const col of Object.keys(WANT[n])) { const i = my.hs.indexOf(COL[col]); want('My Scores', n, col, i < 0 ? null : pctOf(row[i])); } }
     }
+    const myCms = my ? pctOf(((my.rows.find(r => r[0].startsWith('Day 1')) || [])[my.hs.indexOf('🗂 CMS file')])) : null;
 
     // 2. the trainer: the trainee's card on 🏅 Scorecards
     await page.evaluate(() => { state.isAdmin = true; state.adminData = null; if (window.cmScorecard) cmScorecard.refresh(); goto('scorecard'); });
@@ -132,6 +145,7 @@ const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1
         if (!x || !x.cells) { fail(`the Batch Sheet's 🏅 Score Card · Day ${n} has no row for the trainee`); continue; }
         if (x.hs.some(h => /Random/.test(h))) fail(`the 🏅 Score Card should have no Random tasks column: ${JSON.stringify(x.hs)}`);
         for (const col of Object.keys(WANT[n])) { const i = x.hs.indexOf(SCC[col]); want('Score Card', n, col, i < 1 ? null : pctOf(x.cells[i - 1])); }
+        if (n === 1) { const k = x.hs.indexOf('🗂 CMS file'), v = k < 1 ? null : pctOf(x.cells[k - 1]); if (v !== myCms) fail(`🗂 CMS file · Day 1: the trainee's My Scores shows ${myCms}, the trainer's Score Card ${v}`); }
         if (n === 1) { if (!/What each column measures/.test(x.note) || !/📝 Action Plan: /.test(x.note) || !/📂 Backup Drive: /.test(x.note) || !/🧪 Activities & calls: /.test(x.note) || !/📝 Takeaways: /.test(x.note) || /Random/.test(x.note))
             fail(`the Score Card's note should say what each column measures: ${x.note}`); }
     }
