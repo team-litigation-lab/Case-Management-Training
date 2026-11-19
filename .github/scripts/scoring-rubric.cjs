@@ -198,7 +198,8 @@ const PARAPHRASE = 'John Doe called. Someone from an insurance company phoned hi
     await page.waitForFunction((id) => !!document.getElementById('bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_')), id, { timeout: 20000 }).catch(() => fail('the trainer\'s Scorecards shows no card for the trainee'));
     const card = await page.evaluate((id) => { const c = document.getElementById('bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_')); if (c) c.querySelectorAll('details').forEach(d => { d.open = true; }); return c ? c.innerText : ''; }, id);
     check(/Trainer's rubric/.test(card) && /CMS Case File/.test(card) && !/▢▢▢/.test(card), 'the trainer\'s card shows the trainer rubric in the day\'s dimensions and the CMS Case File with its answers');
-    await page.evaluate(() => { goto('admin'); setAdminTab('audit'); });
+    // (🏅 Scores is under the sheet's ▸ More detail fold: opened, as a trainer opens it)
+    await page.evaluate(() => { if (window.cmBatchSheet && cmBatchSheet.more) cmBatchSheet.more(true); goto('admin'); setAdminTab('audit'); });
     await page.waitForSelector('#bs-scores', { timeout: 30000 }).catch(() => fail('the Batch Sheet shows no 🏅 Scores'));
     const bs = await page.evaluate(() => [...document.querySelectorAll('#bs-scores .gs-head th')].map(t => t.textContent));
     ['🗂 CMS Case File', '🎙 Transcription', '✉️ Email Simulators', '🗓 Calendaring', '🔎 Case Exercises', '📐 Trainer Rubric', '🎯 Graded Calls', '📞 Case Calls', '📊 Net Sheet Checks', '🛠 Skill Builders', '🧰 Portal Simulators', '🎲 Random Tasks']

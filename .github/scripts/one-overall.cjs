@@ -90,7 +90,8 @@ const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1
     const scDays = {}; for (const n of [1, 2]) { const x = await cell('#scx-scores', `Day ${n} %`); scDays[n] = x.err ? x.err : pctOf(x.v); }
 
     // the Batch Sheet: 🏅 Scores, 🏅 Score Card, 📅 Day by Day, the trainee's card
-    await page.evaluate(() => { state.adminData = null; state.adminBatchFilter = ''; goto('admin'); setAdminTab('audit'); });
+    // (🏅 Scores and the 🏅 Score Card are under the sheet's ▸ More detail fold: opened, as a trainer opens it)
+    await page.evaluate(() => { state.adminData = null; state.adminBatchFilter = ''; if (window.cmBatchSheet && cmBatchSheet.more) cmBatchSheet.more(true); goto('admin'); setAdminTab('audit'); });
     await page.waitForSelector('#bs-scores', { timeout: 30000 }).catch(() => fail('the Batch Sheet shows no 🏅 Scores'));
     let bs = null;
     for (let i = 0; i < 40; i++) { bs = await cell('#bs-scores', 'Overall %'); if (!bs.err && pctOf(bs.v) != null) break; await page.waitForTimeout(500); await page.evaluate(() => { if (state.view === 'admin') render(); }); }

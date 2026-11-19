@@ -628,7 +628,10 @@ async function loadAll(){
       else people = bg ? null : (recs.length ? recs : state.adminData);
     }catch(e){ people = bg ? null : state.adminData; }
     if(!people) throw new Error("no records");
-    people = people.filter(r => r && r.approved === true && !r.archived);
+    // (the one rule of every score table, js/cm-merged-away.js: approved, not rejected, not archived, not merged into another
+    // live account, so a merge waiting to finish isn't a second card)
+    const MA = window.cmMergedAway; if(MA){ try{ await MA.ready(); }catch(e){} }
+    people = MA ? MA.scored(people) : people.filter(r => r && r.approved === true && !r.rejected && !r.archived);
     const want = []; people.forEach(r => want.push("progress:" + r.id, "callsim:" + r.id, "simresults:" + r.id, "feedback:" + r.id));
     const vals = await sharedGetMany(want);
     rows = people.map((r, i) => rowOf(r.id, r.name || r.id, r.batch, ctxOf(r, vals[i * 4], vals[i * 4 + 1], vals[i * 4 + 2], vals[i * 4 + 3])))
