@@ -303,6 +303,20 @@ function dayParts(r, d){
     why: [x.tier, subsOf(x) ? "rubric: " + subsOf(x) : "", x.at ? "graded " + dTime(x.at) : ""].filter(Boolean).join(" · "), best: (x.best || []).map(y => clip(y, 200)), improve: (x.improve || []).map(y => clip(y, 200))}));
   I.ap.forEach(x => out.push({grp: "ap", name: `📝 Action Plan: ${clip(String(x.name).replace(/^Day \d+: /, ""), 80)}`, pct: num(x.pct), status: x.pct >= 70 ? "Handed in" : "Steps missing",
     why: `${x.note || ""}: the plan checked against the steps it must hold.`, best: (x.best || []).map(y => clip(y, 200)), improve: (x.improve || []).map(y => clip(y, 200))}));
+  // 🧪 a Skill Activity handed in to the AI Grader whose grading didn't come back (js/cm-ai-grader.js keeps the reason, failed)
+  // and that has no grade yet: listed, so a blank isn't read as work not done (it counts in no average until it is graded)
+  const aig = ((data["cf-ai-grades"] || {}).blocks) || {}, CFD = window.CM_CASE_FLOW || {};
+  if(Object.values(aig).some(g => g && g.failed && typeof g.score !== "number")){
+    const dayOf = {}, title = {};
+    (CFD.sequence || []).forEach(sd => (sd.phases || []).forEach(ph => (ph.blocks || []).forEach(id => { dayOf[id] = sd.n; })));
+    (CFD.days || []).forEach(x => (x.modules || []).forEach(m => (m.blocks || []).forEach(b => { title[b.id] = b.title; })));
+    Object.entries(aig).forEach(([id, g]) => {
+      if(!g || !g.failed || typeof g.score === "number" || Number(dayOf[id]) !== Number(n)) return;
+      out.push({grp: "sa", name: `🧪 ${clip(shown(title[id] || id), 90)}`, pct: null, status: "Handed in, not graded",
+        why: `The AI grading didn't come back: ${g.failed.why || "no answer"}${g.failed.at ? ` (${dTime(g.failed.at)})` : ""}${g.failed.detail ? `. ${clip(g.failed.detail, 160)}` : ""}`,
+        best: [], improve: ["Submit it again from the activity's AI Grader slide: an attempt that isn't graded uses none of the 3."]});
+    });
+  }
   // 📂 Backup Drive: exactly the items the day score and the Overall count (js/cm-scorecard.js SOURCES bd, the latest of the
   // saved grade and the Worker's nightly grade of the drive with a trainer's override winning, and the ✍ written work, from
   // js/cm-drive-work.js scoreItems); the grade's record (saved or nightly) gives the detail: its dimensions, 🏷 File names, the issues
@@ -523,6 +537,7 @@ window.cmBatchSheet = {
   // 👥 duplicate accounts: drawn on 🛡 Admin Master Control → 👥 Trainee Audit (js/cm-audit-table.js), not on the sheet
   dupHtml, dupKeep(key, id){ B.dupKeep = B.dupKeep || {}; B.dupKeep[key] = id; redraw(); },
   dupMerge,
+  dayParts,   // a trainee's deliverables of a day, as 📅 Day by Day and 🏅 Score Card read them (.github/scripts/ai-grading-recovery.cjs)
   myOpen(id){ MY.open = MY.open === id ? null : id; render(); },
   pick(id){ B.pick = B.pick === id ? "" : id; B.more = true; repaint(); setTimeout(() => { const d = document.getElementById("bs-detail"); if(d && B.pick) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
   refresh(){ B.extra = {}; B.rowsAt = 0; if(state.auditExtra) Object.keys(state.auditExtra).forEach(k => delete state.auditExtra[k]); if(typeof refreshAdminData === "function") refreshAdminData(); else render(); },

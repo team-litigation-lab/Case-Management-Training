@@ -17,7 +17,10 @@
    left, or when the trainee chooses 🔑 I'm done (after which no more attempts), so it can't be copied into a resubmission.
 
    Saved in the trainee's own record, "cf-ai-grades" (registered here as a personal key, so it syncs with their progress):
-     {v:1, blocks:{<blockId>:{draft, score, tier, strengths, gaps, growth, at, tries, done}}, calls:{<blockId>:{at, text}}}
+     {v:1, blocks:{<blockId>:{draft, score, tier, strengths, gaps, growth, at, tries, done, failed}}, calls:{<blockId>:{at, text}}}
+   failed: {at, why, detail} is a grading that didn't come back (why in plain words, detail as the service said it), kept so the
+   trainer's 📅 Day by Day lists the activity as handed in, not graded (js/cm-batch-sheet.js); it uses none of the attempts and
+   is cleared when the activity is graded.
    A sign-in that finds no grades for this trainee starts empty, and logging out clears them, so a shared device never
    carries one trainee's grades (or used attempts) into the next one's record.
    runRubricEvaluation also writes each graded attempt to the work log (index.html wrapEvaluators: kind "lab", labelled
@@ -35,6 +38,19 @@ if(typeof registerPersonalKeys === "function") registerPersonalKeys([KEY]);
 const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
 const hl = t => E(t).replace(/\*\*(.+?)\*\*/g, '<mark class="cfx-hl">$1</mark>');
 const plain = t => String(t || "").replace(/\*\*/g, "");
+// why an AI grading didn't come back, in plain words (from the error the page's callAIText throws: "AI service error <status>:
+// <the Worker's or the Portal AI gateway's message>"); also used by the takeaway reviews (window.cmWhyNotGraded)
+function whyNotGraded(e){
+  const st = e && e.status, m = String((e && e.message) || "");
+  return /timed out|took too long/i.test(m) ? "the AI took too long to answer"
+    : st === 413 || /is too long/i.test(m) ? "the submission is longer than the AI takes at once"
+    : st === 429 || /budget|rate limit|busy|share of today/i.test(m) ? "the shared AI budget is busy or used up for now, so try again later"
+    : st === 401 && /sign-in required/i.test(m) ? "your session has expired: reload the page and sign in again"
+    : /not allowed|refused|unauthori[sz]ed|forbidden|api key|AI_GATEWAY|no AI key|not configured/i.test(m) ? "the site's AI connection was refused: tell your trainer"
+    : (e && e.name === "SyntaxError") || /JSON|Unexpected (token|end)|Unterminated/i.test(m) ? "the AI's answer came back incomplete"
+    : "the AI couldn't be reached";
+}
+window.cmWhyNotGraded = whyNotGraded;
 const CF = () => window.CM_CASE_FLOW || {days: []};
 // the slide copy of an activity (steps, checks, deliver); a registered extra's own (window.CM_AIG_EXTRA)
 const EXTRA = () => window.CM_AIG_EXTRA || {};
@@ -247,6 +263,7 @@ window.CMAIGrader = {
       const rep = await pending;
       Object.assign(r, {score: Math.round(rep.totalScore), tier: rep.gradeTier || "", strengths: (rep.strengths || []).slice(0, 3),
         gaps: (rep.blindspots || []).slice(0, 3), growth: (rep.growthSuggestions || []).slice(0, 2), at: new Date().toISOString(), tries: (r.tries || 0) + 1});
+      delete r.failed;
       busy[id] = false; editing[id] = false;
       await save();
       if(typeof toast === "function") toast(`Graded: ${r.score}/100. Your trainer sees it on your Scorecard.`);
@@ -256,8 +273,13 @@ window.CMAIGrader = {
       busy[id] = false;
       if(btn) btn.disabled = false;
       const again = `<button type="button" class="btn btn-ghost btn-sm" onclick="CMAIGrader.submit('${E(id)}')">Try again</button>`;
-      status(id, e && e.invalidInput ? `${E(e.message || "Add more detail about what you did, then submit again.")}`
-        : `Your work couldn't be graded just now. Your work is saved. Wait a minute, then ${again}`);
+      if(e && e.invalidInput){ status(id, E(e.message || "Add more detail about what you did, then submit again.")); return; }
+      // the reason, in plain words and as the service gave it, kept on the activity so the trainer's 📅 Day by Day shows it
+      // (an attempt that isn't graded uses none of the 3)
+      const why = whyNotGraded(e);
+      r.failed = {at: new Date().toISOString(), why, detail: String((e && e.message) || "").slice(0, 200)}; save();
+      status(id, `Your work couldn't be graded just now: ${E(why)}. Your work is saved, and an attempt that isn't graded doesn't count. Wait a minute, then ${again}`
+        + `<small class="aig-why" style="display:block;opacity:.75;margin-top:4px">${E(r.failed.detail)}</small>`);
     }
   }
 };
