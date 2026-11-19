@@ -176,7 +176,7 @@ None.
 | `trainee-identity.cjs` | A renamed or re-batched Portal ticket with the same uid opens the trainee's existing record (the uid index), and B250926 / B092526 (the same day, as batchShow shows it) resolve to one id |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
-## Browser checks (72)
+## Browser checks (73)
 
 | Check | What it covers |
 |---|---|
@@ -189,6 +189,7 @@ None.
 | `batch-group.cjs` | One batch whichever way its Batch ID was saved (B250926 and B092526 are both B092526 on the admin pages) |
 | `batch-live.cjs` | A trainee's corrected Batch ID shows on their open page (read from their record, not the device's copy) |
 | `batch-sheet-cards.cjs` | The Batch Sheet's Score Card shows one day at a time, Recent progress has the scores, and Day by Day and each trainee's own score card are at the bottom |
+| `batch-sheet-systems.cjs` | The Batch Sheet's 🧮 Grading systems is one table: every grading system's columns side by side, a row per trainee, no tabs |
 | `blueprint.cjs` | Blueprints (the Trainer blueprint and its PDF; the Trainee blueprint republished after every deploy) |
 | `case-debrief.cjs` | 🎬 The Case Debrief, the Case Profile's third tab: 🔒 for a trainee until Case Flow Day 5 is complete (saying why and when it opens, giving nothing away), open after it and always for a trainer; its slides and captions served, the player's controls (captions in a strip, CC, speed, ⛶ Full screen, the slides as chapters, the place kept across a redraw and a reload); one screen at 1366×768 and 1920×1080, type bold and 16px or more |
 | `case-file-alerts.cjs` | 🚨 Case-file alerts reach the trainers (rules R1–R8; Trainee Audit chip, list and ✓ Resolved; top-bar badge) |

@@ -9,7 +9,7 @@
      🏅 Score Card      a group of columns per day (Knowledge Check, Learning Checks, Takeaways, Activities & calls,
                         Random tasks, Backup Drive, the day's Average, the trainer's remarks)
      📅 Day by Day      a column per day, and 🔎 a trainee's days in detail (why, ⭐ best, 🔧 improve)
-     🧮 Grading systems a sheet per grading system with its own metrics (one shown at a time)
+     🧮 Grading systems every grading system in one table: a group of columns per system, its own metrics and items
      🕒 Recent progress everything they did, newest first
    The sheet only shows scores: what a trainer DOES (Approve / Reject, ↺ Reset Attempts, Revoke, 📁 Assign a case…, the
    detail with ✍ feedback and 🎓 the certificate, 👥 duplicate accounts, 📦 Archive this batch, the settings) is in
@@ -421,10 +421,19 @@ function systemTable(ppl, s){
         .concat(X.cells(r, c, items), cols.map(n => { const i = items.find(x => x.name === n); return i ? {v: pct(i.pct), f: `${n}: ${i.pct}%${i.note ? " · " + i.note : ""}`, cls: "gs-num " + tone(i.pct)} : {v: "", f: `${n}: not graded yet`}; })); }),
     empty: "No trainee here yet."};
 }
+// 🧮 every grading system in ONE table: a group of columns per system (its Average, Graded, its own counts, then its items),
+// a row per trainee — each trainee's every record in one place, no tab to pick
+function allSystemsTable(ppl, S){
+  const ts = S.map(s => systemTable(ppl, s));
+  return {id: "systems", title: "🧮 Grading systems: every record", note: "Every grading system side by side, a group of columns each: its average, how many are graded, its own counts, then each graded item. Scroll sideways for the rest.",
+    groups: [{label: "", span: 1}].concat(ts.map(t => ({label: t.title, span: t.head.length - 1}))),
+    head: ["Trainee"].concat(...ts.map(t => t.head.slice(1))),
+    rows: ppl.map((r, i) => [ts[0] ? ts[0].rows[i][0] : {v: nameOf(r), f: nameOf(r), cls: "gs-name"}].concat(...ts.map(t => t.rows[i].slice(1)))),
+    empty: "No trainee here yet."};
+}
 function systemsHtml(ppl){
   const S = (window.cmScorecard && cmScorecard.sources) || []; if(!S.length) return "";
-  const cur = S.find(s => s.id === B.sys) || S[0];
-  return `<div class="bs-sys" id="bs-systems"><h3 class="bs-h">🧮 Grading systems <span>each with its own metrics</span></h3><div class="bs-view">${S.map(s => `<button class="${s === cur ? "on" : ""}" onclick="cmBatchSheet.sys('${s.id}')">${s.icon} ${E(s.label)}</button>`).join("")}</div></div>` + sheetHtml(systemTable(ppl, cur));
+  return `<div class="bs-sys" id="bs-systems">${sheetHtml(allSystemsTable(ppl, S))}</div>`;
 }
 
 /* ---------- drawing: Google Sheets' look, the same classes the Scorecard uses (js/cm-scorecard.js .scx-card) ---------- */
@@ -446,7 +455,7 @@ function tablesHtml(){
   if(!ready(ppl)) return `<p class="bs-none scx-pad">Reading the batch's progress…</p>`;
   const sc = scoresTable(ppl), picked = sc.rowsRaw.find(x => x.r.id === B.pick), S = (window.cmScorecard && cmScorecard.sources) || [];
   const days5 = cfDaysL().map(d => scoreCardTable(ppl, d)), dt = dayTable(ppl), tail = [lessonsTable(ppl), recentTable(ppl)];
-  LAST = days5.concat([dt, sc], S.map(s => systemTable(ppl, s)), tail);
+  LAST = days5.concat([dt, sc], S.length ? [allSystemsTable(ppl, S)] : [], tail);
   return scoreCardHtml(ppl) + sheetHtml(sc) + (picked ? sheetHtml(detailTable(picked)) : "") + systemsHtml(ppl) + tail.map(sheetHtml).join("") + sheetHtml(dt) + dayDetailHtml(ppl);
 }
 function bannerHtml(){
