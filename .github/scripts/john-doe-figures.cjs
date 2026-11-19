@@ -3,8 +3,8 @@
 // file (curriculum/5-day-flow/case-file.md) follows them, and everything else follows the case file. Checked:
 //   1. RETIRED: none of the old figures appears in the course's content: the case data, the drawn slides, scripts,
 //      simulation and exhibits (sources and generated), the case documents, the curriculum, index.html, the add-on
-//      scripts, the README and the checks. The Canva narration (build/videoslide/, js/cm-deck-slides.js) is the owner's
-//      recording and is not checked here; build/day*.js is the old course's text, never served.
+//      scripts, the README and the checks. The narration (build/videoslide/day*.json and js/cm-deck-slides.js, built
+//      from it) is checked too; build/day*.js is the old course's text, never served.
 //   2. THE TRAIL: case-file.md carries each current figure, and the figures add up: the medical lines to $41,400.00, plus
 //      wages to $42,984.00; PIP's two fee-schedule payments to $10,000.00; MedPay's five to $5,000.00; the paid-and-owed
 //      column; the stack to $40,000; the Net Sheet to $20,359.92 and its two streams.
@@ -43,7 +43,7 @@ const RETIRED = [
   [/night the urgent care sent him/, 'the transfer at night (RS12/RS97: urgent care 09:05, ambulance 10:31, ED 10:49, EMC 13:40)'],
   [/PIP is spent on the emergency care/, 'PIP spent on 02/23/2026 (the bills reached Harbor Point 02/25/2026; PIP was exhausted 03/04/2026)']
 ];
-const SKIP = [/^build\/videoslide\//, /^js\/cm-deck-slides\.js$/, /^build\/day\d\.js$/, /^build\/case-flow\/slides\/deck-pages\.json$/, /^\.github\/scripts\/john-doe-figures\.cjs$/,
+const SKIP = [/^build\/videoslide\/(?!day\d\.json$)/, /^build\/day\d\.js$/, /^build\/case-flow\/slides\/deck-pages\.json$/, /^\.github\/scripts\/john-doe-figures\.cjs$/,
   /^build\/case-flow\/documents\/audit\.cjs$/, /^docs\/INVENTORY\.md$/, /^decks\//, /^documents\/(?!case-flow\/html\/)/, /node_modules/];
 const FILES = [];
 (function walk(dir) {
@@ -59,10 +59,7 @@ let checked = 0;
 for (const f of FILES) {
   const t = fs.readFileSync(path.join(ROOT, f), 'utf8'); if (!/John Doe|Harbor Point|Riverton|RS\d\d/.test(t) && !/^\.github\//.test(f)) continue;
   checked++;
-  // the one place an old figure may stand: case-file.md's list of recorded narrations the trainer corrects live
-  // (a line "- Day N pX narration: …", which quotes the recording and then gives this file's figure)
-  const quoted = (line) => f === 'curriculum/5-day-flow/case-file.md' && /^- Day \d p\d+(?: and p\d+)? narration: /.test(line) && /On this file/.test(line);
-  t.split('\n').forEach((line, i) => { if (quoted(line)) return; RETIRED.forEach(([re, why]) => { const m = line.match(re); if (m) fail.push(`${f}:${i + 1}: "${m[0]}" — ${why}`); }); });
+  t.split('\n').forEach((line, i) => { RETIRED.forEach(([re, why]) => { const m = line.match(re); if (m) fail.push(`${f}:${i + 1}: "${m[0]}" — ${why}`); }); });
 }
 
 // 2. the money trail

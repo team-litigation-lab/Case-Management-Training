@@ -227,7 +227,7 @@ A three-step flow across the full slide on cream, each step a white orange-borde
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* A BI claim is made against the driver who caused the crash. A UM claim is made under coverage that protects John Doe himself, and that changes what the file is. Harbor Point and Cardinal State are not opponents the way Keystone is: they are parties to John Doe's own contract, with duties to him and defences drawn from his own policy. When $8,000 and $6,000 came back against $30,000 of UM limits, the file did not simply head for court the way the BI claim would have: Harbor Point's policy says where a UM dispute is decided, and that clause, with the governing state law, is what the Case Manager has to read before a single date is docketed.
+*Why:* A BI claim is made against the driver who caused the crash. A UM claim is made under coverage that protects John Doe himself, and that changes what the file is. Harbor Point and Cardinal State are not opponents the way Keystone is: John Doe is an insured under their policies (Kevin Alvarez's Harbor Point policy as an occupant of the host vehicle, and Margaret Doe's Cardinal State policy as a resident relative), so they owe him contract duties and their defences come from those policies. When $8,000 and $6,000 came back against $30,000 of UM limits, the file did not simply head for court the way the BI claim would have: Harbor Point's policy says where a UM dispute is decided, and that clause, with the governing state law, is what the Case Manager has to read before a single date is docketed.
 
 1. Know which kind of claim you are working. Third-party: filed against the at-fault driver's carrier, here Keystone Mutual for Robert Smith. First-party: filed under coverage that protects John Doe himself, here Harbor Point (Host UM) and Cardinal State (Relative UM). In plain words for the client: a third-party claim is a claim against the other driver's insurance; a first-party claim is a claim on insurance that covers you, usually a policy you pay premiums on, and for John Doe the policies that cover him as a passenger and as his mother's household member. The evidence is the same; the relationship, the duties and the route out are not.
 2. John Doe owns no car and has no auto policy of his own, so no policy of his is a UM layer. The one other policy at the scene, Margaret Doe's Bluewater Auto policy on her parked Civic, carries no UM: she rejected it in writing on 03/14/2024, so it adds nothing. He reaches UM by status instead: as an occupant of Kevin Alvarez's Escape (Harbor Point) and as a resident relative of Margaret Doe (Cardinal State).
@@ -237,7 +237,7 @@ A three-step flow across the full slide on cream, each step a white orange-borde
 6. Read each layer on its own. Harbor Point's arbitration clause does not speak for Cardinal State: get Cardinal State's UM form and its dispute-resolution and other-insurance clauses from the certified policy and route both to Atty. Thorne. Whether the two are heard together is his call; on this file they were consolidated into the 06/22/2027 hearing.
 7. A route carries its own clock. Every layer has its own limitation on filing suit or serving a demand for arbitration, set by the policy or by statute, and it is not the tort SOL of 02/06/2028. Ask Atty. Thorne each policy's deadline in writing and docket only from his written answer.
 8. Track the route in the CMS the day it is set, so nobody has to guess what this file is doing: the ADR tab with its type UM / UIM arbitration and How It Was Set as Required by the policy or contract, the provider, the hard dates, and the case status moved to the route it is actually on.
-9. Nothing about the route changes what the UM claim has to prove. The Demand Package still carries the injuries, the Specials of $42,984.00, the wage loss and the documented proof that Keystone's $10,000 was exhausted; and the 14-Day Gap will be put to John Doe again at the hearing, by a carrier reading his own policy.
+9. Nothing about the route changes what the UM claim has to prove. The Demand Package still carries the injuries, the Specials of $42,984.00, the wage loss and the documented proof that Keystone's $10,000 was exhausted; and the 14-Day Gap will be put to John Doe again at the hearing, by a carrier reading the policy he claims under.
 
 > ⚠️ **UPL boundary.** You read the clause and the statute, lay both before Atty. Thorne, docket what he confirms and tell John Doe what happens next procedurally: the date, the place, what to bring, who will be in the room. Which route governs, whether an offer is unreasonably low, and whether Harbor Point's handling amounts to statutory bad faith are legal opinions, and they are Atty. Thorne's alone.
 
@@ -271,7 +271,7 @@ Verified in ADR & Calendar Compliance Check (taught on Case Flow Day 4) and that
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **15%** | First party vs. third party | Names Keystone as the third-party claim and Harbor Point and Cardinal State as first-party claims under John Doe's own contract, and says what changes |
+| 🤖 AI | **15%** | First party vs. third party | Names Keystone as the third-party claim and Harbor Point and Cardinal State as first-party claims John Doe makes as an insured (occupant of Kevin Alvarez's Escape; resident relative of Margaret Doe), not under a policy of his own, and says what changes |
 | 🤖 AI | **20%** | The two routes | Mandatory arbitration by Demand for Arbitration (Harbor Point's clause) vs. a civil suit against the carrier where state law bars the clause or allows opt-out; bad faith as a separate suit above the limits |
 | 🤖 AI | **15%** | Route is read, not chosen | Reads the governing state law and each layer's own clause; Cardinal State read separately from Harbor Point |
 | 🤖 AI | **10%** | Tracked and docketed | ADR entry typed UM / UIM arbitration and set by the policy; each layer's own deadline asked of Atty. Thorne and docketed from his written answer |
@@ -613,7 +613,7 @@ A two-pane working screen. Left, two stacked policy cards with a highlighted cla
 
 **Verification checkpoints**
 
-- [ ] Both claims named as first-party claims under John Doe's own contract, distinct from the Keystone third-party claim that closed at the 03/18/2027 mediation
+- [ ] Both claims named as first-party claims John Doe makes as an insured under Kevin Alvarez's (Harbor Point) and Margaret Doe's (Cardinal State) policies, distinct from the Keystone third-party claim that closed at the 03/18/2027 mediation
 - [ ] Offers set against the limits exactly: $8,000 against $20,000 (Harbor Point, 03/31/2027) and $6,000 against $10,000 (Cardinal State, 04/02/2027), $14,000 against $30,000 in all
 - [ ] Exhaustion documented, not assumed: Keystone's $10,000 tender at the 03/18/2027 mediation, both UM consents, the Limited Release and the order dismissing Robert Smith
 - [ ] Harbor Point's arbitration clause quoted verbatim and identified as binding; no interpretation offered
@@ -1412,7 +1412,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
    *The route out of a UM impasse is read off the governing state law and the policy the claim is made under, never chosen by reflex or by habit. The clause goes to Atty. Thorne quoted, not interpreted, and the decision is his.*
 7. Which of these is a first-party claim on John Doe’s file?  
    The BI claim against Keystone Mutual for Robert Smith · The Keystone PD claim on the Civic · **✓ The Host UM claim against Harbor Point** · The Peach State Health Plan reimbursement claim  
-   *A first-party claim is made against coverage John Doe himself can call on under his own contract: Host UM (Harbor Point, as an occupant of Kevin Alvarez’s Escape) and Relative UM (Cardinal State, as a resident relative). Keystone’s BI and PD claims are third-party claims against the at-fault driver’s carrier.*
+   *A first-party claim is made against coverage John Doe himself can call on as an insured, though he has no auto policy of his own: Host UM (Harbor Point, Kevin Alvarez’s policy, as an occupant of his Escape) and Relative UM (Cardinal State, Margaret Doe’s policy, as a resident relative). Keystone’s BI and PD claims are third-party claims against the at-fault driver’s carrier.*
 8. An Insurance Bad Faith lawsuit differs from the UM claim itself because:  
    It is heard by the same arbitrator at the same hearing · It replaces the UM claim once arbitration is demanded · **✓ It is a separate court action for the carrier’s unreasonable handling, and can reach beyond the UM policy limit** · It is the Case Manager’s to initiate once an offer is clearly too low  
    *Bad faith sits off the UM dispute’s fork: a separate suit about how the carrier handled the claim, which is why it can reach above the limits. You record the handling dates as facts; whether the conduct is actionable is Atty. Thorne’s opinion alone.*

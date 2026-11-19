@@ -466,7 +466,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 
 
 ### Exhaustion (BI exhaustion)
-**Plain words:** The at-fault driver's BI coverage is "exhausted" when it's been paid, or offered, up to its limit. Only then does John Doe's own UM backup open.
+**Plain words:** The at-fault driver's BI coverage is "exhausted" when it's been paid, or offered, up to its limit. Only then does the UM coverage John Doe claims as an insured open: Host UM, then Relative UM.
 
 **Say it like this:** "Think of it as a line at the counter: BI goes first, then Host UM, then Relative UM. Nobody skips ahead. Send a UM demand before BI is used up and you've just mailed a letter to the back of the line."
 
@@ -778,7 +778,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Recovery Stack | d2m1-cov | Only the coverage that pays the claim itself (BI, then UM/UIM) |
 | BI (bodily injury coverage) | d2m1-cov | Injury coverage on the at-fault driver |
 | UM / UIM | d2m1-cov | Coverage that steps in when the at-fault driver has too little or no insurance |
-| MedPay / PIP | d2m1-cov | No-fault medical coverage: pays accident medical bills no matter who caused the crash |
+| MedPay / PIP | d2m1-cov | Medical coverage that pays accident medical bills no matter who caused the crash; Riverton's PIP is add-on: it does not reduce BI or UM |
 | Set-off / non-duplication | d2m1-cov | Some policies subtract what PIP or MedPay already paid |
 | Subrogation | d2m1-cov, d1m1-l2 | A payer's right to get its money back out of the settlement |
 | Contract rate / write-off | d2m1-cov | An in-network doctor accepts the plan's price and writes off the rest |
@@ -984,7 +984,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Professional pause | d3m2-l1 | After a low number, stay quiet so the adjuster has to justify it |
 | Net Sheet / net floor | d3m2-l1 | Liens plus costs plus fee: below that line the client receives $0 |
 | Bracketing | d3m2-l2 | Paired ranges that meet in the middle; haggling, and Atty. Thorne's tool |
-| PIP / no-fault | d3m2-l2 | The client's own coverage for medical bills; in a no-fault state it pays first whoever caused the crash |
+| PIP / no-fault | d3m2-l2 | Medical coverage that pays regardless of fault; in a no-fault state it pays first and limits suits; Riverton's is add-on |
 | Non-economic damages | d3m2-l2 | The pain and how life changed |
 | PIP non-duplication | d3m2-l2 | Not paying twice for the same bill |
 | MMI residuals | d3m2-l2 | What's still wrong after healing |
@@ -1070,7 +1070,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Degenerative | d4m3-prior | Wear and tear from age |
 | Pre-morbid baseline | d4m3-prior | John's condition before 02/06/2026, from records |
 | Eggshell idea | d4m3-prior | The at-fault driver takes the injured person as he finds him; making an old problem worse still counts (rule to confirm) |
-| PIP | d4m3-a1 | John's own no-fault medical coverage |
+| PIP | d4m3-a1 | Add-on medical coverage paying his accident bills regardless of fault: Harbor Point's $10,000 PIP on Kevin Alvarez's Escape, the car John rode in, not a policy of his own |
 | Unbelted defense | d4m3-kc | The argument that John wasn't wearing his seatbelt |
 | Pleading | d4m2-l1 | A formal court paper. |
 | Prayer for relief | d4m2-l1 | The part of the Complaint that asks the court for what we want. |

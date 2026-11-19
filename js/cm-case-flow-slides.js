@@ -2436,7 +2436,7 @@ window.CM_CF_SLIDES = {
      "text": "Only coverage that pays the claim stacks: BI, then the UM/UIM layers. **Bills and the car** stay outside"
     },
     {
-     "term": "No-Fault Medical Coverage",
+     "term": "First-Party Medical Coverage",
      "text": "MedPay and PIP pay accident Medical Bills **regardless of fault**, fast, while liability is still disputed",
      "more": [
       "MedPay: reasonable accident Medical Bills up to its limit, never wages",
@@ -8519,13 +8519,18 @@ window.CM_CF_SLIDES = {
       "Filing, service, mediation, arbitration, reporter, records, plus pre-suit costs"
      ],
      [
-      "Provider ledger",
-      "Charges, payments, adjustments, balance owed, reduction",
+      "Medical Provider Ledger",
+      "Charges, PIP, health and Med Pay payments, adjustments, balance owed, reduction",
       "Only liens owed; reductions follow the fee actually charged"
      ],
      [
+      "Non-Medical Provider Ledger",
+      "Pharmacy, counseling, equipment, transportation: who paid, what is still owed",
+      "Riverton Drug $312.40 paid by John Doe, Stonebridge EAP $0.00: nothing owed"
+     ],
+     [
       "Net to client",
-      "Gross minus fees, costs and reduced liens",
+      "Gross minus fees, costs, reduced liens and non-medical still owed",
       "Shown line by line before John Doe signs"
      ]
     ],

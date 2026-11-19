@@ -70,6 +70,8 @@ def main():
     ap.add_argument("--voice", help="a Piper voice (.onnx)")
     ap.add_argument("--clone", help="instead of --voice: a 10-30 s recording of the narrator; their voice is cloned "
                     "with Chatterbox (pip install chatterbox-tts; slow without a GPU)")
+    ap.add_argument("--turbo", help="instead of --voice: a 10-30 s recording of the narrator, spoken by Chatterbox Turbo "
+                    "in that voice with natural intonation (no Piper step, no revoice.py): about 2 s of compute per 1 s of speech on a CPU")
     ap.add_argument("--out", required=True)
     ap.add_argument("--name", default=None)
     ap.add_argument("--rate", type=float, default=1.0, help="speaking speed: 1.1 is 10%% faster")
@@ -79,7 +81,7 @@ def main():
     ap.add_argument("--web", action="store_true", help="also write <name>-web.mp4: 1280x720, small enough for the course site (< 25 MB)")
     a = ap.parse_args()
 
-    if not (a.voice or a.clone):
+    if not (a.voice or a.clone or a.turbo):
         ap.error("give --voice or --clone")
 
     spec = json.load(open(a.notes, encoding="utf-8"))
@@ -101,7 +103,23 @@ def main():
     pngs = sorted((out / "pages").glob("p-*.png"))
     by_page = {int(re.search(r"-(\d+)\.png$", p.name).group(1)): p for p in pngs}
 
-    if a.clone:
+    if a.turbo:
+        os.environ.setdefault("TQDM_DISABLE", "1")
+        import numpy as np, torch
+        from chatterbox.tts_turbo import ChatterboxTurboTTS
+        torch.manual_seed(7)
+        model = ChatterboxTurboTTS.from_pretrained(device="cuda" if torch.cuda.is_available() else "cpu")
+        _norm = model.norm_loudness   # its loudness step returns float64, which the CPU path cannot take
+        model.norm_loudness = lambda w, sr, *x, **k: np.asarray(_norm(w, sr, *x, **k), dtype=np.float32)
+        model.prepare_conditionals(a.turbo)
+        rate = model.sr
+        voice_id = "turbo:" + hashlib.sha1(Path(a.turbo).read_bytes()).hexdigest()
+
+        def synth(text):
+            torch.manual_seed(len(text))   # the same sentence is spoken the same way on every rebuild
+            wav = model.generate(text).squeeze(0).numpy()
+            return (np.clip(wav, -1, 1) * 32767).astype("<i2").tobytes()
+    elif a.clone:
         os.environ.setdefault("TQDM_DISABLE", "1")
         import numpy as np, torch
         from chatterbox.tts import ChatterboxTTS

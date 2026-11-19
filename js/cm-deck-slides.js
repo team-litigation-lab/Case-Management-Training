@@ -8,37 +8,37 @@ window.CM_DECK_SLIDES = {
    "page": 1,
    "title": "Case Management Training — Day 1",
    "img": "/decks/day1/01.webp",
-   "notes": "Welcome to Day 1 of Case Management Training with Legal Support Help. Over the next session, we will build the foundation for everything that follows this week: what a Case Manager actually owns, how a case moves from its very first call to its final resolution, and how you keep that movement clean, compliant, and on time. Take notes as we go. Every idea on these slides comes back in your practice work."
+   "notes": "Welcome to Day 1 of Case Management Training with Legal Support Help. All week we work one file, John Doe versus Robert Smith, a passenger injury from a collision on February 6th, 2026. Today we open that file. We look at what a Case Manager actually owns, how a case moves from the first call to resolution, and how you keep it clean, compliant and on time. Keep John's file in mind as we go, because every idea on these slides lands on it."
   },
   {
    "page": 2,
    "title": "Training Agenda",
    "img": "/decks/day1/02.webp",
-   "notes": "Here is our agenda for today. Part one: we understand the fundamentals of case management. Part two: we work through intake, case evaluation, and the decision to approve representation. Part three: we move into the Treatment Phase, where most of a personal injury case's value is built or lost."
+   "notes": "Today has three parts. First, the fundamentals: what case management is and what you are responsible for. Second, intake, case evaluation and the decision to accept John Doe's case, including the conflict check and the coverage behind the claim. Third, the Treatment Phase, where most of a personal injury case's value is built or lost. On our file, that is where the fourteen-day gap sits, so pay close attention there."
   },
   {
    "page": 3,
    "title": "What is Case Management?",
    "img": "/decks/day1/03.webp",
-   "notes": "So, what is case management? It is the end-to-end coordination, tracking, and handling of a case, from intake all the way to resolution. Think of it as three tests that every task on a file must pass. First, timely progression: the case keeps moving, and nothing sits without a next step. Second, proper documentation and compliance: everything is recorded and done by the rules. Third, effective communication between all parties: the client, the attorney, the carriers, and the providers all know what they need to know."
+   "notes": "Case management is the coordination, tracking and handling of a case from intake to resolution. The slide gives three tests, and every task on a file should pass all of them. Timely progression means nothing sits without a next step and a date. Documentation and compliance means that if it isn't in the file, it didn't happen. And communication means the client, Atty. Thorne, the carriers and the providers each know what they need, when they need it. On John's file, those parties are already lining up: Keystone, Harbor Point, Cardinal State, Peach State, and a growing list of providers. Your job is to keep all of them moving in step."
   },
   {
    "page": 4,
    "title": "The General Process",
    "img": "/decks/day1/04.webp",
-   "notes": "This is the general process, in seven stages. One: intake and case opening. Two: case planning and strategy support. Three: documentation and file management. Four: communication management. Five: case monitoring and tracking. Six: billing and documentation support. And seven: case resolution and closing. Notice the arrows. The case moves through every stage in order, and the Case Manager carries the file through all seven. You are the one constant from start to finish."
+   "notes": "These seven stages are the life of a file, from intake and opening through planning, documentation, communication, monitoring, billing support, and finally resolution and closing. The point of the arrows is that nothing gets skipped. A file that jumps from intake straight to treatment, without a plan or a coverage picture, will stall later. John Doe's file opened with the intake call on February 9th, 2026, and it will travel through every one of these stages this week. Atty. Thorne makes the legal decisions along the way, but you are the one constant who carries the file from start to finish."
   },
   {
    "page": 5,
    "title": "Key Duties",
    "img": "/decks/day1/05.webp",
-   "notes": "These are a Case Manager's key duties. Case updates and summaries. Research on relevant laws and legal compliance. Legal document drafting and filing. Task compliance monitoring. Client communication. Case health analysis, which means reading the whole file for risk. Case progress monitoring. Resource allocation. And planning and recommendation. Notice the last one: you plan and you recommend, while decisions of legal strategy stay with the attorney."
+   "notes": "Here are the duties that fill a Case Manager's day. Notice how practical they are. Case updates and summaries keep Atty. Thorne current without him reading every page. Compliance monitoring means you know every deadline, starting with the statute of limitations, docketed on our file for February 6th, 2028. Case health analysis means reading the whole file for risk, the way you would spot John's fourteen-day gap on day one. And the last duty matters most. You plan and you recommend. Decisions of legal strategy, value and settlement belong to the attorney."
   },
   {
    "page": 6,
    "title": "Understanding Case Phases",
    "img": "/decks/day1/06.webp",
-   "notes": "Case management is divided into structured phases that guide how a case is handled from start to finish. Each phase has its own goals, responsibilities, and deliverables, and together they keep the case progressing efficiently and accurately. The phases are: intake; investigation, also called claim set up; treatment; pre-demand; demand; settlement and lien negotiations; disbursement; and, when a case does not settle, litigation. Today we focus on the first three."
+   "notes": "A case moves through structured phases, and each one has its own goals and deliverables. Intake; investigation, which we also call claim set up; treatment; pre-demand; demand; settlement and lien negotiation; disbursement; and litigation when a case doesn't settle. Knowing the phase tells you what the file needs next. Today we cover the first three. On John's file, that runs from the intake call on February 9th, 2026, through claim set up with the carriers, and into his treatment, which ends when Dr. Reyes declares maximum medical improvement on June 12th, 2026."
   }
  ],
  "d1m1-l1": [
@@ -46,73 +46,73 @@ window.CM_DECK_SLIDES = {
    "page": 7,
    "title": "Case Phase: Intake",
    "img": "/decks/day1/07.webp",
-   "notes": "The Intake Phase is where Case Managers establish control, structure, and clarity from the very beginning of a case. This is not just data collection. It is your first opportunity to ensure accuracy, compliance, and proper case direction. Your role is to verify and organize essential case information, while making sure the case meets acceptance standards. Intake is responsible for four things: capturing complete and accurate client details, screening for conflicts of interest, assessing case viability and eligibility, and establishing a properly structured case file. This phase decides whether the case moves forward or is declined."
+   "notes": "Intake is where you take control of the file, and it is much more than data entry. Everything later depends on it. A wrong date of loss, a missed party or a skipped conflict check will follow the case all the way to the demand. The slide lists four jobs: capture complete client details, screen for conflicts, assess whether the case is viable, and build a properly structured file. On our file, that means John Doe's date of birth, August 14th, 1991, his address at 2214 Maple Hollow Road in Riverton, his phone and email, the date of loss, and the fact that he was a passenger. This is also the phase that decides whether the case moves forward at all."
   },
   {
    "page": 8,
    "title": "Intake in Practice",
    "img": "/decks/day1/08.webp",
-   "notes": "Here is what intake looks like in a real workflow. You speak with the client, or review what they submitted. You ask structured questions: who, what, when, where, and how. You run a conflict check in the system before anything else moves. You review documents for completeness and relevance. And you create the case file with proper naming conventions and a system entry. The example workflow runs like this: the client submits an inquiry form; you review and verify the details; the conflict check is completed; the case is approved or escalated for review; and the file is created and logged. Working independently, you should be able to run that whole sequence and communicate next steps clearly to the client or the internal team."
+   "notes": "Here is intake as a real workflow. You talk with the client or review what they sent. You ask the structured questions: who, what, when, where and how. You run the conflict check before anything else moves. You review the documents, and you build the file with the firm's naming convention. On our file, the intake call was Monday, February 9th, 2026, and John signed the retainer and the HIPAA authorization in the office the same day. The file number is L S H 2026 M V A 770412. The conflict check covers every name on the file, not only the defendant: Robert Smith, Keystone Mutual, the host driver Kevin Alvarez, and John's mother, Margaret Doe. Then the case is approved or escalated, and the file is logged. You should be able to run that sequence on your own and tell the client clearly what happens next."
   },
   {
    "page": 9,
    "title": "Intake and Initial Client Contact",
    "img": "/decks/day1/09.webp",
-   "notes": "Initial client contact is the first interaction with a potential client, followed immediately by intake. It is used to gather basic facts, assess urgency, and decide whether the case can move forward. The Case Manager's role begins after intake is completed. You act as the quality-control and case-validation reviewer before a case is officially accepted into active case management. In other words, Case Managers are the gatekeepers of case quality. Your job is to make sure intake work is complete, accurate, properly documented, and ready for case activation."
+   "notes": "Initial client contact gathers the basic facts, judges urgency, and decides whether the case can go forward. Your role as Case Manager starts once intake is done. You are the quality check before a case becomes active. Read the intake the way an adjuster eventually will. On John's file, one fact should stop you at once: the crash was February 6th, and he had not yet been treated when he called on the 9th. His first treatment didn't come until February 20th. That fourteen-day gap is flagged at intake, not discovered at the demand. Being the gatekeeper means you catch it, document it, and make sure Atty. Thorne knows."
   },
   {
    "page": 10,
    "title": "Case Acceptance Determination",
    "img": "/decks/day1/10.webp",
-   "notes": "After you complete the verification call and confirm the facts of loss, the case moves into review and evaluation for acceptance. At this point, you are no longer gathering information. You are assessing whether the firm will accept the case, based on verified facts and a complete intake. This step makes sure the case is factually confirmed, properly documented, and aligned with firm criteria before it is accepted."
+   "notes": "After the verification call confirms the facts of loss, the question changes. You are no longer gathering information. You are checking whether the case meets the firm's criteria for acceptance, based on verified facts and a complete intake. On our file, the facts hold up: John was a restrained front-seat passenger, the Riverton police report cites Robert Smith for failure to stop, and there is a recovery stack of insurance behind the claim. The risk is also clear: the treatment gap. The Case Manager presents both sides in the file, and Atty. Thorne makes the acceptance decision."
   },
   {
    "page": 11,
    "title": "Common Intake Bottlenecks",
    "img": "/decks/day1/11.webp",
-   "notes": "Now let's talk about where intake goes wrong. Intake bottlenecks are points in the process where work slows down, gets stuck, or becomes inconsistent, delaying the case. They usually come from five sources: missing or incomplete information, delayed client responses, poorly documented intake submissions, verification or conflict check delays, and unclear case eligibility decisions. Over the next few slides, we will look at each one, and at what it looks like on an actual file."
+   "notes": "Intake bottlenecks are the places where a file slows down, gets stuck or goes inconsistent. The slide names five common causes: missing information, slow client responses, poorly documented submissions, delays in verification or the conflict check, and unclear eligibility decisions. They matter because every day lost at intake is a day lost against the statute of limitations, and a day the client may go untreated. Over the next few slides we take each one in turn, and see where it shows up on John Doe's file."
   },
   {
    "page": 12,
    "title": "Bottleneck: Incomplete Client Information",
    "img": "/decks/day1/12.webp",
-   "notes": "The first bottleneck is incomplete client information. Watch for missing contact details or incident facts, intake packets with no supporting documents attached, and vague or unclear case summaries. Every one of these sends you back to the client before the case can move, so catch them on your first review, not your third."
+   "notes": "The first bottleneck is incomplete information: missing contact details or incident facts, no supporting documents, or a vague case summary. Each one sends you back to the client before the file can move. On our file, some blanks are normal on day one. Cardinal State hasn't assigned an adjuster yet, and Keystone gave its $10,000 limit verbally but won't confirm it in writing until it has signed authorizations. You record exactly what is known and what is pending, and you set a follow-up for each gap, so nothing stays blank by accident."
   },
   {
    "page": 13,
    "title": "Bottleneck: Delayed Client Follow-Up",
    "img": "/decks/day1/13.webp",
-   "notes": "The second bottleneck is delayed client follow-up. Clients may not respond to clarification requests. Verification call confirmations may be missing. And required documents may come in slowly. Each delay pushes the whole timeline back, so follow up promptly, and document every attempt you make."
+   "notes": "The second bottleneck is the client who goes quiet. Clarification requests go unanswered, confirmations never come back, documents trickle in. John Doe's file shows this in its first week. The last logged contact was February 10th, 2026. Calls followed on the 11th, the 13th and the 16th, then written warnings, and a call to his mother, Margaret, as the emergency contact, with no case details shared. One lesson from the file: the first two voicemails were left but never logged, and the system flagged it. An attempt you don't log is an attempt you can't prove. John finally called back on February 23rd, after the Final Warning Letter went out."
   },
   {
    "page": 14,
    "title": "Bottleneck: Conflict Check Delays",
    "img": "/decks/day1/14.webp",
-   "notes": "The third bottleneck is the conflict check. Delays here come from system backlogs or manual verification, from incomplete conflict check entries, and from unclear information about the opposing party. Remember, the conflict check comes before anything else moves. A conflict check run on half the information is not a conflict check."
+   "notes": "The third bottleneck is the conflict check: system backlogs, incomplete entries, or unclear information about the other side. The rule is simple. The conflict check runs before anything else moves, and it runs on complete names. On our file, the defendant is Robert Smith, with an address on the police report of 118 Larkspur Lane, Riverton. But the check also covers the carriers and the people around the claim, including Kevin Alvarez, the host driver, and Margaret Doe. A conflict check run on half the information is not a conflict check."
   },
   {
    "page": 15,
    "title": "Bottleneck: Intake Form Errors",
    "img": "/decks/day1/15.webp",
-   "notes": "The fourth bottleneck is intake form errors: incorrect dates or inconsistent statements, missing signatures or authorization forms, and duplicate or misfiled records. These errors can follow a case all the way to the demand, so correct them at intake, while they are still easy to fix."
+   "notes": "The fourth bottleneck is the intake form error: wrong dates, inconsistent statements, missing signatures or authorizations, and duplicate or misfiled records. These are cheap to fix at intake and expensive to fix later. Our file proves it. Months later, Summit Imaging's MRI history gave the injury date as February 16th instead of February 6th, and it took a written correction request to fix it. So at intake, confirm the date of loss, February 6th, 2026, against the police report, and make sure the retainer and the HIPAA authorization are both signed and filed."
   },
   {
    "page": 16,
    "title": "Bottleneck: Case Eligibility Uncertainty",
    "img": "/decks/day1/16.webp",
-   "notes": "The fifth bottleneck is case eligibility uncertainty. An intake may be submitted without a clear legal assessment. The case may need attorney review before a decision can be made. Or the facts of loss, or of liability, may be ambiguous. When eligibility is unclear, don't guess. Escalate the file for attorney review, and document why."
+   "notes": "The fifth bottleneck is eligibility uncertainty: an intake with no clear legal assessment, a case that needs attorney review, or facts of loss or liability that are ambiguous. When eligibility is unclear, don't guess and don't sit on it. Escalate the file to the attorney and document why. On John's file, liability looks strong, but the fourteen-day gap is a real question for value. That isn't yours to settle. Write it down plainly, attach what supports it, and let Atty. Thorne decide."
   },
   {
    "page": 17,
    "title": "Tools for Case Planning",
    "img": "/decks/day1/17.webp",
-   "notes": "Inside a legal framework, case management shifts from best efforts to strict compliance. Your tools make that possible: case management software, task trackers and calendars, document management systems, and workflow automation tools. System equals efficiency plus accountability. And here is the strategy behind the personal injury case lifecycle: every case is a race against the Statute of Limitations, and against the gap in treatment defense that insurance companies use. In intake and investigation, the focus is liability: confirm insurance coverage, including PIP/MedPay, bodily injury, and UM/UIM; order police reports and 911 transcripts; and identify every potential defendant. In treatment, the focus is damages: track client compliance, make sure there are no gaps in treatment, and gather diagnostic imaging like MRI/CT results right away, to make the injury objective. In the demand phase, the focus is value maximization: compile a special damages summary of medical bills and lost wages, and request final narratives from surgeons to establish permanent impairment. And in litigation, the focus is evidence preservation: manage the discovery calendar, coordinate depositions, and facilitate expert witness reviews."
+   "notes": "In a legal setting, case management moves from best effort to strict compliance, and your tools make that possible: the case management system, task trackers and calendars, document management and workflow automation. The strategy behind them is simple. Every case is a race against the statute of limitations and against the gap in treatment defense. On John's file, both are already on the board: the SOL docketed for February 6th, 2028, and a fourteen-day gap. In intake and investigation the focus is liability and coverage. Here that means Harbor Point's P I P on the Escape, the BI and both UM layers, and the police report, R P D 26 018842. It also means preserving Margaret's doorbell video, which John was told to keep on February 17th. In treatment the focus is damages: compliance, no further gaps, and early imaging, which for John was the cervical MRI at Summit Imaging on March 13th. In the demand phase it is value: the specials and a final narrative. And in litigation, it is evidence: discovery, depositions and experts."
   },
   {
    "page": 18,
    "title": "Bottleneck: Communication Gaps",
    "img": "/decks/day1/18.webp",
-   "notes": "The last bottleneck is communication gaps. The intake team may not be updating Case Managers. A Case Manager may not receive the complete intake packet. Or departments may simply miscommunicate. Closing these gaps is part of your job: confirm you have the full packet, and log every hand-off."
+   "notes": "The last bottleneck is the communication gap: intake not updating the Case Manager, a packet that arrives incomplete, or departments talking past each other. On a file like John's, many hands touch it early: the intake team, the carriers, the clinic, Atty. Thorne. Closing the gaps is part of your job. Confirm you have the complete intake packet, log every hand-off with the date and the person, and if something is missing, ask for it the same day rather than waiting for it to surface."
   }
  ],
  "d1m4-l1": [
@@ -120,49 +120,49 @@ window.CM_DECK_SLIDES = {
    "page": 19,
    "title": "Claim Set Up: Coverage and Liability",
    "img": "/decks/day1/19.webp",
-   "notes": "Next, we move into claim set up, the early evaluation phase. It starts with two questions. Coverage determination is the process of identifying which insurance policies apply to a claim, and what benefits, limits, and exclusions exist. Ask: is there valid insurance coverage? What type of coverage applies? What are the policy limits? And are there exclusions or coverage gaps? Liability assessment determines who is legally responsible for the incident, and to what degree. Ask: who caused the incident? Is liability clear, shared, or disputed? What evidence supports fault? And are there comparative negligence factors?"
+   "notes": "Now claim set up, the early evaluation. It rests on two questions. Coverage: which policies apply, what type, what limits, and what exclusions. Liability: who caused the crash, whether fault is clear, shared or disputed, what evidence proves it, and whether comparative negligence comes into play. On our file, coverage takes real work, because John was a passenger and owns no car, so no policy of his own applies. Liability looks clean, but you still ask the comparative negligence question. The EMS run report records him as a restrained front-seat passenger, and you keep that record, because the defense may later argue the opposite."
   },
   {
    "page": 20,
    "title": "Case Projection",
    "img": "/decks/day1/20.webp",
-   "notes": "The third piece is case projection: the early estimate of a case's value, risk, and outcome trajectory. It is based on coverage availability, liability strength, injury severity, treatment expectations, and documentation quality. These three pieces work together, and you cannot project a case accurately without all of them. Coverage asks: is there money to pay the claim? Liability asks: who is responsible? And projection asks: what is this case likely worth, and how will it move? Remember that the case's value is the attorney's call. Your projection is support for that decision, not a promise to the client."
+   "notes": "Case projection is the early estimate of value, risk and how the case will move. It draws on coverage, liability strength, injury severity, expected treatment and documentation quality. Each piece answers a question. Coverage asks whether there is money to pay. Liability asks who is responsible. Projection asks what the case is likely worth and how it will move. On John's file, the coverage ceiling is a $40,000 stack, liability is strong, and the fourteen-day gap is the obvious risk to value. Remember that value is Atty. Thorne's call. Your projection supports his decision; it is never a promise to the client."
   },
   {
    "page": 21,
    "title": "Case Example: Coverage Analysis",
    "img": "/decks/day1/21.webp",
-   "notes": "Let's apply this to our case, John Doe versus Robert Smith. The snapshot: our client is John Doe, the front-seat passenger in Kevin Alvarez's 2020 Ford Escape, not a driver. The defendant is Robert Smith, driving a 2017 Chevrolet Silverado. Smith ran the all-way stop at Maple Hollow Road and Birch Avenue and struck the passenger door, on February 6th, 2026, at about 7:10 in the morning. The statute of limitations is docketed for February 6th, 2028. Now the coverage sources, in the order they pay. First, Robert Smith's bodily injury coverage with Keystone Mutual: a 10,000 dollar limit, which you confirm. Second, the host vehicle's uninsured motorist coverage: Harbor Point, the policy on the Escape, 20,000 dollars, which opens only once the bodily injury limit is exhausted. Third, relative uninsured motorist coverage: Cardinal State Mutual, 10,000 dollars, because John lives with his mother, Margaret Doe. That is a 40,000 dollar recovery stack. Margaret's Bluewater policy rejected that coverage, so it adds no layer. The insight: never settle or release the bodily injury claim without the other carriers' written consent, because that can forfeit the stack."
+   "notes": "Now let's apply this to John Doe versus Robert Smith. John was the front-seat passenger in Kevin Alvarez's 2020 Ford Escape. Robert Smith, driving a 2017 Chevrolet Silverado, ran the all-way stop at Maple Hollow Road and Birch Avenue and struck the passenger door on February 6th, 2026, at about 7:10 in the morning. The coverage stack pays in order. First, Smith's BI with Keystone Mutual, claim K M 26 440871, a $10,000 limit, which Keystone gave verbally and you confirm in writing. Second, Host UM with Harbor Point, the Escape's policy, $20,000, which opens only once the BI is exhausted. Third, Relative UM with Cardinal State Mutual, $10,000, because John lives with his mother, Margaret Doe. That is a $40,000 stack. Margaret's Bluewater policy rejected UM in writing, so it adds no layer. The key insight: never settle or release the BI claim without the UM carriers' written consent, because doing so can forfeit the stack."
   },
   {
    "page": 22,
    "title": "Case Example: Liability Determination",
    "img": "/decks/day1/22.webp",
-   "notes": "Now liability. The fact pattern: a side-impact collision at an all-way stop, at Maple Hollow Road and Birch Avenue in Riverton. John was the restrained front-seat passenger in the host vehicle. Kevin Alvarez, the host driver, stopped eastbound and then proceeded. Robert Smith, northbound on Birch Avenue, didn't stop, and struck the front passenger door at about 28 miles per hour. The evidence: the Riverton police report, which cites Smith for failure to stop; an independent witness, Ruth Calloway; and a doorbell-camera video. A citation, a witness and video all point to Robert Smith, and John was a passenger, so none of the driving was his. The risk note: confirm each piece against the police report, and secure the video before it is overwritten. And remember: fault and value are Attorney Thorne's call. You document the facts; you never predict the outcome."
+   "notes": "Now liability. This was a side-impact collision at an all-way stop in Riverton. Kevin Alvarez stopped eastbound on Maple Hollow Road and proceeded. Robert Smith, northbound on Birch Avenue, didn't stop, and hit the front passenger door at about 28 miles per hour, pushing the Escape into Margaret's parked Civic. The evidence is unusually good: the Riverton police report, R P D 26 018842, citing Smith for failure to stop; an independent witness, Ruth Calloway, of 2209 Maple Hollow Road; and Margaret's doorbell-camera video. John was a passenger, so none of the driving was his. Your job is to check each piece against the police report and make sure the video is preserved before it is overwritten. And remember, fault and value are Atty. Thorne's call. You document the facts; you never predict the outcome."
   },
   {
    "page": 23,
    "title": "Case Planning Framework: Regulatory Triple-Check",
    "img": "/decks/day1/23.webp",
-   "notes": "Before clinical planning begins, you must clear the Regulatory Triple-Check, so the claim is properly established and you are authorized to act. One, HIPAA compliance: obtain a claim-specific authorization to release medical information. A standard release may not be enough for a personal injury case; it should name the incident date and allow communication with legal and insurance parties. Two, Medicare and Medicaid reporting: if the client is 65+ or on SSDI, report the case to the Benefits Coordination and Recovery Center, the BCRC, to avoid severe federal penalties and possible settlement freezes. This duty comes from the MMSEA, the Medicare, Medicaid, and SCHIP Extension Act of 2007. Three, subrogation management: determine the payer order. Typically that is PIP or MedPay first, then private health insurance, then Letter of Protection and provider liens."
+   "notes": "Before clinical planning begins, clear the Regulatory Triple-Check. First, HIPAA. A general release isn't enough; you need a claim-specific authorization that names the date of loss and lets you talk with the legal and insurance parties. John signed his at intake on February 9th, 2026. Second, Medicare and Medicaid reporting. If the client is 65 or older or on SSDI, the case is reported to the BCRC under the MMSEA, or the settlement can freeze. John is thirty-four and working, but you confirm it and document it; you never assume. Third, subrogation and payer order. On our file, Harbor Point's P I P pays first, then Harbor Point's MedPay, then Peach State Health Plan, which asserted its reimbursement right on first notice, then the Letter of Protection with Riverton Spine and Rehab."
   },
   {
    "page": 24,
    "title": "The Three-Pillar Case Plan",
    "img": "/decks/day1/24.webp",
-   "notes": "Once the claim is set up, the case plan must be filed, often within 30–60 days, depending on the state. Structure it in three pillars. Clinical: the acute interventions, such as physical therapy and specialty consults. Functional: activities of daily living, and the client's return to work status. And subrogation management, which is the payer order we just covered: PIP or MedPay, then private health insurance, then LOP and provider liens."
+   "notes": "The case plan is often due within 30 to 60 days, depending on the state, and it stands on three pillars. Clinical covers the interventions. For John, that is chiropractic and physical therapy at Riverton Spine and Rehab, two to three visits a week for twelve weeks, and an orthopedic consult with Dr. Alana Reyes at Lakeside Orthopedics. Functional covers daily life and work. John is a warehouse shift lead at Northgate Distribution, lifting up to 50 pounds and driving a forklift, so his return to work status matters. And subrogation is the payer order we just covered. The fourteen-day gap also goes into the plan's risks band, written down plainly from the start."
   },
   {
    "page": 25,
    "title": "Mandatory Disclosure & Compliance Tracking",
    "img": "/decks/day1/25.webp",
-   "notes": "US Case Managers have a duty to keep a clean file, because the file is discoverable in litigation. Three things to track. Electronic record integrity: make sure your case management system is SOC2 compliant and keeps an unalterable audit trail. State-specific timelines: in no-fault states like New York or Florida, the framework must include a timeline for independent medical examinations, which the carrier will require early in the set-up. And Letter of Protection management: if the client is uninsured, the plan must track every provider working under an LOP, to avoid surprise medical bills that exceed the policy limits."
+   "notes": "Your file is discoverable in litigation, so keep it clean. Three things to track. Record integrity: your system should be SOC2 compliant, with an audit trail no one can alter. State-specific timelines: in no-fault states like New York or Florida, the plan must schedule independent medical exams. That is the general rule. Riverton is an add-on P I P state, not no-fault, but it does have an Emergency Medical Condition rule: without a physician's finding, P I P medical benefits stop at $2,500. So know which rules your file actually runs under. And Letter of Protection management. John has Peach State coverage, but Riverton Spine and Rehab is out of network, so his care there runs under an LOP signed February 23rd, 2026. Track every visit and every charge on it, so no bill surprises anyone at the end."
   },
   {
    "page": 26,
    "title": "The Golden Rule of US Claim Set-Up",
    "img": "/decks/day1/26.webp",
-   "notes": "Here is the golden rule of claim set-up: coordinate, don't commingle. Treat the medical plan and the legal claim as two parallel tracks that never cross-contaminate. Never offer legal opinions in medical notes. Defense counsel often uses those notes to attack the Case Manager's neutrality. Keep your file clean, because everything in it can be discovered."
+   "notes": "The golden rule of claim set up is coordinate, don't commingle. The medical plan and the legal claim run on two parallel tracks that never cross. Never write a legal opinion into a medical note, because defense counsel will use it to attack your neutrality. On John's file, a note that says the client attended his Riverton Spine and Rehab visit and reported neck pain is a fact. A note that says the gap won't hurt the case is an opinion, and it doesn't belong there. Keep your file clean, because everything in it can be discovered."
   }
  ],
  "d1m4-tplan": [
@@ -170,49 +170,49 @@ window.CM_DECK_SLIDES = {
    "page": 27,
    "title": "The Treatment Phase: Core Objectives",
    "img": "/decks/day1/27.webp",
-   "notes": "Now we reach the Treatment Phase. Here your focus shifts from: what does the client need? to: is the plan working? Your role rests on three pillars. Facilitation: making sure the client can actually access services, which means transportation, paperwork, and scheduling. Coordination: making sure the therapist, the doctor, and the social worker are not working at cross-purposes. And advocacy: stepping in when a client is denied service or hits a bureaucratic wall. This phase is the engine room of case management, where set goals are achieved, and you must balance support, monitoring, and problem-solving."
+   "notes": "Now the Treatment Phase. The question changes from what does the client need, to is the plan working. Your role rests on three pillars. Facilitation means the client can actually reach care: transportation, paperwork and scheduling. Coordination means the chiropractor, the therapist and the doctor aren't working at cross-purposes. Advocacy means stepping in when the client hits a wall. On John's file, all three are tested. He has no car of his own, he is seeing several providers at once, and his care is paid from several sources. This phase is the engine room of the case, and you balance support, monitoring and problem-solving throughout."
   },
   {
    "page": 28,
    "title": "Key Responsibilities & Skills",
    "img": "/decks/day1/28.webp",
-   "notes": "Your key responsibilities in treatment come in three parts. Monitoring progress: you are not just checking boxes; you are evaluating clinical and functional outcomes. At check-ins, ask specific questions about the plan, like whether the client attended therapy, not just: how are you? And document using GIRP or SOAP notes to track changes and milestones. Identifying barriers: treatment rarely goes perfectly, so be a barrier detective. Internal barriers include motivation, relapse, and mental health symptoms. External barriers include housing loss, childcare shortages, and insurance lapses. And crisis intervention: if a client faces a crisis, such as an eviction or a medical emergency, pause or adjust the treatment plan to deal with the immediate issue first."
+   "notes": "Your responsibilities here come in three parts. Monitoring progress means looking at real clinical and functional outcomes, not checking boxes. At a check-in, ask whether John made his Tuesday visit and whether the numbness in his right hand has changed, not just how he's feeling. Then document in GIRP or SOAP format. Identifying barriers means being a detective. Internal barriers include motivation and mental health; external ones include transportation and insurance problems. And crisis intervention means that when something urgent comes up, you deal with it first, and adjust the plan around it."
   },
   {
    "page": 29,
    "title": "Essential Client Communication Strategies",
    "img": "/decks/day1/29.webp",
-   "notes": "Three communication strategies keep clients on track. Motivational interviewing helps clients stay committed once the newness of treatment wears off. Boundaries prevent burnout, and keep the focus on the client's self-sufficiency. And active listening makes sure the client feels heard, and reduces misunderstandings with providers. Remember, the Treatment Phase is not linear. It is a cycle. Regularly assess the client's response, evaluate how well the plan is working, and adjust the intervention. If a client isn't reaching their goals, the cause is usually the plan, not the person. Modifying the plan is proactive management, not a mistake in your first evaluation."
+   "notes": "Three communication skills keep a client on track. Motivational interviewing keeps commitment going after the newness of treatment wears off. Boundaries protect you from burnout and keep the client moving toward self-sufficiency. Active listening makes the client feel heard and reduces misunderstandings with providers. And remember, treatment is a cycle, not a straight line. Assess the response, evaluate the plan, and adjust. On John's file, the plan changes more than once: Dr. Reyes orders an MRI, then refers him to pain management, then counseling is added. When a client isn't reaching their goals, look at the plan first, not the person."
   },
   {
    "page": 30,
    "title": "Handling the Treatment Phase: Documentation",
    "img": "/decks/day1/30.webp",
-   "notes": "Your notes are the legal and professional record of treatment success. Structure them with the GIRP format. Goal: what part of the treatment plan are we addressing today? Intervention: what did you do? Response: how did the client react? And Plan: what is the next step before the next meeting? At the midpoint of treatment, many clients plateau, as the early excitement fades and the hard work begins. That is where motivational interviewing helps. Develop discrepancy: help the client see the gap between their current behavior and their long-term goals. Roll with resistance: if a client refuses a service, don't argue. Pivot, and explore why. And use OARS: open-ended questions, affirmations, reflective listening, and summaries."
+   "notes": "Your notes are the legal and professional record of treatment, so structure them with GIRP. Goal: which part of the plan are we working on today. Intervention: what you did. Response: how the client reacted, in his own words where you can. Plan: the next step and its date. Midway through treatment, many clients plateau as the early energy fades. That's where motivational interviewing helps. Develop discrepancy, by showing the gap between what the client is doing and what he wants, such as John getting back to full duty at Northgate. Roll with resistance: don't argue; explore why. And use OARS: open questions, affirmations, reflective listening and summaries."
   },
   {
    "page": 31,
    "title": "Handling the Treatment Phase: Coordination & Boundaries",
    "img": "/decks/day1/31.webp",
-   "notes": "You are the hub of the wheel, and the key skill here is the warm handoff. Instead of handing a client a phone number, a high-skill Case Manager says: I know someone at that office; let's call them together right now and schedule your appointment. That reduces the referral leak, where clients drop out of treatment during transitions. Next, manage boundaries. One of the biggest risks in this phase is mission creep: trying to solve every new problem, which dilutes the focus on the primary treatment goals. Prioritize, by asking whether a new issue must be solved to reach the primary goal. And empower: coach clients through problems instead of solving them yourself. The goal is to eventually make the Case Manager unnecessary. Pro tip: end every treatment-phase contact by asking: what is the one thing that might get in the way of reaching your goal this week?"
+   "notes": "You are the hub of the wheel, and the key skill is the warm handoff. Instead of handing a client a phone number, you say: let's call them together and book it now. That stops the referral leak, where clients drop out between providers. On John's file there are several transitions: from urgent care to the emergency department at Riverton General, then to Riverton Spine and Rehab, Lakeside Orthopedics, Summit Imaging and Crescent Pain and Spine. Each is a point where he could slip. Then manage boundaries and avoid mission creep, where every new problem pulls you off the main goal. Coach the client rather than solving everything yourself. And end every contact with one question: what is the one thing that might get in the way this week?"
   },
   {
    "page": 34,
    "title": "Case Planning: The Assessment Phase",
    "img": "/decks/day1/34.webp",
-   "notes": "Before you can build a treatment plan, you need to understand the whole person, which means more than reviewing medical records. Assess four areas. Clinical evaluation: the client's physical, cognitive, and psychological impairments. Social determinants: housing, family support, and financial stability. Pre-morbid status: the client's baseline before the accident, so you can separate pre-existing conditions from accident-related injuries. And vocational and educational outlook: can the client return to their previous role, or do they need retraining?"
+   "notes": "Before you build a treatment plan, you assess the whole person. Clinical: the physical, cognitive and psychological impairments. Social: housing, family support and money. John lives with his mother, Margaret, and owns no car, which matters for getting to appointments. Pre-morbid status: the baseline before the accident. John had three chiropractic visits in 2021 for low-back stiffness, which resolved, and no prior neck complaints. You find that history before the defense does. And vocational: can he go back to his job? John is a warehouse shift lead at Northgate, who started on January 12th, 2026, at $22 an hour."
   },
   {
    "page": 35,
    "title": "SMART Goal Setting",
    "img": "/decks/day1/35.webp",
-   "notes": "In a personal injury case, goals must be defensible and measurable, for clinicians and adjusters alike. Use SMART goals. Specific: not improve mobility, but walk 50 meters with a rolling walker. Measurable: use standardized scales, such as FIM scores, or the PHQ-9 for depression. Achievable: the goal is realistic for the prognosis. Relevant: it relates directly to the injuries in the claim. And time-bound: it has clear milestones, like by the 12-week review."
+   "notes": "In a personal injury case, goals have to be defensible and measurable for clinicians and adjusters alike. Use SMART goals. The slide's example, walking 50 meters with a rolling walker, is general. For John, a specific goal is tied to his job, such as lifting 50 pounds at work again. Measurable means a standardized scale, such as a disability score or the PHQ-9 for mood. Achievable means realistic for the prognosis. Relevant means tied to the neck injury in the claim. And time-bound means a clear milestone, such as the twelve-week review in his plan of care at Riverton Spine and Rehab."
   },
   {
    "page": 36,
    "title": "The Care Coordination Strategy",
    "img": "/decks/day1/36.webp",
-   "notes": "The care coordination strategy maps out the specific interventions the client needs. A standard framework groups them into four categories. Acute and restorative care: surgery, physiotherapy, and occupational therapy. Psychological support: counseling or cognitive behavioral therapy for PTSD, anxiety, or adjustment disorders. Durable medical equipment: sourcing wheelchairs, ramps, or assistive technology. And rehabilitation milestones: moving from inpatient to outpatient, or to home-based care."
+   "notes": "The care coordination strategy maps the interventions the client needs, in four groups. Acute and restorative care: surgery, physiotherapy and occupational therapy. On John's file, that's chiropractic and physical therapy, orthopedic care with Dr. Reyes, and the injection at Crescent. Psychological support: counseling for anxiety or trauma. For John, that came through Northgate's employee assistance program, six sessions with Renee Castillo at Stonebridge E A P Services. Durable medical equipment: wheelchairs, ramps and assistive technology, which John's file doesn't call for. And rehabilitation milestones: the steps from one level of care to the next."
   }
  ],
  "d1m4-tmap": [
@@ -220,61 +220,61 @@ window.CM_DECK_SLIDES = {
    "page": 37,
    "title": "The Standard Treatment Map",
    "img": "/decks/day1/37.webp",
-   "notes": "This is the Standard Treatment Map: the typical path of care in a personal injury case. It begins with emergency medical services and emergency room treatment, then MRI and radiology. From there, care continues through providers such as EMC, chiropractic care, physical therapy, and orthopedics, then pain management. Where needed, the path moves to surgery, post-operative care, and long-term pain management. Learn this map well. In the next slides, you will use it to spot when a client drifts off course."
+   "notes": "This is the Standard Treatment Map, the typical path of care in a personal injury case: emergency services and the E R, then imaging, then providers like chiropractic, physical therapy and orthopedics, then pain management, and, where needed, surgery and post-operative care. The map is general. Now trace John's path on it. EMS saw him at the scene and he declined transport. His first treatment was Riverton Urgent Care on February 20th, and from there an ambulance took him to Riverton General Hospital's emergency department, where he was kept overnight. Then Riverton Spine and Rehab from February 24th, Lakeside Orthopedics on March 5th, the MRI at Summit Imaging on March 13th, and pain management at Crescent in May. Learning the map lets you see when a client drifts off it."
   },
   {
    "page": 38,
    "title": "Treatment Road Map Mastery",
    "img": "/decks/day1/38.webp",
-   "notes": "Mastering the treatment map is the difference between a Case Manager who observes a recovery and one who drives it. Deviations from the map are the main reason for insurance denials and independent medical exam triggers. The map has four phases. Acute, days 1–14: the ER, imaging, bracing, rest and ice, and initial therapy. Your focus is establishing causation and MedPay coverage. Sub-acute, weeks 2–8: active physical therapy two to three times a week, and specialist follow-up. Your focus is monitoring functional gains, like range of motion and weight-bearing. Restorative, months 2–6: work hardening, injections, and psychological adjustment. Your focus is identifying barriers to returning to work. And maintenance, six months and beyond: a home exercise program and as-needed visits. Your focus is determining maximum medical improvement, or MMI."
+   "notes": "Mastering the map is the difference between watching a recovery and driving it, because departures from the map are what trigger insurance denials and independent medical exams. Phase one, acute, days 1 to 14: the E R, imaging and early care, with your focus on causation and P I P or MedPay coverage. On John's file, those fourteen days passed with no treatment at all, which is why the gap is so important. Phase two, sub-acute, weeks 2 to 8: active therapy two or three times a week and specialist follow-up. Phase three, restorative, months 2 to 6: injections and psychological adjustment, like John's injection in May and his counseling. Phase four, maintenance, ends with maximum medical improvement, which Dr. Reyes declared on June 12th, 2026."
   },
   {
    "page": 39,
    "title": "Variance Analysis: Why the Map Fails",
    "img": "/decks/day1/39.webp",
-   "notes": "When a client drifts off the map, you must diagnose why, before the insurer ends funding. There are three kinds of variance. Clinical variance: secondary complications, such as a back injury that develops nerve pain that was not in the original ER report. Psychosocial variance: yellow flags like fear-avoidance behavior, depression, or no transportation to therapy. And systemic variance: delays in insurance authorization for an MRI or a specialist referral."
+   "notes": "When a client drifts off the map, find out why before the insurer stops paying. There are three kinds of variance. Clinical variance is a new complication, like nerve symptoms that weren't in the first report. John's urgent-care note records numbness to his right hand since February 18th, and the MRI later showed a C5-C6 disc herniation. Psychosocial variance covers yellow flags like fear, low mood or no transportation. On our file, that is the crash-related anxiety behind his missed visits in April. And systemic variance is delay in the system itself, such as waiting on an authorization for imaging or a referral."
   },
   {
    "page": 40,
    "title": "Communication Loops: The Stakeholder Triad",
    "img": "/decks/day1/40.webp",
-   "notes": "You are the central router for information, and a breakdown in any of these three loops can stall a case for months. The clinical loop: make sure the physical therapist's notes line up with the orthopedist's orders. If therapy says ninety percent recovered and the orthopedist says total disability, the file has a documentation crisis. The legal loop, with the attorney: provide status reports that translate medical jargon into functional evidence. The attorney needs to know what the client can't do in daily life to calculate pain and suffering damages. And the financial loop, with the adjuster: send proactive updates before the six-week physician referral expires, to prevent gaps in treatment the defense could later call non-compliance."
+   "notes": "You are the router for information, and a break in any of these three loops can stall a case for months. The clinical loop: the therapist's notes should line up with the orthopedist's orders. For John, Riverton Spine and Rehab's notes should match what Dr. Reyes is seeing. The legal loop: your status reports to Atty. Thorne translate medical terms into what John can't do in daily life, such as lifting at work or playing pickup basketball, because that is the evidence for pain and suffering. And the financial loop: keep the carriers current. On our file, Harbor Point's P I P went to the emergency care, and its MedPay then paid the urgent care, orthopedic and M R I bills until its $5,000 was used up, so you track both ledgers closely."
   },
   {
    "page": 41,
    "title": "The Golden Standard: Reasonable and Necessary",
    "img": "/decks/day1/41.webp",
-   "notes": "Under US law, in utilization review, every item in your monitoring framework must meet two criteria. Reasonable: is the treatment common for this mechanism of injury? And necessary: is there objective evidence, not just subjective pain, that the treatment is improving function? Then apply the red flag rule. If a client's Oswestry Disability Index score has not changed after 12 weeks of physical therapy, the map shows a plateau. A proactive Case Manager seeks a specialist or a second opinion, instead of continuing treatment that isn't working."
+   "notes": "Every item in your monitoring plan has to meet two tests in utilization review. Reasonable: is this treatment common for this mechanism of injury? Necessary: is there objective evidence, not just reported pain, that it is improving function? Then the red flag rule. The slide uses the Oswestry Disability Index after twelve weeks of therapy as its example, and that is general. On John's file, the same idea shows up when Dr. Reyes, at his March 27th follow-up, refers him on to pain management instead of continuing the same care. A proactive Case Manager looks for the next step, and doesn't let treatment run on when it isn't working."
   },
   {
    "page": 42,
    "title": "Immediate Action Protocol: A-C-T",
    "img": "/decks/day1/42.webp",
-   "notes": "When you spot a red flag, follow the A-C-T protocol. Assess: is this a medical danger, like a fever or hardware failure, or a legal danger, like gaps in care or generic notes? Clarify: call the provider's medical assistant and ask directly. For example: the client has had 15 therapy sessions with no progress; is the doctor considering an orthopedic referral? And Track: document the red flag and your attempt to fix it. If the attorney ever needs to drop a provider who is damaging the case, your documentation provides the reason why."
+   "notes": "When you spot a red flag, use A-C-T. Assess: is this a medical danger, like a fever or hardware failure, or a legal danger, like a gap in care or generic notes? Clarify: call the provider's office and ask directly. Track: document the red flag and what you did about it. On John's file, A-C-T runs in April. On April 8th, Riverton Spine and Rehab sent a missed-visit alert. The Case Manager reviewed the file, then called and texted John the same morning, logging each attempt. If the attorney ever has to make a decision about the case or a provider, your record is the reason he can."
   },
   {
    "page": 43,
    "title": "Illustration: The Clinical Pathway Flowchart",
    "img": "/decks/day1/43.webp",
-   "notes": "This flowchart puts the whole treatment map on one page. Phase one, acute, days 1 to 14: initial set-up, with ER or urgent care diagnostics, establishing causation and the mechanism of injury, and PIP or MedPay verification. Phase two, sub-acute, weeks 2 to 8: conservative care like therapy or chiropractic, and diagnostic imaging. Then the key question: is the patient improving? If yes, continue the treatment plan. If no, a variance is detected, and the variance loop begins: medication management or injections, a specialist referral, and psychological screening for yellow flags. Phase three, restorative: work hardening, a functional capacity evaluation, and the question of surgical intervention. And phase four, MMI and discharge: the permanent impairment rating, final lien resolution, and case settlement support."
+   "notes": "This flowchart puts the treatment map on one page. Phase one: early diagnostics, establishing causation and the mechanism of injury, and verifying P I P. On John's file, that is the EMS run report noting neck stiffness on the day of the crash, and Harbor Point's P I P, opened February 24th. Phase two: conservative care and imaging. Then the key question: is the patient improving? If not, the variance loop begins, with injections, a specialist referral and psychological screening. John's file went through all three: Crescent, pain management and counseling. Phase three is restorative, and phase four is maximum medical improvement and discharge, where the permanent impairment rating and the final lien resolution set up the settlement."
   },
   {
    "page": 44,
    "title": "Using the Map for Course Correction",
    "img": "/decks/day1/44.webp",
-   "notes": "Here is how to use the map for course correction. First, identify the plateau, using the six-week rule. Most adjusters look for a functional gap at the six-week mark. The map expects a 20–30% improvement in range of motion, or a drop in pain scores. If the client is still at 10/10 pain after 12 therapy sessions, pivot immediately. Don't wait for the adjuster to deny the next six sessions. Second, monitor with objective metrics, to keep the loop with the insurer tight. Use the Oswestry or DASH score to measure disability in daily activities, every 30 days. Use gait analysis for mobility and fall risk in lower-extremity injuries. Use the PHQ-9 and GAD-7 to screen for depression and anxiety when physical progress stalls. And use a functional capacity evaluation before a return to work, or at MMI."
+   "notes": "Here is how to use the map for course correction. First, find the plateau with the six-week rule. Adjusters look for a functional change around week six, typically a 20 to 30 percent gain in range of motion or a drop in pain. If the client is still at 10 out of 10 pain after twelve sessions, pivot now; don't wait for a denial. On John's file, his week-six re-evaluation at Riverton Spine and Rehab was scheduled for April 7th, and he missed it, which is itself a warning. Second, measure with objective tools: a disability score every 30 days, gait analysis for leg injuries, the PHQ-9 and GAD-7 when progress stalls, and a functional capacity evaluation before a return to work."
   },
   {
    "page": 48,
    "title": "Bottlenecks: The Escalation Protocol",
    "img": "/decks/day1/48.webp",
-   "notes": "When a bottleneck occurs, use the three-step escalation. Level one, clinical: contact the provider's office manager to expedite notes or a peer-to-peer review. Level two, administrative: send a notice of delay to the adjuster and the plaintiff's attorney, documenting the barrier to care. Level three, legal: ask the attorney to file a motion to compel, or to use a Letter of Protection to get past insurance stalling. That last decision always belongs to the attorney."
+   "notes": "When a bottleneck stalls care, escalate in three levels. Level one, clinical: contact the provider's office manager, on our file Tammy Greer at Riverton Spine and Rehab, to move notes along or ask for a peer-to-peer review. Level two, administrative: send a notice of delay to the adjuster and the plaintiff's attorney, documenting the barrier to care. Level three, legal: ask the attorney about a motion, or about using a Letter of Protection to get past insurance stalling. That decision always belongs to the attorney. And not every LOP request is accepted: when Summit Imaging asked for one, it was declined, because MedPay applied first."
   },
   {
    "page": 49,
    "title": "Resolve: The Escalation Ladder",
    "img": "/decks/day1/49.webp",
-   "notes": "When the treatment map hits a wall, move up the escalation ladder. Step A, the clinician: request a peer-to-peer review between the treating doctor and the insurer's medical director. Step B, the adjuster: send a status update that states plainly that the delay is increasing the total claim cost, by extending the period of temporary disability. Step C, the attorney: if step B fails, notify the attorney, who may issue a 30-day demand, or move the provider to a Letter of Protection basis to avoid the insurance authorization wait."
+   "notes": "When the map hits a wall, climb the ladder one step at a time. Step A, the clinician: ask for a peer-to-peer review between the treating doctor and the insurer's medical director. Step B, the adjuster: send a status update that says plainly that the delay is raising the total claim cost by extending the period of disability. Step C, the attorney: if step B fails, tell the attorney, who may send a 30-day demand or move the provider to a Letter of Protection. On John's file, Atty. Thorne is the one who makes that call. Your job is to bring him a clean record of each step you took."
   }
  ],
  "d1m4-tcare": [
@@ -282,37 +282,37 @@ window.CM_DECK_SLIDES = {
    "page": 32,
    "title": "Red Flags: Physical Therapy & Surgery",
    "img": "/decks/day1/32.webp",
-   "notes": "You need to know the standard US treatment protocols, and their red flags. Physical therapy and conservative care are often the baseline of treatment in a legal case. Red flags here signal a stagnating case, or over-treatment for billing. Watch for more than 12 sessions with no improvement in range of motion or pain, with no referral to a specialist or imaging. Watch for passive sessions, like heat packs, TENS units, or massage, with no active exercise, which adjusters see as feel-good treatment. And watch for two or more missed appointments, which lets the defense argue the injury isn't severe. Surgery is the most valuable part of a claim, and its red flags involve safety and the standard of care: surgery recommended before therapy or injections, outside an emergency; left and right switched in the records; a client told to just wait on a fever or redness; and sharp or mechanical pain after surgery, which may signal a hardware problem."
+   "notes": "Know the standard treatment protocols and their red flags. Physical therapy is usually the baseline of care. Red flags are more than twelve sessions with no improvement and no referral or imaging, passive care with no active exercise, and two or more missed appointments, which lets the defense argue the injury isn't serious. On our file, that last one is real. In April, John missed visits on the 3rd, the 7th, the 9th and the 14th, and you need to know why. For surgery, the red flags are about safety: surgery before therapy or injections outside an emergency, left and right switched in the records, a fever or redness the client is told to ignore, and sharp mechanical pain after surgery. John's file has no surgery; his care stayed conservative, with one epidural steroid injection."
   },
   {
    "page": 33,
    "title": "Red Flags: Pain Management & Behavioral Health",
    "img": "/decks/day1/33.webp",
-   "notes": "Pain management and medication is the most scrutinized area, because of opioid regulations and medical necessity audits. Red flags: an opioid, a muscle relaxant, and a sedative prescribed together, which is a major safety risk and a liability if the client has an accident while medicated. A urine drug screen showing the client is not taking their prescribed medication, or is taking illicit substances. And dosages rising with no change in diagnosis, which suggests the treatment is failing, or an addiction is forming. Clients with traumatic brain injury are high-value cases that need great discretion. Red flags: memory loss never mentioned at the ER, but significant TBI symptoms three months later when the lawsuit starts, which needs immediate neurological validation. And behavioral health notes about general life stress rather than the trauma of the accident, which are rarely covered and look unreasonable."
+   "notes": "Pain management is the most scrutinized area, because of opioid rules and medical necessity audits. The red flags on the slide are general: an opioid, a muscle relaxant and a sedative prescribed together; a urine drug screen showing the client isn't taking his medication; and doses rising with no change in diagnosis. On John's file, pain management means Dr. Omar Haddad at Crescent Pain and Spine, who gave a cervical epidural steroid injection on May 15th, 2026. Traumatic brain injury isn't part of this file, but the red flag is worth knowing: symptoms that never appeared at the E R and then show up months later need medical validation right away. And behavioral health has to be tied to the trauma of the accident. John's counseling was about crash-related anxiety, which is exactly the kind of record that holds up."
   },
   {
    "page": 45,
    "title": "The Yellow Flag Warning System",
    "img": "/decks/day1/45.webp",
-   "notes": "Watch for psychosocial barriers that derail the map. Catastrophizing: I will never walk again, despite minor clinical findings. Litigation stress: high conflict with the defense side slowing recovery. And iatrogenic factors: dependency on opioids, or too much passive care, like ice and heat, instead of active care like exercise. When you communicate with the attorney and the insurer, use the map to justify your plan. For example: the client is in phase two, sub-acute. We have noted a clinical variance: physical therapy has not reduced the radicular pain. Per the Standard Treatment Map, I am recommending an MRI and a neurosurgical consult to rule out surgical necessity before phase three. This keeps treatment reasonable and necessary."
+   "notes": "Watch for yellow flags, the psychosocial barriers that knock a client off the map: catastrophizing, litigation stress, and dependence on passive care or medication. On John's file, the yellow flag was crash-related anxiety. After April 2nd he avoided riding in cars to appointments, and Dr. Reyes documented anxiety and avoidance on April 20th and referred him for counseling. When you report to the attorney or a carrier, use the map to justify the plan. The slide's example, recommending an MRI and a neurosurgical consult for radicular pain, is general. For John, the MRI was ordered by Dr. Reyes on March 5th. That keeps the treatment reasonable and necessary."
   },
   {
    "page": 46,
    "title": "Handling Treatment Gaps",
    "img": "/decks/day1/46.webp",
-   "notes": "Treatment gaps found during active care can weaken the credibility of the injury, delay recovery, create documentation inconsistencies, and reduce future settlement value. Intervening early prevents bigger problems in the demand phase. The common causes are: missed appointments, transportation problems, financial concerns or co-pays, work schedule conflicts, a client stopping treatment after temporary relief, and delays in referrals, imaging, or authorizations."
+   "notes": "Treatment gaps weaken the credibility of the injury, slow recovery, create inconsistent records, and reduce settlement value. Step in early, because a gap explained now is far easier than one explained at the demand. The common causes are missed appointments, transportation, cost and co-pays, work schedules, stopping after temporary relief, and delays in referrals or authorizations. John's file has two gaps. The first is fourteen days, from the crash on February 6th to his first treatment on February 20th. The second is nineteen days of disrupted care in April, from his visit on April 2nd until care resumed on April 21st."
   },
   {
    "page": 47,
    "title": "Treatment Gaps: Case Manager Responsibilities",
    "img": "/decks/day1/47.webp",
-   "notes": "Your responsibilities with treatment gaps: monitor treatment frequency and appointment compliance. Follow up immediately after a missed appointment. Educate the client on why consistent treatment matters. Help coordinate transportation, scheduling, or referrals. Communicate with providers about interruptions in care. And document every client explanation and every follow-up effort. As best practice, keep treatment timelines updated, track referrals and pending appointments, encourage clients to report worsening symptoms promptly, and escalate prolonged or unexplained gaps to supervising staff or the attorney. Consistent treatment documentation strengthens both the medical support and the future negotiating position."
+   "notes": "Your responsibilities with treatment gaps are concrete. Monitor frequency and attendance. Follow up immediately after a missed visit. Explain to the client why steady treatment matters. Help with transportation, scheduling and referrals. Talk with providers about interruptions. And document every explanation and every follow-up. As best practice, keep the treatment timelines current, and escalate a long or unexplained gap to supervising staff or the attorney. On John's file, that work is visible. After the April missed-visit alert came the calls, texts, an email, a call to Margaret as the emergency contact, and then escalation to Atty. Thorne. John called back on April 17th, and with his consent, evening therapy visits were booked from April 21st. That record is what later protects the value of the case."
   },
   {
    "page": 50,
    "title": "Thank You!",
    "img": "/decks/day1/50.webp",
-   "notes": "That completes Day 1. Today you learned what a Case Manager owns, how to run a clean intake and acceptance decision, how to set up a claim, and how to keep the treatment phase on track. Thank you for your attention. Bring your questions to the next session."
+   "notes": "That completes Day 1. You've seen what a Case Manager owns, how to run a clean intake and acceptance decision, how to set up the claim and its coverage, and how to keep treatment on track. You've also seen John Doe versus Robert Smith from the first call to maximum medical improvement, with its two gaps clearly documented. Next, we take that file into the pre-demand audit and the demand. Thank you for your attention, and bring your questions to the next session."
   }
  ],
  "d2m4-l1": [
@@ -344,7 +344,7 @@ window.CM_DECK_SLIDES = {
    "page": 5,
    "title": "Master Audit Checklist: Financial & Lien Verification",
    "img": "/decks/day2/05.webp",
-   "notes": "Now the math. The checklist starts with financial and lien verification. Special damages are the hard numbers: medical bills and lost wages. The slide's general definition also folds in property damage, but on our file the Civic is Margaret's, handled on her own claim, so it stays out of John's specials. Our numbers are medical specials of fourteen thousand eight hundred seventeen dollars and forty cents after the audit, plus lost wages of one thousand five hundred eighty-four dollars, for total specials of sixteen thousand four hundred one dollars and forty cents. The slide warns that wages need an employer letter and a doctor's note. We have Northgate's wage-and-attendance letter, and each missed shift is tied to a record, except five shifts in February that predate treatment. Those were flagged to Atty. Thorne and kept in the claim, never hidden. Then liens. Peach State first asserted three thousand six hundred eighteen dollars, and the line-by-line dispute brought it to one thousand eight hundred sixty. Riverton Spine and Rehab's LOP is the other. Miss a lien, and the client can walk away with nothing."
+   "notes": "Now the math. The checklist starts with financial and lien verification. Special damages are the hard numbers: medical bills and lost wages. The slide's general definition also folds in property damage, but on our file the Civic is Margaret's, handled on her own claim, so it stays out of John's specials. Our numbers are medical specials of forty-one thousand four hundred dollars after the audit, plus lost wages of one thousand five hundred eighty-four dollars, for total specials of forty-two thousand nine hundred eighty-four dollars. The slide warns that wages need an employer letter and a doctor's note. We have Northgate's wage-and-attendance letter, and each missed shift is tied to a record, except five shifts in February that predate treatment. Those were flagged to Atty. Thorne and kept in the claim, never hidden. Then liens. Peach State first asserted three thousand six hundred eighteen dollars, and the line-by-line dispute brought it to one thousand eight hundred sixty. Riverton Spine and Rehab's LOP is the other. Miss a lien, and the client can walk away with nothing."
   },
   {
    "page": 6,
@@ -374,7 +374,7 @@ window.CM_DECK_SLIDES = {
    "page": 10,
    "title": "Final Package Readiness",
    "img": "/decks/day2/10.webp",
-   "notes": "Here is what an audited file looks like when it goes to the attorney. Three pieces. A one-page summary memo of what the audit found. An exhibit index, with every bill, record and photo labeled. And the Ask, the demand figure, calculated from the policy limits and the specials. On our file, the Ask is simple to state: Keystone's ten thousand dollar BI limit, against total specials of sixteen thousand four hundred one dollars and forty cents. The specials alone exceed the limit, before pain and suffering is even counted. Now the pro tip on the slide: audit the policy limits one more time. The slide's example of a hundred thousand dollar demand against a twenty-five thousand dollar policy is general, but the lesson fits us. Keystone gave its limit verbally at first and wouldn't confirm it in writing until it had signed authorizations. The Declaration Page confirming ten thousand dollars arrived March 20th, 2026. Never build a demand on a verbal number."
+   "notes": "Here is what an audited file looks like when it goes to the attorney. Three pieces. A one-page summary memo of what the audit found. An exhibit index, with every bill, record and photo labeled. And the Ask, the demand figure, calculated from the policy limits and the specials. On our file, the Ask is simple to state: Keystone's ten thousand dollar BI limit, against total specials of forty-two thousand nine hundred eighty-four dollars. The specials alone exceed the limit, before pain and suffering is even counted. Now the pro tip on the slide: audit the policy limits one more time. The slide's example of a hundred thousand dollar demand against a twenty-five thousand dollar policy is general, but the lesson fits us. Keystone gave its limit verbally at first and wouldn't confirm it in writing until it had signed authorizations. The Declaration Page confirming ten thousand dollars arrived March 20th, 2026. Never build a demand on a verbal number."
   }
  ],
  "d3m1-l1": [
@@ -400,7 +400,7 @@ window.CM_DECK_SLIDES = {
    "page": 16,
    "title": "The Demand Packet Checklist",
    "img": "/decks/day2/16.webp",
-   "notes": "Before the attorney reviews the demand letter, the Case Manager makes sure the Big Four are flawless. Medical specials: a clean, itemized list of every provider, date and amount, which for us totals fourteen thousand eight hundred seventeen dollars and forty cents after the audit. The narrative: the human story of how the injury changed the client's life. John's signed Personal Impact Statement tells it in his own words, including the panic attack at his own corner, the nightmares and giving up pickup basketball, and whether that's presented is Atty. Thorne's call. Liability proof: the police report citing Smith, Ruth Calloway's statement, and the doorbell video. And special damages: wage verification and out-of-pocket receipts. We have Northgate's letter supporting one thousand five hundred eighty-four dollars in lost wages, and Riverton Drug receipts of three hundred twelve dollars and forty cents. All four pieces have to agree with each other."
+   "notes": "Before the attorney reviews the demand letter, the Case Manager makes sure the Big Four are flawless. Medical specials: a clean, itemized list of every provider, date and amount, which for us totals forty-one thousand four hundred dollars after the audit. The narrative: the human story of how the injury changed the client's life. John's signed Personal Impact Statement tells it in his own words, including the panic attack at his own corner, the nightmares and giving up pickup basketball, and whether that's presented is Atty. Thorne's call. Liability proof: the police report citing Smith, Ruth Calloway's statement, and the doorbell video. And special damages: wage verification and out-of-pocket receipts. We have Northgate's letter supporting one thousand five hundred eighty-four dollars in lost wages, and Riverton Drug receipts of three hundred twelve dollars and forty cents. All four pieces have to agree with each other."
   },
   {
    "page": 17,
@@ -432,37 +432,37 @@ window.CM_DECK_SLIDES = {
    "page": 22,
    "title": "The Valuation Baseline: The Set-Off",
    "img": "/decks/day2/22.webp",
-   "notes": "This slide introduces the set-off. In many jurisdictions, PIP pays regardless of fault, and the defendant's carrier gets a credit for what PIP paid, on the theory that the law prevents double recovery. So gross settlement value minus the PIP paid equals the defendant's remaining exposure. That's general information worth knowing, and you'll meet it on other files. But our file runs on Riverton's rule, and it's different. Riverton is an add-on PIP state. PIP does not reduce BI or UM, and the PIP carrier can't recover what it paid out of its insured's settlement. Harbor Point paid five thousand dollars in PIP for John, and confirmed in writing on March 2nd, 2026 that it has no reimbursement right against his recovery. So on our file there's no set-off against Keystone. Always check which rule your jurisdiction follows before you do this math."
+   "notes": "This slide introduces the set-off. In many jurisdictions, PIP pays regardless of fault, and the defendant's carrier gets a credit for what PIP paid, on the theory that the law prevents double recovery. So gross settlement value minus the PIP paid equals the defendant's remaining exposure. That's general information worth knowing, and you'll meet it on other files. But our file runs on Riverton's rule, and it's different. Riverton is an add-on PIP state. PIP does not reduce BI or UM, and the PIP carrier can't recover what it paid out of its insured's settlement. Harbor Point paid ten thousand dollars in PIP for John, and confirmed in writing on March 2nd, 2026 that it has no reimbursement right against his recovery. So on our file there's no set-off against Keystone. Always check which rule your jurisdiction follows before you do this math."
   },
   {
    "page": 23,
    "title": "The Valuation Baseline: PIP as a Valuation Baseline",
    "img": "/decks/day2/23.webp",
-   "notes": "Adjusters look at PIP payments to gauge how serious a claim is, and this slide shows why that can mislead. Its example is a ten thousand dollar PIP limit used up in forty-eight hours on emergency room and E M S bills, with the specials running far above it. The lesson is in the gap: how fast PIP ran out tells you about the bills, not about the injury. What PIP paid is never the measure of the case; the full specials are what anchor the value of the claim for pain and suffering. When you reach the Think it through challenge, you will work this out on John Doe's own file: whose PIP he claims, what it paid and when it ran out, and how his total specials compare. Keep the slide's method in mind and bring the file's documents, not the example's numbers."
+   "notes": "Adjusters look at PIP payments to gauge how serious a claim is, and this slide shows why that can mislead. The figures on it are John Doe's own: a ten thousand dollar PIP limit used up in the first forty-eight hours of care on the emergency room and E M S bills, with his medical bills running far above it. The lesson is in the gap: how fast PIP ran out tells you about the bills, not about the injury. What PIP paid is never the measure of the case; the full specials are what anchor the value of the claim for pain and suffering. When you reach the Think it through challenge, you will work this out on John's file: whose PIP he claims, what it paid and when it ran out, and how his total bills compare. Confirm the slide's figures from the file's documents, then reason from them to what they cause."
   },
   {
    "page": 24,
    "title": "The Valuation Baseline: The EMC and the Benefit Ceiling",
    "img": "/decks/day2/24.webp",
-   "notes": "This slide talks about the Emergency Medical Condition finding, the EMC, as a negotiating lever. In a state with an EMC rule, such as Florida, PIP benefits are capped at a lower amount unless a qualifying provider makes that finding, which pushes more bills onto the BI settlement. The slide's example, including its doctor, is general and not from our file. Here's what matters for John. Riverton has no EMC rule. There's no treat-within-fourteen-days condition and no EMC determination capping his PIP, so his full five thousand dollars was available despite the fourteen-day gap. That's why we teach EMC as a contrast. If you work a Florida file, you'll have to chase that finding. On ours, the gap matters for causation arguments with Keystone, not for PIP benefits. Knowing the difference keeps you from making an argument that doesn't apply."
+   "notes": "This slide talks about the Emergency Medical Condition finding, the EMC, as a negotiating lever. In a state with an EMC rule, PIP benefits are capped at a lower amount unless a qualifying physician makes that finding, which pushes more bills onto the other payers and the BI settlement. Riverton has that rule, the same one Florida uses: without an EMC, PIP medical benefits stop at two thousand five hundred dollars, and there is no treat-within-fourteen-days condition. The doctor on this slide is ours. Dr. Sarah Spine, the emergency physician at Riverton General Hospital, documented John Doe's EMC on February 20th, 2026, so his full PIP limit was available. What his file would look like without that finding is part of the Think it through challenge, so work it out from the file's own documents. The finding is the physician's to make, never the Case Manager's to ask for. Knowing when the rule applies keeps your argument on solid ground."
   },
   {
    "page": 25,
    "title": "The Valuation Baseline: Subrogation vs. Non-Subrogation",
    "img": "/decks/day2/25.webp",
-   "notes": "Here's a technical point that changes the client's net: subrogation versus non-subrogation. Under non-subrogation, the PIP carrier can't take back what it paid from the BI settlement, and that money effectively stays with the client. Under subrogation, the carrier places a lien on the settlement, and the Case Manager has to negotiate it down. The slide's ten thousand dollar figure is a general example. On our file, Harbor Point's PIP falls on the non-subrogation side: it confirmed in writing that it has no reimbursement right on the five thousand dollars it paid. But don't stop there. A health plan can be a different story. Peach State asserted a reimbursement right on its first notice and paid one thousand eight hundred sixty dollars for the injection. That one is a real lien, and it's the one we have to resolve before John is paid."
+   "notes": "Here's a technical point that changes the client's net: subrogation versus non-subrogation. Under non-subrogation, the PIP carrier can't take back what it paid from the BI settlement, and that money effectively stays with the client. Under subrogation, the carrier places a lien on the settlement, and the Case Manager has to negotiate it down. The slide's ten thousand dollar figure is also our file's PIP limit. On our file, Harbor Point's PIP falls on the non-subrogation side: it confirmed in writing that it has no reimbursement right on the ten thousand dollars it paid, or on its MedPay. But don't stop there. A health plan can be a different story. Peach State asserted a reimbursement right on its first notice and paid one thousand eight hundred sixty dollars for the injection. That one is a real lien, and it's the one we have to resolve before John is paid."
   },
   {
    "page": 26,
    "title": "The Valuation Baseline: Strategic Exhaustion",
    "img": "/decks/day2/26.webp",
-   "notes": "The slide describes strategic exhaustion: spend PIP on the hard costs like imaging, then move later care to Letters of Protection, because LOP providers are often more willing to reduce their bills at the end. On our file, it worked a little differently but the logic is the same. PIP paid the urgent care visit, Dr. Reyes's visits and the twenty-three hundred ninety-five dollar MRI. Riverton Spine and Rehab was out of network for Peach State, so John treated there under an LOP signed February 23rd, 2026, from the start. And that LOP balance is the one that came down at the end, from the audited six thousand one hundred five dollars to four thousand five hundred eighty. Now the tip: verify the PIP ledger before you negotiate. Ours shows five payments totaling exactly five thousand dollars. Quote the specials accurately and you protect your credibility."
+   "notes": "The slide describes strategic exhaustion: spend PIP on the hard costs like imaging, then move later care to Letters of Protection, because LOP providers are often more willing to reduce their bills at the end. On our file, it worked a little differently but the logic is the same. PIP went to the emergency room and ambulance bills of the first forty-eight hours, and then Harbor Point's MedPay paid the urgent care visit, Dr. Reyes's visits and the twenty-three hundred ninety-five dollar MRI. Riverton Spine and Rehab was out of network for Peach State, so John treated there under an LOP signed February 23rd, 2026, from the start. And that LOP balance is the one that came down at the end, from the audited six thousand one hundred five dollars to four thousand five hundred eighty. Now the tip: verify the PIP and MedPay ledgers before you negotiate. Our MedPay ledger shows five payments totaling exactly five thousand dollars. Quote the specials accurately and you protect your credibility."
   },
   {
    "page": 27,
    "title": "Negotiations Initiated: The Battle",
    "img": "/decks/day2/27.webp",
-   "notes": "Negotiations begin once the demand is in the adjuster's hands. Start with the soft lead: confirm they received the demand and every record, and point them to the evidence that matters. On our file, Dana Whitfield at Keystone confirmed receipt in writing on July 22nd, 2026, and that acknowledgement started the thirty-day clock, so the acceptance window ran to August 21st. Then set the tone: the file is litigation ready. Next, the ask. The slide's script mentions forty thousand dollars in specials, which is a general example. On ours, you'd say clear liability and sixteen thousand four hundred one dollars and forty cents in specials, against a ten thousand dollar limit. And when the lowball comes, stay calm and use the professional pause. Keystone's offer of three thousand five hundred dollars on August 5th was exactly that moment. Ask what data supports the number, and log the answer."
+   "notes": "Negotiations begin once the demand is in the adjuster's hands. Start with the soft lead: confirm they received the demand and every record, and point them to the evidence that matters. On our file, Dana Whitfield at Keystone confirmed receipt in writing on July 22nd, 2026, and that acknowledgement started the thirty-day clock, so the acceptance window ran to August 21st. Then set the tone: the file is litigation ready. Next, the ask. The slide's script mentions forty thousand dollars in specials, which is a general example. On ours, you'd say clear liability and forty-two thousand nine hundred eighty-four dollars in specials, against a ten thousand dollar limit. And when the lowball comes, stay calm and use the professional pause. Keystone's offer of three thousand five hundred dollars on August 5th was exactly that moment. Ask what data supports the number, and log the answer."
   },
   {
    "page": 28,
@@ -602,7 +602,7 @@ window.CM_DECK_SLIDES = {
    "page": 7,
    "title": "The BI/UM Master Financial Ledger",
    "img": "/decks/day3/07.webp",
-   "notes": "Here's what the net sheet looks like: our LSH corporate net sheet. It reads top to bottom, the way the money flows. The reference is Keystone Mutual Insurance, and the rest of the template we fill in with our file. Section one, the settlement recovery summary: a gross of 40,000 dollars from Keystone, Harbor Point and Cardinal State. Section two, attorney fees and advanced case expenses. The template shows 33.33 percent. John's fee is one third, 13,333 dollars and 33 cents. His case costs total 486 dollars and 75 cents, including the police report, medical records and billing, certified mail, MRI images on disc, and postage and copies. Every line on the template, from filing fees to file storage, gets checked, even if it's empty. Section three, the medical provider ledger, is where your lien work lands. For each provider you track charges, PIP, health and med pay payments, adjustments, balance owed and your max offer. John's MRI and orthopedic visits were paid by PIP, while Riverton Spine and Rehab's chiro and PT, treated under an LOP, carry the balance you negotiated."
+   "notes": "Here's what the net sheet looks like: our LSH corporate net sheet. It reads top to bottom, the way the money flows. The reference is Keystone Mutual Insurance, and the rest of the template we fill in with our file. Section one, the settlement recovery summary: a gross of 40,000 dollars from Keystone, Harbor Point and Cardinal State. Section two, attorney fees and advanced case expenses. The template shows 33.33 percent. John's fee is one third, 13,333 dollars and 33 cents. His case costs total 486 dollars and 75 cents, including the police report, medical records and billing, certified mail, MRI images on disc, and postage and copies. Every line on the template, from filing fees to file storage, gets checked, even if it's empty. Section three, the medical provider ledger, is where your lien work lands. For each medical provider you track charges, PIP, health and med pay payments, adjustments, balance owed and your max offer. John's PIP went to his emergency room and ambulance bills. His urgent care, MRI and orthopedic visits were paid by Harbor Point's med pay, while Riverton Spine and Rehab's chiro and PT, treated under an LOP, carry the balance you negotiated. Below it sits the non-medical provider ledger, for pharmacy, counseling, equipment and transportation. That's where Riverton Drug's 312 dollars and 40 cents goes. John paid it himself, so nothing is owed. His E A P counseling with Stonebridge goes there too, at no charge. Neither one is a lien."
   },
   {
    "page": 8,
@@ -660,7 +660,7 @@ window.CM_DECK_SLIDES = {
    "page": 17,
    "title": "Final Case Reconciliation: Compliance and Identity",
    "img": "/decks/day3/17.webp",
-   "notes": "The next set is compliance and identity verification. In other words, proving on paper that we paid the right people the right way. It has two items. First, updated W-9 and tax documents, so the most recent tax information is on file for any ten ninety-nine reporting. Check that what's in the file is current before you close it. Second, the duplication of benefits final review. This is a signed statement from the beneficiary confirming he didn't receive double funding from another source, like insurance, after the case started. Why does that matter on John's file? Because his care was paid from several directions. Harbor Point's PIP paid 5,000 dollars of bills, Peach State paid the injection, and Riverton Spine and Rehab treated under an LOP. With that many payers, the file has to show that no expense was paid twice. It's the same principle as the net sheet. Every dollar should come from one clear source, and the file should prove it."
+   "notes": "The next set is compliance and identity verification. In other words, proving on paper that we paid the right people the right way. It has two items. First, updated W-9 and tax documents, so the most recent tax information is on file for any ten ninety-nine reporting. Check that what's in the file is current before you close it. Second, the duplication of benefits final review. This is a signed statement from the beneficiary confirming he didn't receive double funding from another source, like insurance, after the case started. Why does that matter on John's file? Because his care was paid from several directions. Harbor Point's PIP paid 10,000 dollars on the emergency room and ambulance bills, its med pay paid 5,000 dollars more, Peach State paid the injection, and Riverton Spine and Rehab treated under an LOP. With that many payers, the file has to show that no expense was paid twice. It's the same principle as the net sheet. Every dollar should come from one clear source, and the file should prove it."
   },
   {
    "page": 18,
@@ -766,7 +766,7 @@ window.CM_DECK_SLIDES = {
    "page": 8,
    "title": "Preparing Mediation Binders: The Roadmap for Settlement",
    "img": "/decks/day4/08.webp",
-   "notes": "Another way to see the binder is as the roadmap to settlement. It pulls together the key medical records, the special damages you've already verified, the liability reports, and the exhibits the case turns on. On John Doe's file, verified really means verified. The audited specials total sixteen thousand four hundred one dollars and forty cents, after a duplicate visit line from Riverton Spine and Rehab was removed. The liability report is the police report citing Robert Smith for failing to stop at the stop sign. But collecting documents is only half the job. The other half is making them easy to find. That's why careful indexing and bookmarking matter so much. When the conversation moves fast, the attorney and the mediator should land on the right page in seconds. So how should the binder be organized? Let's walk through it, section by section."
+   "notes": "Another way to see the binder is as the roadmap to settlement. It pulls together the key medical records, the special damages you've already verified, the liability reports, and the exhibits the case turns on. On John Doe's file, verified really means verified. The audited medical specials total forty-one thousand four hundred dollars, after a duplicate visit line from Riverton Spine and Rehab was removed, and forty-two thousand nine hundred eighty-four dollars once the lost wages are added. The liability report is the police report citing Robert Smith for failing to stop at the stop sign. But collecting documents is only half the job. The other half is making them easy to find. That's why careful indexing and bookmarking matter so much. When the conversation moves fast, the attorney and the mediator should land on the right page in seconds. So how should the binder be organized? Let's walk through it, section by section."
   },
   {
    "page": 9,
@@ -796,7 +796,7 @@ window.CM_DECK_SLIDES = {
    "page": 13,
    "title": "Mediation Binder Section 5: Damages, Financials & Experts",
    "img": "/decks/day4/13.webp",
-   "notes": "If section four proves what happened, section five proves what it cost. This is where we justify the dollar figure we're asking for. Start with the medical side: the records summary with chart notes in date order, and a ledger of every medical expense so far. On our file, the medical specials come to fourteen thousand eight hundred seventeen dollars and forty cents after the audit. Then the proof of financial loss. For John, that's nine missed shifts, one thousand five hundred eighty-four dollars, verified by Northgate's wage-and-attendance letter. Last come the supporting medical and expert opinions. The slide's examples are general. On our file, the key one is Doctor Reyes's Causation Letter, which says the injury was more likely than not caused by the collision. As a case manager, your eye is on accuracy. A ledger that doesn't match the records weakens the very number this section is meant to support."
+   "notes": "If section four proves what happened, section five proves what it cost. This is where we justify the dollar figure we're asking for. Start with the medical side: the records summary with chart notes in date order, and a ledger of every medical expense so far. On our file, the medical specials come to forty-one thousand four hundred dollars after the audit. Then the proof of financial loss. For John, that's nine missed shifts, one thousand five hundred eighty-four dollars, verified by Northgate's wage-and-attendance letter, which brings the total specials to forty-two thousand nine hundred eighty-four dollars. Last come the supporting medical and expert opinions. The slide's examples are general. On our file, the key one is Doctor Reyes's Causation Letter, which says the injury was more likely than not caused by the collision. As a case manager, your eye is on accuracy. A ledger that doesn't match the records weakens the very number this section is meant to support."
   },
   {
    "page": 14,
@@ -842,7 +842,7 @@ window.CM_DECK_SLIDES = {
    "page": 28,
    "title": "Arbitration Binder Section 4: Medical Damages",
    "img": "/decks/day4/28.webp",
-   "notes": "Section four turns from fault to injury. It justifies the compensation we're asking for John's physical injuries. Think of it in layers. On top is the consolidated medical ledger, the treatment chart in date order with a billing spreadsheet tracking total costs. For us, that's fourteen thousand eight hundred seventeen dollars and forty cents in audited medical specials. Underneath are the provider treatment logs, the records, intake packets, chart notes and invoices from every facility, from Riverton Urgent Care through Riverton Spine and Rehab, Lakeside Orthopedics and Crescent Pain and Spine. Then the diagnostic imaging. John's cervical MRI at Summit Imaging confirmed a C5-C6 disc herniation. Last, the slide lists Emergency Medical Condition declarations for medical necessity. Be careful here. That's a Florida PIP rule, and our Riverton file has no EMC rule. You'd include it when you work a Florida file. Together, these layers answer the arbitrator's questions: what was done, what it cost, and what proves the injury."
+   "notes": "Section four turns from fault to injury. It justifies the compensation we're asking for John's physical injuries. Think of it in layers. On top is the consolidated medical ledger, the treatment chart in date order with a billing spreadsheet tracking total costs. For us, that's forty-one thousand four hundred dollars in audited medical specials. Underneath are the provider treatment logs, the records, intake packets, chart notes and invoices from every facility, from Riverton Urgent Care through Riverton Spine and Rehab, Lakeside Orthopedics and Crescent Pain and Spine. Then the diagnostic imaging. John's cervical MRI at Summit Imaging confirmed a C5-C6 disc herniation. Last, the slide lists Emergency Medical Condition declarations for medical necessity. Riverton uses the same rule Florida does: without a physician's EMC finding, PIP medical benefits stop at two thousand five hundred dollars. On John Doe's file, Doctor Sarah Spine documented his EMC in Riverton General's emergency department on February 20th, 2026, so the full ten thousand dollars of PIP was available. That finding belongs in this tab. Together, these layers answer the arbitrator's questions: what was done, what it cost, and what proves the injury."
   },
   {
    "page": 30,
@@ -892,7 +892,7 @@ window.CM_DECK_SLIDES = {
    "page": 3,
    "title": "Case Phases: Litigation — Your Tactical Role",
    "img": "/decks/day5/03.webp",
-   "notes": "So what actually changes when negotiations break down and we file suit? Look at how it happened on our file. Keystone held at its offer, the Time-Limited Demand lapsed on August 21st, 2026, and while the BI claim sat unresolved, the whole UM stack behind it was frozen too. Attorney Thorne authorized suit, and on September 10th, 2026, the file's status in the CMS changed to Litigation. From that point on, we're dealing with a court, not an adjuster, and the court runs on a structured, mandatory process. Miss a deadline or misfile a document, and the case can be thrown out entirely. Notice the point about property damage, too. PD can prove the client was really hurt, or it can become a defense weapon. On our file, the PD is Margaret's Civic, a separate claim we'll come back to at the end of the day. Now the lifecycle: pleadings, then discovery, then trial prep. You track service and draft the first files, then gather discovery and prepare the client, then coordinate schedules and bring the medicals up to date."
+   "notes": "So what actually changes when negotiations break down and we file suit? Look at how it happened on our file. Keystone held at its offer, the Time-Limited Demand lapsed on August 21st, 2026, and while the BI claim sat unresolved, the whole UM stack behind it was frozen too. Attorney Thorne authorized suit, and on September 10th, 2026, the file's status in the CMS changed to Litigation. And right there, check one thing before you touch the file. The case manager on a litigated file isn't always the person who ran it in pre-lit. In litigation, the case manager is usually the paralegal. On our file, the filing work goes to the Litigation Desk paralegal, Nadia Brooks. So before you transfer the file, log an update or route a call, confirm who's assigned in the CMS and on the Case Profile. From that point on, we're dealing with a court, not an adjuster, and the court runs on a structured, mandatory process. Miss a deadline or misfile a document, and the case can be thrown out entirely. Notice the point about property damage, too. PD can prove the client was really hurt, or it can become a defense weapon. On our file, the PD is Margaret's Civic, a separate claim we'll come back to at the end of the day. Now the lifecycle: pleadings, then discovery, then trial prep. You track service and draft the first files, then gather discovery and prepare the client, then coordinate schedules and bring the medicals up to date."
   },
   {
    "page": 4,
@@ -1148,247 +1148,247 @@ window.CM_DAY_VIDEOS = {
     "title": "Case Management Training — Day 1"
    },
    {
-    "t": 26.1,
+    "t": 32.8,
     "page": 2,
     "title": "Training Agenda"
    },
    {
-    "t": 47.2,
+    "t": 63.3,
     "page": 3,
     "title": "What is Case Management?"
    },
    {
-    "t": 81.8,
+    "t": 106.3,
     "page": 4,
     "title": "The General Process"
    },
    {
-    "t": 116.6,
+    "t": 146.3,
     "page": 5,
     "title": "Key Duties"
    },
    {
-    "t": 150,
+    "t": 185.5,
     "page": 6,
     "title": "Understanding Case Phases"
    },
    {
-    "t": 181.4,
+    "t": 228.9,
     "page": 7,
     "title": "Case Phase: Intake"
    },
    {
-    "t": 222.9,
+    "t": 274.1,
     "page": 8,
     "title": "Intake in Practice"
    },
    {
-    "t": 270.4,
+    "t": 333,
     "page": 9,
     "title": "Intake and Initial Client Contact"
    },
    {
-    "t": 307.6,
+    "t": 376.1,
     "page": 10,
     "title": "Case Acceptance Determination"
    },
    {
-    "t": 334.9,
+    "t": 415.6,
     "page": 11,
     "title": "Common Intake Bottlenecks"
    },
    {
-    "t": 367,
+    "t": 450.8,
     "page": 12,
     "title": "Bottleneck: Incomplete Client Information"
    },
    {
-    "t": 387.7,
+    "t": 485.3,
     "page": 13,
     "title": "Bottleneck: Delayed Client Follow-Up"
    },
    {
-    "t": 408.3,
+    "t": 531.1,
     "page": 14,
     "title": "Bottleneck: Conflict Check Delays"
    },
    {
-    "t": 430.6,
+    "t": 568.9,
     "page": 15,
     "title": "Bottleneck: Intake Form Errors"
    },
    {
-    "t": 449.3,
+    "t": 607.5,
     "page": 16,
     "title": "Bottleneck: Case Eligibility Uncertainty"
    },
    {
-    "t": 473.8,
+    "t": 642.4,
     "page": 17,
     "title": "Tools for Case Planning"
    },
    {
-    "t": 555.7,
+    "t": 715.7,
     "page": 18,
     "title": "Bottleneck: Communication Gaps"
    },
    {
-    "t": 576.1,
+    "t": 749.5,
     "page": 19,
     "title": "Claim Set Up: Coverage and Liability"
    },
    {
-    "t": 619.6,
+    "t": 792.8,
     "page": 20,
     "title": "Case Projection"
    },
    {
-    "t": 660.6,
+    "t": 837.3,
     "page": 21,
     "title": "Case Example: Coverage Analysis"
    },
    {
-    "t": 742,
+    "t": 909.8,
     "page": 22,
     "title": "Case Example: Liability Determination"
    },
    {
-    "t": 798.9,
+    "t": 965.8,
     "page": 23,
     "title": "Case Planning Framework: Regulatory Triple-Check"
    },
    {
-    "t": 858,
+    "t": 1023.2,
     "page": 24,
     "title": "The Three-Pillar Case Plan"
    },
    {
-    "t": 889.2,
+    "t": 1069.1,
     "page": 25,
     "title": "Mandatory Disclosure & Compliance Tracking"
    },
    {
-    "t": 929.6,
+    "t": 1127.8,
     "page": 26,
     "title": "The Golden Rule of US Claim Set-Up"
    },
    {
-    "t": 953.1,
+    "t": 1161.7,
     "page": 27,
     "title": "The Treatment Phase: Core Objectives"
    },
    {
-    "t": 994,
+    "t": 1204.2,
     "page": 28,
     "title": "Key Responsibilities & Skills"
    },
    {
-    "t": 1046.1,
+    "t": 1245.3,
     "page": 29,
     "title": "Essential Client Communication Strategies"
    },
    {
-    "t": 1089.2,
+    "t": 1288.7,
     "page": 30,
     "title": "Handling the Treatment Phase: Documentation"
    },
    {
-    "t": 1139.2,
+    "t": 1334.9,
     "page": 31,
     "title": "Handling the Treatment Phase: Coordination & Boundaries"
    },
    {
-    "t": 1192.2,
+    "t": 1382.5,
     "page": 32,
     "title": "Red Flags: Physical Therapy & Surgery"
    },
    {
-    "t": 1252.3,
+    "t": 1438.2,
     "page": 33,
     "title": "Red Flags: Pain Management & Behavioral Health"
    },
    {
-    "t": 1308.9,
+    "t": 1491.8,
     "page": 34,
     "title": "Case Planning: The Assessment Phase"
    },
    {
-    "t": 1344.7,
+    "t": 1535.5,
     "page": 35,
     "title": "SMART Goal Setting"
    },
    {
-    "t": 1379.1,
+    "t": 1578.6,
     "page": 36,
     "title": "The Care Coordination Strategy"
    },
    {
-    "t": 1415.2,
+    "t": 1621.9,
     "page": 37,
     "title": "The Standard Treatment Map"
    },
    {
-    "t": 1450,
+    "t": 1676.2,
     "page": 38,
     "title": "Treatment Road Map Mastery"
    },
    {
-    "t": 1508.2,
+    "t": 1728.8,
     "page": 39,
     "title": "Variance Analysis: Why the Map Fails"
    },
    {
-    "t": 1539.9,
+    "t": 1770.7,
     "page": 40,
     "title": "Communication Loops: The Stakeholder Triad"
    },
    {
-    "t": 1584.5,
+    "t": 1820.3,
     "page": 41,
     "title": "The Golden Standard: Reasonable and Necessary"
    },
    {
-    "t": 1621.2,
+    "t": 1864.6,
     "page": 42,
     "title": "Immediate Action Protocol: A-C-T"
    },
    {
-    "t": 1658.8,
+    "t": 1906.6,
     "page": 43,
     "title": "Illustration: The Clinical Pathway Flowchart"
    },
    {
-    "t": 1716.8,
+    "t": 1957.2,
     "page": 44,
     "title": "Using the Map for Course Correction"
    },
    {
-    "t": 1772.5,
+    "t": 2005.7,
     "page": 45,
     "title": "The Yellow Flag Warning System"
    },
    {
-    "t": 1821.5,
+    "t": 2051.2,
     "page": 46,
     "title": "Handling Treatment Gaps"
    },
    {
-    "t": 1852.6,
+    "t": 2096.6,
     "page": 47,
     "title": "Treatment Gaps: Case Manager Responsibilities"
    },
    {
-    "t": 1898.8,
+    "t": 2152.4,
     "page": 48,
     "title": "Bottlenecks: The Escalation Protocol"
    },
    {
-    "t": 1930,
+    "t": 2196.3,
     "page": 49,
     "title": "Resolve: The Escalation Ladder"
    },
    {
-    "t": 1964.5,
+    "t": 2235.7,
     "page": 50,
     "title": "Thank You!"
    }
@@ -1405,192 +1405,192 @@ window.CM_DAY_VIDEOS = {
     "title": "Case Management Training — Day 2"
    },
    {
-    "t": 31.1,
+    "t": 35,
     "page": 2,
     "title": "Training Agenda"
    },
    {
-    "t": 62.9,
+    "t": 70.2,
     "page": 3,
     "title": "Pre-Demand Case Auditing: Core Objectives"
    },
    {
-    "t": 128.2,
+    "t": 136.2,
     "page": 4,
     "title": "The Auditing Checklist: The Trinity of Case Alignment"
    },
    {
-    "t": 184.9,
+    "t": 198.3,
     "page": 5,
     "title": "Master Audit Checklist: Financial & Lien Verification"
    },
    {
-    "t": 252.5,
+    "t": 267.1,
     "page": 6,
     "title": "Master Audit Checklist: Liability Proof"
    },
    {
-    "t": 313.3,
+    "t": 330.6,
     "page": 7,
     "title": "Master Audit Checklist: Property Damage Deep Dive"
    },
    {
-    "t": 369.8,
+    "t": 389.3,
     "page": 8,
     "title": "Master Audit Checklist: Medical & Billing Audit"
    },
    {
-    "t": 434.6,
+    "t": 457.2,
     "page": 9,
     "title": "The Defense-Eye Audit: Red Flag Detection"
    },
    {
-    "t": 492.2,
+    "t": 518.7,
     "page": 10,
     "title": "Final Package Readiness"
    },
    {
-    "t": 552.7,
+    "t": 580.5,
     "page": 13,
     "title": "Case Phase: Demand — The Legal & Procedural Foundation"
    },
    {
-    "t": 608.2,
+    "t": 640,
     "page": 14,
     "title": "Case Phase: Demand — The Policy Limit Mindset"
    },
    {
-    "t": 662.9,
+    "t": 698.4,
     "page": 15,
     "title": "Treatment Gaps in the Demand Phase"
    },
    {
-    "t": 720.5,
+    "t": 755.9,
     "page": 16,
     "title": "The Demand Packet Checklist"
    },
    {
-    "t": 777.4,
+    "t": 816.3,
     "page": 17,
     "title": "Quality Control: The Final Scrub"
    },
    {
-    "t": 835.3,
+    "t": 876.6,
     "page": 18,
     "title": "Negotiating the First Call"
    },
    {
-    "t": 889.4,
+    "t": 932.4,
     "page": 19,
     "title": "Demand: Best Practices"
    },
    {
-    "t": 945.8,
+    "t": 990.6,
     "page": 21,
     "title": "Settlement Negotiations: The Pitch"
    },
    {
-    "t": 1004.3,
+    "t": 1051.4,
     "page": 22,
     "title": "The Valuation Baseline: The Set-Off"
    },
    {
-    "t": 1061.3,
+    "t": 1110.7,
     "page": 23,
     "title": "The Valuation Baseline: PIP as a Valuation Baseline"
    },
    {
-    "t": 1109.2,
+    "t": 1164.8,
     "page": 24,
     "title": "The Valuation Baseline: The EMC and the Benefit Ceiling"
    },
    {
-    "t": 1165,
+    "t": 1229.8,
     "page": 25,
     "title": "The Valuation Baseline: Subrogation vs. Non-Subrogation"
    },
    {
-    "t": 1216.4,
+    "t": 1286.8,
     "page": 26,
     "title": "The Valuation Baseline: Strategic Exhaustion"
    },
    {
-    "t": 1273.4,
+    "t": 1352.6,
     "page": 27,
     "title": "Negotiations Initiated: The Battle"
    },
    {
-    "t": 1332.4,
+    "t": 1410.9,
     "page": 28,
     "title": "The Bracketing Technique"
    },
    {
-    "t": 1384.5,
+    "t": 1464.4,
     "page": 29,
     "title": "Common Adjuster Stall Tactics"
    },
    {
-    "t": 1440.3,
+    "t": 1519.3,
     "page": 30,
     "title": "Close the Deal: The Final-Final"
    },
    {
-    "t": 1495.6,
+    "t": 1577.5,
     "page": 31,
     "title": "The Never Rule"
    },
    {
-    "t": 1546.2,
+    "t": 1629.3,
     "page": 33,
     "title": "BI Settlement: The UM/UIM Safety Check"
    },
    {
-    "t": 1603.7,
+    "t": 1689.4,
     "page": 34,
     "title": "BI Settlement: Key Laws & Doctrines"
    },
    {
-    "t": 1657.4,
+    "t": 1743.4,
     "page": 35,
     "title": "The Execution: The Release of All Claims"
    },
    {
-    "t": 1717.9,
+    "t": 1807.3,
     "page": 36,
     "title": "The Execution: The Settlement Disclosure Statement"
    },
    {
-    "t": 1774.1,
+    "t": 1864.1,
     "page": 37,
     "title": "The Execution: Lien Payoff Letters"
    },
    {
-    "t": 1825.4,
+    "t": 1920.7,
     "page": 38,
     "title": "The Execution: The Settlement Statement"
    },
    {
-    "t": 1880,
+    "t": 1978.6,
     "page": 39,
     "title": "The Execution: The Dismissal"
    },
    {
-    "t": 1927.1,
+    "t": 2027,
     "page": 40,
     "title": "The Execution: W-9 and Key Post-Settlement Documents"
    },
    {
-    "t": 1983.2,
+    "t": 2086.6,
     "page": 41,
     "title": "Finalized Settlement: Administrative Document Control"
    },
    {
-    "t": 2040.3,
+    "t": 2145.7,
     "page": 42,
     "title": "Finalized Settlement: Final Lien Mitigation"
    },
    {
-    "t": 2097.5,
+    "t": 2205.1,
     "page": 44,
     "title": "Thank You!"
    }
@@ -1607,92 +1607,92 @@ window.CM_DAY_VIDEOS = {
     "title": "Lien Negotiations: Key Legal Doctrines"
    },
    {
-    "t": 72.5,
+    "t": 77,
     "page": 2,
     "title": "Quantum Meruit: Prior Attorney Liens"
    },
    {
-    "t": 145.2,
+    "t": 152.3,
     "page": 3,
     "title": "Increasing the Client's Net"
    },
    {
-    "t": 216.5,
+    "t": 228.7,
     "page": 4,
     "title": "Auditing the Billing"
    },
    {
-    "t": 289.8,
+    "t": 306.2,
     "page": 5,
     "title": "The Net Sheet: Purpose of a Combined BI/UM Net Sheet"
    },
    {
-    "t": 360.3,
+    "t": 382.2,
     "page": 6,
     "title": "The Net Sheet: Two Recovery Streams"
    },
    {
-    "t": 429,
+    "t": 457.8,
     "page": 7,
     "title": "The BI/UM Master Financial Ledger"
    },
    {
-    "t": 508.2,
+    "t": 563.7,
     "page": 8,
     "title": "Case Manager Protocols for Dual Settlements"
    },
    {
-    "t": 577.2,
+    "t": 633.8,
     "page": 9,
     "title": "Key Takeaway: The Value of a CM"
    },
    {
-    "t": 648.4,
+    "t": 706.5,
     "page": 11,
     "title": "Disbursement: Core Objectives"
    },
    {
-    "t": 716.7,
+    "t": 775.8,
     "page": 12,
     "title": "Disbursement: The Workflow"
    },
    {
-    "t": 787.5,
+    "t": 850.4,
     "page": 13,
     "title": "Disbursement: Documentation Checklist"
    },
    {
-    "t": 852,
+    "t": 917.2,
     "page": 14,
     "title": "Disbursement: Common Challenges and Mitigation"
    },
    {
-    "t": 911.9,
+    "t": 980.9,
     "page": 15,
     "title": "Final Case Reconciliation: The Net Sheet"
    },
    {
-    "t": 979.2,
+    "t": 1052.7,
     "page": 16,
     "title": "Final Case Reconciliation: Proof of Delivery"
    },
    {
-    "t": 1051,
+    "t": 1125.5,
     "page": 17,
     "title": "Final Case Reconciliation: Compliance and Identity"
    },
    {
-    "t": 1111.3,
+    "t": 1193.8,
     "page": 18,
     "title": "Final Case Reconciliation: The Closing Memo"
    },
    {
-    "t": 1178.5,
+    "t": 1264.1,
     "page": 19,
     "title": "Final Case Reconciliation: Retention Schedule"
    },
    {
-    "t": 1236.6,
+    "t": 1321.7,
     "page": 20,
     "title": "Thank You!"
    }
@@ -1709,152 +1709,152 @@ window.CM_DAY_VIDEOS = {
     "title": "Case Management Training — Day 4"
    },
    {
-    "t": 53.1,
+    "t": 54.3,
     "page": 2,
     "title": "Training Agenda"
    },
    {
-    "t": 96,
+    "t": 98.2,
     "page": 3,
     "title": "Introducing the Neutral: Expertise & Background"
    },
    {
-    "t": 154.3,
+    "t": 157.3,
     "page": 4,
     "title": "Introducing the Neutral: Assignment & Selection"
    },
    {
-    "t": 221,
+    "t": 227.5,
     "page": 5,
     "title": "Introducing the Neutral: Decision-Making Power"
    },
    {
-    "t": 279,
+    "t": 287.6,
     "page": 6,
     "title": "Mediation Logistics & Scheduling"
    },
    {
-    "t": 340.3,
+    "t": 353,
     "page": 7,
     "title": "Preparing Mediation Binders: What a Binder Is"
    },
    {
-    "t": 392.7,
+    "t": 408.4,
     "page": 8,
     "title": "Preparing Mediation Binders: The Roadmap for Settlement"
    },
    {
-    "t": 446.9,
+    "t": 468.8,
     "page": 9,
     "title": "Mediation Binder Section 1: Executive Summary"
    },
    {
-    "t": 501.6,
+    "t": 526.7,
     "page": 10,
     "title": "Mediation Binder Section 2: The Mediation Briefs"
    },
    {
-    "t": 555.8,
+    "t": 583.9,
     "page": 11,
     "title": "Mediation Binder Section 3: Core Pleadings"
    },
    {
-    "t": 617.3,
+    "t": 647,
     "page": 12,
     "title": "Mediation Binder Section 4: Key Evidence & Liability Exhibits"
    },
    {
-    "t": 676.9,
+    "t": 709.7,
     "page": 13,
     "title": "Mediation Binder Section 5: Damages, Financials & Experts"
    },
    {
-    "t": 732.9,
+    "t": 772.4,
     "page": 14,
     "title": "Mediation Binder Section 6: Settlement History & Draft Agreements"
    },
    {
-    "t": 798.3,
+    "t": 839.9,
     "page": 15,
     "title": "Quality Assurance and Logistics Auditor"
    },
    {
-    "t": 852.6,
+    "t": 898.4,
     "page": 19,
     "title": "The Anatomy of a Personal Injury Arbitration"
    },
    {
-    "t": 913.2,
+    "t": 961.3,
     "page": 20,
     "title": "Arbitration: Operational Mindset"
    },
    {
-    "t": 970.4,
+    "t": 1022.2,
     "page": 21,
     "title": "Arbitration Track 1: Critical Timelines"
    },
    {
-    "t": 1040,
+    "t": 1096.2,
     "page": 22,
     "title": "Arbitration Track 2: Logistics & Setup Protocols"
    },
    {
-    "t": 1101.2,
+    "t": 1160.8,
     "page": 23,
     "title": "Boundaries at Hearings: The Golden Rule"
    },
    {
-    "t": 1157.1,
+    "t": 1220.5,
     "page": 24,
     "title": "Boundaries at Hearings: The UPL Policy"
    },
    {
-    "t": 1216.6,
+    "t": 1281.1,
     "page": 25,
     "title": "Arbitration Binder Section 1: The Arbitration Submissions"
    },
    {
-    "t": 1281.6,
+    "t": 1350.2,
     "page": 26,
     "title": "Arbitration Binder Section 2: Core Litigation Pleadings"
    },
    {
-    "t": 1329.7,
+    "t": 1399.1,
     "page": 27,
     "title": "Arbitration Binder Section 3: Liability & Biomechanical Evidence"
    },
    {
-    "t": 1386.1,
+    "t": 1459.2,
     "page": 28,
     "title": "Arbitration Binder Section 4: Medical Damages"
    },
    {
-    "t": 1453.1,
+    "t": 1543,
     "page": 29,
     "title": "Arbitration Binder Section 5: The Prior Medical Shield"
    },
    {
-    "t": 1513.8,
+    "t": 1604.7,
     "page": 30,
     "title": "Arbitration Binder Section 6: Economic Losses & Liens"
    },
    {
-    "t": 1574.2,
+    "t": 1666,
     "page": 33,
     "title": "Mediation Bottlenecks: The Compromise Traps"
    },
    {
-    "t": 1634.9,
+    "t": 1730.6,
     "page": 34,
     "title": "Arbitration Bottlenecks: The Trial-Ready Landmines"
    },
    {
-    "t": 1693,
+    "t": 1791.1,
     "page": 35,
     "title": "Case Manager Operational Countermeasures"
    },
    {
-    "t": 1746.4,
+    "t": 1847.4,
     "page": 36,
     "title": "Thank You!"
    }
@@ -1871,202 +1871,202 @@ window.CM_DAY_VIDEOS = {
     "title": "Case Management Training — Day 5"
    },
    {
-    "t": 51.4,
+    "t": 54.1,
     "page": 2,
     "title": "Training Agenda"
    },
    {
-    "t": 94.2,
+    "t": 98.6,
     "page": 3,
     "title": "Case Phases: Litigation — Your Tactical Role"
    },
    {
-    "t": 161.6,
+    "t": 195.8,
     "page": 4,
     "title": "Phase 1: Pleadings & Service"
    },
    {
-    "t": 232.6,
+    "t": 268.1,
     "page": 5,
     "title": "Phase 2: Discovery — Interrogatories & RFPs"
    },
    {
-    "t": 297.5,
+    "t": 336.5,
     "page": 6,
     "title": "Phase 2: Deposition Coordination & Preparation"
    },
    {
-    "t": 362.3,
+    "t": 405.9,
     "page": 7,
     "title": "Phase 3: Trial & Mediation Preparation"
    },
    {
-    "t": 428.8,
+    "t": 474.6,
     "page": 8,
     "title": "The Litigation Mindset: Traps & KPIs"
    },
    {
-    "t": 498.6,
+    "t": 549.3,
     "page": 9,
     "title": "Deposition Prep: The Pre-Deposition Audit"
    },
    {
-    "t": 560.1,
+    "t": 615,
     "page": 10,
     "title": "Discovery Intake Meeting: Pillar 1, De-escalating Anxiety"
    },
    {
-    "t": 621.1,
+    "t": 676.3,
     "page": 11,
     "title": "Pillar 2: Essential Testimony Guidelines"
    },
    {
-    "t": 687.2,
+    "t": 744.1,
     "page": 12,
     "title": "Pillar 3: Dress Code & Professional Demeanor"
    },
    {
-    "t": 743.5,
+    "t": 801.7,
     "page": 13,
     "title": "Silent Traps — Drill A: The “Is That All?” Trap"
    },
    {
-    "t": 799.4,
+    "t": 861.7,
     "page": 14,
     "title": "Silent Traps — Drill B: The Thoughtful Silence"
    },
    {
-    "t": 849.3,
+    "t": 914.2,
     "page": 15,
     "title": "Checklist: The Day Before the Deposition"
    },
    {
-    "t": 914,
+    "t": 981.4,
     "page": 16,
     "title": "What Will the Defense Attorney Ask Me?"
    },
    {
-    "t": 975.9,
+    "t": 1045.3,
     "page": 17,
     "title": "The 7 Golden Rules for Testifying: Rules 1–3"
    },
    {
-    "t": 1038.4,
+    "t": 1110.8,
     "page": 18,
     "title": "Golden Rules 4 & 5"
    },
    {
-    "t": 1091.9,
+    "t": 1169.8,
     "page": 19,
     "title": "Golden Rules 6 & 7"
    },
    {
-    "t": 1143.6,
+    "t": 1224.4,
     "page": 20,
     "title": "Professional Presentation: Dress Code & Demeanor"
    },
    {
-    "t": 1208.5,
+    "t": 1291.3,
     "page": 21,
     "title": "What Happens When Your Lawyer Objects?"
    },
    {
-    "t": 1268.6,
+    "t": 1353.3,
     "page": 22,
     "title": "Litigation Toolkit: The Complaint / Petition"
    },
    {
-    "t": 1335.3,
+    "t": 1423.6,
     "page": 23,
     "title": "Core Document: The Answer"
    },
    {
-    "t": 1403.1,
+    "t": 1492.2,
     "page": 24,
     "title": "Core Document: Interrogatories"
    },
    {
-    "t": 1451.4,
+    "t": 1541.3,
     "page": 25,
     "title": "Core Document: Requests for Production"
    },
    {
-    "t": 1496.8,
+    "t": 1587,
     "page": 26,
     "title": "Core Document: Requests for Admission"
    },
    {
-    "t": 1547.5,
+    "t": 1639.4,
     "page": 27,
     "title": "Critical Processes 1 & 2: Service and Docketing"
    },
    {
-    "t": 1613,
+    "t": 1706.9,
     "page": 28,
     "title": "Critical Process 3: Third-Party Subpoenas"
    },
    {
-    "t": 1671.2,
+    "t": 1766.7,
     "page": 29,
     "title": "The 3 Golden Rules of File Maintenance"
    },
    {
-    "t": 1741.3,
+    "t": 1838.7,
     "page": 30,
     "title": "KPIs for Document Management"
    },
    {
-    "t": 1796.6,
+    "t": 1895.3,
     "page": 31,
     "title": "Deep-Dive: The Complaint / Petition"
    },
    {
-    "t": 1872.8,
+    "t": 1976.7,
     "page": 32,
     "title": "Written Discovery: Interrogatories, RFPs, and RFAs"
    },
    {
-    "t": 1941.1,
+    "t": 2047.5,
     "page": 33,
     "title": "Master Timeline & Deadline Calculations"
    },
    {
-    "t": 2012.3,
+    "t": 2122,
     "page": 34,
     "title": "The Process Server & Evading Defendant Protocol"
    },
    {
-    "t": 2082.3,
+    "t": 2193.9,
     "page": 35,
     "title": "Subpoena Duces Tecum: Execution Strategy"
    },
    {
-    "t": 2146.6,
+    "t": 2259.6,
     "page": 36,
     "title": "Litigation File Architecture"
    },
    {
-    "t": 2208.4,
+    "t": 2326.1,
     "page": 37,
     "title": "Advanced KPIs for Litigation Case Managers"
    },
    {
-    "t": 2267.2,
+    "t": 2388.1,
     "page": 39,
     "title": "Property Damage: Types of Damages You Can Recover"
    },
    {
-    "t": 2340.1,
+    "t": 2463.3,
     "page": 40,
     "title": "Calculating the Value: The “Lesser Of” Rule"
    },
    {
-    "t": 2404.7,
+    "t": 2530.6,
     "page": 41,
     "title": "Calculating the Value: Sentimental or Special Value"
    },
    {
-    "t": 2464.6,
+    "t": 2593.9,
     "page": 42,
     "title": "Thank You!"
    }

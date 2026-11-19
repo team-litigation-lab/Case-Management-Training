@@ -252,7 +252,7 @@ A wide two-tab spreadsheet card fills the slide, cream with a navy header bar ca
 - One Net Sheet, two clearly separated streams.
 - Every reduction carries its reason: an audit finding (the 05/04/2026 duplicate) or a named basis (the one-third procurement-cost reduction).
 - Show the streams side by side so John Doe sees what the work produced: Keystone offered $3,500 on the 14-Day Gap and a “degenerative” MRI; the MRI's own “no significant degenerative change at the adjacent levels” helped turn that into $10,000, and the UM stream added $30,000. Financial engineering, not data entry.
-- Read the LSH ledger top to bottom in four sections: recovery summary (gross by carrier), fees and advanced costs, the medical provider ledger with its reductions, net to client.
+- Read the LSH ledger top to bottom in four sections: recovery summary (gross by carrier), fees and advanced costs, the medical provider ledger with its reductions (and under it the Non-Medical Provider Ledger for pharmacy, counseling, equipment and transportation: Riverton Drug $312.40, paid by John, $0.00 owed), net to client, which subtracts the reduced liens and any non-medical balance still owed (L51).
 - Accurate financial detail builds client trust.
 - ⚠️ Pitfall: mixing BI and UM money on one undifferentiated line.
 - ⚠️ Pitfall: charging the same cost to both streams.
@@ -453,7 +453,7 @@ Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns A
 
 **Scenario.** File date 10/13/2026. Cardinal State's $10,000 check arrived today, joining Keystone's (received 09/04) and Harbor Point's (10/05) in the IOLTA trust account, each deposited only after its release was signed (Keystone 08/28; each UM release before its check): $40,000.00 received; the last check has not cleared. Peach State accepted $1,240.00 on 10/09 and Riverton Spine & Rehab accepted $4,580.00 on 10/12; both written acceptances are in Documents. Costs stand at $486.75. Both Net Sheet tabs are half-built from the demand phase.
 
-**Execution prompt.** Complete John Doe's Net Sheet in both tabs. Recovery Ledger: each check by carrier and stream, the 33⅓% fee per stream, the five receipted costs, and costs and liens split 25% / 75%, down to the net per stream and in total. Lien Tracker: every provider and payer with charges, payments, adjustments, balance owed and max offer (the deck's medical provider ledger, Day 3 deck p7), then each lien's asserted, audited and reduced figure, the basis of each reduction and its payoff-letter status. Tie both tabs to the Trust Ledger. Graded judgment: what stays off the payables, and what you flag for Atty. Thorne before John signs.
+**Execution prompt.** Complete John Doe's Net Sheet in both tabs. Recovery Ledger: each check by carrier and stream, the 33⅓% fee per stream, the five receipted costs, and costs and liens split 25% / 75%, down to the net per stream and in total. Lien Tracker: every medical provider and payer with charges, PIP Payments, Health Payments, Med Pay, adjustments, balance owed and max offer (the deck's medical provider ledger, Day 3 deck p7), then each lien's asserted, audited and reduced figure, the basis of each reduction and its payoff-letter status. Every non-medical provider (pharmacy, counseling, equipment, transportation) goes in the Non-Medical Provider Ledger beneath it, with who paid and what is still owed, never with the medical liens. Tie both tabs to the Trust Ledger. Graded judgment: what stays off the payables, and what you flag for Atty. Thorne before John signs.
 
 | | |
 |---|---|
@@ -470,6 +470,7 @@ Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns A
 - [ ] Peach State row: asserted $1,860.00, audited $1,860.00 (matches its payment for Crescent's 05/15/2026 injection), reduced $1,240.00 (one-third procurement-cost reduction, $620.00), accepted 10/09/2026
 - [ ] Riverton Spine & Rehab row: billed $6,290.00, audited $6,105.00 (duplicate 05/04/2026 line, $185.00), reduced $4,580.00, accepted 10/12/2026
 - [ ] Zero-balance lines kept off the payables with their source: PIP $10,000.00 and MedPay $5,000.00 (no reimbursement right, 03/02/2026); Crescent $3,400.00 – $1,860.00 = $1,540.00 written off; Riverton General Hospital and Riverton Fire EMS paid by PIP at the fee schedule ($16,582.60 written off, no balance billing); Riverton Urgent Care, Lakeside Orthopedics and Summit Imaging paid in full by MedPay
+- [ ] Non-Medical Provider Ledger, not the medical liens: Riverton Drug (prescriptions and OTC, 02/07–06/2026) $312.40 billed, $312.40 Paid by Client, $0.00 owed, so nothing comes off the net (his receipts prove the out-of-pocket specials); Stonebridge EAP $0.00 (employer-paid); Less: Total Liens (Reduced) & Non-Medical Owed, L51 = –($5,820.00 + $0.00) = –$5,820.00
 - [ ] Payoff status recorded per lien: written figure and date logged, satisfaction of lien marked “to obtain at payment”; no line final on a phone call
 - [ ] Future medical ($3,400–$6,800 in possible repeat ESIs) flagged to Atty. Thorne before John Doe signs: the settlement is full and final, and no carrier pays more
 - [ ] Ties out: trust deposits $40,000.00 = Recovery Ledger gross; liens audited $1,860.00 + $6,105.00 = $7,965.00, paid $1,240.00 + $4,580.00 = $5,820.00 ($2,145.00 negotiated, plus the $185.00 duplicate removed at audit)
@@ -493,7 +494,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 | 🤖 AI | **20%** | Stream arithmetic | Fee, costs and liens split correctly; $5,089.98 + $15,269.94 = $20,359.92 |
 | 🤖 AI | **15%** | Lien Tracker accuracy | Asserted, audited and reduced figures and dates for Peach State and Riverton Spine & Rehab |
 | 🤖 AI | **10%** | Cost verification | Five receipted costs = $486.75, charged once |
-| 🤖 AI | **15%** | Zero-balance discipline | PIP, MedPay, the write-offs and the providers they paid kept off the payables with sources |
+| 🤖 AI | **15%** | Zero-balance discipline | PIP, MedPay, the write-offs and the providers they paid kept off the payables with sources; Riverton Drug in the Non-Medical Provider Ledger, Paid by Client, nothing owed |
 | 🧑‍🏫 Trainer | **15%** | Judgment on payables | Can explain why each zero-balance line is not owed, citing the document |
 | 🧑‍🏫 Trainer | **10%** | Future-care flag | Flags the full-and-final consequence to Atty. Thorne rather than raising it with John Doe |
 | 🧑‍🏫 Trainer | **15%** | UPL boundary | No view offered to John Doe on sufficiency, enforceability or acceptance |
@@ -687,7 +688,7 @@ A phone-call storyboard in three frames across the slide, each a cream card with
 - [ ] $4,580.00 not accepted on the call: the trainee says it goes to Atty. Thorne and will be confirmed in writing
 - [ ] Signed Payoff Letter on file: $4,580.00 accepted as full and final satisfaction of the LOP; no balance billing or collections against John Doe
 - [ ] Lien Tracker: $6,290.00 billed → $6,105.00 audited → $4,580.00 accepted 10/12/2026 ($185.00 corrected + $1,525.00 negotiated = $1,710.00 saved)
-- [ ] Net Sheet recomputed: $40,000.00 – $13,333.33 – $486.75 – $1,240.00 – $4,580.00 = $20,359.92
+- [ ] Net Sheet recomputed: Riverton Drug's $312.40 entered in the Non-Medical Provider Ledger as Paid by Client, $0.00 owed, so nothing more comes off the net (Less: Total Liens (Reduced) & Non-Medical Owed, L51 = –($5,820.00 + $0.00) = –$5,820.00); $40,000.00 – $13,333.33 – $486.75 – $1,240.00 – $4,580.00 = $20,359.92
 - [ ] Savings reported to John Doe as facts, with no advice on the settlement
 
 **Best practices & pitfalls**
