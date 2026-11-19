@@ -127,6 +127,7 @@ body .cfx .cfx-task1 .cfx-docs-pop button,body .cfx .cfx-task1 .cfx-docs-pop a,b
 .cfx-task1 .cfx-tools-menu[open] > summary{background:#1E2340;color:#fff;}
 .cfx-task1 .cfx-tools-pop{position:absolute;z-index:7;bottom:calc(100% + 8px);left:0;width:min(660px,78vw);max-height:min(340px,52vh);overflow:auto;flex-direction:column;flex-wrap:nowrap;background:#fff;border:2px solid #1E2340;border-radius:14px;padding:12px;box-shadow:0 14px 32px rgba(30,35,64,.28);}
 .cfx-task1 .cfx-tools-pop .cfx-call{flex:none;}
+.cfx .cfx-task1 .cfx-tools-pop .cfx-call span{font-size:16px !important;}   /* the menu's rows (a tool's status line, the live call, the Action Plan Editor) at the slides' 16px */
 .cfx-task1 .cfx-tools-pop .cfx-tools-row .cfx-tools-in{display:flex;flex-wrap:wrap;gap:8px;}
 .cfx-task1 .cfx-tools-pop .cfx-tools-row .cfx-tool{font:800 16px/1.2 var(--font-ui);}
 .cfx-task1 .cfx-tools-pop .cfx-docs{position:static;background:#F6F7FB;border:2px solid #E3E6EF;border-radius:12px;padding:10px 14px;}

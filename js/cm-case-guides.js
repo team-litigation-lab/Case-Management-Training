@@ -108,11 +108,11 @@ const __content = renderDaySlideContent;
 renderDaySlideContent = function(d, slide){
   const html = __content.apply(this, arguments);
   if(typeof html !== "string" || html.indexOf("cm-cg-btn") >= 0) return html;
-  // the Day 5 build: beside step 1's heading (the line has the room, so the slide keeps its height)
+  // the Day 5 build: inside step 1's heading (a block of its own: the pill rides on its line, so the slide keeps its height)
   if(slide && slide.type === "companionBuild" && d && d.cf && d.cf.n === BUILD.day){
     const at = html.search(/<b>1\. [^<]*<\/b>/);
     if(at < 0) return html;
-    const end = html.indexOf("</b>", at) + 4;
+    const end = html.indexOf("</b>", at);
     return html.slice(0, end) + pill("build") + html.slice(end);
   }
   // a Skill Activity's Your Task: beside its "Practises:" line, which heads the 🧰 Tools menu (js/cm-lesson-tips.js puts the

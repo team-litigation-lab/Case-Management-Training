@@ -3,7 +3,7 @@
 // time for them to manage their cases accurately but not give away everything; just balance it so they're ready for
 // their own case on Day 5." This holds the course to it:
 //   · side exercises (every activity in CF.sequence that is neither the day's Skill Building, `main`, nor its Backup File
-//     Maintenance, `drive`) are at most SIDES_MAX a day (4, 4, 4, 4 and Day 5's 3);
+//     Maintenance, `drive`) are at most SIDES_MAX a day (5, 4, 4, 4 and Day 5's 3);
 //   · a cut activity left the order but kept its block, `retired` (and `mergedInto` a main that is that day's Skill Building),
 //     so old grades and saved places resolve;
 //   · every guide (js/cm-case-guides.js) sits on an activity in the course's order, says what it withholds, opens
@@ -22,7 +22,7 @@ require(path.join(ROOT, 'js/cm-case-flow-slides.js'));
 require(path.join(ROOT, 'js/cm-case-flow-exhibits.js'));
 require(path.join(ROOT, 'js/cm-case-guides.js'));
 const CF = window.CM_CASE_FLOW, SL = window.CM_CF_SLIDES || {}, EX = window.CM_CF_EXHIBITS || {}, { GUIDES, BUILD } = window.CM_CASE_GUIDES;
-const SIDES_MAX = { 1: 4, 2: 4, 3: 4, 4: 4, 5: 3 };
+const SIDES_MAX = { 1: 5, 2: 4, 3: 4, 4: 4, 5: 3 };   // Day 1 keeps John Doe's voicemail (the course's only Listening Check and Notes & Action Plan) beside the plan's four
 const fail = [], F = m => fail.push(m);
 const BLOCK = {}; CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { BLOCK[b.id] = b; })));
 const DAY = {}; CF.sequence.forEach(sd => sd.phases.forEach(ph => ph.blocks.forEach(id => { DAY[id] = sd.n; })));

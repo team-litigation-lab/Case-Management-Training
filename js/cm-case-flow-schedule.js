@@ -40,8 +40,9 @@ const TOPIC = {base: 15, min: 2, max: 30}, ACT = {base: 10, min: 5, max: 30}, ST
 // the daily loop: the Case Profile and the Action Plan (Day 1's guided, later days' lighter), the one Skill Building, the side exercises
 // (SIDE.max 20 since the Backup File Maintenance became a required step: the day still fits its four hours, 30/70;
 // SIDE.most: an exercise's minutes at most, when the Skill Building is full and the lessons leave more)
-// (MAIN.max 120 since the owner cut the extra tasks: the minutes the cut side exercises freed go to the Skill Building)
-const LOOP = {profile: [10, 5], plan: [15, 10], drive: [20, 15]}, MAIN = {min: 30, max: 120}, SIDE = {each: 5, max: 20, most: 10};
+// (MAIN.max 120 since the owner cut the extra tasks: the minutes the cut side exercises freed go to the Skill Building;
+// SIDE.max 25 so Day 1's five side exercises, the voicemail kept with them, are all worked)
+const LOOP = {profile: [10, 5], plan: [15, 10], drive: [20, 15]}, MAIN = {min: 30, max: 120}, SIDE = {each: 5, max: 25, most: 10};
 /* split `total` whole minutes over weights, largest remainder first, each at least `floor` (when it can be) */
 function share(total, weights, floor){
   const n = weights.length; if(!n) return [];

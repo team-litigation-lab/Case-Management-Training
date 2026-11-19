@@ -51,15 +51,16 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 16. *Lesson* — Keeping the Client in Care: Red Flags, Yellow Flags & Motivational Interviewing
 17. *Skill Activity* — Opening John Doe's File in the CMS (practises: Case Phase: Intake & the Intake Bottlenecks) — **Skill Building**
 18. *Skill Activity* — Backup File Maintenance: the Firm's Folders and Hierarchy (practises: Case Phase: Intake & the Intake Bottlenecks) — **Required: Backup File Maintenance**
-19. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers (practises: LOR Drafting Mechanics & Three-Carrier Notification) — *side*
-20. *Skill Activity* — Transmitting LOPs to Medical Providers (practises: LOP Issuance Guidelines, Provider Coordination & PIP Limits) — *side*
-21. *Skill Activity* — Live Case Plan Draft — John Doe VS Robert Smith (practises: The Action Plan Editor & Attorney Review Routing) — *side*
-22. *Skill Activity* — The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol (practises: The Standard Treatment Map: Phases, Timelines & Course Correction) — *side*
-23. *Knowledge Check* — CM Fundamentals Knowledge Check
-24. *Knowledge Check* — Coverage Setup Verification Check
-25. *Knowledge Check* — Onboarding & Property Damage Check
-26. *Knowledge Check* — MIA Escalation Knowledge Check
-27. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
+19. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet (practises: Case Phase: Intake & the Intake Bottlenecks) — *side*
+20. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers (practises: LOR Drafting Mechanics & Three-Carrier Notification) — *side*
+21. *Skill Activity* — Transmitting LOPs to Medical Providers (practises: LOP Issuance Guidelines, Provider Coordination & PIP Limits) — *side*
+22. *Skill Activity* — Live Case Plan Draft — John Doe VS Robert Smith (practises: The Action Plan Editor & Attorney Review Routing) — *side*
+23. *Skill Activity* — The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol (practises: The Standard Treatment Map: Phases, Timelines & Course Correction) — *side*
+24. *Knowledge Check* — CM Fundamentals Knowledge Check
+25. *Knowledge Check* — Coverage Setup Verification Check
+26. *Knowledge Check* — Onboarding & Property Damage Check
+27. *Knowledge Check* — MIA Escalation Knowledge Check
+28. *Knowledge Check* — Case Plan Audit & the Claim Set Up Gate
 
 **End-of-day discussion (trainer):** Robert Smith's carrier has already called John Doe, and he needs a car to get to work. What do you tell him today, in what order, and what has to be on the file before the claims are set up?
 
@@ -67,7 +68,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 ## Module 1 — Fundamentals, Intake, Claim Set Up & Treatment
 
-**Order:** Lessons (16) ➔ Case Profile (Meet John Doe & Intake) ➔ Skill Building (Opening John Doe's File in the CMS) ➔ Backup File Maintenance (required) ➔ Update Your Action Plan ➔ Practice Lab (4 optional side exercises) ➔ Knowledge Check (5 Learning Checks)
+**Order:** Lessons (16) ➔ Case Profile (Meet John Doe & Intake) ➔ Skill Building (Opening John Doe's File in the CMS) ➔ Backup File Maintenance (required) ➔ Update Your Action Plan ➔ Practice Lab (5 optional side exercises) ➔ Knowledge Check (5 Learning Checks)
 
 ### 1.1.1 The Case Manager's Role
 
@@ -1371,7 +1372,72 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 
 ---
 
-### 1.1.19 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
+### 1.1.19 Voicemails & Recorded Statements: the Action Plan and Direction Packet
+
+> **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Onboarding & Property Damage Check (`d1m3`)  
+> **Topic:** Skill Activity 1 — work the voicemail, then send what the client gets on day one  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#44` Handling Treatment Gaps During the Treatment Phase · LSH Claims Specialist: client communication protocol
+
+#### 1 · Visual Layout Description
+
+An exploded packet: a central navy folder with six document cards fanned around it in a semicircle, each numbered with an orange badge — ① Do's and Don'ts ② Treatment directions ③ Property Damage and rental ④ Communication protocol ⑤ Document retention ⑥ Firm contacts and escalation path — each showing two or three bullet previews in small type. Beneath the fan, a delivery bar of three chips: PREPARED → DELIVERED → LOGGED, the third noting the required date and method.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** 02/09/2026, 8:47 a.m.: a voicemail from John Doe. Dana from Keystone Mutual, Robert Smith's carrier, called him on Saturday (02/07) and asked to record what happened; he said he'd think about it, and she is calling back today. His neck is still stiff and he hasn't seen anyone. Nothing has reached him from the firm yet. You work it that afternoon, once he has signed the retainer and the matter is open in the CMS (1:12 p.m.), after the Conflict Check.
+
+**Execution prompt.** Work the voicemail in your Notes & Action Plan: transcribe it, then write your action plan (graded, with the answer key once handed in). Work the plan: email Dana Whitfield that the firm represents John Doe, that she is not to contact him directly and that any Recorded Statement request comes through the firm, with nothing about his injuries; call John Doe back to check on his neck and his treatment status, outline the next steps and have him repeat the instruction (no Recorded Statement, no talk about the case with anyone outside the firm); and coordinate his first visit with Riverton Urgent Care. Then assemble his onboarding Direction Packet (all six sections, the Property Damage section specific to this file: from the records, whose vehicle and claim it is), deliver it and log every contact.
+
+| | |
+|---|---|
+| **Tool / interface** | Notes & Action Plan · Email Workspace · Call Simulator → AI John Doe · CMS → Notes → Case Notes · CMS → Notes → Case Notes |
+| **Expected output** | A graded transcript and action plan, the emails to Keystone and the facility sent, the check-in call taken, and a delivered, logged Direction Packet specific to John Doe's file. |
+
+**Verification checkpoints**
+
+- [ ] Voicemail transcribed and the action plan handed in
+- [ ] Dana Whitfield told in writing: the firm represents John Doe, no direct contact, any Recorded Statement request through the firm; nothing about his injuries
+- [ ] Check-in call: his stiff neck and treatment status asked about, next steps outlined
+- [ ] Riverton Urgent Care contacted about his first visit, billing and records
+- [ ] All six packet sections present and populated, the Property Damage section stating from the records that the PD and rental claim belong to the Civic's owner, not the client
+- [ ] Delivery and every contact logged with date and method in the CMS, and each follow-up dated (Day 1 deck p13: follow up promptly, document every attempt)
+- [ ] Atty. Thorne told the same day that the adverse carrier contacted a represented client
+- [ ] The adverse-contact instruction named as the urgent one, and John Doe repeated it back
+
+**Best practices & pitfalls**
+
+- A confirmation step means more than sending: ask how you will know he read it.
+- Put the no-contact instruction in writing to the carrier as well as to the client.
+- ⚠️ Pitfall: telling the adverse adjuster anything about his injuries or treatment while asking her to stop calling.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Onboarding & Property Damage Check (taught on Case Flow Day 1) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Transcript and action plan | Voicemail facts caught; the plan holds every step of the answer key |
+| 🤖 AI | **15%** | Carrier and facility emails | No direct contact and statements through the firm, nothing about injuries; the facility asked about status, billing and records |
+| 🤖 AI | **20%** | Packet completeness | All six sections and every standing instruction; Atty. Elijah Thorne as Lead Counsel |
+| 🤖 AI | **10%** | Everything logged | Voicemail, call, emails and delivery logged with date and method |
+| 🧑‍🏫 Trainer | **25%** | Prioritisation | Named the adverse-contact instruction as urgent, put it in writing to the carrier, and had John Doe repeat it back |
+| 🧑‍🏫 Trainer | **15%** | Client usability | The call and the packet are usable by a layperson under stress |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- The scenario detail, that the carrier has already called, is the graded judgment. A generic packet misses the point.
+- Run the Notes & Action Plan before anything else: the transcript and the plan are graded, and the answer key opens once each is handed in. Ask who wrote the email to Dana first and who called John first, and why.
+- Have them read their treatment direction aloud. If it doesn't create urgency about starting care, it won't prevent the gap.
+- Role-play receiving one packet as John Doe: confused, in pain, and already contacted by the other side.
+
+---
+
+### 1.1.20 Generating Formal LORs to BI, Host UM, and Relative UM Carriers
 
 > **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Skill Activity 1 — five letters, each one right  
@@ -1440,7 +1506,7 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 ---
 
-### 1.1.20 Transmitting LOPs to Medical Providers
+### 1.1.21 Transmitting LOPs to Medical Providers
 
 > **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 1 — one LOP issued, one declined  
@@ -1513,7 +1579,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 1.1.21 Live Case Plan Draft — John Doe VS Robert Smith
+### 1.1.22 Live Case Plan Draft — John Doe VS Robert Smith
 
 > **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Skill Activity 2 — the full plan, routed for review  
@@ -1583,7 +1649,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 1) 
 
 ---
 
-### 1.1.22 The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol
+### 1.1.23 The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol
 
 > **Skill Activity** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Treatment Monitoring Review (`d2m2`)  
 > **Topic:** Skill Activity 2 — the silent client and the trauma-informed interview, 04/08–04/21/2026  
@@ -1665,7 +1731,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 1.1.23 CM Fundamentals Knowledge Check
+### 1.1.24 CM Fundamentals Knowledge Check
 
 > **Knowledge Check** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with CM Fundamentals Knowledge Check (`d1m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1774,7 +1840,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 ---
 
-### 1.1.24 Coverage Setup Verification Check
+### 1.1.25 Coverage Setup Verification Check
 
 > **Knowledge Check** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Coverage Setup Verification Check (`d2m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1897,7 +1963,7 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 ---
 
-### 1.1.25 Onboarding & Property Damage Check
+### 1.1.26 Onboarding & Property Damage Check
 
 > **Knowledge Check** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Onboarding & Property Damage Check (`d1m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1995,7 +2061,7 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 ---
 
-### 1.1.26 MIA Escalation Knowledge Check
+### 1.1.27 MIA Escalation Knowledge Check
 
 > **Knowledge Check** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with MIA Escalation Knowledge Check (`d1m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2077,7 +2143,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 ---
 
-### 1.1.27 Case Plan Audit & the Claim Set Up Gate
+### 1.1.28 Case Plan Audit & the Claim Set Up Gate
 
 > **Knowledge Check** · Day 1 — Fundamentals, Intake, Claim Set Up & Treatment · Module 1: Fundamentals, Intake, Claim Set Up & Treatment · scored with Case Plan Audit & the Claim Set Up Gate (`d1m4`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  

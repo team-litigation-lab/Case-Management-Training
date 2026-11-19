@@ -1739,10 +1739,10 @@ window.CM_CF_SCRIPTS = {
  "_days": {
   "1": {
    "agenda": {
-    "say": "• Welcome; today starts John Doe's case from the beginning, on the Day 1 deck\n• Part 1, the lessons: fundamentals, intake, claim set-up and the Case Plan, the car, client communications, who pays the bills, treatment\n• Part 2, the daily loop: meet John Doe on his Case Profile and do his Intake, our Skill Building\n• Then 📁 Backup File Maintenance, required: the firm's folders on his Backup Drive; then write the Action Plan\n• Then 4 short skill activities in a 20-minute Practice Lab: every trainee works all 4\n• Knowledge Check: 70% opens Day 2"
+    "say": "• Welcome; today starts John Doe's case from the beginning, on the Day 1 deck\n• Part 1, the lessons: fundamentals, intake, claim set-up and the Case Plan, the car, client communications, who pays the bills, treatment\n• Part 2, the daily loop: meet John Doe on his Case Profile and do his Intake, our Skill Building\n• Then 📁 Backup File Maintenance, required: the firm's folders on his Backup Drive; then write the Action Plan\n• Then 5 short skill activities in a 25-minute Practice Lab: every trainee works all 5\n• Knowledge Check: 70% opens Day 2"
    },
    "lab": {
-    "say": "• Practice Lab: 4 short skill activities, each one an assumption and one entry to log in the CMS\n• Claim set-up and care: the LORs to every carrier, the Payer Order and the LOPs\n• Treatment and the client: the Case Plan with the gap in its risks, the near-drop\n• About 20 minutes: time for all 4, about five minutes each; then the Ready check"
+    "say": "• Practice Lab: 5 short skill activities, each one an assumption and one entry to log in the CMS\n• Intake and claim set-up: John Doe's voicemail and his Direction Packet, the LORs to every carrier\n• Care and the client: the Payer Order and the LOPs, the Case Plan with the gap in its risks, the near-drop\n• About 25 minutes: time for all 5, about five minutes each; then the Ready check"
    },
    "plan": {
     "say": "• Step 4 of the loop, guided: the Action Plan template, section by section, on the shared screen\n• Every fact from the Intake with the document it comes from; every action item with an owner, a date and a tool\n• Anything only Atty. Thorne decides is routed to him, with the date"

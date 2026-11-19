@@ -21,13 +21,13 @@
 (function(){
 "use strict";
 const TIPS = {
-  "d3-drive": ["d3m1-pkg"], "d3m2-a1": ["d3m2-l1"], "d3m2-rel": ["d3m2-umw"],
+  "d1m3-a1": ["d1m3-l1"], "d3-drive": ["d3m1-pkg"], "d3m2-a1": ["d3m2-l1"], "d3m2-rel": ["d3m2-umw"],
   // the drawn lessons whose topic is on the Canva decks' pages (the owner: no lesson repeats a deck), retired:
   "d2m2-a1": ["d2m2-pip", "d1m4-emc", "d1m1-l2", "d2m2-sum"],
   "d2m2-a2": ["d2m2-l2", "d1m1-upl", "d1m2-l2", "d1m4-tcare"], "d2m4-a2": ["d2m4-l2"], "d3m3-a2": ["d3m3-l3"],
   "d4m3-a1": ["d4m3-tx"], "d4m4-a2": ["d4m4-l2", "d4m4-l1"],
   // the side exercises the owner cut (fewer extra tasks): each Tip moved to the kept activity that now does that work
-  "d1m1-open": ["d1m3-l1", "d2m1-l2", "d2m1-cov", "d1m4-l1"], "d2m1-a1": ["d2m1-liab"], "d3m1-a1": ["d2m3-l2"],
+  "d1m1-open": ["d2m1-l2", "d2m1-cov", "d1m4-l1"], "d2m1-a1": ["d2m1-liab"], "d3m1-a1": ["d2m3-l2"],
   "d3m4-a1": ["d3m4-l2"]
 };
 const CF = window.CM_CASE_FLOW, DECK = window.CM_DECK_SLIDES || {};

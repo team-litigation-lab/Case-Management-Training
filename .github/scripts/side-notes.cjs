@@ -43,6 +43,6 @@ CF.sequence.forEach(sd => {
     if ((c.donts || []).length && !check.includes('the one thing to watch for ' + norm(c.donts[0]).split(' ').slice(0, 3).join(' '))) fail(`${id}: the Submit slide's notes should name the one thing to watch for (the copy's first don't)`);
   });
 });
-if (n < 15) fail(`only ${n} side exercises found; the course keeps about twenty (four a day, three on Day 5)`);   // fifty until the owner cut the extra tasks
+if (n < 15) fail(`only ${n} side exercises found; the course keeps about twenty (four or five a day, three on Day 5)`);   // fifty until the owner cut the extra tasks
 if (failures.length) { console.log(`${failures.length} problem(s):`); failures.slice(0, 40).forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
 console.log(`Speaker notes: all ${n} side exercises tell their own short exercise (the steps, the "Assuming …" scenario, Submit and the one thing to watch for); the Skill Building and the Backup File Maintenance keep their full notes.`);
