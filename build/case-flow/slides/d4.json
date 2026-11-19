@@ -355,13 +355,14 @@
   },
   "d4m3-a1": {
     "image": "money-ledger",
-    "situation": "It is 03/04/2027; binder due **03/11/2027** for the 03/18/2027 mediation. The draft carries Riverton Spine & Rehab at **$6,290.00** and Crescent's $3,400.00 as open. Riverton's certified ledger is outstanding.",
+    "situation": "It is 03/04/2027 and the mediation is **not yet calendared**. The draft carries Riverton Spine & Rehab at **$6,290.00** and Crescent's $3,400.00 as open. Riverton's certified ledger is outstanding.",
     "steps": [
       "Build the six sections from the master index, starting from the 07/20/2026 demand, and give each document **one exhibit number** and Bates range.",
       "Map every defense in the answer to the exhibit that answers it, and rebuild the ledger from the certified bills to $42,984.00.",
+      "Calendar the mediation from the verified notice in CMS → Calendar: the session, the exchange and internal dates, the report and the fee, each **conflict-checked**.",
       "Add the Negotiation Log, a draft release and the consent requests, then route the binder to Atty. Thorne."
     ],
-    "deliver": "Indexed, OCR-searchable binder with **an audited ledger**, routed to Atty. Thorne, ready by 03/11/2027",
+    "deliver": "Indexed, searchable binder, **an audited ledger**, to Atty. Thorne by the exchange date",
     "purpose": "Keystone won't put a real number up **while the ledger is unverified**",
     "principle": "Only audited, certified figures **reach the mediator's binder**",
     "grade": {
@@ -370,7 +371,7 @@
         "The binder **prints from the master index**, never the reverse",
         "Any document found **in five seconds**: tabbed, bookmarked, searchable",
         "**Operative pleadings only**; no drafts anywhere",
-        "Statement **to the mediator only**, delivered by 03/11/2027"
+        "Statement **to the mediator only**, delivered on the counted date"
       ],
       "include": [
         "**Cover letter** to Hon. Carla Benton (Ret.)",
@@ -393,8 +394,8 @@
     },
     "checks": [
       "Riverton audited: 33 visits × $185.00 = **$6,105.00**",
-      "Crescent's bill **satisfied by Peach State's $1,860.00**",
-      "Open liens: $1,860.00 + $6,105.00 = **$7,965.00**",
+      "Crescent satisfied by Peach State; open liens **$7,965.00**",
+      "Mediation calendared from **the verified notice**",
       "Section 3: **operative pleadings only**, all three defenses listed",
       "Routed to Atty. Thorne; **nothing about value** to Atty. Mercer"
     ],

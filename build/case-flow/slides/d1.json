@@ -40,7 +40,7 @@
       "Before anything else, run the **Conflict Check** on every party's full legal name and log the result in the CMS.",
       "Check each field of the draft intake record against its source document: date of loss, names and roles, John Doe's position, date of birth and report number.",
       "Correct every error you find and write in Case Notes which document proves it. Never change a field silently.",
-      "On the CMS Calendar, docket the SOL of **02/06/2028** with reminders, then map all six roles under Parties.",
+      "On the CMS Calendar, docket the SOL of **02/06/2028** with reminders, map all six roles under Parties, then enter each recovery layer in CMS → Insurance.",
       "Log the retainer and the HIPAA authorization, file each intake document under its CMS category, and send Atty. Thorne a short note of your corrections in Case Notes."
     ],
     "deliver": "An active matter, **every field verified**, corrections noted to Atty. Thorne",
@@ -48,9 +48,9 @@
     "principle": "The signed source document wins; **the draft is only a lead**",
     "checks": [
       "Conflict Check logged **before the matter existed**",
-      "Position corrected **from the Police Report**",
-      "Date of birth and **report number** corrected, with sources",
+      "Position, date of birth and **report number** corrected, with sources",
       "SOL docketed; **six roles** mapped; documents filed",
+      "Insurance: each layer **in order and sourced**, marked preliminary",
       "Correction note **routed to Atty. Thorne**"
     ],
     "dos": [

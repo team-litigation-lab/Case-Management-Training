@@ -1254,7 +1254,7 @@ The CMS 📝 New Intake screen as a large mock-up on the left two-thirds: a Conf
 
 **Scenario.** 02/09/2026. The raw file from “On the Records” is in: the New Client Intake Sheet, the intake supplement, the signed retainer and claim-specific HIPAA authorization, and the Riverton PD crash report. A colleague keyed a draft intake record into the CMS. Atty. Thorne wants the matter active today.
 
-**Execution prompt.** Open John Doe's matter in the CMS. Run and document the Conflict Check on every party's full legal name before anything else. Verify the draft intake record field by field against the source documents (date of loss, names and roles, John Doe's position, date of birth, report number) and correct each error with its source, never silently. Docket the SOL (02/06/2028) with reminders, map all six roles, log the retainer and the HIPAA authorization, and file every intake document under its CMS category, named to the firm's convention. Route a short note of what you corrected to Atty. Thorne.
+**Execution prompt.** Open John Doe's matter in the CMS. Run and document the Conflict Check on every party's full legal name before anything else. Verify the draft intake record field by field against the source documents (date of loss, names and roles, John Doe's position, date of birth, report number) and correct each error with its source, never silently. Docket the SOL (02/06/2028) with reminders, map all six roles, log the retainer and the HIPAA authorization, and file every intake document under its CMS category, named to the firm's convention. Then, at the Insurance checkpoint (CMS → Insurance), enter the three recovery layers in their order of operations, class each first- or third-party, fill every field or record why it is empty, record where each limit came from and mark the projection preliminary until a Declaration Page confirms it, and record PIP outside the stack. Route a short note of what you corrected to Atty. Thorne.
 
 | | |
 |---|---|
@@ -1271,6 +1271,8 @@ The CMS 📝 New Intake screen as a large mock-up on the left two-thirds: a Conf
 - [ ] Retainer and HIPAA authorization logged with their signing date (02/09/2026)
 - [ ] Every intake document filed under its CMS category and named to convention
 - [ ] Corrections summarized to Atty. Thorne in Case Notes
+- [ ] Insurance checkpoint (CMS → Insurance, after the six roles and before the note): BI → Host UM → Relative UM in their order of operations, $10,000 / $20,000 / $10,000, total $40,000; BI third-party, both UM layers first-party
+- [ ] Every Insurance field filled or its gap recorded: policy and claim number on every layer, the Relative UM adjuster “No adjuster assigned yet”, not left blank; each limit's source recorded (the set-up call for now, a Declaration Page to be requested in the LOR) and the projection marked preliminary; PIP recorded outside the stack
 
 **Best practices & pitfalls**
 
@@ -1288,9 +1290,10 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **15%** | Conflict Check first | Documented before the matter was created, on full legal names |
-| 🤖 AI | **25%** | Field verification | Position, date of birth and report number corrected with their sources |
-| 🤖 AI | **20%** | Matter set-up | SOL docketed with reminders, six roles mapped, intake documents filed by category |
-| 🧑‍🏫 Trainer | **25%** | Verification discipline | Checked every field against a document rather than the draft |
+| 🤖 AI | **20%** | Field verification | Position, date of birth and report number corrected with their sources |
+| 🤖 AI | **15%** | Matter set-up | SOL docketed with reminders, six roles mapped, intake documents filed by category |
+| 🤖 AI | **10%** | Coverage stack | Three layers in their order of operations, each classed first- or third-party, every field filled or its gap recorded, each limit sourced and the projection preliminary; PIP outside the stack |
+| 🧑‍🏫 Trainer | **25%** | Verification discipline | Checked every field against a document rather than the draft, and can explain why the passenger fact opens two UM layers (understands stacking) |
 | 🧑‍🏫 Trainer | **15%** | Communication | Corrections routed to Atty. Thorne in a short, factual note |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.

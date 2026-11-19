@@ -451,12 +451,12 @@ Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns A
 
 **Scenario.** File date 10/13/2026. Cardinal State's $10,000 check arrived today, joining Keystone's (received 09/04) and Harbor Point's (10/05) in the IOLTA trust account, each deposited only after its release was signed (Keystone 08/28; each UM release before its check): $40,000.00 received; the last check has not cleared. Peach State accepted $1,240.00 on 10/09 and Riverton Spine & Rehab accepted $4,580.00 on 10/12; both written acceptances are in Documents. Costs stand at $486.75. Both Net Sheet tabs are half-built from the demand phase.
 
-**Execution prompt.** Complete John Doe's Net Sheet in both tabs. Recovery Ledger: each check by carrier and stream, the 33⅓% fee per stream, the five receipted costs, and costs and liens split 25% / 75%, down to the net per stream and in total. Lien Tracker: every medical provider and payer with charges, PIP Payments, Health Payments, Med Pay, adjustments, balance owed and max offer (the deck's medical provider ledger, Day 3 deck p7), then each lien's asserted, audited and reduced figure, the basis of each reduction and its payoff-letter status. Every non-medical provider (pharmacy, counseling, equipment, transportation) goes in the Non-Medical Provider Ledger beneath it, with who paid and what is still owed, never with the medical liens. Tie both tabs to the Trust Ledger. Graded judgment: what stays off the payables, and what you flag for Atty. Thorne before John signs.
+**Execution prompt.** Complete John Doe's Net Sheet in three stages, each submitted and saved before the next: (1) the Lien Tracker, (2) the Recovery Ledger in both tabs, (3) the disbursement gate. Read every reduced lien figure from the Payoff Letters already on the file. Recovery Ledger: each check by carrier and stream, the 33⅓% fee per stream, the five receipted costs, and costs and liens split 25% / 75%, down to the net per stream and in total. Lien Tracker: every medical provider and payer with charges, PIP Payments, Health Payments, Med Pay, adjustments, balance owed and max offer (the deck's medical provider ledger, Day 3 deck p7), then each lien's asserted, audited and reduced figure, the basis of each reduction and its payoff-letter status. Every non-medical provider (pharmacy, counseling, equipment, transportation) goes in the Non-Medical Provider Ledger beneath it, with who paid and what is still owed, never with the medical liens. Tie both tabs to the Trust Ledger. Then, at the disbursement gate, confirm every condition precedent against its document (the executed releases, cleared funds, the signed statement, the Payoff Letters, the prior-attorney lien withdrawn and the hold released by Atty. Thorne), queue one approval-ready disbursement line per Net Sheet line in the Trust Ledger for Atty. Thorne, and show the ledger reaching $0.00. Graded judgment: what stays off the payables, what you flag for Atty. Thorne before John signs, and what must be on file before anything is queued.
 
 | | |
 |---|---|
 | **Tool / interface** | CMS → Settlement (BI/UM) → Gross Settlement · Medical Liens / Payoffs |
-| **Expected output** | A two-tab Net Sheet that reaches $20,359.92 down both streams and across the total, with every lien figure proved and routed to Atty. Thorne. |
+| **Expected output** | A two-tab Net Sheet that reaches $20,359.92 down both streams and across the total, with every lien figure proved and routed to Atty. Thorne, and the disbursement queued for his approval once every condition is on file. |
 
 **Verification checkpoints**
 
@@ -472,6 +472,8 @@ Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns A
 - [ ] Payoff status recorded per lien: written figure and date logged, satisfaction of lien marked “to obtain at payment”; no line final on a phone call
 - [ ] Future medical ($3,400–$6,800 in possible repeat ESIs) flagged to Atty. Thorne before John Doe signs: the settlement is full and final, and no carrier pays more
 - [ ] Ties out: trust deposits $40,000.00 = Recovery Ledger gross; liens audited $1,860.00 + $6,105.00 = $7,965.00, paid $1,240.00 + $4,580.00 = $5,820.00 ($2,145.00 negotiated, plus the $185.00 duplicate removed at audit)
+- [ ] Stage 3, the disbursement gate (on the same final lien basis as the sheet): Keystone's Limited Release (08/28/2026) and both UM releases on file; all funds cleared by 10/20; statement signed 10/21; Payoff Letters in hand; Vance & Kettering's written withdrawal (10/19/2026) on file and the $6,666.67 hold released by Atty. Thorne, not by the CM
+- [ ] Five approval-ready commands matching the Net Sheet: the firm's fee $13,333.33 and costs $486.75; Peach State $1,240.00; Riverton Spine & Rehab $4,580.00; John Doe $20,359.92; the Trust Ledger shown reaching $0.00; each marked for Atty. Thorne's approval and signature, none released by the CM
 
 **Best practices & pitfalls**
 
@@ -489,11 +491,12 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | Stream arithmetic | Fee, costs and liens split correctly; $5,089.98 + $15,269.94 = $20,359.92 |
-| 🤖 AI | **15%** | Lien Tracker accuracy | Asserted, audited and reduced figures and dates for Peach State and Riverton Spine & Rehab |
+| 🤖 AI | **15%** | Stream arithmetic | Fee, costs and liens split correctly; $5,089.98 + $15,269.94 = $20,359.92 |
+| 🤖 AI | **15%** | Lien Tracker | Asserted, audited and reduced figures and dates for Peach State and Riverton Spine & Rehab |
 | 🤖 AI | **10%** | Cost verification | Five receipted costs = $486.75, charged once |
-| 🤖 AI | **15%** | Zero-balance discipline | PIP, MedPay, the write-offs and the providers they paid kept off the payables with sources; Riverton Drug in the Non-Medical Provider Ledger, Paid by Client, nothing owed |
-| 🧑‍🏫 Trainer | **15%** | Judgment on payables | Can explain why each zero-balance line is not owed, citing the document |
+| 🤖 AI | **10%** | Zero-balance discipline | PIP, MedPay, the write-offs and the providers they paid kept off the payables with sources; Riverton Drug in the Non-Medical Provider Ledger, Paid by Client, nothing owed |
+| 🤖 AI | **10%** | Disbursement gate | Every condition precedent confirmed against its document before anything is queued; one approval-ready line per Net Sheet line; the Trust Ledger shown reaching $0.00 |
+| 🧑‍🏫 Trainer | **15%** | Judgment on payables | Can explain why each zero-balance line is not owed, citing the document, and treats cleared funds, the signed statement and the released hold as hard gates, not formalities |
 | 🧑‍🏫 Trainer | **10%** | Future-care flag | Flags the full-and-final consequence to Atty. Thorne rather than raising it with John Doe |
 | 🧑‍🏫 Trainer | **15%** | UPL boundary | No view offered to John Doe on sufficiency, enforceability or acceptance |
 

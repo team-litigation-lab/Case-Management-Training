@@ -359,7 +359,7 @@ window.CM_CF_SLIDES = {
    "Before anything else, run the **Conflict Check** on every party's full legal name and log the result in the CMS.",
    "Check each field of the draft intake record against its source document: date of loss, names and roles, John Doe's position, date of birth and report number.",
    "Correct every error you find and write in Case Notes which document proves it. Never change a field silently.",
-   "On the CMS Calendar, docket the SOL of **02/06/2028** with reminders, then map all six roles under Parties.",
+   "On the CMS Calendar, docket the SOL of **02/06/2028** with reminders, map all six roles under Parties, then enter each recovery layer in CMS → Insurance.",
    "Log the retainer and the HIPAA authorization, file each intake document under its CMS category, and send Atty. Thorne a short note of your corrections in Case Notes."
   ],
   "deliver": "An active matter, **every field verified**, corrections noted to Atty. Thorne",
@@ -367,9 +367,9 @@ window.CM_CF_SLIDES = {
   "principle": "The signed source document wins; **the draft is only a lead**",
   "checks": [
    "Conflict Check logged **before the matter existed**",
-   "Position corrected **from the Police Report**",
-   "Date of birth and **report number** corrected, with sources",
+   "Position, date of birth and **report number** corrected, with sources",
    "SOL docketed; **six roles** mapped; documents filed",
+   "Insurance: each layer **in order and sourced**, marked preliminary",
    "Correction note **routed to Atty. Thorne**"
   ],
   "dos": [
@@ -4396,15 +4396,15 @@ window.CM_CF_SLIDES = {
  },
  "d3m1-a1": {
   "image": "checklist-qa",
-  "situation": "File date 07/20/2026. MMI reached; Specials $42,984.00. Atty. Thorne approved **$10,000 limits**, a Limited Release of Smith and Keystone, Smith's affidavit, 30 days from receipt. The draft awaits **your final audit**.",
+  "situation": "File date 07/20/2026. MMI reached; the Specials, wages and gap record are **still unaudited**. Atty. Thorne approved $10,000 limits, a Limited Release, Smith's affidavit, 30 days from receipt. The draft awaits **you**.",
   "steps": [
-   "Download the case documents from 📁 Source Files, check the draft against the Big Four and the Final Scrub, and log each fix as a CMS task.",
+   "Download the case documents from 📁 Source Files, audit the Specials and wages bill by bill, build the Gap Record from the filed notes, then check the draft against the Big Four.",
    "Build the packet by hand: demand letter, exhibit index, then Exhibits A–J, **liability first** (A–D), then records and bills, MRI, Causation Letter, wages, Gap Record, Dec Page.",
    "Combine them into one PDF, make it searchable (OCR), bookmark each section, and Bates-number every page once.",
    "Name it by the firm's convention, ending in _DRAFT, and file it in CMS → Doc Hub so it reaches folder 05 Insurance.",
-   "Once Atty. Thorne signs, email it to Dana Whitfield, and docket 08/21/2026 from her 07/22/2026 written acknowledgement."
+   "Once Atty. Thorne signs, email it to Dana Whitfield, log each fix as a CMS task, and docket the acceptance deadline from her **written acknowledgement**."
   ],
-  "deliver": "An audited, emailed demand with **written acknowledgement** and 08/21/2026 docketed",
+  "deliver": "An audited, emailed demand with **written acknowledgement** and its deadline docketed",
   "purpose": "Keystone's 30 days run from receipt: **without proof, no deadline** to hold",
   "principle": "The clock starts at **her written acknowledgement**, not sending",
   "grade": {
@@ -4418,9 +4418,9 @@ window.CM_CF_SLIDES = {
    "include": [
     "Cover letter: **$10,000 limits**, 30 days from receipt",
     "Liability: **RPD-26-018842**, Ruth Calloway, doorbell video",
-    "Itemized bills and records: **$41,400.00** Specials",
+    "Itemized bills and records: **the audited Specials**",
     "Gap proof: EMS report, onset note, **Causation Letter**",
-    "Wages **$1,584.00**: the Northgate HR letter",
+    "Wages: **the employer's verification** letter",
     "Narrative: mechanism, pain, **work and life impact**",
     "Limited Release terms and **Smith's affidavit** request"
    ],
@@ -4435,9 +4435,9 @@ window.CM_CF_SLIDES = {
   },
   "checks": [
    "**$10,000 BI limit**; terms match Atty. Thorne's approval exactly",
-   "Big Four complete; **Specials total $42,984.00**",
-   "Gap answered **on page one**; each deficiency an assigned task",
-   "Emailed and logged; **08/21/2026 docketed** from her acknowledgement",
+   "Specials audited **bill by bill**; each deficiency a task",
+   "Gap Record: **every reason beside its document**",
+   "Emailed and logged; deadline docketed **from her acknowledgement**",
    "Any extension request **routed to Atty. Thorne** same day"
   ],
   "dos": [
@@ -5688,7 +5688,8 @@ window.CM_CF_SLIDES = {
    "On the Net Sheet's Recovery Ledger, post each check **by stream** (Stream 1 the $10,000 BI, Stream 2 the $30,000 UM stack) with the 33⅓% fee.",
    "Split the costs and liens **25% and 75%** between the streams, the UM share as the remainder of each split.",
    "Log each lien's figures and payoff status in the Lien Tracker, and tie both tabs to the **BI/UM Master Financial Ledger** and the Trust Ledger.",
-   "Flag future ESIs to Atty. Thorne and route the Net Sheet to him for approval before John Doe signs."
+   "Flag future ESIs to Atty. Thorne and route the Net Sheet to him for approval before John Doe signs.",
+   "At the disbursement gate, confirm each condition against its document, then queue one line per Net Sheet line in the **Trust Ledger** for Atty. Thorne."
   ],
   "deliver": "A two-tab Net Sheet reaching **$20,359.92 both ways**",
   "purpose": "John Doe signs on this Net Sheet: **one wrong cent** misstates his net",
@@ -5697,7 +5698,8 @@ window.CM_CF_SLIDES = {
    "Pre-suit fee: **$13,333.33**",
    "Costs **$486.75**, charged once",
    "Net: **$5,089.98 + $15,269.94 = $20,359.92**",
-   "**Future ESIs flagged** to Atty. Thorne"
+   "**Future ESIs flagged** to Atty. Thorne",
+   "Every condition **proved before queuing**; ledger reaches $0.00"
   ],
   "dos": [
    "Compute the UM share **as the remainder** of each split"
@@ -6930,13 +6932,14 @@ window.CM_CF_SLIDES = {
  },
  "d4m3-a1": {
   "image": "money-ledger",
-  "situation": "It is 03/04/2027; binder due **03/11/2027** for the 03/18/2027 mediation. The draft carries Riverton Spine & Rehab at **$6,290.00** and Crescent's $3,400.00 as open. Riverton's certified ledger is outstanding.",
+  "situation": "It is 03/04/2027 and the mediation is **not yet calendared**. The draft carries Riverton Spine & Rehab at **$6,290.00** and Crescent's $3,400.00 as open. Riverton's certified ledger is outstanding.",
   "steps": [
    "Build the six sections from the master index, starting from the 07/20/2026 demand, and give each document **one exhibit number** and Bates range.",
    "Map every defense in the answer to the exhibit that answers it, and rebuild the ledger from the certified bills to $42,984.00.",
+   "Calendar the mediation from the verified notice in CMS → Calendar: the session, the exchange and internal dates, the report and the fee, each **conflict-checked**.",
    "Add the Negotiation Log, a draft release and the consent requests, then route the binder to Atty. Thorne."
   ],
-  "deliver": "Indexed, OCR-searchable binder with **an audited ledger**, routed to Atty. Thorne, ready by 03/11/2027",
+  "deliver": "Indexed, searchable binder, **an audited ledger**, to Atty. Thorne by the exchange date",
   "purpose": "Keystone won't put a real number up **while the ledger is unverified**",
   "principle": "Only audited, certified figures **reach the mediator's binder**",
   "grade": {
@@ -6945,7 +6948,7 @@ window.CM_CF_SLIDES = {
     "The binder **prints from the master index**, never the reverse",
     "Any document found **in five seconds**: tabbed, bookmarked, searchable",
     "**Operative pleadings only**; no drafts anywhere",
-    "Statement **to the mediator only**, delivered by 03/11/2027"
+    "Statement **to the mediator only**, delivered on the counted date"
    ],
    "include": [
     "**Cover letter** to Hon. Carla Benton (Ret.)",
@@ -6968,8 +6971,8 @@ window.CM_CF_SLIDES = {
   },
   "checks": [
    "Riverton audited: 33 visits × $185.00 = **$6,105.00**",
-   "Crescent's bill **satisfied by Peach State's $1,860.00**",
-   "Open liens: $1,860.00 + $6,105.00 = **$7,965.00**",
+   "Crescent satisfied by Peach State; open liens **$7,965.00**",
+   "Mediation calendared from **the verified notice**",
    "Section 3: **operative pleadings only**, all three defenses listed",
    "Routed to Atty. Thorne; **nothing about value** to Atty. Mercer"
   ],

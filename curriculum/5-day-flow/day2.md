@@ -522,14 +522,14 @@ A three-column assembly board. Left: the Demand Package as five tabbed cream fol
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) and the Gap Explanation Record are on file; the pre-demand audit put the Specials at $42,984.00. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from Dana Whitfield's written acknowledgement of receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.
+**Scenario.** File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) is on file, and every bill, the employer's wage records and the call and interview notes are in. The Specials, the wages and the Gap Explanation Record are yours to audit and build before anything goes into the demand. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from Dana Whitfield's written acknowledgement of receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.
 
-**Execution prompt.** Audit the draft against the Big Four and the Final Scrub, log each deficiency as an assigned CMS task, and assemble the package with the gap answered on page one of the timeline. Once Atty. Thorne has signed, email it to Dana Whitfield from the Email Workspace with the Demand Package attached, ask her to confirm receipt in writing, and log it. When her written acknowledgement arrives on 07/22/2026, docket the acceptance deadline from it, with reminders. Graded judgment: what starts the clock, and what you do if Keystone asks for more time.
+**Execution prompt.** Start with the Specials audit, before anything goes into the Big Four: match Harbor Point's PIP and MedPay ledger bill by bill and confirm each limit exhausted; reconcile each provider's billed lines to its visit notes and remove any line no visit note supports; keep billed and paid in separate columns, future medical in the narrative and the liens listed; and enter the wages only once the employer has verified them, each missed shift matched to a treating provider's off-work note (a shift with no note kept and flagged to Atty. Thorne, and no medical records sent to the employer). Then build the Gap Explanation Record from the call and interview notes already filed: both interruptions with exact dates, each reason beside the dated document that backs it, a reason with nothing behind it tagged “account only”, facts and citations only, the public social media checked and the non-economic records filed. Then audit the draft against the Big Four and the Final Scrub, log each deficiency as an assigned CMS task, and assemble the package with the gap answered on page one of the timeline. Once Atty. Thorne has signed, email it to Dana Whitfield from the Email Workspace with the Demand Package attached, ask her to confirm receipt in writing, and log it. When her written acknowledgement arrives on 07/22/2026, docket the acceptance deadline from it, with reminders. Graded judgment: what starts the clock, and what you do if Keystone asks for more time.
 
 | | |
 |---|---|
 | **Tool / interface** | Action Plan Editor → Demand Package · CMS → Doc Hub → Others · Email Workspace · Court E-Filing |
-| **Expected output** | An audited, served Time-Limited Demand with proof of delivery on file and 08/21/2026 docketed. |
+| **Expected output** | An audited Specials ledger, a Gap Explanation Record, and an audited, served Time-Limited Demand with proof of delivery on file and 08/21/2026 docketed. |
 
 **Verification checkpoints**
 
@@ -544,6 +544,9 @@ A three-column assembly board. Left: the Demand Package as five tabbed cream fol
 - [ ] Her written acknowledgement (07/22/2026, 9:06 a.m.) filed with the sent email as proof of delivery; deadline docketed 08/21/2026 (07/22 + 30 days) with reminders
 - [ ] Any extension request or response from Keystone routed to Atty. Thorne the same day, never answered by the CM
 - [ ] The BI settlement set the demand sets in motion tracked as one CMS task from the day it is served: Smith's affidavit of no other insurance (the demand's condition), both UM carriers' consents and notarized Waivers of Subrogation, the executed Limited Release and the W-9; Keystone pays only once it is complete
+- [ ] Specials audit (first checkpoint, from the pre-demand audit): PIP's two payments matched to the emergency bills ($8,850.00 + $1,150.00 = $10,000.00, exhausted 03/04/2026) and MedPay's five to five bills ($5,000.00, exhausted by the 06/12/2026 visit's payment); Riverton Spine & Rehab's 34 lines reconciled to 33 visit notes, the 05/04/2026 duplicate removed ($6,290.00 → $6,105.00); billed and paid in separate columns; future ESIs ($3,400–$6,800) in the narrative; both liens listed (Peach State $1,860.00, Riverton Spine & Rehab $6,105.00)
+- [ ] Wages verified before they enter the ledger: Northgate's written verification (06/30/2026, $22.00/hour, 8-hour shifts); 03/05, 03/13, 05/15 and 05/18 each matched to a provider record or off-work note; 02/09–02/13/2026 kept and flagged to Atty. Thorne, not dropped; the draft's $1,760.00 audited to $1,584.00 (9 × 8 h × $22.00); no medical records sent to the employer
+- [ ] Gap Explanation Record built from what is already filed (the 03/04 call note and the 04/08–04/21 near-drop record), not from the trainee's own later call: the 14-day gap (02/06–02/20/2026) and the 19-day disruption (04/02–04/21/2026) with exact dates; each reason beside its dated document (the tow record, the Riverton Drug receipt of 02/07/2026, Peach State's eligibility, the 02/20 urgent-care onset note, Dr. Reyes's 04/20 note, the 06/10 counseling summary); the rental, the plan worry and the Personal Impact Statement tagged “account only”; facts and citations only, the social-media pass logged, the non-economic records filed and logged for Atty. Thorne
 
 **Best practices & pitfalls**
 
@@ -563,13 +566,15 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **20%** | Package completeness | Big Four present; $41,400.00 + $1,584.00 = $42,984.00; the 05/04/2026 duplicate removed |
-| 🤖 AI | **15%** | Terms fidelity | Amount, release scope, affidavit and window exactly as approved |
-| 🤖 AI | **15%** | Service and proof | Emailed to Dana Whitfield and logged; her written acknowledgement filed with the sent email |
-| 🤖 AI | **10%** | Deadline | 08/21/2026 docketed from the 07/22/2026 written acknowledgement |
+| 🤖 AI | **15%** | Package completeness | Big Four present; $41,400.00 + $1,584.00 = $42,984.00; the 05/04/2026 duplicate removed |
+| 🤖 AI | **10%** | Specials audit | PIP and MedPay matched bill by bill; the duplicate removed; billed beside paid; wages entered only once verified, every shift matched or flagged |
+| 🤖 AI | **10%** | Gap record | Both interruptions dated exactly; every reason beside its dated document, account-only reasons tagged; facts and citations only |
+| 🤖 AI | **10%** | Terms fidelity | Amount, release scope, affidavit and window exactly as approved |
+| 🤖 AI | **10%** | Service and proof | Emailed to Dana Whitfield and logged; her written acknowledgement filed with the sent email |
+| 🤖 AI | **5%** | Deadline | 08/21/2026 docketed from the 07/22/2026 written acknowledgement |
 | 🧑‍🏫 Trainer | **20%** | Audit judgment | Found the faults that matter (the deadline, the release, the Specials total, the missing affidavit, and the packet's exhibits) and assigned each |
 | 🧑‍🏫 Trainer | **10%** | Gap presentation | Gap acknowledged plainly with its corroboration; not hidden, not over-argued |
-| 🧑‍🏫 Trainer | **10%** | UPL / authority boundary | Terms, extensions and replies left to Atty. Thorne; nothing signed for him |
+| 🧑‍🏫 Trainer | **10%** | UPL / authority boundary | Terms, extensions and replies left to Atty. Thorne; nothing signed for him; no medical records to the employer and nothing on the claim's value |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
 

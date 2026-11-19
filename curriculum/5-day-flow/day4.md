@@ -526,14 +526,14 @@ A three-column workbench. Left: the draft binder as a grey stack topped by two r
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** It is 03/04/2027 on Track B. John Doe was deposed on 02/18/2027 and the certified transcript is in the file. The confidential statement and binder are due to Hon. Carla Benton (Ret.) on 03/11/2027 for the 03/18/2027 mediation. The draft binder, built from the providers' original bills instead of the audited demand ledger, carries Riverton Spine & Rehab at $6,290.00 and lists Crescent Pain & Spine's $3,400.00 as an open balance, and Atty. Grant Mercer has written that Keystone “will not put a real number on the table” while the medical ledger is unverified. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027 (second request 02/22, red-flagged 03/01), is still outstanding. The Litigation Desk's draft index is in the file (RS62), assigned on the 07/15/2026 task log (RS64): QC it, do not rebuild it from nothing.
+**Scenario.** It is 03/04/2027 on Track B. John Doe was deposed on 02/18/2027 and the certified transcript is in the file. The Notice of Mediation (01/08/2027) is in the file, but the session and every date that hangs off it are not yet on John Doe's CMS calendar; the confidential statement and binder go to Hon. Carla Benton (Ret.) ahead of it. The draft binder, built from the providers' original bills instead of the audited demand ledger, carries Riverton Spine & Rehab at $6,290.00 and lists Crescent Pain & Spine's $3,400.00 as an open balance, and Atty. Grant Mercer has written that Keystone “will not put a real number on the table” while the medical ledger is unverified. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027 (second request 02/22, red-flagged 03/01), is still outstanding. The Litigation Desk's draft index is in the file (RS62), assigned on the 07/15/2026 task log (RS64): QC it, do not rebuild it from nothing.
 
-**Execution prompt.** Assemble the six-section Mediation Binder from the master index, starting from the 07/20/2026 Demand Package. Seat each document in one section with its exhibit number and Bates range, and map every allegation in the 11/12/2026 answer to the exhibit that answers it. Run the pre-mediation audit: rebuild the ledger from the certified bills in hand to $42,984.00, and cross-check each provider balance against what PIP and Peach State already paid. Add the Negotiation Log, a draft Limited Release and the UM consent requests, then route it all to Atty. Thorne before delivery.
+**Execution prompt.** Assemble the six-section Mediation Binder from the master index, starting from the 07/20/2026 Demand Package. Seat each document in one section with its exhibit number and Bates range, and map every allegation in the 11/12/2026 answer to the exhibit that answers it. Run the pre-mediation audit: rebuild the ledger from the certified bills in hand to $42,984.00, and cross-check each provider balance against what PIP and Peach State already paid. Add the Negotiation Log, a draft Limited Release and the UM consent requests. At the dates-and-delivery checkpoint, calendar the mediation the binder serves: verify the notice against the order's selection rule and its completion deadline, enter the session and count every date that hangs off it (the statement-and-binder exchange, the internal dates, attendance, the client's confirmation and prep, the mediator's report), track the fee as a case cost and conflict-check every new date against the master calendar. Then route it all to Atty. Thorne before delivery.
 
 | | |
 |---|---|
 | **Tool / interface** | CMS → Doc Hub → Litigation Documents · CMS → Doc Hub → Case Files · Medical Records Requests |
-| **Expected output** | A six-section, indexed, OCR-searchable Mediation Binder with an audited ledger, a lien summary and a short audit memo on both landmines, routed to Atty. Thorne and ready for delivery to the mediator by 03/11/2027. |
+| **Expected output** | A six-section, indexed, OCR-searchable Mediation Binder with an audited ledger, a lien summary and a short audit memo on both landmines, the mediation calendared from its verified notice, routed to Atty. Thorne and ready for delivery to the mediator by 03/11/2027. |
 
 **Verification checkpoints**
 
@@ -548,6 +548,8 @@ A three-column workbench. Left: the draft binder as a grey stack topped by two r
 - [ ] Section 6: Negotiation Log 07/20/2026 demand → $3,500 (08/05) → rebuttal (08/06) → $3,500 “final” (08/12) → lapse (08/21) → suit (09/24); draft release limited to Robert Smith and Keystone; consent requests to Harbor Point and Cardinal State drafted
 - [ ] Master index complete: every document in exactly one section with an exhibit number and Bates range; PDF OCR-searchable and bookmarked
 - [ ] Audit memo names both landmines and their fixes; binder, statement and memo routed to Atty. Thorne before delivery; nothing about value said to Atty. Mercer
+- [ ] Dates and delivery, the calendaring (from the mediation calendar): the Notice of Mediation (01/08/2027) verified against the order's 30-day rule and the session (03/18/2027, 9:30 a.m.) against the 03/31/2027 completion deadline, linked, not re-entered; statement and binder 03/11/2027; internal dates 03/02, 03/04 and 03/09/2027; mediator's report 03/25/2027; John Doe's written confirmation, tickler and reminders calendared; prep requested from Atty. Thorne
+- [ ] The $1,200.00 fee (half of $2,400.00) tracked as a case cost, posted only on the receipted invoice; every new date conflict-checked against the master calendar (the 03/15/2027 expert disclosure flagged as a workload overlap); every entry mirrored to CMS → Calendar with its trigger, rule, owner and alerts
 
 **Best practices & pitfalls**
 
@@ -566,10 +568,10 @@ Verified in Binder Assembly Verification (taught on Case Flow Day 4) and that da
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **15%** | Section completeness | All six sections built with this file's documents; each document in exactly one section |
-| 🤖 AI | **15%** | Ledger audit | 33 visits = $6,105.00; $41,400.00 + $1,584.00 = $42,984.00 |
+| 🤖 AI | **10%** | Ledger audit | 33 visits = $6,105.00; $41,400.00 + $1,584.00 = $42,984.00 |
 | 🤖 AI | **10%** | Lien cross-check | Crescent's bill satisfied by Peach State's $1,860.00; open liens total $7,965.00 |
 | 🤖 AI | **10%** | Defense map | All five pleaded allegations mapped to answering exhibits |
-| 🤖 AI | **10%** | Dates and delivery | Pleadings, negotiation-log dates and the 03/11/2027 delivery all correct |
+| 🤖 AI | **15%** | Dates and delivery | Pleadings and negotiation-log dates correct; the mediation calendared from the verified notice: the session, the 03/11/2027 exchange, the internal dates and the mediator's report, the fee as a cost, every date conflict-checked |
 | 🧑‍🏫 Trainer | **20%** | Binder usability | Atty. Thorne could find any page within five seconds from the index |
 | 🧑‍🏫 Trainer | **10%** | Audit judgment | Both landmines found and fixed from source documents, not from the draft's own figures |
 | 🧑‍🏫 Trainer | **10%** | UPL boundary | Statement, release and consents routed for approval; no value discussed with opposing counsel or the mediator |

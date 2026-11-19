@@ -63,7 +63,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m1-open": {
   "task": {
-   "say": "• Start the matter in New Case; run and record the Conflict Check on every party's full legal name first\n• Check the draft field by field against the documents: date of loss, names, roles, position, date of birth, report number\n• Fix each error and note its source; never fix silently\n• Calendar the 02/06/2028 deadline with reminders; map six roles; log retainer and HIPAA; file documents named the firm's way\n• Send Atty. Thorne a correction note in Case Notes"
+   "say": "• Start the matter in New Case; run and record the Conflict Check on every party's full legal name first\n• Check the draft field by field against the documents: date of loss, names, roles, position, date of birth, report number\n• Fix each error and note its source; never fix silently\n• Calendar the 02/06/2028 deadline with reminders; map six roles; log retainer and HIPAA; file documents named the firm's way\n• Insurance checkpoint: each layer in order, first- or third-party, every field or its gap, each limit's source, PIP outside the stack\n• Send Atty. Thorne a correction note in Case Notes"
   },
   "case": {
    "say": "• 02/09/2026: email from On the Records; new client John Doe, front-seat passenger, collision 02/06/2026 at Maple Hollow Rd and Birch Ave\n• Attached: New Client Intake Sheet, intake supplement, retainer, signed HIPAA authorization, Riverton PD crash report\n• A colleague's draft intake record is already in the CMS, and it has mistakes\n• Atty. Thorne wants the matter active today"
@@ -783,7 +783,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m1-a1": {
   "task": {
-   "say": "• Audit the draft against the Big Four and Final Scrub in the Action Plan Editor\n• Log each deficiency as an assigned CMS task; don't fix it quietly\n• Assemble with the gap on page one; once signed, email Dana Whitfield from the Email Workspace and log it\n• Docket the deadline from her written acknowledgement dated 07/22/2026, with reminders\n• Live call: confirm receipt and 08/21/2026, no extension, log her requests in her exact words"
+   "say": "• First the Specials audit: PIP and MedPay bill by bill, billed beside paid, wages once verified; then the Gap Record from filed notes\n• Audit the draft against the Big Four and Final Scrub in the Action Plan Editor\n• Log each deficiency as an assigned CMS task; don't fix it quietly\n• Assemble with the gap on page one; once signed, email Dana Whitfield from the Email Workspace and log it\n• Docket the deadline from her written acknowledgement dated 07/22/2026, with reminders\n• Live call: confirm receipt and 08/21/2026, no extension, log her requests in her exact words"
   },
   "case": {
    "say": "• Monday 07/20/2026: Atty. Thorne wants the Keystone BI demand audited and sent today\n• Dana Whitfield, Keystone Mutual, claim KM-26-440871\n• Approved terms: $10,000 limits, Limited Release of Smith and Keystone only, Smith's affidavit, 30 days from receipt\n• On file: MMI 06/12/2026, Dr. Reyes's Causation Letter, the Gap Explanation Record; Specials $42,984.00\n• The demand specialist's draft has problems; audit it and log every deficiency as a task"
@@ -1063,7 +1063,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m4-a1": {
   "task": {
-   "say": "• Post each check by stream on the Recovery Ledger with the 33⅓% fee\n• Split the costs and liens 25% and 75% between the streams, the UM share as the remainder\n• Log each lien's figures and payoff status in the Lien Tracker\n• Tie both tabs to the BI/UM Master Financial Ledger and the Trust Ledger\n• Route it to Atty. Thorne before John Doe signs"
+   "say": "• Post each check by stream on the Recovery Ledger with the 33⅓% fee\n• Split the costs and liens 25% and 75% between the streams, the UM share as the remainder\n• Log each lien's figures and payoff status in the Lien Tracker\n• Tie both tabs to the BI/UM Master Financial Ledger and the Trust Ledger; route it to Atty. Thorne before John Doe signs\n• Stage 3, the disbursement gate: each condition proved by its document, then one approval-ready line per Net Sheet line"
   },
   "case": {
    "say": "• 10/13/2026: $40,000.00 is received in two streams, the $10,000 BI and the $30,000 UM stack\n• Peach State accepted $1,240.00; Riverton Spine & Rehab accepted $4,580.00; case costs are $486.75\n• The final Net Sheet must tie to the Trust Ledger before John Doe signs it\n• Atty. Thorne approves it; future ESIs are flagged to him"
@@ -1344,7 +1344,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m3-a1": {
   "task": {
-   "say": "• Assemble the six-section Mediation Binder in the CMS from the master index, starting with the 07/20/2026 Demand Package\n• Seat each document once with exhibit number and Bates range; map each defense in the 11/12/2026 answer to its exhibit\n• Rebuild the ledger from certified bills to $42,984.00; cross-check balances against what PIP and Peach State paid\n• PIP: add-on medical coverage paying regardless of fault, Harbor Point's $10,000 on Kevin's Escape; add the Negotiation Log, draft Limited Release, UM consent requests\n• Limited Release: ends only the claim against Robert Smith and Keystone"
+   "say": "• Assemble the six-section Mediation Binder in the CMS from the master index, starting with the 07/20/2026 Demand Package\n• Seat each document once with exhibit number and Bates range; map each defense in the 11/12/2026 answer to its exhibit\n• Rebuild the ledger from certified bills to $42,984.00; cross-check balances against what PIP and Peach State paid\n• PIP: add-on medical coverage paying regardless of fault, Harbor Point's $10,000 on Kevin's Escape; add the Negotiation Log, draft Limited Release, UM consent requests\n• Limited Release: ends only the claim against Robert Smith and Keystone\n• Dates and delivery: calendar the mediation from the verified notice, every date counted and conflict-checked, the fee as a cost"
   },
   "case": {
    "say": "• 03/04/2027, from Atty. Thorne: Mercer says Keystone won't put a real number up while the medical ledger is unverified\n• Draft binder carries Riverton at $6,290.00 and Crescent as an open balance; rebuild from the master index and audit\n• Statement and binder to Hon. Carla Benton (Ret.) by 03/11/2027, through Atty. Thorne first, for the 03/18/2027 mediation\n• John Doe deposed 02/18/2027; certified transcript on file\n• Riverton Spine & Rehab's Final Itemized Ledger: requested 02/08/2027, followed up 02/22, red-flagged 03/01, not arrived"

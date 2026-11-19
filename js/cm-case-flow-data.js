@@ -733,7 +733,7 @@ window.CM_CASE_FLOW = {
         visual: "The CMS 📝 New Intake screen as a large mock-up on the left two-thirds: a Conflict Check panel at the top with a green LOGGED stamp, then the matter fields (DOL, SOL, client position) with two fields outlined in orange where the draft was wrong. On the right, a vertical checklist of the intake documents (intake sheet, supplement, CMS record, retainer, HIPAA, Police Report), each with a filed tick and its CMS category in mono type.",
         act: {
           scenario: "02/09/2026. The raw file from “On the Records” is in: the New Client Intake Sheet, the intake supplement, the signed retainer and claim-specific HIPAA authorization, and the Riverton PD crash report. A colleague keyed a draft intake record into the CMS. Atty. Thorne wants the matter active today.",
-          prompt: "Open John Doe's matter in the CMS. Run and document the Conflict Check on every party's full legal name before anything else. Verify the draft intake record field by field against the source documents (date of loss, names and roles, John Doe's position, date of birth, report number) and correct each error with its source, never silently. Docket the SOL (02/06/2028) with reminders, map all six roles, log the retainer and the HIPAA authorization, and file every intake document under its CMS category, named to the firm's convention. Route a short note of what you corrected to Atty. Thorne.",
+          prompt: "Open John Doe's matter in the CMS. Run and document the Conflict Check on every party's full legal name before anything else. Verify the draft intake record field by field against the source documents (date of loss, names and roles, John Doe's position, date of birth, report number) and correct each error with its source, never silently. Docket the SOL (02/06/2028) with reminders, map all six roles, log the retainer and the HIPAA authorization, and file every intake document under its CMS category, named to the firm's convention. Then, at the Insurance checkpoint (CMS → Insurance), enter the three recovery layers in their order of operations, class each first- or third-party, fill every field or record why it is empty, record where each limit came from and mark the projection preliminary until a Declaration Page confirms it, and record PIP outside the stack. Route a short note of what you corrected to Atty. Thorne.",
           tool: "CMS → 📝 New Intake · Parties Involved · Calendar · Doc Hub · Notes → Case Notes",
           output: "An active matter: Conflict Check logged first, every field verified against its source, six roles mapped, SOL docketed, intake documents filed, corrections noted to Atty. Thorne.",
           checkpoints: [
@@ -744,7 +744,9 @@ window.CM_CASE_FLOW = {
             "All six roles mapped; none left “unknown”",
             "Retainer and HIPAA authorization logged with their signing date (02/09/2026)",
             "Every intake document filed under its CMS category and named to convention",
-            "Corrections summarized to Atty. Thorne in Case Notes"
+            "Corrections summarized to Atty. Thorne in Case Notes",
+            "Insurance checkpoint (CMS → Insurance, after the six roles and before the note): BI → Host UM → Relative UM in their order of operations, $10,000 / $20,000 / $10,000, total $40,000; BI third-party, both UM layers first-party",
+            "Every Insurance field filled or its gap recorded: policy and claim number on every layer, the Relative UM adjuster “No adjuster assigned yet”, not left blank; each limit's source recorded (the set-up call for now, a Declaration Page to be requested in the LOR) and the projection marked preliminary; PIP recorded outside the stack"
           ]
         },
         ops: [
@@ -762,11 +764,12 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Conflict Check first", 15, "Documented before the matter was created, on full legal names"],
-            ["Field verification", 25, "Position, date of birth and report number corrected with their sources"],
-            ["Matter set-up", 20, "SOL docketed with reminders, six roles mapped, intake documents filed by category"]
+            ["Field verification", 20, "Position, date of birth and report number corrected with their sources"],
+            ["Matter set-up", 15, "SOL docketed with reminders, six roles mapped, intake documents filed by category"],
+            ["Coverage stack", 10, "Three layers in their order of operations, each classed first- or third-party, every field filled or its gap recorded, each limit sourced and the projection preliminary; PIP outside the stack"]
           ],
           trainer: [
-            ["Verification discipline", 25, "Checked every field against a document rather than the draft"],
+            ["Verification discipline", 25, "Checked every field against a document rather than the draft, and can explain why the passenger fact opens two UM layers (understands stacking)"],
             ["Communication", 15, "Corrections routed to Atty. Thorne in a short, factual note"]
           ]
         },
@@ -5321,10 +5324,10 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 1 — audit it, serve it, prove it",
         visual: "A three-column assembly board. Left: the Demand Package as five tabbed cream folders in reading order — TERMS · THE GAP, ANSWERED · MEDICAL SPECIALS · LIABILITY · SPECIAL DAMAGES — each tab carrying an orange numbered badge. Centre: a navy service card showing the sent email to DANA WHITFIELD with the 81-page Demand Package attached (07/20/2026), and beneath it her reply, WRITTEN ACKNOWLEDGEMENT, stamped 07/22/2026 in a mono pill. Right: a docket card with 08/21/2026 set large in orange and two reminder pills above it. Along the bottom, a red danger strip: “Counted from the send date = the wrong deadline.” The eye travels left to right: build, serve, prove.",
         act: {
-          scenario: "File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) and the Gap Explanation Record are on file; the pre-demand audit put the Specials at $42,984.00. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from Dana Whitfield's written acknowledgement of receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.",
-          prompt: "Audit the draft against the Big Four and the Final Scrub, log each deficiency as an assigned CMS task, and assemble the package with the gap answered on page one of the timeline. Once Atty. Thorne has signed, email it to Dana Whitfield from the Email Workspace with the Demand Package attached, ask her to confirm receipt in writing, and log it. When her written acknowledgement arrives on 07/22/2026, docket the acceptance deadline from it, with reminders. Graded judgment: what starts the clock, and what you do if Keystone asks for more time.",
+          scenario: "File date 07/20/2026 (Mon). MMI 06/12/2026; Dr. Reyes's Causation Letter (06/19/2026) is on file, and every bill, the employer's wage records and the call and interview notes are in. The Specials, the wages and the Gap Explanation Record are yours to audit and build before anything goes into the demand. Atty. Thorne has approved the terms for Dana Whitfield, Keystone Mutual (KM-26-440871): the $10,000 limits, a Limited Release of Robert Smith and Keystone only, Smith's affidavit of no other insurance, 30 days from Dana Whitfield's written acknowledgement of receipt. The demand specialist's draft package is on the file for your final audit before Atty. Thorne signs.",
+          prompt: "Start with the Specials audit, before anything goes into the Big Four: match Harbor Point's PIP and MedPay ledger bill by bill and confirm each limit exhausted; reconcile each provider's billed lines to its visit notes and remove any line no visit note supports; keep billed and paid in separate columns, future medical in the narrative and the liens listed; and enter the wages only once the employer has verified them, each missed shift matched to a treating provider's off-work note (a shift with no note kept and flagged to Atty. Thorne, and no medical records sent to the employer). Then build the Gap Explanation Record from the call and interview notes already filed: both interruptions with exact dates, each reason beside the dated document that backs it, a reason with nothing behind it tagged “account only”, facts and citations only, the public social media checked and the non-economic records filed. Then audit the draft against the Big Four and the Final Scrub, log each deficiency as an assigned CMS task, and assemble the package with the gap answered on page one of the timeline. Once Atty. Thorne has signed, email it to Dana Whitfield from the Email Workspace with the Demand Package attached, ask her to confirm receipt in writing, and log it. When her written acknowledgement arrives on 07/22/2026, docket the acceptance deadline from it, with reminders. Graded judgment: what starts the clock, and what you do if Keystone asks for more time.",
           tool: "Action Plan Editor → Demand Package · CMS → Doc Hub → Others · Email Workspace · Court E-Filing",
-          output: "An audited, served Time-Limited Demand with proof of delivery on file and 08/21/2026 docketed.",
+          output: "An audited Specials ledger, a Gap Explanation Record, and an audited, served Time-Limited Demand with proof of delivery on file and 08/21/2026 docketed.",
           checkpoints: [
             "Amount $10,000, Keystone's BI limit per its Dec Page (03/20/2026); nothing demanded above limits",
             "Terms match Atty. Thorne's approval word for word: Limited Release of Robert Smith and Keystone only; Smith's affidavit of no other insurance; 30 days from Dana Whitfield's written acknowledgement of receipt",
@@ -5336,7 +5339,10 @@ window.CM_CASE_FLOW = {
             "Signed by Atty. Thorne; emailed to Dana Whitfield 07/20/2026 from the Email Workspace, the 81-page Demand Package (Exhibits A–J) attached; logged",
             "Her written acknowledgement (07/22/2026, 9:06 a.m.) filed with the sent email as proof of delivery; deadline docketed 08/21/2026 (07/22 + 30 days) with reminders",
             "Any extension request or response from Keystone routed to Atty. Thorne the same day, never answered by the CM",
-            "The BI settlement set the demand sets in motion tracked as one CMS task from the day it is served: Smith's affidavit of no other insurance (the demand's condition), both UM carriers' consents and notarized Waivers of Subrogation, the executed Limited Release and the W-9; Keystone pays only once it is complete"
+            "The BI settlement set the demand sets in motion tracked as one CMS task from the day it is served: Smith's affidavit of no other insurance (the demand's condition), both UM carriers' consents and notarized Waivers of Subrogation, the executed Limited Release and the W-9; Keystone pays only once it is complete",
+            "Specials audit (first checkpoint, from the pre-demand audit): PIP's two payments matched to the emergency bills ($8,850.00 + $1,150.00 = $10,000.00, exhausted 03/04/2026) and MedPay's five to five bills ($5,000.00, exhausted by the 06/12/2026 visit's payment); Riverton Spine & Rehab's 34 lines reconciled to 33 visit notes, the 05/04/2026 duplicate removed ($6,290.00 → $6,105.00); billed and paid in separate columns; future ESIs ($3,400–$6,800) in the narrative; both liens listed (Peach State $1,860.00, Riverton Spine & Rehab $6,105.00)",
+            "Wages verified before they enter the ledger: Northgate's written verification (06/30/2026, $22.00/hour, 8-hour shifts); 03/05, 03/13, 05/15 and 05/18 each matched to a provider record or off-work note; 02/09–02/13/2026 kept and flagged to Atty. Thorne, not dropped; the draft's $1,760.00 audited to $1,584.00 (9 × 8 h × $22.00); no medical records sent to the employer",
+            "Gap Explanation Record built from what is already filed (the 03/04 call note and the 04/08–04/21 near-drop record), not from the trainee's own later call: the 14-day gap (02/06–02/20/2026) and the 19-day disruption (04/02–04/21/2026) with exact dates; each reason beside its dated document (the tow record, the Riverton Drug receipt of 02/07/2026, Peach State's eligibility, the 02/20 urgent-care onset note, Dr. Reyes's 04/20 note, the 06/10 counseling summary); the rental, the plan worry and the Personal Impact Statement tagged “account only”; facts and citations only, the social-media pass logged, the non-economic records filed and logged for Atty. Thorne"
           ]
         },
         ops: [
@@ -5357,15 +5363,17 @@ window.CM_CASE_FLOW = {
         sources: ["D2#13", "D2#14", "D2#15", "D2#17", "D2#18"],
         rubric: {
           ai: [
-            ["Package completeness", 20, "Big Four present; $41,400.00 + $1,584.00 = $42,984.00; the 05/04/2026 duplicate removed"],
-            ["Terms fidelity", 15, "Amount, release scope, affidavit and window exactly as approved"],
-            ["Service and proof", 15, "Emailed to Dana Whitfield and logged; her written acknowledgement filed with the sent email"],
-            ["Deadline", 10, "08/21/2026 docketed from the 07/22/2026 written acknowledgement"]
+            ["Package completeness", 15, "Big Four present; $41,400.00 + $1,584.00 = $42,984.00; the 05/04/2026 duplicate removed"],
+            ["Specials audit", 10, "PIP and MedPay matched bill by bill; the duplicate removed; billed beside paid; wages entered only once verified, every shift matched or flagged"],
+            ["Gap record", 10, "Both interruptions dated exactly; every reason beside its dated document, account-only reasons tagged; facts and citations only"],
+            ["Terms fidelity", 10, "Amount, release scope, affidavit and window exactly as approved"],
+            ["Service and proof", 10, "Emailed to Dana Whitfield and logged; her written acknowledgement filed with the sent email"],
+            ["Deadline", 5, "08/21/2026 docketed from the 07/22/2026 written acknowledgement"]
           ],
           trainer: [
             ["Audit judgment", 20, "Found the faults that matter (the deadline, the release, the Specials total, the missing affidavit, and the packet's exhibits) and assigned each"],
             ["Gap presentation", 10, "Gap acknowledged plainly with its corroboration; not hidden, not over-argued"],
-            ["UPL / authority boundary", 10, "Terms, extensions and replies left to Atty. Thorne; nothing signed for him"]
+            ["UPL / authority boundary", 10, "Terms, extensions and replies left to Atty. Thorne; nothing signed for him; no medical records to the employer and nothing on the claim's value"]
           ]
         },
         notes: [
@@ -6939,9 +6947,9 @@ window.CM_CASE_FLOW = {
         visual: "Split slide. Left 60%: the Lien Tracker tab as a cream table with mono columns ASSERTED · AUDITED · REDUCED · PAYOFF LETTER. The Riverton Spine & Rehab row reads $6,290.00 → $6,105.00 → $4,580.00, with an orange strike through the 05/04/2026 duplicate; Peach State reads $1,860.00 → $1,860.00 → $1,240.00. Beneath, three grey zero-balance rows (PIP and MedPay, Crescent, the providers PIP and MedPay paid), each with a NOT PAYABLE chip. Right 40%: a navy stream card with two stacked bars, BI 25% and UM 75%, feeding a large orange NET $20,359.92. A red callout at the foot: “No Payoff Letter, no payment.”",
         act: {
           scenario: "File date 10/13/2026. Cardinal State's $10,000 check arrived today, joining Keystone's (received 09/04) and Harbor Point's (10/05) in the IOLTA trust account, each deposited only after its release was signed (Keystone 08/28; each UM release before its check): $40,000.00 received; the last check has not cleared. Peach State accepted $1,240.00 on 10/09 and Riverton Spine & Rehab accepted $4,580.00 on 10/12; both written acceptances are in Documents. Costs stand at $486.75. Both Net Sheet tabs are half-built from the demand phase.",
-          prompt: "Complete John Doe's Net Sheet in both tabs. Recovery Ledger: each check by carrier and stream, the 33⅓% fee per stream, the five receipted costs, and costs and liens split 25% / 75%, down to the net per stream and in total. Lien Tracker: every medical provider and payer with charges, PIP Payments, Health Payments, Med Pay, adjustments, balance owed and max offer (the deck's medical provider ledger, Day 3 deck p7), then each lien's asserted, audited and reduced figure, the basis of each reduction and its payoff-letter status. Every non-medical provider (pharmacy, counseling, equipment, transportation) goes in the Non-Medical Provider Ledger beneath it, with who paid and what is still owed, never with the medical liens. Tie both tabs to the Trust Ledger. Graded judgment: what stays off the payables, and what you flag for Atty. Thorne before John signs.",
+          prompt: "Complete John Doe's Net Sheet in three stages, each submitted and saved before the next: (1) the Lien Tracker, (2) the Recovery Ledger in both tabs, (3) the disbursement gate. Read every reduced lien figure from the Payoff Letters already on the file. Recovery Ledger: each check by carrier and stream, the 33⅓% fee per stream, the five receipted costs, and costs and liens split 25% / 75%, down to the net per stream and in total. Lien Tracker: every medical provider and payer with charges, PIP Payments, Health Payments, Med Pay, adjustments, balance owed and max offer (the deck's medical provider ledger, Day 3 deck p7), then each lien's asserted, audited and reduced figure, the basis of each reduction and its payoff-letter status. Every non-medical provider (pharmacy, counseling, equipment, transportation) goes in the Non-Medical Provider Ledger beneath it, with who paid and what is still owed, never with the medical liens. Tie both tabs to the Trust Ledger. Then, at the disbursement gate, confirm every condition precedent against its document (the executed releases, cleared funds, the signed statement, the Payoff Letters, the prior-attorney lien withdrawn and the hold released by Atty. Thorne), queue one approval-ready disbursement line per Net Sheet line in the Trust Ledger for Atty. Thorne, and show the ledger reaching $0.00. Graded judgment: what stays off the payables, what you flag for Atty. Thorne before John signs, and what must be on file before anything is queued.",
           tool: "CMS → Settlement (BI/UM) → Gross Settlement · Medical Liens / Payoffs",
-          output: "A two-tab Net Sheet that reaches $20,359.92 down both streams and across the total, with every lien figure proved and routed to Atty. Thorne.",
+          output: "A two-tab Net Sheet that reaches $20,359.92 down both streams and across the total, with every lien figure proved and routed to Atty. Thorne, and the disbursement queued for his approval once every condition is on file.",
           checkpoints: [
             "Gross by check: Keystone $10,000.00 to Stream 1; Harbor Point $20,000.00 + Cardinal State $10,000.00 = $30,000.00 to Stream 2",
             "Fee at the pre-suit 33⅓% (no suit filed): $3,333.33 + $10,000.00 = $13,333.33",
@@ -6954,7 +6962,9 @@ window.CM_CASE_FLOW = {
             "Non-Medical Provider Ledger, not the medical liens: Riverton Drug (prescriptions and OTC, 02/07–06/2026) $312.40 billed, $312.40 Paid by Client, $0.00 owed, so nothing comes off the net (his receipts prove the out-of-pocket specials); Stonebridge EAP $0.00 (employer-paid); Less: Total Liens (Reduced) & Non-Medical Owed, L51 = –($5,820.00 + $0.00) = –$5,820.00",
             "Payoff status recorded per lien: written figure and date logged, satisfaction of lien marked “to obtain at payment”; no line final on a phone call",
             "Future medical ($3,400–$6,800 in possible repeat ESIs) flagged to Atty. Thorne before John Doe signs: the settlement is full and final, and no carrier pays more",
-            "Ties out: trust deposits $40,000.00 = Recovery Ledger gross; liens audited $1,860.00 + $6,105.00 = $7,965.00, paid $1,240.00 + $4,580.00 = $5,820.00 ($2,145.00 negotiated, plus the $185.00 duplicate removed at audit)"
+            "Ties out: trust deposits $40,000.00 = Recovery Ledger gross; liens audited $1,860.00 + $6,105.00 = $7,965.00, paid $1,240.00 + $4,580.00 = $5,820.00 ($2,145.00 negotiated, plus the $185.00 duplicate removed at audit)",
+            "Stage 3, the disbursement gate (on the same final lien basis as the sheet): Keystone's Limited Release (08/28/2026) and both UM releases on file; all funds cleared by 10/20; statement signed 10/21; Payoff Letters in hand; Vance & Kettering's written withdrawal (10/19/2026) on file and the $6,666.67 hold released by Atty. Thorne, not by the CM",
+            "Five approval-ready commands matching the Net Sheet: the firm's fee $13,333.33 and costs $486.75; Peach State $1,240.00; Riverton Spine & Rehab $4,580.00; John Doe $20,359.92; the Trust Ledger shown reaching $0.00; each marked for Atty. Thorne's approval and signature, none released by the CM"
           ]
         },
         ops: [
@@ -6972,13 +6982,14 @@ window.CM_CASE_FLOW = {
         sources: ["D2#35", "D2#36", "D3#25", "D3#27", "D3#28"],
         rubric: {
           ai: [
-            ["Stream arithmetic", 20, "Fee, costs and liens split correctly; $5,089.98 + $15,269.94 = $20,359.92"],
-            ["Lien Tracker accuracy", 15, "Asserted, audited and reduced figures and dates for Peach State and Riverton Spine & Rehab"],
+            ["Stream arithmetic", 15, "Fee, costs and liens split correctly; $5,089.98 + $15,269.94 = $20,359.92"],
+            ["Lien Tracker", 15, "Asserted, audited and reduced figures and dates for Peach State and Riverton Spine & Rehab"],
             ["Cost verification", 10, "Five receipted costs = $486.75, charged once"],
-            ["Zero-balance discipline", 15, "PIP, MedPay, the write-offs and the providers they paid kept off the payables with sources; Riverton Drug in the Non-Medical Provider Ledger, Paid by Client, nothing owed"]
+            ["Zero-balance discipline", 10, "PIP, MedPay, the write-offs and the providers they paid kept off the payables with sources; Riverton Drug in the Non-Medical Provider Ledger, Paid by Client, nothing owed"],
+            ["Disbursement gate", 10, "Every condition precedent confirmed against its document before anything is queued; one approval-ready line per Net Sheet line; the Trust Ledger shown reaching $0.00"]
           ],
           trainer: [
-            ["Judgment on payables", 15, "Can explain why each zero-balance line is not owed, citing the document"],
+            ["Judgment on payables", 15, "Can explain why each zero-balance line is not owed, citing the document, and treats cleared funds, the signed statement and the released hold as hard gates, not formalities"],
             ["Future-care flag", 10, "Flags the full-and-final consequence to Atty. Thorne rather than raising it with John Doe"],
             ["UPL boundary", 15, "No view offered to John Doe on sufficiency, enforceability or acceptance"]
           ]
@@ -8657,10 +8668,10 @@ window.CM_CASE_FLOW = {
         topic: "Skill Activity 1 — build it, audit it, route it before 03/11/2027",
         visual: "A three-column workbench. Left: the draft binder as a grey stack topped by two red landmine chips, LEDGER $41,585.00? and CRESCENT $3,400.00 OPEN?, each struck through once fixed. Centre: six navy section cards ①–⑥ with orange badges, filling with mono pills that carry exhibit numbers and Bates ranges. Right: an orange-bordered DEFENSE MAP card pairing each allegation in the 11/12/2026 answer (out of turn · unbelted · the gap · degenerative · failure to mitigate) with its exhibit by an → arrow. Along the bottom, a delivery strip: ROUTE TO ATTY. THORNE → DELIVER BY 03/11/2027 → SESSION 03/18/2027, with a red CONFIDENTIAL — MEDIATOR ONLY chip on the statement. The argument: every pleaded defense already has its page.",
         act: {
-          scenario: "It is 03/04/2027 on Track B. John Doe was deposed on 02/18/2027 and the certified transcript is in the file. The confidential statement and binder are due to Hon. Carla Benton (Ret.) on 03/11/2027 for the 03/18/2027 mediation. The draft binder, built from the providers' original bills instead of the audited demand ledger, carries Riverton Spine & Rehab at $6,290.00 and lists Crescent Pain & Spine's $3,400.00 as an open balance, and Atty. Grant Mercer has written that Keystone “will not put a real number on the table” while the medical ledger is unverified. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027 (second request 02/22, red-flagged 03/01), is still outstanding. The Litigation Desk's draft index is in the file (RS62), assigned on the 07/15/2026 task log (RS64): QC it, do not rebuild it from nothing.",
-          prompt: "Assemble the six-section Mediation Binder from the master index, starting from the 07/20/2026 Demand Package. Seat each document in one section with its exhibit number and Bates range, and map every allegation in the 11/12/2026 answer to the exhibit that answers it. Run the pre-mediation audit: rebuild the ledger from the certified bills in hand to $42,984.00, and cross-check each provider balance against what PIP and Peach State already paid. Add the Negotiation Log, a draft Limited Release and the UM consent requests, then route it all to Atty. Thorne before delivery.",
+          scenario: "It is 03/04/2027 on Track B. John Doe was deposed on 02/18/2027 and the certified transcript is in the file. The Notice of Mediation (01/08/2027) is in the file, but the session and every date that hangs off it are not yet on John Doe's CMS calendar; the confidential statement and binder go to Hon. Carla Benton (Ret.) ahead of it. The draft binder, built from the providers' original bills instead of the audited demand ledger, carries Riverton Spine & Rehab at $6,290.00 and lists Crescent Pain & Spine's $3,400.00 as an open balance, and Atty. Grant Mercer has written that Keystone “will not put a real number on the table” while the medical ledger is unverified. Riverton Spine & Rehab's Final Itemized Ledger, requested 02/08/2027 (second request 02/22, red-flagged 03/01), is still outstanding. The Litigation Desk's draft index is in the file (RS62), assigned on the 07/15/2026 task log (RS64): QC it, do not rebuild it from nothing.",
+          prompt: "Assemble the six-section Mediation Binder from the master index, starting from the 07/20/2026 Demand Package. Seat each document in one section with its exhibit number and Bates range, and map every allegation in the 11/12/2026 answer to the exhibit that answers it. Run the pre-mediation audit: rebuild the ledger from the certified bills in hand to $42,984.00, and cross-check each provider balance against what PIP and Peach State already paid. Add the Negotiation Log, a draft Limited Release and the UM consent requests. At the dates-and-delivery checkpoint, calendar the mediation the binder serves: verify the notice against the order's selection rule and its completion deadline, enter the session and count every date that hangs off it (the statement-and-binder exchange, the internal dates, attendance, the client's confirmation and prep, the mediator's report), track the fee as a case cost and conflict-check every new date against the master calendar. Then route it all to Atty. Thorne before delivery.",
           tool: "CMS → Doc Hub → Litigation Documents · CMS → Doc Hub → Case Files · Medical Records Requests",
-          output: "A six-section, indexed, OCR-searchable Mediation Binder with an audited ledger, a lien summary and a short audit memo on both landmines, routed to Atty. Thorne and ready for delivery to the mediator by 03/11/2027.",
+          output: "A six-section, indexed, OCR-searchable Mediation Binder with an audited ledger, a lien summary and a short audit memo on both landmines, the mediation calendared from its verified notice, routed to Atty. Thorne and ready for delivery to the mediator by 03/11/2027.",
           checkpoints: [
             "Section 1: snapshot sheet with LSH-2026-MVA-770412, No. 26-CV-04417 and Atty. Grant Mercer's verified contacts; session 03/18/2027 before Hon. Carla Benton (Ret.), with start time and location (or video link) taken from the order; fee split read from the mediation order or stipulation, not assumed",
             "Section 2: confidential statement marked for the mediator only, routed to Atty. Thorne, and its delivery calendared by 03/11/2027",
@@ -8672,7 +8683,9 @@ window.CM_CASE_FLOW = {
             "Section 5 carries no PD claim: the Civic is Margaret Doe's, and her Keystone PD claim runs on its own file, outside John Doe's demand and the $40,000 stack",
             "Section 6: Negotiation Log 07/20/2026 demand → $3,500 (08/05) → rebuttal (08/06) → $3,500 “final” (08/12) → lapse (08/21) → suit (09/24); draft release limited to Robert Smith and Keystone; consent requests to Harbor Point and Cardinal State drafted",
             "Master index complete: every document in exactly one section with an exhibit number and Bates range; PDF OCR-searchable and bookmarked",
-            "Audit memo names both landmines and their fixes; binder, statement and memo routed to Atty. Thorne before delivery; nothing about value said to Atty. Mercer"
+            "Audit memo names both landmines and their fixes; binder, statement and memo routed to Atty. Thorne before delivery; nothing about value said to Atty. Mercer",
+            "Dates and delivery, the calendaring (from the mediation calendar): the Notice of Mediation (01/08/2027) verified against the order's 30-day rule and the session (03/18/2027, 9:30 a.m.) against the 03/31/2027 completion deadline, linked, not re-entered; statement and binder 03/11/2027; internal dates 03/02, 03/04 and 03/09/2027; mediator's report 03/25/2027; John Doe's written confirmation, tickler and reminders calendared; prep requested from Atty. Thorne",
+            "The $1,200.00 fee (half of $2,400.00) tracked as a case cost, posted only on the receipted invoice; every new date conflict-checked against the master calendar (the 03/15/2027 expert disclosure flagged as a workload overlap); every entry mirrored to CMS → Calendar with its trigger, rule, owner and alerts"
           ]
         },
         ops: [
@@ -8691,10 +8704,10 @@ window.CM_CASE_FLOW = {
         rubric: {
           ai: [
             ["Section completeness", 15, "All six sections built with this file's documents; each document in exactly one section"],
-            ["Ledger audit", 15, "33 visits = $6,105.00; $41,400.00 + $1,584.00 = $42,984.00"],
+            ["Ledger audit", 10, "33 visits = $6,105.00; $41,400.00 + $1,584.00 = $42,984.00"],
             ["Lien cross-check", 10, "Crescent's bill satisfied by Peach State's $1,860.00; open liens total $7,965.00"],
             ["Defense map", 10, "All five pleaded allegations mapped to answering exhibits"],
-            ["Dates and delivery", 10, "Pleadings, negotiation-log dates and the 03/11/2027 delivery all correct"]
+            ["Dates and delivery", 15, "Pleadings and negotiation-log dates correct; the mediation calendared from the verified notice: the session, the 03/11/2027 exchange, the internal dates and the mediator's report, the fee as a cost, every date conflict-checked"]
           ],
           trainer: [
             ["Binder usability", 20, "Atty. Thorne could find any page within five seconds from the index"],
