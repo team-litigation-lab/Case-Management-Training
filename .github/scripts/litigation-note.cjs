@@ -16,7 +16,7 @@
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
 const BASE = process.argv[2] || 'http://localhost:8787/';
-const NOTE = 'Note: Case Managers handling Litigation and Pre-Litigation are sometimes different individuals. Always verify the assigned Case Manager in the CMS/Case Profile before transferring files, logging updates, or routing communications.';
+const NOTE = 'Note: Case Managers handling Litigation and Pre-Litigation are sometimes different individuals; in Litigation, the Case Manager is usually the paralegal. Always verify the assigned Case Manager in the CMS/Case Profile before transferring files, logging updates, or routing communications.';
 const BLOCKS = ['d4m1-l1', 'd4m1-l2', 'd4m1-a1', 'd4m1-a2', 'd4m1-efile', 'd4m2-l1', 'd4m2-a1', 'd4m2-medcal', 'd5m5-l1', 'd5m5-a1'];
 const SIZES = [[1366, 768], [1920, 1080]];
 const failures = [];

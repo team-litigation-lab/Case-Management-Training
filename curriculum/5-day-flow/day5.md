@@ -1704,7 +1704,7 @@ The LSH Net Sheet fills the slide in its four navy-headed sections. Section 1 re
 
 **Scenario.** File date 07/22/2027. Laura Whitcomb's 07/06/2027 award gave Harbor Point's $20,000.00 and Cardinal State's $10,000.00; their checks arrived 07/20 and today, joining Keystone's $10,000.00 held in trust since 03/29/2027: $40,000.00. Peach State accepted $1,116.00 (07/14) and Riverton Spine & Rehab $4,275.00 (07/16), both in writing. Every litigation cost is receipted.
 
-**Execution prompt.** Complete John Doe's LSH Net Sheet for the litigated recovery. Section 1: the gross by carrier. Section 2: the 40% fee the retainer sets once suit is filed, and every receipted cost, pre-suit and litigation, on its row. Section 3: every provider and payer with charges, payments, adjustments and balance owed, and each lien's reduced figure with its Payoff Letter. Section 4: the net to John Doe. Tie it to the Trust Ledger and route the Settlement Statement to Atty. Thorne. Graded judgment: what you explain to John about the difference from a pre-suit settlement, and what you leave to Atty. Thorne.
+**Execution prompt.** Complete John Doe's LSH Net Sheet for the litigated recovery. Section 1: the gross by carrier. Section 2: the 40% fee the retainer sets once suit is filed, and every receipted cost, pre-suit and litigation, on its row. Section 3: every medical provider and payer with charges, PIP Payments, Health Payments, Med Pay, adjustments and balance owed, and each lien's reduced figure with its Payoff Letter; every non-medical provider (pharmacy, counseling, equipment, transportation) in the Non-Medical Provider Ledger with who paid and what is still owed. Section 4: the net to John Doe. Tie it to the Trust Ledger and route the Settlement Statement to Atty. Thorne. Graded judgment: what you explain to John about the difference from a pre-suit settlement, and what you leave to Atty. Thorne.
 
 | | |
 |---|---|
@@ -1718,6 +1718,7 @@ The LSH Net Sheet fills the slide in its four navy-headed sections. Section 1 re
 - [ ] Costs receipted: $486.75 pre-suit + $218.00 filing + $285.00 service + $1,200.00 mediation + $900.00 arbitration + $645.50 court reporter + $160.00 certified records = $3,895.25
 - [ ] Liens: Peach State $1,860.00 → $1,116.00 (40% procurement-cost reduction, $744.00, 07/14/2027); Riverton Spine & Rehab $6,290.00 → audited $6,105.00 → $4,275.00 (Payoff Letter 07/16/2027); total $5,391.00
 - [ ] Zero-balance lines kept off the payables with their source: PIP $10,000.00, MedPay $5,000.00, Crescent's $1,540.00 and the hospital's and EMS's $16,582.60 write-offs, the providers PIP and MedPay paid
+- [ ] Non-Medical Provider Ledger: Riverton Drug $312.40, Paid by Client, $0.00 owed; Stonebridge EAP $0.00; neither among the liens, so L51 = –($5,391.00 + $0.00) = –$5,391.00
 - [ ] Net: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75; the trust deposits of $40,000.00 tie to the gross
 - [ ] Nothing disbursed until both UM checks clear and John Doe signs the Settlement Statement (07/29/2027); disbursement 07/30/2027
 - [ ] The difference from a pre-suit settlement explained to John Doe as arithmetic; whether suing was worth it routed to Atty. Thorne
@@ -1739,7 +1740,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 |---|---|---|---|
 | 🤖 AI | **15%** | Gross and fee | $40,000.00 by carrier; 40% = $16,000.00 |
 | 🤖 AI | **15%** | Costs | $3,895.25 from seven receipted items |
-| 🤖 AI | **15%** | Liens | $1,116.00 and $4,275.00 with their Payoff Letters; zero-balance lines off the payables |
+| 🤖 AI | **15%** | Liens | $1,116.00 and $4,275.00 with their Payoff Letters; zero-balance lines off the payables; Riverton Drug $312.40 in the Non-Medical Provider Ledger, Paid by Client, $0.00 owed |
 | 🤖 AI | **15%** | Net | $14,713.75, tied to the trust deposits |
 | 🧑‍🏫 Trainer | **20%** | Explaining the difference | Plain arithmetic to John Doe: fee tier, costs, liens |
 | 🧑‍🏫 Trainer | **20%** | UPL boundary | No opinion on the lawsuit's worth or the fee; routed to Atty. Thorne |

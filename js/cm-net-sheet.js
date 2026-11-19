@@ -5,7 +5,8 @@
      1. Settlement Recovery Summary     L7 gross
      2. Attorney Fees & Case Expenses   L11 = L7 × C11 (33⅓% pre-suit), L20 = SUM(L12:L19), L21 = L11 + L20
      3. Medical Provider Ledger & Liens I = D – E – F – G – H per row; J, K, L totals in row 44
-     4. Final Client Disbursement       L52 = L7 – L11 – L20 – L44
+     4. Final Client Disbursement       L51 = –(L44 + L66), the reduced liens and the non-medical still owed;
+                                        L52 = L7 – L11 – L20 – L44 – L66
    The trainee's sheet is kept on their record ("net-sheet", one of the personal keys, so it syncs with their
    progress and their trainer sees it), and "Check my sheet" tests it against the file at the stage the step is at.
    It is used where the money is worked, and nowhere else: Track A (settled before suit, Day 3) at Settlement

@@ -46,11 +46,7 @@ PIP $10,000 gone in the first 48 hours of care on the ER and EMS bills, $41,400.
 The Day 2 narration, recorded in the trainer's voice, leaves those figures to the 🧠 Think it through challenge (p23).
 The Day 1 deck (p21) gives the $40,000 recovery stack, and Days 3–4 settle on it; Day 2 p30's "settled the John Doe matter
 for $45,000" is that page's split-the-baby illustration ($47k / $43k → $45k), not this file's settlement, which no BI limit
-here could reach. Seven recorded narrations still give the earlier figures; the trainer corrects them from this file when presenting:
-- Day 2 p22 and p25 narration: "Harbor Point paid $5,000 of PIP". On this file it paid $10,000, with no reimbursement right.
-- Day 2 p24 narration: "Riverton has no EMC rule" and the slide's doctor is not ours. On this file Riverton caps PIP at $2,500 without an EMC, and Dr. Sarah Spine made John's on 02/20/2026.
-- Day 3 p7 and p17 narration: PIP paid the MRI, Lakeside and $5,000 of bills. On this file that is Harbor Point's MedPay.
-- Day 4 p8 and p28 narration: the earlier Specials, and the EMC rule called Florida's alone.
+here could reach. The five days' narrations, re-recorded in the trainer's voice, give this file's figures.
 
 ### No contact, then back in touch (Day 1 Module 2 — the No Contact Protocol, 02/10–02/23/2026)
 

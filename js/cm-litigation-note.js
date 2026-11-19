@@ -19,7 +19,7 @@
 (function(){
 "use strict";
 if(typeof state === "undefined" || typeof DAYS === "undefined" || !window.cmCaseFlow) return;
-const NOTE = "Note: Case Managers handling Litigation and Pre-Litigation are sometimes different individuals. Always verify the assigned Case Manager in the CMS/Case Profile before transferring files, logging updates, or routing communications.";
+const NOTE = "Note: Case Managers handling Litigation and Pre-Litigation are sometimes different individuals; in Litigation, the Case Manager is usually the paralegal. Always verify the assigned Case Manager in the CMS/Case Profile before transferring files, logging updates, or routing communications.";
 const START = "d4m1-l1";
 const HANDOFF = {"d4m1-l2": "From Pre-Lit to Litigation", "d4m1-a1": "Taking the litigation fork", "d4m1-a2": "Moving the file to Litigation status", "d4m1-efile": "Handing the filing to the Litigation Desk",
   // Day 4: the court work once suit is filed (No. 26-CV-04417)
