@@ -1,12 +1,32 @@
 {
  "title": "Case Debrief — John Doe VS Robert Smith",
  "deck": "Drawn by build/debrief/render.cjs from this file: decks/debrief/NN.webp (1600×900) and build/debrief/out/debrief.pdf (1920×1080, not committed) for make_video.py --deck",
- "voice": "en_US-lessac-high (Piper)",
+ "voice": "the trainer's own voice, spoken by Chatterbox Turbo from voice/sample.wav (make_video.py --turbo)",
  "opensAfter": 5,
  "video": {
   "src": "/decks/debrief/debrief-narrated.mp4",
   "captions": "/decks/debrief/debrief-narrated.vtt",
-  "starts": []
+  "starts": [
+   0.0,
+   42.6,
+   94.8,
+   164.3,
+   256.4,
+   334.9,
+   406.7,
+   482.8,
+   563.7,
+   661.2,
+   749.8,
+   825.8,
+   909.5,
+   1014.6,
+   1080.7,
+   1154.3,
+   1243.4,
+   1325.5,
+   1387.6
+  ]
  },
  "say": {
   "PIP": "P I P",
