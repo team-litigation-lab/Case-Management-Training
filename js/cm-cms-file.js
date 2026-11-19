@@ -98,7 +98,7 @@ function compute(c){
     pl.acts.forEach(a => { const w = worked(a.id), t = ticks[a.id] || [];
       a.checks.forEach((ck, j) => {
         const base = {block: a.id, act: a.title, screen: a.screen, text: ck, revealed: !!rev[a.id]};
-        if(w && !t.some(Boolean) && aiScore(a.id) != null) put(a.area, Object.assign(base, {pct: aiScore(a.id), note: `Graded: ${aiScore(a.id)}/100`}));
+        if(w && !t.some(Boolean) && aiScore(a.id) != null) put(a.area, Object.assign(base, {pct: aiScore(a.id), fromAI: true, note: `Graded: ${aiScore(a.id)}/100`}));
         else if(w) put(a.area, Object.assign(base, {pct: t[j] ? 100 : 0, note: t[j] ? "Checked off on Check Your Work" : "Not checked off: the file doesn't hold it yet"}));
         else if(shut) put(a.area, Object.assign(base, {pct: 0, unworked: true, note: "Activity not worked: the day closed without this entry"}));
         else put(a.area, Object.assign(base, {pct: null, pending: true, note: "Still to do"}));
