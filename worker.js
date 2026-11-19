@@ -646,20 +646,40 @@ export class GeminiRelay {
 // and draws from the Portal's one master key pool and one shared budget (module "cms") with the other programs, the CMS and the
 // Portal's simulators. Without the secret this Worker still uses its own GEMINI_API_KEY pool, as before.
 const gatewayOn = (env) => !!String((env && env.AI_GATEWAY_SECRET) || "").trim();
+// The gateway refuses a request of more than 40,000 characters (system and messages together: 413). An AI Grader submission
+// carries everything the platform holds for the activity, so a long one is cut in the middle of its longest part (the head,
+// what is being graded and how, and the tail, the rubric and the answer's shape, are kept) and graded instead of refused.
+const GATEWAY_MAX_CHARS = 39000;
+function fitGateway(system, messages) {
+  const total = system.length + messages.reduce((a, m) => a + m.text.length, 0), over = total - GATEWAY_MAX_CHARS;
+  if (over <= 0 || !messages.length) return messages;
+  const out = messages.map((m) => Object.assign({}, m)), big = out.reduce((b, m, i) => (m.text.length > out[b].text.length ? i : b), 0), t = out[big].text;
+  const cut = Math.min(t.length, over + 160), head = Math.floor((t.length - cut) * 0.55);
+  out[big].text = t.slice(0, head) + `\n\n[… ${cut.toLocaleString("en-US")} characters left out here, so this fits the AI gateway's limit …]\n\n` + t.slice(head + cut);
+  return out;
+}
 async function viaGateway(env, req, user) {
   const toText = (c) => typeof c === "string" ? c : (Array.isArray(c) ? c.map((p) => p && p.text ? p.text : "").join("\n") : "");
-  const messages = (req.messages || []).filter((m) => m && typeof m === "object").map((m) => ({ role: m.role === "assistant" ? "model" : "user", text: toText(m.content) }));
+  const system = toText(req.system);
+  const messages = fitGateway(system, (req.messages || []).filter((m) => m && typeof m === "object").map((m) => ({ role: m.role === "assistant" ? "model" : "user", text: toText(m.content) })));
+  // a grading or a trainer tool's review (the page's callAIJson: feature "grading" or "trainer") goes as the gateway's JSON
+  // request, as the Portal's own reviews do: its grading model, the day's review reserve, never held back by this flow's
+  // share of the day (which live calls use up), and 45 s to answer instead of a chat line's 20
+  const review = /^(grading|trainer)$/i.test(String(req.feature || ""));
   let r, data = null;
   try {
     r = await fetch(String(env.PORTAL_URL || "https://cm-training-activity.pages.dev").replace(/\/+$/, "") + "/api/ai-gateway", {
       method: "POST", headers: { "Content-Type": "application/json", "X-Gateway-Key": String(env.AI_GATEWAY_SECRET).trim() },
-      body: JSON.stringify({ module: "cms", fast: isChat(req), user: String(user || "worker").slice(0, 80), system: toText(req.system), messages, maxTokens: Math.min(Math.max(Number(req.max_tokens) || 1024, 128), 4096) })
+      body: JSON.stringify({ module: "cms", fast: isChat(req), json: review, user: String(user || "worker").slice(0, 80), system, messages, maxTokens: Math.min(Math.max(Number(req.max_tokens) || 1024, 128), 4096) })
     });
     data = await r.json().catch(() => null);
   } catch (e) { return json({ error: { message: "The shared AI gateway is unreachable: " + (e && e.message || e) } }, 502); }
   if (data && data.success) return json({ content: [{ type: "text", text: data.text }], model: data.model, stop_reason: "end_turn", provider: "gemini-gateway" });
   const status = r.status === 429 ? 429 : (r.status === 401 || r.status === 403 || r.status === 501) ? 502 : (r.status || 502);
-  return json({ error: { message: (status === 429 ? "rate limit (shared AI budget): " : "Portal AI gateway: ") + ((data && data.error) || "AI gateway error " + r.status) } }, status);   // named, so the page can say where the keys live
+  // a refused key says whose it is (the Portal counts nothing it refuses, so its 📊 AI usage shows no CMS calls at all)
+  const hint = r.status === 401 ? " The Portal refused this site's key: AI_GATEWAY_SECRET must be the same on this Worker and on the Portal."
+    : r.status === 501 ? " The Portal has no AI_GATEWAY_SECRET set yet." : "";
+  return json({ error: { message: (status === 429 ? "rate limit (shared AI budget): " : "Portal AI gateway: ") + ((data && data.error) || "AI gateway error " + r.status) + hint } }, status);   // named, so the page can say where the keys live
 }
 
 /* The key pool: every GEMINI_API_KEY secret on this Worker is used, GEMINI_API_KEY and any numbered one (GEMINI_API_KEY1 …
@@ -2259,6 +2279,18 @@ export default {
 
       /* ---------- AI proxy (signed-in users only, so strangers can't spend your credits) ---------- */
       // (the path keeps its old name so pages already open in browsers keep working)
+      /* ---------- 🤖 the AI check (Admin → ⚙ Settings, js/cm-ai-check.js): one small grading, sent as a trainee's is ---------- */
+      if (path === "/api/ai-check") {
+        if (tok.role !== "a") return json({ error: "Only a trainer can run the AI check." }, 403);
+        const via = gatewayOn(env) ? "gateway" : geminiKeyNames(env).length ? "gemini" : "none";
+        let host = ""; try { host = via === "gateway" ? new URL(String(env.PORTAL_URL || "https://cm-training-activity.pages.dev")).host : ""; } catch (e) { host = String(env.PORTAL_URL || ""); }
+        if (via === "none") return json({ ok: false, via, error: "No AI is set up on this Worker: add AI_GATEWAY_SECRET (the Portal's AI gateway) or GEMINI_API_KEY in Cloudflare." });
+        const t0 = Date.now();
+        const res = await callGemini(env, JSON.stringify({ model: "gemini", feature: "grading", max_tokens: 128, messages: [{ role: "user", content: 'A connection check from the Case Management course. Reply with only this JSON object: {"ok": true}' }] }), "ai-check");
+        const b = await res.json().catch(() => ({}));
+        const text = (((b.content || [])[0]) || {}).text || "";
+        return json({ ok: res.ok && !!text, via, host, status: res.status, ms: Date.now() - t0, model: b.model || "", error: res.ok && text ? "" : String((b.error && (b.error.message || b.error)) || b.error || "The AI gave no answer (" + res.status + ").") });
+      }
       if (path === "/api/claude" || path === "/api/ai") {
         if (!geminiKeyNames(env).length && !gatewayOn(env)) return json({ error: "No AI key is configured on this Worker. Add GEMINI_API_KEY as a Secret in Cloudflare." }, 500);
         return await callGemini(env, await request.text(), tok && tok.id);
