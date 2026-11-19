@@ -122,7 +122,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/ai-check` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (50)
+## Node checks (51)
 
 | Check | What it covers |
 |---|---|
@@ -147,6 +147,7 @@ None.
 | `drive-daily.cjs` | The Backup Drive is scored every day: each day a trainee has reached is graded (nothing on the drive yet scores 0), every night too, in four measures (compliance, attention to detail, organization, naming convention) |
 | `drive-grades.cjs` | The Backup Drive is auto-graded day by day from the Drive itself (Days 2–5, against an in-memory Google Drive) |
 | `drive-naming.cjs` | The firm's file naming convention on the Backup Drive (one rule with the CMS filing; every name checked, each wrong one with the name it should have) |
+| `drive-to-progress.mjs` | The Backup Drive's grades reach the Scorecard: the Worker copies each day's grade onto the trainee's progress (a trainee who never reopened their drive still shows it), a page's older save doesn't put an older grade back, and Day 1 built on the Training Portal's Backup Drive counts as the firm's folders |
 | `drive-trainer-access.cjs` | A trainee's linked Google Drive opens at their case folders, for them and for a trainer (rootUrl/caseUrl, GDRIVE_TRAINER_EMAILS added to the folder without an email) |
 | `drive-work.cjs` | The trainee's written work on the Backup Drive is AI-graded nightly against its activity's rubric, and a trainer's override wins (in-memory Drive, stubbed AI) |
 | `inventory.cjs` | The code inventory (docs/INVENTORY.md) is in step with the files: run node build/inventory.cjs after adding, removing or renaming one |

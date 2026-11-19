@@ -733,6 +733,8 @@ async function gradeStructure(env, D, id, rec, budget) {
   keepFound(fresh, rec);   // the folders found, Day 1 from the drive, the documents filed by hand (never over a platform build)
   fresh.grades = Object.assign({}, fresh.grades, grades); if (N) fresh.naming = N.report; fresh.gradedAt = nowIso();
   await D.driveWrite(env, id, fresh);
+  // (📂 and onto the trainee's progress, where the Scorecard's 📂 Backup Drive reads it: worker-drive-progress.js)
+  if (D.driveToProgress) try { await D.driveToProgress(env, id, fresh); } catch (e) { /* the next run */ }
   return true;
 }
 
