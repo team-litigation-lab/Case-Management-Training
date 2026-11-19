@@ -26,6 +26,7 @@
   #ns-check li { margin: 4px 0; } #ns-check li.ok { color: #2E7D4F; } #ns-check li.miss { color: #B54A3F; }
   #ns-check li span { color: var(--ink); font-size: 12.5px; }
   #ns-check li span.fix { color: #1E2340; font-weight: 700; }
+  #ns-check .ns-tied { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 999px; background: #E6F2EA; color: #1F5E38; font-weight: 700; }
   .ns-note { font-size: 12.5px; color: var(--soft); margin: 0 0 8px; }
   .ns-nonmed { min-width: 820px; }
   .ns-sec { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px 12px; margin: 0 0 14px; }
@@ -52,6 +53,8 @@
 <script>window.CM_CASE_YEAR = new URLSearchParams(location.search).get("year");</script>
 <script src="/js/cm-case-dates.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+<!-- 🛡 a stage that tied out stays tied out (keepStage) -->
+<script src="/js/cm-credit-kept.js"></script>
 <script src="/js/cm-net-sheet.js"></script>
 </head>
 <body>

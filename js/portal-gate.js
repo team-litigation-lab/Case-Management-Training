@@ -77,13 +77,16 @@ window.portalGate = {
   },
   // Runs at boot, once the engine has loaded: learns whether the Portal is the only way in, then signs in whoever arrived with a ticket.
   init: async function(){
+    // every script has run before anyone is signed out here (js/cm-safe-logout.js wraps logout: a save that didn't reach
+    // the server keeps the device's work); {from: "portal"} tells it the Portal is signing someone in
+    if(document.readyState === "loading") await new Promise(function(r){ document.addEventListener("DOMContentLoaded", r, {once: true}); });
     try{ await authStatus(); }catch(e){}
     // authStatus() above has already asked the Worker; it costs no request of its own.
     try{ secretMissing = !!(state.portalOnly && state.portalSecret === false); }catch(e){}
     // The Portal sends an administrator here as /?admin=1 (no ticket: admins type the admin password). A trainee session
     // saved in this browser (an earlier test, a shared computer) is signed out first, so the admin password prompt shows
     // instead of that trainee's dashboard.
-    if(wantAdmin && state.traineeId && !state.adminToken){ try{ await logout(); }catch(e){} }
+    if(wantAdmin && state.traineeId && !state.adminToken){ try{ await logout({from: "portal"}); }catch(e){} }
     if(!ticket){ uncover(150); return; }
     var t = ticket; ticket = "";
     // Arriving from the Portal lands on the dashboard (it has its own "Resume where you left off" button) instead of
@@ -103,12 +106,12 @@ window.portalGate = {
       var j = await r.json().catch(function(){ return {}; });
       // An admin from the Portal is never a trainee here: a trainee session saved in this browser (an earlier test, a
       // shared computer) is signed out first, or it would open the trainee's dashboard instead of the admin screen.
-      if((j.code === "admin-password" || j.admin) && state.traineeId){ try{ await logout(); }catch(e){} }
+      if((j.code === "admin-password" || j.admin) && state.traineeId){ try{ await logout({from: "portal"}); }catch(e){} }
       if(j.code === "admin-password"){ wantAdmin = true; uncover(0); return; }   // administrators always type the admin password: straight to that prompt
       if(!r.ok || !j.token){ notice = j.error || "We couldn't sign you in from the LSH Training Portal. Open the program from the Portal again."; uncover(0); return; }
       if(j.admin){ setAdminToken(j.token); uncover(250); return; }                                        // an admin signed in on the Portal: no password here (boot picks up the token)
       if(state.traineeId && state.traineeId === j.id){ setTraineeToken(j.token); uncover(250); return; }   // already signed in as them
-      if(state.traineeId){ try{ await logout(); }catch(e){} }                               // someone else was signed in on this device
+      if(state.traineeId){ try{ await logout({from: "portal"}); }catch(e){} }                               // someone else was signed in on this device
       setTraineeToken(j.token);
       pending = j;
     }catch(e){ notice = "We couldn't reach the server to sign you in. Check your connection and open the program from the LSH Training Portal again."; uncover(0); }
