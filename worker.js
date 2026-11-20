@@ -33,7 +33,8 @@ const KV_PREFIX = "cm:";
    admin's save or the Worker writes (ownerPut) and the trainee never can, and every read lays it back over the record.
    A record no admin has saved since reads exactly as it is.
      trainee:<id>   approval, rejection, archive, unlocks, assignments, and who they are (name and batch)
-     feedback:<id>  a trainer's review of a day (and its read mark stays the trainee's), a trainer's note on an auto-review
+     feedback:<id>  a trainer's review of a day (and its read mark stays the trainee's), a trainer's note on an auto-review,
+                    the trainer's 40% per Case Flow module (caseFlow)
      focus:<id>     the focus items themselves (seen and done stay the trainee's)
      actsub:<id>    a trainer's feedback on an activity, for the submission it was written for: a new submission
                     retires it to prevFeedback, as the trainee's own save does */
@@ -50,7 +51,8 @@ const OWNED = {
         if (isTrainerReview(v)) days[d] = { review: v };
         else if (v && v.trainerNote) days[d] = { note: v.trainerNote };
       });
-      return { days };
+      // 🏅 the trainer's 40% per Case Flow module (feedback:<id>.caseFlow): the record's t and Composite come only from here
+      return { days, caseFlow: (rec && rec.caseFlow && typeof rec.caseFlow === "object") ? rec.caseFlow : {} };
     },
     overlay: (rec, own) => {
       if (!rec.days || typeof rec.days !== "object") rec.days = {};
@@ -59,6 +61,7 @@ const OWNED = {
         if (o.review) { const readAt = cur && cur.readAt; rec.days[d] = Object.assign({}, o.review); if (readAt && !rec.days[d].readAt) rec.days[d].readAt = readAt; }
         else if (o.note && cur && typeof cur === "object") cur.trainerNote = o.note;
       });
+      if (own.caseFlow && typeof own.caseFlow === "object") rec.caseFlow = own.caseFlow;   // (a copy saved before this was kept has none: left as it is)
     }
   },
   focus: {
