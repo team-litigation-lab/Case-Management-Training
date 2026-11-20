@@ -15,7 +15,7 @@
 if(typeof state === "undefined" || typeof window.authFetch !== "function") return;
 const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
 const dayOf = id => (typeof DAYS !== "undefined" ? DAYS : []).find(d => d.id === Number(id)) || null;
-const label = id => { const d = dayOf(id); return d && d.cf ? `Day ${d.cf.n}` : `Day ${id}`; };
+const label = id => { const d = dayOf(id); return `Day ${d && d.cf ? d.cf.n : typeof dayNo === "function" ? dayNo(id) : "?"}`; };
 const open = new Set();   // the days whose notice is up
 
 function notice(){
