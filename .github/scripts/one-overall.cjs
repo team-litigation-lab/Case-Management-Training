@@ -1,4 +1,4 @@
-// @check browser — One Overall score: a seeded trainee's Overall is the same number on their card, 🏅 Scores, the Batch Sheet (Scores, Score Card, Day by Day, their card) and their dashboard, with the best Knowledge Check kept
+// @check browser — One Overall score: a seeded trainee's Overall is the same number on their card, 🏅 Scores, the one Admin → 🏅 Scorecard page (its table, the card, cmScorecard.overall), its ⬇ Download (Scores, Detailed Scores, Score Card) and their dashboard, with the best Knowledge Check kept
 // A trainee used to have three overall scores (the Scores row's Total 66%, the card's Overall 50%, the Batch Sheet's 64%).
 // Now ONE function makes it, cmScorecard.overall (js/cm-scorecard.js: the 100-point model's Final), and every surface calls
 // it (js/cm-batch-sheet.js, js/cm-overall.js). This seeds one trainee's graded work through the page's own saves, then reads
@@ -11,6 +11,7 @@
 // Usage: node .github/scripts/one-overall.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
+const CSV = require('./csv-sections.cjs');
 const BASE = process.argv[2] || 'http://localhost:8787/';
 const failures = []; const fail = (m) => failures.push(m);
 const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
@@ -94,31 +95,41 @@ const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1
     if (scRow.err) fail('🏅 Scores: ' + scRow.err); else seen['Scorecards · 🏅 Scores row'] = pctOf(scRow.v);
     const scDays = {}; for (const n of [1, 2]) { const x = await cell('#scx-scores', `Day ${n} %`); scDays[n] = x.err ? x.err : pctOf(x.v); }
 
-    // the Batch Sheet: 🏅 Scores, 🏅 Score Card, 📅 Day by Day, the trainee's card
-    // (🏅 Scores and the 🏅 Score Card are under the sheet's ▸ More detail fold: opened, as a trainer opens it)
-    await page.evaluate(() => { state.adminData = null; state.adminBatchFilter = ''; if (window.cmBatchSheet && cmBatchSheet.more) cmBatchSheet.more(true); goto('admin'); setAdminTab('audit'); });
-    await page.waitForSelector('#bs-scores', { timeout: 30000 }).catch(() => fail('the Batch Sheet shows no 🏅 Scores'));
+    // the one 🏅 Scorecard page (Admin → 🏅 Scorecard, where the Admin screen lands): its 🏅 Scores row and the trainee's card,
+    // the Overall cmScorecard.overall gives for the row's own records, and ⬇ Download (its 🏅 Scores, 📅 Day 1–5: Detailed
+    // Scores and 🏅 Score Card tables, the old Batch Sheet's, now in the file)
+    await page.evaluate(() => { state.adminData = null; state.adminTab = ''; state.adminBatchFilter = ''; if (window.cmScorecard) cmScorecard.refresh(); goto('admin'); });
+    await page.waitForSelector('.cmsh-screen #scx-scores', { timeout: 30000 }).catch(() => fail('Admin → 🏅 Scorecard shows no 🏅 Scores'));
     let bs = null;
-    for (let i = 0; i < 40; i++) { bs = await cell('#bs-scores', 'Overall %'); if (!bs.err && pctOf(bs.v) != null) break; await page.waitForTimeout(500); await page.evaluate(() => { if (state.view === 'admin') render(); }); }
-    if (bs.err) fail('Batch Sheet 🏅 Scores: ' + bs.err); else seen['Batch Sheet · 🏅 Scores'] = pctOf(bs.v);
-    const gsa = await cell('#bs-scores', 'Grading systems average %');
-    if (gsa.err) fail('the Batch Sheet should label the grading systems average as its own column: ' + gsa.err);
-    const sc = await page.evaluate(() => { const s = document.querySelector('[id^="bs-scorecard"]'); return s ? '#' + s.id : null; });
-    if (!sc) fail('the Batch Sheet shows no 🏅 Score Card'); else { const x = await cell(sc, 'Overall'); if (x.err) fail('Score Card: ' + x.err); else seen['Batch Sheet · 🏅 Score Card'] = pctOf(x.v); }
-    const dd = await cell('#bs-days', 'Overall');
-    if (dd.err) fail('Day by Day: ' + dd.err); else seen['Batch Sheet · 📅 Day by Day'] = pctOf(dd.v);
-    const ddDays = await page.evaluate(() => { const sec = document.querySelector('#bs-days'); return sec ? [...sec.querySelectorAll('.gs-head th')].map(t => t.textContent.trim()) : []; });
-    for (const n of [1, 2]) { const h = ddDays.find(t => t.startsWith(`Day ${n}.`)); if (!h) { fail(`Day by Day has no Day ${n} column`); continue; }
-        const x = await cell('#bs-days', h); const v = x.err ? x.err : pctOf(x.v);
-        if (v !== scDays[n]) fail(`Day ${n}'s score should be the same on 🏅 Scores (${scDays[n]}) and 📅 Day by Day (${v})`); }
-    const tcard = await page.evaluate((nm) => { const d = [...document.querySelectorAll('details.bs-ds-tr')].find(x => x.textContent.includes(nm)); const em = d && d.querySelector('summary em'); return em ? em.textContent : null; }, nm);
-    if (tcard == null) fail('the Batch Sheet has no 🔎 card for the trainee'); else seen['Batch Sheet · the trainee\'s 🔎 card'] = pctOf(tcard);
+    for (let i = 0; i < 40; i++) { bs = await cell('.cmsh-screen #scx-scores', 'Overall %'); if (!bs.err && pctOf(bs.v) != null) break; await page.waitForTimeout(500); await page.evaluate(() => { if (state.view === 'admin') render(); }); }
+    if (bs.err) fail('Admin 🏅 Scorecard · 🏅 Scores: ' + bs.err); else seen['Admin 🏅 Scorecard · 🏅 Scores'] = pctOf(bs.v);
+    const adDays = {}; for (const n of [1, 2]) { const x = await cell('.cmsh-screen #scx-scores', `Day ${n} %`); adDays[n] = x.err ? x.err : pctOf(x.v); if (adDays[n] !== scDays[n]) fail(`Day ${n}'s score should be the same on #/scorecard (${scDays[n]}) and Admin → 🏅 Scorecard (${adDays[n]})`); }
+    const ov = await page.evaluate(async (id) => { const keys = ['trainee:' + id, 'progress:' + id, 'callsim:' + id, 'simresults:' + id, 'feedback:' + id];
+        const [rec, prog, callsim, sim, fb] = await sharedGetMany(keys);
+        const o = cmScorecard.overall({ rec, cf: rec.caseFlow || { days: {} }, data: (prog && prog.data) || {}, callsim, sim, fb: fb || {} }); return o ? o.pct : null; }, id);
+    seen['cmScorecard.overall of the trainee\'s records'] = ov;
+    await page.evaluate((id) => cmScorecard.only(id), id); await page.waitForTimeout(500);
+    const acard = await page.evaluate((d) => { const c = document.querySelector('.cmsh-screen #bs-pt-' + d); return c ? [...c.querySelectorAll('.bs-pt-k')].map(x => x.textContent.replace(/\s+/g, ' ').trim()) : []; }, dom);
+    seen['Admin 🏅 Scorecard · the card'] = pctOf(acard.find(p => /^Overall\b/.test(p)));
+    await page.evaluate(() => cmScorecard.only(''));
+    const file = await CSV.grab(page, () => cmScorecard.csv());
+    if (!file) fail('⬇ Download gave no file');
+    else {
+        const T = CSV.parse(file), by = t => T.find(x => x.title === t);
+        if (!T[0] || T[0].title !== '🏅 Scores') fail(`⬇ Download should start with the 🏅 Scores table: ${JSON.stringify(T.map(x => x.title))}`);
+        const a = CSV.cellOf(T[0], 'Overall %', nm); if (a.err) fail('⬇ Download · 🏅 Scores: ' + a.err); else seen['⬇ Download · 🏅 Scores'] = pctOf(a.v);
+        const dt = T.find(x => x.title.startsWith('📅 Day 1–5: Detailed Scores')), d = CSV.cellOf(dt, 'Overall', nm); if (d.err) fail('⬇ Download · 📅 Day 1–5: Detailed Scores: ' + d.err); else seen['⬇ Download · 📅 Day 1–5: Detailed Scores'] = pctOf(d.v);
+        for (const n of [1, 2]) { const h = dt && dt.head.find(x => x.startsWith(`Day ${n}.`)); const x = h ? CSV.cellOf(dt, h, nm) : { err: 'no column' };
+            if (x.err || pctOf(x.v) !== scDays[n]) fail(`Day ${n}'s score should be the same on 🏅 Scores (${scDays[n]}) and the Detailed Scores (${x.err || x.v})`); }
+        const s1 = T.find(x => /^🏅 Score Card · Day 1/.test(x.title)), s = CSV.cellOf(s1, 'Overall', nm); if (s.err) fail('⬇ Download · 🏅 Score Card: ' + s.err); else seen['⬇ Download · 🏅 Score Card'] = pctOf(s.v);
+        const gsa = by('🏅 The 100-point model in full'); if (!gsa || !gsa.head.includes('Grading systems average %')) fail('⬇ Download should keep the grading systems average as its own, labelled column');
+    }
 
     const vals = Object.values(seen);
     if (vals.some(v => v == null)) fail(`every surface should show an Overall: ${JSON.stringify(seen)}`);
     if (new Set(vals).size !== 1) fail(`the Overall should be one number everywhere: ${JSON.stringify(seen)}`);
-    if (Object.keys(seen).length < 8) fail(`expected the Overall on 8 surfaces, read ${Object.keys(seen).length}: ${JSON.stringify(seen)}`);
+    if (Object.keys(seen).length < 11) fail(`expected the Overall on 11 surfaces, read ${Object.keys(seen).length}: ${JSON.stringify(seen)}`);
     await browser.close();
     if (failures.length) { console.log('✗ One Overall score:\n  ' + failures.join('\n  ')); process.exit(1); }
-    console.log(`One Overall score: ${vals[0]}% on all ${vals.length} surfaces (${Object.keys(seen).join('; ')}); the days agree on 🏅 Scores and 📅 Day by Day; the best Knowledge Check counts.`);
+    console.log(`One Overall score: ${vals[0]}% on all ${vals.length} surfaces (${Object.keys(seen).join('; ')}); the days agree on 🏅 Scores, Admin → 🏅 Scorecard and the Detailed Scores; the best Knowledge Check counts.`);
 })().catch(e => { console.log('✗ ' + (e && e.stack || e)); process.exit(1); });
