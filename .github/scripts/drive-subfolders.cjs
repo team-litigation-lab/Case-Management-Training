@@ -117,6 +117,8 @@ const words = (n) => Array.from({ length: n }, (_, i) => `Line ${i} of the work 
   ok('a written document in the trainee\'s own subfolders is found, matched and graded in the firm folder above it; nested in the wrong one it is told where it belongs; under none it is outside the structure');
 
   /* 2: a case document two levels deep counts for filing */
+  // (the trainee has reached Day 2: its documents open on Day 1, so they never start Day 2 by themselves)
+  store.set('cm:progress:' + tid, JSON.stringify({ data: { 'day-progress': { 12: { done: false } } } }));
   const rs12 = await put('RS12', 'medical'); await put('RS13', 'medical'); await put('RS15', 'medical'); const rs25 = await put('RS25', 'bills');
   files.get(rs12).parents = [sub(fid(MED), 'Riverton Urgent Care', '2026')];   // two levels down its own folder
   files.get(rs25).parents = [sub(fid(MED), 'Misc', 'Old')];                    // two levels down the wrong one

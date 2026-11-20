@@ -736,8 +736,9 @@ async function gradeStructure(env, D, id, rec, budget) {
     return false;
   }
   // a day counts once it has started on the drive or the trainee has reached it (daysReached)
-  const reached = D.daysReached ? await D.daysReached(env, id) : [];
-  const days = [2, 3, 4, 5].filter((n) => D.dayStarted(n, rec) || reached.includes(n)), grades = {};
+  // (a document the course opens on an earlier day never starts a later one: courseDocs, startsDay)
+  const reached = D.daysReached ? await D.daysReached(env, id) : [], docs = await courseDocs(env, D);
+  const days = [2, 3, 4, 5].filter((n) => D.dayStarted(n, rec, docs) || reached.includes(n)), grades = {};
   let N = null;
   if ((rec.builtAt || rec.foundAt) && (days.length || (rec.saved || []).some((s) => s.id) || (rec.handFiled || []).length)) {
     if (!budget.take(1)) return false;

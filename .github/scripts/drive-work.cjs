@@ -436,18 +436,20 @@ const words = (n) => Array.from({ length: n }, (_, i) => `The routed item ${i} c
     const v2 = (await call({ action: 'workGradeFor', traineeId: fr.id }, admin)).body;
     const op = (v2.work.items || []).find((x) => x.id === 'd1m1-open');
     if (!op || op.auto == null) fail(`written work in a folder made by hand should be found and graded: ${JSON.stringify(v2.work)}`);
-    // the rest of the structure made by hand, the names put right, and a Day 2 document filed by hand: Day 1 passes, Day 2 starts
+    // the rest of the structure made by hand, the names put right, and a Day 2 document filed by hand on Day 2: Day 1 passes, Day 2 is graded
     files.get(doe).name = 'Doe-John'; files.get(intake).name = '01 Intake & Retainer';
     const made = { '01 Clients': clients, '01 Clients/Doe-John': doe, '01 Clients/Doe-John/01 Intake & Retainer': intake };
     const std = (await call({ action: 'standard' }, admin)).body.standard.standard;
     std.forEach((p) => { if (made[p]) return; const cut = p.lastIndexOf('/'); made[p] = make(p.slice(cut + 1), FOLDER, cut < 0 ? root : made[p.slice(0, cut)]); });
     RS.forEach((n, i) => { files.get(pdfIds[i]).name = n.replace(/_RS0\d-[^_]+_/, '_Case-Files_').replace('.pdf.pdf', '.pdf'); });
+    // (the trainee has reached Day 2 in the course: RS12 opens on Day 1, so backing it up never starts Day 2 by itself)
+    store.set('cm:progress:' + fr.id, JSON.stringify({ data: { 'day-progress': { 12: { done: false } } } }));
     make('LSH-2026-MVA-000098_Doe-John_RS12-Riverton-Urgent-Care_2026-11-13.pdf', 'application/pdf', made['01 Clients/Doe-John/03 Medical Records'], { owners: [{ emailAddress: 'francis@example.com' }], body: scanned(pdfOf(['A course document.', words(3)])) });
     const v3 = (await call({ action: 'workGradeFor', traineeId: fr.id }, admin)).body, S3 = v3.structure;
     if (!(S3[1].auto >= 95) || (S3[1].notes || []).length) fail(`the whole structure made by hand, named the firm's way, should pass Day 1: ${JSON.stringify(S3[1])}`);
     const g2 = JSON.parse(store.get('cm:drive:' + fr.id)).grades[2];
     const backed = g2 && g2.rows.find((x) => x.label === 'Documents backed up');
-    if (!g2 || !backed || backed.got !== 5 || !/RS12|File names/.test(JSON.stringify(g2.rows))) fail(`Day 2 should start with a document filed by hand, counted in its folder (1 of 4): ${JSON.stringify(g2)}`);
+    if (!g2 || !backed || backed.got !== 5 || !/RS12|File names/.test(JSON.stringify(g2.rows))) fail(`Day 2, reached, should count a document filed by hand in its folder (1 of 4): ${JSON.stringify(g2)}`);
     if (S3[2].auto == null || S3[2].why) fail(`Day 2 should show its grade to the trainer: ${JSON.stringify(S3[2])}`);
     // the trainee's own grade action finds the drive too, and a trainer's gradeFor
     const gf = await call({ action: 'gradeFor', traineeId: fr.id }, admin);

@@ -28,12 +28,16 @@
        name in the firm's convention by its Type and the firm folder it is in (applyFound, `by: "type"`: a reading, never
        certain, so it neither starts a day, nor has its name charged, nor counts in Day 1's filing, nor keeps a file
        from the written-work grader), the drive packets of the days reached first. Bytes that are none of the course's
-       current files never rule a document out (the course hands out PDFs drawn again for a later case year, and
-       copies from before a document was re-rendered): the content is a certainty when it matches, never a veto.
-       Copies are one document: the same bytes anywhere, or, for a reading, the same size in one firm folder. All of it
-       from the drive alone. Recorded as
-       rec.handFiled [{docId, id, name, path, home, at, type, by}]: worker.js reads them beside the platform's copies, so a
-       document filed by hand counts when it is in the right folder (S.copyOf, dayStarted), and its name is read by the
+       current files never hide a document from the listing (a copy from before a document was re-rendered is still
+       read by its Type, and said), but a reading whose bytes were set against that document's own file and aren't it
+       (`other`) earns nothing (credited): junk named the firm's way, a code over another file, a copy altered by a
+       byte. The trainee is told to back up the course's own file. Copies are one document: the same bytes anywhere
+       (the platform's own copies too), or, for a reading, the same size in one firm folder. All of it from the drive
+       alone. Recorded as
+       rec.handFiled [{docId, id, name, path, home, at, type, by, other}]: worker.js reads them beside the platform's copies, so a
+       document filed by hand counts when it is in the right folder and credited (S.copyOf, a certain one before a
+       reading), it starts a day only when known for certain and the course opens it on that day (dayStarted,
+       startsDay), and its name is read by the
        firm's naming check like any other (a ".pdf.pdf", a Type that is a document title, a date) and charged on its
        day as the trainee's own filing. A Google Doc, Sheet or Slides is never a course document: that is written work.
      - DAY 1 FROM THE DRIVE (gradeFound → rec.foundSetup): a structure made by hand, graded against FOLDER_STANDARD:
@@ -262,6 +266,18 @@ const emptyFile = (f) => String(f.size) === "0" || String(f.md5 || "").toLowerCa
    name charged and counts in Day 1's filing. "type" (the firm's name and folder only) and "name" (a code or title in
    the name over bytes that aren't that document's file) are readings of the drive: listed and placed, never more. */
 export const knownFor = (h) => !!h && h.by !== "type" && h.by !== "name";
+/* A document that earns its place on the drive (worker.js S.copyOf: placed, the labels, the final audit): one known for
+   certain, or one read by its Type when its bytes couldn't be set against that document's own file (the course's
+   files couldn't be read, or Drive gave no checksum). A reading over bytes that were compared and aren't the course's
+   file (`other`: junk named the firm's way, a code over another file, a copy altered by a byte, a copy kept from before
+   the document was re-rendered) is listed and said, never credited: the trainee backs up the course's own file. */
+export const credited = (h) => !!h && (knownFor(h) || (h.by === "type" && !h.other));
+/* The day a course document opens on (CM_CF_DOCS `day`); 0 when it isn't known. A document the course opens before the
+   day whose drive packet grades it (Day 1 teaches through treatment: RS12 opens on Day 1, graded on Day 2; RS16 opens
+   on Day 2, graded on Day 3) never starts that later day: the trainee has it open a day early, and the day is graded
+   once their progress reaches it (daysReached). */
+export const opensOn = (docs, docId) => Number(((docs || {})[docId] || {}).day) || 0;
+export const startsDay = (docs, docId, n) => { const o = opensOn(docs, docId); return !o || o >= n; };
 export function applyFound(rec, listing, docs, D, hashes = {}, opts = {}) {
   const standard = D.FOLDER_STANDARD, client = D.CLIENT_FOLDER, at = new Date().toISOString();
   const F = rec.builtAt ? null : findFolders(listing, rec.rootId, standard, client);
@@ -280,8 +296,6 @@ export function applyFound(rec, listing, docs, D, hashes = {}, opts = {}) {
   Object.values(rec.drills || {}).forEach((d) => { if (d && d.id) mine.add(d.id); });
   const homeOf = homeFinder(listing.folders || {}, rec);   // 📂 the firm's folder nearest above a file, at any depth
   const hand = [], claimed = new Set();
-  // a document the platform copied there itself, still on the drive, is accounted for: a file filed by hand isn't it
-  (rec.saved || []).forEach((s) => { if (s && s.id && s.docId && docs[s.docId] && all[s.id]) claimed.add(s.docId); });
   // (an empty file, 0 bytes, is no document whatever it is called: nothing was uploaded)
   const files = Object.entries(all).sort(([a], [b]) => a.localeCompare(b))
     .filter(([fid, f]) => !mine.has(fid) && !GOOGLE_NATIVE.test(String(f.mimeType || "")) && !emptyFile(f));
@@ -292,6 +306,17 @@ export function applyFound(rec, listing, docs, D, hashes = {}, opts = {}) {
   // the documents whose own file was read (hashes): a code or title over other bytes is then a reading, not a certainty
   const read = new Set(); Object.values(hashes || {}).forEach((ids) => ids.forEach((d) => read.add(d)));
   const sizeKey = (f, where) => (f.size != null && f.size !== "" ? `${where}|${f.size}` : "");
+  // a document the platform copied there itself, still on the drive, is accounted for: a file filed by hand isn't it,
+  // and a hand-made copy of that copy (its bytes, or lacking a checksum its size in that folder) is that same document,
+  // never the next one of its Type (a reading: never charged, never starts a day)
+  (rec.saved || []).forEach((s) => {
+    const f = s && s.id && s.docId && docs[s.docId] && all[s.id];
+    if (!f) return;
+    claimed.add(s.docId);
+    const m = md5Of(f);
+    if (m) { if (!sameBytes[m]) sameBytes[m] = { docId: s.docId, by: "type" }; }
+    else { const k = sizeKey(f, homeOf(f.parent)); if (k && !sameSize[k]) sameSize[k] = s.docId; }
+  });
   // `by`: how it is known. "code", "title" and "content" are certain; "type" (the firm's name and folder only) is a
   // reading of the drive, not a certainty: worker.js never starts a day on it, nor charges its name
   const add = (fid, f, docId, by) => {
@@ -302,7 +327,9 @@ export function applyFound(rec, listing, docs, D, hashes = {}, opts = {}) {
     // (lacking a checksum, or known only by a reading, the same size in one firm folder is the same document: one file
     // altered by a byte and saved again under each code is one document, not each)
     if (!m || !knownFor({ by })) { const k = sizeKey(f, path); if (k && !sameSize[k]) sameSize[k] = docId; }
-    hand.push({ docId, id: fid, name: clip(f.name, 200), path, home, at: f.created || at, type: D.fileType(CMS_LONG[d.cms] || d.cms), by });
+    // (`other`: these bytes were set against that document's own file and aren't it: a reading that is never credited)
+    const other = by !== "content" && !!m && read.has(docId) && !(hashes[m] || []).includes(docId);
+    hand.push(Object.assign({ docId, id: fid, name: clip(f.name, 200), path, home, at: f.created || at, type: D.fileType(CMS_LONG[d.cms] || d.cms), by }, other ? { other: true } : {}));
   };
   // 1. the same bytes as one of the course's own files (Drive's md5Checksum against the file the course serves): that
   //    document, whatever the name says (a code in the name never makes the Complaint's bytes the Answer), wherever it is.
@@ -335,15 +362,15 @@ export function applyFound(rec, listing, docs, D, hashes = {}, opts = {}) {
   //    from that day (so a Day 1 paper is never taken for a later day's). The one its label says when it has one
   //    (_SUPERSEDED-<date>: a version a newer one replaced; _DRAFT: a draft), one that carries no label when it has
   //    none. One document a file, and the files in the order they were made. In any other folder it isn't guessed at.
-  //    Bytes that are none of the course's current files never rule a document out: the course itself hands out
-  //    files that aren't byte for byte today's (a PDF drawn again for a later case year, a copy downloaded before a
-  //    document was re-rendered), so the content is only ever a certainty when it matches (1), never a veto here.
+  //    Bytes that are none of the course's current files never hide a file from this reading (a copy downloaded before
+  //    a document was re-rendered is still listed as that document, and said), but bytes set against that document's
+  //    own file that aren't it are `other` (add): listed, never credited.
   const dayOf = {}; Object.entries(D.DRIVE_DAY_DOCS || {}).forEach(([n, ids]) => ids.forEach((d) => { dayOf[d] = Number(n); }));
   const opens = (d) => Number(docs[d].day) || dayOf[d] || 0;
   const packetOf = (d) => Number(docs[d].packet) || dayOf[d] || 0;
   const pIndex = (d) => { const ids = (D.DRIVE_DAY_DOCS || {})[packetOf(d)] || []; return ids.includes(d) ? ids.indexOf(d) : 99; };
-  const started = (n) => (D.dayStarted ? D.dayStarted(n, Object.assign({}, rec, { handFiled: hand }))
-    : hand.concat(rec.saved || []).some((s) => ((D.DRIVE_DAY_DOCS || {})[n] || []).includes(s.docId) && knownFor(s)));
+  const started = (n) => (D.dayStarted ? D.dayStarted(n, Object.assign({}, rec, { handFiled: hand }), docs)
+    : hand.concat(rec.saved || []).some((s) => ((D.DRIVE_DAY_DOCS || {})[n] || []).includes(s.docId) && knownFor(s) && startsDay(docs, s.docId, n)));
   const reach = Math.max(1, ...((opts && opts.reached) || []).map(Number).filter((n) => n > 0), ...[2, 3, 4, 5].filter((n) => (D.DRIVE_DAY_DOCS || {})[n] && started(n)));
   const rank = (d) => { const p = packetOf(d); return p && p <= reach ? [0, p, pIndex(d)] : [1, p ? Math.max(p, opens(d)) : opens(d), p ? 1 : 0]; };
   const order = Object.keys(docs).map((d) => [d, rank(d)])
@@ -394,6 +421,9 @@ export function whyUngraded(n, rec, dayDocs) {
   if (!rec.gradedAt) return "Not graded yet: press 🏅 Grade now.";
   const ids = (dayDocs || {})[n] || [];
   // (a document known only by its Type and the folder it is in is listed, but it is a reading, not a certainty: it never starts a day)
+  // (a document known for certain that the course opens on an earlier day is on the drive, but it doesn't start this one)
+  const early = (rec.saved || []).filter((s) => s && s.id).concat((rec.handFiled || []).filter(knownFor)).filter((h) => ids.includes(h.docId)).map((h) => h.docId).filter((d, i, a) => a.indexOf(d) === i);
+  if (early.length) return `Day ${n} is graded once the trainee reaches it in the course: its documents on the drive (${early.join(", ")}) open on an earlier day, so backing them up early doesn't start it.`;
   const guessed = (rec.handFiled || []).filter((h) => h && !knownFor(h) && ids.includes(h.docId)).map((h) => h.docId).filter((d, i, a) => a.indexOf(d) === i);
   if (guessed.length) return `Day ${n} hasn't started on the drive: the only files of its documents (${ids.join(", ")}) there are known by their Type and folder alone, or by a name over bytes that aren't the course's file (read as ${guessed.join(", ")}), and those don't start a day. Back up the course's own file of one${n === 2 ? ", or lay the day's drill" : ""}.`;
   return `Day ${n} hasn't started on the drive: none of its documents (${ids.join(", ")}) is in the linked folder yet${n === 2 ? ", and its drill hasn't been laid" : ""}.`;

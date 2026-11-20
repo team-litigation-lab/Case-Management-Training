@@ -1,4 +1,4 @@
-// @check node — A course document on the Backup Drive is known from the drive alone, never from the CMS: by its bytes first (Drive's md5Checksum against the course's own file, over any code in the name; copies anywhere one document; an empty file none), then its code or title, else by the firm's name (<Case ID>_<Last-First>_<Type>_<date>, the CMS's counters too) in its firm folder at any depth (bytes that aren't the course's current file never rule it out; under a kilobyte is no document), steered by its SUPERSEDED/DRAFT label, the drive packets of the days reached first, the platform's own copies accounted for; a match by Type alone, or by a code over other bytes, never starts a day, has its name charged, counts in Day 1's filing or hides written work; a CMS counter in a certain document's name is read past
+// @check node — A course document on the Backup Drive is known from the drive alone, never from the CMS: by its bytes first (Drive's md5Checksum against the course's own file, over any code in the name; copies anywhere one document; an empty file none), then its code or title, else by the firm's name (<Case ID>_<Last-First>_<Type>_<date>, the CMS's counters too) in its firm folder at any depth (bytes that aren't the course's current file never rule it out; under a kilobyte is no document), steered by its SUPERSEDED/DRAFT label, the drive packets of the days reached first, the platform's own copies accounted for; a match by Type alone, or by a code over other bytes, never starts a day, has its name charged, counts in Day 1's filing or hides written work; a CMS counter in a certain document's name is read past; a reading over bytes set against the course's file earns no place and adds no good name, a certain copy before any reading, a hand copy of the platform's copy is that document, and a document opened on an earlier day never starts a later one
 // worker-drive-found.js applyFound / typeOfName. Before, a file was known only by a code (RS01) or its title in its name,
 // so trainees who named their files the way the course teaches (…_Medical-Records_2026-11-16.pdf) had every day after
 // Day 1 at 0% on the Backup Drive although the documents were in their folders. The owner: the Backup Drive is graded on
@@ -17,7 +17,10 @@
 //       (14) a course document in other bytes (drawn again, an earlier version) named the firm's way is still read by
 //       its Type; (15) a CMS counter in a certain document's name is read past (Days 1–3); (16) with the course's files
 //       read, a code over other bytes is a reading (`by: "name"`) that never starts a day, a few bytes are no document,
-//       and one file altered under six codes is one document.
+//       and one file altered under six codes is one document; (17) a document the course opens on an earlier day never
+//       starts the later day that grades it; (18) junk earns no place, whatever it is named, and a reading over bytes set
+//       against the course's file earns nothing; (19) altering or renaming the files never pays; (20) a reading never
+//       hides the document's own file in the wrong folder; (21) a hand copy of the platform's copy is that document.
 // Usage: node .github/scripts/drive-named-files.cjs
 'use strict';
 const path = require('path');
@@ -180,9 +183,12 @@ async function endToEnd(M, fail) {
         if (a53.some((x) => (h[x] || {}).docId !== 'RS53' || h[x].by !== 'content')) fail(`(3) three copies of the Answer's bytes should each be the Answer (RS53): ${a53.map((x) => JSON.stringify(h[x]))}`);
         const one = [...new Set(same.map((x) => (h[x] || {}).docId + '/' + (h[x] || {}).by))];
         if (one.length !== 1 || one[0] !== 'RS52/type') fail(`(3) seven copies of one file named the firm's way in 09 should be one document, read by its Type (RS52, the next of Day 5's packet): ${one}`);
-        if (!(g && g.grades && g.grades[5])) fail('(3) a document known by its content (the Complaint) is certain, and starts Day 5');
+        if (!(g && g.grades && g.grades[5])) fail('(3) a document known by its content that opens on Day 5 (the Answer) is certain, and starts Day 5');
+        if (!same.every((x) => (h[x] || {}).other)) fail(`(3) the seven copies' bytes were set against the course's file and aren't it: \`other\`: ${same.map((x) => JSON.stringify(h[x]))}`);
         const lit = row(g, 5, 'Litigation file backed up');
-        if (!lit || lit.got !== Math.floor(16 * 3 / 7)) fail(`(3) the Complaint, the Answer and one more document are on the drive: ${JSON.stringify(lit && { got: lit.got, max: lit.max })}`);
+        // (the seven copies are read as RS52, but their bytes were set against the course's file and aren't it: never credited)
+        if (!lit || lit.got !== Math.floor(16 * 2 / 7)) fail(`(3) the Complaint and the Answer are on the drive; a reading over other bytes earns nothing: ${JSON.stringify(lit && { got: lit.got, max: lit.max })}`);
+        if (!lit || !lit.notes.some((x) => /isn't the course's file of it/.test(x))) fail(`(3) the row should say the file read as the service papers isn't the course's file: ${JSON.stringify(lit && lit.notes)}`);
         const many = Array.from({ length: 15 }, (_, k) => make(CN('Litigation-Documents', `2026-11-${10 + k}`), T.dir(LIT), Buffer.from('junk ' + k)));   // a few bytes each: no document
         const g2 = await T.grade(), h2 = T.by();
         if (many.some((x) => h2[x]) || (row(g2, 5, 'Litigation file backed up') || {}).got !== lit.got) fail(`(3) fifteen files of a few bytes named the firm's way should earn nothing: ${many.filter((x) => h2[x]).map((x) => h2[x].docId)}`);
@@ -191,7 +197,7 @@ async function endToEnd(M, fail) {
     /* 3b: renamed copies of one course file are that one file's document, whatever code each name carries; copies of one
        file with codes in their names are one document; an empty file is no document */
     {
-        const T = await trainee();
+        const T = await trainee([5]);
         const codes = ['RS51', 'RS52', 'RS53', 'RS56', 'RS60', 'RS49', 'RS50'];
         const ren = codes.map((c) => make(`${c} pleading.pdf`, T.dir(LIT), docBytes('RS51')));
         const twin = ['RS55', 'RS59'].map((c) => make(`${c} order.pdf`, T.dir(LIT), 'one order, two names'));
@@ -204,7 +210,7 @@ async function endToEnd(M, fail) {
         if (empty.some((x) => h[x])) fail(`(3b) an empty file is no document, whatever its name: ${empty.filter((x) => h[x]).map((x) => h[x].docId)}`);
         if (g && g.grades && g.grades[4]) fail('(3b) an empty RS44.pdf should not start Day 4');
         const lit = row(g, 5, 'Litigation file backed up');
-        if (!lit || lit.got !== Math.floor(16 * 2 / 7)) fail(`(3b) only the Complaint and one order are in 09: ${JSON.stringify(lit && { got: lit.got, max: lit.max })}`);
+        if (!lit || lit.got !== Math.floor(16 / 7)) fail(`(3b) only the Complaint is in 09 (the order's bytes aren't the course's, a reading): ${JSON.stringify(lit && { got: lit.got, max: lit.max })}`);
     }
     {
         const T = await trainee();
@@ -213,20 +219,20 @@ async function endToEnd(M, fail) {
         if (g && g.grades && g.grades[5]) fail('(3b) empty files named RS51, RS52 and RS53 should not start Day 5');
     }
 
-    /* 14: a course file the course itself handed out in other bytes (a PDF drawn again for a later case year, a copy from
-       before the document was re-rendered), named the firm's way in its folder, is still read by its Type and folder:
-       bytes that are none of the course's current files never rule it out (finding: a Day 2 drive scored 0/20 once the
-       course's files were hashed, 20/20 when they couldn't be) */
+    /* 14: a course file in other bytes (a copy from before the document was re-rendered), named the firm's way in its
+       folder, is still read by its Type and folder and said, but bytes set against the course's file that aren't it earn
+       nothing (`other`): the row tells the trainee to back up the course's own file (finding: junk named the firm's way
+       filled Day 5 at 16/16). With the course's files unreadable a Type reading still counts (8). */
     {
         const T = await trainee([2]);
         const alt = (d) => Buffer.concat([docBytes(d), Buffer.from('\n% drawn again for case year 2027\n')]);
         const f = { RS12: make(CN('Medical-Records', '2026-11-16'), T.dir(MED), alt('RS12')), RS13: make(CN('Medical-Records', '2026-11-17'), T.dir(MED), alt('RS13')),
             RS15: make(CN('Medical-Records', '2026-11-18'), T.dir(MED), alt('RS15')), RS25: make(CN('Invoices', '2026-11-16'), T.dir(BILLS), alt('RS25')) };
         const g = await T.grade(), h = T.by();
-        const wrong = Object.entries(f).filter(([d, x]) => (h[x] || {}).docId !== d || h[x].by !== 'type').map(([d, x]) => `${d}→${JSON.stringify(h[x] && [h[x].docId, h[x].by])}`);
-        if (wrong.length) fail(`(14) course documents in other bytes, named the firm's way in their folders, should be read by their Type: ${wrong.join(' ')}`);
+        const wrong = Object.entries(f).filter(([d, x]) => (h[x] || {}).docId !== d || h[x].by !== 'type' || !h[x].other).map(([d, x]) => `${d}→${JSON.stringify(h[x] && [h[x].docId, h[x].by, h[x].other])}`);
+        if (wrong.length) fail(`(14) course documents in other bytes, named the firm's way in their folders, should be read by their Type, over other bytes: ${wrong.join(' ')}`);
         const r = row(g, 2, 'Documents backed up');
-        if (!r || r.got !== r.max) fail(`(14) Day 2 "Documents backed up" should be full: ${JSON.stringify(r && { got: r.got, max: r.max })}`);
+        if (!r || r.got !== 0 || r.notes.filter((x) => /isn't the course's file of it: back up the course's own file/.test(x)).length !== 4) fail(`(14) Day 2 "Documents backed up" should credit none, and say of each to back up the course's own file: ${JSON.stringify(r && { got: r.got, max: r.max, notes: r.notes })}`);
     }
 
     /* 15: a document known for certain (its bytes) whose name carries the CMS's counter (2026-11-16-2, _3, _2_DRAFT) is
@@ -272,20 +278,86 @@ async function endToEnd(M, fail) {
         const g3 = await U.grade();
         if (g3 && g3.grades && g3.grades[5]) fail('(16) a code over bytes that aren\'t its file should not start Day 5');
         if (!/not the course's file|aren't the course's file/.test(M.whyUngraded(5, U.rec(), { 5: ['RS51', 'RS52', 'RS53', 'RS55', 'RS59', 'RS69', 'RS70'] }))) fail(`(16) why Day 5 is ungraded should say its only file is known by its name alone: ${M.whyUngraded(5, U.rec(), { 5: ['RS52'] })}`);
-        const V = await trainee();
+        const V = await trainee([5]);
         make('scan0001.pdf', V.dir(LIT), docBytes('RS51'));
         const copies = ['RS52', 'RS53', 'RS55', 'RS59', 'RS69', 'RS70'].map((c, k) => make(`${c}.pdf`, V.dir(LIT), Buffer.concat([docBytes('RS51'), Buffer.from(String(k))])));
         const g4 = await V.grade(), h4 = V.by();
         const ids = [...new Set(copies.map((x) => (h4[x] || {}).docId + '/' + (h4[x] || {}).by))];
         if (ids.length !== 1 || ids[0] !== 'RS52/name') fail(`(16) six copies of the Complaint each altered by a byte, under six codes, should be one document read by its name: ${ids}`);
         const lit = row(g4, 5, 'Litigation file backed up');
-        if (!lit || lit.got !== Math.floor(16 * 2 / 7)) fail(`(16) the Complaint and one more document are in 09: ${JSON.stringify(lit && { got: lit.got, max: lit.max })}`);
+        if (!lit || lit.got !== Math.floor(16 / 7)) fail(`(16) only the Complaint is in 09: six altered copies of it earn nothing: ${JSON.stringify(lit && { got: lit.got, max: lit.max })}`);
+    }
+
+    /* 17: a document the course opens on an earlier day never starts the later day that grades it (finding: a trainee on
+       Day 2 who backed up the MRI and its addendum, both opened on Day 2, had Day 3 graded at 25%; one on Day 4 with the
+       Complaint and the term sheet had Day 5 graded at 69%) */
+    {
+        const T = await trainee([2]);
+        const put = (d, type, date) => make(CN(type, date), T.dir(d === 'RS25' ? BILLS : ['RS05', 'RS06'].includes(d) ? '01 Intake & Retainer' : d === 'RS07' ? '02 Police, Witness & Video' : MED), docBytes(d));
+        put('RS05', 'Case-Files', '2026-11-02'); put('RS07', 'Police-Report', '2026-11-02'); put('RS06', 'Case-Files', '2026-11-03');
+        ['RS12', 'RS13', 'RS15', 'RS16', 'RS72'].forEach((d, k) => put(d, 'Medical-Records', `2026-11-1${k}`)); put('RS25', 'Invoices', '2026-11-10');
+        const g = await T.grade(), got = Object.keys((g && g.grades) || {}).join();
+        if (!(T.rec().handFiled || []).filter((x) => ['RS16', 'RS72'].includes(x.docId) && x.by === 'content').length) fail(`(17) the MRI and its addendum should be known by their bytes: ${JSON.stringify(T.rec().handFiled)}`);
+        if (got !== '2') fail(`(17) a trainee who has reached Day 2 should have Day 2 graded and never Day 3, though the Day 2 MRI and its addendum are backed up: Days ${got}`);
+        const why = M.whyUngraded(3, T.rec(), { 3: ['RS72', 'RS16', 'RS73', 'RS26', 'RS95', 'RS94', 'RS33', 'RS66'] });
+        if (!/graded once the trainee reaches it/.test(why)) fail(`(17) why Day 3 is ungraded should say its documents on the drive open on an earlier day: ${why}`);
+        const U = await trainee([2, 3, 4]);
+        make(CN('Litigation-Documents', '2026-11-14'), U.dir(LIT), docBytes('RS51'));
+        make(CN('Litigation-Documents', '2026-11-15'), U.dir(LIT), docBytes('RS59'));
+        const g2 = await U.grade();
+        if (g2 && g2.grades && g2.grades[5]) fail(`(17) a trainee on Day 4 with the Complaint and the term sheet (both opened on Day 4) backed up should not have Day 5 graded: ${g2.grades[5].score}`);
+    }
+
+    /* 18: junk earns no place, whatever it is named (finding: seven junk PDFs named the firm's way, or RS51…RS70, filled
+       Day 5's "Litigation file backed up" at 16/16 with no course document on the drive) */
+    {
+        const LIT5 = ['RS51', 'RS52', 'RS53', 'RS55', 'RS59', 'RS69', 'RS70'];
+        const A = await trainee([5]);
+        LIT5.forEach((c, k) => make(CN('Litigation-Documents', `2026-11-1${k}`), A.dir(LIT), 'junk pleading number ' + k));
+        const B = await trainee([5]);
+        LIT5.forEach((c, k) => make(`${c}.pdf`, B.dir(LIT), 'junk with a code ' + k));
+        for (const [T, v] of [[A, 'A (the firm\'s name)'], [B, 'B (a code)']]) {
+            const g = await T.grade(), lit = row(g, 5, 'Litigation file backed up');
+            if (!(T.rec().handFiled || []).length || (T.rec().handFiled || []).some((x) => !x.other)) fail(`(18) ${v}: the junk should be read, and every reading marked other bytes: ${JSON.stringify(T.rec().handFiled)}`);
+            if (!lit || lit.got !== 0) fail(`(18) ${v}: seven junk files should earn nothing of "Litigation file backed up": ${JSON.stringify(lit && { got: lit.got, max: lit.max })}`);
+        }
+    }
+
+    /* 19: renaming or altering the files never pays (finding: the course's own Day 5 files named "RS51 scan.pdf" scored 69,
+       the same names over files altered by a byte 94, with File names 12/12 for names never charged) */
+    {
+        const LIT5 = ['RS51', 'RS52', 'RS53', 'RS55', 'RS59', 'RS69', 'RS70'];
+        const H = await trainee([5]), X = await trainee([5]);
+        LIT5.forEach((c) => make(`${c} scan.pdf`, H.dir(LIT), docBytes(c)));
+        LIT5.forEach((c) => make(`${c} scan.pdf`, X.dir(LIT), Buffer.concat([docBytes(c), Buffer.from('x')])));
+        const gh = await H.grade(), gx = await X.grade();
+        const nx = row(gx, 5, 'File names');
+        if (!nx || nx.got === nx.max) fail(`(19) names off the convention over altered files should still be charged: ${JSON.stringify(nx && { got: nx.got, max: nx.max })}`);
+        const sh = ((gh.grades || {})[5] || {}).score, sx = ((gx.grades || {})[5] || {}).score;
+        if (!(sh > sx)) fail(`(19) the course's own files should score above the same names over altered files: ${sh} vs ${sx}`);
+    }
+
+    /* 20: a reading never hides the document's own file in the wrong folder (finding: a junk "RS51 Complaint.pdf" in 09
+       made the misfiled Complaint in 03 disappear from the row) */
+    {
+        const T = await trainee([5]);
+        make('scan0001.pdf', T.dir(MED), docBytes('RS51'));
+        const said = (g) => ((row(g, 5, 'Litigation file backed up') || {}).notes || []).some((x) => /Complaint is in 03 Medical Records; it belongs in 09 Litigation & ADR/.test(x));
+        const g1 = await T.grade();
+        if (!said(g1)) fail(`(20) the Complaint in 03 should be said to belong in 09: ${JSON.stringify(row(g1, 5, 'Litigation file backed up'))}`);
+        make('RS51 Complaint.pdf', T.dir(LIT), 'a junk complaint');
+        ['RS52', 'RS53', 'RS55'].forEach((c, k) => make(CN('Litigation-Documents', `2026-11-1${k}`), T.dir(LIT), 'junk ' + c));
+        const g2 = await T.grade(), lit = row(g2, 5, 'Litigation file backed up');
+        if (!said(g2)) fail(`(20) with junk named RS51 in 09 the misfiled Complaint should still be said: ${JSON.stringify(lit && lit.notes)}`);
+        if (!lit || lit.got !== 0) fail(`(20) junk in 09 should earn nothing while the Complaint is misfiled: ${JSON.stringify(lit && { got: lit.got, max: lit.max })}`);
+        const n1 = row(g1, 5, 'File names'), n2 = row(g2, 5, 'File names');
+        if (!n1 || !n2 || n2.got > n1.got) fail(`(20) junk named the firm's way should add no good name to the row: ${n1 && n1.got} then ${n2 && n2.got}`);
     }
     readable(false);
 
-    /* 4: a document the platform already copied there is accounted for: a hand file is the next one */
+    /* 4: a document the platform already copied there is accounted for: a hand file is the next one (Day 2 reached, so its packet first) */
     {
-        const T = await trainee();
+        const T = await trainee([2]);
         const r = await call({ action: 'put', docFolder: 'medical', name: CN('Medical-Records', '2026-11-02'), b64: Buffer.from('%PDF-1.4 platform RS12').toString('base64url'), docId: 'RS12' }, T.t);
         if (r.status !== 200) fail(`(4) the platform's copy of RS12 couldn't be filed: ${r.text.slice(0, 200)}`);
         const hand = make(CN('Medical-Records', '2026-11-03'), T.dir(MED), 'a hand upload');
@@ -426,6 +498,17 @@ async function endToEnd(M, fail) {
     const rec2 = { builtAt: '2026-11-12', rootId: 'root', folders: rec.folders, saved: [{ id: 'p1', docId: 'RS12' }] };
     M.applyFound(rec2, { folders: FOLDERS, files: { p1: { name: N('Medical-Records', '2026-11-12'), parent: 'fMed', mimeType: 'application/pdf' } } }, docs, D);
     if ((rec2.handFiled || []).length) fail(`the platform's own copy should not be counted as filed by hand: ${JSON.stringify(rec2.handFiled)}`);
+
+    // 21. a hand-made copy of the platform's own copy is that same document, never the next unclaimed one of its Type:
+    //     the course's files unreadable, readable with the copy's bytes older than today's file, and no checksum at all
+    //     (finding: the copy was read as RS13, which the trainee never put on the drive, and Day 2 rose from 5/20 to 10/20)
+    [['unreadable', {}, true], ['stale bytes', { ['b'.repeat(32)]: ['RS12'] }, true], ['no checksum', {}, false]].forEach(([v, hashes, sum]) => {
+        const X = 'a'.repeat(32), f = (name) => Object.assign({ name, parent: 'fMed', mimeType: 'application/pdf', size: '50000' }, sum ? { md5: X } : {});
+        const r = { builtAt: '2026-11-12', rootId: 'root', folders: rec.folders, saved: [{ id: 'p1', docId: 'RS12' }] };
+        M.applyFound(r, { folders: FOLDERS, files: { p1: f(N('Medical-Records', '2026-11-06')), h1: f(N('Medical-Records', '2026-11-06')), h2: f(N('Medical-Records', '2026-11-07')) } }, docs, D, hashes);
+        const ids = (r.handFiled || []).map((h) => h.docId + '/' + h.by).join();
+        if (ids !== 'RS12/type,RS12/type') fail(`(21) ${v}: two hand copies of the platform's RS12 copy should be RS12 (a reading), never RS13: ${ids}`);
+    });
 
     // the drive alone: nothing reads the trainee's records (the CMS is a separate grader)
     const listed = { folders: FOLDERS, files: { z1: { name: N('Invoices', '2026-11-16'), parent: 'fBill', mimeType: 'application/pdf' } } };
