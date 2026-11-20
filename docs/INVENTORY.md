@@ -122,7 +122,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/ai-check` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (51)
+## Node checks (52)
 
 | Check | What it covers |
 |---|---|
@@ -145,6 +145,7 @@ None.
 | `debrief-narration.cjs` | The Case Debrief's narration (build/debrief/debrief.json) is what its video says: each slide's notes are its captions in decks/debrief/debrief-narrated.vtt, word for word (punctuation, case and whitespace aside); the notes write each term as written (the "say" map voices it), run 90 to 230 words a slide, and every slide has its picture; the Litigation note on its slide is js/cm-litigation-note.js's, word for word, and said aloud |
 | `drive-connect.cjs` | Linking a trainee's Google Drive folder (shared with the service account and pasted, as Foundational links a Drive; every refusal says why; Google answered by the test) |
 | `drive-daily.cjs` | The Backup Drive is scored every day: each day a trainee has reached is graded (nothing on the drive yet scores 0), every night too, in four measures (compliance, attention to detail, organization, naming convention) |
+| `drive-filed-names.cjs` | A course document saved to the Backup Drive under the name the trainee filed it under in the CMS (the firm's way: <Case ID>_<Last-First>_<Type>_<date>, no document code or title in it) is recognised as that document, and two filed under one name are told apart; a file the trainee never filed stays unrecognised |
 | `drive-grades.cjs` | The Backup Drive is auto-graded day by day from the Drive itself (Days 2–5, against an in-memory Google Drive) |
 | `drive-naming.cjs` | The firm's file naming convention on the Backup Drive (one rule with the CMS filing; every name checked, each wrong one with the name it should have) |
 | `drive-to-progress.mjs` | The Backup Drive's grades reach the Scorecard: the Worker copies each day's grade onto the trainee's progress (a trainee who never reopened their drive still shows it), a page's older save doesn't put an older grade back, and Day 1 built on the Training Portal's Backup Drive counts as the firm's folders |
