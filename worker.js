@@ -53,7 +53,8 @@ const OWNED = {
         if (isTrainerReview(v)) days[d] = { review: v };
         else if (v && v.trainerNote) days[d] = { note: v.trainerNote };
       });
-      return { days };
+      // 📤 the progress reports a trainer sent (js/cm-send-progress.js) are the trainer's too
+      return Array.isArray(rec && rec.reports) ? { days, reports: rec.reports } : { days };
     },
     overlay: (rec, own) => {
       if (!rec.days || typeof rec.days !== "object") rec.days = {};
@@ -62,6 +63,7 @@ const OWNED = {
         if (o.review) { const readAt = cur && cur.readAt; rec.days[d] = Object.assign({}, o.review); if (readAt && !rec.days[d].readAt) rec.days[d].readAt = readAt; }
         else if (o.note && cur && typeof cur === "object") cur.trainerNote = o.note;
       });
+      if (Array.isArray(own.reports)) rec.reports = own.reports;
     }
   },
   focus: {
