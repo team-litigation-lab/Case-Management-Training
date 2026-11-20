@@ -218,8 +218,12 @@ async function useTicketOnce(env, kv, ticket) {
     try {
       const ns = env.TICKET_LEDGER;
       const r = await ns.get(ns.idFromName("sso:" + sig)).fetch("https://ledger/use", { method: "POST" });
-      if (r.status === 200) return true;
       if (r.status === 409) return false;
+      if (r.status === 200) {
+        // the KV mark too, so a later use that finds the ledger unreachable (the KV check below) still knows of this one
+        if (kv) { try { await kv.put("sso-used:" + sig, "1", { expirationTtl: TICKET_NONCE_TTL_S }); } catch (e) { /* the ledger's own mark stands */ } }
+        return true;
+      }
     } catch (e) { /* the ledger couldn't be reached: the KV check below */ }
   }
   if (!kv) return true;
