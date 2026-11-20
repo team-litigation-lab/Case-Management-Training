@@ -358,7 +358,7 @@ function dayParts(r, n, data, out){
 }
 
 window.cmDriveWork = {open: openMine, copy, toggle, draft, save: (id, kind, key)=>save(id, kind, key, false), clear: (id, kind, key)=>save(id, kind, key, true), gradeNow,
-  dayParts, scoreItems, briefFor, nightlyFor, reload: ()=>loadMine(true), state: ()=>({mine: MINE, data: DATA})};
+  dayParts, scoreItems, briefFor, nightlyFor, reload: ()=>loadMine(true), state: ()=>({mine: MINE, data: DATA, msg: MSG})};
 hookScorecard();
 document.addEventListener("DOMContentLoaded", ()=>{ hookScorecard(); watch(); if(isTrainee()) loadMine(); });
 if(document.readyState !== "loading"){ watch(); }

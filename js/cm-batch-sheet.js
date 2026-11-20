@@ -1,33 +1,27 @@
 /* ============================================================
-   📋 BATCH SHEET: one Google-Sheets-style page per batch, as in Foundational Training (its js/ft-batch-sheet.js)
+   📋 THE SCORE TABLES behind the one 🏅 Scorecard page (js/cm-scorecard.js), and the trainee's 🏅 My Score Card
    ------------------------------------------------------------
-   Admin → 🛡 Admin Master Control → 📋 Batch Sheet (the tab the Admin screen opens on). Pick a batch (or All batches)
-   and every trainee who registered in it is on one page, as Foundational's: the Detailed Scores first, the rest folded:
-     📅 Day 1–5: Detailed Scores  EVERY score in one table, a row per trainee: the Overall and a column per Case Flow day
-                        (the 100-point model's day score), then the rank, days passed, the grading systems average and each
-                        system's average (🏅 Scores' summary), a group per day (that day's 🏅 Score Card) and a group per
-                        grading system (its counts and each graded item: 🧮 Grading systems); under it 🔎 each trainee's
-                        score card, their days in detail (each item's score, 🧾 why, ⭐ best, 🔧 improve)
-     ▸ More detail (a fold, open or shut as the trainer left it):
-       🏅 Score Card    a group of columns per day (Knowledge Check, Learning Checks, Takeaways, Activities & calls,
-                        Action Plan, Backup Drive, CMS file, the trainer's rubric, the day's score, the trainer's remarks),
-                        one day at a time; its note says what each column measures
-       🏅 Scores        a column per grading system (the Scorecard's own, js/cm-scorecard.js compute), the Overall % and the
-                        rank; click a trainee for 🔎 Grades in detail under it
-       ✍️ Knowledge Checks  a column per day: the best score kept and whether it passed
-       🧮 Grading systems every grading system in one table: a group of columns per system, its own metrics and items
-       📚 Lessons       a column per Case Flow day: the deck (✓ finished, or how far in) and the Knowledge Check score
-       🕒 Recent progress everything they did, newest first
-   Every score table lists the same trainees as 🏅 Scorecards: approved, not rejected, not archived, not merged into another
-   account (js/cm-merged-away.js); 📚 Lessons and 🕒 Recent progress list everyone registered (waiting for approval too).
-   The sheet only shows scores: what a trainer DOES (Approve / Reject, ↺ Reset Attempts, Revoke, 📁 Assign a case…, the
-   detail with ✍ feedback and 🎓 the certificate, 👥 duplicate accounts, 📦 Archive this batch, the settings) is in
-   🛡 Admin Master Control (👥 Trainee Audit, js/cm-audit-table.js; 📁 Companion Cases, js/cm-companion.js; ⚙ Settings).
-   It replaces what said the same thing twice: the Trainee Audit's stat tiles and each row's days / average / runs /
-   last-active readouts, the Rankings tab, the batch folders' Registry / Rankings / Feedback / Activities sub-tabs, the
-   trainer's 🏅 Scorecards page and ⬇ Download Cohort Report (the sheet's ⬇ Download).
-   It only reads: trainee:<id> (state.adminData), progress / feedback / focus:<id> (index.html loadAuditExtras, the
-   same cache the rows use) and callsim / simresults:<id> for the Scores.
+   Admin → 🏅 Scorecard opens ONE page (js/cm-scorecard.js renderAll, the 🏅 Scorecards page the owner chose): its banner
+   (Batch, trainee, ⬇ Download, ⬇ Scores only, ↻ Refresh, ⚡ Run now), its 🏅 Scores table and the picked trainee's card.
+   This file gives that page what the old 📋 Batch Sheet had, folded in, no table beside it:
+     scoresSheet(rows)  🏅 Scores: one row per trainee, one number everywhere (cmScorecard.overall / compute): Trainee, Batch,
+                        Registered, Days passed, Day 1–5 (the day score, its slide progress and a one-line summary of the
+                        day's work; hover: the day's events with their scores, newest first, what 🕒 Recent progress listed,
+                        and the 📚 Lessons text), ✍️ Knowledge Checks (hover: each day's best, attempts and pass, what the
+                        ✍️ Knowledge Checks table showed), 🧪 Practical activities, 📂 Backup Drive, 🗂 CMS file,
+                        📝 Action Plan, Overall %, Result (the takeaways are not scored); sorted by Overall, nothing scored last
+     feedbackHtml(row)  in the trainee's card: 💬 Feedback on practical activities, Day 1 … Day 5 collapsible, each activity
+                        (Skill Activities and calls, Backup File Maintenance, Action Plans, the CMS file, the case
+                        exercises) with its score, ⭐ what they did well, 🔧 what to improve and 🧾 why, as text
+     csvTables(rows)    ⬇ Download: the 🏅 Scores table first, then ✍️ Knowledge Checks, 📚 Lessons, 🧮 Grading systems,
+                        🕒 Recent progress (every event), every trainee's feedback on practical activities, the 100-point
+                        model in full, 📅 Day 1–5: Detailed Scores (every score in one row per trainee: the Overall and
+                        the day scores, the summary of each grading system, a 🏅 Score Card group per day and a group per
+                        grading system, the group names above the headers) and the 🏅 Score Card of each day.
+                        ⬇ Scores only: the first.
+   The trainees are the Scorecard's (approved, not rejected, not archived, not merged into another account,
+   js/cm-merged-away.js). 👥 Duplicate accounts (dupHtml, dupMerge) are drawn on 🛡 Admin Master Control → 👥 Trainee Audit
+   (js/cm-audit-table.js). Its day deliverables (dayParts) are what 🏅 My Score Card and the feedback read.
    ============================================================ */
 (function(){
 "use strict";
@@ -50,7 +44,7 @@ const tools = () => (typeof PRACTICE_TOOLS !== "undefined" ? PRACTICE_TOOLS : []
 const keyOf = r => typeof batchKey === "function" ? batchKey(r) : (r.batch || "");
 const labelOf = k => typeof folderLabel === "function" ? folderLabel(k) : k;
 
-const B = {extra: {}, loading: false, pick: "", recent: 14, ds: "", dsOpen: {}, trOpen: {}, sys: "", scDay: null, more: false};
+const B = {extra: {}, fbOpen: {}};
 
 /* ---------- who is on the sheet: the picked batch (state.adminBatchFilter, "" = all), not rejected, not merged away ----------
    people(): everyone registered (waiting for approval, and the archived with "Show archived"): 📚 Lessons and 🕒 Recent
@@ -70,46 +64,19 @@ const dataOf = r => (extraOf(r) || {}).data || {};
 // the trainee's whole feedback:<id> (the trainer's Learning Check scores and each day's review with its 📐 rubric score)
 const fbRecOf = r => { const x = extraOf(r) || {}; return x.fbRec || {days: x.fb || {}}; };
 
-/* ---------- loading: the rows' cache (progress, feedback, focus) and, for the Scores, callsim / simresults ---------- */
-async function loadScores(ppl){
-  // 📂 every trainee's Backup Drive as the Worker last graded it (nightly): read with the rest, at most once a minute
-  if(typeof loadDriveReports === "function" && state.isAdmin && !state.driveReportsLoading && (!state.driveReportsAt || Date.now() - state.driveReportsAt > 60000))
-    loadDriveReports().then(repaint).catch(() => {});
-  const due = ppl.filter(r => !B.extra[r.id] || Date.now() - B.extra[r.id].at > 60000);
-  if(!due.length || B.loading) return;
-  B.loading = true;
-  try{
-    const got = await sharedGetMany(due.flatMap(r => ["callsim:" + r.id, "simresults:" + r.id]));
-    due.forEach((r, i) => { B.extra[r.id] = {at: Date.now(), callsim: got[i * 2], sim: got[i * 2 + 1]}; });
-  }catch(e){ due.forEach(r => { B.extra[r.id] = {at: Date.now()}; }); }
-  B.loading = false;
-  repaint();
-}
+/* ---------- redrawing: the one 🏅 Scorecard page (js/cm-scorecard.js), read again in the background ---------- */
+const onPage = () => (state.view === "admin" && ["scorecards", "audit", "batchsheet", "rankings"].includes(state.adminTab || "scorecards")) || state.view === "scorecard";
 function repaint(){
-  if(state.view !== "admin" || !isSheetTab() || (typeof isTyping === "function" && isTyping())) return;
-  const el = document.getElementById("bsSheet"); if(el) el.innerHTML = tablesHtml();
+  if(!onPage() || (typeof isTyping === "function" && isTyping())) return;
+  if(window.cmScorecard && cmScorecard.invalidate) cmScorecard.invalidate();
+  if(typeof render === "function") render();
 }
+// refreshed automatically, as the 📋 Batch Sheet was: the Scorecard reads every trainee again in the background once a minute
+// (it redraws only when something changed, keeping what the trainer has open)
+setInterval(() => { try{ if(typeof state === "object" && state.isAdmin && state.view === "admin" && onPage() && !(typeof isTyping === "function" && isTyping()) && window.cmScorecard && cmScorecard.reload) cmScorecard.reload(); }catch(e){} }, 60000);
 // the duplicate accounts are on the Trainee Audit: redraw whichever page shows them
-const redraw = () => { if(isSheetTab()) repaint(); else if(state.view === "admin" && typeof render === "function") render(); };
-const isSheetTab = () => ["batchsheet", "audit", "rankings"].includes(state.adminTab || "batchsheet");
-function ready(ppl){
-  const missingRows = ppl.some(r => !extraOf(r));
-  // (once at a time, and not again within 5 s: a failed read doesn't loop)
-  // (held back by the 5 s: try again when it is up, once)
-  if(missingRows && !B.rowsP && Date.now() - (B.rowsAt || 0) <= 5000 && !B.rowsRetry) B.rowsRetry = setTimeout(() => { B.rowsRetry = null; repaint(); }, 5200 - (Date.now() - (B.rowsAt || 0)));
-  if(missingRows && typeof loadAuditExtras === "function" && !B.rowsP && Date.now() - (B.rowsAt || 0) > 5000){
-    B.rowsAt = Date.now();
-    B.rowsP = (async () => { while(state.auditExtraLoading) await new Promise(f => setTimeout(f, 300)); await loadAuditExtras(); })()
-      .catch(() => {}).then(() => { B.rowsP = null; repaint(); });
-  }
-  loadScores(ppl);
-  return !missingRows && ppl.every(r => B.extra[r.id]);
-}
-function scoreOf(r){
-  const x = B.extra[r.id] || {};
-  const c = {rec: r, cf: r.caseFlow || {days: {}}, data: dataOf(r), callsim: x.callsim, sim: x.sim, fb: fbRecOf(r)};
-  try{ return window.cmScorecard.compute(c); }catch(e){ return null; }
-}
+const redraw = () => { if(state.view === "admin" && typeof render === "function") render(); };
+function scoreOf(r){ try{ return window.cmScorecard.compute(ctxFor(r)); }catch(e){ return null; } }
 // ⭐ THE Overall and each day's score: js/cm-scorecard.js cmScorecard.overall, the one function the trainee's card and 🏅 Scores
 // call too, so every table here shows the same number they do (read once per trainee per repaint)
 const OV = {at: 0, m: new Map()};
@@ -178,82 +145,70 @@ async function dupMerge(key){
   if(typeof toast === "function" && !r.cancelled) toast(r.ok ? `✓ Merged: one account for ${nameOf(g.accts[0].r)} (${r.keep}).` : `Couldn't merge: ${r.text}`);
   if(typeof refreshAdminData === "function") refreshAdminData(); else render();
 }
+/* ---------- 📚 Lessons and 🕒 Recent progress, a trainee's day at a time (the 🏅 Scores day cells; the CSV in full) ---------- */
+// a day's slides, as the Trainee Audit counts them (index.html auditSummary): the furthest slide reached of the day's deck
+function slidesOf(r, d){
+  const data = dataOf(r), sp = data["slide-progress"] || {}, dp = data["day-progress"] || r.dayProgress || {};
+  let n = 0; try{ n = typeof buildDaySlides === "function" ? buildDaySlides(d).length : 0; }catch(e){ n = 0; }
+  const reached = Math.min(n, (sp[d.id] || 0) + ((sp[d.id] || dp[d.id]) ? 1 : 0));
+  return {n, reached, line: n && reached >= n ? "Slides ✓" : reached ? `Slides ${reached}/${n}` : n ? "Slides not opened" : ""};
+}
+const dayN = id => { const d = days().find(x => String(x.id) === String(id)); return d && d.cf ? d.cf.n : null; };
+// each CMS document's Case Flow day (js/cm-cms-file.js plan: the day whose activities file it)
+function docDay(){
+  if(B.docDay) return B.docDay; const out = {};
+  try{ const P = window.cmCmsFile ? cmCmsFile.plan() : {days: {}}; Object.entries(P.days || {}).forEach(([n, x]) => (x.docs || []).forEach(dc => { if(out[dc.id] == null) out[dc.id] = Number(n); })); }catch(e){}
+  return Object.keys(out).length ? (B.docDay = out) : out;
+}
+// everything a trainee did, with its score and its Case Flow day (n, null: no day), newest first
+function eventsOf(r){
+  const out = [], data = dataOf(r), dp = data["day-progress"] || r.dayProgress || {}, dd = docDay();
+  const push = (at, n, what, detail, score) => { const d = T0(at); if(d) out.push({r, at: d, n: n == null ? null : Number(n), what, detail: detail || "", score: num(score)}); };
+  // every Knowledge Check attempt (its history), not only the best one
+  days().forEach(d => { const p = dp[d.id] || {}, h = Array.isArray(p.history) ? p.history : [], n = d.cf ? d.cf.n : null;
+    if(h.length) h.forEach((x, i) => push(x.date || x.at, n, "Knowledge Check", `${dayLabel(d)} · attempt ${i + 1}${x.passed ? " · passed" : ""}`, x.score));
+    else if(typeof p.score === "number") push(p.date || p.at, n, "Knowledge Check", dayLabel(d), p.score); });
+  // documents filed into the CMS case (js/cm-doc-filing.js): first time right is 100%, then 100% ÷ the attempts
+  Object.entries(data["doc-filing"] || {}).forEach(([id, x]) => { if(!x || !x.attempts) return;
+    push(x.at || x.lastAt, dd[id], x.filed ? "Document filed in the CMS" : "Document refused by the CMS", `${x.name || id}${x.category ? " · " + x.category : ""} · ${x.attempts} attempt${x.attempts === 1 ? "" : "s"}`, x.filed ? Math.round(100 / x.attempts) : 0); });
+  // the Backup Drive: Day 1's folders and each day's Backup File Maintenance (js/cm-drive.js)
+  const ds = data["drive-setup"]; if(ds && typeof ds.score === "number") push(ds.at, 1, "Backup Drive set up", `the firm's folders · attempt ${ds.attempts || 1}`, ds.score);
+  Object.entries(data["drive-grades"] || {}).forEach(([n, g]) => { if(g && typeof g.score === "number") push(g.at, n, "Backup File Maintenance", `Case Flow Day ${n}${g.passed ? " · passed" : ""}`, g.score); });
+  // feedback a trainer sent (its rubric score when it has one)
+  Object.entries(((extraOf(r) || {}).fb) || {}).forEach(([dayId, f]) => { if(!f || f.status !== "sent" || (f.auto && !f.editedByTrainer)) return;
+    const d = days().find(x => String(x.id) === String(dayId)), rb = window.cmRubric && cmRubric.counts && cmRubric.counts(f) ? cmRubric.total(f.rubric) : null;
+    push(f.sentAt, dayN(dayId), "Trainer feedback sent", `${d ? dayLabel(d) : "Day " + dayId}${f.rating ? " · " + f.rating : ""}`, rb); });
+  (data["work-log"] || []).forEach(w => { if(!w || w.kind === "quiz") return;
+    push(w.at, dayN(w.dayId), w.kind === "lab" ? "Skill Activity" : w.kind === "roleplay" ? "Call practice" : w.kind === "task" ? "Random task" : "Practice", shown(w.label), typeof w.score === "number" ? w.score : null); });
+  const tname = t => clip(typeof t.task === "string" ? t.task : (t.task && (t.task.title || t.task.name)) || "", 120);
+  (data["task-log"] || []).forEach(t => { if(t && t.status === "resolved") push(t.submittedAt || t.resolvedAt, dayN(t.dayId), "Random task resolved", tname(t), t.score); else if(t && t.status === "missed") push(t.expiresAt, dayN(t.dayId), "Random task missed", tname(t), 0); });
+  const lv = data["last-view"]; if(lv && lv.at) push(lv.at, lv.view === "day" ? dayN(lv.dayId) : null, "Opened", lv.view === "day" ? `Day ${typeof dayNo === "function" ? dayNo(lv.dayId) : lv.dayId}` : lv.view === "tool" ? `Skill Builder ${lv.toolId || ""}` : String(lv.view || ""));
+  return out.sort((a, b) => b.at - a.at);
+}
+// a day's 📚 Lessons text: its slides and its Knowledge Check
+function lessonText(r, d){
+  const s = slidesOf(r, d), k = kcOf(r, d);
+  return `${dayLabel(d)}: ${s.reached} of ${s.n} slides${k.kc == null ? " · Knowledge Check not taken" : ` · Knowledge Check best ${k.kc}% of ${k.tries} attempt${k.tries === 1 ? "" : "s"} ${k.ok ? "(passed)" : "(below 70%)"}`}`;
+}
 function lessonsTable(ppl){
-  const L = days();
-  return {id: "lessons", title: "📚 Lessons", 
+  const L = cfDaysL();
+  return {id: "lessons", title: "📚 Lessons",
     head: ["Trainee", "Registered"].concat(L.map(d => `${dayLabel(d)}. ${String(d.title).replace(/^Case Flow Day \d+ · /, "")}`)),
-    rows: ppl.map(r => { const a = summaryOf(r) || {days: []};
-      const reg = T0(r.registeredAt), regV = [reg ? dTime(r.registeredAt) : "", labelOf(keyOf(r))].filter(Boolean).join(" · ");   // (no longer a row of its own in 🕒 Recent progress)
-      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, {v: regV, f: reg ? `Registered ${reg.toLocaleString()} in ${labelOf(keyOf(r))}` : "", cls: "bs-reg"}].concat(L.map(d => {
-        const x = a.days.find(z => z.id === d.id) || {n: 0, reached: 0, score: null};
-        const fin = x.n && x.reached >= x.n, deck = fin ? "Slides ✓" : x.reached ? `Slides ${x.reached}/${x.n}` : "";
-        const check = x.score == null ? "" : `Check ${x.score}%`;
-        return {v: [deck, check].filter(Boolean).join(" · "), f: `${dayLabel(d)}: ${x.reached} of ${x.n} slides${x.score == null ? " · Knowledge Check not taken" : ` · Knowledge Check ${x.score}% ${x.score >= 70 ? "(passed)" : "(below 70%)"}`}${x.labDone ? " · Skill Builder done" : ""}`,
-          cls: "bs-lesson " + (x.score != null ? tone(x.score) : fin ? "gs-hi" : x.reached ? "gs-mid" : "")};
-      })); })};
-}
-function scoresTable(ppl){
-  const S = (window.cmScorecard && cmScorecard.sources) || [];
-  const rows = scored(ppl).map(r => ({r, sc: scoreOf(r)})).filter(x => x.sc);
-  rows.forEach(x => { x.ov = ovPct(x.r); });
-  const order = rows.filter(x => x.ov != null).slice().sort((a, b) => b.ov - a.ov);
-  order.forEach((x, i) => { x.rank = i && order[i - 1].ov === x.ov ? order[i - 1].rank : i + 1; });
-  return {id: "scores", rowsRaw: rows, title: "🏅 Scores", 
-    head: ["Trainee", "Overall %", "Rank", "Days passed", "Grading systems average %"].concat(S.map(s => `${s.icon} ${s.label}`)),
-    rows: rows.map(x => [{v: nameOf(x.r), f: nameOf(x.r), cls: "gs-name"},
-        {v: pct(x.ov), f: ovTip(x.r), cls: "gs-num gs-calc gs-bold " + tone(x.ov)},
-        {v: x.rank == null ? "" : String(x.rank), f: x.rank == null ? "Not ranked: nothing graded yet" : `Rank ${x.rank} of ${order.length}`, cls: "gs-rank"},
-        {v: `${x.sc.done} / ${x.sc.total}`, f: `${x.sc.done} of the ${x.sc.total} days passed`, cls: "gs-num"},
-        {v: pct(x.sc.overall), f: x.sc.overall == null ? "Nothing graded yet" : `A sub-score, not the Overall: the average of ${x.sc.systems} grading systems = ${x.sc.overall}%`, cls: "gs-num " + tone(x.sc.overall)}]
-      .concat(x.sc.rows.map(y => ({v: pct(y.avg), f: y.avg == null ? `${y.s.label}: nothing graded yet` : `${y.s.label}: average of ${y.items.length} = ${y.avg}%`, cls: "gs-num " + tone(y.avg)})))),
-    onRow: rows.map(x => `cmBatchSheet.pick('${E(x.r.id)}')`), rowCls: rows.map(x => B.pick === x.r.id ? "gs-picked" : ""),
-    empty: "No approved trainee here yet."};
-}
-function detailTable(x){
-  const sc = x.sc, rows = [], cls = [];
-  sc.rows.forEach(r => {
-    rows.push([{v: `${r.s.icon} ${r.s.label}`, f: r.s.about, cls: "gs-name"}, {v: r.s.about, f: r.s.about, cls: "gs-txt"}, {v: "", f: ""}, {v: pct(r.avg), f: r.avg == null ? "Nothing graded yet" : `Average of ${r.items.length}`, cls: "gs-num gs-calc gs-bold " + tone(r.avg)}]); cls.push("gs-sys");
-    r.items.forEach(i => { rows.push([{v: "", f: r.s.label}, {v: i.name, f: i.name, cls: "gs-txt"}, {v: i.note || "", f: i.note || "", cls: "gs-txt gs-det"}, {v: pct(i.pct), f: `${i.name}: ${pct(i.pct)}`, cls: "gs-num " + tone(i.pct)}]); cls.push(""); });
-  });
-  rows.push([{v: "Grading systems average", f: "A sub-score, not the Overall", cls: "gs-name"}, {v: sc.overall == null ? "Nothing graded yet" : `The average of ${sc.systems} grading systems (the Overall is the 100-point model's Final: ${pct(ovPct(x.r)) || "—"})`, f: "", cls: "gs-txt"}, {v: `${sc.graded} graded items`, f: ""}, {v: pct(sc.overall), f: "", cls: "gs-num gs-bold"}]); cls.push("gs-total");
-  return {id: "detail", title: `🔎 Grades in detail: ${nameOf(x.r)}`, note: "Each grading system's row has its average; its graded items are under it.", head: ["Grading system", "Item", "Detail", "Score"], rows, rowCls: cls};
+    rows: ppl.map(r => { const reg = T0(r.registeredAt);
+      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, {v: [reg ? dTime(r.registeredAt) : "", labelOf(keyOf(r))].filter(Boolean).join(" · "), f: "", cls: "bs-reg"}].concat(L.map(d => {
+        const s = slidesOf(r, d), k = kcOf(r, d);
+        return {v: [s.reached ? s.line : "", k.kc == null ? "" : `Check ${k.kc}%`].filter(Boolean).join(" · "), f: lessonText(r, d)}; })); })};
 }
 function recentTable(ppl){
-  const out = [], since = B.recent ? Date.now() - B.recent * 864e5 : 0;
-  const push = (r, at, what, detail, score) => { const d = T0(at); if(d && (!since || +d >= since)) out.push({r, at: d, what, detail: detail || "", score: num(score)}); };
-  ppl.forEach(r => {
-    const data = dataOf(r), dp = data["day-progress"] || r.dayProgress || {};
-    // every Knowledge Check attempt (its history), not only the best one
-    days().forEach(d => { const p = dp[d.id] || {}, h = Array.isArray(p.history) ? p.history : [];
-      if(h.length) h.forEach((x, i) => push(r, x.date || x.at, "Knowledge Check", `${dayLabel(d)} · attempt ${i + 1}${x.passed ? " · passed" : ""}`, x.score));
-      else if(typeof p.score === "number") push(r, p.date || p.at, "Knowledge Check", dayLabel(d), p.score); });
-    // documents filed into the CMS case (js/cm-doc-filing.js): first time right is 100%, then 100% ÷ the attempts
-    Object.entries(data["doc-filing"] || {}).forEach(([id, x]) => { if(!x || !x.attempts) return;
-      push(r, x.at || x.lastAt, x.filed ? "Document filed in the CMS" : "Document refused by the CMS", `${x.name || id}${x.category ? " · " + x.category : ""} · ${x.attempts} attempt${x.attempts === 1 ? "" : "s"}`, x.filed ? Math.round(100 / x.attempts) : 0); });
-    // the Backup Drive: Day 1's folders and each day's Backup File Maintenance (js/cm-drive.js)
-    const ds = data["drive-setup"]; if(ds && typeof ds.score === "number") push(r, ds.at, "Backup Drive set up", `the firm's folders · attempt ${ds.attempts || 1}`, ds.score);
-    Object.entries(data["drive-grades"] || {}).forEach(([n, g]) => { if(g && typeof g.score === "number") push(r, g.at, "Backup File Maintenance", `Case Flow Day ${n}${g.passed ? " · passed" : ""}`, g.score); });
-    // feedback a trainer sent (its rubric score when it has one)
-    Object.entries(((extraOf(r) || {}).fb) || {}).forEach(([dayId, f]) => { if(!f || f.status !== "sent" || (f.auto && !f.editedByTrainer)) return;
-      const d = days().find(x => String(x.id) === String(dayId)), rb = window.cmRubric && cmRubric.counts && cmRubric.counts(f) ? cmRubric.total(f.rubric) : null;
-      push(r, f.sentAt, "Trainer feedback sent", `${d ? dayLabel(d) : "Day " + dayId}${f.rating ? " · " + f.rating : ""}`, rb); });
-    (data["work-log"] || []).forEach(w => { if(!w || w.kind === "quiz") return;
-      push(r, w.at, w.kind === "lab" ? "Skill Activity" : w.kind === "roleplay" ? "Call practice" : w.kind === "task" ? "Random task" : "Practice", shown(w.label), typeof w.score === "number" ? w.score : null); });
-    const tname = t => clip(typeof t.task === "string" ? t.task : (t.task && (t.task.title || t.task.name)) || "", 120);
-    (data["task-log"] || []).forEach(t => { if(t && t.status === "resolved") push(r, t.submittedAt || t.resolvedAt, "Random task resolved", tname(t), t.score); else if(t && t.status === "missed") push(r, t.expiresAt, "Random task missed", tname(t), 0); });
-    const lv = data["last-view"]; if(lv && lv.at) push(r, lv.at, "Opened", lv.view === "day" ? `Day ${typeof dayNo === "function" ? dayNo(lv.dayId) : lv.dayId}` : lv.view === "tool" ? `Skill Builder ${lv.toolId || ""}` : String(lv.view || ""));
-  });
-  out.sort((a, b) => b.at - a.at);
-  return {id: "recent", title: "🕒 Recent progress", note: `Everything they did${B.recent ? ` in the last ${B.recent} days` : ""}, newest first: Knowledge Check attempts, Skill Activities and calls, documents filed in the CMS, the Backup Drive, random tasks and the feedback sent, each with its score.`,
-    head: ["When", "Trainee", "What", "Detail", "Score"],
-    rows: out.slice(0, 300).map(x => [{v: dTime(x.at), f: x.at.toLocaleString(), cls: ""}, {v: nameOf(x.r), f: nameOf(x.r), cls: "gs-name"}, {v: x.what, f: x.what}, {v: x.detail, f: x.detail, cls: "gs-txt"}, {v: pct(x.score), f: pct(x.score), cls: "gs-num " + tone(x.score)}]),
-    empty: "Nothing in this period."};
+  const out = [].concat(...ppl.map(eventsOf)).sort((a, b) => b.at - a.at);
+  return {id: "recent", title: "🕒 Recent progress", note: "Everything they did, newest first: Knowledge Check attempts, Skill Activities and calls, documents filed in the CMS, the Backup Drive, random tasks and the feedback sent, each with its score.",
+    head: ["When", "Trainee", "Day", "What", "Detail", "Score"],
+    rows: out.map(x => [{v: dTime(x.at)}, {v: nameOf(x.r), cls: "gs-name"}, {v: x.n ? `Day ${x.n}` : ""}, {v: x.what}, {v: x.detail}, {v: pct(x.score)}])};
 }
-
 /* ============================================================
    📅 DAY BY DAY and 🏅 SCORE CARD, as Foundational's (its dayDeliverables / scoreCardTable): each Case Flow day's graded
    deliverables, a trainee at a time, with 🧾 why it was scored that way, ⭐ what they did best and 🔧 what to improve.
-   A day's deliverables: ✍️ its Knowledge Check, 🧩 its modules' Learning Checks, 📝 its Takeaway, 🧪 its Skill Activities
+   A day's deliverables: ✍️ its Knowledge Check, 🧩 its modules' Learning Checks, 🧪 its Skill Activities
    (the AI Grader's and the work log's) and 📞 graded calls, 📝 its Action Plan, 📂 its Backup Drive grade (the latest of the
    saved and the Worker's nightly grade), 🗂 the CMS file and 💬 the trainer's feedback on it. 📝 / 🧪 / 📝 / 📂 are
    js/cm-scorecard.js dayItems, the same items and averages as the trainee's card and 🏅 Scores.
@@ -293,11 +248,9 @@ function dayParts(r, d){
   Object.entries(cfd.modules || {}).forEach(([id, s]) => { const c = num(s.c != null ? s.c : s.a);
     out.push({grp: "lc", name: `🧩 Learning Check: ${names[id] || id}`, pct: c, status: s.c != null ? "Scored" : "Awaiting the trainer's 40%",
       why: `Automated ${pct(num(s.a)) || "—"} × 0.60 + trainer ${pct(num(s.t)) || "—"} × 0.40${s.c == null ? ". Until the trainer scores it, the automated half counts." : ` = ${c}%`}`, best: [], improve: []}); });
-  // 📝 Takeaway · 🧪 Skill Activities and 📞 calls · 📝 Action Plan · 📂 Backup Drive: js/cm-scorecard.js dayItems, the same
+  // (📝 the takeaway is not scored) 🧪 Skill Activities and 📞 calls · 📝 Action Plan · 📂 Backup Drive: js/cm-scorecard.js dayItems, the same
   // items the grading systems, the day score and the trainee's card count (each with its latest attempt)
-  const I = S && S.dayItems ? S.dayItems(ctx, d) : {tk: [], sa: [], call: [], ap: [], bd: []};
-  I.tk.forEach(x => out.push({grp: "tk", name: "📝 Takeaway", pct: num(x.pct), status: "AI-graded", why: `The day's takeaway, the trainee's own summary of the day, AI-graded against its module's rubric${x.note ? " · " + x.note : ""}.`,
-    best: (x.best || []).map(y => clip(y, 200)), improve: (x.improve || []).map(y => clip(y, 200))}));
+  const I = S && S.dayItems ? S.dayItems(ctx, d) : {sa: [], call: [], ap: [], bd: []};
   const subsOf = x => Object.entries(x.subs || {}).map(([k, v]) => `${k} ${v}%`).join(", ");
   I.sa.forEach(x => out.push({grp: "sa", name: `🧪 ${clip(shown(String(x.name).replace(/^Day \d+: /, "")), 90)}`, pct: num(x.pct), status: x.tier || "",
     why: [x.tier, subsOf(x) ? "rubric: " + subsOf(x) : "", x.from === "the AI Grader" ? `AI Grader${x.tries ? ` · attempt ${x.tries}` : ""}` : "", x.at ? "graded " + dTime(x.at) : ""].filter(Boolean).join(" · "),
@@ -352,11 +305,10 @@ function dayParts(r, d){
 const dayAvg = xs => avgOf(xs.map(x => x.pct));
 
 // 🏅 Score Card: a group of columns per day
-const SC_COLS = [["kc", "✍️ Knowledge Check"], ["lc", "🧩 Learning Checks"], ["tk", "📝 Takeaways"], ["sa,call", "🧪 Activities & calls"], ["ap", "📝 Action Plan"], ["bd", "📂 Backup Drive"], ["cmsf", "🗂 CMS file"], ["fb", "📐 Trainer rubric"]];
+const SC_COLS = [["kc", "✍️ Knowledge Check"], ["lc", "🧩 Learning Checks"], ["sa,call", "🧪 Activities & calls"], ["ap", "📝 Action Plan"], ["bd", "📂 Backup Drive"], ["cmsf", "🗂 CMS file"], ["fb", "📐 Trainer rubric"]];
 // what each column measures: the Score Card's note (the owner's "table that specifies what the metrics were")
 const SC_WHAT = {kc: "the day's Knowledge Check, its best score (70% passes the day)",
-  lc: "each module's Learning Check: the AI review × 0.60 + the trainer's score × 0.40 (the AI half until the trainer scores it). Its AI half includes the module's takeaway review, so until the trainer scores it, it can repeat 📝 Takeaways",
-  tk: "the day's takeaway, the trainee's own summary of the day, AI-graded against its module's rubric",
+  lc: "each module's Learning Check: the AI review × 0.60 + the trainer's score × 0.40 (the AI half until the trainer scores it).",
   "sa,call": "each Skill Activity graded by the AI Grader and each graded call of the day, the latest attempt of each, averaged",
   ap: "each action plan written in the day's Notes & Action Plan: the share of the steps it must hold",
   bd: "Day 1's folders, then each day's Backup File Maintenance, graded from the trainee's Drive (the latest of the saved and the Worker's nightly grade, a trainer's grade winning; a passed day with none counts 0)",
@@ -380,18 +332,29 @@ function scoreCardTable(ppl, day){
 }
 // 📅 Day by Day: a column per day (the average of its scored deliverables)
 // the Score Card's day picker: Day 1 … Day 5 (the latest day anyone has a score on opens first)
-function scoreCardHtml(ppl){
-  const ALL = cfDaysL(); if(!ALL.length) return "";
-  const scored = ALL.filter(d => ppl.some(r => dayAvg(dayParts(r, d)) != null));
-  const cur = ALL.find(d => d.id === B.scDay) || scored[scored.length - 1] || ALL[0];
-  return `<div class="bs-sys bs-scday"><div class="bs-view">${ALL.map(d => `<button class="${d === cur ? "on" : ""}" onclick="cmBatchSheet.scDay(${d.id})">${dayLabel(d)} · ${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</button>`).join("")}</div></div>` + sheetHtml(scoreCardTable(ppl, cur));
+// 🏅 Scores' summary of each trainee (rank, days passed, each grading system's average): the Detailed Scores' 🏅 Summary group
+function scoresTable(ppl){
+  const S = (window.cmScorecard && cmScorecard.sources) || [];
+  const rows = scored(ppl).map(r => ({r, sc: scoreOf(r)})).filter(x => x.sc);
+  rows.forEach(x => { x.ov = ovPct(x.r); });
+  const order = rows.filter(x => x.ov != null).slice().sort((a, b) => b.ov - a.ov);
+  order.forEach((x, i) => { x.rank = i && order[i - 1].ov === x.ov ? order[i - 1].rank : i + 1; });
+  return {id: "scores", rowsRaw: rows, title: "🏅 Scores", 
+    head: ["Trainee", "Overall %", "Rank", "Days passed", "Grading systems average %"].concat(S.map(s => `${s.icon} ${s.label}`)),
+    rows: rows.map(x => [{v: nameOf(x.r), f: nameOf(x.r), cls: "gs-name"},
+        {v: pct(x.ov), f: ovTip(x.r), cls: "gs-num gs-calc gs-bold " + tone(x.ov)},
+        {v: x.rank == null ? "" : String(x.rank), f: x.rank == null ? "Not ranked: nothing graded yet" : `Rank ${x.rank} of ${order.length}`, cls: "gs-rank"},
+        {v: `${x.sc.done} / ${x.sc.total}`, f: `${x.sc.done} of the ${x.sc.total} days passed`, cls: "gs-num"},
+        {v: pct(x.sc.overall), f: x.sc.overall == null ? "Nothing graded yet" : `A sub-score, not the Overall: the average of ${x.sc.systems} grading systems = ${x.sc.overall}%`, cls: "gs-num " + tone(x.sc.overall)}]
+      .concat(x.sc.rows.map(y => ({v: pct(y.avg), f: y.avg == null ? `${y.s.label}: nothing graded yet` : `${y.s.label}: average of ${y.items.length} = ${y.avg}%`, cls: "gs-num " + tone(y.avg)})))),
+    empty: "No approved trainee here yet."};
 }
 // 📅 Day 1–5: Detailed Scores, the sheet's first table: every score of a trainee in ONE row, so no two tables read a trainee
 // different numbers for what looks like the same thing. The Overall and the day scores first (the 100-point model's, as the
 // card), then 🏅 Scores' summary (rank, days passed, the grading systems average, each system's average), a group of columns
 // per Case Flow day (that day's 🏅 Score Card without its day score, already in front) and a group per grading system (how
-// many graded, its own counts, each graded item; its average is in the summary). The tables under ▸ More detail are the
-// same numbers cut another way.
+// many graded, its own counts, each graded item; its average is in the summary). The other tables of ⬇ Download are the
+// same numbers cut another way. (Only in ⬇ Download: the page shows 🏅 Scores, js/cm-scorecard.js.)
 function dayTable(ppl){
   const L = cfDaysL(), sc = scoresTable(ppl), sum = new Map(sc.rowsRaw.map((x, i) => [x.r.id, sc.rows[i].slice(2)])), sumHead = sc.head.slice(2);
   const dayT = L.map(d => scoreCardTable(ppl, d)), keep = h => h !== "Day score";
@@ -408,24 +371,8 @@ function dayTable(ppl){
           return {v: avgs[i] != null ? `${avgs[i]}% · ${sc.length} scored` : sc.length ? `${sc.length} scored` : "", f: `${daySTip(r, d)} · its deliverables: ` + (xs.length ? xs.map(x => `${x.name.replace(/^\S+\s/, "")} ${x.pct != null ? x.pct + "%" : x.status || "—"}`).join(" · ") : "nothing yet"), cls: "gs-num " + tone(avgs[i])}; }),
           sum.get(r.id) || sumHead.map(() => ({v: "", f: "Nothing scored yet"})),
           ...dayT.map(t => t.rows[ri].slice(2).filter((c, ci) => keep(t.head[ci + 2]))), ...sysT.map(t => t.rows[ri].slice(2)));
-    }),
-    onRow: ppl.map(r => `cmBatchSheet.dsWho('${E(r.id)}')`), rowCls: ppl.map(r => B.ds === r.id ? "gs-picked" : "")};
+    })};
 }
-function dayDetailHtml(ppl){
-  if(!ppl.length) return "";
-  const li = (h, xs, cls) => xs.length ? `<div class="bs-ctx ${cls}"><b>${h}</b><ul>${xs.map(x => `<li>${E(x)}</li>`).join("")}</ul></div>` : "";
-  // 🔎 a card per trainee (each trainee's own score card, apart from the others), its days inside; the one picked in 📅 Day by Day opens
-  return `<section class="bs-sec bs-ds" id="bs-dsdetail"><h3 class="bs-h">🔎 Each trainee's score card <span>${ppl.length} trainee${ppl.length === 1 ? "" : "s"}</span></h3>
-    <p class="bs-note">One card per trainee: each Case Flow day's graded items with why each was scored that way, what they did best and what needs to be improved. Click a trainee's row in 📅 Day 1–5: Detailed Scores to open their card.</p>
-    ${ppl.map(r => { const per = cfDaysL().map(d => dayParts(r, d)), all = ovPct(r), tOpen = B.trOpen[r.id] != null ? B.trOpen[r.id] : B.ds === r.id;
-      return `<details class="bs-ds-tr" id="bs-ds-${E(r.id)}"${tOpen ? " open" : ""} ontoggle="cmBatchSheet.trOpen('${E(r.id)}', this.open)"><summary><b>${E(nameOf(r))}</b><span>${E(labelOf(keyOf(r)))}</span><em class="${tone(all)}">${all != null ? "Overall " + all + "%" : "Nothing scored yet"}</em></summary>
-      <div class="bs-ds-days">${cfDaysL().map((d, i) => { const xs = per[i], a = dayS(r, d), k = r.id + "|" + d.id, open = B.dsOpen[k] != null ? B.dsOpen[k] : a != null;
-        return `<details class="bs-ds-day"${open ? " open" : ""} ontoggle="cmBatchSheet.dsOpen('${E(k)}', this.open)"><summary><b>${dayLabel(d)}</b> <span>${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</span><em class="${tone(a)}">${a != null ? a + "%" : `${xs.filter(x => x.pct != null || /Passed|Sent|Resolved/.test(x.status)).length}/${xs.length} done`}</em></summary>
-          ${xs.map(x => { const rich = x.pct != null || x.best.length || x.improve.length;
-            return `<div class="bs-ds-it"><div class="bs-ds-h"><span>${E(x.name)}</span><small>${E(x.status || "")}</small><b class="${x.pct != null ? tone(x.pct) : ratingTone(x.grp === "fb" ? x.status : "")}">${x.pct != null ? x.pct + "%" : "—"}</b></div>
-              ${rich || x.why ? `<div class="bs-ctx bs-why"><b>🧾 Why this score</b><p>${E(x.why || "—")}</p></div>` : ""}${li("⭐ What they did best", x.best, "bs-best")}${li("🔧 What needs to be improved", x.improve, "bs-imp")}</div>`; }).join("")}</details>`; }).join("")}</div></details>`; }).join("")}</section>`;
-}
-
 // ✍️ Knowledge Checks: a column per Case Flow day, each the best score the day score counts (js/cm-scorecard.js kcBest, only
 // what is on the trainee's record; a score on the device only is named, never counted) and whether it passed (kcPassed)
 function kcTable(ppl){
@@ -450,16 +397,31 @@ function kcTable(ppl){
    🧮 GRADING SYSTEMS: a sheet per grading system (the Scorecard's own, js/cm-scorecard.js), each with its own metrics
    beside its items: a row per trainee, the system's Average and Graded, the system's own counts, then a column per item.
    ============================================================ */
-function ctxFor(r){ const x = B.extra[r.id] || {}; return {rec: r, cf: r.caseFlow || {days: {}}, data: dataOf(r), callsim: x.callsim, sim: x.sim, fb: fbRecOf(r)}; }
+function ctxFor(r){ if(r && r.__ctx) return r.__ctx; const x = B.extra[r.id] || {}; return {rec: r, cf: r.caseFlow || {days: {}}, data: dataOf(r), callsim: x.callsim, sim: x.sim, fb: fbRecOf(r)}; }
 const cnt = (v, f, cls) => ({v: v == null ? "" : String(v), f: f || "", cls: "gs-num " + (cls || "")});
+// 🧪 the AI Grader's attempts of a trainee (cf-ai-grades): any at all, and whether the newest one failed (with its reason)
+function aiState(r){
+  const bl = ((dataOf(r)["cf-ai-grades"] || {}).blocks) || {}, ev = [];
+  Object.values(bl).forEach(g => { if(!g) return; if(typeof g.score === "number") ev.push({at: String(g.at || ""), ok: true});
+    if(g.failed) ev.push({at: String(g.failed.at || ""), ok: false, why: g.failed.why || "no answer"}); });
+  ev.sort((a, b) => a.at.localeCompare(b.at)); const last = ev[ev.length - 1];
+  return {any: ev.length > 0, failed: !!(last && !last.ok), why: last && !last.ok ? last.why : ""};
+}
+// what an empty cell says instead of nothing: why this trainee has no grade there
+const whyNone = (r, id) => { if(id === "sa" || id === "pa"){ const a = aiState(r); return a.failed ? `grading failed: ${a.why}` : "not graded yet"; } return "not done yet"; };
+const noneCell = (r, id, f) => { const w = whyNone(r, id); return {v: w, csv: w, f: f || w, cls: "gs-num bs-why", html: `<small class="bs-why">${E(w)}</small>`}; };
 const EXTRA = {
   kc: {head: ["Passed", "Attempts"], cells: (r, c, items) => { const dp = c.rec.dayProgress || {}, n = cfDaysL().length, p = items.filter(i => i.pct >= 70 && !i.unconfirmed).length;
     const a = cfDaysL().reduce((s, d) => s + (((dp[d.id] || {}).history || []).length || ((dp[d.id] || {}).score != null ? 1 : 0)), 0);
     return [cnt(`${p} / ${n}`, `${p} of ${n} days passed (70%)`, p === n ? "gs-hi" : ""), cnt(a, `${a} Knowledge Check attempts in all`)]; }},
   lc: {head: ["Trainer-scored", "Awaiting trainer"], cells: (r, c, items) => { const w = items.filter(i => i.auto).length;
     return [cnt(`${items.length - w} / ${items.length}`, "Learning Checks with the trainer's 40% in"), cnt(w || "", `${w} awaiting the trainer's 40%`, w ? "gs-mid" : "")]; }},
-  sa: {head: ["Accuracy", "Presence", "Risk", "Efficiency"], cells: (r, c) => { const wl = (c.data["work-log"] || []).filter(w => w && w.kind === "lab" && w.subs);
-    return ["accuracy", "presence", "risk", "efficiency"].map(k => { const a = avgOf(wl.map(w => w.subs[k])); return {v: pct(a), f: a == null ? "" : `Average ${k} across ${wl.length} graded attempts = ${a}%`, cls: "gs-num " + tone(a)}; }); }},
+  // (each Skill Activity's latest attempt, once: js/cm-scorecard.js skillActs, the work log's and the AI Grader's with its
+  // rubric parts, js/cm-ai-grader.js subs)
+  sa: {head: ["Accuracy", "Presence", "Risk", "Efficiency"], cells: (r, c) => { let xs = []; try{ xs = (window.cmScorecard && cmScorecard.skillActs ? cmScorecard.skillActs(c) : []).filter(x => x && x.subs); }catch(e){ xs = []; }
+    if(!xs.length){ const graded = (() => { try{ return (cmScorecard.skillActs(c) || []).length; }catch(e){ return 0; } })();
+      const w = graded ? "no rubric parts kept" : whyNone(r, "sa"); return [{v: w, f: graded ? "Graded before the AI Grader kept the rubric's four parts: only its total" : w, cls: "gs-num bs-why"}].concat([0, 0, 0].map(() => ({v: "—", f: w, cls: "gs-num"}))); }
+    return ["accuracy", "presence", "risk", "efficiency"].map(k => { const a = avgOf(xs.map(x => x.subs[k])); return {v: pct(a), f: a == null ? "" : `Average ${k} across ${xs.length} graded Skill Activit${xs.length === 1 ? "y" : "ies"} (the latest attempt of each) = ${a}%`, cls: "gs-num " + tone(a)}; }); }},
   cms: {head: ["Filed", "First time right"], cells: (r, c) => { const xs = Object.values(c.data["doc-filing"] || {}).filter(x => x && x.attempts > 0), f = xs.filter(x => x.filed).length, ft = xs.filter(x => x.filed && x.attempts === 1).length;
     return [cnt(`${f} / ${xs.length}`, `${f} of ${xs.length} documents filed`), cnt(ft, `${ft} filed right on the first attempt`)]; }},
   bd: {head: ["Passed"], cells: (r, c, items) => { const p = items.filter(i => i.pct >= 70).length; return [cnt(`${p} / ${items.length}`, `${p} of ${items.length} graded days at 70% or more`)]; }},
@@ -480,7 +442,7 @@ function systemTable(ppl, s){
   return {id: "sys", title: `${s.icon} ${s.label}`, 
     head: ["Trainee", "Average", "Graded"].concat(X.head, cols),
     rows: per.map(({r, c, items}) => { const a = avgOf(items.map(i => i.pct));
-      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, {v: pct(a), f: a == null ? "Nothing graded yet" : `The average of ${items.length} = ${a}%`, cls: "gs-num gs-calc gs-bold " + tone(a)}, cnt(items.length || "", `${items.length} graded`)]
+      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, a == null ? noneCell(r, s.id) : {v: pct(a), f: `The average of ${items.length} = ${a}%`, cls: "gs-num gs-calc gs-bold " + tone(a)}, cnt(items.length, `${items.length} graded`)]
         .concat(X.cells(r, c, items), cols.map(n => { const i = items.find(x => x.name === n); return i ? {v: pct(i.pct), f: `${n}: ${i.pct}%${i.note ? " · " + i.note : ""}`, cls: "gs-num " + tone(i.pct)} : {v: "", f: `${n}: not graded yet`}; })); }),
     empty: "No trainee here yet."};
 }
@@ -494,86 +456,140 @@ function allSystemsTable(ppl, S){
     rows: ppl.map((r, i) => [ts[0] ? ts[0].rows[i][0] : {v: nameOf(r), f: nameOf(r), cls: "gs-name"}].concat(...ts.map(t => t.rows[i].slice(1)))),
     empty: "No trainee here yet."};
 }
-function systemsHtml(ppl){
-  const S = (window.cmScorecard && cmScorecard.sources) || []; if(!S.length) return "";
-  return `<div class="bs-sys" id="bs-systems">${sheetHtml(allSystemsTable(ppl, S))}</div>`;
+/* ============================================================
+   🏅 THE ONE SCORES TABLE, the feedback on practical activities and ⬇ Download, for the 🏅 Scorecard page
+   (js/cm-scorecard.js renderAll calls scoresSheet, feedbackHtml and csvTables with its rows: {id, name, batch, c, m, sc})
+   ============================================================ */
+// a Scorecard row as this file's trainee record: the records the Scorecard read (c), so both read one trainee the same way
+const RECS = new WeakMap();
+function recOf(x){
+  if(!x || !x.c) return x; if(RECS.has(x)) return RECS.get(x);
+  const c = x.c, r = Object.assign({}, c.rec || {}, {id: x.id, name: x.name, batch: x.batch,
+    __extra: {data: c.data || {}, fb: (c.fb || {}).days || {}, fbRec: c.fb || {days: {}}}, __ctx: c});
+  RECS.set(x, r); return r;
 }
-
-/* ---------- drawing: Google Sheets' look, the same classes the Scorecard uses (js/cm-scorecard.js .scx-card) ---------- */
-function sheetHtml(T){
-  const n = T.head.length;
-  return `<section class="bs-sec" id="bs-${T.id}"><h3 class="bs-h">${E(T.title)} <span>${T.rows.length} row${T.rows.length === 1 ? "" : "s"}</span></h3>${T.note ? `<p class="bs-note">${E(T.note)}</p>` : ""}
-    <div class="gs-wrap"><table class="gs" role="grid"><thead>
-      <tr class="gs-letters"><th class="gs-corner"></th>${T.head.map((h, i) => `<th class="${i === 0 ? "gs-frz" : ""}">${letter(i)}</th>`).join("")}</tr>
-      ${T.groups ? `<tr class="gs-groups"><th class="gs-rn"></th>${T.groups.map((g, i) => `<th colspan="${g.span}" class="${i === 0 ? "gs-frz" : ""}">${E(g.label)}</th>`).join("")}</tr>` : ""}
-      <tr class="gs-head"><th class="gs-rn">1</th>${T.head.map((h, i) => `<th class="${i === 0 ? "gs-frz" : ""}">${E(h)}</th>`).join("")}</tr></thead>
-      <tbody>${T.rows.map((r, ri) => `<tr${T.rowCls && T.rowCls[ri] ? ` class="${T.rowCls[ri]}"` : ""}${T.onRow && T.onRow[ri] ? ` onclick="${T.onRow[ri]}"` : ""}><th class="gs-rn">${ri + 2}</th>${r.map((c, ci) => `<td tabindex="0" class="${c.cls || ""}${ci === 0 ? " gs-frz" : ""}"${c.f ? ` title="${E(c.f)}"` : ""}>${c.html != null ? c.html : E(c.v)}</td>`).join("")}</tr>`).join("")}
-      ${T.rows.length ? "" : `<tr class="gs-empty"><th class="gs-rn">2</th><td colspan="${n}" class="bs-none">${E(T.empty || "No trainee here yet.")}</td></tr>`}</tbody></table></div></section>`;
+// ✍️ a day's Knowledge Check: the best score kept (js/cm-scorecard.js kcBest, the record only), its attempts and its pass
+function kcOf(r, d){
+  const S = window.cmScorecard, ctx = ctxFor(r), cf0 = ((r.caseFlow || {}).days || {})[d.cf.n], cfd = cf0 && typeof cf0 === "object" && (cf0.id == null || String(cf0.id) === String(d.id)) ? cf0 : {}, rp = (r.dayProgress || {})[d.id] || {};
+  const kc = num(S && S.kcBest ? S.kcBest(rp, cfd) : (cfd.kc != null ? cfd.kc : rp.score)), ok = S && S.kcPassed ? !!S.kcPassed(ctx, d) : kc != null && kc >= 70;
+  const tries = (rp.history || []).length || rp.kcAttempts || (kc != null ? 1 : 0), dev = kc == null && S && S.kcDevice ? num(S.kcDevice(ctx, d)) : null;
+  return {d, kc, ok, tries, dev};
 }
-let LAST = [];
-// the page, as Foundational's, scores only: 🏅 Score Card, 📅 Day by Day (and a trainee's days in detail), 🏅 Scores (and the
-// picked trainee's grades in detail), 🧮 Grading systems, 📚 Lessons, 🕒 Recent progress. LAST: every table, for ⬇ Download.
-// As Foundational's (its sectionsHtml): 📅 Day 1–5: Detailed Scores first, with each trainee's score card under it; every
-// other table under ▸ More detail (open or shut as the trainer left it, B.more). The score tables list scored() only; 📚 Lessons
-// and 🕒 Recent progress everyone registered.
-function tablesHtml(){
-  const ppl = people(), sp = scored(ppl);
-  if(MA() && !MA().loaded()){ MA().ready(); return `<p class="bs-none scx-pad">Reading the batch's progress…</p>`; }
-  if(!ready(ppl)) return `<p class="bs-none scx-pad">Reading the batch's progress…</p>`;
-  const sc = scoresTable(sp), picked = sc.rowsRaw.find(x => x.r.id === B.pick), S = (window.cmScorecard && cmScorecard.sources) || [];
-  const days5 = cfDaysL().map(d => scoreCardTable(sp, d)), dt = dayTable(sp), kc = kcTable(sp), tail = [lessonsTable(ppl), recentTable(ppl)];
-  LAST = [dt].concat(days5, [sc, kc], S.length ? [allSystemsTable(sp, S)] : [], tail);
-  const more = [["🏅 Score Card", scoreCardHtml(sp)], ["🏅 Scores", sheetHtml(sc) + (picked ? sheetHtml(detailTable(picked)) : "")], ["✍️ Knowledge Checks", sheetHtml(kc)],
-    ["🧮 Grading systems", systemsHtml(sp)], ["📚 Lessons", sheetHtml(tail[0])], ["🕒 Recent progress", sheetHtml(tail[1])]].filter(x => x[1]);
-  return sheetHtml(dt) + dayDetailHtml(sp)
-    + `<details class="bs-more"${B.more ? " open" : ""} ontoggle="cmBatchSheet.more(this.open)"><summary>▸ More detail: ${more.map(x => E(x[0])).join(" · ")}</summary>${more.map(x => x[1]).join("")}</details>`;
+const kcLine = x => x.kc != null ? `${dayLabel(x.d)}: best ${x.kc}% of ${x.tries} attempt${x.tries === 1 ? "" : "s"}${x.ok ? " · passed" : " · not passed yet (70%)"}`
+  : x.dev != null ? `${dayLabel(x.d)}: ${x.dev}% on the trainee's device only, not counted (🛠 Account Repair can restore it)` : `${dayLabel(x.d)}: not taken yet`;
+// the columns by kind of work: each the average of cmScorecard.compute's graded items of its grading systems
+const KINDS = [
+  ["✍️ Knowledge Checks %", ["kc"], "each day's Knowledge Check, its best score (70% passes the day)", "best Knowledge Check per day"],
+  ["🧪 Practical activities %", ["sa", "cc"], "the Skill Activities (the AI Grader) and the graded calls on John Doe's file, the latest attempt of each", "Skill Activities and calls"],
+  ["📂 Backup Drive %", ["bd"], "Day 1's folders and each day's Backup File Maintenance, graded from the trainee's Drive", "folders and Backup File Maintenance"],
+  ["🗂 CMS file %", ["cms"], "John Doe's case file in the CMS, against what a correct file holds by that day", "the CMS file against a correct one"],
+  ["📝 Action Plan %", ["ap"], "each action plan: the share of the steps it must hold", "the steps each plan holds"]];
+const PRACT = new Set(["sa", "call", "bd", "ap", "cmsf"]);
+// a day's work in one line: "KC 90% · 3 activities avg 78% · 12 docs filed (9 first time) · Drive 85%"
+function daySummary(r, d, parts){
+  const n = d.cf.n, out = [], dd = docDay(), sc = g => parts.filter(x => g.includes(x.grp) && x.pct != null);
+  const kc = sc(["kc"])[0]; if(kc) out.push(`KC ${kc.pct}%`);
+  const a = sc(["sa", "call"]); if(a.length) out.push(`${a.length} activit${a.length === 1 ? "y" : "ies"} avg ${dayAvg(a)}%`);
+  const docs = Object.entries(dataOf(r)["doc-filing"] || {}).filter(([id, x]) => x && x.attempts > 0 && dd[id] === n).map(([, x]) => x);
+  if(docs.length){ const f = docs.filter(x => x.filed), ft = f.filter(x => x.attempts === 1).length; out.push(`${f.length} doc${f.length === 1 ? "" : "s"} filed (${ft} first time)${docs.length > f.length ? `, ${docs.length - f.length} refused` : ""}`); }
+  const ap = sc(["ap"]); if(ap.length) out.push(`Plan ${dayAvg(ap)}%`);
+  const bd = sc(["bd"]); if(bd.length) out.push(`Drive ${dayAvg(bd)}%`);
+  return out.join(" · ");
 }
-function bannerHtml(){
-  const keys = Array.from(new Set((state.adminData || []).filter(r => !r.rejected).map(keyOf))).sort((a, b) => typeof NO_BATCH !== "undefined" && a === NO_BATCH ? 1 : typeof NO_BATCH !== "undefined" && b === NO_BATCH ? -1 : a.localeCompare(b, undefined, {numeric: true}));
-  const cur = state.adminBatchFilter || "", ppl = people();
-  const waiting = (state.adminData || []).filter(r => r.approved !== true && !r.rejected && (!cur || keyOf(r) === cur)).length;
-  return `<div class="ft-banner scx-banner"><div><p class="ft-banner-k">Legal Support Help · Case Management Training</p><h2>📋 Batch Sheet</h2>
-      <p class="ft-banner-sub">${cur ? `Batch <b>${E(labelOf(cur))}</b>` : "All batches"} · refreshed automatically</p></div>
-    <div class="ft-banner-right"><span>${ppl.length} trainee${ppl.length === 1 ? "" : "s"}</span>${waiting ? `<button type="button" class="bs-wait-pill" title="Approve or reject them in 🛡 Admin Master Control → 👥 Trainee Audit" onclick="state.auditStatus='pending';setAdminTab('traineeaudit')">${waiting} waiting for approval →</button>` : ""}</div>
-    <div class="ft-banner-ctl"><span class="gs-menu"><label class="scx-bpick">Batch <select onchange="cmBatchSheet.batch(this.value)"><option value="">All batches</option>${keys.map(k => `<option value="${E(k)}" ${k === cur ? "selected" : ""}>${E(labelOf(k))}</option>`).join("")}</select></label>
-      <button onclick="cmBatchSheet.csv()">⬇ Download</button><button onclick="cmBatchSheet.refresh()">↻ Refresh</button>
-      <label class="scx-bpick bs-arch"><input type="checkbox" ${state.adminShowArchived ? "checked" : ""} onchange="setAdminShowArchived(this.checked)"> Show archived</label></span></div></div>`;
+// 🏅 Scores: one row per trainee (the Scorecard's rows), sorted by the Overall, nothing scored last
+function scoresSheet(rows){
+  const L = cfDaysL(), S = window.cmScorecard || {}, M = S.model || {STATUS: {}, PASS: 80};
+  const per = (rows || []).map(x => { const r = recOf(x), o = ovOf(r); return {x, r, o, ov: o ? o.pct : null, sc: x.sc || scoreOf(r)}; })
+    .sort((a, b) => (a.ov == null) - (b.ov == null) || (b.ov || 0) - (a.ov || 0) || nameOf(a.r).localeCompare(nameOf(b.r)));
+  const kindAvg = (sc, ids) => { const xs = [].concat(...((sc && sc.rows) || []).filter(y => ids.includes(y.s.id)).map(y => y.items.filter(i => !i.unconfirmed)));
+    return {a: avgOf(xs.map(i => i.pct)), xs}; };
+  // (a column with no result for any trainee shown is left out, and named on one quiet line under the table)
+  const K = KINDS.filter(([, ids]) => per.some(p => kindAvg(p.sc, ids).a != null)), none = KINDS.filter(k => !K.includes(k));
+  // (🤖 every trainee's newest AI Grader attempt failed: the AI grading is down, the 🤖 AI check says why)
+  const ai = per.map(p => aiState(p.r)).filter(a => a.any), down = ai.length > 0 && ai.every(a => a.failed);
+  const T = {id: "scores", title: "🏅 Scores", order: per.map(p => p.x),
+    warn: down ? `AI grading looks down: every trainee's latest Skill Activity grading failed (${ai[0].why}). Run 🤖 the AI check (⚡ Run now) to see why.` : "",
+    none: none.length ? `No results yet: ${none.map(k => k[0].replace(/ %$/, "")).join(", ")}.` : "",
+    note: "Click a trainee for their card. Hover a day for each thing they did that day, with its score; hover ✍️ Knowledge Checks for each day's best, attempts and pass.",
+    foot: `What each column measures: Day 1–5 = the day's score (100-point model) · its slides · its work; ${K.map(k => `${k[0].replace(/ %$/, "").replace(/^\S+ /, "")} = ${k[3]}`).join("; ")}; Overall = the 100-point model's Final; Result = a pass at ${M.PASS}% with the safety gate at 100%.`,
+    head: ["Trainee", "Batch", "Registered", "Days passed"].concat(L.map(d => `${dayLabel(d)} %`), K.map(k => k[0]), ["Overall %", "Result"]),
+    rows: per.map(({r, o, ov, sc}) => {
+      const reg = T0(r.registeredAt), bt = typeof batchShow === "function" ? (batchShow(r.batch) || r.batch || "") : (r.batch || ""), evs = eventsOf(r);
+      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, {v: bt, f: r.batch || "", cls: "gs-batch"},
+        {v: [reg ? dTime(r.registeredAt) : "", bt].filter(Boolean).join(" · "), f: reg ? `Registered ${reg.toLocaleString()}${bt ? " in " + bt : ""}` : "Registration date not recorded", cls: "bs-reg"},
+        {v: sc ? `${sc.done} / ${sc.total}` : "", f: sc ? `${sc.done} of the ${sc.total} Case Flow days passed (70% on the Knowledge Check passes a day)` : "", cls: "gs-num"}]
+        .concat(L.map(d => { const v = dayS(r, d), parts = dayParts(r, d), s = slidesOf(r, d), sum = daySummary(r, d, parts), ev = evs.filter(e => e.n === d.cf.n);
+          const f = [daySTip(r, d), lessonText(r, d)].concat(ev.length ? ["Newest first:"].concat(ev.slice(0, 30).map(e => `${dTime(e.at)} · ${e.what} · ${e.detail}${e.score != null ? " · " + e.score + "%" : ""}`), ev.length > 30 ? [`and ${ev.length - 30} more (⬇ Download has every one)`] : []) : ["Nothing done on this day yet."]).join("\n");
+          return {v: pct(v), csv: [pct(v) || "—", s.line, sum].filter(Boolean).join(" · "), f, cls: "gs-num bs-dc " + tone(v),
+            html: `<b>${v == null ? "—" : v + "%"}</b>${s.line ? `<small class="bs-sl">${E(s.line)}</small>` : ""}${sum ? `<small class="bs-sum">${E(sum)}</small>` : ""}`}; }),
+          K.map(([l, ids]) => { const k = kindAvg(sc, ids), first = ids[0] === "kc";
+            const f = first ? ["Each day's Knowledge Check (the best score kept):"].concat(L.map(d => kcLine(kcOf(r, d)))).join("\n")
+              : k.a == null ? `${l.replace(/ %$/, "")}: nothing graded yet` : `${l.replace(/ %$/, "")}: the average of ${k.xs.length} = ${k.a}%\n` + k.xs.slice(0, 20).map(x => `${x.name} ${x.pct}%`).join("\n");
+            return k.a == null ? noneCell(r, ids.includes("sa") ? "pa" : ids[0], f) : {v: pct(k.a), f, cls: "gs-num " + tone(k.a)}; }),
+          [{v: pct(ov), f: o ? o.why : "Nothing scored yet", cls: "gs-num gs-calc gs-bold " + tone(ov)},
+           {v: o ? (M.STATUS[o.status] || "") : "", f: `Pass = Overall ≥ ${M.PASS}% and the safety gate at 100%`, cls: o && o.status === "pass" ? "gs-hi" : !o || o.status === "none" ? "" : o.status === "pending" ? "gs-mid" : "gs-lo"}]); }),
+    empty: "No approved trainee in this batch yet."};
+  return T;
 }
-window.renderAdminBatchSheet = function(){
-  if(state.adminLoading || !state.adminData) return `<div class="card" style="padding:40px;text-align:center;color:var(--ink-soft);">Loading the batches…</div>`;
-  return `<div class="scx-page bs-page">${bannerHtml()}<div class="card gs-card scx-card" id="bsSheet">${tablesHtml()}</div></div>`;
-};
-function csv(){
+/* 💬 FEEDBACK ON PRACTICAL ACTIVITIES, in the trainee's card: Day 1 … Day 5, each practical activity graded that day (the Skill
+   Activities and calls, the Backup Drive's folders and Backup File Maintenance, the Action Plans, the CMS file and the case
+   exercises) with its score, ⭐ what they did well, 🔧 what to improve and 🧾 why: the graders' own words (dayParts) */
+function practOf(r, d, cx){
+  return dayParts(r, d).filter(x => PRACT.has(x.grp))
+    .concat(cx.filter(i => Number(i.day) === Number(d.cf.n)).map(i => ({grp: "cx", name: `🔎 ${clip(i.name, 90)}`, pct: num(i.pct), status: "Case exercise", why: String(i.note || "").replace(/^Day \d+ · /, ""), best: [], improve: []})));
+}
+function cxOf(r){ try{ const s = ((window.cmScorecard || {}).sources || []).find(x => x.id === "cx"); return s ? (s.items(ctxFor(r)) || []).filter(i => i && i.pct != null) : []; }catch(e){ return []; } }
+const said = (xs, none) => xs && xs.length ? xs.map(x => E(String(x).replace(/\s+$/, ""))).join(" · ") : `<i>${none}</i>`;
+function feedbackHtml(x){
+  const r = recOf(x), L = cfDaysL(), cx = cxOf(r); if(!r || !L.length) return "";
+  return `<section class="bs-fb" id="bs-fb-${E(String(r.id).replace(/[^A-Za-z0-9_-]/g, "_"))}"><h4>💬 Feedback on practical activities</h4>
+    <p class="bs-fb-note">Each practical activity of the day, as its grader marked it: the score, what they did well, what to improve and why.</p>
+    ${L.map(d => { const xs = practOf(r, d, cx), sc = xs.filter(y => y.pct != null), a = dayAvg(sc), k = r.id + "|" + d.id, open = !!B.fbOpen[k];
+      return `<details class="bs-fb-day" data-day="${d.cf.n}"${open ? " open" : ""} ontoggle="cmBatchSheet.fbOpen('${E(k)}', this.open)"><summary><b>${dayLabel(d)}</b><span>${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</span><em class="${tone(a)}">${xs.length ? `${xs.length} activit${xs.length === 1 ? "y" : "ies"}${a != null ? ` · avg ${a}%` : ""}` : "Nothing yet"}</em></summary>
+        ${xs.length ? xs.map(y => `<div class="bs-fb-it"><div class="bs-fb-h"><span>${E(y.name)}</span>${y.status ? `<small>${E(y.status)}</small>` : ""}<b class="${tone(y.pct)}">${y.pct != null ? "Score " + y.pct + "%" : "Not scored"}</b></div>
+          <p class="bs-fb-l bs-best"><b>⭐ What they did well:</b> ${said(y.best, "Nothing noted by the grader.")}</p>
+          <p class="bs-fb-l bs-imp"><b>🔧 What to improve:</b> ${said(y.improve, "Nothing noted by the grader.")}</p>
+          <p class="bs-fb-l bs-why"><b>🧾 Why:</b> ${y.why ? E(y.why) : "<i>No reason recorded.</i>"}</p></div>`).join("") : `<p class="bs-none">No practical activity on this day yet.</p>`}</details>`; }).join("")}</section>`;
+}
+function feedbackTable(recs){
+  const rows = []; recs.forEach(r => { const cx = cxOf(r); cfDaysL().forEach(d => practOf(r, d, cx).forEach(y => rows.push([nameOf(r), dayLabel(d), y.name, pct(y.pct), y.status || "", (y.best || []).join(" · "), (y.improve || []).join(" · "), y.why || ""].map(v => ({v}))))); });
+  return {id: "feedback", title: "💬 Feedback on practical activities", head: ["Trainee", "Day", "Activity", "Score", "Status", "⭐ What they did well", "🔧 What to improve", "🧾 Why"], rows};
+}
+// everyone registered in the batch shown (waiting for approval and archived too, not rejected, not merged away): 📚 Lessons and
+// 🕒 Recent progress list them all, with the records the Scorecard read for the ones it scores
+function everyone(recs, inBatch){
+  const by = new Map(recs.map(r => [r.id, r])), all = (state.adminData || []).filter(r => r && !r.rejected && (!inBatch || inBatch(r)));
+  const xs = (MA() ? MA().live(all) : all).map(r => by.get(r.id) || r);
+  recs.forEach(r => { if(!xs.some(x => x.id === r.id)) xs.push(r); });
+  return xs.sort((a, b) => nameOf(a).localeCompare(nameOf(b)));
+}
+// ⬇ Download: the 🏅 Scores table first, then every table the page folds in (more: the Scorecard's own, e.g. its model in full)
+function csvTables(rows, more, inBatch){
+  const recs = (rows || []).map(recOf), S = (window.cmScorecard && cmScorecard.sources) || [], all = everyone(recs, inBatch);
+  return [scoresSheet(rows), kcTable(recs), lessonsTable(all)].concat(S.length ? [allSystemsTable(recs, S)] : [], [recentTable(all), feedbackTable(recs)], more || [], [dayTable(recs)], cfDaysL().map(d => scoreCardTable(recs, d)));
+}
+function download(tables, name){
   const q = v => { const s = String(v == null ? "" : v); return `"${(/^[=+\-@\t\r]/.test(s) ? "'" + s : s).replace(/"/g, '""')}"`; };
-  if(!LAST.length) tablesHtml();
-  const T = LAST;
-  const lines = []; T.forEach(t => { lines.push(q(t.title));
+  const lines = []; tables.forEach((t, i) => { if(tables.length > 1 || i){ lines.push(q(t.title)); } 
     // (a table in groups of columns: the group names above its headers, so a day's or a system's columns say whose they are)
     if(t.groups) lines.push([].concat(...t.groups.map(g => [g.label].concat(Array(Math.max(0, g.span - 1)).fill("")))).map(q).join(","));
-    lines.push(t.head.map(q).join(",")); t.rows.forEach(r => lines.push(r.map(c => q(c.v)).join(","))); lines.push(""); });
-  const k = state.adminBatchFilter ? labelOf(state.adminBatchFilter) : "All batches";
-  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([lines.join("\n")], {type: "text/csv"}));
-  a.download = `Batch Sheet - ${k}.csv`; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+    lines.push(t.head.map(q).join(",")); t.rows.forEach(r => lines.push(r.map(c => q(c.csv != null ? c.csv : c.v)).join(","))); lines.push(""); });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob(["﻿" + lines.join("\r\n")], {type: "text/csv"}));
+  a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
 }
+// the old 📋 Batch Sheet tab opens the one page
+window.renderAdminBatchSheet = function(){ return typeof window.renderScorecardPage === "function" ? window.renderScorecardPage() : ""; };
 window.cmBatchSheet = {
-  batch(v){ B.pick = ""; if(typeof setAdminBatchFilter === "function") setAdminBatchFilter(v); else { state.adminBatchFilter = v; render(); } },
-  dsWho(id){ B.ds = id; B.trOpen[id] = true; repaint(); setTimeout(() => { const d = document.getElementById("bs-ds-" + id); if(d) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
-  dsOpen(k, open){ B.dsOpen[k] = open; },
-  trOpen(id, open){ B.trOpen[id] = open; },
-  scDay(id){ B.scDay = id; B.more = true; repaint(); },
-  more(open){ B.more = !!open; },
-  sys(id){ B.sys = id; B.more = true; repaint(); setTimeout(() => { const d = document.getElementById("bs-systems"); if(d) d.scrollIntoView({block: "start"}); }, 30); },
-  // 👥 duplicate accounts: drawn on 🛡 Admin Master Control → 👥 Trainee Audit (js/cm-audit-table.js), not on the sheet
+  scoresSheet, feedbackHtml, csvTables, download, recOf, eventsOf,
+  fbOpen(k, open){ B.fbOpen[k] = !!open; },
+  // 👥 duplicate accounts: drawn on 🛡 Admin Master Control → 👥 Trainee Audit (js/cm-audit-table.js)
   dupHtml, dupKeep(key, id){ B.dupKeep = B.dupKeep || {}; B.dupKeep[key] = id; redraw(); },
   dupMerge,
-  dayParts,   // a trainee's deliverables of a day, as 📅 Day by Day and 🏅 Score Card read them (.github/scripts/ai-grading-recovery.cjs)
+  dayParts,   // a trainee's deliverables of a day, as the feedback and 🏅 My Scores read them (.github/scripts/ai-grading-recovery.cjs)
   myOpen(id){ MY.open = MY.open === id ? null : id; render(); },
-  pick(id){ B.pick = B.pick === id ? "" : id; B.more = true; repaint(); setTimeout(() => { const d = document.getElementById("bs-detail"); if(d && B.pick) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
-  refresh(){ B.extra = {}; B.rowsAt = 0; if(state.auditExtra) Object.keys(state.auditExtra).forEach(k => delete state.auditExtra[k]); if(typeof refreshAdminData === "function") refreshAdminData(); else render(); },
-  csv
+  refresh(){ if(window.cmScorecard && cmScorecard.refresh) cmScorecard.refresh(); else if(typeof refreshAdminData === "function") refreshAdminData(); },
+  csv(only){ if(window.cmScorecard && cmScorecard.csv) cmScorecard.csv(only); }
 };
-
-// a trainee's saves (↺ Reset Attempts, 📁 Assign a case…, the detail's own) redraw the row list: redraw the sheet too
 const __rows = window.refreshAdminRows;
 if(typeof __rows === "function") window.refreshAdminRows = function(){ const r = __rows.apply(this, arguments); repaint(); return r; };
 function hookCompanion(){
@@ -596,7 +612,7 @@ async function loadMine(){
   try{ MY.setup = await storeGet("drive-setup"); MY.grades = await storeGet("drive-grades"); }catch(e){}
   MY.loaded = true; MY.loading = false; if(state.view === "dashboard") render();
 }
-// what this device saved (index.html's mem): the Case Flow record (the takeaways' and the action plans' grades) and the AI Grader's
+// what this device saved (index.html's mem): the Case Flow record (the action plans' grades) and the AI Grader's
 const memOf = k => { try{ return typeof mem !== "undefined" && mem[k] && typeof mem[k] === "object" ? mem[k] : null; }catch(e){ return null; } };
 function myRec(){
   // 🛡 the same records as 🏅 My Performance (js/cm-scorecard.js myCtx): the cloud record, then this device's store, then
@@ -650,47 +666,34 @@ if(typeof window.renderDashboard === "function" || typeof renderDashboard === "f
 
 const css = document.createElement("style"); css.id = "cm-batch-sheet";
 css.textContent = `
-.bs-page{margin-bottom:22px;}
-.bs-page .ft-banner{margin-bottom:12px;}
-.bs-page .bs-wait-pill{background:#F6C08F !important;color:#1E2340 !important;border-color:#F6C08F !important;}
-button.bs-wait-pill{cursor:pointer;font:800 14px Arial,sans-serif;border:1px solid;border-radius:999px;padding:4px 12px;}
-.bs-page .gs-wrap{max-height:62vh;}
-/* a sheet is as wide as the page: its columns share the room (a sheet wider than the page still scrolls sideways) */
-.scx-card .gs{min-width:100%;}
-.scx-card td.bs-reg{color:#3E4560;}
-.scx-card td.bs-lesson{font-size:14px;}
+/* 🏅 Scores (js/cm-scorecard.js renderAll): a day's cell is its score, its slides and a line of its work */
+.scx-card td.bs-dc{white-space:normal !important;min-width:200px;max-width:260px;text-align:left;vertical-align:top;line-height:1.3;}
+.scx-card td.bs-dc b{display:block;font-size:16px;} .scx-card td.bs-dc small{display:block;font:700 13.5px/1.3 Arial,sans-serif;color:#2E3450;}
+.scx-card td.bs-dc small.bs-sl{color:#5F6368;}
+.scx-card td.bs-reg{color:#3E4560;white-space:nowrap;}
+.scx-card .bs-foot{margin:8px 0 0;} .scx-card .bs-none-line{margin:4px 0 0;color:#5F6368;font:600 14px Arial,sans-serif;}
+.scx-card td.bs-why small.bs-why, .scx-card td.bs-why{color:#5F6368;font-weight:600;white-space:normal;}
+.scx-card .bs-warn{margin:6px 0 8px;padding:8px 12px;border:2px solid #B42318;border-radius:8px;background:#FDECEC;color:#7A1A12;font:700 15px Arial,sans-serif;}
+.scx-card .bs-warn button{margin-left:8px;font:800 14px Arial,sans-serif;border:2px solid #B42318;background:#fff;color:#7A1A12;border-radius:6px;padding:3px 10px;cursor:pointer;}
 /* headers wrap between words only (main's overflow-wrap:anywhere broke "Knowledg-e"); a column is as wide as its words */
 .scx-card .gs th, .scx-card .gs td{overflow-wrap:normal !important;word-break:normal !important;hyphens:none;}
-.scx-card .gs-head th{min-width:104px;max-width:180px;font-size:14.5px;}
-.scx-card .gs-groups th{background:#1E2340;color:#fff;font:800 14px Arial,sans-serif;text-align:center;border-right:2px solid #fff;white-space:nowrap;}
-.scx-card .gs-groups th.gs-frz{background:#1E2340;}
-/* the Detailed Scores' groups span many columns: each name at its group's start, not off-screen in its middle */
-#bs-days .gs-groups th{text-align:left;padding-left:12px;border-left:3px solid #DB8437;}
-/* ▸ More detail: every table but the Detailed Scores, folded (as Foundational's .bs-more) */
-.bs-more{margin:14px;border:1px solid #C9CEDA;border-radius:10px;background:#fff;} .bs-more > summary{cursor:pointer;padding:12px 16px;font:800 16px Arial,sans-serif;color:#1E2340;background:#F4F5F9;border-radius:10px;}
-.bs-more[open] > summary{border-radius:10px 10px 0 0;border-bottom:1px solid #C9CEDA;}
-.bs-sys{padding:14px 14px 0;border-top:1px solid #E1E3E1;} .bs-sys + .bs-sec{border-top:0;padding-top:4px;}
-.bs-view{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 4px;} .bs-view button{border:1px solid #C9CEDA;background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer;font:700 13.5px Arial,sans-serif;color:#1E2340;}
-.bs-view button.on{background:#1E2340;color:#fff;border-color:#1E2340;}
-.bs-ds{padding:14px;} .bs-ck-who{font:700 15px Arial,sans-serif;margin-left:8px;} .bs-ck-who select{font:700 15px Arial,sans-serif;padding:4px 8px;border:1px solid #9AA3B5;border-radius:6px;}
-.bs-ds-days{display:flex;flex-direction:column;gap:8px;margin-top:8px;}
-.bs-ds-tr{border:2px solid #1E2340;border-radius:12px;background:#F7F8FB;margin-top:12px;} .bs-ds-tr > summary{cursor:pointer;padding:12px 16px;display:flex;gap:12px;align-items:center;font:800 17px Arial,sans-serif;color:#1E2340;}
-.bs-ds-tr > summary span{flex:1;font-weight:700;font-size:14.5px;color:#5F6368;} .bs-ds-tr > summary em{font-style:normal;font-weight:800;padding:3px 12px;border-radius:999px;background:#EEF0F6;}
-.bs-ds-tr > summary em.gs-hi{background:#E6F4EA;color:#0B5D1E;} .bs-ds-tr > summary em.gs-mid{background:#FFF4E0;color:#7A4B00;} .bs-ds-tr > summary em.gs-lo{background:#FDE8E8;color:#A50E0E;}
-.bs-ds-tr > .bs-ds-days{padding:0 12px 12px;}
-.bs-ds-day{border:1px solid #C9CEDD;border-radius:10px;background:#fff;} .bs-ds-day > summary{cursor:pointer;padding:10px 14px;display:flex;gap:10px;align-items:center;font:700 15px Arial,sans-serif;color:#141A2E;}
-.bs-ds-day > summary span{flex:1;color:#2E3450;} .bs-ds-day > summary em{font-style:normal;font-weight:800;padding:2px 10px;border-radius:999px;background:#EEF0F6;}
-.bs-ds-day > summary em.gs-hi{background:#E6F4EA;color:#0B5D1E;} .bs-ds-day > summary em.gs-mid{background:#FFF4E0;color:#7A4B00;} .bs-ds-day > summary em.gs-lo{background:#FDE8E8;color:#A50E0E;}
+.scx-card .gs-head th{min-width:96px;max-width:180px;font-size:14.5px;white-space:normal;}
+/* 💬 Feedback on practical activities, in the trainee's card */
+.bs-fb{margin:14px 0 4px;padding:12px 14px;border:2px solid #1E2340;border-radius:12px;background:#F7F8FB;}
+.bs-fb > h4{margin:0 0 4px;font:800 18px Arial,sans-serif;color:#1E2340;} .bs-fb-note{margin:0 0 8px;font:600 15px/1.4 Arial,sans-serif;color:#2E3450;}
+.bs-fb-day{border:1px solid #C9CEDD;border-radius:10px;background:#fff;margin-top:8px;} .bs-fb-day > summary{cursor:pointer;padding:10px 14px;display:flex;gap:10px;align-items:center;font:800 16px Arial,sans-serif;color:#141A2E;}
+.bs-fb-day > summary span{flex:1;font-weight:700;color:#2E3450;} .bs-fb-day > summary em{font-style:normal;font-weight:800;padding:2px 10px;border-radius:999px;background:#EEF0F6;}
+.bs-fb-day > summary em.gs-hi, .bs-fb-h b.gs-hi{background:#E6F4EA;color:#0B5D1E;} .bs-fb-day > summary em.gs-mid, .bs-fb-h b.gs-mid{background:#FFF4E0;color:#7A4B00;} .bs-fb-day > summary em.gs-lo, .bs-fb-h b.gs-lo{background:#FDE8E8;color:#A50E0E;}
+.bs-fb-it{border-top:1px solid #E3E6EF;padding:10px 14px;} .bs-fb-h{display:flex;gap:10px;align-items:baseline;font:800 16px Arial,sans-serif;color:#141A2E;}
+.bs-fb-h span{flex:1;} .bs-fb-h small{color:#5F6368;font:700 14px Arial,sans-serif;} .bs-fb-h b{padding:2px 10px;border-radius:6px;background:#F1F3F4;white-space:nowrap;}
+.bs-fb-l{margin:5px 0 0;font:600 15px/1.45 Arial,sans-serif;color:#2E3450;} .bs-fb-l > b{color:#141A2E;} .bs-fb-l i{color:#5F6368;}
+.bs-fb-l.bs-best > b{color:#0B5D1E;} .bs-fb-l.bs-imp > b{color:#A50E0E;}
+.bs-fb .bs-none{padding:10px 14px;margin:0;font:600 15px Arial,sans-serif;color:#5F6368;}
 .bs-ds-it{border-top:1px solid #E3E6EF;padding:10px 14px;} .bs-ds-h{display:flex;gap:10px;align-items:baseline;font:700 14.5px Arial,sans-serif;}
 .bs-ds-h span{flex:1;} .bs-ds-h small{color:#5F6368;font-weight:600;} .bs-ds-h b{min-width:54px;text-align:center;padding:2px 8px;border-radius:6px;background:#F1F3F4;}
 .bs-ds-h b.gs-hi{background:#E6F4EA;color:#0B5D1E;} .bs-ds-h b.gs-mid{background:#FFF4E0;color:#7A4B00;} .bs-ds-h b.gs-lo{background:#FDE8E8;color:#A50E0E;}
 .bs-ctx{margin:6px 0 0;font:600 13.5px/1.45 Arial,sans-serif;color:#2E3450;} .bs-ctx b{display:block;color:#141A2E;} .bs-ctx p{margin:2px 0 0;} .bs-ctx ul{margin:2px 0 0 18px;padding:0;}
 .bs-best b{color:#0B5D1E;} .bs-imp b{color:#A50E0E;}
-.scx-card td.gs-act{white-space:normal !important;min-width:430px;cursor:default;}
-.bs-acts{display:flex;flex-wrap:wrap;gap:6px;align-items:center;} .bs-acts .btn{padding:5px 10px;} .bs-acts select{max-width:220px;}
-.cm-admin-screen .bs-recdetail .bs-h .btn, .bs-recdetail .bs-h .btn{margin-left:10px;vertical-align:middle;font-size:15px !important;padding:5px 12px;}
-.scx-banner .gs-menu button.bs-danger{color:#A50E0E;}
-.bs-arch input{width:18px;height:18px;}
 .bs-settings{margin-top:14px;}
 /* 🏅 My Score Card on the trainee's dashboard */
 .my-sc{margin-top:16px;padding:18px 20px;background:#fff;border-radius:16px;color:#141A2E;}
