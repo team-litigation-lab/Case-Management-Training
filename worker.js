@@ -20,7 +20,7 @@
  * before you've configured it (the Admin screen shows a warning).
  */
 // ✍ the trainee's written work on their Backup Drive, AI-graded nightly, and a trainer's override (worker-drive-work.js)
-import { DRIVE_WORK_ACTIONS, driveWorkApi, driveWorkNightly, workBrief, workView, withDayOverrides, withOverrides, OV_KEY } from "./worker-drive-work.js";
+import { DRIVE_WORK_ACTIONS, driveWorkApi, driveWorkNightly, driveWorkActive, cronRun, workBrief, workView, withDayOverrides, withOverrides, OV_KEY } from "./worker-drive-work.js";
 import { driveFind, listedOf, setupOf } from "./worker-drive-found.js";
 import { walkDrive, homeFinder, walkNote, walkSettled } from "./worker-drive-walk.js";
 import { driveToProgress, keepNewerDriveGrades } from "./worker-drive-progress.js";   // 📂 the drive grades onto the trainee's progress, where the Scorecard reads them
@@ -2373,8 +2373,9 @@ export default {
       return json({ error: "Unhandled Worker exception." }, 500);   // the detail is in the Worker's logs
     }
   },
-  /* ✍ Every night (wrangler.json "triggers"): every linked Backup Drive graded, its written work by the AI (worker-drive-work.js) */
+  /* ✍ Every night (wrangler.json "triggers"): every linked Backup Drive graded, its written work by the AI (worker-drive-work.js);
+     ⚡ the other hours, only the drives whose trainee did something since they were last looked at (driveWorkActive) */
   async scheduled(event, env, ctx) {
-    try { await driveWorkNightly(env, driveWorkDeps()); } catch (e) { console.error(e); }   // the run's outcome is kept in cm:drivework-run
+    try { await (cronRun(event) === "active" ? driveWorkActive : driveWorkNightly)(env, driveWorkDeps()); } catch (e) { console.error(e); }   // the outcome is kept in cm:drivework-run / cm:drivework-active
   }
 };

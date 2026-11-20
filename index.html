@@ -15818,6 +15818,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <!-- 🤖 the AI Grader on every Skill Building activity (its last slide), in place of the self-tick Check Your Work -->
 <script src="/js/cm-ai-grader.js"></script>
 <script src="/js/cm-audit-table.js"></script>
+<!-- ⚡ every score fills in by itself: an AI grading that didn't come back is sent again with backoff, and the trainer's Scorecard keeps itself current -->
+<script src="/js/cm-auto-grade.js"></script>
 <script src="/js/cm-progress-log.js"></script>
 <!-- 🎬 the Case Debrief: the Case Profile's third tab, a narrated debrief of the whole file, 🔒 for a trainee until Case Flow Day 5 is complete (after cm-case-profile.js and cm-deck-slides.js) -->
 <script src="/js/cm-case-debrief.js"></script>
