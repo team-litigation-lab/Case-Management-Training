@@ -18,13 +18,17 @@
        recorded on the drive record as found (rec.folders, rec.foundAt, rec.found: the names as they are, how each
        was found, what is missing and why), and only when the platform never built the drive: a platform build's
        record is never overwritten.
-     - THE COURSE DOCUMENTS FILED BY HAND (handFiled): any file in the linked folder that isn't the platform's own copy,
-       identified by the course document's code in its name (RS01, RS-01, RS_01) or, failing that, its title
+     - THE COURSE DOCUMENTS FILED BY HAND (handFiled): any file in the linked folder that isn't the platform's own copy
+       (nor an empty one), identified first by its bytes (Drive's md5Checksum, the same as the course's own file of it:
+       courseHashes; the bytes decide over a code in the name, and copies of one file, in any folder, are one document);
+       else by the course document's code in its name (RS01, RS-01, RS_01) or, failing that, its title
        ("New-Client-Intake-Sheet"), against CM_CF_DOCS in js/cm-case-flow-docs.js (read through ASSETS, as the
-       written-work grader reads the course data; DRIVE_DOC in worker.js when that can't be read); failing both, by its
-       bytes (Drive's md5Checksum, the same as the course's own file of it: courseHashes); and failing that, a name in
-       the firm's convention by its Type and the firm folder it is in (applyFound, `by: "type"`: a reading, never
-       certain, so it neither starts a day nor has its name charged). All of it from the drive alone. Recorded as
+       written-work grader reads the course data; DRIVE_DOC in worker.js when that can't be read); and failing that, a
+       name in the firm's convention by its Type and the firm folder it is in (applyFound, `by: "type"`: a reading, never
+       certain, so it neither starts a day, nor has its name charged, nor counts in Day 1's filing, nor keeps a file
+       from the written-work grader), the drive packets of the days reached first, and only for a document whose own
+       file couldn't be read (a file whose bytes are none of the course's files read is no course document). All of it
+       from the drive alone. Recorded as
        rec.handFiled [{docId, id, name, path, home, at, type, by}]: worker.js reads them beside the platform's copies, so a
        document filed by hand counts when it is in the right folder (S.copyOf, dayStarted), and its name is read by the
        firm's naming check like any other (a ".pdf.pdf", a Type that is a document title, a date) and charged on its
@@ -92,12 +96,15 @@ export function findFolders(listing, rootId, standard, clientPath) {
 }
 
 /* ---------- the course's documents (CM_CF_DOCS), read once per Worker instance ---------- */
-/* {RS01: {folder, file, title, cms, day}} from js/cm-case-flow-docs.js (one line per document, as that file is written;
-   `file` is the document under documents/, the file the course serves and the platform copies to the drive). */
+/* {RS01: {folder, file, title, cms, day, packet}} from js/cm-case-flow-docs.js (one line per document, as that file is
+   written; `file` is the document under documents/, the file the course serves and the platform copies to the drive;
+   `packet`: the day whose drive packet (CF_PACKETS "d1m1-drive", "d2-drive" … "d5-drive") tells the trainee to back it up). */
 export function parseCourseDocs(src) {
   const out = {}, re = /\{id:"(RS\d+)",\s*folder:"([a-z]+)",\s*file:"([^"]*)",\s*title:"((?:[^"\\]|\\.)*)",\s*cms:"([^"]*)",\s*day:(\d)/g;
   let m;
   while ((m = re.exec(String(src || "")))) out[m[1]] = { folder: m[2], file: m[3], title: m[4].replace(/\\(.)/g, "$1"), cms: m[5], day: Number(m[6]) };
+  const pk = /"d(\d)(?:m\d+)?-drive"\s*:\s*\[([^\]]*)\]/g;
+  while ((m = pk.exec(String(src || "")))) (m[2].match(/RS\d+/g) || []).forEach((id) => { const d = out[id]; if (d && !(d.packet <= Number(m[1]))) d.packet = Number(m[1]); });
   return out;
 }
 let DOCS = null;
@@ -106,7 +113,7 @@ export async function courseDocs(env, D) {
   const fallback = () => {
     // only the graded documents worker.js knows (Days 2–5), when the course's own list can't be read
     const day = {}; Object.entries(D.DRIVE_DAY_DOCS || {}).forEach(([n, ids]) => ids.forEach((d) => { day[d] = Number(n); }));
-    return Object.fromEntries(Object.entries(D.DRIVE_DOC || {}).map(([id, [folder, title, cms]]) => [id, { folder, title, cms, day: day[id] || 0 }]));
+    return Object.fromEntries(Object.entries(D.DRIVE_DOC || {}).map(([id, [folder, title, cms]]) => [id, { folder, title, cms, day: day[id] || 0, packet: day[id] || 0 }]));
   };
   try {
     if (!env || !env.ASSETS || typeof env.ASSETS.fetch !== "function") return fallback();
@@ -124,14 +131,18 @@ export const _resetDocs = () => { DOCS = null; HASHES = null; };
    Drive keeps of every uploaded file (md5Checksum). A file on the drive with the same bytes is that document, whatever
    it is called: read from the drive alone, never from what the trainee filed in the CMS. {md5: [docId]}, worked out
    once per Worker instance (R2's own checksum when the document is there, else the file read through ASSETS and
-   hashed). Whatever can't be read is left out: a file is then known by its name, as before. */
+   hashed). Whatever can't be read is left out: a file is then known by its name, as before, and the documents that
+   couldn't be read are tried again (only those) after HASH_RETRY_MS: one failed read never leaves a document unknown
+   by its bytes for the life of the Worker instance. */
 let HASHES = null;
-const HASH_RETRY_MS = 10 * 60 * 1000;   // a reading that found nothing (assets unreachable) is tried again after this
+const HASH_RETRY_MS = 10 * 60 * 1000;   // documents whose files couldn't be read (assets unreachable) are tried again after this
 const hexOf = (buf) => Array.from(new Uint8Array(buf), (b) => b.toString(16).padStart(2, "0")).join("");
 export async function courseHashes(env, D, docs) {
-  if (HASHES && HASHES.docs === docs && (HASHES.n || Date.now() - HASHES.at < HASH_RETRY_MS)) return HASHES.by;
-  const by = {}, list = Object.entries(docs || {}).filter(([, d]) => d && d.file);
-  let n = 0, md5 = true;
+  const fresh = HASHES && HASHES.docs === docs;
+  if (fresh && (!HASHES.missing.length || Date.now() - HASHES.at < HASH_RETRY_MS)) return HASHES.by;
+  const by = fresh ? Object.fromEntries(Object.entries(HASHES.by).map(([h, ids]) => [h, ids.slice()])) : {}, again = fresh ? new Set(HASHES.missing) : null, missing = [];
+  const list = Object.entries(docs || {}).filter(([id, d]) => d && d.file && (!again || again.has(id)));
+  let md5 = true;
   try { await crypto.subtle.digest("MD5", new Uint8Array(0)); } catch (e) { md5 = false; }
   const one = async ([docId, d]) => {
     let h = "";
@@ -145,10 +156,10 @@ export async function courseHashes(env, D, docs) {
         if (r.ok) h = hexOf(await crypto.subtle.digest("MD5", await r.arrayBuffer()));
       } catch (e) { h = ""; }
     }
-    if (h) { (by[h] = by[h] || []).push(docId); n++; }
+    if (h) (by[h] = by[h] || []).push(docId); else missing.push(docId);
   };
   for (let i = 0; i < list.length; i += 8) await Promise.all(list.slice(i, i + 8).map(one));
-  HASHES = { docs, by, n, at: Date.now() };
+  HASHES = { docs, by, missing, at: Date.now() };
   return by;
 }
 
@@ -211,9 +222,13 @@ export async function driveFind(env, D, id, rec, opts) {
   rec.walk = listing.walk ? Object.assign({}, listing.walk) : undefined;
   if (listing.walk && listing.walk.reason === "budget") return listing;
   const docs = await courseDocs(env, D);
-  // 🔎 the course's own files are hashed only when a file on the drive could be one by its bytes alone (no code or title in its name)
-  const unnamed = Object.values(listing.files || {}).some((f) => f && f.md5 && !GOOGLE_NATIVE.test(String(f.mimeType || "")) && !docOfName(f.name, docs));
-  applyFound(rec, listing, docs, D, unnamed ? await courseHashes(env, D, docs) : {});
+  // 🔎 the course's own files are hashed whenever a file on the drive carries a checksum: its bytes decide which document
+  // it is, before any code or title in its name
+  const summed = Object.values(listing.files || {}).some((f) => f && f.md5 && !GOOGLE_NATIVE.test(String(f.mimeType || "")));
+  // the days the trainee has reached (their course progress, never the CMS): which drive packets are already asked for
+  let reached = [];
+  try { reached = D.daysReached ? await D.daysReached(env, id) : []; } catch (e) { reached = []; }
+  applyFound(rec, listing, docs, D, summed ? await courseHashes(env, D, docs) : {}, { reached });
   return listing;
 }
 /* 📂 What a file's name says when it is named the firm's way: <Case ID>_<Last-First>_<Type>_<YYYY-MM-DD>[_label], one
@@ -234,7 +249,9 @@ export function conventionOf(name, D) {
   return { type: looseType(parts[2]), date: parts[3], label };
 }
 export const typeOfName = (name, D) => (conventionOf(name, D) || {}).type || "";
-export function applyFound(rec, listing, docs, D, hashes = {}) {
+const EMPTY_MD5 = "d41d8cd98f00b204e9800998ecf8427e";   // the checksum of a file with nothing in it
+const emptyFile = (f) => String(f.size) === "0" || String(f.md5 || "").toLowerCase() === EMPTY_MD5;
+export function applyFound(rec, listing, docs, D, hashes = {}, opts = {}) {
   const standard = D.FOLDER_STANDARD, client = D.CLIENT_FOLDER, at = new Date().toISOString();
   const F = rec.builtAt ? null : findFolders(listing, rec.rootId, standard, client);
   if (F) {
@@ -251,65 +268,90 @@ export function applyFound(rec, listing, docs, D, hashes = {}) {
   (rec.saved || []).forEach((s) => { if (s && s.id) mine.add(s.id); ((s && s.was) || []).forEach((w) => mine.add(w)); });
   Object.values(rec.drills || {}).forEach((d) => { if (d && d.id) mine.add(d.id); });
   const homeOf = homeFinder(listing.folders || {}, rec);   // 📂 the firm's folder nearest above a file, at any depth
-  const hand = [], claimed = new Set(), same = {};
+  const hand = [], claimed = new Set();
   // a document the platform copied there itself, still on the drive, is accounted for: a file filed by hand isn't it
   (rec.saved || []).forEach((s) => { if (s && s.id && s.docId && docs[s.docId] && all[s.id]) claimed.add(s.docId); });
+  // (an empty file, 0 bytes, is no document whatever it is called: nothing was uploaded)
   const files = Object.entries(all).sort(([a], [b]) => a.localeCompare(b))
-    .filter(([fid, f]) => !mine.has(fid) && !GOOGLE_NATIVE.test(String(f.mimeType || "")));
-  // copies of one file (the same bytes, or lacking a checksum the same size) in one firm folder are one document
-  const sameKey = (fid, f, where) => `${where}|${f.md5 ? "md5:" + f.md5 : f.size != null && f.size !== "" ? "size:" + f.size : "id:" + fid}`;
+    .filter(([fid, f]) => !mine.has(fid) && !GOOGLE_NATIVE.test(String(f.mimeType || "")) && !emptyFile(f));
+  const md5Of = (f) => String(f.md5 || "").toLowerCase();
+  // copies of one file are one document: the same bytes anywhere in the drive (Drive's md5Checksum), or, lacking a
+  // checksum, the same size in one firm folder
+  const sameBytes = {}, sameSize = {};
+  const sizeKey = (f, where) => (f.size != null && f.size !== "" ? `${where}|${f.size}` : "");
   // `by`: how it is known. "code", "title" and "content" are certain; "type" (the firm's name and folder only) is a
   // reading of the drive, not a certainty: worker.js never starts a day on it, nor charges its name
   const add = (fid, f, docId, by) => {
     const d = docs[docId], home = D.DRIVE_HOMES[d.folder] || "", path = homeOf(f.parent);
     claimed.add(docId);
-    if (by === "type" || f.md5) { const k = sameKey(fid, f, path); if (!same[k]) same[k] = docId; }
+    const m = md5Of(f);
+    if (m) { if (!sameBytes[m]) sameBytes[m] = { docId, by }; }
+    else { const k = sizeKey(f, path); if (k && !sameSize[k]) sameSize[k] = docId; }
     hand.push({ docId, id: fid, name: clip(f.name, 200), path, home, at: f.created || at, type: D.fileType(CMS_LONG[d.cms] || d.cms), by });
   };
-  // 1. a document code (RS12) or its title in the name: that document, wherever it is (a wrong folder is then said)
+  // 1. the same bytes as one of the course's own files (Drive's md5Checksum against the file the course serves): that
+  //    document, whatever the name says (a code in the name never makes the Complaint's bytes the Answer), wherever it is.
+  //    Seven copies of one file are that one document, seven times.
   const rest = [];
   files.forEach(([fid, f]) => {
-    const s = String(f.name || ""), docId = docOfName(s, docs);
-    if (docId) add(fid, f, docId, codeOf(s) === docId ? "code" : "title");
-    else rest.push([fid, f]);
+    const ids = (md5Of(f) && hashes[md5Of(f)]) || [], named = docOfName(f.name, docs);
+    const docId = ids.includes(named) ? named : ids.find((d) => docs[d] && !claimed.has(d)) || ids.find((d) => docs[d]);
+    if (docId) add(fid, f, docId, docId === named ? (codeOf(f.name) === named ? "code" : "title") : "content"); else rest.push([fid, f]);
   });
-  // 1b. the same bytes as one of the course's own files (Drive's md5Checksum against the file the course serves): that
-  //     document, whatever the name, wherever it is. Seven copies of one file are that one document, seven times.
+  // 2. a document code (RS12) or its title in the name, when its bytes aren't the course's own: that document, wherever
+  //    it is (a wrong folder is then said). A copy of a file already known (the same bytes) is that same document.
   const rest2 = [];
   rest.forEach(([fid, f]) => {
-    const ids = (f.md5 && hashes[String(f.md5).toLowerCase()]) || [];
-    const docId = ids.find((d) => docs[d] && !claimed.has(d)) || ids.find((d) => docs[d]);
-    if (docId) add(fid, f, docId, "content"); else rest2.push([fid, f]);
+    const was = md5Of(f) && sameBytes[md5Of(f)];
+    if (was && docOfName(f.name, docs)) return add(fid, f, was.docId, was.by);
+    const docId = docOfName(f.name, docs);
+    if (docId) add(fid, f, docId, codeOf(f.name) === docId ? "code" : "title");
+    else rest2.push([fid, f]);
   });
-  // 2. a name in the firm's convention (<Case ID>_<Last-First>_<Type>_<date>) carries no code or title: in the firm's folder
+  // 3. a name in the firm's convention (<Case ID>_<Last-First>_<Type>_<date>) carries no code or title: in the firm's folder
   //    a document of that Type belongs in, at any depth, it is one of that folder's documents of that Type not yet
-  //    accounted for: the documents of the earliest day the course opens them on first (a Day 1 paper is never
-  //    taken for a later day's), the one its label says when it has one (_SUPERSEDED-<date>: a version a newer one
-  //    replaced; _DRAFT: a draft), one that carries no label when it has none. One document a file, and the files in
-  //    the order they were made. In any other folder it isn't guessed at.
+  //    accounted for. First the documents the course tells the trainee to back up (its drive packets: Day 1's
+  //    d1m1-drive and each later day's dN-drive) of the days the trainee has reached or started, earliest packet day
+  //    first; then every other document by the day the course opens it, a packet of a day not yet reached counting
+  //    from that day (so a Day 1 paper is never taken for a later day's). The one its label says when it has one
+  //    (_SUPERSEDED-<date>: a version a newer one replaced; _DRAFT: a draft), one that carries no label when it has
+  //    none. One document a file, and the files in the order they were made. In any other folder it isn't guessed at.
+  //    When the course's own files were read (hashes), a file whose bytes are none of them is no course document
+  //    whose file was read: only a document whose file couldn't be read is left for it.
   const dayOf = {}; Object.entries(D.DRIVE_DAY_DOCS || {}).forEach(([n, ids]) => ids.forEach((d) => { dayOf[d] = Number(n); }));
   const opens = (d) => Number(docs[d].day) || dayOf[d] || 0;
-  const order = Object.keys(docs).sort((a, b) => (opens(a) - opens(b)) || ((dayOf[a] || 99) - (dayOf[b] || 99)) || a.localeCompare(b));
+  const packetOf = (d) => Number(docs[d].packet) || dayOf[d] || 0;
+  const pIndex = (d) => { const ids = (D.DRIVE_DAY_DOCS || {})[packetOf(d)] || []; return ids.includes(d) ? ids.indexOf(d) : 99; };
+  const started = (n) => (D.dayStarted ? D.dayStarted(n, Object.assign({}, rec, { handFiled: hand }))
+    : hand.concat(rec.saved || []).some((s) => ((D.DRIVE_DAY_DOCS || {})[n] || []).includes(s.docId) && s.by !== "type"));
+  const reach = Math.max(1, ...((opts && opts.reached) || []).map(Number).filter((n) => n > 0), ...[2, 3, 4, 5].filter((n) => (D.DRIVE_DAY_DOCS || {})[n] && started(n)));
+  const rank = (d) => { const p = packetOf(d); return p && p <= reach ? [0, p, pIndex(d)] : [1, p ? Math.max(p, opens(d)) : opens(d), p ? 1 : 0]; };
+  const order = Object.keys(docs).map((d) => [d, rank(d)])
+    .sort(([a, x], [b, y]) => (x[0] - y[0]) || (x[1] - y[1]) || (x[2] - y[2]) || a.localeCompare(b)).map(([d]) => d);
   const typeOf = (d) => looseType(D.fileType(CMS_LONG[docs[d].cms] || docs[d].cms));
   const LABEL = D.LABEL_DOCS || {}, SUP = D.SUPERSEDED_BY || {};
   const labelOf = (d) => (LABEL[d] === "DRAFT" ? "DRAFT" : LABEL[d] === "SUPERSEDED" || SUP[d] ? "SUPERSEDED" : "");
+  const read = new Set(); Object.values(hashes || {}).forEach((ids) => ids.forEach((d) => read.add(d)));
   rest2.map(([fid, f]) => ({ fid, f, c: conventionOf(f.name, D), where: homeOf(f.parent) })).filter((x) => x.c && x.c.type && x.where)
     .sort((a, b) => String(a.f.created || "").localeCompare(String(b.f.created || "")) || a.c.date.localeCompare(b.c.date) || a.fid.localeCompare(b.fid))
     .forEach(({ fid, f, c, where }) => {
-      const k = sameKey(fid, f, where);
-      if (same[k]) return add(fid, f, same[k], "type");   // a copy of a file already accounted for in this folder
+      const m = md5Of(f), k = m ? "" : sizeKey(f, where);
+      if (m && sameBytes[m]) return add(fid, f, sameBytes[m].docId, "type");   // a copy of a file already accounted for, in any folder
+      if (k && sameSize[k]) return add(fid, f, sameSize[k], "type");           // (no checksum: the same size in this folder)
       const want = /^SUPERSEDED/.test(c.label) ? "SUPERSEDED" : c.label === "DRAFT" ? "DRAFT" : "";
-      const cands = order.filter((d) => !claimed.has(d) && typeOf(d) === c.type && (D.DRIVE_HOMES[docs[d].folder] || "") === where);
+      const cands = order.filter((d) => !claimed.has(d) && typeOf(d) === c.type && (D.DRIVE_HOMES[docs[d].folder] || "") === where && !(m && read.has(d)));
       const docId = cands.find((d) => labelOf(d) === want) || cands[0];
       if (docId) add(fid, f, docId, "type");
     });
   rec.handFiled = hand.sort((a, b) => String(a.docId).localeCompare(String(b.docId)) || String(a.name).localeCompare(String(b.name))).slice(0, 200);
   // Day 1 from the drive, when the trainee never set the structure up on the platform
   if (F && rec.foundAt) {
-    const names = {};
-    rec.handFiled.forEach((h) => { const c = D.nameCheck(h.name, { type: h.type, date: String(h.at || "").slice(0, 10), caseId: D.driveCaseId(rec) }); names[h.id] = { ok: c.ok, want: c.want, hint: D.nameHint(c) }; });
+    // (a document known by its Type and folder alone is a reading, not a certainty: it neither adds to Day 1's filing
+    // nor has its name charged there, as on every later day)
+    const sure = rec.handFiled.filter((h) => h.by !== "type"), names = {};
+    sure.forEach((h) => { const c = D.nameCheck(h.name, { type: h.type, date: String(h.at || "").slice(0, 10), caseId: D.driveCaseId(rec) }); names[h.id] = { ok: c.ok, want: c.want, hint: D.nameHint(c) }; });
     const later = {}; Object.values(D.DRIVE_DAY_DOCS || {}).flat().forEach((d) => { later[d] = true; });
-    rec.foundSetup = gradeFound(F, { standard, why: D.FOLDER_WHY, pass: D.DRIVE_PASS, docs, homes: D.DRIVE_HOMES, hand: rec.handFiled, names, later });
+    rec.foundSetup = gradeFound(F, { standard, why: D.FOLDER_WHY, pass: D.DRIVE_PASS, docs, homes: D.DRIVE_HOMES, hand: sure, names, later });
   } else if (F) delete rec.foundSetup;
   return rec;
 }
@@ -331,5 +373,8 @@ export function whyUngraded(n, rec, dayDocs) {
   if (n === 1) return "The firm's folders haven't been graded yet: press 🏅 Grade now.";
   if (!rec.gradedAt) return "Not graded yet: press 🏅 Grade now.";
   const ids = (dayDocs || {})[n] || [];
+  // (a document known only by its Type and the folder it is in is listed, but it is a reading, not a certainty: it never starts a day)
+  const guessed = (rec.handFiled || []).filter((h) => h && h.by === "type" && ids.includes(h.docId)).map((h) => h.docId).filter((d, i, a) => a.indexOf(d) === i);
+  if (guessed.length) return `Day ${n} hasn't started on the drive: the only files of its documents (${ids.join(", ")}) there are known by their Type and folder alone (read as ${guessed.join(", ")}), and those don't start a day. Name one by its RS code or title, or back up the course's own file of it${n === 2 ? ", or lay the day's drill" : ""}.`;
   return `Day ${n} hasn't started on the drive: none of its documents (${ids.join(", ")}) is in the linked folder yet${n === 2 ? ", and its drill hasn't been laid" : ""}.`;
 }
