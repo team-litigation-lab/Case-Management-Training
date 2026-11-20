@@ -23,7 +23,7 @@
 import { DRIVE_WORK_ACTIONS, driveWorkApi, driveWorkNightly, workBrief, workView, withDayOverrides, withOverrides, OV_KEY } from "./worker-drive-work.js";
 import { driveFind, listedOf, setupOf } from "./worker-drive-found.js";
 import { accountMergeApi, kcRestoreApi } from "./worker-account-repair.js";   // 👥 two accounts of one trainee merged on the Worker (/api/account-merge); 🛠 one account's missing KC scores restored (/api/kc-restore)
-import { identity, uidKey, afterMerge, afterMergeProgress, keepMergeStored, orphanWrite } from "./worker-identity.js";   // 🪪 who a sign-in opens (the uid index, merged: redirects) and what keeps a trainee's records whole
+import { identity, uidKey, afterMerge, afterMergeProgress, keepMergeStored, orphanWrite, aliasKey, aliasAtSignIn, aliasPlan, aliasApply } from "./worker-identity.js";   // 🪪 who a sign-in opens (the uid index, merged: redirects) and what keeps a trainee's records whole
 /* ---------- KV with the "cm:" namespace prefix ---------- */
 const KV_PREFIX = "cm:";
 /* ---------- what the trainer owns in a trainee's records ----------
@@ -501,7 +501,7 @@ function keepKcAttempts(existing, merged) {
 // 🪪 worker-identity.js: resolveTrainee, mergedInto, the uid index, and keepKcStored / keepProgressAttempts
 const { mergedInto, indexUid, uidOf, resolveTrainee, mergedAway, keepKcStored, keepProgressAttempts, dateFirstAttempts, officialCaseFlow } = identity({ kcHistory, kcAttempts, candidateIds, batchKey });
 // 👥 what worker-account-repair.js uses of the Worker (/api/account-merge)
-const accountMergeDeps = () => ({ kvOf, ownerPut, ownedType, ownerKey, candidateIds, canonicalBatch, resolveTrainee, mergedInto, uidKey, kcHistory, kcResetOpen, trainerWho, isTrainerReview, keepKcStored, keepProgressAttempts });
+const accountMergeDeps = () => ({ kvOf, ownerPut, ownedType, ownerKey, candidateIds, canonicalBatch, resolveTrainee, mergedInto, uidKey, kcHistory, kcResetOpen, trainerWho, isTrainerReview, keepKcStored, keepProgressAttempts, aliasKey, aliasPlan, aliasApply });
 async function traineeWrite(env, tok, key, value) {
   const kv = kvOf(env);
   const id = tok.id;
@@ -2047,6 +2047,9 @@ export default {
           out.existing = Object.assign({}, out.existing, { fullName: who.full });
           await ownerPut(kv, `trainee:${out.id}`, JSON.stringify(out.existing));
         }
+        // 🔗 the Portal files this trainee's simulator results and graded calls under its own id for them (their name + batch:
+        // rawId); trainee-alias:<that id> sends them to the record this sign-in opened, when it is another one
+        await aliasAtSignIn(kv, candidateIds(who.name, who.batch).rawId, out.id);
         return json(Object.assign(out, { name: who.name, first: who.first, last: who.last, batch: who.batch }, who.full ? { fullName: who.full } : {}));
       }
 

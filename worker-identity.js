@@ -22,12 +22,47 @@
    • orphanWrite: orphan:<own id>:<ms>, a device's backup of work its last save never got to the server
      (js/cm-safe-logout.js). Written once, never overwritten; at most ORPHAN_MAX per id; the ms within 7 days of now.
      Its owner is the id in its key (the token's own); the traineeId, name and batch in its body are unverified claims.
+   • trainee-alias:<id> = <kept id> (the id as plain text, not JSON): the Training Portal reads it, one hop, when it files a
+     trainee's simulator result or graded call (its functions/api/sim-results.js and call-results.js work the id out from
+     the trainee's Portal name + batch: courseTraineeId, this course's rawId), so the result lands on the record this course
+     keeps for them. aliasAtSignIn: every Portal sign-in points the Portal's id at the record it opened (the uid index after
+     a Batch ID or name change, a merged: redirect, a portal-batch move), and clears it when that is the Portal's id itself.
+     aliasPlan: a 👥 merge points each merged-away id at the kept one, and every alias that led to a merged-away id too
+     (the Portal follows one hop); the kept id's own alias goes (worker-account-repair.js writes it, backs it up, undoes it).
    ============================================================ */
 import { mergeVals, mergePractice, MERGE_FOLD, MAX_SNAPSHOT } from "./worker-account-repair.js";
 
 const parse = (raw) => { try { return JSON.parse(raw || "null"); } catch (e) { return null; } };
 const ORPHAN_MAX = 20, WEEK = 7 * 86400000;
 export const uidKey = (uid) => `uid:${String(uid || "").slice(0, 80)}`;
+export const aliasKey = (id) => `trainee-alias:${id}`;
+const ALIAS_ID = /^[a-z0-9-]{1,100}$/;   // (what the Portal follows)
+// 🔗 a Portal sign-in: the Portal's id for this trainee (portalId) leads to the record the sign-in opened (openedId)
+export async function aliasAtSignIn(kv, portalId, openedId) {
+  if (!ALIAS_ID.test(portalId || "") || !ALIAS_ID.test(openedId || "")) return;
+  const cur = await kv.get(aliasKey(portalId));
+  if (portalId === openedId) { if (cur != null) await kv.delete(aliasKey(portalId)); return; }
+  if (cur !== openedId) await kv.put(aliasKey(portalId), openedId, { metadata: { into: openedId } });
+}
+// 🔗 a 👥 merge into keep of fromIds: {<alias key>: {was (null: none), to (null: deleted)}}, only the keys that change. Read
+// only: the merge backs up `was` before it writes `to` (aliasApply), and puts `was` back if it stops.
+export async function aliasPlan(kv, fromIds, keep) {
+  const out = {};
+  if (!ALIAS_ID.test(keep || "")) return out;
+  const from = new Set(fromIds.filter((x) => x && x !== keep && ALIAS_ID.test(x)));
+  const want = async (k, to) => { const was = await kv.get(k); if (was !== to && !(was == null && to == null)) out[k] = { was, to }; };
+  for (const id of from) await want(aliasKey(id), keep);
+  const keys = []; let cursor;
+  do { const r = await kv.list({ prefix: "trainee-alias:", cursor }); r.keys.forEach((k) => keys.push(k)); cursor = r.list_complete ? null : r.cursor; } while (cursor && keys.length < 5000);
+  for (const k of keys) {
+    if (k.name in out || k.name === aliasKey(keep) || [...from].some((id) => k.name === aliasKey(id))) continue;
+    const v = await kv.get(k.name);
+    if (from.has(v)) out[k.name] = { was: v, to: keep };
+  }
+  await want(aliasKey(keep), null);
+  return out;
+}
+export async function aliasApply(kv, k, to) { if (to == null) await kv.delete(k); else await kv.put(k, to, { metadata: { into: to } }); }
 
 export function identity(D) {
   const { kcHistory, kcAttempts, candidateIds, batchKey } = D;

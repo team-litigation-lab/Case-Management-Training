@@ -26,7 +26,9 @@
    On confirm, in this order, and nothing is deleted until everything is copied:
      0. backup:<keep>:<ts>:redirects (merged:<keep>, merged:<new id>, uid:<portalUid> and each merged:<other> as they are),
         then merged:<other> = {into: keep} for each other id (merged:<keep> deleted): from here on a trainee save to another
-        account is refused (worker.js traineeWrite; the page backs its work up as orphan:<id>:<ms>);
+        account is refused (worker.js traineeWrite; the page backs its work up as orphan:<id>:<ms>); and trainee-alias:<other>
+        = keep for each, as every alias that led to one of them (the Portal follows one hop to file a simulator result or
+        graded call; worker-identity.js aliasPlan), the kept id's own alias removed (the backup holds them as they were);
      1. backup:<id>:<ts> for every id (the kept one too, with merged:<keep>, merged:<new id> and uid:<portalUid> as they
         were): each key of theirs as read ({at, by, keep, keys}; parts measured in UTF-8 bytes: backup:<id>:<ts>:p2 …,
         and a single value too large for a part in backup:<id>:<ts>:k1 …);
@@ -69,7 +71,7 @@
         what landed, and deletes them. orphan:<id>:* backups are never deleted: the kept account reads those of every id
         merged into it (rec.mergedFrom, while its merged:<x> leads there), so a page left open on the other id still
         reaches it.
-   body {removeRedirect: id, confirm?}: a merged:<id> left on a live record (see removeRedirect below).
+   body {removeRedirect: id, confirm?}: a merged:<id> left on a live record (see removeRedirect below), with its trainee-alias:<id>.
    ============================================================ */
 const MAIN = ["trainee", "progress", "feedback", "focus", "actsub"];
 const SINGLE_MERGE = ["callsim", "simresults", "labreview", "hipaa"];
@@ -394,7 +396,8 @@ async function removeRedirect(kv, D, tok, b, now) {
   const id = String(b.removeRedirect || "").trim();
   if (!ID_RE.test(id)) return { status: 400, body: { error: "removeRedirect: one trainee id." } };
   let raw, rec;
-  try { raw = await kv.get(`merged:${id}`); rec = await kv.get(`trainee:${id}`); }
+  let alias = null;   // 🔗 (trainee-alias:<id>, sending the Portal's results for this live record elsewhere, goes with it)
+  try { raw = await kv.get(`merged:${id}`); rec = await kv.get(`trainee:${id}`); if (D.aliasKey) alias = await kv.get(D.aliasKey(id)); }
   catch (e) { return { status: 503, body: { error: "A record couldn't be read, so nothing was changed. Try again." } }; }
   if (raw == null) return { status: 404, body: { error: `There is no merged:${id}.` } };
   if (rec == null) return { status: 409, body: { error: `trainee:${id} has no record: merged:${id} is what sends that sign-in to the account it was merged into, so it stays.` } };
@@ -403,11 +406,12 @@ async function removeRedirect(kv, D, tok, b, now) {
   if (b.confirm !== true) return { status: 200, body: Object.assign({ dryRun: true }, report) };
   const bk = `backup:${id}:${now.toISOString().replace(/[^0-9]/g, "").slice(0, 17)}`;
   try {
-    await kv.put(bk, JSON.stringify({ at: now.toISOString(), by: D.trainerWho(tok), kind: "remove-redirect", keys: { [`merged:${id}`]: raw } }));
+    await kv.put(bk, JSON.stringify({ at: now.toISOString(), by: D.trainerWho(tok), kind: "remove-redirect", keys: Object.assign({ [`merged:${id}`]: raw }, alias != null ? { [D.aliasKey(id)]: alias } : {}) }));
     if ((await kv.get(`merged:${id}`)) !== raw) return { status: 409, body: Object.assign({ error: `merged:${id} changed since it was read: nothing was removed. Read it again.` }, report) };
     await kv.delete(`merged:${id}`);
+    if (alias != null) await kv.delete(D.aliasKey(id));
   } catch (e) { return { status: 500, body: Object.assign({ error: "The redirect couldn't be removed. Nothing else was changed.", detail: String((e && e.message) || e) }, report) }; }
-  return { status: 200, body: Object.assign({ ok: true, removed: `merged:${id}`, backup: bk }, report) };
+  return { status: 200, body: Object.assign({ ok: true, removed: `merged:${id}`, backup: bk }, alias != null ? { aliasRemoved: D.aliasKey(id) } : {}, report) };
 }
 
 export async function accountMergeApi(env, D, tok, b) {
@@ -520,11 +524,14 @@ export async function accountMergeApi(env, D, tok, b) {
   // (the current name + batch's own id is redirected only from the Portal's signed sign-in, never from a name typed here)
   if (newIdFree && profile.from === "last Portal sign-in") redirects.push(cur.newId);
   else if (newIdFree) warnings.push(`${cur.newId} (the name and batch given here) is not redirected to ${keep}: only the name and batch of the trainee's last Portal sign-in are.`);
+  // 🔗 trainee-alias:<id> = keep for each id redirected, and for every alias that led to one of them: the Portal files a
+  // simulator result or graded call under the id the trainee's Portal name + batch make, and follows one alias hop
+  const aliases = D.aliasPlan ? await D.aliasPlan(kv, redirects, keep) : {};
   const orphanList = [...new Set(accts.flatMap((a) => a.orphans.map((o) => ownOrphan(o) ? o.key : `${o.key} (not folded in: it says it holds ${o.v && o.v.traineeId ? o.v.traineeId + "'s" : "another account's"} work${o.v && o.v.reason === "handover" ? ", left on a shared computer" : ""})`)))];
   const report = {
     keep, keepWhy, others: others.map((a) => a.id), profile, portalUid: uid || null, days: table,
     keys: { write: Object.keys(built.values), move: plan.move.map((m) => `${m.from} → ${m.key}`), left: plan.left, delete: plan.del },
-    certs: certPlan, redirects: redirects.map((r) => `merged:${r} → ${keep}`), orphans: orphanList, warnings, snapshotSize: built.progSize, expectKc: built.kcExpect
+    certs: certPlan, redirects: redirects.map((r) => `merged:${r} → ${keep}`), aliases: Object.entries(aliases).map(([k, a]) => a.to == null ? `${k} removed` : `${k} → ${a.to}`), orphans: orphanList, warnings, snapshotSize: built.progSize, expectKc: built.kcExpect
   };
   if (built.tooLarge) report.tooLarge = true;
   if (!confirm) return { status: 200, body: Object.assign({ dryRun: true }, report) };
@@ -537,7 +544,7 @@ export async function accountMergeApi(env, D, tok, b) {
 
   /* ---------- confirmed: redirect, back up, read again, copy, and only then delete ---------- */
   const ts = now.toISOString().replace(/[^0-9]/g, "").slice(0, 17);
-  const written = [], backups = [], redirectsWritten = [], left = plan.left.slice(), skipDel = new Set(), del = plan.del.slice();
+  const written = [], backups = [], redirectsWritten = [], aliasesWritten = [], left = plan.left.slice(), skipDel = new Set(), del = plan.del.slice();
   const orig = {};
   others.forEach((a) => Object.assign(orig, a.keys));
   checkins.forEach((k) => { if (k.value != null) orig[k.name] = k.value; });
@@ -549,6 +556,7 @@ export async function accountMergeApi(env, D, tok, b) {
     // (and before them, a backup of every redirect they change: merged:<keep>, and each merged:<other> as it is now)
     Object.assign(redirWas, redirRead);
     for (const r of redirects) { const v = await kv.get(`merged:${r}`); if (v != null) redirWas[`merged:${r}`] = v; }
+    Object.entries(aliases).forEach(([k, a]) => { if (a.was != null) redirWas[k] = a.was; });   // (the aliases it changes, as they are)
     const rk = `backup:${keep}:${ts}:redirects`;
     await kv.put(rk, JSON.stringify({ at: now.toISOString(), by, keep, merged: ids, kind: "redirects", keys: redirWas }));
     backups.push(rk); written.push(rk);
@@ -560,6 +568,7 @@ export async function accountMergeApi(env, D, tok, b) {
       if (obj(was) && was.into === keep) { redirAt[r] = Date.parse(was.at || "") || 0; continue; }
       await kv.put(`merged:${r}`, JSON.stringify({ into: keep, at: now.toISOString(), by, how: "account-merge" })); redirectsWritten.push(r); written.push(`merged:${r}`); redirAt[r] = now.getTime();
     }
+    for (const [k, a] of Object.entries(aliases)) { await D.aliasApply(kv, k, a.to); aliasesWritten.push(k); written.push(k); }
     for (const a of accts) {
       const extra = {};
       checkins.filter((k) => k.name.split(":")[2] === a.id).forEach((k) => { if (k.value != null) extra[k.name] = k.value; });
@@ -644,6 +653,7 @@ export async function accountMergeApi(env, D, tok, b) {
     // (a merged:<other> that was there before the merge is put back as it was, not deleted)
     for (const r of redirectsWritten) { try { const was = redirWas[`merged:${r}`]; if (was != null) await kv.put(`merged:${r}`, was); else await kv.delete(`merged:${r}`); undone.push(`merged:${r}`); } catch (x) { /* listed below as written */ } }
     if (keepRedirectWas != null) { try { await kv.put(`merged:${keep}`, keepRedirectWas); } catch (x) { /* it is in the backup */ } }
+    for (const k of aliasesWritten) { try { await D.aliasApply(kv, k, aliases[k].was); undone.push(k); } catch (x) { /* it is in the backup */ } }
     if (e && e.previewAgain) return { status: 409, body: Object.assign({ error: `${e.message} Nothing was merged and the redirects written were taken back. Preview the merge again, then confirm it.`, previewAgain: true, written, backups, redirectsUndone: undone }, report) };
     return { status: 500, body: Object.assign({ error: `The merge stopped before anything was deleted. Every other account's records are still where they were, and the redirects written were taken back. The kept account (${keep}) may already hold merged records (see written): that is safe, they are its own records joined with the others'. The backups are kept. Run the merge again (preview, then merge): every step can be run again.`, written, backups, redirectsUndone: undone, detail: String((e && e.message) || e) }, report) };
   }

@@ -120,7 +120,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (48)
+## Node checks (49)
 
 | Check | What it covers |
 |---|---|
@@ -170,6 +170,7 @@ None.
 | `sso.cjs` | Single sign-on (the Portal is the only way a trainee gets in; a missing PORTAL_SSO_SECRET says so) |
 | `think-through.cjs` | Every 🧠 Think it through challenge (js/cm-think-through.js) sits on a Skill Activity, taught on its deck's day, that practises the deck pages it is about; it is graded (AI 60, trainer 40, an answer key that reasons past the slide), and its figures are the ones the case file and those pages agree on |
 | `tool-links.cjs` | Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's) |
+| `trainee-alias.cjs` | 🔗 The Portal's simulator results and graded calls land on the record this course keeps: trainee-alias:<the Portal's id> leads there after a Batch ID or name change on the Portal (the ticket's u), a portal-batch move and a trainer's 👥 merge (chains re-pointed, the kept id's own alias removed, taken back if the merge stops), and goes with a redirect removed |
 | `trainee-identity.cjs` | A renamed or re-batched Portal ticket with the same uid opens the trainee's existing record (the uid index), and B250926 / B092526 (the same day, as batchShow shows it) resolve to one id |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
