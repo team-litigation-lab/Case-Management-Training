@@ -1,4 +1,4 @@
-// @check browser — Each score is read where it is written: the nightly Drive grade, the takeaway, the AI Grader's Skill Activities and the Action Plan show with the same numbers on the Score Card, the trainee detail, 🏅 Scores and the trainee's own card; Random tasks are gone
+// @check browser — Each score is read where it is written: the nightly Drive grade, the AI Grader's Skill Activities and the Action Plan show with the same numbers (the takeaway, not scored, nowhere) on the Score Card, the trainee's feedback, 🏅 Scores and the trainee's own card; Random tasks are gone
 // The owner, handing out scores: "Remove the Random tasks scores and provide scoring for the other two [📝 Takeaways,
 // 🧪 Activities & calls]", "I also need scoring for the action plan", and of 📂 Backup Drive "I do not understand why their
 // scores do not show up". Each was blank because the scorecard read a copy the grade is not always written to:
@@ -10,13 +10,15 @@
 // This seeds one trainee's work through the page's own saves (and answers /api/drive as the Worker would: the trainee's
 // drive status with its nightly grades, the trainer's report of every drive), then reads each number off
 //   the trainee: 🏅 My Performance's day rows and the dashboard's 🏅 My Scores;
-//   the trainer: the trainee's card on 🏅 Scorecards; the Batch Sheet's 🏅 Score Card (Day 1, Day 2), the trainee's 🔎 card
-//   and 🏅 Scores; and checks 🎲 Random tasks is in none of them (nor in the day score), while Recent progress still lists it.
+//   the trainer: the trainee's card on 🏅 Scorecards; the one Admin → 🏅 Scorecard page: its 🏅 Scores row, the card's
+//   💬 Feedback on practical activities and ⬇ Download's 🏅 Score Card (Day 1, Day 2); and checks 🎲 Random tasks is in none of
+//   them (nor in the day score), while ⬇ Download's Recent progress still lists it.
 // It also checks each grade counts once in the day score (a Skill Activity by its latest attempt; a CMS activity's AI Grader
 // grade under 🧪 only, not again as a 🗂 CMS case file item) and that My Scores reads the same records after a reload.
 // Usage: node .github/scripts/score-sources.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
+const CSV = require('./csv-sections.cjs');
 const BASE = process.argv[2] || 'http://localhost:8787/';
 const failures = []; const fail = (m) => failures.push(m);
 const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
@@ -26,8 +28,10 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
 const T0 = Math.floor(Date.now() / 864e5) * 864e5 - 5 * 864e5;
 const AT = (d, h) => new Date(T0 + d * 864e5 + h * 36e5).toISOString();
 const DRIVE = { setup: { score: 90, ok: true, attempts: 1, at: AT(2, 3) }, grades: { 2: { score: 76, passed: true, at: AT(3, 3), issues: [] } } };
-const WANT = { 1: { tk: 84, sa: 68, ap: 50, bd: 90 }, 2: { tk: 66, bd: 76 } };
-const SYS = { '📝 Takeaways': 75, '🧪 Skill Activities': 68, '📝 Action Plan': 50, '📂 Backup Drive': 83 };
+// (📝 the takeaways are written and AI-reviewed but not scored: the owner took their grades out of the scorecards, so no
+// surface shows one: null)
+const WANT = { 1: { tk: null, sa: 68, ap: 50, bd: 90 }, 2: { tk: null, bd: 76 } };
+const SYS = { '📝 Takeaways': null, '🧪 Skill Activities': 68, '📝 Action Plan': 50, '📂 Backup Drive': 83 };
 const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1] : null; };
 
 (async () => {
@@ -97,6 +101,7 @@ const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1
     // the model: no random-task item, the right items in the day score
     const model = await page.evaluate(() => { const m = cmScorecard.myOverall().m; return { groups: [...new Set(m.items.map(x => x.group))], bd1: (m.items.find(x => x.group === '📂 Backup Drive' && x.day === 1) || {}).pct, ap: m.items.filter(x => x.group === '📝 Action Plan').map(x => x.pct) }; });
     if (model.groups.some(g => /Random|Timeliness/.test(g))) fail(`the 100-point model should hold no random task: ${JSON.stringify(model.groups)}`);
+    if (model.groups.some(g => /Takeaway/.test(g))) fail(`the 100-point model should hold no takeaway (not scored): ${JSON.stringify(model.groups)}`);
     if (model.bd1 !== 90) fail(`the day score should count the Worker's nightly 90% for Day 1's folders (later than the 40% saved): ${model.bd1}`);
     if (JSON.stringify(model.ap) !== '[50]') fail(`the action plan should count once in the model: ${JSON.stringify(model.ap)}`);
     // 🧪 the day score counts each Skill Activity's latest attempt, as the 🧪 column shows it: Final Warning Letter Drafting's
@@ -130,48 +135,56 @@ const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1
     for (let i = 0; i < 30; i++) { const ls = await lines('#bs-pt-' + dom); const l = ls && (ls.find(([h]) => h.startsWith('Day 1:')) || [])[1]; if (l && /📂 Backup Drive 90%/.test(l)) break; await page.waitForTimeout(500); await page.evaluate(() => { cmScorecard.reload(); }); }
     fromLines('Scorecards card', await lines('#bs-pt-' + dom));
 
-    // 3. the Batch Sheet: 🏅 Score Card (Day 1, Day 2), the trainee's 🔎 card, 🏅 Scores
-    await page.evaluate(() => { state.adminData = null; state.adminBatchFilter = ''; if (window.cmBatchSheet && cmBatchSheet.more) cmBatchSheet.more(true); goto('admin'); setAdminTab('audit'); });
-    await page.waitForSelector('#bs-scores', { timeout: 30000 }).catch(() => fail('the Batch Sheet shows no 🏅 Scores'));
+    // 3. the one Admin → 🏅 Scorecard page: its 🏅 Scores row (a column per kind of work), the trainee's card with its
+    // 💬 Feedback on practical activities, and ⬇ Download's 🏅 Score Card (Day 1, Day 2) and 🕒 Recent progress
+    await page.evaluate(() => { state.adminData = null; state.adminTab = ''; if (window.cmScorecard) cmScorecard.refresh(); goto('admin'); });
+    await page.waitForSelector('.cmsh-screen #scx-scores', { timeout: 30000 }).catch(() => fail('Admin → 🏅 Scorecard shows no 🏅 Scores'));
     const nm = await page.evaluate((id) => { const r = (state.adminData || []).find(x => x.id === id); return r ? (typeof cleanName === 'function' ? cleanName(r.name) : r.name) : ''; }, id);
     const SCC = { tk: '📝 Takeaways', sa: '🧪 Activities & calls', ap: '📝 Action Plan', bd: '📂 Backup Drive' };
-    const scoreCard = (dayId) => page.evaluate(([dayId, nm]) => { cmBatchSheet.scDay(dayId); const s = document.getElementById('bs-scorecard-d' + dayId); if (!s) return null;
-        const hs = [...s.querySelectorAll('.gs-head th')].map(t => t.textContent.trim()), tr = [...s.querySelectorAll('tbody tr')].find(r => { const c = r.querySelector('td'); return c && c.textContent.includes(nm); });
-        return { hs, note: (s.querySelector('.bs-note') || {}).textContent || '', cells: tr ? [...tr.querySelectorAll('td')].map(td => td.textContent.trim()) : null }; }, [dayId, nm]);
-    let sc1 = null;
-    for (let i = 0; i < 40; i++) { sc1 = await scoreCard(11); const k = sc1 && sc1.cells && sc1.hs.indexOf('📂 Backup Drive'); if (sc1 && sc1.cells && pctOf(sc1.cells[k - 1]) === 90) break; await page.waitForTimeout(500); await page.evaluate(() => { if (state.view === 'admin') render(); }); }
-    for (const [n, dayId] of [[1, 11], [2, 12]]) {
-        const x = n === 1 ? sc1 : await scoreCard(dayId);
-        if (!x || !x.cells) { fail(`the Batch Sheet's 🏅 Score Card · Day ${n} has no row for the trainee`); continue; }
-        if (x.hs.some(h => /Random/.test(h))) fail(`the 🏅 Score Card should have no Random tasks column: ${JSON.stringify(x.hs)}`);
-        for (const col of Object.keys(WANT[n])) { const i = x.hs.indexOf(SCC[col]); want('Score Card', n, col, i < 1 ? null : pctOf(x.cells[i - 1])); }
-        if (n === 1) { const k = x.hs.indexOf('🗂 CMS file'), v = k < 1 ? null : pctOf(x.cells[k - 1]); if (v !== myCms) fail(`🗂 CMS file · Day 1: the trainee's My Scores shows ${myCms}, the trainer's Score Card ${v}`); }
-        if (n === 1) { if (!/What each column measures/.test(x.note) || !/📝 Action Plan: /.test(x.note) || !/📂 Backup Drive: /.test(x.note) || !/🧪 Activities & calls: /.test(x.note) || !/📝 Takeaways: /.test(x.note) || /Random/.test(x.note))
-            fail(`the Score Card's note should say what each column measures: ${x.note}`); }
+    let file = null, T = [];
+    for (let i = 0; i < 40; i++) {
+        file = await CSV.grab(page, () => cmScorecard.csv()); T = file ? CSV.parse(file) : [];
+        const s1 = T.find(x => /^🏅 Score Card · Day 1/.test(x.title)), c = CSV.cellOf(s1, '📂 Backup Drive', nm);
+        if (!c.err && pctOf(c.v) === 90) break; await page.waitForTimeout(500); await page.evaluate(() => { cmScorecard.reload(); });
     }
-    const detail = await page.evaluate((id) => { const d = document.getElementById('bs-ds-' + id); if (!d) return null;
-        return [...d.querySelectorAll('details.bs-ds-day')].map(day => [(day.querySelector('summary b') || {}).textContent || '', [...day.querySelectorAll('.bs-ds-it')].map(it => [(it.querySelector('.bs-ds-h span') || {}).textContent || '', (it.querySelector('.bs-ds-h b') || {}).textContent || ''])]); }, id);
-    if (!detail) fail('the Batch Sheet has no 🔎 card for the trainee');
+    if (!file) fail('⬇ Download gave no file');
+    for (const n of [1, 2]) {
+        const x = T.find(y => new RegExp(`^🏅 Score Card · Day ${n}\\b`).test(y.title));
+        if (!x || !x.rows.some(r => r[0].includes(nm))) { fail(`⬇ Download's 🏅 Score Card · Day ${n} has no row for the trainee`); continue; }
+        if (x.head.some(h => /Random/.test(h))) fail(`the 🏅 Score Card should have no Random tasks column: ${JSON.stringify(x.head)}`);
+        for (const col of Object.keys(WANT[n])) { const c = CSV.cellOf(x, SCC[col], nm); want('Score Card', n, col, c.err ? null : pctOf(c.v)); }
+        if (n === 1) { const c = CSV.cellOf(x, '🗂 CMS file', nm), v = c.err ? null : pctOf(c.v); if (v !== myCms) fail(`🗂 CMS file · Day 1: the trainee's My Scores shows ${myCms}, the trainer's Score Card ${v}`); }
+    }
+    const foot = await page.evaluate(() => (document.querySelector('.cmsh-screen #scx-scores .bs-foot') || {}).textContent || '');
+    if (!/What each column measures/.test(foot) || !/Action Plan = /.test(foot) || !/Backup Drive = /.test(foot) || !/Practical activities = /.test(foot) || /Takeaway/.test(foot) || /Random/.test(foot))
+        fail(`the note under 🏅 Scores should say what each column measures: ${foot}`);
+    await page.evaluate((id) => cmScorecard.only(id), id); await page.waitForTimeout(500);
+    const detail = await page.evaluate((d) => { const c = document.querySelector('.cmsh-screen #bs-fb-' + d); if (!c) return null;
+        return [...c.querySelectorAll('details.bs-fb-day')].map(day => [(day.querySelector('summary b') || {}).textContent || '', [...day.querySelectorAll('.bs-fb-it')].map(it => [(it.querySelector('.bs-fb-h span') || {}).textContent || '', (it.querySelector('.bs-fb-h b') || {}).textContent || ''])]); }, dom);
+    if (!detail) fail('the trainee\'s card has no 💬 Feedback on practical activities');
     else {
-        const ITEM = { tk: /^📝 Takeaway$/, sa: /^🧪 /, ap: /^📝 Action Plan/, bd: /^📂 Backup/ };
+        const ITEM = { sa: /^🧪 /, ap: /^📝 Action Plan/, bd: /^📂 Backup/ };
         for (const n of [1, 2]) { const its = (detail.find(([h]) => h === `Day ${n}`) || [])[1] || [];
-            if (its.some(([t]) => /Random task/.test(t))) fail(`the trainee's 🔎 card should list no random task: ${JSON.stringify(its)}`);
-            for (const col of Object.keys(WANT[n])) { const v = its.filter(([t]) => ITEM[col].test(t)).map(([, p]) => pctOf(p)).filter(x => x != null);
-                want('Batch Sheet 🔎 card', n, col, v.length ? Math.round(v.reduce((a, b) => a + b, 0) / v.length) : null); }
+            if (its.some(([t]) => /Random task/.test(t))) fail(`the trainee's feedback should list no random task: ${JSON.stringify(its)}`);
+            for (const col of Object.keys(WANT[n]).filter(k => ITEM[k])) { const v = its.filter(([t]) => ITEM[col].test(t)).map(([, p]) => pctOf(p)).filter(x => x != null);
+                want('the card\'s 💬 Feedback on practical activities', n, col, v.length ? Math.round(v.reduce((a, b) => a + b, 0) / v.length) : null); }
             if (n === 1 && its.filter(([t]) => /^🧪 /.test(t)).length !== 2) fail(`Day 1 has two Skill Activities, each counted once (an AI Grader grade and its work-log line are one): ${JSON.stringify(its)}`); }
     }
-    const scores = await page.evaluate((nm) => { const s = document.getElementById('bs-scores'); if (!s) return null; const hs = [...s.querySelectorAll('.gs-head th')].map(t => t.textContent.trim());
+    await page.evaluate(() => cmScorecard.only(''));
+    const scores = await page.evaluate((nm) => { const s = document.querySelector('.cmsh-screen #scx-scores'); if (!s) return null; const hs = [...s.querySelectorAll('.gs-head th')].map(t => t.textContent.trim());
         const tr = [...s.querySelectorAll('tbody tr')].find(r => { const c = r.querySelector('td'); return c && c.textContent.includes(nm); }); return { hs, cells: tr ? [...tr.querySelectorAll('td')].map(td => td.textContent.trim()) : null }; }, nm);
-    if (!scores || !scores.cells) fail('the Batch Sheet\'s 🏅 Scores has no row for the trainee');
+    if (!scores || !scores.cells) fail('🏅 Scores has no row for the trainee');
     else {
         if (scores.hs.some(h => /Random/.test(h))) fail(`🏅 Scores should have no Random Tasks column: ${JSON.stringify(scores.hs)}`);
-        for (const [h, v] of Object.entries(SYS)) { const i = scores.hs.indexOf(h); const got = i < 1 ? null : pctOf(scores.cells[i - 1]); if (got !== v) fail(`🏅 Scores · ${h}: ${got} (should be ${v})`); }
+        // (🧪 Practical activities: the Skill Activities and the case calls, none here, so the Skill Activities' 68%)
+        const COL = { '📝 Takeaways': '📝 Takeaways %', '🧪 Skill Activities': '🧪 Practical activities %', '📝 Action Plan': '📝 Action Plan %', '📂 Backup Drive': '📂 Backup Drive %' };
+        for (const [h, v] of Object.entries(SYS)) { const i = scores.hs.indexOf(COL[h]); const got = i < 1 ? null : pctOf(scores.cells[i - 1]); if (got !== v) fail(`🏅 Scores · ${COL[h]}: ${got} (should be ${v})`); }
     }
-    const recent = await page.evaluate(() => { const s = document.getElementById('bs-recent'); return s ? s.textContent : ''; });
-    if (!/Random task resolved/.test(recent)) fail('🕒 Recent progress should still list the random task');
+    const recent = (T.find(x => x.title === '🕒 Recent progress') || { rows: [] }).rows.map(r => r.join(' ')).join('\n');
+    if (!/Random task resolved/.test(recent)) fail('🕒 Recent progress (⬇ Download) should still list the random task');
 
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-    console.log(`Every score read where it is written, the same on ${new Set(seen.map(x => x[0])).size} surfaces: Day 1 takeaway 84%, Skill Activities 68%, Action Plan 50%, Backup Drive 90% (the nightly grade); Day 2 takeaway 66%, Backup Drive 76%; 🏅 Scores ${JSON.stringify(SYS)}; no Random tasks score anywhere.`);
+    console.log(`Every score read where it is written, the same on ${new Set(seen.map(x => x[0])).size} surfaces: no takeaway score; Day 1 Skill Activities 68%, Action Plan 50%, Backup Drive 90% (the nightly grade); Day 2 Backup Drive 76%; 🏅 Scores ${JSON.stringify(SYS)}; no Random tasks score anywhere.`);
     console.log('All good.');
 })().catch(e => { console.log('✗ ' + (e && e.stack || e)); process.exit(1); });
