@@ -17,6 +17,9 @@ CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { BLOCK[b.id] 
 let i = 0;
 CF.sequence.forEach(d => d.phases.forEach(ph => ph.blocks.forEach(id => { ORDER[id] = i++; DAY[id] = d.n; })));
 const ACTS = Object.keys(ORDER).filter(id => BLOCK[id].kind === "activity").sort((a, b) => ORDER[a] - ORDER[b]);
+// an activity cut from the course's order keeps its block (`retired`, so saved grades still resolve), and its event and
+// call stay in the JSON beside it; a fallout rule that runs through it has nothing to land on, so it is left out
+const RETIRED = id => !!(BLOCK[id] && BLOCK[id].kind === "activity" && BLOCK[id].retired && ORDER[id] == null);
 
 const errors = [], err = m => errors.push(m);
 const wc = s => String(s || "").trim().split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)).length;
@@ -33,6 +36,7 @@ const parts = ["days12.json", "days345.json"].map(f => {
 });
 const sim = {events: {}, calls: {}, fallout: [], timeline: []};
 parts.forEach(x => { Object.assign(sim.events, x.events || {}); Object.assign(sim.calls, x.calls || {}); sim.fallout.push(...(x.fallout || [])); sim.timeline.push(...(x.timeline || [])); });
+sim.fallout = sim.fallout.filter(f => !RETIRED(f.if && f.if.activity) && !RETIRED(f.then && f.then.activity));
 
 function event(at, e, max){
   if(!e || typeof e !== "object") return err(`${at}: missing`);
@@ -66,14 +70,14 @@ function event(at, e, max){
 }
 // every activity: an event, in date order with the activities before it on its track
 ACTS.forEach(id => event(`events.${id}`, sim.events[id], 60));
-Object.keys(sim.events).forEach(id => { if(!ACTS.includes(id)) err(`events.${id}: not a Skill Activity`); });
+Object.keys(sim.events).forEach(id => { if(!ACTS.includes(id) && !RETIRED(id)) err(`events.${id}: not a Skill Activity`); });
 // every Case Phase: at least one call
 CF.sequence.forEach(d => d.phases.forEach(ph => {
   if(!ph.blocks.some(id => sim.calls[id])) err(`calls: Case Flow Day ${d.n} "${ph.title}" has no call`);
 }));
 Object.entries(sim.calls).forEach(([id, c]) => {
   const at = `calls.${id}`;
-  if(!ACTS.includes(id)) err(`${at}: not a Skill Activity`);
+  if(!ACTS.includes(id) && !RETIRED(id)) err(`${at}: not a Skill Activity`);
   text(`${at}.who`, c.who, 8);
   if(!ROLES.includes(c.role)) err(`${at}.role: "${c.role}"`);
   text(`${at}.persona`, c.persona, 30); text(`${at}.context`, c.context, 90); text(`${at}.opening`, c.opening, 40); text(`${at}.line`, c.line, 20);

@@ -692,20 +692,17 @@ const EMAIL_NEED = {
   // Negotiating
   "d3m1-a1": "cm_adjuster_statement",         // serving the BI time-limit demand: the adjuster's demands back
   "d3m2-a1": "cm_adjuster_statement",         // MRI findings against the 14-day gap
-  "d5m2-a1": "cm_adjuster_statement",         // Keystone PD presses for a yes: the PD position stays with counsel
   "d3m3-a1": "cm_hospital_lien",              // statutory lien reduction: the hospital's $45,000 notice
   "d3m3-a2": "cm_lop_provider",               // provider balance negotiation
   "d2m2-a1": "cm_lop_provider",               // transmitting LOPs: the provider's balance question
   "d5m1-a1": "cm_extension",                  // pleadings and discovery: opposing counsel's extension
   // Communicating
-  "d1m2-a1": "all_web_inquiry",               // multi-channel outreach: a prospective client's inquiry
   "d1m3-a1": "cm_spouse",                     // onboarding directions: what a spouse may be told
   "d2m2-a2": "cm_client_bills_collections",   // A-C-T crisis protocol: the client whose bills keep coming
   "d2m3-a1": "cm_client_bills_collections",   // probing the treatment gap with the client
-  "d2m3-a2": "cm_records_dob",                // the gap justification record: a records request refused
   "d2m4-a2": "cm_attorney_status",            // the pre-demand strategy session: "where are we?"
-  "d3m2-a2": "cm_client_net",                 // closing the gross recovery: "where is my money"
-  "d3m4-a2": "all_wire_phish"                 // release and disbursement: fraudulent wire instructions
+  "d3m4-a1": "all_wire_phish"                 // the Net Sheet's disbursement gate (d3m4-a2, merged into it, had it): fraudulent wire instructions
+  // (the activities the owner cut as extra tasks left with their scenarios: outreach, the gap record's refused request, the gross recovery's "where is my money", Keystone PD)
 };
 /* The Training Portal's Packet Builder (simulators/demand-packet.html) assembles the packet these steps put together, as
    one PDF (cover letter, index, demand, PIP log, bills, records; or the binders' numbered tabs), and files it into the
@@ -729,7 +726,7 @@ Object.assign(NET_STAGE, {"d3m2-bins": "bi", "d3m2-umns": "um"});   // the settl
    discovery; Court E-Filing for every court date the litigation track sets and for the complaint,
    the First Amended Complaint and alternative service. */
 const WORKED_IN = {
-  "d2m2-a1": ["records"], "d2m2-a2": ["records"], "d2m2-a3": ["records"], "d2m3-a2": ["records"], "d2m4-a1": ["records"], "d3m3-a2": ["records"],
+  "d2m2-a1": ["records"], "d2m2-a2": ["records"], "d2m2-a3": ["records"], "d2m3-a2": ["records"], "d2m4-a1": ["records"], "d3m1-a1": ["records"], "d3m3-a2": ["records"],
   "d4m1-a2": ["efiling"], "d4m2-a2": ["efiling"], "d5m1-a1": ["efiling", "records"], "d5m1-a2": ["efiling"],
   "d5m3-a1": ["efiling"], "d5m4-a2": ["efiling"],
   "d2m2-l1": ["records"], "d2m2-l2": ["records"], "d2m4-l1": ["records"], "d4m1-l2": ["efiling"], "d4m2-l1": ["efiling"], "d5m1-l1": ["efiling"], "d5m1-l2": ["efiling"]};
@@ -2746,11 +2743,11 @@ function introFrame(d, icon, title, ribbon, body){
 function caseMap(d){
   const c = CF.case, days = MODULES.filter(x => x.cf).sort((a, b) => a.cf.n - b.cf.n);
   const stages = ((SLIDES["d1m1-role"] || {}).theory || {}).framework ? SLIDES["d1m1-role"].theory.framework.steps.map(x => x.label) : [];
-  const marks = {1: [`Loss ${c.dol}`, `SOL ${c.sol} docketed`, "Matter opened in the CMS"],
-    2: [`Care starts ${c.treatmentStart}`, `${c.gapDays}-day gap to explain`, "LORs to every carrier"],
-    3: ["Specials audited", "Demand served", `${money(c.total)} stack negotiated`],
-    4: ["Liens reduced", "Net Sheet to the cent", "Mediation & Arbitration"],
-    5: ["Impasse → suit", "Discovery & deposition", "Award, then close-out"]};
+  const marks = {1: [`Loss ${c.dol} · SOL ${c.sol} docketed`, "LORs to every carrier", `Care starts ${c.treatmentStart}`],
+    2: [`${c.gapDays}-day gap explained`, "Specials audited, demand served", "BI settled at limits"],
+    3: [`UM paid: ${money(c.total)} recovered`, "Liens reduced, Net Sheet to the cent", "Disbursed and closed"],
+    4: ["Impasse: the Track B fork", "Mediation & the binders", "UM arbitration"],
+    5: ["Suit filed", "Discovery & deposition", "Award, then close-out"]};
   const track = days.map(x => `<li class="cfx-cm-node${x.cf.n === d.cf.n ? " on" : ""}"><span class="cfx-cm-n">${x.cf.n}</span><b>${E(String(x.title).replace(/^Case Flow Day \d+ · /, ""))}</b><ul>${(marks[x.cf.n] || []).map(m => `<li>${E(m)}</li>`).join("")}</ul></li>`).join("");
   const band = stages.length ? `<div class="cfx-cm-band"><span class="cfx-cm-k">Your Work on Every File: ${stages.length} Stages</span><ol>${stages.map((x, i) => `<li><i>${i + 1}</i>${E(x)}</li>`).join("")}</ol></div>` : "";
   return introFrame(d, "🗺", "The Life of John Doe's File", `${c.style} · from the loss to the close`, `${band}<p class="cfx-cm-k2">John Doe's File: ${days.length} Case Phases, One Each Day</p><ol class="cfx-cm-track">${track}</ol>

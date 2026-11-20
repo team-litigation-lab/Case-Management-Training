@@ -16,7 +16,9 @@ const failures = []; const fail = (m) => failures.push(m);
   page.on('pageerror', e => fail(`page error: ${e.message}`));
   await page.goto(BASE, { waitUntil: 'load' }); await page.waitForTimeout(800);
   await signIn(page, 'Vm', 'Listen' + String(Date.now()).slice(-5).replace(/\d/g, d => 'abcdefghij'[d]), 'B100926');
-  const ids = await page.evaluate(() => Object.entries((window.CM_CF_SIM || {}).events || {}).filter(([, e]) => e && e.channel === 'voicemail' && e.spoken && e.listen && e.listen.length).map(([k]) => k));
+  // (an activity cut with the extra tasks keeps its event, out of the course's order: only the ones the course teaches)
+  const ids = await page.evaluate(() => { const taught = new Set(CM_CASE_FLOW.sequence.flatMap(s => s.phases.flatMap(p => p.blocks)));
+    return Object.entries((window.CM_CF_SIM || {}).events || {}).filter(([k, e]) => taught.has(k) && e && e.channel === 'voicemail' && e.spoken && e.listen && e.listen.length).map(([k]) => k); });
   if (!ids.length) fail('no voicemail activity found (CM_CF_SIM.events with channel "voicemail")');
   for (const id of ids) {
     const at = await page.evaluate((id) => { const d = DAYS.find(x => x.cf && x.lessons.some(l => l.cf && l.cf.block.id === id)); if (!d) return null;

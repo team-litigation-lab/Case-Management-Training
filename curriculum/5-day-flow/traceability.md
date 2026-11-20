@@ -355,7 +355,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: Dropped Cases — sending Withdrawal Letters to clients, carriers and medical providers; the sample letters by email, by text, to a carrier and to a provider
 - Newly authored: the Denise Harlow practice matter (no health insurance, treatment ended, Pending Drop)
 - LSH Claims Specialist: Dropped Cases — Withdrawal Letters and closing the file
-- Newly authored: the Denise Harlow practice matter
+- Newly authored: the close-out questions, answered from the six steps
 
 ## Newly authored
 

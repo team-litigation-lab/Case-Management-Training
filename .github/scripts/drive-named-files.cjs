@@ -181,22 +181,25 @@ async function endToEnd(M, fail) {
         const T = await trainee();
         const scan = make('scan0001.pdf', T.dir(LIT), docBytes('RS51'));                                                 // the Complaint, named nothing of the course's
         const a53 = [1, 2, 3].map((k) => make(CN('Litigation-Documents', `2026-11-0${k}`), T.dir(LIT), docBytes('RS53')));
+        const s52 = make('scan0002.pdf', T.dir(LIT), docBytes('RS52'));                                                 // the one Day 5 litigation paper that opens on Day 5 (#332 opened the rest on Day 4)
         const same = [1, 2, 3, 4, 5, 6, 7].map((k) => make(CN('Litigation-Documents', `2026-11-1${k}`), T.dir(LIT), 'one pleading, seven copies'));
         const g = await T.grade();
         const h = T.by();
         if ((h[scan] || {}).docId !== 'RS51' || h[scan].by !== 'content') fail(`(3) a file with the course's own Complaint's bytes should be the Complaint (RS51), by its content: ${JSON.stringify(h[scan])}`);
         if (a53.some((x) => (h[x] || {}).docId !== 'RS53' || h[x].by !== 'content')) fail(`(3) three copies of the Answer's bytes should each be the Answer (RS53): ${a53.map((x) => JSON.stringify(h[x]))}`);
         const one = [...new Set(same.map((x) => (h[x] || {}).docId + '/' + (h[x] || {}).by))];
-        if (one.length !== 1 || one[0] !== 'RS52/type') fail(`(3) seven copies of one file named the firm's way in 09 should be one document, read by its Type (RS52, the next of Day 5's packet): ${one}`);
-        if (!(g && g.grades && g.grades[5])) fail('(3) a document known by its content that opens on Day 5 (the Answer) is certain, and starts Day 5');
+        if (one.length !== 1 || !/\/type$/.test(one[0])) fail(`(3) seven copies of one file named the firm's way in 09 should be one document, read by its Type: ${one}`);
+        if ((h[s52] || {}).docId !== 'RS52' || h[s52].by !== 'content') fail(`(3) a file with RS52's bytes should be RS52, by its content: ${JSON.stringify(h[s52])}`);
+        if (!(g && g.grades && g.grades[5])) fail('(3) a document known by its content that opens on Day 5 (RS52) is certain, and starts Day 5');
         if (!same.every((x) => (h[x] || {}).other)) fail(`(3) the seven copies' bytes were set against the course's file and aren't it: \`other\`: ${same.map((x) => JSON.stringify(h[x]))}`);
         const lit = row(g, 5, 'Litigation file backed up');
         // (the seven copies are read as RS52, but their bytes were set against the course's file and aren't it: never credited)
-        if (!lit || lit.got !== Math.floor(16 * 2 / 7)) fail(`(3) the Complaint and the Answer are on the drive; a reading over other bytes earns nothing: ${JSON.stringify(lit && { got: lit.got, max: lit.max })}`);
-        if (!lit || !lit.notes.some((x) => /isn't the course's file of it/.test(x))) fail(`(3) the row should say the file read as the service papers isn't the course's file: ${JSON.stringify(lit && lit.notes)}`);
+        if (!lit || lit.got !== Math.floor(16 * 3 / 7)) fail(`(3) the Complaint, the Answer and RS52 are on the drive; a reading over other bytes earns nothing: ${JSON.stringify(lit && { got: lit.got, max: lit.max })}`);
+        const read = (h[same[0]] || {}).docId;   // what the seven copies were read as: said in the row only when that document is one of Day 5's
+        if (/^RS(51|52|53|55|59|69|70)$/.test(read || '') && (!lit || !lit.notes.some((x) => /isn't the course's file of it/.test(x)))) fail(`(3) the row should say the file read as ${read} isn't the course's file: ${JSON.stringify(lit && lit.notes)}`);
         const many = Array.from({ length: 15 }, (_, k) => make(CN('Litigation-Documents', `2026-11-${10 + k}`), T.dir(LIT), Buffer.from('junk ' + k)));   // a few bytes each: no document
         const g2 = await T.grade(), h2 = T.by();
-        if (many.some((x) => h2[x]) || (row(g2, 5, 'Litigation file backed up') || {}).got !== lit.got) fail(`(3) fifteen files of a few bytes named the firm's way should earn nothing: ${many.filter((x) => h2[x]).map((x) => h2[x].docId)}`);
+        if (many.some((x) => h2[x]) || (row(g2, 5, 'Litigation file backed up') || {}).got !== (lit || {}).got) fail(`(3) fifteen files of a few bytes named the firm's way should earn nothing: ${many.filter((x) => h2[x]).map((x) => h2[x].docId)}`);
     }
 
     /* 3b: renamed copies of one course file are that one file's document, whatever code each name carries; copies of one

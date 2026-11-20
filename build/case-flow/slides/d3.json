@@ -69,15 +69,15 @@
   },
   "d3m1-a1": {
     "image": "checklist-qa",
-    "situation": "File date 07/20/2026. MMI reached; Specials $42,984.00. Atty. Thorne approved **$10,000 limits**, a Limited Release of Smith and Keystone, Smith's affidavit, 30 days from receipt. The draft awaits **your final audit**.",
+    "situation": "File date 07/20/2026. The pre-demand audit (Specials, wages, gap record) is **yours to re-check**. Atty. Thorne approved $10,000 limits, a Limited Release, Smith's affidavit, 30 days from receipt. The draft awaits **you**.",
     "steps": [
-      "Download the case documents from 📁 Source Files, check the draft against the Big Four and the Final Scrub, and log each fix as a CMS task.",
-      "Build the packet by hand, in this order: cover letter, index, demand letter, PIP Log, then the **bills and records** by provider and date.",
+      "Download the case documents from 📁 Source Files, re-check the Specials and wages bill by bill and the Gap Record against the filed notes, then check the draft against the Big Four.",
+      "Build the packet by hand: demand letter, exhibit index, then Exhibits A–J, **liability first** (A–D), then records and bills, MRI, Causation Letter, wages, Gap Record, Dec Page.",
       "Combine them into one PDF, make it searchable (OCR), bookmark each section, and Bates-number every page once.",
       "Name it by the firm's convention, ending in _DRAFT, and file it in CMS → Doc Hub so it reaches folder 05 Insurance.",
-      "Once Atty. Thorne signs, email it to Dana Whitfield, and docket 08/21/2026 from her 07/22/2026 written acknowledgement."
+      "Once Atty. Thorne signs, email it to Dana Whitfield, log each fix as a CMS task, and docket the acceptance deadline from her **written acknowledgement**."
     ],
-    "deliver": "An audited, emailed demand with **written acknowledgement** and 08/21/2026 docketed",
+    "deliver": "An audited, emailed demand with **written acknowledgement** and its deadline docketed",
     "purpose": "Keystone's 30 days run from receipt: **without proof, no deadline** to hold",
     "principle": "The clock starts at **her written acknowledgement**, not sending",
     "grade": {
@@ -91,16 +91,16 @@
       "include": [
         "Cover letter: **$10,000 limits**, 30 days from receipt",
         "Liability: **RPD-26-018842**, Ruth Calloway, doorbell video",
-        "Itemized bills and records: **$41,400.00** Specials",
+        "Itemized bills and records: **the audited Specials**",
         "Gap proof: EMS report, onset note, **Causation Letter**",
-        "Wages **$1,584.00**: the Northgate HR letter",
+        "Wages: **the employer's verification** letter",
         "Narrative: mechanism, pain, **work and life impact**",
         "Limited Release terms and **Smith's affidavit** request"
       ],
       "steps": [
         "Download the case documents from 📁 Source Files into **your training Drive**",
         "Audit the draft against **the Big Four and Final Scrub**",
-        "Order it by hand: cover letter, index, demand, PIP Log, **bills, records**",
+        "Order it by hand: demand letter, index, then Exhibits A–J, **liability first**",
         "Combine into one PDF; **OCR, bookmark** and Bates-number every page",
         "Name it by the convention, ending **_DRAFT**; route to Atty. Thorne",
         "Once signed, upload the served set to **the CMS for the audit**"
@@ -108,9 +108,9 @@
     },
     "checks": [
       "**$10,000 BI limit**; terms match Atty. Thorne's approval exactly",
-      "Big Four complete; **Specials total $42,984.00**",
-      "Gap answered **on page one**; each deficiency an assigned task",
-      "Emailed and logged; **08/21/2026 docketed** from her acknowledgement",
+      "Specials audited **bill by bill**; each deficiency a task",
+      "Gap Record: **every reason beside its document**",
+      "Emailed and logged; deadline docketed **from her acknowledgement**",
       "Any extension request **routed to Atty. Thorne** same day"
     ],
     "dos": [
@@ -644,7 +644,8 @@
       "On the Net Sheet's Recovery Ledger, post each check **by stream** (Stream 1 the $10,000 BI, Stream 2 the $30,000 UM stack) with the 33⅓% fee.",
       "Split the costs and liens **25% and 75%** between the streams, the UM share as the remainder of each split.",
       "Log each lien's figures and payoff status in the Lien Tracker, and tie both tabs to the **BI/UM Master Financial Ledger** and the Trust Ledger.",
-      "Flag future ESIs to Atty. Thorne and route the Net Sheet to him for approval before John Doe signs."
+      "Flag future ESIs to Atty. Thorne and route the Net Sheet to him for approval before John Doe signs.",
+      "At the disbursement gate, confirm each condition against its document, then queue one line per Net Sheet line in the **Trust Ledger** for Atty. Thorne."
     ],
     "deliver": "A two-tab Net Sheet reaching **$20,359.92 both ways**",
     "purpose": "John Doe signs on this Net Sheet: **one wrong cent** misstates his net",
@@ -653,7 +654,8 @@
       "Pre-suit fee: **$13,333.33**",
       "Costs **$486.75**, charged once",
       "Net: **$5,089.98 + $15,269.94 = $20,359.92**",
-      "**Future ESIs flagged** to Atty. Thorne"
+      "**Future ESIs flagged** to Atty. Thorne",
+      "Every condition **proved before queuing**; ledger reaches $0.00"
     ],
     "dos": [
       "Compute the UM share **as the remainder** of each split"

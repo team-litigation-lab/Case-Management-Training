@@ -292,13 +292,13 @@
       ]
     },
     "d4m2-a2": {
-      "date": "04/05/2027",
+      "date": "04/26/2027",
       "time": "4:30 p.m.",
       "channel": "memo",
       "from": "Atty. Elijah Thorne",
       "to": "Case Manager",
       "subject": "UM arbitration invoked: rules matrix and your role",
-      "body": "Harbor Point and Cardinal State dispute damages, citing the gap. Harbor Point has invoked its UM arbitration clause and Cardinal State joins: one binding arbitration before Laura Whitcomb, Esq., hearing 06/22/2027. Build me the ADR rules matrix, mediation against arbitration, docket the exhibit and brief dates today, and map what you do at the hearing.",
+      "body": "Harbor Point and Cardinal State dispute damages, citing the gap. Harbor Point invoked arbitration 04/05; Cardinal State joined 04/12. Laura Whitcomb's Notice of Hearing came this morning: hearing 06/22/2027. Build me the ADR rules matrix, mediation against arbitration, docket the exhibit and brief dates from her notice today, and map what you do at the hearing.",
       "attachments": [
         "RS58",
         "RS59",
@@ -411,7 +411,7 @@
       "from": "Leah Moran <leah.moran@keystonemutual.example>",
       "to": "Case Manager, LSH Law Group",
       "subject": "KM-26-440871-PD / John Doe: final Property Damage position",
-      "body": "Keystone's position is final: $792.00 for Diminished Value under our valuation formula and $0 for Loss of Use. The attached release covers all claims arising from the 02/06/2026 accident; please have Mr. Doe sign and return it and I'll issue payment. I'll call this afternoon to see if he'll take it.",
+      "body": "Keystone's position is final: $792.00 for Diminished Value under our valuation formula and $0 for Loss of Use. The attached release covers all claims arising from the 02/06/2026 accident; please have Ms. Doe sign and return it and I'll issue payment. I'll call this afternoon to see if she'll take it.",
       "attachments": [
         "RS48"
       ]
@@ -423,7 +423,7 @@
       "from": "Atty. Elijah Thorne",
       "to": "Case Manager",
       "subject": "John Doe prep session 1 today: you open",
-      "body": "John's first prep session is at 1:00 p.m. You take the first segment: his new number, the 02/18 logistics, the test call, the three pillars and the room rules. I'll listen, then take the substance. Have my gap set ready to share on screen. He's nervous; calm him with the process, not predictions.",
+      "body": "John's first prep session is at 1:00 p.m. You take the first segment: his new number, the 02/18 logistics, the test call, what the day looks like, dress and the room rules. I'll listen, then take testimony and the substance. Have my gap set ready to share on screen. He's nervous; calm him with the process, not predictions.",
       "attachments": [
         "RS56",
         "RS11",
@@ -657,8 +657,8 @@
       "who": "Leah Moran",
       "role": "adjuster",
       "persona": "Cheerful, efficient PD adjuster closing files before year-end; calls the formula “company standard”; wants a yes and a signature today.",
-      "context": "12/10/2026. KM-26-440871-PD, Margaret Doe's 2019 Honda Civic LX, on her separate PD file; John Doe's BI suit (26-CV-04417) is in discovery. Keystone's final PD position: $792.00 Diminished Value and $0 Loss of Use. Her emailed release covers “all claims arising from the 02/06/2026 accident” and asks “Mr. Doe” to sign. She asks whether he'll take it and sign, and insists it is final.",
-      "opening": "Hi, Leah Moran with Keystone, Property Damage, following up my email. Seven ninety-two on the Diminished Value is final. Will Mr. Doe sign so I can get the check out before the holidays?",
+      "context": "12/10/2026. KM-26-440871-PD, Margaret Doe's 2019 Honda Civic LX, on her separate PD file; John Doe's BI suit (26-CV-04417) is in discovery. Keystone's final PD position: $792.00 Diminished Value and $0 Loss of Use. Her emailed release, for Margaret Doe to sign, covers “all claims arising from the 02/06/2026 accident”. She asks whether Ms. Doe will take it and sign, and insists it is final.",
+      "opening": "Hi, Leah Moran with Keystone, Property Damage, following up my email. Seven ninety-two on the Diminished Value is final. Will Ms. Doe sign so I can get the check out before the holidays?",
       "goals": [
         "Tell her the position is with Atty. Thorne; nothing accepted or rejected",
         "Make no counter and quote no figure",
@@ -676,7 +676,7 @@
       "goals": [
         "Confirm his new number, with Margaret as backup contact",
         "State the logistics exactly; set the 02/16/2027 test call",
-        "Explain the setting and the pause; drill neutral questions only",
+        "Explain the setting and room rules; leave testimony practice to Atty. Thorne",
         "Route each substantive question to Atty. Thorne in John's words"
       ],
       "line": "The CM never scripts testimony, answers substance or predicts the outcome; Atty. Thorne handles the substance."
@@ -820,12 +820,12 @@
         "check": 0
       },
       "then": {
-        "activity": "d4m4-a1",
+        "activity": "d4m3-a2",
         "event": {
           "channel": "alert",
           "from": "CMS",
           "subject": "Binder audit: Riverton Spine & Rehab still at $6,290.00",
-          "body": "Mediation Binder Section 4 still carries Riverton Spine & Rehab at $6,290.00, the 05/04/2026 duplicate included: medical $41,585.00 against the audited $41,400.00. The binder is due 03/11/2027, and Keystone already calls the ledger unverified."
+          "body": "The Mediation Binder delivered 03/11/2027 carried Riverton Spine & Rehab at $6,290.00 in Section 5, the 05/04/2026 duplicate included: medical $41,585.00 against the audited $41,400.00. The arbitration set is being built from that binder: Tab 4 must carry the audited figure before the 06/02/2027 exchange."
         }
       }
     },

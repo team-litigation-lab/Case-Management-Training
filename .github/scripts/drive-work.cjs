@@ -170,7 +170,7 @@ const words = (n) => Array.from({ length: n }, (_, i) => `The routed item ${i} c
   const binder = make('binder notes.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', folder('Ana', LIT), { body: docxOf(['Day 4 · Assembling the 6-Tab Arbitration Binder', 'Tab C-1 to C-6, Bates ranged, with the authentication log.', words(3)]) });
   const misfiled = make('my demand', DOC, folder('Ana', MED), { body: `Day 3 · Serving the $10,000 BI Time-Limit Demand Package\n` + words(5) });
   const vague = make('notes', DOC, folder('Ana', INS), { body: 'Some thoughts about the case for later.\n' + words(5) });
-  const sheet = make('specials', SHEET, folder('Ana', `${C}/04 Bills & Invoices`), { body: 'Day 2 · Calculating Total Specials & the Special Damages Audit\nprovider,billed,paid\nRiverton,6105.00,0\n' + words(4) });
+  const sheet = make('specials', SHEET, folder('Ana', `${C}/04 Bills & Invoices`), { body: 'Day 3 · Completing the Final Dual-Tab Net Sheet\nstream,gross,net\nBI,10000.00,4553.73\n' + words(4) });
   const photo = make('scene.jpg', 'image/jpeg', folder('Ana', `${C}/02 Police, Witness & Video`), { body: 'JPEGDATA' });
   const scan = make('scan.pdf', 'application/pdf', folder('Ana', LIT), { body: '%PDF-1.4\n1 0 obj\n<< /Length 4 >>\nstream\nq Q\nendstream\nendobj\n' });
   const long = make('Day 5 Trial Prep', DOC, folder('Ana', LIT), { body: 'Day 5 · Trial Prep Checklist Audit & KPI Update\n' + words(400) });
@@ -198,7 +198,7 @@ const words = (n) => Array.from({ length: n }, (_, i) => `The routed item ${i} c
   if (!r || r.by !== 'title' || r.auto == null) fail(`the memo headed "Day 3 · ${REL}" should be d3m2-rel, matched by its title, graded: ${JSON.stringify(r)}`);
   if (!item(v, 'd3m3-a1') || item(v, 'd3m3-a1').by !== 'title' && item(v, 'd3m3-a1').by !== 'keys') fail(`the PDF's text should be read and matched to the Peach State reduction request: ${JSON.stringify(v.work.items.map((x) => x.id))}`);
   if (!item(v, 'd4m3-a2')) fail('the .docx should be read and matched to the arbitration binder');
-  if (!item(v, 'd2m4-a1')) fail('the Sheet should be read (CSV) and matched to the Specials audit');
+  if (!item(v, 'd3m4-a1')) fail('the Sheet should be read (CSV) and matched to the Final Dual-Tab Net Sheet');
   const dem = item(v, 'd3m1-a1');
   if (!dem || !dem.wrongFolder || dem.home !== '05 Insurance, Demands & Negotiation') fail(`a demand saved in 03 Medical Records is graded and told where the firm keeps it: ${JSON.stringify(dem)}`);
   if (!r || r.nameOk !== true) fail(`a Google Doc named by the convention reads as named right: ${JSON.stringify(r && [r.nameOk, r.nameHint])}`);

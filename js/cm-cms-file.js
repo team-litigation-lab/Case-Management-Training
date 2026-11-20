@@ -61,7 +61,8 @@ function plan(){
     const screens = String(b.act.tool || "").match(/CMS → [^·;]*/g); if(!screens) return;
     const first = screens[0], area = AREAS.find(a => a.re && a.re.test(first)) || AREA.notes;
     const checks = (SL[b.id] && SL[b.id].checks) || (b.act.checkpoints || []).slice(0, 5);
-    day(taught[b.id] || d.n).acts.push({id: b.id, title: b.title, area: area.id, screen: first.replace(/^CMS → /, "").trim(), checks});
+    // an activity cut or merged out of the sequence is never taught: it stays in the plan only for work done on it before (old)
+    day(taught[b.id] || d.n).acts.push({id: b.id, title: b.title, area: area.id, screen: first.replace(/^CMS → /, "").trim(), checks, old: !taught[b.id] && !!(b.retired || b.mergedInto)});
   })));
   const inPacket = new Set(); Object.values(PK).forEach(ids => (ids || []).forEach(id => inPacket.add(id)));
   DOCS.forEach(x => { if(x.day && inPacket.has(x.id) && !x.amends && !x.unlock) day(x.day).docs.push({id: x.id, title: x.title, cms: x.cms}); });
@@ -96,7 +97,9 @@ function compute(c){
       }
     }
     pl.acts.forEach(a => { const w = worked(a.id), t = ticks[a.id] || [];
+      if(a.old && !w) return;   // a cut or merged activity nobody worked is not missing work
       a.checks.forEach((ck, j) => {
+        if(a.old && !t[j] && aiScore(a.id) == null) return;   // nor is an unticked item on one that was
         const base = {block: a.id, act: a.title, screen: a.screen, text: ck, revealed: !!rev[a.id]};
         if(w && !t.some(Boolean) && aiScore(a.id) != null) put(a.area, Object.assign(base, {pct: aiScore(a.id), fromAI: true, note: `Graded: ${aiScore(a.id)}/100`}));
         else if(w) put(a.area, Object.assign(base, {pct: t[j] ? 100 : 0, note: t[j] ? "Checked off on Check Your Work" : "Not checked off: the file doesn't hold it yet"}));
