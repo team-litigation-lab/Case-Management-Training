@@ -175,26 +175,21 @@ export async function driveFind(env, D, id, rec, opts) {
   rec.walk = listing.walk ? Object.assign({}, listing.walk) : undefined;
   if (listing.walk && listing.walk.reason === "budget") return listing;
   const docs = await courseDocs(env, D);
-  applyFound(rec, listing, docs, D, await filedNames(env, D, id));
+  applyFound(rec, listing, docs, D);
   return listing;
 }
-/* 📤 The names the trainee filed each course document under in the CMS (their "doc-filing" record, js/cm-doc-filing.js:
-   {<docId>: {filed, name}}), read loosely (case, and the ".pdf" a download adds again: "….pdf.pdf"). A file named the
-   firm's way (<Case ID>_<Last-First>_<Type>_<date>) carries no document code or title, so this is how one saved to the
-   drive under the name it was filed under is known: name → the documents filed under it. */
-export const looseFile = (s) => String(s == null ? "" : s).trim().toLowerCase().replace(/(\.[a-z0-9]{2,5})+$/, "");
-export async function filedNames(env, D, id) {
-  const out = {};
-  try {
-    const p = JSON.parse((await D.kvOf(env).get(`progress:${id}`)) || "null");
-    Object.entries((p && p.data && p.data["doc-filing"]) || {}).forEach(([docId, r]) => {
-      if (!r || !r.filed || !r.name) return;
-      const k = looseFile(r.name); (out[k] = out[k] || []).push(docId);
-    });
-  } catch (e) {}
-  return out;
+/* 📂 The Type a file's name gives it, when it is named the firm's way: <Case ID>_<Last-First>_<Type>_<YYYY-MM-DD>[_label],
+   one extension (or the ".pdf.pdf" a download adds again). "" for any other name. Read loosely (case and the hyphens),
+   so "medical-records" is "Medical-Records". This is the drive's own evidence: the Backup Drive is graded from the
+   linked folder alone, never from what the trainee filed in the CMS (a separate grader). */
+export const looseType = (s) => String(s == null ? "" : s).toLowerCase().replace(/[^a-z0-9]+/g, "");
+export function typeOfName(name) {
+  const base = String(name == null ? "" : name).trim().replace(/(\.[A-Za-z0-9]{2,5})+$/, "");
+  const parts = base.split("_");
+  if (parts.length < 4 || parts.length > 5 || !parts[0] || !parts[1] || !/^\d{4}-\d{2}-\d{2}$/.test(parts[3])) return "";
+  return looseType(parts[2]);
 }
-export function applyFound(rec, listing, docs, D, byName = {}) {
+export function applyFound(rec, listing, docs, D) {
   const standard = D.FOLDER_STANDARD, client = D.CLIENT_FOLDER, at = new Date().toISOString();
   const F = rec.builtAt ? null : findFolders(listing, rec.rootId, standard, client);
   if (F) {
@@ -212,22 +207,27 @@ export function applyFound(rec, listing, docs, D, byName = {}) {
   Object.values(rec.drills || {}).forEach((d) => { if (d && d.id) mine.add(d.id); });
   const homeOf = homeFinder(listing.folders || {}, rec);   // 📂 the firm's folder nearest above a file, at any depth
   const hand = [], claimed = new Set();
-  // a file named as the trainee filed a document in the CMS is that document; two filed under one name are told apart by
-  // the firm's folder each sits in (at any depth), then taken in turn (two files of that name: one each)
-  const byFiled = (f) => {
-    const ids = (byName[looseFile(f.name)] || []).filter((d) => docs[d] && !claimed.has(d));
-    if (!ids.length) return "";
-    const at = homeOf(f.parent);
-    const pick = ids.find((d) => (D.DRIVE_HOMES[docs[d].folder] || "") === at) || ids[0];
-    claimed.add(pick);
-    return pick;
-  };
-  Object.entries(listing.files || {}).sort(([a], [b]) => a.localeCompare(b)).forEach(([fid, f]) => {
-    if (mine.has(fid) || GOOGLE_NATIVE.test(String(f.mimeType || ""))) return;
-    const docId = docOfName(f.name, docs) || byFiled(f);
-    if (!docId) return;
+  const files = Object.entries(listing.files || {}).sort(([a], [b]) => a.localeCompare(b))
+    .filter(([fid, f]) => !mine.has(fid) && !GOOGLE_NATIVE.test(String(f.mimeType || "")));
+  const add = (fid, f, docId) => {
     const d = docs[docId], home = D.DRIVE_HOMES[d.folder] || "";
+    claimed.add(docId);
     hand.push({ docId, id: fid, name: clip(f.name, 200), path: homeOf(f.parent), home, at: f.created || at, type: D.fileType(CMS_LONG[d.cms] || d.cms) });
+  };
+  // 1. a document code (RS12) or its title in the name: that document, wherever it is (a wrong folder is then said)
+  const rest = [];
+  files.forEach(([fid, f]) => { const docId = docOfName(f.name, docs); if (docId) add(fid, f, docId); else rest.push([fid, f]); });
+  // 2. a name in the firm's convention (<Case ID>_<Last-First>_<Type>_<date>) carries no code or title: in the firm's folder
+  //    a document of that Type belongs in, at any depth, it is one of that folder's documents of that Type not yet
+  //    accounted for (the earliest graded day's first; one file, one document). In any other folder it isn't guessed at.
+  const dayOf = {}; Object.entries(D.DRIVE_DAY_DOCS || {}).forEach(([n, ids]) => ids.forEach((d) => { dayOf[d] = Number(n); }));
+  const order = Object.keys(docs).sort((a, b) => ((dayOf[a] || 99) - (dayOf[b] || 99)) || a.localeCompare(b));
+  const typeOf = (d) => looseType(D.fileType(CMS_LONG[docs[d].cms] || docs[d].cms));
+  rest.forEach(([fid, f]) => {
+    const t = typeOfName(f.name), where = homeOf(f.parent);
+    if (!t || !where) return;
+    const docId = order.find((d) => !claimed.has(d) && typeOf(d) === t && (D.DRIVE_HOMES[docs[d].folder] || "") === where);
+    if (docId) add(fid, f, docId);
   });
   rec.handFiled = hand.sort((a, b) => String(a.docId).localeCompare(String(b.docId)) || String(a.name).localeCompare(String(b.name))).slice(0, 200);
   // Day 1 from the drive, when the trainee never set the structure up on the platform
