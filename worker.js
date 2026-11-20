@@ -23,7 +23,7 @@
 import { DRIVE_WORK_ACTIONS, driveWorkApi, driveWorkNightly, workBrief, workView, withDayOverrides, withOverrides, OV_KEY } from "./worker-drive-work.js";
 import { driveFind, listedOf, setupOf } from "./worker-drive-found.js";
 import { accountMergeApi, kcRestoreApi } from "./worker-account-repair.js";   // 👥 two accounts of one trainee merged on the Worker (/api/account-merge); 🛠 one account's missing KC scores restored (/api/kc-restore)
-import { identity, uidKey, afterMerge, afterMergeProgress, keepMergeStored, orphanWrite, aliasKey, aliasAtSignIn, aliasPlan, aliasApply, kcExtras, scoredAttempt, trainerScoresOf } from "./worker-identity.js";   // 🪪 who a sign-in opens (the uid index, merged: redirects) and what keeps a trainee's records whole
+import { identity, uidKey, afterMerge, afterMergeProgress, keepMergeStored, orphanWrite, aliasKey, aliasAtSignIn, aliasPlan, aliasApply, kcExtras, scoredAttempt, trainerScoresAt, layTrainerScores } from "./worker-identity.js";   // 🪪 who a sign-in opens (the uid index, merged: redirects) and what keeps a trainee's records whole
 /* ---------- KV with the "cm:" namespace prefix ---------- */
 const KV_PREFIX = "cm:";
 /* ---------- what the trainer owns in a trainee's records ----------
@@ -52,7 +52,8 @@ const OWNED = {
         else if (v && v.trainerNote) days[d] = { note: v.trainerNote };
       });
       // 🏅 the trainer's 40% per Case Flow module (feedback:<id>.caseFlow): the record's t and Composite come only from here
-      return { days, caseFlow: (rec && rec.caseFlow && typeof rec.caseFlow === "object") ? rec.caseFlow : {} };
+      // (caseFlowAt: which trainer's save of it this is, stamped by the Worker: layTrainerScores)
+      return Object.assign({ days, caseFlow: (rec && rec.caseFlow && typeof rec.caseFlow === "object") ? rec.caseFlow : {} }, typeof (rec && rec.caseFlowAt) === "string" ? { caseFlowAt: rec.caseFlowAt } : {});
     },
     overlay: (rec, own) => {
       if (!rec.days || typeof rec.days !== "object") rec.days = {};
@@ -62,6 +63,7 @@ const OWNED = {
         else if (o.note && cur && typeof cur === "object") cur.trainerNote = o.note;
       });
       if (own.caseFlow && typeof own.caseFlow === "object") rec.caseFlow = own.caseFlow;   // (a copy saved before this was kept has none: left as it is)
+      if (typeof own.caseFlowAt === "string") rec.caseFlowAt = own.caseFlowAt; else delete rec.caseFlowAt;
     }
   },
   focus: {
@@ -111,13 +113,16 @@ function kvOf(env) {
     get: async (k) => {
       const t = ownedType(k);
       if (!t) return raw.get(KV_PREFIX + k);
-      const [base, owner] = await Promise.all([raw.get(KV_PREFIX + k), raw.get(KV_PREFIX + ownerKey(k))]);
-      if (base == null || owner == null) return base;
+      // (🏅 trainee:<id> also reads feedback-admin:<id>, the trainer's 40%: layTrainerScores)
+      const [base, owner, fbOwner] = await Promise.all([raw.get(KV_PREFIX + k), raw.get(KV_PREFIX + ownerKey(k)), t === "trainee" ? raw.get(KV_PREFIX + "feedback-admin:" + k.slice("trainee:".length)) : null]);
+      if (base == null || (owner == null && fbOwner == null)) return base;
       try {
-        const rec = JSON.parse(base), own = JSON.parse(owner);
-        if (!rec || typeof rec !== "object" || !own || typeof own !== "object") return base;
-        OWNED[t].overlay(rec, own);
-        return JSON.stringify(rec);
+        const rec = JSON.parse(base), own = owner == null ? null : JSON.parse(owner);
+        if (!rec || typeof rec !== "object") return base;
+        let laid = false;
+        if (own && typeof own === "object") { OWNED[t].overlay(rec, own); laid = true; }
+        if (fbOwner != null) { try { if (layTrainerScores(rec, JSON.parse(fbOwner))) laid = true; } catch (e) { /* a damaged copy: not laid */ } }
+        return laid ? JSON.stringify(rec) : base;
       } catch (e) { return base; }
     },
     put: (k, v, o) => raw.put(KV_PREFIX + k, v, o),
@@ -507,14 +512,21 @@ function keepKcAttempts(existing, merged, extras) {
 const { mergedInto, indexUid, uidOf, resolveTrainee, mergedAway, keepKcStored, keepProgressAttempts, dateFirstAttempts, officialCaseFlow } = identity({ kcHistory, kcAttempts, candidateIds, batchKey });
 // 👥 what worker-account-repair.js uses of the Worker (/api/account-merge)
 const accountMergeDeps = () => ({ kvOf, ownerPut, ownedType, ownerKey, candidateIds, canonicalBatch, resolveTrainee, mergedInto, uidKey, kcHistory, kcResetOpen, trainerWho, isTrainerReview, keepKcStored, keepProgressAttempts, aliasKey, aliasPlan, aliasApply });
-// 🏅 after a trainer's save of feedback:<id>: the record's Case Flow summary takes its 40% (t) and Composite (c) from it
-// now, not on the trainee's next save (the Portal's Trainee Monitoring reads trainee:<id>.caseFlow)
-async function trainerScoresToRecord(kv, id) {
-  let rec = null; try { rec = JSON.parse((await kv.get(`trainee:${id}`)) || "null"); } catch (e) { return; }
-  if (!rec || typeof rec !== "object" || !rec.caseFlow) return;
-  const before = JSON.stringify(rec.caseFlow);
-  officialCaseFlow(rec, rec, await trainerScoresOf(kv, id), await kcExtras(kv, [rec.dayProgress]));
-  if (JSON.stringify(rec.caseFlow) !== before) await kv.put(`trainee:${id}`, JSON.stringify(rec));
+// 🏅 A trainer's save of feedback:<id> is stamped (caseFlowAt) and never written back into trainee:<id>: every read of the
+// record lays it over the Case Flow modules (layTrainerScores), and the trainee's next save records it. A trainer's own
+// write of trainee:<id> names the save its t and c were read with (caseFlow.tFrom), so what the trainer wrote stands.
+function stampTrainerScores(value, at) {
+  let rec; try { rec = JSON.parse(value); } catch (e) { return value; }
+  if (!rec || typeof rec !== "object" || !rec.caseFlow || typeof rec.caseFlow !== "object") return value;
+  return JSON.stringify(Object.assign(rec, at ? { caseFlowAt: at } : {}));
+}
+async function trainerWroteCaseFlow(kv, id, value) {
+  let rec; try { rec = JSON.parse(value); } catch (e) { return value; }
+  if (!rec || typeof rec !== "object" || !rec.caseFlow || typeof rec.caseFlow !== "object") return value;
+  const own = await kv.get(`feedback-admin:${id}`);
+  let at = ""; try { const o = JSON.parse(own || "null"); at = o && typeof o.caseFlowAt === "string" ? o.caseFlowAt : ""; } catch (e) { /* none */ }
+  rec.caseFlow = Object.assign({}, rec.caseFlow, { tFrom: at });
+  return JSON.stringify(rec);
 }
 async function traineeWrite(env, tok, key, value) {
   const kv = kvOf(env);
@@ -542,7 +554,8 @@ async function traineeWrite(env, tok, key, value) {
     const fold = await afterMerge(kv, id, existing, merged, incoming);   // 👥 a device that hasn't restored a merge yet can't drop what it folded in
     // 🏅 caseFlow.days[n].kc / passed from the record's own dayProgress, never the device's; each module's {a, t, c} worked
     // out here, its trainer's 40% (t) from feedback:<id> only
-    officialCaseFlow(existing, merged, merged.caseFlow ? await trainerScoresOf(kv, id) : {}, extras);
+    const tr = merged.caseFlow ? await trainerScoresAt(kv, id) : { scores: {}, at: "" };
+    officialCaseFlow(existing, merged, tr.scores, extras, tr.at);
     merged.id = id;
     await kv.put(key, JSON.stringify(merged));
     const rej = kcRejected && kcRejected.length ? { kcRejected } : null;   // (js/cm-kc-rejected.js reopens those days' Knowledge Checks)
@@ -2371,8 +2384,9 @@ export default {
           // ✍️ a copy read earlier keeps the Knowledge Checks stored since (keepKcStored); replaceKc: true is a deliberate replacement
           if (/^trainee:[^:]+$/.test(key) && body.replaceKc !== true) body.value = await keepKcStored(kv, key, body.value);
           if (/^trainee:[^:]+$/.test(key)) body.value = await keepMergeStored(kv, key, body.value);   // 👥 a copy read before a merge keeps its mergedAt and what it joined
+          if (/^trainee:[^:]+$/.test(key)) body.value = await trainerWroteCaseFlow(kv, key.slice("trainee:".length), body.value);   // 🏅 its t and c stand
+          if (/^feedback:[^:]+$/.test(key)) body.value = stampTrainerScores(body.value, new Date().toISOString() + "~" + crypto.randomUUID().slice(0, 8));   // 🏅 the trainer's 40% reaches the Composite at once, laid over every read
           await ownerPut(kv, key, body.value);
-          if (/^feedback:[^:]+$/.test(key)) await trainerScoresToRecord(kv, key.slice("feedback:".length));   // 🏅 the trainer's 40% reaches the Composite at once
           return json({ ok: true });
         }
         const err = await traineeWrite(env, tok, key, body.value);

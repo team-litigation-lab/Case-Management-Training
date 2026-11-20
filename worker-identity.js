@@ -79,11 +79,44 @@ export async function kcExtras(kv, dayProgresses) {
   return out;
 }
 // the trainer's 40% of each module (feedback:<id>.caseFlow.<module>.score: a trainee's write to feedback:<id> never sets it)
-export async function trainerScoresOf(kv, id) {
-  const fb = parse(await kv.get(`feedback:${id}`));
+function trainerScoresIn(fb) {
   const out = {};
   Object.entries((fb && fb.caseFlow && typeof fb.caseFlow === "object") ? fb.caseFlow : {}).forEach(([m, t]) => { if (t && typeof t.score === "number" && Number.isFinite(t.score) && t.score >= 0 && t.score <= 100) out[m] = Math.round(t.score); });
   return out;
+}
+export async function trainerScoresOf(kv, id) { return (await trainerScoresAt(kv, id)).scores; }
+// …and which save of them it is (caseFlowAt: stamped by the Worker on every trainer's save of feedback:<id>, kept in
+// feedback-admin:<id>), as {scores, at}: a trainee's write records it as caseFlow.tFrom, the version its t and c came from
+export async function trainerScoresAt(kv, id) {
+  const fb = parse(await kv.get(`feedback:${id}`));
+  return { scores: trainerScoresIn(fb), at: fb && typeof fb.caseFlowAt === "string" ? fb.caseFlowAt : "" };
+}
+// 🏅 A trainer's save of feedback:<id> is not written back into trainee:<id> (a whole-record write from a copy that can be up
+// to 60 s stale would roll back the trainee's newer work). Every read of trainee:<id> lays the trainer's newer 40% over the
+// record's Case Flow modules instead (worker.js kvOf): own = feedback-admin:<id>. A record whose t and c were worked out from
+// this same save (caseFlow.tFrom === its caseFlowAt), or written by a trainer since, reads as it is. The record itself
+// takes them on the trainee's next save (officialCaseFlow), which is when the Portal's Trainee Monitoring, reading the
+// record straight from KV, shows them. true when laid.
+export function layTrainerScores(rec, own) {
+  const cf = rec && rec.caseFlow;
+  if (!own || typeof own !== "object" || typeof own.caseFlowAt !== "string" || !cf || typeof cf !== "object" || !cf.days || typeof cf.days !== "object") return false;
+  if (cf.tFrom === own.caseFlowAt) return false;
+  const scores = trainerScoresIn(own);
+  Object.values(cf.days).forEach((v) => {
+    if (!v || typeof v !== "object") return;
+    const mods = v.modules && typeof v.modules === "object" && !Array.isArray(v.modules) ? v.modules : {};
+    const k = v.id != null ? KC_KEY[String(v.id)] : null;
+    const ids = new Set(Object.keys(mods)); if (k) k.mod.forEach((m) => { if (m in scores) ids.add(m); });
+    if (!ids.size) return;
+    const out = {};
+    for (const m of ids) {
+      const x = mods[m] && typeof mods[m] === "object" ? mods[m] : { a: null }, a = typeof x.a === "number" ? x.a : null, t = m in scores ? scores[m] : null;
+      if (a == null && t == null && !(m in mods)) continue;
+      out[m] = Object.assign({}, x, { a, t, c: a != null && t != null ? Math.round(a * 0.6 + t * 0.4) : null });
+    }
+    v.modules = out;
+  });
+  return true;
 }
 // a first attempt (or a reset's retake) as the Worker records it: its picks, the Worker's score, the device's when it differs
 export function scoredAttempt(day, x, extras, date) {
@@ -307,11 +340,11 @@ export function identity(D) {
   // Portal read it) is the record's own: on a trainee's write it is set from merged.dayProgress (its official score and
   // pass, after keepKcAttempts), or, for a day with no attempt there, kept as the stored summary had it. The device's
   // copy (index.html scoreSummary, from its own state) never sets it.
-  function officialCaseFlow(existing, merged, trainer = {}, extras = {}) {
+  function officialCaseFlow(existing, merged, trainer = {}, extras = {}, trainerAt = "") {
     const cf = merged.caseFlow;
     if (!cf || typeof cf !== "object" || !cf.days || typeof cf.days !== "object") return;
     const dp = (merged.dayProgress && typeof merged.dayProgress === "object") ? merged.dayProgress : {};
-    const quiz = moduleQuiz(dp, extras);
+    const { quiz, unscored } = moduleQuiz(dp, extras);
     const exDays = (existing && existing.caseFlow && existing.caseFlow.days && typeof existing.caseFlow.days === "object") ? existing.caseFlow.days : {};
     const days = {};
     // (which day's dayProgress a Case Flow day reads is not the device's to choose: the stored summary's id for that day
@@ -326,24 +359,37 @@ export function identity(D) {
       const p = own != null ? dp[String(own)] : null, ex = exDays[k] && typeof exDays[k] === "object" && (exId(k) != null || own == null) ? exDays[k] : null;
       if (kcAttempts(p)) days[k] = Object.assign(w, { kc: typeof p.score === "number" ? p.score : kcHistory(p)[0].score, passed: !!p.done });
       else days[k] = Object.assign(w, { kc: ex && typeof ex.kc === "number" ? ex.kc : null, passed: !!(ex && ex.passed) });
-      if ("modules" in w || own != null) w.modules = moduleScores(w.modules, own, quiz, trainer);
+      // (a day whose official attempt has no picks the Worker can score, one taken before picks were kept or a score a
+      // trainer restored: its modules' a is the one the record held, else the device's, marked aUnverified, never dropped)
+      const prev = unscored.has(String(own)) ? storedA(ex && ex.modules, w.modules) : null;
+      if ("modules" in w || own != null) w.modules = moduleScores(w.modules, own, quiz, trainer, prev);
     }
-    merged.caseFlow = Object.assign({}, cf, { days });
+    merged.caseFlow = Object.assign({}, cf, { days, tFrom: typeof trainerAt === "string" ? trainerAt : "" });
+  }
+  // {<module>: a} from the stored summary's modules, else the device's
+  function storedA(stored, listed) {
+    const out = {}, num = (v) => (typeof v === "number" && Number.isFinite(v) && v >= 0 && v <= 100 ? Math.round(v) : null);
+    [listed, stored].forEach((L) => Object.entries(L && typeof L === "object" && !Array.isArray(L) ? L : {}).forEach(([m, x]) => { const a = num(x && typeof x === "object" ? x.a : null); if (a != null) out[m] = a; }));
+    return out;
   }
   // 🏅 each module's share of its day's official attempt (the attempt the day's score is: the first, or after a trainer's
   // reset the best; one taken before its picks were kept has none), as {<module>: pct}
+  // (the official attempt is the one its re-score gives p.score, else the one recorded at p.score: a 21-pick attempt whose
+  // extra question was unpublished since re-scores differently, but its modules' shares are of the day's own questions);
+  // {quiz, unscored: the days whose official attempt has no picks to score}
   function moduleQuiz(dp, extras) {
-    const out = {};
+    const out = {}, unscored = new Set();
     Object.entries(dp || {}).forEach(([d, p]) => {
       if (!KC_KEY[String(d)] || !kcAttempts(p)) return;
-      const tries = kcHistory(p).map((x) => (x && typeof x === "object" ? kcScore(d, x.answers, extras) : null)).filter(Boolean);
-      const s = tries.find((x) => x.score === p.score) || null;
-      if (s) Object.entries(s.mods).forEach(([m, v]) => { if (v.total) out[m] = Math.round((v.correct / v.total) * 100); });
+      const tries = kcHistory(p).map((x) => (x && typeof x === "object" ? { s: kcScore(d, x.answers, extras), at: x.score } : null)).filter((x) => x && x.s);
+      const t = tries.find((x) => x.s.score === p.score) || tries.find((x) => x.at === p.score) || null;
+      if (t) Object.entries(t.s.mods).forEach(([m, v]) => { if (v.total) out[m] = Math.round((v.correct / v.total) * 100); });
+      else unscored.add(String(d));
     });
-    return out;
+    return { quiz: out, unscored };
   }
   // {a, t, c, ai} for each module the device lists and each module the day's Knowledge Check asks about
-  function moduleScores(listed, day, quiz, trainer) {
+  function moduleScores(listed, day, quiz, trainer, prev = null) {
     const pct = (v) => (typeof v === "number" && Number.isFinite(v) && v >= 0 && v <= 100 ? Math.round(v) : null);
     const L = listed && typeof listed === "object" && !Array.isArray(listed) ? listed : {};
     const ids = new Set(Object.keys(L).filter((m) => /^[a-z0-9-]{1,40}$/i.test(m)));
@@ -352,10 +398,11 @@ export function identity(D) {
     const out = {};
     for (const m of ids) {
       const ai = pct(L[m] && typeof L[m] === "object" ? L[m].ai : null), q = m in quiz ? quiz[m] : null;
-      const auto = [q, ai].filter((v) => v != null), a = auto.length ? Math.round(auto.reduce((x, y) => x + y, 0) / auto.length) : null;
+      const auto = [q, ai].filter((v) => v != null), was = prev && q == null && m in prev ? prev[m] : null;
+      const a = was != null ? was : auto.length ? Math.round(auto.reduce((x, y) => x + y, 0) / auto.length) : null;
       const t = m in trainer ? trainer[m] : null;
       if (a == null && t == null) continue;
-      out[m] = Object.assign({ a, t, c: a != null && t != null ? Math.round(a * 0.6 + t * 0.4) : null }, ai != null ? { ai } : {});
+      out[m] = Object.assign({ a, t, c: a != null && t != null ? Math.round(a * 0.6 + t * 0.4) : null }, ai != null ? { ai } : {}, was != null ? { aUnverified: true } : {});
     }
     return out;
   }

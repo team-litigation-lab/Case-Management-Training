@@ -121,7 +121,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (54)
+## Node checks (56)
 
 | Check | What it covers |
 |---|---|
@@ -150,6 +150,7 @@ None.
 | `inventory.cjs` | The code inventory (docs/INVENTORY.md) is in step with the files: run node build/inventory.cjs after adding, removing or renaming one |
 | `john-doe-figures.cjs` | John Doe's money trail follows the Day 2 deck (PIP $10,000 gone in 48 hours on ER and EMS bills, $41,400 of bills, Dr. Sarah Spine's EMC) and adds up to the cent; no retired figure (PIP $5,000, Specials $16,401.40, …) comes back anywhere the course, its documents or its checks say it |
 | `kc-forge-guards.cjs` | 🛡 A Knowledge Check pass can't be forged or slipped past a trainer: a "done" with no score, a Case Flow summary naming another day's id, a trainer's stale copy after a merge, a restore or merge confirm whose device-only scores changed since the preview; and a merged-away id's orphan backups still reach the kept account |
+| `kc-legacy-modules.cjs` | 🏅 A module's Automated score (a) is never dropped for a day whose official Knowledge Check the Worker can't re-score (taken before picks were kept, a score a trainer restored, a 21-pick attempt whose extra question was unpublished since) |
 | `kc-on-slides.cjs` | Every Knowledge Check answer is taught on the slides (its key words are on the revised deck or the slide sources) |
 | `kc-once-worker.cjs` | The Worker holds the one-attempt Knowledge Check: a trainee's own write can't drop or replace an attempt on their record |
 | `kc-rejected-worker.cjs` | ⚠ A Knowledge Check attempt the Worker can't score (no picks, or too few) is never dropped without a word: the day is marked kcRejected on the record (no score, no pass) and the write answers {kcRejected: [day]}, so the page can reopen it; a scored retake clears the mark, and the trainee can't set the mark |
@@ -177,6 +178,7 @@ None.
 | `tool-links.cjs` | Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's) |
 | `trainee-alias.cjs` | 🔗 The Portal's simulator results and graded calls land on the record this course keeps: trainee-alias:<the Portal's id> leads there after a Batch ID or name change on the Portal (the ticket's u), a portal-batch move and a trainer's 👥 merge (chains re-pointed, the kept id's own alias removed, taken back if the merge stops), and goes with a redirect removed |
 | `trainee-identity.cjs` | A renamed or re-batched Portal ticket with the same uid opens the trainee's existing record (the uid index), and B250926 / B092526 (the same day, as batchShow shows it) resolve to one id |
+| `trainer-save-no-rollback.cjs` | 🏅 A trainer's save of the 40% (feedback:<id>.caseFlow) never writes trainee:<id> back from a copy a stale edge served, so the trainee's newer Knowledge Check and work survive; the 40% still reads on the record at once, and a trainer's own write of the record stands |
 | `trainer-score-stale.cjs` | 🏅 A trainer's 40% (feedback:<id>.caseFlow) survives a trainee's write to feedback:<id> made from a copy read before the trainer saved (KV reads can be up to 60 s stale), so the record's t and Composite stay the trainer's |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
