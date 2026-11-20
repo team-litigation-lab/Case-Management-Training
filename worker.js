@@ -394,7 +394,7 @@ const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|
 // {<alert key>: {at, by}}}. Admin-only on purpose, both ways: it is in neither OWN nor PUBLIC_READ, so a trainee can't
 // read it, and traineeWrite refuses it, so a trainee can't mark their own alert resolved.
 const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`, `actsub:${id}`];
-const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt", "portalUid", "kcReset", "mergedAt"];
+const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt", "portalUid", "kcReset", "mergedAt", "name", "firstName", "lastName", "batch", "fullName"];
 const IDENTITY_TRAINEE_FIELDS = ["name", "firstName", "lastName", "batch", "fullName"];
 const ADMIN_OWNED_TRAINEE_FIELDS = PROTECTED_TRAINEE_FIELDS.concat(IDENTITY_TRAINEE_FIELDS);
 
@@ -542,7 +542,8 @@ async function traineeWrite(env, tok, key, value) {
   if (key === `trainee:${id}`) {
     // Trainees keep their own record current, but can never change approval, attempts resets, etc.
     const merged = Object.assign({}, incoming);
-    PROTECTED_TRAINEE_FIELDS.forEach((f) => { if (existing && f in existing) merged[f] = existing[f]; else delete merged[f]; });
+    // (a brand-new record's first write still sets its own name and batch: IDENTITY_TRAINEE_FIELDS, kept from then on)
+    PROTECTED_TRAINEE_FIELDS.forEach((f) => { if (existing && f in existing) merged[f] = existing[f]; else if (existing || !IDENTITY_TRAINEE_FIELDS.includes(f)) delete merged[f]; });
     // Who the trainee is (their name and batch) is set once, at registration or by the Portal's sign-in; after that
     // only an admin changes it. A Training Tools ticket is signed from these fields, so a trainee who renamed
     // themselves could otherwise sign in elsewhere as someone else.

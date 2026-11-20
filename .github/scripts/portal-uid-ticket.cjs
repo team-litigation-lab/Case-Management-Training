@@ -48,5 +48,34 @@ const decode = (t) => JSON.parse(Buffer.from(String(t).split('.')[0].replace(/-/
         R.check(lt.status !== 200 || decode(lt.body.ticket).u === 'U-lia', `a linked record's ticket carries only its own u: ${JSON.stringify(lt)}`);
     }
 
+    // 2. who the trainee is: protected fields, set by a brand-new record's first write, then a trainer's only
+    {
+        const src = fs.readFileSync(path.join(__dirname, '../../worker.js'), 'utf8');
+        const line = (src.match(/^const PROTECTED_TRAINEE_FIELDS = (\[.*\]);$/m) || [])[1];
+        const prot = line ? JSON.parse(line) : [];
+        for (const f of ['name', 'firstName', 'lastName', 'batch', 'fullName', 'portalUid']) R.check(prot.includes(f), `PROTECTED_TRAINEE_FIELDS must hold ${f}: ${line}`);
+        const h = await harness();   // (no single sign-on: a trainee's session can start before their record exists)
+        const s = await h.api('/api/auth/trainee', { name: 'Rey Sol', batch: 'B100926' });
+        R.check(s.status === 200 && s.body.token && !s.body.existing, `a new trainee's session: ${JSON.stringify(s.body)}`);
+        const id = s.body.id;
+        await h.set('trainee:' + id, { id, name: 'Rey Sol', firstName: 'Rey', lastName: 'Sol', batch: 'B100926', fullName: 'Rey A. Sol', approved: true, portalUid: 'U-forged' }, s.body.token);
+        const first = h.raw('trainee:' + id) || {};
+        R.check(first.name === 'Rey Sol' && first.firstName === 'Rey' && first.lastName === 'Sol' && first.batch === 'B100926' && first.fullName === 'Rey A. Sol', `a brand-new record's first write sets its own name and batch: ${JSON.stringify(first)}`);
+        R.check(first.approved === false && !('portalUid' in first), `…but never approval or a Portal id: ${JSON.stringify(first)}`);
+        await h.set('trainee:' + id, Object.assign({}, first, { name: 'Vic Tim', firstName: 'Vic', lastName: 'Tim', batch: 'B010126', fullName: 'Vic Tim' }), s.body.token);
+        const kept = h.raw('trainee:' + id) || {};
+        R.check(kept.name === 'Rey Sol' && kept.firstName === 'Rey' && kept.lastName === 'Sol' && kept.batch === 'B100926' && kept.fullName === 'Rey A. Sol', `a trainee's later write can't change who they are: ${JSON.stringify(kept)}`);
+        const dropped = Object.assign({}, kept); ['name', 'firstName', 'lastName', 'batch', 'fullName'].forEach((f) => delete dropped[f]);
+        await h.set('trainee:' + id, dropped, s.body.token);
+        const still = h.raw('trainee:' + id) || {};
+        R.check(still.name === 'Rey Sol' && still.batch === 'B100926' && still.fullName === 'Rey A. Sol', `…or drop it: ${JSON.stringify(still)}`);
+        // a trainer's write still can
+        const w = await h.set('trainee:' + id, Object.assign({}, await h.get('trainee:' + id), { name: 'Rey Solis', lastName: 'Solis', fullName: 'Rey A. Solis' }));
+        const fixed = await h.get('trainee:' + id);
+        R.check(w.status === 200 && fixed.name === 'Rey Solis' && fixed.lastName === 'Solis' && fixed.fullName === 'Rey A. Solis', `a trainer's write still corrects the name: ${JSON.stringify(fixed)}`);
+        await h.set('trainee:' + id, Object.assign({}, fixed, { name: 'Rey Sol', lastName: 'Sol' }), s.body.token);
+        R.check((await h.get('trainee:' + id)).lastName === 'Solis', 'the trainer\'s correction stands against the trainee\'s next write');
+    }
+
     R.done('portal-uid-ticket: tool tickets carry u or are refused; identity and the uid index are never a trainee\'s to write');
 })().catch((e) => { console.error(e); process.exit(1); });
