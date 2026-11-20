@@ -3256,6 +3256,8 @@ function scheduleCloudSave(){
 async function cloudSaveNow(){
   clearTimeout(cloudSaveTimer); cloudSaveTimer = null;
   const id = state.traineeId; if(!id) return false;
+  // never saved over a copy this device couldn't read: not until a read succeeds (js/cm-restore-guard.js tries again)
+  if(state.cloudUnread === id){ setSaveStatus("unread"); return false; }
   const data = {};
   for(const k of PERSONAL_KEYS){ const v = await storeGet(k); if(v!==null && v!==undefined) data[k] = v; }
   // Skip the write entirely if nothing changed since the last save (saves KV write quota).
@@ -3270,7 +3272,9 @@ async function cloudSaveNow(){
 }
 async function cloudRestore(traineeId){
   let snap = null;
-  try{ snap = await sharedGet("progress:"+traineeId); }catch(e){ return false; }
+  // a read that failed is not "nothing saved" (sharedGet answers null for both): this device saves nothing until one succeeds
+  try{ snap = await sharedGetStrict("progress:"+traineeId); }catch(e){ state.cloudUnread = traineeId; setSaveStatus("unread"); return false; }
+  if(state.cloudUnread === traineeId) state.cloudUnread = "";
   if(!snap || !snap.data) return false;
   let localAt = ""; try{ localAt = localStorage.getItem("lsh_progress-saved-at") || ""; }catch(e){}
   const localOwner = await storeGet("trainee-id");
@@ -3297,6 +3301,7 @@ function setSaveStatus(s){
 }
 function saveStatusText(){
   if(!state.traineeId) return "Progress saves to your account once you sign in";
+  if(state.cloudUnread===state.traineeId) return "⚠ Couldn't load your saved work — not saving until it loads";
   if(state.saveStatus==="saving") return "☁ Saving…";
   if(state.saveStatus==="offline") return "⚠ Couldn't reach the server — saved on this device and will retry";
   const t = state.lastCloudSave ? new Date(state.lastCloudSave).toLocaleTimeString([], {hour:"numeric", minute:"2-digit"}) : "";
@@ -15824,6 +15829,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-one-slide.js"></script>
 <!-- ⭐ one Overall score on every page that shows one: the dashboard's My Score Card too (cmScorecard.overall) -->
 <script src="/js/cm-overall.js"></script>
+<!-- ☁ a saved copy that couldn't be read is never saved over: a notice with Try again, and the read retried until it loads -->
+<script src="/js/cm-restore-guard.js"></script>
 <!-- 🧳 logging out wipes the device only after a confirmed save; otherwise its work is backed up (orphan:<id>:<ms>) -->
 <script src="/js/cm-safe-logout.js"></script>
 <!-- 🎯 Your Task: the one Launch CMS & Google Drive button, and the Rules & Naming Guide in 📖 Reference -->
