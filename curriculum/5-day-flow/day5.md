@@ -44,26 +44,17 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 10. *Lesson* — The Process Server & the Evading Defendant (condensed)
 11. *Lesson* — Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund (condensed)
 12. *Lesson* — Dropped Cases: the Case Manager's Close-Out (condensed)
-13. *Skill Activity* — Taking the Litigation Fork (practises: Signs of Impasse & Filing Criteria) — *side*
-14. *Skill Activity* — Transition the File to Litigation Status (practises: From Pre-Lit to Litigation & ADR) — *side*
-15. *Skill Activity* — E-Filing the Complaint & Calendaring Service (practises: From Pre-Lit to Litigation & ADR) — *side*
-16. *Skill Activity* — Pleadings & Discovery Log Maintenance (practises: Litigation: Pleadings, Discovery & File Maintenance) — *side*
-17. *Skill Activity* — Trial Prep Checklist Audit & KPI Update (practises: Trial Preparation & Litigation KPIs) — *side*
-18. *Skill Activity* — Does It Touch Our Settlement? Keystone's Final PD Position (practises: Property Damage in Litigation) — *side*
-19. *Skill Activity* — Virtual Deposition Prep Roleplay (practises: Deposition Prep: Preparing the Client) — *side*
-20. *Skill Activity* — Mock Deposition Cross-Examination Handling (practises: Testifying: the Silent Traps, the Golden Rules & Objections) — *side*
-21. *Skill Activity* — Building the Comparative Liability Counter-Package (practises: Comparative Negligence & the Liability Counter-Package) — *side*
-22. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch (practises: The Process Server & the Evading Defendant) — *side*
-23. *Skill Activity* — The Litigation Net Sheet: Disbursing the Award (practises: Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund) — *side*
-24. *Skill Activity* — Backup File Maintenance: the Final Audit and the Close-Out (practises: Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention) — **Required: Backup File Maintenance**
-25. *Skill Activity* — Closing a Dropped Case: Withdrawal Letters & the Close-Out Log (practises: Dropped Cases: the Case Manager's Close-Out) — *side*
-26. *Knowledge Check* — Litigation Fork Transition Check
-27. *Knowledge Check* — Litigation Support Assessment
-28. *Knowledge Check* — PD Transition Check
-29. *Knowledge Check* — Deposition Readiness Audit
-30. *Knowledge Check* — Final Comprehensive Knowledge Check
-31. *Knowledge Check* — Track B Close-Out Check
-32. *Knowledge Check* — Dropped Case Close-Out Check
+13. *Skill Activity* — Pleadings & Discovery Log Maintenance (practises: Litigation: Pleadings, Discovery & File Maintenance) — *side*
+14. *Skill Activity* — Virtual Deposition Prep Roleplay (practises: Deposition Prep: Preparing the Client) — *side*
+15. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch (practises: The Process Server & the Evading Defendant) — *side*
+16. *Skill Activity* — Backup File Maintenance: the Final Audit and the Close-Out (practises: Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention) — **Required: Backup File Maintenance**
+17. *Knowledge Check* — Litigation Fork Transition Check
+18. *Knowledge Check* — Litigation Support Assessment
+19. *Knowledge Check* — PD Transition Check
+20. *Knowledge Check* — Deposition Readiness Audit
+21. *Knowledge Check* — Final Comprehensive Knowledge Check
+22. *Knowledge Check* — Track B Close-Out Check
+23. *Knowledge Check* — Dropped Case Close-Out Check
 
 **End-of-day discussion (trainer):** It is 01/05/2027. Opposing counsel's paralegal says your client's discovery responses are late, John Doe has changed his phone number, and the deposition is set for 02/18/2027. What do you do today, in what order, and what is Atty. Thorne's call, not yours?
 
@@ -71,7 +62,7 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 
 ## Module 5 — Litigation & Property Damage
 
-**Order:** Lessons (12) ➔ Case Profile ➔ Skill Building (the Full Application Practice) ➔ Backup File Maintenance (required) ➔ Update Your Action Plan ➔ Practice Lab (12 optional side exercises) ➔ Knowledge Check (7 Learning Checks)
+**Order:** Lessons (12) ➔ Case Profile ➔ Skill Building (the Full Application Practice) ➔ Backup File Maintenance (required) ➔ Update Your Action Plan ➔ Practice Lab (3 optional side exercises) ➔ Knowledge Check (7 Learning Checks)
 
 ### 5.1.1 Litigation: Pleadings, Discovery & File Maintenance
 
@@ -465,7 +456,7 @@ A two-column sorting board. Left, navy, headed REACHES JOHN DOE'S SETTLEMENT: th
 *Why:* John Doe's suit is in discovery, and Margaret Doe's Civic claim is still open on the separate PD-only file the firm opened for her: Keystone offers $792.00 for Diminished Value and $0 for Loss of Use. None of that is John Doe's claim. Three PD outcomes can still reach his settlement: a release worded too widely, the severity evidence the PD file produced, and the transportation dates behind his gap. The Case Manager's job is to tell which is which, and route.
 
 1. Our case is John Doe's BI claim in suit (No. 26-CV-04417). No Property Damage is pleaded: he owns no vehicle, and the Civic's Loss of Use and Diminished Value are Margaret Doe's own claim, on her separate PD file.
-2. A PD-only release must never release the BI claim. Keystone's 12/10/2026 release reaches “all claims arising from the 02/06/2026 accident” and asks “Mr. Doe” to sign: hold it, route its language to Atty. Thorne the same day, and John Doe signs nothing.
+2. A PD release must be limited to Property Damage. Keystone's 12/10/2026 release, for Margaret Doe to sign, reaches “all claims arising from the 02/06/2026 accident”, not only the Civic: hold it, route its language to Atty. Thorne the same day. John Doe has no PD claim and signs nothing.
 3. Check the claim number on every PD paper: the PD claim is KM-26-440871-PD; John Doe's BI claim is KM-26-440871. A PD document that names the BI claim, or John Doe, goes to Atty. Thorne before anyone signs.
 4. The PD file's evidence already works for John Doe: the photos, the 02/16/2026 estimate and the $2,315.00 A-pillar supplement (03/02/2026) are in his severity set as proof of impact force. Keep them identical on both files.
 5. The PD dates touch his gap: no car until the 02/18/2026 rental, and the 03/19/2026 cutoff. His gap record and Margaret Doe's PD record must match, date for date.
@@ -480,7 +471,7 @@ A two-column sorting board. Left, navy, headed REACHES JOHN DOE'S SETTLEMENT: th
 
 | PD outcome | Reaches John Doe's settlement? | Where it goes |
 |---|---|---|
-| The “all claims” release | Yes, if signed: it could reach the BI claim | Hold; route to Atty. Thorne |
+| The “all claims” release | Possibly: it is not limited to the Civic, on the same accident | Hold; route to Atty. Thorne |
 | Photos, estimate, $2,315.00 supplement | Yes: already his severity evidence | His severity set, kept identical |
 | Rental dates 02/18 and 03/19/2026 | Yes: his transportation and gap record | Match both files |
 | Loss of Use, $2,016.00 vs $0 | No: Margaret Doe's PD claim | Her PD file |
@@ -537,7 +528,7 @@ A two-lane calendar runs left to right across the slide in six date columns, AUD
 2. Audit John's signed interrogatory answers and public social media; route any inconsistency with the records to Atty. Thorne the same day. He decides whether an answer is corrected or supplemented; John testifies to the truth, never to match a document. Never tell John to delete or hide a post.
 3. Injury narrative alignment: John's truthful account matches his records because he has reviewed them with Atty. Thorne, never because he learned a script. Atty. Thorne chooses the review set: a document used to refresh memory may have to be produced (confirm the governing rule).
 4. Pillar 1, de-escalate: no judge, no jury, no shouting: questions and answers on a video call, under oath, before a court reporter. Calm him with the process, never a prediction.
-5. Pillar 2, the essential guidelines: pause two seconds; tell the truth about prior treatment (that question tests honesty); stop talking once the question is answered. Drill them on neutral questions only.
+5. Pillar 2, the essential guidelines: pause two seconds; tell the truth about prior treatment (that question tests honesty); stop talking once the question is answered. These testimony habits are Atty. Thorne's to practise with John; the Case Manager names them as his and never drills or coaches them.
 6. Pillar 3, dress and demeanor: business casual, as for a job interview; nothing flashy, no hats or slogans; polite; limitations told plainly, never minimized or exaggerated.
 7. Set-up: a computer, not a hand-held phone; camera at eye level, light in front, a quiet private room. Test it with John on 02/16/2027, on that device in that room.
 8. While he testifies: no one else in the room except Atty. Thorne if he attends in person (anyone present is identified on the record), not Margaret; no notes, phone away, no messages to anyone, you included. Exhibits come by screen-share; he may ask to see the whole page.
@@ -578,7 +569,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 |---|---|---|---|
 | 🤖 AI | **20%** | Audit completeness | Gap, disruption, 2021 visits, seatbelt, MRI, written discovery and social media all listed, each with its source record |
 | 🤖 AI | **20%** | Calendar accuracy | 02/04, 02/16, 02/17 and 02/18/2027 at 10:00 a.m.; videoconference; Riverton Court Reporting; John's new number and Margaret's as backup |
-| 🤖 AI | **20%** | Pillars and set-up | All three pillars, the virtual set-up and every in-room rule stated |
+| 🤖 AI | **20%** | Pillars and set-up | Pillar 1, Pillar 3, the virtual set-up and every in-room rule stated; Pillar 2 named as Atty. Thorne's |
 | 🧑‍🏫 Trainer | **20%** | UPL boundary | No wording offered on any substantive area; every such question routed to Atty. Thorne |
 | 🧑‍🏫 Trainer | **20%** | Client care | Calms through the process, not predictions; raises dress and demeanor without giving offence |
 
@@ -955,222 +946,7 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 ---
 
-### 5.1.13 Taking the Litigation Fork
-
-> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Litigation Fork Transition Check (`d4m1`)  
-> **Topic:** Skill Activity 1 — the impasse memo: Keystone's stonewall on the 14-Day Gap  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D2#29` Settlement Negotiations: The “Never” Rule · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · LSH Claims Specialist: liability decisions — the escalation protocol: supervisor, dated contact, file flagged for legal review · Newly authored: the impasse memo that frames a decision without recommending one
-
-#### 1 · Visual Layout Description
-
-A single memo page on white letterhead, a navy header band reading IMPASSE MEMO · TO ATTY. ELIJAH THORNE · 09/08/2026. Four orange-numbered sections run down the page: ① CHRONOLOGY, a dated ledger from 07/20 to 09/04 with a proof chip (receipt, email, log) at the right of each row ② KEYSTONE'S GROUNDS AND OUR REBUTTAL ③ THE FROZEN STACK, three rows with the two UM rows hatched gray behind a padlock ④ DECISION REQUESTED, a cream box holding questions, not answers. In the right margin, a red-bordered guard rail lists what the memo never contains: a recommendation to sue, a value, an excess-exposure opinion.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** File date 09/08/2026, Track B. Keystone Mutual (Dana Whitfield, KM-26-440871) offered $3,500 on 08/05, citing the 14-Day Gap and a “degenerative” MRI. The 08/06 rebuttal changed nothing: on 08/12 Keystone called $3,500 “final”. The 07/20 Time-Limited Demand (acknowledged in writing 07/22) lapsed on 08/21. Follow-ups on 08/24 and 08/31 asked for a response and the evidence Keystone relies on; neither was answered. The 48-Hour Mandate escalation to Keystone's claims supervisor on 09/02 drew nothing by 09/04. Harbor Point and Cardinal State are waiting on BI. The 08/06 rebuttal sent Dr. Helen Park's MRI read (“no significant degenerative change at the adjacent levels”), Dr. Reyes's 06/19/2026 Causation Letter, the EMS report and the Gap Explanation Record. Documented specials: $41,400.00 medical + $1,584.00 lost wages. SOL 02/06/2028 (a Sunday); firm internal hard date 02/04/2028; internal filing cutoff 11/05/2027.
-
-**Execution prompt.** Draft the impasse memo to Atty. Elijah Thorne. Build a dated chronology of every event from the 07/20/2026 demand to 09/04, each tied to its proof in Case Notes. State Keystone's grounds and the rebuttal evidence it has not answered. Show the frozen stack layer by layer with the documented Specials, then the SOL and internal dates. End with the decision you need from him, framed as questions. Graded judgment: the memo documents and asks; it recommends nothing legal, because filing is his decision.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Doc Hub → Case Files · CMS → Notes → Case Notes · CMS → Tasks → + Add Task |
-| **Expected output** | A dated, sourced impasse memo routed to Atty. Thorne, asking for a decision and recommending none. |
-
-**Verification checkpoints**
-
-- [ ] Chronology complete and in order: 07/20 demand (acknowledged in writing 07/22), 08/05 offer $3,500, 08/06 rebuttal, 08/12 “final”, 08/21 lapse, 08/24 and 08/31 follow-ups, 09/02 escalation, 09/04 no response
-- [ ] Every event tied to its proof: the adjuster's written acknowledgement, sent email or Case Notes entry
-- [ ] Keystone's grounds stated as Keystone gave them: the 14-Day Gap and a “degenerative” MRI
-- [ ] Unanswered rebuttal listed: Dr. Helen Park's “no significant degenerative change at the adjacent levels”, Dr. Reyes's 06/19/2026 Causation Letter, the EMS report, the Gap Explanation Record
-- [ ] Frozen stack shown: $10,000 BI unexhausted → $20,000 Host UM and $10,000 Relative UM closed; $40,000 total, $30,000 of it unreachable
-- [ ] Specials stated as documented facts: $41,400.00 medical + $1,584.00 lost wages = $42,984.00
-- [ ] Clock: SOL 02/06/2028 (a Sunday), internal hard date 02/04/2028, internal filing cutoff 11/05/2027 (423 days from 09/08/2026)
-- [ ] Decision requested as questions for Atty. Thorne (does he authorize suit; what notice Harbor Point and Cardinal State need; what John Doe is told, and by whom); no sentence recommends suit, values the claim or assesses Robert Smith's exposure above his limits
-- [ ] No new number sent to Keystone (never bid against yourself), and nothing said to John Doe about the $3,500
-- [ ] Escalation task opened to Atty. Thorne on Fri 09/04/2026; memo routed Tue 09/08/2026, the first business day after Labor Day (09/07), with a requested response date
-
-**Best practices & pitfalls**
-
-- Lead every note to Atty. Thorne with the decision or action he must take and its deadline, then the facts (Decision First).
-- Write the memo so Atty. Thorne can decide from it in five minutes, without opening another document.
-- Quote Keystone's grounds as Keystone stated them; don't re-argue them in the memo. The rebuttal already did.
-- The 48-Hour Mandate: when the escalation window closes unanswered, escalate to Atty. Thorne with the record you have. Don't wait for a perfect one.
-- ⚠️ Pitfall: waiting on Keystone for another follow-up cycle instead of escalating to counsel.
-- ⚠️ Pitfall: a memo that ends “we should file suit.”
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Chronology accuracy | All nine events, correct and in order, 07/20/2026 to 09/04/2026 |
-| 🤖 AI | **15%** | Proof | Each event tied to a receipt, email or log entry |
-| 🤖 AI | **15%** | Stack and Specials | $10,000 / $20,000 / $10,000 = $40,000; $30,000 frozen; Specials $42,984.00 |
-| 🤖 AI | **10%** | Clock and routing | SOL and internal dates correct; memo routed 09/08/2026 |
-| 🧑‍🏫 Trainer | **20%** | Decision readiness | Counsel could decide from the memo without a follow-up question |
-| 🧑‍🏫 Trainer | **20%** | UPL boundary | No recommendation, valuation or excess-exposure opinion; nothing sent to Keystone or said to John Doe |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Have trainees build the chronology before they write a sentence of the memo. The dates are the memo.
-- Ask: “What is the one thing this memo must not contain?” The answer is a recommendation. It asks for a decision; it doesn't make one.
-- Grade the proof column hard. An attempt with no receipt, email or log entry behind it is an assertion, not a record.
-- Common error: “$10,000 available, UM pending.” The memo must show all $40,000 and why $30,000 of it is closed.
-
----
-
-### 5.1.14 Transition the File to Litigation Status
-
-> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Litigation Fork Transition Check (`d4m1`)  
-> **Topic:** Skill Activity 2 — re-architect John Doe's file in the CMS  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D5#31` Litigation File Architecture · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · `D4#3` Introducing the Neutral: Assignment & Selection Workflows · LSH Claims Specialist: Letter for Preservation of Evidence
-
-#### 1 · Visual Layout Description
-
-A full-slide CMS screen, white with a navy header showing LSH-2026-MVA-770412 and a status pill switching from PRE-LIT (gray) to LITIGATION (orange). Down the left, a seven-item transition checklist, each with an orange numbered badge and an empty tick box: STATUS · COURT FIELDS · FEE TIER · FOLDERS · UM NOTICES · PRESERVATION · CALENDAR. UM NOTICES carries a lock icon labeled ATTY. THORNE APPROVES. To the right, the court-fields card shows STATE COURT OF RIVERTON COUNTY filled and CIVIL ACTION NO. as a dashed PENDING pill. A red callout, bottom right: “A notice is not a demand — no UM figure.”
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** File date 09/10/2026, Track B. On 09/09 Atty. Thorne authorized suit against Robert Smith in the State Court of Riverton County, set a filing target of 09/24/2026, and discussed the fee tier with John Doe (33⅓% pre-suit, 40% once suit is filed, per the retainer). He directs notice of the impasse and the intended suit to Harbor Point (Marcus Bell, HP-26-7741) and Cardinal State (Teresa Okafor, CS-26-20355). Harbor Point's UM policy has an arbitration clause. The doorbell video copy was secured 02/19/2026; the 2020 Ford Escape is Kevin Alvarez's. SOL 02/06/2028; internal dates 02/04/2028 and 11/05/2027.
-
-**Execution prompt.** Transition John Doe's file to Litigation in the CMS. Set the status on the 09/09 authorization; open the court fields without guessing a case number; record the fee tier exactly as the retainer sets it; build the five litigation folders to the firm standard; draft both UM notices and the preservation requests (doorbell video, the Escape's event data recorder) for his approval; open the ADR fields; seed the Litigation Calendar with 48-hour audits. Graded judgment: what the UM notices may and may not say.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Profile → Case Narrative · CMS → Litigation · CMS → Doc Hub → Others · CMS → Calendar |
-| **Expected output** | A file in Litigation status with every field, folder, notice, preservation step and calendar date set on Atty. Thorne's authority. |
-
-**Verification checkpoints**
-
-- [ ] Status → Litigation dated 09/10/2026, citing Atty. Thorne's 09/09/2026 authorization
-- [ ] Court: State Court of Riverton County; civil action number “Pending — assigned on filing”, not guessed
-- [ ] Fee tier: 33⅓% until filing, 40% from the filing date, per the retainer; Atty. Thorne's 09/09 discussion with John Doe noted; no fee explanation by the Case Manager
-- [ ] Directory DOE, JOHN - CASE FILE with 01_PLEADINGS, 02_SERVICE_DOCS, 03_DISCOVERY_PLAINTIFF_TO_DEFENDANT, 04_DISCOVERY_DEFENDANT_TO_PLAINTIFF, 05_SUBPOENAS, named exactly
-- [ ] Harbor Point and Cardinal State notices state the impasse and the intended suit, each carry its own claim number (HP-26-7741, CS-26-20355), contain no UM demand or figure, and are routed for approval before sending
-- [ ] Notices sent as Atty. Thorne directs, with delivery proof logged
-- [ ] Doorbell video: the 02/19/2026 copy located, kept unaltered, its chain of custody logged; a written request, as Atty. Thorne directs, that Margaret Doe keep whatever she still holds on the camera or its account
-- [ ] Event data recorder: preservation request to Kevin Alvarez and Harbor Point drafted for Atty. Thorne's signature; the download flagged for him to arrange
-- [ ] ADR fields: mediator “not yet assigned”; Harbor Point's arbitration clause flagged for Atty. Thorne, not interpreted
-- [ ] UM deadlines flagged for Atty. Thorne as questions: each policy's suit or arbitration-demand limitation for Harbor Point and Cardinal State, and whether either carrier must be served with or notified of the Complaint once filed (confirm the policy and the governing rule); each date docketed only from his written answer
-- [ ] Calendar: filing target 09/24/2026 (Thu) with a 48-hour audit on 09/22/2026 (Tue: 09/24 less two days); SOL 02/06/2028, internal hard date 02/04/2028, internal filing cutoff 11/05/2027
-
-**Best practices & pitfalls**
-
-- Say the authority aloud with each change: who approved it, and when.
-- A notice to a UM carrier is not a demand; keep figures out of it.
-- UM arbitrators are often dictated by the policy. Flag Harbor Point's clause now, so a panel list or strike deadline never arrives unexpected.
-- ⚠️ Pitfall: recording the 40% tier from the status date instead of the filing date.
-- ⚠️ Pitfall: leaving preservation for later because a copy was secured in February.
-- ⚠️ Pitfall: calling Keystone or Robert Smith to announce the suit.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **15%** | Status and fields | Litigation dated 09/10/2026 on the 09/09 authorization; court set; number “Pending” |
-| 🤖 AI | **10%** | Fee tier | 40% effective on filing, per the retainer; 33⅓% until then |
-| 🤖 AI | **10%** | Folders | Master directory and all five sub-folders, exact names |
-| 🤖 AI | **15%** | Notices and preservation | Both UM notices drafted and routed; doorbell video and event data recorder steps opened |
-| 🤖 AI | **10%** | Calendar | Filing target, 48-hour audit, SOL, internal hard date and cutoff all correct |
-| 🧑‍🏫 Trainer | **20%** | Notice judgment | Notices give the impasse and the intended suit without a UM demand or figure |
-| 🧑‍🏫 Trainer | **20%** | UPL boundary | Every external item routed for Atty. Thorne's approval; the fee and the suit left to him to explain |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Run it as a live CMS session. Have trainees call out each change with the authority behind it: “Status, on Atty. Thorne's 09/09 authorization.”
-- Ask: “Marcus Bell calls after reading your notice and asks what you're demanding. What do you say?” Nothing about a figure: the notice is not a demand, and the call goes to Atty. Thorne.
-- Watch the fee line: 40% from the filing date, not 09/10, and the Case Manager records Atty. Thorne's discussion with John Doe; it doesn't repeat or explain it.
-- Preservation is the step most trainees skip because the video was secured in February. Ask what Margaret Doe still holds today, and who holds the Escape's event data recorder.
-
----
-
-### 5.1.15 E-Filing the Complaint & Calendaring Service
-
-> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Litigation Fork Transition Check (`d4m1`)  
-> **Topic:** Skill Activity — from approved Complaint to accepted filing and a calendar that runs from it  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D5#3` Phase 1: The Pleadings & Service Stage · `D5#22` Critical Litigation Processes: Service of Process & E-Filing/Docketing · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#31` Litigation File Architecture · Newly authored: the filing set tasked to the Litigation Desk, signed by counsel, e-filed and calendared from the accepted filing (09/22–09/24/2026)
-
-#### 1 · Visual Layout Description
-
-A left-to-right relay of four cards on a thin navy rail, each with an orange numbered badge. ① CMS TASK · NADIA BROOKS · LITIGATION DESK: a task card listing CIVIL COVER SHEET · SUMMONS, a due chip 09/22/2026 and a routing arrow to ② ATTY. THORNE · SIGNS 09/23: a signature line with a padlock chip, NOTHING FILES UNSIGNED. ③ COURT E-FILING: an envelope card reading STATE COURT OF RIVERTON COUNTY · COMPLAINT · CIVIL COVER SHEET · SUMMONS · $218.00, and a green ACCEPTED stamp over 26-CV-04417 · 09/24/2026. ④ CALENDAR: three mono date pills, CMC 12/10/2026 9:00 A.M. · SERVICE DEADLINE 01/22/2027 · ANSWER: SET ON SERVICE, the last one dashed and empty. Off the rail, under card ①, a grey draft sheet stamped NOT FOR FILING with a red strike through it: the 09/15/2026 draft that never reaches the envelope.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** File date 09/22/2026, Track B. The file went to Litigation status on 09/10/2026 on Atty. Thorne's 09/09 authorization; the filing target is 09/24/2026 and today is its 48-hour audit. This morning Atty. Thorne approved his Complaint for John Doe VS Robert Smith in the State Court of Riverton County: negligence and negligence per se; medical Specials, lost wages, future medical and pain and suffering; jury demanded; Smith at 118 Larkspur Ln, Riverton. The CMS also holds his 09/15/2026 draft, stamped NOT FOR FILING, unsigned, with no case number. The civil cover sheet and summons have not been drafted. The fee tier moves from 33⅓% to 40% on the filing date (per the retainer). Pre-suit costs on the ledger: $486.75. Atty. Thorne's 09/10 question on notifying the UM carriers of the filed Complaint is still open.
-
-**Execution prompt.** Tag the Litigation Desk paralegal, Nadia Brooks, with a CMS task precise enough to need no follow-up question: which documents, from which approved Complaint, due when, routed to Atty. Thorne for signature. After he signs on 09/23, submit the e-filing envelope in Court E-Filing on 09/24 (caption, court, case type, filing attorney, document types, filing fee), and check every page is signed before it goes in. Record the accepted filing: the civil action number, the filing date, the stamped Complaint, the issued summons and the Notice of Case Management Conference in 01_PLEADINGS, the fee receipt to the costs ledger. Then calendar from the filing: the service deadline with warning alerts, the hand-off to Allied Process Services, the Case Management Conference with Atty. Thorne as attendee, and the answer deadline held until service. Graded judgment: which date can be calendared today and which cannot.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Tasks · Court E-Filing · CMS → Litigation → Discovery & Filing Tracker · CMS → Doc Hub · CMS → Case Costs · CMS → Calendar · Court E-Filing |
-| **Expected output** | A signed filing set e-filed and accepted as No. 26-CV-04417, recorded in the CMS, and a calendar that runs from the 09/24/2026 filing date. |
-
-**Verification checkpoints**
-
-- [ ] CMS task to Nadia Brooks dated 09/22/2026: civil cover sheet and summons, built from the Complaint Atty. Thorne approved that morning (not the 09/15/2026 draft), due end of day 09/22/2026, routed to Atty. Thorne for signature
-- [ ] The summons in the task: directed to Robert Smith at 118 Larkspur Ln, Riverton, the address pleaded in the Complaint; the cover sheet: motor vehicle personal injury, jury demanded
-- [ ] Signature check before upload: Complaint, cover sheet and summons signed by Atty. Thorne on 09/23/2026; the 09/15/2026 draft never uploaded
-- [ ] Envelope in Court E-Filing: John Doe VS Robert Smith, State Court of Riverton County, new civil case; Complaint (lead), civil cover sheet, summons for issuance; filing attorney Atty. Elijah Thorne, State Bar No. 418207; filing fee and summons $218.00
-- [ ] Envelope accepted 09/24/2026; court fields updated: Civil Action No. 26-CV-04417 replaces “Pending”, filing date 09/24/2026, service status “Summons issued, not served”
-- [ ] Discovery & Filing Tracker row: Complaint filed 09/24/2026, e-file stamp 10:42 a.m., source document linked
-- [ ] 01_PLEADINGS holds Complaint_Filed_Stamped.pdf, Summons_Issued.pdf and Notice_of_Case_Management_Conference.pdf; no scan names
-- [ ] Fee receipt $218.00 posted to the costs ledger with its receipt: $486.75 + $218.00 = $704.75 in case costs
-- [ ] Fee tier: 40% shown effective 09/24/2026, the filing date, per the retainer; no fee explanation by the Case Manager
-- [ ] Service deadline 01/22/2027 (Fri): 09/24/2026 + 120 days, rule set configured for this training file; alerts 11/23/2026 (60 days), 12/23/2026 (30), 01/08/2027 (14) and a 48-hour audit 01/20/2027
-- [ ] Hand-off of the stamped Complaint and issued summons to Allied Process Services tasked for 09/24/2026, with Smith's pleaded address and a follow-up every 5 days (first 09/29/2026)
-- [ ] Case Management Conference 12/10/2026 (Thu), 9:00 a.m., by videoconference: Atty. Thorne as attendee, 48-hour audit 12/08/2026 (Tue); answer deadline entered as “set on service: 30 days from service (training rule set)”, no date; the open UM-carrier question re-sent to Atty. Thorne with the filing date
-
-**Best practices & pitfalls**
-
-- Write the task so the paralegal never has to ask: the documents, the source, the due date and who signs.
-- Open every page of the envelope before you submit it; the signature check is yours even when the drafting is not.
-- Calendar every date from the accepted filing, never from the filing target.
-- ⚠️ Pitfall: uploading the 09/15/2026 draft because it was the Complaint saved first in the CMS.
-- ⚠️ Pitfall: docketing an answer date before Robert Smith has been served.
-- ⚠️ Pitfall: entering the Case Management Conference without Atty. Thorne as attendee.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **10%** | Paralegal task | Nadia Brooks tasked 09/22/2026 with the cover sheet and summons, the approved Complaint as source, a due date and the signature route |
-| 🤖 AI | **15%** | Envelope | Caption, court, case type, document types, filing attorney and $218.00 correct; only signed documents; the 09/15 draft kept out |
-| 🤖 AI | **15%** | Filing record | 26-CV-04417 and 09/24/2026 entered; three PDFs named and in 01_PLEADINGS; costs $704.75; 40% from 09/24/2026 |
-| 🤖 AI | **20%** | Calendar | 01/22/2027 with arithmetic and alerts; Allied hand-off 09/24/2026; CMC 12/10/2026 9:00 a.m. with Atty. Thorne; answer held for service |
-| 🧑‍🏫 Trainer | **15%** | Signature discipline | Nothing submitted that Atty. Thorne had not signed; the draft caught and left out |
-| 🧑‍🏫 Trainer | **15%** | Date judgment | Explains why the service deadline is set today and the answer deadline is not |
-| 🧑‍🏫 Trainer | **10%** | Authority boundary | Drafting delegated to the paralegal, signing and the UM-carrier question left with Atty. Thorne |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Read the trainee's CMS task to Nadia Brooks aloud as if you were her. If she would have to ask which Complaint, by when or who signs, the task fails.
-- Ask: “Two Complaints are in the CMS. Which one goes in the envelope, and how do you know?” The signed one dated 09/23/2026; the 09/15 draft says NOT FOR FILING and has no signature.
-- Put to the room: “Why is 01/22/2027 on the calendar today, but no answer date?” The service deadline runs from filing, which has happened; the answer runs from service, which has not.
-- The service and Skip-Trace work belongs to a later activity. Here the job ends when the hand-off to Allied Process Services and its follow-ups are tasked.
-
----
-
-### 5.1.16 Pleadings & Discovery Log Maintenance
+### 5.1.13 Pleadings & Discovery Log Maintenance
 
 > **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Skill Activity 1 — repair the log before it costs the case  
@@ -1242,154 +1018,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.17 Trial Prep Checklist Audit & KPI Update
-
-> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Litigation Support Assessment (`d5m1`)  
-> **Topic:** Skill Activity 2 — audit against the order, measure against the target  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D5#5` Phase 2: Discovery — B. Deposition Coordination & Preparation · `D5#6` Phase 3: The Trial & Mediation Preparation Stage · `D5#7` The Litigation Mindset: Critical Traps & KPIs · `D5#24` The 3 Golden Rules of Litigation File Maintenance · `D5#25` Key Performance Indicators (KPIs) for Document Management · `D5#28` Master Timeline & Deadline Calculations · `D5#32` Advanced KPIs for Litigation Case Managers · `D5#33` Skill Building: The Ultimate Case Management — Jordan Davies · LSH Claims Specialist: liability acceptance post-lawsuit (the defense pivots to causation and damages) · Newly authored: the last day to serve written discovery, counted back from the discovery cutoff
-
-#### 1 · Visual Layout Description
-
-Split slide. Left 55%: the trial-prep checklist as a cream clipboard card with orange numbered badges ① to ⑤ against its faulty lines: our experts 04/15/2027 struck through to 03/15/2027; “mediation 03/31” corrected to “completed by 03/31”; records subpoenas dragged from June back across a red 05/28/2027 cutoff line; the final records run re-sourced; a blank deposition block filling in. Right 45%: a KPI tracker table in navy with five mono columns (KPI · Formula · Target · Reading · Status) and green, red and amber status chips. A thin orange connector runs from each corrected checklist line to the KPI it moves. Bottom-right, a red callout: “No record = not done.” The argument: a checklist is audited against the order, never against memory.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** 01/20/2027 · Track B. John Doe's deposition notice just arrived: 02/18/2027, 10:00 a.m., by videoconference, Riverton Court Reporting. The trial-prep checklist was drafted from the calendar as first keyed, before the 12/10/2026 audit, and never reconciled. It shows our expert disclosure on 04/15/2027, “mediation 03/31/2027” as the session date, records subpoenas planned for June 2027, the final records run sourced from the pre-lit Demand Package, no alerts and no deposition tasks. Smith's responses arrived 01/13/2027, never docketed. There is no KPI tracker.
-
-**Execution prompt.** Audit the checklist line by line against the 12/10/2026 Scheduling Order in the CMS: every date right, each with an owner and 30-, 14- and 7-day alerts, and the 02/18/2027 deposition logistics and prep document set added. Then build the KPI tracker: define all nine KPIs, each with its formula and target, enter this file's reading with its source, and mark each met, missed or open. Close with one task each for the three review lenses: coverage, treatment, liability. The graded call: name the two items you route to Atty. Thorne first, and why those two.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Calendar · CMS → Litigation → Discovery & Filing Tracker |
-| **Expected output** | A trial-prep checklist that matches the Scheduling Order date for date, and a KPI tracker with a formula, target, sourced reading and status for every KPI. |
-
-**Show Them — reference model**
-
-*Reference model: two finished rows of the KPI tracker*
-
-| KPI | Formula | Target | Reading · source | Status |
-|---|---|---|---|---|
-| RFA Priority Check | Time from RFA receipt to Atty. Thorne's logged alert | ≤ 1 hour | 12/01/2026 RFAs: first alert at the 12/10/2026 audit, not within the hour · Discovery & Filing Tracker | Missed |
-| Discovery Countdown | Days from drafts reaching Atty. Thorne to the court deadline | ≥ 7 days, every set | 01/04/2027 set: due to him by 12/28/2026 · task log | Met if on or before 12/28/2026 |
-
-**Verification checkpoints**
-
-- [ ] Our expert disclosure corrected from 04/15/2027 to 03/15/2027; 04/15/2027 kept as the defense date, with a task to docket their disclosure within 48 hours and route it to Atty. Thorne
-- [ ] Mediation recorded as “completed by 03/31/2027”, with tasks to get the session date confirmed and to set the Mediation Statement and binder due 7 days before it
-- [ ] Records subpoenas rescheduled so their returns land before discovery closes 05/28/2027; 04/28/2027 (30 days before 05/28/2027) flagged as the last day to e-serve a 30-day written request on Smith, confirmed with Atty. Thorne against the court's rule
-- [ ] All six order dates carry 30-, 14- and 7-day alerts (18 in all; for example 05/28/2027 → 04/28/2027, 05/14/2027, 05/21/2027), and trial subpoenas and indexed, tabbed binders are tasked against 08/12/2027 and 09/13/2027
-- [ ] Deposition logistics: notice docketed by 01/22/2027 (within 48 hours); Riverton Court Reporting confirmed (and a videographer, if the notice calls for one); link and technology check; Atty. Thorne's, Atty. Mercer's and John Doe's calendars aligned; prep packet by 02/11/2027 (7 days before 02/18/2027)
-- [ ] Gap Record assembled for Atty. Thorne's prep: EMS report, Northgate attendance 02/09–02/13/2026, texts to Margaret 02/07–02/15, receipt 02/07/2026, urgent-care history 02/20/2026, the Summit MRI read, Causation Letter 06/19/2026, the 2021 chiropractic records; nothing scripted for John Doe
-- [ ] Final records run re-sourced from Riverton Urgent Care, Riverton Spine & Rehab, Lakeside Orthopedics, Summit Imaging Center, Crescent Pain & Spine and Riverton Drug, scheduled before 03/15/2027 and again before 08/12/2027
-- [ ] All nine KPIs present, each with a formula, a target, a reading with its source, and a status
-- [ ] Readings from this file right: RFA Priority Check and 48-Hour Docket Rule missed (the 01/05/2027 audit); Discovery Countdown measured against 12/28/2026 (7 days before 01/04/2027); Subpoena Audit: the Riverton Fire EMS records subpoena drafted 11/12/2026, status taken from CMS → Litigation → Discovery & Filing Tracker (served and reviewed every 10 days, or still awaiting Atty. Thorne's approval); records subpoenas for the remaining providers still planned for June, the staged error
-- [ ] Smith's responses (due 01/13/2027) docketed as received 01/13/2027, logged as a 48-Hour Docket miss and routed to Atty. Thorne for review; no extension agreed by the Case Manager
-- [ ] Review lenses applied. Coverage: Smith's insurance answers routed to Atty. Thorne, and a UM consent-to-settle task set before mediation (Harbor Point and Cardinal State, on notice since 09/10/2026). Treatment: the Gap Record and the A-C-T record mapped to causation and failure to mitigate. Liability: doorbell video, Ruth Calloway, the RPD-26-018842 citation, the EMS report and the EDR mapped to comparative negligence
-
-**Best practices & pitfalls**
-
-- Read the checklist against the order line by line, never from memory.
-- Write every KPI as a formula with a target; “on track” is not a reading.
-- Run the three review lenses over the file every audit: coverage, treatment, liability.
-- Prepare the documents, not the testimony.
-- ⚠️ Pitfall: scheduling discovery work after the discovery cutoff.
-- ⚠️ Pitfall: a final records run copied from the pre-lit Demand Package.
-- ⚠️ Pitfall: accepting the Answer's liability story without pulling the evidence against it.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Order-date accuracy | 03/15/2027, 04/15/2027, 03/31/2027, 05/28/2027, 08/12/2027 and 09/13/2027 on the right lines; 04/28/2027 derived |
-| 🤖 AI | **10%** | Alerts and arithmetic | 18 alerts; 02/11/2027, 01/22/2027 and 12/28/2026 derived correctly |
-| 🤖 AI | **20%** | KPI definitions | Nine KPIs, each with a formula, a target, a sourced reading and a status |
-| 🤖 AI | **10%** | Deposition and records tasks | Reporter, link, technology check, packet date, Gap Record and an every-provider final run all present |
-| 🧑‍🏫 Trainer | **15%** | Prioritization judgment | The two items routed first are the right ones, and the reasoning holds |
-| 🧑‍🏫 Trainer | **10%** | Gap Record, not a script | Documents assembled and indexed; nothing that tells John Doe what to say |
-| 🧑‍🏫 Trainer | **15%** | UPL and authority boundary | No extension agreed, expert or witness chosen, or testimony coached; decisions routed to Atty. Thorne |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Put the checklist and the Scheduling Order side by side and ask the room to find the first wrong date in under a minute. Most find 04/15/2027; fewer catch that June subpoenas fall after discovery closes.
-- Ask: “Which two items go to Atty. Thorne first, and why those two?” The strongest answer routes the expert date (the earliest order deadline, and who is disclosed is his decision) and the subpoena timing (whether records can still be had before 05/28/2027 is his call). Deposition logistics are the Case Manager's to run, not to route.
-- Watch the KPI definitions. “Stay on top of RFAs” is not a KPI; “minutes from receipt to logged alert, target 60 or fewer” is.
-- The Gap Record is this day's gap moment. Grade the line: the trainee assembles and indexes the documents, and Atty. Thorne decides how John Doe is prepared. A note that tells John Doe what to say fails the UPL row.
-
----
-
-### 5.1.18 Does It Touch Our Settlement? Keystone's Final PD Position
-
-> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with PD Transition Check (`d5m2`)  
-> **Topic:** Skill Activity 1 — sort Keystone's final PD position between John Doe's case and Margaret Doe's file  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D5#35` Property Damage: Calculating the Value of the Claim · `D5#34` Property Damage in Litigation: Types of Damages You Can Recover · LSH Claims Specialist: liability disputes — written basis, escalation to the attorney · Newly authored: the PD-only release, and the transition between the PD and BI files
-
-#### 1 · Visual Layout Description
-
-A memo on the left two-thirds, headed TO ATTY. THORNE — DOES IT TOUCH JOHN'S CASE?, with five rows each carrying a YES or NO chip and a one-line reason: the release (YES · HOLD), the severity set (YES · MATCH), the rental dates (YES · MATCH), Loss of Use (NO), Diminished Value (NO). On the right, Keystone's release with “all claims arising from the 02/06/2026 accident” circled in red and a red stamp: NOT FOR SIGNATURE · ROUTED. A bottom bar holds the memo's one-line answer.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** File date 12/10/2026. Leah Moran (Keystone PD) emails Keystone's final position on the Civic: $792.00 for Diminished Value and $0 for Loss of Use. Her attached release covers “all claims arising from the 02/06/2026 accident” and asks “Mr. Doe” to sign so payment can issue; she will call this afternoon. John Doe's suit is in discovery, and Atty. Thorne wants to know what, if anything, this changes for John.
-
-**Execution prompt.** Sort Keystone's position item by item: the release, the Diminished Value figure, the Loss of Use figure, the photos and estimates already in John Doe's severity set, and the rental dates. For each, decide whether it reaches John Doe's settlement or stays on Margaret Doe's PD file, and say why in one line. Check the release's scope and claim number, hold it and route it to Atty. Thorne. Confirm the severity set and the rental dates match the PD file. Take Leah Moran's call without accepting, rejecting or countering anything. Close with a short memo to Atty. Thorne that ends in one line: does this PD outcome touch John Doe's case, and how?
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Notes → Case Notes · CMS → Doc Hub · Call Simulator → AI Adjuster: Leah Moran, Keystone Mutual (PD) · CMS → Tasks → + Add Task |
-| **Expected output** | A short memo to Atty. Thorne sorting each PD outcome, the release held and routed, the severity set confirmed, and the call logged. |
-
-**Verification checkpoints**
-
-- [ ] Release flagged: “all claims arising from the 02/06/2026 accident” could reach John Doe's BI claim; routed to Atty. Thorne the same day
-- [ ] Nobody asked to sign: not John Doe, and not Margaret Doe before Atty. Thorne has reviewed it
-- [ ] Claim numbers checked: the PD claim is KM-26-440871-PD, the BI claim KM-26-440871
-- [ ] Diminished Value ($792.00 against $3,600.00) and Loss of Use ($0 against $2,016.00) sorted to Margaret Doe's PD file
-- [ ] John Doe's figures unchanged: Keystone's $25,000 PD limit sits outside the $40,000 stack; no lien or Net Sheet line moves
-- [ ] Severity set confirmed: the photos, the 02/16/2026 estimate and the $2,315.00 supplement match the PD file
-- [ ] Rental dates 02/18 and 03/19/2026 match John Doe's gap record
-- [ ] Leah Moran told only that the position is with Atty. Thorne; the call logged in her words
-- [ ] The memo ends with the answer: PD reaches John Doe's settlement through the release and the evidence, never through its figures
-
-**Best practices & pitfalls**
-
-- Lead the memo to Atty. Thorne with the decision he must make, then the sort (Decision First).
-- Read the release before the numbers.
-- ⚠️ Pitfall: forwarding Keystone's release to John Doe or Margaret Doe “just so they can see it.”
-- ⚠️ Pitfall: telling Leah Moran “we'd probably take” any figure.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in PD Transition Check (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Release | Scope and claim number checked; held and routed the same day; nobody asked to sign |
-| 🤖 AI | **25%** | The sort | Release, severity set and rental dates on John Doe's side; Loss of Use and Diminished Value on Margaret Doe's file |
-| 🤖 AI | **15%** | Figures kept separate | PD outside the $40,000 stack; John Doe's liens and Net Sheet unchanged |
-| 🧑‍🏫 Trainer | **25%** | Transition judgment | The memo's one-line answer is right and defended |
-| 🧑‍🏫 Trainer | **15%** | UPL boundary | Nothing accepted, rejected or countered; no release explained to either client |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Start with the attachment. Ask who opened the release and what it covers; a trainee who forwards it to John Doe has missed the lab before sorting anything.
-- In the call, AI Leah Moran presses: “Can you just tell me if he'll take it?” The only right answer is that the position is with Atty. Thorne.
-- Grade the memo's last line hardest: the release and the evidence reach his case; the figures don't.
-
----
-
-### 5.1.19 Virtual Deposition Prep Roleplay
+### 5.1.14 Virtual Deposition Prep Roleplay
 
 > **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 1 — client injury & 14-Day Gap defense: your segment, his substance  
@@ -1398,13 +1027,13 @@ Verified in PD Transition Check (taught on Case Flow Day 5) and that day's auto-
 
 #### 1 · Visual Layout Description
 
-A video-call frame fills the left two-thirds: AI John Doe's tile large, the trainee's tile beside it, and Atty. Thorne's tile small in the corner with a LISTENING tag. Under the frame, a segment agenda bar of five orange-numbered chips: ① LOGISTICS ② CALM ③ GUIDELINES ④ DRESS & DEMEANOR ⑤ IN-ROOM RULES. Right third: a cream card headed ROUTED TO ATTY. THORNE with five empty lines and mono tags GAP · DISRUPTION · SEATBELT · 2021 VISITS · MRI, which fill as John asks. A red-bordered callout across the bottom: “Answer the process. Route the substance.” The argument: the routing card fills up, and the trainee's answers to it stay empty.
+A video-call frame fills the left two-thirds: AI John Doe's tile large, the trainee's tile beside it, and Atty. Thorne's tile small in the corner with a LISTENING tag. Under the frame, a segment agenda bar of five orange-numbered chips: ① LOGISTICS ② CALM ③ GUIDELINES → ATTY. THORNE ④ DRESS & DEMEANOR ⑤ IN-ROOM RULES. Right third: a cream card headed ROUTED TO ATTY. THORNE with five empty lines and mono tags GAP · DISRUPTION · SEATBELT · 2021 VISITS · MRI, which fill as John asks. A red-bordered callout across the bottom: “Answer the process. Route the substance.” The argument: the routing card fills up, and the trainee's answers to it stay empty.
 
 #### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date 02/04/2027, Track B. John Doe was reached through Margaret yesterday after going dark on 01/22/2027; he has a new phone number. His deposition is noticed for 02/18/2027, 10:00 a.m., by videoconference with Riverton Court Reporting. He is anxious and expects a TV cross-examination. Atty. Thorne opens the prep session, hands you the first segment while he listens, and takes the substance after you.
 
-**Execution prompt.** Run your segment of John's first prep session in the Call Simulator. Confirm his new number with Margaret as backup, the deposition logistics, and a 02/16/2027 test call on the device and in the room he will use. Deliver the three pillars and the in-room rules in plain words; drill the pause on neutral questions. AI John will ask what to say about the gap, the missed April therapy, the seatbelt, his 2021 chiropractor visits and the MRI: recognise each as substance, answer none, and log each in his words for Atty. Thorne. Have Atty. Thorne's chosen gap set ready to share for his segment. Calm John with the process, never a prediction.
+**Execution prompt.** Run your segment of John's first prep session in the Call Simulator. Confirm his new number with Margaret as backup, the deposition logistics, and a 02/16/2027 test call on the device and in the room he will use. Explain the setting (Pillar 1), what to wear and how the room works (Pillar 3 and the in-room rules) in plain words, and have the document set ready; Pillar 2, the testimony habits and any practice questions, is Atty. Thorne's segment, never yours. AI John will ask what to say about the gap, the missed April therapy, the seatbelt, his 2021 chiropractor visits and the MRI: recognise each as substance, answer none, and log each in his words for Atty. Thorne. Have Atty. Thorne's chosen gap set ready to share for his segment. Calm John with the process, never a prediction.
 
 | | |
 |---|---|
@@ -1419,7 +1048,7 @@ A video-call frame fills the left two-thirds: AI John Doe's tile large, the trai
 |---|---|
 | “That's exactly what Atty. Thorne will go through with you. I'm writing it down in your words now.” | “Just say you had no ride and thought it would pass.” |
 | “The first rule is always the truth. How the 2021 questions will go is his to prepare with you.” | “Say you always wear your seatbelt.” |
-| “If you don't know or don't remember, that is a complete answer.” | “The 2021 visits were your back, so leave them out.” |
+| “How to answer their questions is what Atty. Thorne will practise with you, right after me.” | “The 2021 visits were your back, so leave them out.” |
 |  | “Tell them the MRI shows no degeneration.” |
 
 **Verification checkpoints**
@@ -1428,7 +1057,7 @@ A video-call frame fills the left two-thirds: AI John Doe's tile large, the trai
 - [ ] Logistics stated exactly: 02/18/2027, 10:00 a.m., by videoconference, Riverton Court Reporting
 - [ ] Test call set for 02/16/2027 on the device and in the room John will use on the day
 - [ ] Pillar 1: the setting explained (not a courtroom; no judge or jury; under oath, with a court reporter); no outcome predicted
-- [ ] Pillar 2: the two-second pause, the truth about prior treatment and stop-talking, drilled on neutral questions only
+- [ ] Pillar 2, the testimony habits (the two-second pause, the truth about prior treatment, stop talking), left to Atty. Thorne: named as his to practise with John, never drilled or coached by the CM (Day 5 deck p10–p11)
 - [ ] Pillar 3: business casual; no flashy jewelry, hats, slogans or athletic wear; polite tone; raised as advice every client gets
 - [ ] In-room rules: private room, no one else present, no notes, phone set aside, no messaging; exhibits shared on screen
 - [ ] All five substantive questions (gap, missed April therapy, seatbelt, 2021 visits, MRI) recognised and met with a routing, not content
@@ -1452,7 +1081,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **15%** | Logistics accuracy | 02/18/2027, 10:00 a.m., videoconference, Riverton Court Reporting; new number and backup; 02/16/2027 test call |
-| 🤖 AI | **20%** | Guidelines delivered | All three pillars and every in-room rule delivered |
+| 🤖 AI | **20%** | Guidelines delivered | Pillar 1, Pillar 3 and every in-room rule delivered; Pillar 2's testimony habits left to Atty. Thorne |
 | 🤖 AI | **15%** | Recognition and routing | All five substantive questions recognised and routed |
 | 🤖 AI | **10%** | Record | Questions logged in John's words; delivery recorded in the CMS; Atty. Thorne's gap set ready |
 | 🧑‍🏫 Trainer | **20%** | UPL boundary | No content, wording or hint on the gap, the disruption, the seatbelt, the 2021 visits or the MRI |
@@ -1464,160 +1093,13 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 #### 5 · Speaker Notes
 
 - Before the run, tell the room what decides the grade: the routing. A polished segment that answers one substantive question fails.
-- Ask before they start: “Which of John's questions can you answer?” The setting, the logistics, the general rules: yes. The gap, the missed April therapy, the seatbelt, the 2021 visits, the MRI: no.
+- Ask before they start: “Which of John's questions can you answer?” The setting, the logistics, the room rules: yes. The testimony habits: Atty. Thorne's. The gap, the missed April therapy, the seatbelt, the 2021 visits, the MRI: no.
 - Watch for the helpful half-answer. “Always tell the truth” is a general rule; “just say you had no ride” is a script. Stop the run when you hear one and replay the do/don't panel.
 - Grade the logistics hard. A wrong time or link on 02/18/2027 costs as much as a bad answer, and his new number goes in the CMS before anything else.
 
 ---
 
-### 5.1.20 Mock Deposition Cross-Examination Handling
-
-> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Deposition Readiness Audit (`d5m3`)  
-> **Topic:** Skill Activity 2 — observe, log and route; never coach  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D5#12` Navigating the Silent Traps — Drill A: The “Is That All?” Trap · `D5#13` Navigating the Silent Traps — Drill B: The Thoughtful Silence · `D5#15` What Will the Defense Attorney Ask Me? The Four Categories · `D5#16` The 7 Golden Rules for Testifying (Rules 1–3) · `D5#17` The 7 Golden Rules for Testifying (Rules 4–5) · `D5#18` The 7 Golden Rules for Testifying (Rules 6–7) · `D5#20` What Happens When Your Lawyer Objects? · Newly authored: compound and loaded-question traps
-
-#### 1 · Visual Layout Description
-
-Split screen. Left 60%: a mock video deposition — AI ATTY. GRANT MERCER questioning, AI JOHN DOE answering, ATTY. THORNE's tile carrying an orange OBJECTION flag, a running timer top-right in mono. Right 40%: the TRAP LOG as a table — Time · Question as asked · Category, trap and record · Rules — with six trap-type chips above it plus one dashed optional SILENT STARE chip that turn from grey to orange as each is logged. The trainee's own tile sits small at the bottom with its microphone icon struck through. Across the foot of the slide, a red band: OBSERVE · LOG · ROUTE — NEVER COACH. The argument: the trainee's only output is the log.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** File date 02/16/2027, Track B, the second prep session. Atty. Thorne runs a mock cross-examination: AI defense counsel, playing Atty. Grant Mercer, questions AI John Doe while Atty. Thorne defends and objects. Your microphone is muted. Atty. Thorne debriefs John from your log when the mock ends.
-
-**Execution prompt.** Keep the Trap Log for Atty. Thorne's debrief while the mock runs. For each trap, log the timestamp, the question in AI Mercer's words, its category (background, crash, medical history, daily life), the trap type (the “Is that all?” trap, a compound question, “degenerative”, the gap mischaracterised, the seatbelt, the 2021 prior, the silent stare) and the Golden Rules John kept or broke. Beside every mischaracterisation, put the record fact and its source. Log each objection and whether John stopped talking. Coach nothing, during the mock or after it: route the log to Atty. Thorne. The log is for Atty. Thorne alone; nothing in it goes to John.
-
-| | |
-|---|---|
-| **Tool / interface** | Call Simulator → AI defense counsel: Atty. Grant Mercer (mock cross-examination, led by Atty. Thorne) · CMS → Litigation → Discovery & Filing Tracker |
-| **Expected output** | A timestamped Trap Log, scored against the seven Golden Rules, routed to Atty. Thorne before his debrief. |
-
-**Show Them — reference model**
-
-*Two entries from a model Trap Log*
-
-| Time | Question as asked | Category · trap · record | Rules |
-|---|---|---|---|
-| 00:06 | “So it was just the neck stiffness. Is that all?” | Medical history · “Is that all?” · records show right-hand numbness and arm paresthesia | Paused (2 kept); closed the list from memory (4 broken): flag |
-| 00:19 | “You went almost three weeks without a doctor because you felt fine?” | Medical history · gap mischaracterised and compound · 14 days, 02/06–02/20/2026 | Stopped at the objection (kept); then volunteered more (5 broken): flag |
-
-**Verification checkpoints**
-
-- [ ] All six assigned traps logged: “Is that all?”, compound, “degenerative”, gap mischaracterised, seatbelt, 2021 prior (and the silent stare, if AI Mercer uses it)
-- [ ] Every entry carries a timestamp and the question in AI Mercer's words
-- [ ] Every entry tagged with one of the four categories: personal background, crash mechanics, medical history, daily life
-- [ ] Gap entry set against the record: 14 days, 02/06/2026 to 02/20/2026; any disruption question against 19 days, 04/02/2026 to 04/21/2026
-- [ ] “Degenerative” entry cites the 03/13/2026 MRI report: “no significant degenerative change at the adjacent levels”
-- [ ] Seatbelt entry cites the EMS Run Report (“restrained front-seat passenger”) and the EDR download (belt buckled) as Atty. Thorne's documents
-- [ ] 2021 entry set against the record: three chiropractic visits for low-back stiffness, resolved; no prior neck complaints
-- [ ] Each answer scored for the pause, a spoken answer, no guessing, brevity, silence held and no arguing; any answer at odds with the record flagged for Atty. Thorne (rule 1)
-- [ ] Each objection logged, with whether John stopped talking at once
-- [ ] No coaching: no signal, chat message or comment to John during or after the mock
-- [ ] Log routed to Atty. Thorne before the debrief
-
-**Best practices & pitfalls**
-
-- Log the question in the questioner's exact words; a paraphrase hides the trap.
-- Put the record fact beside every mischaracterisation, so Atty. Thorne can debrief from the page.
-- ⚠️ Pitfall: telling John afterwards “you should have said…”. The debrief is Atty. Thorne's.
-- ⚠️ Pitfall: a nod or a chat message to the witness mid-question. That is coaching.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Trap coverage | All six assigned trap types logged |
-| 🤖 AI | **15%** | Record accuracy | 14 days, 19 days, the MRI wording, the EMS report and EDR, and the 2021 visits stated correctly |
-| 🤖 AI | **15%** | Rule scoring | Every answer scored against the seven rules; every objection logged |
-| 🤖 AI | **10%** | Log discipline | Timestamp, verbatim question and category on every entry; routed before the debrief |
-| 🧑‍🏫 Trainer | **20%** | UPL boundary: no coaching | No signal, suggestion or comment to John, during the mock or after it |
-| 🧑‍🏫 Trainer | **20%** | Observation quality | Atty. Thorne could debrief from the log without replaying the mock |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Set the roles out loud before the mock: Atty. Thorne leads and defends, AI Mercer questions, AI John answers, the trainee observes. Mute the trainee's microphone if the platform allows; it makes the boundary physical.
-- After the mock, ask: “Which trap worked on John, and which rule would have protected him?” Then ask who tells John. The answer is Atty. Thorne, in the debrief.
-- Grade the log for precision: the question in AI Mercer's words, the timestamp, and the record fact beside every mischaracterisation (14 days, 19 days, the MRI wording).
-- Watch the trainee's face and the chat window. A nod or a typed message to the witness during questioning is coaching, in a mock or on 02/18/2027.
-
----
-
-### 5.1.21 Building the Comparative Liability Counter-Package
-
-> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Final Comprehensive Knowledge Check (`d5m4`)  
-> **Topic:** Skill Activity 1 — answer each allegation from the file  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D5#23` Critical Litigation Process 3: Third-Party Evidence Subpoenas · `D5#30` Subpoena Duces Tecum: Execution Strategy · LSH Claims Specialist: handling liability disputes — written basis, stronger evidence, witness statements, escalation to the legal team · Newly authored: authentication and chain of custody in the counter-package
-
-#### 1 · Visual Layout Description
-
-A three-row counter-package matrix across the full slide width on a white card with a navy header bar. Columns: Allegation · Answering evidence · Source · Authenticating witness · Chain of custody. Each row opens with an orange numbered badge and a red allegation chip; evidence cells hold mono pills (EDR, EMS, RPD-26-018842, VIDEO). Cells with an open foundation gap are outlined in orange dashes until filled. Beneath, a slim custody timeline for the doorbell video: 02/06/2026 recorded → 02/17/2026 preservation request → 02/19/2026 copy secured → counter-package. Bottom-right, a navy card headed FOR ATTY. THORNE lists the open legal questions. The argument: a row is finished only when its evidence can come in.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** File date 11/12/2026, Track B. Atty. Grant Mercer of Mercer & Hale LLP has filed Robert Smith's Answer in Civil Action No. 26-CV-04417. It denies liability and pleads comparative negligence (the Escape entered the all-way stop out of turn; John was unbelted), causation (the gap; a “degenerative” MRI) and failure to mitigate. In the file: report RPD-26-018842, Ruth Calloway's details, the doorbell video, the 10/2026 EDR download, the EMS Run Report and the A-C-T record.
-
-**Execution prompt.** Build the liability counter-package for Atty. Thorne. For each of the three allegations, list the file evidence that answers it, its source document, the witness who can authenticate it, its chain of custody, and any gap in its foundation. Write out the doorbell video's chain from the 02/17/2026 preservation request to the 02/19/2026 copy. For any record that will need a custodian, draft a narrow Exhibit A for a Subpoena Duces Tecum, for his review. Close with the questions only he can answer: the governing fault rule, seatbelt and citation admissibility, and whether fault on Kevin Alvarez touches coverage.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Litigation → Discovery & Filing Tracker · CMS → Doc Hub → Litigation Documents |
-| **Expected output** | An allegation-by-allegation counter-package with foundation for every item, a draft Exhibit A, and the open legal questions routed to Atty. Thorne. |
-
-**Verification checkpoints**
-
-- [ ] Two comparative-fault allegations and the failure-to-mitigate defense listed as separate rows: out of turn, unbelted, failure to mitigate
-- [ ] Out of turn answered by report RPD-26-018842 (Smith cited for failure to stop), Ruth Calloway of 2209 Maple Hollow Rd, the doorbell video and the point of impact, with the EDR's 11 mph as corroboration only
-- [ ] Unbelted answered by the EDR (front-passenger belt buckled) and the EMS Run Report (“restrained front-seat passenger”)
-- [ ] Failure to mitigate answered by the A-C-T record and its clinical cause: alert 04/08/2026, notices and the Final Warning Letter, John reached 04/17, Dr. Reyes's 04/20 note, the 06/10 counseling summary, attendance confirmed 04/21 and 04/23
-- [ ] Disruption stated exactly: 19 days without visits, 04/02 → 04/21/2026, four missed visits, caused by crash-related anxiety and avoidance of car travel after the 04/02 panic at the collision corner
-- [ ] Video chain of custody: Margaret Doe's camera, preservation 02/17/2026, copy secured 02/19/2026, native file unaltered, each transfer logged
-- [ ] An authenticating witness named for every item (for example Margaret Doe or Ruth Calloway for the video, a records custodian for the EMS report); whether a signed statement from Ruth Calloway exists is recorded, and taking one is routed to Atty. Thorne
-- [ ] Draft Exhibit A limited to John Doe's 02/06/2026 Riverton Fire EMS run and named record types, never “all records”; routing note: notice to Atty. Grant Mercer before the custodian is served
-- [ ] Open questions routed to Atty. Thorne: fault regime, seatbelt and citation admissibility, Kevin Alvarez and coverage
-- [ ] Stack stated as $40,000 (BI → Host UM → Relative UM); no layer added
-
-**Best practices & pitfalls**
-
-- One allegation, one row: a reviewer should find the answer to each in seconds.
-- Record foundation now; a document no one can authenticate may never reach the jury.
-- The EMS report does double duty: “restrained” answers the seatbelt, and the neck complaint on 02/06/2026 answers the gap.
-- ⚠️ Pitfall: an Exhibit A asking for “all records of any kind”; it invites a Motion to Quash as a fishing expedition.
-- ⚠️ Pitfall: calling the EDR's 11 mph proof of the right-of-way; it corroborates the witness and the video, it doesn't replace them.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Allegation coverage | All three allegations answered with the right file evidence |
-| 🤖 AI | **15%** | Fact accuracy | RPD-26-018842, 2209 Maple Hollow Rd, buckled and 11 mph, “restrained”, 04/02 → 04/21/2026 and the A-C-T dates exact |
-| 🤖 AI | **15%** | Foundation and custody | Source, witness and chain for every item; video chain 02/17 → 02/19/2026 |
-| 🤖 AI | **10%** | Exhibit A scope | Narrow: John Doe, the 02/06/2026 run, named record types |
-| 🧑‍🏫 Trainer | **20%** | Strategic judgment | Weights the evidence sensibly; doesn't rest liability on the citation or the EDR's speed |
-| 🧑‍🏫 Trainer | **20%** | UPL boundary | Fault rule, admissibility and coverage all routed to Atty. Thorne; nothing framed as legal advice |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Hand out the Answer's three allegations as three blank rows. Tell the room the package is graded row by row, and a row without an authenticating witness is not finished.
-- Ask: “Which single document answers two defenses?” The EMS Run Report: “restrained” answers the seatbelt, and the neck complaint on the day of the crash answers the causation defense on the gap.
-- Read the Exhibit A drafts. Anything that says “all records” goes back: one patient, one date, named record types.
-- Legal nuance: the EDR's 11 mph is consistent with a car pulling away from a stop, but speed alone does not prove who had the right-of-way. Let Ruth Calloway and the video carry that.
-
----
-
-### 5.1.22 Skip-Tracing Execution & Certified Notice Dispatch
+### 5.1.15 Skip-Tracing Execution & Certified Notice Dispatch
 
 > **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 2 — find the defendant, reach the client, prove both  
@@ -1689,72 +1171,7 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 
 ---
 
-### 5.1.23 The Litigation Net Sheet: Disbursing the Award
-
-> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Track B Close-Out Check (`d5m5`)  
-> **Topic:** Skill Activity — take the award to $14,713.75 on the LSH Net Sheet  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D3#21` Increasing the Client's Net · `D3#25` The Net Sheet: The LSH Corporate Net Sheet Ledger · `D3#27` Key Takeaway — The Value of a Case Manager · `D3#28` Skill Building: The “Doe v. Apex” Final Net Challenge · Newly authored: the Track B close-out
-
-#### 1 · Visual Layout Description
-
-The LSH Net Sheet fills the slide in its four navy-headed sections. Section 1 reads Gross $40,000.00 with three carrier chips (Keystone, Harbor Point, Cardinal State); Section 2 shows Attorney Fees at 40% = $16,000.00 with an orange SUIT FILED tag and seven receipt rows totalling $3,895.25; Section 3 lists the providers with Peach State reduced to $1,116.00 and Riverton Spine & Rehab to $4,275.00, the zero-balance rows greyed with NOT PAYABLE chips; Section 4 ends on a large orange NET CLIENT DISBURSEMENT $14,713.75.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** File date 07/22/2027. Laura Whitcomb's 07/06/2027 award gave Harbor Point's $20,000.00 and Cardinal State's $10,000.00; their checks arrived 07/20 and today, joining Keystone's $10,000.00 held in trust since 03/29/2027: $40,000.00. Peach State accepted $1,116.00 (07/14) and Riverton Spine & Rehab $4,275.00 (07/16), both in writing. Every litigation cost is receipted.
-
-**Execution prompt.** Complete John Doe's LSH Net Sheet for the litigated recovery. Section 1: the gross by carrier. Section 2: the 40% fee the retainer sets once suit is filed, and every receipted cost, pre-suit and litigation, on its row. Section 3: every medical provider and payer with charges, PIP Payments, Health Payments, Med Pay, adjustments and balance owed, and each lien's reduced figure with its Payoff Letter; every non-medical provider (pharmacy, counseling, equipment, transportation) in the Non-Medical Provider Ledger with who paid and what is still owed. Section 4: the net to John Doe. Tie it to the Trust Ledger and route the Settlement Statement to Atty. Thorne. Graded judgment: what you explain to John about the difference from a pre-suit settlement, and what you leave to Atty. Thorne.
-
-| | |
-|---|---|
-| **Tool / interface** | LSH Net Sheet · CMS → Settlement (BI/UM) → Check Received / Disbursed · CMS → Tasks → + Add Task |
-| **Expected output** | A Net Sheet reaching $14,713.75, every cost and lien proved, routed to Atty. Thorne before John Doe signs. |
-
-**Verification checkpoints**
-
-- [ ] Gross: Keystone $10,000.00 (mediation, 03/18/2027) + Harbor Point $20,000.00 + Cardinal State $10,000.00 (award, 07/06/2027) = $40,000.00
-- [ ] Fee at the 40% tier (suit filed 09/24/2026): $16,000.00, confirmed by Atty. Thorne from the retainer
-- [ ] Costs receipted: $486.75 pre-suit + $218.00 filing + $285.00 service + $1,200.00 mediation + $900.00 arbitration + $645.50 court reporter + $160.00 certified records = $3,895.25
-- [ ] Liens: Peach State $1,860.00 → $1,116.00 (40% procurement-cost reduction, $744.00, 07/14/2027); Riverton Spine & Rehab $6,290.00 → audited $6,105.00 → $4,275.00 (Payoff Letter 07/16/2027); total $5,391.00
-- [ ] Zero-balance lines kept off the payables with their source: PIP $10,000.00, MedPay $5,000.00, Crescent's $1,540.00 and the hospital's and EMS's $16,582.60 write-offs, the providers PIP and MedPay paid
-- [ ] Non-Medical Provider Ledger: Riverton Drug $312.40, Paid by Client, $0.00 owed; Stonebridge EAP $0.00; neither among the liens, so L51 = –($5,391.00 + $0.00) = –$5,391.00
-- [ ] Net: $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75; the trust deposits of $40,000.00 tie to the gross
-- [ ] Nothing disbursed until both UM checks clear and John Doe signs the Settlement Statement (07/29/2027); disbursement 07/30/2027
-- [ ] The difference from a pre-suit settlement explained to John Doe as arithmetic; whether suing was worth it routed to Atty. Thorne
-
-**Best practices & pitfalls**
-
-- Enter every cost from its receipt, on its row.
-- Write each reduction's basis on its line.
-- ⚠️ Pitfall: carrying Track A's 33⅓% fee into the litigated file.
-- ⚠️ Pitfall: paying a lien from a phone call instead of a Payoff Letter.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **15%** | Gross and fee | $40,000.00 by carrier; 40% = $16,000.00 |
-| 🤖 AI | **15%** | Costs | $3,895.25 from seven receipted items |
-| 🤖 AI | **15%** | Liens | $1,116.00 and $4,275.00 with their Payoff Letters; zero-balance lines off the payables; Riverton Drug $312.40 in the Non-Medical Provider Ledger, Paid by Client, $0.00 owed |
-| 🤖 AI | **15%** | Net | $14,713.75, tied to the trust deposits |
-| 🧑‍🏫 Trainer | **20%** | Explaining the difference | Plain arithmetic to John Doe: fee tier, costs, liens |
-| 🧑‍🏫 Trainer | **20%** | UPL boundary | No opinion on the lawsuit's worth or the fee; routed to Atty. Thorne |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Have each trainee open the Net Sheet beside the slide and check it at the Track B stage. The trap is the fee: 33⅓% from habit instead of 40%.
-- Ask: “John says a friend kept more from his settlement. What do you say?” Only arithmetic, and a route to Atty. Thorne.
-
----
-
-### 5.1.24 Backup File Maintenance: the Final Audit and the Close-Out
+### 5.1.16 Backup File Maintenance: the Final Audit and the Close-Out
 
 > **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Skill Activity — back up the litigation file, run the final audit and prepare the case for Closed Files  
@@ -1817,73 +1234,7 @@ Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's a
 
 ---
 
-### 5.1.25 Closing a Dropped Case: Withdrawal Letters & the Close-Out Log
-
-> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Dropped Case Close-Out Check (`d5m6`)  
-> **Topic:** Skill Activity — a practice matter: three Withdrawal Letters, their dispatch and the Dropped status  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** LSH Claims Specialist: Dropped Cases — sending Withdrawal Letters to clients, carriers and medical providers; the sample letters by email, by text, to a carrier and to a provider · Newly authored: the Denise Harlow practice matter (no health insurance, treatment ended, Pending Drop)
-
-#### 1 · Visual Layout Description
-
-A PRACTICE MATTER banner in orange across the top: DENISE HARLOW · LSH-2026-MVA-781205 · NOT JOHN DOE'S FILE. Left half, three stacked letter cards, each with a navy header (CLIENT · GRANITE SHIELD · BROOKSIDE PT) and a method chip (TEXT + EMAIL + CERTIFIED MAIL · EMAIL · FAX); only the client card carries an orange REASON line. Right half, the close-out log as a checklist: gate ✓ 12/08/2026, letters saved WORD + PDF, dispatch 12/09/2026, follow-up 12/16/2026, and a status pill turning from PENDING DROP to DROPPED. Bottom-right, a red chip: “Worthless? Not yours to say.”
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** A practice matter, not John Doe's file: do not open or create it in the CMS. File date 12/09/2026. Denise Harlow (LSH-2026-MVA-781205) was rear-ended at a red light on 09/19/2026. Granite Shield Insurance holds the BI claim, GS-26-48213 (adjuster Paul Ostrander; CRM note: email only). She treated at Brookside Physical Therapy (CRM note: fax only) from 09/24 to 10/29/2026, then stopped: she has no Health Plan to pay for care, and Brookside declined a Letter of Protection. Atty. Thorne has decided to drop the case. Status: Pending Drop. His note, 12/08/2026, 2:10 p.m.: called Denise, told her the firm will close its representation; she understood; address 87 Alder Creek Dr, Riverton confirmed; she prefers text and email (denise.harlow@mail.example). RS05 shows the firm's standard retainer, with the withdrawal terms every client signs.
-
-**Execution prompt.** Close out the drop in the CMS. Record the gate you checked. Draft three Withdrawal Letters for Atty. Thorne's signature: to Denise (date, name, date of loss, the reason in his note's words, and the next step he approves: speak to another attorney promptly, because time limits apply), and one each to Granite Shield and to Brookside (date, client, date of loss, claim number, that the firm no longer represents her; nothing about why). Name each send method and why. Then write the close-out log: Word and PDF saved, each dispatch annotated, the follow-up, the switch to Dropped and the proof retained. Graded judgment: what you say if Denise calls to ask whether her case was worthless.
-
-| | |
-|---|---|
-| **Tool / interface** | CMS → Doc Hub → Others |
-| **Expected output** | Three Withdrawal Letters ready for Atty. Thorne's signature, a send method for each, and a close-out log from Pending Drop to Dropped. |
-
-**Verification checkpoints**
-
-- [ ] Gate recorded: status “Pending Drop” and Atty. Thorne's 12/08/2026 note that Denise Harlow was told; nothing prepared to send before both were confirmed
-- [ ] Client letter: 12/09/2026, Denise Harlow, date of loss 09/19/2026, the reason in Atty. Thorne's words (treatment ended 10/29/2026, so the firm cannot continue the claim), the approved next step (speak to another attorney promptly; time limits apply), signed by Atty. Thorne
-- [ ] Granite Shield letter: client, claim GS-26-48213, date of loss 09/19/2026, the firm no longer represents her; Brookside letter: patient, date of loss, the firm no longer represents her, please update your records; neither gives the reason
-- [ ] Every letter saved in Word and PDF
-- [ ] Methods: Denise by text and email (subject “Notice of Withdrawal of Representation”, PDF attached, a brief description) plus Certified Mail with return receipt to 87 Alder Creek Dr; Granite Shield by email and Brookside by fax, per the CRM notes
-- [ ] Each dispatch annotated with party, method and date (12/09/2026); each sent letter saved to the file
-- [ ] Follow-up on 12/16/2026: the return receipt, Granite Shield's acknowledgement and Brookside's fax confirmation
-- [ ] Status switched to “Dropped” only after all three letters are sent, logged and followed up; proof retained: letters, receipts, logs and Atty. Thorne's note
-- [ ] If Denise asks whether her case was worthless: no view on its value or on restarting treatment; Atty. Thorne made the decision and will call her; the call logged and routed
-
-**Best practices & pitfalls**
-
-- Quote Atty. Thorne's reason; never write your own.
-- Confirm the mailing address before Certified Mail goes out.
-- ⚠️ Pitfall: a carrier letter that says she stopped treating.
-- ⚠️ Pitfall: offering Denise a way to “save” the case.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **10%** | Gate | Pending Drop and the 12/08/2026 note both confirmed before anything is prepared to send |
-| 🤖 AI | **15%** | Client letter | 12/09/2026, Denise Harlow, 09/19/2026, the reason in Atty. Thorne's words, the approved next step, his signature |
-| 🤖 AI | **15%** | Carrier and provider letters | GS-26-48213 and the date of loss on each; no reason given; “please update your records” to Brookside |
-| 🤖 AI | **20%** | Methods and close-out log | Text, email and Certified Mail; email; fax; Word and PDF; dispatch logged; follow-up 12/16/2026; Dropped with proof |
-| 🧑‍🏫 Trainer | **20%** | Judgment | Keeps the reason to the client's letter and the status change behind the follow-up |
-| 🧑‍🏫 Trainer | **20%** | UPL boundary | No view on the claim's worth or on restarting treatment; Denise routed to Atty. Thorne |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Say it before anyone starts: this is a practice matter. John Doe's case is never dropped, and nothing here goes into his file or the CMS.
-- Read three carrier letters aloud. Any that mentions treatment, insurance or the reason goes back: Granite Shield learns only that the firm no longer represents Denise.
-- Ask: “Denise calls and asks if her case was worthless. What do you say?” Only Atty. Thorne's decision, his call back and the letter's direction to seek other counsel.
-
----
-
-### 5.1.26 Litigation Fork Transition Check
+### 5.1.17 Litigation Fork Transition Check
 
 > **Knowledge Check** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Litigation Fork Transition Check (`d4m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1956,12 +1307,11 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 |---|---|---|---|
 | 🤖 AI | **20%** | Fork and stack | Track B from 08/05/2026; BI → Host UM → Relative UM; $40,000 frozen behind $10,000 |
 | 🤖 AI | **15%** | Impasse record | Triggers named with correct dates and proof |
-| 🤖 AI | **10%** | Architecture | Five sub-folders named; Request for Admission to 04_DISCOVERY_DEFENDANT_TO_PLAINTIFF; fee tier on filing |
-| 🤖 AI | **10%** | Neutrals | Mediator and arbitrator distinguished by background, selection and power; no appeal on the merits |
+| 🤖 AI | **20%** | “Never” rule | Holds the demand: no bid against itself, no apology for the Limits Demand, “final” tested by escalation (follow-ups 08/24 and 08/31, the claims supervisor 09/02/2026); any new number is Atty. Thorne's |
 | 🤖 AI | **5%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slide |
-| 🧑‍🏫 Trainer | **10%** | UPL boundary | Question 6 answered without a view on the offer or an explanation of the fee; routed to Atty. Thorne |
+| 🧑‍🏫 Trainer | **10%** | UPL boundary | No view on the $3,500 offer, or on the fee, given to John Doe; routed to Atty. Thorne |
 | 🧑‍🏫 Trainer | **5%** | Self-rating calibration | Self-score is defensible against demonstrated performance |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
@@ -1969,13 +1319,13 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 #### 5 · Speaker Notes
 
 - Question 1 is the foundation. A trainee who can't explain why $10,000 freezes $40,000 has memorized the stack without understanding it; re-teach Day 1's order of operations before moving on.
-- Question 6 is the pressure scenario. The right answer takes the question down, tells John Doe it is going to Atty. Thorne today, and routes it: no view on $3,500, no explanation of the fee.
-- Question 5 separates the neutrals by power, not title. Expect “the mediator decides” from at least one trainee.
+- Question 3 is the pressure point: “final” is a word, not a fact. The right answer holds the demand, escalates to Keystone's claims supervisor, and gives no view on $3,500 to anyone; any new number is Atty. Thorne's.
+- Question 2 separates a dated record from an impression: every trigger needs its date and the document that shows it.
 - Compare each self-rating with the score. UPL is a gate: a strong score does not survive an ethics breach.
 
 ---
 
-### 5.1.27 Litigation Support Assessment
+### 5.1.18 Litigation Support Assessment
 
 > **Knowledge Check** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -1984,7 +1334,7 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 
 #### 1 · Visual Layout Description
 
-Split layout. Upper half: the Litigation Support Assessment on the warm cream card with the orange ruled border, seven questions numbered in orange; the two pressure scenarios, 6 and 7, carry a small red clock chip. Between the panels, a slim LITIGATION DOCKET strip of six mono date pills, 03/15 · 03/31 · 04/15 · 05/28 · 08/12 · 09/13, for the trainee to self-check against. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, and beside it the 1–5 SELF-SCALE as a five-step horizontal ladder with the competency rows beneath. Far right, the 60/40 stacked bar, 60% AI in navy and 40% Trainer in orange, with UPL as a separate red gate chip outside the bar.
+Split layout. Upper half: the Litigation Support Assessment on the warm cream card with the orange ruled border, three questions numbered in orange; question 1, the response date, carries a small red clock chip. Between the panels, a slim LITIGATION DOCKET strip of six mono date pills, 03/15 · 03/31 · 04/15 · 05/28 · 08/12 · 09/13, for the trainee to self-check against. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, and beside it the 1–5 SELF-SCALE as a five-step horizontal ladder with the competency rows beneath. Far right, the 60/40 stacked bar, 60% AI in navy and 40% Trainer in orange, with UPL as a separate red gate chip outside the bar.
 
 #### 2 · Slide Body — Knowledge verification
 
@@ -1995,7 +1345,7 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 **Best practices & pitfalls**
 
 - Answer with the file's own dates, names and arithmetic, not general rules.
-- ⚠️ Pitfall: answering Question 6 with what you would agree to. You agree to nothing.
+- ⚠️ Pitfall: answering Question 2 by arguing the defense yourself. You pull the evidence; Atty. Thorne answers it.
 - ⚠️ Pitfall: a self-rating that doesn't match your answers; your trainer will ask about the gap.
 
 #### 3 · Knowledge Check & CM Summary
@@ -2045,12 +1395,12 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Deadline accuracy | 01/04/2027 with the arithmetic shown; e-service counted without mail days on this file's rule set; the order's dates exact |
-| 🤖 AI | **15%** | Litigation doctrine | Answer roadmap, file architecture and naming, KPIs as formula plus target, extensions in writing |
-| 🤖 AI | **15%** | File evidence | Gap and liability evidence named from the file: EMS report, MRI read, Causation Letter, doorbell video, Ruth Calloway, EDR |
+| 🤖 AI | **15%** | File architecture | Affidavit of service, the 12/01/2026 RFAs and the Scheduling Order each in its litigation sub-folder (the RFAs in 04_DISCOVERY_DEFENDANT_TO_PLAINTIFF) under the firm's naming convention; the order's dates docketed the day it arrives |
+| 🤖 AI | **15%** | File evidence | Each of the three defenses named, with the evidence on file against it: EMS report, MRI read, Causation Letter, doorbell video, Ruth Calloway, EDR |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slide |
-| 🧑‍🏫 Trainer | **10%** | UPL boundary | No extension agreed, no testimony scripted; Atty. Thorne named wherever authority is required |
+| 🧑‍🏫 Trainer | **10%** | UPL boundary | No legal view on the defenses; the court's rule confirmed, not assumed; Atty. Thorne named wherever authority is required |
 | 🧑‍🏫 Trainer | **5%** | Self-rating calibration | Self-score is defensible against demonstrated performance |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
@@ -2058,13 +1408,13 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 #### 5 · Speaker Notes
 
 - Question 1 is the gate. A trainee who answers 12/31/2026 or 01/03/2027 has learned the words without the method; re-teach the count on the board before moving on.
-- Put Question 6 to the room before anyone writes: “Opposing counsel wants two weeks at 4:45 p.m. and will paper it later. Who can say yes?” Only Atty. Thorne, and only in writing, the same day.
-- Question 7 is Trap 2. The right answer: tell John Doe not to take further calls from the defense side and to refer them to the firm, log what he says was asked and answered, and tell Atty. Thorne the same day; any response to Keystone or Atty. Mercer is his call. Anything that has the CM call the investigator back, or ask John Doe to shade what he said, fails.
+- Question 2: the Case Manager pulls the evidence and never argues the defense. Which defense to answer, and how, is Atty. Thorne's.
+- Question 3: the Scheduling Order's dates go on the calendar the day it is filed, exactly as ordered; a date paraphrased is a date missed.
 - Compare each self-rating with the score. UPL is a gate: a strong score does not survive an ethics breach.
 
 ---
 
-### 5.1.28 PD Transition Check
+### 5.1.19 PD Transition Check
 
 > **Knowledge Check** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with PD Transition Check (`d5m2`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2108,9 +1458,9 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 
 **Auto-graded share of the day's Knowledge Check** (5 questions):
 
-1. Keystone PD's 12/10/2026 release covers “all claims arising from the 02/06/2026 accident” and asks “Mr. Doe” to sign. You:  
-   Send it to John Doe to sign, since he was in the crash · Send it to Margaret Doe to sign, since it is her PD claim · **✓ Hold it, log it and route its language to Atty. Thorne the same day: a release reaching beyond the Civic could reach John Doe's BI claim, and nobody signs until he has reviewed it** · Sign the firm's acknowledgment and return it  
-   *A PD-only release must never release the bodily-injury claim. The CM checks the scope and the claim number, holds the release, and routes it; Atty. Thorne decides what is signed, and John Doe signs nothing.*
+1. Keystone PD's 12/10/2026 release, for Margaret Doe to sign as the Civic's owner, covers “all claims arising from the 02/06/2026 accident”. You:  
+   Send it to John Doe to sign, since he was in the crash · Send it to Margaret Doe to sign now, since it is her PD claim · **✓ Hold it, log it and route its language to Atty. Thorne the same day: it is not limited to Property Damage, and nobody signs until he has reviewed it** · Sign the firm's acknowledgment and return it  
+   *A PD release must be limited to Property Damage. The CM checks the scope and the claim number, holds the release, and routes it; Atty. Thorne decides what Margaret Doe signs, and John Doe, who has no PD claim, signs nothing.*
 2. Keystone's final PD position is $792.00 for Diminished Value and $0 for Loss of Use. What does it change on John Doe's settlement figures?  
    His Net Sheet drops by the difference · **✓ Nothing: Loss of Use and Diminished Value are Margaret Doe's PD claim, paid under Keystone's $25,000 PD limit outside the $40,000 stack; his Specials, liens and stack don't move** · His liens rise · Keystone's BI limit falls by $792.00  
    *PD figures stay on Margaret Doe's file. Whatever her Loss of Use or Diminished Value settles for, John Doe's Specials, liens, stack and Net Sheet are unaffected.*
@@ -2120,7 +1470,7 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 4. Where does the Civic's rental touch John Doe's case?  
    Nowhere: it is Margaret Doe's claim · **✓ In his transportation history: no car until the 02/18/2026 rental and the 03/19/2026 cutoff sit behind his gap and disrupted care, so both records must match date for date** · As a damages item in his suit · As a lien on his settlement  
    *The rental is Margaret Doe's claim, but its dates are part of John Doe's gap record. The CM keeps the two records identical; what the dates mean at deposition is Atty. Thorne's to prepare.*
-5. Leah Moran calls: “Will Mr. Doe take the $792.00 so I can close this?” You:  
+5. Leah Moran calls: “Will Ms. Doe take the $792.00 so I can close this?” You:  
    Say yes, since anything beats $0 · Counter at $3,600.00 · Tell her it sounds fair and you'll ask him · **✓ Log her words, tell her the position is with Atty. Thorne, and route it the same day**  
    *The CM never accepts, rejects, counters or values a PD figure. Log, say it is with Atty. Thorne, and route.*
 
@@ -2147,7 +1497,7 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 
 ---
 
-### 5.1.29 Deposition Readiness Audit
+### 5.1.20 Deposition Readiness Audit
 
 > **Knowledge Check** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2210,12 +1560,12 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Audit accuracy | Gap 14 days (02/06–02/20/2026), disruption 19 days (04/02–04/21/2026), 2021 visits, seatbelt, MRI wording, written discovery, social media |
-| 🤖 AI | **15%** | Rules and categories | Seven Golden Rules, four categories and objection handling stated correctly |
+| 🤖 AI | **15%** | Question categories | The four categories of defense questions named; medical history, here the 2021 low-back visits, as the one clients most often underreport |
 | 🤖 AI | **15%** | Logistics accuracy | 02/17/2027 confirmations; 02/18/2027 at 10:00 a.m.; Riverton Court Reporting; John's new number and Margaret as backup |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slide |
-| 🧑‍🏫 Trainer | **10%** | UPL boundary | Question 5 routed with no content; a late start left to Atty. Thorne |
+| 🧑‍🏫 Trainer | **10%** | UPL boundary | Any testimony question routed to Atty. Thorne with no content; no testimony coached |
 | 🧑‍🏫 Trainer | **5%** | Self-rating calibration | Self-score is defensible against demonstrated performance |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
@@ -2224,12 +1574,12 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 - Open with the readiness strip on screen and ask which chip is hardest to turn green honestly. Most say the audit; the honest answer is the routing, because it is the one tested under pressure.
 - Ask the room: “It is 02/03/2027. John has just resurfaced with a new phone, fifteen days before he testifies. What can't wait until tomorrow?” His new number in the CMS, and the audit routed to Atty. Thorne.
-- Question 5 is the UPL gate. Any reply with content about the gap fails the module, however polished. The right reply routes the question to Atty. Thorne and logs it in John's words.
-- Question 6 is the pressure scenario: call the new number, then Margaret's backup number, resend the link, and tell Atty. Thorne at once. What is said to Atty. Mercer and the court reporter, and whether the deposition starts late or is reset, is counsel's call, not the CM's.
+- Question 3: the 2021 low-back visits are the medical-history risk on this file, and defense counsel already has them. The audit surfaces them so Atty. Thorne can prepare John; the Case Manager never does.
+- Question 2 is logistics only: who is confirmed, what, the exhibit set and the backup contact. Testimony habits belong to Atty. Thorne.
 
 ---
 
-### 5.1.30 Final Comprehensive Knowledge Check
+### 5.1.21 Final Comprehensive Knowledge Check
 
 > **Knowledge Check** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Knowledge Check (all five days) + CM Learning Summary & Self-Scale  
@@ -2249,7 +1599,7 @@ The standard knowledge-check split, extended for the final check. Above the crea
 **Best practices & pitfalls**
 
 - Answer from the file: names, dates and figures, not general rules.
-- ⚠️ Pitfall: answering Question 7 with what John should say. The right answer routes him to Atty. Thorne.
+- ⚠️ Pitfall: answering Question 3 with a net that doesn't reconcile to the cent. Every deduction carries its figure and source.
 
 #### 3 · Knowledge Check & CM Summary
 
@@ -2288,14 +1638,13 @@ The standard knowledge-check split, extended for the final check. Above the crea
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **15%** | Stack and Payer Order | $10,000 → $20,000 → $10,000 = $40,000 in order; PIP, MedPay, Keystone PD and Bluewater outside it; Payer Order correct |
-| 🤖 AI | **10%** | Gap and documentation | 14 days (02/06 → 02/20/2026); reasons and corroboration named, including Dr. Reyes's 06/19/2026 letter |
-| 🤖 AI | **15%** | Settlement mechanics | 08/21/2026 (30 days from the written acknowledgement on 07/22); written consent before the release; $20,359.92 reconciled with the 25% / 75% allocation |
-| 🤖 AI | **10%** | Litigation and liability | The fork explained; mediation non-binding, arbitration binding; each allegation matched to its evidence |
+| 🤖 AI | **20%** | Stack and Payer Order | $10,000 → $20,000 → $10,000 = $40,000 in order; PIP, MedPay, Keystone PD and Bluewater outside it; Payer Order correct |
+| 🤖 AI | **15%** | Window and consents | 08/21/2026, 30 days from the written acknowledgement on 07/22; written consent to settle and the subrogation waivers from Harbor Point (08/24) and Cardinal State (08/26) before the release |
+| 🤖 AI | **15%** | Net reconciliation | $40,000.00 – $13,333.33 – $486.75 – $1,240.00 – $4,580.00 = $20,359.92; costs and liens split 25% / 75%, pro rata to gross |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The stated next action is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Specific and honest across all five days, not a restatement of the slides |
-| 🧑‍🏫 Trainer | **10%** | UPL boundary | Question 7 routes John to Atty. Thorne; no coaching of testimony anywhere |
+| 🧑‍🏫 Trainer | **10%** | UPL boundary | No legal or value view in any answer; no coaching of testimony anywhere |
 | 🧑‍🏫 Trainer | **5%** | Self-rating calibration | Self-score is defensible against demonstrated performance |
 
 **Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
@@ -2303,13 +1652,13 @@ The standard knowledge-check split, extended for the final check. Above the crea
 #### 5 · Speaker Notes
 
 - This is the last check before Track B's close-out. Tell the room it spans all five days and is answered from one file: names, dates and figures, not general rules.
-- Put Question 7 to the room aloud before anyone writes: “John asks how to explain the gap. What do you say?” The only right answer listens, tells him Atty. Thorne will go through it with him, escalates at once and logs the call. The Gap Record is already in counsel's prep set, and the 2021 low-back visits sit in the medical-history category clients most often underreport, which defense counsel already has.
-- Question 4 is the arithmetic gate: $40,000.00 less the $13,333.33 fee, $486.75 in costs and the $1,240.00 and $4,580.00 liens leaves $20,359.92. A trainee who cannot reconcile it to the cent goes back to Track A's disbursement.
-- Compare self-ratings with scores across all five days. A 5 on the UPL competency from a trainee who coached John in Question 7 does not pass: UPL is a gate, not a weight.
+- Question 2: the window runs from the written acknowledgement, not the send date, and nothing is signed until both UM carriers have consented in writing. A release signed first can cost John Doe $30,000 of UM coverage.
+- Question 3 is the arithmetic gate: $40,000.00 less the $13,333.33 fee, $486.75 in costs and the $1,240.00 and $4,580.00 liens leaves $20,359.92. A trainee who cannot reconcile it to the cent goes back to Track A's disbursement.
+- Compare self-ratings with scores across all five days. A 5 on the UPL competency from a trainee whose answers give a legal or value view does not pass: UPL is a gate, not a weight.
 
 ---
 
-### 5.1.31 Track B Close-Out Check
+### 5.1.22 Track B Close-Out Check
 
 > **Knowledge Check** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Track B Close-Out Check (`d5m5`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
@@ -2373,16 +1722,16 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 #### 5 · Speaker Notes
 
 - This is the last check of the Case Flow: the file is closed from intake to award.
-- Question 5 is the UPL gate: arithmetic yes, opinion no. A trainee who says the lawsuit was or wasn't worth it has crossed the line.
+- UPL is the gate on all three questions: arithmetic yes, opinion no. A trainee who says the lawsuit was or wasn't worth it has crossed the line.
 
 ---
 
-### 5.1.32 Dropped Case Close-Out Check
+### 5.1.23 Dropped Case Close-Out Check
 
 > **Knowledge Check** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** LSH Claims Specialist: Dropped Cases — Withdrawal Letters and closing the file · Newly authored: the Denise Harlow practice matter
+> **Theory extracted from:** LSH Claims Specialist: Dropped Cases — Withdrawal Letters and closing the file · Newly authored: the close-out questions, answered from the six steps
 
 #### 1 · Visual Layout Description
 
@@ -2391,19 +1740,19 @@ The standard knowledge-check split. Upper half: the cream question panel with or
 #### 2 · Slide Body — Knowledge verification
 
 1. Name the two things you confirm before any Withdrawal Letter goes out, and why both matter.
-2. What goes in Denise Harlow's letter that does not go in Granite Shield's or Brookside's, and why?
-3. Denise's three letters went out 12/09/2026. What must be true before her status becomes “Dropped”, and what proof stays in the file?
+2. What goes in the client's Withdrawal Letter that does not go in the carrier's or the provider's, and why?
+3. A client's three Withdrawal Letters have gone out. What must be true before her status becomes “Dropped”, and what proof stays in the file?
 
 **Best practices & pitfalls**
 
-- Answer from the practice matter: names, dates and methods, not general rules.
+- Answer from the close-out: the gate, each party's letter and method, and the proof, step by step.
 
 #### 3 · Knowledge Check & CM Summary
 
 **Case Manager Self-Summary**
 
 - Summarize, in your own words, what you learned closing a Dropped Case: the principles behind the close-out, not the clicks.
-- Articulate your strategy: Denise's letters are out and her return receipt hasn't come back by 12/16/2026. What is your next action, and why is it the right one rather than something else?
+- Articulate your strategy: a client's letters are out and her return receipt hasn't come back a week later. What is your next action, and why is it the right one rather than something else?
 - Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
 
 **Skill Scale — self-rate 1–5**
@@ -2422,12 +1771,12 @@ The standard knowledge-check split. Upper half: the cream question panel with or
 1. A practice file shows status “Pending Drop”, but no note from Atty. Thorne or the Case Manager says the client has been told. What happens before any Withdrawal Letter goes out?  
    The client's letter goes by Certified Mail, so it serves as the notice · **✓ Every letter is held until Atty. Thorne confirms, in a note on the file, that the client was told** · The Case Manager calls the client to explain why the firm is dropping the case · The carrier's and provider's letters go now; the client's waits  
    *Two gates come first: the status is Pending Drop AND a note shows the client was told, so the letter is never the client's first news. Telling the client is Atty. Thorne's conversation; nothing goes to any party until both gates are met.*
-2. Denise Harlow's three Withdrawal Letters are signed. Which dispatch plan follows the firm's close-out?  
-   **✓ Denise by text and email, her preferred methods, plus Certified Mail with return receipt; Granite Shield by email and Brookside Physical Therapy by fax, as the CRM notes say; each dispatch logged, every letter saved in Word and PDF** · Everyone by Certified Mail only, and the status switched to “Dropped” the same day · Denise by text only; Granite Shield and Brookside by phone, logged afterwards · Denise by email, with Granite Shield and Brookside copied, so everyone sees the reason  
+2. A client's three Withdrawal Letters are signed: hers, the BI carrier's and her treating provider's. Which dispatch plan follows the firm's close-out?  
+   **✓ The client by her preferred method plus Certified Mail with return receipt; the carrier and the provider by email or fax, as the CRM notes say; each dispatch logged, every letter saved in Word and PDF** · Everyone by Certified Mail only, and the status switched to “Dropped” the same day · The client by text only; the carrier and the provider by phone, logged afterwards · The client by email, with the carrier and the provider copied, so everyone sees the reason  
    *The client gets her preferred method plus Certified Mail for proof of receipt; carriers and providers get email or fax as the CRM notes say. The reason stays in the client's letter. The status moves to Dropped only once every letter is sent, logged and followed up.*
-3. Denise Harlow calls after her letter arrives: “So my case was worthless?” Which answer stays inside the Case Manager's role?  
-   “Without treatment there was nothing to claim, so yes.” · “If you find a clinic and restart treatment, the firm may take the case back.” · **✓ “I can't speak to the value of your claim. Atty. Thorne made this decision and will call you to talk it through. Your letter also explains that time limits apply and suggests you speak to another attorney promptly.”** · “The firm thinks your case is too weak, but another lawyer might disagree.”  
-   *The Case Manager never values the claim, never re-argues or explains the decision and never advises on next steps. She points Denise only to what Atty. Thorne approved: his call back and the letter's direction to seek other counsel promptly, then logs the call and routes it.*
+3. Which of these goes only in the client's Withdrawal Letter, never in the carrier's or the provider's?  
+   The date of loss and the claim number · That the firm no longer represents the client · **✓ The reason for the drop and the next step Atty. Thorne approves** · The date of the letter  
+   *Every letter carries the date, the client, the date of loss and the claim number, and says the representation has ended. Only the client's carries the reason, in Atty. Thorne's words, and the next step he approves: seek other counsel promptly. A carrier told why has been handed a defense.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -2443,7 +1792,7 @@ The standard knowledge-check split. Upper half: the cream question panel with or
 
 #### 5 · Speaker Notes
 
-- Answers come from the practice matter: Denise Harlow, 12/08 and 12/09/2026, Granite Shield by email, Brookside by fax.
-- The UPL gate: a trainee who explains the drop to Denise, or tells her what to do next, has crossed the line, whatever the rest of the answer.
+- Answers come from the six-step close-out on the lesson slide: the two gates, the reason only in the client's letter, the client by her preferred method plus Certified Mail, carriers and providers by email or fax per the CRM, then follow-up and proof before “Dropped”.
+- The UPL gate: a trainee who explains the drop to the client, or tells the client what to do next, has crossed the line, whatever the rest of the answer.
 
 ---

@@ -25,6 +25,10 @@ const doc = id => DOCS.find(d => d.id === id);
 const taughtOn = {}, titleOf = {};
 CF.sequence.forEach(d => d.phases.forEach(ph => ph.blocks.forEach(id => { taughtOn[id] = d.n; })));
 CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { titleOf[b.id] = b.title; })));
+// an activity cut from the course's order keeps its block (`retired`) and its packet, so old saves still resolve; a
+// planted document that only a cut activity worked is cut with it (its challenge stays in challenges.json, unworked)
+const retiredAct = id => { const b = CF.days.flatMap(d => d.modules.flatMap(m => m.blocks)).find(x => x.id === id); return !!(b && b.retired && !taughtOn[id]); };
+const cutWith = id => { const c = CH.challenges[id]; return !!(c && (c.in || []).length && c.in.every(retiredAct)); };
 const usedIn = id => Object.entries(PACKETS).filter(([, ids]) => ids.includes(id)).map(([a]) => a)
   .sort((a, b) => (taughtOn[a] || 9) - (taughtOn[b] || 9) || a.localeCompare(b));
 const planted = d => /^PLANTED/.test(d.key || "");
@@ -50,6 +54,7 @@ for (const d of DOCS){
 }
 for (const [id, c] of Object.entries(CH.challenges)){
   const d = doc(id); if(!d){ errors.push(`challenges.json ${id}: not a document`); continue; }
+  if(cutWith(id)) continue;
   if(!CH.routes[c.route]) errors.push(`challenges.json ${id}: route "${c.route}" is not one of ${Object.keys(CH.routes).join(" · ")}`);
   if(!(c.in || []).length) errors.push(`challenges.json ${id}: no activity where it is worked`);
   const first = Math.min(...(c.in || []).map(a => taughtOn[a] || 9));

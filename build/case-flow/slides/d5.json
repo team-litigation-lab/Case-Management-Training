@@ -109,7 +109,7 @@
     "image": "release-signature",
     "hook": "Margaret's PD figures never move John's settlement; **a wide release could**.",
     "points": [
-      "A PD-only release **never releases the BI claim**",
+      "A PD release is **limited to Property Damage**",
       "Check **the claim number**: KM-26-440871-PD, not KM-26-440871",
       "Photos, estimate, supplement: **already John's severity set**",
       "$25,000 PD sits **outside the $40,000 stack**"
@@ -132,14 +132,14 @@
   },
   "d5m2-a1": {
     "image": "phone-call",
-    "situation": "Assuming Keystone PD's final position is **$792.00 and $0** with an all-claims release for Mr. Doe, the release needs holding.",
+    "situation": "Assuming Keystone PD's final position is **$792.00 and $0** with an all-claims release for Margaret Doe, the release needs holding.",
     "side": true,
     "steps": [
       "Log the release in CMS → Doc Hub as held, and route it to Atty. Thorne in CMS → Tasks → + Add Task **the same day**.",
       "Log one Case Note: Diminished Value and Loss of Use stay on Margaret's file. Does this touch John Doe's case?"
     ],
     "deliver": "**The release routed**, each PD outcome sorted",
-    "purpose": "One signature on a wide release could **reach John's BI claim**",
+    "purpose": "One signature on a wide release could give up **more than the Civic**",
     "principle": "PD reaches John's settlement **through the release, never its figures**",
     "checks": [
       "“All claims” release **routed the same day**",

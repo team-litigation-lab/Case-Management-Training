@@ -92,8 +92,9 @@
     "situation": "Assuming claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, **no adjuster assigned**, **five letters** must go out on 02/17/2026.",
     "side": true,
     "steps": [
-      "In CMS → Doc Hub → Others, draft three letters of representation and **two notices**: each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages.",
-      "Route the set to Atty. Thorne for signature, send each by the carrier's preferred method, and calendar a check for each acknowledgement."
+      "In CMS → Insurance, complete each layer from the claim calls: claim number, adjuster, and each limit **with its source**, still preliminary.",
+      "In CMS → Doc Hub → Others, draft three letters of representation and **two notices**, each with its Attn line, insured, claim number and date of loss.",
+      "Route the set to Atty. Thorne for signature, send each by preferred method, calendar the acknowledgement checks, and record each layer's **verification status** as answers arrive."
     ],
     "deliver": "Five letters **signed, sent and logged**, each correctly addressed, follow-ups calendared",
     "purpose": "One wrong letter risks **the UM coverage** or hands Keystone his private details",
@@ -107,7 +108,7 @@
     ],
     "dos": [
       "Read each letter **against the claim-call log** before signature",
-      "Tell John Doe: PD may call **about the Civic only**"
+      "Tell John: PD deals with **Margaret, on the Civic only**"
     ],
     "donts": [
       "One letter copied five times, **insured left as Robert Smith**",
