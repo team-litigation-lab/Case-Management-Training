@@ -29,7 +29,9 @@ const { pathToFileURL } = require('url');
     if (Object.values(byName).flat().includes('RS30')) fail('a document never filed in the CMS should not be matched by its name');
 
     const rec = { builtAt: '2026-11-12', rootId: 'root', folders: { [HOMES.police]: 'fPol', [HOMES.ins]: 'fIns' } };
-    const listing = { files: {
+    // the folders as the walk (worker-drive-walk.js) lists them: a file is placed by the firm's folder nearest above it
+    const FOLDERS = { fPol: { name: '02 Police, Witness & Video', parent: 'root' }, fIns: { name: '05 Insurance, Demands & Negotiation', parent: 'root' } };
+    const listing = { folders: FOLDERS, files: {
         a1: { name: 'LSH-2026-MVA-000098_doe-john_Police-Report_2026-11-16.pdf.pdf', parent: 'fPol', mimeType: 'application/pdf' },
         a2: { name: 'LSH-2026-MVA-000098_doe-john_Others_2026-11-16.pdf.pdf', parent: 'fIns', mimeType: 'application/pdf' },
         a3: { name: 'LSH-2026-MVA-000098_doe-john_Others_2026-11-16.pdf', parent: 'fIns', mimeType: 'application/pdf' },
@@ -47,8 +49,15 @@ const { pathToFileURL } = require('url');
 
     // a code in the name still wins (RS01 named files, as before)
     const rec2 = { builtAt: '2026-11-12', rootId: 'root', folders: { [HOMES.police]: 'fPol' } };
-    M.applyFound(rec2, { files: { b1: { name: 'LSH-2026-MVA-000098_Doe-John_RS05-Crash-Report_2026-11-12.pdf', parent: 'fPol', mimeType: 'application/pdf' } } }, docs, D, {});
+    M.applyFound(rec2, { folders: FOLDERS, files: { b1: { name: 'LSH-2026-MVA-000098_Doe-John_RS05-Crash-Report_2026-11-12.pdf', parent: 'fPol', mimeType: 'application/pdf' } } }, docs, D, {});
     if (((rec2.handFiled || [])[0] || {}).docId !== 'RS05') fail('a file with its document code in its name should still be that document');
+
+    // both together: a file under its filed name inside a subfolder the trainee made in a firm's folder is in that folder
+    const rec3 = { builtAt: '2026-11-12', rootId: 'root', folders: { [HOMES.police]: 'fPol', [HOMES.ins]: 'fIns' } };
+    M.applyFound(rec3, { folders: Object.assign({ fDay: { name: 'Day 2', parent: 'fPol' }, fDraft: { name: 'Drafts', parent: 'fDay' } }, FOLDERS),
+        files: { c1: { name: 'LSH-2026-MVA-000098_doe-john_Police-Report_2026-11-16.pdf', parent: 'fDraft', mimeType: 'application/pdf' } } }, docs, D, byName);
+    const deep = (rec3.handFiled || [])[0] || {};
+    if (deep.docId !== 'RS05' || deep.path !== HOMES.police) fail(`a filed-name file two folders down 02 Police should be RS05, in 02 Police: ${JSON.stringify(deep)}`);
 
     if (fails.length) { console.log(`✗ Backup Drive files known by their filed names (${fails.length}):\n  ` + fails.join('\n  ')); process.exit(1); }
     console.log('Backup Drive: a course document saved under the name it was filed under in the CMS is that document (".pdf.pdf" too), two under one name are one each, a name never filed stays unknown, and a code in the name still wins.');

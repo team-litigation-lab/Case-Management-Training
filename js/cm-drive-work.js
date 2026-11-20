@@ -182,6 +182,7 @@ function dayNote(s){
 /* 🔎 the drive as found (a structure made by hand), and the course documents filed by hand: filing evidence, not written work */
 function foundHtml(V){
   const f = V.found, xs = V.filing || [], out = [];
+  if(V.walkNote) out.push(`<p class="cmdw-p cmdw-no" data-cmdw-walk>${E(V.walkNote)}</p>`);   // 📂 the drive not read to the end
   if(f && f.why) out.push(`<p class="cmdw-p cmdw-no" data-cmdw-found>🔎 ${E(f.why)}</p>`);
   else if(f && f.folders) out.push(`<p class="cmdw-p cmdw-dim" data-cmdw-found>🔎 Found in the trainee's Drive: ${E(f.folders)} of the firm's ${E(f.of)} folders${Object.keys(f.names || {}).length ? `, ${E(Object.keys(f.names).length)} named differently from the firm's standard (said under Day 1)` : ""}.</p>`);
   if(xs.length) out.push(`<div class="cmdw-list" data-cmdw-filing><b>📎 Course documents filed by hand (graded with the folders and filing, not as written work)</b><ul>${xs.map(x=>`<li>${x.ok ? "✓" : "✗"} ${E(x.docId)} · ${E(x.name)} <span>in ${E(x.folder)}${x.ok ? "" : ` — it belongs in ${E(x.home)}`}</span></li>`).join("")}</ul></div>`);
@@ -239,7 +240,7 @@ function ranText(r){
   const work = `Graded ${r.graded || 0} written file${r.graded === 1 ? "" : "s"}${r.failed ? `, ${r.failed} couldn't be graded (the last grade stands)` : ""}${r.pending ? `; ${r.pending} more wait for the next press or tonight` : ""}.`;
   const where = !r.built && f ? (f.why ? ` ${f.why}` : ` Found ${f.folders} of the firm's ${f.of} folders in the trainee's Drive (made by hand).`) : "";
   const filing = r.filing ? ` ${r.filing} course document${r.filing === 1 ? "" : "s"} filed by hand ${r.filing === 1 ? "was" : "were"} graded as filing.` : "";
-  return `${work}${where}${r.structure ? " The folders and filing were graded too." : ""}${filing}`;
+  return `${work}${where}${r.structure ? " The folders and filing were graded too." : ""}${filing}${r.walkNote ? ` ${r.walkNote}` : ""}`;
 }
 async function gradeNow(id){
   if(BUSY[id]) return;

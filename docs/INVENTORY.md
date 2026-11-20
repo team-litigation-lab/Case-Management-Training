@@ -122,7 +122,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/ai-check` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (52)
+## Node checks (53)
 
 | Check | What it covers |
 |---|---|
@@ -148,6 +148,7 @@ None.
 | `drive-filed-names.cjs` | A course document saved to the Backup Drive under the name the trainee filed it under in the CMS (the firm's way: <Case ID>_<Last-First>_<Type>_<date>, no document code or title in it) is recognised as that document, and two filed under one name are told apart; a file the trainee never filed stays unrecognised |
 | `drive-grades.cjs` | The Backup Drive is auto-graded day by day from the Drive itself (Days 2–5, against an in-memory Google Drive) |
 | `drive-naming.cjs` | The firm's file naming convention on the Backup Drive (one rule with the CMS filing; every name checked, each wrong one with the name it should have) |
+| `drive-subfolders.cjs` | Both Backup Drive graders read every folder and file under the linked folder at any depth, and a drive larger than one run is read on over the next runs and said (in-memory Drive, stubbed AI) |
 | `drive-to-progress.mjs` | The Backup Drive's grades reach the Scorecard: the Worker copies each day's grade onto the trainee's progress (a trainee who never reopened their drive still shows it), a page's older save doesn't put an older grade back, and Day 1 built on the Training Portal's Backup Drive counts as the firm's folders |
 | `drive-trainer-access.cjs` | A trainee's linked Google Drive opens at their case folders, for them and for a trainer (rootUrl/caseUrl, GDRIVE_TRAINER_EMAILS added to the folder without an email) |
 | `drive-work.cjs` | The trainee's written work on the Backup Drive is AI-graded nightly against its activity's rubric, and a trainer's override wins (in-memory Drive, stubbed AI) |
@@ -179,7 +180,7 @@ None.
 | `trainee-identity.cjs` | A renamed or re-batched Portal ticket with the same uid opens the trainee's existing record (the uid index), and B250926 / B092526 (the same day, as batchShow shows it) resolve to one id |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
-## Browser checks (75)
+## Browser checks (76)
 
 | Check | What it covers |
 |---|---|
@@ -209,6 +210,7 @@ None.
 | `day-video.cjs` | 🎬 The Day 1 deck and its narrated video (deck pages are the lesson's slides with their notes in Presenter; the video is 🔒 until a trainer unlocks it) |
 | `day2-video.cjs` | 🎬 Case Flow Day 2's Video Presentation (🔒 until a trainer unlocks it in 🎬 Unlock Videos; then it plays with captions and a chapter per slide) |
 | `day345-video.cjs` | 🎬 Case Flow Days 3, 4 and 5's Video Presentations (🔒 until a trainer unlocks each in 🎬 Unlock Videos; then it plays with captions and a chapter per slide) |
+| `detailed-scores-all.cjs` | The Batch Sheet's 📅 Day 1–5: Detailed Scores holds every score in one row per trainee: the Overall and day scores, 🏅 Scores' summary, a Score Card group per day and a group per grading system, the same numbers as the tables under ▸ More detail |
 | `doc-filing.cjs` | Filing the case documents into the CMS, named the firm's way (the CMS answered by the test) |
 | `doc-relay.cjs` | Relaying a Portal simulator's document to the CMS (the records simulator's records and bills reach the CMS beside the lesson; only the Portal may ask) |
 | `doc-viewer-file.cjs` | The document viewer offers Download PDF only, and it downloads the PDF |

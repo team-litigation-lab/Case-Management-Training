@@ -22,6 +22,7 @@
 // ✍ the trainee's written work on their Backup Drive, AI-graded nightly, and a trainer's override (worker-drive-work.js)
 import { DRIVE_WORK_ACTIONS, driveWorkApi, driveWorkNightly, workBrief, workView, withDayOverrides, withOverrides, OV_KEY } from "./worker-drive-work.js";
 import { driveFind, listedOf, setupOf } from "./worker-drive-found.js";
+import { walkDrive, homeFinder, walkNote, walkSettled } from "./worker-drive-walk.js";
 import { driveToProgress, keepNewerDriveGrades } from "./worker-drive-progress.js";   // 📂 the drive grades onto the trainee's progress, where the Scorecard reads them
 import { accountMergeApi, kcRestoreApi } from "./worker-account-repair.js";   // 👥 two accounts of one trainee merged on the Worker (/api/account-merge); 🛠 one account's missing KC scores restored (/api/kc-restore)
 import { identity, uidKey, afterMerge, afterMergeProgress, keepMergeStored, orphanWrite } from "./worker-identity.js";   // 🪪 who a sign-in opens (the uid index, merged: redirects) and what keeps a trainee's records whole
@@ -1029,7 +1030,7 @@ async function driveWrite(env, id, rec) { await kvOf(env).put(driveKey(id), JSON
 // ✍ what worker-drive-work.js uses of the Backup Drive and the AI
 const driveWorkDeps = () => ({ json, kvOf, listAll, driveRead, driveWrite, driveLinked, driveConfigured, drive, driveMessage, saToken, callGemini, geminiKeyNames, gatewayOn,
   nameCheck, nameHint, fileType, driveCaseId, driveSnapshot, driveNaming, gradeDay, dayStarted, daysReached, filedFromProgress, FOLDER_STANDARD, DRIVE_HOMES, DRIVE_HOME_CATEGORY,
-  driveList, FOLDER_WHY, DRIVE_PASS, DRIVE_DOC, DRIVE_DAY_DOCS, CLIENT_FOLDER, driveFind: (env, id, rec) => driveFind(env, driveWorkDeps(), id, rec),
+  driveList, FOLDER_WHY, DRIVE_PASS, DRIVE_DOC, DRIVE_DAY_DOCS, CLIENT_FOLDER, driveFind: (env, id, rec, opts) => driveFind(env, driveWorkDeps(), id, rec, opts),
   driveToProgress: (env, id, rec) => driveToProgress(kvOf(env), id, rec, withDayOverrides, DRIVE_PASS) });   // 🔎 and what worker-drive-found.js read
 /* Linked: a folder of the trainee's own, shared with the service account and pasted in ("link"). A record from the old
    Google sign-in (a sealed refresh token, no linkedAt) is not linked: the trainee shares and pastes once. */
@@ -1170,6 +1171,7 @@ function driveStatus(env, rec) {
     builtAt: (rec && rec.builtAt) || null,
     checkedAt: (rec && rec.checkedAt) || null,
     lastMissing: (rec && rec.lastMissing) || [],
+    walk: (rec && rec.walk) || null, walkNote: walkNote(rec && rec.walk),   // 📂 how much of the drive the last reading covered
     // ✍ a trainer's override is the grade (with the auto grade and the comment beside it): worker-drive-work.js withDayOverrides
     setup: withDayOverrides(rec, null, setupOf(rec), DRIVE_PASS).setup,   // 🔎 or Day 1 as found in a drive made by hand
     found: (rec && rec.found) || null,
@@ -1205,6 +1207,7 @@ function driveReport(id, rec, brief) {
     problems: (setup && setup.problems) || [],
     builtAt: (rec && rec.builtAt) || null,
     foundAt: (rec && rec.foundAt) || null, found: (rec && rec.found) || null,   // 🔎 a structure made by hand, found in the drive
+    walk: (rec && rec.walk) || null, walkNote: walkNote(rec && rec.walk),   // 📂 how much of the drive the last reading covered
     checkedAt: (rec && rec.checkedAt) || null,
     missing: (rec && rec.lastMissing) || [],
     restored: Number(rec && rec.restoredCount) || 0,
@@ -1231,7 +1234,7 @@ function driveReport(id, rec, brief) {
    put back. The trainee's own written work (Case Notes) is the rubric's other rows, graded where it always was.
 
    One read of the Drive per grade: every file and folder in the trainee's linked folder (the only part of their Drive the platform reads), each
-   with its name and folder, with one list call per folder of the linked folder. A copy knows which course document it is because the page sends
+   with its name and folder, at any depth (worker-drive-walk.js: several folders to a list call; a file in a subfolder the trainee made is in the firm's folder above it). A copy knows which course document it is because the page sends
    the document's id with it (`docId` on "put"); a copy the trainee moved or renamed in Drive is still found.
    ============================================================ */
 /* Each day's documents (CF_PACKETS["dN-drive"] in js/cm-case-flow-docs.js) and the course folder each belongs
@@ -1536,7 +1539,7 @@ function driveNaming(rec, S, started) {
   const rows = [];
   Object.entries(S.files).forEach(([fid, f]) => {
     const s = byId[fid] || null, isDrill = !!drill && drill.id === fid, replaced = !!s && s.id !== fid;
-    const path = S.pathOf[f.parent] !== undefined ? S.pathOf[f.parent] : f.parent === rec.rootId ? "" : null;
+    const path = S.homeOf(f.parent);   // 📂 the firm's folder nearest above it (a trainee's own subfolder is in it)
     // only this drive: the firm's folders, and the platform's own copies wherever they were moved (the same Google
     // account may hold another LSH site's files, which are none of this check's business)
     if (!s && !isDrill && path == null) return;
@@ -1641,27 +1644,12 @@ async function driveUpload(env, id, rec, parentId, name, mime, bytes, descriptio
   return drive(env, id, rec, "POST", DRIVE_UPLOAD, { raw, type: `multipart/related; boundary=${boundary}` });
 }
 
-/* Everything in the trainee's linked folder and not trashed, folder by folder from the root: {files, folders}, each
-   {id: {name, parent, created}}. (The service account sees only what is shared with it, and this reads only that folder.) */
-async function driveList(env, id, rec) {
-  const files = {}, folders = {}, queue = [rec.rootId];
-  for (let n = 0; queue.length && n < 80; n++) {
-    const parent = queue.shift();
-    let token = "";
-    for (let page = 0; page < 5; page++) {
-      const q = encodeURIComponent(`'${parent}' in parents and trashed = false`);
-      const res = await drive(env, id, rec, "GET", `/files?q=${q}&pageSize=1000&includeItemsFromAllDrives=true&fields=nextPageToken,files(id,name,mimeType,parents,createdTime)${token ? "&pageToken=" + encodeURIComponent(token) : ""}`);
-      if (!res.ok) throw new Error(driveMessage(res));
-      (res.data.files || []).forEach((f) => {
-        const x = { name: f.name, parent: (f.parents || [])[0] || parent, created: f.createdTime || "", mimeType: f.mimeType || "" };
-        if (f.mimeType === FOLDER_MIME) { folders[f.id] = x; queue.push(f.id); } else files[f.id] = x;
-      });
-      if (!res.data.nextPageToken) break;
-      token = res.data.nextPageToken;
-    }
-  }
-  if (rec.rootId) folders[rec.rootId] = folders[rec.rootId] || { name: rec.rootName || DRIVE_ROOT, parent: "", created: "" };
-  return { files, folders };
+/* Everything in the trainee's linked folder and not trashed, at any depth: {files, folders, walk}, each
+   {id: {name, parent, created, …}} (worker-drive-walk.js: bounded by a visited set, a folder ceiling and the run's
+   request budget, carried on next run when cut short). (The service account sees only what is shared with it, and
+   this reads only that folder.) */
+async function driveList(env, id, rec, opts) {
+  return walkDrive(env, { drive, driveMessage, kv: kvOf(env) }, id, rec, Object.assign({ rootName: rec.rootName || DRIVE_ROOT }, opts || {}));
 }
 
 /* The Drive as it is now: where each course document's copy sits, and the folders. */
@@ -1669,7 +1657,8 @@ async function driveSnapshot(env, id, rec, listed) {
   const { files, folders } = listed || await driveList(env, id, rec);   // (🔎 the listing driveFind just took, when there is one)
   const pathOf = {};
   Object.entries(rec.folders || {}).forEach(([p, fid]) => { if (folders[fid]) pathOf[fid] = p; });
-  const where = (fid) => (files[fid] ? { name: files[fid].name, created: files[fid].created, path: pathOf[files[fid].parent] || (files[fid].parent === rec.rootId ? "" : null) } : null);
+  const homeOf = homeFinder(folders, rec);   // 📂 a file is in the firm's folder nearest above it, at any depth
+  const where = (fid) => (files[fid] ? { name: files[fid].name, created: files[fid].created, path: homeOf(files[fid].parent) } : null);
   // a course document's copies, newest first; the first one still in the Drive is the one that counts
   const copyOf = (docId) => {
     // (🔎 and the course documents the trainee filed by hand, worker-drive-found.js)
@@ -1678,7 +1667,7 @@ async function driveSnapshot(env, id, rec, listed) {
     return null;
   };
   const clientParent = folders[(rec.folders || {})[CLIENT_FOLDER]] ? folders[rec.folders[CLIENT_FOLDER]].parent : "";
-  return { files, folders, pathOf, where, copyOf, clientInPlace: !!clientParent && clientParent === (rec.folders || {})["01 Clients"] };
+  return { files, folders, pathOf, homeOf, where, copyOf, clientInPlace: !!clientParent && clientParent === (rec.folders || {})["01 Clients"] };
 }
 
 /* One rubric row: {label, max, got, notes:[what is wrong, in words]} */
@@ -1798,6 +1787,8 @@ async function driveGrade(env, id, rec, filed, listed) {
   listed = listed || listedOf(rec) || await driveFind(env, driveWorkDeps(), id, rec);
   const reached = await daysReached(env, id);
   const days = [2, 3, 4, 5].filter((n) => dayStarted(n, rec) || reached.includes(n));
+  // 📂 a drive not read to the end (cut short by the budget) is never graded as if it were: the last grades stand
+  if (listed.walk && listed.walk.reason === "budget") { await driveWrite(env, id, rec); return rec.grades; }
   // Day 1's documents are on the drive before any later day starts, and their names are read all the same
   if (days.length || (rec.saved || []).some((s) => s.id) || (rec.handFiled || []).length) {
     const S = await driveSnapshot(env, id, rec, listed);
@@ -1807,6 +1798,7 @@ async function driveGrade(env, id, rec, filed, listed) {
   }
   rec.gradedAt = new Date().toISOString();
   await driveWrite(env, id, rec);
+  await walkSettled(kvOf(env), id, listed.walk);   // 📂 a reading finished over several runs, graded: done with
   return rec.grades;
 }
 /* The course documents a trainee has filed in the CMS, from their saved progress (doc-filing). */
@@ -2232,7 +2224,7 @@ export default {
             // The automated rows of each started day's rubric, read from the Drive as it is now.
             // 🔎 a structure made by hand (or in a folder a trainer linked) is found in the drive and graded as it is
             const listed = await driveFind(env, driveWorkDeps(), who, rec);
-            if (!rec.builtAt && !rec.foundAt) { await driveWrite(env, who, rec); return json({ error: (rec.found && rec.found.why) || "The firm's folders aren't built yet (Day 1).", code: "DRIVE_NOT_BUILT", drive: driveStatus(env, rec) }, 400); }
+            if (!rec.builtAt && !rec.foundAt) { await driveWrite(env, who, rec); return json({ error: walkNote(rec.walk) || (rec.found && rec.found.why) || "The firm's folders aren't built yet (Day 1).", code: "DRIVE_NOT_BUILT", drive: driveStatus(env, rec) }, 400); }
             const filed = action === "grade" ? cleanFiled(b.filed).concat(await filedFromProgress(env, who)).filter((x, i, a) => a.indexOf(x) === i) : await filedFromProgress(env, who);
             await driveGrade(env, who, rec, filed, listed);
             return action === "grade" ? json({ grades: rec.grades, drive: driveStatus(env, rec) }) : json({ grades: rec.grades, report: driveReport(who, rec) });
