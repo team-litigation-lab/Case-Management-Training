@@ -222,9 +222,11 @@ async function useTicketOnce(env, kv, ticket) {
   if (!kv) return true;
   const key = "sso-used:" + sig;
   if (await kv.get(key)) return false;
-  await kv.put(key, "1", { expirationTtl: 600 });
+  await kv.put(key, "1", { expirationTtl: TICKET_NONCE_TTL_S });
   return true;
 }
+// (the mark outlives any ticket it refuses: a ticket lives at most PORTAL_TICKET_MAX_MS, the mark 5 minutes more, as the ledger's)
+const TICKET_NONCE_TTL_S = Math.ceil(PORTAL_TICKET_MAX_MS / 1000) + 300;
 // One instance per ticket. A Durable Object handles one request's storage step at a time (its input gate), so a
 // second request for the same ticket always sees the first one's mark. The mark is cleared after 15 minutes, when
 // the ticket (good for at most 10) can no longer be used anyway.
@@ -244,10 +246,12 @@ export class TicketLedger {
    program refuses a ticket whose p is another program, a tool, or a course's tool link (p "tool"): why.r "audience", so
    Program Access on the Portal stays the one gate. A ticket with no p is still taken, so nobody is locked out whichever
    side deploys first: tickets are signed by the Portal and the courses only and live 5 minutes, and once the Portal and
-   the courses' tool tickets carry p, no ticket without one is made any more. */
+   the courses' tool tickets carry p, no ticket without one is made any more.
+   SSO_REQUIRE_AUDIENCE = "1" ends the rollout: a ticket with no p is refused too (why.r "audience"). */
 const PORTAL_TOPIC = "CM TRAINING";
 function ticketAudienceOk(env, t) {
-  return !t || t.p == null || String(t.p) === PORTAL_TOPIC;
+  if (!t || t.p == null) return String((env && env.SSO_REQUIRE_AUDIENCE) || "").trim() !== "1";
+  return String(t.p) === PORTAL_TOPIC;
 }
 async function readPortalTicket(env, ticket, why = {}) {
   if (!portalSecret(env)) { why.r = "format"; return null; }
@@ -378,7 +382,7 @@ const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|
 // read it, and traineeWrite refuses it, so a trainee can't mark their own alert resolved.
 const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`, `actsub:${id}`];
 const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt", "portalUid", "kcReset", "mergedAt"];
-const IDENTITY_TRAINEE_FIELDS = ["name", "firstName", "lastName", "batch"];
+const IDENTITY_TRAINEE_FIELDS = ["name", "firstName", "lastName", "batch", "fullName"];
 const ADMIN_OWNED_TRAINEE_FIELDS = PROTECTED_TRAINEE_FIELDS.concat(IDENTITY_TRAINEE_FIELDS);
 
 // callsim:<id>: the trainee's graded calls from the Call Simulator (☎ LSH Ring Channel), kept by the Training Portal (its /api/call-results).
@@ -2073,7 +2077,9 @@ export default {
          trainer as a trainer. Good for 5 minutes. */
       if (path === "/api/auth/tool-ticket") {
         if (!portalSecret(env)) return json({ error: "not-available" }, 501);
-        const sign = async (t) => { const payload = btoa(String.fromCharCode(...enc.encode(JSON.stringify(t)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+        // (j: a few random characters, as the Portal's makeTicket adds: two tickets made in the same millisecond are two tickets, each taken once)
+        const sign = async (t) => { t.j = btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(6)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+          const payload = btoa(String.fromCharCode(...enc.encode(JSON.stringify(t)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
           return `${payload}.${await hmac("portal-sso:" + portalSecret(env), payload)}`; };
         // A trainer signed in here (the admin password, or the Portal's admin sign-in) opens the CMS as a trainer, the
         // same {r: "a"} ticket the Portal gives its administrators: the CMS takes it once (its useTicketOnce), so a

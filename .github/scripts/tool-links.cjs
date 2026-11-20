@@ -29,8 +29,9 @@ async function sign(payload, secret) {
     return btoa(String.fromCharCode(...new Uint8Array(sig))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
 // A Portal ticket names the program it is for (p, its topic key: the Portal's makeTicket); p: undefined leaves it out.
+// j: a few random characters, as makeTicket adds, so two tickets made in the same millisecond are two tickets (each works once).
 const PORTAL_TOPIC = 'CM TRAINING';
-const ticketFor = async (obj, secret) => { const p = b64url(JSON.stringify(Object.assign({ p: PORTAL_TOPIC }, obj))); return p + '.' + await sign(p, secret); };
+const ticketFor = async (obj, secret) => { const p = b64url(JSON.stringify(Object.assign({ p: PORTAL_TOPIC, j: crypto.randomUUID().slice(0, 8) }, obj))); return p + '.' + await sign(p, secret); };
 
 // ---------- the Training Tools hub's addresses (js/cm-skillbuilders.js) ----------
 function toolAddresses() {
