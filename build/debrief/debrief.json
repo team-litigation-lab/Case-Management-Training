@@ -1,0 +1,598 @@
+{
+ "title": "Case Debrief — John Doe VS Robert Smith",
+ "deck": "Drawn by build/debrief/render.cjs from this file: decks/debrief/NN.webp (1600×900) and build/debrief/out/debrief.pdf (1920×1080, not committed) for make_video.py --deck",
+ "voice": "the trainer's own voice, spoken by Chatterbox Turbo from voice/sample.wav (make_video.py --turbo)",
+ "opensAfter": 5,
+ "video": {
+  "src": "/decks/debrief/debrief-narrated.mp4",
+  "captions": "/decks/debrief/debrief-narrated.vtt",
+  "starts": [
+   0.0,
+   42.6,
+   94.8,
+   164.3,
+   256.4,
+   334.9,
+   406.7,
+   482.8,
+   563.7,
+   661.2,
+   749.8,
+   825.8,
+   909.5,
+   1014.6,
+   1080.7,
+   1154.3,
+   1243.4,
+   1325.5,
+   1387.6
+  ]
+ },
+ "say": {
+  "PIP": "P I P",
+  "UM": "U M",
+  "BI": "B I",
+  "LOP": "L O P",
+  "EMC": "E M C",
+  "ER": "E R",
+  "EMS": "E M S",
+  "MRI": "M R I",
+  "CMS": "C M S",
+  "UPL": "U P L",
+  "MedPay": "Med Pay",
+  "HIPAA": "hippa",
+  "C-9": "C 9",
+  "33.33": "33 point 33",
+  "RS33": "R S 33",
+  "RS61": "R S 61",
+  "RS63": "R S 63",
+  "RS66": "R S 66",
+  "RS70": "R S 70"
+ },
+ "slides": [
+  {
+   "page": 1,
+   "title": "Case Debrief: John Doe VS Robert Smith",
+   "kicker": "The debrief",
+   "layout": "title",
+   "bullets": [
+    "Five days, one file, one money trail",
+    "What went right, what went wrong, and why",
+    "Open your own file and compare as we go"
+   ],
+   "notes": "Welcome back. You've worked John Doe versus Robert Smith for five days now, from the intake call on February 9th, 2026, all the way to the closing letter. There's nothing new to learn today. We're going to sit down together and talk the file through the way a good team does after a case closes: where the money went, where the traps were hidden, and where a lot of files, maybe yours, went off course. Nobody is being graded. If you notice something in your own work and think, I did that, good. That's the point. Every figure and date I give you comes from the case file, so you can check each one against what you built."
+  },
+  {
+   "page": 2,
+   "title": "How to Use This Debrief",
+   "kicker": "Before we start",
+   "layout": "bullets",
+   "bullets": [
+    "Open your CMS file, Net Sheet and Lien Tracker now",
+    "Pause at every figure and compare it with yours",
+    "Different? Find where it started and which document proves it",
+    "Fix it at the source, with a dated note",
+    "Value and strategy questions go to Atty. Thorne"
+   ],
+   "notes": "Before we go on, set yourself up. Open your CMS file for John Doe, your Net Sheet, both tracks if you built both, and your Lien Tracker. Every time I put a figure on the screen, pause the video and find the same figure in your file. If yours matches, move on. If it doesn't, don't just overwrite it. Ask two questions. Where did my number come from? And which document proves the right one? Most wrong figures on this file started in a draft or a provider's statement and got copied forward. So fix it where it started, with a dated note that cites the source. And one rule for the whole session: anything about what the case is worth, or which way to go, is Attorney Elijah Thorne's call, not ours. We'll come back to that line near the end."
+  },
+  {
+   "page": 3,
+   "title": "The File in One Picture",
+   "kicker": "The file",
+   "layout": "split",
+   "left": {
+    "heading": "What happened",
+    "bullets": [
+     "DOL 02/06/2026: John is the front-seat passenger",
+     "Host car: Kevin Alvarez's 2020 Ford Escape",
+     "John owns no car; passenger status opens the UM",
+     "First treatment 02/20/2026, 14 days later",
+     "19-day disruption in care, 04/02 to 04/21/2026"
+    ]
+   },
+   "right": {
+    "heading": "Two endings, one gross",
+    "bullets": [
+     "Track A: settles pre-suit, disbursed 10/22/2026",
+     "Track B: Keystone holds at $3,500; suit 09/24/2026",
+     "Track B: arbitration award, disbursed 07/30/2027",
+     "Both tracks: $40,000.00 gross",
+     "Nets: $20,359.92 (A) and $14,713.75 (B)"
+    ]
+   },
+   "notes": "First, the whole file in one picture. On February 6th, 2026, John Doe was the front-seat passenger in Kevin Alvarez's 2020 Ford Escape. Robert Smith, driving a Silverado, did not stop at the all-way stop and struck the Escape's front passenger door. John owns no car and has no auto policy of his own. That drives the whole coverage picture. He didn't treat until February 20th, 14 days later. Then, after a good start, his care stopped for 19 days in April. Both facts come back again and again. Then the file forks. On Track A, the file settles before suit, and money goes out on October 22nd, 2026. On Track B, Keystone stonewalls at 3,500 dollars, Attorney Thorne files suit on September 24th, 2026, and the file ends in arbitration, disbursed July 30th, 2027. Same 40,000 dollars gross on both tracks. Very different nets. We'll see exactly why."
+  },
+  {
+   "page": 4,
+   "title": "The Recovery Stack Is Only Three Layers",
+   "kicker": "Money trail 1: recovery",
+   "layout": "table",
+   "table": {
+    "head": [
+     "Order",
+     "Layer",
+     "Carrier",
+     "Limit"
+    ],
+    "rows": [
+     [
+      "1",
+      "BI (Robert Smith)",
+      "Keystone Mutual",
+      "$10,000"
+     ],
+     [
+      "2",
+      "Host UM (the Escape)",
+      "Harbor Point",
+      "$20,000"
+     ],
+     [
+      "3",
+      "Relative UM (excess)",
+      "Cardinal State",
+      "$10,000"
+     ],
+     [
+      "",
+      "Gross recovery",
+      "",
+      "$40,000"
+     ],
+     [
+      "Outside",
+      "PIP, MedPay, Keystone PD",
+      "Not recovery",
+      "—"
+     ],
+     [
+      "None",
+      "Bluewater: UM rejected 03/14/2024",
+      "No layer",
+      "—"
+     ]
+    ]
+   },
+   "notes": "First stop on the money trail: what counts as recovery. Here's where a lot of files went wrong on Day 1. The stack is three layers, taken in order. Keystone's BI, 10,000 dollars. Then Harbor Point's Host UM, 20,000 dollars, because John rode in the Escape. Then Cardinal State's Relative UM, 10,000 dollars, because he lives with his mother, Margaret, and it sits as excess over the first two. That's 40,000 dollars. If your Coverage Stack came to 50,000, you almost certainly put PIP inside it as a fourth row. PIP and MedPay pay bills while the claim is open. They are never part of the gross. Keystone's property damage payments are for Margaret's parked Civic, not John's recovery. And Bluewater is not a fourth layer: Margaret rejected UM on that policy in writing on March 14th, 2024. One more point on order. UM owes nothing until BI is exhausted, so a UM demand before the BI tender was premature. And when Harbor Point offered 8,000 dollars, saying BI had already compensated him, the answer was in the file: its letter of March 2nd, 2026 says its UM is add-on, not reduced by the BI payment, with no PIP offset. Never net BI or PIP out of a UM limit, on your stack or on your Net Sheet."
+  },
+  {
+   "page": 5,
+   "title": "PIP: Spent in 48 Hours, Because of the EMC",
+   "kicker": "Money trail 2: PIP",
+   "layout": "trail",
+   "bullets": [
+    "02/20/2026: Dr. Sarah Spine documents the EMC at Riverton General",
+    "Without the EMC, PIP medical stops at $2,500",
+    "ER $24,400.00 billed: PIP pays $8,850.00 at fee schedule",
+    "EMS $2,182.60 billed: PIP pays $1,150.00",
+    "PIP exhausted 03/04/2026: $8,850.00 + $1,150.00 = $10,000.00",
+    "Fee-schedule write-offs $16,582.60; no balance billing"
+   ],
+   "notes": "Now PIP, and this is where the money trail really starts. Harbor Point's add-on PIP on the Escape is 10,000 dollars. But in Riverton, the full medical benefit opens only when a physician documents an Emergency Medical Condition. Without that finding, PIP stops at 2,500 dollars. On our file, Dr. Sarah Spine documented the EMC at Riverton General's emergency department on February 20th, 2026. So treat that record as a money document. If your PIP Log doesn't show it, 7,500 dollars of benefits had nothing behind them. The ER billed 24,400 dollars and PIP paid 8,850 dollars at the fee schedule. EMS billed 2,182 dollars and 60 cents and PIP paid 1,150 dollars. Both paid on March 4th, 2026, and that's the whole 10,000. If your file shows PIP money left after that date, or PIP paying the urgent care, Lakeside or the MRI, go back and look. That was MedPay. And the 14-day treatment condition is Florida's rule, not Riverton's."
+  },
+  {
+   "page": 6,
+   "title": "MedPay Second, Then the Health Plan, Then the LOP",
+   "kicker": "Money trail 3: payer order",
+   "layout": "trail",
+   "bullets": [
+    "Payer Order: PIP → MedPay → Peach State → LOP",
+    "MedPay pays urgent care $685.00 on 03/09/2026",
+    "Then Lakeside $640.00, the MRI $2,395.00, and Lakeside $640.00 twice more",
+    "MedPay $5,000.00 exhausted 06/26/2026; no reimbursement right",
+    "Summit's LOP request on 03/11/2026: declined, MedPay applied",
+    "Only LOP: Riverton Spine & Rehab, signed 02/23/2026"
+   ],
+   "notes": "Once PIP ran out, the next payer was MedPay, 5,000 dollars on the same Harbor Point policy, paid at the billed amount. The order is PIP, then MedPay, then Peach State, then the LOP. Skipping MedPay, or putting it first, is the slip to look for in your Day 2 work. MedPay paid in date order: the urgent care's 685 dollars on March 9th, Lakeside's first visit at 640 dollars, Summit's MRI at 2,395 dollars, and two more Lakeside visits at 640 each. That's 5,000 dollars, gone on June 26th, 2026. Check your notes on this one. On March 11th, Summit asked for a Letter of Protection. If you said yes, you turned a covered bill into a 2,395 dollar lien on John's net. MedPay still had money, so the answer was no. The only LOP on this file is Riverton Spine and Rehab, signed February 23rd, 2026, because it was out of network for Peach State."
+  },
+  {
+   "page": 7,
+   "title": "Peach State's Lien: Asserted Is Not Owed",
+   "kicker": "Money trail 4: the health plan",
+   "layout": "split",
+   "left": {
+    "heading": "What the plan asserted (06/10/2026)",
+    "bullets": [
+     "$3,618.00 on the interim ledger",
+     "Crescent ESI at billed $3,400.00; it paid $1,860.00",
+     "Eye exam 02/03/2026, before the DOL: $95.00",
+     "Sinusitis visit 03/18/2026: $49.00",
+     "Allergy visit 05/06/2026, pre-existing: $74.00"
+    ]
+   },
+   "right": {
+    "heading": "What it was owed",
+    "bullets": [
+     "Dispute line by line in writing, 06/12/2026",
+     "Corrected itemization 06/24/2026: $1,860.00",
+     "Summit stays at $0.00: MedPay paid it",
+     "Reduction is Atty. Thorne's call, in writing",
+     "Track A $1,240.00; Track B $1,116.00"
+    ]
+   },
+   "notes": "Peach State is the health plan, and its notice of reimbursement rights came on February 27th, 2026. That's the day the lien gets flagged in the CMS, not months later when the ledger shows up. On June 10th, its interim ledger asserted 3,618 dollars. If that number made it into your Lien Tracker as the lien, here's why it's wrong. The plan claimed Crescent's injection at the billed 3,400 dollars, when it actually paid 1,860. And it swept in three lines that have nothing to do with the crash: an eye exam on February 3rd, three days before the collision, a sinusitis visit, and an allergy visit for a condition John already had. A plan can claim back only what it paid for the collision's care. The dispute went out in writing on June 12th, and the corrected itemization of June 24th confirmed 1,860 dollars. The plan's cover letter asks for the full amount, without reduction. That's their opening position, not the answer. The plan is fully insured, a fact you record from its own notice and certificate. Which law governs the reduction, and the reduction itself, are Attorney Thorne's call."
+  },
+  {
+   "page": 8,
+   "title": "Specials: Audit the Bills, Never Total the Statement",
+   "kicker": "Money trail 5: Specials",
+   "layout": "table",
+   "table": {
+    "head": [
+     "Line",
+     "Billed",
+     "Audited",
+     "Why"
+    ],
+    "rows": [
+     [
+      "Riverton Spine & Rehab",
+      "$6,290.00",
+      "$6,105.00",
+      "33 visits, not 34 lines"
+     ],
+     [
+      "Duplicate 05/04/2026",
+      "$185.00",
+      "$0.00",
+      "Billed twice"
+     ],
+     [
+      "Medical Bills",
+      "$41,585.00",
+      "$41,400.00",
+      "Count visits first"
+     ],
+     [
+      "Lost wages, 9 shifts",
+      "$1,584.00",
+      "$1,584.00",
+      "Northgate records"
+     ],
+     [
+      "Total Specials",
+      "",
+      "$42,984.00",
+      "Not $42,894.00"
+     ],
+     [
+      "Future medical $3,400–$6,800",
+      "",
+      "Narrative",
+      "Not in Specials"
+     ]
+    ]
+   },
+   "notes": "Now the Specials, and this is where I'd ask you to pause and look hard at your own audit. Riverton Spine and Rehab's LOP ledger shows 34 lines at 185 dollars, 6,290 dollars. The attendance log shows 33 visits: 16 before the disruption and 17 after it. May 4th, 2026 is billed twice. If your medical total came to 41,585 dollars, you added the statement instead of auditing it. The audited medical is 41,400 dollars, and the removal should be visible, with its date and amount, not dropped silently. Add the wages, 9 shifts at 8 hours at 22 dollars, 1,584 dollars, and the Total Specials are 42,984 dollars. Watch the digits. The draft demand typed 42,894. And the draft UM demands put Dr. Reyes's future care inside the Specials to reach 46,384 dollars. Future medical, 3,400 to 6,800 dollars, belongs in the narrative. Finally, the clinic won't reissue its ledger until the account closes, so the audited figure stands on the attendance log."
+  },
+  {
+   "page": 9,
+   "title": "Billed Beside Paid",
+   "kicker": "Money trail 6: who actually paid",
+   "layout": "table",
+   "table": {
+    "head": [
+     "Payer",
+     "Paid or owed",
+     "Bills it covers"
+    ],
+    "rows": [
+     [
+      "Harbor Point PIP",
+      "$10,000.00",
+      "ER and EMS"
+     ],
+     [
+      "Harbor Point MedPay",
+      "$5,000.00",
+      "Urgent care, Lakeside, MRI"
+     ],
+     [
+      "Peach State",
+      "$1,860.00",
+      "Crescent ESI"
+     ],
+     [
+      "LOP owed",
+      "$6,105.00",
+      "Riverton Spine & Rehab"
+     ],
+     [
+      "John, out of pocket",
+      "$312.40",
+      "Riverton Drug"
+     ],
+     [
+      "John, Crescent's $1,540.00",
+      "$0.00",
+      "In network: never his bill"
+     ],
+     [
+      "Paid and owed",
+      "$23,277.40",
+      "$41,400.00 less write-offs"
+     ]
+    ]
+   },
+   "notes": "Here's a column a lot of files left out: what was actually paid. Some dropped it to keep the number high; others picked the paid figure themselves. Neither is ours to do. Show billed and paid side by side. PIP paid 10,000 dollars. MedPay paid 5,000. Peach State paid 1,860. The LOP balance owed is 6,105. And John paid 312 dollars and 40 cents himself at Riverton Drug. That column comes to 23,277 dollars and 40 cents. Tie it back: 41,400 dollars of bills, less 16,582 dollars and 60 cents of PIP fee-schedule write-offs, less Crescent's 1,540 dollar contract write-off. If your columns don't tie, something is missing or counted twice. That 1,540 is a trap too. Crescent's patient statement billed it to John, and an in-network provider can't. If your file shows it as owed, fix it at the source: an Amendment Request to Renee Halvorsen, and the corrected zero-dollar statement of July 10th, 2026 goes in Exhibit E. It's never a lien and never John's bill. And don't quote 23,277 as the medical total, or the 42,984 as what was paid. Which column goes in the demand is Attorney Thorne's call under the collateral-source rule that governs the case."
+  },
+  {
+   "page": 10,
+   "title": "The Net Sheet, Track A, to the Cent",
+   "kicker": "Money trail 7: Track A",
+   "layout": "table",
+   "table": {
+    "head": [
+     "Line",
+     "Total",
+     "BI stream 25%",
+     "UM stream 75%"
+    ],
+    "rows": [
+     [
+      "Gross",
+      "$40,000.00",
+      "$10,000.00",
+      "$30,000.00"
+     ],
+     [
+      "Fee 33⅓%",
+      "$13,333.33",
+      "$3,333.33",
+      "$10,000.00"
+     ],
+     [
+      "Costs",
+      "$486.75",
+      "$121.69",
+      "$365.06"
+     ],
+     [
+      "Peach State (reduced)",
+      "$1,240.00",
+      "$310.00",
+      "$930.00"
+     ],
+     [
+      "Riverton Spine & Rehab (reduced)",
+      "$4,580.00",
+      "$1,145.00",
+      "$3,435.00"
+     ],
+     [
+      "Net to John Doe",
+      "$20,359.92",
+      "$5,089.98",
+      "$15,269.94"
+     ]
+    ]
+   },
+   "notes": "Let's do Track A's Net Sheet to the cent. Gross 40,000 dollars. The fee is one third pre-suit, 13,333 dollars and 33 cents. If you typed 33.33 percent, you got 13,332 dollars, and that's a real error. Costs are 486 dollars and 75 cents, all receipted. Peach State came down to 1,240 dollars, accepted October 9th. Riverton Spine and Rehab came down from the audited 6,105 to 4,580, with a signed Payoff Letter on October 12th. Net to John: 20,359 dollars and 92 cents. Now the two streams. Costs and liens are split pro rata to the gross, 25 and 75 percent, charged once. Now go back to your October 6th sheet. On that date the liens were not reduced yet, so stream two is a projection: 13,661 dollars and 19 cents. If it already showed 15,269 dollars and 94 cents, you entered reductions nobody had accepted yet. If it showed 11,548 dollars and 25 cents, you charged all the costs and both unreduced liens to the UM stream because it's the bigger check. Only written acceptances go on the sheet."
+  },
+  {
+   "page": 11,
+   "title": "Track B: What the Stonewall Cost John",
+   "kicker": "Money trail 8: Track B",
+   "layout": "table",
+   "table": {
+    "head": [
+     "Line",
+     "Track A",
+     "Track B",
+     "Why it moved"
+    ],
+    "rows": [
+     [
+      "Gross",
+      "$40,000.00",
+      "$40,000.00",
+      "Same stack"
+     ],
+     [
+      "Fee",
+      "$13,333.33",
+      "$16,000.00",
+      "40% once suit is filed"
+     ],
+     [
+      "Costs",
+      "$486.75",
+      "$3,895.25",
+      "Filing, service, mediation, hearing"
+     ],
+     [
+      "Peach State",
+      "$1,240.00",
+      "$1,116.00",
+      "Cut at the 40% fee"
+     ],
+     [
+      "Riverton Spine & Rehab",
+      "$4,580.00",
+      "$4,275.00",
+      "Signed Payoff 07/16/2027"
+     ],
+     [
+      "Net to John Doe",
+      "$20,359.92",
+      "$14,713.75",
+      "$5,646.17 less"
+     ]
+    ]
+   },
+   "notes": "Track B starts from the same 40,000 dollars, so why does John net less? While Keystone held at 3,500 dollars, its BI layer wasn't exhausted, and that froze the whole stack behind a 10,000 dollar carrier. Suit was filed September 24th, 2026, so the retainer's 40 percent tier applies: 16,000 dollars. Costs grow to 3,895 dollars and 25 cents with the filing fee, the process server, half the mediator, the arbitrator's share, the court reporter and certified records. Peach State's reduction follows the fee actually charged, 744 dollars off, so 1,116 dollars. Riverton Spine and Rehab settles at 4,275. Net 14,713 dollars and 75 cents, which is 5,646 dollars and 17 cents less than Track A. If your Track B sheet still showed one third, or 1,240 for Peach State, you reused Track A's sheet. Each track is its own file. And whether suing was worth it? That conversation with John is Attorney Thorne's, never ours."
+  },
+  {
+   "page": 12,
+   "title": "Traps Planted in the Demand Drafts",
+   "kicker": "Traps in the documents",
+   "layout": "bullets",
+   "bullets": [
+    "RS33: Specials typed $42,894.00; the lines add to $42,984.00",
+    "RS33: 30 days run from receipt 07/22/2026, so 08/21/2026",
+    "RS33: offers an all-claims release; limit it to Smith and Keystone",
+    "RS33: Robert Smith's no-other-insurance affidavit is missing",
+    "RS61: future medical in Specials; Relative UM as primary; deadline filled in",
+    "RS66: wrong report number, privileged RS04, no Gap Explanation Record"
+   ],
+   "notes": "Now the traps that were planted in the documents. A draft is not a source. Start with the BI demand draft, RS33. Its total reads 42,894 dollars, but the lines add to 42,984. It counts 30 days from the letter's own date, July 20th, and writes August 19th. The clock really runs from Dana Whitfield's written acknowledgement on July 22nd, so the deadline is August 21st, 2026. With no written acknowledgement, you follow up the same day and escalate to Attorney Thorne; you never docket from the send date. It offers a full and final release of all claims, which in our own demand would release the two UM carriers, 30,000 dollars of the stack. And Robert Smith's affidavit of no other insurance is missing. The UM drafts, RS61, put future medical inside the Specials, demanded Relative UM as if it were primary, and filled in their own response deadline, which is Attorney Thorne's to set. They never answered the gap or the degenerative reading, either. And the exhibit packet, RS66, had ten faults, including the wrong police report number, the attorney-only case summary, Margaret's car estimate, and no Gap Explanation Record."
+  },
+  {
+   "page": 13,
+   "title": "The Lien Sheet Trap: $17,965.00 vs $7,965.00",
+   "kicker": "Traps in the documents",
+   "layout": "split",
+   "left": {
+    "heading": "Draft binder, line C-9 (RS63)",
+    "bullets": [
+     "Harbor Point PIP $10,000.00",
+     "Peach State $1,860.00",
+     "Riverton Spine & Rehab $6,105.00",
+     "Draft total $17,965.00",
+     "Harbor Point is the carrier across the table"
+    ]
+   },
+   "right": {
+    "heading": "Audited, attorney's set (RS70)",
+    "bullets": [
+     "PIP has no reimbursement right: letter 03/02/2026",
+     "Paying a bill does not create a lien",
+     "Summit, Crescent, PIP and MedPay at $0.00, each sourced",
+     "Owed: $1,860.00 + $6,105.00 = $7,965.00",
+     "Draft was exactly $10,000.00 too high"
+    ]
+   },
+   "notes": "This one would have paid John's money away. On Track B, the Litigation Desk's draft arbitration binder, RS63, had a Lien Sheet at line C-9. It listed Harbor Point PIP at 10,000 dollars, plus Peach State at 1,860 and Riverton Spine and Rehab at 6,105, for 17,965 dollars. Harbor Point's add-on PIP has no reimbursement right under Riverton law, and Harbor Point confirmed that in writing on March 2nd, 2026. PIP paying a bill doesn't create a lien. And Harbor Point is the carrier across the table at that hearing. The audited sheet, RS70, shows 7,965 dollars owed, Peach State plus Riverton Spine and Rehab, with PIP, MedPay, Summit and Crescent at zero, each with its source. It stays in Attorney Thorne's set, never exchanged and never shown to the arbitrator, but it still has to be right. The difference is exactly 10,000 dollars. Had only the 10,000 dollar BI come in, 6,179 dollars and 92 cents would be left after the fee and costs, against 7,965 dollars of liens. Shared pro rata, Peach State gets 1,443 dollars and 15 cents, Riverton Spine and Rehab 4,736 dollars and 77 cents, and John gets nothing. Every lien dollar you overstate comes out of his share. Not every payer is a lienholder. Before anything goes on the payables, ask whether that payer has a written right to be repaid."
+  },
+  {
+   "page": 14,
+   "title": "Day 1 Mistakes: Intake, LORs and the Calendar",
+   "kicker": "Mistakes, day by day",
+   "layout": "bullets",
+   "bullets": [
+    "Role keyed as Driver; John was the passenger",
+    "DOB 08/14/1991, not 1990; report RPD-26-018842, not ...824",
+    "Cardinal State LOR: Attn Claims Department, a notice, not a demand",
+    "Keystone limit stays preliminary until the Dec Page, 03/20/2026",
+    "SOL 02/06/2028 is a Sunday: docket 02/04/2028 and 11/05/2027",
+    "HIPAA expires 02/06/2027: docket the renewal now"
+   ],
+   "notes": "Now the common mistakes, day by day. Check your CMS intake. It came keyed with John as the driver and a date of birth of August 14th, 1990. He was the passenger, born in 1991. Driver isn't a small typo: passenger status is what opens both UM layers. The intake sheet also transposed the police report number, and that same wrong number showed up months later in the draft demand packet. On the letters of representation, Cardinal State had no adjuster yet, so it goes to the Claims Department, and each UM letter is a notice, not a demand. Keystone's limit stays preliminary until its declarations page arrives March 20th. On the calendar, February 6th, 2028 is a Sunday, so we never rely on a weekend roll-forward: the internal hard date is February 4th, 2028, and the filing cutoff is November 5th, 2027. And John's HIPAA authorization expires February 6th, 2027, right in the middle of Track B."
+  },
+  {
+   "page": 15,
+   "title": "Day 2 Mistakes: Gaps, Wages and Records",
+   "kicker": "Mistakes, day by day",
+   "layout": "bullets",
+   "bullets": [
+    "Gap: ask open questions; never suggest the reason",
+    "Disruption: crash-related anxiety, not non-compliance",
+    "Keep the five shifts 02/09–02/13, flagged to Atty. Thorne",
+    "Wages $1,584.00 from Northgate, not the $1,760.00 worksheet",
+    "PIP's 80% wage benefit, $1,267.20, was never payable",
+    "Providers correct their own records by dated addendum"
+   ],
+   "notes": "On the 14-day gap, did you ask, was it because you had no car? That's leading. Ask open questions and write down his words. The reasons were no transport, soreness he thought would pass, worry about cost, and numbness from February 18th. On the April disruption, if your notes say non-compliant or lost interest, that's the defense's story, not the file's. The cause was crash-related anxiety, documented by Dr. Reyes on April 20th. Now wages. John's own worksheet said 1,760 dollars, built from memory, with overtime that never happened. Northgate's records give 9 shifts, 1,584 dollars. The five February shifts have no doctor's note, so keep them and flag them to Attorney Thorne. PIP's 80 percent wage benefit, 1,267 dollars and 20 cents, was never payable, because the limit was gone on March 4th, long before Northgate's letter on June 30th. And if a record is wrong, like the MRI's injury date, the provider corrects it by addendum. We never change it ourselves."
+  },
+  {
+   "page": 16,
+   "title": "Days 3–5 Mistakes: Releases, Liens and Deadlines",
+   "kicker": "Mistakes, day by day",
+   "layout": "bullets",
+   "bullets": [
+    "Keystone's release names all insurers: it would release $30,000 of UM",
+    "Same draft: Margaret's PD released, confidential, indemnity, no UM reserved",
+    "No release before both UM consents: 08/24 and 08/26/2026",
+    "Vance & Kettering: log, route, hold $6,666.67, send nothing",
+    "Disburse only after funds clear and every Payoff Letter is signed",
+    "Discovery mailed 12/01/2026 is due 01/04/2027, not 12/31/2026",
+    "Brief due Saturday 06/12/2027: count back, docket 06/11/2027"
+   ],
+   "notes": "Keystone's draft release discharged all other persons and insurers. Signed, it would have released Harbor Point and Cardinal State, 30,000 dollars of the stack. The same draft released Property Damage and Loss of Use, Margaret's open claim, and its confidentiality clause would have kept you from showing the UM carriers proof of exhaustion. It made John indemnify and defend against liens, and it reserved no UM claims. Your clause review on August 14th goes to Attorney Thorne with every one of them listed; the Limited Release of August 19th fixed them all, and nothing was signed before both UM consents. On October 14th, Vance and Kettering claimed 6,666 dollars and 67 cents on an agreement only Margaret signed. Calling that lien invalid is a legal conclusion, not ours. Log it, route it the same day, hold the money on Attorney Thorne's instruction, and build the facts. Checks wait for cleared funds and signed Payoff Letters, never a phone call. On the litigation calendar, count every rule. Discovery mailed December 1st is 30 days plus 3 for mail, January 3rd, 2027, a Sunday, so it's due Monday, January 4th. Our expert disclosure is March 15th, 2027, not the defense's April 15th. And the Saturday brief date moves back to Friday, June 11th."
+  },
+  {
+   "page": 17,
+   "title": "Judgment Calls and the UPL Line",
+   "kicker": "Whose decision is it?",
+   "layout": "split",
+   "left": {
+    "heading": "The Case Manager does",
+    "bullets": [
+     "Audits every figure against its source",
+     "Logs, flags and routes the same day",
+     "Builds the Net Sheet, labeled projection until accepted",
+     "Disputes a lien line by line, in writing",
+     "Runs logistics; never coaches testimony"
+    ]
+   },
+   "right": {
+    "heading": "Atty. Thorne decides",
+    "bullets": [
+     "What the case is worth and what to demand",
+     "Billed or paid under the collateral-source rule",
+     "Every lien reduction and LOP term",
+     "Releases, suit, deadlines in demands",
+     "Answers to John on value and strategy"
+    ]
+   },
+   "note": "Note: Case Managers handling Litigation and Pre-Litigation are sometimes different individuals; in Litigation, the Case Manager is usually the paralegal. Always verify the assigned Case Manager in the CMS/Case Profile before transferring files, logging updates, or routing communications.",
+   "notes": "Let's talk about the line, because a lot of the mistakes we just covered were not math errors. They were someone deciding something that wasn't theirs to decide. When Attorney Thorne asked, what do you think we should demand, the right answer was the inputs: the limits in order, the 42,984 dollars of Specials, the future medical. Not a number. When a lienholder pushed for a quick answer, the right answer was, I'll take that to Attorney Thorne, not a reduction agreed by phone. When John asked whether he should take 3,500 dollars, or whether suing was worth it, the right answer was, that's a question for your attorney, and I'll set up the call today. One more thing about roles. The case manager on a litigated file isn't always the person who ran it in pre-lit; in litigation, the case manager is usually the paralegal. On our file, the filing set went to the Litigation Desk paralegal, Nadia Brooks. So before you transfer a file, log an update or route a call, check who's assigned in the CMS and on the Case Profile. Our job is to make every fact in the file true and every deadline safe, and then hand it to the person licensed to decide. A clean, sourced file is what lets him argue for John with confidence."
+  },
+  {
+   "page": 18,
+   "title": "Your Self-Audit Checklist",
+   "kicker": "Check your file",
+   "layout": "table",
+   "table": {
+    "head": [
+     "Check",
+     "It should read"
+    ],
+    "rows": [
+     [
+      "Gross, both tracks",
+      "$40,000.00: BI, Host UM, Relative UM"
+     ],
+     [
+      "PIP and MedPay",
+      "$10,000.00 by 03/04/2026; $5,000.00 by 06/26/2026"
+     ],
+     [
+      "Medical Bills and Specials",
+      "$41,400.00 and $42,984.00"
+     ],
+     [
+      "Liens audited, before reduction",
+      "$7,965.00: Peach State and LOP only"
+     ],
+     [
+      "Track A net",
+      "$20,359.92, fee 33⅓%, costs $486.75"
+     ],
+     [
+      "Track B net",
+      "$14,713.75, fee 40%, costs $3,895.25"
+     ],
+     [
+      "Every fix",
+      "Made at the source, dated, with a document"
+     ]
+    ]
+   },
+   "notes": "Here's your checklist. Pause the video now and check each row against your file. Rather than read the table to you, I'll name the rows that trip files up, and why. A gross of 50,000 means PIP got counted as a layer; PIP and MedPay pay bills, they never add to the recovery. Specials of 42,894 means you copied the draft demand's typo instead of adding the lines. Liens of 17,965 mean the draft binder's PIP line is still on your sheet, and that's 10,000 dollars of John's money. A Track A fee of 13,332 means you typed 33.33 percent instead of one third. And PIP money after March 4th was really MedPay. When a row reads differently, don't just retype it. Write down where your number came from and which document gives the right one. That note is the real learning, and it's what you'll bring to your companion case."
+  },
+  {
+   "page": 19,
+   "title": "Close: What This File Taught Us",
+   "kicker": "Close",
+   "layout": "title",
+   "bullets": [
+    "A draft is not a source",
+    "Every dollar traces to a document",
+    "Decisions about value are Atty. Thorne's"
+   ],
+   "notes": "Let's close. If you take three things from this file, take these. First, a draft is not a source. The demand drafts, the binder, the provider ledger and the plan's interim ledger all had errors, and every one of them was caught by going back to the document underneath. Second, every dollar traces to a document. The EMC record, the PIP and MedPay ledger, the attendance log and the signed acceptances are what made John's net right to the cent. Third, decisions about value and strategy belong to Attorney Thorne. Your companion case will have the same traps under different names. Thank you for the work you put into John Doe's file this week. Now go fix whatever you found today, at the source, and write down why."
+  }
+ ]
+}

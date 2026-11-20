@@ -12,7 +12,9 @@
      • a trainer: 🛡 Admin Master Control → 🔗 Trainee Drives gains ✍ Graded work: per trainee, each day's structure grade
        and each activity's AI grade, a box to change any of them with a comment (✓ Save, ✕ Clear), 🏅 Grade now, and
        the files not matched. The 🏅 Scorecard's 📂 Backup Drive and the 📋 Batch Sheet's 📂 column carry the final grades,
-       read from the Worker's report of every drive (reportAll `work`) and nothing else: until it is read, none.
+       read from the Worker's report of every drive (reportAll `work`) and nothing else: until it is read, none. The day's
+       structure grade the Worker gives (its nightly grade of the drive: reportAll `grades` / `setupScore`, the trainee's
+       own drive status) counts there too, the latest of it and the copy on the trainee's progress (nightlyFor).
    Every name and every line of a document's grade is escaped; only a Google Drive / Docs address is ever linked.
    ============================================================ */
 (function(){
@@ -73,7 +75,9 @@ async function loadMine(force){
   try{ MINE = await api({action:"work"}); }
   catch(e){ MINE = MINE || {failed: e.message}; }
   mineBusy = false; inject(true);
-  if(state.view === "dashboard" && typeof render === "function" && MINE && MINE.brief && MINE.brief.items && MINE.brief.items.length && !(typeof isTyping === "function" && isTyping())) render();
+  // (📂 the drive's own grades are scores too: My Scores and My Performance read them, so they are drawn again with them)
+  const graded = MINE && ((MINE.brief && MINE.brief.items && MINE.brief.items.length) || Object.values(MINE.structure || {}).some(x=>x && typeof x.final === "number"));
+  if(["dashboard", "scorecard"].includes(state.view) && typeof render === "function" && graded && !(typeof isTyping === "function" && isTyping())) render();
 }
 function guideHtml(guide){
   if(!(guide || []).length) return "";
@@ -178,6 +182,7 @@ function dayNote(s){
 /* 🔎 the drive as found (a structure made by hand), and the course documents filed by hand: filing evidence, not written work */
 function foundHtml(V){
   const f = V.found, xs = V.filing || [], out = [];
+  if(V.walkNote) out.push(`<p class="cmdw-p cmdw-no" data-cmdw-walk>${E(V.walkNote)}</p>`);   // 📂 the drive not read to the end
   if(f && f.why) out.push(`<p class="cmdw-p cmdw-no" data-cmdw-found>🔎 ${E(f.why)}</p>`);
   else if(f && f.folders) out.push(`<p class="cmdw-p cmdw-dim" data-cmdw-found>🔎 Found in the trainee's Drive: ${E(f.folders)} of the firm's ${E(f.of)} folders${Object.keys(f.names || {}).length ? `, ${E(Object.keys(f.names).length)} named differently from the firm's standard (said under Day 1)` : ""}.</p>`);
   if(xs.length) out.push(`<div class="cmdw-list" data-cmdw-filing><b>📎 Course documents filed by hand (graded with the folders and filing, not as written work)</b><ul>${xs.map(x=>`<li>${x.ok ? "✓" : "✗"} ${E(x.docId)} · ${E(x.name)} <span>in ${E(x.folder)}${x.ok ? "" : ` — it belongs in ${E(x.home)}`}</span></li>`).join("")}</ul></div>`);
@@ -235,7 +240,7 @@ function ranText(r){
   const work = `Graded ${r.graded || 0} written file${r.graded === 1 ? "" : "s"}${r.failed ? `, ${r.failed} couldn't be graded (the last grade stands)` : ""}${r.pending ? `; ${r.pending} more wait for the next press or tonight` : ""}.`;
   const where = !r.built && f ? (f.why ? ` ${f.why}` : ` Found ${f.folders} of the firm's ${f.of} folders in the trainee's Drive (made by hand).`) : "";
   const filing = r.filing ? ` ${r.filing} course document${r.filing === 1 ? "" : "s"} filed by hand ${r.filing === 1 ? "was" : "were"} graded as filing.` : "";
-  return `${work}${where}${r.structure ? " The folders and filing were graded too." : ""}${filing}`;
+  return `${work}${where}${r.structure ? " The folders and filing were graded too." : ""}${filing}${r.walkNote ? ` ${r.walkNote}` : ""}`;
 }
 async function gradeNow(id){
   if(BUSY[id]) return;
@@ -274,18 +279,64 @@ function briefFor(id, data){
   return null;
 }
 const ovNote = (d)=> `Your trainer's grade${d.c ? `: ${d.c}` : ""}`;
-/* 🏅 Scorecard → 📂 Backup Drive: a day's override in place of the auto grade, and each activity's written work */
+/* 📂 The Worker's own grade of the drive: what its nightly run (and every ✓ Check my drive, 🏅 Grade now) wrote to the drive
+   record (rec.grades[n], Day 1's setup), with a trainer's override laid over it (worker.js driveStatus / driveReport,
+   withDayOverrides). The trainee's progress carries a copy ("drive-setup" / "drive-grades") only when their own page graded
+   the drive (js/cm-drive.js grade(): a drive built on the platform, the page open); a drive made by hand, or graded while the
+   page was shut, is graded on the drive record alone. So it is read where the Worker gives it:
+     • a trainer: the report of every drive (state.driveReports, reportAll: setupScore, grades) or the one read for 🔗 Trainee
+       Drives (workFor's structure);
+     • the trainee, of their own drive: their drive status (CMDrive.status(): setup, grades), else "work"'s structure.
+   {setup: {score, at, override}, grades: {n: {score, at, passed, override, …}}}, or null when nothing is read yet. */
+const lastAt = (...xs)=> xs.filter(Boolean).map(String).sort().pop() || null;
+function fromStructure(S){
+  const g = {}; [2, 3, 4, 5].forEach(n=>{ const x = S[n]; if(x && typeof x.final === "number") g[n] = {score: x.final, at: x.at || null, passed: x.final >= 70, override: x.override || null}; });
+  return {setup: S[1] && typeof S[1].final === "number" ? {score: S[1].final, at: S[1].at || null, override: S[1].override || null} : null, grades: g};
+}
+function nightlyFor(c){
+  const id = c && c.rec && c.rec.id; if(!id || typeof state !== "object") return null;
+  if(isTrainee() && id === state.traineeId){
+    const D = window.CMDrive && typeof CMDrive.status === "function" ? CMDrive.status() : null;
+    if(D && (D.setup || (D.grades && Object.keys(D.grades).length))) return {setup: D.setup || null, grades: D.grades || {}};
+    if(!MINE) loadMine();
+    return MINE && MINE.structure ? fromStructure(MINE.structure) : null;
+  }
+  const rep = (state.driveReports || {})[id];
+  if(rep && (typeof rep.setupScore === "number" || (rep.grades && Object.keys(rep.grades).length))){
+    const t = rep.tries || [], at = lastAt(t.length ? t[t.length - 1].at : null, rep.builtAt, rep.foundAt);
+    return {setup: typeof rep.setupScore === "number" ? {score: rep.setupScore, at, override: (((rep.overrides || {}).days) || {})[1] || null} : null, grades: rep.grades || {}};
+  }
+  const V = DATA[id]; return V && V.structure ? fromStructure(V.structure) : null;
+}
+const nightNote = (g, n)=>{ const m = g.names, nm = m && typeof m.got === "number" && typeof m.max === "number" ? `🏷 File names ${m.got}/${m.max}${m.wrong > 0 ? ` · ${m.wrong} name${m.wrong === 1 ? "" : "s"} wrong` : ""}` : "";
+  return [g.override ? `Your trainer's grade${g.override.comment ? `: ${g.override.comment}` : ""}` : n === 1 ? "Graded from the Drive by the Worker" : (g.passed || g.score >= 70) ? "Passed" : "Below 70%: not passed yet",
+    g.override ? "" : "the Worker's grade of the Drive", nm, when(g.at)].filter(Boolean).join(" · "); };
+/* 🏅 Scorecard → 📂 Backup Drive: the latest of the saved grade and the Worker's (a trainer's override winning), a day's
+   override in place of the auto grade, and each activity's written work */
 function scoreItems(c, items){
-  const id = c && c.rec && c.rec.id, b = id ? briefFor(id, c.data) : null;
-  if(!b) return items;
-  const out = items.slice();
+  const id = c && c.rec && c.rec.id;
+  let out = items.slice();
+  const night = id ? nightlyFor(c) : null;
+  if(night){
+    const put = (n, g)=>{ if(!g || typeof g.score !== "number") return;
+      const name = n === 1 ? "Day 1: the firm's folders" : `Day ${n}: Backup File Maintenance`, at = out.findIndex(x=>x && x.name === name), cur = at >= 0 ? out[at] : null;
+      // the latest grade stands; a trainer's override always does
+      if(cur && !g.override && !(g.at && String(g.at) > String(cur.at || ""))) return;
+      const it = {name, day: n, pct: pct(g.score), at: g.at || null, src: g.override ? "trainer" : "nightly", g, note: nightNote(g, n)};
+      if(at >= 0) out[at] = Object.assign({}, cur, it); else out.push(it); };
+    put(1, night.setup);
+    Object.entries(night.grades || {}).forEach(([n, g])=>{ if(/^[2-5]$/.test(n)) put(+n, g); });
+    out.sort((x, y)=>(x.day || 9) - (y.day || 9));
+  }
+  const b = id ? briefFor(id, c.data) : null;
+  if(!b) return out;
   Object.entries(b.days || {}).forEach(([n, d])=>{
     if(!d || typeof d.s !== "number") return;
     const name = n === "1" ? "Day 1: the firm's folders" : `Day ${n}: Backup File Maintenance`, at = out.findIndex(x=>x && x.name === name);
-    const it = {name, pct: pct(d.s), note: ovNote(d)};
+    const it = {name, day: +n, pct: pct(d.s), src: "trainer", note: ovNote(d)};
     if(at >= 0) out[at] = Object.assign({}, out[at], it); else out.push(it);
   });
-  (b.items || []).forEach(x=>{ if(typeof x.s === "number") out.push({name: `Day ${x.d}: ✍ ${x.t}`, pct: pct(x.s), note: x.ov ? `${ovNote(x)}${x.ai != null ? ` (AI ${x.ai}%)` : ""}` : "AI-graded written work on the Backup Drive"}); });
+  (b.items || []).forEach(x=>{ if(typeof x.s === "number") out.push({name: `Day ${x.d}: ✍ ${x.t}`, day: Number(x.d) || null, pct: pct(x.s), note: x.ov ? `${ovNote(x)}${x.ai != null ? ` (AI ${x.ai}%)` : ""}` : "AI-graded written work on the Backup Drive"}); });
   return out;
 }
 function hookScorecard(){
@@ -307,7 +358,7 @@ function dayParts(r, n, data, out){
 }
 
 window.cmDriveWork = {open: openMine, copy, toggle, draft, save: (id, kind, key)=>save(id, kind, key, false), clear: (id, kind, key)=>save(id, kind, key, true), gradeNow,
-  dayParts, scoreItems, briefFor, reload: ()=>loadMine(true), state: ()=>({mine: MINE, data: DATA})};
+  dayParts, scoreItems, briefFor, nightlyFor, reload: ()=>loadMine(true), state: ()=>({mine: MINE, data: DATA})};
 hookScorecard();
 document.addEventListener("DOMContentLoaded", ()=>{ hookScorecard(); watch(); if(isTrainee()) loadMine(); });
 if(document.readyState !== "loading"){ watch(); }

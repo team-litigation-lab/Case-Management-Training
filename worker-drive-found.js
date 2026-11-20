@@ -32,7 +32,10 @@
        documents filed in their folders. Read wherever Day 1 is read when the trainee never submitted the setup on the
        platform (setupOf): their typed and built setup, when there is one, stands.
    Whatever can't be graded says why (rec.found.why), so a trainer never reads a bare "—".
+   📂 The listing is the whole linked folder at any depth (worker-drive-walk.js). A walk the run's budget cut short
+   (rec.walk.reason "budget") finds nothing from it: what was found last stands until the whole drive is read.
    ============================================================ */
+import { homeFinder, walkNote } from "./worker-drive-walk.js";
 
 /* A folder's name with case, spaces, punctuation and "&" / "and" taken out: "Doe -John", "Doe, John" and "doe-john" read the same. */
 export const looseFolder = (s) => String(s == null ? "" : s).toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "");
@@ -165,9 +168,12 @@ export function gradeFound(F, ctx) {
    returns the listing, so the snapshot the grade takes next reads the same one (driveSnapshot's `listed`). */
 const LISTED = new WeakMap();
 export const listedOf = (rec) => (rec && LISTED.get(rec)) || null;
-export async function driveFind(env, D, id, rec) {
-  const listing = await D.driveList(env, id, rec);
+export async function driveFind(env, D, id, rec, opts) {
+  const listing = await D.driveList(env, id, rec, opts);
   LISTED.set(rec, listing);
+  // 📂 how much of the drive was read; a reading cut short is carried on next run, and finds nothing until it ends
+  rec.walk = listing.walk ? Object.assign({}, listing.walk) : undefined;
+  if (listing.walk && listing.walk.reason === "budget") return listing;
   const docs = await courseDocs(env, D);
   applyFound(rec, listing, docs, D);
   return listing;
@@ -188,14 +194,14 @@ export function applyFound(rec, listing, docs, D) {
   const mine = new Set();
   (rec.saved || []).forEach((s) => { if (s && s.id) mine.add(s.id); ((s && s.was) || []).forEach((w) => mine.add(w)); });
   Object.values(rec.drills || {}).forEach((d) => { if (d && d.id) mine.add(d.id); });
-  const pathOf = {}; Object.entries(rec.folders || {}).forEach(([p, fid]) => { pathOf[fid] = p; }); pathOf[rec.rootId] = "";
+  const homeOf = homeFinder(listing.folders || {}, rec);   // 📂 the firm's folder nearest above a file, at any depth
   const hand = [];
   Object.entries(listing.files || {}).forEach(([fid, f]) => {
     if (mine.has(fid) || GOOGLE_NATIVE.test(String(f.mimeType || ""))) return;
     const docId = docOfName(f.name, docs);
     if (!docId) return;
     const d = docs[docId], home = D.DRIVE_HOMES[d.folder] || "";
-    hand.push({ docId, id: fid, name: clip(f.name, 200), path: f.parent in pathOf ? pathOf[f.parent] : null, home, at: f.created || at, type: D.fileType(CMS_LONG[d.cms] || d.cms) });
+    hand.push({ docId, id: fid, name: clip(f.name, 200), path: homeOf(f.parent), home, at: f.created || at, type: D.fileType(CMS_LONG[d.cms] || d.cms) });
   });
   rec.handFiled = hand.sort((a, b) => String(a.docId).localeCompare(String(b.docId)) || String(a.name).localeCompare(String(b.name))).slice(0, 200);
   // Day 1 from the drive, when the trainee never set the structure up on the platform
@@ -214,11 +220,13 @@ export function keepFound(fresh, rec) {
   if (!fresh || !rec) return fresh;
   if (!fresh.builtAt && !rec.builtAt) { fresh.folders = rec.folders; ["found", "foundAt", "foundSetup"].forEach((k) => { if (rec[k] === undefined) delete fresh[k]; else fresh[k] = rec[k]; }); }
   if (rec.handFiled !== undefined) fresh.handFiled = rec.handFiled;
+  if (rec.walk !== undefined) fresh.walk = rec.walk;   // 📂 how much of the drive the last reading covered
   return fresh;
 }
 /* Why a day has no grade, said to a trainer (never a bare "—"). */
 export function whyUngraded(n, rec, dayDocs) {
   if (!rec || !rec.rootId) return "No Backup Drive folder is linked.";
+  if (rec.walk && rec.walk.reason === "budget") return walkNote(rec.walk);
   if (!rec.builtAt && !rec.foundAt) return (rec.found && rec.found.why) || "The drive hasn't been read yet: press 🏅 Grade now.";
   if (n === 1) return "The firm's folders haven't been graded yet: press 🏅 Grade now.";
   if (!rec.gradedAt) return "Not graded yet: press 🏅 Grade now.";

@@ -3858,7 +3858,7 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
       await persist();
       status(modId, "Reviewed");
     }catch(e){
-      status(modId, e && e.invalidInput ? (e.message || "Add more detail and try again.") : "Saved. The AI review didn't complete; your trainer will still see your answers.");
+      status(modId, e && e.invalidInput ? (e.message || "Add more detail and try again.") : `Saved. The AI review didn't complete${window.cmWhyNotGraded ? ": " + cmWhyNotGraded(e) : ""}. Your trainer still sees your answers, and the review is tried again the next time you open the course.`);
     }
     const res = document.getElementById(`cfss_res_${modId}`); if(res) res.innerHTML = scoreHtml(modId);
   }

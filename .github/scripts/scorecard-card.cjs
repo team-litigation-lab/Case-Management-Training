@@ -36,10 +36,13 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
             'net-sheet': { files: { A: { checks: { final: { passed: finalPassed, total: 5 } } } } } });
         const a = S(rec, data(4)), b = S(rec, data(5));
         const c = S(rec, { 'drive-setup': { score: 100, ok: true, attempts: 1 }, 'work-log': [lab(1, { accuracy: 100, presence: 100, risk: 0, efficiency: 100 })] });
+        // 🎲 a random task (resolved late, graded 0) is in no score: the model is the same with it
+        const t = S(rec, Object.assign(data(5), { 'task-log': [{ dayId: 11, status: 'resolved', score: 0, submittedAt: '2026-11-02T10:00:00Z', expiresAt: '2026-11-01T10:00:00Z', task: { title: 'Late task' } }] }));
         return { weights: M.DIMS.map(k => k.w), mult: M.MULT, pass: M.PASS, tiers: M.TIERS.map(t => [t.min, t.label]), crit: M.CRIT.map(k => k.id),
             a: { days: a.days.map(d => d.S), final: a.final, status: a.status, tier: a.tier && a.tier.label, gate: [a.gate.met, a.gate.total], comp: a.comp, overall: a.overall },
             b: { final: b.final, status: b.status, tier: b.tier && b.tier.label, gate: [b.gate.met, b.gate.total], dims: b.dims.map(x => x.v) },
-            c: { final: c.final, status: c.status, tier: c.tier && c.tier.label, breach: c.gate.breaches.map(x => x.id) } };
+            c: { final: c.final, status: c.status, tier: c.tier && c.tier.label, breach: c.gate.breaches.map(x => x.id) },
+            task: { final: t.final, days: t.days.map(d => d.S), groups: t.items.map(x => x.group).filter(g => /Random|Timeliness/.test(g)) }, rt: cmScorecard.sources.some(x => x.id === 'rt') };
     });
     if (JSON.stringify(unit.weights) !== '[0.25,0.25,0.3,0.2]') fail(`the dimension weights should be 25/25/30/20: ${unit.weights}`);
     if (JSON.stringify(unit.mult) !== '{"1":1,"2":1.15,"3":1.15,"4":1.3,"5":1.3}') fail(`the day multipliers should be 1.0 / 1.15 / 1.15 / 1.3 / 1.3: ${JSON.stringify(unit.mult)}`);
@@ -47,6 +50,7 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
     if (JSON.stringify(unit.tiers) !== '[[90,"Exemplary"],[80,"Proficient"],[65,"Developing"],[0,"Needs Improvement"]]') fail(`the 4-tier rubric: ${JSON.stringify(unit.tiers)}`);
     if (JSON.stringify(unit.crit) !== '["upl","priv","date","trust"]') fail(`the critical items: ${unit.crit}`);
     // Day 1: PC (KC 100, the Backup Drive's folders 100) 100 · NA (risk) 60 · CP (accuracy/presence) 80 · CD (efficiency) 40 → 72; Day 4: CP 80 → 80
+    if (unit.task.final !== unit.b.final || unit.task.groups.length || unit.rt) fail(`a random task should be in no score (the owner removed them): ${JSON.stringify(unit.task)} vs ${unit.b.final}, rt system ${unit.rt}`);
     if (JSON.stringify(unit.a.days) !== '[72,null,null,80,null]') fail(`day scores should be [72,-,-,80,-]: ${JSON.stringify(unit.a.days)}`);
     if (unit.a.final !== 77) fail(`Final should be (72×1.0 + 80×1.3) ÷ 2.3 = 77: ${unit.a.final}`);
     if (unit.a.status !== 'gate' || unit.a.tier !== 'Needs Improvement' || unit.a.gate.join() !== '1,2') fail(`a trust-money check failed should breach the gate (Needs Improvement): ${JSON.stringify(unit.a)}`);

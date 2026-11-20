@@ -41,7 +41,7 @@ else {
 const bs = fs.readFileSync(path.join(ROOT, 'js/cm-batch-sheet.js'), 'utf8'), sc = fs.readFileSync(path.join(ROOT, 'js/cm-scorecard.js'), 'utf8');
 if (!/"Practice", shown\(w\.label\)/.test(bs)) fail('the Batch Sheet\'s 🕒 Recent progress should show a work-log label through dayText (shown)');
 if (!/"Opened", lv\.view === "day" \? `Day \$\{typeof dayNo === "function" \? dayNo\(lv\.dayId\)/.test(bs)) fail('the Batch Sheet\'s "Opened" row should name the Case Flow day, not its id');
-if (!/clip\(shown\(w\.label/.test(bs)) fail('the Batch Sheet\'s day cards should show an activity\'s label through dayText');
-if (!/name: typeof dayText === "function" \? dayText\(k\) : k/.test(sc)) fail('the Scorecard\'s 🧪 Skill Activities should show each label through dayText');
+if (!/clip\(shown\((w\.label|String\(x\.name\))/.test(bs)) fail('the Batch Sheet\'s day cards should show an activity\'s label through dayText');
+if (!/name: m \? m\[2\]\.trim\(\) : \(typeof dayText === "function" \? dayText\(e\.label/.test(sc)) fail('the Scorecard\'s 🧪 Skill Activities should show each label through dayText');
 if (failures.length) { console.log('✗ Day names:\n  ' + failures.join('\n  ')); process.exit(1); }
 console.log(`Day names: no page shows a day's internal id (${files.length} files read); dayNo/dayText turn 11–15 into Days 1–5; stored labels keep the id and are shown through dayText.`);

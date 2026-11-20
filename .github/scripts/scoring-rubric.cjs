@@ -6,7 +6,7 @@
 //    the scorecard's tiers are the rubric's; a total is the points' share; only a trainer's sent review counts;
 // 2. every grading system names the dimensions it feeds and how it is scored, and the course's simulators are all there
 //    (Transcription, Email Simulators, Calendaring, Case Exercises, the CMS Case File, the Trainer Rubric beside the calls,
-//    the Net Sheet, the Skill Builders, the Portal simulators, the random tasks and the case calls);
+//    the Net Sheet, the Skill Builders, the Portal simulators, the action plans and the case calls);
 // 3. transcription: word accuracy against what was said (numbers said or typed as digits, fillers ignored); every
 //    attempt is graded and kept, the answer key stays shut until it is handed in, the one handed in is the grade and it
 //    is on 🎙 Transcription;
@@ -60,7 +60,8 @@ const PARAPHRASE = 'John Doe called. Someone from an insurance company phoned hi
 
     // 2. every grading system, mapped to the rubric
     const S = await page.evaluate(() => cmScorecard.sources.map(s => ({ id: s.id, label: s.label, dims: s.dims || [], how: s.how || '' })));
-    ['kc', 'lc', 'tk', 'sa', 'cms', 'bd', 'ns', 'tx', 'em', 'cal', 'cx', 'sb', 'gc', 'cc', 'ps', 'rt', 'tr'].forEach(id => check(S.some(s => s.id === id), `the scorecard has the ${id} grading system`));
+    ['kc', 'lc', 'tk', 'sa', 'cms', 'bd', 'ns', 'tx', 'em', 'cal', 'cx', 'sb', 'gc', 'cc', 'ps', 'ap', 'tr'].forEach(id => check(S.some(s => s.id === id), `the scorecard has the ${id} grading system`));
+    check(!S.some(s => s.id === 'rt'), 'the 🎲 Random Tasks are no grading system (the owner removed them from the scores)');
     check(S.every(s => s.dims.length && s.dims.every(d => ['pc', 'na', 'cp', 'cd'].includes(d)) && s.how.length > 20), 'every grading system names the dimensions it feeds and how it is scored');
     check((S.find(s => s.id === 'cms') || {}).label === 'CMS Case File' && (S.find(s => s.id === 'tx') || {}).label === 'Transcription' && (S.find(s => s.id === 'tr') || {}).label === 'Trainer Rubric', 'the CMS Case File, Transcription and the Trainer Rubric are grading systems');
     // the Portal's simulators are split by kind: email, calendaring, the others
@@ -198,11 +199,13 @@ const PARAPHRASE = 'John Doe called. Someone from an insurance company phoned hi
     await page.waitForFunction((id) => !!document.getElementById('bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_')), id, { timeout: 20000 }).catch(() => fail('the trainer\'s Scorecards shows no card for the trainee'));
     const card = await page.evaluate((id) => { const c = document.getElementById('bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_')); if (c) c.querySelectorAll('details').forEach(d => { d.open = true; }); return c ? c.innerText : ''; }, id);
     check(/Trainer's rubric/.test(card) && /CMS Case File/.test(card) && !/▢▢▢/.test(card), 'the trainer\'s card shows the trainer rubric in the day\'s dimensions and the CMS Case File with its answers');
-    await page.evaluate(() => { goto('admin'); setAdminTab('audit'); });
+    // (🏅 Scores is under the sheet's ▸ More detail fold: opened, as a trainer opens it)
+    await page.evaluate(() => { if (window.cmBatchSheet && cmBatchSheet.more) cmBatchSheet.more(true); goto('admin'); setAdminTab('audit'); });
     await page.waitForSelector('#bs-scores', { timeout: 30000 }).catch(() => fail('the Batch Sheet shows no 🏅 Scores'));
     const bs = await page.evaluate(() => [...document.querySelectorAll('#bs-scores .gs-head th')].map(t => t.textContent));
-    ['🗂 CMS Case File', '🎙 Transcription', '✉️ Email Simulators', '🗓 Calendaring', '🔎 Case Exercises', '📐 Trainer Rubric', '🎯 Graded Calls', '📞 Case Calls', '📊 Net Sheet Checks', '🛠 Skill Builders', '🧰 Portal Simulators', '🎲 Random Tasks']
+    ['🗂 CMS Case File', '🎙 Transcription', '✉️ Email Simulators', '🗓 Calendaring', '🔎 Case Exercises', '📐 Trainer Rubric', '🎯 Graded Calls', '📞 Case Calls', '📊 Net Sheet Checks', '🛠 Skill Builders', '🧰 Portal Simulators', '📝 Action Plan']
         .forEach(h => check(bs.includes(h), `the Batch Sheet's 🏅 Scores has a "${h}" column`));
+    check(!bs.includes('🎲 Random Tasks'), 'the Batch Sheet\'s 🏅 Scores has no 🎲 Random Tasks column');
     const [dl] = await Promise.all([page.waitForEvent('download', { timeout: 8000 }).catch(() => null), page.evaluate(() => cmBatchSheet.csv())]);
     if (!dl) fail('the Batch Sheet\'s ⬇ Download gave no CSV');
     else { const txt = require('fs').readFileSync(await dl.path(), 'utf8'); check(/"🗂 CMS Case File"/.test(txt) && /"🎙 Transcription"/.test(txt) && /"📐 Trainer Rubric"/.test(txt) && /"🗂 CMS file"/.test(txt), 'the CSV carries the new grading systems and the Score Card\'s CMS file column'); }

@@ -46,6 +46,11 @@ const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1
         await storeSet('work-log', state.workLog);
         await storeSet('drive-setup', { score: 100, ok: true, attempts: 1, at: '2026-11-01T11:00:00Z' });
         await storeSet('drive-grades', { 2: { score: 70, passed: true, at: '2026-11-02T11:00:00Z' } });
+        // 🧪 a Skill Activity graded by the AI Grader (no work-log line), 📝 Day 1's takeaway graded on its module, and a
+        // 🎲 random task (in no score): each surface still shows one Overall
+        await storeSet('cf-ai-grades', { v: 1, calls: {}, blocks: { 'd1m2-a1': { score: 58, at: '2026-11-01T12:00:00Z', tries: 1 } } });
+        const cf = (await storeGet('case-flow')) || {}; cf.modules = Object.assign({}, cf.modules, { d1m4: { answers: ['x'], scale: [], kc: [], ai: { score: 77, at: '2026-11-01T13:00:00Z' } } }); await storeSet('case-flow', cf);
+        state.taskLog = [{ id: 'one-t1', dayId: 11, status: 'resolved', score: 5, task: { title: 'A random task' }, submittedAt: '2026-11-01T14:00:00Z' }]; await storeSet('task-log', state.taskLog);
         await cloudSaveNow(); await syncToLedger();
     }, DP);
     const rec = await get('trainee:' + id) || {};
@@ -90,7 +95,8 @@ const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1
     const scDays = {}; for (const n of [1, 2]) { const x = await cell('#scx-scores', `Day ${n} %`); scDays[n] = x.err ? x.err : pctOf(x.v); }
 
     // the Batch Sheet: 🏅 Scores, 🏅 Score Card, 📅 Day by Day, the trainee's card
-    await page.evaluate(() => { state.adminData = null; state.adminBatchFilter = ''; goto('admin'); setAdminTab('audit'); });
+    // (🏅 Scores and the 🏅 Score Card are under the sheet's ▸ More detail fold: opened, as a trainer opens it)
+    await page.evaluate(() => { state.adminData = null; state.adminBatchFilter = ''; if (window.cmBatchSheet && cmBatchSheet.more) cmBatchSheet.more(true); goto('admin'); setAdminTab('audit'); });
     await page.waitForSelector('#bs-scores', { timeout: 30000 }).catch(() => fail('the Batch Sheet shows no 🏅 Scores'));
     let bs = null;
     for (let i = 0; i < 40; i++) { bs = await cell('#bs-scores', 'Overall %'); if (!bs.err && pctOf(bs.v) != null) break; await page.waitForTimeout(500); await page.evaluate(() => { if (state.view === 'admin') render(); }); }

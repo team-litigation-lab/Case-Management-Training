@@ -12,6 +12,8 @@ const TYPES = {
     pdf: 'application/pdf', webp: 'image/webp', png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', gif: 'image/gif',
     svg: 'image/svg+xml', json: 'application/json', html: 'text/html; charset=utf-8', txt: 'text/plain; charset=utf-8',
     mp3: 'audio/mpeg', mp4: 'video/mp4',
+    vtt: 'text/vtt; charset=utf-8',   // a video's captions: a <track> sent as anything else doesn't load
+    css: 'text/css; charset=utf-8',   // the HTML documents' stylesheet: a browser won't apply it as anything else
     docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     pptx: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
     xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
