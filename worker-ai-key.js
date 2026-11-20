@@ -15,6 +15,8 @@ export async function keyPrint(value) {
   const h = new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(k)));
   return { len: k.length, fp: [...h.slice(0, 4)].map((b) => b.toString(16).padStart(2, "0")).join("") };
 }
-let last = null;
-export const refused = (status) => { last = { at: Date.now(), status }; };
-export const lastRefusal = (since) => (last && last.at >= since ? last : null);
+// counted, not timed: two calls in one millisecond (a fast fake, or a busy Worker) must not see each other's refusal
+let count = 0, last = null;
+export const refused = (status) => { count++; last = { n: count, status }; };
+export const refusalMark = () => count;
+export const lastRefusal = (mark) => (last && last.n > mark ? last : null);

@@ -21,8 +21,8 @@
  */
 // ✍ the trainee's written work on their Backup Drive, AI-graded nightly, and a trainer's override (worker-drive-work.js)
 import { DRIVE_WORK_ACTIONS, driveWorkApi, driveWorkNightly, driveWorkActive, cronRun, workBrief, workView, withDayOverrides, withOverrides, OV_KEY } from "./worker-drive-work.js";
-import { keyPrint, refused as gatewayRefused, lastRefusal } from "./worker-ai-key.js";   // 🔑 the AI check's key fingerprint
-import { driveFind, listedOf, setupOf } from "./worker-drive-found.js";
+import { keyPrint, refused as gatewayRefused, refusalMark, lastRefusal } from "./worker-ai-key.js";   // 🔑 the AI check's key fingerprint
+import { courseDocs, credited, driveFind, knownFor, listedOf, setupOf, startsDay } from "./worker-drive-found.js";
 import { walkDrive, homeFinder, walkNote, walkSettled } from "./worker-drive-walk.js";
 import { driveToProgress, keepNewerDriveGrades } from "./worker-drive-progress.js";   // 📂 the drive grades onto the trainee's progress, where the Scorecard reads them
 import { accountMergeApi, kcRestoreApi } from "./worker-account-repair.js";   // 👥 two accounts of one trainee merged on the Worker (/api/account-merge); 🛠 one account's missing KC scores restored (/api/kc-restore)
@@ -1036,7 +1036,7 @@ async function driveWrite(env, id, rec) { await kvOf(env).put(driveKey(id), JSON
 // ✍ what worker-drive-work.js uses of the Backup Drive and the AI
 const driveWorkDeps = () => ({ json, kvOf, listAll, driveRead, driveWrite, driveLinked, driveConfigured, drive, driveMessage, saToken, callGemini, geminiKeyNames, gatewayOn,
   nameCheck, nameHint, fileType, driveCaseId, driveSnapshot, driveNaming, gradeDay, dayStarted, daysReached, filedFromProgress, FOLDER_STANDARD, DRIVE_HOMES, DRIVE_HOME_CATEGORY,
-  driveList, FOLDER_WHY, DRIVE_PASS, DRIVE_DOC, DRIVE_DAY_DOCS, CLIENT_FOLDER, driveFind: (env, id, rec, opts) => driveFind(env, driveWorkDeps(), id, rec, opts),
+  driveList, FOLDER_WHY, DRIVE_PASS, DRIVE_DOC, DRIVE_DAY_DOCS, CLIENT_FOLDER, LABEL_DOCS, SUPERSEDED_BY, nameAsFiled, labelShape, R2_DOCS, driveFind: (env, id, rec, opts) => driveFind(env, driveWorkDeps(), id, rec, opts),
   driveToProgress: (env, id, rec) => driveToProgress(kvOf(env), id, rec, withDayOverrides, DRIVE_PASS) });   // 🔎 and what worker-drive-found.js read
 /* Linked: a folder of the trainee's own, shared with the service account and pasted in ("link"). A record from the old
    Google sign-in (a sealed refresh token, no linkedAt) is not linked: the trainee shares and pastes once. */
@@ -1332,9 +1332,13 @@ const clip = (s, n = 200) => { s = String(s == null ? "" : s); return s.length >
 
    What it cannot see: anything outside the folder the trainee linked (the only part of their Drive shared with the
    platform). A file uploaded by hand into one of the firm's folders is read like any other and listed when its name
-   is wrong, but never charged: no copy record carries it. Except a course document filed by hand (its RS code or its
-   title in the name: worker-drive-found.js, rec.handFiled): that is the trainee's own filing, and its name is charged
-   on its day like a copy's.
+   is wrong, but never charged: no copy record carries it. Except a course document filed by hand and known for certain
+   (its RS code or its title in the name, or its bytes the course's own file: worker-drive-found.js, rec.handFiled):
+   that is the trainee's own filing, and its name is charged on its day like a copy's (a CMS counter in it, 2026-11-16-2
+   or _2 after the date, read past as on a copy). One known only by its Type and
+   folder (`by: "type"`) is listed, never charged, and never starts a day. One named by a code or title over bytes
+   that aren't that document's file (`by: "name"`) never starts a day either, but its name is charged: the trainee
+   named it so, and a renamed or altered file must never be the way round the naming row.
    What it cannot know: the real CMS's caseFileName is not in this repository. Wherever that matters the reading
    here is the lenient one (a Type the CMS chose, a counter after the date written _2 or -2, an extension in the
    case the CMS left it).
@@ -1425,6 +1429,15 @@ function nameAsFiled(name, caseId) {
   return caseIdShape(id) && (!caseId || id === caseId) && client === NAME_CLIENT && typeShape(type) && !!day && realDay(day[1])
     && /^[A-Za-z0-9]{1,8}$/.test(ext) && extra.every(wordsShape) ? { caseId: id, client, type, date, ext, extra } : null;
 }
+/* The CMS's counter in a name of the firm's shape: {extra: ["2"] after the date, or [], date: "2026-11-16" or
+   "2026-11-16-2"}, when it carries one (a number, once); null otherwise. */
+function counterOf(name, caseId) {
+  const f = nameAsFiled(name, caseId), num = (x) => /^\d{1,3}$/.test(x);
+  if (!f) return null;
+  const tail = f.date.slice(10);
+  if ((tail && !num(tail.slice(1))) || f.extra.length > 1 || !f.extra.every(num) || (tail && f.extra.length) || (!tail && !f.extra.length)) return null;
+  return { extra: f.extra, date: f.date };
+}
 /* One name against the convention. `ctx`: the name it was uploaded under (filed), the trainee's Case ID (caseId),
    the label this document must carry (label: "DRAFT" | "SUPERSEDED"), and what to suggest where the name itself
    gives no answer: its Type (type), the day it was made (date), the replacing version's date (supDate), its
@@ -1442,7 +1455,11 @@ function nameCheck(name, ctx = {}) {
     return Object.assign(c, { ok: false });
   }
   const filed = ctx.filed ? nameAsFiled(ctx.filed, ctx.caseId) : null;
-  const split = nameSplit(name), ext = split.ext, extra = filed ? filed.extra : [];
+  // `counter`: a course document filed by hand, whose name may carry the CMS's counter on a second document of one Type
+  // and day (2026-11-16-2, or _2 after the date): that counter is read past, as on a copy the CMS filed; nothing else
+  // in the name is taken as filed
+  const cnt = !filed && ctx.counter ? counterOf(name, ctx.caseId) : null;
+  const split = nameSplit(name), ext = split.ext, extra = filed ? filed.extra : cnt ? cnt.extra : [];
   // what the CMS itself added after the date stays where it is, and is read past
   const kept = extra.length > 0 && extra.every((x, i) => split.parts[4 + i] === x);
   const parts = kept ? split.parts.slice(0, 4).concat(split.parts.slice(4 + extra.length)) : split.parts, k = parts.length;
@@ -1457,7 +1474,7 @@ function nameCheck(name, ctx = {}) {
     caseId: filed ? filed.caseId : ctx.caseId || (caseIdShape(parts[0]) ? parts[0] : ""),
     client: NAME_CLIENT,
     type: filed ? filed.type : FILE_TYPES.includes(parts[2]) ? parts[2] : ctx.type || nearType(parts[2]) || "",
-    date: filed ? filed.date : realDay(parts[3]) ? parts[3] : ctx.date || "",
+    date: filed ? filed.date : realDay(parts[3]) || (cnt && cnt.date === parts[3]) ? parts[3] : ctx.date || "",
     label: need === "DRAFT" ? "DRAFT" : need === "SUPERSEDED" ? (supOk ? gotLabel : ctx.supDate ? `SUPERSEDED-${ctx.supDate}` : "") : (gotLabel === "DRAFT" || supOk) ? gotLabel : "",
     ext: extOk ? ext : filed ? filed.ext : FILE_EXTS.includes(lowerExt) ? lowerExt : FILE_EXTS.includes(ctx.ext) ? ctx.ext : "pdf",
   };
@@ -1555,17 +1572,20 @@ function driveNaming(rec, S, started) {
     const made = dayOf(f.created || (s && s.at) || (isDrill && drill.at)) || etNow(new Date()).date;
     // A file in the firm's folders with no record (lost when a record was dropped): this platform made it, under a name
     // nobody can check any more, so its own name is read as the one it was filed under. The lenient reading.
-    const c = nameCheck(f.name, { filed: s ? s.name : isDrill || h ? "" : f.name, caseId, label: need, date: made,
+    const c = nameCheck(f.name, { filed: s ? s.name : isDrill || h ? "" : f.name, counter: !s && !isDrill && !!h, caseId, label: need, date: made,
       type: isDrill ? typeOfDoc.RS25 || DRILL_TYPE : typeOfDoc[docId] || (DRIVE_DOC[docId] ? fileType(DRIVE_DOC[docId][2]) : "") || (h && h.type) || (s && homeType[s.folder]) || homeType[path] || "",
       supDate: by ? supersededDate(f.name) || dateIn(by.name) || dayOf(by.created) || made : "", ext: s ? nameSplit(s.name).ext.toLowerCase() : "" });
     // the platform's own name: the copy is still called what it was uploaded as, and that is not the firm's way
     const own = !!s && !nameAsFiled(s.name, caseId) && (f.name === s.name || unlabeled(f.name) === s.name);
-    const scored = isDrill ? drill.rule === NAME_RULE : h ? true : !!s && !replaced && s.rule === NAME_RULE && !own;
+    // (a hand-filed file read by its Type alone is never charged; one named by a code or title is, whatever its bytes)
+    const scored = isDrill ? drill.rule === NAME_RULE : h ? h.by !== "type" : !!s && !replaced && s.rule === NAME_RULE && !own;
     const tied = isDrill ? 2 : dayOfDoc[docId] || 0;
     const hint = c.ok ? "" : own ? `This copy still has the name the platform uploaded it under, before the firm's convention was kept on the drive. ${c.want ? "Rename it as shown." : `Rename it the firm's way: ${FILE_NAME_PATTERN}`}`
       : isDrill && f.name === DRILL_NAME ? `The colleague's invoice arrived named off the convention. ${c.want ? "Rename it as shown" : "Rename it the firm's way"}: the Case ID, the client, the Type and the date.`
       : nameHint(c);
-    rows.push({ kind: "file", ok: c.ok, scored, day: tied && days.includes(tied) ? tied : latest, path, folder: label(path), name: f.name, want: c.want, hint, issues: c.issues });
+    // (a hand file that earns no place, its bytes not the course's file of it, never adds a good name to the row: junk
+    // named the firm's way can't make up for the names that are wrong)
+    rows.push({ kind: "file", ok: c.ok, scored, free: !!h && !credited(h), day: tied && days.includes(tied) ? tied : latest, path, folder: label(path), name: f.name, want: c.want, hint, issues: c.issues });
   });
   // the folders of the structure, by the standard's own names (a missing folder is ✓ Check my drive's to report)
   [[DRIVE_ROOT, rec.rootId, null]].concat(FOLDER_STANDARD.map((p) => [shortPath(p), (rec.folders || {})[p], p])).forEach(([wantName, fid, p]) => {
@@ -1580,7 +1600,7 @@ function driveNaming(rec, S, started) {
   rows.sort((a, b) => order(a.path) - order(b.path) || (a.kind === b.kind ? 0 : a.kind === "folder" ? -1 : 1) || String(a.name).localeCompare(String(b.name)));
   const byDay = {};
   days.forEach((n) => { byDay[n] = []; });
-  rows.forEach((x) => { if (!byDay[x.day]) return; const nm = `"${clip(x.name, 80)}"`;
+  rows.forEach((x) => { if (!byDay[x.day] || (x.ok && x.free)) return; const nm = `"${clip(x.name, 80)}"`;
     byDay[x.day].push(x.ok ? { ok: true } : { ok: false, scored: x.scored, why: `🏷 In ${clip(x.folder, 60)}, ${x.kind === "folder" ? "the folder " : ""}${nm} ${x.want ? `should be named "${clip(x.want, 80)}"` : "isn't named the firm's way"}.` }); });
   const files = rows.filter((x) => x.kind === "file"), wrong = rows.filter((x) => !x.ok);
   const wrongFiles = wrong.filter((x) => x.kind === "file").length, wrongFolders = wrong.length - wrongFiles;
@@ -1666,14 +1686,20 @@ async function driveSnapshot(env, id, rec, listed) {
   const homeOf = homeFinder(folders, rec);   // 📂 a file is in the firm's folder nearest above it, at any depth
   const where = (fid) => (files[fid] ? { name: files[fid].name, created: files[fid].created, path: homeOf(files[fid].parent) } : null);
   // a course document's copies, newest first; the first one still in the Drive is the one that counts
+  // (🔎 and the course documents the trainee filed by hand, worker-drive-found.js: only one that is credited, and one
+  // known for certain before any reading of it, so a file read by its name or Type never stands in for, nor hides
+  // the folder of, the document's own file)
   const copyOf = (docId) => {
-    // (🔎 and the course documents the trainee filed by hand, worker-drive-found.js)
-    const all = (rec.saved || []).concat(rec.handFiled || []).filter((s) => s.docId === docId && s.id).sort((a, b) => String(b.at).localeCompare(String(a.at)));
+    const sure = (s) => (s.by == null || knownFor(s) ? 0 : 1);
+    const all = (rec.saved || []).concat((rec.handFiled || []).filter(credited)).filter((s) => s.docId === docId && s.id)
+      .sort((a, b) => sure(a) - sure(b) || String(b.at).localeCompare(String(a.at)));
     for (const s of all) { const w = where(s.id); if (w) return w; }
     return null;
   };
+  // a file read as that document whose bytes aren't the course's file of it (never credited): said, so the trainee knows
+  const readingOf = (docId) => { for (const h of rec.handFiled || []) if (h && h.docId === docId && h.id && !credited(h)) { const w = where(h.id); if (w) return w; } return null; };
   const clientParent = folders[(rec.folders || {})[CLIENT_FOLDER]] ? folders[rec.folders[CLIENT_FOLDER]].parent : "";
-  return { files, folders, pathOf, homeOf, where, copyOf, clientInPlace: !!clientParent && clientParent === (rec.folders || {})["01 Clients"] };
+  return { files, folders, pathOf, homeOf, where, copyOf, readingOf, clientInPlace: !!clientParent && clientParent === (rec.folders || {})["01 Clients"] };
 }
 
 /* One rubric row: {label, max, got, notes:[what is wrong, in words]} */
@@ -1691,6 +1717,8 @@ function gradeParts(label, max, parts) {
 function placed(S, docIds, extra) {
   return docIds.map((d) => {
     const [kind, label] = DRIVE_DOC[d], home = DRIVE_HOMES[kind], c = S.copyOf(d);
+    const r = !c && S.readingOf && S.readingOf(d);
+    if (r) return { ok: false, why: `"${clip(r.name, 80)}" is read as ${label}, but it isn't the course's file of it: back up the course's own file in ${shortPath(home)}.` };
     if (!c) return { ok: false, why: `${label} isn't on the drive: file it in the CMS so its copy lands in ${shortPath(home)}.` };
     if (c.path !== home) return { ok: false, why: `${label} is in ${c.path == null ? "a folder outside the firm's structure" : shortPath(c.path) || "the drive's top folder"}; it belongs in ${shortPath(home)}.` };
     const more = extra && extra(d, c);
@@ -1780,9 +1808,11 @@ function gradeDay(n, rec, S, filed, N) {
   const issues = names.notes.concat(...rows.slice(0, -1).map((r) => r.notes)).slice(0, 6).map((x) => clip(x, 320));
   return { score, passed: score >= DRIVE_PASS, rows, dims, names: { got: names.got, max: names.max, wrong: names.wrong }, issues, at: new Date().toISOString() };
 }
-/* A day is graded once the trainee has started it: one of its documents on the drive, or its drill begun. */
-function dayStarted(n, rec) {
-  if ((rec.saved || []).concat(rec.handFiled || []).some((s) => DRIVE_DAY_DOCS[n].includes(s.docId))) return true;   // (🔎 or filed by hand)
+/* A day is graded once the trainee has started it: one of its documents on the drive, or its drill begun. `docs`: the
+   course's documents (courseDocs), so a document the course opens on an earlier day never starts a later one
+   (startsDay: RS16 opens on Day 2, so backing it up then doesn't start Day 3; that day waits for daysReached). */
+function dayStarted(n, rec, docs) {
+  if ((rec.saved || []).concat(rec.handFiled || []).some((s) => DRIVE_DAY_DOCS[n].includes(s.docId) && knownFor(s) && startsDay(docs, s.docId, n))) return true;   // (🔎 or filed by hand, known for certain)
   if (n === 2 && rec.drills && rec.drills[2]) return true;
   if (n === 4 && (rec.checkLog || []).some((c) => (c.missing || []).includes(LIENS_FOLDER))) return true;
   return false;
@@ -1791,8 +1821,8 @@ async function driveGrade(env, id, rec, filed, listed) {
   rec.grades = rec.grades || {};
   // 🔎 one listing of the drive: the folders and documents made and filed by hand are found in it (worker-drive-found.js)
   listed = listed || listedOf(rec) || await driveFind(env, driveWorkDeps(), id, rec);
-  const reached = await daysReached(env, id);
-  const days = [2, 3, 4, 5].filter((n) => dayStarted(n, rec) || reached.includes(n));
+  const reached = await daysReached(env, id), docs = await courseDocs(env, driveWorkDeps());
+  const days = [2, 3, 4, 5].filter((n) => dayStarted(n, rec, docs) || reached.includes(n));
   // 📂 a drive not read to the end (cut short by the budget) is never graded as if it were: the last grades stand
   if (listed.walk && listed.walk.reason === "budget") { await driveWrite(env, id, rec); return rec.grades; }
   // Day 1's documents are on the drive before any later day starts, and their names are read all the same
@@ -2287,11 +2317,11 @@ export default {
         const via = gatewayOn(env) ? "gateway" : geminiKeyNames(env).length ? "gemini" : "none";
         let host = ""; try { host = via === "gateway" ? new URL(String(env.PORTAL_URL || "https://cm-training-activity.pages.dev")).host : ""; } catch (e) { host = String(env.PORTAL_URL || ""); }
         if (via === "none") return json({ ok: false, via, error: "No AI is set up on this Worker: add AI_GATEWAY_SECRET (the Portal's AI gateway) or GEMINI_API_KEY in Cloudflare." });
-        const t0 = Date.now();
+        const t0 = Date.now(), mark = refusalMark();
         const res = await callGemini(env, JSON.stringify({ model: "gemini", feature: "grading", max_tokens: 128, messages: [{ role: "user", content: 'A connection check from the Case Management course. Reply with only this JSON object: {"ok": true}' }] }), "ai-check");
         const b = await res.json().catch(() => ({}));
         const text = (((b.content || [])[0]) || {}).text || "";
-        const key = via === "gateway" ? await keyPrint(env.AI_GATEWAY_SECRET) : null, refusedNow = via === "gateway" ? lastRefusal(t0) : null;
+        const key = via === "gateway" ? await keyPrint(env.AI_GATEWAY_SECRET) : null, refusedNow = via === "gateway" ? lastRefusal(mark) : null;
         if (refusedNow && res.ok && text) return json({ ok: false, via, host, key, fallback: true, status: refusedNow.status, ms: Date.now() - t0, model: b.model || "", error: `Portal AI gateway: Not allowed (${refusedNow.status}). Grading carries on with this site's own Gemini keys for now.` });
         return json({ ok: res.ok && !!text, via, host, key, status: res.status, ms: Date.now() - t0, model: b.model || "", error: res.ok && text ? "" : String((b.error && (b.error.message || b.error)) || b.error || "The AI gave no answer (" + res.status + ").") });
       }
