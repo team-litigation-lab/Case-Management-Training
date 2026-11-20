@@ -17,7 +17,7 @@
    left, or when the trainee chooses 🔑 I'm done (after which no more attempts), so it can't be copied into a resubmission.
 
    Saved in the trainee's own record, "cf-ai-grades" (registered here as a personal key, so it syncs with their progress):
-     {v:1, blocks:{<blockId>:{draft, score, tier, strengths, gaps, growth, at, tries, done, failed}}, calls:{<blockId>:{at, text}}}
+     {v:1, blocks:{<blockId>:{draft, score, tier, subs, strengths, gaps, growth, at, tries, done, failed}}, calls:{<blockId>:{at, text}}}
    failed: {at, why, detail} is a grading that didn't come back (why in plain words, detail as the service said it), kept so the
    trainer's 📅 Day by Day lists the activity as handed in, not graded (js/cm-batch-sheet.js); it uses none of the attempts and
    is cleared when the activity is graded.
@@ -261,8 +261,13 @@ window.CMAIGrader = {
       if(typeof guard === "function") window.assessSubmissionQuality = () => ({ok: true});
       let pending; try{ pending = runRubricEvaluation(label, ctx, text, notes); } finally{ if(typeof guard === "function") window.assessSubmissionQuality = guard; }
       const rep = await pending;
+      // the rubric's four parts, each as a share of its maximum (Accuracy /35, Presence /30, Risk /20, Efficiency /15), as the
+      // work log keeps them: the Scorecard reads them for its 🧪 Skill Activities columns and the 100-point model's dimensions
+      const part = (v, max) => Number.isFinite(Number(v)) ? Math.max(0, Math.min(100, Math.round(100 * Number(v) / max))) : null;
+      const subs = {accuracy: part(rep.accuracyScore, 35), presence: part(rep.presenceScore, 30), risk: part(rep.riskScore, 20), efficiency: part(rep.efficiencyScore, 15)};
       Object.assign(r, {score: Math.round(rep.totalScore), tier: rep.gradeTier || "", strengths: (rep.strengths || []).slice(0, 3),
         gaps: (rep.blindspots || []).slice(0, 3), growth: (rep.growthSuggestions || []).slice(0, 2), at: new Date().toISOString(), tries: (r.tries || 0) + 1});
+      if(Object.values(subs).every(v => v != null)) r.subs = subs; else delete r.subs;
       delete r.failed;
       busy[id] = false; editing[id] = false;
       await save();

@@ -226,7 +226,7 @@ function toolbarHtml(){
     const live = inBatch(cur).filter(r => !r.archived).length, arch = inBatch(cur).filter(r => r.archived).length;
     const fbN = typeof batchFeedback === "function" && state.tfbAdmin && !state.tfbAdmin.loading ? batchFeedback(cur).length : null;
     return `${live ? `<button class="btn btn-sm btn-ghost at-danger" onclick="confirmArchiveBatch('${J(cur)}')">📦 Archive batch</button>` : ""}${arch ? `<button class="btn btn-sm btn-ghost" onclick="confirmUnarchiveBatch('${J(cur)}')">↩ Restore batch (${arch})</button>` : ""}
-      <button class="btn btn-sm btn-ghost" onclick="setAdminTab('audit')">📋 Batch Sheet scores</button>
+      <button class="btn btn-sm btn-ghost" onclick="setAdminTab('scorecards')">🏅 Scorecard</button>
       <button class="btn btn-sm ${state.auditBatchFb ? "btn-navy" : "btn-ghost"}" aria-pressed="${!!state.auditBatchFb}" onclick="cmAudit.batchFb()">💬 Batch feedback${fbN !== null ? ` (${fbN})` : ""}</button>`;
   })() : "";
   return `<div class="at-bar-top">
