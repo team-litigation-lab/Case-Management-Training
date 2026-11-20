@@ -120,7 +120,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (50)
+## Node checks (51)
 
 | Check | What it covers |
 |---|---|
@@ -139,6 +139,7 @@ None.
 | `cms-prose.cjs` | Every place a sentence names in the CMS ("in CMS Case Notes", "the Litigation tab", "the Coverage Stack", "the Action Item Log") is a real tab or section of the CMS's menu (cms-paths.cjs MENU), or a named record that is not the CMS's (the Net Sheet's tabs, the case documents, the firm's own logs) |
 | `day-decks.cjs` | Every Canva deck page, Days 1-5, is on the platform on its own day: each page of Day N's deck (title, agenda and Thank You pages too) is one Case Flow Day N lesson's slide, with its picture and talking points; nothing beside the lessons, no picture unused |
 | `day-names.cjs` | A day is shown as Day 1 … Day 5 (the Case Flow day), never by its internal id ("Day 11", "Opened \| Day 15", "Random Task — Day 14"): every "Day ${…id}" on a page goes through dayNo / dayText |
+| `drafting-program.cjs` | ✉️ LOR Drafting and 🏥 Med Provider Drafting open the Portal's shared Drafting tool with ?program=CM (Med Provider on its own tab), in a new tab, signed in, so their results reach this course's Scorecard |
 | `drive-connect.cjs` | Linking a trainee's Google Drive folder (shared with the service account and pasted, as Foundational links a Drive; every refusal says why; Google answered by the test) |
 | `drive-daily.cjs` | The Backup Drive is scored every day: each day a trainee has reached is graded (nothing on the drive yet scores 0), every night too, in four measures (compliance, attention to detail, organization, naming convention) |
 | `drive-grades.cjs` | The Backup Drive is auto-graded day by day from the Drive itself (Days 2–5, against an in-memory Google Drive) |
