@@ -2,7 +2,8 @@
    🤖 AI CHECK: Admin → ⚙ Settings, one click to see whether AI grading works on this site
 
    Every AI grading (the Skill Activities' AI Grader, the takeaways, the random tasks, the calls) goes to the AI this Worker is
-   set up with: the Main Portal's AI gateway (AI_GATEWAY_SECRET) or this Worker's own Gemini keys. When that is refused, every
+   set up with: Claude first when it has ANTHROPIC_API_KEY (worker-claude.js), then the Main Portal's AI gateway
+   (AI_GATEWAY_SECRET), then this Worker's own Gemini keys. The check says which one answered, and when Claude failed. When that is refused, every
    AI-graded column of the 🏅 Scorecard stays blank, and the Portal's 📊 AI usage shows no CMS calls at
    all (the gateway counts nothing it refuses). 🤖 Run the AI check sends one small grading the way a trainee's is sent
    (/api/ai-check in worker.js, trainers only) and says plainly what came back: it works (how long it took, which model), or
@@ -25,12 +26,26 @@ function fix(r){
   if(r.status === 403 || /only a trainer/i.test(m)) return `<p class="aic-p">Sign in to 🛡 Admin again, then run the check.</p>`;
   return `<p class="aic-p">Try again in a minute; if it says the same, the AI service itself is down.</p>`;
 }
+// 🤖 the route that answered: Claude (ANTHROPIC_API_KEY, worker-claude.js), the Portal's gateway or this site's Gemini keys
+function works(r){
+  const s = ((r.ms || 0) / 1000).toFixed(1);
+  if(r.via === "anthropic") return `✅ AI grading works: Claude${r.model ? ` (${r.model})` : ""} answered in ${s} s.`;
+  const where = r.via === "gemini" ? "this site's own Gemini keys" : `the Main Portal's AI gateway${r.host ? ` (${r.host})` : ""}`;
+  return `✅ AI grading works: ${where} answered in ${s} s${r.model ? ` (${r.model})` : ""}.`;
+}
+// Claude is set up but didn't answer: what answered instead is said above, and why Claude didn't here
+const claudeNote = r => r && r.claude && r.via !== "anthropic" ? `⚠ Claude${r.claude.model ? ` (${r.claude.model})` : ""} didn't answer: ${r.claude.reason || "no answer"}${r.ok ? ", so the next route graded instead" : ""}.` : "";
+// one line for ⚡ Run now (js/cm-run-now.js), the same words as the card
+function summary(r){
+  const n = claudeNote(r);
+  return (r && r.ok ? works(r) : `❌ AI grading doesn't work right now: ${(r && r.error) || "no answer"}`) + (n ? " " + n : "");
+}
 function card(){
-  const r = S.res, where = r && r.via === "gemini" ? "this site's own Gemini keys" : `the Main Portal's AI gateway${r && r.host ? ` (${E(r.host)})` : ""}`;
+  const r = S.res, note = claudeNote(r);
   const line = S.busy ? `<p class="aic-p aic-dim">⏳ Sending one small grading…</p>`
     : !r ? `<p class="aic-p aic-dim">Not run yet. It sends one small grading, the way a trainee's Skill Activity is sent.</p>`
-    : r.ok ? `<p class="aic-p aic-ok">✅ AI grading works: ${where} answered in ${((r.ms || 0) / 1000).toFixed(1)} s${r.model ? ` (${E(r.model)})` : ""}.</p>`
-    : `<p class="aic-p aic-bad">❌ AI grading doesn't work right now: ${E(r.error || "no answer")}</p>${fix(r)}`;
+    : (r.ok ? `<p class="aic-p aic-ok">${E(works(r))}</p>`
+    : `<p class="aic-p aic-bad">❌ AI grading doesn't work right now: ${E(r.error || "no answer")}</p>${fix(r)}`) + (note ? `<p class="aic-p aic-bad">${E(note)}</p>` : "");
   const key = r && r.key ? `<div class="aic-key"><p class="aic-p">🔑 The key this site sends${r.host ? ` to <b>${E(r.host)}</b>` : ""}: fingerprint <code>${E(r.key.fp)}</code> · ${E(r.key.len)} characters <span class="aic-dim">(a fingerprint, never the key)</span></p>
     <p class="aic-p aic-dim">Paste the value you meant to save to check it here. It stays in this browser: only its fingerprint is worked out, nothing is sent.</p>
     <div class="aic-row"><input type="password" id="aicTry" class="aic-in" autocomplete="off" placeholder="The AI_GATEWAY_SECRET value you saved" oninput="cmAiCheck.compare(this.value)"><span id="aicSay" class="aic-p" role="status"></span></div></div>` : "";
@@ -76,5 +91,5 @@ async function compare(v){
     : `❌ ${p.fp} · ${p.len} characters: not the value this site's Worker holds (${mine.fp} · ${mine.len}). Save it on the Worker (case-management-training → Settings → Variables and Secrets).`;
   return p;
 }
-window.cmAiCheck = {run, compare, print, state: S};
+window.cmAiCheck = {run, compare, print, summary, state: S};
 })();

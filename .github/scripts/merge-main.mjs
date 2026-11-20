@@ -130,6 +130,11 @@ function main(){
       git('add', '-u');
     }
   }
+  // the Worker's dependencies, as the merged package-lock.json has them (worker-claude.js's SDK, which its check loads)
+  if (fs.existsSync('package-lock.json')){
+    console.log('\nInstalling the Worker\'s dependencies (npm ci)…');
+    if (!run('npm', ['ci', '--no-audit', '--no-fund'])) fail(1, 'npm ci failed: fix it, then commit the merge (git commit).');
+  }
   console.log('\nRunning the node checks…');
   if (!run(process.execPath, ['.github/scripts/run-checks.mjs', 'node'])) fail(1, '\nA check failed: fix it, then commit the merge (git commit).');
   const merging = tryGit('rev-parse', '-q', '--verify', 'MERGE_HEAD');
