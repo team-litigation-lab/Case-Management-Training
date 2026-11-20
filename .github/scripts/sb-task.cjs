@@ -1,6 +1,6 @@
 // @check browser — 🎯 Your Task on a Skill Building activity: one column, steps in full sentences, one foot bar (🚀 Launch CMS & Google Drive · 🧰 Tools ▾ with 📁 Source Files · Submit →; no per-step tool pills, no floating CMS · Drive card), the rules in 📖 Reference
 // js/cm-sb-task.js and the Your Task slide in js/cm-case-flow.js. On Day 3's Backup File Maintenance (d3-drive) and Day 1's
-// "Does PD Touch Our Case?" (d1m3-a3): no Purpose/Principle sidebar, no 🏷 naming bar or _DRAFT/_SUPERSEDED labels and no
+// the Case Plan (d1m4-a2; the PD sort it used was cut with the extra tasks): no Purpose/Principle sidebar, no 🏷 naming bar or _DRAFT/_SUPERSEDED labels and no
 // points badge on the slide; no ↗ pills beside the steps and no #cm-sb-dock card; the steps are the owner's five sentences;
 // the foot bar's 🧰 Tools holds the Source Files, which open their list, and Submit → turns the slide into the AI Grader. 📖 Reference opens with the
 // 📋 Rules & Naming Guide (Purpose, Principle, the naming convention and its 📋 Copy). Launch opens the CMS beside the slide and,
@@ -33,7 +33,7 @@ const D3 = [
     const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === id && (!view || cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === view));
     if (k < 0) return false; goToSlide(k); return true; }, [n, id, view]);
 
-  for (const [n, id] of [[3, 'd3-drive'], [1, 'd1m3-a3']]) {
+  for (const [n, id] of [[3, 'd3-drive'], [1, 'd1m4-a2']]) {
     if (!await go(n, id, 'task')) { fail(`Day ${n} has no Your Task slide for ${id}`); continue; }
     await page.waitForTimeout(600);
     const s = await page.evaluate(() => {
@@ -105,7 +105,7 @@ const D3 = [
       const at = await page.evaluate(() => { const st = CMDrive.status; const CASE = 'https://drive.google.com/drive/folders/ci-case';
         CMDrive.status = () => ({ configured: true, connected: true, built: true, rootUrl: 'https://drive.google.com/drive/folders/ci-root', caseUrl: CASE });
         const la = CMDrive.launch; let used = false; CMDrive.launch = function () { used = true; window.open(CASE, '_blank', 'noopener'); return true; };
-        window.__opened = []; try { CMSbTask.go('d1m3-a3'); } finally { CMDrive.status = st; CMDrive.launch = la; }
+        window.__opened = []; try { CMSbTask.go('d1m4-a2'); } finally { CMDrive.status = st; CMDrive.launch = la; }
         return { used, opened: window.__opened.slice() }; });
       if (!at.used || !at.opened.includes('https://drive.google.com/drive/folders/ci-case')) fail(`🚀 Launch with a linked Drive should open it at the case folder through CMDrive.launch: ${JSON.stringify(at)}`);
     }

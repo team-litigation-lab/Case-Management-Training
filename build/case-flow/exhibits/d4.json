@@ -18,7 +18,7 @@
           "as": "Parties, counsel and the session date; start time and location \"to be confirmed\"; mediator's fee \"split 50/50 (assumed)\".",
           "verdict": "replace",
           "kind": "gap",
-          "issue": "On the morning of 03/18/2027 nobody can tell from the binder where to be or when. And a fee split the firm never agreed to is a bill it did not expect: the order says how the mediator is paid.",
+          "issue": "On the morning of 03/18/2027 nobody can tell from the binder where to be or when. And a fee split marked \"assumed\" is one nobody can stand behind: 50/50 is right, but only the order says so.",
           "fix": "Take the start time, location and the carrier's video link from the mediator's confirmation and the fee split from the mediation order; verify every contact and date it.",
           "proof": [
             "RS57"
@@ -58,7 +58,7 @@
           "issue": "The operative answer is what the mediator needs: it is the list of everything the other side intends to argue, and this file can answer all of it.",
           "fix": "Confirm it is the served copy, and that every allegation in it appears in the defense map below.",
           "proof": [
-            "RS51"
+            "RS53"
           ]
         },
         {
@@ -70,7 +70,7 @@
           "issue": "Every allegation in the answer is already answerable from documents on this file. Without the map the mediator hears each one answered by a sentence instead of a page, and Atty. Thorne has to find the exhibit himself.",
           "fix": "Add the map: each pleaded allegation against the exhibit that answers it, by exhibit number. Flag the two legal questions for Atty. Thorne rather than answering them.",
           "proof": [
-            "RS51",
+            "RS53",
             "RS09",
             "RS11"
           ]
@@ -148,7 +148,7 @@
           "fix": "Show the charge satisfied by the plan's contract payment, proved by Peach State's EOB and the corrected $0.00 statement; the open claims are Peach State $1,860.00 and Riverton Spine & Rehab $6,105.00 = $7,965.00.",
           "proof": [
             "RS26",
-            "RS41"
+            "RS91"
           ]
         },
         {
@@ -283,10 +283,11 @@
           "verdict": "pull",
           "kind": "loophole",
           "issue": "The draft is unsigned, carries no case number and omits pleaded counts. And the tort pleadings belong to a case that has been dismissed as to Robert Smith: whether they are exchanged here at all is not the Case Manager's call.",
-          "fix": "Take the draft out of the file set, move the filed pleadings to the attorney's set, and put the exchange question to Atty. Thorne.",
+          "fix": "Remove the draft. The filed Complaint and Answer stay at Tab 2, as the deck's Section 2 places them; whether they are exchanged goes to Atty. Thorne.",
           "proof": [
             "RS50",
-            "RS51"
+            "RS51",
+            "RS53"
           ]
         },
         {
@@ -343,11 +344,11 @@
         {
           "ref": "C-6",
           "what": "Provider certifications",
-          "as": "None requested from any provider or record-holder.",
+          "as": "Requested from Crescent Pain & Spine only (05/05/2027, not received); none from any other provider or record-holder.",
           "verdict": "add",
           "kind": "gap",
-          "issue": "An uncertified record is a record a carrier can object to, and the whole ledger rests on them. Nineteen days before the exchange, nothing has been asked for.",
-          "fix": "Request a certification from every provider and from Riverton Fire, Riverton PD and Northgate HR, and log each receipt. Nothing back in 14 days means a second request and a subpoena flag for Atty. Thorne.",
+          "issue": "An uncertified record is a record a carrier can object to, and the whole ledger rests on them. Sixteen days before the exchange, only Crescent's has been asked for.",
+          "fix": "Request a certification from every other provider and from Riverton Fire, Riverton PD and Northgate HR, and log each receipt. Nothing back in 14 days means a second request and a subpoena flag.",
           "proof": [
             "RS63"
           ]
@@ -385,7 +386,7 @@
           "verdict": "pull",
           "kind": "privilege",
           "issue": "The memo is work product and a record of settlement communications. Filed because it explains the history, it puts our strategy and every number we discussed in front of the carriers.",
-          "fix": "Pull the memo to the attorney's set for Atty. Thorne's privilege decision and leave Tab 6 to wage proof alone. Nothing is exchanged, and nothing withheld, on the Case Manager's own decision.",
+          "fix": "Pull the memo to the attorney's set for Atty. Thorne's privilege decision. Tab 6 keeps the wage proof, negotiation ledger and audited lien sheet, the last two flagged for his exchange decision.",
           "proof": [
             "RS63"
           ]
@@ -424,7 +425,7 @@
           "issue": "Both are right: the plan's itemized reimbursement claim, and the LOP account at the audited 33 visits. Together they are the $7,965.00 the net is actually worked from.",
           "fix": "Confirm Crescent and Summit Imaging are shown at $0.00 as well, and reconcile the sheet to $7,965.00 before it goes to Atty. Thorne.",
           "proof": [
-            "RS41",
+            "RS91",
             "RS25"
           ]
         },

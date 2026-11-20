@@ -215,12 +215,15 @@ const STUB = () => {
 
     // 10. the second voicemail (d2m2-a3), as a trainer presents it, on the day the course teaches it
     await page.evaluate(() => { state.isAdmin = true; });
+    // (cut with the extra tasks, d2m2-a3 keeps its block, out of the course's order: then there is no second voicemail to present)
     const vmDay = await page.evaluate(() => (CM_CASE_FLOW.sequence.find(s => s.phases.some(p => p.blocks.includes('d2m2-a3'))) || {}).n);
-    check(await toCase(vmDay, 'd2m2-a3'), `Day ${vmDay}'s second voicemail activity's Your Task opens its Listening Check from 🧰 Tools`); await wait(1200);
-    const s2 = await slideOf('d2m2-a3');
-    check(!!s2 && s2.parts.play && s2.parts.bar && s2.parts.back && s2.parts.over, 'with the player');
-    check(!!s2 && !s2.small.length, `nothing in the player under 16px or less than bold: ${JSON.stringify(s2 ? s2.small.slice(0, 4) : [])}`);
-    check(!!s2 && !s2.words.length, `and no words of the message beside it: ${JSON.stringify(s2 ? s2.words.slice(0, 2) : [])}`);
+    if (vmDay) {
+      check(await toCase(vmDay, 'd2m2-a3'), `Day ${vmDay}'s second voicemail activity's Your Task opens its Listening Check from 🧰 Tools`); await wait(1200);
+      const s2 = await slideOf('d2m2-a3');
+      check(!!s2 && s2.parts.play && s2.parts.bar && s2.parts.back && s2.parts.over, 'with the player');
+      check(!!s2 && !s2.small.length, `nothing in the player under 16px or less than bold: ${JSON.stringify(s2 ? s2.small.slice(0, 4) : [])}`);
+      check(!!s2 && !s2.words.length, `and no words of the message beside it: ${JSON.stringify(s2 ? s2.words.slice(0, 2) : [])}`);
+    } else console.log('PASS the second voicemail (d2m2-a3) was cut with the extra tasks: no second Listening Check to present');
 
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s).`); process.exit(1); }

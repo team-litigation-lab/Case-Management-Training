@@ -210,7 +210,9 @@ export function parseActivities(src) {
     const b = id in pos ? blockOf(src, id, pos[id]) : null;
     const act = (b && b.act) || {}, ai = (b && b.rubric && Array.isArray(b.rubric.ai) ? b.rubric.ai : []).filter((r) => Array.isArray(r) && typeof r[0] === "string" && Number(r[1]) > 0);
     if (!b || !b.title || !ai.length) return;
-    out[id] = { id, day, folder, keys, title: String(b.title), prompt: String(act.prompt || ""), output: String(act.output || ""),
+    // a cut or merged activity stays (old grades and overrides still resolve) but is never offered as a heading; work
+    // that matches a merged one is graded as its main's (mergedInto), where that checkpoint is now graded
+    out[id] = { id, day, folder, keys, retired: !!b.retired, mergedInto: b.mergedInto ? String(b.mergedInto) : null, title: String(b.title), prompt: String(act.prompt || ""), output: String(act.output || ""),
       checkpoints: (Array.isArray(act.checkpoints) ? act.checkpoints : []).map((x) => String(x)).slice(0, 12),
       rubric: ai.map((r) => [String(r[0]), Math.round(Number(r[1])), String(r[2] || "")]) };
   });
@@ -239,11 +241,12 @@ export function matchWork(name, head, path, catalog, homes) {
   const dm = /\bday\s*([1-5])\b/.exec(heading), day = dm ? Number(dm[1]) : 0;
   const all = Object.values(catalog), pool = all.filter((a) => !day || a.day === day);
   const titled = pool.filter((a) => has(text, a.title)).sort((x, y) => y.title.length - x.title.length);
-  if (titled.length && (titled.length === 1 || titled[0].title.length > titled[1].title.length)) return { id: titled[0].id, by: "title" };
+  const main = (a) => (a.mergedInto && catalog[a.mergedInto] ? a.mergedInto : a.id);
+  if (titled.length && (titled.length === 1 || titled[0].title.length > titled[1].title.length)) return { id: main(titled[0]), by: "title" };
   if (titled.length > 1) return { why: `Its heading could be "${titled[0].title}" or "${titled[1].title}": start it with one activity's title.` };
   const here = pool.filter((a) => homes[a.folder] === path);
   const scored = here.map((a) => ({ a, n: a.keys.filter((k) => has(text, k)).length })).sort((x, y) => y.n - x.n);
-  if (scored.length && scored[0].n >= 2 && (scored.length === 1 || scored[0].n > scored[1].n)) return { id: scored[0].a.id, by: "keys" };
+  if (scored.length && scored[0].n >= 2 && (scored.length === 1 || scored[0].n > scored[1].n)) return { id: main(scored[0].a), by: "keys" };
   if (!here.length) return { why: path == null ? "It is outside the firm's folders." : `No written activity${day ? ` of Day ${day}` : ""} is kept in ${path ? path.split("/").pop() : "the top folder"}.` };
   return { why: scored.length && scored[0].n && scored[1] && scored[0].n === scored[1].n
     ? `It reads like more than one activity (${scored[0].a.title}; ${scored[1].a.title}): start it with its activity's title.`
@@ -621,7 +624,7 @@ export function workBrief(view) {
 }
 /* Where the trainee writes each activity's work: its folder and its heading, by day (the trainee's ✍ list). */
 export function workGuide(catalog, homes) {
-  return Object.values(catalog).sort((x, y) => x.day - y.day).map((a) => ({ id: a.id, day: a.day, title: a.title, folder: homes[a.folder] || "", heading: `Day ${a.day} · ${a.title}` }));
+  return Object.values(catalog).filter((a) => !a.retired).sort((x, y) => x.day - y.day).map((a) => ({ id: a.id, day: a.day, title: a.title, folder: homes[a.folder] || "", heading: `Day ${a.day} · ${a.title}` }));
 }
 
 /* ---------- the overrides, applied wherever a Drive grade is read (worker.js driveStatus / driveReport) ---------- */

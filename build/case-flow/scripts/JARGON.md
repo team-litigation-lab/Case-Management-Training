@@ -110,9 +110,9 @@ Confirm: that the firm still relies on this citation for its matters.
 
 
 ### A-C-T
-**Plain words:** Our three-step response when a client's care goes off track: Assess (find out what's wrong), Coordinate (fix it with the clinic, the carrier, the family), Track (follow up until care is back on schedule).
+**Plain words:** Our three-step response when a client's care goes off track: Assess (is there a medical or legal danger?), Clarify (call the provider's office, then the client, and find out what's really going on), Track (document every step and follow up until care is back on schedule).
 
-**Say it like this:** "A-C-T is our fire drill. Assess: call the client and find the barrier. Coordinate: line up the fix. Track: check the next visits actually happen. Spotting smoke and not calling anyone isn't a fire drill; it's a campfire."
+**Say it like this:** "A-C-T is our fire drill. Assess: is this a medical or legal danger? Clarify: call the clinic, then the client, and find the barrier. Track: write it down and check the next visits actually happen. Spotting smoke and not calling anyone isn't a fire drill; it's a campfire."
 
 **Why it matters for the settlement:** Every documented A-C-T turns a gap the adjuster would use against us into a gap with a reason.
 
@@ -839,7 +839,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | MMI (Maximum Medical Improvement) | d2m2-cost, d2m2-l2 | The doctor says he's as good as he's going to get |
 | Barrier | d2m2-l2 | Anything stopping him getting to care |
 | Variance (clinical / psychosocial / systemic) | d2m2-l2 | The type of problem: medical, life or mood, or the system being stuck |
-| A-C-T | d2m2-l2 | Assess the danger, Coordinate the fix, Track it |
+| A-C-T | d2m2-l2 | Assess the danger, Clarify what's wrong, Track it |
 | GIRP note | d2m2-l2 | A short note of the Goal, Intervention, Response and Plan, facts only |
 | IME | d2m2-l2 | An exam the insurance company orders from its own doctor |
 | Causation | d2m2-l2 | The crash caused the injury |
@@ -903,7 +903,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Term | Block | The plain explanation in the script |
 |---|---|---|
 | Coordinate, don't commingle | d2m3-l1 | The medical side and the legal side don't get mixed up in your notes |
-| A-C-T (Assess, Coordinate, Track) | d2m3-l1 | Our three-step plan the minute something goes wrong in care |
+| A-C-T (Assess, Clarify, Track) | d2m3-l1 | Our three-step plan the minute something goes wrong in care |
 | Medical danger vs. legal danger | d2m3-l1 | A fever or failing hardware goes to the doctor; a gap or vague note goes to Atty. Thorne |
 | Funnel (questioning) | d2m3-l1 | Broad open questions first, follow-ups on his words, yes-or-no questions last to pin a date or document |
 | Recorded Statement | d2m3-l1 | The insurance company taping his version of events |

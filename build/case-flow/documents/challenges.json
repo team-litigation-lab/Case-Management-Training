@@ -81,7 +81,6 @@
         "RS06"
       ],
       "in": [
-        "d2m2-a3",
         "d4m4-a2"
       ],
       "spot": "The HIPAA authorization expires 02/06/2027, before the litigation records runs."
@@ -92,8 +91,8 @@
         "RS28"
       ],
       "in": [
-        "d2m1-a2",
-        "d4m3-a2"
+        "d3m1-a1",
+        "d4m3-a1"
       ],
       "spot": "The Police Report lists the Escape as a 2021 (the declarations page: 2020)."
     },
@@ -104,8 +103,7 @@
       ],
       "in": [
         "d3m1-a1",
-        "d4m3-a1",
-        "d4m3-a2"
+        "d4m3-a1"
       ],
       "spot": "The doorbell stills on file are grayscale exports, unfit for an exhibit set."
     },
@@ -116,7 +114,6 @@
         "RS11"
       ],
       "in": [
-        "d2m4-a1",
         "d3m1-a1"
       ],
       "spot": "The MRI history gives 02/16/2026 as the injury date.",
@@ -128,7 +125,6 @@
         "RS14"
       ],
       "in": [
-        "d2m4-a1",
         "d3m1-a1",
         "d3m3-a2",
         "d4m3-a1"
@@ -141,7 +137,6 @@
         "RS26"
       ],
       "in": [
-        "d2m4-a1",
         "d3m1-a1",
         "d3m3-a1"
       ],
@@ -188,8 +183,7 @@
         "RS51"
       ],
       "in": [
-        "d4m3-a1",
-        "d4m3-a2"
+        "d4m3-a1"
       ],
       "spot": "A superseded, unsigned pre-filing draft of the Complaint."
     },
@@ -209,7 +203,7 @@
         "RS58"
       ],
       "in": [
-        "d4m2-a2"
+        "d4m2-arbcal"
       ],
       "spot": "The arbitration brief date falls on a Saturday; docket the Friday before."
     },
@@ -272,7 +266,7 @@
         "RS31"
       ],
       "in": [
-        "d1m1-a2"
+        "d3m3-a1"
       ],
       "spot": "Peach State's interim itemization claims three lines not from the collision and the Crescent injection at billed, not paid: $3,618.00 instead of $1,860.00.",
       "corrected": "RS91"
@@ -284,7 +278,7 @@
         "RS93"
       ],
       "in": [
-        "d2m4-wage"
+        "d3m1-a1"
       ],
       "spot": "The draft wage worksheet claims shifts he worked, a misdated MRI, light duty and overtime he never lost, and drops the five February call-outs: $1,760.00 instead of $1,584.00.",
       "corrected": "RS95"
