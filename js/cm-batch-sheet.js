@@ -3,8 +3,11 @@
    ------------------------------------------------------------
    Admin → 🛡 Admin Master Control → 📋 Batch Sheet (the tab the Admin screen opens on). Pick a batch (or All batches)
    and every trainee who registered in it is on one page, as Foundational's: the Detailed Scores first, the rest folded:
-     📅 Day 1–5: Detailed Scores  a column per Case Flow day (the 100-point model's day score) and the Overall; under it
-                        🔎 each trainee's score card, their days in detail (each item's score, 🧾 why, ⭐ best, 🔧 improve)
+     📅 Day 1–5: Detailed Scores  EVERY score in one table, a row per trainee: the Overall and a column per Case Flow day
+                        (the 100-point model's day score), then the rank, days passed, the grading systems average and each
+                        system's average (🏅 Scores' summary), a group per day (that day's 🏅 Score Card) and a group per
+                        grading system (its counts and each graded item: 🧮 Grading systems); under it 🔎 each trainee's
+                        score card, their days in detail (each item's score, 🧾 why, ⭐ best, 🔧 improve)
      ▸ More detail (a fold, open or shut as the trainer left it):
        🏅 Score Card    a group of columns per day (Knowledge Check, Learning Checks, Takeaways, Activities & calls,
                         Action Plan, Backup Drive, CMS file, the trainer's rubric, the day's score, the trainer's remarks),
@@ -383,14 +386,28 @@ function scoreCardHtml(ppl){
   const cur = ALL.find(d => d.id === B.scDay) || scored[scored.length - 1] || ALL[0];
   return `<div class="bs-sys bs-scday"><div class="bs-view">${ALL.map(d => `<button class="${d === cur ? "on" : ""}" onclick="cmBatchSheet.scDay(${d.id})">${dayLabel(d)} · ${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</button>`).join("")}</div></div>` + sheetHtml(scoreCardTable(ppl, cur));
 }
+// 📅 Day 1–5: Detailed Scores, the sheet's first table: every score of a trainee in ONE row, so no two tables read a trainee
+// different numbers for what looks like the same thing. The Overall and the day scores first (the 100-point model's, as the
+// card), then 🏅 Scores' summary (rank, days passed, the grading systems average, each system's average), a group of columns
+// per Case Flow day (that day's 🏅 Score Card without its day score, already in front) and a group per grading system (how
+// many graded, its own counts, each graded item; its average is in the summary). The tables under ▸ More detail are the
+// same numbers cut another way.
 function dayTable(ppl){
-  const L = cfDaysL();
-  return {id: "days", title: "📅 Day 1–5: Detailed Scores", note: "Each trainee's Overall and score for each Case Flow day: the 100-point model's, the same numbers as their card and 🏅 Scores. A day with work but nothing scored yet shows how many are done. Hover a cell for each deliverable; click a trainee to open their score card just below, with every deliverable's score, why, what they did best and what to improve.",
-    head: ["Trainee", "Overall"].concat(L.map(d => `${dayLabel(d)}. ${String(d.title).replace(/^Case Flow Day \d+ · /, "")}`)),
-    rows: ppl.map(r => { const per = L.map(d => dayParts(r, d)), avgs = L.map(d => dayS(r, d)), a = ovPct(r);
+  const L = cfDaysL(), sc = scoresTable(ppl), sum = new Map(sc.rowsRaw.map((x, i) => [x.r.id, sc.rows[i].slice(2)])), sumHead = sc.head.slice(2);
+  const dayT = L.map(d => scoreCardTable(ppl, d)), keep = h => h !== "Day score";
+  const S = (window.cmScorecard && cmScorecard.sources) || [], sysT = S.map(s => systemTable(ppl, s));
+  return {id: "days", title: "📅 Day 1–5: Detailed Scores · every score in one table", note: "A row per trainee with every score: the Overall and each Case Flow day's score (the 100-point model's, the same numbers as their card), then the rank, days passed and each grading system's average, then a group of columns per day (its Score Card: each kind of score and the trainer's remarks) and a group per grading system (each graded item). A day with work but nothing scored yet shows how many are done. Hover a cell for how it was scored; scroll sideways for the rest; click a trainee to open their score card just below, with every deliverable's score, why, what they did best and what to improve.",
+    groups: [{label: "", span: 1}, {label: "📅 Overall & day scores", span: 1 + L.length}, {label: "🏅 Summary", span: sumHead.length}]
+      .concat(dayT.map(t => ({label: `🏅 Score Card · ${t.groups[1].label}`, span: t.head.slice(2).filter(keep).length})))
+      .concat(sysT.map(t => ({label: t.title, span: t.head.length - 2}))),
+    head: ["Trainee", "Overall"].concat(L.map(d => `${dayLabel(d)}. ${String(d.title).replace(/^Case Flow Day \d+ · /, "")}`), sumHead,
+      ...dayT.map(t => t.head.slice(2).filter(keep)), ...sysT.map(t => t.head.slice(2))),
+    rows: ppl.map((r, ri) => { const per = L.map(d => dayParts(r, d)), avgs = L.map(d => dayS(r, d)), a = ovPct(r);
       return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, {v: pct(a), f: ovTip(r), cls: "gs-num gs-calc gs-bold " + tone(a)}]
         .concat(L.map((d, i) => { const xs = per[i], sc = xs.filter(x => x.pct != null);
-          return {v: avgs[i] != null ? `${avgs[i]}% · ${sc.length} scored` : sc.length ? `${sc.length} scored` : "", f: `${daySTip(r, d)} · its deliverables: ` + (xs.length ? xs.map(x => `${x.name.replace(/^\S+\s/, "")} ${x.pct != null ? x.pct + "%" : x.status || "—"}`).join(" · ") : "nothing yet"), cls: "gs-num " + tone(avgs[i])}; }));
+          return {v: avgs[i] != null ? `${avgs[i]}% · ${sc.length} scored` : sc.length ? `${sc.length} scored` : "", f: `${daySTip(r, d)} · its deliverables: ` + (xs.length ? xs.map(x => `${x.name.replace(/^\S+\s/, "")} ${x.pct != null ? x.pct + "%" : x.status || "—"}`).join(" · ") : "nothing yet"), cls: "gs-num " + tone(avgs[i])}; }),
+          sum.get(r.id) || sumHead.map(() => ({v: "", f: "Nothing scored yet"})),
+          ...dayT.map(t => t.rows[ri].slice(2).filter((c, ci) => keep(t.head[ci + 2]))), ...sysT.map(t => t.rows[ri].slice(2)));
     }),
     onRow: ppl.map(r => `cmBatchSheet.dsWho('${E(r.id)}')`), rowCls: ppl.map(r => B.ds === r.id ? "gs-picked" : "")};
 }
@@ -530,7 +547,10 @@ function csv(){
   const q = v => { const s = String(v == null ? "" : v); return `"${(/^[=+\-@\t\r]/.test(s) ? "'" + s : s).replace(/"/g, '""')}"`; };
   if(!LAST.length) tablesHtml();
   const T = LAST;
-  const lines = []; T.forEach(t => { lines.push(q(t.title)); lines.push(t.head.map(q).join(",")); t.rows.forEach(r => lines.push(r.map(c => q(c.v)).join(","))); lines.push(""); });
+  const lines = []; T.forEach(t => { lines.push(q(t.title));
+    // (a table in groups of columns: the group names above its headers, so a day's or a system's columns say whose they are)
+    if(t.groups) lines.push([].concat(...t.groups.map(g => [g.label].concat(Array(Math.max(0, g.span - 1)).fill("")))).map(q).join(","));
+    lines.push(t.head.map(q).join(",")); t.rows.forEach(r => lines.push(r.map(c => q(c.v)).join(","))); lines.push(""); });
   const k = state.adminBatchFilter ? labelOf(state.adminBatchFilter) : "All batches";
   const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([lines.join("\n")], {type: "text/csv"}));
   a.download = `Batch Sheet - ${k}.csv`; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
@@ -644,6 +664,8 @@ button.bs-wait-pill{cursor:pointer;font:800 14px Arial,sans-serif;border:1px sol
 .scx-card .gs-head th{min-width:104px;max-width:180px;font-size:14.5px;}
 .scx-card .gs-groups th{background:#1E2340;color:#fff;font:800 14px Arial,sans-serif;text-align:center;border-right:2px solid #fff;white-space:nowrap;}
 .scx-card .gs-groups th.gs-frz{background:#1E2340;}
+/* the Detailed Scores' groups span many columns: each name at its group's start, not off-screen in its middle */
+#bs-days .gs-groups th{text-align:left;padding-left:12px;border-left:3px solid #DB8437;}
 /* ▸ More detail: every table but the Detailed Scores, folded (as Foundational's .bs-more) */
 .bs-more{margin:14px;border:1px solid #C9CEDA;border-radius:10px;background:#fff;} .bs-more > summary{cursor:pointer;padding:12px 16px;font:800 16px Arial,sans-serif;color:#1E2340;background:#F4F5F9;border-radius:10px;}
 .bs-more[open] > summary{border-radius:10px 10px 0 0;border-bottom:1px solid #C9CEDA;}
