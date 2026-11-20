@@ -1,4 +1,4 @@
-// @check browser — ☁ A saved copy this device couldn't read is never saved over: two failed reads at sign-in on a new computer leave the server's notes, Net Sheet and filing as they were, the trainee is told nothing is saved until it loads (Try again), and once a read succeeds the saved work is restored and saving starts again
+// @check browser — ☁ A saved copy this device couldn't read is never saved over: two failed reads, a read slower than the 4-second save or an answer with no value at sign-in on a new computer leave the server's notes, Net Sheet and filing as they were, the trainee is told nothing is saved until it loads (Try again), and once a read succeeds the saved work is restored and saving starts again
 // Platform QA 2026-11-19, CM finding 2 (js/cm-restore-guard.js; cloudRestore / cloudSaveNow in index.html). The server's
 // answers are faked with page.route on the second computer only:
 //   1. Computer A: a trainee saves notes, a Net Sheet and a document filing (a sign-in with no saved copy yet saves at once).
@@ -10,6 +10,10 @@
 //      work, and the note written on B meanwhile is backed up (orphan:<id>:<ms>) rather than lost.
 //   4. Computer C: one failed read is absorbed (js/cm-safe-logout.js reads once more): restored, no notice.
 //   5. Computer D: two failed reads and no click: the read is tried again by itself and the work restored.
+//   6. Computer E: every read of progress:<id> is slow (9 s, longer than the 4-second save) but answers correctly: no
+//      save goes out while it is under way, the server keeps A's work, and E then holds A's notes.
+//   7. Computer F: the reads answer 200 with no value ({}): that is a failed read, not "nothing saved": the copy is
+//      unread, the notice is shown, and the server keeps A's work.
 // Usage: node .github/scripts/restore-fail.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -20,13 +24,15 @@ const letters = (n) => String(n).replace(/[0-9]/g, (d) => 'abcdefghij'[d]);
 (async () => {
     const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
     const first = 'Rhea', last = 'Restore' + letters(Date.now() % 100000);
-    const computer = async (failReads) => {
+    const computer = async (failReads, how = {}) => {
         const ctx = await browser.newContext({ viewport: { width: 1366, height: 768 } });
         const page = await ctx.newPage();
         page.on('pageerror', (e) => fail(`page error: ${e.message}`));
         const left = { n: failReads };
         await ctx.route('**/api/storage/get', async (route) => {
             let body = {}; try { body = JSON.parse(route.request().postData() || '{}'); } catch (e) { }
+            if (/^progress:/.test(body.key || '') && how.delay) { left.slow = (left.slow || 0) + 1; await new Promise((r) => setTimeout(r, how.delay)); return route.continue(); }
+            if (/^progress:/.test(body.key || '') && left.n > 0 && how.empty) { left.n--; return route.fulfill({ status: 200, contentType: 'application/json', body: '{}' }); }
             if (/^progress:/.test(body.key || '') && left.n > 0) { left.n--; return route.fulfill({ status: 500, contentType: 'application/json', body: '{"error":"test: the read failed"}' }); }
             return route.continue();
         });
@@ -99,6 +105,27 @@ const letters = (n) => String(n).replace(/[0-9]/g, (d) => 'abcdefghij'[d]);
     const d1 = await D.page.evaluate(() => storeGet('notes'));
     if (JSON.stringify(d1) !== want) fail(`computer D: the retried read should restore the saved work: ${JSON.stringify(d1)}`);
     await same('computer D');
+
+    // 6. computer E: a slow read (longer than the 4-second save), answered correctly
+    const E = await computer(0, { delay: 9000 });
+    const sets = [];
+    E.page.on('request', (r) => { if (/storage\/set$/.test(r.url())) { let b = {}; try { b = JSON.parse(r.postData() || '{}'); } catch (e) { } if (/^progress:/.test(b.key || '')) sets.push({ at: Date.now(), notes: /computer A note/.test(r.postData() || '') }); } });
+    await signIn(E.page, first, last, 'B100926');
+    await E.page.waitForFunction(() => !state.cloudReading, null, { timeout: 40000 }).catch(() => fail('computer E: the slow read should settle'));
+    await E.page.waitForTimeout(5500);
+    await same('computer E, a slow read');
+    if (!E.left.slow) fail('computer E: the reads should have been slowed');
+    if (sets.some((x) => !x.notes)) fail(`computer E: no save without computer A's notes should go out while (or after) the slow read: ${JSON.stringify(sets)}`);
+    const e1 = await E.page.evaluate(async () => ({ notes: await storeGet('notes'), unread: state.cloudUnread === state.traineeId }));
+    if (JSON.stringify(e1.notes) !== want || e1.unread) fail(`computer E: after the slow read it should hold computer A's notes: ${JSON.stringify(e1)}`);
+
+    // 7. computer F: 200 with no value
+    const F = await computer(1000, { empty: true });
+    await signIn(F.page, first, last, 'B100926');
+    await F.page.waitForTimeout(6500);
+    await same('computer F, a 200 with no value');
+    const f1 = await F.page.evaluate(() => ({ unread: state.cloudUnread === state.traineeId, notice: !!document.getElementById('cm-unread') }));
+    if (!f1.unread || !f1.notice) fail(`computer F: an answer with no value is a failed read (unread, the notice shown): ${JSON.stringify(f1)}`);
 
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }

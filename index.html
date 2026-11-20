@@ -3258,6 +3258,8 @@ async function cloudSaveNow(){
   const id = state.traineeId; if(!id) return false;
   // never saved over a copy this device couldn't read: not until a read succeeds (js/cm-restore-guard.js tries again)
   if(state.cloudUnread === id){ setSaveStatus("unread"); return false; }
+  // ...nor while the read of it is still under way (a slow one at sign-in): the save waits for it (cloudRestoreFirst)
+  if(state.cloudReading === id){ cloudSaveTimer = setTimeout(cloudSaveNow, 2000); return false; }
   const data = {};
   for(const k of PERSONAL_KEYS){ const v = await storeGet(k); if(v!==null && v!==undefined) data[k] = v; }
   // Skip the write entirely if nothing changed since the last save (saves KV write quota).
@@ -3269,6 +3271,11 @@ async function cloudSaveNow(){
   if(ok){ try{ localStorage.setItem("lsh_progress-saved-at", savedAt); }catch(e){} state.lastCloudSave = savedAt; setSaveStatus("saved"); }
   else setSaveStatus("offline");
   return ok;
+}
+// the sign-in's and the page load's restore: no save of this id goes out until it has settled, every layer's read included
+async function cloudRestoreFirst(traineeId){
+  state.cloudReading = traineeId;
+  try{ return await cloudRestore(traineeId); }finally{ if(state.cloudReading === traineeId) state.cloudReading = ""; }
 }
 async function cloudRestore(traineeId){
   let snap = null;
@@ -3496,6 +3503,7 @@ async function sharedGetStrict(key){
   const response = await authFetch("/api/storage/get", {key});
   if(!response.ok) throw new Error("storage "+response.status);
   const data = await response.json();
+  if(!data || typeof data !== "object" || !("value" in data)) throw new Error("storage: no value in the answer");   // (the Worker always sends value, null for "nothing saved")
   return data.value ? JSON.parse(data.value) : null;
 }
 async function resolveTraineeId(name, batch){
@@ -6423,7 +6431,7 @@ async function submitLoginInner(){
       state.assignedCase = existing.assignedCase || null;
     }
   }
-  if(isNewSession && await cloudRestore(state.traineeId)){ const keepName = state.traineeName; await loadAll(); state.traineeName = keepName; }
+  if(isNewSession && await cloudRestoreFirst(state.traineeId)){ const keepName = state.traineeName; await loadAll(); state.traineeName = keepName; }
   await syncToLedger(true);
   const status = await getApprovalStatus(state.traineeId);
   if(status==="approved"){
@@ -6821,7 +6829,7 @@ function bootShown(){ requestAnimationFrame(()=>document.documentElement.classLi
   if(state.traineeId && (await authStatus()) && !state.authToken){
     if(!(await reauthTrainee())){ state.traineeId = ""; await storeSet("trainee-id", ""); state.view = "login"; render(); bootShown(); return; }
   }
-  if(state.traineeId && await cloudRestore(state.traineeId)) await loadAll();
+  if(state.traineeId && await cloudRestoreFirst(state.traineeId)) await loadAll();
   loadPublishedContent().then(()=>{ if(["day","dashboard","admin"].includes(state.view)) render(); });
   if(sessionStorage.getItem("lsh_resume_after_update") && (state.isAdmin || state.traineeId)) setTimeout(()=>restoreAfterUpdate(), 400);
   if(state.isAdmin){ restoreBootRouteHash(); if(parseRouteHash()){ state.resumePending = true; setTimeout(()=>{ state.resumePending = false; openRouteFromHash(); state.routeReady = true; syncRouteHash(); fillNavBack(); }, 0); } }
