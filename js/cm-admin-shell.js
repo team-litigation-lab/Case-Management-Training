@@ -31,7 +31,7 @@
   const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
 
   const SECTIONS = [
-    {id: "scorecard", label: "🏅 Scorecard", tabs: ["audit", "scorecards", "rubric"]},
+    {id: "scorecard", label: "🏅 Scorecard", tabs: ["audit", "scorecards", "rankreport", "rubric"]},
     {id: "admin", label: "🛡 Admin Master Control", tabs: ["traineeaudit", "companion", "tfeedback", "rtasks", "settings", "sop", "studio"]},
     {id: "open", label: "🔓 Open Lessons", tabs: ["openlessons", "activities", "fbstyle"]}
   ];
@@ -39,6 +39,7 @@
   // the tabs this file adds (their buttons, and their pages when no other script draws them)
   const OWN = {
     scorecards: {label: "🏅 Scorecards"},
+    rankreport: {label: "🏆 Rankings & Progress Report", page: () => window.cmRankings ? cmRankings.pageHtml() : placeholder("🏆 Rankings & Progress Report", "The report is still loading. Refresh the page if this stays.")},   // js/cm-rankings.js
     rubric: {label: "📐 Feedback Rubric"},
     openlessons: {label: "🔓 Open Lessons"}
   };
@@ -112,6 +113,7 @@
   // the pages of the tabs this file adds
   let scWait = 0;
   function ownPage(id){
+    if(OWN[id] && OWN[id].page) return OWN[id].page();
     if(id === "scorecards"){
       if(typeof window.renderScorecardPage !== "function") return placeholder("🏅 Scorecards", "The scorecards are still loading. Refresh the page if this stays.");
       const html = window.renderScorecardPage();
