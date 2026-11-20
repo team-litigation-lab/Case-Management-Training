@@ -1793,6 +1793,6 @@ The standard knowledge-check split. Upper half: the cream question panel with or
 #### 5 · Speaker Notes
 
 - Answers come from the six-step close-out on the lesson slide: the two gates, the reason only in the client's letter, the client by her preferred method plus Certified Mail, carriers and providers by email or fax per the CRM, then follow-up and proof before “Dropped”.
-- The UPL gate: a trainee who explains the drop to Denise, or tells her what to do next, has crossed the line, whatever the rest of the answer.
+- The UPL gate: a trainee who explains the drop to the client, or tells the client what to do next, has crossed the line, whatever the rest of the answer.
 
 ---
