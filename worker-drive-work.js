@@ -78,7 +78,7 @@
 
 /* Each activity whose deliverable is written work: [id, Case Flow day, the DRIVE_HOMES folder its work is kept in, key terms].
    The day and the title are the course's (.github/scripts/drive-work.cjs checks every id against js/cm-case-flow-data.js). */
-import { courseDocs, docOfName, driveFind, keepFound, listedOf, setupOf, whyUngraded } from "./worker-drive-found.js";
+import { courseDocs, docOfName, driveFind, keepFound, knownFor, listedOf, setupOf, whyUngraded } from "./worker-drive-found.js";
 import { homeFinder, walkNote, walkSettled } from "./worker-drive-walk.js";
 
 export const WORK = [
@@ -479,9 +479,9 @@ export async function gradeTraineeWork(env, D, id, rec, budget, opts = {}) {
   const homeOf = homeFinder(listing.folders || {}, rec);   // the firm's folder nearest above a file, at any depth
   const isPlatform = platformTest(env, rec), caseId = D.driveCaseId(rec);
   // 🔎 a course document the trainee filed by hand (RS01…, worker-drive-found.js) is filing evidence, graded with the
-  // structure: never written work, and never "not matched". (One known only by its Type and folder, `by: "type"`, is a
-  // reading, not a certainty: a convention-named file of the trainee's own written work is still read as written work.)
-  const docs = await courseDocs(env, D), handIds = new Set((rec.handFiled || []).filter((h) => h.by !== "type").map((h) => h.id));
+  // structure: never written work, and never "not matched". (One known only by its Type and folder, `by: "type"`, or
+  // by a code over bytes that aren't its file, `by: "name"`, is a reading, not a certainty: a convention-named file of the trainee's own written work is still read as written work.)
+  const docs = await courseDocs(env, D), handIds = new Set((rec.handFiled || []).filter(knownFor).map((h) => h.id));
   const courseDoc = (f) => handIds.has(f.id) || (!/^application\/vnd\.google-apps\./.test(String(f.mimeType || "")) && !!docOfName(f.name, docs));
   const seen = new Set();
   // 1. every file of the trainee's, read (when it changed) and matched

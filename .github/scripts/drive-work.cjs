@@ -110,6 +110,8 @@ function docxOf(paras) {
   const off = 30 + name.length + data.length, eocd = Buffer.alloc(22); eocd.writeUInt32LE(0x06054b50, 0); eocd.writeUInt16LE(1, 8); eocd.writeUInt16LE(1, 10); eocd.writeUInt32LE(46 + name.length, 12); eocd.writeUInt32LE(off, 16);
   return Buffer.concat([local, name, data, cen, name, eocd]);
 }
+// a course document's file as a scan: past the kilobyte a file must have to hold one (worker-drive-found.js MIN_DOC_BYTES)
+const scanned = (b) => Buffer.concat([b, Buffer.from(Array.from({ length: 40 }, (_, i) => require('crypto').createHash('md5').update('scan ' + i).digest('hex')).join('\n'))]);
 const words = (n) => Array.from({ length: n }, (_, i) => `The routed item ${i} carries its source document and a dated next step for Atty. Thorne.`).join('\n');
 
 (async () => {
@@ -404,7 +406,7 @@ const words = (n) => Array.from({ length: n }, (_, i) => `The routed item ${i} c
     const root = make('LSH Case Backups', FOLDER, ''), clients = make('01 Clients', FOLDER, root), doe = make('Doe -John', FOLDER, clients), intake = make('01 intake & Retainer', FOLDER, doe);
     const RS = ['LSH-2026-MVA-000098_Doe-John_RS01-New-Client-Intake-Sheet_2026-11-12.pdf.pdf', 'LSH-2026-MVA-000098_Doe-John_RS02-Intake-Supplement-Prior-History-and-Household_2026-11-12.pdf.pdf',
       'LSH-2026-MVA-000098_Doe-John_RS03-LSH-CMS-Intake-Record-(editable)_2026-11-12.pdf', 'LSH-2026-MVA-000098_Doe-John_RS05-Contingency-Fee-Agreement_2026-11-12.pdf.pdf'];
-    const pdfIds = RS.map((n) => make(n, 'application/pdf', intake, { owners: [{ emailAddress: 'francis@example.com' }], body: pdfOf(['A course document, uploaded by hand.', words(3)]) }));
+    const pdfIds = RS.map((n) => make(n, 'application/pdf', intake, { owners: [{ emailAddress: 'francis@example.com' }], body: scanned(pdfOf(['A course document, uploaded by hand.', words(3)])) }));
     const linked = await call({ action: 'link', traineeId: fr.id, url: SA.folderUrl(root) }, admin);
     if (linked.status !== 200) fail('a trainer could not link the trainee\'s folder: ' + linked.text.slice(0, 200));
     const before = await call({ action: 'workFor', traineeId: fr.id }, admin);
@@ -440,7 +442,7 @@ const words = (n) => Array.from({ length: n }, (_, i) => `The routed item ${i} c
     const std = (await call({ action: 'standard' }, admin)).body.standard.standard;
     std.forEach((p) => { if (made[p]) return; const cut = p.lastIndexOf('/'); made[p] = make(p.slice(cut + 1), FOLDER, cut < 0 ? root : made[p.slice(0, cut)]); });
     RS.forEach((n, i) => { files.get(pdfIds[i]).name = n.replace(/_RS0\d-[^_]+_/, '_Case-Files_').replace('.pdf.pdf', '.pdf'); });
-    make('LSH-2026-MVA-000098_Doe-John_RS12-Riverton-Urgent-Care_2026-11-13.pdf', 'application/pdf', made['01 Clients/Doe-John/03 Medical Records'], { owners: [{ emailAddress: 'francis@example.com' }], body: pdfOf(['A course document.', words(3)]) });
+    make('LSH-2026-MVA-000098_Doe-John_RS12-Riverton-Urgent-Care_2026-11-13.pdf', 'application/pdf', made['01 Clients/Doe-John/03 Medical Records'], { owners: [{ emailAddress: 'francis@example.com' }], body: scanned(pdfOf(['A course document.', words(3)])) });
     const v3 = (await call({ action: 'workGradeFor', traineeId: fr.id }, admin)).body, S3 = v3.structure;
     if (!(S3[1].auto >= 95) || (S3[1].notes || []).length) fail(`the whole structure made by hand, named the firm's way, should pass Day 1: ${JSON.stringify(S3[1])}`);
     const g2 = JSON.parse(store.get('cm:drive:' + fr.id)).grades[2];

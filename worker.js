@@ -21,7 +21,7 @@
  */
 // ✍ the trainee's written work on their Backup Drive, AI-graded nightly, and a trainer's override (worker-drive-work.js)
 import { DRIVE_WORK_ACTIONS, driveWorkApi, driveWorkNightly, workBrief, workView, withDayOverrides, withOverrides, OV_KEY } from "./worker-drive-work.js";
-import { driveFind, listedOf, setupOf } from "./worker-drive-found.js";
+import { driveFind, knownFor, listedOf, setupOf } from "./worker-drive-found.js";
 import { walkDrive, homeFinder, walkNote, walkSettled } from "./worker-drive-walk.js";
 import { driveToProgress, keepNewerDriveGrades } from "./worker-drive-progress.js";   // 📂 the drive grades onto the trainee's progress, where the Scorecard reads them
 import { accountMergeApi, kcRestoreApi } from "./worker-account-repair.js";   // 👥 two accounts of one trainee merged on the Worker (/api/account-merge); 🛠 one account's missing KC scores restored (/api/kc-restore)
@@ -1328,8 +1328,10 @@ const clip = (s, n = 200) => { s = String(s == null ? "" : s); return s.length >
    platform). A file uploaded by hand into one of the firm's folders is read like any other and listed when its name
    is wrong, but never charged: no copy record carries it. Except a course document filed by hand and known for certain
    (its RS code or its title in the name, or its bytes the course's own file: worker-drive-found.js, rec.handFiled):
-   that is the trainee's own filing, and its name is charged on its day like a copy's. One known only by its Type and
-   folder (`by: "type"`) is listed, never charged, and never starts a day.
+   that is the trainee's own filing, and its name is charged on its day like a copy's (a CMS counter in it, 2026-11-16-2
+   or _2 after the date, read past as on a copy). One known only by its Type and
+   folder (`by: "type"`) is listed, never charged, and never starts a day; nor is one named by a code or title over
+   bytes that aren't that document's file (`by: "name"`).
    What it cannot know: the real CMS's caseFileName is not in this repository. Wherever that matters the reading
    here is the lenient one (a Type the CMS chose, a counter after the date written _2 or -2, an extension in the
    case the CMS left it).
@@ -1420,6 +1422,15 @@ function nameAsFiled(name, caseId) {
   return caseIdShape(id) && (!caseId || id === caseId) && client === NAME_CLIENT && typeShape(type) && !!day && realDay(day[1])
     && /^[A-Za-z0-9]{1,8}$/.test(ext) && extra.every(wordsShape) ? { caseId: id, client, type, date, ext, extra } : null;
 }
+/* The CMS's counter in a name of the firm's shape: {extra: ["2"] after the date, or [], date: "2026-11-16" or
+   "2026-11-16-2"}, when it carries one (a number, once); null otherwise. */
+function counterOf(name, caseId) {
+  const f = nameAsFiled(name, caseId), num = (x) => /^\d{1,3}$/.test(x);
+  if (!f) return null;
+  const tail = f.date.slice(10);
+  if ((tail && !num(tail.slice(1))) || f.extra.length > 1 || !f.extra.every(num) || (tail && f.extra.length) || (!tail && !f.extra.length)) return null;
+  return { extra: f.extra, date: f.date };
+}
 /* One name against the convention. `ctx`: the name it was uploaded under (filed), the trainee's Case ID (caseId),
    the label this document must carry (label: "DRAFT" | "SUPERSEDED"), and what to suggest where the name itself
    gives no answer: its Type (type), the day it was made (date), the replacing version's date (supDate), its
@@ -1437,7 +1448,11 @@ function nameCheck(name, ctx = {}) {
     return Object.assign(c, { ok: false });
   }
   const filed = ctx.filed ? nameAsFiled(ctx.filed, ctx.caseId) : null;
-  const split = nameSplit(name), ext = split.ext, extra = filed ? filed.extra : [];
+  // `counter`: a course document filed by hand, whose name may carry the CMS's counter on a second document of one Type
+  // and day (2026-11-16-2, or _2 after the date): that counter is read past, as on a copy the CMS filed; nothing else
+  // in the name is taken as filed
+  const cnt = !filed && ctx.counter ? counterOf(name, ctx.caseId) : null;
+  const split = nameSplit(name), ext = split.ext, extra = filed ? filed.extra : cnt ? cnt.extra : [];
   // what the CMS itself added after the date stays where it is, and is read past
   const kept = extra.length > 0 && extra.every((x, i) => split.parts[4 + i] === x);
   const parts = kept ? split.parts.slice(0, 4).concat(split.parts.slice(4 + extra.length)) : split.parts, k = parts.length;
@@ -1452,7 +1467,7 @@ function nameCheck(name, ctx = {}) {
     caseId: filed ? filed.caseId : ctx.caseId || (caseIdShape(parts[0]) ? parts[0] : ""),
     client: NAME_CLIENT,
     type: filed ? filed.type : FILE_TYPES.includes(parts[2]) ? parts[2] : ctx.type || nearType(parts[2]) || "",
-    date: filed ? filed.date : realDay(parts[3]) ? parts[3] : ctx.date || "",
+    date: filed ? filed.date : realDay(parts[3]) || (cnt && cnt.date === parts[3]) ? parts[3] : ctx.date || "",
     label: need === "DRAFT" ? "DRAFT" : need === "SUPERSEDED" ? (supOk ? gotLabel : ctx.supDate ? `SUPERSEDED-${ctx.supDate}` : "") : (gotLabel === "DRAFT" || supOk) ? gotLabel : "",
     ext: extOk ? ext : filed ? filed.ext : FILE_EXTS.includes(lowerExt) ? lowerExt : FILE_EXTS.includes(ctx.ext) ? ctx.ext : "pdf",
   };
@@ -1550,12 +1565,12 @@ function driveNaming(rec, S, started) {
     const made = dayOf(f.created || (s && s.at) || (isDrill && drill.at)) || etNow(new Date()).date;
     // A file in the firm's folders with no record (lost when a record was dropped): this platform made it, under a name
     // nobody can check any more, so its own name is read as the one it was filed under. The lenient reading.
-    const c = nameCheck(f.name, { filed: s ? s.name : isDrill || h ? "" : f.name, caseId, label: need, date: made,
+    const c = nameCheck(f.name, { filed: s ? s.name : isDrill || h ? "" : f.name, counter: !s && !isDrill && !!h, caseId, label: need, date: made,
       type: isDrill ? typeOfDoc.RS25 || DRILL_TYPE : typeOfDoc[docId] || (DRIVE_DOC[docId] ? fileType(DRIVE_DOC[docId][2]) : "") || (h && h.type) || (s && homeType[s.folder]) || homeType[path] || "",
       supDate: by ? supersededDate(f.name) || dateIn(by.name) || dayOf(by.created) || made : "", ext: s ? nameSplit(s.name).ext.toLowerCase() : "" });
     // the platform's own name: the copy is still called what it was uploaded as, and that is not the firm's way
     const own = !!s && !nameAsFiled(s.name, caseId) && (f.name === s.name || unlabeled(f.name) === s.name);
-    const scored = isDrill ? drill.rule === NAME_RULE : h ? h.by !== "type" : !!s && !replaced && s.rule === NAME_RULE && !own;
+    const scored = isDrill ? drill.rule === NAME_RULE : h ? knownFor(h) : !!s && !replaced && s.rule === NAME_RULE && !own;
     const tied = isDrill ? 2 : dayOfDoc[docId] || 0;
     const hint = c.ok ? "" : own ? `This copy still has the name the platform uploaded it under, before the firm's convention was kept on the drive. ${c.want ? "Rename it as shown." : `Rename it the firm's way: ${FILE_NAME_PATTERN}`}`
       : isDrill && f.name === DRILL_NAME ? `The colleague's invoice arrived named off the convention. ${c.want ? "Rename it as shown" : "Rename it the firm's way"}: the Case ID, the client, the Type and the date.`
@@ -1777,7 +1792,7 @@ function gradeDay(n, rec, S, filed, N) {
 }
 /* A day is graded once the trainee has started it: one of its documents on the drive, or its drill begun. */
 function dayStarted(n, rec) {
-  if ((rec.saved || []).concat(rec.handFiled || []).some((s) => DRIVE_DAY_DOCS[n].includes(s.docId) && s.by !== "type")) return true;   // (🔎 or filed by hand, known for certain)
+  if ((rec.saved || []).concat(rec.handFiled || []).some((s) => DRIVE_DAY_DOCS[n].includes(s.docId) && knownFor(s))) return true;   // (🔎 or filed by hand, known for certain)
   if (n === 2 && rec.drills && rec.drills[2]) return true;
   if (n === 4 && (rec.checkLog || []).some((c) => (c.missing || []).includes(LIENS_FOLDER))) return true;
   return false;
