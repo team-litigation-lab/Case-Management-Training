@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Trainee Rankings</title>
+<!-- 🔗 A shared 🏆 Rankings & Progress Report (js/cm-rankings.js openShared): report.html?s=<token> opens the frozen,
+     read-only table a trainer shared, with no sign-in (worker-share.js /api/share/get: 404 once expired or revoked). -->
+<style>
+  html, body { background: #EEF0F6; color-scheme: light; }
+  body { margin: 0; padding: 20px 16px 40px; font: 15px/1.45 Arial, Helvetica, sans-serif; color: #1E2340; }
+  #rkShared { max-width: 1400px; margin: 0 auto; }
+  .rk-wrap { box-shadow: 0 6px 24px rgba(14, 18, 40, .12); }
+</style>
+</head>
+<body>
+<main id="rkShared"><p>Loading the report…</p></main>
+<script src="/js/cm-rankings.js"></script>
+<script>cmRankings.openShared();</script>
+</body>
+</html>

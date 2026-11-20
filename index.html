@@ -15818,6 +15818,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <!-- 🤖 the AI Grader on every Skill Building activity (its last slide), in place of the self-tick Check Your Work -->
 <script src="/js/cm-ai-grader.js"></script>
 <script src="/js/cm-audit-table.js"></script>
+<!-- ⚡ every score fills in by itself: an AI grading that didn't come back is sent again with backoff, and the trainer's Scorecard keeps itself current -->
+<script src="/js/cm-auto-grade.js"></script>
 <script src="/js/cm-progress-log.js"></script>
 <!-- 🎬 the Case Debrief: the Case Profile's third tab, a narrated debrief of the whole file, 🔒 for a trainee until Case Flow Day 5 is complete (after cm-case-profile.js and cm-deck-slides.js) -->
 <script src="/js/cm-case-debrief.js"></script>
@@ -15828,6 +15830,10 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-one-slide.js"></script>
 <!-- ⭐ one Overall score on every page that shows one: the dashboard's My Score Card too (cmScorecard.overall) -->
 <script src="/js/cm-overall.js"></script>
+<!-- 🏆 Admin → 🏅 Scorecard → Rankings & Progress Report: the batch's ranking table to screenshot, edit and share (report.html) -->
+<script src="/js/cm-rankings.js"></script>
+<!-- ⚡ Run now: every manual trigger a trainer has, on the Admin header and the 🏅 Scorecard banner -->
+<script src="/js/cm-run-now.js"></script>
 <!-- 🧳 logging out wipes the device only after a confirmed save; otherwise its work is backed up (orphan:<id>:<ms>) -->
 <script src="/js/cm-safe-logout.js"></script>
 <!-- 🎯 Your Task: the one Launch CMS & Google Drive button, and the Rules & Naming Guide in 📖 Reference -->

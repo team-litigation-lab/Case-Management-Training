@@ -274,7 +274,8 @@ const words = (n) => Array.from({ length: n }, (_, i) => `The routed item ${i} c
   if (graded2.length !== 2 || r2.graded !== 1 || r2.stopped) fail(`the next run carries on from the cursor: ${JSON.stringify({ r2, graded2 })}`);
   delete env.DRIVE_WORK_BUDGET;
   const wr = JSON.parse(fs.readFileSync(path.join(ROOT, 'wrangler.json'), 'utf8'));
-  if (!wr.triggers || !Array.isArray(wr.triggers.crons) || !wr.triggers.crons.includes('0 7 * * *')) fail('wrangler.json should run the Worker every night: "triggers": {"crons": ["0 7 * * *"]}');
+  // (every night: its own cron "0 7 * * *", or the hourly "0 * * * *" whose 07:00 UTC firing is the nightly run: auto-grade-drive.cjs)
+  if (!wr.triggers || !Array.isArray(wr.triggers.crons) || !(wr.triggers.crons.includes('0 7 * * *') || wr.triggers.crons.includes('0 * * * *'))) fail('wrangler.json should run the Worker every night: "triggers": {"crons": ["0 * * * *"]} (its 07:00 UTC firing is the nightly run) or ["0 7 * * *"]');
   if (!fs.readFileSync(path.join(ROOT, '.assetsignore'), 'utf8').split('\n').includes('worker-*.js')) fail('worker-drive-work.js is the Worker\'s code: .assetsignore keeps it from being served');
   ok('nightly: unchanged drives cost a listing and no AI, the same file is never graded twice, a run is bounded and the next carries on from its cursor');
 

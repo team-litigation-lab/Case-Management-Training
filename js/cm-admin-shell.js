@@ -10,8 +10,9 @@
    The sections, in Foundational's order (🏅 Scorecard · 📊 Weekly Reports · 🔗 Drive Links · 🧑‍🏫 Graders · 📦 Intake
    Packets · 📄 Assign LORs · 📢 Announcements · 📧 EOD Inbox · 🛡 Admin Master Control · 🔓 Open Lessons), for the admin
    content Case Management has:
-     🏅 Scorecard            scores only: audit (📋 Batch Sheet, js/cm-batch-sheet.js, the lead and the default),
-                             scorecards (🏅 Scorecards, the #/scorecard page: every trainee's card, the 100-point model)
+     🏅 Scorecard            scores only: scorecards (🏅 Scorecards, the #/scorecard page, the lead and the default: the one
+                             🏅 Scores table and every trainee's card, with the old 📋 Batch Sheet folded in; its tab,
+                             audit, is gone and opens this page)
                              and rubric (📐 Feedback Rubric, js/cm-rubric.js: the one rubric every grade is read in)
      🛡 Admin Master Control what a trainer does: traineeaudit (👥 Trainee Audit: approvals, ↺ resets, revoking, each trainee's
                              detail with ✍ feedback and 🎓 the certificate), companion (📁 Companion Cases), tfeedback
@@ -31,7 +32,7 @@
   const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
 
   const SECTIONS = [
-    {id: "scorecard", label: "🏅 Scorecard", tabs: ["audit", "scorecards", "rubric"]},
+    {id: "scorecard", label: "🏅 Scorecard", tabs: ["scorecards", "rankreport", "rubric"]},
     {id: "admin", label: "🛡 Admin Master Control", tabs: ["traineeaudit", "companion", "tfeedback", "rtasks", "settings", "sop", "studio"]},
     {id: "open", label: "🔓 Open Lessons", tabs: ["openlessons", "activities", "fbstyle"]}
   ];
@@ -39,6 +40,7 @@
   // the tabs this file adds (their buttons, and their pages when no other script draws them)
   const OWN = {
     scorecards: {label: "🏅 Scorecards"},
+    rankreport: {label: "🏆 Rankings & Progress Report", page: () => window.cmRankings ? cmRankings.pageHtml() : placeholder("🏆 Rankings & Progress Report", "The report is still loading. Refresh the page if this stays.")},   // js/cm-rankings.js
     rubric: {label: "📐 Feedback Rubric"},
     openlessons: {label: "🔓 Open Lessons"}
   };
@@ -47,7 +49,10 @@
     studio: ["Content Studio", "✏️ Content Studio"], tfeedback: ["Trainee Feedback", "💬 Trainee Feedback"]};
   const KICKER = "Legal Support Help · Case Management Training";
 
-  const tabOf = () => state.adminTab || "audit";
+  // 🏅 Scorecard opens ONE page, 🏅 Scorecards (js/cm-scorecard.js, with the old 📋 Batch Sheet folded in, js/cm-batch-sheet.js):
+  // the Admin screen lands on it, and the old Batch Sheet tab (audit) opens it too
+  const ONE = ["audit", "batchsheet", "rankings"];
+  const tabOf = () => !state.adminTab || ONE.includes(state.adminTab) ? "scorecards" : state.adminTab;
   const groupOf = tab => (SECTIONS.find(g => g.tabs.includes(tab)) || SECTIONS.find(g => g.id === FALLBACK)).id;
   const secById = id => SECTIONS.find(g => g.id === id);
 
@@ -63,7 +68,7 @@
     const seen = new Set(), tabs = [];
     t.content.querySelectorAll(".admin-tab-btn").forEach(b => {
       const id = ((b.getAttribute("onclick") || "").match(/setAdminTab\('([^']+)'\)/) || [])[1];
-      if(!id || seen.has(id)) return; seen.add(id);
+      if(!id || seen.has(id) || ONE.includes(id)) return; seen.add(id);
       const r = RELABEL[id]; if(r && b.textContent.trim() === r[0]) b.textContent = r[1];
       tabs.push({id, label: b.textContent.trim(), el: b});
     });
@@ -112,6 +117,7 @@
   // the pages of the tabs this file adds
   let scWait = 0;
   function ownPage(id){
+    if(OWN[id] && OWN[id].page) return OWN[id].page();
     if(id === "scorecards"){
       if(typeof window.renderScorecardPage !== "function") return placeholder("🏅 Scorecards", "The scorecards are still loading. Refresh the page if this stays.");
       const html = window.renderScorecardPage();
@@ -139,6 +145,7 @@
     const inner = window.renderAdmin;
     if(typeof inner !== "function" || inner.__cmShell) return;
     const me = function(){
+      if(state.isAdmin && tabOf() !== state.adminTab) state.adminTab = tabOf();
       const id = state.isAdmin ? tabOf() : "";
       let out;
       if(OWN[id]){

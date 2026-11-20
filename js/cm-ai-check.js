@@ -3,7 +3,7 @@
 
    Every AI grading (the Skill Activities' AI Grader, the takeaways, the random tasks, the calls) goes to the AI this Worker is
    set up with: the Main Portal's AI gateway (AI_GATEWAY_SECRET) or this Worker's own Gemini keys. When that is refused, every
-   AI-graded column of the 📋 Batch Sheet and the 🏅 Scorecard stays blank, and the Portal's 📊 AI usage shows no CMS calls at
+   AI-graded column of the 🏅 Scorecard stays blank, and the Portal's 📊 AI usage shows no CMS calls at
    all (the gateway counts nothing it refuses). 🤖 Run the AI check sends one small grading the way a trainee's is sent
    (/api/ai-check in worker.js, trainers only) and says plainly what came back: it works (how long it took, which model), or
    why it doesn't and what to set where.
@@ -32,7 +32,7 @@ function card(){
     : r.ok ? `<p class="aic-p aic-ok">✅ AI grading works: ${where} answered in ${((r.ms || 0) / 1000).toFixed(1)} s${r.model ? ` (${E(r.model)})` : ""}.</p>`
     : `<p class="aic-p aic-bad">❌ AI grading doesn't work right now: ${E(r.error || "no answer")}</p>${fix(r)}`;
   return `<div class="card aic-card" id="aiCheck"><h3 class="aic-h">🤖 AI check</h3>
-    <p class="aic-p">Every AI grading (Skill Activities, takeaways, random tasks, calls) depends on it. When AI-graded scores stay blank on the 📋 Batch Sheet, run it.</p>
+    <p class="aic-p">Every AI grading (Skill Activities, takeaways, random tasks, calls) depends on it. When AI-graded scores stay blank on the 🏅 Scorecard, run it (or from ⚡ Run now on the Admin header).</p>
     <div class="aic-row"><button type="button" class="btn btn-navy btn-sm" onclick="cmAiCheck.run()" ${S.busy ? "disabled" : ""}>🤖 Run the AI check</button></div>${line}</div>`;
 }
 function paint(){ const el = document.getElementById("aiCheck"); if(el) el.outerHTML = card(); }

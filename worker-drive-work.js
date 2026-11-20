@@ -51,7 +51,8 @@
    renamed) is graded again for that one. Each activity's last good grade is kept too (W.acts), and stands while a newer
    file of it waits, fails at the AI or can't be read for a moment: an activity never loses its grade to a failed call.
 
-   NIGHTLY (driveWorkNightly, from worker.js scheduled(); wrangler.json crons "0 7 * * *", about 2–3 a.m. US time).
+   NIGHTLY (driveWorkNightly, from worker.js scheduled(); wrangler.json's one cron "0 * * * *", its 07:00 UTC firing, about
+   2–3 a.m. US time; its other firings are the ⚡ hourly run, driveWorkActive below, for the drives with something new).
    Every linked drive (cm:drive:<id>, by KV list with its prefix, page by page), from where the last run stopped (a
    cursor in KV, `drivework-run`), within a budget (makeBudget): DRIVE_WORK_BUDGET subrequests (default 40, under the
    Workers Free plan's 50 per invocation), every fetch the run makes counted as it is made (tokens, retries and the AI's
@@ -764,9 +765,39 @@ export async function driveWorkNightly(env, D) {
   const budget = budgetOf(env);
   return runBudgeted(env, budget, (envC) => nightlyRun(envC, D, budget));
 }
+/* One linked drive, as a scheduled run grades it: its written work, then its structure when anything changed (or
+   `force`). `mark(id)` is called once the drive is done with (the nightly run's cursor moves past it). Returns false
+   when the run must stop here (its budget, the platform's limit, work still pending on this drive). */
+async function driveOne(env, D, id, rec, budget, out, { wasFirst, mark, force }) {
+  // a drive the run could do nothing on with its whole budget is passed over, so it can't hold up everyone after it
+  const passOver = (progress, why) => { if (wasFirst && !progress) { mark(id); out.passedOver.push(`${id}: ${why}`); } };
+  try {
+    // 🔎 a drive the platform never built, not yet found: its folders are looked for first, so its work is listed from them
+    const unfound = !rec.builtAt && !rec.foundAt;
+    if (unfound) { if (!budget.take(2)) { out.stopped = "budget"; return false; } await D.driveFind(env, id, rec, { budget }); }
+    // the written work first; a failure there (one that needn't stop the run) leaves the structure's daily grade to run
+    let r;
+    try { r = await gradeTraineeWork(env, D, id, rec, budget); }
+    catch (e) { if (mustStop(e)) throw e; out.errors.push(`${id}: ${clip(e && e.message, 160)}`); r = { graded: 0, failed: 0, pending: 0, changed: false, prevNewest: "", newestAll: "" }; }
+    out.trainees++; out.graded += r.graded; out.failed += r.failed; out.pending += r.pending;
+    if (!r.changed && !r.graded && !r.pending) out.skipped++;
+    // the structure too, when anything on the drive changed since it was last graded (or it never was)
+    // and at least once a day, so a day reached with nothing on the drive yet is scored too (DAILY)
+    if (unfound || r.walkDirty || ((rec.builtAt || rec.foundAt) && (force || !rec.gradedAt || Date.now() - Date.parse(rec.gradedAt) > DAILY || (r.newestAll && r.newestAll > rec.gradedAt) || r.prevNewest !== (r.newestAll || "")))) {
+      if (await gradeStructure(env, D, id, rec, budget)) out.structure++;
+    }
+    if (r.pending) { out.stopped = out.stopped || "budget"; passOver(r.progress, "nothing could be read or graded within the run's budget"); return false; }   // finished first next time
+    mark(id);
+  } catch (e) {
+    if (mustStop(e)) { out.stopped = "limit"; if (!kvLimit(e)) passOver(e.progress, clip(e && e.message, 120)); return false; }   // carried on from here next time
+    out.errors.push(`${id}: ${clip(e && e.message, 160)}`); mark(id);
+  }
+  return true;
+}
+const runOut = (extra) => Object.assign({ at: nowIso(), trainees: 0, skipped: 0, graded: 0, failed: 0, pending: 0, structure: 0, stopped: "", passedOver: [], errors: [] }, extra);
 async function nightlyRun(env, D, budget) {
   const kv = D.kvOf(env), run = (await readJson(kv, RUN_KEY)) || {};
-  const out = { at: nowIso(), cursor: run.cursor || "", trainees: 0, skipped: 0, graded: 0, failed: 0, pending: 0, structure: 0, stopped: "", passedOver: [], errors: [] };
+  const out = runOut({ cursor: run.cursor || "" });
   const finish = async () => {
     out.errors = out.errors.slice(0, 10); out.passedOver = out.passedOver.slice(0, 10); out.subrequests = budget.used; out.kvOps = budget.kvUsed + 1;
     try { await kv.put(RUN_KEY, JSON.stringify(out)); } catch (e) { console.error(e); }   // (the platform's KV limit: the cursor stays where it was)
@@ -786,29 +817,76 @@ async function nightlyRun(env, D, budget) {
     catch (e) { if (mustStop(e)) { out.stopped = "limit"; break; } rec = null; }
     if (!D.driveLinked(rec)) { out.cursor = id; continue; }
     const wasFirst = first; first = false;
-    // a drive the run could do nothing on with its whole budget is passed over, so it can't hold up everyone after it
-    const passOver = (progress, why) => { if (wasFirst && !progress) { out.cursor = id; out.passedOver.push(`${id}: ${why}`); } };
-    try {
-      // 🔎 a drive the platform never built, not yet found: its folders are looked for first, so its work is listed from them
-      const unfound = !rec.builtAt && !rec.foundAt;
-      if (unfound) { if (!budget.take(2)) { out.stopped = "budget"; break; } await D.driveFind(env, id, rec, { budget }); }
-      // the written work first; a failure there (one that needn't stop the run) leaves the structure's daily grade to run
-      let r;
-      try { r = await gradeTraineeWork(env, D, id, rec, budget); }
-      catch (e) { if (mustStop(e)) throw e; out.errors.push(`${id}: ${clip(e && e.message, 160)}`); r = { graded: 0, failed: 0, pending: 0, changed: false, prevNewest: "", newestAll: "" }; }
-      out.trainees++; out.graded += r.graded; out.failed += r.failed; out.pending += r.pending;
-      if (!r.changed && !r.graded && !r.pending) out.skipped++;
-      // the structure too, when anything on the drive changed since it was last graded (or it never was)
-      // and at least once a day, so a day reached with nothing on the drive yet is scored too (DAILY)
-      if (unfound || r.walkDirty || ((rec.builtAt || rec.foundAt) && (!rec.gradedAt || Date.now() - Date.parse(rec.gradedAt) > DAILY || (r.newestAll && r.newestAll > rec.gradedAt) || r.prevNewest !== (r.newestAll || "")))) {
-        if (await gradeStructure(env, D, id, rec, budget)) out.structure++;
-      }
-      if (r.pending) { out.stopped = out.stopped || "budget"; passOver(r.progress, "nothing could be read or graded within the run's budget"); break; }   // finished first next time
-      out.cursor = id;
-    } catch (e) {
-      if (mustStop(e)) { out.stopped = "limit"; if (!kvLimit(e)) passOver(e.progress, clip(e && e.message, 120)); break; }   // carried on from here next time
-      out.errors.push(`${id}: ${clip(e && e.message, 160)}`); out.cursor = id;
-    }
+    if (!(await driveOne(env, D, id, rec, budget, out, { wasFirst, mark: (x) => { out.cursor = x; } }))) break;
   }
   return finish();
+}
+
+/* ---------- ⚡ the hourly run: a drive with something new is graded within the hour (worker.js scheduled) ----------
+   The nightly run reads every linked drive, a budget's worth a night, so on a large batch a drive linked in the morning
+   could wait days for its grade. Every hour (wrangler.json crons "0 * * * *"; the 07:00 UTC firing is the nightly run)
+   this run grades only the drives whose trainee did something since the run last looked at them: the folder linked
+   (linkedAt), the structure built or found, a document backed up (saved[].at), a ✓ Check my drive, Day 1's setup
+   submitted, a drill laid, or their progress saved (progress:<id>.savedAt, the trainee's page: a day reached, a day
+   finished). What it last looked at is kept in cm:drivework-active ({seen: {<id>: at}}), the drive's own gradedAt
+   standing in for a drive it never looked at. The oldest activity first, each drive the way the nightly run grades one
+   (driveOne, its structure graded too, since a day reached changes it), within the same budget (DRIVE_WORK_BUDGET
+   subrequests, DRIVE_WORK_KV_BUDGET KV operations); what the budget leaves is picked up the next hour. A quiet hour
+   reads the drive records and progress (KV) and nothing of Google's, and writes nothing. */
+export const ACTIVE_RUN_KEY = "drivework-active";
+export const NIGHTLY_CRON = "0 7 * * *", HOURLY_CRON = "0 * * * *", NIGHTLY_HOUR = 7;
+/* Which run a cron firing is: the nightly one at 07:00 UTC (or a firing of its own cron), else the hourly one. */
+export const cronRun = (event) => {
+  const c = String((event && event.cron) || "");
+  if (c === NIGHTLY_CRON) return "nightly";
+  const t = Number(event && event.scheduledTime);
+  return c === HOURLY_CRON && isFinite(t) && t > 0 && new Date(t).getUTCHours() === NIGHTLY_HOUR ? "nightly" : c === HOURLY_CRON ? "active" : "nightly";
+};
+const latest = (...xs) => xs.flat().map((x) => String(x || "")).filter((x) => /^\d{4}-/.test(x)).reduce((m, x) => (x > m ? x : m), "");
+/* When the trainee last did something that changes their drive's grades, from the drive record and their progress. */
+export function activityOf(rec, prog) {
+  rec = rec || {};
+  return latest(rec.linkedAt, rec.builtAt, rec.foundAt, rec.checkedAt, (rec.setup || {}).at, (rec.saved || []).map((s) => s && s.at),
+    Object.values(rec.drills || {}).map((d) => d && d.at), prog && prog.savedAt);
+}
+export async function driveWorkActive(env, D) {
+  if (!env.LSH_KV || !D.driveConfigured(env)) return { skipped: "The Backup Drive isn't switched on." };
+  const budget = budgetOf(env);
+  return runBudgeted(env, budget, (envC) => activeRun(envC, D, budget));
+}
+async function activeRun(env, D, budget) {
+  const kv = D.kvOf(env), was = (await readJson(kv, ACTIVE_RUN_KEY)) || {};
+  const seen = Object.assign({}, was.seen || {});
+  const out = runOut({ due: 0, picked: [] });
+  let ids;
+  try { ids = (await D.listAll(env, "drive:")).map((k) => k.slice("drive:".length)).filter(Boolean).sort(); }
+  catch (e) { out.stopped = "limit"; out.errors.push(clip(e && e.message, 160)); return out; }
+  // which drives have something new since they were last looked at (KV reads only: three a drive)
+  const due = [];
+  for (const id of ids) {
+    if (budget.left < 2) { out.stopped = "budget"; break; }
+    let rec = null, prog = null;
+    try { rec = await D.driveRead(env, id); if (D.driveLinked(rec)) prog = await readJson(kv, `progress:${id}`); }
+    catch (e) { if (mustStop(e)) { out.stopped = "limit"; break; } continue; }
+    if (!D.driveLinked(rec)) continue;
+    const act = activityOf(rec, prog), since = seen[id] || rec.gradedAt || "";
+    if (act && act > since) due.push({ id, rec, act });
+  }
+  out.due = due.length;
+  due.sort((a, b) => (a.act < b.act ? -1 : a.act > b.act ? 1 : 0));   // the one waiting longest first
+  let first = true;
+  for (const { id, rec } of due) {
+    if (out.stopped || budget.left < 2) { out.stopped = out.stopped || "budget"; break; }
+    const wasFirst = first; first = false;
+    const go = await driveOne(env, D, id, rec, budget, out, { wasFirst, force: true, mark: (x) => { seen[x] = nowIso(); out.picked.push(x); } });
+    if (!go) break;
+  }
+  // what was looked at, for the next hour (only the drives there still are); nothing written on a quiet hour
+  if (out.picked.length) {
+    const keep = {}; ids.forEach((id) => { if (seen[id]) keep[id] = seen[id]; });
+    out.errors = out.errors.slice(0, 10); out.passedOver = out.passedOver.slice(0, 10); out.picked = out.picked.slice(0, 50);
+    out.subrequests = budget.used; out.kvOps = budget.kvUsed + 1;
+    try { await kv.put(ACTIVE_RUN_KEY, JSON.stringify(Object.assign({}, out, { seen: keep }))); } catch (e) { console.error(e); }
+  }
+  return out;
 }
