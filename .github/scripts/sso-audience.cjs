@@ -4,7 +4,7 @@
 //      (401 audience, nothing written); this program's own (p "CM TRAINING") still signs in, once.
 //   2. The KV mark of a used ticket (sso-used:<sig>) lives at least as long as a ticket can (PORTAL_TICKET_MAX_MS, 10 minutes).
 //   3. /api/auth/tool-ticket, for a trainee and for a trainer: p "tool" and a random j (two tickets are never one ticket),
-//      and u (the trainee's Portal account id) when the record holds portalUid, which the Portal signs a trainee in by;
+//      and u (the trainee's Portal account id, the record's portalUid), which the Portal signs a trainee in by (none: no ticket);
 //      posted back to /api/auth/portal it is refused (401 audience), with or without SSO_REQUIRE_AUDIENCE.
 //   4. The ticket's full name is kept as fullName (the ID unchanged), and the trainee's own write can't change or drop it.
 //   5. js/cm-full-name.js: the certificate shows that full name, in the trainers' chosen order, for the trainee and a trainer.
@@ -54,7 +54,7 @@ const decode = (t) => JSON.parse(Buffer.from(String(t).split('.')[0].replace(/-/
     // 3. this course's own tool tickets
     {
         const h = await harness({ portalOnly: true });
-        const me = await h.portal('Pia', 'Chen', 'B100926');
+        const me = await h.portal('Pia', 'Chen', 'B100926', 'U-pia');
         R.check(me.status === 200 && me.body.token, `sign-in for the tool-ticket test: ${JSON.stringify(me.body)}`);
         const a = await h.api('/api/auth/tool-ticket', {}, me.body.token), b = await h.api('/api/auth/tool-ticket', {}, me.body.token);
         const adm = await h.api('/api/auth/tool-ticket', {}, h.admin);
@@ -63,7 +63,11 @@ const decode = (t) => JSON.parse(Buffer.from(String(t).split('.')[0].replace(/-/
             R.check(r.status === 200 && t && t.p === 'tool' && typeof t.j === 'string' && t.j.length >= 6, `a ${who}'s tool ticket must carry p "tool" and a random j: ${JSON.stringify(t || r)}`);
         }
         R.check(a.body.ticket !== b.body.ticket, 'two tool tickets must never be the same ticket');
-        R.check(!('u' in decode(a.body.ticket)), `a record with no Portal id gives a tool ticket with no u: ${JSON.stringify(decode(a.body.ticket))}`);
+        R.check(decode(a.body.ticket).u === 'U-pia', `a trainee's tool ticket carries their Portal account id as u: ${JSON.stringify(decode(a.body.ticket))}`);
+        // (a record with no Portal id gets no tool ticket at all: the Portal refuses a trainee ticket with no u; portal-uid-ticket.cjs)
+        const noU = await h.portal('Nod', 'Uid', 'B100926');
+        const nt = await h.api('/api/auth/tool-ticket', {}, noU.body.token);
+        R.check(nt.status === 409 && nt.body && nt.body.code === 'portal-uid-missing' && !nt.body.ticket, `a record with no Portal id gets no tool ticket: ${JSON.stringify(nt)}`);
         // (a record that holds the Portal's id for the trainee: its tool ticket carries it as u, the Portal signs a trainee in by it)
         const withU = await h.portal('Uma', 'Uid', 'B100926', 'U-77');
         const tu = await h.api('/api/auth/tool-ticket', {}, withU.body.token), tt = tu.body && tu.body.ticket ? decode(tu.body.ticket) : null;

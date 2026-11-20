@@ -121,7 +121,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (57)
+## Node checks (58)
 
 | Check | What it covers |
 |---|---|
@@ -165,6 +165,7 @@ None.
 | `merge-whole.cjs` | 👥 A merge stays whole after it: the restored snapshot holds the merged lists and best practice scores, an open page saves before it restores, a trainer's stale copy keeps the merge, the Case Flow summary can't outscore the record, and no merge or snapshot outgrows a save |
 | `merged-signin.cjs` | After a merge or a portal-batch redirect, the Portal sign-in followed by /api/auth/trainee succeeds (no 403 portal-required) and writes to the kept id |
 | `narration-captions.cjs` | Every narrated Canva deck page's notes (build/videoslide/dayN.json) say the words its narrated video says: the page's captions in decks/dayN/dayN-narrated.vtt, word for word (punctuation, case and whitespace aside) |
+| `portal-uid-ticket.cjs` | 🪪 A trainee's tool ticket carries u (their Portal account id, set only from the Portal's own ticket) or is refused; who a trainee is (name, batch, portalUid, the uid index) is never theirs to write |
 | `practises-order.cjs` | Every Skill Activity practises a lesson the course still teaches, on its own day before it or on an earlier day (never a later one), and the lesson's skill is on its slides (its deck pages, or its drawn slides) |
 | `progress-merge.cjs` | A progress:<id> write keeps the stored day-progress attempts the incoming snapshot lacks, and is stamped with the Worker's time (serverAt), the device's savedAt untouched |
 | `r2-docs.mjs` | Documents served from R2 (ranges, 304s, static assets as the fallback) |
