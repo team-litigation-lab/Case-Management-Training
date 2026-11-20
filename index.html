@@ -11636,6 +11636,7 @@ async function loadAuditExtras(force){
   const wrap = document.getElementById("adminRowsWrap"); if(wrap && state.view==="admin" && !isTyping()) wrap.innerHTML = renderAdminRows();
   const bwrap = document.getElementById("batchFolderBody"); if(bwrap && state.view==="admin" && (state.adminTab||"audit")==="audit" && !isTyping()) bwrap.innerHTML = renderBatchFolderBody();
 }
+const kcOfRecord = (rec, dayId) => { const p = ((rec && rec.dayProgress) || {})[dayId]; return p && typeof p.score==="number" ? p : null; };
 function auditSummary(rec){
   const x = state.auditExtra[rec.id]; const data = (x && x.data) || {};
   const dp = data["day-progress"] || rec.dayProgress || {};
@@ -11645,8 +11646,9 @@ function auditSummary(rec){
   const days = DAYS.map(d=>{
     const n = buildDaySlides(d).length; total += n;
     const reached = Math.min(n, (sp[d.id]||0) + ((sp[d.id]||dp[d.id]) ? 1 : 0)); seen += reached;
-    const kc = dp[d.id] || null; const labs = relatedTools(d.id); const labDone = labs.some(t=>pp[t.id] && (pp[t.id].runs||0)>0);
-    return {id:d.id, n, reached, passed:!!(kc&&kc.done), score:kc&&typeof kc.score==="number"?kc.score:null, labDone};
+    // 🛡 the Knowledge Check from the record the Worker scored (trainee:<id>.dayProgress); a score only the device holds is unconfirmed
+    const kc = kcOfRecord(rec, d.id), dev = !kc && dp[d.id] && typeof dp[d.id].score==="number" ? dp[d.id].score : null; const labs = relatedTools(d.id); const labDone = labs.some(t=>pp[t.id] && (pp[t.id].runs||0)>0);
+    return {id:d.id, n, reached, passed:!!(kc&&kc.done), score:kc?kc.score:null, deviceScore:dev, labDone};
   });
   let where = "Not started";
   if(lv && lv.view==="tool" && lv.toolId){ const t = PRACTICE_TOOLS.find(y=>y.id===lv.toolId); where = t ? `Skill Builders · ${t.title}` : "Skill Builders"; }
@@ -11673,7 +11675,7 @@ function renderAuditStrip(rec){
   if(!a.loaded) return `<div class="audit-strip loading">Loading exact progress…</div>`;
   const cell = (d)=>{
     const cls = d.passed ? "ok" : (d.score!==null ? "low" : (d.reached>0 ? "wip" : "none"));
-    const tip = `Day ${dayNo(d.id)}: ${d.reached}/${d.n} slides · ${d.score!==null ? `Knowledge Check ${d.score}%${d.passed?" ✓":" (below 70%)"}` : "Knowledge Check not taken"} · Skill Builders ${d.labDone?"done":"not done"}`;
+    const tip = `Day ${dayNo(d.id)}: ${d.reached}/${d.n} slides · ${d.score!==null ? `Knowledge Check ${d.score}%${d.passed?" ✓":" (below 70%)"}` : d.deviceScore!=null ? `Knowledge Check unconfirmed: ${d.deviceScore}% on the trainee's device only, not on their record` : "Knowledge Check not taken"} · Skill Builders ${d.labDone?"done":"not done"}`;
     return `<span class="ad-cell ${cls}" title="${esc(tip)}">${d.id}${d.labDone?`<i></i>`:""}</span>`;
   };
   return `<div class="audit-strip">
@@ -11911,7 +11913,8 @@ async function loadTraineeWork(id, force){
 function dayEvidence(rec, work, dayId){
   const d = DAYS.find(x=>x.id===dayId);
   const data = work.snap || {};
-  const dp = (data["day-progress"] || rec.dayProgress || {})[dayId] || null;
+  const dd = (data["day-progress"] || {})[dayId] || null, rk = kcOfRecord(rec, dayId);   // 🛡 the KC from the Worker-scored record; the device's copy alone is unconfirmed
+  const dp = rk ? Object.assign({}, dd || {}, {score: rk.score, done: !!rk.done, history: rk.history || []}) : dd ? Object.assign({}, dd, {unconfirmed: true}) : null;
   const log = (data["work-log"]||[]).filter(e=>e.dayId===dayId);
   const qc = Object.entries(data["quick-check-answers"]||{}).filter(([k,v])=>k.startsWith(dayId+"_") && v.checked);
   const tools = relatedTools(dayId);
@@ -11926,7 +11929,8 @@ function evidenceText(ev){
   const L = [];
   L.push(`Lesson progress: reached slide ${Math.min(ev.slides+1, ev.totalSlides)} of ${ev.totalSlides}.`);
   if(ev.dp && typeof ev.dp.surpriseTaskScore==="number") L.push(`Random task: ${ev.dp.surpriseTaskScore}% average`);
-  if(ev.dp) L.push(`Knowledge Check: best ${ev.dp.score}% (${ev.dp.done?"passed":"not yet passed"}); attempts: ${(ev.dp.history||[]).map(h=>h.score+"%").join(", ")||"1"}.${typeof ev.dp.surpriseTaskScore==="number" ? ` Surprise task score: ${ev.dp.surpriseTaskScore}/100.` : ""}`);
+  if(ev.dp && ev.dp.unconfirmed) L.push(`Knowledge Check: unconfirmed, ${ev.dp.score}% on the trainee's device only (not on their record, not counted).`);
+  else if(ev.dp) L.push(`Knowledge Check: best ${ev.dp.score}% (${ev.dp.done?"passed":"not yet passed"}); attempts: ${(ev.dp.history||[]).map(h=>h.score+"%").join(", ")||"1"}.${typeof ev.dp.surpriseTaskScore==="number" ? ` Surprise task score: ${ev.dp.surpriseTaskScore}/100.` : ""}`);
   const quizLog = ev.log.filter(e=>e.kind==="quiz").slice(-1)[0];
   if(quizLog && quizLog.missed && quizLog.missed.length) L.push(`Missed on latest Knowledge Check: ${quizLog.missed.join(" | ")}`);
   if(ev.qc.length) L.push(`Quick Checks: ${ev.qc.filter(([k,v])=>v.correct).length}/${ev.qc.length} correct.`);
