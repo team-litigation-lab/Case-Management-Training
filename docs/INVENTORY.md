@@ -176,7 +176,7 @@ None.
 | `trainee-identity.cjs` | A renamed or re-batched Portal ticket with the same uid opens the trainee's existing record (the uid index), and B250926 / B092526 (the same day, as batchShow shows it) resolve to one id |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
-## Browser checks (72)
+## Browser checks (73)
 
 | Check | What it covers |
 |---|---|
@@ -249,6 +249,7 @@ None.
 | `trainee-audit.cjs` | The Trainee Audit is one table (the name opens the detail, Reset beside it, Approve / Reject / Revoke as buttons; Companion Cases its own table) |
 | `trainee-side.cjs` | The admin side is not the trainee's (no admin log-in, view or trainer's notes for a trainee) |
 | `trainee-view-wording.cjs` | 👁 Trainee view shows no trainer-only box (Day 5's companion-case guide, the ring and inject buttons), and the wording a trainee reads is right: the Ready check, the Net Sheet's file name, the Practice page's day names |
+| `unlock-fresh.cjs` | 🔓 "Unlock up to Day N" writes onto the trainee's record as it is after the trainer confirms: work the trainee saved while the confirm box was open is kept |
 | `video-place.cjs` | 🎬 Video Presentation: a trainee plays any part at any time (⏪ 10s / 10s ⏩, ← / →, the Slide picker) and, going back to the video, it opens where they left off, never from the start |
 | `vm-listen-slide.cjs` | 🎧 Listen is on the slide of every activity worked from a voicemail (in 📂 Your Case, not only under 🧰 Tools), and it opens that voicemail's player |
 | `vm-seek.cjs` | The voicemail has a real player (play / pause, ⏪ 5s, ⏩ 5s, a seek bar, elapsed / total, ↺ Start over) in the Notes & Action Plan and the Listening Check, opened from the activity's one slide |

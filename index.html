@@ -11724,10 +11724,13 @@ function renderUnlockDaysControl(rec){
 }
 async function adminUnlockDays(traineeId, value){
   const n = parseInt(value, 10); if(isNaN(n)) return;
-  const rec = await sharedGet("trainee:"+traineeId);
-  if(!rec){ toast("Couldn't load that trainee — refresh and try again."); return; }
-  const who = cleanName(rec.name) || "this trainee";
+  // the name from the roster on screen; the record is read only after OK, fresh, so whatever the trainee saved while the
+  // box was open (Case Flow scores, practice, submissions) isn't written back over (.github/scripts/unlock-fresh.cjs)
+  const row = (state.adminData || []).find(x => x && x.id === traineeId);
+  const who = cleanName(row && row.name) || "this trainee";
   if(n > 1 && !confirm(`Unlock Days 2–${n} for ${who}? They can open those lessons and Skill Builders right away, even if earlier ones aren't done.`)) return;
+  let rec = null; try{ rec = await sharedGetStrict("trainee:"+traineeId); }catch(e){ rec = null; }
+  if(!rec){ toast("Couldn't load that trainee — refresh and try again."); return; }
   rec.unlockedDays = n > 1 ? DAYS.map(d=>d.id).filter(id=>id>1 && id<=n) : [];
   rec.unlockedDaysAt = new Date().toISOString();
   await sharedSet("trainee:"+traineeId, rec);
