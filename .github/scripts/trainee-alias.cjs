@@ -10,6 +10,8 @@
 //      kept id's own alias is removed, the redirects backup holds the aliases as they were; and a merge that stops
 //      after writing them takes them back.
 //   5. Account Repair's removeRedirect (a merged:<id> left on a live record) removes that id's alias too, backed up.
+//   6. A namesake: another Portal user of the same name with a live record in the batch a trainee is moved to keeps their
+//      own results: the moved trainee's sign-in writes no alias over that record (and takes back one it wrote before).
 // Usage: node .github/scripts/trainee-alias.cjs
 const { harness, reporter } = require('./worker-harness.cjs');
 
@@ -103,6 +105,25 @@ const kcOf = (h, id) => { const r = h.raw('trainee:' + id); return r && r.dayPro
         R.check(alias(h, b.body.id) === null && portalLands(h, 'Lu', 'Sol', 'B110226') === b.body.id, 'a live record whose redirect is removed gets its own results again');
         const bk = rr.body.backup ? h.raw(rr.body.backup) : null;
         R.check(bk && bk.keys && bk.keys['trainee-alias:' + b.body.id] === a.body.id, 'the alias removed is in the backup');
+    }
+
+    // 6. a namesake: another Portal user with the same name really in the batch the trainee is moved to
+    {
+        const h = await harness({ portalOnly: true });
+        const u1 = await h.portal('Mark', 'Lee', 'B100126', 'U1');
+        const u3 = await h.portal('Mark', 'Lee', 'B110226', 'U3');
+        R.check(u1.body.id === 'mark-lee--b100126' && u3.body.id === 'mark-lee--b110226', `two namesakes, two records: ${u1.body.id}, ${u3.body.id}`);
+        const moved = await h.portal('Mark', 'Lee', 'B110226', 'U1');   // U1's batch corrected on the Portal
+        R.check(moved.status === 200 && moved.body.id === u1.body.id, `U1's moved sign-in opens U1's record: ${JSON.stringify(moved.body && moved.body.id)}`);
+        R.check(alias(h, 'mark-lee--b110226') === null && portalLands(h, 'Mark', 'Lee', 'B110226') === u3.body.id,
+            `U3's live record keeps U3's Portal results (no alias over it): trainee-alias:mark-lee--b110226 = ${alias(h, 'mark-lee--b110226')}`);
+        await h.portal('Mark', 'Lee', 'B110226', 'U3'); await h.portal('Mark', 'Lee', 'B110226', 'U1');
+        R.check(alias(h, 'mark-lee--b110226') === null, `signing in by turns never points U3's id at U1: ${alias(h, 'mark-lee--b110226')}`);
+        // (an alias a sign-in wrote before the namesake's record existed is taken back at U1's next sign-in)
+        h.store.set('cm:trainee-alias:mark-lee--b110226', u1.body.id);
+        await h.portal('Mark', 'Lee', 'B110226', 'U1');
+        R.check(alias(h, 'mark-lee--b110226') === null, `an alias to U1 over U3's live record is taken back: ${alias(h, 'mark-lee--b110226')}`);
+        R.check(h.raw('trainee:' + u3.body.id) && h.raw('trainee:' + u3.body.id).portalUid === 'U3', "U3's record is untouched");
     }
 
     R.done('trainee-alias:<the Portal\'s id> leads to the kept record after a Batch ID or name change, a sign-in under the own id clears it, a 👥 merge re-points every alias (taken back if it stops), and removeRedirect removes it.');

@@ -98,7 +98,23 @@ export async function aliasAtSignIn(kv, portalId, openedId) {
   if (!ALIAS_ID.test(portalId || "") || !ALIAS_ID.test(openedId || "")) return;
   const cur = await kv.get(aliasKey(portalId));
   if (portalId === openedId) { if (cur != null) await kv.delete(aliasKey(portalId)); return; }
+  // a live record of its own under the Portal's id (a namesake really in that batch, or an account no trainer has merged
+  // here) keeps its results: no alias to this one, and one this sign-in wrote earlier is taken back
+  if (!(await leadsTo(kv, portalId, openedId))) { if (cur === openedId) await kv.delete(aliasKey(portalId)); return; }
   if (cur !== openedId) await kv.put(aliasKey(portalId), openedId, { metadata: { into: openedId } });
+}
+// may results filed under id land on openedId? Yes when id has no record, or its record (or its merged:<id> chain) leads there
+async function leadsTo(kv, id, openedId) {
+  const rec = parse(await kv.get(`trainee:${id}`));
+  if (!rec) return true;
+  if (rec.mergedInto === openedId) return true;
+  for (let i = 0, at = id; i < 4 && at; i++) {
+    const m = parse(await kv.get(`merged:${at}`));
+    if (!m || !m.into || m.into === at) return false;
+    if (m.into === openedId) return true;
+    at = m.into;
+  }
+  return false;
 }
 // 🔗 a 👥 merge into keep of fromIds: {<alias key>: {was (null: none), to (null: deleted)}}, only the keys that change. Read
 // only: the merge backs up `was` before it writes `to` (aliasApply), and puts `was` back if it stops.
