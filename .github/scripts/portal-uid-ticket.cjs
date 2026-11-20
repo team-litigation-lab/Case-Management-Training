@@ -77,5 +77,40 @@ const decode = (t) => JSON.parse(Buffer.from(String(t).split('.')[0].replace(/-/
         R.check((await h.get('trainee:' + id)).lastName === 'Solis', 'the trainer\'s correction stands against the trainee\'s next write');
     }
 
+    // 3. portalUid and the uid index are the Portal's to set, never a trainee's
+    {
+        const h = await harness({ portalOnly: true });
+        const me = await h.portal('Kim', 'Ray', 'B100926', 'U-kim');
+        const id = me.body.id, tok = me.body.token;
+        const idx = JSON.stringify(h.raw('uid:U-kim'));
+        R.check(h.raw('trainee:' + id).portalUid === 'U-kim' && (h.raw('uid:U-kim') || {}).id === id, `the Portal sign-in sets portalUid and the uid index: ${idx}`);
+        const victim = await h.portal('Vic', 'Tim', 'B100926', 'U-vic');
+        const vidx = JSON.stringify(h.raw('uid:U-vic'));
+        // the record's own portalUid can't be changed or dropped by the trainee's write
+        const rec = await h.get('trainee:' + id);
+        await h.set('trainee:' + id, Object.assign({}, rec, { portalUid: 'U-vic' }), tok);
+        R.check(h.raw('trainee:' + id).portalUid === 'U-kim', `a trainee's write can't change portalUid: ${h.raw('trainee:' + id).portalUid}`);
+        const noUid = Object.assign({}, rec); delete noUid.portalUid;
+        await h.set('trainee:' + id, noUid, tok);
+        R.check(h.raw('trainee:' + id).portalUid === 'U-kim' && (await h.get('trainee:' + id)).portalUid === 'U-kim', 'a trainee\'s write can\'t drop portalUid');
+        // nor write the index, an alias, a merge redirect or the trainer's own copy of the record
+        for (const [key, v] of [['uid:U-vic', { id, name: 'Vic Tim', batch: 'B100926' }], ['uid:U-kim', { id: victim.body.id }], ['uid:U-new', { id }],
+            ['trainee-alias:' + victim.body.id, id], ['merged:' + victim.body.id, { into: id }], ['merged:' + id, { into: victim.body.id }], ['trainee-admin:' + id, { portalUid: 'U-vic' }]]) {
+            const w = await h.api('/api/storage/set', { key, value: JSON.stringify(v) }, tok);
+            R.check(w.status === 403, `a trainee must not write ${key}: ${JSON.stringify(w)}`);
+        }
+        R.check(JSON.stringify(h.raw('uid:U-kim')) === idx && JSON.stringify(h.raw('uid:U-vic')) === vidx && !h.has('uid:U-new') && !h.has('trainee-alias:' + victim.body.id) && !h.has('merged:' + victim.body.id) && !h.has('merged:' + id),
+            'the uid index, aliases and merge redirects are as the Portal sign-ins left them');
+        R.check(h.raw('trainee-admin:' + id).portalUid === 'U-kim', 'the trainer\'s own copy keeps the Portal id');
+        // the tool ticket still names only this trainee's Portal account
+        const t = await h.api('/api/auth/tool-ticket', {}, tok);
+        R.check(t.status === 200 && decode(t.body.ticket).u === 'U-kim', `the tool ticket's u is the Portal-set one: ${JSON.stringify(t)}`);
+        // a brand-new record's first write can't bring a Portal id with it (no single sign-on: the session starts first)
+        const o = await harness();
+        const s = await o.api('/api/auth/trainee', { name: 'New Bie', batch: 'B100926' });
+        await o.set('trainee:' + s.body.id, { id: s.body.id, name: 'New Bie', firstName: 'New', lastName: 'Bie', batch: 'B100926', portalUid: 'U-vic' }, s.body.token);
+        R.check(!('portalUid' in (o.raw('trainee:' + s.body.id) || {})) && !o.ids('uid:').length, `a first write can't set portalUid or the index: ${JSON.stringify(o.raw('trainee:' + s.body.id))}`);
+    }
+
     R.done('portal-uid-ticket: tool tickets carry u or are refused; identity and the uid index are never a trainee\'s to write');
 })().catch((e) => { console.error(e); process.exit(1); });
