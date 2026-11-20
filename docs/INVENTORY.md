@@ -123,7 +123,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/ai-check` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (53)
+## Node checks (54)
 
 | Check | What it covers |
 |---|---|
@@ -148,6 +148,7 @@ None.
 | `drive-connect.cjs` | Linking a trainee's Google Drive folder (shared with the service account and pasted, as Foundational links a Drive; every refusal says why; Google answered by the test) |
 | `drive-daily.cjs` | The Backup Drive is scored every day: each day a trainee has reached is graded (nothing on the drive yet scores 0), every night too, in four measures (compliance, attention to detail, organization, naming convention) |
 | `drive-grades.cjs` | The Backup Drive is auto-graded day by day from the Drive itself (Days 2–5, against an in-memory Google Drive) |
+| `drive-named-files.cjs` | A course document backed up under the firm's file name (<Case ID>_<Last-First>_<Type>_<date>: no document code or title in it) is recognised from the drive alone, by its Type and the firm's folder it sits in at any depth, never from the CMS; one file is one document, a code in the name still wins, and a convention name in the wrong folder isn't guessed at |
 | `drive-naming.cjs` | The firm's file naming convention on the Backup Drive (one rule with the CMS filing; every name checked, each wrong one with the name it should have) |
 | `drive-subfolders.cjs` | Both Backup Drive graders read every folder and file under the linked folder at any depth, and a drive larger than one run is read on over the next runs and said (in-memory Drive, stubbed AI) |
 | `drive-to-progress.mjs` | The Backup Drive's grades reach the Scorecard: the Worker copies each day's grade onto the trainee's progress (a trainee who never reopened their drive still shows it), a page's older save doesn't put an older grade back, and Day 1 built on the Training Portal's Backup Drive counts as the firm's folders |
