@@ -10,7 +10,9 @@
    and keeps of it only what the Worker needs: each question's right option (a) and its module (mod), so the Worker can
    score the first attempt from its own picks (worker-identity.js kcScore) and work out each module's share of it. A
    trainer's published extra questions (extraquiz:day<N>) follow these on the page; the Worker reads those from KV.
-   .github/scripts/kc-key.cjs holds the page and this file to the same list. worker-*.js is kept out of the published
+   Two checks hold the page and this file to the same list: .github/scripts/kc-key-page.cjs (browser: the page's quizzes
+   are this key) and .github/scripts/kc-score.cjs (node: runs this file with --check). It is a generated file (merge-main's
+   GENERATED list): never edit worker-kc-key.js by hand, run this. worker-*.js is kept out of the published
    site (.assetsignore). */
 const fs = require("fs"), path = require("path");
 const ROOT = path.resolve(__dirname, "../..");

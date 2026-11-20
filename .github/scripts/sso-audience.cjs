@@ -3,7 +3,8 @@
 //   1. SSO_REQUIRE_AUDIENCE = "1" ends the rollout: a trainee's, a trainer's or the Sign-in check's ticket with no p is refused
 //      (401 audience, nothing written); this program's own (p "CM TRAINING") still signs in, once.
 //   2. The KV mark of a used ticket (sso-used:<sig>) lives at least as long as a ticket can (PORTAL_TICKET_MAX_MS, 10 minutes).
-//   3. /api/auth/tool-ticket, for a trainee and for a trainer: p "tool" and a random j (two tickets are never one ticket);
+//   3. /api/auth/tool-ticket, for a trainee and for a trainer: p "tool" and a random j (two tickets are never one ticket),
+//      and u (the trainee's Portal account id) when the record holds portalUid, which the Portal signs a trainee in by;
 //      posted back to /api/auth/portal it is refused (401 audience), with or without SSO_REQUIRE_AUDIENCE.
 //   4. The ticket's full name is kept as fullName (the ID unchanged), and the trainee's own write can't change or drop it.
 //   5. js/cm-full-name.js: the certificate shows that full name, in the trainers' chosen order, for the trainee and a trainer.
@@ -62,6 +63,11 @@ const decode = (t) => JSON.parse(Buffer.from(String(t).split('.')[0].replace(/-/
             R.check(r.status === 200 && t && t.p === 'tool' && typeof t.j === 'string' && t.j.length >= 6, `a ${who}'s tool ticket must carry p "tool" and a random j: ${JSON.stringify(t || r)}`);
         }
         R.check(a.body.ticket !== b.body.ticket, 'two tool tickets must never be the same ticket');
+        R.check(!('u' in decode(a.body.ticket)), `a record with no Portal id gives a tool ticket with no u: ${JSON.stringify(decode(a.body.ticket))}`);
+        // (a record that holds the Portal's id for the trainee: its tool ticket carries it as u, the Portal signs a trainee in by it)
+        const withU = await h.portal('Uma', 'Uid', 'B100926', 'U-77');
+        const tu = await h.api('/api/auth/tool-ticket', {}, withU.body.token), tt = tu.body && tu.body.ticket ? decode(tu.body.ticket) : null;
+        R.check(h.raw('trainee:' + withU.body.id).portalUid === 'U-77' && tt && tt.u === 'U-77' && tt.p === 'tool', `a tool ticket for a record with portalUid must carry it as u: ${JSON.stringify(tt || tu)}`);
         for (const strict of ['', '1']) {
             h.env.SSO_REQUIRE_AUDIENCE = strict;
             for (const [who, r] of [['trainee', strict ? b : a], ['trainer', adm]]) {

@@ -2119,7 +2119,10 @@ export default {
         const ids = candidateIds(`${first} ${last}`, rec.batch);
         // (or the record they resolve to: the uid index's, after the Portal changed the name or batch, or a merge's)
         if (![ids.newId, ids.rawId, ids.altId, ids.legacyId].includes(tok.id) && (await resolveTrainee(kv, `${first} ${last}`, rec.batch, rec.portalUid || "")).chosen !== tok.id) return json({ error: "identity-mismatch" }, 403);
-        return json({ ticket: await sign({ first, last, b: String(rec.batch || ""), p: "tool", exp: Date.now() + 5 * 60 * 1000 }) });
+        // (u: the trainee's Portal account id, which the Portal's ticket sign-in and its simulators sign a trainee in by;
+        // set on the record from the Portal's own ticket only: portalUid is a protected field)
+        const u = rec.portalUid ? String(rec.portalUid).slice(0, 80) : "";
+        return json({ ticket: await sign(Object.assign({ first, last, b: String(rec.batch || "") }, u ? { u } : {}, { p: "tool", exp: Date.now() + 5 * 60 * 1000 })) });
       }
 
       /* ---------- 🕘 automatic Time In: a trainee's first visit today (see checkIn) ---------- */
