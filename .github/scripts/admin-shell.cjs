@@ -17,7 +17,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
 const failures = []; const fail = (m) => failures.push(m);
 const PILLS = ['🏅 Scorecard', '🛡 Admin Master Control', '🔓 Open Lessons', '🛠 Account Repair'];   // (🛠 Account Repair: js/cm-account-repair.js adds its own)
 const SC = '🏅 Scorecard', AMC = '🛡 Admin Master Control', OL = '🔓 Open Lessons', AR = '🛠 Account Repair';
-const WHERE = { scorecards: SC, rubric: SC, traineeaudit: AMC, companion: AMC, tfeedback: AMC, rtasks: AMC, settings: AMC, sop: AMC, studio: AMC, tdrives: AMC,
+const WHERE = { scorecards: SC, rankreport: SC, rubric: SC, traineeaudit: AMC, companion: AMC, tfeedback: AMC, rtasks: AMC, settings: AMC, sop: AMC, studio: AMC, tdrives: AMC,
     openlessons: OL, activities: OL, fbstyle: OL,
     accountrepair: AR };
 // what a trainer DOES: never on the 🏅 Scorecard pages
@@ -62,7 +62,7 @@ const SEED = [{ id: `pat-pend-${tag}--s`, name: `Pat Pend ${tag}`, batch: BATCH,
     if (home.view !== 'admin' || !home.screen) fail(`the Admin screen did not open in its panel: ${JSON.stringify({ view: home.view, screen: home.screen })}`);
     if (JSON.stringify(home.pills) !== JSON.stringify(PILLS)) fail(`the section pills should be ${PILLS.join(' · ')}: ${home.pills.join(' · ')}`);
     if (home.active[0] !== SC || home.activeTab[0] !== 'scorecards' || home.tab !== 'scorecards') fail(`Admin should open on 🏅 Scorecard → 🏅 Scorecards: ${home.active} / ${home.activeTab} / ${home.tab}`);
-    if (JSON.stringify(home.row) !== JSON.stringify(['scorecards', 'rubric'])) fail(`🏅 Scorecard's tabs should be 🏅 Scorecards first, then 📐 Feedback Rubric, and no 📋 Batch Sheet: ${home.row}`);
+    if (JSON.stringify(home.row) !== JSON.stringify(['scorecards', 'rankreport', 'rubric'])) fail(`🏅 Scorecard's tabs should be 🏅 Scorecards first, then 🏆 Rankings & Progress Report, then 📐 Feedback Rubric, and no 📋 Batch Sheet: ${home.row}`);
     if (/Batch Sheet/.test(home.text.slice(0, 600))) fail('the 📋 Batch Sheet tab is still on the Admin screen');
     if (home.oldGroups) fail('js/cm-case-flow.js grouped the tabs as well (its .cf-admin-secs is on the page)');
     if (home.strips !== 1) fail(`one tab strip, not ${home.strips}`);
