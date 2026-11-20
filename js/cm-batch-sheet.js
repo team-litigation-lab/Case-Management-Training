@@ -515,7 +515,8 @@ function scoresSheet(rows){
     head: ["Trainee", "Batch", "Registered", "Days passed"].concat(L.map(d => `${dayLabel(d)} %`), K.map(k => k[0]), ["Overall %", "Result"]),
     rows: per.map(({r, o, ov, sc}) => {
       const reg = T0(r.registeredAt), bt = typeof batchShow === "function" ? (batchShow(r.batch) || r.batch || "") : (r.batch || ""), evs = eventsOf(r);
-      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, {v: bt, f: r.batch || "", cls: "gs-batch"},
+      // (📤 Send progress, js/cm-send-progress.js: from the row too, without opening the card)
+      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name", html: window.cmSendProgress && state.isAdmin ? `${E(nameOf(r))}<button type="button" class="sp-row" aria-label="Send ${E(nameOf(r))} their progress" title="📤 Send ${E(nameOf(r))} their progress" onclick="event.stopPropagation();cmSendProgress.open('${E(String(r.id).replace(/\\/g, "\\\\").replace(/'/g, "\\'"))}')"></button>` : null}, {v: bt, f: r.batch || "", cls: "gs-batch"},
         {v: [reg ? dTime(r.registeredAt) : "", bt].filter(Boolean).join(" · "), f: reg ? `Registered ${reg.toLocaleString()}${bt ? " in " + bt : ""}` : "Registration date not recorded", cls: "bs-reg"},
         {v: sc ? `${sc.done} / ${sc.total}` : "", f: sc ? `${sc.done} of the ${sc.total} Case Flow days passed (70% on the Knowledge Check passes a day)` : "", cls: "gs-num"}]
         .concat(L.map(d => { const v = dayS(r, d), parts = dayParts(r, d), s = slidesOf(r, d), sum = daySummary(r, d, parts), ev = evs.filter(e => e.n === d.cf.n);
@@ -579,8 +580,21 @@ function download(tables, name){
 }
 // the old 📋 Batch Sheet tab opens the one page
 window.renderAdminBatchSheet = function(){ return typeof window.renderScorecardPage === "function" ? window.renderScorecardPage() : ""; };
+// 📤 a trainee's progress as it stands, for a report the trainer sends (js/cm-send-progress.js): the Overall and Result, each
+// day's cell of 🏅 Scores (its score, slides and work), its practical activities with their feedback, and what is missing
+function snapshot(x){
+  const r = recOf(x), o = ovOf(r), M = (window.cmScorecard || {}).model || {STATUS: {}}, cx = cxOf(r), missing = [];
+  const days = cfDaysL().map(d => { const parts = dayParts(r, d), k = kcOf(r, d), s = slidesOf(r, d), n = d.cf.n;
+    if(k.kc != null && !k.ok) missing.push(`Day ${n}: Knowledge Check ${k.kc}%, below 70%`);
+    parts.filter(y => y.grp === "bd" && y.pct === 0 && /Not done/.test(y.status)).forEach(() => missing.push(`Day ${n}: Backup Drive not done`));
+    parts.filter(y => y.pct == null && y.grp !== "kc" && y.status).forEach(y => missing.push(`Day ${n}: ${y.name.replace(/^\S+\s/, "")}: ${y.status}`));
+    return {n, title: String(d.title).replace(/^Case Flow Day \d+ · /, ""), score: dayS(r, d), slides: s.line, summary: daySummary(r, d, parts),
+      practical: practOf(r, d, cx).map(y => ({name: y.name, pct: y.pct, status: y.status || "", best: (y.best || []).slice(0, 3), improve: (y.improve || []).slice(0, 3), why: clip(y.why || "", 300)}))}; });
+  const a = aiState(r); if(a.failed) missing.push(`Skill Activity grading failed: ${a.why}`);
+  return {name: nameOf(r), overall: o ? o.pct : null, result: o ? (M.STATUS[o.status] || "") : "", pass: !!(o && o.status === "pass"), days, missing};
+}
 window.cmBatchSheet = {
-  scoresSheet, feedbackHtml, csvTables, download, recOf, eventsOf,
+  scoresSheet, feedbackHtml, csvTables, download, recOf, eventsOf, snapshot,
   fbOpen(k, open){ B.fbOpen[k] = !!open; },
   // 👥 duplicate accounts: drawn on 🛡 Admin Master Control → 👥 Trainee Audit (js/cm-audit-table.js)
   dupHtml, dupKeep(key, id){ B.dupKeep = B.dupKeep || {}; B.dupKeep[key] = id; redraw(); },
