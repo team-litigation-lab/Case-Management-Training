@@ -25,6 +25,7 @@ import { driveFind, listedOf, setupOf } from "./worker-drive-found.js";
 import { walkDrive, homeFinder, walkNote, walkSettled } from "./worker-drive-walk.js";
 import { driveToProgress, keepNewerDriveGrades } from "./worker-drive-progress.js";   // 📂 the drive grades onto the trainee's progress, where the Scorecard reads them
 import { accountMergeApi, kcRestoreApi } from "./worker-account-repair.js";   // 👥 two accounts of one trainee merged on the Worker (/api/account-merge); 🛠 one account's missing KC scores restored (/api/kc-restore)
+import { shareGet, shareAdmin, shareKey } from "./worker-share.js";   // 🔗 the 🏆 Rankings & Progress Report as a public, read-only link (share:<token>, /api/share/*)
 import { identity, uidKey, afterMerge, afterMergeProgress, keepMergeStored, orphanWrite } from "./worker-identity.js";   // 🪪 who a sign-in opens (the uid index, merged: redirects) and what keeps a trainee's records whole
 /* ---------- KV with the "cm:" namespace prefix ---------- */
 const KV_PREFIX = "cm:";
@@ -1905,6 +1906,7 @@ export default {
         const type = res.headers.get("Content-Type") || "";
         if (!type.includes("text/html")) return res;
         const h = new Headers(res.headers);
+        if (path === "/report.html") { h.set("X-Robots-Tag", "noindex, nofollow"); h.set("Referrer-Policy", "no-referrer"); }   // 🔗 the shared report page (js/cm-rankings.js)
         h.delete("Content-Length"); h.delete("ETag");
         if (res.status !== 200) { h.set("Cache-Control", "no-cache, no-store, must-revalidate"); return new Response(res.body, { status: res.status, headers: h }); }
         // 🔖 every local script and stylesheet gets ?v=<its content fingerprint> (stampAssets): nobody writes a version by hand.
@@ -2040,6 +2042,7 @@ export default {
         return json(Object.assign(out, { name: who.name, first: who.first, last: who.last, batch: who.batch }));
       }
 
+      if (path === "/api/share/get") return await shareGet(kvOf(env), request);   // 🔗 no sign-in: one shared report link, or 404
       const tok = secure ? await readToken(env, request) : { role: "a", id: "open-mode" };
       if (!tok) return json({ error: "Sign-in required" }, 401);
       // 🚫 a trainee whose access the Portal closed: their own record only, shown not approved, so the page closes; nothing else
@@ -2319,6 +2322,7 @@ export default {
 
       /* ---------- storage ---------- */
       const body = await request.json().catch(() => ({}));
+      if (path.startsWith("/api/share/")) return await shareAdmin(kvOf(env), tok, path, body, trainerWho(tok), (p) => listAll(env, p));   // 🔗 a trainer's links
       const key = String(body.key || "");
       if (path === "/api/storage/get") {
         if (!key) return json({ error: "Missing key" }, 400);
@@ -2338,6 +2342,7 @@ export default {
       }
       if (path === "/api/storage/set") {
         if (!key) return json({ error: "Missing key" }, 400);
+        if (shareKey(key)) return json({ error: "Not allowed" }, 403);   // 🔗 a share link is written only by /api/share/save (worker-share.js)
         if (tok.role === "a") {
           if (typeof body.value !== "string") return json({ error: "value must be a string" }, 400);
           if (/^trainee:/.test(key)) body.value = await keepKcResets(kv, key, body.value);
@@ -2353,7 +2358,8 @@ export default {
       }
       if (path === "/api/storage/list") {
         if (tok.role !== "a") return json({ keys: [] });
-        return json({ keys: await listAll(env, body.prefix || "") });
+        if (shareKey(body.prefix)) return json({ error: "Not allowed" }, 403);   // 🔗 share links are never listed
+        return json({ keys: (await listAll(env, body.prefix || "")).filter((k) => !shareKey(k)) });
       }
       if (path === "/api/storage/delete") {
         if (tok.role !== "a") return json({ error: "Not allowed" }, 403);
