@@ -21,6 +21,7 @@
  */
 // ✍ the trainee's written work on their Backup Drive, AI-graded nightly, and a trainer's override (worker-drive-work.js)
 import { DRIVE_WORK_ACTIONS, driveWorkApi, driveWorkNightly, driveWorkActive, cronRun, workBrief, workView, withDayOverrides, withOverrides, OV_KEY } from "./worker-drive-work.js";
+import { keyPrint, refused as gatewayRefused, refusalMark, lastRefusal } from "./worker-ai-key.js";   // 🔑 the AI check's key fingerprint
 import { courseDocs, credited, driveFind, knownFor, listedOf, setupOf, startsDay } from "./worker-drive-found.js";
 import { walkDrive, homeFinder, walkNote, walkSettled } from "./worker-drive-walk.js";
 import { driveToProgress, keepNewerDriveGrades } from "./worker-drive-progress.js";   // 📂 the drive grades onto the trainee's progress, where the Scorecard reads them
@@ -680,6 +681,8 @@ async function viaGateway(env, req, user) {
     data = await r.json().catch(() => null);
   } catch (e) { return json({ error: { message: "The shared AI gateway is unreachable: " + (e && e.message || e) } }, 502); }
   if (data && data.success) return json({ content: [{ type: "text", text: data.text }], model: data.model, stop_reason: "end_turn", provider: "gemini-gateway" });
+  // 🔑 a refused key: this Worker's own Gemini keys, if it has any, carry the grading (callGemini); the AI check still says so
+  if ((r.status === 401 || r.status === 403 || r.status === 501) && (gatewayRefused(r.status), geminiKeyNames(env).length)) return null;
   const status = r.status === 429 ? 429 : (r.status === 401 || r.status === 403 || r.status === 501) ? 502 : (r.status || 502);
   // a refused key says whose it is (the Portal counts nothing it refuses, so its 📊 AI usage shows no CMS calls at all)
   const hint = r.status === 401 ? " The Portal refused this site's key: AI_GATEWAY_SECRET must be the same on this Worker and on the Portal."
@@ -721,7 +724,7 @@ const isChat = (req) => /^(chat|call)$/i.test(String((req && req.feature) || "")
 async function callGemini(env, rawBody, user) {
   let req; try { req = JSON.parse(rawBody); } catch (e) { return json({ error: "Invalid request" }, 400); }
   if (!req || typeof req !== "object" || (req.messages !== undefined && !Array.isArray(req.messages))) return json({ error: "Invalid request" }, 400);
-  if (gatewayOn(env)) return await viaGateway(env, req, user);
+  if (gatewayOn(env)) { const g = await viaGateway(env, req, user); if (g) return g; }
   const toText = (c) => typeof c === "string" ? c : (Array.isArray(c) ? c.map((p) => p && p.text ? p.text : "").join("\n") : "");
   const contents = (req.messages || []).filter((m) => m && typeof m === "object").map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: toText(m.content) }] }));
   const payload = {
@@ -2314,11 +2317,13 @@ export default {
         const via = gatewayOn(env) ? "gateway" : geminiKeyNames(env).length ? "gemini" : "none";
         let host = ""; try { host = via === "gateway" ? new URL(String(env.PORTAL_URL || "https://cm-training-activity.pages.dev")).host : ""; } catch (e) { host = String(env.PORTAL_URL || ""); }
         if (via === "none") return json({ ok: false, via, error: "No AI is set up on this Worker: add AI_GATEWAY_SECRET (the Portal's AI gateway) or GEMINI_API_KEY in Cloudflare." });
-        const t0 = Date.now();
+        const t0 = Date.now(), mark = refusalMark();
         const res = await callGemini(env, JSON.stringify({ model: "gemini", feature: "grading", max_tokens: 128, messages: [{ role: "user", content: 'A connection check from the Case Management course. Reply with only this JSON object: {"ok": true}' }] }), "ai-check");
         const b = await res.json().catch(() => ({}));
         const text = (((b.content || [])[0]) || {}).text || "";
-        return json({ ok: res.ok && !!text, via, host, status: res.status, ms: Date.now() - t0, model: b.model || "", error: res.ok && text ? "" : String((b.error && (b.error.message || b.error)) || b.error || "The AI gave no answer (" + res.status + ").") });
+        const key = via === "gateway" ? await keyPrint(env.AI_GATEWAY_SECRET) : null, refusedNow = via === "gateway" ? lastRefusal(mark) : null;
+        if (refusedNow && res.ok && text) return json({ ok: false, via, host, key, fallback: true, status: refusedNow.status, ms: Date.now() - t0, model: b.model || "", error: `Portal AI gateway: Not allowed (${refusedNow.status}). Grading carries on with this site's own Gemini keys for now.` });
+        return json({ ok: res.ok && !!text, via, host, key, status: res.status, ms: Date.now() - t0, model: b.model || "", error: res.ok && text ? "" : String((b.error && (b.error.message || b.error)) || b.error || "The AI gave no answer (" + res.status + ").") });
       }
       if (path === "/api/claude" || path === "/api/ai") {
         if (!geminiKeyNames(env).length && !gatewayOn(env)) return json({ error: "No AI key is configured on this Worker. Add GEMINI_API_KEY as a Secret in Cloudflare." }, 500);
