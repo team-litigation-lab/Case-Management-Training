@@ -1030,7 +1030,7 @@ async function driveWrite(env, id, rec) { await kvOf(env).put(driveKey(id), JSON
 // ✍ what worker-drive-work.js uses of the Backup Drive and the AI
 const driveWorkDeps = () => ({ json, kvOf, listAll, driveRead, driveWrite, driveLinked, driveConfigured, drive, driveMessage, saToken, callGemini, geminiKeyNames, gatewayOn,
   nameCheck, nameHint, fileType, driveCaseId, driveSnapshot, driveNaming, gradeDay, dayStarted, daysReached, filedFromProgress, FOLDER_STANDARD, DRIVE_HOMES, DRIVE_HOME_CATEGORY,
-  driveList, FOLDER_WHY, DRIVE_PASS, DRIVE_DOC, DRIVE_DAY_DOCS, CLIENT_FOLDER, driveFind: (env, id, rec, opts) => driveFind(env, driveWorkDeps(), id, rec, opts),
+  driveList, FOLDER_WHY, DRIVE_PASS, DRIVE_DOC, DRIVE_DAY_DOCS, CLIENT_FOLDER, LABEL_DOCS, SUPERSEDED_BY, nameAsFiled, labelShape, R2_DOCS, driveFind: (env, id, rec, opts) => driveFind(env, driveWorkDeps(), id, rec, opts),
   driveToProgress: (env, id, rec) => driveToProgress(kvOf(env), id, rec, withDayOverrides, DRIVE_PASS) });   // 🔎 and what worker-drive-found.js read
 /* Linked: a folder of the trainee's own, shared with the service account and pasted in ("link"). A record from the old
    Google sign-in (a sealed refresh token, no linkedAt) is not linked: the trainee shares and pastes once. */
@@ -1326,9 +1326,10 @@ const clip = (s, n = 200) => { s = String(s == null ? "" : s); return s.length >
 
    What it cannot see: anything outside the folder the trainee linked (the only part of their Drive shared with the
    platform). A file uploaded by hand into one of the firm's folders is read like any other and listed when its name
-   is wrong, but never charged: no copy record carries it. Except a course document filed by hand (its RS code or its
-   title in the name: worker-drive-found.js, rec.handFiled): that is the trainee's own filing, and its name is charged
-   on its day like a copy's.
+   is wrong, but never charged: no copy record carries it. Except a course document filed by hand and known for certain
+   (its RS code or its title in the name, or its bytes the course's own file: worker-drive-found.js, rec.handFiled):
+   that is the trainee's own filing, and its name is charged on its day like a copy's. One known only by its Type and
+   folder (`by: "type"`) is listed, never charged, and never starts a day.
    What it cannot know: the real CMS's caseFileName is not in this repository. Wherever that matters the reading
    here is the lenient one (a Type the CMS chose, a counter after the date written _2 or -2, an extension in the
    case the CMS left it).
@@ -1554,7 +1555,7 @@ function driveNaming(rec, S, started) {
       supDate: by ? supersededDate(f.name) || dateIn(by.name) || dayOf(by.created) || made : "", ext: s ? nameSplit(s.name).ext.toLowerCase() : "" });
     // the platform's own name: the copy is still called what it was uploaded as, and that is not the firm's way
     const own = !!s && !nameAsFiled(s.name, caseId) && (f.name === s.name || unlabeled(f.name) === s.name);
-    const scored = isDrill ? drill.rule === NAME_RULE : h ? true : !!s && !replaced && s.rule === NAME_RULE && !own;
+    const scored = isDrill ? drill.rule === NAME_RULE : h ? h.by !== "type" : !!s && !replaced && s.rule === NAME_RULE && !own;
     const tied = isDrill ? 2 : dayOfDoc[docId] || 0;
     const hint = c.ok ? "" : own ? `This copy still has the name the platform uploaded it under, before the firm's convention was kept on the drive. ${c.want ? "Rename it as shown." : `Rename it the firm's way: ${FILE_NAME_PATTERN}`}`
       : isDrill && f.name === DRILL_NAME ? `The colleague's invoice arrived named off the convention. ${c.want ? "Rename it as shown" : "Rename it the firm's way"}: the Case ID, the client, the Type and the date.`
@@ -1776,7 +1777,7 @@ function gradeDay(n, rec, S, filed, N) {
 }
 /* A day is graded once the trainee has started it: one of its documents on the drive, or its drill begun. */
 function dayStarted(n, rec) {
-  if ((rec.saved || []).concat(rec.handFiled || []).some((s) => DRIVE_DAY_DOCS[n].includes(s.docId))) return true;   // (🔎 or filed by hand)
+  if ((rec.saved || []).concat(rec.handFiled || []).some((s) => DRIVE_DAY_DOCS[n].includes(s.docId) && s.by !== "type")) return true;   // (🔎 or filed by hand, known for certain)
   if (n === 2 && rec.drills && rec.drills[2]) return true;
   if (n === 4 && (rec.checkLog || []).some((c) => (c.missing || []).includes(LIENS_FOLDER))) return true;
   return false;

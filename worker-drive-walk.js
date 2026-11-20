@@ -34,7 +34,7 @@ export const WALK_QUERIES = 30;           // queries a walk with no budget of it
 export const WALK_KEEP_MS = 3 * 86400 * 1000;   // a walk cut short is carried on for this long, then started again
 export const WALK_KEY = (id) => `drivewalk:${id}`;   // cm:drivewalk:<id>, through kvOf
 const FOLDER = "application/vnd.google-apps.folder";
-const FIELDS = "nextPageToken,files(id,name,mimeType,parents,createdTime,modifiedTime,size,description,owners(emailAddress))";
+const FIELDS = "nextPageToken,files(id,name,mimeType,parents,createdTime,modifiedTime,size,md5Checksum,description,owners(emailAddress))";
 
 /* Which folders of `folders` ({id: {parent}}) are inside the linked folder `root`: {id: true | false}. */
 function insideOf(folders, root) {
@@ -52,7 +52,7 @@ function insideOf(folders, root) {
   return memo;
 }
 
-/* The whole linked folder: {files: {id: {name, parent, created, mimeType, modifiedTime, size, description, owners}},
+/* The whole linked folder: {files: {id: {name, parent, created, mimeType, modifiedTime, size, md5, description, owners}},
    folders: {id: {name, parent, created, mimeType}}, walk}. `W`: {drive, driveMessage, kv}; `opts.budget`: the run's. */
 export async function walkDrive(env, W, id, rec, opts = {}) {
   const root = rec.rootId, now = new Date().toISOString();
@@ -98,7 +98,7 @@ export async function walkDrive(env, W, id, rec, opts = {}) {
         // (a folder or file in several folders is kept where it was first met: the nearest the linked folder, so a
         // folder that is also inside its own subfolder can't hide itself and what is under it)
         if (f.mimeType === FOLDER) { if (!folders[f.id]) folders[f.id] = { name: f.name, parent, created: f.createdTime || "", mimeType: FOLDER }; }
-        else if (!files[f.id] || !batch.includes(files[f.id].parent)) files[f.id] = { name: f.name, parent, created: f.createdTime || "", mimeType: f.mimeType || "", modifiedTime: f.modifiedTime || "", size: f.size, description: f.description || "", owners: f.owners || [] };
+        else if (!files[f.id] || !batch.includes(files[f.id].parent)) files[f.id] = { name: f.name, parent, created: f.createdTime || "", mimeType: f.mimeType || "", modifiedTime: f.modifiedTime || "", size: f.size, md5: f.md5Checksum || "", description: f.description || "", owners: f.owners || [] };
       });
       if (!res.data.nextPageToken) { done = true; break; }
       token = res.data.nextPageToken;

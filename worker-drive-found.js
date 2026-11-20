@@ -21,8 +21,11 @@
      - THE COURSE DOCUMENTS FILED BY HAND (handFiled): any file in the linked folder that isn't the platform's own copy,
        identified by the course document's code in its name (RS01, RS-01, RS_01) or, failing that, its title
        ("New-Client-Intake-Sheet"), against CM_CF_DOCS in js/cm-case-flow-docs.js (read through ASSETS, as the
-       written-work grader reads the course data; DRIVE_DOC in worker.js when that can't be read). Recorded as
-       rec.handFiled [{docId, id, name, path, home, at, type}]: worker.js reads them beside the platform's copies, so a
+       written-work grader reads the course data; DRIVE_DOC in worker.js when that can't be read); failing both, by its
+       bytes (Drive's md5Checksum, the same as the course's own file of it: courseHashes); and failing that, a name in
+       the firm's convention by its Type and the firm folder it is in (applyFound, `by: "type"`: a reading, never
+       certain, so it neither starts a day nor has its name charged). All of it from the drive alone. Recorded as
+       rec.handFiled [{docId, id, name, path, home, at, type, by}]: worker.js reads them beside the platform's copies, so a
        document filed by hand counts when it is in the right folder (S.copyOf, dayStarted), and its name is read by the
        firm's naming check like any other (a ".pdf.pdf", a Type that is a document title, a date) and charged on its
        day as the trainee's own filing. A Google Doc, Sheet or Slides is never a course document: that is written work.
@@ -89,11 +92,12 @@ export function findFolders(listing, rootId, standard, clientPath) {
 }
 
 /* ---------- the course's documents (CM_CF_DOCS), read once per Worker instance ---------- */
-/* {RS01: {folder, title, cms, day}} from js/cm-case-flow-docs.js (one line per document, as that file is written). */
+/* {RS01: {folder, file, title, cms, day}} from js/cm-case-flow-docs.js (one line per document, as that file is written;
+   `file` is the document under documents/, the file the course serves and the platform copies to the drive). */
 export function parseCourseDocs(src) {
-  const out = {}, re = /\{id:"(RS\d+)",\s*folder:"([a-z]+)",\s*file:"[^"]*",\s*title:"((?:[^"\\]|\\.)*)",\s*cms:"([^"]*)",\s*day:(\d)/g;
+  const out = {}, re = /\{id:"(RS\d+)",\s*folder:"([a-z]+)",\s*file:"([^"]*)",\s*title:"((?:[^"\\]|\\.)*)",\s*cms:"([^"]*)",\s*day:(\d)/g;
   let m;
-  while ((m = re.exec(String(src || "")))) out[m[1]] = { folder: m[2], title: m[3].replace(/\\(.)/g, "$1"), cms: m[4], day: Number(m[5]) };
+  while ((m = re.exec(String(src || "")))) out[m[1]] = { folder: m[2], file: m[3], title: m[4].replace(/\\(.)/g, "$1"), cms: m[5], day: Number(m[6]) };
   return out;
 }
 let DOCS = null;
@@ -114,13 +118,45 @@ export async function courseDocs(env, D) {
     return DOCS;
   } catch (e) { return fallback(); }
 }
-export const _resetDocs = () => { DOCS = null; };
+export const _resetDocs = () => { DOCS = null; HASHES = null; };
+
+/* 🔎 What each course document's file IS: the MD5 of the file the course serves (documents/<file>), the checksum Google
+   Drive keeps of every uploaded file (md5Checksum). A file on the drive with the same bytes is that document, whatever
+   it is called: read from the drive alone, never from what the trainee filed in the CMS. {md5: [docId]}, worked out
+   once per Worker instance (R2's own checksum when the document is there, else the file read through ASSETS and
+   hashed). Whatever can't be read is left out: a file is then known by its name, as before. */
+let HASHES = null;
+const HASH_RETRY_MS = 10 * 60 * 1000;   // a reading that found nothing (assets unreachable) is tried again after this
+const hexOf = (buf) => Array.from(new Uint8Array(buf), (b) => b.toString(16).padStart(2, "0")).join("");
+export async function courseHashes(env, D, docs) {
+  if (HASHES && HASHES.docs === docs && (HASHES.n || Date.now() - HASHES.at < HASH_RETRY_MS)) return HASHES.by;
+  const by = {}, list = Object.entries(docs || {}).filter(([, d]) => d && d.file);
+  let n = 0, md5 = true;
+  try { await crypto.subtle.digest("MD5", new Uint8Array(0)); } catch (e) { md5 = false; }
+  const one = async ([docId, d]) => {
+    let h = "";
+    try {
+      const r2 = env && env.DOCUMENTS && D && D.R2_DOCS ? await env.DOCUMENTS.head(`${D.R2_DOCS}/documents/${d.file}`) : null;
+      if (r2 && r2.checksums && r2.checksums.md5) h = hexOf(r2.checksums.md5);
+    } catch (e) { h = ""; }
+    if (!h && md5 && env && env.ASSETS && typeof env.ASSETS.fetch === "function") {
+      try {
+        const r = await env.ASSETS.fetch(new Request("https://assets.local/documents/" + d.file.split("/").map(encodeURIComponent).join("/")));
+        if (r.ok) h = hexOf(await crypto.subtle.digest("MD5", await r.arrayBuffer()));
+      } catch (e) { h = ""; }
+    }
+    if (h) { (by[h] = by[h] || []).push(docId); n++; }
+  };
+  for (let i = 0; i < list.length; i += 8) await Promise.all(list.slice(i, i + 8).map(one));
+  HASHES = { docs, by, n, at: Date.now() };
+  return by;
+}
 
 /* The course document a file name is: its code (RS01, RS-01, RS_01, rs 1), else its title; "" when it is none. */
+const codeOf = (name) => { const m = /(?:^|[^A-Za-z0-9])RS[ _-]?0*(\d{1,3})(?![0-9])/i.exec(String(name || "")); return m ? "RS" + String(Number(m[1])).padStart(2, "0") : ""; };
 export function docOfName(name, docs) {
-  const s = String(name || "");
-  const m = /(?:^|[^A-Za-z0-9])RS[ _-]?0*(\d{1,3})(?![0-9])/i.exec(s);
-  if (m) { const id = "RS" + String(Number(m[1])).padStart(2, "0"); if (docs[id]) return id; }
+  const s = String(name || ""), id = codeOf(s);
+  if (id && docs[id]) return id;
   const loose = looseFolder(s.replace(/\.[A-Za-z0-9]{1,5}$/, ""));
   let pick = "", len = 0;
   Object.entries(docs).forEach(([id, d]) => { const t = looseFolder(d.title); if (t.length >= 12 && t.length > len && loose.includes(t)) { pick = id; len = t.length; } });
@@ -175,21 +211,30 @@ export async function driveFind(env, D, id, rec, opts) {
   rec.walk = listing.walk ? Object.assign({}, listing.walk) : undefined;
   if (listing.walk && listing.walk.reason === "budget") return listing;
   const docs = await courseDocs(env, D);
-  applyFound(rec, listing, docs, D);
+  // 🔎 the course's own files are hashed only when a file on the drive could be one by its bytes alone (no code or title in its name)
+  const unnamed = Object.values(listing.files || {}).some((f) => f && f.md5 && !GOOGLE_NATIVE.test(String(f.mimeType || "")) && !docOfName(f.name, docs));
+  applyFound(rec, listing, docs, D, unnamed ? await courseHashes(env, D, docs) : {});
   return listing;
 }
-/* 📂 The Type a file's name gives it, when it is named the firm's way: <Case ID>_<Last-First>_<Type>_<YYYY-MM-DD>[_label],
-   one extension (or the ".pdf.pdf" a download adds again). "" for any other name. Read loosely (case and the hyphens),
-   so "medical-records" is "Medical-Records". This is the drive's own evidence: the Backup Drive is graded from the
-   linked folder alone, never from what the trainee filed in the CMS (a separate grader). */
+/* 📂 What a file's name says when it is named the firm's way: <Case ID>_<Last-First>_<Type>_<YYYY-MM-DD>[_label], one
+   extension (or the ".pdf.pdf" a download adds again): {type, date, label}, or null for any other name. The Type is read
+   loosely (case and the hyphens), so "medical-records" is "Medical-Records". A name the CMS gave is read by worker.js's
+   own rules (D.nameAsFiled, D.labelShape): its counter on a second document of one Type and day (2026-11-16-2, or a _2
+   after the date, before any label) is the CMS's and is read past. This is the drive's own evidence: the Backup Drive
+   is graded from the linked folder alone, never from what the trainee filed in the CMS (a separate grader). */
 export const looseType = (s) => String(s == null ? "" : s).toLowerCase().replace(/[^a-z0-9]+/g, "");
-export function typeOfName(name) {
-  const base = String(name == null ? "" : name).trim().replace(/(\.[A-Za-z0-9]{2,5})+$/, "");
-  const parts = base.split("_");
-  if (parts.length < 4 || parts.length > 5 || !parts[0] || !parts[1] || !/^\d{4}-\d{2}-\d{2}$/.test(parts[3])) return "";
-  return looseType(parts[2]);
+export function conventionOf(name, D) {
+  const s = String(name == null ? "" : name).trim();
+  const lab = (D && D.labelShape) || ((x) => x === "DRAFT" || /^SUPERSEDED-\d{4}-\d{2}-\d{2}$/.test(x));
+  const base = s.replace(/(\.[A-Za-z0-9]{2,5})+$/, ""), ext = s.slice(base.length).split(".").pop();
+  const parts = base.split("_"), last = parts[parts.length - 1], label = parts.length > 4 && lab(last) ? last : "";
+  const filed = D && D.nameAsFiled ? D.nameAsFiled(base + (ext ? "." + ext : ""), "") : null;   // (one extension: a ".pdf.pdf" is read as one)
+  if (filed) return { type: looseType(filed.type), date: String(filed.date).slice(0, 10), label };
+  if (parts.length < 4 || parts.length > 5 || !parts[0] || !parts[1] || !/^\d{4}-\d{2}-\d{2}$/.test(parts[3])) return null;
+  return { type: looseType(parts[2]), date: parts[3], label };
 }
-export function applyFound(rec, listing, docs, D) {
+export const typeOfName = (name, D) => (conventionOf(name, D) || {}).type || "";
+export function applyFound(rec, listing, docs, D, hashes = {}) {
   const standard = D.FOLDER_STANDARD, client = D.CLIENT_FOLDER, at = new Date().toISOString();
   const F = rec.builtAt ? null : findFolders(listing, rec.rootId, standard, client);
   if (F) {
@@ -202,33 +247,62 @@ export function applyFound(rec, listing, docs, D) {
     if (got) rec.foundAt = rec.foundAt || at; else delete rec.foundAt;
   }
   // the course documents filed by hand: anywhere in the linked folder, but never one of the platform's own copies
-  const mine = new Set();
+  const mine = new Set(), all = listing.files || {};
   (rec.saved || []).forEach((s) => { if (s && s.id) mine.add(s.id); ((s && s.was) || []).forEach((w) => mine.add(w)); });
   Object.values(rec.drills || {}).forEach((d) => { if (d && d.id) mine.add(d.id); });
   const homeOf = homeFinder(listing.folders || {}, rec);   // 📂 the firm's folder nearest above a file, at any depth
-  const hand = [], claimed = new Set();
-  const files = Object.entries(listing.files || {}).sort(([a], [b]) => a.localeCompare(b))
+  const hand = [], claimed = new Set(), same = {};
+  // a document the platform copied there itself, still on the drive, is accounted for: a file filed by hand isn't it
+  (rec.saved || []).forEach((s) => { if (s && s.id && s.docId && docs[s.docId] && all[s.id]) claimed.add(s.docId); });
+  const files = Object.entries(all).sort(([a], [b]) => a.localeCompare(b))
     .filter(([fid, f]) => !mine.has(fid) && !GOOGLE_NATIVE.test(String(f.mimeType || "")));
-  const add = (fid, f, docId) => {
-    const d = docs[docId], home = D.DRIVE_HOMES[d.folder] || "";
+  // copies of one file (the same bytes, or lacking a checksum the same size) in one firm folder are one document
+  const sameKey = (fid, f, where) => `${where}|${f.md5 ? "md5:" + f.md5 : f.size != null && f.size !== "" ? "size:" + f.size : "id:" + fid}`;
+  // `by`: how it is known. "code", "title" and "content" are certain; "type" (the firm's name and folder only) is a
+  // reading of the drive, not a certainty: worker.js never starts a day on it, nor charges its name
+  const add = (fid, f, docId, by) => {
+    const d = docs[docId], home = D.DRIVE_HOMES[d.folder] || "", path = homeOf(f.parent);
     claimed.add(docId);
-    hand.push({ docId, id: fid, name: clip(f.name, 200), path: homeOf(f.parent), home, at: f.created || at, type: D.fileType(CMS_LONG[d.cms] || d.cms) });
+    if (by === "type" || f.md5) { const k = sameKey(fid, f, path); if (!same[k]) same[k] = docId; }
+    hand.push({ docId, id: fid, name: clip(f.name, 200), path, home, at: f.created || at, type: D.fileType(CMS_LONG[d.cms] || d.cms), by });
   };
   // 1. a document code (RS12) or its title in the name: that document, wherever it is (a wrong folder is then said)
   const rest = [];
-  files.forEach(([fid, f]) => { const docId = docOfName(f.name, docs); if (docId) add(fid, f, docId); else rest.push([fid, f]); });
+  files.forEach(([fid, f]) => {
+    const s = String(f.name || ""), docId = docOfName(s, docs);
+    if (docId) add(fid, f, docId, codeOf(s) === docId ? "code" : "title");
+    else rest.push([fid, f]);
+  });
+  // 1b. the same bytes as one of the course's own files (Drive's md5Checksum against the file the course serves): that
+  //     document, whatever the name, wherever it is. Seven copies of one file are that one document, seven times.
+  const rest2 = [];
+  rest.forEach(([fid, f]) => {
+    const ids = (f.md5 && hashes[String(f.md5).toLowerCase()]) || [];
+    const docId = ids.find((d) => docs[d] && !claimed.has(d)) || ids.find((d) => docs[d]);
+    if (docId) add(fid, f, docId, "content"); else rest2.push([fid, f]);
+  });
   // 2. a name in the firm's convention (<Case ID>_<Last-First>_<Type>_<date>) carries no code or title: in the firm's folder
   //    a document of that Type belongs in, at any depth, it is one of that folder's documents of that Type not yet
-  //    accounted for (the earliest graded day's first; one file, one document). In any other folder it isn't guessed at.
+  //    accounted for: the documents of the earliest day the course opens them on first (a Day 1 paper is never
+  //    taken for a later day's), the one its label says when it has one (_SUPERSEDED-<date>: a version a newer one
+  //    replaced; _DRAFT: a draft), one that carries no label when it has none. One document a file, and the files in
+  //    the order they were made. In any other folder it isn't guessed at.
   const dayOf = {}; Object.entries(D.DRIVE_DAY_DOCS || {}).forEach(([n, ids]) => ids.forEach((d) => { dayOf[d] = Number(n); }));
-  const order = Object.keys(docs).sort((a, b) => ((dayOf[a] || 99) - (dayOf[b] || 99)) || a.localeCompare(b));
+  const opens = (d) => Number(docs[d].day) || dayOf[d] || 0;
+  const order = Object.keys(docs).sort((a, b) => (opens(a) - opens(b)) || ((dayOf[a] || 99) - (dayOf[b] || 99)) || a.localeCompare(b));
   const typeOf = (d) => looseType(D.fileType(CMS_LONG[docs[d].cms] || docs[d].cms));
-  rest.forEach(([fid, f]) => {
-    const t = typeOfName(f.name), where = homeOf(f.parent);
-    if (!t || !where) return;
-    const docId = order.find((d) => !claimed.has(d) && typeOf(d) === t && (D.DRIVE_HOMES[docs[d].folder] || "") === where);
-    if (docId) add(fid, f, docId);
-  });
+  const LABEL = D.LABEL_DOCS || {}, SUP = D.SUPERSEDED_BY || {};
+  const labelOf = (d) => (LABEL[d] === "DRAFT" ? "DRAFT" : LABEL[d] === "SUPERSEDED" || SUP[d] ? "SUPERSEDED" : "");
+  rest2.map(([fid, f]) => ({ fid, f, c: conventionOf(f.name, D), where: homeOf(f.parent) })).filter((x) => x.c && x.c.type && x.where)
+    .sort((a, b) => String(a.f.created || "").localeCompare(String(b.f.created || "")) || a.c.date.localeCompare(b.c.date) || a.fid.localeCompare(b.fid))
+    .forEach(({ fid, f, c, where }) => {
+      const k = sameKey(fid, f, where);
+      if (same[k]) return add(fid, f, same[k], "type");   // a copy of a file already accounted for in this folder
+      const want = /^SUPERSEDED/.test(c.label) ? "SUPERSEDED" : c.label === "DRAFT" ? "DRAFT" : "";
+      const cands = order.filter((d) => !claimed.has(d) && typeOf(d) === c.type && (D.DRIVE_HOMES[docs[d].folder] || "") === where);
+      const docId = cands.find((d) => labelOf(d) === want) || cands[0];
+      if (docId) add(fid, f, docId, "type");
+    });
   rec.handFiled = hand.sort((a, b) => String(a.docId).localeCompare(String(b.docId)) || String(a.name).localeCompare(String(b.name))).slice(0, 200);
   // Day 1 from the drive, when the trainee never set the structure up on the platform
   if (F && rec.foundAt) {
