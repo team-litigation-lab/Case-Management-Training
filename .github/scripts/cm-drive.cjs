@@ -79,7 +79,9 @@ if (driveConfigured({}) || driveConfigured({ GDRIVE_SA_EMAIL: 'x' }) || !driveCo
 if (/accounts\.google\.com\/gsi|initCodeClient|GOOGLE_CLIENT_ID/.test(drive + worker)) fail('A Google sign-in is still in the Backup Drive: it links a shared folder through the service account.');
 if (folderIdOf('https://drive.google.com/drive/folders/1AbC_d-9xYz?usp=sharing') !== '1AbC_d-9xYz' || folderIdOf('https://docs.google.com/document/d/1AbC/edit') !== '')
   fail('A folder link should give its folder id, and a file link none.');
-const listing = (worker.match(/async function driveList[\s\S]*?\n}/) || [''])[0];
+// (driveList hands the walk to worker-drive-walk.js: what is read is what walkDrive asks for)
+const listed = (worker.match(/async function driveList[\s\S]*?\n}/) || [''])[0];
+const listing = /walkDrive\(/.test(listed) ? (fs.readFileSync(path.join(ROOT, 'worker-drive-walk.js'), 'utf8').match(/export async function walkDrive[\s\S]*?\n}/) || [''])[0] : listed;
 if (!/in parents/.test(listing)) fail('The drive is listed without a parent: the platform would read beyond the folder the trainee linked.');
 ok('Google is reached through the service account, in the folder the trainee linked and nowhere else');
 
