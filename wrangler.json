@@ -5,7 +5,7 @@
   "main": "worker.js",
   "triggers": {
     "crons": [
-      "0 7 * * *"
+      "0 * * * *"
     ]
   },
   "assets": {
