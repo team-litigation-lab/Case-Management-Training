@@ -62,7 +62,7 @@ const SEED = [{ id: `pat-pend-${tag}--s`, name: `Pat Pend ${tag}`, batch: BATCH,
     if (home.view !== 'admin' || !home.screen) fail(`the Admin screen did not open in its panel: ${JSON.stringify({ view: home.view, screen: home.screen })}`);
     if (JSON.stringify(home.pills) !== JSON.stringify(PILLS)) fail(`the section pills should be ${PILLS.join(' · ')}: ${home.pills.join(' · ')}`);
     if (home.active[0] !== SC || home.activeTab[0] !== 'scorecards' || home.tab !== 'scorecards') fail(`Admin should open on 🏅 Scorecard → 🏅 Scorecards: ${home.active} / ${home.activeTab} / ${home.tab}`);
-    if (JSON.stringify(home.row) !== JSON.stringify(['scorecards', 'rubric'])) fail(`🏅 Scorecard's tabs should be 🏅 Scorecards first, then 📐 Feedback Rubric, and no 📋 Batch Sheet: ${home.row}`);
+    if (JSON.stringify(home.row) !== JSON.stringify(['scorecards', 'rankreport', 'rubric'])) fail(`🏅 Scorecard's tabs should be 🏅 Scorecards first, then 🏆 Rankings & Progress Report, then 📐 Feedback Rubric, and no 📋 Batch Sheet: ${home.row}`);
     if (/Batch Sheet/.test(home.text.slice(0, 600))) fail('the 📋 Batch Sheet tab is still on the Admin screen');
     if (home.oldGroups) fail('js/cm-case-flow.js grouped the tabs as well (its .cf-admin-secs is on the page)');
     if (home.strips !== 1) fail(`one tab strip, not ${home.strips}`);
