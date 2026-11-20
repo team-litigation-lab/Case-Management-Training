@@ -257,7 +257,7 @@ None.
 | `presenter-slow-load.cjs` | Presenter view on a slow connection: the slides window shows the presenter's slide even when the presenter answers before the page has finished loading |
 | `presenter.cjs` | Presenter view (the slides window shared in Meet never flickers) |
 | `progress-log.cjs` | 📒 My Progress Log on the trainee's dashboard (a dated log of what they did and how it went; ⚠ Needs fixing; no deck utilization) |
-| `rankings-report.cjs` | 🏆 Rankings & Progress Report: ranked by the Overall, the stars, N/A, a red flag and the endorsement tiers right; fits 1366 wide; an edit persists and ↺ Regenerate restores it; Copy/Download make a PNG; a share link opens with no sign-in and holds only the table |
+| `rankings-report.cjs` | 🏆 Rankings & Progress Report: ranked by the batch score (every day the batch reached, a missed day 0), the stars, N/A, a red flag and the endorsement tiers right; fits 1366 wide; an edit persists and ↺ Regenerate restores it; Copy/Download make a PNG; a share link opens with no sign-in and holds only the table |
 | `reference-panel.cjs` | 📖 Additional Reference opens in a panel over the slide, in the same window (no new tab), scrolls inside, and ✕ or Esc goes back |
 | `requests.cjs` | Server requests (sparing, batched, none in the background) |
 | `ring-inject.cjs` | The trainer's injected call rings every trainee; answered or missed, it counts under Case Calls |

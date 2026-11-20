@@ -1,4 +1,4 @@
-// @check browser — 🏆 Rankings & Progress Report: ranked by the Overall, the stars, N/A, a red flag and the endorsement tiers right; fits 1366 wide; an edit persists and ↺ Regenerate restores it; Copy/Download make a PNG; a share link opens with no sign-in and holds only the table
+// @check browser — 🏆 Rankings & Progress Report: ranked by the batch score (every day the batch reached, a missed day 0), the stars, N/A, a red flag and the endorsement tiers right; fits 1366 wide; an edit persists and ↺ Regenerate restores it; Copy/Download make a PNG; a share link opens with no sign-in and holds only the table
 // Admin → 🏅 Scorecard → 🏆 Rankings & Progress Report (js/cm-rankings.js), with five made-up trainees of one batch:
 //   Ann (high everywhere, the UPL item met) · Ben (mid 80s) · Cy (70s) · Dee (high, but a UPL breach) · Eve (nothing yet)
 // 1. the rows are in Overall order and the Overall is cmScorecard.overall's; the tiers: Ann Highly Endorsed, Ben Endorsed,
@@ -41,7 +41,7 @@ const BATCH = 'B112026';
                 __extra: { data: { 'work-log': wl, 'drive-grades': dg }, fb: {}, fbRec: {} } }, extra || {});
         };
         state.isAdmin = true;
-        state.adminData = [mk('cy', 'Cy Coach', 72, 5, 80), mk('eve', 'Eve New', 0, 0, null), mk('ann', 'Ann Top', 96, 5, 95, { nickname: 'Annie' }), mk('dee', 'Dee Flag', 94, 5, 0), mk('ben', 'Ben Mid', 84, 5, 85)];
+        state.adminData = [mk('cy', 'Cy Coach', 72, 5, 80), mk('eve', 'Eve New', 0, 0, null), mk('ann', 'Ann Top', 96, 5, 95, { nickname: 'Annie' }), mk('dee', 'Dee Flag', 94, 5, 0), mk('ben', 'Ben Mid', 84, 5, 85), mk('fay', 'Fay Once', 98, 1, 95)];   // Fay: one day, top marks
         state.adminBatchFilter = ''; if (window.cmRankings) cmRankings.reset();
         state.adminTab = 'rankreport'; goto('admin'); render();
         for (let i = 0; i < 40 && !document.querySelector('#rkSheet .rk-row'); i++) await new Promise(r => setTimeout(r, 250));
@@ -67,12 +67,17 @@ const BATCH = 'B112026';
     if (!/^TRAINEE RANKINGS & PROGRESS REPORT – .+ – CM TRAINING/.test(r.title)) fail(`the title: ${r.title}`);
     if (!r.title.includes(BATCH)) fail(`the title should name the batch ${BATCH}: ${r.title}`);
     if (r.toolbarInSheet) fail('the toolbar should be outside the table that is captured');
-    if (r.rows.length !== 5) fail(`5 trainees expected: ${JSON.stringify(order)}`);
-    const want = Object.entries(r.ov).sort((a, b) => (b[1] == null ? -1 : b[1]) - (a[1] == null ? -1 : a[1])).map(x => x[0]);
-    if (JSON.stringify(order) !== JSON.stringify(want)) fail(`rows should be in Overall order ${JSON.stringify(want)} (${JSON.stringify(r.ov)}): ${JSON.stringify(order)}`);
-    if (r.rows.map(x => x.rank).join(',') !== '1,2,3,4,5') fail(`ranks: ${r.rows.map(x => x.rank)}`);
+    if (r.rows.length !== 6) fail(`6 trainees expected: ${JSON.stringify(order)}`);
+    // the five who worked every day the batch reached are in Overall order (their batch score is their Overall); Fay, one day
+    // at 98%, ranks below all of them (a missed day counts 0: the owner, "only attended 1 day of training and yet he ranks 1")
+    const full = Object.entries(r.ov).filter(([n]) => n !== 'Fay'), want = full.sort((a, b) => (b[1] == null ? -1 : b[1]) - (a[1] == null ? -1 : a[1])).map(x => x[0]);
+    want.splice(want.indexOf('Eve'), 0, 'Fay');
+    if (JSON.stringify(order) !== JSON.stringify(want)) fail(`rows should be in batch-score order ${JSON.stringify(want)} (Overall ${JSON.stringify(r.ov)}): ${JSON.stringify(order)}`);
+    if (r.rows.map(x => x.rank).join(',') !== '1,2,3,4,5,6') fail(`ranks: ${r.rows.map(x => x.rank)}`);
     const by = Object.fromEntries(r.rows.map(x => [first(x.name), x]));
-    Object.entries(r.ov).forEach(([n, v]) => { if (by[n] && v != null && !by[n].overall.startsWith(v + '%')) fail(`${n}'s Overall should be cmScorecard.overall's ${v}%: ${by[n].overall}`); });
+    Object.entries(r.ov).forEach(([n, v]) => { if (n !== 'Fay' && by[n] && v != null && !by[n].overall.startsWith(v + '%')) fail(`${n}'s batch score, every day worked, should be cmScorecard.overall's ${v}%: ${by[n].overall}`); });
+    if (by.Fay && (!new RegExp(`${r.ov.Fay}% on the 1 day scored, of 5`).test(by.Fay.overall) || parseInt(by.Fay.overall, 10) >= 40)) fail(`Fay's cell should show a low batch score and her ${r.ov.Fay}% Overall on the 1 day scored, of 5: ${by.Fay.overall}`);
+    if (by.Fay && !/Far behind the batch/.test(by.Fay.flag)) fail(`Fay should be flagged far behind: ${by.Fay.flag}`);
     if (by.Ann && !/"Annie"/.test(by.Ann.name)) fail(`the nickname in quotes: ${by.Ann && by.Ann.name}`);
     if (by.Ann && !/PASS/.test(by.Ann.overall)) fail(`Ann passes: ${by.Ann.overall}`);
     if (by.Ann && !/^Highly Endorsed/.test(by.Ann.end)) fail(`Ann: Highly Endorsed: ${by.Ann.end}`);
@@ -125,7 +130,7 @@ const BATCH = 'B112026';
     if (png.d !== PNG) fail(`⬇ Download PNG should make a PNG: ${png.d}`);
     if (png.c !== PNG) fail(`📋 Copy as image should make a PNG (clipboard or its download): ${png.c}`);
     if (!(png.w > 1000 && png.h > 300)) fail(`the PNG should be the table at 2×: ${png.w}×${png.h}`);
-    if (png.csvRows !== 3 + 5) fail(`⬇ CSV: the title, the date, the header and a row per trainee: ${png.csvRows} lines`);
+    if (png.csvRows !== 3 + 6) fail(`⬇ CSV: the title, the date, the header and a row per trainee: ${png.csvRows} lines`);
 
     // 5. 🔗 a share link
     await page.evaluate(() => { window.__rkNoConfirm = true; });
@@ -147,7 +152,7 @@ const BATCH = 'B112026';
     const pub = await ap.evaluate(() => ({ rows: document.querySelectorAll('#rkSheet .rk-row').length, foot: (document.querySelector('#rkSheet .rk-foot') || {}).textContent || '',
         edit: document.querySelectorAll('.rk-ed, .rk-regen').length, copy: [...document.querySelectorAll('button')].map(b => b.textContent).join('|'), fit: document.documentElement.scrollWidth <= innerWidth }));
     if (resp && (resp.headers()['x-robots-tag'] || '').indexOf('noindex') < 0) fail(`report.html should be served noindex: ${JSON.stringify(resp.headers())}`);
-    if (pub.rows !== 5) fail(`the shared page should show the 5 rows with no sign-in: ${pub.rows}`);
+    if (pub.rows !== 6) fail(`the shared page should show the 6 rows with no sign-in: ${pub.rows}`);
     if (!/^Shared by LSH · snapshot of .+ · confidential$/.test(pub.foot.trim())) fail(`the shared page's footer: ${pub.foot}`);
     if (pub.edit) fail('the shared page is read-only');
     if (!/Copy as image/.test(pub.copy) || !/Download PNG/.test(pub.copy)) fail(`the shared page offers Copy as image / Download PNG: ${pub.copy}`);
