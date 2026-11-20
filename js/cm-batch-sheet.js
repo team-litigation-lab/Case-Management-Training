@@ -407,6 +407,17 @@ function aiState(r){
   ev.sort((a, b) => a.at.localeCompare(b.at)); const last = ev[ev.length - 1];
   return {any: ev.length > 0, failed: !!(last && !last.ok), why: last && !last.ok ? last.why : ""};
 }
+// 🤖 does the AI work NOW? Trainees' last attempts can all still read "failed" from while it was down: they are graded
+// again by themselves only when each trainee next opens the course (js/cm-auto-grade.js). So before saying "AI grading
+// looks down", the 🤖 AI check (js/cm-ai-check.js) is asked once, quietly, and the page drawn again with its answer:
+// true = it answers (the gateway, or this site's own keys while the gateway refuses), false = it doesn't, null = not known yet
+const aiNow = () => { const c = window.cmAiCheck, r = c && c.state && c.state.res; return r ? !!(r.ok || r.fallback) : null; };
+let aiAsked = false;
+function askAi(){
+  const c = window.cmAiCheck; if(aiAsked || !c || typeof c.run !== "function" || (c.state && c.state.busy)) return;
+  aiAsked = true;
+  Promise.resolve().then(() => c.run()).then(() => { if(typeof render === "function") render(); }).catch(() => {});
+}
 // what an empty cell says instead of nothing: why this trainee has no grade there
 const whyNone = (r, id) => { if(id === "sa" || id === "pa"){ const a = aiState(r); return a.failed ? `grading failed: ${a.why}` : "not graded yet"; } return "not done yet"; };
 const noneCell = (r, id, f) => { const w = whyNone(r, id); return {v: w, csv: w, f: f || w, cls: "gs-num bs-why", html: `<small class="bs-why">${E(w)}</small>`}; };
@@ -507,8 +518,11 @@ function scoresSheet(rows){
   const K = KINDS.filter(([, ids]) => per.some(p => kindAvg(p.sc, ids).a != null)), none = KINDS.filter(k => !K.includes(k));
   // (🤖 every trainee's newest AI Grader attempt failed: the AI grading is down, the 🤖 AI check says why)
   const ai = per.map(p => aiState(p.r)).filter(a => a.any), down = ai.length > 0 && ai.every(a => a.failed);
+  const now = down ? aiNow() : null, waiting = ai.filter(a => a.failed).length;
+  if(down && now === null) askAi();
   const T = {id: "scores", title: "🏅 Scores", order: per.map(p => p.x),
-    warn: down ? `AI grading looks down: every trainee's latest Skill Activity grading failed (${ai[0].why}). Run 🤖 the AI check (⚡ Run now) to see why.` : "",
+    warn: down && now === false ? `AI grading looks down: every trainee's latest Skill Activity grading failed (${ai[0].why}). Run 🤖 the AI check (⚡ Run now) to see why.` : "",
+    info: down && now === true ? `🤖 AI grading works again (the AI check passed). ${waiting} trainee${waiting === 1 ? "'s" : "s'"} last grading failed while it was down: each is graded again by itself the next time that trainee opens the course.` : "",
     none: none.length ? `No results yet: ${none.map(k => k[0].replace(/ %$/, "")).join(", ")}.` : "",
     note: "Click a trainee for their card. Hover a day for each thing they did that day, with its score; hover ✍️ Knowledge Checks for each day's best, attempts and pass.",
     foot: `What each column measures: Day 1–5 = the day's score (100-point model) · its slides · its work; ${K.map(k => `${k[0].replace(/ %$/, "").replace(/^\S+ /, "")} = ${k[3]}`).join("; ")}; Overall = the 100-point model's Final; Result = a pass at ${M.PASS}% with the safety gate at 100%.`,
@@ -594,6 +608,7 @@ function snapshot(x){
   return {name: nameOf(r), overall: o ? o.pct : null, result: o ? (M.STATUS[o.status] || "") : "", pass: !!(o && o.status === "pass"), days, missing};
 }
 window.cmBatchSheet = {
+  _askAiAgain: () => { aiAsked = false; },   // (checks: the quiet AI check is asked once a page; this lets a check ask again)
   scoresSheet, feedbackHtml, csvTables, download, recOf, eventsOf, snapshot,
   fbOpen(k, open){ B.fbOpen[k] = !!open; },
   // 👥 duplicate accounts: drawn on 🛡 Admin Master Control → 👥 Trainee Audit (js/cm-audit-table.js)
@@ -688,6 +703,7 @@ css.textContent = `
 .scx-card .bs-foot{margin:8px 0 0;} .scx-card .bs-none-line{margin:4px 0 0;color:#5F6368;font:600 14px Arial,sans-serif;}
 .scx-card td.bs-why small.bs-why, .scx-card td.bs-why{color:#5F6368;font-weight:600;white-space:normal;}
 .scx-card .bs-warn{margin:6px 0 8px;padding:8px 12px;border:2px solid #B42318;border-radius:8px;background:#FDECEC;color:#7A1A12;font:700 15px Arial,sans-serif;}
+.scx-card .bs-info{margin:6px 0 8px;padding:8px 12px;border:2px solid #1d7a46;border-radius:8px;background:#EAF6EF;color:#14532d;font:700 15px Arial,sans-serif;}
 .scx-card .bs-warn button{margin-left:8px;font:800 14px Arial,sans-serif;border:2px solid #B42318;background:#fff;color:#7A1A12;border-radius:6px;padding:3px 10px;cursor:pointer;}
 /* headers wrap between words only (main's overflow-wrap:anywhere broke "Knowledg-e"); a column is as wide as its words */
 .scx-card .gs th, .scx-card .gs td{overflow-wrap:normal !important;word-break:normal !important;hyphens:none;}
