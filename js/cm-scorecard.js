@@ -636,7 +636,7 @@ function cardHtml(r, me){
       ${pills.map(([l, v, f]) => `<span class="bs-pt-k ${MODEL.mtone(v)}" title="${E(f)}">${E(l)} <b>${mpct(v)}</b></span>`).join("")}
       <span class="bs-pt-k bs-pt-r ${rtone}" title="Pass = Final ≥ ${MODEL.PASS}% and the safety gate at 100%">${m.tier ? E(m.tier.label) + " · " : ""}<b>${E(MODEL.STATUS[m.status])}</b></span></div>
     ${focusHtml(m)}
-    <div class="bs-pt-wrap">${daysTable(m, r.c)}${!me && window.cmBatchSheet && cmBatchSheet.feedbackHtml ? cmBatchSheet.feedbackHtml(r) : ""}
+    <div class="bs-pt-wrap">${daysTable(m, r.c)}${!me && window.cmSendProgress ? cmSendProgress.cardHtml(r) : ""}${!me && window.cmBatchSheet && cmBatchSheet.feedbackHtml ? cmBatchSheet.feedbackHtml(r) : ""}
       <details class="bs-pt-src bs-pt-how"><summary>▸ How this is scored (the 100-point model, the CMS case file, every graded item)</summary>
         ${modelTable(m)}${window.cmCmsFile ? cmCmsFile.html(cmCmsFile.compute(r.c), me) : ""}${window.cmRubric ? profileTable(r.sc) : ""}
         ${sheetHtml(Object.assign(detailSheet(r.sc, me ? "" : r.name), {id: "detail-" + domId(r.id)}))}
@@ -771,6 +771,7 @@ window.cmScorecard = {
   // on screen until the fresh ones come (clearing them blanked the trainer's page mid-read)
   invalidate(){ if(ALL.rows) ALL.at = 0; else ALL.rows = null; },
   reload: () => loadAll(),   // the background reload, now (the once-a-minute one)
+  rows: () => ALL.rows || [], shown: () => shownRows(),   // the trainees read, and the ones the batch picked shows (js/cm-send-progress.js)
   // a row of 🏅 Scores: that trainee's card (shown if only another one was), scrolled to
   pick(id){ ALL.pick = id; if(ALL.only && ALL.only !== id) ALL.only = id; render();
     setTimeout(() => { const d = document.getElementById("bs-pt-" + domId(id)); if(d) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
