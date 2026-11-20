@@ -177,10 +177,23 @@ published extra questions (`extraquiz:day<N>`) are scored too. The score, pass a
 a different score the page sent is kept beside it as `claimed`, and an attempt with no picks, or fewer than the day's
 questions, is not recorded. The Case Flow summary's modules (`trainee:<id>.caseFlow.days[n].modules`, which the Portal's
 Trainee Monitoring reads) are worked out there too: the trainer's 40% (`t`) only from `feedback:<id>.caseFlow.<module>.score`,
-which only a trainer writes (and a trainer's save of it reaches the record at once), and the Composite `c = a × 0.6 + t × 0.4`.
-**The one part still reported by the device is the AI half of `a`** (the AI's score of the written answers, averaged with
-the module's share of the quiz): the Worker doesn't keep the AI's answer, so it can't check it. `kc-score.cjs` (node) and
-`kc-key-page.cjs` (browser) check it.
+which only a trainer writes, and the Composite `c = a × 0.6 + t × 0.4`. A trainer's save of the 40% is never written back
+into `trainee:<id>` (a whole-record write from a copy up to a minute stale would roll back the trainee's newer work): every
+read of the record through this Worker lays it over the modules at once (`layTrainerScores`), and the trainee's next save
+records it, which is when the Portal, reading the record straight from KV, shows it. A day whose official attempt has no
+picks to re-score (taken before picks were kept, or a score a trainer restored) keeps its modules' `a` as the record held
+it, else the device's, marked `aUnverified`. **The one part still reported by the device is the AI half of `a`** (the AI's
+score of the written answers, averaged with the module's share of the quiz): the Worker doesn't keep the AI's answer, so it
+can't check it. `kc-score.cjs`, `trainer-save-no-rollback.cjs`, `kc-legacy-modules.cjs` (node) and `kc-key-page.cjs`
+(browser) check it.
+
+**Known limit: the key is still on the page.** The quiz data the page is served (`js/cm-case-flow-data.js`, each question's
+`a` and `r`) holds every right answer, because the game grades each pick as it is made (right/wrong, the 50:50 and
+audience lifelines, the Ready check's "try again", the Answer Review after a pass). So the Worker's scoring stops a forged
+*score* (a number that doesn't match its picks), but not forged *picks*: a trainee who reads the page source can still send
+perfect picks as their first attempt, and it is recorded as a real 100. Closing it means taking `a` and `r` off the page and
+having the Worker grade each pick as it is made (as FT keeps `ASSESS_KEYS` on its Worker), which changes how the game plays:
+a decision for the program owner, not made here.
 
 ### Day cards say where the trainee is
 
