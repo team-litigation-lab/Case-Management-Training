@@ -24,6 +24,7 @@ import { DRIVE_WORK_ACTIONS, driveWorkApi, driveWorkNightly, workBrief, workView
 import { driveFind, listedOf, setupOf } from "./worker-drive-found.js";
 import { accountMergeApi, kcRestoreApi } from "./worker-account-repair.js";   // 👥 two accounts of one trainee merged on the Worker (/api/account-merge); 🛠 one account's missing KC scores restored (/api/kc-restore)
 import { identity, uidKey, afterMerge, afterMergeProgress, keepMergeStored, orphanWrite, aliasKey, aliasAtSignIn, aliasPlan, aliasApply, kcExtras, scoredAttempt, trainerScoresAt, layTrainerScores } from "./worker-identity.js";   // 🪪 who a sign-in opens (the uid index, merged: redirects) and what keeps a trainee's records whole
+import { certNameOf } from "./worker-cert-name.js";   // 🎓 the name a trainee's own certificate record is issued in: the one the certificate shows
 /* ---------- KV with the "cm:" namespace prefix ---------- */
 const KV_PREFIX = "cm:";
 /* ---------- what the trainer owns in a trainee's records ----------
@@ -650,7 +651,9 @@ async function traineeWrite(env, tok, key, value) {
     if ((incoming && incoming.traineeId) !== id || existing) return "Not allowed";
     let who = null; try { who = JSON.parse((await kv.get(`trainee:${id}`)) || "null"); } catch (e) { /* no record */ }
     if (!who || who.approved !== true || who.archived) return "Not allowed";
-    const rec = Object.assign({}, incoming, { traineeId: id, name: who.name || incoming.name || "", batch: who.batch || "", issuedBy: "self", issuedAt: new Date().toISOString() });
+    // (🎓 in the name the certificate shows, as a trainer's issue is: worker-cert-name.js)
+    let cs = null; try { cs = JSON.parse((await kv.get("settings:certificate")) || "null"); } catch (e) { /* the default order */ }
+    const rec = Object.assign({}, incoming, { traineeId: id, name: certNameOf(who, cs) || who.name || "", batch: who.batch || "", issuedBy: "self", issuedAt: new Date().toISOString() });
     await kv.put(key, JSON.stringify(rec)); return null;
   }
   return "Not allowed";
@@ -2078,6 +2081,10 @@ export default {
         // the full name as registered on the Portal (with a middle name or initial), kept beside the record's name
         if (out.existing && who.full && who.full !== who.name && out.existing.fullName !== who.full) {
           out.existing = Object.assign({}, out.existing, { fullName: who.full });
+          await ownerPut(kv, `trainee:${out.id}`, JSON.stringify(out.existing));
+        } else if (out.existing && who.full && who.full === who.name && "fullName" in out.existing) {
+          // (the Portal corrected the registered name to the first + last name alone: the old full name goes)
+          out.existing = Object.assign({}, out.existing); delete out.existing.fullName;
           await ownerPut(kv, `trainee:${out.id}`, JSON.stringify(out.existing));
         }
         // 🔗 the Portal files this trainee's simulator results and graded calls under its own id for them (their name + batch:

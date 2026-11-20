@@ -121,7 +121,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (56)
+## Node checks (57)
 
 | Check | What it covers |
 |---|---|
@@ -147,6 +147,7 @@ None.
 | `drive-naming.cjs` | The firm's file naming convention on the Backup Drive (one rule with the CMS filing; every name checked, each wrong one with the name it should have) |
 | `drive-trainer-access.cjs` | A trainee's linked Google Drive opens at their case folders, for them and for a trainer (rootUrl/caseUrl, GDRIVE_TRAINER_EMAILS added to the folder without an email) |
 | `drive-work.cjs` | The trainee's written work on the Backup Drive is AI-graded nightly against its activity's rubric, and a trainer's override wins (in-memory Drive, stubbed AI) |
+| `full-name-cert.cjs` | 🎓 The registered full name: a Portal sign-in whose full name is now just the first + last name clears the old fullName, and a trainee's own certificate record is issued in the name the certificate shows (as a trainer's issue is) |
 | `inventory.cjs` | The code inventory (docs/INVENTORY.md) is in step with the files: run node build/inventory.cjs after adding, removing or renaming one |
 | `john-doe-figures.cjs` | John Doe's money trail follows the Day 2 deck (PIP $10,000 gone in 48 hours on ER and EMS bills, $41,400 of bills, Dr. Sarah Spine's EMC) and adds up to the cent; no retired figure (PIP $5,000, Specials $16,401.40, …) comes back anywhere the course, its documents or its checks say it |
 | `kc-forge-guards.cjs` | 🛡 A Knowledge Check pass can't be forged or slipped past a trainer: a "done" with no score, a Case Flow summary naming another day's id, a trainer's stale copy after a merge, a restore or merge confirm whose device-only scores changed since the preview; and a merged-away id's orphan backups still reach the kept account |
