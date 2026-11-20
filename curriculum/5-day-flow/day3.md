@@ -868,7 +868,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 #### 1 · Visual Layout Description
 
-Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange; questions 4 and 6 each carry a small red PRESSURE chip. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, and beside it the 1–5 SKILL SCALE as a five-step horizontal ladder with the six competency rows beneath. Far right, a slim vertical strip shows the 60/40 split as a stacked bar, 60% AI in navy and 40% Trainer in orange, with UPL as a separate red gate chip below and outside the bar, to show it is not part of the weighting.
+Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange; question 3, Keystone's pushback, carries a small red PRESSURE chip. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, and beside it the 1–5 SKILL SCALE as a five-step horizontal ladder with the six competency rows beneath. Far right, a slim vertical strip shows the 60/40 split as a stacked bar, 60% AI in navy and 40% Trainer in orange, with UPL as a separate red gate chip below and outside the bar, to show it is not part of the weighting.
 
 #### 2 · Slide Body — Knowledge verification
 
@@ -974,7 +974,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 #### 1 · Visual Layout Description
 
-Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, seven questions numbered in orange, the pressure question (⑥) set apart on a red-bordered card. Lower half, below a full-width orange hairline: the CM LEARNING SUMMARY on a navy card with white type holding three prompts, and beside it the 1–5 SELF-SCALE as a five-step horizontal ladder with six competency rows beneath. Far right, a slim vertical strip shows the 60/40 split as a stacked bar, 60% AI in navy and 40% Trainer in orange, with UPL as a separate red gate chip below and outside the bar.
+Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, three questions numbered in orange, the pressure question (②) set apart on a red-bordered card. Lower half, below a full-width orange hairline: the CM LEARNING SUMMARY on a navy card with white type holding three prompts, and beside it the 1–5 SELF-SCALE as a five-step horizontal ladder with six competency rows beneath. Far right, a slim vertical strip shows the 60/40 split as a stacked bar, 60% AI in navy and 40% Trainer in orange, with UPL as a separate red gate chip below and outside the bar.
 
 #### 2 · Slide Body — Knowledge verification
 
@@ -1083,7 +1083,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 #### 1 · Visual Layout Description
 
-Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange; question 6 carries a small red PRESSURE chip. Lower half: the CM SELF-SUMMARY on a navy card with white type, three prompts, beside the 1–5 SKILL SCALE as a five-step ladder with six competency rows. A slim right strip: 60/40 stacked bar (AI navy, Trainer orange), UPL a separate red gate chip below it. Between the halves, a LIEN TRACKER STRIP, two rows across four cells headed ASSERTED · AUDITED · REDUCED · IN WRITING: Peach State $1,860.00 · $1,860.00 · $1,240.00 · ✓ and Riverton Spine & Rehab $6,290.00 · $6,105.00 · $4,580.00 · ✓. The trainee checks their own answers against the strip before submitting.
+Split layout. Upper half: the knowledge-check panel on the warm cream card with the orange ruled border, questions numbered in orange; question 2, the fully insured plan, carries a small red PRESSURE chip. Lower half: the CM SELF-SUMMARY on a navy card with white type, three prompts, beside the 1–5 SKILL SCALE as a five-step ladder with six competency rows. A slim right strip: 60/40 stacked bar (AI navy, Trainer orange), UPL a separate red gate chip below it. Between the halves, a LIEN TRACKER STRIP, two rows across four cells headed ASSERTED · AUDITED · REDUCED · IN WRITING: Peach State $1,860.00 · $1,860.00 · $1,240.00 · ✓ and Riverton Spine & Rehab $6,290.00 · $6,105.00 · $4,580.00 · ✓. The trainee checks their own answers against the strip before submitting.
 
 #### 2 · Slide Body — Knowledge verification
 

@@ -63,7 +63,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m1-open": {
   "task": {
-   "say": "• Start the matter in New Case; run and record the Conflict Check on every party's full legal name first\n• Check the draft field by field against the documents: date of loss, names, roles, position, date of birth, report number\n• Fix each error and note its source; never fix silently\n• Calendar the 02/06/2028 deadline with reminders; map six roles; log retainer and HIPAA; file documents named the firm's way\n• Insurance checkpoint: each layer in order, first- or third-party, every field or its gap, each limit's source, PIP outside the stack\n• Send Atty. Thorne a correction note in Case Notes"
+   "say": "• Start the matter in New Case; run and record the Conflict Check on every party's full legal name first\n• Check the draft field by field against the documents: date of loss, names, roles, position, date of birth, report number\n• Fix each error and note its source; never fix silently\n• Calendar the 02/06/2028 deadline with reminders; map six roles; log retainer and HIPAA; file documents named the firm's way\n• Insurance: each layer in order, first- or third-party, every gap recorded with a follow-up, no limit guessed, PIP outside the stack\n• Send Atty. Thorne a correction note in Case Notes"
   },
   "case": {
    "say": "• 02/09/2026: email from On the Records; new client John Doe, front-seat passenger, collision 02/06/2026 at Maple Hollow Rd and Birch Ave\n• Attached: New Client Intake Sheet, intake supplement, retainer, signed HIPAA authorization, Riverton PD crash report\n• A colleague's draft intake record is already in the CMS, and it has mistakes\n• Atty. Thorne wants the matter active today"
@@ -322,13 +322,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m4-a2": {
   "task": {
-   "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, record the stack in order with a preliminary projection\n• And put the Treatment Gap, counted from the records, at the top of the risks band\n• Step 2: Under the gap, list the causes to investigate as questions for John Doe\n• Step 3: Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne"
+   "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, record the stack in order with a preliminary projection\n• And put the Treatment Gap, counted from the records, at the top of the risks band\n• Step 2: Under the gap, record John Doe's account from the 03/04 recorded call as his, the documents behind it marked requested\n• Step 3: Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne"
   },
   "case": {
-   "say": "• Assuming the set-up is in, the $40,000 stack verified and the first treatment records on file, Atty. Thorne now needs the Case Plan\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Case Plan routed to Atty. Thorne, the filing window docketed"
+   "say": "• Assuming the set-up is in, the $40,000 stack verified and the first treatment records on file, Atty. Thorne now needs the Case Plan\n• John's account of the gap from the 03/04 recorded call is on file too\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Case Plan routed to Atty. Thorne, the filing window docketed"
   },
   "check": {
-   "say": "• Submit: they submit the entry they logged; graded on the three steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Order BI › Host UM › Relative UM; projection preliminary; Risks band: the gap, counted from the records, first\n• And: Causes to investigate listed as questions; Plan routed to Atty. Elijah Thorne\n• The one thing to watch for: a projection stated as a number before coverage is confirmed"
+   "say": "• Submit: they submit the entry they logged; graded on the three steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Order BI › Host UM › Relative UM; projection preliminary; Risks band: the gap, counted from the records, first\n• And: John's 03/04 account recorded as his, documents requested; Plan routed to Atty. Elijah Thorne\n• The one thing to watch for: a projection stated as a number before coverage is confirmed"
   }
  },
  "d1m4-kc": {
@@ -368,13 +368,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m1-a1": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub › Others, draft three letters of representation and two notices\n• Each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages\n• Step 2: Route the set to Atty. Thorne for signature, send each by the carrier's preferred method, and calendar a check for each acknowledgement"
+   "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance, complete each layer from the claim calls, each limit with its source, still preliminary\n• Step 2: In CMS › Doc Hub › Others, draft three letters of representation and two notices\n• Each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages\n• Step 3: Route the set to Atty. Thorne for signature, send each by preferred method, calendar each acknowledgement check\n• As each written answer arrives, record that layer's verification status with its document and date"
   },
   "case": {
    "say": "• Assuming claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, no adjuster assigned\n• Five letters must go out on 02/17/2026\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: five letters signed, sent and logged, follow-ups calendared"
   },
   "check": {
-   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Cardinal State: “Attn: Claims Department”; Correct insured on each; Keystone: John Doe's name only\n• And: No UM letter asks for payment; All signed and sent 02/17/2026\n• The one thing to watch for: One letter copied five times, insured left as Robert Smith"
+   "say": "• Submit: they submit the entry they logged; graded on the three steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Cardinal State: “Attn: Claims Department”; Correct insured on each; Keystone: John Doe's name only\n• And: No UM letter asks for payment; All signed and sent 02/17/2026\n• The one thing to watch for: One letter copied five times, insured left as Robert Smith"
   }
  },
  "d2m1-l2": {
@@ -783,7 +783,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m1-a1": {
   "task": {
-   "say": "• First the Specials audit: PIP and MedPay bill by bill, billed beside paid, wages once verified; then the Gap Record from filed notes\n• Audit the draft against the Big Four and Final Scrub in the Action Plan Editor\n• Log each deficiency as an assigned CMS task; don't fix it quietly\n• Assemble with the gap on page one; once signed, email Dana Whitfield from the Email Workspace and log it\n• Docket the deadline from her written acknowledgement dated 07/22/2026, with reminders\n• Live call: confirm receipt and 08/21/2026, no extension, log her requests in her exact words"
+   "say": "• First re-check the pre-demand audit: PIP and MedPay bill by bill, billed beside paid, wages as verified, the 07/01 Gap Record against the notes\n• Audit the draft against the Big Four and Final Scrub in the Action Plan Editor\n• Log each deficiency as an assigned CMS task; don't fix it quietly\n• Assemble with the gap on page one; once signed, email Dana Whitfield from the Email Workspace and log it\n• Docket the deadline from her written acknowledgement dated 07/22/2026, with reminders\n• Live call: confirm receipt and 08/21/2026, no extension, log her requests in her exact words"
   },
   "case": {
    "say": "• Monday 07/20/2026: Atty. Thorne wants the Keystone BI demand audited and sent today\n• Dana Whitfield, Keystone Mutual, claim KM-26-440871\n• Approved terms: $10,000 limits, Limited Release of Smith and Keystone only, Smith's affidavit, 30 days from receipt\n• On file: MMI 06/12/2026, Dr. Reyes's Causation Letter, the Gap Explanation Record; Specials $42,984.00\n• The demand specialist's draft has problems; audit it and log every deficiency as a task"
@@ -1362,7 +1362,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m3-l2": {
   "theory": {
-   "say": "• The Mediation Binder persuaded; the Arbitration Binder is evidence: a trial-ready record for a private judge who decides\n• On 04/05/2027 Harbor Point and Cardinal State took up Keystone's gap argument; Laura Whitcomb, Esq. decides damages, bindingly\n• Everything counts back from the 06/02/2027 exchange: a page missing, unreadable, grayscale or not exchanged by then can be excluded, with no second chance\n• The Case Manager's role is operational: timelines, scheduling, documents, with precision\n• The brief deadline is the cutoff for claims, exhibit indexes and witness lists, to the arbitrator and opposing counsel\n• Arbitration submissions set the ground rules, so they lead the binder"
+   "say": "• The Mediation Binder persuaded; the Arbitration Binder is evidence: a trial-ready record for a private judge who decides\n• On 04/05/2027 Harbor Point, and on 04/12/2027 Cardinal State, took up Keystone's gap argument; Laura Whitcomb, Esq. decides damages, bindingly\n• Everything counts back from the 06/02/2027 exchange: a page missing, unreadable, grayscale or not exchanged by then can be excluded, with no second chance\n• The Case Manager's role is operational: timelines, scheduling, documents, with precision\n• The brief deadline is the cutoff for claims, exhibit indexes and witness lists, to the arbitrator and opposing counsel\n• Arbitration submissions set the ground rules, so they lead the binder"
   },
   "frame": {
    "say": "• Tab one, submissions: snapshot sheet, final brief, governing order or agreement, fee disclosures; tab two: current demand and written positions only\n• Tab three, liability and biomechanics (the physics of the crash): certified Police Report, diagrams, color photos and stills\n• Tab four, medical damages: consolidated ledger, provider records and bills, imaging, the causation opinion\n• Tab five, prior medical shield: prior injury records and work history with a medical opinion\n• Tab six, economic losses: wage-loss proof only; no miscellaneous tab"
@@ -1463,7 +1463,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m4-kc": {
   "questions": {
-   "say": "• Learning Check: answer from this file, in own words, under each question\n• Q1: the three bottleneck families, this file's example of each and the hard date threatened\n• Q2: Rule 1 on Keystone: follow-ups, the 48-Hour Mandate escalation, the hand-off to Atty. Thorne, every date\n• Q3: Keystone's representative arrives 03/18/2027 without authority to pay $10,000: what failed earlier, and the countermeasure\n• A full answer names the rule, the date and what gets sent"
+   "say": "• Learning Check: answer from this file, in own words, under each question\n• Q1: the three bottleneck families, this file's example of each and the hard date threatened\n• Q2: the 48-Hour Mandate on Keystone: follow-ups, the escalation, the hand-off to Atty. Thorne, every date\n• Q3: Keystone's representative arrives 03/18/2027 without authority to pay $10,000: what failed earlier, and the countermeasure that should have been set, with its date\n• A full answer names the countermeasure, the date and what gets sent"
   },
   "summary": {
    "say": "• Self-Summary: seeing a bottleneck before it bites, the principles, not the clicks\n• Strategy: 05/24/2027, five problems open; name the first action and why it beats the easiest\n• Then the one thing least sure of, and what would build confidence\n• A carrier call about the gap: take the message, say Atty. Thorne will respond, log it"
@@ -1608,7 +1608,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Self-Summary: what was learned preparing a client to testify; principles, not clicks\n• Warm-up: John resurfaces 02/03/2027, fifteen days out; his new number into the CMS, the audit to Atty. Thorne\n• Strategy: John testifies 02/18/2027; the next action on the file, and why that one\n• Then the one thing least sure of"
   },
   "scale": {
-   "say": "• Skill Scale: rate each competency 1 to 5, then submit; wide gaps with scores get discussed\n• Question 5 is the UPL gate: the unauthorized practice of law, a non-lawyer giving legal advice\n• Any reply giving John content about the gap fails the module; the right reply routes and logs his question in his words",
+   "say": "• Skill Scale: rate each competency 1 to 5, then submit; wide gaps with scores get discussed\n• UPL is the gate: the unauthorized practice of law, a non-lawyer giving legal advice\n• Any answer that has the Case Manager prepare John's testimony fails the module; Question 3's risk is surfaced for Atty. Thorne, never rehearsed with John",
    "ask": "Where would you honestly rate your routing under pressure right now?"
   }
  },
@@ -1655,10 +1655,10 @@ window.CM_CF_SCRIPTS = {
    "say": "• Final Comprehensive Knowledge Check, spanning all five days; answers from John Doe's file: names, dates, figures\n• The Recovery Stack, the order insurance money is tapped, with limits and total; three coverages outside it; the Payer Order\n• When the 07/20/2026 BI demand's window closed, and why; on Track A, what UM carriers must give before BI release\n• Track A: reconcile $40,000.00 to $20,359.92, deduction by deduction, with costs and liens split by stream"
   },
   "summary": {
-   "say": "• Question 7: John asks how to explain the gap; listen, say Atty. Thorne will go through it, escalate, log\n• Question 4: $40,000.00 less $13,333.33 fee, $486.75 costs, $1,240.00 and $4,580.00 liens: $20,359.92\n• Self-Summary: the principles across all five days; strategy: counter-package with Atty. Thorne, mediation set 03/18/2027, next action\n• Then the one thing least sure of across the Case Flow"
+   "say": "• Question 2: the window ran from the 07/22/2026 written acknowledgement; both UM consents in writing before the BI release\n• Question 3: $40,000.00 less $13,333.33 fee, $486.75 costs, $1,240.00 and $4,580.00 liens: $20,359.92\n• Self-Summary: the principles across all five days; strategy: counter-package with Atty. Thorne, mediation set 03/18/2027, next action\n• Then the one thing least sure of across the Case Flow"
   },
   "scale": {
-   "say": "• Skill Scale: rate each competency across all five days 1 to 5, then submit for review\n• Ratings are compared with scores; honest ratings are where coaching starts\n• UPL is a gate, not a weight: a 5 on UPL from someone who coached John in Question 7 doesn't pass",
+   "say": "• Skill Scale: rate each competency across all five days 1 to 5, then submit for review\n• Ratings are compared with scores; honest ratings are where coaching starts\n• UPL is a gate, not a weight: a 5 on UPL from someone whose answers give John legal advice doesn't pass",
    "ask": "Across all five days, which competency rating surprised you most?"
   }
  },
@@ -1698,7 +1698,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Track B Close-Out Check: John Doe's file is closed, intake to award; answers from the file, in own words\n• Question 1: take the $40,000.00 award to $14,713.75, every deduction with figure and source\n• Question 2: why the fee is 40%, which document says so, who confirms it\n• Question 3: Peach State $1,240.00 on Track A, $1,116.00 on Track B; show both reductions and why they differ"
   },
   "summary": {
-   "say": "• Self-Summary: the principles behind a litigated Net Sheet, not the clicks\n• Strategy: the award is in and both UM checks are in trust; next action before the 07/30/2027 disbursement, and why\n• Then the one thing least sure of\n• Question 5 is the UPL gate: arithmetic yes, opinion no; saying the suit was or wasn't worth it crosses the line"
+   "say": "• Self-Summary: the principles behind a litigated Net Sheet, not the clicks\n• Strategy: the award is in and both UM checks are in trust; next action before the 07/30/2027 disbursement, and why\n• Then the one thing least sure of\n• UPL is the gate: arithmetic yes, opinion no; saying the suit was or wasn't worth it crosses the line"
   },
   "scale": {
    "say": "• Skill Scale: rate each competency 1 to 5, then submit for review; wide gaps with scores get discussed\n• Skills: the retainer's fee tier, costs with receipts, reducing liens, explaining a Net Sheet without advice\n• The award doesn't grade the work; the Net Sheet does\n• One more file to close next: Denise Harlow's Dropped Case",
@@ -1707,7 +1707,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m6-l1": {
   "why": {
-   "say": "• Dropped Case: a claim the firm stops pursuing before it resolves; John Doe's file never gets here\n• Atty. Thorne talks to the client first; the letter only confirms it\n• Withdrawal Letter: formal notice the lawyer-client relationship has ended\n• Done carelessly, a drop confuses the client and exposes the firm; done right, the file proves everyone was told\n• Red flag: a carrier letter saying Denise stopped treating. Only the client's letter carries the reason, in Atty. Thorne's words; elsewhere it's a defect"
+   "say": "• Dropped Case: a claim the firm stops pursuing before it resolves; John Doe's file never gets here\n• Atty. Thorne talks to the client first; the letter only confirms it\n• Withdrawal Letter: formal notice the lawyer-client relationship has ended\n• Done carelessly, a drop confuses the client and exposes the firm; done right, the file proves everyone was told\n• Red flag: a carrier letter saying the client stopped treating. Only the client's letter carries the reason, in Atty. Thorne's words; elsewhere it's a defect"
   },
   "rules": {
    "say": "• Six steps in order; 1, the gate: status Pending Drop and a note the client was told; either missing, nothing goes out\n• 2: a Withdrawal Letter for every party over Atty. Thorne's signature, saved in Word and PDF; 3: send each by its method\n• 4: annotate party, method, date, save the sent letter; 5: follow up on receipt\n• 6: switch the status to Dropped and keep the proof\n• An unresponsive client reaches this only through the No Contact Protocol"
@@ -1726,10 +1726,10 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m6-kc": {
   "questions": {
-   "say": "• Knowledge Check from the practice matter, in own words; each answer needs a name, date or method from the file\n• Question 1: the two things confirmed before any Withdrawal Letter goes out, and why both matter\n• Question 2: what goes in Denise Harlow's letter but not Granite Shield's or Brookside's, and why\n• Question 3: letters out 12/09/2026; what must be true before Dropped, and what proof stays"
+   "say": "• Knowledge Check on the six-step close-out, in own words; each answer names the step, the party or the method\n• Question 1: the two things confirmed before any Withdrawal Letter goes out, and why both matter\n• Question 2: what goes in the client's letter but not the carrier's or the provider's, and why\n• Question 3: letters out; what must be true before Dropped, and what proof stays"
   },
   "summary": {
-   "say": "• Self-Summary: the principles behind closing a Dropped Case, not the clicks\n• Strategy: Denise's return receipt isn't back by 12/16/2026; the next action, and why that one\n• Then the one thing least sure of\n• Explaining the drop, or advising Denise beyond what Atty. Thorne approved, crosses into his territory"
+   "say": "• Self-Summary: the principles behind closing a Dropped Case, not the clicks\n• Strategy: the client's return receipt isn't back a week later; the next action, and why that one\n• Then the one thing least sure of\n• Explaining the drop, or advising the client beyond what Atty. Thorne approved, crosses into his territory"
   },
   "scale": {
    "say": "• Last Skill Scale of the course: rate each skill 1 to 5, then submit for review\n• Skills: the Pending Drop gate, a letter for each party, choosing and logging send methods, closing with proof and no advice\n• Ratings are compared with answers; a wide gap is a conversation, not a grade\n• First real file: find the detail that could cost the client money, document it, take it to the attorney same day",

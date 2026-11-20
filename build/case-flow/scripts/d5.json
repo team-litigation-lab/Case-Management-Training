@@ -178,7 +178,7 @@
       "say": "• Self-Summary: what was learned preparing a client to testify; principles, not clicks\n• Warm-up: John resurfaces 02/03/2027, fifteen days out; his new number into the CMS, the audit to Atty. Thorne\n• Strategy: John testifies 02/18/2027; the next action on the file, and why that one\n• Then the one thing least sure of"
     },
     "scale": {
-      "say": "• Skill Scale: rate each competency 1 to 5, then submit; wide gaps with scores get discussed\n• Question 5 is the UPL gate: the unauthorized practice of law, a non-lawyer giving legal advice\n• Any reply giving John content about the gap fails the module; the right reply routes and logs his question in his words",
+      "say": "• Skill Scale: rate each competency 1 to 5, then submit; wide gaps with scores get discussed\n• UPL is the gate: the unauthorized practice of law, a non-lawyer giving legal advice\n• Any answer that has the Case Manager prepare John's testimony fails the module; Question 3's risk is surfaced for Atty. Thorne, never rehearsed with John",
       "ask": "Where would you honestly rate your routing under pressure right now?"
     }
   },
@@ -251,16 +251,16 @@
       "say": "• Final Comprehensive Knowledge Check, spanning all five days; answers from John Doe's file: names, dates, figures\n• The Recovery Stack, the order insurance money is tapped, with limits and total; three coverages outside it; the Payer Order\n• When the 07/20/2026 BI demand's window closed, and why; on Track A, what UM carriers must give before BI release\n• Track A: reconcile $40,000.00 to $20,359.92, deduction by deduction, with costs and liens split by stream"
     },
     "summary": {
-      "say": "• Question 7: John asks how to explain the gap; listen, say Atty. Thorne will go through it, escalate, log\n• Question 4: $40,000.00 less $13,333.33 fee, $486.75 costs, $1,240.00 and $4,580.00 liens: $20,359.92\n• Self-Summary: the principles across all five days; strategy: counter-package with Atty. Thorne, mediation set 03/18/2027, next action\n• Then the one thing least sure of across the Case Flow"
+      "say": "• Question 2: the window ran from the 07/22/2026 written acknowledgement; both UM consents in writing before the BI release\n• Question 3: $40,000.00 less $13,333.33 fee, $486.75 costs, $1,240.00 and $4,580.00 liens: $20,359.92\n• Self-Summary: the principles across all five days; strategy: counter-package with Atty. Thorne, mediation set 03/18/2027, next action\n• Then the one thing least sure of across the Case Flow"
     },
     "scale": {
-      "say": "• Skill Scale: rate each competency across all five days 1 to 5, then submit for review\n• Ratings are compared with scores; honest ratings are where coaching starts\n• UPL is a gate, not a weight: a 5 on UPL from someone who coached John in Question 7 doesn't pass",
+      "say": "• Skill Scale: rate each competency across all five days 1 to 5, then submit for review\n• Ratings are compared with scores; honest ratings are where coaching starts\n• UPL is a gate, not a weight: a 5 on UPL from someone whose answers give John legal advice doesn't pass",
       "ask": "Across all five days, which competency rating surprised you most?"
     }
   },
   "d5m6-l1": {
     "why": {
-      "say": "• Dropped Case: a claim the firm stops pursuing before it resolves; John Doe's file never gets here\n• Atty. Thorne talks to the client first; the letter only confirms it\n• Withdrawal Letter: formal notice the lawyer-client relationship has ended\n• Done carelessly, a drop confuses the client and exposes the firm; done right, the file proves everyone was told\n• Red flag: a carrier letter saying Denise stopped treating. Only the client's letter carries the reason, in Atty. Thorne's words; elsewhere it's a defect"
+      "say": "• Dropped Case: a claim the firm stops pursuing before it resolves; John Doe's file never gets here\n• Atty. Thorne talks to the client first; the letter only confirms it\n• Withdrawal Letter: formal notice the lawyer-client relationship has ended\n• Done carelessly, a drop confuses the client and exposes the firm; done right, the file proves everyone was told\n• Red flag: a carrier letter saying the client stopped treating. Only the client's letter carries the reason, in Atty. Thorne's words; elsewhere it's a defect"
     },
     "theory": {
       "say": "• A Dropped Case must be written up, closed out and proved\n• Reasons: client stops answering or pulls out; fault can't be shown; no insurance money, or not enough\n• Also: client can't finish treatment, new facts don't match, or no Health Plan to pay for care\n• Pending Drop: the decision is made, letters not yet sent\n• Proof, the receipts, logs and saved letters, protects the firm later"
@@ -292,10 +292,10 @@
   },
   "d5m6-kc": {
     "questions": {
-      "say": "• Knowledge Check from the practice matter, in own words; each answer needs a name, date or method from the file\n• Question 1: the two things confirmed before any Withdrawal Letter goes out, and why both matter\n• Question 2: what goes in Denise Harlow's letter but not Granite Shield's or Brookside's, and why\n• Question 3: letters out 12/09/2026; what must be true before Dropped, and what proof stays"
+      "say": "• Knowledge Check on the six-step close-out, in own words; each answer names the step, the party or the method\n• Question 1: the two things confirmed before any Withdrawal Letter goes out, and why both matter\n• Question 2: what goes in the client's letter but not the carrier's or the provider's, and why\n• Question 3: letters out; what must be true before Dropped, and what proof stays"
     },
     "summary": {
-      "say": "• Self-Summary: the principles behind closing a Dropped Case, not the clicks\n• Strategy: Denise's return receipt isn't back by 12/16/2026; the next action, and why that one\n• Then the one thing least sure of\n• Explaining the drop, or advising Denise beyond what Atty. Thorne approved, crosses into his territory"
+      "say": "• Self-Summary: the principles behind closing a Dropped Case, not the clicks\n• Strategy: the client's return receipt isn't back a week later; the next action, and why that one\n• Then the one thing least sure of\n• Explaining the drop, or advising the client beyond what Atty. Thorne approved, crosses into his territory"
     },
     "scale": {
       "say": "• Last Skill Scale of the course: rate each skill 1 to 5, then submit for review\n• Skills: the Pending Drop gate, a letter for each party, choosing and logging send methods, closing with proof and no advice\n• Ratings are compared with answers; a wide gap is a conversation, not a grade\n• First real file: find the detail that could cost the client money, document it, take it to the attorney same day",
@@ -339,7 +339,7 @@
       "say": "• Track B Close-Out Check: John Doe's file is closed, intake to award; answers from the file, in own words\n• Question 1: take the $40,000.00 award to $14,713.75, every deduction with figure and source\n• Question 2: why the fee is 40%, which document says so, who confirms it\n• Question 3: Peach State $1,240.00 on Track A, $1,116.00 on Track B; show both reductions and why they differ"
     },
     "summary": {
-      "say": "• Self-Summary: the principles behind a litigated Net Sheet, not the clicks\n• Strategy: the award is in and both UM checks are in trust; next action before the 07/30/2027 disbursement, and why\n• Then the one thing least sure of\n• Question 5 is the UPL gate: arithmetic yes, opinion no; saying the suit was or wasn't worth it crosses the line"
+      "say": "• Self-Summary: the principles behind a litigated Net Sheet, not the clicks\n• Strategy: the award is in and both UM checks are in trust; next action before the 07/30/2027 disbursement, and why\n• Then the one thing least sure of\n• UPL is the gate: arithmetic yes, opinion no; saying the suit was or wasn't worth it crosses the line"
     },
     "scale": {
       "say": "• Skill Scale: rate each competency 1 to 5, then submit for review; wide gaps with scores get discussed\n• Skills: the retainer's fee tier, costs with receipts, reducing liens, explaining a Net Sheet without advice\n• The award doesn't grade the work; the Net Sheet does\n• One more file to close next: Denise Harlow's Dropped Case",

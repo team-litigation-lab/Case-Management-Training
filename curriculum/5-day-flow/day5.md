@@ -528,7 +528,7 @@ A two-lane calendar runs left to right across the slide in six date columns, AUD
 2. Audit John's signed interrogatory answers and public social media; route any inconsistency with the records to Atty. Thorne the same day. He decides whether an answer is corrected or supplemented; John testifies to the truth, never to match a document. Never tell John to delete or hide a post.
 3. Injury narrative alignment: John's truthful account matches his records because he has reviewed them with Atty. Thorne, never because he learned a script. Atty. Thorne chooses the review set: a document used to refresh memory may have to be produced (confirm the governing rule).
 4. Pillar 1, de-escalate: no judge, no jury, no shouting: questions and answers on a video call, under oath, before a court reporter. Calm him with the process, never a prediction.
-5. Pillar 2, the essential guidelines: pause two seconds; tell the truth about prior treatment (that question tests honesty); stop talking once the question is answered. Drill them on neutral questions only.
+5. Pillar 2, the essential guidelines: pause two seconds; tell the truth about prior treatment (that question tests honesty); stop talking once the question is answered. These testimony habits are Atty. Thorne's to practise with John; the Case Manager names them as his and never drills or coaches them.
 6. Pillar 3, dress and demeanor: business casual, as for a job interview; nothing flashy, no hats or slogans; polite; limitations told plainly, never minimized or exaggerated.
 7. Set-up: a computer, not a hand-held phone; camera at eye level, light in front, a quiet private room. Test it with John on 02/16/2027, on that device in that room.
 8. While he testifies: no one else in the room except Atty. Thorne if he attends in person (anyone present is identified on the record), not Margaret; no notes, phone away, no messages to anyone, you included. Exhibits come by screen-share; he may ask to see the whole page.
@@ -569,7 +569,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 |---|---|---|---|
 | 🤖 AI | **20%** | Audit completeness | Gap, disruption, 2021 visits, seatbelt, MRI, written discovery and social media all listed, each with its source record |
 | 🤖 AI | **20%** | Calendar accuracy | 02/04, 02/16, 02/17 and 02/18/2027 at 10:00 a.m.; videoconference; Riverton Court Reporting; John's new number and Margaret's as backup |
-| 🤖 AI | **20%** | Pillars and set-up | All three pillars, the virtual set-up and every in-room rule stated |
+| 🤖 AI | **20%** | Pillars and set-up | Pillar 1, Pillar 3, the virtual set-up and every in-room rule stated; Pillar 2 named as Atty. Thorne's |
 | 🧑‍🏫 Trainer | **20%** | UPL boundary | No wording offered on any substantive area; every such question routed to Atty. Thorne |
 | 🧑‍🏫 Trainer | **20%** | Client care | Calms through the process, not predictions; raises dress and demeanor without giving offence |
 
@@ -1334,7 +1334,7 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 
 #### 1 · Visual Layout Description
 
-Split layout. Upper half: the Litigation Support Assessment on the warm cream card with the orange ruled border, seven questions numbered in orange; the two pressure scenarios, 6 and 7, carry a small red clock chip. Between the panels, a slim LITIGATION DOCKET strip of six mono date pills, 03/15 · 03/31 · 04/15 · 05/28 · 08/12 · 09/13, for the trainee to self-check against. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, and beside it the 1–5 SELF-SCALE as a five-step horizontal ladder with the competency rows beneath. Far right, the 60/40 stacked bar, 60% AI in navy and 40% Trainer in orange, with UPL as a separate red gate chip outside the bar.
+Split layout. Upper half: the Litigation Support Assessment on the warm cream card with the orange ruled border, three questions numbered in orange; question 1, the response date, carries a small red clock chip. Between the panels, a slim LITIGATION DOCKET strip of six mono date pills, 03/15 · 03/31 · 04/15 · 05/28 · 08/12 · 09/13, for the trainee to self-check against. Lower half, below a full-width orange hairline: the CM SELF-SUMMARY on a navy card with white type holding three prompts, and beside it the 1–5 SELF-SCALE as a five-step horizontal ladder with the competency rows beneath. Far right, the 60/40 stacked bar, 60% AI in navy and 40% Trainer in orange, with UPL as a separate red gate chip outside the bar.
 
 #### 2 · Slide Body — Knowledge verification
 
@@ -1345,7 +1345,7 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 **Best practices & pitfalls**
 
 - Answer with the file's own dates, names and arithmetic, not general rules.
-- ⚠️ Pitfall: answering Question 6 with what you would agree to. You agree to nothing.
+- ⚠️ Pitfall: answering Question 2 by arguing the defense yourself. You pull the evidence; Atty. Thorne answers it.
 - ⚠️ Pitfall: a self-rating that doesn't match your answers; your trainer will ask about the gap.
 
 #### 3 · Knowledge Check & CM Summary
@@ -1599,7 +1599,7 @@ The standard knowledge-check split, extended for the final check. Above the crea
 **Best practices & pitfalls**
 
 - Answer from the file: names, dates and figures, not general rules.
-- ⚠️ Pitfall: answering Question 7 with what John should say. The right answer routes him to Atty. Thorne.
+- ⚠️ Pitfall: answering Question 3 with a net that doesn't reconcile to the cent. Every deduction carries its figure and source.
 
 #### 3 · Knowledge Check & CM Summary
 
@@ -1731,7 +1731,7 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 > **Knowledge Check** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Dropped Case Close-Out Check (`d5m6`)  
 > **Topic:** Knowledge Check + Case Manager Self-Summary & Skill Scale  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** LSH Claims Specialist: Dropped Cases — Withdrawal Letters and closing the file · Newly authored: the Denise Harlow practice matter
+> **Theory extracted from:** LSH Claims Specialist: Dropped Cases — Withdrawal Letters and closing the file · Newly authored: the close-out questions, answered from the six steps
 
 #### 1 · Visual Layout Description
 
@@ -1740,19 +1740,19 @@ The standard knowledge-check split. Upper half: the cream question panel with or
 #### 2 · Slide Body — Knowledge verification
 
 1. Name the two things you confirm before any Withdrawal Letter goes out, and why both matter.
-2. What goes in Denise Harlow's letter that does not go in Granite Shield's or Brookside's, and why?
-3. Denise's three letters went out 12/09/2026. What must be true before her status becomes “Dropped”, and what proof stays in the file?
+2. What goes in the client's Withdrawal Letter that does not go in the carrier's or the provider's, and why?
+3. A client's three Withdrawal Letters have gone out. What must be true before her status becomes “Dropped”, and what proof stays in the file?
 
 **Best practices & pitfalls**
 
-- Answer from the practice matter: names, dates and methods, not general rules.
+- Answer from the close-out: the gate, each party's letter and method, and the proof, step by step.
 
 #### 3 · Knowledge Check & CM Summary
 
 **Case Manager Self-Summary**
 
 - Summarize, in your own words, what you learned closing a Dropped Case: the principles behind the close-out, not the clicks.
-- Articulate your strategy: Denise's letters are out and her return receipt hasn't come back by 12/16/2026. What is your next action, and why is it the right one rather than something else?
+- Articulate your strategy: a client's letters are out and her return receipt hasn't come back a week later. What is your next action, and why is it the right one rather than something else?
 - Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
 
 **Skill Scale — self-rate 1–5**
@@ -1771,12 +1771,12 @@ The standard knowledge-check split. Upper half: the cream question panel with or
 1. A practice file shows status “Pending Drop”, but no note from Atty. Thorne or the Case Manager says the client has been told. What happens before any Withdrawal Letter goes out?  
    The client's letter goes by Certified Mail, so it serves as the notice · **✓ Every letter is held until Atty. Thorne confirms, in a note on the file, that the client was told** · The Case Manager calls the client to explain why the firm is dropping the case · The carrier's and provider's letters go now; the client's waits  
    *Two gates come first: the status is Pending Drop AND a note shows the client was told, so the letter is never the client's first news. Telling the client is Atty. Thorne's conversation; nothing goes to any party until both gates are met.*
-2. Denise Harlow's three Withdrawal Letters are signed. Which dispatch plan follows the firm's close-out?  
-   **✓ Denise by text and email, her preferred methods, plus Certified Mail with return receipt; Granite Shield by email and Brookside Physical Therapy by fax, as the CRM notes say; each dispatch logged, every letter saved in Word and PDF** · Everyone by Certified Mail only, and the status switched to “Dropped” the same day · Denise by text only; Granite Shield and Brookside by phone, logged afterwards · Denise by email, with Granite Shield and Brookside copied, so everyone sees the reason  
+2. A client's three Withdrawal Letters are signed: hers, the BI carrier's and her treating provider's. Which dispatch plan follows the firm's close-out?  
+   **✓ The client by her preferred method plus Certified Mail with return receipt; the carrier and the provider by email or fax, as the CRM notes say; each dispatch logged, every letter saved in Word and PDF** · Everyone by Certified Mail only, and the status switched to “Dropped” the same day · The client by text only; the carrier and the provider by phone, logged afterwards · The client by email, with the carrier and the provider copied, so everyone sees the reason  
    *The client gets her preferred method plus Certified Mail for proof of receipt; carriers and providers get email or fax as the CRM notes say. The reason stays in the client's letter. The status moves to Dropped only once every letter is sent, logged and followed up.*
-3. Denise Harlow calls after her letter arrives: “So my case was worthless?” Which answer stays inside the Case Manager's role?  
-   “Without treatment there was nothing to claim, so yes.” · “If you find a clinic and restart treatment, the firm may take the case back.” · **✓ “I can't speak to the value of your claim. Atty. Thorne made this decision and will call you to talk it through. Your letter also explains that time limits apply and suggests you speak to another attorney promptly.”** · “The firm thinks your case is too weak, but another lawyer might disagree.”  
-   *The Case Manager never values the claim, never re-argues or explains the decision and never advises on next steps. She points Denise only to what Atty. Thorne approved: his call back and the letter's direction to seek other counsel promptly, then logs the call and routes it.*
+3. Which of these goes only in the client's Withdrawal Letter, never in the carrier's or the provider's?  
+   The date of loss and the claim number · That the firm no longer represents the client · **✓ The reason for the drop and the next step Atty. Thorne approves** · The date of the letter  
+   *Every letter carries the date, the client, the date of loss and the claim number, and says the representation has ended. Only the client's carries the reason, in Atty. Thorne's words, and the next step he approves: seek other counsel promptly. A carrier told why has been handed a defense.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1792,7 +1792,7 @@ The standard knowledge-check split. Upper half: the cream question panel with or
 
 #### 5 · Speaker Notes
 
-- Answers come from the practice matter: Denise Harlow, 12/08 and 12/09/2026, Granite Shield by email, Brookside by fax.
+- Answers come from the six-step close-out on the lesson slide: the two gates, the reason only in the client's letter, the client by her preferred method plus Certified Mail, carriers and providers by email or fax per the CRM, then follow-up and proof before “Dropped”.
 - The UPL gate: a trainee who explains the drop to Denise, or tells her what to do next, has crossed the line, whatever the rest of the answer.
 
 ---

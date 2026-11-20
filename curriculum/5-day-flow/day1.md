@@ -1255,7 +1255,7 @@ The CMS 📝 New Intake screen as a large mock-up on the left two-thirds: a Conf
 
 **Scenario.** 02/09/2026. The raw file from “On the Records” is in: the New Client Intake Sheet, the intake supplement, the signed retainer and claim-specific HIPAA authorization, and the Riverton PD crash report. A colleague keyed a draft intake record into the CMS. Atty. Thorne wants the matter active today.
 
-**Execution prompt.** Open John Doe's matter in the CMS. Run and document the Conflict Check on every party's full legal name before anything else. Verify the draft intake record field by field against the source documents (date of loss, names and roles, John Doe's position, date of birth, report number) and correct each error with its source, never silently. Docket the SOL (02/06/2028) with reminders, map all six roles, log the retainer and the HIPAA authorization, and file every intake document under its CMS category, named to the firm's convention. Then, at the Insurance checkpoint (CMS → Insurance), enter the three recovery layers in their order of operations, class each first- or third-party, fill every field or record why it is empty, record where each limit came from and mark the projection preliminary until a Declaration Page confirms it, and record PIP outside the stack. Route a short note of what you corrected to Atty. Thorne.
+**Execution prompt.** Open John Doe's matter in the CMS. Run and document the Conflict Check on every party's full legal name before anything else. Verify the draft intake record field by field against the source documents (date of loss, names and roles, John Doe's position, date of birth, report number) and correct each error with its source, never silently. Docket the SOL (02/06/2028) with reminders, map all six roles, log the retainer and the HIPAA authorization, and file every intake document under its CMS category, named to the firm's convention. Then, at the Insurance checkpoint (CMS → Insurance), enter the three recovery layers the intake shows in their order of operations and class each first- or third-party. Nothing is opened yet, so record each gap as the intake has it (claim not yet opened, limit not yet reported, a policy number to follow), calendar the follow-up for each, guess no limit, mark the projection preliminary and record PIP outside the stack. Route a short note of what you corrected to Atty. Thorne.
 
 | | |
 |---|---|
@@ -1272,8 +1272,8 @@ The CMS 📝 New Intake screen as a large mock-up on the left two-thirds: a Conf
 - [ ] Retainer and HIPAA authorization logged with their signing date (02/09/2026)
 - [ ] Every intake document filed under its CMS category and named to convention
 - [ ] Corrections summarized to Atty. Thorne in Case Notes
-- [ ] Insurance checkpoint (CMS → Insurance, after the six roles and before the note): BI → Host UM → Relative UM in their order of operations, $10,000 / $20,000 / $10,000, total $40,000; BI third-party, both UM layers first-party
-- [ ] Every Insurance field filled or its gap recorded: policy and claim number on every layer, the Relative UM adjuster “No adjuster assigned yet”, not left blank; each limit's source recorded (the set-up call for now, a Declaration Page to be requested in the LOR) and the projection marked preliminary; PIP recorded outside the stack
+- [ ] Insurance checkpoint (CMS → Insurance, after the six roles and before the note): BI → Host UM → Relative UM in their order of operations, Keystone Mutual, Harbor Point and Cardinal State Mutual; BI third-party, both UM layers first-party
+- [ ] Every Insurance field filled or its gap recorded as it stands on 02/09/2026, not left blank and not guessed: claim “not yet opened (open at set-up)” and limit “not yet reported” on every layer, Keystone's policy number “to follow” (certified Police Report requested), the Relative UM adjuster “No adjuster assigned yet”; a follow-up calendared for each gap; the projection marked preliminary; PIP recorded outside the stack
 
 **Best practices & pitfalls**
 
@@ -1293,7 +1293,7 @@ Verified in CM Fundamentals Knowledge Check (taught on Case Flow Day 1) and that
 | 🤖 AI | **15%** | Conflict Check first | Documented before the matter was created, on full legal names |
 | 🤖 AI | **20%** | Field verification | Position, date of birth and report number corrected with their sources |
 | 🤖 AI | **15%** | Matter set-up | SOL docketed with reminders, six roles mapped, intake documents filed by category |
-| 🤖 AI | **10%** | Coverage stack | Three layers in their order of operations, each classed first- or third-party, every field filled or its gap recorded, each limit sourced and the projection preliminary; PIP outside the stack |
+| 🤖 AI | **10%** | Coverage stack | Three layers in their order of operations, each classed first- or third-party, every gap recorded as the intake has it with a follow-up calendared, no limit guessed and the projection preliminary; PIP outside the stack |
 | 🧑‍🏫 Trainer | **25%** | Verification discipline | Checked every field against a document rather than the draft, and can explain why the passenger fact opens two UM layers (understands stacking) |
 | 🧑‍🏫 Trainer | **15%** | Communication | Corrections routed to Atty. Thorne in a short, factual note |
 
@@ -1452,7 +1452,7 @@ A letter-assembly workbench. Centre: the firm-letterhead LOR template as a white
 
 **Scenario.** File date 02/17/2026. Claims were opened by phone 02/16–02/17/2026: Keystone Mutual BI KM-26-440871 (Dana Whitfield) and PD (Leah Moran; PD liability accepted today), Harbor Point HP-26-7741 (Marcus Bell; Host UM and PIP), Cardinal State Mutual CS-26-20355 (no adjuster assigned). Each carrier's preferred delivery method is in Case Notes. John Doe has not started treatment.
 
-**Execution prompt.** Generate John Doe's letter set on the firm template: LORs to Keystone (BI, with the PD carve-out), Harbor Point (Host UM and PIP) and Cardinal State (Relative UM), and notices to Bluewater and Peach State Health Plan. Give each the right Attn line, insured, claim, policy or member number and date of loss, and the requests for limits, Declaration Pages, additional coverage and preservation. Route the set to Atty. Thorne for signature, send each by its preferred method, and calendar the acknowledgement checks. Graded judgment: what Keystone's letter leaves out, and why no UM letter asks for payment.
+**Execution prompt.** First complete CMS → Insurance from the 02/16–02/17 claim calls: the claim number and adjuster on every layer, each limit as its set-up call gave it, with that call as its source, and the projection still preliminary. Then generate John Doe's letter set on the firm template: LORs to Keystone (BI, with the PD carve-out), Harbor Point (Host UM and PIP) and Cardinal State (Relative UM), and notices to Bluewater and Peach State Health Plan. Give each the right Attn line, insured, claim, policy or member number and date of loss, and the requests for limits, Declaration Pages, additional coverage and preservation. Route the set to Atty. Thorne for signature, send each by its preferred method, and calendar the acknowledgement checks. As each carrier's written answer arrives, record that layer's verification status in CMS → Insurance with the document and date that confirm it. Graded judgment: what Keystone's letter leaves out, and why no UM letter asks for payment.
 
 | | |
 |---|---|
@@ -1461,6 +1461,7 @@ A letter-assembly workbench. Centre: the firm-letterhead LOR template as a white
 
 **Verification checkpoints**
 
+- [ ] Insurance completed first from the 02/16–02/17 claim calls: KM-26-440871, HP-26-7741 and CS-26-20355 on their layers; $10,000 / $20,000 / $10,000, total $40,000, each limit sourced to its set-up call; the projection still preliminary
 - [ ] Five letters: LORs to Keystone, Harbor Point and Cardinal State; notices to Bluewater and Peach State
 - [ ] Attn lines: Dana Whitfield (KM-26-440871), Marcus Bell (HP-26-7741), and “Attn: Claims Department” for Cardinal State (CS-26-20355), not a guessed name
 - [ ] Insured named correctly on each: Robert Smith, Kevin Alvarez, Margaret Doe; Margaret Doe on Bluewater too
@@ -1472,6 +1473,7 @@ A letter-assembly workbench. Centre: the firm-letterhead LOR template as a white
 - [ ] Bluewater notice requests the Declaration Page and the signed UM rejection form (03/14/2024), and records the collision option ($500 deductible) for the Civic
 - [ ] Same day: a written preservation request to Margaret Doe, the camera's owner, for the doorbell-camera video from 2214 Maple Hollow Rd (John Doe was asked at intake, 02/09)
 - [ ] All five routed for Atty. Thorne's signature and sent 02/17/2026 by preferred method; acknowledgement due by 02/19/2026, follow-up calendared for 02/20/2026 if none
+- [ ] Verification status recorded in CMS → Insurance as each written answer arrives, with its document and date: Host UM confirmed by Harbor Point's 03/02/2026 letter, Relative UM coverage by Cardinal State's 03/09/2026 letter, BI preliminary until Keystone's Declaration Page of 03/20/2026; no layer marked confirmed without its document
 
 **Best practices & pitfalls**
 
@@ -1488,9 +1490,10 @@ Verified in Coverage Setup Verification Check (taught on Case Flow Day 1) and th
 
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
-| 🤖 AI | **15%** | Letter set complete | Five letters: three LORs and two notices |
+| 🤖 AI | **10%** | Stack and verification | Insurance completed from the claim calls, each limit sourced and preliminary; each layer marked confirmed only with its document and date |
+| 🤖 AI | **10%** | Letter set complete | Five letters: three LORs and two notices |
 | 🤖 AI | **20%** | Addressing and identifiers | Attn lines, insureds, claim, policy and member numbers and DOL all correct |
-| 🤖 AI | **15%** | Requests and carve-out | Limits, additional coverage, Declaration Pages and preservation (including EDR data) requested; PD carve-out with 5 business days from the letter date to inspect, in Keystone's letter only |
+| 🤖 AI | **10%** | Requests and carve-out | Limits, additional coverage, Declaration Pages and preservation (including EDR data) requested; PD carve-out with 5 business days from the letter date to inspect, in Keystone's letter only |
 | 🤖 AI | **10%** | Delivery and follow-up | Sent 02/17/2026 by preferred method; acknowledgement due 02/19/2026; follow-up 02/20/2026 |
 | 🧑‍🏫 Trainer | **25%** | Judgment | Keystone's letter limited to the client's name; no UM letter asks for payment; PIP tied to the treatment start without a promise |
 | 🧑‍🏫 Trainer | **15%** | Authority boundary | Routed for Atty. Thorne's signature; nothing signed or sent on the CM's own authority |
@@ -1561,7 +1564,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 | Channel | Weight | Dimension | What is graded |
 |---|---|---|---|
 | 🤖 AI | **20%** | Payer-order decisions | LOP to Riverton Spine & Rehab (out of network for Peach State); Summit declined because MedPay applies first |
-| 🤖 AI | **15%** | Ledger arithmetic | $3,675.00 of MedPay left on 03/11/2026; $1,280.00 after the $2,395.00 MRI |
+| 🤖 AI | **15%** | Ledger arithmetic | $4,315.00 of MedPay left on 03/11/2026, $3,675.00 once Lakeside's pending $640.00 is paid; $1,280.00 after the $2,395.00 MRI |
 | 🤖 AI | **15%** | LOP file completeness | Signed 02/23/2026, transmitted with the HIPAA authorization, receipt confirmed, register entry opened; the endorsement call noted, tasked and filed |
 | 🤖 AI | **10%** | Assessment and baseline | Clinical, social, vocational and pre-morbid fields recorded; 03/19/2026 rental end calendared; 2021 low back distinguished from the neck |
 | 🧑‍🏫 Trainer | **15%** | Provider communication | A clear, courteous, firm decline that names the payer and invites no dispute |
@@ -1592,9 +1595,9 @@ A full-slide editor canvas showing the live plan with all five bands stubbed and
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** Everything from Day 1 and Claim Set Up is in the file: parties mapped, the $40,000 stack verified, the onboarding packet delivered and tracked, and the 14-Day Treatment Gap identified. Treatment began 02/20/2026, and the Regulatory Triple-Check was cleared and recorded on 03/12/2026 (HIPAA authorization, BCRC/SSDI answer, Payer Order). Atty. Thorne is waiting on the Case Plan.
+**Scenario.** Everything from Day 1 and Claim Set Up is in the file: parties mapped, the $40,000 stack verified, the onboarding packet delivered and tracked, and the 14-Day Treatment Gap identified. Treatment began 02/20/2026; John Doe gave his own account of the gap on the recorded call of 03/04/2026, and the papers he named (his texts, the call-outs, the 02/07 receipt) are requested. The Regulatory Triple-Check was cleared and recorded on 03/12/2026 (HIPAA authorization, BCRC/SSDI answer, Payer Order). Atty. Thorne is waiting on the Case Plan.
 
-**Execution prompt.** Draft the complete Case Plan for John Doe VS Robert Smith. Fill all five bands from today's work: the acceptance decision with its reason; coverage as a stack with its order of operations, liability, and a preliminary projection; the Regulatory Triple-Check, shown cleared with its date and each of its three results; Clinical, Functional and Subrogation Management pillars with measurable goals, each action item with an owner and a date; and the risks band with the Treatment Gap and the risk of a later break in care, prominently, with their consequences. Count the gap from the dates on the records and write only what they show; under it, list the causes to investigate as questions for John Doe, not answers, and leave what the gap means for the claim to Atty. Thorne. Docket the filing window, then route the plan to Atty. Thorne.
+**Execution prompt.** Draft the complete Case Plan for John Doe VS Robert Smith. Fill all five bands from today's work: the acceptance decision with its reason; coverage as a stack with its order of operations, liability, and a preliminary projection; the Regulatory Triple-Check, shown cleared with its date and each of its three results; Clinical, Functional and Subrogation Management pillars with measurable goals, each action item with an owner and a date; and the risks band with the Treatment Gap and the risk of a later break in care, prominently, with their consequences. Count the gap from the dates on the records and write only what they show; under it, record John Doe's own account from the 03/04/2026 recorded call, attributed to him, with the document that would bear out each reason marked requested, and leave what the gap means for the claim to Atty. Thorne. Docket the filing window, then route the plan to Atty. Thorne.
 
 | | |
 |---|---|
@@ -1612,8 +1615,8 @@ A full-slide editor canvas showing the live plan with all five bands stubbed and
 - [ ] Clinical, Functional and Subrogation Management pillars each with a measurable goal
 - [ ] Every action item has an owner and a date
 - [ ] Risks band: 14-Day Gap and the risk of a later break in care, prominent, with consequences
-- [ ] Gap computed from the records as 14 days, 02/06/2026 to 02/20/2026; facts only, “explanation pending: client's own account and supporting documents”, no view on what it does to the claim
-- [ ] Causes to investigate listed as questions for John Doe, not answers (Day 1 deck p46): missed appointments, transportation, cost or co-pays, work schedule, stopping after temporary relief, referral or authorization delays
+- [ ] Gap computed from the records as 14 days, 02/06/2026 to 02/20/2026; facts only, no view on what it does to the claim
+- [ ] John Doe's account from the 03/04/2026 recorded call recorded as his, not the Case Manager's conclusion (Day 1 deck p46's causes): no transport until 02/18, thought it was soreness, unsure his new Peach State plan was active and didn't understand PIP paid his bills, right-hand numbness from 02/18 and his first day off; each with the document that would bear it out (texts to his mother 02/07–02/15, the 02/09–02/13 call-outs, the 02/07 pharmacy receipt) marked requested, not yet in hand
 - [ ] Filing window docketed
 - [ ] Plan routed to Atty. Elijah Thorne with a timestamp
 
@@ -1632,7 +1635,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 1) 
 |---|---|---|---|
 | 🤖 AI | **15%** | Snapshot accuracy | Parties, DOL, SOL and client position all correct |
 | 🤖 AI | **15%** | Coverage accuracy | Correct limits, total and order of operations |
-| 🤖 AI | **15%** | Risk flagging | The gap computed from the records (14 days) with its causes to investigate as questions, and the risk of a later break, recorded with consequences |
+| 🤖 AI | **15%** | Risk flagging | The gap computed from the records (14 days) with John Doe's 03/04 account recorded as his and its supporting documents marked requested, and the risk of a later break, recorded with consequences |
 | 🤖 AI | **10%** | Item discipline | No action item without an owner and a date |
 | 🤖 AI | **5%** | Routing | Routed to Atty. Thorne with timestamp |
 | 🧑‍🏫 Trainer | **25%** | Reviewer readiness | Counsel could set strategy from it without a follow-up question |

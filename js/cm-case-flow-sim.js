@@ -38,7 +38,7 @@ window.CM_CF_SIM = {
    "from": "On the Records Intake (intake@ontherecords.example)",
    "to": "Case Manager",
    "subject": "New matter: John Doe — MVA 02/06/2026 (passenger)",
-   "body": "New file for LSH Law Group: John Doe, front-seat passenger, collision 02/06/2026 at Maple Hollow Rd and Birch Ave. Attached: the New Client Intake Sheet, intake supplement, the retainer and HIPAA authorization he signed here this morning, and the Riverton PD crash report. A colleague keyed a draft intake record into the CMS. Atty. Thorne wants the matter active today.",
+   "body": "New file: John Doe, front-seat passenger, collision 02/06/2026 at Maple Hollow Rd and Birch Ave. Attached: the Intake Sheet, supplement, the retainer and HIPAA authorization he signed today, and the PD crash report. His signed PIP application waits for the Harbor Point letter. A colleague keyed a draft intake record into the CMS. Atty. Thorne wants the matter active today.",
    "attachments": [
     "RS01",
     "RS02",
@@ -1021,7 +1021,7 @@ window.CM_CF_SIM = {
    "who": "John Doe",
    "role": "client",
    "persona": "Guarded and expecting blame for the delay. Clipped answers to yes-or-no questions; talks freely to open ones. Agrees with any reason suggested to him. Asks if the gap hurts.",
-   "context": "03/04/2026, recorded call. John first treated 02/20/2026, 14 days after the collision. Asked openly, he gives four reasons in his own words: no car (Civic towed, Kevin's Escape in the shop, no rental until 02/18); thought it was soreness, took ibuprofen and lidocaine patches; unsure his new Peach State plan was active, never heard of PIP; right-hand numbness from 02/18, worked 02/18–02/19, went in on his first day off. He texted his mother about it 02/07–02/15, called out of work 02/09–02/13, kept the 02/07 pharmacy receipt.",
+   "context": "03/04/2026, recorded call. John first treated 02/20/2026, 14 days after the collision. Asked openly, he gives four reasons in his own words: no car (Civic towed, Kevin's Escape in the shop, no rental until 02/18); thought it was soreness, took ibuprofen and patches; signed the PIP form unaware it paid his bills, unsure his Peach State plan was active; right-hand numbness from 02/18, worked 02/18–02/19, went in on his first day off. He texted his mother about it 02/07–02/15, called out of work 02/09–02/13, kept the 02/07 pharmacy receipt.",
    "opening": "Hey, it's John. I'm on my break, sitting in the rental, so I've got about twenty minutes. What did you need to go over?",
    "goals": [
     "Open on record: date, parties, role, his consent, privacy confirmed",

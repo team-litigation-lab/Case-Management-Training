@@ -69,9 +69,9 @@
   },
   "d3m1-a1": {
     "image": "checklist-qa",
-    "situation": "File date 07/20/2026. MMI reached; the Specials, wages and gap record are **still unaudited**. Atty. Thorne approved $10,000 limits, a Limited Release, Smith's affidavit, 30 days from receipt. The draft awaits **you**.",
+    "situation": "File date 07/20/2026. The pre-demand audit (Specials, wages, gap record) is **yours to re-check**. Atty. Thorne approved $10,000 limits, a Limited Release, Smith's affidavit, 30 days from receipt. The draft awaits **you**.",
     "steps": [
-      "Download the case documents from 📁 Source Files, audit the Specials and wages bill by bill, build the Gap Record from the filed notes, then check the draft against the Big Four.",
+      "Download the case documents from 📁 Source Files, re-check the Specials and wages bill by bill and the Gap Record against the filed notes, then check the draft against the Big Four.",
       "Build the packet by hand: demand letter, exhibit index, then Exhibits A–J, **liability first** (A–D), then records and bills, MRI, Causation Letter, wages, Gap Record, Dec Page.",
       "Combine them into one PDF, make it searchable (OCR), bookmark each section, and Bates-number every page once.",
       "Name it by the firm's convention, ending in _DRAFT, and file it in CMS → Doc Hub so it reaches folder 05 Insurance.",

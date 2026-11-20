@@ -50,7 +50,7 @@
       "Conflict Check logged **before the matter existed**",
       "Position, date of birth and **report number** corrected, with sources",
       "SOL docketed; **six roles** mapped; documents filed",
-      "Insurance: each layer **in order and sourced**, marked preliminary",
+      "Insurance: each layer **in order, every gap recorded**, nothing guessed",
       "Correction note **routed to Atty. Thorne**"
     ],
     "dos": [
@@ -599,7 +599,7 @@
     "side": true,
     "steps": [
       "In the Action Plan Editor, record the stack in order with a preliminary projection, and put the **Treatment Gap**, counted from the records, at the top of the risks band.",
-      "Under the gap, list the causes to investigate as questions for John Doe, not answers.",
+      "Under the gap, record **John Doe's 03/04 account** as his, with the documents behind it marked requested.",
       "Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne."
     ],
     "deliver": "A Case Plan **routed to Atty. Thorne**, the filing window docketed",
@@ -608,7 +608,7 @@
     "checks": [
       "Order **BI → Host UM → Relative UM**; projection preliminary",
       "Risks band: **the gap, counted from the records**, first",
-      "Causes to investigate listed **as questions**",
+      "John's **03/04 account** recorded as his, documents requested",
       "Plan **routed to Atty. Elijah Thorne**"
     ],
     "dos": ["If counsel must ask a question, **it isn't finished**"],

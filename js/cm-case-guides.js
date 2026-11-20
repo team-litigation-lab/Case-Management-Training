@@ -44,13 +44,13 @@ const GUIDES = {
   ],
   "d1m4-a2": [
     {at: "The risks band",
-      text: "💡 Case Manager's guide: count any gap from the dates on the records, not from memory, and write only what the records show. List what you'd ask the client as questions, not causes, and leave what it means for the claim to Atty. Thorne.",
-      withholds: "The gap's length, its start and end dates, the likely causes and the consequences"}
+      text: "💡 Case Manager's guide: count any gap from the dates on the records, not from memory, and write only what the records show. Put the client's own account in his words, not yours, and leave what it means for the claim to Atty. Thorne.",
+      withholds: "The gap's length, its start and end dates, his reasons and the consequences"}
   ],
   // Day 2: fewer
   "d3m1-a1": [
     {at: "The Specials audit",
-      text: "💡 Case Manager's guide: line up each billed charge against a visit note, and each claimed shift against an off-work note and the employer's own record. Anything with nothing behind it is a question for Atty. Thorne, not a ledger line.",
+      text: "💡 Case Manager's guide: line up each billed charge against a visit note, and each claimed shift against an off-work note and the employer's record. A charge no note supports comes off; a shift with no note isn't yours to drop: keep it and flag it to Atty. Thorne.",
       withholds: "The duplicate line, the audited medical total, the wage figure, which shifts lack a note and the Total Specials"},
     {at: "Answering the gap",
       text: "💡 Case Manager's guide: work from the call and interview notes already filed, not your memory of them. Give each reason its own dated document; where none exists, say so rather than stretching another one to fit.",
@@ -82,7 +82,7 @@ const GUIDES = {
 };
 // Day 5: the companion-case build (js/cm-case-flow.js BUILD_STEPS), step 1, Read the file: only a pointer back
 const BUILD = {day: 5, step: 1, at: "Step 1 of the build: reading the file",
-  text: "💡 Case Manager's guide: you have done every one of these steps once, on John Doe's file. Open your own Day 1–4 work beside this case (your CMS matter, your letters, your Case Plan, your Net Sheet) and use it as your checklist, not your answer.",
+  text: "💡 Case Manager's guide: you have done every one of these steps once, on John Doe's file. Open your own Day 1–4 work beside this case (your CMS matter, your case folder, your letters, your Case Plan) and use it as your checklist, not your answer.",
   withholds: "Everything about the trainee's own case: its parties, coverage, gap, payer order, deadlines and its Day 5 problem"};
 window.CM_CASE_GUIDES = {GUIDES, BUILD};   // .github/scripts/case-guides.cjs
 if(typeof document === "undefined" || typeof renderDaySlideContent !== "function") return;

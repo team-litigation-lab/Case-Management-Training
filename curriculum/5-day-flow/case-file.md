@@ -184,7 +184,7 @@ verified by Northgate HR wage-and-attendance letter. **Total specials: $42,984.0
 1. **No transportation.** Margaret's Civic was towed from the scene, Kevin's Escape was in the shop, and no rental
    was authorized until 02/18/2026.
 2. He thought it was soreness that would pass; took OTC ibuprofen and lidocaine patches (receipt 02/07/2026).
-3. Cost worry: he wasn't sure his new Peach State coverage (effective 02/01/2026) was active, and didn't know PIP existed.
+3. Cost worry: he signed the PIP form at intake but didn't understand it paid his bills, and wasn't sure his new Peach State coverage (effective 02/01/2026) was active.
 4. Symptoms escalated: numbness into his right hand from 02/18/2026. He worked 02/18–02/19 and went to urgent care on his first day off, 02/20/2026.
 
 Corroboration: EMS report (neck complaint on the DOL), Northgate Attendance Record (called out 02/09–02/13
@@ -357,7 +357,7 @@ the MRI with its addendum) and Riverton Spine & Rehab's ledger audited to 33 vis
     day; all correspondence is filed in the CMS and kept on the Backup Drive. Every later date and figure stands: funds
     cleared 10/20, Settlement Statement 10/21, disbursement 10/22, net $20,359.92.
 - **08/31/2026** Host UM demand to Harbor Point ($20,000) and Relative UM demand to Cardinal State ($10,000, as
-  excess over Host UM), each emailed to its adjuster (Marcus Bell; Teresa Okafor), a paper copy following by certified mail (RS44), logged, with written
+  excess over Host UM), each emailed to its adjuster (Marcus Bell; Teresa Okafor), logged, with written
   acknowledgement of receipt requested.
 - Harbor Point offers $8,000 (09/14; cites the gap and "BI already compensated him"); the CM's counter-package
   goes 09/16; **Harbor Point pays $20,000 limits 09/29/2026** (check received 10/05).
@@ -432,8 +432,8 @@ before any negotiated reduction, leaving John Doe nothing — which is why the l
   at mediation. BI is exhausted; UM consents obtained; Limited Release; Robert Smith dismissed.
 - **03/22/2027 (Mon)** UM demands to Harbor Point (Host UM $20,000) and Cardinal State (Relative UM $10,000), with the proof of
   exhaustion. Harbor Point offers **$8,000** (03/31/2027); Cardinal State **$6,000** (04/02/2027).
-- **04/05/2027** Harbor Point and Cardinal State hold, disputing damages (the gap). Harbor Point's UM arbitration clause
-  is invoked; Cardinal State joins one consolidated **binding arbitration**, arbitrator **Laura Whitcomb, Esq.**
+- **04/05/2027** Harbor Point holds, disputing damages (the gap), and invokes its UM arbitration clause.
+  **04/12/2027** Cardinal State disputes damages in writing and joins one consolidated **binding arbitration**, arbitrator **Laura Whitcomb, Esq.**
   **04/26/2027 (Mon)** Laura Whitcomb's Notice of Hearing (after the 04/23 scheduling call) sets the hearing: **06/22/2027 (Tue), 9:00 a.m.**; exhibit exchange 20 days before → **06/02/2027**; arbitration brief 10 days
   before → 06/12/2027 is a Saturday → **docket 06/11/2027 (Fri)** (counting backward, move to the earlier business day).
 - **07/06/2027 (Tue) award (case won):** Laura Whitcomb finds John Doe's damages exceed the UM limits and awards
@@ -472,7 +472,7 @@ the facts above. Fictional throughout; no real carrier, provider or firm.
 | | |
 |---|---|
 | Firm | **LSH Law Group**, 500 Commerce St, Suite 1200, Riverton · (555) 010-4000 · Case Manager line ext. 214 · file LSH-2026-MVA-770412 |
-| Intake | Intake call **02/09/2026 (Mon)**; retainer and HIPAA authorization signed in the office the same day |
+| Intake | Intake call **02/09/2026 (Mon)**; retainer, HIPAA authorization and Harbor Point PIP application signed in the office the same day |
 | Keystone Mutual Insurance | Claims, P.O. Box 4100, Riverton · Robert Smith's policy **KMI-PA-7731045** · BI claim KM-26-440871 (Dana Whitfield, BI adjuster; **Greg Holloway**, claims supervisor) · PD claim KM-26-440871-PD (Leah Moran) |
 | Harbor Point Insurance | 77 Harbor Point Blvd, Riverton · Kevin Alvarez's policy **HPA-4402917** (2020 Ford Escape) · claim HP-26-7741 (Marcus Bell) · UM $20,000 / $40,000; PIP $10,000; MedPay $5,000 |
 | Cardinal State Mutual | 1200 Cardinal Way, Millbrook · Margaret Doe's policy **CSM-AU-5580213** (2018 Toyota Camry) · claim CS-26-20355 (Teresa Okafor) · UM $10,000 / $20,000 |

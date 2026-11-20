@@ -148,7 +148,7 @@
           "fix": "Show the charge satisfied by the plan's contract payment, proved by Peach State's EOB and the corrected $0.00 statement; the open claims are Peach State $1,860.00 and Riverton Spine & Rehab $6,105.00 = $7,965.00.",
           "proof": [
             "RS26",
-            "RS41"
+            "RS91"
           ]
         },
         {
@@ -425,7 +425,7 @@
           "issue": "Both are right: the plan's itemized reimbursement claim, and the LOP account at the audited 33 visits. Together they are the $7,965.00 the net is actually worked from.",
           "fix": "Confirm Crescent and Summit Imaging are shown at $0.00 as well, and reconcile the sheet to $7,965.00 before it goes to Atty. Thorne.",
           "proof": [
-            "RS41",
+            "RS91",
             "RS25"
           ]
         },

@@ -457,7 +457,7 @@ window.CM_CF_EXHIBITS = {
      "as": "Certified copy, run RF-26-0206-114, from Riverton Fire records.",
      "verdict": "keep",
      "kind": "gap",
-     "issue": "This is the document that answers the fourteen days: a neck complaint recorded at the scene on the date of loss, and \"restrained front-seat passenger\" against the later unbelted defense.",
+     "issue": "This is the document that answers the fourteen days: a neck complaint recorded at the scene on the date of loss, with \"restrained front-seat passenger\" recorded.",
      "fix": "Confirm it is the certified copy and that the demand's section 3 quotes it, not paraphrases it.",
      "proof": [
       "RS11"
@@ -1185,7 +1185,7 @@ window.CM_CF_EXHIBITS = {
      "fix": "Show the charge satisfied by the plan's contract payment, proved by Peach State's EOB and the corrected $0.00 statement; the open claims are Peach State $1,860.00 and Riverton Spine & Rehab $6,105.00 = $7,965.00.",
      "proof": [
       "RS26",
-      "RS41"
+      "RS91"
      ]
     },
     {
@@ -1462,7 +1462,7 @@ window.CM_CF_EXHIBITS = {
      "issue": "Both are right: the plan's itemized reimbursement claim, and the LOP account at the audited 33 visits. Together they are the $7,965.00 the net is actually worked from.",
      "fix": "Confirm Crescent and Summit Imaging are shown at $0.00 as well, and reconcile the sheet to $7,965.00 before it goes to Atty. Thorne.",
      "proof": [
-      "RS41",
+      "RS91",
       "RS25"
      ]
     },
@@ -2255,9 +2255,9 @@ window.CM_CF_EXHIBITS = {
  "amendments": {
   "d3m1-a1": {
    "was": "d2m4-a1",
-   "title": "Amendment Requests: records wrong at their source",
-   "kicker": "Screen the records and bills; ask each provider, in writing, to correct its own.",
-   "intro": "Every bill is in and MMI is declared. Before the demand is drafted, screen the file's records and bills for anything wrong at its source. You never fix a provider's record: Atty. Thorne approves the request, the provider corrects its own record or statement, and the original stays.",
+   "title": "Amendment Requests of 07/06/2026: records wrong at their source",
+   "kicker": "The 07/06/2026 requests: screen, ask each provider in writing, then see what came back.",
+   "intro": "Worked as of 07/06/2026, the step behind the corrected copies the 07/20 audit relies on: every bill is in, MMI is declared, no demand drafted. Screen the records and bills for anything wrong at source. You never fix a provider's record: Atty. Thorne approves the request, the provider corrects its own, and the original stays.",
    "screen": [
     {
      "doc": "RS14",
@@ -2633,9 +2633,9 @@ window.CM_CF_EXHIBITS = {
   },
   "d2m4-a1": {
    "was": "d2m4-a1",
-   "title": "Amendment Requests: records wrong at their source",
-   "kicker": "Screen the records and bills; ask each provider, in writing, to correct its own.",
-   "intro": "Every bill is in and MMI is declared. Before the demand is drafted, screen the file's records and bills for anything wrong at its source. You never fix a provider's record: Atty. Thorne approves the request, the provider corrects its own record or statement, and the original stays.",
+   "title": "Amendment Requests of 07/06/2026: records wrong at their source",
+   "kicker": "The 07/06/2026 requests: screen, ask each provider in writing, then see what came back.",
+   "intro": "Worked as of 07/06/2026, the step behind the corrected copies the 07/20 audit relies on: every bill is in, MMI is declared, no demand drafted. Screen the records and bills for anything wrong at source. You never fix a provider's record: Atty. Thorne approves the request, the provider corrects its own, and the original stays.",
    "screen": [
     {
      "doc": "RS14",

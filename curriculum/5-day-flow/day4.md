@@ -452,7 +452,7 @@ Two panels joined by a heavy orange arrow labelled THE GAP DISPUTE CARRIES OVER.
 
 #### 2 · Slide Body — Tell Them
 
-*Why:* On 04/05/2027 Harbor Point and Cardinal State took up Keystone's gap argument; Laura Whitcomb, Esq. will decide damages, bindingly. An Arbitration Binder is the record the award rests on: a page missing, illegible or not exchanged by 06/02/2027 may not count.
+*Why:* On 04/05/2027 Harbor Point, and on 04/12/2027 Cardinal State, took up Keystone's gap argument; Laura Whitcomb, Esq. will decide damages, bindingly. An Arbitration Binder is the record the award rests on: a page missing, illegible or not exchanged by 06/02/2027 may not count.
 
 1. Mediation is non-binding; its binder persuades. A binding award rests on the exhibits, and court review is very limited (some UM clauses allow a trial de novo; confirm the clause and statute). Apply each tab's QC rule as documents are sorted.
 2. The threshold leads: UM opens only because BI is exhausted. Prove it with the executed documents (Keystone's $10,000 tender, the UM consents, the Limited Release, Robert Smith's dismissal), never the Mediation Statement.
@@ -472,7 +472,7 @@ Two panels joined by a heavy orange arrow labelled THE GAP DISPUTE CARRIES OVER.
 | Tab | On John Doe's file | QC rule |
 |---|---|---|
 | 1 · Submissions | BI exhaustion record; snapshot sheet; final brief; fee disclosures | Retainers paid; final brief |
-| 2 · Arbitration pleadings | Demand; Cardinal State's joinder; each carrier's 04/05/2027 position; any Scheduling Order | Operative versions only |
+| 2 · Arbitration pleadings | Demand; Cardinal State's joinder; each carrier's written position (Harbor Point 04/05/2027, Cardinal State 04/12/2027); any Scheduling Order | Operative versions only |
 | 3 · Liability & biomechanics | Certified RPD-26-018842; doorbell stills; event data recorder | Identifiers redacted per forum; citation's use: Atty. Thorne; color |
 | 4 · Medical damages | Treatment chart; ledger $41,400.00; provider records and bills; MRI 03/13/2026; Dr. Reyes's orders and Causation Letter | Ledger = certified invoices |
 | 5 · Prior medical shield | 2021 chiropractic: three low-back visits, resolved; no prior neck complaint; work history | Paired with the MRI read and a medical opinion |
@@ -756,7 +756,7 @@ A horizontal calendar ribbon from 04/26/2027 to 06/22/2027. At the right end a s
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** File date 04/26/2027 (Mon), Track B. Keystone tendered its $10,000 BI limits at the 03/18/2027 mediation and Robert Smith was dismissed. On 04/05/2027 Harbor Point invoked its UM arbitration clause and Cardinal State joined one consolidated binding arbitration before Laura Whitcomb, Esq.; Atty. Thorne has answered the route and consolidation questions, and the hearing, exhibit and brief entries drafted on 04/05/2027 wait for a trigger document. This morning her scheduling letter arrived: hearing 06/22/2027 (Tue), 9:00 a.m.; exhibits and witness lists exchanged 20 days before; briefs due 10 days before (as configured for this training file; confirm the forum's rules). The plaintiff's share of her fee is $900.00. The master calendar still carries the 12/10/2026 Scheduling Order's dates in No. 26-CV-04417 and the SOL entries.
+**Scenario.** File date 04/26/2027 (Mon), Track B. Keystone tendered its $10,000 BI limits at the 03/18/2027 mediation and Robert Smith was dismissed. On 04/05/2027 Harbor Point invoked its UM arbitration clause, and on 04/12/2027 Cardinal State disputed damages in writing and joined one consolidated binding arbitration before Laura Whitcomb, Esq.; Atty. Thorne has answered the route and consolidation questions, and the hearing, exhibit and brief entries drafted on 04/05/2027 wait for a trigger document. This morning her scheduling letter arrived: hearing 06/22/2027 (Tue), 9:00 a.m.; exhibits and witness lists exchanged 20 days before; briefs due 10 days before (as configured for this training file; confirm the forum's rules). The plaintiff's share of her fee is $900.00. The master calendar still carries the 12/10/2026 Scheduling Order's dates in No. 26-CV-04417 and the SOL entries.
 
 **Execution prompt.** Calendar the arbitration from the letter. Enter the hearing and re-anchor the exchange and brief entries to it. Then compute every date that hangs off them, each from its trigger with the rule shown (backward counts move to the earlier business day): the Litigation Desk's draft exhibit index and the opening of binder QC, the certified-records requests and their chase, John Doe's attendance, witness availability, the prep session and the technology check. Route the $900.00 fee share to accounting as a case cost. Finally, check the result against the master calendar: keep the SOL entries, and for the court's dates in the dismissed suit ask Atty. Thorne in writing which stay live, rather than deleting anything.
 
@@ -1276,8 +1276,8 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 #### 2 · Slide Body — Knowledge verification
 
 1. Name the three bottleneck families and give this file's example of each, with the hard date it threatened.
-2. Walk Rule 1 on the Keystone record: each follow-up, the 48-Hour Mandate escalation and the hand-off to Atty. Thorne, with every date.
-3. Keystone's representative must be able to pay the $10,000 limits at the 03/18/2027 mediation. If they arrive without that authority, what failed earlier, and what was your countermeasure?
+2. Walk the 48-Hour Mandate on the Keystone record: each follow-up, the escalation to the claims supervisor and the hand-off to Atty. Thorne, with every date.
+3. Keystone's representative must be able to pay the $10,000 limits at the 03/18/2027 mediation. If they arrive without that authority, what failed earlier, and what countermeasure should have been in place, on what date?
 
 **Best practices & pitfalls**
 
@@ -1310,7 +1310,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 1. Keystone left the follow-ups of 08/24 and 08/31/2026 unanswered. Under the 48-Hour Mandate, when did the written escalation to Keystone's claims supervisor go out?  
    08/26/2026 · **✓ 09/02/2026** · 09/04/2026 · 09/08/2026  
    *48 hours after the second unanswered follow-up (08/31): 09/02. The supervisor's silence through 09/04 moved the file to Atty. Thorne, and the impasse memo reached him 09/08.*
-2. Keystone's attendee with settlement authority for the 03/18/2027 mediation is still unconfirmed. On what date does Rule 3, the 10-day red flag, fire for the session?  
+2. Keystone's attendee with settlement authority for the 03/18/2027 mediation is still unconfirmed. On what date does the 10-day red flag fire for the session?  
    03/01/2027 · **✓ 03/08/2027** · 03/11/2027 · 03/16/2027  
    *Ten days before 03/18/2027 is 03/08/2027. 03/01 is the red flag for the 03/11 binder, and 03/16 is the 48-hour audit. The flag goes to Atty. Thorne so he can raise it with defense counsel.*
 3. John Doe's UM arbitration is binding. Which bottleneck is hardest to recover from?  
@@ -1329,7 +1329,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 |---|---|---|---|
 | 🤖 AI | **20%** | Date accuracy | 08/24, 08/31, 09/02, 09/04/2026; 03/08, 03/09, 03/11, 03/18/2027; 06/02/2027 |
 | 🤖 AI | **15%** | Doctrine recall | Unverified ledger, missing decision-maker, late brief; exclusion, unshielded prior, missed cutoff; the missing-ledger protocol |
-| 🤖 AI | **15%** | Rule 1 and the authority flag | Rule 1 on Keystone: follow-ups 08/24 and 08/31/2026, the 48-Hour Mandate escalation to the claims supervisor 09/02, still silent 09/04 and handed to Atty. Thorne; the missing decision-maker caught by the Rule 3 red flag of 03/08/2027, for Atty. Thorne to raise with defense counsel |
+| 🤖 AI | **15%** | The 48-Hour Mandate and the authority flag | The 48-Hour Mandate on Keystone: follow-ups 08/24 and 08/31/2026, the 48-Hour Mandate escalation to the claims supervisor 09/02, still silent 09/04 and handed to Atty. Thorne; the missing decision-maker caught by the 10-day red flag of 03/08/2027, for Atty. Thorne to raise with defense counsel |
 | 🤖 AI | **10%** | Completeness | Every question answered substantively |
 | 🧑‍🏫 Trainer | **15%** | Strategic articulation | The first action on 05/24/2027 is the right one and the reasoning holds |
 | 🧑‍🏫 Trainer | **10%** | Self-Summary quality | Honest and specific, not a restatement of the slide |
@@ -1341,7 +1341,7 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 #### 5 · Speaker Notes
 
 - Question 2 tests the ladder on the Keystone record: follow-ups 08/24 and 08/31/2026, the 48-Hour Mandate escalation to the claims supervisor 09/02, no answer by 09/04, and the hand-off to Atty. Thorne. Every rung is dated, states facts and never argues motive.
-- Question 3 is the missing-decision-maker bottleneck. Its countermeasure was set weeks before the session: the Rule 3 red flag of 03/08/2027, ten days before 03/18, for Atty. Thorne to raise with defense counsel. A trainee who first notices on the morning of the mediation had no countermeasure.
+- Question 3 is the missing-decision-maker bottleneck. Its countermeasure should have been set weeks before the session: the 10-day red flag of 03/08/2027, ten days before 03/18, for Atty. Thorne to raise with defense counsel. A trainee who first notices on the morning of the mediation had no countermeasure.
 - Question 1: one example per family, each with its hard date. An example with no date is an opinion, not a bottleneck.
 - Compare each self-rating with the score. UPL is a gate: a strong score does not survive a value conversation with a carrier.
 

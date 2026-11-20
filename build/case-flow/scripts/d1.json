@@ -98,7 +98,7 @@
       "say": "• 02/09/2026: email from On the Records; new client John Doe, front-seat passenger, collision 02/06/2026 at Maple Hollow Rd and Birch Ave\n• Attached: New Client Intake Sheet, intake supplement, retainer, signed HIPAA authorization, Riverton PD crash report\n• A colleague's draft intake record is already in the CMS, and it has mistakes\n• Atty. Thorne wants the matter active today"
     },
     "task": {
-      "say": "• Start the matter in New Case; run and record the Conflict Check on every party's full legal name first\n• Check the draft field by field against the documents: date of loss, names, roles, position, date of birth, report number\n• Fix each error and note its source; never fix silently\n• Calendar the 02/06/2028 deadline with reminders; map six roles; log retainer and HIPAA; file documents named the firm's way\n• Insurance checkpoint: each layer in order, first- or third-party, every field or its gap, each limit's source, PIP outside the stack\n• Send Atty. Thorne a correction note in Case Notes"
+      "say": "• Start the matter in New Case; run and record the Conflict Check on every party's full legal name first\n• Check the draft field by field against the documents: date of loss, names, roles, position, date of birth, report number\n• Fix each error and note its source; never fix silently\n• Calendar the 02/06/2028 deadline with reminders; map six roles; log retainer and HIPAA; file documents named the firm's way\n• Insurance: each layer in order, first- or third-party, every gap recorded with a follow-up, no limit guessed, PIP outside the stack\n• Send Atty. Thorne a correction note in Case Notes"
     },
     "check": {
       "say": "• Conflict Check done before the matter existed, on full legal names\n• Date of loss 02/06/2026 confirmed against the Police Report; deadline 02/06/2028 calendared with reminders\n• Position corrected to front-seat passenger; date of birth and swapped report number fixed, each with its source\n• Six roles mapped; retainer and HIPAA logged with signing date 02/09/2026; documents named before filing",
@@ -274,13 +274,13 @@
   },
   "d2m1-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub › Others, draft three letters of representation and two notices\n• Each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages\n• Step 2: Route the set to Atty. Thorne for signature, send each by the carrier's preferred method, and calendar a check for each acknowledgement"
+      "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance, complete each layer from the claim calls, each limit with its source, still preliminary\n• Step 2: In CMS › Doc Hub › Others, draft three letters of representation and two notices\n• Each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages\n• Step 3: Route the set to Atty. Thorne for signature, send each by preferred method, calendar each acknowledgement check\n• As each written answer arrives, record that layer's verification status with its document and date"
     },
     "case": {
       "say": "• Assuming claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, no adjuster assigned\n• Five letters must go out on 02/17/2026\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: five letters signed, sent and logged, follow-ups calendared"
     },
     "check": {
-      "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Cardinal State: “Attn: Claims Department”; Correct insured on each; Keystone: John Doe's name only\n• And: No UM letter asks for payment; All signed and sent 02/17/2026\n• The one thing to watch for: One letter copied five times, insured left as Robert Smith"
+      "say": "• Submit: they submit the entry they logged; graded on the three steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Cardinal State: “Attn: Claims Department”; Correct insured on each; Keystone: John Doe's name only\n• And: No UM letter asks for payment; All signed and sent 02/17/2026\n• The one thing to watch for: One letter copied five times, insured left as Robert Smith"
     }
   },
   "d1m1-a1": {
@@ -332,13 +332,13 @@
   },
   "d1m4-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, record the stack in order with a preliminary projection\n• And put the Treatment Gap, counted from the records, at the top of the risks band\n• Step 2: Under the gap, list the causes to investigate as questions for John Doe\n• Step 3: Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne"
+      "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, record the stack in order with a preliminary projection\n• And put the Treatment Gap, counted from the records, at the top of the risks band\n• Step 2: Under the gap, record John Doe's account from the 03/04 recorded call as his, the documents behind it marked requested\n• Step 3: Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne"
     },
     "case": {
-      "say": "• Assuming the set-up is in, the $40,000 stack verified and the first treatment records on file, Atty. Thorne now needs the Case Plan\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Case Plan routed to Atty. Thorne, the filing window docketed"
+      "say": "• Assuming the set-up is in, the $40,000 stack verified and the first treatment records on file, Atty. Thorne now needs the Case Plan\n• John's account of the gap from the 03/04 recorded call is on file too\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Case Plan routed to Atty. Thorne, the filing window docketed"
     },
     "check": {
-      "say": "• Submit: they submit the entry they logged; graded on the three steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Order BI › Host UM › Relative UM; projection preliminary; Risks band: the gap, counted from the records, first\n• And: Causes to investigate listed as questions; Plan routed to Atty. Elijah Thorne\n• The one thing to watch for: a projection stated as a number before coverage is confirmed"
+      "say": "• Submit: they submit the entry they logged; graded on the three steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Order BI › Host UM › Relative UM; projection preliminary; Risks band: the gap, counted from the records, first\n• And: John's 03/04 account recorded as his, documents requested; Plan routed to Atty. Elijah Thorne\n• The one thing to watch for: a projection stated as a number before coverage is confirmed"
     }
   },
   "d1m1-kc": {

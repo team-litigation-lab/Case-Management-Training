@@ -369,7 +369,7 @@ window.CM_CF_SLIDES = {
    "Conflict Check logged **before the matter existed**",
    "Position, date of birth and **report number** corrected, with sources",
    "SOL docketed; **six roles** mapped; documents filed",
-   "Insurance: each layer **in order and sourced**, marked preliminary",
+   "Insurance: each layer **in order, every gap recorded**, nothing guessed",
    "Correction note **routed to Atty. Thorne**"
   ],
   "dos": [
@@ -1766,7 +1766,7 @@ window.CM_CF_SLIDES = {
   "side": true,
   "steps": [
    "In the Action Plan Editor, record the stack in order with a preliminary projection, and put the **Treatment Gap**, counted from the records, at the top of the risks band.",
-   "Under the gap, list the causes to investigate as questions for John Doe, not answers.",
+   "Under the gap, record **John Doe's 03/04 account** as his, with the documents behind it marked requested.",
    "Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne."
   ],
   "deliver": "A Case Plan **routed to Atty. Thorne**, the filing window docketed",
@@ -1775,7 +1775,7 @@ window.CM_CF_SLIDES = {
   "checks": [
    "Order **BI → Host UM → Relative UM**; projection preliminary",
    "Risks band: **the gap, counted from the records**, first",
-   "Causes to investigate listed **as questions**",
+   "John's **03/04 account** recorded as his, documents requested",
    "Plan **routed to Atty. Elijah Thorne**"
   ],
   "dos": [
@@ -1967,8 +1967,9 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, **no adjuster assigned**, **five letters** must go out on 02/17/2026.",
   "side": true,
   "steps": [
-   "In CMS → Doc Hub → Others, draft three letters of representation and **two notices**: each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages.",
-   "Route the set to Atty. Thorne for signature, send each by the carrier's preferred method, and calendar a check for each acknowledgement."
+   "In CMS → Insurance, complete each layer from the claim calls: claim number, adjuster, and each limit **with its source**, still preliminary.",
+   "In CMS → Doc Hub → Others, draft three letters of representation and **two notices**, each with its Attn line, insured, claim number and date of loss.",
+   "Route the set to Atty. Thorne for signature, send each by preferred method, calendar the acknowledgement checks, and record each layer's **verification status** as answers arrive."
   ],
   "deliver": "Five letters **signed, sent and logged**, each correctly addressed, follow-ups calendared",
   "purpose": "One wrong letter risks **the UM coverage** or hands Keystone his private details",
@@ -1982,7 +1983,7 @@ window.CM_CF_SLIDES = {
   ],
   "dos": [
    "Read each letter **against the claim-call log** before signature",
-   "Tell John Doe: PD may call **about the Civic only**"
+   "Tell John: PD deals with **Margaret, on the Civic only**"
   ],
   "donts": [
    "One letter copied five times, **insured left as Robert Smith**",
@@ -4398,9 +4399,9 @@ window.CM_CF_SLIDES = {
  },
  "d3m1-a1": {
   "image": "checklist-qa",
-  "situation": "File date 07/20/2026. MMI reached; the Specials, wages and gap record are **still unaudited**. Atty. Thorne approved $10,000 limits, a Limited Release, Smith's affidavit, 30 days from receipt. The draft awaits **you**.",
+  "situation": "File date 07/20/2026. The pre-demand audit (Specials, wages, gap record) is **yours to re-check**. Atty. Thorne approved $10,000 limits, a Limited Release, Smith's affidavit, 30 days from receipt. The draft awaits **you**.",
   "steps": [
-   "Download the case documents from 📁 Source Files, audit the Specials and wages bill by bill, build the Gap Record from the filed notes, then check the draft against the Big Four.",
+   "Download the case documents from 📁 Source Files, re-check the Specials and wages bill by bill and the Gap Record against the filed notes, then check the draft against the Big Four.",
    "Build the packet by hand: demand letter, exhibit index, then Exhibits A–J, **liability first** (A–D), then records and bills, MRI, Causation Letter, wages, Gap Record, Dec Page.",
    "Combine them into one PDF, make it searchable (OCR), bookmark each section, and Bates-number every page once.",
    "Name it by the firm's convention, ending in _DRAFT, and file it in CMS → Doc Hub so it reaches folder 05 Insurance.",
@@ -7553,8 +7554,8 @@ window.CM_CF_SLIDES = {
   "image": "knowledge-check",
   "questions": [
    "Name **the three bottleneck families**, with this file's example of each and the hard date threatened.",
-   "Walk Rule 1 on Keystone: follow-ups, **the 48-Hour Mandate escalation**, the hand-off to Atty. Thorne, every date.",
-   "Keystone's representative arrives on 03/18/2027 **without authority to pay $10,000**. What failed earlier, and your countermeasure?"
+   "Walk **the 48-Hour Mandate** on Keystone: follow-ups, the escalation, the hand-off to Atty. Thorne, every date.",
+   "Keystone's representative arrives 03/18/2027 **without authority to pay $10,000**. What failed earlier, and what countermeasure, when?"
   ]
  },
  "d5m1-l1": {
