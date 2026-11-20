@@ -458,7 +458,7 @@ const tone = p => p == null ? "" : p >= 85 ? "gs-hi" : p >= 70 ? "gs-mid" : "gs-
 const pcell = (p, f, extra) => ({v: pctTxt(p) === "—" ? "" : pctTxt(p), f, cls: "gs-num " + tone(p) + (extra ? " " + extra : "")});
 function sheetHtml(T){
   const n = T.head.length;
-  return `<section class="bs-sec" id="scx-${T.id}"><h3 class="bs-h">${E(T.title)} <span>${T.rows.length} row${T.rows.length === 1 ? "" : "s"}</span></h3>${T.note ? `<p class="bs-note">${E(T.note)}</p>` : ""}${T.warn ? `<p class="bs-warn" role="alert">⚠ ${E(T.warn)}${window.cmRunNow ? `<button type="button" onclick="cmRunNow.run('ai')">🤖 Run the AI check</button>` : ""}</p>` : ""}
+  return `<section class="bs-sec" id="scx-${T.id}"><h3 class="bs-h">${E(T.title)} <span>${T.rows.length} row${T.rows.length === 1 ? "" : "s"}</span></h3>${T.note ? `<p class="bs-note">${E(T.note)}</p>` : ""}${T.warn ? `<p class="bs-warn" role="alert">⚠ ${E(T.warn)}${window.cmRunNow ? `<button type="button" onclick="cmRunNow.run('ai')">🤖 Run the AI check</button>` : ""}</p>` : ""}${T.info ? `<p class="bs-info" role="status">${E(T.info)}</p>` : ""}
     <div class="gs-wrap"><table class="gs" role="grid"><thead>
       <tr class="gs-letters"><th class="gs-corner"></th>${T.head.map((h, i) => `<th class="${i === 0 ? "gs-frz" : ""}">${letter(i)}</th>`).join("")}</tr>
       <tr class="gs-head"><th class="gs-rn">1</th>${T.head.map((h, i) => `<th class="${i === 0 ? "gs-frz" : ""}">${E(h)}</th>`).join("")}</tr></thead>
