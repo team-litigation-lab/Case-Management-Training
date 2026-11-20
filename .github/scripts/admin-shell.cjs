@@ -1,9 +1,10 @@
-// @check browser — The Admin screen in sections, as Foundational (section pills, their tabs, a navy banner; opens on Scorecard → Batch Sheet, scores only; every admin action in Admin Master Control)
+// @check browser — The Admin screen in sections, as Foundational (section pills, their tabs, a navy banner; opens on Scorecard → Scorecards, the one scores page (the old Batch Sheet tab opens it too), scores only; every admin action in Admin Master Control)
 // The Admin screen in sections, the Foundational Training way (js/cm-admin-shell.js):
 // 1. a row of section pills in Foundational's order, only the ones this course has (🏅 Scorecard · 🛡 Admin Master Control ·
 //    🔓 Open Lessons), the open section's tabs in a row under them, and a navy banner (.ft-banner) heading the content;
-// 2. Admin opens on 🏅 Scorecard → 📋 Batch Sheet; every tab opens with setAdminTab and lands in its section;
-// 3. 🏅 Scorecard shows only scores (the 📋 Batch Sheet and the 🏅 Scorecards cards): no approving, rejecting, resetting,
+// 2. Admin opens on 🏅 Scorecard → 🏅 Scorecards (the one scores page: the 📋 Batch Sheet is folded into it, its tab is gone and
+//    setAdminTab('audit') opens the one page); the 🏅 Scorecard pill lands on it; every tab opens with setAdminTab and lands in its section;
+// 3. 🏅 Scorecard shows only scores (🏅 Scores and the cards) and the ⚡ Run now triggers: no approving, rejecting, resetting,
 //    revoking, assigning, feedback, certificates, archiving or settings there; all of those are in 🛡 Admin Master Control
 //    (👥 Trainee Audit, 📁 Companion Cases, ⚙ Settings, 🎲 Random Tasks);
 // 4. a tab another script adds later lands under 🛡 Admin Master Control;
@@ -16,7 +17,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
 const failures = []; const fail = (m) => failures.push(m);
 const PILLS = ['🏅 Scorecard', '🛡 Admin Master Control', '🔓 Open Lessons', '🛠 Account Repair'];   // (🛠 Account Repair: js/cm-account-repair.js adds its own)
 const SC = '🏅 Scorecard', AMC = '🛡 Admin Master Control', OL = '🔓 Open Lessons', AR = '🛠 Account Repair';
-const WHERE = { audit: SC, scorecards: SC, rankreport: SC, rubric: SC, traineeaudit: AMC, companion: AMC, tfeedback: AMC, rtasks: AMC, settings: AMC, sop: AMC, studio: AMC, tdrives: AMC,
+const WHERE = { scorecards: SC, rankreport: SC, rubric: SC, traineeaudit: AMC, companion: AMC, tfeedback: AMC, rtasks: AMC, settings: AMC, sop: AMC, studio: AMC, tdrives: AMC,
     openlessons: OL, activities: OL, fbstyle: OL,
     accountrepair: AR };
 // what a trainer DOES: never on the 🏅 Scorecard pages
@@ -56,14 +57,20 @@ const SEED = [{ id: `pat-pend-${tag}--s`, name: `Pat Pend ${tag}`, batch: BATCH,
     await page.evaluate(async (SEED) => { for (const r of SEED) await sharedSet('trainee:' + r.id, r); }, SEED);
     await page.evaluate((b) => { state.adminData = null; state.adminBatchFilter = cleanBatch(b); }, BATCH);
 
-    // 2. the default: 🏅 Scorecard → 📋 Batch Sheet
+    // 2. the default: 🏅 Scorecard → 🏅 Scorecards
     const home = await open(null);
     if (home.view !== 'admin' || !home.screen) fail(`the Admin screen did not open in its panel: ${JSON.stringify({ view: home.view, screen: home.screen })}`);
     if (JSON.stringify(home.pills) !== JSON.stringify(PILLS)) fail(`the section pills should be ${PILLS.join(' · ')}: ${home.pills.join(' · ')}`);
-    if (home.active[0] !== SC || home.activeTab[0] !== 'audit') fail(`Admin should open on 🏅 Scorecard → 📋 Batch Sheet: ${home.active} / ${home.activeTab}`);
+    if (home.active[0] !== SC || home.activeTab[0] !== 'scorecards' || home.tab !== 'scorecards') fail(`Admin should open on 🏅 Scorecard → 🏅 Scorecards: ${home.active} / ${home.activeTab} / ${home.tab}`);
+    if (JSON.stringify(home.row) !== JSON.stringify(['scorecards', 'rubric'])) fail(`🏅 Scorecard's tabs should be 🏅 Scorecards first, then 📐 Feedback Rubric, and no 📋 Batch Sheet: ${home.row}`);
+    if (/Batch Sheet/.test(home.text.slice(0, 600))) fail('the 📋 Batch Sheet tab is still on the Admin screen');
     if (home.oldGroups) fail('js/cm-case-flow.js grouped the tabs as well (its .cf-admin-secs is on the page)');
     if (home.strips !== 1) fail(`one tab strip, not ${home.strips}`);
-    if (!/Batch Sheet/.test(home.banner)) fail(`the Batch Sheet has no navy banner over it: "${home.banner}"`);
+    if (!/Scorecards/.test(home.banner)) fail(`the Scorecards page has no navy banner over it: "${home.banner}"`);
+    // the 🏅 Scorecard pill, pressed from another section, lands on 🏅 Scorecards; the old Batch Sheet tab opens it too
+    await open('traineeaudit'); await page.click('.cmsh-sec[data-sec="scorecard"]'); await page.waitForTimeout(300);
+    const pill = await page.evaluate(() => ({ tab: state.adminTab, scores: !!document.querySelector('.cmsh-screen #scx-scores, .cmsh-screen .scx-page') }));
+    if (pill.tab !== 'scorecards' || !pill.scores) fail(`the 🏅 Scorecard pill should open 🏅 Scorecards: ${JSON.stringify(pill)}`);
 
     // 3. 🏅 Scorecard: scores only (the sheet, once the batch's progress has loaded, and the cards)
     const scoresOnly = async (tab, ready) => {
@@ -71,10 +78,11 @@ const SEED = [{ id: `pat-pend-${tag}--s`, name: `Pat Pend ${tag}`, batch: BATCH,
         await page.waitForFunction(ready, null, { timeout: 20000 }).catch(() => fail(`${tab}: the scores never drew`));
         return page.evaluate(() => { const s = document.querySelector('.cmsh-screen'); return { html: s ? s.innerHTML : '', text: s ? s.innerText : '' }; });
     };
-    const sheet = await scoresOnly('audit', () => !!document.querySelector('#bs-scores') && /Ann Ok/.test(document.querySelector('#bsSheet').innerText));
-    const m1 = ACTIONS.exec(sheet.html); if (m1) fail(`the 📋 Batch Sheet still carries an admin action: ${m1[0]}`);
-    if (/View Detail|Hide Detail|Assign a case|Certificate signatories|Archive this batch|Log out/.test(sheet.text)) fail('the 📋 Batch Sheet still shows admin controls (detail, assign, settings, archive, log out)');
-    if (!/Score Card/.test(sheet.text) || !/Scores/.test(sheet.text)) fail('the 📋 Batch Sheet lost its score tables');
+    const sheet = await scoresOnly('audit', () => !!document.querySelector('.cmsh-screen #scx-scores') && /Ann Ok/.test(document.querySelector('.cmsh-screen #scx-scores').innerText));
+    if (await page.evaluate(() => state.adminTab) !== 'scorecards') fail("the old Batch Sheet tab (setAdminTab('audit')) should open the one 🏅 Scorecards page");
+    const m1 = ACTIONS.exec(sheet.html); if (m1) fail(`the 🏅 Scorecard page carries an admin action: ${m1[0]}`);
+    if (/View Detail|Hide Detail|Assign a case|Certificate signatories|Archive this batch|Log out/.test(sheet.text)) fail('the 🏅 Scorecard page shows admin controls (detail, assign, settings, archive, log out)');
+    if (!/Scores/.test(sheet.text) || !/Feedback on practical activities/.test(sheet.text)) fail('the 🏅 Scorecard page lost its 🏅 Scores table or the cards\' feedback on practical activities');
     const cards = await scoresOnly('scorecards', () => !!document.querySelector('.bs-pt'));
     const m2 = ACTIONS.exec(cards.html); if (m2) fail(`🏅 Scorecards carries an admin action: ${m2[0]}`);
     if (!/Safety gate|100-point|Final/.test(cards.text)) fail('🏅 Scorecards should show the trainee cards with the 100-point model');
