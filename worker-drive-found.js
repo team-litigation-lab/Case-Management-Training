@@ -20,18 +20,18 @@
        record is never overwritten.
      - THE COURSE DOCUMENTS FILED BY HAND (handFiled): any file in the linked folder that isn't the platform's own copy
        (nor an empty one, nor one under a kilobyte), identified first by its bytes (Drive's md5Checksum, the same as the course's own file of it:
-       courseHashes; the bytes decide over a code in the name, and copies of one file, in any folder, are one document);
+       courseHashes, or as any version the course served before re-rendering it: worker-drive-versions.js, withVersions;
+       the bytes decide over a code in the name, and copies of one file, in any folder, are one document);
        else by the course document's code in its name (RS01, RS-01, RS_01) or, failing that, its title
        ("New-Client-Intake-Sheet"), certain unless that document's own file was read and these bytes aren't it (then
        `by: "name"`, a reading like the one below), against CM_CF_DOCS in js/cm-case-flow-docs.js (read through ASSETS, as the
        written-work grader reads the course data; DRIVE_DOC in worker.js when that can't be read); and failing that, a
        name in the firm's convention by its Type and the firm folder it is in (applyFound, `by: "type"`: a reading, never
        certain, so it neither starts a day, nor has its name charged, nor counts in Day 1's filing, nor keeps a file
-       from the written-work grader), the drive packets of the days reached first. Bytes that are none of the course's
-       current files never hide a document from the listing (a copy from before a document was re-rendered is still
-       read by its Type, and said), but a reading whose bytes were set against that document's own file and aren't it
-       (`other`) earns nothing (credited): junk named the firm's way, a code over another file, a copy altered by a
-       byte. The trainee is told to back up the course's own file. Copies are one document: the same bytes anywhere
+       from the written-work grader), the drive packets of the days reached first. Bytes that are no version of the
+       course's files never hide a document from the listing (it is still read by its Type, and said), but a reading
+       whose bytes were set against that document's own files and aren't one (`other`) earns nothing (credited): junk
+       named the firm's way, a code over another file, a copy altered by a byte. The trainee is told to back up the course's own file. Copies are one document: the same bytes anywhere
        (the platform's own copies too), or, for a reading, the same size in one firm folder. All of it from the drive
        alone. Recorded as
        rec.handFiled [{docId, id, name, path, home, at, type, by, other}]: worker.js reads them beside the platform's copies, so a
@@ -50,6 +50,7 @@
    (rec.walk.reason "budget") finds nothing from it: what was found last stands until the whole drive is read.
    ============================================================ */
 import { homeFinder, walkNote } from "./worker-drive-walk.js";
+import { DOC_VERSIONS } from "./worker-drive-versions.js";   // every version the course has served of each document, by its bytes (generated)
 
 /* A folder's name with case, spaces, punctuation and "&" / "and" taken out: "Doe -John", "Doe, John" and "doe-john" read the same. */
 export const looseFolder = (s) => String(s == null ? "" : s).toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "");
@@ -169,6 +170,18 @@ export async function courseHashes(env, D, docs) {
   HASHES = { docs, by, missing, at: Date.now() };
   return by;
 }
+/* 🔎 …and every version the course has ever served of each document (worker-drive-versions.js, from the git history:
+   build/case-flow/documents/versions.cjs). Documents are re-rendered (RS12 on 2026-11-18): a trainee who backed up the
+   version the course served then has that document, by its bytes, as surely as one who backs up today's. Bytes that
+   are no version of it are still not it. {md5: [docId]}, the course's files read now laid over the versions listed. */
+let VERSIONS = null;   // (a test sets them: _versions)
+export const _versions = (v) => { VERSIONS = v == null ? null : v; };
+export function withVersions(hashes, versions = VERSIONS || DOC_VERSIONS) {
+  const by = {};
+  Object.entries(hashes || {}).forEach(([h, ids]) => { by[h] = ids.slice(); });
+  Object.entries(versions || {}).forEach(([docId, hs]) => (hs || []).forEach((h) => { h = String(h).toLowerCase(); const ids = (by[h] = by[h] || []); if (!ids.includes(docId)) ids.push(docId); }));
+  return by;
+}
 
 /* The course document a file name is: its code (RS01, RS-01, RS_01, rs 1), else its title; "" when it is none. */
 const codeOf = (name) => { const m = /(?:^|[^A-Za-z0-9])RS[ _-]?0*(\d{1,3})(?![0-9])/i.exec(String(name || "")); return m ? "RS" + String(Number(m[1])).padStart(2, "0") : ""; };
@@ -235,7 +248,7 @@ export async function driveFind(env, D, id, rec, opts) {
   // the days the trainee has reached (their course progress, never the CMS): which drive packets are already asked for
   let reached = [];
   try { reached = D.daysReached ? await D.daysReached(env, id) : []; } catch (e) { reached = []; }
-  applyFound(rec, listing, docs, D, summed ? await courseHashes(env, D, docs) : {}, { reached });
+  applyFound(rec, listing, docs, D, withVersions(summed ? await courseHashes(env, D, docs) : {}), { reached });
   return listing;
 }
 /* 📂 What a file's name says when it is named the firm's way: <Case ID>_<Last-First>_<Type>_<YYYY-MM-DD>[_label], one
@@ -269,8 +282,9 @@ export const knownFor = (h) => !!h && h.by !== "type" && h.by !== "name";
 /* A document that earns its place on the drive (worker.js S.copyOf: placed, the labels, the final audit): one known for
    certain, or one read by its Type when its bytes couldn't be set against that document's own file (the course's
    files couldn't be read, or Drive gave no checksum). A reading over bytes that were compared and aren't the course's
-   file (`other`: junk named the firm's way, a code over another file, a copy altered by a byte, a copy kept from before
-   the document was re-rendered) is listed and said, never credited: the trainee backs up the course's own file. */
+   file nor any version of it the course served (`other`: junk named the firm's way, a code over another file, a copy
+   altered by a byte) is listed and said, never credited: the trainee backs up the course's own file. (A copy kept from
+   before the document was re-rendered is one of its versions: known by its bytes, worker-drive-versions.js.) */
 export const credited = (h) => !!h && (knownFor(h) || (h.by === "type" && !h.other));
 /* The day a course document opens on (CM_CF_DOCS `day`); 0 when it isn't known. A document the course opens before the
    day whose drive packet grades it (Day 1 teaches through treatment: RS12 opens on Day 1, graded on Day 2; RS16 opens
@@ -343,8 +357,8 @@ export function applyFound(rec, listing, docs, D, hashes = {}, opts = {}) {
   // 2. a document code (RS12) or its title in the name, when its bytes aren't the course's own: that document, wherever
   //    it is (a wrong folder is then said). A copy of a file already known (the same bytes) is that same document.
   //    Certain when that document's own file couldn't be read (or the file has no checksum); when it was read and these
-  //    bytes aren't it, the name is a reading (`by: "name"`): a course file the trainee re-rendered or kept from an
-  //    earlier version is still placed, but junk renamed RS51 never starts a day nor counts as certain filing.
+  //    bytes aren't it (nor any version of it the course served), the name is a reading (`by: "name"`): a course file
+  //    the trainee altered is still placed, but junk renamed RS51 never starts a day nor counts as certain filing.
   const rest2 = [];
   rest.forEach(([fid, f]) => {
     const m = md5Of(f), was = m && sameBytes[m];
@@ -362,9 +376,9 @@ export function applyFound(rec, listing, docs, D, hashes = {}, opts = {}) {
   //    from that day (so a Day 1 paper is never taken for a later day's). The one its label says when it has one
   //    (_SUPERSEDED-<date>: a version a newer one replaced; _DRAFT: a draft), one that carries no label when it has
   //    none. One document a file, and the files in the order they were made. In any other folder it isn't guessed at.
-  //    Bytes that are none of the course's current files never hide a file from this reading (a copy downloaded before
-  //    a document was re-rendered is still listed as that document, and said), but bytes set against that document's
-  //    own file that aren't it are `other` (add): listed, never credited.
+  //    Bytes that are no version of the course's files never hide a file from this reading (it is still listed as that
+  //    document, and said), but bytes set against that document's own files that aren't one are `other` (add): listed,
+  //    never credited. (A version from before a re-render was known by its bytes in 1.)
   const dayOf = {}; Object.entries(D.DRIVE_DAY_DOCS || {}).forEach(([n, ids]) => ids.forEach((d) => { dayOf[d] = Number(n); }));
   const opens = (d) => Number(docs[d].day) || dayOf[d] || 0;
   const packetOf = (d) => Number(docs[d].packet) || dayOf[d] || 0;

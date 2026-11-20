@@ -1,4 +1,4 @@
-// @check node — A course document on the Backup Drive is known from the drive alone, never from the CMS: by its bytes first (Drive's md5Checksum against the course's own file, over any code in the name; copies anywhere one document; an empty file none), then its code or title, else by the firm's name (<Case ID>_<Last-First>_<Type>_<date>, the CMS's counters too) in its firm folder at any depth (bytes that aren't the course's current file never rule it out; under a kilobyte is no document), steered by its SUPERSEDED/DRAFT label, the drive packets of the days reached first, the platform's own copies accounted for; a match by Type alone, or by a code over other bytes, never starts a day, has its name charged, counts in Day 1's filing or hides written work; a CMS counter in a certain document's name is read past; a reading over bytes set against the course's file earns no place and adds no good name, a certain copy before any reading, a hand copy of the platform's copy is that document, and a document opened on an earlier day never starts a later one
+// @check node — A course document on the Backup Drive is known from the drive alone, never from the CMS: by its bytes first (Drive's md5Checksum against the course's own file or any version of it the course served, over any code in the name; copies anywhere one document; an empty file none), then its code or title, else by the firm's name (<Case ID>_<Last-First>_<Type>_<date>, the CMS's counters too) in its firm folder at any depth (bytes that aren't the course's current file never rule it out; under a kilobyte is no document), steered by its SUPERSEDED/DRAFT label, the drive packets of the days reached first, the platform's own copies accounted for; a match by Type alone, or by a code over other bytes, never starts a day, has its name charged, counts in Day 1's filing or hides written work; a CMS counter in a certain document's name is read past; a reading over bytes set against the course's file earns no place and adds no good name, a certain copy before any reading, a hand copy of the platform's copy is that document, and a document opened on an earlier day never starts a later one
 // worker-drive-found.js applyFound / typeOfName. Before, a file was known only by a code (RS01) or its title in its name,
 // so trainees who named their files the way the course teaches (…_Medical-Records_2026-11-16.pdf) had every day after
 // Day 1 at 0% on the Backup Drive although the documents were in their folders. The owner: the Backup Drive is graded on
@@ -14,13 +14,16 @@
 //       (8) a trainee on Days 2–5 with every drive packet named the firm's way gets every packet row full; (9) one file
 //       in two folders is one document; (10) a Type-only match is still written work; (11) nor counts in Day 1's
 //       filing; (12) why a day is ungraded says so; (13) a course file that failed to read is read again later;
-//       (14) a course document in other bytes (drawn again, an earlier version) named the firm's way is still read by
+//       (14) a course document in other bytes (altered, no version the course served) named the firm's way is still read by
 //       its Type; (15) a CMS counter in a certain document's name is read past (Days 1–3); (16) with the course's files
 //       read, a code over other bytes is a reading (`by: "name"`) that never starts a day, a few bytes are no document,
 //       and one file altered under six codes is one document; (17) a document the course opens on an earlier day never
 //       starts the later day that grades it; (18) junk earns no place, whatever it is named, and a reading over bytes set
 //       against the course's file earns nothing; (19) altering or renaming the files never pays; (20) a reading never
-//       hides the document's own file in the wrong folder; (21) a hand copy of the platform's copy is that document.
+//       hides the document's own file in the wrong folder; (21) a hand copy of the platform's copy is that document;
+//       (22) a version the course served before re-rendering a document is that document (worker-drive-versions.js);
+//       (23) a drive filed correctly by hand fills every reached day's document rows and Day 1, and starts no other day;
+//       (24) a file Drive gave no checksum or size for is still read.
 // Usage: node .github/scripts/drive-named-files.cjs
 'use strict';
 const path = require('path');
@@ -56,7 +59,8 @@ global.fetch = async (url, init = {}) => {
     if (u.pathname === '/drive/v3/files' && method === 'GET') {
         const match = SA.qMatch(u.searchParams.get('q') || '');
         return reply({ files: [...dfiles].filter(([, f]) => match(f)).map(([id, f]) => Object.assign({ id, name: f.name, mimeType: f.mimeType, parents: f.parents, modifiedTime: f.modifiedTime, createdTime: f.createdTime, owners: f.owners },
-            f.body ? { size: String(f.body.length), md5Checksum: md5(f.body) } : {})) });
+            // (noSize / noMd5: Drive gave no size or no checksum for it; md5: the checksum Drive gives, when the test says so)
+            f.body ? Object.assign(f.noSize ? {} : { size: String(f.body.length) }, f.noMd5 ? {} : { md5Checksum: f.md5 || md5(f.body) }) : {})) });
     }
     const m = u.pathname.match(/^\/drive\/v3\/files\/([^/]+)$/);
     if (m && method === 'DELETE') { dfiles.delete(m[1]); return new Response(null, { status: 204 }); }
@@ -109,7 +113,8 @@ async function endToEnd(M, fail) {
         M._resetDocs();
     }
     let n = 0;
-    const readable = (on) => { docsOn = on; M._resetDocs(); };
+    // (off: neither the course's files nor the versions listed in worker-drive-versions.js: no document is known by its bytes)
+    const readable = (on) => { docsOn = on; M._resetDocs(); M._versions(on ? null : {}); };
     // `reached`: the Case Flow days the trainee's progress has reached (day-progress); `build` false: the firm's folders made by hand
     const trainee = async (reached = [], build = true) => {
         const a = await auth({ name: `Ana Cruz${'z'.repeat(++n)}`, batch: 'B100926' }), t = a.token, tid = a.id;
@@ -219,7 +224,7 @@ async function endToEnd(M, fail) {
         if (g && g.grades && g.grades[5]) fail('(3b) empty files named RS51, RS52 and RS53 should not start Day 5');
     }
 
-    /* 14: a course file in other bytes (a copy from before the document was re-rendered), named the firm's way in its
+    /* 14: a course file in other bytes (altered: no version the course ever served, 22), named the firm's way in its
        folder, is still read by its Type and folder and said, but bytes set against the course's file that aren't it earn
        nothing (`other`): the row tells the trainee to back up the course's own file (finding: junk named the firm's way
        filled Day 5 at 16/16). With the course's files unreadable a Type reading still counts (8). */
@@ -353,6 +358,73 @@ async function endToEnd(M, fail) {
         const n1 = row(g1, 5, 'File names'), n2 = row(g2, 5, 'File names');
         if (!n1 || !n2 || n2.got > n1.got) fail(`(20) junk named the firm's way should add no good name to the row: ${n1 && n1.got} then ${n2 && n2.got}`);
     }
+    /* 22: a version the course served before it re-rendered the document is that document, by its bytes
+       (worker-drive-versions.js; finding: RS12 was re-rendered on 2026-11-18, and a trainee who had backed up the earlier
+       file got nothing for it); bytes that are no version of any course document still earn nothing */
+    {
+        const V = (await import(pathToFileURL(path.join(ROOT, 'worker-drive-versions.js')).href)).DOC_VERSIONS;
+        const oldOf = (d) => (V[d] || []).find((h) => h !== md5(docBytes(d)));
+        if (!oldOf('RS12')) fail(`(22) worker-drive-versions.js should list RS12's version from before its re-render: ${JSON.stringify(V.RS12)}`);
+        // the old bytes from the git history when this checkout has them; else a file Drive checksums as that version
+        const was = (d) => { const h = oldOf(d); if (!h) return null;
+            const file = /\{id:"[A-Z0-9]+",\s*folder:"[a-z]+",\s*file:"([^"]+)"/.exec(DOC_SRC.slice(DOC_SRC.indexOf(`{id:"${d}"`)))[1];
+            const cp = require('child_process'), log = cp.spawnSync('git', ['log', '--format=%H', '--', 'documents/' + file], { cwd: ROOT, encoding: 'utf8' });
+            for (const sha of (log.status === 0 ? log.stdout.split('\n').filter(Boolean) : [])) { const b = cp.spawnSync('git', ['cat-file', 'blob', `${sha}:documents/${file}`], { cwd: ROOT, maxBuffer: 1 << 28 }); if (b.status === 0 && md5(b.stdout) === h) return { body: b.stdout }; }
+            return { body: Buffer.alloc(docBytes(d).length, 7), extra: { md5: h } }; };
+        const put = (name, dir, d) => { const w = was(d); return w ? make(name, dir, w.body, w.extra) : null; };
+        const T = await trainee([2]);
+        const f = { RS12: put(CN('Medical-Records', '2026-11-12'), T.dir(MED), 'RS12'), RS13: oldOf('RS13') ? put('RS13 spine evaluation.pdf', T.dir(MED), 'RS13') : make(CN('Medical-Records', '2026-11-13'), T.dir(MED), docBytes('RS13')),
+            RS15: oldOf('RS15') ? put('scan0004.pdf', T.dir(MED), 'RS15') : make(CN('Medical-Records', '2026-11-14'), T.dir(MED), docBytes('RS15')), RS25: make(CN('Invoices', '2026-11-12'), T.dir(BILLS), docBytes('RS25')) };
+        const g = await T.grade(), h = T.by();
+        const wrong = Object.entries(f).filter(([d, x]) => (h[x] || {}).docId !== d || !M.credited(h[x]) || !M.knownFor(h[x])).map(([d, x]) => `${d}→${JSON.stringify(h[x])}`);
+        if (wrong.length) fail(`(22) each earlier version of a re-rendered document should be that document, for certain: ${wrong.join(' ')}`);
+        const r = row(g, 2, 'Documents backed up');
+        if (!r || r.got !== r.max) fail(`(22) Day 2 "Documents backed up" should be full with earlier versions of its documents in their folders: ${JSON.stringify(r && { got: r.got, max: r.max, notes: r.notes })}`);
+        const U = await trainee([2]);
+        const junk = make(CN('Medical-Records', '2026-11-12'), U.dir(MED), Buffer.alloc(docBytes('RS12').length, 9));   // RS12's size, no version's bytes
+        const gu = await U.grade();
+        if (!(U.by()[junk] || {}).other || (row(gu, 2, 'Documents backed up') || {}).got !== 0) fail(`(22) bytes that are no version of any document earn nothing: ${JSON.stringify(U.by()[junk])}`);
+    }
+
+    /* 23: a drive filed correctly, by hand, day after day: every reached day's packet rows and names full, Day 1 100%,
+       and a day not reached is never started (whichever days the trainee has reached) */
+    {
+        const PACK = { 1: ['RS05', 'RS07', 'RS06'], 2: ['RS12', 'RS13', 'RS15', 'RS25'], 3: ['RS72', 'RS16', 'RS73', 'RS26', 'RS95', 'RS94', 'RS33', 'RS66'], 4: ['RS41', 'RS42', 'RS84', 'RS85', 'RS86', 'RS44', 'RS74'], 5: ['RS51', 'RS52', 'RS53', 'RS55', 'RS59', 'RS69', 'RS70'] };
+        const LONG = { Medical: 'Medical Records', Police: 'Police Report', PD: 'Property Damage', Litigation: 'Litigation Documents', Intake: 'Intake Documents' };
+        const HOME = { intake: '01 Intake & Retainer', police: '02 Police, Witness & Video', medical: MED, bills: BILLS, insurance: INS, liens: LIENS, settlement: WAGES, property: '08 Property Damage', litigation: LIT };
+        const ROWS = { 2: ['Documents backed up'], 3: ['Superseded versions'], 4: [], 5: ['Litigation file backed up'] };
+        for (const k of [1, 2, 3, 4, 5]) {
+            const T = await trainee([2, 3, 4, 5].filter((n) => n <= k), false);
+            for (let n = 1; n <= k; n++) PACK[n].forEach((d, i) => {
+                const label = d === 'RS33' || d === 'RS66' ? 'DRAFT' : d === 'RS26' || d === 'RS94' ? `SUPERSEDED-2026-11-1${n}` : '';
+                make(CN((LONG[docs[d].cms] || docs[d].cms).replace(/[^A-Za-z0-9]+/g, '-'), `2026-11-1${n}`, label), T.dir(HOME[docs[d].folder]), docBytes(d));
+            });
+            const g = await T.grade(), days = Object.keys((g && g.grades) || {}).join();
+            if (days !== [2, 3, 4, 5].filter((n) => n <= k).join()) fail(`(23) reached Day ${k}: Days ${[2, 3, 4, 5].filter((n) => n <= k)} should be graded, no other: Days ${days}`);
+            const s1 = T.rec().foundSetup || {};
+            if (s1.score !== 100) fail(`(23) reached Day ${k}: Day 1 from a drive filed correctly should be 100: ${s1.score} ${JSON.stringify(s1.problems)}`);
+            for (let n = 2; n <= k; n++) ROWS[n].concat(['File names']).forEach((label) => { const r = row(g, n, label);
+                if (!r || r.got !== r.max) fail(`(23) reached Day ${k}: Day ${n} "${label}" should be full: ${JSON.stringify(r && { got: r.got, max: r.max, notes: r.notes })}`); });
+            if (k >= 4) { const r = row(g, 4, 'Papers backed up'); if (!r || r.notes.some((x) => /isn't|missing|not on|belongs/.test(x))) fail(`(23) Day 4's papers should all be placed: ${JSON.stringify(r && r.notes)}`); }
+            if ((T.rec().handFiled || []).some((x) => !M.knownFor(x))) fail(`(23) every course file should be known for certain: ${JSON.stringify((T.rec().handFiled || []).filter((x) => !M.knownFor(x)))}`);
+        }
+    }
+
+    /* 24: Drive gave no checksum, or no size: the file is still read by its code or the firm's name, never thrown out as
+       empty, and never earns on bytes nobody could check; a copy with no checksum beside its checked twin is one document */
+    {
+        const T = await trainee([2]);
+        const a = make(CN('Medical-Records', '2026-11-12'), T.dir(MED), docBytes('RS12'), { noMd5: true });
+        const b = make('RS13 evaluation.pdf', T.dir(MED), docBytes('RS13'), { noSize: true });
+        const c = make('RS15 consult.pdf', T.dir(MED), docBytes('RS15'), { noSize: true, noMd5: true });
+        const d = make(CN('Invoices', '2026-11-12'), T.dir(BILLS), docBytes('RS25'), { noSize: true });
+        const g = await T.grade(), h = T.by();
+        const got = [a, b, c, d].map((x) => (h[x] || {}).docId + '/' + (h[x] || {}).by).join();
+        if (got !== 'RS12/type,RS13/code,RS15/code,RS25/content') fail(`(24) files Drive gave no checksum or size for should still be read: ${got}`);
+        const r = row(g, 2, 'Documents backed up');
+        if (!r || r.got !== r.max) fail(`(24) with no checksum the Type reading is credited (nothing to set against it): ${JSON.stringify(r && { got: r.got, max: r.max, notes: r.notes })}`);
+    }
+
     readable(false);
 
     /* 4: a document the platform already copied there is accounted for: a hand file is the next one (Day 2 reached, so its packet first) */

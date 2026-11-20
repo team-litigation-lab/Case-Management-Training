@@ -32,7 +32,8 @@ import { fileURLToPath } from 'node:url';
 export const GENERATED = [
   /^js\/cm-case-flow-(slides|scripts|sim|exhibits)\.js$/, /^js\/cm-companion-cases\.js$/, /^js\/cm-deck-slides\.js$/,
   /^curriculum\/5-day-flow\/(day\d+|traceability|document-inventory)\.md$/,
-  /^docs\/INVENTORY\.md$/
+  /^docs\/INVENTORY\.md$/,
+  /^worker-drive-versions\.js$/   // only grows: rebuilt from the merged history, so both sides' versions are kept
 ];
 // The builders, in the order they depend on each other. The exhibits come from the sources alone, and build.cjs (terms,
 // slides, scripts, sim and curriculum) reads them; the document inventory reads the exhibits too; build/inventory.cjs
@@ -48,6 +49,7 @@ export const NOT_REBUILT = {
   'build/case-flow/scripts/assemble.cjs': 'run by build.cjs',
   'build/case-flow/sim/assemble.cjs': 'run by build.cjs',
   'build/case-flow/curriculum.cjs': 'run by build.cjs',
+  'build/case-flow/documents/versions.cjs': 'run by build.cjs (worker-drive-versions.js: it only adds, from the git history)',
   'build/case-flow/documents/render.cjs': 'PDFs and .docx: needs Playwright and LibreOffice, run locally; a conflict in one is real',
   'build/case-flow/documents/thumbs.py': 'image thumbnails: needs Python and Pillow, run locally',
   'build/debrief/render.cjs': 'the Case Debrief\'s slide pictures (decks/debrief) and the PDF make_video.py records over: needs Playwright and Google Fonts, run locally',
