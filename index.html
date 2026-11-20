@@ -3277,15 +3277,29 @@ async function cloudRestoreFirst(traineeId){
   state.cloudReading = traineeId;
   try{ return await cloudRestore(traineeId); }finally{ if(state.cloudReading === traineeId) state.cloudReading = ""; }
 }
+// lsh_cloud-unread = {id, sig?}: this device's read of that id's saved copy failed, and no read since has settled it (it
+// outlives a reload and is seen by every tab: js/cm-restore-guard.js backs the device up before a later restore overwrites it)
+function cloudUnreadMark(id, on){
+  try{ const m = JSON.parse(localStorage.getItem("lsh_cloud-unread") || "null");
+    if(on === undefined) return m && m.id === id ? m : null;
+    if(on && !(m && m.id === id)) localStorage.setItem("lsh_cloud-unread", JSON.stringify({id}));
+    else if(!on && m && m.id === id) localStorage.removeItem("lsh_cloud-unread");
+  }catch(e){ return null; }
+}
 async function cloudRestore(traineeId){
   let snap = null;
+  const unreadNow = () => { state.cloudUnread = traineeId; cloudUnreadMark(traineeId, true); setSaveStatus("unread"); return false; };
   // a read that failed is not "nothing saved" (sharedGet answers null for both): this device saves nothing until one succeeds
-  try{ snap = await sharedGetStrict("progress:"+traineeId); }catch(e){ state.cloudUnread = traineeId; setSaveStatus("unread"); return false; }
+  try{ snap = await sharedGetStrict("progress:"+traineeId); }catch(e){ return unreadNow(); }
+  // ...nor is an answer that is no saved copy (cut off, with no data): only null is "nothing saved yet"
+  if(snap !== null && !(snap && typeof snap === "object" && snap.data && typeof snap.data === "object" && !Array.isArray(snap.data))) return unreadNow();
   if(state.cloudUnread === traineeId) state.cloudUnread = "";
-  if(!snap || !snap.data) return false;
+  if(!snap){ cloudUnreadMark(traineeId, false); return false; }
   let localAt = ""; try{ localAt = localStorage.getItem("lsh_progress-saved-at") || ""; }catch(e){}
   const localOwner = await storeGet("trainee-id");
-  if(localOwner===traineeId && localAt && localAt >= snap.savedAt) return false; // this device is already newer
+  if(localOwner===traineeId && localAt && localAt >= snap.savedAt){ cloudUnreadMark(traineeId, false); return false; } // this device is already newer
+  // the work done here since a read failed (in this tab or another, before a reload) is backed up before it is overwritten
+  if(cloudUnreadMark(traineeId) && !(window.cmRestoreGuard && await window.cmRestoreGuard.beforeOverwrite(traineeId))) return unreadNow();
   state.cloudRestoring = true;
   try{
     for(const k of PERSONAL_KEYS){
@@ -3299,6 +3313,7 @@ async function cloudRestore(traineeId){
     }
     try{ localStorage.setItem("lsh_progress-saved-at", snap.savedAt); }catch(e){}
     state.lastCloudSave = snap.savedAt;
+    cloudUnreadMark(traineeId, false);
   }finally{ state.cloudRestoring = false; }
   return true;
 }

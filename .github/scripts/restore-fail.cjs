@@ -1,4 +1,4 @@
-// @check browser — ☁ A saved copy this device couldn't read is never saved over: two failed reads, a read slower than the 4-second save or an answer with no value at sign-in on a new computer leave the server's notes, Net Sheet and filing as they were, the trainee is told nothing is saved until it loads (Try again), and once a read succeeds the saved work is restored and saving starts again
+// @check browser — ☁ A saved copy this device couldn't read is never saved over: two failed reads, a read slower than the 4-second save, an answer with no value or no data at sign-in on a new computer, or a reload or a second tab while it is unread, leave the server's notes, Net Sheet and filing as they were, the trainee is told nothing is saved until it loads (Try again), and once a read succeeds the saved work is restored and saving starts again
 // Platform QA 2026-11-19, CM finding 2 (js/cm-restore-guard.js; cloudRestore / cloudSaveNow in index.html). The server's
 // answers are faked with page.route on the second computer only:
 //   1. Computer A: a trainee saves notes, a Net Sheet and a document filing (a sign-in with no saved copy yet saves at once).
@@ -14,6 +14,13 @@
 //      save goes out while it is under way, the server keeps A's work, and E then holds A's notes.
 //   7. Computer F: the reads answer 200 with no value ({}): that is a failed read, not "nothing saved": the copy is
 //      unread, the notice is shown, and the server keeps A's work.
+//   8. Computer G: every read fails, a note is written, then the page is reloaded (F5, the auto-update's reload) and the
+//      reads answer: the load's restore brings A's notes, and the note written while unread is backed up first
+//      (orphan:<id>:<ms>): the failed read is remembered on the device (lsh_cloud-unread), not only in the page.
+//   9. Computer H, two tabs: tab 1's reads fail and a note is written there; a second tab opens and its restore succeeds:
+//      tab 1's note is backed up before that restore overwrites the device; tab 1's own retry then loads A's notes.
+//  10. Computer I: the reads answer 200 with a value that parses but has no data ({"traineeId":"x"}): unread, the notice
+//      shown, and the server keeps A's work (not taken for "nothing saved").
 // Usage: node .github/scripts/restore-fail.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -32,6 +39,7 @@ const letters = (n) => String(n).replace(/[0-9]/g, (d) => 'abcdefghij'[d]);
         await ctx.route('**/api/storage/get', async (route) => {
             let body = {}; try { body = JSON.parse(route.request().postData() || '{}'); } catch (e) { }
             if (/^progress:/.test(body.key || '') && how.delay) { left.slow = (left.slow || 0) + 1; await new Promise((r) => setTimeout(r, how.delay)); return route.continue(); }
+            if (/^progress:/.test(body.key || '') && left.n > 0 && how.nodata) { left.n--; return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ value: '{"traineeId":"x"}' }) }); }
             if (/^progress:/.test(body.key || '') && left.n > 0 && how.empty) { left.n--; return route.fulfill({ status: 200, contentType: 'application/json', body: '{}' }); }
             if (/^progress:/.test(body.key || '') && left.n > 0) { left.n--; return route.fulfill({ status: 500, contentType: 'application/json', body: '{"error":"test: the read failed"}' }); }
             return route.continue();
@@ -126,6 +134,54 @@ const letters = (n) => String(n).replace(/[0-9]/g, (d) => 'abcdefghij'[d]);
     await same('computer F, a 200 with no value');
     const f1 = await F.page.evaluate(() => ({ unread: state.cloudUnread === state.traineeId, notice: !!document.getElementById('cm-unread') }));
     if (!f1.unread || !f1.notice) fail(`computer F: an answer with no value is a failed read (unread, the notice shown): ${JSON.stringify(f1)}`);
+
+    const orphanHolds = async (re) => {
+        const keys = (await api(A.page, '/api/storage/list', { prefix: `orphan:${id}:` })).keys || [];
+        const got = await Promise.all(keys.map((k) => api(A.page, '/api/storage/get', { key: typeof k === 'string' ? k : k.name })));
+        return got.some((r) => r && re.test(r.value || ''));
+    };
+
+    // 8. computer G: a reload while the copy is unread
+    const G = await computer(1000);
+    await signIn(G.page, first, last, 'B100926');
+    if (!(await G.page.evaluate(() => state.cloudUnread === state.traineeId))) fail('computer G: the failed reads should leave the copy unread');
+    await G.page.evaluate(() => storeSet('notes', [{ id: 7, text: 'written on computer G before a reload' }]));
+    await G.page.waitForTimeout(500);
+    G.left.n = 0;
+    await G.page.reload({ waitUntil: 'load' });
+    await G.page.waitForFunction(() => !!state.traineeId && !state.cloudReading && state.cloudUnread !== state.traineeId, null, { timeout: 20000 }).catch(() => fail('computer G: the load after the reload should read the saved copy'));
+    await G.page.waitForTimeout(1500);
+    const g1 = await G.page.evaluate(async () => ({ notes: await storeGet('notes'), mark: localStorage.getItem('lsh_cloud-unread') }));
+    if (JSON.stringify(g1.notes) !== want) fail(`computer G: after the reload it should hold computer A's notes: ${JSON.stringify(g1)}`);
+    if (g1.mark) fail(`computer G: the mark should be cleared once the copy is restored: ${g1.mark}`);
+    if (!(await orphanHolds(/written on computer G before a reload/))) fail('computer G: the note written while unread should be backed up before the reload\'s restore overwrote it');
+    await same('computer G');
+
+    // 9. computer H: two tabs
+    const H = await computer(1000);
+    await signIn(H.page, first, last, 'B100926');
+    await H.page.evaluate(() => storeSet('notes', [{ id: 8, text: 'written in tab 1 while unread' }]));
+    await H.page.waitForTimeout(500);
+    const H2 = await H.ctx.newPage();
+    H.left.n = 0;
+    await H2.goto(BASE, { waitUntil: 'load' });
+    await H2.waitForFunction(() => !!state.traineeId && !state.cloudReading, null, { timeout: 20000 }).catch(() => fail('computer H: the second tab should sign in from the device'));
+    await H2.waitForTimeout(1500);
+    if (JSON.stringify(await H2.evaluate(() => storeGet('notes'))) !== want) fail('computer H: the second tab should restore computer A\'s notes');
+    if (!(await orphanHolds(/written in tab 1 while unread/))) fail('computer H: tab 1\'s note should be backed up before the second tab\'s restore overwrote the device');
+    await H.page.evaluate(() => window.cmRestoreGuard.retry());
+    await H.page.waitForTimeout(1500);
+    const h1 = await H.page.evaluate(async () => ({ unread: state.cloudUnread === state.traineeId, notes: await storeGet('notes') }));
+    if (h1.unread || JSON.stringify(h1.notes) !== want) fail(`computer H: tab 1's retry should load computer A's notes: ${JSON.stringify(h1)}`);
+    await same('computer H');
+
+    // 10. computer I: a value with no data
+    const I = await computer(1000, { nodata: true });
+    await signIn(I.page, first, last, 'B100926');
+    await I.page.waitForTimeout(6500);
+    await same('computer I, a value with no data');
+    const i1 = await I.page.evaluate(() => ({ unread: state.cloudUnread === state.traineeId, notice: !!document.getElementById('cm-unread') }));
+    if (!i1.unread || !i1.notice) fail(`computer I: a value with no data is a failed read (unread, the notice shown): ${JSON.stringify(i1)}`);
 
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
