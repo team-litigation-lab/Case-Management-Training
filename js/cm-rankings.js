@@ -3,9 +3,9 @@
 
    The owner's batch sheet ("TRAINEE RANKINGS - <batch> - CM TRAINING"), as one table to screenshot into an email: a row
    per scored trainee of the picked batch, best first, every cell made from the Scorecard's own numbers:
-     Rank            by THE Overall (cmScorecard.overall), highest first; nothing scored last
+     Rank            by the batch score (finish: the Overall's day scores over every day the batch reached, a day missed = 0), highest first; nothing scored last
      Trainee's Name  the registered name, and the nickname in quotes when the record has one (nickname / preferredName)
-     Overall         cmScorecard.overall(c).pct and its Result (Pass = Overall ≥ 80% and the safety gate at 100%)
+     Batch Score     the batch score and its Result (Pass = Overall ≥ 80% and the safety gate at 100%), with the Overall on the days scored when fewer than the batch reached
      Strength        the best of the model's four dimensions, the best graded items with their day, the AI's saved
                      strengths (cf-ai-grades / the work log, cmScorecard.skillActs) and the Knowledge Checks passed
      Challenges      the weakest dimensions, the lowest graded items, the AI's gaps, a Knowledge Check not passed, and
@@ -52,7 +52,7 @@ const starTxt = n => "★".repeat(n) + "☆".repeat(5 - n);
 const NA = "N/A (insufficient data)";
 const RESULT = {pass: "PASS", pending: "Pass pending (no critical item assessed yet)", below: "Not yet (below 80%)", gate: "Not yet (safety gate)", none: "Not scored yet"};
 const FIELDS = ["strength", "challenges", "redflag", "endorsement"];
-const COLS = ["Rank", "Trainee's Name", "Overall", "Strength", "Challenges", "General Attribute Rating", "Red Flag", "Endorsement", "Progress"];
+const COLS = ["Rank", "Trainee's Name", "Batch Score", "Strength", "Challenges", "General Attribute Rating", "Red Flag", "Endorsement", "Progress"];
 
 /* ---------- one trainee's row, generated ---------- */
 const dayN = (it) => it && it.day ? `Day ${it.day}: ` : "";
@@ -103,7 +103,9 @@ function rowOf(r, c){
     const w = ds.reduce((t, x) => t + x.k.w, 0), v = ds.length ? Math.round(ds.reduce((t, x) => t + x.k.w * x.v, 0) / w) : null;
     return {label: a.label, v, n, stars: v == null || n < MIN_EVIDENCE ? NA : `${starTxt(starsOf(v))}`}; });
 
-  return {id: r.id, name: nameOf(r), pct: ov.pct, status: ov.status, m, passed, until, items: items.length, strength, challenges, attrs,
+  // each Case Flow day's score and weight, for the batch score (finish): a day not done counts 0 there
+  const dayS = (m.days || []).map(x => ({n: x.n, S: x.S, mult: x.mult || 1}));
+  return {id: r.id, name: nameOf(r), pct: ov.pct, status: ov.status, m, passed, until, dayS, items: items.length, strength, challenges, attrs,
     breaches: m.gate.breaches, weakest: weak[0] ? dimLabel(weak[0].k) : low[0] ? dimLabel(low[0].k) : ""};
 }
 const nameOf = r => { const n = (typeof cleanName === "function" ? cleanName(r.name) : "") || String(r.name || r.id || "Trainee").slice(0, 80);
@@ -111,9 +113,18 @@ const nameOf = r => { const n = (typeof cleanName === "function" ? cleanName(r.n
   return nick && nick.toLowerCase() !== n.toLowerCase() ? `${n} "${clip(nick, 30)}"` : n; };
 const CRIT = () => (SC() && SC().model && SC().model.CRIT) || [];
 // 🚩 and the endorsement, once the batch is known (far behind is read against the batch's furthest day)
+// 🏁 THE ranking number, the batch score: the Overall's day scores (the 100-point model, weighted by complexity) over EVERY
+// day the batch has reached, a day this trainee didn't do counting 0. The Overall averages only the days a trainee has a
+// score for, so one strong day outranked four full ones (the owner: "francis only attended 1 day of training and yet he
+// ranks 1"). The Overall itself is unchanged and shown beside it.
+const batchPct = (x, far) => { if(x.pct == null) return null; if(!far) return x.pct;
+  const ds = (x.dayS || []).filter(d => d.n <= far), w = ds.reduce((t, d) => t + d.mult, 0);
+  return w ? Math.round(ds.reduce((t, d) => t + (d.S == null ? 0 : d.S * d.mult), 0) / w) : x.pct; };
 function finish(rows){
   const far = Math.max(0, ...rows.map(x => x.until));
   rows.forEach(x => {
+    x.overallPct = x.pct; x.pct = batchPct(x, far);
+    x.scoredDays = (x.dayS || []).filter(d => d.S != null && (!far || d.n <= far)).length; x.far = far;
     x.behind = far >= 2 && far - x.until >= 2;
     const flags = [];
     if(x.breaches.length) flags.push(`⛔ Safety gate breached: ${x.breaches.slice(0, 2).map(b => `${(CRIT().find(k => k.id === b.id) || {}).label || "critical item"} (Day ${b.day}${b.name ? ", " + itemName(b.name) : ""})`).join("; ")}.`);
@@ -205,7 +216,7 @@ function current(){
   const gen = finish(ppl.map(r => { try{ return rowOf(r, ctxOf(r)); }catch(e){ console.warn("rankings row", r && r.id, e); return null; } }).filter(Boolean));
   const edits = ((L.recs[s] || {}).edits) || {}, over = {};
   const rows = gen.map(x => { const o = edits[x.id] || {}; over[x.id] = {};
-    const r = {rank: String(x.rank), name: x.name, overall: x.pct == null ? "—" : x.pct + "%", result: RESULT[x.status] || "", attrs: x.attrs.map(a => ({label: a.label, stars: a.stars})),
+    const r = {rank: String(x.rank), name: x.name, overall: x.pct == null ? "—" : x.pct + "%", result: (RESULT[x.status] || "") + (x.pct != null && x.far && x.scoredDays < x.far ? ` · ${x.overallPct}% on the ${x.scoredDays} day${x.scoredDays === 1 ? "" : "s"} scored, of ${x.far}` : ""), attrs: x.attrs.map(a => ({label: a.label, stars: a.stars})),
       tier: x.tier, progress: x.until ? `Until Day ${x.until}` : "Not started", passed: `Days passed ${x.passed}/${cfDays().length}`};
     FIELDS.forEach(f => { const v = typeof o[f] === "string" && o[f].trim() ? o[f] : null; r[f] = v != null ? v : x[f]; if(v != null && v !== x[f]) over[x.id][f] = true; });
     return r; });
