@@ -40,7 +40,7 @@ const driveRep = id => ((typeof state !== "undefined" && state.driveReports) || 
 
 const LIST = [
   {id: "ai", label: "🤖 Run the AI check", fn: "cmAiCheck.run", where: "⚙ Settings → 🤖 Run the AI check",
-    done: r => r && r.ok ? `✅ AI grading works: answered in ${((r.ms || 0) / 1000).toFixed(1)} s${r.model ? ` (${r.model})` : ""}.` : `❌ AI grading doesn't work right now: ${(r && r.error) || "no answer"}`, ok: r => !!(r && r.ok)},
+    done: r => window.cmAiCheck && typeof cmAiCheck.summary === "function" ? cmAiCheck.summary(r) : r && r.ok ? `✅ AI grading works: answered in ${((r.ms || 0) / 1000).toFixed(1)} s${r.model ? ` (${r.model})` : ""}.` : `❌ AI grading doesn't work right now: ${(r && r.error) || "no answer"}`, ok: r => !!(r && r.ok)},
   {id: "studio", label: "🩺 Test the AI connection", fn: "studioTestAI", where: "✏️ Content Studio → 🩺 Test AI connection",
     done: () => String((state && state.studioMsg) || "AI connection tested."), ok: () => !/^❌|fail|couldn|error/i.test(String((state && state.studioMsg) || ""))},
   {id: "drives", label: "🌙 Grade every Backup Drive now", fn: "cmDriveWork.gradeNow", where: "🔗 Trainee Drives → 🏅 Grade now, for every linked trainee (the nightly run, on demand)", all: true},
