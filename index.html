@@ -15791,6 +15791,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-batch-sheet.js"></script>
 <!-- ✍️ Knowledge Checks take one attempt: the first score is the one recorded (wraps cm-case-flow.js's submitQuiz and results) -->
 <script src="/js/cm-kc-once.js"></script>
+<!-- ⚠ a Knowledge Check the Worker couldn't score (sent with no picks: an old tab) is reopened, and the trainee told to take it again -->
+<script src="/js/cm-kc-rejected.js"></script>
 <!-- 🔁 a trainer reopens one day's Knowledge Check for one trainee (Trainee Audit → a trainee's detail): one new attempt, the best score kept -->
 <script src="/js/cm-kc-reset.js"></script>
 <script src="/js/cm-know-tools.js"></script>

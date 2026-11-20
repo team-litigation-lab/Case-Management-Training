@@ -538,13 +538,15 @@ async function traineeWrite(env, tok, key, value) {
     // ✍️ a Knowledge Check attempt is scored here, from its own picks (worker-kc-key.js; a trainer's published extra questions)
     const extras = await kcExtras(kv, [existing && existing.dayProgress, merged.dayProgress]);
     if (existing) keepKcAttempts(existing, merged, extras);
-    dateFirstAttempts(existing, merged, new Date(), extras);   // (a day's first attempt: dated and scored by the Worker)
+    const kcRejected = dateFirstAttempts(existing, merged, new Date(), extras);   // (a day's first attempt: dated and scored by the Worker; [days] it couldn't score)
     const fold = await afterMerge(kv, id, existing, merged, incoming);   // 👥 a device that hasn't restored a merge yet can't drop what it folded in
     // 🏅 caseFlow.days[n].kc / passed from the record's own dayProgress, never the device's; each module's {a, t, c} worked
     // out here, its trainer's 40% (t) from feedback:<id> only
     officialCaseFlow(existing, merged, merged.caseFlow ? await trainerScoresOf(kv, id) : {}, extras);
     merged.id = id;
-    await kv.put(key, JSON.stringify(merged)); return fold ? { ok: true, mergePending: fold } : null;
+    await kv.put(key, JSON.stringify(merged));
+    const rej = kcRejected && kcRejected.length ? { kcRejected } : null;   // (js/cm-kc-rejected.js reopens those days' Knowledge Checks)
+    return fold || rej ? Object.assign({ ok: true }, fold ? { mergePending: fold } : {}, rej || {}) : null;
   }
   if (key === `progress:${id}`) {
     if (String(value).length > 2000000) return "Too large";

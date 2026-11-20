@@ -270,23 +270,38 @@ export function identity(D) {
     const was = (existing && existing.dayProgress && typeof existing.dayProgress === "object") ? existing.dayProgress : {};
     const dp = merged.dayProgress;
     if (!dp || typeof dp !== "object" || Array.isArray(dp)) return;
-    const at = now.toISOString(), out = Object.assign({}, dp);
+    const at = now.toISOString(), out = Object.assign({}, dp), rejected = [];
     let changed = false;
     for (const [d, n] of Object.entries(dp)) {
       if (!n || typeof n !== "object" || kcAttempts(was[d])) continue;
       const h = Array.isArray(n.history) ? n.history : [];
       // (a day with no attempt is never passed, nor marked restored: done and kcUnverified come only with a score)
-      if (!h.length && n.score == null) { if ("done" in n || "kcUnverified" in n) { const x = Object.assign({}, n); delete x.done; delete x.kcUnverified; out[d] = x; changed = true; } continue; }
+      // (kcRejected is the Worker's: the stored mark stays until an attempt is recorded, one the trainee sends is not kept)
+      if (!h.length && n.score == null) {
+        const mark = was[d] && typeof was[d] === "object" && was[d].kcRejected && typeof was[d].kcRejected === "object" ? was[d].kcRejected : null;
+        if ("done" in n || "kcUnverified" in n || "kcRejected" in n || mark) { const x = Object.assign({}, n); delete x.done; delete x.kcUnverified; delete x.kcRejected; if (mark) x.kcRejected = mark; out[d] = x; changed = true; }
+        continue;
+      }
       const x = Object.assign({}, n);
       delete x.kcUnverified;   // (a trainer's 🛠 restore sets it, never the trainee's write)
+      delete x.kcRejected;     // (the Worker's, below)
       // (one attempt: a day's first write records only its first that can be scored, as the one-attempt rule allows; js/cm-kc-once.js)
       let first = null;
       for (const y of h) { first = scoredAttempt(d, y, extras, at); if (first) break; }
-      if (!first) { ["history", "score", "done", "date"].forEach((f) => delete x[f]); }
+      // ⚠ an attempt that can't be scored (no picks: a page from before the Worker scored them; or too few) is not recorded,
+      // but never silently: the day says so (kcRejected, for the trainer) and the write's answer names it, so the page
+      // (js/cm-kc-rejected.js) reopens that Knowledge Check and asks the trainee to take it again
+      if (!first) {
+        const y = h[0] && typeof h[0] === "object" ? h[0] : n, claimed = typeof y.score === "number" ? y.score : typeof n.score === "number" ? n.score : null;
+        x.kcRejected = Object.assign({ at, why: Array.isArray(y.answers) ? "too-few-picks" : "no-picks" }, claimed != null ? { claimed } : {});
+        ["history", "score", "done", "date"].forEach((f) => delete x[f]);
+        rejected.push(Number(d));
+      }
       else { x.history = [first]; x.score = first.score; x.done = first.passed; x.date = at; }
       out[d] = x; changed = true;
     }
     if (changed) merged.dayProgress = out;
+    return rejected;
   }
   // 🏅 The Case Flow summary's Knowledge Check (caseFlow.days[n].kc and .passed: the Scorecard, the Batch Sheet and the
   // Portal read it) is the record's own: on a trainee's write it is set from merged.dayProgress (its official score and
