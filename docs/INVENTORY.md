@@ -126,7 +126,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/ai-check` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/share/get` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/report.html` · `/version`
 
-## Node checks (56)
+## Node checks (57)
 
 | Check | What it covers |
 |---|---|
@@ -134,6 +134,7 @@ None.
 | `activity-deck-align.cjs` | Every Skill Activity practises what its deck lesson teaches: it uses that lesson's deck terms, names no method, order or step the Canva decks contradict, and dates no lesson to the wrong day |
 | `admin-kc-keep.cjs` | An admin write of a stale trainee record keeps a Knowledge Check attempt stored after it was read (keepKcStored), and the trainer's own change still lands |
 | `ai-gateway-grading.cjs` | An AI grading reaches the Portal's AI gateway as a grading (its JSON request: the grading model, the day's review reserve, never held back by the CMS flow's share of the day) and never over the gateway's 40,000 characters (a long AI Grader submission is cut in the middle, its head and tail kept); a chat line stays a chat line; 🤖 the AI check (trainers only) says whether the gateway answers, and a refused key names AI_GATEWAY_SECRET |
+| `ai-key-fingerprint.cjs` | 🤖 The AI check shows a fingerprint of the gateway key this site sends (its length and SHA-256 prefix, never the key), the same one the page works out for a pasted value; a key the Portal refuses is said even when this Worker's own Gemini keys carry the grading |
 | `ai-keys.mjs` | Gemini key pool (every numbered key is used, keys take turns, a key out of credits rests; Google answered by the test) |
 | `auto-grade-drive.cjs` | A Backup Drive with something new is graded within the hour, with no one pressing Grade now: the hourly scheduled run picks only the drives whose trainee did something since it last looked, keeps to the run's budget and carries on the next hour; its 07:00 UTC firing is the nightly run |
 | `batch-fix.cjs` | A Batch ID corrected on the Portal reaches the trainee's record (a merged account), and nothing else changes |
