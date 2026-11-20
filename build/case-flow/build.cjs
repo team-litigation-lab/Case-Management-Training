@@ -16,6 +16,7 @@ const ROOT = path.resolve(__dirname, "../..");
 const STEPS = [
   ["Defined terms, written into the sources", "build/case-flow/terms.cjs"],
   ["Slides", "build/case-flow/slides/assemble.cjs"],
+  ["Knowledge Check key (the Worker scores an attempt with it)", "build/case-flow/kc-key.cjs"],
   ["Trainer scripts", "build/case-flow/scripts/assemble.cjs"],
   ["Simulation", "build/case-flow/sim/assemble.cjs"],
   ["Exhibits (audits, Amendment Requests, Service Confirmations)", "build/case-flow/exhibits/assemble.cjs"],   // CI checks it in step too

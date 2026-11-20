@@ -168,6 +168,20 @@ wheel, doors): the morphed page is exactly what `innerHTML` would have produced,
 unpicked options are the same nodes after an answer, the answer still lands, and the bomb's running fuse
 survives with its delay intact. Against the old `innerHTML` it fails on exactly the Day 3 symptom.
 
+### ✍️ The Knowledge Check is scored on the Worker
+
+A trainee's attempt goes to their record with its picks (`history[i].answers`), and the Worker scores it from them
+(`kcScore` in `worker-identity.js`) against the day's key, `worker-kc-key.js` (generated from `js/cm-case-flow-data.js`
+by `build/case-flow/kc-key.cjs`, which `node build/case-flow/build.cjs` runs: never edit it by hand). A trainer's
+published extra questions (`extraquiz:day<N>`) are scored too. The score, pass and date on the record are the Worker's;
+a different score the page sent is kept beside it as `claimed`, and an attempt with no picks, or fewer than the day's
+questions, is not recorded. The Case Flow summary's modules (`trainee:<id>.caseFlow.days[n].modules`, which the Portal's
+Trainee Monitoring reads) are worked out there too: the trainer's 40% (`t`) only from `feedback:<id>.caseFlow.<module>.score`,
+which only a trainer writes (and a trainer's save of it reaches the record at once), and the Composite `c = a × 0.6 + t × 0.4`.
+**The one part still reported by the device is the AI half of `a`** (the AI's score of the written answers, averaged with
+the module's share of the quiz): the Worker doesn't keep the AI's answer, so it can't check it. `kc-score.cjs` (node) and
+`kc-key-page.cjs` (browser) check it.
+
 ### Day cards say where the trainee is
 
 A day card's button is the trainee's next step, from their own record:

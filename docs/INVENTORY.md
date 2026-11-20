@@ -120,7 +120,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/version`
 
-## Node checks (49)
+## Node checks (50)
 
 | Check | What it covers |
 |---|---|
@@ -152,6 +152,7 @@ None.
 | `kc-once-worker.cjs` | The Worker holds the one-attempt Knowledge Check: a trainee's own write can't drop or replace an attempt on their record |
 | `kc-reset-worker.cjs` | A trainer's 🔁 Reset Knowledge Check allows exactly one new attempt on the Worker: set by the Worker (its clock, the trainer, the attempts counted), kcReset is the trainer's, the retake keeps the best score whatever the clocks say, and a used reset reopens nothing |
 | `kc-restore.cjs` | 🛠 Restore missing KC scores (/api/kc-restore): a dry run changes nothing; confirmed, only the days trainee:<id> has no attempt for are filled in from its own progress snapshot and work-log, a scored day is never changed, and the record is backed up first |
+| `kc-score.cjs` | ✍️ The Worker scores a Knowledge Check attempt from its own picks (worker-kc-key.js), and the trainer's 40% and the Composite on trainee:<id>.caseFlow come only from a trainer's feedback:<id>, never from the trainee's browser |
 | `lesson-tips.cjs` | every 💡 Tip (js/cm-lesson-tips.js) sits on an activity still in the course and quotes a lesson that is not |
 | `loop-notes.cjs` | The trainer's notes for each day's agenda, Practice Lab and extra practice tell the daily loop as the schedule runs it: the required Backup File Maintenance, the side exercises' count and minutes, Day 5's build minutes |
 | `merge-fold.cjs` | 👥 After an account merge, a device that hasn't restored it is folded in the same way every time (never growing, its own removals kept), told to restore; a trainer's KC reset stays open or used; impossible or device-only scores are never official |
@@ -174,7 +175,7 @@ None.
 | `trainee-identity.cjs` | A renamed or re-batched Portal ticket with the same uid opens the trainee's existing record (the uid index), and B250926 / B092526 (the same day, as batchShow shows it) resolve to one id |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
-## Browser checks (71)
+## Browser checks (72)
 
 | Check | What it covers |
 |---|---|
@@ -213,6 +214,7 @@ None.
 | `fit.cjs` | Every slide fits on one screen and no slide hides or scrolls any of its text (laptop and large screen, every page of every day) |
 | `flow-order.cjs` | A day is all its lessons, then the daily loop (Case Profile, one Skill Building, the required Backup File Maintenance, Action Plan, one Practice Lab of the other skill activities), then the Knowledge Check; every block's slides in one fixed order; Next is always the next slide and the last slide's button opens the Knowledge Check |
 | `graded-calls.cjs` | Graded calls from the CMS Call Simulator (read only by the trainee; the dashboard's Graded calls card) |
+| `kc-key-page.cjs` | ✍️ The Knowledge Check the page builds is the key the Worker scores with (worker-kc-key.js): every day's questions, right options and modules, and a real submit is recorded at the page's own score with nothing flagged |
 | `kc-ledger-retry.cjs` | A Knowledge Check submitted while trainee:<id> can't be written or read reaches the record once the server answers, and the Scorecard shows a check the record lacks as unconfirmed, never counted |
 | `kc-morph.cjs` | The Knowledge Check repaints without rebuilding the page (no flicker; the bomb's fuse survives) |
 | `kc-once.cjs` | A Knowledge Check takes one attempt: the first score is recorded, a second submit is refused, no Retake |
@@ -254,6 +256,7 @@ None.
 
 - `.github/scripts/cf-previews.mjs` — Cloudflare Worker Previews for case-management-training: list them, and delete the ones no open pull request needs. Every branch's Preview used to keep its own copies of the Worker's Durable Objects (wrangler.json previe
 - `.github/scripts/drive-sa-fake.cjs` — GDRIVE_SA_EMAIL and GDRIVE_SA_KEY (a real PKCS#8 key, made once: the Worker signs its token request with it)
+- `.github/scripts/kc-picks.cjs` — The picks that give a Knowledge Check score on a Case Flow day, for the checks that write a trainee's attempt. The Worker scores an attempt from its own picks (worker-identity.js kcScore, against worker-kc-key.js) as the
 - `.github/scripts/merge-main.mjs` — Bring main into the current branch, and settle by itself what two branches used to collide on: • every generated file (the assembled slides, trainer scripts, simulation, companion cases, exhibits, the deck
 - `.github/scripts/r2-sync.mjs` — Applies a list of changed document files to R2 (used by .github/workflows/r2-docs.yml): each line is "<status>\t<path>" from git diff --name-status; D removes <PREFIX>/<path> from the bucket, anything else
 - `.github/scripts/server.mjs` — Local stand-in for Cloudflare: serves the site through worker.js with an in-memory KV store, so the smoke test runs without an account.

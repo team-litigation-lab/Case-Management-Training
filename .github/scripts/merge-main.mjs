@@ -30,7 +30,7 @@ import { fileURLToPath } from 'node:url';
 // Every committed file a build writes. Hand-written files beside them (curriculum/5-day-flow/case-file.md,
 // 00-architecture.md) are NOT here: a conflict in those is real.
 export const GENERATED = [
-  /^js\/cm-case-flow-(slides|scripts|sim|exhibits)\.js$/, /^js\/cm-companion-cases\.js$/, /^js\/cm-deck-slides\.js$/,
+  /^js\/cm-case-flow-(slides|scripts|sim|exhibits)\.js$/, /^js\/cm-companion-cases\.js$/, /^js\/cm-deck-slides\.js$/, /^worker-kc-key\.js$/,
   /^curriculum\/5-day-flow\/(day\d+|traceability|document-inventory)\.md$/,
   /^docs\/INVENTORY\.md$/
 ];
@@ -48,6 +48,7 @@ export const NOT_REBUILT = {
   'build/case-flow/scripts/assemble.cjs': 'run by build.cjs',
   'build/case-flow/sim/assemble.cjs': 'run by build.cjs',
   'build/case-flow/curriculum.cjs': 'run by build.cjs',
+  'build/case-flow/kc-key.cjs': 'worker-kc-key.js, run by build.cjs',
   'build/case-flow/documents/render.cjs': 'PDFs and .docx: needs Playwright and LibreOffice, run locally; a conflict in one is real',
   'build/case-flow/documents/thumbs.py': 'image thumbnails: needs Python and Pillow, run locally',
   'build/videoslide/make_video.py': 'the narrated video: needs ffmpeg and Python, run locally',

@@ -3390,7 +3390,8 @@ function scoreSummary(){
     const mods = {};
     [...new Set(d.lessons.filter(l => l.cf).map(l => l.cf.mod.id))].forEach(id => {
       const m = (REC.modules || {})[id]; if(!m) return;
-      const s = composite(m); if(s.a != null || s.t != null) mods[id] = s;
+      // (the Worker keeps only the AI score of this: it works out a, t and c itself, worker-identity.js moduleScores)
+      const s = composite(m); if(s.a != null || s.t != null) mods[id] = Object.assign(s, m.ai && typeof m.ai.score === "number" ? {ai: m.ai.score} : {});
     });
     const p = (state.progress || {})[d.id] || {};
     out.days[d.cf.n] = {id: d.id, kc: typeof p.score === "number" ? p.score : null, passed: !!p.done,

@@ -13,6 +13,7 @@
 // Usage: node .github/scripts/kc-forge-guards.cjs   (no server, no browser needed)
 const vm = require('vm'), fs = require('fs'), path = require('path');
 const { harness, reporter } = require('./worker-harness.cjs');
+const { picksFor } = require('./kc-picks.cjs');   // (the Worker scores a trainee's attempt from its own picks, as the page sends them)
 const R = reporter();
 const T = (d, h = 10) => `2026-09-${String(d).padStart(2, '0')}T${String(h).padStart(2, '0')}:00:00.000Z`;
 
@@ -41,7 +42,7 @@ function scorecard() {
     // ---------- 2. a summary that names another day's id ----------
     const t2 = await h.portal('Cal', 'Flow', 'B090126', 'U-cal'), I2 = t2.body.id;
     const base2 = await h.get('trainee:' + I2);
-    await h.set('trainee:' + I2, Object.assign({}, base2, { dayProgress: { 11: { score: 90, done: true, history: [{ score: 90, passed: true }] } }, caseFlow: { at: T(2), days: { 1: { id: 11 }, 2: { id: 12 } } } }), t2.body.token);
+    await h.set('trainee:' + I2, Object.assign({}, base2, { dayProgress: { 11: { score: 90, done: true, history: [{ score: 90, passed: true, answers: picksFor(11, 90) }] } }, caseFlow: { at: T(2), days: { 1: { id: 11 }, 2: { id: 12 } } } }), t2.body.token);
     const cf2 = (await h.get('trainee:' + I2)).caseFlow.days;
     R.check(cf2[1].kc === 90 && cf2[1].passed === true && cf2[2].kc == null, `the summary should follow the record: ${JSON.stringify(cf2)}`);
     const rec2 = await h.get('trainee:' + I2);

@@ -4,12 +4,14 @@
 //   1. a day with no attempt yet takes the write's first attempt (dated by the Worker, its score 0–100);
 //   2. a day with an attempt keeps its first attempt (history[0]) and the score, done and date on the record, whatever the
 //      write says; the history never gets shorter (a dayProgress entry deleted, or emptied, comes back);
-//   3. the first attempt's own picks (answers) may be added once, for its Answer Review; they change no score;
+//   3. an attempt recorded before picks were kept with it may have them added once, for its Answer Review; they change
+//      no score; picks already recorded are never swapped (the Worker scores an attempt from them: kc-score.cjs);
 //   4. an admin's write is not limited by the one-attempt rule, but a copy of the record read earlier keeps the attempts
 //      stored (keepKcStored; admin-kc-keep.cjs): only a deliberate replacement (replaceKc: true) clears a day.
 // Usage: node .github/scripts/kc-once-worker.cjs   (no server, no browser needed)
 const path = require('path');
 const { pathToFileURL } = require('url');
+const { picksFor } = require('./kc-picks.cjs');   // (the Worker scores an attempt from its own picks, as the page sends them)
 
 const failures = [];
 const fail = (m) => failures.push(m);
@@ -34,7 +36,7 @@ const fail = (m) => failures.push(m);
 
     await write({ id: t.id, name: 'Kim Once', batch: 'B100926' });
     // 1. the first attempt
-    const first = { score: 65, passed: false, date: '2026-10-01T10:00:00.000Z' };
+    const first = { score: 65, passed: false, date: '2026-10-01T10:00:00.000Z', answers: picksFor(11, 65) };
     await write({ id: t.id, name: 'Kim Once', batch: 'B100926', dayProgress: { 11: { score: 65, done: false, date: first.date, history: [first] } } });
     let r = await read();
     if (!r || !r.dayProgress || !r.dayProgress[11] || r.dayProgress[11].score !== 65) fail(`the first attempt should be recorded: ${JSON.stringify(r && r.dayProgress)}`);
@@ -54,16 +56,21 @@ const fail = (m) => failures.push(m);
     r = await read();
     if ((r.dayProgress[11].history || []).length !== 1) fail('the history should never get shorter');
     // another day, not attempted: the trainee's write stands
-    await write({ id: t.id, name: 'Kim Once', batch: 'B100926', dayProgress: { 11: r.dayProgress[11], 12: { score: 80, done: true, history: [{ score: 80, passed: true }] } } });
+    await write({ id: t.id, name: 'Kim Once', batch: 'B100926', dayProgress: { 11: r.dayProgress[11], 12: { score: 80, done: true, history: [{ score: 80, passed: true, answers: picksFor(12, 80) }] } } });
     r = await read();
     if (!r.dayProgress[12] || r.dayProgress[12].score !== 80) fail(`a day with no attempt yet should take the first one: ${JSON.stringify(r.dayProgress[12])}`);
 
-    // 3. the first attempt's picks, added once
-    const withPicks = JSON.parse(JSON.stringify(r.dayProgress)); withPicks[11].history[0].answers = [0, 1, 2, null]; withPicks[11].history[0].score = 99;
+    // 3. picks added once to an attempt recorded before they were kept (a trainer's copy holds one: an admin isn't limited);
+    //    the picks recorded with an attempt are never swapped
+    await write(Object.assign({}, r, { dayProgress: Object.assign({}, r.dayProgress, { 13: { score: 55, done: false, date: '2026-10-03T10:00:00.000Z', history: [{ score: 55, passed: false, date: '2026-10-03T10:00:00.000Z' }] } }) }), admin);
+    r = await read();
+    const withPicks = JSON.parse(JSON.stringify(r.dayProgress)); withPicks[13].history[0].answers = [0, 1, 2, null]; withPicks[13].history[0].score = 99;
+    withPicks[11].history[0].answers = picksFor(11, 100);
     await write({ id: t.id, name: 'Kim Once', batch: 'B100926', dayProgress: withPicks });
     r = await read();
-    const h0 = r.dayProgress[11].history[0];
-    if (!Array.isArray(h0.answers) || h0.answers.length !== 4 || h0.score !== 65) fail(`the first attempt's picks may be added, with its score unchanged: ${JSON.stringify(h0)}`);
+    const h0 = r.dayProgress[13].history[0];
+    if (!Array.isArray(h0.answers) || h0.answers.length !== 4 || h0.score !== 55 || r.dayProgress[13].score !== 55) fail(`an earlier attempt's picks may be added, with its score unchanged: ${JSON.stringify(r.dayProgress[13])}`);
+    if (JSON.stringify(r.dayProgress[11].history[0].answers) !== JSON.stringify(picksFor(11, 65)) || r.dayProgress[11].score !== 65) fail(`the picks recorded with an attempt must not be swapped: ${JSON.stringify(r.dayProgress[11])}`);
 
     // 4. an admin's stale copy (no attempt in it) keeps the stored attempt; a deliberate replacement clears it
     await write({ id: t.id, name: 'Kim Once', batch: 'B100926', dayProgress: {} }, admin);

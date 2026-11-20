@@ -23,7 +23,7 @@
 import { DRIVE_WORK_ACTIONS, driveWorkApi, driveWorkNightly, workBrief, workView, withDayOverrides, withOverrides, OV_KEY } from "./worker-drive-work.js";
 import { driveFind, listedOf, setupOf } from "./worker-drive-found.js";
 import { accountMergeApi, kcRestoreApi } from "./worker-account-repair.js";   // 👥 two accounts of one trainee merged on the Worker (/api/account-merge); 🛠 one account's missing KC scores restored (/api/kc-restore)
-import { identity, uidKey, afterMerge, afterMergeProgress, keepMergeStored, orphanWrite, aliasKey, aliasAtSignIn, aliasPlan, aliasApply } from "./worker-identity.js";   // 🪪 who a sign-in opens (the uid index, merged: redirects) and what keeps a trainee's records whole
+import { identity, uidKey, afterMerge, afterMergeProgress, keepMergeStored, orphanWrite, aliasKey, aliasAtSignIn, aliasPlan, aliasApply, kcExtras, scoredAttempt, trainerScoresOf } from "./worker-identity.js";   // 🪪 who a sign-in opens (the uid index, merged: redirects) and what keeps a trainee's records whole
 /* ---------- KV with the "cm:" namespace prefix ---------- */
 const KV_PREFIX = "cm:";
 /* ---------- what the trainer owns in a trainee's records ----------
@@ -425,18 +425,16 @@ function kcResetOpen(rs, p) {
   const h = kcHistory(p), first = Date.parse((h[0] && h[0].date) || "");
   return !(Number.isFinite(first) && first >= rAt) && !h.some((x) => x && Date.parse(x.date) > rAt);
 }
-function kcRetake(p, prevH, n, rs) {
+function kcRetake(p, prevH, n, rs, day, extras) {
   if (!kcResetOpen(rs, p)) return null;
   const seeded = kcHistory(p);   // (a legacy record's one attempt kept as history[0], so it is never lost)
   const h = Array.isArray(n.history) ? n.history : [];
   // exactly one new attempt: the stored ones and one more (a legacy record's page may send the new one alone)
   const legacyOne = !prevH.length && h.length === 1 && h[0] && h[0].date !== p.date;
   if (h.length !== seeded.length + 1 && !legacyOne) return null;
-  const x = h[h.length - 1];
-  if (!x || typeof x !== "object" || typeof x.score !== "number" || !Number.isFinite(x.score) || x.score < 0 || x.score > 100) return null;
-  // (dated by the Worker's clock, not the trainee's)
-  const rAt = Date.parse(rs.at), add = { score: Math.round(x.score), passed: x.score >= 70, date: new Date(Math.max(Date.now(), Number.isFinite(rAt) ? rAt + 1 : 0)).toISOString() };
-  if (Array.isArray(x.answers) && x.answers.length <= 200 && x.answers.every((y) => y === null || Number.isInteger(y))) add.answers = x.answers;
+  // (scored by the Worker from its own picks, worker-identity.js scoredAttempt; dated by the Worker's clock, not the trainee's)
+  const rAt = Date.parse(rs.at), add = scoredAttempt(day, h[h.length - 1], extras, new Date(Math.max(Date.now(), Number.isFinite(rAt) ? rAt + 1 : 0)).toISOString());
+  if (!add) return null;
   const best = typeof p.score === "number" ? Math.max(p.score, add.score) : add.score;
   return { history: seeded.concat([add]), score: best, done: !!p.done || add.passed, date: add.date };
 }
@@ -474,7 +472,7 @@ async function keepKcResets(kv, key, value) {
   if (!changed) return value;
   inc.kcReset = out; return JSON.stringify(inc);
 }
-function keepKcAttempts(existing, merged) {
+function keepKcAttempts(existing, merged, extras) {
   const was = existing && existing.dayProgress;
   if (!was || typeof was !== "object") return;
   const now = merged.dayProgress && typeof merged.dayProgress === "object" ? Object.assign({}, merged.dayProgress) : {};
@@ -483,7 +481,7 @@ function keepKcAttempts(existing, merged) {
     const prevH = Array.isArray(p.history) ? p.history : [];
     if (!prevH.length && typeof p.score !== "number") continue;   // no attempt yet: the trainee's write stands
     const n = now[d] && typeof now[d] === "object" ? Object.assign({}, now[d]) : {};
-    const retake = kcRetake(p, prevH, n, existing.kcReset && existing.kcReset[d]);
+    const retake = kcRetake(p, prevH, n, existing.kcReset && existing.kcReset[d], d, extras);
     if (p.kcUnverified) n.kcUnverified = true; else delete n.kcUnverified;   // (🛠 a score a trainer restored from the device: the label stays the Worker's)
     if (retake) { now[d] = Object.assign(n, retake); continue; }
     let h = Array.isArray(n.history) ? n.history.slice() : [];
@@ -502,6 +500,15 @@ function keepKcAttempts(existing, merged) {
 const { mergedInto, indexUid, uidOf, resolveTrainee, mergedAway, keepKcStored, keepProgressAttempts, dateFirstAttempts, officialCaseFlow } = identity({ kcHistory, kcAttempts, candidateIds, batchKey });
 // 👥 what worker-account-repair.js uses of the Worker (/api/account-merge)
 const accountMergeDeps = () => ({ kvOf, ownerPut, ownedType, ownerKey, candidateIds, canonicalBatch, resolveTrainee, mergedInto, uidKey, kcHistory, kcResetOpen, trainerWho, isTrainerReview, keepKcStored, keepProgressAttempts, aliasKey, aliasPlan, aliasApply });
+// 🏅 after a trainer's save of feedback:<id>: the record's Case Flow summary takes its 40% (t) and Composite (c) from it
+// now, not on the trainee's next save (the Portal's Trainee Monitoring reads trainee:<id>.caseFlow)
+async function trainerScoresToRecord(kv, id) {
+  let rec = null; try { rec = JSON.parse((await kv.get(`trainee:${id}`)) || "null"); } catch (e) { return; }
+  if (!rec || typeof rec !== "object" || !rec.caseFlow) return;
+  const before = JSON.stringify(rec.caseFlow);
+  officialCaseFlow(rec, rec, await trainerScoresOf(kv, id), await kcExtras(kv, [rec.dayProgress]));
+  if (JSON.stringify(rec.caseFlow) !== before) await kv.put(`trainee:${id}`, JSON.stringify(rec));
+}
 async function traineeWrite(env, tok, key, value) {
   const kv = kvOf(env);
   const id = tok.id;
@@ -521,10 +528,14 @@ async function traineeWrite(env, tok, key, value) {
     // themselves could otherwise sign in elsewhere as someone else.
     if (existing) IDENTITY_TRAINEE_FIELDS.forEach((f) => { if (f in existing) merged[f] = existing[f]; else delete merged[f]; });
     if (!existing) { merged.approved = false; merged.registeredAt = new Date().toISOString(); }
-    if (existing) keepKcAttempts(existing, merged);
-    dateFirstAttempts(existing, merged, new Date());   // (a day's first attempt: dated by the Worker, a score of 0–100)
+    // ✍️ a Knowledge Check attempt is scored here, from its own picks (worker-kc-key.js; a trainer's published extra questions)
+    const extras = await kcExtras(kv, [existing && existing.dayProgress, merged.dayProgress]);
+    if (existing) keepKcAttempts(existing, merged, extras);
+    dateFirstAttempts(existing, merged, new Date(), extras);   // (a day's first attempt: dated and scored by the Worker)
     const fold = await afterMerge(kv, id, existing, merged, incoming);   // 👥 a device that hasn't restored a merge yet can't drop what it folded in
-    officialCaseFlow(existing, merged);   // 🏅 caseFlow.days[n].kc / passed from the record's own dayProgress, never the device's
+    // 🏅 caseFlow.days[n].kc / passed from the record's own dayProgress, never the device's; each module's {a, t, c} worked
+    // out here, its trainer's 40% (t) from feedback:<id> only
+    officialCaseFlow(existing, merged, merged.caseFlow ? await trainerScoresOf(kv, id) : {}, extras);
     merged.id = id;
     await kv.put(key, JSON.stringify(merged)); return fold ? { ok: true, mergePending: fold } : null;
   }
@@ -2349,6 +2360,7 @@ export default {
           if (/^trainee:[^:]+$/.test(key) && body.replaceKc !== true) body.value = await keepKcStored(kv, key, body.value);
           if (/^trainee:[^:]+$/.test(key)) body.value = await keepMergeStored(kv, key, body.value);   // 👥 a copy read before a merge keeps its mergedAt and what it joined
           await ownerPut(kv, key, body.value);
+          if (/^feedback:[^:]+$/.test(key)) await trainerScoresToRecord(kv, key.slice("feedback:".length));   // 🏅 the trainer's 40% reaches the Composite at once
           return json({ ok: true });
         }
         const err = await traineeWrite(env, tok, key, body.value);

@@ -7658,7 +7658,8 @@ async function submitQuiz(dayId){
       done: passed || (state.progress[dayId]?.done||false),
       score: Math.max(score, prevBest),
       date: new Date().toISOString(),
-      history: [...prevHistory, {score, passed, date: new Date().toISOString()}]
+      // (the picks go with the attempt: the Worker scores it from them, worker-identity.js kcScore)
+      history: [...prevHistory, {score, passed, date: new Date().toISOString(), answers: d.quiz.map((q,i)=> typeof state.quizAnswers[i]==="number" ? state.quizAnswers[i] : null)}]
     };
     state.progress[dayId]=newRecord;
     logWork({kind:"quiz", dayId, label:`Day ${dayId} Knowledge Check`, score, correct, total, missed: d.quiz.map((q,i)=>state.quizAnswers[i]!==q.a ? q.q : null).filter(Boolean).slice(0,6)});
