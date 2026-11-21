@@ -351,7 +351,7 @@
           "q": "Does he still want the injection?",
           "a": "Yes: he still wants it, just not at that facility.",
           "match": [
-            "^(?!\\s*no\\b)(?!.*(\\bno\\b|\\bnot\\b|n['’]?t\\b|\\bnever\\b)\\W+(\\w+\\W+)?wants?\\b).*\\b(yes|yeah|yep|still|wants?)\\b"
+            "^(?!\\s*(no|nope|nah)\\b)(?:\\s*(yes|yeah|yep|yup|sure)\\b|.*(?<!\\b(?:no|not|never|longer|don['’]?t|doesn['’]?t|didn['’]?t|won['’]?t)\\W+(?:\\w+\\W+)?)\\b(?:still\\W+)?wants?\\b)"
           ]
         },
         {

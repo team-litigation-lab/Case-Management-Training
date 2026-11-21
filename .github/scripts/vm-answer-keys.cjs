@@ -51,9 +51,12 @@ check(!grade.npHit(fact.match, 'John Doe, call his cell 555-010-3950'), 'd1m3-a1
 const q4 = SIM.events['d2m2-a3'].listen.find(x => /still want the injection/i.test(x.q));
 check(!!q4, 'd2m2-a3: the Listening Check asks whether he still wants the injection');
 if (q4) {
-    ['Yes', 'Yes, just not at Millbrook', 'Yes, he still wants the shot, not there', 'He still wants it', 'He wants it, but somewhere closer', 'yeah he does'].forEach(a =>
+    ['Yes', 'Yes, just not at Millbrook', 'Yes, he still wants the shot, not there', 'He still wants it', 'He wants it, but somewhere closer', 'yeah he does',
+        // a later "doesn't want" about the place, and words ending in -nt (patient, client), are no negation of the answer
+        "Yes, he still wants it, but he doesn't want to go to Millbrook", 'Yes - he wants the injection, he just doesn’t want it at Millbrook',
+        'Still wants it; does not want Millbrook', 'The patient still wants the injection', 'Client still wants it', 'Yes, the client wants it'].forEach(a =>
         check(caught(q4, a), `d2m2-a3 Q4: "${a}" is caught`));
-    ["No, he doesn't want it anymore", 'No', 'He does not want it', 'He doesn’t want it now', 'He no longer wants it', 'not anymore'].forEach(a =>
+    ["No, he doesn't want it anymore", 'No', 'He does not want it', 'He doesn’t want it now', 'He no longer wants it', 'not anymore', 'nope', 'He never wants it'].forEach(a =>
         check(!caught(q4, a), `d2m2-a3 Q4: "${a}" is not caught`));
 }
 
