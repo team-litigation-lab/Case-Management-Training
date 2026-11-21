@@ -130,7 +130,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/ai-check` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/share/get` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/report.html` · `/version`
 
-## Node checks (63)
+## Node checks (64)
 
 | Check | What it covers |
 |---|---|
@@ -196,6 +196,7 @@ None.
 | `think-through.cjs` | Every 🧠 Think it through challenge (js/cm-think-through.js) sits on a Skill Activity, taught on its deck's day, that practises the deck pages it is about; it is graded (AI 60, trainer 40, an answer key that reasons past the slide), and its figures are the ones the case file and those pages agree on |
 | `tool-links.cjs` | Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's) |
 | `trainee-identity.cjs` | A renamed or re-batched Portal ticket with the same uid opens the trainee's existing record (the uid index), and B250926 / B092526 (the same day, as batchShow shows it) resolve to one id |
+| `vm-answer-keys.cjs` | voicemail answer keys grade a correct answer right: the number as heard, a "no" not taken for a "yes", audit kinds |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
 ## Browser checks (79)

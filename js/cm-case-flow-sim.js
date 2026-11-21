@@ -62,7 +62,7 @@ window.CM_CF_SIM = {
      "a": "John Doe, on his cell: (555) 010-2288. The caller ID is his work line at Northgate, not the number to call.",
      "match": [
       "john",
-      "2288"
+      "2\\W*2\\W*8\\W*8|two\\W+two\\W+eight\\W+eight|double\\W+two\\W+double\\W+eight"
      ]
     },
     {
@@ -365,7 +365,7 @@ window.CM_CF_SIM = {
      "a": "John Doe, on his cell: (555) 010-2288.",
      "match": [
       "john",
-      "2288"
+      "2\\W*2\\W*8\\W*8|two\\W+two\\W+eight\\W+eight|double\\W+two\\W+double\\W+eight"
      ]
     },
     {
@@ -388,7 +388,7 @@ window.CM_CF_SIM = {
      "q": "Does he still want the injection?",
      "a": "Yes: he still wants it, just not at that facility.",
      "match": [
-      "yes|still|wants?"
+      "^(?!\\s*no\\b)(?!.*(\\bno\\b|\\bnot\\b|n['’]?t\\b|\\bnever\\b)\\W+(\\w+\\W+)?wants?\\b).*\\b(yes|yeah|yep|still|wants?)\\b"
      ]
     },
     {

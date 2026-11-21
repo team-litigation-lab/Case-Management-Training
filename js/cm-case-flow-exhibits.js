@@ -606,7 +606,7 @@ window.CM_CF_EXHIBITS = {
      "what": "Each deficiency as a dated, assigned CMS task",
      "as": "The draft asks the Case Manager to tell the specialist what to change.",
      "verdict": "flag",
-     "kind": "privilege",
+     "kind": "gap",
      "issue": "Fixing a draft quietly leaves no record of who found what, and no way to prove the set was audited before it went out. The terms, the amount and the deadline are Atty. Thorne's and are not the Case Manager's to change at all.",
      "fix": "Log every finding above as a dated, assigned task; route the corrected set and the audit note to Atty. Thorne for signature. Change no term.",
      "proof": [
@@ -3021,7 +3021,7 @@ window.CM_CF_EXHIBITS = {
       "label": "John Doe called; call him back on his cell, (555) 010-2288",
       "match": [
        "john",
-       "2288"
+       "2\\W*2\\W*8\\W*8|two\\W+two\\W+eight\\W+eight|double\\W+two\\W+double\\W+eight"
       ]
      },
      {
