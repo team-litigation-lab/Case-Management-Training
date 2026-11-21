@@ -28,8 +28,13 @@ const reopened = (id, rec) => !!(window.cmKcReset && window.cmKcReset.reopened(i
 const taken = id => !trainer() && attemptsIn(progOf(id)) >= 1 && !reopened(id);
 // the official attempt: the first one (a record from before this rule keeps the score it has); after a trainer's reset,
 // the best of the first and the attempts since (the old score is never recalculated)
-const official = p => { const h = p && Array.isArray(p.history) ? p.history : [], first = h[0] || (p ? {score: p.score, passed: !!p.done} : null);
-  const since = window.cmKcReset && p ? window.cmKcReset.since(p) : [];
+// A record from before the rule may hold several attempts before any reset: submitQuiz kept their best as its score, and
+// the Worker keeps that score (kcRetake), so that kept best is its official result, never history[0] alone.
+const official = p => { const h = p && Array.isArray(p.history) ? p.history : [];
+  const since = window.cmKcReset && p ? window.cmKcReset.since(p) : [], before = h.filter(x => !since.includes(x));
+  const kept = [p && p.score].concat(before.map(x => x && x.score)).filter(v => typeof v === "number" && isFinite(v)), best = kept.length ? Math.max.apply(null, kept) : null;
+  const first = before.length > 1 && best != null ? {score: best, passed: !!p.done || best >= 70 || before.some(x => x && x.passed)}
+    : h[0] || (p ? {score: p.score, passed: !!p.done} : null);
   return since.reduce((b, x) => x && typeof x.score === "number" && x.score > (b && typeof b.score === "number" ? b.score : -1) ? x : b, first); };
 
 /* the recorded result, read-only, in place of a fresh quiz */

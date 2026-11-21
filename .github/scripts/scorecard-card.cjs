@@ -55,15 +55,15 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
     if (unit.pass !== 80) fail(`the pass mark should be 80: ${unit.pass}`);
     if (JSON.stringify(unit.tiers) !== '[[90,"Exemplary"],[80,"Proficient"],[65,"Developing"],[0,"Needs Improvement"]]') fail(`the 4-tier rubric: ${JSON.stringify(unit.tiers)}`);
     if (JSON.stringify(unit.crit) !== '["upl","priv","date","trust"]') fail(`the critical items: ${unit.crit}`);
-    // Day 1: PC (KC 100, the Backup Drive's folders 100) 100 · NA (risk) 60 · CP (accuracy/presence) 80 · CD (efficiency) 40 → 72; Day 4: CP 80 → 80
+    // Day 1: PC (KC 100, the Backup Drive's folders 100) 100 · NA (risk) 60 · CP (accuracy/presence) 80 · CD (efficiency) 40 → 72; Day 3 (the final disbursement Net Sheet, Track A): CP 80 → 80
     if (unit.task.final !== unit.b.final || unit.task.groups.length || unit.rt) fail(`a random task should be in no score (the owner removed them): ${JSON.stringify(unit.task)} vs ${unit.b.final}, rt system ${unit.rt}`);
-    if (JSON.stringify(unit.a.days) !== '[72,null,null,80,null]') fail(`day scores should be [72,-,-,80,-]: ${JSON.stringify(unit.a.days)}`);
-    if (unit.a.final !== 77) fail(`Final should be (72×1.0 + 80×1.3) ÷ 2.3 = 77: ${unit.a.final}`);
+    if (JSON.stringify(unit.a.days) !== '[72,null,80,null,null]') fail(`day scores should be [72,-,80,-,-]: ${JSON.stringify(unit.a.days)}`);
+    if (unit.a.final !== 76) fail(`Final should be (72×1.0 + 80×1.15) ÷ 2.15 = 76: ${unit.a.final}`);
     if (unit.a.status !== 'gate' || unit.a.tier !== 'Needs Improvement' || unit.a.gate.join() !== '1,2') fail(`a trust-money check failed should breach the gate (Needs Improvement): ${JSON.stringify(unit.a)}`);
-    if (unit.a.comp !== 100 || unit.a.overall !== 77) fail(`Daily compliance (KC passed, the Backup Drive graded) 100 as a sub-score, and Overall = the Final, 77: ${JSON.stringify(unit.a)}`);
+    if (unit.a.comp !== 100 || unit.a.overall !== 76) fail(`Daily compliance (KC passed, the Backup Drive graded) 100 as a sub-score, and Overall = the Final, 76: ${JSON.stringify(unit.a)}`);
     if (unit.tk.final !== 100 || unit.tk.groups.length || unit.tk.sys || (unit.tk.comp || []).some(l => /Takeaway/.test(l)) || unit.tk.gate !== 1)
         fail(`a takeaway should count nowhere (no grading system, no model item, no Daily compliance part), its review only giving the UPL item: ${JSON.stringify(unit.tk)}`);
-    if (unit.b.final !== 88 || unit.b.status !== 'pass' || unit.b.tier !== 'Proficient' || unit.b.gate.join() !== '2,2') fail(`(72 + 100×1.3) ÷ 2.3 = 88 with the gate met should pass, Proficient: ${JSON.stringify(unit.b)}`);
+    if (unit.b.final !== 87 || unit.b.status !== 'pass' || unit.b.tier !== 'Proficient' || unit.b.gate.join() !== '2,2') fail(`(72 + 100×1.15) ÷ 2.15 = 87 with the gate met should pass, Proficient: ${JSON.stringify(unit.b)}`);
     if (unit.c.final !== 75 || unit.c.status !== 'gate' || unit.c.tier !== 'Needs Improvement' || unit.c.breach.join() !== 'upl') fail(`a takeaway with Risk 0 (UPL) should breach the gate whatever the score (75%, Developing on its own, is Needs Improvement): ${JSON.stringify(unit.c)}`);
 
     // 2. a trainee with graded work: their own card

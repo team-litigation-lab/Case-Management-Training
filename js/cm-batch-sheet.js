@@ -245,7 +245,7 @@ function dayParts(r, d){
   else out.push({grp: "kc", name: "✍️ Knowledge Check", pct: null, status: "Not taken", why: "", best: [], improve: []});
   // 🧩 the modules' Learning Checks (AI × 0.60 + trainer × 0.40)
   const names = modNames();
-  Object.entries(cfd.modules || {}).forEach(([id, s]) => { const c = num(s.c != null ? s.c : s.a);
+  Object.entries(S && S.lcMods ? S.lcMods(cfd.modules, ctx.fb) : cfd.modules || {}).forEach(([id, s]) => { const c = num(s.c != null ? s.c : s.a);
     out.push({grp: "lc", name: `🧩 Learning Check: ${names[id] || id}`, pct: c, status: s.c != null ? "Scored" : "Awaiting the trainer's 40%",
       why: `Automated ${pct(num(s.a)) || "—"} × 0.60 + trainer ${pct(num(s.t)) || "—"} × 0.40${s.c == null ? ". Until the trainer scores it, the automated half counts." : ` = ${c}%`}`, best: [], improve: []}); });
   // (📝 the takeaway is not scored) 🧪 Skill Activities and 📞 calls · 📝 Action Plan · 📂 Backup Drive: js/cm-scorecard.js dayItems, the same
