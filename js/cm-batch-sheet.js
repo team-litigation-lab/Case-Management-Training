@@ -397,7 +397,8 @@ function kcTable(ppl){
    🧮 GRADING SYSTEMS: a sheet per grading system (the Scorecard's own, js/cm-scorecard.js), each with its own metrics
    beside its items: a row per trainee, the system's Average and Graded, the system's own counts, then a column per item.
    ============================================================ */
-function ctxFor(r){ if(r && r.__ctx) return r.__ctx; const x = B.extra[r.id] || {}; return {rec: r, cf: r.caseFlow || {days: {}}, data: dataOf(r), callsim: x.callsim, sim: x.sim, fb: fbRecOf(r)}; }
+// (🏅 My Scores' own record, myRec, carries the trainee's Portal and Call Simulator bests in its __extra)
+function ctxFor(r){ if(r && r.__ctx) return r.__ctx; const x = B.extra[r.id] || (r && r.__extra) || {}; return {rec: r, cf: r.caseFlow || {days: {}}, data: dataOf(r), callsim: x.callsim, sim: x.sim, fb: fbRecOf(r)}; }
 const cnt = (v, f, cls) => ({v: v == null ? "" : String(v), f: f || "", cls: "gs-num " + (cls || "")});
 // 🧪 the AI Grader's attempts of a trainee (cf-ai-grades): any at all, and whether the newest one failed (with its reason)
 function aiState(r){
@@ -452,9 +453,13 @@ function systemTable(ppl, s){
   const X = EXTRA[s.id] || {head: [], cells: () => []};
   return {id: "sys", title: `${s.icon} ${s.label}`, 
     head: ["Trainee", "Average", "Graded"].concat(X.head, cols),
-    rows: per.map(({r, c, items}) => { const a = avgOf(items.map(i => i.pct));
-      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, a == null ? noneCell(r, s.id) : {v: pct(a), f: `The average of ${items.length} = ${a}%`, cls: "gs-num gs-calc gs-bold " + tone(a)}, cnt(items.length, `${items.length} graded`)]
-        .concat(X.cells(r, c, items), cols.map(n => { const i = items.find(x => x.name === n); return i ? {v: pct(i.pct), f: `${n}: ${i.pct}%${i.note ? " · " + i.note : ""}`, cls: "gs-num " + tone(i.pct)} : {v: "", f: `${n}: not graded yet`}; })); }),
+    // (🛡 an unconfirmed item, a score only the trainee's device holds, is shown in its column and never averaged or
+    //  counted, as the Scorecard's compute leaves it out)
+    rows: per.map(({r, c, items}) => { const counted = items.filter(i => !i.unconfirmed), a = avgOf(counted.map(i => i.pct));
+      return [{v: nameOf(r), f: nameOf(r), cls: "gs-name"}, a == null ? noneCell(r, s.id) : {v: pct(a), f: `The average of ${counted.length} = ${a}%`, cls: "gs-num gs-calc gs-bold " + tone(a)}, cnt(counted.length, `${counted.length} graded`)]
+        .concat(X.cells(r, c, counted), cols.map(n => { const i = items.find(x => x.name === n); return !i ? {v: "", f: `${n}: not graded yet`}
+          : i.unconfirmed ? {v: "Unconfirmed", f: `${n}: ${i.pct}%${i.note ? " · " + i.note : ""}`, cls: "gs-num gs-mid"}
+          : {v: pct(i.pct), f: `${n}: ${i.pct}%${i.note ? " · " + i.note : ""}`, cls: "gs-num " + tone(i.pct)}; })); }),
     empty: "No trainee here yet."};
 }
 // 🧮 every grading system in ONE table: a group of columns per system (its Average, Graded, its own counts, then its items),
@@ -655,7 +660,8 @@ function myRec(){
   let cf = c ? c.cf : {days: {}}; if(!c) try{ if(window.cmCaseFlow && cmCaseFlow.scoreSummary) cf = cmCaseFlow.scoreSummary() || cf; }catch(e){}
   const fbRec = c && c.fb && Object.keys(c.fb).length ? c.fb : null;
   return {id: state.traineeId || "me", name: state.traineeName || "Me", approved: true, dayProgress: c ? c.rec.dayProgress || {} : state.progress || {}, caseFlow: cf,
-    __extra: Object.assign({data, fb: state.myFeedback || (fbRec && fbRec.days) || {}}, fbRec ? {fbRec} : {})};
+    // (🛡 and the Portal's and Call Simulator's records, as myOverall counts them: a Day 1 built on the Portal's Backup Drive)
+    __extra: Object.assign({data, fb: state.myFeedback || (fbRec && fbRec.days) || {}}, fbRec ? {fbRec} : {}, c ? {sim: c.sim, callsim: c.callsim} : {})};
 }
 function myScoreCardHtml(){
   if(!isTraineeView()) return "";
