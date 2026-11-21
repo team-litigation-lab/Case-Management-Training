@@ -28,7 +28,10 @@
    js/cm-cms-file.js reads the grade for the CMS Case File areas.
    The AI not answering (quota, network) is said plainly, the work stays saved, and Try again sends it once more.
    Work that is no block of the lesson data registers itself in window.CM_AIG_EXTRA[<id>] = {b, n, dayId(), slide,
-   prefill()} and is graded the same way (Day 5's companion-case build: js/cm-companion-grade.js).
+   prefill()} and is graded the same way (Day 5's companion-case build: js/cm-companion-grade.js); it can give its own case
+   line for the AI (ctx(): a companion case is not John Doe's), and typed: true when the trainee writes it in a box of its own.
+   An activity with a 🧾 Log Your Work box (js/cm-case-flow.js workLog) is not checked by itself until its reference is
+   logged: the box sits under the grader, so checking on arrival would grade the work before the reference could be typed.
    ============================================================ */
 (function(){
 "use strict";
@@ -154,7 +157,17 @@ function resultHtml(id, r){
 /* checked automatically: once per page visit, on the trainee's own screen, when the platform holds something for it */
 const autoDone = {};
 const autoOk = id => !autoDone[id] && !isTrainer() && !audience() && typeof state === "object" && !!state.traineeId;
-function auto(id){ if(!autoOk(id) || !document.querySelector(`[data-aig="${id}"]`)) return; autoDone[id] = true; window.CMAIGrader.submit(id); }
+// the activity's 🧾 Log Your Work box on the page (js/cm-case-flow.js workLog), and whether its reference is logged
+const logBox = id => document.getElementById("cflog_" + id);
+const logged = id => { const R = (window.cmCaseFlow && typeof cmCaseFlow.record === "function" && cmCaseFlow.record()) || {}, w = (R.work || {})[id]; return !!(w && w.ref); };
+// work the trainee still has to type before it is handed in: a reference not logged yet, or an extra's own box
+const waitsForInput = id => !!logBox(id) || !!(EXTRA()[id] && EXTRA()[id].typed);
+function auto(id){
+  if(!autoOk(id) || !document.querySelector(`[data-aig="${id}"]`)) return;
+  // the reference goes in first: it is checked by itself once it is logged (cmCaseFlow.logWork, below)
+  if(logBox(id) && !logged(id)){ status(id, "Log the reference of your work below: it is checked as soon as it is logged."); return; }
+  autoDone[id] = true; window.CMAIGrader.submit(id);
+}
 function view(id){
   const f = find(id); if(!f) return "";
   const r = G.blocks[id] || {}, graded = typeof r.score === "number", c = SLIDES()[id] || {};
@@ -219,7 +232,10 @@ window.CMAIGrader = {
   draft(id, v){ recOf(id).draft = String(v || "").slice(0, 12000); clearTimeout(draftT); draftT = setTimeout(save, 700); },
   refill(id){ const el = document.getElementById("cfaig_" + id); const t = prefill(id); if(el) el.value = t; recOf(id).draft = t; save(); },
   edit(id){ if((G.blocks[id] || {}).done) return; editing[id] = true; repaint(); },
-  again(id){ if((G.blocks[id] || {}).done) return; editing[id] = true; repaint(); setTimeout(() => window.CMAIGrader.submit(id), 0); },
+  // the form opens again; it is sent at once only when there is nothing to type (a reference to correct, an extra's own
+  // box): otherwise the trainee fixes it and presses Submit →
+  again(id){ if((G.blocks[id] || {}).done) return; editing[id] = true; repaint();
+    setTimeout(() => { if(waitsForInput(id)) status(id, "Correct what needs it, then press Submit →."); else window.CMAIGrader.submit(id); }, 0); },
   // the trainee keeps this score: no more attempts, and the answer key opens
   async finish(id){
     const r = G.blocks[id]; if(!r || typeof r.score !== "number") return;
@@ -228,6 +244,7 @@ window.CMAIGrader = {
   },
   async submit(id){
     const f = find(id); if(!f || busy[id]) return;
+    syncLog(id);
     const text = prefill(id) || "Nothing was recorded on the platform for this activity.";
     const r = recOf(id); r.draft = text; await save();
     if(((r.tries || 0) >= MAX_TRIES || r.done) && !isTrainer()){ status(id, "You've used all " + MAX_TRIES + " graded attempts on this activity. Your last score counts."); return; }
@@ -238,16 +255,18 @@ window.CMAIGrader = {
     busy[id] = true;
     const btn = document.querySelector(`[data-aig="${id}"] .aig-go`); if(btn) btn.disabled = true;
     status(id, "⏳ Checking your work… this takes a few seconds.");
-    const {b, n, dayId} = f, cs = CF().case || {}, sl = SLIDES()[id] || {};
+    const {b, n, dayId} = f, cs = CF().case || {}, sl = SLIDES()[id] || {}, X = EXTRA()[id];
     const label = `Day ${dayId} · Case Flow Day ${n} · ${b.title} — Skill Building`;
-    const ctx = `Case: ${cs.style || "John Doe VS Robert Smith"}${cs.type ? ", " + cs.type : ""}. ${cs.counsel ? "Lead Counsel " + cs.counsel + ". " : ""}${cs.dol ? "DOL " + cs.dol + "; " : ""}${cs.sol ? "SOL " + cs.sol + ". " : ""}\n`
+    // an extra on a file of its own (the companion case) gives its own case line: John Doe's facts would grade it wrong
+    const own = X && typeof X.ctx === "function" ? String(X.ctx() || "").trim() : "";
+    const ctx = (own ? own + "\n" : `Case: ${cs.style || "John Doe VS Robert Smith"}${cs.type ? ", " + cs.type : ""}. ${cs.counsel ? "Lead Counsel " + cs.counsel + ". " : ""}${cs.dol ? "DOL " + cs.dol + "; " : ""}${cs.sol ? "SOL " + cs.sol + ". " : ""}\n`)
       + `Activity (Case Flow Day ${n}): ${b.title}\nScenario: ${(!sl.side && (b.act || {}).scenario) || plain(sl.situation)}\n`
       // a side activity's task is only the slide's own steps (its "Assuming …"): the full activity's prompt and checkpoints
       // would grade work the slide never asked for, so its answer key is the slide's checks alone
       + `${sl.side ? "" : `What the trainee was asked to do: ${(b.act || {}).prompt || ""}\n`}Steps on the slide:\n${(sl.steps || []).map((s, i) => `${i + 1}. ${plain(s)}`).join("\n")}\n`
       + `Where it is done: ${(b.act || {}).tool || ""}\nExpected output: ${(!sl.side && (b.act || {}).output) || plain(sl.deliver)}\n`
       + `Answer key (what a correct file holds): ${(sl.side ? [] : ((b.act || {}).checkpoints || [])).concat((sl.checks || []).map(plain)).join(" | ")}`;
-    const notes = `This is a Skill Building activity worked in the CMS and the course's tools; the submission is what the platform recorded of the trainee's work (checked automatically: the trainee writes nothing). `
+    const notes = `This is a Skill Building activity worked in the CMS and the course's tools; ${X && X.typed ? "the submission is what the platform recorded of the trainee's work and the trainee's own account of what they built. " : "the submission is what the platform recorded of the trainee's work (checked automatically: the trainee writes nothing). "}`
       + `Grade each answer-key item from that record; an item with no evidence in it is not met. `
       + `${sl.side ? "This is a short side activity: the task is only to log the entry in the CMS under the stated assumptions; do not mark down for leaving out work it did not ask for. " : ""}`
       + `Grade against this activity's rubric. AI criteria: ${(((b.rubric || {}).ai) || []).map(x => `${x[0]} (${x[1]}%): ${x[2]}`).join("; ")}. `
@@ -288,6 +307,26 @@ window.CMAIGrader = {
     }
   }
 };
+
+/* a reference typed in 🧾 Log Your Work but not logged with Log it is logged as the work is handed in, so it reaches the
+   grade (the button's own call: the tool it names is the box's) */
+let syncing = false;
+function syncLog(id){
+  const el = logBox(id), v = el && String(el.value || "").trim(); if(!v) return;
+  const R = (window.cmCaseFlow && typeof cmCaseFlow.record === "function" && cmCaseFlow.record()) || {}, w = (R.work || {})[id];
+  if(w && w.ref === v) return;
+  const btn = el.parentNode && el.parentNode.querySelector("button[onclick*='logWork']");
+  if(btn){ syncing = true; try{ btn.click(); }catch(e){} finally{ syncing = false; } }
+}
+/* logging the reference on an activity not graded yet checks it by itself, as arriving with it logged would */
+if(window.cmCaseFlow && typeof cmCaseFlow.logWork === "function"){
+  const __log = cmCaseFlow.logWork;
+  cmCaseFlow.logWork = function(blockId){
+    const r = __log.apply(this, arguments);
+    try{ if(!syncing && logged(blockId) && !busy[blockId] && !(G.blocks[blockId] && typeof G.blocks[blockId].score === "number")) setTimeout(() => auto(blockId), 0); }catch(e){}
+    return r;
+  };
+}
 
 /* the live call's transcript is kept for the grader when the call ends (state.rpSession is cleared on the way back) */
 if(window.cmCaseFlow && typeof cmCaseFlow.callBack === "function"){

@@ -149,6 +149,7 @@ const MIME = {
   doc: "application/vnd.google-apps.document", sheet: "application/vnd.google-apps.spreadsheet", slides: "application/vnd.google-apps.presentation",
   folder: "application/vnd.google-apps.folder", pdf: "application/pdf", docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 };
+const XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";   // how a Sheet is exported: every tab
 const KIND_OF = (m) => m === MIME.doc ? "doc" : m === MIME.sheet ? "sheet" : m === MIME.slides ? "slides" : m === MIME.pdf ? "pdf" : m === MIME.docx ? "docx"
   : /^text\/(plain|markdown|csv|tab-separated-values|html|rtf)$/.test(String(m || "")) ? "text" : "";
 const clip = (s, n = 300) => { s = String(s == null ? "" : s); return s.length > n ? s.slice(0, n - 1) + "…" : s; };
@@ -231,7 +232,9 @@ export const _resetCatalog = () => { CATALOG = null; };
 
 /* ---------- matching a file to its activity ---------- */
 const norm = (s) => " " + String(s || "").toLowerCase().replace(/[‘’ʼ]/g, "'").replace(/[“”]/g, '"').replace(/[–—]/g, "-")
-  .replace(/&/g, " and ").replace(/[^a-z0-9$.,'/-]+/g, " ").replace(/\s+/g, " ").trim() + " ";
+  .replace(/&/g, " and ").replace(/[^a-z0-9$.,'/-]+/g, " ")
+  // a full stop or comma that ends a word is the sentence's, not the phrase's ("$4,553.73" keeps its own)
+  .replace(/[.,]+(?=\s|$)/g, " ").replace(/\s+/g, " ").trim() + " ";
 const has = (text, phrase) => text.includes(norm(phrase));
 /* {id, by: "title" | "keys"} or {why}. `path`: the firm folder the file is in ("" its top folder, null elsewhere). */
 export function matchWork(name, head, path, catalog, homes) {
@@ -286,27 +289,75 @@ export async function pdfText(bytes) {
   }
   return parts.join("\n");
 }
-/* The text of a .docx: word/document.xml from the zip (its central directory), paragraphs as lines. */
-export async function docxText(bytes) {
-  const v = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+/* The files of a zip (its central directory) whose names `want` accepts, as text: {name: text}. */
+async function unzipText(bytes, want) {
+  const v = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength), out = {};
   let eocd = -1;
   for (let i = bytes.length - 22; i >= Math.max(0, bytes.length - 66000); i--) if (v.getUint32(i, true) === 0x06054b50) { eocd = i; break; }
-  if (eocd < 0) return "";
+  if (eocd < 0) return out;
   let p = v.getUint32(eocd + 16, true);
   const count = v.getUint16(eocd + 10, true);
   for (let k = 0; k < count && p + 46 <= bytes.length; k++) {
     if (v.getUint32(p, true) !== 0x02014b50) break;
     const method = v.getUint16(p + 10, true), size = v.getUint32(p + 20, true), nl = v.getUint16(p + 28, true), el = v.getUint16(p + 30, true), cl = v.getUint16(p + 32, true), off = v.getUint32(p + 42, true);
     const name = latin1(bytes.subarray(p + 46, p + 46 + nl));
-    if (name === "word/document.xml") {
+    if (want(name)) {
       const at = off + 30 + v.getUint16(off + 26, true) + v.getUint16(off + 28, true), data = bytes.subarray(at, at + size);
-      const xml = new TextDecoder().decode(method === 8 ? await inflate(data, "deflate-raw") : data);
-      return xml.replace(/<\/w:p>/g, "\n").replace(/<w:tab\/>/g, "\t").replace(/<w:br\/>/g, "\n").replace(/<[^>]+>/g, "")
-        .replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, "&");
+      out[name] = new TextDecoder().decode(method === 8 ? await inflate(data, "deflate-raw") : data);
     }
     p += 46 + nl + el + cl;
   }
-  return "";
+  return out;
+}
+const unXml = (s) => String(s).replace(/<[^>]+>/g, "").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&apos;/g, "'")
+  .replace(/&#x([0-9a-f]+);/gi, (x, h) => String.fromCodePoint(parseInt(h, 16))).replace(/&#(\d+);/g, (x, d) => String.fromCodePoint(Number(d))).replace(/&amp;/g, "&");
+/* The text of a .docx: word/document.xml from the zip, paragraphs as lines. */
+export async function docxText(bytes) {
+  const xml = (await unzipText(bytes, (n) => n === "word/document.xml"))["word/document.xml"];
+  return xml == null ? "" : unXml(xml.replace(/<\/w:p>/g, "\n").replace(/<w:tab\/>/g, "\t").replace(/<w:br\/>/g, "\n"));
+}
+/* The text of a spreadsheet (.xlsx, as Google exports a Sheet): every tab, each headed "## <its name>", its rows as CSV.
+   (A Sheet exported as text/csv is its first tab only: a two-tab Net Sheet's Lien Tracker would never be read.)
+   A cell styled as a date is written as one (YYYY-MM-DD); any other number as it is stored. */
+export async function xlsxText(bytes) {
+  const X = await unzipText(bytes, (n) => /^xl\/(workbook\.xml|_rels\/workbook\.xml\.rels|sharedStrings\.xml|styles\.xml|worksheets\/[^/]+\.xml)$/.test(n));
+  if (!X["xl/workbook.xml"]) return "";
+  const attr = (tag, k) => { const m = new RegExp(`\\s${k}="([^"]*)"`).exec(tag); return m ? unXml(m[1]) : ""; };
+  const rels = {}; (String(X["xl/_rels/workbook.xml.rels"] || "").match(/<Relationship\b[^>]*>/g) || []).forEach((t) => { rels[attr(t, "Id")] = attr(t, "Target"); });
+  const shared = (String(X["xl/sharedStrings.xml"] || "").match(/<si\/>|<si\b[^>]*>[\s\S]*?<\/si>/g) || [])
+    .map((si) => (si.match(/<t\b[^>]*>[\s\S]*?<\/t>/g) || []).map(unXml).join(""));
+  // the styles that show a number as a date: the built-in date formats, and any format of the file's own with d, m or y
+  const st = String(X["xl/styles.xml"] || ""), own = {};
+  (st.match(/<numFmt\b[^>]*>/g) || []).forEach((t) => { own[attr(t, "numFmtId")] = attr(t, "formatCode"); });
+  const xfs = ((/<cellXfs\b[^>]*>([\s\S]*?)<\/cellXfs>/.exec(st) || [])[1] || "").match(/<xf\b[^>]*>/g) || [];
+  const isDate = xfs.map((t) => { const id = Number(attr(t, "numFmtId")), code = own[id];
+    return (id >= 14 && id <= 22) || (id >= 45 && id <= 47) || (code != null && /[dmy]/i.test(String(code).replace(/"[^"]*"|\[[^\]]*\]|\\./g, ""))); });
+  const day = (n) => { const d = new Date(Math.round((n - 25569) * 86400000)); return isNaN(d) ? String(n) : d.toISOString().slice(0, n % 1 ? 16 : 10).replace("T", " "); };
+  const col = (r) => { let c = 0; for (const ch of String(r).replace(/\d+$/, "").toUpperCase()) c = c * 26 + ch.charCodeAt(0) - 64; return c - 1; };
+  const csv = (x) => /[",\n]/.test(x) ? `"${x.replace(/"/g, '""')}"` : x;
+  const tabs = [];
+  (X["xl/workbook.xml"].match(/<sheet\b[^>]*>/g) || []).forEach((t) => {
+    const target = rels[attr(t, "r:id")] || "", path = target.startsWith("/") ? target.slice(1) : "xl/" + target.replace(/^\.\//, "");
+    const xml = X[path]; if (xml == null) return;
+    const rows = [];
+    (xml.match(/<row\b[^>]*>[\s\S]*?<\/row>/g) || []).forEach((row) => {
+      const rn = Number(attr(row.match(/^<row\b[^>]*>/)[0], "r")) || 0, cells = [];
+      while (rows.length < rn - 1 && rows.length < 5000) rows.push("");   // (a row left empty stays a line)
+      (row.match(/<c\b[^>]*\/>|<c\b[^>]*>[\s\S]*?<\/c>/g) || []).forEach((c) => {
+        const open = c.match(/^<c\b[^>]*>/)[0], type = attr(open, "t"), r = attr(open, "r"), at = r ? col(r) : cells.length;
+        const v = (/<v\b[^>]*>([\s\S]*?)<\/v>/.exec(c) || [])[1];
+        let x = type === "s" ? shared[Number(v)] || "" : type === "inlineStr" ? (c.match(/<t\b[^>]*>[\s\S]*?<\/t>/g) || []).map(unXml).join("")
+          : type === "b" ? (v === "1" ? "TRUE" : "FALSE") : v == null ? "" : unXml(v);
+        if ((!type || type === "n") && x !== "" && isDate[Number(attr(open, "s"))] && isFinite(Number(x))) x = day(Number(x));
+        cells[at] = x;
+      });
+      const line = Array.from(cells, (x) => csv(x || "")).join(",").replace(/,+$/, "");
+      rows.push(line);
+    });
+    while (rows.length && !rows[rows.length - 1]) rows.pop();
+    tabs.push(`## ${attr(t, "name") || "Sheet"}\n${rows.join("\n")}`);
+  });
+  return tabs.join("\n\n");
 }
 /* {text, chars, truncated} or {why}: the file as text, through the Drive API (a Google file exported, any other downloaded). */
 export async function exportText(env, D, f) {
@@ -315,11 +366,16 @@ export async function exportText(env, D, f) {
   if (Number(f.size) > MAX_BYTES) return { why: "The file is larger than 8 MB." };
   const id = encodeURIComponent(f.id);
   const url = kind === "doc" || kind === "slides" ? `${DRIVE_API}/files/${id}/export?mimeType=text/plain`
-    : kind === "sheet" ? `${DRIVE_API}/files/${id}/export?mimeType=text/csv` : `${DRIVE_API}/files/${id}?alt=media&supportsAllDrives=true`;
-  const r = await fetch(url, { headers: { Authorization: "Bearer " + await D.saToken(env, false) } });
+    : kind === "sheet" ? `${DRIVE_API}/files/${id}/export?mimeType=${encodeURIComponent(XLSX)}` : `${DRIVE_API}/files/${id}?alt=media&supportsAllDrives=true`;
+  const auth = { headers: { Authorization: "Bearer " + await D.saToken(env, false) } };
+  let r = await fetch(url, auth), sheetText = null;
+  // a Sheet: every tab, from its .xlsx; if that can't be had, its first tab as CSV (as it was read before)
+  if (kind === "sheet" && r.ok) { try { sheetText = await xlsxText(new Uint8Array(await r.arrayBuffer())); } catch (e) { sheetText = null; } }
+  if (kind === "sheet" && !sheetText) r = await fetch(`${DRIVE_API}/files/${id}/export?mimeType=text/csv`, auth);
   if (!r.ok) throw Object.assign(new Error(`Google Drive couldn't give the text of "${clip(f.name, 80)}" (${r.status}).`), { drive: true });
   let text;
-  if (kind === "pdf") text = await pdfText(new Uint8Array(await r.arrayBuffer()));
+  if (sheetText) text = sheetText;
+  else if (kind === "pdf") text = await pdfText(new Uint8Array(await r.arrayBuffer()));
   else if (kind === "docx") text = await docxText(new Uint8Array(await r.arrayBuffer()));
   else text = await r.text();
   text = String(text || "").replace(/\r\n?/g, "\n").replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
@@ -368,7 +424,8 @@ export function validateAiGrade(text, rubric) {
     if (!d) return { ok: false, why: `dimension "${name}" is missing` };
     const p = Number(d.points);
     if (!isFinite(p) || p < 0 || p > max) return { ok: false, why: `"${name}" has ${d.points} of ${max} points` };
-    dims.push({ name, points: Math.round(p), max });
+    // (the points as the AI gave them: a half point rounded up on every row would add up to marks it took off)
+    dims.push({ name, points: p, max });
   }
   const total = dims.reduce((t, d) => t + d.max, 0), got = dims.reduce((t, d) => t + d.points, 0);
   const strengths = (Array.isArray(j.strengths) ? j.strengths : []).map((x) => str(x, 300)).filter(Boolean).slice(0, 3);
@@ -376,7 +433,7 @@ export function validateAiGrade(text, rubric) {
     .map((x) => ({ shows: str(x.shows, 400), standard: str(x.standard, 400), why: str(x.why, 400), next: str(x.next, 400) }))
     .filter((x) => x.shows && x.standard && x.why && x.next).slice(0, 4);
   const score = total ? Math.round((100 * got) / total) : 0;
-  if (score < 100 && !fix.length) return { ok: false, why: "points were taken off with no fix item saying why" };
+  if (got < total && !fix.length) return { ok: false, why: "points were taken off with no fix item saying why" };
   return { ok: true, grade: { score, aiScore: Math.round(j.score), dims, strengths, fix } };
 }
 async function aiGrade(env, D, a, file, text, who) {
@@ -699,6 +756,8 @@ export async function driveWorkApi(env, D, tok, b) {
     if (clear) delete ov[kind][key];
     else ov[kind][key] = { score: Math.round(score), comment, by: "trainer", at: nowIso() };
     await kv.put(OV_KEY(who), JSON.stringify(ov));
+    // (📂 and onto the trainee's progress at once, where the Scorecard and the Batch Sheet read it: a cleared override too)
+    if (D.driveToProgress) try { await D.driveToProgress(env, who, Object.assign({}, rec, { overrides: ov })); } catch (e) { /* the next structure grade */ }
     return view({ saved: { kind: b.kind, key, cleared: clear } });
   }
   if (action === "workGradeFor") {

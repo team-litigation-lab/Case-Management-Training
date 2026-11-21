@@ -53,7 +53,7 @@
       "body": "Hey, it's John Doe. I'm signing with Mr. Thorne later today. On Saturday Dana from Keystone Mutual, the other guy's insurance, asked what happened and if she could record it. I said I'd think about it; she's calling back today. Nothing from you guys yet. I'm off with my neck; I'm at Northgate telling my supervisor. Call my cell: 555-010-2288.",
       "spoken": "Hey, uh... this is John Doe. I'm signing with Mr. Thorne later today, for the car accident. So, on Saturday, somebody from Keystone Mutual called me. That's the other guy's insurance. A lady... Dana, I think. She was asking what happened, and if she could record it. I didn't know what to tell her, so I said I'd think about it, and she said she'd call me back today. And, um, I haven't gotten anything from you guys yet. No paperwork, nothing. My neck's still stiff. It's worse in the morning. I'm off work with my neck, I'm just at Northgate telling my supervisor. Can you call me back? This is the work phone, so call my cell. It's five five five, oh one oh, two two eight eight. Okay. Thanks. Bye.",
       "listen": [
-        {"q": "Who left the message, and which number does he want you to call back?", "a": "John Doe, on his cell: (555) 010-2288. The caller ID is his work line at Northgate, not the number to call.", "match": ["john", "2288"]},
+        {"q": "Who left the message, and which number does he want you to call back?", "a": "John Doe, on his cell: (555) 010-2288. The caller ID is his work line at Northgate, not the number to call.", "match": ["john", "2\\W*2\\W*8\\W*8|two\\W+two\\W+eight\\W+eight|double\\W+two\\W+double\\W+eight"]},
         {"q": "Who contacted him, and what did they ask for?", "a": "Dana, from Keystone Mutual (the other driver's insurance): what happened, and to record it.", "match": ["keystone", "record"]},
         {"q": "What did he tell her, and when will she try again?", "a": "He said he'd think about it, and she said she'd call him back today.", "match": ["think|today|call(s|ing|ed)? (him )?back|again"]},
         {"q": "How is he feeling?", "a": "His neck is still stiff, and it's worse in the morning.", "match": ["neck", "stiff|sore|pain|hurt"]},
@@ -328,7 +328,7 @@
           "a": "John Doe, on his cell: (555) 010-2288.",
           "match": [
             "john",
-            "2288"
+            "2\\W*2\\W*8\\W*8|two\\W+two\\W+eight\\W+eight|double\\W+two\\W+double\\W+eight"
           ]
         },
         {
@@ -351,7 +351,7 @@
           "q": "Does he still want the injection?",
           "a": "Yes: he still wants it, just not at that facility.",
           "match": [
-            "yes|still|wants?"
+            "^(?!\\s*(no|nope|nah)\\b)(?:\\s*(yes|yeah|yep|yup|sure)\\b|.*(?<!\\b(?:no|not|never|longer|don['’]?t|doesn['’]?t|didn['’]?t|won['’]?t)\\W+(?:\\w+\\W+)?)\\b(?:still\\W+)?wants?\\b)"
           ]
         },
         {

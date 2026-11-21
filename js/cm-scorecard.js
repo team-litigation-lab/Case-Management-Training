@@ -52,6 +52,13 @@ const kcScores = p => [p && p.score].concat(((p && p.history) || []).map(h => h 
 // 🛡 a Case Flow day's summary (caseFlow.days[n]) counts only when it is this day's: its id is the day's own (or it has none,
 // a summary from before ids were kept). One that names another day's id is not this day's score or pass.
 const cfDay = (c, d) => { const s = (((c.cf || {}).days) || {})[d.cf.n]; return s && typeof s === "object" && (s.id == null || String(s.id) === String(d.id)) ? s : {}; };
+// 🧩 a day's Learning Checks with the trainer's score as feedback:<id> holds it (trainer-owned, read with the record): the
+// summary's copy is the trainee's page's, put there only when that page last read it, so a trainer's 40% saved since
+// would not show until the trainee's page saved again
+const lcMods = (mods, fb) => { const T = (fb && fb.caseFlow) || {}, out = {};
+  Object.entries(mods || {}).forEach(([id, s]) => { const x = T[id]; if(!s || typeof s !== "object" || !x || !fin(x.score)){ out[id] = s; return; }
+    const a = fin(s.a) ? s.a : null; out[id] = Object.assign({}, s, {t: x.score, c: a != null ? Math.round(a * 0.6 + x.score * 0.4) : null}); });
+  return out; };
 const kcBest = (p, s) => { let v = kcScores(p).filter(fin); if(!v.length) v = [s && s.kc].filter(fin); return v.length ? Math.max.apply(null, v) : null; };
 // the device's score for a day the record has none: the device's day progress, else the work log's quiz entries (unconfirmed)
 const kcDevice = (c, d) => { const p = ((c.rec || {}).dayProgress || {})[d.id], s = cfDay(c, d);
@@ -88,6 +95,12 @@ const taughtOf = id => {
   if(TAUGHT[id]) return TAUGHT[id];
   const m = /^d(\d)/.exec(String(id || "")); return m ? +m[1] : null;
 };
+// 🧾 an activity merged into another keeps its id on old records (d2m4-a1, merged into d3m1-a1, carries the same amendment
+// set): a trainee who worked the set there and again where it now is holds two records of one exercise, counted once
+let MERGED = null;
+const mergedTo = id => { if(!MERGED && window.CM_CASE_FLOW){ MERGED = {}; (((window.CM_CASE_FLOW || {}).days) || []).forEach(d => (d.modules || []).forEach(m => (m.blocks || []).forEach(b => { if(b && b.mergedInto) MERGED[b.id] = b.mergedInto; }))); }
+  return (MERGED && MERGED[id]) || id; };
+const amendSets = R => { const g = {}; Object.entries((R && R.amend) || {}).forEach(([b, r]) => { if(!r || typeof r !== "object") return; const k = mergedTo(b); (g[k] = g[k] || []).push([b, r]); }); return Object.values(g); };
 const blockOf = id => { const X = (window.CM_AIG_EXTRA || {})[id]; if(X && X.b) return {b: X.b, n: X.n || taughtOf(id)};
   let out = null; (((window.CM_CASE_FLOW || {}).days) || []).forEach(d => (d.modules || []).forEach(m => (m.blocks || []).forEach(b => { if(b.id === id) out = {b, n: taughtOf(id) || d.n}; })));
   return out; };
@@ -143,7 +156,7 @@ const SOURCES = [
       return {name: dayName(d), pct, note: (pct >= 70 ? "Passed (best score kept)" : "Below 70%: not passed yet") + (p.kcUnverified ? " · restored from the trainee's device" : "")}; })},
   {id: "lc", icon: "🧩", label: "Learning Checks", about: "Each module's Learning Check: AI × 0.60 + trainer × 0.40. Until the trainer scores it, the automated half counts.", dims: ["na", "cp"], how: "The AI review × 0.60 + the trainer's score × 0.40.",
     items: c => { const names = moduleNames(), out = [];
-      Object.values(c.cf.days || {}).forEach(day => Object.entries(day.modules || {}).forEach(([id, s]) => {
+      Object.values(c.cf.days || {}).forEach(day => Object.entries(lcMods(day && day.modules, c.fb)).forEach(([id, s]) => {
         const pct = num(s.c != null ? s.c : s.a); if(pct == null) return;
         out.push({name: (names[id] ? `Day ${names[id].n}: ${names[id].title}` : id), pct, auto: s.c == null,
           note: s.c != null ? `Automated ${pctTxt(num(s.a))} · Trainer ${pctTxt(num(s.t))}` : "Automated only: awaiting the trainer's 40%"}); }));
@@ -191,7 +204,9 @@ const SOURCES = [
       const t = v => String(v || "").replace(/^Email Simulator — /, "");
       Object.entries(R.notes || {}).forEach(([b, r]) => { const n = (EX.notes || {})[b]; if(n && r) (n.emails || []).forEach(e => sent(t(e.title), (r.mails || {})[e.id])); });
       Object.entries(R.service || {}).forEach(([b, r]) => { const e = (EX.emails || {})[b]; if(e) sent(t(e.title) || b, r); });
-      Object.entries(R.amend || {}).forEach(([b, r]) => Object.entries((r && r.req) || {}).forEach(([doc, x]) => sent(`Amendment request: ${doc}`, x)));
+      amendSets(R).forEach(set => { const req = {};   // (one amendment set worked on two activities: each request's better email)
+        set.forEach(([b, r]) => Object.entries(r.req || {}).forEach(([doc, x]) => { if(x && x.sent && (!req[doc] || (x.tries || 0) < (req[doc].tries || 0))) req[doc] = x; }));
+        Object.entries(req).forEach(([doc, x]) => sent(`Amendment request: ${doc}`, x)); });
       Object.entries((c.sim && c.sim.best) || {}).filter(([k, b]) => simKind(k) === "email" && b && typeof b.score === "number").forEach(([k, b]) => out.push({name: k, pct: num(b.score), note: `Portal · ${b.count || 1} run${(b.count || 1) === 1 ? "" : "s"}`}));
       return out; }},
   {id: "cal", icon: "🗓", label: "Calendaring", about: "The Training Portal's Calendaring Simulators (the Litigation Week: the prep, debrief, client and expert calls placed around a deposition, a hearing and a mediation).",
@@ -212,7 +227,8 @@ const SOURCES = [
   {id: "cc", icon: "📞", label: "Case Calls", about: "Each graded call on John Doe's file (Live Calls and the calls the trainer rings in), its best score; an injected call that was missed counts 0.", dims: ["pc", "na", "cd"], how: "The AI call rubric: BLUF, Risk & Privilege, Composure, A-C-T (25 each); a missed injected call 0.",
     items: c => { const best = {}, cf = c.data["case-flow"] || {};
       (c.data.roleplayHistory || []).filter(h => h && h.categoryId === "caseflow" && typeof h.score === "number").forEach(h => {
-        const k = h.topicId || h.topicLabel; if(!best[k] || h.score > best[k].score) best[k] = {name: h.topicLabel || k, score: h.score, n: 0}; best[k].n++; });
+        // (a better call replaces the best, and the calls counted before it still count)
+        const k = h.topicId || h.topicLabel, n = best[k] ? best[k].n : 0; if(!best[k] || h.score > best[k].score) best[k] = {name: h.topicLabel || k, score: h.score, n}; best[k].n++; });
       const out = Object.values(best).map(b => ({name: b.name, pct: num(b.score), note: `${b.n} call${b.n === 1 ? "" : "s"}`}));
       Object.values(cf.injects || {}).filter(x => x && x.outcome === "missed" && !best["cf-" + x.blockId])
         .forEach(x => out.push({name: `${x.who}: injected call`, pct: 0, note: `Missed · ${fmt(x.at)}`}));
@@ -378,11 +394,15 @@ const MODEL = (function(){
         gate(it.kind === "privilege" ? "priv" : "date", day, `${a.title || b} · ${it.ref ? it.ref + ": " : ""}${it.what || "item " + (i + 1)}`, ok, ok ? `Called right (${it.verdict})` : `Breach: called "${marks[i] || "nothing"}", should be "${it.verdict}"`); }); });
     Object.entries(R.listen || {}).forEach(([b, r]) => { const e = (SIM.events || {})[b]; if(!r || !r.at || !e || !e.listen || !e.listen.length) return;
       add("na", "🎧 Listening Checks", taught(b), `Listening Check (${b})`, 100 * (r.score || 0) / e.listen.length, `${r.score || 0} of ${e.listen.length} caught`); });
-    Object.entries(R.amend || {}).forEach(([b, r]) => { const a = (EX.amendments || {})[b]; if(!a || !r) return; const day = taught(b);
-      if(r.screened && Array.isArray(a.screen) && a.screen.length){ const asked = new Set((a.requests || []).map(q => q.doc)), ks = window.cmCreditKept && cmCreditKept.screen(b, r, a);
-        const ok = ks ? ks.right : a.screen.filter(s => ((r.marks || {})[s.doc] === "fix") === asked.has(s.doc)).length, of = ks ? ks.of : a.screen.length;
-        add("na", "🧾 Records screening", day, a.title || b, 100 * ok / of, `${ok} of ${of} records called right`); }
-      Object.entries(r.req || {}).forEach(([doc, x]) => { const v = sentScore(x); if(v != null) add("cd", "✉️ Written communication", day, `Amendment request: ${doc}`, v, sentNote(x)); }); });
+    // (one amendment set worked on two activities, amendSets: its better screening and each request's better email)
+    amendSets(R).forEach(set => { let scr = null; const req = {};
+      set.forEach(([b, r]) => { const a = (EX.amendments || {})[b]; if(!a) return; const day = taught(b);
+        if(r.screened && Array.isArray(a.screen) && a.screen.length){ const asked = new Set((a.requests || []).map(q => q.doc)), ks = window.cmCreditKept && cmCreditKept.screen(b, r, a);
+          const ok = ks ? ks.right : a.screen.filter(s => ((r.marks || {})[s.doc] === "fix") === asked.has(s.doc)).length, of = ks ? ks.of : a.screen.length;
+          if(!scr || 100 * ok / of > scr.v) scr = {v: 100 * ok / of, day, title: a.title || b, note: `${ok} of ${of} records called right`}; }
+        Object.entries(r.req || {}).forEach(([doc, x]) => { const v = sentScore(x); if(v != null && (!req[doc] || v > req[doc].v)) req[doc] = {v, day, x}; }); });
+      if(scr) add("na", "🧾 Records screening", scr.day, scr.title, scr.v, scr.note);
+      Object.entries(req).forEach(([doc, q]) => add("cd", "✉️ Written communication", q.day, `Amendment request: ${doc}`, q.v, sentNote(q.x))); });
     Object.entries(R.service || {}).forEach(([b, r]) => { const e = (EX.emails || {})[b]; if(!e || !r) return; const day = taught(b), title = clean(e.title) || b;
       const jc = window.cmCreditKept ? cmCreditKept.choice(b, r, e) : (r.choice != null && e.press && e.press.choices && e.press.choices[r.choice] ? {ok: !!e.press.choices[r.choice].ok} : null);
       if(jc) add("na", "⚖️ Judgement calls", day, title, jc.ok ? 100 : 0, jc.ok ? "The right call" : "A call that costs the file");
@@ -408,7 +428,8 @@ const MODEL = (function(){
     Object.entries((c.fb && c.fb.days) || {}).forEach(([d, v]) => { if(!(window.cmRubric && cmRubric.counts(v))) return; const day = dn(d), rb = v.rubric;
       cmRubric.DIMS.forEach(k => { const x = rb.dims[k.id]; if(x && typeof x.pts === "number") add(k.id, "📐 Trainer rubric", day, `Trainer's rubric: ${k.label}`, 100 * Math.min(k.pts, x.pts) / k.pts, `${x.pts} of ${k.pts} points · ${cmRubric.tierOf(100 * x.pts / k.pts).label}`); });
       Object.entries(rb.crit || {}).forEach(([id, m]) => { if(m === "met" || m === "breach") gate(id, day, `Trainer's review, Day ${day}`, m === "met", m === "met" ? "Marked met by the trainer" : "Breach: marked by the trainer on the day's review"); }); });
-    const NSD = {recovery: 3, bi: 3, um: 3, liens: 4, final: 4, litigation: 5};
+    // (the day each stage is worked: lien negotiations (d3m3) and the final disbursement (d3m4) are Track A, Day 3)
+    const NSD = {recovery: 3, bi: 3, um: 3, liens: 3, final: 3, litigation: 5};
     Object.values(((data["net-sheet"] || {}).files) || {}).forEach(f => Object.entries((f && f.checks) || {}).forEach(([st, k]) => { k = nsBest(k); if(!k || !k.total) return;
       add("cp", "📊 Net Sheet", NSD[st] || null, NS_STAGES[st] || st, 100 * k.passed / k.total, `${k.passed} of ${k.total} checks`);
       if(st === "final" || st === "litigation") gate("trust", NSD[st], NS_STAGES[st] || st, k.passed === k.total, k.passed === k.total ? "Every check passed" : `Breach: ${k.total - k.passed} check${k.total - k.passed === 1 ? "" : "s"} failed`); }));
@@ -667,7 +688,14 @@ function myCtx(){
   // ✍️ the Knowledge Checks count from the record, as the trainer's view counts them; a score only this device holds is
   // shown unconfirmed (kcDevice reads it from the device's day-progress, below). Until the record is read, the device's.
   const mine = MINE.id === state.traineeId && rec;
-  c.rec = Object.assign({}, c.rec, {dayProgress: (mine ? rec.dayProgress : state.progress) || c.rec.dayProgress || {}, practiceProgress: state.practiceProgress || c.rec.practiceProgress || {}});
+  // (so once the record is read, the live summary's kc and pass are replaced by the record's summary's, as the trainer's
+  // view reads them: a check only this device holds then has no score here, and kcDevice shows it unconfirmed)
+  if(mine && c.cf && c.cf.days && c.cf !== rec.caseFlow){ const rd = ((rec.caseFlow || {}).days) || {};
+    c.cf = Object.assign({}, c.cf, {days: Object.assign({}, c.cf.days)});
+    Object.keys(c.cf.days).forEach(n => { const s = c.cf.days[n]; if(!s || typeof s !== "object") return;
+      const r = rd[n] && typeof rd[n] === "object" && (rd[n].id == null || s.id == null || String(rd[n].id) === String(s.id)) ? rd[n] : {};
+      c.cf.days[n] = Object.assign({}, s, {kc: fin(r.kc) ? r.kc : null, passed: !!r.passed}); }); }
+  c.rec =Object.assign({}, c.rec, {dayProgress: (mine ? rec.dayProgress : state.progress) || c.rec.dayProgress || {}, practiceProgress: state.practiceProgress || c.rec.practiceProgress || {}});
   if(Array.isArray(state.taskLog)) c.data = Object.assign({}, c.data, {"task-log": state.taskLog});
   if(Array.isArray(state.workLog)) c.data = Object.assign({}, c.data, {"work-log": state.workLog});
   c.data = Object.assign({}, c.data, MINE.dev || {});
@@ -692,7 +720,7 @@ function renderMine(){
 }
 
 /* ---------- 🏅 Scorecards: every approved trainee's card, for the trainer ---------- */
-const ALL = {rows: null, loading: false, batch: "", pick: "", only: "", at: 0};
+const ALL = {rows: null, loading: false, batch: "", pick: "", only: "", at: 0, seen: new Set()};   // (seen: the keys the last read found)
 // The trainee records are read fresh every time (not the Admin screen's copy, which can be minutes old), so a change made
 // to a trainee's record, such as a corrected Batch ID, shows here on the next load; an open page reloads them once a minute.
 const FRESH_MS = 60000;
@@ -720,6 +748,11 @@ async function loadAll(){
     people = MA ? MA.scored(people) : people.filter(r => r && r.approved === true && !r.rejected && !r.archived);
     const want = []; people.forEach(r => want.push("progress:" + r.id, "callsim:" + r.id, "simresults:" + r.id, "feedback:" + r.id));
     const vals = await sharedGetMany(want);
+    // a failed get-many answers null for every key of its 100-key request, as if none were there: in a background reload, a
+    // request that read nothing where the last read found something failed, so the rows shown stay
+    if(bg && (!Array.isArray(vals) || vals.length !== want.length)) throw new Error("short read");
+    if(bg) for(let i = 0; i < want.length; i += 100) if(vals.slice(i, i + 100).every(v => v == null) && want.slice(i, i + 100).some(k => ALL.seen.has(k))) throw new Error("failed read");
+    ALL.seen = new Set(want.filter((k, i) => vals[i] != null));
     rows = people.map((r, i) => rowOf(r.id, r.name || r.id, r.batch, ctxOf(r, vals[i * 4], vals[i * 4 + 1], vals[i * 4 + 2], vals[i * 4 + 3])))
       .sort((a, b) => a.batch.localeCompare(b.batch) || a.name.localeCompare(b.name));
   }catch(e){ rows = null; }
@@ -775,7 +808,7 @@ window.cmScorecard = {
   // a row of 🏅 Scores: that trainee's card (shown if only another one was), scrolled to
   pick(id){ ALL.pick = id; if(ALL.only && ALL.only !== id) ALL.only = id; render();
     setTimeout(() => { const d = document.getElementById("bs-pt-" + domId(id)); if(d) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
-  csv, compute, sources: SOURCES, model: MODEL, kcBest, kcPassed, kcDevice, cfDay, dayItems, skillActs, actionPlans,
+  csv, compute, sources: SOURCES, model: MODEL, kcBest, kcPassed, kcDevice, cfDay, lcMods, dayItems, skillActs, actionPlans,
   // ⭐ THE overall score, the one shared function: every surface that shows a trainee's Overall or a day's score calls it
   // (the trainee card, 🏅 Scores, the Batch Sheet's Scores, Score Card, Day by Day and cards, the trainee's My Scores)
   overall: c => { const m = MODEL.compute(c); return {pct: m.overall, comp: m.comp, status: m.status, why: overallTip(m),

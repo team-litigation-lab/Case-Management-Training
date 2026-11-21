@@ -29,17 +29,21 @@ export async function driveToProgress(kv, id, rec, withDayOverrides, pass) {
   const ov = withDayOverrides(rec, rec.grades || {}, rec.setup || null, pass);
   const grades = Object.fromEntries(Object.entries(ov.grades || {}).filter(([, g]) => g && typeof g.score === "number").map(([n, g]) => [n, dayRecord(g)]));
   const s = ov.setup && typeof ov.setup.score === "number" ? ov.setup : null;
-  if (!Object.keys(grades).length && !s) return false;
   const key = `progress:${id}`, p = JSON.parse((await kv.get(key)) || "null");
   if (!p || typeof p !== "object") return false;   // (no progress yet: the trainee hasn't started — nothing to show it on)
   const data = Object.assign({}, p.data || {}), was = JSON.stringify([data["drive-grades"] || null, data["drive-setup"] || null]);
   const dg = Object.assign({}, data["drive-grades"] || {});
-  Object.entries(grades).forEach(([n, g]) => { if (!dg[n] || !later(dg[n], g) || g.override) dg[n] = g; });
-  data["drive-grades"] = dg;
-  if (s) { const prev = data["drive-setup"] || {};
-    data["drive-setup"] = Object.assign({}, prev, { score: s.score, ok: !!s.ok, attempts: s.attempts || prev.attempts || 1, at: s.at || prev.at || null, firstAt: prev.firstAt || prev.at || s.at || null },
-      s.override ? { override: { score: s.override.score, by: s.override.by || "trainer" } } : {}); }
-  if (JSON.stringify([data["drive-grades"], data["drive-setup"] || null]) === was) return false;
+  // a copy of a trainer's override the trainer has since cleared gives way: to the auto grade, else to nothing (a
+  // trainee's page only ever saves auto grades, and keepNewerDriveGrades keeps a stored day the page's copy lacks)
+  Object.entries(grades).forEach(([n, g]) => { if (!dg[n] || !later(dg[n], g) || g.override || dg[n].override) dg[n] = g; });
+  Object.keys(dg).forEach((n) => { if (dg[n] && dg[n].override && !grades[n]) delete dg[n]; });
+  if (Object.keys(dg).length || data["drive-grades"]) data["drive-grades"] = dg;
+  const prev = data["drive-setup"] || {};
+  if (s) { data["drive-setup"] = Object.assign({}, prev, { score: s.score, ok: !!s.ok, attempts: s.attempts || prev.attempts || 1, at: s.at || prev.at || null, firstAt: prev.firstAt || prev.at || s.at || null },
+      s.override ? { override: { score: s.override.score, by: s.override.by || "trainer" } } : {});
+    if (!s.override) delete data["drive-setup"].override; }
+  else if (prev.override) delete data["drive-setup"];   // (its score was the trainer's, now cleared)
+  if (JSON.stringify([data["drive-grades"] || null, data["drive-setup"] || null]) === was) return false;
   await kv.put(key, JSON.stringify(Object.assign({}, p, { data, serverAt: new Date().toISOString() })));
   return true;
 }

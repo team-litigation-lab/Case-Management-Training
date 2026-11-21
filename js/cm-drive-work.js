@@ -215,8 +215,12 @@ function keepBrief(id, V){
   const rep = state.driveReports[id] = Object.assign({}, state.driveReports[id] || {}, {work: V.brief});
   const S = V.structure || {};
   rep.grades = Object.assign({}, rep.grades || {});
-  [2, 3, 4, 5].forEach(n=>{ if(S[n] && S[n].final != null) rep.grades[n] = Object.assign({}, rep.grades[n] || {}, {score: S[n].final, auto: S[n].auto, override: S[n].override || undefined}); });
+  // (a day whose override was cleared and that has no auto grade has no grade any more: never the cleared one)
+  [2, 3, 4, 5].forEach(n=>{ if(!S[n]) return; if(S[n].final == null){ delete rep.grades[n]; return; }
+    rep.grades[n] = Object.assign({}, rep.grades[n] || {}, {score: S[n].final, passed: S[n].final >= 70, auto: S[n].auto, override: S[n].override || undefined}); });
   if(S[1]) rep.setupScore = S[1].final;
+  // the day overrides nightlyFor reads Day 1's from: the ones just saved or cleared
+  if(V.structure) rep.overrides = Object.assign({}, rep.overrides || {}, {days: Object.fromEntries([1, 2, 3, 4, 5].filter(n=>S[n] && S[n].override).map(n=>[n, S[n].override]))});
   if(window.cmScorecard && cmScorecard.invalidate) cmScorecard.invalidate();
 }
 function redraw(){ if(state.view === "admin" && state.adminTab === "tdrives" && !(typeof isTyping === "function" && isTyping()) && typeof render === "function") render(); }

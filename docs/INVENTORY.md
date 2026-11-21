@@ -130,7 +130,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/ai-check` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/share/get` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/report.html` · `/version`
 
-## Node checks (63)
+## Node checks (69)
 
 | Check | What it covers |
 |---|---|
@@ -150,6 +150,7 @@ None.
 | `check-data.mjs` | Case documents and handouts exist, document references resolve |
 | `check-site.mjs` | JavaScript syntax, local files, JSON |
 | `cm-drive.cjs` | The trainee's Backup Drive (the firm's folder structure, where a filed document lands, and the Day 1 grading) |
+| `cms-file-grading.cjs` | The CMS Case File grade (js/cm-cms-file.js) grades only what a trainee can do: an ungraded activity is still to do, the AI grade wins over old ticks, documents are due when a taught activity offers them |
 | `cms-file-sequence.cjs` | The CMS Case File grade (js/cm-cms-file.js) asks only for activities still on the days: a cut or merged activity nobody worked is never "missing" |
 | `cms-paths.cjs` | Every "CMS → X → Y" a trainee reads names a real menu item of the CMS: X one of its tabs, header or sidebar items, Y a section of that tab (no "Case File → Risk Flags", "Financial Ledger → Trust", "Tasks → Escalate") |
 | `cms-prose.cjs` | Every place a sentence names in the CMS ("in CMS Case Notes", "the Litigation tab", "the Coverage Stack", "the Action Item Log") is a real tab or section of the CMS's menu (cms-paths.cjs MENU), or a named record that is not the CMS's (the Net Sheet's tabs, the case documents, the firm's own logs) |
@@ -159,14 +160,17 @@ None.
 | `doc-versions.cjs` | Every case document's current file is listed by its bytes in worker-drive-versions.js (the versions the Backup Drive grader accepts), the list is in step with build/case-flow/documents/versions.cjs, and no version main lists is dropped |
 | `drive-connect.cjs` | Linking a trainee's Google Drive folder (shared with the service account and pasted, as Foundational links a Drive; every refusal says why; Google answered by the test) |
 | `drive-daily.cjs` | The Backup Drive is scored every day: each day a trainee has reached is graded (nothing on the drive yet scores 0), every night too, in four measures (compliance, attention to detail, organization, naming convention) |
+| `drive-drill-kept.cjs` | The Backup Drive's Day 4 drill is kept for good (forty more checks don't undo it), and Day 5's final audit gives nothing for an empty drive |
 | `drive-grades.cjs` | The Backup Drive is auto-graded day by day from the Drive itself (Days 2–5, against an in-memory Google Drive) |
 | `drive-named-files.cjs` | A course document on the Backup Drive is known from the drive alone, never from the CMS: by its bytes first (Drive's md5Checksum against the course's own file or any version of it the course served, over any code in the name; copies anywhere one document; an empty file none), then its code or title, else by the firm's name (<Case ID>_<Last-First>_<Type>_<date>, the CMS's counters too) in its firm folder at any depth (bytes that aren't the course's current file never rule it out; under a kilobyte is no document), steered by its SUPERSEDED/DRAFT label, the drive packets of the days reached first, the platform's own copies accounted for; a match by Type alone, or by a code over other bytes, never starts a day, has its name charged, counts in Day 1's filing or hides written work; a CMS counter in a certain document's name is read past; a reading over bytes set against the course's file earns no place and adds no good name, a certain copy before any reading, a hand copy of the platform's copy is that document, and a document opened on an earlier day never starts a later one |
 | `drive-naming.cjs` | The firm's file naming convention on the Backup Drive (one rule with the CMS filing; every name checked, each wrong one with the name it should have) |
 | `drive-subfolders.cjs` | Both Backup Drive graders read every folder and file under the linked folder at any depth, and a drive larger than one run is read on over the next runs and said (in-memory Drive, stubbed AI) |
 | `drive-to-progress.mjs` | The Backup Drive's grades reach the Scorecard: the Worker copies each day's grade onto the trainee's progress (a trainee who never reopened their drive still shows it), a page's older save doesn't put an older grade back, and Day 1 built on the Training Portal's Backup Drive counts as the firm's folders |
 | `drive-trainer-access.cjs` | A trainee's linked Google Drive opens at their case folders, for them and for a trainer (rootUrl/caseUrl, GDRIVE_TRAINER_EMAILS added to the folder without an email) |
+| `drive-work-fair-grades.mjs` | A Backup Drive grade is the one the trainee earned: a cleared trainer override leaves the Scorecard's copy (and the trainer's page), every tab of a Google Sheet is read, a full stop or comma after a title doesn't stop a match, and half points aren't rounded up row by row |
 | `drive-work-sequence.cjs` | ✍ Where your written work goes names only activities still on the days, and work for a merged activity is graded as its main's |
 | `drive-work.cjs` | The trainee's written work on the Backup Drive is AI-graded nightly against its activity's rubric, and a trainer's override wins (in-memory Drive, stubbed AI) |
+| `index-grade-keep.cjs` | Grades in index.html land where they belong: a Knowledge Check keeps the day's random-task scores, a JSON grade with a note after it still parses, a Case Flow call is logged on its own day, a task graded across its expiry isn't also missed, and deleting calendar blocks doesn't resolve conflicts |
 | `inventory.cjs` | The code inventory (docs/INVENTORY.md) is in step with the files: run node build/inventory.cjs after adding, removing or renaming one |
 | `john-doe-figures.cjs` | John Doe's money trail follows the Day 2 deck (PIP $10,000 gone in 48 hours on ER and EMS bills, $41,400 of bills, Dr. Sarah Spine's EMC) and adds up to the cent; no retired figure (PIP $5,000, Specials $16,401.40, …) comes back anywhere the course, its documents or its checks say it |
 | `kc-forge-guards.cjs` | 🛡 A Knowledge Check pass can't be forged or slipped past a trainer: a "done" with no score, a Case Flow summary naming another day's id, a trainer's stale copy after a merge, a restore or merge confirm whose device-only scores changed since the preview; and a merged-away id's orphan backups still reach the kept account |
@@ -188,6 +192,7 @@ None.
 | `r2-types.cjs` | Every file the R2 upload sends (decks/, documents/) has its content type in .github/scripts/r2-sync.mjs, so none goes up as application/octet-stream (a caption track or a stylesheet sent as that doesn't load) |
 | `rubric-guards.cjs` | 📐 Rubric guards (a rubric score is the trainer's; a trainee's own auto-scored results go on their own progress record only) |
 | `run-checks.mjs` | What it checks                    (run as: node <file>) |
+| `score-records.cjs` | 🏅 Scores read right from the records already stored: a pre-rule Knowledge Check keeps its best, a device-only check stays unconfirmed on My Performance, the trainer's 40% shows at once, Track A's Net Sheet is Day 3's, calls are all counted, a failed reload keeps the scores shown, a merged amendment set counts once |
 | `scorecard-kc-official.cjs` | 🏅 A Knowledge Check's score and pass on the Scorecard and the Batch Sheet come only from trainee:<id> and its Case Flow summary; a score only the trainee's device holds is shown as unconfirmed and never counted |
 | `send-progress-worker.cjs` | 📤 A progress report a trainer sends stays the trainer's: a trainee's own save of feedback:<id> (their auto-review, a stale copy without the report, or one that rewrites it) never changes or drops it, the trainee reads it, and their read mark lives in their own progress |
 | `share-links.cjs` | 🔗 Shared report links (worker-share.js): a trainer's link reads with no sign-in, holds only the table's fields; expired, revoked and unknown links are 404; a trainee can't make or overwrite one; share: is never listed |
@@ -196,9 +201,10 @@ None.
 | `think-through.cjs` | Every 🧠 Think it through challenge (js/cm-think-through.js) sits on a Skill Activity, taught on its deck's day, that practises the deck pages it is about; it is graded (AI 60, trainer 40, an answer key that reasons past the slide), and its figures are the ones the case file and those pages agree on |
 | `tool-links.cjs` | Training tools open signed in (every tool link carries a trainee's short-lived ticket; never an admin's) |
 | `trainee-identity.cjs` | A renamed or re-batched Portal ticket with the same uid opens the trainee's existing record (the uid index), and B250926 / B092526 (the same day, as batchShow shows it) resolve to one id |
+| `vm-answer-keys.cjs` | voicemail answer keys grade a correct answer right: the number as heard, a "no" not taken for a "yes", audit kinds |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
-## Browser checks (79)
+## Browser checks (83)
 
 | Check | What it covers |
 |---|---|
@@ -207,6 +213,7 @@ None.
 | `admin-xss.cjs` | What a trainee writes never runs in a trainer's page (Trainee Feedback, a trainee's submitted files) |
 | `ai-grader.cjs` | 🤖 the AI Grader on every Skill Building activity: its Your Task's Submit takes the trainee's work (filled in from what the platform holds), grades it against the activity's rubric, shows the score with what went well and what to improve, keeps it, and puts it where trainers see activity scores; the old self-tick Check Your Work is gone |
 | `ai-grading-recovery.cjs` | An AI grading that doesn't come back is never a silent blank: the AI Grader says why (in plain words and as the service gave it), keeps it on the activity without using an attempt, and the trainer's 📅 Day by Day lists it as handed in, not graded; a takeaway review that didn't complete is run again once a session for the days whose Knowledge Check is taken (never for a trainer), and its score reaches the day's 📝 Takeaways; and Admin → ⚙ Settings has 🤖 AI check, which says plainly whether AI grading works here and what to set where |
+| `aig-evidence.cjs` | the AI Grader waits for the trainee's own evidence: a reference typed in 🧾 Log Your Work reaches the grade (never graded before it is logged, nor resubmitted before it can be corrected), and Day 5's companion build is graded on the trainee's account of it, against the companion case's own facts |
 | `amend-requests.cjs` | The pre-demand Amendment Requests (records screened, requests refused until complete, the corrected copy opened, filed and fed back; the CMS answered by the test) |
 | `auto-grade.cjs` | An AI grading that didn't come back is sent again by itself, with no one pressing anything: when the course loads and when the trainee comes back to the tab, with backoff (1 min, 10 min, 1 h, then 6 h), a daily limit and none of the 3 attempts used; work handed in but never graded is graded too; never for a trainer |
 | `batch-group.cjs` | One batch whichever way its Batch ID was saved (B250926 and B092526 are both B092526 on the admin pages) |
@@ -216,6 +223,7 @@ None.
 | `case-file-alerts.cjs` | 🚨 Case-file alerts reach the trainers (rules R1–R8; Trainee Audit chip, list and ✓ Resolved; top-bar badge) |
 | `case-file.cjs` | The Case Profile, was the Case File (the facts are the trainer's; the page fits one screen, trainee and trainer) |
 | `case-profile.cjs` | The Case Profile (was 📁 Case File): "John Doe VS Robert Smith", a header card, 👋 Meet John Doe on the profile and not in the lesson deck, and Day 1's slide that opens it with a way back |
+| `cf-record-guards.cjs` | A Case Flow module's scores stay right: a lower retake keeps the best quiz share, each module counts on one day, the trainer sees the BI/UM Net Sheets, a call answered in one window isn't logged missed by another |
 | `cms-case.cjs` | Log Your Work takes the CMS Case ID from the CMS (the CMS answered by the test) |
 | `cms-upload.cjs` | Uploading a drafted letter in the CMS, under the right tab and the firm's convention (the CMS answered by the test) |
 | `companion-grade.cjs` | Day 5's companion-case build is AI graded: a rubric of the Day 1–4 deliverables, a 🤖 Submit bar on the build's second slide, the grade stored and on the Scorecard like any other |
@@ -228,6 +236,7 @@ None.
 | `day2-video.cjs` | 🎬 Case Flow Day 2's Video Presentation (🔒 until a trainer unlocks it in 🎬 Unlock Videos; then it plays with captions and a chapter per slide) |
 | `day345-video.cjs` | 🎬 Case Flow Days 3, 4 and 5's Video Presentations (🔒 until a trainer unlocks each in 🎬 Unlock Videos; then it plays with captions and a chapter per slide) |
 | `detailed-scores-all.cjs` | ⬇ Download's 📅 Day 1–5: Detailed Scores holds every score in one row per trainee: the Overall and day scores, 🏅 Scores' summary, a Score Card group per day and a group per grading system, the same numbers as the 🏅 Scorecard page and the file's other tables |
+| `device-kc-uncounted.cjs` | a Knowledge Check only the trainee's device holds is never counted in 🧮 Grading systems or 👥 Trainee Audit, and 🏅 My Scores reads Day 1's Portal Backup Drive as My Performance does |
 | `doc-filing.cjs` | Filing the case documents into the CMS, named the firm's way (the CMS answered by the test) |
 | `doc-relay.cjs` | Relaying a Portal simulator's document to the CMS (the records simulator's records and bills reach the CMS beside the lesson; only the Portal may ask) |
 | `doc-viewer-file.cjs` | The document viewer offers Download PDF only, and it downloads the PDF |
@@ -247,6 +256,7 @@ None.
 | `links.cjs` | Every link and button resolves: on every Case Flow slide, its 📖 Reference panel and the 🧪 Practice page, an in-app route exists, a /decks/ /documents/ /js/ file is served (200), a button's onclick calls a function that exists, and no href="#" is a dead end (an external link, Canva or Google, is a well-formed URL) |
 | `litigation-note.cjs` | The Litigation note ("Case Managers handling Litigation and Pre-Litigation are sometimes different individuals…"): word for word at the start of the Litigation section and on every handoff step, a pop-up there once for a trainee, and the slides still fit |
 | `micro-frameworks.cjs` | Micro-frameworks on the lessons (Milestone Steps, Rule vs. Exception, one CM Red Flag a slide with its owner; type ≥ 16px; no Trigger ➔ Task ➔ Tool ➔ Checkpoint cards or table and the word "Trigger" on no slide, title or 📖 Additional Reference; no Milestone Steps slide) and Why It Matters as the opening of a drawn lesson's one slide |
+| `net-sheet-lines.cjs` | 📊 Net Sheet saves and lines: a stale pane never writes over a newer tie-out, a provider's line is the one its Provider Name names, a missing line never ties out |
 | `net-sheet.cjs` | 📊 the LSH Net Sheet ties out when filled from the case file: providers found by name in any row, a Non-Medical Provider Ledger (Riverton Drug, paid by John, owes nothing), costs typed as sums, and every miss says how to fix it |
 | `no-page-errors.cjs` | No page errors (every page and Admin tab, every slide and Knowledge Check, Presenter view; trainee and trainer, 1366x768) |
 | `notes-plan.cjs` | Notes & Action Plan (the voicemail transcribed and graded, every attempt, and the plan graded with their answer keys; the plan worked in the Email Simulator) |

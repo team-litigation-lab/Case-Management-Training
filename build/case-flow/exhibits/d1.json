@@ -6,7 +6,7 @@
       "transcribe": {
         "brief": "Play the voicemail and type what John Doe says, as close to word for word as you can. The facts in it decide your plan.",
         "facts": [
-          {"label": "John Doe called; call him back on his cell, (555) 010-2288", "match": ["john", "2288"]},
+          {"label": "John Doe called; call him back on his cell, (555) 010-2288", "match": ["john", "2\\W*2\\W*8\\W*8|two\\W+two\\W+eight\\W+eight|double\\W+two\\W+double\\W+eight"]},
           {"label": "Dana from Keystone Mutual, the other driver's carrier, called him", "match": ["keystone|dana"]},
           {"label": "She asked to record what happened", "match": ["record"]},
           {"label": "He said he'd think about it; she's calling back today", "match": ["think|today|call(s|ing|ed)? (him |me )?back"]},
