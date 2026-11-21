@@ -7,13 +7,17 @@
      the intake and the CMS, the backup file, the claims, the care plan, the decision-first note, the file complete; the
      trainer's 40 stay the trainer's review at the brainstorm, as before);
    • the build's own steps as the task, and an answer key of what a finished companion file holds;
-   • a prefill of what the platform knows: the case assigned, the CMS case, the Backup Drive.
+   • what the trainee built, in their own words (the platform records none of the build: its CMS matter, folder, letters
+     and note live in the tools), typed in the panel and saved in their own record ("cf-companion-build", a personal key),
+     with the case assigned and the case open in the CMS; John Doe's Backup Drive is no evidence of the companion folder;
+   • the companion case's own facts as the case the AI grades against (ctx), never John Doe's.
    The grade is stored and shown like any other AI grade: "cf-ai-grades" blocks["companion-build"] on the trainee's record,
    and the work log entry runRubricEvaluation writes ("Day <id> · Case Flow Day 5 · Build Your Companion Case — Skill
    Building"), which is what the 🏅 Scorecard's 🧪 Skill Activities and the trainer read.
    On the slide: the build's second slide ("the Second Half", step 7 Check your work) carries "Submit my companion case →" (trainees see Submit, never "AI Grader")
    on its ribbon (as a block's 📖 Additional Reference sits on its own), which opens the grader in a panel over the slide:
-   the slide keeps its size. Once graded, the button shows the score.
+   the slide keeps its size. It is handed in with the panel's Submit → (never by itself as the panel opens: the account
+   is still to be typed). Once graded, the button shows the score.
    ============================================================ */
 (function(){
 "use strict";
@@ -51,6 +55,17 @@ const CHECKS = ["Conflict Check run on **every party's full legal name**, before
   "**Every carrier** has an LOR, a claim number and a written verification status",
   "Standard Treatment Map with **any gap's exact dates**, the Payer Order and the LOP decision",
   "Decision-first note: **what's decided, what needs his call, by when**; no value or merits opinion"];
+const KEY = "cf-companion-build";
+if(typeof registerPersonalKeys === "function") registerPersonalKeys([KEY]);
+let W = {}, loaded = false, saveT = null;   // {text, at}: the trainee's account of the build
+async function load(force){
+  if((loaded && !force) || typeof storeGet !== "function") return; loaded = true;
+  try{ const v = await storeGet(KEY); W = v && typeof v === "object" ? v : {}; }catch(e){}
+}
+load();
+if(typeof loadAll === "function"){ const __loadAll = loadAll; loadAll = async function(){ const r = await __loadAll.apply(this, arguments); await load(true); return r; }; }
+if(typeof window.logout === "function"){ const __logout = window.logout; window.logout = async function(){ const r = await __logout.apply(this, arguments); W = {}; return r; }; }
+const save = () => { clearTimeout(saveT); saveT = setTimeout(() => { if(typeof storeSet === "function") storeSet(KEY, W); }, 600); };
 const caseOf = () => { const a = state.assignedCase; return a && (window.CM_COMPANION_CASES || {})[a.id] ? Object.assign({id: a.id}, window.CM_COMPANION_CASES[a.id]) : null; };
 window.CM_AIG_EXTRA = window.CM_AIG_EXTRA || {};
 window.CM_AIG_EXTRA[ID] = {
@@ -64,19 +79,42 @@ window.CM_AIG_EXTRA[ID] = {
         output: "A companion file opened, filed and set up to the standard, with a decision-first note to Atty. Thorne",
         checkpoints: RUBRIC.ai.map(x => `${x[0]}: ${x[2]}`)}}; },
   slide: {steps: STEPS, checks: CHECKS, deliver: "A companion file **built to the standard**, Days 1–4 applied", situation: "Your companion case, built start to finish."},
+  typed: true,
   prefill(){
     const cc = caseOf(), out = [];
     if(cc) out.push(["My companion case", `${cc.title} (${cc.theme})`]);
-    const D = window.CMDrive && typeof CMDrive.status === "function" ? CMDrive.status() : null;
-    if(D && D.built) out.push(["Backup Drive", "folders built" + (D.checkedAt ? ", checked with Check my drive" : "")]);
+    if(W.text && String(W.text).trim()) out.push(["What I built (typed by the trainee)", W.text]);
     return out;
+  },
+  // the case the AI grades against: the companion file's own facts
+  ctx(){
+    const cc = caseOf(); if(!cc) return "";
+    const facts = (cc.facts || []).join(" ");
+    return `Case: ${cc.title}${cc.type ? ", " + cc.type : ""} (the trainee's companion case, not John Doe's). ${cc.client ? "Client: " + cc.client + " " : ""}`
+      + `${cc.injuries ? "Injuries: " + cc.injuries + " " : ""}${cc.coverage ? "Coverage: " + cc.coverage + " " : ""}${facts ? "Facts at intake: " + facts : ""}`;
   }
 };
 
 /* ---------- the panel over the slide ---------- */
+// before it is graded (or while it is checked again): the trainee's account and their own Submit; once graded: the
+// grader's result, its ↻ Check again and 🔑 answer key (js/cm-ai-grader.js view). A trainer sees the grader's view.
 function body(){
-  const v = window.CMAIGrader && typeof CMAIGrader.view === "function" ? CMAIGrader.view(ID) : "";
-  return v || `<p class="cbg-none">Submitting isn't available on this page right now.</p>`;
+  const A = window.CMAIGrader;
+  if(!A || typeof A.view !== "function") return `<p class="cbg-none">Submitting isn't available on this page right now.</p>`;
+  if(A.showing(ID) || trainer()) return A.view(ID) || `<p class="cbg-none">Submitting isn't available on this page right now.</p>`;
+  return `<label class="cbg-lab" for="cbg_text">What you built, step by step</label>
+    <textarea class="cbg-a aig-box" id="cbg_text" rows="6" placeholder="The Conflict Check (each name, the result); the CMS Case ID, the parties and the SOL date; the folder's name and link; each carrier's LOR, claim number and verification; the Treatment Map, any gap's dates, the Payer Order and the LOP; your note to Atty. Thorne" oninput="cmCompanionGrade.draft(this.value)">${E(W.text || "")}</textarea>
+    <div class="aig-row"><span class="aig-st" id="cfaig_st_${ID}" role="status" aria-live="polite"></span>
+      <button type="button" class="btn aig-go" onclick="cmCompanionGrade.submit()" title="Hand in your companion case: it is scored and you see what to improve">Submit →</button></div>`;
+}
+function draft(v){ W = {text: String(v || "").slice(0, 8000), at: new Date().toISOString()}; save(); }
+async function submit(){
+  const el = document.getElementById("cbg_text"), v = el ? el.value : W.text;
+  if(!String(v || "").trim()){ const s = document.getElementById("cfaig_st_" + ID); if(s) s.textContent = "Write what you built first: each step and where it is on the file."; return; }
+  W = {text: String(v).slice(0, 8000), at: new Date().toISOString()};
+  if(typeof storeSet === "function"){ clearTimeout(saveT); try{ await storeSet(KEY, W); }catch(e){} }
+  if(window.CMAIGrader) await CMAIGrader.submit(ID);
+  const b = document.querySelector("#cbgPanel .cbg-body"); if(b && (!window.CMAIGrader || CMAIGrader.showing(ID))) b.innerHTML = body();
 }
 function open(){
   close();
@@ -102,7 +140,7 @@ if(typeof window.afterRender === "function"){
       if(b && !typing){ b.innerHTML = body(); const t = b.querySelector("textarea"); if(t && window.CMAIGrader) CMAIGrader.grow(t); } }catch(e){}
     return r; };
 }
-window.cmCompanionGrade = {ID, RUBRIC, open, close, result: () => window.CMAIGrader ? CMAIGrader.result(ID) : null};
+window.cmCompanionGrade = {ID, RUBRIC, KEY, open, close, draft, submit, text: () => W.text || "", result: () => window.CMAIGrader ? CMAIGrader.result(ID) : null};
 
 /* ---------- the button on the build's second slide's ribbon ---------- */
 function bar(){
@@ -127,6 +165,7 @@ const st = document.createElement("style"); st.id = "cm-companion-grade"; st.tex
 .cbg-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin-bottom:6px;}
 .cbg-h b{font:800 20px/1.3 var(--font-ui,'Inter',sans-serif);color:#1E2340;} .cbg-h span{font:700 16px/1.3 var(--font-ui,'Inter',sans-serif);color:#A4470F;}
 .cbg-x{margin-left:auto;border:1px solid #D6DAE5;background:#F6F7FB;border-radius:10px;width:36px;height:36px;font-size:16px;cursor:pointer;}
+.cbg-lab{display:block;margin:0 0 6px;font:800 16px/1.3 var(--font-ui,'Inter',sans-serif);color:#1E2340;}
 .cbg-lead{margin:0 0 12px;font:700 16px/1.4 var(--font-ui,'Inter',sans-serif);color:#2B3147;}
 `;
 document.head.appendChild(st);
