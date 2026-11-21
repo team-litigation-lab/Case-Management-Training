@@ -1083,16 +1083,29 @@ let ringing = null;
 window.cmCaseFlow.ringKeys = () => MODULES.map(d => "call-inject-day" + d.id);   // every day: a trainer rings the whole room, wherever each trainee has got to
 window.cmCaseFlow.onRing = async function(recs){
   if(ringing || !state.traineeId || state.isAdmin) return;
-  await load();   // the calls already answered or missed are on the trainee's file
-  const done = REC.injects || {};
+  await load();   // the calls already answered or missed are on the trainee's file (or logged by their other window)
+  const done = await keptInjects();
   const live = (recs || []).filter(r => r && r.active && r.id && !done[r.id] && SIM.calls[r.blockId] && Date.now() - new Date(r.at).getTime() < RING_FOR)
     .sort((a, b) => String(b.at).localeCompare(String(a.at)))[0];
   if(live) ring(live);
 };
-function logInject(r, outcome){
+/* The trainee may have the course open in two windows: both ring, and this one's record was read when it loaded. So the
+   calls the other window logged are read from what's stored first, and a call answered there is never logged as missed. */
+async function keptInjects(){
   REC.injects = REC.injects || {};
-  REC.injects[r.id] = {blockId: r.blockId, dayId: r.dayId, who: r.who, at: r.at, outcome, [outcome + "At"]: new Date().toISOString()};
+  try{
+    const v = typeof storeGet === "function" ? await storeGet(KEY) : null, kept = v && v.injects;
+    if(kept && typeof kept === "object") Object.entries(kept).forEach(([id, x]) => { const mine = REC.injects[id];
+      if(x && (!mine || (x.outcome === "answered" && mine.outcome !== "answered"))) REC.injects[id] = x; });
+  }catch(e){}
+  return REC.injects;
+}
+async function logInject(r, outcome){   // the outcome logged: "answered" when another window answered this call
+  const done = await keptInjects(), had = done[r.id];
+  if(had && had.outcome === "answered" && outcome !== "answered") return "answered";
+  done[r.id] = {blockId: r.blockId, dayId: r.dayId, who: r.who, at: r.at, outcome, [outcome + "At"]: new Date().toISOString()};
   persist();
+  return outcome;
 }
 function ring(r){
   if(document.getElementById("cfRing")) return;
@@ -1105,9 +1118,9 @@ function ring(r){
   ringing = r;
   const t = setInterval(() => { left--; const el = o.querySelector(".cf-ring-t"); if(el) el.textContent = left + "s"; if(left <= 0) end("missed"); }, 1000);
   function end(outcome){
-    clearInterval(t); o.remove(); ringing = null; logInject(r, outcome);
-    if(outcome === "answered") cmCaseFlow.call(r.blockId);
-    else toast(`📞 Missed call from ${r.who}. It's logged on your file: call back from the day's Your Task slide.`);
+    clearInterval(t); o.remove(); ringing = null;
+    if(outcome === "answered"){ logInject(r, outcome); return cmCaseFlow.call(r.blockId); }
+    logInject(r, outcome).then(got => { if(got !== "answered") toast(`📞 Missed call from ${r.who}. It's logged on your file: call back from the day's Your Task slide.`); });
   }
   o.querySelector(".cf-ring-yes").onclick = () => end("answered");
   o.querySelector(".cf-ring-no").onclick = () => end("missed");
@@ -3307,14 +3320,19 @@ if(typeof submitQuiz === "function"){
   const wrapped = async function(dayId){
     const d = cfDay(dayId);
     if(!d) return __submit.apply(this, arguments);
-    const answers = Object.assign({}, state.quizAnswers || {}), before = ((state.progress || {})[dayId] || {}).date;
+    const answers = Object.assign({}, state.quizAnswers || {}), p0 = (state.progress || {})[dayId] || {}, before = p0.date;
+    const best = typeof p0.score === "number" ? p0.score : null;   // the day's score before this attempt (the best kept)
     const r = await __submit.apply(this, arguments);
     const after = ((state.progress || {})[dayId] || {}).date;
     if(after && after !== before){
       const at = new Date().toISOString(), by = {};
-      d.quiz.forEach((q, i) => { const m = d.cf.quizMod[i]; by[m] = by[m] || {correct: 0, total: 0}; by[m].total++; if(answers[i] === q.a) by[m].correct++; });
+      let right = 0;
+      d.quiz.forEach((q, i) => { const m = d.cf.quizMod[i]; by[m] = by[m] || {correct: 0, total: 0}; by[m].total++; if(answers[i] === q.a){ by[m].correct++; right++; } });
+      // the day keeps its best attempt (a retake after a trainer's reset), so the module shares are this attempt's only
+      // when it is at least that good; a module with no share yet takes this one
+      const better = best == null || Math.round(right / d.quiz.length * 100) >= best;
       await load();
-      Object.entries(by).forEach(([m, v]) => { rec(m).quiz = Object.assign(v, {pct: Math.round(v.correct / v.total * 100), at}); });
+      Object.entries(by).forEach(([m, v]) => { if(better || !rec(m).quiz) rec(m).quiz = Object.assign(v, {pct: Math.round(v.correct / v.total * 100), at}); });
       await persist();
       const g = state.cfGame; if(g && g.day === dayId){ REC.game = REC.game || {}; const b0 = REC.game[dayId]; if(!b0 || g.pts > (b0.pts || 0)) REC.game[dayId] = {pts: g.pts, best: g.best, at};
         if(!g.banked){ g.banked = true; REC.friendTokens = tokensBanked() + tokensEarned(Object.values(g.log).filter(x => x.ok).length); }   // 🤝 for the next round
@@ -3385,7 +3403,8 @@ function scoreSummary(){
   const out = {days: {}, at: REC.updatedAt || null};
   DAYS.filter(d => d.cf).forEach(d => {
     const mods = {};
-    [...new Set(d.lessons.filter(l => l.cf).map(l => l.cf.mod.id))].forEach(id => {
+    // a module counts on the day whose Knowledge Check scores it (some modules' lessons are taught the day before)
+    [...new Set(d.lessons.filter(l => l.cf && l.cf.block.kind === "check").map(l => l.cf.mod.id))].forEach(id => {
       const m = (REC.modules || {})[id]; if(!m) return;
       const s = composite(m); if(s.a != null || s.t != null) mods[id] = s;
     });
@@ -4006,11 +4025,14 @@ function workLogged(mine, m){
   if(extra) return extra + (rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "");
   return rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "";
 }
-const NET_LABEL = {recovery: "Track A · settlement", liens: "Track A · liens", final: "Track A · final", litigation: "Track B · case won"};
-function netLogged(snap, m){
-  const ns = snap["net-sheet"], stage = (m.blocks.map(x => NET_STAGE[x.id]).filter(Boolean))[0];
-  const sheet = ns && (ns.files ? ns.files[stage === "litigation" ? "B" : "A"] : ns), r = stage && sheet && sheet.checks && sheet.checks[stage];
-  return r ? `<div class="cf-tr-work"><b>📊 Net Sheet (${E(NET_LABEL[stage])}):</b> ${E(r.passed)}/${E(r.total)} tie out · checked ${E(new Date(r.at).toLocaleDateString())}${r.items.filter(x => !x.ok).map(x => ` · ✗ ${E(x.cell)} = ${E(x.got)}`).join("")}</div>` : "";
+const NET_LABEL = {recovery: "Track A · settlement", bi: "Track A · Stream 1 BI", um: "Track A · Stream 2 UM", liens: "Track A · liens", final: "Track A · final", litigation: "Track B · case won"};
+const NET_FILE = {bi: "BI", um: "UM", litigation: "B"};   // the sheet each stage is checked on (js/cm-net-sheet.js STAGES); the rest, Track A
+function netLogged(snap, m){   // every Net Sheet stage the module's blocks check (d3m2: the settlement, then the BI and UM streams)
+  const ns = snap["net-sheet"];
+  return [...new Set(m.blocks.map(x => NET_STAGE[x.id]).filter(Boolean))].map(stage => {
+    const sheet = ns && (ns.files ? ns.files[NET_FILE[stage] || "A"] : ns), r = sheet && sheet.checks && sheet.checks[stage];
+    return r ? `<div class="cf-tr-work"><b>📊 Net Sheet (${E(NET_LABEL[stage] || stage)}):</b> ${E(r.passed)}/${E(r.total)} tie out · checked ${E(new Date(r.at).toLocaleDateString())}${(r.items || []).filter(x => !x.ok).map(x => ` · ✗ ${E(x.cell)} = ${E(x.got)}`).join("")}</div>` : "";
+  }).join("");
 }
 function trainerPanel(rec){
   const work = (state.traineeWork || {})[rec.id];
