@@ -130,7 +130,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/ai-check` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/share/get` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/report.html` · `/version`
 
-## Node checks (63)
+## Node checks (64)
 
 | Check | What it covers |
 |---|---|
@@ -150,6 +150,7 @@ None.
 | `check-data.mjs` | Case documents and handouts exist, document references resolve |
 | `check-site.mjs` | JavaScript syntax, local files, JSON |
 | `cm-drive.cjs` | The trainee's Backup Drive (the firm's folder structure, where a filed document lands, and the Day 1 grading) |
+| `cms-file-grading.cjs` | The CMS Case File grade (js/cm-cms-file.js) grades only what a trainee can do: an ungraded activity is still to do, the AI grade wins over old ticks, documents are due when a taught activity offers them |
 | `cms-file-sequence.cjs` | The CMS Case File grade (js/cm-cms-file.js) asks only for activities still on the days: a cut or merged activity nobody worked is never "missing" |
 | `cms-paths.cjs` | Every "CMS → X → Y" a trainee reads names a real menu item of the CMS: X one of its tabs, header or sidebar items, Y a section of that tab (no "Case File → Risk Flags", "Financial Ledger → Trust", "Tasks → Escalate") |
 | `cms-prose.cjs` | Every place a sentence names in the CMS ("in CMS Case Notes", "the Litigation tab", "the Coverage Stack", "the Action Item Log") is a real tab or section of the CMS's menu (cms-paths.cjs MENU), or a named record that is not the CMS's (the Net Sheet's tabs, the case documents, the firm's own logs) |
