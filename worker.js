@@ -1047,7 +1047,7 @@ const driveLinked = (rec) => !!(rec && rec.rootId && rec.linkedAt);
    folder and everything in it stay in their Drive too (re-linking the same folder finds the structure again). */
 async function driveUnlink(env, id, rec) {
   const kept = {};
-  if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt", "grades", "gradedAt", "checkLog", "restoreLog", "drills", "naming", "rootId", "folders", "nameRule"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
+  if (rec) ["setup", "saved", "tries", "restoredCount", "connectedAt", "grades", "gradedAt", "checkLog", "restoreLog", "drills", "liensDrill", "naming", "rootId", "folders", "nameRule"].forEach((k) => { if (rec[k] !== undefined) kept[k] = rec[k]; });
   if (Object.keys(kept).length) return driveWrite(env, id, kept);
   await kvOf(env).put(driveKey(id), "null");
   return null;
@@ -1113,11 +1113,31 @@ async function driveBuild(env, id, rec) {
   rec.builtAt = new Date().toISOString();
   if (restored.length) {
     rec.restoredCount = (Number(rec.restoredCount) || 0) + restored.length;
+    keepLiensDrill(rec);   // (before the log is cut: Day 4's drill must outlast its entries)
     rec.restoreLog = (rec.restoreLog || []).concat([{ at: rec.builtAt, restored }]).slice(-20);
+    keepLiensDrill(rec);
   }
   await driveWrite(env, id, rec);
   return { made, restored };
 }
+/* 🗂 Day 4's drill, kept for good: when a ✓ Check my drive first found 06 Liens missing, when it was first put back after
+   that, and the first clean check after that. checkLog and restoreLog keep only their latest entries, so without this a
+   trainee who checks their drive forty more times on Day 5 would lose the drill they did on Day 4. Read from what is kept
+   and from the logs as they are now; a record from before this was kept has its drill in its logs, or, once they were
+   cut, in the full marks of the Day 4 grade given from them (its time unknown: ""). */
+function liensDrill(rec) {
+  const kept = (rec.liensDrill && typeof rec.liensDrill === "object") ? rec.liensDrill : {}, checks = rec.checkLog || [];
+  const g = (rec.grades || {})[4], full = (label) => { const r = ((g && g.rows) || []).find((x) => x && x.label === label); return !!r && r.max > 0 && r.got >= r.max; };
+  let { missingAt, restoredAt, cleanAt } = kept;
+  if (missingAt == null) { const c = checks.find((x) => x && (x.missing || []).includes(LIENS_FOLDER)); if (c) missingAt = c.at || ""; else if (full("Missing folder found")) missingAt = ""; }
+  if (missingAt != null && restoredAt == null) {
+    const r = (rec.restoreLog || []).find((x) => x && (x.at || "") >= missingAt && (x.restored || []).includes(LIENS_FOLDER));
+    if (r) restoredAt = r.at || ""; else if (full("Folder restored")) restoredAt = cleanAt = "";
+  }
+  if (restoredAt != null && cleanAt == null) { const c = checks.find((x) => x && (x.at || "") >= restoredAt && !(x.missing || []).length); if (c) cleanAt = c.at || ""; }
+  return { missingAt, restoredAt, cleanAt };
+}
+function keepLiensDrill(rec) { const d = liensDrill(rec); if (d.missingAt != null) rec.liensDrill = d; }
 /* Which of the structure's folders are no longer in the trainee's Drive. Keeping the drive is part of the
    job, so a folder someone deleted is reported rather than quietly made again. */
 async function driveVerify(env, id, rec) {
@@ -1127,14 +1147,18 @@ async function driveVerify(env, id, rec) {
     // any other check: without this the dashboard card would read "in order" for a drive that isn't there.
     rec.checkedAt = new Date().toISOString();
     rec.lastMissing = FOLDER_STANDARD.slice();
+    keepLiensDrill(rec);
     rec.checkLog = (rec.checkLog || []).concat([{ at: rec.checkedAt, missing: rec.lastMissing }]).slice(-40);
+    keepLiensDrill(rec);
     await driveWrite(env, id, rec);
     return { missing: [DRIVE_ROOT].concat(FOLDER_STANDARD), rootGone: true };
   }
   for (const path of FOLDER_STANDARD) if (!(await folderLives(env, id, rec, rec.folders && rec.folders[path]))) missing.push(path);
   rec.checkedAt = new Date().toISOString();
   rec.lastMissing = missing;
+  keepLiensDrill(rec);   // (before the log is cut: Day 4's drill must outlast its entries)
   rec.checkLog = (rec.checkLog || []).concat([{ at: rec.checkedAt, missing }]).slice(-40);   // Day 4's drill is graded from it
+  keepLiensDrill(rec);
   await driveWrite(env, id, rec);
   return { missing, rootGone: false };
 }
@@ -1778,21 +1802,24 @@ function gradeDay(n, rec, S, filed, N) {
     rows.push(gradeRow("Demand Package placed", 12, placed(S, ["RS33", "RS66"], (d, c) => /draft/i.test(c.name) ? null
       : { ok: false, why: `${DRIVE_DOC[d][1]} is called "${clip(c.name, 80)}": label it DRAFT.` }).concat([cleanCheck(rec, lastPut(DRIVE_DAY_DOCS[3]))])));
   } else if (n === 4) {
-    const found = (rec.checkLog || []).find((c) => (c.missing || []).includes(LIENS_FOLDER));
+    const drill = liensDrill(rec), found = drill.missingAt != null;   // 🗂 kept for good, not only in the logs
     rows.push(gradeRow("Missing folder found", 12, [found ? { ok: true } : { ok: false, why: "No ✓ Check my drive has reported 06 Liens & Reimbursement missing: delete it in Google Drive (the drill), then run the check." }]));
-    const back = (rec.restoreLog || []).find((r) => found && r.at >= found.at && (r.restored || []).includes(LIENS_FOLDER));
-    const after = back && (rec.checkLog || []).find((c) => c.at >= back.at && !(c.missing || []).length);
+    const back = found && drill.restoredAt != null, after = back && drill.cleanAt != null;
     rows.push(gradeRow("Folder restored", 16, [back ? { ok: true } : { ok: false, why: "06 Liens & Reimbursement hasn't been put back with 🔁 Put the missing folders back." },
       after ? { ok: true } : { ok: false, why: "Run ✓ Check my drive again after putting it back, until nothing is missing." }]));
     rows.push(gradeRow("Papers backed up", 20, placed(S, DRIVE_DAY_DOCS[4]).concat(backedUp(S, filed))));
   } else if (n === 5) {
     rows.push(gradeRow("Litigation file backed up", 16, placed(S, DRIVE_DAY_DOCS[5])));
-    const homes = (rec.saved || []).filter((s) => s.docId && DRIVE_DOC[s.docId]).map((s) => s.docId).filter((d, i, a) => a.indexOf(d) === i);
-    const labeled = [["RS33", /draft/i, "DRAFT"], ["RS66", /draft/i, "DRAFT"], ["RS26", /superseded/i, "SUPERSEDED"], ["RS94", /superseded/i, "SUPERSEDED"]]
-      .filter(([d]) => S.copyOf(d)).map(([d, re, word]) => re.test(S.copyOf(d).name) ? { ok: true } : { ok: false, why: `${DRIVE_DOC[d][1]} isn't labeled ${word}.` });
+    // An empty part is no part done here: nothing filed, nothing on the drive or a label's document missing earns nothing
+    // (each document on the drive, backed up or filed by hand, is checked in its folder; and each label on its document)
+    const backed = backedUp(S, filed);
+    const homes = Object.keys(DRIVE_DOC).map((d) => [d, S.copyOf(d)]).filter(([, c]) => c)
+      .map(([d, c]) => c.path === DRIVE_HOMES[DRIVE_DOC[d][0]] ? { ok: true } : { ok: false, why: `${DRIVE_DOC[d][1]} is out of its folder.` });
+    const labeled = Object.keys(LABEL_DOCS).map((d) => { const c = S.copyOf(d), word = LABEL_DOCS[d];
+      return !c ? { ok: false, why: `${DRIVE_DOC[d][1]} isn't on the drive to be labeled ${word}.` } : new RegExp(word, "i").test(c.name) ? { ok: true } : { ok: false, why: `${DRIVE_DOC[d][1]} isn't labeled ${word}.` }; });
     rows.push(gradeParts("Final audit", 20, [
-      backedUp(S, filed),
-      homes.map((d) => { const c = S.copyOf(d); return !c || c.path === DRIVE_HOMES[DRIVE_DOC[d][0]] ? { ok: true } : { ok: false, why: `${DRIVE_DOC[d][1]} is out of its folder.` }; }),
+      backed.length ? backed : [{ ok: false, why: "Nothing is filed in the CMS yet." }],
+      homes.length ? homes : [{ ok: false, why: "No course document is on the drive yet." }],
       labeled,
       [S.clientInPlace ? { ok: true } : { ok: false, why: "Doe-John isn't under 01 Clients: leave the client folder where it is in the training drive." }, cleanCheck(rec, lastPut(DRIVE_DAY_DOCS[5]))],
     ]));
@@ -1816,11 +1843,12 @@ function gradeDay(n, rec, S, filed, N) {
 function dayStarted(n, rec, docs) {
   if ((rec.saved || []).concat(rec.handFiled || []).some((s) => DRIVE_DAY_DOCS[n].includes(s.docId) && knownFor(s) && startsDay(docs, s.docId, n))) return true;   // (🔎 or filed by hand, known for certain)
   if (n === 2 && rec.drills && rec.drills[2]) return true;
-  if (n === 4 && (rec.checkLog || []).some((c) => (c.missing || []).includes(LIENS_FOLDER))) return true;
+  if (n === 4 && liensDrill(rec).missingAt != null) return true;
   return false;
 }
 async function driveGrade(env, id, rec, filed, listed) {
   rec.grades = rec.grades || {};
+  keepLiensDrill(rec);   // 🗂 a record from before the drill was kept: kept now, from its logs or its Day 4 grade, before that is regraded
   // 🔎 one listing of the drive: the folders and documents made and filed by hand are found in it (worker-drive-found.js)
   listed = listed || listedOf(rec) || await driveFind(env, driveWorkDeps(), id, rec);
   const reached = await daysReached(env, id), docs = await courseDocs(env, driveWorkDeps());

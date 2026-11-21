@@ -130,7 +130,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/ai-check` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/share/get` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/report.html` · `/version`
 
-## Node checks (63)
+## Node checks (64)
 
 | Check | What it covers |
 |---|---|
@@ -159,6 +159,7 @@ None.
 | `doc-versions.cjs` | Every case document's current file is listed by its bytes in worker-drive-versions.js (the versions the Backup Drive grader accepts), the list is in step with build/case-flow/documents/versions.cjs, and no version main lists is dropped |
 | `drive-connect.cjs` | Linking a trainee's Google Drive folder (shared with the service account and pasted, as Foundational links a Drive; every refusal says why; Google answered by the test) |
 | `drive-daily.cjs` | The Backup Drive is scored every day: each day a trainee has reached is graded (nothing on the drive yet scores 0), every night too, in four measures (compliance, attention to detail, organization, naming convention) |
+| `drive-drill-kept.cjs` | The Backup Drive's Day 4 drill is kept for good (forty more checks don't undo it), and Day 5's final audit gives nothing for an empty drive |
 | `drive-grades.cjs` | The Backup Drive is auto-graded day by day from the Drive itself (Days 2–5, against an in-memory Google Drive) |
 | `drive-named-files.cjs` | A course document on the Backup Drive is known from the drive alone, never from the CMS: by its bytes first (Drive's md5Checksum against the course's own file or any version of it the course served, over any code in the name; copies anywhere one document; an empty file none), then its code or title, else by the firm's name (<Case ID>_<Last-First>_<Type>_<date>, the CMS's counters too) in its firm folder at any depth (bytes that aren't the course's current file never rule it out; under a kilobyte is no document), steered by its SUPERSEDED/DRAFT label, the drive packets of the days reached first, the platform's own copies accounted for; a match by Type alone, or by a code over other bytes, never starts a day, has its name charged, counts in Day 1's filing or hides written work; a CMS counter in a certain document's name is read past; a reading over bytes set against the course's file earns no place and adds no good name, a certain copy before any reading, a hand copy of the platform's copy is that document, and a document opened on an earlier day never starts a later one |
 | `drive-naming.cjs` | The firm's file naming convention on the Backup Drive (one rule with the CMS filing; every name checked, each wrong one with the name it should have) |
