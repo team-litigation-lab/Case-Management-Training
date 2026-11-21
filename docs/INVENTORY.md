@@ -130,7 +130,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/ai-check` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/share/get` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/report.html` · `/version`
 
-## Node checks (64)
+## Node checks (69)
 
 | Check | What it covers |
 |---|---|
@@ -204,7 +204,7 @@ None.
 | `vm-answer-keys.cjs` | voicemail answer keys grade a correct answer right: the number as heard, a "no" not taken for a "yes", audit kinds |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
-## Browser checks (80)
+## Browser checks (83)
 
 | Check | What it covers |
 |---|---|
