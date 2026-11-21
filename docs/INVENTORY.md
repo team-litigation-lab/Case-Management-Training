@@ -130,7 +130,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/ai-check` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/share/get` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/report.html` · `/version`
 
-## Node checks (63)
+## Node checks (64)
 
 | Check | What it covers |
 |---|---|
@@ -167,6 +167,7 @@ None.
 | `drive-trainer-access.cjs` | A trainee's linked Google Drive opens at their case folders, for them and for a trainer (rootUrl/caseUrl, GDRIVE_TRAINER_EMAILS added to the folder without an email) |
 | `drive-work-sequence.cjs` | ✍ Where your written work goes names only activities still on the days, and work for a merged activity is graded as its main's |
 | `drive-work.cjs` | The trainee's written work on the Backup Drive is AI-graded nightly against its activity's rubric, and a trainer's override wins (in-memory Drive, stubbed AI) |
+| `index-grade-keep.cjs` | Grades in index.html land where they belong: a Knowledge Check keeps the day's random-task scores, a JSON grade with a note after it still parses, a Case Flow call is logged on its own day, a task graded across its expiry isn't also missed, and deleting calendar blocks doesn't resolve conflicts |
 | `inventory.cjs` | The code inventory (docs/INVENTORY.md) is in step with the files: run node build/inventory.cjs after adding, removing or renaming one |
 | `john-doe-figures.cjs` | John Doe's money trail follows the Day 2 deck (PIP $10,000 gone in 48 hours on ER and EMS bills, $41,400 of bills, Dr. Sarah Spine's EMC) and adds up to the cent; no retired figure (PIP $5,000, Specials $16,401.40, …) comes back anywhere the course, its documents or its checks say it |
 | `kc-forge-guards.cjs` | 🛡 A Knowledge Check pass can't be forged or slipped past a trainer: a "done" with no score, a Case Flow summary naming another day's id, a trainer's stale copy after a merge, a restore or merge confirm whose device-only scores changed since the preview; and a merged-away id's orphan backups still reach the kept account |

@@ -3792,21 +3792,20 @@ function aiTroubleLine(e, what){
   return `[${what || "No reply"} — ${why}.]`;
 }
 async function callAIJson(prompt, maxTokens, timeoutMs, feature){
-  function extractAndParse(text){
-    let cleaned = text.replace(/^```json\s*/i,"").replace(/^```\s*/,"").replace(/```\s*$/,"").trim();
-    // Robustness: if the model added any preamble/postamble text around the JSON
-    // (common on longer, more complex generations), extract just the array or
-    // object itself rather than failing outright on the surrounding text.
-    if(cleaned[0] !== "[" && cleaned[0] !== "{"){
-      const arrStart = cleaned.indexOf("[");
-      const objStart = cleaned.indexOf("{");
-      const start = (arrStart===-1) ? objStart : (objStart===-1 ? arrStart : Math.min(arrStart, objStart));
-      if(start !== -1){
-        const isArray = cleaned[start] === "[";
-        const end = isArray ? cleaned.lastIndexOf("]") : cleaned.lastIndexOf("}");
-        if(end > start) cleaned = cleaned.slice(start, end+1);
-      }
+  // the JSON value that starts at i, cut at its own closing bracket (brackets inside strings don't count):
+  // a note after the object ("Note: docked for the SOL date") is left off. null when it never closes (a cut-off reply).
+  function balancedFrom(t, i){
+    let depth = 0, inStr = false, esc = false;
+    for(let k=i; k<t.length; k++){
+      const ch = t[k];
+      if(inStr){ if(esc) esc = false; else if(ch==="\\") esc = true; else if(ch==="\"") inStr = false; continue; }
+      if(ch==="\"") inStr = true;
+      else if(ch==="{" || ch==="[") depth++;
+      else if(ch==="}" || ch==="]"){ depth--; if(depth===0) return t.slice(i, k+1); }
     }
+    return null;
+  }
+  function parseLoose(cleaned){
     try{ return JSON.parse(cleaned); }
     catch(parseErr){
       let out = "", inStr = false, esc = false;
@@ -3824,6 +3823,29 @@ async function callAIJson(prompt, maxTokens, timeoutMs, feature){
       out = out.replace(/,\s*([}\]])/g, "$1"); // trailing commas
       return JSON.parse(out);
     }
+  }
+  function extractAndParse(text){
+    let cleaned = text.replace(/^```json\s*/i,"").replace(/^```\s*/,"").replace(/```\s*$/,"").trim();
+    // Robustness: if the model added any preamble/postamble text around the JSON
+    // (common on longer, more complex generations), extract just the array or
+    // object itself rather than failing outright on the surrounding text.
+    const arrStart = cleaned.indexOf("[");
+    const objStart = cleaned.indexOf("{");
+    const start = (arrStart===-1) ? objStart : (objStart===-1 ? arrStart : Math.min(arrStart, objStart));
+    // tried in turn: the value cut at its own closing bracket, then (as before) up to the last closing bracket
+    const tries = [];
+    if(start !== -1){
+      const own = balancedFrom(cleaned, start);
+      if(own) tries.push(own);
+      if(cleaned[0] !== "[" && cleaned[0] !== "{"){
+        const end = cleaned[start] === "[" ? cleaned.lastIndexOf("]") : cleaned.lastIndexOf("}");
+        if(end > start) tries.push(cleaned.slice(start, end+1));
+      }
+    }
+    tries.push(cleaned);
+    let firstErr = null;
+    for(const t of tries){ try{ return parseLoose(t); }catch(e){ if(!firstErr) firstErr = e; } }
+    throw firstErr;
   }
   try{
     const text = await callAIText(prompt, maxTokens, timeoutMs, feature);
@@ -5486,9 +5508,12 @@ function syncTaskFromBroadcast(t){
   }
   e.expiresAt = t.expiresAt || e.expiresAt;
 }
+// tasks whose resolution is with the grader right now: the window can end while the grade is on its way, and a task
+// submitted in time is not missed (this page only, so a reload mid-grade leaves the task to the timer as before)
+const __tkGrading = new Set();
 function refreshTaskStatuses(){
   let changed = false;
-  taskLog().forEach(e=>{ if((e.status==="new"||e.status==="progress") && e.expiresAt && Date.now() > new Date(e.expiresAt).getTime()){
+  taskLog().forEach(e=>{ if((e.status==="new"||e.status==="progress") && !__tkGrading.has(e.id) && e.expiresAt && Date.now() > new Date(e.expiresAt).getTime()){
     e.status = "missed"; e.missedAt = new Date().toISOString(); changed = true;
     // a missed task counts as 0 in the day's random-task score (and therefore in rankings and the audit)
     if(state.progress){ const p = state.progress[e.dayId] = state.progress[e.dayId] || {};
@@ -5511,14 +5536,14 @@ function renderTasksPage(){
     const left = e.expiresAt ? new Date(e.expiresAt).getTime()-Date.now() : 0;
     return `<div class="card tk-card ${e.status}" id="tk_${cssId(e.id)}">
       <div class="tk-head"><div><span class="tk-day">Day ${dayNo(e.dayId)}</span> ${taskStatusChip(e)}${!live ? ` <button class="tk-arch-btn" onclick="taskArchive('${esc(e.id)}', ${e.archived?"false":"true"})" title="${e.archived?"Move back to the list":"Hide from the list — it still counts in your scores"}">${e.archived?"↩ Unarchive":"🗄 Archive"}</button>` : ""}</div>
-        <div class="tk-times">Received ${fmtDate(e.receivedAt)}${live && e.expiresAt ? ` · <b class="tk-left" data-exp="${esc(e.expiresAt)}">${fmtLeft(left)}</b>` : ""}${e.submittedAt ? ` · Resolved in ${Math.max(1,Math.round((new Date(e.submittedAt)-new Date(e.receivedAt))/60000))} min` : ""}</div></div>
+        <div class="tk-times">Received ${fmtDate(e.receivedAt)}${live && e.expiresAt && !__tkGrading.has(e.id) ? ` · <b class="tk-left" data-exp="${esc(e.expiresAt)}">${fmtLeft(left)}</b>` : ""}${e.submittedAt ? ` · Resolved in ${Math.max(1,Math.round((new Date(e.submittedAt)-new Date(e.receivedAt))/60000))} min` : ""}</div></div>
       <p class="tk-task">${esc(e.task)}</p>
       ${live ? `
         <ol class="tk-steps"><li class="${e.status!=="new"?"ok":""}">Acknowledge</li><li class="${(e.notes||"").trim()?"ok":""}">Plan &amp; prioritise</li><li>Resolve &amp; submit</li></ol>
         ${e.status==="new" ? `<button class="btn btn-navy btn-sm" onclick="taskAck('${esc(e.id)}')">✋ Acknowledge — I'm on it</button>` : `
         <label class="tk-lbl">Working notes <span>(private, auto-saved — who to contact, what first, deadlines)</span><textarea rows="3" oninput="taskNotes('${esc(e.id)}', this.value)" placeholder="1) … 2) … 3) …">${esc(e.notes||"")}</textarea></label>
         <label class="tk-lbl">Your resolution <span>(what you'd actually send or do — this is graded)</span><textarea id="tkResp_${cssId(e.id)}" rows="5" oninput="taskResp('${esc(e.id)}', this.value)" placeholder="Write the message / actions exactly as you'd handle it…">${esc(e.response||"")}</textarea></label>
-        <div class="tk-actions"><button class="btn btn-primary btn-sm" id="tkBtn_${cssId(e.id)}" onclick="submitTask('${esc(e.id)}')">Submit resolution for grading</button></div>
+        <div class="tk-actions"><button class="btn btn-primary btn-sm" id="tkBtn_${cssId(e.id)}" onclick="submitTask('${esc(e.id)}')"${__tkGrading.has(e.id) ? " disabled>Grading…" : ">Submit resolution for grading"}</button></div>
         <div id="tkRes_${cssId(e.id)}"></div>`}` : ""}
       ${e.status==="resolved" ? `<div class="tk-score"><b>${e.score}%</b> <span>${esc(displayTier(e.tier||""))}</span></div>
         <details class="tk-more"><summary>Your resolution &amp; feedback</summary><p class="tk-resp">${esc(e.response||"")}</p>${e.reportHtml||""}</details>` : ""}
@@ -5550,9 +5575,11 @@ function taskNotes(id, v){ const e = taskLog().find(x=>x.id===id); if(!e) return
 function taskResp(id, v){ const e = taskLog().find(x=>x.id===id); if(!e) return; e.response = v; clearTimeout(__tkTimers["r"+id]); __tkTimers["r"+id] = setTimeout(saveTaskLog, 700); }
 async function submitTask(id){
   const e = taskLog().find(x=>x.id===id); if(!e) return;
+  if(__tkGrading.has(id)) return;   // already with the grader (a re-render can bring the button back while it grades)
   refreshTaskStatuses(); if(e.status==="missed"){ toast("This task's live window has ended."); render(); return; }
   const val = (e.response||"").trim();
   if(val.length < 25){ toast("Write out how you'd actually resolve it first."); return; }
+  __tkGrading.add(id);
   const btn = document.getElementById("tkBtn_"+cssId(id)); const out = document.getElementById("tkRes_"+cssId(id));
   if(btn){ btn.disabled = true; btn.textContent = "Grading…"; }
   if(out) out.innerHTML = `<div class="ai-loading">Reviewing your resolution…</div>`;
@@ -5583,9 +5610,10 @@ async function submitTask(id){
     render();
     setTimeout(()=>{ const c = document.querySelector(`#tk_${cssId(id)} details`); if(c){ c.open = true; c.scrollIntoView({behavior:"smooth", block:"center"}); } }, 80);
   }catch(err){
-    if(btn){ btn.disabled = false; btn.textContent = "Submit resolution for grading"; }
-    if(out) out.innerHTML = renderAiErrorBlock(err, "Couldn't grade your resolution");
-  }
+    const b = document.getElementById("tkBtn_"+cssId(id)) || btn, o = document.getElementById("tkRes_"+cssId(id)) || out;   // the page may have been redrawn meanwhile
+    if(b){ b.disabled = false; b.textContent = "Submit resolution for grading"; }
+    if(o) o.innerHTML = renderAiErrorBlock(err, "Couldn't grade your resolution");
+  }finally{ __tkGrading.delete(id); }
 }
 Object.assign(window, {taskAck, taskNotes, taskResp, submitTask});
 setInterval(()=>{ document.querySelectorAll(".tk-left[data-exp]").forEach(el=>{ const ms = new Date(el.dataset.exp).getTime()-Date.now(); el.textContent = fmtLeft(ms); if(ms<=0 && state.view==="tasks" && !isTyping()) render(); }); }, 1000);
@@ -7655,7 +7683,8 @@ async function submitQuiz(dayId){
       date: new Date().toISOString(),
       history: [...prevHistory, {score, passed, date: new Date().toISOString()}]
     };
-    state.progress[dayId]=newRecord;
+    // merged onto the day, not in its place: the day also holds its random-task scores (surpriseTaskScores) and the like
+    state.progress[dayId]=Object.assign({}, state.progress[dayId]||{}, newRecord);
     logWork({kind:"quiz", dayId, label:`Day ${dayId} Knowledge Check`, score, correct, total, missed: d.quiz.map((q,i)=>state.quizAnswers[i]!==q.a ? q.q : null).filter(Boolean).slice(0,6)});
     setTimeout(()=>autoReviewDay(dayId), 3000);
     await storeSet("day-progress", state.progress);
@@ -8956,15 +8985,31 @@ Return ONLY a JSON array of objects like: [{"task":"...", "why":"..."}]`;
 }
 window.generateProactiveTasks = generateProactiveTasks;
 
+// The plan's score. A starting conflict is resolved when both commitments are still on the week and no longer
+// overlap: deleting one of them drops the commitment, it doesn't resolve the clash (otherwise deleting every block
+// scored 100%). Each new overlap the trainee creates takes one back off, as before. With nothing deleted this is the
+// old count (starting conflicts less the ones left).
+function calPlanScore(events){
+  const baseline = toolState.calBaseline || 1;
+  const key = (a,b)=>Math.min(a,b)+"-"+Math.max(a,b);
+  const start = calFindConflicts(CAL_EVENTS.map((e,i)=>Object.assign({}, e, {idx:i})));
+  const startKeys = new Set(start.map(([a,b])=>key(a,b)));
+  const now = calFindConflicts(events);
+  const nowKeys = new Set(now.map(([a,b])=>key(a,b)));
+  const gone = i=>!!(toolState.calEdits && toolState.calEdits[i] && toolState.calEdits[i].deleted);
+  const fixed = start.filter(([a,b])=>!gone(a) && !gone(b) && !nowKeys.has(key(a,b))).length;
+  const dropped = start.filter(([a,b])=>gone(a) || gone(b)).length;
+  const added = now.filter(([a,b])=>!startKeys.has(key(a,b))).length;
+  const resolved = Math.max(0, Math.min(baseline, fixed - added));
+  return {baseline, resolved, dropped, score: Math.round((resolved/baseline)*100)};
+}
 async function submitCalendar(){
   const events = calMergedEvents();
-  const remaining = calFindConflicts(events).length;
-  const baseline = toolState.calBaseline || 1;
-  const resolved = Math.max(0, baseline - remaining);
-  const score = baseline===0 ? 100 : Math.round((resolved/baseline)*100);
+  const {baseline, resolved, dropped, score} = calPlanScore(events);
   document.getElementById("calResult").innerHTML=`
     <div class="card" style="padding:18px 20px;margin-top:16px;">
       <b style="color:var(--navy);">${resolved} / ${baseline} conflicts resolved (${score}%)</b>
+      ${dropped ? `<p style="font-size:12.8px;color:var(--ink-soft);margin:8px 0 0;">${dropped} conflict${dropped===1?" was":"s were"} cleared by deleting a commitment: that drops the work rather than resolving the clash, so ${dropped===1?"it doesn't":"they don't"} count. Move the lower-priority item instead.</p>` : ""}
       <p style="font-size:12.8px;color:var(--ink-soft);margin:8px 0 0;">Best practice when reshuffling: move the lower-priority commitment, and keep High-priority items — depositions, hearings, client emergencies — right where they are.</p>
     </div>`;
   await bumpPracticeProgress("calendar", score);
@@ -8987,10 +9032,7 @@ window.submitCalendar = submitCalendar;
 async function downloadCalendarPdf(){
   await ensureTraineeName();
   const events = calMergedEvents();
-  const remaining = calFindConflicts(events).length;
-  const baseline = toolState.calBaseline || 1;
-  const resolved = Math.max(0, baseline - remaining);
-  const score = baseline===0 ? 100 : Math.round((resolved/baseline)*100);
+  const {baseline, resolved, score} = calPlanScore(events);
   const lines = [`## Legal Calendar Conflict Resolver`, `Conflicts resolved: ${resolved} / ${baseline} (${score}%)`, "---", "## Final Weekly Schedule"];
   DAY_ORDER.forEach(day=>{
     const dayEvents = events.filter(e=>e.day===day).sort((a,b)=>a.s-b.s);
@@ -11881,7 +11923,8 @@ function logWork(entry){
     const origRp = runRoleplayRubricEvaluation;
     runRoleplayRubricEvaluation = async function(scenario, transcript){
       const rep = await origRp(scenario, transcript);
-      try{ logWork({kind:"roleplay", dayId:nextDayId(), label:`Roleplay — ${scenario.topic&&scenario.topic.label||""}`, score:rep.totalScore, tier:rep.gradeTier,
+      // a Case Flow call is filed on its own day (cf.dayId), not on the furthest day the trainee has opened
+      try{ logWork({kind:"roleplay", dayId:(scenario && scenario.cf && Number(scenario.cf.dayId)) || nextDayId(), label:`Roleplay — ${scenario.topic&&scenario.topic.label||""}`, score:rep.totalScore, tier:rep.gradeTier,
         strengths:(rep.strengths||[]).slice(0,3), gaps:(rep.blindspots||[]).slice(0,3), excerpt:String(transcript||"").slice(0,700),
         subs:{bluf:Math.round((rep.blufScore||0)/25*100), risk:Math.round((rep.riskPrivilegeScore||0)/25*100), composure:Math.round((rep.composureScore||0)/25*100), act:Math.round((rep.actProtocolScore||0)/25*100)}}); }catch(e){}
       return rep;
