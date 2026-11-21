@@ -6,7 +6,7 @@
    (what is done in another tool: the live call, the service confirmation, the Amendment Requests, the Notes & Action
    Plan, the Action Plan Editor, 📁 Source Files) and Submit →, which opens the AI Grader on the slide (js/cm-ai-grader.js).
    This file:
-     • 🚀 Launch CMS & Google Drive: the one button at the top of the card. It opens the CMS beside the slide (the course's
+     • 🚀 Launch LSH CaseWorks & Google Drive: the one button at the top of the card. It opens the CMS beside the slide (the course's
        tool frame) and the trainee's own Backup Drive in a new tab, at their case folder once it is built (CMDrive.launch;
        Google Drive can't be framed). A trainee whose
        Drive isn't linked yet gets the 📂 Backup Drive panel, where it is linked. Anyone else gets Google Drive itself.
@@ -36,7 +36,7 @@ function openCms(blockId){
 window.CMSbTask = {
   /* the button, drawn at the top of the Your Task card */
   launch(blockId){
-    return `<button type="button" class="btn cfx-launch" data-launch="${E(blockId)}" onclick="CMSbTask.go('${E(blockId)}')" title="Opens the CMS beside this slide and your Google Drive folder in a new tab">🚀 Launch CMS &amp; Google Drive</button>`;
+    return `<button type="button" class="btn cfx-launch" data-launch="${E(blockId)}" onclick="CMSbTask.go('${E(blockId)}')" title="Opens LSH CaseWorks beside this slide and your Google Drive folder in a new tab">🚀 Launch LSH CaseWorks &amp; Google Drive</button>`;
   },
   /* Drive first, inside the click itself, so the browser lets the new tab open; then the CMS beside the slide.
      A trainee with no linked Drive gets the Backup Drive panel (link it there) over the CMS. */

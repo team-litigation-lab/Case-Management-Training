@@ -1,6 +1,6 @@
 /* ============================================================
    LSH Case Management Training — the Training Tools hub (CMS, Docket, Records), the tool frame,
-   Simulators, 📚 Knowledge Base and the Calendar Conflict Resolver.
+   🛠 LSH Sims, 📚 LSH Atlas and the Calendar Conflict Resolver.
    Loaded after the main portal script: anything assigned to window
    here replaces the portal function of the same name.
    ============================================================ */
@@ -149,7 +149,7 @@ const scenario = (html)=> `<div class="cm-scn">${html}</div>`;
    (shared key settings:tools).
    ================================================================ */
 const CM_TOOL_DEFAULTS = [
-  {id:"cms", icon:"🗂", name:"LSH Case Management System", short:"CMS", status:"live",
+  {id:"cms", icon:"🗂", name:"LSH CaseWorks", short:"LSH CaseWorks", status:"live",
    url:"https://lshcasemanagementtraining-trainingcrm.pages.dev",
    desc:"Where the case work actually happens: start the case, key the intake facts, upload each document by category, and log Tasks, Notes, Liens, the Medical Chronology and the Case Costs.",
    evidence:"CMS Case ID", idHint:"CMS Case ID (e.g. LSH-2026-PI-000123)"},
@@ -167,7 +167,7 @@ const CM_TOOL_DEFAULTS = [
   // signed in (→ /api/launch?tool=ringchannel&to=calls), &program=CM says the course the call counts in, and &line= and
   // &mode=graded the line and its graded call. It opens in its own tab (the Portal's sign-in cookie, like the
   // Calendaring Simulators), and a graded call is reported to the Portal's /api/call-results, so it still counts here.
-  {id:"calls", icon:"📞", name:"Call Simulator (☎ LSH Ring Channel)", short:"Call Simulator", status:"live",
+  {id:"calls", icon:"📞", name:"Call Sim (☎ LSH Voice)", short:"Call Sim", status:"live",
    url:"https://cm-training-activity.pages.dev/simulators/call.html", portalSim:true,
    desc:"Live practice calls on the training phone, spoken aloud: the phone rings on the line the step names, you answer with a headset and use its own keys (mute, hold, transfer) and 🔎 Case lookup. Each call ends with the note it requires, and both are scored on the line's Mock Calls Metrics. Take a graded call, practice with an 🤖 AI caller, or answer a trainer-led mock call on the same phone.",
    evidence:"Score", idHint:"Score (e.g. 82%)"},
@@ -183,7 +183,7 @@ const CM_TOOL_DEFAULTS = [
    url:"https://cm-training-activity.pages.dev/simulators/demand-packet.html", portalSim:true,
    desc:"Put the full packet together as one PDF: the cover letter, the index, the demand letter, the PIP log, the medical bills and records, or the Mediation and Arbitration Binders' numbered tabs. Add as many PDFs as each section needs; it numbers and Bates-stamps every page, bookmarks every section and builds the index from the pages themselves. Opened beside the CMS, it files the packet into your case, named the firm's way.",
    evidence:"Score", idHint:"Score"},
-  {id:"calendaring", icon:"🗓", name:"Calendaring Simulators (LSH Training Portal)", short:"Calendaring", status:"live",
+  {id:"calendaring", icon:"🗓", name:"Calendaring Sims (LSH Training Portal)", short:"Calendaring", status:"live",
    url:"https://cm-training-activity.pages.dev/simulators/calsim.html?track=litigation", portalSim:true,
    desc:"The Litigation Week: a deposition, a hearing and a mediation are fixed, and the prep, debrief, client and expert calls have to fall in the right order around them. Build it on the calendar, run the automated review under the attorney's rules, then submit it for your trainer's score and feedback. It opens in its own tab on the Training Portal.",
    evidence:"Score", idHint:"Score"}
@@ -321,7 +321,7 @@ function placeFrame(){
 function paintShell(){
   const t = cmTool(currentFrame);
   const pg = panes[currentFrame];
-  frameShell.querySelector(".cm-tf-name").textContent = pg ? `${pg.icon} ${pg.name}` : t ? `${t.icon} ${t.name.replace(/ \((LSH Training Portal|LSH CMS|☎ LSH Ring Channel)\)$/,"")}` : "";
+  frameShell.querySelector(".cm-tf-name").textContent = pg ? `${pg.icon} ${pg.name}` : t ? `${t.icon} ${t.name.replace(/ \((LSH Training Portal|LSH CMS|☎ LSH Ring Channel|☎ LSH Voice)\)$/,"")}` : "";
   const sb = frameShell.querySelector(".cm-tf-split-btn"); if(sb) sb.setAttribute("aria-pressed", document.body.classList.contains("cm-tf-split") ? "true" : "false");
   Object.entries(frames).forEach(([id,f])=>{ f.style.display = id===currentFrame ? "block" : "none"; });
 }
@@ -403,7 +403,7 @@ function toolStep(toolId, key, what){
     ${fallback?`<p style="font-size:12.3px;margin:6px 0 0;color:var(--ink-soft)">Until the ${E(t.short)} platform is live, add this as a <b>Task</b> in the CMS case and log your CMS Case ID below.</p>`:""}
     <div class="row">
       ${t.live?`<button class="btn btn-navy btn-sm" onclick="openTool('${toolId}')">Open ${E(t.short)}</button><button class="btn btn-ghost btn-sm" onclick="openTool('${toolId}','tab')" title="Open in a new tab">↗</button>`
-              :`<button class="btn btn-navy btn-sm" onclick="openTool('cms')">Open CMS</button>`}
+              :`<button class="btn btn-navy btn-sm" onclick="openTool('cms')">🗂 Open LSH CaseWorks</button>`}
       <input id="cmsId_${k}" placeholder="${E(fallback?cmTool("cms").idHint:t.idHint)}" value="${E(saved.caseId||cmsCaseId(fallback?"cms":toolId))}"${(fallback||toolId==="cms")?' data-cms-id="1"':""}>${(fallback||toolId==="cms")?`<span class="cm-cms-from" data-cms-note>${cmsCaseId("cms")?"from the CMS":""}</span>`:""}
       <button class="btn btn-ghost btn-sm" onclick="cmLogCms('${key}','${fallback?"cms":toolId}')">Log my work</button>
       <span id="cmsLogged_${k}" style="font-size:12px;color:var(--success)">${saved.at?`✓ Logged ${fmtDate(saved.at)}`:""}</span>
@@ -558,15 +558,15 @@ window.renderCallSimulator = function(){
   const calls = cmTool("calls"), mail = cmTool("email"), replies = cmTool("replies"), cal = cmTool("calendaring"), rec = cmTool("records"), ef = cmTool("efiling");
   const lines = [["☎","Reception & Front Desk","5 calls"],["📥","Intake Calls","5 calls"],["🤝","Client Communication","5 calls"],["⚖","Attorney Reporting","5 calls"],["🛡","Adjusters & Carriers","4 calls"],["🏥","Providers & Records","3 calls"]];
   const card = (t, extra)=> `<div class="card cm-tool${t.live?"":" soon"}">
-      <div class="cm-tool-h"><span class="cm-tool-ic">${t.icon}</span><div><b>${E(t.name.replace(/ \((LSH Training Portal|LSH CMS)\)$/,""))}</b><div><span class="cm-badge ${t.live?"live":"soon"}">${t.live?(t.cmsHosted?"● Live in the LSH CMS":t.id==="calls"?"● Live on ☎ LSH Ring Channel":"● Live on the LSH Training Portal"):"Coming soon"}</span></div></div></div>
+      <div class="cm-tool-h"><span class="cm-tool-ic">${t.icon}</span><div><b>${E(t.name.replace(/ \((LSH Training Portal|LSH CMS)\)$/,""))}</b><div><span class="cm-badge ${t.live?"live":"soon"}">${t.live?(t.cmsHosted?"● Live in 🗂 LSH CaseWorks":t.id==="calls"?"● Live on ☎ LSH Voice":"● Live on the LSH Training Portal"):"Coming soon"}</span></div></div></div>
       <p>${E(t.desc)}</p>${extra||""}
       ${t.live?`<div class="cm-tool-act"><button class="btn btn-primary btn-sm" onclick="openTool('${t.id}')">Open here</button><button class="btn btn-ghost btn-sm" onclick="openTool('${t.id}','tab')">New tab ↗</button></div>`:""}
     </div>`;
-  return `<p class="eyebrow">Simulators</p>
-    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🛠 Simulators</h1>
-    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">The <b>Call Simulator</b> is in the LSH CMS (it opens already signed in, on the Case Management lines; pick a line below for its graded calls). Email, calendar, docketing, medical records and court e-filing practice live on the <b>LSH Training Portal</b>, shared by every program. They open here already set to <b>Case Management</b> and carrying your name and batch, so your scores reach your trainer. On calls the caller speaks: answer by voice (Chrome or Edge, allow the microphone) or by typing. Most calls end with the note the call requires, graded with the call.</p>
+  return `<p class="eyebrow">LSH Sims</p>
+    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🛠 LSH Sims</h1>
+    <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">The <b>Call Sim</b> is in 🗂 LSH CaseWorks (it opens already signed in, on the Case Management lines; pick a line below for its graded calls). Email, calendar, docketing, medical records and court e-filing practice live on the <b>LSH Training Portal</b>, shared by every program. They open here already set to <b>Case Management</b> and carrying your name and batch, so your scores reach your trainer. On calls the caller speaks: answer by voice (Chrome or Edge, allow the microphone) or by typing. Most calls end with the note the call requires, graded with the call.</p>
     <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span role="button" tabindex="0" style="cursor:pointer" title="Open this line's graded calls" onclick="openTool('calls',null,'line=${encodeURIComponent(l)}&mode=graded')">${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(mail)}${card(replies)}${card(cal, state.isAdmin ? `<p style="font-size:12.5px;margin:6px 0 0"><button class="btn btn-navy btn-sm" onclick="openTool('calendaring','tab','view=scores')">📊 Calendar Scores (Litigation Week) ↗</button> Grade and give feedback there; scores also show on the Portal's Progress page under this program.</p>` : "")}${card(rec)}${card(ef)}</div>
-    <div class="card" style="padding:14px 18px;font-size:12.8px;color:var(--ink-soft)">Want more? Live Roleplay (🔥) has every call on John Doe VS Robert Smith, and the Calendar Conflict Resolver (Case Flow Day 4) has the John Doe docket and the Court's Scheduling Order.${state.isAdmin?` <b>Admin:</b> results appear on the Training Portal's Simulators page when you're signed in there as admin. Addresses are set in 🧰 Tools.`:""}</div>`;
+    <div class="card" style="padding:14px 18px;font-size:12.8px;color:var(--ink-soft)">Want more? Live Roleplay (🔥) has every call on John Doe VS Robert Smith, and the Calendar Conflict Resolver (Case Flow Day 4) has the John Doe docket and the Court's Scheduling Order.${state.isAdmin?` <b>Admin:</b> results appear on the Training Portal's LSH Sims page when you're signed in there as admin. Addresses are set in 🧰 Tools.`:""}</div>`;
 };
 window.saveToolSettings = async function(){
   const out = {};
@@ -585,11 +585,11 @@ window.saveToolSettings = async function(){
 window.renderHandouts = function(){   // 📚 Knowledge Base: the handouts are in the LSH Knowledge Base now, not on this page
   const tpl = CM_DOCS.filter(d=>d.folder==="templates");
   return `<p class="eyebrow">Reference Library</p>
-    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">📚 Knowledge Base</h1>
+    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">📚 LSH Atlas</h1>
     <div class="card" style="padding:16px 18px;margin-bottom:14px">
-      <p style="margin:0 0 10px;font-size:14px;max-width:78ch">The Case Management handouts and reference documents are in the <b>LSH Knowledge Base</b>, in the <b>Case Management</b> collection, filed by training day (<i>CM Training · Day 1</i> to <i>Day 5</i>). Search it for anything else the team knows.</p>
-      <a class="btn btn-primary" href="${E(CM_KB_URL)}" target="_blank" rel="noopener">Open the Knowledge Base ↗</a>
-      ${state.isAdmin ? `<p style="margin:12px 0 0;font-size:13px;color:var(--ink-soft);max-width:78ch"><b>Trainers:</b> to add a document, open the Knowledge Base, go to Case Management and press <b>+ Add to Case Management</b>. Type the day's section name (for example <i>CM Training · Day 2 · Claim Set Up &amp; Treatment</i>) and upload the file or write the page. An admin's entry goes live at once.</p>` : ""}
+      <p style="margin:0 0 10px;font-size:14px;max-width:78ch">The Case Management handouts and reference documents are in <b>📚 LSH Atlas</b>, in the <b>Case Management</b> collection, filed by training day (<i>CM Training · Day 1</i> to <i>Day 5</i>). Search it for anything else the team knows.</p>
+      <a class="btn btn-primary" href="${E(CM_KB_URL)}" target="_blank" rel="noopener">📚 Open LSH Atlas ↗</a>
+      ${state.isAdmin ? `<p style="margin:12px 0 0;font-size:13px;color:var(--ink-soft);max-width:78ch"><b>Trainers:</b> to add a document, open LSH Atlas, go to Case Management and press <b>+ Add to Case Management</b>. Type the day's section name (for example <i>CM Training · Day 2 · Claim Set Up &amp; Treatment</i>) and upload the file or write the page. An admin's entry goes live at once.</p>` : ""}
     </div>
     <div class="card" style="padding:14px 18px"><h3 style="font-size:14px;color:var(--navy);margin:0 0 6px">📝 Templates & blank forms</h3>
       ${tpl.map(d=>`<div class="cm-doc-row"><div><span class="t">${E(d.title)}</span><div class="d">${E(d.desc)}</div></div><a class="btn btn-ghost btn-sm" href="${cmDocUrl(d)}" target="_blank" rel="noopener">${/\.(docx|xlsx)$/i.test(d.file)?"Download":"Open"}</a></div>`).join("")}</div>`;

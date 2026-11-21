@@ -9,14 +9,14 @@
 const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
 // id: the course's tool (cmCaseFlow.tool) or a page; daily: one of the four to open at every log-in
 const TOOLS = [
-  {id: "cms", icon: "🗂", name: "LSH Case Management System (CMS)", daily: true,
+  {id: "cms", icon: "🗂", name: "LSH CaseWorks", daily: true,
     what: "The firm's case management system and the file of record. John Doe's matter lives here: parties, the Conflict Check, insurance, the calendar, documents, case notes, tasks, liens and the financial ledger.",
-    where: "🧰 Tools → CMS, the Practice Lab slide of each day, or 🗂 on any step that's worked in it. It opens beside the slide and keeps its session.",
-    when: "Every day. Day 1 you open the matter; after that every activity ends in the CMS, and its Submit slide logs your CMS Case ID.",
-    tip: "If it isn't in the CMS, it didn't happen."},
-  {id: "call", icon: "☎", name: "LSH Ring Channel (the Call Simulator)", daily: true,
+    where: "🧰 Tools → LSH CaseWorks, the Practice Lab slide of each day, or 🗂 on any step that's worked in it. It opens beside the slide and keeps its session.",
+    when: "Every day. Day 1 you open the matter; after that every activity ends in LSH CaseWorks, and its Submit slide logs your CMS Case ID.",
+    tip: "If it isn't in LSH CaseWorks, it didn't happen."},
+  {id: "call", icon: "☎", name: "LSH Voice (the Call Sim)", daily: true,
     what: "The training phone. Live calls with John Doe, Margaret Doe, the adjusters, providers' billing offices, defense counsel's paralegal and Atty. Thorne, voiced and graded.",
-    where: "📞 Take the call on a Your Task slide, 🧰 Tools → Call Simulator, or the ring that comes in when your trainer injects a call.",
+    where: "📞 Take the call on a Your Task slide, 🧰 Tools → Call Sim, or the ring that comes in when your trainer injects a call.",
     when: "Every day's live calls, and any time your trainer rings you. Answer it: a missed call counts.",
     tip: "Facts and process, never value or strategy: that's Atty. Thorne's."},
   {id: "email", icon: "✉️", name: "Email Workspace", daily: true,
@@ -39,7 +39,7 @@ const TOOLS = [
     where: "🏛 on the litigation steps.", when: "Days 4–5: hard dates, the complaint, service and discovery.", tip: "Count every deadline from its source document."},
   {id: "netsheet", icon: "📊", name: "LSH Net Sheet", what: "The firm's Net Sheet: gross, fee, costs, liens and the client's net, with Check my sheet at each stage.",
     where: "📊 on the settlement and disbursement steps.", when: "Days 3–5: the BI and UM settlements, liens, the final and the litigated Net Sheet.", tip: "It reconciles to the cent, or it isn't done."},
-  {id: "calendaring", icon: "🗓", name: "Calendaring Simulators", what: "Calendar the mediation, the arbitration and every date that hangs off them.",
+  {id: "calendaring", icon: "🗓", name: "Calendaring Sims", what: "Calendar the mediation, the arbitration and every date that hangs off them.",
     where: "🗓 on the calendaring steps.", when: "Day 4.", tip: "A date that doesn't add up never gets on the calendar."},
 ];
 const isTrainee = () => typeof state !== "undefined" && !!state.traineeId && !state.isAdmin;

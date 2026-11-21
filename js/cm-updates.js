@@ -239,13 +239,13 @@ const DRAFTING_SUBVIEWS = ["lor","hipaa","medprov"];
 window.EXTRA_ROUTE_VIEWS = ["casedocs", "drafting", "scorecard", "knowtools"].concat(DRAFTING_SUBVIEWS);
 // Page names for the "← Back to …" button, matching this top bar.
 window.EXTRA_ROUTE_LABELS = {clientprofile:"Case Profile", casedocs:"Documents", practice:"Practice", notes:"Notes",
-  drafting:"Drafting Tools", handouts:"Knowledge Base", scorecard:"My Performance", lor:"Drafting Tools", hipaa:"Drafting Tools", medprov:"Drafting Tools"};
+  drafting:"Drafting Tools", handouts:"LSH Atlas", scorecard:"My Performance", lor:"Drafting Tools", hipaa:"Drafting Tools", medprov:"Drafting Tools"};
 function renderTopbar(){   // trainees never see an admin sign-in (🛡 Admin is for admins only): admins come in from the Portal (?admin=1)
-  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case Profile"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","Notes"],["handouts","📚 Knowledge Base"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
+  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case Profile"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","Notes"],["handouts","📚 LSH Atlas"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
   if(state.isAdmin){
     // Admin is a trainer monitoring dashboard, not a trainee workspace — hide
     // the trainee-facing-only views that have no role here.
-    views = views.filter(([id]) => !["crisisroleplay","notes","tasks"].includes(id));   // trainers keep 📚 Knowledge Base: they add documents there
+    views = views.filter(([id]) => !["crisisroleplay","notes","tasks"].includes(id));   // trainers keep 📚 LSH Atlas: they add documents there
     views.push(["orientation","🧭 Orientation"]);
     views.push(["facilitatorguide","Facilitator Guide"]);
   }
@@ -1261,7 +1261,7 @@ function sopRunOfShow(dRaw){
       parts.length ? `Parts (≈10 min each): ${parts.map((a,k)=>`<b>${k+1}. ${esc(a)}</b>`).join(" · ")}.` : "",
       ti>0 ? `If time is short, trainees finish this one after the session; debrief it at the start of tomorrow.` : "",
       /Roleplay|The Call|Transportation Wall|Break the Adjuster|Deposition Prep/i.test(parts.join(" ")) ? `The live roleplay part can be run by you, or trainees rehearse solo first.` : "",
-      `Steps marked <b>Do this in the CMS</b> are done in the LSH Case Management System (🧰 Tools); trainees log the Case ID.`,
+      `Steps marked <b>Do this in the CMS</b> are done in 🗂 LSH CaseWorks (🧰 Tools); trainees log the Case ID.`,
       `First submission of each exercise is free; repeats use one of 3 attempts per day (reset in Trainee Audit if someone is blocked by a technical issue).`].filter(Boolean),
       watch:"Anyone stuck on the same part for more than 10 minutes — nudge them to submit and move on; the debrief is where the learning lands."});
   });
@@ -1343,8 +1343,8 @@ function sopProgramFlow(){
         <tr><td>Read what trainees think of the program</td><td>Admin → <b>Trainee Feedback</b></td></tr>
         <tr><td>See the portal as a trainee does</td><td>Top bar → <b>👁 Trainee view</b></td></tr>
         <tr><td>See the planted errors in each case document</td><td><b>📁 Documents</b> signed in as admin (red 🔑 trainer key under each file)</td></tr>
-        <tr><td>Check a trainee's file work in the CMS</td><td><b>🧰 Tools</b> → LSH Case Management System (trainees log their Case ID in each Skill Builder)</td></tr>
-        <tr><td>Run extra call, email or calendar practice</td><td><b>🛠 Simulators</b> (the LSH Training Portal's shared simulators, opened for CM)</td></tr>
+        <tr><td>Check a trainee's file work in the CMS</td><td><b>🧰 Tools</b> → 🗂 LSH CaseWorks (trainees log their Case ID in each Skill Builder)</td></tr>
+        <tr><td>Run extra call, email or calendar practice</td><td><b>🛠 LSH Sims</b> (the LSH Training Portal's shared simulators, opened for CM)</td></tr>
       </tbody></table></section>
     <section class="card sopf-card" style="margin-top:14px;"><h3>The ${DAYS.length} days</h3>
       <table class="log-table sopx-table sopf-map"><thead><tr><th>Day</th><th>Title</th><th>Topics</th><th>Skill Builders</th><th></th></tr></thead><tbody>${days}</tbody></table></section>`;

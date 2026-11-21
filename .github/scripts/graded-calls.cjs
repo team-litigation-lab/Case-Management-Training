@@ -1,5 +1,5 @@
-// @check browser — Graded calls from the CMS Call Simulator (read only by the trainee; the dashboard's Graded calls card)
-// Graded calls from the Call Simulator (☎ LSH Ring Channel) count in this course (js/graded-calls.js, worker.js):
+// @check browser — Graded calls from the Call Sim (☎ LSH Voice) (read only by the trainee; the dashboard's Graded calls card)
+// Graded calls from the Call Sim (☎ LSH Voice) count in this course (js/graded-calls.js, worker.js):
 // 1. the Worker: a trainee reads their own callsim:<id> (kept by the Training Portal), never another trainee's, and can't write it;
 // 2. in a browser: without graded calls the dashboard band's "Graded calls" card says — and 0 lines; with them, the best graded
 //    call on each line averaged, the lines and the calls taken, and each line's best in its tooltip.
