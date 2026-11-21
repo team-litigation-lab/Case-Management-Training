@@ -198,7 +198,7 @@ None.
 | `trainee-identity.cjs` | A renamed or re-batched Portal ticket with the same uid opens the trainee's existing record (the uid index), and B250926 / B092526 (the same day, as batchShow shows it) resolve to one id |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
-## Browser checks (79)
+## Browser checks (80)
 
 | Check | What it covers |
 |---|---|
@@ -216,6 +216,7 @@ None.
 | `case-file-alerts.cjs` | 🚨 Case-file alerts reach the trainers (rules R1–R8; Trainee Audit chip, list and ✓ Resolved; top-bar badge) |
 | `case-file.cjs` | The Case Profile, was the Case File (the facts are the trainer's; the page fits one screen, trainee and trainer) |
 | `case-profile.cjs` | The Case Profile (was 📁 Case File): "John Doe VS Robert Smith", a header card, 👋 Meet John Doe on the profile and not in the lesson deck, and Day 1's slide that opens it with a way back |
+| `cf-record-guards.cjs` | A Case Flow module's scores stay right: a lower retake keeps the best quiz share, each module counts on one day, the trainer sees the BI/UM Net Sheets, a call answered in one window isn't logged missed by another |
 | `cms-case.cjs` | Log Your Work takes the CMS Case ID from the CMS (the CMS answered by the test) |
 | `cms-upload.cjs` | Uploading a drafted letter in the CMS, under the right tab and the firm's convention (the CMS answered by the test) |
 | `companion-grade.cjs` | Day 5's companion-case build is AI graded: a rubric of the Day 1–4 deliverables, a 🤖 Submit bar on the build's second slide, the grade stored and on the Scorecard like any other |
