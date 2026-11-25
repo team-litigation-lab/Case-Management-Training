@@ -386,7 +386,6 @@ css.textContent = `
 .aig-fb li,.aig-key li{font:700 16px/1.4 var(--font-ui);color:#141A2E;margin:0 0 4px;}
 #app .aig .aig-fb h4{margin:0 0 6px !important;font:800 17px/1.3 var(--font-ui) !important;color:#1E2340 !important;text-align:left !important;}
 #app .aig .aig-fb ul,#app .aig .aig-fb li,#app .aig .aig-coach{text-align:left !important;}
-.aig .aig-res .aig-fb{max-height:34vh;}
 #app .aig .aig-fb ul{display:block !important;width:auto !important;margin:0 0 10px !important;padding-left:22px !important;}
 .aig-part b{color:#B25E14 !important;}
 .aig-next li{margin:0 0 10px;} .aig-part{display:block;} .aig-part b{color:#1E2340;font-weight:800;}
