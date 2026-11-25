@@ -1,5 +1,5 @@
 /* ============================================================
-   LSH Case Management Training — templates and blank forms (the handouts are in 📚 LSH Atlas)
+   LSH Case Management Track — templates and blank forms (the handouts are in 📚 LSH Atlas)
    Every file lives in /documents. "cms" is the CMS upload button the
    trainee should use. The case documents (John Doe VS Robert Smith)
    are the Case Flow's: js/cm-case-flow-docs.js.

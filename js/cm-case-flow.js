@@ -1256,7 +1256,7 @@ function agendaSlide(d){
     + row(n1 + 2, "Knowledge Check", "kc"));
   return `<div class="card lesson-card cf-card cfx cfx-deck cfx-agenda">
       <div class="cfx-deck-head">${logo}<h2 class="cfx-deck-title">Training Agenda</h2></div>
-      <div class="cfx-ribbon"><span>Case Management Training · Day ${d.cf.n}</span></div>
+      <div class="cfx-ribbon"><span>Case Management Track · Day ${d.cf.n}</span></div>
       <div class="cfx-body cfx-body-navy cfx-ag-body"><div class="cfx-ag"><div class="cfx-ag-side"><p class="cfx-ag-day">${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</p><p>${E(src.objective || "")}</p></div>
         <ol class="cfx-ag-list cfx-ag-two" style="--ag-rows:${Math.max(3, Math.ceil(n1 / 2) + 1)}">${rows}</ol>${agendaFile(d)}</div></div>
     </div>`;
@@ -3206,7 +3206,7 @@ if(typeof window.downloadDayScriptsPdf === "function"){
   const __pdf = window.downloadDayScriptsPdf;
   window.downloadDayScriptsPdf = function(dayId){
     const d = cfDay(dayId); if(!d || typeof buildAndSavePdf !== "function") return __pdf.apply(this, arguments);
-    buildAndSavePdf("LSH Case Management Training", `Case Flow Day ${d.cf.n}: Trainer Speaker Notes`, buildDayScriptLines(d), `LSH_Case_Flow_Day${d.cf.n}_Speaker_Notes`);
+    buildAndSavePdf("LSH Case Management Track", `Case Flow Day ${d.cf.n}: Trainer Speaker Notes`, buildDayScriptLines(d), `LSH_Case_Flow_Day${d.cf.n}_Speaker_Notes`);
   };
 }
 if(typeof window.buildDayScriptLines === "function"){

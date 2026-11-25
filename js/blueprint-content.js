@@ -5,11 +5,11 @@
    A slide is { icon, title, points: [...], where, tip }. Change the wording here; the page and the PDF are made
    from it each time, stamped with the deployed build. README → Trainer tools. */
 window.LSH_BLUEPRINT = {
-  product: 'Case Management Training',
-  site: 'LSH Case Management Training (5-Day)',
+  product: 'Case Management Track',
+  site: 'LSH Case Management Track (5-Day)',
   file: 'LSH_CM',
   trainee: {
-    sub: 'Your guide to the portal: the 5-day Case Management Training, day by day',
+    sub: 'Your guide to the portal: the 5-day Case Management Track, day by day',
     slides: [
       { icon: '👋', title: 'Welcome to the program', points: [
           'Five days to work like a confident, organized Case Manager — the 5-Day Legal Case Management Flow, built around one realistic file, John Doe VS Robert Smith, from intake to deposition.',

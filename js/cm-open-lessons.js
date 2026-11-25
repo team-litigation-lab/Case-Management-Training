@@ -1,4 +1,4 @@
-/* 🔓 Open Lessons (as Foundational Training's Admin → 📅 Open Lessons): the trainer opens a Case Flow day
+/* 🔓 Open Lessons (as Legal VA Foundational Track's Admin → 📅 Open Lessons): the trainer opens a Case Flow day
    (DAYS ids 11–15, "Case Flow Day 1–5") for All batches or for one batch, or 👤 for one trainee.
    • settings:opendays = {all: [dayIds], batches: {"<batch key>": [dayIds]}}: everyone reads it (worker.js PUBLIC_READ),
      only a trainer writes it. Every form of a Batch ID (B100926, B10092026, B10092026-LSHTRAINEE-004) is one key; keys

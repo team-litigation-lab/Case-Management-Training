@@ -68,7 +68,7 @@ if(typeof window.downloadQuizResultPdf === "function"){
     if(!noReview(d) || typeof buildAndSavePdf !== "function") return __pdf.apply(this, arguments);
     if(typeof ensureTraineeName === "function") await ensureTraineeName();
     const lines = [`Result: ${state.lastCorrect} / ${state.lastTotal} correct (${state.lastScore}%) — ${state.lastPassed ? "PASSED" : "Not yet passing (70% required)"}`, "---", NO_REVIEW];
-    buildAndSavePdf("LSH Case Management Training", `Day ${typeof dayNo === "function" ? dayNo(id) : id} Knowledge Check — Results`, lines, `LSH_Day${typeof dayNo === "function" ? dayNo(id) : id}_Knowledge_Check`);
+    buildAndSavePdf("LSH Case Management Track", `Day ${typeof dayNo === "function" ? dayNo(id) : id} Knowledge Check — Results`, lines, `LSH_Day${typeof dayNo === "function" ? dayNo(id) : id}_Knowledge_Check`);
   };
 }
 window.cmKcOnce = {taken, official: id => official(progOf(id)), ONCE, attemptsIn};

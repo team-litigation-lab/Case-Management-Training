@@ -1,7 +1,7 @@
 /* ============================================================
    📄 Drafting Tools — LOR Drafting
    The LOR Drafting activity lives on the LSH Training Portal, as one shared tool that both this course and Standard
-   Foundational Training open: /simulators/drafting.html. The Portal fills the firm's own .docx and hands that file
+   Legal VA Foundational Track open: /simulators/drafting.html. The Portal fills the firm's own .docx and hands that file
    back, so the download carries the letterhead and logo. js/lsh-tool-links.js puts the signed ticket on the link, so a
    trainee lands there already signed in. This file draws the tool's card (the Drafting Tools hub, js/cm-drafting.js,
    and the Claim Set Up step's 🛠 LOR Drafting, js/cm-case-flow.js), answers the old #/lor address by opening the

@@ -1,5 +1,5 @@
 {
-  "title": "Case Management Training — Day 5",
+  "title": "Case Management Track — Day 5",
   "deck": "Revised Case Management Training Day 5 (Canva, 42 pages; the Skill Building page 38 is left out of the video)",
   "voice": "the trainer's own voice, spoken by Chatterbox Turbo from voice/sample.wav (make_video.py --turbo)",
   "day": 15,
@@ -129,7 +129,7 @@
   "slides": [
     {
       "page": 1,
-      "title": "Case Management Training — Day 5",
+      "title": "Case Management Track — Day 5",
       "notes": "Welcome to Day 5 of Case Management Training with Legal Support Help. Up to now, most of our work has happened outside the courthouse. Today the case goes inside it. When a claim can't be resolved through negotiation, it becomes a lawsuit, and your job changes in some important ways. Deadlines get stricter, documents become evidence, and the client needs more support than ever. Our sample case is still John Doe versus Robert Smith, the same file you're working on in the platform. Today we follow its litigation road, the one where Keystone wouldn't move and we filed suit. We'll walk through litigation step by step, spend real time on getting John ready for his deposition, and build out your toolkit of documents and deadlines. Then we'll look at how property damage is valued, using Margaret Doe's Civic. Let's get started."
     },
     {

@@ -25,7 +25,7 @@ const taught = new Set(CF.sequence.flatMap(d => d.phases.flatMap(p => p.blocks))
 const dayOf = {}; CF.sequence.forEach(d => d.phases.forEach(p => p.blocks.forEach(id => { dayOf[id] = d.n; })));
 const STORED = {}; CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { STORED[b.id] = b; })));
 if (Object.values(window.CM_DAY_DECKS || {}).some(g => g && g.length)) fail.push('window.CM_DAY_DECKS still puts deck pages beside the lessons');
-const NOT_TEACHING = /^Thank You|^Training Agenda|^Case Management Training/i;
+const NOT_TEACHING = /^Thank You|^Training Agenda|^Case Management (Training|Track)/i;
 const counts = {};
 for (const n of [1, 2, 3, 4, 5]) {
   const spec = JSON.parse(fs.readFileSync(path.join(ROOT, `build/videoslide/day${n}.json`), 'utf8'));
