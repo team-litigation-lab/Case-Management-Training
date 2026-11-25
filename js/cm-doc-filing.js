@@ -20,7 +20,7 @@
    name check and the same upload, and keeps it on the trainee's Backup Drive in its folder, exactly as a case
    document is kept (js/cm-drive.js).
 
-   What is needed: the CMS open beside the lesson (🗂 Open CMS) with the trainee's own case open in it. The
+   What is needed: the CMS open beside the lesson (🗂 Open LSH CaseWorks) with the trainee's own case open in it. The
    panel says so when it isn't, and nothing else is blocked.  Course side of the CMS's course-bridge.js.
 
    It also relays for the Portal's simulators. The Medical Records Requests simulator produces the records
@@ -62,7 +62,7 @@ function askCms(msg, replyKind, transfer){
   // the CMS beside the lesson, or else a CMS tab this course opened (🧰 Tools → New tab)
   const f = cmsFrame(), tab = (window.__cmsTabs || []).filter(w=>w && !w.closed).pop();
   const target = (f && f.contentWindow) || tab;
-  if(!target) return Promise.resolve({ok:false, error:"The CMS isn't open beside this lesson. Press 🗂 Open CMS, sign in if it asks, and open your own case."});
+  if(!target) return Promise.resolve({ok:false, error:"LSH CaseWorks isn't open beside this lesson. Press 🗂 Open LSH CaseWorks, sign in if it asks, and open your own case."});
   const id = rid();
   return new Promise(res=>{
     const on = (e)=>{ if(e.data && e.data.lsh === replyKind && e.data.id === id){ window.removeEventListener("message", on); res(e.data); } };
@@ -110,7 +110,7 @@ function panel(blockId){
       <span class="dfl-conv">Name every file <code>&lt;Case ID&gt;_&lt;Last-First&gt;_&lt;Type&gt;_&lt;YYYY-MM-DD&gt;.&lt;ext&gt;</code> — the type is the CMS category you file it under.</span>
       <span class="dfl-count">${done} of ${docs.length} filed${done ? ` · ${first} first time right` : ""}</span></div>
     ${caseOpen() ? `<div class="dfl-case">Filing into <b>${esc(caseOpen())}</b>, the case open in the CMS.</div>`
-      : `<div class="dfl-need">Open your own case in the CMS first: <button type="button" class="btn btn-ghost btn-sm" onclick="openTool('cms','split')">🗂 Open CMS</button></div>`}
+      : `<div class="dfl-need">Open your own case in the CMS first: <button type="button" class="btn btn-ghost btn-sm" onclick="openTool('cms','split')">🗂 Open LSH CaseWorks</button></div>`}
     ${docs.map(d=>rowHTML(blockId, d)).join("")}</div>`;
 }
 
@@ -122,7 +122,7 @@ async function fileDoc(docId, category, name){
   const d = docOf(docId); if(!d) return {ok:false, problems:["That document isn't in this course."]};
   const r = log()[docId] = Object.assign({attempts: 0}, recOf(docId));
   const fail = async (problems)=>{ r.problems = problems; await save(); return {ok:false, problems}; };
-  if(!caseOpen()) return {ok:false, problems:["No case is open in the CMS. Press 🗂 Open CMS, then open your own case (or save it, so it is given its Case ID)."]};
+  if(!caseOpen()) return {ok:false, problems:["No case is open in the CMS. Press 🗂 Open LSH CaseWorks, then open your own case (or save it, so it is given its Case ID)."]};
   if(!category) return {ok:false, problems:["Choose the CMS category you would file this document under."]};
   r.attempts++;
   // when: the first and the latest attempt, so the trainee's 📒 Progress Log is dated and a trainer is told when a
@@ -211,7 +211,7 @@ const mimeOf = (file)=>{
    The CMS stays the file of record: a drive that isn't set up, or a folder someone deleted, never undoes the
    filing. The outcome comes back on the answer (`drive`), for the caller to tell the trainee. */
 async function send(d){
-  if(!caseOpen()) return {ok: false, error: "No case is open in the CMS. Press 🗂 Open CMS, then open your own case (or save it, so it is given its Case ID)."};
+  if(!caseOpen()) return {ok: false, error: "No case is open in the CMS. Press 🗂 Open LSH CaseWorks, then open your own case (or save it, so it is given its Case ID)."};
   const name = String((d && d.name) || "").trim();
   if(!name) return {ok: false, error: "Write the file name first."};
   const bytes = d && d.bytes;

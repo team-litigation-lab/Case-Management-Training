@@ -1,5 +1,5 @@
 /* ============================================================
-   LSH Case Management Training — templates and blank forms (the handouts are in the LSH Knowledge Base)
+   LSH Case Management Training — templates and blank forms (the handouts are in 📚 LSH Atlas)
    Every file lives in /documents. "cms" is the CMS upload button the
    trainee should use. The case documents (John Doe VS Robert Smith)
    are the Case Flow's: js/cm-case-flow-docs.js.
@@ -17,7 +17,7 @@ window.CM_DOCS = [
   {id:"TPL6", folder:"templates", file:"templates/Nine_Mock_PI_Cases.pdf", title:"9 Mock Personal Injury Cases", cms:"Others", day:1, desc:"Extra practice files for intake, coverage and liability drills.", key:""}
 ];
 
-// The handouts live in the LSH Knowledge Base (Case Management collection, one "CM Training · Day N" section per day),
+// The handouts live in 📚 LSH Atlas (Case Management collection, one "CM Training · Day N" section per day),
 // where trainers add more. The Portal signs the reader in and opens that collection.
 window.CM_KB_URL = "https://cm-training-activity.pages.dev/api/launch?tool=kb&to=cmkb";
 

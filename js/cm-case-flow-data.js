@@ -1320,7 +1320,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "02/09/2026, 8:47 a.m.: a voicemail from John Doe. Dana from Keystone Mutual, Robert Smith's carrier, called him on Saturday (02/07) and asked to record what happened; he said he'd think about it, and she is calling back today. His neck is still stiff and he hasn't seen anyone. Nothing has reached him from the firm yet. You work it that afternoon, once he has signed the retainer and the matter is open in the CMS (1:12 p.m.), after the Conflict Check.",
           prompt: "Work the voicemail in your Notes & Action Plan: transcribe it, then write your action plan (graded, with the answer key once handed in). Work the plan: email Dana Whitfield that the firm represents John Doe, that she is not to contact him directly and that any Recorded Statement request comes through the firm, with nothing about his injuries; call John Doe back to check on his neck and his treatment status, outline the next steps and have him repeat the instruction (no Recorded Statement, no talk about the case with anyone outside the firm); and coordinate his first visit with Riverton Urgent Care. Then assemble his onboarding Direction Packet (all six sections, the Property Damage section specific to this file: from the records, whose vehicle and claim it is), deliver it and log every contact.",
-          tool: "Notes & Action Plan · Email Workspace · Call Simulator → John Doe · CMS → Notes → Case Notes · CMS → Notes → Case Notes",
+          tool: "Notes & Action Plan · Email Workspace · Call Sim → John Doe · CMS → Notes → Case Notes · CMS → Notes → Case Notes",
           output: "A graded transcript and action plan, the emails to Keystone and the facility sent, the check-in call taken, and a delivered, logged Direction Packet specific to John Doe's file.",
           checkpoints: [
             "Voicemail transcribed and the action plan handed in",
@@ -1336,7 +1336,7 @@ window.CM_CASE_FLOW = {
         ops: [
           ["Voicemail: the carrier asked to record the client", "Transcribe it; write the action plan; tell Atty. Thorne", "Notes & Action Plan · CMS → Notes → Case Notes", "Plan graded; attorney told the same day"],
           ["Adverse carrier has called a represented client", "Email the adjuster: no direct contact; statements through the firm", "Email Workspace · CMS → Notes → Case Notes", "Sent and logged; nothing about injuries"],
-          ["Client sore, not yet seen", "Check in; outline next steps; coordinate with the facility", "Call Simulator → John Doe · Email Workspace", "Instruction repeated back; first visit arranged"],
+          ["Client sore, not yet seen", "Check in; outline next steps; coordinate with the facility", "Call Sim → John Doe · Email Workspace", "Instruction repeated back; first visit arranged"],
           ["Packet ready", "Deliver and log", "CMS → Notes → Case Notes", "Date and method recorded"]
         ],
         best: [
@@ -1491,7 +1491,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "02/23/2026. Keystone PD (Leah Moran), which accepted Property Damage liability on 02/17 and authorized a rental for the Civic on 02/18, emails the firm for a rental contact. Five more items sit in the firm's PD tray: the certified Police Report (issued 02/18), a note that Margaret Doe holds the scene and damage photos on her phone, a note that the tow record is with Riverton Towing, Margaret Doe's question about Loss of Use, and her request that the firm push Keystone for a higher repair figure. John Doe, back in touch this morning after two weeks of silence, calls asking whether the rental can be his.",
           prompt: "Sort each item: does it feed John Doe's bodily-injury claim, stay on Margaret Doe's separate PD claim, or touch his care and need coordinating? Mark each refer, coordinate or handle, and record the sort in one CMS Case Note that cites the Police Report's units. Index what feeds the BI claim on John Doe's file, set the follow-up that puts the rental's last covered day on his calendar as a treatment risk, refer Margaret's items and Leah Moran's rental-contact request to Atty. Thorne, and answer John Doe's call within the UPL line. End the note with one line: does Property Damage touch our case, and how?",
-          tool: "CMS → Notes → Case Notes · CMS → Doc Hub · Calendar · Call Simulator → John Doe",
+          tool: "CMS → Notes → Case Notes · CMS → Doc Hub · Calendar · Call Sim → John Doe",
           output: "A sorted, sourced Case Note ending in its one-line answer, the BI evidence indexed, the rental follow-up set, Margaret Doe's items referred and the call logged.",
           checkpoints: [
             "Positions taken from the Police Report's units: John Doe the Escape's passenger, the Civic Margaret Doe's",
@@ -2056,7 +2056,7 @@ window.CM_CASE_FLOW = {
            [
              "Each client check-in, once care starts",
              "Run OARS: specific questions on visits, pain and function; note any yellow flag in his words",
-             "Call Simulator → John Doe · CMS → Notes → Case Notes",
+             "Call Sim → John Doe · CMS → Notes → Case Notes",
              "GIRP note the same day: his words, no labels, no advice"
            ],
            [
@@ -3068,7 +3068,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 03/11/2026. A colleague kept John Doe's Coverage Stack. In the file: Harbor Point's written confirmation (03/02/2026), Cardinal State's assignment of Teresa Okafor (03/03/2026) and Coverage Letter (03/09/2026), and Keystone's written request with authorizations, sent, with no Declaration Page yet. This morning Summit Imaging asked for an LOP; declined, because MedPay applies first.",
           prompt: "Audit the staged Coverage Stack against the documents in the file. Find every error, correct it, and cite the document and date that prove each correction. Restore the stack total, clear every past-due follow-up by acting on it and setting a new date, and leave correct rows alone. Then route a three-line audit note to Atty. Thorne: confirmed in writing, still preliminary, escalated. Graded judgment: the BI status, and what you may and may not mark confirmed today.",
-          tool: "CMS → Insurance · CMS → Doc Hub · Call Simulator → Adjuster: Dana Whitfield, Keystone Mutual",
+          tool: "CMS → Insurance · CMS → Doc Hub · Call Sim → Adjuster: Dana Whitfield, Keystone Mutual",
           output: "A corrected Coverage Stack totalling $40,000, every status sourced and every open item dated, with an audit note routed to Atty. Thorne.",
           checkpoints: [
             "BI: “Confirmed · Police Report” corrected to “Preliminary · verbal, set-up call; written request with authorizations sent”; Keystone has confirmed nothing in writing, and its Declaration Page does not arrive until 03/20/2026",
@@ -3100,7 +3100,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Coverage Stack audit (03/11/2026)", "Check every row against the document that should prove it", "CMS → Insurance · Doc Hub", "Each correction cites a document and its date"],
-          ["Past-due follow-up found", "Follow up with Dana Whitfield today; log it; set the next date", "Call Simulator → Adjuster: Dana Whitfield, Keystone Mutual · CMS → Calendar", "Logged 03/11/2026; next date by 03/13/2026"],
+          ["Past-due follow-up found", "Follow up with Dana Whitfield today; log it; set the next date", "Call Sim → Adjuster: Dana Whitfield, Keystone Mutual · CMS → Calendar", "Logged 03/11/2026; next date by 03/13/2026"],
           ["Audit complete", "Route the audit note", "CMS → Tasks → + Add Task", "Note separates confirmed, preliminary and escalated items"]
         ],
         best: [
@@ -3378,7 +3378,7 @@ window.CM_CASE_FLOW = {
           ["A provider asks for an LOP", "Run the Payer Order; prepare the LOP on counsel's template only for care PIP, MedPay and Peach State can't carry", "CMS → Doc Hub → Others (routed to Atty. Thorne for approval)", "Payer check recorded before routing; nothing sent without Atty. Thorne's approval"],
           ["PIP or MedPay pays a bill", "Post the payment, the running total and the balance left", "CMS → Insurance → PIP / UM/UIM Coverage Stack", "Running totals tie to Harbor Point's payments: PIP's $10,000.00 reached on 03/04/2026, MedPay's $5,000.00 on the 06/12/2026 visit, $0.00 left on each"],
           ["An LOP provider's itemized statement arrives", "Update the balance and check every line against the visits you tracked", "CMS → Liens → Outstanding Case Liens", "Balance current (through 04/02/2026: 16 visits × $185.00 = $2,960.00); every billed date is an attended visit"],
-          ["A new referral or provider", "Warm handoff: book it with John Doe on the line and confirm the payer before the first visit", "Call Simulator → John Doe · CMS → Treatment → Medical Chronology", "Appointment and payer recorded before the visit date"]
+          ["A new referral or provider", "Warm handoff: book it with John Doe on the line and confirm the payer before the first visit", "Call Sim → John Doe · CMS → Treatment → Medical Chronology", "Appointment and payer recorded before the visit date"]
         ],
         best: [
           "Ask “Is the plan working?” at every treatment-phase contact.",
@@ -3492,7 +3492,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "02/23/2026: John Doe's first treatment was at Riverton Urgent Care on 02/20/2026 ($685.00), which sent him by ambulance to Riverton General Hospital's emergency department overnight; Harbor Point's $10,000 PIP will go to those emergency bills, and its $5,000 MedPay comes next. Chiropractic and PT at Riverton Spine & Rehab begin 02/24/2026; it is out of network for Peach State. Atty. Thorne has approved the firm's LOP template. John Doe had three chiropractic visits in 2021, for low-back stiffness. 03/11/2026: Summit Imaging Center, booked for the cervical MRI Dr. Reyes ordered on 03/05/2026, asks for an LOP.",
           prompt: "Work both dates. First run the Payer Order for each provider and record the result. On 02/23/2026, prepare Riverton Spine & Rehab's LOP on the approved template, route it to Atty. Thorne for approval and signature, transmit it with the claim-specific HIPAA authorization, and ask for itemized statements and a missed-visit alert; confirm receipt and open the LOP register entry. Then take the live call with Tammy Greer, the office manager, before the 02/24/2026 evaluation: introduce John Doe's case, confirm the clinic accepts the LOP, secure the endorsed appointment, and answer her questions on insurance status, treatment cadence and medical records and billing inside your lane. After the call, convert it into a dated case note, open the follow-up tasks (the 30-day itemized statement, the missed-visit alert, the records request on the HIPAA authorization), and file the LOP and the call note in the CMS so a copy is kept on the Backup Drive. Record John Doe's assessment, including his 2021 care as the pre-morbid baseline. On 03/11/2026, decline Summit's request in writing, naming Harbor Point MedPay as the payer, with the ledger to prove it. Graded: no payment promised to either provider.",
-          tool: "CMS → Liens → Outstanding Case Liens · CMS → Doc Hub → Others · Email Workspace · Call Simulator · CMS → Notes → Case Notes · CMS → Tasks · CMS → Insurance → PIP / UM/UIM Coverage Stack",
+          tool: "CMS → Liens → Outstanding Case Liens · CMS → Doc Hub → Others · Email Workspace · Call Sim · CMS → Notes → Case Notes · CMS → Tasks · CMS → Insurance → PIP / UM/UIM Coverage Stack",
           output: "One counsel-approved LOP transmitted, confirmed and endorsed by call with the appointment secured, one LOP request declined with the payer named, a current PIP Log, and a documented pre-morbid baseline.",
           checkpoints: [
             "Payer Order run and recorded for each provider: PIP → MedPay → Peach State → LOP",
@@ -3513,7 +3513,7 @@ window.CM_CASE_FLOW = {
         ops: [
           ["02/23/2026: Riverton Spine & Rehab needs an LOP before the 02/24/2026 visit", "Run the Payer Order, prepare the LOP on the approved template, route it for approval", "CMS → Doc Hub → Others (routed to Atty. Thorne for approval)", "Approved and signed before the first visit"],
           ["LOP signed", "Transmit it with the HIPAA authorization; confirm receipt; open the register entry", "Email Workspace · CMS → Liens → Outstanding Case Liens", "Receipt confirmed and dated in Case Notes"],
-          ["LOP received by the clinic", "Call the office manager: confirm acceptance, secure the evaluation, set the billing protocol; then note, task and file it", "Call Simulator · CMS → Notes → Case Notes · CMS → Tasks", "Appointment confirmed; note dated; tasks owned and dated; nothing promised"],
+          ["LOP received by the clinic", "Call the office manager: confirm acceptance, secure the evaluation, set the billing protocol; then note, task and file it", "Call Sim · CMS → Notes → Case Notes · CMS → Tasks", "Appointment confirmed; note dated; tasks owned and dated; nothing promised"],
           ["03/11/2026: Summit Imaging asks for an LOP", "Decline in writing, naming Harbor Point MedPay as the payer; post the ledger", "Email Workspace · CMS → Insurance → PIP / UM/UIM Coverage Stack", "Reason stated; ledger shows $4,315.00 of MedPay on 03/11/2026, $3,675.00 once Lakeside's pending $640.00 is paid"]
         ],
         best: [
@@ -3719,7 +3719,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Provider's missed-visit alert", "Run A-C-T the same day: reach John Doe (the No Contact Protocol if he is silent), classify the variance, record it", "Call Simulator → John Doe · CMS → Notes → Case Notes", "First attempt and note dated the day the alert arrives"],
+          ["Provider's missed-visit alert", "Run A-C-T the same day: reach John Doe (the No Contact Protocol if he is silent), classify the variance, record it", "Call Sim → John Doe · CMS → Notes → Case Notes", "First attempt and note dated the day the alert arrives"],
           ["Week 6 of care (04/07/2026)", "Ask the provider for the re-evaluation measures: range of motion, pain score, disability index. Whether a PHQ-9/GAD-7 screen is indicated is the provider's call; anything putting John Doe's mental health in the record is flagged to Atty. Thorne", "Medical Records Requests · CMS → Treatment → Medical Chronology", "Measures on file, or the missed re-evaluation flagged"],
           ["Barrier not fixed at the clinical rung", "Climb one rung: written notice to the carrier causing it, copied to Atty. Thorne (Keystone PD: property facts only)", "Email Workspace · CMS → Tasks → + Add Task", "Each rung dated in Case Notes"],
           ["A red flag that can cost the claim (missed visits, generic notes, passive-only care)", "Report it to Atty. Thorne with the fix attempted", "CMS → Notes → Case Notes", "Flag routed with the GIRP note attached"]
@@ -3892,7 +3892,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "04/08/2026: Riverton Spine & Rehab's missed-visit alert. John Doe missed 04/03 and 04/07 with no call and answers no one; his last visit was 04/02/2026, his last contact with you 03/31. As you work, the file moves: no reply to your notices on 04/08 and 04/09, Margaret Doe says on 04/10 he is safe but “keeping to himself”, he misses 04/09 and 04/14, the CMS 14-day no-visit trigger fires 04/16, and on 04/17 at 4:48 p.m. John calls you.",
           prompt: "Run A-C-T (Assess, Clarify, Track: the Day 1 deck's Immediate Action Protocol) on a client who has gone silent. Assess: two missed visits with no call are a red flag and a legal danger, a gap in care, not a medical one; do the Step 1 review. Clarify: ask Riverton Spine & Rehab's office directly about the missed visits, then reach John through the No Contact Protocol: progressive notices (call and text, then call and email, then the emergency contact), escalate to Atty. Thorne, send the 10-day Final Warning Letter by certified mail AND email, and set the Drop Warning status. When John calls on 04/17, run a trauma-informed, UPL-compliant interview: record his own words, his distress and what has changed in his days, without diagnosing or advising. Track: document the red flag and every attempt to fix it: what you coordinate with his consent (a telephone appointment with Dr. Reyes, scheduling only, and evening visits under the existing LOP), the GIRP note, the report to Atty. Thorne, the file restored, attendance on 04/21 and 04/23/2026.",
-          tool: "Call Simulator → John Doe · Email Workspace · CMS → Notes → Case Notes · CMS → Case Status · CMS → Calendar",
+          tool: "Call Sim → John Doe · Email Workspace · CMS → Notes → Case Notes · CMS → Case Status · CMS → Calendar",
           output: "A complete near-drop record: dated notices, the Final Warning Letter, the interview's GIRP note in his words, the file restored and attendance confirmed 04/21 and 04/23/2026.",
           checkpoints: [
             "Assess: the missed visits classed as a legal danger (a gap in care), not a medical one; Step 1 review dated 04/08/2026, before any outreach: SOL 02/06/2028, care stopped since 04/02, visits of 04/03 and 04/07 missed (the Case Plan's week-6 measures, due 04/07, not taken), last contact 03/31",
@@ -3918,9 +3918,9 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["04/08/2026: missed-visit alert, client silent", "Step 1 review; Notices 1 and 2 by different channels", "CMS → Profile → Case Narrative · Call Simulator · Email Workspace · CMS → Notes → Case Notes", "Each notice logged with date, time, channel, outcome"],
+          ["04/08/2026: missed-visit alert, client silent", "Step 1 review; Notices 1 and 2 by different channels", "CMS → Profile → Case Narrative · Call Sim · Email Workspace · CMS → Notes → Case Notes", "Each notice logged with date, time, channel, outcome"],
           ["04/10/2026: emergency contact reached, still no word", "Escalate; send the 10-day Final Warning Letter; set Drop Warning", "CMS → Tasks → + Add Task · CMS → Doc Hub → Others · CMS → Case Status", "Certified mail and email logged; 04/20 calendared"],
-          ["04/17/2026: John calls", "Trauma-informed interview; coordinate with his consent; restore the file", "Call Simulator → John Doe · CMS → Notes → Case Notes · CMS → Calendar", "GIRP note same day; Drop Warning cleared 04/20; visits 04/21 and 04/23 confirmed"]
+          ["04/17/2026: John calls", "Trauma-informed interview; coordinate with his consent; restore the file", "Call Sim → John Doe · CMS → Notes → Case Notes · CMS → Calendar", "GIRP note same day; Drop Warning cleared 04/20; visits 04/21 and 04/23 confirmed"]
         ],
         best: [
           "Silence is a symptom until you know otherwise: look for the cause before you write the client off.",
@@ -3963,7 +3963,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "04/22/2026, 12:18 p.m.: a voicemail from John Doe. Care resumed at Riverton Spine & Rehab on 04/21/2026 on evening slots, with Margaret Doe driving after her shift; the Civic is still in the shop. Yesterday Lakeside Orthopedics' scheduling desk booked the pain-management injection Dr. Alana Reyes referred him for on 03/27/2026 at Millbrook Interventional Pain Center, in Millbrook, for 05/14/2026. John Doe won't go: it is far out in Millbrook, he has no reliable ride there, and he heard it is out of network with Peach State. Dr. Reyes's 03/27/2026 note names Crescent Pain & Spine (Dr. Omar Haddad, 41 Crescent Ct, Riverton). Lakeside's referral coordinator is Janelle Brooks.",
           prompt: "Call John Doe back and listen. Where he goes, among the options his doctors find appropriate, is his choice; what care he gets is for Dr. Reyes and the treating provider to decide, so give no medical advice. Verify Crescent's network status with Peach State yourself. Work with Janelle Brooks to redirect the referral to Crescent Pain & Spine, and book its first opening while John Doe is on the line, so no new gap opens. Then handle every task that follows, or delegate it with an owner and a due date: cancel the Millbrook slot; update the CMS Calendar; add Crescent to Parties with its billing details; set up the Peach State billing and note its reimbursement interest; request Crescent's records and bills under the HIPAA authorization; agree a transport plan; write the GIRP note; report to Atty. Thorne; and confirm attendance after 05/15/2026. Graded: exact names and dates, no treatment advice, nothing said about the claim's value.",
-          tool: "Call Simulator → John Doe · CMS → Tasks · CMS → Calendar · CMS → Parties Involved · CMS → Liens · ChartSwap · CMS → Notes → Case Notes · Email Workspace",
+          tool: "Call Sim → John Doe · CMS → Tasks · CMS → Calendar · CMS → Parties Involved · CMS → Liens · ChartSwap · CMS → Notes → Case Notes · Email Workspace",
           output: "A CMS task list for the redirect, each task Done by me (dated) or Delegated to a named owner with a due date; the 05/15/2026 Crescent appointment on the calendar; a GIRP note and the report to Atty. Thorne.",
           checkpoints: [
             "Voicemail returned on 04/22/2026; John Doe's reasons recorded in his own words: Millbrook is far, he has no reliable ride there (the Civic in the shop, Margaret Doe working days), and he heard it is out of network",
@@ -4000,7 +4000,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["04/22/2026: John Doe's voicemail refuses Millbrook", "Call back; read Dr. Reyes's referral; verify Crescent with Peach State", "Call Simulator → John Doe · CMS → Notes → Case Notes", "Reasons logged; Crescent verified in network"],
+          ["04/22/2026: John Doe's voicemail refuses Millbrook", "Call back; read Dr. Reyes's referral; verify Crescent with Peach State", "Call Sim → John Doe · CMS → Notes → Case Notes", "Reasons logged; Crescent verified in network"],
           ["Facility chosen by John Doe", "Redirect with Janelle Brooks; book 05/15/2026 with him on the line; cancel Millbrook", "CMS → Calendar · CMS → Parties Involved", "Old slot off; new slot, reminder and attendance check on"],
           ["Downstream work", "Do each task or delegate it with an owner and a due date; report to Atty. Thorne", "CMS → Tasks · ChartSwap · CMS → Liens · Email Workspace", "Every task Done or Delegated; none without an owner"]
         ],
@@ -4379,7 +4379,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Records show the 14-day gap", "Read the EMS report, the urgent-care history and the timeline; write the question plan", "CMS → Treatment → Medical Chronology · Notes → Case Notes", "Plan saved before the call; no question in it names a reason"],
-          ["Call connects", "State date, participants and recording; get consent; confirm privacy", "Call Simulator → John Doe (recorded call)", "Consent and privacy on the recording before the first substantive question"],
+          ["Call connects", "State date, participants and recording; get consent; confirm privacy", "Call Sim → John Doe (recorded call)", "Consent and privacy on the recording before the first substantive question"],
           ["John Doe asks what the gap does to his case", "Give no opinion; log the question and route it", "CMS → Tasks → + Add Task", "Escalated to Atty. Thorne the same day; no opinion on the recording"],
           ["A carrier asks John Doe for a Recorded Statement", "Remind him to route it to the firm; log it; tell Atty. Thorne", "CMS → Notes → Case Notes", "No statement given without Atty. Thorne; request logged and escalated the same day"]
         ],
@@ -4415,12 +4415,12 @@ window.CM_CASE_FLOW = {
         kind: "activity", id: "d2m3-a1",
         transition: "The first records show 14 days before John Doe was first treated. We ask him why, in his own words, and record it without judging it.",
         title: "Probe the 14-Day Treatment Gap with John Doe",
-        topic: "Skill Activity 1 — Call Simulator: the 14-Day Gap, in his words",
+        topic: "Skill Activity 1 — Call Sim: the 14-Day Gap, in his words",
         visual: "A call-simulator screen across the left two-thirds: a navy header bar reading JOHN DOE · RECORDED CALL · 03/04/2026 with a red recording dot, a cream transcript pane, and beneath it a question meter of three mono pills that count OPEN · CLOSED · LEADING, the last in red. Right third: four empty reason slots with orange numbered badges ①–④, each with a document slot beside it, filling only as the trainee surfaces them. Under the slots, a red danger callout: “A suggested reason earns a yes, not a fact.” The argument: reasons are earned by questions, never supplied.",
         act: {
           scenario: "03/04/2026. The first records are in. Riverton Urgent Care's note of 02/20/2026 reads: “onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18.” The EMS Run Report records neck stiffness on 02/06/2026. John Doe has been at Riverton Spine & Rehab since 02/24/2026; Margaret's rental runs to 03/19/2026. Nobody has asked him why he waited 14 days.",
           prompt: "Run a recorded call with John Doe to learn why he first treated on 02/20/2026, 14 days after the collision. Open on the record: the date, who is on the call, his consent to recording, and that he can talk privately. Ask open questions, follow his words, and keep closed questions for pinning dates and documents. Find out who he told and what he kept; read his account back. Close with the standing instruction and his next appointment, then file a privileged GIRP note. Graded failures: any leading question or suggested reason, and telling him the gap “won't matter” or “will hurt the case”.",
-          tool: "Call Simulator → John Doe (recorded call) · CMS → Notes → Case Notes · Tasks",
+          tool: "Call Sim → John Doe (recorded call) · CMS → Notes → Case Notes · Tasks",
           output: "A consented, privileged recording with all four reasons in John Doe's own words, a same-day GIRP note, and a dated task for every corroborating document.",
           checkpoints: [
             "Recording opens with 03/04/2026, everyone on the call, the CM's role, John Doe's spoken consent, and confirmation he can talk privately",
@@ -4449,8 +4449,8 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Call connects", "Open on the record: role, consent, privacy, purpose", "Call Simulator → John Doe (recorded call)", "Consent audible before the first substantive question"],
-          ["John Doe raises a reason or names someone he told", "Follow up open, then pin the date and the document", "Call Simulator → John Doe (recorded call)", "Each reason tied to a date and a source he named"],
+          ["Call connects", "Open on the record: role, consent, privacy, purpose", "Call Sim → John Doe (recorded call)", "Consent audible before the first substantive question"],
+          ["John Doe raises a reason or names someone he told", "Follow up open, then pin the date and the document", "Call Sim → John Doe (recorded call)", "Each reason tied to a date and a source he named"],
           ["Call ends", "File the GIRP note; open a task per document", "CMS → Notes → Case Notes · Tasks", "Note dated 03/04/2026; every task with an owner and a due date"]
         ],
         best: [
@@ -5075,11 +5075,11 @@ window.CM_CASE_FLOW = {
         transition: "Treatment is over and the file has been audited for the demand. Before anything goes out, we brief Atty. Thorne and record his decisions.",
         title: "Pre-Demand Strategy Session with Atty. Elijah Thorne",
         topic: "Skill Activity 2 — present the audit; record his decisions",
-        visual: "A two-pane Call Simulator screen. Left pane: the session transcript as alternating bubbles, navy for ATTY. ELIJAH THORNE and cream for the trainee; two of his bubbles are outlined in orange as challenges: “Keystone will call this low-speed” and “Why should they pay for a gap?” Right pane: a DECISION RECORD card filling as the session runs, rows with orange numbered badges — ① BI DEMAND · TIME-LIMITED · SERVE 07/20/2026 ② GAP · UP FRONT ③ UM · CONSENT PLAN ④ BILLED OR PAID — each stamped DECIDED BY ATTY. THORNE with a task chip. A red strip along the bottom: “The CM recommends operations. Counsel decides.”",
+        visual: "A two-pane Call Sim screen. Left pane: the session transcript as alternating bubbles, navy for ATTY. ELIJAH THORNE and cream for the trainee; two of his bubbles are outlined in orange as challenges: “Keystone will call this low-speed” and “Why should they pay for a gap?” Right pane: a DECISION RECORD card filling as the session runs, rows with orange numbered badges — ① BI DEMAND · TIME-LIMITED · SERVE 07/20/2026 ② GAP · UP FRONT ③ UM · CONSENT PLAN ④ BILLED OR PAID — each stamped DECIDED BY ATTY. THORNE with a task chip. A red strip along the bottom: “The CM recommends operations. Counsel decides.”",
         act: {
           scenario: "File date: 07/08/2026, before any demand is drafted. Your audit is done: MMI 06/12/2026; Specials $42,984.00 ($41,400.00 medical after the duplicate came out + $1,584.00 wages); liens $1,860.00 (Peach State) and $6,105.00 (the LOP); targets $10,000 BI → $20,000 Host UM → $10,000 Relative UM. The Gap Explanation Record (07/01/2026) and Dr. Reyes's 06/19/2026 Causation Letter are in the file. Atty. Thorne has called the pre-demand strategy session.",
           prompt: "Run the pre-demand strategy session with Atty. Elijah Thorne. Brief him in protocol order: bottom line, audited facts, risks with their answering documents, the decisions he must make, and each option's operational consequences. Answer his challenges with objective facts, not adjectives. Recommend only on operations; ask for his decision on everything legal. Read back each decision before you close. Then record the decisions in the CMS, open a task for each, and re-route the Case Plan.",
-          tool: "Call Simulator → Atty. Elijah Thorne (strategy session) · CMS → Notes → Case Notes · CMS → Tasks",
+          tool: "Call Sim → Atty. Elijah Thorne (strategy session) · CMS → Notes → Case Notes · CMS → Tasks",
           output: "A recorded strategy session and a dated decision record, each decision attributed to Atty. Thorne with its tasks and owners.",
           checkpoints: [
             "Opens with the bottom line: MMI 06/12/2026, $42,984.00 in Specials against the $10,000 BI limit, decisions needed",
@@ -5097,7 +5097,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Strategy session called", "Send the one-page memo and the exhibit index ahead", "Email Workspace", "Memo and index sent before the session"],
-          ["Session under way", "Brief in protocol order; answer each challenge with a document", "Call Simulator → Atty. Elijah Thorne (strategy session)", "Bottom line first; every challenge met with a sourced fact"],
+          ["Session under way", "Brief in protocol order; answer each challenge with a document", "Call Sim → Atty. Elijah Thorne (strategy session)", "Bottom line first; every challenge met with a sourced fact"],
           ["Decisions made", "Record, read back and task each decision", "CMS → Notes → Case Notes · CMS → Tasks", "Each decision dated and attributed; demand-service task due 07/20/2026"],
           ["Plan changed", "Mark the plan superseded and re-route it", "Action Plan Editor → Version", "New version routed the same day"]
         ],
@@ -5499,7 +5499,7 @@ window.CM_CASE_FLOW = {
            [
              "MMI declared (06/12/2026)",
              "Open the Demand Package task; request each provider's itemized line-item bill; ask John Doe for his impact in his own words",
-             "CMS → Tasks · Medical Records Requests · Call Simulator → John Doe",
+             "CMS → Tasks · Medical Records Requests · Call Sim → John Doe",
              "Every provider requested; his words recorded before the narrative is drafted"
            ],
            [
@@ -5780,7 +5780,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Dana Whitfield acknowledges the demand in writing (07/22/2026)", "Build the battle map and compute the net floor", "CMS → Settlement (BI/UM) · CMS → Notes → Case Notes", "Floor $12,677.63 gross on unreduced liens ($12,677.63 – $4,225.88 fee = $8,451.75); each attack matched to a dated document"],
-          ["Adjuster calls with an offer", "Soft lead, professional pause, ask for her data; restate the approved demand", "Call Simulator → Adjuster: Dana Whitfield, Keystone Mutual", "No counter; terms and the 08/21/2026 deadline unchanged"],
+          ["Adjuster calls with an offer", "Soft lead, professional pause, ask for her data; restate the approved demand", "Call Sim → Adjuster: Dana Whitfield, Keystone Mutual", "No counter; terms and the 08/21/2026 deadline unchanged"],
           ["Call ends", "Log the offer and the adjuster's exact words; report to Atty. Thorne", "CMS → Notes → Case Notes · CMS → Tasks → + Add Task", "Logged and reported the same day, reasons quoted verbatim"],
           ["Adjuster stalls (“waiting on authority”)", "Name it and tie it to the deadline in writing", "Email Workspace", "Same-day email cites 08/21/2026; no open-ended callback accepted"]
         ],
@@ -5823,8 +5823,8 @@ window.CM_CASE_FLOW = {
         visual: "A call-simulator screen across two-thirds of the slide: a navy header bar reading KEYSTONE MUTUAL · DANA WHITFIELD · KM-26-440871 in mono, and a live transcript where her two attacks are highlighted in red, GAP and DEGENERATIVE, each joined by an orange leader line to an evidence card in the right margin: SUMMIT MRI 03/13/2026, CAUSATION LETTER 06/19/2026, EMS RUN REPORT, GAP EXPLANATION RECORD. Above the transcript, a slim orange authority bar: HOLD $10,000 LIMITS · DEADLINE 08/21/2026 · NO COUNTER. Bottom strip: an offer-log row being filled, 08/05/2026 · $3,500 · REASONS QUOTED · REPORTED TO ATTY. THORNE. The argument: every attack meets a document, never a number.",
         act: {
           scenario: "File date 08/05/2026. Dana Whitfield acknowledged the $10,000 time-limited BI demand in writing on 07/22; acceptance runs to 08/21/2026. Dana Whitfield calls with $3,500: John Doe “waited two weeks,” and the MRI is “degenerative.” Atty. Thorne's written authority: restate the Limits Demand and deadline, present the record, no counter, report any offer to him the same day.",
-          prompt: "Run the call with Dana Whitfield in the Call Simulator. Before dialing, do the math check on $3,500: fee, costs, unreduced liens and John Doe's net. On the call, pause after her number and ask what data supports it; name each stall; on the gap, point only to the record: the EMS report, the Gap Explanation Record and Dr. Reyes's Causation Letter, and “degenerative” with Dr. Park's MRI language. Stay inside the written authority. Log the offer with her exact words, report it to Atty. Thorne the same day for him to convey to John Doe, and draft the 08/06 written rebuttal for his approval.",
-          tool: "Call Simulator → Adjuster: Dana Whitfield, Keystone Mutual · CMS → Notes → Case Notes · Email Workspace",
+          prompt: "Run the call with Dana Whitfield in the Call Sim. Before dialing, do the math check on $3,500: fee, costs, unreduced liens and John Doe's net. On the call, pause after her number and ask what data supports it; name each stall; on the gap, point only to the record: the EMS report, the Gap Explanation Record and Dr. Reyes's Causation Letter, and “degenerative” with Dr. Park's MRI language. Stay inside the written authority. Log the offer with her exact words, report it to Atty. Thorne the same day for him to convey to John Doe, and draft the 08/06 written rebuttal for his approval.",
+          tool: "Call Sim → Adjuster: Dana Whitfield, Keystone Mutual · CMS → Notes → Case Notes · Email Workspace",
           output: "A recorded call held inside Atty. Thorne's authority, a math check on $3,500, a logged offer in the adjuster's own words, a same-day report to Atty. Thorne, and the 08/06/2026 rebuttal drafted for his approval.",
           checkpoints: [
             "Math check before dialing: $3,500 – $1,166.67 fee – $486.75 costs = $1,846.58 against $7,965.00 of unreduced liens → $0.00 to John Doe",
@@ -6096,8 +6096,8 @@ window.CM_CASE_FLOW = {
         visual: "A five-station horizontal workflow on a navy rail, each station a cream card with an orange numbered badge and a mono date pill: ① SIGNING CALL 08/26 (a phone icon, LOGISTICS ONLY) ② SIGNING SESSION 08/28 · NOTARY · ID MATCHES “JOHN DOE” ③ TRANSMITTAL 08/28 · RELEASE + 2 WAIVERS + W-9 ④ ACKNOWLEDGED 08/31 · CHECK 0048213 ISSUES 09/01 ⑤ IOLTA 09/04 · CMS + DRIVE. Under station ②, a red-bordered note: ATTY. THORNE EXPLAINS THE RELEASE; YOU CONFIRM SIGNATURES. Under station ④, a grey question card, ADD PEACH STATE AS PAYEE?, with an arrow to ATTY. THORNE. The argument: execution is logistics done perfectly, and every legal question leaves the Case Manager's desk.",
         act: {
           scenario: "File date 08/26/2026 (Wed). Cardinal State's consent and waiver arrived today, joining Harbor Point's of 08/24. Keystone issued its Limited Release on 08/19, as Atty. Thorne approved it. Keystone wants a notarized wet-ink original, both waivers and the firm's W-9 before its check issues, within 14 days of receipt. John Doe has not seen the release yet.",
-          prompt: "Call John Doe in the Call Simulator and schedule the signing session for 08/28/2026 at the office: what to bring (government photo ID in the name “John Doe”), that he signs only before the notary, and that Atty. Thorne will go through the release with him first. Answer logistics; route every question about what a clause means to Atty. Thorne. After the session, confirm the execution requirements, upload the executed release to the CMS and his portal copy, then email the executed packet to Dana Whitfield and ask her to confirm receipt and the check date. Route her payee question. Confirm the check into trust on 09/04 and file the settlement record in the CMS and Drive.",
-          tool: "Call Simulator → Client: John Doe · Email Workspace · CMS → Doc Hub · CMS → Settlement (BI/UM) → Check Received / Disbursed",
+          prompt: "Call John Doe in the Call Sim and schedule the signing session for 08/28/2026 at the office: what to bring (government photo ID in the name “John Doe”), that he signs only before the notary, and that Atty. Thorne will go through the release with him first. Answer logistics; route every question about what a clause means to Atty. Thorne. After the session, confirm the execution requirements, upload the executed release to the CMS and his portal copy, then email the executed packet to Dana Whitfield and ask her to confirm receipt and the check date. Route her payee question. Confirm the check into trust on 09/04 and file the settlement record in the CMS and Drive.",
+          tool: "Call Sim → Client: John Doe · Email Workspace · CMS → Doc Hub · CMS → Settlement (BI/UM) → Check Received / Disbursed",
           output: "An executed, notarized Limited Release sent with both waivers and the W-9, the check confirmed into trust, and the settlement record filed in the CMS and Drive.",
           checkpoints: [
             "Signing scheduled only after both consents are in writing (08/24, 08/26/2026) and Atty. Thorne approved the release",
@@ -6114,7 +6114,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Both consents in writing (08/26/2026)", "Call John Doe to schedule the signing; log the call", "Call Simulator → Client: John Doe · CMS → Notes → Case Notes", "Session set for 08/28/2026; logistics only"],
+          ["Both consents in writing (08/26/2026)", "Call John Doe to schedule the signing; log the call", "Call Sim → Client: John Doe · CMS → Notes → Case Notes", "Session set for 08/28/2026; logistics only"],
           ["Release executed (08/28/2026)", "Confirm execution, upload it, and email the packet to Keystone", "CMS → Doc Hub · Email Workspace", "Release, both waivers and the W-9 sent 08/28; original by courier"],
           ["Keystone's check arrives (09/04/2026)", "Deposit to trust the same day; file the settlement record", "CMS → Settlement (BI/UM) → Check Received / Disbursed · CMS → Doc Hub", "$10,000.00 in IOLTA; record in the CMS and Drive"]
         ],
@@ -6705,7 +6705,7 @@ window.CM_CASE_FLOW = {
           "Pitfall: agreeing to a reduction on the phone with nothing in writing.",
           "Pitfall: making an ask outside Atty. Thorne's written authority."
         ],
-        sources: ["D3#21", "D3#22", "Newly authored: lien negotiation calls, from the Pre-Demand & Reduction File Review Protocols handout (LSH Knowledge Base, CM Training · Day 4)"],
+        sources: ["D3#21", "D3#22", "Newly authored: lien negotiation calls, from the Pre-Demand & Reduction File Review Protocols handout (📚 LSH Atlas, CM Training · Day 4)"],
         rubric: {
           ai: [["Reduction Request", 20, "Audited balance, recovery, fee, costs and other liens stated"], ["Authority", 20, "Every ask inside Atty. Thorne's written authority"], ["Payoff Letter", 20, "Full and final; no balance billing or collections"]],
           trainer: [["Negotiation ethics", 20, "True facts only; no bluff"], ["Record keeping", 20, "Names, dates and figures logged; ledger updated the same day"]]
@@ -6723,8 +6723,8 @@ window.CM_CASE_FLOW = {
         visual: "A phone-call storyboard in three frames across the slide, each a cream card with an orange numbered badge. ① THE AUDIT: a mini ledger of 34 lines with the 05/04/2026 line struck through in red, $6,290.00 → $6,105.00 in mono. ② THE CALL: a navy speech-bubble pair, CM and RIVERTON BILLING, with a small written-request chip clipped to the CM's bubble. ③ IN WRITING: a signed Payoff Letter with FULL AND FINAL SATISFACTION highlighted in orange and a green ✓ at $4,580.00 · 10/12/2026. Under frame ② a red danger callout: “A yes on the phone is not a reduction.” Bottom right, the net as a mono pill: $20,359.92.",
         act: {
           scenario: "It is 10/09/2026. Peach State has accepted $1,240.00 in writing. Riverton Spine & Rehab's final LOP ledger shows 34 lines × $185.00 = $6,290.00 for chiropractic and PT 02/24–06/05/2026. Atty. Thorne has set a target for Riverton in writing; the Reduction Request is yours to draft for his approval. No lien can be paid until it is resolved in writing.",
-          prompt: "Audit Riverton Spine & Rehab's ledger against the visit records and request a written correction before asking for anything. Draft the Reduction Request for Atty. Thorne's approval, send it once approved, then make the follow-up call to the billing manager in the Call Simulator inside his written authority: state the audited balance, the coverage-capped recovery and the math, and ask for payment in full in the interest of global resolution. The manager agrees to $4,580.00 on the call. The graded call: what you say next, and what must exist before that figure is final and the Net Sheet shows $20,359.92.",
-          tool: "Call Simulator → Billing Manager: Riverton Spine & Rehab · Email Workspace · CMS → Settlement (BI/UM) → Medical Liens / Payoffs",
+          prompt: "Audit Riverton Spine & Rehab's ledger against the visit records and request a written correction before asking for anything. Draft the Reduction Request for Atty. Thorne's approval, send it once approved, then make the follow-up call to the billing manager in the Call Sim inside his written authority: state the audited balance, the coverage-capped recovery and the math, and ask for payment in full in the interest of global resolution. The manager agrees to $4,580.00 on the call. The graded call: what you say next, and what must exist before that figure is final and the Net Sheet shows $20,359.92.",
+          tool: "Call Sim → Billing Manager: Riverton Spine & Rehab · Email Workspace · CMS → Settlement (BI/UM) → Medical Liens / Payoffs",
           output: "An audited Riverton balance of $6,105.00, an approved written request and a logged call, a signed Payoff Letter accepting $4,580.00 dated 10/12/2026, and a recomputed Net Sheet.",
           checkpoints: [
             "Ledger audited line by line: 34 billed lines against 33 documented visits (16 from 02/24 to 04/02/2026, 17 from 04/21 to 06/05/2026)",
@@ -6742,7 +6742,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["Final LOP ledger received", "Audit it and request the written correction", "Medical Records Requests · Email Workspace", "$6,105.00 confirmed in writing before any reduction is asked"],
-          ["Request approved and sent", "Make the follow-up call and log it", "Call Simulator → Billing Manager: Riverton Spine & Rehab · CMS → Notes → Case Notes", "Call logged with the ask and the answer; no figure accepted on the call"],
+          ["Request approved and sent", "Make the follow-up call and log it", "Call Sim → Billing Manager: Riverton Spine & Rehab · CMS → Notes → Case Notes", "Call logged with the ask and the answer; no figure accepted on the call"],
           ["Provider agrees to a figure", "Route it for approval, obtain the signed Payoff Letter, update both tabs", "CMS → Tasks → + Add Task · CMS → Settlement (BI/UM)", "Payoff Letter on file; net $20,359.92"]
         ],
         best: [
@@ -7220,8 +7220,8 @@ window.CM_CASE_FLOW = {
         visual: "Centre: Vance & Kettering's notice as a cream letter with a red stamp, CHARGING LIEN · $6,666.67, and beneath it their fee agreement with two signature lines: MARGARET DOE (signed) and JOHN DOE (blank, circled in orange). Left: a vertical timeline in mono pills, 02/09 LSH RETAINED · 07/20 DEMAND SERVED · 07/27 MARGARET SIGNS · 10/14 NOTICE ARRIVES. Right: three evidence cards with orange badges: ① SIGNATURE COMPARISON (RS05 · RS06) ② TIME RECORD 0.6 H ③ NO CARRIER NOTICE. Bottom: a navy CMS strip, TRUST HOLD $6,666.67 · ACTION PLAN UPDATED · DRIVE ARCHIVED, and an arrow to ATTY. THORNE · DECIDES. A red chip by the letter: NO REPLY FROM THE CM. The argument: the Case Manager builds the record; the attorney answers the lawyer.",
         act: {
           scenario: "File date 10/14/2026 (Wed). $40,000.00 is in trust; both liens are reduced in writing and disbursement is set for 10/22. Vance & Kettering Injury Law emails a notice of attorney's charging lien: retained 07/27/2026, it demands one-half of the fee, $6,666.67, asks the firm to hold the whole settlement, and wants the case manager to confirm the split by 10/16.",
-          prompt: "Log the notice on receipt and route it to Atty. Thorne the same day; send nothing to Vance & Kettering. On his instruction, place a temporary administrative hold on the disputed $6,666.67 in the CMS and update the Action Plan. Then investigate the facts in the audit workbench: retrieve the fee agreement, compare its signatures with John Doe's, cross-reference its date against the firm's engagement milestones, and audit what work the firm claims against the record. Call John Doe in the Call Simulator to ask, without opinion, whether he ever retained the firm. Deliver an objective evidentiary packet to Atty. Thorne and archive every piece of correspondence in the CMS and Drive.",
-          tool: "Call Simulator → Client: John Doe · CMS → Notes → Case Notes · CMS → Settlement (BI/UM) → Check Received / Disbursed · Action Plan Editor · CMS → Tasks → + Add Task",
+          prompt: "Log the notice on receipt and route it to Atty. Thorne the same day; send nothing to Vance & Kettering. On his instruction, place a temporary administrative hold on the disputed $6,666.67 in the CMS and update the Action Plan. Then investigate the facts in the audit workbench: retrieve the fee agreement, compare its signatures with John Doe's, cross-reference its date against the firm's engagement milestones, and audit what work the firm claims against the record. Call John Doe in the Call Sim to ask, without opinion, whether he ever retained the firm. Deliver an objective evidentiary packet to Atty. Thorne and archive every piece of correspondence in the CMS and Drive.",
+          tool: "Call Sim → Client: John Doe · CMS → Notes → Case Notes · CMS → Settlement (BI/UM) → Check Received / Disbursed · Action Plan Editor · CMS → Tasks → + Add Task",
           output: "A logged and routed notice, a $6,666.67 hold, an evidentiary packet on Atty. Thorne's desk, and the correspondence archived in the CMS and Drive.",
           checkpoints: [
             "Notice logged 10/14/2026 on receipt and routed to Atty. Thorne the same day; nothing sent to Vance & Kettering",
@@ -7237,7 +7237,7 @@ window.CM_CASE_FLOW = {
         },
         ops: [
           ["A notice of charging lien arrives (10/14/2026)", "Log it on receipt; route to Atty. Thorne; on his instruction, hold the disputed amount", "CMS → Notes → Case Notes · CMS → Tasks → + Add Task · CMS → Settlement (BI/UM) → Check Received / Disbursed", "Routed the same day; $6,666.67 on hold; nothing sent to the claiming firm"],
-          ["Investigation (10/15/2026)", "Compare signatures, cross-reference dates, audit the work, take John Doe's account", "CMS → Doc Hub · Call Simulator → Client: John Doe", "Each finding tied to a document on the file"],
+          ["Investigation (10/15/2026)", "Compare signatures, cross-reference dates, audit the work, take John Doe's account", "CMS → Doc Hub · Call Sim → Client: John Doe", "Each finding tied to a document on the file"],
           ["Packet delivered", "Deliver the evidentiary packet; update the Action Plan; archive everything", "CMS → Tasks → + Add Task · Action Plan Editor · CMS → Doc Hub", "Atty. Thorne repudiates 10/16; withdrawal 10/19; hold released by him"]
         ],
         best: [
@@ -8052,8 +8052,8 @@ window.CM_CASE_FLOW = {
          visual: "A horizontal date rail across the slide from 01/08/2027 to 03/31/2027, the Notice of Mediation as a navy pin at the left edge and the Scheduling Order's red COMPLETED BY 03/31/2027 flag at the right. One large navy session card sits on 03/18/2027 (Thu) · 9:30 a.m. with four attendee chips (ATTY. THORNE · JOHN DOE · CM — LOGISTICS · KEYSTONE — FULL AUTHORITY?). Orange backward arrows run left from it to 03/11/2027 (STATEMENT + BINDER) and on to 03/09, 03/04 and 03/02/2027, each a blank mono pill for the trainee to fill. Below the rail, a grey conflict lane holds the master calendar's own entries (01/13/2027 · 03/15/2027 · 05/28/2027) with one amber overlap marker between 03/11 and 03/18. In the top-right corner, two small cards: a money card, PLAINTIFF'S HALF $1,200.00 → CASE COST, and a red flag card, UM CONSENT BEFORE ANY BI RELEASE → ATTY. THORNE. The argument: one notice, a dozen dates, each counted from its own trigger.",
          act: {
            scenario: "File date 01/08/2027 (Fri), Track B. Today the Notice of Mediation was filed in No. 26-CV-04417: court-ordered mediation before Hon. Carla Benton (Ret.), selected by Atty. Thorne from the four windows collected 12/17/2026, on 03/18/2027 (Thu) at 9:30 a.m. at her office. The confidential statement and binder are due 7 days before; client attendance is required. The Order of Referral entered 12/10/2026 with the Scheduling Order requires mediation completed by 03/31/2027, a notice of the mediator and session date within 30 days, attendance by each party, lead counsel and an insurer's representative with full authority to settle, the mediator's report within 7 days after the session, and the mediator's fees divided equally between the sides; the plaintiff's half is $1,200.00. The 12/10/2026 calendar audit already entered “completed by 03/31/2027” and a task to collect the windows. Harbor Point's and Cardinal State's policies each require their written consent before any settlement with Keystone. On the master calendar: Robert Smith's responses to our discovery due 01/13/2027; plaintiff's expert disclosure 03/15/2027; discovery closes 05/28/2027.",
-           prompt: "Calendar the mediation in the Calendaring Simulators and mirror every entry to John Doe's CMS → Calendar. Verify the trigger first: the notice against the order's 30-day selection rule, and the session date against the 03/31/2027 completion deadline, linking to the existing deadline and closing the windows task rather than re-entering either. Enter the session with its attendees and its location. Count the statement-and-binder deadline back from the session, then the internal dates back from that deadline, then the mediator's report forward from the session. Calendar the client's written confirmation, his prep meeting request and his reminders. Track the $1,200.00 fee as a case cost. Flag the UM carriers' consent-to-settle requirement for Atty. Thorne with the 30-day arithmetic. Conflict-check every new date against the master calendar and route the summary to Atty. Thorne the same day, ranking what needs his decision.",
-           tool: "Calendaring Simulators · CMS → Calendar · Court E-Filing · CMS → Tasks · CMS → Notes → Case Notes",
+           prompt: "Calendar the mediation in the Calendaring Sims and mirror every entry to John Doe's CMS → Calendar. Verify the trigger first: the notice against the order's 30-day selection rule, and the session date against the 03/31/2027 completion deadline, linking to the existing deadline and closing the windows task rather than re-entering either. Enter the session with its attendees and its location. Count the statement-and-binder deadline back from the session, then the internal dates back from that deadline, then the mediator's report forward from the session. Calendar the client's written confirmation, his prep meeting request and his reminders. Track the $1,200.00 fee as a case cost. Flag the UM carriers' consent-to-settle requirement for Atty. Thorne with the 30-day arithmetic. Conflict-check every new date against the master calendar and route the summary to Atty. Thorne the same day, ranking what needs his decision.",
+           tool: "Calendaring Sims · CMS → Calendar · Court E-Filing · CMS → Tasks · CMS → Notes → Case Notes",
            output: "A mediation calendar of verified, trigger-counted entries mirrored to the CMS, a cost task for the fee, a client-confirmation task, and a same-day summary to Atty. Thorne with the UM consent flag and the one conflict.",
            checkpoints: [
              "The trigger is verified: the Notice of Mediation filed 01/08/2027 (Fri) meets the order's 30-day rule (12/10/2026 + 30 = 01/09/2027, a Saturday); the 12/10/2026 windows task closed with the notice attached, not re-created",
@@ -8067,14 +8067,14 @@ window.CM_CASE_FLOW = {
              "Fee tracked as a cost: the order divides fees equally, so $1,200.00 is half of $2,400.00; costs advanced $486.75 + $218.00 + $285.00 = $989.75 → $2,189.75 once paid; routed to accounting, posted only on the receipted invoice",
              "UM flag: Harbor Point and Cardinal State each require written consent before any BI settlement, with 30 days from written notice to consent or advance; a tentative settlement noticed 03/18/2027 runs to 04/17/2027 (Sat); routed to Atty. Thorne as a question, no carrier contacted",
              "Conflict check: plaintiff's expert disclosure 03/15/2027 (Mon) falls between binder delivery and the session, flagged as a workload overlap; 01/13/2027 and 05/28/2027 clear; no conflict on 03/18/2027",
-             "Every entry carries its trigger, rule, arithmetic, owner and alerts in the Calendaring Simulators and the CMS → Calendar; the summary routed to Atty. Thorne on 01/08/2027"
+             "Every entry carries its trigger, rule, arithmetic, owner and alerts in the Calendaring Sims and the CMS → Calendar; the summary routed to Atty. Thorne on 01/08/2027"
            ]
          },
          ops: [
            [
              "Notice of Mediation filed 01/08/2027",
              "Verify the trigger; enter the session; close the windows task",
-             "Calendaring Simulators · CMS → Calendar",
+             "Calendaring Sims · CMS → Calendar",
              "Session 03/18/2027 entered once; 30-day rule and 03/31/2027 verified"
            ],
            [
@@ -8253,7 +8253,7 @@ window.CM_CASE_FLOW = {
           ]
         },
         ops: [
-          ["Order requires mediation by 03/31/2027", "Collect 3–4 windows from Atty. Thorne, John Doe and opposing counsel, then contact the mediator's office", "Calendaring Simulators", "Windows logged before the mediator is contacted; session inside 03/31/2027"],
+          ["Order requires mediation by 03/31/2027", "Collect 3–4 windows from Atty. Thorne, John Doe and opposing counsel, then contact the mediator's office", "Calendaring Sims", "Windows logged before the mediator is contacted; session inside 03/31/2027"],
           ["Opposing counsel rejects every window", "Log the pushback; escalate for an attorney-to-attorney call", "CMS → Tasks → + Add Task", "Logged and escalated the same day"],
           ["Arbitrator's fee schedule and retainer request received", "Confirm the schedule; route the retainer to accounting; send internal invites", "CMS → Tasks → + Add Task · CMS → Calendar", "Payment confirmed in writing before the hearing"],
           ["Directive from the bench", "Log it as given; calendar it; memo Atty. Thorne", "CMS → Notes → Case Notes · CMS → Calendar", "Directive dated and calendared the same day"]
@@ -8367,7 +8367,7 @@ window.CM_CASE_FLOW = {
          act: {
            scenario: "File date 04/26/2027 (Mon), Track B. Keystone tendered its $10,000 BI limits at the 03/18/2027 mediation and Robert Smith was dismissed. On 04/05/2027 Harbor Point invoked its UM arbitration clause, and on 04/12/2027 Cardinal State disputed damages in writing and joined one consolidated binding arbitration before Laura Whitcomb, Esq.; Atty. Thorne has answered the route and consolidation questions, and the hearing, exhibit and brief entries drafted on 04/05/2027 wait for a trigger document. This morning her scheduling letter arrived: hearing 06/22/2027 (Tue), 9:00 a.m.; exhibits and witness lists exchanged 20 days before; briefs due 10 days before (as configured for this training file; confirm the forum's rules). The plaintiff's share of her fee is $900.00. The master calendar still carries the 12/10/2026 Scheduling Order's dates in No. 26-CV-04417 and the SOL entries.",
            prompt: "Calendar the arbitration from the letter. Enter the hearing and re-anchor the exchange and brief entries to it. Then compute every date that hangs off them, each from its trigger with the rule shown (backward counts move to the earlier business day): the Litigation Desk's draft exhibit index and the opening of binder QC, the certified-records requests and their chase, John Doe's attendance, witness availability, the prep session and the technology check. Route the $900.00 fee share to accounting as a case cost. Finally, check the result against the master calendar: keep the SOL entries, and for the court's dates in the dismissed suit ask Atty. Thorne in writing which stay live, rather than deleting anything.",
-           tool: "Calendaring Simulators · Court E-Filing · CMS → Calendar · CMS → Tasks",
+           tool: "Calendaring Sims · Court E-Filing · CMS → Calendar · CMS → Tasks",
            output: "A letter-anchored arbitration calendar with every dependent date, its trigger, rule, arithmetic, owner and alerts, the fee share routed as a cost, and one written question to Atty. Thorne on the court dates.",
            checkpoints: [
              "The trigger is recorded: Laura Whitcomb, Esq.'s scheduling letter of 04/26/2027 (Mon); the hearing, exchange and brief entries drafted on 04/05/2027 re-anchored to it and verified, not entered twice",
@@ -8394,7 +8394,7 @@ window.CM_CASE_FLOW = {
            [
              "Hearing date fixed",
              "Count back binder QC, records requests and the prep holds",
-             "Calendaring Simulators",
+             "Calendaring Sims",
              "05/03, 05/14, 05/17, 06/15 and 06/21/2027, each with its rule"
            ],
            [
@@ -10040,7 +10040,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 12/10/2026. Leah Moran (Keystone PD) emails Keystone's final position on the Civic: $792.00 for Diminished Value and $0 for Loss of Use. Her attached release, for Margaret Doe to sign as the Civic's owner, covers “all claims arising from the 02/06/2026 accident” and payment issues once it is signed; she will call this afternoon. John Doe's suit is in discovery, and Atty. Thorne wants to know what, if anything, this changes for John.",
           prompt: "Sort Keystone's position item by item: the release, the Diminished Value figure, the Loss of Use figure, the photos and estimates already in John Doe's severity set, and the rental dates. For each, decide whether it reaches John Doe's settlement or stays on Margaret Doe's PD file, and say why in one line. Check the release's scope and claim number, hold it and route it to Atty. Thorne. Confirm the severity set and the rental dates match the PD file. Take Leah Moran's call without accepting, rejecting or countering anything. Close with a short memo to Atty. Thorne that ends in one line: does this PD outcome touch John Doe's case, and how?",
-          tool: "CMS → Notes → Case Notes · CMS → Doc Hub · Call Simulator → Adjuster: Leah Moran, Keystone Mutual (PD) · CMS → Tasks → + Add Task",
+          tool: "CMS → Notes → Case Notes · CMS → Doc Hub · Call Sim → Adjuster: Leah Moran, Keystone Mutual (PD) · CMS → Tasks → + Add Task",
           output: "A short memo to Atty. Thorne sorting each PD outcome, the release held and routed, the severity set confirmed, and the call logged.",
           checkpoints: [
             "Release flagged: Margaret Doe's release reaches “all claims arising from the 02/06/2026 accident”, not only Property Damage; routed to Atty. Thorne the same day, and John Doe signs nothing",
@@ -10057,7 +10057,7 @@ window.CM_CASE_FLOW = {
         ops: [
           ["Keystone's final PD position arrives with a release", "Sort each outcome; hold the release", "CMS → Notes → Case Notes", "Each outcome sorted with its reason"],
           ["Release language reaches “all claims”", "Route it to Atty. Thorne the same day", "CMS → Tasks → + Add Task", "Escalated; nobody asked to sign"],
-          ["Leah Moran calls for an answer", "Log her words; say it is with Atty. Thorne", "Call Simulator · CMS → Notes → Case Notes", "No figure accepted, rejected or countered"]
+          ["Leah Moran calls for an answer", "Log her words; say it is with Atty. Thorne", "Call Sim · CMS → Notes → Case Notes", "No figure accepted, rejected or countered"]
         ],
         best: [
           "Lead the memo to Atty. Thorne with the decision he must make, then the sort (Decision First).",
@@ -10237,8 +10237,8 @@ window.CM_CASE_FLOW = {
         visual: "A video-call frame fills the left two-thirds: John Doe's tile large, the trainee's tile beside it, and Atty. Thorne's tile small in the corner with a LISTENING tag. Under the frame, a segment agenda bar of five orange-numbered chips: ① LOGISTICS ② CALM ③ GUIDELINES → ATTY. THORNE ④ DRESS & DEMEANOR ⑤ IN-ROOM RULES. Right third: a cream card headed ROUTED TO ATTY. THORNE with five empty lines and mono tags GAP · DISRUPTION · SEATBELT · 2021 VISITS · MRI, which fill as John asks. A red-bordered callout across the bottom: “Answer the process. Route the substance.” The argument: the routing card fills up, and the trainee's answers to it stay empty.",
         act: {
           scenario: "File date 02/04/2027, Track B. John Doe was reached through Margaret yesterday after going dark on 01/22/2027; he has a new phone number. His deposition is noticed for 02/18/2027, 10:00 a.m., by videoconference with Riverton Court Reporting. He is anxious and expects a TV cross-examination. Atty. Thorne opens the prep session, hands you the first segment while he listens, and takes the substance after you.",
-          prompt: "Run your segment of John's first prep session in the Call Simulator. Confirm his new number with Margaret as backup, the deposition logistics, and a 02/16/2027 test call on the device and in the room he will use. Explain the setting (Pillar 1), what to wear and how the room works (Pillar 3 and the in-room rules) in plain words, and have the document set ready; Pillar 2, the testimony habits and any practice questions, is Atty. Thorne's segment, never yours. John will ask what to say about the gap, the missed April therapy, the seatbelt, his 2021 chiropractor visits and the MRI: recognise each as substance, answer none, and log each in his words for Atty. Thorne. Have Atty. Thorne's chosen gap set ready to share for his segment. Calm John with the process, never a prediction.",
-          tool: "Call Simulator → John Doe (deposition prep session) · CMS → Tasks → + Add Task",
+          prompt: "Run your segment of John's first prep session in the Call Sim. Confirm his new number with Margaret as backup, the deposition logistics, and a 02/16/2027 test call on the device and in the room he will use. Explain the setting (Pillar 1), what to wear and how the room works (Pillar 3 and the in-room rules) in plain words, and have the document set ready; Pillar 2, the testimony habits and any practice questions, is Atty. Thorne's segment, never yours. John will ask what to say about the gap, the missed April therapy, the seatbelt, his 2021 chiropractor visits and the MRI: recognise each as substance, answer none, and log each in his words for Atty. Thorne. Have Atty. Thorne's chosen gap set ready to share for his segment. Calm John with the process, never a prediction.",
+          tool: "Call Sim → John Doe (deposition prep session) · CMS → Tasks → + Add Task",
           output: "A delivered prep segment, a logistics record, and John's substantive questions routed to Atty. Thorne in John's own words.",
           checkpoints: [
             "New phone number updated in CMS → Parties Involved; Margaret Doe confirmed as the backup contact",
@@ -10380,7 +10380,7 @@ window.CM_CASE_FLOW = {
         act: {
           scenario: "File date 02/16/2027, Track B, the second prep session. Atty. Thorne runs a mock cross-examination: AI defense counsel, playing Atty. Grant Mercer, questions John Doe while Atty. Thorne defends and objects. Your microphone is muted. Atty. Thorne debriefs John from your log when the mock ends.",
           prompt: "Keep the Trap Log for Atty. Thorne's debrief while the mock runs. For each trap, log the timestamp, the question in Mercer's words, its category (background, crash, medical history, daily life), the trap type (the “Is that all?” trap, a compound question, “degenerative”, the gap mischaracterised, the seatbelt, the 2021 prior, the silent stare) and the Golden Rules John kept or broke. Beside every mischaracterisation, put the record fact and its source. Log each objection and whether John stopped talking. Coach nothing, during the mock or after it: route the log to Atty. Thorne. The log is for Atty. Thorne alone; nothing in it goes to John.",
-          tool: "Call Simulator → AI defense counsel: Atty. Grant Mercer (mock cross-examination, led by Atty. Thorne) · CMS → Litigation → Discovery & Filing Tracker",
+          tool: "Call Sim → AI defense counsel: Atty. Grant Mercer (mock cross-examination, led by Atty. Thorne) · CMS → Litigation → Discovery & Filing Tracker",
           output: "A timestamped Trap Log, scored against the seven Golden Rules, routed to Atty. Thorne before his debrief.",
           checkpoints: [
             "All six assigned traps logged: “Is that all?”, compound, “degenerative”, gap mischaracterised, seatbelt, 2021 prior (and the silent stare, if Mercer uses it)",
