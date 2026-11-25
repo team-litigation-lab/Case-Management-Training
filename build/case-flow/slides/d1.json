@@ -36,7 +36,7 @@
     "image": "data-entry",
     "situation": "02/09/2026. The raw file is in and a colleague keyed **a draft intake record** into the CMS. Atty. Thorne wants the matter **active today**.",
     "steps": [
-      "Press 🚀 Launch CMS & Google Drive, then open John Doe's matter in the CMS under New Case.",
+      "Press 🚀 Launch LSH CaseWorks & Google Drive, then open John Doe's matter in the CMS under New Case.",
       "Before anything else, run the **Conflict Check** on every party's full legal name and log the result in the CMS.",
       "Check each field of the draft intake record against its source document: date of loss, names and roles, John Doe's position, date of birth and report number.",
       "Correct every error you find and write in Case Notes which document proves it. Never change a field silently.",
@@ -64,7 +64,7 @@
     "image": "documents-audit",
     "situation": "02/09/2026, 4:30 p.m. John Doe's matter is **active in the CMS**, and nothing is on **the firm's backup drive** yet.",
     "steps": [
-      "Press 🚀 Launch CMS & Google Drive. Not linked yet? Paste your folder's link in the **Backup Drive panel**.",
+      "Press 🚀 Launch LSH CaseWorks & Google Drive. Not linked yet? Paste your folder's link in the **Backup Drive panel**.",
       "In Google Drive, build 01 Clients by hand, holding Doe-John with its nine numbered folders.",
       "Add 02 Firm Administration with its two folders, then 03 Templates and 04 Closed Files, named as the standard shows.",
       "In 📂 My Backup Drive, submit the folders, fix what it returns, and run **✓ Check my drive** until clean.",

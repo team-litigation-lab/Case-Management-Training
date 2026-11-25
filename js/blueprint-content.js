@@ -14,7 +14,7 @@ window.LSH_BLUEPRINT = {
       { icon: '👋', title: 'Welcome to the program', points: [
           'Five days to work like a confident, organized Case Manager — the 5-Day Legal Case Management Flow, built around one realistic file, John Doe VS Robert Smith, from intake to deposition.',
           'Learn: short lessons, each followed straight away by a Skill Activity on the live file.',
-          'Practice: hands-on Skill Activities, live calls and the CMS.',
+          'Practice: hands-on Skill Activities, live calls and 🗂 LSH CaseWorks.',
           'Prove: a Knowledge Check each day — and a certificate at the end.',
           "You'll need Chrome or Edge on a computer, a headset with a microphone for the live calls, and a stable connection."],
         where: 'The portal opens from the LSH Training Portal; your dashboard is where you land.',
@@ -114,7 +114,7 @@ window.LSH_BLUEPRINT = {
     slides: [
       { icon: '🔑', title: 'Signing in as a trainer', points: [
           'Admin sign-in with the admin password. The server checks it, and every request after it needs your signed session.',
-          'Your top bar adds 🧭 Orientation, the Facilitator Guide, 👁 Trainee view and 🏠 Main Portal (back to the Training Portal\'s Training Directory).',
+          'Your top bar adds 🧭 Orientation, the Facilitator Guide, 👁 Trainee view and 🏠 Main Portal (back to the Training Portal\'s 🎓 LSH Academy Index).',
           'Admin is your trainer dashboard, in three sections: 🏅 Scorecard (📋 Batch Sheet, 🏅 Scorecards), 🛡 Admin Master Control (👥 Trainee Audit, 📁 Companion Cases, 💬 Trainee Feedback, 🎲 Random Tasks, ⚙ Settings, 📋 SOP Reference, ✏️ Content Studio) and 🔓 Open Lessons (with 📋 Activities and 🗣 Feedback Style). Attendance is on the Main Portal.',
           'Every day is open to you, so you can preview it before you teach it.'],
         where: 'Admin sign-in · Admin in the top bar.',

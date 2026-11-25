@@ -652,15 +652,15 @@ window.cmCaseFlow.artReplay = (el) => { el.classList.remove("cfa-on"); void el.o
    step's live call. The Drafting Tools (LOR, HIPAA, Med Provider) stay out: they're standalone exercises on
    their own assigned cases, never linked to a case file. */
 const TOOLKIT = [
-  {id: "cms", icon: "🗂", short: "CMS", name: "the CMS", re: /\bCMS\b|Case File|Case Notes|Case Summary|Communications Log|Financial Ledger|Lien Tracker|Net Sheet|Recovery Ledger|Insurance tab|\bTasks\b|\bLiens\b|Parties|\bCalendar\b(?! Conflict)|Documents →|Doc Hub|Settlement \(BI\/UM\)/},
-  {id: "call", icon: "📞", short: "Call Simulator", name: "the Call Simulator", re: /Call Simulator|\bcall(s|ed)? (John|Margaret|Dana|the adjuster|the client)\b/i},
+  {id: "cms", icon: "🗂", short: "LSH CaseWorks", name: "LSH CaseWorks", re: /\bCMS\b|Case File|Case Notes|Case Summary|Communications Log|Financial Ledger|Lien Tracker|Net Sheet|Recovery Ledger|Insurance tab|\bTasks\b|\bLiens\b|Parties|\bCalendar\b(?! Conflict)|Documents →|Doc Hub|Settlement \(BI\/UM\)/},
+  {id: "call", icon: "📞", short: "Call Sim", name: "the Call Sim", re: /Call Sim(ulator)?\b|\bcall(s|ed)? (John|Margaret|Dana|the adjuster|the client)\b/i},
   {id: "netsheet", icon: "📊", short: "Net Sheet", name: "the LSH Net Sheet", re: /Net Sheet|Lien Tracker|Recovery Ledger|Specials ledger|Financial Ledger → Specials|Medical Liens \/ Payoffs|Gross Settlement|Total Medical Specials|Settlement \(BI\/UM\)(?! →)/},
   {id: "email", icon: "✉️", short: "Email", name: "the Email Workspace", re: /Email Workspace/},
   {id: "replies", icon: "📨", short: "Replies", name: "Email Replies", re: /Email Replies/},
   {id: "records", icon: "🩺", short: "ChartSwap", name: "ChartSwap (the Medical Records Requests platform)", re: /ChartSwap|Medical Records Requests?/},
   {id: "efiling", icon: "🏛", short: "E-Filing", name: "Court E-Filing", re: /E-Filing|Docket System/},
   {id: "calendar", icon: "◫", short: "Conflicts", name: "the Calendar Conflict Resolver", re: /Calendar Conflict Resolver/},
-  {id: "calendaring", icon: "🗓", short: "Calendaring", name: "the Calendaring Simulators", re: /Calendaring Simulators?/},
+  {id: "calendaring", icon: "🗓", short: "Calendaring", name: "the Calendaring Sims", re: /Calendaring Sim(ulator)?s?\b/},
   {id: "plan", icon: "📝", short: "Action Plan", name: "your Action Plan", re: /Action Plan Editor|action plan/i},
   {id: "docs", icon: "📁", short: "Documents", name: "the Case Documents", re: /Case Documents/},
   {id: "lor", icon: "📄", short: "LOR Drafting", name: "LOR Drafting (John Doe VS Robert Smith)", re: /\bLORs?\b|Letters? of Representation/},
@@ -920,7 +920,7 @@ function slideBody(view, l, d){
         </div></div>`;
     }
     case "task": {   /* Your Task, the activity's one slide (js/cm-sb-task.js styles it and draws its Launch button): 📂 Your Case, the
-         assumption or what just landed, in a line or two; the steps; then one bar with three buttons: 🚀 Launch CMS & Google
+         assumption or what just landed, in a line or two; the steps; then one bar with three buttons: 🚀 Launch LSH CaseWorks & Google
          Drive, 🧰 Tools ▾ (everything else the task is done with: the Action Plan Editor, the live call, the service
          confirmation, the Amendment Requests, the Notes & Action Plan, the Source Files, a side exercise's document audit,
          a trainer's ⚡ Inject) and Submit →, which turns this slide into the 🤖 AI Grader (js/cm-ai-grader.js). What the
@@ -1069,7 +1069,7 @@ window.cmCaseFlow.inject = function(dayId, i){
 const RING_FOR = 10 * 60 * 1000, RING_SECS = 60;
 function ringBtn(dayId, b){
   if(!b || !SIM.calls[b.id] || !trainerOnly()) return "";
-  return `<div class="cfx-ringrow"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.ring(${dayId},'${b.id}')">📞 Ring every trainee now: ${E(SIM.calls[b.id].who)}</button><small>Rings their LSH Ring Channel for ${RING_SECS} seconds; answered or missed, it's on their Scorecard.</small></div>`;
+  return `<div class="cfx-ringrow"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.ring(${dayId},'${b.id}')">📞 Ring every trainee now: ${E(SIM.calls[b.id].who)}</button><small>Rings their LSH Voice for ${RING_SECS} seconds; answered or missed, it's on their Scorecard.</small></div>`;
 }
 window.cmCaseFlow.ring = async function(dayId, blockId){
   const c = SIM.calls[blockId]; if(!c || typeof sharedSet !== "function") return;
@@ -1111,7 +1111,7 @@ function ring(r){
   if(document.getElementById("cfRing")) return;
   const o = document.createElement("div"); o.id = "cfRing"; o.className = "cf-ring"; o.setAttribute("role", "alertdialog"); o.setAttribute("aria-label", "Incoming call");
   let left = RING_SECS;
-  o.innerHTML = `<div class="cf-ring-box"><div class="cf-ring-ic" aria-hidden="true">📞</div><p class="cf-ring-k">Incoming call · LSH Ring Channel</p><h3>${E(r.who)}</h3>
+  o.innerHTML = `<div class="cf-ring-box"><div class="cf-ring-ic" aria-hidden="true">📞</div><p class="cf-ring-k">Incoming call · ☎ LSH Voice</p><h3>${E(r.who)}</h3>
     <p class="cf-ring-on">On John Doe's file · <span class="cf-ring-t">${left}s</span></p>
     <div class="cf-ring-btns"><button type="button" class="btn cf-ring-no">Decline</button><button type="button" class="btn cf-ring-yes">📞 Answer</button></div>
     <small>Answered or missed, this call is logged on your file and your Scorecard.</small></div>`;
@@ -2239,7 +2239,7 @@ function npParts(blockId){
   const n = notesOf(blockId), r = npRec(blockId);
   return [{k: "tx", label: "Transcribe the voicemail", done: !!r.txAt}, {k: "plan", label: "Write your action plan", done: !!r.planAt}]
     .concat((n.emails || []).map(e => ({k: "mail-" + e.id, label: e.title.replace(/^Email Simulator — /, "Email "), done: !!npMail(r, e.id).sent})))
-    .concat(n.call ? [{k: "call", label: n.call.title.replace(/ \(Call Simulator\)$/, ""), done: !!(REC.calls || {})[blockId]}] : []);
+    .concat(n.call ? [{k: "call", label: n.call.title.replace(/ \(Call Sim(ulator)?\)$/, ""), done: !!(REC.calls || {})[blockId]}] : []);
 }
 function npCard(blockId){
   const n = notesOf(blockId), parts = npParts(blockId), r = npRec(blockId);
@@ -4177,7 +4177,7 @@ function caseFlowProfile(){
         <div class="cf-file-who"><p class="eyebrow">Case Profile</p><h1>📇 ${E(c.style)}</h1>
           ${ext.head ? ext.head() : `<div class="cf-client"><span class="cf-client-k">📌 Your Client</span><b>${E(c.client.name)}</b><span>Matter ${E(c.no)} · Lead Counsel ${E(c.counsel)}</span></div>`}</div>
       </div>
-      <p class="cf-note">${isTrainer() ? `The whole file, as you know it: the key tabs are the answers, and trainees never see them.${DATES ? ` 📅 Case year ${E(DATES.year)} (collision ${E(DATES.dol())}); each trainee keeps the year they started on.${DATES.preview ? ` <b>Preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end it</a>.` : ""}` : ""}` : "Meet John Doe first, then follow your case in 📅 So Far. The file itself is in 📁 Case Documents, and the case you build is in the 🗂 CMS."}</p>${dolNote()}</section>
+      <p class="cf-note">${isTrainer() ? `The whole file, as you know it: the key tabs are the answers, and trainees never see them.${DATES ? ` 📅 Case year ${E(DATES.year)} (collision ${E(DATES.dol())}); each trainee keeps the year they started on.${DATES.preview ? ` <b>Preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end it</a>.` : ""}` : ""}` : "Meet John Doe first, then follow your case in 📅 So Far. The file itself is in 📁 Case Documents, and the case you build is in 🗂 LSH CaseWorks."}</p>${dolNote()}</section>
     ${fileTabs(shown, pos)}
 </div>`;
 }
@@ -4368,7 +4368,7 @@ async function backupDoc(btn, id){
       const st = window.CMDrive && CMDrive.status ? CMDrive.status() : null, ruled = !!(window.CMDrive && CMDrive.naming && CMDrive.naming());
       toast(!st || !st.configured || !st.connected || !st.built ? "Your Backup Drive isn't set up yet. Link it, then try again."
         : !ruled ? "The firm's naming convention hasn't loaded yet. Open 📂 My Backup Drive, then try again."
-        : "Open your case in the CMS first (🗂 Open CMS): the backup copy is named with its Case ID, the firm's way.");
+        : "Open your case in the CMS first (🗂 Open LSH CaseWorks): the backup copy is named with its Case ID, the firm's way.");
       return; }
     const out = await cmDocFiling.keepOnDrive(d.folder, name, await r.arrayBuffer(), d.id);
     if(out && out.ok){ btn.textContent = "✓ In GDrive"; toast(`Backed up to your Drive under ${String(out.folder).split("/").pop()} as ${name}.`); return; }
@@ -4457,7 +4457,7 @@ function caseFlowPractice(){
     `<button class="btn btn-ghost btn-sm" onclick="goto('casedocs')">📁 Case Documents</button>`,
     typeof rpLaunchQuickPractice === "function" ? `<button class="btn btn-ghost btn-sm" onclick="rpLaunchQuickPractice()">🎲 Quick roleplay call</button>` : "",
     typeof openTool === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openTool('cms',null,'library=1')">📚 CMS Training Library</button>` : "",
-    typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS</button>` : ""].join("");
+    typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open LSH CaseWorks</button>` : ""].join("");
   // one screen: a single header line, the day tabs, then the day's tiles; the any-day links ride in the header
   return `<div class="cf-px-page"><div class="cf-px-head"><h1>🧪 Practice <span>The Case Flow Skill Activities, on ${E(CF.case.style)}: each opens on its slide.</span></h1><div class="cf-px-any">${any}</div></div>
     ${tabs}
@@ -5334,7 +5334,7 @@ main:has(.cf-kc-result) #answerFeedback{max-width:none;}
 .cf-ans-pick{font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .cf-ans-right{margin-top:3px;color:#1E6B43;font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 @media (max-width:900px){.cf-ans-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
-/* Case Documents: the Case File / Documents switch sits under the page's intro (no Open CMS: the slides send trainees to
+/* Case Documents: the Case File / Documents switch sits under the page's intro (no Open LSH CaseWorks: the slides send trainees to
    the CMS), so the copy js/lsh-topbar.js puts at the top of the page is hidden there */
 main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is wrapped, so js/lsh-topbar.js leaves it alone) */
 /* the Admin screen: a solid, full-width panel over the photo (as Foundational's js/ft-admin-tidy.js) */

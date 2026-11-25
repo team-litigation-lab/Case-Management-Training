@@ -762,7 +762,7 @@ A horizontal calendar ribbon from 04/26/2027 to 06/22/2027. At the right end a s
 
 | | |
 |---|---|
-| **Tool / interface** | Calendaring Simulators · Court E-Filing · CMS → Calendar · CMS → Tasks |
+| **Tool / interface** | Calendaring Sims · Court E-Filing · CMS → Calendar · CMS → Tasks |
 | **Expected output** | A letter-anchored arbitration calendar with every dependent date, its trigger, rule, arithmetic, owner and alerts, the fee share routed as a cost, and one written question to Atty. Thorne on the court dates. |
 
 **Verification checkpoints**

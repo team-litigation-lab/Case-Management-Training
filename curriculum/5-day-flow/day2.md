@@ -590,7 +590,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 ### 2.1.8 Probe the 14-Day Treatment Gap with AI John Doe
 
 > **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with UPL & Investigation Review (`d2m3`)  
-> **Topic:** Skill Activity 1 — Call Simulator: the 14-Day Gap, in his words  
+> **Topic:** Skill Activity 1 — Call Sim: the 14-Day Gap, in his words  
 > **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
 > **Theory extracted from:** `D1#44` Handling Treatment Gaps During the Treatment Phase · `D1#28` Treatment Phase: Essential Client Communication Strategies · `D1#29` Handling the Treatment Phase: Clinical Documentation (GIRP) · LSH Claims Specialist: communication skills and professionalism — clarity without jargon, empathy, active listening, paraphrasing, calm reassurance · Newly authored: non-leading investigative interview technique (the funnel); recording consent and privilege on a client call
 
@@ -606,7 +606,7 @@ A call-simulator screen across the left two-thirds: a navy header bar reading AI
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI John Doe (recorded call) · CMS → Notes → Case Notes · Tasks |
+| **Tool / interface** | Call Sim → AI John Doe (recorded call) · CMS → Notes → Case Notes · Tasks |
 | **Expected output** | A consented, privileged recording with all four reasons in John Doe's own words, a same-day GIRP note, and a dated task for every corroborating document. |
 
 **Show Them — reference model**
@@ -677,7 +677,7 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 2) and that day'
 
 #### 1 · Visual Layout Description
 
-A two-pane Call Simulator screen. Left pane: the session transcript as alternating bubbles, navy for AI ATTY. ELIJAH THORNE and cream for the trainee; two of his bubbles are outlined in orange as challenges: “Keystone will call this low-speed” and “Why should they pay for a gap?” Right pane: a DECISION RECORD card filling as the session runs, rows with orange numbered badges — ① BI DEMAND · TIME-LIMITED · SERVE 07/20/2026 ② GAP · UP FRONT ③ UM · CONSENT PLAN ④ BILLED OR PAID — each stamped DECIDED BY ATTY. THORNE with a task chip. A red strip along the bottom: “The CM recommends operations. Counsel decides.”
+A two-pane Call Sim screen. Left pane: the session transcript as alternating bubbles, navy for AI ATTY. ELIJAH THORNE and cream for the trainee; two of his bubbles are outlined in orange as challenges: “Keystone will call this low-speed” and “Why should they pay for a gap?” Right pane: a DECISION RECORD card filling as the session runs, rows with orange numbered badges — ① BI DEMAND · TIME-LIMITED · SERVE 07/20/2026 ② GAP · UP FRONT ③ UM · CONSENT PLAN ④ BILLED OR PAID — each stamped DECIDED BY ATTY. THORNE with a task chip. A red strip along the bottom: “The CM recommends operations. Counsel decides.”
 
 #### 2 · Slide Body — the scenario and the task
 
@@ -687,7 +687,7 @@ A two-pane Call Simulator screen. Left pane: the session transcript as alternati
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI Atty. Elijah Thorne (strategy session) · CMS → Notes → Case Notes · CMS → Tasks |
+| **Tool / interface** | Call Sim → AI Atty. Elijah Thorne (strategy session) · CMS → Notes → Case Notes · CMS → Tasks |
 | **Expected output** | A recorded strategy session and a dated decision record, each decision attributed to Atty. Thorne with its tasks and owners. |
 
 **Verification checkpoints**
@@ -817,11 +817,11 @@ A call-simulator screen across two-thirds of the slide: a navy header bar readin
 
 **Scenario.** File date 08/05/2026. Dana Whitfield acknowledged the $10,000 time-limited BI demand in writing on 07/22; acceptance runs to 08/21/2026. Dana Whitfield calls with $3,500: John Doe “waited two weeks,” and the MRI is “degenerative.” Atty. Thorne's written authority: restate the Limits Demand and deadline, present the record, no counter, report any offer to him the same day.
 
-**Execution prompt.** Run the call with Dana Whitfield in the Call Simulator. Before dialing, do the math check on $3,500: fee, costs, unreduced liens and John Doe's net. On the call, pause after her number and ask what data supports it; name each stall; on the gap, point only to the record: the EMS report, the Gap Explanation Record and Dr. Reyes's Causation Letter, and “degenerative” with Dr. Park's MRI language. Stay inside the written authority. Log the offer with her exact words, report it to Atty. Thorne the same day for him to convey to John Doe, and draft the 08/06 written rebuttal for his approval.
+**Execution prompt.** Run the call with Dana Whitfield in the Call Sim. Before dialing, do the math check on $3,500: fee, costs, unreduced liens and John Doe's net. On the call, pause after her number and ask what data supports it; name each stall; on the gap, point only to the record: the EMS report, the Gap Explanation Record and Dr. Reyes's Causation Letter, and “degenerative” with Dr. Park's MRI language. Stay inside the written authority. Log the offer with her exact words, report it to Atty. Thorne the same day for him to convey to John Doe, and draft the 08/06 written rebuttal for his approval.
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual · CMS → Notes → Case Notes · Email Workspace |
+| **Tool / interface** | Call Sim → AI Adjuster: Dana Whitfield, Keystone Mutual · CMS → Notes → Case Notes · Email Workspace |
 | **Expected output** | A recorded call held inside Atty. Thorne's authority, a math check on $3,500, a logged offer in the adjuster's own words, a same-day report to Atty. Thorne, and the 08/06/2026 rebuttal drafted for his approval. |
 
 **Show Them — reference model**

@@ -441,7 +441,7 @@ const EXTRA = {
     return [cnt(t ? `${p} / ${t}` : "", `${p} of ${t} Net Sheet checks passed`)]; }},
   sb: {head: ["Tools used", "Runs"], cells: (r, c) => { const pp = c.data["practice-progress"] || c.rec.practiceProgress || {}, xs = Object.values(pp).filter(v => v && v.runs);
     return [cnt(`${xs.length} / ${tools().length}`, "Skill Builders used"), cnt(xs.reduce((s, v) => s + v.runs, 0) || "", "Runs in all")]; }},
-  gc: {head: ["Calls"], cells: (r, c) => { const n = Object.values((c.callsim && c.callsim.best) || {}).reduce((s, b) => s + ((b && b.calls) || 0), 0); return [cnt(n || "", `${n} graded calls on the Call Simulator`)]; }},
+  gc: {head: ["Calls"], cells: (r, c) => { const n = Object.values((c.callsim && c.callsim.best) || {}).reduce((s, b) => s + ((b && b.calls) || 0), 0); return [cnt(n || "", `${n} graded calls on the Call Sim`)]; }},
   cc: {head: ["Calls", "Missed injected"], cells: (r, c) => { const h = (c.data.roleplayHistory || []).filter(x => x && x.categoryId === "caseflow" && typeof x.score === "number").length;
     const m = Object.values(((c.data["case-flow"] || {}).injects) || {}).filter(x => x && x.outcome === "missed").length; return [cnt(h || "", `${h} graded case calls`), cnt(m || "", `${m} injected calls missed`, m ? "gs-lo" : "")]; }},
   ps: {head: ["Runs"], cells: (r, c) => { const n = Object.values((c.sim && c.sim.best) || {}).reduce((s, b) => s + ((b && b.count) || 1), 0); return [cnt(n || "", `${n} simulator runs`)]; }}

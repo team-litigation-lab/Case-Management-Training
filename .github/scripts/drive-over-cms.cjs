@@ -1,4 +1,4 @@
-// @check browser — 🚀 Launch CMS & Google Drive, for a trainee with no linked Drive: the Backup Drive panel shows OVER the CMS frame (not hidden behind it), and so does what the toast says
+// @check browser — 🚀 Launch LSH CaseWorks & Google Drive, for a trainee with no linked Drive: the Backup Drive panel shows OVER the CMS frame (not hidden behind it), and so does what the toast says
 // js/cm-sb-task.js go() opens the CMS frame (#cm-toolframe, z-index 9000, and the lifted #app at 9001: js/cm-skillbuilders.js),
 // then CMDrive.show(). The panel (.drv-wrap, js/cm-drive.js) used to sit at 4000, under the frame, so the trainee saw the CMS
 // and was told to "paste your folder's link in the Backup Drive panel" they could not see. This clicks Launch on Day 1's
@@ -41,5 +41,5 @@ const failures = []; const fail = (m) => failures.push(m);
   }
   await browser.close();
   if (failures.length) { console.log('✗ Drive panel over the CMS:\n  ' + failures.join('\n  ')); process.exit(1); }
-  console.log('🚀 Launch CMS & Google Drive (no linked Drive): the CMS opens, and the Backup Drive panel and its toast show over it.');
+  console.log('🚀 Launch LSH CaseWorks & Google Drive (no linked Drive): the CMS opens, and the Backup Drive panel and its toast show over it.');
 })().catch(e => { console.log('✗ ' + (e && e.stack || e)); process.exit(1); });
